@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6335C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 00:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DFB6C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 00:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=brB8BtDq1dcqfHbg3tNALJPDi7liqSBfwEeC0DNRGWo=; b=mYoOpIn2K4IU+/tWEatdNsBems
-	cP0G1R+XGM/TH+JCfFsO4H1aJlEJF5Oqh4dujW4GRL4I5nIryDqjYF+xOyOVLOE2es5LbPMA13kh6
-	rSgvzLw9h9ry/NhSP344GhrsZEdZpMh6HEi5pGrwAcJnr1px3gU49yxXZlmVhbh49VNMnwHj3GHWh
-	fbJ0+cqGoJ8nPkQ+tgk5U2TwipyucWOkt0QFBXbFcIzyTBcL+HKj9CQGL8aCqRr6jakJ9goA61Dx7
-	b3SkXp1OXRETytybGacfJr3j7bRnojLwnO105zeYIMfT+nEp8LazBiLA8GThGSFCrRzfPOOHQHDEk
-	05X9DgPA==;
+	bh=MX41GZ9bekc7/sJU3iFTSjw3au1/7XwW9CroZZPwU+o=; b=vFMzhzU1tSdrqgoEUeWChDqFEm
+	StRGbiPRL3BVtJI06u34sQXpZs7VE6JrLBcQ/gihVu9q4JHAkY1W96R8/+XdEZh5z9OYUSKyIsO42
+	Ti7mI1U3o9+PMFgMI5vUDZbbMTamk12CqNESaWiUAbB98z3lDGVLO/NQYXb11y7fcGBJBCgmujr7E
+	Hywy2ai/g0grv+EBaY/SOweoma9eM+QGdSFfpDn66a8ydZvOWPGM82DQVON70nxKTyJ0bV/Suar/q
+	npQsqn30BL5DngFUXvzyeGLKtoICrT5C22Ek3IkQBgg5PSh23KF7MlhiGVGXkJPzpbGAVIcSky/1N
+	seQRvamA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teklW-0000000EMrD-1NEy;
-	Mon, 03 Feb 2025 00:56:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tekmo-0000000EMwY-41iU;
+	Mon, 03 Feb 2025 00:58:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tekYm-0000000ELOc-1uqg
+	id 1tekYn-0000000ELP5-3ecM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 00:43:34 +0000
+	Mon, 03 Feb 2025 00:43:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2961EA40C2C;
-	Mon,  3 Feb 2025 00:41:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC5D3C4AF09;
-	Mon,  3 Feb 2025 00:43:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BCE5BA40C76;
+	Mon,  3 Feb 2025 00:41:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B32C4CED1;
+	Mon,  3 Feb 2025 00:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738543411;
-	bh=hPiblu84HLZz1HaPLS2hbNOiMYcrE64scCDkYo73ejM=;
+	s=k20201202; t=1738543412;
+	bh=h96VJnOmHtzhE0JJ1MBRbjzW4VfBwa0zahsTlF/6iGk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Bxu5UNyZR4TPYX1MfKz5O8Em1iZMBLfDtsHTASbSIYFbUIhxUvyC9hzcaSpJwsSdK
-	 tCMn/vLyaj2Lmd7Fb9exOzR+R5YsJLO+Qefms3HwZlvkFJFiXN6TXbhQW9iRAROGX9
-	 XjUUe3Dp9uOYM17fBbXqeXoIw0Lhow/D59ytfCxniuyZQitFfOKPHtkuWvkWKQDprW
-	 2oIUk8usW6is8qtoBd7w3UC/W0tpm3C/FW4QGMRvX2do5QM6SeoidCgeOHufYjw9ea
-	 KGdUElurzpCXUPxmmW9SsRTP6XjoIWm29o4CWw22Z8acebG51O6afwMspjmhKLdsKq
-	 QaVlbHzKAbp4w==
+	b=ahID/bDa+piTdZcXwhnyT0N91dh58WfyFxaBG4mDJZq80LQWr2PgEggS2vMq3AVIy
+	 tNp9Oao/SC6+aoOQnmeKfeDqCmi6wsskVk61cFkHZw5tn2C7gFvjPEyi9c05pxygcV
+	 oJe2tkeGXBctOBEm38jUzUr/3HCYB9As9x6kdyDthcI64doIcF8yQlTZCpoaYRw01l
+	 bm0XF+tbeDKeIcFVjzelEW8j59KD+U/vw2sclEdNtYLiEurfEKkLHqtbFu1zbwFCYt
+	 t8/FuECP9THAH/sUkNnmj3vHc5mBZsqnUWM7DL1RjlkEMQ+LmCLroglTunQ+RCAq0H
+	 43fx6a6uHiN+Q==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Sun, 02 Feb 2025 18:43:03 -0600
-Subject: [PATCH v19 09/11] arm64: Handle BRBE booting requirements
+Date: Sun, 02 Feb 2025 18:43:04 -0600
+Subject: [PATCH v19 10/11] KVM: arm64: nvhe: Disable branch generation in
+ nVHE guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250202-arm-brbe-v19-v19-9-1c1300802385@kernel.org>
+Message-Id: <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org>
 References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
 In-Reply-To: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -62,8 +63,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  kvmarm@lists.linux.dev
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_164332_629592_22C0C506 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250202_164334_046870_50DDA448 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,198 +81,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-To use the Branch Record Buffer Extension (BRBE), some configuration is
-necessary at EL3 and EL2. This patch documents the requirements and adds
-the initial EL2 setup code, which largely consists of configuring the
-fine-grained traps and initializing a couple of BRBE control registers.
+While BRBE can record branches within guests, the host recording
+branches in guests is not supported by perf. Therefore, BRBE needs to be
+disabled on guest entry and restored on exit.
 
-Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
-HDFGWTR_EL2 with the same value, relying on the read/write trap controls
-for a register occupying the same bit position in either register. The
-'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
-59 of HDFGRTR_EL2 is RES0, and so this assumption no longer holds.
+For nVHE, this requires explicit handling for guests. Before
+entering a guest, save the BRBE state and disable the it. When
+returning to the host, restore the state.
 
-To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
-layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
-HDFGWTR_EL2 control bits separately. While making this change the
-open-coded value (1 << 62) is replaced with
-HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
+For VHE, it is not necessary. We initialize
+BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
+running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
+branch recording in the host. When entering the guest, we set
+HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
+Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
+running a guest.
 
-The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
-initialisation: even though they are subject to E2H renaming, both have
-an effect regardless of HCR_EL2.TGE, even when running at EL2, and
-consequently both need to be initialised. This is handled in
-__init_el2_brbe() with a comment to explain the situation.
+Should recording in guests (by the host) ever be desired, the perf ABI
+will need to be extended to distinguish guest addresses (struct
+perf_branch_entry.priv) for starters. BRBE records would also need to be
+invalidated on guest entry/exit as guest/host EL1 and EL0 records can't
+be distinguished.
 
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-[Mark: rewrite commit message, fix typo in comment]
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/arch/arm64/booting.rst | 21 +++++++++
- arch/arm64/include/asm/el2_setup.h   | 86 ++++++++++++++++++++++++++++++++++--
- 2 files changed, 104 insertions(+), 3 deletions(-)
+v19:
+ - Rework due to v6.14 debug flag changes
+ - Redo commit message
+---
+ arch/arm64/include/asm/kvm_host.h  |  2 ++
+ arch/arm64/kvm/debug.c             |  4 ++++
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c | 32 ++++++++++++++++++++++++++++++++
+ 3 files changed, 38 insertions(+)
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index cad6fdc96b98..0a421757cacf 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -352,6 +352,27 @@ Before jumping into the kernel, the following conditions must be met:
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7cfa024de4e3..4fc246a1ee6b 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -619,6 +619,7 @@ struct kvm_host_data {
+ #define KVM_HOST_DATA_FLAG_HOST_SME_ENABLED		3
+ #define KVM_HOST_DATA_FLAG_TRBE_ENABLED			4
+ #define KVM_HOST_DATA_FLAG_EL1_TRACING_CONFIGURED	5
++#define KVM_HOST_DATA_FLAG_HAS_BRBE			6
+ 	unsigned long flags;
  
-     - HWFGWTR_EL2.nSMPRI_EL1 (bit 54) must be initialised to 0b01.
+ 	struct kvm_cpu_context host_ctxt;
+@@ -662,6 +663,7 @@ struct kvm_host_data {
+ 		u64 trfcr_el1;
+ 		/* Values of trap registers for the host before guest entry. */
+ 		u64 mdcr_el2;
++		u64 brbcr_el1;
+ 	} host_debug_state;
  
-+  For CPUs with feature Branch Record Buffer Extension (FEAT_BRBE):
-+
-+  - If EL3 is present:
-+
-+    - MDCR_EL3.SBRBE (bits 33:32) must be initialised to 0b11.
-+
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - BRBCR_EL2.CC (bit 3) must be initialised to 0b1.
-+    - BRBCR_EL2.MPRED (bit 4) must be initialised to 0b1.
-+
-+    - HDFGRTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
-+    - HDFGRTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
-+    - HDFGRTR_EL2.nBRBIDR  (bit 59) must be initialised to 0b1.
-+
-+    - HDFGWTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
-+    - HDFGWTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
-+
-+    - HFGITR_EL2.nBRBIALL (bit 56) must be initialised to 0b1.
-+    - HFGITR_EL2.nBRBINJ  (bit 55) must be initialised to 0b1.
-+
-   For CPUs with the Scalable Matrix Extension FA64 feature (FEAT_SME_FA64):
+ 	/* Guest trace filter value */
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 0e4c805e7e89..bc6015108a68 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -81,6 +81,10 @@ void kvm_init_host_debug_data(void)
+ 	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+ 		host_data_set_flag(HAS_SPE);
  
-   - If EL3 is present:
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 25e162651750..bf21ce513aff 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -163,6 +163,39 @@
- .Lskip_set_cptr_\@:
- .endm
++	/* Check if we have BRBE implemented and available at the host */
++	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT))
++		host_data_set_flag(HAS_BRBE);
++
+ 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceFilt_SHIFT)) {
+ 		/* Force disable trace in protected mode in case of no TRBE */
+ 		if (is_protected_kvm_enabled())
+diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+index 2f4a4f5036bb..2a1c0f49792b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+@@ -92,12 +92,42 @@ static void __trace_switch_to_host(void)
+ 			  *host_data_ptr(host_debug_state.trfcr_el1));
+ }
  
-+/*
-+ * Configure BRBE to permit recording cycle counts and branch mispredicts.
-+ *
-+ * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
-+ * BRBCR_EL1.CC=1.
-+ *
-+ * At any EL, to record branch mispredicts BRBE requires that both
-+ * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
-+ *
-+ * When HCR_EL2.E2H=1, the BRBCR_EL1 encoding is redirected to BRBCR_EL2, but
-+ * the {CC,MPRED} bits in the real BRBCR_EL1 register still apply.
-+ *
-+ * Set {CC,MPRED} in both BRBCR_EL2 and BRBCR_EL1 so that at runtime we only
-+ * need to enable/disable these in BRBCR_EL1 regardless of whether the kernel
-+ * ends up executing in EL1 or EL2.
-+ */
-+.macro __init_el2_brbe
-+	mrs	x1, id_aa64dfr0_el1
-+	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-+	cbz	x1, .Lskip_brbe_\@
++static void __debug_save_brbe(u64 *brbcr_el1)
++{
++	*brbcr_el1 = 0;
 +
-+	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
-+	msr_s	SYS_BRBCR_EL2, x0
-+
-+	__check_hvhe .Lset_brbe_nvhe_\@, x1
-+	msr_s	SYS_BRBCR_EL12, x0	// VHE
-+	b	.Lskip_brbe_\@
-+
-+.Lset_brbe_nvhe_\@:
-+	msr_s	SYS_BRBCR_EL1, x0	// NVHE
-+.Lskip_brbe_\@:
-+.endm
-+
- /* Disable any fine grained traps */
- .macro __init_el2_fgt
- 	mrs	x1, id_aa64mmfr0_el1
-@@ -170,16 +203,48 @@
- 	cbz	x1, .Lskip_fgt_\@
- 
- 	mov	x0, xzr
-+	mov	x2, xzr
- 	mrs	x1, id_aa64dfr0_el1
- 	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
- 	cmp	x1, #3
- 	b.lt	.Lskip_spe_fgt_\@
-+
- 	/* Disable PMSNEVFR_EL1 read and write traps */
--	orr	x0, x0, #(1 << 62)
-+	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
-+	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
- 
- .Lskip_spe_fgt_\@:
-+#ifdef CONFIG_ARM64_BRBE
-+	mrs	x1, id_aa64dfr0_el1
-+	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-+	cbz	x1, .Lskip_brbe_reg_fgt_\@
++	/* Check if the BRBE is enabled */
++	if (!(read_sysreg_el1(SYS_BRBCR) & (BRBCR_ELx_E0BRE | BRBCR_ELx_ExBRE)))
++		return;
 +
 +	/*
-+	 * Disable read traps for the following registers
-+	 *
-+	 * [BRBSRC|BRBTGT|RBINF]_EL1
-+	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
++	 * Prohibit branch record generation while we are in guest.
++	 * Since access to BRBCR_EL1 is trapped, the guest can't
++	 * modify the filtering set by the host.
 +	 */
-+	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
++	*brbcr_el1 = read_sysreg_el1(SYS_BRBCR);
++	write_sysreg_el1(0, SYS_BRBCR);
++}
 +
-+	/*
-+	 * Disable write traps for the following registers
-+	 *
-+	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
-+	 */
-+	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
++static void __debug_restore_brbe(u64 brbcr_el1)
++{
++	if (!brbcr_el1)
++		return;
 +
-+	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
-+	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
-+	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
++	/* Restore BRBE controls */
++	write_sysreg_el1(brbcr_el1, SYS_BRBCR);
++}
 +
-+	/* Disable read traps for BRBIDR_EL1 */
-+	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
-+
-+.Lskip_brbe_reg_fgt_\@:
-+#endif /* CONFIG_ARM64_BRBE */
- 	msr_s	SYS_HDFGRTR_EL2, x0
--	msr_s	SYS_HDFGWTR_EL2, x0
-+	msr_s	SYS_HDFGWTR_EL2, x2
+ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ {
+ 	/* Disable and flush SPE data generation */
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
  
- 	mov	x0, xzr
- 	mrs	x1, id_aa64pfr1_el1
-@@ -220,7 +285,21 @@
- .Lset_fgt_\@:
- 	msr_s	SYS_HFGRTR_EL2, x0
- 	msr_s	SYS_HFGWTR_EL2, x0
--	msr_s	SYS_HFGITR_EL2, xzr
-+	mov	x0, xzr
-+#ifdef CONFIG_ARM64_BRBE
-+	mrs	x1, id_aa64dfr0_el1
-+	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-+	cbz	x1, .Lskip_brbe_insn_fgt_\@
++	/* Disable BRBE branch records */
++	if (host_data_test_flag(HAS_BRBE))
++		__debug_save_brbe(host_data_ptr(host_debug_state.brbcr_el1));
 +
-+	/* Disable traps for BRBIALL instruction */
-+	orr	x0, x0, #HFGITR_EL2_nBRBIALL_MASK
-+
-+	/* Disable traps for BRBINJ instruction */
-+	orr	x0, x0, #HFGITR_EL2_nBRBINJ_MASK
-+
-+.Lskip_brbe_insn_fgt_\@:
-+#endif /* CONFIG_ARM64_BRBE */
-+	msr_s	SYS_HFGITR_EL2, x0
- 
- 	mrs	x1, id_aa64pfr0_el1		// AMU traps UNDEF without AMU
- 	ubfx	x1, x1, #ID_AA64PFR0_EL1_AMU_SHIFT, #4
-@@ -275,6 +354,7 @@
- 	__init_el2_hcrx
- 	__init_el2_timers
- 	__init_el2_debug
-+	__init_el2_brbe
- 	__init_el2_lor
- 	__init_el2_stage2
- 	__init_el2_gicv3
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_guest();
+ }
+@@ -111,6 +141,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ {
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
++	if (host_data_test_flag(HAS_BRBE))
++		__debug_restore_brbe(*host_data_ptr(host_debug_state.brbcr_el1));
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_host();
+ }
 
 -- 
 2.47.2
