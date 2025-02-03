@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9259C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9127CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Feb 2025 12:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vQ0bIWQ9q6zEM/5sxJXyhS9znYkoFFSEkIGy2uTUko0=; b=AMre8sTpI7Qk+6Ns5k6/PjfUza
-	BLUzmHuqnA++YZOf6KnzKEmAETGfge/ulbfQnnM/gSvbtZNz+80E/k+uLrLvPeQUfFJPwcCVKrGUV
-	zrHgs/ZSA29apCJCTpYrI4kSHS477LYQFsJz+l1C8gouQuRYEBu10xfEoFXvowbvpmED6Y9yijOXP
-	GPAxqZRQPJZGcJvtJtcxx1S4/7VtIaWdQCyP6XK8CcPiS52OpcgGoa2aFdX79vz+fdZ5IYWKA8VWO
-	0IfNvtVwHFjfVICOhPPWfK8vnpysguJ3TnWacgorPgm8Uu71/w8DOQ1ZJBo4VmfS5UvOlD7A8IynP
-	EEvrqzSg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mze8hotAEoOrviGEmjQLJnjbwR2Hb09Vtb4oE1gzfPQ=; b=ZMgWVKfkzj9TW7o0PjSvs84ZKm
+	VDxveHsf2Fze6lZNX7sBRmwgjzlghHBLVE5z9X2nyQ1Zd+9RYQryth+c3Ki9ffAK7qJyAfwxNvFtT
+	kwxvS0X1ODcH5GHzo7Tmg/o2Dyf10GZEmdWdmmcVIjJmP/CZ8N3tF5r2HtAbC9yOemf0KSaxISiS7
+	RnZ/N65gC7GowwIa7e29Fb4sLla75PVQMlmFznUkcwNFvPkFH06lNRY8EaPVxj5kOVGaDwebtRy2U
+	sUTgEndi55TF8KRhQ7oSyMJ8n7x1GOCsd1dpCUXmMCSl1gjuV2NE/yBUr0ilCvFOf5X7TLwY0Ue9/
+	bwBylCLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevR8-0000000FLl2-1hi9;
-	Mon, 03 Feb 2025 12:20:22 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1tevSR-0000000FM2n-05OI;
+	Mon, 03 Feb 2025 12:21:43 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tevPn-0000000FLU3-0QxO
+	id 1tevPq-0000000FLUr-0RrW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Feb 2025 12:19:00 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee74291415so5438565a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 04:18:58 -0800 (PST)
+	Mon, 03 Feb 2025 12:19:03 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21bc1512a63so81539765ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 04:19:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738585138; x=1739189938; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vQ0bIWQ9q6zEM/5sxJXyhS9znYkoFFSEkIGy2uTUko0=;
-        b=kh46Xd/l888xy2ZHev7rcNtqqCac8xkmwTaHKuAYMNqfxP1e+LSU2KIVQFIoYktT1b
-         9gs9K6obfrimGAlfiLLF58fG36K25BnESMI603H50fc3BCwJX57Dtuo7HYR9/iPqVFN0
-         1qpPLfAngoYGv+xKPsBGbe2SQRZ2CpdfKhh65fwGOcFBxGMQjkja9nUmtGrMauFYqbfy
-         WBUPJuSHpKWT7sgoTnxCuzfgxQf8jDMTmW5pXA4fSw2QYiHz1jlaXEgVUZCBqrkPKtaG
-         HkiZXEwwoHi9+bDkQ9fZM1ZrGNrcFO1GOkHoUxpoH6M3MWD9uOMYoMkqWRsk4E0Ue9El
-         /tSQ==
+        d=gmail.com; s=20230601; t=1738585141; x=1739189941; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Mze8hotAEoOrviGEmjQLJnjbwR2Hb09Vtb4oE1gzfPQ=;
+        b=lsfuhEHYg7Dojh+oFAu8C0lTgwUw9g7YRu3idxgyD7h9v+BO1Feb6bE0gAOHQxjCMD
+         Hh0taEbWKhxLaT2pDKiEFj16xyxji+PBdJ3jQ1MrmSy7zLmxDmpEl7wWXIlaJREgxVq9
+         EcptH4XvSUMKsZQlh4hzR9iI/obp5ZmLhiNagCiL6KZAgZtD06tL/CQAp7WwZaWeP/tK
+         wRgMgMrfLH3SmSXbOXOJdK4lMGm+J3iRZnJxSfr4riq88d+uJhpnhOOvfSxPF942yVmZ
+         LaL0+lQcsRL13kpy4422Pgs50maafT9Cu0tkWhvNzmgIvWIRTY4jvuFvBRj80wOzdO05
+         BNKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738585138; x=1739189938;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vQ0bIWQ9q6zEM/5sxJXyhS9znYkoFFSEkIGy2uTUko0=;
-        b=RL5mZHpL9ThLtY3CsTX9RfaBxcgRGl5q4jlSYSjisfyJNUW4QB75Rl9fd2hVYjFQX1
-         hKwUJz4IsRF5fKlZ6Ht1twC7ejcDP4iqZrg6jRrp+vHzVNGDyf3x8A6zNI/cY1lqc+Oj
-         54csh1ynPZi2s7PiQIXiveJc0oETxZ+9XO/r2zQ2GXKaXTprvWFhsmaB0so8H6k+XlHU
-         DVgL28h8SmV0EL76f/xtB2+5eDkTbwkBWVSIAbpaNkKgDeVPjkLtUaqpb82tMzXg+si9
-         EU4ABrU2e4xmUQW4mx+WfC0pH7r97PYYxY+fc2kTV/O6w97S+yrKHmqf1mmt4VJkbAug
-         N2Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFtxx3hGRLbdy7OPb8dhvrdbJLEKqFblfuFIpLgrWOt6JbYOsOIKLvJO4QvgZ7l/+efKlK66z5EX0hXd/fHY9K@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyo+USi1QHzOenI4KZtUaBdrWE9zGa3PiIu1lS8ESpj9HqyllFE
-	FUIYO++48aheFRa7mK338Ae2Ox49YrpP0xa8p+rOdraBOLRarsBs+JJXzfx+
-X-Gm-Gg: ASbGncst/0QZ2L+ec0Ubz3NxShw48cv8+SvbC4HKyLxBjcszIwdTmUNw5LhFD+eMtlP
-	OlIFZHOMdza98FiIWbND3rgN3wH5kBnynsoomQlYjDpuFkI+f1Kzh4tf6RhBZx8nBiOo38U2jl7
-	plQ5o8SjO4y43VBh4YDaeMDMsBfljsmADLI4HdjJmQgZ3guAST0eLddw03CUWkWasuwAwssOlqe
-	8wQsqC9yj6iX6Pmaub261dc+sbwVb379xenT3kvLpVW0Y1+VFoCl0sccKZ+MseT5tozED4L0Bol
-	G02CLOv8O6Yg4QHP
-X-Google-Smtp-Source: AGHT+IFFymEkMEGgrkjU7zGyOQqWTVsUSLUR/9aihtoecd2Y1Z2PQnMwmmui1qhml39JCWlRaPhsIA==
-X-Received: by 2002:a17:90b:2f0d:b0:2f6:dcc9:38e0 with SMTP id 98e67ed59e1d1-2f83aa7cfcdmr39474128a91.0.1738585138321;
-        Mon, 03 Feb 2025 04:18:58 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738585141; x=1739189941;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Mze8hotAEoOrviGEmjQLJnjbwR2Hb09Vtb4oE1gzfPQ=;
+        b=XZyOQ78VT++S8i8mlpQn+Qugvusr3gEG/mYQoS8WTw76wdiWUh39pjNaD1IYQ2RRwE
+         JvAszC5F0CxYhCsbhwfN84QLg1a5pQ8Gff5pWTEG6prljxWCiDXdK30EzUqEZKKhRGBk
+         xH2SJZRm9056D4aEg6VMSqjRD21HhI3puO1HQb4TW8KwK4jGcm6OTCmB/wUK72NfqG53
+         L/A+mVSz6JBg6TkLqGWjpLu9H9071TwN9lCGNuIpJIPBBiLpFzgoNlEllb4/D6amYEex
+         3qPDB+jmL+JHhkf1MAaDC3zfTjRUL19S4XTUPlkY5ulMN3BWeLq+3toRyT2mWZu7M5xY
+         C0kQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUyzhvp11P0agpadTWt+XT8Sojtf93ozMdnaHtvtpkqgyXsQzC6C5D0a577w/Ggnm5MnLNn/O5rIh52FOCi8qcc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXA2Erh/c5Bwqw6F4ylDXIPGebFZ92fRMyM5fkwFrtsGzeIhEG
+	cuBa9A4h01emYuFudXhlNiOUmuKjDRpmrALBE6qCb6PkqyyhjIsF
+X-Gm-Gg: ASbGnctoMV1E5OZATJwNqoEgnB9SjIKx9zH0C9LGbpW4g1Mu2mvql0UNDoNEpqaRnkT
+	lL1IbDCNbQEzXOHz2yu7qyxvuQ2y3Zy+XtKcrvZoYdyHerNhzvIf51vDPMi1C/5duFIJePi8FLq
+	vTG4UdrwDyWz/9ie6I+DCi9GP9uc/KvEj+amvvRoAS2XlsP/mWbAFyFdKhD5hNDqlQDyMgIAYFA
+	LjNcgmkRES026UQuWSCNKAjwTh20MRVeJapm+PlhFMiF7jIn/QYEBug/tucWZFOgDxXCHNjL5PF
+	iRFKvI5Ur2Y7UtAh
+X-Google-Smtp-Source: AGHT+IF++I9XnXiFEGYHA9dEu9o41bfGAtiDlH7AxvFI/EqWBiAjKHlfZu5h6CMES1Hx6Nig3VrSwA==
+X-Received: by 2002:a17:903:2f84:b0:216:3dc0:c8ab with SMTP id d9443c01a7336-21dd7c4976fmr343221115ad.9.1738585141430;
+        Mon, 03 Feb 2025 04:19:01 -0800 (PST)
 Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f8489aefc4sm8789225a91.12.2025.02.03.04.18.55
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f8489aefc4sm8789225a91.12.2025.02.03.04.18.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 04:18:57 -0800 (PST)
+        Mon, 03 Feb 2025 04:19:01 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -78,16 +79,21 @@ To: Hector Martin <marcan@marcan.st>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH v7 RESEND 00/11] Add PMGR nodes for Apple A7-A11, T2 SoCs
-Date: Mon,  3 Feb 2025 20:15:44 +0800
-Message-ID: <20250203121831.36053-1-towinchenmi@gmail.com>
+Cc: Nick Chan <towinchenmi@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Neal Gompa <neal@gompa.dev>
+Subject: [PATCH v7 RESEND 01/11] dt-bindings: arm: apple: apple,pmgr: Add A7-A11, T2 compatibles
+Date: Mon,  3 Feb 2025 20:15:45 +0800
+Message-ID: <20250203121831.36053-2-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250203121831.36053-1-towinchenmi@gmail.com>
+References: <20250203121831.36053-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_041859_142773_85FEA160 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250203_041902_143280_9F672503 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,127 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the PMGR nodes and all known power state subnodes for
-Apple A7-A11, T2 SoCs, along with the associated dt-bindings.
+The blocks found on Apple A7-A11 SoCs are compatible with the existing
+driver so add their per-SoC compatibles.
 
-Dependencies:
-- Split s8000/s8003 SoC DTS files
-https://lore.kernel.org/asahi/20250203113949.14760-1-towinchenmi@gmail.com/T
-
-- Device Tree for Apple T2 (T8012) devices.
-https://lore.kernel.org/asahi/20250203114417.16453-1-towinchenmi@gmail.com/T
-
-Changes since v6:
-- Now arch/arm64/boot/dts/apple/s800-0-3.dtsi builds, somehow this went
-under the radar this whole time...
-
-Link to v6: https://lore.kernel.org/asahi/20241222173750.148071-2-towinchenmi@gmail.com/T
-
-Changes since v5:
-- Rebase the series such that splitting s8000/s8003 device trees is the
-first patch to be applied. Now this series depends on Apple A9 device
-tree being split, and the T2 SoC PMGR nodes are added in this series.
-
-Link to v5: https://lore.kernel.org/asahi/20241203050640.109378-1-towinchenmi@gmail.com/T
-
-Changes since v4:
-- Use imperative mood in commit messages.
-
-Link to v4: https://lore.kernel.org/asahi/20241201161942.36027-1-towinchenmi@gmail.com/T
-
-Changes since v3:
-- Add "apple,always-on" property to "ps_spmi" in t8015 power domains.
-This is required for cpufreq to function correctly which will be added
-in a later series.
-
-Link to v3: https://lore.kernel.org/asahi/20241122095136.35046-1-towinchenmi@gmail.com/T
-
-Changes since v2:
-- Removed "apple,always-on" property from "ps_pmp" from s8001, t8011,
-t8015 power domains. It is not on at boot. (Mixed up with ps_pms which
-is required to be on)
-- Add asahi-soc/dt back into the subject prefix, missing from v2.
-
-Link to v2: https://lore.kernel.org/asahi/20241102011004.59339-1-towinchenmi@gmail.com/T
-
-Changes since v1:
-- Removed "framebuffer0" dt aliases. It is not standard and not needed.
-
-Link to v1: https://lore.kernel.org/asahi/20241029010526.42052-1-towinchenmi@gmail.com/T
-
-Nick Chan
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Hector Martin <marcan@marcan.st>
+Acked-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
+ Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Nick Chan (11):
-  dt-bindings: arm: apple: apple,pmgr: Add A7-A11, T2 compatibles
-  dt-bindings: arm: apple: apple,pmgr-pwrstate: Add A7-A11, T2
-    compatibles
-  arm64: dts: apple: s5l8960x: Add PMGR node
-  arm64: dts: apple: t7000: Add PMGR node
-  arm64: dts: apple: t7001: Add PMGR node
-  arm64: dts: apple: s800-0-3: Add PMGR nodes
-  arm64: dts: apple: s8001: Add PMGR nodes
-  arm64: dts: apple: t8010: Add PMGR nodes
-  arm64: dts: apple: t8011: Add PMGR nodes
-  arm64: dts: apple: t8012: Add PMGR nodes
-  arm64: dts: apple: t8015: Add PMGR nodes
-
- .../bindings/arm/apple/apple,pmgr.yaml        |   5 +
- .../bindings/power/apple,pmgr-pwrstate.yaml   |   5 +
- arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi    |   4 +
- arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi  |   4 +
- arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi |   4 +
- arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi  | 610 ++++++++++++
- arch/arm64/boot/dts/apple/s5l8960x.dtsi       |  13 +
- arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi  | 757 ++++++++++++++
- arch/arm64/boot/dts/apple/s800-0-3.dtsi       |  22 +
- arch/arm64/boot/dts/apple/s8001-common.dtsi   |   1 +
- .../arm64/boot/dts/apple/s8001-j98a-j99a.dtsi |  26 +
- arch/arm64/boot/dts/apple/s8001-j98a.dts      |   1 +
- arch/arm64/boot/dts/apple/s8001-j99a.dts      |   1 +
- arch/arm64/boot/dts/apple/s8001-pmgr.dtsi     | 822 ++++++++++++++++
- arch/arm64/boot/dts/apple/s8001.dtsi          |  22 +
- arch/arm64/boot/dts/apple/s800x-6s.dtsi       |   4 +
- arch/arm64/boot/dts/apple/s800x-ipad5.dtsi    |   4 +
- arch/arm64/boot/dts/apple/s800x-se.dtsi       |   4 +
- arch/arm64/boot/dts/apple/t7000-6.dtsi        |   4 +
- arch/arm64/boot/dts/apple/t7000-j42d.dts      |   1 +
- arch/arm64/boot/dts/apple/t7000-mini4.dtsi    |   4 +
- arch/arm64/boot/dts/apple/t7000-n102.dts      |   4 +
- arch/arm64/boot/dts/apple/t7000-pmgr.dtsi     | 641 ++++++++++++
- arch/arm64/boot/dts/apple/t7000.dtsi          |  14 +
- arch/arm64/boot/dts/apple/t7001-air2.dtsi     |   1 +
- arch/arm64/boot/dts/apple/t7001-pmgr.dtsi     | 650 ++++++++++++
- arch/arm64/boot/dts/apple/t7001.dtsi          |  13 +
- arch/arm64/boot/dts/apple/t8010-7.dtsi        |   4 +
- arch/arm64/boot/dts/apple/t8010-ipad6.dtsi    |   4 +
- arch/arm64/boot/dts/apple/t8010-n112.dts      |   4 +
- arch/arm64/boot/dts/apple/t8010-pmgr.dtsi     | 772 +++++++++++++++
- arch/arm64/boot/dts/apple/t8010.dtsi          |  22 +
- arch/arm64/boot/dts/apple/t8011-common.dtsi   |   1 +
- arch/arm64/boot/dts/apple/t8011-pmgr.dtsi     | 806 +++++++++++++++
- arch/arm64/boot/dts/apple/t8011-pro2.dtsi     |   8 +
- arch/arm64/boot/dts/apple/t8011.dtsi          |  22 +
- arch/arm64/boot/dts/apple/t8012-pmgr.dtsi     | 837 ++++++++++++++++
- arch/arm64/boot/dts/apple/t8012-touchbar.dtsi |   1 +
- arch/arm64/boot/dts/apple/t8012.dtsi          |  22 +
- arch/arm64/boot/dts/apple/t8015-common.dtsi   |   1 +
- arch/arm64/boot/dts/apple/t8015-pmgr.dtsi     | 931 ++++++++++++++++++
- arch/arm64/boot/dts/apple/t8015.dtsi          |  21 +
- 42 files changed, 7097 insertions(+)
- create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s8001-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t7001-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8010-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8011-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8012-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
-
-
-base-commit: 146773acdbf5afd40b0faf7383061a95adee8a2f
+diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+index 673277a7a224..5001f4d5a0dc 100644
+--- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
++++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+@@ -22,6 +22,11 @@ properties:
+   compatible:
+     items:
+       - enum:
++          - apple,s5l8960x-pmgr
++          - apple,t7000-pmgr
++          - apple,s8000-pmgr
++          - apple,t8010-pmgr
++          - apple,t8015-pmgr
+           - apple,t8103-pmgr
+           - apple,t8112-pmgr
+           - apple,t6000-pmgr
 -- 
 2.48.1
 
