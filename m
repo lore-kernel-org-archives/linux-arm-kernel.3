@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F4DC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 04:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121BDC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 04:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqtOZwmbgDbNPoW0UC99MHpLTIFaTtsB0GCFzRK7M8k=; b=X7clDxIi4kQpXl0JeyYpaQyf4q
-	Rqo7Oy/z69offwJ9a1rgPwPn4FiT4d4uTEZo8QWpJXmfxQysQqtYMV+vzgzPHXX3dL8chz/xclDqW
-	lo28xG9fKudiv83B/1KZ7jsZtal2+aKyPZ+i9ckficPwXtYdUPXCxkAEL+QK5UrmIhW4PTHVmCS0M
-	CkGPdqJYEqZeciOMMyye8BqmuiHmc61CVSi5HLsDcLwXb9kD2FnvdK0kHuKd58qfqPCDLNUQ7Oxas
-	1VTUWnWUIbn1cChtASfU8er1gvfNB3EVdyCgzl8uoVkLzVS1mVlTmgYtGj8yCkxsVVZ+2QOAJKGIe
-	ZN0T5u9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OVO7pPvS9it63pRV7s9Xy2kC4yPGFJZs59pPpi//UPs=; b=V0NcCh4KUK20JaFcdZwZMI0bTw
+	HybMixXa3MIZg5vonarCIaej7j0A80yzcitwRdgtDIX3Dzh+kr3MNjVdh4PIr7O2aJk1x1719F4Fo
+	B93xoVq39wJt+UNonZ7Xz6Pk5HG09RuBlvDulOMKHqxzDBOYpgwWtnAokP6IBYNKukbq0XUWdKRh/
+	wfELfYewS1EBI0Jm1VaLL+oCamIJHFuQwF0bCID7t6odCodXrQgpWaBHUvCGX3UfGikkD0Y/xwCHJ
+	oO//mYypIlrgmF0Z12cCKvlDC2dOzRsCs8SB2kByavWQC+G5za51TpL5uJnZpCShUmznYk/pjPznE
+	2T84L40w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfASf-0000000HDrF-2rJj;
-	Tue, 04 Feb 2025 04:22:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfARI-0000000HDjq-2Cv3
+	id 1tfAe8-0000000HF13-3WT4;
+	Tue, 04 Feb 2025 04:34:48 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfAcm-0000000HEux-3uix
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 04:21:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A687511FB;
-	Mon,  3 Feb 2025 20:21:53 -0800 (PST)
-Received: from [10.163.33.56] (unknown [10.163.33.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09A203F63F;
-	Mon,  3 Feb 2025 20:21:25 -0800 (PST)
-Message-ID: <0eb00e14-937d-4e84-9ca3-4239ce614ea3@arm.com>
-Date: Tue, 4 Feb 2025 09:51:23 +0530
+	Tue, 04 Feb 2025 04:33:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1738643597;
+	bh=OVO7pPvS9it63pRV7s9Xy2kC4yPGFJZs59pPpi//UPs=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=AZ5+ijlKDQgxKTEifzz0lMAm8+CID+Vq9cW8amOSUOU2Lnrbgnn+RCsZMj1J/bF9P
+	 IXpGFNm7WoQQrR5ryZs0gtv7IJQ3SiM/fDn72Ih4I/3VGF2Bp/MKobboggFt1+xwPE
+	 20bsV5MIrHoCNcVNagNJVt72f4eopKbWzvG+eqWWe7fsd1hDwWs7vJFg5vOctzsb2t
+	 gUfSqg0iYSd5RlppAuDM2qcmEB8YxwbJspydO//mUNV6Xhu+4fceeckJJy3Mn7gSUv
+	 EtsHS5/nOLzIYgNbpyy78UmaGA5ttbtGugGQBuhz2hKfevC4/FMBLMO1bOPGqqbJV2
+	 T3oJaaY0oFD8A==
+Received: from [192.168.68.112] (58-7-156-140.dyn.iinet.net.au [58.7.156.140])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D96DD734A6;
+	Tue,  4 Feb 2025 12:33:13 +0800 (AWST)
+Message-ID: <79b819b6d06e3be0aa7e7f6872353f103294710c.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v7 0/9] DTS updates for system1 BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ninad Palsule <ninad@linux.ibm.com>, brgl@bgdev.pl, 
+ linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
+ krzk+dt@kernel.org,  conor+dt@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net,  edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com,  openipmi-developer@lists.sourceforge.net,
+ netdev@vger.kernel.org, joel@jms.id.au,  devicetree@vger.kernel.org,
+ eajames@linux.ibm.com,  linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
+Date: Tue, 04 Feb 2025 15:03:13 +1030
+In-Reply-To: <20250203144422.269948-1-ninad@linux.ibm.com>
+References: <20250203144422.269948-1-ninad@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] arm64/sysreg: Fix unbalanced closing block
-To: James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, broonie@kernel.org,
- maz@kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-References: <20250115162600.2153226-1-james.clark@linaro.org>
- <20250115162600.2153226-2-james.clark@linaro.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250115162600.2153226-2-james.clark@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_202132_619358_41D84EC1 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250203_203325_180917_CAF98DDD 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,33 +75,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ninad,
 
-
-On 1/15/25 21:55, James Clark wrote:
-> This is a sysreg block so close it with one. This doesn't make a
-> difference to the output because the script only matches on the
-> beginning of the word to close blocks which is correct by coincidence
-> here.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
+On Mon, 2025-02-03 at 08:44 -0600, Ninad Palsule wrote:
+> Hello,
+>=20
+> Please review the patch set version 7.
+>=20
+> V7:
 > ---
->  arch/arm64/tools/sysreg | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 762ee084b37c..bbe7df69da9c 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2074,7 +2074,7 @@ EndEnum
->  Res0	4:2
->  Field	1	ExTRE
->  Field	0	E0TRE
-> -EndSysregFields
-> +EndSysreg
->  
->  Sysreg	SMPRI_EL1	3	0	1	2	4
->  Res0	63:4
+> =C2=A0 - Updated pattern in the ast2400-gpio.yaml
+> =C2=A0 - Dropped "dt-bindings: net: faraday,ftgmac100" patch sending it
+> =C2=A0=C2=A0=C2=A0 separately.
+>=20
+> V6:
+> ---
+> =C2=A0 - Fixed dt_binding_check errors for ipmb-dev.yaml
+> =C2=A0 - Changed the hog parsing pattern in ast2400-gpio
+>=20
+> V5:
+> ---
+> =C2=A0 - Improved IPBM device documentation.
+> =C2=A0 - Added the hog parsing in ast2400-gpio
+>=20
+> V4:
+> ---
+> =C2=A0 - Removed "Add RGMII support" patch as it needs some work from the
+> =C2=A0=C2=A0=C2=A0 driver side.
+> =C2=A0 - Improved IPBM device documentation.
+> =C2=A0 - There is a new warning in CHECK_DTBS which are false positive so
+> =C2=A0=C2=A0=C2=A0 ignored them.
+> =C2=A0=C2=A0=C2=A0 arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb:
+> gpio@1e780000: 'hog-0', 'hog-1', 'hog-2', 'hog-3' do not match any of
+> the regexes: 'pinctrl-[0-9]+'
+>=20
+> V3:
+> ---
+> =C2=A0 - Fixed dt_binding_check warnings in ipmb-dev.yaml
+> =C2=A0 - Updated title and description in ipmb-dev.yaml file.
+> =C2=A0 - Updated i2c-protocol description in ipmb-dev.yaml file.
+>=20
+> V2:
+> ---
+> =C2=A0 Fixed CHECK_DTBS errors by
+> =C2=A0=C2=A0=C2=A0 - Using generic node names
+> =C2=A0=C2=A0=C2=A0 - Documenting phy-mode rgmii-rxid in ftgmac100.yaml
+> =C2=A0=C2=A0=C2=A0 - Adding binding documentation for IPMB device interfa=
+ce
+>=20
+> NINAD PALSULE (6):
+
+Why is your name all in caps here but not for the binding patches
+below? Can you fix that up?
+
+> =C2=A0 ARM: dts: aspeed: system1: Add IPMB device
+> =C2=A0 ARM: dts: aspeed: system1: Add GPIO line name
+> =C2=A0 ARM: dts: aspeed: system1: Reduce sgpio speed
+> =C2=A0 ARM: dts: aspeed: system1: Update LED gpio name
+> =C2=A0 ARM: dts: aspeed: system1: Remove VRs max8952
+> =C2=A0 ARM: dts: aspeed: system1: Mark GPIO line high/low
+>=20
+> Ninad Palsule (3):
+> =C2=A0 bindings: ipmi: Add binding for IPMB device intf
+
+This one needs an ack from Corey if I'm to take it.
+
+> =C2=A0 dt-bindings: gpio: ast2400-gpio: Add hogs parsing
+
+This one needs an ack from Linus W or Bartosz if I'm to take it.
+However, it's also causing some grief from Rob's bot:
+
+https://lore.kernel.org/all/173859694889.2601726.10618336219726193824.robh@=
+kernel.org/
+
+As the reported nodes should all be hogs the name shouldn't matter
+anywhere else (as far as I'm aware). It would be nice if all the
+warnings were cleaned up before we merged the binding update. That way
+we don't cause everyone else looking at the CHECK_DTBS=3Dy output more
+grief than they already get for the Aspeed devicetrees.
+
+In order to not get bogged down it might be worth splitting out both
+the IPMB- and GPIO- related patches like you did the FTGMAC100 patch,
+and then I can merge what remains (from a quick look they seem
+relatively uncontroversial).
+
+Andrew
+
+> =C2=A0 ARM: dts: aspeed: system1: Disable gpio pull down
+>=20
+> =C2=A0.../bindings/gpio/aspeed,ast2400-gpio.yaml=C2=A0=C2=A0=C2=A0 |=C2=
+=A0=C2=A0 6 +
+> =C2=A0.../devicetree/bindings/ipmi/ipmb-dev.yaml=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 56 +++++++
+> =C2=A0.../dts/aspeed/aspeed-bmc-ibm-system1.dts=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 139 +++++++++++-----
+> --
+> =C2=A03 files changed, 147 insertions(+), 54 deletions(-)
+> =C2=A0create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-
+> dev.yaml
+>=20
+
 
