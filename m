@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A465FC0219A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E813C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+np3wghDxTYvPM4DJ7Bcv/JvDfMQYeUeUQQTzNPD3A=; b=1LP0RUQXeCLkGTpjTDtVarz5yf
-	47+NhKRJv31jdxMB1Texjg1E9sfJfpjZAzeyfLM0ZCwDKm/pgJdwfwOfzmWOJP7Kir2DeR1CEFQM6
-	wumstwH4whjT2sZcWPIfIaChm6QJ/XK8w15gli1ugOfvVq2fHqzFzPAJTW2iNWtRtA29T5fZAIF5Y
-	5zvfSIhjjYji2eWL96DJvp8XEKlQmpWX+zRA/5gJKEmsUF5K9lHsfKBgzR2W4AN3ai+vEWCNdvlQl
-	rGjOpsyUTel+BZElZ1JZSdPaxDjr/IvoCVy+4MsJ64xxQowOOl8xRi79xcWkn00mNYrGOJQL+jBt1
-	ehj2ZBZg==;
+	bh=IBz2lSSr/EOV+f3/vbt1tWzgH+uOsvTYyUERw+VAkaU=; b=0aRIlrKWibBsn2HmDByxQ2UDTp
+	WuKjIW/8jikiTLv46WuCaGbRJXQiBYCoCxXhuGrUKw9EX4qDS3dOb6UbGac3PVWzvyZOiroVLpcG0
+	aSv99A5yzNZ2e+Lko46L1fMwwSw6RGDg991zs8b9AluPmBKzzc7lWFMsedqRTJUpru6MuAjoCg+R3
+	idfzdOx/sxvYh5wLdp9oFkMyz/7Q/Z4iIzRvibDWWavH+yYSG+O0Wy1g0597th2XrZtKF8mV7dOWf
+	1c+rRMaTH4Fd2vV2tstmWOHE+KkCoGK2y33pZ8n0DFdPGEF9vzlkcukR2fVzVa5qUfSPhDRFR5VaM
+	ekszejDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKoX-00000000oHP-1rh3;
-	Tue, 04 Feb 2025 15:26:13 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKj3-00000000njv-185q;
-	Tue, 04 Feb 2025 15:20:34 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1738682429;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b+np3wghDxTYvPM4DJ7Bcv/JvDfMQYeUeUQQTzNPD3A=;
-	b=PhnloDKYNBOrZBEe9vEbIX8wdTJMzWPCq9rB3iYhHnl9FFRrKeNxTrKOBpjWlKWGB8W6xb
-	R0MGAX/uT5/nGmCn3pxBnubFyDeu5WDKk5kpLj0/4xJ9sS1raOa3AuslhdOIvWrQXPtErr
-	tQxrsQ6ksCJ4v2KS7nCQeFBzUrauP+7CjBmtzIw//Sc0kn4MZ3iHwrgp6E7tJcRc+CTP5f
-	6kvvz1+6fF1pTuOANHtCH/SwS3oD+xs/q9bgrEcUhilZORvJlD5Dx/jc+R4mKx8+Zgi0SN
-	LJVZPshsHOrvPMuz4guozzsqmaU9j8kqm/EUyTKvJPLTvor/FTxbvXs4fDNw+w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1738682429;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b+np3wghDxTYvPM4DJ7Bcv/JvDfMQYeUeUQQTzNPD3A=;
-	b=rOLEsODCJvNLJOUwg/qKcv7l3HvdSVhKFHYQM9G81quzT2zY0VtGTOwVSSYqSKg2g1lrUr
-	gLT6jEyfQOk5+dDQ==
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
- <gregory.clement@bootlin.com>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra
- <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Sunil V L
- <sunilvl@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v3 10/10] irqchip/riscv-imsic: Use IRQCHIP_MOVE_DEFERRED
- flag for PCI devices
-In-Reply-To: <CAK9=C2VgOnSVBRPh+bJBQnGreVYcUh6HWVg1MEzDtfYsuT0s-g@mail.gmail.com>
-References: <20250204075405.824721-1-apatel@ventanamicro.com>
- <20250204075405.824721-11-apatel@ventanamicro.com> <87o6zinl5o.ffs@tglx>
- <CAK9=C2VgOnSVBRPh+bJBQnGreVYcUh6HWVg1MEzDtfYsuT0s-g@mail.gmail.com>
-Date: Tue, 04 Feb 2025 16:20:28 +0100
-Message-ID: <87cyfxohxf.ffs@tglx>
+	id 1tfKoZ-00000000oIz-3Ldd;
+	Tue, 04 Feb 2025 15:26:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfKjo-00000000ntw-47ya
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 15:21:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73F9D11FB;
+	Tue,  4 Feb 2025 07:21:44 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2D3083F63F;
+	Tue,  4 Feb 2025 07:21:18 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: [PATCH 1/8] KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+Date: Tue,  4 Feb 2025 15:20:53 +0000
+Message-Id: <20250204152100.705610-2-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20250204152100.705610-1-mark.rutland@arm.com>
+References: <20250204152100.705610-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_072033_443536_63C8F47E 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250204_072121_110495_1E263A24 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +73,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04 2025 at 20:19, Anup Patel wrote:
-> On Tue, Feb 4, 2025 at 2:26=E2=80=AFPM Thomas Gleixner <tglx@linutronix.d=
-e> wrote:
->> The same could be achieved by executing that intermediate transition on
->> CPU0 with interrupts disabled by affining the calling context (thread)
->> to CPU0 or by issuing an IPI on CPU0 and doing it in that context. I
->> looked into that, but that has it's own pile of issues. So at the end
->> moving it in the context of the interrupt on the original CPU/vector
->> turned out to be the simplest way to achieve it.
->
-> I got confused because IRQCHIP_MOVE_DEFERRED updates affinity
-> with the interrupt masked which I interpreted as masked at the device
-> level. Also, PCI MSI mask/unmask is an optional feature of PCI devices
-> which I totally missed.
+There are several problems with the way hyp code lazily saves the host's
+FPSIMD/SVE state, including:
 
-That's the problem this actually handles. If PCI mask/unmask would be
-mandatory the problem would not exist in the first place :)
+* Host SVE being discarded unexpectedly due to inconsistent
+  configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
+  result in QEMU crashes where SVE is used by memmove(), as reported by
+  Eric Auger:
+
+  https://issues.redhat.com/browse/RHEL-68997
+
+* Host SVE state is discarded *after* modification by ptrace, which was an
+  unintentional ptrace ABI change introduced with lazy discarding of SVE state.
+
+* The host FPMR value can be discarded when running a non-protected VM,
+  where FPMR support is not exposed to a VM, and that VM uses
+  FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
+  before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
+  value in memory.
+
+Avoid these by eagerly saving and "flushing" the host's FPSIMD/SVE/SME
+state when loading a vCPU such that KVM does not need to save any of the
+host's FPSIMD/SVE/SME state. For clarity, fpsimd_kvm_prepare() is
+removed and the necessary call to fpsimd_save_and_flush_cpu_state() is
+placed in kvm_arch_vcpu_load_fp(). As 'fpsimd_state' and 'fpmr_ptr'
+should not be used, they are set to NULL; all uses of these will be
+removed in subsequent patches.
+
+Historical problems go back at least as far as v5.17, e.g. erroneous
+assumptions about TIF_SVE being clear in commit:
+
+  8383741ab2e773a9 ("KVM: arm64: Get rid of host SVE tracking/saving")
+
+... and so this eager save+flush probably needs to be backported to ALL
+stable trees.
+
+Fixes: 93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
+Fixes: 8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+Fixes: ef3be86021c3bdf3 ("KVM: arm64: Add save/restore support for FPMR")
+Reported-by: Eric Auger <eauger@redhat.com>
+Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
+Cc: stable@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Florian Weimer <fweimer@redhat.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+---
+ arch/arm64/kernel/fpsimd.c | 25 -------------------------
+ arch/arm64/kvm/fpsimd.c    | 35 ++++++++++-------------------------
+ 2 files changed, 10 insertions(+), 50 deletions(-)
+
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 2b601d88762d4..8370d55f03533 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1694,31 +1694,6 @@ void fpsimd_signal_preserve_current_state(void)
+ 		sve_to_fpsimd(current);
+ }
+ 
+-/*
+- * Called by KVM when entering the guest.
+- */
+-void fpsimd_kvm_prepare(void)
+-{
+-	if (!system_supports_sve())
+-		return;
+-
+-	/*
+-	 * KVM does not save host SVE state since we can only enter
+-	 * the guest from a syscall so the ABI means that only the
+-	 * non-saved SVE state needs to be saved.  If we have left
+-	 * SVE enabled for performance reasons then update the task
+-	 * state to be FPSIMD only.
+-	 */
+-	get_cpu_fpsimd_context();
+-
+-	if (test_and_clear_thread_flag(TIF_SVE)) {
+-		sve_to_fpsimd(current);
+-		current->thread.fp_type = FP_STATE_FPSIMD;
+-	}
+-
+-	put_cpu_fpsimd_context();
+-}
+-
+ /*
+  * Associate current's FPSIMD context with this cpu
+  * The caller must have ownership of the cpu FPSIMD context before calling
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 4d3d1a2eb1570..ceeb0a4893aa7 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -54,16 +54,18 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 	if (!system_supports_fpsimd())
+ 		return;
+ 
+-	fpsimd_kvm_prepare();
+-
+ 	/*
+-	 * We will check TIF_FOREIGN_FPSTATE just before entering the
+-	 * guest in kvm_arch_vcpu_ctxflush_fp() and override this to
+-	 * FP_STATE_FREE if the flag set.
++	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
++	 * that the host kernel is responsible for restoring this state upon
++	 * return to userspace, and the hyp code doesn't need to save anything.
++	 *
++	 * When the host may use SME, fpsimd_save_and_flush_cpu_state() ensures
++	 * that PSTATE.{SM,ZA} == {0,0}.
+ 	 */
+-	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+-	*host_data_ptr(fpsimd_state) = kern_hyp_va(&current->thread.uw.fpsimd_state);
+-	*host_data_ptr(fpmr_ptr) = kern_hyp_va(&current->thread.uw.fpmr);
++	fpsimd_save_and_flush_cpu_state();
++	*host_data_ptr(fp_owner) = FP_STATE_FREE;
++	*host_data_ptr(fpsimd_state) = NULL;
++	*host_data_ptr(fpmr_ptr) = NULL;
+ 
+ 	host_data_clear_flag(HOST_SVE_ENABLED);
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+@@ -73,23 +75,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 		host_data_clear_flag(HOST_SME_ENABLED);
+ 		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
+ 			host_data_set_flag(HOST_SME_ENABLED);
+-
+-		/*
+-		 * If PSTATE.SM is enabled then save any pending FP
+-		 * state and disable PSTATE.SM. If we leave PSTATE.SM
+-		 * enabled and the guest does not enable SME via
+-		 * CPACR_EL1.SMEN then operations that should be valid
+-		 * may generate SME traps from EL1 to EL1 which we
+-		 * can't intercept and which would confuse the guest.
+-		 *
+-		 * Do the same for PSTATE.ZA in the case where there
+-		 * is state in the registers which has not already
+-		 * been saved, this is very unlikely to happen.
+-		 */
+-		if (read_sysreg_s(SYS_SVCR) & (SVCR_SM_MASK | SVCR_ZA_MASK)) {
+-			*host_data_ptr(fp_owner) = FP_STATE_FREE;
+-			fpsimd_save_and_flush_cpu_state();
+-		}
+ 	}
+ 
+ 	/*
+-- 
+2.30.2
 
 
