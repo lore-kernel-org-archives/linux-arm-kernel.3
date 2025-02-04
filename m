@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABD6C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9BDC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcACEyIyfKqYtOq3YSlexlWsuSecXbyvW8V8JuodXkM=; b=QSXBmjHOR/Jb4cHIek93l2hwog
-	hfqXK5XY++C8l/Fz8ALoACTli44XBFK8+NPM2f/LEqHS7dRsQLCrcAgHMPmBmXQAFG38ORP1vHqW7
-	Ay4NK6lIvanZhuAZJmlXrQgbxjWtHlYsOSLEq8c+dp1/pUiawCcYcRZRe0arRHBMRmkjsvpDJer8v
-	E9+m1sZkg1vprUQbyoYRVA9ek+bUDxNIniE26zzIQ1/3raZx/oJHzJA6eND+gZwVXlyBWtAcoo/w+
-	B0wLNrHZ+9Y5HkQxj2IPdsBcyyOKn9yaP4z1UFHXrnNq67khm2h/jX0qaNR6NYEV3Uc23ORExMVGx
-	Cr8bSY9Q==;
+	bh=korW9u4bSXlRu1SVw+zZFW26pP3F7nv8St0FGEWyFu4=; b=2xYtq3ii1M8g39DimR7xH3Gbnc
+	xcbGH/xahTBfklnysUJTKxdkZR8vrwj4ziSPC5Bdv+6IFcmlq9fFbBDZuast2XLfk/16Z+qwSaCB0
+	P3SfLlQegJSUo/ymvvF9IzxjdJnEkROWF24zCvSYOaIgGvVuxzh5RfvIYmEz7M4HnjJGhk/2aaaM9
+	6CffJa9tQ/rxpJVjjpUyJwym9Fi+YgNa9ZAbBL7I2lq9vkH3gYt4EztfN+dEGzrSBhV9lyEcgCUu8
+	5F+DJtHN2yXbDZbYpCmNc2UIiPFpDhIwkQfGL1wiWm/m8mhGdfhpp2sz0jVVBPS9/dxcQKpWyOGTd
+	ISpgpZqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCHK-0000000HM1o-13mm;
-	Tue, 04 Feb 2025 06:19:22 +0000
+	id 1tfCIc-0000000HMCF-3qtv;
+	Tue, 04 Feb 2025 06:20:42 +0000
 Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCA7-0000000HL2O-3MmI
+	id 1tfCAG-0000000HL4q-39Hz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 06:11:56 +0000
+	Tue, 04 Feb 2025 06:12:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738649515; x=1770185515;
+  t=1738649524; x=1770185524;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=QZfWA9dYKmvVNsMCsE/7yQ2QGkcpwm0BMvHWwbe94fo=;
-  b=hfBdhJ3A9/Ke7VvNNV1r4nVLirnkyFdX480FF39vjyBh9JA2GN4/HIck
-   dzesovZb+D2G8SdUbzDC5GAeDZkQV1iHbPFR1RuD3FyimYx5mWuU+JXv8
-   +DBmUtL5yLMe1lpqrsmzW8rUqryKtnlbeVYr8kwVT7MOGJHHu5+HB2xYX
-   hhz1M1Iowh3592JEuW2cpqU6arsSZjG1qYapB9swvdWcAalxsr69SHQhX
-   GLIrCLNrQ1VL/24OdOVV+JWmQjnMSlQoHV9y6E5mvyRaZmjVNkstou5Z8
-   qgPQfIxbQWzfL4fFyLg6r/9XjZBagM6M68pEeaMyjgGxSRrnv8kaGdwYb
-   g==;
-X-CSE-ConnectionGUID: 7/WLnuXqT/K1x3nGcqWbSA==
-X-CSE-MsgGUID: wIe91h5hQqOsETC43RrK8Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579695"
+  bh=82UEmrGcqIRTD9c+4ZQMVIZ2fp+t3hC55QdfOJWinGY=;
+  b=dVifC44By3S1P3L+RdHsA2D9521pthbbJ7NZBOrjMQbe6RvW2F16JPDB
+   jLI6yzo0gx9OjCbE5vFxTUp2qzEAa2j+FeUTAgwQVWHs4uolbOOMgaAyk
+   a01U1TCk7V2aJa7NArr60sni6MYBCxZ5O3tlnjPVSNURjIaeXwxh4v6Am
+   JQGQHGAz7INJ2oZgcDEAJrqnRXCcJJNV9Bt4V8gYRdDeKPErn4TyviDDI
+   BVUya8+phlEefVjh4mA94sFpnJ/g5QE/adTzdQQHVhzCh1UGQvQJsYlsv
+   t8717h1Ly32pjcqF8e4ztj6KS28/9UsxZ2vTQ+mraK794+lom+FE2E8Dg
+   w==;
+X-CSE-ConnectionGUID: i0reVVQoQlaed9E+o1t95w==
+X-CSE-MsgGUID: KWyYArhDRWyq2k+9szFUkw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579719"
 X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="50579695"
+   d="scan'208";a="50579719"
 Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:11:55 -0800
-X-CSE-ConnectionGUID: V4pNTJViR/aO46ZVaN4gXA==
-X-CSE-MsgGUID: 1qabNu9eTZmZe3YSwJRivQ==
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:12:04 -0800
+X-CSE-ConnectionGUID: J0CzH2+rTdKGCS3vuxO4GQ==
+X-CSE-MsgGUID: 0KWbPcpmSpSgk9rDWTyr/Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
-   d="scan'208";a="110279209"
+   d="scan'208";a="110279224"
 Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:11:47 -0800
+  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:11:57 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Simon Horman <horms@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -88,17 +88,17 @@ Cc: x86@kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v6 5/7] net: stmmac: configure SerDes on mac_finish
-Date: Tue,  4 Feb 2025 14:10:18 +0800
-Message-Id: <20250204061020.1199124-6-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net-next v6 6/7] stmmac: intel: interface switching support for EHL platform
+Date: Tue,  4 Feb 2025 14:10:19 +0800
+Message-Id: <20250204061020.1199124-7-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
 References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_221155_851129_E163F2A8 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250203_221204_802212_023D3631 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +113,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SerDes will configure according to the provided interface mode after
-finish a major reconfiguration of the interface mode.
+The intel_config_serdes function was provided to handle interface mode
+changes for the ADL-N platform.
+
+The Modphy register lane was provided to configure the serdes when
+changing interface modes.
 
 Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 19 ++++++++++++++++---
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  4 ++++
+ 2 files changed, 20 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d04543e5697b..56efc475e51c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1124,6 +1124,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
- 	return 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index 347dd75bcdcd..de561a00f902 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -725,6 +725,8 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
+ static int ehl_common_data(struct pci_dev *pdev,
+ 			   struct plat_stmmacenet_data *plat)
+ {
++	struct intel_priv_data *intel_priv = plat->bsp_priv;
++
+ 	plat->rx_queues_to_use = 8;
+ 	plat->tx_queues_to_use = 8;
+ 	plat->flags |= STMMAC_FLAG_USE_PHY_WOL;
+@@ -740,19 +742,24 @@ static int ehl_common_data(struct pci_dev *pdev,
+ 	plat->safety_feat_cfg->prtyen = 0;
+ 	plat->safety_feat_cfg->tmouten = 0;
+ 
++	intel_priv->tsn_lane_registers = ehl_tsn_lane_registers;
++	intel_priv->max_tsn_lane_registers = ARRAY_SIZE(ehl_tsn_lane_registers);
++
+ 	return intel_mgbe_common_data(pdev, plat);
  }
  
-+static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
-+			     phy_interface_t interface)
-+{
-+	struct net_device *ndev = to_net_dev(config->dev);
-+	struct stmmac_priv *priv = netdev_priv(ndev);
+ static int ehl_sgmii_data(struct pci_dev *pdev,
+ 			  struct plat_stmmacenet_data *plat)
+ {
++	struct intel_priv_data *intel_priv = plat->bsp_priv;
 +
-+	if (priv->plat->config_serdes)
-+		priv->plat->config_serdes(ndev, priv->plat->bsp_priv, interface);
-+
-+	return 0;
-+}
-+
- static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
- 	.mac_get_caps = stmmac_mac_get_caps,
- 	.mac_select_pcs = stmmac_mac_select_pcs,
-@@ -1132,6 +1144,7 @@ static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
- 	.mac_link_up = stmmac_mac_link_up,
- 	.mac_disable_tx_lpi = stmmac_mac_disable_tx_lpi,
- 	.mac_enable_tx_lpi = stmmac_mac_enable_tx_lpi,
-+	.mac_finish = stmmac_mac_finish,
- };
+ 	plat->bus_id = 1;
+ 	plat->phy_interface = PHY_INTERFACE_MODE_SGMII;
+-	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
+ 	plat->config_serdes = intel_config_serdes;
+ 	plat->clk_ptp_rate = 204800000;
++	intel_priv->pid_modphy = PID_MODPHY3;
  
- /**
+ 	return ehl_common_data(pdev, plat);
+ }
+@@ -806,11 +813,14 @@ static struct stmmac_pci_info ehl_pse0_rgmii1g_info = {
+ static int ehl_pse0_sgmii1g_data(struct pci_dev *pdev,
+ 				 struct plat_stmmacenet_data *plat)
+ {
++	struct intel_priv_data *intel_priv = plat->bsp_priv;
++
+ 	plat->phy_interface = PHY_INTERFACE_MODE_SGMII;
+-	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
+ 	plat->config_serdes = intel_config_serdes;
++	intel_priv->pid_modphy = PID_MODPHY1;
++
+ 	return ehl_pse0_common_data(pdev, plat);
+ }
+ 
+@@ -848,11 +858,14 @@ static struct stmmac_pci_info ehl_pse1_rgmii1g_info = {
+ static int ehl_pse1_sgmii1g_data(struct pci_dev *pdev,
+ 				 struct plat_stmmacenet_data *plat)
+ {
++	struct intel_priv_data *intel_priv = plat->bsp_priv;
++
+ 	plat->phy_interface = PHY_INTERFACE_MODE_SGMII;
+-	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
+ 	plat->config_serdes = intel_config_serdes;
++	intel_priv->pid_modphy = PID_MODPHY1;
++
+ 	return ehl_pse1_common_data(pdev, plat);
+ }
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+index 79c35ba969ea..093eed977ab0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+@@ -123,6 +123,10 @@ static const struct pmc_serdes_regs pid_modphy1_2p5g_regs[] = {
+ 	{ PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G },
+ 	{}
+ };
++
++static const int ehl_tsn_lane_registers[] = {7, 8, 9, 10, 11};
++#else
++static const int ehl_tsn_lane_registers[] = {};
+ #endif /* CONFIG_INTEL_PMC_IPC */
+ 
+ #endif /* __DWMAC_INTEL_H__ */
 -- 
 2.34.1
 
