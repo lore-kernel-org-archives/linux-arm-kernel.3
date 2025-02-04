@@ -4,86 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A934C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667E7C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0AMgkZ59v94RZ6z6SKh2pbiqGshBRpTXZyxuIUBs2k=; b=csb3Nod9ccE3/wPERbkwVIp7ZJ
-	2sDVgILAE8c/eDxSZ0ae1J3ntYRu8Sm+q6Kw3R7CLRGgBqOF/qR48XmsvnWk2opNth7gj77Vq745H
-	aEB5QGBtI3i0OiMPBt6ICN6ELkWlWfLb4c2HGkkBx5qyqEnZUb+uC/ABPp3kQ83RaRs/kbyE6Noxy
-	wIQKzL61UDIbAkLVVMxtkJICgUbyOUqInezWVG5VEDPlESF0Ps00LLzBL+H3PhiKYe1EOwH0uoCMK
-	66R43U+j5b/bKh08Y4DlXa6ZLU20sAEik2eOuSDAn+rUsUalv/n0cZ9iyifpqctUewO9ubH1AwTjv
-	A/pWFaFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MZdpPsIMu5n/082iOL9Gy7FTDf0k5ygYXqCvE+zjF6A=; b=Ae4jM7vVK0BZtuo+ZAdb39bjPa
+	w8yMtXbNMHGVu5Kdm54H0Tp/qK2QRTtD4dyVGVVAEppzJahRjLIRiDc29CMY6zMwUcr0KLQZ+VOOW
+	U9UgsR/6enIAr/DFfmA+ROSe9MrbWp5It+Q2SToQV9UpQPJbd/0Qyk+SBAi7LW0K2wiGdDIR3hpoY
+	HAf6v/hqKdb5vU0UtmkP4702YyxOdanXnvxmkvbPUZ565CJFGevJDnxo+1pq/N6YjYFPPceio/CW0
+	0RqJWbS8zakKq/Gb/xsBbTlWrQDXOK1kJ9iFTnCMmLWjPI1ssFLWqWag25jv1kwiTdfAfAryqa2GM
+	FYhPE+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDbb-0000000HRjq-02fD;
-	Tue, 04 Feb 2025 07:44:23 +0000
-Received: from mail-vs1-f50.google.com ([209.85.217.50])
+	id 1tfDiv-0000000HSJW-24dI;
+	Tue, 04 Feb 2025 07:51:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDaF-0000000HRgn-3eLy
+	id 1tfDha-0000000HSDS-3TPS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 07:43:01 +0000
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4afdd15db60so1411123137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 23:42:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738654976; x=1739259776;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=S0AMgkZ59v94RZ6z6SKh2pbiqGshBRpTXZyxuIUBs2k=;
-        b=Cl4aBg+J+cWd4VkSGzjZ+hBDF+TS5YXnMTu6a9qTJ7m37krCerweDU9WS6oIGGf5vb
-         ic5IOmv4l9ipoCaqavfdGne9cgfHw2AONjjOWk4ps0dKcJJjkLmasDMSpldcpRKH0mPP
-         zQcTNMaX9Qepm6+XIALgK+euhckkjmWxeUhi5y4gAPbuv58jAj3xjb9mKIeG3HAnqaaE
-         Odnz39MVTEllGGWD4WpyAKOqMO0PHoIatwG0GTdoGnEtt5Wvrkbzjb5RrMjs5BetagpY
-         of0b0GNPXHhvTkfRqCc/wkEU0QAs09RHuoaLenfkd2h8H/PTL59kEXLmYqVZwQ85r1cC
-         nAYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVu/5DEzxEYSL4bl0vFcCHx/P/ayLAcRI2hUiX8Z5zck7iBiOR/+bJl8/A94n+y3fZe3SWsPtKH49euyhRbHwg3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6A1XQgJaHqfHLgBCDy+2jYgWw6HZdbwV4XB1OxBaS7JD+L2M2
-	XCpoSDD3QUhzLbUSKIduRUqxPd0C08fIZ8eVhjll1kYavIqG5o5L7uo3wg5S
-X-Gm-Gg: ASbGncvCxviwWkGLjoySUx6VN5p49bhgJ9wdh60nkqzYaCNT+csLAx6Lexx2Enb6J7I
-	kwQxZhJrgWruZNmsEXmnDKZxc4Q/pQY2bPsIkW6BoGFZMDQUAZPxloInsaC1Sj1lcXxjNBBhIRo
-	Y8M6eMD4bgwxJpqix/x6Z2sZELOEYSfTqxROcUjcWK7YGZJVwJ36PXFOwk3zqsuHQPtDuOcu8ix
-	fxY7E7i2O63/Rx+egY7CuJ+8bqyXvKwei4uUuzREYXJ+obhnjZr0rY5TA1lXapgpH6uGdulTBjL
-	tL07CwFzzOBcAd0w7D31khl2RlsED5qeKgqhWrrZVdOX4qImIB2HoQ==
-X-Google-Smtp-Source: AGHT+IFpRr90Nvkug2m0rGCNQ29UW5RkbOshSfYsn11Tjkif+Hu/4Wbd6raGifZQKdDLJRy4lZiwHQ==
-X-Received: by 2002:a05:6102:941:b0:4b2:9f20:51d3 with SMTP id ada2fe7eead31-4b9a4d11907mr19320929137.0.1738654976292;
-        Mon, 03 Feb 2025 23:42:56 -0800 (PST)
-Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-866941da05dsm1872614241.21.2025.02.03.23.42.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Feb 2025 23:42:55 -0800 (PST)
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-85b92397fe2so1192811241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 23:42:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXSlLJhvy0rU1T6PeyL/Pd8oS1jfBHsQK0s6hdFTnPDl6zHKhP17CNmpLl6LpmBL9sUeflMXbhzQelhAGMcz/zA@lists.infradead.org
-X-Received: by 2002:a05:6102:504e:b0:4b2:cc94:1881 with SMTP id
- ada2fe7eead31-4b9a525bca9mr15855668137.21.1738654975532; Mon, 03 Feb 2025
- 23:42:55 -0800 (PST)
+	Tue, 04 Feb 2025 07:50:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1E9955C5418;
+	Tue,  4 Feb 2025 07:49:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7425C4CEDF;
+	Tue,  4 Feb 2025 07:50:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738655433;
+	bh=R/1/O873eQQkbQQnqhju0SNk6l75r8+Xhn7mIQhDkVY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pPgMWRZ5n96Mf1ZNnxQxIgtiy9dTpgz+4Z8SIuKQJ8l6GvyIyjkKkIuA6OJhjtjcP
+	 oX/K3cplNY0F5sm5ChN4PAWzvpS1DUtb1UiHFUIhq3InKlxsxyyfN++u+dZH6u9zuW
+	 oJ4RI13LFJg4/q6EeXGYMAlwTpxhhFi7at7GjwPQs1/gHEbdx/TDRxrSMiHfJF8rvR
+	 hshJLxyFM4bDd7vSpPkVdZ3Mzbrd1Ssun/2bOy1T3VRcEBmIavwuzYAs6gP5wZQmMN
+	 Bjns41Xnbv7KYkm1aua1PDsepmpkYabJAOP8bIgDQuhklevp1wL8db4HtZdkO/UNYQ
+	 pZmP1ob+axgIg==
+Message-ID: <59b38b53-44c6-40ba-9344-de6de89532f6@kernel.org>
+Date: Tue, 4 Feb 2025 08:50:26 +0100
 MIME-Version: 1.0
-References: <20250203150801.2399555-1-vaishnav.a@ti.com>
-In-Reply-To: <20250203150801.2399555-1-vaishnav.a@ti.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 4 Feb 2025 08:42:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUOMCxfsOrUF3-6PX0ZZ_E2g1SK4bwDqZE=mWiibPFt1A@mail.gmail.com>
-X-Gm-Features: AWEUYZkDgnPf76m_8qyV4BFvYG1jJH4IXxwnablOQ3R27shfCtbF4RxvzCNS7dc
-Message-ID: <CAMuHMdUOMCxfsOrUF3-6PX0ZZ_E2g1SK4bwDqZE=mWiibPFt1A@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
-To: Vaishnav Achath <vaishnav.a@ti.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, quic_bjorande@quicinc.com, 
-	geert+renesas@glider.be, krzysztof.kozlowski@linaro.org, 
-	dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com, 
-	ebiggers@google.com, ardb@kernel.org, nm@ti.com, vigneshr@ti.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nfrayer@baylibre.com, glaroque@baylibre.com, tglx@linutronix.de, 
-	u-kumar1@ti.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/9] dt-bindings: memory-controllers: Add STM32 Octo
+ Memory Manager controller
+To: Patrice CHOTARD <patrice.chotard@foss.st.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ christophe.kerello@foss.st.com
+References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
+ <20250128081731.2284457-4-patrice.chotard@foss.st.com>
+ <20250129-hilarious-glittering-mustang-fb5471@krzk-bin>
+ <3660580d-72eb-45ca-8240-55557e334e37@foss.st.com>
+ <951e4d16-2bb2-44b1-99e7-dd28349f20aa@kernel.org>
+ <02b947e3-dd5c-4ee8-bd65-5775923fe33f@foss.st.com>
+ <899675e8-4c2e-4ff2-a6af-854e0ec29bb6@kernel.org>
+ <6ed4fa56-e7ee-4b6b-951b-61a92be5c6c2@foss.st.com>
+ <6a639549-f8c8-4e36-8cfe-839f247780bb@kernel.org>
+ <9073411a-38aa-4f82-95f5-474b0c3efed7@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <9073411a-38aa-4f82-95f5-474b0c3efed7@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_234259_907742_0A5E3611 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250203_235034_966632_816EC8F4 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,77 +135,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vaishnav,
+On 04/02/2025 08:29, Patrice CHOTARD wrote:
+>>>>>>>>> @@ -0,0 +1,190 @@
+>>>>>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>>>>>>> +%YAML 1.2
+>>>>>>>>> +---
+>>>>>>>>> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32-omm.yaml#
+>>>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>>>>>> +
+>>>>>>>>> +title: STM32 Octo Memory Manager (OMM)
+>>>>>>>>> +
+>>>>>>>>> +maintainers:
+>>>>>>>>> +  - Patrice Chotard <patrice.chotard@foss.st.com>
+>>>>>>>>> +
+>>>>>>>>> +description: |
+>>>>>>>>> +  The STM32 Octo Memory Manager is a low-level interface that enables an
+>>>>>>>>> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
+>>>>>>>>> +  function map) and multiplex of single/dual/quad/octal 		SPI interfaces over
+>>>>>>>>> +  the same bus. It Supports up to:
+>>>>>>>>> +    - Two single/dual/quad/octal SPI interfaces
+>>>>>>>>> +    - Two ports for pin assignment
+>>>>>>>>> +
+>>>>>>>>> +properties:
+>>>>>>>>> +  compatible:
+>>>>>>>>> +    const: st,stm32mp25-omm
+>>>>>>>>> +
+>>>>>>>>> +  "#address-cells":
+>>>>>>>>> +    const: 2
+>>>>>>>>> +
+>>>>>>>>> +  "#size-cells":
+>>>>>>>>> +    const: 1
+>>>>>>>>> +
+>>>>>>>>> +  ranges:
+>>>>>>>>> +    description: |
+>>>>>>>>> +      Reflects the memory layout with four integer values per OSPI instance.
+>>>>>>>>> +      Format:
+>>>>>>>>> +      <chip-select> 0 <registers base address> <size>
+>>>>>>>>
+>>>>>>>> Do you always have two children? If so, this should have maxItems.
+>>>>>>>
+>>>>>>> No, we can have one child.
+>>>>>>
+>>>>>> For the same SoC? How? You put the spi@ in the soc, so I don't
+>>>>>> understand how one child is possible.
+>>>>>
+>>>>> Yes for the same SoC, in DTSI file, the both OCTOSPI child are declared 
+>>>>> but are disabled by default.
+>>>>
+>>>> But the child node is there anyway so are the ranges.
+>>>
+>>> if both child are disabled, omm-manager should be disabled as well, 
+>>> omm-manager alone makes no sense.
+>>
+>>
+>> Yes, it is obvious, but how is this related?
+> 
+> As described in the commit message, OMM manages the muxing of the 2 OSPI buses 
+> (its 2 child), that's the relation.
 
-Thanks for your patch!
+Again, nothing related to our discussion.
 
-On Mon, 3 Feb 2025 at 16:08, Vaishnav Achath <vaishnav.a@ti.com> wrote:
-> Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
-> These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
-> for core functionality like DMA, GPIO Interrupts which is necessary
-> during boot, thus make them built-in.
->
-> bloat-o-meter summary on vmlinux:
->         add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
->         ...
->         Total: Before=31615984, After=31778459, chg +0.51%
+You claim you can have only one child and we do not talk about child
+disabled status here. So show me the product which have second address
+space removed from *the SoC*.
 
-My first thought was: that's a hefty size increase for two rather
-small drivers!  So I enabled these two options in one of my own kernel
-configs, and saw a size increase of only 7872 bytes...
+> 
+> Do you want i add this directly in yaml file ?
 
-> Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
-> Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
->
-> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
-> ---
->
-> V1 : https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
->
-> V1->V2:
->         * Add Fixes tag.
->         * Add bloat-o-meter summary to commit message.
->
-> Previously both of these configs were selected for ARCH_K3 in respective
-> Kconfigs, but commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
-> and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
-> in dropped this recently without adding those back in arm64
-> defconfig, this causes boot failure in all TI K3 platforms.
->
-> Passing bootlog with configs enabled:
-> https://gist.github.com/vaishnavachath/03d8d3ce0f22219643c2f4d1dd243fd1
->
->  arch/arm64/configs/defconfig | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index cb7da4415599..1f25423de383 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1551,6 +1551,8 @@ CONFIG_PWM_VISCONTI=m
->  CONFIG_SL28CPLD_INTC=y
->  CONFIG_QCOM_PDC=y
->  CONFIG_QCOM_MPM=y
-> +CONFIG_TI_SCI_INTR_IRQCHIP=y
-> +CONFIG_TI_SCI_INTA_IRQCHIP=y
->  CONFIG_RESET_GPIO=m
->  CONFIG_RESET_IMX7=y
->  CONFIG_RESET_QCOM_AOSS=y
 
-However, on arm64 defconfig, this has indeed a much bigger impact,
-as it also (re)enables several other drivers that depend on the
-irqchip symbols.
+No, I want the answer when is it possible to have only one ranges. What
+such DTSI would represent - what real world hardware.
 
-You probably want to mention that in the commit message...
+> 
+>>
+>>>
+>>>>
+>>>>>
+>>>>> In the DTS board file, 0,1 or 2 OCTOSPI instance can be enabled depending of the board design.
+>>>>>
+>>>>> In our case, on stm32mp257f-ev1 board, one SPI-NOR is soldered on PCB, so only one OCTOSPI 
+>>>>> instance is needed and enabled.
+>>>>>
+>>>>> Internally we got validation boards with several memory devices connected to OCTOSPI1 and 
+>>>>> OCTOSPI2, in this case, both OCTOSPI instance are needed and enabled.
+>>>>
+>>>> I could imagine that you would not want to have unused reserved ranges,
+>>>> so that one indeed is flexible, I agree.
+>>>>
+>>>>>
+>>>>>>
+>>>>>>>
+>>>>>>>>
+>>>>>>>>> +
+>>>>>>>>> +  reg:
+>>>>>>>>> +    items:
+>>>>>>>>> +      - description: OMM registers
+>>>>>>>>> +      - description: OMM memory map area
+>>>>>>>>> +
+>>>>>>>>> +  reg-names:
+>>>>>>>>> +    items:
+>>>>>>>>> +      - const: regs
+>>>>>>>>> +      - const: memory_map
+>>>>>>>>> +
+>>>>>>>>> +  memory-region:
+>>>>>>>>> +    description: Phandle to node describing memory-map region to used.
+>>>>>>>>> +    minItems: 1
+>>>>>>>>> +    maxItems: 2
+>>>>>>>>
+>>>>>>>> List the items with description instead with optional minItems. Why is
+>>>>>>>> this flexible in number of items?
+>>>>>>>
+>>>>>>> If only one child (OCTOSPI instance), only one memory-region is needed.
+>>>>>>
+>>>>>> Which is not possible... look at your DTSI.
+>>>>>
+>>>>> It's possible. if one OCTOSPI is used (the second one is kept disabled), only
+>>>>> one memory-region is needed.
+>>>>
+>>>> Ack.
+>>>>
+>>>>>
+>>>>>>
+>>>>>>>
+>>>>>>> Another update, i will reintroduce "memory-region-names:" which was 
+>>>>>>> wrongly removed in V2, i have forgotten one particular case.
+>>>>>>>
+>>>>>>> We need memory-region-names in case only one OCTOSPI instance is 
+>>>>>>> used. If it's OCTOCPI2 and the whole memory-map region
+>>>>>>> is dedicated to OCTOSPI2 (OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+>>>>>>>
+>>>>>>> We need to know to which OCTOSPI instance the memory region is associated
+>>>>>>> with, in order to check "st,syscfg-amcr" 's value which must be coherent 
+>>>>>>> with memory region declared.
+>>>>>>>
+>>>>>>> so i will add :
+>>>>>>>
+>>>>>>>   memory-region-names:
+>>>>>>>     description: |
+>>>>>>>       OCTOSPI instance's name to which memory region is associated
+>>>>>>>     items:
+>>>>>>>       - const: ospi1
+>>>>>>>       - const: ospi2
+>>>>>>>
+>>>>>>
+>>>>>> I don't think this matches what you are saying to us. Let's talk about
+>>>>>> the hardware which is directly represented by DTS/DTSI. You always have
+>>>>>> two instances.
+>>>>>>
+>>>>>>
+>>>>>
+>>>>> We have 2 instances, but both not always enabled.
+>>>>> In case only one is enabled, only one memory-region-names is needed.
+>>>>>
+>>>>> We must know to which OCTCOSPI the memory-region makes reference to, in order
+>>>>> to configure and/or check the memory region split configuration. That' swhy 
+>>>>> the memory-regions-names must specify if it's the OCTOSPI1 or OCTOSPI2 instance.
+>>>>
+>>>> Well, in that case two comments.
+>>>> 1. Above syntax does not allow you to skip one item. You would need:
+>>>> items:
+>>>>   enum: [ospi1, ospi2]
+>>>> minItems: 1
+>>>> maxItems: 2
+>>>>
+>>>
+>>> ok
+>>>
+>>>> 2. But this points to other problem. From the omm-manager node point of
+>>>> view, you should define all the resources regardless whether the child
+>>>> is enabled or not. You do not skip some part of 'reg' if child is
+>>>> missing. Do not skip interrupts, access controllers, clocks etc.
+>>>> If some resource is to be skipped, it means that it belongs to the
+>>>> child, not to the parent, IMO.
+>>>
+>>> I didn't get your point. 
+>>>
+>>> The resource declared in omm-manager's node pnly belongs to omm-manager
+>>> (reg/clocks/resets/access-controllers/st,syscfg-amcr/power-domains), regardless 
+>>> there are 1 or 2 children. None of them can be skipped.
+>>
+>> That's not true, you skip ranges and memory region.
+> 
+> If i have correctly understood, you want a constraint on range and memory-regions properties ?
+> Is it what you expect ?
+> 
+>   ranges:
+>     description: |
+>       Reflects the memory layout with four integer values per OSPI instance.
+>       Format:
+>       <chip-select> 0 <registers base address> <size>
+>     minItems: 1
+>     maxItems: 2
+> 
+>   memory-region-names:
+>     description: |
+>       OCTOSPI instance's name to which memory region is associated
+>     items:
+>       enum: [ospi1, ospi2]
+>     minItems: 1
+>     maxItems: 2
+> 
 
-Gr{oetje,eeting}s,
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
