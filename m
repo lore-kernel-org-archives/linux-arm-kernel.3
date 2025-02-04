@@ -4,184 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3536AC02197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 10:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B5DC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 10:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Dqo1UvCttRQtJ7cXeeAtV3YaRpdarXCIxZrEakjJ6s=; b=nUmQ5hdSOfEOWkx3ejJE4MBm0I
-	RcPD+VTNSgnG9dYCybPReVmACIV9PVTNj3n2Ros1Tyg5f8ztp7mCtwWXYIVTkBag+u0erfXSYIT5j
-	UTV2kRcrDqf0K+0BxryGRVAxPJOj++qf97gUu5EuvG1lnrHe4QiM85aMFAesRirZxAI/Ya+9t+62j
-	ArYH/2GtPjsCijjApj0lMGGSWUtD+RCM66iMFdaWrwLzxb1xawKajKD44MrBNgHj8to8/kbzMx/lt
-	fRPwxS8dWmIYokBY928TDKN14dEF1Hti8cj/6EKdaD5SqUulvu0XNlN8xiHHsP87Tvx5gJc/oT9K6
-	AUZJX7IQ==;
+	bh=u1yOgJGioVmDsqu8CmCo3aMNjFC8dpIVHIMsONd3BP8=; b=zdVt0S74cEhijq7W/eIFQYTmJY
+	EoavEKLI/mJOfQn2mQa+J5jtGXRCTLBzouHjLPOgFTkYVwEqFX217f/pu/Zn9HN8ROXJQrIBJMxv+
+	DQ9rqHa9MDTsmXOtD9pLjLmUq+Sp3YpAPfeBpJNnXkrDwXp4hmWRHRI+e6LRRwEUr2VGaZoEL0+Ih
+	Qk0MNmYu2mlcb/dI8iQcbP58Y7yVRJZpB3uvcgl3TYWMpAkMaU14g71XMM83P+YdTaMmRyRMBJSu1
+	NqW8HWjvfzKRXC30AWDrHFKyQtpPXn63VelyHNf02dSDr9MIWIlpuutXiaRbunzD7jmq7vMP/jZ+y
+	ywP5hnyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfFkD-000000006im-0Pe0;
-	Tue, 04 Feb 2025 10:01:25 +0000
-Received: from mail-db8eur05on20613.outbound.protection.outlook.com ([2a01:111:f403:2614::613] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tfFlX-0000000070b-0P97;
+	Tue, 04 Feb 2025 10:02:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfFiJ-0000000065O-4ANu;
-	Tue, 04 Feb 2025 09:59:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yc/hsvWe3YTr1bzcgKl8tAav61DtMPugN6SAmLWCvfvbNG5sbUisaxBWpTbPLPe/YGGw0TfYnriA7DkK+OrqDWSZwcDYbc4nTh2ExnERP7ln41YTE5lSKaypNVauT87OCNwW+H3T+P5E4WSNDg/eieEg6uIB7FEywZFZmp+cqYgnepxjYCJ9VLonhezRySuA5Io5XaNkV1NfXEm7Vp97fgHK/fUjnIBesJLqgfu4ybthGa/ssFYz9dCsbcB95WwLbCIUltE+QKKkXFoUPLm/LTkfaX/9Xz2SJ6y/PYpz6NmaTKu4l7WpaRhshz4MrkYKb/mQk7TWrMJz4FHMfnorZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Dqo1UvCttRQtJ7cXeeAtV3YaRpdarXCIxZrEakjJ6s=;
- b=UqJr4IVPRyVVcpFGPwPAR0kTu58IKUwrRCOP65h62HZXuUrAbiH1g7OSd6sLwkp3V4ZdEO1bkLtA7ax7rPIs8gZd32YaeWMFpxdYrvA3dtjbig2IQyKuEmZ+aIX7+0+zyyC5+sxAcvNKzSZilMgjMqC696ePaqWD1paojhsnkd3i1f2N2NjjrTrro+GdR/BHN7/h+PDxlLaSI9aSwxgkbv0SRb9gqIO/Tp/SSNoCbGyH05uvtBATJpn3V2EQ0n5L6Tpp1c1BzXHlGv4TIwDE1aZmRFaf/T8jiReFFNQB4GUGhfX5UumRM2wTy7VifQUNVPY/zMycGLfAtsthWFyHeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Dqo1UvCttRQtJ7cXeeAtV3YaRpdarXCIxZrEakjJ6s=;
- b=iGCkCDVLlYL43ZX5QOlVCzAmUW0bvahwJHcSy5nh29meNerPdBmf5DFDAc9NvkLyd5AhPJKspkDcU6KfBUMYeYZBB63UBOCsKJj2K0tHhvVA91ekKKs4BkBMzbY0aGKmT26n5LHQWlcA4P6xCwXmU9jiL/oBFcA9FYeJO+Wnr8s=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by PA4PR04MB9294.eurprd04.prod.outlook.com (2603:10a6:102:2a5::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.26; Tue, 4 Feb
- 2025 09:59:14 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%3]) with mapi id 15.20.8398.021; Tue, 4 Feb 2025
- 09:59:14 +0000
-Message-ID: <db29945e-565a-490f-8a8c-387ecd47a198@cherry.de>
-Date: Tue, 4 Feb 2025 10:59:12 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] drm/bridge: synopsys: Add audio support for
- dw-hdmi-qp
-To: Detlev Casanova <detlev.casanova@collabora.com>,
- linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Alexey Charkov <alchark@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Dragan Simic <dsimic@manjaro.org>, Jianfeng Liu <liujianfeng1994@gmail.com>,
- Niklas Cassel <cassel@kernel.org>, FUKAUMI Naoki <naoki@radxa.com>,
- Kever Yang <kever.yang@rock-chips.com>, Johan Jonker <jbx6244@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Algea Cao <algea.cao@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
- Sugar Zhang <sugar.zhang@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org, kernel@collabora.com
-References: <20250203171925.126309-1-detlev.casanova@collabora.com>
- <20250203171925.126309-2-detlev.casanova@collabora.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250203171925.126309-2-detlev.casanova@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0037.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:92::6) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1tfFjA-000000006K7-2Ltj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 10:00:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD1035C5D01;
+	Tue,  4 Feb 2025 09:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D432C4CEDF;
+	Tue,  4 Feb 2025 10:00:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738663219;
+	bh=k/p4/X4h0Jx3RXGmvshNwq/XOpVJtXNZ3/ebrqANT8k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S3fXHPgL+aKQPpIvzAfKLGA7t/VlVyLNkOt4X+cbPIMuRAIgwwvNc7BaBMFb0oqYl
+	 aQfBGvuu3k+Zlnqxc9f9c7xKSsJcXiv3ONRt6ktdlVNX9YPN3uEkuv1Lnc0rX1l73g
+	 RA93csTIhpDdLWXXWICit9Aa7BRsGqwXu2bHBK9xD7iZdxbALekR+SUxcmqFHo24H8
+	 qd4U8OAWt9LtJ1m8uq66xFavrA3D72LBK3dbPz3EyE9AZ1+2ZJb43M95xY3eYyP2qj
+	 IRlo1Rn06jEypEIN3XjIoxrWkB7j5uGJ2yDfuRBOi2qUBq9DLNEDMfWCgk8TSuNShE
+	 3Mdq2SVs3PiKw==
+Date: Tue, 4 Feb 2025 10:00:14 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Emanuele Rocca <emanuele.rocca@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <20250204100014.GA777@willie-the-truck>
+References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+ <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
+ <20250131124103.GA29766@willie-the-truck>
+ <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA4PR04MB9294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b8fd139-9783-40da-c9e7-08dd45029494
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dUQ5dFo3MXdoWDRTaG1hVCt6WTlpeWJQQ0ZLV3hKRlpMMDZTYXNTYzU5NG90?=
- =?utf-8?B?YzhWUmNvR0ZOdUpCS1B4aXh6QTNnME1JR2NKMlcwS1dNVDFodVdvc2paMm5I?=
- =?utf-8?B?UHE1dXhlVTViVTdhUU1GUUJpTkVDUU14NDNoUGx0Sm5XL1U5U0JFUGVnTGY1?=
- =?utf-8?B?WkxoY05kQVJoQWUvdDlVK0Y1WmFWWnBlZVNham5zT0xVakU0NnY4Wjl3OU9o?=
- =?utf-8?B?cFRQQXZKVmRIMy9MTGwrQjIrOTRSK1c5M2JYUWNGR1k3Vms5cVBiTVh3LzBk?=
- =?utf-8?B?SS9wN1BTMVBmUnJMUUVyeDFQbkVmU1BuRUNBYXRCdERFazZqdUduTlFFc0tT?=
- =?utf-8?B?bm9POFlKbVRwRFl5VW5OMStldDFqck1hN1g2NzZuaExNNm11bWpQUjdhWXky?=
- =?utf-8?B?eW1nQ3prdXBBRUJDeUV2RzR1ZWJZSUMxVVRDZ0s4VkNWWU8yMXJQMy9Hd1VE?=
- =?utf-8?B?dkVreG1BbERVZm1MaWRpUG0vSGIxNnNabk1mZXJhQ1krVEJmcnZTc0dwOGlu?=
- =?utf-8?B?aW53OWJXWjcxak5qYVI3cFBrL3FrZGd5RzluZHZhVHQwSkZzRkgwTml5d2tF?=
- =?utf-8?B?dHVySGVmL1lmVVlDUlYwL2ExeWZXMWwyVDJZdXFEUHRRa2V2WURsYTlTVGdN?=
- =?utf-8?B?enZ0RXpWWUE2bXczOE5nSHJhbmUyTS9ORC8zc2c5SmlvK1hjSVE1dlZuR0dR?=
- =?utf-8?B?bHQxb25KU0F2SkpkQW9xTnZENENwWE55c2t3cGZJNXRqZFdMN1N4SnhBaFNO?=
- =?utf-8?B?OWFadTlJT2FaQWJOclB0dWpYaFk2b2dxYllrUjlUcFVJOEZiNEgrSDhpZG1z?=
- =?utf-8?B?aCszVUdScFY4Uk05Y0pPQ3lEZ09GeVZwM0xMeGpGcHlYNnVxM3crUmRQUWsy?=
- =?utf-8?B?WWVrb2VxeGNqbTVKd1BkMFN0NmNUZ09qZFJlQWVmTGRFMzVGWURRQXVQVjd3?=
- =?utf-8?B?dXpwUXN4cVE1YzkwazAzM1ZueGdLS3BTY0pQSWEza0pIdTUzNURYTmZKbzhu?=
- =?utf-8?B?TFc5cUVSYWxuVnhGM3VhczhFMkgwRmFMNmh1aElka0k3TE1WOEoyNDIzenBU?=
- =?utf-8?B?MlM0VjA5eDQyR0lxWHhxUytlbmdyMHJTSjRpM0ZLY1FlZWEvYVNwOG1LTndI?=
- =?utf-8?B?b2VQT2V5YUJORExZVktoUXh6YU5XbFltZU41eDRlanNQSHVybmJnU3RweUJG?=
- =?utf-8?B?cXd6VHVJYTBkM1pZWDBqVDljeHhubW9wZ3JPL3NrUm5zVFpoc2hsdGp0aGky?=
- =?utf-8?B?RFh1NXJHcFZFODBvZVRRSmNHZ0JaU05pY2hoOWkwVlZoOU4vM0g2RDVZMWZH?=
- =?utf-8?B?azhDdEZSSkhrSjVNNWRJK3ZOeXhzeTIzTmxzS21FSitwWllCcXBndVA5NXNT?=
- =?utf-8?B?SXJQYjVZTmxwbUxYd1g2MjJyYUE1Y1RkOTVCM0s3K01ISXo5V0ZIMGlHdVoy?=
- =?utf-8?B?MTRadUQ3d245MGF6SjQ5cGQ1WjJYR0NhbWlhWVJVd1A4ZVY3dmZwUUc0eU91?=
- =?utf-8?B?Rk55N3lZRGUzVGF0WmdMY1ExY2EwYnhiaFFaMDBNaS8vYnZOK1Q0QjQ0MTlO?=
- =?utf-8?B?dCszd0JEZEVYZG5FeElKN0ZnQXZSU2xJU1pIZFlseVZJd3pEVmRMVG1raFpN?=
- =?utf-8?B?OGJRK0t5T3VoRnVVK0R2ZHdlQkJKb1BUU0ZLRnhpNUJDamUyZ0tQVUxoSXVC?=
- =?utf-8?B?V0JoKy9rNTViSHNSTnlaZ1ZXUEZLNlJxYm1hcVc1V1diTEsra1NqMVc2amx5?=
- =?utf-8?B?cXhPWnpvY1EyenNCRExidHd3enVLMzJJOE5lSDdVODJkSHFOSEI2dXBFek4v?=
- =?utf-8?B?R3pubFUvb3pqV1hKTEJtZkdic3ByY1BHTEplbmQyT0Q2aDJ1bERYMUZNODQr?=
- =?utf-8?Q?it8MbHLTecgbd?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHlPN1A2TWs5YTdXelBONXlyZkdJeDR3ZG5NY3ZRbFFVQmg3M3AzWFpLenpP?=
- =?utf-8?B?SlAwTytXVU9RY1VsLzl1T2t5emZNbCtzVWdIbG1DK2FmZFd6eFpXSC95Zndh?=
- =?utf-8?B?ZGJyQytZOXdlTHdsU1BsUlhZaVRvNTVaL1ZpVzF4Zk1PNmV2UUcrYnNucmVp?=
- =?utf-8?B?bVU4V3ZZZ2dURG9salNXY2EvSkRWTGlmQjY3QVZwbmYrcW9wR1JhVXZXdlRU?=
- =?utf-8?B?V3J4R3A5VVFRRVlmWU1CQk1DQTZ1aitUYUZlbERaN3RRKzVyT1NZcjZkVVJo?=
- =?utf-8?B?VDZsaE9HRmJjSlBnM05ZcXkvYlNJSVQzcHhVQU1VOHFhaksrcWRwbXpsSitC?=
- =?utf-8?B?Z3A2UUN1U0l3bXJBRVB0eUlXMDdYMU5QeUVrVWtUbUFxekFBaS8zcFNwNFln?=
- =?utf-8?B?TU0wVm15K3ZvRWROdkh3bWhIdDhHSU1veWRCcldkTzRtSVA4cmx2bDZJUFBv?=
- =?utf-8?B?SVp5ZlFaTzBrM1ZIQ3FET0dqc1drdEJvczdvbjNwTUVLYnpseFFYcmtZTjJm?=
- =?utf-8?B?cGc5bk9WYUp4aGtuRXdBQ1JoLzhaVDloRW13UTVFUkpvYURoem1mSE5ZNjBh?=
- =?utf-8?B?VGVsSjF2WTJjbldQcGY1dXZDa0tsaUFNVUwyRDl2SjdpM3pRd1AwV0NCYXBx?=
- =?utf-8?B?bFpEbnFVbW05RVc0YnpMWnR3WnhQVWpUeGo3WkJ3Z1BLWERPOU0xVDRCOHdn?=
- =?utf-8?B?c0lNakNXcDkwWUhCOFVlQXh6ZVZ5VmZVaUZSSENpQnFNVzZkb1pDcEJlSE9u?=
- =?utf-8?B?RnkzNnFnN2thbUVhNnA5cWFaVUJlWThueVZxZW5vdGZ2Qjl1N0pDcXBCeG9j?=
- =?utf-8?B?bkMxNXhhKzV6UVJhakh6c0drUTM1TThmZ3F4YUV1eXFMMmwxcEQ0QnUzMXpR?=
- =?utf-8?B?T0ZwMDVickhmdEpyaWc5Wk1BbjlXMDVjRE1XaG9zdXFnWGxNZHhHQ0RLU05k?=
- =?utf-8?B?emdtamNFZ05yNjZOVlBld0ZsRHM2K0hqQzBNL3ZuZ3RvTDFheXNoRktucVhz?=
- =?utf-8?B?QU1neXNpZkkvUGx0QkNoMWVxVmdZUUZaUS93dTUrUnlDVlA2VXNLVFMzc0o5?=
- =?utf-8?B?cUx5U25VQWNlSTNtTzZqdjBUV05oTjYvMXFPY3JHTUVwTDFZdC9uR2xySUtR?=
- =?utf-8?B?MmhwSXdYaUt5MElKT3Y5S0hrRk1sUTBVd1lqeEJZUlRJQURWVFE4RWNpc01Y?=
- =?utf-8?B?MUducGdzbk41MWF5MUlncWhwc3JiVUQ2N1BvOE5yMmNEQ0VSMjEwQm9RYWNM?=
- =?utf-8?B?bUliUWRtdHJXcnREcjdtTUpSOVZxNytqNUJza3pXTndyQXovRTBoa1ZDeWxl?=
- =?utf-8?B?MVBrcTZTb0RCajdsVXhhbDQrKzFUOWxvdWpwN0lWeGYxRWJSang5USttQjUx?=
- =?utf-8?B?U3ZDQm85STgyd3M4NmdqZDhCeVVaWjgvTHdvQXRhZmJybUFRdlRydEpnUWdP?=
- =?utf-8?B?WTIwbTlxM040L3pXczV0Wk5pVDRmQU5kYW9iTnRpV1VDdndObjNrdUlkV1N6?=
- =?utf-8?B?bmY2RkJPMktIa2tGaGR2NDBOYlVHa1NQYnVSQ2YzaFp5bTJGWDhMUU9jeXVR?=
- =?utf-8?B?UURlMFVudk9LSk1YajVWOFhmcDN6NDdNSGhyc0NxcGRNS0p4ZVFCZkE3NWlT?=
- =?utf-8?B?RldrR0NrMjNOa1RFZTc0NCtXZk1rcnZXZHhTUG03dHlwVDM3ZG5UM2h4L3NF?=
- =?utf-8?B?emJDQnRaaDRtalJ1cThZaTZTZnY2Vk1pejIwc1FBTEUvN3JsWVd6anZwa1pE?=
- =?utf-8?B?N1M4U0tULzJmSEd5aWNxK0tuS2MxL3RoTkNoZXVvT2I4eWFLZGZIZmRWd1Z6?=
- =?utf-8?B?N3VWalBwYllBcG9Xd0diK2JXc2RPVHhkbGZsRDdyNi9sbU5GTFcvT2oxRW0v?=
- =?utf-8?B?OVdiWThRMGx4SHE4cW5TMWRCM0YrVFJjL1pvc3lrb1pDWFVocVlEZ2FOc3kz?=
- =?utf-8?B?RW42TkR2OUdDNW0xQTZtMjh4RnFmN3RNZGxZdG43UzZFMnpsek5mMHE2Wk5Q?=
- =?utf-8?B?ZUs0ODBlbng1SEJQVXljSkZnd01yT0JjS3dDUm9MK2ZUNXAzbmNteVRWZlNv?=
- =?utf-8?B?NHMzWUw5K2J5UzZ5dGhVb3JCSUN0UVYwL3VUT3dBb1RiUmRxTUxXeFArNVgv?=
- =?utf-8?B?ODdqeXFlTVpNM2oxMmwrZEwvbElQUVJLYnRXNkJKQ3JyQVNNMmo0SGVUZGdm?=
- =?utf-8?B?VEE9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b8fd139-9783-40da-c9e7-08dd45029494
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 09:59:14.3096
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DdtemN/hh9+/3cwjig9FEbhnsQHATmMX8Z21aSnEhE2Xp81DaselHj1EtcazZfD+mngMJuJT1Icdna02XRxg44o4gJf3xLGpZqbOHsGP8cQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9294
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_015928_241327_223A82A7 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20250204_020020_686629_83811454 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,178 +76,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
-
-Just some drive-by comment inline.
-
-On 2/3/25 6:16 PM, Detlev Casanova wrote:
-> From: Sugar Zhang <sugar.zhang@rock-chips.com>
+On Fri, Jan 31, 2025 at 01:54:57PM +0000, Mark Rutland wrote:
+> On Fri, Jan 31, 2025 at 12:41:04PM +0000, Will Deacon wrote:
+> > Anyway, it looks like x6 gets trashed across the SMC. I think that's fine
+> > per the SMCCC spec:
+> > 
+> >   | Unused result and scratch registers can leak information after an
+> >   | SMC or HVC call. An implementation can mitigate this risk by either
+> >   | preserving the register state over the call, or returning a constant
+> >   | value,such as zero, in each register.
 > 
-> Register the dw-hdmi-qp bridge driver as an HDMI audio codec.
+> I think that's misleading/stale and x6 specifically is not supposed to
+> be clobbered. Shortly before that there's wording about preserving the
+> registers, summary/history below:
 > 
-> The register values computation functions (for n) are based on the
-> downstream driver, as well as the register writing functions.
+> * SMCCC v1.0 allowed x0 to x17 to be clobbered over a call; all other
+>   GPRs had to be preserved.
 > 
-> The driver uses the generic HDMI Codec framework in order to implement
-> the HDMI audio support.
+>   That was defined in ARM DEN 0028B, AKA "SMC CALLING CONVENTION":
+>   https://developer.arm.com/documentation/den0028/b/?lang=en
 > 
-> Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->   drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 497 +++++++++++++++++++
->   1 file changed, 497 insertions(+)
+> * SMCCC v1.1 mandated that x4 to x17 were preserved. This was critical
+>   for some of the ARCH_WORKAROUND_* calls made from kernel/kvm entry
+>   asm.
 > 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> index b281cabfe992e..ea5d8599cb56a 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-[...]
-> +static int dw_hdmi_qp_match_tmds_n_table(struct dw_hdmi_qp *hdmi,
-> +				   unsigned long pixel_clk,
-> +				   unsigned long freq)
-> +{
-> +	const struct dw_hdmi_audio_tmds_n *tmds_n = NULL;
-> +	int i;
-> +
-> +	for (i = 0; common_tmds_n_table[i].tmds != 0; i++) {
-> +		if (pixel_clk == common_tmds_n_table[i].tmds) {
-> +			tmds_n = &common_tmds_n_table[i];
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (tmds_n == NULL)
-> +		return -ENOENT;
-> +
-> +	switch (freq) {
-> +	case 32000:
-> +		return tmds_n->n_32k;
-> +	case 44100:
-> +	case 88200:
-> +	case 176400:
-> +		return (freq / 44100) * tmds_n->n_44k1;
-> +	case 48000:
-> +	case 96000:
-> +	case 192000:
-> +		return (freq / 48000) * tmds_n->n_48k;
-> +	default:
-> +		return -ENOENT;
-> +	}
-> +}
-> +
-> +static u64 dw_hdmi_qp_audio_math_diff(unsigned int freq, unsigned int n,
-> +				unsigned int pixel_clk)
-> +{
-> +	u64 final, diff;
-> +	u64 cts;
-> +
-> +	final = (u64)pixel_clk * n;
-> +
-> +	cts = final;
-> +	do_div(cts, 128 * freq);
-> +
-> +	diff = final - (u64)cts * (128 * freq);
-> +
-> +	return diff;
+>   That was defined in ARM DEN 0070, AKA "Firmware interfaces for
+>   mitigating cache speculation vulnerabilities":
+> 
+>   https://developer.arm.com/cache-speculation-vulnerability-firmware-specification
 
-I believe
+I can't find "DEN 0070" anywhere there...
 
-final = (u64)pixel_clk * n;
-do_div(cts, 128 * freq);
-diff = final - (u64)cts * (128 * freq);
+> * SMCCC v1.2 relaxed things such that x4 to x17 must be preserved
+>   *unless* they contained results of the function.
+> 
+>   That was defined in ARM DEN 0028C, AKA "SMC CALLING CONVENTION":
+>   https://developer.arm.com/documentation/den0028/c/?lang=en
+> 
+>   .. which folded inthe requirements from ARM DEN 0070, with the
+>   relaxation above, but also kept the stale not from ARM DEN 0028B.
+> 
+> In Linux we depend on x4 to x17 not being clobbered *unless* they're
+> being used to return a result.
+> 
+> The current wording in the spec is messed up, and suggests that SMC32
+> calls could clobber the upper 32 bits of x4 to x17, which is inccorect
+> and would break the ARCH_WORKAROUND_* calls mentioend above (given those
+> are SMC32). I'll go chase the SMCCC architects about that; it's clearly
+> an unintentional error when reformatting the document.
+> 
+> The *intent* is that x4 to x17 are preserved here. AFAICT, nothing in
+> arm_smccc_version_init() returns a value in x4 to x17. If any of those
+> are clobbered for an SMCCCv1.1 call, it's definitely a firmware bug.
 
-is just an elaborate way of doing
+Perhaps, but I must admit that I have sympathy for the f/w developers
+here given that the latest spec on the Arm website says that they can do
+this and the spec that apparently requires the registers to be preserved
+is either missing or hard to find. How are they supposed to know what
+the intention was when the documentation definitively says something
+else?
 
-((u64)pixel_clk * n) % (128 * freq)
+Emanuele -- could you hack the code to poison the other unused result
+registers () and see if they are also cleared? ARM_SMCCC_TRNG_VERSION
+looks like a 32-bit call, so that would be W1-W7 afaict.
 
-? If that's the case, then I believe do_div(a, b) actually already 
-returns the remainder of a by b.
-
-If that's the case, isn't that function simply:
-
-return do_div(mul_u32_u32(pixel_clk, n), mul_u32_u32(freq, 128))
-
-?
-
-We could probably replace mul_u32_u32(freq, 128) with freq * 128 
-considering that dw_hdmi_qp_match_tmds_n_table expects freq to be < 
-192000, so we won't get an overflow with that.
-
-mul_u32_u32(pixel_clk, n) does the u32*u32->u64 without a temporary C 
-variable.
-
-[...]
-
-> +static void dw_hdmi_qp_set_audio_interface(struct dw_hdmi_qp *hdmi,
-> +					   struct hdmi_codec_daifmt *fmt,
-> +					   struct hdmi_codec_params *hparms)
-> +{
-> +	u32 conf0 = 0;
-> +
-> +	/* Reset the audio data path of the AVP */
-> +	dw_hdmi_qp_write(hdmi, AVP_DATAPATH_PACKET_AUDIO_SWINIT_P, GLOBAL_SWRESET_REQUEST);
-> +
-> +	/* Disable AUDS, ACR, AUDI */
-> +	dw_hdmi_qp_mod(hdmi, 0,
-> +		  PKTSCHED_ACR_TX_EN | PKTSCHED_AUDS_TX_EN | PKTSCHED_AUDI_TX_EN,
-> +		  PKTSCHED_PKT_EN);
-> +
-> +	/* Clear the audio FIFO */
-> +	dw_hdmi_qp_write(hdmi, AUDIO_FIFO_CLR_P, AUDIO_INTERFACE_CONTROL0);
-> +
-> +	/* Select I2S interface as the audio source */
-> +	dw_hdmi_qp_mod(hdmi, AUD_IF_I2S, AUD_IF_SEL_MSK, AUDIO_INTERFACE_CONFIG0);
-> +
-> +	/* Enable the active i2s lanes */
-> +	switch (hparms->channels) {
-> +	case 7 ... 8:
-> +		conf0 |= I2S_LINES_EN(3);
-> +		fallthrough;
-> +	case 5 ... 6:
-> +		conf0 |= I2S_LINES_EN(2);
-> +		fallthrough;
-> +	case 3 ... 4:
-> +		conf0 |= I2S_LINES_EN(1);
-> +		fallthrough;
-> +	default:
-> +		conf0 |= I2S_LINES_EN(0);
-> +		break;
-> +	}
-> +
-> +	dw_hdmi_qp_mod(hdmi, conf0, I2S_LINES_EN_MSK, AUDIO_INTERFACE_CONFIG0);
-> +
-> +	/*
-> +	 * Enable bpcuv generated internally for L-PCM, or received
-> +	 * from stream for NLPCM/HBR.
-> +	 */
-> +	switch (fmt->bit_fmt) {
-> +	case SNDRV_PCM_FORMAT_IEC958_SUBFRAME_LE:
-> +		conf0 = (hparms->channels == 8) ? AUD_HBR : AUD_ASP;
-> +		conf0 |= I2S_BPCUV_RCV_EN;
-> +		break;
-> +	default:
-> +		conf0 = AUD_ASP | I2S_BPCUV_RCV_DIS;
-> +		break;
-> +	}
-> +
-> +	dw_hdmi_qp_mod(hdmi, conf0, I2S_BPCUV_RCV_MSK | AUD_FORMAT_MSK,
-> +		  AUDIO_INTERFACE_CONFIG0);
-> +
-> +	/* Enable audio FIFO auto clear when overflow */
-> +	dw_hdmi_qp_mod(hdmi, AUD_FIFO_INIT_ON_OVF_EN, AUD_FIFO_INIT_ON_OVF_MSK,
-> +		  AUDIO_INTERFACE_CONFIG0);
-
-This is all very I2S-centric while the HDMI controllers on RK3588 do 
-have the ability (according to the TRM) to use S/PDIF instead of I2S. I 
-assume the driver should be able to know which format to use based on
-simple-audio-card,format property? Is that correct? Then current support 
-which doesn't even check for I2S would be fine and not conflict with a 
-later commit which would add support for S/PDIF? (Essentially asking if 
-we need another DT property for the HDMI controller node or elsewhere to 
-specify which mode to run in instead of expecting it to always be I2S).
-
-Cheers,
-Quentin
+Will
 
