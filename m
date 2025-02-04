@@ -4,80 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A90C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 16:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D3BC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 16:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hauJu26kkXe1JdmoBS/fv8MeH/lH7c8n0YlDPmB8m+4=; b=hOC+BZ+SFelGiKKNm68pXwGdZf
-	sUGaMUtVDj2UIPikugAca3AFQrEjMkH5MTmMvbvEkyrGq7nzObsVn2Y/3Dqfl3NcHgqEjxvScpWuP
-	xenDI2uZIuhMsXzgSv6ms3kUr2gjLrN8Om4ReGo46nC/OxbUp34sPAGVHkiqoSXxZndlA0SDL5zR3
-	boRQV3dd/H/TGlMlrk/sly7tbj5ylQeT/LGRsGl3rhFzp3mK5JmBOLC3vQnF+C6K4Ydx3BNvxC4LS
-	/zHsV0vvlpsoSamCei/1HrYyCiJMeSUX+W2ds5AyxRT+8h8dbdwN5nNfVglT2aSoVIz63wFyPIXxc
-	VylwQ4gQ==;
+	bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=; b=xyBUBjOEY1TXGBXhdkzMQ7rapJ
+	MocHh/Ry9AK7uF8sV+qmNfUPAjaQ8PKZig+KYJoe6HIu+LKHt8dk9VKqNc/R/ox+6K/tmG5sjOJok
+	bWoAeygkhMnD6fdBRBgZ1E0jZw9Kj6UCTx5B/iM6VyxuU/Ad02MnXaITbVpnwds60bEy6I4AfhmWu
+	u38KM38oqK3ZvnhcnnAccAkTqRj60Rc9etMqHP0bdEYQWX3DLT7HW4MhlnnL9W+uwM9wRcRgu78ok
+	FsKy/LHCkvPBoxshHNe3SNZdVpAA1LGUG/0OReOfTAzG6BYvwvreOZFPSSlWkfHCJgx3UtHFonNg8
+	xeBvVggA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfLNf-00000000uRc-1mp5;
-	Tue, 04 Feb 2025 16:02:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfLZn-00000000vt9-3ZFL;
+	Tue, 04 Feb 2025 16:15:03 +0000
+Received: from mail-dm6nam11on20731.outbound.protection.outlook.com ([2a01:111:f403:2415::731] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfLIi-00000000tjG-2zXA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 15:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4ABF05C57AF;
-	Tue,  4 Feb 2025 15:56:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3D4C4CEDF;
-	Tue,  4 Feb 2025 15:57:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738684643;
-	bh=7uLPLkv/rRUvTQqmbKnITADQnn/mB3pVaCmFUVO5FDM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=s1p8T9UGTcbP/kXq8edjVeaZHp1tIIwnu1WuADL2T35DF3lfME8nV3nDzfdY8dCW+
-	 c3aTjhTOfdauijgrdMbmpezc1jb9n1/AVkG+M7SqwKk6rFVuTs3Jji/wfxDebQA0+m
-	 qHe5nnvy1fwS0R08exexp1+GBwdIPSQsqVSvxIB+08+XIePqMOOZ2BPOjsJFL3yWxd
-	 VYsYuQN8axQrYdz9db2NyEYOlIFLlnsjfVwIFjZxiO2+ko8JKqun0UUxsvVT8gzTSL
-	 VBzJ873rAFPnTy0avAKTKZgKiYUbZZCEMnuXpVUnJ91tOx3B7OMWN0ypOVUNJHEqMD
-	 hoxQQCuPDWGFA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tfLIf-000Tr7-6r;
-	Tue, 04 Feb 2025 15:57:21 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Alexander Potapenko <glider@google.com>,
-	Dmytro Terletskyi <dmytro_terletskyi@epam.com>,
-	Fuad Tabba <tabba@google.com>,
-	Lokesh Vutla <lokeshvutla@google.com>,
+	id 1tfLYR-00000000vg1-3c0m;
+	Tue, 04 Feb 2025 16:13:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s3QMKVUcSyPjdR3KTNEvJh803zx0a4QkRJBxu9xE/sLZKtk2YtwEJRIC8Eq0FXHIwHWx8cvH2h2yvLSMlxkfB1ruq49WG2QvTxM4rdnY3Qn3XLtPXg4xCvFtP4XZKqsEfOgTKckZ3O/fRNcYjkixaNez5ly6b2izuhwhDxZY81KJ4pfoo9r5FYQOJ6JxDSFGUd9S7KYW5mGr31qPLPrxaDvCUgoV6VniVvbaRfUtNmsEnc9HhEBualOASgjhRRloIJd+gJ8QQYRhWtVF9VnIPRbEwlRtxba34xlk4FM0LootVl5mSjpxZML1iViL1xiey7A4WojMGktPbpltZqG/kQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=;
+ b=EloJBBArXmpB+pPtYpEFrpxsWDM1yJHeliPNUjl1PYjNYfM1oAVyT0Z4yt6VRuelhuj916OSXGnu7EDnnj0hnqO74OJ61Rry67SPeDWtbvOBjKf06cwSOR0AANoFVfgxU5QLYQdg/mzPyuVqXtOCtLs5D9mQBKXDr+Z8Ame8zFLpkCjrjLi8PJlolbzwF/jtsbjhFybDjY5lQ5pEAAfuEoVjVZuYhTgS85w+1WHaKVobKD3yyK5RqRk/w0qbUDTAFF9bocoxzcs1+EwWGGOoE1rmnZtmye7vZBNH/4an2l3OJMJEQh/djq8KepMuyO/3vaYoc3mACblPCOp0tWm91Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=inmusicbrands.com; dmarc=pass action=none
+ header.from=inmusicbrands.com; dkim=pass header.d=inmusicbrands.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inmusicbrands.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=;
+ b=G5unYY62eC4b8fGu76UW5VsSoSf+akaanf1ooPYErP2Mg3HouInQuFtMpgxhxi+VxFQ2KBdKqa3wgMxZm1bqBJajRMNT3pIdyNyjC9+fXUgXMVdoVr7Yt03p0b5KtmQ6La1Bl2ejImQMuvByUNIy0mN9jmsNj05Jpv+rml44kOk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=inmusicbrands.com;
+Received: from MW4PR08MB8282.namprd08.prod.outlook.com (2603:10b6:303:1bd::18)
+ by LV3PR08MB9507.namprd08.prod.outlook.com (2603:10b6:408:213::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Tue, 4 Feb
+ 2025 16:13:33 +0000
+Received: from MW4PR08MB8282.namprd08.prod.outlook.com
+ ([fe80::55b3:31f1:11c0:4401]) by MW4PR08MB8282.namprd08.prod.outlook.com
+ ([fe80::55b3:31f1:11c0:4401%3]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
+ 16:13:33 +0000
+From: John Keeping <jkeeping@inmusicbrands.com>
+To: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
+Cc: John Keeping <jkeeping@inmusicbrands.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Subject: [GIT PULL] KVM/arm64 fixes for 6.14, take #1
-Date: Tue,  4 Feb 2025 15:56:56 +0000
-Message-Id: <20250204155656.775615-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: rockchip: i2s-tdm: fix shift config for SND_SOC_DAIFMT_DSP_[AB]
+Date: Tue,  4 Feb 2025 16:13:10 +0000
+Message-ID: <20250204161311.2117240-1-jkeeping@inmusicbrands.com>
+X-Mailer: git-send-email 2.48.1
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, glider@google.com, dmytro_terletskyi@epam.com, tabba@google.com, lokeshvutla@google.com, broonie@kernel.org, oliver.upton@linux.dev, Volodymyr_Babchuk@epam.com, r09922117@csie.ntu.edu.tw, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain
+X-ClientProxiedBy: LO4P123CA0150.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:188::11) To MW4PR08MB8282.namprd08.prod.outlook.com
+ (2603:10b6:303:1bd::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR08MB8282:EE_|LV3PR08MB9507:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8bb7991f-e51e-4c7c-608b-08dd4536def7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5Ggq8l24BKDI3o5nCnycr4/sNBOkZOniPw2aLxrWute/9lit7oQY0dVxmcQg?=
+ =?us-ascii?Q?dAqZabybxk2kpGewQ9vHLV3u260ZSHpIuSySrG1ciEiS7Tp63vyxC2cemDpM?=
+ =?us-ascii?Q?Y2KfhXgN/bQ022u6sKmVf7X+xBekuBYyW9nfwHrviAIqbPp+z+oP1fOJxzWE?=
+ =?us-ascii?Q?0U1J8puJEJMbmH13Blf8+auWLgNlC32SyP0tH7BlM+KhK6nDCwEwClVvet7T?=
+ =?us-ascii?Q?DqSn4CFykbtq7hCzJOq/S0ppkgEfb0KHptvPuOQFa2dblVRqeAuw639MgV5z?=
+ =?us-ascii?Q?jBwF0GK1iu0W0O91P6Hglq6uiOtawrpVnoNnVYl1ezwNzDbDplOQBSaNd4Y8?=
+ =?us-ascii?Q?FOciaLWbOszt+Qj1xfElucJctWuzKdu/ybDGLsqPElF+Y2SdtGAxjunX6d5l?=
+ =?us-ascii?Q?ot/JHJSz9dfPATWjFm1yGa+K6Jrv2WD5sT4ScENKcPmtWkilDH7HkgtkjokQ?=
+ =?us-ascii?Q?DacthnPYJII/asLDhP6m8Sjb8Ag2R6rR1RbdMFweTCBhujdnew0YE3omlYda?=
+ =?us-ascii?Q?FXdOch0n/YVzCiZO39bz8UQDBnKHoVSxQ2bYkG6b2YxLtxJ8fldwm9F1SGrr?=
+ =?us-ascii?Q?sDdkdJtgFZ+LNBVH46bqLLqz9QDrJ69/tepRsDTZHjRWKnB74n4MDcwrxieB?=
+ =?us-ascii?Q?kTpvDWglDSQIcz+39Crnc8dq9NXDmu5xqeESNhHJkxGchuyTlNsaMLUw/PAP?=
+ =?us-ascii?Q?VX9EQ1s+KZVd8kICo6MNfIK2ZeOQ27lznbmM8j3VIzWFcJyMemI6LgAf8bhq?=
+ =?us-ascii?Q?dweBqWjftoYau+HnFdt+RC9taGuEhfo5fijvWNq/kGVDYmsYT/GM4AEHs4Zb?=
+ =?us-ascii?Q?Fl5/nwtuiZHzSbNf1okpPs2rwjRWk0cr9/GzKXJR+7CH6SUlt80tT+/T7Sac?=
+ =?us-ascii?Q?SFunk0XWGv4GP4wFWguuGgtNpz3+z+up29r1NVjdSI+fR1HJNfoGiyz/sw+w?=
+ =?us-ascii?Q?DvpFte0fuVx3e48t8oPneKLxyZLaNChUufNTcxUxpGP/karC/JyAOXGprzAm?=
+ =?us-ascii?Q?7BToZB9Zd/hPVcx8OEk+FK3OfYzDBd2LQsiawQ66V01ghf22MxbWyZDznLjZ?=
+ =?us-ascii?Q?oa8qol9sD1CJ291dsAQowu2soc/I9HKPEvBrzB/ZJZNBF370H4QXmSTeH1F8?=
+ =?us-ascii?Q?5ZgSVU5qoVUXbtKXbp4DhgrzVcWHMvOvrDEgbI4rlsCdP6eeJsfW2LdngWU4?=
+ =?us-ascii?Q?xefcESLur1GWMGSmX/6kle0fjsqHOMZMmQrR659T4W8iW9miRrOu5C9hJ5eQ?=
+ =?us-ascii?Q?B3DgShnnMZDyjis3eCs5yy247uotTBEQCH0+4yQHT44Cz2y4tjV7DokS5Ai/?=
+ =?us-ascii?Q?IILNXufjg9NBNLohmHh+iCAllinbR5J/283azW+OcC193edT5p7lmqk0drgj?=
+ =?us-ascii?Q?PFsSvkD6sRvaQllGCmb8SpsW3omOxhYDn6mtIMQxSTJNg7nTARtmKGu4Hx8k?=
+ =?us-ascii?Q?CEWJaT56B0hhJ++iM+6gjQRDifpbmqQn?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR08MB8282.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+1NyI5p4XVgsiWOjAiubITRjT9S/bsLXRgWNL07VKuSxOSIozhsV/HeWsPWd?=
+ =?us-ascii?Q?kpszyrudccPzp7jFisEIAdTGk7GfluED1JdLuz7IrfoJg0UgGzJasa4FZuBn?=
+ =?us-ascii?Q?DKNfXT/FuXQ7blFwywg8hzg2Gu452Zif/O9ShXLgCAheFQmCZ+ZXqVavz6iQ?=
+ =?us-ascii?Q?reD2yh3bsKH3NgjqPbUA4JUlGcWTMRCwiDuJS5WHwY5YAFqVA/8PuLeD5EFi?=
+ =?us-ascii?Q?THiR0tAte+/QRoTvi3wSuNZL2cGfdGxRHEy5/q1e0ZF6Nt4Di0lp0saas3SM?=
+ =?us-ascii?Q?MYAiTJx99Z9ZnG/XFd8XLk5jJuf9raRunDBauJySdg3LL2Qm8b0zn6RKwRZk?=
+ =?us-ascii?Q?Y5BJFpZ2RwEcaIy+XAfWV3KL7Ww7etXaRZszYzWEKhoajGewksQbAD+yTjOj?=
+ =?us-ascii?Q?fpDCX0MUFel/VJIlCR88LESDDVROORSDrl+Rg9dxyoWAIuBQq5Dx5PnGNEYK?=
+ =?us-ascii?Q?eJCqHpTojyEYkEvd8XJkZx2Rbxwl/JbKdz2vr08yFSWk1HvGsUEcaTYorb73?=
+ =?us-ascii?Q?a/J5smTYKFvOxRtQzZvbbRWtk0Lzv7kUlTzIq2gqNY3PgRavIZ2hvonoRi/o?=
+ =?us-ascii?Q?EzIKKTVExR8DfBPbmIIVJr8FOMM3wugqfJVibdHPwkpgUWdnQsyUsyFb8/dK?=
+ =?us-ascii?Q?bNELYFNgpeE0vD2gjbgpV9LAhHOvFsffNXeiYJA57axzc8ECkSB08qAKq1dI?=
+ =?us-ascii?Q?+N7LE3Qyj4ptVlHRsunnNfjcJqffGccFyb7OLjuDZrJC3kjoFcWGSf6ZWSTf?=
+ =?us-ascii?Q?HZUZLxI1WtAswqsV3XRnGbgL1+HmEHnbR2/cn1g5V2eMCiKFSBB42t+P1127?=
+ =?us-ascii?Q?jU4fMKsoCGtG1VH6hpZoSOIB+xlg40NklwN1k/cT7sP80iacs8sStqgl6zHv?=
+ =?us-ascii?Q?hIqyikG4K6BFgOy7vCC7EVrrGY4zDdsjoVmLN6WAPQQHH5gd2VMpPSNXeWLM?=
+ =?us-ascii?Q?aYCweHMUk5G6kxt6ckzn8m5KtSb5lbcf7bDfIPqVWz0GSPw6oFjCOX2iMHG4?=
+ =?us-ascii?Q?BscmdhN4Qpn+1uYbX04Am8crIYRD+7f/5PqoWlqfC91Zqak3z/Z1GMDJMqUn?=
+ =?us-ascii?Q?MA5aCFQ0Noslp7ExdfKd/kqsmWVe2cC8lreXzbxDFREzZhqo+GeyVYjixd5F?=
+ =?us-ascii?Q?2P0Wf8rjAjk1gC4tfunlINF4zaBa4eQQ9dc7FKktQ7KIDFRcjKeoyzEY3Y+e?=
+ =?us-ascii?Q?BS8AhQv1+kjQvCoxzCNZAxt8SCDMUGB0bvUMtmMT5yyezHjWif3uMew4zTuV?=
+ =?us-ascii?Q?BjJoNzKL53RNi3yyDmf64MfjJIoTlIXsxvlLeBQczDgG27XMEWzHqdyM5Klo?=
+ =?us-ascii?Q?dncWdPscDC9zmxtPcbfCPCfE0S9ut0vKG7ewLecSyBfwWMsvn64DGH18miLB?=
+ =?us-ascii?Q?AgsQhPL8gCS6Z9IDcts6af9INPc6oOdpOunl6xKZ4h/IqvMt+wntKu/TNcu6?=
+ =?us-ascii?Q?pp8/CyzupZ2qRrviTsbbnuHY8WEJJQ1E+YMUZWUGYJGsVMCQVoq257WybMRl?=
+ =?us-ascii?Q?JKqPWYoCWkedOpa+iDlDFmLHVMyPXcNaIjoKqVKEPSjRbKNSZ77M+hz8943i?=
+ =?us-ascii?Q?eWnOIV9vT82IXrhCBRmuI/PquOLFWIKpG7FU6arCOy40LcodxIV5GVrjal+Y?=
+ =?us-ascii?Q?HQ=3D=3D?=
+X-OriginatorOrg: inmusicbrands.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bb7991f-e51e-4c7c-608b-08dd4536def7
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR08MB8282.namprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 16:13:33.1419
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 24507e43-fb7c-4b60-ab03-f78fafaf0a65
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6ubPjOLFLx3vrjBKt1xTSqmZqTJU91odH/TOm5bK/Pd8+3Xrf4YRRE7Hvkwz+X8RTdhl/So7HhMyA4XQjwyrUbEGnIIAfvgtZ9+D41FuEBM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR08MB9507
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_075724_837005_B7EB30EC 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_081339_916369_C7EDEEB4 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +163,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+Commit 2f45a4e289779 ("ASoC: rockchip: i2s_tdm: Fixup config for
+SND_SOC_DAIFMT_DSP_A/B") applied a partial change to fix the
+configuration for DSP A and DSP B formats.
 
-This is the first set of KVM/arm64 fixes for 6.14, most of them
-addressing issues exposed by code introduced in the merge window
-(timers, debug, protected mode...). Details in the tag, as usual.
+The shift control also needs updating to set the correct offset for
+frame data compared to LRCK.  Set the correct values.
 
-Please pull,
+Fixes: 081068fd64140 ("ASoC: rockchip: add support for i2s-tdm controller")
+Signed-off-by: John Keeping <jkeeping@inmusicbrands.com>
+---
+ sound/soc/rockchip/rockchip_i2s_tdm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-	M.
+diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
+index 7f5fcaecee4b6..78ab88843f861 100644
+--- a/sound/soc/rockchip/rockchip_i2s_tdm.c
++++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
+@@ -451,11 +451,11 @@ static int rockchip_i2s_tdm_set_fmt(struct snd_soc_dai *cpu_dai,
+ 			break;
+ 		case SND_SOC_DAIFMT_DSP_A:
+ 			val = I2S_TXCR_TFS_TDM_PCM;
+-			tdm_val = TDM_SHIFT_CTRL(0);
++			tdm_val = TDM_SHIFT_CTRL(2);
+ 			break;
+ 		case SND_SOC_DAIFMT_DSP_B:
+ 			val = I2S_TXCR_TFS_TDM_PCM;
+-			tdm_val = TDM_SHIFT_CTRL(2);
++			tdm_val = TDM_SHIFT_CTRL(4);
+ 			break;
+ 		default:
+ 			ret = -EINVAL;
+-- 
+2.48.1
 
-The following changes since commit 01009b06a6b52d8439c55b530633a971c13b6cb2:
-
-  arm64/sysreg: Get rid of TRFCR_ELx SysregFields (2025-01-17 11:07:55 +0000)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.14-1
-
-for you to fetch changes up to 0e459810285503fb354537e84049e212c5917c33:
-
-  KVM: arm64: timer: Don't adjust the EL2 virtual timer offset (2025-02-04 15:10:38 +0000)
-
-----------------------------------------------------------------
-KVM/arm64 fixes for 6.14, take #1
-
-- Correctly clean the BSS to the PoC before allowing EL2 to access it
-  on nVHE/hVHE/protected configurations
-
-- Propagate ownership of debug registers in protected mode after
-  the rework that landed in 6.14-rc1
-
-- Stop pretending that we can run the protected mode without a GICv3
-  being present on the host
-
-- Fix a use-after-free situation that can occur if a vcpu fails to
-  initialise the NV shadow S2 MMU contexts
-
-- Always evaluate the need to arm a background timer for fully emulated
-  guest timers
-
-- Fix the emulation of EL1 timers in the absence of FEAT_ECV
-
-- Correctly handle the EL2 virtual timer, specially when HCR_EL2.E2H==0
-
-----------------------------------------------------------------
-Lokesh Vutla (1):
-      KVM: arm64: Flush hyp bss section after initialization of variables in bss
-
-Marc Zyngier (4):
-      KVM: arm64: Fix nested S2 MMU structures reallocation
-      KVM: arm64: timer: Always evaluate the need for a soft timer
-      KVM: arm64: timer: Correctly handle EL1 timer emulation when !FEAT_ECV
-      KVM: arm64: timer: Don't adjust the EL2 virtual timer offset
-
-Oliver Upton (2):
-      KVM: arm64: Flush/sync debug state in protected mode
-      KVM: arm64: Fail protected mode init if no vgic hardware is present
-
- arch/arm64/kvm/arch_timer.c        | 49 +++++++++-----------------------------
- arch/arm64/kvm/arm.c               | 20 ++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 24 +++++++++++++++++++
- arch/arm64/kvm/nested.c            |  9 +++----
- arch/arm64/kvm/sys_regs.c          | 16 ++++++++++---
- 5 files changed, 73 insertions(+), 45 deletions(-)
 
