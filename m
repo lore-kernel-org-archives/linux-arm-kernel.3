@@ -4,100 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DA3C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 02:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4688BC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 03:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=av7mIowXw/9z91sfKm94CO7sTInESQe4v382zCXM7Ts=; b=cBfZGszFn457Ch7r2Q5oXvLaH5
-	U8MIpcfJGhoVR1BqS5SsAF9mXflTLbZ31hoT6hzXYWVQH1/Z+bUxy2nfRyR1WATw2Fr3FWwKTWjQP
-	DmgHus67gIIC0dPSZwsm5iN0TQZ6leyllqLRgK8w+mQnQpyFKjB0wvNSM59R4L7nOVS0SbzMwtuml
-	lNy+bue3SdAGSbzElw/GAhoPxwyvEnE8gzvjwgiMGlsLVv1iXrNIuBqzPBjnypy0IlkJDMk9ZmcCA
-	FLRkxCoZVWnLvynKM24H+I1YQNXI3lM3OEudLdkws6tUx1LOM4xb/Qf4PZosVsr+uKDLB5NNZaNCx
-	KpTErxtw==;
+	bh=HAqS3bI/nZNWijByPRTKJVUN97hHHkCl5lQJzeIb+ao=; b=A76D94SdMecHHjHhj8HqCwGaZC
+	95cx6prj68w0wDH86ezChwkJBgFQf86f/82LSWeJJr652QbkjwjZ6FVL4I9rFe3zkPP5sjPDsOovm
+	phyOidglrATvJaOjKMQPLMQy2N92KUL8nUSMazVg0SIHNdgOHafzudEITX1q6aMKXG3tIjtx1tgS1
+	GrEhDBm+0vGRvTcmal05tmVyPolpKRy59kAChpQi5WkwXp8UGW81cmofml9vnE/BFKU3Qy9q0tV5y
+	fIPutVbts1T2t1E7Rg863rUF9oCdgJvA97UISJOpMeMxGPsQNrd9VfNre+yZ25pcEP2QqCHD5VScB
+	Kes5zy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf8EP-0000000H5lI-25XV;
-	Tue, 04 Feb 2025 02:00:05 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1tf9XI-0000000HAEC-1Cp1;
+	Tue, 04 Feb 2025 03:23:40 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf8D3-0000000H5bf-49dC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 01:58:43 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3a7dfcd40fcso25155ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 17:58:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738634321; x=1739239121; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=av7mIowXw/9z91sfKm94CO7sTInESQe4v382zCXM7Ts=;
-        b=SUcGR3mLxdRA6yrKWi77q3ZfBr7fW8ObxRSglF5RCLNnU5pPHF5JOWtP1aNNqFMxB/
-         0VPSus2mMfkzSXcuflkv5OhbzK06bvNeowwiVOJXa0jrcy7B7L1z7XEYmXUo1UKt0Sz9
-         eMza/vP8+9lfOl/3W7ofYKVL0AGVPSMFV6M8dqfn9l4AzubqDoTqOQf+T/bCHA518qDY
-         FcO8nJSVPXxEwpOQ7aJBN0PQYU49gQ0KbLwvfvB25UTOPTqyi/glDhuLyUD31OsycX9p
-         8oqb0MJoZFjLaPs8N/7em/V2xWapj1CEnQnHvfghVwjgJtoWjbzizd5e0i7fQ+JL5luc
-         59PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738634321; x=1739239121;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=av7mIowXw/9z91sfKm94CO7sTInESQe4v382zCXM7Ts=;
-        b=t0byUmaE3EjmDo0W1S5Kto6TxwRIM5q9G4JFVkUctKbokDdrC6ggHYWaMpl3tVD/Sn
-         fuMwavfcHDwgXBa1bs+IyAo8JKIYP725/Uni3PLHSYedRoGL1mDUDZ+YPuTIbGeVW7FH
-         11Vd+I4UHPQYB9N9Ogw0sAK3CWVBSLSFC6sbJnWyPpbToj0cztAsuVbuT2WQPfoRoePd
-         rtbM9DeHiNjfVQqyjhW3oQYIS8SufZDQHRlnfWJ/cGC/vBkZrvJhBJiLVSJ82waPupvB
-         jE6ad6r51y/DrfCFW+baEry/6N2OUArTjO2GQ1rwxs2lSa0LTkxSrxvs/cxjkm0TfTrt
-         2dww==
-X-Forwarded-Encrypted: i=1; AJvYcCXd0JHgmSRQkFmzruJT6iYwPGfmb+3jfUWPeVJTJOrdAH8B7So0lCENkxZbv0QX4mDYE7W4mMUEBq6QeHWtGIj+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG0cCsQUHkvkluV1c8fgn6qp5bUHdvzLQoW7rOs2adVj9kTVSO
-	Iy6IYNQYipqZlGSi6+dPIaBaxc4/mCc3kEn33vpFAPagtM9XuYgBszRX+JapJobDe6FNUVy4zPG
-	d0IPX7n2S7JWVabY3ySxN4gAROUPbURG4rl5Q
-X-Gm-Gg: ASbGncseT5nK0/9KzGgpvH3nsEKRTDkM6GLo70lwsaUqlRK4VrIWLUdMywLcyUAy/qn
-	nmGcQVIxmB4GpN0kYvEU621dGiPaPGvlT51uQcijhjOpUEpNn58AXHG38PgqVX0mPbKmsX/dr0g
-	==
-X-Google-Smtp-Source: AGHT+IFSTGGsIToVAem8d3RPstMMmOgQL91UDPwPQKGKwSo9BvPHGLa6a2hOvXGKifufQ1ktwWV2laPTQRiNavnNF4g=
-X-Received: by 2002:a05:6e02:1546:b0:3cf:c825:cc6b with SMTP id
- e9e14a558f8ab-3d03fbc14ebmr1570415ab.10.1738634320753; Mon, 03 Feb 2025
- 17:58:40 -0800 (PST)
+	id 1tf9Vw-0000000HA6F-3UF4;
+	Tue, 04 Feb 2025 03:22:18 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 513GFHMu011894;
+	Tue, 4 Feb 2025 03:22:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HAqS3bI/nZNWijByPRTKJVUN97hHHkCl5lQJzeIb+ao=; b=WLi4VETtAWct4DCY
+	e0865jVE7ezCdHQKwZTkQKcc71eTsKLHt98yk01nMYHfw/ZZRvZPx4x35nigG5yE
+	RK0KDwJwiMmj8RgwX7zGNYfvvpxH9D3lHv5QxwnfKi/fZGUuP//1SbKl3io/3y7P
+	FFUz+oaAQ1xmSxprk1p9ghQQ7MUwy/kgMUl0qID4b9lonDyuCLTw5Ti2UHHMY8+U
+	fzF1ljB0hIK9kwtQB3TkLV36axTj88YGg5jnAUSRh0BiCUsMb0/p744Y+FhVvHhr
+	o5YyUeSOlhCareh7abe0rt46/+FPLdhnR/uGV6GdDSqAKUTVyzaUZ7ouTltNT+jU
+	btYM2w==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44k159h94t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Feb 2025 03:22:01 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5143M0SN003203
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 4 Feb 2025 03:22:00 GMT
+Received: from [10.110.45.144] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 3 Feb 2025
+ 19:21:59 -0800
+Message-ID: <4a18ddb1-a7f4-41ae-b115-516b1710cbde@quicinc.com>
+Date: Mon, 3 Feb 2025 19:21:52 -0800
 MIME-Version: 1.0
-References: <20250201071455.718247-1-irogers@google.com> <Z6EStkn-YZ8zaO7u@ghost>
- <CAP-5=fXRz_8CKNz4Fr-=0yhKbf_QE2ND+PPykSAO5p8wcUz7xA@mail.gmail.com>
- <Z6EVwaOVYaKtaK1j@ghost> <CAP-5=fX1hCNWWmGJPKYxj93S=zM1-eRucqzb4WW5fB_sZBCRLg@mail.gmail.com>
- <Z6Eh1QLuqTbUKLCc@ghost> <CAP-5=fXZr8L4Z=Lb28QDZF8cbv2eJJEHSb0H9zcqSOB9cn5-9g@mail.gmail.com>
- <Z6FLDHz6V5L-HGR7@ghost>
-In-Reply-To: <Z6FLDHz6V5L-HGR7@ghost>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 3 Feb 2025 17:58:29 -0800
-X-Gm-Features: AWEUYZl4VPDQDYEEJe2b_m05PnnWBufqWLrhyYXjVGpczvYgfi2M8V9it8-CAj4
-Message-ID: <CAP-5=fVk6N=FVXsJ9xRJZhYSh2sbmUkEPr5HqRd-pR7mbGts+w@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the build
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>, 
-	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] arm64: dts: qcom: sm8750: Add USB support to SM8750
+ platforms
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Melody Olvera
+	<quic_molvera@quicinc.com>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Catalin Marinas" <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        "Bjorn Andersson" <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Satya Durga Srinivasu Prabhala
+	<quic_satyap@quicinc.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
+ <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
+ <lk26ltslmijj7tj2kst2wsvd6d2hyj3zjzcwavwl63evjhcgdh@ewqliiijispu>
+Content-Language: en-US
+From: Wesley Cheng <quic_wcheng@quicinc.com>
+In-Reply-To: <lk26ltslmijj7tj2kst2wsvd6d2hyj3zjzcwavwl63evjhcgdh@ewqliiijispu>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: Zy9C0otC3fT2aMT_4_uaNVuK6dCyJmDa
+X-Proofpoint-ORIG-GUID: Zy9C0otC3fT2aMT_4_uaNVuK6dCyJmDa
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-04_01,2025-01-31_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ impostorscore=0 spamscore=0 mlxlogscore=999 phishscore=0 clxscore=1011
+ mlxscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502040024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_175842_037736_ABFF8C8D 
-X-CRM114-Status: GOOD (  37.19  )
+X-CRM114-CacheID: sfid-20250203_192216_988077_9990D4B0 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,107 +118,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 3, 2025 at 3:02=E2=80=AFPM Charlie Jenkins <charlie@rivosinc.co=
-m> wrote:
-> On Mon, Feb 03, 2025 at 12:54:59PM -0800, Ian Rogers wrote:
-[snip]
-> > I think it makes sense in the kernel, as the built binary doesn't have
-> > cross-platform concerns. This is probably also the reason why the perf
-> > tool has an arch directory. Let me know what you think is the right
-> > direction for the perf tool syscall table code.
+
+On 1/14/2025 2:38 AM, Dmitry Baryshkov wrote:
+> On Mon, Jan 13, 2025 at 01:52:13PM -0800, Melody Olvera wrote:
+>> From: Wesley Cheng <quic_wcheng@quicinc.com>
+>>
+>> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
+>> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
+>>
+>> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+>> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+>> ---
+>>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts |  24 ++++++
+>>  arch/arm64/boot/dts/qcom/sm8750-qrd.dts |  24 ++++++
+>>  arch/arm64/boot/dts/qcom/sm8750.dtsi    | 134 ++++++++++++++++++++++++++++++++
+> Separate SoC and board patches.
 >
-> I am hesitant about moving all of the arch-specific syscall generation
-> flags into a single file.
+>>  3 files changed, 182 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+>> index 9e3aacad7bdab6848e86f8e45e04907e1c752a07..059eccbbc3fb05fc8806e36d35dc469d44443a26 100644
+>> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+>> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+>> @@ -792,3 +792,27 @@ &tlmm {
+>>  &uart7 {
+>>  	status = "okay";
+>>  };
+>> +
+>> +&usb_1 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_1_dwc3 {
+>> +	dr_mode = "peripheral";
+>> +};
+>> +
+>> +&usb_1_hsphy {
+>> +	vdd-supply = <&vreg_l2d_0p88>;
+>> +	vdda12-supply = <&vreg_l3g_1p2>;
+>> +
+>> +	phys = <&pmih0108_eusb2_repeater>;
+>> +
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_dp_qmpphy {
+>> +	vdda-phy-supply = <&vreg_l3g_1p2>;
+>> +	vdda-pll-supply = <&vreg_l2d_0p88>;
+>> +
+>> +	status = "okay";
+>> +};
+>> diff --git a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+>> index f77efab0aef9bab751a947173bcdcc27df7295a8..01c0af643626917614fbd68cf8962ef947ca6548 100644
+>> --- a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+>> +++ b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+>> @@ -790,3 +790,27 @@ &tlmm {
+>>  &uart7 {
+>>  	status = "okay";
+>>  };
+>> +
+>> +&usb_1 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_1_dwc3 {
+>> +	dr_mode = "peripheral";
+>> +};
+>> +
+>> +&usb_1_hsphy {
+>> +	vdd-supply = <&vreg_l2d_0p88>;
+>> +	vdda12-supply = <&vreg_l3g_1p2>;
+>> +
+>> +	phys = <&pmih0108_eusb2_repeater>;
+>> +
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_dp_qmpphy {
+>> +	vdda-phy-supply = <&vreg_l3g_1p2>;
+>> +	vdda-pll-supply = <&vreg_l2d_0p88>;
+>> +
+>> +	status = "okay";
+>> +};
+>> diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+>> index 3bbd7d18598ee0a3a0d5130c03a3166e1fc14d82..54522fd3d0e11c3cff02beaf1d249fe654cacc0f 100644
+>> --- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+>> @@ -10,6 +10,7 @@
+>>  #include <dt-bindings/interconnect/qcom,icc.h>
+>>  #include <dt-bindings/interconnect/qcom,sm8750-rpmh.h>
+>>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +#include <dt-bindings/phy/phy-qcom-qmp.h>
+>>  #include <dt-bindings/power/qcom,rpmhpd.h>
+>>  #include <dt-bindings/power/qcom-rpmpd.h>
+>>  #include <dt-bindings/soc/qcom,rpmh-rsc.h>
+>> @@ -1966,6 +1967,139 @@ lpass_lpicx_noc: interconnect@7420000 {
+>>  			#interconnect-cells = <2>;
+>>  		};
+>>  
+>> +		usb_1_hsphy: phy@88e3000 {
+>> +			compatible = "qcom,sm8750-m31-eusb2-phy";
+>> +			reg = <0x0 0x88e3000 0x0 0x29c>;
+>> +
+>> +			clocks = <&tcsrcc TCSR_USB2_CLKREF_EN>;
+>> +			clock-names = "ref";
+>> +
+>> +			resets = <&gcc GCC_QUSB2PHY_PRIM_BCR>;
+>> +
+>> +			#phy-cells = <0>;
+>> +
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		usb_dp_qmpphy: phy@88e8000 {
+>> +			compatible = "qcom,sm8750-qmp-usb3-dp-phy";
+>> +			reg = <0x0 0x088e8000 0x0 0x3000>;
+>> +
+>> +			clocks = <&gcc GCC_USB3_PRIM_PHY_AUX_CLK>,
+>> +				 <&rpmhcc RPMH_CXO_CLK>,
+>> +				 <&gcc GCC_USB3_PRIM_PHY_COM_AUX_CLK>,
+>> +				 <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
+>> +			clock-names = "aux",
+>> +				      "ref",
+>> +				      "com_aux",
+>> +				      "usb3_pipe";
+>> +
+>> +			resets = <&gcc GCC_USB3_PHY_PRIM_BCR>,
+>> +				 <&gcc GCC_USB3_DP_PHY_PRIM_BCR>;
+>> +			reset-names = "phy",
+>> +				      "common";
+>> +
+>> +			power-domains = <&gcc GCC_USB3_PHY_GDSC>;
+>> +
+>> +			#clock-cells = <1>;
+>> +			#phy-cells = <1>;
+> Missing orientation-switch and ports{} description.
 
-In these changes I had a single file to build up a mapping from ELF
-machine to syscall table in an array and I wanted to keep the logic to
-build the array alongside the logic to build up the components of the
-array - so the ifdefs were visually the same. As the scope is a single
-file and the variables are static, this can give useful C compiler
-"unused definition" warnings. You can trick the linker to give similar
-warnings at the scope of a file, so this isn't a deal breaker.
+At least for this initial submission/series, we haven't yet defined the PMIC GLINK connections yet, so does it make sense to include these now?  Basically, even if we define that connection, since I'm not aware if the enablement of PMIC GLINK has been added, it would be nil, as it would be the one responsible for registering the type C port. 
 
-> There is currently a really clean separation
-> between the architectures and it's possible to generate all of the
-> syscall tables for all of the architecutures based on the paths to the
-> syscall table.
+>> +
+>> +			status = "disabled";
+>> +		};
+>> +
+>> +		usb_1: usb@a6f8800 {
+>> +			compatible = "qcom,sm8750-dwc3", "qcom,dwc3";
+>> +			reg = <0x0 0x0a6f8800 0x0 0x400>;
+>> +			status = "disabled";
+>> +			#address-cells = <2>;
+>> +			#size-cells = <2>;
+>> +			ranges;
+>> +
+>> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
+>> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
+>> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
+>> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
+>> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
+>> +				 <&tcsrcc TCSR_USB3_CLKREF_EN>;
+>> +			clock-names = "cfg_noc",
+>> +				      "core",
+>> +				      "iface",
+>> +				      "sleep",
+>> +				      "mock_utmi",
+>> +				      "xo";
+>> +
+>> +			assigned-clocks = <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
+>> +					  <&gcc GCC_USB30_PRIM_MASTER_CLK>;
+>> +			assigned-clock-rates = <19200000>, <200000000>;
+>> +
+>> +			interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
+>> +						  <&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
+>> +					      <&pdc 14 IRQ_TYPE_EDGE_BOTH>,
+>> +					      <&pdc 15 IRQ_TYPE_EDGE_BOTH>,
+>> +					      <&pdc 17 IRQ_TYPE_LEVEL_HIGH>;
+>> +			interrupt-names = "pwr_event",
+>> +					  "hs_phy_irq",
+>> +					  "dp_hs_phy_irq",
+>> +					  "dm_hs_phy_irq",
+>> +					  "ss_phy_irq";
+>> +
+>> +			power-domains = <&gcc GCC_USB30_PRIM_GDSC>;
+>> +			required-opps = <&rpmhpd_opp_nom>;
+>> +
+>> +			resets = <&gcc GCC_USB30_PRIM_BCR>;
+>> +
+>> +			interconnects = <&aggre1_noc MASTER_USB3_0 0 &mc_virt SLAVE_EBI1 0>,
+>> +					<&gem_noc MASTER_APPSS_PROC 0 &config_noc SLAVE_USB3_0 0>;
+>> +			interconnect-names = "usb-ddr", "apps-usb";
+>> +
+>> +			usb_1_dwc3: usb@a600000 {
+>> +				compatible = "snps,dwc3";
+>> +				reg = <0x0 0x0a600000 0x0 0xe000>;
+>> +
+>> +				interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+>> +
+>> +				iommus = <&apps_smmu 0x40 0x0>;
+>> +
+>> +				phys = <&usb_1_hsphy>, <&usb_dp_qmpphy QMP_USB43DP_USB3_PHY>;
+>> +				phy-names = "usb2-phy", "usb3-phy";
+>> +
+>> +				snps,hird-threshold = /bits/ 8 <0x0>;
+>> +				snps,usb2-gadget-lpm-disable;
+>> +				snps,dis_u2_susphy_quirk;
+>> +				snps,dis_enblslpm_quirk;
+>> +				snps,dis-u1-entry-quirk;
+>> +				snps,dis-u2-entry-quirk;
+>> +				snps,is-utmi-l1-suspend;
+>> +				snps,usb3_lpm_capable;
+>> +				snps,usb2-lpm-disable;
+>> +				snps,has-lpm-erratum;
+>> +				tx-fifo-resize;
+>> +
+>> +				dr_mode = "peripheral";
+> This goes to the board files.
+>
+>> +
+>> +				dma-coherent;
+>> +
+>> +				ports {
+>> +					#address-cells = <1>;
+>> +					#size-cells = <0>;
+>> +
+>> +					port@0 {
+>> +						reg = <0>;
+>> +
+>> +						usb_1_dwc3_hs: endpoint {
+>> +						};
+>> +					};
+>> +
+>> +					port@1 {
+>> +						reg = <1>;
+>> +
+>> +						usb_1_dwc3_ss: endpoint {
+> QMP endpoint.
 
-This doesn't happen currently as the build of the arch directory is to
-add in $(SRCARCH) only. So
-tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls will only be
-included into the build if SRCARCH=3D=3Darm64. As I've said I'm against
-the idea of the arch directory as it nearly always causes cross
-platform problems - not an issue in a Linux kernel build. We recently
-eliminated dwarf-regs for this reason (and hopefully fixing up cross
-platform disassembly issues as a consequence):
-https://lore.kernel.org/all/20241108234606.429459-1-irogers@google.com/
-We could have the syscall table logic not under arch and generate
-multiple files, but we'd be adding extra logic to pull things apart to
-then pull things back together again, which feels like unnecessary
-complexity.
+Same as above comment.
 
-It seems in your changes the Kbuild and Makefile.syscalls are running
-in the arch directory - this feels like a lot of peculiar and
-separated build logic for just iterating over a bunch of arch
-directory names and calling a shell function on them - albeit with
-some arch specific parameters. There's also an extra C helper
-executable in your code. I kind of like that I get a single header
-that is the same across all architectures and with no more build
-system requirements than to support ifdefs - in fact the ifdefs are
-just there to keep the code size down there is a #define to make them
-all have no effect. I hear your "clean separation" but I also think
-separation across files can make things harder to read, state is in >1
-place. I've tried to cleanly separate within the script.
+Thanks
 
-I do think there is some tech debt in both changes. My:
-```
-#if defined(ALL_SYSCALLTBL) || defined(__riscv)
-#if __BITS_PER_LONG !=3D 64
-EOF
-build_tables "$tools_dir/scripts/syscall.tbl" "$outfile"
-common,32,riscv,memfd_secret EM_RISCV
-echo "#else" >> "$outfile"
-build_tables "$tools_dir/scripts/syscall.tbl" "$outfile"
-common,64,riscv,rlimit,memfd_secret EM_RISC
-V
-cat >> "$outfile" <<EOF
-#endif //__BITS_PER_LONG !=3D 64
-```
-means the perf binary word size determines the syscall table support.
-This is because the e_machine in the ELF header isn't unique in these
-two cases and having both tables would have no effect. You've moved
-this into the env arch name handling, but I think having >1 way to
-encode a binary type is suboptimal. There are some ELF flag ABI bits
-that resolve disassembler things on csky, so perhaps a resolution is
-to pass ELF flags along with the machine type. I'm not clear in your
-change how "32_riscv" is generated to solve the same problem. Imo,
-it'd kind of be nice not to introduce notions like "64_arm64" as we
-seem to be always mapping/normalizing/... these different notions and
-they feel inherently brittle.
+Wesley Cheng
 
-> What causes the arch directory to be a pain for Bazel? I
-> guess I am mostly confused why it makes sense to change the kernel
-> Makefiles in order to accomidate a rewrite of the build system in Bazel
-> that isn't planned to be used upstream.
-
-It's just software and so the issues are resolvable, ie I don't think
-bazel should be determining what happens upstream - it motivates me to
-some extent. For the bazel build I need to match the Makefile behavior
-with bits of script called genrule, the scope and quantity of these
-increase with the arch directory model, extra executables to have in
-the build etc. I also imagine cross platform stuff will add
-complexity, like mapping blaze's notions of machine type to those
-introduced in your change. It is all a lot of stuff and I think what's
-in these changes keeps things about as simple as they can be. It'd be
-nice to integrate the best features of both changes and I think some
-of the e_machine stuff here can be added onto your change to get the
-i386/x86-64 case to work. I'm not sold on the complexity of the build
-in your changes though, multiple files, Kbuild and Makefile.syscalls,
-the arch directory not optionally being built, helper executables.
-Ultimately it is the same shell logic in both changes, and your
-previous work laid out all the ground work for this (I'm very grateful
-for it :-) ).
-
-Thanks,
-Ian
 
