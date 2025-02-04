@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD74FC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C6EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfN7jN8OQzYiImZnTABvy7SyEvQVUmOK9CigANHmlX8=; b=dMMYlPBouJq1yoGWZq372MaUxM
-	TBw8UQdRq0n2Jp2FonPevRfFlxJfUtFIcdB+7k5vMM1Plmn1V7tZ0+xrlQSqQgtm5ui3S5BKRz6Wu
-	4KvoOAZEl5CwoM7tWEouFjiLv0mwXXsKuzbECnmO8O1YBWK6tZLfjDCAq4jY+zAi1dlykW6rHudiX
-	siq+yfZDF+2jcIIkR3PC3AknXif05+Us+hlTdNIzOjATRo3AdTv/4PL+1srBlxoSgYqymjEubTTFn
-	mEkuCPY6UE5dYM7UrQlEIdjpt7PI7pkjECzTN77QFyW3u4ovjX32DM/1asmoToJ1QJKaxf7Dmja+Q
-	ylohG4Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCT1GwMUpouo94Z78oXbtH59Xf4n1/0RJHycCkL9Qjc=; b=qdlArNsgNv0aLuOIRNe7O0HfCk
+	KcYFJJCCMTP6NhJ8dz3s5yTVwutK+8nguljgrkojBZYJeL0OMstzdkCPGBkP//NCf5g2ex0T4OzO5
+	iTUL9rO30OS0wtvnXN0rR3XeVRv3DuxqAcZ/7gU08CdLubgX1UJ2qeTB9mGrpGHvfKo1u+0OovaLy
+	IQA/9f3CiL8tf6YQzqhc7GtZ6IZ5estrAyAY6EzMOAM81eRCxivBQdHrtFVlSTeuZXRmVmfI92ucz
+	+apB85QyI7CKirOOGJMYzNzSuWwfV3kKsm5Et5uvo6bKeli+xIWQxzOfeQd75wUbak4wAG6IMcXLC
+	JTq9AGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIDv-00000000RfO-4BPi;
-	Tue, 04 Feb 2025 12:40:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfIFT-00000000RwR-20Um;
+	Tue, 04 Feb 2025 12:41:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfI8J-00000000R7l-3KfH;
-	Tue, 04 Feb 2025 12:34:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MfN7jN8OQzYiImZnTABvy7SyEvQVUmOK9CigANHmlX8=; b=U81UbmLQ8C7ne/P9TVd0h+Q6HP
-	Q+cL6LjtoKC121SjBMjAh49lwsPgcZfTeWwr1oefrZKLy2CG5FVIuY2sI7G5P25uEX5wKJcIiCIbk
-	26QKH/+0z0q+eaISd1u9ypedGPLTHN1jzvj+pZqkwYogHOe7K+9pyq5co6a0yuwUicQjlHNmEmJVc
-	tWBCS0KbYFtbxhoJ/nwgPOX0qjWjqHinW1lAi7B3uHzzDRSSPe4SZ3S3Gzk17f7ZAYC08qpX4TwJj
-	qfbc9jfFgkd+Rk7L84iJnbhcC61BX1Sxkh1PAXEd2i+wFNfampTFrBCyxqgqOBYRVedIViMuOWoOA
-	6KihiyCw==;
-Received: from mail.manjaro.org ([116.203.91.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfI8G-0000000GInP-24GF;
-	Tue, 04 Feb 2025 12:34:26 +0000
+	id 1tfIDh-00000000ReR-3icr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 12:40:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 64B235C6174;
+	Tue,  4 Feb 2025 12:39:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9610AC4CEDF;
+	Tue,  4 Feb 2025 12:39:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738672800;
+	bh=N2qBL/ihZVgOg0jeuK8MBcIjOSVN8VD1H9tlyiAlt1o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AaEWSMPBKlEiBYavtoRQD57VVL5kSalqLBpw/t9M/kgy6LyVDfeQMADYApS218zj7
+	 CKNKbScaWRq58sSIGvNSMKLuSNn927nzsBO/Hko70n+dBC2J3QT2jRTg6dGF8Xo1to
+	 QHwgy5fEGxaSFRb8hxdN69gnElGgrve6s3luCLqWx3C+84Myo7wpDG2IREKVZ0aXqu
+	 MIjEtAIfOFgPvQC0fUGBw109yn/QludqgvphFpnMyXz/Dxo3wrmIZ8/s2al9kYVs5p
+	 HNQl2oWcoY1sFEHZg97nFBBXpPbHVom6pKQNQgHAmO1knl6X099JWBE1nb6DuDWxlU
+	 BQebgOEMUdQCA==
+Date: Tue, 4 Feb 2025 12:39:56 +0000
+From: Will Deacon <will@kernel.org>
+To: Radu Rendec <rrendec@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Borislav Petkov <bp@alien8.de>
+Subject: Re: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo
+ array
+Message-ID: <20250204123955.GD1063@willie-the-truck>
+References: <20250123181159.1849346-1-rrendec@redhat.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738672453;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MfN7jN8OQzYiImZnTABvy7SyEvQVUmOK9CigANHmlX8=;
-	b=oYG3nLfwwS7fdhBxqZAxFHstXJ01m4J1HTG1edyhS8fN1bJZuEY48Dvml8RG5aeKuaxyXN
-	HeBqsipmiPAxGFwUcY4XCVpFZnVrHxEdosBZR9l60C1njDSjM6TgqiS37hTGDVYL9kVXE1
-	+HFS8z5HwxxRNEGMIRX5ZMbfvmAt38RgnRfrtkc55Ro7dWiQYURjX1Vwt/olz1l5I70f9d
-	QBF8/xwpaqc8JTIip75wmmWWx6gVBi6pbumR/WvZl9l9jJVi5kVZpBwXH5RycVr2mx/q0t
-	61YkSKMs6eXniMNR9LgtMgnoQJEwL4XnVpoAKjBmI81p4qjliJXobBbhTUn4PQ==
-Date: Tue, 04 Feb 2025 13:34:13 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: switch Rock 5C to PMIC-based TSHUT
- reset
-In-Reply-To: <20250204-rock-5c-tshut-v1-1-33301e4eef64@gmail.com>
-References: <20250204-rock-5c-tshut-v1-1-33301e4eef64@gmail.com>
-Message-ID: <709ed6c2097f494f1ed6e5b08f55ef87@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250123181159.1849346-1-rrendec@redhat.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_123424_755115_9100712F 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250204_044001_976202_3A02E0C0 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexey,
+On Thu, Jan 23, 2025 at 01:11:59PM -0500, Radu Rendec wrote:
+> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
+> index d9c9218fa1fdd..77ffda7284754 100644
+> --- a/arch/arm64/kernel/cacheinfo.c
+> +++ b/arch/arm64/kernel/cacheinfo.c
+> @@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
+>  	unsigned int level, idx;
+>  	enum cache_type type;
+>  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+> -	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+> +	struct cacheinfo *infos = this_cpu_ci->info_list;
+>  
+>  	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
+> -	     idx < this_cpu_ci->num_leaves; idx++, level++) {
+> +	     idx < this_cpu_ci->num_leaves; level++) {
+>  		type = get_cache_type(level);
+>  		if (type == CACHE_TYPE_SEPARATE) {
+> -			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+> -			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+> +			if (idx + 2 > this_cpu_ci->num_leaves)
+> +				break;
 
-On 2025-02-04 10:02, Alexey Charkov wrote:
-> Radxa Rock 5C supports both CRU-based (default) and PMIC-based reset
-> upon thermal runaway conditions. The former resets the SoC by 
-> internally
-> poking the CRU from TSADC, while the latter power-cycles the whole 
-> board
-> by pulling the PMIC reset line low in case of uncontrolled overheating.
-> 
-> Switch to a PMIC-based reset, as the more 'thorough' of the two.
-> 
-> Tested by temporarily setting rockchip,hw-tshut-temp to 65C to simulate
-> overheating - this causes the board to reset when any of the on-chip
-> temperature sensors surpasses the tshut temperature.
-> 
-> Requires Alexander's patch [1] fixing TSADC pinctrl assignment
-> 
-> [1] 
-> https://lore.kernel.org/r/20250130053849.4902-1-eagle.alexander923@gmail.com
-> 
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> index
-> 6e56d7704cbe0dc06242cb39df56b2fc9d6bc774..00b2d87a6bce4af883a3e7c7e606ea5b96c68b19
-> 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-> @@ -873,6 +873,8 @@ regulator-state-mem {
->  };
-> 
->  &tsadc {
-> +	rockchip,hw-tshut-mode = <1>; /* tshut mode 0:CRU 1:GPIO */
-> +	rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
->  	status = "okay";
->  };
+Why are you checking 'idx + 2' rather than 'idx + 1'?
 
-Looking good to me, thanks for the patch!  I just went through
-the Radxa ROCK 5C schematic and it all matches these DT additions.
-Thus, please feel free to include:
-
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+Will
 
