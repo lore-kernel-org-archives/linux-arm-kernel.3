@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F92C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686BFC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7AVcnrMqqk1Euq3unWHELoIBP6QsbM1RKYv9zMqypK0=; b=MR0MwMU0ywWVD4LiT9E5P4Txtz
-	Ch44Zaxisw60bW9CsGe83txvoeTLlR0PncOZeBr/D2JKZ9m1YOBLFpLZsnmXk0cx0H5pt6ckA6j/5
-	ZhRUIkb79+DKPrZ0B18agroBmLdH2Ei3VLdblSJZxTBRDfOL3dyYF4wqY8fNvOu8ga+JD/fBa72bj
-	I2BEqrEfHLedv+y/MipEwOfURt0vwMyZUOnd1OoJ5xtNjmyWZNtxqs5q67bD4vjK73X2dyP1gwJ0n
-	pnTahB3mRgUtO7FUrr4uJxedoeSUTUDYFzqsQ+uCBZ6Y9adIkjnWWHuTEtao/qwmkZOpu17YTxHmv
-	stLE4Bfw==;
+	bh=fXCKZvImQuTOesY0OsMLy2+fVLkdqhy5wBhRUWlJGLQ=; b=l4fQ4QZOt3yjlW4nZm0h+sCRBL
+	FvCtDexw/BrrE3TmfpyTO5hCgTs6khdD75nx2OrGPZbfimhTSgAEY5e4iAbKxNvI38EE/MFk4LkCb
+	PtxrQrIuL2bCiZaBB41gRam0DZ24Ek+IcX/ao2u3et7v2h2Zemu3ouiBvqHfB5y54AHxYmOJbFrod
+	M7QzeIe8hEmA/2/QcFMJYSRuSl5Fz+fUfMEQy5A09ZT+BsjweFT8icsv+b4PB5qeWHnK3j2aKLM7F
+	4seIEcy0RALce34DHJYDB4CeWEZJ+UTPOTxj4q0Dbxcp5XT0oKE0/MyyKU/o2ttPjE4m9kHhXlRGy
+	JmkiGqvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMTt-0000000142q-2koP;
-	Tue, 04 Feb 2025 17:13:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfMci-00000001516-1stw;
+	Tue, 04 Feb 2025 17:22:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMSY-000000013tI-1faY
+	id 1tfMbO-000000014xK-3fi0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 17:11:39 +0000
+	Tue, 04 Feb 2025 17:20:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D908A42A8D;
-	Tue,  4 Feb 2025 17:09:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B98AC4CEDF;
-	Tue,  4 Feb 2025 17:11:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 07DE4A42A93;
+	Tue,  4 Feb 2025 17:19:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24FB2C4CEDF;
+	Tue,  4 Feb 2025 17:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738689097;
-	bh=hrbC47N02DT87DswOvF6MjKDFNee3DLRVLKFdueteLo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=o1gR2hi7pyahKqW0F8jO5l32TXBlkXh5RtT/2vpzv7IfqzwOeyJOm/9emiER8yKqv
-	 d5jL/jHvMeC1+C0HOOHWw1c6+2KTPv6C/COo1GtzXYO1CbEaKNRpQv0nq8/e00PYVt
-	 5tXQAal4TWB35W63wAwoYFTUELsCFoCRq7Ww46twJoF/FbwJ9OCzV0l7smyOazhxxc
-	 G3Z5vqs/0PXXZVY+Hr1EmYBdhv1UMJTYdTfrKyH6K8y3Pm6LPF+3CobdKdvpIwB6XT
-	 PTbqVm+mnTDjjegYs3uOGesjSSWI09+rzxgM+eE+mdH16O+1hXQrJoifTdIgTzAVL6
-	 Q1JU/FSiEMjPg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tfMSU-000Uzb-VQ;
-	Tue, 04 Feb 2025 17:11:35 +0000
-Date: Tue, 04 Feb 2025 17:11:33 +0000
-Message-ID: <8634gtvdmi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	kvmarm@lists.linux.dev,
-	oliver.upton@linux.dev,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	Cornelia Huck <cohuck@redhat.com>,
-	eric.auger@redhat.com,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	jiangkunkun@huawei.com,
-	jonathan.cameron@huawei.com,
-	anthony.jebson@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	linuxarm@huawei.com
-Subject: Re: [PATCH v5 0/4] KVM: arm64: Errata management for VM Live migration
-In-Reply-To: <76172c57-aac6-d540-5b98-8de100c0886c@redhat.com>
-References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com>
-	<76172c57-aac6-d540-5b98-8de100c0886c@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1738689645;
+	bh=fXCKZvImQuTOesY0OsMLy2+fVLkdqhy5wBhRUWlJGLQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qouqh79DBpvOdtbMgxsL8UoG3JtSlgaiyDYTuryayUfKC6Yl6Sx+yJXuP9uNsskpZ
+	 Y8qSpO2I9yChvwWdlNC5judrPT0E3PR75nLQbht5YELjfSKJk156LkoL5iMKA8LSKc
+	 CsEUYtqaLD1vSg0/gIl3+2EmT96L8V+Ot8Cgklx5c5lrjmSS+NYT6NM2OvGVon+4y1
+	 m/NoCjr9EEHSUmdBsntQxVN9gjhNtodu6tNUo3fFQM13yona3U7sR0oq8wyXDklZ4w
+	 ECng3Nd8rPayz9jbjHhNA3GD2P39h1rXFSPhyzKNmGVAd0JffR2ENrnPjBVZaUMm/T
+	 Gx5t0kZ5I1vNQ==
+Date: Tue, 4 Feb 2025 17:20:40 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com,
+	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com,
+	stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH 3/8] KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+Message-ID: <cddb7cc3-9174-4dcf-9eb9-b7f4e2b0d32d@sirena.org.uk>
+References: <20250204152100.705610-1-mark.rutland@arm.com>
+ <20250204152100.705610-4-mark.rutland@arm.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BrVcv+yk+NCYE+Ng"
+Content-Disposition: inline
+In-Reply-To: <20250204152100.705610-4-mark.rutland@arm.com>
+X-Cookie: Spelling is a lossed art.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_091138_505216_C1AB7949 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20250204_092046_975632_AB284F18 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,29 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Feb 2025 16:45:38 +0000,
-Sebastian Ott <sebott@redhat.com> wrote:
-> 
-> Hey,
-> 
-> On Fri, 24 Jan 2025, Shameer Kolothum wrote:
-> > On ARM64 platforms most of the errata workarounds are based on CPU
-> > MIDR/REVIDR values and a number of these workarounds need to be
-> > implemented by the Guest kernel as well. This creates a problem when
-> > Guest needs to be migrated to a platform that differs in these
-> > MIDR/REVIDR values even if the VMM can come up with a common minimum
-> > feature list for the Guest using the recently introduced "Writable
-> > ID registers" support.
-> 
-> Currently MIDR/REVIDR are still RO and guest access is not trapped - so
-> even with the errata management patches in place the guest state would
-> change and a migration (between hosts that differ in these regs) would
-> not be possible. Are there any plans to allow to actually change these?
 
-Sure thing. We only need a victim! :)
+--BrVcv+yk+NCYE+Ng
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-	M.
+On Tue, Feb 04, 2025 at 03:20:55PM +0000, Mark Rutland wrote:
+> When KVM is in VHE mode, the host kernel tries to save and restore the
+> configuration of CPACR_EL1.ZEN (i.e. CPTR_EL2.ZEN when HCR_EL2.E2H=1)
+> across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
+> configuration may be clobbered by hyp when running a vCPU. This logic is
+> currently redundant.
 
--- 
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--BrVcv+yk+NCYE+Ng
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeiTGcACgkQJNaLcl1U
+h9AbPAf/dozy8yHITbWmaPkiPsGMMbfEJ3jszZbKnbD9/ue8ynsjAX3EvHVtsErE
+h+Gr5zCGXbAaQRQz2s3TzAjxwoUXH/P+vuVKbIJpqZswAhUZ26o4F26Wbg9k9LVB
+L7XtldS31M+F6pu+7iUhmIp2J79oVtSQwvmvUM3jDVbIH0MXnftwXvJOvvSjhzUC
+v4Ee5tsnb6SgpXnu2F3BikSCCLscdDbE2MXE6TE64aQtSwlYWblgfYAP8C9A3whB
+oAmYZtwNT2EKrApJOU4m47QFG7GMewZI9UcT3mCuz15bcpWACSlA1OXlVs0J8Iba
+5n9qOO50XvUdS4cZx373d+cZlklyxg==
+=a8u6
+-----END PGP SIGNATURE-----
+
+--BrVcv+yk+NCYE+Ng--
 
