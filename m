@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B940BC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 09:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82441C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 09:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmhLG8fj2RQNDb83VwTcmt6NK6fdTtqXuVcY3Pwy504=; b=3cDKfAMnOvsT04kDExKw/tb5RJ
-	zANu29wi6Z9T12+LMakSkThA4WDoB200mVR1vn44NU0gxfLKZZdCj0qYHKMNf1gUKbvxuafXogzMx
-	wdlynDRtuUGcRRKh99VcCuIxoQfZ6xw9Pv4jvaAkvkvoyST5wrHlStXkKmz0oidnTHnhjsXEjcJoU
-	H/AxzYaJVdgFFFq72R/D1QLwQ7oA4WiPKS3Yef0IA5iPqfVSwvqgmG7hQfCf53U0SmCOW7tD33QOY
-	zJIGryaJK9FQ0v6pnE5EbkxsoM7ECvj3/u48NKCAUTKdxDlRyJe9GjqYPkEJdycQBRjtKFloC20Uo
-	ixw/UTsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YUX+PXFbKXPV/PKJDEKR6Grjrot0gTUGmImaHBG4oPE=; b=tEwRBoe9Mz85sfPmc31OCFg9cH
+	6oh0zDnBsq2C1jHNtlTXvYPjnLPmqys8M6L72PTg8AH7bmu8JJA3gbAgxNFAsAqsf4ii4sktC4Odw
+	Qa34+4hGzES+JvH19/rgZoexCfJCkkHM4U//scNgdsQq17veqM0KBjYg9d8/j4ttCpl+OowUk91wT
+	lEIKfgB6WSjbe6FLk8/7RS65sjVDx01FI6Z27AQQTtS5CVIu2Ed7Y/hEYAU647obLEtssZFCMqw8B
+	iX1tiVE2kt3Y0WmyPtcPrkuKJlk2hVGPMkuD6j0/X3Lpsk9gBz2m+U0/nANZxoVoLiJWl6R7nunzV
+	IE576H3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfFEX-000000002Fu-3wjA;
-	Tue, 04 Feb 2025 09:28:41 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tfFbj-000000005ch-2fD8;
+	Tue, 04 Feb 2025 09:52:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfFDC-00000000289-442k
+	id 1tfFaN-000000005TE-3gub
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 09:27:20 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5149QlEW3192342
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 4 Feb 2025 03:26:47 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738661207;
-	bh=UmhLG8fj2RQNDb83VwTcmt6NK6fdTtqXuVcY3Pwy504=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=J525MZqWVtgMPiAybEYSXaTk7nnHSHeq/+Hme4xm0AvV78yXeKrNZ5tIq+b1cVMy3
-	 G95PvpqtQaqYGXzoU9DN3HLfqQRm5DOpFJSQZ9BJo3RKu/5l+A6SJjnOzePhJkrL5s
-	 93MHb3w2wQxgT/PKb8GdwYT9Og8x51NmN6hxPzCw=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5149QlIC085742;
-	Tue, 4 Feb 2025 03:26:47 -0600
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
- Feb 2025 03:26:46 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 4 Feb 2025 03:26:46 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5149Qj5V034419;
-	Tue, 4 Feb 2025 03:26:46 -0600
-Date: Tue, 4 Feb 2025 14:56:45 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Vaishnav Achath <vaishnav.a@ti.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <quic_bjorande@quicinc.com>,
-        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
-        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
-        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
-        <nm@ti.com>, <vigneshr@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <nfrayer@baylibre.com>,
-        <glaroque@baylibre.com>, <tglx@linutronix.de>, <u-kumar1@ti.com>
-Subject: Re: [PATCH v2] arm64: defconfig: Enable TISCI Interrupt Router and
- Aggregator
-Message-ID: <20250204092645.cnu4lnzac7n2dtwx@lcpd911>
-References: <20250203150801.2399555-1-vaishnav.a@ti.com>
+	Tue, 04 Feb 2025 09:51:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738662672;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=YUX+PXFbKXPV/PKJDEKR6Grjrot0gTUGmImaHBG4oPE=;
+	b=NbM5FEvKPkoHpwShs+9kGT2Od1eQ8TSheaucZH+IZxL9qsNVrSTpIyydUfmfhwKF1BpAb9
+	65S4WyKEf4KIqCq413hedLeHC7HB0dcfBEzpYNdzSTlSHkRcJr7pqIBTTlgI0tt8RvYqPG
+	s8yVBp1zqKmTg1Bnfj40ublNDr0ofQ0=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-503-eM873xO0PlKses_bRqKU6g-1; Tue,
+ 04 Feb 2025 04:51:09 -0500
+X-MC-Unique: eM873xO0PlKses_bRqKU6g-1
+X-Mimecast-MFC-AGG-ID: eM873xO0PlKses_bRqKU6g
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C62A319560BD;
+	Tue,  4 Feb 2025 09:51:06 +0000 (UTC)
+Received: from [172.64.10.4] (unknown [10.30.34.106])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7D84518008C0;
+	Tue,  4 Feb 2025 09:51:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.14.0-rc1,
+ upstream-arm-next, 2014c95a)
+Date: Tue, 04 Feb 2025 09:51:05 -0000
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250203150801.2399555-1-vaishnav.a@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <35056.125020404510900229@us-mta-503.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: W-XfpBJY5cb6vdPSi2T1MPZkzLGV-jegG-qcKWUbhbo_1738662668
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_012719_052316_6F1BCFA5 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20250204_015115_995888_AD6324FD 
+X-CRM114-Status: UNSURE (   6.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,31 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Feb 03, 2025 at 20:38:01 +0530, Vaishnav Achath wrote:
-> Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
-> These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
-> for core functionality like DMA, GPIO Interrupts which is necessary
-> during boot, thus make them built-in.
-> 
-> bloat-o-meter summary on vmlinux:
-> 	add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
-> 	...
-> 	Total: Before=31615984, After=31778459, chg +0.51%
-> 
-> Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
-> Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
-> 
-> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
-> ---
+Hi, we tested your kernel and here are the results:
 
-Tested this for basic boot on TI K3 AM625-SK with next-20250204.
-Tested-by: Dhruva Gole <d-gole@ti.com>
+    Overall result: FAILED
+             Merge: OK
+           Compile: FAILED
 
-Also,
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+Kernel information:
+    Commit message: Linux 6.14-rc1
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1654629441
+
+One or more kernel builds failed:
+    Unrecognized or new issues:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1654629441-aarch64-kernel
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
