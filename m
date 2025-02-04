@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5ADCC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 23:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC09C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 23:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+luEE7lKZthY1rWYqcVDQn7VIJcYY+fdi6kp37ps9E=; b=Z6x7ZyJUQr5+0WBavmjkZtNP5A
-	WpxPahW63DXQWWjtPQB6OpYF9m7mWsdz3ONFT9B7HpjiLP+kZVMLHxYn5/KI5ndg4If8Cr/Rf4Jtu
-	LLs63I/eztXiEFzn8GXW7gn68fJTHACC2KWFWA+x3j7V6dnoTIZPZ1mvZW6H5h6RjpaadRb/XAe2u
-	NYv3byiNHLFz0NfORRY1Ctl66WI+E72xP/bihgr06/MCe3/ydO3lsxUjX4FseQq0x94U+rpI4i+gD
-	BTHQlDkxZWUiMlOP0y2Hx1xyeXV8n+4K0jisfJbhJbTCvA1cR8Gfw3zyfTTxYsTykKSCb/fpYco1K
-	PNA0oMPg==;
+	bh=Aty+ANBki8vd8K5qrbGPn1eFRL7U1+Ke6iGWT0ec40Y=; b=N9mCW/ekCNXeSn1WOHXkrERJLJ
+	l4H0M6dg3dYHiL1Zb9vcqOQj3RwTWR5U6TZe+NGpGzSDyQyl1qN4iKErPr2c6n6eB1UQFaJaA5nCZ
+	uX/jGsOUNOqdAxoHkVE3LMo+tlqxFhVE419zjsiggm2IAPhzfgE74a7LkdMglARodlR4sBFNZDhZn
+	XnM5U4mXaDWHTKq6C7oKsvdhsIiNmznFAPKJVgC9KUM3DNWF3+kub80e0w4NQkfb3YdQZvyPxj32p
+	ZGQADKtoFnZF8f88gKX2kw42aBxZCMQS7N6lkmIxll66s8xklHhOXxDqV/lf7jt4fgZrMC9ndQJRM
+	Qlc+HOsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfSjl-00000001rkS-2Upw;
-	Tue, 04 Feb 2025 23:53:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tfSl4-00000001rsd-0tF7;
+	Tue, 04 Feb 2025 23:55:10 +0000
+Received: from out-175.mta1.migadu.com ([2001:41d0:203:375::af])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfSiP-00000001rb4-0DBZ
+	id 1tfSj3-00000001rgY-19TV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 23:52:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 27D9B5C5E23;
-	Tue,  4 Feb 2025 23:51:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43319C4CEDF;
-	Tue,  4 Feb 2025 23:52:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738713143;
-	bh=ROpZn/Glj3yfoqCyFJh/gnULbk/Up0rRVs9QMr9jX1k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Xn/nUtW4YnYf0O9ekBHYPrABh3Fc4gzqKipFxv0Ju2g36Abp1xaVEl3JEvMcNv0sJ
-	 WUqNkAglYNp682uWrpzK1hmdQ4D9jXwozsc8igqsq2W3qJFZ1xShezYbkFsfeP1Ll/
-	 ezu8tLOoPQYcnb0bqcO6U6DujUkB1brek4z5/7gC4zCPEWTkqI3LQ9tm58HPImBAWg
-	 ABK+PEBnHYBQhb2XWmC1uPm8IywRMomVGrnfkgLMzL9feX35PnKXlmNI7IaCH6Xtn/
-	 PZswfvfUv/m1tTBJLRPuQW6+PVngksGeLPRHAntPDGuca7wDJ1mnPtWvzSMLTsZ1g1
-	 zAZi8oy7tqupA==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat
- <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, "Will
- Deacon" <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org, Weinan Liu <wnliu@google.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-In-Reply-To: <mb61pzfj169yq.fsf@kernel.org>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <mb61pzfj169yq.fsf@kernel.org>
-Date: Tue, 04 Feb 2025 23:52:07 +0000
-Message-ID: <mb61pwme55kuw.fsf@kernel.org>
+	Tue, 04 Feb 2025 23:53:06 +0000
+Date: Tue, 4 Feb 2025 23:52:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738713180;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Aty+ANBki8vd8K5qrbGPn1eFRL7U1+Ke6iGWT0ec40Y=;
+	b=IdJQbGFcwdrAQZYo4ldhrPJfK+K3DW647JeHvI+fV3JfOpvYSaEnHJr1OK4wRok06P06C3
+	1L9uJTC1ZB+KHMaiRRasHRgL1xTPYFR0u9f59apZgiEnvIMooyFJLV6qKjNXVsC90aL4PL
+	73vvrkrHMQ+vqzvwvwWgjiNeollFHwM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 1/2] perf: arm_pmuv3: Remove cyclical dependency with
+ kvm_host.h
+Message-ID: <Z6KoUBdmjVRuqPnU@linux.dev>
+References: <20250204195708.1703531-1-coltonlewis@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250204195708.1703531-1-coltonlewis@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_155225_181221_B6DC8CB8 
-X-CRM114-Status: GOOD (  34.31  )
+X-CRM114-CacheID: sfid-20250204_155305_696076_7F17090F 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,201 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain
+Hi Colton,
 
-Puranjay Mohan <puranjay@kernel.org> writes:
+On Tue, Feb 04, 2025 at 07:57:07PM +0000, Colton Lewis wrote:
+> asm/kvm_host.h includes asm/arm_pmu.h which includes perf/arm_pmuv3.h
+> which includes asm/arm_pmuv3.h which includes asm/kvm_host.h This
+> causes confusing compilation problems when trying to use anything in
+> the chain.
+> 
+> Break the cycle by taking asm/kvm_host.h out of asm/arm_pmuv3.h
+> because asm/kvm_host.h is huge and we only need a few functions from
+> it. Move the required declarations to asm/arm_pmuv3.h.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
 
-> Weinan Liu <wnliu@google.com> writes:
->
->> This patchset implements a generic kernel sframe-based [1] unwinder.
->> The main goal is to support reliable stacktraces on arm64.
->>
->> On x86 orc unwinder provides reliable stacktraces. But arm64 misses the
->> required support from objtool: it cannot generate orc unwind tables for
->> arm64.
->>
->> Currently, there's already a sframe unwinder proposed for userspace: [2].
->> Since the sframe unwind table algorithm is similar, these two proposal
->> could integrate common functionality in the future.
->>
->> There are some incomplete features or challenges:
->>   - The unwinder doesn't yet work with kernel modules. The `start_addr` of
->>     FRE from kernel modules doesn't appear correct, preventing us from
->>     unwinding functions from kernel modules.
->>   - Currently, only GCC supports sframe.
->>
->> Ref:
->> [1]: https://sourceware.org/binutils/docs/sframe-spec.html
->> [2]: https://lore.kernel.org/lkml/cover.1730150953.git.jpoimboe@kernel.org/
->>
->
-> Hi Weinan,
-> Thanks for working on this.
->
-> I tested this set on my setup and faced some issues, here are the
-> details:
->
-> Here is my setup [on AWS c6gd.16xlarge instance]:
-> -------------------------------------------------
->
-> [root@ip-172-31-32-86 linux-upstream]# uname -a
-> Linux ip-172-31-32-86.ec2.internal 6.14.0-rc1+ #1 SMP Tue Feb  4 14:15:55 UTC 2025 aarch64 aarch64 aarch64 GNU/Linux
->
-> [root@ip-172-31-32-86 linux-upstream]# git log --oneline
-> e9a702365 (HEAD -> master) arm64: Enable livepatch for ARM64
-> 5dedc956e arm64: Define TIF_PATCH_PENDING for livepatch
-> ba563b31a unwind: arm64: add reliable stacktrace support for arm64
-> d807d392d unwind: arm64: Add sframe unwinder on arm64
-> 7872f050b unwind: Implement generic sframe unwinder library
-> 03d2ad003 unwind: add sframe v2 header
-> 5e95cc051 arm64: entry: add unwind info for various kernel entries
-> faff6cbc3 unwind: build kernel with sframe info
-> 0de63bb7d (origin/master, origin/HEAD) Merge tag 'pull-fix' of git://git.kernel.org/pub/scm/linux/kernel/git/viro/vfs
-> 902e09c8a fix braino in "9p: fix ->rename_sem exclusion"
-> f286757b6 Merge tag 'timers-urgent-2025-02-03' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-> a360f3ffd (grafted) Merge tag 'irq-urgent-2025-02-03' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-> bb2784d9a (grafted) jiffies: Cast to unsigned long in secs_to_jiffies() conversion
-> 30d61efe1 (grafted) 9p: fix ->rename_sem exclusion
->
-> [root@ip-172-31-32-86 linux-upstream]# grep SFRAME .config
-> CONFIG_AS_HAS_SFRAME_SUPPORT=y
-> CONFIG_SFRAME_UNWIND_TABLE=y
-> CONFIG_SFRAME_UNWINDER=y
-> [root@ip-172-31-32-86 linux-upstream]# grep LIVEPATCH .config
-> CONFIG_HAVE_LIVEPATCH=y
-> CONFIG_LIVEPATCH=y
-> CONFIG_SAMPLE_LIVEPATCH=m
->
-> [root@ip-172-31-32-86 linux-upstream]# as --version
-> GNU assembler version 2.41-50.al2023.0.2
-> Copyright (C) 2023 Free Software Foundation, Inc.
-> This program is free software; you may redistribute it under the terms of
-> the GNU General Public License version 3 or later.
-> This program has absolutely no warranty.
-> This assembler was configured for a target of `aarch64-amazon-linux'.
->
-> [root@ip-172-31-32-86 linux-upstream]# gcc --version
-> gcc (GCC) 11.4.1 20230605 (Red Hat 11.4.1-2)
-> Copyright (C) 2021 Free Software Foundation, Inc.
-> This is free software; see the source for copying conditions.  There is NO
-> warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
->
-> Loading the livepatch-sameple module:
-> -------------------------------------
->
-> [root@ip-172-31-32-86 linux-upstream]# kpatch load /lib/modules/6.14.0-rc1+/kernel/samples/livepatch/livepatch-sample.ko
-> loading patch module: /lib/modules/6.14.0-rc1+/kernel/samples/livepatch/livepatch-sample.ko
-> waiting (up to 15 seconds) for patch transition to complete...
-> patch transition has stalled!
-> <4>kpatch: Livepatch process signaling is performed automatically on your system.
-> <4>kpatch: Skipping manual process signaling.
-> waiting (up to 60 seconds) for patch transition to complete...
->
-> Stalled processes:
-> 340 kdevtmpfs
-> stack:
-> [<0>] devtmpfs_work_loop+0x2cc/0x2d8
-> [<0>] devtmpfsd+0x4c/0x58
-> [<0>] kthread+0xf0/0x100
-> [<0>] ret_from_fork+0x10/0x20
-> module livepatch_sample did not complete its transition, unloading...
-> disabling patch module: livepatch_sample
-> waiting (up to 15 seconds) for patch transition to complete...
-> transition complete (3 seconds)
-> unloading patch module: livepatch_sample
-> <4>kpatch: error: failed to load module livepatch_sample (transition stalled)
+Please do not move KVM namespaced functions into non-KVM headers. Having
+a separate header for KVM<->PMUv3 driver interfaces is probably the
+right thing to do, especially since you're going to be adding more with
+partitioned PMU support.
 
-After some debugging this is what I found:
-
-devtmpfsd() calls devtmpfs_work_loop() which is marked '__noreturn' and has an
-infinite loop. The compiler puts the `bl` to devtmpfs_work_loop() as the the
-last instruction in devtmpfsd() and therefore on entry to devtmpfs_work_loop(),
-LR points to an instruction beyond devtmpfsd() and this consfuses the unwinder.
-
-ffff800080d9a070 <devtmpfsd>:
-ffff800080d9a070:       d503201f        nop
-ffff800080d9a074:       d503201f        nop
-ffff800080d9a078:       d503233f        paciasp
-ffff800080d9a07c:       a9be7bfd        stp     x29, x30, [sp, #-32]!
-ffff800080d9a080:       910003fd        mov     x29, sp
-ffff800080d9a084:       f9000bf3        str     x19, [sp, #16]
-ffff800080d9a088:       943378e8        bl      ffff800081a78428 <devtmpfs_setup>
-ffff800080d9a08c:       90006ca1        adrp    x1, ffff800081b2e000 <unique_processor_ids+0x3758>
-ffff800080d9a090:       2a0003f3        mov     w19, w0
-ffff800080d9a094:       912de021        add     x1, x1, #0xb78
-ffff800080d9a098:       91002020        add     x0, x1, #0x8
-ffff800080d9a09c:       97cd2a43        bl      ffff8000800e49a8 <complete>
-ffff800080d9a0a0:       340000d3        cbz     w19, ffff800080d9a0b8 <devtmpfsd+0x48>
-ffff800080d9a0a4:       2a1303e0        mov     w0, w19
-ffff800080d9a0a8:       f9400bf3        ldr     x19, [sp, #16]
-ffff800080d9a0ac:       a8c27bfd        ldp     x29, x30, [sp], #32
-ffff800080d9a0b0:       d50323bf        autiasp
-ffff800080d9a0b4:       d65f03c0        ret
-ffff800080d9a0b8:       97f06526        bl      ffff8000809b3550 <devtmpfs_work_loop>
-ffff800080d9a0bc:       00000000        udf     #0
-ffff800080d9a0c0:       d503201f        nop
-ffff800080d9a0c4:       d503201f        nop
-
-find_fde() got pc=0xffff800080d9a0bc which is not in [sfde_func_start_address, sfde_func_size)
-
-output for readelf --sframe for devtmpfsd()
-
-func idx [51825]: pc = 0xffff800080d9a070, size = 76 bytes
-    STARTPC           CFA       FP        RA
-    ffff800080d9a070  sp+0      u         u
-    ffff800080d9a07c  sp+0      u         u[s]
-    ffff800080d9a080  sp+32     c-32      c-24[s]
-    ffff800080d9a0b0  sp+0      u         u[s]
-    ffff800080d9a0b4  sp+0      u         u
-    ffff800080d9a0b8  sp+32     c-32      c-24[s]
-
-The unwinder and all the related infra is assuming that the return address
-will be part of a valid function which is not the case here.
-
-I am not sure which component needs to be fixed here, but the following
-patch(which is a hack) fixes the issue by considering the return address as
-part of the function descriptor entry.
-
--- 8< --
-
-diff --git a/kernel/sframe_lookup.c b/kernel/sframe_lookup.c
-index 846f1da95..28bec5064 100644
---- a/kernel/sframe_lookup.c
-+++ b/kernel/sframe_lookup.c
-@@ -82,7 +82,7 @@ static struct sframe_fde *find_fde(const struct sframe_table *tbl, unsigned long
-        if (f >= tbl->sfhdr_p->num_fdes || f < 0)
-                return NULL;
-        fdep = tbl->fde_p + f;
--       if (ip < fdep->start_addr || ip >= fdep->start_addr + fdep->size)
-+       if (ip < fdep->start_addr || ip > fdep->start_addr + fdep->size)
-                return NULL;
-
-        return fdep;
-@@ -106,7 +106,7 @@ static int find_fre(const struct sframe_table *tbl, unsigned long pc,
-        else
-                ip_off = (int32_t)(pc - (unsigned long)tbl->sfhdr_p) - fdep->start_addr;
-
--       if (ip_off < 0 || ip_off >= fdep->size)
-+       if (ip_off < 0 || ip_off > fdep->size)
-                return -EINVAL;
-
-        /*
-
--- >8 --
-
+-- 
 Thanks,
-Puranjay
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ6KoKBQccHVyYW5qYXlA
-a2VybmVsLm9yZwAKCRCwwPkjG3B2naM9AQCVxRhYApBFPGDg+i1uDN2Me6J88sm7
-IVmaCz4kXrfSmAEAtLYreAOVjjJwmmOIjV6ipufys5E4bjZOBmZZ4bsajgI=
-=FjuV
------END PGP SIGNATURE-----
---=-=-=--
+Oliver
 
