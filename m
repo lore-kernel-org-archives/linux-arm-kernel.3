@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686BFC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F77C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fXCKZvImQuTOesY0OsMLy2+fVLkdqhy5wBhRUWlJGLQ=; b=l4fQ4QZOt3yjlW4nZm0h+sCRBL
-	FvCtDexw/BrrE3TmfpyTO5hCgTs6khdD75nx2OrGPZbfimhTSgAEY5e4iAbKxNvI38EE/MFk4LkCb
-	PtxrQrIuL2bCiZaBB41gRam0DZ24Ek+IcX/ao2u3et7v2h2Zemu3ouiBvqHfB5y54AHxYmOJbFrod
-	M7QzeIe8hEmA/2/QcFMJYSRuSl5Fz+fUfMEQy5A09ZT+BsjweFT8icsv+b4PB5qeWHnK3j2aKLM7F
-	4seIEcy0RALce34DHJYDB4CeWEZJ+UTPOTxj4q0Dbxcp5XT0oKE0/MyyKU/o2ttPjE4m9kHhXlRGy
-	JmkiGqvw==;
+	bh=NNgAUVXXhIdnR++Vsod+JavMfDup78D694pT7zIrODc=; b=niRPHecHYR4OKStAOKynMjitWa
+	cESk+QYFlgFEms58XhyYHksgRHwuClYz3xKT0LVDd8prECxFLyi0INT/vJyfGJl3EyQZ+5/AQ09Ts
+	+0VGyGo54t8JMDU/Wbfb0FcYngvUgnQ5ct8V6uwvbXpZRxNP0djhL39Qpy6FfsZjLqFjTLgdmRLI/
+	MNgZBjz8pewdTwmyYiS5VED6YaGqVh+UvTUEUBGdydwSuICJOKqAnZ95C4sHe2/MwHMv9MgLb0kyd
+	Bdng1O0uO38PeosYbe5HkaQR5k1YCLFyPKh1FmEJmUd1NSKo39Nw2/4ezzSlBLD8niaBHsIskJ79G
+	u/emcRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMci-00000001516-1stw;
-	Tue, 04 Feb 2025 17:22:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tfMf8-000000015FB-0x8u;
+	Tue, 04 Feb 2025 17:24:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMbO-000000014xK-3fi0
+	id 1tfMdn-00000001572-3pWz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 17:20:47 +0000
+	Tue, 04 Feb 2025 17:23:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 07DE4A42A93;
-	Tue,  4 Feb 2025 17:19:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24FB2C4CEDF;
-	Tue,  4 Feb 2025 17:20:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 81D295C5F21;
+	Tue,  4 Feb 2025 17:22:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63064C4CEDF;
+	Tue,  4 Feb 2025 17:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738689645;
-	bh=fXCKZvImQuTOesY0OsMLy2+fVLkdqhy5wBhRUWlJGLQ=;
+	s=k20201202; t=1738689795;
+	bh=NNgAUVXXhIdnR++Vsod+JavMfDup78D694pT7zIrODc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qouqh79DBpvOdtbMgxsL8UoG3JtSlgaiyDYTuryayUfKC6Yl6Sx+yJXuP9uNsskpZ
-	 Y8qSpO2I9yChvwWdlNC5judrPT0E3PR75nLQbht5YELjfSKJk156LkoL5iMKA8LSKc
-	 CsEUYtqaLD1vSg0/gIl3+2EmT96L8V+Ot8Cgklx5c5lrjmSS+NYT6NM2OvGVon+4y1
-	 m/NoCjr9EEHSUmdBsntQxVN9gjhNtodu6tNUo3fFQM13yona3U7sR0oq8wyXDklZ4w
-	 ECng3Nd8rPayz9jbjHhNA3GD2P39h1rXFSPhyzKNmGVAd0JffR2ENrnPjBVZaUMm/T
-	 Gx5t0kZ5I1vNQ==
-Date: Tue, 4 Feb 2025 17:20:40 +0000
+	b=IB17wYsZv6+yEre7xIg5FslQ7E2eOLrz5v0yogrmTmtl2JtMSqn8F1I5NjO8OIqI5
+	 Ep5IUordkAWbWkyZ8FkWFVyMUaCzhmyfSc8gUN2aNt6y85jECF763uqJqKcF5sClEx
+	 l60jN167ybBtBbZjZ+SiSVvLeYXSnNH+xLci2d0vwJaOtY/um7+mPcJXGiFs4Dpacy
+	 KzzXLTxTBbc9EPjnIbZaga8Nq5XQbJuAe7eH+HyWc5W9mLKsecjCZwWjuis05d5WM0
+	 N4VRxCUJZ0Bkm1Vko//aZFG5grNWlfUj1C36DL8C6+hCzAsOjeXig7Q+k7xRhMLgfw
+	 HTkUN1v67fILw==
+Date: Tue, 4 Feb 2025 17:23:09 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Mark Rutland <mark.rutland@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
@@ -50,19 +50,19 @@ Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
 	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com,
 	stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com,
 	will@kernel.org
-Subject: Re: [PATCH 3/8] KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
-Message-ID: <cddb7cc3-9174-4dcf-9eb9-b7f4e2b0d32d@sirena.org.uk>
+Subject: Re: [PATCH 4/8] KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+Message-ID: <58e56e6d-2eec-49fb-89e4-1a5c10bfa121@sirena.org.uk>
 References: <20250204152100.705610-1-mark.rutland@arm.com>
- <20250204152100.705610-4-mark.rutland@arm.com>
+ <20250204152100.705610-5-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BrVcv+yk+NCYE+Ng"
+	protocol="application/pgp-signature"; boundary="qiBGpraq5W+X9KJu"
 Content-Disposition: inline
-In-Reply-To: <20250204152100.705610-4-mark.rutland@arm.com>
+In-Reply-To: <20250204152100.705610-5-mark.rutland@arm.com>
 X-Cookie: Spelling is a lossed art.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_092046_975632_AB284F18 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250204_092315_992570_C284EE5A 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +78,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---BrVcv+yk+NCYE+Ng
+--qiBGpraq5W+X9KJu
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Tue, Feb 04, 2025 at 03:20:55PM +0000, Mark Rutland wrote:
+On Tue, Feb 04, 2025 at 03:20:56PM +0000, Mark Rutland wrote:
 > When KVM is in VHE mode, the host kernel tries to save and restore the
-> configuration of CPACR_EL1.ZEN (i.e. CPTR_EL2.ZEN when HCR_EL2.E2H=1)
+> configuration of CPACR_EL1.SMEN (i.e. CPTR_EL2.SMEN when HCR_EL2.E2H=1)
 > across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
-> configuration may be clobbered by hyp when running a vCPU. This logic is
-> currently redundant.
+> configuration may be clobbered by hyp when running a vCPU. This logic
+> has historically been broken, and is currently redundant.
 
 Reviewed-by: Mark Brown <broonie@kernel.org>
 
---BrVcv+yk+NCYE+Ng
+--qiBGpraq5W+X9KJu
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeiTGcACgkQJNaLcl1U
-h9AbPAf/dozy8yHITbWmaPkiPsGMMbfEJ3jszZbKnbD9/ue8ynsjAX3EvHVtsErE
-h+Gr5zCGXbAaQRQz2s3TzAjxwoUXH/P+vuVKbIJpqZswAhUZ26o4F26Wbg9k9LVB
-L7XtldS31M+F6pu+7iUhmIp2J79oVtSQwvmvUM3jDVbIH0MXnftwXvJOvvSjhzUC
-v4Ee5tsnb6SgpXnu2F3BikSCCLscdDbE2MXE6TE64aQtSwlYWblgfYAP8C9A3whB
-oAmYZtwNT2EKrApJOU4m47QFG7GMewZI9UcT3mCuz15bcpWACSlA1OXlVs0J8Iba
-5n9qOO50XvUdS4cZx373d+cZlklyxg==
-=a8u6
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeiTPwACgkQJNaLcl1U
+h9BIXgf8Cf4mi03nwy2+qlBtq2eohiCV6ypAD6QEzQPa4o4jAOECNyNKPDhpSBv+
+uGqnWIf85+TuIMG4MYEo4bjSLH0WzeDaV14FO22GHwpTMy/W977Z8Zh9aRmKUGe+
+C/EC09lcM8qUEsrEpvBbd3zy1P7qKL939eKvay2M6SktW4XZb6e0gy0hYrkL1X7i
+3UbRvknWwRJd5Ko9ivIQM4Mrpkv7IThCgVLNXZ+ltDxqCEeF3De7zKOxO5fOKIAL
+Y/aGEEbx4n3F8FChNwazv++1BytDkJlxtcn7l4ek6w14+P+o5S+L2kMippZB0NNl
+Mdqu7d2RGfH+JUlA0rqGXr6KfeY/HQ==
+=Ig6n
 -----END PGP SIGNATURE-----
 
---BrVcv+yk+NCYE+Ng--
+--qiBGpraq5W+X9KJu--
 
