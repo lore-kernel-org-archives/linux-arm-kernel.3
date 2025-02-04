@@ -4,153 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45F4C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D489C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 22:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vFUWQEJeXbEgj2GN01h8+/ze4Nm5kqoWRTBlxAIF7Aw=; b=T5oHDCVa4t25zle6dYSW9njDeK
-	MTVil7SaHPZnZqZZUvgLQHoitT3YkDdUczVUC/chHaDKsWahQTFOqzmdqD2uL2NdjxoUzzsOV2JzZ
-	t2l/rVMEXo4TOs+ZYwL4eh3C6H7/Kx3ID6z2UgtaHBG4MNwI2WGFJ5YJU41PJ7N1ax+59tqTc9k9u
-	VFRwgJzsxhVET3gLaiVwxF84N+h1PbYLwo8N7yPzNuJbl/3/Cmr/FIaDTXqn9jFkMOyqocer6dYki
-	tIj2lh4IVGavip6BsA3kHRtqPEfjx7IhxGASs/4tUaD2vqsrpO0Nhx/6/btJk8Wp3Mb6Ae5cWoZba
-	/sWBlhrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=; b=ykht8zbkjFcGU/8f6zIiS1dLY0
+	z/vghJH1NbzAjXefMNFjfr77xQiZhn3jDCkyOly3ZACfloc7Puo0ANQihoL4OT49LAjPP5UXppviC
+	f9seVPAUB/FxjLjHWEsFXLQGAsaay5LSxGJ4+lSatuPX7D2/Gn9nm1ZOQGlEGCI/ytbAjkZeR5C+T
+	jgGzRGtoYSzttez0FcvCpI1kdX/vBIEINU0MsZpwgMjlRZtyqnukGNTpYRxJx9EEhGLe9HKn3T3uo
+	IJT3vCOMqEdMVufgD0s4krHlXkJQuRE0P7j705whUK0UXhkkJBwpyee0sEzNF79iC9cvYqAkj/Fch
+	tgP5xd7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQtM-00000001eQY-49IC;
-	Tue, 04 Feb 2025 21:55:36 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1tfR0I-00000001fAN-1SLA;
+	Tue, 04 Feb 2025 22:02:46 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQs1-00000001eGl-1PSq
+	id 1tfQyw-00000001et4-25eE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 21:54:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JDmYbTz35SuvA5JYpC04PpLYJ2SGLKTaYZ0/zziKGskh9lwUHWNGpGZqB16pCzU7R6PoYTx644leoXdQX59jBGvZJTpRDcwXqZ0WWodAGWqwCus7us8IVZgXjrftLWf68P4bPsB5zW3ZLNRU+Ecr5ZA22rR9jVEHgynvT4J84KPsLSX2enUWxHqN7M0riKEiIv0BIcW+NQ7pSZKG+cYBecwxmRSdNc58A0jCpHeNfn7NKRYFP+1GTZkdR0VRJ29dIGa1szo7B2w+Z5OJyEQOGe/Tm+ygT1qR/kVtO59kUsy3k+UcukSuQnhl/BiWsJfbM7tNYrDarNPZ+8Xu8WyYkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vFUWQEJeXbEgj2GN01h8+/ze4Nm5kqoWRTBlxAIF7Aw=;
- b=uSGCpGff8qZEklrfi6+aThlaIdL72EzssBDnEgyZFiad76IdyS/IPPVFad/IXJyqzC9E8r4Uz4fGlEco8Zu1HNVPUpTnkHCNc5V+Wbsjs7myXHXPOidkTfzg88B7pVJfPGar80UTX6+OuSmapC0AhuGHLrKru2CDxw71m/Hs4YXbvF6WGxQocBegS9jDZPHsa0TTTsf3yd35xU2t8x7Non+SyRlpQoNOYIsoMJN383Bj121YfxJauZzqnCSLJwuCpT7/Uqb5Pzt4SovGidwehitgtxpA6KgfB7K6BX5jr/A05J9u4WaP2SBoQ/999D5OzqIcJQYCMxoEYa/0oDzezA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Tue, 04 Feb 2025 22:01:23 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4362bae4d7dso43554775e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 14:01:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vFUWQEJeXbEgj2GN01h8+/ze4Nm5kqoWRTBlxAIF7Aw=;
- b=PYmZrTk4xwz7C9xO7VnT7bue87muwcX4j1/Y/No1mfVJ9g4b4QRPa4UK1Zz1wEbkDW2hC0D6qhmY+t/AHwk6MHvHjNasacN0fijkqGAF8+BxXKG/STLl2TdD28gcNCcUA6hJVKbC+FUbW1UbBfANFUHVHOD5fMtSPaYEi5CjDNA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SN7PR01MB7903.prod.exchangelabs.com (2603:10b6:806:34f::17) by
- SJ0PR01MB8084.prod.exchangelabs.com (2603:10b6:a03:4e7::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8422.9; Tue, 4 Feb 2025 21:54:06 +0000
-Received: from SN7PR01MB7903.prod.exchangelabs.com
- ([fe80::cf45:9855:a64e:382f]) by SN7PR01MB7903.prod.exchangelabs.com
- ([fe80::cf45:9855:a64e:382f%4]) with mapi id 15.20.8422.008; Tue, 4 Feb 2025
- 21:54:06 +0000
-Date: Tue, 4 Feb 2025 13:54:04 -0800
-From: Zaid Alali <zaidal@os.amperecomputing.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com, will@kernel.org,
-	puranjay@kernel.org, broonie@kernel.org, mbenes@suse.cz,
-	mark.rutland@arm.com, ruanjinjie@huawei.com, robh@kernel.org,
-	anshuman.khandual@arm.com, james.morse@arm.com,
-	shiqiliu@hust.edu.cn, eahariha@linux.microsoft.com,
-	scott@os.amperecomputing.com, joey.gouly@arm.com, ardb@kernel.org,
-	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: errata: Add Ampere erratum AC04_CPU_50 workaround
- alternative
-Message-ID: <Z6KMfJVsazO8fHib@zaid-VirtualBox>
-References: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
- <87msfbtjyw.wl-maz@kernel.org>
- <Z5lD8HwyQF7IQrEv@linux.dev>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z5lD8HwyQF7IQrEv@linux.dev>
-X-ClientProxiedBy: MW2PR16CA0058.namprd16.prod.outlook.com
- (2603:10b6:907:1::35) To SN7PR01MB7903.prod.exchangelabs.com
- (2603:10b6:806:34f::17)
+        d=suse.com; s=google; t=1738706480; x=1739311280; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=;
+        b=WLAqKoeXGWFd9//a3nLIXOhBOI3l8cvofqCeBVKW4KIThloXfU6+Hm7obabw5fiE7q
+         Ymn9tidyK099ueUi5+5F1bvsaTzbM5lfb2/1OgVUTO8rz380GUPakh3rcwV2kjb8V5xN
+         gL5ygXDNwh7NsZlsd5MNe9l38QjRpeBJSyaToEdcjXKZYdiX1sUfNeMKunweCOoAwHY7
+         APAkwzdBVtixCbv3l1X41TBh0VVk5RY7F/TzYC5ZhDQSkNUE7H5TQfWURy20W81eJ8qv
+         xVp377BuQtqDraRzwMyPrGBaMDECkvVOua6UdHhoDzOv2AF9+/yrQdCL/+7VcmfvEqgr
+         Crfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738706480; x=1739311280;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=;
+        b=nXE1etuL5wZerwK919GAyMBz3u8F74QhocQgBT+n2O1mhwWay+A04ZnViVFBLxCTD8
+         sXtPXQTz4KZIF0s8eDLJ9mDmVQohR7zKu9gBZ2XF9wpKPINp52xmXOaMmoN/Gjg1lzAF
+         KdgLt2O/BzO5Zedrz4XvBNJOy7ghFwUo+i6kcshUAWTEUgPSpqAE1JfwF/nIfSqvetA9
+         HJBuvZSsqbaaIzsgBZdfyXG+eoRPbikVJMLT4zVYi33WgvkoKYYgmrMq25gFhDgNnWEZ
+         XDf7oB/neUZtuxZmM4zaNeyopeq165vZ+NB6l996o1yD6NWtZ1PUn9A22aoVr8WteF+T
+         ulfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXa01OphtVM4R+q6frMQ+XF1w9VNJzO1yDmhXhrw1IWW1WYmShXqLbKr+ZBAnEM6JI2h8SNGmNDqABj1MM0xDE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKH7r2ZHPW9mkqquy9uBjr/ljkyjMjUX/sWEjY04+MFJ+uvMIq
+	TsUf/GFx6R4/+Q+Y7V1/dlH72DXBxYsILClTIMr3DqvdgDfkQDbHIAvtPEURDK0=
+X-Gm-Gg: ASbGncscYIzTWLnVMUy/jSNSZ/acQaLCIyGjb59dDW6tklukQ8MIsVIOiymY8x5xXRj
+	QuT5f/3FKXFR23EYWZorUpFvkpgwJ1r4Kr6I+OE6wSvAJJz+/7K734JGLb8ohkJXRiGYXitDuVR
+	aPuOolQlcomKGjq1mXGcw1m7NYvXfLYHwcql/EhHiNFObbZA87wZrOK8MAPLkdUxCFUkSAcNmsW
+	MTSv+DO2Sy/259Iv59a4YgXFmOsMMzw8XoBhfXcDPt7G1NRygziR0SV53qJdsgEuZJYXzKDpPDd
+	CEy14p2zu/X0
+X-Google-Smtp-Source: AGHT+IHT6mDWYjThIgJPbxWuWwVfspo5pZ+HAD2rIjTlsbMjzXUQcvPr2K6h/1mHjtrkSJ+dLDi9aw==
+X-Received: by 2002:a05:6000:144e:b0:38d:a696:6ef6 with SMTP id ffacd0b85a97d-38db490f01cmr271920f8f.45.1738706480503;
+        Tue, 04 Feb 2025 14:01:20 -0800 (PST)
+Received: from [192.168.2.177] ([81.0.8.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dab853236sm2956583f8f.54.2025.02.04.14.01.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Feb 2025 14:01:20 -0800 (PST)
+Message-ID: <68153618-d54a-4465-9fb2-a1232a8291d9@suse.com>
+Date: Tue, 4 Feb 2025 23:01:18 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR01MB7903:EE_|SJ0PR01MB8084:EE_
-X-MS-Office365-Filtering-Correlation-Id: 923bb212-b40a-4d3c-9765-08dd45667246
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rg+5u+W2aqoNEjBp3ALZPL5xy3e2x8IKq2m+5UuDHZ+CSla9zpkdTb9+nOsY?=
- =?us-ascii?Q?O8GdTGDHUa0jiTbB7d8g1lXUyh2JrJO+h40uj9jb/V9NJeoBAMNvRlcLTjRy?=
- =?us-ascii?Q?W5ubC2c+TL4/obRQN5JGdcvcx47ml/uKLQHQjAnKHdSDywp0GX+UesHsWGTL?=
- =?us-ascii?Q?WQOr8WT1p8zsGjq76sb+dLQzZooo3QZOt8Ts1j1ofeTEJRDBS98MErdCwEle?=
- =?us-ascii?Q?CTJ63chJEX1/b4pxrIhqxjDmE72tcJV4sFJQTtwNcXmrlM0Qb/hsLGer+luE?=
- =?us-ascii?Q?upiVB5aSWvWiBv66LcPQkA5XXLh/DDjnzT0l4xdAkOb/iEJ3hanZj1OFPJ88?=
- =?us-ascii?Q?xXTidGL8XG/j3S0P7abeh7QgigMftHWBV3furJ21zsHf1Ktrx49DcaEVT5Qx?=
- =?us-ascii?Q?50mzexoPxUWHz3hOsurtEa9ZLxVn0V6fPunYY8AnUkIDC+bOVXMNT2B5Ez9r?=
- =?us-ascii?Q?zAprdn01mFs5iiEFpIdhdPfdOH8HmmoCDRxhiJhMpPCMB4A54NAE2SvtDpTr?=
- =?us-ascii?Q?B5R1QyFlXTpsc04YAxLFox651woBMFHNrN+lRYu/J52C6nRSsvWKSc5yjIRf?=
- =?us-ascii?Q?zfijepvebmcFtiBoJuPFOz1BDFIwA4vH84ruAxyxHG4kWEZ2+bJ1ZiTd//YE?=
- =?us-ascii?Q?9/XKRYa91Ev4G+n5D2mRgk4geYn/Xmog4+G3f2x1LruC8wzCyHG/w+0EViwb?=
- =?us-ascii?Q?xug8GoLEHu2fySXaevB/K+zaDpVWWnShdJD4Tng9qL4a+tPdyLrkCnexsdbd?=
- =?us-ascii?Q?awu/LJRtzhhj22unwxivFQCimKCah4SOwkd273EeMsyr4n7b4bBssvqv43nD?=
- =?us-ascii?Q?orIzPr5Et6Qyp7A6MCXRlimFpPogWUOvVK/yPkl6NeDKjrpG92yGMTEijZkM?=
- =?us-ascii?Q?204XIkLj1cnb3JPBprlpLGz5nKZHLSKs1AwF/MHgeUoNL0HUEdZ//wkdfQZw?=
- =?us-ascii?Q?BkfVH7DB1tSdVMa03r2O2pEjligR9gbBQEKFYTclNiu/A1cnRqKdGUgYF5X8?=
- =?us-ascii?Q?XBEACXeP8faNPzxMSE9pyyxTAPHt9OfM9C8kUI0hqIIsPAV0s+//HpMFeWg1?=
- =?us-ascii?Q?ALKJ1kfMVhfqx/FijngmI+6oWOkNvRf3QvePgk0NOg77XDesH96fS4N5F+Ju?=
- =?us-ascii?Q?H7ST5mDkiCz6M66pfTJZHhGHJtpw28gLeUIqR45oMWj1ZoEIwwzk2A1LEL0D?=
- =?us-ascii?Q?T7EFMjGguNbr0vttvstKWwlmuK3KSm2RefPamWjdYEARGP1e11hWpoZ8eiDN?=
- =?us-ascii?Q?Q9feRk3FXnR0y0h93iXs3acT/9l8sCJYGAphnDu0yHcY/chSSh09jp2o9YhA?=
- =?us-ascii?Q?fYzGOJKvY3zWCCDmL2AUbtSDVM/RA2xmLwRtxGSSU8q26Si+9ZGkRDKkhO0j?=
- =?us-ascii?Q?OAC9sRvGRegnFjktJgmCNDyyapD4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR01MB7903.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PgYBXkz6kLaBtTmykv+eBeEbTgCUo3JiNJZU8jeItJEmbT/Ua6j1PNsqlC9n?=
- =?us-ascii?Q?kWi1wRDpoyG3Lm/NS+rIyjBFZpKfdOE+gbpyHb5zK/teP9hpn1DDNVw7B59h?=
- =?us-ascii?Q?zXZn1jvUZHTyNTZ37jOyaRC/6pq6zF5+qaZ/pPkbJFgf1azAzU4a0ptAT1Hv?=
- =?us-ascii?Q?KPY7hVeMmJH2+NLDRIAEkjLFHKdHtnvx5Ewm+toXWnfJOJkAO9vtgcdfW7nr?=
- =?us-ascii?Q?FVB48wJDuVWlLOM0/qrof6AOuO0lOF58c3KLGICYSyXyLse73MfgyZrjM0R8?=
- =?us-ascii?Q?G/a4SI6Oa7/v/QFC+hCyQnLVuDsNeltrDcHLM5FXML1wI4k/rosTUSudbKHw?=
- =?us-ascii?Q?ojOpdqU1yKD2hc7br/bQ8A7tYJsqlF4hqZDDPDvr7iiJ+hqPx4okAvY/KKDY?=
- =?us-ascii?Q?PI2AP3qzxNq4uG0x/Rs2ehwQ9Jjb4KB5xuzmAkJMbMGb8XRGvBtssoL5vzBt?=
- =?us-ascii?Q?0t/EqVLeVzXpmCAapgZUgAY/Aw1dymCrxrPZ2MV6BCcRPHHv9huwADGJI9aA?=
- =?us-ascii?Q?NSjWdTdr1YnRGWwGOvLP5TEzdaHZld8SGQkKg1lAc/xmJxDDbzhfmuF1wY0K?=
- =?us-ascii?Q?wMGReKy2JwwhpmIqLHYolAhgmOlatWkT5eu8x3dAmZyMPQcGG9PNvBbZjo4L?=
- =?us-ascii?Q?IsG4rcAEtTd1CJGTB9uggkQoCCUa8xPfyfJY591uXmS0Sn2d9Ice9QJPKw1j?=
- =?us-ascii?Q?F6bGRVaNUwj0wxO87rH6D+fzE2/z7rNxYy9Y1xWKEzKmYtu9tTOoudxn8/Pg?=
- =?us-ascii?Q?Vaeq11HrZXCa0xgQcIYYxM3mW8TnMehV+nO3zF5qpbObvhn9gZh+MaJ28mII?=
- =?us-ascii?Q?RdhYH7FI3a8XKy4AO1Ch//EqMVxmIOCSkvTyTUygngDHZs3ru8BfZCw7GDG/?=
- =?us-ascii?Q?hRX+ADORIqGJliU23d7P1U/OR3iDssHQTiGdax/lFZ04i6VwHJQSzH+zUiPK?=
- =?us-ascii?Q?6qsE2nH6asJQPHrJwoIEwLI6t8UshO/IXoqPKDGCRGbloRoNS1HjxmsxuJvM?=
- =?us-ascii?Q?ccD0AJy/bSXzxy15D9BWO6W03TrQ9OpYr3u9j1vrsW5DHn6tZJLHomtJ2tx7?=
- =?us-ascii?Q?RuzAjaRoKI9UeE3cpI75BlmMuEvbp05Z2O5EDosdYRrwTnrzb/mb5XeqKj7+?=
- =?us-ascii?Q?MRMf//O7EomMnMm6O2Xw9yQNhNskilQ31X2AowvdpKbjnQgSmWxUYYjl7gjb?=
- =?us-ascii?Q?aZTgDAvO30ZwleWvWtXe2e1iSVrChnd2VxeoT64f/z4tH7XRZ7wQLpU7WyDk?=
- =?us-ascii?Q?Di2/uqAZuGUFBjWlPFWFVqhZC8+GZNnh2nCpnDgE3tbjwZg3LHjF95vYR6Og?=
- =?us-ascii?Q?y7YV0kn6WP5EZnwHVcLvpEkKJaaBwKdYFOuhpg3Y1UKsyEF8Zfrk9BVPv3k7?=
- =?us-ascii?Q?ew5yz9EZa7tjAohpO12nxpcfhcc7y4gU7dAYiCHuz3CKppRWMVccOfzhYu3g?=
- =?us-ascii?Q?M4wDc7hWyjPamwxzJjEhQZJbx9jrruMK8QLB9Y01Os+I5DtjQzTs34kvvsmP?=
- =?us-ascii?Q?vrBpXqvSdJ56ezpEFa0WibzSb+ElzZj/vSzxrgyBQCbrR57e9hSOHgL7/Nfd?=
- =?us-ascii?Q?InXJ4xJYVRKNoNu5fvP4PVjy0Fn719ZMFj6YdpheiO0MN7rMwviHUvZTWwJl?=
- =?us-ascii?Q?F9C7zJlaLA9tf/8wY/GZPGw=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 923bb212-b40a-4d3c-9765-08dd45667246
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR01MB7903.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 21:54:06.4095
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: b+adKQO3tDYLAtw+Sgs58lfA/09t4/hNylUTYtIE+ot21ZeL+JSZKXxXJ8LUn+fUtxJ6TY8JWIWIbyY7mBCYSHQqkc7op6Z9shRep2NCXaLrg2Xv1CmFdgQppHnV/7pu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB8084
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/3] arm64: dts: s32g: add I2C[0..2] support for s32g2
+ and s32g3
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+ Chester Lin <chester62515@gmail.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>
+References: <20250113110512.506007-1-ciprianmarian.costea@oss.nxp.com>
+ <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <mbrugger@suse.com>
+Autocrypt: addr=mbrugger@suse.com; keydata=
+ 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
+ PVrr2NoUqi/bxI8fFQJD1jVj8K0=
+In-Reply-To: <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_135413_380515_6B13B1EC 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250204_140122_542971_0D35E4A0 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,42 +153,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 12:54:26PM -0800, Oliver Upton wrote:
-> On Tue, Jan 28, 2025 at 08:34:47AM +0000, Marc Zyngier wrote:
-> > > +config AMPERE_ERRATUM_AC03_CPU_50
-> > > +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
-> > > +	default y
-> > > +	help
-> > > +	  This option adds an alternative code sequence to work around Ampere
-> > > +	  erratum AC03_CPU_50 on AmpereOne and Ampere1A.
-> > > +
-> > > +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
-> > > +	  direct read of the register will return a value of 0xf8. An incorrect
-> > > +	  value from a direct read can only happen with the value 0xf0.
-> > > +
-> > > +	  The workaround for the erratum will do logical AND 0xf0 to the
-> > > +	  value read from ICC_PMR_EL1 register before returning the value.
-> > > +
-> > > +	  If unsure, say Y.
-> > > +
-> > 
-> > An alternative for this would simply to prevent the enabling of pNMI
-> > on this platform.
-> 
-> There's also AC03_CPU_36, where the CPU goes into the weeds if you take
-> an asynchronous exception while fiddling with HCR_EL2. We don't have a
-> mitigation for it, and it can be pretty easily reproduced by using pNMIs
-> while running VMs.
-> 
-> So I agree, disabling pNMIs might be the easier way out.
-> 
-> [*] https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_20240823_28945022f4.pdf
->
 
-We prefer to keep pNMIs enabled if possible since it is useful, and we will send another
-patch for AC03_CPU_36 to fix that. If this is not feasible we can send another patch
-to disable it in both AC03_CPU_36 and AC03_CPU_50. 
-> -- 
-> Thanks,
-> Oliver
+
+On 13/01/2025 12:05, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> 
+> Add I2C[0..2] for S32G2 and S32G3 SoCs.
+> 
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+
+Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+
+> ---
+>   arch/arm64/boot/dts/freescale/s32g2.dtsi | 55 ++++++++++++++++++++++
+>   arch/arm64/boot/dts/freescale/s32g3.dtsi | 60 ++++++++++++++++++++++++
+>   2 files changed, 115 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index 7be430b78c83..beae4d5cf54e 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -333,6 +333,39 @@ uart1: serial@401cc000 {
+>   			status = "disabled";
+>   		};
+>   
+> +		i2c0: i2c@401e4000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401e4000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@401e8000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401e8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@401ec000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x401ec000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>   		uart2: serial@402bc000 {
+>   			compatible = "nxp,s32g2-linflexuart",
+>   				     "fsl,s32v234-linflexuart";
+> @@ -341,6 +374,28 @@ uart2: serial@402bc000 {
+>   			status = "disabled";
+>   		};
+>   
+> +		i2c3: i2c@402d8000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x402d8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c4: i2c@402dc000 {
+> +			compatible = "nxp,s32g2-i2c";
+> +			reg = <0x402dc000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>   		usdhc0: mmc@402f0000 {
+>   			compatible = "nxp,s32g2-usdhc";
+>   			reg = <0x402f0000 0x1000>;
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> index 6c572ffe37ca..79b38cd8b142 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -390,6 +390,42 @@ uart1: serial@401cc000 {
+>   			status = "disabled";
+>   		};
+>   
+> +		i2c0: i2c@401e4000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401e4000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@401e8000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401e8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@401ec000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x401ec000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>   		uart2: serial@402bc000 {
+>   			compatible = "nxp,s32g3-linflexuart",
+>   				     "fsl,s32v234-linflexuart";
+> @@ -398,6 +434,30 @@ uart2: serial@402bc000 {
+>   			status = "disabled";
+>   		};
+>   
+> +		i2c3: i2c@402d8000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x402d8000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c4: i2c@402dc000 {
+> +			compatible = "nxp,s32g3-i2c",
+> +				     "nxp,s32g2-i2c";
+> +			reg = <0x402dc000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 40>;
+> +			clock-names = "ipg";
+> +			status = "disabled";
+> +		};
+> +
+>   		usdhc0: mmc@402f0000 {
+>   			compatible = "nxp,s32g3-usdhc",
+>   				     "nxp,s32g2-usdhc";
+
 
