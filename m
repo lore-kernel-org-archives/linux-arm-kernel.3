@@ -4,81 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6643DC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 20:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C850EC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 20:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=; b=ODpwwEqFTUPcUs5MeaL2ND1yo4
-	JAJwXy2JLVn+sgLuHng/6C1Hl4s3Pw0fId7wbMtbvTiC+o0UPvm1wVFn8CsJhgEuJiYJUz3tXkuvy
-	DBiFUrTT0W20BWxXK/EoPGv9ZOkA9/gu+caS9xFsRtnsueA4cpOEy/lXIiM5HY/hPZS5+ktrZ8zL0
-	pPVcxRN6lZVdyXaUpQmfhjTdig+G00E5I1u09eJWKFw72amfGpcoqQ5BXIJtNCDToSCnJwWqu+1ci
-	3BJYaBcBQrpi9etxIJjmpxOP7CnjnpzLazcDCpoOW9jqJ2fmmjZ6gAO4I4dxVXukoQjdTgaKbRnjy
-	RQFOgA8A==;
+	bh=cHL/St7chsRUkcMGx7UK1wa5r/a3m1wpwlC0b7MYDoc=; b=LlUEjR4v2BXm2GJNet0DUUGVbI
+	17WETBkSflmQ/toM+STE0SaMSvoJfcx4ITq0hY/EiDYPudYD7bWdQpCMrqKz4xWMsd1yuH6Eu09kR
+	LVSoZukd4bj8z5rc3rZa+Q3ykWg5eqApXuKL/ehLot8KEGwmKCIncZ59U9N+LmXJZLXoZgquk1Hkv
+	gd1fZ1mgLPxyOQYuryyAi61B/xqdp2VCU9XZegkkVoqEM34dN1LMWvnYZcP6DdSTwgn0hVdU7WNDB
+	xJHJuhmxRdwaoVLQ2raUEcQdlbLeCji5k5K+z3+gBVI5F9DrDGEtK23Dsh2L9JB0OFsXj3AxFq7sO
+	VwzTef5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfPVQ-00000001W6v-21hg;
-	Tue, 04 Feb 2025 20:26:48 +0000
-Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
+	id 1tfPZV-00000001WWc-2CSG;
+	Tue, 04 Feb 2025 20:31:01 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfP2u-00000001RvE-0nCa
+	id 1tfOFa-00000001Jgm-3ZvQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 19:57:21 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3ce7a0ec1easo44432465ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 11:57:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738699039; x=1739303839; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=;
-        b=0SSvujdJwEahcRFaGBkPURB4A/A7f8uA48RC5Grz+RrPo2H4/7ALAAP3zqPTX7qgz2
-         Ix97t2Xy29N985+DKcJ+fQeIOvHpLWcQMvgqW/lhHF200GsXEbyyIgbc5PTtewy2fd5k
-         U0m+fF9WpbHmf6FTWGyMm1zG0ClJ1N0yu/Z/QR9gNRVJQr9+mHsokvUwonGAN9OlZ4tV
-         lIRkDEsBIh8DOBTbdUnzfsEmJR0fCWt86rlCST3biqy7gl4Ob6K+e585G5WvJRomNuGF
-         pSHV5Wl9W+xDvo0zhMeD67slM/yNI+yRXu/GbT2lKIq7Z8ZRB04pz2SSs4yn09NPVLaU
-         86VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738699039; x=1739303839;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=;
-        b=pDEa918MG64phhNVU7ZZd2J6q9Y5S20SZXgPQJ2xLQMvllsrxzhfWmfv09LE2hdeZJ
-         zCzbYZhJqKXQ2mAN/EzMP6HxmBK6069pqNs9L1zi0tIeJ3KPDNqg4RZiDEXDVI/B1Ihf
-         x/9Vg/dbZ8/8T2LFqenbhT01jmyT6dC7eK2r9iXrBD01Yfct15Qo710+BbImMOjeR/DC
-         LrEiuTRGhMj7r14kim5nr4Y45gnrkuI59L0Th6VyJ6izNvG6hfPKkU2vPy07qlzSOUE7
-         d8gfApS6o2tWLcgBBJQRiKB62u/ZCXXZ7yzaivJ9qL9YpKq7gxJFbddfkjAjC5nAuaOr
-         Uj2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUPQsjAc04Abk3eb3rOU4XAH2hou2Zllk2BggdWKYDAP8Abgwshi43nT/goGU2pAheRU3DrBvhMYTDfu13vW2Sb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw53H/x/Y+Kp8kJDNRuUZrS8MjDoXw3d2NLVejSjA07x8H606hA
-	NwJXPi/YW175eWbekPqe6QFHOGvo7PrgiNdavF9cihLJjm5fkEaFYoXe+4ZtbZIvEidJjIk9Ppz
-	hW9xaD2hYfgZrE7hDVvXS2g==
-X-Google-Smtp-Source: AGHT+IFjKjYyuQlNa/ishtIcrEB5bPDdOoTVbdVO7D85Z9CPphU0w8y5cfrKi9gtvFrT4dURbTET8ohchq0pXDfx0g==
-X-Received: from ilbdr11.prod.google.com ([2002:a05:6e02:3f0b:b0:3ce:7e27:ea5a])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:3f83:b0:3d0:4eaa:e480 with SMTP id e9e14a558f8ab-3d04f40166emr2549635ab.3.1738699039331;
- Tue, 04 Feb 2025 11:57:19 -0800 (PST)
-Date: Tue,  4 Feb 2025 19:57:08 +0000
-In-Reply-To: <20250204195708.1703531-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20250204195708.1703531-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
-Message-ID: <20250204195708.1703531-2-coltonlewis@google.com>
-Subject: [PATCH 2/2] perf: arm_pmuv3: Uninvert dependency between {asm,perf}/arm_pmuv3.h
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 04 Feb 2025 19:06:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738695983; x=1770231983;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=cM7MGCNmgEicKq6tPE7BvkQtbVVInIiUj+wIq5lwFyA=;
+  b=bcd1JPwvrHkwhnlHgtRvuZtKD21yBzhu62qj9+LrgOi7AdrXpAvK6nO3
+   XXT1jI/b+A/q+BButsSDKd069OR9GhqnY/YBUs2ICq11M83rCvKdiij8/
+   DUDo09McAnvmLyacTO/qbkS4vrJobhzTOEk6Mq5JK156jPGaPoFUwOejo
+   Y96PbE3bW4U/2PUoqG/rxipx4eFARagCGCAsHXqdY7TX4khsm0wMIvNJ0
+   8dHQKy1t9gi/p/jnCsV9BJAshrTfXGml7MbAtEsMDsHW9cQCzd0JNsBxL
+   0JTaE/HH4y+rbYh+b8rj/I9CRIW1t5ADCmCwDU73YxktPV8Y/8fbTHT9i
+   w==;
+X-CSE-ConnectionGUID: HOGaEBoERnSTJhgI04sdwQ==
+X-CSE-MsgGUID: dN2OUn7ORBydL1WivkEfwg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38940934"
+X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
+   d="scan'208";a="38940934"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 11:06:19 -0800
+X-CSE-ConnectionGUID: cgVrTHTLT9Gce/m9jLyLaA==
+X-CSE-MsgGUID: EU75cmYRTcmdII97AMI25w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
+   d="scan'208";a="110457826"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa009.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 04 Feb 2025 11:06:18 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 4 Feb 2025 11:06:17 -0800
+Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Tue, 4 Feb 2025 11:06:17 -0800
+Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.45) by
+ edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 4 Feb 2025 11:06:16 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P5QP9gGXJac5pfw6erGVuge8VUwHxdUDOnIBNxU2frBt/5WOAzhIAUipGiGxITFac9pasUozGRYdrs3fHLvz8jy2w0ipyoYAHJxRgWoVJFOkcLdla/yR+4DN6IKeQaVVBPUTN09EaBJEZkF0ktYeKXSnQO9Eu4prj0j3hLH3E8M7ZOf0mHtBvY1TB2lW+wSpslcbObMioU/hD6UsVM3iPAhztDZ/mV0La3VXWrc9Rp9rICLs3Vbmqwt8g96GsONM8NJmQAvfLrUETw616WNxhmXENek6OO4fOco4j7vSjIAPG4AJH+R0SaWMasjY8ohe4H+afetqU+XQIt4GZMsAQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cHL/St7chsRUkcMGx7UK1wa5r/a3m1wpwlC0b7MYDoc=;
+ b=PEIJtz2fq2f3TkWZZ43W5uBljE7Iwze6Bs+vdb2G7AH+P/kbY1I1fpJl8Xdp5ciDxKjvF9cX7R1U37E9AQYSP/6pdNJLtcsUNEihOLapoBS2ofuVwV6iapVbzAzOyzgetF12xCZjpjHFHX2LNYhmJhgspqk7Z4J9sh1VP/zZwdc3EbL+ST6FE4koFA0nQ6ADTecs1+0t41MGILThvQ5gkXqOYvosYTIKNt6VXyddR1dFB6s488uaM8AnbwQBCPtOk4Yu9toahjLCppNwQjq120K0BO53loO70f7/LPN4Y1Isju+gMSGRwJCqSahAgXic/7o1TWR6mNRT6WQNno0ASQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by MW3PR11MB4681.namprd11.prod.outlook.com (2603:10b6:303:57::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
+ 2025 19:06:13 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
+ 19:06:13 +0000
+Date: Tue, 4 Feb 2025 11:06:08 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, Dan Williams
+	<dan.j.williams@intel.com>
+CC: <akpm@linux-foundation.org>, <linux-mm@kvack.org>,
+	<alison.schofield@intel.com>, <lina@asahilina.net>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>
+Subject: Re: [PATCH v6 23/26] mm: Remove pXX_devmap callers
+Message-ID: <67a2652083600_2d2c2942f@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <78cb5dce28a7895cc606e76b8e072efe18e24de1.1736488799.git-series.apopple@nvidia.com>
+ <6786b209929e2_20f32945c@dwillia2-xfh.jf.intel.com.notmuch>
+ <af6btaxeeodhvqrmjmdmz7vx2f7fvnavepyhweisagl2boitr6@77pwrvms66hg>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <af6btaxeeodhvqrmjmdmz7vx2f7fvnavepyhweisagl2boitr6@77pwrvms66hg>
+X-ClientProxiedBy: MW4PR03CA0126.namprd03.prod.outlook.com
+ (2603:10b6:303:8c::11) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|MW3PR11MB4681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65d682e8-fbf2-4655-c95d-08dd454efe29
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?38/jBVutNU1lcJEx4SAahZE/kZ9xRVS3Mpu4a5tX7Wd9Q7VTZtalAcYMKFrz?=
+ =?us-ascii?Q?fxeQ5+YZZqFQ/TZEj6+gg1PjfVOmFBsmOb9K3HWi2WyZQ9NasLqCPJAoGBqI?=
+ =?us-ascii?Q?oZwWuwbg4fRLLZ2bI166mee0AB/p1D1uBENqrgmCZvOUVDSNsQzz578wcuPm?=
+ =?us-ascii?Q?RYvgtyMoWWbcaHEjGbEJeaoz4jbNmlGr4/uisOpqNfS+xUCAyQuOCV/hsQiU?=
+ =?us-ascii?Q?LmJVKsvYi78/6olL0qMRweGvJ9w/sxcqTDa9wfwCmi2ciV5MfKFowsANKJeQ?=
+ =?us-ascii?Q?KoUHsJpPT6U5nPOiYxM9g1uiecqxCuPFnYAslQApJ1klf6vBrJHYnc5IWHu6?=
+ =?us-ascii?Q?EuP7A9caYoiYD+xz+iOLXWzgxrBIfIp640q0S/8RIqP8i2TAky16ePhqPGT5?=
+ =?us-ascii?Q?9kT1b6ihlfPEFmHES4vOT6AaHRf4j1fO4V+qxRz9CbY1avgwvOL1NfDXHVFa?=
+ =?us-ascii?Q?75a9TtHuucz/jc1kVlii6DeDLdocu+FpHfpoxRuMtmUaHu/74yeNARDuddSN?=
+ =?us-ascii?Q?CbjH4qRPjPvdRCawesoCnekhEmGBFuUyv81uwxJPeiJ5zEOV3wl0GfDAKjOS?=
+ =?us-ascii?Q?dJnWdFgvMkqhTv7sUPlFzlczGHEtdABhqISRC5XCeUciN2FVyeKiOy2xdZ9U?=
+ =?us-ascii?Q?Htff1EY3ellwCwUgWhC1p65j77vZdHCHEsIAKVbeatk/fZ7jy9bvL8s4py5E?=
+ =?us-ascii?Q?27smhDQKech39uGsxgdcN0IB/CQoGJJfpctE6Si7rBFdAN2nVp3T5oNtG/hU?=
+ =?us-ascii?Q?LDjxnKVv9we12gKup9B3YgdVk0BkCF9oQOdlk/K7iEL3JJqTD4NUOFeZlM+d?=
+ =?us-ascii?Q?0Acb6P8DbZ/+Ib9GZBS8jtGwRGJye0QyMymiPYF000rQAAepGLa+j01yilyB?=
+ =?us-ascii?Q?lYvjzIDcuucugs7GWav5Ji/MXhLSK/XjziT9yerKnUorlMRqzEn0A8d/5+i7?=
+ =?us-ascii?Q?u+fAS3OEtIKKL10iRuJ4SqAzf9c2B84HoJGTd+ibsoi4XVIb3NqyyW0NnFLh?=
+ =?us-ascii?Q?mVGHyqYNHPmXhoPC6VoCbjZaEToaOD6wwReSMGQ5Vrd+LPRmVMUgnvJF2fCq?=
+ =?us-ascii?Q?al/ZiK5qLzWLUPcpAwCtelngMbFxRCpUYGhlPtN+h+Bz9nv0MKnvl3Ohl7mh?=
+ =?us-ascii?Q?H+otIadcWaQq//O0kmUr2GrAaA1qicAQuDjVvJVCe/BbUlg4BJMZ3Zzi3fDJ?=
+ =?us-ascii?Q?p/PVBP59H3NYoM4ekx3XxGu0eKWNeJ9wTmi3aBgnDRWx+h4Bl3Jg+xwkcKmn?=
+ =?us-ascii?Q?Pcyebi2X3CCodwdoOxf29ckpQIYMwFXyigTJHnoFNQR+FKdr1pOrfVYdZKsg?=
+ =?us-ascii?Q?aNwGMBkVX28+BXh6nwLQTeoGCVtDyNLLz0bVREfDr0hzMJFLgahAR2x6Nxxr?=
+ =?us-ascii?Q?U/0BoUW2YLnVpDbYnYcYvxzf+FkG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XeMP8ttk3s+N5+hpdQF1bRq0qPjd7lXFQIuAfROA5jmDZ4HOEuojQ5VgRg9m?=
+ =?us-ascii?Q?Avw1AQs7JY7vBBaJH6KvKKG9jBI7Si80nzo0h/DIAvhEy53ak5CbaNUyF8cd?=
+ =?us-ascii?Q?u02h3aBIENBQJcMlM7hwUbrELqV68umzrgsxz5koW7zuQRTwKr7lHoXTO/uY?=
+ =?us-ascii?Q?+0Iu0asHkHeLSHaUOWK3yy1Mxx+x+jYN4QLV2+ifnn7HnMExFugJRbQHPj8B?=
+ =?us-ascii?Q?+ZObL0P4kAVjSYk63aKFLbocCJf9LO6OkKmswuPxkof+ouNGWpQeyYaRvHDO?=
+ =?us-ascii?Q?Q+G+BaM8mDozEAYTAUj+hY1G7TXQfHqGueZwKbcOxc0DFeK8xnVhlTRB1vpJ?=
+ =?us-ascii?Q?VcSMWJMG02ptDGDYrRGsAmAsqKvGsfA7wYtISAAk2I6yT2zHI1/RyTfqm09W?=
+ =?us-ascii?Q?ch1/LMT+m1c1cUnhdwru57jRaoCeb1KFOx8Gts6lXZp9aDBQSzZJXV3Iowuu?=
+ =?us-ascii?Q?4U70fOPAAxKTyKUwaR4bnqRlUuWXAQitwf2552sa3i2F+5MaQT0Dod56vID/?=
+ =?us-ascii?Q?P1wRgTCDiejp2K32AkzBSxLT5Ghp8qPr07LD4U1yGRb2sPxEICeB/upVz2gH?=
+ =?us-ascii?Q?Lj/SGfrLb97TekmzPwcwpXy52aKhnYsNhs52VaoRdIiT72HcJYVKii9WtG+j?=
+ =?us-ascii?Q?Pu1kmbCyqo0O9GIRwKhRa5HaUyGa1EW1k2YlQeYZmoNyLJGtWsiY64FOpoPd?=
+ =?us-ascii?Q?86VFAFDdsdt8xCuUOlI70yRDYM9nFq+pJkbAktavpUgWDsftIB4TkA940HiI?=
+ =?us-ascii?Q?F+qiYRfwlkyGVfYJDeHjreJfRSkGgZawDBv9IVh6AJsZmZGojX5ubtW20Z1m?=
+ =?us-ascii?Q?4UTt2r/yba7gcHxWHDu9dQaKJfOBBixx1VOHtMDV0zBCLc/j7aoqzTxct4hC?=
+ =?us-ascii?Q?6dfJpVkMvKiQOvKc8AsfTBsI089eB+3brWl9O5Y5GXzOwPAdT/t0Ee8r4/JI?=
+ =?us-ascii?Q?qpQlOsjEOLNy0/7GkKDEkmc1IHPlCTn6NsQnO7Lz9RKbtwY+RLmd0BFQocDU?=
+ =?us-ascii?Q?7fH4hYtIXBF0+SL+cDiprqUJlBaWYaLXfrtILirqbtzNpKxCB1IencSumSHb?=
+ =?us-ascii?Q?B169cokQNGmoDr2BnCFCuEqj9GvRQfWbOx2dGZ+3RudiozDqkyG8rCSdIpo9?=
+ =?us-ascii?Q?guK+GZYGlwG6/I3WUl/ewNastrNcMSKrMN4LANaAcFlSYHaF1unj2o8sPaei?=
+ =?us-ascii?Q?UF627RnbqabBvgpAiTe8aB7TfSOcoXxy0MkztecYLv6hsk2Km1AfQ/cGXoj6?=
+ =?us-ascii?Q?vVjQo+PjxAQOsLEDK8zfkfg2GzKvPxj7FNdEc7j6A41DEQUadyW/mEBU7pO8?=
+ =?us-ascii?Q?+dOVugMwy8P7xQfrO27N4zuepvikCYIp/28A+XGJSe4t5wKULhwQbIrrWRgO?=
+ =?us-ascii?Q?kuM3AtaaUoNPucTqH2AeNEW56WnO54X6KCfa3OFqUqqnFvZAGP8JSUJTdwbF?=
+ =?us-ascii?Q?sOHHloBFFs7LdReFhADR6VDkATcPqe0xMSQKq7JvnaO74HnjaedWwU/dgZNV?=
+ =?us-ascii?Q?bk49vfT1cruO3nLtn+wkQAvzxyxpcaKcLY7I+dcnRunDSRNLaUkgDGFM+lZq?=
+ =?us-ascii?Q?8l4G+lsfv6F1OE3gqXRkNIzz5EH0+ZtuCnHNkDZBBlaYVtivPhr/ZwlQ6f+O?=
+ =?us-ascii?Q?CA=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65d682e8-fbf2-4655-c95d-08dd454efe29
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 19:06:13.2720
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Bai+4sWbbYao3zHVdLBBVndvnfLDkTR6YSXYR9CkJA8kr3l9w7rN7EVm+6Kcdme17POc0+1d0t8SMj7jH6GYlnPJy5Yhs6Pr9yjI/agoY5M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4681
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_115720_238697_06D85596 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20250204_110623_190234_3C9CE280 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,177 +208,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf/arm_pmuv3.h includes asm/arm_pmuv3.h at the bottom of the
-file. This counterintiutive decision was presumably made so
-asm/arm_pmuv3.h would be included everywhere perf/arm_pmuv3.h was even
-though the actual dependency relationship goes the other way because
-asm/arm_pmuv3.h depends on the PMEVN_SWITCH macro that was presumably
-put there to avoid duplicating it in the asm files for arm and arm64.
+Alistair Popple wrote:
+> On Tue, Jan 14, 2025 at 10:50:49AM -0800, Dan Williams wrote:
+> > Alistair Popple wrote:
+> > > The devmap PTE special bit was used to detect mappings of FS DAX
+> > > pages. This tracking was required to ensure the generic mm did not
+> > > manipulate the page reference counts as FS DAX implemented it's own
+> > > reference counting scheme.
+> > > 
+> > > Now that FS DAX pages have their references counted the same way as
+> > > normal pages this tracking is no longer needed and can be
+> > > removed.
+> > > 
+> > > Almost all existing uses of pmd_devmap() are paired with a check of
+> > > pmd_trans_huge(). As pmd_trans_huge() now returns true for FS DAX pages
+> > > dropping the check in these cases doesn't change anything.
+> > > 
+> > > However care needs to be taken because pmd_trans_huge() also checks that
+> > > a page is not an FS DAX page. This is dealt with either by checking
+> > > !vma_is_dax() or relying on the fact that the page pointer was obtained
+> > > from a page list. This is possible because zone device pages cannot
+> > > appear in any page list due to sharing page->lru with page->pgmap.
+> > 
+> > While the patch looks straightforward I think part of taking "care" in
+> > this case is to split it such that any of those careful conversions have
+> > their own bisect point in the history.
+> > 
+> > Perhaps this can move to follow-on series to not blow up the patch count
+> > of the base series? ...but first want to get your reaction to splitting
+> > for bisect purposes.
+> 
+> TBH I don't feel too strongly about it - I suppose it would make it easier to
+> bisect to the specific case we weren't careful enough about. However I think if
+> a bug is bisected to this particular patch it would be relatively easy based on
+> the context of the bug to narrow it down to a particular file or two.
+> 
+> I do however feel strongly about whether or not that should be done in a
+> follow-on series :-)
+> 
+> Rebasing such a large series has already become painful and error prone enough
+> so if we want to split this change up it will definitely need to be a separate
+> series done once the rest of this has been merged. So I could be pursaded to
+> roll this and the pfn_t removal (as that depends on devmap going away) together.
+> 
+> Let me know what you think.
 
-Extract the relevant macro to its own file to avoid this unusual
-structure so it may be included in the asm headers without worrying
-about ordering issues.
-
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- arch/arm/include/asm/arm_pmuv3.h   |  2 ++
- arch/arm64/include/asm/arm_pmuv3.h |  1 +
- include/linux/perf/arm_pmuv3.h     | 49 ++-------------------------
- include/linux/perf/pmevn_switch.h  | 54 ++++++++++++++++++++++++++++++
- 4 files changed, 59 insertions(+), 47 deletions(-)
- create mode 100644 include/linux/perf/pmevn_switch.h
-
-diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
-index 2ec0e5e83fc9..a39277b6a365 100644
---- a/arch/arm/include/asm/arm_pmuv3.h
-+++ b/arch/arm/include/asm/arm_pmuv3.h
-@@ -9,6 +9,8 @@
- #include <asm/cp15.h>
- #include <asm/cputype.h>
- 
-+#include <linux/perf/pmevn_switch.h>
-+
- #define PMCCNTR			__ACCESS_CP15_64(0, c9)
- 
- #define PMCR			__ACCESS_CP15(c9,  0, c12, 0)
-diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
-index 89fd6abb7da6..e22fb26b6169 100644
---- a/arch/arm64/include/asm/arm_pmuv3.h
-+++ b/arch/arm64/include/asm/arm_pmuv3.h
-@@ -10,6 +10,7 @@
- #include <asm/sysreg.h>
- 
- #include <linux/perf_event.h>
-+#include <linux/perf/pmevn_switch.h>
- 
- #ifdef CONFIG_KVM
- void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
-diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
-index d698efba28a2..00623b69cdcc 100644
---- a/include/linux/perf/arm_pmuv3.h
-+++ b/include/linux/perf/arm_pmuv3.h
-@@ -6,6 +6,8 @@
- #ifndef __PERF_ARM_PMUV3_H
- #define __PERF_ARM_PMUV3_H
- 
-+#include <asm/arm_pmuv3.h>
-+
- #define ARMV8_PMU_MAX_GENERAL_COUNTERS	31
- #define ARMV8_PMU_CYCLE_IDX		31
- #define ARMV8_PMU_INSTR_IDX		32 /* Not accessible from AArch32 */
-@@ -268,51 +270,4 @@
- #define ARMV8_PMU_BUS_WIDTH	GENMASK(19, 16)
- #define ARMV8_PMU_THWIDTH	GENMASK(23, 20)
- 
--/*
-- * This code is really good
-- */
--
--#define PMEVN_CASE(n, case_macro) \
--	case n: case_macro(n); break
--
--#define PMEVN_SWITCH(x, case_macro)				\
--	do {							\
--		switch (x) {					\
--		PMEVN_CASE(0,  case_macro);			\
--		PMEVN_CASE(1,  case_macro);			\
--		PMEVN_CASE(2,  case_macro);			\
--		PMEVN_CASE(3,  case_macro);			\
--		PMEVN_CASE(4,  case_macro);			\
--		PMEVN_CASE(5,  case_macro);			\
--		PMEVN_CASE(6,  case_macro);			\
--		PMEVN_CASE(7,  case_macro);			\
--		PMEVN_CASE(8,  case_macro);			\
--		PMEVN_CASE(9,  case_macro);			\
--		PMEVN_CASE(10, case_macro);			\
--		PMEVN_CASE(11, case_macro);			\
--		PMEVN_CASE(12, case_macro);			\
--		PMEVN_CASE(13, case_macro);			\
--		PMEVN_CASE(14, case_macro);			\
--		PMEVN_CASE(15, case_macro);			\
--		PMEVN_CASE(16, case_macro);			\
--		PMEVN_CASE(17, case_macro);			\
--		PMEVN_CASE(18, case_macro);			\
--		PMEVN_CASE(19, case_macro);			\
--		PMEVN_CASE(20, case_macro);			\
--		PMEVN_CASE(21, case_macro);			\
--		PMEVN_CASE(22, case_macro);			\
--		PMEVN_CASE(23, case_macro);			\
--		PMEVN_CASE(24, case_macro);			\
--		PMEVN_CASE(25, case_macro);			\
--		PMEVN_CASE(26, case_macro);			\
--		PMEVN_CASE(27, case_macro);			\
--		PMEVN_CASE(28, case_macro);			\
--		PMEVN_CASE(29, case_macro);			\
--		PMEVN_CASE(30, case_macro);			\
--		default: WARN(1, "Invalid PMEV* index\n");	\
--		}						\
--	} while (0)
--
--#include <asm/arm_pmuv3.h>
--
- #endif
-diff --git a/include/linux/perf/pmevn_switch.h b/include/linux/perf/pmevn_switch.h
-new file mode 100644
-index 000000000000..1f211468d8bf
---- /dev/null
-+++ b/include/linux/perf/pmevn_switch.h
-@@ -0,0 +1,54 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __PMEVN_SWITCH_H
-+#define __PMEVN_SWITCH_H
-+
-+#include <asm-generic/bug.h>
-+
-+/*
-+ * This code is really good
-+ */
-+
-+#define PMEVN_CASE(n, case_macro) \
-+	case n: case_macro(n); break
-+
-+#define PMEVN_SWITCH(x, case_macro)				\
-+	do {							\
-+		switch (x) {					\
-+		PMEVN_CASE(0,  case_macro);			\
-+		PMEVN_CASE(1,  case_macro);			\
-+		PMEVN_CASE(2,  case_macro);			\
-+		PMEVN_CASE(3,  case_macro);			\
-+		PMEVN_CASE(4,  case_macro);			\
-+		PMEVN_CASE(5,  case_macro);			\
-+		PMEVN_CASE(6,  case_macro);			\
-+		PMEVN_CASE(7,  case_macro);			\
-+		PMEVN_CASE(8,  case_macro);			\
-+		PMEVN_CASE(9,  case_macro);			\
-+		PMEVN_CASE(10, case_macro);			\
-+		PMEVN_CASE(11, case_macro);			\
-+		PMEVN_CASE(12, case_macro);			\
-+		PMEVN_CASE(13, case_macro);			\
-+		PMEVN_CASE(14, case_macro);			\
-+		PMEVN_CASE(15, case_macro);			\
-+		PMEVN_CASE(16, case_macro);			\
-+		PMEVN_CASE(17, case_macro);			\
-+		PMEVN_CASE(18, case_macro);			\
-+		PMEVN_CASE(19, case_macro);			\
-+		PMEVN_CASE(20, case_macro);			\
-+		PMEVN_CASE(21, case_macro);			\
-+		PMEVN_CASE(22, case_macro);			\
-+		PMEVN_CASE(23, case_macro);			\
-+		PMEVN_CASE(24, case_macro);			\
-+		PMEVN_CASE(25, case_macro);			\
-+		PMEVN_CASE(26, case_macro);			\
-+		PMEVN_CASE(27, case_macro);			\
-+		PMEVN_CASE(28, case_macro);			\
-+		PMEVN_CASE(29, case_macro);			\
-+		PMEVN_CASE(30, case_macro);			\
-+		default: WARN(1, "Invalid PMEV* index\n");	\
-+		}						\
-+	} while (0)
-+
-+
-+#endif
--- 
-2.48.1.362.g079036d154-goog
-
+I tend to think that there's never any regrets for splitting a patch
+along lines of risk. I am fine with keeping that in this series if that
+makes things easier.
 
