@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADABC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89BEC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzYiWjns9SZKk3/JOb3tjlXdoAX0QRH3U0Hu6JjLAiQ=; b=y7AO9fVTHh3D3IeJsbMpGa7jQj
-	dBQoiCvHaMDQUbAt59sEw0ag8HFH4k85xjopZuTDHNfK981uGXyDZAOQe5Hu2ncNN7OufX260xTiK
-	260BpI+UoFdx8x82pxJVdMMl8BIYbGgx1j39f/VALTl3MkuTBhpH2SxsZoB/6ibwj4NOXHmKDPkuk
-	UMjXQjUXjN1ZMjvtDZ9ynvEdrTRLcApr/sy+/RJts/SZXpvUnvscFgH15ssA2ZuPooEd9CanaNCrN
-	DUNp09KTd8Ulxd8vx0PByCa4yM++cGw2qbCp+MwU3mNAOyB1aHTKqWWARdOSL0qCVwLzWY25v9A69
-	IaxNzqHw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uA5iSjfsgBQd9f6d2nWB59IySd1XQaUX9i+T42LF4Vs=; b=mpKmBk9srCJUm0nwdYywhLCpAe
+	0yYJ68O1Tg5egAOV8/t70DBFXaJIT/sbP3NnewhPV+gjtkUe5z4yCQ9SDetDmG8C7iraOooF92SJc
+	SVuFm3KMntle9AprLB/omgmFdw9jupVDfLHjG8FGQnrcM3GiOYrmUQkaVEjqv5Qji0zfRs0fh3jyF
+	s1tcyDL5MUasEzuiTN4I6QMeD0LLXWBobnvCwKu5k1djdfwSTlW29Xo6mnzB8Ik/NRpDGg4idmaKp
+	6qXu5xcSZ+05oWgCMwkmypjcSXVMspApj8OMy3Gsnf/7G1tKPNUvXPTmOSieF/z5YT3nikDg9Jtxg
+	u4qmSHZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKca-00000000mZJ-3v6p;
-	Tue, 04 Feb 2025 15:13:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKbF-00000000mRc-1au8
+	id 1tfKoY-00000000oHg-2Xiy;
+	Tue, 04 Feb 2025 15:26:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfKjf-00000000nrT-2A1g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 15:12:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 71B2BA4286F;
-	Tue,  4 Feb 2025 15:10:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41502C4CEE2;
-	Tue,  4 Feb 2025 15:12:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738681948;
-	bh=orB1CWrzjCAT+8Sk6a1qTdMMrSItL1nmWGKlxMd1Ssk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ViygaYFI38gnIA/jkFpMlSaIv7PdpY3d90jaOQIFt4OZP0GVnMPKYDfwIBtBJj7GQ
-	 1srWI2H+lJSrNXwD7nhFGdlHbsMlEMQq6xFX7nYCCvOPkIuBDTt+MzkBUyeaestahJ
-	 459EJbOOMylMnf3Wx2UJl3VzpiRPvga14IRDW78vgMhKjT9f34UmJuheO9bx6raXub
-	 gabzSJ54b13esREX5uyUurv0K58bvgHmd9DXbxOsx7Vx0SK5LDcOAvWANZdS3mY2Y6
-	 I9AcWM+yYjZEX8BKd/ZpWRDDd+1pM2G1kujRAMtb6NJGTmpttBxmJIxnU3knG+XCcW
-	 JD2K2ys2LLu4g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tfKbB-000SzI-SF;
-	Tue, 04 Feb 2025 15:12:26 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Dmytro Terletskyi <Dmytro_Terletskyi@epam.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 0/3] KVM/arm64: timer fixes for 6.14
-Date: Tue,  4 Feb 2025 15:12:21 +0000
-Message-Id: <173868192612.774962.17867679674962882346.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250204110050.150560-1-maz@kernel.org>
-References: <20250204110050.150560-1-maz@kernel.org>
+	Tue, 04 Feb 2025 15:21:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EDD311FB;
+	Tue,  4 Feb 2025 07:21:32 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 36BA93F63F;
+	Tue,  4 Feb 2025 07:21:06 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: [PATCH 0/8] KVM: arm64: FPSIMD/SVE/SME fixes
+Date: Tue,  4 Feb 2025 15:20:52 +0000
+Message-Id: <20250204152100.705610-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, r09922117@csie.ntu.edu.tw, Volodymyr_Babchuk@epam.com, Dmytro_Terletskyi@epam.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_071229_478480_A8437495 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250204_072111_598119_0C4990B0 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +71,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Feb 2025 11:00:47 +0000, Marc Zyngier wrote:
-> It's been recently pointed out that the NV timer code that is
-> (hopefully) on its way upstream is marginally sub-optimal (read:
-> terminally broken). This short series attempts to fix things:
-> 
-> - Correctly arm a background timer in all situations
-> 
-> - Avoid corrupting the EL2 state by shoving the EL1 state into it, and
->   simplify the handling of emulated timers
-> 
-> [...]
+These patches fix some isuses with the way KVM manages FPSIMD/SVE?SME
+state. The series supersedes my earlier attempt at fixing the host SVE
+state corruption issue:
 
-Applied to fixes, thanks!
+  https://lore.kernel.org/linux-arm-kernel/20250121100026.3974971-1-mark.rutland@arm.com/
 
-[1/3] KVM: arm64: timer: Always evaluate the need for a soft timer
-      commit: b450dcce93bc2cf6d2bfaf5a0de88a94ebad8f89
-[2/3] KVM: arm64: timer: Correctly handle EL1 timer emulation when !FEAT_ECV
-      commit: 1b8705ad5365b5333240b46d5cd24e88ef2ddb14
-[3/3] KVM: arm64: timer: Don't adjust the EL2 virtual timer offset
-      commit: 0e459810285503fb354537e84049e212c5917c33
+Patch 1 addreses the host SVE state corruption issue by always saving
+and unbinding the host state when loading a vCPU, as discussed on the
+earlier patch:
 
-Cheers,
+  https://lore.kernel.org/linux-arm-kernel/Z4--YuG5SWrP_pW7@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86plkful48.wl-maz@kernel.org/
 
-	M.
+Patches 2 to 4 remove code made redundant by patch 1. These probably
+warrant backporting along with patch 1 as there is some historical
+brokenness in the code they remove.
+
+Patches 5 to 7 are preparatory refactoring for patch 8, and are not
+intended to have any functional impact.
+
+Patch 8 addreses some mismanagement of ZCR_EL{1,2} which can result in
+the host VMM unexpectedly receiving a SIGKILL. To fix this, we eagerly
+swith ZCR_EL{1,2} at guest<->host transitions, as discussed on another
+series:
+
+  https://lore.kernel.org/linux-arm-kernel/Z4pAMaEYvdLpmbg2@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86o6zzukwr.wl-maz@kernel.org/
+  https://lore.kernel.org/linux-arm-kernel/Z5Dc-WMu2azhTuMn@J2N7QTR9R3/
+
+The end result is that KVM loses ~100 lines of code, and becomes a bit
+simpler to reaason about.
+
+I've pushed these patches (with some additional debug patches that can
+be used for testing) to the arm64-kvm-fpsimd-fixes-20250204 tag on my
+kernel.org repo:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
+  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
+
+I've given this some basic testing on a virtual platform, booting a host
+and a guest with and without constraining the guet's max SVE VL, with:
+
+* kvm_arm.mode=vhe
+* kvm_arm.mode=nvhe
+* kvm_arm.mode=protected (IIUC this will default to hVHE)
+
+Any additional testing would be much appreciated.
+
+Mark.
+
+Mark Rutland (8):
+  KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+  KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+  KVM: arm64: Refactor CPTR trap deactivation
+  KVM: arm64: Refactor exit handlers
+  KVM: arm64: Mark some header functions as inline
+  KVM: arm64: Eagerly switch ZCR_EL{1,2}
+
+ arch/arm64/include/asm/kvm_emulate.h    |  42 ---------
+ arch/arm64/include/asm/kvm_host.h       |  22 +----
+ arch/arm64/kernel/fpsimd.c              |  25 -----
+ arch/arm64/kvm/arm.c                    |   8 --
+ arch/arm64/kvm/fpsimd.c                 | 100 ++------------------
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 116 +++++++++++++++++-------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  15 ++-
+ arch/arm64/kvm/hyp/nvhe/switch.c        |  91 ++++++++++---------
+ arch/arm64/kvm/hyp/vhe/switch.c         |  33 ++++---
+ 9 files changed, 170 insertions(+), 282 deletions(-)
+
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.30.2
 
 
