@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAB0C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34E1C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9iIjxxwva3fm5ewtrniN91za3PWyU6iE2xOK2M8hJs=; b=IsJpBhtd9ZGlVLPLJ+dk/8HWZJ
-	aAvzYJofcjyk7DszxH6q/O4hYKu6GyCqZ/xHsRbFNMyO8tEoDs6nWSfh0LYsCDIC4banjdR0rT5iV
-	oJxGvHyH9IFPiZG95HR5s3GCrb2KPC6FUtHZ8NdC97Wz4Qx1Qy2SPQTQrPIdpiEaeoa5fwf4H/z7Y
-	RjHWIbpmZy2l5uBmg24wBBF9WGIw6F4FMt0w3oIiZDthxQhckRKjGCPvSoIy5XDIM+OZc+0fbL5FZ
-	3ATwMVX1y89zx1BJvHRG9va7ZDWvo6b01HV033gNkTqNmmgbdwjfknZJG8Z2uSMqPuBRhzEVGiyPh
-	b18AiwGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FsrDa9YoA5Nn5RlLQQud6vMRYIzkeKKYbgADSnk1Qfo=; b=ApG/B4VFfLIBzwhXLC6fACXALc
+	1MePHXJkV5zitPy6HK9FcHFeVAwFWcnCMxUJGPuh7q9gYZf3ZLHqwTyr9Aj7TneFiw82UkYx83Wla
+	6Pp8BXFp6wSOmAuXewl2YqubZenySqXxtJxckdXHd+7/x9W4C7sRmP6quurJfs7KczOPh/Wlogd/I
+	GvHL/FW7Wt8mCVGnuON5Qas+4w2t0XWLSZh5kjmBO4dvtdzu7xgy8S0djoUzq9ZmR4NLnaDvywmfs
+	4b/i09kSdXYMERq2VIdTZ4GDgEb/TSPU0Zc1Eg2CFrQj1y91HvFK2M3xCwZ1yrrUBO3lbc2UXwEle
+	k1cGL+9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHNU-00000000J5Y-1s4k;
-	Tue, 04 Feb 2025 11:46:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tfHX1-00000000JsF-37jS;
+	Tue, 04 Feb 2025 11:55:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHMA-00000000Iz3-0EgP
+	id 1tfHVh-00000000JfL-3Dxp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 11:44:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738669479;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s9iIjxxwva3fm5ewtrniN91za3PWyU6iE2xOK2M8hJs=;
-	b=aA7eikKr0O3t/r64cqKRVygGg7iiLC8zbmV9Mc0bM9xvmuzCvbyrdAzK39GvM6/37511yH
-	WHLfNOHfAa0rEpxTLCMiM41g4wun1dsx+z+hy3Bm6UENaqa5+cgeRuxCCoj4swlPC69zwe
-	xGE8WSv7tGgWFSY4gty7YPS7rDsJfeY=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-368-3UOAidoKPESnXtoBOHbrFg-1; Tue, 04 Feb 2025 06:44:38 -0500
-X-MC-Unique: 3UOAidoKPESnXtoBOHbrFg-1
-X-Mimecast-MFC-AGG-ID: 3UOAidoKPESnXtoBOHbrFg
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-2f9c1b95ed9so1891522a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 03:44:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738669477; x=1739274277;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=s9iIjxxwva3fm5ewtrniN91za3PWyU6iE2xOK2M8hJs=;
-        b=Pc75H/xZc2SwUtoqN2YPm2aViM3OmMa+MdaFUyJIfIOuW072Okdj/xOYjXuj5bw4G5
-         7WYz6qUosxpA9Jr4YBI9Qk60xim8UNAqkqjIWSkic2YnX/a4k7JvQfu/MMysG1+C+rMd
-         hU7KMhpiblnb6MWBsbXWPVzZHuJgPv6hJP0fjsJk5u27mMb9/xp5NRpP929OZU08p7jk
-         vzTcQL+ZTDgvm9cl/l4goeUbuB0eK9/Fetnk0aW5wDK72R4wFcfQ3i0wLUMGOOq4n7DY
-         jOEaGUZqju+aOZq4mO9KmE3vyQqDA7IZ7RHKUz4Do3QMSchjxokTXe+kS+O59QWvjnQU
-         9mbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXvRmNscxSQGkonYJnjz+OwGZqvimSliG9qKZwQx0367W86wYpSlCs0A2g2mO2yeGwvmvYgjmiVb1atcsW+geK4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGq4R71sgsTmuMRG7bBUyKyDs2wbdEwqV4wjawKig+h2dSgFIt
-	PMFwPmn08162dlMWuUAar9phlAXeAWMVQyfUArRVcYtIwQ0YlZ/2I+xn2GyBe7wiDEq0X/EDDkC
-	VJu1fis2cHV4gYnQfKtsu0J1jB/e1kvcORf9UW6gshqCiIVjMy636F7Bz9B8UZlyGEJQTHjVO5R
-	gNs/E2XNjCrvYb4jsVyBfR83f8HAPSnQbAdO9iazjRnlmRels=
-X-Gm-Gg: ASbGncseMmCUHyeGPShAP3pPdp4LTBOdYNpR7WPp6MSnoYkTK60Z1V/gYJgSe5h01x0
-	gS5VdXl4xCePZ/6Dqzjqjg7F53FzhQyNx4/EvIFZVXWo0Fob3I0XQPRxK/W1efM6VakzBSnnbCs
-	w/Kxmrywjz+ntCVvuxoQGP
-X-Received: by 2002:a17:90b:264e:b0:2ee:f80c:6892 with SMTP id 98e67ed59e1d1-2f83abb3532mr35197887a91.3.1738669477475;
-        Tue, 04 Feb 2025 03:44:37 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFT1215YnlE/ZrpMQgdXRPpcUHi+R5LKcJT0ZErl0b04QYANkPy1LfVqSEokWJgpg/IOvaQL+JB/pyKlW4LRIs=
-X-Received: by 2002:a17:90b:264e:b0:2ee:f80c:6892 with SMTP id
- 98e67ed59e1d1-2f83abb3532mr35197867a91.3.1738669477224; Tue, 04 Feb 2025
- 03:44:37 -0800 (PST)
+	Tue, 04 Feb 2025 11:54:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 54EAF5C4A07;
+	Tue,  4 Feb 2025 11:53:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57E3C4CEE4;
+	Tue,  4 Feb 2025 11:54:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738670072;
+	bh=cT2RxHJJvfh2ykj3Hm8+RhZNJZwL1VMP4Vlog4g2ZdA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=csyVMxbTBOzapoMihhQvE3yBB8ppc3ebVwM/lxds5TbEb0QskmNEuc5MVFo6Xx+P5
+	 GOKGaVz6BDEjZ/op7qMjXlQDHZC4ZANHFYoGmF4fAmyqejfrps2lzmH4uL2R3ZfF3h
+	 530fpeFMTxa6u5klDBJ7K8PpMknYVepim2CnzVVrga7vONzOJl7DZIhORsTIchBZBh
+	 UjxCk8o65nAOIhrYdYArgTKr370ez30ggERV9Gx5ezQvtxHHLk3H2uxcRM0Tbb9nqi
+	 dcv4lN+OIJuQkx38F6IUBGMSX7u8RoAPeIdGog3AzZusfSP49GoSHYB9HsCU6MqDk4
+	 hCCLR03KTdAwg==
+Date: Tue, 4 Feb 2025 11:54:28 +0000
+From: Will Deacon <will@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: Handle .ARM.attributes section in linker scripts
+Message-ID: <20250204115427.GE893@willie-the-truck>
+References: <20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org>
 MIME-Version: 1.0
-References: <20250117125522.99071-1-lukas.bulwahn@redhat.com> <20250204113614.GD893@willie-the-truck>
-In-Reply-To: <20250204113614.GD893@willie-the-truck>
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-Date: Tue, 4 Feb 2025 12:44:25 +0100
-X-Gm-Features: AWEUYZlGlZEjRarXyn4DMZdt0GYLGOVYedjIdYC8RRdsZP_eC31hKcwXeaYXrKs
-Message-ID: <CAOc5a3O-8wrQq3oNJC+H9ncFt0yxcm4O+QSgPk4QckF6Ak5pGg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Kconfig: Remove selecting replaced HAVE_FUNCTION_GRAPH_RETVAL
-To: Will Deacon <will@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, linux-trace-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Heiko Carstens <hca@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kernel-janitors@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: HlKLcMC3z1ACLmczlP5gpLDMJBTt4Fu4izHsxGQN1h4_1738669477
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_034442_161938_DD59C0F6 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250204_035433_886792_FBE1717E 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +73,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 4, 2025 at 12:36=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Fri, Jan 17, 2025 at 07:55:22AM -0500, Lukas Bulwahn wrote:
-> > From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> >
-> > Commit a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs"=
-)
-> > replaces the config HAVE_FUNCTION_GRAPH_RETVAL with the config
-> > HAVE_FUNCTION_GRAPH_FREGS, and it replaces all the select commands in t=
-he
-> > various architecture Kconfig files. In the arm64 architecture, the comm=
-it
-> > adds the 'select HAVE_FUNCTION_GRAPH_FREGS', but misses to remove the
-> > 'select HAVE_FUNCTION_GRAPH_RETVAL', i.e., the select on the replaced
-> > config.
-> >
-> > Remove selecting the replaced config. No functional change, just cleanu=
-p.
-> >
-> > Fixes: a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs"=
-)
-> > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> > ---
-> >  arch/arm64/Kconfig | 1 -
-> >  1 file changed, 1 deletion(-)
->
-> Hmm. There are still a couple of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL guards
-> kicking around:
->
-> include/linux/ftrace.h:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-> kernel/trace/fgraph.c:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
->
-> so it's not clear we can just remove the option from arm64 without
-> breaking ftrace_return_to_handler(). What am I missing?
->
+On Fri, Jan 24, 2025 at 06:31:57AM -0700, Nathan Chancellor wrote:
+> A recent LLVM commit [1] started generating an .ARM.attributes section
+> similar to the one that exists for 32-bit, which results in orphan
+> section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+> because it is not handled in the arm64 linker scripts.
+> 
+>   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> 
+>   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> 
+> Add this new section to the necessary linker scripts to resolve the warnings.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+> Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+>  arch/arm64/kernel/vmlinux.lds.S   | 1 +
+>  2 files changed, 2 insertions(+)
 
-Will,
+Hmm. I wonder what this new attributes section is for and how it will
+co-exist with .note.gnu.property in future? For example, the spec linked
+form the above commit:
 
-I believe you are looking at a tree, which did not include commit
-a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs") yet.
+https://github.com/ARM-software/abi-aa/pull/230
 
-A quick look:
+has references to GCS, which I don't think has a corresponding feature
+bit for the ELF note (at least, Linux doesn't know about it if it does).
 
-$ git checkout  a3ed4157b7d8~1
-HEAD is now at 41705c4262aa fgraph: Pass ftrace_regs to entryfunc
-$ grep "CONFIG_HAVE_FUNCTION_GRAPH_RETVAL" . -R
-./include/linux/ftrace.h:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-./kernel/trace/fgraph.c:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> index 4ec32e86a8da..f8418a3a2758 100644
+> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> @@ -75,6 +75,7 @@ SECTIONS
+>  
+>  	DWARF_DEBUG
+>  	ELF_DETAILS
+> +	.ARM.attributes 0 : { *(.ARM.attributes) }
 
-$ git checkout  a3ed4157b7d8
-Previous HEAD position was 41705c4262aa fgraph: Pass ftrace_regs to entryfu=
-nc
-HEAD is now at a3ed4157b7d8 fgraph: Replace fgraph_ret_regs with ftrace_reg=
-s
-$ grep "CONFIG_HAVE_FUNCTION_GRAPH_RETVAL" . -R
-$
+Let's just add this to the /DISCARD/ section higher up, where we chuck
+away .note.gnu.property.
 
-Once commit a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with
-ftrace_regs") is applied, grepping for
-CONFIG_HAVE_FUNCTION_GRAPH_RETVAL should not have any further use of
-that config.
+> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+> index f84c71f04d9e..c94942e9eb46 100644
+> --- a/arch/arm64/kernel/vmlinux.lds.S
+> +++ b/arch/arm64/kernel/vmlinux.lds.S
+> @@ -335,6 +335,7 @@ SECTIONS
+>  	STABS_DEBUG
+>  	DWARF_DEBUG
+>  	ELF_DETAILS
+> +	.ARM.attributes 0 : { *(.ARM.attributes) }
 
-I was looking at linux-next at the time of writing that patch.
+I think we should discard this too (afaict, RO_DATA() discards
+.note.gnu.property via NOTES()).
 
-Lukas
-
+Will
 
