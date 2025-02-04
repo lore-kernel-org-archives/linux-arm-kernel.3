@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E345C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489E5C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 18:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v/3toa1ComUbw9a49HidEIdUKwiCcGuMGyG57aTNhN8=; b=wZzc4B4MVsy4k3MGKEVh/0B14z
-	BjsoyiRSx5bQp2wxVUntuZxYBzKsgzIZL+UZApMuqHfdb1Jk715JuHNWgxcT5iAg+JreVYW7DK+9X
-	30wwI1GzJJSZJtbSMluNfMIVCi+jHCfvEKBZ6rmvx75AVTGfYX9uKKMHB4Sok1NVgfl7lodcsqg86
-	fWFbACMm6tO/nrPhONAVR6rS2WOvGn62fy+KcR03ehxeK5QBAKq0qDfC7iXBP/XVxME7BON1igd1b
-	s1bk5j2ZoUJ3NaNpl2VjCCbhOkL2XxK/ru4MI+pBUgKzrzZt/FmLT8eOyOvVqEXiPPA5mdrgW5wBb
-	TuPEphbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0w6gc31UZ85acegnFxodorsIuLJ+X3LKBEFu9D8Ggqc=; b=vAaN8nMLbjX5jUzbckhh31YPV1
+	epc5XLF7/0HPnGiR8I8vJ506yJjJfNoXmbDltxsp7aNCsBFEVo0s6DuuHAUlTYts3DqnpDoRilY6w
+	v2wHE5D6BeYBxfMv1cvc6f+tKaF3Nq5fOxqlG92y0llpO5JsNDBoZzOyr6yqE80i7CX0ams4bfo+O
+	u8RkLkFrtZJp1vBpRqPk1pw0NUOHImdy+KclSBSaqI+G3DSjiZk+sF4IyTu7vTML7aqR18AdnIHcm
+	UkLuz6gFhlfPjY1M86TKHB50fazSWd9BdlzqhRswzavwsQ9yJZmQLZaED13wIWY7KBZROWxL0MnXm
+	hkcalsyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNCA-000000019ws-14GI;
-	Tue, 04 Feb 2025 17:58:46 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tfNFD-00000001AHU-05WL;
+	Tue, 04 Feb 2025 18:01:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfN9f-000000019Yb-3y32
+	id 1tfNDu-00000001ADQ-2HRG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Feb 2025 18:00:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=0w6gc31UZ85acegnFxodorsIuLJ+X3LKBEFu9D8Ggqc=; b=ehgszOQZ5aHcuLA2QSACGJg1M/
+	nqzZhjL8HqXHWw1C4RhdZlIB6N4ztDDrG8e2+4nQGpYktFvfHZ6U/ybwG8ETg73NRMPOTTANVrb2K
+	lYUxgLi0HkQdqBkuaZ+fXpy+i9ZJD0gIxMumneexGcUaecv0IbpI7gVKDbNG5JYMV1eCwh2ZqAze2
+	/8WjU+g4wCJe2T7xNxYNtfYlmqhudvxvFP9ZGJZAEqM1z2Rva/yofPCeOBdoMhfDyg7vEj+ZF89AX
+	+01W1DzZxQUKYFEK64wm234FjVUZQs8KrKDgdBfKwEOF5hxQGaG3e/jT8mhOclmoC4CVotomemefn
+	+vR+E6kg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfNDr-0000000GMzU-2VmA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 17:56:13 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 514HtllI3196784
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 4 Feb 2025 11:55:47 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738691747;
-	bh=v/3toa1ComUbw9a49HidEIdUKwiCcGuMGyG57aTNhN8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=MXlm2fWRMcTT683EB8AHaEpEbi3X/GV6Leem5ZoZK5wLMWTbJJ/rNymOiWkAj6WeR
-	 At2s9AqpFwfZEAw+SPrjVnrhgxuqoE4552Hox+QNK2DcIQbVmylKoe86AsYdsc+xNh
-	 AsZoTiNhOpPDe/xcgckk1D5kqt/GlZhyMXhOlWbE=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 514HtlFm004039;
-	Tue, 4 Feb 2025 11:55:47 -0600
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
- Feb 2025 11:55:47 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 4 Feb 2025 11:55:47 -0600
-Received: from [10.249.140.156] ([10.249.140.156])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 514HtdTZ063495;
-	Tue, 4 Feb 2025 11:55:40 -0600
-Message-ID: <f1cf5bfc-e767-4ced-9aad-76a578c53706@ti.com>
-Date: Tue, 4 Feb 2025 23:25:39 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH net 3/3] net: ti: icssg-prueth: Add AF_XDP
- support
-To: Ido Schimmel <idosch@idosch.org>
-CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <robh@kernel.org>,
-        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
-        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
-        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-4-m-malladi@ti.com> <Z5J7kGFU_ZgneFAF@shredder>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <Z5J7kGFU_ZgneFAF@shredder>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Tue, 04 Feb 2025 18:00:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D3AA75C6356;
+	Tue,  4 Feb 2025 17:59:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24D7CC4CEDF;
+	Tue,  4 Feb 2025 18:00:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738692027;
+	bh=tnw14ginKYi6QlHi92glPwfUII+IbYVbO01m2ODI/tk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IIz2Cwl26vMZnejBZyuZvh3p3CAkGM9uCFzso6kBl7lWNzc9q6av5tkP9ea6iqwva
+	 XKRIwNZi7US4JtlzqZvOeBxW4E8uPVaJW7fwEaBQ2Jpexj61nEsf/tkOzd2SUa5ZZB
+	 0QEWtRGNQGM6nh5aB1xWbXpXcfmKKZv0Qp3ouv6KWrF1GCUtXUZ3DoVZangnq9t+vs
+	 +aegQsX9rDo1jE8BTfEDYDLjOorVy0SAcfL+xuFbMai/4nWu7Aq9rkUJP87CvLaVkX
+	 dAzcXlqp44e4R8OYEwYzcQwlNfyRq0D+LHzyy3mG/qqvNH7XALTRE7EgyW3QE85io8
+	 lJVx/ewWxU2UA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tfNDk-000VsG-TG;
+	Tue, 04 Feb 2025 18:00:25 +0000
+Date: Tue, 04 Feb 2025 18:00:24 +0000
+Message-ID: <861pwdvbd3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+In-Reply-To: <20250204152100.705610-9-mark.rutland@arm.com>
+References: <20250204152100.705610-1-mark.rutland@arm.com>
+	<20250204152100.705610-9-mark.rutland@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_095612_072127_29E95609 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20250204_180031_994498_91023C99 
+X-CRM114-Status: GOOD (  46.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,88 +109,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/23/2025 10:55 PM, Ido Schimmel wrote:
-> s/AF_XDP/XDP/ ? On Wed, Jan 22, 2025 at 06: 19: 51PM +0530, Meghana 
-> Malladi wrote: > From: Roger Quadros <rogerq@ kernel. org> > > Add 
-> native XDP support. We do not support zero copy yet. There are various 
-> XDP features (e. g. , NETDEV_XDP_ACT_BASIC)
-> ZjQcmQRYFpfptBannerStart
-> This message was sent from outside of Texas Instruments.
-> Do not click links or open attachments unless you recognize the source 
-> of this email and know the content is safe.
-> Report Suspicious
-> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
-> v9dnXbjPnQP15quJdjhJcrR0CoEiGINyhi1SO3vz-ZB8Sgif7YzLnG8ayC2XmAQz6g$>
-> ZjQcmQRYFpfptBannerEnd
+On Tue, 04 Feb 2025 15:21:00 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> s/AF_XDP/XDP/ ?
+> In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
+> CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
 > 
-
-Will fix the typo.
-
-> On Wed, Jan 22, 2025 at 06:19:51PM +0530, Meghana Malladi wrote:
->> From: Roger Quadros <rogerq@kernel.org>
->> 
->> Add native XDP support. We do not support zero copy yet.
+> * For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
+>   by the guest hypervisor, which may be less than or equal to that
+>   guest's maximum VL.
 > 
-> There are various XDP features (e.g., NETDEV_XDP_ACT_BASIC) to tell the
-> stack what the driver supports. I don't see any of them being set here.
+>   Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
 > 
-
-Ok, I will add the feature flags in the v2 patch series.
-
->> 
->> Signed-off-by: Roger Quadros <rogerq@kernel.org>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> * For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
+>   which may be less than or greater than the guest's maximum VL.
 > 
-> [...]
+>   Note: in this case hyp code traps host SVE usage and lazily restores
+>   ZCR_EL2 to the host's maximum VL, which may be greater than the
+>   guest's maximum VL.
 > 
->> +static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, int *xdp_state)
->>  {
->>  	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
->>  	u32 buf_dma_len, pkt_len, port_id = 0;
->> @@ -560,10 +732,12 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->>  	struct page *page, *new_page;
->>  	struct page_pool *pool;
->>  	struct sk_buff *skb;
->> +	struct xdp_buff xdp;
->>  	u32 *psdata;
->>  	void *pa;
->>  	int ret;
->>  
->> +	*xdp_state = 0;
->>  	pool = rx_chn->pg_pool;
->>  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->>  	if (ret) {
->> @@ -602,8 +776,17 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->>  		goto requeue;
->>  	}
->>  
->> -	/* prepare skb and send to n/w stack */
->>  	pa = page_address(page);
->> +	if (emac->xdp_prog) {
->> +		xdp_init_buff(&xdp, PAGE_SIZE, &rx_chn->xdp_rxq);
->> +		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
->> +
->> +		*xdp_state = emac_run_xdp(emac, &xdp, page);
->> +		if (*xdp_state != ICSSG_XDP_PASS)
->> +			goto requeue;
->> +	}
->> +
->> +	/* prepare skb and send to n/w stack */
->>  	skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
->>  	if (!skb) {
->>  		ndev->stats.rx_dropped++;
+> This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
+> If a softirq is taken during this period and the softirq handler tries
+> to use kernel-mode NEON, then the kernel will fail to save the guest's
+> FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
 > 
-> XDP program could have changed the packet length, but driver seems to be
-
-This will be true given, emac->xdp_prog is not NULL. What about when XDP 
-is not enabled ?
-
-> building the skb using original length read from the descriptor.
-> Consider using xdp_build_skb_from_buff()
+> This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
+> FPSIMD/SVE state with the guest's maximum SVE VL, and
+> fpsimd_save_user_state() verifies that the live SVE VL is as expected
+> before attempting to save the register state:
 > 
+> | if (WARN_ON(sve_get_vl() != vl)) {
+> |         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+> |         return;
+> | }
+> 
+> Fix this and make this a bit easier to reason about by always eagerly
+> switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
+> happening, there's no need to trap host SVE usage, and the nVHE/nVHVE
+> __deactivate_cptr_traps() logic can be simplified enable host access to
+> all present FPSIMD/SVE/SME features.
+> 
+> In protected nVHE/hVHVE modes, the host's state is always saved/restored
+> by hyp, and the guest's state is saved prior to exit to the host, so
+> from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
+> the host's ZCR_EL1 is never clobbered by hyp.
+> 
+> Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+> Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: stable@vger.kernel.org
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kvm/fpsimd.c                 | 30 ---------------
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 51 +++++++++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 13 +++----
+>  arch/arm64/kvm/hyp/nvhe/switch.c        |  6 +--
+>  arch/arm64/kvm/hyp/vhe/switch.c         |  4 ++
+>  5 files changed, 63 insertions(+), 41 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> index f64724197958e..3cbb999419af7 100644
+> --- a/arch/arm64/kvm/fpsimd.c
+> +++ b/arch/arm64/kvm/fpsimd.c
+> @@ -136,36 +136,6 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+>  	local_irq_save(flags);
+>  
+>  	if (guest_owns_fp_regs()) {
+> -		if (vcpu_has_sve(vcpu)) {
+> -			u64 zcr = read_sysreg_el1(SYS_ZCR);
+> -
+> -			/*
+> -			 * If the vCPU is in the hyp context then ZCR_EL1 is
+> -			 * loaded with its vEL2 counterpart.
+> -			 */
+> -			__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr;
+> -
+> -			/*
+> -			 * Restore the VL that was saved when bound to the CPU,
+> -			 * which is the maximum VL for the guest. Because the
+> -			 * layout of the data when saving the sve state depends
+> -			 * on the VL, we need to use a consistent (i.e., the
+> -			 * maximum) VL.
+> -			 * Note that this means that at guest exit ZCR_EL1 is
+> -			 * not necessarily the same as on guest entry.
+> -			 *
+> -			 * ZCR_EL2 holds the guest hypervisor's VL when running
+> -			 * a nested guest, which could be smaller than the
+> -			 * max for the vCPU. Similar to above, we first need to
+> -			 * switch to a VL consistent with the layout of the
+> -			 * vCPU's SVE state. KVM support for NV implies VHE, so
+> -			 * using the ZCR_EL1 alias is safe.
+> -			 */
+> -			if (!has_vhe() || (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)))
+> -				sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
+> -						       SYS_ZCR_EL1);
+> -		}
+> -
+>  		/*
+>  		 * Flush (save and invalidate) the fpsimd/sve state so that if
+>  		 * the host tries to use fpsimd/sve, it's not using stale data
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 3e34ade7e675a..0149a1f6fe0a0 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -375,6 +375,57 @@ static inline void __hyp_sve_save_host(void)
+>  			 true);
+>  }
+>  
+> +static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 zcr_el1, zcr_el2;
+> +
+> +	if (!guest_owns_fp_regs())
+> +		return;
+> +
+> +	if (vcpu_has_sve(vcpu)) {
+> +		/* A guest hypervisor may restrict the effective max VL. */
+> +		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))
+> +			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+> +		else
+> +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> +
+> +		sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
 
+Not a big deal, but I though I'd mention it here: Using ZCR_EL2 (or
+any other register using the _EL2 suffix) is a source of expensive
+traps with NV. We're much better off using the _EL1 accessor if we are
+running VHE, as this will involve no trap at all.
+
+nVHE will of course trap, but using nVHE with SVE under NV is not
+something I'm prepared to give a damn about.
+
+> +
+> +		zcr_el1 = __vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu));
+> +		write_sysreg_el1(zcr_el1, SYS_ZCR);
+> +	}
+> +}
+> +
+> +static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 zcr_el1, zcr_el2;
+> +
+> +	if (!guest_owns_fp_regs())
+> +		return;
+> +
+> +	if (vcpu_has_sve(vcpu)) {
+> +		zcr_el1 = read_sysreg_el1(SYS_ZCR);
+> +		__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr_el1;
+> +
+> +		/*
+> +		 * The guest's state is always saved using the guest's max VL.
+> +		 * Ensure that the host has the guest's max VL active such that
+> +		 * the host can save the guest's state lazily, but don't
+> +		 * artificially restrict the host to the guest's max VL.
+> +		 */
+> +		if (has_vhe()) {
+> +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> +			sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
+
+Same thing here.
+
+No need to respin on this account. We can always add another patch on
+top if there is nothing else to amend (still browsing...).
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
