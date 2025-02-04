@@ -4,112 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7002C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7073C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mNvAyhAv6GepxNEYkCskllQBVi38mrCeZ4SsbbR7WSY=; b=CrHdNtIjFr7Aw4Iv6po1tGMULN
-	uUZjTKzecQbU6tb3GKax6i4CuvwK9HEup4YyH0m//iO44/p57ln4pcOT1hy2cXldMiPLYAAhtlCEo
-	xz+UH1K7fA2AhcfjtCKeL2fpLLYJM6Lyyz+8P/YZia5c3unt/jAgRqfL2LOCwhDd3TMct2wbbdjba
-	WZrfd+jyARwSLeOvMNH3Clw80mB8Ct8ArHajWgI/TKHsSDnlHxEmofFtmM89CtNQNAeL2iIRu1JDF
-	juZAKoGfI4UBqVpYLHdlbnyc7HF0buSM+3/WYmFM33HVdqiDxMpTfpSx10ijqeeYHgfa8uBEmq0K3
-	Tx2l9Tbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=x3nz+sLxzv+mI2fev0uHpyDdU92jr9O5Wy0bm9zvTf8=; b=0bdu3vCGznlKwSaqPw7g7R/SxW
+	qpBntmAH0j/O0zG+Aa9b5Zymtp2q6VCD3NPk01D13Bs2o9mVQp053vN2UhYmQQJDDyKcdsTczkyGW
+	FqMg/ArZbWUUz7JwZbTbbZabEYSCjwE47vuzcEkqzXkQk37yQIGfNbTcc3pZ1z4frFF1PyDiAhcPh
+	qNeeFS3Pw2v4kz2HcB2V0hQD9DGQv0/D6kA+28AlUsBWhBQUv4MVp8HDnECBeg/Uyw4xACf+6iRPd
+	VldqqcBboF1D/GiXa+e+oh1KEv/BJfmvb1x8oOpzMH5rl9rLLBEX4OBNBhrdwe8xd9BUMkBbBVUEL
+	9+goryJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQVd-00000001bNx-43lA;
-	Tue, 04 Feb 2025 21:31:05 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1tfQVe-00000001bOG-27xZ;
+	Tue, 04 Feb 2025 21:31:06 +0000
+Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOvt-00000001QMy-253U;
-	Tue, 04 Feb 2025 19:50:06 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ab7515df1faso176702666b.2;
-        Tue, 04 Feb 2025 11:50:04 -0800 (PST)
+	id 1tfP2t-00000001Rv2-47wb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 19:57:21 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3cf64584097so47135405ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 11:57:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738698604; x=1739303404; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mNvAyhAv6GepxNEYkCskllQBVi38mrCeZ4SsbbR7WSY=;
-        b=E/SB9WV8o/Hbr1TcqVxrxS6vDXCtTkgT2aATfv6KYrxuxSODWaMSbiOZa4M4oNMjOl
-         TnY42yQvrPU+kJBXetum6UFk9sULsa+FzgXziqJBxx675/NmNesTCJv7L7oy5QVHbXMM
-         9UuAoJoXMFJEpkDUZj6d9JipBBxh84NqEWhBKvKiQasTYNn1LA4vPh+L1meO1rQnzu2E
-         roHxzefR1j0g5eGrkfA6DW3NvpaM/BvijEkI/V4QpGvn0IGMkBNbGwW5kDKgKuQ4uf3c
-         1/aT2p85JYHgEbsszkwis6LPDXiEBoosy2kG046Sy/qtCsuFkT24SOaGtj6hV+nJUFwL
-         2Y2w==
+        d=google.com; s=20230601; t=1738699038; x=1739303838; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=x3nz+sLxzv+mI2fev0uHpyDdU92jr9O5Wy0bm9zvTf8=;
+        b=QZD5BiHlUd9U25menJPAAs0fdiF/feeg127aO/DPPY4+h2zKaL9LGwMp7HVJCyuX2K
+         fqTp5weP88CGBhlwPJavyzWcDWoa6ZrFnW9o0whXyQSd5vqpz0AWlDkmdjCg1d+84JWk
+         1oPzTrYG7AC9IR+W0Dh3l5i6tAdhBlUgNR3twUD3UMQpM2hGclB3LRbLTehS3mSYsrDz
+         B5OCY7CmFMAsQluSw7gP2YPL6FEmB2fV5NUT+BpfrbwtYUvOKMAgmjRBTBjbsYMRjrwy
+         hTqWQ6l+B2l1D6KE5LAiYUchj2BNVlCARkjuhQLu9jJi5ubcG7GF2dnoMWopk/ON2V1D
+         3NGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738698604; x=1739303404;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mNvAyhAv6GepxNEYkCskllQBVi38mrCeZ4SsbbR7WSY=;
-        b=pf5shwH8gYgxX/F9cfazf4/uxEOK7f1FNPAqweT0eqDobAhf/72gaqTc20UJeUu4VW
-         75N8RPuddEnvpjT+206LDn2rE2HiyriLZXhwuUwwbU1yTMpyFy7pSWxdxVGpfNzk4rDQ
-         1nevqjfraW+yULapf4mpOiKQtVDh5Z+ESC21kkDzsbzdRsHhW4DrJeWazeSBglr3/C/v
-         hJkgWOBurEcF7Dj+qsFhz4qTAWNNpOrBZeYSufysYU7dHj7NIfxtpvURx6cejWlKhUuz
-         Cf1rJAwbRlWeCTvjJ58OVz20yx5mG1/bnsK5cGpNKVp2gpAUvYbv8TXnirV8wrMEjxWi
-         e0ag==
-X-Forwarded-Encrypted: i=1; AJvYcCWXoiAOdH5xPpX2MAlk31JJ5zatLMioh0kRjyZRfpOwWHwzRvMxC6VBa6SQNXVhF1ZQZvJgRIsxqdGSWTD5mvIo@lists.infradead.org, AJvYcCXysEtYF8IP5jmel9A1EtGTEvTIgV4JKaI+/lMd3BIwJ0heml6tkudzAJ2JlkwfAEdZps0G2hp3hzxey3Qg1Qc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQrXkUHDkhILb4vNNAttjVeMLlfHeY0Wm0rOomgIuvVVxK4Zc2
-	xP8dYhuDgM5Yg3wZ1350+1A4O0QPS15Q/OKZnlfwTO4ePailf5Vb
-X-Gm-Gg: ASbGncs79kL6BX4yo71w7VGWtFlq85UkFcZ9QLzMnvU//J3FrsTY6XhOQAZX7nEcGvN
-	74oh6Ark99YU5l5BC4PrVYP0jV5XJhlv2Pnda4vcwkOhYxJ8cB4+QKsHGrYC0u1kmKfH5FBpONX
-	+zDe7Gu29GNISbKquugQ6ZznQqVundUj4l5ifDQnqx0gWOCICKmYjdk5a9+IQep9dugcDXLjUVA
-	cR3jObN+v8lvMTwRmVzyegHzMC2C2CO7lkPE1mYN1qckZE1A2P5EtbqNY8tZaaw8FFH34QxUtrN
-	65q0V2s8cBSsq1ET1QcVB8vS6w8+JoQEcqlFno2R00SnI9OpJ2XYTIbbCtEns6z9H+n8mq4FfxD
-	iN3mJj7ABwZtKrXBa5LxTyE2mPGEjI9xp
-X-Google-Smtp-Source: AGHT+IF3Pc3NKrXdQnXqPQwcc/aC4MWpA9WJONMBdLCJSxY43xKupXfl7aBElhm4x8MYzyDeLkdj+A==
-X-Received: by 2002:a17:907:3f20:b0:ab6:dc00:e2e8 with SMTP id a640c23a62f3a-ab6dc010668mr2925881766b.3.1738698603538;
-        Tue, 04 Feb 2025 11:50:03 -0800 (PST)
-Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a5635bsm964684466b.164.2025.02.04.11.50.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 11:50:03 -0800 (PST)
-From: Eric Woudstra <ericwouds@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Ivan Vecera <ivecera@redhat.com>,
-	Roopa Prabhu <roopa@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kuniyuki Iwashima <kuniyu@amazon.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Joe Damato <jdamato@fastly.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"Frank Wunderlich" <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	bridge@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH v5 net-next 10/14] netfilter: nft_flow_offload: Add DEV_PATH_MTK_WDMA to nft_dev_path_info()
-Date: Tue,  4 Feb 2025 20:49:17 +0100
-Message-ID: <20250204194921.46692-11-ericwouds@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250204194921.46692-1-ericwouds@gmail.com>
-References: <20250204194921.46692-1-ericwouds@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1738699038; x=1739303838;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=x3nz+sLxzv+mI2fev0uHpyDdU92jr9O5Wy0bm9zvTf8=;
+        b=bwOLdVE33M7GmBQQXHanZsZpUYdpi+0zS0ifKKtcgxBbgp5mRmWliLUtmqkGGiD15i
+         61bGXmSWS+Q8X/GgWyr0lNSLNS/fpt4V/nKUls//0J8T0O7yCjtVmjgeVwbCEYZ+eMYg
+         GWQdApAEBrjhdUxL/GSstXCPF8bCZlinMPzsw6ci84p5vvcUtOvCPpNwG6/Flph5Sn5a
+         T+4GritSFzpM6DvyXsPQ+HvKfpAXUvIcoF4g4LN3G4qnbh6wBc5nODKP3LUpylmQaGA+
+         SXaD7Is3q/+giYEbVcOK+5/A80i6WxHciI/WGv5nmYApjay19bwcDwQ8xfWqxlGPKJSo
+         P97w==
+X-Forwarded-Encrypted: i=1; AJvYcCU47aTMvLnFgF5SKft/4tLKFBLy898h5pvIKu7Dqg0FKANDH4JP+qtqZcyVk1MNO6n7rrXWAR3xeKvPWsjWx23i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJev8KuoFhDw10Q90p8IW9vLPvNogrou2KT/e9pVyiYL7IvkcL
+	CwPK7XIGoQBdiiTUTnc7Gix6VFLfnTEjlvAd6ZRTx3CxwCMWmdCNfrXS2aY4leP2j+eA5YNc8oC
+	aYdHcoKozsBCHsqFBHkLaXQ==
+X-Google-Smtp-Source: AGHT+IFCbd5TbwVMrhJK2bcQCyfCgg4ls4jmx2Zok6lCN7ChS3uIDAMydUcwYx7x9fORmL8hc1+yBurzn+Nb2fztvw==
+X-Received: from ilbcr10.prod.google.com ([2002:a05:6e02:3a8a:b0:3ce:8bff:8b9d])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6e02:1746:b0:3d0:24c0:bd37 with SMTP id e9e14a558f8ab-3d04f459238mr1943175ab.11.1738699038254;
+ Tue, 04 Feb 2025 11:57:18 -0800 (PST)
+Date: Tue,  4 Feb 2025 19:57:07 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
+Message-ID: <20250204195708.1703531-1-coltonlewis@google.com>
+Subject: [PATCH 1/2] perf: arm_pmuv3: Remove cyclical dependency with kvm_host.h
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_115005_540573_89815C0B 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250204_115720_020370_694968AB 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,48 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case of using mediatek wireless, in nft_dev_fill_forward_path(), the
-forward path is filled, ending with mediatek wlan1.
+asm/kvm_host.h includes asm/arm_pmu.h which includes perf/arm_pmuv3.h
+which includes asm/arm_pmuv3.h which includes asm/kvm_host.h This
+causes confusing compilation problems when trying to use anything in
+the chain.
 
-Because DEV_PATH_MTK_WDMA is unknown inside nft_dev_path_info() it returns
-with info.indev = NULL. Then nft_dev_forward_path() returns without
-setting the direct transmit parameters.
+Break the cycle by taking asm/kvm_host.h out of asm/arm_pmuv3.h
+because asm/kvm_host.h is huge and we only need a few functions from
+it. Move the required declarations to asm/arm_pmuv3.h.
 
-This results in a neighbor transmit, and direct transmit not possible.
-But we want to use it for flow between bridged interfaces.
-
-So this patch adds DEV_PATH_MTK_WDMA to nft_dev_path_info() and makes
-direct transmission possible.
-
-Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- net/netfilter/nft_flow_offload.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/include/asm/arm_pmuv3.h | 24 ++++++++++++++++++++++--
+ arch/arm64/include/asm/kvm_host.h  | 18 ------------------
+ include/kvm/arm_pmu.h              |  1 -
+ 3 files changed, 22 insertions(+), 21 deletions(-)
 
-diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index 323c531c7046..b9e6d9e6df66 100644
---- a/net/netfilter/nft_flow_offload.c
-+++ b/net/netfilter/nft_flow_offload.c
-@@ -105,6 +105,7 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
- 		switch (path->type) {
- 		case DEV_PATH_ETHERNET:
- 		case DEV_PATH_DSA:
-+		case DEV_PATH_MTK_WDMA:
- 		case DEV_PATH_VLAN:
- 		case DEV_PATH_PPPOE:
- 			info->indev = path->dev;
-@@ -117,6 +118,10 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
- 				i = stack->num_paths;
- 				break;
- 			}
-+			if (path->type == DEV_PATH_MTK_WDMA) {
-+				i = stack->num_paths;
-+				break;
-+			}
+diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
+index 8a777dec8d88..89fd6abb7da6 100644
+--- a/arch/arm64/include/asm/arm_pmuv3.h
++++ b/arch/arm64/include/asm/arm_pmuv3.h
+@@ -6,11 +6,31 @@
+ #ifndef __ASM_PMUV3_H
+ #define __ASM_PMUV3_H
  
- 			/* DEV_PATH_VLAN and DEV_PATH_PPPOE */
- 			if (info->num_encaps >= NF_FLOW_TABLE_ENCAP_MAX) {
+-#include <asm/kvm_host.h>
+-
+ #include <asm/cpufeature.h>
+ #include <asm/sysreg.h>
+ 
++#include <linux/perf_event.h>
++
++#ifdef CONFIG_KVM
++void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
++void kvm_clr_pmu_events(u64 clr);
++bool kvm_set_pmuserenr(u64 val);
++#else
++static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
++static inline void kvm_clr_pmu_events(u64 clr) {}
++static inline bool kvm_set_pmuserenr(u64 val)
++{
++	return false;
++}
++#endif
++
++static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
++{
++	return (!has_vhe() && attr->exclude_host);
++}
++
++void kvm_vcpu_pmu_resync_el0(void);
++
+ #define RETURN_READ_PMEVCNTRN(n) \
+ 	return read_sysreg(pmevcntr##n##_el0)
+ static inline unsigned long read_pmevcntrn(int n)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index e18e9244d17a..3eeb762944c9 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1362,28 +1362,10 @@ void kvm_arch_vcpu_ctxflush_fp(struct kvm_vcpu *vcpu);
+ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
+ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu);
+ 
+-static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+-{
+-	return (!has_vhe() && attr->exclude_host);
+-}
+-
+ /* Flags for host debug state */
+ void kvm_arch_vcpu_load_debug_state_flags(struct kvm_vcpu *vcpu);
+ void kvm_arch_vcpu_put_debug_state_flags(struct kvm_vcpu *vcpu);
+ 
+-#ifdef CONFIG_KVM
+-void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+-void kvm_clr_pmu_events(u64 clr);
+-bool kvm_set_pmuserenr(u64 val);
+-#else
+-static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+-static inline void kvm_clr_pmu_events(u64 clr) {}
+-static inline bool kvm_set_pmuserenr(u64 val)
+-{
+-	return false;
+-}
+-#endif
+-
+ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu);
+ 
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 147bd3ee4f7b..2c78b1b1a9bb 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -74,7 +74,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu);
+ struct kvm_pmu_events *kvm_get_pmu_events(void);
+ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+-void kvm_vcpu_pmu_resync_el0(void);
+ 
+ #define kvm_vcpu_has_pmu(vcpu)					\
+ 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+
+base-commit: 5bc55a333a2f7316b58edc7573e8e893f7acb532
 -- 
-2.47.1
+2.48.1.362.g079036d154-goog
 
 
