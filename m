@@ -4,107 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D17C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA82C02197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGr7haxR+zezFyAE8VVDvfkO3FnryVuojc4VK5Wf+mk=; b=iZcoP7q3joLWAkzzbG9WI4hZkE
-	auQWPgdfhOZjRxSQcWw6W+jVGyj75R+2WyMFZbdPaCfcQwy1BMiI54HmuWGc+s1famWGtv+4/4ARQ
-	LETm7Drw5L4WfEEdtXQ+TXogXOBbcesTOK6wXDRc6joGZb31D6UDD7PvIYKzlS3udvc+D1w4fP982
-	h+hnfyPuLx88aUxsoNc/4ARknyAqfDyRPfiVNQ5b8mr8oCrqOKXP4KEAjpYmm01mR3F8VPTuKgWv/
-	yMmvmcaiABaDd9D2By+FPhgw4WMImydceLZ/W4QIql5d+Ejiw/s766T1iIgRdZhWHMdyjy8H9Ly+e
-	I2T44qdA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q9z54JtaeX5gSz2dbf+6FdDKOtIHT059atUvBQkTIU4=; b=t1hXdWHDTup8o2XKfISQXhEAYD
+	Q32irIxn9eKhEpiwL/fIsFtHEBhLtNl/m9au+LsUx1AUM5I+5VL2LLpWmAtp6frN9jNP665R/2DS3
+	1ezvs7f1rUDl6rpLukUZYRDziwL6ZKA7aaz/gwFUJEMKWSeUCimdC+uojjYLqpFU12BAtAEynPWRI
+	poO5gR4Ekxy/Thx4foNGEzSPDvayjAZpz/BUA7vLmAfaaijwRT9TgIn/GWM4WP+Ud3JkOVeuYz0NP
+	yS71nkU8gRaTpXJWbOgyWIKlfoXhOG2hLY31751HFFej5X2h3yZPZYuqArjbL41aFitC5ZC5Osxah
+	EtesLd6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDlt-0000000HSkI-1q0I;
-	Tue, 04 Feb 2025 07:55:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfDnE-0000000HT9I-2nnm;
+	Tue, 04 Feb 2025 07:56:24 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDkX-0000000HSVc-1CyV
+	id 1tfDlJ-0000000HScC-0gSR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 07:53:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B54C5C5417;
-	Tue,  4 Feb 2025 07:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E3ACC4CEDF;
-	Tue,  4 Feb 2025 07:53:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738655616;
-	bh=6li0nTXDpwk/xunVkZoNszRwoScOYPjfrU33f4c3TUE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iVB0S9ZKvWsh0nnWGNUyCbUj1z6czoHkbsSj87qk/KUT+H+n+FB2Z8ib/rxnbXlRf
-	 C8uXYHu0ZmHq2Gx08/lnDeeRW/avcHvA1czjjuDYhcpIblZ2uVgHZK4VZE0Icf/9yp
-	 llYW+L5kqgyvQOVQIllIR4+doRsLiYhCMNOUezFYUi+cJnjtovGVKe46k9kejtGn8r
-	 zhIDUMxEcWHjLD3g18hKIaq3mTd9LZmm7SPLSDUkOI1cWp7/IfdFMFbyZAFpeistmH
-	 6jbmEl0FjuLWavjlbAT+KrDIx+QmeXyJcVxkPkVJAtwKWgIUXsXpAEjyAvQddOEnBU
-	 sbkpvkBQYLA9g==
-Message-ID: <339ea40f-6bc7-42ad-a5c2-f57b3be8cc39@kernel.org>
-Date: Tue, 4 Feb 2025 08:53:31 +0100
+	Tue, 04 Feb 2025 07:54:27 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7b7041273ddso466022685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 23:54:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738655664; x=1739260464; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=q9z54JtaeX5gSz2dbf+6FdDKOtIHT059atUvBQkTIU4=;
+        b=NPpZ/6BF6H2cLy+Ialrel8K9hGg89uuH9aj806XvbEowxuj6euQGvjjQTW57SBTno2
+         GFXypnF1u/O48IQ+cBN8HepnOe8qBNWTagnjL2i5bGx0koFb3vgrj/QKp5KVHFjNuogh
+         jebwS1Eyx9SWP81Q4/0RoRv+GWO4KAPHhbnfeHwVC2IDxQlKpLHpgiFzqxpAiPW+bTCA
+         DmF/6eveFcdaec/0mCG/kQbc53AxSYfLwZqtJ98pAxiyTCa1zsGCu4etwHAX4xUWEXUV
+         01VBLUTgkZ0eW9IPyGXQH5yRDpHTpNfAoJk+HQtvtGk45E5zGjPzAmdpf6vIYx7K7sX2
+         UtRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738655664; x=1739260464;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q9z54JtaeX5gSz2dbf+6FdDKOtIHT059atUvBQkTIU4=;
+        b=G+QdG7p3ESxKwklhZ52yC8SP37XA4gcNLIq7Vf2y1SacgafV1Ovka+dttqES9d99c+
+         uYXENLw82cAi3TBkSpm6UvODRji7aPhrsVx9J8CTlqwaky8FDp92M3jVjtIQuDAqj2Pb
+         taPpULPUSCySmykzXlDeN/G7eUlpOWy8WFi0A4x69DhQoNzCusTz7OHZaC1u6mNIfoPX
+         57XtzV8EWgD/RwVfuGj+eVQo+HQ2kzb1cYv169YltcNQofNZ2z3q0N/A/jZVsaKqh5ir
+         j379WAbjY9wAcemOSDXi826cG+ONVW507EKrA8fgBxMHo4FY/RRykwg/14An5RcswJ3Y
+         Zb3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUzXfzUPuRRqT4+l9Sjf/NhHHV+euEVmEX9d85ceujhAJUPHG1Q6al6yNc5ibwH4KISjwmGZFZc/mG5aVO9jnW/@lists.infradead.org
+X-Gm-Message-State: AOJu0YybwZKS3jDyz5fLVbclwWtfN38j7Z3y52t0kYuHV9gn+JWHs5YN
+	KpUjZ9xiPUA8bsjixHeqlXCc9TA4fEYCPuyTVM0NqsikpRnrYo0y6aivFPArqlc=
+X-Gm-Gg: ASbGnctV1B5VVuj4xDUP1dpZLhdEq8rPEQRcGeuCJ5aAZdcwjWX/ykkX6d0w0ImSILR
+	ELQVPs66u96NXIt1Abk5w/SNiIhPb8BcReOk3xqfhOypI795efRlXRZ5ubvp1TPxDfQt0b3VggQ
+	bidvCDx5q77jGP6WhXLf+qFTjfEDslmsZsPgqFhJXDG5PBADe7pDUKOmyGGMxMG/ryNWGVTRRFB
+	sMOxNqOVS9kUVcQ7WUCBRr7/L07BdgmGqJTLzMdCogv6UOLFptaBlYYHQb60uZnzyA7By4+kbBd
+	pu4VAHg9FNGTvXj/7TOlEViopykNZET0+kY7F9I5IIlNBbtT6+03dyY=
+X-Google-Smtp-Source: AGHT+IHnQYtrMWCiX8smMX+KNobk2NbP0fzLkqVqwBS3IWCPax1EIsVPqU/PPsh/vQevjqw+kgDNzg==
+X-Received: by 2002:a05:620a:688d:b0:7b6:da92:fcdd with SMTP id af79cd13be357-7bffcce1d45mr3575797185a.15.1738655663645;
+        Mon, 03 Feb 2025 23:54:23 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8d05ddsm613373185a.39.2025.02.03.23.54.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 23:54:22 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v3 00/10] RISC-V IMSIC driver improvements
+Date: Tue,  4 Feb 2025 13:23:55 +0530
+Message-ID: <20250204075405.824721-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add chip ID for Exynos7870 SoC
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_235337_417208_7E66AB8E 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250203_235425_212726_227B58D2 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,26 +110,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2025 21:32, Kaustabh Chakraborty wrote:
-> This patch series is a part of Exynos7870 upstreaming.
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
-> Kaustabh Chakraborty (2):
->       dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
->       soc: samsung: exynos-chipid: add support for exynos7870
-> 
->  Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
->  drivers/soc/samsung/exynos-chipid.c                                 | 1 +
->  2 files changed, 2 insertions(+)
+This series is based on recent discussion on LKML:
+https://lore.kernel.org/lkml/20241114161845.502027-18-ajones@ventanamicro.com/
 
-When I asked to split, I said per subsystem. Soc is one subsystem.
-Everything targeting SoC should be in one patchset. get_maintainers.pl
-tells the name of the subsystem and its maintainers.
+It primarily focuses on moving to RISC-V IMSIC driver use common MSI
+lib and GENERIC_PENDING_IRQ.
 
-If there is going to be resend/new version, combine patchsets for soc
-into one patchset (just like the example I gave last time).
+PATCH1: Fix for handling non-atomic MSI updates
+PATCH2 & PATCH3: Preparatory patches
+PATCH4: Main patch which updates IMSIC driver to use MSI lib
+PATCH5: Preparatory patch for moving to GENERIC_PENDING_IRQ
+PATCH6 to PATCH10: Patches use GENERIC_PENDING_IRQ in IMSIC driver
 
-Best regards,
-Krzysztof
+These patches can also be found in the riscv_imsic_imp_v3 branch at:
+https://github.com/avpatel/linux.git
+
+Changes since v2:
+ - Rebased upon Linux-6.14-rc1
+ - Dropped PATCH5 of v2 series since that patch is already merged
+
+Changes since v1:
+ - Changed series subject
+ - Expand this series to use GENERIC_PENDING_IRQ in IMSIC driver
+
+Andrew Jones (1):
+  irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+
+Anup Patel (7):
+  irqchip/riscv-imsic: Handle non-atomic MSI updates for device
+  genirq: Introduce common irq_force_complete_move() implementation
+  RISC-V: Enable GENERIC_PENDING_IRQ and GENERIC_PENDING_IRQ_CHIPFLAGS
+  irqchip/riscv-imsic: Separate next and previous pointers in IMSIC
+    vector
+  irqchip/riscv-imsic: Implement irq_force_complete_move() for IMSIC
+  irqchip/riscv-imsic: Replace hwirq with irq in the IMSIC vector
+  irqchip/riscv-imsic: Use IRQCHIP_MOVE_DEFERRED flag for PCI devices
+
+Thomas Gleixner (2):
+  irqchip/irq-msi-lib: Optionally set default irq_eoi/irq_ack
+  irqchip/riscv-imsic: Move to common MSI lib
+
+ arch/riscv/Kconfig                         |   2 +
+ drivers/irqchip/Kconfig                    |   8 +-
+ drivers/irqchip/irq-gic-v2m.c              |   1 +
+ drivers/irqchip/irq-imx-mu-msi.c           |   1 +
+ drivers/irqchip/irq-msi-lib.c              |  11 +-
+ drivers/irqchip/irq-mvebu-gicp.c           |   1 +
+ drivers/irqchip/irq-mvebu-odmi.c           |   1 +
+ drivers/irqchip/irq-mvebu-sei.c            |   1 +
+ drivers/irqchip/irq-riscv-imsic-early.c    |  14 +-
+ drivers/irqchip/irq-riscv-imsic-platform.c | 177 +++++++++------------
+ drivers/irqchip/irq-riscv-imsic-state.c    | 127 ++++++++++-----
+ drivers/irqchip/irq-riscv-imsic-state.h    |  12 +-
+ include/linux/irq.h                        |   5 +
+ include/linux/msi.h                        |  11 ++
+ kernel/irq/migration.c                     |   9 ++
+ 15 files changed, 224 insertions(+), 157 deletions(-)
+
+-- 
+2.43.0
+
 
