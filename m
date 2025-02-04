@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120BBC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8212C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kyl7v3MXnpMgt1ZOKipH/H+Vr16QIfKfmdEmju+IxpM=; b=hxkDvs4zryoYeUxLdewvWwoT3Y
-	ni6l1gbrC/VmKDRnCkAduP/WV9qnPL7bU7rEJHMhKiGagn4GZCY9k5hKcdKnshUrxL9GiQDJtBU60
-	jDCGOODM4JDZOYh26Sy34+4z6EitW51ghghZIhL2nRmq0vKUqTE2cs84nDfNcfKQBqxz9xyaldNx/
-	nbceOe2bMiq+oRkJOOOV1U+MjN03PQvoyO3yYptstOOKCSJm8QWRFvm+n0WJCqZx+ujLIXiRC5u8i
-	B0X9ixCIQFR2WkezfA7zibFX1h6jQHRS25756XVN3bCJk8kxaaN6R4j+YjkxSc/ok6kwCNhEOgokC
-	JIz35ydw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VvuVbyENZ4auhSLsZXmdZPBYLBDDdSjtrpm9K0VajbE=; b=apUVwhDhNGwoJU8J/NFSXVGpbk
+	EXomjB+mvjgRTZb8Lltxz+lud0GOEJ7W27ffq0CudfzdpMOIyW6BOb5NQWgkXU7nnVhhivoJGaCDU
+	mN92aYYC/IwphXFkwU9UuY4LAVuNdkJv90tPzvkX8PW0e1gNFAW9EovE8vx3IhOUV+wXf/Ypxm+J9
+	UFTg2ZxDHUu4Zn/t4rYsEZ4QIZAuLZsTm/TZgPMX92Ck1OGEDIE+SDMaYv1CtWIYQ5tJ0xMwA5oTL
+	fNZ0xMiFBsr0ub2XQw6u0S1onBw6znR0LPsc0qXpyoG+wR/ckwwVL4Zznd70ABH1hYNd6aShvw+1G
+	b5kydDvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKMf-00000000jFU-435s;
-	Tue, 04 Feb 2025 14:57:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tfKPc-00000000k6F-2uj6;
+	Tue, 04 Feb 2025 15:00:28 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKLK-00000000j16-1uIR
+	id 1tfKOH-00000000jdz-1TZh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 14:56:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE9CC5C69B4;
-	Tue,  4 Feb 2025 14:55:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72F32C4CEDF;
-	Tue,  4 Feb 2025 14:56:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738680961;
-	bh=/54KAUGrgAu+EY8yrKbHB4///ZOU7MFp40KO/eRvFjE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hY34tf7QLqKPmNkKHaymhuwSAdpujXj5JOKlDDXIEV/9vzG7TxbmXMPM7hGwC31Ds
-	 Sq9ITR2oShRcLLM8qBV4Hs/gDc4YIFU/poN8AJ0JRgYvsPo7TyNe2tv7IylwoclqaN
-	 eBc9S5DTifJZmzvaXW7CjgcE8yItxyEVoHvPNRIlgKnhd4UkBt2GYa0wHIVoFBaVoS
-	 vgrEMyTbBjHSMBExylP4OXNP4u0cnUXmkDKnNDS3fSmcHScFdLJf1PRX7q+a4Zd4p7
-	 N9Ee5ahSZU/oDeXtej7EaMXwenCAAc9RbJOZ0NeQYb5ytfCULKz/qlOIPvzwolKako
-	 T3RVVe8p76f6A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tfKLG-000SW3-VU;
-	Tue, 04 Feb 2025 14:55:59 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexander Potapenko <glider@google.com>
-Subject: [PATCH] KVM: arm64: Fix nested S2 MMU structures reallocation
-Date: Tue,  4 Feb 2025 14:55:54 +0000
-Message-Id: <20250204145554.774427-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Tue, 04 Feb 2025 14:59:06 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6e41e17645dso12696296d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 06:59:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738681143; x=1739285943; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VvuVbyENZ4auhSLsZXmdZPBYLBDDdSjtrpm9K0VajbE=;
+        b=CPHFz0g15FoJ2Edgb26vpNx3oA97QxSlGlAtl4CRKfbcjuWKWY3w3ie7vGIYVpJCQo
+         gkyovN89Uc4B9Ga8c0WzmQwp+NEglI+EbtKvngaXGyX7eP8aG6311f5cRqAgDYVhhnMb
+         8niO5KbBdfmU6XTaS0gwqpPKqab2EUj4xkQ073bjFMrnKnJNJwxvipCMFTf5bezy1ldC
+         E7PaRZcDEaeWANpoGxRHjdXi25YDnd2qfZ+vciIo0FxjZcGjBnYKNiaVWT+14K/FoqC5
+         JcjtzENRaePKzYS4an70XqaQfaQ+3lPquLZz+z/OZl3986bqA79FP/GLq6dULPfR1cIg
+         VrZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738681143; x=1739285943;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VvuVbyENZ4auhSLsZXmdZPBYLBDDdSjtrpm9K0VajbE=;
+        b=peAEAySKmr9CAwjGgppVqGSaiZYHzz4aqc1vnJwIPwRPv5Fizq1O4xShxstdYI7UoJ
+         YJV4E5CyGIGYuLnHgLmLlPH5fTPcCo/A7up/9MEqS0HELiTeB+VZd3z3TOet6RMlLCGo
+         ReY5qMd6FeUQ4HF0qjxJNcdVlxPPnzyK4CcyJzAqCHcblMicWvW/m9XQ+YCl8rQP3IDW
+         Msvsd9j0lsKQc2+ASSyWcy4azRc7VBdNFooUywO9guT/aWMgScJ3fFGSToF+iG8rXaZz
+         ymu1pav8cNjLQig5ITvt91Vr2LRwCuCtjn6rJ6bhjEygbieWjx+HpIR02yDLM1e96EpQ
+         pfOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUMzFkokmw+eAcAkGOJp/I17jOdU4SkYCfQ32+C+AqlGjDEhybcrdgiJ4tGHTs/+pUfLR1QPsUs7vm8VJ5cnBYy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxoNjeDy8nNqcrRmo55y6QplicN8N/xhGAOCX32d5nMLRr/Su0
+	RA0ny30OKvq/1o8x0zDz9aV3rwUzlVncQfkaslIV8SnYCn9e60+9WVK0DzE45JZzW64/je42iIv
+	iJGIe963aPH67AUQC5TxndLVruh79k9TmCd4g
+X-Gm-Gg: ASbGncu4Ld+wT+xhbJEx0JIPW0NE+HHbbA4AG9smRLIkBQij9XyOys7uKVPfuwsLS7M
+	3ua6S1x9j4cJA0ZKZpvowo8lSa5pcD3LTrhL11WVvwfKXXN5TkQyGL8wYVqA9g3OvimEZEFQrsP
+	jSVuC/FpnGu/Qwhl1wSgjz1d4cqQ==
+X-Google-Smtp-Source: AGHT+IFAhabLVqsirEZQFdf7e3ceBagVlafz436gImWiXVQGRtoLiOgMD/iOF0PfOb3rV65x0lqUxFOlRvQqftx8+IQ=
+X-Received: by 2002:ad4:5c61:0:b0:6e2:3591:7681 with SMTP id
+ 6a1803df08f44-6e243b98b34mr367364176d6.9.1738681143177; Tue, 04 Feb 2025
+ 06:59:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, glider@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20250204145554.774427-1-maz@kernel.org>
+In-Reply-To: <20250204145554.774427-1-maz@kernel.org>
+From: Alexander Potapenko <glider@google.com>
+Date: Tue, 4 Feb 2025 15:58:26 +0100
+X-Gm-Features: AWEUYZnrGwt3ZpWNwPxhZyqhgOTVIxqgbyE89lIt7Pj4mLTXRn01AniRNLX4-Yw
+Message-ID: <CAG_fn=U4jKE_D-YAyGOxAnYVudwU1s_qQeR29MZ6uZR_voPJZw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Fix nested S2 MMU structures reallocation
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_065602_582278_FD4D8259 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250204_065905_386446_C5F9EDDA 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,70 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For each vcpu that userspace creates, we allocate a number of
-s2_mmu structures that will eventually contain our shadow S2
-page tables.
-
-Since this is a dynamically allocated array, we reallocate
-the array and initialise the newly allocated elements. Once
-everything is correctly initialised, we adjust pointer and size
-in the kvm structure, and move on.
-
-But should that initialisation fail *and* the reallocation triggered
-a copy to another location, we end-up returning early, with the
-kvm structure still containing the (now stale) old pointer. Weeee!
-
-Cure it by assigning the pointer early, and use this to perform
-the initialisation. If everything succeeds, we adjust the size.
-Otherwise, we just leave the size as it was, no harm done, and the
-new memory is as good as the ol' one (we hope...).
-
-Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Reported-by: Alexander Potapenko <glider@google.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/nested.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index d3214c3a40393..6969c273b39e1 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -93,20 +93,22 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	if (!tmp)
- 		return -ENOMEM;
- 
-+	swap(kvm->arch.nested_mmus, tmp);
-+
- 	/*
- 	 * If we went through a realocation, adjust the MMU back-pointers in
- 	 * the previously initialised kvm_pgtable structures.
- 	 */
- 	if (kvm->arch.nested_mmus != tmp)
- 		for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
--			tmp[i].pgt->mmu = &tmp[i];
-+			kvm->arch.nested_mmus[i].pgt->mmu = &kvm->arch.nested_mmus[i];
- 
- 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
--		ret = init_nested_s2_mmu(kvm, &tmp[i]);
-+		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
- 
- 	if (ret) {
- 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
--			kvm_free_stage2_pgd(&tmp[i]);
-+			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
- 
- 		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
- 		vcpu->arch.ctxt.vncr_array = NULL;
-@@ -115,7 +117,6 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	}
- 
- 	kvm->arch.nested_mmus_size = num_mmus;
--	kvm->arch.nested_mmus = tmp;
- 
- 	return 0;
- }
--- 
-2.39.2
-
+On Tue, Feb 4, 2025 at 3:56=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> For each vcpu that userspace creates, we allocate a number of
+> s2_mmu structures that will eventually contain our shadow S2
+> page tables.
+>
+> Since this is a dynamically allocated array, we reallocate
+> the array and initialise the newly allocated elements. Once
+> everything is correctly initialised, we adjust pointer and size
+> in the kvm structure, and move on.
+>
+> But should that initialisation fail *and* the reallocation triggered
+> a copy to another location, we end-up returning early, with the
+> kvm structure still containing the (now stale) old pointer. Weeee!
+>
+> Cure it by assigning the pointer early, and use this to perform
+> the initialisation. If everything succeeds, we adjust the size.
+> Otherwise, we just leave the size as it was, no harm done, and the
+> new memory is as good as the ol' one (we hope...).
+>
+> Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mm=
+u structures")
+> Reported-by: Alexander Potapenko <glider@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Tested-by: Alexander Potapenko <glider@google.com>
 
