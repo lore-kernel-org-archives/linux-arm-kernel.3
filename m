@@ -4,151 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D3BC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 16:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B131CC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 16:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=; b=xyBUBjOEY1TXGBXhdkzMQ7rapJ
-	MocHh/Ry9AK7uF8sV+qmNfUPAjaQ8PKZig+KYJoe6HIu+LKHt8dk9VKqNc/R/ox+6K/tmG5sjOJok
-	bWoAeygkhMnD6fdBRBgZ1E0jZw9Kj6UCTx5B/iM6VyxuU/Ad02MnXaITbVpnwds60bEy6I4AfhmWu
-	u38KM38oqK3ZvnhcnnAccAkTqRj60Rc9etMqHP0bdEYQWX3DLT7HW4MhlnnL9W+uwM9wRcRgu78ok
-	FsKy/LHCkvPBoxshHNe3SNZdVpAA1LGUG/0OReOfTAzG6BYvwvreOZFPSSlWkfHCJgx3UtHFonNg8
-	xeBvVggA==;
+	bh=9xXxUzUX+TUWMXEkJbgV4+Ep7ihUDZRCg/hLrHFB4Ds=; b=y/tya7gl9JB06KlyyOcB/hwgxr
+	gTy2H3g5rQL0BFpBlshO2tVEvvZP0dMW36uhTCl0xuRE+9Xf1lrWwVYHN1lsyw9Gpnyw4nYBYsw5h
+	S2xutlwbw7JyhSZwXxLmAQsE9vXdSUWdEAADwdGO9TXqQjn+022PDh3tG+045OGDH2XBtBo2lOx30
+	k5Y0M5eas1TcxiNYCSs37tAGPW4mX6UECRBVO3gV6mgekIhNaCZG6yAbxicVRsoAwUrwjp/WfyUZU
+	OUsp9752E6ZQCIBdCO7g9sxV4ZqzwWzcBMHK7gwkUqcCHCUHaP2F80n1oRsbFmnbZaEXYucGGbDLZ
+	1Tuu0s0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfLZn-00000000vt9-3ZFL;
-	Tue, 04 Feb 2025 16:15:03 +0000
-Received: from mail-dm6nam11on20731.outbound.protection.outlook.com ([2a01:111:f403:2415::731] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tfLb7-00000000w6T-23zb;
+	Tue, 04 Feb 2025 16:16:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfLYR-00000000vg1-3c0m;
-	Tue, 04 Feb 2025 16:13:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s3QMKVUcSyPjdR3KTNEvJh803zx0a4QkRJBxu9xE/sLZKtk2YtwEJRIC8Eq0FXHIwHWx8cvH2h2yvLSMlxkfB1ruq49WG2QvTxM4rdnY3Qn3XLtPXg4xCvFtP4XZKqsEfOgTKckZ3O/fRNcYjkixaNez5ly6b2izuhwhDxZY81KJ4pfoo9r5FYQOJ6JxDSFGUd9S7KYW5mGr31qPLPrxaDvCUgoV6VniVvbaRfUtNmsEnc9HhEBualOASgjhRRloIJd+gJ8QQYRhWtVF9VnIPRbEwlRtxba34xlk4FM0LootVl5mSjpxZML1iViL1xiey7A4WojMGktPbpltZqG/kQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=;
- b=EloJBBArXmpB+pPtYpEFrpxsWDM1yJHeliPNUjl1PYjNYfM1oAVyT0Z4yt6VRuelhuj916OSXGnu7EDnnj0hnqO74OJ61Rry67SPeDWtbvOBjKf06cwSOR0AANoFVfgxU5QLYQdg/mzPyuVqXtOCtLs5D9mQBKXDr+Z8Ame8zFLpkCjrjLi8PJlolbzwF/jtsbjhFybDjY5lQ5pEAAfuEoVjVZuYhTgS85w+1WHaKVobKD3yyK5RqRk/w0qbUDTAFF9bocoxzcs1+EwWGGOoE1rmnZtmye7vZBNH/4an2l3OJMJEQh/djq8KepMuyO/3vaYoc3mACblPCOp0tWm91Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=inmusicbrands.com; dmarc=pass action=none
- header.from=inmusicbrands.com; dkim=pass header.d=inmusicbrands.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inmusicbrands.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5G+yIYu1GG+TDjFPSZ1tRTYwNmnlx5JgFpL4aUX+hqM=;
- b=G5unYY62eC4b8fGu76UW5VsSoSf+akaanf1ooPYErP2Mg3HouInQuFtMpgxhxi+VxFQ2KBdKqa3wgMxZm1bqBJajRMNT3pIdyNyjC9+fXUgXMVdoVr7Yt03p0b5KtmQ6La1Bl2ejImQMuvByUNIy0mN9jmsNj05Jpv+rml44kOk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=inmusicbrands.com;
-Received: from MW4PR08MB8282.namprd08.prod.outlook.com (2603:10b6:303:1bd::18)
- by LV3PR08MB9507.namprd08.prod.outlook.com (2603:10b6:408:213::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Tue, 4 Feb
- 2025 16:13:33 +0000
-Received: from MW4PR08MB8282.namprd08.prod.outlook.com
- ([fe80::55b3:31f1:11c0:4401]) by MW4PR08MB8282.namprd08.prod.outlook.com
- ([fe80::55b3:31f1:11c0:4401%3]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 16:13:33 +0000
-From: John Keeping <jkeeping@inmusicbrands.com>
-To: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
-Cc: John Keeping <jkeeping@inmusicbrands.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org,
+	id 1tfLZL-00000000voG-01ue;
+	Tue, 04 Feb 2025 16:14:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C05855C5940;
+	Tue,  4 Feb 2025 16:13:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC0B5C4CEDF;
+	Tue,  4 Feb 2025 16:14:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738685673;
+	bh=GBcXB5AV6YtR0BMwlaL9meSZs1urR7n3hkq4NxMztr0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=opORp5jEQEYA6NkXiV8/hFMEVuSB7q/VlDuVWp8REJ4ZjfSqvZb5l0Upl5IXfCCH7
+	 h7Uh5Zz1M0YBxtxPhmYaXKeQQj5+Llifb0K7gMlMG72jyHp8XIvlXiqr4xN2N983Dn
+	 DHUwmyW9VzkYX84vEAazeN/kDbkU3wYQ377Q4ezuEXltPpPRbrnIgWG1o5KG0Ipo+d
+	 KaqI/DfCDrCYTBVyLFIJqM5Jh3fjME/d78qO5yhohJC9OIdEAfeFafK9jbjxberwTO
+	 smfveWlyGMOoZwN9FhcS5j6QO7NePSUHonJk7qx9WRZP31Lb/x1WJ4UDRgRAzBtY4h
+	 nx+co3ay1oe0A==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 1F16D5FB49; Wed,  5 Feb 2025 00:14:29 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Steven Price <steven.price@arm.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: rockchip: i2s-tdm: fix shift config for SND_SOC_DAIFMT_DSP_[AB]
-Date: Tue,  4 Feb 2025 16:13:10 +0000
-Message-ID: <20250204161311.2117240-1-jkeeping@inmusicbrands.com>
-X-Mailer: git-send-email 2.48.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: LO4P123CA0150.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:188::11) To MW4PR08MB8282.namprd08.prod.outlook.com
- (2603:10b6:303:1bd::18)
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH netdev] net: stmmac: dwmac-rk: Provide FIFO sizes for DWMAC 1000
+Date: Wed,  5 Feb 2025 00:13:59 +0800
+Message-Id: <20250204161359.3335241-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR08MB8282:EE_|LV3PR08MB9507:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8bb7991f-e51e-4c7c-608b-08dd4536def7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5Ggq8l24BKDI3o5nCnycr4/sNBOkZOniPw2aLxrWute/9lit7oQY0dVxmcQg?=
- =?us-ascii?Q?dAqZabybxk2kpGewQ9vHLV3u260ZSHpIuSySrG1ciEiS7Tp63vyxC2cemDpM?=
- =?us-ascii?Q?Y2KfhXgN/bQ022u6sKmVf7X+xBekuBYyW9nfwHrviAIqbPp+z+oP1fOJxzWE?=
- =?us-ascii?Q?0U1J8puJEJMbmH13Blf8+auWLgNlC32SyP0tH7BlM+KhK6nDCwEwClVvet7T?=
- =?us-ascii?Q?DqSn4CFykbtq7hCzJOq/S0ppkgEfb0KHptvPuOQFa2dblVRqeAuw639MgV5z?=
- =?us-ascii?Q?jBwF0GK1iu0W0O91P6Hglq6uiOtawrpVnoNnVYl1ezwNzDbDplOQBSaNd4Y8?=
- =?us-ascii?Q?FOciaLWbOszt+Qj1xfElucJctWuzKdu/ybDGLsqPElF+Y2SdtGAxjunX6d5l?=
- =?us-ascii?Q?ot/JHJSz9dfPATWjFm1yGa+K6Jrv2WD5sT4ScENKcPmtWkilDH7HkgtkjokQ?=
- =?us-ascii?Q?DacthnPYJII/asLDhP6m8Sjb8Ag2R6rR1RbdMFweTCBhujdnew0YE3omlYda?=
- =?us-ascii?Q?FXdOch0n/YVzCiZO39bz8UQDBnKHoVSxQ2bYkG6b2YxLtxJ8fldwm9F1SGrr?=
- =?us-ascii?Q?sDdkdJtgFZ+LNBVH46bqLLqz9QDrJ69/tepRsDTZHjRWKnB74n4MDcwrxieB?=
- =?us-ascii?Q?kTpvDWglDSQIcz+39Crnc8dq9NXDmu5xqeESNhHJkxGchuyTlNsaMLUw/PAP?=
- =?us-ascii?Q?VX9EQ1s+KZVd8kICo6MNfIK2ZeOQ27lznbmM8j3VIzWFcJyMemI6LgAf8bhq?=
- =?us-ascii?Q?dweBqWjftoYau+HnFdt+RC9taGuEhfo5fijvWNq/kGVDYmsYT/GM4AEHs4Zb?=
- =?us-ascii?Q?Fl5/nwtuiZHzSbNf1okpPs2rwjRWk0cr9/GzKXJR+7CH6SUlt80tT+/T7Sac?=
- =?us-ascii?Q?SFunk0XWGv4GP4wFWguuGgtNpz3+z+up29r1NVjdSI+fR1HJNfoGiyz/sw+w?=
- =?us-ascii?Q?DvpFte0fuVx3e48t8oPneKLxyZLaNChUufNTcxUxpGP/karC/JyAOXGprzAm?=
- =?us-ascii?Q?7BToZB9Zd/hPVcx8OEk+FK3OfYzDBd2LQsiawQ66V01ghf22MxbWyZDznLjZ?=
- =?us-ascii?Q?oa8qol9sD1CJ291dsAQowu2soc/I9HKPEvBrzB/ZJZNBF370H4QXmSTeH1F8?=
- =?us-ascii?Q?5ZgSVU5qoVUXbtKXbp4DhgrzVcWHMvOvrDEgbI4rlsCdP6eeJsfW2LdngWU4?=
- =?us-ascii?Q?xefcESLur1GWMGSmX/6kle0fjsqHOMZMmQrR659T4W8iW9miRrOu5C9hJ5eQ?=
- =?us-ascii?Q?B3DgShnnMZDyjis3eCs5yy247uotTBEQCH0+4yQHT44Cz2y4tjV7DokS5Ai/?=
- =?us-ascii?Q?IILNXufjg9NBNLohmHh+iCAllinbR5J/283azW+OcC193edT5p7lmqk0drgj?=
- =?us-ascii?Q?PFsSvkD6sRvaQllGCmb8SpsW3omOxhYDn6mtIMQxSTJNg7nTARtmKGu4Hx8k?=
- =?us-ascii?Q?CEWJaT56B0hhJ++iM+6gjQRDifpbmqQn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR08MB8282.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+1NyI5p4XVgsiWOjAiubITRjT9S/bsLXRgWNL07VKuSxOSIozhsV/HeWsPWd?=
- =?us-ascii?Q?kpszyrudccPzp7jFisEIAdTGk7GfluED1JdLuz7IrfoJg0UgGzJasa4FZuBn?=
- =?us-ascii?Q?DKNfXT/FuXQ7blFwywg8hzg2Gu452Zif/O9ShXLgCAheFQmCZ+ZXqVavz6iQ?=
- =?us-ascii?Q?reD2yh3bsKH3NgjqPbUA4JUlGcWTMRCwiDuJS5WHwY5YAFqVA/8PuLeD5EFi?=
- =?us-ascii?Q?THiR0tAte+/QRoTvi3wSuNZL2cGfdGxRHEy5/q1e0ZF6Nt4Di0lp0saas3SM?=
- =?us-ascii?Q?MYAiTJx99Z9ZnG/XFd8XLk5jJuf9raRunDBauJySdg3LL2Qm8b0zn6RKwRZk?=
- =?us-ascii?Q?Y5BJFpZ2RwEcaIy+XAfWV3KL7Ww7etXaRZszYzWEKhoajGewksQbAD+yTjOj?=
- =?us-ascii?Q?fpDCX0MUFel/VJIlCR88LESDDVROORSDrl+Rg9dxyoWAIuBQq5Dx5PnGNEYK?=
- =?us-ascii?Q?eJCqHpTojyEYkEvd8XJkZx2Rbxwl/JbKdz2vr08yFSWk1HvGsUEcaTYorb73?=
- =?us-ascii?Q?a/J5smTYKFvOxRtQzZvbbRWtk0Lzv7kUlTzIq2gqNY3PgRavIZ2hvonoRi/o?=
- =?us-ascii?Q?EzIKKTVExR8DfBPbmIIVJr8FOMM3wugqfJVibdHPwkpgUWdnQsyUsyFb8/dK?=
- =?us-ascii?Q?bNELYFNgpeE0vD2gjbgpV9LAhHOvFsffNXeiYJA57axzc8ECkSB08qAKq1dI?=
- =?us-ascii?Q?+N7LE3Qyj4ptVlHRsunnNfjcJqffGccFyb7OLjuDZrJC3kjoFcWGSf6ZWSTf?=
- =?us-ascii?Q?HZUZLxI1WtAswqsV3XRnGbgL1+HmEHnbR2/cn1g5V2eMCiKFSBB42t+P1127?=
- =?us-ascii?Q?jU4fMKsoCGtG1VH6hpZoSOIB+xlg40NklwN1k/cT7sP80iacs8sStqgl6zHv?=
- =?us-ascii?Q?hIqyikG4K6BFgOy7vCC7EVrrGY4zDdsjoVmLN6WAPQQHH5gd2VMpPSNXeWLM?=
- =?us-ascii?Q?aYCweHMUk5G6kxt6ckzn8m5KtSb5lbcf7bDfIPqVWz0GSPw6oFjCOX2iMHG4?=
- =?us-ascii?Q?BscmdhN4Qpn+1uYbX04Am8crIYRD+7f/5PqoWlqfC91Zqak3z/Z1GMDJMqUn?=
- =?us-ascii?Q?MA5aCFQ0Noslp7ExdfKd/kqsmWVe2cC8lreXzbxDFREzZhqo+GeyVYjixd5F?=
- =?us-ascii?Q?2P0Wf8rjAjk1gC4tfunlINF4zaBa4eQQ9dc7FKktQ7KIDFRcjKeoyzEY3Y+e?=
- =?us-ascii?Q?BS8AhQv1+kjQvCoxzCNZAxt8SCDMUGB0bvUMtmMT5yyezHjWif3uMew4zTuV?=
- =?us-ascii?Q?BjJoNzKL53RNi3yyDmf64MfjJIoTlIXsxvlLeBQczDgG27XMEWzHqdyM5Klo?=
- =?us-ascii?Q?dncWdPscDC9zmxtPcbfCPCfE0S9ut0vKG7ewLecSyBfwWMsvn64DGH18miLB?=
- =?us-ascii?Q?AgsQhPL8gCS6Z9IDcts6af9INPc6oOdpOunl6xKZ4h/IqvMt+wntKu/TNcu6?=
- =?us-ascii?Q?pp8/CyzupZ2qRrviTsbbnuHY8WEJJQ1E+YMUZWUGYJGsVMCQVoq257WybMRl?=
- =?us-ascii?Q?JKqPWYoCWkedOpa+iDlDFmLHVMyPXcNaIjoKqVKEPSjRbKNSZ77M+hz8943i?=
- =?us-ascii?Q?eWnOIV9vT82IXrhCBRmuI/PquOLFWIKpG7FU6arCOy40LcodxIV5GVrjal+Y?=
- =?us-ascii?Q?HQ=3D=3D?=
-X-OriginatorOrg: inmusicbrands.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bb7991f-e51e-4c7c-608b-08dd4536def7
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR08MB8282.namprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 16:13:33.1419
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 24507e43-fb7c-4b60-ab03-f78fafaf0a65
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6ubPjOLFLx3vrjBKt1xTSqmZqTJU91odH/TOm5bK/Pd8+3Xrf4YRRE7Hvkwz+X8RTdhl/So7HhMyA4XQjwyrUbEGnIIAfvgtZ9+D41FuEBM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR08MB9507
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_081339_916369_C7EDEEB4 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250204_081435_132830_0B7EDC5D 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,38 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2f45a4e289779 ("ASoC: rockchip: i2s_tdm: Fixup config for
-SND_SOC_DAIFMT_DSP_A/B") applied a partial change to fix the
-configuration for DSP A and DSP B formats.
+From: Chen-Yu Tsai <wens@csie.org>
 
-The shift control also needs updating to set the correct offset for
-frame data compared to LRCK.  Set the correct values.
+The DWMAC 1000 DMA capabilities register does not provide actual
+FIFO sizes, nor does the driver really care. If they are not
+provided via some other means, the driver will work fine, only
+disallowing changing the MTU setting.
 
-Fixes: 081068fd64140 ("ASoC: rockchip: add support for i2s-tdm controller")
-Signed-off-by: John Keeping <jkeeping@inmusicbrands.com>
+The recent commit 8865d22656b4 ("net: stmmac: Specify hardware
+capability value when FIFO size isn't specified") changed this by
+requiring the FIFO sizes to be provided, breaking devices that were
+working just fine.
+
+Provide the FIFO sizes through the driver's platform data, to not
+only fix the breakage, but also enable MTU changes. The FIFO sizes
+are confirmed to be the same across RK3288, RK3328, RK3399 and PX30,
+based on their respective manuals. It is likely that Rockchip
+synthesized their DWMAC 1000 with the same parameters on all their
+chips that have it.
+
+Fixes: eaf4fac47807 ("net: stmmac: Do not accept invalid MTU values")
+Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- sound/soc/rockchip/rockchip_i2s_tdm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+The reason for stable inclusion is not to fix the device breakage
+(which only broke in v6.14-rc1), but to provide the values so that MTU
+changes can work in older kernels.
 
-diff --git a/sound/soc/rockchip/rockchip_i2s_tdm.c b/sound/soc/rockchip/rockchip_i2s_tdm.c
-index 7f5fcaecee4b6..78ab88843f861 100644
---- a/sound/soc/rockchip/rockchip_i2s_tdm.c
-+++ b/sound/soc/rockchip/rockchip_i2s_tdm.c
-@@ -451,11 +451,11 @@ static int rockchip_i2s_tdm_set_fmt(struct snd_soc_dai *cpu_dai,
- 			break;
- 		case SND_SOC_DAIFMT_DSP_A:
- 			val = I2S_TXCR_TFS_TDM_PCM;
--			tdm_val = TDM_SHIFT_CTRL(0);
-+			tdm_val = TDM_SHIFT_CTRL(2);
- 			break;
- 		case SND_SOC_DAIFMT_DSP_B:
- 			val = I2S_TXCR_TFS_TDM_PCM;
--			tdm_val = TDM_SHIFT_CTRL(2);
-+			tdm_val = TDM_SHIFT_CTRL(4);
- 			break;
- 		default:
- 			ret = -EINVAL;
+Since a fix for stmmac in general has already been sent [1] and a revert
+was also proposed [2], I'll refrain from sending mine.
+
+[1] https://lore.kernel.org/all/20250203093419.25804-1-steven.price@arm.com/
+[2] https://lore.kernel.org/all/Z6Clkh44QgdNJu_O@shell.armlinux.org.uk/
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index a4dc89e23a68..71a4c4967467 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1966,8 +1966,11 @@ static int rk_gmac_probe(struct platform_device *pdev)
+ 	/* If the stmmac is not already selected as gmac4,
+ 	 * then make sure we fallback to gmac.
+ 	 */
+-	if (!plat_dat->has_gmac4)
++	if (!plat_dat->has_gmac4) {
+ 		plat_dat->has_gmac = true;
++		plat_dat->rx_fifo_size = 4096;
++		plat_dat->tx_fifo_size = 2048;
++	}
+ 	plat_dat->fix_mac_speed = rk_fix_speed;
+ 
+ 	plat_dat->bsp_priv = rk_gmac_setup(pdev, plat_dat, data);
 -- 
-2.48.1
+2.39.5
 
 
