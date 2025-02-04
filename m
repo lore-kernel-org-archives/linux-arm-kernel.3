@@ -4,93 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74A2C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C65C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gq2wazRAbrp185rruXLj3Ehs/Mugu8zBiYtybcRB/os=; b=o1Kx8oyWQYG4ZjrsIPyCmLN5bw
-	6dlv5VOE7rX8EJhI1EXVpmlTUIZRoFIXfRX+dCo/SZGu7BGsxNMNVX94ZMpHEE1IF9CZqs50EUgvn
-	xb08zLCbM7qbSs9wmO1430VJSGlpewTYrckgoBIkSiZfr3CfFb5M5e7zB4czBuigmXyziIY0kBOms
-	S/PxO1q2Ki0m5wqKlQz0To9abbttKqhstU6wPde5JfQuTALDwaSaU8XMosT5xdek86x2q4GGlmFw9
-	q6f2rZy2E+qkfb0mamdL1azHrCLhpzP2yUvcDezWA7j5NjfIYMRJbygZu1DEyPS51uGMqDWmJmxR4
-	oQrimbYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2wthxihBzoT1dnFItAc2o4ZVMh/ieepwsKRAe48p9bY=; b=minkufpwr8tmfweSol30pDVmg7
+	qSSJjYLvtDHRxbQF3Hc56hkwfVp9OliG6KYxre2ve40TmPshDJPE7hcysTGFLZkKIglJo3h8e79IY
+	xQ8Ocz8GrhIU1jXA74BTOyHHrey/5jJws0ubfeWk47Cn1bm7zBCNLRbIDu4I7ljwyjb+VphaTuNTY
+	7nkN5rxhMYB3NQMr1uX/LDwhkP4Zdal/kxEZ+CvSFxwRGtSQR/y+3mZXbltmaFpLJ8xiUKQATwbvM
+	z+OJv2ZohAd+7yEQ+Zfp6BZBkm0PepTsNDBRib/riYRh+gTtQkwlZikVx9Cppv5faEUMF+e1NmIxW
+	jd6lfZ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHia-00000000M4e-45CG;
-	Tue, 04 Feb 2025 12:07:52 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tfHjt-00000000MSR-2yhL;
+	Tue, 04 Feb 2025 12:09:13 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHfx-00000000L1t-0nEf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 12:05:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gq2wazRAbrp185rruXLj3Ehs/Mugu8zBiYtybcRB/os=; b=F9LQMlvnrmGPgIpcbMjdaAj2UI
-	XPQn5iaUyLpVHVd/20+T8l13CaXUuRN0vk2oksjffIvOfhAZFdkHQurpIeTI3L1S97CdLSdxOXBkT
-	5LQZjbU7yZI0hqbJd12Vwf71Gs5ksVbNP/YIbSqAaQCCMC/QQNQz8TudeS7D6JvcZPEWBtcyev2fG
-	O9/dlgBLBOYy9ZLNytH/0leqlnL239vU+9aKA9prP7hCk0x3TGHf5lJSfa6YCXk8sqVn/NkBJR2IP
-	1oUff3Kv10m+TI/wUGVg3paABvvNiel+lxQ8Ia6beTuMwTrbl8UHDeEFULbfhco3cFbRvATviUyyU
-	6ivrE2vg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49344)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tfHfA-0003Qg-2v;
-	Tue, 04 Feb 2025 12:04:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tfHf1-0001NA-1A;
-	Tue, 04 Feb 2025 12:04:11 +0000
-Date: Tue, 4 Feb 2025 12:04:11 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v6 1/7] net: phylink: use act_link_an_mode to
- determine PHY
-Message-ID: <Z6ICO06RbJ1ulDh1@shell.armlinux.org.uk>
-References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
- <20250204061020.1199124-2-yong.liang.choong@linux.intel.com>
+	id 1tfHgw-00000000LIh-2Xo6;
+	Tue, 04 Feb 2025 12:06:11 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1738670766;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2wthxihBzoT1dnFItAc2o4ZVMh/ieepwsKRAe48p9bY=;
+	b=fHrFI9PeSGVQDCInicDuqCq2ZnIGjMK3873/V+PQnr5X9t9fbun6TN5ysjxBCEfeqVD4Dt
+	ez5H+nctl1vfMeYFnYYrcWO4r5MggVpOmcPYuf5YAGlu5BZDajUs8V6meQH7u+7yyEb46r
+	wPu31QpkBITZ6RbHtnWtFDeHFthu6z05SUaKggRwfknlcFSDfauzqDZI8f9sPs7j7N14Ly
+	nWpWN2dQdJxd8LPjT+WICA2492Ov++LcoMbQDUllzVlITS/Xr0HbXv9SHca7T5jfZEAdhG
+	E1KWm1ziUYM1PJNO5iPycPL5eTZ1CELiNi6rA61q2oxIVxMPXdq55zS20LeGGw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1738670766;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2wthxihBzoT1dnFItAc2o4ZVMh/ieepwsKRAe48p9bY=;
+	b=MJ7KzPmZU2E8LeznYlnKq/vha9PY3jNx99HTgP0f2P9VhbfIssqtxl82DkKaQtDUOCMn6Q
+	o26gUCkYCGaNQoDA==
+Date: Tue, 04 Feb 2025 13:05:34 +0100
+Subject: [PATCH v3 02/18] parisc: Remove unused symbol vdso_data
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250204061020.1199124-2-yong.liang.choong@linux.intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250204-vdso-store-rng-v3-2-13a4669dfc8c@linutronix.de>
+References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
+In-Reply-To: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Guo Ren <guoren@kernel.org>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+ linux-csky@vger.kernel.org
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738670761; l=796;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=PsNObhM96Z6VJ6YO6wVJytdYn6iSqKP3WcdqNzeXQCs=;
+ b=QAfcY3/tZW4aqA50xQmio/rWbqFlpjtNcyufackA9F81PDr6GzzKzTC5wnPW3aTbwI6t5a0j9
+ gbeylrFoqfBBqHSqqcWJ0A/MHLXjHYHnUq841uI/Pwm8gTEiNrEobtA
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_040509_218971_23CD632B 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250204_040610_791942_5DD087F4 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 02:10:14PM +0800, Choong Yong Liang wrote:
-> When the interface mode is SGMII and act_link_an_mode is MLO_AN_INBAND,
-> switching to the 2500BASE-X interface mode will trigger
-> phylink_major_config, and act_link_an_mode will be updated to MLO_AN_PHY
-> in phylink_pcs_neg_mode when the PCS does not support in-band mode.
-> The MAC and PCS will configure according to the interface mode
-> and act_link_an_mode.
+The symbol vdso_data is and has been unused.
+Remove it.
 
-act_link_an_mode must only ever be updated by phylink_major_config()
-since it defines state for the currently configured mode, and must
-stay in sync with how the hardware has been programmed at all times.
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ arch/parisc/include/asm/vdso.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-> However, when the interface goes link down and then link up again, the MAC
-> will attempt to attach the PHY.
-
-Why is the MAC trying to disconnect and reconnect the PHY on link
-changes? Do you really mean "link down" and "link up" as in "connection
-with the link partner" or do you mean administratively taking the
-interface down and up (which is a completely different thing.)
-
-> The interface mode remains as 2500BASE-X,
-> but cfg_link_an_mode still holds MLO_AN_INBAND. This causes a failure to
-> attach the PHY.
-
-Hmm.
-
-pl->link_interface is the configured setting from firmware etc and doesn't
-change.
-
-pl->cfg_link_an_mode is the configured mode from firmware etc which was
-passed to phylink_create(), and again doesn't change.
-
-So there should be no difference unless something weird is going on,
-which as you're talking about stmmac, could be the case.
-
-More information needed, but as this patch currently stands, I deem it
-to be incorrect, sorry.
+diff --git a/arch/parisc/include/asm/vdso.h b/arch/parisc/include/asm/vdso.h
+index 2a2dc11b5545fc642a7ae4596dc174111433e948..5f581c1d64606b3ec8f9967efe31dd3d551adf76 100644
+--- a/arch/parisc/include/asm/vdso.h
++++ b/arch/parisc/include/asm/vdso.h
+@@ -12,8 +12,6 @@
+ #define VDSO64_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso64_offset_##name))
+ #define VDSO32_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso32_offset_##name))
+ 
+-extern struct vdso_data *vdso_data;
+-
+ #endif /* __ASSEMBLY __ */
+ 
+ /* Default link addresses for the vDSOs */
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.48.1
+
 
