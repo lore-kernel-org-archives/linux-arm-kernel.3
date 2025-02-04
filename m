@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B113C02194
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39D0C02196
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 13:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J0F8pzBz6tA9eetnH9zD60XZRUHrwEZF/EmZxCgRDuo=; b=JMMjvBb5xgq7Ws
-	3Ifsvseg9u3nTH1JcqyYI+wO9qSyCnjhuCyExa7AG26ok3I006bMOzp1zbCmMenSMBymFRlrD51Xx
-	F2iRC4Tf2cf5HX2/QywNrbAHkc2B9f5lqBMNq+9vbjB1j14AdlnU/QWevn4QQxxDzofLI0MUNezwU
-	b4vMo+cDoilhCcQLDoneEg4cceZN2ArAp1RZsALi+6T0YW+G4aSGEVwPVTGqzq9Q7PnlPZJIxdncA
-	2GIPEfP5w+qfXdaSJ/BCCVs6CI+YCeUE0tlZ6YFSlRvUwJFvQWEr5iZU1Q+UJpbOVBrgWwU/LvwAN
-	VzwUK0W4GgdtO+VZ+5Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rox8IBA4TOog/Xi9d+CxsHeyf4Lozl25g79JAYxmrsE=; b=WA5teb6yRH5xFbqQNSVlGIll0D
+	O8HjmHOi7dsiiIY3kw8mf+z3AtDkM+hNMVKEYFyIpvEOj8WRqQYNP4hQ1Z9fDVn/SjxiJOMef3s/i
+	Xc5dL0yELcDTjSHMIdbaJJQF45qlqvgw5/gsOArSpPaZUkoNdZW1c0L1xNiDGQSK49nRs92/AvYdQ
+	w0C7eHxu9no0SnoaKXmiwLsCVV7XN9C3f9ucfWoOTT3OBkB7XCw/VlvXvRYIeoE+x798Q5K0sThX7
+	MuaHAhdjMzKPkR6riQtTLK4mmyzBWSx9kTP7bZ26ZNeOEBBS1lbwC5RQXSBQgFHKJftYafvNf7aBZ
+	9ALbx8ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfJFW-00000000ZCv-3WQi;
-	Tue, 04 Feb 2025 13:45:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tfJFV-00000000ZCY-0pc5;
+	Tue, 04 Feb 2025 13:45:57 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIDw-00000000RfJ-1oIM;
-	Tue, 04 Feb 2025 12:40:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738672814;
-	bh=sCD3UAqTLlx31/Pe8SSEC1P6gHo0WdI2HK57DyCsFLA=;
-	h=From:Subject:Date:To:Cc:From;
-	b=aZy9MkAizdhNdDigZnoM4HwqQuIgR7jZ3Cz0mTPmTu/dbuJnFMPG20+QCFJCsqka/
-	 8ZWsXVyTxt4aO4oE1Augpv/OpHCpJfM3ZmaFLvlQ7Lczhq0yokRVhX6iJo/c5z1rxM
-	 HU+PWlG4dnkGQL5S5senHh1b+mubDBTtyQlnqmPadUfyeNWyDozY38F2aOElQrLFEx
-	 q7dv1AFPXQUQF4F9aGaaddhvH5Cla92hoiDPp1Nu60uU00kXTS6D+V/28TtDnzkbHA
-	 kzRNk9Kdn34n26Q4bsSGftIDS4yw2XuWSa30YKuiVon+3HGBTiWi0IWIFw+B8Tc1TF
-	 QroCertfrGhTw==
-Received: from localhost (unknown [188.27.43.189])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 14DA917E0848;
-	Tue,  4 Feb 2025 13:40:14 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v3 0/5] Improve Rockchip VOP2 display modes handling on
- RK3588 HDMI0
-Date: Tue, 04 Feb 2025 14:40:03 +0200
-Message-Id: <20250204-vop2-hdmi0-disp-modes-v3-0-d71c6a196e58@collabora.com>
+	id 1tfHkR-00000000MaX-128s
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 12:09:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rox8IBA4TOog/Xi9d+CxsHeyf4Lozl25g79JAYxmrsE=; b=grjh7xGPy1aXjV8j/7VAJRQ/3Q
+	Zq+FAY0cDbRfh8SEOCyMIV1sMNeR3vmdA4pZtUw+BnlN6lhG2on+Btf+bSiva7Db/YMxo3UGx9Oro
+	9NpsoE4iXTuhscCT73b1FFUfGw/NpiYwJw03GvNr7R74HprHXSBG91FnziUApwNBAVuNBN0vN3vVQ
+	NM9Y34zvc+ynj9Gt07JXEehZEc4GfFbRKq1vvfRLBqmB9q4XfR8hCmC99NPeOidVjlz2C/poPwJwx
+	B8/RLvAKHGc9fg+IFjS8I9g9n2f8zGD1y+5e64/F6tdwo8zhM6iEceRokQhidTowc8xIC9O9DjWJq
+	JVdGvBZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43894)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tfHji-0003Tg-3A;
+	Tue, 04 Feb 2025 12:09:03 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tfHje-0001NM-1y;
+	Tue, 04 Feb 2025 12:08:58 +0000
+Date: Tue, 4 Feb 2025 12:08:58 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v6 4/7] stmmac: intel: configure SerDes
+ according to the interface mode
+Message-ID: <Z6IDWiRF73sdVWob@shell.armlinux.org.uk>
+References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
+ <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKMKomcC/4XNywrCMBCF4VcpWRvJpOnNle8hLnKZ2oHWlESCU
- vrupt0Igrj8D8w3C4sYCCM7FQsLmCiSv+coDwWzg77fkJPLzaSQCgBqnvws+eAmEtxRnPnkHUZ
- uyg7LGrqmbnuWb+eAPT1393LNPVB8+PDa3yTY1n9iAi64NFZX4Ixqu/Zs/Thq44M+Wj+xTU3yI
- 0mAX5LMkmrA9pUQgKr6ltZ1fQMvH9NECAEAAA==
-X-Change-ID: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- FUKAUMI Naoki <naoki@radxa.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_044016_639424_9ACBDB38 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250204_040947_276904_077526FB 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +106,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2 support for RK3588 SoC is currently not capable to handle the full
-range of display modes advertised by the connected screens, e.g. it
-doesn't cope well with non-integer refresh rates like 59.94, 29.97,
-23.98, etc.
+On Tue, Feb 04, 2025 at 02:10:17PM +0800, Choong Yong Liang wrote:
+> +	int (*config_serdes)(struct net_device *ndev,
+> +			     void *priv,
+> +			     phy_interface_t interface);
 
-There are two HDMI PHYs available on RK3588, each providing a PLL that
-can be used by three out of the four VOP2 video ports as an alternative
-and more accurate pixel clock source. They are able to handle display
-modes up to 4K@60Hz, anything above that, e.g. the maximum supported
-8K@60Hz resolution, is supposed to be handled by the system CRU.
+Since you call this from phylink's mac_finish() method, I would much
+rather the call down into platform code was also called the same so
+we don't end up with a proliferation of methods called from that
+function. As such, please also arrange for it to pass the AN mode as
+well.
 
-There is quite a bit of complexity in downstream driver to handle all
-possible usecases - see [1] for a brief description on how was that
-designed to work.
+Thanks.
 
-As for the moment HDMI1 output support [2] is not fully merged upstream,
-the patch series targets HDMI0 only.
-
-Additionally, please note that testing any HDMI 2.0 specific modes, e.g.
-4K@60Hz, requires high TMDS clock ratio and scrambling capability [3].
-
-Thanks,
-Cristian
-
-[1] https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr4.1/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c#L4742
-[2] https://lore.kernel.org/lkml/20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com/
-[3] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commits/rk3588-hdmi-bridge-v6.14-rc1
-
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
-Changes in v3:
-- Check the already computed clock instead of mode->crtc_clock in the
-  conditional that triggers the switch to HDMI PHY PLL
-- Rebased series onto v6.14-rc1
-- Link to v2: https://lore.kernel.org/r/20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com
-
-Changes in v2:
-- Collected Acked-by tag from Rob and Tested-by from Naoki
-- Rebased series onto v6.13-rc1
-- Link to v1: https://lore.kernel.org/r/20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com
-
----
-Cristian Ciocaltea (5):
-      dt-bindings: display: vop2: Add optional PLL clock properties
-      drm/rockchip: vop2: Drop unnecessary if_pixclk_rate computation
-      drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
-      arm64: dts: rockchip: Enable HDMI0 PHY clk provider on RK3588
-      arm64: dts: rockchip: Add HDMI0 PHY PLL clock source to VOP2 on RK3588
-
- .../bindings/display/rockchip/rockchip-vop2.yaml   |  4 +++
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  7 +++--
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 36 +++++++++++++++++++++-
- 3 files changed, 44 insertions(+), 3 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20241116-vop2-hdmi0-disp-modes-b39e3619768f
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
