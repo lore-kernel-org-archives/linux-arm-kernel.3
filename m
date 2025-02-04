@@ -4,177 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A78AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 19:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CFAC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 19:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWy+iynyAZGjLuuwdsRFJXiTwGrNk2KhWIWJj7ear5c=; b=Q/mQaQc87NPhf4eNN6CXHPZS+1
-	Tix44Zg//ylHshn1XfAVweaHW45T716WcMEUOESYqM6cziIp2KkHr3DSFoPAxJhg7VtFh1qGDkPDy
-	NPqLS2FLMkuf0xUUS60VWQSITCaE9jEZ++nT73BBKdQoQfkacThjYyYDgCytFxmI+3orVoOyiQi8c
-	LtR/mRjC9vjnWJLxl1Kaax5rDgW7ZOi0nwC1EHbr70sG8QIsZ7f4vtFO5FKZT+VJ8DVIuK8AQW4Up
-	Qm73bU/1LAQbGh+LbIeKM9qxG3oHh2bu9Vc5i43clcAszvXQjQrpkdwmXYQc94TcRD/WwZrlVpM83
-	5614ZnBA==;
+	bh=rr3YMX43/Tloo6QL2s4yaCM8c/Si1AW2XmMJtfVf9E0=; b=Tq1nhCBBFr1dOw2ge98zX3DHxu
+	rfnsHPtSvyT6DWJx7S+BdFqBmzq6XhjFPCtE0n1ziBut5HNXj5o0Y2KI7NRF0bvEKKnFGplyuFzik
+	MXfRZiRi4OwoT71eQfykCR7APsIPvnSb0EoU9Q2PvjpKcNC/Xg+xq53a7jsKCucYwX9+RHF2Hrw2Y
+	zh2+V3Bb3DTd85lWvyp8po3/uNsY4EEXgG1dxs7YmQLKmkjvZD9Xp7yFo+LhqE0koTNzgZVRIcnGU
+	vVHffHTEGSvb4ny12/4n3+SMiGCj6bCJO3V1hteJK6Hrk2Ej3GwCmtYYUuIZ7AsfWQeCwYYm7N8up
+	YxFi/2YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOAM-00000001Ipw-2uI8;
-	Tue, 04 Feb 2025 19:00:58 +0000
-Received: from mail-bn1nam02on20610.outbound.protection.outlook.com ([2a01:111:f403:2407::610] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1tfOCz-00000001JKc-0H6Q;
+	Tue, 04 Feb 2025 19:03:41 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNlc-00000001ELM-2b0f;
-	Tue, 04 Feb 2025 18:35:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bKgxTKgBpVEdQlFtWQ4oMIMbFH2sBcGjWCKUyVINXY4NuKl70z8xnstt92Q3nIHcjB5N2dVpGzxywGPWgrg3inLmTz0cOB2t27gcD67kH9wmaBynFL+AWp5HHfeYmnj93Ih2R6Cq50eGK8QJuRn3t+W09rzFsI09OXCPwhvvyz4B8MPOD3AmYkOYmdD/NjGpn2yu/wv/gCA5qLnyZIHshUc+U3jfBa1cuX59OfWCljQG/S7BtmvaLOF6ihk6gCcOPhF7h1qdcKrh3GtxwfrPAA4FoYwk1rJQqaZhVPiZXo7cmL+L1PaA8sBhghLKo1ImriFOvM81ikSdCipCQPrUJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cWy+iynyAZGjLuuwdsRFJXiTwGrNk2KhWIWJj7ear5c=;
- b=b77zQ9XJptLTkttOi6f2IXiGX2c1xhA7rRC1X7pbvfmEwECDwLAn9CVpYZzyZOk8Mw4Df8xYnb6ge3kR1O7ZO8bcMLh3AesK3aEbc5YAj7B9lZ8ypNXsr+2tYIa4k795ov0IUI2/CePwifNDcPbt8TDAdT71Gjtj2o/p/ptruPWSvlHOrqI7hJssQrgdSpZBhR14zHuiewsRhVc71qwMfIYed/lUYFa4+8C0fzeMZIuTNVRnAgaUrducYJ2inB0tWhQVNotphxJJtKZYDbBYAw1m6KiIOKdw/dZs4gOOgFzt5FFBQaxV+gSBj0L1Ole7slpukvPVH9MlYWvetQKxoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cWy+iynyAZGjLuuwdsRFJXiTwGrNk2KhWIWJj7ear5c=;
- b=eSVUifI34/kfXA218smttLb4NyTjOKzkE3GsaZKOoCLfrkiSUvYiFzDG2HoJJKkYMzS1cLv+xxE2gbnnS8lSkzubxbXwS28NUGr90BhWSCY1MZYz3K4Ce0Qd6HZaYKoQsbvIDw9NRQ22NXc9I49AkvvVJ4i/hZ5RdKuXT23w1erzi0+r1FlWtO2PqHDSJK55yrnkWKTcxZjsfiSzaYPNyOG0zqZ8rADp3CnRXdlGLquqYKTcwZYSTKfPmuOOqiNkCywZpw/my+3AiG8SDWA+vpcEG3RoIo/tI8VA0v0CRGRNFbV1b35qY7mtPtE7m1YH27vkQq3zWxljuNfSEoeSSg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6573.namprd12.prod.outlook.com (2603:10b6:930:43::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
- 2025 18:35:10 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 18:35:10 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH 05/19] iommu/pages: Replace iommu_free_pages() with iommu_free_page()
-Date: Tue,  4 Feb 2025 14:34:46 -0400
-Message-ID: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BL0PR1501CA0007.namprd15.prod.outlook.com
- (2603:10b6:207:17::20) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tfNqk-00000001FkO-1Cuo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 18:40:43 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2f9d17ac130so976996a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 10:40:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1738694441; x=1739299241; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=rr3YMX43/Tloo6QL2s4yaCM8c/Si1AW2XmMJtfVf9E0=;
+        b=KBL3bASoL/85JbaDBjk4jeURyc2/Km5DJj9p8uj8aegTsQbP0mWuRtQyxY+apz6bjK
+         GPoYsUxS+okuhC31QZljLtsQ11H82Xza3fLp3zsCbd89gFVaSpe/UKJeLrYQE39G6LiP
+         /FZD8zSfU5JZu26f9RQ4SCZXg1BOCu5hIW11s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738694441; x=1739299241;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rr3YMX43/Tloo6QL2s4yaCM8c/Si1AW2XmMJtfVf9E0=;
+        b=LrU9M6Akv9+yRlSa3DmGZb/njR0yFM/vcM3y19dWUc83lBYCzKReWhu0AbwR89axB2
+         7xZKNKLdk4bpfbxc38Kjr+uPilhGbTr6hlRfj9ZfrXYhXPImhwFetWWXKK9amSyTn78R
+         V5/iztvL+EVwRNlYgkXyoxXApQRWntc8QZW8FzbHN7CbYf3oSfbfLwb5TFv8lmGdtFfY
+         PJswq31j3/aTlayqpDK8LExWQakvAG+o3U3WkoFMZSMXG8c+UYFBdGvhraC/JMDbGShF
+         GF0XHPSdcon2U0fGEKtpWJZRRgc/PbfQUEIBtsZ8/ouo+MG3mrGTUPC6r4eQtzithEQh
+         rONw==
+X-Forwarded-Encrypted: i=1; AJvYcCW2tNLrI5yW1U8fXHouxdFG0uvLRJoVGkLbVWBVi+39wSfz3PmO8Yx4IHeYv9J5R/OwTirDFedLvjTWKBY+stAB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvOxA1gyE1bdp1cbpfyjj+0LteVasY+sALOXtOPdq5qvh3Z0dU
+	VndzzOJCLhpPkR2elYd6Du8xDvmnPHMo4xfsdDeFlyJD8Hv4owwTbnv6j6jwTQ==
+X-Gm-Gg: ASbGncuf7zx7WCg4/AnFB5aF62+oOTQfhpvRKN1tUK0wSHSfyX9QNftp7c3JVo8q98r
+	vv7pNp9l780pu4K/u7O8wugWHP+rzpokjsdle1dWQuYiL3mv/7D3C3RUT56DSZLPzz0r2+QfKZl
+	1MpkTGcbaxs0YaIvoZoFp0mqF41MzyCAKH0ROX51puth5/EkbeXXTwQbLixvbk5mKbHHZq/8+Tr
+	hvzNohp6w7Ye0ttESMYIgFq741jOZsyq/6Wu4zJb+K34yY4OJd/+rtIkZjksHahI6o9hZJcO+ip
+	6B1qYe0h54ejjbZQLgPaqbOwdvyZQjs23vKBgD0cz0Hbqc4h+QkrsY8=
+X-Google-Smtp-Source: AGHT+IGJndWAWJ5vbNbdd6bjRwA+UbEuIyBJrgJX2s7NpyKketJ6Ni4wV9ZRPzf7pgw/PGeNk8p+jQ==
+X-Received: by 2002:a17:90a:dfc5:b0:2ee:9d65:65a7 with SMTP id 98e67ed59e1d1-2f83ac86a84mr38834985a91.29.1738694441007;
+        Tue, 04 Feb 2025 10:40:41 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bc97ca8sm15322901a91.1.2025.02.04.10.40.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Feb 2025 10:40:40 -0800 (PST)
+Message-ID: <a7a5dbb5-25ba-4bf3-9f36-f188f2c6eea8@broadcom.com>
+Date: Tue, 4 Feb 2025 10:40:38 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6573:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52dcdfd7-16d9-499e-881c-08dd454aa462
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DCHa7JgOWURzIaqxV+EP+qxc9gtnQ2q3OnfPI4XPft9n1Q8fnaClEHIC7V3Y?=
- =?us-ascii?Q?P8OTeQ/i0wvrdTL/il/xQts2udT2HcvnlehnijeCKy9fiwcnLlXWoq8XiDdq?=
- =?us-ascii?Q?M4F2u/FNuE5bThu1dPmiKoOB8jJdpStDN/0ezBjjOSjMYetdlm9DSNdawRHq?=
- =?us-ascii?Q?vpTwrwdovdJrtcZFYsSa4Tgg31kW7XYriWuZiOPUrmQyAQ/WfVOnTyGcndHv?=
- =?us-ascii?Q?hOZ2+C8u6WIK2/zCZIgugc+sAlFcSkY3o7Ig+W2eaOhZIYGzlLR17wvCU8cn?=
- =?us-ascii?Q?JDtsGWLQtVhzRRHluohahBqkVoCvj5nP9rI9gQfIL0zz58Plxc8dzAipiEiE?=
- =?us-ascii?Q?Oje042s6wdZJmRy+qJCLkOf2lzldNHwTxdG9G/K86btsBCXleUHlmbs0i7Ma?=
- =?us-ascii?Q?k9G38n6G+HsqAiTuSlTi8b6NSuNNXpFXC6zp93oIcpJhhxrOC37gxFXn/m1b?=
- =?us-ascii?Q?A4SNoF/0qL1ZOC9N65mBomtJ8DqzzJ7o+OmDpxcZ8WVg43EFStajDC5hUue8?=
- =?us-ascii?Q?sR17AnETBO12X0e9g7/1qVfeGI1D6knkA/2tUpJjPHvnse5RHFBszDUHcNQd?=
- =?us-ascii?Q?xvGbIiUS5eakqx5iRrh7iBrz02NgdIWKBsIrGWxW/5tpAzF7kXxDjrv97E6V?=
- =?us-ascii?Q?8TT8XBLGoIg+S9iUvVO92wGTiExctLBwyEuEa0zy9N05iQNVOMmSw/LGtRbY?=
- =?us-ascii?Q?JT/UWzJFHPRfVuiJCyxnr+uGhapvcjdofM6vTIWu3ZGAOgjOOQTMVSNzDRyf?=
- =?us-ascii?Q?rgQ5Szy/evaDsUrGKLFuBtIUijpTqx2Cg44uWSL5PPdKIBx4cvb74LZVMnLO?=
- =?us-ascii?Q?i3tI9fOyqKyAGKrFZpppi0m3f4Y6WmIwm4yY2Siu/8V6EWbmhx9x4Hfffv/o?=
- =?us-ascii?Q?Ji3Fu5q+L+mFe0mvdLX6wCdZt49VFR4KsM8NBCVblfAHvExHvk7PK+uVWVW0?=
- =?us-ascii?Q?JvYFMVY3LamIzrcnLF4wYkOseGE01tO+9htHI5cnP492Ci+/qUZjGd8wfAlw?=
- =?us-ascii?Q?+vsT8szMBf2/WNPRpnSS639bbLu0YgVPRfAuuReAWo19YAYD8m1+11bhhmGm?=
- =?us-ascii?Q?nEo2Aub1MSc/jOcLxysdBAa+PxP8fWWwvurikJUwnCfP5asubKR5CY4/JaPS?=
- =?us-ascii?Q?yrlTRDGfQ1UYXqYx7BVfJEpBpj4VY/35ARASi1ymqjgWv9PvYWhZ/7Zcxwyh?=
- =?us-ascii?Q?X28KLjhzlPxzf7lHxNEQogQyFOreXgmz13lhc7hQIaB2PUMBDmvp8pyR7khj?=
- =?us-ascii?Q?4ZAgLgCDOTQUTkGG7I1fjNvqVJMM5GGkRhEkY8ClO7c/PVsR2aP74fbN7WBV?=
- =?us-ascii?Q?oSCIilq5xJJoVyy3GL3eL/GyDMNbiVtEyewgyEIRdFFAHoX3SkTF7qGsKKeA?=
- =?us-ascii?Q?thIZFhWTNUsWW21/l4H1N/TCwf5ZNejSEwcndk9GZkgsJ6I8hn171ocAwlCT?=
- =?us-ascii?Q?c6sBGiRr34g=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FvHCssO21TJjeiiXOTlZQac6cog8yHOMqz3PFum64KoARQsacbuEZZkEXYoV?=
- =?us-ascii?Q?da0SzMXW8pRfc/7ujtLuyEwsyPSvamDgFcFPMo2A2l18V1rIJrBIOtKo3qtS?=
- =?us-ascii?Q?OydBXBOzfB3Jqy4ilk4UpQ7ZtCuB60cJqaaqhSwIS/VStLHjrQCAY1YqMcTx?=
- =?us-ascii?Q?1DkWc8yEX9J34W2HgKeSn958yth5vt7VGTcPry5PYz63jzEqsLVfWvW0agGL?=
- =?us-ascii?Q?6GFyCW1KIL/e/Ncqna17Qiux+ZBxrgI5Mik0JS25gM+wC3OfQvbYrTJMoow0?=
- =?us-ascii?Q?lmng87+OTGA2DpBqNkppItP/N7u3vFNRQijwTDhooFwqTGG0Q7Xj+uJO2Jht?=
- =?us-ascii?Q?LkxDSfIdk1wBkH2gPQ/WbzoHaBMSK3JH71msXZMReYHhqERNyuVBekO1y3Rt?=
- =?us-ascii?Q?tklYcI2FC2WJATmbeMzJl/tVEm8rE7Inu163f0iNTKJaWxPxAEuFLXh4P4z8?=
- =?us-ascii?Q?2cokkapXV8A7+liLemKrwaYoFXpe1KauNVlUA6yjim8Znn0GK1+03t5aM21s?=
- =?us-ascii?Q?dC3Kgptkvw9PiuJC8TId5G8wMa91Ws/qujzPF9DvZjSkqELZQg31U90W4Rj3?=
- =?us-ascii?Q?yXptXvr4GG7qNxL1ngkTCjTxNtlrvqoI/XA65H78SyTt3OEloUsh2lRk5MiJ?=
- =?us-ascii?Q?2asl4SUaJTP8zr1nFFJ+W34I65pidfI3PJSsZjZuCr8Sf2VhkphhhFtg1PWu?=
- =?us-ascii?Q?WRbmG4DhMQP3okNjzWIjXwZXRI9FVsEcxZyjhn9mPgL/Mf9VV2vBZMoBjMrI?=
- =?us-ascii?Q?rgszc1CdfbB2IAEiprj3yJgDhvyEx0IqDQfyclPda3tJR2LH3MAnDTR9XZqn?=
- =?us-ascii?Q?2caXZH/6TcO9Qf+gnSsQ6gg14lsdDTTyTqe4cxYUtVlgg4kzV/WlhUocoEB3?=
- =?us-ascii?Q?dfzAz0lBSU6544+wOiTyIAHwMkjM+idlX0W0cmpZbUO5YH5X60QxvnaaDNiD?=
- =?us-ascii?Q?FvGF1hA4NVMnNERoBmI81uXSN5Mr68dFJXaZgT81i7C7mO7gxTjqEimNYPP4?=
- =?us-ascii?Q?P/9cwWqk/FbQ4W676SxRjYeXBKqYO6QkIf4anYTviGnvYGhkVX/THeKUGO0u?=
- =?us-ascii?Q?oshE1FEPsQpDMOPRNe9GX1VuJCNqw6wTxxGPjyHcSRECVA1IdTIdzj5rVQdX?=
- =?us-ascii?Q?Q5las1JYUTzZlQQUTszdQ7JLIp32iOv1++ao0WKp25OYZT8lfum3MvkUGlRg?=
- =?us-ascii?Q?b54EWwdtYP5t7PzBRIhZG9UVrtXC4+RTJ+5Z2DeRHgA1XtObCYvS/bOg2z0V?=
- =?us-ascii?Q?3I3uMpmexqDZo3uzy0+k2cAUVDAh15CEXyaxotjFmsxnnHzHMwkPQR06K6fL?=
- =?us-ascii?Q?DbOhgZNti4Te7OtL7/dg6OYvOjABNGENmpBgT7s0e0BJLUp3RGqQ2G18/+ye?=
- =?us-ascii?Q?aLnWxmblS/sm1B24iZQYCuKKreV8NmvTI4oju0y0BaB9dtQIBeO4AuxE0Td/?=
- =?us-ascii?Q?Oq4ZSqOO9Zs/CV+a60ox94T1uf1sPBFsbbK7IbMSMxlbcJJV7wWQjQDaCqfR?=
- =?us-ascii?Q?S55kOcBSRzU9QP1eNvb3iZtjn0gzj0mxRdoZGCXH6GwS6GBpi+wf5Eig5z/y?=
- =?us-ascii?Q?M4lmsKy8m52Is+niluk=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52dcdfd7-16d9-499e-881c-08dd454aa462
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 18:35:04.6806
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X4amCMH1pKQueZCo+NDHlYKYU1PW84wmCz4HapYoKqw9PwvZK0zFbb0sRk9G91Ad
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6573
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: brcmstb: Adjust message if L23 cannot be entered
+To: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-pci@vger.kernel.org
+References: <20250201121420.32316-1-wahrenst@gmx.net>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250201121420.32316-1-wahrenst@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_103524_676128_94F01A2A 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250204_104042_378913_D21C9ED4 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,392 +135,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a folio under the allocation iommu_free_page() can know
-the order of the original allocation and do the correct thing to free it.
+On 2/1/25 04:14, Stefan Wahren wrote:
+> The entering of L23 lower-power state is optional, because the
+> connected endpoint might doesn't support it. So pcie-brcmstb shouldn't
+> print an error if it fails.
+> 
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 
-Callers no longer need to pass in the allocation order to the free
-function. Just use iommu_free_page() everywhere.
-
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/amd/init.c            | 28 +++++++++++-----------------
- drivers/iommu/amd/ppr.c             |  2 +-
- drivers/iommu/exynos-iommu.c        |  8 ++++----
- drivers/iommu/intel/irq_remapping.c |  4 ++--
- drivers/iommu/intel/pasid.c         |  3 +--
- drivers/iommu/intel/pasid.h         |  1 -
- drivers/iommu/intel/prq.c           |  4 ++--
- drivers/iommu/io-pgtable-arm.c      |  4 ++--
- drivers/iommu/io-pgtable-dart.c     | 10 ++++------
- drivers/iommu/iommu-pages.h         | 14 ++------------
- drivers/iommu/riscv/iommu.c         |  6 ++----
- drivers/iommu/sun50i-iommu.c        |  2 +-
- 12 files changed, 32 insertions(+), 54 deletions(-)
-
-diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-index c5cd92edada061..f1c5041647173c 100644
---- a/drivers/iommu/amd/init.c
-+++ b/drivers/iommu/amd/init.c
-@@ -653,8 +653,7 @@ static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
- 
- static inline void free_dev_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->dev_table,
--			 get_order(pci_seg->dev_table_size));
-+	iommu_free_page(pci_seg->dev_table);
- 	pci_seg->dev_table = NULL;
- }
- 
-@@ -671,8 +670,7 @@ static inline int __init alloc_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
- 
- static inline void free_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->rlookup_table,
--			 get_order(pci_seg->rlookup_table_size));
-+	iommu_free_page(pci_seg->rlookup_table);
- 	pci_seg->rlookup_table = NULL;
- }
- 
-@@ -691,8 +689,7 @@ static inline int __init alloc_irq_lookup_table(struct amd_iommu_pci_seg *pci_se
- static inline void free_irq_lookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
- 	kmemleak_free(pci_seg->irq_lookup_table);
--	iommu_free_pages(pci_seg->irq_lookup_table,
--			 get_order(pci_seg->rlookup_table_size));
-+	iommu_free_page(pci_seg->irq_lookup_table);
- 	pci_seg->irq_lookup_table = NULL;
- }
- 
-@@ -716,8 +713,7 @@ static int __init alloc_alias_table(struct amd_iommu_pci_seg *pci_seg)
- 
- static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->alias_table,
--			 get_order(pci_seg->alias_table_size));
-+	iommu_free_page(pci_seg->alias_table);
- 	pci_seg->alias_table = NULL;
- }
- 
-@@ -826,7 +822,7 @@ static void iommu_disable_command_buffer(struct amd_iommu *iommu)
- 
- static void __init free_command_buffer(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->cmd_buf, get_order(CMD_BUFFER_SIZE));
-+	iommu_free_page(iommu->cmd_buf);
- }
- 
- void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
-@@ -838,7 +834,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
- 	if (buf &&
- 	    check_feature(FEATURE_SNP) &&
- 	    set_memory_4k((unsigned long)buf, (1 << order))) {
--		iommu_free_pages(buf, order);
-+		iommu_free_page(buf);
- 		buf = NULL;
- 	}
- 
-@@ -882,14 +878,14 @@ static void iommu_disable_event_buffer(struct amd_iommu *iommu)
- 
- static void __init free_event_buffer(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->evt_buf, get_order(EVT_BUFFER_SIZE));
-+	iommu_free_page(iommu->evt_buf);
- }
- 
- static void free_ga_log(struct amd_iommu *iommu)
- {
- #ifdef CONFIG_IRQ_REMAP
--	iommu_free_pages(iommu->ga_log, get_order(GA_LOG_SIZE));
--	iommu_free_pages(iommu->ga_log_tail, get_order(8));
-+	iommu_free_page(iommu->ga_log);
-+	iommu_free_page(iommu->ga_log_tail);
- #endif
- }
- 
-@@ -2781,8 +2777,7 @@ static void early_enable_iommus(void)
- 
- 		for_each_pci_segment(pci_seg) {
- 			if (pci_seg->old_dev_tbl_cpy != NULL) {
--				iommu_free_pages(pci_seg->old_dev_tbl_cpy,
--						 get_order(pci_seg->dev_table_size));
-+				iommu_free_page(pci_seg->old_dev_tbl_cpy);
- 				pci_seg->old_dev_tbl_cpy = NULL;
- 			}
- 		}
-@@ -2795,8 +2790,7 @@ static void early_enable_iommus(void)
- 		pr_info("Copied DEV table from previous kernel.\n");
- 
- 		for_each_pci_segment(pci_seg) {
--			iommu_free_pages(pci_seg->dev_table,
--					 get_order(pci_seg->dev_table_size));
-+			iommu_free_page(pci_seg->dev_table);
- 			pci_seg->dev_table = pci_seg->old_dev_tbl_cpy;
- 		}
- 
-diff --git a/drivers/iommu/amd/ppr.c b/drivers/iommu/amd/ppr.c
-index 7c67d69f0b8cad..0a7c32ab841707 100644
---- a/drivers/iommu/amd/ppr.c
-+++ b/drivers/iommu/amd/ppr.c
-@@ -48,7 +48,7 @@ void amd_iommu_enable_ppr_log(struct amd_iommu *iommu)
- 
- void __init amd_iommu_free_ppr_log(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->ppr_log, get_order(PPR_LOG_SIZE));
-+	iommu_free_page(iommu->ppr_log);
- }
- 
- /*
-diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-index c666ecab955d21..3c64fcdde6d294 100644
---- a/drivers/iommu/exynos-iommu.c
-+++ b/drivers/iommu/exynos-iommu.c
-@@ -932,9 +932,9 @@ static struct iommu_domain *exynos_iommu_domain_alloc_paging(struct device *dev)
- 	return &domain->domain;
- 
- err_lv2ent:
--	iommu_free_pages(domain->lv2entcnt, 1);
-+	iommu_free_page(domain->lv2entcnt);
- err_counter:
--	iommu_free_pages(domain->pgtable, 2);
-+	iommu_free_page(domain->pgtable);
- err_pgtable:
- 	kfree(domain);
- 	return NULL;
-@@ -975,8 +975,8 @@ static void exynos_iommu_domain_free(struct iommu_domain *iommu_domain)
- 					phys_to_virt(base));
- 		}
- 
--	iommu_free_pages(domain->pgtable, 2);
--	iommu_free_pages(domain->lv2entcnt, 1);
-+	iommu_free_page(domain->pgtable);
-+	iommu_free_page(domain->lv2entcnt);
- 	kfree(domain);
- }
- 
-diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
-index ad795c772f21b5..31a170501d2410 100644
---- a/drivers/iommu/intel/irq_remapping.c
-+++ b/drivers/iommu/intel/irq_remapping.c
-@@ -620,7 +620,7 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
- out_free_bitmap:
- 	bitmap_free(bitmap);
- out_free_pages:
--	iommu_free_pages(ir_table_base, INTR_REMAP_PAGE_ORDER);
-+	iommu_free_page(ir_table_base);
- out_free_table:
- 	kfree(ir_table);
- 
-@@ -641,7 +641,7 @@ static void intel_teardown_irq_remapping(struct intel_iommu *iommu)
- 			irq_domain_free_fwnode(fn);
- 			iommu->ir_domain = NULL;
- 		}
--		iommu_free_pages(iommu->ir_table->base, INTR_REMAP_PAGE_ORDER);
-+		iommu_free_page(iommu->ir_table->base);
- 		bitmap_free(iommu->ir_table->bitmap);
- 		kfree(iommu->ir_table);
- 		iommu->ir_table = NULL;
-diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-index fb59a7d35958f5..88070bb7f9b093 100644
---- a/drivers/iommu/intel/pasid.c
-+++ b/drivers/iommu/intel/pasid.c
-@@ -67,7 +67,6 @@ int intel_pasid_alloc_table(struct device *dev)
- 	}
- 
- 	pasid_table->table = dir;
--	pasid_table->order = order;
- 	pasid_table->max_pasid = 1 << (order + PAGE_SHIFT + 3);
- 	info->pasid_table = pasid_table;
- 
-@@ -100,7 +99,7 @@ void intel_pasid_free_table(struct device *dev)
- 		iommu_free_page(table);
- 	}
- 
--	iommu_free_pages(pasid_table->table, pasid_table->order);
-+	iommu_free_page(pasid_table->table);
- 	kfree(pasid_table);
- }
- 
-diff --git a/drivers/iommu/intel/pasid.h b/drivers/iommu/intel/pasid.h
-index 668d8ece6b143c..fd0fd1a0df84cc 100644
---- a/drivers/iommu/intel/pasid.h
-+++ b/drivers/iommu/intel/pasid.h
-@@ -47,7 +47,6 @@ struct pasid_entry {
- /* The representative of a PASID table */
- struct pasid_table {
- 	void			*table;		/* pasid table pointer */
--	int			order;		/* page order of pasid table */
- 	u32			max_pasid;	/* max pasid */
- };
- 
-diff --git a/drivers/iommu/intel/prq.c b/drivers/iommu/intel/prq.c
-index c2d792db52c3e2..8620327b64394b 100644
---- a/drivers/iommu/intel/prq.c
-+++ b/drivers/iommu/intel/prq.c
-@@ -338,7 +338,7 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
- 	dmar_free_hwirq(irq);
- 	iommu->pr_irq = 0;
- free_prq:
--	iommu_free_pages(iommu->prq, PRQ_ORDER);
-+	iommu_free_page(iommu->prq);
- 	iommu->prq = NULL;
- 
- 	return ret;
-@@ -361,7 +361,7 @@ int intel_iommu_finish_prq(struct intel_iommu *iommu)
- 		iommu->iopf_queue = NULL;
- 	}
- 
--	iommu_free_pages(iommu->prq, PRQ_ORDER);
-+	iommu_free_page(iommu->prq);
- 	iommu->prq = NULL;
- 
- 	return 0;
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 7632c80edea63a..b4c3729076376b 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -300,7 +300,7 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 	if (cfg->free)
- 		cfg->free(cookie, pages, size);
- 	else
--		iommu_free_pages(pages, order);
-+		iommu_free_page(pages);
- 
- 	return NULL;
- }
-@@ -316,7 +316,7 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
- 	if (cfg->free)
- 		cfg->free(cookie, pages, size);
- 	else
--		iommu_free_pages(pages, get_order(size));
-+		iommu_free_page(pages);
- }
- 
- static void __arm_lpae_sync_pte(arm_lpae_iopte *ptep, int num_entries,
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index c004640640ee50..f7b939d4b7d0b9 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -262,7 +262,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
- 
- 		pte = dart_install_table(cptep, ptep, 0, data);
- 		if (pte)
--			iommu_free_pages(cptep, get_order(tblsz));
-+			iommu_free_page(cptep);
- 
- 		/* L2 table is present (now) */
- 		pte = READ_ONCE(*ptep);
-@@ -423,8 +423,7 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- 
- out_free_data:
- 	while (--i >= 0) {
--		iommu_free_pages(data->pgd[i],
--				 get_order(DART_GRANULE(data)));
-+		iommu_free_page(data->pgd[i]);
- 	}
- 	kfree(data);
- 	return NULL;
-@@ -433,7 +432,6 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- static void apple_dart_free_pgtable(struct io_pgtable *iop)
- {
- 	struct dart_io_pgtable *data = io_pgtable_to_data(iop);
--	int order = get_order(DART_GRANULE(data));
- 	dart_iopte *ptep, *end;
- 	int i;
- 
-@@ -445,9 +443,9 @@ static void apple_dart_free_pgtable(struct io_pgtable *iop)
- 			dart_iopte pte = *ptep++;
- 
- 			if (pte)
--				iommu_free_pages(iopte_deref(pte, data), order);
-+				iommu_free_page(iopte_deref(pte, data));
- 		}
--		iommu_free_pages(data->pgd[i], order);
-+		iommu_free_page(data->pgd[i]);
- 	}
- 
- 	kfree(data);
-diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-index 26b91940bdc146..b15e0f85b3f739 100644
---- a/drivers/iommu/iommu-pages.h
-+++ b/drivers/iommu/iommu-pages.h
-@@ -105,11 +105,10 @@ static inline void *iommu_alloc_page(gfp_t gfp)
- }
- 
- /**
-- * iommu_free_pages - free page of a given order
-+ * iommu_free_page - free page of any  order
-  * @virt: virtual address of the page to be freed.
-- * @order: page order
-  */
--static inline void iommu_free_pages(void *virt, int order)
-+static inline void iommu_free_page(void *virt)
- {
- 	struct page *page;
- 
-@@ -121,15 +120,6 @@ static inline void iommu_free_pages(void *virt, int order)
- 	put_page(page);
- }
- 
--/**
-- * iommu_free_page - free page
-- * @virt: virtual address of the page to be freed.
-- */
--static inline void iommu_free_page(void *virt)
--{
--	iommu_free_pages(virt, 0);
--}
--
- /**
-  * iommu_put_pages_list - free a list of pages.
-  * @page: the head of the lru list to be freed.
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 8f049d4a0e2cb8..6e7df7273426da 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -48,14 +48,13 @@ static DEFINE_IDA(riscv_iommu_pscids);
- /* Device resource-managed allocations */
- struct riscv_iommu_devres {
- 	void *addr;
--	int order;
- };
- 
- static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
- {
- 	struct riscv_iommu_devres *devres = res;
- 
--	iommu_free_pages(devres->addr, devres->order);
-+	iommu_free_page(devres->addr);
- }
- 
- static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p)
-@@ -80,12 +79,11 @@ static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
- 			      sizeof(struct riscv_iommu_devres), GFP_KERNEL);
- 
- 	if (unlikely(!devres)) {
--		iommu_free_pages(addr, order);
-+		iommu_free_page(addr);
- 		return NULL;
- 	}
- 
- 	devres->addr = addr;
--	devres->order = order;
- 
- 	devres_add(iommu->dev, devres);
- 
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index 8d8f11854676c0..3d77aed8507373 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -713,7 +713,7 @@ static void sun50i_iommu_domain_free(struct iommu_domain *domain)
- {
- 	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
- 
--	iommu_free_pages(sun50i_domain->dt, get_order(DT_SIZE));
-+	iommu_free_page(sun50i_domain->dt);
- 	sun50i_domain->dt = NULL;
- 
- 	kfree(sun50i_domain);
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.43.0
-
+Florian
 
