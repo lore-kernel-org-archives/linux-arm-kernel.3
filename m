@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C78C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72066C02197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMHiHPDNCUJ48N5qcuZlI6iRMY6kpg7JJf8A3gbeaKQ=; b=gvEOsYNFgeXoIyCihCkYt4hjuR
-	I7+Zp0GRlve00J2RRcHPChHJac6/s71DDCisj6/x0kPtZOTjbS7+W1tBrN/Vlx+1LfQTgtlnbpdAC
-	kaFZYmsa0JOA5G80dykhEwe9V0JMEXOkQK37qE6pgauo9WLLG0w+jZvXbBqW2nk4ZOrQzhH+2b9LX
-	Gz0lcJ4tftn5ORzJVs0HFWUUcJ/3ZvQ9BKLI2EtqzdDydjK1wa4/0R26w7lOpJnNHlXk2sCxRRFVd
-	N+U6dnc2zCvFTqT/fOOrRtJRQhxocULF98yhrvicSbG1QjnELX8GypV5/GO3WjXnST4xAHI3U4QpN
-	actxvGag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JFQ8QgaVc56ZWSK1ugpzWPCE6fH4oiEdiJ9FyYFmdnY=; b=bNlznPOBl7Oy7QzHVR2STSHy/R
+	ViNLNyvydGL0EnaXG6DfAvQCMa5FYYMBXLvV9Vy9hd/Gw03sb1MkV3eCo1ZMDMHElp8DGjYD9AdcS
+	gO7I5AtQw54fEYsPxm14vTFWU5lu5S9F+L3nZw0l+SrJf+5cAO5QZ32Ln9JrN4YUqvZ2SNDwhR2tS
+	TWoBFm/BaTaiTa3Mtm9x4YS97U9HngrLjnRVo6xozCcCrlYhkSPYr4TgQhCEsmz5BRgeHIu9Zk6fw
+	K++dswR1cIfrC/Jx1ZvPWorbtg3x7W2LruXzzXLI+1t3PL/6MIsM2+nfzKFou2x8e/Ysn8OwKj0e+
+	7R9UxlDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCYJ-0000000HNQW-0jP2;
-	Tue, 04 Feb 2025 06:36:55 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tfD8f-0000000HPb8-19ui;
+	Tue, 04 Feb 2025 07:14:29 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCWv-0000000HNDJ-3M3Y
+	id 1tfD7I-0000000HPXi-0D8w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 06:35:32 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ee786b3277so6716731a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 22:35:29 -0800 (PST)
+	Tue, 04 Feb 2025 07:13:06 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab737e78900so244496166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 23:13:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738650928; x=1739255728; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NMHiHPDNCUJ48N5qcuZlI6iRMY6kpg7JJf8A3gbeaKQ=;
-        b=TKjkdgzjxs/RHi6ymx6QP13o8xA4c3+ueMsC1WaCgroMb1w4zTUWR3rgajq4tYdiQE
-         D6Ss+GnsePAYB7PqeVEQdCkBn+Cdm/snwnxK4f4YGsScaQXCd+bKMVvFQrfJJa9el442
-         v9EhGwdkt3/F6v+HVd0Ls0+TubA+fywgH7RTiZtxA96po4gDiWuPAnvtJmgY/9o+l2Y9
-         fUPdThTzudwk5OiMTUfCb0aM9bAydyWDDTGOz1KDB1iDih1S1SwtDJ82pOEvbM/QtiQU
-         Ybsp4oIalBcyf72LosDkWQ7JDmWR7JzQ+0ezkM4HGlCyx4goCkOAr9l9eueZ4tvPZH6f
-         mXdg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738653182; x=1739257982; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JFQ8QgaVc56ZWSK1ugpzWPCE6fH4oiEdiJ9FyYFmdnY=;
+        b=biNDGsb2AzC8VuqSPo1rwhkuqtd/aTd5cIJCDK+FmgJWCMOg69xhzXVdfYSxh2YO+V
+         iM2JJmg7Y2SIO4sgJSLCUmRB7uUYsvZetQ3vrA6GDkr37bMoazsoLtVVWmvXaF+PCnO2
+         O2lDrrSvYRUEK2fJY6RNAsNqrrygX6XSLtwfcRsaiJ/KWIFtpG78YzpHyu/HKubr3DCC
+         k4oVCfjRBGEUEsy18mN6yGlqMKIT+2b7VCHIsDKR1iStuc3MtPW/wP6MSqY66NpLlbCH
+         bDX0UZ1oIBN32bgzte4CJdZnGkfWz0bB/vl73w9ZN7QlFGWfrST/I8HWyKyd0tX0lGiv
+         N4OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738650928; x=1739255728;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NMHiHPDNCUJ48N5qcuZlI6iRMY6kpg7JJf8A3gbeaKQ=;
-        b=CRyflQaJ3LAFumuiMR1n2MaxmZWawCy6oDNbfUZ9K/CxguMQnh863Eh5RlQPk92iLJ
-         CYlRg/aI3cog5gACJd/F2G05OwHnBY505pvVr7ERs+7a2HAfXhjAgAssycOqSLaHXnX1
-         SjPi/Y/ji2ag6BrKw/wXH3hx1VX7phG8QYniptjoTo1XiE4McmwCbtHuOln27EO/e7HG
-         Peek8ul74A5z7YLHWdzbvuy66yY9v3xWA7LLz656X/SH4kNcy9Ozfi3y1Oq60me0MtI4
-         ssNnU9MTcJX9EbMJH7pFdrD9iELqEBjJROzjOpigi8p+k5zqjz+fQ6zjIV7Cb+++fMcD
-         GXTg==
-X-Forwarded-Encrypted: i=1; AJvYcCWO9icXoOvsFXeLVcDTq5Xr2/3L3B9r4e8JoQfST8+j41LUmFwu6l/pKCfO+Q2/H2adlVY6isTqatX1YpEDyjXZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgXZUN/vUqk43qqRMw71GC86ksJyp0rmmXYngIRMrsNL+OAyCy
-	BFO2fbqIHF0RkaOgUOWdgjLrNyXc06E+dhmDhUe6V1C70KdhFSh9LCNfF9wsLZmxi0SZNqXWVDc
-	zp9cCjxMQF3c/YNbiRP91i4NMKpDzsTTei2KrpA==
-X-Gm-Gg: ASbGncvWmTvc93Gu4MiFIGgkumEnXf+7rp9X8B35yjTWyK2wdeR05K6KGmzxRB1gvfh
-	dulSpCWBAt6SuFgvVZVlJ+/rieUqSJbQ8HM4XBfrKK8euO13uFEjj0FB2hPEYNXq7eSRz/c6FOZ
-	Y=
-X-Google-Smtp-Source: AGHT+IFG/yEpW4K/pBHBk3/3BqLXGkFedpykl/V/VPy5N/H80JyAnUu1lUWvkGlaAAzc1oYTPiZqDlNAWdxjP6mgSAs=
-X-Received: by 2002:a05:6a00:2d8e:b0:725:cfa3:bc76 with SMTP id
- d2e1a72fcca58-72fd0bce05cmr36986225b3a.4.1738650928448; Mon, 03 Feb 2025
- 22:35:28 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738653182; x=1739257982;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JFQ8QgaVc56ZWSK1ugpzWPCE6fH4oiEdiJ9FyYFmdnY=;
+        b=LkvvDPsEjdzTfAkqwx3a7OPwp7rOyV1qrBM35s2SZ7vIONk4lvulS/twRlJs1pQDdd
+         UMNZWZQUJaCmI6ujyJBuTJQsjMuU9NynKfb7800Vr7Bp5CvIxxtxEp/yIeX2KRKLvcFF
+         eB6QzIprGtu3gUCUcxtOpfJ5NkGpXUyKp26kS3n9nDFVLbiM53CIBlIGRtyDJjZ36f+F
+         veCVQ5mJMwA2Rs2fhpnHOKxqrCnN/1LaXK8bpYihIa+TXQZ8/8LxQSij5hkooY/xS9XD
+         nyfFtXUR51+9lW7QYyfKPNdPyxsz//AV2PIA63BJKOqapfSN/V4lRuLjtxfw6En5ZErg
+         oq1g==
+X-Forwarded-Encrypted: i=1; AJvYcCX5m46ykM9PXoQkxfn02B23j4J1h8QXDmpHjEYPLzccBovfLmxsqDRHdMF4XEaJzwXm1pKJidp3zoeiC0ei/yqy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFn2t6mndIAPh13nrb77KJz2ylihyWnApu1il8+sHwS9yooAOj
+	Am0Xt0bUSOUBvUAhgbWngfAcdchEmzoMz39NVFRpi5WkCjS5BddB4A2iBdvFsPY=
+X-Gm-Gg: ASbGnctBQSgI69ZKzv4EExJ2goGxWWGN007tivhQglXQgxCoQN/+6Zx/mxZP4mkpVyv
+	zuXS7lZmU9alrX4uWrCEEmx4c1XTjkU/BCIEnHdxhvWCR9huGNM5ba+apWNgF4aZ1Mg1kovVLoH
+	hJJTpwjK7lPZmOls5potE5uid6X03P5/tNvX/51TJCTEIfBrxDqLZBEQf+UEUtq1LfsX8291y3l
+	yFi9uKcdGIQEOwJ7SHieueJVPwsQ/iILFnFK7RfRvB0dqSA1Rx7MKJz/fkPdfo9wpaQJL4atuHM
+	o2//61TR0TLo6kjz3ev2
+X-Google-Smtp-Source: AGHT+IFoOvj0APUYqVIcX7Wv45PC/CJ7eVsrS5D9kApDpCu+Tt2rJbGbqowsoSxGkScrHKvOo9aWxg==
+X-Received: by 2002:a17:906:dc8b:b0:ab2:b72e:cf44 with SMTP id a640c23a62f3a-ab6cfc8730fmr2899312066b.2.1738653182133;
+        Mon, 03 Feb 2025 23:13:02 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc723e4ceasm8755845a12.21.2025.02.03.23.13.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 23:13:01 -0800 (PST)
+Date: Tue, 4 Feb 2025 08:12:58 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/2] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+Message-ID: <nq7bixxzabjkaa65icm2rh4ejumjm63tq3drqmvq27qdjrr5hy@cnean3edfbyq>
+References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+ <0cb54b0340ef021e309e49ca0de97809a8c8ee9c.1738600838.git.u.kleine-koenig@baylibre.com>
+ <f3148bf2-952c-419d-9e83-b6c9f1d47d67@kernel.org>
 MIME-Version: 1.0
-References: <20250127-counter_delegation-v3-0-64894d7e16d5@rivosinc.com>
- <20250127-counter_delegation-v3-9-64894d7e16d5@rivosinc.com> <20250128-jubilance-mosaic-e3a81199aec8@spud>
-In-Reply-To: <20250128-jubilance-mosaic-e3a81199aec8@spud>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Mon, 3 Feb 2025 22:35:18 -0800
-X-Gm-Features: AWEUYZmuaq61PKoOBoJPiVshD43YM3UyPResBSMNdOEGC5qC9mJGFE-MKtc9ZW4
-Message-ID: <CAHBxVyFVYwQ=aiB+RBrQNMQiu4K4uzPgyz8Tn=dUjeN8KKd=sw@mail.gmail.com>
-Subject: Re: [PATCH v3 09/21] RISC-V: Add Smcntrpmf extension parsing
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wlj5wtagrjnpwtkb"
+Content-Disposition: inline
+In-Reply-To: <f3148bf2-952c-419d-9e83-b6c9f1d47d67@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_223530_101794_939119D0 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250203_231304_246257_1BE5EFBE 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,56 +101,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 10:11=E2=80=AFAM Conor Dooley <conor@kernel.org> wr=
-ote:
->
-> On Mon, Jan 27, 2025 at 08:59:50PM -0800, Atish Patra wrote:
-> > Smcntrpmf extension allows M-mode to enable privilege mode filtering
-> > for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
-> > only available only in Ssccfg only Smcntrpmf is present.
-> >
-> > That's why, kernel needs to detect presence of Smcntrpmf extension and
-> > enable privilege mode filtering for cycle/instret counters.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 1 +
-> >  arch/riscv/kernel/cpufeature.c | 1 +
-> >  2 files changed, 2 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index 2f5ef1dee7ac..42b34e2f80e8 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -104,6 +104,7 @@
-> >  #define RISCV_ISA_EXT_SMCSRIND               95
-> >  #define RISCV_ISA_EXT_SSCCFG            96
-> >  #define RISCV_ISA_EXT_SMCDELEG          97
-> > +#define RISCV_ISA_EXT_SMCNTRPMF         98
-> >
-> >  #define RISCV_ISA_EXT_XLINUXENVCFG   127
-> >
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index b584aa2d5bc3..ec068c9130e5 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -394,6 +394,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >       __RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
-> >       __RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinux=
-envcfg_exts),
-> >       __RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
-> > +     __RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
-> >       __RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
->
-> Isn't the order here wrong?
->  * 3. Standard supervisor-level extensions (starting with 'S') must be li=
-sted
->  *    after standard unprivileged extensions.  If multiple supervisor-lev=
-el
->  *    extensions are listed, they must be ordered alphabetically.
 
-Yeah. Fixed it. Thanks for catching.
+--wlj5wtagrjnpwtkb
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 2/2] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+MIME-Version: 1.0
+
+On Mon, Feb 03, 2025 at 06:39:09PM +0100, Krzysztof Kozlowski wrote:
+> On 03/02/2025 17:46, Uwe Kleine-K=F6nig wrote:
+> > +
+> > +	chosen {
+> > +		stdout-path =3D "serial0:115200n8";
+> > +	};
+> > +
+> > +	memory@0 {
+> > +		/* 1 GiB */
+> > +		device_type =3D "memory";
+> > +		reg =3D <0x0 0x40000000>;
+> > +	};
+> > +
+> > +	soc {
+> > +		fpga: bus@ff200000 {
+> > +			compatible =3D "simple-bus";
+> > +			reg =3D <0xff200000 0x00200000>;
+>=20
+>=20
+> Are you sure simple-bus allows this? IOW, no warnings from simple-bus
+> schema? To my knowledge, simple-bus allows only objects, except the few
+> allowed properties (and reg is not allowed because it is bus, not a devic=
+e).
+
+I double checked to have a recent dtschema[1] and removing the reg line
+doesn't change the output of
+
+	make [...] intel/socfpga/socfpga_cyclone5_de10nano.dtb CHECK_DTBS=3D1
+
+But I agree that in the presence of
+
+	ranges =3D <0x00000000 0xff200000 0x00200000>;
+
+the reg property isn't useful.
+
+I'll wait a bit for more comments and then will send a v4 without that
+reg line. (Unless Dinh is happy with my patch otherwise and applies it
+fixing up for this issue themselves. *hinthint* :-)
+
+> Nice coincidence with other patchset from Intel also claiming FPGA with
+> resources is the bus, although there it could be root port.
+
+There results no action item for me from this statement, right?
+
+Best regards
+Uwe
+
+[1] pip3 install dtschema --upgrade --user --break-system-packages
+
+--wlj5wtagrjnpwtkb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmehvfcACgkQj4D7WH0S
+/k5p6Qf+NG5nI+S0uGoFSwIFogGlx57g1Gp9Bgn0L0+w09hnkYYeW8LBcD0HGmki
+rlLH12jIrXeBTMJ9ay9/gNXySZ76o3RHI+3fbxhXjChNSBbmEx+rhOhz8q5vCFTU
+6IUDpyEWv6mzQxORxbOpn6N4XOolW5yI4vXnVRNKUIvinCtcZbyN/v+PHHrCUjgb
+sAkZ4G3xeN7DSLAk39kOT/sMV0RqxndVJarBtMTqKnhbsEp8KuAKbr65SdWwgpD+
+j82BCvZUw+Yjd7JbUXQ+AB0S3nA6Rc/wtth0wZ1ThQDUVnrvcSi3bJqMzbQUCquR
+kOOSbuaFLrfmxBaQlrdWYwA7UMTpcQ==
+=42aF
+-----END PGP SIGNATURE-----
+
+--wlj5wtagrjnpwtkb--
 
