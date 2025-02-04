@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087B1C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 18:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C5DC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 18:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQ5++agd0QoEY64Wz7u8d59Bv8ZNS8ggDIsozpgsnM8=; b=TMJoiGcovOexZ/8TNLtNuUumz8
-	PQnb85NsfUI9nCeY2YcaywSkikCNVWyIFYjMyi/EhnPfKB9W9p5zfBpsdYXcCuB2vV9TXBnUceBE3
-	VbCAwRbdg3JCXx3dWtNCllZVGEA4C8iWNJrLIADAw+kaf+6sFnmChrQQTYkOIUn0z8s33KwDo6g1M
-	tKRCA/7T+CO7mk9f1GIVWC/npk0WjZhnxEIu4ThbkkGhJPEkQdR6OEGAwukQ6GjPqhdp3LDZuORoK
-	PAUGREtSkTuxhRRC0Nxe/C1EwiAGx7wrDHp1Juw4RuhFhQ8dwpQ9nB6ItxQwPec+dBemATQFxZtL7
-	SPivxhkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tac0SuyxfkJEVndSE8YT8kHaqPS7Ds82fJ/2JoeM9mo=; b=zzGxeX4jew47SXu/O6L0HTcDOF
+	Pc5wBAS1PKmRPyxa+Qdv2Qi9K6maqYVHn3YVeQk7hmrcXDsMg/cYUDe3bPBDL/XwLSVOZ7ndxar5i
+	X891f7yHDpXDZCfT6AaBK6nRnhanUWlq+hailTYBLfCVJX6m6yveT+01dKzflNhq/JQgSYbFElhVH
+	kJMUMywojWeK1dpv+RTEzYS9Eua4qcG5vpa8f2oQ7BKEuQ0fDz/v36Jj/QkgHYo2lQwkIWkIGeM9E
+	qM/oo9GJYR6YVZdO5eU5xETnKQDEOMBcLp9xlOfWqOrzEFyXekCjI1T5I5wtIfjGn4A7IVS0T9frT
+	4FYIWoiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNaD-00000001Ckg-2LiE;
-	Tue, 04 Feb 2025 18:23:37 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tfNbX-00000001CuC-3e02;
+	Tue, 04 Feb 2025 18:24:59 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNYr-00000001CaT-3Rky
+	id 1tfNZd-00000001Cez-3R1w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 18:22:15 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5dca451f922so5063391a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 10:22:13 -0800 (PST)
+	Tue, 04 Feb 2025 18:23:03 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-6d89a727a19so709116d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 10:23:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738693332; x=1739298132; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uQ5++agd0QoEY64Wz7u8d59Bv8ZNS8ggDIsozpgsnM8=;
-        b=hYwKqB60X1cFprUksZCKp5MJVXF+hUj1PKNu1GDlbtaXyhUh8EEbUOmBiMV1VHmRv9
-         cdj+BLlpl8hiRfIMkbHGfld0CWrfiyK2jKc46BQxnf/ywjFUw5fSxa8jUWV6Nh2kIdB0
-         dAEAuBy+87MZ0mDgKHD6sm9Xa3XkiAlU52HEg4BPrBb8j55Jq4z3Grn9H8JKb8beQco7
-         heq49aOB4QgRKK/xXR0FU/nMb+BAQqsaHnDEckXvgVz6MFUqTYqu6aya0MAizUKUsvmk
-         RvUA1Va20G34d/Gz0GdLU7FcRUlinADXifchfDn5/jZSv/10DqbzqynrkddhLDOvtg+V
-         WJnA==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1738693380; x=1739298180; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Tac0SuyxfkJEVndSE8YT8kHaqPS7Ds82fJ/2JoeM9mo=;
+        b=BXEMUbHUDoYoH2cCSrq1ITmt9DQ6kRp8tlrITGNpBgwR0VxrKr+wwQq6GnS3Kf9aYY
+         vIv7UxY4fAeIv2OyMJjzSMeWDrvHlZvuG1SmOIKujwei+caYbifaEtLP+eV+vc5O5lPv
+         n9Ih8HRxFNnCkfP6zrAp5neM5YFz7jUe57DAjl5HWlKJqDLZNeS2pqTTlpcjsfaVX9y4
+         vOKtNxPxAiK3nQFiOTgzRqF909ikuVdpFhP7fsVjbphpbgnWKhoh0PRznCLajkicnCLa
+         957B3dsNbnrfYJwjBSgXOasAO4NQZIO54c94wCVFkWfnewEJ96vv/F7Ekql+dL7Y1JrW
+         qQTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738693332; x=1739298132;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uQ5++agd0QoEY64Wz7u8d59Bv8ZNS8ggDIsozpgsnM8=;
-        b=Ufvh7XSrskDtypIpSD0PS1xemuJOWo3DF2zvXFsH4jiGTCmmND0MZyoBwVor0AMcZo
-         tqlby0BK6pfHF7lCF8UhVJuhwK//d3ItaBmAatyOEiYojpqx5qBlwph6WTlliDskqx8x
-         /3N6v3kUnRpJ1A2g0ZmUggtsetSUkybN58IJ/8I8Jm+1sO83ghytXB1Tu4is0nibYhah
-         Wwr9DTB9nmRqT21UKHZAyjVl5Ygf3j5M8c3Zej/9Qm/nCWPokTl2wmTFP/t1d3hXX1gu
-         fYUVp8vZetjC+m7KIURIH9TDMkv4GDJXFyjRTe1T/GAJrBiILec7qIEbAWUl97DadBrQ
-         93Og==
-X-Forwarded-Encrypted: i=1; AJvYcCXWrI3IjP73LVYrclZvJWc37K5BAJL/TLuQrehVBU9Zd0ayOKskXvqR4ACKslTXZXy+x9o7KgYVIgRg/x/qpfre@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyyw25ijvQBMikPRxhQEGtbE7OHCRz7/je+ZI3fSVwMixe/fg1N
-	DeAiAtoChb7WhW0EaLUcfuHz7kfqNAn2ltYAzdl2wH4WqxFdS/Wt
-X-Gm-Gg: ASbGncvAWqxpFxmEQecchF3YC0/6gVzIxyVz+eNKel7djLKCGuFcvuuNPTIGGVQryoW
-	/6PIlL68hWhQZKuSzb5KYcBGHhNw50ftxU3GFFHoy7H7JbE5Qzc/aOn/TocR7pM00LYA0QZDOcD
-	kocSKfz7mrzIFjF/6TykkrujEVVxqskHdkF0+M2triYN4wrISAIe9qzP0NJxGt0GBqLMTdYpJdj
-	pe061gy7HtA3jRGDNCFlzhA/rPuKpNODBnQ1RuwJfKiv9mEiNmfFepJasv9hScBCYFXirnuZCTP
-	3aKe2OrPdg0sNWfAVE1WYjr7LRFS1MS91V4yAPgeyxi0FyuxCbB9ssbBQ01q/+H+b0MrQw==
-X-Google-Smtp-Source: AGHT+IEQ4DMWF7roCrp5EJD85FGwjsBCdu+Kca8lx2Hj1i97FM9pySSYNrsTVSCzOrQrFS6BR/FM0Q==
-X-Received: by 2002:a17:906:9c8c:b0:ab3:3bab:c533 with SMTP id a640c23a62f3a-ab6cfcc2e94mr2804249166b.21.1738693331664;
-        Tue, 04 Feb 2025 10:22:11 -0800 (PST)
-Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a2f90asm954865966b.129.2025.02.04.10.22.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Feb 2025 10:22:11 -0800 (PST)
-Message-ID: <00aa901b-5de9-4b72-a157-c54ad29df458@gmail.com>
-Date: Tue, 4 Feb 2025 20:22:09 +0200
+        d=1e100.net; s=20230601; t=1738693380; x=1739298180;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Tac0SuyxfkJEVndSE8YT8kHaqPS7Ds82fJ/2JoeM9mo=;
+        b=Dtq8NVWJth2bR5ezZsn6rxz50pThyvgqA4YWx617gS/Y5OIsF90u4f1MRnMYCUIks+
+         XbZ2SixPjwvYVM8eYX3SZ+24FtzLcAWzKNTsH3Ly18bNgkU4Drl3Gm4X4eH2tOaHCNE2
+         Nx82EICM0zKaTerqFNsIxGkVnOsgMNG9dDpTTVeCE9BAoF5pp7MSbfyPsX6eN0RLa3UC
+         agIDlrqmUnqR4n3BBAmzgv7ozCvbWif1mXyKgVgp5pybe6v1jZ99Dd0w0kcNKPeQkf+P
+         HRmVMj2lnP6/tInetpv1AzI7nKlxxUwUrpfsDiQ1a2ma8RaNHNdgjujJ4OfDIUmKcOPK
+         nGAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXDzQEfv+DRNmPhepY5OeyhfoftFUkcUXmOjmpgXDG+dqWc3Zs72ZVN+Qq/zW0tGh/MIM6nz8dM16HmnlCP0OTE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxDbvYwBxFSvtc6pqGC5HwNMP1i1lJM4N0qRqDEgrgSJ5zojI9
+	bIyKrUWlvEny9TMnh0ZNEqIDh8nDnpwQuKAYVPdaUWaFif3PjOu6VzNjG+7mhDU=
+X-Gm-Gg: ASbGncsN9EaekZKcGzDdORMiNakDhTbjdmMUa9kzp+NGd8G7dXvwFxhUp8+wW1fW3j3
+	XpyZENVZQmMTQtxFLjH87cqDNwdlHXZBEUxiQhMeRJy3MSUbq+eXZ5GhJzvAR06Y6+ygUpi2WaR
+	AyRWlRukXC0JtN+lRSQA/lhC1UgyvmzATI6LGw5HtIkepIwZ53ZdE3nXZl/VrHfXXFJPZW7p45F
+	bUN3H+5AUANC9CYvvepx4FkEwq+gxhUJAIxv/rRJwgoL0Mf2jhn75w2L0X6ceTV/tgmTou0OqBF
+	aP9ymdUe74APqXFW
+X-Google-Smtp-Source: AGHT+IE/f1kxzWTc19HByUy9ODx9TdMIUe4LBdJWBN0eGiPy3I/9968X4R31P6i56Rq3iDSVWjRNWA==
+X-Received: by 2002:ad4:5ecb:0:b0:6e2:3761:71b0 with SMTP id 6a1803df08f44-6e420f3b728mr78300806d6.5.1738693380393;
+        Tue, 04 Feb 2025 10:23:00 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:11:e976::7a9])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e423ca0476sm9418096d6.124.2025.02.04.10.22.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Feb 2025 10:23:00 -0800 (PST)
+Message-ID: <c856a7059171bcc6afd6d829c6c025882855778b.camel@ndufresne.ca>
+Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali
+ CSF GPUs
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Florent Tomasin <florent.tomasin@arm.com>, Maxime Ripard
+	 <mripard@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Boris
+ Brezillon	 <boris.brezillon@collabora.com>, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>,  Sumit Semwal <sumit.semwal@linaro.org>, Benjamin
+ Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey	
+ <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T . J .
+ Mercier"	 <tjmercier@google.com>, Christian =?ISO-8859-1?Q?K=F6nig?=	
+ <christian.koenig@amd.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Yong
+ Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org, 
+	linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, nd@arm.com, Akash Goel
+ <akash.goel@arm.com>
+Date: Tue, 04 Feb 2025 13:22:58 -0500
+In-Reply-To: <1f436caa-1c27-4bbd-9b43-a94dad0d89d0@arm.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+	 <3ykaewmjjwkp3y2f3gf5jvqketicd4p2xqyajqtfnsxci36qlm@twidtyj2kgbw>
+	 <1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
+	 <ppznh3xnfuqrozhrc7juyi3enxc4v3meu4wadkwwzecj7oxex7@moln2fiibbxo>
+	 <9d0e381758c0e83882b57102fb09c5d3a36fbf57.camel@ndufresne.ca>
+	 <1f436caa-1c27-4bbd-9b43-a94dad0d89d0@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] arm64: dts: exynos: add initial devicetree support
- for exynos7870
-Content-Language: en-US
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Conor Dooley <conor@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-References: <20250204-exynos7870-v2-0-56313165ef0c@disroot.org>
- <20250204-exynos7870-v2-2-56313165ef0c@disroot.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250204-exynos7870-v2-2-56313165ef0c@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_102213_871400_6FBEF640 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20250204_102301_866990_C9F2A059 
+X-CRM114-Status: GOOD (  52.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,367 +121,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/3/25 22:46, Kaustabh Chakraborty wrote:
-> Exynos7870 is an arm64 SoC manufactured by Samsung and announced in
-> 2016. It is present in multiple mid-range Samsung phones and tablets.
->
-> Add basic devicetree support for the SoC, which includes CMUs, pin
-> controllers, I2C, UART, DW-MMC, and USB-DRD.
->
-> Co-developed-by: Sergey Lisov <sleirsgoevy@gmail.com>
-> Signed-off-by: Sergey Lisov <sleirsgoevy@gmail.com>
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1035 ++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  722 ++++++++++++++
->  2 files changed, 1757 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..28ff409c4fdc5f766d92617ea2df7be2112c28d1
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi
-> @@ -0,0 +1,1035 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Samsung Exynos7870 SoC pin-mux and pin-config device tree source
-> + *
-> + * Copyright (c) 2015 Samsung Electronics Co., Ltd.
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include "exynos-pinctrl.h"
-> +
-> +&pinctrl0 {
+Le lundi 03 f=C3=A9vrier 2025 =C3=A0 16:43 +0000, Florent Tomasin a =C3=A9c=
+rit=C2=A0:
+> Hi Maxime, Nicolas
+>=20
+> On 30/01/2025 17:47, Nicolas Dufresne wrote:
+> > Le jeudi 30 janvier 2025 =C3=A0 17:38 +0100, Maxime Ripard a =C3=A9crit=
+=C2=A0:
+> > > Hi Nicolas,
+> > >=20
+> > > On Thu, Jan 30, 2025 at 10:59:56AM -0500, Nicolas Dufresne wrote:
+> > > > Le jeudi 30 janvier 2025 =C3=A0 14:46 +0100, Maxime Ripard a =C3=A9=
+crit=C2=A0:
+> > > > > Hi,
+> > > > >=20
+> > > > > I started to review it, but it's probably best to discuss it here=
+.
+> > > > >=20
+> > > > > On Thu, Jan 30, 2025 at 01:08:56PM +0000, Florent Tomasin wrote:
+> > > > > > Hi,
+> > > > > >=20
+> > > > > > This is a patch series covering the support for protected mode =
+execution in
+> > > > > > Mali Panthor CSF kernel driver.
+> > > > > >=20
+> > > > > > The Mali CSF GPUs come with the support for protected mode exec=
+ution at the
+> > > > > > HW level. This feature requires two main changes in the kernel =
+driver:
+> > > > > >=20
+> > > > > > 1) Configure the GPU with a protected buffer. The system must p=
+rovide a DMA
+> > > > > >    heap from which the driver can allocate a protected buffer.
+> > > > > >    It can be a carved-out memory or dynamically allocated prote=
+cted memory region.
+> > > > > >    Some system includes a trusted FW which is in charge of the =
+protected memory.
+> > > > > >    Since this problem is integration specific, the Mali Panthor=
+ CSF kernel
+> > > > > >    driver must import the protected memory from a device specif=
+ic exporter.
+> > > > >=20
+> > > > > Why do you need a heap for it in the first place? My understandin=
+g of
+> > > > > your series is that you have a carved out memory region somewhere=
+, and
+> > > > > you want to allocate from that carved out memory region your buff=
+ers.
+> > > > >=20
+> > > > > How is that any different from using a reserved-memory region, ad=
+ding
+> > > > > the reserved-memory property to the GPU device and doing all your
+> > > > > allocation through the usual dma_alloc_* API?
+> > > >=20
+> > > > How do you then multiplex this region so it can be shared between
+> > > > GPU/Camera/Display/Codec drivers and also userspace ?
+> > >=20
+> > > You could point all the devices to the same reserved memory region, a=
+nd
+> > > they would all allocate from there, including for their userspace-fac=
+ing
+> > > allocations.
+> >=20
+> > I get that using memory region is somewhat more of an HW description, a=
+nd
+> > aligned with what a DT is supposed to describe. One of the challenge is=
+ that
+> > Mediatek heap proposal endup calling into their TEE, meaning knowing th=
+e region
+> > is not that useful. You actually need the TEE APP guid and its IPC prot=
+ocol. If
+> > we can dell drivers to use a head instead, we can abstract that SoC spe=
+cific
+> > complexity. I believe each allocated addressed has to be mapped to a zo=
+ne, and
+> > that can only be done in the secure application. I can imagine similar =
+needs
+> > when the protection is done using some sort of a VM / hypervisor.
+> >=20
+> > Nicolas
+> >=20
+>=20
+> The idea in this design is to abstract the heap management from the
+> Panthor kernel driver (which consumes a DMA buffer from it).
+>=20
+> In a system, an integrator would have implemented a secure heap driver,
+> and could be based on TEE or a carved-out memory with restricted access,
+> or else. This heap driver would be responsible of implementing the
+> logic to: allocate, free, refcount, etc.
+>=20
+> The heap would be retrieved by the Panthor kernel driver in order to
+> allocate protected memory to load the FW and allow the GPU to enter/exit
+> protected mode. This memory would not belong to a user space process.
+> The driver allocates it at the time of loading the FW and initialization
+> of the GPU HW. This is a device globally owned protected memory.
 
-I haven't had enough time to look deeper, but these are my 2 cents:
+This use case also applies well for codec. The Mediatek SCP firmware needs =
+to be
+loaded with a restricted memory too, its a very similar scenario, plus Medi=
+atek
+chips often include a Mali. On top of that, V4L2 codecs (in general) do nee=
+d to
+allocate internal scratch buffer for the IP to write to for things like mot=
+ion
+vectors, reconstruction frames, entropy statistics, etc. The IP will only b=
+e
+able to write if the memory is restricted.
 
+Nicolas
 
-Can you label them according to their block name rather than numbers?
-For example, pinctrl_abox (make sure to keep them alphabetically sorted
-as well).
-
-> +	etc0: etc0-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	etc1: etc1-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	gpa0: gpa0-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		interrupt-parent = <&gic>;
-> +		interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	gpa1: gpa1-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		interrupt-parent = <&gic>;
-> +		interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
-> +
-> +	gpa2: gpa2-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	gpq0: gpq0-gpio-bank {
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	uart2_bus: uart2-bus-pins {
-> +		samsung,pins = "gpa1-1", "gpa1-0";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +	};
-> +
-> +	uart2_sleep: uart2-sleep-pins {
-> +		samsung,pins = "gpa1-1";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
-> +	};
-> +
-> +	bt_btwake: bt-btwake-pins {
-> +		samsung,pins = "gpa1-2";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-> +		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-> +		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +	};
-> +
-> +	bt_hostwake: bt-hostwake-pins {
-
-Sort these alphabetically, so you have:
-all a-z-gpio-bank, after which all a-z-pin.
-
-In this case bt_* can be first after all gpio bank nodes.
-
-> +		samsung,pins = "gpa1-6";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
-> +		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_INPUT>;
-> +		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +	};
-> +
-> +	gnss_sensor_irq: gnss-sensor-irq-pins {
-> +		samsung,pins = "gpa2-3";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_6>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-> +	};
-> +
-> +	gnss_sensor_i2c: gnss-sensor-i2c-pins {
-> +		samsung,pins = "gpa2-5", "gpa2-4";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_6>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +	};
-> +
-...
-> +		#interrupt-cells = <2>;
-> +	};
-> +
-> +	hs_i2c0_bus: hs-i2c0-bus-pins {
-
-s/hs_i2c/hsi2c/g
-
-> +		samsung,pins = "gpm0-1", "gpm0-0";
-> +		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
-> +		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-> +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-> +		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-> +	};
-...
-> diff --git a/arch/arm64/boot/dts/exynos/exynos7870.dtsi b/arch/arm64/boot/dts/exynos/exynos7870.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..11129e37fc86ebaee01684ed6841c932dd6cbc8a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos7870.dtsi
-> @@ -0,0 +1,722 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Samsung Exynos7870 SoC device tree source
-> + *
-> + * Copyright (c) 2015 Samsung Electronics Co., Ltd.
-> + */
-> +
-> +#include <dt-bindings/clock/exynos7870.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/soc/samsung,boot-mode.h>
-> +
-> +/ {
-> +	compatible = "samsung,exynos7870";
-> +	#address-cells = <2>;
-> +	#size-cells = <1>;
-> +
-> +	/* Samsung's bootloader (S-BOOT) checks for these DT properties */
-> +	model_info-hw_rev = <0>;
-> +	model_info-hw_rev_end = <255>;
-> +	model_info-chip = <7870>;
-
-You could skip the properties with a shim bootloader like uniLoader. Up to
-Krzysztof to decide if you should keep these.
-
-> +
-
-...
-
-> +	};
-> +
-> +	oscclk: oscclk {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +
-> +		clock-frequency = <26000000>;
-
-Frequency must be defined in the board device tree.
-
-> +	};
-> +
-> +	timer {
-
-S is before T, so this goes after soc {}
-
-> +		compatible = "arm,armv8-timer";
-> +		/* Hypervisor Virtual Timer interrupt is not wired to GIC */
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
-> +
-> +		/* Samsung's bootloader (S-BOOT) doesn't set CNTFRQ_EL0 */
-> +		clock-frequency = <26000000>;
-> +	};
-> +
-> +	gic: interrupt-controller@104e0000 {
-> +		compatible = "arm,cortex-a15-gic";
-> +		reg = <0x0 0x104e1000 0x1000>,
-
-So it should be @104e1000 and not @104e0000
-
-> +		      <0x0 0x104e2000 0x1000>,
-> +		      <0x0 0x104e4000 0x2000>,
-> +		      <0x0 0x104e6000 0x2000>;
-> +		interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>;
-> +		interrupt-controller;
-> +		#address-cells = <0>;
-> +		#interrupt-cells = <3>;
-> +	};
-> +
-> +	soc: soc@0 {
-> +		compatible = "simple-bus";
-> +		ranges = <0x0 0x0 0x0 0x20000000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +
-> +		chipid@10100000 {
-> +			compatible = "samsung,exynos7870-chipid",
-> +				     "samsung,exynos4210-chipid";
-> +			reg = <0x10100000 0x100>;
-> +		};
-> +
-> +		pmu_system_controller: system-controller@10480000 {
-> +			compatible = "samsung,exynos7870-pmu",
-> +				     "samsung,exynos7-pmu", "syscon";
-> +			reg = <0x10480000 0x10000>;
-> +			#clock-cells = <1>;
-> +
-> +			clock-names = "clkout8",
-> +				      "clkout9",
-
-Could fit more than one per line.
-
-> +				      "clkout10",
-> +				      "clkout11",
-> +				      "clkout12";
-> +			clocks = <&oscclk>,
-> +				 <&oscclk>,
-> +				 <&oscclk>,
-> +				 <&oscclk>,
-> +				 <&oscclk>;
-> +
-> +			reboot-mode {
-> +				compatible = "syscon-reboot-mode";
-> +				offset = <0x080c>;
-> +				mode-bootloader = <EXYNOS7870_BOOT_BOOTLOADER>;
-> +				mode-download = <EXYNOS7870_BOOT_DOWNLOAD>;
-> +				mode-recovery = <EXYNOS7870_BOOT_RECOVERY>;
-> +			};
-> +		};
-> +
-> +		cmu_mif: clock-controller@10460000 {
-
-Sort all of these by address.
-
-> +			compatible = "samsung,exynos7870-cmu-mif";
-> +			reg = <0x10460000 0x1000>;
-> +			#clock-cells = <1>;
-> +
-> +			clock-names = "oscclk";
-> +			clocks = <&oscclk>;
-> +		};
-> +
-> +		cmu_dispaud: clock-controller@148d0000 {
-> +			compatible = "samsung,exynos7870-cmu-dispaud";
-> +			reg = <0x148d0000 0x1000>;
-> +			#clock-cells = <1>;
-> +
-> +			clock-names = "oscclk",
-> +				      "gout_mif_cmu_dispaud_bus",
-
-bus
-
-> +				      "gout_mif_cmu_dispaud_decon_eclk",
-
-decon_eclk
-
-> +				      "gout_mif_cmu_dispaud_decon_vclk";
-
-decon_vclk
-
-Clock names here shouldn't be long. You'll still describe them in the
-clock YAML either way. Check other SoCs like 8895, autov920, 990.
-
-> +			clocks = <&oscclk>,
-> +				 <&cmu_mif CLK_GOUT_MIF_CMU_DISPAUD_BUS>,
-> +				 <&cmu_mif CLK_GOUT_MIF_CMU_DISPAUD_DECON_ECLK>,
-> +				 <&cmu_mif CLK_GOUT_MIF_CMU_DISPAUD_DECON_VCLK>;
-> +		};
-> +
-
-...
-
-> +
-> +		i2c1: i2c@13880000 {
-> +			compatible = "samsung,exynos7870-i2c",
-> +				     "samsung,s3c2440-i2c";
-> +			reg = <0x13880000 0x100>;
-> +			interrupts = <GIC_SPI 429 IRQ_TYPE_LEVEL_HIGH>;
-> +			status = "disabled";
-
-Status always comes last. Make sure to sort all properties as per the DT
-Coding Style [1].
-
-[1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
-
-> +
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&i2c1_bus>;
-> +
-> +			clock-names = "i2c";
-> +			clocks = <&cmu_peri CLK_GOUT_PERI_I2C1_PCLK>;
-> +		};
-
-...
-
-> +		};
-> +	};
-> +};
-> +
-> +#include "exynos7870-pinctrl.dtsi"
-> +#include "arm/samsung/exynos-syscon-restart.dtsi"
-
-Didn't this already include a reboot node?
-
-Best regards,
-Ivaylo
-
->
+>=20
+> When I came across this patch series:
+> -
+> https://lore.kernel.org/lkml/20230911023038.30649-1-yong.wu@mediatek.com/=
+#t
+> I found it could help abstract the interface between the secure heap and
+> the integration of protected memory in Panthor.
+>=20
+> A kernel driver would have to find the heap: `dma_heap_find()`, then
+> request allocation of a DMA buffer from it. The heap driver would deal
+> with the specifities of the protected memory on the system.
+>=20
+> > >=20
+> > > > Also, how the secure memory is allocted / obtained is a process tha=
+t
+> > > > can vary a lot between SoC, so implementation details assumption
+> > > > should not be coded in the driver.
+> > >=20
+> > > But yeah, we agree there, it's also the point I was trying to make :)
+> > >=20
+> > > Maxime
+> >=20
+>=20
+> Agree with your point, the Panthor kernel driver may not be aware of the
+> heap management logic. As an alternative to the DMA heap API used here,
+> I also tried to expose the heap by passing the phandle of a "heap"
+> device to Panthor. The reference to the DMA heap was stored as a private
+> data of the heap device as a new type: `struct dma_heap_import_info`,
+> similar to the existing type: `struct dma_heap_export_info`.
+> This made me think it could be problematic, as the private data type
+> would have to be cast before accessing it from the importer driver. I
+> worried about a mis-use of the types with this approach.
+>=20
+> Regards,
+> Florent
 
 
