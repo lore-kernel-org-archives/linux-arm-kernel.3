@@ -4,162 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0AFC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 00:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499F4C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 00:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gg/NkLEIZXZOFoFflG0mvw394osTetDcPat5MxcW2UQ=; b=AnxizuKVzD702sTD5HMBxN/Q7p
-	43pqW1DCAHKlBAxfZibx9xxGj8asF3FyD62vRuK8h6IrQC0aR8LlUCKDFIWlxlirteKZd+++UAE8B
-	nPSTKQ05Y5zt+QKy6FyAqv6ZklTXu0mJUXqx0Bk7+//hyW5w0jBh36klNk5zMKIHWrlpMkfvcrheQ
-	gxCYjHbODw2Byfky1OTxmdoVwhXi6nxIOYF72Sv0HWNxbB2sfj0AUsDDZ8ncfNc0JU7DRpqKAASi9
-	ryNdywhStEu+lGtdylRodRIk5Ihi/eUbtYuVCaUK9KzJAd1qadZAE1fJalP/CjJDJiOJgvVUbU8En
-	MWyxrTwA==;
+	bh=yIVwnmw3+Uqu/f1OwaIZM60ey1qrW+y4C63LWJ9AWxE=; b=XQxwoJ0eOGj/hfanjvSN0UyhTo
+	u37YO8XjqXGfhpIMsvCXq39CFrF7OWuhjTUCb6UJl2AycnBiKtSDNqh6imYO7EgZ2r4mrFuULiF4O
+	6tXumbLj4OEEBaprCw8fBrthp+sbegblTJZqnW9tujFeti7g96vKifvUrtyRoXMd/4AfcceTPNcMd
+	ixF69Cx9V6cfqWPX+3k30iRMUR0/TFaLgZaQm22m/R54k2NZCYvkMwwhJrWKya49RDjNHb5WUfXlu
+	/62QPkDzND6EzwRJIIbJlCZOFEllPktEYrz77DFe4D78/cruQwbdpVN2kPZzdYPsU/VdUowhiJevP
+	QymkIMqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf77C-0000000GzWI-0udO;
-	Tue, 04 Feb 2025 00:48:34 +0000
-Received: from mail-db8eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2614::60d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tf7Cp-0000000H0Ux-3zVE;
+	Tue, 04 Feb 2025 00:54:23 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf75o-0000000GzHq-2eif
+	id 1tf7BT-0000000H0Mr-0zZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 00:47:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cr0QNh5dRqTCiOQziV91eeFxAuUP8ZFezfIVBxUjEMFzrvEjAgPadyB1gegrzJTB/ftkUeW5lqKn2iZ203GGDjvXSEXHce42iwcgb+wR3TbSzT9CNy5wn873bS20DvJaiQ1hAg6qMp5zIsigcRnR6SFD2wAncNUeHY0UYeRksn2r2mFAcqQXSQbJWe33cK+Wl882XIh/PwKyJpmUET38At+/wJNNg7AZ7Z9UjmczOefVEkM7gqz5LRQipVMxlWsz1ZCi36/Tq/nMW01wsUtFdMUOx1NKkVkwKCmA2IXmWzHjc1O2wz/5Pow1d9x8p8rsmu4TWp6FZtd3DFCvpo6u8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gg/NkLEIZXZOFoFflG0mvw394osTetDcPat5MxcW2UQ=;
- b=Jr+GIULJTlBHJVWueZilye2TBa5yA4j92GIg864jV21evziW6DD8/bYp87ebJ3S5Ctj2Ly7knQXxbV850WdTgzHWBR6bjsEWaxBts4f5GN3R/q9slezJy+ptKop5WwBnacsT8xOJ2jCrJBd2xMU8NkDgB/EQRlbGL9PQBmVOE8Dm1Ie8FJzQl4HGdqvLgmtmP+mUP8Q8reHqzVypipqVAnccDE0hlv9SJgUhhU1+0kpE+L6xgcZeU/x/0+uf08YjkFHEVohbML5vOEUwJa6E4M7zbwuWbwu+x45BzjemVYF225tFW4DNl+QM04W0UaHfXk1rcYvpylF8qEjUx/FfMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gg/NkLEIZXZOFoFflG0mvw394osTetDcPat5MxcW2UQ=;
- b=GiTqPw/NHKVS4syaAB9YPzGFf+kdj7zaKRjtBhWwG+bTfJ2Jz5B0x3lBVSYvbNfQrxeSkRpBDfa0myDCIySR891iblK/Y8rvkD2mts3quffIVVK94Zv5ebMHzT88MkIU1SLcFhLBoNQ4fPZc5i8hdnQPGRVTP1fnlWM0qpBDZHBLgIgEPhVyjkW8WXTrDYZw28rB9fCxTvEtcNc0h1CnlKuVB2DC0/1rkryrSazRTDK92eRAz5mwV86Ne6U7+zFYsCvj9Zu6sYbj6nFHuujWdOrrkW+NTHMUkNsye+fzHkZLqHPBRITvGil9+89kpUOo4YgG7OuezRKMxo0Md8o/aQ==
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by PA2PR04MB10259.eurprd04.prod.outlook.com (2603:10a6:102:409::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.26; Tue, 4 Feb
- 2025 00:31:51 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%5]) with mapi id 15.20.8398.021; Tue, 4 Feb 2025
- 00:31:51 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Cristian Marussi <cristian.marussi@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Russell King <linux@armlinux.org.uk>, Sudeep Holla
-	<sudeep.holla@arm.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>, Dario Binacchi
-	<dario.binacchi@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
-Thread-Topic: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
-Thread-Index: AQHbbmKMggQuGIQl9kS/5NYaA5p+OLMsqMQAgAc45gCAAYHFgIAAIpEA///5GICAANY84A==
-Date: Tue, 4 Feb 2025 00:31:50 +0000
-Message-ID: <DB9PR04MB84613DADFD29C8592F7D511D88F42@DB9PR04MB8461.eurprd04.prod.outlook.com>
-References: <20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com>
- <20250124-clk-ssc-v1-1-2d39f6baf2af@nxp.com>
- <ff801714249c492abc3781da55675a38.sboyd@kernel.org>
- <20250202104256.GA13402@localhost.localdomain> <Z6CPy89TVxV1jaDn@pluto>
- <20250203114722.GA20298@localhost.localdomain> <Z6Cm_4XTRHdDluhh@pluto>
-In-Reply-To: <Z6Cm_4XTRHdDluhh@pluto>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB8461:EE_|PA2PR04MB10259:EE_
-x-ms-office365-filtering-correlation-id: db15993f-2485-4e92-d1f4-08dd44b35145
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-7?Q?1aHs2+GEGaW/IzI/ZxegNwzOLM8hnKHMcoL0ZUXOTjQxHcjptWlC0qGxsw?=
- =?iso-8859-7?Q?KhF/IXdnplxvQ/fm504gMKidxRp301JmMId+oOMOfoZYZcRBB9qXcFFrTi?=
- =?iso-8859-7?Q?3zoh3odyqkR5KK28lDZ1LATaXcyWQi8gdUZ7L1TdYlPHN8ujYR3WFB/eqd?=
- =?iso-8859-7?Q?Ivoq7H+18m5ETvR9YJOpK3yFEL5csLx1/BmIbUu+77wC6nLtoOVKDN5iez?=
- =?iso-8859-7?Q?MXAkKhcQrJBy9ofT8ybh3GlSeTPi/cdHEmrVSKWR3l2Oe4d44wb5eaON0S?=
- =?iso-8859-7?Q?rcXswiAGFP1xEye6shjoo7nsosHn12rA2/3N49t/1VWcxIV0767UHKX2vJ?=
- =?iso-8859-7?Q?OQGGscZlwgOqwXG7zkNtpPyF/q0wyCEkoTuQRWc9mqqABNF7boUGG1Vc0g?=
- =?iso-8859-7?Q?r/zLr/5qYS4feUQFcT1OfuEozoP++qJ+/x6cTiCbHVbkBxITqwGVmDck31?=
- =?iso-8859-7?Q?XQ1fCtdmzsHz0iuTyLMl0Sq1vNKoqmetIBbvxjJBdGrbRPiHVovOXziRgm?=
- =?iso-8859-7?Q?ooEOlrZGHdZ0nhxLqsTd/kjLz7IaRluw/ZgMDH19RgKKBj3tFuKmkuHFjV?=
- =?iso-8859-7?Q?MtHmug5vY2u51uHOlM88nNHvF7Rj7RRv5K9Qrthgrl55AZeRNX8mOaMEhv?=
- =?iso-8859-7?Q?nJ+eMftLJbzO1vZ+UGNvr5ljYhwv75Ya6ig2ISetNLOruihkUHKs6c/jSs?=
- =?iso-8859-7?Q?q/+K7A2oz6RsoBfFBHwsYGGE+MjInYkvpFhZnBsKJF0l9Q4FUwWvgjobuS?=
- =?iso-8859-7?Q?yi4FwtUC5sYsllYF//COLHg76WxG2KUgAKCKhIFwsW9Bhtc9bEFjq8oF0K?=
- =?iso-8859-7?Q?AW25ayjLac8ZrHjAteT8pq0eeny54Vfc17lK8AlWHJwdUkuqdEeG8siZOb?=
- =?iso-8859-7?Q?WGm5LyELiJhjv9lqrOsnG9j1RUv5ujxN4oPX7UyASYr9buazo5RlSuyp9Y?=
- =?iso-8859-7?Q?uyN3u38moOTx0qff8vqtISiz1IMPlpjx9l365eDqzFhUH84alJvrO/r9qG?=
- =?iso-8859-7?Q?vSGw/h3GWd+O5Vnel+2Rpeg7CYPb6DItvNQ/P/JbLIh6CDQ4b8WFXWmy4T?=
- =?iso-8859-7?Q?P47Xob9dwGFKW4o3A09D1LPafhVjHMK+JWVM3PqhbCliSyKB7pWy3F/+/G?=
- =?iso-8859-7?Q?siLZ3YEdhW+8H91E0dVPos7sBMH7elQqdDcXLla4jd800skjLuTkhqL/CD?=
- =?iso-8859-7?Q?SaUpF9uq30CxE2WIuDc8Al/RGwWyGx9wirVLuvL+9ZZBq1mTa7czcaKvID?=
- =?iso-8859-7?Q?FMIyJg+CDd5zp+ACHh9K1XSAngRXZ5+o8HaDl8D6/MfWyg9WZjyJXEOKBm?=
- =?iso-8859-7?Q?mkNYGc0M5b4TV773FUZUyjYHm58aEI0xmnpXbhRYxbPeI9mEft77WcXwv1?=
- =?iso-8859-7?Q?dnfUDLKaZI9W7GZRCfU8rm6c9MQTmiEo4qQxJb8Jwa18+gLpWmdaQXa0Kp?=
- =?iso-8859-7?Q?bbA7M3vMxCKXjJRI7UtxIlUPMvM9HPykHJYnYA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-7?Q?8XZp8e4HFOSLheMc6jS2p/BS6RSrL/lUOxVFTJbDRfPcKLEAzlWMgZi11p?=
- =?iso-8859-7?Q?DtXFbGZhKkGldG2ogEQYO9x+xAlBSM8PdqNYxMXk5Gjqx24o6lDBg508Co?=
- =?iso-8859-7?Q?CTWE1L75ru8InQYsjam2Yqh3BZG/qGGU1bvGa+Z9EncmChmvnn6wX2JOSC?=
- =?iso-8859-7?Q?DIfdQ2VGRaWI2irAQLmGG8wF1fKzqbCx6NDs+yUs6G7Y+gEzJtVw6XMQ3S?=
- =?iso-8859-7?Q?LHFOaCte3zBWtdGtSWtZ92wtTB+6dMospXjKsuqGaThgXT+nl8WskemQQY?=
- =?iso-8859-7?Q?qoz9WCDM3K3EAtXZLh7xatdl3Gi3b6WLLzzunwfHIwXZ8FiVHI21TZGiQc?=
- =?iso-8859-7?Q?giF71kv/yg4kkdJwwFAt3ws1wvp4xBghmzFEBMAgw9gHlqLEw0a21bYeEY?=
- =?iso-8859-7?Q?EmTX9dTKgZHkmCqnK47deVrRGw/333mwQn81HqIs5hSNSZ9DoP/XfyAShC?=
- =?iso-8859-7?Q?FaZ0dj6HnbhsuLzZOhRNhE8JiemiXHhJBuLaxVA1x/yx7A81qRoVhlGFF5?=
- =?iso-8859-7?Q?wGY7OhReotbkXXIES7I3UeM6lZT4TkaNJxPbL10tIjBtvne9hU6NM15yXP?=
- =?iso-8859-7?Q?9WUcXZ63rC1VDWXbclwAg0D03Nd6KdiSiEeHIbJ+5OJosxRa/VIWc3Dq8Q?=
- =?iso-8859-7?Q?Ndcm2ea8b8KMIvR/jy1l0y77TTR1PrJfKW+/r9zdB+oFys9XE7BtfWw9gY?=
- =?iso-8859-7?Q?Z3ERUL+rJk4h6sODxCfD2WWwJxdmTXVwrcmLJuRQTWvXJkSvasx5hI7whg?=
- =?iso-8859-7?Q?het2HGoqmxVh+DHHhHwwdp71j6Txh2zq2IjjCa3RpU3R0nIkMaUACOQBSD?=
- =?iso-8859-7?Q?ajXH3cplR8An7y6uOvDKNE9zf55VMt+S0n7h0O0BxPWX5M23v9//QzIQka?=
- =?iso-8859-7?Q?216rUdX7k+N+3LNP3Wqodhz6fehR96fe7P3LqhGja2WR6p4aSjZgxxJGD0?=
- =?iso-8859-7?Q?xy83l+YwEofMuMTippYFVTgoaGeNKBmF+5bOnpELOyc21if9lH8xtdbR5B?=
- =?iso-8859-7?Q?X3UI+jXG4JS3/7QuVZ3EXQEXwVI/5DqACGJMEcthgUD6b/sPq7kCl3YZMh?=
- =?iso-8859-7?Q?ZLuqFB1J3DzmIpGGZ5YhO5K4tjkS+CRtKrTY2C/zR6oKUYocVdhyqvdV13?=
- =?iso-8859-7?Q?owH7qC0VAhYBzCbTu60MebtnQ0bxPn5cwMKSzLOThQY1IWLOpKgB7+Z2NO?=
- =?iso-8859-7?Q?osSY/Bd6g3qz4osn4vXPjJsS9aHm34tv2Y6b9Rvyo2KmM1ZuFM1BOAypy/?=
- =?iso-8859-7?Q?kiQbnbxLVQEAgGsa8rAFh1nENfzsOG3JcfCi3NFp1eG8WhcCm+fFs6EIbR?=
- =?iso-8859-7?Q?7vn9Moo97lxHy3rXKQyfGE2Z2PBZvbfpLPAA3tP/zMjr93FZ5JnjgvdkSo?=
- =?iso-8859-7?Q?7GAt3g5pzIXHuFa3S/Fs0ifQ13yBL0VoU/zx87PcxZUc+IS1zrpiuCqyMh?=
- =?iso-8859-7?Q?9ab/JRKuwCzgiNvRzgTmoh6PSVnmoaI2mDVQL0EtXInj6bErgUIeNxuVN5?=
- =?iso-8859-7?Q?ecyITFPBm3ODC09H9ctnu6WANdw5cegh/+byk5AGfom1I2cCtrYJKZXP7L?=
- =?iso-8859-7?Q?GFoQbTEpJK+ggvxdLE2rKWKRd+REhFU25fCnEyx5J96ZQPaJ8xH5jVtUEH?=
- =?iso-8859-7?Q?7vPhaMZ83kMas=3D?=
-Content-Type: text/plain; charset="iso-8859-7"
+	Tue, 04 Feb 2025 00:53:00 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21f05693a27so352275ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Feb 2025 16:52:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738630378; x=1739235178; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=yIVwnmw3+Uqu/f1OwaIZM60ey1qrW+y4C63LWJ9AWxE=;
+        b=goUHdSNt3MCPyedKQpTuEoWnhkj/NFJ72dXc6mkEyS92kEhceWqHcnrO66ZRt63AWx
+         et8SmwUUBLCWu06vNXeIj29s3lywPJABP9EAgf5ypTxmFjdCcUtEqdxCNQi5f7+NjxOK
+         6zD60gumgYI131O+lL9o1vSzWK+V+/xUypOeKdyRbg0jzzW/iadSTZh/F9l4PymShGqx
+         H9OSM/zCnD7yQ8jDI01c7nl3f0SiRMbW00qg4Ox9+S7/S2oqdVSMiR47810PDnh1aToq
+         t3kvHFSv11vb7uL8iwg47FJB5XjsvFd5zgienNahCxD2P31HEmtMhiGV4BbUaYHY19h2
+         g1Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738630378; x=1739235178;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yIVwnmw3+Uqu/f1OwaIZM60ey1qrW+y4C63LWJ9AWxE=;
+        b=AoEKWSqyEZB8khSj9kaTi6ixTUt5slbt3k5xGSrO56myitgqcEdR6Pz4+MjHSRuYBn
+         Ae+34gyF0MropmItazUu3ItrBiZbYH16Fr/FLczat+mwYJE2JxP706lVKMAlgvqvppXb
+         fC2B3TFXLSQV/NDgCniSbibF+4QStYkXnKzZoX1qhsLWqy3GYANNqLxIZ4zuR3Y75uLq
+         e0bzZKamlku+9HJFAOx1fDRz3t27nG+6o/yUDXvszQIURAXwEz9KnuNMtzXZ3BdmWkT6
+         AtkNQRMQQeLhcH6b9u32Cwz5DOhZyHH2SVoNjAOOzl8doASnIsY/h623MUcj+bTRP6k7
+         2Grg==
+X-Forwarded-Encrypted: i=1; AJvYcCUjzV9uZGguUD66rSfCWgOx1HgtnLXCtxHmVABQxbuCeeZ721r0Q4BPlqvkEePpqrXBiFZB7IpPVm3TKh2EYbo/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzehnw3srsxvsry2HYobHeZkDOhG/zL8m1R1pGaaMLMvN1+7+SW
+	dcWf0uk/zndwgg6m4tW72afqdXLb2Yv+dyDVksB4wSPzz4DtkfvJ
+X-Gm-Gg: ASbGncsyG37J2cbOIQjDwKyDz2TprPtT/gKofAaVCwNEJhkdKuQj68nvDokqhoC23eN
+	HQwydONiQjqE6Y34oKor7rpzyGpkXK2vduGgoqCBbw3wrDm4YpBB0P4pV9YonjpVaPLylXkjU2V
+	tSC4coSZ6YMZUMge1wzwgQr+dTs4cI2mRT285Qont+rPJtgSvWDyygGg0gjDSzLF74w/en3X8Hn
+	BYGixpCK3BC8dPKJn9VkxWUUe5Gl0n0oYt9SOxdhdT05nkCn55F0e3ahxw8QGkEynZrxqLR5YYr
+	27wgXI2IPYFf
+X-Google-Smtp-Source: AGHT+IFFrOOp9tSCjr6GLI3eesNOiZDZvaAY/wNz+1FZqhhHxSr5HGXiX3u1YhbOfgi7hgk0EZO6Fw==
+X-Received: by 2002:a05:6a20:9f45:b0:1ea:ddd1:2fcf with SMTP id adf61e73a8af0-1ed7a462e94mr37266584637.4.1738630377942;
+        Mon, 03 Feb 2025 16:52:57 -0800 (PST)
+Received: from [192.168.0.235] ([38.34.87.7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ccea1sm9117958b3a.122.2025.02.03.16.52.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 16:52:57 -0800 (PST)
+Message-ID: <dead664fa11ac274db00b509931c533883dd4fdf.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v1 7/8] selftests/bpf: Add selftests for
+ load-acquire and store-release instructions
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Peilin Ye <yepeilin@google.com>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, bpf@ietf.org,
+  Xu Kuohai <xukuohai@huaweicloud.com>, David Vernet <void@manifault.com>,
+ Alexei Starovoitov	 <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko	 <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Song Liu	 <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, John Fastabend	 <john.fastabend@gmail.com>, KP
+ Singh <kpsingh@kernel.org>, Stanislav Fomichev	 <sdf@fomichev.me>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,  Jonathan Corbet	
+ <corbet@lwn.net>, "Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan	
+ <puranjay@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon	 <will@kernel.org>, Quentin Monnet <qmo@kernel.org>, Mykola Lysenko	
+ <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, Josh Don
+ <joshdon@google.com>,  Barret Rhoden <brho@google.com>, Neel Natu
+ <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 03 Feb 2025 16:52:52 -0800
+In-Reply-To: <Z6Ffquq8IORjCqrI@google.com>
+References: <cover.1737763916.git.yepeilin@google.com>
+	 <3f2de7c6e5d2def7bdfb091347c1dacea0915974.1737763916.git.yepeilin@google.com>
+	 <131a817f7f2749e78e527a251ca7971588cf62f8.camel@gmail.com>
+	 <Z6Ffquq8IORjCqrI@google.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: db15993f-2485-4e92-d1f4-08dd44b35145
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2025 00:31:50.9648
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: K7/UnKVoGMhkBuC3hjIzpVKL+DLeTWap9d8Q/1vggBmt00wRbEnWNLw2Qp4aVBc8hMDhCSuuetn8J9mqW26Nag==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10259
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_164708_818292_52E89164 
-X-CRM114-Status: GOOD (  44.01  )
+X-CRM114-CacheID: sfid-20250203_165259_274966_34EAB172 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,196 +115,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH 1/3] clk: Introduce clk_set_spread_spectrum
+On Tue, 2025-02-04 at 00:30 +0000, Peilin Ye wrote:
+> Hi Eduard,
 >=20
-> On Mon, Feb 03, 2025 at 07:47:22PM +0800, Peng Fan wrote:
-> > On Mon, Feb 03, 2025 at 09:43:39AM +0000, Cristian Marussi wrote:
-> > >On Sun, Feb 02, 2025 at 06:42:56PM +0800, Peng Fan wrote:
-> > >> On Tue, Jan 28, 2025 at 12:25:28PM -0800, Stephen Boyd wrote:
-> > >> >Quoting Peng Fan (OSS) (2025-01-24 06:25:17)
-> > >> >> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c index
-> > >> >>
-> cf7720b9172ff223d86227aad144e15375ddfd86..a4fe4a60f839244b7
-> 36e3c
-> > >> >> 2751eeb38dc4577b1f 100644
-> > >> >> --- a/drivers/clk/clk.c
-> > >> >> +++ b/drivers/clk/clk.c
+> One more question (for my understanding):
 >=20
-> Hi Peng,
+> On Tue, Jan 28, 2025 at 05:06:03PM -0800, Eduard Zingerman wrote:
+> > On Sat, 2025-01-25 at 02:19 +0000, Peilin Ye wrote:
+> > > --- a/tools/testing/selftests/bpf/progs/arena_atomics.c
+> > > +++ b/tools/testing/selftests/bpf/progs/arena_atomics.c
+> > [...]
+> >=20
+> > > +SEC("raw_tp/sys_enter")
+> > > +int load_acquire(const void *ctx)
+> > > +{
+> > > +	if (pid !=3D (bpf_get_current_pid_tgid() >> 32))
+> > > +		return 0;
+> >=20
+> > Nit: This check is not needed, since bpf_prog_test_run_opts() is used
+> >      to run the tests.
 >=20
-> > >> >> @@ -2790,6 +2790,45 @@ int clk_set_max_rate(struct clk *clk,
-> > >> >> unsigned long rate)  }  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+> Could you explain a bit more why it's not needed?
 >=20
-> [snip]
+> I read commit 0f4feacc9155 ("selftests/bpf: Adding pid filtering for
+> atomics test") which added those 'pid' checks to atomics/ tests.  The
+> commit message [1] says the purpose was to "make atomics test able to
+> run in parallel with other tests", which I couldn't understand.
 >=20
-> > >> >
-> > >> >> + *
-> > >> >> + * Configure the spread spectrum parameters for a clock.
-> > >> >> + *
-> > >> >> + * Returns success (0) or negative errno.
-> > >> >> + */
-> > >> >> +int clk_set_spread_spectrum(struct clk *clk, unsigned int
-> modfreq,
-> > >> >
-> > >> >Does this need to be a consumer API at all? Usually SSC is figured
-> out
-> > >> >when making a board and you have to pass some certification
-> testing
-> > >> >because some harmonics are interfering. Is the DT property
-> sufficient
-> > >> >for now and then we can do it when the driver probes in the
-> framework?
-> > >>
-> > >> I suppose 'DT property' you are refering the stm32 and i.MX8M
-> SSC patchsets.
-> > >> I am proposing a generic interface for drivers to enable SSC.
-> > >> Otherwise we need to introduce vendor properties for each
-> vendor.
-> > >> And looking at clk-scmi.c, we need a generic way to enable SSC, I
-> think SCMI
-> > >> maintainers not agree to add vendor properties for it.
-> > >>
-> > >
-> > >To clarify, from the SCMI point of view, I expressed the idea that it
-> > >would make sense to have a common SSC interface on the SCMI
-> backend too
-> > >instead of a custom NXP since you are adding a common CLK
-> framework feature,
-> > >BUT only if it turns out, from this discussion, that a common general
-> way of
-> > >configuring SSC can be found...and I dont know that, so I am waiting
-> to see
-> > >what this discussion with CLK framework and iMX maintainers goes
-> before
-> > >excluding the SCMI CLK vendor OEM types scenario...it would be
-> ideal and
-> > >easier NOT to use SCMI vendor extensions BUT ONLY if this NXP
-> SSC/config generic
-> > >solution is deemed to be really generic and usable by any other
-> vendor.
-> >
-> > You may misunderstand. Using DT properties for clk-scmi.c to
-> configure SSC
-> > of a single clock means to add properties under clk scmi node, such
-> > as:
-> > "arm,modfreq =3D <x>, <y>, <z>;
-> >  arm,moddepth =3D <a>, <b>, <c>;
-> >  arm,modmethod =3D <j>, <l>, <m>;"
-> >
-> > And during probe in clk-scmi.c, the properties needs to be parsed and
-> when
-> > clk is configured, the ssc settings need to be passed to scmi platform.
-> >
-> > But per the i.MX8M SSC patchset that DT maintainers raised,
-> > the properties(fsl,modfreq and etc) needs to in consumer side,
-> > not provider side.
-> >
-> > So it is not feasible to add properties here.
-> >
+> How using bpf_prog_test_run_opts() makes those 'pid' checks unnecessary?
 >=20
-> Thanks for the clarification.
->=20
-> > "assigned-clock-sscs" could be put under consumer node and clocks
-> > could be configured with SSC when needed. This is a generic property.
-> >
->=20
-> Yes I understood this, the property that describes SSC that you are
-> adding is generic BUT are also the related params needed to describe
-> effectively the SSC
->=20
-> IOW, if we add, as desirable, a generic new SSC type in extended
-> configs
-> instead of using a vendor oem, will these info down below passed to
-> the SCMI:
->=20
-> +       /*
-> +        * extConfigValue[7:0]   - spread percentage (%)
-> +        * extConfigValue[23:8]  - Modulation Frequency (KHz)
-> +        * extConfigValue[24]    - Enable/Disable
-> +        * extConfigValue[31:25] - Reserved
-> +        */
+> [1] https://lore.kernel.org/bpf/20211006185619.364369-11-fallentree@fb.co=
+m/#r
 
-From SSC view, spread percent(depth),  modulation freq, modulation
-method is required to be passed to SCMI server. Enable maybe
-optional(depth set to 0 should be same as disable).
 
-The upper encodings using extConfig is NXP defined, we could
-update following spec.
+Hi Peilin,
 
->=20
->=20
-> ... be enough to describe the required SSC config to any generic SCMI
-> server
-> from any vendor using any HW ?
->=20
-> ... or is it plausible and maybe frequent/usual that other vendors could
-> need additional specific params to be fed to the server, so that we
-> will end up using the new standard SSC only for NXP ?
+The entry point for the test looks as follows:
 
-I checked TI/STM32/Renesas spec.
-https://www.ti.com/lit/an/spraby0a/spraby0a.pdf?ts=3D1738492934158&ref_url=
-=3Dhttps%253A%252F%252Fwww.google.com.hk%252F
-https://www.st.com/resource/en/application_note/an4850-stm32-mcus-spreadspe=
-ctrum-clock-generation-principles-properties-and-implementation-stmicroelec=
-tronics.pdf
-https://www.renesas.com/en/products/clocks-timing/application-specific-cloc=
-ks/spread-spectrum-clocks?srsltid=3DAfmBOoqSceW72dYO41RZVhT1YxhyKeXNhWUTfSr=
-SCpfZt2A2cy7JgaGv
+    void test_arena_atomics(void)
+    {
+    	...
+    	skel =3D arena_atomics__open();
+    	if (!ASSERT_OK_PTR(skel, "arena atomics skeleton open"))
+    		return;
+   =20
+    	if (skel->data->skip_tests) { ... }
+    	err =3D arena_atomics__load(skel);
+    	if (!ASSERT_OK(err, "arena atomics skeleton load"))
+    		return;
+    	skel->bss->pid =3D getpid();
+   =20
+    	if (test__start_subtest("add"))
+    		test_add(skel);
+            ...
+   =20
+    cleanup:
+    	arena_atomics__destroy(skel);
+    }
 
-same parameters are required.
+Note arena_atomics__{open,load} calls but absence of the
+arena_atomics__attach call. W/o arena_atomics__attach call the
+programs would not be hooked to the designated extension points,
+e.g. "raw_tp/sys_enter".
 
-From ADI:
-https://www.analog.com/en/resources/technical-articles/clock-generation-wit=
-h-spread-spectrum.html
-"
-Creating a spread-spectrum CLK by dithering the CLK frequency is not as
-straightforward as it might appear. We begin by defining parameters that
-comprise a spread-spectrum CLK: spreading rate, spreading style,
-modulation rate, and modulation waveform. Spreading rate is the ratio
-of the range of dithering (or spreading) frequency over the original CLK
-frequency, fC. Spreading style is down-spreading, center-spreading, or up-s=
-preading.
-If we assume that the spreading frequency range is =C4f, the spreading rate=
-, =E4, is defined as:
+The bpf_prog_test_run_opts() invokes BPF_PROG_TEST_RUN command of the
+bpf system call, which does not attach the program either,
+but executes jitted code directly with fake context.
+(See bpf_prog_ops->test_run callback (method?) and
+ bpf_prog_test_run_raw_tp()).
 
-Down spreading: =E4 =3D -=C4f /fC x 100%
+Same happens in prog{,_tests}/arena.c: no attachment happens after
+commit [2]. Commit [1] is unnecessary after [2].
 
-Center spreading: =E4 =3D =B11/2=C4f/fC x 100%
+[2] commit 04fcb5f9a104 ("selftests/bpf: Migrate from bpf_prog_test_run")
 
-Up spreading: =E4 =3D =C4f/fC x 100%
-"
-
-fC is same as spread percentage/depth.
-
->=20
-> IOW the property is generic, agreed, but are the described params
-> above
-> generic enough too ? ...=20
-
-I think so.
-
-Thanks,
-Peng.
-
-that was my concern from an UN-educated
-> point
-> of view...of course, I am talking about the most common scenarios, if
-> some other vendor ends up needing some arcane/magic specific param
-> that
-> cannot fit the above, they will be relegated to the OEM custom spaces
-> even if this common SSC is available.
->=20
-> > Back to NXP SCMI vendor extension, if SCMI spec could include SSC,
-> NXP
-> > SCMI could move to align with spec and not use vendor extension.
-> >
->=20
-> Agreed, conditional to the above doubts.
->=20
-> Apologies if I have asked dumb/obvious questions, but I am not
-> familiar
-> with the subject matter enough...
->=20
-> Thanks,
-> Cristian
 
