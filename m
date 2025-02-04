@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA1CC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 13:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E44C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 13:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmAiSfcB/iu388ExbM8SXpR/2u8mn0HvfLk2LT7e0Wk=; b=Sup2CbMnXl5dhCsT3VXSlLPjBI
-	ziHB1gaitRHYC6tnhfmlCvvdawkeb5JzUUnaWBdCFo1FjTYXnHaY31zgTMMnDpYjnMaI6MDvtJNKL
-	WStXXN6J5eqcoGMV/zGm8sqqKDHOE7o6vJeRGaVeh/mVASMkOiNr4rSVic5qM6luE31i33HsQQf8T
-	3qpCQEHEEQhj+YrPxc1GM+DSbhJNkw+Zx9fORn3IUl9ogvuwpaInOYeE9vKsvIUQ/3VXRS28lk2re
-	TAdr4R3e2q9H6rGzRF4L8MMGTPOGP2a0wOVoILzufhi1jyfOLIctgEn8oz4M/a2+4Sh1GmEq1Rwt8
-	6XRf3Zpw==;
+	bh=kvBsIYlSRDocRThQe1QajLzrfnVwDIRPt2pu5vzVeio=; b=KieJddcD17fjBNL1L+TQ3VxIjZ
+	6TgNQT1kWfxVftCyufqpPKbX559C24fpzZ4u2P2NvCJLBYTmHz3MAjNVdPBVNX0BLCEJTlc3+W/ul
+	3NcmBTXp0ZpmLJ3KMOY00vkG29O1Ih9BXAuLc6luRocUOvjKHq1q9mBoXsp+K/1tIUJY3Pu/PQPXj
+	olnE0kjxWcVaNzBxacOJTjjZQcnYd6tsWlnbmtZBcCz2YRoG2ffuLX6d3KGyKUI/rgMlogt154L5z
+	GXGRtH+8bidaZu+ipzQ3JJHnAioMk09sPklxqdNm9PiQd8BGXUF0eG07Y9ATIK9mmEue8dsW+AZJ0
+	ixOX3iyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfJ0z-00000000XKY-16ui;
-	Tue, 04 Feb 2025 13:30:57 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tfJ6x-00000000YHQ-1dzA;
+	Tue, 04 Feb 2025 13:37:07 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHh1-00000000LPW-3gCf;
-	Tue, 04 Feb 2025 12:06:19 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1738670774;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rmAiSfcB/iu388ExbM8SXpR/2u8mn0HvfLk2LT7e0Wk=;
-	b=zT22X0Gf6BOhN2f+tt9UaESU0MteGZya3b43smadGhkqYKZ3mzJFh8ZRKYFfhuLW5hvISx
-	EoXYueN0dgT3cgIjkwo9myX4u+bXlLhaMWkCXFV02Plm+Rze2JVtHpoEUK8RVAFs9E1zzf
-	9KJk72oCSasyw1zpPMbfDVvRnqP17haT06cZwidVyYclLjCe0ecyD+z/AJhBHNPIVkZD8W
-	DP2uqVKtRzZqpdnWXmsBFFdWC0gMBld1/GKLh3ll4DX6WrM/2nAgshRnpyx5eCVxr3dKAN
-	b1fwYRIkREz9wjUoexYszybw8Vlv5vtFWFJwE2y1FuznAJtElKKEjE24d20ChQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1738670774;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rmAiSfcB/iu388ExbM8SXpR/2u8mn0HvfLk2LT7e0Wk=;
-	b=NINkwCgLul4YFUZd6B6OKZVLWQAXcPqcwi7FisxeJdOHcVajcrj54QGSb5CriUU0WrAPRw
-	rvvRM33LfoyX5eAQ==
-Date: Tue, 04 Feb 2025 13:05:45 +0100
-Subject: [PATCH v3 13/18] MIPS: vdso: Switch to generic storage
- implementation
+	id 1tfJ5b-00000000YD3-3mtI;
+	Tue, 04 Feb 2025 13:35:45 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1738676141;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kvBsIYlSRDocRThQe1QajLzrfnVwDIRPt2pu5vzVeio=;
+	b=w/OCtv96wqXzkV27OwKQajxsEG25scNCh4fWGsSiqz5jhj+QGewziS/h86EkJjztDYv4R2
+	RfGhv+VKM4YPjARKu9HpgRIg3AgwHbcyvMCGPFkbAJRA22P0aIhuA6J3Tx0wRVfs9eJdMr
+	BgSyTyZuas03ZEfKbtnwf2CSXjKz0OnkgRDk/zzadjNJDkGRkHbutPgQ+v8nvpil68ZrJK
+	8wa3f/t3HnF89CJ/8zvAuagK6MEk7HX9bvnLwnhqpbGXDezQznEXDKYd1/TkUzIg35gLFE
+	Eo63EE2hr1hIFOwy8PgeOEfGVVTgLSwbovyFajM9eSlK39WwAahWcaDtzjz7qQ==
+Date: Tue, 04 Feb 2025 14:35:40 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jagan Teki
+ <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, Michael Riesch
+ <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add overlay tests for Rock
+ 5B PCIe overlays
+In-Reply-To: <3de1cc52-5579-41b1-a333-0c4e81f96fbd@cherry.de>
+References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
+ <20250131-pre-ict-jaguar-v4-3-c971e2852e8d@cherry.de>
+ <77b5d0efa6e56bb391575aeeb4d1be80@manjaro.org>
+ <3de1cc52-5579-41b1-a333-0c4e81f96fbd@cherry.de>
+Message-ID: <cb8f370474df88d1194d9ee92d3ca4e0@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250204-vdso-store-rng-v3-13-13a4669dfc8c@linutronix.de>
-References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
-In-Reply-To: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, 
- Guo Ren <guoren@kernel.org>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- linux-csky@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738670761; l=9616;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=eMDFQ7D52EkzXyX+5y7UBsIbOtBUV7hQNlDi8P6djz0=;
- b=A/bko4CKMxbYJTxFEpa1IcAI/JwE1GspBSvVuhkd/r+KfvF8WbV63c5uuMr0I8dlQ1Z+nUPxn
- 8CH1RxWQ5PVBdqZw01u6G+54mdm90r0lXFQMs59EOhLPXfbDjmrGn1o
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_040616_221705_A6DDED4C 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20250204_053544_308205_CD83A48F 
+X-CRM114-Status: GOOD (  56.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,288 +81,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic storage implementation provides the same features as the
-custom one. However it can be shared between architectures, making
-maintenance easier.
+Hello Quentin,
 
-Co-developed-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/mips/Kconfig                         |  1 +
- arch/mips/include/asm/vdso/gettimeofday.h |  9 +++---
- arch/mips/include/asm/vdso/vdso.h         | 19 ++++++-------
- arch/mips/include/asm/vdso/vsyscall.h     | 14 ++-------
- arch/mips/kernel/vdso.c                   | 47 ++++++++++++-------------------
- arch/mips/vdso/vdso.lds.S                 |  5 +++-
- 6 files changed, 38 insertions(+), 57 deletions(-)
+On 2025-02-04 13:20, Quentin Schulz wrote:
+> On 2/4/25 12:22 PM, Dragan Simic wrote:
+>> > On 2025-01-31 11:40, Quentin Schulz wrote:
+>>> From: Quentin Schulz <quentin.schulz@cherry.de>
+>>> 
+>>> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
+>>> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe 
+>>> endpoint
+>>> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs 
+>>> to
+>>> be applied on Rock 5B base Device Tree. If that Rock 5B is connected 
+>>> to
+>>> another Rock 5B, the latter needs to apply the
+>>> rk3588-rock-5b-pcie-srns.dtbo overlay.
+>>> 
+>>> In order to make sure the overlays are still valid in the future, 
+>>> let's
+>>> add a validation test by applying the overlays on top of the main 
+>>> base
+>>> at build time.
+>>> 
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>> Reviewed-by: Niklas Cassel <cassel@kernel.org>
+>>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+>>> ---
+>>>  arch/arm64/boot/dts/rockchip/Makefile | 10 ++++++++--
+>>>  1 file changed, 8 insertions(+), 2 deletions(-)
+>>> 
+>>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
+>>> b/arch/arm64/boot/dts/rockchip/Makefile
+>>> index
+>>> 267966ea69b194887d59e38a4220239a90a91306..ebcd16ce976ebe56a98d9685228980cd1f2f180a
+>>> 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>>> @@ -150,8 +150,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5- 
+>>> plus.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
+>>> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
+>>> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
+>>> @@ -186,3 +184,11 @@ rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=
+>>> rk3568-wolfvision-pf5.dtb \
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
+>>>  rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
+>>>      rk3588-edgeble-neu6a-wifi.dtbo
+>>> +
+>>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
+>>> +rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
+>>> +    rk3588-rock-5b-pcie-ep.dtbo
+>>> +
+>>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
+>>> +rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
+>>> +    rk3588-rock-5b-pcie-srns.dtbo
+>> 
+>> After a quite lengthy excursion into the scripts/Makefile.dtbs and
+>> scripts/Makefile.lib files, I'm afraid that the approach taken in
+>> this patch isn't right.  Please allow me to explain.
+>> 
+>> Let's have a look at arch/arm64/boot/dts/ti/Makefile first, as an
+>> example that provides already existing DT overlay checks.  Here's
+>> an excerpt from that Makefile, which also provides an important cue
+>> by mentioning CONFIG_OF_ALL_DTBS:
+>> 
+>>    12 dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
+>>    13 dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
+>>    14 dtb-$(CONFIG_ARCH_K3) += 
+>> k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
+>> 
+>>   135 # Build time test only, enabled by CONFIG_OF_ALL_DTBS
+>>   136 k3-am625-beagleplay-csi2-ov5640-dtbs := k3-am625-beagleplay.dtb 
+>> \
+>>   137         k3-am625-beagleplay-csi2-ov5640.dtbo
+>>   138 k3-am625-beagleplay-csi2-tevi-ov5640-dtbs := k3-am625- 
+>> beagleplay.dtb \
+>>   139         k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
+>> 
+>>   213 dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+>>   214         k3-am625-beagleplay-csi2-tevi-ov5640.dtb \
+>> 
+>> As visible above, the DT overlays get added to dtb-$(CONFIG_ARCH_K3)
+>> as .dtbo files (not as .dtb files), while the build-time DT overlay
+>> tests specify the dependency chains for the overlays.
+>> 
+>> Even more importantly, the build-time overlay tests aren't supposed
+>> to be executed until CONFIG_OF_ALL_DTBS is selected, which actually
+>> gets handled at the very start of scripts/Makefile.dtbs:
+>> 
+>>     3 # If CONFIG_OF_ALL_DTBS is enabled, all DT blobs are built
+>>     4 dtb-$(CONFIG_OF_ALL_DTBS) += $(dtb-)
+> 
+> Do you have something to back your argument that build time tests
+> should only be done when CONFIG_OF_ALL_DTBS is enabled? For now this
+> seems like it's your interpretation of the use for the symbol. Though
+> I agree that if you had any test you absolutely didn't want to run in
+> normal times, hiding them behind CONFIG_OF_ALL_DTBS would be the thing
+> to do.
 
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 1924f2d839323243e378e32ef7d12640560a7be3..b51168e319ea3aa376e7016fe72e8db9a28fc979 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -51,6 +51,7 @@ config MIPS
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_IDLE_POLL_SETUP
- 	select GENERIC_TIME_VSYSCALL
-+	select GENERIC_VDSO_DATA_STORE
- 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
- 	select HAS_IOPORT if !NO_IOPORT_MAP || ISA
- 	select HAVE_ARCH_COMPILER_H
-diff --git a/arch/mips/include/asm/vdso/gettimeofday.h b/arch/mips/include/asm/vdso/gettimeofday.h
-index 44a45f3fa4b01026e39efb7f8f51051ec464340c..fd32baa30e172cbabe2657d9debe67a5b9061f90 100644
---- a/arch/mips/include/asm/vdso/gettimeofday.h
-+++ b/arch/mips/include/asm/vdso/gettimeofday.h
-@@ -167,7 +167,7 @@ static __always_inline u64 read_r4k_count(void)
- 
- #ifdef CONFIG_CLKSRC_MIPS_GIC
- 
--static __always_inline u64 read_gic_count(const struct vdso_data *data)
-+static __always_inline u64 read_gic_count(const struct vdso_time_data *data)
- {
- 	void __iomem *gic = get_gic(data);
- 	u32 hi, hi2, lo;
-@@ -184,7 +184,7 @@ static __always_inline u64 read_gic_count(const struct vdso_data *data)
- #endif
- 
- static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
--						 const struct vdso_data *vd)
-+						 const struct vdso_time_data *vd)
- {
- #ifdef CONFIG_CSRC_R4K
- 	if (clock_mode == VDSO_CLOCKMODE_R4K)
-@@ -209,10 +209,11 @@ static inline bool mips_vdso_hres_capable(void)
- }
- #define __arch_vdso_hres_capable mips_vdso_hres_capable
- 
--static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
-+static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
- {
--	return get_vdso_data();
-+	return get_vdso_time_data();
- }
-+#define __arch_get_vdso_u_time_data __arch_get_vdso_u_time_data
- 
- #endif /* !__ASSEMBLY__ */
- 
-diff --git a/arch/mips/include/asm/vdso/vdso.h b/arch/mips/include/asm/vdso/vdso.h
-index 6cd88191fefa9ce6d8323dd70d45aa9a198ac9d0..acd0efcd3d93ef7e71107302a40d24b4b51aae99 100644
---- a/arch/mips/include/asm/vdso/vdso.h
-+++ b/arch/mips/include/asm/vdso/vdso.h
-@@ -5,16 +5,18 @@
-  */
- 
- #include <asm/sgidefs.h>
-+#include <vdso/page.h>
-+
-+#define __VDSO_PAGES 4
- 
- #ifndef __ASSEMBLY__
- 
- #include <asm/asm.h>
--#include <asm/page.h>
- #include <asm/vdso.h>
- 
--static inline unsigned long get_vdso_base(void)
-+static inline const struct vdso_time_data *get_vdso_time_data(void)
- {
--	unsigned long addr;
-+	const struct vdso_time_data *addr;
- 
- 	/*
- 	 * We can't use cpu_has_mips_r6 since it needs the cpu_data[]
-@@ -27,7 +29,7 @@ static inline unsigned long get_vdso_base(void)
- 	 * We can't use addiupc because there is no label-label
- 	 * support for the addiupc reloc
- 	 */
--	__asm__("lapc	%0, _start			\n"
-+	__asm__("lapc	%0, vdso_u_time_data		\n"
- 		: "=r" (addr) : :);
- #else
- 	/*
-@@ -46,7 +48,7 @@ static inline unsigned long get_vdso_base(void)
- 	"	.set noreorder				\n"
- 	"	bal	1f				\n"
- 	"	 nop					\n"
--	"	.word	_start - .			\n"
-+	"	.word	vdso_u_time_data - .		\n"
- 	"1:	lw	%0, 0($31)			\n"
- 	"	" STR(PTR_ADDU) " %0, $31, %0		\n"
- 	"	.set pop				\n"
-@@ -58,14 +60,9 @@ static inline unsigned long get_vdso_base(void)
- 	return addr;
- }
- 
--static inline const struct vdso_data *get_vdso_data(void)
--{
--	return (const struct vdso_data *)(get_vdso_base() - PAGE_SIZE);
--}
--
- #ifdef CONFIG_CLKSRC_MIPS_GIC
- 
--static inline void __iomem *get_gic(const struct vdso_data *data)
-+static inline void __iomem *get_gic(const struct vdso_time_data *data)
- {
- 	return (void __iomem *)((unsigned long)data & PAGE_MASK) - PAGE_SIZE;
- }
-diff --git a/arch/mips/include/asm/vdso/vsyscall.h b/arch/mips/include/asm/vdso/vsyscall.h
-index a4582870aaea49ac288d62ec4fa1338a98621918..2b1debb62dee07bb49ab64f755ff9120d512458a 100644
---- a/arch/mips/include/asm/vdso/vsyscall.h
-+++ b/arch/mips/include/asm/vdso/vsyscall.h
-@@ -2,22 +2,12 @@
- #ifndef __ASM_VDSO_VSYSCALL_H
- #define __ASM_VDSO_VSYSCALL_H
- 
-+#include <asm/page.h>
-+
- #ifndef __ASSEMBLY__
- 
- #include <vdso/datapage.h>
- 
--extern struct vdso_data *vdso_data;
--
--/*
-- * Update the vDSO data page to keep in sync with kernel timekeeping.
-- */
--static __always_inline
--struct vdso_data *__mips_get_k_vdso_data(void)
--{
--	return vdso_data;
--}
--#define __arch_get_k_vdso_data __mips_get_k_vdso_data
--
- /* The asm-generic header needs to be included after the definitions above */
- #include <asm-generic/vdso/vsyscall.h>
- 
-diff --git a/arch/mips/kernel/vdso.c b/arch/mips/kernel/vdso.c
-index 75c9d3618f58856933ba25adb4933cda25d16cbf..de096777172f082b5b7847a5c14cae5ddaee0430 100644
---- a/arch/mips/kernel/vdso.c
-+++ b/arch/mips/kernel/vdso.c
-@@ -15,6 +15,7 @@
- #include <linux/random.h>
- #include <linux/sched.h>
- #include <linux/slab.h>
-+#include <linux/vdso_datastore.h>
- 
- #include <asm/abi.h>
- #include <asm/mips-cps.h>
-@@ -23,20 +24,7 @@
- #include <vdso/helpers.h>
- #include <vdso/vsyscall.h>
- 
--/* Kernel-provided data used by the VDSO. */
--static union vdso_data_store mips_vdso_data __page_aligned_data;
--struct vdso_data *vdso_data = mips_vdso_data.data;
--
--/*
-- * Mapping for the VDSO data/GIC pages. The real pages are mapped manually, as
-- * what we map and where within the area they are mapped is determined at
-- * runtime.
-- */
--static struct page *no_pages[] = { NULL };
--static struct vm_special_mapping vdso_vvar_mapping = {
--	.name = "[vvar]",
--	.pages = no_pages,
--};
-+static_assert(VDSO_NR_PAGES == __VDSO_PAGES);
- 
- static void __init init_vdso_image(struct mips_vdso_image *image)
- {
-@@ -90,7 +78,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- {
- 	struct mips_vdso_image *image = current->thread.abi->vdso;
- 	struct mm_struct *mm = current->mm;
--	unsigned long gic_size, vvar_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
-+	unsigned long gic_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
- 	struct vm_area_struct *vma;
- 	int ret;
- 
-@@ -119,8 +107,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	 * the counter registers at the start.
- 	 */
- 	gic_size = mips_gic_present() ? PAGE_SIZE : 0;
--	vvar_size = gic_size + PAGE_SIZE;
--	size = vvar_size + image->size;
-+	size = gic_size + VDSO_NR_PAGES * PAGE_SIZE + image->size;
- 
- 	/*
- 	 * Find a region that's large enough for us to perform the
-@@ -143,15 +130,13 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	 */
- 	if (cpu_has_dc_aliases) {
- 		base = __ALIGN_MASK(base, shm_align_mask);
--		base += ((unsigned long)vdso_data - gic_size) & shm_align_mask;
-+		base += ((unsigned long)vdso_k_time_data - gic_size) & shm_align_mask;
- 	}
- 
- 	data_addr = base + gic_size;
--	vdso_addr = data_addr + PAGE_SIZE;
-+	vdso_addr = data_addr + VDSO_NR_PAGES * PAGE_SIZE;
- 
--	vma = _install_special_mapping(mm, base, vvar_size,
--				       VM_READ | VM_MAYREAD,
--				       &vdso_vvar_mapping);
-+	vma = vdso_install_vvar_mapping(mm, data_addr);
- 	if (IS_ERR(vma)) {
- 		ret = PTR_ERR(vma);
- 		goto out;
-@@ -161,6 +146,17 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	if (gic_size) {
- 		gic_base = (unsigned long)mips_gic_base + MIPS_GIC_USER_OFS;
- 		gic_pfn = PFN_DOWN(__pa(gic_base));
-+		static const struct vm_special_mapping gic_mapping = {
-+			.name	= "[gic]",
-+			.pages	= (struct page **) { NULL },
-+		};
-+
-+		vma = _install_special_mapping(mm, base, gic_size, VM_READ | VM_MAYREAD,
-+					       &gic_mapping);
-+		if (IS_ERR(vma)) {
-+			ret = PTR_ERR(vma);
-+			goto out;
-+		}
- 
- 		ret = io_remap_pfn_range(vma, base, gic_pfn, gic_size,
- 					 pgprot_noncached(vma->vm_page_prot));
-@@ -168,13 +164,6 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 			goto out;
- 	}
- 
--	/* Map data page. */
--	ret = remap_pfn_range(vma, data_addr,
--			      virt_to_phys(vdso_data) >> PAGE_SHIFT,
--			      PAGE_SIZE, vma->vm_page_prot);
--	if (ret)
--		goto out;
--
- 	/* Map VDSO image. */
- 	vma = _install_special_mapping(mm, vdso_addr, image->size,
- 				       VM_READ | VM_EXEC |
-diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
-index 836465e3bcb8a15cb3f0f96d852d2b252c9d5e2a..c8bbe56d89cb095da21ac1f56d9999914defc305 100644
---- a/arch/mips/vdso/vdso.lds.S
-+++ b/arch/mips/vdso/vdso.lds.S
-@@ -5,6 +5,8 @@
-  */
- 
- #include <asm/sgidefs.h>
-+#include <asm/vdso/vdso.h>
-+#include <vdso/datapage.h>
- 
- #if _MIPS_SIM == _MIPS_SIM_ABI64
- OUTPUT_FORMAT("elf64-tradlittlemips", "elf64-tradbigmips", "elf64-tradlittlemips")
-@@ -18,7 +20,8 @@ OUTPUT_ARCH(mips)
- 
- SECTIONS
- {
--	PROVIDE(_start = .);
-+	VDSO_VVAR_SYMS
-+
- 	. = SIZEOF_HEADERS;
- 
- 	/*
+Well, it isn't my interpretation of CONFIG_OF_ALL_DTBS, it's actually
+how arch/arm64/boot/dts/ti/Makefile uses it already for the DT overlay
+tests, which I already explained above.
 
--- 
-2.48.1
+Also, I already wrote that I'm not very happy with the way the config
+option CONFIG_OF_ALL_DTBS is tied to the DT overlay tests.  I'll get
+back to that below.
 
+>> The way this patch modifies arch/arm64/boot/dts/rockchip/Makefile
+>> actually isn't correct, despite apparently producing the desired
+>> outcome, because the way it adds rk3588-rock-5b-pcie-ep.dtb and
+>> rk3588-rock-5b-pcie-srns.dtb (instead of adding proper .dtbo names)
+>> to dtb-$(CONFIG_ARCH_ROCKCHIP) effectively creates some kind of
+>> "phony targets" that indeed "get the job done", but unfortunately
+>> in a wrong way.  The "phony targets" are handled by the following
+>> "magic" in scripts/Makefile.dtbs:
+>> 
+>>     6 # Composite DTB (i.e. DTB constructed by overlay)
+>>     7 multi-dtb-y := $(call multi-search, $(dtb-y), .dtb, -dtbs)
+>>     8 # Primitive DTB compiled from *.dts
+>>     9 real-dtb-y := $(call real-search, $(dtb-y), .dtb, -dtbs)
+>>    10 # Base DTB that overlay is applied onto
+>>    11 base-dtb-y := $(filter %.dtb, $(call real-search, $(multi-dtb- 
+>> y), .dtb, -dtbs))
+>> 
+>>    18 targets         += $(real-dtb-y)
+>> 
+>> Let's have a look at the relevant part of the output produced when
+>> "make dtbs" is executed with this patch applied:
+>> 
+>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtbo
+>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtb
+>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtbo
+>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb
+>> 
+>> Note the "OVL .*dtb" lines above, in which the ".*dtb" parts are
+>> the above-mentioned "phony targets".  The above-quoted "magic" in
+>> scripts/Makefile.dtbs is what "unfolds" those "phony targets" to make 
+>> them apparently produce the desired outcome, by populating
+>> the $(real-dtb-y) variable with "rk3588-rock-5b-pcie-ep.dtbo
+>> rk3588-rock-5b.dtb rk3588-rock-5b-pcie-srns.dtbo", as the proper
+>> .dtbo names that get passed to the dtc utility.
+>> 
+>> Even more "magic" in scripts/Makefile.dtbs "unfolds" the "phony
+>> targets" to have the build-time DT overlay tests performed in the
+>> apparently proper way, while they actually shouldn't be performed
+>> unless CONFIG_OF_ALL_DTBS is also selected.
+> 
+> I understand the symbol CONFIG_OF_ALL_DTBS as "should build all DTBs
+> for all architectures and do tests" and not "tests must only be run
+> when CONFIG_OF_ALL_DTBS is selected". I find it so useful to test the
+> application of overlays to the base DTB that I don't think it's
+> necessarily a good idea to hide those behind CONFIG_OF_ALL_DTBS.
+
+As I wrote above, I'm not very happy with it either.  I'll explain
+that further below.
+
+>> With all this is mind, this patch should be reworked to follow
+>> the right approach for defining build-time DT overlay tests, which
+>> is illustrated in arch/arm64/boot/dts/ti/Makefile.  In particular,
+>> we should just add the following DT overlay test definitions to
+>> arch/arm64/boot/dts/rockchip/Makefile:
+>> 
+>> 174 # Build-time tests only, enabled by CONFIG_OF_ALL_DTBS
+>> 175 rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
+>> 176         rk3588-rock-5b-pcie-ep.dtbo
+>> 177 rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
+>> 178         rk3588-rock-5b-pcie-srns.dtbo
+>> 179 dtb- += rk3588-rock-5b-pcie-ep.dtb \
+>> 180         rk3588-rock-5b-pcie-srns.dtb
+>> 
+>> You'll notice that the $(dtb-) variable pretty much again contains
+>> the same "phony targets", but that's the way they should actually
+>> be used.  I'm not very happy with the way they're specified, but
+>> we should follow the approach from arch/arm64/boot/dts/ti/Makefile
+>> anyway, and possibly improve the whole thing later.
+> 
+> What I don't like about this is that it allows to build the DTBO
+> without providing a build time application test which means
+> maintainer(s) and reviewer(s) need to pay even more attention to the
+> patch than simply looking at it matching the patterns of how other
+> DTBOs are built. Also, you now need to enable CONFIG_OF_ALL_DTBS to
+> run the tests, which isn't enabled in the default defconfig for arm64.
+> I would assume we have some bots building patches/master with those
+> options enabled but it might be a bit too late already.
+
+I already agreed above about CONFIG_OF_ALL_DTBS being suboptimal,
+but I don't think that the need for making sure the tests are present
+would be an issue.  Making sure that the tests are defined should be
+simply part of the reviewing, and running those tests is actually
+a good way to make revieving a bit easier.  Thus, reviewers should
+actually be motivated to make sure the tests are present.
+
+>> I'd actually prefer to just have these test definitions added to the
+>> end of arch/arm64/boot/dts/ti/Makefile, without moving the .dtbo lines
+>> around.  That would keep the tests separate, which should be more
+>> readable when we get more of them defined.
+> 
+> And more likely to forget about adding either the tests or the DTBO
+> explicit rule.
+
+Well, if someone can't remember either of those, then I don't see how
+they can remember many other rules required to write DT code. :)
+
+FWIW, both TI and Qualcomm place the test definitions separately from
+the additions to dtb-$(CONFIG_ARCH_XYZ).
+
+>> With the above-proposed changes in place, and with CONFIG_OF_ALL_DTBS
+>> selected, the relevant part of the "make dtbs" output looks like this:
+>> 
+>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb
+>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtbo
+>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtbo
+>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtb
+>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb
+>> 
+>> No more "phony targets" in the produced output. :)
+> 
+> Funnily enough, I would prefer to see OVL for overlays rather than
+> DTC, but I guess it's just one more occurrence of developers
+> disagreeing on how to name things :)
+
+I actually agree with that, just like I prefer to see .dtbo files
+as additions to dtb-$(CONFIG_ARCH_XYZ).  It's all about the overlays,
+so they should be both specified and echoed back.
+
+Moreover, we currently also have additional .dtb files with applied
+overlays left after the build and installed afterwards, which doesn't
+make much sense to me.  To me, those additional .dtb files should be
+deleted as build artefacts and not installed.
+
+> I kind of disagree with the feedback here as this only takes
+> ti/Makefile as example while **all** other aarch64 Makefile have
+> different logic, the one I'm using here for amlogic (meson), NXP
+> (freescale), qcom (Qualcomm), Renesas, Xilinx and even Aarch32 NXP,
+> and the one we currently use (no build tests) for Mediatek.
+
+Hmm, I see.  To me, the approach taken by TI is more clear, simply
+because having .dtb filenames, instead of .dtbo filenames, as part of
+dtb-$(CONFIG_ARCH_XYZ) is much less readable.  When you see a .dtbo
+there, it's clear that it's an overlay, and as I wrote above, it's
+all about the overlays, so they should be both specified in Makefiles
+and echoed back by the build system.
+
+> If we agree to what you suggest here we cancel the side-effect of
+> having the symbols in the base DTB that this patch series introduces.
+> This can go both ways, either good (DT symbols in = nothing to do for
+> the user, get the base DTB and your DTBO, put in /boot and tada) or
+> bad (DT symbols in = big size increase for base DTB). Moreover,
+> enabling CONFIG_OF_ALL_DTBS would now generate a different DTB than
+> when it's not (keeping the symbols in). If we wanted to keep the
+> symbols in, we would need to modify DTC_FLAGS as well.
+> This could help make the decision(s) as well.
+> 
+> So I would say without much more context on the actual expected use
+> for CONFIG_OF_ALL_DTBS that it's up to one's taste, and considering
+> the precedent here, likely up to each architecture maintainers' taste.
+
+Good point.  This just shows how suboptimal is tying CONFIG_OF_ALL_DTBS
+with the DT overlay tests.  Perhaps it would be best to remove that
+association, while keeping the ability to specify .dtbo filenames in
+dtb-$(CONFIG_ARCH_XYZ).  Specifying .dtb files there simply looks wrong
+to me, as I already explained above.
+
+> I won't be too difficult to convince here, just want some "authority"
+> or a piece of history about CONFIG_OF_ALL_DTBS that would go your
+> direction, before doing the change. I believe automated build tests
+> without needing to enable a symbol, and that taking DTB and DTBO from
+> the build output and apply DTBO on top of DTB works without having to
+> go through some length to get the symbols, are good reasons to keep it
+> the way it is in this patch series.
+
+I'd like the most to perform the above-proposed "divorcing" of the DT
+overlay tests from CONFIG_OF_ALL_DTBS, so we don't have to enable any
+additional options to have the overlay tests run automatically, but
+to keep .dtbo filenames in dtb-$(CONFIG_ARCH_XYZ).  I think that would
+bring the best of both worlds, so to speak.
+
+> Additionally, depending on the feedback, I assume we want to migrate
+> all current architectures building DTBO to be consistent and use the
+> same logic (perhaps not for Mediatek because doing so would keep the
+> DT symbols in the DTB, which drastically increases the size of the
+> DT).
+> 
+> Does anyone from DT maintainership have feedback to provide on what is
+> expected here generally wrt building and testing DTBOs?
+> 
+> Does Heiko have an opinion on what he would prefer to see happening
+> for Rockchip?
 
