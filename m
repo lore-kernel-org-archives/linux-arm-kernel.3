@@ -4,180 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9327BC02197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A44C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqDWQKTZyqxTxaDKQ1olaPCS0AfrUcUd5yOLvVszXDw=; b=f3ybz2aD3KtK+q3GyP+yvrYn6h
-	KTFIcU7lXhMQxBZdbvZitWM3acIor1QMY/rmbXyLiKfXEuXgnSDP0aLL0uhO+uf/PT2EctWsys/qO
-	P6bwMqupChHX3/hh/FzuuiomaXJ0vjgw6ZvRyR8e5OzCWoQmDathWMDbrM9W/pDrGozXBonD3qcla
-	C4IKnrVLoDUtGEUNBqYzHvKJig46GvAqv3UsdG/u6/I2xjpx5LL2Lqcy6xXS0qS6eB9ksxRLbdw5w
-	SbMCOoFHbhuRAb5RddcEcfmLr+xvUM9H1jqHAejx46hsTKn505qvpbOKO8IQflHjnX3RRkFQZDe8N
-	GBPRs61w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=twPDg30fIiJNLDt2SiVRKkvqJ/64dc+oeH98LcXpjks=; b=NSLx7JTY0FDZSQ
+	5SXrxt8kH1fG406QxWKNexnh9uC29WK7zwzMPX0qpd1DlxY5RIktJwogl5KYWLg3PDKaTWBeH6l2V
+	NnLNgOIt1T8nSct7as4JVPyRzOpwn34QIuHLuZzcTgbkOcNJTTLicX2vwZ3cbnThIupT4adag91L7
+	pfydewwep9+b8xvvwF0D5nPgHsL9/IHdp7arOIk7WmrFI3q765hnX3yWkXNfV3bP2NTotX53LCdjv
+	jC7VRlK3JMN5J+6Wv+uVdlsV9Q5d2DzNKJDyRFmKIKHibMMOJIs2p2jyLTvjkyQaHQPUJhopG8g3t
+	stvL0Nwehb5EN/TLfdnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIR9-00000000TJF-3coi;
-	Tue, 04 Feb 2025 12:53:55 +0000
-Received: from mail-am6eur05on20624.outbound.protection.outlook.com ([2a01:111:f403:2612::624] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tfITk-00000000TkN-22zc;
+	Tue, 04 Feb 2025 12:56:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIFp-00000000Rz2-1NeJ
+	id 1tfISP-00000000Tdv-1vvy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 12:42:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ewQXMl6TRQRkVhXiqDYETSgzZS0Nbceb4djbuw5bUhQGJ7sjr7s+Zvr1/TGd7Gsy3hKHAojZjytHiz4wZVsfBo+HGDXHuSNWv+UukgMBlsCcNKX6QeiRyfaLu9guOlve9/b/NRcj+cnxpHwm1fNzwNdgvp12P215gfoepd+C/3GebIq8uB0u9nuECs1wbiBxUGEURqCF3xCeroev52AZyVQbd6O3UYmTHabAch9Znp/rIE1w9pgUinvKSI5/YyeAwJy9sOovaMWRooEOGNkWLD1VWdpu0GwCwQXl2w0+iBAAiqhye+QLFTLis+Y2/BUa5GqxTOZetqPxHrJQ+PokxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UqDWQKTZyqxTxaDKQ1olaPCS0AfrUcUd5yOLvVszXDw=;
- b=mN69kOrtivUvhqEXs74Bv/6op8kYhQc7Ox9Uc6uw/h1NAsvgiMXdYgj/BJhe3tVq8kiZ2566el/BhEz+fHKAHP0uPGQyIGcChFqf33Bq0ZKZMLXXtX0o2rwcv9lRhwFFqsOaKTyjdJg+EwrmNt5o9SKTzBqvu4a+gGdhc3der9jVJ8kKL7cQNgv23E6pYoO+WYvpqO175lIpr2Se0Fp4wn+b+A4fwmaC+zPa/HyjydRgFhRLLWhhQKcxJpRYJxrcuMEEm/ZSG1to9HDbWnl62Pc7QfTlO36n5hfQuGEF0KYFfVrVCwwA2By5fdnfAJy/xPswFYHXRhsYJYMszszOzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UqDWQKTZyqxTxaDKQ1olaPCS0AfrUcUd5yOLvVszXDw=;
- b=qFp256RHBol1K83KMUX3x2VmHbX+BYpSwf3unD4tU2venh1SVvjUEw5vA5OcmTJBfahWsFAMBBaKlyrkOXLediFBWxaYPRXCy2/imtX4gxmgwlY7KQ5tPDQqntzt1BSR1sK06ZXa3BF+zDXW+n6zQvGSuv+oMk6kOdK0+PiAxyAQbtpn3l8+C9F0NbaD/9Cmw6k1Q2r96uHPOZ8BM3gmS2orrzcaXKAO0wHpW4SiSDFHnCzbfT1X6UBlsbDMSTtc7Duyxebti2Du6yd4v/LM//kKIlLhXmc7fd3ACNgw53fQ3QzzxSQTz1uMYJPjIw4jdQCj3DVu6PnpWZ1qYlIW6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA1PR04MB10889.eurprd04.prod.outlook.com (2603:10a6:102:491::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Tue, 4 Feb
- 2025 12:42:10 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 12:42:10 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Tue, 04 Feb 2025 20:41:13 +0800
-Subject: [PATCH v8 1/2] dt-bindings: nvmem: imx-ocotp: Introduce
- #access-controller-cells
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250204-imx-ocotp-v8-1-01be4a4bb045@nxp.com>
-References: <20250204-imx-ocotp-v8-0-01be4a4bb045@nxp.com>
-In-Reply-To: <20250204-imx-ocotp-v8-0-01be4a4bb045@nxp.com>
-To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738672884; l=4072;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=XnzgujPvzhDsZMamCFtENs9apB02aFgSkBfdNqk+fEY=;
- b=jfAPUOvurKkXAM7XzcOmAwf6tkx4jvx1yZqp1Q1Hw0bL600A2ZWu+zlmLaiKF1wjL8LRRzKij
- 9RLul2YV03dB4kuYPKv50EBZYtQz1QzYwtYo0k/xDdkg8mJ5qMLsprf
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2P153CA0013.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 04 Feb 2025 12:55:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738673711;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=twPDg30fIiJNLDt2SiVRKkvqJ/64dc+oeH98LcXpjks=;
+	b=gQBBbAwGK3Lrsik53QJyxNdghbg2qd0FnEv4Hc/NKVxC6zGCoTMc/aHJghETMFJenA7kCk
+	GSwLku7xc+8fKKKZESb3teec9WPtvqCTSO+CaI3fv5PVRd/7RUhn0P8KZnjcUIqAFEuFks
+	xy6v2syZSk9rdaXDlDbeqrciXbDDmvE=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-636-HXXMiy-dMimflyx8UHN3Sw-1; Tue, 04 Feb 2025 07:55:10 -0500
+X-MC-Unique: HXXMiy-dMimflyx8UHN3Sw-1
+X-Mimecast-MFC-AGG-ID: HXXMiy-dMimflyx8UHN3Sw
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d88d56beb7so51607086d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 04:55:10 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738673709; x=1739278509;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=twPDg30fIiJNLDt2SiVRKkvqJ/64dc+oeH98LcXpjks=;
+        b=aNPZoUKhv8A/Z2wABglv+k6hFdrckbxIOjDC+CVWETv8+606XuSHxy8zjeY+DR8O28
+         v+eE6RwsZYu+9rgloWXRkDPH/K9YhN370kRkqt7eCEAXeSfRuqPyHo6A3fadc84eZHl5
+         5QCvbcYn8mu8AdcYlxw6vIWEH8NyHfL2NCgbbYpgXxXefWKbJ8Q5EthV8I6AV8qxpwEW
+         9/AKwqzlNUf7y7oX3zJZGfFPLB7kh4SyxnwDTP5Pl0pCrERKggwLxoTRdoMW+6IT36ik
+         17MQQp63xJvji4lbFjzi2qlODRZgR5AdkWRUX8C/+Ed4ib2owEBdWC0VIJtm+4lKg7k5
+         Na2g==
+X-Forwarded-Encrypted: i=1; AJvYcCV9kRNMFU7gEu8UBTPtOKA0IZvdiBUUyeEQ78GxDgiysF1LUis4T6FllDJg0PSF/co2XncxcFB76/NYBQwjAG1X@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfNyzwWkyesISkBhhFQULr0VN8vdm4Yx3ZfQwR82zvW1fHOOjr
+	3lQ1CRQsrQlQa6JhPdcVxW/Z+c8EZvntPF3KzAEaU4Hf1XhQFlUJVdh4/xvUFi48otAmLXCUpUV
+	GGbB6ISYxGatyqAHdOEkhCgJY69tWnPJ805MxL6+MhbUJ+790Bap2CrcaxnUw2W1kAxYw7wMk
+X-Gm-Gg: ASbGnct3mQ6kzD1WalTb2bNELQg9b7LTwK+Mr004zbB5HqbmW/zEwarfEwq+4JfRNS0
+	ljoY9rLYqlAlOEgxdp3bh045+dtFduEk0FGTTnsIKoJECJ6yziQ7sZkVZXL+2LUg+BiupOIXWVB
+	vSG9lAlnzfN8rpBQn12ySTWuDIu7MgfLw6d+/WtAXa2lmi7wyInDV7EriPO/xxqA2c8lJ5gxZBn
+	nawbypsS0uFB1vDaqIx8eJdrHUFO0664G1thwqdv088ztDEwIcIBr58+t+YCWYfyTVVh9lnBe/i
+	8PXm0uol2dUuhYL0lxS0Br+AlrnUtZyRkavkmj4nmz1aLxmvWN/3
+X-Received: by 2002:a05:6214:1c0b:b0:6d9:2e46:dc35 with SMTP id 6a1803df08f44-6e243bf84c3mr422214506d6.25.1738673709601;
+        Tue, 04 Feb 2025 04:55:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF1a38N2TZdISEECvq/s7iOToAmmfm3GmVQAMYB+u0Kmi1Pw+6Ta7PfZF01eEC876vzaXAEXA==
+X-Received: by 2002:a05:6214:1c0b:b0:6d9:2e46:dc35 with SMTP id 6a1803df08f44-6e243bf84c3mr422214216d6.25.1738673709310;
+        Tue, 04 Feb 2025 04:55:09 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e254814029sm61998046d6.29.2025.02.04.04.55.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Feb 2025 04:55:08 -0800 (PST)
+Message-ID: <cb087202-3a64-428c-bba2-196a3612e5ff@redhat.com>
+Date: Tue, 4 Feb 2025 13:55:01 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA1PR04MB10889:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b7f189f-0f6b-44f7-3b19-08dd451957d5
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|1800799024|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0d4ODUvbFI1V1doME8wM2lHMzE4VEdKa2NjWlVmNFduSGc0VlE5ZkJmWTQ5?=
- =?utf-8?B?WW9Zc2cxaDFqc1owK1VRUFQ0V3dPbGRMT3JKU1dHSWpTZ2IvdWlqSGl0dmVi?=
- =?utf-8?B?eUwzTWZmVkN3aU43ZXIvbkNTUEQ1NmZWNnlWWDFRZjU2QnBwdWxyb2RHWG1K?=
- =?utf-8?B?dFZMOXppcUQ3ZnVYNXVkZjhsSmh2QjFNUTY3b1FpYjlIUDBMWkVlRzVNR1RU?=
- =?utf-8?B?WTVRN3pXb00xZlBTZVowTnVERkdUN0VWVk9JdHFBRCtzVi9YRDE4SmFPYllE?=
- =?utf-8?B?MURBeFVpeTZMNDhHVi9FZW5DRkJCeHRBRkJyNURPS0k0VFN3bU13NWZ6Wi9R?=
- =?utf-8?B?TEd1YzdwaGlpU2xYOHpjKzBDZEJodVlXeWIvY1VIRlhyOEtRUWZQR2IwYlg4?=
- =?utf-8?B?VWFXR0ZmcVc5UDJMWUNLTjNIQWc4WlB4MDZmc2xvRGE0SXUwRkpFUzN2bDl1?=
- =?utf-8?B?K0VhUyt3ZTE3a2FCdHpjM2U2R2NlMFh5MTJBRGtNRm9HWnd6VG8xVzBUc21C?=
- =?utf-8?B?NStVQWhuUFRvTDZVUm96am5CR2VkRERGMGxHU1lZZVJZN3pjdEt6OXNlNGJN?=
- =?utf-8?B?Z25NU3dpRTNwdmVhdk9EbldOelg5bFJJOXo0U1BWbkdTVEJwbnJYSzd6cEh3?=
- =?utf-8?B?YXdDWk1TK0swVmZqMU4vUjNhZ2NaTG51Qm1BSWNlZnVqcHR3VTZ2NlpNNDhG?=
- =?utf-8?B?NDY4aXk3R2YyVUNyQUozSDQ2UmRBWnRhYjFYT3NxMEs1RnlCWGZrb0tSZHJm?=
- =?utf-8?B?M0ZDSldab2Q0QWtzQmpvK2NuSzVONWFySWV1Tlk5ajd0SnRLK20wRS9icm14?=
- =?utf-8?B?TkpNaWdYV0ZDYnNmczlBblJwQlAyaldIcWE4bVdMcHJEMFBtQzRYMHNFZUk1?=
- =?utf-8?B?OFh6aWF6cTBrb1dJTmpTcTRNSk1hTVhCeTc0RzArTFNSWktybW1xVGhKWW1R?=
- =?utf-8?B?NnZPRzI5Y3R5WnpuSnJ2ZitVcXJLYk9LUVM0SmY3dUhvanpqTVEzQXQrem80?=
- =?utf-8?B?SDZXWU01UE82UU5kakM2SDJGZEV4WUpqaTJxU3M0MFhKYUs3eFBlK0pvNTda?=
- =?utf-8?B?WndFS29UL1YzYVY0eWxLak11Q2F3VGE4Q3ZLVUp2dC82N0hpY0tjWmxFdlB2?=
- =?utf-8?B?OWZNU0RoaXBYOU96U2pQbkdCUk1ub1AwWmxRNnRsSEVaSU81TEx4OS9BYVd6?=
- =?utf-8?B?dUVqWmpZUm5NMkwrYUN2cUdnRVA5b0NsbnBzSmp0cTJqNW44WWRZYTJCOWdi?=
- =?utf-8?B?ODhLSDFYOEljQjZ5N2FWdXIxajFXc1hCbWp2R3ZIM1RyM2JJdm5IeGQxYjR5?=
- =?utf-8?B?RFVPZmxhcStyZkw4RjlOcHppSmltRkRINU9EcGQxTGcrYU4veVRpSWFjbG1B?=
- =?utf-8?B?VFRFZUx6V2NsNHVQL3k0dmhQS2ZVOXRDL0FxUnhzNUxTL3hJcDBCZ1dNbmQ2?=
- =?utf-8?B?ekR4SlQwYWxXNnlVeTNtSEtsRVhmY2sxNXppRGl0MStabzRoU2NyQ2R0alFv?=
- =?utf-8?B?L21mdThYd09BdEFFWHhzVDZweGtSa1Frd1c4YjFvOC9TOWZ2bWxqQnE1QTdR?=
- =?utf-8?B?REJ0Z3Bjb1daMnpFbjhHSFYySWg3QVF2dUNZM0ZLdEVpdCtsTG85Vm03UTBq?=
- =?utf-8?B?NTVwSlllWC9oTnYvRFlBbnpUUXMwNDFwc1B3SVFER3hZcDgwWS9XYlVRVi9V?=
- =?utf-8?B?bkFUd1JMNW1ZaXVJbTVwRlhacEJKVWViS0hIRW8yekFEa3hMSHhtcGUwMllM?=
- =?utf-8?B?QTZudHIrUDFVQWxyRHBSMGpLclRmbk90UGxQZUxLcXZweVhVUS9VeDRPM1Fk?=
- =?utf-8?B?bXQyajRTb0c4YmZiVWZxQzF0RDhGNWpZeTZxNE5CNW9QVDNqRXZYRjJPdkxF?=
- =?utf-8?B?YTQzTUhYWGZxZjlSaUwrZ0lGWFJuS3FZbjJXZXVTL20rLzI2b1RvK2ZoSlZ1?=
- =?utf-8?Q?tgxphX0l/zTgg/6vPVrwcz/EsL02YmGe?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnJ6U1dxVll4UnJBYVE5bDM0Y29kZ1cwUndMN25nZ3NRYmhINGpFaiswNjhj?=
- =?utf-8?B?SFhmd0V1VkFnQzRlRklxY3FUTEZKeU14cGJUMEhxR3dycTNnemh4SDRzRFFh?=
- =?utf-8?B?VHF5Z3lGSk1mN1kwSXNxNENBbFp6T0tYNHRMZVZBVStyRDcyUkJYZXBzaDdX?=
- =?utf-8?B?QkYvTVFYZUtScnU2eXJHUEROZW5EYnNGVFBSNVc1MUtWY01oRDJSZHQ4SHh1?=
- =?utf-8?B?N29Kcm1ZU3ErcVowM1J4ak9KQ0F6SmczVDZiVEJtQ0cyVmlYV1orZy9mUzNE?=
- =?utf-8?B?TkgrUEc2Y3lEVGY4OVBURGpBcFJlZDVPeUlhQVp6TlFGYWhBbU9hS2pzb3lZ?=
- =?utf-8?B?bmZWRXBLQzArQlo1ZDZPZnlidjhETTFqaDlJaUdYMG5wL2x4MUJYTkFrbXYy?=
- =?utf-8?B?aHBiMExqOUFLWk5iQUpqUzJOQksyM3lEa3lQQVhhajJMZTIzTXRvbm9BYkR3?=
- =?utf-8?B?WHJOZkxkaTJMTEJ4dU5TQ2FBUVcrd1FJM3ByZlVVWkZMSkZyc3QxU3BUbmph?=
- =?utf-8?B?YUFzOWNHUytuY0piOUxQTGpORnVsNHR5d09abDV6LzlybWErcDZHSGxvbWcv?=
- =?utf-8?B?eVJpYVlnWi9SM3NrMHV0SjdaVS9GWDlOY25STGFFQThrSExoMjRIaGJGQjVh?=
- =?utf-8?B?cFN5ZUZMYnJ0aGlNa3RHVzcvaHd2akhYblNub3kyeVNYZGtod200UUJ4eitN?=
- =?utf-8?B?c2FIMUxDdXRLelp3dFNCczFpbzU3L0M3Z0NOcFhGU0NKT29ERjNjaERaS2RU?=
- =?utf-8?B?bDNvTjR2T2dMdEtzZG5GRFV0NmxjMUZ0MzBsaFd3NzhTSUUzZEZ2UXJSaDJO?=
- =?utf-8?B?VHNNNFFMNnVxc3F4ZElXMFp3K3poaSt6clIyNVM1Z0ZWQjlnd2tuYVJPTjEz?=
- =?utf-8?B?b0JlS1kxbHlsQjdaTXlnVkphdDdrcDFpOUs0b2FjZWRtc0pxTE4rZzdDaDNG?=
- =?utf-8?B?cUE1K0pjSFp1V1lIaHJaS2tBYVl5MlpoVXNPcVJhUVUvV2VSMXE0eDNrQzQy?=
- =?utf-8?B?cVRkSnMyVlZSQW4wMERRL1k2RG1CVER2bktWKzN6ZjNoZVd0WVFWRXhUcFFk?=
- =?utf-8?B?MDNjdzhyNnNIRnZWOG1zYytnaXJoVUk5aWxxS0gxSVFKdXN6aGkwMk1raWJT?=
- =?utf-8?B?V3hFaVVZa3VKMm90Rk5wZitGcmdwNzFucjFoU0tNZ1RiYTdMcTN2cWNxMGNV?=
- =?utf-8?B?T05iK3JnSTQwRmNtWFF2MGh5SitPR1ZlWGpYZTI1bUxFZzA0c0tXZm1QKzRv?=
- =?utf-8?B?OUZYN1hHL0hkaU1RNWNWZjBvQ1NLSmFuSkJCMjNHZndldUVkU3Z2UU9TUy9X?=
- =?utf-8?B?NGNud0hONUc5NHdnOUo4WDgyOE42T0QwZ2hhR09XWXlnbzV0SFh0azVrbUFR?=
- =?utf-8?B?WDlwN3VNYmx1NEFNZGMxemMrRlVPOVg3clFjSjhlRFN2czVvQXEyRzZRMWQ3?=
- =?utf-8?B?cmY4c216cStyT1Y5R3c3MituOUxka1NMR2tuWDRPR2NXaU9lWXJCRXlaRTNJ?=
- =?utf-8?B?dG80TFBzSEY0M0JiQ3g1bkVaY0ZFd2l0VWtva0M2TldmaHEzek1QRGZGU2p4?=
- =?utf-8?B?aDVDbXNZRVFBSExjUmxyYlJIaVJYbmRNSzlOeEw5QzJpZ3lTdWlmL3FyU3VG?=
- =?utf-8?B?aHMxVkJJQWxWTGRESyt1T29nN1VUS1NEdmVGYWZHOUsxdlNhWi9KaTdVRGh0?=
- =?utf-8?B?Z2ExNFlrM0h3N3laa2ZnYy9aUmxmTnhyWWtOeWYrNVlJVVc0bVlUMG5UTEpj?=
- =?utf-8?B?a3pjblN6YmJORkRYcGFLTVJnYzNxR0tOZFJFaGJJK0R6MXlQSnV3aE9Eemo5?=
- =?utf-8?B?bHd4ZUxlUm1TdGFQU0p0QzFNZDQ1bGVySWVOQVZiRURpUWJObjQ2SHdsOXoy?=
- =?utf-8?B?Z3N0R3BjQjJpMHRQNzZzOVU0RHhxQXhadnlLdThWSFpBYjg2dVR5RFNGM1Ew?=
- =?utf-8?B?QXBIZTFBNlhlQUR2WmRqMHd5Y3RhYTZPejRFV3p3clhHajBkYVJwZWtMaWh3?=
- =?utf-8?B?dzRSRDYvN2NwV1RkUVh6ZVJ4M1loNk1qY3FDamF6cFl3MDQydVExS0RTMG8r?=
- =?utf-8?B?T2dhT09KQXUyZ0l6UVdKWHRIUVdHaFpxWW1sdlhtdjg5VHRyajl5dVlWd1R4?=
- =?utf-8?Q?FK98zbOgCpnw+2WUs+gA1sMfM?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b7f189f-0f6b-44f7-3b19-08dd451957d5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 12:42:10.8040
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EmpIZe/fdSY7LbuKW/tJI719z01pw09eMoxT7OGBIXd45NVIAxt+YR1qptpQk2xwnDEQ7MvlzL9l/AxE14fIzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10889
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFCv2 00/13] iommu: Add MSI mapping support with nested
+ SMMU
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+ Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "kevin.tian@intel.com" <kevin.tian@intel.com>,
+ "tglx@linutronix.de" <tglx@linutronix.de>, "maz@kernel.org"
+ <maz@kernel.org>, "alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+ "joro@8bytes.org" <joro@8bytes.org>, "shuah@kernel.org" <shuah@kernel.org>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "yebin (H)" <yebin10@huawei.com>,
+ "apatel@ventanamicro.com" <apatel@ventanamicro.com>,
+ "shivamurthy.shastri@linutronix.de" <shivamurthy.shastri@linutronix.de>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "anna-maria@linutronix.de" <anna-maria@linutronix.de>,
+ "yury.norov@gmail.com" <yury.norov@gmail.com>,
+ "nipun.gupta@amd.com" <nipun.gupta@amd.com>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ "patches@lists.linux.dev" <patches@lists.linux.dev>,
+ "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+ "mdf@kernel.org" <mdf@kernel.org>, "mshavit@google.com"
+ <mshavit@google.com>, "smostafa@google.com" <smostafa@google.com>,
+ "ddutile@redhat.com" <ddutile@redhat.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <4946ea266bdc4b1e8796dee1b228bd8f@huawei.com>
+ <20250123132432.GJ5556@nvidia.com>
+ <de6b9dc1-dedd-4a3d-9db7-cb4b8e281697@redhat.com>
+ <20250129150454.GH5556@nvidia.com>
+ <8e4c21b5-3b79-4f0b-b920-59b825c2fb81@redhat.com>
+ <20250129201307.GJ5556@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <20250129201307.GJ5556@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: agzChS_9syB9zpCRWWMCvj8XVxWaaIOgXz2zqGk-l3Q_1738673709
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_044213_376120_C1D7714C 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20250204_045513_575674_72A17233 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,123 +139,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Jason,
 
-Introduce "#access-controller-cells" to make OCOTP be an accessing
-controller, because i.MX Family OCOTP supports a specific peripheral
-or function being fused which means being disabled.
 
-Add the i.MX[95,93] OCOTP gate index.
+On 1/29/25 9:13 PM, Jason Gunthorpe wrote:
+> On Wed, Jan 29, 2025 at 06:46:20PM +0100, Eric Auger wrote:
+>>>>> This missing peice is cleaning up the ITS mapping to allow for
+>>>>> multiple ITS pages. I've imagined that kvm would someone give iommufd
+>>>>> a FD that holds the specific ITS pages instead of the
+>>>>> IOMMU_OPTION_SW_MSI_START/SIZE flow.
+>>>> That's what I don't get: at the moment you only pass the gIOVA. With
+>>>> technique 2, how can you build the nested mapping, ie.
+>>>>
+>>>>          S1           S2
+>>>> gIOVA    ->    gDB    ->    hDB
+>>>>
+>>>> without passing the full gIOVA/gDB S1 mapping to the host?
+>>> The nested S2 mapping is already setup before the VM boots:
+>>>
+>>>  - The VMM puts the ITS page (hDB) into the S2 at a fixed address (gDB)
+>> Ah OK. Your gDB has nothing to do with the actual S1 guest gDB,
+>> right?
+> I'm not totally sure what you mean by gDB? The above diagram suggests
+> it is the ITS page address in the S2? Ie the guest physical address of
+> the ITS.
+Yes this is what I meant, ie. the guest ITS doorbell GPA
+>
+> Within the VM, when it goes to call iommu_dma_prepare_msi(), it will
+> provide the gDB adress as the phys_addr_t msi_addr.
+>
+> This happens because the GIC driver will have been informed of the ITS
+> page at the gDB address, and it will use
+> iommu_dma_prepare_msi(). Exactly the same as bare metal.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- .../devicetree/bindings/nvmem/imx-ocotp.yaml       |  5 +++
- include/dt-bindings/nvmem/fsl,imx93-ocotp.h        | 24 ++++++++++++
- include/dt-bindings/nvmem/fsl,imx95-ocotp.h        | 43 ++++++++++++++++++++++
- 3 files changed, 72 insertions(+)
+understood this is the standard MSI binding scheme.
+>
+>> It is computed in iommufd_sw_msi_get_map() from the sw_msi_start pool.
+>> Is that correct?
+> Yes, for a single ITS page it will reliably be put at sw_msi_start.
+> Since the VMM can provide sw_msi_start through the OPTION, the VMM can
+> place the ITS page where it wants and then program the ACPI to tell
+> the VM to call iommu_dma_prepare_msi(). (don't use this flow, it
+> doesn't work for multi ITS, for testing only)
+OK so you need to set host sw_msi_start to the guest doorbell GPA which
+is currently set, in qemu, at
+GITS_TRANSLATER 0x08080000 + 0x10000
 
-diff --git a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-index b2cb76cf9053a883a158acaf5eaa108895818afc..c78e202ced22f1c278f7be827b71ba434832d2a7 100644
---- a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-@@ -54,6 +54,11 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  "#access-controller-cells":
-+    const: 1
-+    description:
-+      Contains the gate ID associated to the peripheral.
-+
- required:
-   - "#address-cells"
-   - "#size-cells"
-diff --git a/include/dt-bindings/nvmem/fsl,imx93-ocotp.h b/include/dt-bindings/nvmem/fsl,imx93-ocotp.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..4b7fe5930331fc7e3be49f2674faf03c0a46d156
---- /dev/null
-+++ b/include/dt-bindings/nvmem/fsl,imx93-ocotp.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+
-+#ifndef _DT_BINDINGS_NVMEM_IMX93_OCOTP_H
-+#define _DT_BINDINGS_NVMEM_IMX93_OCOTP_H
-+
-+#define IMX93_OCOTP_NPU_GATE		0
-+#define IMX93_OCOTP_A550_GATE		1
-+#define IMX93_OCOTP_A551_GATE		2
-+#define IMX93_OCOTP_M33_GATE		3
-+#define IMX93_OCOTP_CAN1_FD_GATE	4
-+#define IMX93_OCOTP_CAN2_FD_GATE	5
-+#define IMX93_OCOTP_CAN1_GATE		6
-+#define IMX93_OCOTP_CAN2_GATE		7
-+#define IMX93_OCOTP_USB1_GATE		8
-+#define IMX93_OCOTP_USB2_GATE		9
-+#define IMX93_OCOTP_ENET1_GATE		10
-+#define IMX93_OCOTP_ENET2_GATE		11
-+#define IMX93_OCOTP_PXP_GATE		12
-+#define IMX93_OCOTP_MIPI_CSI1_GATE	13
-+#define IMX93_OCOTP_MIPI_DSI1_GATE	14
-+#define IMX93_OCOTP_LVDS1_GATE		15
-+#define IMX93_OCOTP_ADC1_GATE		16
-+
-+#endif
-diff --git a/include/dt-bindings/nvmem/fsl,imx95-ocotp.h b/include/dt-bindings/nvmem/fsl,imx95-ocotp.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..717152219c9890297440b74e11d67e2dc5da883a
---- /dev/null
-+++ b/include/dt-bindings/nvmem/fsl,imx95-ocotp.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+
-+#ifndef _DT_BINDINGS_NVMEM_IMX95_OCOTP_H
-+#define _DT_BINDINGS_NVMEM_IMX95_OCOTP_H
-+
-+#define IMX95_OCOTP_CANFD1_GATE		0
-+#define IMX95_OCOTP_CANFD2_GATE		1
-+#define IMX95_OCOTP_CANFD3_GATE		2
-+#define IMX95_OCOTP_CANFD4_GATE		3
-+#define IMX95_OCOTP_CANFD5_GATE		4
-+#define IMX95_OCOTP_CAN1_GATE		5
-+#define IMX95_OCOTP_CAN2_GATE		6
-+#define IMX95_OCOTP_CAN3_GATE		7
-+#define IMX95_OCOTP_CAN4_GATE		8
-+#define IMX95_OCOTP_CAN5_GATE		9
-+#define IMX95_OCOTP_NPU_GATE		10
-+#define IMX95_OCOTP_A550_GATE		11
-+#define IMX95_OCOTP_A551_GATE		12
-+#define IMX95_OCOTP_A552_GATE		13
-+#define IMX95_OCOTP_A553_GATE		14
-+#define IMX95_OCOTP_A554_GATE		15
-+#define IMX95_OCOTP_A555_GATE		16
-+#define IMX95_OCOTP_M7_GATE		17
-+#define IMX95_OCOTP_DCSS_GATE		18
-+#define IMX95_OCOTP_LVDS1_GATE		19
-+#define IMX95_OCOTP_ISP_GATE		20
-+#define IMX95_OCOTP_USB1_GATE		21
-+#define IMX95_OCOTP_USB2_GATE		22
-+#define IMX95_OCOTP_NETC_GATE		23
-+#define IMX95_OCOTP_PCIE1_GATE		24
-+#define IMX95_OCOTP_PCIE2_GATE		25
-+#define IMX95_OCOTP_ADC1_GATE		26
-+#define IMX95_OCOTP_EARC_RX_GATE	27
-+#define IMX95_OCOTP_GPU3D_GATE		28
-+#define IMX95_OCOTP_VPU_GATE		29
-+#define IMX95_OCOTP_JPEG_ENC_GATE	30
-+#define IMX95_OCOTP_JPEG_DEC_GATE	31
-+#define IMX95_OCOTP_MIPI_CSI1_GATE	32
-+#define IMX95_OCOTP_MIPI_CSI2_GATE	33
-+#define IMX95_OCOTP_MIPI_DSI1_GATE	34
-+#define IMX95_OCOTP_V2X_GATE		35
-+
-+#endif
+In my original integration, I passed pairs of S1 gIOVA/gDB used by the
+guest and this gDB was directly reused for mapping hDB.
 
--- 
-2.37.1
+I think I get it now.
+
+Eric
+>
+>> https://lore.kernel.org/all/20210411111228.14386-9-eric.auger@redhat.com/
+>> I was passing both the gIOVA and the "true" gDB Eric
+> If I understand this right, it still had the hypervisor dynamically
+> setting up the S2, here it is pre-set and static?
+>
+> Jason
+>
 
 
