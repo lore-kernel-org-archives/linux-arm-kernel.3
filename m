@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30D1C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 04:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D44C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tJ7T37wUF60uWDmHRPOEPkfYDiAWusUjyGekkVbrQEk=; b=yLn16PDDA2iZlIMgUtNp3PAQ83
-	N5UM/btJQKvxJH4CSs7vzP3eGvn+NEQ62pc63NwaR9HeFRvkp9T1k4nHCy6AlN8D5+q834Zap6OgA
-	x/o2bx0TH1i6lCT3hibbQhiCmOMKzbc/RTxtQLp0DCoQtp4q3a8NDQa574EF7Ut85C8AQ9c2hWqHb
-	cdrgW+5Pa36cpbNB5VTicZARJ2b1coZL/TGuFyTtAHjplNAWqminqwohmIycc/HhHMzhKbCAooq2E
-	EwrnEEK9sONMh6RAZ0jPfTbWKOM45pIrM+qa4Kotrbcb8WP+nuhzWS0L4ehJqOC+1WZFeG8jq3+ht
-	Eb9YBJew==;
+	bh=cOuO22YYIaWweJUMXvaEbV2UmeNHYwuM0IA/IwmrdKY=; b=pbbZPYmii0qqx2R84cH9Y2AjcG
+	WKzGmiXJXgJddzFTPWwyPpLsiOgsQuopXFnIfyqE2kcJpLVKxilh1mP7Gl+lZEyOsfm7NuO8nPpKi
+	gjSEJSiUMgMue6R3QkbCH8dsUuPZe6iSBmCyXDCe75fS+1u4cB7be4Q9Ibl5Yo391Ai/Pqak5GMjk
+	wqS/kjcQNa5Wdkb3D/n2ciq8lqpQR2VDJQojHDYyu/TS1HcwC2Y5HlE43J0I7oCaPuYSjvMJSszBO
+	Cap7BZqAbysZeU3PV6R5T3pULIi8mKuDDr8eclK5xsXHvSnHmu7Stg+Xamxs+el+eElk+JVCLLti0
+	2XM8UuQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfApZ-0000000HFQQ-0eA1;
-	Tue, 04 Feb 2025 04:46:37 +0000
-Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
+	id 1tfCAk-0000000HLCY-3vN9;
+	Tue, 04 Feb 2025 06:12:34 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfAoC-0000000HFNh-2RCU
+	id 1tfC9P-0000000HKt8-1ofW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 04:45:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1738644312; x=1770180312;
+	Tue, 04 Feb 2025 06:11:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738649471; x=1770185471;
   h=from:to:cc:subject:date:message-id:mime-version:
    content-transfer-encoding;
-  bh=3zy0L8jyvmOgTgcv1niUmquwu7TF0/oDLJMYtvZPfZc=;
-  b=DTzv8VwiFhGKyX8E0D8ha/VpIS8rNoYn2IjFJroxJwwt8dcXsaqjimPC
-   aIwaiVBH8SeUPf8sPrsobvmdBIJBhcOwRSgApird3WVsq3/XiipNdQL67
-   kw2w2Wrg1fIzOMT9Ikt2q/xm6YVhqD+qxXy+D5EqaSFL785d0kuQ73TaK
-   NFNGdrnGyekcCiL8Y0pjbpbS4qItgQUVmtqTrfvLONqD86iZ6M2hF25PK
-   pPbHrP6Exj27XXhtZQ7sjO1yNH2u9iS+5ISnbHq6a2saz9xn3zEpxrqyx
-   21IpWX2KBFFr1IyCHCdtdkGLX9CNSWEjluDATVwN84eT4uvZpIpPJDG2K
-   g==;
-X-CSE-ConnectionGUID: WlfAXwsPShOfVorbtM3gPA==
-X-CSE-MsgGUID: ISKKrcXwReyTVphRpIOXDQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11335"; a="167674613"
-X-IronPort-AV: E=Sophos;i="6.13,257,1732546800"; 
-   d="scan'208";a="167674613"
-Received: from unknown (HELO oym-r1.gw.nic.fujitsu.com) ([210.162.30.89])
-  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 13:45:06 +0900
-Received: from oym-m4.gw.nic.fujitsu.com (oym-nat-oym-m4.gw.nic.fujitsu.com [192.168.87.61])
-	by oym-r1.gw.nic.fujitsu.com (Postfix) with ESMTP id 61AFAD4808
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Feb 2025 13:45:04 +0900 (JST)
-Received: from yto-om4.fujitsu.com (yto-om4.o.css.fujitsu.com [10.128.89.165])
-	by oym-m4.gw.nic.fujitsu.com (Postfix) with ESMTP id 2BD42D4C10
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Feb 2025 13:45:04 +0900 (JST)
-Received: from sm-x86-mem01.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by yto-om4.fujitsu.com (Postfix) with ESMTP id B920540054BEE;
-	Tue,  4 Feb 2025 13:45:03 +0900 (JST)
-From: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	fj6611ie@aa.jp.fujitsu.com
-Subject: [PATCH v3] serial: amba-pl011: Implement nbcon console
-Date: Tue,  4 Feb 2025 04:44:28 +0000
-Message-Id: <20250204044428.2191983-1-fj6611ie@aa.jp.fujitsu.com>
+  bh=wFcpLZeR+9puSZ3enjCz0fy9g9uHT+CQiy08Uu+Q6Ec=;
+  b=DuwyASxf1kzPoxNiZ1QVWsrnAgJTbROWXG9KHqES/K5f924br59YnbLb
+   Iy/mW3fLuPH81F6Uljo4A2VN7Z3/EKYwi7cXN6Q1u1cl76pYJYpPl1MEU
+   MzYTMl11eZv1uyxtVghqsqJVKX420kBiI9//QCQ8g6W+SfZ6NidRm0a0N
+   N+vGTudktWjdHOJ3ft4Olc2l8SPOku2gsB/Y/l+9/N7ZgpGsy61BRv4WF
+   MA8ERQBTHCxtq3PFd+zSAQRwHUTMOdJqGTaTm618ycwYmpjPiczrdW2pz
+   wBPT7rX1t3PD/Tv56aRX0KyoeUrNjAInZUnDWCQkOaBJToIuvLI3jmlMe
+   Q==;
+X-CSE-ConnectionGUID: z6wVRxxtRyirBBCJ4jPASg==
+X-CSE-MsgGUID: ApepJz5+T1KWMHMWfqFJQA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579587"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="50579587"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:11:10 -0800
+X-CSE-ConnectionGUID: 6jwsG0/7QO+8MjZY2BO8oQ==
+X-CSE-MsgGUID: qq7r9d+hTXaVNxJRjccM7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
+   d="scan'208";a="110279139"
+Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
+  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:11:02 -0800
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+To: Simon Horman <horms@kernel.org>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Hans de Goede <hdegoede@redhat.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Serge Semin <fancer.lancer@gmail.com>
+Cc: x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next v6 0/7] Enable SGMII and 2500BASEX interface mode switching for Intel platforms
+Date: Tue,  4 Feb 2025 14:10:13 +0800
+Message-Id: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_204512_907895_9C6D6B90 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20250203_221111_517493_C4924583 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,249 +111,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the callbacks required for an NBCON console [0] on the
-amba-pl011 console driver.
+During the interface mode change, the 'phylink_major_config' function will
+be triggered in phylink. The modification of the following functions will
+support the switching between SGMII and 2500BASE-X interface modes for
+the Intel platform:
 
-Referred to the NBCON implementation work for 8250 [1] and imx [2].
+- xpcs_switch_interface_mode: Re-initiates clause 37 auto-negotiation for
+  the SGMII interface mode to perform auto-negotiation.
+- mac_finish: Configures the SerDes according to the interface mode.
 
-The normal-priority write_thread checks for console ownership
-each time a character is printed.
-write_atomic holds the console ownership until the entire string
-is printed.
+With the above changes, the code will work as follows during the interface
+mode change. The PCS will reconfigure according to the pcs_neg_mode and the
+selected interface mode. Then, the MAC driver will perform SerDes
+configuration in 'mac_finish' based on the selected interface mode. During
+the SerDes configuration, the selected interface mode will identify TSN
+lane registers from FIA and then send IPC commands to the Power Management
+Controller (PMC) through the PMC driver/API. The PMC will act as a proxy to
+program the PLL registers.
 
-UART register operations are protected from other contexts by
-uart_port_lock, except for a final flush(nbcon_atomic_flush_unsafe)
-on panic.
+Change log:
+v1 -> v2: 
+ - Add static to pmc_lpm_modes declaration
+ - Add cur_link_an_mode to the kernel doc
+ - Combine 2 commits i.e. "stmmac: intel: Separate driver_data of ADL-N
+ from TGL" and "net: stmmac: Add 1G/2.5G auto-negotiation
+ support for ADL-N" into 1 commit.
 
-The patch has been verified to correctly handle the output and
-competition of messages with different priorities and flushing
-panic message to console after nmi panic using ARM64 QEMU and
-a physical machine(A64FX).
-
-Stress testing was conducted on a physical machine(A64FX).
-The results are as follows:
-
-- The output speed and volume of messages using the NBCON console were
-  comparable to the legacy console (data suggests a slight improvement).
-
-- When inducing a panic (sysrq-triggered or NMI) under heavy contention
-  on the serial console output,
-  the legacy console resulted in the loss of some or all crash messages.
-  However, using the NBCON console, no message loss occurred.
-
-This testing referenced the NBCON console work for 8250 [3].
-
-[0] https://lore.kernel.org/all/ZuRRTbapH0DCj334@pathway.suse.cz/
-[1] https://lore.kernel.org/all/20240913140538.221708-1-john.ogness@linutronix.de/T/
-[2] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/T/
-[3] https://lore.kernel.org/lkml/ZsdoD6PomBRsB-ow@debarbos-thinkpadt14sgen2i.remote.csb/#t
-
-Signed-off-by: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
----
-This patch removes the legacy console code.
-Please comment if you have any concerns.
-
-Changes in v3:
-- Add stress test results to patch comments.
-- based on tty-next branch
-  https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git
-v2: https://lore.kernel.org/all/20250115052749.3205675-1-fj6611ie@aa.jp.fujitsu.com/
-
-Changes in v2:
-- Remove the module parameter used to switch between legacy and NBCON.
-- Remove codes for legacy console.
-- Fix build errors detected by the test robot.
-- based on 6.13-rc7
-v1: https://lore.kernel.org/all/20250108004730.2302996-1-fj6611ie@aa.jp.fujitsu.com/
-
-Thanks Greg for the comment.
----
- drivers/tty/serial/amba-pl011.c | 143 ++++++++++++++++++++++----------
- 1 file changed, 97 insertions(+), 46 deletions(-)
-
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 04212c823..9a9a1d630 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -272,6 +272,7 @@ struct uart_amba_port {
- 	enum pl011_rs485_tx_state	rs485_tx_state;
- 	struct hrtimer		trigger_start_tx;
- 	struct hrtimer		trigger_stop_tx;
-+	bool			console_line_ended;
- #ifdef CONFIG_DMA_ENGINE
- 	/* DMA stuff */
- 	unsigned int		dmacr;		/* dma control reg */
-@@ -2366,50 +2367,7 @@ static void pl011_console_putchar(struct uart_port *port, unsigned char ch)
- 	while (pl011_read(uap, REG_FR) & UART01x_FR_TXFF)
- 		cpu_relax();
- 	pl011_write(ch, uap, REG_DR);
--}
--
--static void
--pl011_console_write(struct console *co, const char *s, unsigned int count)
--{
--	struct uart_amba_port *uap = amba_ports[co->index];
--	unsigned int old_cr = 0, new_cr;
--	unsigned long flags;
--	int locked = 1;
--
--	clk_enable(uap->clk);
--
--	if (oops_in_progress)
--		locked = uart_port_trylock_irqsave(&uap->port, &flags);
--	else
--		uart_port_lock_irqsave(&uap->port, &flags);
--
--	/*
--	 *	First save the CR then disable the interrupts
--	 */
--	if (!uap->vendor->always_enabled) {
--		old_cr = pl011_read(uap, REG_CR);
--		new_cr = old_cr & ~UART011_CR_CTSEN;
--		new_cr |= UART01x_CR_UARTEN | UART011_CR_TXE;
--		pl011_write(new_cr, uap, REG_CR);
--	}
--
--	uart_console_write(&uap->port, s, count, pl011_console_putchar);
--
--	/*
--	 *	Finally, wait for transmitter to become empty and restore the
--	 *	TCR. Allow feature register bits to be inverted to work around
--	 *	errata.
--	 */
--	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr)
--						& uap->vendor->fr_busy)
--		cpu_relax();
--	if (!uap->vendor->always_enabled)
--		pl011_write(old_cr, uap, REG_CR);
--
--	if (locked)
--		uart_port_unlock_irqrestore(&uap->port, flags);
--
--	clk_disable(uap->clk);
-+	uap->console_line_ended = (ch == '\n');
- }
+v2 -> v3:
+ - Create `pmc_ipc.c` file for `intel_pmc_ipc()` function and 
+ allocate the file in `arch/x86/platform/intel/` directory.
+ - Update phylink's AN mode during phy interface change and 
+ not exposing phylink's AN mode into phylib.
  
- static void pl011_console_get_options(struct uart_amba_port *uap, int *baud,
-@@ -2472,6 +2430,8 @@ static int pl011_console_setup(struct console *co, char *options)
- 	if (ret)
- 		return ret;
+ v3 -> v4:
+ - Introduce `allow_switch_interface` flag to have all ethtool 
+ link modes that are supported and advertised will be published.
+ - Introduce `mac_get_pcs_neg_mode` function that selects the PCS 
+ negotiation mode according to the interface mode.
+ - Remove pcs-xpcs.c changes and handle pcs during `mac_select_pcs`
+ function
+ - Configure SerDes base on the interface on `mac_finish` function.
  
-+	uap->console_line_ended = true;
-+
- 	if (dev_get_platdata(uap->port.dev)) {
- 		struct amba_pl011_data *plat;
- 
-@@ -2555,14 +2515,105 @@ static int pl011_console_match(struct console *co, char *name, int idx,
- 	return -ENODEV;
- }
- 
-+static void
-+pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (!uap->console_line_ended)
-+		uart_console_write(&uap->port, "\n", 1, pl011_console_putchar);
-+	uart_console_write(&uap->port, wctxt->outbuf, wctxt->len, pl011_console_putchar);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt)
-+{
-+	struct uart_amba_port *uap = amba_ports[co->index];
-+	unsigned int old_cr = 0;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	clk_enable(uap->clk);
-+
-+	if (!uap->vendor->always_enabled) {
-+		old_cr = pl011_read(uap, REG_CR);
-+		pl011_write((old_cr & ~UART011_CR_CTSEN) | (UART01x_CR_UARTEN | UART011_CR_TXE),
-+				uap, REG_CR);
-+	}
-+
-+	if (nbcon_exit_unsafe(wctxt)) {
-+		int i;
-+		unsigned int len = READ_ONCE(wctxt->len);
-+
-+		for (i = 0; i < len; i++) {
-+			if (!nbcon_enter_unsafe(wctxt))
-+				break;
-+			uart_console_write(&uap->port, wctxt->outbuf + i, 1, pl011_console_putchar);
-+			if (!nbcon_exit_unsafe(wctxt))
-+				break;
-+		}
-+	}
-+
-+	while (!nbcon_enter_unsafe(wctxt))
-+		nbcon_reacquire_nobuf(wctxt);
-+
-+	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-+		cpu_relax();
-+
-+	if (!uap->vendor->always_enabled)
-+		pl011_write(old_cr, uap, REG_CR);
-+
-+	clk_disable(uap->clk);
-+
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void
-+pl011_console_device_lock(struct console *co, unsigned long *flags)
-+{
-+	__uart_port_lock_irqsave(&amba_ports[co->index]->port, flags);
-+}
-+
-+static void
-+pl011_console_device_unlock(struct console *co, unsigned long flags)
-+{
-+	__uart_port_unlock_irqrestore(&amba_ports[co->index]->port, flags);
-+}
-+
- static struct uart_driver amba_reg;
- static struct console amba_console = {
- 	.name		= "ttyAMA",
--	.write		= pl011_console_write,
- 	.device		= uart_console_device,
- 	.setup		= pl011_console_setup,
- 	.match		= pl011_console_match,
--	.flags		= CON_PRINTBUFFER | CON_ANYTIME,
-+	.write_atomic	= pl011_console_write_atomic,
-+	.write_thread	= pl011_console_write_thread,
-+	.device_lock	= pl011_console_device_lock,
-+	.device_unlock	= pl011_console_device_unlock,
-+	.flags		= CON_PRINTBUFFER | CON_ANYTIME | CON_NBCON,
- 	.index		= -1,
- 	.data		= &amba_reg,
- };
+ v4 -> v5:
+ - remove 'allow_switch_interface' related patches.
+ - remove 'mac_select_pcs' related patches.
+ - add a soft reset according to XPCS datasheet for re-initiate Clause 37
+ auto-negotiation when switching to SGMII interface mode.
 
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+v5 -> v6:
+- Remove 'mac_get_pcs_neg_mode' related patches. 
+  The pcs_neg_mode is properly handled by the
+  'net: add negotiation of in-band capabilities' patch series:
+  https://patchwork.kernel.org/project/netdevbpf/cover/Z08kCwxdkU4n2V6x@shell.armlinux.org.uk/
+- Using act_link_an_mode to determine PHY, as cfg_link_an_mode was not
+  updated for the 2500BASE-X interface mode, caused a failure to link up.
+- Clean up and standardize the interface mode switch for xpcs.
+
+v1: https://patchwork.kernel.org/project/netdevbpf/cover/20230622041905.629430-1-yong.liang.choong@linux.intel.com/
+v2: https://patchwork.kernel.org/project/netdevbpf/cover/20230804084527.2082302-1-yong.liang.choong@linux.intel.com/
+v3: https://patchwork.kernel.org/project/netdevbpf/cover/20230921121946.3025771-1-yong.liang.choong@linux.intel.com/
+v4: https://patchwork.kernel.org/project/netdevbpf/cover/20240129130253.1400707-1-yong.liang.choong@linux.intel.com/
+v5: https://patchwork.kernel.org/project/netdevbpf/cover/20240215030500.3067426-1-yong.liang.choong@linux.intel.com/
+
+Choong Yong Liang (6):
+  net: phylink: use act_link_an_mode to determine PHY
+  net: pcs: xpcs: re-initiate clause 37 Auto-negotiation
+  stmmac: intel: configure SerDes according to the interface mode
+  net: stmmac: configure SerDes on mac_finish
+  stmmac: intel: interface switching support for EHL platform
+  stmmac: intel: interface switching support for ADL-N platform
+
+David E. Box (1):
+  arch: x86: add IPC mailbox accessor function and add SoC register
+    access
+
+ MAINTAINERS                                   |   2 +
+ arch/x86/Kconfig                              |   9 +
+ arch/x86/platform/intel/Makefile              |   1 +
+ arch/x86/platform/intel/pmc_ipc.c             |  75 ++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   2 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 173 +++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  81 ++++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  13 ++
+ drivers/net/pcs/pcs-xpcs-wx.c                 |   4 +-
+ drivers/net/pcs/pcs-xpcs.c                    |  60 +++++-
+ drivers/net/phy/phylink.c                     |  10 +-
+ .../linux/platform_data/x86/intel_pmc_ipc.h   |  34 ++++
+ include/linux/stmmac.h                        |   3 +
+ 13 files changed, 450 insertions(+), 17 deletions(-)
+ create mode 100644 arch/x86/platform/intel/pmc_ipc.c
+ create mode 100644 include/linux/platform_data/x86/intel_pmc_ipc.h
+
 -- 
 2.34.1
 
