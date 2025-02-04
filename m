@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5C0C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AED6C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jpjq4HH/L303d8hbOgy1GctH27ZSA0LF9W5MJwsB/1w=; b=hdAEwenJw8XPTyU8DZCPI8BP2c
-	ohkOPfq9xbvzCocAtCF/cTgu72yZzsKbH+voDeQNwH5HPjUpX9ICPt8tOAtNT56Za2Q4gZ9BVWvpj
-	17z2Wn9uYmQ6vuV2FJq9856qzu4DcOxgemP4S9Tdhu23VIoD5Xrkes6LtZeaAJ/JCyHg8YPZLMdUe
-	bMamQkxYfNqAo73mN/f71JIr6SzVNk9rGj5cbCs8/F7d4iH7vaS6d0XFjHoxVDxX4YNbR+rIU1L5p
-	rIs64eQSAmKyi8Einaw57OpB4+gV9smYObV+JlqL9U9tGlR3h5AfxmIBMK6gsmTYjxSi+ttSAdNLQ
-	sNzWwpjg==;
+	bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=; b=p92g9S5sZDt6RT0p5USkvpvPdS
+	Z5WK6thgyu80sjFEubK6WvpFnJx/JVnrdcyL/svRHcP2KcHm8wulJgRd39IZvBBmNsVNqc/WfBHLe
+	UVQwtEMfKjF+I/+JvnVAWmTG42hr/L0Y9wEErVJlPdJLAGV7kU2/W0XFZzU0I+PimkK9HK/zyHva/
+	ANdyal70fA5zi9F716e1eStNla3vE6YL3f4wxPB24kQ/gONE/RioKV3AFwGBKydGOcar8qMa8rRoX
+	+48ATOMWam6uQKaN3ODXJ/xZ8eVPDo9kqhpwEtgbBedl5rnSlo9/GH/QM1Ie1EdLfKdFDRZg/3to0
+	wCzAvM5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfEho-0000000Ha0r-2rBP;
-	Tue, 04 Feb 2025 08:54:52 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tfEj8-0000000HaAg-1J5i;
+	Tue, 04 Feb 2025 08:56:14 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfEe2-0000000HZRL-1P12
+	id 1tfEe4-0000000HZS0-3Anl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 08:50:59 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-385e0d47720so252835f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 00:50:57 -0800 (PST)
+	Tue, 04 Feb 2025 08:51:01 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4361f09be37so6757035e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 00:51:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738659056; x=1739263856; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738659059; x=1739263859; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Jpjq4HH/L303d8hbOgy1GctH27ZSA0LF9W5MJwsB/1w=;
-        b=QruUi/IdUZ8mU/mlPeHEydFcWpV0kfs62A8vGaen7uxwLCmfyi2YPWaphWRDSbUExb
-         611eomlPIuO/1Kv67boGt/NDpVT0iVymhsQjqUBzx9KNnOCLIbBcsGGJS3EGt0rkNAR3
-         Y4vS/GDMDDBxYjpMvVMlxtgLnwoCeH2ioCtNXzcJQRt46xCKUv83yveuEkDz/BpmHtZQ
-         RAHrGjrYrdkouPCYuAA5YmD5ZLMpfieCahe7YHXZR4pvTKz2G563isOLt5Dr/6SA/Pzb
-         9Pa11nuIZpyqSbAp24bH0LrxvmG/XDN9D/kYFyD/M5W056yiFZgJfAzUy4pRmPIUgYAq
-         +0KA==
+        bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=;
+        b=QleFc4R8UQ35oPejn68bRur1fMuvIljuRzCQ8WC3jil8SIU+cPPSTPXIrVOyqSkkKv
+         j0d+zyxHxDlfKNfogefPXA6YyCGLJxBYv76GVVTXG9olyI5ctnt7ZStj8D0vbh1SNxbj
+         dOTHjB/J3If+ewZo27ZnMKhrZ75YGm3jEsKO2re9BuyH8jy8BAkEsr7KobxvhmxeXYwK
+         OeIfDl6CwCUyt4MPQlcxSnso8Z99pFOjXR05e1NJ+PwY4xfyAKnchBQ3KWb7pVT9GoKn
+         AbpQPIhAFUi9X+gUCz/w0V9p8BZ2uIhX3VzrteH03brJ8v70qwzG1nBESNbLNcTA2Bi2
+         Au1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738659056; x=1739263856;
+        d=1e100.net; s=20230601; t=1738659059; x=1739263859;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Jpjq4HH/L303d8hbOgy1GctH27ZSA0LF9W5MJwsB/1w=;
-        b=motkIQInUoeb+xCdXGpEx7N3PUEZ45oVjJCaJbSSktU8zel8kZKxj1I4eXmaNis7ci
-         gyOJhx1bEJXkYC7/erbZRGOOqIhktSCPi0S8OkPcifc3PmEstoFeCB8AEYi4dA3LdWMr
-         qf5nMG7M5v0lLowxBVRQ9aBdspZKWn0VaMtv0PWhv0VFsBT1HzMnOFzL6sxJk9bBE5UF
-         gIkX2zLkVk2WXbT6XeS6G83YHwk7VApab4ilE1rMpDekml92keQ4Ud43fw9YxfXTxUip
-         yThOnDbA+boqwh8xJUbW3v/WkJZYQ65Fk9xe207IQjzm0Sb64qKw5UplA9m8gK/rhqYq
-         ljDA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmeoD28W3MhpQyAgfc+oV2EGq9nurA6y5ssU5xZs4USupfJ7bAjNOO9Q2+mI6Rx3OGkOmI5Tn2r3FnzYot6BTA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQfQ+tCrj8hiDqQ6uXQdrS6iaPkMTKFf/QbOWaUsIbrvPmYBHj
-	Dm00lUgpgUMGGWAXUmzhF0j3FTmzShISuFyICGJvUxp4/xAeiWWkueqkvjM+uer1WWcQ+m5c6mF
-	G
-X-Gm-Gg: ASbGncv+x2sGxybKI6nnJs0rcotXqSEp0NRC8CXItI11VZxQbvifKlJttvui1eWjJQg
-	QJ6zbW0H5t95I+VqY9YHcR4UiR6xEAkjNdgHwnHhj965zyKKkiHt+c4qeXCmUZGR2irKDthn1nv
-	kss9nWbYecp1YcawWwQEM97kMxRzvBf1npr+swwhRQHNkLpe5jEuvnb4T1DzV5dvrAH8YGVdB7U
-	I7zIoNVbG22E0wChlgZJqPLjgYE8uT6JCWfiGPxYilQJdfb7quTnTOFMgiPwr59DxfVoTTR8uri
-	SZI7+hzjTzhljJ2ZENDPfEgcl7qumd8=
-X-Google-Smtp-Source: AGHT+IHdiae6H+/UVJL8cfd8QClyqaqjeHMTsfDKILCpxZ9f0zfpd+1iofPbuWssQnGq4TD+3TOuRA==
-X-Received: by 2002:a05:6000:188e:b0:38a:615c:8266 with SMTP id ffacd0b85a97d-38c5a4ac5e1mr6208751f8f.1.1738659056201;
-        Tue, 04 Feb 2025 00:50:56 -0800 (PST)
+        bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=;
+        b=ewtQ1UHtJ43mHmFC+o7EzbFl0WKUu10KcA8ZpKncRgCggsXOAr6vTz6Y7LnPZXQOWg
+         /+aGNP3KrLsT1QfXUUdxSXWlay2P6WulMVUeoFGCGdMoEpLCv2IqCSO6LRnRPV5MAnQ/
+         Xk2BBRuFxwyH8hqkEF0vBzcUSYv25iHvfBoCZOGzpHs8XrMv6l4OO4srIPkLqfikU/N3
+         GTMY/brmu/mTYQEsB3KBtOTLZDnUsw2OvW0RCIA2VsxS+nlc6zSzWSEmkgm1vDsMCV72
+         WDHWs8RVhezvj6J5UHqyo1uBJfFDPXXzsKsWzX4JueUqaxIoXHszOGabngeaFXMN0PxV
+         TbJA==
+X-Forwarded-Encrypted: i=1; AJvYcCX9MSIgogWx3AgNTSdBZOv2TbDXQ8aax+Tv2p2Q32ARUo3bKhbM7nEU9z6ZXeUWreOXAs9fOZVI/KCGIWoaO99s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyakohLR6Hx+c0Zj2p8wgEvn7cQ70ScAW40b9YMWx/5fjGBbJoH
+	PuszdAvnQwPzs242oPcqhlcjneg/vK2Alqi2R67pCoy0V2KYidy/HI0tQ6aXcOs=
+X-Gm-Gg: ASbGncvqrlHDW0pCC9ZoBPV5+Oux+d0IJFPwotmTaZCqQ9evoyZeulQIroVRnN7nYLM
+	aIl31fQbV1SiuKgIMRQVs47RAP3DHHIFL/mu6O/zj6zzBU2LexAw2s0hAtN6OKZED4RmyTY2qlg
+	7CkrCJJsN/gMnE7t7wrBIFA9TJ6tMTJxXOrYa8A4hrReFkkUpALSHXvJRBAhMmfh68oYNI6U0pj
+	kxlZe/tnLbfaje0u+oqBphQpY/lnDTuBH8DYoM5b08cS4SJ3P7eZKDSlflYN8+BKvXePXsMy62i
+	h6n6qHxAfQxQyXJ8ArnItLtcbDV98hU=
+X-Google-Smtp-Source: AGHT+IHYuKkYPbhh9kBPc87DdQpAZ9zcHEHdGkABawo/Qtr0EqGi6f6CTD8BUqoqUJP8UloWPAQavg==
+X-Received: by 2002:a05:6000:1848:b0:38d:9e86:2b24 with SMTP id ffacd0b85a97d-38da4e440aemr794591f8f.8.1738659059133;
+        Tue, 04 Feb 2025 00:50:59 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38daf27bbf5sm503066f8f.48.2025.02.04.00.50.54
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38daf27bbf5sm503066f8f.48.2025.02.04.00.50.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 00:50:55 -0800 (PST)
+        Tue, 04 Feb 2025 00:50:58 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org>
-References: <20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org>
-Subject: Re: [PATCH v4 0/4] Google Pixel 6 (simple) framebuffer support
-Message-Id: <173865905488.26600.14592491106010269073.b4-ty@linaro.org>
-Date: Tue, 04 Feb 2025 09:50:54 +0100
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
+References: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
+Subject: Re: [PATCH 0/2] Add CMU_PERIS support for Exynos990 SoC
+Message-Id: <173865905768.26600.7188664956285706035.b4-ty@linaro.org>
+Date: Tue, 04 Feb 2025 09:50:57 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_005058_372150_30A73E24 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250204_005100_796711_B3B619C3 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +107,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 17 Jan 2025 17:09:53 +0000, André Draszik wrote:
-> This series enables simple framebuffer support on Google Pixel 6 and
-> Pixel 6 Pro.
+On Sat, 04 Jan 2025 21:05:55 +0100, Igor Belwon wrote:
+> This small patchset adds support for CMU_PERIS for the
+> Exynos990 SoC.
 > 
-> Even if simple-framebuffer is deprecated and DRM should be used
-> instead, having it available in DT is beneficial for several reasons at
-> this point in time (the phone uses an OLED display):
-> * energy consumption goes down significantly, as it changes from white
->   (as left by bootloader) to black (linux console), and we generally
->   don't run out of battery anymore when plugged into a USB port
-> * less of a burn-in effect I assume
-> * phone stays cooler due to reduced energy consumption by display
+> Best regards
+> Igor
+> 
 > 
 > [...]
 
 Applied, thanks!
 
-[1/4] dt-bindings: arm: google: add gs101-raven
-      https://git.kernel.org/krzk/linux/c/2f88cffbfe61a9e257aa6d9cf03e1b9567cfc910
-[2/4] arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
-      https://git.kernel.org/krzk/linux/c/befbb62c61a5f5ef547355f2f726a0926916a12c
-[3/4] arm64: dts: exynos: gs101-oriole: move common Pixel6 & 6Pro parts into a .dtsi
-      https://git.kernel.org/krzk/linux/c/58dbafb73173a944657c4a0d480d2cce50bff2bd
-[4/4] arm64: dts: exynos: gs101-raven: add new board file
-      https://git.kernel.org/krzk/linux/c/825c4bfd5c526b6fd18c8ad8503761143c90a142
+[1/2] dt-bindings: clock: exynos990: Add CMU_PERIS block
+      https://git.kernel.org/krzk/linux/c/7fa119f5707f12f3ac00726345ea6b7a22977ab6
+[2/2] clk: samsung: exynos990: Add CMU_PERIS block
+      https://git.kernel.org/krzk/linux/c/3214e7c0cfd29b1f0d80e0a4708145326d759d68
 
 Best regards,
 -- 
