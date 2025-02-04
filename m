@@ -4,171 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E9AC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 13:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11597C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLXMBiSSzSTG76f00hlh7mWD3FzggG1NLO/4cs+LaDc=; b=wjslGhymMz5YrDpS0sKVAKLOdE
-	M+1KiFF9+7j+9SuSJlz4KuBM6CZ79ilAQ+xkXNFXj82vGZfs3TUGYHyaTx7Wi8o5tpO+jlWyIv2ZF
-	Yct6AYKDNXIhCdrKPqZRlTZIz8Q5taWWVn9wwEJ0Wvy0N1GvpSDP8guLrlBrJBDU/E7pDPD8y7fzw
-	XoQ7VSno54wpg5jcED8/iV4m4pN+iSrzXsKYxR1cxXFtPK+ZtYPxU8lcp4xi/7s2YbzV6b8Lc0PZc
-	rmiIiXy4RlyMhmbc3XzXrx6CkE/mdbdEM8jAB2+BGfr2cJyG4CaV+Xc/o9RfelkbdrrA3SofFGIb7
-	7+dw9GMA==;
+	bh=T+4Jbgsa10siagWeu7GUilflynCbBfw8j8UmixXQSDs=; b=CAtiB/RjNmD6+cygNO8F4jxRHs
+	OTZ7A4JO7ejYf7QahnOXnCA6z5wObuwOCcj30ofa1TcSKXyi7svXFIVxhYccqCrYvTFq8V1cb4wI1
+	PJijnQ46Q0B1cbBr/YWo8q/Xpu4lrHQdib30oHbavDhleURdABotuE2wKzXe5csKxQTwZyeUXTp4F
+	QUfWN4ZHq+grnhXnSxp80IbTZRZrrKqeDsUf4cC35bDJ1H8rWBMSdorb/8xmLhm081bhbXM5L2MNO
+	sCoxL6Z2weeBsAIFF9EetOJXY+mp6ESO6woLsM6UMrwB4Y060RsxWnI1Y4M5aLC3KHtsJDd2rqyPh
+	N7E40ceA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfJFV-00000000ZCd-32e9;
-	Tue, 04 Feb 2025 13:45:57 +0000
-Received: from mail-vi1eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2613::60d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tfJcd-00000000dtb-1qRE;
+	Tue, 04 Feb 2025 14:09:51 +0000
+Received: from mail-am0eur02on20617.outbound.protection.outlook.com ([2a01:111:f403:2606::617] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHuw-00000000PFb-3kGQ;
-	Tue, 04 Feb 2025 12:20:40 +0000
+	id 1tfJbI-00000000dfP-2Ctq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 14:08:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rLQfAKzyy/U7fYLN27/kutFmnBz4408E9oAnZn02FiJXyDNic0M1Cc9MVIKzMFuZF7bYwRLDtBYTz3mVBHSobukXDR6KYGptFjaRhtQk4ieToH6WGCNLr/Z0HHebqrzI0kDHrnU0P1eRMYP8zK3PhEHUNPRQNIo64mI2QDETxQhyWTiBTR7I9WNzW58SgOtbCLuJ11fnsH/aPeizkJy7d6712LIJ0zaijftmlQQW5t/oPzl7euZYmeT0if4khRInYMYGtZ85TxZBfHy0Yf3/mVYuMufmiZFkTbcSL+F9cMfVhLACh+yHmx9F7n9Kbve/9Xc4W0okBNLutI0Q+i3xbw==
+ b=cSBbgOZ+OzJROnVViF0IdziJaNZvIJX8IpWcg7oXSQ1RLqJqFrGD0PmgA13uVFoaSJLoBIGH+Rb5dr9weeXoW1UXmIHMPnUhc0B7/vBXw8tYzPm7rfnbaTs8vhx/efVZ9mbv8Tde7XOPkh2zLe0OODx5jTqdsjfz47LJfkXy6NQpgYhvMLPaGCoNLdJstnjNazwG608R/6mtI8xxN8x+kOyI8KmsaGJNrulXYgiYw0NSnq4fUj51ZIzEvOT54L6oOsN4QrdMaVbaIyT3fvhmGkm3Zd7V2ovD3+9g1T14NWU4wILVbG8w9cJtfJZJ2PqPI0goHk+0aPuIiHE3/txL1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XLXMBiSSzSTG76f00hlh7mWD3FzggG1NLO/4cs+LaDc=;
- b=WNpk+dPMviMmZ4wPEwDUqaWPB/PGDjTnBHHCjkmOe4MrHn4UqwmM2KXZDVCUUIcrCP+SyysmLd7zsLuQ9jrNpru0iLeZsa+moq5KKF8phuWMQYs55/QMlyc/7upbM3JM3Vem5y56ImBvjkGNWVi9QAzHrc9ycMXfxzEh+jkxUL705EqfCXvrxhw3kJlgZZj6yjmP2xnM2aMraKCz8l+gVZ3qAcWpMqGssE+OdG7xIDSCKnnlwgBl/b/jL6q5tFyDaLq9pfz2Wpumy27xUlkBEMN96jxYXycypT9n5G9z6pWPt+JaAAENMArscLZAs00tydZKHK6+Ot1ODd4jNo+/6w==
+ bh=T+4Jbgsa10siagWeu7GUilflynCbBfw8j8UmixXQSDs=;
+ b=O+xqOujE56szVorQnstECwPVIxpa+DfZvbskHLRR4UaPaxaBbtgUU9+G7FTMPgB4IwucM4aLsdyiG68W+zi7qtsTX5AayHo7xMdIrBiVghxslyP0UIafv8CI33DZ8NiWX61Ruj29M1DTy/YPt0g3czibVmcFJaobA6kPoBakL6ie0oOfGHmeZ7UYRIDnZ2F8JOg+IZiTAD0h8+fpnqSrTmArwdLEOOC08ugA+ICDzEgayIQANEFdUU7Up7UAlDdS+GU/RulQC61F8K+4uYv+ssDbkXOAG/LKs4RJioJ+Q2WJGQJWKiFJGMpSPE/zNWpjgzxvXfABbweJDeFxT1TnEg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
+ smtp.mailfrom=epam.com; dmarc=pass action=none header.from=epam.com;
+ dkim=pass header.d=epam.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=epam.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XLXMBiSSzSTG76f00hlh7mWD3FzggG1NLO/4cs+LaDc=;
- b=crbxqM5YPAl8OI4WlB3jmVIaee+/ef3dN0hEtNUAELLmxxDNOEjs7EOjpJqXotuVz6grUQDVrLJ/ldzMMXNdvqEjk28jNEYst1dmR629FteIIr0X3fFlKixfQ+4H9e/PeFD/odtxkkw0J7DpUiJeQOFTH44TGbJdM7yhkW0rAoQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by DB9PR04MB8432.eurprd04.prod.outlook.com (2603:10a6:10:243::9) with
+ bh=T+4Jbgsa10siagWeu7GUilflynCbBfw8j8UmixXQSDs=;
+ b=HdUtbArFQOho+yotDSVSbOv2oMZ09A6OH1pLd1C0b/Q7C0iDGQiLdBxN26joVQJcT44/WH1iqlAXwt3HvwdzUFuZHBjVbGq/DN4GKekqfml4ntKeMqrgqFM7nv9mWZLVuRdYer8g3jR3nSsiweo+cPfgBVfmHoLsLK7OYjOqKQhfQ7wUQxcGa+4asUW7pebbtrN4EeGJ9S3Ni8ax4hcBBmzK+DxbyY76EEEvNRTU3goG3jOZjqhOyQIADqRsx9K7RPY5EhPLlruYAtflcRlppQGO6znxLJyFZbQmSSx3wrOpE5/tRzdQ4fO97qx0if7RBhiNrM4O8W3pI3PjCQW5jQ==
+Received: from AS8PR03MB9438.eurprd03.prod.outlook.com (2603:10a6:20b:5a2::12)
+ by VI1PR03MB6576.eurprd03.prod.outlook.com (2603:10a6:800:19e::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
- 2025 12:20:31 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%3]) with mapi id 15.20.8398.021; Tue, 4 Feb 2025
- 12:20:31 +0000
-Message-ID: <3de1cc52-5579-41b1-a333-0c4e81f96fbd@cherry.de>
-Date: Tue, 4 Feb 2025 13:20:30 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add overlay tests for Rock
- 5B PCIe overlays
-To: Dragan Simic <dsimic@manjaro.org>, Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
- <20250131-pre-ict-jaguar-v4-3-c971e2852e8d@cherry.de>
- <77b5d0efa6e56bb391575aeeb4d1be80@manjaro.org>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.23; Tue, 4 Feb
+ 2025 14:08:20 +0000
+Received: from AS8PR03MB9438.eurprd03.prod.outlook.com
+ ([fe80::f90f:b790:a00:6803]) by AS8PR03MB9438.eurprd03.prod.outlook.com
+ ([fe80::f90f:b790:a00:6803%4]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
+ 14:08:19 +0000
+From: Dmytro Terletskyi <Dmytro_Terletskyi@epam.com>
+To: Marc Zyngier <maz@kernel.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+CC: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>, Volodymyr Babchuk
+	<Volodymyr_Babchuk@epam.com>, Joey Gouly <joey.gouly@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: timer: Always evaluate the need for a
+ soft timer
+Thread-Topic: [PATCH 1/3] KVM: arm64: timer: Always evaluate the need for a
+ soft timer
+Thread-Index: AQHbcaAkKn6xeubK/0aPUqfD8Bh0y7M3OToA
+Date: Tue, 4 Feb 2025 14:08:19 +0000
+Message-ID: <6e16e01d-73db-464f-b8c8-84539cdd5525@epam.com>
+References: <20250128161721.3279927-1-maz@kernel.org>
+ <20250128161721.3279927-2-maz@kernel.org>
+In-Reply-To: <20250128161721.3279927-2-maz@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <77b5d0efa6e56bb391575aeeb4d1be80@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0206.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e5::10) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=epam.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR03MB9438:EE_|VI1PR03MB6576:EE_
+x-ms-office365-filtering-correlation-id: 49e33f2b-8482-47d7-0d9a-08dd452560dc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?UUt1cjRpdndYZ0oydGxONnd5bFN0UlVHVWJxK0JpQUtjcENpUDQ3c3lsT0Nx?=
+ =?utf-8?B?SllNNEpNQ2NXMDY4dlRoK2FlV0JRdktKWFBnRFlEYmV4ZGVIRUxXZDllbTRz?=
+ =?utf-8?B?c1VFb3RpYU9sa3l6RFFYTlZtd0Rxa3NsQXNkN2xJZXFGQUh5dmxDc09lNmsv?=
+ =?utf-8?B?ak5uU1lkZGxmWjdtUjBna1NEbDNxWGlQZmd5RmFCOURGZnFiU3BKay94OWVh?=
+ =?utf-8?B?Nkl0TkRoaVlOTXNwcnZxSGw4V0ZjaHRPNDRUNnpENmlvNkZzOFE1TlVjMHd5?=
+ =?utf-8?B?S05JaStFYTVOd1pOYUl3czd3ZUNrRTFyRkxNNjI3K3NML3g0MnJ6TElmMTRT?=
+ =?utf-8?B?OW51S3I4cml3ZGhXb3ZQaWptQXZxaHpNQWRTUEh0WTNMRGdOSzVyTjZJUUtw?=
+ =?utf-8?B?d2FydUVub1FEV0RWTXVST3kzditVZ1ZVOXZlTUR6NlluYUVPMTk4M0NWWlBo?=
+ =?utf-8?B?dUlBamJ3ZDRJV3ZUVDRWVmpoRTlCdG85bDVUZThjaFFvOVlzVnhDSUZUR0p0?=
+ =?utf-8?B?U1BFUlk2NWZTQWsvMTBNY1kyOHYvdXA0L2QzVmN2em5JMExmMU14bVo1aTBL?=
+ =?utf-8?B?emwyNmozTG9rM0ZtWHNCYnZkb25zQklwVmxUcWQ3QWVnTWdNTG1Bd2gwMHF2?=
+ =?utf-8?B?TlJvTnBaZG9wSkdLNEp1RjFsR3ZpYmFiNXNnZStWQnVPMTJ2VENqSzNaaFV6?=
+ =?utf-8?B?eGk3NnRaeDk3L0dFMEVEcWp6TmZWaU0vb2Z6TVA0b2QzVFJpQkZobkpqU1Nk?=
+ =?utf-8?B?ZlAyVlZUNDJ6NWIwdGg1aWRxNjFHaCtoOVorc2twVlJvbkdQR2RycXVrT3gv?=
+ =?utf-8?B?aEVDYVEvRjlIMFFGNmhSNlZyM1ZrUkxxTENIVmFvQkpXUkNoTWJLdFNqVXFJ?=
+ =?utf-8?B?VktvaXJ5RmNnRldKRVZwcFpYUHFhLzZ3TjRFaDZRNGtaZXF6ejN1SlVJYSs1?=
+ =?utf-8?B?RDF5dnY1VVZkYWpFN1dVc1RVNEVDUjFNdTFLYkNyQlBveW5zMk00c01LSkRq?=
+ =?utf-8?B?YnU2ZUtyT1hRc1V0ZW80VW9DeEIwSHhBTzV6QjBtS0U0OFFOSFl1Z0kva1pR?=
+ =?utf-8?B?YzZmdnd0ZjZXZnREd2J5RzkwdzdIcTBJT1d0MjJmNGRZRE9sdVB5TVd0NW5y?=
+ =?utf-8?B?TEcvd1RPeTU1Q3FXSjBTdUpuSE5weXhCWUFiZzd0KzAzS0p1SzZDdWIyNmVD?=
+ =?utf-8?B?d2psV29uSFJuN0FKbEs3WjVwUG8yQ0xCWmoyaEMvYWtkYUhBdlZVVkdtTXBW?=
+ =?utf-8?B?VXJENkFBNHNNdDErUmNrTEJ4cEY0aERVR1ZmclVyZmdoMlh0Z2hvYTg3RjZ3?=
+ =?utf-8?B?YlBvQTVlR2E3QXFweTZJS1JoeklMY28xSjMwMnJzUW9wQlRwTFJQQlB0a2pZ?=
+ =?utf-8?B?LzA3Uk1xSmNjQXdqRzRGamN5RFNzZk9TWEthSGtQWXVEcFBHc2x6Ylp4dktU?=
+ =?utf-8?B?dzdxLzhZRkRSalFvYWpGVVV2QVRaLzBMZ0JaVXYydVZsQ3ZGcWYxcWtNYkJL?=
+ =?utf-8?B?RVVhNFRvVjIwNXFFWEw5YmZ6NGFXaTNZbXNQT1dITHN5ZTQ3MnhwS0VtOE1J?=
+ =?utf-8?B?ZHVjajRRQzczNXZ4SjQ0RGw2ZzR2N3Y5VG9UaXBDdEk3SjVzY3JTNDhIbm8y?=
+ =?utf-8?B?YnppVzRuZUxBOWtoTGZDSjFTSjIrSG5YWW5EQTNuTDN4Z1gwanNsZ3d1RjY4?=
+ =?utf-8?B?Z3VNR3Q4UnAxMjU1TTdNZTRPUmdweDNyVlpvSmFYZTM1ZDg0alB1Q0poeUZQ?=
+ =?utf-8?B?WUZvdWdneXcvc2REYWNqRHFodFl3VW93ZjBkWGhsbHlMekFjVFJqZ1JNN2VT?=
+ =?utf-8?B?OFpRTUZNbTFncklMU2FSQlh6Sk9zOTdkVXJEcGdkZytkR2dHOUM2R1U3UWZo?=
+ =?utf-8?B?YzZSZ1hKRnZTYzFuQmRWcStVOXBVYzdleCtPdnh3R0ZHU0NTRWRic3Nydkpn?=
+ =?utf-8?Q?TNghi77+t94vATsB9WUrh4zfmQNQjckv?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9438.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cFBMTWUyT0FYdE5DcVJENkxCdHBZTURJa09DckVnUXRmNUZYU2Vicmp4Tmtr?=
+ =?utf-8?B?Q3ErUmNqbkh0NWY2NURYUnMzQTNEVmpRdEhTK0o1ZS9iditGM0o3Ukg1RmJ1?=
+ =?utf-8?B?dTh2VWV6WUJUNC9DWHNCTVlrWWU4WTJpYzExZmZPN0UwOHNkRG0rRlV5UmxD?=
+ =?utf-8?B?QVlzM0hPZEVaMjFzd00yOThac3l6Yk1VZzNZb2VGNms5UDRPbkNpRkE0ZkJS?=
+ =?utf-8?B?cDZhNnljVGpwcW5MSVNPN21adzRET1BqOXRvMG5xanVUdzJHT3l0OThBamlZ?=
+ =?utf-8?B?TGMvQTc0NXAxYzBVN2U1VkxLWFBwRzg1VWp5RWRKMk5tTW1UMmpxZkJLWTI2?=
+ =?utf-8?B?a0VuQzNIeklBaStKSjJOUE41VTRwUCtxYU55WDNtQld3U2E5TG5ZdXphWHda?=
+ =?utf-8?B?V3VSeEp3QkhZeEtEWEhvQVYrUEp1UFVZM0h4MFdXSEdRZytYUHlzay8vVW9V?=
+ =?utf-8?B?d2o3ZFRVOFo0c1VWRWdrd0VLYWlZeWdjb2ZFbjgrNGVzanpvYWZnN25DR3FH?=
+ =?utf-8?B?QkJTVmlISDFtNlBUejlMOS9DWWNuRm5KZ1J1aGp2RDZTaVBJd2R2ZzNEeXhk?=
+ =?utf-8?B?d2tLWEVka2YyZVRIUytjQWRhQzlkU01VQUFVTDBjZGNsQzhZU0JXMGtJTFY5?=
+ =?utf-8?B?YzQxdWpmYnpBdDJDcGF5dHh1RGlqV0R0emozTHM0TTJYZk1wWFRtTmZGT09i?=
+ =?utf-8?B?L1Z1ZjVRQTlCK3ZiaWxTSlF2TE91THJwbkMzeDFzRm5XamlQZGpoZmxxVGlI?=
+ =?utf-8?B?bVJOWXNBY3NQYlNSdC9OWG1FVGxmbWt4YVgzL0dYRThkU0JieEViOFE3QXo0?=
+ =?utf-8?B?YW1iN2FQSU9od2dCekhzM2NlRGVCb1VnUkVQNlhRUkRTK1hjN2FxZkdBaE11?=
+ =?utf-8?B?S294bFgxRVdmREN2aGJJUk5aYmlqWld1TS9RT0JmZVFkUnJaUjU2aGo4Y0xu?=
+ =?utf-8?B?YW96bS9TOWtsVm1TYWhNTjZsMnhPdEtITEgvMk1WQ1RvTGxPQWIxMHRhME9P?=
+ =?utf-8?B?VGd4eGFKZzE5WEQ0NTZNbTA0MWIrUndPVU1vbUpkbFVGeS9qK2NiamdQdGJC?=
+ =?utf-8?B?L1dvSjFqOUlhTDFnUUdVekRtbHZzRFFQaDh5aEZoclhaZ3VydnlJUzdhYzB5?=
+ =?utf-8?B?Q2lIL1l4UzE3TnkxV1ZiUk1KcVJNYWZkbVBaREdrSjNHMGtkY3NzRm0vby9M?=
+ =?utf-8?B?aXp3ZXM2VmJja3VETlhnWjZCc2pkYUZwY3Z2MGRqNWpmQTNaemtGUUZ6NTUw?=
+ =?utf-8?B?cy9ZK1VyYTVSZGZzL1RDaWdteUl6UlZTQit4aGZBcXBwaTlwbmZTZXlCTjR2?=
+ =?utf-8?B?NEdOamhNQVN1UFRXajJIWC95K3o5SUZoeGZaYkdsVnJFalNoZ1dnY0JEL3lE?=
+ =?utf-8?B?TDNVdGE5L3o0RXc0Um83ZkNIMFhUWHA0MlFURFdKQzlrc3dIZWRlQTk2STNl?=
+ =?utf-8?B?K1k4aDVpQXNleHh4SWZhcnlvUG9oRFpjMzNKSWRzSzAvS2xsbyt1UjdmUWhK?=
+ =?utf-8?B?QzdSaXgzblIxbW9YSkN1ZHh3UFB5YjZPbkhDQTRKK3RuVWIrZVdOckN5WVQz?=
+ =?utf-8?B?VmhpUFJraFZMSEdIeXNjYnlWeFJYanpRVEV2OG1oaWl0c0RjOFk1SDcyVzZy?=
+ =?utf-8?B?RzRxUW5UL2I0NGFlZmh4ZS8wZWNqT0MvYUpkVWN6bFFOZUg5YUZnNzBTOW1R?=
+ =?utf-8?B?YkpYUEkyclBpVm1zVUpodVEwQ1hpcUxybFgxTHg4NkpiSUliTnY2am42SnZ1?=
+ =?utf-8?B?dDkweEQvNFMwbGJnZEtxdG51YzVVQjBPU0lURjJFL1lTVmpSaVNSM3ozQVRy?=
+ =?utf-8?B?Q255TGpIUzEzaFZiR1E2RXJ3QWFCTkhGUlIwNlUwZmlZS2paWlJOUS9zN1Bv?=
+ =?utf-8?B?UGhzVXVHV1NMNThPRDhIa2ZZL3RxY1lTK2pQNWRTd0JPajd1eTMxRWZod1Zp?=
+ =?utf-8?B?V0FlY2xwN1NReW12Y3pMaTU4bkFSZUc0US9GVkJJYlZKVEgwVjhqZDFYaDRy?=
+ =?utf-8?B?Tm1jWVRYaHFKTzl6enRCcjI5ZUZSOFlyWjFsd3FFeVhHeXZFWndTZGdnVFJz?=
+ =?utf-8?B?bDkwNEg5YXdDdTNETmVtU2p3ck0rQ2Q4NDZxK2JGdWFpVFR4VkFoN1padjNZ?=
+ =?utf-8?B?T05vTU9Cbjl5blpsWlNMNGNRbEVTMHM0NGlpSzJlZGlTbVg4MDR0Q3dyUmZX?=
+ =?utf-8?B?bVE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <FB1F490D62ABEF449C88337133A05227@eurprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DB9PR04MB8432:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3ac892af-e362-4d32-a668-08dd45165130
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TGF1bEMvTnQrWGU5VUlpQVdKWDhHNVRQQUpleUtvKzNBdWFQaVN2MzBEczcx?=
- =?utf-8?B?YlJUS2drSzVQN3Q4UUh2M1YzTnN5QWtaTjNlK28ybVBvNW5MSy9FRFJMeGlj?=
- =?utf-8?B?SCtBb2xOalBwWnNnZ1lBYzY2TmhINWVrTWtkazNZVjgzcVZHNGx6Vmdtdjd4?=
- =?utf-8?B?dHMxVmJYcTNjSSt0UlNBQ2NNeENFNmw3YTgyOXNUd0F6SmMzdHM1VUxxSjlF?=
- =?utf-8?B?aFVnVnU1YVlsNzlYSkNsaFdGVmhDVkx1Um5ocW0xenVuV1lqRVRhRUtCT0FU?=
- =?utf-8?B?VlNicXg1OGg4Z283aVZVM05TbWpoUDJId0hweG52TDdkdXk4YmxpUDVPcGhG?=
- =?utf-8?B?STNSWC8vOERVUnBVREJPbEFTd3RjeVhIalFEb3FPblpoV2VmcHB0Qm1wZzVL?=
- =?utf-8?B?cmN6RkNWM29KaTdDa1IvY1g3MnNVeUsrWEU2MThDdEZ0UFBFUmJ6YWxpYkJM?=
- =?utf-8?B?OFJ0THdwMm5jNjNmcjltcENvRWVjNnVDb1BuUTdnM2FhbkVpZmpKQnFrbTRV?=
- =?utf-8?B?Mlg5WU1FR1ppOVJHNEpNZm5RSDA3RnRxUkwvSmU0QUFISmVJVGd2emFoU0pn?=
- =?utf-8?B?azJ0THh2L3Zla1ZNUFVKWkplQXRIT0d0Sm1xS3F5ZlZCVFVDL3hwL1dnUDBt?=
- =?utf-8?B?Z0xpU0F4UTNmVGxYdkZQSDZWL21hQmNlNjZnWkpQeEhLeVJtTHVnNWNDZUo1?=
- =?utf-8?B?VFNxSUVlSTdwcDAxUW01d1YyT2dHbGxIdVBDYU91ZEc0ZFRNV3FJN044emc1?=
- =?utf-8?B?YUM5dkJiZ1NrQUZBNVowZFl4T3BmczFBUTVJMERNVjRoeXk0dkZia0lIVHRX?=
- =?utf-8?B?QWRzbXNEQmExa1lmY1ZXZHlCMUhrQmgrQWFrNmhnWTlJeGlEV2NON2RtRVht?=
- =?utf-8?B?YXlqM2JLUXFLbFdUSUxzYkpGNUpDd3F5SzJleXFhMG5YR2g5N0ZGQkQxQ05D?=
- =?utf-8?B?dW9RekxxWEo0UExiVnBmTDlCUTZaMU16ZHg3b3BqeDZjeXNmVTlIczRPUjZT?=
- =?utf-8?B?NGlMV1JTNjAxWXVCNmpueTUxWC9rMmk0VW1sejYzVDJGRENQaU1HbDFXQzQw?=
- =?utf-8?B?cWdOTC81anBZcWwrbmp3TnVwaE1kQXVocERhVFV1ZmNZV3ltc0VtVVVNaEho?=
- =?utf-8?B?MEZ3MWh0RVRRa3gxYzRBS1ArbEZnSGhOTC9hNXFjbE5tN2pBRWtZbXZXZEFO?=
- =?utf-8?B?ZWhoay9UQm9SSVpYZDcrVUpHZlBQSUNYcnd0WFdxam53d3lIZnRuU3pQU3By?=
- =?utf-8?B?K0RybWNkR3pQSmtYQ3Q0YzROV0lJSFBZM3FJTy9IZUdCZXVZYWIrVHlYRVR6?=
- =?utf-8?B?QkpGWjdyUkF0Yk84U0ZpTU82ZTBxK29WSzNwOS9wUThYMEtCYWM1OGU0R2Qr?=
- =?utf-8?B?bzIzM0JadTQ5dVI1bm10azlacXNoZTU5L01ITkFvKzRpUEF4aDBGc1RhbFFF?=
- =?utf-8?B?YnVSR3p1RDNLM1F6UXRtWmY0b1Q5ZXg1UmV2ZjVxeHcvT015VC9saXVVMzky?=
- =?utf-8?B?U21IdWIwMHRQazViRzhiZXRDQUljQkFHRWJ3Ri80RnMyS0Q1ZUdML3V5ZHp5?=
- =?utf-8?B?ZlZqT09iWjhZZERaTDZNZ0hzYlFMOHFMb2ZzaUNWZXNzc3dyc3hWT0hqbGdU?=
- =?utf-8?B?TWp3c0N2Wm5oYlVGb0I5L2xlQUh2VWZJbTBKc29BN2lOdTZsTHB6L3NrTTNj?=
- =?utf-8?B?L040bTdyaCtkV1I1QlFDNFQ1OVAyMzVadUl0bDZHYzUxWHB3NmtwaE9aWFBY?=
- =?utf-8?B?THNMV05UclFsdWFMMjA2Uys5cE1FYUt5Y25UN1NvUWd6bzBFa1RNQW1uVVVY?=
- =?utf-8?B?Q0lLQzgvckhhMXFLbm5EMGdxRTQwOER5YzBibmkrUUJCZXdVMWNQUWNDaGly?=
- =?utf-8?Q?RJXGX7Rxjdta8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Rm5Wc3NmSUxzNVJlZHY2cFVoUGNIUXl3WFVuNVUxUmU5dzlRQ3M0dU9nYjhX?=
- =?utf-8?B?M2VoRy9BdytjejBkM0V3Zk5Gc1dnbnJxVzRJeTJ1RU9MeEtJY2ZHZDBTMTVr?=
- =?utf-8?B?Z2FSUkdBQ1ovWElKSGFQbDEyYkZpUTJqR3JFTFAvSGNmZ1BvY1BzSk9jOWZY?=
- =?utf-8?B?c0c1ai9ab2Y3UzVMQzR1UFFjQVdNT3AyeU4yWHk2WTE2djJWcm5mRWwzMXZv?=
- =?utf-8?B?YmJ6TFJmTEtZS08rWVNjc0RsWGFKb1JnL0FRMGJlYzNpNjJORThERFNvRUMw?=
- =?utf-8?B?VGMwMmtvbFZ6aVhkcjhrbHJBMUFrOVF0SUgyL2Y3SGRTQmFXcXAyanVIQ0Mr?=
- =?utf-8?B?M2JBK1dJVCtVK0ZIM1d3TUJaNVlqT3g2RkJYczYrNi8wc1pxRUVJNXZnM1JH?=
- =?utf-8?B?SzFoTzVmb0QvekpwSnVBbkYxZ0o3NkJLdFlTQkFRK0s1dUdlMDR0Vnl1N2E3?=
- =?utf-8?B?VjlET1pOUkxpYkViaTZ4aCtjRVV5S3Z1YmN6ZUQ4aWprcUJjazA4Y25USWhO?=
- =?utf-8?B?cU1lUlRqWjFWeTYwdy9wU0tuVm9Da292aW92ZlVVdHJiYmJqallJemF0K0JV?=
- =?utf-8?B?ZzViQXVCcGVqa3NGNnZHenpseVBEWDRBcjdxRnNwQWFnSFdMeTJTRG1saEkx?=
- =?utf-8?B?SGFTUXpKZlZYRlVZdDZsRmt5bG9wN1pzZ0V4Nlk3MUZMOVJDUmVvcmUyTlVK?=
- =?utf-8?B?eDA1Rkg0MWdHU2l5Z2djNlJLUC83K0hNUGp4ZnhRdVpVajZZWjZQNThBN1ZD?=
- =?utf-8?B?UFNyczA2WHBCSno3NWJkVGFtSlNjdzZUbktsaTRrNzhsNEhzUGJYK0x4Wmth?=
- =?utf-8?B?VnJtQk1DVW1FS0xIOHlNVlNNdmtPMHM2c2RDMWlrQm8zR3BTOUs5cDZMOEFD?=
- =?utf-8?B?Wk1GdTFrQWQ4alpzLzBpOXJ1ZDlCTUVHRytGVUJYZDFQYzdDNTAwK0N3bW5x?=
- =?utf-8?B?azRlVzBZd25WS0VTRndzcXpBUVZRNFIvRGRPOFNwOXRtZ01PQ3BHeHQ4MFNI?=
- =?utf-8?B?emM4M0h6aWl1b3RnUFdKcWxnL2dnQitQNHV3VWp0M20reVpnNE96MXU0Z2Nh?=
- =?utf-8?B?WENSdnlzQ0orRHd3VmxYbUd6OTJteUZscmdNWWZnM1pLTWwvN1d6ZUEzWXZB?=
- =?utf-8?B?aDc5TzFlTEF0ZnlBVTZ6aitzZXJ0UHBrc3NxWTNaeWd1NGYwckVEakJ1QUgy?=
- =?utf-8?B?TDFZRUJnSDlvWlNhRHlURENjeG1pUkRQTWxRTktPZXVBcFViZWVUbDA0RnBO?=
- =?utf-8?B?VTFhVzZwdmUvMmNGRUtNb0Q4b1pDcVdCS254dXIxSmNJclo5akVFbTJWcTR3?=
- =?utf-8?B?UklkWnFqM0ZhdGJtci9oZXAvVnN3QkNqQjFpTWl0VDc0RnJaT3hPL0NZd3V4?=
- =?utf-8?B?ZWRoT1czS29vVlVhV0xaTkkvbHF1d21QOURvMVZsVjB6ZnF3S3lVbFdJS2JQ?=
- =?utf-8?B?cE0waVhwM2szQklDdnJoZUtzY3c2OTMybjNhaGhxL2U4QmRwcWtLRVFWK1pE?=
- =?utf-8?B?SGVhYVI1OG5Bdk1UK2x0b0NHYk1QNURIUzFFQjZMU2hIMjFZWFNIQll0Q2Nn?=
- =?utf-8?B?eHZ2MEdYVUtWOEl6U2x3UUk0QWQvK3lSTWpBSVcwMGlORW1jQlJVcnRuekNh?=
- =?utf-8?B?ZVdjbDJEdFJiWHN5U1NiNmhzbGVDWUJzSXFtV0JQSjl3UUtJTCtuS25RS3lo?=
- =?utf-8?B?b2g3dEl1dlpZMlplN2FNVnI5NHJyQ29MR3dZeWp4WlgvbFNlRVF4T2d3Nkhm?=
- =?utf-8?B?MTNpLzNRUENEcTRhU2hEcU11dTNyMUlUWGFlWHBnOG45YlY4WWJJYkZNU1NR?=
- =?utf-8?B?ck5WRkRub1lYSmJveHZrcDN5Z0RhY3J3eWpLSmlnZWxJWUtYYWhvS2NlczZ5?=
- =?utf-8?B?R3d4OUhVK2wyamdUTGlhcnlZMWJnUmpiMmZUQTFmRXlRZXNFc1R0TXloN3ZK?=
- =?utf-8?B?Y2d6VS9temt5bkUxNW5qdzhwaTQyK3pOOHJibUc1eHhJNlgyOGJWdDRSUGlS?=
- =?utf-8?B?elBITUtjME4rZm54Y0JlMFlYb1VRTmZ4OUtFOVBwZU9zWXc5TXdmVVZWaW53?=
- =?utf-8?B?eHFCaFRWOHJYMUEyL3ZiL3VUaENWalU0eVVFckJlRVNjRVhaaXZDNXJDK09I?=
- =?utf-8?B?a0hid2JYZS9IREx0Mi9NSGZWWDg2VWRMNDJ1RjZjdmlWRUhGN1c2NGh6bStZ?=
- =?utf-8?B?ZVE9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3ac892af-e362-4d32-a668-08dd45165130
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-OriginatorOrg: epam.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 12:20:31.2162
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9438.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49e33f2b-8482-47d7-0d9a-08dd452560dc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2025 14:08:19.7132
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hEPSXRsIp9VXKtVv5nb7athd+2oj3M4bt53XhkfFus/eK+6mE/PTwz+NXo5Z0fPeGa2SIfcFiIFuw+PrQ8Ib63c76/2byB5H7/StItwunx4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8432
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b41b72d0-4e9f-4c26-8a69-f949f367c91d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: eehlekW65Pq0yIeyQVFismMo6S3qfOnETVOs5bruzXqUT4oF4BX8sHBYDEQAgvXS7/qTAC+0PcwNNUCFmyy/qjrNvRnkCKayRDLlUIF8Rek=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB6576
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_042039_123756_35C2D58A 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20250204_060828_570132_76794FDF 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,249 +185,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan,
-
-On 2/4/25 12:22 PM, Dragan Simic wrote:
-> Hello all,
-> 
-> I'm sorry for being late to the party.  Please, see some important
-
-No worries, you don't owe me feedback in a timely manner, or at all :)
-
-> notes below;  to sum it up, we'll need to rework this a bit.
-> > On 2025-01-31 11:40, Quentin Schulz wrote:
->> From: Quentin Schulz <quentin.schulz@cherry.de>
->>
->> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
->> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
->> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs to
->> be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
->> another Rock 5B, the latter needs to apply the
->> rk3588-rock-5b-pcie-srns.dtbo overlay.
->>
->> In order to make sure the overlays are still valid in the future, let's
->> add a validation test by applying the overlays on top of the main base
->> at build time.
->>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Reviewed-by: Niklas Cassel <cassel@kernel.org>
->> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
->> ---
->>  arch/arm64/boot/dts/rockchip/Makefile | 10 ++++++++--
->>  1 file changed, 8 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
->> b/arch/arm64/boot/dts/rockchip/Makefile
->> index
->> 267966ea69b194887d59e38a4220239a90a91306..ebcd16ce976ebe56a98d9685228980cd1f2f180a
->> 100644
->> --- a/arch/arm64/boot/dts/rockchip/Makefile
->> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->> @@ -150,8 +150,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5- 
->> plus.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
->> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
->> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
->> @@ -186,3 +184,11 @@ rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=
->> rk3568-wolfvision-pf5.dtb \
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
->>  rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
->>      rk3588-edgeble-neu6a-wifi.dtbo
->> +
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
->> +rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
->> +    rk3588-rock-5b-pcie-ep.dtbo
->> +
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
->> +rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
->> +    rk3588-rock-5b-pcie-srns.dtbo
-> 
-> After a quite lengthy excursion into the scripts/Makefile.dtbs and
-> scripts/Makefile.lib files, I'm afraid that the approach taken in
-> this patch isn't right.  Please allow me to explain.
-> 
-> Let's have a look at arch/arm64/boot/dts/ti/Makefile first, as an
-> example that provides already existing DT overlay checks.  Here's
-> an excerpt from that Makefile, which also provides an important cue
-> by mentioning CONFIG_OF_ALL_DTBS:
-> 
->    12 dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
->    13 dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
->    14 dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
-> 
->   135 # Build time test only, enabled by CONFIG_OF_ALL_DTBS
->   136 k3-am625-beagleplay-csi2-ov5640-dtbs := k3-am625-beagleplay.dtb \
->   137         k3-am625-beagleplay-csi2-ov5640.dtbo
->   138 k3-am625-beagleplay-csi2-tevi-ov5640-dtbs := k3-am625- 
-> beagleplay.dtb \
->   139         k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
-> 
->   213 dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
->   214         k3-am625-beagleplay-csi2-tevi-ov5640.dtb \
-> 
-> As visible above, the DT overlays get added to dtb-$(CONFIG_ARCH_K3)
-> as .dtbo files (not as .dtb files), while the build-time DT overlay
-> tests specify the dependency chains for the overlays.
-> 
-> Even more importantly, the build-time overlay tests aren't supposed
-> to be executed until CONFIG_OF_ALL_DTBS is selected, which actually
-> gets handled at the very start of scripts/Makefile.dtbs:
-> 
->     3 # If CONFIG_OF_ALL_DTBS is enabled, all DT blobs are built
->     4 dtb-$(CONFIG_OF_ALL_DTBS) += $(dtb-)
-> 
-
-Do you have something to back your argument that build time tests should 
-only be done when CONFIG_OF_ALL_DTBS is enabled? For now this seems like 
-it's your interpretation of the use for the symbol. Though I agree that 
-if you had any test you absolutely didn't want to run in normal times, 
-hiding them behind CONFIG_OF_ALL_DTBS would be the thing to do.
-
-> The way this patch modifies arch/arm64/boot/dts/rockchip/Makefile
-> actually isn't correct, despite apparently producing the desired
-> outcome, because the way it adds rk3588-rock-5b-pcie-ep.dtb and
-> rk3588-rock-5b-pcie-srns.dtb (instead of adding proper .dtbo names)
-> to dtb-$(CONFIG_ARCH_ROCKCHIP) effectively creates some kind of
-> "phony targets" that indeed "get the job done", but unfortunately
-> in a wrong way.  The "phony targets" are handled by the following
-> "magic" in scripts/Makefile.dtbs:
-> 
->     6 # Composite DTB (i.e. DTB constructed by overlay)
->     7 multi-dtb-y := $(call multi-search, $(dtb-y), .dtb, -dtbs)
->     8 # Primitive DTB compiled from *.dts
->     9 real-dtb-y := $(call real-search, $(dtb-y), .dtb, -dtbs)
->    10 # Base DTB that overlay is applied onto
->    11 base-dtb-y := $(filter %.dtb, $(call real-search, $(multi-dtb- 
-> y), .dtb, -dtbs))
-> 
->    18 targets         += $(real-dtb-y)
-> 
-> Let's have a look at the relevant part of the output produced when
-> "make dtbs" is executed with this patch applied:
-> 
->    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtbo
->    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtb
->    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtbo
->    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb
-> 
-> Note the "OVL .*dtb" lines above, in which the ".*dtb" parts are
-> the above-mentioned "phony targets".  The above-quoted "magic" in
-> scripts/Makefile.dtbs is what "unfolds" those "phony targets" to 
-> make them apparently produce the desired outcome, by populating
-> the $(real-dtb-y) variable with "rk3588-rock-5b-pcie-ep.dtbo
-> rk3588-rock-5b.dtb rk3588-rock-5b-pcie-srns.dtbo", as the proper
-> .dtbo names that get passed to the dtc utility.
-> 
-> Even more "magic" in scripts/Makefile.dtbs "unfolds" the "phony
-> targets" to have the build-time DT overlay tests performed in the
-> apparently proper way, while they actually shouldn't be performed
-> unless CONFIG_OF_ALL_DTBS is also selected.
-> 
-
-I understand the symbol CONFIG_OF_ALL_DTBS as "should build all DTBs for 
-all architectures and do tests" and not "tests must only be run when 
-CONFIG_OF_ALL_DTBS is selected". I find it so useful to test the 
-application of overlays to the base DTB that I don't think it's 
-necessarily a good idea to hide those behind CONFIG_OF_ALL_DTBS.
-
-> With all this is mind, this patch should be reworked to follow
-> the right approach for defining build-time DT overlay tests, which
-> is illustrated in arch/arm64/boot/dts/ti/Makefile.  In particular,
-> we should just add the following DT overlay test definitions to
-> arch/arm64/boot/dts/rockchip/Makefile:
-> 
-> 174 # Build-time tests only, enabled by CONFIG_OF_ALL_DTBS
-> 175 rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
-> 176         rk3588-rock-5b-pcie-ep.dtbo
-> 177 rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
-> 178         rk3588-rock-5b-pcie-srns.dtbo
-> 179 dtb- += rk3588-rock-5b-pcie-ep.dtb \
-> 180         rk3588-rock-5b-pcie-srns.dtb
-> 
-> You'll notice that the $(dtb-) variable pretty much again contains
-> the same "phony targets", but that's the way they should actually
-> be used.  I'm not very happy with the way they're specified, but
-> we should follow the approach from arch/arm64/boot/dts/ti/Makefile
-> anyway, and possibly improve the whole thing later.
-> 
-
-What I don't like about this is that it allows to build the DTBO without 
-providing a build time application test which means maintainer(s) and 
-reviewer(s) need to pay even more attention to the patch than simply 
-looking at it matching the patterns of how other DTBOs are built. Also, 
-you now need to enable CONFIG_OF_ALL_DTBS to run the tests, which isn't 
-enabled in the default defconfig for arm64. I would assume we have some 
-bots building patches/master with those options enabled but it might be 
-a bit too late already.
-
-> I'd actually prefer to just have these test definitions added to the
-> end of arch/arm64/boot/dts/ti/Makefile, without moving the .dtbo lines
-> around.  That would keep the tests separate, which should be more
-> readable when we get more of them defined.
-> 
-
-And more likely to forget about adding either the tests or the DTBO 
-explicit rule.
-
-> With the above-proposed changes in place, and with CONFIG_OF_ALL_DTBS
-> selected, the relevant part of the "make dtbs" output looks like this:
-> 
->    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb
->    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtbo
->    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtbo
->    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtb
->    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb
-> 
-> No more "phony targets" in the produced output. :)
-
-Funnily enough, I would prefer to see OVL for overlays rather than DTC, 
-but I guess it's just one more occurrence of developers disagreeing on 
-how to name things :)
-
-I kind of disagree with the feedback here as this only takes ti/Makefile 
-as example while **all** other aarch64 Makefile have different logic, 
-the one I'm using here for amlogic (meson), NXP (freescale), qcom 
-(Qualcomm), Renesas, Xilinx and even Aarch32 NXP, and the one we 
-currently use (no build tests) for Mediatek.
-
-If we agree to what you suggest here we cancel the side-effect of having 
-the symbols in the base DTB that this patch series introduces. This can 
-go both ways, either good (DT symbols in = nothing to do for the user, 
-get the base DTB and your DTBO, put in /boot and tada) or bad (DT 
-symbols in = big size increase for base DTB). Moreover, enabling 
-CONFIG_OF_ALL_DTBS would now generate a different DTB than when it's not 
-(keeping the symbols in). If we wanted to keep the symbols in, we would 
-need to modify DTC_FLAGS as well.
-This could help make the decision(s) as well.
-
-So I would say without much more context on the actual expected use for 
-CONFIG_OF_ALL_DTBS that it's up to one's taste, and considering the 
-precedent here, likely up to each architecture maintainers' taste.
-
-I won't be too difficult to convince here, just want some "authority" or 
-a piece of history about CONFIG_OF_ALL_DTBS that would go your 
-direction, before doing the change. I believe automated build tests 
-without needing to enable a symbol, and that taking DTB and DTBO from 
-the build output and apply DTBO on top of DTB works without having to go 
-through some length to get the symbols, are good reasons to keep it the 
-way it is in this patch series.
-
-Additionally, depending on the feedback, I assume we want to migrate all 
-current architectures building DTBO to be consistent and use the same 
-logic (perhaps not for Mediatek because doing so would keep the DT 
-symbols in the DTB, which drastically increases the size of the DT).
-
-Does anyone from DT maintainership have feedback to provide on what is 
-expected here generally wrt building and testing DTBOs?
-
-Does Heiko have an opinion on what he would prefer to see happening for 
-Rockchip?
-
-Cheers,
-Quentin
+SGVsbG8sIE1hcmMuDQoNCk9uIDEvMjgvMjUgMTg6MTcsIE1hcmMgWnluZ2llciB3cm90ZToNCj4g
+V2hlbiB1cGRhdGluZyB0aGUgaW50ZXJydXB0IHN0YXRlIGZvciBhbiBlbXVsYXRlZCB0aW1lciwg
+d2UgcmV0dXJuDQo+IGVhcmx5IGFuZCBza2lwIHRoZSBzZXR1cCBvZiBhIHNvZnQgdGltZXIgdGhh
+dCBydW5zIGluIHBhcmFsbGVsDQo+IHdpdGggdGhlIGd1ZXN0Lg0KPg0KPiBXaGlsZSB0aGlzIGlz
+IE9LIGlmIHdlIGhhdmUgc2V0IHRoZSBpbnRlcnJ1cHQgcGVuZGluZywgaXQgaXMgcHJldHR5DQo+
+IHdyb25nIGlmIHRoZSBndWVzdCBtb3ZlZCBDVkFMIGludG8gdGhlIGZ1dHVyZS4gIEluIHRoYXQg
+Y2FzZSwNCj4gbm8gdGltZXIgaXMgYXJtZWQgYW5kIHRoZSBndWVzdCBjYW4gd2FpdCBmb3IgYSB2
+ZXJ5IGxvbmcgdGltZQ0KPiAoaXQgd2lsbCB0YWtlIGEgZnVsbCBwdXQvbG9hZCBjeWNsZSBmb3Ig
+dGhlIHNpdHVhdGlvbiB0byByZXNvbHZlKS4NCj4NCj4gVGhpcyBpcyBzcGVjaWFsbHkgdmlzaWJs
+ZSB3aXRoIEVESzIgcnVubmluZyBhdCBFTDIsIGJ1dCBzdGlsbA0KPiB1c2luZyB0aGUgRUwxIHZp
+cnR1YWwgdGltZXIsIHdoaWNoIGluIHRoYXQgY2FzZSBpcyBmdWxseSBlbXVsYXRlZC4NCj4gQW55
+IGtleS1wcmVzcyB0YWtlcyBhZ2VzIHRvIGJlIGNhcHR1cmVkLCBhcyB0aGVyZSBpcyBubyBVQVJU
+DQo+IGludGVycnVwdCBhbmQgRURLMiByZWxpZXMgb24gcG9sbGluZyBmcm9tIGEgdGltZXIuLi4N
+Cj4NCj4gVGhlIGZpeCBpcyBzaW1wbHkgdG8gZHJvcCB0aGUgZWFybHkgcmV0dXJuLiBJZiB0aGUg
+dGltZXIgaW50ZXJydXB0DQo+IGlzIHBlbmRpbmcsIHdlIHdpbGwgc3RpbGwgcmV0dXJuIGVhcmx5
+LCBhbmQgb3RoZXJ3aXNlIGFybSB0aGUgc29mdA0KPiB0aW1lci4NCj4NCj4gRml4ZXM6IDRkNzRl
+Y2ZhNjQ1OGIgKCJLVk06IGFybTY0OiBEb24ndCBhcm0gYSBocnRpbWVyIGZvciBhbiBhbHJlYWR5
+IHBlbmRpbmcgdGltZXIiKQ0KPiBTaWduZWQtb2ZmLWJ5OiBNYXJjIFp5bmdpZXIgPG1hekBrZXJu
+ZWwub3JnPg0KPiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KVGVzdGVkLWJ5OiBEbXl0cm8g
+VGVybGV0c2t5aSA8ZG15dHJvX3RlcmxldHNreWlAZXBhbS5jb20+DQo+IC0tLQ0KPiAgIGFyY2gv
+YXJtNjQva3ZtL2FyY2hfdGltZXIuYyB8IDQgKy0tLQ0KPiAgIDEgZmlsZSBjaGFuZ2VkLCAxIGlu
+c2VydGlvbigrKSwgMyBkZWxldGlvbnMoLSkNCj4NCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQv
+a3ZtL2FyY2hfdGltZXIuYyBiL2FyY2gvYXJtNjQva3ZtL2FyY2hfdGltZXIuYw0KPiBpbmRleCBk
+M2QyNDMzNjY1MzZjLi4wMzVlNDNmNWQ0ZjlhIDEwMDY0NA0KPiAtLS0gYS9hcmNoL2FybTY0L2t2
+bS9hcmNoX3RpbWVyLmMNCj4gKysrIGIvYXJjaC9hcm02NC9rdm0vYXJjaF90aW1lci5jDQo+IEBA
+IC00NzEsMTAgKzQ3MSw4IEBAIHN0YXRpYyB2b2lkIHRpbWVyX2VtdWxhdGUoc3RydWN0IGFyY2hf
+dGltZXJfY29udGV4dCAqY3R4KQ0KPiAgIA0KPiAgIAl0cmFjZV9rdm1fdGltZXJfZW11bGF0ZShj
+dHgsIHNob3VsZF9maXJlKTsNCj4gICANCj4gLQlpZiAoc2hvdWxkX2ZpcmUgIT0gY3R4LT5pcnEu
+bGV2ZWwpIHsNCj4gKwlpZiAoc2hvdWxkX2ZpcmUgIT0gY3R4LT5pcnEubGV2ZWwpDQo+ICAgCQlr
+dm1fdGltZXJfdXBkYXRlX2lycShjdHgtPnZjcHUsIHNob3VsZF9maXJlLCBjdHgpOw0KPiAtCQly
+ZXR1cm47DQo+IC0JfQ0KPiAgIA0KPiAgIAlrdm1fdGltZXJfdXBkYXRlX3N0YXR1cyhjdHgsIHNo
+b3VsZF9maXJlKTsNCj4gICA=
 
