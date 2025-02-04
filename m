@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617A3C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 19:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F84C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 19:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjzT0jwt3qHo9D11Dt/QfZ2CIwAlSsdVvix5GLESIKA=; b=1vzZf6rePQBCMYRdSATjjgIYYu
-	4UdeG1VB0D6bkVgWOu3uyNllAiKE+u1wet1YYcgVjTxqJ4fNbzY9EteMMGwlyC5z0oKw2MM9gn/md
-	ghYQaFIH9ZMDjUIeOBtOJA/9opdLIba8yYdzQ18dk43JYrycbE2lJZwEfeHHjuXuaxutUf1hkFSsb
-	OeEpZ/taGdWn3H6O81PIJxc8mkQe1Af3fxI/U7Ba6Kxnrsfw3pQEtmxhFvEudQn8zI+qffhscsgNc
-	e56Rp5dsQepwSfXRnIZBLKlwHw0q1Dz1+0e/CO/GpMqWQQQLo+34XxIyle85pSV38gI69xSNRO2iu
-	/lRXk/mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nvqbVT4drsM9WVhiv0bKb5eYbFkLe0Zn30rWSLoCYBQ=; b=5F1kryIm6sL/7QWRtN5uMRzzpo
+	mLUt/bpgTx0hgQzhzdMjCWmsOlT2zuXJyrTRyTDdxnkWkvjAPqUtakHQcH7ErZaZ6fMVbBcV+91BP
+	9+4E1ouWIHwmQC9JKYoTskjhR7mkuU33CjP81tDS1Rj/79OLQqfhN+tmFem5lXRUnC+kRorGQvtMC
+	SI8IAP9XzCcIPYHeRhPJ8PIhtoO2Vf1pwF58kEnS5PpR7Tpx0HI+6jxKnCL6NwW9r37Kv8IhI7LOn
+	fRi4ztv1XlOwpx1A5NcELADq70NcZKGBgiu86T89+iXDJ3c3h9pvPsOPOsTRuBSzk6NhJyZMLwzp8
+	l8ZUA/Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOpM-00000001OdQ-3jxC;
-	Tue, 04 Feb 2025 19:43:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfOqh-00000001P3o-05I9;
+	Tue, 04 Feb 2025 19:44:43 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOn9-00000001O3F-3lt0;
-	Tue, 04 Feb 2025 19:41:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0BD40A42C6F;
-	Tue,  4 Feb 2025 19:39:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D36C4CEDF;
-	Tue,  4 Feb 2025 19:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738698062;
-	bh=JsbdS+VSX2zerX1EGa50DMfTtA6lRcOiTssSk+CZwtw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PLk5XcgTS8zIYGhlOdpqvLx4nMj4veKaBYppmoKrbHGYIAvuUyOZOriXpu6u7jcp6
-	 Qq0HI9kRBtRc4Wazlq2oZzCd4xUmbqdToz1Xt3YhI9/ldRRKuAhGCKMuNAbrnAZi+J
-	 ydyRWaUDz+WW0sejDhltNYpgyEdzMl1RMhXuM4Nh4auUW8iviBusUT5afIZP/8PVpT
-	 pmrYnrSkIeQOWaiSGooPp4abObgc3ENmBLEwEqhWMiBPhdRZxrBfUWIQrcbNvSF57W
-	 23hj1qMA3ZA4tEQWPHURkDUc1Hn2g3eeVP9wi2GmmEU75igeGeDqEfNHPHGuL82EHv
-	 xZlyudll+yfUg==
-Date: Tue, 4 Feb 2025 19:40:58 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: mtd: physmap: Ensure all properties are
- defined
-Message-ID: <20250204-craftsman-sandbag-9fa200d77398@spud>
-References: <20250203213036.9816-1-robh@kernel.org>
+	id 1tfOnc-00000001OBK-1s34
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 19:41:33 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 514GEnp3029228;
+	Tue, 4 Feb 2025 19:41:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=nvqbVT4drsM9WVhiv0bKb5eYbFkLe0Zn30rWSLoCY
+	BQ=; b=s+ofY21FVrh+loGav4Xlib/QQJY4AJPd6+DmgQhYLISQYrF6CBWKatIgB
+	2QI777CUaNW70GG96x+OMTcc5mfBRhJptQOlVGhxI/P77xwNb/vPWZ59MHaLr8Ak
+	B83NdyicRNDcknn5+pmrGXoMJweGhYAUzxsBPqHoAmCBuBlz+dPACjaoBX0FyV5S
+	CiRUh7iEeVOrJ9n6uHBmi6m5cXpF0+7ExGWEf7BTYHvB6xAOnpXmOokbC9hIX+XW
+	e0z0Pt6vvVoxUtx0iQ2gGEZ2k6Hd/uuCwIG+hRWWzAn8ox/Nv1xG6sOwXqE0OEcm
+	C8p9j2PyDAD8bdRzA/W1F4LQdFslA==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44k8y9n2q3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Feb 2025 19:41:19 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 514HHdiF005310;
+	Tue, 4 Feb 2025 19:41:18 GMT
+Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44j05jvwyv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Feb 2025 19:41:18 +0000
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 514JfHp133096406
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 4 Feb 2025 19:41:17 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 69C5258043;
+	Tue,  4 Feb 2025 19:41:17 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 18EE55805D;
+	Tue,  4 Feb 2025 19:41:17 +0000 (GMT)
+Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Tue,  4 Feb 2025 19:41:17 +0000 (GMT)
+From: Ninad Palsule <ninad@linux.ibm.com>
+To: brgl@bgdev.pl, linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org,
+        openipmi-developer@lists.sourceforge.net, joel@jms.id.au,
+        andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+        eajames@linux.ibm.com, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        linux-gpio@vger.kernel.org
+Cc: Ninad Palsule <ninad@linux.ibm.com>, andrew@lunn.ch
+Subject: [PATCH v9 0/9] DTS updates for system1 BMC
+Date: Tue,  4 Feb 2025 13:41:03 -0600
+Message-ID: <20250204194115.3899174-1-ninad@linux.ibm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="KnjCQsogAgVBMdmo"
-Content-Disposition: inline
-In-Reply-To: <20250203213036.9816-1-robh@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: pFFpmevC1gL6Z0sj3MqonkpW3qUW5ai5
+X-Proofpoint-ORIG-GUID: pFFpmevC1gL6Z0sj3MqonkpW3qUW5ai5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-04_09,2025-02-04_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 bulkscore=0
+ mlxlogscore=657 suspectscore=0 lowpriorityscore=0 clxscore=1015
+ spamscore=0 mlxscore=0 adultscore=0 impostorscore=0 phishscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502040145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_114104_000475_3E4E34CB 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20250204_114132_488736_BD0EF199 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---KnjCQsogAgVBMdmo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please review the patch set version 9.
 
-On Mon, Feb 03, 2025 at 03:30:35PM -0600, Rob Herring (Arm) wrote:
-> Device specific schemas should not allow undefined properties which is
-> what 'additionalProperties: true' allows. Add the missing 'ranges'
-> property, and fix this constraint.
->=20
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  Documentation/devicetree/bindings/mtd/mtd-physmap.yaml | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Doc=
-umentation/devicetree/bindings/mtd/mtd-physmap.yaml
-> index 18f6733408b4..1b375dee83b0 100644
-> --- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-> +++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-> @@ -122,6 +122,8 @@ properties:
->    '#size-cells':
->      const: 1
-> =20
-> +  ranges: true
-> +
->    big-endian: true
->    little-endian: true
-> =20
-> @@ -143,8 +145,7 @@ then:
->    required:
->      - syscon
-> =20
-> -# FIXME: A parent bus may define timing properties
-> -additionalProperties: true
-> +unevaluatedProperties: false
+V9:
+---
+  - Fixed Author name.
 
-I dunno what that comment has to do with anything? If a parent bus
-defined properties, wouldn't they be in the parent bus?
+V8:
+---
+  - Updated subject line from bindings to dt-bindings
+  - Updated comment with reviewed by.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+V7:
+---
+  - Updated pattern in the ast2400-gpio.yaml
+  - Dropped "dt-bindings: net: faraday,ftgmac100" patch sending it
+    separately.
 
---KnjCQsogAgVBMdmo
-Content-Type: application/pgp-signature; name="signature.asc"
+V6:
+---
+  - Fixed dt_binding_check errors for ipmb-dev.yaml
+  - Changed the hog parsing pattern in ast2400-gpio
 
------BEGIN PGP SIGNATURE-----
+V5:
+---
+  - Improved IPBM device documentation.
+  - Added the hog parsing in ast2400-gpio
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6JtSgAKCRB4tDGHoIJi
-0u+EAPwLj8afRS9DROXhuBoSq8kHCpjNNFQq0nFa1KEOjQdxXwEAl20Xpr5iCHJo
-iVXHQHmfO7DLyTkbo9WTdRnmtgORsQY=
-=9cHz
------END PGP SIGNATURE-----
+V4:
+---
+  - Removed "Add RGMII support" patch as it needs some work from the
+    driver side.
+  - Improved IPBM device documentation.
+  - There is a new warning in CHECK_DTBS which are false positive so
+    ignored them.
+    arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: gpio@1e780000: 'hog-0', 'hog-1', 'hog-2', 'hog-3' do not match any of the regexes: 'pinctrl-[0-9]+'
 
---KnjCQsogAgVBMdmo--
+V3:
+---
+  - Fixed dt_binding_check warnings in ipmb-dev.yaml
+  - Updated title and description in ipmb-dev.yaml file.
+  - Updated i2c-protocol description in ipmb-dev.yaml file.
+
+V2:
+---
+  Fixed CHECK_DTBS errors by
+    - Using generic node names
+    - Documenting phy-mode rgmii-rxid in ftgmac100.yaml
+    - Adding binding documentation for IPMB device interface
+
+Ninad Palsule (9):
+  dt-bindings: ipmi: Add binding for IPMB device
+  dt-bindings: gpio: ast2400-gpio: Add hogs parsing
+  ARM: dts: aspeed: system1: Add IPMB device
+  ARM: dts: aspeed: system1: Add GPIO line name
+  ARM: dts: aspeed: system1: Reduce sgpio speed
+  ARM: dts: aspeed: system1: Update LED gpio name
+  ARM: dts: aspeed: system1: Remove VRs max8952
+  ARM: dts: aspeed: system1: Mark GPIO line high/low
+  ARM: dts: aspeed: system1: Disable gpio pull down
+
+ .../bindings/gpio/aspeed,ast2400-gpio.yaml    |   6 +
+ .../devicetree/bindings/ipmi/ipmb-dev.yaml    |  56 +++++++
+ .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 139 +++++++++++-------
+ 3 files changed, 147 insertions(+), 54 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
+
+-- 
+2.43.0
+
 
