@@ -4,106 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81542C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303FCC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MeYU+3uv6k6Cssp1ZC7j+z+Esroz7pYxNOescKL69w=; b=A9Zs+8Rfv8Mv7E+ENyfaeTo/gT
-	ORiuLNB/tzwtl+6Hr8oAm/FoqfUy8/i4ZAztVl4g7MXPqM041asrqJE01Cc8upfsv94+RBOxJiZH6
-	lQ4bS1MZVjko82bRSueHEdxVr3ws7yM47afnEdT8fn+KUxn8t95JkOC7HH+qUjqevYfUcamK2z4lD
-	MMhc1MrTh5WaVSsnEGZt0yDIjPUmghsF4nzzjqXSH7mxAjFkt76CzAARp5AEfSQDTxxKIYbVwtBzZ
-	RIrPX0BHpdWY4mwxi6pH7wi37mHrrFAFIHAFpYTCilfinWKXFmDAc5wVwEN/n/8D8C6SiRXoiBPkf
-	4ibDOFEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uZLq0+knVUAMR69CtfIjmrbkrQRjPDUAEJ3tJaBmXyo=; b=CC6mEahTtI7l7LI7Uz9eK4mJWs
+	Lt4WLqYyhy2GyKW3xkfbjLh5CyXz8glE+Mijhvq61n45FgoJb3ijaDQgK1oxSnbdKW/JeUxLslNuG
+	DiJlhBUEprOny6/dszBTSFcjzo9mmeBjE5ZalnPY59+jcXX3+CSKccbt4XBnSgINh3OvC+Uay8a0A
+	qQsAI3A5gx0XQwPRauRxyj2Md1e25B58MwMLWY0kjvgS2O1o9AE2MceBiFRbRsH0BDXGWuWH7fK/8
+	g5NDgzhp+fRrBuF+FtB2wesjAm0Is54eUXzgWDmX2wAUMB59skUOz0ya89on7wqVBx1sv8RYrCag9
+	g7WaYFzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfEAu-0000000HW5j-3AFq;
-	Tue, 04 Feb 2025 08:20:52 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tfEGk-0000000HWcS-3LVJ;
+	Tue, 04 Feb 2025 08:26:54 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfE9X-0000000HVvb-2vie
+	id 1tfEFP-0000000HWUi-1vLZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 08:19:29 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5147Zm7c014899;
-	Tue, 4 Feb 2025 09:19:17 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	6MeYU+3uv6k6Cssp1ZC7j+z+Esroz7pYxNOescKL69w=; b=RSvmR7FKbjuUC1Sp
-	KXTrFERd3CP+4m2VHDVLi/JNNDDDPO1haj1NCaLI+m/iQPKFtUejsTz1sWEhbS33
-	wSz52AepKxrXsixvTiFyA+EbNa99/3H4lJ35CvNO4W6jOlrRIkpgD3DOjWCHpX+u
-	x3HBKTxMS59nU8pGDanxyaXEpu2yVxXvOnZPPoJc5tolrNioK1VHExbSlclVU8e/
-	bOzPyqdGiOwsvmkG1cWq09xRSC5qI1QVfFJQUb/enH4RRxxQVXYkUeTd0hZolhgw
-	5DwrBpKz0gwShPCnjWA7+yOVghtFHSOVQuTRbPPGi+xepe7jOcjYVfHV5qqO1zfx
-	94jKYQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44jn0fnfv0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Feb 2025 09:19:16 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4156840054;
-	Tue,  4 Feb 2025 09:17:56 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 33BA9278A68;
-	Tue,  4 Feb 2025 09:16:25 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 4 Feb
- 2025 09:16:24 +0100
-Message-ID: <5f5f66a7-92ff-4a5c-9ad5-d113814da0b0@foss.st.com>
-Date: Tue, 4 Feb 2025 09:16:23 +0100
+	Tue, 04 Feb 2025 08:25:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738657532; x=1770193532;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=tA7E1mVpIymY3Lc0nR1S/UyBaq3G0W3boEmT/JwVfMw=;
+  b=EqX2Mz3bPaNOYMpdZ9SNP3k5MoZK/FZYPUduV1vJJHgLlupcLWBjDyKr
+   kj/GxrQg+DzUMtANcTY68hztHoOKcvD+4Vx0vveeMgZ37M+XUNM5trYWf
+   v6fhYphF2pcxY3TxWPMxfYviXe1BqueDQO28JnuXiQ43rC/2EA2gnmPMz
+   GMjvYLD0CgppKBB5HA8VOlBtp0Ar7vMDTnAueSY1RUWg2bv9LCHur6dlU
+   Yw2LhPNvV9YY4kGKWINya1QzBuKYGHuwif2TSAw+7MJ9MURtar7AMszZF
+   AY2uWuptOq4u8QqYuXGx554MUW9UqBwF7l18UR/kTTbcj44Uw2PVuAMt2
+   A==;
+X-CSE-ConnectionGUID: qsRTzdkuSMmqXN8PjqjEqA==
+X-CSE-MsgGUID: OwQcLt0zQ4W0ASTMsppArA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11335"; a="64524808"
+X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
+   d="scan'208";a="64524808"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 00:25:29 -0800
+X-CSE-ConnectionGUID: LTlwhQG9RVqR9pLXW0mgtw==
+X-CSE-MsgGUID: x3roqXnEQH+JzJtGCuS/0g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
+   d="scan'208";a="115543375"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.75])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 00:25:16 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Tue, 4 Feb 2025 10:25:12 +0200 (EET)
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
+    Jose Abreu <Jose.Abreu@synopsys.com>, 
+    David E Box <david.e.box@linux.intel.com>, 
+    Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    "H . Peter Anvin" <hpa@zytor.com>, 
+    Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>, 
+    David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+    "David S . Miller" <davem@davemloft.net>, 
+    Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+    Paolo Abeni <pabeni@redhat.com>, 
+    Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+    Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+    Jiawen Wu <jiawenwu@trustnetic.com>, 
+    Mengyuan Lou <mengyuanlou@net-swift.com>, 
+    Heiner Kallweit <hkallweit1@gmail.com>, 
+    Russell King <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>, 
+    Richard Cochran <richardcochran@gmail.com>, 
+    Andrew Halaney <ahalaney@redhat.com>, 
+    Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, Netdev <netdev@vger.kernel.org>, 
+    platform-driver-x86@vger.kernel.org, 
+    linux-stm32@st-md-mailman.stormreply.com, 
+    linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v6 4/7] stmmac: intel: configure SerDes according
+ to the interface mode
+In-Reply-To: <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
+Message-ID: <71b15c65-4790-50e0-fa96-dbc42c90079f@linux.intel.com>
+References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com> <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/9] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <christophe.kerello@foss.st.com>
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-4-patrice.chotard@foss.st.com>
- <20250129-hilarious-glittering-mustang-fb5471@krzk-bin>
- <3660580d-72eb-45ca-8240-55557e334e37@foss.st.com>
- <951e4d16-2bb2-44b1-99e7-dd28349f20aa@kernel.org>
- <02b947e3-dd5c-4ee8-bd65-5775923fe33f@foss.st.com>
- <899675e8-4c2e-4ff2-a6af-854e0ec29bb6@kernel.org>
- <6ed4fa56-e7ee-4b6b-951b-61a92be5c6c2@foss.st.com>
- <6a639549-f8c8-4e36-8cfe-839f247780bb@kernel.org>
- <9073411a-38aa-4f82-95f5-474b0c3efed7@foss.st.com>
- <59b38b53-44c6-40ba-9344-de6de89532f6@kernel.org>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <59b38b53-44c6-40ba-9344-de6de89532f6@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-04_04,2025-01-31_02,2024-11-22_01
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_001928_051155_3B40EDB4 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20250204_002531_553188_87A95F2C 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,229 +105,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 4 Feb 2025, Choong Yong Liang wrote:
 
+> Intel platform will configure the SerDes through PMC api based on the
 
-On 2/4/25 08:50, Krzysztof Kozlowski wrote:
-> On 04/02/2025 08:29, Patrice CHOTARD wrote:
->>>>>>>>>> @@ -0,0 +1,190 @@
->>>>>>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>>>>>>>> +%YAML 1.2
->>>>>>>>>> +---
->>>>>>>>>> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32-omm.yaml#
->>>>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>>>>>> +
->>>>>>>>>> +title: STM32 Octo Memory Manager (OMM)
->>>>>>>>>> +
->>>>>>>>>> +maintainers:
->>>>>>>>>> +  - Patrice Chotard <patrice.chotard@foss.st.com>
->>>>>>>>>> +
->>>>>>>>>> +description: |
->>>>>>>>>> +  The STM32 Octo Memory Manager is a low-level interface that enables an
->>>>>>>>>> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
->>>>>>>>>> +  function map) and multiplex of single/dual/quad/octal 		SPI interfaces over
->>>>>>>>>> +  the same bus. It Supports up to:
->>>>>>>>>> +    - Two single/dual/quad/octal SPI interfaces
->>>>>>>>>> +    - Two ports for pin assignment
->>>>>>>>>> +
->>>>>>>>>> +properties:
->>>>>>>>>> +  compatible:
->>>>>>>>>> +    const: st,stm32mp25-omm
->>>>>>>>>> +
->>>>>>>>>> +  "#address-cells":
->>>>>>>>>> +    const: 2
->>>>>>>>>> +
->>>>>>>>>> +  "#size-cells":
->>>>>>>>>> +    const: 1
->>>>>>>>>> +
->>>>>>>>>> +  ranges:
->>>>>>>>>> +    description: |
->>>>>>>>>> +      Reflects the memory layout with four integer values per OSPI instance.
->>>>>>>>>> +      Format:
->>>>>>>>>> +      <chip-select> 0 <registers base address> <size>
->>>>>>>>>
->>>>>>>>> Do you always have two children? If so, this should have maxItems.
->>>>>>>>
->>>>>>>> No, we can have one child.
->>>>>>>
->>>>>>> For the same SoC? How? You put the spi@ in the soc, so I don't
->>>>>>> understand how one child is possible.
->>>>>>
->>>>>> Yes for the same SoC, in DTSI file, the both OCTOSPI child are declared 
->>>>>> but are disabled by default.
->>>>>
->>>>> But the child node is there anyway so are the ranges.
->>>>
->>>> if both child are disabled, omm-manager should be disabled as well, 
->>>> omm-manager alone makes no sense.
->>>
->>>
->>> Yes, it is obvious, but how is this related?
->>
->> As described in the commit message, OMM manages the muxing of the 2 OSPI buses 
->> (its 2 child), that's the relation.
-> 
-> Again, nothing related to our discussion.
-> 
-> You claim you can have only one child and we do not talk about child
-> disabled status here. So show me the product which have second address
-> space removed from *the SoC*.
-> 
->>
->> Do you want i add this directly in yaml file ?
-> 
-> 
-> No, I want the answer when is it possible to have only one ranges. What
-> such DTSI would represent - what real world hardware.
+API
 
-On our SoCs, there are always physically 2 OSPI instances, but one or two
-instance can be enabled in the DT.
-
-So we always have 2 ranges :
-
-  ranges:
-    description: |
-      Reflects the memory layout with four integer values per OSPI instance.
-      Format:
-      <chip-select> 0 <registers base address> <size>
-    minItems: 2
-    maxItems: 2
-
-Thanks 
-Patrice
-
-
+> provided interface mode.
 > 
->>
->>>
->>>>
->>>>>
->>>>>>
->>>>>> In the DTS board file, 0,1 or 2 OCTOSPI instance can be enabled depending of the board design.
->>>>>>
->>>>>> In our case, on stm32mp257f-ev1 board, one SPI-NOR is soldered on PCB, so only one OCTOSPI 
->>>>>> instance is needed and enabled.
->>>>>>
->>>>>> Internally we got validation boards with several memory devices connected to OCTOSPI1 and 
->>>>>> OCTOSPI2, in this case, both OCTOSPI instance are needed and enabled.
->>>>>
->>>>> I could imagine that you would not want to have unused reserved ranges,
->>>>> so that one indeed is flexible, I agree.
->>>>>
->>>>>>
->>>>>>>
->>>>>>>>
->>>>>>>>>
->>>>>>>>>> +
->>>>>>>>>> +  reg:
->>>>>>>>>> +    items:
->>>>>>>>>> +      - description: OMM registers
->>>>>>>>>> +      - description: OMM memory map area
->>>>>>>>>> +
->>>>>>>>>> +  reg-names:
->>>>>>>>>> +    items:
->>>>>>>>>> +      - const: regs
->>>>>>>>>> +      - const: memory_map
->>>>>>>>>> +
->>>>>>>>>> +  memory-region:
->>>>>>>>>> +    description: Phandle to node describing memory-map region to used.
->>>>>>>>>> +    minItems: 1
->>>>>>>>>> +    maxItems: 2
->>>>>>>>>
->>>>>>>>> List the items with description instead with optional minItems. Why is
->>>>>>>>> this flexible in number of items?
->>>>>>>>
->>>>>>>> If only one child (OCTOSPI instance), only one memory-region is needed.
->>>>>>>
->>>>>>> Which is not possible... look at your DTSI.
->>>>>>
->>>>>> It's possible. if one OCTOSPI is used (the second one is kept disabled), only
->>>>>> one memory-region is needed.
->>>>>
->>>>> Ack.
->>>>>
->>>>>>
->>>>>>>
->>>>>>>>
->>>>>>>> Another update, i will reintroduce "memory-region-names:" which was 
->>>>>>>> wrongly removed in V2, i have forgotten one particular case.
->>>>>>>>
->>>>>>>> We need memory-region-names in case only one OCTOSPI instance is 
->>>>>>>> used. If it's OCTOCPI2 and the whole memory-map region
->>>>>>>> is dedicated to OCTOSPI2 (OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
->>>>>>>>
->>>>>>>> We need to know to which OCTOSPI instance the memory region is associated
->>>>>>>> with, in order to check "st,syscfg-amcr" 's value which must be coherent 
->>>>>>>> with memory region declared.
->>>>>>>>
->>>>>>>> so i will add :
->>>>>>>>
->>>>>>>>   memory-region-names:
->>>>>>>>     description: |
->>>>>>>>       OCTOSPI instance's name to which memory region is associated
->>>>>>>>     items:
->>>>>>>>       - const: ospi1
->>>>>>>>       - const: ospi2
->>>>>>>>
->>>>>>>
->>>>>>> I don't think this matches what you are saying to us. Let's talk about
->>>>>>> the hardware which is directly represented by DTS/DTSI. You always have
->>>>>>> two instances.
->>>>>>>
->>>>>>>
->>>>>>
->>>>>> We have 2 instances, but both not always enabled.
->>>>>> In case only one is enabled, only one memory-region-names is needed.
->>>>>>
->>>>>> We must know to which OCTCOSPI the memory-region makes reference to, in order
->>>>>> to configure and/or check the memory region split configuration. That' swhy 
->>>>>> the memory-regions-names must specify if it's the OCTOSPI1 or OCTOSPI2 instance.
->>>>>
->>>>> Well, in that case two comments.
->>>>> 1. Above syntax does not allow you to skip one item. You would need:
->>>>> items:
->>>>>   enum: [ospi1, ospi2]
->>>>> minItems: 1
->>>>> maxItems: 2
->>>>>
->>>>
->>>> ok
->>>>
->>>>> 2. But this points to other problem. From the omm-manager node point of
->>>>> view, you should define all the resources regardless whether the child
->>>>> is enabled or not. You do not skip some part of 'reg' if child is
->>>>> missing. Do not skip interrupts, access controllers, clocks etc.
->>>>> If some resource is to be skipped, it means that it belongs to the
->>>>> child, not to the parent, IMO.
->>>>
->>>> I didn't get your point. 
->>>>
->>>> The resource declared in omm-manager's node pnly belongs to omm-manager
->>>> (reg/clocks/resets/access-controllers/st,syscfg-amcr/power-domains), regardless 
->>>> there are 1 or 2 children. None of them can be skipped.
->>>
->>> That's not true, you skip ranges and memory region.
->>
->> If i have correctly understood, you want a constraint on range and memory-regions properties ?
->> Is it what you expect ?
->>
->>   ranges:
->>     description: |
->>       Reflects the memory layout with four integer values per OSPI instance.
->>       Format:
->>       <chip-select> 0 <registers base address> <size>
->>     minItems: 1
->>     maxItems: 2
->>
->>   memory-region-names:
->>     description: |
->>       OCTOSPI instance's name to which memory region is associated
->>     items:
->>       enum: [ospi1, ospi2]
->>     minItems: 1
->>     maxItems: 2
->>
+> This patch adds several new functions below:-
+> - intel_tsn_lane_is_available(): This new function reads FIA lane
+>   ownership registers and common lane registers through IPC commands
+>   to know which lane the mGbE port is assigned to.
+> - intel_config_serdes(): To configure the SerDes based on the assigned
+>   lane and latest interface mode, it sends IPC command to the PMC through
+>   PMC driver/API. The PMC acts as a proxy for R/W on behalf of the driver.
+> - intel_set_reg_access(): Set the register access to the available TSN
+>   interface.
 > 
+> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |   2 +
+>  .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 107 +++++++++++++++++-
+>  .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  75 ++++++++++++
+>  include/linux/stmmac.h                        |   3 +
+>  4 files changed, 185 insertions(+), 2 deletions(-)
 > 
-> Best regards,
-> Krzysztof
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> index 4cc85a36a1ab..25154b915b02 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> @@ -307,6 +307,8 @@ config DWMAC_INTEL
+>  	default X86
+>  	depends on X86 && STMMAC_ETH && PCI
+>  	depends on COMMON_CLK
+> +	depends on ACPI
+> +	select INTEL_PMC_IPC
+>  	help
+>  	  This selects the Intel platform specific bus support for the
+>  	  stmmac driver. This driver is used for Intel Quark/EHL/TGL.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> index 48acba5eb178..347dd75bcdcd 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+> @@ -5,6 +5,7 @@
+>  #include <linux/clk-provider.h>
+>  #include <linux/pci.h>
+>  #include <linux/dmi.h>
+> +#include <linux/platform_data/x86/intel_pmc_ipc.h>
+>  #include "dwmac-intel.h"
+>  #include "dwmac4.h"
+>  #include "stmmac.h"
+> @@ -14,6 +15,9 @@ struct intel_priv_data {
+>  	int mdio_adhoc_addr;	/* mdio address for serdes & etc */
+>  	unsigned long crossts_adj;
+>  	bool is_pse;
+> +	const int *tsn_lane_registers;
+> +	int max_tsn_lane_registers;
+> +	int pid_modphy;
+>  };
+>  
+>  /* This struct is used to associate PCI Function of MAC controller on a board,
+> @@ -93,7 +97,7 @@ static int intel_serdes_powerup(struct net_device *ndev, void *priv_data)
+>  	data &= ~SERDES_RATE_MASK;
+>  	data &= ~SERDES_PCLK_MASK;
+>  
+> -	if (priv->plat->max_speed == 2500)
+> +	if (priv->plat->phy_interface == PHY_INTERFACE_MODE_2500BASEX)
+>  		data |= SERDES_RATE_PCIE_GEN2 << SERDES_RATE_PCIE_SHIFT |
+>  			SERDES_PCLK_37p5MHZ << SERDES_PCLK_SHIFT;
+>  	else
+> @@ -415,6 +419,103 @@ static void intel_mgbe_pse_crossts_adj(struct intel_priv_data *intel_priv,
+>  	}
+>  }
+>  
+> +static bool intel_tsn_lane_is_available(struct net_device *ndev,
+> +					struct intel_priv_data *intel_priv)
+> +{
+> +	struct stmmac_priv *priv = netdev_priv(ndev);
+> +	struct pmc_ipc_cmd tmp = {0};
+> +	u32 rbuf[4] = {0};
+> +	int ret, i, j;
+> +
+> +	if (priv->plat->serdes_powerup) {
+
+The logic could be reversed + return immediately to reduce the indentation
+of the block below.
+
+> +		tmp.cmd = IPC_SOC_REGISTER_ACCESS;
+> +		tmp.sub_cmd = IPC_SOC_SUB_CMD_READ;
+> +
+> +		for (i = 0; i < 5; i++) {
+
+Name the magic 5 with a define?
+
+> +			tmp.wbuf[0] = R_PCH_FIA_15_PCR_LOS1_REG_BASE + i;
+> +
+> +			ret = intel_pmc_ipc(&tmp, rbuf);
+> +			if (ret < 0) {
+> +				netdev_info(priv->dev,
+> +					    "Failed to read from PMC.\n");
+> +				return false;
+> +			}
+> +
+> +			for (j = 0; j <= intel_priv->max_tsn_lane_registers; j++)
+> +				if ((rbuf[0] >>
+> +				    (4 * (intel_priv->tsn_lane_registers[j] % 8)) &
+> +				     B_PCH_FIA_PCR_L0O) == 0xB)
+> +					return true;
+> +		}
+> +	}
+> +	return false;
+> +}
+> +
+> +static int intel_set_reg_access(const struct pmc_serdes_regs *regs, int max_regs)
+> +{
+> +	int ret = 0, i;
+> +
+> +	for (i = 0; i < max_regs; i++) {
+> +		struct pmc_ipc_cmd tmp = {0};
+> +		u32 buf[4] = {0};
+
+If you just want to have them initialized, it's enough to use {}, no dummy 
+0 is necessary.
+
+> +
+> +		tmp.cmd = IPC_SOC_REGISTER_ACCESS;
+> +		tmp.sub_cmd = IPC_SOC_SUB_CMD_WRITE;
+> +		tmp.wbuf[0] = (u32)regs[i].index;
+> +		tmp.wbuf[1] = regs[i].val;
+> +
+> +		ret = intel_pmc_ipc(&tmp, buf);
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int intel_config_serdes(struct net_device *ndev,
+> +			       void *intel_data,
+> +			       phy_interface_t interface)
+> +{
+> +	struct intel_priv_data *intel_priv = intel_data;
+> +	struct stmmac_priv *priv = netdev_priv(ndev);
+> +	int ret = 0;
+> +
+> +	if (!intel_tsn_lane_is_available(ndev, intel_priv)) {
+> +		netdev_info(priv->dev,
+> +			    "No TSN lane available to set the registers.\n");
+> +		goto pmc_read_error;
+> +	}
+> +
+> +	if (intel_priv->pid_modphy == PID_MODPHY1) {
+> +		if (interface == PHY_INTERFACE_MODE_2500BASEX) {
+> +			ret = intel_set_reg_access(pid_modphy1_2p5g_regs,
+> +						   ARRAY_SIZE(pid_modphy1_2p5g_regs));
+> +		} else {
+> +			ret = intel_set_reg_access(pid_modphy1_1g_regs,
+> +						   ARRAY_SIZE(pid_modphy1_1g_regs));
+> +		}
+> +	} else {
+> +		if (interface == PHY_INTERFACE_MODE_2500BASEX) {
+> +			ret = intel_set_reg_access(pid_modphy3_2p5g_regs,
+> +						   ARRAY_SIZE(pid_modphy3_2p5g_regs));
+> +		} else {
+> +			ret = intel_set_reg_access(pid_modphy3_1g_regs,
+> +						   ARRAY_SIZE(pid_modphy3_1g_regs));
+> +		}
+> +	}
+
+This looks somewhat ugly. Perhaps it would be better if you make the call 
+on main level of the function and use local variables to hold the regs 
+array and its number of elements until then.
+
+It would be even better if you could just store the pointer and # of 
+elements into some platform info structure so that it wouldn't need to be 
+calculated on the fly here (but I don't know this driver well enough to 
+know if that's viable/easy to do).
+
+> +	priv->plat->phy_interface = interface;
+> +
+> +	if (ret < 0)
+> +		goto pmc_read_error;
+> +
+> +pmc_read_error:
+> +	intel_serdes_powerdown(ndev, intel_priv);
+> +	intel_serdes_powerup(ndev, intel_priv);
+> +
+> +	return ret;
+> +}
+> +
+>  static void common_default_data(struct plat_stmmacenet_data *plat)
+>  {
+>  	plat->clk_csr = 2;	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+> @@ -650,7 +751,7 @@ static int ehl_sgmii_data(struct pci_dev *pdev,
+>  	plat->speed_mode_2500 = intel_speed_mode_2500;
+>  	plat->serdes_powerup = intel_serdes_powerup;
+>  	plat->serdes_powerdown = intel_serdes_powerdown;
+> -
+> +	plat->config_serdes = intel_config_serdes;
+>  	plat->clk_ptp_rate = 204800000;
+>  
+>  	return ehl_common_data(pdev, plat);
+> @@ -709,6 +810,7 @@ static int ehl_pse0_sgmii1g_data(struct pci_dev *pdev,
+>  	plat->speed_mode_2500 = intel_speed_mode_2500;
+>  	plat->serdes_powerup = intel_serdes_powerup;
+>  	plat->serdes_powerdown = intel_serdes_powerdown;
+> +	plat->config_serdes = intel_config_serdes;
+>  	return ehl_pse0_common_data(pdev, plat);
+>  }
+>  
+> @@ -750,6 +852,7 @@ static int ehl_pse1_sgmii1g_data(struct pci_dev *pdev,
+>  	plat->speed_mode_2500 = intel_speed_mode_2500;
+>  	plat->serdes_powerup = intel_serdes_powerup;
+>  	plat->serdes_powerdown = intel_serdes_powerdown;
+> +	plat->config_serdes = intel_config_serdes;
+>  	return ehl_pse1_common_data(pdev, plat);
+>  }
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+> index 0a37987478c1..79c35ba969ea 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+> @@ -50,4 +50,79 @@
+>  #define PCH_PTP_CLK_FREQ_19_2MHZ	(GMAC_GPO0)
+>  #define PCH_PTP_CLK_FREQ_200MHZ		(0)
+>  
+> +#define	PID_MODPHY1 0xAA
+> +#define	PID_MODPHY3 0xA8
+> +
+> +#if IS_ENABLED(CONFIG_INTEL_PMC_IPC)
+> +struct pmc_serdes_regs {
+> +	u8 index;
+> +	u32 val;
+> +};
+> +
+> +/* Modphy Register index */
+> +#define R_PCH_FIA_15_PCR_LOS1_REG_BASE			8
+> +#define R_PCH_FIA_15_PCR_LOS2_REG_BASE			9
+> +#define R_PCH_FIA_15_PCR_LOS3_REG_BASE			10
+> +#define R_PCH_FIA_15_PCR_LOS4_REG_BASE			11
+> +#define R_PCH_FIA_15_PCR_LOS5_REG_BASE			12
+> +#define B_PCH_FIA_PCR_L0O				GENMASK(3, 0)
+> +#define PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0		13
+> +#define PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2		14
+> +#define PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7		15
+> +#define PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10		16
+> +#define PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30	17
+> +#define PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0		18
+> +#define PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2		19
+> +#define PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7		20
+> +#define PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10		21
+> +#define PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30	22
+> +
+> +#define B_MODPHY_PCR_LCPLL_DWORD0_1G		0x46AAAA41
+> +#define N_MODPHY_PCR_LCPLL_DWORD2_1G		0x00000139
+> +#define N_MODPHY_PCR_LCPLL_DWORD7_1G		0x002A0003
+> +#define N_MODPHY_PCR_LPPLL_DWORD10_1G		0x00170008
+> +#define N_MODPHY_PCR_CMN_ANA_DWORD30_1G		0x0000D4AC
+> +#define B_MODPHY_PCR_LCPLL_DWORD0_2P5G		0x58555551
+> +#define N_MODPHY_PCR_LCPLL_DWORD2_2P5G		0x0000012D
+> +#define N_MODPHY_PCR_LCPLL_DWORD7_2P5G		0x001F0003
+> +#define N_MODPHY_PCR_LPPLL_DWORD10_2P5G		0x00170008
+> +#define N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G	0x8200ACAC
+> +
+> +static const struct pmc_serdes_regs pid_modphy3_1g_regs[] = {
+> +	{ PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_1G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_1G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_1G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_1G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_1G },
+> +	{}
+> +};
+> +
+> +static const struct pmc_serdes_regs pid_modphy3_2p5g_regs[] = {
+> +	{ PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_2P5G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_2P5G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_2P5G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_2P5G },
+> +	{ PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G },
+> +	{}
+> +};
+> +
+> +static const struct pmc_serdes_regs pid_modphy1_1g_regs[] = {
+> +	{ PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_1G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_1G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_1G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_1G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_1G },
+> +	{}
+> +};
+> +
+> +static const struct pmc_serdes_regs pid_modphy1_2p5g_regs[] = {
+> +	{ PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_2P5G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_2P5G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_2P5G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_2P5G },
+> +	{ PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G },
+> +	{}
+> +};
+
+Why are these arrays in a header and not in the C file that uses them???
+
+> +#endif /* CONFIG_INTEL_PMC_IPC */
+> +
+>  #endif /* __DWMAC_INTEL_H__ */
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index c9878a612e53..dcfa5f423d1c 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -236,6 +236,9 @@ struct plat_stmmacenet_data {
+>  	int (*serdes_powerup)(struct net_device *ndev, void *priv);
+>  	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
+>  	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
+> +	int (*config_serdes)(struct net_device *ndev,
+> +			     void *priv,
+> +			     phy_interface_t interface);
+>  	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
+>  	int (*init)(struct platform_device *pdev, void *priv);
+>  	void (*exit)(struct platform_device *pdev, void *priv);
+> 
+
+-- 
+ i.
+
 
