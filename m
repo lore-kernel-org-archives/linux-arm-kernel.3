@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3777C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9515FC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9rTdAG5UF7Ih/OQeEoy2G22JIJbqdv9IlO1Ri/2ivQ=; b=VPi2OcSw/dClx5d2bcpGOrosEt
-	OOajKoq5nHYXs3N7XC3oqHmbOzvGAnryoADTNprCtG/djXB7ksYcEpT0WuyCrfcfGtDWRYpNV0ElW
-	F9Hfj6KmdeLKJSAqCGJjsTrr6Fwnwo5XBNUexCT4DuWqrlgKGBJLbQhsOsrx4IxkxoomUkTNT87IS
-	vBqFd6WMCjPiHBXZnwWOFHVBOy1vLyVtPVeky5s+Iimp52DKHLXphAelR9t0pcO+l2CeZ7B2r0+tT
-	N8U1xood5z79GocEcqQQEJBPP7C6V3l1tvWbEQCQ36O4X20MAokiyrLFsCCXGMoQ/GFkXkJT6h57H
-	UlxL0wmw==;
+	bh=ew4DOVhQnp3KVlv6Z+adbVElEmJww+rFIUASaWfJwLQ=; b=LMNbQyObNaUpRYIrdOPWS8A23v
+	LibiuEgNhZZW7KYHpMzGI3f7pNjAtbqSMFrXim8Xq73m1/qoe3XUuqoFTjrjOQHKSN7fWf99aebSU
+	yoh8PdC2sEskJKXIuDI5+OygZ2rBf+jcI1JGngxKlKvYCgoQ2IvPVgzpr7ek6ZinvMubQ/IbzvJef
+	L9s5Ivm59I+AO7SIym8rGepJuF7HR9s1LqFhSzi+PwDVqy7BU/uyzutmXKcLPUtxjOkn9oyaT54Mk
+	IEi0DRfAw/+oSMqEzzO7AOIUzNXdZZ5nuGbaotsC7ivsRzaTnVIDoCJFWgX3ofYAxr3VPQAzZbZhg
+	uVZuyNxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfK7d-00000000gus-2Tmv;
-	Tue, 04 Feb 2025 14:41:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tfK8x-00000000h89-0wjf;
+	Tue, 04 Feb 2025 14:43:15 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfK6I-00000000gl9-46cy
+	id 1tfK6z-00000000gov-35fN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 14:40:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 320FE5C68DC;
-	Tue,  4 Feb 2025 14:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC59EC4CEDF;
-	Tue,  4 Feb 2025 14:40:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738680029;
-	bh=K3K81ZUsdcvBt8FPkEamsjtLAANfVjhwUkp09Y4A9wk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PmodcQAhZpkm1PXkfhZSEqlLlzST8emQr+GSqv5gy2/EQr4voknFicdsQjhBEkwaH
-	 ooDniH/G1DOI9dKkcx++9OiRHYAPO33eFjtXQVGX5ZkOLTBIkQXf2CCbW6foTaXqcI
-	 cBalQFSoTBkvUn/rk5u4FrnqgGpycCuSw4gKVA8IFrP72+1QtDPLfD/wIv6Qs8/3Ko
-	 CZv7pQ1Jc/s2lKAa6XDdSQlyPtlKhyAJuJdqJp6tca5HDWxOQeianmBFsatd7LGMWU
-	 4SsHdQFGfD5YI3tbygVV1WoHnn+1h22mFrUhV4jrvr2prIvpj355p1HTBWSpQoLO4N
-	 Keh8CNRbKdhhA==
-Date: Tue, 4 Feb 2025 06:40:25 -0800
-From: Kees Cook <kees@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: cki-project@redhat.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, akpm@linux-foundation.org,
-	masahiroy@kernel.org
-Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
- for-kernelci (6.14.0-rc1, upstream-arm-next, 2014c95a)
-Message-ID: <202502040638.5EF4863D8@keescook>
-References: <35056.125020404510900229@us-mta-503.us.mimecast.lan>
- <20250204111552.GA893@willie-the-truck>
+	Tue, 04 Feb 2025 14:41:14 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e53a91756e5so5690860276.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 06:41:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738680072; x=1739284872; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ew4DOVhQnp3KVlv6Z+adbVElEmJww+rFIUASaWfJwLQ=;
+        b=pbJigu6gjQBWPz3Bx2dNsYbFmGplRqYQqfR0sADhx07zjqCas/ljPf7ZaOMzr49t/L
+         I65SO+d30r/ERhSWKkQdUeJydAtrm3wvO3X1RLeWPoSKU2VEMNktJPnEzqdyF8MmnwLg
+         9bMIJ5qZGCpc1qGenqh0B8o15nzRDb9EBKcXKNL+zse/ZkOH9Tmp1jmBPm2WijzsInSz
+         936iRa94UEkDTzuZCFor4KoxvjmZlMrBHX90/CZVjnwWd4nXoGixyfBTgp80kHWzEZD7
+         VONmYHqDd+EavX8zbEgD8KjFE13psp6egfN+vTu0izZlBHqvhu3/zG+t8jF0tUQ2lZx5
+         zhfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738680072; x=1739284872;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ew4DOVhQnp3KVlv6Z+adbVElEmJww+rFIUASaWfJwLQ=;
+        b=QFTKU3FpfLff63bE8d1MtIqN6qtmQehW5A3T50HbLt6JywrpfnGLy8eR2PNvrhs5ek
+         PlTM2uMyirsy5hEV+ITplRen2X9IjxPuMQ8z8AhW2RCBVHk4OMZGEVpjgpWqdELGFZpV
+         uh1HUPPlpSJH4rDFarfEEpZ21kCUtSYMPXtkRVwxFUCQdKrIslLdYES3AuLz9beELTeJ
+         zUiyEyPE3HBoupnNak8d+oFbvCGuQMWKpofDR/xbvSonAy2Fu3tvNOMIa1whQRVNqLD/
+         r7M+e6A2D1KH9xWEZwhH6fl+RL9eQ7XVgpyZkYkYcAyZzXhp9PillS2f9CZv5zsTxl/t
+         pulg==
+X-Forwarded-Encrypted: i=1; AJvYcCXorrUjUSSz0FCz7L7Omv+Lr7NIqOh+19lIq+sTeu92eaAVAqspt5I/p3DY6RqRBV1xizssY17maTGBnUuSY8YE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBOeTuTlBY8ytdMKbcsB9/6MfY6++kE8VDsJ8rvlzbWxWQARso
+	9wwhTQX5AFxOdZwfqqJfAyMldaADBUDXVl+n4K7IVMHAkrihTxA2sUDO0F/b2wcw3gsRdFti4lz
+	q9acDfCsOJZeFsgGraplARpvERRv5jTxKtJLgaA==
+X-Gm-Gg: ASbGncsM/6u4to+AFZ7rNFoK24EcK/SvlO+qqHKK+zXxRs5pJ6d1JrizRtkm4hQAm65
+	LqUtyIh3jWybUy/kkL6Ajbo3djCCDoS5qGFU9Pg4klui4OQYTbbF3Q5AgGVQcyTGqoqZQZWFMuw
+	==
+X-Google-Smtp-Source: AGHT+IFB7VsIcSnlCga8NeUStj+nz7dcGdSq8KdqrAerawmVjHxlGaQ1qu1pYWqjA4/tsyCajzkdoxica/UvVlxL0Zk=
+X-Received: by 2002:a05:6902:e05:b0:e5b:1034:909 with SMTP id
+ 3f1490d57ef6-e5b10340af8mr5144143276.29.1738680071774; Tue, 04 Feb 2025
+ 06:41:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250204111552.GA893@willie-the-truck>
+References: <accb12bd6d048d95bd1feea07dd1a799ad3f8b31.1737532423.git.geert+renesas@glider.be>
+In-Reply-To: <accb12bd6d048d95bd1feea07dd1a799ad3f8b31.1737532423.git.geert+renesas@glider.be>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 4 Feb 2025 15:40:35 +0100
+X-Gm-Features: AWEUYZk6NgieIWPfpkG1IfqaDakdkwS41m6bUoTtDOf9y7ZpOmY6vlu_-K7SU_E
+Message-ID: <CAPDyKFrOa4hqGkwqGN9BwW0w2QP8S17EO6mSrQHqx+LLprkFxg@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: ti: Use of_property_present() for non-boolean properties
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, Rob Herring <robh@kernel.org>, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_064031_059360_E989A65F 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250204_064113_778487_628DC911 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,43 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 11:15:53AM +0000, Will Deacon wrote:
-> [+Kees]
-> 
-> On Tue, Feb 04, 2025 at 09:51:05AM -0000, cki-project@redhat.com wrote:
-> > Hi, we tested your kernel and here are the results:
-> > 
-> >     Overall result: FAILED
-> >              Merge: OK
-> >            Compile: FAILED
-> > 
-> > 
-> > Kernel information:
-> >     Commit message: Linux 6.14-rc1
-> > 
-> > You can find all the details about the test run at
-> >     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1654629441
-> 
-> It looks like the build fails thanks to a rust panic:
-> 
-> 00:00:10   EXPORTS rust/exports_helpers_generated.h
-> 00:00:11 panicked at main.rs:52:36:
-> 00:00:11 Unable to generate bindings: ClangDiagnostic("error: unknown argument: '-fzero-init-padding-bits=all'\n")
-> 00:00:11 make[4]: *** [rust/Makefile:332: rust/bindings/bindings_helpers_generated.rs] Error 101
-> 
-> Presumably introduced by dce4aab8441d ("kbuild: Use
-> -fzero-init-padding-bits=all"). I'm guessing that option isn't supposed
-> to propagate to .rs sources?
+On Wed, 22 Jan 2025 at 08:56, Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+>
+> On BeagleBone Black:
+>
+>     OF: /ocp: Read of boolean property 'clocks' with a value.
+>     OF: /ocp/interconnect@44c00000: Read of boolean property 'clocks' with a value.
+>     OF: /ocp/interconnect@48000000: Read of boolean property 'clocks' with a value.
+>     OF: /ocp/interconnect@4a000000: Read of boolean property 'clocks' with a value.
+>
+> The use of of_property_read_bool() for non-boolean properties is
+> deprecated in favor of of_property_present() when testing for property
+> presence.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-How is that getting passed to Clang? That's a GCC-only option, with
-"cc-option":
+Applied for next, thanks!
 
-+KBUILD_CFLAGS += $(call cc-option,-fzero-init-padding-bits=all)
+Kind regards
+Uffe
 
-I will take a look...
 
--Kees
-
--- 
-Kees Cook
+> ---
+> Seen since commit c141ecc3cecd7647 ("of: Warn when
+> of_property_read_bool() is used on non-boolean properties") in
+> dt-rh/for-next.
+> ---
+>  drivers/pmdomain/ti/omap_prm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/ti/omap_prm.c b/drivers/pmdomain/ti/omap_prm.c
+> index b8ceb3c2b81c2510..79d165331d8c6379 100644
+> --- a/drivers/pmdomain/ti/omap_prm.c
+> +++ b/drivers/pmdomain/ti/omap_prm.c
+> @@ -613,7 +613,7 @@ static int omap_prm_domain_attach_clock(struct device *dev,
+>         if (!of_device_is_compatible(np, "simple-pm-bus"))
+>                 return 0;
+>
+> -       if (!of_property_read_bool(np, "clocks"))
+> +       if (!of_property_present(np, "clocks"))
+>                 return 0;
+>
+>         error = pm_clk_create(dev);
+> --
+> 2.43.0
+>
 
