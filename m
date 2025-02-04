@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D489C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 22:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF2FC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 22:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=; b=ykht8zbkjFcGU/8f6zIiS1dLY0
-	z/vghJH1NbzAjXefMNFjfr77xQiZhn3jDCkyOly3ZACfloc7Puo0ANQihoL4OT49LAjPP5UXppviC
-	f9seVPAUB/FxjLjHWEsFXLQGAsaay5LSxGJ4+lSatuPX7D2/Gn9nm1ZOQGlEGCI/ytbAjkZeR5C+T
-	jgGzRGtoYSzttez0FcvCpI1kdX/vBIEINU0MsZpwgMjlRZtyqnukGNTpYRxJx9EEhGLe9HKn3T3uo
-	IJT3vCOMqEdMVufgD0s4krHlXkJQuRE0P7j705whUK0UXhkkJBwpyee0sEzNF79iC9cvYqAkj/Fch
-	tgP5xd7g==;
+	bh=HdJX5Dk0u5IkMDKkGsrySXzYQnEq2R9WPeDo1sH8yAI=; b=NPPxxvqrKgAsjYLC6RSZSj8Aqw
+	0jo6rTEIwRcGJFQO4EJTf0rImgUqXal1+RFVoLA7vE5OBtNco+vPSJa2BFpMlwPZaR53fZ4InAh0G
+	4gcETFzy6pt4GDVsvMuEHzZOt9zz/QJJs/uMZ6O+BC+Ts10dgNBZGRMScybs5csKS9bR0V3HgM37Q
+	nWOF5eWuOf0W3h1KkIXDN1rmFztXcQPEEFj+LiRVxhaGUg51jxl4Ck38XwyT4UoEJZTOXG4PrjQ9l
+	DpPj7icbpqi/w1N/6BX+gY3inKECYOKM/aSWDUuyi4hcmvcSBbJLYFq3b8u0EY4fMONEsdt/kHt1P
+	ZIP6X5iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfR0I-00000001fAN-1SLA;
-	Tue, 04 Feb 2025 22:02:46 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tfR1b-00000001fGA-0APy;
+	Tue, 04 Feb 2025 22:04:07 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQyw-00000001et4-25eE
+	id 1tfQzA-00000001ewu-1dUJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 22:01:23 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4362bae4d7dso43554775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 14:01:21 -0800 (PST)
+	Tue, 04 Feb 2025 22:01:37 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38da586ef14so874350f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 14:01:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1738706480; x=1739311280; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1738706494; x=1739311294; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=;
-        b=WLAqKoeXGWFd9//a3nLIXOhBOI3l8cvofqCeBVKW4KIThloXfU6+Hm7obabw5fiE7q
-         Ymn9tidyK099ueUi5+5F1bvsaTzbM5lfb2/1OgVUTO8rz380GUPakh3rcwV2kjb8V5xN
-         gL5ygXDNwh7NsZlsd5MNe9l38QjRpeBJSyaToEdcjXKZYdiX1sUfNeMKunweCOoAwHY7
-         APAkwzdBVtixCbv3l1X41TBh0VVk5RY7F/TzYC5ZhDQSkNUE7H5TQfWURy20W81eJ8qv
-         xVp377BuQtqDraRzwMyPrGBaMDECkvVOua6UdHhoDzOv2AF9+/yrQdCL/+7VcmfvEqgr
-         Crfg==
+        bh=HdJX5Dk0u5IkMDKkGsrySXzYQnEq2R9WPeDo1sH8yAI=;
+        b=COmjXX4nt2xfY8Zc0dGo9+ldybZ124P6sMnuQS+usxUMojS8tZ3GEh9pLNmXblF5nk
+         ezb2oV2+K4MC5sCQ8QYeeXurGUwghB2i9gMfO9Ee6ajAwGQYq642tM1Ahw4wWS1VWi2B
+         JApvaLTk7qxAYl2Udswvl08ZN1b2NACTtdrCwKuMDcmjKTfYfe4uaco5JZutH8GquTA0
+         oto7b+i7hu6OabKj9uw9+u8ksNLCT1u+fJH3XDTfTPrmLGQyep6dnZ9m2jJJFtRM2NBc
+         jXtp4eJBYPLwkkXaxW9QKcjukxzEUdwrSLsP37iTLXWSNJF84HUIwFeUWqi5FvQNAAHF
+         uMnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738706480; x=1739311280;
+        d=1e100.net; s=20230601; t=1738706494; x=1739311294;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m0euMmWW3W4gbBbbGvtG/KEphctlcqiae/5nCmYv5wY=;
-        b=nXE1etuL5wZerwK919GAyMBz3u8F74QhocQgBT+n2O1mhwWay+A04ZnViVFBLxCTD8
-         sXtPXQTz4KZIF0s8eDLJ9mDmVQohR7zKu9gBZ2XF9wpKPINp52xmXOaMmoN/Gjg1lzAF
-         KdgLt2O/BzO5Zedrz4XvBNJOy7ghFwUo+i6kcshUAWTEUgPSpqAE1JfwF/nIfSqvetA9
-         HJBuvZSsqbaaIzsgBZdfyXG+eoRPbikVJMLT4zVYi33WgvkoKYYgmrMq25gFhDgNnWEZ
-         XDf7oB/neUZtuxZmM4zaNeyopeq165vZ+NB6l996o1yD6NWtZ1PUn9A22aoVr8WteF+T
-         ulfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXa01OphtVM4R+q6frMQ+XF1w9VNJzO1yDmhXhrw1IWW1WYmShXqLbKr+ZBAnEM6JI2h8SNGmNDqABj1MM0xDE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKH7r2ZHPW9mkqquy9uBjr/ljkyjMjUX/sWEjY04+MFJ+uvMIq
-	TsUf/GFx6R4/+Q+Y7V1/dlH72DXBxYsILClTIMr3DqvdgDfkQDbHIAvtPEURDK0=
-X-Gm-Gg: ASbGncscYIzTWLnVMUy/jSNSZ/acQaLCIyGjb59dDW6tklukQ8MIsVIOiymY8x5xXRj
-	QuT5f/3FKXFR23EYWZorUpFvkpgwJ1r4Kr6I+OE6wSvAJJz+/7K734JGLb8ohkJXRiGYXitDuVR
-	aPuOolQlcomKGjq1mXGcw1m7NYvXfLYHwcql/EhHiNFObbZA87wZrOK8MAPLkdUxCFUkSAcNmsW
-	MTSv+DO2Sy/259Iv59a4YgXFmOsMMzw8XoBhfXcDPt7G1NRygziR0SV53qJdsgEuZJYXzKDpPDd
-	CEy14p2zu/X0
-X-Google-Smtp-Source: AGHT+IHT6mDWYjThIgJPbxWuWwVfspo5pZ+HAD2rIjTlsbMjzXUQcvPr2K6h/1mHjtrkSJ+dLDi9aw==
-X-Received: by 2002:a05:6000:144e:b0:38d:a696:6ef6 with SMTP id ffacd0b85a97d-38db490f01cmr271920f8f.45.1738706480503;
-        Tue, 04 Feb 2025 14:01:20 -0800 (PST)
+        bh=HdJX5Dk0u5IkMDKkGsrySXzYQnEq2R9WPeDo1sH8yAI=;
+        b=d3aQMSOAFyQO5yMFDZO/0PT3O81YRCZgM7KEtGwP3DtxoeCb7lln5oW4q0byfxg62t
+         IS8PfwmlIoR4F7LM+lXsycIJ1V5XauFeI6p2YHqLhMGmBVEhpJRf9lH2PauowlpdfYUS
+         7afAdWLDkKNcFsQNNWrzPiOODgjkEki6Ky9fFNYoSPUaNPmARBfSV4woCmDtdEI9BgkV
+         KbZtFkCV4pnNkvADpeYpVkiWx2zo3LAtCTgJeF5C5VFsDuzxXIUZ/z80Q/Yu29QOs52k
+         q5FKhHd/7n7fccfBM4752xJfcVUlfVY+H6KZp/M0tsGGGh0BQSk6Q2dO24lS1aDDK9/I
+         qJjA==
+X-Forwarded-Encrypted: i=1; AJvYcCXsafE4s8MhKhkbKhxjhO92H/ORbanVBfD1F2AqDWDb3yIZZDMYfs4+BE4Uo/O1dD4mGA6om8k1HOq0i5GWvpss@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxi+Uc7W1GJjw1bsT578LgEiKJEJksPSLbIcvH+KirE/Oq7HE5S
+	Zzq3tLmB/lnFln8wXHTvAq5dlV/DBU7MPK9XRssuUM40ccfPvRdV39L76cU421g=
+X-Gm-Gg: ASbGncv3X/zgRcuBOXDQ/wFWv3LnGqyHE5IOXw5YNmZ0HhOAEzoan83D3oPzv+5UVy1
+	KyH7kPvUOIIJrDIIXZmb8dVJaDhAq2XRfAbcHlgeQtN8h1444SYUf6Z68JqbUEVOoGHbv1NiVyV
+	kVIZDJqhaoOD3b6x9ctmRYauwi25XJZwxKIIkADqXmbeFJdGVabvkxPwJADsLEFpohgnEQNeZLN
+	tbD2UMfYnaviEogyT57yldbqB275AgmKCDJqsOj/bLRHQwQcu/oxivf704eJiaiIiIpggkyaFi6
+	w9pNeTdX8+nF
+X-Google-Smtp-Source: AGHT+IHaBfj4OnhLVJLYcuReHXCtY1ha8owiTGbmB8NervJbzXxCEzSgEeeBBm4w/U4CkOCA0/9Alw==
+X-Received: by 2002:a05:6000:10c1:b0:38a:88b8:99af with SMTP id ffacd0b85a97d-38db48808ffmr242039f8f.22.1738706494491;
+        Tue, 04 Feb 2025 14:01:34 -0800 (PST)
 Received: from [192.168.2.177] ([81.0.8.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dab853236sm2956583f8f.54.2025.02.04.14.01.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d94db6asm1048485e9.15.2025.02.04.14.01.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Feb 2025 14:01:20 -0800 (PST)
-Message-ID: <68153618-d54a-4465-9fb2-a1232a8291d9@suse.com>
-Date: Tue, 4 Feb 2025 23:01:18 +0100
+        Tue, 04 Feb 2025 14:01:34 -0800 (PST)
+Message-ID: <68d642bf-89e1-4cee-b0bc-86314ea10bbc@suse.com>
+Date: Tue, 4 Feb 2025 23:01:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] arm64: dts: s32g: add I2C[0..2] support for s32g2
- and s32g3
+Subject: Re: [PATCH v5 2/3] arm64: dts: s32g: add common 'S32G-EVB' and
+ 'S32G-RDB' board support
 To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
  Chester Lin <chester62515@gmail.com>,
  Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
@@ -87,7 +87,7 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
  NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
  Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>
 References: <20250113110512.506007-1-ciprianmarian.costea@oss.nxp.com>
- <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+ <20250113110512.506007-3-ciprianmarian.costea@oss.nxp.com>
 Content-Language: en-US, ca-ES, es-ES
 From: Matthias Brugger <mbrugger@suse.com>
 Autocrypt: addr=mbrugger@suse.com; keydata=
@@ -133,12 +133,12 @@ Autocrypt: addr=mbrugger@suse.com; keydata=
  LV6nybxdRG/jp8ZQdQQixPA9azZDzuTu+NjKtzIA5qtfZfmm8xC+kAwAMZ/ZnfCsKwN0bbnD
  YfO3B5Q131ASmu0kbwY03Mw4PhxDzZNrt4a89Y95dq5YkMtVH2Me1ZP063cFCCYCkvEAK/C8
  PVrr2NoUqi/bxI8fFQJD1jVj8K0=
-In-Reply-To: <20250113110512.506007-2-ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <20250113110512.506007-3-ciprianmarian.costea@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_140122_542971_0D35E4A0 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250204_140136_437043_F664444A 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,167 +158,344 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 13/01/2025 12:05, Ciprian Costea wrote:
 > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 > 
-> Add I2C[0..2] for S32G2 and S32G3 SoCs.
+> Create common part, s32gxxa-evb.dtsi and s32gxxa-rdb.dtsi, for S32G2/S32G3
+> RDB2\3 and EVB G2/G3 boards to avoid copy duplicate part in boards dts
+> file. Prepare to add other modules such as FlexCAN, DSPI easily in the
+> future.
 > 
 > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 
 > ---
->   arch/arm64/boot/dts/freescale/s32g2.dtsi | 55 ++++++++++++++++++++++
->   arch/arm64/boot/dts/freescale/s32g3.dtsi | 60 ++++++++++++++++++++++++
->   2 files changed, 115 insertions(+)
+>   .../arm64/boot/dts/freescale/s32g274a-evb.dts |   1 +
+>   .../boot/dts/freescale/s32g274a-rdb2.dts      |   1 +
+>   .../boot/dts/freescale/s32g399a-rdb3.dts      |   1 +
+>   .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 150 ++++++++++++++++++
+>   .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 122 ++++++++++++++
+>   5 files changed, 275 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+>   create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> index 7be430b78c83..beae4d5cf54e 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> @@ -333,6 +333,39 @@ uart1: serial@401cc000 {
->   			status = "disabled";
->   		};
+> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> index b9a119eea2b7..c4a195dd67bf 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+> @@ -7,6 +7,7 @@
+>   /dts-v1/;
 >   
-> +		i2c0: i2c@401e4000 {
-> +			compatible = "nxp,s32g2-i2c";
-> +			reg = <0x401e4000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c1: i2c@401e8000 {
-> +			compatible = "nxp,s32g2-i2c";
-> +			reg = <0x401e8000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c2: i2c@401ec000 {
-> +			compatible = "nxp,s32g2-i2c";
-> +			reg = <0x401ec000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
->   		uart2: serial@402bc000 {
->   			compatible = "nxp,s32g2-linflexuart",
->   				     "fsl,s32v234-linflexuart";
-> @@ -341,6 +374,28 @@ uart2: serial@402bc000 {
->   			status = "disabled";
->   		};
+>   #include "s32g2.dtsi"
+> +#include "s32gxxxa-evb.dtsi"
 >   
-> +		i2c3: i2c@402d8000 {
-> +			compatible = "nxp,s32g2-i2c";
-> +			reg = <0x402d8000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c4: i2c@402dc000 {
-> +			compatible = "nxp,s32g2-i2c";
-> +			reg = <0x402dc000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
->   		usdhc0: mmc@402f0000 {
->   			compatible = "nxp,s32g2-usdhc";
->   			reg = <0x402f0000 0x1000>;
-> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> index 6c572ffe37ca..79b38cd8b142 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> @@ -390,6 +390,42 @@ uart1: serial@401cc000 {
->   			status = "disabled";
->   		};
+>   / {
+>   	model = "NXP S32G2 Evaluation Board (S32G-VNP-EVB)";
+> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> index aaa61a8ad0da..b5ba51696f43 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+> @@ -7,6 +7,7 @@
+>   /dts-v1/;
 >   
-> +		i2c0: i2c@401e4000 {
-> +			compatible = "nxp,s32g3-i2c",
-> +				     "nxp,s32g2-i2c";
-> +			reg = <0x401e4000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c1: i2c@401e8000 {
-> +			compatible = "nxp,s32g3-i2c",
-> +				     "nxp,s32g2-i2c";
-> +			reg = <0x401e8000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
-> +		i2c2: i2c@401ec000 {
-> +			compatible = "nxp,s32g3-i2c",
-> +				     "nxp,s32g2-i2c";
-> +			reg = <0x401ec000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
-> +		};
-> +
->   		uart2: serial@402bc000 {
->   			compatible = "nxp,s32g3-linflexuart",
->   				     "fsl,s32v234-linflexuart";
-> @@ -398,6 +434,30 @@ uart2: serial@402bc000 {
->   			status = "disabled";
->   		};
+>   #include "s32g2.dtsi"
+> +#include "s32gxxxa-rdb.dtsi"
 >   
-> +		i2c3: i2c@402d8000 {
-> +			compatible = "nxp,s32g3-i2c",
-> +				     "nxp,s32g2-i2c";
-> +			reg = <0x402d8000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
+>   / {
+>   	model = "NXP S32G2 Reference Design Board 2 (S32G-VNP-RDB2)";
+> diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> index 828e353455b5..94f531be4017 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> +++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+> @@ -8,6 +8,7 @@
+>   /dts-v1/;
+>   
+>   #include "s32g3.dtsi"
+> +#include "s32gxxxa-rdb.dtsi"
+>   
+>   / {
+>   	model = "NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3)";
+> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+> new file mode 100644
+> index 000000000000..a44eff28073a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+> @@ -0,0 +1,150 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+> +/*
+> + * Copyright 2024 NXP
+> + *
+> + * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> + *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> + *          Larisa Grigore <larisa.grigore@nxp.com>
+> + */
+> +
+> +&pinctrl {
+> +	i2c0_pins: i2c0-pins {
+> +		i2c0-grp0 {
+> +			pinmux = <0x101>, <0x111>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
 > +		};
 > +
-> +		i2c4: i2c@402dc000 {
-> +			compatible = "nxp,s32g3-i2c",
-> +				     "nxp,s32g2-i2c";
-> +			reg = <0x402dc000 0x1000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clks 40>;
-> +			clock-names = "ipg";
-> +			status = "disabled";
+> +		i2c0-grp1 {
+> +			pinmux = <0x2352>, <0x2362>;
+> +		};
+> +	};
+> +
+> +	i2c0_gpio_pins: i2c0-gpio-pins {
+> +		i2c0-gpio-grp0 {
+> +			pinmux = <0x100>, <0x110>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
 > +		};
 > +
->   		usdhc0: mmc@402f0000 {
->   			compatible = "nxp,s32g3-usdhc",
->   				     "nxp,s32g2-usdhc";
+> +		i2c0-gpio-grp1 {
+> +			pinmux = <0x2350>, <0x2360>;
+> +		};
+> +	};
+> +
+> +	i2c1_pins: i2c1-pins {
+> +		i2c1-grp0 {
+> +			pinmux = <0x131>, <0x141>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c1-grp1 {
+> +			pinmux = <0x2cd2>, <0x2ce2>;
+> +		};
+> +	};
+> +
+> +	i2c1_gpio_pins: i2c1-gpio-pins {
+> +		i2c1-gpio-grp0 {
+> +			pinmux = <0x130>, <0x140>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c1-gpio-grp1 {
+> +			pinmux = <0x2cd0>, <0x2ce0>;
+> +		};
+> +	};
+> +
+> +	i2c2_pins: i2c2-pins {
+> +		i2c2-grp0 {
+> +			pinmux = <0x151>, <0x161>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c2-grp1 {
+> +			pinmux = <0x2cf2>, <0x2d02>;
+> +		};
+> +	};
+> +
+> +	i2c2_gpio_pins: i2c2-gpio-pins {
+> +		i2c2-gpio-grp0 {
+> +			pinmux = <0x150>, <0x160>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c2-gpio-grp1 {
+> +			pinmux = <0x2cf0>, <0x2d00>;
+> +		};
+> +	};
+> +
+> +	i2c4_pins: i2c4-pins {
+> +		i2c4-grp0 {
+> +			pinmux = <0x211>, <0x222>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c4-grp1 {
+> +			pinmux = <0x2d43>, <0x2d33>;
+> +		};
+> +	};
+> +
+> +	i2c4_gpio_pins: i2c4-gpio-pins {
+> +		i2c4-gpio-grp0 {
+> +			pinmux = <0x210>, <0x220>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c4-gpio-grp1 {
+> +			pinmux = <0x2d40>, <0x2d30>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c0_pins>;
+> +	pinctrl-1 = <&i2c0_gpio_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c1_pins>;
+> +	pinctrl-1 = <&i2c1_gpio_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c2 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c2_pins>;
+> +	pinctrl-1 = <&i2c2_gpio_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c4 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c4_pins>;
+> +	pinctrl-1 = <&i2c4_gpio_pins>;
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+> new file mode 100644
+> index 000000000000..91fd8dbf2224
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+> @@ -0,0 +1,122 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+> +/*
+> + * Copyright 2024 NXP
+> + *
+> + * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> + *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> + *          Larisa Grigore <larisa.grigore@nxp.com>
+> + */
+> +
+> +&pinctrl {
+> +	i2c0_pins: i2c0-pins {
+> +		i2c0-grp0 {
+> +			pinmux = <0x1f2>, <0x201>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c0-grp1 {
+> +			pinmux = <0x2353>, <0x2363>;
+> +		};
+> +	};
+> +
+> +	i2c0_gpio_pins: i2c0-gpio-pins {
+> +		i2c0-gpio-grp0 {
+> +			pinmux = <0x1f0>, <0x200>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c0-gpio-grp1 {
+> +			pinmux = <0x2350>, <0x2360>;
+> +		};
+> +	};
+> +
+> +	i2c2_pins: i2c2-pins {
+> +		i2c2-grp0 {
+> +			pinmux = <0x151>, <0x161>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c2-grp1 {
+> +			pinmux = <0x2cf2>, <0x2d02>;
+> +		};
+> +	};
+> +
+> +	i2c2_gpio_pins: i2c2-gpio-pins {
+> +		i2c2-gpio-grp0 {
+> +			pinmux = <0x2cf0>, <0x2d00>;
+> +		};
+> +
+> +		i2c2-gpio-grp1 {
+> +			pinmux = <0x150>, <0x160>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +	};
+> +
+> +	i2c4_pins: i2c4-pins {
+> +		i2c4-grp0 {
+> +			pinmux = <0x211>, <0x222>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c4-grp1 {
+> +			pinmux = <0x2d43>, <0x2d33>;
+> +		};
+> +	};
+> +
+> +	i2c4_gpio_pins: i2c4-gpio-pins {
+> +		i2c4-gpio-grp0 {
+> +			pinmux = <0x210>, <0x220>;
+> +			drive-open-drain;
+> +			output-enable;
+> +			input-enable;
+> +			slew-rate = <133>;
+> +		};
+> +
+> +		i2c4-gpio-grp1 {
+> +			pinmux = <0x2d40>, <0x2d30>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c0_pins>;
+> +	pinctrl-1 = <&i2c0_gpio_pins>;
+> +	status = "okay";
+> +
+> +	pcal6524: gpio-expander@22 {
+> +		compatible = "nxp,pcal6524";
+> +		reg = <0x22>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +};
+> +
+> +&i2c2 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c2_pins>;
+> +	pinctrl-1 = <&i2c2_gpio_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c4 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&i2c4_pins>;
+> +	pinctrl-1 = <&i2c4_gpio_pins>;
+> +	status = "okay";
+> +};
 
 
