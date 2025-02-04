@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7213AC02199
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C64C02193
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQauCLHdf1T3fTwfunOrfvj7ckfleYIO5teh+tHt9EE=; b=Htm065sV04+hLOsQiJwY2VywmI
-	qK/+iFjqWRYwKK592gJVrc5ibRnoT6AZdG2edT2+P5L1r1atcBUu+8nPIclR2MbbUAe0DN+pZkiag
-	0N/qC9v1DkPKhmiQbA2bS8DIWTVuhf8rbWcOEk/sHgfIbZ3WPJMXdpuznVG9b7uQmEqphmjfcOzaC
-	GHIfc7U8h+ZesvP4ZIikRcHq8nDVV/4X2acjYul6cwLk7iXxcH9F+rDtMuUP/otMhIjLHKl4v7D8z
-	4pK8yBxF/PfNqH/1JmWPYgWoUoXCMLQPfULp43UKSxT47z9DxtpW5czlP4ByphFZsiKaN3L7atXO4
-	CjpBxOOQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yOviihCd4OWzkU4ZWy+QayOXt7VAoSjwQrUlx7gxEjI=; b=4VaU69MlxQ3GVZ+c4NsB01aNBB
+	mwUt7Jt+ynGTgm7zy5XvH8Gs0nHq8T3k8zqNHhLt499lsd54eERz6yCStj2gxFXBR/K2myKDO4re6
+	BE5QIZ5LUO4vJq+i6SxnfeAM0FUtua9HEO1wl0V2q5bHR9Pp8egDKNhcqiBeZj/kAic/Eumqf47o4
+	V/mhqgXj0LRYLK63FiP9qclUYQpCKDAd9qz5zXZlIXvdxye41Kw7vgeC365QvgNzCtW97AynpngrO
+	eMjYjuhHaRGSuJ1sNbF41YllA9WTYzuq3rjfhjigiUkJuJkIlhDckHBsWb/p1JbtkzJGqiD2sKG9O
+	NqtVb9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQH7-00000001ZGv-31br;
-	Tue, 04 Feb 2025 21:16:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfQH9-00000001ZIU-0MsW;
+	Tue, 04 Feb 2025 21:16:07 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNu6-00000001GVk-0MiB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Feb 2025 18:44:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=XQauCLHdf1T3fTwfunOrfvj7ckfleYIO5teh+tHt9EE=; b=ItNGO8qPk8BbDkyq/3bg+CRU7f
-	xRdnHFV2bHukdKK7R4VodaOjQJM/Z4NvOXAvAxJfZAxz8y6EYSYs7m/8F1xRLaW2FrPwd5lBcpDiY
-	BvGFsIdJv35PQSwceqsDGlidJETnpX15N+yktVcQhXxxtTFQyIYs2CnYq2oyi6fwfCIVM6pR9dufS
-	bBuo9IKzK547GnU0HW9coytbs/gcRDfTDwCWOsRoJfMnfgvf1NEKprxWdh1kHjIbWxTE0/J0tmk4/
-	xqUUjziu75kUWgD1rc0eQM6pVLiO0g9v8LXsg0FARIvTtDDIK7LKqYUKGez/QDTYkyBDykfsHiPD4
-	/p92f6QA==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNu1-0000000GNep-40FB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 18:44:08 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 514GEnXW029181;
-	Tue, 4 Feb 2025 18:43:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=XQauCLHdf1T3fTwfu
-	nOrfvj7ckfleYIO5teh+tHt9EE=; b=J5GS6bl0zkNd79x97uoNpR4viGhhKw3m3
-	qDWkpa3x867ji/P27XCDJYehzc05xaQajw1mZOUVn+DfIwMF2RB7ba+cGr6dfUsn
-	If/kmY70HDZSczpGgUycJrIFBrfwGDJ5MMfI8fFed1bJtsuLbMQj0OM03JIu6MBJ
-	WA4/aCE10FtbeVv5GIAubdu+hT0dYNU/3DKiQevyWjUH1CaNUT/AHXuGOf8xVB0w
-	pnYq7OpPpeyEZVF0ir6JuFGon3GLz/MRvqHLc0w6hM2I/2ynIZyJnY45qzH+JuJk
-	ZyQILbxsq+527peisiuvhSN0M+/wUYR/jni8a3dfLx//Cjkg8rIQw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44k8y9mt4g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Feb 2025 18:43:51 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 514GEEbH024461;
-	Tue, 4 Feb 2025 18:43:50 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44hxxn4y1a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Feb 2025 18:43:50 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 514IhnsP57737540
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 4 Feb 2025 18:43:49 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 59D0758058;
-	Tue,  4 Feb 2025 18:43:49 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5E0695805C;
-	Tue,  4 Feb 2025 18:43:48 +0000 (GMT)
-Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Tue,  4 Feb 2025 18:43:48 +0000 (GMT)
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: brgl@bgdev.pl, linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org,
-        openipmi-developer@lists.sourceforge.net, joel@jms.id.au,
-        andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
-        eajames@linux.ibm.com, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        linux-gpio@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>, andrew@lunn.ch
-Subject: [PATCH v8 8/9] ARM: dts: aspeed: system1: Mark GPIO line high/low
-Date: Tue,  4 Feb 2025 12:43:34 -0600
-Message-ID: <20250204184337.3896834-9-ninad@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250204184337.3896834-1-ninad@linux.ibm.com>
-References: <20250204184337.3896834-1-ninad@linux.ibm.com>
+	id 1tfOsx-00000001Pgi-2N0E;
+	Tue, 04 Feb 2025 19:47:04 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa67ac42819so897930466b.0;
+        Tue, 04 Feb 2025 11:47:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738698421; x=1739303221; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yOviihCd4OWzkU4ZWy+QayOXt7VAoSjwQrUlx7gxEjI=;
+        b=Iq3AQEXzO0gBCTtE6URYILuH880UtGfnEsx6RKuF76a1txussJRJMQZzpSdgbhUHYV
+         GXD9+xH56sf7rzDcgN7pfariIUvX3I1qB/AnMBR92GnYNAsId8f2faihYWe55HCtMa1P
+         01vnQzCaPCCMPQoXkuRdqWYRClT+z3QbznhtocYQRGSov3NSfrR9UDkatSTbgXV5WY1t
+         1XI3p2vMGfI9fvmWNkDe+VtnIA4a6LAlqHl7sLJROW7d5JOAIV04T6s4HWlh0n0JRssS
+         7lrnDVdX7s6q48spqbGa3ykvXr1IabOa8rvuAopxJRJQrlr91yCg6PpgTKYsPx8r01Wf
+         2icQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738698421; x=1739303221;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yOviihCd4OWzkU4ZWy+QayOXt7VAoSjwQrUlx7gxEjI=;
+        b=nEX6/LuxJtFSemDYMMCBmch2QfJ4/rSNQJaFqVsEh0KXbm5/yWEXxkWftKqJA1XGg2
+         ZLbdZ3UDA4PG0kyyDo+2cWohebMCTAgsoNRfiEcxzeN364ZIHniofE92tFmJRcVqqqfj
+         EZUHmsAYySQvu7Sr0f4KsDHIBAkPWx5/EGnLPZ9n1rv9wt7hSp3oSe8DAPy+66v95yzQ
+         YVfTGWv+nt2X1Ki+WGsznVyKcJWzeeHrhsmfD1kucmPuWhkavNzeJO1DCpQ4KcuTgOeN
+         jr9LhFm9EsQteABm1fGnE9lPFEwVDq3csniwz4Oazeyy9qyUsr1BVSXFe4FsKaOhOHIf
+         lQZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZWOqpiUAPqySx6LJCjZ7Aso/r+xQnxX/kcU8ADFYT802/1KXzTxMikyp7LwC0SCbIN8rdFPjtvzp4xyej5Qk=@lists.infradead.org, AJvYcCVpvnYPn5kDFyC8nID+mhS+ze64R9AQvPtoqsuHv6trI3/vY5kPxy4qhTzpKGTxN+XUQr+Zvjw/UdTBGdT5aYqV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy84QddILL+cLd58V4uYWPwXXcD/v7fY8DLYgOVnA6Kwz92kXR9
+	P1Jd/DnpGhip76iV90MWzy0ZdzoArZSv3v8FtIBK6SLNNb8wIq9SPt5b4A==
+X-Gm-Gg: ASbGncuCMjurzEbyj0RPckd7k3F7SF6JRtLEYitsbN5XfNw67fMUVre4CYKZ8pV54YA
+	aAIZzsBPAEVBC/ID23eQG1PYSIdxqzaONbytf0FD2V/PHUDM9TdZR/1DwNExNEHzu1k+ctlTbEZ
+	ikjxtMOszoHPJ02n/5+yixezoLYMJMcMgB05IzSVP39dOMPcmUawhFMJ5cfTzNX/FkEXOrz4q7K
+	7w0sHEufox/0Vc+0u4j3UGxM71978Z1VnnIgOjE83Vk+VjcFIjHztyILsVrDURrRmrVB9qw3P+O
+	53gqtrE5dskecaC8I0cSguR6tqSuHHdedQmzseGWDCRbTBNEIRcLqJu1vGoaxg0EMpszlPNv3Db
+	mMFU5UlAygHeSbLndjapo0wyFbqDD+L/K
+X-Google-Smtp-Source: AGHT+IHeWXuSOX8ugXi7KX2sQvDZA51J6pn9rqEUJAKyCLo9RjU0qJQZ+hTlul88ONSzO+JY3LViIg==
+X-Received: by 2002:a17:907:2cc5:b0:aa6:9eac:4b8e with SMTP id a640c23a62f3a-ab6cfdbf7e2mr3456200366b.41.1738698421177;
+        Tue, 04 Feb 2025 11:47:01 -0800 (PST)
+Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc8838d5a1sm7644954a12.42.2025.02.04.11.46.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Feb 2025 11:47:00 -0800 (PST)
+From: Eric Woudstra <ericwouds@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Frank Wunderlich" <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Eric Woudstra <ericwouds@gmail.com>
+Subject: [PATCH v2 net-next] net: ethernet: mtk_ppe_offload: Allow QinQ
+Date: Tue,  4 Feb 2025 20:46:24 +0100
+Message-ID: <20250204194624.46560-1-ericwouds@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 9ISiH6wRcfFnLQXi_hIyfo9A7M5MuB1S
-X-Proofpoint-ORIG-GUID: 9ISiH6wRcfFnLQXi_hIyfo9A7M5MuB1S
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-04_08,2025-02-04_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 bulkscore=0
- mlxlogscore=908 suspectscore=0 lowpriorityscore=0 clxscore=1015
- spamscore=0 mlxscore=0 adultscore=0 impostorscore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502040140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_184406_374917_A4A57BE5 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250204_114703_601294_8E1C8A89 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Mark following GPIO lines as input high:
-  - GPIOL4 (reset PCH registers)
-  - GPIOL5 (reset portition of intel ME)
-- Mark isolate errors from cpu1 gpio (GPIOO6) as active low output.
-- The fan controller reset line should be active high.
+mtk_foe_entry_set_vlan() in mtk_ppe.c already seems to support
+double vlan tagging, but mtk_flow_offload_replace() in
+mtk_ppe_offload.c only allows for 1 vlan tag, optionally in
+combination with pppoe and dsa tags.
 
-Reviewed-by: Eddie James <eajames@linux.ibm.com>
-Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+This patch adds QinQ support to mtk_flow_offload_replace().
+
+Only PPPoE-in-Q (as before) and Q-in-Q are allowed. A combination
+of PPPoE and Q-in-Q is not allowed.
+
+Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
 ---
- .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 28 +++++++++++++++++++
- 1 file changed, 28 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 7d9f6a1b2637..00b091bc7da9 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -383,6 +383,34 @@ &gpio0 {
- 	/*X0-X7*/	"fpga-pgood","power-chassis-good","pch-pgood","","","","","",
- 	/*Y0-Y7*/	"","","","","","","","",
- 	/*Z0-Z7*/	"","","","","","","","";
-+
-+	pin-gpio-hog-0 {
-+		gpio-hog;
-+		gpios = <ASPEED_GPIO(L, 4) GPIO_ACTIVE_HIGH>;
-+		input;
-+		line-name = "RST_RTCRST_N";
-+	};
-+
-+	pin-gpio-hog-1 {
-+		gpio-hog;
-+		gpios = <ASPEED_GPIO(L, 5) GPIO_ACTIVE_HIGH>;
-+		input;
-+		line-name = "RST_SRTCRST_N";
-+	};
-+
-+	pin-gpio-hog-2 {
-+		gpio-hog;
-+		gpios = <ASPEED_GPIO(L, 6) GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "BMC_FAN_E3_SVC_PEX_INT_N";
-+	};
-+
-+	pin-gpio-hog-3 {
-+		gpio-hog;
-+		gpios = <ASPEED_GPIO(O, 6) GPIO_ACTIVE_LOW>;
-+		output-low;
-+		line-name = "isolate_errs_cpu1";
-+	};
- };
+Since the RFC v1 did not recieve any comments, I'm sending v2 as PATCH
+unchanged.
+
+Tested on the BPI-R3(mini), on non-dsa-ports and dsa-ports.
+
+ .../net/ethernet/mediatek/mtk_ppe_offload.c   | 21 +++++++++++--------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+index f20bb390df3a..c19789883a9d 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -34,8 +34,10 @@ struct mtk_flow_data {
+ 	u16 vlan_in;
  
- &emmc_controller {
+ 	struct {
+-		u16 id;
+-		__be16 proto;
++		struct {
++			u16 id;
++			__be16 proto;
++		} vlans[2];
+ 		u8 num;
+ 	} vlan;
+ 	struct {
+@@ -349,18 +351,19 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 		case FLOW_ACTION_CSUM:
+ 			break;
+ 		case FLOW_ACTION_VLAN_PUSH:
+-			if (data.vlan.num == 1 ||
++			if (data.vlan.num + data.pppoe.num == 2 ||
+ 			    act->vlan.proto != htons(ETH_P_8021Q))
+ 				return -EOPNOTSUPP;
+ 
+-			data.vlan.id = act->vlan.vid;
+-			data.vlan.proto = act->vlan.proto;
++			data.vlan.vlans[data.vlan.num].id = act->vlan.vid;
++			data.vlan.vlans[data.vlan.num].proto = act->vlan.proto;
+ 			data.vlan.num++;
+ 			break;
+ 		case FLOW_ACTION_VLAN_POP:
+ 			break;
+ 		case FLOW_ACTION_PPPOE_PUSH:
+-			if (data.pppoe.num == 1)
++			if (data.pppoe.num == 1 ||
++			    data.vlan.num == 2)
+ 				return -EOPNOTSUPP;
+ 
+ 			data.pppoe.sid = act->pppoe.sid;
+@@ -450,11 +453,11 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 	if (offload_type == MTK_PPE_PKT_TYPE_BRIDGE)
+ 		foe.bridge.vlan = data.vlan_in;
+ 
+-	if (data.vlan.num == 1) {
+-		if (data.vlan.proto != htons(ETH_P_8021Q))
++	for (i = 0; i < data.vlan.num; i++) {
++		if (data.vlan.vlans[i].proto != htons(ETH_P_8021Q))
+ 			return -EOPNOTSUPP;
+ 
+-		mtk_foe_entry_set_vlan(eth, &foe, data.vlan.id);
++		mtk_foe_entry_set_vlan(eth, &foe, data.vlan.vlans[i].id);
+ 	}
+ 	if (data.pppoe.num == 1)
+ 		mtk_foe_entry_set_pppoe(eth, &foe, data.pppoe.sid);
 -- 
-2.43.0
+2.47.1
 
 
