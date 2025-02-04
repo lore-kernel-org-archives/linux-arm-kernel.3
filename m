@@ -4,98 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6C7C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 18:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB90C02197
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 18:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/nvmGiG6t9ytyA672y6bjV3f0iGxkpD3Qq0f/9h6o4=; b=gRI6XXDuXwOOqe2mBplHsIDU9G
-	LMD70JDAVRvMfeOY5yFCk/SWIMP0lo9UNDB9bJmXCF4Fl76usYea7is5fqHcZ2qjQLW2KZY1JgKLA
-	p2KBe9RqLl66bElIuBgmle2nfLVkbaGee2ajLVYhFMwgJksk4tr/pp9IYglwRrnSlEcMW0fc7tCGq
-	717poNXlcIf3mwOMru3RVtyGWdJm1+++1ybrkPl+IFOP7VTHGdIflgZz5o6puAdDAFmS92WIv/Kxi
-	IOvBKpMC55lYFKOLDaNDzsUeLmoTwWlAjZBNQLE3g913NvnzGMHBnn4bBdBsPahd/TvOTvzEMdsAs
-	ReH+e5Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+vttmH8MA91fMaWrbxdlKEOEfxakCHTjQ+0CbNtGzdk=; b=P9Abiw+ShdwJBesFMh/kz+ISuk
+	fXB3Xgsv2o0UbYhEYtzAFTZGJo7n9nDQMIZ0cPgLF+gvH4wAtezlLJsAWRd0TAFstCukJ5vhhc/EQ
+	u3vLlA8QiQmbseWAC3Fn4/o7/eBR4e3Fr5FgufzN+MvLbJc06cInU7bQCzjC9qkIUs7NeCuWGiBtZ
+	ySUrS47rK5mw66ksEfKJc746NnfUzZLea59re8wSLlGv7wekXQKcdshKEn2ID8vLzqh7x5Eb70cIK
+	wc/47yinx11pdSPCjRNyDqwxA8tXnU29T524vySP272c1xVuo2n5FS6wLudJbDlMuApv2/KAEvMkC
+	KVA95f8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNlM-00000001EIY-06qv;
-	Tue, 04 Feb 2025 18:35:08 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tfNml-00000001El6-2wLf;
+	Tue, 04 Feb 2025 18:36:35 +0000
+Received: from mail-bn1nam02on2060c.outbound.protection.outlook.com ([2a01:111:f403:2407::60c] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNk1-00000001E9x-0Vkv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 18:33:46 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5dca451f922so5084457a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 10:33:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738694023; x=1739298823; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=K/nvmGiG6t9ytyA672y6bjV3f0iGxkpD3Qq0f/9h6o4=;
-        b=ZcyZ57ed7gc0VP387xLZMidwqbQ46sBXnExCUQCNUfp0uS13/lebmuubokzXAY0QPZ
-         Kb82jQ9yisg83nRo5VceQppEdSNKUMP9Bprhv3w/4M9SO+oaekG8xu9qncl62KubfKwf
-         Ji4QKcwXJPgQdk5QiC4xwnLAQ3mDqhJ/2tmcZ7/2XwN8mPadid7KXPvWcJ2mOoeP5IA6
-         wKsmLlxxWxG8+zcdZK3EtNrYSGzdIdW1sQKDZ10PXh47kv9SJTubuvVtR766V37k6dzc
-         7pUlDanxTRcyE6jeaIOGWxZoLpgCEeoSm/FYu9Tgd+kFyeBjdz2C3w/LHhXK4ALQC75F
-         HCLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738694023; x=1739298823;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K/nvmGiG6t9ytyA672y6bjV3f0iGxkpD3Qq0f/9h6o4=;
-        b=uBaMhNw7ORhYgHBjd/y0jmWLqyLXIdjhUUn488gzWGxTguGVtfDHM89pssbSxOoge3
-         vQwTv0tWyAo4Z+HSb0Xh3Z2425UYnzSX479ja3WZbcvNI5WkWsQxCsRfxbdzM6oH+iKC
-         Bzlw7FCOzbylokqa+MkGV9R9rxKDus844UaxL/aTrA4jjelVwtBASsVJdw0XgnqHSiV9
-         1GpuDmb6JJ4L5D3pdfgWN+XvUHBRRyjWIcBsGAXmqFFJBb5hSoOxe9Rgc68BVk6vqw7L
-         IbGvqDJ3ZX3MiNjlNZEgFj9yOdUXY5jSI/Izw4rkEAemH2GqMvdQbdAReU7B6jFBdMKX
-         XgbA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQKICxNk+WaMH4u/WvLop5enlr1zmw3+jf+55WHk319rYgHl7wre4dRL7AJy+t0CkSjp2J9CAFdgku4uBUlIbk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh7AXD9JfM4L5AwnkoHs7uXIYW2FVNJlCGVM8ambpC/w+yQsNp
-	UHCZnrCKc0HxItXwStZH3fIujctujv0zu67tvpfVxsfbmh7FUtUi
-X-Gm-Gg: ASbGncvmbYHFWICl/Si497svYjfKRpGwyDCjNkRjRbBCZYZarGwPO+M/4cewbajOtsq
-	1q3PlKtXBo1DbrJdyD12iGNxLcerDsbrR5Aj/3x7lG658R6vzz1Qm1AW73ZA61eUaRCDuQgGCYC
-	kJacq02TgE9Pn/SLEgdHVOFuZcBsj0BMgrwuqeYu+zrLi+chPKuqWNXN0tdBWj+LnU1OZzNpOlU
-	balut4/4sHWrj5tYP/CV5m5YZGLIdyeLHf+NhSD5pd43dF5u8LUQXU7OuI6VJ8v/n6ukhbifWjq
-	BDLg9LdBh6nTkdHJqLRnGpfrXyGtTxvO5S3pbP/F6jE6pj8kATKNVX9uZoVlIoxspA==
-X-Google-Smtp-Source: AGHT+IHRS/PweE+sCHAZYI/yhUAnmQnwu2gyEspPMa8B0HrAlqSGbvy/xe8cpTz4qnewXCnhJmcyYw==
-X-Received: by 2002:a05:6402:3899:b0:5d0:e826:f0dc with SMTP id 4fb4d7f45d1cf-5dcdb71b995mr65267a12.12.1738694022505;
-        Tue, 04 Feb 2025 10:33:42 -0800 (PST)
-Received: from [192.168.50.244] (83.11.225.21.ipv4.supernova.orange.pl. [83.11.225.21])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724a9c76sm9951957a12.53.2025.02.04.10.33.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Feb 2025 10:33:42 -0800 (PST)
-Message-ID: <d63009eb-654f-440b-8e59-441ed6b9606b@gmail.com>
-Date: Tue, 4 Feb 2025 19:33:39 +0100
+	id 1tfNlN-00000001EIa-3BXV;
+	Tue, 04 Feb 2025 18:35:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pUZFOgC8zXE0IEaoj0uSfZksxm3EehcaCckgiUdSFz1HHWKBafHYjvSSj4KAN4Ax0Tmysj+8qwnoztc9J0JxQ7kNji+azz7OCBljwPBD6+im4HSAKvJxLyb9OXOhcg4cpwb1RjERwmqnXCEEUb+f16BZkt+nj+gIeB/2kRvbPGzNCxcoDwUUYhztypSKz7TR/9Am0/CaGtkcrbp6gNLbXjRJikOED61UzFO9IW5aVPwf0PRqvHKnhYOSL1KpE+VhaZK7P1F6IXuP3efrGFzbO4x0DiFqAqWBoU2g5TP17RFhk55G+XGK+TTD/oO9VEP3HjUpE77swa/+tUy4BRFLEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+vttmH8MA91fMaWrbxdlKEOEfxakCHTjQ+0CbNtGzdk=;
+ b=mP+ZwFYOhKM81Nt31inQBQUoKXDs9TEJh/mFZE3SyC16pY2Nhz3wfUEQ7ESFVlMymF2VZ3a6f5MTKwdSfqPIsakLDfgeztiGFuOBInx4x95Y0OnsBmySFH38Af0zMoEhDPtju6+yGS18HHDExlQEwmM0VY3Y57G8A/GgQTN2j+I7sfkN5Q5X4pzNOqmLn6KNTuMRPGUdvM59J3GflJZ9B2ivE3S9yRxxIyxtSJXDPn/BAm8b02hBsnKyF78rF8uOGhVytH+PQH+CdPDS4SyYaC70V99YpId+pMYpNoY1Yp0OAc/dUMaNdurFvQcWA8LUyGN/Bw2nd+3l1w+az+chvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+vttmH8MA91fMaWrbxdlKEOEfxakCHTjQ+0CbNtGzdk=;
+ b=jOWYvj4Snipxzwa1pK+axuMO0atTEEr65fVTc+E/trEL9PRcgGufN2pUwFrL+f0JUEpJIUFTadI/B9d5rNsH3YspElh5Deqs/UI/C/2+KTU1Ijr79mnDcY2nJtqwpwmd0u9j1OUvuFXjZqxwrxmvbn54xIBee0KAOmbd3BI5NwEOReAFa+yrugRyweVLwstH5dwiIEo168meZnQJPvZCFLMuC4460BunNK9NeltCfWFI0ZTlUhtX/hsgAddiMF4c9c/QvkyxZjPZ1jKZXhKNejp80C2DEmUaFVCZp2PPtV55dQJ636PANqasM4BNwBBiWSfbGnNpQH9Fba2pF1+MWQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY5PR12MB6573.namprd12.prod.outlook.com (2603:10b6:930:43::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
+ 2025 18:35:02 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
+ 18:35:02 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: [PATCH 00/19] iommu: Further abstract iommu-pages
+Date: Tue,  4 Feb 2025 14:34:41 -0400
+Message-ID: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BL0PR1501CA0007.namprd15.prod.outlook.com
+ (2603:10b6:207:17::20) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] dt-bindings: mfd: brcm,bcm59056: Convert to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ~postmarketos/upstreaming@lists.sr.ht
-References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
- <20250131-bcm59054-v3-1-bbac52a84787@gmail.com>
- <20250202-mindful-seahorse-of-action-ba6ee7@krzk-bin>
-From: Artur Weber <aweber.kernel@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20250202-mindful-seahorse-of-action-ba6ee7@krzk-bin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6573:EE_
+X-MS-Office365-Filtering-Correlation-Id: 552f8802-e39a-45aa-1f36-08dd454aa2ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oNBLfKYs9XO7+mX/3JfzHBYyfoOOZP9xHT37emq5FcYIwOUfE5QWfK0g25wJ?=
+ =?us-ascii?Q?PrRNZcJQr4DdchUHi3D3gJdlxbXxym52f002AW9vbx3CnH2I1yyFvhYrHMuw?=
+ =?us-ascii?Q?h6cX9DVsgXi9zaTHad+mUZzDhzK3/nu/zRwKP0N5eVAyvxfv1ox3bdy7wL0T?=
+ =?us-ascii?Q?Qgu/djYecY3yY+KkiUTXRRljlWfuazArCZ9JiwDh19yf/1I3V9+Z2wEhJU07?=
+ =?us-ascii?Q?sUDZfUUOY5hwsnqgtvTVu23WbMJZFAXNxwffI+/RQgxkW98au4dXIDCxdJtk?=
+ =?us-ascii?Q?LpGUIkKPmJN/noLEXm4jphj2KTsVMBR9t4svYy+HzIr3mcRq+fYs07BMJpq8?=
+ =?us-ascii?Q?FJ2Lm0nR1jIv2lfusBPMlqBCxRVymvax5mpUZNKeVQgpzsh6mS0GguVwoHmc?=
+ =?us-ascii?Q?wWb2hxaaxHGTMEbjSo2MaFH287mnlL8Le/cPukj62aEw0wAG5nuBGvW+p4sJ?=
+ =?us-ascii?Q?dbnaHUtqskhtT0EkgJbVWytph29oyIhKSRNVD/MojhQwcxk/rgx7bXACTaKt?=
+ =?us-ascii?Q?xCKH2mt4t6gmpyMYdrp45zHLBdN7zK3UjMHdY7FRcvpycbz00zrK81zEn0up?=
+ =?us-ascii?Q?T11I2u5a9ky0B7EetcGpi3AZ/uKbezXcZdr6rJes7xJ78fhmyulFsIXsCF+M?=
+ =?us-ascii?Q?x83NVoNJN+EuDT8xopUuyme7wzpb0zfgu79vR8i1CmZpRahZ5+RpKjMzweUi?=
+ =?us-ascii?Q?mPoKZLmxP0y6Z7jNrBoAGMzgo0fReDXhKd4ljrRwN2p7knTuI2rXTNkAiuiC?=
+ =?us-ascii?Q?AbtiOuSiYvM9H8E7NvncGa8gZDZVjIstFGs1+vuadl3zH4E/+p30zaDubfdr?=
+ =?us-ascii?Q?CDbEW2sL9abUekJ6dXVbuOGArYGG4LPGO+DEvDM9uLycTQdO1BFb2ny3OypL?=
+ =?us-ascii?Q?Kr7xwUgCrkn1i5ZcPBGBjxaRl7hG0l935njkDpVVM3DPUjTvP69hiovPmZFH?=
+ =?us-ascii?Q?2sG16NVaHYS+BC36zEqYgZwDtP4mq84HpQeDeHPN6nVIKFcO3LZc2s4MfXrW?=
+ =?us-ascii?Q?6Lxr8riya6lAyT0ky7PKZ9rslZJay3WlIdAarCEzW+p8Gh/upYkDzGHUuV9W?=
+ =?us-ascii?Q?sGhWRaAiVkt1XHHUw8R1g2PuMgvPZj22uFz9kyY09HOlIvUF3Zlzr0SB5Rju?=
+ =?us-ascii?Q?AQUccAS7CrsqqhuQ6C+iKuNlj0yXuhEetxSpQZRx+5v727WzJdt2l9HwrEBl?=
+ =?us-ascii?Q?A4eYCBNsAiL0i/e9iH4KGR+cz9lQDH66QGu0o5Hx9KprB6LNKTDvuuNbggq/?=
+ =?us-ascii?Q?D6j7eeXX5Csl+RR2RyoXX5qyI+RQQ15fjRW7OJ4NcUp8CmbD5o1c6t8ORXWI?=
+ =?us-ascii?Q?3JFK65DZVAh8KGNEGJl1NYcYzNHBlWMT++UpneTPH6frjLy0g/+I+QiytXDM?=
+ =?us-ascii?Q?y2s1DGPZusw/778Jc0zhrEk/+OtE1Ly1PKWt4qeNyGBMXfIhv0bxJ19C6xzh?=
+ =?us-ascii?Q?OokucaEXvHo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?glpHBRs2fTKl1NS3As66LsoyNQ9n/KJXhR/O2bGEbTIY9K0pdAhT4iAkT7aE?=
+ =?us-ascii?Q?4oz8OJNuZSFOkl4f5Bsi0IcpbYUUhUTdOHDphRHEhg222mYxDGKzzVEXBgYu?=
+ =?us-ascii?Q?IdbWgxvEDFKXHZ921vArcYKuB0kFunkcNniuaswXHYLiRUPP/KRbA5zyN2H8?=
+ =?us-ascii?Q?CbfZsZQaga1yZLJravVcyjYGJq7mZH5b80ytqPP/gN7ZadOdpQ1E6VuQRzF4?=
+ =?us-ascii?Q?k3eB2Q/qMRChVp5oiufwps2WiUd4sE0aMzbh13RuFiAJ/8hgw7XhXG4y2c4e?=
+ =?us-ascii?Q?8xhyJMMwSPFdCFtbSIbmjwGRF7B84Nf/wHuJvB8txL/wfsadb4agcJPVNzMN?=
+ =?us-ascii?Q?Jmu/n9EI8M4WXyhDPc8FAd8duVekb8KuWeJgs3EyGERxV1QmzzK0vPgWYxfn?=
+ =?us-ascii?Q?/MYfd+F3oUVUSDF1n+xHGPDCx9o62rRByDn+dra8+2NZ+td5alvKOgzEN9h4?=
+ =?us-ascii?Q?IPeonFDVznUWD06iY9ZPMI7st98CsrEUtfUD5LY8cGRVq8djMd2qSurEnTbt?=
+ =?us-ascii?Q?0G6iIhTjEwOykHx8xpWkIWvjTEpfwnOHUnilKufDiPn4HMe74O/kBABw7Xj5?=
+ =?us-ascii?Q?Pxml/dagKQ3E7hdp+hPfaEzE0a4myN+CLJl7CJo4mPldVHAW9/j8Dmy+3gYL?=
+ =?us-ascii?Q?TIEAmQNGNp96EIuk/8u+jFgRbaCzjawWlp8bJ5O/+UvW//91q+DCjDGr+XCe?=
+ =?us-ascii?Q?I15IjjYPBRDhE7PfeEbU61WXa1iswmsOkxheCetjI5noENo3xPPKxQnFZXEJ?=
+ =?us-ascii?Q?eaB40nV3qwrPRFqxNfKYaIFUnQ7Hj4y970izGbzwQvOrwgIe5aFocB9W1zH/?=
+ =?us-ascii?Q?hA8F0EnJcQzrre7SZr9o0Xm2KN23n9RBA9LyNAnolBblFgRo7iaxG+uoHcr9?=
+ =?us-ascii?Q?8IABHwmCbyTHmKz7+nCFvP+4shJZyQsJuyWy28aTKxlJk8sbLE3SYXGqfyPX?=
+ =?us-ascii?Q?eG9Wzs8fam4N4XYnD1uthKiaTLyO8LjQGBPKH9vo5L0F9cOqTjMyTFBJ0z2F?=
+ =?us-ascii?Q?PHuHj4vzJLjd31rGwSZmxGiogCxFvgmDOhhAgLrl6y96JNXnMZVUvHKrg77S?=
+ =?us-ascii?Q?FjHZ2Wz6PsmyMtGPiSQBsRBsvb5mjF+TYkePnlQ9he0ohHunqCexbuPgbKuo?=
+ =?us-ascii?Q?xDy4SHkXOYsTu02EkdN7HxDy49FLUXs3cmiL7ZyjSik+PAfM4pv9aGVQuvYv?=
+ =?us-ascii?Q?rUf64eVcW6yJC0815JZ37rUQ3/5XM7PSuYndPmr5jyKnp8i42w/JN4cqSGIC?=
+ =?us-ascii?Q?tHomMrRiApfRW4T3NMJ2LCXlNxnnFxPc+6oi8CuaYNv13iecl0eMOW58YcyL?=
+ =?us-ascii?Q?1AsZD7ycZDOcnT2WgaatE8Kc9N53znos9QXKgLQOZQUtfMa8lYxEQ+0LEWLW?=
+ =?us-ascii?Q?hfHuyYqw4ykbNVteJztU/KSnp+KlbLCfTeEx0ViFBxf1u6xbjxUjT1ifqLKW?=
+ =?us-ascii?Q?vmvpBqumorR+vsjsljRzILHH4FeEX30iJbDiNZv0kbtgAQvKmY8Pdsetclxj?=
+ =?us-ascii?Q?LeGvsCP3tXZKH0P1DlDS1W1bLLEANMqQsqbC4tBorEBsCmxlN/GraEI9JfOs?=
+ =?us-ascii?Q?BfyITtn/y0c/ZjmwB6Q=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 552f8802-e39a-45aa-1f36-08dd454aa2ee
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 18:35:02.2335
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WiUx7JrZnVDFZhNcZSASbv31Bm8yHjwWYXz7UHl/paHUevymKLIM2QqYBiVbXbBE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6573
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_103345_166147_8349768C 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20250204_103509_802775_AF832C82 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,119 +187,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2.02.2025 14:27, Krzysztof Kozlowski wrote:
-> On Fri, Jan 31, 2025 at 07:13:49PM +0100, Artur Weber wrote:
->> +$id: http://devicetree.org/schemas/mfd/brcm,bcm59056.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Broadcom BCM590xx Power Management IC
->> +
->> +maintainers:
->> +  - Artur Weber <aweber.kernel@gmail.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: brcm,bcm59056
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  regulators:
->> +    type: object
->> +    description: Container node for regulators.
->> +    $ref: ../regulator/brcm,bcm59056.yaml
-> 
-> Does this device have any other function? RTC? Charger? If not, maybe
-> just put everything in one binding in regulator dir.
-> 
+This is part of the consolidated iommu page table work, it brings the
+allocator I previously sketched to all drivers.
 
-Yes, the BCM590xx PMICs have multiple other functions: power-on key,
-RTC, charger/fuel gauge and some USB/audio related controls. I am
-planning to extend the driver to support all of these features in the
-near future; when the time comes, the DT bindings will have to be
-updated as well.
+iommu-pages is a small abstraction for allocating page table pages that
+iommu drivers use. It has a few properties that distinguish it from the
+other allocators in the kernel:
 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    i2c {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +
->> +        pmic: bcm59056@8 {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-> 
+ - Allocations are always power of two, and always physically aligned to
+   their size
+ - Allocations can be threaded on a list, in atomic contexts without
+   memory allocations. The list is only used for freeing batch of pages
+   (ie after IOTLB flush as the mm does)
+ - Allocations are accounted for in the secondary page table counters
+ - Allocations can sometimes be less than a full CPU page, 1/4 and 1/16 are
+   some common sub page allocation sizes.
+ - Allocations can sometimes be multiple CPU pages
+ - In future I'd like atomic-safe RCU free of the page lists, as the mm does
 
-I will fix this in the next version.
+Make the API tighter and leak fewer internal details to the
+callers. Particularly this series aims to remove all struct page usage
+related to iommu-pages memory from all drivers, this is things such as:
 
->> +            compatible = "brcm,bcm59056";
->> +            reg = <0x08>;
->> +            interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
->> +
->> +            regulators {
->> +                rfldo_reg: rfldo {
->> +                    regulator-min-microvolt = <1200000>;
->> +                    regulator-max-microvolt = <3300000>;
->> +                };
->> +            };
->> +        };
->> +    };
->> diff --git a/Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml b/Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..8939004d5a3f079c05d313bed4a2f07fbc473bac
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml
->> @@ -0,0 +1,58 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/regulator/brcm,bcm59056.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Broadcom BCM59056 Power Management IC regulators
->> +
->> +description: |
->> +  This is a part of device tree bindings for the BCM590XX family of power
->> +  management ICs.
->> +
->> +  See also Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml for
->> +  additional information and example.
->> +
->> +maintainers:
->> +  - Artur Weber <aweber.kernel@gmail.com>
->> +
->> +# The valid regulator node names for BCM59056 are:
->> +#   rfldo, camldo1, camldo2, simldo1, simldo2, sdldo, sdxldo,
->> +#   mmcldo1, mmcldo2, audldo, micldo, usbldo, vibldo,
->> +#   csr, iosr1, iosr2, msr, sdsr1, sdsr2, vsr,
->> +#   gpldo1, gpldo2, gpldo3, gpldo4, gpldo5, gpldo6,
->> +#   vbus
-> 
-> patternProperties should define this. No need to repeat schema in
-> freeform text.
+ struct page
+ virt_to_page()
+ page_to_virt()
+ page_to_pfn()
+ pfn_to_page()
+ dma_map_page()
+ page_address()
+ page->lru
 
-IMO a full list is a bit easier to read than the regexes (another
-suggestion was to move the list to the description [1]), but I don't
-mind dropping it. For the most part, it's a carryover from the TXT
-binding.
+Once drivers no longer use struct page convert iommu-pages to folios and
+use a private memory descriptor. This should help prepare iommu for
+Matthew's memdesc project and clears the way to using more space in the
+struct page for iommu-pages features in future.
 
-Best regards
-Artur
+Improve the API to work directly on sizes instead of order, the drivers
+generally have HW specs and code paths that already have specific sizes.
+Pass those sizes down into the allocator to remove some boiler plate
+get_order() in drivers. This is cleanup to be ready for a possible sub
+page allocator some day.
 
-[1] https://lore.kernel.org/lkml/Z59BQB_cBgTDm4ie@standask-GA-A55M-S2HP/
+This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pages
+
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason Gunthorpe (19):
+  iommu/terga: Do not use struct page as the handle for as->pd memory
+  iommu/tegra: Do not use struct page as the handle for pts
+  iommu/pages: Remove __iommu_alloc_pages()/__iommu_free_pages()
+  iommu/pages: Make iommu_put_pages_list() work with high order
+    allocations
+  iommu/pages: Replace iommu_free_pages() with iommu_free_page()
+  iommu/pages: De-inline the substantial functions
+  iommu/vtd: Use virt_to_phys()
+  iommu/pages: Formalize the freelist API
+  iommu/riscv: Convert to use struct iommu_pages_list
+  iommu/amd: Convert to use struct iommu_pages_list
+  iommu: Change iommu_iotlb_gather to use iommu_page_list
+  iommu/pages: Remove iommu_put_pages_list_old and the _Generic
+  iommu/pages: Move from struct page to struct ioptdesc and folio
+  iommu/pages: Move the __GFP_HIGHMEM checks into the common code
+  iommu/pages: Allow sub page sizes to be passed into the allocator
+  iommu/amd: Use roundup_pow_two() instead of get_order()
+  iommu/riscv: Update to use iommu_alloc_pages_node_lg2()
+  iommu: Update various drivers to pass in lg2sz instead of order to
+    iommu pages
+  iommu/pages: Remove iommu_alloc_page/pages()
+
+ drivers/iommu/Makefile              |   1 +
+ drivers/iommu/amd/init.c            |  62 ++++----
+ drivers/iommu/amd/io_pgtable.c      |  26 ++--
+ drivers/iommu/amd/ppr.c             |   2 +-
+ drivers/iommu/dma-iommu.c           |   9 +-
+ drivers/iommu/exynos-iommu.c        |  12 +-
+ drivers/iommu/intel/dmar.c          |   7 +-
+ drivers/iommu/intel/iommu.c         |  27 ++--
+ drivers/iommu/intel/iommu.h         |  19 ---
+ drivers/iommu/intel/irq_remapping.c |   4 +-
+ drivers/iommu/intel/pasid.c         |   3 +-
+ drivers/iommu/intel/pasid.h         |   1 -
+ drivers/iommu/intel/prq.c           |   4 +-
+ drivers/iommu/io-pgtable-arm.c      |  10 +-
+ drivers/iommu/io-pgtable-dart.c     |  23 +--
+ drivers/iommu/iommu-pages.c         | 119 +++++++++++++++
+ drivers/iommu/iommu-pages.h         | 215 +++++++++++-----------------
+ drivers/iommu/riscv/iommu.c         |  30 ++--
+ drivers/iommu/rockchip-iommu.c      |   6 +-
+ drivers/iommu/sun50i-iommu.c        |   6 +-
+ drivers/iommu/tegra-smmu.c          |  93 ++++++------
+ include/linux/iommu.h               |  16 ++-
+ 22 files changed, 371 insertions(+), 324 deletions(-)
+ create mode 100644 drivers/iommu/iommu-pages.c
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.43.0
+
 
