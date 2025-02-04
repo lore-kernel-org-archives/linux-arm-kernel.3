@@ -4,81 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1020AC0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 03:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F4DC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 04:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YINX4T9CJ8CGG/ntIWWY0zDTXw3cBhl99CQ3+fEeTo=; b=4m7uY1nrZytM7vDTUdMtX35NBd
-	5oGiYfAcBxxJu+rgW6yvuS3KCVKE97N7GHjAabrDb/76o217gr8Q7siIDT/EgRP2btC58gjMIi0R9
-	12NKaDk+fc4o37vTjRqcNTDIQ2Lnc4A0YDxzj7A40YIzUUWMYvwtEEFgJDZCEAsX49u9Ee3b3QFHz
-	xzA+ZDALfxkKumn2LNs3w5vOxAHxJaojfYMia8cyECTH+WtH35vGRx17Yeu3Fvu3TRkw09Wg4Z40j
-	2SXyrbHnTwLQeYJuUyrR4l30jrvQ6+Pwl6nkCWFVsMn4zMTuCU5mLTn8RqgRy0adexh7owO8eS66h
-	H+rUq0CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eqtOZwmbgDbNPoW0UC99MHpLTIFaTtsB0GCFzRK7M8k=; b=X7clDxIi4kQpXl0JeyYpaQyf4q
+	Rqo7Oy/z69offwJ9a1rgPwPn4FiT4d4uTEZo8QWpJXmfxQysQqtYMV+vzgzPHXX3dL8chz/xclDqW
+	lo28xG9fKudiv83B/1KZ7jsZtal2+aKyPZ+i9ckficPwXtYdUPXCxkAEL+QK5UrmIhW4PTHVmCS0M
+	CkGPdqJYEqZeciOMMyye8BqmuiHmc61CVSi5HLsDcLwXb9kD2FnvdK0kHuKd58qfqPCDLNUQ7Oxas
+	1VTUWnWUIbn1cChtASfU8er1gvfNB3EVdyCgzl8uoVkLzVS1mVlTmgYtGj8yCkxsVVZ+2QOAJKGIe
+	ZN0T5u9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfA1d-0000000HCJg-2xLX;
-	Tue, 04 Feb 2025 03:55:01 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfA0F-0000000HCFC-2CGK
+	id 1tfASf-0000000HDrF-2rJj;
+	Tue, 04 Feb 2025 04:22:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfARI-0000000HDjq-2Cv3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 03:53:36 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5143rTJW3146450
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Feb 2025 21:53:29 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738641209;
-	bh=9YINX4T9CJ8CGG/ntIWWY0zDTXw3cBhl99CQ3+fEeTo=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=FtnFSKOdGqnhFJgLzBoy7zsGJrg2WSWeuVWBz8pKwbp828VdnIoy77ErmgQpURSRn
-	 O7GsFrdlECsX/0J6iGjTlgK+nYReqp0jfgDUoPTe2dECWbDOMKWes1z94MU3Amy6Iu
-	 NyxS1ip+597ywIfGmg0QM8soW1wjZabQgYqFB+o0=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5143rTQ3024196
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 3 Feb 2025 21:53:29 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Feb 2025 21:53:29 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Feb 2025 21:53:29 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5143rT3b061285;
-	Mon, 3 Feb 2025 21:53:29 -0600
-Date: Mon, 3 Feb 2025 21:53:29 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vishal Mahaveer <vishalm@ti.com>,
-        Kevin
- Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>,
-        Sebin Francis
-	<sebin.francis@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am62x-sk-common: Add serial
- aliases
-Message-ID: <20250204035329.jzss2ar3t5arpgwt@reoccur>
-References: <20250203-topic-am62-serial-aliases-v6-14-v1-0-f26d4124a9f1@baylibre.com>
- <20250203-topic-am62-serial-aliases-v6-14-v1-1-f26d4124a9f1@baylibre.com>
+	Tue, 04 Feb 2025 04:21:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A687511FB;
+	Mon,  3 Feb 2025 20:21:53 -0800 (PST)
+Received: from [10.163.33.56] (unknown [10.163.33.56])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09A203F63F;
+	Mon,  3 Feb 2025 20:21:25 -0800 (PST)
+Message-ID: <0eb00e14-937d-4e84-9ca3-4239ce614ea3@arm.com>
+Date: Tue, 4 Feb 2025 09:51:23 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250203-topic-am62-serial-aliases-v6-14-v1-1-f26d4124a9f1@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] arm64/sysreg: Fix unbalanced closing block
+To: James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org, broonie@kernel.org,
+ maz@kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+References: <20250115162600.2153226-1-james.clark@linaro.org>
+ <20250115162600.2153226-2-james.clark@linaro.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250115162600.2153226-2-james.clark@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_195335_705633_C11DC6CF 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250203_202132_619358_41D84EC1 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +68,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:34-20250203, Markus Schneider-Pargmann wrote:
-> Add aliases for mcu_uart0 and wkup_uart0.
+
+
+On 1/15/25 21:55, James Clark wrote:
+> This is a sysreg block so close it with one. This doesn't make a
+> difference to the output because the script only matches on the
+> beginning of the word to close blocks which is correct by coincidence
+> here.
 > 
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
 > ---
->  arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/tools/sysreg | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> index 2f129e8cd5b9f127b1d1baab17be868938fae013..d52cb2a5a589a8e5eb325fd90324d57ec1e3783b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> @@ -12,6 +12,8 @@
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 762ee084b37c..bbe7df69da9c 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2074,7 +2074,7 @@ EndEnum
+>  Res0	4:2
+>  Field	1	ExTRE
+>  Field	0	E0TRE
+> -EndSysregFields
+> +EndSysreg
 >  
->  / {
->  	aliases {
-> +		serial0 = &wkup_uart0;
-> +		serial1 = &mcu_uart0;
->  		serial2 = &main_uart0;
->  		mmc0 = &sdhci0;
->  		mmc1 = &sdhci1;
-> 
-> -- 
-> 2.47.2
-> 
-Are'nt these reserved nodes for DM/TIFS and MCU? What purpose does it
-serve for us to have an alias in Linux?
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+>  Sysreg	SMPRI_EL1	3	0	1	2	4
+>  Res0	63:4
 
