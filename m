@@ -4,177 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE550C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B37C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4Dpa5GSk1Xh5/Doqv+/p9pvngrqwQ8vKayJhC5qSUM=; b=FGjgUCYfzFiRH3DjASEoi4QITh
-	V9YxRdSdkQ5iBsMR4jcaQI0u+cnNIwPMQ1YVn5s+ajnW5UgpBNY+/Wj7E5E6+DThjEvnVbqbDeGiy
-	5Ej3stUfixYA+fjMtAPrfY1nebG+qzLv4KDnFmbPSUu2kpNXersH488w5nTjm1rjf511JYkJ79rs9
-	ioBoo35cjoqTnPmxCRgTD+gmH3AwlgCMd0mcpJugAhRA7z74qRXFaspRPHM9UqzSmQuSoyK7LvSWF
-	kEjvi9pLbkRLPDBsUOEfGiMG1IfiRCelAvfpOJhjH637A5vIjd52+JyArglSnhRrFAudYBQ998cB5
-	lHk7MkLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=klzFW5qufSNhopssaHB67PSC4MM864bFLdh0AdosYTI=; b=NxwTXjYVORlkCy6gwWPLFJBE0w
+	9+RuOnwAPdOLece1YVPmDSQFWN7NP2oDRQFX1Cu8gdtsPTYgwR6SJ4fKcq+Wa58AaoSNCN1elb93C
+	jtm8Od6EipoSzSpl1cFqNEu50l8t8Kn3PWF23GMoqOHAa1XdyeyL+FaarBEzmRr1GtxOJzU6QVCoj
+	ydFeD7hvGWJxpgqGKyaubd0U0jRW+upzyEo28BdwBXt0V+gIKWKuzFTWmm0ncQBnOszowADoxFUuM
+	ZxUu3BkWbvDPVRBPGa4jua1Bc9f9xGhTFe0wZq+H+nQVU7vPIbygIr12PS+xIEziB9FV1YeRfDRCE
+	KnK5HXGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQk6-00000001dNa-20b0;
-	Tue, 04 Feb 2025 21:46:02 +0000
-Received: from mail-bn1nam02on20610.outbound.protection.outlook.com ([2a01:111:f403:2407::610] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1tfQk7-00000001dOC-2UcH;
+	Tue, 04 Feb 2025 21:46:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNlU-00000001ELM-0Wdt;
-	Tue, 04 Feb 2025 18:35:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MHGp+laojcb53bOoqR2/k759TOChigqaS/aEUywBZIYUClSk9O8BWjKoAsL7zGHnUaccq0selzr09vR2cBLP4QWXNQtjtm3rfghIp8oxxcT3eyHheOuTbkvM4mM4c5oeP1Mjxjt4XVTomExnLrvzIJF+Cbwi/E/mXmFIFx9WI8MYKA1L1X1v9+qPE45X7+60JQ2cKYzOL44k1YJKYNm4YoShUbOYZnzZG2Xj7Wi8e5UxHfhagaZpcl4c4mPNAWD1fUQhrmsj8eOXpAFGYpB6OF25FdMaK6aL3DsZHjb1GIcwncs33MCrk83ZMHEdW31ZA4qkYaNqXX6zC+QUmegwUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u4Dpa5GSk1Xh5/Doqv+/p9pvngrqwQ8vKayJhC5qSUM=;
- b=HwX4SdSmztmqOSmmgGElWsBBN79mtgygCM9S4kX0QKN1WkZjkArOM8gUEq7actzp7aZrUHXEochGs445AbLltSzbTS1PfeT4rLVQ0RiaFtXmMSG9OZVNdXFkzq/iyD/NKK0L3MfYSagPr6p1lLUulD8k0moCUwYgZyMy2j9JlxWTb91/R4JvZxeQ1MHNO8PF6bMhRvCvYpwL+bKYl2A774WZ/7NWZsgQBRvGtwT7qNLrbT/xP/nEotLRaS42rSGazsvmG/MRcK+WGtBEovsYuJH4bXLfTbE3OXnL7eC/dDhxmLAR1TfhwwWHpisgESdvhhY/Qgpk44vt/A2gIqVgkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u4Dpa5GSk1Xh5/Doqv+/p9pvngrqwQ8vKayJhC5qSUM=;
- b=cZW4fQj/TM4ZlUAy2viLnXWyhZ7cWCF8YjC3iZxuRnnJSC8Uur2Rl2JEHWejAKDH5WmJDKuPx4ARvSuF1yswv0EgNS7ZXeLYGrpA1UEe/4fNmERxU5Pnvq0qUg0SGu/D+UEoQjusZwnW3y0mzpdEri/5K2z1b1EJI4TUZ9OLjcitTyP5vCIQe1zFJLkQe6dvdPKtJG8GygwoFULVRTF089rc5NyNcSqlmruFX+8X8cUbPQZ6/jJlXjlCFdpSHGYRHF97azrrSkM+uHm6fvB4/f64DmPr06LkF4kMUtAXwr23fgmQjj/mKecA2XFipTddla56VZFEYAiRIglaZ8lWsQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6573.namprd12.prod.outlook.com (2603:10b6:930:43::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
- 2025 18:35:05 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 18:35:05 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH 01/19] iommu/terga: Do not use struct page as the handle for as->pd memory
-Date: Tue,  4 Feb 2025 14:34:42 -0400
-Message-ID: <1-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BL1PR13CA0363.namprd13.prod.outlook.com
- (2603:10b6:208:2c0::8) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tfOcb-00000001Mgo-0bww
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 19:30:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6BCF25C67BB;
+	Tue,  4 Feb 2025 19:29:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AC9C4CEE9;
+	Tue,  4 Feb 2025 19:30:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738697407;
+	bh=dp3KkiRbpI5jTq31jDz9RRKWBTNV3PSWERsFVIuYVUE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PJ28FiwKrc8NJPI/UEnZa67oUEmxwlDSox0/vLcuo50zurUwA2+ytfQnM6Bv4u0PK
+	 vAoehoqdy9VadUapFOhWNyKJeVT++wKSeKmI7OkjbiXd6uV4midvRdJZancpyQ/RFe
+	 iHJ9n9P7LXMc5SUQiCKC5Leqbdieg7Yh1vV1vN4UFk+3/zV2NcTwFK9e/Js+zHfCKH
+	 B4bGIZak2YsfPaoAp0ADRNr0gPsZR2oevAC0Zda/tE85Zf2fsfTN/re9Xd6/r3qCiF
+	 7w7Rze4iYR5KCqJ4/giOPWK9lTqwVCOzrq61Sgtpt4Bcd0Y2Pb3bE41emxsTaPxzeq
+	 csBuOwM6KBsKg==
+Date: Tue, 4 Feb 2025 19:30:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jammy Huang <jammy_huang@aspeedtech.com>
+Cc: eajames@linux.ibm.com, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+	andrew@aj.id.au, linux-media@vger.kernel.org,
+	openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: media: convert aspeed-video.txt to dt-schema
+Message-ID: <20250204-acronym-unshaved-18b89a389091@spud>
+References: <20250204062822.3738037-1-jammy_huang@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6573:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb825a95-fdd3-437c-8f92-08dd454aa379
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OPzP+PLyfUSZxB8g29pXBl8vaEIye+rzKgP3iW2rHr1iaKo75i3kPLgi2Ijo?=
- =?us-ascii?Q?1129K0DP7zPrvPGsXiROCOSg8dhk0Zd2acaqlFygRkoyoCJlaBXIIYmfQbpC?=
- =?us-ascii?Q?sMG3zdKlmAIO98e29IzCw1jPdi1SIMPAoqTFiaFdnBC4NWERtvf4bl1J8169?=
- =?us-ascii?Q?rk8GcvzLn9nKCIF8ktICjs3qHztSCMUTIzl2sjtCUjfYvbvtbS76nQovLdT3?=
- =?us-ascii?Q?RYjDRINCy7315Fh0JPwG9Vq92JwnO3/dPSGA3E3hzL+yW0XpshOZSJaeR7Ja?=
- =?us-ascii?Q?kQIIpPmUQUl6AueBGr9GEWemOZvMLbNdwHE0DPBvjbq7qR4Q2npzmJZa+oli?=
- =?us-ascii?Q?qh5sn0f0ZNjUnnRnffRkPjexLadcYZAsNJSQlCUISX8YHftd1tzBmqoEG3YQ?=
- =?us-ascii?Q?C1CYAAl9W9lQrdLOObBofArqpegdbmDzXNGuvFWyKvdef7Xb0oiwvfSEJSij?=
- =?us-ascii?Q?ebpWRv2CUs7K0CCkJ/RU1Wvyv6SEQrtXZbaX/G+21XRlHGZ8mTLoy+EGY0ab?=
- =?us-ascii?Q?TRPC+xBDnu8zNR85ar4mFara67IZ/niqLKXPuKeiZ67bnQ5YxBliRC6/JIcO?=
- =?us-ascii?Q?qKFv1350B9ppo6L78atM4kGhxb/dO356N7tvYJtzlX5EEWwNi4UvscVHrB+l?=
- =?us-ascii?Q?D45enGVitUeLu/0GqYiA1og1byxvxl4cpfl5ThE2xd2OlXrMO/w45sYMRTI9?=
- =?us-ascii?Q?awnfoeKo3958vfl9/j1gqrHhB6s6+qVangXLd8cjA79NYRLQfW66zEaZfw0d?=
- =?us-ascii?Q?F9OyZ3/pr3qy7g0hqFBe7ZrMjwf5bzvMPbADB7uG6XSqYkuQD/Nwl4Xw5mAC?=
- =?us-ascii?Q?lOxeycdVc7rytA/eyAijWfhGzsM4y4MXvuKZBzL//lmJj83Fuff+NW0xQ4YJ?=
- =?us-ascii?Q?/lLRb+HWb0FcbyFi/HQmx1ut87Fx6TTuo7Rt3N+KjbH5Uyd4cwAadHqPlnHW?=
- =?us-ascii?Q?a/4p0WoQh57zlo40ggTpVqMw19wgMg8Zh7AuQ3zVa6QGdY7MlRB2d0Tr181n?=
- =?us-ascii?Q?XdI4RazDAdLgwJunRBZmnmrvB/I1c722//mWnxfJ8pfC+qBADZtaKGkTq31R?=
- =?us-ascii?Q?++YYK9FLuWhMr9gyoLyyrpSQiezqlepqwRPqrxmLjjbB5Z2ip7ZOx2zIyriA?=
- =?us-ascii?Q?62gwxbcom5Sbip53dfyjClexYTjoEbTuLqHj5MMbPxdt1KpCjoxEIbDC/t0B?=
- =?us-ascii?Q?AKHZTBB12G3WOrYJ2UiaUkIvocoYiUTvGKYBKfDykWaOYvPbzVcx3SwcUuET?=
- =?us-ascii?Q?oaOAnA3umd9FvfgXPSCECYspcibes7YKGI0YAXdmhgF8o09kfxGL9Yzckxe4?=
- =?us-ascii?Q?RFeiTvyvZ898eajW9fwGRScjzsrWRj5ZLOFnHx8ztu7TY3LXlWPyYJR41aG2?=
- =?us-ascii?Q?5uuz9wvT95alAzCBQHvPB2fmgemr7uFOuuMHGGCmoulsiBi0xUkYSQTbmjwC?=
- =?us-ascii?Q?U7A9/dHu+8A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/zlXtoqwbxU3XyCjwYcNdcUeBXnywFzY82sKSeThqoKo20PNcbD2Um2sI4dZ?=
- =?us-ascii?Q?hInU/+X8m5r7y3GbHe/gIWLI2YCrJZGoa/xC5yRnaEqk74BUW1780fLHz4gv?=
- =?us-ascii?Q?C55lpazuvT8wfBTqqPS47+ZUH9xap52Y0+CRi0W3qCsWlfGe9+st7ufjarsr?=
- =?us-ascii?Q?fg828vRrfOL1BNc0ZNSrZGajJidza5gX8z9bzdZ17TYHvT7PbDGSacjULiSS?=
- =?us-ascii?Q?RgrAqSg6kSw/Rnu7X4Her5NUGkc/9q2fQeVax22j1tq2qtOdONBMNeRK6W65?=
- =?us-ascii?Q?bt8TdOuKfr7OoMOM8tVXjBBSz/F2JRqb8HgFqCrsuIR6k9xCvDejaPvL9TO4?=
- =?us-ascii?Q?Dr1dOJdTjbJ1gCmg8XjKn25L01YTJxLcTy1sKR8BdOTj2idnFzEH8wcCM9wr?=
- =?us-ascii?Q?nbNpiUsWo29tEn84FaElPSSPEG4q/cPDNR9kPqNSfvbSfg32fVC450crnCwp?=
- =?us-ascii?Q?orjq5oImcreOh7EinBOQiPoceBo/9gJPHmloi+JamvdML1VzXX5kQ6YXgGh5?=
- =?us-ascii?Q?mweR3vgWoljPwZuVJxNJ4JDIimUMZPmEa0a5ZTaTPah6MfNh6vLq5tqOrDEV?=
- =?us-ascii?Q?jDeCPRikMiBYxzj4zE2NqRTb7sC+VG4EsvtuQcM+zyB/nTd0klsT420P6Db2?=
- =?us-ascii?Q?ihNYYpezeQybN1lF2hpx97vAYnGyqqhybCrGkdpsocRovLJ62KcCoxZFtr35?=
- =?us-ascii?Q?yRN9WvR6GTqvoTxGcwzhBGfU7DBu3gE4u9xjrPzpP5JZoaojplB8yFKkK9Mw?=
- =?us-ascii?Q?6fcL6+NO+On80f3jMAb69Cewv196UpJYG53+mw0RYizf490HSXjhefnlGAg6?=
- =?us-ascii?Q?DqsA+fZpI3RVrIopqNoLv50hZFLT5C3wAsW8SkTMV0M8u4JoylYoGNBvhxM2?=
- =?us-ascii?Q?Zs4IkXR4fGSs8s/ywhcbnYO7pIHTQ9UQ3W7vtPvLu6OsQOkuCF7zRQd5NXNl?=
- =?us-ascii?Q?sCrdvTW6/tpr02zZphEkLWMgGQ6avrB9Th6S5wGRc3m2NGqQ+FRdxbR6IX2k?=
- =?us-ascii?Q?qGS+GIYZSjSdB7bpSkRwZCiLvoOH1Y00LAwxZYb5G2FtNcXvHmzGvj0i83G1?=
- =?us-ascii?Q?6bhFNR3qivvt1G94msJ1eEa+s3xQGNbYe4llHmwalQZISN4geH1825JHwiw8?=
- =?us-ascii?Q?/nsrHkZ95aJKbd12vzbKYhMcl5ZtJOxlWnFascQitqKgR+sDL4xERowc87ha?=
- =?us-ascii?Q?Yl5OsvITd6WkDErryyxbE3w3PpYxX3si47YAfqFWdAiABve/+L3Qzf/JZAxC?=
- =?us-ascii?Q?gaGiLIabbfWBhcu3D3k6ug5jayUhrgQ60I7+7f247HdCWd3mU9zDYfO15ZRn?=
- =?us-ascii?Q?f0DJoSB2bkS7ua3k97RKEDthDgnAorsqvIfr3YRgSz32bpEQIKV7rzMFtfmQ?=
- =?us-ascii?Q?2+qGUvotYcTX0eQ1LHXhf9lI7+BI9LkgnE3TYLcm06frElU68NKJ9cGa9nST?=
- =?us-ascii?Q?ewMHIKLgpbbHaE9MWu5bCawuvJT+JmgyTUjUBWfk7Q6pqBWTDn+oyK5aIGTW?=
- =?us-ascii?Q?HNcr743ys9MaMHijNbFm+t7dNPWaOw881B5jXfXDjZFDjSbW1gDyEtTceHJl?=
- =?us-ascii?Q?s42bB/rqmvusObraOHY=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb825a95-fdd3-437c-8f92-08dd454aa379
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 18:35:03.1503
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m1XOl7gEa9bCvo9M6JSaJTLYdxJSidWdNKSFiObTna/zmF0EDr//1ZCkUXsM98gE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6573
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="i8IRvi06tcsVtedw"
+Content-Disposition: inline
+In-Reply-To: <20250204062822.3738037-1-jammy_huang@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_103516_207931_E08C846D 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250204_113009_270672_B910AFAC 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,112 +76,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead use the virtual address. Change from dma_map_page() to
-dma_map_single() which works directly on a KVA.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/tegra-smmu.c | 25 ++++++++++---------------
- 1 file changed, 10 insertions(+), 15 deletions(-)
+--i8IRvi06tcsVtedw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/iommu/tegra-smmu.c b/drivers/iommu/tegra-smmu.c
-index 7f633bb5efef16..717bcd3b8de7dc 100644
---- a/drivers/iommu/tegra-smmu.c
-+++ b/drivers/iommu/tegra-smmu.c
-@@ -58,7 +58,7 @@ struct tegra_smmu_as {
- 	spinlock_t lock;
- 	u32 *count;
- 	struct page **pts;
--	struct page *pd;
-+	u32 *pd;
- 	dma_addr_t pd_dma;
- 	unsigned id;
- 	u32 attr;
-@@ -284,7 +284,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
- 
- 	as->attr = SMMU_PD_READABLE | SMMU_PD_WRITABLE | SMMU_PD_NONSECURE;
- 
--	as->pd = __iommu_alloc_pages(GFP_KERNEL | __GFP_DMA, 0);
-+	as->pd = iommu_alloc_page(GFP_KERNEL | __GFP_DMA);
- 	if (!as->pd) {
- 		kfree(as);
- 		return NULL;
-@@ -292,7 +292,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
- 
- 	as->count = kcalloc(SMMU_NUM_PDE, sizeof(u32), GFP_KERNEL);
- 	if (!as->count) {
--		__iommu_free_pages(as->pd, 0);
-+		iommu_free_page(as->pd);
- 		kfree(as);
- 		return NULL;
- 	}
-@@ -300,7 +300,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
- 	as->pts = kcalloc(SMMU_NUM_PDE, sizeof(*as->pts), GFP_KERNEL);
- 	if (!as->pts) {
- 		kfree(as->count);
--		__iommu_free_pages(as->pd, 0);
-+		iommu_free_page(as->pd);
- 		kfree(as);
- 		return NULL;
- 	}
-@@ -417,8 +417,8 @@ static int tegra_smmu_as_prepare(struct tegra_smmu *smmu,
- 		goto unlock;
- 	}
- 
--	as->pd_dma = dma_map_page(smmu->dev, as->pd, 0, SMMU_SIZE_PD,
--				  DMA_TO_DEVICE);
-+	as->pd_dma =
-+		dma_map_single(smmu->dev, as->pd, SMMU_SIZE_PD, DMA_TO_DEVICE);
- 	if (dma_mapping_error(smmu->dev, as->pd_dma)) {
- 		err = -ENOMEM;
- 		goto unlock;
-@@ -548,7 +548,7 @@ static void tegra_smmu_set_pde(struct tegra_smmu_as *as, unsigned long iova,
- {
- 	unsigned int pd_index = iova_pd_index(iova);
- 	struct tegra_smmu *smmu = as->smmu;
--	u32 *pd = page_address(as->pd);
-+	u32 *pd = as->pd;
- 	unsigned long offset = pd_index * sizeof(*pd);
- 
- 	/* Set the page directory entry first */
-@@ -577,14 +577,12 @@ static u32 *tegra_smmu_pte_lookup(struct tegra_smmu_as *as, unsigned long iova,
- 	unsigned int pd_index = iova_pd_index(iova);
- 	struct tegra_smmu *smmu = as->smmu;
- 	struct page *pt_page;
--	u32 *pd;
- 
- 	pt_page = as->pts[pd_index];
- 	if (!pt_page)
- 		return NULL;
- 
--	pd = page_address(as->pd);
--	*dmap = smmu_pde_to_dma(smmu, pd[pd_index]);
-+	*dmap = smmu_pde_to_dma(smmu, as->pd[pd_index]);
- 
- 	return tegra_smmu_pte_offset(pt_page, iova);
- }
-@@ -619,9 +617,7 @@ static u32 *as_get_pte(struct tegra_smmu_as *as, dma_addr_t iova,
- 
- 		*dmap = dma;
- 	} else {
--		u32 *pd = page_address(as->pd);
--
--		*dmap = smmu_pde_to_dma(smmu, pd[pde]);
-+		*dmap = smmu_pde_to_dma(smmu, as->pd[pde]);
- 	}
- 
- 	return tegra_smmu_pte_offset(as->pts[pde], iova);
-@@ -645,8 +641,7 @@ static void tegra_smmu_pte_put_use(struct tegra_smmu_as *as, unsigned long iova)
- 	 */
- 	if (--as->count[pde] == 0) {
- 		struct tegra_smmu *smmu = as->smmu;
--		u32 *pd = page_address(as->pd);
--		dma_addr_t pte_dma = smmu_pde_to_dma(smmu, pd[pde]);
-+		dma_addr_t pte_dma = smmu_pde_to_dma(smmu, as->pd[pde]);
- 
- 		tegra_smmu_set_pde(as, iova, 0);
- 
--- 
-2.43.0
+On Tue, Feb 04, 2025 at 02:28:22PM +0800, Jammy Huang wrote:
+> Convert aspeed-video.txt to yaml format.
+> Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
+>=20
+> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+> ---
+>  .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
+>  .../bindings/media/aspeed-video.txt           | 33 --------
+>  MAINTAINERS                                   |  2 +-
+>  3 files changed, 85 insertions(+), 34 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-=
+engine.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.=
+txt
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.=
+yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+> new file mode 100644
+> index 000000000000..c66ae6b53cbb
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+> @@ -0,0 +1,84 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED Video Engine
+> +
+> +maintainers:
+> +  - Eddie James <eajames@linux.ibm.com>
+> +
+> +description:
+> +  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
+> +  capture and compress video data from digital or analog sources.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - aspeed,ast2400-video-engine
+> +      - aspeed,ast2500-video-engine
+> +      - aspeed,ast2600-video-engine
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: vclk
+> +      - const: eclk
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +    description: |
+> +      Phandle to the reserved memory nodes to be associated with the
+> +      VE. VE will acquires memory space for 3 purposes:
+> +        1. JPEG header
+> +        2. Compressed result
+> +        3. Temporary transformed image data
+> +
+> +  aspeed,scu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
+> +      Specifies the scu node that is needed if video wants to capture
+> +      from sources other than Host VGA.
+> +
+> +  aspeed,gfx:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
+> +      Specifies the Soc Display(gfx) node that needs to be queried to get
+> +      related information if video wants to use gfx as capture source.
 
+These two phandle properties are new and not mentioned in your commit
+message. Why have they been added?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/ast2600-clock.h>
+> +
+> +    video@1e700000 {
+> +      compatible =3D "aspeed,ast2600-video-engine";
+> +      reg =3D <0x1e700000 0x1000>;
+> +      clocks =3D <&syscon ASPEED_CLK_GATE_VCLK>,
+> +               <&syscon ASPEED_CLK_GATE_ECLK>;
+> +      clock-names =3D "vclk", "eclk";
+> +      interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +      aspeed,scu =3D <&syscon>;
+> +      aspeed,gfx =3D <&gfx>;
+> +    };
+> diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/D=
+ocumentation/devicetree/bindings/media/aspeed-video.txt
+> deleted file mode 100644
+> index d2ca32512272..000000000000
+> --- a/Documentation/devicetree/bindings/media/aspeed-video.txt
+> +++ /dev/null
+> @@ -1,33 +0,0 @@
+> -* Device tree bindings for Aspeed Video Engine
+> -
+> -The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
+> -capture and compress video data from digital or analog sources.
+> -
+> -Required properties:
+> - - compatible:		"aspeed,ast2400-video-engine" or
+> -			"aspeed,ast2500-video-engine" or
+> -			"aspeed,ast2600-video-engine"
+> - - reg:			contains the offset and length of the VE memory region
+> - - clocks:		clock specifiers for the syscon clocks associated with
+> -			the VE (ordering must match the clock-names property)
+> - - clock-names:		"vclk" and "eclk"
+> - - resets:		reset specifier for the syscon reset associated with
+> -			the VE
+> - - interrupts:		the interrupt associated with the VE on this platform
+> -
+> -Optional properties:
+> - - memory-region:
+> -	phandle to a memory region to allocate from, as defined in
+> -	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+> -
+> -Example:
+> -
+> -video-engine@1e700000 {
+> -    compatible =3D "aspeed,ast2500-video-engine";
+> -    reg =3D <0x1e700000 0x20000>;
+> -    clocks =3D <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_=
+ECLK>;
+> -    clock-names =3D "vclk", "eclk";
+> -    resets =3D <&syscon ASPEED_RESET_VIDEO>;
+> -    interrupts =3D <7>;
+> -    memory-region =3D <&video_engine_memory>;
+> -};
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 896a307fa065..7e59daa1e89d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
+>  L:	linux-media@vger.kernel.org
+>  L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
+>  S:	Maintained
+> -F:	Documentation/devicetree/bindings/media/aspeed-video.txt
+> +F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+>  F:	drivers/media/platform/aspeed/
+> =20
+>  ASUS EC HARDWARE MONITOR DRIVER
+>=20
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> --=20
+> 2.25.1
+>=20
+
+--i8IRvi06tcsVtedw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6JqugAKCRB4tDGHoIJi
+0mCkAQDv+QJAtLQu581nLzkejap/mpHejKb7ON+oLm+XbsuanwD/XWZyc+D15A2m
+NvFwrl1iWOd3s3nRf2VSuRWBz8w31wk=
+=GNL1
+-----END PGP SIGNATURE-----
+
+--i8IRvi06tcsVtedw--
 
