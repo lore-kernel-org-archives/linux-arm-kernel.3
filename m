@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9272C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120BBC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4zLUjXm4prg/eFxGt+fYgNMmII7NdmBc8I6cT7wueA=; b=MUe4D8MZTRwwBnF/97gFk2AET3
-	GWaqjp9/EYPifcNGiL2Ee2hgg5t7I765WKbl99ImHEvUDRu1zBQbUh4ZmQ0zG+OOwG86SMGaMsVXL
-	nSv59WtC5BsIbmr+Ew/HmIzn/iJ/orwsnisIk6M7TkZtpbk6KCMRh3cXOezdTVwvXKIhqXK5znWCz
-	1Wxp7OLvO5Duv7vjTN6M2G9qUFonXtG6NnjG2xjnq3RqXCfoAkj1DhIwmA24bJMSyoKmpNTOTbguX
-	K8tK1niAY5N8oz9pDkwpd7eieRlAn8q7GqxHFWv68KF187lsizFehCFULokqL4o59RurHQaBNItSg
-	A6pjwtDw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kyl7v3MXnpMgt1ZOKipH/H+Vr16QIfKfmdEmju+IxpM=; b=hxkDvs4zryoYeUxLdewvWwoT3Y
+	ni6l1gbrC/VmKDRnCkAduP/WV9qnPL7bU7rEJHMhKiGagn4GZCY9k5hKcdKnshUrxL9GiQDJtBU60
+	jDCGOODM4JDZOYh26Sy34+4z6EitW51ghghZIhL2nRmq0vKUqTE2cs84nDfNcfKQBqxz9xyaldNx/
+	nbceOe2bMiq+oRkJOOOV1U+MjN03PQvoyO3yYptstOOKCSJm8QWRFvm+n0WJCqZx+ujLIXiRC5u8i
+	B0X9ixCIQFR2WkezfA7zibFX1h6jQHRS25756XVN3bCJk8kxaaN6R4j+YjkxSc/ok6kwCNhEOgokC
+	JIz35ydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKJa-00000000is6-0QMd;
-	Tue, 04 Feb 2025 14:54:14 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tfKMf-00000000jFU-435s;
+	Tue, 04 Feb 2025 14:57:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKH9-00000000iU2-2pC0
+	id 1tfKLK-00000000j16-1uIR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 14:51:45 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5401ab97206so5566734e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 06:51:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738680702; x=1739285502; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J4zLUjXm4prg/eFxGt+fYgNMmII7NdmBc8I6cT7wueA=;
-        b=lUGiyv+6UYXevOZb8XSkbMQt0EYLG+ujCdA0edeld5GfLzmcHXqrCVCjTKEzI6wp6v
-         Tcy31hoH0P+vwZdWwuLBh42vvl849M7d9e5xUu86n8mBYeTQpC9ODXlmZXa91fKm+c4I
-         YwUhTbq8I4+2t1KKWTzLGLZkI4ZIZ2QQ2XVRNpwNHCwzAV654arGer2fOYDN/flAbsKI
-         855N3a+rY3UlHDfUMqTk5/9yLOtAd9npKN7tkjQGQXWgZ/sTRSdzFEA9+db3Ziy245S/
-         5G2QM6eIkiINR/bwSpGVRD3jGb3dTY5ti0oI9STPnfCKwajisbF9VjWu5TMxCOeZR6Jr
-         uI0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738680702; x=1739285502;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J4zLUjXm4prg/eFxGt+fYgNMmII7NdmBc8I6cT7wueA=;
-        b=iCmsELm85BSFS35zOOohNNNb66iaDa8KQn46Yn2tivMCFVwOiLlXVf9xF9DB13V0mf
-         QHlDEwUxsoCgVtbBiwfyI8FdLH5pBOppDP5M6D3RN2lROIGtSa6+Ys3UPvRiPAH4qA2b
-         yWQpB4PsJJwsGdT76OxuPTu6oFPTFZlMeox7DvCHlUbTAxTrqWxRAobBktWZTMIJx6Lc
-         rQR6Fs/Dr0xQpHIjEgpUewj0BVum78xAKwspH+clJPpF61IwKqI2v1g/7oTc3zba7nwB
-         vtaNwtErjeCiIrdWH9vo9oxTdYUHTmOsaGaD65OFj+xFSm/NKemqEwCEkxPJY3q1Chb5
-         U1kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWV753so7lzqACFYUco66kapWvjxZaLMguTVGasBiSfh1oCwcvYCqudTPxwz+pKTZrdvEj6x7HN0KBpIgn5FYib@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz29xs9hRJMJj19EWOO4lYSV5DWXDx6rMAkQGqUIOOIxOk1jbpV
-	+pM4bUkbBi8r/3U9rqogc+0zcps88E5tEQ1KxZ82CkRq4uRbsGFhmrkd6al1GFoWwXSrbWkOV4/
-	QxIAJBnPTxNA5SmHO2tNGsW6la8IwTz81YqdF6g==
-X-Gm-Gg: ASbGncs4KEckqo88xS6CmfCogZa/LbyCRmRgYKyoQjs1rjysQGyMVDMPZll3fu7KYEE
-	Z7zXezfHPKIfPGLuZ5PplMhtxjX27MhZnmXU4UBtA+pNtvxnqZaV+Kz5WbY4bdXc7In0BeKZZWg
-	==
-X-Google-Smtp-Source: AGHT+IFWTKRZ04zHi9yazDmOAR+9nHPiC9DLDSwxIssSS1/sYlKHwCu1qRW2q05nuJpua/OP5aauc8pAw8aEMUpq3to=
-X-Received: by 2002:a05:6512:239e:b0:540:2f59:7561 with SMTP id
- 2adb3069b0e04-543e4c3c98cmr8359830e87.50.1738680701650; Tue, 04 Feb 2025
- 06:51:41 -0800 (PST)
+	Tue, 04 Feb 2025 14:56:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EE9CC5C69B4;
+	Tue,  4 Feb 2025 14:55:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72F32C4CEDF;
+	Tue,  4 Feb 2025 14:56:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738680961;
+	bh=/54KAUGrgAu+EY8yrKbHB4///ZOU7MFp40KO/eRvFjE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hY34tf7QLqKPmNkKHaymhuwSAdpujXj5JOKlDDXIEV/9vzG7TxbmXMPM7hGwC31Ds
+	 Sq9ITR2oShRcLLM8qBV4Hs/gDc4YIFU/poN8AJ0JRgYvsPo7TyNe2tv7IylwoclqaN
+	 eBc9S5DTifJZmzvaXW7CjgcE8yItxyEVoHvPNRIlgKnhd4UkBt2GYa0wHIVoFBaVoS
+	 vgrEMyTbBjHSMBExylP4OXNP4u0cnUXmkDKnNDS3fSmcHScFdLJf1PRX7q+a4Zd4p7
+	 N9Ee5ahSZU/oDeXtej7EaMXwenCAAc9RbJOZ0NeQYb5ytfCULKz/qlOIPvzwolKako
+	 T3RVVe8p76f6A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tfKLG-000SW3-VU;
+	Tue, 04 Feb 2025 14:55:59 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexander Potapenko <glider@google.com>
+Subject: [PATCH] KVM: arm64: Fix nested S2 MMU structures reallocation
+Date: Tue,  4 Feb 2025 14:55:54 +0000
+Message-Id: <20250204145554.774427-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20250204075405.824721-1-apatel@ventanamicro.com>
- <20250204075405.824721-2-apatel@ventanamicro.com> <87frktoo16.ffs@tglx>
-In-Reply-To: <87frktoo16.ffs@tglx>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 4 Feb 2025 20:21:30 +0530
-X-Gm-Features: AWEUYZmlBEyFq7UPY0VRDrxJd2P92k6Zjc43uE6bTATPsZOqON-E7U5h2zWhfaQ
-Message-ID: <CAK9=C2WOnB9g55r9bfWW4X-BjrST8WArDT8+wLwt7B=TDwYjdg@mail.gmail.com>
-Subject: Re: [PATCH v3 01/10] irqchip/riscv-imsic: Handle non-atomic MSI
- updates for device
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, glider@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_065143_711831_38290B5C 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250204_065602_582278_FD4D8259 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 4, 2025 at 6:38=E2=80=AFPM Thomas Gleixner <tglx@linutronix.de>=
- wrote:
->
-> On Tue, Feb 04 2025 at 13:23, Anup Patel wrote:
-> > Device having non-atomic MSI update might see an intermediate
-> > state when changing target IMSIC vector from one CPU to another.
-> >
-> > To handle such intermediate device state, update MSI address
-> > and MSI data through separate MSI writes to the device.
->
-> As pointed out in the other mail, this intermediate step does not fix
-> the issue. It requires that the MSI message write happens on the
-> original target CPU so that an interrupt which is raised on that
-> intermediate vector can be observed.
+For each vcpu that userspace creates, we allocate a number of
+s2_mmu structures that will eventually contain our shadow S2
+page tables.
 
-Okay, I will drop this patch and instead have the last patch do
-the intermediate step.
+Since this is a dynamically allocated array, we reallocate
+the array and initialise the newly allocated elements. Once
+everything is correctly initialised, we adjust pointer and size
+in the kvm structure, and move on.
 
-Regards,
-Anup
+But should that initialisation fail *and* the reallocation triggered
+a copy to another location, we end-up returning early, with the
+kvm structure still containing the (now stale) old pointer. Weeee!
+
+Cure it by assigning the pointer early, and use this to perform
+the initialisation. If everything succeeds, we adjust the size.
+Otherwise, we just leave the size as it was, no harm done, and the
+new memory is as good as the ol' one (we hope...).
+
+Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+Reported-by: Alexander Potapenko <glider@google.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index d3214c3a40393..6969c273b39e1 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -93,20 +93,22 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+ 	if (!tmp)
+ 		return -ENOMEM;
+ 
++	swap(kvm->arch.nested_mmus, tmp);
++
+ 	/*
+ 	 * If we went through a realocation, adjust the MMU back-pointers in
+ 	 * the previously initialised kvm_pgtable structures.
+ 	 */
+ 	if (kvm->arch.nested_mmus != tmp)
+ 		for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+-			tmp[i].pgt->mmu = &tmp[i];
++			kvm->arch.nested_mmus[i].pgt->mmu = &kvm->arch.nested_mmus[i];
+ 
+ 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+-		ret = init_nested_s2_mmu(kvm, &tmp[i]);
++		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+ 
+ 	if (ret) {
+ 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+-			kvm_free_stage2_pgd(&tmp[i]);
++			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+ 
+ 		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+ 		vcpu->arch.ctxt.vncr_array = NULL;
+@@ -115,7 +117,6 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	kvm->arch.nested_mmus_size = num_mmus;
+-	kvm->arch.nested_mmus = tmp;
+ 
+ 	return 0;
+ }
+-- 
+2.39.2
+
 
