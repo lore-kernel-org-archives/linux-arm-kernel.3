@@ -4,101 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83ADC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C728C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVfaocM+r2qlpRpFe5XkadQ/SQGZxstb76I1iDxrENw=; b=DJcS0sRK9T5Z258cDd8uTcUrno
-	s4tyzc929UDdrMvjdEPojJ6UvKKmNtGXzEinRzMNUf6UBvMoO9QonUWnXbJtWmn/JYgcH4EhtXsuk
-	0gFhROtMdZ22RbeH/zSvJ0ydd85K5mWCcmI6oE/mtndSqD2PcwJfcUXKAJtOB2YM5oY4Ntvh17qxX
-	UKLVL81F3NFPoH3X0EOdlB4+/2zQcLy6AduEVVDzbW8OezH7es8fSGXUGKnfI9bZoIgTlwNsgkt+K
-	0bHSHwd4NVqpJ+WaYLt973dtDxA67/7XPmIDskRvd0Pf5+N5xlVV0AjzhfzPtj/v8D12b9JdBlYHk
-	N8nUg46g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sLeKCpvWbLRRhn78P7ZyuNIR+hiA0anbyVa8GMbdMgY=; b=jF86f5t+8uhitM
+	emwOWXNup+l9nT+jyuBGkqtAL/sC9H2PgBZZ1+Qd/XnuZwGD8aezaZ7b4yr5mTrN8MKQ02Brcl9t7
+	mLATjVM5I7BNW04Gl8V5ElqQGRg78NM5g6y7qfob9cLfhUolsQzGqdESFwi2LEaMTx8gIo8wOyFbf
+	b/6YKe4p320zJkS7b2dh/lbwlTGzfXsmtl8yBNU/qu53Vzx1wmtx0YIsANw1SC4xo3layy2SynOET
+	689iKZJsDtVW8JkBniKK7dq5Dm3MAj3RUbaEpVFpCBYsX7wex5ESFSjm+xNJsP2rIs2JFuQODoX1E
+	AlqiuY+xQNPCoa+NGiEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCJv-0000000HMHA-2FRx;
-	Tue, 04 Feb 2025 06:22:03 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tfCRX-0000000HMrf-050D;
+	Tue, 04 Feb 2025 06:29:55 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCAP-0000000HL6k-2PlV
+	id 1tfCQA-0000000HMmx-2FrN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 06:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738649533; x=1770185533;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=W5Mb/B6A83zl1/Y0M78kvYdb8/k9rXB+WieYOqYQnF4=;
-  b=j1Sx41PQQSf/i93y8/ytEmSGEbQp+8D2205o6zbYbzYq2ehAnrI93ZHF
-   1dY5eqXMJvXS5Kc4/Jn2ywpRaswif7b6JrjQgbkYXjwf95MGN9jor2ZcR
-   /rQ2UELPv/iTtL97b6DGosSgwUrp951XHPxsJdVgiay6o0XjEBn6Amk2+
-   fse3QeOzYqVkJ5noK0q2GVgKvmdsg2E1fjOh9M1AXNT2IkkN3SzaRrqC8
-   NfNHL2+NksR9FV95mO3fB8Z+wWokYp7l6vlFy2lgutHt0C5qcv6x4kblG
-   VIdfg4FVvSaoyazdobcoLakVRWSjZ+mh2aKLbn9olPHWfCwCJUc81o1ov
-   Q==;
-X-CSE-ConnectionGUID: lvuvWpekSeqnQblrglm1IA==
-X-CSE-MsgGUID: 8vXuOmYLRHWIQ8fWex1h7A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579746"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="50579746"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:12:13 -0800
-X-CSE-ConnectionGUID: +NRpEiNBSn+simhqIS2LrA==
-X-CSE-MsgGUID: f5GJdTAlSKKBVCLLmj9gyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
-   d="scan'208";a="110279244"
-Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:12:06 -0800
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-To: Simon Horman <horms@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans de Goede <hdegoede@redhat.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Serge Semin <fancer.lancer@gmail.com>
-Cc: x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v6 7/7] stmmac: intel: interface switching support for ADL-N platform
-Date: Tue,  4 Feb 2025 14:10:20 +0800
-Message-Id: <20250204061020.1199124-8-yong.liang.choong@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
-References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
+	Tue, 04 Feb 2025 06:28:32 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Tue, 4 Feb
+ 2025 14:28:22 +0800
+Received: from twmbx02.aspeed.com (192.168.10.10) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Tue, 4 Feb 2025 14:28:22 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: <eajames@linux.ibm.com>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
+	<andrew@aj.id.au>, <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] dt-bindings: media: convert aspeed-video.txt to dt-schema
+Date: Tue, 4 Feb 2025 14:28:22 +0800
+Message-ID: <20250204062822.3738037-1-jammy_huang@aspeedtech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_221213_626258_0FC257CF 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250203_222830_577957_E879F42A 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +64,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The intel_config_serdes function was provided to handle interface mode
-changes for the ADL-N platform.
+Convert aspeed-video.txt to yaml format.
+Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
 
-The Modphy register lane was provided to configure the serdes when
-changing interface modes.
-
-Signed-off-by: Michael Sit Wei Hong <michael.wei.hong.sit@intel.com>
-Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 47 ++++++++++++++++++-
- .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  2 +
- 2 files changed, 48 insertions(+), 1 deletion(-)
+ .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
+ .../bindings/media/aspeed-video.txt           | 33 --------
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 85 insertions(+), 34 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.txt
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-index de561a00f902..b5180cf303e2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-@@ -951,6 +951,51 @@ static int adls_sgmii_phy1_data(struct pci_dev *pdev,
- static struct stmmac_pci_info adls_sgmii1g_phy1_info = {
- 	.setup = adls_sgmii_phy1_data,
- };
+diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+new file mode 100644
+index 000000000000..c66ae6b53cbb
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+static int adln_common_data(struct pci_dev *pdev,
-+			    struct plat_stmmacenet_data *plat)
-+{
-+	struct intel_priv_data *intel_priv = plat->bsp_priv;
++title: ASPEED Video Engine
 +
-+	plat->rx_queues_to_use = 6;
-+	plat->tx_queues_to_use = 4;
-+	plat->clk_ptp_rate = 204800000;
++maintainers:
++  - Eddie James <eajames@linux.ibm.com>
 +
-+	plat->safety_feat_cfg->tsoee = 1;
-+	plat->safety_feat_cfg->mrxpee = 0;
-+	plat->safety_feat_cfg->mestee = 1;
-+	plat->safety_feat_cfg->mrxee = 1;
-+	plat->safety_feat_cfg->mtxee = 1;
-+	plat->safety_feat_cfg->epsi = 0;
-+	plat->safety_feat_cfg->edpp = 0;
-+	plat->safety_feat_cfg->prtyen = 0;
-+	plat->safety_feat_cfg->tmouten = 0;
++description:
++  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
++  capture and compress video data from digital or analog sources.
 +
-+	intel_priv->tsn_lane_registers = adln_tsn_lane_registers;
-+	intel_priv->max_tsn_lane_registers = ARRAY_SIZE(adln_tsn_lane_registers);
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2400-video-engine
++      - aspeed,ast2500-video-engine
++      - aspeed,ast2600-video-engine
 +
-+	return intel_mgbe_common_data(pdev, plat);
-+}
++  reg:
++    maxItems: 1
 +
-+static int adln_sgmii_phy0_data(struct pci_dev *pdev,
-+				struct plat_stmmacenet_data *plat)
-+{
-+	struct intel_priv_data *intel_priv = plat->bsp_priv;
++  clocks:
++    maxItems: 2
 +
-+	plat->bus_id = 1;
-+	plat->phy_interface = PHY_INTERFACE_MODE_SGMII;
-+	plat->serdes_powerup = intel_serdes_powerup;
-+	plat->serdes_powerdown = intel_serdes_powerdown;
-+	plat->config_serdes = intel_config_serdes;
-+	intel_priv->pid_modphy = PID_MODPHY1;
++  clock-names:
++    items:
++      - const: vclk
++      - const: eclk
 +
-+	return adln_common_data(pdev, plat);
-+}
++  resets:
++    maxItems: 1
 +
-+static struct stmmac_pci_info adln_sgmii1g_phy0_info = {
-+	.setup = adln_sgmii_phy0_data,
-+};
++  interrupts:
++    maxItems: 1
 +
- static const struct stmmac_pci_func_data galileo_stmmac_func_data[] = {
- 	{
- 		.func = 6,
-@@ -1333,7 +1378,7 @@ static const struct pci_device_id intel_eth_pci_id_table[] = {
- 	{ PCI_DEVICE_DATA(INTEL, TGLH_SGMII1G_1, &tgl_sgmii1g_phy1_info) },
- 	{ PCI_DEVICE_DATA(INTEL, ADLS_SGMII1G_0, &adls_sgmii1g_phy0_info) },
- 	{ PCI_DEVICE_DATA(INTEL, ADLS_SGMII1G_1, &adls_sgmii1g_phy1_info) },
--	{ PCI_DEVICE_DATA(INTEL, ADLN_SGMII1G, &tgl_sgmii1g_phy0_info) },
-+	{ PCI_DEVICE_DATA(INTEL, ADLN_SGMII1G, &adln_sgmii1g_phy0_info) },
- 	{ PCI_DEVICE_DATA(INTEL, RPLP_SGMII1G, &tgl_sgmii1g_phy0_info) },
- 	{}
- };
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
-index 093eed977ab0..2c6b50958988 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
-@@ -124,8 +124,10 @@ static const struct pmc_serdes_regs pid_modphy1_2p5g_regs[] = {
- 	{}
- };
++  memory-region:
++    maxItems: 1
++    description: |
++      Phandle to the reserved memory nodes to be associated with the
++      VE. VE will acquires memory space for 3 purposes:
++        1. JPEG header
++        2. Compressed result
++        3. Temporary transformed image data
++
++  aspeed,scu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Specifies the scu node that is needed if video wants to capture
++      from sources other than Host VGA.
++
++  aspeed,gfx:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Specifies the Soc Display(gfx) node that needs to be queried to get
++      related information if video wants to use gfx as capture source.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/ast2600-clock.h>
++
++    video@1e700000 {
++      compatible = "aspeed,ast2600-video-engine";
++      reg = <0x1e700000 0x1000>;
++      clocks = <&syscon ASPEED_CLK_GATE_VCLK>,
++               <&syscon ASPEED_CLK_GATE_ECLK>;
++      clock-names = "vclk", "eclk";
++      interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++      aspeed,scu = <&syscon>;
++      aspeed,gfx = <&gfx>;
++    };
+diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/Documentation/devicetree/bindings/media/aspeed-video.txt
+deleted file mode 100644
+index d2ca32512272..000000000000
+--- a/Documentation/devicetree/bindings/media/aspeed-video.txt
++++ /dev/null
+@@ -1,33 +0,0 @@
+-* Device tree bindings for Aspeed Video Engine
+-
+-The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
+-capture and compress video data from digital or analog sources.
+-
+-Required properties:
+- - compatible:		"aspeed,ast2400-video-engine" or
+-			"aspeed,ast2500-video-engine" or
+-			"aspeed,ast2600-video-engine"
+- - reg:			contains the offset and length of the VE memory region
+- - clocks:		clock specifiers for the syscon clocks associated with
+-			the VE (ordering must match the clock-names property)
+- - clock-names:		"vclk" and "eclk"
+- - resets:		reset specifier for the syscon reset associated with
+-			the VE
+- - interrupts:		the interrupt associated with the VE on this platform
+-
+-Optional properties:
+- - memory-region:
+-	phandle to a memory region to allocate from, as defined in
+-	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+-
+-Example:
+-
+-video-engine@1e700000 {
+-    compatible = "aspeed,ast2500-video-engine";
+-    reg = <0x1e700000 0x20000>;
+-    clocks = <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_ECLK>;
+-    clock-names = "vclk", "eclk";
+-    resets = <&syscon ASPEED_RESET_VIDEO>;
+-    interrupts = <7>;
+-    memory-region = <&video_engine_memory>;
+-};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 896a307fa065..7e59daa1e89d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
+ L:	linux-media@vger.kernel.org
+ L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/aspeed-video.txt
++F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ F:	drivers/media/platform/aspeed/
  
-+static const int adln_tsn_lane_registers[] = {6};
- static const int ehl_tsn_lane_registers[] = {7, 8, 9, 10, 11};
- #else
-+static const int adln_tsn_lane_registers[] = {};
- static const int ehl_tsn_lane_registers[] = {};
- #endif /* CONFIG_INTEL_PMC_IPC */
- 
+ ASUS EC HARDWARE MONITOR DRIVER
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
 -- 
-2.34.1
+2.25.1
 
 
