@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47ADCC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75398C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 15:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IQ88Lc7jy4KrjXd7lzXYnMLf0r8HvwMftDwOg1D5Sc8=; b=gEKwcHiRB63yF9jQOC3XnhEbJ9
-	Ok9TdjXZf59q+G5pFrGIp3nwk12MkXnIf2G7AIKN1N+7YFiiAxgoVw+5TQYv8xKZpyneCaEjMQz9n
-	NpD2IrDFnXMY7CCctzYDrJzW5edGy6IPNwP78QjknEodS0+ceJ0aHaJGJO5GPcbBjA+hIT/ylyBZN
-	2nkBUaT2O35gK98K1EIkrJmACfWJuvoaUuf05hrx8XraQTxd53fA1Nfry+OAR6gK+U8lJayaEFjxX
-	rus1YxkN59Z5KgT3oRCHHdgDDeN8bX77/F4P1VBsyCMvP37a9fKoXEDiWlfXwjkbTK76/GYvm0ATk
-	LVCb64Zg==;
+	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=; b=3u7FumDxHdzuWeKOpQWD4FceHW
+	uEvIpX6+xddZTn+vBF/fjYH8d3dKtRHTr5hhnExGGkFOCjO7E3VT80lbyIsozgLtjRXCiR3n7btUJ
+	hcpRDOmDJrfjTupdhsgq2/wZ2Bb5EL6jn4vNsSJX29zGJcW8+66XFKlOMPAyeFQG+sGDAu45PXcBQ
+	diRv09+kMCmuOHLJCZ/Qnx9qL+6grygfxE+wLshAWKmbnBZPbWikqxrZHxKPpHVEhTpTHBRvQ18l1
+	V2glix2E+HcAmnqYyUOvkyBAoH0wFXXjJBQa8sH480f9vkzdXCXw1PAy0AP5iUZ0JvCy1Zdi9MIBR
+	rJ8S7ffw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfL1f-00000000r2B-01vV;
-	Tue, 04 Feb 2025 15:39:47 +0000
+	id 1tfL2x-00000000rKA-0y5P;
+	Tue, 04 Feb 2025 15:41:07 +0000
 Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKz0-00000000qHr-0UST;
-	Tue, 04 Feb 2025 15:37:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1738683394; cv=none; 
+	id 1tfKz0-00000000qIV-3IdV;
+	Tue, 04 Feb 2025 15:37:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1738683398; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=FCCrn7rt/hyApxgVhrNFa9vlIKjS2pVstKkmdUoHTG3MQuaeO0dKSeFVCiXXEEFRqgSHro6N6m77k8q047auNUFdoLigifwV/TX+8Pyi+WmKVQniUPjzBeBBO6WvRa57xVeLYCUJi+UD80NNFgxqzaRfkA+guCzcKOcGGXLcvV8=
+	b=Zyt/HjfG+yTFPFCoPjfzW+BlsfazEKApAez9eCk9iAoCMH0V/cS0xCY8WIMTYLcxgMKGvLpggch4OyfN4fqjwOblENL6C3HxzrIPOYHkeXkSvZHixYq9cVdfSf7JBE3eNr8eu123yMP/TZIJX2H6MMW1tU9eGdxbUPlLyuDjnqo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1738683394; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=IQ88Lc7jy4KrjXd7lzXYnMLf0r8HvwMftDwOg1D5Sc8=; 
-	b=McYRL0Wb2ksa3hzGfI9STseBRBFl5ZLzKszc2vN0lZfDZHcIQaAxm1V4i12IsjC8DVyiSf7RqsoH5ArHoqQ0VBQ2B2CJ1KLEhL90p3u4fi3YFGmKF7378AcvFuJr0LMjFOisfwjBB5mTTHXcbt3Tvop0ndKf81mRHWXlEzfb5Yc=
+	t=1738683398; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=; 
+	b=Uzat8tJIuh0xrX25VHIn7B3SkrnZdjLyzJnNK5WGPu5FfdMZbe8IuqgodWZMpf+HKkqFp/vdGvchMPXatBSx/S95I+9EpGp7FMO55s8DidoeQ5QqkVXt5P0kZjHHrk/b7QtW6aMlf1Gb05zXeG6sVn5tzq74k0xpY+1Kaox1qMY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738683394;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738683398;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=IQ88Lc7jy4KrjXd7lzXYnMLf0r8HvwMftDwOg1D5Sc8=;
-	b=J9/2K7qSFzylb8HTaoHJelwnKdVvVIj8kUj+wZaqA+RxGgI/TTMVjpa1kKGdKJ7r
-	4UG2lDx58G4Q2txiR5U0815V+U3nSkm6GrWVWtYEhnPfKnUcFdHMjkkGjz1Xt9LV4Jx
-	79xKM0eMYGF6RpiyLwJCPw/fHR/4Fz7c5ozsTe/I=
-Received: by mx.zohomail.com with SMTPS id 1738683391897570.4999954323046;
-	Tue, 4 Feb 2025 07:36:31 -0800 (PST)
+	bh=kVZIBsJ2ukDO0m/xIz1rl1s2choG2uPMysZ4azq+d4A=;
+	b=gXYZ3MpeQTLxffZoid6o4agzOgQjiHL2ZDn+6EGgU2VkvVoDZGwcKtRzs5osCPEe
+	ef4oaLK/Qwm0IzDdxWdX1JcqbfBj/kf+P8Fmfl3KgRdO5ITfFRWB/9+dTqPcHyFzZb8
+	VK6SfnnbiBM6WI2yST8UYG1O/TQ55Uwb/ChKbWrI=
+Received: by mx.zohomail.com with SMTPS id 1738683395390506.65916958717594;
+	Tue, 4 Feb 2025 07:36:35 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 04 Feb 2025 16:35:47 +0100
-Subject: [PATCH v2 2/7] dt-bindings: rng: add binding for Rockchip RK3588
- RNG
+Date: Tue, 04 Feb 2025 16:35:48 +0100
+Subject: [PATCH v2 3/7] hwrng: rockchip: store dev pointer in driver struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250204-rk3588-trng-submission-v2-2-608172b6fd91@collabora.com>
+Message-Id: <20250204-rk3588-trng-submission-v2-3-608172b6fd91@collabora.com>
 References: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
 In-Reply-To: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
@@ -69,8 +68,8 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_073702_221322_43DAB0E4 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20250204_073702_895625_49118EF9 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,104 +84,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3588 SoC has two hardware RNGs accessible to the
-non-secure world: an RNG in the Crypto IP, and a standalone RNG that is
-new to this SoC.
-
-Add a binding for this new standalone RNG. It is distinct hardware from
-the existing rockchip,rk3568-rng, and therefore gets its own binding as
-the two hardware IPs are unrelated other than both being made by the
-same vendor.
-
-The RNG is capable of firing an interrupt when entropy is ready.
-
-The reset is optional, as the hardware does a power-on reset, and
-functions without the software manually resetting it.
+The rockchip rng driver does a dance to store the dev pointer in the
+hwrng's unsigned long "priv" member. However, since the struct hwrng
+member of rk_rng is not a pointer, we can use container_of to get the
+struct rk_rng instance from just the struct hwrng*, which means we don't
+have to subvert what little there is in C of a type system and can
+instead store a pointer to the device struct in the rk_rng itself.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../bindings/rng/rockchip,rk3588-rng.yaml          | 60 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 61 insertions(+)
+ drivers/char/hw_random/rockchip-rng.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..757967212f553eebce12a896d78bbeeb8c6fc0ec
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-@@ -0,0 +1,60 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rng/rockchip,rk3588-rng.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip RK3588 TRNG
-+
-+description: True Random Number Generator on Rockchip RK3588 SoC
-+
-+maintainers:
-+  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - rockchip,rk3588-rng
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: TRNG AHB clock
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      rng@fe378000 {
-+        compatible = "rockchip,rk3588-rng";
-+        reg = <0x0 0xfe378000 0x0 0x200>;
-+        interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
-+        resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
-+        status = "okay";
-+      };
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index bc8ce7af3303f747e0ef028e5a7b29b0bbba99f4..256d0217196586d179197393e46a1e78da850712 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20422,6 +20422,7 @@ M:	Daniel Golle <daniel@makrotopia.org>
- M:	Aurelien Jarno <aurelien@aurel32.net>
- S:	Maintained
- F:	Documentation/devicetree/bindings/rng/rockchip,rk3568-rng.yaml
-+F:	Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
- F:	drivers/char/hw_random/rockchip-rng.c
+diff --git a/drivers/char/hw_random/rockchip-rng.c b/drivers/char/hw_random/rockchip-rng.c
+index 289b385bbf05e3c828b6e26feb2453db62f6b2a2..b1b510087e5862b3b2ed97cefbf10620bcf9b020 100644
+--- a/drivers/char/hw_random/rockchip-rng.c
++++ b/drivers/char/hw_random/rockchip-rng.c
+@@ -54,6 +54,7 @@ struct rk_rng {
+ 	void __iomem *base;
+ 	int clk_num;
+ 	struct clk_bulk_data *clk_bulks;
++	struct device *dev;
+ };
  
- ROCKCHIP RASTER 2D GRAPHIC ACCELERATION UNIT DRIVER
+ /* The mask in the upper 16 bits determines the bits that are updated */
+@@ -70,8 +71,7 @@ static int rk_rng_init(struct hwrng *rng)
+ 	/* start clocks */
+ 	ret = clk_bulk_prepare_enable(rk_rng->clk_num, rk_rng->clk_bulks);
+ 	if (ret < 0) {
+-		dev_err((struct device *) rk_rng->rng.priv,
+-			"Failed to enable clks %d\n", ret);
++		dev_err(rk_rng->dev, "Failed to enable clocks: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -105,7 +105,7 @@ static int rk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
+ 	u32 reg;
+ 	int ret = 0;
+ 
+-	ret = pm_runtime_resume_and_get((struct device *) rk_rng->rng.priv);
++	ret = pm_runtime_resume_and_get(rk_rng->dev);
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -122,8 +122,8 @@ static int rk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
+ 	/* Read random data stored in the registers */
+ 	memcpy_fromio(buf, rk_rng->base + TRNG_RNG_DOUT, to_read);
+ out:
+-	pm_runtime_mark_last_busy((struct device *) rk_rng->rng.priv);
+-	pm_runtime_put_sync_autosuspend((struct device *) rk_rng->rng.priv);
++	pm_runtime_mark_last_busy(rk_rng->dev);
++	pm_runtime_put_sync_autosuspend(rk_rng->dev);
+ 
+ 	return (ret < 0) ? ret : to_read;
+ }
+@@ -164,7 +164,7 @@ static int rk_rng_probe(struct platform_device *pdev)
+ 		rk_rng->rng.cleanup = rk_rng_cleanup;
+ 	}
+ 	rk_rng->rng.read = rk_rng_read;
+-	rk_rng->rng.priv = (unsigned long) dev;
++	rk_rng->dev = dev;
+ 	rk_rng->rng.quality = 900;
+ 
+ 	pm_runtime_set_autosuspend_delay(dev, RK_RNG_AUTOSUSPEND_DELAY);
 
 -- 
 2.48.1
