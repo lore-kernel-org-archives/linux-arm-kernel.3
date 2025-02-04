@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B432C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5296AC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rFwU8+gCEjDdXJtEJfGflM5ucC0PAuf7opUByCC9nM=; b=I44E+0MK5Tr7f6pwwbDqxKc/uw
-	pzv+swxpRmpKUx+PYBRmBS56lf8tH83cdPRh6FtyDQWXJeQ6DpEMeYkvW39wdoKYCX0lqc+O/csAE
-	gtitbdQdVFzWsGVTi7+acL35Bbkyy71+gN2DyFuU5VJetwVZ0qbzwpKEoRxD2Bbw9QmD5ScRM/VoZ
-	BipFJRmQP/AWsHOJzhqxJOkGb5XwS74pfIb/Pz88RwFrgWbLE8955GG2VR4ma79RMXLZ8CnYgcZLC
-	Wq+MTklupaQ6eEFPWTWAQEygvOpd3MvWuMeG2vmlReQl30cPWLH3yNlHfofECB0qaefq8ssWWOmNm
-	D+x1BXWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BXlECd7J+41LiERFddC4gYEBHK4GZ/dwyIa1OMhDDw8=; b=KCTqq/4ubSVzMTSyMwMYMckKT3
+	CxSeoLFeCbA55Z+0jzBc5D+MYRClCxr5pCvNoT7Y+tJ11F8IyGjjZS3IvZdUp/nW+28GJ1vS8sTnu
+	3/SuQGLGBhTR8GACb0/J/KoxmiD6jz0avkTV/j8A/qILtnU5sLlR/bKSCEH06C2rg96JB/aVCaUgW
+	fsadw+9jg46j9nQqLxpb5TvcpiGJO8yydfH+Sucr73OlnFDfrM9RiGWl4hayB151F/PMM2TMQrED5
+	SIYH4tz3GZznIxj7SLtfNYEG6E57wikTf1lrVUpAd3cz+PIcZCGI4MnZqRIriy844keqRDwbhvBGA
+	XX7sb7qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHD3-00000000HRn-0PSS;
-	Tue, 04 Feb 2025 11:35:17 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tfHFR-00000000I4c-0xGX;
+	Tue, 04 Feb 2025 11:37:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfH9b-00000000H9p-3PTI;
-	Tue, 04 Feb 2025 11:31:45 +0000
+	id 1tfHE5-00000000HmW-1dsW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 11:36:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 128C65C6324;
+	Tue,  4 Feb 2025 11:35:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1BE6C4CEDF;
+	Tue,  4 Feb 2025 11:36:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738668980;
+	bh=9X+tis0IwLqTIYnFzk4iTIu76qprOrfcQ9DCye4RlTA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mDFnnhgZRME/U/EMXm/1x66WeaCmeSdJnJ6v/b7LyiLQffZ9w3y+huilybV2nktIY
+	 dZ5kyDcHFThD5AYT171tSX/hcrIK2jcHGX4+YNmpu5e1MGV7wc9VFG3zo/aMxKTE5E
+	 g8LeZvnFa7hcSOpd9S56sIw6FYD/y2d/4Ppas6SVD69JfrWn+HsF0km8nCz35aYrFW
+	 GZ+niiNCBje6ffC9/SU/gNR8g3DUFj/MJ9hV1Wmp7jk4WDCshab49oEvR0u57Egi2x
+	 PfpyeVuWy1I+J3xKZsdEUEHEseRvKPYJdZT8fb1VYweOn6eE5eriNkZ642woM0pgHM
+	 kA5ptUCOzGx+g==
+Date: Tue, 4 Feb 2025 11:36:15 +0000
+From: Will Deacon <will@kernel.org>
+To: Lukas Bulwahn <lbulwahn@redhat.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-trace-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] arm64: Kconfig: Remove selecting replaced
+ HAVE_FUNCTION_GRAPH_RETVAL
+Message-ID: <20250204113614.GD893@willie-the-truck>
+References: <20250117125522.99071-1-lukas.bulwahn@redhat.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738668702;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0rFwU8+gCEjDdXJtEJfGflM5ucC0PAuf7opUByCC9nM=;
-	b=V8PQztR5xcJdnhXb4kJEvkq8L/EIFTdhE5YQjOhV1UqtTYumzFEtWd6AezT8UZMulpnXjk
-	vax9g1O9TR3hOF2aR86zTeBi+AyTtf3MtF7FGzjR6Z9HQQZZkprdi5yxSrcNDbweuIf2b/
-	fq1tve4eEhOA4mkUdh7qMaaLD+i7/o5LmGVtbVCE9KpH5I0todAJaozzCKbIHqEInYWxjd
-	B3qjTUyQXiG3enkpoMZ7QvG7StKum8kePuYDWS9EafIi6PlaDVWIcgWdmMXjBNKC+qlycc
-	uAefijPS4eZ9Fr96/Oy1st1ZIzLag2VXPazfEOwtipFru4V4U9iwXgs0WPH9rA==
-Date: Tue, 04 Feb 2025 12:31:42 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jagan
- Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, Michael Riesch
- <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Quentin
- Schulz <quentin.schulz@cherry.de>, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar
-In-Reply-To: <20250131-pre-ict-jaguar-v4-4-c971e2852e8d@cherry.de>
-References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
- <20250131-pre-ict-jaguar-v4-4-c971e2852e8d@cherry.de>
-Message-ID: <4306ab9764cc5ae5f89e1b71e18aa037@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250117125522.99071-1-lukas.bulwahn@redhat.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_033143_995277_0B7878DB 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250204_033621_467751_6564CABA 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-31 11:40, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
+On Fri, Jan 17, 2025 at 07:55:22AM -0500, Lukas Bulwahn wrote:
+> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 > 
-> The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
-> proprietary Mezzanine connector.
+> Commit a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
+> replaces the config HAVE_FUNCTION_GRAPH_RETVAL with the config
+> HAVE_FUNCTION_GRAPH_FREGS, and it replaces all the select commands in the
+> various architecture Kconfig files. In the arm64 architecture, the commit
+> adds the 'select HAVE_FUNCTION_GRAPH_FREGS', but misses to remove the
+> 'select HAVE_FUNCTION_GRAPH_RETVAL', i.e., the select on the replaced
+> config.
 > 
-> It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
-> connectors. Support for the latter will come once the rest of the 
-> camera
-> stack is supported.
+> Remove selecting the replaced config. No functional change, just cleanup.
 > 
-> Additionally, the adapter loops some GPIOs together as well as route
-> some GPIOs to power rails.
-> 
-> This adapter is used for manufacturing RK3588 Jaguar to be able to test
-> the Mezzanine connector is properly soldered.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> Fixes: a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 > ---
->  arch/arm64/boot/dts/rockchip/Makefile              |   4 +
->  .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 
-> +++++++++++++++++++++
->  2 files changed, 175 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
-> b/arch/arm64/boot/dts/rockchip/Makefile
-> index
-> ebcd16ce976ebe56a98d9685228980cd1f2f180a..a09b9c0060f8ecde582ad39f0f3e27047a31ec9c
-> 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -185,6 +185,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=
-> rk3588-edgeble-neu6a-wifi.dtb
->  rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
->  	rk3588-edgeble-neu6a-wifi.dtbo
-> 
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
-> +rk3588-jaguar-pre-ict-tester-dtbs := rk3588-jaguar.dtb \
-> +	rk3588-jaguar-pre-ict-tester.dtbo
-> +
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
->  rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
->  	rk3588-rock-5b-pcie-ep.dtbo
+>  arch/arm64/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
 
-Obviously, virtually the same comments [*] I made on the patch 3/4
-from this series apply here as well.
+Hmm. There are still a couple of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL guards
+kicking around:
 
-[*] 
-https://lore.kernel.org/linux-rockchip/77b5d0efa6e56bb391575aeeb4d1be80@manjaro.org/
+include/linux/ftrace.h:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+kernel/trace/fgraph.c:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+
+so it's not clear we can just remove the option from arm64 without
+breaking ftrace_return_to_handler(). What am I missing?
+
+Will
 
