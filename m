@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF74C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07783C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xuAq9UFobmsTI5xlvKd+L/f4TT/s2a3cyQYycHWbELo=; b=CVMSRPpIL1lP2SPY0UyMMuqcZ4
-	k4XJH8ZVpw33TTmJhLGBwc/HTgDxDkIarTU8eLgw5ic9+inLAV8i/ZRb83r3EhQia371+C5K6IOvI
-	CRHx3YubR+xBk9YMVigWgAjrcHLkWbcbTrC1Sc2ef2HX47sBjcvKxUTr80ciDvCZ0CbLpgwhkPInv
-	REN9pV7sHP1zuoyoKQVSLyzm2fbGXe5U+GKXCV1R4BtYwI40UxgxKOfF5bj51w+Exd5+hZwje1Nj+
-	bQhP20zRO58EpRrnRz6tKIEzdv42KxnlrxNQgan3PIH4FtYUmbChV+FVWKYCpgVNNRFC+b60fu55z
-	XIN8j4yQ==;
+	bh=59FCR/dtPtiaDB/HSRjGKbVL7beTDG/sG/I/deSfEb4=; b=G+8O1RUPplbAOsjYPO71EafAWm
+	ARqAm9SNcFFNLlkFDFpCA4r3TFXrqFr4fZPeicp15QKjNUwBQ1lWsa2ia/2mOwIwBmJBK/T00C0ur
+	sjv5TU0jnzDCkuVlvwte7Wxx+UE1gWNEOCo1NxmD/qJCcvfgXr+63THr5lwCFNw/cpsycHeQFGHQ8
+	hcVrkZL6O5g/YquzChpyynA1cSx8bZL+Da4VlRLqZstMJcKERAa0mWIiW++8TIUG9xcEpMmd28O/o
+	JpSlMwFIulBNFhOYrA2AXnlgIVTmxsGFvAQOs87ls45lJM2wBPWJ4p3b4PYC/CV56ygJUhLFZqdel
+	r8Gy2a8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIBK-00000000RN7-1vhB;
-	Tue, 04 Feb 2025 12:37:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tfICd-00000000RWw-1WQP;
+	Tue, 04 Feb 2025 12:38:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHzG-00000000Ptr-47Nl
+	id 1tfI5G-00000000Qdk-0pdf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 12:25:08 +0000
+	Tue, 04 Feb 2025 12:31:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1B4D8A424F8;
-	Tue,  4 Feb 2025 12:23:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2491C4CEE2;
-	Tue,  4 Feb 2025 12:25:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A73F95C60EF;
+	Tue,  4 Feb 2025 12:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8E6C4CEDF;
+	Tue,  4 Feb 2025 12:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738671905;
-	bh=nxM4s2+q4jMZZl9mmJo4b5VSqkcMlsVNTuzIDh7bq9k=;
+	s=k20201202; t=1738672277;
+	bh=HxAkbimq7JMlFE4Bz6VGGVMJ41FYZ/9aQ2pKvT02Esw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ks/IsdNh5Qkr6K3WXKSZIcSbXY6wUP5hDJ2befaqkWNrPe2XwEUZCFrZc6rgK9Gyh
-	 zU23yHkNgIA+ZmgQ4GIUyRtO+v4OSacd9aH+20AWDsGE2ANT2rqqeEgHz8mx83/pbU
-	 vN2q69DIDF1Vu7LQHyykA1RhLOmYlrgysh6HinQVNGD3tzpyLVZJczVAb0Vi7Wmp4y
-	 9FGhHKr4x1D6amsB0Tk/MFD9byksGe2z1y1YvsFMOP8mDSl9maPPwBgjbAqvxAu/ix
-	 MPzuAaAkKjK3e+cHZhsF6L6Z+1I2cp4XCJf/MfScHqwDlf0jpP3yHezz2dWobBn4zY
-	 LqxVsMTd8BszQ==
-Date: Tue, 4 Feb 2025 12:25:00 +0000
+	b=u1RMc+sAdgAMKIR1SHTTGIWoqhMNZCsiXW5nE8tAkK8Di6Cq5IdJH7/TspTlBcWGm
+	 D3jUXaKZLiSmca8hxEFrh0eVKMKvHkaI3X+1/X0EkOzseoQ5DWai0zEQow2OyEL7x4
+	 c0AhJOjFsFwBfzL3qulTMUWB+HehKAq4tBzlxt8Yy0bpP5/mFW7vBoCKSpSmZMW0v5
+	 p5W8nYPz2Fj3Zp6vMHyQmEJ5PjLGFuOxn4b9BvABVXo326spebyZUOPO/mbhenYHTL
+	 6IZMQYK/IiGK9HNZtfwHukB54iB/Xu5rYM4JC4LDvdKB/y4NBYYXmUu0KQRK9AZAQC
+	 onNraGJMt8lkg==
+Date: Tue, 4 Feb 2025 12:31:12 +0000
 From: Will Deacon <will@kernel.org>
-To: Lukas Bulwahn <lbulwahn@redhat.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-trace-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] arm64: Kconfig: Remove selecting replaced
- HAVE_FUNCTION_GRAPH_RETVAL
-Message-ID: <20250204122459.GB1063@willie-the-truck>
-References: <20250117125522.99071-1-lukas.bulwahn@redhat.com>
- <20250204113614.GD893@willie-the-truck>
- <CAOc5a3O-8wrQq3oNJC+H9ncFt0yxcm4O+QSgPk4QckF6Ak5pGg@mail.gmail.com>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev
+ devices
+Message-ID: <20250204123111.GC1063@willie-the-truck>
+References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
+ <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com>
+ <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
+ <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com>
+ <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
+ <20250124122952.GB23438@willie-the-truck>
+ <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
+ <20250127165156.GE25757@willie-the-truck>
+ <CAEEQ3wkj=6WPNFpet=A9JppiO52agw6HZArwhfWsWS9JOY6Dng@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOc5a3O-8wrQq3oNJC+H9ncFt0yxcm4O+QSgPk4QckF6Ak5pGg@mail.gmail.com>
+In-Reply-To: <CAEEQ3wkj=6WPNFpet=A9JppiO52agw6HZArwhfWsWS9JOY6Dng@mail.gmail.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_042507_080973_6F9AAB29 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250204_043118_321299_0FD9D0BE 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +83,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 12:44:25PM +0100, Lukas Bulwahn wrote:
-> On Tue, Feb 4, 2025 at 12:36 PM Will Deacon <will@kernel.org> wrote:
-> >
-> > On Fri, Jan 17, 2025 at 07:55:22AM -0500, Lukas Bulwahn wrote:
-> > > From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+On Sat, Feb 01, 2025 at 05:51:21PM +0800, yunhui cui wrote:
+> On Tue, Jan 28, 2025 at 12:52 AM Will Deacon <will@kernel.org> wrote:
+> > On Sun, Jan 26, 2025 at 09:54:35AM +0800, yunhui cui wrote:
+> > > On Fri, Jan 24, 2025 at 8:30 PM Will Deacon <will@kernel.org> wrote:
+> > > >
+> > > > On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
+> > > > > > >>>        vsec = dwc_pcie_des_cap(pdev);
+> > > > > > >>>        if (!vsec)
+> > > > > > >>>                return -ENODEV;
+> > > > > > >>>
+> > > > > > >>>        sbdf = plat_dev->id;
+> > > > > > >>> -     name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+> > > > > > >>> +     name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%d_pmu", sbdf);
+> > > > > > >>
+> > > > > > >> A new name will break previous user tools.
+> > > > > > > This name isn't suitable. It can't clearly show which is the PMU
+> > > > > > > device. Userspace tools don't have binding relationships, like perf.
+> > > > > > > Tools must traverse PMU devices before use.
+> > > > > >
+> > > > > > The device is under /sys/bus/event_source/ which indates it is PMU device.
+> > > > > > As far as I know, most of PMU devices do not endup with a '_pmu' prefix.
+> > > > >
+> > > > > The point is the name "dwc_rootport_" is misleading, suggesting an
+> > > > > extra PCIE RP in the system. Best to change the name to intuitive
+> > > > > "xx_pmu".
+> > > >
+> > > > As pointed out above, changing the name will break userspace. So it's
+> > > > simply not an option, sorry.
 > > >
-> > > Commit a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
-> > > replaces the config HAVE_FUNCTION_GRAPH_RETVAL with the config
-> > > HAVE_FUNCTION_GRAPH_FREGS, and it replaces all the select commands in the
-> > > various architecture Kconfig files. In the arm64 architecture, the commit
-> > > adds the 'select HAVE_FUNCTION_GRAPH_FREGS', but misses to remove the
-> > > 'select HAVE_FUNCTION_GRAPH_RETVAL', i.e., the select on the replaced
-> > > config.
-> > >
-> > > Remove selecting the replaced config. No functional change, just cleanup.
-> > >
-> > > Fixes: a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
-> > > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> > > ---
-> > >  arch/arm64/Kconfig | 1 -
-> > >  1 file changed, 1 deletion(-)
+> > > Could you specify what in the userspace is broken and give an example?
 > >
-> > Hmm. There are still a couple of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL guards
-> > kicking around:
+> > Can't I just take the documented example from dwc_pcie_pmu.rst:
 > >
-> > include/linux/ftrace.h:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-> > kernel/trace/fgraph.c:#ifdef CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
+> > $# perf stat -a -e dwc_rootport_13018/Rx_PCIe_TLP_Data_Payload/
 > >
-> > so it's not clear we can just remove the option from arm64 without
-> > breaking ftrace_return_to_handler(). What am I missing?
-> >
+> > If I have a script that uses that command on a machine today, then
+> > applying your kernel patch will break the script, no?
 > 
-> Will,
-> 
-> I believe you are looking at a tree, which did not include commit
-> a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs") yet.
+> Well, this is just a usage guide for the PCIe PMU and has no binding
+> with perf. In user space, the existing PCIe PMUs in the system should
+> be traversed first, and then perf stat/record ... can be executed.
 
-Argh, sorry, you're completely right! I'd forgotten to fast-forward my
-fixes branch to -rc1 before looking at this.
+"should be". ha! You know we can't rely on userspace doing whatever we
+think it "should" do.
 
-In which case, thank you for the patch :)
+> It's okay not to change the name, but it's better to change
+> dwc_rootport_%x to dwc_rootport_%d to correspond with
+> platform_device_register_data(NULL, "dwc_pcie_pmu", ...). It'll be
+> more intuitive. What do you think?
+
+No, as I said earlier, we cannot break userspace like this. Please stop
+trying to rename things that cannot be changed.
 
 Will
 
