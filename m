@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CECC02197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566ADC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 11:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0ByFQ1hfW7/1rl9uUZJmLCdb3tgomr5Qb5aE/AvrfQ=; b=FE4f7OzAIOZNJjbIHTdhAWGdjh
-	ETmu63OCQVAZZFclQpSij7+A8dKPSGZsQe5yGaDSYmshgEZoSjRzJP0CYpZzodxdAHbtY4TsEVLJp
-	IIVfRjl5lESrsS7nalyXeOeMqJYsCjaM6xakNVO/MC+wkOeCXIjRryismWYGIC7rjbckb2/SlZVSk
-	hGpkzSY3z9Kdmt1g9VEe92dF5yIrWSYQA7IGxF7I475WWL7GeKJbs3imULQtT+WBajzjY8AJER5t8
-	l963gJuueRkf/dotl6kLl6gyIC29TfjFPCOHM0rGoCm/d26USQc69lTfuXb2eGUv7RtK4o7uuLjZc
-	b0F36h1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9bG66toiAjV+KR365bfBv98O5vqhnhp8yGKeYWV5vB8=; b=tCWZqh8KPmByS/zNjg+yUiuQ8o
+	+mjQkyVyBmI2TnLKUxV8h65Dj9ttekBek8YJ4pIddR6MgiD0oedoMWXd3ULFZdIvbQYrZ3KhsY6o2
+	piZzJyNuMUbU5HPxxJJkGDw71PdFX0UladoUjfjHiPED8bWbngF7FXR43Cdss8T/dznn+FXCpSLtR
+	sa/7taGHd3At7gvBTXPfa6LCRgDDea+tgH+NWcCuLEZGb+j3EIU+Jz+zvPi0xGWqOpfw8NcVuMNds
+	4vmbSWN3aO5vBpBCTpwrBM+VUyYMobm77JrkAchDJvn3+iWilpYTPv4E69yrXjyH1/toyOEeJ1+TL
+	DT3KIlgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfHAT-00000000HFK-0tsn;
-	Tue, 04 Feb 2025 11:32:37 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tfHBl-00000000HLP-22n8;
+	Tue, 04 Feb 2025 11:33:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfH8u-00000000GyN-3F8m;
-	Tue, 04 Feb 2025 11:31:02 +0000
+	id 1tfH9F-00000000H2v-16Zg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 11:31:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CFF055C5D99;
+	Tue,  4 Feb 2025 11:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1B93C4CEE2;
+	Tue,  4 Feb 2025 11:31:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738668680;
+	bh=7XmKudr6uck87icOCprn9YsjKpC5QJOurnBP8lQrfBE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tMx5ck2W0ACKRYwLdhJu9+dYZUUMWtxPa+Lc6KzbA+nRE7Sp/E/jaLUTxAsaUMoZI
+	 bbNuj/TGBH1tuKbwA0bemLZMehOFe7BRJhEpPZfzZ59W4Aib65kB/R71j06yPXyYtt
+	 EAc1NNEhoAdgxGbqsfu+dXm79ugwaLNeRixcZr3MaLEz5wPXaJkm9AmWpfNEaqxegc
+	 p/BQ5RI5Zuem+Q7Rtlw+mVe4pIIPNi9EXJigTUgoOCHb1TLkXiUMN7JFUkYpPjCrYx
+	 F4BJNjq+lB8XYz0JHM5kXqr78Ik2sBeGJpYHcz+HtYo3YaJJNx2wAsqeUpXoyfd7Te
+	 ryS1gLGtcGklg==
+Date: Tue, 4 Feb 2025 11:31:15 +0000
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: 1534428646@qq.com, catalin.marinas@arm.com, mark.rutland@arm.com,
+	kristina.martsenko@arm.com, liaochang1@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: kprobe: fix an error in single stepping support
+Message-ID: <20250204113114.GC893@willie-the-truck>
+References: <tencent_9DCAEBDF4D9BCDB4687B502DB6B608E4FB0A@qq.com>
+ <Z4oNbOGSluJlwpvg@e129823.arm.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738668658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T0ByFQ1hfW7/1rl9uUZJmLCdb3tgomr5Qb5aE/AvrfQ=;
-	b=VwNSkxldkoL/CDcEHD9jZJfQTdQ47coBYK0EPMRHI4bJUy28UlVOhmdoDPCZKyyvqmy54e
-	TsczfWyHbPejwr69j7cemJBteYrz2F31ECEvkuvrzhMs2l0YJGlx9FU4QnckKYDrbMzXBH
-	ZD5caEb8HCPGpGcmML7+yYKDCsSjx1ZD7nvRI9HWNW3H2jwNIwJLG30yxpPjhqORw/Imwf
-	kw+6FjCeRB1zf0V3PhZMb6jGBTbgKNzcCUDwnJV6kmNH3iCwIECgUWxPtWX+pjUYvzCnA6
-	CctHHSWNHL6nn2qkeo24+RR5YRFZYeo0Ms3QghqPQqLD5yuTKRQ78ZUmf9t6KA==
-Date: Tue, 04 Feb 2025 12:30:58 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jagan
- Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, Michael Riesch
- <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Quentin
- Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH v4 1/4] arm64: dts: rockchip: add overlay test for
- WolfVision PF5
-In-Reply-To: <20250131-pre-ict-jaguar-v4-1-c971e2852e8d@cherry.de>
-References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
- <20250131-pre-ict-jaguar-v4-1-c971e2852e8d@cherry.de>
-Message-ID: <78c91324ff7b2a8e8f0d32b8e84b01e8@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z4oNbOGSluJlwpvg@e129823.arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_033101_096884_0F0594CA 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250204_033121_350394_2E542A88 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +75,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-31 11:40, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
+On Fri, Jan 17, 2025 at 07:57:32AM +0000, Yeoreum Yun wrote:
+> > It is obvious a conflict between the code and the comment.
+> > The function aarch64_insn_is_steppable is used to check if a mrs
+> > instruction can be safe in single-stepping environment, in the
+> > comment it says only reading DAIF bits by mrs is safe in
+> > single-stepping environment, and other mrs instructions are not. So
+> > aarch64_insn_is_steppable should returen "TRUE" if the mrs instruction
+> > being single stepped is reading DAIF bits.
+> >
+> > And have verified using a kprobe kernel module which reads the DAIF bits by
+> > function arch_local_irq_save with offset setting to 0x4, confirmed that
+> > without this modification, it encounters
+> > "kprobe_init: register_kprobe failed, returned -22" error while inserting
+> > the kprobe kernel module. and with this modification, it can read the DAIF
+> > bits in single-stepping environment.
+> >
+> > Fixes: 2dd0e8d2d2a1 ("arm64: Kprobes with single stepping support")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Yiren Xie <1534428646@qq.com>
+> > ---
+> >  arch/arm64/kernel/probes/decode-insn.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+> > index 6438bf62e753..22383eb1c22c 100644
+> > --- a/arch/arm64/kernel/probes/decode-insn.c
+> > +++ b/arch/arm64/kernel/probes/decode-insn.c
+> > @@ -40,7 +40,7 @@ static bool __kprobes aarch64_insn_is_steppable(u32 insn)
+> >  		 */
+> >  		if (aarch64_insn_is_mrs(insn))
+> >  			return aarch64_insn_extract_system_reg(insn)
+> > -			     != AARCH64_INSN_SPCLREG_DAIF;
+> > +			     == AARCH64_INSN_SPCLREG_DAIF;
+> >
+> >  		/*
+> >  		 * The HINT instruction is steppable only if it is in whitelist
+> > --
+> > 2.34.1
+> >
 > 
-> The WolfVision PF5 can have a PF5 Visualizer display and PF5 IO 
-> Expander
-> board connected to it. Therefore, let's generate an overlay test so the
-> application of the two overlays are validated against the base DTB.
+> Thanks to correct me. yes the comments seem conflict.
 > 
-> Suggested-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Reviewed-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile | 17 +++++++++++++++--
->  1 file changed, 15 insertions(+), 2 deletions(-)
+> However, I couldn't agree to this change.
+> As I mention in last, when single-step runs, all DAIF bits set,
+> so, the result of reading DAIF is different between before install kprobe and after.
+> Also, I think reading some sys_reg in single-step seems ok (i.e. SYS_MIDR_EL1).
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
-> b/arch/arm64/boot/dts/rockchip/Makefile
-> index
-> def1222c1907eb16b23cff6d540174a4e897abc9..bba9b2f1c761040545bea561878e9b63f8c29488
-> 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -128,8 +128,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-roc-pc.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3a.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3b.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5.dtb
-> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-display-vz.dtbo
-> -dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
-> @@ -170,3 +168,18 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += 
-> rk3588s-orangepi-5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
-> +
-> +# Overlays
-> +## To build one or more overlays, overlay application tests must be
-> added below.
-> +##
-> +## dtb-$(CONFIG_ARCH_ROCKCHIP) += <name of overlay application 
-> test>.dtb
-> +## <name of overlay application test>-dtbs := <base>.dtb
-> <overlay-1>.dtbo [<overlay-2>.dtbo ...]
-> +##
-> +## This will generate each individual DTBO listed as a dependency of
-> +## <name of overlay application test>.dtb **AND** make <base>.dtb keep 
-> its
-> +## symbols (like when DTC_FLAGS has -@ passed).
-> +
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
-> +rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
-> +	rk3568-wolfvision-pf5-display-vz.dtbo \
-> +	rk3568-wolfvision-pf5-io-expander.dtbo
+> Therefore, allowing only install kprobe on DAIF reading doesn't seem
+> correct.
 
-Obviously, virtually the same comments [*] I made on the patch 3/4
-from this series apply here as well.
+Right, the code seems ok. I think we should just remove the comment
+instead.
 
-[*] 
-https://lore.kernel.org/linux-rockchip/77b5d0efa6e56bb391575aeeb4d1be80@manjaro.org/
+Will
 
