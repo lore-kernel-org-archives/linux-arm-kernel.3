@@ -4,106 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4688BC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 03:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1272C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 03:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAqS3bI/nZNWijByPRTKJVUN97hHHkCl5lQJzeIb+ao=; b=A76D94SdMecHHjHhj8HqCwGaZC
-	95cx6prj68w0wDH86ezChwkJBgFQf86f/82LSWeJJr652QbkjwjZ6FVL4I9rFe3zkPP5sjPDsOovm
-	phyOidglrATvJaOjKMQPLMQy2N92KUL8nUSMazVg0SIHNdgOHafzudEITX1q6aMKXG3tIjtx1tgS1
-	GrEhDBm+0vGRvTcmal05tmVyPolpKRy59kAChpQi5WkwXp8UGW81cmofml9vnE/BFKU3Qy9q0tV5y
-	fIPutVbts1T2t1E7Rg863rUF9oCdgJvA97UISJOpMeMxGPsQNrd9VfNre+yZ25pcEP2QqCHD5VScB
-	Kes5zy1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9fP9/CZLwMf2NWJIcjZuhCem9bPA737nbKxSndNnn+o=; b=RUKgNMlsZqj0FSRgcxpF7tm0Yy
+	qxmkJpldqwBTx//Gp3VEwj5dW0+VJQuqNA8lATSnwpgP4OvkUlgiOHCNW71lkyBSLQm6HJ0RH/kkC
+	+UOxtDW9oCPvJ5mYMhQLgVVYgGd6C0YqsACZuyinqipoznDbEwMJ4CQ5Y/lQ/0TpeFfFF00ePbDnR
+	dipCfYc5YaUKdrl890oEKtljZ9WOpnzJgh6h2NRCPRVW+R3jNfM44OwGavPZZWei0E38pYIBdJw5W
+	wVdS5Kq4h26m71LbeXpFzY/FzbaNcTJqxJZgf81ii6PNdSMugOQQRGh62XEE7UVYnQ3UcFCscufdy
+	2Sfc6YgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf9XI-0000000HAEC-1Cp1;
-	Tue, 04 Feb 2025 03:23:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tf9fv-0000000HAiP-2BHn;
+	Tue, 04 Feb 2025 03:32:35 +0000
+Received: from mail-am6eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2612::630] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf9Vw-0000000HA6F-3UF4;
-	Tue, 04 Feb 2025 03:22:18 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 513GFHMu011894;
-	Tue, 4 Feb 2025 03:22:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HAqS3bI/nZNWijByPRTKJVUN97hHHkCl5lQJzeIb+ao=; b=WLi4VETtAWct4DCY
-	e0865jVE7ezCdHQKwZTkQKcc71eTsKLHt98yk01nMYHfw/ZZRvZPx4x35nigG5yE
-	RK0KDwJwiMmj8RgwX7zGNYfvvpxH9D3lHv5QxwnfKi/fZGUuP//1SbKl3io/3y7P
-	FFUz+oaAQ1xmSxprk1p9ghQQ7MUwy/kgMUl0qID4b9lonDyuCLTw5Ti2UHHMY8+U
-	fzF1ljB0hIK9kwtQB3TkLV36axTj88YGg5jnAUSRh0BiCUsMb0/p744Y+FhVvHhr
-	o5YyUeSOlhCareh7abe0rt46/+FPLdhnR/uGV6GdDSqAKUTVyzaUZ7ouTltNT+jU
-	btYM2w==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44k159h94t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Feb 2025 03:22:01 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5143M0SN003203
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 4 Feb 2025 03:22:00 GMT
-Received: from [10.110.45.144] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 3 Feb 2025
- 19:21:59 -0800
-Message-ID: <4a18ddb1-a7f4-41ae-b115-516b1710cbde@quicinc.com>
-Date: Mon, 3 Feb 2025 19:21:52 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] arm64: dts: qcom: sm8750: Add USB support to SM8750
- platforms
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Melody Olvera
-	<quic_molvera@quicinc.com>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Catalin Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Bjorn Andersson" <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Satya Durga Srinivasu Prabhala
-	<quic_satyap@quicinc.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
- <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
- <lk26ltslmijj7tj2kst2wsvd6d2hyj3zjzcwavwl63evjhcgdh@ewqliiijispu>
+	id 1tf9eZ-0000000HAZw-38zk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 03:31:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I4DDb26G3OhQGuoAHjnrkkZpsy5ulZ0oGD4+rPZ3su+UeKDfg7JRlAJJ+6Mj3ae/WyTF5ZjGlYx2drB/hSCSvTtGflKSzvU1IWp8ZhhxJ/McBDDZz1xxKy501VmtuCdpQ7UPxbOuz+YSc6FvSz4FYjgll/P5T9NsnkxiIOK+FFoh0wJtyO4aYX6uH8PpjDGyY3KeTj4Sy788yQc9/FSZGOnvJQ6kWYyU5PrCgyfVEJY3OS/jzGV570J/o8wgTiTe13+oH/LsF0L9h2PpG/ABbzXDFc1OmVyt2zwfncqDpp/XLsKG0DGolksyaMzAepUhEo5qxM4dXNbXfmzZvJHeGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9fP9/CZLwMf2NWJIcjZuhCem9bPA737nbKxSndNnn+o=;
+ b=YdzzzfLS3W/BsldOn8lDzrGoII4ivJZRBHD5QuqwEdl9E6e85vssQiZLTy9L7UkR2E8gIpjQAoME5qz7YPz8VraoBqrqy0nBvZLNHA/in14idEIdxN+ukZrtmyWu2rhfpvzAE5XjVKHcsojhPuQfWgm1FLRlUTKqTnUIhqWpbTp2lmaur46+6DOGX5jn0EJ0dZfISL/IgAmCFCm44Y/h3nPnmAPBn3//AF5SFxeOsC8Wj9FnlqOEFOkOk4gdChheiDYLdcBqDz/K6jJDAu6lhImXomfmwN4oqJcmbpcOvVz9cIq9rIx1os2OZBbE8CqXkLN1tFtXa6h5eimvhbRWdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9fP9/CZLwMf2NWJIcjZuhCem9bPA737nbKxSndNnn+o=;
+ b=hTU4pgovxxjqou1A40e7NidtmWp+rmKN9hEgGFgCXsDBi+TAL+X9j6LgSwp7ze4LH2JhqfGYnwDZ0/00M4cNALC+CmdlPEF+KCarjYlCnLCujgsGB8+ArXsJdqDPfDlDJYwMKNU7msdsDTh5SB58yxedl7T4MiHUDWPyy+zHkqXmpWuHOnn8qmXsqpKb/h+kf6i0HwgrlT2f3zqLvVOT3u5xSGZEE6lrwUfBRnLGPkICHiSfDpbkcg4EMFZ5LzJflG50a+32hV0kJ2hIJY1YaHL1hvKCxJ6T+U6oQ2fYB1JtPrchL7Zh+P/9kLjIbOXkz+ulPUmfBhRer6TJX4vpnw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB8PR04MB7145.eurprd04.prod.outlook.com (2603:10a6:10:fc::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
+ 2025 03:31:04 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
+ 03:31:04 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, Saravana
+ Kannan <saravanak@google.com>, Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>
+CC: "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH v2 0/4] scmi: Bypass set fwnode and introduce allow/block
+ list to address devlink issue
+Thread-Topic: [PATCH v2 0/4] scmi: Bypass set fwnode and introduce allow/block
+ list to address devlink issue
+Thread-Index: AQHbawrvJl1naB6HjUG3HU+URXLwBLM2lDKg
+Date: Tue, 4 Feb 2025 03:31:04 +0000
+Message-ID: <PAXPR04MB845925677F9AB860552A421988F42@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+In-Reply-To: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Wesley Cheng <quic_wcheng@quicinc.com>
-In-Reply-To: <lk26ltslmijj7tj2kst2wsvd6d2hyj3zjzcwavwl63evjhcgdh@ewqliiijispu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Zy9C0otC3fT2aMT_4_uaNVuK6dCyJmDa
-X-Proofpoint-ORIG-GUID: Zy9C0otC3fT2aMT_4_uaNVuK6dCyJmDa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-04_01,2025-01-31_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- impostorscore=0 spamscore=0 mlxlogscore=999 phishscore=0 clxscore=1011
- mlxscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502040024
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB8PR04MB7145:EE_
+x-ms-office365-filtering-correlation-id: f0d355c5-3a30-4b9b-861b-08dd44cc5ac3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?aXZRT08xZzhUV25nUmM2QlJKZDlrV1l6elZmbng3SHJYYStpVzF4TUFNM3hk?=
+ =?utf-8?B?eGpDM2Ivb3I1cE1Da2d3d0tFTjQzRkxxZ21oQU1tTUVvS0tOWUF0T2RRMlVM?=
+ =?utf-8?B?ZG1NM1M0dStKbnJFTzBwbEQ1QkZTTzZBdjFsZTJDakY4WmdncGFsdCs2WjdN?=
+ =?utf-8?B?NXVpdmh3RWFMOHpzeG9xWm5mN2dpQVpIcXRhYjVFbW1FRmE1eS9rUzV2N1RE?=
+ =?utf-8?B?OGIyVE5iUktwbHJ0RUt3ZmVvZUtscHdBSlpQNTcwMnFxRjJtaThGMHlQS3Z4?=
+ =?utf-8?B?eFl0SVlqSmNaa1BOdzN4Z2R2OFBGYkdqK0FPcGF5ZlFiditsYktBSVc2c0dB?=
+ =?utf-8?B?ODB0RUd1U1V1SUdaR0RXNEZNMU56OGFVUDQ0SlpUZ3FaTWFxMlowbHNaY1NV?=
+ =?utf-8?B?VXIxV2VXSmNCZlA1blN5cVcyb2p2L2hBSUdPY0UxYlUxZi85L0lLc1NUTDNQ?=
+ =?utf-8?B?Nkpvb3NOT1RZMXQxZlk2cEJXWjNsaW5rcFg5aTZVV2ZaL2VJZXBYb3hXL2tS?=
+ =?utf-8?B?ZGRNeUEybm1pUUhjRmtDcnVhMm54bEcrUHpqR2g4V091V3JjZld3ck5hZVR6?=
+ =?utf-8?B?ZE55OThFOGF0Z0dqUEpRZmJCOUlFVVNkQ0dwODhJL2Z4S0hVbk1OMHJ6c0JT?=
+ =?utf-8?B?azYwMm1HZ3RpNWRpcFVveENkQ2VlQTdXK2NQeGRNZ3g5RFNPNG9oRW5QRWJN?=
+ =?utf-8?B?dUx1eXQzN3pXeGlkcSswVVR1d1h2T2NPZTVWdEQ4di9wMyt1RUgreWpOWEF4?=
+ =?utf-8?B?aENpWFlYU2RxQmF0NkIreDZYM3BoQ1FOVVNnQVhNYXZUanIreDUyc1pTcmlX?=
+ =?utf-8?B?TW9WdnRjU2lKUHRYN2hmQldEWUxRTnUyejNnWDkwVWNjOVFkd3Q1d3V6WU1l?=
+ =?utf-8?B?OTNXV04rUHdrRFE3bkpOZGlrc0taQnR0a0pDMmlLUUUrWkNvQzZZSWNmWmRa?=
+ =?utf-8?B?dm5sdlpVM3ZZakhvRkNaeG1wMUxXRmpDSHhUbGpVRDFTS1UvRnBITHFWV0wz?=
+ =?utf-8?B?ZjFLeklJclRNTHkrUEw0N2U2SUwreUxMdWpCeWhQdmR4aDJMWmQzYllVMHE4?=
+ =?utf-8?B?ZHF6N1A1V2tFVmVycDBadzhydXJubSs5WWZWb2YyL0owRC9uZjM0d0FPTUE4?=
+ =?utf-8?B?Vml3OVcva1I1ZkpEWGx6TEthT01UN041U2NtOWh0NFRuV1kwOHVQdHdPTTEz?=
+ =?utf-8?B?dGJwZHVYVWZTMkFrNGFzVDdNQUpQZ3FBUFNyMk40OEpqQ2lOYkpmNEtDN0Rx?=
+ =?utf-8?B?cklrTTJDdldNa09BY0hLRzgyZXhyZnpqSnpwSVZMZTNWcjNHUFBZNURTRzN1?=
+ =?utf-8?B?ZE5QblovZFZSSzhYZlJJRm9sSHJnWGs1TFBrWENpbmJZYnloZFIwTEF6Qmdi?=
+ =?utf-8?B?WlhCclUrNk1PaHRlcU43eTZaakF5a2Z6K0lqZVdtUCtCRHlMR1hjalBKcGt5?=
+ =?utf-8?B?QzRnb3NXZTF4d1RCTk5zQldmclBibm01aUl4QUlaeVhMVEg5OURROUJrRzhi?=
+ =?utf-8?B?QTRjbXVlYXhRcTgvemYwazZYaUhRejB4a0hOWVJkZ1VqWVVnZEJqL2FmeklV?=
+ =?utf-8?B?dzZRakU4VTcvTjVrOG4xb012YzFSaWFQTEpSbGh2U0hFRTdKV3ZGbXdZY0JT?=
+ =?utf-8?B?ZkNjV2xkckNJeWh4bjlrcVorSVNUVzU1R09hSzVXelE1R2tmWTU0M1I0Zm02?=
+ =?utf-8?B?TlNHaFRYNjNhb1hvMGRtd2t1Q3JVRVBJbUNYOFNXL0pycGtSTFd4cE0zenoz?=
+ =?utf-8?B?R3ROcUR1NGlhNjFyT25VNUpYRmx1REJTY3ZudXBUWnN4Q1BZR1RIRy9KOERT?=
+ =?utf-8?B?cVhFcHpjTmljcWJRQ2FjUHFPNEg1MkFSWXBsUXV0RWtTZHRNb0xHVTc2QkN4?=
+ =?utf-8?B?ZkhHN3g4d1ZzckFYSHZ2SUY0MHY1NVNMa0ticlBSdUJPM0krVTQ1MkNUOHRz?=
+ =?utf-8?B?Z1RCYWJvdkRjSHVuTUR2UTZVTWs5SU9ydldMMkt4cHdyZ1k3cjVxcGVrOWV1?=
+ =?utf-8?B?SEZTOEJnRUxnPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTROYWZldzlkM1NJSGVPUTNUYVJoa3cyWlBKekxtV29HbysySmhPN1l5bnNL?=
+ =?utf-8?B?aTd2UVRPWVlsRnFneFdwUlBBY0lGbERyRlhaZkRlRzFPQVhkbE1JMHEzVzZI?=
+ =?utf-8?B?NHMvb3FOZ2UyV2d6aXVUL3ZraDhIbncvV0hZdmZOTXNYeVIrOU0vZm9mZy9h?=
+ =?utf-8?B?RmlYZ3hET291b2dCazRYUW92VlBEL0dSb01CakxJOHBzR1BZS2QrcTQrQVJi?=
+ =?utf-8?B?d0lxcGdSU0o3YmJKNGZ4ZzRQbXZSNDdpSzBhVkovZFJEOFhTNStEZVVqb2hw?=
+ =?utf-8?B?MzJjM0FlOFJwZDgvVGo4VW5yUkxNbDRGZS9jTDVLdDZ1emtUSVFYbzAvSjFv?=
+ =?utf-8?B?Tml1bGs3ekgzUjdMd0VTRkg4ay9vYkRCOXo4aU1LaEh2NTFTMWE0ZVNXS1Vs?=
+ =?utf-8?B?a0F5Z0NuQ28vbGJlNVoycXE2WVYxQTk5ZnJPNmZzZjFPdHVzZWd3Yld0OEVn?=
+ =?utf-8?B?dG9zcmQrNlppTUUwU1hKWklaMFRiZHpSckxCdVFJK0FzV2hJRFJTUEdhSWMy?=
+ =?utf-8?B?SXEvVklPd05KUVlOeXdnSk1nbkMyaGpWQytqVXgyaU1DQjN0L0dzUXVkRGp0?=
+ =?utf-8?B?MitSVk1LUkJzNWlkMWpSbjFmekNCMmNNZ3ozck5ReHQyMzh5U283bGFvaDdx?=
+ =?utf-8?B?bUVtVDQxc3BwM0IyaHk5SmlJL0k4Rnh5SkZvcHBBTC9xRmU1ZWtqVi9HRTV1?=
+ =?utf-8?B?RmpGeldkVkJiK016YVhKVnNrREI0Rks0cTEveE1JYTNqRlpXVWNKZE9wRzhr?=
+ =?utf-8?B?amtXOEgvdzNieXhBWU9IMjFqdG84L24xTFBrNmJaZkFOWDNIa1poK3k2bnM3?=
+ =?utf-8?B?UEk0SWJwK2szdEFtL1RQc2RsQTRNeTJPbnlZTHNyVE51akFqSGxMcWdYZEE4?=
+ =?utf-8?B?NVVxK2tKb04zVnRZTk5ZZTQ0YXlEWDJ5K3VDbDJnL3pkeE5nSUI4VVVtZ2U5?=
+ =?utf-8?B?MVBPU21YeG9WaG0ya1VNcVVVd0s5bGlKOXk4QU4zbGFOV2orbHZ6V0dua1d4?=
+ =?utf-8?B?ZWNlL3JGN1JCVmNreWIvd0Y2dXFzOEl0dkxtWUw2NFE4SDdjdjJjcVFDNElj?=
+ =?utf-8?B?YjNrT0tjb1I4cDFrbjZ1TG81ZGxhYld0cnhab0M5L1gwS3JLdEpjb1QyNjM4?=
+ =?utf-8?B?MWtrcS9MY1dsTXdFSjBtS0txNjk5TnQyNUd5bFlLSGgxTmx0TlI4RHQvd1Yr?=
+ =?utf-8?B?SGdHMEJhQkNjaEJzZGxaWG5DR0svbFBKZTQ0ZmVxSGhDY2lmbWYwSk1aM21h?=
+ =?utf-8?B?bExjeFVjUXJsUVAvdmhEUUFYTS9qMUFCK2F3OCtvVDY3c2F3N2lnRHRMa2hH?=
+ =?utf-8?B?RWJmMVk2L2FqWGR3NndNcjVvVStUZ0FiQ0NodHR3U1QxazNDWjdmQ3kzQ3po?=
+ =?utf-8?B?VDFwL1NUYWsxSXd5SGxSeXRrUEcxd0VuaVFvV01RQ01RdVZiWGpiOTh1b3l1?=
+ =?utf-8?B?OVZrL2JDMGVaUkNmSk9IVEdiSkhCNGhNdy9wSU8xa3p2Qy9UQ1BwbzlFb1ZS?=
+ =?utf-8?B?NlN0c3BWMDVRbmZLdkJaeDRsbnBkN0hoeGcxVkllVGJmNXkvWFR0bFZIU044?=
+ =?utf-8?B?eE0yZi8rZ1lXSm15d2NxcUZFcHJkUHBNUVdQUXgzb0JJankzSVFzcXpnMUIy?=
+ =?utf-8?B?MThBd0w3Wm1ERnd1clo0NzdwZGJzR2E1Rys5L3ZFeE5FdWt2QmI2bnpsenc5?=
+ =?utf-8?B?SXNZR1RETWhKaml4ZWtDS255T0FGbEY1WGsyQW1SQkZmaFkwZVJpSUhvNUoy?=
+ =?utf-8?B?Vm5TQXRIdFBid3M3VEQvSDNPM2p1N1pxYWhPdjVVRzBtNWU1TUhKR292MGkr?=
+ =?utf-8?B?VnRZbDJaQnhVMnVhNC9kZlFyUFZMR1hWWTlOcU9TQ01SMVoyNzluOUtqWkxV?=
+ =?utf-8?B?R0ZMSWY0aEEvMUk5QjVXeDhLWjJPcG9DTFZRUnpOdGpNNFFrSldvcjhHT0pa?=
+ =?utf-8?B?VUI0Z1dkM2hYeHpicWVlVUd1dEF5UjBySjM5NG1ISU9XYlB3Ykx4N2UwZlky?=
+ =?utf-8?B?Z2w2OFJjSGJvS0tRYTA4ckNVR0dYaExkdmpENE81UTBwQlE0cjcxVnB1eWNl?=
+ =?utf-8?B?MUs1TXFwVVdXWDY4TmlXelRPaVRmNjdydFpRSndoWEx1WXFlL3BRNklYanJL?=
+ =?utf-8?Q?f5IQ=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0d355c5-3a30-4b9b-861b-08dd44cc5ac3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2025 03:31:04.2730
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: f2Q1fmAk9SSGW87N/DKCghSsv0D9baA2mCrZULAipXheqI57Poys9cGtI7DM91QC1K2b4fYBWF+PyHA8PNBJnw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_192216_988077_9990D4B0 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250203_193111_808165_CC5A39E7 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,243 +186,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 1/14/2025 2:38 AM, Dmitry Baryshkov wrote:
-> On Mon, Jan 13, 2025 at 01:52:13PM -0800, Melody Olvera wrote:
->> From: Wesley Cheng <quic_wcheng@quicinc.com>
->>
->> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
->> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
->>
->> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
->> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
->> ---
->>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts |  24 ++++++
->>  arch/arm64/boot/dts/qcom/sm8750-qrd.dts |  24 ++++++
->>  arch/arm64/boot/dts/qcom/sm8750.dtsi    | 134 ++++++++++++++++++++++++++++++++
-> Separate SoC and board patches.
->
->>  3 files changed, 182 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> index 9e3aacad7bdab6848e86f8e45e04907e1c752a07..059eccbbc3fb05fc8806e36d35dc469d44443a26 100644
->> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> @@ -792,3 +792,27 @@ &tlmm {
->>  &uart7 {
->>  	status = "okay";
->>  };
->> +
->> +&usb_1 {
->> +	status = "okay";
->> +};
->> +
->> +&usb_1_dwc3 {
->> +	dr_mode = "peripheral";
->> +};
->> +
->> +&usb_1_hsphy {
->> +	vdd-supply = <&vreg_l2d_0p88>;
->> +	vdda12-supply = <&vreg_l3g_1p2>;
->> +
->> +	phys = <&pmih0108_eusb2_repeater>;
->> +
->> +	status = "okay";
->> +};
->> +
->> +&usb_dp_qmpphy {
->> +	vdda-phy-supply = <&vreg_l3g_1p2>;
->> +	vdda-pll-supply = <&vreg_l2d_0p88>;
->> +
->> +	status = "okay";
->> +};
->> diff --git a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
->> index f77efab0aef9bab751a947173bcdcc27df7295a8..01c0af643626917614fbd68cf8962ef947ca6548 100644
->> --- a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
->> +++ b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
->> @@ -790,3 +790,27 @@ &tlmm {
->>  &uart7 {
->>  	status = "okay";
->>  };
->> +
->> +&usb_1 {
->> +	status = "okay";
->> +};
->> +
->> +&usb_1_dwc3 {
->> +	dr_mode = "peripheral";
->> +};
->> +
->> +&usb_1_hsphy {
->> +	vdd-supply = <&vreg_l2d_0p88>;
->> +	vdda12-supply = <&vreg_l3g_1p2>;
->> +
->> +	phys = <&pmih0108_eusb2_repeater>;
->> +
->> +	status = "okay";
->> +};
->> +
->> +&usb_dp_qmpphy {
->> +	vdda-phy-supply = <&vreg_l3g_1p2>;
->> +	vdda-pll-supply = <&vreg_l2d_0p88>;
->> +
->> +	status = "okay";
->> +};
->> diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
->> index 3bbd7d18598ee0a3a0d5130c03a3166e1fc14d82..54522fd3d0e11c3cff02beaf1d249fe654cacc0f 100644
->> --- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
->> @@ -10,6 +10,7 @@
->>  #include <dt-bindings/interconnect/qcom,icc.h>
->>  #include <dt-bindings/interconnect/qcom,sm8750-rpmh.h>
->>  #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +#include <dt-bindings/phy/phy-qcom-qmp.h>
->>  #include <dt-bindings/power/qcom,rpmhpd.h>
->>  #include <dt-bindings/power/qcom-rpmpd.h>
->>  #include <dt-bindings/soc/qcom,rpmh-rsc.h>
->> @@ -1966,6 +1967,139 @@ lpass_lpicx_noc: interconnect@7420000 {
->>  			#interconnect-cells = <2>;
->>  		};
->>  
->> +		usb_1_hsphy: phy@88e3000 {
->> +			compatible = "qcom,sm8750-m31-eusb2-phy";
->> +			reg = <0x0 0x88e3000 0x0 0x29c>;
->> +
->> +			clocks = <&tcsrcc TCSR_USB2_CLKREF_EN>;
->> +			clock-names = "ref";
->> +
->> +			resets = <&gcc GCC_QUSB2PHY_PRIM_BCR>;
->> +
->> +			#phy-cells = <0>;
->> +
->> +			status = "disabled";
->> +		};
->> +
->> +		usb_dp_qmpphy: phy@88e8000 {
->> +			compatible = "qcom,sm8750-qmp-usb3-dp-phy";
->> +			reg = <0x0 0x088e8000 0x0 0x3000>;
->> +
->> +			clocks = <&gcc GCC_USB3_PRIM_PHY_AUX_CLK>,
->> +				 <&rpmhcc RPMH_CXO_CLK>,
->> +				 <&gcc GCC_USB3_PRIM_PHY_COM_AUX_CLK>,
->> +				 <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
->> +			clock-names = "aux",
->> +				      "ref",
->> +				      "com_aux",
->> +				      "usb3_pipe";
->> +
->> +			resets = <&gcc GCC_USB3_PHY_PRIM_BCR>,
->> +				 <&gcc GCC_USB3_DP_PHY_PRIM_BCR>;
->> +			reset-names = "phy",
->> +				      "common";
->> +
->> +			power-domains = <&gcc GCC_USB3_PHY_GDSC>;
->> +
->> +			#clock-cells = <1>;
->> +			#phy-cells = <1>;
-> Missing orientation-switch and ports{} description.
-
-At least for this initial submission/series, we haven't yet defined the PMIC GLINK connections yet, so does it make sense to include these now?  Basically, even if we define that connection, since I'm not aware if the enablement of PMIC GLINK has been added, it would be nil, as it would be the one responsible for registering the type C port. 
-
->> +
->> +			status = "disabled";
->> +		};
->> +
->> +		usb_1: usb@a6f8800 {
->> +			compatible = "qcom,sm8750-dwc3", "qcom,dwc3";
->> +			reg = <0x0 0x0a6f8800 0x0 0x400>;
->> +			status = "disabled";
->> +			#address-cells = <2>;
->> +			#size-cells = <2>;
->> +			ranges;
->> +
->> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
->> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
->> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
->> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
->> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
->> +				 <&tcsrcc TCSR_USB3_CLKREF_EN>;
->> +			clock-names = "cfg_noc",
->> +				      "core",
->> +				      "iface",
->> +				      "sleep",
->> +				      "mock_utmi",
->> +				      "xo";
->> +
->> +			assigned-clocks = <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
->> +					  <&gcc GCC_USB30_PRIM_MASTER_CLK>;
->> +			assigned-clock-rates = <19200000>, <200000000>;
->> +
->> +			interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
->> +						  <&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
->> +					      <&pdc 14 IRQ_TYPE_EDGE_BOTH>,
->> +					      <&pdc 15 IRQ_TYPE_EDGE_BOTH>,
->> +					      <&pdc 17 IRQ_TYPE_LEVEL_HIGH>;
->> +			interrupt-names = "pwr_event",
->> +					  "hs_phy_irq",
->> +					  "dp_hs_phy_irq",
->> +					  "dm_hs_phy_irq",
->> +					  "ss_phy_irq";
->> +
->> +			power-domains = <&gcc GCC_USB30_PRIM_GDSC>;
->> +			required-opps = <&rpmhpd_opp_nom>;
->> +
->> +			resets = <&gcc GCC_USB30_PRIM_BCR>;
->> +
->> +			interconnects = <&aggre1_noc MASTER_USB3_0 0 &mc_virt SLAVE_EBI1 0>,
->> +					<&gem_noc MASTER_APPSS_PROC 0 &config_noc SLAVE_USB3_0 0>;
->> +			interconnect-names = "usb-ddr", "apps-usb";
->> +
->> +			usb_1_dwc3: usb@a600000 {
->> +				compatible = "snps,dwc3";
->> +				reg = <0x0 0x0a600000 0x0 0xe000>;
->> +
->> +				interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
->> +
->> +				iommus = <&apps_smmu 0x40 0x0>;
->> +
->> +				phys = <&usb_1_hsphy>, <&usb_dp_qmpphy QMP_USB43DP_USB3_PHY>;
->> +				phy-names = "usb2-phy", "usb3-phy";
->> +
->> +				snps,hird-threshold = /bits/ 8 <0x0>;
->> +				snps,usb2-gadget-lpm-disable;
->> +				snps,dis_u2_susphy_quirk;
->> +				snps,dis_enblslpm_quirk;
->> +				snps,dis-u1-entry-quirk;
->> +				snps,dis-u2-entry-quirk;
->> +				snps,is-utmi-l1-suspend;
->> +				snps,usb3_lpm_capable;
->> +				snps,usb2-lpm-disable;
->> +				snps,has-lpm-erratum;
->> +				tx-fifo-resize;
->> +
->> +				dr_mode = "peripheral";
-> This goes to the board files.
->
->> +
->> +				dma-coherent;
->> +
->> +				ports {
->> +					#address-cells = <1>;
->> +					#size-cells = <0>;
->> +
->> +					port@0 {
->> +						reg = <0>;
->> +
->> +						usb_1_dwc3_hs: endpoint {
->> +						};
->> +					};
->> +
->> +					port@1 {
->> +						reg = <1>;
->> +
->> +						usb_1_dwc3_ss: endpoint {
-> QMP endpoint.
-
-Same as above comment.
-
-Thanks
-
-Wesley Cheng
-
+PiBTdWJqZWN0OiBbUEFUQ0ggdjIgMC80XSBzY21pOiBCeXBhc3Mgc2V0IGZ3bm9kZSBhbmQgaW50
+cm9kdWNlDQo+IGFsbG93L2Jsb2NrIGxpc3QgdG8gYWRkcmVzcyBkZXZsaW5rIGlzc3VlDQoNCkFu
+eSBjb21tZW50cyBvbiB0aGlzIHBhdGNoc2V0Pw0KDQpUaGFua3MsDQpQZW5nLg0KDQo+IA0KPiBD
+dXJyZW50IHNjbWkgZHJpdmVycyBub3Qgd29yayB3ZWxsIHdpdGggZGV2bGluay4gVGhpcyBwYXRj
+aHNldCBpcyBhIHJldHJ5DQo+IHRvIGFkZHJlc3MgdGhlIGlzc3VlIGluIFsxXSB3aGljaCB3YXMg
+YSBmZXcgbW9udGhzIGFnby4NCj4gDQo+IEN1cnJlbnQgc2NtaSBkZXZpY2VzIGFyZSBub3QgY3Jl
+YXRlZCBmcm9tIGRldmljZSB0cmVlLCB0aGV5IGFyZSBjcmVhdGVkDQo+IGZyb20gYSBzY21pX2Rl
+dmljZV9pZCBlbnRyeSBvZiBlYWNoIGRyaXZlciB3aXRoIHRoZSBwcm90b2NvbCBtYXRjaGVzDQo+
+IHdpdGggdGhlIGZ3bm9kZSByZWcgdmFsdWUsIHRoaXMgbWVhbnMgdGhlcmUgY291bGQgYmUgbXVs
+dGlwbGUgZGV2aWNlcw0KPiBjcmVhdGVkIGZvciBvbmUgZndub2RlLCBidXQgdGhlIGZ3bm9kZSBv
+bmx5IGhhcyBvbmUgZGV2aWNlIHBvaW50ZXIuDQo+IA0KPiBUaGlzIHBhdGNoc2V0IGlzIHRvIGRv
+IG1vcmUgY2hlY2tpbmcgYmVmb3JlIHNldHRpbmcgdGhlIGRldmljZSBmd25vZGUuDQo+IEFuZCBJ
+bnRyb2R1Y2UgbWFjaGluZV9hbGxvd2xpc3QgYW5kIG1hY2hpbmVfYmxvY2tsaXN0Lg0KPiANCj4g
+VGhlIHJlYXNvbiB0byBpbnRyb2R1Y2UgbWFjaGluZV9ibG9ja2xpc3QgaXMgZm9yIGNhc2UgdGhh
+dCBpZiBwaW5jdHJsLQ0KPiBzY21pLmMgcHJvYmVzIGJlZm9yZSBwaW5jdHJsLWlteC1zY21pLmMg
+cHJvYmVzIG9uIGkuTVggcGxhdGZvcm0uDQo+IE5lZWQgdG8gYmxvY2sgcGluY3RybC1zY21pLmMg
+b24gaS5NWCBwbGF0Zm9ybS4NCj4gDQo+IFRoaXMgbWF5IGxvb2tzIGxpa2UgaGFjaywgYnV0IHNl
+ZW1zIG5vIGJldHRlciB3YXkgdG8gbWFrZSBzY21pIHdvcmtzDQo+IHdlbGwgd2l0aCBkZXZsaW5r
+Lg0KPiANCj4gWzFdOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hcm0tc2NtaS9DQUdFVGN4OG00
+OGN5LQ0KPiBFelA2X3VvR043S1dzUXc9Q2ZaV1EtaE5VenpfN0xaMHZvRzhBQG1haWwuZ21haWwu
+Y29tLw0KPiANCj4gU2lnbmVkLW9mZi1ieTogUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+DQo+
+IC0tLQ0KPiBDaGFuZ2VzIGluIHYyOg0KPiAtIEludHJvZHVjZSBtYWNoaW5lX2FsbG93bGlzdCBh
+bmQgbWFjaGluZV9ibG9ja2xpc3QNCj4gLSBLZWVwIG9mX25vZGUgZm9yIGNwdWZyZXEgZGV2aWNl
+IHBlciBDcmlzdGlhbg0KPiAtIFBhdGNoIDIgaXMgYW4gb3B0aW1pemF0aW9uIHBhdGNoIHdoZW4g
+Zml4aW5nIHRoZSBkZXZsaW5rIGlzc3VlDQo+IC0gTGluayB0byB2MTogaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvci8yMDI0MTIyNS1zY21pLWZ3ZGV2bGluay12MS0wLQ0KPiBlOWEzYTUzNDEzNjJA
+bnhwLmNvbQ0KPiANCj4gLS0tDQo+IFBlbmcgRmFuICg0KToNCj4gICAgICAgZmlybXdhcmU6IGFy
+bV9zY21pOiBCeXBhc3Mgc2V0dGluZyBmd25vZGUgZm9yIHNjbWkgY3B1ZnJlcQ0KPiAgICAgICBm
+aXJtd2FyZTogYXJtX3NjbWk6IEFkZCBtYWNoaW5lX2FsbG93bGlzdCBhbmQgbWFjaGluZV9ibG9j
+a2xpc3QNCj4gICAgICAgcGluY3RybDogZnJlZXNjYWxlOiBzY21pOiBTd2l0Y2ggdG8gdXNlIG1h
+Y2hpbmVfYWxsb3dsaXN0DQo+ICAgICAgIHBpbmN0cmw6IHNjbWk6IFN3aXRjaCB0byB1c2UgbWFj
+aGluZV9ibG9ja2xpc3QNCj4gDQo+ICBkcml2ZXJzL2Zpcm13YXJlL2FybV9zY21pL2J1cy5jICAg
+ICAgICAgICAgICB8IDMxDQo+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKy0NCj4gIGRyaXZl
+cnMvcGluY3RybC9mcmVlc2NhbGUvcGluY3RybC1pbXgtc2NtaS5jIHwgMTUgKysrKysrLS0tLS0t
+LS0NCj4gIGRyaXZlcnMvcGluY3RybC9waW5jdHJsLXNjbWkuYyAgICAgICAgICAgICAgIHwgMTUg
+KysrKysrLS0tLS0tLS0NCj4gIGluY2x1ZGUvbGludXgvc2NtaV9wcm90b2NvbC5oICAgICAgICAg
+ICAgICAgIHwgIDMgKysrDQo+ICA0IGZpbGVzIGNoYW5nZWQsIDQ1IGluc2VydGlvbnMoKyksIDE5
+IGRlbGV0aW9ucygtKQ0KPiAtLS0NCj4gYmFzZS1jb21taXQ6IDlkZmY3YmJkZDM1OWM3M2YxYjQ0
+YWI1OTJiYmIxN2UxYzE3NGZlNDMNCj4gY2hhbmdlLWlkOiAyMDI0MTIyNS1zY21pLWZ3ZGV2bGlu
+ay1hZmI1MTMxZjE5ZWENCj4gDQo+IEJlc3QgcmVnYXJkcywNCj4gLS0NCj4gUGVuZyBGYW4gPHBl
+bmcuZmFuQG54cC5jb20+DQoNCg==
 
