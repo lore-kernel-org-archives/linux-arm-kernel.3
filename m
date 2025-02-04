@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C6EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B023C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 12:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCT1GwMUpouo94Z78oXbtH59Xf4n1/0RJHycCkL9Qjc=; b=qdlArNsgNv0aLuOIRNe7O0HfCk
-	KcYFJJCCMTP6NhJ8dz3s5yTVwutK+8nguljgrkojBZYJeL0OMstzdkCPGBkP//NCf5g2ex0T4OzO5
-	iTUL9rO30OS0wtvnXN0rR3XeVRv3DuxqAcZ/7gU08CdLubgX1UJ2qeTB9mGrpGHvfKo1u+0OovaLy
-	IQA/9f3CiL8tf6YQzqhc7GtZ6IZ5estrAyAY6EzMOAM81eRCxivBQdHrtFVlSTeuZXRmVmfI92ucz
-	+apB85QyI7CKirOOGJMYzNzSuWwfV3kKsm5Et5uvo6bKeli+xIWQxzOfeQd75wUbak4wAG6IMcXLC
-	JTq9AGqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0nZOZstARx8E/pGmWmRQphxclXlV3QJpkwTset5XZEY=; b=OjZ3A720SNaI7FvTIEbFYXVNoH
+	a3qddGdGhpySqgLTge18ndL/x767BA8VMqYQKFEQc7ue3SuMl7Z0VLJciuYXR8468xfQTTFZrluC+
+	stNPQ7lWm1ee1m7Z00qNc0cZTanYt43nVk/630o5ki74JBl97K3baYUGZl13MQCy55XGkMyhj9PwM
+	bZ48F6u86lbtVu7q6oYKawG3msLrN/UFvtYjz94L2q+KYvyj1V8Ko4tP2Q12R/Z4nlMSNdm8Rvj4G
+	bL7G1HL/kQE91KbqrHOkjpqZuFJSCFjD281yDaV2FSDT2LsMNwOjSYvGNsfXS7W9GSZHUQlVPxR6k
+	qz7ozCiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIFT-00000000RwR-20Um;
-	Tue, 04 Feb 2025 12:41:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfII4-00000000SBW-1Ust;
+	Tue, 04 Feb 2025 12:44:32 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfIDh-00000000ReR-3icr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 12:40:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 64B235C6174;
-	Tue,  4 Feb 2025 12:39:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9610AC4CEDF;
-	Tue,  4 Feb 2025 12:39:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738672800;
-	bh=N2qBL/ihZVgOg0jeuK8MBcIjOSVN8VD1H9tlyiAlt1o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AaEWSMPBKlEiBYavtoRQD57VVL5kSalqLBpw/t9M/kgy6LyVDfeQMADYApS218zj7
-	 CKNKbScaWRq58sSIGvNSMKLuSNn927nzsBO/Hko70n+dBC2J3QT2jRTg6dGF8Xo1to
-	 QHwgy5fEGxaSFRb8hxdN69gnElGgrve6s3luCLqWx3C+84Myo7wpDG2IREKVZ0aXqu
-	 MIjEtAIfOFgPvQC0fUGBw109yn/QludqgvphFpnMyXz/Dxo3wrmIZ8/s2al9kYVs5p
-	 HNQl2oWcoY1sFEHZg97nFBBXpPbHVom6pKQNQgHAmO1knl6X099JWBE1nb6DuDWxlU
-	 BQebgOEMUdQCA==
-Date: Tue, 4 Feb 2025 12:39:56 +0000
-From: Will Deacon <will@kernel.org>
-To: Radu Rendec <rrendec@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Borislav Petkov <bp@alien8.de>
-Subject: Re: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo
- array
-Message-ID: <20250204123955.GD1063@willie-the-truck>
-References: <20250123181159.1849346-1-rrendec@redhat.com>
+	id 1tfIDx-00000000RfM-2EK6;
+	Tue, 04 Feb 2025 12:40:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1738672815;
+	bh=1PDp2WlZu6IqKiEMkFkB1f2lJPaUATGjxKu+MBdRSg4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=UWmgAvNQbIvH3JBPouUxdANztFGheO9xh3ifAxP8lUHuiKkkwRdpLeRIvWHhM09VL
+	 u2OiTsZEA+rQbYOyBspKg54VzPRWDxh9FnNhLs+XsnKo0RoMC3tqBtBpg6Y43vw12T
+	 KIkngbAWl+LANkE6GaCS6tehh9ovig8KyYHRhTF9XgPdg1NA9J9YbO1UE5UZop7RF1
+	 FtgS0HFrBLwoPz47NfgK4iPeTfL5lT3gGPCqmmhVlpGaI0JroFfUe1KJhJXM5ZA6UJ
+	 ESvNvS+wH99tDZ/2lloIGF2/cKqxE7UyNoce3ch7FgfGhXAxF17oEIBqt9S/WaWKQf
+	 ZfNieCMtXS3TA==
+Received: from localhost (unknown [188.27.43.189])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id E7C8517E0E48;
+	Tue,  4 Feb 2025 13:40:14 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 04 Feb 2025 14:40:04 +0200
+Subject: [PATCH v3 1/5] dt-bindings: display: vop2: Add optional PLL clock
+ properties
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250123181159.1849346-1-rrendec@redhat.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250204-vop2-hdmi0-disp-modes-v3-1-d71c6a196e58@collabora.com>
+References: <20250204-vop2-hdmi0-disp-modes-v3-0-d71c6a196e58@collabora.com>
+In-Reply-To: <20250204-vop2-hdmi0-disp-modes-v3-0-d71c6a196e58@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_044001_976202_3A02E0C0 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250204_044017_725245_7FA6336E 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 01:11:59PM -0500, Radu Rendec wrote:
-> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-> index d9c9218fa1fdd..77ffda7284754 100644
-> --- a/arch/arm64/kernel/cacheinfo.c
-> +++ b/arch/arm64/kernel/cacheinfo.c
-> @@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
->  	unsigned int level, idx;
->  	enum cache_type type;
->  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-> -	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
-> +	struct cacheinfo *infos = this_cpu_ci->info_list;
->  
->  	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
-> -	     idx < this_cpu_ci->num_leaves; idx++, level++) {
-> +	     idx < this_cpu_ci->num_leaves; level++) {
->  		type = get_cache_type(level);
->  		if (type == CACHE_TYPE_SEPARATE) {
-> -			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> -			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> +			if (idx + 2 > this_cpu_ci->num_leaves)
-> +				break;
+On RK3588, HDMI PHY PLL can be used as an alternative and more accurate
+pixel clock source for VOP2 video ports 0, 1 and 2.
 
-Why are you checking 'idx + 2' rather than 'idx + 1'?
+Document the optional PLL clock properties corresponding to the two HDMI
+PHYs available on the SoC.
 
-Will
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 2531726af306bd388c00c3c0a1785b2c7367e2bd..46d956e63338e196361483a668fbf5597ebce24f 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -53,6 +53,8 @@ properties:
+       - description: Pixel clock for video port 2.
+       - description: Pixel clock for video port 3.
+       - description: Peripheral(vop grf/dsi) clock.
++      - description: Alternative pixel clock provided by HDMI0 PHY PLL.
++      - description: Alternative pixel clock provided by HDMI1 PHY PLL.
+ 
+   clock-names:
+     minItems: 5
+@@ -64,6 +66,8 @@ properties:
+       - const: dclk_vp2
+       - const: dclk_vp3
+       - const: pclk_vop
++      - const: pll_hdmiphy0
++      - const: pll_hdmiphy1
+ 
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+
+-- 
+2.48.1
+
 
