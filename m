@@ -4,92 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DAAC02197
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A247C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 17:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBre3tfK9eNw0D6ztWoJ2B8wDlLW7jzGaVQPJWiVrhc=; b=JTpc1Za5KbTen+TvV7kmP+Ml/Q
-	8vcicTqXDoea+FKMG1r81til8l/xlhD9hBnw1d3TzxL5yHEjnkj8xxc8G5EhpKsEOVMxzzl8O00dT
-	bZXxZJ+E/ytglf5Hn89lVEeKeDtB/5XHBU7KlD0578PqPf1UtU6KgGCFz1Yw6Ot/jmHPPp0ETkl2r
-	CYmGeNeXI+D5RGvVJ+e7Ma9zP4G/CLVUvfpCUhMqLhgBGMkwDfO5tDl+Y37KYR3mjrG8khXAgBGEF
-	j0zqF98EGYJnHLQycl1bjknxJfvMEcjfJCFhuTpyLJ9Y1FvD/Hm99z0j36jt3Uu0Ch/01wY9Fm3nW
-	d8kO7Rgw==;
+	bh=FGnxnCCPJCYXpJcYE+0W+BUSr54oKbw5Roi0jlmMGro=; b=tnTG852nOfM4hHZgzXLxxAsPeT
+	+lpDMzPhyQeCZAVcQdVLgdTRW5DNYjMZRDUcVrnxIesXPthNNkAyHlYjd8NH929ZnDPABds7V/MSM
+	n5GPztSbyqb/5v/0x3r/DCgeBW7kACMsfJFGfbVDnqYPhqIBhwoJR5RuundB4PKPdC9oVQcy2PKGX
+	pt2Yu+VBKp+m6qeDLMFWyCtDKST6s0zMzxIZs5a0Ik6XBh73LEmLDU1F82AwliX219UILj6iqT9jD
+	59HDd+DZHMPEQ1Z7VhCU1p/0HHL+ogrN4BDSmROdCaanpcFMi+mVkksvjLeu6uxUHW0QGWadZsrsm
+	Shk44tug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMpz-0000000173u-0Kh4;
-	Tue, 04 Feb 2025 17:35:51 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1tfNAr-000000019l3-2gjP;
+	Tue, 04 Feb 2025 17:57:25 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMjW-000000015uv-2rBM
+	id 1tfN9Y-000000019YQ-1d9d
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Feb 2025 17:56:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=FGnxnCCPJCYXpJcYE+0W+BUSr54oKbw5Roi0jlmMGro=; b=cCFnjpRGZ2CAS88ztQ/w/NjCmR
+	i4mZITz3CBmlKx14iecxglf3l8mt+0OszqdwFet8MUfqQdH6wsoDtkVjXyo9/cqo4XMhbk+NnUaCZ
+	MZJimP1yH7EtifC+kTZ874VAeAe7rhS414xcTlFYdhMpGLZgFMFwm1CUqvqDGmrbATU5Vg2kQT4Fp
+	Z3KbYJYOx7FGtlfUD9OPTBnbLwUGUaNzQDYsN0TMYd9UTOciO1zq4K0xYBkYORYP0RqvSnG59YXnX
+	sv0RZYQmPbvarXW8U9jT5W3yHYYerXcRV4oQj7y2xlhg8eWJ2DSFYjkq5B63ExGadZQpaI9PGnL2L
+	ok3J031A==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfN9V-000000037D0-0VOi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 17:29:11 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5dcd3454922so889391a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 09:29:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738690149; x=1739294949; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZBre3tfK9eNw0D6ztWoJ2B8wDlLW7jzGaVQPJWiVrhc=;
-        b=N162RyNvYVXoSeQyZ9fvKDl6Yqv+W9derJCdjp7wLryyRZR7QgtSLTVUQ+m+5VV1Rd
-         t53L/kIg+yjyBp9wHNQF1SmCxK+eNr6DyNpsWBHviR6xZm2RzD02DanWEOse2o05H6kZ
-         CloK57wcfxk0DISUmkGRWiugR1/gIVyYze9+aSIt6rh82+X6rcs0aC4FqEN4/ynZtki4
-         W0LQ1WeO47Kp2SrhH680WvFWq8SmGS8PB71c4QriYuz3EcuUmkL6oqQaRBG7NUPSc0Ta
-         /wRVc7kHKmdOUhwvI9F1F6gm4lXorr6gwHUY7Dk9C4G2TF36Bt7DplqYLkaOAlmIAQ2c
-         SURQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738690149; x=1739294949;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZBre3tfK9eNw0D6ztWoJ2B8wDlLW7jzGaVQPJWiVrhc=;
-        b=m7NnUUV3U33be0kE076G9PdiqhJ7TViMc2kBYtvJgGnRVggCHdLfesv9EXrrUtQhwG
-         zpImxN+oHVcTIlTWmLez3x1Mv/uTDimxXZHLk/Wzp4gD5lfI2lbZvlz+J6o1LIw8OtwP
-         7MCQ4PgvuSgTA/sHSc1zRzxh6vKnG3ChHTfJJghYICCy+0oNV8S2RUzK0qaXkfE9mF0L
-         4umszKwEv5HlvUUvDIzw7lE2Gocaq6DR/8wnfNvfWLQmWvaOUWvrb78cGD9HaANsV56L
-         QAKduyDeAkKPH2yntW3jfQnz3U70ONe8rhnG/gTQjYOVmTaST0IqSoJ0PvgK7BHGRXlo
-         YKcg==
-X-Forwarded-Encrypted: i=1; AJvYcCXtceaxUBZAJIcs+YRUEuVWzA6/3WUK4URn8NIcn3EOl62aPys7cj1s4d8jUIl9/OEKMjQ6jd4mM8XtjgSL4P4q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcGUBjS8YMOHk3b1csFpAW6qkR3UibwE3uWAzIXs2YPcWNMq6+
-	4dbSbuU7KuQTHuFWz9FVbesIzcSomQwiexyKrBiwPCVBvEEw8iIGJvVqcg==
-X-Gm-Gg: ASbGncuuvs/AprugcOJDT46vdF7cjOYI+ldKxO/w54Z4POH4Jef8qo4equ5gVHc3cF+
-	4w31g/qRZrpnnwFhlE6dXvrHs9STfRnhtFqRmWwqAU0T0MCD83S97bQ1fCbLGEn/J6t+tJYOg+d
-	L4RnVLHTB1s01QZl72TQShZs16FzmFYeaLaY965gZtE3BUeXKyW1PVeCn6hC4cUnUeG44ITk8hG
-	QnVB+TvxC9kS5oanzXBk4iB0QhLG2aNrqSrn9rTtmrycrhvqMU/Jly5vTxOselCvWmhK02HN3zq
-	8sNMW9v/bSjUNrOXQ0PjFcXki53xo2sMX+BEP0UsDxanCOG66k8FGqQwbJB6o1fBUIg=
-X-Google-Smtp-Source: AGHT+IFu+slwz91GENh5QMjYcOh4lrpEqmBdNLas88SGUpO3WiuE6Ri0unHYb7Tl4RKE9yFsTn+Pnw==
-X-Received: by 2002:a05:6402:40c8:b0:5d0:ed71:3ce4 with SMTP id 4fb4d7f45d1cf-5dc5efad984mr33079113a12.6.1738690148448;
-        Tue, 04 Feb 2025 09:29:08 -0800 (PST)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcd3156ec7sm664981a12.67.2025.02.04.09.29.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 09:29:07 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Peter Griffin <peter.griffin@linaro.org>
-Cc: devicetree@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 4/4] arm64: dts: exynos: update all samsung,mode constants
-Date: Tue,  4 Feb 2025 19:28:03 +0200
-Message-ID: <20250204172803.3425496-5-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com>
+	Tue, 04 Feb 2025 17:56:03 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 514HtBJO3196570
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 4 Feb 2025 11:55:11 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738691711;
+	bh=FGnxnCCPJCYXpJcYE+0W+BUSr54oKbw5Roi0jlmMGro=;
+	h=Date:From:Subject:To:CC:References:In-Reply-To;
+	b=wsvH9an6rR4ULHVwevHFV2VH2ymqXqhPq7YgLq3CpugnZZx3VeuhMU1S4L9R7jEDu
+	 +mf6Q/xBAbpP91fpUdZBclzqJEVUqEi3erhbRJvNoyZmPbBtuKmjAW4zzGPQMB56Iq
+	 kXb1VqCbBqWKtn8DG63EvdyQpG/+JUXVY0TddnNM=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 514HtAla091558
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 4 Feb 2025 11:55:10 -0600
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
+ Feb 2025 11:55:10 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 4 Feb 2025 11:55:10 -0600
+Received: from [10.249.140.156] ([10.249.140.156])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 514Ht2XK062901;
+	Tue, 4 Feb 2025 11:55:03 -0600
+Message-ID: <9287a623-5663-4705-b61a-3ab5f5cb2424@ti.com>
+Date: Tue, 4 Feb 2025 23:25:02 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: "Malladi, Meghana" <m-malladi@ti.com>
+Subject: Re: [EXTERNAL] Re: [PATCH net 1/3] net: ti: icssg-prueth: Use
+ page_pool API for RX buffer allocation
+To: Ido Schimmel <idosch@idosch.org>
+CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <robh@kernel.org>,
+        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
+        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
+        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
+        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+References: <20250122124951.3072410-1-m-malladi@ti.com>
+ <20250122124951.3072410-2-m-malladi@ti.com> <Z5J4jjJ4_arvfF9E@shredder>
+Content-Language: en-US
+In-Reply-To: <Z5J4jjJ4_arvfF9E@shredder>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_092910_723580_F78EFBBB 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250204_175601_440105_7B3A0FF0 
+X-CRM114-Status: GOOD (  39.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,351 +111,554 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update all samsung,mode property values to account for renaming USI_V2
-constants to USI_MODE in the bindings.
+Thank for reviewing this patch series.
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi     | 14 +++---
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi  | 48 +++++++++----------
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |  2 +-
- .../boot/dts/exynos/google/gs101-oriole.dts   |  4 +-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  2 +-
- 5 files changed, 35 insertions(+), 35 deletions(-)
+On 1/23/2025 10:42 PM, Ido Schimmel wrote:
+> On Wed, Jan 22, 2025 at 06: 19: 49PM +0530, Meghana Malladi wrote: > 
+> From: Roger Quadros <rogerq@ kernel. org> > > This is to prepare for 
+> native XDP support. > > The page pool API is more faster in allocating 
+> pages than >
+> ZjQcmQRYFpfptBannerStart
+> This message was sent from outside of Texas Instruments.
+> Do not click links or open attachments unless you recognize the source 
+> of this email and know the content is safe.
+> Report Suspicious
+> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+> v9dnXbjP_SZUaouOFJtJEp11QLjwx1v0fjJpnJ8CktxnLhoq3emLChPo8_sdyEkE_w$>
+> ZjQcmQRYFpfptBannerEnd
+> 
+> On Wed, Jan 22, 2025 at 06:19:49PM +0530, Meghana Malladi wrote:
+>> From: Roger Quadros <rogerq@kernel.org>
+>> 
+>> This is to prepare for native XDP support.
+>> 
+>> The page pool API is more faster in allocating pages than
+>> __alloc_skb(). Drawback is that it works at PAGE_SIZE granularity
+>> so we are not efficient in memory usage.
+>> i.e. we are using PAGE_SIZE (4KB) memory for 1.5KB max packet size.
+>> 
+>> Signed-off-by: Roger Quadros <rogerq@kernel.org>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> 
+> Patch is missing your SoB
+> 
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index f1c8b4613..cb55015c8 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -651,7 +651,7 @@ usi_uart: usi@138200c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138200c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -677,7 +677,7 @@ usi_hsi2c_0: usi@138a00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138a00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1020>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -706,7 +706,7 @@ usi_hsi2c_1: usi@138b00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138b00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1030>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -735,7 +735,7 @@ usi_hsi2c_2: usi@138c00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138c00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1040>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -764,7 +764,7 @@ usi_spi_0: usi@139400c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x139400c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1050>;
--			samsung,mode = <USI_V2_SPI>;
-+			samsung,mode = <USI_MODE_SPI>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -796,7 +796,7 @@ usi_cmgp0: usi@11d000c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x11d000c0 0x20>;
- 			samsung,sysreg = <&sysreg_cmgp 0x2000>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -855,7 +855,7 @@ usi_cmgp1: usi@11d200c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x11d200c0 0x20>;
- 			samsung,sysreg = <&sysreg_cmgp 0x2010>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-index b36292a7d..66628cb32 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-@@ -442,7 +442,7 @@ usi_0: usi@103000c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103000c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -505,7 +505,7 @@ usi_i2c_0: usi@103100c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103100c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1004>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -534,7 +534,7 @@ usi_1: usi@103200c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103200c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1008>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -597,7 +597,7 @@ usi_i2c_1: usi@103300c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103300c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x100c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -626,7 +626,7 @@ usi_2: usi@103400c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103400c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -689,7 +689,7 @@ usi_i2c_2: usi@103500c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103500c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1014>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -718,7 +718,7 @@ usi_3: usi@103600c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103600c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1018>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -781,7 +781,7 @@ usi_i2c_3: usi@103700c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103700c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x101c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -810,7 +810,7 @@ usi_4: usi@103800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -873,7 +873,7 @@ usi_i2c_4: usi@103900c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103900c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1024>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -902,7 +902,7 @@ usi_5: usi@103a00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103a00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1028>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -965,7 +965,7 @@ usi_i2c_5: usi@103b00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103b00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x102c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -994,7 +994,7 @@ usi_6: usi@109000c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109000c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1057,7 +1057,7 @@ usi_i2c_6: usi@109100c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109100c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1004>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1086,7 +1086,7 @@ usi_7: usi@109200c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109200c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1008>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1149,7 +1149,7 @@ usi_i2c_7: usi@109300c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109300c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x100c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1178,7 +1178,7 @@ usi_8: usi@109400c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109400c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1241,7 +1241,7 @@ usi_i2c_8: usi@109500c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109500c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1014>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1270,7 +1270,7 @@ usi_9: usi@109600c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109600c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1018>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1333,7 +1333,7 @@ usi_i2c_9: usi@109700c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109700c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x101c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1362,7 +1362,7 @@ usi_10: usi@109800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1425,7 +1425,7 @@ usi_i2c_10: usi@109900c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109900c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1024>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1454,7 +1454,7 @@ usi_11: usi@109a00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109a00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1028>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1515,7 +1515,7 @@ usi_i2c_11: usi@109b00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109b00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x102c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index c759134c9..6e9007518 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -223,7 +223,7 @@ usi_0: usi@108800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x108800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-index 387fb779b..b73c152c7 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-@@ -161,12 +161,12 @@ &usi_uart {
- };
- 
- &usi8 {
--	samsung,mode = <USI_V2_I2C>;
-+	samsung,mode = <USI_MODE_I2C>;
- 	status = "okay";
- };
- 
- &usi12 {
--	samsung,mode = <USI_V2_I2C>;
-+	samsung,mode = <USI_MODE_I2C>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 302c5beb2..473db46aa 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -825,7 +825,7 @@ usi_uart: usi@10a000c0 {
- 				 <&cmu_peric0 CLK_GOUT_PERIC0_PERIC0_TOP1_IPCLK_0>;
- 			clock-names = "pclk", "ipclk";
- 			samsung,sysreg = <&sysreg_peric0 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			status = "disabled";
- 
- 			serial_0: serial@10a00000 {
--- 
-2.43.0
+Yes I have missed it, will add it for v2.
+
+>> ---
+>>  drivers/net/ethernet/ti/Kconfig               |   1 +
+>>  drivers/net/ethernet/ti/icssg/icssg_common.c  | 180 ++++++++++++------
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  14 +-
+>>  .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  21 +-
+>>  4 files changed, 146 insertions(+), 70 deletions(-)
+>> 
+>> diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
+>> index 0d5a862cd78a..b461281d31b6 100644
+>> --- a/drivers/net/ethernet/ti/Kconfig
+>> +++ b/drivers/net/ethernet/ti/Kconfig
+>> @@ -204,6 +204,7 @@ config TI_ICSSG_PRUETH_SR1
+>>  	select PHYLIB
+>>  	select TI_ICSS_IEP
+>>  	select TI_K3_CPPI_DESC_POOL
+>> +	select PAGE_POOL
+>>  	depends on PRU_REMOTEPROC
+>>  	depends on NET_SWITCHDEV
+>>  	depends on ARCH_K3 && OF && TI_K3_UDMA_GLUE_LAYER
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> index 74f0f200a89d..313667ce24c3 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> @@ -45,6 +45,11 @@ void prueth_cleanup_rx_chns(struct prueth_emac *emac,
+>>  			    struct prueth_rx_chn *rx_chn,
+>>  			    int max_rflows)
+>>  {
+>> +	if (rx_chn->pg_pool) {
+>> +		page_pool_destroy(rx_chn->pg_pool);
+>> +		rx_chn->pg_pool = NULL;
+>> +	}
+>> +
+>>  	if (rx_chn->desc_pool)
+>>  		k3_cppi_desc_pool_destroy(rx_chn->desc_pool);
+>>  
+>> @@ -461,17 +466,17 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
+>>  }
+>>  EXPORT_SYMBOL_GPL(prueth_init_rx_chns);
+>>  
+>> -int prueth_dma_rx_push(struct prueth_emac *emac,
+>> -		       struct sk_buff *skb,
+>> -		       struct prueth_rx_chn *rx_chn)
+>> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+>> +			      struct prueth_rx_chn *rx_chn,
+>> +			      struct page *page, u32 buf_len)
+>>  {
+>>  	struct net_device *ndev = emac->ndev;
+>>  	struct cppi5_host_desc_t *desc_rx;
+>> -	u32 pkt_len = skb_tailroom(skb);
+>>  	dma_addr_t desc_dma;
+>>  	dma_addr_t buf_dma;
+>>  	void **swdata;
+>>  
+>> +	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
+>>  	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
+>>  	if (!desc_rx) {
+>>  		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
+>> @@ -479,25 +484,18 @@ int prueth_dma_rx_push(struct prueth_emac *emac,
+>>  	}
+>>  	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
+>>  
+>> -	buf_dma = dma_map_single(rx_chn->dma_dev, skb->data, pkt_len, DMA_FROM_DEVICE);
+>> -	if (unlikely(dma_mapping_error(rx_chn->dma_dev, buf_dma))) {
+>> -		k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>> -		netdev_err(ndev, "rx push: failed to map rx pkt buffer\n");
+>> -		return -EINVAL;
+>> -	}
+>> -
+>>  	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
+>>  			 PRUETH_NAV_PS_DATA_SIZE);
+>>  	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
+>> -	cppi5_hdesc_attach_buf(desc_rx, buf_dma, skb_tailroom(skb), buf_dma, skb_tailroom(skb));
+>> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
+>>  
+>>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	*swdata = skb;
+>> +	*swdata = page;
+>>  
+>> -	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, 0,
+>> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
+>>  					desc_rx, desc_dma);
+>>  }
+>> -EXPORT_SYMBOL_GPL(prueth_dma_rx_push);
+>> +EXPORT_SYMBOL_GPL(prueth_dma_rx_push_mapped);
+>>  
+>>  u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns)
+>>  {
+>> @@ -535,18 +533,31 @@ void emac_rx_timestamp(struct prueth_emac *emac,
+>>  	ssh->hwtstamp = ns_to_ktime(ns);
+>>  }
+>>  
+>> +unsigned int prueth_rxbuf_total_len(unsigned int len)
+>> +{
+>> +	len += PRUETH_HEADROOM;
+>> +	len += SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+>> +
+>> +	return SKB_DATA_ALIGN(len);
+>> +}
+>> +EXPORT_SYMBOL_GPL(prueth_rxbuf_total_len);
+>> +
+>>  static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>>  {
+>>  	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
+>>  	u32 buf_dma_len, pkt_len, port_id = 0;
+>>  	struct net_device *ndev = emac->ndev;
+>>  	struct cppi5_host_desc_t *desc_rx;
+>> -	struct sk_buff *skb, *new_skb;
+>>  	dma_addr_t desc_dma, buf_dma;
+>> +	struct page *page, *new_page;
+>> +	struct page_pool *pool;
+>> +	struct sk_buff *skb;
+>>  	void **swdata;
+>>  	u32 *psdata;
+>> +	void *pa;
+>>  	int ret;
+>>  
+>> +	pool = rx_chn->pg_pool;
+>>  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
+>>  	if (ret) {
+>>  		if (ret != -ENODATA)
+>> @@ -558,14 +569,8 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>>  		return 0;
+>>  
+>>  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+>> -
+>>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	skb = *swdata;
+>> -
+>> -	psdata = cppi5_hdesc_get_psdata(desc_rx);
+>> -	/* RX HW timestamp */
+>> -	if (emac->rx_ts_enabled)
+>> -		emac_rx_timestamp(emac, skb, psdata);
+>> +	page = *swdata;
+>>  
+>>  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>>  	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
+>> @@ -574,32 +579,50 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>>  	pkt_len -= 4;
+>>  	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
+>>  
+>> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
+>>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>>  
+>> -	skb->dev = ndev;
+>> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
+>>  	/* if allocation fails we drop the packet but push the
+>> -	 * descriptor back to the ring with old skb to prevent a stall
+>> +	 * descriptor back to the ring with old page to prevent a stall
+>>  	 */
+>> -	if (!new_skb) {
+>> +	new_page = page_pool_dev_alloc_pages(pool);
+> 
+> I don't see where the reference is released via a put call
+> 
+
+Seems like none of the pages which have been allocated aren't getting 
+recycled in the rx path after being used unless its some error case. 
+Will try to fix this.
+
+Also I have noticed, in prueth_prepare_rx_chan() pages are allocated per 
+number of descriptors for a channel, but they are not being used when a 
+packet is being recieved (in emac_rx_packet()) and rather new page is 
+allocated for the next upcoming packet. Is this a valid design, what are 
+your thoughts on this ?
+)
+>> +	if (unlikely(!new_page)) {
+>> +		new_page = page;
+>>  		ndev->stats.rx_dropped++;
+>> -		new_skb = skb;
+>> -	} else {
+>> -		/* send the filled skb up the n/w stack */
+>> -		skb_put(skb, pkt_len);
+>> -		if (emac->prueth->is_switch_mode)
+>> -			skb->offload_fwd_mark = emac->offload_fwd_mark;
+>> -		skb->protocol = eth_type_trans(skb, ndev);
+>> -		napi_gro_receive(&emac->napi_rx, skb);
+>> -		ndev->stats.rx_bytes += pkt_len;
+>> -		ndev->stats.rx_packets++;
+>> +		goto requeue;
+>>  	}
+>>  
+>> +	/* prepare skb and send to n/w stack */
+>> +	pa = page_address(page);
+>> +	skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
+> 
+> napi_build_skb()? See commit 53ee91427177 ("net/mlx5e: Switch to using
+> napi_build_skb()")
+> 
+
+Ok, I will update it
+
+> Also, I believe the frag size is incorrect. It is used to initialize
+> skb->truesize which should signal the size of the buffer that was
+> allocated for the packet (PAGE_SIZE in this case).
+> 
+
+Yes you are correct, I will replace it with PAGE_SIZE.
+
+>> +	if (!skb) {
+>> +		ndev->stats.rx_dropped++;
+>> +		page_pool_recycle_direct(pool, page);
+>> +		goto requeue;
+>> +	}
+>> +
+>> +	skb_reserve(skb, PRUETH_HEADROOM);
+>> +	skb_put(skb, pkt_len);
+>> +	skb->dev = ndev;
+>> +
+>> +	psdata = cppi5_hdesc_get_psdata(desc_rx);
+>> +	/* RX HW timestamp */
+>> +	if (emac->rx_ts_enabled)
+>> +		emac_rx_timestamp(emac, skb, psdata);
+>> +
+>> +	if (emac->prueth->is_switch_mode)
+>> +		skb->offload_fwd_mark = emac->offload_fwd_mark;
+>> +	skb->protocol = eth_type_trans(skb, ndev);
+> 
+> skb_mark_for_recycle() ?
+> 
+>> +
+>> +	netif_receive_skb(skb);
+> 
+> The code was previously using napi_gro_receive(), why give up on GRO
+> support?
+> 
+
+will update with napi_gro_receive() and skb_mark_for_recycle() changes 
+for v2.
+
+>> +	ndev->stats.rx_bytes += pkt_len;
+>> +	ndev->stats.rx_packets++;
+>> +
+>> +requeue:
+>>  	/* queue another RX DMA */
+>> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_chns);
+>> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
+>> +					PRUETH_MAX_PKT_SIZE);
+>>  	if (WARN_ON(ret < 0)) {
+>> -		dev_kfree_skb_any(new_skb);
+>> +		page_pool_recycle_direct(pool, new_page);
+>>  		ndev->stats.rx_errors++;
+>>  		ndev->stats.rx_dropped++;
+>>  	}
+>> @@ -611,22 +634,17 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+>>  {
+>>  	struct prueth_rx_chn *rx_chn = data;
+>>  	struct cppi5_host_desc_t *desc_rx;
+>> -	struct sk_buff *skb;
+>> -	dma_addr_t buf_dma;
+>> -	u32 buf_dma_len;
+>> +	struct page_pool *pool;
+>> +	struct page *page;
+>>  	void **swdata;
+>>  
+>> +	pool = rx_chn->pg_pool;
+>> +
+>>  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+>>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	skb = *swdata;
+>> -	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>> -	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
+>> -
+>> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len,
+>> -			 DMA_FROM_DEVICE);
+>> +	page = *swdata;
+>> +	page_pool_recycle_direct(pool, page);
+>>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>> -
+>> -	dev_kfree_skb_any(skb);
+>>  }
+>>  
+>>  static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
+>> @@ -907,29 +925,70 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
+>>  }
+>>  EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
+>>  
+>> +static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
+>> +						 struct device *dma_dev,
+>> +						 int size)
+>> +{
+>> +	struct page_pool_params pp_params = { 0 };
+>> +	struct page_pool *pool;
+>> +
+>> +	pp_params.order = 0;
+>> +	pp_params.flags = PP_FLAG_DMA_MAP;
+> 
+> What about PP_FLAG_DMA_SYNC_DEV ? I don't see a sync for device call. I
+> also don't see a sync for CPU...
+> 
+
+Yes I will add PP_FLAG_DMA_SYNC_DEV as well.
+I believe page_pool_dma_sync_for_cpu() needs to be called sync Rx page 
+for CPU, am I right ? If so can you tell me, in what all cases should I 
+call this function.
+
+https://lkml.iu.edu/hypermail/linux/kernel/2312.1/06353.html
+In the above link it is quoted - "Note that this version performs DMA 
+sync unconditionally, even if the associated PP doesn't perform 
+sync-for-device" for the page_pool_dma_sync_for_cpu() function. So does 
+that mean if I am using this function I don't need explicily sync for 
+device call?
+
+And if thats not the case, can you point me to some reference on how I 
+can acheive sync for device.
+
+>> +	pp_params.pool_size = size;
+>> +	pp_params.nid = dev_to_node(emac->prueth->dev);
+>> +	pp_params.dma_dir = DMA_BIDIRECTIONAL;
+>> +	pp_params.dev = dma_dev;
+>> +	pp_params.napi = &emac->napi_rx;
+>> +
+>> +	pool = page_pool_create(&pp_params);
+>> +	if (IS_ERR(pool))
+>> +		netdev_err(emac->ndev, "cannot create rx page pool\n");
+>> +
+>> +	return pool;
+>> +}
+>> +
+>>  int prueth_prepare_rx_chan(struct prueth_emac *emac,
+>>  			   struct prueth_rx_chn *chn,
+>>  			   int buf_size)
+>>  {
+>> -	struct sk_buff *skb;
+>> +	struct page_pool *pool;
+>> +	struct page *page;
+>>  	int i, ret;
+>>  
+>> +	pool = prueth_create_page_pool(emac, chn->dma_dev, chn->descs_num);
+>> +	if (IS_ERR(pool))
+>> +		return PTR_ERR(pool);
+>> +
+>> +	chn->pg_pool = pool;
+>> +
+>>  	for (i = 0; i < chn->descs_num; i++) {
+>> -		skb = __netdev_alloc_skb_ip_align(NULL, buf_size, GFP_KERNEL);
+>> -		if (!skb)
+>> -			return -ENOMEM;
+>> +		/* NOTE: we're not using memory efficiently here.
+>> +		 * 1 full page (4KB?) used here instead of
+>> +		 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
+>> +		 */
+> 
+> What about using page_pool_alloc_frag()? Never used it, but the
+> documentation says:
+> 
+> 2. page_pool_alloc_frag(): allocate memory with page splitting when
+> driver knows that the memory it need is always smaller than or equal to
+> half of the page allocated from page pool. Page splitting enables memory
+> saving and thus avoids TLB/cache miss for data access, but there also is
+> some cost to implement page splitting, mainly some cache line
+> dirtying/bouncing for ‘struct page’ and atomic operation for
+> page->pp_ref_count.
+> 
+
+I believe the reason for not using it is similar to the explanation in 
+the patch here: 
+https://lore.kernel.org/all/20240424203559.3420468-4-anthony.l.nguyen@intel.com/
+In a nutshell, to keep it simple and compact.
+
+> https://urldefense.com/v3/__https://docs.kernel.org/networking/ 
+> page_pool.html__;!!G3vK!WHMkn8KHknjjz91hGnt0Ywf5z4VLXzXTK5Bu2T6CV2n- 
+> zHUE1iqgRJsrKQYQwFswRSFrHOYym_qb$ <https://urldefense.com/v3/__https://docs.kernel.org/networking/page_pool.html__;!!G3vK!WHMkn8KHknjjz91hGnt0Ywf5z4VLXzXTK5Bu2T6CV2n-zHUE1iqgRJsrKQYQwFswRSFrHOYym_qb$>
+> 
+>> +		page = page_pool_dev_alloc_pages(pool);
+>> +		if (!page) {
+>> +			netdev_err(emac->ndev, "couldn't allocate rx page\n");
+>> +			ret = -ENOMEM;
+>> +			goto recycle_alloc_pg;
+>> +		}
+>>  
+>> -		ret = prueth_dma_rx_push(emac, skb, chn);
+>> +		ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
+>>  		if (ret < 0) {
+>>  			netdev_err(emac->ndev,
+>> -				   "cannot submit skb for rx chan %s ret %d\n",
+>> +				   "cannot submit page for rx chan %s ret %d\n",
+>>  				   chn->name, ret);
+>> -			kfree_skb(skb);
+>> -			return ret;
+>> +			page_pool_recycle_direct(pool, page);
+>> +			goto recycle_alloc_pg;
+>>  		}
+>>  	}
+>>  
+>>  	return 0;
+>> +
+>> +recycle_alloc_pg:
+>> +	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
+>> +
+>> +	return ret;
+>>  }
+>>  EXPORT_SYMBOL_GPL(prueth_prepare_rx_chan);
+>>  
+>> @@ -958,6 +1017,9 @@ void prueth_reset_rx_chan(struct prueth_rx_chn *chn,
+>>  					  prueth_rx_cleanup, !!i);
+>>  	if (disable)
+>>  		k3_udma_glue_disable_rx_chn(chn->rx_chn);
+>> +
+>> +	page_pool_destroy(chn->pg_pool);
+>> +	chn->pg_pool = NULL;
+>>  }
+>>  EXPORT_SYMBOL_GPL(prueth_reset_rx_chan);
+>>  
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> index 5473315ea204..62f3d04af222 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> @@ -33,6 +33,8 @@
+>>  #include <linux/dma/k3-udma-glue.h>
+>>  
+>>  #include <net/devlink.h>
+>> +#include <net/xdp.h>
+>> +#include <net/page_pool/helpers.h>
+>>  
+>>  #include "icssg_config.h"
+>>  #include "icss_iep.h"
+>> @@ -125,6 +127,7 @@ struct prueth_rx_chn {
+>>  	u32 descs_num;
+>>  	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
+>>  	char name[32];
+>> +	struct page_pool *pg_pool;
+>>  };
+>>  
+>>  /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
+>> @@ -202,6 +205,10 @@ struct prueth_emac {
+>>  	unsigned long rx_pace_timeout_ns;
+>>  };
+>>  
+>> +/* The buf includes headroom compatible with both skb and xdpf */
+>> +#define PRUETH_HEADROOM_NA (max(XDP_PACKET_HEADROOM, NET_SKB_PAD) + NET_IP_ALIGN)
+>> +#define PRUETH_HEADROOM  ALIGN(PRUETH_HEADROOM_NA, sizeof(long))
+>> +
+>>  /**
+>>   * struct prueth_pdata - PRUeth platform data
+>>   * @fdqring_mode: Free desc queue mode
+>> @@ -402,9 +409,10 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
+>>  			struct prueth_rx_chn *rx_chn,
+>>  			char *name, u32 max_rflows,
+>>  			u32 max_desc_num);
+>> -int prueth_dma_rx_push(struct prueth_emac *emac,
+>> -		       struct sk_buff *skb,
+>> -		       struct prueth_rx_chn *rx_chn);
+>> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+>> +			      struct prueth_rx_chn *rx_chn,
+>> +			      struct page *page, u32 buf_len);
+>> +unsigned int prueth_rxbuf_total_len(unsigned int len);
+>>  void emac_rx_timestamp(struct prueth_emac *emac,
+>>  		       struct sk_buff *skb, u32 *psdata);
+>>  enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev);
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> index 3dc86397c367..c2bc7169355a 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> @@ -274,10 +274,12 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>>  	struct prueth_rx_chn *rx_chn = &emac->rx_mgm_chn;
+>>  	struct net_device *ndev = emac->ndev;
+>>  	struct cppi5_host_desc_t *desc_rx;
+>> -	struct sk_buff *skb, *new_skb;
+>> +	struct page *page, *new_page;
+>>  	dma_addr_t desc_dma, buf_dma;
+>>  	u32 buf_dma_len, pkt_len;
+>> +	struct sk_buff *skb;
+>>  	void **swdata;
+>> +	void *pa;
+>>  	int ret;
+>>  
+>>  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
+>> @@ -299,32 +301,35 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>>  	}
+>>  
+>>  	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	skb = *swdata;
+>> +	page = *swdata;
+>>  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>>  	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+>>  
+>>  	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
+>>  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>>  
+>> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
+>> +	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
+>>  	/* if allocation fails we drop the packet but push the
+>>  	 * descriptor back to the ring with old skb to prevent a stall
+>>  	 */
+>> -	if (!new_skb) {
+>> +	if (!new_page) {
+>>  		netdev_err(ndev,
+>> -			   "skb alloc failed, dropped mgm pkt from flow %d\n",
+>> +			   "page alloc failed, dropped mgm pkt from flow %d\n",
+>>  			   flow_id);
+>> -		new_skb = skb;
+>> +		new_page = page;
+>>  		skb = NULL;	/* return NULL */
+>>  	} else {
+>>  		/* return the filled skb */
+>> +		pa = page_address(page);
+>> +		skb = build_skb(pa, prueth_rxbuf_total_len(pkt_len));
+>>  		skb_put(skb, pkt_len);
+>>  	}
+>>  
+>>  	/* queue another DMA */
+>> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_mgm_chn);
+>> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
+>> +					PRUETH_MAX_PKT_SIZE);
+>>  	if (WARN_ON(ret < 0))
+>> -		dev_kfree_skb_any(new_skb);
+>> +		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
+>>  
+>>  	return skb;
+>>  }
+>> -- 
+>> 2.25.1
+>> 
+>> 
+> 
 
 
