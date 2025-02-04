@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1635C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECE5C0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 06:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYXwSHpZ3TuaE7A9e8MbciUM1fFJKwM34sCdJxW+BnI=; b=uizL/gGCy9YV4T0k9rb1APfzCi
-	RdfyN2BYwCTKny1Tn732HFalZpGnui2mrVoNc/9J2JkSo+r5p5nFuvFj0rXsibxHzenTmwY/sW8Wx
-	bzaTJFOBEiRMUlBnGC8O2SvgpVUGmOGWgD/4D6grlrE6jP9/WIJ+iOrCkuGFE1Cj7IK3NHhF7NfrP
-	YQimqW4Vee3LitGjPjv5en+k3GtXqWEhPhuK3q6lDlxXm09qt2Eu2WX8MLOnBL3aTyURQKfcNqREr
-	+pQXmpuJgpwW7IZbMkSQZEDaly6IGsCeUQcHTM/UJrZ3VaWNG2Fd/HMIql/XyYhkYGG/SLr5LYLW7
-	DBshVvCg==;
+	bh=HprnZz+23vuC9LmGL8XnbIXriJHxrQ66oBlYZJmUzXo=; b=OWHCDXhizwA6jjZ/O8SUc/mqXN
+	hS29bYPsT9gjEya0gzJRR451IsDrURaw4k90vH/bVhwcqLi5H7KwODJAcd4LOygp3xJ3tRj0onsee
+	cq4DMGJpD2oIqDTOLc1UDB/1oM/0Hs4wOfUXttY8QUAUiTFmc1yjNAeoYrGyxaUPEMZe93nlv1O+n
+	h5uLAemhOt5exPdH+sab6S4NCGB3MfeHXRBfb0Wd2w7Jvzq/tElVTFac4OgjDovABF+UenVLYz9Dn
+	B5FF17RKlwkbZDinRSbiRj8LS+Ax3we95aq9L2Dla9oF38DEwKKpIr0msd3KsKEe5/Mi31fECQiO6
+	NpOnn2RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfCC4-0000000HLTu-2WTH;
-	Tue, 04 Feb 2025 06:13:56 +0000
+	id 1tfCDO-0000000HLep-12JV;
+	Tue, 04 Feb 2025 06:15:18 +0000
 Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfC9X-0000000HKtz-2zLQ
+	id 1tfC9g-0000000HKwG-2SRD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 06:11:20 +0000
+	Tue, 04 Feb 2025 06:11:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738649479; x=1770185479;
+  t=1738649488; x=1770185488;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=7n0vam23Uf784ublbhVBP5AsWpQxp+3QLHvPVC2Ki4w=;
-  b=BH7epmbTo7RmNh4YAZm/h6S5iGKifNkE0q9B1cjUJrPvZ7X4CGYoqrlE
-   ZywdmXMFNbKfy1BCNiT4cVJ+gxZ6p9Ia0w+MBTBscdfNvMw6ph6k9YgR5
-   OkyZxgUNwR5J8nL1W5tjMMDXFrs3VLz+FiG/cjjerSm+CPO+n1X5xkYUt
-   xm9K1IY72X0ON89zdl9zIYiD2+nGarcikPSdEeeAyLEdTdv69Bwhaa9SF
-   Y4DPGyAeFFNLpi9Ek30uDxYoik0vwRsWXzfYfWzb0sP4EyoHR8uvs3iLR
-   sC+QCRV6iYf++QfP5QnDxEvTPyG+5ye9ytka6CcGCJnXv40aTL20tlloS
+  bh=5bkc6SzUBfdWPSB7gExlTFthIkT/D4tk+mfb1mANDSw=;
+  b=G0Ito6RPH90ms4dFPsadTULSMOKv8kINgo643HYGJP5zWuQECZ+N36PS
+   7thi0mqWzXUVhFKao3h15jHhTVcXI2j25lQaN5w3UJ9Gk8CScemUy3X7f
+   XDDLt6yK1b0xmO7IFR8hbcZ7Rga1FSSbebbKUFAAqeOErBurft16li8h+
+   sWp6pNBBkiCgx9dHYLvDdEyq9A25pMuLC6zpS04yJUj5dYs8HH0tHmsWY
+   r/4YhsHk57RApsROPwTN5gAtgOqXXGzoW6hSkgipxAdLK6gyLc14LuQ3z
+   vKkpGFqQ+6nMhfae8rzJvfXtdp2fcUcLt16V71qLhBQFYxZhmGaDAD/qn
    g==;
-X-CSE-ConnectionGUID: WXj3VAByQem0L/wKRSgF7g==
-X-CSE-MsgGUID: NA+pjCLESXiovESdmAb3RQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579596"
+X-CSE-ConnectionGUID: 180aZ8VSTpGs4z3pgoWAnw==
+X-CSE-MsgGUID: jSNM8hWLTyextxUWyKyVpg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50579620"
 X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="50579596"
+   d="scan'208";a="50579620"
 Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:11:19 -0800
-X-CSE-ConnectionGUID: YinZviaxTTyrV7MlNpzCpw==
-X-CSE-MsgGUID: sbOtTjAqTG2arJW7fGx7uw==
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 22:11:28 -0800
+X-CSE-ConnectionGUID: E7pjPBh+SXql8izvLDPYnA==
+X-CSE-MsgGUID: W0QC9zuwTHOMThr5y0eVlw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,258,1732608000"; 
-   d="scan'208";a="110279153"
+   d="scan'208";a="110279173"
 Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:11:12 -0800
+  by orviesa009.jf.intel.com with ESMTP; 03 Feb 2025 22:11:20 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Simon Horman <horms@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -88,17 +88,17 @@ Cc: x86@kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v6 1/7] net: phylink: use act_link_an_mode to determine PHY
-Date: Tue,  4 Feb 2025 14:10:14 +0800
-Message-Id: <20250204061020.1199124-2-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net-next v6 2/7] net: pcs: xpcs: re-initiate clause 37 Auto-negotiation
+Date: Tue,  4 Feb 2025 14:10:15 +0800
+Message-Id: <20250204061020.1199124-3-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
 References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_221119_762171_B97A93F0 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20250203_221128_639110_6A5AE0FA 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,67 +113,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the interface mode is SGMII and act_link_an_mode is MLO_AN_INBAND,
-switching to the 2500BASE-X interface mode will trigger
-phylink_major_config, and act_link_an_mode will be updated to MLO_AN_PHY
-in phylink_pcs_neg_mode when the PCS does not support in-band mode.
-The MAC and PCS will configure according to the interface mode
-and act_link_an_mode.
+The xpcs_switch_interface_mode function was introduced to handle
+interface switching.
 
-However, when the interface goes link down and then link up again, the MAC
-will attempt to attach the PHY. The interface mode remains as 2500BASE-X,
-but cfg_link_an_mode still holds MLO_AN_INBAND. This causes a failure to
-attach the PHY.
+According to the XPCS datasheet, a soft reset is required to initiate
+Clause 37 auto-negotiation when the XPCS switches interface modes.
 
-This patch uses act_link_an_mode to determine if there is a PHY to attach.
+When the interface mode is set to 2500BASE-X, Clause 37 auto-negotiation
+is turned off.
+
+Subsequently, when the interface mode switches from 2500BASE-X to SGMII,
+re-initiating Clause 37 auto-negotiation is required for the SGMII
+interface mode to function properly.
 
 Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 ---
- drivers/net/phy/phylink.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/net/pcs/pcs-xpcs-wx.c |  4 +--
+ drivers/net/pcs/pcs-xpcs.c    | 60 ++++++++++++++++++++++++++++++++---
+ 2 files changed, 57 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 214b62fba991..b0f9725e0494 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -1903,6 +1903,7 @@ int phylink_set_fixed_link(struct phylink *pl,
- 
- 	pl->cfg_link_an_mode = MLO_AN_FIXED;
- 	pl->req_link_an_mode = pl->cfg_link_an_mode;
-+	pl->act_link_an_mode = pl->cfg_link_an_mode;
- 
- 	return 0;
- }
-@@ -2002,6 +2003,7 @@ struct phylink *phylink_create(struct phylink_config *config,
+diff --git a/drivers/net/pcs/pcs-xpcs-wx.c b/drivers/net/pcs/pcs-xpcs-wx.c
+index fc52f7aa5f59..f73ab04d09f0 100644
+--- a/drivers/net/pcs/pcs-xpcs-wx.c
++++ b/drivers/net/pcs/pcs-xpcs-wx.c
+@@ -172,11 +172,9 @@ int txgbe_xpcs_switch_mode(struct dw_xpcs *xpcs, phy_interface_t interface)
+ 		return 0;
  	}
  
- 	pl->req_link_an_mode = pl->cfg_link_an_mode;
-+	pl->act_link_an_mode = pl->cfg_link_an_mode;
+-	if (xpcs->interface == interface && !txgbe_xpcs_mode_quirk(xpcs))
++	if (!txgbe_xpcs_mode_quirk(xpcs))
+ 		return 0;
  
- 	ret = phylink_register_sfp(pl, fwnode);
- 	if (ret < 0) {
-@@ -2044,8 +2046,8 @@ EXPORT_SYMBOL_GPL(phylink_destroy);
-  */
- bool phylink_expects_phy(struct phylink *pl)
- {
--	if (pl->cfg_link_an_mode == MLO_AN_FIXED ||
--	    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
-+	if (pl->act_link_an_mode == MLO_AN_FIXED ||
-+	    (pl->act_link_an_mode == MLO_AN_INBAND &&
- 	     phy_interface_mode_is_8023z(pl->link_config.interface)))
- 		return false;
- 	return true;
-@@ -2280,8 +2282,8 @@ static int phylink_attach_phy(struct phylink *pl, struct phy_device *phy,
- {
- 	u32 flags = 0;
+-	xpcs->interface = interface;
+-
+ 	ret = txgbe_pcs_poll_power_up(xpcs);
+ 	if (ret < 0)
+ 		return ret;
+diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+index 1faa37f0e7b9..fb3d1548a8e0 100644
+--- a/drivers/net/pcs/pcs-xpcs.c
++++ b/drivers/net/pcs/pcs-xpcs.c
+@@ -817,6 +817,58 @@ static int xpcs_config_2500basex(struct dw_xpcs *xpcs)
+ 			   BMCR_SPEED1000);
+ }
  
--	if (WARN_ON(pl->cfg_link_an_mode == MLO_AN_FIXED ||
--		    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
-+	if (WARN_ON(pl->act_link_an_mode == MLO_AN_FIXED ||
-+		    (pl->act_link_an_mode == MLO_AN_INBAND &&
- 		     phy_interface_mode_is_8023z(interface) && !pl->sfp_bus)))
- 		return -EINVAL;
++static int xpcs_switch_to_aneg_c37_sgmii(const struct dw_xpcs_compat *compat,
++					 struct dw_xpcs *xpcs,
++					 unsigned int neg_mode)
++{
++	bool an_c37_enabled;
++	int ret, mdio_ctrl;
++
++	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
++		mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
++		if (mdio_ctrl < 0)
++			return mdio_ctrl;
++
++		an_c37_enabled = mdio_ctrl & BMCR_ANENABLE;
++		if (!an_c37_enabled) {
++			//Perform soft reset to initiate C37 auto-negotiation
++			ret = xpcs_soft_reset(xpcs, compat);
++			if (ret)
++				return ret;
++		}
++	}
++	return 0;
++}
++
++static int xpcs_switch_interface_mode(const struct dw_xpcs_compat *compat,
++				      struct dw_xpcs *xpcs,
++				      phy_interface_t interface,
++				      unsigned int neg_mode)
++{
++	int ret = 0;
++
++	if (xpcs->interface != interface) {
++		if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
++			ret = txgbe_xpcs_switch_mode(xpcs, interface);
++		} else {
++			switch (compat->an_mode) {
++			case DW_AN_C37_SGMII:
++				ret = xpcs_switch_to_aneg_c37_sgmii(compat, xpcs, neg_mode);
++				break;
++			default:
++				break;
++			}
++		}
++
++		if (ret)
++			return ret;
++
++		xpcs->interface = interface;
++	}
++
++	return 0;
++}
++
+ static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
+ 			  const unsigned long *advertising,
+ 			  unsigned int neg_mode)
+@@ -828,11 +880,11 @@ static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
+ 	if (!compat)
+ 		return -ENODEV;
  
+-	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
+-		ret = txgbe_xpcs_switch_mode(xpcs, interface);
+-		if (ret)
+-			return ret;
++	ret = xpcs_switch_interface_mode(compat, xpcs, interface, neg_mode);
++	if (ret)
++		return ret;
+ 
++	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
+ 		/* Wangxun devices need backplane CL37 AN enabled for
+ 		 * SGMII and 1000base-X
+ 		 */
 -- 
 2.34.1
 
