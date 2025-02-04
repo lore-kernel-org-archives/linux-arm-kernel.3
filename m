@@ -4,122 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1540C0219A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E54C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4NeFOJmhxb0HadgLbXrVb+Dqs0SXVQJ1rxhMk6r+zU=; b=FSbLu38zxAc9Eb3riQCBCEoBCP
-	xCsbhHVbsIpE6fpXJDXZVmb6Xok/4hCJ6j/FlKPvHMQ3V7zAvUB9MUD4cRj7igMeg6x0ZxU1//McX
-	YQNodOe1+54eYzW4+YJbRGAoS1RD8QUYpAuFyTfH9gEfjsXwM8F3Efe3QBmGNcPZqsyfwhLVb5F6a
-	d3QmNy8mSRhPsWGtOg4twIKFL7/pIev9TB9IijluXXYykjecc1Y6zUGw8UW0UKqDuV9u8uVOWV41O
-	VxbXaZtX1c5LTU9WTz3i0USbKnkgL1AUzLngav5Gpj1xour0fsyfEDEmVhczdWz4b39PvF6gTfF8Q
-	qEa83CTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9dbQX0IutHksS3KeyzCUfsCg5UoTyCBTj83nI6SiFGg=; b=MlLkHsQYWDwZcDbSPu7KtQ25jK
+	KCqR02BMWooOVsVAu+8dG9Se/KWoAduPs0WUCUEpCpySV4x6Un45t0mrVR2xfOfVmze5KOeA3Q9Ui
+	uZgGevLUgIAEnxvB0RrNAgJCiKVXIOuzbyvB8kXDTa40tx8gZptYWACZgJHE/yagCrdsjQ35lHiAy
+	5t1qBtg5uLc0aS9WTl6QdgoZycfYZ0FLQquBtqvbAlDKXDvhH/rp7vCLkDTTGep/lJqVlO9fTXpSZ
+	xG14jcape+E0CDkis0oEjkCICzU2+IM2DZPEw2eP/eYebkHBU5pvwS93BNgWY4EP9miu7XOiMhhJu
+	Ucy2YGKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQH4-00000001ZEW-1QPN;
+	id 1tfQH4-00000001ZEa-3ZZw;
 	Tue, 04 Feb 2025 21:16:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMzB-0000000190R-1z6r
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Feb 2025 17:45:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=C4NeFOJmhxb0HadgLbXrVb+Dqs0SXVQJ1rxhMk6r+zU=; b=dtDo3Ns6+q73aNq7ZsMZc/Asmm
-	X9Na3Y08bh6WrZosT5CLipOsQUi/I+foBOMbDIWvCK0h7AwmKTsJyL08V33z7EKnokRz13jTRKzNk
-	ZK42dSMAUHHDtRCUlonZ2fWnLT7a0Z5x2rnINsoXwvfMmdPs6ZakjE1kz+E1IFbF4KfssWpCEvAyO
-	HwUrAVq4vAmUxbJY492b9ljpDTgdMJt0YcdtjmAjoT3NAUsD4mgV0q0otDn8N/vc+pj3tFD/kySbq
-	ZPS2ksJpBrnxlDCJ0d4h5p3B+/PAQgyNou82z9x4QmtnxLW4r5lhbLosMqLONuxFF71iKWtfmJtFB
-	lWnQATcQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMz8-0000000GMXX-0dY3
+	id 1tfN2u-000000019Bi-2dmW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 17:45:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738691115;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C4NeFOJmhxb0HadgLbXrVb+Dqs0SXVQJ1rxhMk6r+zU=;
-	b=XKXzt88jAkinEKZNN+bmZUjc9XPgnei4EAe9suOqrECwAOwmt40YKVpINOmHqjHhNcb/29
-	P6qsamj1I9lSW32x4J//tWN2FSisUQEIo8XVYN5kvkVtfWjTisRltkZwY6kp+atxWV63r5
-	cSOmInDpIwDjGVQIF5AskW06icdVDAo=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738691115;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C4NeFOJmhxb0HadgLbXrVb+Dqs0SXVQJ1rxhMk6r+zU=;
-	b=XKXzt88jAkinEKZNN+bmZUjc9XPgnei4EAe9suOqrECwAOwmt40YKVpINOmHqjHhNcb/29
-	P6qsamj1I9lSW32x4J//tWN2FSisUQEIo8XVYN5kvkVtfWjTisRltkZwY6kp+atxWV63r5
-	cSOmInDpIwDjGVQIF5AskW06icdVDAo=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-225-vplwOFqgPM-tNiIyLffFgA-1; Tue, 04 Feb 2025 12:42:11 -0500
-X-MC-Unique: vplwOFqgPM-tNiIyLffFgA-1
-X-Mimecast-MFC-AGG-ID: vplwOFqgPM-tNiIyLffFgA
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-467905ab1bbso52810051cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 09:42:11 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738690931; x=1739295731;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C4NeFOJmhxb0HadgLbXrVb+Dqs0SXVQJ1rxhMk6r+zU=;
-        b=WKabpO52Kigkd/mG8ssGQvJwoFU+vYp66LvjvabiNai6Vdk7dPckHIC1hiqBea7uL9
-         VmdCfc5vLlFkdTcSIfSm4PAXQwkQzMTn4wTTW7xr6QLu1lwZTermvsahyg9AJaU8JjV4
-         nRyJiuGutoRshW9AD+7VMjQwVlTYRHfcyp8ymLSLCxTjVe+siMYRkGJv6nhiLrqWqVZu
-         J+EUJ/FQ7ArOfn7MHm6xG348MtMeJJBF2xf/KOpqgyp9JIa1XZdcuIAiGIndvEL4PtaC
-         CHwdDAT9zP8RuX/NjHYacjff3jTJvATNyas4JGY9FikhPuJFaMwMfJk2j+Fa+vI3ZxUD
-         qySQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWj+yjXF2kYhncX5OrzpIgH+f1gT4hqkFr1oSvVu5xeDLjf8zSHPn5ZbcYqSoJE30qhvO6DOWnyqyuAwv5CFf2/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlF6AecCgpaCt3hLpnJcD3lWMy7JbCmCMLwkvoi7ZvmLfZr35s
-	soPE4tiU1JQ9zQQ9jg6Tp+QXJOsCBbzPks+2D2tfHoZINX6Dm2BORM2mh1KPXV47mYZEgdW4egC
-	QAUErlZ6VTz+1DwehlNpLOWa3xyteEZlN2svPoXObNpetvRlRb2EX3vJC1OuVC3vsnaiI8KiC
-X-Gm-Gg: ASbGncv10mxgo+Qp+zmJvPAv5SHFwG6tMHhB7/EBhjtst1H7Dh9GPp86EZYHa1vZGDW
-	7cNnotliGFwW+lJVOIWMl7SYzO4jryBi8siA131/CCFrIGBjE4a0UKhLulKp+5v0TyIVIh8LwnC
-	xFoUKOO7cnuoGnuuTMEJtjniX6/38wwtGecc3x6X5Kbcl4kljabashj2AoLuhVoFvWfEmrv3Q+1
-	ESxx7bJKQ4YZ8KXHCAonGLidEjLOQcq+ajpOtU6d7LavV3wHQDFopGC0z0JrMnm1w4+HRrxTpCk
-	boMXJhGBLc8Ay3bN3h1V2Hw5ywzThGTwv4AXeLQdviLFYpFI5EYf8g==
-X-Received: by 2002:ac8:5794:0:b0:467:7fbf:d115 with SMTP id d75a77b69052e-46fd0a6c343mr368814521cf.12.1738690931443;
-        Tue, 04 Feb 2025 09:42:11 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFnrxHtljGCWfirB5phvdvRvD1W53cyjXxbXjd79D0P4Hi/IOz77ZQTfITQwFUokPOGeRBSzw==
-X-Received: by 2002:ac8:5794:0:b0:467:7fbf:d115 with SMTP id d75a77b69052e-46fd0a6c343mr368814271cf.12.1738690931098;
-        Tue, 04 Feb 2025 09:42:11 -0800 (PST)
-Received: from rh (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0c7191sm62333371cf.21.2025.02.04.09.42.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 09:42:10 -0800 (PST)
-Date: Tue, 4 Feb 2025 18:42:04 +0100 (CET)
-From: Sebastian Ott <sebott@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, 
-    kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, 
-    will@kernel.org, mark.rutland@arm.com, Cornelia Huck <cohuck@redhat.com>, 
-    eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, 
-    jiangkunkun@huawei.com, jonathan.cameron@huawei.com, 
-    anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, 
-    linuxarm@huawei.com
-Subject: Re: [PATCH v5 0/4] KVM: arm64: Errata management for VM Live
- migration
-In-Reply-To: <8634gtvdmi.wl-maz@kernel.org>
-Message-ID: <f42ee0db-645a-8710-d611-8e45c4e1a4e4@redhat.com>
-References: <20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com> <76172c57-aac6-d540-5b98-8de100c0886c@redhat.com> <8634gtvdmi.wl-maz@kernel.org>
+	Tue, 04 Feb 2025 17:49:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AC75D5C6190;
+	Tue,  4 Feb 2025 17:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5820C4CEDF;
+	Tue,  4 Feb 2025 17:49:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738691351;
+	bh=rXAK34OphyEItP6/+639hQrb7zlf+ZgtdRAQ99Mc1xA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=SHtnS5KtsZ/GOENUm5oQLadqfIxf887yWaCuZngDsiv7/CyDO9QC34fijUzxSRrVQ
+	 kngZDnCH3unbXVxFTR1GxMquyEiACyFsVKrPj4yeLVPUlnNETP0mXxW7iswjxU3KlW
+	 /McoIFOGzYDLIuIXTUiRu4dlzQ7HXgW8WB1z+iTtn18pR6AMMLGsxZzC/x9kHfcIOh
+	 T3da3wf/qvYrWehDk8r5wVS0UMofLrV8hFynf+w7TTf+PY99/jrik4Y1hsfVmA6kxR
+	 tytim7CxgxFzQeV/FTL/cQmo6RQkZsCG7Olaw14EdKN/pSFujkGTkWP4PuNtNbF9jn
+	 0fogOD/mQ/kAQ==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Tue, 04 Feb 2025 10:48:55 -0700
+Subject: [PATCH v2] arm64: Handle .ARM.attributes section in linker scripts
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uBjpBwF7ihm-idKdDaiuhTAThOgWm8f-VDl5Gmvf_f8_1738690931
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAZTomcC/5WNyw6CMBBFf4V07Rj6AB8r/8OwKGWAiVjItBIN4
+ d8tJH6Ay3NPcs8iAjJhENdsEYwzBRp9AnXIhOut7xCoSSxUropcKg2Wn6WBpJoBNwAbI1P9ihi
+ APAzkH8gQHNMU4awsoiq01NaJdDkxtvTec/cqcU8hjvzZ67Pc1l/I/BeaJUg4GamLunStNpdbk
+ h6H48idqNZ1/QLKQtx56QAAAA==
+X-Change-ID: 20250123-arm64-handle-arm-attributes-in-linker-script-82aee25313ac
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, stable@vger.kernel.org, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2567; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=rXAK34OphyEItP6/+639hQrb7zlf+ZgtdRAQ99Mc1xA=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDOmLgkVPWnK9OzmvIvdskY3O/JnndpzanxPoV98gZS8Uo
+ c038eCCjlIWBjEuBlkxRZbqx6rHDQ3nnGW8cWoSzBxWJpAhDFycAjARhamMDB0LlsU8eMydZMf/
+ Jz9cUGOBxqbSa3cXLD0levu1rdbunX8ZGTa3exwvDM59N3HSnji5A3vPGxt9M9++e3fGg5o/iss
+ j7dkA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_174518_450406_F2B3262D 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250204_094912_759379_9AB9F4C8 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,30 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Feb 2025, Marc Zyngier wrote:
-> On Tue, 04 Feb 2025 16:45:38 +0000,
-> Sebastian Ott <sebott@redhat.com> wrote:
->>
->> Hey,
->>
->> On Fri, 24 Jan 2025, Shameer Kolothum wrote:
->>> On ARM64 platforms most of the errata workarounds are based on CPU
->>> MIDR/REVIDR values and a number of these workarounds need to be
->>> implemented by the Guest kernel as well. This creates a problem when
->>> Guest needs to be migrated to a platform that differs in these
->>> MIDR/REVIDR values even if the VMM can come up with a common minimum
->>> feature list for the Guest using the recently introduced "Writable
->>> ID registers" support.
->>
->> Currently MIDR/REVIDR are still RO and guest access is not trapped - so
->> even with the errata management patches in place the guest state would
->> change and a migration (between hosts that differ in these regs) would
->> not be possible. Are there any plans to allow to actually change these?
->
-> Sure thing. We only need a victim! :)
+A recent LLVM commit [1] started generating an .ARM.attributes section
+similar to the one that exists for 32-bit, which results in orphan
+section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+because it is not handled in the arm64 linker scripts.
 
-;-) Nice. I'll hack smth up then.
+  ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
 
-Sebastian
+  ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+
+Discard the new sections in the necessary linker scripts to resolve the
+warnings, as the kernel and vDSO do not need to retain it, similar to
+the .note.gnu.property section.
+
+Cc: stable@vger.kernel.org
+Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+Changes in v2:
+- Discard the section instead of adding it to the final artifacts to
+  mirror the .note.gnu.property section handling (Will).
+- Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+---
+ arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+ arch/arm64/kernel/vmlinux.lds.S   | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 4ec32e86a8da..8095fef66209 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -80,6 +80,7 @@ SECTIONS
+ 		*(.data .data.* .gnu.linkonce.d.* .sdata*)
+ 		*(.bss .sbss .dynbss .dynsbss)
+ 		*(.eh_frame .eh_frame_hdr)
++		*(.ARM.attributes)
+ 	}
+ }
+ 
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index f84c71f04d9e..e73326bd3ff7 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -162,6 +162,7 @@ SECTIONS
+ 	/DISCARD/ : {
+ 		*(.interp .dynamic)
+ 		*(.dynsym .dynstr .hash .gnu.hash)
++		*(.ARM.attributes)
+ 	}
+ 
+ 	. = KIMAGE_VADDR;
+
+---
+base-commit: 1dd3393696efba1598aa7692939bba99d0cffae3
+change-id: 20250123-arm64-handle-arm-attributes-in-linker-script-82aee25313ac
+
+Best regards,
+-- 
+Nathan Chancellor <nathan@kernel.org>
 
 
