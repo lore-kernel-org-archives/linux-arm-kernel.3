@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AED6C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166FFC0218F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 08:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=; b=p92g9S5sZDt6RT0p5USkvpvPdS
-	Z5WK6thgyu80sjFEubK6WvpFnJx/JVnrdcyL/svRHcP2KcHm8wulJgRd39IZvBBmNsVNqc/WfBHLe
-	UVQwtEMfKjF+I/+JvnVAWmTG42hr/L0Y9wEErVJlPdJLAGV7kU2/W0XFZzU0I+PimkK9HK/zyHva/
-	ANdyal70fA5zi9F716e1eStNla3vE6YL3f4wxPB24kQ/gONE/RioKV3AFwGBKydGOcar8qMa8rRoX
-	+48ATOMWam6uQKaN3ODXJ/xZ8eVPDo9kqhpwEtgbBedl5rnSlo9/GH/QM1Ie1EdLfKdFDRZg/3to0
-	wCzAvM5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LSqgMFS4aDbQD1Za39QBUfMLlRyO1p8mWDLUklEpzZI=; b=2E0XGEVykho37an0btca65Jjbe
+	GpxM63WlbgkXkZcjnBwvnt5Uw3ItT/s2kQcmQ/aD+Zs5nE0/T/foX5Tl46QydYOQugncQyI2Ql9ea
+	qg6KUyzHqLCPSGSvgCzj4YxyqbmUkJwFRnfjtepu4+6RTS9NnqsG7Dn3RIjAoMak0xwuBEkgy5Kli
+	LLMhikMf9mnkcshr+jNSxbu3LAiVY2RzFB3OWr5uRpCxc1VllVrvtTBfkPbJeZxtSEzeaDdh3oHcX
+	suKxs6lAoHqYXdn+CuZ/0juzfutlN7j+mbhU2SAv6cphGdYlDt1b3OWrreyaeCoYCHNhrQnZBrwZr
+	DdovTw9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfEj8-0000000HaAg-1J5i;
-	Tue, 04 Feb 2025 08:56:14 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tfEkS-0000000HaIo-2G2m;
+	Tue, 04 Feb 2025 08:57:36 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfEe4-0000000HZS0-3Anl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 08:51:01 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4361f09be37so6757035e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 00:51:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738659059; x=1739263859; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=;
-        b=QleFc4R8UQ35oPejn68bRur1fMuvIljuRzCQ8WC3jil8SIU+cPPSTPXIrVOyqSkkKv
-         j0d+zyxHxDlfKNfogefPXA6YyCGLJxBYv76GVVTXG9olyI5ctnt7ZStj8D0vbh1SNxbj
-         dOTHjB/J3If+ewZo27ZnMKhrZ75YGm3jEsKO2re9BuyH8jy8BAkEsr7KobxvhmxeXYwK
-         OeIfDl6CwCUyt4MPQlcxSnso8Z99pFOjXR05e1NJ+PwY4xfyAKnchBQ3KWb7pVT9GoKn
-         AbpQPIhAFUi9X+gUCz/w0V9p8BZ2uIhX3VzrteH03brJ8v70qwzG1nBESNbLNcTA2Bi2
-         Au1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738659059; x=1739263859;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BCr1bIjcarrRGLKq6p0An5lU4Quq+4hAEYJWhfURG2U=;
-        b=ewtQ1UHtJ43mHmFC+o7EzbFl0WKUu10KcA8ZpKncRgCggsXOAr6vTz6Y7LnPZXQOWg
-         /+aGNP3KrLsT1QfXUUdxSXWlay2P6WulMVUeoFGCGdMoEpLCv2IqCSO6LRnRPV5MAnQ/
-         Xk2BBRuFxwyH8hqkEF0vBzcUSYv25iHvfBoCZOGzpHs8XrMv6l4OO4srIPkLqfikU/N3
-         GTMY/brmu/mTYQEsB3KBtOTLZDnUsw2OvW0RCIA2VsxS+nlc6zSzWSEmkgm1vDsMCV72
-         WDHWs8RVhezvj6J5UHqyo1uBJfFDPXXzsKsWzX4JueUqaxIoXHszOGabngeaFXMN0PxV
-         TbJA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9MSIgogWx3AgNTSdBZOv2TbDXQ8aax+Tv2p2Q32ARUo3bKhbM7nEU9z6ZXeUWreOXAs9fOZVI/KCGIWoaO99s@lists.infradead.org
-X-Gm-Message-State: AOJu0YyakohLR6Hx+c0Zj2p8wgEvn7cQ70ScAW40b9YMWx/5fjGBbJoH
-	PuszdAvnQwPzs242oPcqhlcjneg/vK2Alqi2R67pCoy0V2KYidy/HI0tQ6aXcOs=
-X-Gm-Gg: ASbGncvqrlHDW0pCC9ZoBPV5+Oux+d0IJFPwotmTaZCqQ9evoyZeulQIroVRnN7nYLM
-	aIl31fQbV1SiuKgIMRQVs47RAP3DHHIFL/mu6O/zj6zzBU2LexAw2s0hAtN6OKZED4RmyTY2qlg
-	7CkrCJJsN/gMnE7t7wrBIFA9TJ6tMTJxXOrYa8A4hrReFkkUpALSHXvJRBAhMmfh68oYNI6U0pj
-	kxlZe/tnLbfaje0u+oqBphQpY/lnDTuBH8DYoM5b08cS4SJ3P7eZKDSlflYN8+BKvXePXsMy62i
-	h6n6qHxAfQxQyXJ8ArnItLtcbDV98hU=
-X-Google-Smtp-Source: AGHT+IHYuKkYPbhh9kBPc87DdQpAZ9zcHEHdGkABawo/Qtr0EqGi6f6CTD8BUqoqUJP8UloWPAQavg==
-X-Received: by 2002:a05:6000:1848:b0:38d:9e86:2b24 with SMTP id ffacd0b85a97d-38da4e440aemr794591f8f.8.1738659059133;
-        Tue, 04 Feb 2025 00:50:59 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38daf27bbf5sm503066f8f.48.2025.02.04.00.50.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 00:50:58 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
-References: <20250104-exynos990-cmu-v1-0-9f54d69286d6@mentallysanemainliners.org>
-Subject: Re: [PATCH 0/2] Add CMU_PERIS support for Exynos990 SoC
-Message-Id: <173865905768.26600.7188664956285706035.b4-ty@linaro.org>
-Date: Tue, 04 Feb 2025 09:50:57 +0100
+	id 1tfEiz-0000000Ha9x-1b5f;
+	Tue, 04 Feb 2025 08:56:07 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1738659363;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LSqgMFS4aDbQD1Za39QBUfMLlRyO1p8mWDLUklEpzZI=;
+	b=mKD5KRklKrqXuveUDqTQ1L1HpTnd13HHNJ3z6qOmdFhn77mOErYPVsTtVodroOBX6waOm2
+	yCjHaCcNEfo8cp4ZQxslB6hkHbqNgQJd02o17NfDTekgRph/VHEx6J/8kqeKsC5h/NplWh
+	wLS6nIsOleHi16tu0WRI2yjtYig3qPX/PMkrBNZBVtooF3VUAL0eZbH7zPb8rEj5mSoJ7a
+	o3if5Xzv2sVE/85ympiNuUyJWB3uDkl8ZH3mDXhVnJKdT1NuKR74r1iJzFxHsWzYPhGD24
+	7V6G/clKUKMw6CLs5OaqYfw9w6CXHLGg1tFbeZ0NcmiLoYIiH+h2i9ztBuzTrg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1738659363;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LSqgMFS4aDbQD1Za39QBUfMLlRyO1p8mWDLUklEpzZI=;
+	b=D3oWoJ8CAX418qVeH86CLIWCx4KbgcDAbTmVaPpd13BHVb64PoVUaGz3iQha4kI8/XnyAn
+	JjZ3XY/2fYFaxkAw==
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra
+ <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Sunil V L
+ <sunilvl@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, Anup Patel
+ <apatel@ventanamicro.com>
+Subject: Re: [PATCH v3 10/10] irqchip/riscv-imsic: Use IRQCHIP_MOVE_DEFERRED
+ flag for PCI devices
+In-Reply-To: <20250204075405.824721-11-apatel@ventanamicro.com>
+References: <20250204075405.824721-1-apatel@ventanamicro.com>
+ <20250204075405.824721-11-apatel@ventanamicro.com>
+Date: Tue, 04 Feb 2025 09:56:03 +0100
+Message-ID: <87o6zinl5o.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_005100_796711_B3B619C3 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_005605_558605_FF1C9F50 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 04 2025 at 13:24, Anup Patel wrote:
+> Devices (such as PCI) which have non-atomic MSI update should
+> migrate irq in the interrupt-context so use IRQCHIP_MOVE_DEFERRED
+> flag for corresponding irqchips.
+>
+> The use of IRQCHIP_MOVE_DEFERRED further simplifies IMSIC vector
+> movement as follows:
+>
+> 1) No need to handle the intermediate state seen by devices with
+>    non-atomic MSI update because imsic_irq_set_affinity() is called
+>    in the interrupt-context with interrupt masked.
+> 2) No need to check temporary vector when completing vector movement
+>    on the old CPU in __imsic_local_sync().
+> 3) No need to call imsic_local_sync_all() from imsic_handle_irq()
 
-On Sat, 04 Jan 2025 21:05:55 +0100, Igor Belwon wrote:
-> This small patchset adds support for CMU_PERIS for the
-> Exynos990 SoC.
-> 
-> Best regards
-> Igor
-> 
-> 
-> [...]
+I have no idea how you came to that delusion.
 
-Applied, thanks!
+IRQCHIP_MOVE_DEFERRED is part of the mechanism to handle this insanity
+correctly. It does not prevent the device from observing and actually
+using the intermediate state. All it does is to ensure that the kernel
+can observe this case and act on it.
 
-[1/2] dt-bindings: clock: exynos990: Add CMU_PERIS block
-      https://git.kernel.org/krzk/linux/c/7fa119f5707f12f3ac00726345ea6b7a22977ab6
-[2/2] clk: samsung: exynos990: Add CMU_PERIS block
-      https://git.kernel.org/krzk/linux/c/3214e7c0cfd29b1f0d80e0a4708145326d759d68
+The fact that the kernel executes the interrupt handler on the original
+target CPU does not prevent the device from firing another interrupt.
+PCI/MSI interrupts are strictly edge. i.e. fire and forget.
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+IRQCHIP_MOVE_DEFERRED solely ensures that the racy affinity update in
+the PCI device happens in the context of the original target CPU, which
+is required to handle all possible cases correctly.
 
+Let's assume the interrupt is affine to CPU0, vector A and a move to
+CPU1, vector B is pending. So we have three possible scenarios:
+
+CPU0                            Device                                
+interrupt
+                                1) Raises interrupt on CPU0, vector A
+  ...
+
+    write_msg()
+        write_address(CPU1)
+                                2) Raises interrupt on CPU1, vector A
+        write_data(vector B)
+                                3) Raises interrupt on CPU1, vector B
+
+#1 is handled correctly because the interrupt is retriggered on CPU0,
+   vector A, which still has the interrupt associated (it's cleaned up
+   _after_ the first interrupt arrives on CPU1, vector B).
+
+#2 cannot be handled because CPU1, vector A is either not in use or
+   associated to a completely unrelated interrupt, which means if that
+   happens the interrupt is lost and the device might become stale.
+
+#3 is handled correctly for obvious reasons.
+
+The only way to handle #2 properly is to do the intermediate update to
+CPU0, vector B and checking for a pending interrupt on that. The
+important role IRQCHIP_MOVE_DEFERRED plays here is that it guarantees
+that the update happens on CPU0 (original target). Which in turn is
+required to observe that CPU0, vector B has been raised.
+
+The same could be achieved by executing that intermediate transition on
+CPU0 with interrupts disabled by affining the calling context (thread)
+to CPU0 or by issuing an IPI on CPU0 and doing it in that context. I
+looked into that, but that has it's own pile of issues. So at the end
+moving it in the context of the interrupt on the original CPU/vector
+turned out to be the simplest way to achieve it.
+
+Thanks,
+
+        tglx
 
