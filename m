@@ -4,112 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7636EC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 20:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6643DC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 20:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xE+ROyc/mcQ2fBT7crVscR/jU0rSEqZAJgDthtdCdc=; b=NRV6BJMYR2j3ebEC89mpYzwiNm
-	ysArk6UikW2tXkWAwbbasTWTqXNabeaOz+ZqXq0BS8puHbiEEKvai3+gGGVOA3eA+8dikO7+GsgJG
-	+QUrZLJ1kwHVb+JcFeK2y6VQKduJw44eOp9MuXGe/yj7ysfwSg6a2lkUq997GpyVYxDyTYDuuhMYq
-	zHWjwb7v8xsnmbSvhMGN8PMfNqmeG49BG7Vfa4Zo6IE44wginYN6eidNZbqO33t7/rco/bUwOI/3M
-	SsO7kr5Y7nKkjzcIq6n5HaF5bCg96yUr2Y2L60D96Tz6MvfmXAO+oP4oMqKHImL3Hed50SdrOQ920
-	sQEOcXxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=; b=ODpwwEqFTUPcUs5MeaL2ND1yo4
+	JAJwXy2JLVn+sgLuHng/6C1Hl4s3Pw0fId7wbMtbvTiC+o0UPvm1wVFn8CsJhgEuJiYJUz3tXkuvy
+	DBiFUrTT0W20BWxXK/EoPGv9ZOkA9/gu+caS9xFsRtnsueA4cpOEy/lXIiM5HY/hPZS5+ktrZ8zL0
+	pPVcxRN6lZVdyXaUpQmfhjTdig+G00E5I1u09eJWKFw72amfGpcoqQ5BXIJtNCDToSCnJwWqu+1ci
+	3BJYaBcBQrpi9etxIJjmpxOP7CnjnpzLazcDCpoOW9jqJ2fmmjZ6gAO4I4dxVXukoQjdTgaKbRnjy
+	RQFOgA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfPOv-00000001Vmc-3sgg;
-	Tue, 04 Feb 2025 20:20:05 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tfPVQ-00000001W6v-21hg;
+	Tue, 04 Feb 2025 20:26:48 +0000
+Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOvp-00000001QLo-3wb0;
-	Tue, 04 Feb 2025 19:50:03 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ab6f636d821so921312066b.1;
-        Tue, 04 Feb 2025 11:50:01 -0800 (PST)
+	id 1tfP2u-00000001RvE-0nCa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Feb 2025 19:57:21 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3ce7a0ec1easo44432465ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 11:57:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738698600; x=1739303400; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8xE+ROyc/mcQ2fBT7crVscR/jU0rSEqZAJgDthtdCdc=;
-        b=O/ykA7q99kgX2Gp6lboBhTiJ7xExn8RVc0hG3jcCrFhRk4qPxfEsOEdvzzPvOVpV+2
-         SIr9v3ofGxgdeDP+giRu+QDXc8M5c0xZhlIwDzHEGZFtQ2wFZnMrcrGERS1hZrhcjsZN
-         OZDUA524ZpWkhTz1onJgyCl4Iyq4gQY8rCDF/YgLOTCUl/3eL65ilSq3o66j603A6JVo
-         u1SD4kkIco8cd77REAHt9hTDfmzNVlQ0bMRP8CqCVKEjfHFE48/7rX6MNKHILpFJjii1
-         0SQXBQnBiC43snuihZg18VLeuhoqHv+ouaFWFU0s1rsVCOHBSRWXtMspJHuDtdXJE0tn
-         3OcQ==
+        d=google.com; s=20230601; t=1738699039; x=1739303839; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=;
+        b=0SSvujdJwEahcRFaGBkPURB4A/A7f8uA48RC5Grz+RrPo2H4/7ALAAP3zqPTX7qgz2
+         Ix97t2Xy29N985+DKcJ+fQeIOvHpLWcQMvgqW/lhHF200GsXEbyyIgbc5PTtewy2fd5k
+         U0m+fF9WpbHmf6FTWGyMm1zG0ClJ1N0yu/Z/QR9gNRVJQr9+mHsokvUwonGAN9OlZ4tV
+         lIRkDEsBIh8DOBTbdUnzfsEmJR0fCWt86rlCST3biqy7gl4Ob6K+e585G5WvJRomNuGF
+         pSHV5Wl9W+xDvo0zhMeD67slM/yNI+yRXu/GbT2lKIq7Z8ZRB04pz2SSs4yn09NPVLaU
+         86VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738698600; x=1739303400;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8xE+ROyc/mcQ2fBT7crVscR/jU0rSEqZAJgDthtdCdc=;
-        b=IGiDUnnZ0Y8iP9fJC2RU35A9uBWkbH0HUXMDhuYXXdZKNA3fUwKZae2o6Mgm39oKO+
-         OoJqCIFsuLxPgVNN6bzskDXEsfEpxiA6B81fmfhq5XfuDOLOBjL/ZDpZTR3iXsUC/b1/
-         IV4mHzO0oocZoldRC0LKxXo8zm+B8cH1q04z10N+PgVAXoDETza0GxenyfcMm0vhVcG4
-         c5vC2TPQ2OrdzLPLhKk2Bgkg/4hlKFVe+rGU6ILj/Pd9ki84tF5NZOhBEZIVLZ9Ur40k
-         XM+z/xbI0qHtJL6faBufiap80L7uhitcBFhRPzj7sRNAK4dwdWLk2gpq+3ISZ8a5dTo3
-         kveA==
-X-Forwarded-Encrypted: i=1; AJvYcCUdSVSuOFjWluFD6NT5vYwrGRfKvzrBHMbQGtuJDGBuuOvY54uWE5zjTvkUiZSdLv89jcU5Olz0wsAi4fY7NSM6@lists.infradead.org, AJvYcCV0zxAgdFyya14KDSlD87RJVSqdgkjqfnVZxofAsP2Q1+VDs+vHe2gY0EYQqAYtS6cpNqUXQK4u2Gn8rDeiJvs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvF0AECWaQuzg1zHuKggoWHboFX1+3WRAYyMyqI+rGPFG64oQd
-	FWxNlIzhRuiLX7ixBpyUTXj3X5+hWsWvtiD3V/l9XvMR0yWZGOk3
-X-Gm-Gg: ASbGnctiZ67GgTrkzyMX7RDRnaBQqlt3rNnh5TMoqGw/T7loyT7D0o53cJ3BCBXltLk
-	Xj8eeb4tOefIuRpJSBrwhf/2gnDRg8eDejgpprCJk2xNjh29k4Xu67Yw9rcVK0BdKHWSSDo9dwV
-	U/v/pmIp3HB3ZKdE+KEIY5Um6P/1CsMjkGWTGcTU/nItSM3D6StJJZbrinKnY7NA9FrgpNvXPZk
-	rv/LeESgULpmREok/hC5XQL7FaHDJdtE9wfoFfAD8oeANqQo7YDGL41YxFcJcG89f/s4GhSCCPK
-	9l4QPehP2dawKbE7Qc8UJgILQLzakNncCVvcqCFahYKzQ74GOEiGpsuR0LCqfBQ57E9kj3I4hyy
-	JvyQ3O6/My/qtMajHqaKOauMiSr0McoRE
-X-Google-Smtp-Source: AGHT+IGHC1MVQan6DyAcHVPJFsYpMQ/lz7RSHxdEh7BdqhTUwrDVwvLIusKNv2NoZZcDS32oCD5V0A==
-X-Received: by 2002:a17:907:3d8d:b0:aa6:9503:aa73 with SMTP id a640c23a62f3a-ab6cfdc5f5cmr3418392666b.51.1738698599948;
-        Tue, 04 Feb 2025 11:49:59 -0800 (PST)
-Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e4a5635bsm964684466b.164.2025.02.04.11.49.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 11:49:59 -0800 (PST)
-From: Eric Woudstra <ericwouds@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Ivan Vecera <ivecera@redhat.com>,
-	Roopa Prabhu <roopa@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kuniyuki Iwashima <kuniyu@amazon.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Joe Damato <jdamato@fastly.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"Frank Wunderlich" <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	bridge@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH v5 net-next 07/14] netfilter :nf_flow_table_offload: Add nf_flow_rule_bridge()
-Date: Tue,  4 Feb 2025 20:49:14 +0100
-Message-ID: <20250204194921.46692-8-ericwouds@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250204194921.46692-1-ericwouds@gmail.com>
-References: <20250204194921.46692-1-ericwouds@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1738699039; x=1739303839;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y4R+14MvP6+jfAZ/2SDPJZGHYgAQ9ZFZffV6N7sMB9Y=;
+        b=pDEa918MG64phhNVU7ZZd2J6q9Y5S20SZXgPQJ2xLQMvllsrxzhfWmfv09LE2hdeZJ
+         zCzbYZhJqKXQ2mAN/EzMP6HxmBK6069pqNs9L1zi0tIeJ3KPDNqg4RZiDEXDVI/B1Ihf
+         x/9Vg/dbZ8/8T2LFqenbhT01jmyT6dC7eK2r9iXrBD01Yfct15Qo710+BbImMOjeR/DC
+         LrEiuTRGhMj7r14kim5nr4Y45gnrkuI59L0Th6VyJ6izNvG6hfPKkU2vPy07qlzSOUE7
+         d8gfApS6o2tWLcgBBJQRiKB62u/ZCXXZ7yzaivJ9qL9YpKq7gxJFbddfkjAjC5nAuaOr
+         Uj2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUPQsjAc04Abk3eb3rOU4XAH2hou2Zllk2BggdWKYDAP8Abgwshi43nT/goGU2pAheRU3DrBvhMYTDfu13vW2Sb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw53H/x/Y+Kp8kJDNRuUZrS8MjDoXw3d2NLVejSjA07x8H606hA
+	NwJXPi/YW175eWbekPqe6QFHOGvo7PrgiNdavF9cihLJjm5fkEaFYoXe+4ZtbZIvEidJjIk9Ppz
+	hW9xaD2hYfgZrE7hDVvXS2g==
+X-Google-Smtp-Source: AGHT+IFjKjYyuQlNa/ishtIcrEB5bPDdOoTVbdVO7D85Z9CPphU0w8y5cfrKi9gtvFrT4dURbTET8ohchq0pXDfx0g==
+X-Received: from ilbdr11.prod.google.com ([2002:a05:6e02:3f0b:b0:3ce:7e27:ea5a])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6e02:3f83:b0:3d0:4eaa:e480 with SMTP id e9e14a558f8ab-3d04f40166emr2549635ab.3.1738699039331;
+ Tue, 04 Feb 2025 11:57:19 -0800 (PST)
+Date: Tue,  4 Feb 2025 19:57:08 +0000
+In-Reply-To: <20250204195708.1703531-1-coltonlewis@google.com>
+Mime-Version: 1.0
+References: <20250204195708.1703531-1-coltonlewis@google.com>
+X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
+Message-ID: <20250204195708.1703531-2-coltonlewis@google.com>
+Subject: [PATCH 2/2] perf: arm_pmuv3: Uninvert dependency between {asm,perf}/arm_pmuv3.h
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_115001_980589_A1410619 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250204_115720_238697_06D85596 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,55 +93,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nf_flow_rule_bridge().
+perf/arm_pmuv3.h includes asm/arm_pmuv3.h at the bottom of the
+file. This counterintiutive decision was presumably made so
+asm/arm_pmuv3.h would be included everywhere perf/arm_pmuv3.h was even
+though the actual dependency relationship goes the other way because
+asm/arm_pmuv3.h depends on the PMEVN_SWITCH macro that was presumably
+put there to avoid duplicating it in the asm files for arm and arm64.
 
-It only calls the common rule and adds the redirect.
+Extract the relevant macro to its own file to avoid this unusual
+structure so it may be included in the asm headers without worrying
+about ordering issues.
 
-Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- include/net/netfilter/nf_flow_table.h |  3 +++
- net/netfilter/nf_flow_table_offload.c | 13 +++++++++++++
- 2 files changed, 16 insertions(+)
+ arch/arm/include/asm/arm_pmuv3.h   |  2 ++
+ arch/arm64/include/asm/arm_pmuv3.h |  1 +
+ include/linux/perf/arm_pmuv3.h     | 49 ++-------------------------
+ include/linux/perf/pmevn_switch.h  | 54 ++++++++++++++++++++++++++++++
+ 4 files changed, 59 insertions(+), 47 deletions(-)
+ create mode 100644 include/linux/perf/pmevn_switch.h
 
-diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
-index 4ab32fb61865..a7f5d6166088 100644
---- a/include/net/netfilter/nf_flow_table.h
-+++ b/include/net/netfilter/nf_flow_table.h
-@@ -340,6 +340,9 @@ void nf_flow_table_offload_flush_cleanup(struct nf_flowtable *flowtable);
- int nf_flow_table_offload_setup(struct nf_flowtable *flowtable,
- 				struct net_device *dev,
- 				enum flow_block_command cmd);
-+int nf_flow_rule_bridge(struct net *net, struct flow_offload *flow,
-+			enum flow_offload_tuple_dir dir,
-+			struct nf_flow_rule *flow_rule);
- int nf_flow_rule_route_ipv4(struct net *net, struct flow_offload *flow,
- 			    enum flow_offload_tuple_dir dir,
- 			    struct nf_flow_rule *flow_rule);
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index d8f7bfd60ac6..3cc30ebfa6ff 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -679,6 +679,19 @@ nf_flow_rule_route_common(struct net *net, const struct flow_offload *flow,
- 	return 0;
- }
+diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
+index 2ec0e5e83fc9..a39277b6a365 100644
+--- a/arch/arm/include/asm/arm_pmuv3.h
++++ b/arch/arm/include/asm/arm_pmuv3.h
+@@ -9,6 +9,8 @@
+ #include <asm/cp15.h>
+ #include <asm/cputype.h>
  
-+int nf_flow_rule_bridge(struct net *net, struct flow_offload *flow,
-+			enum flow_offload_tuple_dir dir,
-+			struct nf_flow_rule *flow_rule)
-+{
-+	if (nf_flow_rule_route_common(net, flow, dir, flow_rule) < 0)
-+		return -1;
++#include <linux/perf/pmevn_switch.h>
 +
-+	flow_offload_redirect(net, flow, dir, flow_rule);
+ #define PMCCNTR			__ACCESS_CP15_64(0, c9)
+ 
+ #define PMCR			__ACCESS_CP15(c9,  0, c12, 0)
+diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
+index 89fd6abb7da6..e22fb26b6169 100644
+--- a/arch/arm64/include/asm/arm_pmuv3.h
++++ b/arch/arm64/include/asm/arm_pmuv3.h
+@@ -10,6 +10,7 @@
+ #include <asm/sysreg.h>
+ 
+ #include <linux/perf_event.h>
++#include <linux/perf/pmevn_switch.h>
+ 
+ #ifdef CONFIG_KVM
+ void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
+index d698efba28a2..00623b69cdcc 100644
+--- a/include/linux/perf/arm_pmuv3.h
++++ b/include/linux/perf/arm_pmuv3.h
+@@ -6,6 +6,8 @@
+ #ifndef __PERF_ARM_PMUV3_H
+ #define __PERF_ARM_PMUV3_H
+ 
++#include <asm/arm_pmuv3.h>
 +
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(nf_flow_rule_bridge);
+ #define ARMV8_PMU_MAX_GENERAL_COUNTERS	31
+ #define ARMV8_PMU_CYCLE_IDX		31
+ #define ARMV8_PMU_INSTR_IDX		32 /* Not accessible from AArch32 */
+@@ -268,51 +270,4 @@
+ #define ARMV8_PMU_BUS_WIDTH	GENMASK(19, 16)
+ #define ARMV8_PMU_THWIDTH	GENMASK(23, 20)
+ 
+-/*
+- * This code is really good
+- */
+-
+-#define PMEVN_CASE(n, case_macro) \
+-	case n: case_macro(n); break
+-
+-#define PMEVN_SWITCH(x, case_macro)				\
+-	do {							\
+-		switch (x) {					\
+-		PMEVN_CASE(0,  case_macro);			\
+-		PMEVN_CASE(1,  case_macro);			\
+-		PMEVN_CASE(2,  case_macro);			\
+-		PMEVN_CASE(3,  case_macro);			\
+-		PMEVN_CASE(4,  case_macro);			\
+-		PMEVN_CASE(5,  case_macro);			\
+-		PMEVN_CASE(6,  case_macro);			\
+-		PMEVN_CASE(7,  case_macro);			\
+-		PMEVN_CASE(8,  case_macro);			\
+-		PMEVN_CASE(9,  case_macro);			\
+-		PMEVN_CASE(10, case_macro);			\
+-		PMEVN_CASE(11, case_macro);			\
+-		PMEVN_CASE(12, case_macro);			\
+-		PMEVN_CASE(13, case_macro);			\
+-		PMEVN_CASE(14, case_macro);			\
+-		PMEVN_CASE(15, case_macro);			\
+-		PMEVN_CASE(16, case_macro);			\
+-		PMEVN_CASE(17, case_macro);			\
+-		PMEVN_CASE(18, case_macro);			\
+-		PMEVN_CASE(19, case_macro);			\
+-		PMEVN_CASE(20, case_macro);			\
+-		PMEVN_CASE(21, case_macro);			\
+-		PMEVN_CASE(22, case_macro);			\
+-		PMEVN_CASE(23, case_macro);			\
+-		PMEVN_CASE(24, case_macro);			\
+-		PMEVN_CASE(25, case_macro);			\
+-		PMEVN_CASE(26, case_macro);			\
+-		PMEVN_CASE(27, case_macro);			\
+-		PMEVN_CASE(28, case_macro);			\
+-		PMEVN_CASE(29, case_macro);			\
+-		PMEVN_CASE(30, case_macro);			\
+-		default: WARN(1, "Invalid PMEV* index\n");	\
+-		}						\
+-	} while (0)
+-
+-#include <asm/arm_pmuv3.h>
+-
+ #endif
+diff --git a/include/linux/perf/pmevn_switch.h b/include/linux/perf/pmevn_switch.h
+new file mode 100644
+index 000000000000..1f211468d8bf
+--- /dev/null
++++ b/include/linux/perf/pmevn_switch.h
+@@ -0,0 +1,54 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +
- int nf_flow_rule_route_ipv4(struct net *net, struct flow_offload *flow,
- 			    enum flow_offload_tuple_dir dir,
- 			    struct nf_flow_rule *flow_rule)
++#ifndef __PMEVN_SWITCH_H
++#define __PMEVN_SWITCH_H
++
++#include <asm-generic/bug.h>
++
++/*
++ * This code is really good
++ */
++
++#define PMEVN_CASE(n, case_macro) \
++	case n: case_macro(n); break
++
++#define PMEVN_SWITCH(x, case_macro)				\
++	do {							\
++		switch (x) {					\
++		PMEVN_CASE(0,  case_macro);			\
++		PMEVN_CASE(1,  case_macro);			\
++		PMEVN_CASE(2,  case_macro);			\
++		PMEVN_CASE(3,  case_macro);			\
++		PMEVN_CASE(4,  case_macro);			\
++		PMEVN_CASE(5,  case_macro);			\
++		PMEVN_CASE(6,  case_macro);			\
++		PMEVN_CASE(7,  case_macro);			\
++		PMEVN_CASE(8,  case_macro);			\
++		PMEVN_CASE(9,  case_macro);			\
++		PMEVN_CASE(10, case_macro);			\
++		PMEVN_CASE(11, case_macro);			\
++		PMEVN_CASE(12, case_macro);			\
++		PMEVN_CASE(13, case_macro);			\
++		PMEVN_CASE(14, case_macro);			\
++		PMEVN_CASE(15, case_macro);			\
++		PMEVN_CASE(16, case_macro);			\
++		PMEVN_CASE(17, case_macro);			\
++		PMEVN_CASE(18, case_macro);			\
++		PMEVN_CASE(19, case_macro);			\
++		PMEVN_CASE(20, case_macro);			\
++		PMEVN_CASE(21, case_macro);			\
++		PMEVN_CASE(22, case_macro);			\
++		PMEVN_CASE(23, case_macro);			\
++		PMEVN_CASE(24, case_macro);			\
++		PMEVN_CASE(25, case_macro);			\
++		PMEVN_CASE(26, case_macro);			\
++		PMEVN_CASE(27, case_macro);			\
++		PMEVN_CASE(28, case_macro);			\
++		PMEVN_CASE(29, case_macro);			\
++		PMEVN_CASE(30, case_macro);			\
++		default: WARN(1, "Invalid PMEV* index\n");	\
++		}						\
++	} while (0)
++
++
++#endif
 -- 
-2.47.1
+2.48.1.362.g079036d154-goog
 
 
