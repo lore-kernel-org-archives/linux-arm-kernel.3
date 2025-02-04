@@ -4,64 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B37C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58EDC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 21:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klzFW5qufSNhopssaHB67PSC4MM864bFLdh0AdosYTI=; b=NxwTXjYVORlkCy6gwWPLFJBE0w
-	9+RuOnwAPdOLece1YVPmDSQFWN7NP2oDRQFX1Cu8gdtsPTYgwR6SJ4fKcq+Wa58AaoSNCN1elb93C
-	jtm8Od6EipoSzSpl1cFqNEu50l8t8Kn3PWF23GMoqOHAa1XdyeyL+FaarBEzmRr1GtxOJzU6QVCoj
-	ydFeD7hvGWJxpgqGKyaubd0U0jRW+upzyEo28BdwBXt0V+gIKWKuzFTWmm0ncQBnOszowADoxFUuM
-	ZxUu3BkWbvDPVRBPGa4jua1Bc9f9xGhTFe0wZq+H+nQVU7vPIbygIr12PS+xIEziB9FV1YeRfDRCE
-	KnK5HXGw==;
+	bh=8QYi4v468Z+DeRIrtZEB56m7jQUUIs8XQkTPH+PRdCA=; b=o1ejjmXFs03j8arte4NvMO/UqC
+	KtQ1xfgyWy36tpEWD16kUk9BbY4WvgdvrRzMDq/kX3CD/+wpQMSrLHHV6+pk7rvd7rZK/4a07257d
+	Bngj6wW/g5SVf4u/gj8OQZhP4rqpCQdCXpd471ZNh97LDRvu2I4yGf1OGrNE+qXDeZFtzz9Q2A887
+	yVMEd5QRcpFNXzYuQL0cZbFLnVlVzWnp0Q2YRZymoeK+aLYjSn7w+7ZAPTS7O5AjydfSXQ0StKQZ/
+	OkAp4ibjKHe8lKVPhZdbx0Z7gx76OHoTSRjExRXaMayKB+z8HluxH7Q110tm/82Q8/P1XBph1gUx3
+	ZpKt44pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfQk7-00000001dOC-2UcH;
-	Tue, 04 Feb 2025 21:46:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfQlj-00000001doG-1HoH;
+	Tue, 04 Feb 2025 21:47:43 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfOcb-00000001Mgo-0bww
+	id 1tfQkL-00000001dRk-4BKt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 19:30:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6BCF25C67BB;
-	Tue,  4 Feb 2025 19:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AC9C4CEE9;
-	Tue,  4 Feb 2025 19:30:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738697407;
-	bh=dp3KkiRbpI5jTq31jDz9RRKWBTNV3PSWERsFVIuYVUE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PJ28FiwKrc8NJPI/UEnZa67oUEmxwlDSox0/vLcuo50zurUwA2+ytfQnM6Bv4u0PK
-	 vAoehoqdy9VadUapFOhWNyKJeVT++wKSeKmI7OkjbiXd6uV4midvRdJZancpyQ/RFe
-	 iHJ9n9P7LXMc5SUQiCKC5Leqbdieg7Yh1vV1vN4UFk+3/zV2NcTwFK9e/Js+zHfCKH
-	 B4bGIZak2YsfPaoAp0ADRNr0gPsZR2oevAC0Zda/tE85Zf2fsfTN/re9Xd6/r3qCiF
-	 7w7Rze4iYR5KCqJ4/giOPWK9lTqwVCOzrq61Sgtpt4Bcd0Y2Pb3bE41emxsTaPxzeq
-	 csBuOwM6KBsKg==
-Date: Tue, 4 Feb 2025 19:30:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jammy Huang <jammy_huang@aspeedtech.com>
-Cc: eajames@linux.ibm.com, mchehab@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@aj.id.au, linux-media@vger.kernel.org,
-	openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	Tue, 04 Feb 2025 21:46:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lzHIDcdYrJYqwm2IcTvKJfmprfc8CzqHxfE3LOG9Ou2VXdKY3PWplririR+CyegPLdlLKC2P/gjeVF4//5PLuP0cTGkDEG6l1ncmmEAetqr+VEbqaYC+2G9BvqlOVU9uhwIbRDIakNMsVovTHhMxN0sr34DjFOrYc4Cwf3uXq4E7t0el5ThdQsdWI5nQ/seK2BBqxuSrp3k9rX+W7yyA/Tz5eU0o8njA18yArQRxw2nmJ/GX7+s43v2xgFX1Q7TwQjMOrRJ2Sw0M8myKs/qP4DToA0o0ho3qLQmzBT9iMOI8TTtlP8jWBMHwg3uZrAX8zweSCwROnEicxI2aKUB9lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8QYi4v468Z+DeRIrtZEB56m7jQUUIs8XQkTPH+PRdCA=;
+ b=xgEPPJTnReW06PQRRorU4b7/fiQ/3ZQ67AwuJn0XqGkN10TmW90Ww3pvJZZSi00OsBg8bIq4egkX6xa5R6siTZJac5G8wdY4GA8A3R2ZA94IobZRSl7CAlN48hjFyj0S/fuMaO+squPKotFgND1DB8Ml9e57KpvvYw/+H61yDUP/+LeyqrrhYBPlXqTX7uOHQHChjGB9BFTxFpKMGaQ+8vnG0IQKuU2LSBXGIcXrni0EpJfwCNAES0VRceXHDfQqCyrm1F6R5u9mBxRmx2n8G60axhB3RVlXtC5p/dNmvFJYvm2Dkoy3Vz69ALzrSJaDMYS2UfkWqo6bAg9XuWi+kw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8QYi4v468Z+DeRIrtZEB56m7jQUUIs8XQkTPH+PRdCA=;
+ b=ViIrnagb+PF3CjNiSwMWXQ2PZXpUUK+yLYPUa+OIoQNPeIGTfr2D1WLnYYsQAheNwATuf0s7qMG2mfZcCVJxW7XfnAk3ylc2aK+xaBtToQPQtHBrpjXKN6GRj/f0mPiIjxJx/BQgKsMtoyViFtggntKTgvTjzpDA2kV2y2BmPVA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SN7PR01MB7903.prod.exchangelabs.com (2603:10b6:806:34f::17) by
+ MW6PR01MB8381.prod.exchangelabs.com (2603:10b6:303:23a::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8422.11; Tue, 4 Feb 2025 21:46:10 +0000
+Received: from SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f]) by SN7PR01MB7903.prod.exchangelabs.com
+ ([fe80::cf45:9855:a64e:382f%4]) with mapi id 15.20.8422.008; Tue, 4 Feb 2025
+ 21:46:09 +0000
+Date: Tue, 4 Feb 2025 13:46:06 -0800
+From: Zaid Alali <zaidal@os.amperecomputing.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com, will@kernel.org, puranjay@kernel.org,
+	broonie@kernel.org, mbenes@suse.cz, mark.rutland@arm.com,
+	ruanjinjie@huawei.com, oliver.upton@linux.dev, robh@kernel.org,
+	anshuman.khandual@arm.com, james.morse@arm.com,
+	shiqiliu@hust.edu.cn, eahariha@linux.microsoft.com,
+	scott@os.amperecomputing.com, joey.gouly@arm.com, ardb@kernel.org,
+	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: media: convert aspeed-video.txt to dt-schema
-Message-ID: <20250204-acronym-unshaved-18b89a389091@spud>
-References: <20250204062822.3738037-1-jammy_huang@aspeedtech.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="i8IRvi06tcsVtedw"
+Subject: Re: [PATCH] arm64: errata: Add Ampere erratum AC04_CPU_50 workaround
+ alternative
+Message-ID: <Z6KKnpB2IwO9GAYA@zaid-VirtualBox>
+References: <20250127201829.209258-1-zaidal@os.amperecomputing.com>
+ <87msfbtjyw.wl-maz@kernel.org>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250204062822.3738037-1-jammy_huang@aspeedtech.com>
+In-Reply-To: <87msfbtjyw.wl-maz@kernel.org>
+X-ClientProxiedBy: MW4PR03CA0128.namprd03.prod.outlook.com
+ (2603:10b6:303:8c::13) To SN7PR01MB7903.prod.exchangelabs.com
+ (2603:10b6:806:34f::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR01MB7903:EE_|MW6PR01MB8381:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68baad39-4410-43b1-2a76-08dd4565562e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8AjAt8zzHsNsDheaAYwONUY/QVSNEQbfj2bFPfqskDZ10Javw0wvYoVn2yBj?=
+ =?us-ascii?Q?txaf/qT3Ks/wdF6jKYC2/6TFP5WWzcQudxjyAThGy3UYdamUYfalOKI126iW?=
+ =?us-ascii?Q?5XA2quxP9tKf1czpfvF0V6DyV5C0Ip/DOJGp9cHkrhksD+3fqcP21Ex0c1cE?=
+ =?us-ascii?Q?TLleAonKqCWpxFmSyFMTralDoZWFpmlUbYipzxvo+V+rve9RTHjQHcaXIN/w?=
+ =?us-ascii?Q?B6u3u9G3VAJSrB5Eqc5uhTM9cX48OuyS1nDJICN+ZVkLHXdpSg9jYu4C9bfl?=
+ =?us-ascii?Q?tPNFa50Wt0KUdB4afkVMyMy/BSW01pVQDHk+QqA5XyXGiFRONy/hCX70+kL3?=
+ =?us-ascii?Q?gfqpoJLwDK3E8hXbcqgvHPBQWOlycYGHpVj2/ifXT1u6y3WbvkgAugBJu/a9?=
+ =?us-ascii?Q?Q+c0caapVID31WKR8ms/r6OPngMOJaZVvouyWaiO9uY6nod81DrC6Yxcz4P9?=
+ =?us-ascii?Q?ZtoZg7W+3rFPlh+2E6Ayh3C3Edsxr7oc/onYO0xbjkAuBNuedFWRQaZQy0VE?=
+ =?us-ascii?Q?WvOksJ2DL1G5MjVeV6WAo2uTG9Mn2zNwYT0/VgmmWfvDpb3b3waa2thLNToJ?=
+ =?us-ascii?Q?zQ+C7/h4JHm55gfuzvpvSYQ9xipqAUHu1Dw3KWjMPIycHIo6TVP5HxyYgYp3?=
+ =?us-ascii?Q?9pZv2eMKwqo1SvdUG761dj6B5SSxc87EUMflPBY77ag2oRtHsN3WU9jFAEgh?=
+ =?us-ascii?Q?Yb+ff1KGbu+dGcMxdUqm+i+mu78r+39Igi6vU1GtySxUc2MNdCG49xWomf0u?=
+ =?us-ascii?Q?OeoIu0boYuppJjAp434ejvPNAHKSIi5wuc8Yzr7tZh0LRsfVwg9uJi4LI1iS?=
+ =?us-ascii?Q?tl64cjpAOMHSxkwo0AUflAKSQHErxu/gmkyi/IRlN1Nz87zt8FVNEIlUVfmS?=
+ =?us-ascii?Q?dLdegeYhg+Qe6FSo3Wz2jEUlRaelj2O6DCpdzfjFT1Q0TdhArCyCTj3ozsXy?=
+ =?us-ascii?Q?sVd2OYIsI+LALUUY+miLnH22xuY4+PczajFlsXZEaFsswNscUuelwOZ+wDXt?=
+ =?us-ascii?Q?QXoMd3Oq3sGHSKMdaqvp1iBbnulj7bCqip5jboex2XI/i9e3g7eBQos7CSfJ?=
+ =?us-ascii?Q?kDHtQM1/wCftXVhDh3mr1sxC6Q6stT+WrZUos3CVPiYU95SAomAOyR0387vI?=
+ =?us-ascii?Q?9jjHqr77hTnZ0DZ9uHlvKu6X0gFGf7k88nqqHYEkz7oBOMghqB/Hi676TxP4?=
+ =?us-ascii?Q?VPKueOdXboyWzg81ITacZtOw0neNHUMutPgD2kGUc26tgNyTYw24JHOOFMgR?=
+ =?us-ascii?Q?IFzoHskRZUdsLr+M4EvJv/583EqA8JcDEXBsTUxq9yHn7u/9Hc26I0gkMDpS?=
+ =?us-ascii?Q?jjySsiK5+vFxapdwwStuVKImfkKtf10czjQrGbJixxnhfII1MiPoCVSOI0pJ?=
+ =?us-ascii?Q?uKxf9TMhycY7hb2Gq9aQKyD21aLvwb21oCPUHV/HEu85VzbF0nVkfFFMYKPz?=
+ =?us-ascii?Q?b7ipyMHuOQJxAWeP82qKm+ngOAYZSzTo?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR01MB7903.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iwQWSASXRBM1k2g5pFDVQrCvKtZioAqMi4YtaOD3m5Cr3+6bVWy5AtQnPRRL?=
+ =?us-ascii?Q?qPp5SueAo12H40bABYebXoC6InDNqFA5OlV1ReGR4GzrSWiQu+6Q+0xC/n5T?=
+ =?us-ascii?Q?W1nNOxOPeo/2aTq1tMSQKnH/rOMToZEs9gG+IRUMgPF5Gzn73doGspNJrOn7?=
+ =?us-ascii?Q?cnFtESzw3sconhgSqS3g7IlBQL7h2kDi9TarOx74B8loH+7JqUWy4d5lxj3g?=
+ =?us-ascii?Q?v7hXksJONuOB66QTAG7hYQ7rq9z+1lYrHRNIopgO6vG2vN2Pr202Yn3IllOf?=
+ =?us-ascii?Q?luYKrLEgo8DsRwcShF6koUSBqopRJBtF4Qug1Yo+JpdSBh/4iDkqPPZ3RtR8?=
+ =?us-ascii?Q?ZavEFibFQ8R7pgvfoOI6K3P3CHscIWZzXh18zP5ywY086A/hyLtJG5D1/5iC?=
+ =?us-ascii?Q?OB43Oh0C0Kca3qAUf8tjN5u9Xo3d8vkDA4iwnqXM2Uqv5nBD10hDbHyUSAn3?=
+ =?us-ascii?Q?fQaHkyGFsEPI1HQPXxGvnsRiX4d42AD8H+V9oapnoIqKpXlKx8EZ6H1EoOz7?=
+ =?us-ascii?Q?UsLqkwiLNmtvPkVbyThG4t4LVFuOj/lZqqUfJR1qSEVSC0YHBlE7f12cU1UT?=
+ =?us-ascii?Q?mXe10mGGXeS8/SjMoEIXC/CGACusvrcKKtX8t51ixEs+86v4mWSomo7UVDlJ?=
+ =?us-ascii?Q?BfKKlubBXREAkPX+y7DnAcetiQaXMVdrOJ7/H62BtZFzUcBFlFuQoKoh7GPX?=
+ =?us-ascii?Q?nmTl3g/w3Jp8ZuLuI7W39UH+QBx9lP+ptq5TIo1mN5D8yp0g8dFYYXrN0Wja?=
+ =?us-ascii?Q?RPvPFoQo2TMoGYd41+2LG89j6xWWFg/wXt4mtj70aA8qTqBgBwH26NzOdW8+?=
+ =?us-ascii?Q?bW55VPDrg0bwmloIAoTlBDQUVcGS4G3oOjuWknszu1F+RXSDA7IezQcJm05+?=
+ =?us-ascii?Q?Ek2ijjApW8bjG/g7vK5hw0ZuFkbtWP8rQlRQJs4993+EhLOLTtBGkNOW9QWY?=
+ =?us-ascii?Q?o8Zo04KtTYUm1cRPEzzc8P9jXQi2+QoiNRllZmpoXaZTVZuHDTFkPymS4Qt+?=
+ =?us-ascii?Q?k7cMLxAbpHGpajE5g/VdsUCRpfxWfyNAju1gBc1f5f0pDdEHmdF5Its5GaRx?=
+ =?us-ascii?Q?ykz8T1QGBLzLLH5rhEDWHPxVqp80DXJ/Q0gELEVuOegp2vMQte0+w848Rxn1?=
+ =?us-ascii?Q?6LOCTTvkleyuffXQ7DXicYX4cZgcqoIE6W32iRb4vtjZa5xRqogprJcy+tZD?=
+ =?us-ascii?Q?9lW0ZmJ2ANxGxjUB7P/uLLCKDY6N+nb7iqMWDaVOIUJMNWxanaLR5vmVVvr1?=
+ =?us-ascii?Q?FWPPhdaoL3j2xqxwZu6GyGlB/mFkPn2GHV04uEDlUEOQ/oavygcgadx4o9cL?=
+ =?us-ascii?Q?/t55kb5WcQbRlcd1yBPRGX0ahElqR3Y+QD5WJvhPTl6GUfXhsEEjsQtbmdAq?=
+ =?us-ascii?Q?awIk25EKq2SZIJCfRnMJawNNDajy4jjsp4PMB0Q9ZK2DgSrxzUSXhmKN4FQ3?=
+ =?us-ascii?Q?bLKQ5KEs4iBgJUE3CwqUjnLq3zzLD3vE0+ZoIuix59E7W5vH8gA8WjA6BqIt?=
+ =?us-ascii?Q?GvlzIWQFSs9ClbSllqvxJEmWfcp/vg4vd/TVkF769Pa6JanaIHdfbZrlUatN?=
+ =?us-ascii?Q?mav+wRwlzQbsC99h0JFH4pnLEImfeRMI31/nN2DsTn0WjKB9V+6KifL4iKkW?=
+ =?us-ascii?Q?kaJ4fFpnl2F5m3aPW1TDLww=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68baad39-4410-43b1-2a76-08dd4565562e
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR01MB7903.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 21:46:09.9209
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3v5xsnmNxim2X+aU9Jd26eHZ/JXBwtfbpJ+PWp+L56tMKL1qyyVyU+ySDFsgPcgK3keqF/r343vAhVKUXm1hvPZDd++bfePY5lY3JmQTPc1vLw/gIiW3UexT4T3OZABp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR01MB8381
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_113009_270672_B910AFAC 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20250204_134618_057914_8A6B0EA2 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,192 +165,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 28, 2025 at 08:34:47AM +0000, Marc Zyngier wrote:
+> On Mon, 27 Jan 2025 20:18:29 +0000,
+> Zaid Alali <zaidal@os.amperecomputing.com> wrote:
+> > 
+> > Add an alternative code sequence to work around Ampere erratum
+> > AC03_CPU_50 on AmpereOne and Ampere1A.
+> > 
+> > Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> > direct read of the register will return a value of 0xf8. An incorrect
+> > value from a direct read can only happen with the value 0xf0.
+> 
+> Under which precise conditions? Does it equally apply to virtual
+> interrupts or SCR_EL3.FIQ==0, for which there is no non-secure shift
+> (which I can only assume is the source of the erratum)? Does it
+> equally affect G0 and G1 interrupts?
+>
 
---i8IRvi06tcsVtedw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Marc,
 
-On Tue, Feb 04, 2025 at 02:28:22PM +0800, Jammy Huang wrote:
-> Convert aspeed-video.txt to yaml format.
-> Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
->=20
-> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
-> ---
->  .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
->  .../bindings/media/aspeed-video.txt           | 33 --------
->  MAINTAINERS                                   |  2 +-
->  3 files changed, 85 insertions(+), 34 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-=
-engine.yaml
->  delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.=
-txt
->=20
-> diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.=
-yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-> new file mode 100644
-> index 000000000000..c66ae6b53cbb
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-> @@ -0,0 +1,84 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED Video Engine
-> +
-> +maintainers:
-> +  - Eddie James <eajames@linux.ibm.com>
-> +
-> +description:
-> +  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
-> +  capture and compress video data from digital or analog sources.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2400-video-engine
-> +      - aspeed,ast2500-video-engine
-> +      - aspeed,ast2600-video-engine
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vclk
-> +      - const: eclk
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +    description: |
-> +      Phandle to the reserved memory nodes to be associated with the
-> +      VE. VE will acquires memory space for 3 purposes:
-> +        1. JPEG header
-> +        2. Compressed result
-> +        3. Temporary transformed image data
-> +
-> +  aspeed,scu:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Specifies the scu node that is needed if video wants to capture
-> +      from sources other than Host VGA.
-> +
-> +  aspeed,gfx:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Specifies the Soc Display(gfx) node that needs to be queried to get
-> +      related information if video wants to use gfx as capture source.
-
-These two phandle properties are new and not mentioned in your commit
-message. Why have they been added?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/ast2600-clock.h>
-> +
-> +    video@1e700000 {
-> +      compatible =3D "aspeed,ast2600-video-engine";
-> +      reg =3D <0x1e700000 0x1000>;
-> +      clocks =3D <&syscon ASPEED_CLK_GATE_VCLK>,
-> +               <&syscon ASPEED_CLK_GATE_ECLK>;
-> +      clock-names =3D "vclk", "eclk";
-> +      interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> +      aspeed,scu =3D <&syscon>;
-> +      aspeed,gfx =3D <&gfx>;
-> +    };
-> diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/D=
-ocumentation/devicetree/bindings/media/aspeed-video.txt
-> deleted file mode 100644
-> index d2ca32512272..000000000000
-> --- a/Documentation/devicetree/bindings/media/aspeed-video.txt
-> +++ /dev/null
-> @@ -1,33 +0,0 @@
-> -* Device tree bindings for Aspeed Video Engine
-> -
-> -The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
-> -capture and compress video data from digital or analog sources.
-> -
-> -Required properties:
-> - - compatible:		"aspeed,ast2400-video-engine" or
-> -			"aspeed,ast2500-video-engine" or
-> -			"aspeed,ast2600-video-engine"
-> - - reg:			contains the offset and length of the VE memory region
-> - - clocks:		clock specifiers for the syscon clocks associated with
-> -			the VE (ordering must match the clock-names property)
-> - - clock-names:		"vclk" and "eclk"
-> - - resets:		reset specifier for the syscon reset associated with
-> -			the VE
-> - - interrupts:		the interrupt associated with the VE on this platform
-> -
-> -Optional properties:
-> - - memory-region:
-> -	phandle to a memory region to allocate from, as defined in
-> -	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
-> -
-> -Example:
-> -
-> -video-engine@1e700000 {
-> -    compatible =3D "aspeed,ast2500-video-engine";
-> -    reg =3D <0x1e700000 0x20000>;
-> -    clocks =3D <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_=
-ECLK>;
-> -    clock-names =3D "vclk", "eclk";
-> -    resets =3D <&syscon ASPEED_RESET_VIDEO>;
-> -    interrupts =3D <7>;
-> -    memory-region =3D <&video_engine_memory>;
-> -};
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 896a307fa065..7e59daa1e89d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
->  L:	linux-media@vger.kernel.org
->  L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
->  S:	Maintained
-> -F:	Documentation/devicetree/bindings/media/aspeed-video.txt
-> +F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
->  F:	drivers/media/platform/aspeed/
-> =20
->  ASUS EC HARDWARE MONITOR DRIVER
->=20
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> --=20
-> 2.25.1
->=20
-
---i8IRvi06tcsVtedw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6JqugAKCRB4tDGHoIJi
-0mCkAQDv+QJAtLQu581nLzkejap/mpHejKb7ON+oLm+XbsuanwD/XWZyc+D15A2m
-NvFwrl1iWOd3s3nRf2VSuRWBz8w31wk=
-=GNL1
------END PGP SIGNATURE-----
-
---i8IRvi06tcsVtedw--
+This only occurs when:
+When SCR_EL3.FIQ==1 and PE is NOT in EL3/Secure State,
+and ICC_PMR_EL1.Priority==LowestPriorityImplemented==0xf8 (highest priority is 0x00).
+ 
+Does it equally apply to virtual interrupts or SCR_EL3.FIQ==0?
+ 
+Based on this Defect (AArch-21735) and our implementation, it only 
+affected ICC_PMR_EL1, therefore does not apply to virtual interrupts.
+It also does not apply when SCR_EL3.FIQ==0, as no modification of 
+ICC_PMR_EL1 is required. Automatically sends the unshifted version.
+ 
+For which there is no non-secure shift, does it equally affect G0 and G1 interrupts?
+ 
+When SCR_EL3.FIQ==1 and PE is NOT in EL3/Secure State, 
+and ICC_PMR_EL1.Priority==LowestPriorityImplemented==0xf8 (highest priority is 0x00):
+The ICC_PMR_EL1.Priority read returns an unshifted version (0xf8).
+It should have returned 0xf0. HW shifts the priority and inserts a 1b1 ensure
+the priority is a Grp1 priority. Should only be visible in HW.
+ 
+When SCR_EL3.FIQ==1 and PE is NOT in EL3/Secure State, and ICC_PMR_EL1.Priority==Grp0:
+This issue would not occur. Returned value would be the highest priority, 0x00.
+The returned value is correct as per ARM.
+ 
+When SCR_EL3.FIQ==1 and PE is NOT in EL3/Secure State, and 
+ICC_PMR_EL1.Priority==Grp1 (but not the lowest priority):
+This issue would not occur. Returned value would be the shifted version.
+The returned value is correct as per ARM.
+ 
+> > 
+> > Note: Currently there are no checks against a value of 0xf0, and that
+> > save restore of 0xf8 -> 0xf0 is fine, so this is all future proofing.
+> > 
+> > Signed-off-by: Zaid Alali <zaidal@os.amperecomputing.com>
+> > ---
+> >  arch/arm64/Kconfig                  | 16 ++++++++++++++++
+> >  arch/arm64/include/asm/arch_gicv3.h |  2 +-
+> >  arch/arm64/include/asm/daifflags.h  |  4 ++--
+> >  arch/arm64/include/asm/irqflags.h   |  6 +++---
+> >  arch/arm64/include/asm/sysreg.h     |  9 +++++++++
+> >  arch/arm64/kernel/cpu_errata.c      | 15 +++++++++++++++
+> >  arch/arm64/kernel/entry.S           |  4 ++++
+> >  arch/arm64/tools/cpucaps            |  1 +
+> 
+> Please add an entry to Documentation/arch/arm64/silicon-errata.txt.
+> 
+> >  8 files changed, 51 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index fcdd0ed3eca8..8d6e263d66c7 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -461,6 +461,22 @@ config AMPERE_ERRATUM_AC03_CPU_38
+> >  
+> >  	  If unsure, say Y.
+> >  
+> > +config AMPERE_ERRATUM_AC03_CPU_50
+> > +	bool "AmpereOne: AC03_CPU_50: Certain checks for ICC_PMR_EL1 that expects the value 0xf0 may read 0xf8 instead"
+> > +	default y
+> > +	help
+> > +	  This option adds an alternative code sequence to work around Ampere
+> > +	  erratum AC03_CPU_50 on AmpereOne and Ampere1A.
+> > +
+> > +	  Due to AC03_CPU_50, when ICC_PMR_EL1 should have a value of 0xf0 a
+> > +	  direct read of the register will return a value of 0xf8. An incorrect
+> > +	  value from a direct read can only happen with the value 0xf0.
+> > +
+> > +	  The workaround for the erratum will do logical AND 0xf0 to the
+> > +	  value read from ICC_PMR_EL1 register before returning the value.
+> > +
+> > +	  If unsure, say Y.
+> > +
+> 
+> An alternative for this would simply to prevent the enabling of pNMI
+> on this platform.
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
