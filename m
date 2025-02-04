@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E4EC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E86BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 14:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6qovICTGPEEjhTN07umz778RBWf4L4gwOU9re+tr4g=; b=IxcqJVhPmaR8dlyABgAM0cDuh1
-	xJOdgjE2jxSNVr/2aonR1iEaoSC2AScUFlOkX0e89cPQSQxt4l38ByIUot4tnlN6/c3gXQFoqR2bX
-	jwP8t7Spg74gMWLKKwtjLYdaiJLeoAnyQoRRZD0YxokOnRHBAaSxNmzHzCWR9wJ65Yatco0nPjCv0
-	lzwniZc2Uyq3dEKczbRf0okgnaHyZOnLtWIfveCn03i5/VucCtyWv0gV3ssc59cKc6bYb1sHOtcnT
-	Uwu6exXmG9Fiv+vqSX70DUgj0f3W5tiE5QrROvO6bylYwCistYgdZntJ4R4AaOkmXN5ePelQfwja3
-	hbv6Q71Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xRjueJWYfJiDD8c03kzhgj8zaUZ3G8sHaPwtqLw82Ao=; b=scCOvlbIzCrF1p0q2zUSBq9MVH
+	eZwTtiReobcPR1DvDi0CyiZXwnBshGZD14JTHToenMQVkhBvx8Kv9o7fpUEd+i1UvBAuckbELt/AP
+	fBSFvND29tBBuzHyZsod6zx0naOUvE6mwGj5/AP/5J+l3UGS3IxCZZOO0jAzjO/j1C4iGDYpoMBxe
+	YreUEVgLuQdTrYmnGZzkq5SWaUbFzoEjqYPmQY2RgF6oKEODeeWW2NEZ9MgeurVdnl3i5lO/Cciax
+	M6PA5K+C6VnN6AeVojIrAPHrZC/N03Yb8KMsgalTiFXrvmk02DIF1c2T24VIZf6brVgTIDOqTyXtv
+	wZzrsxBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKGy-00000000iSS-2pW9;
-	Tue, 04 Feb 2025 14:51:32 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1tfKIG-00000000idY-3kUr;
+	Tue, 04 Feb 2025 14:52:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfKFc-00000000iEm-2jzI
+	id 1tfKFd-00000000iEr-0R8B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 14:50:10 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-30613802a59so62637751fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 06:50:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738680606; x=1739285406; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a6qovICTGPEEjhTN07umz778RBWf4L4gwOU9re+tr4g=;
-        b=eI7RdI8UXqQ0wGDRArleC9vlbR/fdxhhIdhtcdK1jcvMkjCynCRcEdF0GDgHShK/B3
-         oIDgsgCBJacCshbzoQ3PhH9nqDi+NNQAwmGcKzg/dVvNmZmGMMiHss4QmA1bKKIqk+LB
-         GQbmrwz9wUbHYEdOuCOWlEVWvJMPqYmb8A+3P2fUZE3YNG0MU54RuY32qeAQtKtyMExi
-         VGXyLifzsPW25qUnJLxxxu4vuDKEufs06yzNy11KjVbhvc4UhZWG/IaolgeQf9Y2sKTE
-         AOgvGXWRMryeaUnui/7EVJVLbU4tw0dKtKj6Fp6SvMGve5lJ+7V0IDvj2p/8nJM0raAY
-         zQIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738680606; x=1739285406;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a6qovICTGPEEjhTN07umz778RBWf4L4gwOU9re+tr4g=;
-        b=SWsrSaJNwkgWCgn4lrdVVxnPCdf50mhDBs5ym05B7MESfFrhopzUlqejKEGVG5Y1jz
-         5Lw62ZnmjeDuBtrD94xNnID6Ch8E+D2GJjO9BC/Bmn7HVFA538GrrraR29G4IfBfyOEP
-         QNy7k7L4lILnJus5t2o4+x0Dc1OsHvWTVjn5gxRB7LCpLkI6Rl/iuADxncUO+aArdvFM
-         dQf4mStVyqEG/oaJq6U+JRVNKETeMDPFke71fOlilRF5oX2PB03oJjjCgmNsQh8sz8Vt
-         OdLXhd3h3b1aWL6mUysgu3NHgNssJdIzBvw5YhERnWNofo2MhxJlu/7+pF2bpkQpS6yf
-         5OpA==
-X-Forwarded-Encrypted: i=1; AJvYcCWdVrsB5C78Pf+C2dAH6YXhq2hCniWuvZ2CucSwRHEFkzUOhAvyBsmxQTtGuOAqypFpbTuv/eEMS8N8N1d3JkxD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr0pOgZku01Me0PExVqVpEr89+OmrcLoLb5YRy+Utzecg3a2C3
-	SDXn6wr6gXdbFqm5rcbVqc4fOHv59chI5r1Nbp81qK26fC17ZTPUlao4iJ0l3V+1jGbZ7U8HAmh
-	x+HfDp6RJz2ZaJnJ5jzm1GxU88JmPatgU+K8yJg==
-X-Gm-Gg: ASbGncs0SYrlUO3Y8sECFvmfeONhk16Jw9Y1HcutZ5jEX2YBZGO2OqVdAg39VqtiZxe
-	az+a/NpNy1GkRng9Sf4EhWg5aauedDoM5p0SHFizajzencX256FUQ5kx6FUZN/ut5Vd5L2gQDqQ
-	==
-X-Google-Smtp-Source: AGHT+IHDEbsYQipfejXqFohjxLWs79QcoPD2kP+1yrW9qYk9n/SN/qyoP+wLyuKonmtT1FmQCmqnzeGwlD2OFASKWU0=
-X-Received: by 2002:a05:651c:2115:b0:302:3a28:76cf with SMTP id
- 38308e7fff4ca-307968e725emr115509751fa.25.1738680606043; Tue, 04 Feb 2025
- 06:50:06 -0800 (PST)
+	Tue, 04 Feb 2025 14:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 339C65C6967;
+	Tue,  4 Feb 2025 14:49:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 726C7C4CEDF;
+	Tue,  4 Feb 2025 14:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738680607;
+	bh=6oUouKp7uR/JpMO1k+/4EobZmOrqM2qkaM9b819xH9A=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=fQrmBLtVaRu1YyNdrLfWKt47C2vhv7/FM52dr6hjnB2AAYXUvsL0A2OuTL3xcb7QG
+	 uyKXrNPDNRjnNQjdu2KznYONWo7qQWBcRGM4VqJwEo8CaP/StdUcSvI4Y7IRWr1bbK
+	 gRFzaZjzM3vEplbEAfolwp2WzgidqeF1Q5vxpsxsQcvOSZk2VCW5gtDLXIifJ04TXt
+	 3AT4EFJHyZasnzb/tf9YyE0AgNMwDiUxrxzusuQuJTlwVIuVsoEZQFqu5lTnXcLOiY
+	 EwaWYdHnPZ5A4iFRfDKTCkv2TCO9DZmF0ig3F9OzrwURTZKTmGCU6MaH4+siqFJGiy
+	 Lpb0JOt7U/pQA==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Weinan Liu <wnliu@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat
+ <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, Will
+ Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+ linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+ live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+ linux-arm-kernel@lists.infradead.org, Weinan Liu <wnliu@google.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+In-Reply-To: <20250127213310.2496133-1-wnliu@google.com>
+References: <20250127213310.2496133-1-wnliu@google.com>
+Date: Tue, 04 Feb 2025 14:49:49 +0000
+Message-ID: <mb61pzfj169yq.fsf@kernel.org>
 MIME-Version: 1.0
-References: <20250204075405.824721-1-apatel@ventanamicro.com>
- <20250204075405.824721-11-apatel@ventanamicro.com> <87o6zinl5o.ffs@tglx>
-In-Reply-To: <87o6zinl5o.ffs@tglx>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 4 Feb 2025 20:19:53 +0530
-X-Gm-Features: AWEUYZnsP5bIEqfYtAEgSHeeevhnHrIfy83h-jtA8at0gwbWoWLEsA0X1oOoSQI
-Message-ID: <CAK9=C2VgOnSVBRPh+bJBQnGreVYcUh6HWVg1MEzDtfYsuT0s-g@mail.gmail.com>
-Subject: Re: [PATCH v3 10/10] irqchip/riscv-imsic: Use IRQCHIP_MOVE_DEFERRED
- flag for PCI devices
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_065008_684705_9803F2B3 
-X-CRM114-Status: GOOD (  32.72  )
+X-CRM114-CacheID: sfid-20250204_065009_230977_7CB18A57 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +76,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 4, 2025 at 2:26=E2=80=AFPM Thomas Gleixner <tglx@linutronix.de>=
- wrote:
->
-> On Tue, Feb 04 2025 at 13:24, Anup Patel wrote:
-> > Devices (such as PCI) which have non-atomic MSI update should
-> > migrate irq in the interrupt-context so use IRQCHIP_MOVE_DEFERRED
-> > flag for corresponding irqchips.
-> >
-> > The use of IRQCHIP_MOVE_DEFERRED further simplifies IMSIC vector
-> > movement as follows:
-> >
-> > 1) No need to handle the intermediate state seen by devices with
-> >    non-atomic MSI update because imsic_irq_set_affinity() is called
-> >    in the interrupt-context with interrupt masked.
-> > 2) No need to check temporary vector when completing vector movement
-> >    on the old CPU in __imsic_local_sync().
-> > 3) No need to call imsic_local_sync_all() from imsic_handle_irq()
->
-> I have no idea how you came to that delusion.
->
-> IRQCHIP_MOVE_DEFERRED is part of the mechanism to handle this insanity
-> correctly. It does not prevent the device from observing and actually
-> using the intermediate state. All it does is to ensure that the kernel
-> can observe this case and act on it.
->
-> The fact that the kernel executes the interrupt handler on the original
-> target CPU does not prevent the device from firing another interrupt.
-> PCI/MSI interrupts are strictly edge. i.e. fire and forget.
->
-> IRQCHIP_MOVE_DEFERRED solely ensures that the racy affinity update in
-> the PCI device happens in the context of the original target CPU, which
-> is required to handle all possible cases correctly.
->
-> Let's assume the interrupt is affine to CPU0, vector A and a move to
-> CPU1, vector B is pending. So we have three possible scenarios:
->
-> CPU0                            Device
-> interrupt
->                                 1) Raises interrupt on CPU0, vector A
->   ...
->
->     write_msg()
->         write_address(CPU1)
->                                 2) Raises interrupt on CPU1, vector A
->         write_data(vector B)
->                                 3) Raises interrupt on CPU1, vector B
->
-> #1 is handled correctly because the interrupt is retriggered on CPU0,
->    vector A, which still has the interrupt associated (it's cleaned up
->    _after_ the first interrupt arrives on CPU1, vector B).
->
-> #2 cannot be handled because CPU1, vector A is either not in use or
->    associated to a completely unrelated interrupt, which means if that
->    happens the interrupt is lost and the device might become stale.
->
-> #3 is handled correctly for obvious reasons.
->
-> The only way to handle #2 properly is to do the intermediate update to
-> CPU0, vector B and checking for a pending interrupt on that. The
-> important role IRQCHIP_MOVE_DEFERRED plays here is that it guarantees
-> that the update happens on CPU0 (original target). Which in turn is
-> required to observe that CPU0, vector B has been raised.
->
-> The same could be achieved by executing that intermediate transition on
-> CPU0 with interrupts disabled by affining the calling context (thread)
-> to CPU0 or by issuing an IPI on CPU0 and doing it in that context. I
-> looked into that, but that has it's own pile of issues. So at the end
-> moving it in the context of the interrupt on the original CPU/vector
-> turned out to be the simplest way to achieve it.
+--=-=-=
+Content-Type: text/plain
 
-I got confused because IRQCHIP_MOVE_DEFERRED updates affinity
-with the interrupt masked which I interpreted as masked at the device
-level. Also, PCI MSI mask/unmask is an optional feature of PCI devices
-which I totally missed.
+Weinan Liu <wnliu@google.com> writes:
 
-I will keep the intermediate transition in the next revision. Thanks for
-the clarification.
+> This patchset implements a generic kernel sframe-based [1] unwinder.
+> The main goal is to support reliable stacktraces on arm64.
+>
+> On x86 orc unwinder provides reliable stacktraces. But arm64 misses the
+> required support from objtool: it cannot generate orc unwind tables for
+> arm64.
+>
+> Currently, there's already a sframe unwinder proposed for userspace: [2].
+> Since the sframe unwind table algorithm is similar, these two proposal
+> could integrate common functionality in the future.
+>
+> There are some incomplete features or challenges:
+>   - The unwinder doesn't yet work with kernel modules. The `start_addr` of
+>     FRE from kernel modules doesn't appear correct, preventing us from
+>     unwinding functions from kernel modules.
+>   - Currently, only GCC supports sframe.
+>
+> Ref:
+> [1]: https://sourceware.org/binutils/docs/sframe-spec.html
+> [2]: https://lore.kernel.org/lkml/cover.1730150953.git.jpoimboe@kernel.org/
+>
 
-Regards,
-Anup
+Hi Weinan,
+Thanks for working on this.
+
+I tested this set on my setup and faced some issues, here are the
+details:
+
+Here is my setup [on AWS c6gd.16xlarge instance]:
+-------------------------------------------------
+
+[root@ip-172-31-32-86 linux-upstream]# uname -a
+Linux ip-172-31-32-86.ec2.internal 6.14.0-rc1+ #1 SMP Tue Feb  4 14:15:55 UTC 2025 aarch64 aarch64 aarch64 GNU/Linux
+
+[root@ip-172-31-32-86 linux-upstream]# git log --oneline
+e9a702365 (HEAD -> master) arm64: Enable livepatch for ARM64
+5dedc956e arm64: Define TIF_PATCH_PENDING for livepatch
+ba563b31a unwind: arm64: add reliable stacktrace support for arm64
+d807d392d unwind: arm64: Add sframe unwinder on arm64
+7872f050b unwind: Implement generic sframe unwinder library
+03d2ad003 unwind: add sframe v2 header
+5e95cc051 arm64: entry: add unwind info for various kernel entries
+faff6cbc3 unwind: build kernel with sframe info
+0de63bb7d (origin/master, origin/HEAD) Merge tag 'pull-fix' of git://git.kernel.org/pub/scm/linux/kernel/git/viro/vfs
+902e09c8a fix braino in "9p: fix ->rename_sem exclusion"
+f286757b6 Merge tag 'timers-urgent-2025-02-03' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
+a360f3ffd (grafted) Merge tag 'irq-urgent-2025-02-03' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
+bb2784d9a (grafted) jiffies: Cast to unsigned long in secs_to_jiffies() conversion
+30d61efe1 (grafted) 9p: fix ->rename_sem exclusion
+
+[root@ip-172-31-32-86 linux-upstream]# grep SFRAME .config
+CONFIG_AS_HAS_SFRAME_SUPPORT=y
+CONFIG_SFRAME_UNWIND_TABLE=y
+CONFIG_SFRAME_UNWINDER=y
+[root@ip-172-31-32-86 linux-upstream]# grep LIVEPATCH .config
+CONFIG_HAVE_LIVEPATCH=y
+CONFIG_LIVEPATCH=y
+CONFIG_SAMPLE_LIVEPATCH=m
+
+[root@ip-172-31-32-86 linux-upstream]# as --version
+GNU assembler version 2.41-50.al2023.0.2
+Copyright (C) 2023 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or later.
+This program has absolutely no warranty.
+This assembler was configured for a target of `aarch64-amazon-linux'.
+
+[root@ip-172-31-32-86 linux-upstream]# gcc --version
+gcc (GCC) 11.4.1 20230605 (Red Hat 11.4.1-2)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Loading the livepatch-sameple module:
+-------------------------------------
+
+[root@ip-172-31-32-86 linux-upstream]# kpatch load /lib/modules/6.14.0-rc1+/kernel/samples/livepatch/livepatch-sample.ko
+loading patch module: /lib/modules/6.14.0-rc1+/kernel/samples/livepatch/livepatch-sample.ko
+waiting (up to 15 seconds) for patch transition to complete...
+patch transition has stalled!
+<4>kpatch: Livepatch process signaling is performed automatically on your system.
+<4>kpatch: Skipping manual process signaling.
+waiting (up to 60 seconds) for patch transition to complete...
+
+Stalled processes:
+340 kdevtmpfs
+stack:
+[<0>] devtmpfs_work_loop+0x2cc/0x2d8
+[<0>] devtmpfsd+0x4c/0x58
+[<0>] kthread+0xf0/0x100
+[<0>] ret_from_fork+0x10/0x20
+module livepatch_sample did not complete its transition, unloading...
+disabling patch module: livepatch_sample
+waiting (up to 15 seconds) for patch transition to complete...
+transition complete (3 seconds)
+unloading patch module: livepatch_sample
+<4>kpatch: error: failed to load module livepatch_sample (transition stalled)
+
+Useful messages from kernel log [pr_debug enabled]:
+---------------------------------------------------
+
+ livepatch: enabling patch 'livepatch_sample'
+ livepatch: 'livepatch_sample': initializing patching transition
+ livepatch: 'livepatch_sample': starting patching transition
+ livepatch: klp_try_switch_task: kdevtmpfs:340 has an unreliable stack
+ livepatch: klp_try_switch_task: insmod:9226 has an unreliable stack
+ livepatch: klp_try_switch_task: swapper/63:0 is running
+ [......SNIP.......]
+ livepatch: klp_try_switch_task: kdevtmpfs:340 has an unreliable stack
+ [......SNIP.......]
+ livepatch: signaling remaining tasks
+ livepatch: klp_try_switch_task: kdevtmpfs:340 has an unreliable stack
+ livepatch: 'livepatch_sample': reversing transition from patching to unpatching
+ livepatch: 'livepatch_sample': starting unpatching transition
+ livepatch: klp_try_switch_task: swapper/45:0 is running
+ livepatch: 'livepatch_sample': completing unpatching transition
+ livepatch: 'livepatch_sample': unpatching complete
+
+Please let me know if you are aware of this already or if this is
+expected behaviour with this version. I will try to debug this from my
+side as well. Also let me know if you need more details for debugging
+this.
+
+P.S. - I also saw multiple build warning like:
+ld: warning: orphan section `.eh_frame' from `arch/arm64/kernel/entry.o' being placed in section `.eh_frame'
+ld: warning: orphan section `.init.sframe' from `arch/arm64/kernel/pi/lib-fdt.pi.o' being placed in section `.init.sframe'
+
+
+Thanks,
+Puranjay
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ6IpDhQccHVyYW5qYXlA
+a2VybmVsLm9yZwAKCRCwwPkjG3B2ncTKAPwMyQYhH9SeQE1efMJ3svM0mOSDNKQP
+sdWn5z6J5QcjHQD7BOPVMZoBRetNo0/gEu1kDe6zVoV+uma42/iOhGGvRgA=
+=oCKP
+-----END PGP SIGNATURE-----
+--=-=-=--
 
