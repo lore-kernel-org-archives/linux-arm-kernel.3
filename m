@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667E7C0218F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D17C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 07:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZdpPsIMu5n/082iOL9Gy7FTDf0k5ygYXqCvE+zjF6A=; b=Ae4jM7vVK0BZtuo+ZAdb39bjPa
-	w8yMtXbNMHGVu5Kdm54H0Tp/qK2QRTtD4dyVGVVAEppzJahRjLIRiDc29CMY6zMwUcr0KLQZ+VOOW
-	U9UgsR/6enIAr/DFfmA+ROSe9MrbWp5It+Q2SToQV9UpQPJbd/0Qyk+SBAi7LW0K2wiGdDIR3hpoY
-	HAf6v/hqKdb5vU0UtmkP4702YyxOdanXnvxmkvbPUZ565CJFGevJDnxo+1pq/N6YjYFPPceio/CW0
-	0RqJWbS8zakKq/Gb/xsBbTlWrQDXOK1kJ9iFTnCMmLWjPI1ssFLWqWag25jv1kwiTdfAfAryqa2GM
-	FYhPE+oQ==;
+	bh=yGr7haxR+zezFyAE8VVDvfkO3FnryVuojc4VK5Wf+mk=; b=iZcoP7q3joLWAkzzbG9WI4hZkE
+	auQWPgdfhOZjRxSQcWw6W+jVGyj75R+2WyMFZbdPaCfcQwy1BMiI54HmuWGc+s1famWGtv+4/4ARQ
+	LETm7Drw5L4WfEEdtXQ+TXogXOBbcesTOK6wXDRc6joGZb31D6UDD7PvIYKzlS3udvc+D1w4fP982
+	h+hnfyPuLx88aUxsoNc/4ARknyAqfDyRPfiVNQ5b8mr8oCrqOKXP4KEAjpYmm01mR3F8VPTuKgWv/
+	yMmvmcaiABaDd9D2By+FPhgw4WMImydceLZ/W4QIql5d+Ejiw/s766T1iIgRdZhWHMdyjy8H9Ly+e
+	I2T44qdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDiv-0000000HSJW-24dI;
-	Tue, 04 Feb 2025 07:51:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tfDlt-0000000HSkI-1q0I;
+	Tue, 04 Feb 2025 07:55:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDha-0000000HSDS-3TPS
+	id 1tfDkX-0000000HSVc-1CyV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 07:50:36 +0000
+	Tue, 04 Feb 2025 07:53:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1E9955C5418;
-	Tue,  4 Feb 2025 07:49:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7425C4CEDF;
-	Tue,  4 Feb 2025 07:50:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8B54C5C5417;
+	Tue,  4 Feb 2025 07:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E3ACC4CEDF;
+	Tue,  4 Feb 2025 07:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738655433;
-	bh=R/1/O873eQQkbQQnqhju0SNk6l75r8+Xhn7mIQhDkVY=;
+	s=k20201202; t=1738655616;
+	bh=6li0nTXDpwk/xunVkZoNszRwoScOYPjfrU33f4c3TUE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pPgMWRZ5n96Mf1ZNnxQxIgtiy9dTpgz+4Z8SIuKQJ8l6GvyIyjkKkIuA6OJhjtjcP
-	 oX/K3cplNY0F5sm5ChN4PAWzvpS1DUtb1UiHFUIhq3InKlxsxyyfN++u+dZH6u9zuW
-	 oJ4RI13LFJg4/q6EeXGYMAlwTpxhhFi7at7GjwPQs1/gHEbdx/TDRxrSMiHfJF8rvR
-	 hshJLxyFM4bDd7vSpPkVdZ3Mzbrd1Ssun/2bOy1T3VRcEBmIavwuzYAs6gP5wZQmMN
-	 Bjns41Xnbv7KYkm1aua1PDsepmpkYabJAOP8bIgDQuhklevp1wL8db4HtZdkO/UNYQ
-	 pZmP1ob+axgIg==
-Message-ID: <59b38b53-44c6-40ba-9344-de6de89532f6@kernel.org>
-Date: Tue, 4 Feb 2025 08:50:26 +0100
+	b=iVB0S9ZKvWsh0nnWGNUyCbUj1z6czoHkbsSj87qk/KUT+H+n+FB2Z8ib/rxnbXlRf
+	 C8uXYHu0ZmHq2Gx08/lnDeeRW/avcHvA1czjjuDYhcpIblZ2uVgHZK4VZE0Icf/9yp
+	 llYW+L5kqgyvQOVQIllIR4+doRsLiYhCMNOUezFYUi+cJnjtovGVKe46k9kejtGn8r
+	 zhIDUMxEcWHjLD3g18hKIaq3mTd9LZmm7SPLSDUkOI1cWp7/IfdFMFbyZAFpeistmH
+	 6jbmEl0FjuLWavjlbAT+KrDIx+QmeXyJcVxkPkVJAtwKWgIUXsXpAEjyAvQddOEnBU
+	 sbkpvkBQYLA9g==
+Message-ID: <339ea40f-6bc7-42ad-a5c2-f57b3be8cc39@kernel.org>
+Date: Tue, 4 Feb 2025 08:53:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/9] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- christophe.kerello@foss.st.com
-References: <20250128081731.2284457-1-patrice.chotard@foss.st.com>
- <20250128081731.2284457-4-patrice.chotard@foss.st.com>
- <20250129-hilarious-glittering-mustang-fb5471@krzk-bin>
- <3660580d-72eb-45ca-8240-55557e334e37@foss.st.com>
- <951e4d16-2bb2-44b1-99e7-dd28349f20aa@kernel.org>
- <02b947e3-dd5c-4ee8-bd65-5775923fe33f@foss.st.com>
- <899675e8-4c2e-4ff2-a6af-854e0ec29bb6@kernel.org>
- <6ed4fa56-e7ee-4b6b-951b-61a92be5c6c2@foss.st.com>
- <6a639549-f8c8-4e36-8cfe-839f247780bb@kernel.org>
- <9073411a-38aa-4f82-95f5-474b0c3efed7@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 0/2] Add chip ID for Exynos7870 SoC
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Sergey Lisov <sleirsgoevy@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -115,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <9073411a-38aa-4f82-95f5-474b0c3efed7@foss.st.com>
+In-Reply-To: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_235034_966632_816EC8F4 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20250203_235337_417208_7E66AB8E 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,207 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2025 08:29, Patrice CHOTARD wrote:
->>>>>>>>> @@ -0,0 +1,190 @@
->>>>>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>>>>>>> +%YAML 1.2
->>>>>>>>> +---
->>>>>>>>> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32-omm.yaml#
->>>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>>>>> +
->>>>>>>>> +title: STM32 Octo Memory Manager (OMM)
->>>>>>>>> +
->>>>>>>>> +maintainers:
->>>>>>>>> +  - Patrice Chotard <patrice.chotard@foss.st.com>
->>>>>>>>> +
->>>>>>>>> +description: |
->>>>>>>>> +  The STM32 Octo Memory Manager is a low-level interface that enables an
->>>>>>>>> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
->>>>>>>>> +  function map) and multiplex of single/dual/quad/octal 		SPI interfaces over
->>>>>>>>> +  the same bus. It Supports up to:
->>>>>>>>> +    - Two single/dual/quad/octal SPI interfaces
->>>>>>>>> +    - Two ports for pin assignment
->>>>>>>>> +
->>>>>>>>> +properties:
->>>>>>>>> +  compatible:
->>>>>>>>> +    const: st,stm32mp25-omm
->>>>>>>>> +
->>>>>>>>> +  "#address-cells":
->>>>>>>>> +    const: 2
->>>>>>>>> +
->>>>>>>>> +  "#size-cells":
->>>>>>>>> +    const: 1
->>>>>>>>> +
->>>>>>>>> +  ranges:
->>>>>>>>> +    description: |
->>>>>>>>> +      Reflects the memory layout with four integer values per OSPI instance.
->>>>>>>>> +      Format:
->>>>>>>>> +      <chip-select> 0 <registers base address> <size>
->>>>>>>>
->>>>>>>> Do you always have two children? If so, this should have maxItems.
->>>>>>>
->>>>>>> No, we can have one child.
->>>>>>
->>>>>> For the same SoC? How? You put the spi@ in the soc, so I don't
->>>>>> understand how one child is possible.
->>>>>
->>>>> Yes for the same SoC, in DTSI file, the both OCTOSPI child are declared 
->>>>> but are disabled by default.
->>>>
->>>> But the child node is there anyway so are the ranges.
->>>
->>> if both child are disabled, omm-manager should be disabled as well, 
->>> omm-manager alone makes no sense.
->>
->>
->> Yes, it is obvious, but how is this related?
+On 03/02/2025 21:32, Kaustabh Chakraborty wrote:
+> This patch series is a part of Exynos7870 upstreaming.
 > 
-> As described in the commit message, OMM manages the muxing of the 2 OSPI buses 
-> (its 2 child), that's the relation.
-
-Again, nothing related to our discussion.
-
-You claim you can have only one child and we do not talk about child
-disabled status here. So show me the product which have second address
-space removed from *the SoC*.
-
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+> Kaustabh Chakraborty (2):
+>       dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
+>       soc: samsung: exynos-chipid: add support for exynos7870
 > 
-> Do you want i add this directly in yaml file ?
+>  Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
+>  drivers/soc/samsung/exynos-chipid.c                                 | 1 +
+>  2 files changed, 2 insertions(+)
 
+When I asked to split, I said per subsystem. Soc is one subsystem.
+Everything targeting SoC should be in one patchset. get_maintainers.pl
+tells the name of the subsystem and its maintainers.
 
-No, I want the answer when is it possible to have only one ranges. What
-such DTSI would represent - what real world hardware.
-
-> 
->>
->>>
->>>>
->>>>>
->>>>> In the DTS board file, 0,1 or 2 OCTOSPI instance can be enabled depending of the board design.
->>>>>
->>>>> In our case, on stm32mp257f-ev1 board, one SPI-NOR is soldered on PCB, so only one OCTOSPI 
->>>>> instance is needed and enabled.
->>>>>
->>>>> Internally we got validation boards with several memory devices connected to OCTOSPI1 and 
->>>>> OCTOSPI2, in this case, both OCTOSPI instance are needed and enabled.
->>>>
->>>> I could imagine that you would not want to have unused reserved ranges,
->>>> so that one indeed is flexible, I agree.
->>>>
->>>>>
->>>>>>
->>>>>>>
->>>>>>>>
->>>>>>>>> +
->>>>>>>>> +  reg:
->>>>>>>>> +    items:
->>>>>>>>> +      - description: OMM registers
->>>>>>>>> +      - description: OMM memory map area
->>>>>>>>> +
->>>>>>>>> +  reg-names:
->>>>>>>>> +    items:
->>>>>>>>> +      - const: regs
->>>>>>>>> +      - const: memory_map
->>>>>>>>> +
->>>>>>>>> +  memory-region:
->>>>>>>>> +    description: Phandle to node describing memory-map region to used.
->>>>>>>>> +    minItems: 1
->>>>>>>>> +    maxItems: 2
->>>>>>>>
->>>>>>>> List the items with description instead with optional minItems. Why is
->>>>>>>> this flexible in number of items?
->>>>>>>
->>>>>>> If only one child (OCTOSPI instance), only one memory-region is needed.
->>>>>>
->>>>>> Which is not possible... look at your DTSI.
->>>>>
->>>>> It's possible. if one OCTOSPI is used (the second one is kept disabled), only
->>>>> one memory-region is needed.
->>>>
->>>> Ack.
->>>>
->>>>>
->>>>>>
->>>>>>>
->>>>>>> Another update, i will reintroduce "memory-region-names:" which was 
->>>>>>> wrongly removed in V2, i have forgotten one particular case.
->>>>>>>
->>>>>>> We need memory-region-names in case only one OCTOSPI instance is 
->>>>>>> used. If it's OCTOCPI2 and the whole memory-map region
->>>>>>> is dedicated to OCTOSPI2 (OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
->>>>>>>
->>>>>>> We need to know to which OCTOSPI instance the memory region is associated
->>>>>>> with, in order to check "st,syscfg-amcr" 's value which must be coherent 
->>>>>>> with memory region declared.
->>>>>>>
->>>>>>> so i will add :
->>>>>>>
->>>>>>>   memory-region-names:
->>>>>>>     description: |
->>>>>>>       OCTOSPI instance's name to which memory region is associated
->>>>>>>     items:
->>>>>>>       - const: ospi1
->>>>>>>       - const: ospi2
->>>>>>>
->>>>>>
->>>>>> I don't think this matches what you are saying to us. Let's talk about
->>>>>> the hardware which is directly represented by DTS/DTSI. You always have
->>>>>> two instances.
->>>>>>
->>>>>>
->>>>>
->>>>> We have 2 instances, but both not always enabled.
->>>>> In case only one is enabled, only one memory-region-names is needed.
->>>>>
->>>>> We must know to which OCTCOSPI the memory-region makes reference to, in order
->>>>> to configure and/or check the memory region split configuration. That' swhy 
->>>>> the memory-regions-names must specify if it's the OCTOSPI1 or OCTOSPI2 instance.
->>>>
->>>> Well, in that case two comments.
->>>> 1. Above syntax does not allow you to skip one item. You would need:
->>>> items:
->>>>   enum: [ospi1, ospi2]
->>>> minItems: 1
->>>> maxItems: 2
->>>>
->>>
->>> ok
->>>
->>>> 2. But this points to other problem. From the omm-manager node point of
->>>> view, you should define all the resources regardless whether the child
->>>> is enabled or not. You do not skip some part of 'reg' if child is
->>>> missing. Do not skip interrupts, access controllers, clocks etc.
->>>> If some resource is to be skipped, it means that it belongs to the
->>>> child, not to the parent, IMO.
->>>
->>> I didn't get your point. 
->>>
->>> The resource declared in omm-manager's node pnly belongs to omm-manager
->>> (reg/clocks/resets/access-controllers/st,syscfg-amcr/power-domains), regardless 
->>> there are 1 or 2 children. None of them can be skipped.
->>
->> That's not true, you skip ranges and memory region.
-> 
-> If i have correctly understood, you want a constraint on range and memory-regions properties ?
-> Is it what you expect ?
-> 
->   ranges:
->     description: |
->       Reflects the memory layout with four integer values per OSPI instance.
->       Format:
->       <chip-select> 0 <registers base address> <size>
->     minItems: 1
->     maxItems: 2
-> 
->   memory-region-names:
->     description: |
->       OCTOSPI instance's name to which memory region is associated
->     items:
->       enum: [ospi1, ospi2]
->     minItems: 1
->     maxItems: 2
-> 
-
+If there is going to be resend/new version, combine patchsets for soc
+into one patchset (just like the example I gave last time).
 
 Best regards,
 Krzysztof
