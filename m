@@ -4,182 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900BEC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 23:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C053C02193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Feb 2025 23:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RK8HcctKWrWGjHAxyN8k6xlAbP24zFsv0TFbZlW19A=; b=yxgoGyRA1z49Cc9KZX80BBjs/M
-	4c0n53PzrIbgOxl96AVxxGyPupArAnDWiLoikCKtSw8kzm1QulvgkOMMZUVqRvVQZ6tdEx2bfkxJW
-	55xpG05bRQZJ6okuchK/4nqfQHHr5/MRY/WKoQtm0CQ/Qpnh9H+RLoDlmmkK4i9mHHavksLStjMjS
-	MG669jJ72vXl8Fdx4Mt1eFlqDZZBhEkVTEHHn4jc8aFmEpJi7ijpIIriYvs6p9cXq9m9sEh79AkvW
-	aAckL8gHwe2GzoqyJol/x2tySAm6rwpESRMjd7++zmmwHz12aHG9j0ItHqI8vfBlZSJ+qtGNSzqi4
-	pUkhNBVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zb+m34IdtYqveaigwhhXFrJDqLFEUGcgtFJI0I4KZ7E=; b=2AN73hDg0wECrLj2H5rwFoQO5Z
+	aOJc7qq8EEBQfmbuKqC22qlEnbDkcEb3Kn6hWcCdoZspOSkwMBuu5wcftqvUd6XUfl2iCfEALTTJ0
+	J8WiAkbhhktLKwOqifc5YrTSBBjkR463JMXpBJwCMembmmqKZTinL1Anwgg2feDzIvtvSqJYoKsUd
+	3o8DVWHTlWdT1jCAKcvPSsUnppA586ZXoyFIwiP674fBikpxRcigks//u6hwPms2qtM06qtEcPS2w
+	rthb7yPhOgv0vjR5Q74QpUOr1kGwxKL1J7ImYQ+lMod4iT4NbkscQbr+X+vXIMmMFFBp5rmxzmc4k
+	cC7N3KaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfSBc-00000001oc8-3v39;
-	Tue, 04 Feb 2025 23:18:32 +0000
-Received: from mail-dm6nam11on2060c.outbound.protection.outlook.com ([2a01:111:f403:2415::60c] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tfSVS-00000001r1p-2axL;
+	Tue, 04 Feb 2025 23:39:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfRkR-00000001jd1-1sV4
+	id 1tfSU5-00000001qhc-1iwh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 22:50:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LWThh/AYziDVFX6FIPwZIDhCooJlt7qmuXaGQUYqeOCt8sKs+n/adKVcjXbYqB54LdRxX6WYr+0Di8d44qZAOoNdJdbVlrNr3WdEtjEOwfhXVPKU3SsIOz6KfChAno+9NlWrDkNO/V9pxoZH9YKOXPl6V5peNE94BfCY4CXiHowLidI/fFWTZ1DxDuJ1aOoII045vc5nZrjlpti2bvi233Twedbj/pvqM3nnL1lhf8tKT7zJsSIzmMIK0P/ceGHnAYc3YM3uvlGOzfPZhY0td6LhkbvDXvBYwTR//sHYl+8k615uh7xbKF6vj0paD2n8APruxGdg6pLyNzejaN/vNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+RK8HcctKWrWGjHAxyN8k6xlAbP24zFsv0TFbZlW19A=;
- b=cOtdm7AVIEAWwOgO4gb+K2i4B9td78Q0xBN6yIVqyplKZFXgS0SzhL2m0nMPo4L9wA3kSrQblMxKWhsvEJkLLrAYotshODg49g5HgcSXhaiANGdKubwYOqX6xRBaRpgwcUcpOcnzUGPU1yUjiUUMPpGnadY7T/2VfX1INOEFNa3Dk1Ts3BHHjdpKpKdXfak2PumVyUf9SWEeU6GBVSAmcTjtNyrPHhAB/wXEBKjd8gp/nBwsqoJ4LJqHaajiedsJ70TGELH95Hj73z/4nWKeg12+B7eRS2B7KFPPxvsPAhXHVCj68LS05fQ3DZvvsoMjLEYEsSSqq0a5UH/efNIl2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+RK8HcctKWrWGjHAxyN8k6xlAbP24zFsv0TFbZlW19A=;
- b=LvMTO5G/vq+G84KunIOt9dhCWlvhCf3GUs0jcFx7uCgP3sf4F6oTFl5y+jtQBtCXcgNT8XoYLkMt0eoj0+TscIUxYgevX6TnJ7wj18E8h+SAIXntI41wO3LEkny6Dx84XYBzhUxoVyvYzlvdPN9hgLJg5ouOlmy5ZrNfi+eqsAbTOVsPOylwGRJ4njs99ZtCC3Dk6lhgmhG9rkor4j31vcR69WsfTd/tSB9fMslQggts6GAXwUHxSN4BKPV/SLApKs9FlPgtWBn7odo7NXN7GktX9Ib48YOgQSx4jKiIdLdP3llSABBQuY2ZBflczDzc0yvso+oNyiPlho0Y03AJ3w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- MN0PR12MB5978.namprd12.prod.outlook.com (2603:10b6:208:37d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Tue, 4 Feb
- 2025 22:50:19 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 22:50:18 +0000
-From: Alistair Popple <apopple@nvidia.com>
-To: akpm@linux-foundation.org,
-	dan.j.williams@intel.com,
-	linux-mm@kvack.org
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	lina@asahilina.net,
-	zhang.lyra@gmail.com,
-	gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com,
-	dave.jiang@intel.com,
-	logang@deltatee.com,
-	bhelgaas@google.com,
-	jack@suse.cz,
-	jgg@ziepe.ca,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	dave.hansen@linux.intel.com,
-	ira.weiny@intel.com,
-	willy@infradead.org,
-	djwong@kernel.org,
-	tytso@mit.edu,
-	linmiaohe@huawei.com,
-	david@redhat.com,
-	peterx@redhat.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev,
-	linux-cxl@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	jhubbard@nvidia.com,
-	hch@lst.de,
-	david@fromorbit.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	loongarch@lists.linux.dev
-Subject: [PATCH v7 20/20] device/dax: Properly refcount device dax pages when mapping
-Date: Wed,  5 Feb 2025 09:48:17 +1100
-Message-ID: <7d65e855fcdc5cee12b4500a557b2ad961bdc8f2.1738709036.git-series.apopple@nvidia.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
-References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SY5P282CA0170.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:24a::25) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	Tue, 04 Feb 2025 23:37:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F1F8FA41FF1;
+	Tue,  4 Feb 2025 23:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B77C4CEDF;
+	Tue,  4 Feb 2025 23:37:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738712255;
+	bh=vAY8VLfiDAEQkW2QlXq5vU119DGdr5y1FVx5inPsSCI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VKwivGzIB7KSq8KgreBnpiCDIjWvwHPgeYknYhX3Kg9ltR4fZRZzNRDG51LxUu/Jc
+	 gVAvk+DnI1G7ghRdVUhcmgy+fSsdLf9bcno5Bv7v7jXBceCtmhzs5AUY1sUDv5nQmH
+	 p4lI5fHO8QVFY2PQ+XVxcFx55XQ94tgxGrBuADzVofn3/QM+FgFH0XGdyWdIxNLj3C
+	 w6M0DUGXhf9Dp9h8DNfP3IoPo9dhQE15o1JgqD6yx88avgOIPGHR1pAuPwJdJIDIKO
+	 cz2nGON1ELjxaDLMl0fywiP1a4s5FWAYHi+4z2zPXVJz8WFNQ9ABzFYk8RdectrZY/
+	 qjS4w3OSQueIA==
+Date: Wed, 5 Feb 2025 08:37:30 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Cc: linux-iio@vger.kernel.org,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, timestamp@lists.linux.dev,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Dipen Patel <dipenp@nvidia.com>, dlechner@baylibre.com
+Subject: Re: [Q] Frequency & duty cycle measurement?
+Message-ID: <Z6KkusvLFPcNvEfl@ishi>
+References: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
+ <Z5efcokgHix-k3lW@ishi>
+ <dffc0f18-799a-4fc7-a6b5-2fa270e1fc58@prolan.hu>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|MN0PR12MB5978:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8e5be72-8531-4596-0876-08dd456e4c34
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lStfnsiSb+G8Iw91EnBGAJ0j2af9WK1uA3v+7TtIJTVBcQZ/D2NVAcMbCv++?=
- =?us-ascii?Q?ugeJX9KsrS7c5EhW2xHw26vrO3TVthtXSratgnjzkanfCNqVUK025wzgiQz3?=
- =?us-ascii?Q?A3V84KAoMHk+xNfj/LqvaDKS2r4mAAhu//ob16TlHHg60k0eEaUt1a9gxIrr?=
- =?us-ascii?Q?osNqqkT4qG3GVTBrXCFB5c7K/eJqYuJImcHhmXVa8cNYZxkKWoBpvJ72y7sh?=
- =?us-ascii?Q?HbcNuHwgJ0fObSyEDqwae++HpHQA4TGAlr9hiOPkDwH+mEqJfOYuhV9YSxky?=
- =?us-ascii?Q?2r0iw00w458ACvLnFDagvcrMUpmD3UbPxRVpGQXbSQcHScKyd3CY/e1XkuIP?=
- =?us-ascii?Q?eCDHxecCtQ/ks9I6tQtvswvEV3s2elVV9qHwNMex4zo9QuOeUuz7IKKFsm6w?=
- =?us-ascii?Q?4GJ6F7/5zpy8UzBgDxtNNWT1bkDIhCZzmsZ4FyaQCfLKpZR7mUWs0Ue6RxSZ?=
- =?us-ascii?Q?74SwSaY9VTrRvS3hgcmAr/1uUmKkXwfzvt2wf2rxq+t1pl0OjpIRxHqWU9bZ?=
- =?us-ascii?Q?TpSbU86nnm/jJnEl5GmuN1/9MA+j5EUaJMwVm3VhH8tooo4LcqKmb+ey6C9n?=
- =?us-ascii?Q?e3BHLTREkxw2Qgu9uWV30E/xva7btJpTk2sfTWswUqGEsbrXtsbNoxBrVdCA?=
- =?us-ascii?Q?3BSglWCkupdZjiC9X7NDJz6Yf4yKIErO1VkPeITEaZAHBQChjvh9yEX3mb1L?=
- =?us-ascii?Q?QuSfd9SLe41Fwp7aU4A54Wm62CNY9WJET1EtrVG71tmK7wH7JvR4HvQ8dOVW?=
- =?us-ascii?Q?SXLhdBdEn9FzsqWSGLL9ONLhlLQ7YT+nfZdKF9ABeZdfQAFu2IzLCBuDZiuo?=
- =?us-ascii?Q?FJq8C/r0n2JNlaDU+KZQGK6RRiZDY1tZDTG+2ZTWkcvsE03uRbOhQvnY7u+W?=
- =?us-ascii?Q?dbF4Abme7kbk99iurukxlV08Rc7qBBBXcASSiaWQ6D7JVpefkGFQvfuQ+013?=
- =?us-ascii?Q?p9iz4zxyo9zL2wmYObwPIujOD49Ivlr1ol94hc9bIRr0trxXJeiIP/PvN7bL?=
- =?us-ascii?Q?p0FvmxGZuMl9RBVF/cCvTnQOKXJptu/jIhLBqbyyxVgonuQk/DA97aELxGGI?=
- =?us-ascii?Q?HqkWNy6ic5OH9vhlxemWGumAdNtRX8jLg3TTJkqexhdfvmLa6L2qmKoxqxEn?=
- =?us-ascii?Q?Yar+uXRoynC6dn2s23oqxf30eA2ir4yhlRU2n80L9iaSsMufH43XEOdy53RP?=
- =?us-ascii?Q?Le8v3VPfsCAST1CmT+Od/XbPZjbfIg2NuCaTNdUG9JoyhrPdlO7XJB91U3uk?=
- =?us-ascii?Q?3Aqls7NPjyEU/ymtWT6peR41vd6ElLAKdlnbgh4EmsXpnUu7DnwHBhVJkuda?=
- =?us-ascii?Q?18QQkaq3R3Nas4Nf6B5ohAerWCM07SybHsPB0C4p3XMoel8ZSBju0GewOMkn?=
- =?us-ascii?Q?t/j0MRBDeal0qdqeKbouPVIDXkHV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dqlNYgNXTk57smO1jyS5MHtYJGZx4MWUa+uIY098ykSR6WSxpGrbM/QEBT6W?=
- =?us-ascii?Q?zAcMoOmE1msxN7b5YV5FDSDW6fipOjyeXQsuxCXB/197UBv+SZHXrBabfe7G?=
- =?us-ascii?Q?gbSAJ2uu02Vp54FX5j2AD5ckOWBRYCBJMhfGtoqyqJ8zM7HwwZf3TfCf4N8V?=
- =?us-ascii?Q?+CH8dOw2Mqeo1OAforoKisS5PD9lOF+duGRvVpfnb7aV+Q5RriNG2W1wwh2G?=
- =?us-ascii?Q?aba3mjL100GvAFQF+moAfWQBM8x8IH9gKAmU/h5qG/Da8XZA4eENKV2t3/X/?=
- =?us-ascii?Q?muYfvbHcC9lpVeQIjk8Ba52Oawg6o50Cp0CTYMdQdhw9JWWMOSvVjn6EXUUq?=
- =?us-ascii?Q?pSX4O6jLVOBrzIgk4ve+YUq1R2DwxmLYooS8gUnpOUbLHjn60UgxYOB80wJm?=
- =?us-ascii?Q?gxWqge1PEce6GCQnzjcpFPgPZ5xtGuBh4uaaHJ4NusvmJIPTd2fWAfbNnPVP?=
- =?us-ascii?Q?dGpjeyqYUdOB9SVU+zzXDu4XPBgBaPXYMOIBAM/gMza+buEZ7lxyXd/tsgnJ?=
- =?us-ascii?Q?fg/YtemhjiyFiLI6GJAkdi83pAFX5mHuGmpmxM5Aofb8PXDrGmcBMTuhwsm3?=
- =?us-ascii?Q?I1/DWcQ/WCbVV41WjehADyxa+vbQFD+iOse0tCYZ2Dz87dMXbg67vlueMjJZ?=
- =?us-ascii?Q?4mplP17Ku6BA48Q5Pec9fh+lR7WSemDwMsYNeOzb9ycjjPZzwcHHUWJBjbwW?=
- =?us-ascii?Q?t+b03BYPahqJobWJgOoBjF0EtCeTrnsguq4mJBjO7ZMX/y23qCxdN7D9Mzmb?=
- =?us-ascii?Q?D0YiNOonh9myo7Fu3//FqNMCfF4D4PPwAF7Gj6f8ap/pcNfovtAVaf+p4Cpp?=
- =?us-ascii?Q?6P+8wpJxlpokxWPJOR1u691yAtiEUWZJk3NsP/2XF/lOPn/hyADvcOja7miO?=
- =?us-ascii?Q?5cExyphdIIPqRB07n1dkMkA4ImvEv1KWYV752ncRXIQBSwckpLpcSejXmC+7?=
- =?us-ascii?Q?/tAO2yAwZcgEHBAQWNBQL8Djiyv/0/RUsXC4Abh48wmvJlmDufVmjTFuctsk?=
- =?us-ascii?Q?61sXaeEKsZ5NkkGd+4o5B6naMVOJovffi6SGfagA58Bb4bHpINSgsEWhg/fn?=
- =?us-ascii?Q?vERpyJEDiYSQUjvGe/YduUUDDi7g9X+jsS1vdWNJSJZ/lDpQGMA16/Fqcdhv?=
- =?us-ascii?Q?L9X+qCmByCMzxgp4snyXv6ob15RChy8QeJvfMmR9g8z5tosDAgKqFNHUdVcO?=
- =?us-ascii?Q?19BFO2Fyh0GlfO7qFcmAccGWHPbDYWtCzS/IrBxQGOXI3GxVgZc54YaL8VgR?=
- =?us-ascii?Q?FR3Yc1fEylRquqnvOiH7HDBo2f43ZeR8cYPj4YIYpyzmfUBLKxrtorvS5anA?=
- =?us-ascii?Q?cRAa3nwUFPtJron59PR5xe0ysxireBcN5nlUXWNHTrsCH2CW/oOho/WXbOpB?=
- =?us-ascii?Q?yvvi5ojZUlAUEBuxwCfx8bvNThviWbDkkSQ7tbWM/vvSWPy5Rwlxm1NTXaRY?=
- =?us-ascii?Q?QxI4kwu+DoogCX0GQj0Tn6OAWEL3gZTMEGmw7gHxUIHVOTSb3E+UMTJipaeK?=
- =?us-ascii?Q?iD9ZOH1kKU+KROYCMZNhapfSTgN3+Yv6FQj2TkpJjYITEPcdEdgDmA1/P1SN?=
- =?us-ascii?Q?H1XAE7QqLRglOWPBCoH/J50efrKNIydiMTLoJRpE?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8e5be72-8531-4596-0876-08dd456e4c34
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 22:50:18.7040
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fSYMUkxbdq+ITdx/qthVTTj0IyujhXGyQAhbbbOtPDbjrjJZccO92ORw58EUaiF+1yq6tGysIw4gp/XEzM3MAg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5978
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2a9wQicw+mxwAn3v"
+Content-Disposition: inline
+In-Reply-To: <dffc0f18-799a-4fc7-a6b5-2fa270e1fc58@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_145027_499397_020BA907 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250204_153737_582391_9CD4E4E6 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,111 +80,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device DAX pages are currently not reference counted when mapped,
-instead relying on the devmap PTE bit to ensure mapping code will not
-get/put references. This requires special handling in various page
-table walkers, particularly GUP, to manage references on the
-underlying pgmap to ensure the pages remain valid.
 
-However there is no reason these pages can't be refcounted properly at
-map time. Doning so eliminates the need for the devmap PTE bit,
-freeing up a precious PTE bit. It also simplifies GUP as it no longer
-needs to manage the special pgmap references and can instead just
-treat the pages normally as defined by vm_normal_page().
+--2a9wQicw+mxwAn3v
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Alistair Popple <apopple@nvidia.com>
----
- drivers/dax/device.c | 15 +++++++++------
- mm/memremap.c        | 13 ++++++-------
- 2 files changed, 15 insertions(+), 13 deletions(-)
+On Thu, Jan 30, 2025 at 02:59:20PM +0100, Cs=F3k=E1s Bence wrote:
+> Hi William,
+>=20
+> On 2025. 01. 27. 16:00, William Breathitt Gray wrote:
+> > If RA and RB are provided as a memory buffer on your device, you can
+> > instead expose them via DEFINE_COUNTER_ARRAY_CAPTURE() such as the
+> > ti-ecap-capture driver does, then perform your userspace computations
+> > by utilizing those respective "capture" array attribute values (via
+> > chrdev like the example above or alternatively via sysfs).
+>=20
+> Thanks for your extensive explanation! With DEFINE_COUNTER_ARRAY_CAPTURE(=
+) I
+> was able to expose RA and RB as
+> `/sys/bus/counter/devices/counter0/count0/capture{0,1}`, and could verify
+> that by replacing `devmem` calls with read()-reopen(), our PoC code still
+> works. Now I want to use the chardev interface, but I couldn't find how to
+> set up the watches appropriately. So far I have:
+>=20
+> 	{
+> 		.component.type =3D COUNTER_COMPONENT_EXTENSION,
+> 		// also tried COUNTER_COMPONENT_COUNT
+> 		.component.scope =3D COUNTER_SCOPE_COUNT,
+> 		.component.parent =3D 0,
+> 		.component.id =3D X, // also tried this instead:
+> 		// .channel =3D X,
+> 		.event =3D COUNTER_EVENT_CAPTURE,
+> 	},
+>=20
+> However, with this, the first read() never comes back.
+>=20
+> Bence
 
-diff --git a/drivers/dax/device.c b/drivers/dax/device.c
-index 6d74e62..fd22dbf 100644
---- a/drivers/dax/device.c
-+++ b/drivers/dax/device.c
-@@ -126,11 +126,12 @@ static vm_fault_t __dev_dax_pte_fault(struct dev_dax *dev_dax,
- 		return VM_FAULT_SIGBUS;
- 	}
- 
--	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
-+	pfn = phys_to_pfn_t(phys, 0);
- 
- 	dax_set_mapping(vmf, pfn, fault_size);
- 
--	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
-+	return vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn),
-+					vmf->flags & FAULT_FLAG_WRITE);
- }
- 
- static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
-@@ -169,11 +170,12 @@ static vm_fault_t __dev_dax_pmd_fault(struct dev_dax *dev_dax,
- 		return VM_FAULT_SIGBUS;
- 	}
- 
--	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
-+	pfn = phys_to_pfn_t(phys, 0);
- 
- 	dax_set_mapping(vmf, pfn, fault_size);
- 
--	return vmf_insert_pfn_pmd(vmf, pfn, vmf->flags & FAULT_FLAG_WRITE);
-+	return vmf_insert_folio_pmd(vmf, page_folio(pfn_t_to_page(pfn)),
-+				vmf->flags & FAULT_FLAG_WRITE);
- }
- 
- #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-@@ -214,11 +216,12 @@ static vm_fault_t __dev_dax_pud_fault(struct dev_dax *dev_dax,
- 		return VM_FAULT_SIGBUS;
- 	}
- 
--	pfn = phys_to_pfn_t(phys, PFN_DEV|PFN_MAP);
-+	pfn = phys_to_pfn_t(phys, 0);
- 
- 	dax_set_mapping(vmf, pfn, fault_size);
- 
--	return vmf_insert_pfn_pud(vmf, pfn, vmf->flags & FAULT_FLAG_WRITE);
-+	return vmf_insert_folio_pud(vmf, page_folio(pfn_t_to_page(pfn)),
-+				vmf->flags & FAULT_FLAG_WRITE);
- }
- #else
- static vm_fault_t __dev_dax_pud_fault(struct dev_dax *dev_dax,
-diff --git a/mm/memremap.c b/mm/memremap.c
-index 9a8879b..532a52a 100644
---- a/mm/memremap.c
-+++ b/mm/memremap.c
-@@ -460,11 +460,10 @@ void free_zone_device_folio(struct folio *folio)
- {
- 	struct dev_pagemap *pgmap = folio->pgmap;
- 
--	if (WARN_ON_ONCE(!pgmap->ops))
--		return;
--
--	if (WARN_ON_ONCE(pgmap->type != MEMORY_DEVICE_FS_DAX &&
--			 !pgmap->ops->page_free))
-+	if (WARN_ON_ONCE((!pgmap->ops &&
-+			  pgmap->type != MEMORY_DEVICE_GENERIC) ||
-+			 (pgmap->ops && !pgmap->ops->page_free &&
-+			  pgmap->type != MEMORY_DEVICE_FS_DAX)))
- 		return;
- 
- 	mem_cgroup_uncharge(folio);
-@@ -494,7 +493,8 @@ void free_zone_device_folio(struct folio *folio)
- 	 * zero which indicating the page has been removed from the file
- 	 * system mapping.
- 	 */
--	if (pgmap->type != MEMORY_DEVICE_FS_DAX)
-+	if (pgmap->type != MEMORY_DEVICE_FS_DAX &&
-+	    pgmap->type != MEMORY_DEVICE_GENERIC)
- 		folio->mapping = NULL;
- 
- 	switch (pgmap->type) {
-@@ -509,7 +509,6 @@ void free_zone_device_folio(struct folio *folio)
- 		 * Reset the refcount to 1 to prepare for handing out the page
- 		 * again.
- 		 */
--		pgmap->ops->page_free(folio_page(folio, 0));
- 		folio_set_count(folio, 1);
- 		break;
- 
--- 
-git-series 0.9.1
+Hi Bence,
+
+Are you still having trouble with this? Is "X" the
+capture{0,1}_component_id value?
+
+I apologize, the Generic Counter character device interface is
+underdocumented so it can be a bit confusing at first; I'll submit a
+patch improving the documentation later this cycle when I get a chance.
+For now, let's walk through how to create an appropriate Counter watch
+for the capture extension components you have.
+
+The first step is to decide which event we'll monitor and on which
+channel: we want to monitor Capture events so that's
+COUNTER_EVENT_CAPTURE, and we want event channel 0 (n.b. 0 because
+that's the channel parameter value passed to counter_push_event() in the
+driver).
+
+The next step is to choose the components you wish to watch: Count 0's
+capture0 and capture1 extensions. So type is COUNTER_COMPONENT_EXTENSION
+because we want to watch extensions, scope is COUNTER_SCOPE_COUNT
+because we want Count extensions, and parent is 0 because we want
+Count 0's Count extensions.
+
+Finally, we need to set the component id for each extension. You get a
+particular component's id by reading the respective *_component_id sysfs
+attribute: so for capture{0,1} you would read capture{0,1}_component_id
+respectively. These component id values potentially can change with
+future driver updates, so for robustness your userspace application
+should read the respective *_component_id sysfs attribute itself rather
+than hardcoding the component id in the Counter watch.
+
+However, for the sake of simplicity in this example, I'll assume the
+component ids are 42 and 43 respectively for capture0 and capture1. That
+gives us the following two watches:
+
+        {
+                .component.type =3D COUNTER_COMPONENT_EXTENSION,
+                .component.scope =3D COUNTER_SCOPE_COUNT,
+                .component.parent =3D 0,
+                .component.id =3D 42,
+                .event =3D COUNTER_EVENT_CAPTURE,
+                .channel =3D 0,
+        },
+        {
+                .component.type =3D COUNTER_COMPONENT_EXTENSION,
+                .component.scope =3D COUNTER_SCOPE_COUNT,
+                .component.parent =3D 0,
+                .component.id =3D 43,
+                .event =3D COUNTER_EVENT_CAPTURE,
+                .channel =3D 0,
+        },
+
+Does this resolve your chardev read issue? If you're still having
+troubling, just let me know and we can troubleshoot further to figure
+out what's going on.
+
+William Breathitt Gray
+
+--2a9wQicw+mxwAn3v
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ6KkugAKCRC1SFbKvhIj
+KyJaAQCCZ5Mnusdt0BDtO1DMxjwY6w6GX5ZblIIVbjUWAzAvIQD9E7WICJ4aGJSf
+5ohM1mSLRyf1qHJCM1IvPkVSD/qZrwg=
+=2fNK
+-----END PGP SIGNATURE-----
+
+--2a9wQicw+mxwAn3v--
 
