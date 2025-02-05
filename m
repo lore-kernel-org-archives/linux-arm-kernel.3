@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C54C02197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61F0C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLaFTGCPEcg9NYXwrgf9SMfKqQ9G+0WJl/NqM7xYYn8=; b=ltZxvPeUuIDpY5IaDGnxaMElwG
-	3UzrfVexbFStXGrjPJCEeF20GJ4FXzfIhc5YPgaC5cSRG8i95bUNKfFF9kP5hRtwvEGTu9SHRSsOP
-	7Lb7hylTwxy8hJ3TMrZMH1MCWIzqv4wexhQQ9yUqv6kIaoNRqAsFupDNTSJgkhNcTh47dYJSqe4cO
-	9Sbe08z5qgfMuyqVnvTvULNuqsfCZj4Gdsd1JobxlmrIB3NBMgijY36HYqY8FMTVkI93tgU+MYD5t
-	iJgahyj8BFLQmNDLpJ6oZLtBX4mHLgGz/kOplau15C3waPLRCYYQkDj33gFhoHPFpBwUm70XwgtM1
-	iFkkEaQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z7iXbDBu4oFwaAzUKB5T1KaEuDxsnH7EBEnrF26Px5s=; b=uLy7ilkkFZTKFeL4DGcy8/QmdW
+	N2ON/BzAEabVfcTYOAChKp6ZCzHbqzXdSBcBl1kkLGZB1C8D0rUJAlgkcDfXG3Cnykge09AOEyn9J
+	Fx+8BPXvfh24Sbwtge4sQBosgS91OmDGxDUtLE7ttHdUJyIQwWS2fNodlidZtU3yZGyr2Tle/BCmM
+	KgoUeA50im0OFcOQP90/fw6+myGstBJK500BPDYywp66n0xjTAkP8YYbHgrsEJF9lH3okY81Tv0hL
+	vt5nmdG0fgziWZQUHQbB8ttbcUVrApbq2LxXsSMIwQ01k7C0GFPgS1z1zuJmStheksCu4dAkUW92J
+	aay7G33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfWOf-00000002FDC-3zfa;
-	Wed, 05 Feb 2025 03:48:17 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tfWR4-00000002Fc2-49Vw;
+	Wed, 05 Feb 2025 03:50:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfWLt-00000002EnA-2SDX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 03:45:26 +0000
+	id 1tfWPh-00000002FNI-1HGr;
+	Wed, 05 Feb 2025 03:49:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738727126; x=1770263126;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=MLaFTGCPEcg9NYXwrgf9SMfKqQ9G+0WJl/NqM7xYYn8=;
-  b=VvATrEvhkmDf75fZkASa/BuMQ5S34yH3xxXbcs/j40/+NmfiSfAVjgsf
-   diiw5VwFMo1InONZ1f+4puJ4O96vzaw52JLRK/qxub79d1h3EEcxXFOfp
-   dm1XUpcWWcsIGRc1usonXq8caftrGMi8cDuIGY4wyOgSs9aeSNojSz4Vx
-   5d+c3f4LB24vHqOdq/XShGYEFUEGC6OqKjUQEdAptcx64ZTHJum+ltG2n
-   7fxtcuSnVRYgbhl6EQa+ZAMMXBQtm5PyZZcxfZM/Q6mqxKJfCTkf9fFcf
-   5k1BgtPY8YJ0CkMynP0/XjXBafr3Nhwx/Wz5/OdObp57y2q0mIMZInpgY
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1738727361; x=1770263361;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=Y2M37YpkkM+Vyr8bB/bqMI0pllLoH5F4qCf3uTmRpkY=;
+  b=JCKi/gMg7IZgqt9zouoZBOTb058UEKaJag5ERSo515pCDpNdnPyO1Ne+
+   r1KMN+DdFXFN4odJKLTCycgeauHILSRMZjvqsbOOuMUihu8nq3k5ECa0B
+   WLTRg/nzJFrHIeuJuF8ZgXeUgUZpFu5JtHqghA5yn+4F5ao22tWOmbffc
+   wsWnREe7Cj4xg+EX+zeoex3VHMHrbgauvEKk4ioKbxIZDxgdTcb9XeiwT
+   YKxKdFyAg5yfYhJCV/DkB9s/fsnSp3lr5feFXQ3UKr7G3A0w9wtr3b7vm
+   8/RH5mai8gyCtPblADN7IaOuhrdjPZiIg5+j9OLq3uvc+f+hslLQMx2o9
    g==;
-X-CSE-ConnectionGUID: aje5BTZ7Thi0RRiJ0Gb//Q==
-X-CSE-MsgGUID: W+CoHGsYQ0mz5clVMldnNQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39165407"
-X-IronPort-AV: E=Sophos;i="6.13,260,1732608000"; 
-   d="scan'208";a="39165407"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 19:45:25 -0800
-X-CSE-ConnectionGUID: WpR9JSfURxSI/IIjqWagHg==
-X-CSE-MsgGUID: qbIxOqA5Tj+fNgVN36xa1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,260,1732608000"; 
-   d="scan'208";a="141642470"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.242.149]) ([10.124.242.149])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 19:45:18 -0800
-Message-ID: <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
-Date: Wed, 5 Feb 2025 11:45:15 +0800
+X-CSE-ConnectionGUID: 9q6sxc6oQ7qZQgsLIprwFg==
+X-CSE-MsgGUID: 3DLtMxkgRhOvagShr5YrNw==
+X-IronPort-AV: E=Sophos;i="6.13,260,1732604400"; 
+   d="scan'208";a="268617910"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Feb 2025 20:49:19 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 4 Feb 2025 20:48:48 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Tue, 4 Feb 2025 20:48:43 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Date: Wed, 5 Feb 2025 09:18:40 +0530
+Subject: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
+ property optional
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Zhangfei Gao <zhangfei.gao@linaro.org>,
- acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
- kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-To: Jason Gunthorpe <jgg@nvidia.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241112182938.GA172989@nvidia.com>
- <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
- <20241113012359.GB35230@nvidia.com>
- <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
- <20241113164316.GL35230@nvidia.com>
- <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
- <20241115175522.GA35230@nvidia.com> <20250122192622.GA965540@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20250122192622.GA965540@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAJjfomcC/2WMywrCMBQFf6XctZEmjaR1JQh+gFvpIuZhLpimJ
+ CUoJf9uyNblnDPMDslENAnO3Q7RZEwYlgrs0IFycnkZgroysJ5xyuhEvFckvcNG+pPg4zhpaeQ
+ AVV+jsfhpqQfcb1eY6+gwbSF+Wz7Tdv2XMiWUaKsEF3LQg31ePKoYlMP1qIKHuZTyA3S5ypWpA
+ AAA
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>
+CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738727322; l=1069;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=Y2M37YpkkM+Vyr8bB/bqMI0pllLoH5F4qCf3uTmRpkY=;
+ b=euyPCQtPylPzBTnrVIPruEpcg2aZlyXORKa4vu1AoL4yj1xw9fMuXDNmnsUO4EOkAEw6vL48b
+ HjHTGYLef3/C7DXH+LL04r3Bbck58HswIL+R+2FCxbZpd2p6GQYLrsk
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_194525_689911_87E015B1 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250204_194921_362410_0CA2A7DF 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,29 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/1/23 3:26, Jason Gunthorpe wrote:
-> On Fri, Nov 15, 2024 at 01:55:22PM -0400, Jason Gunthorpe wrote:
->>>> I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
->>>> driver. I have a patch series that eliminates it from all the other
->>>> drivers, and I wrote a patch to remove FEAT_SVA from intel..
->>> Yes, sure. Let's make this happen in the next cycle.
->>>
->>> FEAT_IOPF could be removed. IOPF manipulation can be handled in the
->>> domain attachment path. A per-device refcount can be implemented. This
->>> count increments with each iopf-capable domain attachment and decrements
->>> with each detachment. PCI PRI is enabled for the first iopf-capable
->>> domain and disabled when the last one is removed. Probably we can also
->>> solve the PF/VF sharing PRI issue.
->> Here is what I have so far, if you send me a patch for vt-d to move
->> FEAT_IOPF into attach as you describe above (see what I did to arm for
->> example), then I can send it next cycle
->>
->> https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
-> Hey Baolu, a reminder on this, lets try for it next cycle?
+Remove the compatible property from the list of required properties and
+mark it as optional.
 
-Oh, I forgot this. Thanks for the reminding. Sure, let's try to make it
-in the next cycle.
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+Changes in v2:
+- Instead of moving the compatible string to the other binding, just make it
+  optional (remove from required list).
+- Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com
+---
+ Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+index 1f0667828063..ca3d0114bfc6 100644
+--- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
++++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+@@ -29,7 +29,6 @@ properties:
+     maxItems: 1
+ 
+ required:
+-  - compatible
+   - reg
+ 
+ unevaluatedProperties: false
 
 ---
-baolu
+base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
+change-id: 20241219-mmc-slot-0574889daea3
+
+Best regards,
+-- 
+Dharma Balasubiramani <dharma.b@microchip.com>
+
 
