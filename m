@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CE9C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8383EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbnvWfX7jxBUPOrY8qkhn5UbcYi3tt6+vaZLeX9aDhI=; b=Tdq3yWimGxmwu3GTLLTbrhFHAz
-	U3vtqg9sb1dEfCTwd8MTYmOARm1OhDRyWImFI79/XJh/AGLTiDmcpr2OBlVirS+seALm+q7anc/j/
-	8XBhXz6RaFW49Rsv7uh3ZyMEOMRfkCtcd4bC1dGosd8ZAyAG8vwaDUFT/LQLBbh44KKXuHaV3EntT
-	EaZQLKjV3n/6a/n/uEksNpjUyzdaGsZdQiXuRp8rzUsnk1Q8pjaHTyzxDyh3edxwla8bGeXibHnev
-	xetOwlmzY23aTeE1H5LVidskLNr+/uy96vtzFL68O50tJfpTXf6CiiU87SQPJYHx3OCBC7FsHuR74
-	+OZ6SAMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oHiAWliwlYMMYJzF/p+i3JygK75ijJmhUfA6PxHfmuw=; b=ndOxZyQdCHRHOnkdJPQ94J/phq
+	SNUlJxZCGLqXNpY9ccULCnasy9i+ajuNRs93NrOq81IfPSeRSFYMAE/cMK0QwvyBWf3rFW3x/5g4l
+	n+jcWoVd4E31jG73mUCd2NsqSr8RwoKMx+m+8q7Z0TZ0UzTDagR6EggGZG42l+ZFPyNn+wlAaGFRo
+	5SYG2y8G3+PoeuJXidNCnQzc7noQK3Wb3PRdODCSJpV6XxnmPVQ4Of9J//de+7Up2RlqzAxeTNs30
+	95AC3fxSGovZ08Uxo+DZivJwBl8jtygyG08EO4hJI6Rlmn9rwljliOacY5K5IoThSE7OsBs4QMR/x
+	Ns0Uffjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcD0-00000002nGH-0FvJ;
-	Wed, 05 Feb 2025 10:00:38 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tfcEK-00000002nWP-3ZPc;
+	Wed, 05 Feb 2025 10:02:00 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcAT-00000002moW-32zq
+	id 1tfcBG-00000002mxg-0gOM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 09:58:02 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dca4521b95so6751059a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 01:58:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738749479; x=1739354279; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WbnvWfX7jxBUPOrY8qkhn5UbcYi3tt6+vaZLeX9aDhI=;
-        b=LJgFWSuaZmouVTuZSKnXu74SVre7xhpMLY5YOHETwRNjfNrHHgiEgi69ym1VI336PU
-         B9Y+91plIW8milneaWr9LdJWRpFOi+2kNjHv1J30aEDyxlov5Ofd45M3OOAZt6GY84mS
-         8D5UTyIZlENhMDINy0VFVzftDJDDTjaSgylvDfZnu3Z9aYW/6gaI7FHgY5TS5t18WDct
-         775dqwQl8/SiRYPLXxMJA7MC6Vrth4iOo3/gQM2m2aSw3br7QPOqZsMIIRz2zG9DM6qY
-         gibXCJfocVS02CwMxYkOYPUHMti9NQVLMeYctl0oplSsJsSe3LYzthifIP11cVIJsWE1
-         GZBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738749479; x=1739354279;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WbnvWfX7jxBUPOrY8qkhn5UbcYi3tt6+vaZLeX9aDhI=;
-        b=N91coi94xfT0RXg7XKVK66UIBTIrBl0YteitVAxZNZDJQSDKEPeNT7mTggLCDoA4uK
-         RSpUR5XVGZeso9eoFfgWXZN+3diMA1hcw3GNNNb9qiHqlhY3nVBoIXChxmRIlwMe68DQ
-         v/e0GPxCl1qX71R6fEqbROwEAG/j5DwIkcCddlFih1SXM9YgTjaUrDUyeFj6hv/5DPon
-         FAOY9Q+xdh/h/AQt8AHwONbZlohH6lJvoL4UFyIwsszcoYH4V4A+CQ2oZ6UBh6XCoOEu
-         lmn+f4RPipdnZcpcLJTMVKec/uMUmACqrpZiggHQS1dGW+o54Qy5Nqhvn4WKw99grGOK
-         w8lg==
-X-Forwarded-Encrypted: i=1; AJvYcCVGijXtCuycOe6+z9lJQ5dc3Of2Qczp5L/mcyhjpektdoTGr6Pc9jqOrPahd7LVhIq+oOkLM26WyRfYoWF/8QIu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzURfAwaxB8u91lLP037FLf7ybTD5UAWrdQcSVsOA7IpgKB14Th
-	zkEpJcbCs8pbAXnd6XUB4gD7O5dXEcVfjQguUIWKL9zABDGPyyqZqdb3tDQFjQ==
-X-Gm-Gg: ASbGncujkKXycV1Us0YFpUq47o76V69Bj9Rj7PbvVMQ3W5HV/yk8eAIBZ1Tmzs8nTnU
-	oLq98DxlmBzZ7PkjoMLj/lQyaaADswd+pFY1JRRJbs2jsQ4rD3wi6uVptyw3BaN397l0xX3aog2
-	ij/hkOiAB4QNyfU2cyGzM7YlrZ9e+lZ+J1BSFix3vSllpxbdLcJn+0GrkRIhGvrtO6NrpzFAXFq
-	FykvXahF+/PSMDfwfh83aaBSE6mOdXrTCYqtMVixEaYPfeALKrP3fhvsNNOIo09yPDfc7hHpF8U
-	KeAsCi14cB87PNITRpRgOSFhOmw8ds/+JIU0pSiNp1E5uk6a5tQH
-X-Google-Smtp-Source: AGHT+IHlSCxcM4Gf9CJt6IMxYC+rLq5h9k2XD0ViVMFq5Bpo0iQeCY5EvWVi/Z+I81xJb2BJo1RUeA==
-X-Received: by 2002:a17:907:7b82:b0:ab6:f89d:5a7 with SMTP id a640c23a62f3a-ab75e26358fmr257421066b.34.1738749479093;
-        Wed, 05 Feb 2025 01:57:59 -0800 (PST)
-Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e47d0dfasm1077074666b.71.2025.02.05.01.57.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 01:57:58 -0800 (PST)
-Date: Wed, 5 Feb 2025 09:57:54 +0000
-From: Quentin Perret <qperret@google.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, uJap072421@linux.dev,
-	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 09/18] KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
-Message-ID: <Z6M2Ir6uAT8KcWma@google.com>
-References: <20241218194059.3670226-1-qperret@google.com>
- <20241218194059.3670226-10-qperret@google.com>
- <5ca7588c-7bf2-4352-8661-e4a56a9cd9aa@sirena.org.uk>
- <Z6FO04PZtY8fsJhq@linux.dev>
- <5b73e1ac-a48d-4064-a095-26cd9662f0c1@sirena.org.uk>
+	Wed, 05 Feb 2025 09:58:51 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id C6C4CA0397;
+	Wed,  5 Feb 2025 10:58:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=oHiAWliwlYMMYJzF/p+i
+	3JygK75ijJmhUfA6PxHfmuw=; b=bDsV/kSUooCJDi7x0+tzEr1+x5Prt7w9wBB7
+	oxqawTSx7ETk4wisyrF6lG8UdUYipBl2l2RiEr1+NoZvkOdGZbMeTNK6ojK2CfeT
+	Fir34+J6ihhekb4aOjZRlVuUPCLi0JKCMm05O8kQXAWXeb712De9AtXjRRBOq/mV
+	mX8nZBlNIdQoqB/zvry7WkIBuXQM81wmz86LlVsVn+Wc7guPeUi3ilF2ThsgwT07
+	zTXd0RU/PiFftsBL2+g6tW9vTgeD69peTpPsEjiqLgdWpJ3I4rYIIFK6b6f3DdkI
+	IDTxpPRq23+/yysFc86/3YXxlLCLevIvZ/qJQWuUKfRWcZSqiRGaDZ1SPcXrtXAe
+	c9eRvRQWRc8SbC5uUoMTpe3eSxPGkrHt5CiCSy5Tq563ioA1jjZxy0BwT9lT+/xr
+	dcGEkSj1RnE+Vg5HNHjX4hUyI329+E4W2mQEybFelNiuOgMlrdxkjVDQEpn48LBw
+	dLz/j20fE0ZbRwLTOKUnm9i1b0MjGu9Vhh1/lFIMpI9pjrHDnyvkfnNKXN2nNqyh
+	Q18gYC+isS6tOdfKwyU3Qy/FTvN9sCd+Ih1kPxZJV79rXwwj/GO0sNHgl84SjOEz
+	sQ6mTYLrxgAEp5+88+KJ66oHPxDdYZrdY9HHwHDrAtqG+Qf1byG9RgVmIyEpFaMc
+	6dFa2oY=
+Message-ID: <c68777f2-b053-4320-aabe-f95a9796b016@prolan.hu>
+Date: Wed, 5 Feb 2025 10:58:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5b73e1ac-a48d-4064-a095-26cd9662f0c1@sirena.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Q] Frequency & duty cycle measurement?
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+To: William Breathitt Gray <wbg@kernel.org>
+CC: <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<timestamp@lists.linux.dev>, Jonathan Cameron <jic23@kernel.org>, "Lars-Peter
+ Clausen" <lars@metafoo.de>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	"Thomas Gleixner" <tglx@linutronix.de>, Dipen Patel <dipenp@nvidia.com>,
+	<dlechner@baylibre.com>
+References: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
+ <Z5efcokgHix-k3lW@ishi> <dffc0f18-799a-4fc7-a6b5-2fa270e1fc58@prolan.hu>
+ <Z6KkusvLFPcNvEfl@ishi> <0c74dd96-2978-46ab-a399-9c94c9529b2e@prolan.hu>
+Content-Language: en-US
+In-Reply-To: <0c74dd96-2978-46ab-a399-9c94c9529b2e@prolan.hu>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852667264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_015801_812910_8CD873C7 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250205_015850_663226_F095A2AE 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday 04 Feb 2025 at 14:32:19 (+0000), Mark Brown wrote:
-> On Mon, Feb 03, 2025 at 03:19:03PM -0800, Oliver Upton wrote:
-> > On Mon, Feb 03, 2025 at 07:50:44PM +0000, Mark Brown wrote:
-> 
-> > > Current mainline crashes when running the arch_timer_edge_cases selftest
-> > > in pKVM mode on a LibreTech Le Potato board, with a bisection pointing
-> > > at this change.  The system dies like this:
-> > > 
-> > > # selftests: kvm: arch_timer_edge_cases
-> > > [  130.599140] kvm [4518]: nVHE hyp panic at: [<ffff800081102b58>] __kvm_nvhe___vgic_v3_restore_vmcr_aprs+0x8/0x84!
-> 
-> > Thanks, fix posted here [*], although as a consequence this machine will
-> > stop running KVM in protected mode (which was never meant to work in the
-> > first place).
-> 
-> Yeah, I wasn't clear if this was something that was intended to work or
-> not - it's all in a constant state of flux.
+Hi,
 
-FWIW a770ee80e662 ("KVM: arm64: pkvm: Disable GICv2 support") did try to
-explicitly disable things, but was clearly incomplete...
+On 2025. 02. 05. 10:30, Csókás Bence wrote:
+> Hi,
+> 
+> On 2025. 02. 05. 0:37, William Breathitt Gray wrote:
+>> The first step is to decide which event we'll monitor and on which
+>> channel: we want to monitor Capture events so that's
+>> COUNTER_EVENT_CAPTURE, and we want event channel 0 (n.b. 0 because
+>> that's the channel parameter value passed to counter_push_event() in the
+>> driver).
 
-Thanks guys for the report and the quick fix!
-Quentin
+Ah, I push 0 and 1 for the two interrupts... So that's why `channel` has 
+to be 0 and 1 as well. Does it make sense to do it this way, or should I 
+push on event channel 0 always?
+
+> I had no success using `channel = 0`, only data from `capture0` comes 
+> back. If I set both `channel` AND `component.id` to X, then I start to 
+> see similar values than what I get from reading sysfs. (For now I 
+> hard-coded all values; I agree that the correct way would be to read 
+> component IDs from sysfs, but this is still a PoC...)
+> 
+> Did I do something wrong in implementing the driver maybe? (See the 
+> submitted patches.) And any idea as to why I might be seeing the slowdown?
+
+The slowdown is still a mystery though...
+
+Bence
+
 
