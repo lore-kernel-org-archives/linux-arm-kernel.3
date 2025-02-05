@@ -4,106 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08664C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E4AC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mjo713V/QYInAV21Ks+mS4te2fLEkIlA84jSl1vF65M=; b=vFEJz1x8RjAUgO
-	bveYV5K/6XxO2i964dan9IUVGpWbK3NPf7ys1ehQH6Ju0nUcN0h/+KYPESnWtvzcuf/ZwCBWQVpVf
-	FXH/LTzTfMUKyvGHMC9j3xW/oDDsYDvvfOpuTuKU3FEjtj9NU0eQN6hRXB404HTaSrz0Mi7VE7TZF
-	8cmfUP2EPlTqnzxT17JH5KzgzuzjXI1W4neUb5NFZ+2IS38M88/CzjI7ksAMcy6evsrkuey9j0MTt
-	io/9fJYcIYlEL099gORIukWtQdwroOqaWsr3sFs9Ap4pbe1C1V1QLnU3AFU7h4CNZdbeOjPE4xN45
-	ePWAMsw40Qb348sR7a7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r4GsADFOHfjcUX4KtlxuL+Z7Dquvlgf9Jzn55Ai7h/Y=; b=JNmGhJK4MSyouoO+MV2ZBXrE9E
+	O69X2BGYJQCnZGgy8llPd/1j2KETNXoOqZcgzyYgJBax9pDV4LV59ScaoBYJ7FZZLiXxGr1e4wTyR
+	3dG1zNkSRNtAFetQCOM8eyJ94FBw+9W1qbdNzB5viNypV8p0xwkjVpMhCd/lw44UlHkvaUL1E9F6w
+	VWY70sQPof4W2/dTwe1JihRpXZmMWbuoyYtoaq2k2JGHKgoh3Ab8ARtxyLAqlJd735drz5bKMhu16
+	eBIRw4cp1HSdxjwSTKOxYnin8EcK5bU/zu8ETKKUWGz1IFqBhyl1Ep2MvVmo2xusloYRV3uYIxYyW
+	qUMjGa4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgEP-00000003W3X-3eFM;
-	Wed, 05 Feb 2025 14:18:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfgJA-00000003Wee-2FZz;
+	Wed, 05 Feb 2025 14:23:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgD3-00000003VoK-0et2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 14:16:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CD0DE5C01DF;
-	Wed,  5 Feb 2025 14:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95224C4CED6;
-	Wed,  5 Feb 2025 14:16:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738765016;
-	bh=2EDzGvHQ4zrixDw5nuzSjFz5tDSyraGclhp64b6kaC0=;
+	id 1tfgHn-00000003WSX-0eTB;
+	Wed, 05 Feb 2025 14:21:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1738765308;
+	bh=fhMEwcALAhSfK+SWPU9qQDr85DpG/Eze5bn+xtW7Z4I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X/noekgxOfJedSNLpn0/KfoU8y/T6UOMN8dtfzxnQMMOo6ShM+xXS829fOW15MtB1
-	 a/EO/t0lZWPIFNrN8v0x2Q3KrQT+nKkNj+3oQTjoX+NBJ0FjHvqL6KUeJM8hAk62p7
-	 5/ji73JDvRAfhkj9qYVbaT6QfQxXP7X9HGLjCXg/EnH55bS80QBDXm4kVHO2eXnpqg
-	 UqMTwjkTJi94fcjpJxhcSvGIaFlnkWP8DE7KYk8S3smbiO27q5y+Y2cPp6VTAL3GLs
-	 cKOWFF2UOZWuybDQVY9AOSQpN6LGjvSzrT15SPqsfF8GNdbt/AUfZez0sEdVzgnHKC
-	 7mxZKDb20F0cQ==
-Message-ID: <870df4b8-fa96-47c1-b82a-5db52a5f0788@kernel.org>
-Date: Wed, 5 Feb 2025 15:16:48 +0100
+	b=DrbhifpmzXk3n6sKkMH891McvA2rfGevLNNwxdqOuE5qZGNITVOXx6bZBzTJ/TEaX
+	 wAb7wOkk7PCzGg0+DiFM0FmZdTSIJUzsKoJPWYYnKyCqDRXlsaRUSxUjpXKaCN83Gs
+	 eqJqE4z2CRGnz57Z7NUeyjif7aW9XQlMM2xq51Obyg/fh0YYdAp1U6yK7glHGBQxVv
+	 qXp4jKAHq4T6GH2t0W1OHAGMDoxggPLXkz7UhggqGtHDTeCIJtQQ1XibX3ZwRITdqp
+	 aWcpQBY3KglIt2YK9PYTq4SZldTHOkjm9yDbBBsT9bmz6oSyVwHCAeExLuFzYCQQRs
+	 ZIybmSCm7sQ2w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3ACE517E1519;
+	Wed,  5 Feb 2025 15:21:48 +0100 (CET)
+Message-ID: <83a354d0-e220-449e-b03a-12012ab0d5b6@collabora.com>
+Date: Wed, 5 Feb 2025 15:21:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] dt-bindings: dma: at_xdmac: document dma-channels
- property
-To: Dharma.B@microchip.com
-References: <20250205-mchp-dma-v1-0-124b639d5afe@microchip.com>
- <20250205-mchp-dma-v1-2-124b639d5afe@microchip.com>
- <20250205-dynamic-scorpion-of-climate-9e7b7b@krzk-bin>
- <74ac11e8-2285-436b-9186-4793cb2b7239@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: mediatek: add mt8370-evk board
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com>
+ <20250115-dts_mt8370-genio-510-v2-1-fc9b01d08834@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <74ac11e8-2285-436b-9186-4793cb2b7239@microchip.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250115-dts_mt8370-genio-510-v2-1-fc9b01d08834@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_061657_288022_400E5296 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20250205_062151_346436_9AB21178 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +77,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, conor+dt@kernel.org, Tony.Han@microchip.com, alexandre.belloni@bootlin.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, Charan.Pedumuru@microchip.com, Ludovic.Desroches@microchip.com, Cristian.Birsan@microchip.com, claudiu.beznea@tuxon.dev, dmaengine@vger.kernel.org, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/02/2025 14:58, Dharma.B@microchip.com wrote:
-> Hi Krzysztof,
+Il 15/01/25 11:29, Louis-Alexis Eyraud ha scritto:
+> 1. Add compatible for MT8370.
+> 2. Add bindings for the MediaTek mt8370-evk board, also known
+> as the "Genio 510-EVK".
 > 
-> On 05/02/25 5:10 pm, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> On Wed, Feb 05, 2025 at 11:17:03AM +0530, Dharma Balasubiramani wrote:
->>> Add document for the property "dma-channels" for XDMA controller.
->>
->> I don't understand why. You are duplicating dma schema.
-
-Here-----------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
->>
->> The same as with other patch - your commit msg is redundant. You say
->> what we see the diff but you never explain why you are doing these
->> changes. And in both cases this is really non-obvious.
->>
->> Apply this feedback to all future contributions - say why you are doing
->> changes instead of repeating what subject and diff are already saying.
+> The MT8370, MT8390 and MT8188 belong to the same SoC family.
+> It is a less powerful variant of MT8390 SoC and their main
+> differences are:
+>   - Arm Cortex-A55 cores number (4 vs 6)
+>   - Arm Cortex-A78 core speed (2.0 GHz vs 2.2 Ghz)
+>   - Arm Mali-G57 GPU core number (2 vs 3)
 > 
-> Thanks for your feedback, do you want me to include the description of 
-> dma-channels from the diff in the commit message?
+> Like MT8390, MT8370 hardware register maps are identical to MT8188.
 > 
-> The reason for this change is:
-> "This property is required when the channel count cannot be read from 
-> the XDMAC_GTYPE register (which occurs when accessing from the 
-> non-secure world on certain devices)."
-> 
-> Isn't this already clear from the description in the diff?
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
+Since you have to resend the series, please remember to add Conor's Ack
+that was released in v1; in v2, this commit didn't change at all.
 
-OK, so this describes why you need this. It does not solve why do you
-need this patch. Do you see any warnings?
+Meanwhile... please also collect my
 
-Best regards,
-Krzysztof
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
