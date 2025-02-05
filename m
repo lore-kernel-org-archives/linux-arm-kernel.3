@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61F0C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F181DC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z7iXbDBu4oFwaAzUKB5T1KaEuDxsnH7EBEnrF26Px5s=; b=uLy7ilkkFZTKFeL4DGcy8/QmdW
-	N2ON/BzAEabVfcTYOAChKp6ZCzHbqzXdSBcBl1kkLGZB1C8D0rUJAlgkcDfXG3Cnykge09AOEyn9J
-	Fx+8BPXvfh24Sbwtge4sQBosgS91OmDGxDUtLE7ttHdUJyIQwWS2fNodlidZtU3yZGyr2Tle/BCmM
-	KgoUeA50im0OFcOQP90/fw6+myGstBJK500BPDYywp66n0xjTAkP8YYbHgrsEJF9lH3okY81Tv0hL
-	vt5nmdG0fgziWZQUHQbB8ttbcUVrApbq2LxXsSMIwQ01k7C0GFPgS1z1zuJmStheksCu4dAkUW92J
-	aay7G33Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bc7DrfXMiezmhGSHNHfGUSjT2T5Wh+3CSoZhxlscp40=; b=kuUydOM5mMt5RR1REZvOP1fSwD
+	Zm2uZTy8KJ/qO/Ch1PWlGxwDfu1+BV5xZ3Efkiogbj6DaVwWWLvTbCzum/jgZF6iWNNcOc3GbOTf1
+	R0GBuTd27MbyHsZkFpOWoD/ZjcgWUj73P5cvXw3DraI0lqYa35ELpSs7+d1zQaCF3szQgz0eEqH4u
+	jk61aHurXax2vHZQxBhdK3lhPjt987BJWpRJ1NHghswmDb/ncCnRcnNJCRn1TUg/FHJqilkwCG2KG
+	B0ZT2tBqhx9cIS65bJshHwj843EsITKStCjgJe5DupKLBfC4D7YMqG+WGud2uvBMmfCCe5dcXdcxL
+	Xzy/MTHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfWR4-00000002Fc2-49Vw;
-	Wed, 05 Feb 2025 03:50:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tfWTy-00000002G1A-37vz;
+	Wed, 05 Feb 2025 03:53:46 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfWPh-00000002FNI-1HGr;
-	Wed, 05 Feb 2025 03:49:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1738727361; x=1770263361;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=Y2M37YpkkM+Vyr8bB/bqMI0pllLoH5F4qCf3uTmRpkY=;
-  b=JCKi/gMg7IZgqt9zouoZBOTb058UEKaJag5ERSo515pCDpNdnPyO1Ne+
-   r1KMN+DdFXFN4odJKLTCycgeauHILSRMZjvqsbOOuMUihu8nq3k5ECa0B
-   WLTRg/nzJFrHIeuJuF8ZgXeUgUZpFu5JtHqghA5yn+4F5ao22tWOmbffc
-   wsWnREe7Cj4xg+EX+zeoex3VHMHrbgauvEKk4ioKbxIZDxgdTcb9XeiwT
-   YKxKdFyAg5yfYhJCV/DkB9s/fsnSp3lr5feFXQ3UKr7G3A0w9wtr3b7vm
-   8/RH5mai8gyCtPblADN7IaOuhrdjPZiIg5+j9OLq3uvc+f+hslLQMx2o9
-   g==;
-X-CSE-ConnectionGUID: 9q6sxc6oQ7qZQgsLIprwFg==
-X-CSE-MsgGUID: 3DLtMxkgRhOvagShr5YrNw==
-X-IronPort-AV: E=Sophos;i="6.13,260,1732604400"; 
-   d="scan'208";a="268617910"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Feb 2025 20:49:19 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 4 Feb 2025 20:48:48 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Tue, 4 Feb 2025 20:48:43 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Wed, 5 Feb 2025 09:18:40 +0530
-Subject: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
- property optional
+	id 1tfWSb-00000002Fvj-1y1v
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Feb 2025 03:52:23 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5153pmjM2460265
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 4 Feb 2025 21:51:48 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738727508;
+	bh=bc7DrfXMiezmhGSHNHfGUSjT2T5Wh+3CSoZhxlscp40=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=iQd8PfzGJvn6kZEwBKEC0HfTlonncmeI6BjPErkIQC0jkSBy1WqtFJr9zrgLE+1OW
+	 /pMI04O8qLZU98gGLlxq2YnaHcriflI6spXSVP+omc5IW8HHq72nr2LOeisv1Xie6s
+	 loNPvTlb/9vFeo9s/oFU7SS9sK9Pkr3qDC1DqFPs=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5153pmnG003193
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 4 Feb 2025 21:51:48 -0600
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
+ Feb 2025 21:51:48 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 4 Feb 2025 21:51:48 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5153pmHF047406;
+	Tue, 4 Feb 2025 21:51:48 -0600
+Date: Tue, 4 Feb 2025 21:51:48 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+CC: Vaishnav Achath <vaishnav.a@ti.com>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <quic_bjorande@quicinc.com>,
+        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
+        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
+        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
+        <vigneshr@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <nfrayer@baylibre.com>,
+        <glaroque@baylibre.com>, <tglx@linutronix.de>, <u-kumar1@ti.com>
+Subject: Re: [PATCH v2] arm64: defconfig: Enable TISCI Interrupt Router and
+ Aggregator
+Message-ID: <20250205035148.krqvlysv73d4wcgs@uncooked>
+References: <20250203150801.2399555-1-vaishnav.a@ti.com>
+ <CAMuHMdUOMCxfsOrUF3-6PX0ZZ_E2g1SK4bwDqZE=mWiibPFt1A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAJjfomcC/2WMywrCMBQFf6XctZEmjaR1JQh+gFvpIuZhLpimJ
- CUoJf9uyNblnDPMDslENAnO3Q7RZEwYlgrs0IFycnkZgroysJ5xyuhEvFckvcNG+pPg4zhpaeQ
- AVV+jsfhpqQfcb1eY6+gwbSF+Wz7Tdv2XMiWUaKsEF3LQg31ePKoYlMP1qIKHuZTyA3S5ypWpA
- AAA
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>
-CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738727322; l=1069;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=Y2M37YpkkM+Vyr8bB/bqMI0pllLoH5F4qCf3uTmRpkY=;
- b=euyPCQtPylPzBTnrVIPruEpcg2aZlyXORKa4vu1AoL4yj1xw9fMuXDNmnsUO4EOkAEw6vL48b
- HjHTGYLef3/C7DXH+LL04r3Bbck58HswIL+R+2FCxbZpd2p6GQYLrsk
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUOMCxfsOrUF3-6PX0ZZ_E2g1SK4bwDqZE=mWiibPFt1A@mail.gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_194921_362410_0CA2A7DF 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_195221_693268_AEE1C70D 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +91,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the compatible property from the list of required properties and
-mark it as optional.
+On 08:42-20250204, Geert Uytterhoeven wrote:
+> Hi Vaishnav,
+> 
+> Thanks for your patch!
+> 
+> On Mon, 3 Feb 2025 at 16:08, Vaishnav Achath <vaishnav.a@ti.com> wrote:
+> > Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
+> > These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
+> > for core functionality like DMA, GPIO Interrupts which is necessary
+> > during boot, thus make them built-in.
+> >
+> > bloat-o-meter summary on vmlinux:
+> >         add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
+> >         ...
+> >         Total: Before=31615984, After=31778459, chg +0.51%
+> 
+> My first thought was: that's a hefty size increase for two rather
+> small drivers!  So I enabled these two options in one of my own kernel
+> configs, and saw a size increase of only 7872 bytes...
+> 
+> > Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+> > Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+> >
+> > Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+> > ---
+> >
+> > V1 : https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
+> >
+> > V1->V2:
+> >         * Add Fixes tag.
+> >         * Add bloat-o-meter summary to commit message.
+> >
+> > Previously both of these configs were selected for ARCH_K3 in respective
+> > Kconfigs, but commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+> > and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+> > in dropped this recently without adding those back in arm64
+> > defconfig, this causes boot failure in all TI K3 platforms.
+> >
+> > Passing bootlog with configs enabled:
+> > https://gist.github.com/vaishnavachath/03d8d3ce0f22219643c2f4d1dd243fd1
+> >
+> >  arch/arm64/configs/defconfig | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index cb7da4415599..1f25423de383 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -1551,6 +1551,8 @@ CONFIG_PWM_VISCONTI=m
+> >  CONFIG_SL28CPLD_INTC=y
+> >  CONFIG_QCOM_PDC=y
+> >  CONFIG_QCOM_MPM=y
+> > +CONFIG_TI_SCI_INTR_IRQCHIP=y
+> > +CONFIG_TI_SCI_INTA_IRQCHIP=y
+> >  CONFIG_RESET_GPIO=m
+> >  CONFIG_RESET_IMX7=y
+> >  CONFIG_RESET_QCOM_AOSS=y
+> 
+> However, on arm64 defconfig, this has indeed a much bigger impact,
+> as it also (re)enables several other drivers that depend on the
+> irqchip symbols.
+> 
+> You probably want to mention that in the commit message...
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
-Changes in v2:
-- Instead of moving the compatible string to the other binding, just make it
-  optional (remove from required list).
-- Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com
----
- Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
- 1 file changed, 1 deletion(-)
+Thanks Geert and I agree. This however just restores the status quo as
+it was in 6.13 tag kernel (and ofcourse the default boot status).
 
-diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-index 1f0667828063..ca3d0114bfc6 100644
---- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-+++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-@@ -29,7 +29,6 @@ properties:
-     maxItems: 1
- 
- required:
--  - compatible
-   - reg
- 
- unevaluatedProperties: false
+Will be good to mention that as well - in effect, we are just restoring
+the behavior, not introducing new features.
 
----
-base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
-change-id: 20241219-mmc-slot-0574889daea3
+Side note: We are still working towards fixing up other driver modules
+and some time in near future, hope to transition to initramfs boot as
+default in a single patch.. but till then let us maintain the status
+quo.
 
-Best regards,
 -- 
-Dharma Balasubiramani <dharma.b@microchip.com>
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
