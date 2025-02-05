@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77495C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F39BC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYbH4/bFbW9UoIMhwmMoZk4arwPiz3TqZyIYG3eL8oo=; b=xGn199Kogxqd/JBC+h9D3351Bb
-	o/iJXOXCBK5HzUwSrR7obQqlLYY0ttbJ/HE2LcSTVHahQe86BWqv7GWPTnpD4RBdvUX1sibzNMavG
-	BWSf28YmXi77eD6iD48F4DCNXHbwa0oLmNEXqqNo2sGOv1MvMrZroZXXhuvNyPQHYRZmMKC/Qwzw+
-	jbB9RXHLjwl9FPnDIFaQIy9gIs76sWtbV7MClUsk+SMeuoZVUC0VtH3mY21iVOCXFw3YZl5GaRn7p
-	BRGrxX6wDA/CYpeOMKbXi6wbgOzMnjyL3myR0jgSJqMcgz9wQ+1N5uRD7RURDskxXlJ9HOWhqmpIu
-	K5w25BWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WZp7TS9OI/YkuzBbR19MVfuH+Jn+hzsj68Bt4sSVdMw=; b=pMfW7EqfH12RlcqjCrypeiSqUB
+	YLl8XkC/zmS8pwh3nwTu3mBxogg6sZeGw2MHt3P6EL6W2JAjIrPh4Ydf4m4Y2/bOKaA3D6LjjbmpB
+	+uAJXrjqQURo89QL8JkQcOPWe7lv/hqxSZ+3GVqgYomY8zJfGKmwnxtL6xLKPEnU42dMqDbpgP2No
+	qxRohRLiC1YvXxZoE1ghH91xxh6w8MjaALE9EvN+wyo8pfYn9CwDr+5Z70b9i7oamYwFt4Bz3So5T
+	w6BxKSGOvNP+Vm2/0WVd975yZ8Nqa3A7ODzFH7LV4IdywskW8mviGkpzk29aTlmJboyQ89dt3oEGs
+	bG7vYzeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfbzF-00000002jra-126m;
-	Wed, 05 Feb 2025 09:46:25 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tfc0Y-00000002k5e-3pTS;
+	Wed, 05 Feb 2025 09:47:46 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfbxr-00000002jO1-2OZA
+	id 1tfby2-00000002jUV-1AVG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 09:45:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738748699; x=1770284699;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RGt9by5OF1ibBjUOCxac7nIzMILjF1azzQF42QP/cE8=;
-  b=WHUthJBzIi7+/mpBjzMx+TJDV49sJZjR7clGMbhw09jC7slpo8JxFACh
-   wl+EqBMMBHhimc0nS/d8R/cFNJE9CFZMWLLgx3wG0hSezXpN5p5DH2lQU
-   zrnvvWjgGHKX0K9aGIcsOywyq6qpABhkQbvRjfRHesbBy5JZNMVQlNgC0
-   MIC5EgHEojV1XxoNwiB2FNPjbtimwn0p+ArRLmRjq0jNbv9UgWIp2uEsy
-   JSsnWDTuZNXVyVRG7ck3FJlcZOAQ+fH5B3r9603zimFkztB6HIWpd91uz
-   LmxWIab/EzJ19vicvYdSVI9eqZ1DEdD0D6wgSLfzHjDqBfomWs/m8AtFA
-   A==;
-X-CSE-ConnectionGUID: U/7v/zybQL+BQCc52m1OIA==
-X-CSE-MsgGUID: I44vp7BIQ6iccZxsx4lWog==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="43225700"
-X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="43225700"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 01:44:58 -0800
-X-CSE-ConnectionGUID: 5BIQZlN9TqKjZXBctn9/Zg==
-X-CSE-MsgGUID: LZvEaLh5R26ShhVJP8CvUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="115845952"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 01:44:53 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tfbxj-00000008RX6-22T6;
-	Wed, 05 Feb 2025 11:44:51 +0200
-Date: Wed, 5 Feb 2025 11:44:51 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>
-Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v2 0/2] gpio: xilinx: Replace custom bitmap APIs
-Message-ID: <Z6MzExQFcIz9HlkN@smile.fi.intel.com>
-References: <20250205093200.373709-1-andriy.shevchenko@linux.intel.com>
+	Wed, 05 Feb 2025 09:45:11 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5159isd62510929
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Feb 2025 03:44:54 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738748694;
+	bh=WZp7TS9OI/YkuzBbR19MVfuH+Jn+hzsj68Bt4sSVdMw=;
+	h=From:To:CC:Subject:Date;
+	b=CO+8cPQL8uJCIhw2ZmiCTxfPWGhU60AzO3P+gslJ5RnXfUEA29epgckOxaroxOnyU
+	 UbdwphxAACos7hzDLlWp/NZ+p5HdmuoqABPaADdiQigD+oQ9XYUAgFGACHNCkEG66M
+	 LXlHS1j/0AnpsJ6awaFjPYxfx9JjSgr2nD3sPHXM=
+Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5159isLe008311
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 5 Feb 2025 03:44:54 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 5
+ Feb 2025 03:44:54 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 5 Feb 2025 03:44:54 -0600
+Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.227.4])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5159iniQ047178;
+	Wed, 5 Feb 2025 03:44:50 -0600
+From: Hrushikesh Salunke <h-salunke@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <r-gunasekaran@ti.com>,
+        <rogerq@kernel.org>, <s-vadapalli@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <h-salunke@ti.com>,
+        <danishanwar@ti.com>, <srk@ti.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-j722s-evm: Fix USB2.0_MUX_SEL to select Type-C
+Date: Wed, 5 Feb 2025 15:14:48 +0530
+Message-ID: <20250205094448.586094-1-h-salunke@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250205093200.373709-1-andriy.shevchenko@linux.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_014459_651871_27E2A56F 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20250205_014510_448281_17F07D99 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc: Yury
+J722S SOC has two usb controllers USB0 and USB1. USB0 is brought out on
+the EVM as a stacked USB connector which has one Type-A and one Type-C
+port. These Type-A and Type-C ports are connected to MUX so only
+one of them can be enabled at a time.
 
-On Wed, Feb 05, 2025 at 11:31:09AM +0200, Andy Shevchenko wrote:
-> Relatively recently bitmap APIs gain a few new calls which may help
-> to convert the GPIO Xilinx driver to use them and become shorter and
-> nicer. This mini-series does exactly that.
-> 
-> Changelog v2:
-> - fixed a regression in patch 2
-> 
-> Andy Shevchenko (2):
->   gpio: xilinx: Use better bitmap APIs where appropriate
->   gpio: xilinx: Replace custom variants of bitmap_read()/bitmap_write()
+Commit under Fixes, tries to enable the USB0 instance of USB to
+interface with the Type-C port via the USB hub, by configuring the
+USB2.0_MUX_SEL to GPIO_ACTIVE_HIGH. But it is observed on J722S-EVM
+that Type-A port is enabled instead of Type-C port.
 
-Yury, just FYI, after this series, if applied, the bitmap_remap() and
-bitmap_bitremap() may be moved to the NUMA only APIs. Or i.o.w. the
-commit cde3d0f81e67 ("bitmap: Make bitmap_remap() and bitmap_bitremap()
-available to users") may be reverted.
+Fix this by setting USB2.0_MUX_SEL to GPIO_ACTIVE_LOW to enable Type-C
+port.
 
+Fixes: 485705df5d5f ("arm64: dts: ti: k3-j722s: Enable PCIe and USB support on J722S-EVM")
+Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
+Reviewed-by: Roger Quadros <rogerq@kernel.org>
+---
+This patch is based on commit
+5c8c229261f1 (origin/master, origin/HEAD) Merge tag 'kthreads-fixes-2025-02-04' of git://git.kernel.org/pub/scm/linux/kernel/git/frederic/linux-dynticks
+
+Changes since v1
+Collected reviewed by tag
+
+v1: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250116125726.2549489-1-h-salunke@ti.com/
+
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index d184e9c1a0a5..adee69607fdb 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -590,7 +590,7 @@ exp1: gpio@23 {
+ 		p05-hog {
+ 			/* P05 - USB2.0_MUX_SEL */
+ 			gpio-hog;
+-			gpios = <5 GPIO_ACTIVE_HIGH>;
++			gpios = <5 GPIO_ACTIVE_LOW>;
+ 			output-high;
+ 		};
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
