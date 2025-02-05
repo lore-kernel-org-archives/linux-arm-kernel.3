@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CFDC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138FFC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbSs2LOWzdNenXX0oELvI/bNNE458C+NZ9lgVj5hXDQ=; b=2V/9dJ4lNCRoN+iVy8Mm+CxBoJ
-	bgr8AhBvnJPBG/+51Mm2uD12ffeJUzxW289yiC9E3H/rnCrkHI9tajJwBVTOfh1mWR7qjBuc70lKG
-	OlXFdxTzGY22LSUCDEyVHJ/52s6iqGSUolUybyp0q6cNZeiZoT9IyPvns3S97cIuVH+ZyX81iTUoM
-	Jd4EPTFe/2Ka28fJEzBTl3MkQHtFtJ4sgzaLFWoWXqoKnEu33hSKomqQ4IZDZiGveNcSzxH3qt7q0
-	27bWMWaebNB6LyNTLEFVAibiZV7dlhWeCOsJk/d4gVcK76BQwUGCWpPSjgwOCy0Fyn6idmY5VegGq
-	lbAwHP9Q==;
+	bh=hWpBM1bFgKOZf1GWq0UE8veQruj9KfPNvB2YK72Gjv8=; b=djDUlIuhNhCkHC4bS0LhKpsnq1
+	xKdrJNKpqFUClCwZMSqAWSjnaFLV7L0E0HEZ4HdPsfWVQEW6msBimQTYyoInl4943YVqj8oJeAqwm
+	2BVY7FcsnA81wyS8E3no+hvAkGkYS1MydRNQDGG8m8F8iWbix8kmNX8SRE5OFaHbDiaati3pKBIFc
+	DRMxkC2cbmGZZKxmC2tmj1TJ67SdV10ksEX65Gut3O2EKiaHl4nMtl/HkrRkXoOgaU7JA30TzRhQD
+	5MInyyShyWZXZB4GkYwbDqxGgjuC9jGoZDwlFHc9aUpbM1grDsoXPPdqs7UWIJ7x0ZwAnjeDIIGbL
+	xHPBFj3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfeqq-00000003HM2-0BjM;
-	Wed, 05 Feb 2025 12:49:56 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfekM-00000003FjP-1KV5;
-	Wed, 05 Feb 2025 12:43:15 +0000
-X-CSE-ConnectionGUID: kZEjbmkXQmKuWVWpCE4ldQ==
-X-CSE-MsgGUID: heLXhqTjSwWnRtR0B4PM8w==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie5.idc.renesas.com with ESMTP; 05 Feb 2025 21:43:13 +0900
-Received: from localhost.localdomain (unknown [10.226.92.225])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id AC44F41F86B5;
-	Wed,  5 Feb 2025 21:43:02 +0900 (JST)
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Biju Das <biju.das.au@gmail.com>
-Subject: [PATCH net-next v2 5/7] net: ethernet: mtk_eth_soc: Use of_get_available_child_by_name()
-Date: Wed,  5 Feb 2025 12:42:25 +0000
-Message-ID: <20250205124235.53285-6-biju.das.jz@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250205124235.53285-1-biju.das.jz@bp.renesas.com>
-References: <20250205124235.53285-1-biju.das.jz@bp.renesas.com>
+	id 1tfesB-00000003HYf-0D4v;
+	Wed, 05 Feb 2025 12:51:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfelb-00000003G6T-1meD;
+	Wed, 05 Feb 2025 12:44:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 931FCA43591;
+	Wed,  5 Feb 2025 12:42:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA77C4CEE3;
+	Wed,  5 Feb 2025 12:44:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738759470;
+	bh=W+a+Yoja6r+NjMKoIeKEbzYjPLUdxxkyp8N0b43Me78=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=cHiPW2GRXOB2XptJXk5LSz96Ia4+t1cp8W3f+DjXmFm1jc1a5SGi1e9G3Xs5XRr7k
+	 Bp2O945I1s12eAmTAH39vCkV7ebN1Tj8vpfe5dRLipRUvnb4/neXwswzHoTL9XgRuB
+	 Df8CF8KXW9e/JWSTFb7E81Cji+UqA6LZvJnv+M5TM0lCmudj5RcTvGtLEuc6E0Ie5p
+	 XouIMYERSqzENyEgy0tEapD6RL1i6SK+yWXiZuRczgZvp/Ra7iTibRL8W7qQcHiJm6
+	 DEJLlIPZ6M78Lj5s+6B7vkd1lVnqNI/H9Ykx7iL0O1erAMdpY4zJS9I4fc57vUMiZm
+	 YHhyFOOlchP1A==
+From: Mark Brown <broonie@kernel.org>
+To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, linux@treblig.org
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250128005243.295977-1-linux@treblig.org>
+References: <20250128005243.295977-1-linux@treblig.org>
+Subject: Re: [PATCH] ASoC: mediatek: mt6358: Remove unused functions
+Message-Id: <173875946845.32457.11968319889637039495.b4-ty@kernel.org>
+Date: Wed, 05 Feb 2025 12:44:28 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_044314_464330_98C9F0C7 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_044431_536107_8D492DB9 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the helper of_get_available_child_by_name() to simplify
-mtk_mdio_init().
+On Tue, 28 Jan 2025 00:52:43 +0000, linux@treblig.org wrote:
+> The functions:
+>   mt6358_mtkaif_calibration_disable()
+>   mt6358_mtkaif_calibration_enable()
+>   mt6358_set_mtkaif_calibration_phase()
+> were added in the 2019
+> commit 6a8d4198ca80 ("ASoC: mediatek: mt6358: add codec driver")
+> 
+> [...]
 
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-v1->v2:
- * Dropped using _free().
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+Applied to
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 53485142938c..0ad965ced5ef 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -830,17 +830,12 @@ static int mtk_mdio_init(struct mtk_eth *eth)
- 	int ret;
- 	u32 val;
- 
--	mii_np = of_get_child_by_name(eth->dev->of_node, "mdio-bus");
-+	mii_np = of_get_available_child_by_name(eth->dev->of_node, "mdio-bus");
- 	if (!mii_np) {
- 		dev_err(eth->dev, "no %s child node found", "mdio-bus");
- 		return -ENODEV;
- 	}
- 
--	if (!of_device_is_available(mii_np)) {
--		ret = -ENODEV;
--		goto err_put_node;
--	}
--
- 	eth->mii_bus = devm_mdiobus_alloc(eth->dev);
- 	if (!eth->mii_bus) {
- 		ret = -ENOMEM;
--- 
-2.43.0
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/1] ASoC: mediatek: mt6358: Remove unused functions
+      commit: fb6ec1d27608c008bfe1ab0dfec3720990eb2451
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
