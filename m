@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2CAC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4522C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+5GmaJXZT5l+1wfRT+lAuNHUWIAAutwCYXRr+Clwac=; b=qNg0Ke815AU14TLzdPPwKunBsc
-	AdiKBPblFkEFTrSIeS99KOBjhnJDINefzI/8g90vOXKJCdd6OXAoSeguvUsn206lyrzEJ5lwebtts
-	kpRteHskcgnfFxE+bLJYE49Wrj1yVrzzCGklYrDKJqftYKanQgJ1DrcA4wVWAtwTV+v4VNp4XuQnZ
-	2oJnxaTh7b/FQgxPocBRJKSpIBs0EdsRi/DSDNijonIxYVKDffMa+vKcvERtM7OAN3jUi6KIDnxT3
-	/kBB5gNwBII2OIhdZ8Z3tG8aBtoCwYMqpczrTpP4nO9EA2Lpik14DqLlv0QX3AjVZe2Q7W4GRkhzz
-	Ji5ahsww==;
+	bh=an4Bf9RgJBmZ5nR+GtJJGxEy/QAJGcPX467lHgjHOaQ=; b=V72iYotRz4G7tDCpxSY9cTKf3O
+	DLC1S3g1XHKMQdMO2pOax2M6icXd/2kVi5POhwUhp3muTb6YgtcKe2gttGm2d+74pLJW9i45LGL/9
+	aSHtD+EZrbkpMxXhxy/vXv52bfQ6Yy5V7zdBtMPJXy6GzOdoytV+18s8CXIvy+/6uc2+WSNvR5h7X
+	kTyQ8IA4iBXVFPFQMbRAFFgd2Dnu4/a/aXIbbV6EWqRgFSqxNO+bGe2AW7qMQk59VCmbbzMx/mvBs
+	UODsbrvQNGK5LkUyGxU/cJ/NCpM21v9D2s3290MIj+0coB/5h2cjJH4ZgLQY+k9ylRclmArwD1ad+
+	MSASJujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhSO-00000003nTe-3d4q;
-	Wed, 05 Feb 2025 15:36:52 +0000
+	id 1tfhTk-00000003niG-3L05;
+	Wed, 05 Feb 2025 15:38:16 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfh3j-00000003iTL-1Cwx;
-	Wed, 05 Feb 2025 15:11:24 +0000
+	id 1tfh3m-00000003iUN-2HNy;
+	Wed, 05 Feb 2025 15:11:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=D+5GmaJXZT5l+1wfRT+lAuNHUWIAAutwCYXRr+Clwac=; b=dfbQkCFt/AbX3Ly6CPenOsJUPe
-	JdqX1DA4wpqobctID/Ck0UuvZ1CMXIQHdzsE0XVgGlGArAHwQJbnIGom31uIg+2HuKF1dtxljd1hf
-	s+g4YyytgRUA0lMoYClFGlaDCAZLJXVPGhjBWSgO7+HQ9Iw7bg/FLrEEev1K3wPMkHEBOkDuTOMHL
-	cucH65Ff6VuOkN+Mhzow3iUephAPRHh+7KyZjof/KUS9Jivej6ERPRbIFVWrpfHFoXNfRTunOvVjN
-	Szqg54bElEnZsbP0cJQ6ozMGW+/P7QZ+2YjgS9nw9BRO5aRmQraHqqWeKymMt6NyCv5P1mghu2Zrt
-	8XK4KCcw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38600 helo=rmk-PC.armlinux.org.uk)
+	bh=an4Bf9RgJBmZ5nR+GtJJGxEy/QAJGcPX467lHgjHOaQ=; b=OyMho7WHGFZuuANCtdiViZltw4
+	Vz6ET93WyCtj5gjH0kUJ5/9WmsxWRQABEnePeiCrL2mHezK+Wd7UjAr63lP7jdkO5QRdMem5IeVC+
+	H8CKHGk4xUkcAf5vvug0PGF0nmS7armpUoZt1QDvpWNsaVsqUj3mA0DO5kg1LViAGCIcWyNNymsGp
+	xDvI5taMBrOU5rHHFBqGjv7RL01R7lOuYsbkAMEYbLhb0kHYItV8Cu/NJME+/gV94ofrMmCL6YVvd
+	NsoTDliEp9Y1ZLQ1bAbKVKKILzt8sMH8bRE+iZmQ44JKA5U5yrqQWQS+3FqzfNcApvO4WHdxTE4pp
+	Qnci41OA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38612 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tfh3a-0007Sh-16;
-	Wed, 05 Feb 2025 15:11:14 +0000
+	id 1tfh3f-0007Su-1Z;
+	Wed, 05 Feb 2025 15:11:19 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tfh3G-003aRG-RI; Wed, 05 Feb 2025 15:10:54 +0000
+	id 1tfh3L-003aRM-VU; Wed, 05 Feb 2025 15:11:00 +0000
 In-Reply-To: <Z6N_ge7H5oTYt6n8@shell.armlinux.org.uk>
 References: <Z6N_ge7H5oTYt6n8@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -67,18 +67,17 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Sean Wang <sean.wang@mediatek.com>,
 	Simon Horman <horms@kernel.org>,
 	Vladimir Oltean <olteanv@gmail.com>
-Subject: [PATCH net-next 1/3] net: phylink: provide
- phylink_mac_implements_lpi()
+Subject: [PATCH net-next 2/3] net: dsa: allow use of phylink managed EEE
+ support
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tfh3G-003aRG-RI@rmk-PC.armlinux.org.uk>
-Date: Wed, 05 Feb 2025 15:10:54 +0000
+Message-Id: <E1tfh3L-003aRM-VU@rmk-PC.armlinux.org.uk>
+Date: Wed, 05 Feb 2025 15:10:59 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_071123_324002_00AD2E59 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_071126_579600_0F894AB9 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +92,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide a helper to determine whether the MAC operations structure
-implements the LPI operations, which will be used by both phylink and
-DSA.
+In order to allow DSA drivers to use phylink managed EEE, changes are
+necessary to the DSA .set_eee() and .get_eee() methods. Where drivers
+make use of phylink managed EEE, these should just pass the method on
+to their phylink implementation without calling the DSA specific
+operations.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/phy/phylink.c |  3 +--
- include/linux/phylink.h   | 12 ++++++++++++
- 2 files changed, 13 insertions(+), 2 deletions(-)
+ net/dsa/user.c | 21 +++++++++++++--------
+ 1 file changed, 13 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 214b62fba991..6fbb5fd5b400 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -1957,8 +1957,7 @@ struct phylink *phylink_create(struct phylink_config *config,
- 		return ERR_PTR(-EINVAL);
- 	}
+diff --git a/net/dsa/user.c b/net/dsa/user.c
+index 291ab1b4acc4..2e0a51c1b750 100644
+--- a/net/dsa/user.c
++++ b/net/dsa/user.c
+@@ -1243,16 +1243,21 @@ static int dsa_user_set_eee(struct net_device *dev, struct ethtool_keee *e)
+ 	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
+ 		return -EOPNOTSUPP;
  
--	pl->mac_supports_eee_ops = mac_ops->mac_disable_tx_lpi &&
--				   mac_ops->mac_enable_tx_lpi;
-+	pl->mac_supports_eee_ops = phylink_mac_implements_lpi(mac_ops);
- 	pl->mac_supports_eee = pl->mac_supports_eee_ops &&
- 			       pl->config->lpi_capabilities &&
- 			       !phy_interface_empty(pl->config->lpi_interfaces);
-diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-index 898b00451bbf..0de78673172d 100644
---- a/include/linux/phylink.h
-+++ b/include/linux/phylink.h
-@@ -737,6 +737,18 @@ static inline int phylink_get_link_timer_ns(phy_interface_t interface)
- 	}
+-	/* Port's PHY and MAC both need to be EEE capable */
+-	if (!dev->phydev)
+-		return -ENODEV;
++	/* If the port is using phylink managed EEE, then get_mac_eee is
++	 * unnecessary.
++	 */
++	if (!phylink_mac_implements_lpi(ds->phylink_mac_ops)) {
++		/* Port's PHY and MAC both need to be EEE capable */
++		if (!dev->phydev)
++			return -ENODEV;
+ 
+-	if (!ds->ops->set_mac_eee)
+-		return -EOPNOTSUPP;
++		if (!ds->ops->set_mac_eee)
++			return -EOPNOTSUPP;
+ 
+-	ret = ds->ops->set_mac_eee(ds, dp->index, e);
+-	if (ret)
+-		return ret;
++		ret = ds->ops->set_mac_eee(ds, dp->index, e);
++		if (ret)
++			return ret;
++	}
+ 
+ 	return phylink_ethtool_set_eee(dp->pl, e);
  }
- 
-+/**
-+ * phylink_mac_implements_lpi() - determine if MAC implements LPI ops
-+ * @ops: phylink_mac_ops structure
-+ *
-+ * Returns true if the phylink MAC operations structure indicates that the
-+ * LPI operations have been implemented, false otherwise.
-+ */
-+static inline bool phylink_mac_implements_lpi(const struct phylink_mac_ops *ops)
-+{
-+	return ops && ops->mac_disable_tx_lpi && ops->mac_enable_tx_lpi;
-+}
-+
- void phylink_mii_c22_pcs_decode_state(struct phylink_link_state *state,
- 				      unsigned int neg_mode, u16 bmsr, u16 lpa);
- void phylink_mii_c22_pcs_get_state(struct mdio_device *pcs,
 -- 
 2.30.2
 
