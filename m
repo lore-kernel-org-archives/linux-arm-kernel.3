@@ -4,101 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08714C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B56C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HEskk/2SpuLO/Xrp6JjdV4QHbWz2DrijKvj/WGpMo98=; b=rxWEjaepWIZMQAVbD1oS1w5q4q
-	ND+9ZHcie0y2Ut4b18lElmLbuSQVJlq+tW+VqkzElIs5u7atyuPcqmNmG6aWfbf1FyRobjHlUnzuK
-	JlFQzuoJsB1Wc3K+eI0F4ck4roYEgRydt+7b0POLQCXq6fB4XQ/ztS63oave901h1jmc1LJXvEpkf
-	2MoLS8adU/Jd/WRLmGO5EMoH3F2+kyZvlhbaYFUDuY/61H0R2duiThrgRZ7jXweJoHQJXHE1OwWFb
-	JK8KZYtkpV0juFdXeR8S5T+LqeKb+/6ndRRTuk+4MjF9CTJQObsLSit1ScopY4EHyZTNv6xA1O/YJ
-	RvVPxWIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rCMKE5gzKgu/HvyulYhfT2Ja0Yjz35cFcUjQJgI8Ync=; b=DHeufS+QKt6xB3r8c2fmL4AaB2
+	cns8EAVRvA3kKCtCV7q2Rd1spqIAWXn1VoT+iVXFpfFMEn6Il2DXBNbEfBu6+dbCDg5mzHz9+15mk
+	sKXqMKEmuJEyaSl5/CWCb7LmMUNhadcWEBL3XLQ0D/xEbZEB1VT/fQYQTxQEv8VcP3TGPRHpHuLKe
+	m+wghsoQOtL1O5RMna/u71b4WjYnXahS2KNohJrK+eWzYfUGfwfUTJHNIkbpunpqyU2Caoo44r+lD
+	/46IXGfbFxW8X+8FHJGJNqgIA7kGUC4HsxwRQ4sftfmrFBtiFWNTawOLhT1lhkYfXX9g14wQCbFpM
+	f6fYZQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjXr-00000004AGb-2etd;
-	Wed, 05 Feb 2025 17:50:39 +0000
-Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
+	id 1tfjcr-00000004B3g-419C;
+	Wed, 05 Feb 2025 17:55:49 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjTo-000000048mg-2wYl
+	id 1tfjbU-00000004At8-07Ic
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 17:46:29 +0000
-Received: from phl-compute-02.internal (phl-compute-02.phl.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 243E12540196;
-	Wed,  5 Feb 2025 12:46:25 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Wed, 05 Feb 2025 12:46:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1738777584; x=1738863984; bh=HEskk/2SpuLO/Xrp6JjdV4QHbWz2DrijKvj
-	/WGpMo98=; b=r2luspizoix2AEF4EaO2ehJhs7Fw4jAPTtpliuS8JBSUfGJyPua
-	qLdsjnxyl17PnEZrM4NHbR0U+29fas76j99i19IxBZURQBifLWxhbBqW55hLySrx
-	HAVXCsRLmha2HcqHknDjkL9Xeidf4rObORpsZyMfh5Sh3d027iSyZfBz4EzQqP+g
-	m01JL38qT4d+2xoffTqqVpTOqa0+KIuGWPiDNHhSa5VLQhJe1yIQwKQapH1D+A2w
-	MrEUldAKDRixrRe9FXa1hGt0oYIx1AP3k/BxL5lJIGHjq+LNbgWNgo19+fF9B1a2
-	7z4uNy2MiJ6gkm/dGMNt19qfUpvbLRREaDw==
-X-ME-Sender: <xms:76OjZxlYzksRscRa_qX5S04h1IkoM8bn-hTsZOcJs7JyXwTEf9lRwA>
-    <xme:76OjZ80UBNf8ydUkrTr-5DJ_vaOkIknryww7-2SJIuyzqEUoknba85E7p97tABPvO
-    HqhNu5PCTaAYnk>
-X-ME-Received: <xmr:76OjZ3phySEI9zZFX2fLzlWk0i1_zAvHzDKe_9rYPI_Jp7XAtN684i8eLv1I>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgedutdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddv
-    necuhfhrohhmpefkughoucfutghhihhmmhgvlhcuoehiughoshgthhesihguohhstghhrd
-    horhhgqeenucggtffrrghtthgvrhhnpedvudefveekheeugeeftddvveefgfduieefudei
-    fefgleekheegleegjeejgeeghfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpehiughoshgthhesihguohhstghhrdhorhhgpdhnsggprhgtphht
-    thhopedvhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhdqmhgrlhhlrgguih
-    esthhirdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopegurghnihhshhgrnhifrghrsehtihdrtghomhdprhgtphhtthhopehprggsvg
-    hnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtoh
-    epuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfido
-    nhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepsghpfhesvhhgvghrrdhkvghrnh
-    gvlhdrohhrgh
-X-ME-Proxy: <xmx:76OjZxmJrT1mw4cGC5Z3PVwsGehnoRCjZxYdJ_ABfe7RSiEUpwplPA>
-    <xmx:76OjZ_2ZX3nJ9G-5vJnVR0qR9wI4381VmwucynYbHX0TQW3fcgNk8w>
-    <xmx:76OjZwt7MG6j-mRcytoklvUnMHVjIFGoXdLvzheatidojseNs3d1tA>
-    <xmx:76OjZzXX8eMbKVIFytFckbC4ddt2sHqyb_DKlX_qbpoIeIP9ViJf-Q>
-    <xmx:8KOjZ6GI8IvEawqZnrxSUKqmofGTrPSXj8dpIMcsPw-APgDOhhVJr7tK>
-Feedback-ID: i494840e7:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Feb 2025 12:46:22 -0500 (EST)
-Date: Wed, 5 Feb 2025 19:46:21 +0200
-From: Ido Schimmel <idosch@idosch.org>
-To: "Malladi, Meghana" <m-malladi@ti.com>
-Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, robh@kernel.org,
-	matthias.schiffer@ew.tq-group.com, dan.carpenter@linaro.org,
-	rdunlap@infradead.org, diogo.ivo@siemens.com,
-	schnelle@linux.ibm.com, glaroque@baylibre.com,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [EXTERNAL] Re: [PATCH net 3/3] net: ti: icssg-prueth: Add AF_XDP
- support
-Message-ID: <Z6Oj7eMRV9z9lF2I@shredder>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-4-m-malladi@ti.com>
- <Z5J7kGFU_ZgneFAF@shredder>
- <f1cf5bfc-e767-4ced-9aad-76a578c53706@ti.com>
+	Wed, 05 Feb 2025 17:54:26 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d932eac638so166540a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 09:54:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738778062; x=1739382862; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rCMKE5gzKgu/HvyulYhfT2Ja0Yjz35cFcUjQJgI8Ync=;
+        b=xjTx/GPIdfroE0qx9Dg+JaNY7MxvCXMhNH2I8DiGqJ2MLvvjt6axbssO2Pq6FbGajO
+         zmBe4X4pewsYcnXglShni3KO1qhULDOMmL7yZDTF0GXbVMzHdMIk+V9qsW4mXNj7M5LT
+         RQ9BwdwwL1f71XU/BuwZXIyumYtytZ+gpaED/tUt/N/ZIvwpRDV7b/rjQXXf101CIIzz
+         ZK18ILHRYKAmBL/yDOZAZkeheGwp8XiDszPVhOzUYBdGnLCYs8OV3q/LL+7/PkseWm0T
+         4QPiiCOdlG21wfWT4XgZI7aTpPbXVj0YQP9+ujeUIcT916G0RoX3RYirJkdHLdRUNI0T
+         XQBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738778062; x=1739382862;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rCMKE5gzKgu/HvyulYhfT2Ja0Yjz35cFcUjQJgI8Ync=;
+        b=U+bsXijkNC8XezkIAZSpdPaFcNnRB6ZLOWP/weO/BwMNtDBfWUw4fzu875/dzzv1//
+         NWDkrCVQRDAQjLISFbx9Iq7BxhbHBh7klOb2rSKwtrtW1Z054QZOUPJA6c3vbg43dV/F
+         lwArYOdvRUOxWdKLbqrqW9OihMATwjp6s8LJ1tLhxl7hUmsHL0z7qj7rpaMOukwpb/IQ
+         zgsyvDMalgyMW0MGlSV0aekuHXrYpCQhjOFHP5da6KYyhA2RD3hpgx+dxCK1zuOtDiqF
+         wKXUBi/u2aJZHEB9emDyCBJsHRivLP8OSAhqSliAyjXSH7EOkd8Qq9XNJX6IF4ksl8xh
+         u5ZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNy+RP3xl29O2hMT30tridOv+lbzxLLTKXu8qfcUBwCDy50vQpAY6AAIQb8+CYtXI3IzmzT1YPUheH2Lk+DfGB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwijYx6/cjeYMDDNRZxkzKLZO6OFRUVxgXxq/AgXkLVne1tLfNv
+	0rAeAiLFUMMQd47wMSth1OmnNOLOvqE8vM9Deqy73VAlEiPjHaEwQxdN+03PKq8=
+X-Gm-Gg: ASbGncsf18UIpNAEW0wtrZLSf112a5eHxNGZwj3POphWlmW/Z9nzYtTYtJvdOGllt69
+	sJKPcYM1K0/3Ow+R39dx8nHo+fHNkJkU9L5GEYR9iSFdUz7rDU4e5wMucX7I5bFLdy/NHDcqVqk
+	G+RCj6os5Yfl/psU9j985lXbEkobc/exhMGQZUSvBzg3z1LCn21XGhyDBRNSa/zxgeJDMvTeIAl
+	JlhaYkPI/17EieFCbcS/cSfFsu/HCEv9qQ/ghI+7FTOj/NfrBl5CRqsIO2Xeu4MOatF53xxhG8U
+	QEmQ++hW5VFpdYi8XXipSx91+0l7SuCi5xnKntv73/4P/fX3vy4tdrjqyw==
+X-Google-Smtp-Source: AGHT+IGwFChnLi3ypYCTZHAHkBmrw8K+5yHJCBID2rJDb3472Yl7NGdTkpLX4by9169XWQPNNr7i/w==
+X-Received: by 2002:a05:6402:234f:b0:5dc:da2f:9cda with SMTP id 4fb4d7f45d1cf-5dcdb77a00cmr5000144a12.27.1738778061929;
+        Wed, 05 Feb 2025 09:54:21 -0800 (PST)
+Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc723ea218sm11385857a12.31.2025.02.05.09.54.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 09:54:21 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+Cc: =?UTF-8?q?Herv=C3=A9=20Codina?= <herve.codina@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 0/3] pwm: pxa: Use #pwm-cells = <3>
+Date: Wed,  5 Feb 2025 18:53:59 +0100
+Message-ID: <cover.1738777221.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f1cf5bfc-e767-4ced-9aad-76a578c53706@ti.com>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1673; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=JDsPD6H7sq2JssXSPZq5WPbt9ev+FcdfTWuhqbRmUg8=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBno6W3nGyFzH2RWbXMNkDi7NRuJZY1Mdd/uPZtB mi/Hqxh8yKJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ6OltwAKCRCPgPtYfRL+ TqFjB/4mMGV2Y07JilIJeoyM64TvtCXPufPc3lftW4t+VffV2nwQ6OLwLX+5YEccyi/f9YSA+d0 4WxXZYZCfQSn0TiqfSAwXm4uPNwjiJWWvmeEXDGjo65qwGSrKuqXLHomRbjgaO/U6p1z/F5ZWNN lnhWGvWiVP0jUiOqw8Rm5Phh22liOqmuqpgZN84al0Oab0/Sa3BUqg0hNTgc8KWGB2ZSRQzOjuD 23PAkaPxmgCnvt5H7iFAgV3fcjOfLdR8DF3qRmkoh+NQXfbAxzfua2b1tw7w6Q44rFH/1vpTiau /AF0kWibrfiJUjW5xK7cjmhO0scrEAJSxr82XPZ8ZcLJ8i5U
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_094628_786457_186ADC2B 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250205_095424_318493_19EA4F58 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,19 +105,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 11:25:39PM +0530, Malladi, Meghana wrote:
-> On 1/23/2025 10:55 PM, Ido Schimmel wrote:
-> > XDP program could have changed the packet length, but driver seems to be
-> 
-> This will be true given, emac->xdp_prog is not NULL. What about when XDP is
-> not enabled ?
+Hello,
 
-I don't understand the question. My point is that the packet doesn't
-necessarily look the same after XDP ran.
+this series' goal is to soften the special device-tree binding of
+marvel,pxa-pwm devices. This is the only binding that doesn't pass the
+line index as first parameter. 
 
-> 
-> > building the skb using original length read from the descriptor.
-> > Consider using xdp_build_skb_from_buff()
-> > 
-> 
+Here the #pwm-cells value is bumped from 1 to 3, keeping compatibility
+with the old binding. 
+
+The motivation for this was that Hervé sent a patch introducing pwm
+nexus nodes which don't work nicely with the marvel,pxa-pwm
+particularities.
+
+For merging this series (assuming device-tree and pxa maintainers agree)
+I guess keeping the patches together makes sense because with the 2nd
+patch applied but without the 3rd there are a few dt-checker warnings.
+
+So I suggest to take it via my pwm tree as I guess drivers/pwm/core.c
+has more potential for a conflict than arch/arm/boot/dts/intel/pxa.
+So please send Acks and tell me if you would need an immutable branch
+for pulling into the PXA tree.
+
+Best regards
+Uwe
+
+Uwe Kleine-König (3):
+  pwm: Add upgrade path to #pwm-cells = <3> for users of
+    of_pwm_single_xlate()
+  dt-bindings: pwm: marvell,pxa-pwm: Update to use #pwm-cells = <3>
+  ARM: dts: pxa: Use #pwm-cells = <3> for marvell,pxa-pwm devices
+
+ .../devicetree/bindings/pwm/marvell,pxa-pwm.yaml |  3 +--
+ arch/arm/boot/dts/intel/pxa/pxa25x.dtsi          |  4 ++--
+ arch/arm/boot/dts/intel/pxa/pxa27x.dtsi          |  8 ++++----
+ .../dts/intel/pxa/pxa300-raumfeld-controller.dts |  2 +-
+ arch/arm/boot/dts/intel/pxa/pxa3xx.dtsi          |  8 ++++----
+ drivers/pwm/core.c                               | 16 ++++++++++++++++
+ 6 files changed, 28 insertions(+), 13 deletions(-)
+
+
+base-commit: c98e66144b7d07ee9a3ca8241123b628a8ac0288
+-- 
+2.47.1
+
 
