@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB68AC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EC8C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDare0wXthcUSCxt8tJMhXyNRKnHO97BD3ndLeOmDBI=; b=io5oJV72PEi6dF3Re+2X+1blCT
-	9MX8IsB8mvy5hPyaZcAUPAgUzdNkbbXZJ9XQCiyH2FdBhqLBkcRZjY/kOgGrZp37cJ4Q5u4tKP+ZW
-	BK0iOYX4vRwx1OEBeLrXmLwqlB08iHyFDeJ1W0DGwyznaXL0uvhfO9mPHKKWRRjS6su7ERZ3hPANQ
-	EUplSOPbf3RDu4I2YaasnyQje0vWP23vWyrYXkEwzyK4nh30m96z/bO1rNWM6j2ftDbbYGTw9PjCK
-	YqbTHtUqdZmYqTzKcZhtGkOF4PoHVC5B75pcvWVi1AKxXxl2VCvWAUexWYpC3ZYwipX4b/Nv/dHj3
-	RNfSEOzA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A8a8Vknd+Ac1B5NbwMCS9Rp6ox5pHlVEJ+QCEfo6ioE=; b=HXxEjJdtn5OufNGdLPStqGKEG3
+	wEqG26Pm4UJwHfUTynY+Yni50hCYFYo2yXFXhb9RgbOy5odRdHNiX4x+oHPiULFzNpaEaJhOEFACq
+	ENUI/uQhj/j6UWI2H94r1GTsMI8yskvJiO2K0iLBAhciUww/RAON4s1MGBFJ4p7XdLrOfUIr1ooBh
+	eKEp1hcmzdi/Gt8sUR3C12X0t5qbAttGHDEjOsB0oEdtkSPS2vwCl3/e9W3Jvswh+5yBES5p79VYX
+	STkk1VoiW4oOZ/Lvy1XCxGoxZebC6mGi7e197QedxsbgVnF/CKsoofmYiFbLjj21bz646sPUDSbz4
+	xye9Gowg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfd1Y-00000002xET-16jx;
-	Wed, 05 Feb 2025 10:52:52 +0000
+	id 1tfd2t-00000002xWf-1238;
+	Wed, 05 Feb 2025 10:54:15 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcyr-00000002wku-0AkM
+	id 1tfd0L-00000002x02-0SNo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 10:50:06 +0000
+	Wed, 05 Feb 2025 10:51:38 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id A2A45A0530;
-	Wed,  5 Feb 2025 11:50:03 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id B646BA0031;
+	Wed,  5 Feb 2025 11:51:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=SDare0wXthcUSCxt8tJM
-	hXyNRKnHO97BD3ndLeOmDBI=; b=OM7D9kN/qdhvVKfFyRJIY7EmIiYKzs5biVhP
-	SYV12ZKf8A4UtWWnswMGsznVS+CQBPHxIRhewTGcXK8mhHG6OXTKX1/kvkVk+XQc
-	mX5aZd2TQGnB5YFahlKb5/hUevWts/95fdAim5TAiQVHurym71JkR0bE8WvIkWjE
-	0NUIiBZECxHwT6iCbeXeDb1aMmwY5au9rfSZTHfe6JO5jN0AfZuOpWVL/f1E+71o
-	656E7X4y06qx9PexxX4e1xR1rjP5q42VM0I+hYMHjuWXb4neA9+QhwL1VDDGLmVF
-	CQkB1aewiXM39KNJyrT250wC7DAln3HGhklq7fwbA1ZdDNNg68byIqtDKTxy1kAL
-	iRTQs/nWds0fATuIJVHJxSepyhSQgrUf/ZnXX1WUoJ/ALNa+hpz+t7TN+Etiiz4/
-	pAHKQiBG8bvTCkCYbvxbdO3q2p4n5MVRpp3q2yRE4n9cdfg36dEGYieizSgmsoTd
-	hG4hV4XPM1LajeRt4rX5hKfT+Jhigek/NbBofCSkQN9pwNHsm0hEnlJo8B3rkajh
-	MUI+Z4EgwDyOQX1rdQHuaPJkkvNvYvdqFQrKnKyMv2A9E1Uj+OiJ4uJq6fPIbXlW
-	WU3WK5PUa5b5zep4GitPl6jF7sfLcNSz8NwxX0jgXxbYScYtcekYwt381Wn3BY54
-	yPyfLmI=
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=A8a8Vknd+Ac1B5NbwMCS9Rp6ox5pHlVEJ+QCEfo6ioE=; b=
+	WnoYpEILKm9SvCt3yFSNGC/pL8zToIpwkbYHyPlxp+VVP2rAtXJYcxeEbw4g1E4R
+	X14ODohHKGFOHhtxnIaAU6klhR1GAc9GZK4rOXVZFEcsBjcc6QIqIAwggrhwKZCf
+	TzahDJATPmmkcZ0HC4vhLitYFpjoq6pwHZJkpvz/QFlOjFfikS5p2oFVnRZ/g72s
+	4c7KZXhD232EbMksPdbERtFGUNeevdlhX89lSpPzcnf+u0M6JoZXIQ8JpKD5lxrx
+	Tz6OBDNpbotA+Je4hevaZ+Chiy80I+LU9Qcry4CYD5/CTfjytbTVaNGeRKZPhVtK
+	huFPGYvVQfS+giv5dcy3vkE48KgdtOnzBPhZ8eUMGf3ZxFPcBpx9Vgyche2h/644
+	rhsuDfUgN4LZFMg60ZFipKmy6+2P8AHJz7UJynvvIG7o7EMNiycwH+bXO7hTd1Fq
+	GoOWxojUrpCb1dPMeGTJ4oBBIOfhsjAgkUUG1tDDupW2K8I7Zhl60VU8GlTg3kth
+	H92Sfa/GXZFSqchZwH8Kfw/789l5TMZmbOpKeeHux3AqFBEJh9GZn/hf8dn5S8Dg
+	+h9yLrpGiqvLeIOLZ7gOmlVyc/mv7YWrWwyYut2K3Nkmr8+hw627AlA5y0PpYwsQ
+	xd6+28uXypSWwG31J7PypaUvdvLSrDGwUn8jvF7VFzg=
 From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
 To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>
 CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
  Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
-Subject: [PATCH v3 2/2] counter: microchip-tcb-capture: Add capture extensions for registers RA-RC
-Date: Wed, 5 Feb 2025 11:49:54 +0100
-Message-ID: <20250205104957.95236-3-csokas.bence@prolan.hu>
+Subject: [PATCH v3 0/2] microchip-tcb-capture: Add Capture, Compare, Overflow etc. events
+Date: Wed, 5 Feb 2025 11:50:43 +0100
+Message-ID: <20250205104957.95236-2-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250205104957.95236-1-csokas.bence@prolan.hu>
-References: <20250205104957.95236-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738752602;VERSION=7985;MC=3452472733;ID=233959;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738752695;VERSION=7984;MC=1779217303;ID=244308;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94852667264
+X-EsetId: 37303A2980D94852667264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_025005_232210_385E033E 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250205_025137_300695_11790192 
+X-CRM114-Status: UNSURE (   6.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250205105043.GZ2GiOuZ93zyLzEs81RUQlV0ncWGq4g6kvV4fhv3hU4@z>
 
-TCB hardware is capable of capturing the timer value to registers RA and
-RB. On top, it is capable of triggering on compare against a third
-register, RC. Add these registers as extensions.
+The TCB has three R/W-able "general purpose" hardware registers:
+RA, RB and RC. The hardware is capable of:
+* sampling Counter Value Register (CV) to RA/RB on a trigger edge
+* sending an interrupt of this change
+* sending an interrupt on CV change due to trigger
+* triggering an interrupt on CV compare to RC
+* stop counting after sampling to RB
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+To enable using these features in user-space, an interrupt handler
+was added, generating the necessary counter events. On top, RA/B/C
+registers are added as Count Extensions.
 
-Notes:
-    Changes in v2:
-    * Add IRQs
-    Changes in v3:
-    * Move IRQs to previous patch
+Bence Csókás (2):
+  counter: microchip-tcb-capture: Add IRQ handling
+  counter: microchip-tcb-capture: Add capture extensions for registers
+    RA-RC
 
- drivers/counter/microchip-tcb-capture.c | 58 +++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ drivers/counter/microchip-tcb-capture.c | 125 ++++++++++++++++++++++++
+ 1 file changed, 125 insertions(+)
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index fef4bb69b486..1445ac512c52 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -253,6 +253,62 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
- }
- 
-+static int mchp_tc_count_cap_read(struct counter_device *counter,
-+				  struct counter_count *count, size_t idx, u64 *val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+
-+	switch (idx) {
-+	case 0:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
-+		break;
-+	case 1:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
-+		break;
-+	case 2:
-+		regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), &cnt);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+	*val = cnt;
-+
-+	return 0;
-+}
-+
-+static int mchp_tc_count_cap_write(struct counter_device *counter,
-+				   struct counter_count *count, size_t idx, u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	switch (idx) {
-+	case 0:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
-+		break;
-+	case 1:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
-+		break;
-+	case 2:
-+		regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), val);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 3);
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
-+				   mchp_tc_cnt_cap_array),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -261,6 +317,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
- };
- 
 -- 
 2.48.1
 
