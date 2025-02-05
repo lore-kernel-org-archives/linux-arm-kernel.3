@@ -4,182 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B1DC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 00:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026CEC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 00:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CIFsFkwQqOlhv0D0MCNi+ci6YOVC+qI3Z9fzJ6ddjZY=; b=omRyIMwzhnmmkn+x7YwolK3z2p
-	zJeupjgjIuQ/VMh3gVyRT1Jnz1l/o3dcIGnHzdzy+tV7TePWD0SEveg2FJSVAIlJdzk50tEvmddbK
-	6JhqSSz9NefW+I+4rlY4WeKZeCFIHlJfjhlTqmeNenFikbblxAfuSTgGFMpW1HpCwX9d8mw/QjVTT
-	jBCAn6itlNXnFoR9R2RWuzMvKH9mbu71DA8w8KJLDYl7Jco9eh0gmS7XoEcJOOARuMmlsUxOLnjo9
-	zKYby89r+2tyl/ioKAHNaQ/7SGTTR+OrGvN/WrMNzRjuVZ33oY1YJiQldK5RZrEXoHYrAh/C4VPLk
-	x1dA9R4A==;
+	bh=5rtdthpBJrwcgNAq4MLskdy0qqwWwNY3y4M9TWna4I4=; b=Qu2lhZwo7J7UZphWX7V4yd9vSz
+	tEtD/276B63rW3ZKCJfnAvrEp53V2ci3T3Ai5cd4TyuLkBuzIk40AEASsiXckNQIHV1aOfQjJeag0
+	wAdJBaapav4AsGCqSW55kVnE1UsujJk+4LH5Y4isHYcLyQdI7u5Vgq37shW//5T5kdKdCD4AB9hIZ
+	En6/MdaA/KLCRXgfDeCcj8HivpQxm5+3HYYFngMsdrFFh3e4tPABBnZbBVZOxQIRpuqjeOCuUX1oq
+	HqFezlRlN6JhTibHly/UdU8zmQ2y3a5GYCFWQDeNHumvK7tGDcC5WiL+jmVmzpUysyCY1zjMp8bAe
+	xaswb1rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfT5H-00000001u8i-1EFM;
-	Wed, 05 Feb 2025 00:16:03 +0000
-Received: from mail-bn8nam12on2061a.outbound.protection.outlook.com ([2a01:111:f403:2418::61a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tfT8x-00000001ulg-0l9L;
+	Wed, 05 Feb 2025 00:19:51 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfRjg-00000001jDI-301L
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Feb 2025 22:49:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JNncDq4leDpXispeV8XgA8glYHwBncOAQ/xyxnedFCWyvWk+bTH3GvOY4dBrknn2K/Uqfrwhs5cMxl17jwgGexWTEzdFFpDgKxUIkAWHVn6UQUXPy1ZIulNKxYTnfqJbQfkK3Fo5fAdEDH4niM6myU/HXP9h9HK/5QHKYmVC3YaD8FpeiOspzYjPVP2bXcczS+eXVxK7v2Dxcg9ljbJTFzmrtyeMLBw02xm5uEqdIYku9oOVKHn0PIYsQ9nTUd4+LSkz7EOWW0cfF1ZfMh0GNsH//euNfp2xnNAbuif0eiVxwJFgFvwQ6Mh0sdCu69a58O0L0HhG27VP1HC4EtlMzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CIFsFkwQqOlhv0D0MCNi+ci6YOVC+qI3Z9fzJ6ddjZY=;
- b=kQ1V181zScj8Diab4JrK9wxBOsBmQXUQxUUU7/OS1YjmYoQpzqE7pESeg6TmfEJKFfI11Q/tw/DyprQhyob0jQWgcEykCk5sTSRMsZUFNkakeow1VecgAoLxWA7la512/PdQ2XGntzBYCGFOMm4+yDoQbhwpPP1YPaEEBysX/EGrMoA0UKaj2D9GInFUitragKpfRc17eNU6b19Pmc5jnyfi5XuAGoa5j+dPJ1XRjw6kF4VlPzw57SDPam7FofgxYBgBv02MCtCjeHkplyZCj6URqi2eLD6QCR63V9QA2ntF/6yT4dunl2yylC4K/4TrW14DTFLrA0F86558UndP6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CIFsFkwQqOlhv0D0MCNi+ci6YOVC+qI3Z9fzJ6ddjZY=;
- b=UeuzUvsV/FZRT4GLPdp14+mEF4Qrk/q1x6LDL3tj2x3Kw+Uu9/c1RQa89lQQUIRGceAtVmvK13UCCGdut84IQEm5koh8Gu8rkiih84vtyyLLeyF9rkefnB1BZHd08h2RFgtYoDDeuXRZ8MYx8bJ+y0GIaTXkfGAr2EBPC47WSrwzv+9j1yc6q8Uah6KWagSHth0bYRB/ppI3It3vuGxVQE7qyWEpDSm22gKs95t2zxrxa43eMSkePEnRciWlYih78m+gSgQBruRDINBn+1Ib8gDCoo/YzzopdRMhGQR4Fcj9+YbliaiFXIGiWE9uFlQD3qVAfuPpygyxB9p98q66iQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- IA1PR12MB8537.namprd12.prod.outlook.com (2603:10b6:208:453::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.22; Tue, 4 Feb
- 2025 22:49:34 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 22:49:33 +0000
-From: Alistair Popple <apopple@nvidia.com>
-To: akpm@linux-foundation.org,
-	dan.j.williams@intel.com,
-	linux-mm@kvack.org
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	lina@asahilina.net,
-	zhang.lyra@gmail.com,
-	gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com,
-	dave.jiang@intel.com,
-	logang@deltatee.com,
-	bhelgaas@google.com,
-	jack@suse.cz,
-	jgg@ziepe.ca,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	dave.hansen@linux.intel.com,
-	ira.weiny@intel.com,
-	willy@infradead.org,
-	djwong@kernel.org,
-	tytso@mit.edu,
-	linmiaohe@huawei.com,
-	david@redhat.com,
-	peterx@redhat.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev,
-	linux-cxl@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	jhubbard@nvidia.com,
-	hch@lst.de,
-	david@fromorbit.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	loongarch@lists.linux.dev
-Subject: [PATCH v7 12/20] mm/memory: Enhance insert_page_into_pte_locked() to create writable mappings
-Date: Wed,  5 Feb 2025 09:48:09 +1100
-Message-ID: <7db953c8cc5a066b4aa23dbdf049c6f35cce7b99.1738709036.git-series.apopple@nvidia.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
-References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SY4P282CA0016.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:a0::26) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	id 1tfT7b-00000001ufL-0Avz;
+	Wed, 05 Feb 2025 00:18:28 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6f6ae4846c7so40086597b3.1;
+        Tue, 04 Feb 2025 16:18:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738714706; x=1739319506; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5rtdthpBJrwcgNAq4MLskdy0qqwWwNY3y4M9TWna4I4=;
+        b=mn8ZgRItIPeyrsfSKabTGxRJBPVf1qZXX8766oj4q1uj2RraG29oHdIRGPjoNnA7fW
+         UeuHwsH7VHD+PjWKoPOCSc7C57b3Hu+SuD4Pud0s88Gt9Ze/Izx0GloMWuRWzSyATtnn
+         c8VY2x/IiCjh8tGeeeDOYktOeJMwleJPvOFv5ZpCnC1Pdi/G25IZ+jivoTry66pxcccB
+         62248Y0sjw1ibnGaQRss+a5rFQ85u5Fs6/cMDwjaRMy3mk969fzDfp8ptDccGZcPU3Wp
+         +zhUnNzYv8yBtoynjZfeNeYo8QEykALaAbnSgZc+96Hmix8OUXNE6jkZ3VeybtK5Cu/8
+         pH6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738714706; x=1739319506;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5rtdthpBJrwcgNAq4MLskdy0qqwWwNY3y4M9TWna4I4=;
+        b=kjwjxtb1iMvsK5v+ly92NeNcLyIW4RZWjweKvIy61BFjHL7lFA0YTDj+dYQ4ki6N2S
+         vTlx5Skz1/vsvXP/3KOFdgXiSXKIT+9AvtscZfUjbQUtzbR5D1wQcz7y7b1uWlDe1qjq
+         KwynnzrXLK5VgqIk/SMgUgc2xL4pxrY6WgHm8iviptJIvtz4Bt+79+gRJfzvUxOsB1SW
+         YptRkud4FUak6RHTR+Qm+am9MWELw8pA0ucYRgf0s3bkJRNCH+VWuBY+5qE+L4KXAtXe
+         DZgsNGPMqLBrEMlkFQiIo52FF0lGncA6KJSXsVHKF28g0CYblqnKqyg0XVOFZ0dQIUs9
+         aUsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVOWr0Ki2NjgLzC86FlCNvpL32iL7K2Som9x0OWJwVQfzgfx03lZkCB6g47UuQU6rvN73ffRdcq0lebMy4=@lists.infradead.org, AJvYcCWXRylNj5Evi5gpwjS4LOS5rFl9yG5oqCTAG3D9Z/BPY2To77LJ2sjHT1xDy9/yVeNKUv6TBD0p5c1J4+qWgR0N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5UoeJayqZYRWX2SoYqek6pgMyc4bACGNwXVaCe8D1duw97E/w
+	yFgLnZd/c576GAugsZWyNnPgNTes9YUZyopFcqFgyxsTHYd42ZaH3k937kyeOMMtHzSzyPDxhWx
+	41FFPkE7a+3PVpGED+ayd3rWL11U=
+X-Gm-Gg: ASbGncs62Yp7A/623KubhCdk8rPeCq2BijK6InRjb/x0VQCbD2F/Fl0xoXg3z9goGOT
+	aGsbLFrs5KHFLQHujKfDeyTyFjCbD/vSx0IlydkvtxpxmPtTIujm0+KssWeiEM0lHGXYtHW0=
+X-Google-Smtp-Source: AGHT+IF3QL4TV9dOUKXBDIW4smHixZqZ7eyBlAej1OtpZinafoFrVYf+NsTxW5fsk6+TsJa0eFgWGuStQ5v0p7b6AVs=
+X-Received: by 2002:a05:690c:6887:b0:6ee:ad00:f157 with SMTP id
+ 00721157ae682-6f989fbd804mr8890997b3.32.1738714705880; Tue, 04 Feb 2025
+ 16:18:25 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|IA1PR12MB8537:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14b365e0-394c-4b98-4b7f-08dd456e310a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vn+Vix7NJ9uCFxyIiatqGQYemjDceBEvnjmgNsupA9EtWu7p4c+Fi7sGLSsd?=
- =?us-ascii?Q?/2V2yFoqCGvm87Qquw76qGkabU9sv+Hsbgixj7RrLdOZ++MgpEafz5FjgBWq?=
- =?us-ascii?Q?WiNu/tbOZFVlO7VWp10Jut9PNwSM2YI/EBtjQV9tIWJoq5ilB8i/vNM+eySl?=
- =?us-ascii?Q?JbTchSwhMTHdW5NcPZk8BaG01vDiWXhBoZTFJfBy9W6sRzJsVo4FcsvwGKl3?=
- =?us-ascii?Q?fM9Gx8V4sQ54Tw1J+Sehuo2TgLwz+QS5bdXbJrXOsrWDOU4wCbruxaTdQsLy?=
- =?us-ascii?Q?yDPR30mbgHDYlkk8GaWi//NcKVawCyrCChlAXBFId3krXx+EbfaYOTqKhX2d?=
- =?us-ascii?Q?Kaat7Aj1+jJSXowB9g8iqiuygAisw17NRjLvg3A+Km2sndSlGYcdzcZH+H9k?=
- =?us-ascii?Q?fwWPmk7QpatRZb/PnINak07cx5Fa9FjVQzIGVp5QroJzMhiU8AQUc7eytT3E?=
- =?us-ascii?Q?0NlC/PGEWUHoIrOGhk+EDRTBPgVn1MgRTEh4CahyOKOHCSoCHYzwRatAree7?=
- =?us-ascii?Q?0Wa5XiRVxjd/G1eHg2+H5v+U+TPk8p/+4I6Ke1E3NQHOzFW98+bM5xxWr4K3?=
- =?us-ascii?Q?j2e34O97dYpbRG5Zn9b7tT+/M1Q4yijZ/raKCtdE9MGzzBZ5NVUKXncVyyc5?=
- =?us-ascii?Q?5JZxvsWfMGQyOjn9u4Q7lrnssPiAOD1lePkqd6Wtf16HhqoJS2UmcBcSirN2?=
- =?us-ascii?Q?+AV6op8R8JgKH0utqzfjkMKdDQ9bg3VI+dMeu9xDv+SzPgEwfkQpF36OVg3x?=
- =?us-ascii?Q?gGI9eYsH+DFpgXcsw0hzn4sLlRKV9gtkl+yzc5gyUioQV9ojdCb8kaeKpWRV?=
- =?us-ascii?Q?ONvYrodUi0/zzaVSelCSuNrBDgoBOqL5N9CdZqaAgBPPnLAMO8HwZGhWCGhY?=
- =?us-ascii?Q?EgG1WttK4byBB224Qzidd94tQAFXvFAKz4mFKzmPeQd/ItUSor+9hB6isamc?=
- =?us-ascii?Q?RRm8avo0gBuCxJtjDYcw8E1ES4zKa050b8wZW8AoVz6hO1t8kqpWMkgUPDwX?=
- =?us-ascii?Q?BNfUYXgr6BEfoZ1y718O5K25bGPcS+FgOnnqENU/um5Ptd+NapJMSGvBrqPi?=
- =?us-ascii?Q?QOSCfG5EfFtk+u1DOK94eKXTJ3G0066ZMJ6baah0uJILAxp+aZhhn5EHzpYC?=
- =?us-ascii?Q?n9tDc2weeEXxRm/yo/gWM08JNLb27oS2Csyhh1UYFaCY7AAZDKsh41X3agse?=
- =?us-ascii?Q?+vxgxEkBu/1Iga/NlM7Gsz4olK96PrQ739SaHBsAz+zk7Q+zOJgBlC+1pl83?=
- =?us-ascii?Q?+/6CB1V/T3KgcIF8UaClgFAWIwB1uh801gSNmj3WlPZEogqFj42LwYmNuQtv?=
- =?us-ascii?Q?p0/YSjI75zhQLGMRG+bpYdnhsYkvqwEwSGUonR3Rk5kL7853MzosvF/riCB/?=
- =?us-ascii?Q?HflcC6vRPKkLxsZCYb+u6eMnrBfG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WUX31JjS5FYA7SYPetpnxfn3Rck8OSDHWFo9Jp9c/xDBMjhATEHr8vBjQvE8?=
- =?us-ascii?Q?QkRN2GcUjrDNkaaACLdLy7kSb3WdpcxprTyUWgyHood6H279Bm6mmM7aDgYH?=
- =?us-ascii?Q?yHUi19KG7Ek8hPJjSI/9Ep0M4/odxRqHEhZW3lh2YZ13ndSG1PJDq/4np/2j?=
- =?us-ascii?Q?KzZlcC+O9d5WdQOr73zIAGVgbPHJnZKJhtNgap9Cw++0I42/qIEwqTCR8mlP?=
- =?us-ascii?Q?oAXXUpE8jUcY1j69+ni65oECz8YbkLykQeb0k7mTEbTnXycwN+fWw0y5mP52?=
- =?us-ascii?Q?v6aJA2rwbB50+oib5F7SVs3IRSkfmsrUIbqZkJZc0+mKgehg4w9kTIpNKbXL?=
- =?us-ascii?Q?3HVQ2Kek0GdfqROgKNLuErxQriI9N3QzCCBmBLfHtwr2Nn6uidutwqia0sNF?=
- =?us-ascii?Q?8d0ZLiiE/1HElOvGOWFWS13U361MGgT8CjHwKyqXtnzDK816TB1KoRkG+c4J?=
- =?us-ascii?Q?PX2ymgJtFQ7Lh/C75NOjEdJ0IuDmWxYB5O+6BYZ11ILfzPQUc+tFU3BgnsU2?=
- =?us-ascii?Q?rSfIvLjdOYWEJiK/mjoJQ6JqUY8DxUy3t32HCqPvSstRLrUOVJETwRj/DCJz?=
- =?us-ascii?Q?fgwSuMtlSljEXa3qZDsu6ABcnltVhVtB5PlK7MhyjghoQvMleKJkr36zd/UO?=
- =?us-ascii?Q?nD+jlB7XFJZsJsxSwPbkHfgxMyp4Ju/34cAHqcVaUtgj8pssLqMiDTqX9iCm?=
- =?us-ascii?Q?i+CT/3HhhMxyBtPYhvCrowID9FPYuT0p6BCCatZYgTT/U0oR0Z4d69+rua3R?=
- =?us-ascii?Q?HIFN72zNC9NHntiUhcEWxHPuBbSnKDjR9hkjAoPqYL0qGWtKK5fpz7LSuI0G?=
- =?us-ascii?Q?vot4oDPaqU/A+epHyn+3gNq/o4iZNhU6ahl486ZDRw9YTatPidqkH1DnPRkz?=
- =?us-ascii?Q?HKDJiP1FEatJZQA/OqoOHkcDhGIryM9DPizFDUZscf8nSjvYwRd4fmWnziv+?=
- =?us-ascii?Q?YvkKGsEQJ7E8gxw3/pYJ4QVHSLZyWlTeuLd2xgzpJDr+lmtpl9oWomROmqXi?=
- =?us-ascii?Q?//kjo6KWQJ9TLvjftDvDYS1PhhrK7BfRDBZ1Jo6RGBBoMhhT1VOgrwu1WfBe?=
- =?us-ascii?Q?ahpB9Q26o3DBRD/XTTWVavBI6pLjDH8mRDSrO8lnn/178C0BflFTqfib5ha/?=
- =?us-ascii?Q?f+RFveawI2P7mRh010iKvmCABoI3sb++qZ/TfXWoy10QPPLcWHlwPfojxG3U?=
- =?us-ascii?Q?KWMKIjS+rVS7v69yBXrTPJEWnulSEklIYTdgc7+9B620pYM80jOavPckfmrK?=
- =?us-ascii?Q?pe92pqkv3XpYGUhMtMQwG9BPRBuX7C5z4nogdY1XBe6i1r7UtOhyNvmtPIh6?=
- =?us-ascii?Q?ABpcjJOQqh8rvpP6HDGwkhjLgBwnx2y7euivx2Ix1xdMf97CgOyKmH+OqGgA?=
- =?us-ascii?Q?atrsiB5Y9mGsXESAcid88NmzKOHt2LvqkEIlXD/xCoDCugLbdz2fAx0NnaDu?=
- =?us-ascii?Q?h4XMX8i41QtW/ia513RWsoXvZS9SgOQdIoXfslQ+vVQp9rHdQNjqbjpZu5Ak?=
- =?us-ascii?Q?z1mP+90zPyGzhlDD0W+ZPaVRCgIa2hWD9/SMD87Q2XufuSvHyAloGEOsIkUU?=
- =?us-ascii?Q?kqbBe5LkKrW/mLHXcewJxQbgK6VF3wkSVrgZqEP1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14b365e0-394c-4b98-4b7f-08dd456e310a
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 22:49:32.9407
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ju/cNraWEBsYWJLoHGjgSPwdono/C91e7ntfts8uQinGtRlHMQTIoMeopjIgaXX3DxuBTMmy67rC6fvddwB8hw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8537
+References: <20250201071455.718247-1-irogers@google.com> <20250201071455.718247-4-irogers@google.com>
+In-Reply-To: <20250201071455.718247-4-irogers@google.com>
+From: Howard Chu <howardchu95@gmail.com>
+Date: Tue, 4 Feb 2025 16:18:15 -0800
+X-Gm-Features: AWEUYZnuMzmRVdL_FfRkW9jppkCICfaQ_wjHAwbcvcTmvJen8yb5sy5tfsisiX0
+Message-ID: <CAH0uvoi8J3mg8UxpiuHrCpH07jyGNkSfDFybs7EFcxgOoxYx7g@mail.gmail.com>
+Subject: Re: [PATCH v1 3/7] perf syscalltbl: Remove struct syscalltbl
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Bibo Mao <maobibo@loongson.cn>, Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_144940_763873_68B5A061 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250204_161827_094394_282126C3 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,122 +106,678 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for using insert_page() for DAX, enhance
-insert_page_into_pte_locked() to handle establishing writable
-mappings.  Recall that DAX returns VM_FAULT_NOPAGE after installing a
-PTE which bypasses the typical set_pte_range() in finish_fault.
+Hello Ian,
 
-Signed-off-by: Alistair Popple <apopple@nvidia.com>
-Suggested-by: Dan Williams <dan.j.williams@intel.com>
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+On Fri, Jan 31, 2025 at 11:15=E2=80=AFPM Ian Rogers <irogers@google.com> wr=
+ote:
+>
+> The syscalltbl held entries of system call name and number pairs,
+> generated from a native syscalltbl at start up. As there are gaps in
+> the system call number there is a notion of index into the
+> table. Going forward we want the system call table to be identifiable
+> by a machine type, for example, i386 vs x86-64. Change the interface
+> to the syscalltbl so (1) a (currently unused machine type of EM_HOST)
+> is passed (2) the index to syscall number and system call name mapping
+> is computed at build time.
+>
+> Two tables are used for this, an array of system call number to name,
+> an array of system call numbers sorted by the system call name. The
+> sorted array doesn't store strings in part to save memory and
+> relocations. The index notion is carried forward and is an index into
+> the sorted array of system call numbers, the data structures are
+> opaque (held only in syscalltbl.c), and so the number of indices for a
+> machine type is exposed as a new API.
+>
+> The arrays are computed in the syscalltbl.sh script and so no start-up
+> time computation and storage is necessary.
+>
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/builtin-trace.c       |  88 +++++++++++++-----------
+>  tools/perf/scripts/syscalltbl.sh |  36 ++++------
+>  tools/perf/util/syscalltbl.c     | 113 ++++++++++---------------------
+>  tools/perf/util/syscalltbl.h     |  22 ++----
+>  4 files changed, 103 insertions(+), 156 deletions(-)
+>
+> diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
+> index 10d3ad0d21f7..7e3aa2f6c5e2 100644
+> --- a/tools/perf/builtin-trace.c
+> +++ b/tools/perf/builtin-trace.c
+> @@ -143,7 +143,6 @@ struct syscall_fmt {
+>
+>  struct trace {
+>         struct perf_tool        tool;
+> -       struct syscalltbl       *sctbl;
+>         struct {
+>                 /** Sorted sycall numbers used by the trace. */
+>                 struct syscall  *table;
+> @@ -2100,7 +2099,7 @@ static int syscall__read_info(struct syscall *sc, s=
+truct trace *trace)
+>                 return 0;
+>         }
+>
+> -       name =3D syscalltbl__name(trace->sctbl, sc->id);
+> +       name =3D syscalltbl__name(sc->e_machine, sc->id);
+>         if (name =3D=3D NULL) {
+>                 sc->nonexistent =3D true;
+>                 return -EEXIST;
+> @@ -2196,10 +2195,14 @@ static int trace__validate_ev_qualifier(struct tr=
+ace *trace)
+>
+>         strlist__for_each_entry(pos, trace->ev_qualifier) {
+>                 const char *sc =3D pos->s;
+> -               int id =3D syscalltbl__id(trace->sctbl, sc), match_next =
+=3D -1;
+> +               /*
+> +                * TODO: Assume more than the validation/warnings are all=
+ for
+> +                * the same binary type as perf.
+> +                */
+> +               int id =3D syscalltbl__id(EM_HOST, sc), match_next =3D -1=
+;
+>
+>                 if (id < 0) {
+> -                       id =3D syscalltbl__strglobmatch_first(trace->sctb=
+l, sc, &match_next);
+> +                       id =3D syscalltbl__strglobmatch_first(EM_HOST, sc=
+, &match_next);
+>                         if (id >=3D 0)
+>                                 goto matches;
+>
+> @@ -2219,7 +2222,7 @@ static int trace__validate_ev_qualifier(struct trac=
+e *trace)
+>                         continue;
+>
+>                 while (1) {
+> -                       id =3D syscalltbl__strglobmatch_next(trace->sctbl=
+, sc, &match_next);
+> +                       id =3D syscalltbl__strglobmatch_next(EM_HOST, sc,=
+ &match_next);
+>                         if (id < 0)
+>                                 break;
+>                         if (nr_allocated =3D=3D nr_used) {
+> @@ -2673,6 +2676,7 @@ static int trace__sys_enter(struct trace *trace, st=
+ruct evsel *evsel,
+>         int id =3D perf_evsel__sc_tp_uint(evsel, id, sample), err =3D -1;
+>         int augmented_args_size =3D 0;
+>         void *augmented_args =3D NULL;
+> +       /* TODO: get e_machine from thread. */
+>         struct syscall *sc =3D trace__syscall_info(trace, evsel, EM_HOST,=
+ id);
+>         struct thread_trace *ttrace;
+>
+> @@ -2747,6 +2751,7 @@ static int trace__fprintf_sys_enter(struct trace *t=
+race, struct evsel *evsel,
+>         struct thread_trace *ttrace;
+>         struct thread *thread;
+>         int id =3D perf_evsel__sc_tp_uint(evsel, id, sample), err =3D -1;
+> +       /* TODO: get e_machine from thread. */
+>         struct syscall *sc =3D trace__syscall_info(trace, evsel, EM_HOST,=
+ id);
+>         char msg[1024];
+>         void *args, *augmented_args =3D NULL;
+> @@ -2822,6 +2827,7 @@ static int trace__sys_exit(struct trace *trace, str=
+uct evsel *evsel,
+>         struct thread *thread;
+>         int id =3D perf_evsel__sc_tp_uint(evsel, id, sample), err =3D -1,=
+ callchain_ret =3D 0, printed =3D 0;
+>         int alignment =3D trace->args_alignment;
+> +       /* TODO: get e_machine from thread. */
+>         struct syscall *sc =3D trace__syscall_info(trace, evsel, EM_HOST,=
+ id);
+>         struct thread_trace *ttrace;
+>
+> @@ -3175,6 +3181,7 @@ static int trace__event_handler(struct trace *trace=
+, struct evsel *evsel,
+>
+>         if (evsel =3D=3D trace->syscalls.events.bpf_output) {
+>                 int id =3D perf_evsel__sc_tp_uint(evsel, id, sample);
+> +               /* TODO: get e_machine from thread. */
+>                 struct syscall *sc =3D trace__syscall_info(trace, evsel, =
+EM_HOST, id);
+>
+>                 if (sc) {
+> @@ -3678,9 +3685,9 @@ static struct bpf_program *trace__find_syscall_bpf_=
+prog(struct trace *trace, str
+>         return trace->skel->progs.syscall_unaugmented;
+>  }
+>
+> -static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
+> +static void trace__init_syscall_bpf_progs(struct trace *trace, int e_mac=
+hine, int id)
+>  {
+> -       struct syscall *sc =3D trace__syscall_info(trace, NULL, EM_HOST, =
+id);
+> +       struct syscall *sc =3D trace__syscall_info(trace, NULL, e_machine=
+, id);
+>
+>         if (sc =3D=3D NULL)
+>                 return;
+> @@ -3689,22 +3696,22 @@ static void trace__init_syscall_bpf_progs(struct =
+trace *trace, int id)
+>         sc->bpf_prog.sys_exit  =3D trace__find_syscall_bpf_prog(trace, sc=
+, sc->fmt ? sc->fmt->bpf_prog_name.sys_exit  : NULL,  "exit");
+>  }
+>
+> -static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
+> +static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int e_machi=
+ne, int id)
+>  {
+> -       struct syscall *sc =3D trace__syscall_info(trace, NULL, EM_HOST, =
+id);
+> +       struct syscall *sc =3D trace__syscall_info(trace, NULL, e_machine=
+, id);
+>         return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program=
+__fd(trace->skel->progs.syscall_unaugmented);
+>  }
+>
+> -static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
+> +static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int e_machin=
+e, int id)
+>  {
+> -       struct syscall *sc =3D trace__syscall_info(trace, NULL, EM_HOST, =
+id);
+> +       struct syscall *sc =3D trace__syscall_info(trace, NULL, e_machine=
+, id);
+>         return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program_=
+_fd(trace->skel->progs.syscall_unaugmented);
+>  }
+>
+> -static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key,=
+ unsigned int *beauty_array)
+> +static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int e_ma=
+chine, int key, unsigned int *beauty_array)
+>  {
+>         struct tep_format_field *field;
+> -       struct syscall *sc =3D trace__syscall_info(trace, NULL, EM_HOST, =
+key);
+> +       struct syscall *sc =3D trace__syscall_info(trace, NULL, e_machine=
+, key);
+>         const struct btf_type *bt;
+>         char *struct_offset, *tmp, name[32];
+>         bool can_augment =3D false;
+> @@ -3800,9 +3807,9 @@ static struct bpf_program *trace__find_usable_bpf_p=
+rog_entry(struct trace *trace
+>         return NULL;
+>
+>  try_to_find_pair:
+> -       for (int i =3D 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
+> -               int id =3D syscalltbl__id_at_idx(trace->sctbl, i);
+> -               struct syscall *pair =3D trace__syscall_info(trace, NULL,=
+ EM_HOST, id);
+> +       for (int i =3D 0, num_idx =3D syscalltbl__num_idx(sc->e_machine);=
+ i < num_idx; ++i) {
+> +               int id =3D syscalltbl__id_at_idx(sc->e_machine, i);
+> +               struct syscall *pair =3D trace__syscall_info(trace, NULL,=
+ sc->e_machine, id);
+>                 struct bpf_program *pair_prog;
+>                 bool is_candidate =3D false;
+>
+> @@ -3886,7 +3893,7 @@ static struct bpf_program *trace__find_usable_bpf_p=
+rog_entry(struct trace *trace
+>         return NULL;
+>  }
+>
+> -static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
+> +static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace,=
+ int e_machine)
+>  {
+>         int map_enter_fd =3D bpf_map__fd(trace->skel->maps.syscalls_sys_e=
+nter);
+>         int map_exit_fd  =3D bpf_map__fd(trace->skel->maps.syscalls_sys_e=
+xit);
+> @@ -3894,27 +3901,27 @@ static int trace__init_syscalls_bpf_prog_array_ma=
+ps(struct trace *trace)
+>         int err =3D 0;
+>         unsigned int beauty_array[6];
+>
+> -       for (int i =3D 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
+> -               int prog_fd, key =3D syscalltbl__id_at_idx(trace->sctbl, =
+i);
+> +       for (int i =3D 0, num_idx =3D syscalltbl__num_idx(e_machine); i <=
+ num_idx; ++i) {
+> +               int prog_fd, key =3D syscalltbl__id_at_idx(e_machine, i);
+>
+>                 if (!trace__syscall_enabled(trace, key))
+>                         continue;
+>
+> -               trace__init_syscall_bpf_progs(trace, key);
+> +               trace__init_syscall_bpf_progs(trace, e_machine, key);
+>
+>                 // It'll get at least the "!raw_syscalls:unaugmented"
+> -               prog_fd =3D trace__bpf_prog_sys_enter_fd(trace, key);
+> +               prog_fd =3D trace__bpf_prog_sys_enter_fd(trace, e_machine=
+, key);
+>                 err =3D bpf_map_update_elem(map_enter_fd, &key, &prog_fd,=
+ BPF_ANY);
+>                 if (err)
+>                         break;
+> -               prog_fd =3D trace__bpf_prog_sys_exit_fd(trace, key);
+> +               prog_fd =3D trace__bpf_prog_sys_exit_fd(trace, e_machine,=
+ key);
+>                 err =3D bpf_map_update_elem(map_exit_fd, &key, &prog_fd, =
+BPF_ANY);
+>                 if (err)
+>                         break;
+>
+>                 /* use beauty_map to tell BPF how many bytes to collect, =
+set beauty_map's value here */
+>                 memset(beauty_array, 0, sizeof(beauty_array));
+> -               err =3D trace__bpf_sys_enter_beauty_map(trace, key, (unsi=
+gned int *)beauty_array);
+> +               err =3D trace__bpf_sys_enter_beauty_map(trace, e_machine,=
+ key, (unsigned int *)beauty_array);
+>                 if (err)
+>                         continue;
+>                 err =3D bpf_map_update_elem(beauty_map_fd, &key, beauty_a=
+rray, BPF_ANY);
+> @@ -3950,9 +3957,9 @@ static int trace__init_syscalls_bpf_prog_array_maps=
+(struct trace *trace)
+>          * first and second arg (this one on the raw_syscalls:sys_exit pr=
+og
+>          * array tail call, then that one will be used.
+>          */
+> -       for (int i =3D 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
+> -               int key =3D syscalltbl__id_at_idx(trace->sctbl, i);
+> -               struct syscall *sc =3D trace__syscall_info(trace, NULL, E=
+M_HOST, key);
+> +       for (int i =3D 0, num_idx =3D syscalltbl__num_idx(e_machine); i <=
+ num_idx; ++i) {
+> +               int key =3D syscalltbl__id_at_idx(e_machine, i);
+> +               struct syscall *sc =3D trace__syscall_info(trace, NULL, e=
+_machine, key);
+>                 struct bpf_program *pair_prog;
+>                 int prog_fd;
+>
+> @@ -4389,8 +4396,13 @@ static int trace__run(struct trace *trace, int arg=
+c, const char **argv)
+>                 goto out_error_mem;
+>
+>  #ifdef HAVE_BPF_SKEL
+> -       if (trace->skel && trace->skel->progs.sys_enter)
+> -               trace__init_syscalls_bpf_prog_array_maps(trace);
+> +       if (trace->skel && trace->skel->progs.sys_enter) {
+> +               /*
+> +                * TODO: Initialize for all host binary machine types, no=
+t just
+> +                * those matching the perf binary.
+> +                */
+> +               trace__init_syscalls_bpf_prog_array_maps(trace, EM_HOST);
+> +       }
+>  #endif
+>
+>         if (trace->ev_qualifier_ids.nr > 0) {
+> @@ -4415,7 +4427,8 @@ static int trace__run(struct trace *trace, int argc=
+, const char **argv)
+>          *  So just disable this beautifier (SCA_FD, SCA_FDAT) when 'clos=
+e' is
+>          *  not in use.
+>          */
+> -       trace->fd_path_disabled =3D !trace__syscall_enabled(trace, syscal=
+ltbl__id(trace->sctbl, "close"));
+> +       /* TODO: support for more than just perf binary machine type clos=
+e. */
+> +       trace->fd_path_disabled =3D !trace__syscall_enabled(trace, syscal=
+ltbl__id(EM_HOST, "close"));
+>
+>         err =3D trace__expand_filters(trace, &evsel);
+>         if (err)
+> @@ -4688,8 +4701,7 @@ DEFINE_RESORT_RB(syscall_stats, a->msecs > b->msecs=
+,
+>         entry->msecs   =3D stats ? (u64)stats->stats.n * (avg_stats(&stat=
+s->stats) / NSEC_PER_MSEC) : 0;
+>  }
+>
+> -static size_t thread__dump_stats(struct thread_trace *ttrace,
+> -                                struct trace *trace, FILE *fp)
+> +static size_t thread__dump_stats(struct thread_trace *ttrace, struct tra=
+ce *trace, int e_machine, FILE *fp)
+>  {
+>         size_t printed =3D 0;
+>         struct syscall *sc;
+> @@ -4717,7 +4729,7 @@ static size_t thread__dump_stats(struct thread_trac=
+e *ttrace,
+>                         pct =3D avg ? 100.0 * stddev_stats(&stats->stats)=
+ / avg : 0.0;
+>                         avg /=3D NSEC_PER_MSEC;
+>
+> -                       sc =3D trace__syscall_info(trace, /*evsel=3D*/NUL=
+L, EM_HOST,
+> +                       sc =3D trace__syscall_info(trace, /*evsel=3D*/NUL=
+L, e_machine,
+>                                                  syscall_stats_entry->sys=
+call);
+>                         if (!sc)
+>                                 continue;
+> @@ -4767,7 +4779,8 @@ static size_t trace__fprintf_thread(FILE *fp, struc=
+t thread *thread, struct trac
+>         else if (fputc('\n', fp) !=3D EOF)
+>                 ++printed;
+>
+> -       printed +=3D thread__dump_stats(ttrace, trace, fp);
+> +       /* TODO: get e_machine from thread. */
+> +       printed +=3D thread__dump_stats(ttrace, trace, EM_HOST, fp);
+>
+>         return printed;
+>  }
+> @@ -4999,8 +5012,9 @@ static int trace__parse_events_option(const struct =
+option *opt, const char *str,
+>                         *sep =3D '\0';
+>
+>                 list =3D 0;
+> -               if (syscalltbl__id(trace->sctbl, s) >=3D 0 ||
+> -                   syscalltbl__strglobmatch_first(trace->sctbl, s, &idx)=
+ >=3D 0) {
+> +               /* TODO: support for more than just perf binary machine t=
+ype syscalls. */
+> +               if (syscalltbl__id(EM_HOST, s) >=3D 0 ||
+> +                   syscalltbl__strglobmatch_first(EM_HOST, s, &idx) >=3D=
+ 0) {
+>                         list =3D 1;
+>                         goto do_concat;
+>                 }
+> @@ -5136,7 +5150,6 @@ static void trace__exit(struct trace *trace)
+>                         syscall__exit(&trace->syscalls.table[i]);
+>                 zfree(&trace->syscalls.table);
+>         }
+> -       syscalltbl__delete(trace->sctbl);
+>         zfree(&trace->perfconfig_events);
+>  }
+>
+> @@ -5282,9 +5295,8 @@ int cmd_trace(int argc, const char **argv)
+>         sigaction(SIGCHLD, &sigchld_act, NULL);
+>
+>         trace.evlist =3D evlist__new();
+> -       trace.sctbl =3D syscalltbl__new();
+>
+> -       if (trace.evlist =3D=3D NULL || trace.sctbl =3D=3D NULL) {
+> +       if (trace.evlist =3D=3D NULL) {
+>                 pr_err("Not enough memory to run!\n");
+>                 err =3D -ENOMEM;
+>                 goto out;
+> diff --git a/tools/perf/scripts/syscalltbl.sh b/tools/perf/scripts/syscal=
+ltbl.sh
+> index 1ce0d5aa8b50..a39b3013b103 100755
+> --- a/tools/perf/scripts/syscalltbl.sh
+> +++ b/tools/perf/scripts/syscalltbl.sh
+> @@ -50,37 +50,27 @@ fi
+>  infile=3D"$1"
+>  outfile=3D"$2"
+>
+> -nxt=3D0
+> -
+> -syscall_macro() {
+> -    nr=3D"$1"
+> -    name=3D"$2"
+> -
+> -    echo "     [$nr] =3D \"$name\","
+> -}
+> -
+> -emit() {
+> -    nr=3D"$1"
+> -    entry=3D"$2"
+> -
+> -    syscall_macro "$nr" "$entry"
+> -}
+> -
+> -echo "static const char *const syscalltbl[] =3D {" > $outfile
+> -
+>  sorted_table=3D$(mktemp /tmp/syscalltbl.XXXXXX)
+>  grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > $sorted_table
+>
+> -max_nr=3D0
+> +echo "static const char *const syscall_num_to_name[] =3D {" > $outfile
+>  # the params are: nr abi name entry compat
+>  # use _ for intentionally unused variables according to SC2034
+>  while read nr _ name _ _; do
+> -    emit "$nr" "$name" >> $outfile
+> -    max_nr=3D$nr
+> +       echo "  [$nr] =3D \"$name\"," >> $outfile
+>  done < $sorted_table
+> +echo "};" >> $outfile
+>
+> -rm -f $sorted_table
+> +echo "static const uint16_t syscall_sorted_names[] =3D {" >> $outfile
+>
+> +# When sorting by name, add a suffix of 0s upto 20 characters so that sy=
+stem
+> +# calls that differ with a numerical suffix don't sort before those
+> +# without. This default behavior of sort differs from that of strcmp use=
+d at
+> +# runtime. Use sed to strip the trailing 0s suffix afterwards.
+> +grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i =
+=3D length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's=
+/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > $sorted_table
+> +while read name nr; do
+> +       echo "  $nr,    /* $name */" >> $outfile
+> +done < $sorted_table
+>  echo "};" >> $outfile
+>
+> -echo "#define SYSCALLTBL_MAX_ID ${max_nr}" >> $outfile
+> +rm -f $sorted_table
+> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+> index 2f76241494c8..760ac4d0869f 100644
+> --- a/tools/perf/util/syscalltbl.c
+> +++ b/tools/perf/util/syscalltbl.c
+> @@ -9,6 +9,7 @@
+>  #include <stdlib.h>
+>  #include <asm/bitsperlong.h>
+>  #include <linux/compiler.h>
+> +#include <linux/kernel.h>
+>  #include <linux/zalloc.h>
+>
+>  #include <string.h>
+> @@ -20,112 +21,66 @@
+>    #include <asm/syscalls_32.h>
+>  #endif
+>
+> -const int syscalltbl_native_max_id =3D SYSCALLTBL_MAX_ID;
+> -static const char *const *syscalltbl_native =3D syscalltbl;
+> +const char *syscalltbl__name(int e_machine __maybe_unused, int id)
+> +{
+> +       if (id >=3D 0 && id <=3D (int)ARRAY_SIZE(syscall_num_to_name))
+> +               return syscall_num_to_name[id];
+> +       return NULL;
+> +}
+>
+> -struct syscall {
+> -       int id;
+> +struct syscall_cmp_key {
+>         const char *name;
+> +       const char *const *tbl;
+>  };
+>
+>  static int syscallcmpname(const void *vkey, const void *ventry)
+>  {
+> -       const char *key =3D vkey;
+> -       const struct syscall *entry =3D ventry;
+> +       const struct syscall_cmp_key *key =3D vkey;
+> +       const uint16_t *entry =3D ventry;
+>
+> -       return strcmp(key, entry->name);
+> +       return strcmp(key->name, key->tbl[*entry]);
+>  }
+>
+> -static int syscallcmp(const void *va, const void *vb)
+> +int syscalltbl__id(int e_machine __maybe_unused, const char *name)
+>  {
+> -       const struct syscall *a =3D va, *b =3D vb;
+> -
+> -       return strcmp(a->name, b->name);
+> +       struct syscall_cmp_key key =3D {
+> +               .name =3D name,
+> +               .tbl =3D syscall_num_to_name,
+> +       };
+> +       const int *id =3D bsearch(&key, syscall_sorted_names,
+> +                               ARRAY_SIZE(syscall_sorted_names),
+> +                               sizeof(syscall_sorted_names[0]),
+> +                               syscallcmpname);
 
----
+This has puzzled me several times lol. Searching in
+syscall_sorted_names returns an int id... I get that it's sorted by
+name, but maybe call it syscall_ids_sorted_by_name, syscall_ids, or
+syscall_ids_sorted instead?
 
-Changes for v7:
- - Drop entry and reuse pteval as suggested by David.
+> +
+> +       return id ? *id : -1;
+>  }
+>
+> -static int syscalltbl__init_native(struct syscalltbl *tbl)
+> +int syscalltbl__num_idx(int e_machine __maybe_unused)
 
-Changes for v5:
- - Minor comment/formatting fixes suggested by David Hildenbrand
+I haven't found many instances of *num_idx in the source tree
+indicating the length of an array. Are you okay with
+syscalltbl__nr_idx()?
 
-Changes since v2:
- - New patch split out from "mm/memory: Add dax_insert_pfn"
----
- mm/memory.c | 38 +++++++++++++++++++++++++++++---------
- 1 file changed, 29 insertions(+), 9 deletions(-)
+Otherwise LGTM.
 
-diff --git a/mm/memory.c b/mm/memory.c
-index 17add52..41befd9 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -2125,19 +2125,39 @@ static int validate_page_before_insert(struct vm_area_struct *vma,
- }
- 
- static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
--			unsigned long addr, struct page *page, pgprot_t prot)
-+				unsigned long addr, struct page *page,
-+				pgprot_t prot, bool mkwrite)
- {
- 	struct folio *folio = page_folio(page);
--	pte_t pteval;
-+	pte_t pteval = ptep_get(pte);
-+
-+	if (!pte_none(pteval)) {
-+		if (!mkwrite)
-+			return -EBUSY;
-+
-+		/* see insert_pfn(). */
-+		if (pte_pfn(pteval) != page_to_pfn(page)) {
-+			WARN_ON_ONCE(!is_zero_pfn(pte_pfn(pteval)));
-+			return -EFAULT;
-+		}
-+		pteval = maybe_mkwrite(pteval, vma);
-+		pteval = pte_mkyoung(pteval);
-+		if (ptep_set_access_flags(vma, addr, pte, pteval, 1))
-+			update_mmu_cache(vma, addr, pte);
-+		return 0;
-+	}
- 
--	if (!pte_none(ptep_get(pte)))
--		return -EBUSY;
- 	/* Ok, finally just insert the thing.. */
- 	pteval = mk_pte(page, prot);
- 	if (unlikely(is_zero_folio(folio))) {
- 		pteval = pte_mkspecial(pteval);
- 	} else {
- 		folio_get(folio);
-+		pteval = mk_pte(page, prot);
-+		if (mkwrite) {
-+			pteval = pte_mkyoung(pteval);
-+			pteval = maybe_mkwrite(pte_mkdirty(pteval), vma);
-+		}
- 		inc_mm_counter(vma->vm_mm, mm_counter_file(folio));
- 		folio_add_file_rmap_pte(folio, page, vma);
- 	}
-@@ -2146,7 +2166,7 @@ static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
- }
- 
- static int insert_page(struct vm_area_struct *vma, unsigned long addr,
--			struct page *page, pgprot_t prot)
-+			struct page *page, pgprot_t prot, bool mkwrite)
- {
- 	int retval;
- 	pte_t *pte;
-@@ -2159,7 +2179,7 @@ static int insert_page(struct vm_area_struct *vma, unsigned long addr,
- 	pte = get_locked_pte(vma->vm_mm, addr, &ptl);
- 	if (!pte)
- 		goto out;
--	retval = insert_page_into_pte_locked(vma, pte, addr, page, prot);
-+	retval = insert_page_into_pte_locked(vma, pte, addr, page, prot, mkwrite);
- 	pte_unmap_unlock(pte, ptl);
- out:
- 	return retval;
-@@ -2173,7 +2193,7 @@ static int insert_page_in_batch_locked(struct vm_area_struct *vma, pte_t *pte,
- 	err = validate_page_before_insert(vma, page);
- 	if (err)
- 		return err;
--	return insert_page_into_pte_locked(vma, pte, addr, page, prot);
-+	return insert_page_into_pte_locked(vma, pte, addr, page, prot, false);
- }
- 
- /* insert_pages() amortizes the cost of spinlock operations
-@@ -2309,7 +2329,7 @@ int vm_insert_page(struct vm_area_struct *vma, unsigned long addr,
- 		BUG_ON(vma->vm_flags & VM_PFNMAP);
- 		vm_flags_set(vma, VM_MIXEDMAP);
- 	}
--	return insert_page(vma, addr, page, vma->vm_page_prot);
-+	return insert_page(vma, addr, page, vma->vm_page_prot, false);
- }
- EXPORT_SYMBOL(vm_insert_page);
- 
-@@ -2589,7 +2609,7 @@ static vm_fault_t __vm_insert_mixed(struct vm_area_struct *vma,
- 		 * result in pfn_t_has_page() == false.
- 		 */
- 		page = pfn_to_page(pfn_t_to_pfn(pfn));
--		err = insert_page(vma, addr, page, pgprot);
-+		err = insert_page(vma, addr, page, pgprot, mkwrite);
- 	} else {
- 		return insert_pfn(vma, addr, pfn, pgprot, mkwrite);
- 	}
--- 
-git-series 0.9.1
+Thanks,
+Howard
+>  {
+> -       int nr_entries =3D 0, i, j;
+> -       struct syscall *entries;
+> -
+> -       for (i =3D 0; i <=3D syscalltbl_native_max_id; ++i)
+> -               if (syscalltbl_native[i])
+> -                       ++nr_entries;
+> -
+> -       entries =3D tbl->syscalls.entries =3D malloc(sizeof(struct syscal=
+l) * nr_entries);
+> -       if (tbl->syscalls.entries =3D=3D NULL)
+> -               return -1;
+> -
+> -       for (i =3D 0, j =3D 0; i <=3D syscalltbl_native_max_id; ++i) {
+> -               if (syscalltbl_native[i]) {
+> -                       entries[j].name =3D syscalltbl_native[i];
+> -                       entries[j].id =3D i;
+> -                       ++j;
+> -               }
+> -       }
+> -
+> -       qsort(tbl->syscalls.entries, nr_entries, sizeof(struct syscall), =
+syscallcmp);
+> -       tbl->syscalls.nr_entries =3D nr_entries;
+> -       tbl->syscalls.max_id     =3D syscalltbl_native_max_id;
+> -       return 0;
+> +       return ARRAY_SIZE(syscall_sorted_names);
+>  }
+>
+> -struct syscalltbl *syscalltbl__new(void)
+> +int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
+>  {
+> -       struct syscalltbl *tbl =3D malloc(sizeof(*tbl));
+> -       if (tbl) {
+> -               if (syscalltbl__init_native(tbl)) {
+> -                       free(tbl);
+> -                       return NULL;
+> -               }
+> -       }
+> -       return tbl;
+> -}
+> -
+> -void syscalltbl__delete(struct syscalltbl *tbl)
+> -{
+> -       zfree(&tbl->syscalls.entries);
+> -       free(tbl);
+> -}
+> -
+> -const char *syscalltbl__name(const struct syscalltbl *tbl __maybe_unused=
+, int id)
+> -{
+> -       return id <=3D syscalltbl_native_max_id ? syscalltbl_native[id]: =
+NULL;
+> -}
+> -
+> -int syscalltbl__id(struct syscalltbl *tbl, const char *name)
+> -{
+> -       struct syscall *sc =3D bsearch(name, tbl->syscalls.entries,
+> -                                    tbl->syscalls.nr_entries, sizeof(*sc=
+),
+> -                                    syscallcmpname);
+> -
+> -       return sc ? sc->id : -1;
+> -}
+> -
+> -int syscalltbl__id_at_idx(struct syscalltbl *tbl, int idx)
+> -{
+> -       struct syscall *syscalls =3D tbl->syscalls.entries;
+> -
+> -       return idx < tbl->syscalls.nr_entries ? syscalls[idx].id : -1;
+> +       return syscall_sorted_names[idx];
+>  }
+>
+> -int syscalltbl__strglobmatch_next(struct syscalltbl *tbl, const char *sy=
+scall_glob, int *idx)
+> +int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const ch=
+ar *syscall_glob, int *idx)
+>  {
+> -       int i;
+> -       struct syscall *syscalls =3D tbl->syscalls.entries;
+> +       for (int i =3D *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names=
+); ++i) {
+> +               const char *name =3D syscall_num_to_name[syscall_sorted_n=
+ames[i]];
+>
+> -       for (i =3D *idx + 1; i < tbl->syscalls.nr_entries; ++i) {
+> -               if (strglobmatch(syscalls[i].name, syscall_glob)) {
+> +               if (strglobmatch(name, syscall_glob)) {
+>                         *idx =3D i;
+> -                       return syscalls[i].id;
+> +                       return syscall_sorted_names[i];
+>                 }
+>         }
+>
+>         return -1;
+>  }
+>
+> -int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *s=
+yscall_glob, int *idx)
+> +int syscalltbl__strglobmatch_first(int e_machine, const char *syscall_gl=
+ob, int *idx)
+>  {
+>         *idx =3D -1;
+> -       return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
+> +       return syscalltbl__strglobmatch_next(e_machine, syscall_glob, idx=
+);
+>  }
+> diff --git a/tools/perf/util/syscalltbl.h b/tools/perf/util/syscalltbl.h
+> index 362411a6d849..2bb628eff367 100644
+> --- a/tools/perf/util/syscalltbl.h
+> +++ b/tools/perf/util/syscalltbl.h
+> @@ -2,22 +2,12 @@
+>  #ifndef __PERF_SYSCALLTBL_H
+>  #define __PERF_SYSCALLTBL_H
+>
+> -struct syscalltbl {
+> -       struct {
+> -               int max_id;
+> -               int nr_entries;
+> -               void *entries;
+> -       } syscalls;
+> -};
+> +const char *syscalltbl__name(int e_machine, int id);
+> +int syscalltbl__id(int e_machine, const char *name);
+> +int syscalltbl__num_idx(int e_machine);
+> +int syscalltbl__id_at_idx(int e_machine, int idx);
+>
+> -struct syscalltbl *syscalltbl__new(void);
+> -void syscalltbl__delete(struct syscalltbl *tbl);
+> -
+> -const char *syscalltbl__name(const struct syscalltbl *tbl, int id);
+> -int syscalltbl__id(struct syscalltbl *tbl, const char *name);
+> -int syscalltbl__id_at_idx(struct syscalltbl *tbl, int idx);
+> -
+> -int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *s=
+yscall_glob, int *idx);
+> -int syscalltbl__strglobmatch_next(struct syscalltbl *tbl, const char *sy=
+scall_glob, int *idx);
+> +int syscalltbl__strglobmatch_first(int e_machine, const char *syscall_gl=
+ob, int *idx);
+> +int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_glo=
+b, int *idx);
+>
+>  #endif /* __PERF_SYSCALLTBL_H */
+> --
+> 2.48.1.362.g079036d154-goog
+>
 
