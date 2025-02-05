@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85998C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB73C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwDx1Um4rB36eK7434KDwsGlcO9OTUtYN4hiTbu2N8s=; b=QHctwF+V2y9v4BRyOchoNGOrs3
-	cmLGVbkS+ZqP0QMglQFuTr2OP+NjXeoqSUqTIn6BSuVf3yCyC9J9k8WR7vTHX+qtoUL9E3nvx9waf
-	Z0jMrBu9myBzC1AwxXNJd4GeIhmFLlcxwHXJngDkmXrctWehrzPCBmULxyt7buaUhR6nmeWBVdtLi
-	s75AGSyr3nXFIgEuaMXQKCJ7mBUj0YVusm/62J2a2ACYnCxg6FJUebWqiiI0WmJ1oIkyK2FlFDeip
-	+VW9bd7g9hc3gS4FwitwJHRLFntEo/E5QsdLQ0dSn/7+rvuZDGg6pPis0BjYZG3Mhon45A0EnWzFs
-	0l+R6nLw==;
+	bh=4x1UWppgVA4Fs4hy+Va6C1XI4u18l82hM89V20R+DUc=; b=c5UUB02fPkp+hw8wkWRKYRTwcU
+	Y83BMWtB97qJ7qmz36yiIKM85C7hLyyrSLkuLHnBxTr+cnR9w09x/GBcwF8wHBFA0oy1zzBddU8D7
+	vODeb6ZsoO7Lx/gl8aK9DkeOPc1nsLX/6neY1d2VphrumTDjQo/IKdxEZMdO92b/0lqU/Z11Ary0+
+	QyWZcN6KIHY9TQfbjrYeIiTnabAg0UWHkud/3kyyJf900ZW+W9JFWwmOkwxG+ldiHVG7dNrhrZ0Vc
+	6/B4TIFgJPovKVEK/yz9gL45PctUIUL2RvFLQD7sJ+JBMm8iy43oA9Z6P0X4q4spaMhRIU/QVONM7
+	roP8Fe3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfeOH-00000003B02-21Vr;
-	Wed, 05 Feb 2025 12:20:25 +0000
+	id 1tfePb-00000003BPE-1rgz;
+	Wed, 05 Feb 2025 12:21:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfeKG-000000039xA-0CCu
+	id 1tfeKI-000000039xh-38UP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 12:16:17 +0000
+	Wed, 05 Feb 2025 12:16:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F9971007;
-	Wed,  5 Feb 2025 04:16:39 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BD1D1007;
+	Wed,  5 Feb 2025 04:16:42 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 589FF3F63F;
-	Wed,  5 Feb 2025 04:16:13 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 03E993F63F;
+	Wed,  5 Feb 2025 04:16:15 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -51,17 +51,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Graham Woodward <graham.woodward@arm.com>
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 02/11] perf script: Refactor sample_flags_to_name() function
-Date: Wed,  5 Feb 2025 12:15:46 +0000
-Message-Id: <20250205121555.180606-3-leo.yan@arm.com>
+Subject: [PATCH v1 03/11] perf script: Separate events from branch types
+Date: Wed,  5 Feb 2025 12:15:47 +0000
+Message-Id: <20250205121555.180606-4-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250205121555.180606-1-leo.yan@arm.com>
 References: <20250205121555.180606-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_041616_183466_31008821 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250205_041618_872582_6302458F 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,150 +76,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When generating a string for sample flags, the sample_flags_to_name()
-function lacks the ability to parse the trace start bit or trace end bit.
-Therefore, the function is invoked multiple times after clearing its
-unsupported bits.
+Branch types and events are two different things.  A branch type can be
+a conditional branch, an indirect branch, a procedure call, a return, or
+an exception taken, etc.  The extra event information is provided for
+what happens during a branch, e.g. if a branch is mispredicted or not
+taken (specific to conditional branches).
 
-This commit improves the sample_flags_to_name() function to parse sample
-flags in one go for three kinds of information:
-- The prefix info for trace start, trace end, etc.
-- Branch types.
-- Extra info for transaction and interrupt related info.
+To deliver information about branches, this commit separates events from
+branch types.  It parses branch types first, then appends event strings
+embraced by the '/' character.  If multiple events occur, the events is
+separated with a comma (,).
 
-As a result, the code is simplified to call the sample_flags_to_name()
-only once.  No expectation for any changes in the perf script output.
+Also add a minor improvement by adding char 'm' in char array for branch
+mispredict event.
+
+Below are extracted sample flags.
+
+Before:
+        branch:   br miss
+  instructions:   br miss
+
+After:
+        branch:   jmp/miss/
+  instructions:   jmp/miss/
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/event.h                 |  5 ++
- tools/perf/util/trace-event-scripting.c | 85 ++++++++++++++++---------
- 2 files changed, 59 insertions(+), 31 deletions(-)
+ tools/perf/util/event.h                 |  5 +++-
+ tools/perf/util/trace-event-scripting.c | 36 ++++++++++++++++++++++---
+ 2 files changed, 37 insertions(+), 4 deletions(-)
 
 diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
-index 2744c54f404e..cd75efc09834 100644
+index cd75efc09834..962fbc1714cf 100644
 --- a/tools/perf/util/event.h
 +++ b/tools/perf/util/event.h
-@@ -71,6 +71,11 @@ enum {
+@@ -69,7 +69,7 @@ enum {
+ 	PERF_IP_FLAG_BRANCH_MISS	= 1ULL << 15,
+ };
  
- #define PERF_IP_FLAG_CHARS "bcrosyiABExghDt"
+-#define PERF_IP_FLAG_CHARS "bcrosyiABExghDt"
++#define PERF_IP_FLAG_CHARS "bcrosyiABExghDtm"
  
-+#define PERF_ADDITIONAL_STATE_MASK	\
-+	(PERF_IP_FLAG_IN_TX |		\
-+	 PERF_IP_FLAG_INTR_DISABLE |	\
-+	 PERF_IP_FLAG_INTR_TOGGLE)
+ #define PERF_ADDITIONAL_STATE_MASK	\
+ 	(PERF_IP_FLAG_IN_TX |		\
+@@ -90,6 +90,9 @@ enum {
+ 	PERF_IP_FLAG_VMENTRY		|\
+ 	PERF_IP_FLAG_VMEXIT)
+ 
++#define PERF_IP_FLAG_BRACH_EVENT_MASK	\
++	PERF_IP_FLAG_BRANCH_MISS
 +
- #define PERF_BRANCH_MASK		(\
- 	PERF_IP_FLAG_BRANCH		|\
- 	PERF_IP_FLAG_CALL		|\
+ #define PERF_MEM_DATA_SRC_NONE \
+ 	(PERF_MEM_S(OP, NA) |\
+ 	 PERF_MEM_S(LVL, NA) |\
 diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trace-event-scripting.c
-index 4e81e02a4f18..712ba3a51bbe 100644
+index 712ba3a51bbe..55d7e4e612d5 100644
 --- a/tools/perf/util/trace-event-scripting.c
 +++ b/tools/perf/util/trace-event-scripting.c
-@@ -313,49 +313,72 @@ static const struct {
+@@ -309,7 +309,14 @@ static const struct {
+ 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
+ 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
+ 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
+-	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_BRANCH_MISS, "br miss"},
++	{0, NULL}
++};
++
++static const struct {
++	u32 flags;
++	const char *name;
++} branch_events[] = {
++	{PERF_IP_FLAG_BRANCH_MISS, "miss"},
  	{0, NULL}
  };
  
--static const char *sample_flags_to_name(u32 flags)
-+static int sample_flags_to_name(u32 flags, char *str, size_t size)
+@@ -317,8 +324,9 @@ static int sample_flags_to_name(u32 flags, char *str, size_t size)
  {
  	int i;
--
--	for (i = 0; sample_flags[i].name ; i++) {
--		if (sample_flags[i].flags == flags)
--			return sample_flags[i].name;
-+	const char *prefix;
-+	int pos = 0, ret;
-+	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
-+	char xs[16] = { 0 };
-+
-+	/* Clear additional state bits */
-+	flags &= ~PERF_ADDITIONAL_STATE_MASK;
-+
-+	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
-+		prefix = "tr strt ";
-+	else if (flags & PERF_IP_FLAG_TRACE_END)
-+		prefix = "tr end  ";
-+	else
-+		prefix = "";
-+
-+	ret = snprintf(str + pos, size - pos, "%s", prefix);
-+	if (ret < 0)
-+		return ret;
-+	pos += ret;
-+
-+	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
-+
-+	for (i = 0; sample_flags[i].name; i++) {
-+		if (sample_flags[i].flags != flags)
+ 	const char *prefix;
+-	int pos = 0, ret;
++	int pos = 0, ret, ev_idx = 0;
+ 	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
++	u32 types, events;
+ 	char xs[16] = { 0 };
+ 
+ 	/* Clear additional state bits */
+@@ -338,8 +346,9 @@ static int sample_flags_to_name(u32 flags, char *str, size_t size)
+ 
+ 	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
+ 
++	types = flags & ~PERF_IP_FLAG_BRACH_EVENT_MASK;
+ 	for (i = 0; sample_flags[i].name; i++) {
+-		if (sample_flags[i].flags != flags)
++		if (sample_flags[i].flags != types)
+ 			continue;
+ 
+ 		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
+@@ -349,6 +358,27 @@ static int sample_flags_to_name(u32 flags, char *str, size_t size)
+ 		break;
+ 	}
+ 
++	events = flags & PERF_IP_FLAG_BRACH_EVENT_MASK;
++	for (i = 0; branch_events[i].name; i++) {
++		if (!(branch_events[i].flags & events))
 +			continue;
 +
-+		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
++		ret = snprintf(str + pos, size - pos, !ev_idx ? "/%s" : ",%s",
++			       branch_events[i].name);
 +		if (ret < 0)
 +			return ret;
 +		pos += ret;
-+		break;
- 	}
- 
--	return NULL;
-+	if (!xf)
-+		return pos;
++		ev_idx++;
++	}
 +
-+	snprintf(xs, sizeof(xs), "(%s%s%s)",
-+		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
-+		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
-+		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
++	/* Add an end character '/' for events */
++	if (ev_idx) {
++		ret = snprintf(str + pos, size - pos, "/");
++		if (ret < 0)
++			return ret;
++		pos += ret;
++	}
 +
-+	/* Right align the string if its length is less than the limit */
-+	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
-+		ret = snprintf(str + pos, size - pos, "%*s",
-+			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
-+	else
-+		ret = snprintf(str + pos, size - pos, " %s", xs);
-+	if (ret < 0)
-+		return ret;
-+
-+	return pos + ret;
- }
+ 	if (!xf)
+ 		return pos;
  
- int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
- {
--	u32 xf = PERF_IP_FLAG_IN_TX | PERF_IP_FLAG_INTR_DISABLE |
--		 PERF_IP_FLAG_INTR_TOGGLE;
- 	const char *chars = PERF_IP_FLAG_CHARS;
- 	const size_t n = strlen(PERF_IP_FLAG_CHARS);
--	const char *name = NULL;
- 	size_t i, pos = 0;
--	char xs[16] = {0};
--
--	if (flags & xf)
--		snprintf(xs, sizeof(xs), "(%s%s%s)",
--			 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
--			 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
--			 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
--
--	name = sample_flags_to_name(flags & ~xf);
--	if (name)
--		return snprintf(str, sz, "%-15s%6s", name, xs);
--
--	if (flags & PERF_IP_FLAG_TRACE_BEGIN) {
--		name = sample_flags_to_name(flags & ~(xf | PERF_IP_FLAG_TRACE_BEGIN));
--		if (name)
--			return snprintf(str, sz, "tr strt %-7s%6s", name, xs);
--	}
-+	int ret;
- 
--	if (flags & PERF_IP_FLAG_TRACE_END) {
--		name = sample_flags_to_name(flags & ~(xf | PERF_IP_FLAG_TRACE_END));
--		if (name)
--			return snprintf(str, sz, "tr end  %-7s%6s", name, xs);
--	}
-+	ret = sample_flags_to_name(flags, str, sz);
-+	if (ret > 0)
-+		return ret;
- 
- 	for (i = 0; i < n; i++, flags >>= 1) {
- 		if ((flags & 1) && pos < sz)
 -- 
 2.34.1
 
