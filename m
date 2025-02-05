@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A86C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E73C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yYwdC6FkM1FkoHrBLoPreNjUtz/aJNsrJlKRqn3rXe4=; b=aIOAtJdXBpCLHK76DuNaE2v0ca
-	c+8dbmjEAOL+oYc55PADJfVWMNPEdqf38aNin6a9NypLV6S2ikq6RF7MkRgzXwxPWhw9vilOhO8pa
-	yllyPWLIf/hzi4wI3mKJ5YSwloxAPSdeYofrDGt6quIOdkeYzma9Q7jc4D/8kuZ/coviW9xoyuIhT
-	+a6rPck0aWeC0W7UBrumh0XneqYxDl6kOInejDgtDqyIG7r3qwaF1/7c9CcryD04Pya0Tlu6SW/CR
-	Ruz/ksOok80UjRKTgkAjP3GjN1WHAK3UZH+O+n5dKtXOorxnawXWQZKdYKodJJnybUWE0czjAKa3B
-	MeCoRaZA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TSQeWzSgrb+Bgv6s0GnYuvjzz6MyzXd89J++ZXTBfTQ=; b=4EKPadHdYTxDhO5qr/ta1Gb8SI
+	VMOXBeHY2L6LfmY2YYflH0Vrfn/kI7xydCsy+GLIKY2yvyNas2SN4O5AuTNO6eQScuWgZyDUdyCET
+	GRQ1roM0DwOFUIPj4QhHbBf2ngdR8Z3xHOYrCHS91gMXwx5xjeVWcpHUK+QOUjVkuFEe6W63i2jEf
+	B6C3isZyEZZHAOWdM1Og7ej73aBvykmXeekkfUzZSIX8bFydNO6f67U8z1+pf8hww8pbPREC3jNHb
+	zetOC9AdwvXpmCU22Q1S1GSKpBgDHkV1iEsHfXwCKgw2dg6IdTdLf0DFWmYFJjQaXNzYP+EyUBXO8
+	NrbyQddw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfexY-00000003Iwx-0vuD;
-	Wed, 05 Feb 2025 12:56:52 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tfeyt-00000003JGE-0T8d;
+	Wed, 05 Feb 2025 12:58:15 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfetK-00000003Hn3-0yz5;
-	Wed, 05 Feb 2025 12:52:31 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d90a5581fcso12363271a12.1;
-        Wed, 05 Feb 2025 04:52:29 -0800 (PST)
+	id 1tfetM-00000003Hnj-1ShO;
+	Wed, 05 Feb 2025 12:52:33 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa67ac42819so1007813266b.0;
+        Wed, 05 Feb 2025 04:52:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738759948; x=1739364748; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yYwdC6FkM1FkoHrBLoPreNjUtz/aJNsrJlKRqn3rXe4=;
-        b=k2gVTEv9nnp59r18mqpBSGyJfpbt3fIxsOkuL5MHqEnetVsgBm/hJr/kA05fGP68dt
-         S33LSDkwy2sVJYBaV0k2YXI1P9HFYBtpJ7Rharr5i+L6urjbJMM3TW1xyg9LzRhjtiiv
-         6DBjqu9qp2BnD06RgWIAb6IKevmYqvS7PqpcupuQ9vliDwemU6ET7U+wtt8AYOs4haXW
-         lS0ySw7N4jopNJlJ5o1e+OlhmaK8At7KkNm0uVqDtwZ82vum15MpmCN0EenD4xlhfIiM
-         PDu5+Mo5noz57i+kMJeYTZt11mycDR+imP3Rf/+ELr+2O47vA//qrKTXgIUSDbqKMNPL
-         Xzxw==
+        d=gmail.com; s=20230601; t=1738759950; x=1739364750; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TSQeWzSgrb+Bgv6s0GnYuvjzz6MyzXd89J++ZXTBfTQ=;
+        b=JUdTkdqB9iah+3ngkUCUcky7DK1JmNODTAlE64vfPjAShsD2kNo+3A82Uo6C85d2Ee
+         rQXDhc8cA/N6ISlaTu2RXO4UMg6ywH2pTrjOVcJPqhMReiXEgCJQ6oN3TAO8eXQOGnao
+         eBus2Ze5n876pmFoG/DZHG1/AF9PUiGnMwztNazaeu3mKtnBHqbGuC6tZ2zGoLh/rqpr
+         x0DJBMw/5EKuPpv+6zmLgJSH4Llsjq355mZPOEHiLamDWAPi1s+Qp1Whjkg13RBHGwkJ
+         zmwO7BKOmCoxs1M3WA7zFicd+w7e72lN295Dq18k5S5UXf/XXsQ95OopIsCJKRCmNBgY
+         k85w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738759948; x=1739364748;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yYwdC6FkM1FkoHrBLoPreNjUtz/aJNsrJlKRqn3rXe4=;
-        b=FtJ9HpWDgIKwAWM8WS4vCPmRTYG31ptqjTTJ+95uR6CuFJiw7xeokBClWItjNgSLNO
-         iqjD6aX28TMe7irf95E7qtvbPvBHCN4V7SJ/fM7tWB0DWaLPzckqps2EhlizjdBDSv3r
-         jMwvdjwzWhDJEvVFuCc32smi83mTMcaoDZ6GS69GxCmZsiysKjaU82VpHYjrJQNdD/CT
-         dxjdQ9OV/i9MVMYNdyrThcm51kF5XLCevKdcaRxMG5ky679fqTHlhWqHF9ASFzdB8mti
-         N1+Y3KCZMHbKR3Pz5Gfhz6VnIs6Q8NO9dXJ1D34dXtTSjm5cLTxqCP8h1pY9cwjbzyJH
-         80Kw==
-X-Forwarded-Encrypted: i=1; AJvYcCVu2RspZ2lW6/ucdoUwS3TUKZd7S6jRVRSGYZqFj3I1eQOpLucSYs2nSHKDA/29aw3Wdnyp43FBgvKd@lists.infradead.org, AJvYcCW27vKJ5tSzilPKNZHiiYfUzqwUTODm2elYNsqsEbO0stV4bbregGdjF0VTbD9WpAev+8UXJVxVQ7JLIhM=@lists.infradead.org, AJvYcCWdp/GIgDs/9mEuoqAzyaQ7sQ9nBXML9LCwuswPKkhdMSaJYusu7HJ+5zpQHmWQFzb+7LLqIjg1FfxZrVvT7HJU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXiXZUkdNU1rPSuMP5ovQnoolLq7T7P7GybKgN3qQ4jGsF30sE
-	r3Z9VJ5yyxmvz0h1daq7epIALbPbkCqRNkK4DcS4ZVNGUwr6tbn7
-X-Gm-Gg: ASbGncsV+J5UIJeF41Fi7zzxctZ+NN9SFYuKuQTu/nN23imEAaY+3PGgchmyslFY+VN
-	kGpFDfFvTI0ocfy9e1UjGe0qmbJleykmppaJNdXu9IFOH61RrG9bIanGRrLrsh0oqcPzBXRYvgg
-	UGsxbVEIohiRBk5ayrExq5N7SiZuroBaJJbPRA3hFWbKsfnT7QpUUKdumgsl8qslJXwzo9LtAOa
-	DAIbjztRWeyAbxnZv2Z84B5qBb959IzHrUFGfBkhu+OR/7B68vkPBCbX8YMifZpXZH7wGMTwk88
-	3U3q+2763GJnEuKdi7SAugeLAmaN6O4tzlz39RvGFpVmNg==
-X-Google-Smtp-Source: AGHT+IGwwnpMG9KpubRS1ckqsKV0lRhKkSXdJJkp9LazwK0ad82cff1p5Us/UKXT3VoqZffwLnJ1uw==
-X-Received: by 2002:a05:6402:388c:b0:5d9:8877:895a with SMTP id 4fb4d7f45d1cf-5dcdb732cd0mr3409724a12.17.1738759947712;
-        Wed, 05 Feb 2025 04:52:27 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738759950; x=1739364750;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TSQeWzSgrb+Bgv6s0GnYuvjzz6MyzXd89J++ZXTBfTQ=;
+        b=oyRvDjjzD/dkZsXSgyVa9Yom1jAQ2hrW0jZUuROh8oNPJpbtr0wLDB+kOSW+ejvstN
+         FDjWi7+FsdNHiEUdoFDiwEUOZ7WE0VqoVWjY1SGLlpMzbvpbXddc61b18zSOWl1Ev3oQ
+         Hs6XRgYF9S0XrzG5SpAvyo8c0fWtejUfZBSZ3E7szFjU70Hr+xjbLYj/EnNvYdncvhrf
+         hWd7HwI3m8TCLPtEdNY7jyJodeVoBSgZjAreh7iNGAkInZM2c1sJr7cokandbB7QNFzt
+         MB71ClZuL3RLs9ZKLa+DnSwdI+DlUCguoSxsUT9MvdQzaKzvuHGJqEtnZNcvsuXD0FPl
+         GZEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUSOIPdTGvbW3wMweqc7O9HjgQ9Ca4hSvpJlIQbcoplctUob1dQbgXGcMp8eXTuwl2/YeuKBruSiy0+@lists.infradead.org, AJvYcCWQlXo3O3TPZOEpZvEiVxoo4Gjlt6avglE3NquaLQSt5WDoDkV7cNGTBi0bWSx/2ajqSnICaf3DEb+Mtkk=@lists.infradead.org, AJvYcCX5FvKLOp31NK7gtgbIO7U9a0F5HDwSKvD4u2I4UXe0Idnko4EvUxtRZiCtmDquNrTi4gcjktQy69NljGNBNZ67@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOlAbEcGcvZQwfqNYZPtJqF9F1g1JyDwjkt97Iv3YY7X5GTzlB
+	8K459nXDtC4qiINILwCjSEJi8l4ECmzjEAkzbUbougkcLJpJQRit
+X-Gm-Gg: ASbGncsBBdhgWTt+YW5uFp1dfR/ybPXTUv4404w6pkUs19bX3f/ocEjVYuJu2Sc7O10
+	cn/hkB4MNMxWBJfWvQA7VxRpRUEW8vMBnMv++fmEJLsWyjQ/1NmCr6o2XcuhXtFWrM+XXZXb5CR
+	UlXBdWVH0eP9woHGLjC4TzeJOXAMAwelEZk4NBerj40Q7NNrgxqnBL78j1v5f4LHKLBHY9JGRL4
+	R3Ewpttobesd8GP10VKb7n7fUJpt/ZJstOg+igWgYCknWw09EkaIjDh5TejBxK2V351UxsO7sWa
+	TTDIsCHQIA32xMGA+4NWZypVix9JiF0VxH9XqaXuQwMm0A==
+X-Google-Smtp-Source: AGHT+IGecgfsMcG35UqT0e1WE5j5jytX3/spRmqUEZGqCE6i0UxnZyh0jUtBcSjoqCNwAvn31NH/Fg==
+X-Received: by 2002:a17:907:7254:b0:aab:740f:e467 with SMTP id a640c23a62f3a-ab75e214c28mr230820566b.8.1738759950159;
+        Wed, 05 Feb 2025 04:52:30 -0800 (PST)
 Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.26
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 04:52:27 -0800 (PST)
+        Wed, 05 Feb 2025 04:52:29 -0800 (PST)
 From: Andras Szemzo <szemzo.andras@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -95,15 +96,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 00/10] Support for Allwinner V853 SoC
-Date: Wed,  5 Feb 2025 13:52:15 +0100
-Message-Id: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+Subject: [PATCH v2 01/10] clk: sunxi-ng: allow key feature in ccu reset and gate
+Date: Wed,  5 Feb 2025 13:52:16 +0100
+Message-Id: <20250205125225.1152849-2-szemzo.andras@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_045230_271708_B922F216 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250205_045232_409715_7CE0DA53 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,92 +121,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-V85x is a SoC from Allwinner with video encoding targeted for the field of
-IP Camera. It integrates the single CA7 core, and a T-Head E907 RISC-V mcu.
-The SoC has the usual Allwinner peripherals and a Vivante NPU.
-V853 is a BGA package without DRAM, V851s/V851s3 has the same die with
-co-packaged 64MB/128MB DRAM (in a QFN88 package).
+Some newer SoCs, like V853 has reset and gate registers, what can be write only
+with fixed key value. Move this value from ccu_mux and reuse
+in the reset code, and also introduce a new macro to support writing gate
+registers with a key.
 
-This patchset tries to add basical support for the V853 device family.
+Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+---
+ drivers/clk/sunxi-ng/ccu_common.h |  2 ++
+ drivers/clk/sunxi-ng/ccu_gate.c   |  6 ++++++
+ drivers/clk/sunxi-ng/ccu_gate.h   | 14 ++++++++++++++
+ drivers/clk/sunxi-ng/ccu_mux.c    |  4 +---
+ drivers/clk/sunxi-ng/ccu_reset.c  |  7 +++++++
+ drivers/clk/sunxi-ng/ccu_reset.h  |  2 +-
+ 6 files changed, 31 insertions(+), 4 deletions(-)
 
-Changelog - v2:
- - rebased on 6.14-rc1
- - add a needed gate with key support to sunxi clk
- - rewrite the ccu-r driver
- - fix license issues
- - remove the pinctrl binding, as it has beed applied
- - rework the pinctrl driver, use the new sunxi dt based mux support. This new pinctrl
-   driver depends on the new sunxi device-tree based mux support patch series [1].
- - remove the new usb phy binding, as the v853's usb phy is very close to d1/a64
- - add a board dts
- - ccu: add module description
- - ccu: fix PLL enable bits, and min multipliers
- - ccu: change PLL flags to CLK_SET_RATE_GATE
- - ccu: use SUNXI_CCU_M_HWS at peripheral PLLs
- - ccu: convert the VIDEO and CSI PLLs from nm type to nkmp according to BSP
- - ccu: cpu axi clk use pointer
- - ccu: fix comments
- - ccu: swap i2s1 and i2s0 bus clocks
- - ccu: fix indentation
- - ccu: fix RST_BUS_SPIF order
- - ccu: convert RST_RISCV_CLK_GATING from reset to gate
-
-[1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
-
-Andras Szemzo (10):
-  clk: sunxi-ng: allow key feature in ccu reset and gate
-  pinctrl: sunxi: add driver for Allwinner V853
-  dt-bindings: clock: sunxi-ng: add compatibles for V853
-  clk: sunxi-ng: add CCU drivers for V853
-  dt-bindings: power: add V853 ppu bindings
-  pmdomain: sunxi: add V853 ppu support
-  dt-bindings: phy: allwinner: add v853 usb phy
-  phy: allwinner: add v853 usb phy compatible
-  ARM: dts: sun8i: add DTSI file for V853
-  ARM: dts: sun8i: add DTS file for yuzuki-lizard V851s
-
- .../clock/allwinner,sun4i-a10-ccu.yaml        |    3 +
- .../phy/allwinner,sun50i-a64-usb-phy.yaml     |    2 +
- .../power/allwinner,sun20i-d1-ppu.yaml        |    1 +
- arch/arm/boot/dts/allwinner/Makefile          |    1 +
- .../boot/dts/allwinner/sun8i-v851s-lizard.dts |  196 +++
- arch/arm/boot/dts/allwinner/sun8i-v853.dtsi   |  656 ++++++++++
- drivers/clk/sunxi-ng/Kconfig                  |   10 +
- drivers/clk/sunxi-ng/Makefile                 |    4 +
- drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c       |  120 ++
- drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h       |   14 +
- drivers/clk/sunxi-ng/ccu-sun8i-v853.c         | 1145 +++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun8i-v853.h         |   14 +
- drivers/clk/sunxi-ng/ccu_common.h             |    2 +
- drivers/clk/sunxi-ng/ccu_gate.c               |    6 +
- drivers/clk/sunxi-ng/ccu_gate.h               |   14 +
- drivers/clk/sunxi-ng/ccu_mux.c                |    4 +-
- drivers/clk/sunxi-ng/ccu_reset.c              |    7 +
- drivers/clk/sunxi-ng/ccu_reset.h              |    2 +-
- drivers/phy/allwinner/phy-sun4i-usb.c         |   10 +
- drivers/pinctrl/sunxi/Kconfig                 |    5 +
- drivers/pinctrl/sunxi/Makefile                |    1 +
- drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c    |   53 +
- drivers/pmdomain/sunxi/sun20i-ppu.c           |   15 +
- .../clock/allwinner,sun8i-v853-ccu.h          |  132 ++
- .../clock/allwinner,sun8i-v853-r-ccu.h        |   16 +
- .../power/allwinner,sun8i-v853-ppu.h          |   10 +
- .../reset/allwinner,sun8i-v853-ccu.h          |   60 +
- .../reset/allwinner,sun8i-v853-r-ccu.h        |   14 +
- 28 files changed, 2513 insertions(+), 4 deletions(-)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v851s-lizard.dts
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.c
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.h
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
- create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
- create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
- create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
- create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
- create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
-
+diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
+index dd330426a6e5..36132cb8b920 100644
+--- a/drivers/clk/sunxi-ng/ccu_common.h
++++ b/drivers/clk/sunxi-ng/ccu_common.h
+@@ -23,6 +23,8 @@
+ /* MMC timing mode switch bit */
+ #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
+ 
++#define CCU_KEY_VALUE			0x16aa0000
++
+ struct device_node;
+ 
+ struct ccu_common {
+diff --git a/drivers/clk/sunxi-ng/ccu_gate.c b/drivers/clk/sunxi-ng/ccu_gate.c
+index ac52fd6bff67..a7ffaa8d3cb6 100644
+--- a/drivers/clk/sunxi-ng/ccu_gate.c
++++ b/drivers/clk/sunxi-ng/ccu_gate.c
+@@ -20,6 +20,9 @@ void ccu_gate_helper_disable(struct ccu_common *common, u32 gate)
+ 	spin_lock_irqsave(common->lock, flags);
+ 
+ 	reg = readl(common->base + common->reg);
++	if (common->features & CCU_FEATURE_KEY_FIELD)
++		reg |= CCU_KEY_VALUE;
++
+ 	writel(reg & ~gate, common->base + common->reg);
+ 
+ 	spin_unlock_irqrestore(common->lock, flags);
+@@ -44,6 +47,9 @@ int ccu_gate_helper_enable(struct ccu_common *common, u32 gate)
+ 	spin_lock_irqsave(common->lock, flags);
+ 
+ 	reg = readl(common->base + common->reg);
++	if (common->features & CCU_FEATURE_KEY_FIELD)
++		reg |= CCU_KEY_VALUE;
++
+ 	writel(reg | gate, common->base + common->reg);
+ 
+ 	spin_unlock_irqrestore(common->lock, flags);
+diff --git a/drivers/clk/sunxi-ng/ccu_gate.h b/drivers/clk/sunxi-ng/ccu_gate.h
+index dc05ce06737a..37e21fcdd931 100644
+--- a/drivers/clk/sunxi-ng/ccu_gate.h
++++ b/drivers/clk/sunxi-ng/ccu_gate.h
+@@ -68,6 +68,20 @@ struct ccu_gate {
+ 		}							\
+ 	}
+ 
++#define SUNXI_CCU_GATE_HWS_WITH_KEY(_struct, _name, _parent, _reg,	\
++				       _gate, _flags)			\
++	struct ccu_gate _struct = {					\
++		.enable	= _gate,					\
++		.common	= {						\
++			.reg		= _reg,				\
++			.features	= CCU_FEATURE_KEY_FIELD,	\
++			.hw.init	= CLK_HW_INIT_HWS(_name,	\
++							  _parent,	\
++							  &ccu_gate_ops, \
++							  _flags),	\
++		}							\
++	}
++
+ #define SUNXI_CCU_GATE_HWS_WITH_PREDIV(_struct, _name, _parent, _reg,	\
+ 				       _gate, _prediv, _flags)		\
+ 	struct ccu_gate _struct = {					\
+diff --git a/drivers/clk/sunxi-ng/ccu_mux.c b/drivers/clk/sunxi-ng/ccu_mux.c
+index d7ffbdeee9e0..127269ab20ea 100644
+--- a/drivers/clk/sunxi-ng/ccu_mux.c
++++ b/drivers/clk/sunxi-ng/ccu_mux.c
+@@ -12,8 +12,6 @@
+ #include "ccu_gate.h"
+ #include "ccu_mux.h"
+ 
+-#define CCU_MUX_KEY_VALUE		0x16aa0000
+-
+ static u16 ccu_mux_get_prediv(struct ccu_common *common,
+ 			      struct ccu_mux_internal *cm,
+ 			      int parent_index)
+@@ -196,7 +194,7 @@ int ccu_mux_helper_set_parent(struct ccu_common *common,
+ 
+ 	/* The key field always reads as zero. */
+ 	if (common->features & CCU_FEATURE_KEY_FIELD)
+-		reg |= CCU_MUX_KEY_VALUE;
++		reg |= CCU_KEY_VALUE;
+ 
+ 	reg &= ~GENMASK(cm->width + cm->shift - 1, cm->shift);
+ 	writel(reg | (index << cm->shift), common->base + common->reg);
+diff --git a/drivers/clk/sunxi-ng/ccu_reset.c b/drivers/clk/sunxi-ng/ccu_reset.c
+index 55bc7c7cda0f..a9aee35c6617 100644
+--- a/drivers/clk/sunxi-ng/ccu_reset.c
++++ b/drivers/clk/sunxi-ng/ccu_reset.c
+@@ -9,6 +9,7 @@
+ #include <linux/reset-controller.h>
+ 
+ #include "ccu_reset.h"
++#include "ccu_common.h"
+ 
+ static int ccu_reset_assert(struct reset_controller_dev *rcdev,
+ 			    unsigned long id)
+@@ -21,6 +22,9 @@ static int ccu_reset_assert(struct reset_controller_dev *rcdev,
+ 	spin_lock_irqsave(ccu->lock, flags);
+ 
+ 	reg = readl(ccu->base + map->reg);
++	if (map->features & CCU_FEATURE_KEY_FIELD)
++		reg |= CCU_KEY_VALUE;
++
+ 	writel(reg & ~map->bit, ccu->base + map->reg);
+ 
+ 	spin_unlock_irqrestore(ccu->lock, flags);
+@@ -39,6 +43,9 @@ static int ccu_reset_deassert(struct reset_controller_dev *rcdev,
+ 	spin_lock_irqsave(ccu->lock, flags);
+ 
+ 	reg = readl(ccu->base + map->reg);
++	if (map->features & CCU_FEATURE_KEY_FIELD)
++		reg |= CCU_KEY_VALUE;
++
+ 	writel(reg | map->bit, ccu->base + map->reg);
+ 
+ 	spin_unlock_irqrestore(ccu->lock, flags);
+diff --git a/drivers/clk/sunxi-ng/ccu_reset.h b/drivers/clk/sunxi-ng/ccu_reset.h
+index 941276a8ec2e..8da721ac3a7d 100644
+--- a/drivers/clk/sunxi-ng/ccu_reset.h
++++ b/drivers/clk/sunxi-ng/ccu_reset.h
+@@ -12,9 +12,9 @@
+ struct ccu_reset_map {
+ 	u16	reg;
+ 	u32	bit;
++	u32	features;
+ };
+ 
+-
+ struct ccu_reset {
+ 	void __iomem			*base;
+ 	const struct ccu_reset_map	*reset_map;
 -- 
 2.39.5
 
