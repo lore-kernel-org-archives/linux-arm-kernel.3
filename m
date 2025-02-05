@@ -4,172 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C2CC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 11:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEC4C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 11:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=; b=P6vk0Edndnx7D8dSpdA5DW0y0v
-	2VMBEmgTcvQHiCZxG76lGPRyLj4aik7NyBzoG9QM3FeWsJRMw5wmpZo42uTXaTAgjMHjkE4MuqE/9
-	7NTU2Z0YFPGghCmYHEeL+NnuIULTWQc56vkzY3dSyqQSBWfrhfXRYFhcVmkt+YUXDF3tXMntx9ROC
-	OFQUjZWNCaVaZlEe+vO+WibCu+Ao6r39ogpizs6/rsVQgWw09JzikBEm2v8xTagC0IacywMfB3qIb
-	VBvi4I+uyvs9g4CxIUWStHcIvO6+sBjkbo2+hTeCQ2kIrupmxN83UaJr1RiFqGX0eJTH/LR8NaRXj
-	3s9Fb32A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yZ+WbB6oPvVImKDErDVjeeJsWwrOEYJW2cG7yx5mx/w=; b=4jVPxvy4rwQ32MfxJwd4vJGbC/
+	0GcUwaSb0tMWpbFYxHlYZJ8tUNy4YPZY6DFXTFkKxovrGcOToxqbiKyXrNGzBHzwxrRic39FY948F
+	WHXxTNK26MmbW8LCkAqG4XrUYePtziMSyiDafwzcSUTPAukWDc+ESLAYqQWRtn1AX4YZoZdIYmh6S
+	9aYNQ8cg+tIazcOq8cHipclJ92Q3/PGt2f0iaFgTSwlgyPxF5JjhiFIHgZz2KAEMvIVryaza/ygTl
+	QQYzUTRG7GlMXZbs/Bd3dm+hfNjMUR1098uHqwoXLN5gHt5FOkpA+XHExcF63ireJ8jJjglr5OK1e
+	eifDvOnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfdfq-000000034BI-1cp6;
-	Wed, 05 Feb 2025 11:34:30 +0000
-Received: from mail-dm3nam02on20628.outbound.protection.outlook.com ([2a01:111:f403:2405::628] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1tfdmU-000000035Eo-3A3r;
+	Wed, 05 Feb 2025 11:41:22 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfdeT-0000000343R-2I5Q
+	id 1tfdl6-000000034ud-0BAY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 11:33:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UzO0qzgNA7uZOYPnM+RDbDLWt4IHnSShYbZB7n6Y6raY6oem4gck6l8xCd4yPTWvqsz5ymLcdeD72gIR9y6r7tWdt4CSVY4nvy4cz2KTCuxOghlKQ2ANdR0VMjgyYE8SHZ5s+N/DR2bzkNvRtGQL0HRmKUXXP6FJ+a7mjlC9DbOrSNYkaXZ+os2Pq1NHnRPVkIawhPoYAeGPa3hAVD7ET5SPofm2RcNoVe3mgmfjBb57Pnk8ptnDtI7a0enUc3IdSyaLvo+6dihnGyoMUUIBA/VyN9cUWI3WPhvUY8YA+ws+9ECy1m7ZKhWKnyYGmcfka7YFxYaIzXDptJJDfwhplg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=;
- b=w9ERu+cX0enxQmYplj/P6Lnh9dU/V1xCnKm4Wwnt+pFj9BFx3rKOF74596pdPUbGR0PyYCEQAxbs4p/co7oAcXZlM0PBSjkO0/QYZzuRfolZVMyCKV48nJF4xw1pU/tWstaRjRUrEmYbdObzVKt8fl1S+Vy9M19RKnZFnWE+PCYWBkeuvp5VbKu4LScG7YJxwq5v4+mcH+yGf3nNdEM1jhZxXDPy2Gt34k5BVaT1JOtoiYPagJNoxrOZkcst4JVqJvyzt9uDfGJjKPtRvp99krcXwGtb1/FTPXIdddwEm4losan7msuk8PtftQJoUNrF85JjhSaIi9KzIntF6uDwag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=;
- b=Or6O9hGQJ8MsHlaS4it8rzUnYchkHd4+DJvO3wrNFKQ3jNNsQxy/JbMx8+LnNUV/f3CXdhGYQlX0qOGAebukjOH4vVxGodZLb7dBMQmHF6asds4nfxL7hlzO2ote83zROo07WjaanwSIO+2kZ1g5z2nHwhoJMFMEL9GCPWQP3KQ=
-Received: from DS7PR12MB6070.namprd12.prod.outlook.com (2603:10b6:8:9e::14) by
- CH3PR12MB7571.namprd12.prod.outlook.com (2603:10b6:610:147::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.25; Wed, 5 Feb 2025 11:32:53 +0000
-Received: from DS7PR12MB6070.namprd12.prod.outlook.com
- ([fe80::b847:e013:8f93:f6e4]) by DS7PR12MB6070.namprd12.prod.outlook.com
- ([fe80::b847:e013:8f93:f6e4%6]) with mapi id 15.20.8398.025; Wed, 5 Feb 2025
- 11:32:53 +0000
-From: "Manne, Nava kishore" <nava.kishore.manne@amd.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "Jain, Ronak" <ronak.jain@amd.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "Buddhabhatti,
- Jay" <jay.buddhabhatti@amd.com>, "praveen.teja.kundanala@amd.com"
-	<praveen.teja.kundanala@amd.com>, "Paladugu, Siva Durga Prasad"
-	<siva.durga.prasad.paladugu@amd.com>, "u.kleine-koenig@baylibre.com"
-	<u.kleine-koenig@baylibre.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi() API
-Thread-Topic: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi()
- API
-Thread-Index: AQHbbYKHLS7UQSuOqk2WIJJUUBnYtbMlb3SAgBM3QgA=
-Date: Wed, 5 Feb 2025 11:32:53 +0000
-Message-ID: <DS7PR12MB6070A83267558A7D545E3383CDF72@DS7PR12MB6070.namprd12.prod.outlook.com>
-References: <20250123103522.1258499-1-nava.kishore.manne@amd.com>
- <20250123103522.1258499-2-nava.kishore.manne@amd.com>
- <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
-In-Reply-To: <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB6070:EE_|CH3PR12MB7571:EE_
-x-ms-office365-filtering-correlation-id: 065148e2-2389-4200-55a0-08dd45d8d43e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|921020|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?TnMyMS9jMWg5MkwrdE5zSjhxTnhXR1psb1FXUHBYOXQ4KzFDaE9wT0liWVlY?=
- =?utf-8?B?RDE3T2E1dElUNWo5cXJEbEp0RVN1MlM1VlpOVUNMOUwxMk5pZTV6L1lzYlVk?=
- =?utf-8?B?eTFQL3hvcCtCdlZFNXBqTW5lSFU1SFBtTXJvSWQwdk9IU1lPUFpNOEFDNnov?=
- =?utf-8?B?RU53eWNhYVVEKzYwRnJ3VzB0WmxxcVU0T3dsMDZrU01uRllHTEQyRFZVZGpF?=
- =?utf-8?B?MXlnblB0YUMycWxSNlJKanRoUnk3bDB6Q1NXSkNnbmVjeWtOUU5KYlpvcXkr?=
- =?utf-8?B?Ti91RmJHUmtLYmlzdjNKVTBMRVgvUlExbGpzL2ViMVR4SzZlUDV1Z09vMjJE?=
- =?utf-8?B?TWE5OG5EMHBnRjRUaVFub0cydEZ1cmtTaUMxVVBTSGV2eGdod1B1bmdMcWFv?=
- =?utf-8?B?dmZxR1YvcHhPQjhDQUJGN3NOS1dzNW1vYThJOVFZUE9mQU5iNU5peGh6K2RN?=
- =?utf-8?B?ZWFYd1ZBVUN0cEl2VGhOazMzcURkSlNNUnEwRHZ6TU1yNldneTN4VUlaenNN?=
- =?utf-8?B?RXNBUGNJampJZWZKeVRDV1VXWVl6Wll2NlFxTVpwZSs4OTRoR21PcllIejlU?=
- =?utf-8?B?N2Q4YWVpK1N5enZrVldWcWhkOHg5U1JLNURVNDNOWVphaEVXVkhFK0U0ZS9i?=
- =?utf-8?B?bTRaakRTZkp5VytJUm8vajdiMi9Wd09yczhuRFpGWVNkbTlaNVROM2U1clo2?=
- =?utf-8?B?VlBpY21Ib1NYaWp2eVFmNGE5UitiTTVla3BZdGZpdSsvVVFZMEJBTEphak1v?=
- =?utf-8?B?RXpSMExHMldKVElaZ2JmcjhNRE1zelVYdkNlYUc4UzhrdGUzUHpuZEl2bVJH?=
- =?utf-8?B?bkFHdmp6MGxZZE5JTkpobnFGNzdEM2hQVk5mUGlmU3Y4b2VrZjM0ZVhIbWF2?=
- =?utf-8?B?REMzdlZobWlzVHMzbjcxK2M0SWFpTlFFUlJVdDlvcHhjU1FZZG85S2RpK2o5?=
- =?utf-8?B?WUMrSTN5Q1NNcnZrTUFETWNBeFZXdldFKzN4TTFTeEFZTGd4aUNxYUFHby9W?=
- =?utf-8?B?ZnVyNWpMSnIyTXNLeEZsQXU1YWwvQVJSOFlMMTA2bHFvSXhqc1ROcVVBcTdC?=
- =?utf-8?B?RDJLcEZZZ01lSTZRRUk0Z2o0WjdteUFKeCtmN1dEQkx0ZVkrRW5DTU91UUYw?=
- =?utf-8?B?NzFKQjBaTlhVWCtEMkZjUFc0UzBkMHZkYksvRVM3U1R2dUdqSGUyaFk2U3hq?=
- =?utf-8?B?RFlEenU1b042TDJNdUdNNUptV2g4SWR3RTA2UGM5NTVrSFVyWXRTQmpvVy9N?=
- =?utf-8?B?bUt0UDM1MHVwN2ZBV0QxMmFqcWtZSTFpclo1eHRVRVNqbGJwL0MzK3VKcWhG?=
- =?utf-8?B?c3l5ZkhtN2UvL1U0R2oxQ0RVNnQwU3ZlRzFBaGdQa2d5d3dya2UwWlk4czRx?=
- =?utf-8?B?ak55YkU2VHNmN3Q2MUlKS2NGbDJjNUVMekN2NWc5NStQRW9mM0VjWXVibzda?=
- =?utf-8?B?N0FaaU9PNS92R2hnQjhtSlpiMVozdkdoajgxNE9YVU1WQ0JUT0J6KzJ0Rjcw?=
- =?utf-8?B?MVEvS3k0SjVnZUVIdnVMaitIUmkvR1M3eTdaams1K2MyempJREZrN3B4VDZX?=
- =?utf-8?B?TXhpenFyM3ZKS3k0bGpMMXhZWHpnWElTYzY0ak94Q2FQdlpaKy96bnhVUHVV?=
- =?utf-8?B?TGJNeG9JcGdHS0dEeWcrS3dpeVJKUDNMa25tQWlLR3VsSGlCZHRQZ1J5Q0Zp?=
- =?utf-8?B?K09XdTZxcUNMOXJvcDBCdzhKVGJoNzJOSmtPS1B1NVA1MXJKNGZ3ZXd5UE9C?=
- =?utf-8?B?MmpMaWdDaEVyaXNvQlZ2VExkUGh4T0FQdk1rcFVaS1ZXdTk2K3F6WWdQdTJT?=
- =?utf-8?B?anZIL3NVcmI1TlNQYS9ISWVHK3crZ20rVml1VGd6WHBUV1RQcWNmNFBBUmJ4?=
- =?utf-8?B?TDIybldqSkR1aVRmT3FOMWJqK2xDaTBmaTgyTzFRTVA2b0p1MWdlak5yKzBN?=
- =?utf-8?B?WUdTNm9vMFNSVHZjbHhmb0tPTFJCZHFON1FVNG40SDVMMU5LMHhvTk5yYVV2?=
- =?utf-8?B?dHloUG8yQ3NRPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(921020)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dzdwKzkwSkZTTVA1bjlJYktycXRTSHZhTXZBRkFIS29EUWtVNzV0d1g5ZXdk?=
- =?utf-8?B?R2swY0FWdVVXWXd4cTQvOUlQVkxyTlFmQldUZ3Z3ZEswc0ZyNm9VWGVQQmhp?=
- =?utf-8?B?SS9pV2VSdVpsNld2YVkxaTlLZWZLeHBYbHZCdmFROGlqMVhwRHZjeXRRUWlQ?=
- =?utf-8?B?cCtrdXVRUmFMTlZpK3dzSWRMVmlYMitzcm1ibE16Y01nazhOTDV3RGcvODg0?=
- =?utf-8?B?ZjlGQThwOVZPR3VSK003YWtKNzBCcnU2SjFDVStESStFOUVGSUNLYVpNL3Q1?=
- =?utf-8?B?TXVTeGxaNENKY1h3VVExMEJnUHFOTzQ4ZUk0L1U4bWxGVU0vQjlXNUpNNG96?=
- =?utf-8?B?R1d5VUJPUzgyRXI1b3gvWE92T0pLcVZPS0hsaU56R2FUNm1GSTJmQm5WaE1a?=
- =?utf-8?B?dFhZM1BWeWt1OGQ3ZUZOS0I4UXJvMkR0b1VreDRkVzkyWW1uMkZyQllmNEh2?=
- =?utf-8?B?dWdGRDFoVnFhc0padGJYRzJjTDJCQURFb2tuQ3FUcnVocVdmZ0wzOHRmdk5u?=
- =?utf-8?B?ZjZuZ09ZZzRIa1g3dmhMdHI1dHdwT2UxemFBejNSbzR6eGdyWjI3S3ZCV3RT?=
- =?utf-8?B?MXRTb0dndXR3T3JvVzhZVXlGeVJoWjV4d2drNERwUHdvZ3g2VXF0Z0dRc3hB?=
- =?utf-8?B?VmNLZ1VqOXZ5WlpBYXRzblpFaU0zeHp3dEdJMnErcEpWeGFpTVpzUW1TdXA5?=
- =?utf-8?B?VytYb1ZUdjVNWHM4c0xCQnFnNkNoUEVJZGw3dWdKRHExeDd1K2dYeDVSMTV4?=
- =?utf-8?B?VGNIZUVIVGNRaUpscXpVWHg2YUsyMlJPaXlkRWFPSnhmakdPVlVwMWMycTRP?=
- =?utf-8?B?cHMxQXhnZ3dneGplTkxsbmF3VmlXU3ZJTGFuNFVIOWNPajlMQUJwTkZuOUpZ?=
- =?utf-8?B?Z1dYTmo0cmJwVDhmc1dMYXVDQWZnYk1GelRBMGIvSjNsdmFhWmNCTW9Naks4?=
- =?utf-8?B?cGlVa3YySHFYbmNQVEo0NWFXRVdxTTZ1VzFiUmxaR3JmMkd1Q3pLZ2p0RDZY?=
- =?utf-8?B?SjBOdHVkS25WUlV1bTlrVk1KY3BQQjdsZDZWa25ya2xqcGhVUXRCcVp6ZnJx?=
- =?utf-8?B?VEVtcVhrSThoYVE2RlVpakhSWld4ckFhcmdpTW9WL09BeS9jWTBMMUxROUVH?=
- =?utf-8?B?VE82ZFJLRVVuUzVkdEVjenljRm9UWVFPYjdjWDhLZ2RGck5JYk1sTTlrQ2pP?=
- =?utf-8?B?QncwWGVrYi9NUGJrN1VlOG9VMlJxMFQ5RUNpUDVaTGxPdkNRSHVHS0x5c1Rz?=
- =?utf-8?B?eEc3K2VoZTRFR3BONlJ6Q01lYlJmc2wwSVliUnMxclVtY1Q0eWkweXpsMUhx?=
- =?utf-8?B?cU11UGt4aGtNZ1VwOFVqRGJHSjVmYUNnd25SclIzTlhubjRMU1NPQ1FHRDMr?=
- =?utf-8?B?WVg5OWIyWGg4VlAvbGtuL1FmNWhXTmZyZGVROFFKeENNSHlMMWc3MXplQ3o1?=
- =?utf-8?B?YjFXOFA0TzB4VmZraDAxU3czQ3QzQUZVaVlUb0UxQ25CbWVTZVYraE9NQ1RY?=
- =?utf-8?B?VXdETXZFNndsa2tzaUExdlQrR24rNjlZZUE1MEVTYXQ2RHQ5T2RqM3FQT0o4?=
- =?utf-8?B?ZERjRDBZTDFidlZLczNoM1NzUE1RVXJ3V01YSTNZN0ZvYnpFeGtDdzhNaUVB?=
- =?utf-8?B?aVJtRTMzVlBXczFFTndnL1YwZEhQUEFlM21EdlJKMU5pTGlYUW1CTS9JeGk2?=
- =?utf-8?B?M0E4RjZvQlo0dFc5WFdmOWpYRVA1bXMxcmNiblk4Vk5hNmpRWDFwLzluUmt2?=
- =?utf-8?B?d2VKMUtYY1pJbnpyWGxOOFZZMXpERlJlSk9LQ3JPZ2x1WkZHR2JpQytFRzha?=
- =?utf-8?B?TktzMUZneXorL2syTlVvTC96ZDBMZVlKc3NuSi85TXhCMjNDUXJNdXpBL2FW?=
- =?utf-8?B?VG9ua1ZJN3pvRWhDTk4vQ2VrczRsd0wzZnVHSWZwcW94cE9salNPTkdyVE4v?=
- =?utf-8?B?aFRHWnJvY0xINXM1YmxCcUxDY010YmFpVjhzRlcxcUpnYTVqaVp2Q3pLNTBw?=
- =?utf-8?B?NVgrTm5ka0RqR0o0emRuRk4vcHNpQzNYQ2s4TXBtdHJHRzMrNmFxZXo4MFFP?=
- =?utf-8?B?T2piY1dQWUpZTWRnZnBjU1hyTEhvSW11QjZiUHE1LzNPOTkvVnVhZWMrc3Fk?=
- =?utf-8?Q?EwOI=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 05 Feb 2025 11:39:58 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YnyrQ6QDcz6L4tl;
+	Wed,  5 Feb 2025 19:37:10 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 17349140C98;
+	Wed,  5 Feb 2025 19:39:49 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 5 Feb
+ 2025 12:39:48 +0100
+Date: Wed, 5 Feb 2025 11:39:46 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, <rafael@kernel.org>, <rui.zhang@intel.com>,
+	<lukasz.luba@arm.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <geert+renesas@glider.be>, <magnus.damm@gmail.com>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <p.zabel@pengutronix.de>,
+	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>, "Claudiu
+ Beznea" <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 2/6] thermal: of: Export non-devres helper to
+ register/unregister thermal zone
+Message-ID: <20250205113946.00002fbb@huawei.com>
+In-Reply-To: <567adde6-a348-41c0-b415-80daf16d3dbb@tuxon.dev>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+	<20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
+	<46c8e8ff-ea39-4dbd-a26c-67fcabf4b589@linaro.org>
+	<CAPDyKFq40KB6jKapnm0mOkFGB9-7VEGiBhNrVn_2fzrcziq0=Q@mail.gmail.com>
+	<20250204143303.0000174a@huawei.com>
+	<567adde6-a348-41c0-b415-80daf16d3dbb@tuxon.dev>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6070.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 065148e2-2389-4200-55a0-08dd45d8d43e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Feb 2025 11:32:53.2217
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: PvE3oenmpSIXiiW6tbT+LbDhLgfKj6XXJuAz4oGBs+EHk2XaOFSe28krtKF47dtB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7571
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_033305_586528_312ADE9F 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250205_033956_418769_E9BFA74E 
+X-CRM114-Status: GOOD (  39.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,41 +83,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgSmllLA0KDQoJVGhhbmtzIGZvciBwcm92aWRpbmcgdGhlIHJldmlldyBjb21tZW50cy4NClBs
-ZWFzZSBmaW5kIG15IHJlc3BvbnNlIGlubGluZS4NCg0KPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2Ut
-LS0tLQ0KPiBGcm9tOiBKaWUgR2FuIDxqaWUuZ2FuQG9zcy5xdWFsY29tbS5jb20+DQo+IFNlbnQ6
-IEZyaWRheSwgSmFudWFyeSAyNCwgMjAyNSAxMTozMCBBTQ0KPiBUbzogTWFubmUsIE5hdmEga2lz
-aG9yZSA8bmF2YS5raXNob3JlLm1hbm5lQGFtZC5jb20+OyBTaW1laywgTWljaGFsDQo+IDxtaWNo
-YWwuc2ltZWtAYW1kLmNvbT47IEphaW4sIFJvbmFrIDxyb25hay5qYWluQGFtZC5jb20+Ow0KPiBn
-cmVna2hAbGludXhmb3VuZGF0aW9uLm9yZzsgQnVkZGhhYmhhdHRpLCBKYXkgPGpheS5idWRkaGFi
-aGF0dGlAYW1kLmNvbT47DQo+IHByYXZlZW4udGVqYS5rdW5kYW5hbGFAYW1kLmNvbTsgUGFsYWR1
-Z3UsIFNpdmEgRHVyZ2EgUHJhc2FkDQo+IDxzaXZhLmR1cmdhLnByYXNhZC5wYWxhZHVndUBhbWQu
-Y29tPjsgdS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbTsgbGludXgtDQo+IGFybS1rZXJuZWxA
-bGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiBTdWJq
-ZWN0OiBSZTogW1BBVENIIDEvMl0gZmlybXdhcmU6IHhpbGlueDogVXBkYXRlIHRoZSB6eW5xbXBf
-cG1fbG9hZF9wZGkoKSBBUEkNCj4gDQo+IA0KPiANCj4gT24gMS8yMy8yMDI1IDY6MzUgUE0sIE5h
-dmEga2lzaG9yZSBNYW5uZSB3cm90ZToNCj4gPiBVcGRhdGUgdGhlIHp5bnFtcF9wbV9sb2FkX3Bk
-aSgpIEFQSSB0byBoYW5kbGUgdGhlIGZpcm13YXJlIGVycm9y4oCZcw0KPiA+IHByb3Blcmx5Lg0K
-PiA+DQo+ID4gU2lnbmVkLW9mZi1ieTogTmF2YSBraXNob3JlIE1hbm5lIDxuYXZhLmtpc2hvcmUu
-bWFubmVAYW1kLmNvbT4NCj4gPiAtLS0NCj4gPiAgIGRyaXZlcnMvZmlybXdhcmUveGlsaW54L3p5
-bnFtcC5jIHwgMTIgKysrKysrKysrKy0tDQo+ID4gICAxIGZpbGUgY2hhbmdlZCwgMTAgaW5zZXJ0
-aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Zp
-cm13YXJlL3hpbGlueC96eW5xbXAuYw0KPiA+IGIvZHJpdmVycy9maXJtd2FyZS94aWxpbngvenlu
-cW1wLmMNCj4gPiBpbmRleCA3MjBmYThiNWQ4ZTkuLmVhMDRhNmFjNDAyZCAxMDA2NDQNCj4gPiAt
-LS0gYS9kcml2ZXJzL2Zpcm13YXJlL3hpbGlueC96eW5xbXAuYw0KPiA+ICsrKyBiL2RyaXZlcnMv
-ZmlybXdhcmUveGlsaW54L3p5bnFtcC5jDQo+ID4gQEAgLTE0ODMsOCArMTQ4MywxNiBAQA0KPiBF
-WFBPUlRfU1lNQk9MX0dQTCh6eW5xbXBfcG1fc2V0X3JlcXVpcmVtZW50KTsNCj4gPiAgICAqLw0K
-PiA+ICAgaW50IHp5bnFtcF9wbV9sb2FkX3BkaShjb25zdCB1MzIgc3JjLCBjb25zdCB1NjQgYWRk
-cmVzcykNCj4gPiAgIHsNCj4gPiAtCXJldHVybiB6eW5xbXBfcG1faW52b2tlX2ZuKFBNX0xPQURf
-UERJLCBOVUxMLCAzLCBzcmMsDQo+IGxvd2VyXzMyX2JpdHMoYWRkcmVzcyksDQo+ID4gLQkJCQkg
-ICB1cHBlcl8zMl9iaXRzKGFkZHJlc3MpKTsNCj4gPiArCXUzMiByZXRfcGF5bG9hZFtQQVlMT0FE
-X0FSR19DTlRdOw0KPiA+ICsJaW50IHJldDsNCj4gPiArDQo+ID4gKwlyZXQgPSB6eW5xbXBfcG1f
-aW52b2tlX2ZuKFBNX0xPQURfUERJLCByZXRfcGF5bG9hZCwgMywgc3JjLA0KPiA+ICsJCQkJICBs
-b3dlcl8zMl9iaXRzKGFkZHJlc3MpLA0KPiA+ICsJCQkJICB1cHBlcl8zMl9iaXRzKGFkZHJlc3Mp
-KTsNCj4gPiArCWlmIChyZXRfcGF5bG9hZFswXSkNCj4gPiArCQlyZXR1cm4gcmV0X3BheWxvYWRb
-MF07DQo+IExvb2tzIGEgbGl0dGxlIGJpdCBoYWNraW5nLiBBcyB0aGUgcmV0X3BheWxvYWQgaXMg
-dTMyLCByZXR1cm4gYXMgaW50LCBpdCBoYXMgcG9zc2liaWxpdHkgdG8NCj4gb3ZlcmZsb3c/DQo+
-IA0KSSBhZ3JlZSB3aXRoIHlvdXIgY29uY2Vybi4NCkknbGwgZHJvcCB0aGlzIHBhdGNoIGFuZCBs
-b29rIGludG8gYSBwcm9wZXIgc29sdXRpb24gdG8gYWRkcmVzcyB0aGUgaXNzdWUuDQoNClJlZ2Fy
-ZHMsDQpOYXZha2lzaG9yZQ0K
+On Wed, 5 Feb 2025 10:33:39 +0200
+Claudiu Beznea <claudiu.beznea@tuxon.dev> wrote:
+
+> Hi, Jonathan,
+>=20
+> On 04.02.2025 16:33, Jonathan Cameron wrote:
+> > On Wed, 15 Jan 2025 16:42:37 +0100
+> > Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> >  =20
+> >> On Thu, 9 Jan 2025 at 18:34, Daniel Lezcano <daniel.lezcano@linaro.org=
+> wrote: =20
+> >>>
+> >>>
+> >>> Ulf,
+> >>>
+> >>> can you have a look at this particular patch please ?
+> >>>
+> >>> Perhaps this scenario already happened in the past and there is an
+> >>> alternative to fix it instead of this proposed change   =20
+> >>
+> >> I think the patch makes sense.
+> >>
+> >> If there is a PM domain that is attached to the device that is
+> >> managing the clocks for the thermal zone, the detach procedure
+> >> certainly needs to be well controlled/synchronized.
+> >> =20
+> > Does this boil down to the same issue as
+> > https://lore.kernel.org/linux-iio/20250128105908.0000353b@huawei.com/
+> > ? =20
+>=20
+> Yes, as described in the cover letter.
+>=20
+> >=20
+> > Just to point out there is another way like is done in i2c:
+> > https://elixir.bootlin.com/linux/v6.12.6/source/drivers/i2c/i2c-core-ba=
+se.c#L630
+> >=20
+> > Register a devres_release_group() in bus probe() and release it before
+> > the dev_pm_domain_detach() call.  That keeps the detach procedure well
+> > controlled and synchronized as it is entirely in control of the driver.=
+ =20
+>=20
+> From the IIO thread I got that Ulf doesn't consider it a good approach for
+> all the cases.
+>=20
+
+Maybe true (I'll let Ulf comment!) and I think the solution proposed here is
+not great because it is putting the cost on every driver rather than solving
+the basic problem in one place (and there is clear precedence in other
+bus subsystems). Ideally I'd like more people to get involved in that discu=
+ssion.
+
+Jonathan
+
+
+
+> Thank you,
+> Claudiu
+>=20
+> >=20
+> > That IIO thread has kind of died out for now though with no resolution
+> > so far.
+> >=20
+> > Jonathan
+> >=20
+> >  =20
+> >>>
+> >>>
+> >>> On 03/01/2025 17:38, Claudiu wrote:   =20
+> >>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>>>
+> >>>> On the Renesas RZ/G3S (and other Renesas SoCs, e.g., RZ/G2{L, LC, UL=
+}),
+> >>>> clocks are managed through PM domains. These PM domains, registered =
+on
+> >>>> behalf of the clock controller driver, are configured with
+> >>>> GENPD_FLAG_PM_CLK. In most of the Renesas drivers used by RZ SoCs, t=
+he
+> >>>> clocks are enabled/disabled using runtime PM APIs.
+> >>>>
+> >>>> During probe, devices are attached to the PM domain controlling their
+> >>>> clocks. Similarly, during removal, devices are detached from the PM =
+domain.
+> >>>>
+> >>>> The detachment call stack is as follows:
+> >>>>
+> >>>> device_driver_detach() ->
+> >>>>    device_release_driver_internal() ->
+> >>>>      __device_release_driver() ->
+> >>>>        device_remove() ->
+> >>>>          platform_remove() ->
+> >>>>         dev_pm_domain_detach()
+> >>>>
+> >>>> In the upcoming Renesas RZ/G3S thermal driver, the
+> >>>> struct thermal_zone_device_ops::change_mode API is implemented to
+> >>>> start/stop the thermal sensor unit. Register settings are updated wi=
+thin
+> >>>> the change_mode API.
+> >>>>
+> >>>> In case devres helpers are used for thermal zone register/unregister=
+ the
+> >>>> struct thermal_zone_device_ops::change_mode API is invoked when the
+> >>>> driver is unbound. The identified call stack is as follows:
+> >>>>
+> >>>> device_driver_detach() ->
+> >>>>    device_release_driver_internal() ->
+> >>>>      device_unbind_cleanup() ->
+> >>>>        devres_release_all() ->
+> >>>>          devm_thermal_of_zone_release() ->
+> >>>>         thermal_zone_device_disable() ->
+> >>>>           thermal_zone_device_set_mode() ->
+> >>>>             rzg3s_thermal_change_mode()
+> >>>>
+> >>>> The device_unbind_cleanup() function is called after the thermal dev=
+ice is
+> >>>> detached from the PM domain (via dev_pm_domain_detach()).
+> >>>>
+> >>>> The rzg3s_thermal_change_mode() implementation calls
+> >>>> pm_runtime_resume_and_get()/pm_runtime_put_autosuspend() before/after
+> >>>> accessing the registers. However, during the unbind scenario, the
+> >>>> devm_thermal_of_zone_release() is invoked after dev_pm_domain_detach=
+().
+> >>>> Consequently, the clocks are not enabled, as the device is removed f=
+rom
+> >>>> the PM domain at this time, leading to an Asynchronous SError Interr=
+upt.
+> >>>> The system cannot be used after this.
+> >>>>
+> >>>> Add thermal_of_zone_register()/thermal_of_zone_unregister(). These w=
+ill
+> >>>> be used in the upcomming RZ/G3S thermal driver.
+> >>>>
+> >>>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>   =
+=20
+> >>
+> >> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> >>
+> >> Kind regards
+> >> Uffe
+> >> =20
+> >>>> ---
+> >>>>   drivers/thermal/thermal_of.c |  8 +++++---
+> >>>>   include/linux/thermal.h      | 14 ++++++++++++++
+> >>>>   2 files changed, 19 insertions(+), 3 deletions(-)
+> >>>>
+> >>>> diff --git a/drivers/thermal/thermal_of.c b/drivers/thermal/thermal_=
+of.c
+> >>>> index fab11b98ca49..8fc35d20db60 100644
+> >>>> --- a/drivers/thermal/thermal_of.c
+> >>>> +++ b/drivers/thermal/thermal_of.c
+> >>>> @@ -329,11 +329,12 @@ static bool thermal_of_should_bind(struct ther=
+mal_zone_device *tz,
+> >>>>    *
+> >>>>    * @tz: a pointer to the thermal zone structure
+> >>>>    */
+> >>>> -static void thermal_of_zone_unregister(struct thermal_zone_device *=
+tz)
+> >>>> +void thermal_of_zone_unregister(struct thermal_zone_device *tz)
+> >>>>   {
+> >>>>       thermal_zone_device_disable(tz);
+> >>>>       thermal_zone_device_unregister(tz);
+> >>>>   }
+> >>>> +EXPORT_SYMBOL_GPL(thermal_of_zone_unregister);
+> >>>>
+> >>>>   /**
+> >>>>    * thermal_of_zone_register - Register a thermal zone with device =
+node
+> >>>> @@ -355,8 +356,8 @@ static void thermal_of_zone_unregister(struct th=
+ermal_zone_device *tz)
+> >>>>    *  - ENOMEM: if one structure can not be allocated
+> >>>>    *  - Other negative errors are returned by the underlying called =
+functions
+> >>>>    */
+> >>>> -static struct thermal_zone_device *thermal_of_zone_register(struct =
+device_node *sensor, int id, void *data,
+> >>>> -                                                         const stru=
+ct thermal_zone_device_ops *ops)
+> >>>> +struct thermal_zone_device *thermal_of_zone_register(struct device_=
+node *sensor, int id, void *data,
+> >>>> +                                                  const struct ther=
+mal_zone_device_ops *ops)
+> >>>>   {
+> >>>>       struct thermal_zone_device_ops of_ops =3D *ops;
+> >>>>       struct thermal_zone_device *tz;
+> >>>> @@ -429,6 +430,7 @@ static struct thermal_zone_device *thermal_of_zo=
+ne_register(struct device_node *
+> >>>>
+> >>>>       return ERR_PTR(ret);
+> >>>>   }
+> >>>> +EXPORT_SYMBOL_GPL(thermal_of_zone_register);
+> >>>>
+> >>>>   static void devm_thermal_of_zone_release(struct device *dev, void =
+*res)
+> >>>>   {
+> >>>> diff --git a/include/linux/thermal.h b/include/linux/thermal.h
+> >>>> index 69f9bedd0ee8..adbb4092a064 100644
+> >>>> --- a/include/linux/thermal.h
+> >>>> +++ b/include/linux/thermal.h
+> >>>> @@ -195,13 +195,23 @@ struct thermal_zone_params {
+> >>>>
+> >>>>   /* Function declarations */
+> >>>>   #ifdef CONFIG_THERMAL_OF
+> >>>> +struct thermal_zone_device *thermal_of_zone_register(struct device_=
+node *sensor, int id, void *data,
+> >>>> +                                                  const struct ther=
+mal_zone_device_ops *ops);
+> >>>>   struct thermal_zone_device *devm_thermal_of_zone_register(struct d=
+evice *dev, int id, void *data,
+> >>>>                                                         const struct=
+ thermal_zone_device_ops *ops);
+> >>>>
+> >>>> +void thermal_of_zone_unregister(struct thermal_zone_device *tz);
+> >>>>   void devm_thermal_of_zone_unregister(struct device *dev, struct th=
+ermal_zone_device *tz);
+> >>>>
+> >>>>   #else
+> >>>>
+> >>>> +static inline
+> >>>> +struct thermal_zone_device *thermal_of_zone_register(struct device_=
+node *sensor, int id, void *data,
+> >>>> +                                                  const struct ther=
+mal_zone_device_ops *ops)
+> >>>> +{
+> >>>> +     return ERR_PTR(-ENOTSUPP);
+> >>>> +}
+> >>>> +
+> >>>>   static inline
+> >>>>   struct thermal_zone_device *devm_thermal_of_zone_register(struct d=
+evice *dev, int id, void *data,
+> >>>>                                                         const struct=
+ thermal_zone_device_ops *ops)
+> >>>> @@ -209,6 +219,10 @@ struct thermal_zone_device *devm_thermal_of_zon=
+e_register(struct device *dev, in
+> >>>>       return ERR_PTR(-ENOTSUPP);
+> >>>>   }
+> >>>>
+> >>>> +static inline void thermal_of_zone_unregister(struct thermal_zone_d=
+evice *tz)
+> >>>> +{
+> >>>> +}
+> >>>> +
+> >>>>   static inline void devm_thermal_of_zone_unregister(struct device *=
+dev,
+> >>>>                                                  struct thermal_zone=
+_device *tz)
+> >>>>   {   =20
+> >>>
+> >>>
+> >>> --
+> >>> <http://www.linaro.org/> Linaro.org =E2=94=82 Open source software fo=
+r ARM SoCs
+> >>>
+> >>> Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+> >>> <http://twitter.com/#!/linaroorg> Twitter |
+> >>> <http://www.linaro.org/linaro-blog/> Blog   =20
+> >> =20
+> >  =20
+>=20
+
 
