@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF3EC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E56DC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 03:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6rgULuGtXE32btbLFBjKmAy8JieCa+OnfxHI6tl0SM=; b=KqQBRth73SL7eOakwpqNRPkFpz
-	2I533bgbpU8D14mbC6X2FgXLUgqCeDrTqdDxtr6KFPAzsdcxTrkuxdY0un0uOUOgDfd+f5k1MRnLD
-	njnOON3F1elG0z9QalRFnUI6OjZueI/jPk7J9qbWx77Raqad+9sShrWdfEB4xg9Nij1Wx4EIU9Qor
-	GSSw29eSSr5PGXHoi101vHo2lmHUgNss7d5n474X8LBzQ/FAIemtd1AMFurq+MpI+cHNpkHdU4kr/
-	c9DLGxMLS9DXfCuhdq9Yu8SfNgESX9GPT4Q7z4buJvYWQyOVe3tWLd0DvDy++UZzf9lyYMB+Q2KIv
-	ICQSvR3w==;
+	bh=1ZtwwLK7UbW+7SeKV2tsQ5uK6rRg+ZSYyqZGaCPCC0I=; b=3DXrflHFgCV45FukbEvzqt4t4N
+	/wTuPa9vyeSFGKM0u4XWtzY7YGnZASOY6q0BShb8Yun9QrXOP56grRzX95SPfmLtriaynJp53ygr6
+	9UPyg7eNhPEWsYThMEGSZtRmwJmdKMgOtKlgsbtkqeZQrO7NbIoE+dau9RiGmUch0ae0Er/MzAMmm
+	h/tjCVZyMD9SdAgwaHueTJdTmWrIrvQEu80VQdsL65JFfLxw+Ax+w1TyMXd57QBk71Y6hELrkvUw0
+	Xonoit+lz9cgdnEhwyxhwKLwOPPlNuiW1pBgg1BvX/5fwiCGdhhdwltsM6F76wDOJVbbH1qKz9JJB
+	vfwya4jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfVuo-00000002DDR-0MVn;
-	Wed, 05 Feb 2025 03:17:26 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tfVw8-00000002DKH-2vP7;
+	Wed, 05 Feb 2025 03:18:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfVsA-00000002ChW-12dl
+	id 1tfVsN-00000002CjV-40sR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Feb 2025 03:14:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1ZtwwLK7UbW+7SeKV2tsQ5uK6rRg+ZSYyqZGaCPCC0I=; b=qX37tJT8FOfBQEu7h4Oa2vmzl2
+	ssMLb7beu08wOU6l+/jq8CDgWwzRj9QcBzfXF9PiIOQzgr+95ueffRPQlxSksQfNiBgwyQ23zA595
+	gFUFPkTnJf8w5XsG/HVLrQ+XDjY/Ah3HXGy7SL3riCMlOzXx2SJO9Iz5Tg4mLNseK3KDGiZtFtxmy
+	1ry+DMsaWyZlkF2narH/FW54WJlbCY3BclBKdRloxnnQgVbqhIHKxEgUNAot2UEerdZpDnZBWTakl
+	C0dLPHUPLs54zd/ekPRdgG9EOtsm3aCqgeBXKoGvQtBw4SDWHTNC63scE3ELEQtbzy/mQ+jc2gRug
+	da5gX1JQ==;
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfVsJ-0000000GXCt-2HFX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 03:14:43 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2f9b9c0088fso686565a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 19:14:41 -0800 (PST)
+	Wed, 05 Feb 2025 03:14:54 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21effc750d2so24802105ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 19:14:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1738725281; x=1739330081; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1738725285; x=1739330085; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A6rgULuGtXE32btbLFBjKmAy8JieCa+OnfxHI6tl0SM=;
-        b=QPZns6/OCCQeJ9lsbFPFZzrBCR/aRLLGfBUfc9WrPF6uxT3BndwoUT47souh8Lp1v9
-         /C5CSmJP9TBu+wDyk0JUYd1QUV2nfya/PYYr9VoD3JhOnBEF3yfKfDmPjm6CxH25LK3P
-         iDOGWT9hJS23sSfsKOeOZ3fmLtnD1HhBbD0j6ual2lTuXKTojuI1F4ESTvVO83i+uY7/
-         TQd06Euzk5sOlCK+Fujkm2x6LWDgs/gJ51xuS3pox36ZV7n/dbmQ2mbtgGPENNNsv2NJ
-         lYRv6aKeTTvb6jduNKu9buqflRFqte67+NuKF95DhM4fPshtv3L3nmtk91MesqXA68pP
-         TYSw==
+        bh=1ZtwwLK7UbW+7SeKV2tsQ5uK6rRg+ZSYyqZGaCPCC0I=;
+        b=JMEG3VQHiYYz3/SwYMNeHcxMpFES4wGTH4e3Zk2AJpCfqPr2iKrvuEHwRSZqX0ipgx
+         SnXWKmliWFsMaacybot+GBaI3KOGJVzHu24r8jQf3KO8V5tJV7g1rVpup0gQLeu8lNXN
+         gcYorFCpN8V2oEB5nXd0PA+FA+AxQFxD0I+btoAfmQW0h/SK/aR7W8DWFueaiif2VnLl
+         jWtgqtuC9Myfnn7mel2qLCbSEbhzfnKA3KkHRGhdhkFJcYCvRnaHaNyxQeQpaOY+a+Kc
+         g+l8k38t4aRdDwPKlCmPFJGg3TqmqzekkKwgBVwmQBYszm9ZQnPLo5ABuq+5AYijiwvS
+         2CeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738725281; x=1739330081;
+        d=1e100.net; s=20230601; t=1738725285; x=1739330085;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A6rgULuGtXE32btbLFBjKmAy8JieCa+OnfxHI6tl0SM=;
-        b=BvOZ/iKSWBn7BkZNFJh+7SH9EmXfsCyClrpXguEddZPbftqk8RNtYvzumxzcHM1LDe
-         V2lQ1KQdZVU/B2HUbkdh5P70uATsAwua53LfqISXzeyNuN8twhdAFyC0sYOzj1TbvpK1
-         KjLLGmmb29jn1bnncVyua6Jt0NeVIEgKkLtH3BH09ZOf4GBfg5Egwznlc1Ktd5yHGoXN
-         8LMyHBzM+WZQNeqFXKoCaNu+d7BTqkcuS/RIc+gTNzPHmJHUQjPMIsio8gIt9Hf1XsFq
-         4j+timlolTiSg4qpBnIpTg04QtVmfryfodUDsUJPwPixCrf3MwZkcI9xLe6vP7oI5cmc
-         MN/w==
-X-Forwarded-Encrypted: i=1; AJvYcCV3zZFqe5gx5Rbbl5t9lBQbUPP3xTKyvBAAC6x+mhpAc0XKt2Utk/C8TfiEGu5OPzsiJELdXQw5gux+17AwTkEw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpbZ8UtkY37hhDwkEAnQnPbCMlNN5gQT8Bsx70CMnAZGi01FxI
-	is/duMs9LVbqfVKObW4dKn2lOw7wX6TeyLXwJo9Iueb6R2FdC1IrcqoUKz7M+hE=
-X-Gm-Gg: ASbGncvVO40QhJwibRiBHAHDzpFEdUhDCw8M/DvAMKyyGcjiWL1agAsFLzviA8dvnug
-	l+ruJWA11s1ZmWTqzjIh45khABzAuXe1vQ1YrPezm+QN3wVDS1mMIwDS1LL5+meMjNOzyqMDm+h
-	QxLnhoHkxdmMfkf4gVDSzKZ1YIgJb4NRae1AIPgDJnn51o0yordUqAJg2S4cTojO8+p9+FV3HsZ
-	GMQLDQ0z0bb7+8OXWKpO2T1SsQmOm4q0XAYorcV0+6dFn5IYkedcKds/XQis55pKo9EapobRrPd
-	3ZiHYFuJMmTdl6ZlHQR8PPD8fZSXLpte1UKCibo2PeR1g62GZA==
-X-Google-Smtp-Source: AGHT+IEgWoIyo+md6WjJjQsXcbOKmrxi/N2/4YdNia+eqfR9OqZiWotZNEXqD46THuMV2yKqlqjrYw==
-X-Received: by 2002:a17:90b:1954:b0:2f6:e47c:1750 with SMTP id 98e67ed59e1d1-2f9dff6c294mr2267628a91.13.1738725281126;
-        Tue, 04 Feb 2025 19:14:41 -0800 (PST)
+        bh=1ZtwwLK7UbW+7SeKV2tsQ5uK6rRg+ZSYyqZGaCPCC0I=;
+        b=oP6/2G6WW0ctvQf9nm83kuCtwGvmsgo2WkjC8kX1KQbtLUmdyRaWX3nFF8vZR+jioF
+         VU/erQGgwGwtv23yL2svjj6nGKYJKuEpxEJ1I6JlZxiyaKiKfQaSWP3tj2FLPDyE3zjB
+         8P3xOmXlnXL8Xsc9hGtGknkQk4oFpnyVxbIDac14P60x1blcxpOqgB9wdLLtfGiOQ0Oo
+         MfXZuRF+P4DjPbyv+oOtvz06az7yRE3uzRzi1cx++VM518RC+JQO+v2Sx6hdsYtp85JG
+         fTeYoDiSFh151LQFsVw/5rG0Miq51MzrkgfTHadjASRVSZ+AezgrwDb4iCPdBybTp99/
+         zbkg==
+X-Forwarded-Encrypted: i=1; AJvYcCUXXGHuHbhQFWWRuOUfM36P2qNXDUU+vabnnFdRspx4zFT1kMpj5edFXhuzjNq8fqsUxbYZmyZDRKrIov4fJqLi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaL2vW+hO396cucdQa5iMy+T42UAsrA/rzPPvsGNhspTnVcKqz
+	vbDmiAhzeGPkcsRGTGi8ywl23hekdAzfm6hjmrl7jHZsyJlCozsGRXOqRpZ/RJ4=
+X-Gm-Gg: ASbGncsscPcaKhaIRT6OZ9faPqRij44oBzi1GCxBw6NhbBXcclf5WIh5sYfgYn+kPTi
+	E2S8571Vu5QATVuwFP3HIuHclJElUUQIa6z0Uq8K3JHZC1cp2bgQU/tfXSgqLzxRXNSxO9BLmzX
+	PRWIRRNsDwlw34Ks09m4l7XMg08YhqvFnOHXuy1MCHbCsfARG+vgf8A6fWIFjvkK9HLo/tI4fNW
+	Nen87iaIVGDYfGK0wSD2V9Hzf7k2KfCdEGucq/PBuxNq6zIMbu/dOFtpOoDlcDvJ2YGK2CxtIqN
+	vDV1xhNJb1gU+H+T0HWr6oXiAdv7bnBZUEhFTyGRjfbNcFKsSw==
+X-Google-Smtp-Source: AGHT+IGvs9YlJSJ4IV1c8mfZKeNsIc8mGiu0UvBJnVQ8jcswFf6SnQ+8jYxvoQNAtQ8+6zh7iONi5A==
+X-Received: by 2002:a17:902:ecc1:b0:205:4721:19c with SMTP id d9443c01a7336-21f17eb9bb1mr16527375ad.37.1738725285599;
+        Tue, 04 Feb 2025 19:14:45 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.254])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de330342asm103509115ad.193.2025.02.04.19.14.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de330342asm103509115ad.193.2025.02.04.19.14.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 04 Feb 2025 19:14:40 -0800 (PST)
+        Tue, 04 Feb 2025 19:14:44 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: xueshuai@linux.alibaba.com,
 	renyu.zj@linux.alibaba.com,
@@ -77,17 +92,17 @@ To: xueshuai@linux.alibaba.com,
 	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v2 1/2] perf/dwc_pcie: fix the incorrect reference count
-Date: Wed,  5 Feb 2025 11:14:24 +0800
-Message-Id: <20250205031425.67265-2-cuiyunhui@bytedance.com>
+Subject: [PATCH v2 2/2] perf/dwc_pcie: fix duplicate pci_dev devices
+Date: Wed,  5 Feb 2025 11:14:25 +0800
+Message-Id: <20250205031425.67265-3-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20250205031425.67265-1-cuiyunhui@bytedance.com>
 References: <20250205031425.67265-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_191442_288625_DDD552F0 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250205_031452_478333_73A80262 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,119 +117,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_pci_dev increments pdev refcount. Call pci_dev_put after access
-to decrement it.
+During platform_device_register, wrongly using struct device
+pci_dev as platform_data caused a kmemdup copy of pci_dev. Worse
+still, accessing the duplicated device leads to list corruption as its
+mutex content (e.g., list, magic) remains the same as the original.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- drivers/perf/dwc_pcie_pmu.c | 42 ++++++++++++++++++++++++++-----------
- 1 file changed, 30 insertions(+), 12 deletions(-)
+ drivers/perf/dwc_pcie_pmu.c | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-index cccecae9823f..4ac53167d7ab 100644
+index 4ac53167d7ab..fd9d87b4f201 100644
 --- a/drivers/perf/dwc_pcie_pmu.c
 +++ b/drivers/perf/dwc_pcie_pmu.c
-@@ -553,6 +553,7 @@ static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
+@@ -566,9 +566,7 @@ static int dwc_pcie_register_dev(struct pci_dev *pdev)
+ 	u32 sbdf;
  
- static void dwc_pcie_unregister_dev(struct dwc_pcie_dev_info *dev_info)
- {
-+	pci_dev_put(dev_info->pdev);
- 	platform_device_unregister(dev_info->plat_dev);
- 	list_del(&dev_info->dev_node);
- 	kfree(dev_info);
-@@ -572,8 +573,10 @@ static int dwc_pcie_register_dev(struct pci_dev *pdev)
+ 	sbdf = (pci_domain_nr(pdev->bus) << 16) | PCI_DEVID(pdev->bus->number, pdev->devfn);
+-	plat_dev = platform_device_register_data(NULL, "dwc_pcie_pmu", sbdf,
+-						 pdev, sizeof(*pdev));
+-
++	plat_dev = platform_device_register_simple("platform_dwc_pcie", sbdf, NULL, 0);
+ 	if (IS_ERR(plat_dev))
  		return PTR_ERR(plat_dev);
  
- 	dev_info = kzalloc(sizeof(*dev_info), GFP_KERNEL);
--	if (!dev_info)
-+	if (!dev_info) {
-+		platform_device_unregister(plat_dev);
- 		return -ENOMEM;
-+	}
+@@ -620,18 +618,26 @@ static struct notifier_block dwc_pcie_pmu_nb = {
  
- 	/* Cache platform device to handle pci device hotplug */
- 	dev_info->plat_dev = plat_dev;
-@@ -594,8 +597,11 @@ static int dwc_pcie_pmu_notifier(struct notifier_block *nb,
- 	case BUS_NOTIFY_ADD_DEVICE:
- 		if (!dwc_pcie_des_cap(pdev))
- 			return NOTIFY_DONE;
--		if (dwc_pcie_register_dev(pdev))
-+		pci_dev_get(pdev);
-+		if (dwc_pcie_register_dev(pdev)) {
-+			pci_dev_put(pdev);
- 			return NOTIFY_BAD;
-+		}
- 		break;
- 	case BUS_NOTIFY_DEL_DEVICE:
- 		dev_info = dwc_pcie_find_dev_info(pdev);
-@@ -730,20 +736,29 @@ static struct platform_driver dwc_pcie_pmu_driver = {
- 	.driver = {.name = "dwc_pcie_pmu",},
- };
- 
-+static void dwc_pcie_cleanup_devices(void)
-+{
-+	struct dwc_pcie_dev_info *dev_info, *tmp;
-+
-+	list_for_each_entry_safe(dev_info, tmp, &dwc_pcie_dev_info_head, dev_node) {
-+		dwc_pcie_unregister_dev(dev_info);
-+	}
-+}
-+
- static int __init dwc_pcie_pmu_init(void)
+ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
  {
- 	struct pci_dev *pdev = NULL;
+-	struct pci_dev *pdev = plat_dev->dev.platform_data;
++	struct pci_dev *pdev;
+ 	struct dwc_pcie_pmu *pcie_pmu;
+ 	char *name;
+ 	u32 sbdf;
+ 	u16 vsec;
  	int ret;
  
- 	for_each_pci_dev(pdev) {
--		if (!dwc_pcie_des_cap(pdev))
-+		if (!dwc_pcie_des_cap(pdev)) {
-+			pci_dev_put(pdev);
- 			continue;
-+		}
++	sbdf = plat_dev->id;
++	pdev = pci_get_domain_bus_and_slot(sbdf >> 16, PCI_BUS_NUM(sbdf & 0xffff),
++					   sbdf & 0xff);
++	if (!pdev) {
++		pr_err("No pdev found for the sbdf");
++		return -ENODEV;
++	}
++
+ 	vsec = dwc_pcie_des_cap(pdev);
+ 	if (!vsec)
+ 		return -ENODEV;
  
- 		ret = dwc_pcie_register_dev(pdev);
--		if (ret) {
--			pci_dev_put(pdev);
--			return ret;
--		}
-+		if (ret)
-+			goto err_cleanup;
- 	}
+-	sbdf = plat_dev->id;
++	pci_dev_put(pdev);
+ 	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+ 	if (!name)
+ 		return -ENOMEM;
+@@ -646,7 +652,7 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+ 	pcie_pmu->on_cpu = -1;
+ 	pcie_pmu->pmu = (struct pmu){
+ 		.name		= name,
+-		.parent		= &pdev->dev,
++		.parent		= &plat_dev->dev,
+ 		.module		= THIS_MODULE,
+ 		.attr_groups	= dwc_pcie_attr_groups,
+ 		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+@@ -733,7 +739,7 @@ static int dwc_pcie_pmu_offline_cpu(unsigned int cpu, struct hlist_node *cpuhp_n
  
- 	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-@@ -751,24 +766,27 @@ static int __init dwc_pcie_pmu_init(void)
- 				      dwc_pcie_pmu_online_cpu,
- 				      dwc_pcie_pmu_offline_cpu);
- 	if (ret < 0)
--		return ret;
-+		goto err_cleanup;
+ static struct platform_driver dwc_pcie_pmu_driver = {
+ 	.probe = dwc_pcie_pmu_probe,
+-	.driver = {.name = "dwc_pcie_pmu",},
++	.driver = {.name = "platform_dwc_pcie",},
+ };
  
- 	dwc_pcie_pmu_hp_state = ret;
- 
- 	ret = platform_driver_register(&dwc_pcie_pmu_driver);
- 	if (ret)
--		goto platform_driver_register_err;
-+		goto err_remove_cpuhp;
- 
- 	ret = bus_register_notifier(&pci_bus_type, &dwc_pcie_pmu_nb);
- 	if (ret)
--		goto platform_driver_register_err;
-+		goto err_unregister_driver;
- 	notify = true;
- 
- 	return 0;
- 
--platform_driver_register_err:
-+err_unregister_driver:
-+	platform_driver_unregister(&dwc_pcie_pmu_driver);
-+err_remove_cpuhp:
- 	cpuhp_remove_multi_state(dwc_pcie_pmu_hp_state);
--
-+err_cleanup:
-+	dwc_pcie_cleanup_devices();
- 	return ret;
- }
- 
+ static void dwc_pcie_cleanup_devices(void)
 -- 
 2.39.2
 
