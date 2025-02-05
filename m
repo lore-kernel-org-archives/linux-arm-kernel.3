@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F65EC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF33C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=; b=IN5PEWreGEHLQidsxwLePKJO2a
-	/Tpc54pmQnYTzeYvfrcJN4qIxWVardrDfJmWi3NcVhXcy94mkhj74rA9R+LIESy0tXPohFVXZRlRg
-	m3IccIqsxvRvpZSTPJh6v7ZbYOD94aqt6yvmGTdpG+5Bt9sZOy+phwU+h+pziuxe+/ZvZ8C7GhZb3
-	ZOL0XJUDTk+gRlDX8Xn/s6ZgGYjxDm9xn2HmtCOS/8zIRa5m336eTfMy497MuP911tEvxHtBORkts
-	PP5Ck/jtaSu1/IbGsiIzCZMZ779Y5of0OWMTp+ggORBnTzfe7xrVxGJxi36wBzfId5FNjxLLYvqT5
-	MYy4OUDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LOj9VlryOmQZmCz+R78WiYvIvniQhLw4kRALfZcRkwI=; b=VKac9NtQkv1nCqKzcD4Pua5okx
+	JImJv9EsLxWx7ujdf8nSKVjCDn3U1I8xp0gEXJN1DvdmyhGlHeOjK6NThU6dnL0c8bWYewNIIxmj3
+	aGXu33SIbAtMHK9z9SaYTut0SsDQArMWjVroqjeM4fWQNX8Jzx9PWrQudd/T8aKMls6VaN91zXnbg
+	k8sG6KPlJhcscH/58BagsBU3mVPLfL1GApdq2/Xzsn9yrRm/vtqKv0eHog5Ky3eh2XyUFiUpif2yu
+	l0lRuxjqutvHRsj+XXrZQpghLL/wAJC4cMbIlnmWldci+ZvSY4ZPo/s2VqgMPobIn19Ix6HXIDf4M
+	MPWWDpmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZR5-00000002TWa-1dVG;
-	Wed, 05 Feb 2025 07:02:59 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tfZwe-00000002VDF-3xl6;
+	Wed, 05 Feb 2025 07:35:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZPH-00000002TAb-2vMC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 07:01:08 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2f9d74037a7so1851843a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 23:01:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738738867; x=1739343667; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=;
-        b=offyAg23RVZwUdEmA71XMjDmmcShP1Jfb5PKwiUpnxpbeAP0cKbwtfvsoACUej98O1
-         RrGpPVmbS2W5HhEtHbQ6o2BIzN/oH+uQXbW6qnIr+vMpxkTHW8OFXL8Bt/DpxEyNEJ9x
-         SYgd27wCRfkzRv/9oVojefP9UpsdJsjrrVZbXU9BMmpWQeBejH+8j1YBPLKCHlLCuCqW
-         V6LurNRqADA79K/dub4cV9uSeRZnrnGDDxMPORXLFDbi9gj6R3gLDB+en5IiuJbbgaBH
-         GSRmmqGumuGUmk4KwV3QdEPds+Yyt3fPyCFs6lnTnddQiznwek5aNuvserGpsRKZqjCj
-         /lrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738738867; x=1739343667;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=;
-        b=MCHvo/zUJeeYrbf9dJrp/tlX7yZA94je/2EQHofgaIPq/SyW0mwVzqgeDduFa5Y3Kn
-         1vTe7ZcNgpUzvpEvJQhv7ge8GENN4+6Jzc6Y48cbPb+jaSjyr4yLYKonF3u48dLWLEgR
-         /UuNwEuMH209umzE02uYLyxrTpAfAl3WPTy7dLtpacWqdz5ACqhxx86P6AEt569TrbiP
-         PEm44sHQrqClU075TOil/usIbGXMznFnWnWBbkSJwpo9SZwWjPyzJ8i5UoqaB+auW9mx
-         kci0vOotOmncJzTMOkC3pstqmmiy4R8ty9lgSR3gWmVmmXXcwtEtN+jNDSN73Y0x8ANO
-         XW2g==
-X-Forwarded-Encrypted: i=1; AJvYcCX7Yg3U/pwK3A/xYUAoxigBNXu5tlz4tAt8koM3FLhOW3Sa8oBvQW8LZm4X6YAPuKorEuEs1qWuyE8gxfg3RAFP@lists.infradead.org
-X-Gm-Message-State: AOJu0YycO0oWypXwgMM3CiqihZYVEppsXN+kt0F5x4+CrF6XiXhhqFWy
-	wbuLPahAdKaAVObSqlPDM19LPmUxVg/2wDarKymORpNPnK68g8Y9Cj6G5jDQHUA=
-X-Gm-Gg: ASbGncsOuN7ZEykqAyGKvUKxJifRfTcCQSeMFLmDER4VrpCh36uEaMCSFzMO3KDTltw
-	BgA0FakGBdItG1IMspIaSYaKn9yr9AtOQ1/nVapH5eQJy74SvVMqMS23xQ8E8KazfpTxiAW5Q/T
-	6n5iWpddhSgY0xs6db642Fzf/ed7XYJk8gUk0a60AwJYDFi7gvvMXAOLyQhg0XSly0PmE+4KLlQ
-	fRXzJP2MPT1Mqv4K3tQ1RaURnLJ07RF8YlnXW8Aqe8cexeKNaEofig7lP74iJXg9xrENNGFKDUj
-	5PJEku0w5C5018vLQg==
-X-Google-Smtp-Source: AGHT+IEu7fqxtK7w5SoEhI6cbco/xUvu7X3eM4no2kX0m2LQwZj0KIS55DISe84WBXdk8tWZ91sBcg==
-X-Received: by 2002:a17:90b:38c3:b0:2ea:3d2e:a0d7 with SMTP id 98e67ed59e1d1-2f9e0792de0mr2925113a91.15.1738738866797;
-        Tue, 04 Feb 2025 23:01:06 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f9e1e4253bsm762453a91.49.2025.02.04.23.01.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 23:01:06 -0800 (PST)
-Date: Wed, 5 Feb 2025 12:31:04 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com, ptsm@linux.microsoft.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	x86@kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-Message-ID: <20250205070104.6k4n3zcyuki366am@vireshk-i7>
-References: <20250131162439.3843071-1-beata.michalska@arm.com>
- <20250131162439.3843071-3-beata.michalska@arm.com>
+	id 1tfZvH-00000002V9w-2oD1;
+	Wed, 05 Feb 2025 07:34:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 48B5D5C0713;
+	Wed,  5 Feb 2025 07:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E10EC4CED1;
+	Wed,  5 Feb 2025 07:34:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738740850;
+	bh=hfSf8djy5hTtllDF2aFI0BXeoZW85f56NLjc1r4dcOg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IUO8UoyC94v2p/uPu2QedFxw6ksTgCG+xykgtw7nBFNxIutrAuvRkPsnND7CV1JAS
+	 xj48DN1T9GSXMfyWjX9yZ8K/6+YdK2aAr5ZXmsEnmnfH7eiC5iuxmLiuQdCfoxn/oZ
+	 mlcE5udHOAh6EWmdedjtv5NPCyLU4AI0yiXVlnzHntIINWDPzQomhFGW14sfi0Pksv
+	 feJOUMw81pIwILmCmdv65ov7Dzw3UCw/Vbk9y0Yyv/8aWYWn+9a+O1RIPI3qHEvFT+
+	 kxwx2gCcdkB9O/r0Iug93/ZCBi5IVQVjxL442dCkdhxr/feiiknmG+eQ46QXZlNGkO
+	 y/cU1TRiFBarw==
+Message-ID: <8b79700d-f628-4e65-b9a5-63bbc3958cc1@kernel.org>
+Date: Wed, 5 Feb 2025 08:34:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131162439.3843071-3-beata.michalska@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC evaluation
+ board
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+ <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
+ <231c1f01-dea1-4c39-bbe1-cb629f7c109d@kernel.org>
+ <Z6I9JzAVv3VjKOiE@lore-desk>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z6I9JzAVv3VjKOiE@lore-desk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_230107_765929_9F54B8EB 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20250204_233411_801506_853F6A42 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +122,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31-01-25, 16:24, Beata Michalska wrote:
-> Currently the CPUFreq core exposes two sysfs attributes that can be used
-> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> and scaling_cur_freq. Both provide slightly different view on the
-> subject and they do come with their own drawbacks.
+On 04/02/2025 17:15, Lorenzo Bianconi wrote:
+>> On 03/02/2025 17:04, Krzysztof Kozlowski wrote:
+>>>> +
+>>>> +		rng@1faa1000 {
+>>>> +			compatible = "airoha,en7581-trng";
+>>>> +			reg = <0x0 0x1faa1000 0x0 0xc04>;
+>>>> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+>>>> +		};
+>>>> +
+>>>> +		system-controller@1fbf0200 {
+>>>> +			compatible = "syscon", "simple-mfd";
+>>>
+>>> These are never allowed alone. I am pretty sure I added proper checks
+>>> which should point it out, so I think you did not really test your DTS.
+>>>
+>>> It does not look like you tested the DTS against bindings. Please run
+>>> `make dtbs_check W=1` (see
+>>> Documentation/devicetree/bindings/writing-schema.rst or
+>>> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+>>> for instructions).
+>>> Maybe you need to update your dtschema and yamllint. Don't rely on
+>>> distro packages for dtschema and be sure you are using the latest
+>>> released dtschema.
+>>>
+>>
+>> Now I see Rob's report:
+>> arch/arm64/boot/dts/airoha/en7581-evb.dtb: system-controller@1fbf0200:
+>> compatible: ['syscon', 'simple-mfd'] is too short
+>> which confirms untested code. Schema is there for a reason. :(
 > 
-> cpuinfo_cur_freq provides higher precision though at a cost of being
-> rather expensive. Moreover, the information retrieved via this attribute
-> is somewhat short lived as frequency can change at any point of time
-> making it difficult to reason from.
+> actually I have tested them with the following command (but without W=1).
 > 
-> scaling_cur_freq, on the other hand, tends to be less accurate but then
-> the actual level of precision (and source of information) varies between
-> architectures making it a bit ambiguous.
+> make CHECK_DTBS=y DT_SCHEMA_FILES=airoha airoha/en7581-evb.dtb
 > 
-> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> distinct interface, exposing an average frequency of a given CPU(s), as
-> reported by the hardware, over a time frame spanning no more than a few
-> milliseconds. As it requires appropriate hardware support, this
-> interface is optional.
+> - dtschema 2024.11
+> - yamllint 1.35.1
 > 
-> Note that under the hood, the new attribute relies on the information
-> provided by arch_freq_get_on_cpu, which, up to this point, has been
-> feeding data for scaling_cur_freq attribute, being the source of
-> ambiguity when it comes to interpretation. This has been amended by
-> restoring the intended behavior for scaling_cur_freq, with a new
-> dedicated config option to maintain status quo for those, who may need
-> it.
-> 
-> CC: Jonathan Corbet <corbet@lwn.net>
-> CC: Thomas Gleixner <tglx@linutronix.de>
-> CC: Ingo Molnar <mingo@redhat.com>
-> CC: Borislav Petkov <bp@alien8.de>
-> CC: Dave Hansen <dave.hansen@linux.intel.com>
-> CC: H. Peter Anvin <hpa@zytor.com>
-> CC: Phil Auld <pauld@redhat.com>
-> CC: x86@kernel.org
-> CC: linux-doc@vger.kernel.org
-> 
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+> With W=1 I can see more issues, I will fix issues in v2.
 
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Rob's warning does not come from W=1. Your test cmd was incorrect: drop
+DT_SCHEMA_FILES. You must test your code against ENTIRE bindings, not
+some subset.
 
--- 
-viresh
+Best regards,
+Krzysztof
 
