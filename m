@@ -4,67 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17AFEC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963F5C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+gRqZvbYl6PPQ9n6OUKHTLMwUX4Pwkr9UeEVZmu8tX8=; b=a+TCk8W1Tf7zPbHz+Zy7cduPwb
-	/r9zKggjk0QNNIzh+E/uhmf0rY6MaU3vTPNVPp01HQI8TaYuF0IEdSVQFVnaPiUz+M8RQ/PqtkOvj
-	Q8x3isvwV7Jkx/etn1B+8rlDj8MIIWVdrwLChT5+SMxzAMBIlWyx1YE91CcvIcNGtLUdgE/66SfiA
-	Ag1byd4Z1teHzmhNWsdSc8ZEqqkcKhJfTvjMZ84uLKHOrci/7YkJiJIw4QYTKG6BQ3M40eElUA1jg
-	kK6ECd5p6gWZ5fMCBvZK9bN/GoAf6YWDSN1Ea6+G7HtIZaa2lPEaXpcwjPRj5gkol46j4+OAD+blz
-	4BDh/tqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oNz0gm6s9Y1Y/1K5KRe9biL7hupOBSfqXQtcebOru1s=; b=NBgovNSTK/pvZlptxkNqTwrN96
+	rTDiCBTa6brrBPyZNsqDzvcrjpHoyw3aNx3wKJ4N9laehpcOZ0E6pjm2MqEQ4XkiqRpvh/B07uZ7l
+	whLMS7t0PdYYFrTTDMVX5+oNbGdBXuGzxcYX+tJxAWfS40lOT7GVzoFsI4axTCaRic2/udPiKz+zJ
+	uFOuU2oXk3RJWSwuWnYdrmOEu7kOot3/b2c1uHgeNtu2kf+umG8jnoCTclSP2ZCyfKx7MOM5jAGiQ
+	Ktx+itUodYfQsZxZBWzZ5dkSezb/dV9e2peRjvG5wPDkpERdIWgscAqw/a3SFhxKO4+jHjCvMyxB6
+	LyXoXL+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcMU-00000002pUw-0HfU;
-	Wed, 05 Feb 2025 10:10:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfcNo-00000002po8-31c1;
+	Wed, 05 Feb 2025 10:11:48 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcI0-00000002oLE-0u52
+	id 1tfcI3-00000002oMF-0qQb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 10:05:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 62A0FA43343;
-	Wed,  5 Feb 2025 10:04:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 648DFC4CED1;
-	Wed,  5 Feb 2025 10:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738749947;
-	bh=KbEFKDcO9YO05ffSaN68MjwT5lvzDBl0owN2twsZxVM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=suPMxBHc8//jkuGVYHew4b4EOor217p3lUW2a+tg57A9fZ553ihWgLVGhNf5BuaZ4
-	 LmdGIG4jS83tvm5Vxg7G5AeBNcYbtHK2UFTLUbtt+QGOrZBgz6fx8Wv6wZmETjhyro
-	 J7j7NXrsVtzKLfzh/0NBCHpb8PDy1hcJuxOP9T4f3rXo5xKmBbPE7iIFtKGVXznAtZ
-	 2kLqbUe0yh6rfTJ2K3jJsrVw1h3ypaCxo2fZJrYHvB6SfcDo2eYiCF1yzwbeUnmeqm
-	 eyD5l4k09mQHhrtx388em9uBYirOvdPpaahfxS8C1biwwb2jkaDiTuXYdFwf1uwYcH
-	 86x7+F6oSh/3A==
-Date: Wed, 5 Feb 2025 11:05:43 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Shawn Guo <shawnguo@kernel.org>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: memory-controllers: qcom,ebi2: Split
- out child node properties
-Message-ID: <20250205-imported-versed-oyster-0f23ca@krzk-bin>
-References: <20250203-dt-lan9115-fix-v1-0-eb35389a7365@kernel.org>
- <20250203-dt-lan9115-fix-v1-2-eb35389a7365@kernel.org>
+	Wed, 05 Feb 2025 10:05:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738749952; x=1770285952;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=y/vg46vRn1lgg6h2OUWs7r6Zp75W28a+qluOoO9J7Nk=;
+  b=izOHR3o192UIFmUe6H8CzJsWoBwK9bpPI6rB1LiL3yacuiI29UZhgKIa
+   Yhx6F0xxdB36Cgz2zfo8vp287gMw7DJxRCK0zVHYJr3kn7PKrqEW8L5aD
+   RV90oAIoSBERccB4C6sefuGbTrQoymmdD722m60SliU2r7lUe47784CZO
+   AkDQIuhWVwrjvKEWuXGm6CPhewVN9jr1hNRJlLYPeHZQEP0RbnJZcnUST
+   lfLhRSpKZEV7nSc95AQI5o5M2ulzFlqjdiNsRsdBvcuu+jH0QiAWSs+4x
+   0o88RrdyL2ayHpYQyFy2uD+DQV5SiXpEyqJ/12foTVzKwQt7TFEFnwTOr
+   Q==;
+X-CSE-ConnectionGUID: wItWSgU6Shm1kq1OSRaf6Q==
+X-CSE-MsgGUID: jRwbwzz2QC+2Tqq8NDcKjw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39204681"
+X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
+   d="scan'208";a="39204681"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 02:05:51 -0800
+X-CSE-ConnectionGUID: DKnaiIsdSyiZZtLl/Q1jcw==
+X-CSE-MsgGUID: gWdDTOiKSIGZu+i0PIVjFQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="111297703"
+Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
+  by orviesa007.jf.intel.com with ESMTP; 05 Feb 2025 02:05:42 -0800
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Furong Xu <0x1207@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Petr Tesarik <petr@tesarici.cz>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH iwl-next v2 2/9] igc: Rename xdp_get_tx_ring() for non-xdp usage
+Date: Wed,  5 Feb 2025 05:05:17 -0500
+Message-Id: <20250205100524.1138523-3-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
+References: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250203-dt-lan9115-fix-v1-2-eb35389a7365@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_020548_317748_12C3F11C 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250205_020551_282651_F0274B7D 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +113,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 03:29:14PM -0600, Rob Herring (Arm) wrote:
-> In order to validate devices in child nodes, the device schemas need to
-> reference any child node properties. In order to do that, the properties
-> for child nodes need to be included in mc-peripheral-props.yaml.
-> 
-> "reg: { maxItems: 1 }" was also incorrect. It's up to the device schemas
-> how many reg entries they have.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../memory-controllers/mc-peripheral-props.yaml    |  1 +
->  .../qcom,ebi2-peripheral-props.yaml                | 91 ++++++++++++++++++++++
->  .../bindings/memory-controllers/qcom,ebi2.yaml     | 84 --------------------
->  3 files changed, 92 insertions(+), 84 deletions(-)
+Renamed xdp_get_tx_ring() function to a more generic name for use in
+upcoming frame preemption patches.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+---
+ drivers/net/ethernet/intel/igc/igc.h      |  2 +-
+ drivers/net/ethernet/intel/igc/igc_main.c | 10 +++++-----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/net/ethernet/intel/igc/igc.h b/drivers/net/ethernet/intel/igc/igc.h
+index b8111ad9a9a8..22ecdac26cf4 100644
+--- a/drivers/net/ethernet/intel/igc/igc.h
++++ b/drivers/net/ethernet/intel/igc/igc.h
+@@ -736,7 +736,7 @@ struct igc_nfc_rule *igc_get_nfc_rule(struct igc_adapter *adapter,
+ 				      u32 location);
+ int igc_add_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
+ void igc_del_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
+-
++struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter, int cpu);
+ void igc_ptp_init(struct igc_adapter *adapter);
+ void igc_ptp_reset(struct igc_adapter *adapter);
+ void igc_ptp_suspend(struct igc_adapter *adapter);
+diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
+index 56a35d58e7a6..44e4f925491f 100644
+--- a/drivers/net/ethernet/intel/igc/igc_main.c
++++ b/drivers/net/ethernet/intel/igc/igc_main.c
+@@ -2444,8 +2444,8 @@ static int igc_xdp_init_tx_descriptor(struct igc_ring *ring,
+ 	return -ENOMEM;
+ }
+ 
+-static struct igc_ring *igc_xdp_get_tx_ring(struct igc_adapter *adapter,
+-					    int cpu)
++struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter,
++				 int cpu)
+ {
+ 	int index = cpu;
+ 
+@@ -2469,7 +2469,7 @@ static int igc_xdp_xmit_back(struct igc_adapter *adapter, struct xdp_buff *xdp)
+ 	if (unlikely(!xdpf))
+ 		return -EFAULT;
+ 
+-	ring = igc_xdp_get_tx_ring(adapter, cpu);
++	ring = igc_get_tx_ring(adapter, cpu);
+ 	nq = txring_txq(ring);
+ 
+ 	__netif_tx_lock(nq, cpu);
+@@ -2546,7 +2546,7 @@ static void igc_finalize_xdp(struct igc_adapter *adapter, int status)
+ 	struct igc_ring *ring;
+ 
+ 	if (status & IGC_XDP_TX) {
+-		ring = igc_xdp_get_tx_ring(adapter, cpu);
++		ring = igc_get_tx_ring(adapter, cpu);
+ 		nq = txring_txq(ring);
+ 
+ 		__netif_tx_lock(nq, cpu);
+@@ -6699,7 +6699,7 @@ static int igc_xdp_xmit(struct net_device *dev, int num_frames,
+ 	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
+ 		return -EINVAL;
+ 
+-	ring = igc_xdp_get_tx_ring(adapter, cpu);
++	ring = igc_get_tx_ring(adapter, cpu);
+ 	nq = txring_txq(ring);
+ 
+ 	__netif_tx_lock(nq, cpu);
+-- 
+2.34.1
 
 
