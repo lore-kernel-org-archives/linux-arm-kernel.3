@@ -4,94 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB36C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09376C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wu/sc/L4OPn7cAk2v/XNwJZ1ybARuz3FCSjlWNrd2uc=; b=aY7jGODvlKln+pe+xYxsXm/iyh
-	hMDCdOp5VIIzAHIDjlz3nGQ5TU1R9q1vDXKxf9uw1xWMP4YGetxBEYX83K9uXSB93Sh8qI5k/xW3/
-	eboEG9WwJcHzc7TfNNxsYrIZY43EvgUVxZS0jvyiIrzRERaQ5oygJfuPfcdzkHTqoHIaMoxTyg3dy
-	BOKYfHlSZ7KCXnfn0hCM9dAyIBZNKb2WBrrDhgoC/WC1T/MZ+6ksdrLyyD7N88jT+V4HzfpDicwsI
-	e1sJsZuOHXcoVvG/O37caZ/EqfpRXAr2HTEQPaj9qLjvnxhAxmckIAqXzL/P9duRKfC+hj6Z80kl7
-	DT6WJRlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uJygAs26sG/WTRZNVMCVRE1/vV1vD/e7qMP82YKaOfY=; b=V+4/Bd0T3YQngbxnDGv1X2ZWKl
+	OBNMVgBXUhrPSETIH9rIjoUkhbexltWsH3ap4i8YEQ3Jub63bNaD9uO3kHI1c86qhdgao7RkIZKqA
+	5LeJ9n1ejx27c7H208rMouENOTi0I/7mSc1K0lvTvpaW3mCO0gTuUcSWd33/lZdhSgeD3pKGzZqZM
+	7Wtvd6wALYP4zBpSbIWWFSRGNdP7sqxmrrpEDiVqDmdfnR1FzM1XJFYprZln4SMPgdu0V3MbzkBzN
+	8DEhZS82rMO38Q8H/CrENpNTtA0VTWiswOOBWMKKRz0SqPz0wqTKWabSJU735YK/TiKxjH66CIjrv
+	jgkkuPVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffGq-00000003MyM-0qWe;
-	Wed, 05 Feb 2025 13:16:48 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tffQp-00000003OJT-2TRm;
+	Wed, 05 Feb 2025 13:27:07 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffFS-00000003MiK-49Vs
+	id 1tffN1-00000003O1A-3lvU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 13:15:24 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2166f1e589cso64737265ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 05:15:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738761321; x=1739366121; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wu/sc/L4OPn7cAk2v/XNwJZ1ybARuz3FCSjlWNrd2uc=;
-        b=cx97NtQhdQntKS9FWr6rgsXfdF46h25QhGgVxdkXiJ8Nj6edtUbuZkV4mv2N0e00xA
-         voYCASzQh2FF3hg/wp5qfK3q+yGB6HtFSZ9POxq9n8XfjlHlD8dCDX87F2c4yUD8Nk7g
-         l17SbcUoCbin731mg4Lh6fmGizrvBmiVpIOV3wGVMg2s5RBJ2QdK3dWhuAHMkQJ61h/T
-         m5F8jN1MNEcIEXEhLG8Ik8fN8eJlOahVRE3j1BguXB4UTWqR6/ObpFnFPmluyeyi1Vvu
-         0FkrqXv9qXjadRlDoNCNHNWpoGo8ejhyA6om/pUwbI6bqrVrzGzduy7YH73/bxs9eqBh
-         Nxig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738761321; x=1739366121;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wu/sc/L4OPn7cAk2v/XNwJZ1ybARuz3FCSjlWNrd2uc=;
-        b=IKUIir8SsrgZ3LkO7eabJZIUvBCn482NU1LuI/kYAl31yKTpCM/uCT4f1tn1pusG0k
-         oQ9/9DiGeI8IqS5/EK4RypaZvPYoKf6bfYjbRZKGIBEkS8f9j3TjDHk2IaGFbQAXDIuA
-         1NVUD6vJObdShGnnwQi/YxQd/sz5LdGc6BlnNQS6qFSeFN+ELb/vseeS4ERIxuhNFa29
-         vAN2ckgABODF7DwTM424j3lnztxFZ0xkCkLH5EqeA1q/QDrARK4C3FPEL/frfduGH+Zc
-         QjLLIGE9IrW/p34wMKh8sis1cBq6LeXftqFfohFtF8CucJiilrIbfsT6acAed7nZSlsA
-         HYIw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgWDOqbcPwU18zfPe5tK/4v2UaCVhfo6lUo6gi5d8vLEqL19vTEO3Vp6In4v/h+B9pzYAjkBJ+fLLFgQQwo9Ek@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+q8MbVuUvZfjsBaHEIFFhmUc005H392OHZohGgbixpwK+RGEY
-	mm3Z4+MGPSuf7lf2KGNNH9srNhZejrCfBCbtoIiBPtGiyKCODZ7H6+Sco9EnTa+5hFGJ5/BUEcB
-	XBx3AJ9G0GMA4hpDZnLvBlc/ZGIPvhkhKJYpB
-X-Gm-Gg: ASbGncsb92mx9DTLIxS/+teW5WW3pboOM8FuKF2DrlTO0EGxXiEL5xzaiy0Yosrs+Zq
-	6cm5ic+PkOAYZUGWqEjZBs9sxX6z7aVqh0onOrQB1fbA0P5ABcHJ/zGpMRyLGlvclrpHaxs7trA
-	H3toZ6m/sXlF5VsJ3mlQbANpxkvY4=
-X-Google-Smtp-Source: AGHT+IFf8uqGqejiqDC+WsvJ+0IKFQdep5DE/lTTj9Lq2uU4fvUimsIEKmftbwK3h1qE8+ChhRZkPz5mlad/lMYnjFo=
-X-Received: by 2002:a17:903:2b10:b0:216:3732:ade3 with SMTP id
- d9443c01a7336-21f17ef01f1mr55209855ad.35.1738761319655; Wed, 05 Feb 2025
- 05:15:19 -0800 (PST)
+	Wed, 05 Feb 2025 13:23:13 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yp19c6NvKz6HJbM;
+	Wed,  5 Feb 2025 21:22:12 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5B6FE140516;
+	Wed,  5 Feb 2025 21:23:08 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.203.177.241) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 5 Feb 2025 14:23:00 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v6 2/4] KVM: arm64: Introduce hypercall support for retrieving target implementations
+Date: Wed, 5 Feb 2025 13:22:20 +0000
+Message-ID: <20250205132222.55816-3-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
+In-Reply-To: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
+References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
-References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
- <a83b0149-7055-411b-ba86-d227919c7c32@app.fastmail.com> <f8b59f05-55b5-4208-8bdf-b4be8e93bc22@gmail.com>
- <65da77f7-bbd4-4cbe-a06c-75f10a6ec4ce@lunn.ch> <CANiq72n7UhQEh9TJU7UNBv2t0ZR_rNO3dqbVZ2cwr99u5SOVeg@mail.gmail.com>
-In-Reply-To: <CANiq72n7UhQEh9TJU7UNBv2t0ZR_rNO3dqbVZ2cwr99u5SOVeg@mail.gmail.com>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Wed, 5 Feb 2025 14:14:51 +0100
-X-Gm-Features: AWEUYZlASz-FWWUxhqCKYiMuN_a0MLJAcx7YSx21Wkzf07cjFQ7z0fJLREmrNHo
-Message-ID: <CAH5fLgi05p6KTN2v=+jy4HoK-oC9pg7dYBuc8wvfx_uN6SVjOg@mail.gmail.com>
-Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, 
-	Rudraksha Gupta <guptarud@gmail.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Geert Stappers <stappers@stappers.nl>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
-	Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-Originating-IP: [10.203.177.241]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_051523_055900_B9DBE543 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20250205_052312_229051_157C57FD 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,53 +72,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 5, 2025 at 2:12=E2=80=AFPM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> On Fri, Jan 31, 2025 at 5:05=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrot=
-e:
-> >
-> > Floating point is banned within the kernel, except for in very narrow
-> > conditions, because the floating point registers are lazy saved on
-> > context switch. If the kernel uses the floating point registers, you
-> > can break user space in bad ways.
-> >
-> > I expect this has been discussed, since it is well known kernel
-> > restriction. Maybe go see what happened to that discussion within RfL?
->
-> Yeah, it has been discussed, including in the last couple weeks in the
-> Rust Zulip due to the upcoming move to the aarch64 `softfloat` target
-> (the disallowing of disabling `neon` in the hardfloat one).
->
-> Ideally, I think upstream Rust could perhaps give us a way to do
-> something like `-mgeneral-regs-only` or `-march=3D...+nofp` (in the form
-> GCC does it, i.e. a hard error if one even tries to use the floating
-> point types even within a function implementation, not just in
-> interfaces like in Clang), i.e. a way to avoid unintended use of
-> floating point facilities:
->
->     https://godbolt.org/z/o1E5nrrzc
->
-> Currently it is unclear what form that could take (e.g. whether a
-> `-nofloat` target could be possible, "disabling" the `f*` types, just
-> Clippy...).
+If the Guest requires migration to multiple targets, these hypercalls
+will provide a way to retrieve the target CPU implementations from
+the user space VMM.
 
-Seems like we already have a warning for it:
+Subsequent patch will use this to enable the associated errata.
 
-warning: floating-point arithmetic detected
-  --> /home/aliceryhl/rust-for-linux/rust/kernel/lib.rs:89:5
-   |
-89 |     a + b
-   |     ^^^^^
-   |
-   =3D help: for further information visit
-https://rust-lang.github.io/rust-clippy/master/index.html#float_arithmetic
-   =3D note: requested on the command line with `-W clippy::float-arithmeti=
-c`
+Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Cornelia Huck <cohuck@redhat.com>
+Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+---
+ Documentation/virt/kvm/arm/hypercalls.rst | 59 +++++++++++++++++++++++
+ include/linux/arm-smccc.h                 | 15 ++++++
+ 2 files changed, 74 insertions(+)
 
-> Cc'ing Catalin in case he wants to be in the loop, since I discussed
-> it with him recently.
->
-> Cheers,
-> Miguel
+diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
+index af7bc2c2e0cb..7400a89aabf8 100644
+--- a/Documentation/virt/kvm/arm/hypercalls.rst
++++ b/Documentation/virt/kvm/arm/hypercalls.rst
+@@ -142,3 +142,62 @@ region is equal to the memory protection granule advertised by
+ |                     |          |    +---------------------------------------------+
+ |                     |          |    | ``INVALID_PARAMETER (-3)``                  |
+ +---------------------+----------+----+---------------------------------------------+
++
++``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID``
++-------------------------------------------------------
++Request the target CPU implementation version information and the number of target
++implementations for the Guest VM.
++
+++---------------------+-------------------------------------------------------------+
++| Presence:           | Optional;  KVM/ARM64 Guests only                            |
+++---------------------+-------------------------------------------------------------+
++| Calling convention: | HVC64                                                       |
+++---------------------+----------+--------------------------------------------------+
++| Function ID:        | (uint32) | 0xC6000040                                       |
+++---------------------+----------+--------------------------------------------------+
++| Arguments:          | None                                                        |
+++---------------------+----------+----+---------------------------------------------+
++| Return Values:      | (int64)  | R0 | ``SUCCESS (0)``                             |
++|                     |          |    +---------------------------------------------+
++|                     |          |    | ``NOT_SUPPORTED (-1)``                      |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R1 | Bits [63:32] Reserved/Must be zero          |
++|                     |          |    +---------------------------------------------+
++|                     |          |    | Bits [31:16] Major version                  |
++|                     |          |    +---------------------------------------------+
++|                     |          |    | Bits [15:0] Minor version                   |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R2 | Number of target implementations            |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R3 | Reserved / Must be zero                     |
+++---------------------+----------+----+---------------------------------------------+
++
++``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID``
++-------------------------------------------------------
++
++Request the target CPU implementation information for the Guest VM. The Guest kernel
++will use this information to enable the associated errata.
++
+++---------------------+-------------------------------------------------------------+
++| Presence:           | Optional;  KVM/ARM64 Guests only                            |
+++---------------------+-------------------------------------------------------------+
++| Calling convention: | HVC64                                                       |
+++---------------------+----------+--------------------------------------------------+
++| Function ID:        | (uint32) | 0xC6000041                                       |
+++---------------------+----------+----+---------------------------------------------+
++| Arguments:          | (uint64) | R1 | selected implementation index               |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R2 | Reserved / Must be zero                     |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R3 | Reserved / Must be zero                     |
+++---------------------+----------+----+---------------------------------------------+
++| Return Values:      | (int64)  | R0 | ``SUCCESS (0)``                             |
++|                     |          |    +---------------------------------------------+
++|                     |          |    | ``INVALID_PARAMETER (-3)``                  |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R1 | MIDR_EL1 of the selected implementation     |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R2 | REVIDR_EL1 of the selected implementation   |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R3 | AIDR_EL1  of the selected implementation    |
+++---------------------+----------+----+---------------------------------------------+
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 67f6fdf2e7cd..f19be5754090 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -179,6 +179,9 @@
+ #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_62		62
+ #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_63		63
+ /* End of pKVM hypercall range */
++#define ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER	64
++#define ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS	65
++
+ #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
+ #define ARM_SMCCC_KVM_NUM_FUNCS			128
+ 
+@@ -225,6 +228,18 @@
+ 			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
+ 			   ARM_SMCCC_KVM_FUNC_MMIO_GUARD)
+ 
++#define ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID		\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER)
++
++#define ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID		\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS)
++
+ /* ptp_kvm counter type ID */
+ #define KVM_PTP_VIRT_COUNTER			0
+ #define KVM_PTP_PHYS_COUNTER			1
+-- 
+2.47.0
+
 
