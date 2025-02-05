@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1A6C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06890C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnyUK6beMeleaf/vnmqhL9TlcUqLD4J+xrVEoCblRp0=; b=081xhsEokf/pcGFX/JVgGzgzXM
-	LjBhHrlsdb60lNR5MCGgo5RVoDLuENBmOvp/k1LiQJV8pNMaNEgp/H3dgsFVy1nT9frK3zkzCMKHd
-	e6BzDSK3F+KNlrhR6oSJo062uslg67oJNiF8iHRm4T7rl0kEVvYqUsUD0eQj6ObtgmB3GHXG4tYW7
-	nPIomzRnfvBDWGyApqTYMqNeo/79f8AzaCz3xPv8+CswgtaePnTrShHy8ZHbm29dMDGnh+TZhTLlD
-	tvkdy2/J15L334DGgvSsWQ6HBgWUcYLw630PLhLqiATsy7VkpRV0C6TJlTzd1cMiqdZ+gBBibf4Af
-	jXXClX1w==;
+	bh=QrjpVKFbSRrE6vHiGeiawaeS65c9c+jYODEjMxySj+o=; b=J6QGdDbWXAa8KP1XbmU8Kfje6N
+	xi0j4hqz9pIUkrTHG0PLJe3Rw1bmSsFUpj4les46ibIIADieRJVVWi46L5U2Wu7qt4gSurf6BSYQJ
+	mpkakCeCnbZ30oI2aY9D08fTqdtkhXJ/nw1xA9EORoji4bQUbnUGhazFGtsRdaaHLEifk9D2asDnG
+	ISfUn0NzFdE6PPcC4iMcupK8Xq1VcDnNjlr2fKWBMg9td9olyG477i9wLEv9ycoGe0/YYU9ZGrEvv
+	tQ6tDhXxti9uVkRde0J9k5XzJjb6MFuKKhWYVVZH8hCa1eGqh3M034Lo4UFTuQrRM8LVibDwq9dWT
+	6+glqHzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tff75-00000003Kzk-3M9Z;
-	Wed, 05 Feb 2025 13:06:43 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tff8R-00000003LHc-1h9r;
+	Wed, 05 Feb 2025 13:08:07 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfetW-00000003Hst-183O;
-	Wed, 05 Feb 2025 12:52:43 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5dce1d61b44so630121a12.2;
-        Wed, 05 Feb 2025 04:52:41 -0800 (PST)
+	id 1tfetY-00000003HuN-1GTh;
+	Wed, 05 Feb 2025 12:52:45 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5dca451f922so6549327a12.2;
+        Wed, 05 Feb 2025 04:52:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738759960; x=1739364760; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738759963; x=1739364763; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fnyUK6beMeleaf/vnmqhL9TlcUqLD4J+xrVEoCblRp0=;
-        b=WC3x9wW5238wZABIHIXrXhsgb+wpDFZPqGuaKo6JC3EqtlPGfCQyyD33RD6Pqg0TgO
-         ByHD3SL290/tmMimXyAzCq6cD1RPQzTX4C14eqKtgMRGbkEFp3xYvK0LC6uD0JlSNpox
-         jyMyfzl+9sbkbR7uIFbYnAeX5EiB1XJJHktNDx5K2/TiWXJeBM1uBoXaeRivxcp/J+E5
-         nfHtkI+E7oXQf0RON/QCb4OzV4SO59vzK1ptHawGf/FOihQYVU2h86cThYC26d154LnX
-         RABIVRzgDlZPxkNlGxL/8bpVs9fLslOovXzQb12qv03LVB55WoyWmCbFjfM/7Co1UbYR
-         Q/8g==
+        bh=QrjpVKFbSRrE6vHiGeiawaeS65c9c+jYODEjMxySj+o=;
+        b=inXdcmlsJfht5e7RNgWiN4uXAiV+U2ZUp6L/iUK0bTd5yxK+9i9q0aA16C5PbS3wzg
+         WAtItpPvClN+57hobVi055JtTqzZpDPKCNJ1VYLDcR0S6140LuCHZhZHz3Zz0KMcr4Iz
+         6ALhnZSP6PFv4fAeULJ9OBftUaSt6ELLYGL+Yv9LDx0pdFDSRYs+p2/Sgl1ONXCVLjFX
+         TIVGR9t7/XDO9F2Jp/6BWZzHzwTQWEcNz9vwBupC5ioBCuD6eC+S9+VkjkIBUBshq/K7
+         R+sb8Awi/piEagqNRhuS8oUVazYD822+LoEPZs4+y34ANqQ/WL0W0Ps2571xfDnq6MHI
+         26Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738759960; x=1739364760;
+        d=1e100.net; s=20230601; t=1738759963; x=1739364763;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fnyUK6beMeleaf/vnmqhL9TlcUqLD4J+xrVEoCblRp0=;
-        b=Vwrx41fj1uE3UYpXivjHndEo1+knuvxXTbcbnKUeMljWHu9gC2PxfzyFPAy2xR0jPN
-         L2MLcIX4nyXLMxQfKZiMPfsWC/HU446ujZ4DvdD0CHQgG2MDvxYDrwPO1ADxYHZ3MJaN
-         vWx5TXBEne6kUzTKtEHvDwswk7y4WsVifDoN3jI80loYjB4Wgj0JeManikChd/XA3wWV
-         f16P+zRIT+b9Qsh1x/kx8BeKyO0CAiWB4CDqM1EvKM4UKAoEddXm8hGkfy85B5C9WX8m
-         rUqCEaTBZpCd46Fqjcr1tamQ16NEWaKeOpTNVYy7WkPGUWNDJImyEkcwY3FhIfU/LX4k
-         /HNA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtvBzMSc4dC6uWhRihDugwTFkgU5xgoA2FVG13fbMZ27PPjvd/srGtKYhWtWFatOlykPOp1PMI9A9g@lists.infradead.org, AJvYcCX3I4IJPgNIb2ZlmXruVaCmAD9H5XhMEk0L4iJT1qtLTNGPcrzdH2kIufooZ6GJCzMqJpJIpp/KVKnh/MknL0R0@lists.infradead.org, AJvYcCXcWLSubHcnivpHGA4OIOcjm+Rx+tA6SRihuX8Jd47I7DkcUeIgqyuWxjwBXkdrIvTTpRsCdo+tk94DExI=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0vQVRi6zUqP+BhhuxfOncgh4A9U2SkMoqOBJ8iqjfWmHJ7Ed5
-	/uqu/iGoNsF6e7DzI/yakBguCup7iiAjRZnyP2QZCCQwbT+xsy6e
-X-Gm-Gg: ASbGncsFwsaERB1EgF2MtOCKGp2YN2/aOZe1Lf2h5WfDm1hO3dF1E+OmJtCDsvWJsgY
-	MAg2SS2Xcaej/27URgVPeLIRuIL1jEyLXSDkc1cqTNe3JBD+XDQeggPMZ8ogIyDKr/nWyIsezNC
-	pqGZdQbVXsVPXFyKlgbzFtGxfR2+z75wmrNcdXaTd2dnnjvb1bmVOZqwNHSAeDpz51N2if8JIgu
-	M8+C5lka1oE4MuHYYEmzwNWl6qZjGTG3Rf5DFHVwxQD+Itak0DElg1X930vpA2fXUqhYuBP1aC3
-	s/jl17aennxXa8FXiWe9Gv/NkT4/ugyJKoFfgpj4WzNVOw==
-X-Google-Smtp-Source: AGHT+IE0wywWb/Z15BOQfyDS/LKQnpnhSIPGUcQiGwnAhhs+76luZoRksyVgrmGjUEmSc4D72uhXsQ==
-X-Received: by 2002:a05:6402:388c:b0:5d9:8877:895a with SMTP id 4fb4d7f45d1cf-5dcdb732cd0mr3410442a12.17.1738759960294;
-        Wed, 05 Feb 2025 04:52:40 -0800 (PST)
+        bh=QrjpVKFbSRrE6vHiGeiawaeS65c9c+jYODEjMxySj+o=;
+        b=rvL2janWS+y1mXKFUgxzJqUHpqgr7viuFVMUxmy0ijEK6z/1alCTnHKLaQGCv7UfeQ
+         Li3FDTzMd+zTRziOspro9BRusvUWF5Bpst9spRGW1Lhl7HDB7uwE761RdekzPMnhnr9L
+         y8omRTPERfz7/DDef8A/Q5qw+QA9kpoON+PF1Lg4MfBviObk8n0ToqYK3raNGrsn2QIT
+         hHALuxIgMGEW+xFf+IUBhK5E5wh28Kn39xTufgllcOkfPsOIq2W0a64PsosPHXETkD3r
+         myYTq0yczF5WQysxjDy37pILYdEWORP0RMdYI29kG0Deqq6YWFWLcAl/gy1CCkpDmM0W
+         b0qA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5rmnwbRTjiiUU8V9wUXcoWdpSTxWE02UDyPFPCv1T44S+q0S+RE8/Y9bfM/BK8xseeSHI0Grj3JEqEdw=@lists.infradead.org, AJvYcCX89aTIqvoIe6Uhcx4vdHjoggNf385c3sDi98JWLIcAdgj4dikKG0d3AqGSzoSd74TQMtxzwo4wZN9K@lists.infradead.org, AJvYcCXzJh52x6oA2BRHjUxZDOuaeba+fzj2S1tzp9Ug3zBZCnNhgM1NA3+fSjEBSqi5wVAx4P71LTvBDfA1mAHiGpv6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsBUjIFmIw0E5WLGFG6lAABOBIR97s5ZcXxjLGjmcu8IPzub/a
+	U80ZUeynUUFtnC/n2jGOol3PWfw0yFUBeawjXc9DfGIU25SjuP9E
+X-Gm-Gg: ASbGncsjSHni2vxmK+El57xnniBpe4bqAdBVCJq/VjHv6wPa9B9s9pTgxDA/3uFnG8O
+	KkJM7PfX/dOvSY34juz3eCfz5QPqDev74WDEvexf+Rexi9nhgw14pbA4wV5xA1fLBxzewn+bkkm
+	tdI4/dcqTTEqEbNI03j4IIHELpHOdlNmd5bAs4bmz36ttJ6n/ab3T50LBtEv3dIe/kNeueZEVcL
+	Oi3KVta38h6goc0KS5qdBa1peGuEoYVi2b1Hw39R1Db/z58JedSPYieW2gybrLJfKKRCWxTIFLQ
+	PcmXYJ4QK8CXm+incRgPgwDU0RraabqMd1sKfHd4FbDXcg==
+X-Google-Smtp-Source: AGHT+IF6zoFHYoDLjXMYqUkNt9+F9g1qPDmsrM4f/DRoKSMpr0i16Ws07ZzIUfLBaqBzFn0iR+ySiQ==
+X-Received: by 2002:a05:6402:5d5:b0:5dc:7464:2228 with SMTP id 4fb4d7f45d1cf-5dcdb6fff0bmr2892117a12.2.1738759962631;
+        Wed, 05 Feb 2025 04:52:42 -0800 (PST)
 Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.38
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 04:52:39 -0800 (PST)
+        Wed, 05 Feb 2025 04:52:42 -0800 (PST)
 From: Andras Szemzo <szemzo.andras@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -96,18 +96,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 07/10] dt-bindings: phy: allwinner: add v853 usb phy
-Date: Wed,  5 Feb 2025 13:52:22 +0100
-Message-Id: <20250205125225.1152849-8-szemzo.andras@gmail.com>
+Subject: [PATCH v2 08/10] phy: allwinner: add v853 usb phy compatible
+Date: Wed,  5 Feb 2025 13:52:23 +0100
+Message-Id: <20250205125225.1152849-9-szemzo.andras@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
 References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_045242_307012_BF4FDA51 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_045244_348737_A943CC96 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,29 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Allwinner v853 USB phy.
+V853 has a dual role USB phy, similar to other Allwinner devices, but with
+only one phy. Add a compatible for it.
 
 Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
 ---
- .../devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml   | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/phy/allwinner/phy-sun4i-usb.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-index 21209126ed00..815742c4f5fb 100644
---- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
-@@ -19,9 +19,11 @@ properties:
-       - enum:
-           - allwinner,sun20i-d1-usb-phy
-           - allwinner,sun50i-a64-usb-phy
-+          - allwinner,sun8i-v853-usb-phy
-       - items:
-           - const: allwinner,sun50i-a100-usb-phy
-           - const: allwinner,sun20i-d1-usb-phy
-+          - const: allwinner,sun8i-v853-usb-phy
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index 29b8fd4b9351..1610501fb8bb 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -1005,6 +1005,15 @@ static const struct sun4i_usb_phy_cfg sun50i_a64_cfg = {
+ 	.phy0_dual_route = true,
+ };
  
-   reg:
-     items:
++static const struct sun4i_usb_phy_cfg sun8i_v853_cfg = {
++	.num_phys = 1,
++	.phyctl_offset = REG_PHYCTL_A33,
++	.dedicated_clocks = true,
++	.hci_phy_ctl_clear = PHY_CTL_SIDDQ,
++	.phy0_dual_route = true,
++	.siddq_in_base = true,
++};
++
+ static const struct sun4i_usb_phy_cfg sun50i_h6_cfg = {
+ 	.num_phys = 4,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+@@ -1041,6 +1050,7 @@ static const struct of_device_id sun4i_usb_phy_of_match[] = {
+ 	  .data = &sun50i_a64_cfg},
+ 	{ .compatible = "allwinner,sun50i-h6-usb-phy", .data = &sun50i_h6_cfg },
+ 	{ .compatible = "allwinner,sun50i-h616-usb-phy", .data = &sun50i_h616_cfg },
++	{ .compatible = "allwinner,sun8i-v853-usb-phy", .data = &sun8i_v853_cfg },
+ 	{ .compatible = "allwinner,suniv-f1c100s-usb-phy",
+ 	  .data = &suniv_f1c100s_cfg },
+ 	{ },
 -- 
 2.39.5
 
