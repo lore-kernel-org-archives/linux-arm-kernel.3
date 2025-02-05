@@ -4,73 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F39BC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889A5C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WZp7TS9OI/YkuzBbR19MVfuH+Jn+hzsj68Bt4sSVdMw=; b=pMfW7EqfH12RlcqjCrypeiSqUB
-	YLl8XkC/zmS8pwh3nwTu3mBxogg6sZeGw2MHt3P6EL6W2JAjIrPh4Ydf4m4Y2/bOKaA3D6LjjbmpB
-	+uAJXrjqQURo89QL8JkQcOPWe7lv/hqxSZ+3GVqgYomY8zJfGKmwnxtL6xLKPEnU42dMqDbpgP2No
-	qxRohRLiC1YvXxZoE1ghH91xxh6w8MjaALE9EvN+wyo8pfYn9CwDr+5Z70b9i7oamYwFt4Bz3So5T
-	w6BxKSGOvNP+Vm2/0WVd975yZ8Nqa3A7ODzFH7LV4IdywskW8mviGkpzk29aTlmJboyQ89dt3oEGs
-	bG7vYzeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YiEF3b+Hm6mR2+vAyfVcDozw07BkM+qFb4qqBxDOyPw=; b=D4hAv/ec0OKCLAmd2AnY9IN/R5
+	KelSgwteYfuyKfeQ9i1zYQZsA2/U1AEWOQm2qwnPJsT2au/XQO+awgQSBS02lQXXHWvp0CphI6R5Y
+	On+kLGwsxNG+FvNxmGIs8xhMI/sDveoAgf8ytxDs2/xcnEnFN7kRGuf90Xqdq9mY9swxHcs10YB6k
+	YKunhOm/YcnOrYdfbu3MLUj6eXDFxhF/rxpmH3zix9/uo0yqcBbnzgd8thK80FQCriIJ8r71EKJG8
+	Vwt7DjE3s0+jGCo8tLBAldWNiTYyTAhOOMgsN++39bjXHLBJfJmNwZso0u4Ivt/oyfhYRDqWqAYC5
+	3CZkcFdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfc0Y-00000002k5e-3pTS;
-	Wed, 05 Feb 2025 09:47:46 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tfc4x-00000002lQm-1sNp;
+	Wed, 05 Feb 2025 09:52:19 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfby2-00000002jUV-1AVG
+	id 1tfc3a-00000002l7s-2NuZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 09:45:11 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5159isd62510929
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 5 Feb 2025 03:44:54 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738748694;
-	bh=WZp7TS9OI/YkuzBbR19MVfuH+Jn+hzsj68Bt4sSVdMw=;
-	h=From:To:CC:Subject:Date;
-	b=CO+8cPQL8uJCIhw2ZmiCTxfPWGhU60AzO3P+gslJ5RnXfUEA29epgckOxaroxOnyU
-	 UbdwphxAACos7hzDLlWp/NZ+p5HdmuoqABPaADdiQigD+oQ9XYUAgFGACHNCkEG66M
-	 LXlHS1j/0AnpsJ6awaFjPYxfx9JjSgr2nD3sPHXM=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5159isLe008311
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 5 Feb 2025 03:44:54 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 5
- Feb 2025 03:44:54 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 5 Feb 2025 03:44:54 -0600
-Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.227.4])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5159iniQ047178;
-	Wed, 5 Feb 2025 03:44:50 -0600
-From: Hrushikesh Salunke <h-salunke@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <r-gunasekaran@ti.com>,
-        <rogerq@kernel.org>, <s-vadapalli@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <h-salunke@ti.com>,
-        <danishanwar@ti.com>, <srk@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-j722s-evm: Fix USB2.0_MUX_SEL to select Type-C
-Date: Wed, 5 Feb 2025 15:14:48 +0530
-Message-ID: <20250205094448.586094-1-h-salunke@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 05 Feb 2025 09:50:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oT4a6oW2u+r3B46sD35jSComOHSsHJEi8O1spV+dc45ouM0FYAJHTECZ6wJQDNwojsbaVu/YFWKMi7rTLeuQ/o/YeA+NhgjQwrjfJd0D5Trx8W1zTf7z+SFEeY0XWdvezgQC3rDm2NqiEKYvSbQpfvGfZlg73bYoK/bHL0l52wDHX9LXp2670RjdAsQqCPG2dF6sj7XpfNeWJOJMVMmDhbqWuhNuE/tYNU0liTTFAiRC62xuHVT9Jljd59Aa/QdE18adBJgapNPmtYApg4LeJCD9ZtdhM7bMEOvS4q2R4m8E7aG8LlHFaysmRVXgWbehKZ1IfdB8b3aA6tV5bzLI2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YiEF3b+Hm6mR2+vAyfVcDozw07BkM+qFb4qqBxDOyPw=;
+ b=wiEfe6yzx8Tqz5MQOtv74dPjuipXWakqfTgREXDLMDoKvegEGjNasIdYE/fhUVrPoQwcdLSKA0RWvkI1GeBVG+Out1J6X0p91H4U3D4CT0a8v99YhyXJ6LHNwOfeUYokhN6kG8k5MJ1DjJ4lMgWv5ZZ2CPtXOqRF1uP8kgRBSc/IjdW+HomvDfdrO9gsoBQCK4tUKdvqsnizD82ep65vpHg6JP5x0lLO+NTrL0ulXPuJqsfVuNVkvTczN5xazHceVZ1/AitkM8AMjhZ13vSMuEvK7u876lIUssDaa4ZtKFDBJMK/XtpNXakG/R9YDT2ATghS3txW++bvkW0EFBxTMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YiEF3b+Hm6mR2+vAyfVcDozw07BkM+qFb4qqBxDOyPw=;
+ b=KW54EgKJv+QmShyjyiUbzH0KfN3eUN3b7YSeqK3ksxJi7dKmKvIH6v9wcfLQBk0Ioro98D5BL7iCOR5d1QJSg+wOq0OM6R0rIryPcJrQYAUho6RW3CBmLaM7/JUlztnNULaKDrzi8r8gaNc/uIRlnAka9C2ldGWaQ7WfGlYGTaSO2ax7wr6b7ug3VffS4BN2sJk0tytXurKPJvQLpUiDNeKLez/eKdWIRAnIopfFxs+U3MxRXn7nY+vcmMFv7TPAKaLNdPP85t8RmJTa6NaZ3W3m+nX8EPTjvHygOIEIlE4LS8rOxqprJu6SMIYg4V4gMEG99oZZyrFdh+wHVAEXFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB7783.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Wed, 5 Feb
+ 2025 09:50:47 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8398.025; Wed, 5 Feb 2025
+ 09:50:47 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v2 0/4] clk: Support spread spectrum and use it in
+ clk-pll144x and clk-scmi
+Date: Wed, 05 Feb 2025 17:49:50 +0800
+Message-Id: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD80o2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDI1MDQyMT3eScbN3i4mTdNOMUc4O0JLPkFMNkJaDqgqLUtMwKsEnRsbW1AAG
+ 1OzlZAAAA
+X-Change-ID: 20250124-clk-ssc-f3d70fb6cd1c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Abel Vesa <abelvesa@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738749007; l=2396;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=Q5aAO/aFRXnA+bNNUE42LVO06SmEixTYOTpSLPYKgbM=;
+ b=3LcL4h5b/hBsVE3K59nQ7IlyFAK/ikytNafqhMN8/jTC4VKFoeh6e1MA3wtMPKDiVR4jy08XN
+ mYb0gPGxDPmCExupbIH84dXhKw71obK8cX9Va/L2Li00ne9uh8TA47u
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2PR02CA0037.apcprd02.prod.outlook.com
+ (2603:1096:4:196::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB7783:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8c37670-d483-4de0-617d-08dd45ca90cf
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjFiM082N1dKaHNzTUNnc0UxNzdSOUM5dHN1UDVKSWFiOGlicmF1WDBxRjhS?=
+ =?utf-8?B?NzVab2w2U1BWVWNaNGNuc0xwQmlJL29xdWQxUHhsSTF4TUE4c2ppcGNiekRs?=
+ =?utf-8?B?amoyOTRzMVZmYjErMExFVXY5S1gzSUpnYXc4cWxTUlp6UW9BNzBxd3diblI4?=
+ =?utf-8?B?OEJuSFMxQmxBeEFSN3pabVpMRzQwcWNDOHkxM3FuamMxQ3AwZURSZ0ZBdzJs?=
+ =?utf-8?B?TGpaOFcxczlIUjgrU0dzZHFwR3JFRmlzejJINWpOL1IwZjVRZ1c2aVZZZ241?=
+ =?utf-8?B?VHFWWnZaL3pPb05Qb0Npd0RzeGI4Wm1kNnVDZ2hLSFd3QUJJemlDcHFML3po?=
+ =?utf-8?B?N0htUmpDV1loVEh0K21sa3BjRGN2aFZJeWVhZHF3WEJqNHBzcmgvWjFOU0hn?=
+ =?utf-8?B?K1NyVEljdFZORlZiYTkzbk5KTHFZRDhuL0VxUGVnbmJYMjlCSVJ2S1dpTXhN?=
+ =?utf-8?B?VFlOV2xOSVh0ellSaTBxZGU1ZHpFM0huM0M3cU5teTUzZnNoYjM2Q01LM01G?=
+ =?utf-8?B?dVFCaklQZXcyV0ZiUmtHVEk5aytlMWVNa1Rkemx3SG1CNXREM2JQS0tsQUo3?=
+ =?utf-8?B?Uk4zT0RZZjVLdzMyUm5uTE5ZZ3RnMUVyTmdOd3VvODd2NmZQUTg4SlMrSWw2?=
+ =?utf-8?B?dHRZRGNNSUVTOFQxUm1KWHhsd2hRMXNPSXc3ZkpaT1gycGl0bnJCMGxCM2VF?=
+ =?utf-8?B?OWtYVXoyUlE5T2JuRzdYaFJQelhuTjRuZzFKL3FnYWRYOEVNU0tPL3R2elI0?=
+ =?utf-8?B?ejVWRUYrYktINXZlWDlRbGJHSnY3a20xKzdIM1JVZG9vVTJqa3htQmFWOVla?=
+ =?utf-8?B?ZC9iUkRjOG02bHFRWTJCeDhFV1JZWC9ZUHF6RHVEWmdmbEFlUzFXQ21JT1dC?=
+ =?utf-8?B?V2phSGhONjc5QXhOSUVwUFZaZFNRTXN2RStEVHRZbXk2ZFNFQUYvdU5hT2RT?=
+ =?utf-8?B?RkdhTW9UVnd4eHNRUnA1WHVYV0xhQ2JBUmtnUnZlRlQ1Z0VXODZnbDJPV2VS?=
+ =?utf-8?B?QzRRdTFxMFRxMWkxUU8xbU5BN0ZHcGZtVm5vcmdOSCtHb1FQMkplcytNUW9j?=
+ =?utf-8?B?dGluSEVSVkllem9STFl4MG5zZ3pYMVdZN3Bxa2laK2ROSXJTS2lyeTdXOGdo?=
+ =?utf-8?B?ODhYY1dtelpxY21NU0JUQlV6RDJjRWxPV1NVWHRLTHBvZnhFbkh3dWVhOGU1?=
+ =?utf-8?B?dFpUck5YZTAzeTFrMzRHdHhTbUplbi9rQ1ZXN2Noa251ODNJaXVjWWtrRWFP?=
+ =?utf-8?B?NXdYY0VPUUV6MFFuWHh3UTZENk0zWHlxNTZldjRwL24rdDI1SVdpZThmRDZF?=
+ =?utf-8?B?akZJWXo1NnZBK1pIbGpFWEVOYk1ZWkpIZGVYcVFxOHlFd0hmN1hvZHM0RmdO?=
+ =?utf-8?B?K1IvNEVSbjVyazlCWkVlRGpDQnRWamtnSGRKSitXVUlGdWJtYUl4QUdIRC9l?=
+ =?utf-8?B?ZEtXUkNBb3lEQXhGYzNjRlJOSkk2c1hpOUlvTDBsTVZTUTdRb1NpSVRVVDVx?=
+ =?utf-8?B?NHYvQ1A3T2NQQWRmMHg3OHhlTi9ibkVJRi9CNlRNU2l3cFpxZjJsbmhNSVFY?=
+ =?utf-8?B?MjdGeFIyR1gxNjNUbDJZTGo1blFiYWE2bzdtaGFWZCtVemY3UG5EdmU2dkNI?=
+ =?utf-8?B?aFVlT1FoNmxLRDdlS0dtU2tYNFVPUERMMWxNSDVWR2k3YTJoVmN3M1BNQ2VH?=
+ =?utf-8?B?SGlhY1huNXlWM3pHUnJhalZGU3g5YmNoemZBREJ5eXR5ekZMRS9LUEdaVnVO?=
+ =?utf-8?B?LzRUWE8vNDU0TEdSUUZrblRpdm9CREVQVS9ZN0wrSDVYTU1UL3M3MVhQcVg4?=
+ =?utf-8?B?TktGVzdpL1lYbUM1QXFuVlp2dk9HNEY2SStCQmdsMnRxdkxXNzM4eTdLcS96?=
+ =?utf-8?B?WlpvOXUzNUl0UVRiWTNFSzFTL1hMdXcyQnNNR2IyeXNmSFE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aHh3cUx0SXBFMWYwVFFDVzd0dXFsZWdIcndjSkUxSHNSTHBqTkpFQ3lCNkdY?=
+ =?utf-8?B?UTJZdHZqOUJQQjdKK3pzaEU0c2VlVVpWQXZXdlZzSjhpQjlFK2Y5N1NwU0lw?=
+ =?utf-8?B?VXYraVpmeEJzQno1WjZ3QW8vZTIyNndNN1piVmVWV0lldG5VdHZXT1BISCsw?=
+ =?utf-8?B?MUFGSWR2dWQwT2dPYmxLZ09vY0hBTXlpOW1MWFlJSlpuaStwQ1pEeXp0QU5J?=
+ =?utf-8?B?U3gzRWZLN3ZMdUQ3ZU9lRU5tSG1VUGtqd2E3bUt4ak9uRHZoaFA4dkNxR290?=
+ =?utf-8?B?WFhJdUxoejZMd2RtUXowWUc2VmdYNGRQRVJqUWFLY0RQYnRRT3dGaVNoeUdB?=
+ =?utf-8?B?R2hpQnJqZFNYSjF3VXhSRHBsRThFNGhBZklpMTBPbTJMcEM1dDNWajdQK2N3?=
+ =?utf-8?B?YnZrMkNZSlZyQTg5SE00aEM3alE1RXBYV1VqdnlETDNhOFl0cnRzV0dnOUc1?=
+ =?utf-8?B?OStRU2hGWElvcGZBZ1VVTTVsdC9lVWdTNVhpQ09BZ2w4QjdqYVA4WWN1Rm9B?=
+ =?utf-8?B?aTZ5b0sxbnZRQkgydGJFSlYyM0Z2TEs5TVRTbWc5OHJCTFRVTzNiRnRLNjNV?=
+ =?utf-8?B?SExRNTR5a0c4SlovLzNOd1M2cStKd2RPVVlxNWxRNmhLRUg2WU0zUm1YR2pj?=
+ =?utf-8?B?Z2Z2dytlZG5HNHdVZERCM1h2RmEzQVVuNjA0bUErd0dnL0JuUWdrWlZacWNn?=
+ =?utf-8?B?czlJeWNFRXByZEN4ZENFa2xTY3RvWGc3RExJTEovODlLVnR3NEFNQktMR0Nl?=
+ =?utf-8?B?aU5iWnZVOGllNWFxOVluVGdSdEl6TUs0SG9PNXFUUFBKNnZaZUNuemE0VTVO?=
+ =?utf-8?B?cnBKdHpLaytHYUlaOFE0bGQxbnJFazJDUm5NRkpvVzZOajc4SkFCSjFoZW1i?=
+ =?utf-8?B?TXJ1WjZVOGxDSi9hMzdoMk8wY20vMk83WVo1OUNFSmZKMGxCQTdoWTF6bGNJ?=
+ =?utf-8?B?bythUEhjM2cwSXhCaEQ3L0V0T0VKWHA4UzA3UGUzV2pGSmdUZzEyWW8rYis2?=
+ =?utf-8?B?UFNVTnFRN2M1TEFaalA3RUVETGhiYmlETnlkTUdZOE1WSWFiRnZYZVo5dE50?=
+ =?utf-8?B?QWNaSXdzTlJibEVDaUxVMkdteDNyTWdzeFk5Y0VBcFZiRWE4QUhsb1pFYWgz?=
+ =?utf-8?B?TGt2b3ZhRXI5Sy93WldDRSt3RkcrbDJwUUt1bk5iT1NtcWJBaHprMURKNExs?=
+ =?utf-8?B?bmtvRkRCUURvR0JqNUtIelhwREdpOUJtSUZqSnhrQm5MYW9idjBsN0tScDRT?=
+ =?utf-8?B?YXhmM0ltMzEweWxFMWVSblRVVnJwcE1UWXBYQmtEZWtWbFFYeHlDWTViNjJC?=
+ =?utf-8?B?dFR0WjAvMExGeEZKajV1TjlvVW1PRjJIcVljQzhCaytFOEN3dHdtVTlGRkxP?=
+ =?utf-8?B?aHQxdkRPZ3kwSXRPRUlUQUx6cEc0R0ZrZlQ3d1hicjRhaEJpejZCUS9HRFdD?=
+ =?utf-8?B?M3YyS2N5a3Jva2hoL0RjdHBHU24vKzIwTFlMVEc2bDFlQzRZOGJwZ3lvVVh6?=
+ =?utf-8?B?cEx0eDI3SGRoYkw0c3g1NUdJTkNIYlR4LzRlSkFoY0h1SnFVV2YwTC9uRzlx?=
+ =?utf-8?B?QWpTTE5Fb1VWVlFaNEdPcVFZMld6eWJKM0w1R1M2RWF3ZzhsNlJ1MnlIVXVw?=
+ =?utf-8?B?aW8vS2RyTHlnUDdqd2d4NCtUQ1pkcXBwZUlmWlFMbE9abTNuay9SQnF6T0tv?=
+ =?utf-8?B?V3ExZFdXdHVYTHl1empYM21reDNQTU91eWVYSy9hc3h1TW9yZnhZTEM0MjIy?=
+ =?utf-8?B?ZjF5eU94czVpSHdkVnhObnZoSGpZamlKeDVlM3cxVnYxWENQdk1ab0V3QkRN?=
+ =?utf-8?B?RE1YRjFSUkx5MjFVVGUvR2JYeis2ZHlYWktRUHNMYU5FUDN3Q3dQYW1XS1B2?=
+ =?utf-8?B?RFh0QUdhTVBxaWRVdWY0SGpuQnVINmVnakdZdTR4dFNMVFpDYkVxUndyd0ln?=
+ =?utf-8?B?MDh2dFgrTWZUQ1h2ZmFKcmJFUVJSOGNvb01WSVZYV2NHbXJDazV6STQ2NDRq?=
+ =?utf-8?B?bnhGSURhTHY3eE1uZW9tczNRRDQyV1YxV2kveWkzZXg3NEQwWUZKUkxDQ20r?=
+ =?utf-8?B?VlJmV0JPaWoyaS9UZWdmUlVsbE5vSWFBODhPdkZLUXJpYmVjckgzQkRxOTF6?=
+ =?utf-8?Q?9U4rCToTp/2hTPHdw3Tl1NSWZ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8c37670-d483-4de0-617d-08dd45ca90cf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2025 09:50:47.4957
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bOg+t3Uumr8jRgz2iMctzFK6NMyMnNnHvtCk0v3M7zDSf0Lx6xT1grEfvChs7fRrQmMdj7tFf7qG60uc7i+Y0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7783
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_014510_448281_17F07D99 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250205_015054_644864_1B62ACD9 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +195,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-J722S SOC has two usb controllers USB0 and USB1. USB0 is brought out on
-the EVM as a stacked USB connector which has one Type-A and one Type-C
-port. These Type-A and Type-C ports are connected to MUX so only
-one of them can be enabled at a time.
+- Introduce clk_set_spread_spectrum to set the parameters for enabling
+  spread spectrum of a clock.
+- Parse 'assigned-clock-sscs' and configure it by default before using the
+  clock. The pull request for this property is at [1]
+  This property is parsed before parsing clock rate.
 
-Commit under Fixes, tries to enable the USB0 instance of USB to
-interface with the Type-C port via the USB hub, by configuring the
-USB2.0_MUX_SEL to GPIO_ACTIVE_HIGH. But it is observed on J722S-EVM
-that Type-A port is enabled instead of Type-C port.
+- Enable this feature for clk-scmi on i.MX95.
+  This may not the best, since checking machine compatibles.
+  I am thinking to provide an API scmi_get_vendor_info, then driver
+  could use it for OEM stuff, such as
+  if (scmi_get_vendor_info returns NXP_IMX)
+      ops->set_spread_spectrum = scmi_clk_set_spread_spectrum;
 
-Fix this by setting USB2.0_MUX_SEL to GPIO_ACTIVE_LOW to enable Type-C
-port.
+[1] https://github.com/devicetree-org/dt-schema/pull/154
 
-Fixes: 485705df5d5f ("arm64: dts: ti: k3-j722s: Enable PCIe and USB support on J722S-EVM")
-Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
-Reviewed-by: Roger Quadros <rogerq@kernel.org>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-This patch is based on commit
-5c8c229261f1 (origin/master, origin/HEAD) Merge tag 'kthreads-fixes-2025-02-04' of git://git.kernel.org/pub/scm/linux/kernel/git/frederic/linux-dynticks
+Changes in v2:
+- Rename to clk_hw_set_spread_spectrum and not export it as consumer API.
+- Fix error handling
+- The enable parameter is still kept, because 0% is valid per
+  https://www.ti.com/lit/an/scaa103/scaa103.pdf?ts=1738667308903
+  https://www.synopsys.com/blogs/chip-design/understanding-pcie-spread-spectrum-clocking.html
+- Include the i.MX clk pll14xx which was an effort to enable SSC on
+i.MX8MN from https://lore.kernel.org/all/20250118124044.157308-1-dario.binacchi@amarulasolutions.com/
+  With this patchset, things could be simplied a lot.
+- Update the clk-scmi extconfig, marked as not apply, because spec not settle down.
+- Link to v1: https://lore.kernel.org/linux-clk/20250124-clk-ssc-v1-0-2d39f6baf2af@nxp.com/T/#mce926ef10d3d9c1c960c21867c2f1509f1f87cb9
 
-Changes since v1
-Collected reviewed by tag
+---
+Peng Fan (4):
+      clk: Introduce clk_hw_set_spread_spectrum
+      clk: conf: Support assigned-clock-sscs
+      clk: imx: pll14xx: support spread spectrum clock generation
+      [NOT APPLY] clk: scmi: Support spread spectrum
 
-v1: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250116125726.2549489-1-h-salunke@ti.com/
+ drivers/clk/clk-conf.c        | 70 +++++++++++++++++++++++++++++++++++++++++++
+ drivers/clk/clk-scmi.c        | 47 +++++++++++++++++++++++++++--
+ drivers/clk/clk.c             | 34 +++++++++++++++++++++
+ drivers/clk/imx/clk-pll14xx.c | 66 ++++++++++++++++++++++++++++++++++++++++
+ include/linux/clk-provider.h  | 32 ++++++++++++++++++++
+ include/linux/clk.h           | 22 ++++++++++++++
+ include/linux/scmi_protocol.h |  6 ++++
+ 7 files changed, 275 insertions(+), 2 deletions(-)
+---
+base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
+change-id: 20250124-clk-ssc-f3d70fb6cd1c
 
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-index d184e9c1a0a5..adee69607fdb 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-@@ -590,7 +590,7 @@ exp1: gpio@23 {
- 		p05-hog {
- 			/* P05 - USB2.0_MUX_SEL */
- 			gpio-hog;
--			gpios = <5 GPIO_ACTIVE_HIGH>;
-+			gpios = <5 GPIO_ACTIVE_LOW>;
- 			output-high;
- 		};
- 
+Best regards,
 -- 
-2.34.1
+Peng Fan <peng.fan@nxp.com>
 
 
