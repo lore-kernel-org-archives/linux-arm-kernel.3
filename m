@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB5BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5B2C02197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pAWlKYQAsQwsC7GkBiYLNZ5M/vv7xcDnFC5tspjJOY=; b=JVdVX5qBefoPPiPRdFkOWOLQ9D
-	sX0pyi/2RAuq7m9E9+hTdemDsZxT61iCFDrhkIUkTUwTcHDnuubgy6K2wehQAfWviZ6kt7gfZlYOT
-	rjjWDagU0p194qH0Ly/spywKRXaUVqxbHQH3K3/cJKf/nPHiMhQx9mEFTMRhPf2qUUe5zHYHwYckN
-	GwJ7UPtiVzl5tXWZVxzdgp7SNVYaw2GMOHz4L4fmzUC3KhWL/LcsfKvEl5BkgiXeiCdBeanSBB6xL
-	pXdECd3Oe12iC3t8TalLT2MDmQrLzipuB9ZIevexrAyiXDxPk4BfBbuW2i39xsRxwCyYsyT1EBV0p
-	Sae8ng1Q==;
+	bh=/iXWBGuKTd2slFjVosbshOt0ZTPb8WN08TOpsYXSsfI=; b=XjdmEWfStjS15QChoJVSt0/72r
+	fEeJ4cchwqhxI3VspKrjBOXhLQMzIkcKZn3mpWWuIxIRtswjjgHDf/JeFzFuX0lX5nbd4t0QHE5WW
+	gXuj1ehWRBb1prP8rQmH27Cy24ln3ixiX5L+h47tTRnCzYC/x9ZhBhGXKn/XB80xXYysz2vH/z6uR
+	ZpsjHLOeUgxKB7+Y5NVb+4mJu51xEgHtKgZpWBQenUy2bjtyOzkaRpZQDyYkoBsLhX+gIvYVchRrD
+	4y9Hq3m2Q7Z6c6yYoeQg7uJt7mde8gEZQODwcHFHykOlslgRzVhD+mTnZP4Zw2eEcSEPjXww7D2VR
+	VqL7yeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfahB-00000002ZcY-1sHa;
-	Wed, 05 Feb 2025 08:23:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfalp-00000002a6e-0PI7;
+	Wed, 05 Feb 2025 08:28:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfafo-00000002ZZy-4ANQ;
-	Wed, 05 Feb 2025 08:22:18 +0000
+	id 1tfakT-00000002Zwd-0PCA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Feb 2025 08:27:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05709A4324F;
-	Wed,  5 Feb 2025 08:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D4BC4CED1;
-	Wed,  5 Feb 2025 08:22:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA9785C5418;
+	Wed,  5 Feb 2025 08:26:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51E18C4CED1;
+	Wed,  5 Feb 2025 08:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738743735;
-	bh=plWBqjVepzAuiutGiFeK2rxapKZ0OgBeLuxkv7ZfeeU=;
+	s=k20201202; t=1738744024;
+	bh=fYIY2EVBNOIAb8SVUkw/eXZE0aOWEkEiJNpdJo4l7fY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SDvjgAmScUamgc00gwGEzO4oY3ekKdYGSYKdIR2SrFxIXDB632igGoIiMaTVQu/sj
-	 emUbDY8yf1ri+4b/LnOKkxWyYzfl4SF6PB5YLhI7N+q4uTjTJgsbFj+JxmsacUJe0J
-	 V5bJ27wRFwqS/P+L8rym6mmVIkaQEm/WKpNYhvuMUE2Li/xviItzCo4UMWfhjG+gRb
-	 Mo7u0xA6SMty7kUwZtn6wQn04R5j5tuqg8SFQ10hcAX7UZJLN1kJTF2ge53U1KvQ9M
-	 pO5Q0GPmz3VG05yiApvEY5/zYn9dbbBIW60JAHFE7MMs7QEdP9N/MLyND5no15GUSw
-	 5cOKBYZS8LxIw==
-Date: Wed, 5 Feb 2025 09:22:12 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC
- evaluation board
-Message-ID: <Z6MftNE6JrbISVZH@lore-desk>
-References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
- <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
- <231c1f01-dea1-4c39-bbe1-cb629f7c109d@kernel.org>
- <Z6I9JzAVv3VjKOiE@lore-desk>
- <8b79700d-f628-4e65-b9a5-63bbc3958cc1@kernel.org>
+	b=aLmmQolWDqSbEZsNHmMnGiosQPzZspePvQTDKKov2RufVKPNlM7hclKPtyYnGR+9C
+	 xGSYj8rNGJd8Sz/lf996VNRwMgn7Ydd11CUQ6cdkIIOc1vew3OeU72GrI7v//TvXsC
+	 oaUthW3V0ZKNP8qsibVWEw4lql/e8oznkipVd26Z65LRT5m1ZJ/tM4GKBD7/BZ7/Ad
+	 nIhAwTyvTaquLZPluDntegKrEw6F3pKR1hYfqQ8GBqlLDuf+jFe4Wuwex77xBsdtHO
+	 9msIzeHDQ2nsnzAFOEQe7Ad//ZpgM/A6op+sSk+jAFvvwEeTmhjU+o0VHSuVo79iUw
+	 d2ZgRpUB0norw==
+Date: Wed, 5 Feb 2025 09:27:00 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Sergey Lisov <sleirsgoevy@gmail.com>, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: i2c: samsung,s3c2410: add
+ exynos7870-i2c compatible
+Message-ID: <20250205-whimsical-industrious-vicugna-3edbda@krzk-bin>
+References: <20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org>
+ <20250204-exynos7870-i2c-v1-1-63d67871ab7e@disroot.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LiQRrPQ3+vR+Xwkq"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8b79700d-f628-4e65-b9a5-63bbc3958cc1@kernel.org>
+In-Reply-To: <20250204-exynos7870-i2c-v1-1-63d67871ab7e@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_002217_172743_D0F5DE6D 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250205_002705_182011_E55C619F 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +77,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 04, 2025 at 02:03:32AM +0530, Kaustabh Chakraborty wrote:
+> Exynos7870's (non-HS) I2C controllers are entirely compatible with
+> samsung,s3c2440-i2c. Document Exynos7870's compatible string
+> appropriately.
+> 
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  Documentation/devicetree/bindings/i2c/samsung,s3c2410-i2c.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
---LiQRrPQ3+vR+Xwkq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> On 04/02/2025 17:15, Lorenzo Bianconi wrote:
-> >> On 03/02/2025 17:04, Krzysztof Kozlowski wrote:
-> >>>> +
-> >>>> +		rng@1faa1000 {
-> >>>> +			compatible =3D "airoha,en7581-trng";
-> >>>> +			reg =3D <0x0 0x1faa1000 0x0 0xc04>;
-> >>>> +			interrupts =3D <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-> >>>> +		};
-> >>>> +
-> >>>> +		system-controller@1fbf0200 {
-> >>>> +			compatible =3D "syscon", "simple-mfd";
-> >>>
-> >>> These are never allowed alone. I am pretty sure I added proper checks
-> >>> which should point it out, so I think you did not really test your DT=
-S.
-> >>>
-> >>> It does not look like you tested the DTS against bindings. Please run
-> >>> `make dtbs_check W=3D1` (see
-> >>> Documentation/devicetree/bindings/writing-schema.rst or
-> >>> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree=
--sources-with-the-devicetree-schema/
-> >>> for instructions).
-> >>> Maybe you need to update your dtschema and yamllint. Don't rely on
-> >>> distro packages for dtschema and be sure you are using the latest
-> >>> released dtschema.
-> >>>
-> >>
-> >> Now I see Rob's report:
-> >> arch/arm64/boot/dts/airoha/en7581-evb.dtb: system-controller@1fbf0200:
-> >> compatible: ['syscon', 'simple-mfd'] is too short
-> >> which confirms untested code. Schema is there for a reason. :(
-> >=20
-> > actually I have tested them with the following command (but without W=
-=3D1).
-> >=20
-> > make CHECK_DTBS=3Dy DT_SCHEMA_FILES=3Dairoha airoha/en7581-evb.dtb
-> >=20
-> > - dtschema 2024.11
-> > - yamllint 1.35.1
-> >=20
-> > With W=3D1 I can see more issues, I will fix issues in v2.
->=20
-> Rob's warning does not come from W=3D1. Your test cmd was incorrect: drop
-> DT_SCHEMA_FILES. You must test your code against ENTIRE bindings, not
-> some subset.
+Best regards,
+Krzysztof
 
-ack, thx for pointing this out.
-
-Regards,
-Lorenzo
-
->=20
-> Best regards,
-> Krzysztof
-
---LiQRrPQ3+vR+Xwkq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6MftAAKCRA6cBh0uS2t
-rIdRAP0T8iB3DoaOfZdbT+HBVFT7fwKaImgcPD/jY4Yf/Ldr8wEAoH7z/VszoODJ
-1lATWykY0c7IScLhRndOZArIN8AeuAw=
-=4f92
------END PGP SIGNATURE-----
-
---LiQRrPQ3+vR+Xwkq--
 
