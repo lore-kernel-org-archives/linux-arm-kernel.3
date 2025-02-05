@@ -4,87 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A06C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C120C0219A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IX6S+s8EeF017CitJ0Amm6YZClGj6PE4I3uBra4Hybs=; b=BwmHydCvgcnTh6
-	vxuW+OcpXsw6Do+9znvLKIwUExdSN5tyv6ByHlDq04OurBg2pqzTaEAQLIE+GjgRY5toD2Gs4CA+I
-	1iCWx+hE4aQC/akZ5OI6NijjCppeInTCXJivKGEGZPqgTqzczKFPcbEYZaWJVCulxqF2gbVXUSfEc
-	8kJvu4EjGbHQBxXZiT3eP9a8m0yBDxL29wpQft5c/byv2B2fDBo4h6yfmEpib6M79RBKbmReQVlp+
-	oVr2moJuYnx365inmCyZ/KMMd0gITiJpahK0KOOAFP9a10Jl0WsGMjNRbyq3nO+5/40FToN2BUNXr
-	QPtI16kBFz0D3bcMaahA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nX4R1J3tJqgXNtmHCVf3jelvmV9h4OXD2UPjQtl2Fsw=; b=WIRjgS/hFHEGMp6tX0aR+X6HGK
+	gZVxyILTD33IWOE31X0oB6RkPWeBaxE2utUXgPh+bGSmUelhfVCxH3HajOZi/OjgicLZXWUbDE6Ok
+	vzR7Vp2AmlSifjVCAgJaK1l80pJPftDgy3UjxvUrO5BDWHwtloa73PmXoG7C6wxoSuXokGynLAU95
+	voGmVf3Sc3wUkiBk7ST4MvKGB3deGuodH/65iSvGq1KHeXOJZY6mcgvux4O1ABF0nf2E/irVDk7Ma
+	NOGnC70WuG9cIbp6OaFLBaKBbMyC7DIrDG75ZH/Mf8mNpp8C0lM76ZTNd0CVAD1KsJR5xNAlkAHxZ
+	Cpbv/M1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfed0-00000003E7u-1anN;
-	Wed, 05 Feb 2025 12:35:38 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tfeeL-00000003EPj-2rcA;
+	Wed, 05 Feb 2025 12:37:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfeT9-00000003BtH-3caT
+	id 1tfeZU-00000003DKN-2hnW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 12:25:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=IX6S+s8EeF017CitJ0Amm6YZClGj6PE4I3uBra4Hybs=; b=T95rmct+50ggaPOhZQXO5EXRKt
-	SzqAyadJCTHnS47NVlioNc1Nb+vLxPAxMOpb/Lr8N6osbpDCcdN63v47oQwPxLG9TM8iHpJQGOcKa
-	mxfUIaLig+XCLE6k9KiHg/bwRQnirwkz8TUnYUGxFYUA5/ViyGYXOD+hP/JKOT4u8l3VSMrvUFPlm
-	H/6yUK/K85IztWd1blooChHX+1sMKPOM64Hw8RUycuWB/maiQfnh2Sfo1LsHYBqhUiOwHa9mWe0MP
-	LjtL2DQdm+BjakRd2wBYDjyWZnV9nem3EjF5AOtcxBURpkKNPC8nI4D4Hdx72wTfsOCuQneF/etw4
-	X1lMPdKA==;
-Received: from [122.175.9.182] (port=21369 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <basharath@couthit.com>)
-	id 1tfeSP-0007fK-0V;
-	Wed, 05 Feb 2025 17:54:41 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 91D1A1783F46;
-	Wed,  5 Feb 2025 17:54:32 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 708381783FF1;
-	Wed,  5 Feb 2025 17:54:32 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id NEkAupy8cBz9; Wed,  5 Feb 2025 17:54:32 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 003331783F46;
-	Wed,  5 Feb 2025 17:54:31 +0530 (IST)
-Date: Wed, 5 Feb 2025 17:54:31 +0530 (IST)
-From: Basharath Hussain Khaja <basharath@couthit.com>
-To: horms <horms@kernel.org>
-Message-ID: <1980208448.516541.1738758271732.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20250131103352.GH24105@kernel.org>
-References: <20250124122353.1457174-1-basharath@couthit.com> <20250124134056.1459060-7-basharath@couthit.com> <20250131103352.GH24105@kernel.org>
-Subject: Re: [RFC v2 PATCH 06/10] net: ti: prueth: Adds HW timestamping
- support for PTP using PRU-ICSS IEP module
+	Wed, 05 Feb 2025 12:32:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738758718;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nX4R1J3tJqgXNtmHCVf3jelvmV9h4OXD2UPjQtl2Fsw=;
+	b=YazgREI43LRI62wocsL5FTFExmf4q32LC5J9fuWjLZM+yIRhZhTUfZTRwVU1oGhW2NCO7V
+	9eORkpxDhEHnfvsK0W/0I1epCL2kO2QORnBip4IZGnNVXg9ULf5RtBh4TRFPIkS9n1PLLE
+	c/HtpXIFytvmAsMDapEpqhWBwMDO1lA=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-608-NltjQqQ2PoehZIt-zrTktA-1; Wed, 05 Feb 2025 07:31:57 -0500
+X-MC-Unique: NltjQqQ2PoehZIt-zrTktA-1
+X-Mimecast-MFC-AGG-ID: NltjQqQ2PoehZIt-zrTktA
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43621907030so58723785e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 04:31:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738758716; x=1739363516;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nX4R1J3tJqgXNtmHCVf3jelvmV9h4OXD2UPjQtl2Fsw=;
+        b=jMCgrZHJpx3M03yxY+eKBfkXqzfq7ZdKZNfOGbZt9X6pBrRw1RVSW/Z5BMvtDVeVgy
+         AQhvrXuq1tZ9F1HzTEr0Ef6WHLxSzHjbY5rHFXGAhnziwlZgH/r0+LyhSWKHJcouDb9A
+         gi+Mp+mddmEX3r5kM10srT7qRtRdQeOtrCss4yAS14ZksnUr7toMZNvEch/yfgvbujTc
+         ozAarVHLphG0Eyv6MUhU4VMBBIGRxBR/n/TE2IxdzN39SKG1eky5Oc8lVh51gExGfhlw
+         DcU7cRWUK4QQI5tVJRG2C3WMWPRXgUurVEA31Vy4VXGeRzhUig3qSt6mgn2L6uu8FxFY
+         WiVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWHs2UescCTVlxuO6JlNEGqUWNiXsgbJvcfKla8ukpr3EwYizLhEtppyvBjXzYd6aXsL53S+1EGgnq2RyQlupaG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnvaEAkJo4oi2IM9wf/REyTIIPmuroUWRfwUOS2KsYIEIAE75Q
+	e5ebztBZdrTeEI+f8inuGOwRdM5GlQHwSNLluzH3Wfx7jr1+uEbD13Obk09zW3o0FUJiZkTNT97
+	pCW00FrbI1LTuJEyvcl25hAZ5yM12qgbvvCvBeZ1MPG+OqvQSTM20LMUPPxn2EmBBkYVYoNEl
+X-Gm-Gg: ASbGncvbpJQciwVs3Zg5XzW+ga7ZmtjdXPwGggDK58iwC+LTa3xAXwCR2ZQJ+rHmLtZ
+	FWR8TnApFUWkiWDI2hT68g7nSx80GpSAsZrc0Me+QxC/nckKRemNsTR75PuK4zQg8Vifw/1xCVc
+	fzBY7coKuF5El68bl3BrMDchf2vEomFtUgpkQIdgTlbYu/of53fBEaYX3pIiP5szfv88LnqAFM3
+	ExN6jAv91NN5Z/1p2baYGQ4EHl50dv7+ird5xH7wnzEBrp1MLkeJrYxkYkAKFrOlO4gCp+ds1fS
+	DSyhoOsFGAbgKQob2SLQLZLs3JWds+bRoBvsshWydC51x3Q=
+X-Received: by 2002:a05:600c:5127:b0:436:1baa:de1c with SMTP id 5b1f17b1804b1-4390d43e4fdmr22441025e9.13.1738758715854;
+        Wed, 05 Feb 2025 04:31:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGu8UQolYnAq5L4ETol9e+CppDVauJEFOX/uqtF/MVCF19JA9RxfWAWC3l0svk2IQEOGRJbqQ==
+X-Received: by 2002:a05:600c:5127:b0:436:1baa:de1c with SMTP id 5b1f17b1804b1-4390d43e4fdmr22440555e9.13.1738758715452;
+        Wed, 05 Feb 2025 04:31:55 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390da6e653sm19539215e9.24.2025.02.05.04.31.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Feb 2025 04:31:54 -0800 (PST)
+Message-ID: <d1302cfe-486c-4516-a875-d9467529482a@redhat.com>
+Date: Wed, 5 Feb 2025 13:31:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] KVM: arm64: Unconditionally save+flush host
+ FPSIMD/SVE/SME state
+To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org, catalin.marinas@arm.com, fweimer@redhat.com,
+ jeremy.linton@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+ pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com,
+ wilco.dijkstra@arm.com, will@kernel.org
+References: <20250204152100.705610-1-mark.rutland@arm.com>
+ <20250204152100.705610-2-mark.rutland@arm.com>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <20250204152100.705610-2-mark.rutland@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: P-ja3Vpnj33JgRe-37_QGorRb8T-zzrHZvvlLyErMZI_1738758716
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds HW timestamping support for PTP using PRU-ICSS IEP module
-Thread-Index: hqQUi4g5G9OQqwwgSSWJWploNUaQCQ==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_042527_930929_5B9A4708 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250205_043200_766931_F2A71786 
+X-CRM114-Status: GOOD (  41.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,128 +110,167 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, vigneshr <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, Rob Herring <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, prajith <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-omap <linux-omap@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
 
-> On Fri, Jan 24, 2025 at 07:10:52PM +0530, Basharath Hussain Khaja wrote:
->> From: Roger Quadros <rogerq@ti.com>
->> 
->> PRU-ICSS IEP module, which is capable of timestamping RX and
->> TX packets at HW level, is used for time synchronization by PTP4L.
->> 
->> This change includes interaction between firmware and user space
->> application (ptp4l) with required packet timestamps. The driver
->> initializes the PRU firmware with appropriate mode and configuration
->> flags. Firmware updates local registers with the flags set by driver
->> and uses for further operation. RX SOF timestamp comes along with
->> packet and firmware will rise interrupt with TX SOF timestamp after
->> pushing the packet on to the wire.
->> 
->> IEP driver is available in upstream and we are reusing for hardware
->> configuration for ICSSM as well. On top of that we have extended it
->> with the changes for AM57xx SoC.
->> 
->> Extended ethtool for reading HW timestamping capability of the PRU
->> interfaces.
->> 
->> Currently ordinary clock (OC) configuration has been validated with
->> Linux ptp4l.
->> 
->> Signed-off-by: Roger Quadros <rogerq@ti.com>
->> Signed-off-by: Andrew F. Davis <afd@ti.com>
->> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
->> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+On 2/4/25 4:20 PM, Mark Rutland wrote:
+> There are several problems with the way hyp code lazily saves the host's
+> FPSIMD/SVE state, including:
 > 
-> ...
+> * Host SVE being discarded unexpectedly due to inconsistent
+>   configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
+>   result in QEMU crashes where SVE is used by memmove(), as reported by
+>   Eric Auger:
 > 
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> 
-> ...
-> 
->> @@ -682,9 +899,22 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16
->> *bd_rd_ptr,
->>  		src_addr += actual_pkt_len;
->>  	}
->>  
->> +	if (pkt_info->timestamp) {
->> +		src_addr = (void *)roundup((uintptr_t)src_addr,
->> +					   ICSS_BLOCK_SIZE);
-> 
-> Can PTR_ALIGN() be used here?
-> 
+>   https://issues.redhat.com/browse/RHEL-68997
 
-We are making sure Both roundup() and PTR_ALIGN() will point to 
-the same address location. We will change this in the next version.
+I tested the above test case with the whole series.
 
->> +		dst_addr = &ts;
->> +		memcpy(dst_addr, src_addr, sizeof(ts));
->> +	}
->> +
->>  	if (!pkt_info->sv_frame) {
->>  		skb_put(skb, actual_pkt_len);
->>  
->> +		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
->> +		    pkt_info->timestamp) {
->> +			ssh = skb_hwtstamps(skb);
->> +			memset(ssh, 0, sizeof(*ssh));
->> +			ssh->hwtstamp = ns_to_ktime(ts);
->> +		}
->>  		/* send packet up the stack */
->>  		skb->protocol = eth_type_trans(skb, ndev);
->>  		local_bh_disable();
-> 
-> The code preceding the hunk below is:
-> 
-> static int icssm_emac_request_irqs(struct prueth_emac *emac)
-> {
->	struct net_device *ndev = emac->ndev;
->	int ret;
-> 
->	ret = request_threaded_irq(emac->rx_irq, NULL, icssm_emac_rx_thread,
->				   IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
->				   ndev->name, ndev);
->	if (ret) {
->		netdev_err(ndev, "unable to request RX IRQ\n");
->		return ret;
->	}
-> 
->> @@ -855,9 +1085,64 @@ static int icssm_emac_request_irqs(struct prueth_emac
->> *emac)
->>  		return ret;
->>  	}
->>  
->> +	if (emac->emac_ptp_tx_irq) {
->> +		ret = request_threaded_irq(emac->emac_ptp_tx_irq,
->> +					   icssm_prueth_ptp_tx_irq_handle,
->> +					   icssm_prueth_ptp_tx_irq_work,
->> +					   IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
->> +					   ndev->name, ndev);
->> +		if (ret) {
->> +			netdev_err(ndev, "unable to request PTP TX IRQ\n");
->> +			free_irq(emac->rx_irq, ndev);
->> +			free_irq(emac->tx_irq, ndev);
-> 
-> This seems somewhat asymmetric. This function does request emac->rx_irq
-> but not emac->tx_irq. So I don't think it is appropriate to free emac->tx_irq
-> here.
-> 
-> Also, I would suggest using a goto label for unwind here.
-> 
+Tested-by: Eric Auger <eric.auger@redhat.com>
 
-Sure. We will clean this in the next version.
+Thanks
 
->> +		}
->> +	}
->> +
->>  	return ret;
->>  }
->>  
+Eric
+
 > 
-> ...
+> * Host SVE state is discarded *after* modification by ptrace, which was an
+>   unintentional ptrace ABI change introduced with lazy discarding of SVE state.
+> 
+> * The host FPMR value can be discarded when running a non-protected VM,
+>   where FPMR support is not exposed to a VM, and that VM uses
+>   FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
+>   before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
+>   value in memory.
+> 
+> Avoid these by eagerly saving and "flushing" the host's FPSIMD/SVE/SME
+> state when loading a vCPU such that KVM does not need to save any of the
+> host's FPSIMD/SVE/SME state. For clarity, fpsimd_kvm_prepare() is
+> removed and the necessary call to fpsimd_save_and_flush_cpu_state() is
+> placed in kvm_arch_vcpu_load_fp(). As 'fpsimd_state' and 'fpmr_ptr'
+> should not be used, they are set to NULL; all uses of these will be
+> removed in subsequent patches.
+> 
+> Historical problems go back at least as far as v5.17, e.g. erroneous
+> assumptions about TIF_SVE being clear in commit:
+> 
+>   8383741ab2e773a9 ("KVM: arm64: Get rid of host SVE tracking/saving")
+> 
+> ... and so this eager save+flush probably needs to be backported to ALL
+> stable trees.
+> 
+> Fixes: 93ae6b01bafee8fa ("KVM: arm64: Discard any SVE state when entering KVM guests")
+> Fixes: 8c845e2731041f0f ("arm64/sve: Leave SVE enabled on syscall if we don't context switch")
+> Fixes: ef3be86021c3bdf3 ("KVM: arm64: Add save/restore support for FPMR")
+> Reported-by: Eric Auger <eauger@redhat.com>
+> Reported-by: Wilco Dijkstra <wilco.dijkstra@arm.com>
+> Cc: stable@vger.kernel.org
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Florian Weimer <fweimer@redhat.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Jeremy Linton <jeremy.linton@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Paolo Bonzini <pbonzini@redhat.com>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> ---
+>  arch/arm64/kernel/fpsimd.c | 25 -------------------------
+>  arch/arm64/kvm/fpsimd.c    | 35 ++++++++++-------------------------
+>  2 files changed, 10 insertions(+), 50 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 2b601d88762d4..8370d55f03533 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1694,31 +1694,6 @@ void fpsimd_signal_preserve_current_state(void)
+>  		sve_to_fpsimd(current);
+>  }
+>  
+> -/*
+> - * Called by KVM when entering the guest.
+> - */
+> -void fpsimd_kvm_prepare(void)
+> -{
+> -	if (!system_supports_sve())
+> -		return;
+> -
+> -	/*
+> -	 * KVM does not save host SVE state since we can only enter
+> -	 * the guest from a syscall so the ABI means that only the
+> -	 * non-saved SVE state needs to be saved.  If we have left
+> -	 * SVE enabled for performance reasons then update the task
+> -	 * state to be FPSIMD only.
+> -	 */
+> -	get_cpu_fpsimd_context();
+> -
+> -	if (test_and_clear_thread_flag(TIF_SVE)) {
+> -		sve_to_fpsimd(current);
+> -		current->thread.fp_type = FP_STATE_FPSIMD;
+> -	}
+> -
+> -	put_cpu_fpsimd_context();
+> -}
+> -
+>  /*
+>   * Associate current's FPSIMD context with this cpu
+>   * The caller must have ownership of the cpu FPSIMD context before calling
+> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> index 4d3d1a2eb1570..ceeb0a4893aa7 100644
+> --- a/arch/arm64/kvm/fpsimd.c
+> +++ b/arch/arm64/kvm/fpsimd.c
+> @@ -54,16 +54,18 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+>  	if (!system_supports_fpsimd())
+>  		return;
+>  
+> -	fpsimd_kvm_prepare();
+> -
+>  	/*
+> -	 * We will check TIF_FOREIGN_FPSTATE just before entering the
+> -	 * guest in kvm_arch_vcpu_ctxflush_fp() and override this to
+> -	 * FP_STATE_FREE if the flag set.
+> +	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
+> +	 * that the host kernel is responsible for restoring this state upon
+> +	 * return to userspace, and the hyp code doesn't need to save anything.
+> +	 *
+> +	 * When the host may use SME, fpsimd_save_and_flush_cpu_state() ensures
+> +	 * that PSTATE.{SM,ZA} == {0,0}.
+>  	 */
+> -	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+> -	*host_data_ptr(fpsimd_state) = kern_hyp_va(&current->thread.uw.fpsimd_state);
+> -	*host_data_ptr(fpmr_ptr) = kern_hyp_va(&current->thread.uw.fpmr);
+> +	fpsimd_save_and_flush_cpu_state();
+> +	*host_data_ptr(fp_owner) = FP_STATE_FREE;
+> +	*host_data_ptr(fpsimd_state) = NULL;
+> +	*host_data_ptr(fpmr_ptr) = NULL;
+>  
+>  	host_data_clear_flag(HOST_SVE_ENABLED);
+>  	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+> @@ -73,23 +75,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+>  		host_data_clear_flag(HOST_SME_ENABLED);
+>  		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
+>  			host_data_set_flag(HOST_SME_ENABLED);
+> -
+> -		/*
+> -		 * If PSTATE.SM is enabled then save any pending FP
+> -		 * state and disable PSTATE.SM. If we leave PSTATE.SM
+> -		 * enabled and the guest does not enable SME via
+> -		 * CPACR_EL1.SMEN then operations that should be valid
+> -		 * may generate SME traps from EL1 to EL1 which we
+> -		 * can't intercept and which would confuse the guest.
+> -		 *
+> -		 * Do the same for PSTATE.ZA in the case where there
+> -		 * is state in the registers which has not already
+> -		 * been saved, this is very unlikely to happen.
+> -		 */
+> -		if (read_sysreg_s(SYS_SVCR) & (SVCR_SM_MASK | SVCR_ZA_MASK)) {
+> -			*host_data_ptr(fp_owner) = FP_STATE_FREE;
+> -			fpsimd_save_and_flush_cpu_state();
+> -		}
+>  	}
+>  
+>  	/*
 
-Thanks & Best Regards,
-Basharath
 
