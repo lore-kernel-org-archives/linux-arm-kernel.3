@@ -4,95 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF71C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1A3C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/K//dAWi6x+8KI7nlUs8PdklqseAGDqAT8TYyRKscE=; b=VOognVq08sROASF9aos1etrhGX
-	GVfhuHR/uGGt4ciYStk3bGM6Pj53Zs1N6+o/a9Ck6wemTPzU4wuFHp7COBvkuRSVHWJPk717bXiqs
-	2VaR2MKx9z7kP6CU9azTvdN2tnXTnCYwtDca9pcXAxrp3A7kRRv7E8V9S7nKBiqXLDfpvspuPt+hx
-	fTobmZ4lXHWrXbfDasHtkJTN28FFrBTKbuelFCoI21oNUJzFYXjiH3Wzr9LiK0MbUj/HZLQuk3Pe7
-	Ch4bfeK+doQB4jjAjodfPLpVCNkGWwTGV3pkQdDINV2iohco0awHvQXwCsCi9sVTlgAKa/3gYSYRQ
-	rCBrcl2w==;
+	bh=BrEm5LguSrIAIp1fXcP0qeLsWg3QYpW4ayPkpGuDZOw=; b=ctn5ifeEtu2tAYFhk+VNO/IKe0
+	gU5ZC9Xo7Uon6rI63zelU+aWWDXwpOPhd5awPEBl/mZcevHc+mhBnNOmMg4P6HKNYPapY4uAHOjfr
+	ATc3tLEh8+A3jFcV28kv0YXwHEW8bPHwFc37xPaRQkt6mdBaaBiIe0dOYmlUItDXbPHQ4R6zw6U7d
+	8KHzuyAdHwdpk3th7t+1o92+ORPfGN1/o2zZH9cryhqDakuhegYcPr5VAcMGMlk0m2sXb8+GWVaMr
+	B2rY8/TE2pTw1p7lmz2v9Hhaov+frCjmkotjb/6kLqxcJGwXcrNMQ1vY2wdpzhVbiFeveP2kRm2I+
+	azSzw7zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfa7A-00000002W4o-0kQ9;
-	Wed, 05 Feb 2025 07:46:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tfaB5-00000002WRr-0Fzz;
+	Wed, 05 Feb 2025 07:50:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfa5n-00000002Vxu-2Xvd
+	id 1tfa9i-00000002WIu-13np
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 07:45:05 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51503gGF004701;
-	Wed, 5 Feb 2025 07:44:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	K/K//dAWi6x+8KI7nlUs8PdklqseAGDqAT8TYyRKscE=; b=DEw6oHGRj2+ImEKw
-	G9YVbnetNysHtQTN3sWVZbM4lCNnJopdGrgLEmv544RdTaQWhF7avpahc8VDbsUa
-	KVECXBzMireQs3tFb1T8K2+2Ay4jFqtcjq8DB2OAeucczgc7qzvB6C3lztZm+rGf
-	5cGoHkHH9aIpoYiGcyfH1/sqgMiZ2xOpwsUhV9jj7yQgK5L3aIHV7YyBe+HtO9R6
-	jHFWrWOMWXWR7epNqKvw+zL+s4o33GIa6QrDSoR576di3UUQH8c3xCcv6J08/sv5
-	G74JUiWFDq6eyNbgqvLpSC3EqX1diZUgpAY5bw2cTCSl7Gu3UH+D0BNd2Q17kpAD
-	QdVTtw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44kw440tqd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 05 Feb 2025 07:44:51 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5157iooi005024
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 5 Feb 2025 07:44:50 GMT
-Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 4 Feb 2025
- 23:44:45 -0800
-Message-ID: <d32b7b8f-fc23-4bef-bcd7-b519c43dc77e@quicinc.com>
-Date: Wed, 5 Feb 2025 15:44:43 +0800
+	Wed, 05 Feb 2025 07:49:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BEE925C55C8;
+	Wed,  5 Feb 2025 07:48:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26362C4CED1;
+	Wed,  5 Feb 2025 07:49:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738741745;
+	bh=Qw/0yWcANrMoXnTl4P+9ue7UVDNlxb5psQJThBWBFaY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Sv8ZJzTzRjZTGo1UGH6BRpLl2PRniI9Qe4x+s6+Zlo1H5J9yw0Kdc+EXoRtY0uz/d
+	 XTEkAmsOeeSKLCC2d++dlrDZL3ngiyb/MH876EyUphTTeP1TARB5wNgjq0QrrJndwg
+	 wK11/k0cD+f4kOYzTfAw7Tnz8Bx+z0yyt7cNudHrME8v3t33l8Av+NuEMH9Gbr7jJf
+	 HAcQYosTtABgjDcZWPHXirP2YKmhxPSBRJiN0KH0J2NLPLlwzoiZlbzcD0XFU+hItp
+	 48KdV9iviHmWhQoOn9ETIuvQ6FVt90Y7HfWhJomxc3ReU9RttWoA1DMYk5A5CtPNOE
+	 yqsenCxZ0+KZw==
+Message-ID: <53511b7c-aec3-4846-ab68-05958d585516@kernel.org>
+Date: Wed, 5 Feb 2025 08:48:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] coresight: Alloc trace ID after building the path
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: James Clark <james.clark@linaro.org>
-CC: <quic_tingweiz@quicinc.com>, <quic_jinlmao@quicinc.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>, <suzuki.poulose@arm.com>,
-        <mike.leach@linaro.org>, <alexander.shishkin@linux.intel.com>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>
-References: <d5332d6d-237f-4b78-9eaf-2619bd97b7bd@quicinc.com>
- <20250131163617.1730505-1-james.clark@linaro.org>
- <33302e34-2e13-4bda-ae44-4c111167dde5@quicinc.com>
+Subject: Re: [PATCH 0/2] Add chip ID for Exynos7870 SoC
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Sergey Lisov <sleirsgoevy@gmail.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org>
+ <339ea40f-6bc7-42ad-a5c2-f57b3be8cc39@kernel.org>
+ <e9d9388d0adacd5599c6c6f5b7f33f87@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <33302e34-2e13-4bda-ae44-4c111167dde5@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: gb3Cl6UXuJMToHYAiGtfMCqC5mwkq828
-X-Proofpoint-ORIG-GUID: gb3Cl6UXuJMToHYAiGtfMCqC5mwkq828
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-05_03,2025-02-05_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
- adultscore=0 spamscore=0 clxscore=1015 priorityscore=1501
- lowpriorityscore=0 malwarescore=0 suspectscore=0 mlxscore=0
- mlxlogscore=999 impostorscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2501170000 definitions=main-2502050060
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <e9d9388d0adacd5599c6c6f5b7f33f87@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_234503_797402_143797E7 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250204_234906_437720_F25D238A 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,70 +120,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/5/2025 12:13 PM, Jie Gan wrote:
-> 
-> 
-> On 2/1/2025 12:36 AM, James Clark wrote:
->> Proof of concept to support CTCU device. Applies to Jie's patchset in
->> the parent email. I think this would be a good simplification, it
->> removes some code and makes things a bit clearer, and works for both the
->> old and new CTCU requirements. It will require merging into the parent
->> patchset somehow as it undoes some of those changes.
-> Hi, James
-> 
-> I tested the patch series and it works well.
-> 
-> Can I combine these patchsets with mine with co-developed tag?
-> Or are you prefer to submit them independently?
-> 
-> I believe it would be easier to read if we combined the codes together.
-
-Hi, James
-
-Please ignore my questions here. I missed the last paragraph of the 
-description.
-
-I merged your codes with mine and added co-developed and SOB tag.
-
-Sorry for the mistake.
-
-Thanks,
-Jie
-
-> 
+On 04/02/2025 20:29, Kaustabh Chakraborty wrote:
+> On 2025-02-04 07:53, Krzysztof Kozlowski wrote:
+>> On 03/02/2025 21:32, Kaustabh Chakraborty wrote:
+>>> This patch series is a part of Exynos7870 upstreaming.
+>>>
+>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> ---
+>>> Kaustabh Chakraborty (2):
+>>>       dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
+>>>       soc: samsung: exynos-chipid: add support for exynos7870
+>>>
+>>>  Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
+>>>  drivers/soc/samsung/exynos-chipid.c                                 | 1 +
+>>>  2 files changed, 2 insertions(+)
 >>
->> James Clark (3):
->>    coresight: Don't save handle in path
->>    coresight: Export coresight_get_sink()
->>    coresight: Alloc trace ID after building the path
+>> When I asked to split, I said per subsystem. Soc is one subsystem.
+>> Everything targeting SoC should be in one patchset. get_maintainers.pl
+>> tells the name of the subsystem and its maintainers.
 >>
->>   drivers/hwtracing/coresight/coresight-core.c  | 107 +++++++++++++-----
->>   drivers/hwtracing/coresight/coresight-dummy.c |   9 +-
->>   drivers/hwtracing/coresight/coresight-etb10.c |   8 +-
->>   .../hwtracing/coresight/coresight-etm-perf.c  |  20 ++--
->>   drivers/hwtracing/coresight/coresight-etm.h   |   1 -
->>   .../coresight/coresight-etm3x-core.c          |  84 ++------------
->>   .../coresight/coresight-etm3x-sysfs.c         |   3 +-
->>   .../coresight/coresight-etm4x-core.c          |  83 ++------------
->>   .../coresight/coresight-etm4x-sysfs.c         |   4 +-
->>   drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
->>   drivers/hwtracing/coresight/coresight-priv.h  |  17 +--
->>   drivers/hwtracing/coresight/coresight-stm.c   |   5 +-
->>   drivers/hwtracing/coresight/coresight-sysfs.c |   6 +-
->>   .../hwtracing/coresight/coresight-tmc-etf.c   |   9 +-
->>   .../hwtracing/coresight/coresight-tmc-etr.c   |  13 +--
->>   drivers/hwtracing/coresight/coresight-tmc.h   |   2 +-
->>   drivers/hwtracing/coresight/coresight-tpda.c  |   3 +-
->>   drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
->>   drivers/hwtracing/coresight/coresight-tpiu.c  |   2 +-
->>   drivers/hwtracing/coresight/coresight-trbe.c  |   4 +-
->>   drivers/hwtracing/coresight/ultrasoc-smb.c    |   8 +-
->>   include/linux/coresight.h                     |  25 +++-
->>   22 files changed, 159 insertions(+), 258 deletions(-)
->>
+>> If there is going to be resend/new version, combine patchsets for soc
+>> into one patchset (just like the example I gave last time).
 > 
+> Alright, so I'll move these patches to the one which has the devicetrees.
 > 
+> There's also a Documentation/devicetree/bindings/soc/ patch in
+> exynos7870-pmu-clocks [1]. The CLKOUT driver uses the compatible declared
+> in there, i.e., the CLKOUT driver depends on that commit. So, should it
+> stay there? Or...?
 
+The binding stays with the driver.
+
+
+
+
+Best regards,
+Krzysztof
 
