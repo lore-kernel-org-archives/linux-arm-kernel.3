@@ -4,84 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318F8C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 11:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C2CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 11:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybYhgoqvdEUqCkpSu+wLe1vUmUBCbbPBzWxAddTN9tM=; b=m2GK4KtO9PBcPcfudH3A7gFdWM
-	hup0Ip2Yegi1j7BnaAo/ODC0UBXFu+7Hbmu36LP6cSeZdGNxopcZmNofl9DoXkUFoCNUpJWpws07n
-	WJrCg4XotlOObf/Ysvvu02VeElihVHS78ysH5P3GGuCqIv8p+qqczswt6iuVpH2IRxKqyyq7+J83V
-	z2vpNXyRn+PscviBrWBNv5zhuBHWu3lfTEPGGK48IfzBOg4hJ7ODVmc1MvNxJnpcKQ8E+oGG8D7S7
-	DfLtevh3GKQFahe/BMshWmu5YKHjg1p7BG/32/znsAcegVf2pHK3GAukslUyi+mJ2D0wwhsBZY7gS
-	DFzQnFnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=; b=P6vk0Edndnx7D8dSpdA5DW0y0v
+	2VMBEmgTcvQHiCZxG76lGPRyLj4aik7NyBzoG9QM3FeWsJRMw5wmpZo42uTXaTAgjMHjkE4MuqE/9
+	7NTU2Z0YFPGghCmYHEeL+NnuIULTWQc56vkzY3dSyqQSBWfrhfXRYFhcVmkt+YUXDF3tXMntx9ROC
+	OFQUjZWNCaVaZlEe+vO+WibCu+Ao6r39ogpizs6/rsVQgWw09JzikBEm2v8xTagC0IacywMfB3qIb
+	VBvi4I+uyvs9g4CxIUWStHcIvO6+sBjkbo2+hTeCQ2kIrupmxN83UaJr1RiFqGX0eJTH/LR8NaRXj
+	3s9Fb32A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfdT0-000000032UT-3ux1;
-	Wed, 05 Feb 2025 11:21:15 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1tfdfq-000000034BI-1cp6;
+	Wed, 05 Feb 2025 11:34:30 +0000
+Received: from mail-dm3nam02on20628.outbound.protection.outlook.com ([2a01:111:f403:2405::628] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfdRf-000000032NP-0nf6
+	id 1tfdeT-0000000343R-2I5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 11:19:52 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6f4bc408e49so40886427b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 03:19:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1738754389; x=1739359189; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ybYhgoqvdEUqCkpSu+wLe1vUmUBCbbPBzWxAddTN9tM=;
-        b=foIQy9VlNttYMo6rCNly/iMVAaNKGAS9M6sL2g2NJYpp+b3gb1AG7tRGDx+Rd0GAHe
-         NfRBJtwuZZdmrNcSKuJTRNkGMX6wKfKE3pcYPuRL7798pLehR68jXNrt8tl5MxRft8V7
-         DB/yEECIyxXLkRpL2Z2ykq/sWZ3st9aCN7lGQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738754389; x=1739359189;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ybYhgoqvdEUqCkpSu+wLe1vUmUBCbbPBzWxAddTN9tM=;
-        b=n1GCjcRki1lFKpL7KeIQnd+Qj1QGSFi3gP1qQ9EPes2D0Y+MvHURdtMW1Si7WrH9gj
-         8F8Y0p9Bgzd86Rnz/9/HQwzb5UDS2Rh4v4OYHgzLyNKXN8/nXWh6U5JH11ehR/jDdXWD
-         gwrkmX+5L53VOP9KhxkvEmb/nFVWkZMSVMezXvVByv/qx3RCTue9Q2X2H5eCW3yFEgn9
-         dsr8E3vbCMNNGmRjn64sb2lJP7GKTcQ9A36WEfJfskT8pOq5fC84oVBHm4uYH8Shm2V8
-         rKeRMFhu9KA0VQ+UBP9K+6csxL5XfRIHG3AY0+eVdE2o3QIVdiYnbl8lMiwIQRPpuXy4
-         UCCg==
-X-Forwarded-Encrypted: i=1; AJvYcCV0pwSCqn/lGUsiKEForM7bLdacoMLaynIVQOS5Y8MxE7QE2YAwoCe9Uij2FuS5F66ksIPpMD7MmDjFybnPORQy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUTUKWIPG8Yh+aeFzhVMkhAWs0gBBYFgCRvQxH6HqFxPRpHck3
-	7Gplium3PDKSnPyIfciL1PGxJFu9dxUqti2Lh59YdGBCmCRKGfEOOcdR4sWpcnl4FP4koswXAIV
-	tER7VgP76ThTDnyyuWpVQ5swMVFAIzvamC3bZuw==
-X-Gm-Gg: ASbGncsBFaugxZP/cHfK6W1kQPDW5Bj487oixtar2mv3Ksks6AC9MEPsM4HdyJ2Pzs9
-	K5Tisl7LZi3QL9LLPpU6IQVcrhY07U8bFKoTednE7sCB+19iN6UB8dnED9DMd6xpOPb8KzAE=
-X-Google-Smtp-Source: AGHT+IHrHyVnC3ucjf5CnroJR9CV5ZcoEk66TZwNGhnQNhqYfAzUhk+K50MujLR1SniK7HjaTQcDJUvQT8Lporl78yk=
-X-Received: by 2002:a05:690c:7407:b0:6f7:409c:f645 with SMTP id
- 00721157ae682-6f989e3acdemr19242597b3.4.1738754389549; Wed, 05 Feb 2025
- 03:19:49 -0800 (PST)
+	Wed, 05 Feb 2025 11:33:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UzO0qzgNA7uZOYPnM+RDbDLWt4IHnSShYbZB7n6Y6raY6oem4gck6l8xCd4yPTWvqsz5ymLcdeD72gIR9y6r7tWdt4CSVY4nvy4cz2KTCuxOghlKQ2ANdR0VMjgyYE8SHZ5s+N/DR2bzkNvRtGQL0HRmKUXXP6FJ+a7mjlC9DbOrSNYkaXZ+os2Pq1NHnRPVkIawhPoYAeGPa3hAVD7ET5SPofm2RcNoVe3mgmfjBb57Pnk8ptnDtI7a0enUc3IdSyaLvo+6dihnGyoMUUIBA/VyN9cUWI3WPhvUY8YA+ws+9ECy1m7ZKhWKnyYGmcfka7YFxYaIzXDptJJDfwhplg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=;
+ b=w9ERu+cX0enxQmYplj/P6Lnh9dU/V1xCnKm4Wwnt+pFj9BFx3rKOF74596pdPUbGR0PyYCEQAxbs4p/co7oAcXZlM0PBSjkO0/QYZzuRfolZVMyCKV48nJF4xw1pU/tWstaRjRUrEmYbdObzVKt8fl1S+Vy9M19RKnZFnWE+PCYWBkeuvp5VbKu4LScG7YJxwq5v4+mcH+yGf3nNdEM1jhZxXDPy2Gt34k5BVaT1JOtoiYPagJNoxrOZkcst4JVqJvyzt9uDfGJjKPtRvp99krcXwGtb1/FTPXIdddwEm4losan7msuk8PtftQJoUNrF85JjhSaIi9KzIntF6uDwag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e/ZqTm5nFuIlMTmfH3hW48QQWLIMDT8gvGIZFMNTyCs=;
+ b=Or6O9hGQJ8MsHlaS4it8rzUnYchkHd4+DJvO3wrNFKQ3jNNsQxy/JbMx8+LnNUV/f3CXdhGYQlX0qOGAebukjOH4vVxGodZLb7dBMQmHF6asds4nfxL7hlzO2ote83zROo07WjaanwSIO+2kZ1g5z2nHwhoJMFMEL9GCPWQP3KQ=
+Received: from DS7PR12MB6070.namprd12.prod.outlook.com (2603:10b6:8:9e::14) by
+ CH3PR12MB7571.namprd12.prod.outlook.com (2603:10b6:610:147::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.25; Wed, 5 Feb 2025 11:32:53 +0000
+Received: from DS7PR12MB6070.namprd12.prod.outlook.com
+ ([fe80::b847:e013:8f93:f6e4]) by DS7PR12MB6070.namprd12.prod.outlook.com
+ ([fe80::b847:e013:8f93:f6e4%6]) with mapi id 15.20.8398.025; Wed, 5 Feb 2025
+ 11:32:53 +0000
+From: "Manne, Nava kishore" <nava.kishore.manne@amd.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>, "Simek, Michal"
+	<michal.simek@amd.com>, "Jain, Ronak" <ronak.jain@amd.com>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "Buddhabhatti,
+ Jay" <jay.buddhabhatti@amd.com>, "praveen.teja.kundanala@amd.com"
+	<praveen.teja.kundanala@amd.com>, "Paladugu, Siva Durga Prasad"
+	<siva.durga.prasad.paladugu@amd.com>, "u.kleine-koenig@baylibre.com"
+	<u.kleine-koenig@baylibre.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi() API
+Thread-Topic: [PATCH 1/2] firmware: xilinx: Update the zynqmp_pm_load_pdi()
+ API
+Thread-Index: AQHbbYKHLS7UQSuOqk2WIJJUUBnYtbMlb3SAgBM3QgA=
+Date: Wed, 5 Feb 2025 11:32:53 +0000
+Message-ID: <DS7PR12MB6070A83267558A7D545E3383CDF72@DS7PR12MB6070.namprd12.prod.outlook.com>
+References: <20250123103522.1258499-1-nava.kishore.manne@amd.com>
+ <20250123103522.1258499-2-nava.kishore.manne@amd.com>
+ <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
+In-Reply-To: <2fd825ac-ea58-4acd-a27b-b104868bcc20@oss.qualcomm.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS7PR12MB6070:EE_|CH3PR12MB7571:EE_
+x-ms-office365-filtering-correlation-id: 065148e2-2389-4200-55a0-08dd45d8d43e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|921020|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?TnMyMS9jMWg5MkwrdE5zSjhxTnhXR1psb1FXUHBYOXQ4KzFDaE9wT0liWVlY?=
+ =?utf-8?B?RDE3T2E1dElUNWo5cXJEbEp0RVN1MlM1VlpOVUNMOUwxMk5pZTV6L1lzYlVk?=
+ =?utf-8?B?eTFQL3hvcCtCdlZFNXBqTW5lSFU1SFBtTXJvSWQwdk9IU1lPUFpNOEFDNnov?=
+ =?utf-8?B?RU53eWNhYVVEKzYwRnJ3VzB0WmxxcVU0T3dsMDZrU01uRllHTEQyRFZVZGpF?=
+ =?utf-8?B?MXlnblB0YUMycWxSNlJKanRoUnk3bDB6Q1NXSkNnbmVjeWtOUU5KYlpvcXkr?=
+ =?utf-8?B?Ti91RmJHUmtLYmlzdjNKVTBMRVgvUlExbGpzL2ViMVR4SzZlUDV1Z09vMjJE?=
+ =?utf-8?B?TWE5OG5EMHBnRjRUaVFub0cydEZ1cmtTaUMxVVBTSGV2eGdod1B1bmdMcWFv?=
+ =?utf-8?B?dmZxR1YvcHhPQjhDQUJGN3NOS1dzNW1vYThJOVFZUE9mQU5iNU5peGh6K2RN?=
+ =?utf-8?B?ZWFYd1ZBVUN0cEl2VGhOazMzcURkSlNNUnEwRHZ6TU1yNldneTN4VUlaenNN?=
+ =?utf-8?B?RXNBUGNJampJZWZKeVRDV1VXWVl6Wll2NlFxTVpwZSs4OTRoR21PcllIejlU?=
+ =?utf-8?B?N2Q4YWVpK1N5enZrVldWcWhkOHg5U1JLNURVNDNOWVphaEVXVkhFK0U0ZS9i?=
+ =?utf-8?B?bTRaakRTZkp5VytJUm8vajdiMi9Wd09yczhuRFpGWVNkbTlaNVROM2U1clo2?=
+ =?utf-8?B?VlBpY21Ib1NYaWp2eVFmNGE5UitiTTVla3BZdGZpdSsvVVFZMEJBTEphak1v?=
+ =?utf-8?B?RXpSMExHMldKVElaZ2JmcjhNRE1zelVYdkNlYUc4UzhrdGUzUHpuZEl2bVJH?=
+ =?utf-8?B?bkFHdmp6MGxZZE5JTkpobnFGNzdEM2hQVk5mUGlmU3Y4b2VrZjM0ZVhIbWF2?=
+ =?utf-8?B?REMzdlZobWlzVHMzbjcxK2M0SWFpTlFFUlJVdDlvcHhjU1FZZG85S2RpK2o5?=
+ =?utf-8?B?WUMrSTN5Q1NNcnZrTUFETWNBeFZXdldFKzN4TTFTeEFZTGd4aUNxYUFHby9W?=
+ =?utf-8?B?ZnVyNWpMSnIyTXNLeEZsQXU1YWwvQVJSOFlMMTA2bHFvSXhqc1ROcVVBcTdC?=
+ =?utf-8?B?RDJLcEZZZ01lSTZRRUk0Z2o0WjdteUFKeCtmN1dEQkx0ZVkrRW5DTU91UUYw?=
+ =?utf-8?B?NzFKQjBaTlhVWCtEMkZjUFc0UzBkMHZkYksvRVM3U1R2dUdqSGUyaFk2U3hq?=
+ =?utf-8?B?RFlEenU1b042TDJNdUdNNUptV2g4SWR3RTA2UGM5NTVrSFVyWXRTQmpvVy9N?=
+ =?utf-8?B?bUt0UDM1MHVwN2ZBV0QxMmFqcWtZSTFpclo1eHRVRVNqbGJwL0MzK3VKcWhG?=
+ =?utf-8?B?c3l5ZkhtN2UvL1U0R2oxQ0RVNnQwU3ZlRzFBaGdQa2d5d3dya2UwWlk4czRx?=
+ =?utf-8?B?ak55YkU2VHNmN3Q2MUlKS2NGbDJjNUVMekN2NWc5NStQRW9mM0VjWXVibzda?=
+ =?utf-8?B?N0FaaU9PNS92R2hnQjhtSlpiMVozdkdoajgxNE9YVU1WQ0JUT0J6KzJ0Rjcw?=
+ =?utf-8?B?MVEvS3k0SjVnZUVIdnVMaitIUmkvR1M3eTdaams1K2MyempJREZrN3B4VDZX?=
+ =?utf-8?B?TXhpenFyM3ZKS3k0bGpMMXhZWHpnWElTYzY0ak94Q2FQdlpaKy96bnhVUHVV?=
+ =?utf-8?B?TGJNeG9JcGdHS0dEeWcrS3dpeVJKUDNMa25tQWlLR3VsSGlCZHRQZ1J5Q0Zp?=
+ =?utf-8?B?K09XdTZxcUNMOXJvcDBCdzhKVGJoNzJOSmtPS1B1NVA1MXJKNGZ3ZXd5UE9C?=
+ =?utf-8?B?MmpMaWdDaEVyaXNvQlZ2VExkUGh4T0FQdk1rcFVaS1ZXdTk2K3F6WWdQdTJT?=
+ =?utf-8?B?anZIL3NVcmI1TlNQYS9ISWVHK3crZ20rVml1VGd6WHBUV1RQcWNmNFBBUmJ4?=
+ =?utf-8?B?TDIybldqSkR1aVRmT3FOMWJqK2xDaTBmaTgyTzFRTVA2b0p1MWdlak5yKzBN?=
+ =?utf-8?B?WUdTNm9vMFNSVHZjbHhmb0tPTFJCZHFON1FVNG40SDVMMU5LMHhvTk5yYVV2?=
+ =?utf-8?B?dHloUG8yQ3NRPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(921020)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dzdwKzkwSkZTTVA1bjlJYktycXRTSHZhTXZBRkFIS29EUWtVNzV0d1g5ZXdk?=
+ =?utf-8?B?R2swY0FWdVVXWXd4cTQvOUlQVkxyTlFmQldUZ3Z3ZEswc0ZyNm9VWGVQQmhp?=
+ =?utf-8?B?SS9pV2VSdVpsNld2YVkxaTlLZWZLeHBYbHZCdmFROGlqMVhwRHZjeXRRUWlQ?=
+ =?utf-8?B?cCtrdXVRUmFMTlZpK3dzSWRMVmlYMitzcm1ibE16Y01nazhOTDV3RGcvODg0?=
+ =?utf-8?B?ZjlGQThwOVZPR3VSK003YWtKNzBCcnU2SjFDVStESStFOUVGSUNLYVpNL3Q1?=
+ =?utf-8?B?TXVTeGxaNENKY1h3VVExMEJnUHFOTzQ4ZUk0L1U4bWxGVU0vQjlXNUpNNG96?=
+ =?utf-8?B?R1d5VUJPUzgyRXI1b3gvWE92T0pLcVZPS0hsaU56R2FUNm1GSTJmQm5WaE1a?=
+ =?utf-8?B?dFhZM1BWeWt1OGQ3ZUZOS0I4UXJvMkR0b1VreDRkVzkyWW1uMkZyQllmNEh2?=
+ =?utf-8?B?dWdGRDFoVnFhc0padGJYRzJjTDJCQURFb2tuQ3FUcnVocVdmZ0wzOHRmdk5u?=
+ =?utf-8?B?ZjZuZ09ZZzRIa1g3dmhMdHI1dHdwT2UxemFBejNSbzR6eGdyWjI3S3ZCV3RT?=
+ =?utf-8?B?MXRTb0dndXR3T3JvVzhZVXlGeVJoWjV4d2drNERwUHdvZ3g2VXF0Z0dRc3hB?=
+ =?utf-8?B?VmNLZ1VqOXZ5WlpBYXRzblpFaU0zeHp3dEdJMnErcEpWeGFpTVpzUW1TdXA5?=
+ =?utf-8?B?VytYb1ZUdjVNWHM4c0xCQnFnNkNoUEVJZGw3dWdKRHExeDd1K2dYeDVSMTV4?=
+ =?utf-8?B?VGNIZUVIVGNRaUpscXpVWHg2YUsyMlJPaXlkRWFPSnhmakdPVlVwMWMycTRP?=
+ =?utf-8?B?cHMxQXhnZ3dneGplTkxsbmF3VmlXU3ZJTGFuNFVIOWNPajlMQUJwTkZuOUpZ?=
+ =?utf-8?B?Z1dYTmo0cmJwVDhmc1dMYXVDQWZnYk1GelRBMGIvSjNsdmFhWmNCTW9Naks4?=
+ =?utf-8?B?cGlVa3YySHFYbmNQVEo0NWFXRVdxTTZ1VzFiUmxaR3JmMkd1Q3pLZ2p0RDZY?=
+ =?utf-8?B?SjBOdHVkS25WUlV1bTlrVk1KY3BQQjdsZDZWa25ya2xqcGhVUXRCcVp6ZnJx?=
+ =?utf-8?B?VEVtcVhrSThoYVE2RlVpakhSWld4ckFhcmdpTW9WL09BeS9jWTBMMUxROUVH?=
+ =?utf-8?B?VE82ZFJLRVVuUzVkdEVjenljRm9UWVFPYjdjWDhLZ2RGck5JYk1sTTlrQ2pP?=
+ =?utf-8?B?QncwWGVrYi9NUGJrN1VlOG9VMlJxMFQ5RUNpUDVaTGxPdkNRSHVHS0x5c1Rz?=
+ =?utf-8?B?eEc3K2VoZTRFR3BONlJ6Q01lYlJmc2wwSVliUnMxclVtY1Q0eWkweXpsMUhx?=
+ =?utf-8?B?cU11UGt4aGtNZ1VwOFVqRGJHSjVmYUNnd25SclIzTlhubjRMU1NPQ1FHRDMr?=
+ =?utf-8?B?WVg5OWIyWGg4VlAvbGtuL1FmNWhXTmZyZGVROFFKeENNSHlMMWc3MXplQ3o1?=
+ =?utf-8?B?YjFXOFA0TzB4VmZraDAxU3czQ3QzQUZVaVlUb0UxQ25CbWVTZVYraE9NQ1RY?=
+ =?utf-8?B?VXdETXZFNndsa2tzaUExdlQrR24rNjlZZUE1MEVTYXQ2RHQ5T2RqM3FQT0o4?=
+ =?utf-8?B?ZERjRDBZTDFidlZLczNoM1NzUE1RVXJ3V01YSTNZN0ZvYnpFeGtDdzhNaUVB?=
+ =?utf-8?B?aVJtRTMzVlBXczFFTndnL1YwZEhQUEFlM21EdlJKMU5pTGlYUW1CTS9JeGk2?=
+ =?utf-8?B?M0E4RjZvQlo0dFc5WFdmOWpYRVA1bXMxcmNiblk4Vk5hNmpRWDFwLzluUmt2?=
+ =?utf-8?B?d2VKMUtYY1pJbnpyWGxOOFZZMXpERlJlSk9LQ3JPZ2x1WkZHR2JpQytFRzha?=
+ =?utf-8?B?TktzMUZneXorL2syTlVvTC96ZDBMZVlKc3NuSi85TXhCMjNDUXJNdXpBL2FW?=
+ =?utf-8?B?VG9ua1ZJN3pvRWhDTk4vQ2VrczRsd0wzZnVHSWZwcW94cE9salNPTkdyVE4v?=
+ =?utf-8?B?aFRHWnJvY0xINXM1YmxCcUxDY010YmFpVjhzRlcxcUpnYTVqaVp2Q3pLNTBw?=
+ =?utf-8?B?NVgrTm5ka0RqR0o0emRuRk4vcHNpQzNYQ2s4TXBtdHJHRzMrNmFxZXo4MFFP?=
+ =?utf-8?B?T2piY1dQWUpZTWRnZnBjU1hyTEhvSW11QjZiUHE1LzNPOTkvVnVhZWMrc3Fk?=
+ =?utf-8?Q?EwOI=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com> <20250205-clk-ssc-v2-3-fa73083caa92@nxp.com>
-In-Reply-To: <20250205-clk-ssc-v2-3-fa73083caa92@nxp.com>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Wed, 5 Feb 2025 12:19:38 +0100
-X-Gm-Features: AWEUYZl4J7MiWYs5V1DsV6zpiNupetaeRUoMIlCCJYHJv9tWjHggrdqzDtOIt9g
-Message-ID: <CABGWkvqXf0ZmJKofrbahB5N5uer6ye6Q4s_PXz_Z61vG2pMu=g@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] clk: imx: pll14xx: support spread spectrum clock generation
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Abel Vesa <abelvesa@kernel.org>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6070.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 065148e2-2389-4200-55a0-08dd45d8d43e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Feb 2025 11:32:53.2217
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PvE3oenmpSIXiiW6tbT+LbDhLgfKj6XXJuAz4oGBs+EHk2XaOFSe28krtKF47dtB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7571
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_031951_252274_8BBC6F42 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20250205_033305_586528_312ADE9F 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,197 +184,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
-
-On Wed, Feb 5, 2025 at 10:51=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
-m> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Add support for spread spectrum clock (SSC) generation to the pll14xxx
-> driver.
->
-> Co-developed-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-
-It doesn=E2=80=99t seem right to me.
-You can=E2=80=99t take 90% of my patch, where the SSC management was actual=
-ly
-implemented,
-add 10%, and consider yourself the author of the patch.
-Please correct it in version 3.
-
-Thanks and regards,
-Dario
-
-> ---
->  drivers/clk/imx/clk-pll14xx.c | 66 +++++++++++++++++++++++++++++++++++++=
-++++++
->  1 file changed, 66 insertions(+)
->
-> diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.=
-c
-> index f290981ea13bdba3602af7aa44aaadfe0b78dcf9..3bdce762a9d651a6fb048dcbf=
-58db396af9d3aaf 100644
-> --- a/drivers/clk/imx/clk-pll14xx.c
-> +++ b/drivers/clk/imx/clk-pll14xx.c
-> @@ -20,6 +20,8 @@
->  #define GNRL_CTL       0x0
->  #define DIV_CTL0       0x4
->  #define DIV_CTL1       0x8
-> +#define SSCG_CTRL      0xc
-> +
->  #define LOCK_STATUS    BIT(31)
->  #define LOCK_SEL_MASK  BIT(29)
->  #define CLKE_MASK      BIT(11)
-> @@ -31,15 +33,26 @@
->  #define KDIV_MASK      GENMASK(15, 0)
->  #define KDIV_MIN       SHRT_MIN
->  #define KDIV_MAX       SHRT_MAX
-> +#define SSCG_ENABLE    BIT(31)
-> +#define MFREQ_CTL_MASK GENMASK(19, 12)
-> +#define MRAT_CTL_MASK  GENMASK(9, 4)
-> +#define SEL_PF_MASK    GENMASK(1, 0)
->
->  #define LOCK_TIMEOUT_US                10000
->
-> +enum imx_pll14xx_ssc_mod_type {
-> +       IMX_PLL14XX_SSC_DOWN_SPREAD,
-> +       IMX_PLL14XX_SSC_UP_SPREAD,
-> +       IMX_PLL14XX_SSC_CENTER_SPREAD,
-> +};
-> +
->  struct clk_pll14xx {
->         struct clk_hw                   hw;
->         void __iomem                    *base;
->         enum imx_pll14xx_type           type;
->         const struct imx_pll14xx_rate_table *rate_table;
->         int rate_count;
-> +       struct clk_spread_spectrum      ssc_conf;
->  };
->
->  #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
-> @@ -349,6 +362,42 @@ static int clk_pll1416x_set_rate(struct clk_hw *hw, =
-unsigned long drate,
->         return 0;
->  }
->
-> +static void clk_pll1443x_enable_ssc(struct clk_hw *hw, unsigned long par=
-ent_rate,
-> +                                   unsigned int pdiv, unsigned int mdiv)
-> +{
-> +       struct clk_pll14xx *pll =3D to_clk_pll14xx(hw);
-> +       struct clk_spread_spectrum *conf =3D &pll->ssc_conf;
-> +       u32 sscg_ctrl, mfr, mrr, mod_type;
-> +
-> +       sscg_ctrl =3D readl_relaxed(pll->base + SSCG_CTRL);
-> +       sscg_ctrl &=3D
-> +               ~(SSCG_ENABLE | MFREQ_CTL_MASK | MRAT_CTL_MASK | SEL_PF_M=
-ASK);
-> +
-> +       mfr =3D parent_rate / (conf->modfreq * pdiv * (1 << 5));
-> +       mrr =3D ((conf->spreaddepth / 100) * mdiv * (1 << 6)) / (100 * mf=
-r);
-> +
-> +       switch (conf->method) {
-> +       case CLK_SSC_CENTER_SPREAD:
-> +               mod_type =3D IMX_PLL14XX_SSC_CENTER_SPREAD;
-> +               break;
-> +       case CLK_SSC_UP_SPREAD:
-> +               mod_type =3D IMX_PLL14XX_SSC_UP_SPREAD;
-> +               break;
-> +       case CLK_SSC_DOWN_SPREAD:
-> +               mod_type =3D IMX_PLL14XX_SSC_DOWN_SPREAD;
-> +               break;
-> +       default:
-> +               mod_type =3D IMX_PLL14XX_SSC_DOWN_SPREAD;
-> +               break;
-> +       }
-> +
-> +       sscg_ctrl |=3D SSCG_ENABLE | FIELD_PREP(MFREQ_CTL_MASK, mfr) |
-> +               FIELD_PREP(MRAT_CTL_MASK, mrr) |
-> +               FIELD_PREP(SEL_PF_MASK, mod_type);
-> +
-> +       writel_relaxed(sscg_ctrl, pll->base + SSCG_CTRL);
-> +}
-> +
->  static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
->                                  unsigned long prate)
->  {
-> @@ -370,6 +419,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, u=
-nsigned long drate,
->                 writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
->                                pll->base + DIV_CTL1);
->
-> +               if (pll->ssc_conf.enable)
-> +                       clk_pll1443x_enable_ssc(hw, prate, rate.pdiv, rat=
-e.mdiv);
-> +
->                 return 0;
->         }
->
-> @@ -410,6 +462,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, u=
-nsigned long drate,
->         gnrl_ctl &=3D ~BYPASS_MASK;
->         writel_relaxed(gnrl_ctl, pll->base + GNRL_CTL);
->
-> +       if (pll->ssc_conf.enable)
-> +               clk_pll1443x_enable_ssc(hw, prate, rate.pdiv, rate.mdiv);
-> +
->         return 0;
->  }
->
-> @@ -465,6 +520,16 @@ static void clk_pll14xx_unprepare(struct clk_hw *hw)
->         writel_relaxed(val, pll->base + GNRL_CTL);
->  }
->
-> +static int clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
-> +                                           struct clk_spread_spectrum *c=
-lk_ss)
-> +{
-> +       struct clk_pll14xx *pll =3D to_clk_pll14xx(hw);
-> +
-> +       memcpy(&pll->ssc_conf, clk_ss, sizeof(pll->ssc_conf));
-> +
-> +       return 0;
-> +}
-> +
->  static const struct clk_ops clk_pll1416x_ops =3D {
->         .prepare        =3D clk_pll14xx_prepare,
->         .unprepare      =3D clk_pll14xx_unprepare,
-> @@ -485,6 +550,7 @@ static const struct clk_ops clk_pll1443x_ops =3D {
->         .recalc_rate    =3D clk_pll14xx_recalc_rate,
->         .round_rate     =3D clk_pll1443x_round_rate,
->         .set_rate       =3D clk_pll1443x_set_rate,
-> +       .set_spread_spectrum =3D clk_pll1443x_set_spread_spectrum,
->  };
->
->  struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *na=
-me,
->
-> --
-> 2.37.1
->
-
-
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+SGkgSmllLA0KDQoJVGhhbmtzIGZvciBwcm92aWRpbmcgdGhlIHJldmlldyBjb21tZW50cy4NClBs
+ZWFzZSBmaW5kIG15IHJlc3BvbnNlIGlubGluZS4NCg0KPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2Ut
+LS0tLQ0KPiBGcm9tOiBKaWUgR2FuIDxqaWUuZ2FuQG9zcy5xdWFsY29tbS5jb20+DQo+IFNlbnQ6
+IEZyaWRheSwgSmFudWFyeSAyNCwgMjAyNSAxMTozMCBBTQ0KPiBUbzogTWFubmUsIE5hdmEga2lz
+aG9yZSA8bmF2YS5raXNob3JlLm1hbm5lQGFtZC5jb20+OyBTaW1laywgTWljaGFsDQo+IDxtaWNo
+YWwuc2ltZWtAYW1kLmNvbT47IEphaW4sIFJvbmFrIDxyb25hay5qYWluQGFtZC5jb20+Ow0KPiBn
+cmVna2hAbGludXhmb3VuZGF0aW9uLm9yZzsgQnVkZGhhYmhhdHRpLCBKYXkgPGpheS5idWRkaGFi
+aGF0dGlAYW1kLmNvbT47DQo+IHByYXZlZW4udGVqYS5rdW5kYW5hbGFAYW1kLmNvbTsgUGFsYWR1
+Z3UsIFNpdmEgRHVyZ2EgUHJhc2FkDQo+IDxzaXZhLmR1cmdhLnByYXNhZC5wYWxhZHVndUBhbWQu
+Y29tPjsgdS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbTsgbGludXgtDQo+IGFybS1rZXJuZWxA
+bGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiBTdWJq
+ZWN0OiBSZTogW1BBVENIIDEvMl0gZmlybXdhcmU6IHhpbGlueDogVXBkYXRlIHRoZSB6eW5xbXBf
+cG1fbG9hZF9wZGkoKSBBUEkNCj4gDQo+IA0KPiANCj4gT24gMS8yMy8yMDI1IDY6MzUgUE0sIE5h
+dmEga2lzaG9yZSBNYW5uZSB3cm90ZToNCj4gPiBVcGRhdGUgdGhlIHp5bnFtcF9wbV9sb2FkX3Bk
+aSgpIEFQSSB0byBoYW5kbGUgdGhlIGZpcm13YXJlIGVycm9y4oCZcw0KPiA+IHByb3Blcmx5Lg0K
+PiA+DQo+ID4gU2lnbmVkLW9mZi1ieTogTmF2YSBraXNob3JlIE1hbm5lIDxuYXZhLmtpc2hvcmUu
+bWFubmVAYW1kLmNvbT4NCj4gPiAtLS0NCj4gPiAgIGRyaXZlcnMvZmlybXdhcmUveGlsaW54L3p5
+bnFtcC5jIHwgMTIgKysrKysrKysrKy0tDQo+ID4gICAxIGZpbGUgY2hhbmdlZCwgMTAgaW5zZXJ0
+aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Zp
+cm13YXJlL3hpbGlueC96eW5xbXAuYw0KPiA+IGIvZHJpdmVycy9maXJtd2FyZS94aWxpbngvenlu
+cW1wLmMNCj4gPiBpbmRleCA3MjBmYThiNWQ4ZTkuLmVhMDRhNmFjNDAyZCAxMDA2NDQNCj4gPiAt
+LS0gYS9kcml2ZXJzL2Zpcm13YXJlL3hpbGlueC96eW5xbXAuYw0KPiA+ICsrKyBiL2RyaXZlcnMv
+ZmlybXdhcmUveGlsaW54L3p5bnFtcC5jDQo+ID4gQEAgLTE0ODMsOCArMTQ4MywxNiBAQA0KPiBF
+WFBPUlRfU1lNQk9MX0dQTCh6eW5xbXBfcG1fc2V0X3JlcXVpcmVtZW50KTsNCj4gPiAgICAqLw0K
+PiA+ICAgaW50IHp5bnFtcF9wbV9sb2FkX3BkaShjb25zdCB1MzIgc3JjLCBjb25zdCB1NjQgYWRk
+cmVzcykNCj4gPiAgIHsNCj4gPiAtCXJldHVybiB6eW5xbXBfcG1faW52b2tlX2ZuKFBNX0xPQURf
+UERJLCBOVUxMLCAzLCBzcmMsDQo+IGxvd2VyXzMyX2JpdHMoYWRkcmVzcyksDQo+ID4gLQkJCQkg
+ICB1cHBlcl8zMl9iaXRzKGFkZHJlc3MpKTsNCj4gPiArCXUzMiByZXRfcGF5bG9hZFtQQVlMT0FE
+X0FSR19DTlRdOw0KPiA+ICsJaW50IHJldDsNCj4gPiArDQo+ID4gKwlyZXQgPSB6eW5xbXBfcG1f
+aW52b2tlX2ZuKFBNX0xPQURfUERJLCByZXRfcGF5bG9hZCwgMywgc3JjLA0KPiA+ICsJCQkJICBs
+b3dlcl8zMl9iaXRzKGFkZHJlc3MpLA0KPiA+ICsJCQkJICB1cHBlcl8zMl9iaXRzKGFkZHJlc3Mp
+KTsNCj4gPiArCWlmIChyZXRfcGF5bG9hZFswXSkNCj4gPiArCQlyZXR1cm4gcmV0X3BheWxvYWRb
+MF07DQo+IExvb2tzIGEgbGl0dGxlIGJpdCBoYWNraW5nLiBBcyB0aGUgcmV0X3BheWxvYWQgaXMg
+dTMyLCByZXR1cm4gYXMgaW50LCBpdCBoYXMgcG9zc2liaWxpdHkgdG8NCj4gb3ZlcmZsb3c/DQo+
+IA0KSSBhZ3JlZSB3aXRoIHlvdXIgY29uY2Vybi4NCkknbGwgZHJvcCB0aGlzIHBhdGNoIGFuZCBs
+b29rIGludG8gYSBwcm9wZXIgc29sdXRpb24gdG8gYWRkcmVzcyB0aGUgaXNzdWUuDQoNClJlZ2Fy
+ZHMsDQpOYXZha2lzaG9yZQ0K
 
