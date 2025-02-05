@@ -4,60 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B1EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30664C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85FS4XjNQ9JBo+/y7mAORdhtLbsIZtyMoX5qsRopPsE=; b=B7xfZvUnfDq9Jrvrad5ypB/5o7
-	KN82x/e/42AQoE5HVUxdRnqaf9O7MluNCaT4kd2boQ84EUOD1yaP+Csje4JK2QB92eTuFITiu7tC0
-	XGfBzOv9KUp/qu8kmK5KEDTITqz178foNZVWwoSTyf4SuwCNlke3ldgXbVYIP85e2xleZoNu29yYv
-	vvuloNeU36ZM1V6skPyAq5WtTuFFNu1zd1o0lPmbebFSOigCEslhOWHuXG/XK41ex2vaS611ulDWU
-	WJEk/IMhdZ/wE8FTBwcARbyOeymhMlaFw852siIulb2qXjFpn/gtBStU5njBwUM78lDJBtc+pkrMy
-	FGPp+09Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6SylEMFUGGjut9Z/r0Vs1FQy1begfn1Z+13Ei115fRk=; b=lZYYnIojYioudw10PMA5oS16Ma
+	JfUQ0hFOCQWfMo18G5q2H4298t9RadKlBffdnsHv4C1U+MeL6mpaLUJo8GUa1eGKcWjkwRIP0xyjC
+	rQfZroRw8huN0+IyQA6mDBLhA+V+qH5obPHAd6dRaXzvM8fn1Ky0U2c37KNcWyblYYaW4oDvqA8Rw
+	uL4bHnPEdTf9+rsAEk3psghJAolOh9GnwZ2fB/i43wC+yW/WFslVy4uI/yomX6TENYlX+iXRbg289
+	gUtKhuvecGxPmJisO7HVQ08jTMi5maAHsLM2fU+n+NxRDSdGgesNpD/m8wsDutvHE1m4wtOzu6diA
+	VpXbIKdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgQo-00000003Y0i-3Bjb;
-	Wed, 05 Feb 2025 14:31:10 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tfgZS-00000003ZId-3qdX;
+	Wed, 05 Feb 2025 14:40:06 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffMp-00000003O0b-0uIO
+	id 1tfgY5-00000003Z1r-0NLq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 13:23:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yp17s6xHgz6H8NV;
-	Wed,  5 Feb 2025 21:20:41 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id AEABC14034E;
-	Wed,  5 Feb 2025 21:22:57 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.203.177.241) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 5 Feb 2025 14:22:49 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v6 1/4] arm64: Modify _midr_range() functions to read MIDR/REVIDR internally
-Date: Wed, 5 Feb 2025 13:22:19 +0000
-Message-ID: <20250205132222.55816-2-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
-References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
+	Wed, 05 Feb 2025 14:38:42 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38daf14018eso1317383f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 06:38:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738766319; x=1739371119; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6SylEMFUGGjut9Z/r0Vs1FQy1begfn1Z+13Ei115fRk=;
+        b=G7QnrhK6DX+WQEoVZ/fAhENem+ik6XcEEH4CZpj5DqtqC2HolHYKViaaIZ/3sDCUsz
+         S9qg6CDUNUE9w5D6G15rysJgv0vQFEkLdreHEGn2KjtEP8HppYhSivT7tMIawjJ/Dql0
+         TFjf+fLruPuOL5P/T1TZDtVSgWAikFGW/dlixSP0IYsaqcdJzANStIKvjAzu5B4RweKu
+         z7HM871LQfQC2I1oP1uLVLMXAHs5AKat/5vJVxF3uprHpBD99pyTQtY3i9KsJlinLYIZ
+         r2mRIxT2d2Dm8xHkSzCR4Dv8j+PFjy3mBSohLcgTywNICSkNWTXkapydVNmKuDCgkYYb
+         xI8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738766319; x=1739371119;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6SylEMFUGGjut9Z/r0Vs1FQy1begfn1Z+13Ei115fRk=;
+        b=Voe90Re/IWyUgK/Idskb9Xd7GL8TtCdysUDGoOCpk1S2+aXtI6pHhYokyHbXEmu5Bn
+         wDHze5stoQk8oTr7KFyacHtCVaK17RT3K9100gfQivWRMH7jdJMra9HDmPigjQvkLaFi
+         1b/bWrSBy1x1QxUvPsvAn2Sw9xv8pbc+DdFGtMZ+GAAid44SUTWGPMEDY5qKQD9QODLo
+         AqnkAs1polcPqOsvkDWijg+1eQrwKfLhLzvfH8UfseiciU13it4YRtKzo168jFQTciAS
+         qjz5cIfbMdTVlRvjMuiZ8GSyRu/kxc3bF5ngn/7/hBfyfnqQPtuJauRAlxo83BUUumZt
+         B+oA==
+X-Gm-Message-State: AOJu0YxtlUKfiBQOa5F4wUBlm+YoM6atzqTdIYesB8RmaW0W7ibgg4kl
+	HOj8ajEqEt+yTrTYM9X6LzXWC8YXaO8J17YLJsCNKupFrgRbN4HnOepNnZLQfuc=
+X-Gm-Gg: ASbGncu6dMJAwrV6+appq5vQ3HY4MgZDnRoIW7gC1RToZid5VKbBCBt7TW4WXKzUDFU
+	GLectbSLwqkx5+NrtX6Sgvabrvak/dahZxsACeI9/reg+JKrKcY+S1dpPX4heyDjxmbvSxBBjVx
+	svVkO2/M2lHdbTt26lzGKrbsquTfJHxt9loMfYET6u1J/iefa6BwRPxSQvhJyCZb6UasHkoAoX7
+	dbYJEjj0/HWIQ5eeNZFs1Cgy1jS0L+4NILdEl514goqmhydY9aOy5djibQPyXOyrVvQEZNpyX5z
+	BIrU+hM6wRUWKtpoVvvbBMiBmA==
+X-Google-Smtp-Source: AGHT+IF9xdlTonnwajQxmm/s81j9yPZ4l8Yo6pPEF/b8p2ODFzyRC4+PB3bu63yEZdkCTZrHfqloFw==
+X-Received: by 2002:adf:f243:0:b0:38a:5df9:f86a with SMTP id ffacd0b85a97d-38db48d34e5mr1766240f8f.26.1738766318785;
+        Wed, 05 Feb 2025 06:38:38 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.66.245])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38da8f6691bsm4950042f8f.42.2025.02.05.06.38.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Feb 2025 06:38:38 -0800 (PST)
+Message-ID: <3c7e1ce0-9a5d-43fb-9767-8e4ca92a450d@linaro.org>
+Date: Wed, 5 Feb 2025 14:38:37 +0000
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.203.177.241]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- frapeml500008.china.huawei.com (7.182.85.71)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: Rob Herring <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org>
+ <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
+ <CAL_JsqKTNDQn9omG3g=6Rb4Nwt6hG9Gw7-VXL_fjQeEQmmtJQg@mail.gmail.com>
+ <630f630d-241e-45f5-b449-243147fb888b@linaro.org>
+ <CAL_JsqKY8MjD=iFf6MiT04WmCHYUxGtWG9JfX5-5fuG32F77qQ@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAL_JsqKY8MjD=iFf6MiT04WmCHYUxGtWG9JfX5-5fuG32F77qQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_052259_547514_2F96BFB5 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20250205_063841_131911_56DA3ADB 
+X-CRM114-Status: GOOD (  61.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,275 +111,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These changes lay the groundwork for adding support for guest kernels,
-allowing them to leverage target CPU implementations provided by the
-VMM.
 
-No functional changes intended.
 
-Suggested-by: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
-Reviewed-by: Cornelia Huck <cohuck@redhat.com>
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
----
- arch/arm64/include/asm/cputype.h     | 28 ++++++++++++++--------------
- arch/arm64/include/asm/mmu.h         |  3 +--
- arch/arm64/kernel/cpu_errata.c       | 23 +++++++++++++----------
- arch/arm64/kernel/cpufeature.c       |  6 +++---
- arch/arm64/kernel/proton-pack.c      | 17 ++++++++---------
- arch/arm64/kvm/vgic/vgic-v3.c        |  2 +-
- drivers/clocksource/arm_arch_timer.c |  2 +-
- 7 files changed, 41 insertions(+), 40 deletions(-)
+On 04/02/2025 3:03 pm, Rob Herring wrote:
+> On Tue, Feb 4, 2025 at 6:03 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>>
+>>
+>> On 03/02/2025 5:58 pm, Rob Herring wrote:
+>>> On Mon, Feb 3, 2025 at 10:53 AM James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
+>>>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>
+>>>>> The ARMv9.2 architecture introduces the optional Branch Record Buffer
+>>>>> Extension (BRBE), which records information about branches as they are
+>>>>> executed into set of branch record registers. BRBE is similar to x86's
+>>>>> Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
+>>>>> (BHRB).
+> 
+> [...]
+> 
+>>>>> +     /*
+>>>>> +      * Require that the event filter and branch filter permissions match.
+>>>>> +      *
+>>>>> +      * The event and branch permissions can only mismatch if the user set
+>>>>> +      * at least one of the privilege branch filters in PERF_SAMPLE_BRANCH_PLM_ALL.
+>>>>> +      * Otherwise, the core will set the branch sample permissions in
+>>>>> +      * perf_copy_attr().
+>>>>> +      */
+>>>>> +     if ((event->attr.exclude_user != !(branch_type & PERF_SAMPLE_BRANCH_USER)) ||
+>>>>> +         (event->attr.exclude_kernel != !(branch_type & PERF_SAMPLE_BRANCH_KERNEL)) ||
+>>>>
+>>>> I don't think this one is right. By default perf_copy_attr() copies the
+>>>> exclude_ settings into the branch settings so this works, but if the
+>>>> user sets any _less_ permissive branch setting this fails. For example:
+>>>>
+>>>>     # perf record -j any,u -- true
+>>>>     Error:
+>>>>     cycles:PH: PMU Hardware or event type doesn't support branch stack
+>>>>     sampling.
+>>>>
+>>>> Here we want the default sampling permissions (exclude_kernel == 0,
+>>>> exclude_user == 0), but only user branch records, which doesn't match.
+>>>> It should be allowed because it doesn't include anything that we're not
+>>>> allowed to see.
+>>>
+>>> I know it is allowed(on x86), but why would we want that? If you do
+>>> something even more restricted:
+>>>
+>>> perf record -e cycles:k -j any,u -- true
+>>>
+>>> That's allowed on x86 and gives you samples with user addresses. But
+>>> all the events happened in the kernel. How does that make any sense?
+>>>
+>>> I suppose in your example, we could avoid attaching branch stack on
+>>> samples from the kernel. However, given how my example works, I'm
+>>> pretty sure that's not what x86 does.
+>>>
+>>> There's also combinations that are allowed, but record no samples.
+>>> Though I think that was with guest events. I've gone with reject
+>>> non-sense combinations as much as possible. We can easily remove those
+>>> restrictions later if needed. Changing the behavior later (for the
+>>> same configuration) wouldn't be good.
+>>>
+>>>
+>>
+>> Rejecting ones that produce no samples is fair enough, but my example
+>> does produce samples. To answer the question "why would we want that?",
+>> nothing major, but there are a few small reasons:
+>>
+>>    * Perf includes both user and kernel by default, so the shortest
+>>      command to only gather user branches doesn't work (-j any,u)
+>>    * The test already checks for branch stack support like this, so old
+>>      Perf test versions don't work
+> 
+> I would be more concerned about this one except that *we* wrote that
+> test. (I'm not sure why we wrote a new test rather than adapting
+> record_lbr.sh...)
+> 
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 6f3f4142e214..2a76f0e30006 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -231,6 +231,16 @@
- 
- #define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
- 
-+/*
-+ * The CPU ID never changes at run time, so we might as well tell the
-+ * compiler that it's constant.  Use this function to read the CPU ID
-+ * rather than directly reading processor_id or read_cpuid() directly.
-+ */
-+static inline u32 __attribute_const__ read_cpuid_id(void)
-+{
-+	return read_cpuid(MIDR_EL1);
-+}
-+
- /*
-  * Represent a range of MIDR values for a given CPU model and a
-  * range of variant/revision values.
-@@ -266,31 +276,21 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
- 	return _model == model && rv >= rv_min && rv <= rv_max;
- }
- 
--static inline bool is_midr_in_range(u32 midr, struct midr_range const *range)
-+static inline bool is_midr_in_range(struct midr_range const *range)
- {
--	return midr_is_cpu_model_range(midr, range->model,
-+	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
- 				       range->rv_min, range->rv_max);
- }
- 
- static inline bool
--is_midr_in_range_list(u32 midr, struct midr_range const *ranges)
-+is_midr_in_range_list(struct midr_range const *ranges)
- {
- 	while (ranges->model)
--		if (is_midr_in_range(midr, ranges++))
-+		if (is_midr_in_range(ranges++))
- 			return true;
- 	return false;
- }
- 
--/*
-- * The CPU ID never changes at run time, so we might as well tell the
-- * compiler that it's constant.  Use this function to read the CPU ID
-- * rather than directly reading processor_id or read_cpuid() directly.
-- */
--static inline u32 __attribute_const__ read_cpuid_id(void)
--{
--	return read_cpuid(MIDR_EL1);
--}
--
- static inline u64 __attribute_const__ read_cpuid_mpidr(void)
- {
- 	return read_cpuid(MPIDR_EL1);
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 662471cfc536..30a29e88994b 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -101,8 +101,7 @@ static inline bool kaslr_requires_kpti(void)
- 	if (IS_ENABLED(CONFIG_CAVIUM_ERRATUM_27456)) {
- 		extern const struct midr_range cavium_erratum_27456_cpus[];
- 
--		if (is_midr_in_range_list(read_cpuid_id(),
--					  cavium_erratum_27456_cpus))
-+		if (is_midr_in_range_list(cavium_erratum_27456_cpus))
- 			return false;
- 	}
- 
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 7ce555862895..99b55893fc4e 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -15,30 +15,34 @@
- #include <asm/smp_plat.h>
- 
- static bool __maybe_unused
--is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
-+__is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
-+			 u32 midr, u32 revidr)
- {
- 	const struct arm64_midr_revidr *fix;
--	u32 midr = read_cpuid_id(), revidr;
--
--	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	if (!is_midr_in_range(midr, &entry->midr_range))
-+	if (!is_midr_in_range(&entry->midr_range))
- 		return false;
- 
- 	midr &= MIDR_REVISION_MASK | MIDR_VARIANT_MASK;
--	revidr = read_cpuid(REVIDR_EL1);
- 	for (fix = entry->fixed_revs; fix && fix->revidr_mask; fix++)
- 		if (midr == fix->midr_rv && (revidr & fix->revidr_mask))
- 			return false;
--
- 	return true;
- }
- 
-+static bool __maybe_unused
-+is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
-+	return __is_affected_midr_range(entry, read_cpuid_id(),
-+					read_cpuid(REVIDR_EL1));
-+}
-+
- static bool __maybe_unused
- is_affected_midr_range_list(const struct arm64_cpu_capabilities *entry,
- 			    int scope)
- {
- 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	return is_midr_in_range_list(read_cpuid_id(), entry->midr_range_list);
-+	return is_midr_in_range_list(entry->midr_range_list);
- }
- 
- static bool __maybe_unused
-@@ -186,12 +190,11 @@ static bool __maybe_unused
- has_neoverse_n1_erratum_1542419(const struct arm64_cpu_capabilities *entry,
- 				int scope)
- {
--	u32 midr = read_cpuid_id();
- 	bool has_dic = read_cpuid_cachetype() & BIT(CTR_EL0_DIC_SHIFT);
- 	const struct midr_range range = MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1);
- 
- 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	return is_midr_in_range(midr, &range) && has_dic;
-+	return is_midr_in_range(&range) && has_dic;
- }
- 
- #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 4eb7c6698ae4..72e876f37cd4 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1792,7 +1792,7 @@ static bool unmap_kernel_at_el0(const struct arm64_cpu_capabilities *entry,
- 	char const *str = "kpti command line option";
- 	bool meltdown_safe;
- 
--	meltdown_safe = is_midr_in_range_list(read_cpuid_id(), kpti_safe_list);
-+	meltdown_safe = is_midr_in_range_list(kpti_safe_list);
- 
- 	/* Defer to CPU feature registers */
- 	if (has_cpuid_feature(entry, scope))
-@@ -1862,7 +1862,7 @@ static bool has_nv1(const struct arm64_cpu_capabilities *entry, int scope)
- 
- 	return (__system_matches_cap(ARM64_HAS_NESTED_VIRT) &&
- 		!(has_cpuid_feature(entry, scope) ||
--		  is_midr_in_range_list(read_cpuid_id(), nv1_ni_list)));
-+		  is_midr_in_range_list(nv1_ni_list)));
- }
- 
- #if defined(ID_AA64MMFR0_EL1_TGRAN_LPA2) && defined(ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_LPA2)
-@@ -2045,7 +2045,7 @@ static bool cpu_has_broken_dbm(void)
- 		{},
- 	};
- 
--	return is_midr_in_range_list(read_cpuid_id(), cpus);
-+	return is_midr_in_range_list(cpus);
- }
- 
- static bool cpu_can_use_dbm(const struct arm64_cpu_capabilities *cap)
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index da53722f95d4..a573fa40d4b6 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -172,7 +172,7 @@ static enum mitigation_state spectre_v2_get_cpu_hw_mitigation_state(void)
- 		return SPECTRE_UNAFFECTED;
- 
- 	/* Alternatively, we have a list of unaffected CPUs */
--	if (is_midr_in_range_list(read_cpuid_id(), spectre_v2_safe_list))
-+	if (is_midr_in_range_list(spectre_v2_safe_list))
- 		return SPECTRE_UNAFFECTED;
- 
- 	return SPECTRE_VULNERABLE;
-@@ -331,7 +331,7 @@ bool has_spectre_v3a(const struct arm64_cpu_capabilities *entry, int scope)
- 	};
- 
- 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	return is_midr_in_range_list(read_cpuid_id(), spectre_v3a_unsafe_list);
-+	return is_midr_in_range_list(spectre_v3a_unsafe_list);
- }
- 
- void spectre_v3a_enable_mitigation(const struct arm64_cpu_capabilities *__unused)
-@@ -475,7 +475,7 @@ static enum mitigation_state spectre_v4_get_cpu_hw_mitigation_state(void)
- 		{ /* sentinel */ },
- 	};
- 
--	if (is_midr_in_range_list(read_cpuid_id(), spectre_v4_safe_list))
-+	if (is_midr_in_range_list(spectre_v4_safe_list))
- 		return SPECTRE_UNAFFECTED;
- 
- 	/* CPU features are detected first */
-@@ -878,13 +878,13 @@ u8 spectre_bhb_loop_affected(int scope)
- 			{},
- 		};
- 
--		if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
-+		if (is_midr_in_range_list(spectre_bhb_k32_list))
- 			k = 32;
--		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_list))
-+		else if (is_midr_in_range_list(spectre_bhb_k24_list))
- 			k = 24;
--		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k11_list))
-+		else if (is_midr_in_range_list(spectre_bhb_k11_list))
- 			k = 11;
--		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k8_list))
-+		else if (is_midr_in_range_list(spectre_bhb_k8_list))
- 			k =  8;
- 
- 		max_bhb_k = max(max_bhb_k, k);
-@@ -926,8 +926,7 @@ static bool is_spectre_bhb_fw_affected(int scope)
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A75),
- 		{},
- 	};
--	bool cpu_in_list = is_midr_in_range_list(read_cpuid_id(),
--					 spectre_bhb_firmware_mitigated_list);
-+	bool cpu_in_list = is_midr_in_range_list(spectre_bhb_firmware_mitigated_list);
- 
- 	if (scope != SCOPE_LOCAL_CPU)
- 		return system_affected;
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index d7233ab982d0..87a8a96c7a41 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -633,7 +633,7 @@ static const struct midr_range broken_seis[] = {
- static bool vgic_v3_broken_seis(void)
- {
- 	return ((kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_SEIS_MASK) &&
--		is_midr_in_range_list(read_cpuid_id(), broken_seis));
-+		is_midr_in_range_list(broken_seis));
- }
- 
- /**
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 808f259781fd..981a578043a5 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -842,7 +842,7 @@ static u64 __arch_timer_check_delta(void)
- 		{},
- 	};
- 
--	if (is_midr_in_range_list(read_cpuid_id(), broken_cval_midrs)) {
-+	if (is_midr_in_range_list(broken_cval_midrs)) {
- 		pr_warn_once("Broken CNTx_CVAL_EL1, using 31 bit TVAL instead.\n");
- 		return CLOCKSOURCE_MASK(31);
- 	}
--- 
-2.47.0
+record_lbr.sh was added 6 months ago, test_brstack.sh 3 years ago so 
+it's the other way around.
+
+Although record_lbr.sh also tests --call-graph and --stitch-lbr as well, 
+so I think it's fine for test_brstack.sh to test only --branch-filter 
+options at the lowest level.
+
+Looking at that test though I see there is a capability 
+"/sys/devices/cpu/caps/branches". I'm wondering whether we should be 
+adding that on the Arm PMU for BRBE?
+
+Ignoring the tests, the man pages (and some pages on the internet) give 
+this example: "--branch-filter any_ret,u,k". This doesn't work either 
+because it doesn't match the default exclude_hv option. It just seems a 
+bit awkward and incompatible to me, for not much gain.
+
+>>    * You might only be optimising userspace, but still interested in the
+>>      proportion of time spent or particular place in the kernel
+> 
+> How do you see that? It looks completely misleading to me. 'perf
+> report' seems to only list branch stack addresses in this case. There
+> doesn't seem to be any matching of the event address to branch stack
+> addresses.
+> 
+
+Perf script will show everything with all it's various options, or 
+--branch-history on perf report will show both too. Also there are tools 
+other than Perf, AutoFDO seems like something that BRBE can be used with.
+
+>>    * Consistency with existing implementations and for people porting
+>>      existing tools to Arm
+>>    * It doesn't cost anything to support it (I think we just
+>>      only check if exclude_* is set rather than !=)
+>>    * Permissions checks should be handled by the core code so that
+>>      they're consistent
+>>    * What's the point of separate branch filters anyway if they always
+>>      have to match the event filter?
+> 
+> IDK, I wish someone could tell me. I don't see the usecase for them
+> being mismatched.
+> 
+> In any case, I don't care too much one way or the other what we do
+> here. If everyone thinks we should relax this, then that's fine with
+> me.
+> 
+
+Seeing the branch history from userspace that led up to a certain thing 
+in the kernel happening doesn't seem like that much of an edge case to 
+me. If you always have to have both on then you lose the userspace 
+branch history because the buffer isn't that big and gets overwritten.
+
+>> Some of these things could be fixed in Perf, but not in older versions.
+>> Even if we can't think of a real use case now, it doesn't sound like the
+>> driver should be so restrictive of an option that doesn't do any harm.
+>>
+>>>> This also makes the Perf branch test skip because it uses
+>>>> any,save_type,u to see if BRBE exists.
+>>>
+>>> Yes, I plan to update that if we keep this behavior.
+>>>
+>>>>> +         (!is_kernel_in_hyp_mode() &&
+>>>>> +          (event->attr.exclude_hv != !(branch_type & PERF_SAMPLE_BRANCH_HV))))
+>>>>> +             return false;
+>>>>> +
+>>>>> +     event->hw.branch_reg.config = branch_type_to_brbfcr(event->attr.branch_sample_type);
+>>>>> +     event->hw.extra_reg.config = branch_type_to_brbcr(event->attr.branch_sample_type);
+>>>>> +
+>>>>> +     return true;
+>>>>> +}
+>>>>> +
+>>>> [...]
+>>>>> +static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG_EXIT + 1][2] = {
+>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_UNCOND] = { PERF_BR_UNCOND, 0 },
+>>>>
+>>>> Does the second field go into 'new_type'? They all seem to be zero so
+>>>> I'm not sure why new_type isn't ignored instead of having it mapped.
+>>>
+>>> Well, left over from when all the Arm specific types were supported.
+>>> So yeah, that can be simplified.
+>>>
+>>>>> +     [BRBINFx_EL1_TYPE_INDIRECT] = { PERF_BR_IND, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_LINK] = { PERF_BR_CALL, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_INDIRECT_LINK] = { PERF_BR_IND_CALL, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_RET] = { PERF_BR_RET, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_COND] = { PERF_BR_COND, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_CALL] = { PERF_BR_CALL, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_ERET] = { PERF_BR_ERET, 0 },
+>>>>> +     [BRBINFx_EL1_TYPE_IRQ] = { PERF_BR_IRQ, 0 },
+>>>>
+>>>> How do ones that don't map to anything appear in Perf? For example
+>>>> BRBINFx_EL1_TYPE_TRAP is missing, and the test that was attached to the
+>>>> previous versions fails because it doesn't see the trap that jumps to
+>>>> the kernel, but it does still see the ERET back to userspace:
+>>>>
+>>>>      [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+>>>>
+>>>> In older versions we'd also have BRBINFx_EL1_TYPE_TRAP mapping to
+>>>> PERF_BR_SYSCALL so you could see it go into the kernel before the return:
+>>>>
+>>>>      trap_bench+0x1C/[unknown]/-/-/-/0/SYSCALL/-
+>>>>      [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+>>>
+>>> My read of that was we should see a CALL in this case. Whether SVC
+>>> generates a TRAP or CALL depends on HFGITR_EL2.SVC_EL0 (table D18-2).
+>>> I assumed "SVC due to HFGITR_EL2.SVC_EL0" means when SVC_EL0 is set
+>>> (and set has additional conditions). We have SVC_EL0 cleared, so that
+>>> should be a CALL. Maybe the FVP has this wrong?
+>>>
+>>
+>> The test is doing this rather than a syscall:
+>>
+>>     asm("mrs %0, ID_AA64ISAR0_EL1" : "=r" (val));   /* TRAP + ERET */
+>>
+>> So I think trap is right. Whether that should be mapped to SYSCALL or
+>> some other branch type I don't know, but the point is that it's missing now.
+> 
+> We aren't supporting any of the Arm specific traps/exceptions. One
+> reason is for consistency with x86 like you just argued for. The only
+
+Does x86 leave holes in the program flow though, or is it complete? IMO 
+it makes it harder for tools to make sense of the branch buffer if there 
+are things like an ERET with no previous trap to match it up to.
+
+> exception types supported are syscall and IRQ. Part of the issue is
+> there is no userspace control over enabling all the extra Arm ones.
+> There's no way to say enable all branches except debug, fault, etc.
+> exceptions. If we want to support these, I think there should be user
+> control over enabling them. But that can come later if there's any
+> demand for them.
+> 
+> Rob
+
+In this patchset we enable PERF_BR_IRQ with PERF_SAMPLE_BRANCH_ANY, 
+without any way to selectively disable it. I would assume trap could be 
+done with the same option.
+
+If we're filtering some of them out it might be worth documenting that 
+"PERF_SAMPLE_BRANCH_ANY" doesn't actually mean 'any' branch type on Arm, 
+and some types are recorded but discarded out before sending to userspace.
+
+There could be some confusion when there are partially filled or empty 
+branch buffers, and the reason wouldn't be that there weren't any 
+branches recorded, but they were all filtered out even with the 'any' 
+option.
 
 
