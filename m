@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62086C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FDFC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWmqmFGbAyka45IG9KGYfxP5fTo4PQmHn8R1vwyRq5A=; b=4d1osgad6fYpBan14CYLbfgLl8
-	zbl2NFdKJZGSv0YAMisA74AS6GCa0K3NrdyFM+nNMjk6oZCqt2MDnnJvtp8MBWi9IyiuuHkjVG13U
-	dT9G1MQEkoOW9rfDMftktKlS9tlWO/W4nc5JNQHsq0E6VgCvwXW+nUqREbbWhmcX2OUR/Bxb2ZcOo
-	td8YkuWsUh6TQ5IvUORPAJJb/nr2v3nJTcMkZpS2ZQOTJdB0wqyf0/34FQ41k5A7xUS+VPc74I/hV
-	5YmfKXQW7bS6GYB6zJ6epbwAh2zX3JF+hDE1DRdOGvGRh+cpGdFgRyur25B3QuxRXyhb1EKDlLfXF
-	nOmjKaBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AhrWt9WVjAY60HpUOIFuu7OGOJj5bUlRo1gopxgG8/c=; b=nn2V/HKY5M6jbtTGeUE7jyaSA1
+	YLm//P2muaFilSSTPZacNGRgAj6obWMECM3M/P3ezv7GwJ1QRSd+RLlXMZ9Ujg4kj5zcPTktTNlTN
+	uOLrLxS2GGBbD7I7w8fgsW66JJ6sjdDmr/NVKGuAdrUIUFbnrpE0S7m726vSo1p7Tv73t60GqqmEl
+	D0SZxnbTevz+pR8Oi6mJ0XcLcsGMfR9CRDJPuifp4zjpkrDA1zATbzAl3zXYpnC6hvGvkOh4VU7/w
+	1ibTgbUPJb5vnbJNfikRar7CHWaUKu+eZAbgzK3/OuNYFDx4zpkqQ7LEIj27O3ouc8Em4zuCerEO6
+	EoOcjwew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffTU-00000003Ojk-2uMP;
-	Wed, 05 Feb 2025 13:29:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tffev-00000003QIw-2w41;
+	Wed, 05 Feb 2025 13:41:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffNO-00000003O3E-03tk
+	id 1tffdZ-00000003Q79-1R6u
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Feb 2025 13:40:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=AhrWt9WVjAY60HpUOIFuu7OGOJj5bUlRo1gopxgG8/c=; b=My15evvKejhFSPM0/eVCk6ZxMm
+	TmqqwkzgaVOamEJO7DZ+9yAqLpl/Yo5h2VEHFuQH4NUfyYZGQ9XJTk0L1zI7S9JxSQDS0PljSg0js
+	ScGE2EY7py3EgQ7VRNz/+9vmrSCSIamAVkq02mD/k27dT8cMAz8szxs7NofilrCyfxVe4prpjCQ1N
+	SySAvmGwxVVBd9sfO8DSqi25g3dQHYR7oEsKsf+qbLjF6ADSfNzDliYhmmK1Fa9SimJgaea5gSzAX
+	GUmGoilOtB3fMYNJnf/TgJFF8gswm9T24Arv49fJ3yxOalLeH/iY/E//KDNYk5lS8Z2pUtFtX6kxn
+	2C/RK6tw==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tffdW-0000000GeQm-20fA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 13:23:35 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yp18611L0z6FBYy;
-	Wed,  5 Feb 2025 21:20:54 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8BAB21404F5;
-	Wed,  5 Feb 2025 21:23:32 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.203.177.241) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 5 Feb 2025 14:23:24 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v6 4/4] arm64: paravirt: Enable errata based on implementation CPUs
-Date: Wed, 5 Feb 2025 13:22:22 +0000
-Message-ID: <20250205132222.55816-5-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
-References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
+	Wed, 05 Feb 2025 13:40:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AhrWt9WVjAY60HpUOIFuu7OGOJj5bUlRo1gopxgG8/c=; b=BOk0lF2YVhlaqQFGfND5bJ1miN
+	lMcrV0ucGIrdkLxzGhCm4Qeu8dXj9VHSaz1FCz5iUedR4fB/mCFsFxY+MFb4AnBxu2I7/Vzp1U3hP
+	Sswzi7H1Y4Rmkw3SxyYLppbe9x/agDbEZfRz6StgTAy3vHTCERNJmJpcR6dnzYaSPEMbjF6Z4gaxt
+	1VBtYk50pL5GBu4J9TvlYOC8d5aFPw/7JmHO8WGCFTLe7R5u6/IZIawTBk67AHPRZfMNWJB/pcQUg
+	izyQkLzsJGm7yj9ctfV4De3YW3sKw0V+NvOIAbsfLG+hJ2UE0BS59vIiQItRHfFjdAHPM3zrxG8vd
+	XlR6Kz2Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47364 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tffdM-00079s-2H;
+	Wed, 05 Feb 2025 13:40:04 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tffd3-003ZHV-6C; Wed, 05 Feb 2025 13:39:45 +0000
+In-Reply-To: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
+References: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next 01/14] net: stmmac: delete software timer before
+ disabling LPI
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.203.177.241]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tffd3-003ZHV-6C@rmk-PC.armlinux.org.uk>
+Date: Wed, 05 Feb 2025 13:39:45 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_052334_346012_DE47B9D2 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20250205_134014_616249_02E2EB87 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,226 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Retrieve any migration target implementation CPUs using the hypercall
-and enable associated errata.
+Delete the software timer to ensure that the timer doesn't fire while
+we are modifying the LPI register state, potentially re-enabling LPI.
 
-Reviewed-by: Cornelia Huck <cohuck@redhat.com>
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- arch/arm64/include/asm/cputype.h    | 24 ++++++++++-
- arch/arm64/include/asm/hypervisor.h |  1 +
- arch/arm64/kernel/cpu_errata.c      | 20 +++++++--
- arch/arm64/kernel/cpufeature.c      |  2 +
- arch/arm64/kernel/image-vars.h      |  2 +
- drivers/firmware/smccc/kvm_guest.c  | 63 +++++++++++++++++++++++++++++
- 6 files changed, 107 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 2a76f0e30006..975fbdfc9354 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -267,6 +267,15 @@ struct midr_range {
- #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
- #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
- 
-+struct target_impl_cpu {
-+	u64 midr;
-+	u64 revidr;
-+	u64 aidr;
-+};
-+
-+extern u32 target_impl_cpu_num;
-+extern struct target_impl_cpu *target_impl_cpus;
-+
- static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
- 					   u32 rv_max)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index d04543e5697b..9b44f4a8b7af 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -447,8 +447,8 @@ static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
+  */
+ static void stmmac_stop_sw_lpi(struct stmmac_priv *priv)
  {
-@@ -278,8 +287,19 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
- 
- static inline bool is_midr_in_range(struct midr_range const *range)
- {
--	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
--				       range->rv_min, range->rv_max);
-+	int i;
-+
-+	if (!target_impl_cpu_num)
-+		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-+					       range->rv_min, range->rv_max);
-+
-+	for (i = 0; i < target_impl_cpu_num; i++) {
-+		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
-+					    range->model,
-+					    range->rv_min, range->rv_max))
-+			return true;
-+	}
-+	return false;
+-	stmmac_reset_eee_mode(priv, priv->hw);
+ 	del_timer_sync(&priv->eee_ctrl_timer);
++	stmmac_reset_eee_mode(priv, priv->hw);
+ 	priv->tx_path_in_lpi_mode = false;
  }
  
- static inline bool
-diff --git a/arch/arm64/include/asm/hypervisor.h b/arch/arm64/include/asm/hypervisor.h
-index 409e239834d1..a12fd897c877 100644
---- a/arch/arm64/include/asm/hypervisor.h
-+++ b/arch/arm64/include/asm/hypervisor.h
-@@ -6,6 +6,7 @@
- 
- void kvm_init_hyp_services(void);
- bool kvm_arm_hyp_service_available(u32 func_id);
-+void kvm_arm_target_impl_cpu_init(void);
- 
- #ifdef CONFIG_ARM_PKVM_GUEST
- void pkvm_init_hyp_services(void);
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 99b55893fc4e..1177a3094cf2 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -14,6 +14,9 @@
- #include <asm/kvm_asm.h>
- #include <asm/smp_plat.h>
- 
-+u32 target_impl_cpu_num;
-+struct target_impl_cpu *target_impl_cpus;
-+
- static bool __maybe_unused
- __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- 			 u32 midr, u32 revidr)
-@@ -32,9 +35,20 @@ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- static bool __maybe_unused
- is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
- {
--	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	return __is_affected_midr_range(entry, read_cpuid_id(),
--					read_cpuid(REVIDR_EL1));
-+	int i;
-+
-+	if (!target_impl_cpu_num) {
-+		WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
-+		return __is_affected_midr_range(entry, read_cpuid_id(),
-+						read_cpuid(REVIDR_EL1));
-+	}
-+
-+	for (i = 0; i < target_impl_cpu_num; i++) {
-+		if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
-+					     target_impl_cpus[i].midr))
-+			return true;
-+	}
-+	return false;
- }
- 
- static bool __maybe_unused
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 72e876f37cd4..5c61d9d9f097 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -86,6 +86,7 @@
- #include <asm/kvm_host.h>
- #include <asm/mmu_context.h>
- #include <asm/mte.h>
-+#include <asm/hypervisor.h>
- #include <asm/processor.h>
- #include <asm/smp.h>
- #include <asm/sysreg.h>
-@@ -3679,6 +3680,7 @@ unsigned long cpu_get_elf_hwcap3(void)
- 
- static void __init setup_boot_cpu_capabilities(void)
- {
-+	kvm_arm_target_impl_cpu_init();
- 	/*
- 	 * The boot CPU's feature register values have been recorded. Detect
- 	 * boot cpucaps and local cpucaps for the boot CPU, then enable and
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index ef3a69cc398e..a6926750faaf 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -49,6 +49,8 @@ PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
- PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
- #ifdef CONFIG_CAVIUM_ERRATUM_27456
- PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
-+PROVIDE(__pi_target_impl_cpu_num	= target_impl_cpu_num);
-+PROVIDE(__pi_target_impl_cpus		= target_impl_cpus);
- #endif
- PROVIDE(__pi__ctype			= _ctype);
- PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
-diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/smccc/kvm_guest.c
-index f3319be20b36..f0b0154150b5 100644
---- a/drivers/firmware/smccc/kvm_guest.c
-+++ b/drivers/firmware/smccc/kvm_guest.c
-@@ -6,8 +6,11 @@
- #include <linux/bitmap.h>
- #include <linux/cache.h>
- #include <linux/kernel.h>
-+#include <linux/memblock.h>
- #include <linux/string.h>
- 
-+#include <uapi/linux/psci.h>
-+
- #include <asm/hypervisor.h>
- 
- static DECLARE_BITMAP(__kvm_arm_hyp_services, ARM_SMCCC_KVM_NUM_FUNCS) __ro_after_init = { };
-@@ -51,3 +54,63 @@ bool kvm_arm_hyp_service_available(u32 func_id)
- 	return test_bit(func_id, __kvm_arm_hyp_services);
- }
- EXPORT_SYMBOL_GPL(kvm_arm_hyp_service_available);
-+
-+void  __init kvm_arm_target_impl_cpu_init(void)
-+{
-+	int i;
-+	u32 ver;
-+	u64 max_cpus;
-+	struct arm_smccc_res res;
-+
-+	/* Check we have already set targets */
-+	if (target_impl_cpu_num)
-+		return;
-+
-+	if (!kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER) ||
-+	    !kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS))
-+		return;
-+
-+	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID,
-+			     0, &res);
-+	if (res.a0 != SMCCC_RET_SUCCESS)
-+		return;
-+
-+	/* Version info is in lower 32 bits and is in SMMCCC_VERSION format */
-+	ver = lower_32_bits(res.a1);
-+	if (PSCI_VERSION_MAJOR(ver) != 1) {
-+		pr_warn("Unsupported target CPU implementation version v%d.%d\n",
-+			PSCI_VERSION_MAJOR(ver), PSCI_VERSION_MINOR(ver));
-+		return;
-+	}
-+
-+	if (!res.a2) {
-+		pr_warn("No target implementation CPUs specified\n");
-+		return;
-+	}
-+
-+	max_cpus = res.a2;
-+	target_impl_cpus = memblock_alloc(sizeof(*target_impl_cpus) * max_cpus,
-+					  __alignof__(*target_impl_cpus));
-+	if (!target_impl_cpus) {
-+		pr_warn("Not enough memory for struct target_impl_cpu\n");
-+		return;
-+	}
-+
-+	for (i = 0; i < max_cpus; i++) {
-+		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
-+				     i, &res);
-+		if (res.a0 != SMCCC_RET_SUCCESS) {
-+			memblock_free(target_impl_cpus,
-+				      sizeof(*target_impl_cpus) * max_cpus);
-+			target_impl_cpus = NULL;
-+			pr_warn("Discovering target implementation CPUs failed\n");
-+			return;
-+		}
-+		target_impl_cpus[i].midr = res.a1;
-+		target_impl_cpus[i].revidr = res.a2;
-+		target_impl_cpus[i].aidr = res.a3;
-+	};
-+
-+	target_impl_cpu_num = max_cpus;
-+	pr_info("Number of target implementation CPUs is %d\n", target_impl_cpu_num);
-+}
+@@ -492,8 +492,8 @@ static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
+ 		if (priv->eee_enabled) {
+ 			netdev_dbg(priv->dev, "disable EEE\n");
+ 			priv->eee_sw_timer_en = false;
+-			stmmac_disable_hw_lpi_timer(priv);
+ 			del_timer_sync(&priv->eee_ctrl_timer);
++			stmmac_disable_hw_lpi_timer(priv);
+ 			stmmac_set_eee_timer(priv, priv->hw, 0,
+ 					     STMMAC_DEFAULT_TWT_LS);
+ 			if (priv->hw->xpcs)
 -- 
-2.47.0
+2.30.2
 
 
