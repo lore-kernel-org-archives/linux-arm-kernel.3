@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFE3C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB5BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UNW7uXFJKMR9kCFEqLTGkFIRk/6qrajv5bHRhgQljQY=; b=ues4oMBgPPXWRNUHOHYBqQKmt9
-	h2J9nDXmD6L9OHbd5S2rJxZIcNIHhMu7/BtXossHg9szbr2sdaueuEy6BgjYgFF2Yi0j796eZSvHi
-	FMPgXY92D+r+XYuCW7bMInyXKxie1KS2jcFnCIJrTyOGzqsbTLx6/Om/bAXh1WeY8Wvn9l4QolmPa
-	HDIs66EY60R2+QVvb4PTC+z4KM1usPJBtOBBqYI6aKZsy2VMdEpJky2gjOsXD2C7ZhhO7nuaOhIN0
-	ZKSCb7V2liAOYjvC97fsHR7nJSb0mEg2vuyau8IbD/4cQu3TVk7XeaG/kM5BHaksbAO0hjU+bb/dS
-	vZD20qVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4pAWlKYQAsQwsC7GkBiYLNZ5M/vv7xcDnFC5tspjJOY=; b=JVdVX5qBefoPPiPRdFkOWOLQ9D
+	sX0pyi/2RAuq7m9E9+hTdemDsZxT61iCFDrhkIUkTUwTcHDnuubgy6K2wehQAfWviZ6kt7gfZlYOT
+	rjjWDagU0p194qH0Ly/spywKRXaUVqxbHQH3K3/cJKf/nPHiMhQx9mEFTMRhPf2qUUe5zHYHwYckN
+	GwJ7UPtiVzl5tXWZVxzdgp7SNVYaw2GMOHz4L4fmzUC3KhWL/LcsfKvEl5BkgiXeiCdBeanSBB6xL
+	pXdECd3Oe12iC3t8TalLT2MDmQrLzipuB9ZIevexrAyiXDxPk4BfBbuW2i39xsRxwCyYsyT1EBV0p
+	Sae8ng1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfadq-00000002ZRU-2mYG;
-	Wed, 05 Feb 2025 08:20:14 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tfahB-00000002ZcY-1sHa;
+	Wed, 05 Feb 2025 08:23:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfacT-00000002ZIb-38Yh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 08:18:51 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aafc9d75f8bso1293057866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 00:18:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738743528; x=1739348328; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:references:cc:to:from
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UNW7uXFJKMR9kCFEqLTGkFIRk/6qrajv5bHRhgQljQY=;
-        b=NjLDdvnDXjJPEZay4L3Xyoyi+zLo09NWAhNNYAtwY8aQUaf7iSXB8Rb2hom+1Fbv0k
-         TWN7nkXM3CxvegkZnChj/ke4N2HLyPaC2lHD6ALk3FtERpcwSpGzskxNTUmP16mwJJ8s
-         eVIMjtTMcWizwSolQu39NmdUYOUZf+PXGDCe4XivNYpQLyhzkRd+cmamHCH2ZhkCyFgP
-         NbOJnN+1mQ2IrspGF8CY0H5T1nw0MMR5ukRQDqzcLvDAUFMe8rgv4eGaxAqoMRTs/SXP
-         o+rZLPEMChDZATzQIErGMnRcmVxn7uKT85lmGdW7DAOqvwNflBAwc2g8FF3Ax3xby/4u
-         b3/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738743528; x=1739348328;
-        h=content-transfer-encoding:in-reply-to:references:cc:to:from
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UNW7uXFJKMR9kCFEqLTGkFIRk/6qrajv5bHRhgQljQY=;
-        b=aUs/GSPDZqyZk5NVpZ9ATeLOOYD4msLKMaFXH6zsR67a9hjO9Ai9jCbkyDqJs6shb+
-         dsqkmcdcWXxuHvnoadLBCNZyxHpeLLO/R/l5OhmsX9PcuU6flLWRuoMY/+4vOXnkFj8x
-         LQxMCZqdFTjVmkDCJsLRowKGVkAd45pfsVMqv9ieBpW21Z1U3lAbofEPXZ4KB+Jlj46L
-         CyLeC2r00VIm3zbUPHLSh4D0TBPMlinmYrOGMDptTkiO5JV1173WoBWMOnk4qqQaLinC
-         cVkyA6IBnxIsnnMp78y1SFY90eNXsyp2iAKEyeRJ25WNt5qPkKq0aN+kSdVsqmTM0iUe
-         9jbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUdkzyKCB7swZhwWX2gUiCYXl/gjJKw3eHZnPR4ACcQOzaZUH9W27HXVB7ORGyFBLy+5EJEYbHlz0mUSICaII4a@lists.infradead.org
-X-Gm-Message-State: AOJu0YygQx3kvAXOw0M06X4bjy574u6hU+ZZDpxuUvz3Z+r/uOO6aPuI
-	P3blGlOhWMEBZErUsWXmxkedcvKCStAZqmCloVscezwR8VAyB5nw
-X-Gm-Gg: ASbGncudMZtkfL99NR4gHkGYkx8l3KsCrhnEfkL1fipw7fgegw1qwQXQYsd+rXIymhX
-	VhY1Ea94Bw7EXFuCzFcVUz1kj+JoaGACrHQHv7/v96LRczHsGhBf1YoaXNugMS4pzvzNBAbjLXR
-	zuJWtScy5fc9stB45jxuM2xmzIgu+2z3EXAGTmU4D/nCtBsi0SDZvl+kD752MSfYlIVlYFFkKjA
-	jhHDTK2bZfDUMj/7fY+FGlYNLs4eOrhWA3qMaASNBVhPssgTv2qdCDJViNa2TkXCccBjT2F04C+
-	ilzGnXuH49FlK1Da+8DOgH/h+ONkd4uuVD5s2Ry/m7X4zpW7HDFau+sLfjV9hBHLqrlz4w==
-X-Google-Smtp-Source: AGHT+IHDbLiE7YoVUr4CvYmahaf4zTpaa81sGHBgInIf/ZKG021o5cEBnKKzmiCc6pqVQHocIMOaAQ==
-X-Received: by 2002:a17:906:db04:b0:ab6:d575:9540 with SMTP id a640c23a62f3a-ab75e34dc14mr153610966b.50.1738743527521;
-        Wed, 05 Feb 2025 00:18:47 -0800 (PST)
-Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7008b2c04sm852094466b.33.2025.02.05.00.18.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Feb 2025 00:18:46 -0800 (PST)
-Message-ID: <dc3dcfe1-2706-449b-8622-2783349e8b41@gmail.com>
-Date: Wed, 5 Feb 2025 10:18:45 +0200
+	id 1tfafo-00000002ZZy-4ANQ;
+	Wed, 05 Feb 2025 08:22:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 05709A4324F;
+	Wed,  5 Feb 2025 08:20:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D4BC4CED1;
+	Wed,  5 Feb 2025 08:22:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738743735;
+	bh=plWBqjVepzAuiutGiFeK2rxapKZ0OgBeLuxkv7ZfeeU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SDvjgAmScUamgc00gwGEzO4oY3ekKdYGSYKdIR2SrFxIXDB632igGoIiMaTVQu/sj
+	 emUbDY8yf1ri+4b/LnOKkxWyYzfl4SF6PB5YLhI7N+q4uTjTJgsbFj+JxmsacUJe0J
+	 V5bJ27wRFwqS/P+L8rym6mmVIkaQEm/WKpNYhvuMUE2Li/xviItzCo4UMWfhjG+gRb
+	 Mo7u0xA6SMty7kUwZtn6wQn04R5j5tuqg8SFQ10hcAX7UZJLN1kJTF2ge53U1KvQ9M
+	 pO5Q0GPmz3VG05yiApvEY5/zYn9dbbBIW60JAHFE7MMs7QEdP9N/MLyND5no15GUSw
+	 5cOKBYZS8LxIw==
+Date: Wed, 5 Feb 2025 09:22:12 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: Introduce more nodes to EN7581 SoC
+ evaluation board
+Message-ID: <Z6MftNE6JrbISVZH@lore-desk>
+References: <20250201-en7581-dts-spi-pinctrl-v1-1-aaa4a9dfc4a6@kernel.org>
+ <4656ae57-c6a1-48ac-a60f-72d7b988c307@kernel.org>
+ <231c1f01-dea1-4c39-bbe1-cb629f7c109d@kernel.org>
+ <Z6I9JzAVv3VjKOiE@lore-desk>
+ <8b79700d-f628-4e65-b9a5-63bbc3958cc1@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/4] arm64: dts: exynos: update all samsung,mode
- constants
-Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>
-Cc: devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com>
- <20250204172803.3425496-5-ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250204172803.3425496-5-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LiQRrPQ3+vR+Xwkq"
+Content-Disposition: inline
+In-Reply-To: <8b79700d-f628-4e65-b9a5-63bbc3958cc1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_001849_799216_12C12409 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20250205_002217_172743_D0F5DE6D 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +81,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/4/25 19:28, Ivaylo Ivanov wrote:
-> Update all samsung,mode property values to account for renaming USI_V2
-> constants to USI_MODE in the bindings.
->
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi     | 14 +++---
->  arch/arm64/boot/dts/exynos/exynosautov9.dtsi  | 48 +++++++++----------
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  2 +-
->  .../boot/dts/exynos/google/gs101-oriole.dts   |  4 +-
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  2 +-
->  5 files changed, 35 insertions(+), 35 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> index f1c8b4613..cb55015c8 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> @@ -651,7 +651,7 @@ usi_uart: usi@138200c0 {
->  			compatible = "samsung,exynos850-usi";
 
-...
+--LiQRrPQ3+vR+Xwkq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> index 387fb779b..b73c152c7 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+> On 04/02/2025 17:15, Lorenzo Bianconi wrote:
+> >> On 03/02/2025 17:04, Krzysztof Kozlowski wrote:
+> >>>> +
+> >>>> +		rng@1faa1000 {
+> >>>> +			compatible =3D "airoha,en7581-trng";
+> >>>> +			reg =3D <0x0 0x1faa1000 0x0 0xc04>;
+> >>>> +			interrupts =3D <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+> >>>> +		};
+> >>>> +
+> >>>> +		system-controller@1fbf0200 {
+> >>>> +			compatible =3D "syscon", "simple-mfd";
+> >>>
+> >>> These are never allowed alone. I am pretty sure I added proper checks
+> >>> which should point it out, so I think you did not really test your DT=
+S.
+> >>>
+> >>> It does not look like you tested the DTS against bindings. Please run
+> >>> `make dtbs_check W=3D1` (see
+> >>> Documentation/devicetree/bindings/writing-schema.rst or
+> >>> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree=
+-sources-with-the-devicetree-schema/
+> >>> for instructions).
+> >>> Maybe you need to update your dtschema and yamllint. Don't rely on
+> >>> distro packages for dtschema and be sure you are using the latest
+> >>> released dtschema.
+> >>>
+> >>
+> >> Now I see Rob's report:
+> >> arch/arm64/boot/dts/airoha/en7581-evb.dtb: system-controller@1fbf0200:
+> >> compatible: ['syscon', 'simple-mfd'] is too short
+> >> which confirms untested code. Schema is there for a reason. :(
+> >=20
+> > actually I have tested them with the following command (but without W=
+=3D1).
+> >=20
+> > make CHECK_DTBS=3Dy DT_SCHEMA_FILES=3Dairoha airoha/en7581-evb.dtb
+> >=20
+> > - dtschema 2024.11
+> > - yamllint 1.35.1
+> >=20
+> > With W=3D1 I can see more issues, I will fix issues in v2.
+>=20
+> Rob's warning does not come from W=3D1. Your test cmd was incorrect: drop
+> DT_SCHEMA_FILES. You must test your code against ENTIRE bindings, not
+> some subset.
 
-This patch won't apply anymore since gs101-oriole was moved to pixel-common.
+ack, thx for pointing this out.
 
-I didn't see that [1] was applied yesterday. I could make a new patch that
-also covers these changes, but I'd expect the rest of this series to get applied first.
+Regards,
+Lorenzo
 
-[1] https://lore.kernel.org/all/20250117-gs101-simplefb-v4-0-a5b90ca2f917@linaro.org/
+>=20
+> Best regards,
+> Krzysztof
 
-> @@ -161,12 +161,12 @@ &usi_uart {
->  };
->  
->  &usi8 {
-> -	samsung,mode = <USI_V2_I2C>;
-> +	samsung,mode = <USI_MODE_I2C>;
->  	status = "okay";
->  };
->  
->  &usi12 {
-> -	samsung,mode = <USI_V2_I2C>;
-> +	samsung,mode = <USI_MODE_I2C>;
->  	status = "okay";
->  };
->  
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> index 302c5beb2..473db46aa 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> @@ -825,7 +825,7 @@ usi_uart: usi@10a000c0 {
->  				 <&cmu_peric0 CLK_GOUT_PERIC0_PERIC0_TOP1_IPCLK_0>;
->  			clock-names = "pclk", "ipclk";
->  			samsung,sysreg = <&sysreg_peric0 0x1020>;
-> -			samsung,mode = <USI_V2_UART>;
-> +			samsung,mode = <USI_MODE_UART>;
->  			status = "disabled";
->  
->  			serial_0: serial@10a00000 {
+--LiQRrPQ3+vR+Xwkq
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6MftAAKCRA6cBh0uS2t
+rIdRAP0T8iB3DoaOfZdbT+HBVFT7fwKaImgcPD/jY4Yf/Ldr8wEAoH7z/VszoODJ
+1lATWykY0c7IScLhRndOZArIN8AeuAw=
+=4f92
+-----END PGP SIGNATURE-----
+
+--LiQRrPQ3+vR+Xwkq--
 
