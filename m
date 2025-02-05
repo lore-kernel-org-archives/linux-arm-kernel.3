@@ -4,85 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DBBC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB2BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5pjtlFBbyV2tkO66ddvoUngY8TmcZcq3HnlQUDSPEI=; b=0bLJXkAel1ugnfgj45ehsmwIdp
-	ETN0uAzJ5RN6iPp1HczbPM/rPMSpaujX2W3yZ5Klt1oT2exvdCeuU70TWMsixE0J+19PoZj7z8Jc2
-	LpMp4irZJuBKCiezj/LGNd9wMcrDi4POktW3vEzAhDqJhvKoAZHm1PDJwQatDxsuHLUifqouDnHVQ
-	ZeLKv+sYhsWLLVXxXtl9huQh5OsEdscQNrHk650f5pH1i5Lvmd7/b9oBgTndw39k3sK7qj/LdGZRh
-	SD4u8I+96JfwfWeSL+OKmJhYXzLdmbcV3U+w3Hp9VL9TAEB7yUdP8AKrsDy86nyruEfO3atdPtHu3
-	EcIs5z+A==;
+	bh=7l9uKBmvRsrXs25ZG4apsvRz1wkUPgpj06YdlErcqv4=; b=S+VAFYm+g4QDarpvGvBskuHxhN
+	5D5/4uPp2B8lRIJQ7RftUrj5cOtZ0RYanYPYUIGO5zlgg5r9/ItXhjIOXXxPoy3ttZ9n+hint3zhR
+	f9yVV3qqcnIdk/QgorCX1lKcL8YABCjD159Q1BBKJjMBcPzHXm6VnYGn7R5ZITqLxPfeFjRq7fLFi
+	D9JGC+uw12L0q2UvFG+FpDEeUtR9BTuyB+kTIxY97LvEh4cCUSZrOlWC067/J7KZYx/3LJ6kmYl9F
+	SYs5tOksBro4VsiPPWJWlB2JSc84OJZb3J/kJFD1ADTe7BkbAs95nWDl7WomX+P35pL/JSj+zY7fI
+	YVmL/9Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhhH-00000003rBf-0lgu;
-	Wed, 05 Feb 2025 15:52:15 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tfhie-00000003rdD-1vqV;
+	Wed, 05 Feb 2025 15:53:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhfs-00000003quJ-3Ox0
+	id 1tfhhF-00000003rBN-46nO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 15:50:49 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54287a3ba3cso878642e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 07:50:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738770646; x=1739375446; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V5pjtlFBbyV2tkO66ddvoUngY8TmcZcq3HnlQUDSPEI=;
-        b=Vk4e2CsQxPFJnJUw3H8hHr/LweuYWyLrW/m/MQM+YoyphQKFjw8njYSh5y5CpezBu/
-         25zu3ANaueR/jeSwXLGLWNgYRA9R3F4w/GDWa9LlCRt0wKxQUSHDSEmTFGtemv5teh3E
-         pHoItkGA5ujp9N4pOWb+oHQRHceyZDPizaYqPMn0VsgPmkgkno5IDsvtTCj/ZEGVWxWP
-         eVIq+2lrDb2RzZEUswvNUnLDUOYmVJ8GHtu+bMqtGfjfISL3lRbO53aEJVca2ka1Y/1z
-         7CUVFHpLr+IS9nW5xyOmf8Ll9AO9OGjcE/qX+gfnr6/oGFrhZ4DQ8LCvsH/9dp14Cb9c
-         VpNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738770646; x=1739375446;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V5pjtlFBbyV2tkO66ddvoUngY8TmcZcq3HnlQUDSPEI=;
-        b=YpUC3U7uEDMz5aWm+Yt2HsmM87SoCHxy4SNND8L5RgrURyJbsNnuF968cyD68fuJtA
-         3GP1H9/eDbFKMwP+VNR2u9nUkaiawgv/v9xrHcRS1vWdgdFl4lTl2djf6FbcgnVSryzk
-         9qwuwGmeOzDooerdWGGaAt9PrWgpq5q/dl0GZdz2cuzSTJCzG3qoXT6455nsSUxHH2QL
-         BpxCmLFIWOgADlnOUQE2CmLpjR9Tro7Q6Y9pl0Xys+0wshWUHwF3LNDe8IDtzC5ILB/z
-         bjQ9NjMnrjRKL/A2Zz9WkeSU5/SCaqJDmZ5DxWs0U+its4rmtoUbGjymBWbOMpbS6yJt
-         9HKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX4agGHazn3YAGLyL6HwE8m7GVdN+QYylNzGvBwVIsMruYqPiAR5jS5/Q7OwUbAMogHF1J414eF/EljaXJMAAxo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAMM0eX432FGv37px2oXHB+lD0hLeTZZ7Qzs7ikPZAgHwZ/boL
-	5IyHTbA5t+BtPhStUrkX2E+6p5sCgRHiriBRWrnUvykDismA0sopHEDyHwbOXVHx8v8ZEWuwDNW
-	AKW7FVz4hsR478k6nHKSC+zamgsY=
-X-Gm-Gg: ASbGncutz9pmxTXd5JJ7Z3p4B0rglSPnOuWwVwwE6E04fuWlTA/tZj/fPfDUUWmaoOW
-	NKGS7XPWqignySyjqKwQorUf/WtXfVAEiXHZoldBeb0ysQRRyFQ/98JZqhPLutn0Bms5ZUfRF+L
-	0ai9cjp8PmHHHZz5KEWu29R4Ss+n4=
-X-Google-Smtp-Source: AGHT+IFDxYIl5oogc4aOzvhvY0HAoYIntif84wA755oePAmAkgyhvnAbag537ru1gnMM2wW5pU4RYFXtdOqt55rYnMU=
-X-Received: by 2002:a05:6512:3c8f:b0:543:bb69:c635 with SMTP id
- 2adb3069b0e04-54405836109mr1109351e87.15.1738770645990; Wed, 05 Feb 2025
- 07:50:45 -0800 (PST)
+	Wed, 05 Feb 2025 15:52:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 738165C630B;
+	Wed,  5 Feb 2025 15:51:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EB56C4CED1;
+	Wed,  5 Feb 2025 15:52:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738770732;
+	bh=inFMVc8Ols0LW70mMt2o4nOk4w/ThcAVaXgeY4U+Nyo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gVCtpzznuu5jI6PH9vDBWoaAavs09Xy4dt7mA9NFMkyUY4PW4069QVqKbb16TVAGr
+	 DCMIUNwh2Wn+zpwCIIdWkIvj7YAp+t6lHHseyfc8xLQnhr63GYVum0aqk4gTxfU5sL
+	 N7sB/BKJcudcXpYqO4qGP+3UAXtz8yelK3pWPa+wt6L90ItGEyXS2MXJPbfpQXTtD9
+	 fd3YwDnlegRoe2sk0nni4zs2MOvcCyxt8CeHJmaKCR3gY3B6b8cxt4zQgNQ8u0BRKi
+	 l3OQnmC4Y7PD680lCafIfuZBPZsl7wwWPNRfP/ZQZb+N+GXUiqJCVKjua0U3OxUPEQ
+	 R1B3XXyOPpVWA==
+Message-ID: <6d4d93a5-9a03-4cc3-9ef4-ab64562560f3@kernel.org>
+Date: Wed, 5 Feb 2025 16:52:07 +0100
 MIME-Version: 1.0
-References: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
-In-Reply-To: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 5 Feb 2025 12:50:34 -0300
-X-Gm-Features: AWEUYZlFLXiepv_yE9yXJ9KlWCIpZy_t6h9dHVFhvb1GQAbeKkvQGMigDUgxkZw
-Message-ID: <CAOMZO5Ar_-_H+Kwv_=ScoABqLzfEHX=3=JxrpPfiD2QmDt4=QQ@mail.gmail.com>
-Subject: Re: [PATCH resend] firmware: imx: IMX_SCMI_MISC_DRV should depend on ARCH_MXC
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@arndb.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Mark Brown <broonie@kernel.org>, soc@lists.linux.dev, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: add cpu cache information to
+ ExynosAuto-v920
+To: Sudeep Holla <sudeep.holla@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: 'Devang Tailor' <dev.tailor@samsung.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, faraz.ata@samsung.com
+References: <CGME20250108054224epcas5p399f3d734f8d9f82e5ae75d183d1a5344@epcas5p3.samsung.com>
+ <20250108055012.1938530-1-dev.tailor@samsung.com>
+ <006401db73d6$2af35fb0$80da1f10$@samsung.com> <Z5zPpz6WAbPJX701@bogus>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z5zPpz6WAbPJX701@bogus>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_075048_846652_3FC1BF10 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250205_075214_109848_6FB00397 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,16 +121,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 5, 2025 at 11:52=E2=80=AFAM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> The i.MX System Controller Management Interface firmware is only present
-> on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
-> asking the user about this driver when configuring a kernel without
-> Freescale i.MX platform support.
->
-> Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+On 31/01/2025 14:27, Sudeep Holla wrote:
+>>>
+>> [snip]
+>>  > +		l3_cache_cl0: l3-cache0 {
+>> You can add one node for cl0 and cl1, say "l3_cache_cl0_cl1" and
+>> Remove the specific node for CL1, because both are same.
+>>
+> 
+> What do you mean by "both are same" ?
+> Do you mean both have exact same properties but are physically different
+> caches ? OR
+> Do you mean it is just one shared cache ?
+> 
+> If former, we still need distinct node to get the cacheinfo about
+> shareability correct. If this is about avoiding duplication of errors,
+> you can probably define some macro and avoid it, but we need 2 nodes in
+> the devicetree.
+> 
+> If latter, you suggestion is correct.
 
-Reviewed-by: Fabio Estevam <festevam@gmail.com>
+No answers here, so I drop this patch from my queue.
+
+Best regards,
+Krzysztof
 
