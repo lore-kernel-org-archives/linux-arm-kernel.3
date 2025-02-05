@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4E4C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED134C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCFhGClg9CjSX5KAb4d8jJf4KQjHkPGgZ/ES74pcY90=; b=wg58HADsflvcaaefDlHfG+BgoO
-	Of6nB3eAwbhEQA3QjMpbyVlnIDc1UFP61ioLFIs3YaOYxbwt9NEJPQaurRuLIvExtZbG+XkLEoz9O
-	YyUuNsBrrLaAbvNI1kZPOql+r3TdULZ06UpXySNMAWvX72x+JTuDVq3J6aX+cYyOd3f/5qOYmnjd+
-	HBEUegZJys01wCeH/195EJkKCFTuOEEHGyzNHsS/m9qYyJ4pRSACF0mV5CoEQCzEwOreWSdH9qa9W
-	Mh96PsQ6GDy4rE9gdN8GF8j9R7xGJakWtBR7kcnllK90jqdiMU+/+dVF+nalk83d24CK7ihD1fcq9
-	JsvENWoQ==;
+	bh=vaDFuiHoKMcPrOZiBb6rulduVuXzLC4QmK70UITNdZQ=; b=ui0S2hiog3fxpi2jWmxoW5eTtk
+	UG7GkqFXXlHbMij+i5EzdKJ2bSiDEVwrqogG0cwTpr5qux1P8WPk3UrU53NrH59ESJ9uNrN5kSQ17
+	+vuU5LLg5kzGyV278/7AcN6oMOt6PsPQx7lTdfKulLYAIFHopH43e6u+LypXZ1T3n2Ru9GIy51LvL
+	Z+Qo0fwNFufzWfaT62tE5FXHEfMQGoXwQSrkRyPKyoBvw6kbMnn5YqF9MyQ/fhzo0ESNfQA5jS/vh
+	KTPbrNzQGmsdVPJFL47mtzqvyCek3s2iL5X+l/rk72LqLNlOOYEEMnuRNcDbw2837YtxaIaiOGqIC
+	ZAHFCvwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffhc-00000003QoS-07zE;
-	Wed, 05 Feb 2025 13:44:28 +0000
+	id 1tffiw-00000003R24-3oz0;
+	Wed, 05 Feb 2025 13:45:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffdh-00000003Q7o-1Ht9
+	id 1tffdk-00000003Q7z-3NHI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Feb 2025 13:40:25 +0000
+	Wed, 05 Feb 2025 13:40:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=eCFhGClg9CjSX5KAb4d8jJf4KQjHkPGgZ/ES74pcY90=; b=mgpgmiTY3thPZQiKoNoE4PwYK+
-	h12fwBVkA1FOl+riyzvVEUd/6RCWap8XC1+Qj65GyoaZMMxxZ4gHTFI6qiG4yoiOU1phDEZX1yXIS
-	CBnkKSYfRBlOC9kZcwyctAmN+m1/U2uFKLiTsW76riCl/ntGmrsMFaOQWWhrf2yQ+30JIhonWLVHb
-	PrznqA68I4SmQynxUzLlCFsyP/1yWq60NoR8x723nxhS34ZvCDp6PaPJQ65SorIWGiqAr0uaWlaQ2
-	L13lwx+RHQWDwhgAd0S6c2+awZ5myTpCN+E/yl7ALRFbXrxY+zjNsO/CFYXWM50L/wTyrqksH24iF
-	m4OIgfSA==;
+	bh=vaDFuiHoKMcPrOZiBb6rulduVuXzLC4QmK70UITNdZQ=; b=WAZIAnQvwFDC23whLrGs8jLSAg
+	d7XVwsPHAcyw5dBNccIMZm2Drk4PRm+422cxwBCkJsu6iWeMM3z0OvnlICb4SsgsFyHmga0yUI5B8
+	9uSBk9/s7jeK3bh0OlkR7diXyrafToNEw8FQrxLsvePYNYprpyKPxvv0BM1KCV2Q5pMLnECYuprPN
+	q8M3nocSnWTBu96gVeXBmMNfDuQis+pc26InKtXa81/VFRTA7vQUvSccEpSc/DYQoBOgVNKSideVC
+	qrzoSX5y14S1FyJBiNe+eFYIOvCea0KuoEfiK9YKWhuCTca23q8EY7ttwu3+i1cMSJ4gkGrNTOhyk
+	oI4jLoXA==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffde-0000000GeS3-1VQi
+	id 1tffdh-0000000GeSO-3rqG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 13:40:24 +0000
+	Wed, 05 Feb 2025 13:40:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eCFhGClg9CjSX5KAb4d8jJf4KQjHkPGgZ/ES74pcY90=; b=GNZ2u28Thy6rnj0vAO8fROn9v6
-	9Qba1U4DIdMUk+vrH96TgOA2vfxU1X2C7OCCJUHqqsS+3SoeyCHHoQrwZlqko/E+44BJfx16kqQnz
-	JC/48n4YOXKLsXNbRWGgeEJ4AMeGyyc0MxkSa6QX3wm7QcpEHhUSMSv/x9aBeFnYBBj+5l7MM2OI7
-	KFArwXPiQvsOOU7apWM0O2S+d+dKINphB5nS3wlvIZvco/IsgXTMv9VXxH/UyhiCEeTWnJbkUTi2U
-	Xa4W8ZX5cfxrDJzDcu/nITejHvFJSNRwrQ8DQlRgXqKT62wDZo0nrrrGhinQOQ6sd87mx32gp3YxT
-	m0OmaxbQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58636 helo=rmk-PC.armlinux.org.uk)
+	bh=vaDFuiHoKMcPrOZiBb6rulduVuXzLC4QmK70UITNdZQ=; b=hXSDb5RzVOMORA7oA3m7Gk9yoJ
+	sdnvxU1ei9G8Rc+Jk3gFM+WeLRJSD3PB2apF5WZNZphSfDoXImvadOtqQXEJxR6apNv4ylcZcgukB
+	EcDa06geEagbKtYLCT59qxUu+O7WmsT3Iq6hdY0uMp6usEWS7+Bjhg+C2p0jqSghVFWrhUoujh3ii
+	C44eXvFgnrRBycBdFMberHj+sKOntbTL3hqVF04VyGsb02xlmvlKOUo8C+VNoviBIRYHyKbHqXzGh
+	DOUmu+6K/ToeVajL3XHAIl8N8DUsrdWsb9xmkGMPfnB8mvbzkF7EvkgYBYt8m8jkAsEzRGxi3bxhs
+	MUJ2FmDQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58650 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tffdX-0007AM-0o;
-	Wed, 05 Feb 2025 13:40:15 +0000
+	id 1tffdc-0007Ab-0X;
+	Wed, 05 Feb 2025 13:40:20 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tffdD-003ZHh-Ew; Wed, 05 Feb 2025 13:39:55 +0000
+	id 1tffdI-003ZHn-Iz; Wed, 05 Feb 2025 13:40:00 +0000
 In-Reply-To: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
 References: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -78,16 +78,17 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 03/14] net: stmmac: dwmac4: ensure LPIATE is cleared
+Subject: [PATCH net-next 04/14] net: stmmac: split stmmac_init_eee() and move
+ to phylink methods
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tffdD-003ZHh-Ew@rmk-PC.armlinux.org.uk>
-Date: Wed, 05 Feb 2025 13:39:55 +0000
+Message-Id: <E1tffdI-003ZHn-Iz@rmk-PC.armlinux.org.uk>
+Date: Wed, 05 Feb 2025 13:40:00 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_134022_728082_DCF0BC3A 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250205_134026_217548_FD0E2467 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +103,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LPIATE enables the hardware timer for entering LPI mode. To sure that
-the correct mode is used, clear LPIATE when using manual/software-timed
-mode to prevent the hardware using the timer.
-
-stmmac_main.c avoids this being a problem at the moment by calling
-stmmac_set_eee_lpi_timer(..., 0) before switching to software mode.
-
-We no longer need to call stmmac_set_eee_lpi_timer(..., 0) when
-disabling EEE as stmmac_reset_eee_mode() will now clear all LPI
-settings.
+Move the appropriate parts of stmmac_init_eee() into the phylink
+mac_enable_tx_lpi() and mac_disable_tx_lpi() methods.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c | 4 +++-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 -
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 133 +++++++++---------
+ 1 file changed, 63 insertions(+), 70 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index 9ed8620580a8..17bf836eba7f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -387,6 +387,7 @@ static void dwmac4_set_eee_mode(struct mac_device_info *hw,
- 	 * state.
- 	 */
- 	value = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
-+	value &= ~GMAC4_LPI_CTRL_STATUS_LPIATE;
- 	value |= GMAC4_LPI_CTRL_STATUS_LPIEN | GMAC4_LPI_CTRL_STATUS_LPITXA;
- 
- 	if (en_tx_lpi_clockgating)
-@@ -401,7 +402,8 @@ static void dwmac4_reset_eee_mode(struct mac_device_info *hw)
- 	u32 value;
- 
- 	value = readl(ioaddr + GMAC4_LPI_CTRL_STATUS);
--	value &= ~(GMAC4_LPI_CTRL_STATUS_LPIEN | GMAC4_LPI_CTRL_STATUS_LPITXA);
-+	value &= ~(GMAC4_LPI_CTRL_STATUS_LPIATE | GMAC4_LPI_CTRL_STATUS_LPIEN |
-+		   GMAC4_LPI_CTRL_STATUS_LPITXA);
- 	writel(value, ioaddr + GMAC4_LPI_CTRL_STATUS);
- }
- 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index fecf9e8b29bf..c0472738bc76 100644
+index c0472738bc76..8f2624de592d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -493,7 +493,6 @@ static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
- 			netdev_dbg(priv->dev, "disable EEE\n");
- 			priv->eee_sw_timer_en = false;
- 			del_timer_sync(&priv->eee_ctrl_timer);
--			stmmac_disable_hw_lpi_timer(priv);
- 			stmmac_reset_eee_mode(priv, priv->hw);
- 			stmmac_set_eee_timer(priv, priv->hw, 0,
- 					     STMMAC_DEFAULT_TWT_LS);
+@@ -466,74 +466,6 @@ static void stmmac_eee_ctrl_timer(struct timer_list *t)
+ 	stmmac_try_to_start_sw_lpi(priv);
+ }
+ 
+-/**
+- * stmmac_eee_init - init EEE
+- * @priv: driver private structure
+- * @active: indicates whether EEE should be enabled.
+- * Description:
+- *  if the GMAC supports the EEE (from the HW cap reg) and the phy device
+- *  can also manage EEE, this function enable the LPI state and start related
+- *  timer.
+- */
+-static void stmmac_eee_init(struct stmmac_priv *priv, bool active)
+-{
+-	priv->eee_active = active;
+-
+-	/* Check if MAC core supports the EEE feature. */
+-	if (!priv->dma_cap.eee) {
+-		priv->eee_enabled = false;
+-		return;
+-	}
+-
+-	mutex_lock(&priv->lock);
+-
+-	/* Check if it needs to be deactivated */
+-	if (!priv->eee_active) {
+-		if (priv->eee_enabled) {
+-			netdev_dbg(priv->dev, "disable EEE\n");
+-			priv->eee_sw_timer_en = false;
+-			del_timer_sync(&priv->eee_ctrl_timer);
+-			stmmac_reset_eee_mode(priv, priv->hw);
+-			stmmac_set_eee_timer(priv, priv->hw, 0,
+-					     STMMAC_DEFAULT_TWT_LS);
+-			if (priv->hw->xpcs)
+-				xpcs_config_eee(priv->hw->xpcs,
+-						priv->plat->mult_fact_100ns,
+-						false);
+-		}
+-		priv->eee_enabled = false;
+-		mutex_unlock(&priv->lock);
+-		return;
+-	}
+-
+-	if (priv->eee_active && !priv->eee_enabled) {
+-		stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
+-				     STMMAC_DEFAULT_TWT_LS);
+-		if (priv->hw->xpcs)
+-			xpcs_config_eee(priv->hw->xpcs,
+-					priv->plat->mult_fact_100ns,
+-					true);
+-	}
+-
+-	if (priv->plat->has_gmac4 && priv->tx_lpi_timer <= STMMAC_ET_MAX) {
+-		/* Use hardware LPI mode */
+-		del_timer_sync(&priv->eee_ctrl_timer);
+-		priv->tx_path_in_lpi_mode = false;
+-		priv->eee_sw_timer_en = false;
+-		stmmac_enable_hw_lpi_timer(priv);
+-	} else {
+-		/* Use software LPI mode */
+-		priv->eee_sw_timer_en = true;
+-		stmmac_disable_hw_lpi_timer(priv);
+-		stmmac_restart_sw_lpi_timer(priv);
+-	}
+-
+-	priv->eee_enabled = true;
+-
+-	mutex_unlock(&priv->lock);
+-	netdev_dbg(priv->dev, "Energy-Efficient Ethernet initialized\n");
+-}
+-
+ /* stmmac_get_tx_hwtstamp - get HW TX timestamps
+  * @priv: driver private structure
+  * @p : descriptor pointer
+@@ -1110,7 +1042,33 @@ static void stmmac_mac_disable_tx_lpi(struct phylink_config *config)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(to_net_dev(config->dev));
+ 
+-	stmmac_eee_init(priv, false);
++	priv->eee_active = false;
++
++	/* Check if MAC core supports the EEE feature. */
++	if (!priv->dma_cap.eee) {
++		priv->eee_enabled = false;
++		return;
++	}
++
++	mutex_lock(&priv->lock);
++
++	/* Check if it needs to be deactivated */
++	if (!priv->eee_active) {
++		if (priv->eee_enabled) {
++			netdev_dbg(priv->dev, "disable EEE\n");
++			priv->eee_sw_timer_en = false;
++			del_timer_sync(&priv->eee_ctrl_timer);
++			stmmac_reset_eee_mode(priv, priv->hw);
++			stmmac_set_eee_timer(priv, priv->hw, 0,
++					     STMMAC_DEFAULT_TWT_LS);
++			if (priv->hw->xpcs)
++				xpcs_config_eee(priv->hw->xpcs,
++						priv->plat->mult_fact_100ns,
++						false);
++		}
++		priv->eee_enabled = false;
++	}
++	mutex_unlock(&priv->lock);
+ }
+ 
+ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+@@ -1119,7 +1077,42 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 	struct stmmac_priv *priv = netdev_priv(to_net_dev(config->dev));
+ 
+ 	priv->tx_lpi_timer = timer;
+-	stmmac_eee_init(priv, true);
++	priv->eee_active = true;
++
++	/* Check if MAC core supports the EEE feature. */
++	if (!priv->dma_cap.eee) {
++		priv->eee_enabled = false;
++		return 0;
++	}
++
++	mutex_lock(&priv->lock);
++
++	if (priv->eee_active && !priv->eee_enabled) {
++		stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
++				     STMMAC_DEFAULT_TWT_LS);
++		if (priv->hw->xpcs)
++			xpcs_config_eee(priv->hw->xpcs,
++					priv->plat->mult_fact_100ns,
++					true);
++	}
++
++	if (priv->plat->has_gmac4 && priv->tx_lpi_timer <= STMMAC_ET_MAX) {
++		/* Use hardware LPI mode */
++		del_timer_sync(&priv->eee_ctrl_timer);
++		priv->tx_path_in_lpi_mode = false;
++		priv->eee_sw_timer_en = false;
++		stmmac_enable_hw_lpi_timer(priv);
++	} else {
++		/* Use software LPI mode */
++		priv->eee_sw_timer_en = true;
++		stmmac_disable_hw_lpi_timer(priv);
++		stmmac_restart_sw_lpi_timer(priv);
++	}
++
++	priv->eee_enabled = true;
++
++	mutex_unlock(&priv->lock);
++	netdev_dbg(priv->dev, "Energy-Efficient Ethernet initialized\n");
+ 
+ 	return 0;
+ }
 -- 
 2.30.2
 
