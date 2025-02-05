@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9DFC02193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 01:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C1AC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 02:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=; b=IfI9sn0hf4IU1+uguXoqWJi+Fp
-	pV/oDIKPqfySgGY4EmsaSKkpZ45gX6R8XWT9fbgCgjp3PyDxEyUYLLHqCMQkPAdHG/u+Fvc3cAVwJ
-	xUWnvqkU/BqwpRWAjFPJzJu8wLXGKqkzZSJON8PnIfrJLA5IQ6Janxailvjr79/skrV3nbal+GasC
-	TmSysjFaQwMXE8bfugF95jaWq8+Cnk7mibgMLwcm8PwhqeRa9Y6Kbrkm6rGpr58MblRrTa7u5Kh0h
-	l2/mh3BoZXl3+UTLrExNNsFdxECbtv58eYs3WCTKtIpgmsAqiHt2vQ21T956uiQjUg661eAxY+rHR
-	K/gq6DTA==;
+	bh=/1w0LAq2M+/NtKCh0lzYTdc188jbF90/W0yNry5dtdc=; b=CHbwn8Fz8T5c+t7dpRXejkG/6p
+	uHk7kWXoFaMLIOFzQcJFDOd6iRT+o/l1AYoDUelqchytisPzB0ztHWQcgu9qctZ4PGkjs+b7uaTLe
+	yJSNtMpRv5tKEJsNhgVpc3qFcFtn5foossdFMTuthnHUCmXjxWVwJprHIzweadbmJMQLwzEWU5Vjq
+	omKvYSUJLcBtByYyEkn96kyAN8Lqt/VR3eF/Rq37UiHxYuxcFzMfr3xb5FgNVWMmtGHfpp0xw3Jzu
+	WAX28HhWloQkd+WPaRTDE8PZFPAIhSXpWlyJ+fkbpCd4orHGgWc8oRJQR8IuasRHRQsszKx2C0kgF
+	evYdKTNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfUVb-000000025Fo-3IpZ;
-	Wed, 05 Feb 2025 01:47:19 +0000
-Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
+	id 1tfV1H-000000027KO-251h;
+	Wed, 05 Feb 2025 02:20:03 +0000
+Received: from mail-m3295.qiye.163.com ([220.197.32.95])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfUUG-000000025CE-2lZH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 01:45:58 +0000
-Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-2a8690dcb35so2015826fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 17:45:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1738719952; x=1739324752; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=;
-        b=F31/3K7EgbC2+nXv/+Icpcusmls4nssabQjACtqBRl5Bsh7R7R/6eIAqbkPHbfmxqt
-         VN9lZlDE9MG6HuW+n15jHnmAk26LIICAPEB/WZtLoCU50V/CVd1lAGOtgjongTNPa+f7
-         Xf2oQavLzrAdo5zZ0wWL5KOpdRya9Wwq1dza/Yg+LpL453KTN4CR7SdluF3ZZQAyVl+H
-         I1CA/FO6totgovWVgbE0EsarGJCtYdEn0yuvfzyO/ghysELQDjKjldNTztCKaBRMPryX
-         FbU4OQGynIA6lhnyz3uB4jAzoHUb4DiCEJ1z2QgLrxvrcwlC+RMza6zPf/LV2dsEMJ65
-         OPnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738719952; x=1739324752;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=;
-        b=E/eAGtEb6IhA43c8jEJYrIOc7SMNMjEsrygk3NSxxouj9IpIGxoBLDN9pbcJ3rDNLH
-         UB37dlYAVegbbD69wwsNvewYeoP5RIAMLQC1J3uY+MC8vEJOstLxDLL/4h42UGP9WVpj
-         HaqobgRprsPXwNo8RxT8gpCTw+CskwZwUGlFZEmKy4E0XgqS7ElzpFvPBmaHTZrVCH7I
-         Qg9s84zffirXDzEPNXg3HhM0RN01axcx5ksOgKs5V6UZOw8vtwe5IP2kBtynXHUp9Jdp
-         K4SYlmkdzxIawk9yF9pMYEtsPF+NVU345E9v/8UboKVi6tYGHbbMxyWJN96Wa3AU40X3
-         jsqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVLOEi7DiSxcwbM9ncCHNLKcKvtSozEv2cP6gXWTDuBi6Vp4ITWcvmZq2FH/j70vDGzamm4RpwOvO5zva5MLtNj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxa4iFo0NJQRGXCK9osgAI20RxcsOUEle1RlPnxK/lngJdojUt1
-	ATfqqYqYO1jGDVchLC5e0w8KPAsPxpKNjMayg2j7hhBdMjGGm48nWdSA+7WAWoVbKXr8tUuTqey
-	5jJHpEBSXf4GaIYP/pF1GGTxdk0apP9uoAmrBCA==
-X-Gm-Gg: ASbGnct92Dr+kMoLtV7F2ebrtKDRbcsW5oUtpprl26D8Nf8F1urtP/goKAz8xnsx1W6
-	3EPx9YmqVG7as33xNjqORI6p7KiYkh3QLOjlLgjceHtFW4mXCjTUWQ3zweta4HC3f175yydJXH4
-	Y=
-X-Google-Smtp-Source: AGHT+IEEJSiApgxtxkGvC1xkEun8OovYoTlWGkz+UQfZ8HucQFQwWaCsmxUZdvb+jMWhRMNgUFoinaHR5BnA3MfwaiE=
-X-Received: by 2002:a05:6870:5491:b0:29e:43ce:a172 with SMTP id
- 586e51a60fabf-2b805126ddbmr804659fac.28.1738719951653; Tue, 04 Feb 2025
- 17:45:51 -0800 (PST)
+	id 1tfUzr-000000027Ca-3CRq;
+	Wed, 05 Feb 2025 02:18:37 +0000
+Received: from [172.16.12.30] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id a2f6aecf;
+	Wed, 5 Feb 2025 10:18:31 +0800 (GMT+08:00)
+Message-ID: <b85a4449-f178-4877-9ba7-65ddcc231052@rock-chips.com>
+Date: Wed, 5 Feb 2025 10:18:38 +0800
 MIME-Version: 1.0
-References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
- <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com> <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
- <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com> <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
- <20250124122952.GB23438@willie-the-truck> <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
- <20250127165156.GE25757@willie-the-truck> <CAEEQ3wkj=6WPNFpet=A9JppiO52agw6HZArwhfWsWS9JOY6Dng@mail.gmail.com>
- <20250204123111.GC1063@willie-the-truck>
-In-Reply-To: <20250204123111.GC1063@willie-the-truck>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Wed, 5 Feb 2025 09:45:40 +0800
-X-Gm-Features: AWEUYZllMpq2zJ1npesrHO1aKImtAqIVbLmJaSG6r67qE0xNiTPEAJWsfWgmnw4
-Message-ID: <CAEEQ3wm4_oeBbVqsVrZ373j1SFBo6-DegL6ojH-ZCMwcw_-jVg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev devices
-To: Will Deacon <will@kernel.org>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com, 
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] Revert "arm64: dts: rockchip: Increase VOP clk
+ rate on RK3328"
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, kever.yang@rock-chips.com,
+ heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, huangtao@rock-chips.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250125011545.15547-1-zhangqing@rock-chips.com>
+ <20250125011545.15547-3-zhangqing@rock-chips.com>
+ <d1ddec89-08d5-4eed-8ecc-7df47294230a@kwiboo.se>
+From: zhangqing <zhangqing@rock-chips.com>
+In-Reply-To: <d1ddec89-08d5-4eed-8ecc-7df47294230a@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk9NTFZPGUtISk1NTUxLHh9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
+X-HM-Tid: 0a94d3e6e17103a3kunma2f6aecf
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mz46Pyo6EjIJGhQyFyMPGg09
+	TEIaCUxVSlVKTEhDTElKQkpJTUNOVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU9LTUk3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=btvd4bzt9LMDt9sePPl5TCU6js+OoOuX0XD0PnJMAA5dUVJif3cBsEOSWfFan99MzUBSvi5QTyGysRWh1s7jo2pfiS7gSJz3h2jiekDJaTNIAMNbhpDOGj7PDLa+aC0GdK5I0mzeyP7vrtTNgkc3wi/txmf0CmlAFb8S6ewZGt8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=/1w0LAq2M+/NtKCh0lzYTdc188jbF90/W0yNry5dtdc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_174557_034902_99D73A68 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20250204_181835_984780_DA3B38E0 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,80 +78,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
 
-On Tue, Feb 4, 2025 at 8:31=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
+在 2025/1/26 5:39, Jonas Karlman 写道:
+> Hi Elaine,
 >
-> On Sat, Feb 01, 2025 at 05:51:21PM +0800, yunhui cui wrote:
-> > On Tue, Jan 28, 2025 at 12:52=E2=80=AFAM Will Deacon <will@kernel.org> =
-wrote:
-> > > On Sun, Jan 26, 2025 at 09:54:35AM +0800, yunhui cui wrote:
-> > > > On Fri, Jan 24, 2025 at 8:30=E2=80=AFPM Will Deacon <will@kernel.or=
-g> wrote:
-> > > > >
-> > > > > On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
-> > > > > > > >>>        vsec =3D dwc_pcie_des_cap(pdev);
-> > > > > > > >>>        if (!vsec)
-> > > > > > > >>>                return -ENODEV;
-> > > > > > > >>>
-> > > > > > > >>>        sbdf =3D plat_dev->id;
-> > > > > > > >>> -     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL,=
- "dwc_rootport_%x", sbdf);
-> > > > > > > >>> +     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL,=
- "dwc_rootport_%d_pmu", sbdf);
-> > > > > > > >>
-> > > > > > > >> A new name will break previous user tools.
-> > > > > > > > This name isn't suitable. It can't clearly show which is th=
-e PMU
-> > > > > > > > device. Userspace tools don't have binding relationships, l=
-ike perf.
-> > > > > > > > Tools must traverse PMU devices before use.
-> > > > > > >
-> > > > > > > The device is under /sys/bus/event_source/ which indates it i=
-s PMU device.
-> > > > > > > As far as I know, most of PMU devices do not endup with a '_p=
-mu' prefix.
-> > > > > >
-> > > > > > The point is the name "dwc_rootport_" is misleading, suggesting=
- an
-> > > > > > extra PCIE RP in the system. Best to change the name to intuiti=
-ve
-> > > > > > "xx_pmu".
-> > > > >
-> > > > > As pointed out above, changing the name will break userspace. So =
-it's
-> > > > > simply not an option, sorry.
-> > > >
-> > > > Could you specify what in the userspace is broken and give an examp=
-le?
-> > >
-> > > Can't I just take the documented example from dwc_pcie_pmu.rst:
-> > >
-> > > $# perf stat -a -e dwc_rootport_13018/Rx_PCIe_TLP_Data_Payload/
-> > >
-> > > If I have a script that uses that command on a machine today, then
-> > > applying your kernel patch will break the script, no?
-> >
-> > Well, this is just a usage guide for the PCIe PMU and has no binding
-> > with perf. In user space, the existing PCIe PMUs in the system should
-> > be traversed first, and then perf stat/record ... can be executed.
+> On 2025-01-25 02:15, Elaine Zhang wrote:
+>> This reverts commit 0f2ddb128fa20f8441d903285632f2c69e90fae1.
+>>
+>> Before changing the PLL frequency, in order to avoid overclocking the
+>> child clock, set the child clock to a large div first, and then set the
+>> CLK as required after the PLL is set.
+> This commit message does not match what this patch does. In this patch
+> you revert a change and in next patch you re-introduce same thing
+> slightly different.
 >
-> "should be". ha! You know we can't rely on userspace doing whatever we
-> think it "should" do.
+> As mentioned in v1, see [1], you should merge both patches as a single
+> fix, if a fix really is needed.
+Ok, This will be fixed in the next release.
 >
-> > It's okay not to change the name, but it's better to change
-> > dwc_rootport_%x to dwc_rootport_%d to correspond with
-> > platform_device_register_data(NULL, "dwc_pcie_pmu", ...). It'll be
-> > more intuitive. What do you think?
->
-> No, as I said earlier, we cannot break userspace like this. Please stop
-> trying to rename things that cannot be changed.
->
+> Testing on a rk3328-rock64 I see no difference before or after these
+> changes. Please describe what this fixes because clk_summary show same
+> clock tree and rates before and after this fix.
+The clock tree might see the same result.
 
-All right, I'll update it to v2.
+It is not safe or correct to set the child clock frequency before 
+setting the PLL frequency, and the parent clock PLL frequency may not be 
+the final expected value at this time.
+Therefore, the correct setting of the child clock frequency should be 
+after the PLL frequency is set.
 
-> Will
+The partial clock is set before the PLL setting frequency, which is to 
+prevent the child clock from overclocking when the PLL is set, so ensure 
+that the child clock is at a safe frequency before setting the PLL, and 
+reset the child clock frequency after the PLL is set.
+>
+> Also for next revert patch you send, please include the patch author in
+> the recipient list :-)
+>
+> [1] https://lore.kernel.org/all/cae9cb0a-1500-4fbc-bbf4-a6266549bcb9@kwiboo.se/
+>
+> Regards,
+> Jonas
+>
+>> Fixes: 0f2ddb128fa2 ("arm64: dts: rockchip: Increase VOP clk rate on RK3328")
+>>
+>> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3328.dtsi | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> index 7d992c3c01ce..f3ef8cbfbdae 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> @@ -852,8 +852,8 @@
+>>   			<0>, <24000000>,
+>>   			<24000000>, <24000000>,
+>>   			<15000000>, <15000000>,
+>> -			<300000000>, <100000000>,
+>> -			<400000000>, <100000000>,
+>> +			<100000000>, <100000000>,
+>> +			<100000000>, <100000000>,
+>>   			<50000000>, <100000000>,
+>>   			<100000000>, <100000000>,
+>>   			<50000000>, <50000000>,
+>
+-- 
+张晴
+瑞芯微电子股份有限公司
+Rockchip Electronics Co.,Ltd
+地址：福建省福州市铜盘路软件大道89号软件园A区21号楼
+Add:No.21 Building, A District, No.89 Software Boulevard Fuzhou, Fujian 350003, P.R.China
+Tel:+86-0591-83991906-8601
+邮编：350003
+E-mail:elaine.zhang@rock-chips.com
+****************************************************************************
+保密提示：本邮件及其附件含有机密信息，仅发送给本邮件所指特定收件人。若非该特定收件人，请勿复制、使用或披露本邮件的任何内容。若误收本邮件，请从系统中永久性删除本邮件及所有附件，并以回复邮件或其他方式即刻告知发件人。福州瑞芯微电子有限公司拥有本邮件信息的著作权及解释权，禁止任何未经授权许可的侵权行为。
 
-Thanks,
-Yunhui
+IMPORTANT NOTICE: This email is from Fuzhou Rockchip Electronics Co., Ltd .The contents of this email and any attachments may contain information that is privileged, confidential and/or exempt from disclosure under applicable law and relevant NDA. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information is STRICTLY PROHIBITED. Please immediately contact the sender as soon as possible and destroy the material in its entirety in any format. Thank you.
+
+****************************************************************************
+
 
