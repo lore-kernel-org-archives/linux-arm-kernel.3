@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D157C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 06:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F33C02197
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeHFLkjfWtRxfDUQFOy9gyg8C+i7BEnpkwJhjjc+Qik=; b=yC4F28EBdNGolvErtni9Tcjt5L
-	TcrQ7MjB/3xPuIei5SsI8J1Z92st69QkfTCTtC3ikmiEbsS0P9pt5H6kTvcVsFf6FQjzlrN8rQx5Z
-	bJ6U3Fenu6P6V/e6j0atFiUYaTUlrFKE+Ao8WQN/XCztApvmV4HwkAgRZTi0lr7prnPyxyppUF+Ol
-	VR6bkdF58RMqYylDpYK2M1kxJISxmRdlr45TPmoYwFnjuNhh9WC1hP1cHsV0ZOyj41Z1Pz3FewJtc
-	J1kNwymSYrYAUx5i/L6g1kOl8jYZiVXO/ao8Ak27JBLLieShE8W7NFBjZhcbyv01CUH9ikERrvOA3
-	WMy8j3SA==;
+	bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=; b=RjE6vsF/ma0wVT568JCNG4pQxL
+	w1hZHkWY150IBWIp/y8yEdMAHLNUqs+uQwFbYMHGjbDmtrx8xntwpYX3n1NzvXy65mkKwGEasYtc8
+	cDHlaZo0+jivBcZ/1LU0LYSWCli6kyf4l6fXK/+blKOi9lqJt9lbAhIfE7oKgPGlwZejAN3LlMp4+
+	OQyw1Ava967sEhblIs4XsIAiR1iZRS02myfsp/zrQ4VAq3/2VXeofaqHCw/4M+Z61JWGxb/Mtgow3
+	4z49Af+xbskYnzRlo43+hmDUNLRBkAidF3fiGaAlLVGvC9r9IabW9Kj7ZJhPzdrJSCadhSu5U6/HA
+	l5mw0Ovw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZHw-00000002S43-0uHA;
-	Wed, 05 Feb 2025 06:53:32 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tfZPk-00000002THM-2m9Z;
+	Wed, 05 Feb 2025 07:01:36 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZG7-00000002RtR-0PPl
+	id 1tfZON-00000002T44-1j6M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 06:51:41 +0000
+	Wed, 05 Feb 2025 07:00:12 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21f200014f1so1232535ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 23:00:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1738738299; x=1770274299;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=KeHFLkjfWtRxfDUQFOy9gyg8C+i7BEnpkwJhjjc+Qik=;
-  b=n0f+/OAg9wOEQS2qDmC8Y7ZK30IV7yGITwnHOcRaYWF2UTwXPKmJPGNK
-   jmedAawND2rN8UI1e5TevfBASW4zPi9/BD8hRBQH04H/WHM2yf9LPd9oS
-   YVdRuWf0xYj9iJ/DdTobdSBOeU9m09Z3IxqnOqPy4UZCLzN7ZSM7Ap8j1
-   WMYbkIng4HlhWRAzuyQUYaPenKdxQo+n3lHqHO/zEy/3N1GKsk5HNa5yV
-   IxF3kWxnLuz1MeT3kbY9L7j/k7vWiNwbzDBIcszllRczndK9GEpAJbIr/
-   OM0Q/k7XPf3tPhm7O8ZbcT2uYIzxUqxaMkDQTCw94z7CLIGFF2CV2lgIX
-   g==;
-X-CSE-ConnectionGUID: qXX3ANZUTFGznOjv2F6fwQ==
-X-CSE-MsgGUID: CvaGeVioTTKTcoJs2PiBKg==
-X-IronPort-AV: E=Sophos;i="6.13,260,1732575600"; 
-   d="scan'208";a="41557887"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 05 Feb 2025 07:51:32 +0100
-X-CheckPoint: {67A30A74-1-C6D8D88D-F91F9E6B}
-X-MAIL-CPID: 97E800B69666A87223C2F728F94B1646_2
-X-Control-Analysis: str=0001.0A682F29.67A30A76.0429,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C89E0160ABA;
-	Wed,  5 Feb 2025 07:51:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1738738287;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KeHFLkjfWtRxfDUQFOy9gyg8C+i7BEnpkwJhjjc+Qik=;
-	b=KQF44lI123mj3JI+bf1eNCEaDG/8mACwABZMZTbulko216vyebIMHv/cs1YCtv9nquxibY
-	pCX2ncwQbFbh1gKAYpIOhwy9+2QJMXch0x0twjmFmKD9a/T5W5w0pLxC7x0xJ8UTJ+Jwrs
-	zpkg9dv0FWNO4wEnGX1TZfh0fch/Wacc0HD2s1pMFy+o8J+QfDtCVujLIICSK8XX1PMy10
-	v44b6FbQtSK2ZJwAl2DFMlqhEPtfCAi7zrMSLxrvzeDWso1pZNLygVQdD1twcbIxy5CH6U
-	+JcjuC7fds99m02Uqwi2WGePQfZecM6qRukJYTCZ9hSBM7uzYb58gdDNUG56vQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for i.MX8M Nano
-Date: Wed, 05 Feb 2025 07:51:23 +0100
-Message-ID: <6396921.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z5z0/382k8MkcZpP@lizhi-Precision-Tower-5810>
-References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com> <4961006.GXAFRqVoOG@steina-w> <Z5z0/382k8MkcZpP@lizhi-Precision-Tower-5810>
+        d=linaro.org; s=google; t=1738738810; x=1739343610; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=;
+        b=va0Q9HNsX3gl+akZ5T0aDuRDLWeeVnIL7GtJt9ZLTEW4mkvr56an7K6xrTmMCjKg3e
+         0fgRlAY5uQfOvQP6KUdA93OelglUnv/TouTqaD4uu52WadmPdhsPF9OCsEjtcxmU2vZL
+         jsbQHOkmGNRhOMcRlPCEbP1T3AENjsh2e5g5933umBLWXehPHcgaxOm935KD7yjZchL0
+         pSBhBrCsrzBDJfpHvSq+SbFIrYenzD8EpfPCcDeBMNfAGjex2T9eqEMCNSwByFczn2Pk
+         RLgr1xrTlpodsJdwR9YKy+xVcDjOmZ6HbuGhYw40QrgxKHCwA317JBoK5LiOUpKomsx0
+         4Urw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738738810; x=1739343610;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=;
+        b=KyzjNDed8Tu69gV33JMPXJQBmzuUS8e0ahC2FwMZF2BVQQxWql8pZuVX9nVWMu7Yt7
+         qevh/2qV9MjBj81fMoDRDFAN21g4t6wZUewmDVLjOp/RTleTy0Bu1wZ3KFhX8u/uiwh0
+         F4G/JKuOte0rMYcWznsxwCvP6QAiLyNwbaUtwUftsrWK1/elnX6lHGTUsmEv7uDGpUKI
+         KK9kcBLkNMCSFz56XWiUIsO4qN9KA3o/QXaKYOyYQgrOXn5dVaIbqiZ736uuDmPurnVH
+         7htpJOuP8paIqDuFv+nrglGZQ0GbdPFHCiRigr0lDnEXZ7j8aiqkELMUum7wpEplnVl5
+         8v0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXtcU/QUVPgdxt9WS6nsNdjIGmQQITisAW2Thfyn4famv66CKs9IM6bu0+fDVPbNyR3khsOkVhaoXA7lJLYU4He@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR09cS2KtWiV59cHm3uA3fc6THRHqb7vuBizWRY3BG3Y/vy7hZ
+	/e4FmMi83Hcbo8N8J2c0Tf3ek4J1WoY4oUgs/u9cpKSvX8nnPxK1tznTNQDBxbg=
+X-Gm-Gg: ASbGnctbZLcDnoAcgp68c6Zky7hfHWjIZjDutXJzzvNfzgDEUzFsirmWtcqS90KxDQu
+	0B7xe32ej2bx61bodheDoNbfb3Tn9YkhWBgjOT9B3tjdRZMfRRZCSR1QEpBGnFAXy6wYD1jsR2Z
+	k//uXWKSlfwq02OgQEFwuS8sOMN0j5JYeCctQGtS8IrE2bqcqYSp8cx3Bhfzs0xenJdLFvitIfV
+	sMPPnTU4jAP3QRMLuNh6eQz/E7ugA3I7xthcrDd79ODUFRDSGLPQpqar1k6ZyRt1z9mErSCOHlT
+	5FNcfy3hnqnH4jKKaA==
+X-Google-Smtp-Source: AGHT+IFcBfowwoWBH0FBPbI4cZlw9NudpkT74gZC6XMMWGu1ebXPwbrRqUXqsIP4PMl1f/5/sfi3NQ==
+X-Received: by 2002:a05:6300:668a:b0:1e1:94ee:c37a with SMTP id adf61e73a8af0-1ede883b7b3mr3096336637.15.1738738810041;
+        Tue, 04 Feb 2025 23:00:10 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ba380sm11638732b3a.118.2025.02.04.23.00.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Feb 2025 23:00:09 -0800 (PST)
+Date: Wed, 5 Feb 2025 12:30:06 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com, ptsm@linux.microsoft.com
+Subject: Re: [PATCH v10 1/4] cpufreq: Allow arch_freq_get_on_cpu to return an
+ error
+Message-ID: <20250205070006.zpslntq6nwo73o4u@vireshk-i7>
+References: <20250131162439.3843071-1-beata.michalska@arm.com>
+ <20250131162439.3843071-2-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250131162439.3843071-2-beata.michalska@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_225139_622632_95C67C0B 
-X-CRM114-Status: GOOD (  33.95  )
+X-CRM114-CacheID: sfid-20250204_230011_462784_6C22FDED 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,148 +103,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 31. Januar 2025, 17:06:23 CET schrieb Frank Li:
-> On Fri, Jan 31, 2025 at 02:54:06PM +0100, Alexander Stein wrote:
-> > Hi,
-> >
-> > Am Donnerstag, 30. Januar 2025, 17:42:32 CET schrieb Frank Li:
-> > > On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
-> > > > i.MX8M OCOTP supports a specific peripheral or function being fused
-> > > > which means disabled, so
-> > > >  - Introduce disable_fuse for a list of possible fused peripherals.
-> > > >  - Iterate all nodes to check accessing permission. If not
-> > > >    allowed to be accessed, detach the node
-> > > >
-> > > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > > > ---
-> > > >  drivers/nvmem/Kconfig     |   3 ++
-> > > >  drivers/nvmem/imx-ocotp.c | 105 ++++++++++++++++++++++++++++++++++=
-+++-
-> > > >  2 files changed, 107 insertions(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> > > > index 8671b7c974b93..ba5c928cab520 100644
-> > > > --- a/drivers/nvmem/Kconfig
-> > > > +++ b/drivers/nvmem/Kconfig
-> > > > @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
-> > > >  	  This driver can also be built as a module. If so, the module
-> > > >  	  will be called nvmem-imx-ocotp.
-> > > >
-> > > > +	  If built as modules, any other driver relying on this working
-> > > > +	  as access controller also needs to be a module as well.
-> > > > +
-> > > >  config NVMEM_IMX_OCOTP_ELE
-> > > >  	tristate "i.MX On-Chip OTP Controller support"
-> > > >  	depends on ARCH_MXC || COMPILE_TEST
-> > > > diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> > > > index c5086a16450ac..e3ea026a37d0d 100644
-> > > > --- a/drivers/nvmem/imx-ocotp.c
-> > > > +++ b/drivers/nvmem/imx-ocotp.c
-> > > > @@ -23,6 +23,7 @@
-> > > >  #include <linux/of.h>
-> > > >  #include <linux/platform_device.h>
-> > > >  #include <linux/slab.h>
-> > > > +#include <dt-bindings/nvmem/fsl,imx8mn-ocotp.h>
-> > > >
-> > > >  #define IMX_OCOTP_OFFSET_B0W0		0x400 /* Offset from base address o=
-f the
-> > > >  					       * OTP Bank0 Word0
-> > > > @@ -91,11 +92,20 @@ struct ocotp_ctrl_reg {
-> > > >  	u32 bm_rel_shadows;
-> > > >  };
-> > > >
-> > > > +#define OCOTP_MAX_NUM_GATE_WORDS 4
-> > > > +
-> > > > +struct disable_fuse {
-> > > > +	u32 fuse_addr;
-> > > > +	u32 mask;
-> > > > +};
-> > > > +
-> > > >  struct ocotp_params {
-> > > >  	unsigned int nregs;
-> > > >  	unsigned int bank_address_words;
-> > > >  	void (*set_timing)(struct ocotp_priv *priv);
-> > > >  	struct ocotp_ctrl_reg ctrl;
-> > > > +	u32 num_disables;
-> > > > +	struct disable_fuse *disables;
-> > > >  };
-> > > >
-> > > >  static int imx_ocotp_wait_for_busy(struct ocotp_priv *priv, u32 fl=
-ags)
-> > > > @@ -552,11 +562,25 @@ static const struct ocotp_params imx8mm_param=
-s =3D {
-> > > >  	.ctrl =3D IMX_OCOTP_BM_CTRL_DEFAULT,
-> > > >  };
-> > > >
-> > > > +struct disable_fuse imx8mn_disable_fuse[] =3D {
-> > > > +		[IMX8MN_OCOTP_M7_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D BIT=
-(8) },
-> > > > +		[IMX8MN_OCOTP_M7_MPU_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D=
- BIT(9) },
-> > > > +		[IMX8MN_OCOTP_M7_FPU_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D=
- BIT(10) },
-> > > > +		[IMX8MN_OCOTP_USB_OTG1_DISABLE]	=3D { .fuse_addr =3D 20, .mask =
-=3D BIT(11) },
-> > > > +		[IMX8MN_OCOTP_GPU3D_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D =
-BIT(24) },
-> > > > +		[IMX8MN_OCOTP_MIPI_DSI_DISABLE]	=3D { .fuse_addr =3D 20, .mask =
-=3D BIT(28) },
-> > > > +		[IMX8MN_OCOTP_ENET_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D B=
-IT(29) },
-> > > > +		[IMX8MN_OCOTP_MIPI_CSI_DISABLE]	=3D { .fuse_addr =3D 20, .mask =
-=3D BIT(30) },
-> > > > +		[IMX8MN_OCOTP_ASRC_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D B=
-IT(31) },
-> > > > +};
-> > >
-> > > Can we direct define IMX8MN_OCOTP_M7_DISABLE as BIT(8), so avoid this
-> > > map data?
-> >
-> > This would be possible for imx8mn, but not for imx8mp which uses
-> > multiples fuses for disables. This is an excerpt from imx8mp WIP
-> > > struct disable_fuse imx8mp_disable_fuse[] =3D {
-> > > 	[IMX8MP_OCOTP_CAN_DISABLE]		=3D { .fuse_addr =3D 16, .mask =3D BIT(2=
-8) },
-> > > 	[IMX8MP_OCOTP_CAN_FD_DISABLE]		=3D { .fuse_addr =3D 16, .mask =3D BI=
-T(29) },
-> > > 	[IMX8MP_OCOTP_VPU_VC8000E_DISABLE]	=3D { .fuse_addr =3D 16, .mask =
-=3D BIT(30) },
-> > > 	[IMX8MP_OCOTP_IMG_ISP1_DISABLE]		=3D { .fuse_addr =3D 20, .mask =3D =
-BIT(0) },
-> > > 	[IMX8MP_OCOTP_IMG_ISP2_DISABLE]		=3D { .fuse_addr =3D 20, .mask =3D =
-BIT(1) },
-> > > 	[IMX8MP_OCOTP_IMG_DEWARP_DISABLE]	=3D { .fuse_addr =3D 20, .mask =3D=
- BIT(2) },
-> > > };
-> >
-> > Notice the fuse_addr of 16 and 20.
->=20
-> Yes, I am not sure if it good idea to encode fuse_addr to IMX8MP_OCOTP_CA=
-N_DISABLE
->=20
-> like
->=20
-> #define IMX8MP_OCOTP_CAN_DISABLE  16 << 16 | BIT(28)
->=20
-> So dt-bindings/nvmem/fsl,imx8mn-ocotp.h can be moved to dts directory.
+On 31-01-25, 16:24, Beata Michalska wrote:
+> Allow arch_freq_get_on_cpu to return an error for cases when retrieving
+> current CPU frequency is not possible, whether that being due to lack of
+> required arch support or due to other circumstances when the current
+> frequency cannot be determined at given point of time.
+> 
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 
-Mh, I personally don't like encoding offsets into bits. How about using
-> '#access-controller-cells =3D <2>'
-and using the defines like this
-> #define IMX8MP_OCOTP_CAN_DISABLE  16 0x10000000
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
-DT stays the same:
-> access-controllers =3D <&ocotp IMX8MP_OCOTP_CAN_DISABLE>;
-
-Note: It seems BIT(x) is not usable in DT.
-
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+-- 
+viresh
 
