@@ -4,160 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CC9C02193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 01:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9DFC02193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 01:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=531eewIykQUfivLb0yL8U+VbUKxOsCGpM3ZFt08bGco=; b=G9BKbCW7pcm+R3wdufsrN6SWZI
-	02XnL2JjXgO5AW0hCAVWbivJ7pPI7+JZ2r7Nfs74Fcf/aeUVYS/a+tz0VrAqMlFi5kgnDbCMePWGk
-	5Z/c0If7cfqAmrzRSxIb6Zby/mXKPoey8cfIHkfgXWZE3DSAajXmFLgIaFOzg/yfIfWt8En4kRQus
-	iUraotU/JfMEcl3qyD6d1ZuCI/vtndy19coZlekQ1JvPsL+VUWFjKSdORbyb6SvoxriaEK77x0hL2
-	p8e0W4aczs4pqp4vckWeoYzlyOBc+PKu9wFSLHpZ5zxdgN+5hoUoVaqDM7BeDT4XpOeI/XyVVSQeL
-	IZeUOffA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=; b=IfI9sn0hf4IU1+uguXoqWJi+Fp
+	pV/oDIKPqfySgGY4EmsaSKkpZ45gX6R8XWT9fbgCgjp3PyDxEyUYLLHqCMQkPAdHG/u+Fvc3cAVwJ
+	xUWnvqkU/BqwpRWAjFPJzJu8wLXGKqkzZSJON8PnIfrJLA5IQ6Janxailvjr79/skrV3nbal+GasC
+	TmSysjFaQwMXE8bfugF95jaWq8+Cnk7mibgMLwcm8PwhqeRa9Y6Kbrkm6rGpr58MblRrTa7u5Kh0h
+	l2/mh3BoZXl3+UTLrExNNsFdxECbtv58eYs3WCTKtIpgmsAqiHt2vQ21T956uiQjUg661eAxY+rHR
+	K/gq6DTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfU0R-000000020ON-2ya4;
-	Wed, 05 Feb 2025 01:15:07 +0000
-Received: from mail-tyzapc01on2070e.outbound.protection.outlook.com ([2a01:111:f403:2011::70e] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tfUVb-000000025Fo-3IpZ;
+	Wed, 05 Feb 2025 01:47:19 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfTz6-000000020Ju-18lp
+	id 1tfUUG-000000025CE-2lZH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 01:13:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fOCs+kDgsWrSR6EjV9OI9d8X/KhsNwptdCZyUe8XKYzt/yT/K5y4w3jgZ65xjk4gWME4wVSHDZKNuunp4R7jsuR/NylE8Q3tIrqGrDqdhgYQr+OvZMh/QufOP8JZF1WfCRsRJ2KFTHFn2WfSUtpM8zmpgzYrYs6Hki6CMqA7hyWAomnW2zG58LfocaMMf0UMAU/bzEbFy0LMKgIrBJ/IhWxKA7aGuDI1Kjfj2ZgQCPT2mbgQ5i+dQ9QC7jDmkKuvVerT+jozi45hT4KLBbfwv/Oc8OTwltf9joxmEOuDecoSiocFug/rtOi7owPkNDhqvtLCH4CdQvpDwObhn1oJKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=531eewIykQUfivLb0yL8U+VbUKxOsCGpM3ZFt08bGco=;
- b=v+LhRUmehhuqORiaSLOIAApeqVajk1O2GnJ8IkX/bUHPQ3qNNPnOSsUwsJrPUy3lijFmaX+yOS1AkZQSpxZjJdK66tqqZDtutXU5Fi6ZB44VFqpNAqr347xK4MDpI20bjCQ3YECc3LcEDpiwfSb6OVqERpvVdJOZz6qANcCvhvp9tAFpZKEN/1yMO8BVBn22fSr8zNA8OEnu3wel76AuxwPjbH9g8Rmb9lZYzyLwfG+M1p1NdEDyxiczCHljAb7mHN4qN8a3n1OaML9FN+9+ow2wxzoMp1TGkfAn0Ki8MVK5t8COfnROxIXSvl5nbROKvyi4Yz9M4w82XWFh+SixUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=531eewIykQUfivLb0yL8U+VbUKxOsCGpM3ZFt08bGco=;
- b=Y+8OuRjmdrAv+m7ERkHmof7H1lRJy7/i2JICcy93FswWZ88WFNlBz86zA0JCQXkr06jfRj7pKtD7/8uJbEHhANqt+8hJ2FlvrNBeQa84AtSwD7l0qJLulKtlLBEdVXkkh3RQBdTOKWuzl/SCgfna0iMD3FQaZGSFrzBaZP3Okm4Mi4fZROkDIkkKLCXmzeuibe8ZohNzjyZeRLxLsdUWMKfF3D48KyQ++dNAVzIR5YhX7ApRWXygAH5dA8anwZQ2nRzhixuNlSRXPwc+JdKyITF6AIBvrTUKXRsLMjICCW5pJ4d1H17Lell98mDyLjOpPRzVQzvNpomyhH/38H5W7w==
-Received: from TYZPR06MB6568.apcprd06.prod.outlook.com (2603:1096:400:45f::6)
- by TYZPR06MB5483.apcprd06.prod.outlook.com (2603:1096:400:288::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Wed, 5 Feb
- 2025 01:13:31 +0000
-Received: from TYZPR06MB6568.apcprd06.prod.outlook.com
- ([fe80::72b8:dce5:355b:e84b]) by TYZPR06MB6568.apcprd06.prod.outlook.com
- ([fe80::72b8:dce5:355b:e84b%7]) with mapi id 15.20.8422.008; Wed, 5 Feb 2025
- 01:13:31 +0000
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "eajames@linux.ibm.com"
-	<eajames@linux.ibm.com>, "mchehab@kernel.org" <mchehab@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@aj.id.au" <andrew@aj.id.au>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2] media: dt-bindings: aspeed,video-engine: Convert to
- json schema
-Thread-Topic: [PATCH v2] media: dt-bindings: aspeed,video-engine: Convert to
- json schema
-Thread-Index: AQHbdvIcpN89Y9FlH0+W/fgiURP0s7M3452g
-Date: Wed, 5 Feb 2025 01:13:31 +0000
-Message-ID: <TYZPR06MB656885B87A6300425F5C4D2CF1F72@TYZPR06MB6568.apcprd06.prod.outlook.com>
-References: <20250204085041.3724290-1-jammy_huang@aspeedtech.com>
- <d705e66d-8a5c-490b-b277-f29429c207dd@kernel.org>
-In-Reply-To: <d705e66d-8a5c-490b-b277-f29429c207dd@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR06MB6568:EE_|TYZPR06MB5483:EE_
-x-ms-office365-filtering-correlation-id: 8a219154-2946-4cf5-ef6d-08dd45824e18
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?N7ACKJqOJw7QzAzlPbe4bqtfEv6i3PieprRNPeIx20bYgWM4HUNdzZpuq9Qn?=
- =?us-ascii?Q?z5dS6jneA+/+GGMTOgXhgMnF+nGMEGwr+MyBs1cljE1oZ1wIrnM8dDW/ipim?=
- =?us-ascii?Q?O0LaiLr7CBKEGdhtf/WToKdaAeSZYqtSw56xt2VxJjE8q8Y/L8JilB02kxcj?=
- =?us-ascii?Q?ay79++jmIM1J2ka4saFC//z5LJIPz7KvDi8lxN+yxbfBgZeUhflJ/h3BlK47?=
- =?us-ascii?Q?oPX3O2KbLA4BXGgntsOIQQ7fa96+0Yzf6uoSm+2mwausRC4hjn0iJJ0flgCL?=
- =?us-ascii?Q?76IRaK0KKzcYuKjMLiWtf5/TirpbR1VVJf2UZ0lr8hJ6SEg8Ex/Whi2wtbch?=
- =?us-ascii?Q?fZs+9EKFSojETlpACYoCTLzeENU/IH1ANdn6Y8zzjj1a69dnPr5nrJY1RxbK?=
- =?us-ascii?Q?VM8AbETpY2L3YUvtv5VQE4dJN0jT4DrOvBqprbBoYo0WltFr/n2zYZy4S/ks?=
- =?us-ascii?Q?ZvSLjjgvnLe7k1ApsE9btMPX/15HUSKurGuSiCltW8NTrpCd2JyzSPFGCN0f?=
- =?us-ascii?Q?PZVLuNZczIo0yjVpA2zzwcGh/PriaU96C+Xzo7CG2A+OKQ8Z+2oiLp2XPVBI?=
- =?us-ascii?Q?0+v7/B/mUCAPq+Ye1eGLQzetFurjtvownX8hB1ro4f/MueJ7yR1+/rTHNN/c?=
- =?us-ascii?Q?s62/QVXRRoRzsczSrl47HEBO7xDBx2YpIwOdzmcUqA5t68PCnhlv6L4WGkp4?=
- =?us-ascii?Q?T5FAnMuzhYkJNktj/CdBn/O949eh5sXpgfI/0sKebhaUIq0tjuhh1ZNRHvqi?=
- =?us-ascii?Q?vyBDqB0gcTldziifRGB5kQmskU2Em5+xWOdkSnm4Ts/6gDXZmD6QlQc+6BFb?=
- =?us-ascii?Q?BlcH5RPnlpCwFkB9VFmJdG3dX8x3CBJfL548O9hFd7MPGbNdn1Uttd3JRYw0?=
- =?us-ascii?Q?Pk8Huo2ZILI2HivA+2sY5FY6CACRp1Tw1Wdkeh8YGPjux1TBD2p+s4RG077w?=
- =?us-ascii?Q?uakoWTVukudeaE/ZRjcEpBK6G2hV0NdAcb3FkTGARgWQvJktF9lnYHiFD2Qh?=
- =?us-ascii?Q?cWqQModWoTlthoduOLctjmGGEzam/2T6/tQ0m4ry8iAMfl/1C8l2lhVkdWVU?=
- =?us-ascii?Q?WQLmzWTBmuwAPFPWaUt0eBiRE3YEJxK6fTTtgFgl11uy2Gc8Oi+qHR8REcGu?=
- =?us-ascii?Q?eHnnSk12QrdQV9tl2wE9w36lZQ37Hkm1AjD8WPYOp9/jniZjYjY/yNrMcayA?=
- =?us-ascii?Q?cvNRG8Iacnd4ssP6APutY4idbyScAMX6uxnufT9/9/Q0LW8puLzsFTlszefT?=
- =?us-ascii?Q?cFNe8l+E5GOLNNmR2whuGpqA5tVp9mqwXieZSxmfYf6d1XkzgIY44oV19As+?=
- =?us-ascii?Q?kfNCp19xKvDkCK9JDgN2DVottO0G+cEZtVXYucHj0oYqtBipq3CiBT5fxTXX?=
- =?us-ascii?Q?kU0OpSKFhp8DZuk+00e2QJGlE5PJRBKaffsX75b5iy6IvepLFfonvTKQR8L1?=
- =?us-ascii?Q?g8BJTl79mOxKVVyv18vmd0HOWDI+3VXNz5xQ7cBXHtY9DGwDwTRXiQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6568.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?p6t+Ijm506RmTDda15RyGryXwVEDftWICDtDn4k1eihbTI3hCGlP1fIGI3QM?=
- =?us-ascii?Q?xAOvnZGvzGGShnCh6cugDA8lhndivQHsruFoonbluVhUxhcvfc9UK8hCO14Y?=
- =?us-ascii?Q?hSPF/kZLj+uEQGOAqNery+wcCN1aG0YHi+iOAe4q82Ikq7NAqph0XYzfDmCf?=
- =?us-ascii?Q?tXOfCMHu1L8+jPBXQbxISNC8aOayq21/Bs6aDQKbWOkhAK8DQ7Pabg1x9bMh?=
- =?us-ascii?Q?MHpxhaL6uf2JQZ+eU8UwsjdBieERzXz4tGC3Si4423wrH9Rwdoztw6DNVZzG?=
- =?us-ascii?Q?zavSGvoH/oM8fo7jN0FE/AbVOiNmZ+HbetX5vUTIAGFOjVyiix73mT5GxlFq?=
- =?us-ascii?Q?2FLBGG/WZ3i90ADmV66YLWYpwXsRG/jJRn54SmiA4a7cLglLWUXg8mjAMXaU?=
- =?us-ascii?Q?7wWRtt3FYaiXcem61vwxZwzX2v/0XgSYMi9whfjNQJQSvC2JYWGVbT38rVnh?=
- =?us-ascii?Q?6is+8hxV5bsG8ZaZaUsvaKFxKEaRgEAgDiAjUZp0IyEFGtOxFxvnIScBfl2G?=
- =?us-ascii?Q?dNXpr+F92qDrjH/mR8U7qVcocxrTCQ20J/Fi5NxOv77b6kl+6VaM6OsmOutc?=
- =?us-ascii?Q?beAtxv7HNfFZsq6quJc10oLVeVbHeUfCm5eeSHoJnCy+OHtoWU0KqizpxSNp?=
- =?us-ascii?Q?FQWqL3ghLE28oZn7wJjJdXDzMwVEY/EXmmDmqSlNf3GcR5lk+5XG35iueulG?=
- =?us-ascii?Q?HwgPLVxRFNjiM53lGiWLI2hifXYHnGMXaS4i3la65DqTlNskhPYHuVSj7isT?=
- =?us-ascii?Q?bO/KV0YvVqkQwYsYmLqMgNzeWvpJK6eOSpbzRZax77modd/p2ea98Zf58ku9?=
- =?us-ascii?Q?PfeJaDLrkRHj1nkXaa+6wJ1kA/JCa8mFipu7U2td9QNak0SX52OdndvO8J56?=
- =?us-ascii?Q?YDBti1fa0rCmu7xNYHEf8jloCKnNXQImMX/6k1c0mwx+UqThHCxV/xPMlbcF?=
- =?us-ascii?Q?3EQpbt9IO3NJy0N2GVx8FJPqnFLUB8pc0BHObh6XQHd9SWZXUkKLNnJubB5X?=
- =?us-ascii?Q?KJ9lvhMKcXaodlEBSoEOw01R/0Y/au6IKT/R88vyocQ6tYS6oHAtLtUY2Y/+?=
- =?us-ascii?Q?C03s8YTb4vGpDOondfI2GIOhTgeg8sJeVMj285uAGcp6Mka9s8OS6rGXBQM9?=
- =?us-ascii?Q?oDIpTM8pi6UmBIX5Pi+bm5SCSgjzKuK1+sV2kOyYIjkNwnwBbqT3ox1KxCOz?=
- =?us-ascii?Q?2XwdujrvquR0DOw851+gXG80fqKYmJZOhtQlc35SpFNLB3IO05siilScD071?=
- =?us-ascii?Q?GrSyGlZRvUFz254meQBkhQEXue9jHfaXmQZPplpsRXn1VuEwIju1eKQpWbzA?=
- =?us-ascii?Q?idsAVvAyFuWpEB9hHRZvmbhyMNDBx7SuQlZlan+8lNys7o0cBsBmgqG6K6Kx?=
- =?us-ascii?Q?AFXjwZLsW4i8hFcyEWZGSPoLUXHp7NAgfya5ok99/V7XeP6IfYKq5g9GeBS7?=
- =?us-ascii?Q?7S+zrzrKHFuxQCxoPgI8Yvn22U1h/WK58kkij5D+2EijObZh2EgiHY+/+qnQ?=
- =?us-ascii?Q?cEHRk2CHk8IqGnbGQoauu/VX/o0bGx9XJj4idGYCeqmuKNouh036XLfcRGKP?=
- =?us-ascii?Q?SGxOl4d/ZV0fN9MQQxPPhUDJUGhg+Tvt710rx+5MasFqjazKmGa4FqtP5T6A?=
- =?us-ascii?Q?Lg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 05 Feb 2025 01:45:58 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-2a8690dcb35so2015826fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 17:45:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1738719952; x=1739324752; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=;
+        b=F31/3K7EgbC2+nXv/+Icpcusmls4nssabQjACtqBRl5Bsh7R7R/6eIAqbkPHbfmxqt
+         VN9lZlDE9MG6HuW+n15jHnmAk26LIICAPEB/WZtLoCU50V/CVd1lAGOtgjongTNPa+f7
+         Xf2oQavLzrAdo5zZ0wWL5KOpdRya9Wwq1dza/Yg+LpL453KTN4CR7SdluF3ZZQAyVl+H
+         I1CA/FO6totgovWVgbE0EsarGJCtYdEn0yuvfzyO/ghysELQDjKjldNTztCKaBRMPryX
+         FbU4OQGynIA6lhnyz3uB4jAzoHUb4DiCEJ1z2QgLrxvrcwlC+RMza6zPf/LV2dsEMJ65
+         OPnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738719952; x=1739324752;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B7IAX40SIwOCKUJKjDGDjSIt4+fAEfgGp/BRmQSe+AM=;
+        b=E/eAGtEb6IhA43c8jEJYrIOc7SMNMjEsrygk3NSxxouj9IpIGxoBLDN9pbcJ3rDNLH
+         UB37dlYAVegbbD69wwsNvewYeoP5RIAMLQC1J3uY+MC8vEJOstLxDLL/4h42UGP9WVpj
+         HaqobgRprsPXwNo8RxT8gpCTw+CskwZwUGlFZEmKy4E0XgqS7ElzpFvPBmaHTZrVCH7I
+         Qg9s84zffirXDzEPNXg3HhM0RN01axcx5ksOgKs5V6UZOw8vtwe5IP2kBtynXHUp9Jdp
+         K4SYlmkdzxIawk9yF9pMYEtsPF+NVU345E9v/8UboKVi6tYGHbbMxyWJN96Wa3AU40X3
+         jsqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVLOEi7DiSxcwbM9ncCHNLKcKvtSozEv2cP6gXWTDuBi6Vp4ITWcvmZq2FH/j70vDGzamm4RpwOvO5zva5MLtNj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa4iFo0NJQRGXCK9osgAI20RxcsOUEle1RlPnxK/lngJdojUt1
+	ATfqqYqYO1jGDVchLC5e0w8KPAsPxpKNjMayg2j7hhBdMjGGm48nWdSA+7WAWoVbKXr8tUuTqey
+	5jJHpEBSXf4GaIYP/pF1GGTxdk0apP9uoAmrBCA==
+X-Gm-Gg: ASbGnct92Dr+kMoLtV7F2ebrtKDRbcsW5oUtpprl26D8Nf8F1urtP/goKAz8xnsx1W6
+	3EPx9YmqVG7as33xNjqORI6p7KiYkh3QLOjlLgjceHtFW4mXCjTUWQ3zweta4HC3f175yydJXH4
+	Y=
+X-Google-Smtp-Source: AGHT+IEEJSiApgxtxkGvC1xkEun8OovYoTlWGkz+UQfZ8HucQFQwWaCsmxUZdvb+jMWhRMNgUFoinaHR5BnA3MfwaiE=
+X-Received: by 2002:a05:6870:5491:b0:29e:43ce:a172 with SMTP id
+ 586e51a60fabf-2b805126ddbmr804659fac.28.1738719951653; Tue, 04 Feb 2025
+ 17:45:51 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6568.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a219154-2946-4cf5-ef6d-08dd45824e18
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Feb 2025 01:13:31.4273
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8RUzrXjvZ7/8vBTBkPE4VliAsEAxN4qFAIo4C63BhOMUh+5KHWj65B9p4RJuft24gVw9dpt8/ogKPsitg9tBfDGyxrDubsy9uKONEgn/XpE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5483
+References: <20250123074830.90923-1-cuiyunhui@bytedance.com>
+ <344c53cd-d856-4c03-9deb-743b65acd8aa@linux.alibaba.com> <CAEEQ3wmDej9bbPUmkx-ZrD4FG9Z7gTHMeCrVszx64g90O0RyiQ@mail.gmail.com>
+ <31e00081-8695-4ca6-a1ef-af5a007a7565@linux.alibaba.com> <CAEEQ3wm+f_SM7evwL=YrGy8gPLS5YdJm=qhJNT8bbMH7QBOzEA@mail.gmail.com>
+ <20250124122952.GB23438@willie-the-truck> <CAEEQ3wnTMfWSZRhTax3N60W=m3a=zxnJF6dOfiGnqJzBQs8WEg@mail.gmail.com>
+ <20250127165156.GE25757@willie-the-truck> <CAEEQ3wkj=6WPNFpet=A9JppiO52agw6HZArwhfWsWS9JOY6Dng@mail.gmail.com>
+ <20250204123111.GC1063@willie-the-truck>
+In-Reply-To: <20250204123111.GC1063@willie-the-truck>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Wed, 5 Feb 2025 09:45:40 +0800
+X-Gm-Features: AWEUYZllMpq2zJ1npesrHO1aKImtAqIVbLmJaSG6r67qE0xNiTPEAJWsfWgmnw4
+Message-ID: <CAEEQ3wm4_oeBbVqsVrZ373j1SFBo6-DegL6ojH-ZCMwcw_-jVg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] perf/dwc_pcie: fix duplicate pci_dev devices
+To: Will Deacon <will@kernel.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, renyu.zj@linux.alibaba.com, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_171344_307167_87AD4A61 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20250204_174557_034902_99D73A68 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,105 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Will,
 
-Thanks for your feedback.=20
-
-> On 04/02/2025 09:50, Jammy Huang wrote:
-> > Convert aspeed-video.txt to yaml format.
-> > Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
+On Tue, Feb 4, 2025 at 8:31=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
+>
+> On Sat, Feb 01, 2025 at 05:51:21PM +0800, yunhui cui wrote:
+> > On Tue, Jan 28, 2025 at 12:52=E2=80=AFAM Will Deacon <will@kernel.org> =
+wrote:
+> > > On Sun, Jan 26, 2025 at 09:54:35AM +0800, yunhui cui wrote:
+> > > > On Fri, Jan 24, 2025 at 8:30=E2=80=AFPM Will Deacon <will@kernel.or=
+g> wrote:
+> > > > >
+> > > > > On Fri, Jan 24, 2025 at 05:11:05PM +0800, yunhui cui wrote:
+> > > > > > > >>>        vsec =3D dwc_pcie_des_cap(pdev);
+> > > > > > > >>>        if (!vsec)
+> > > > > > > >>>                return -ENODEV;
+> > > > > > > >>>
+> > > > > > > >>>        sbdf =3D plat_dev->id;
+> > > > > > > >>> -     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL,=
+ "dwc_rootport_%x", sbdf);
+> > > > > > > >>> +     name =3D devm_kasprintf(&plat_dev->dev, GFP_KERNEL,=
+ "dwc_rootport_%d_pmu", sbdf);
+> > > > > > > >>
+> > > > > > > >> A new name will break previous user tools.
+> > > > > > > > This name isn't suitable. It can't clearly show which is th=
+e PMU
+> > > > > > > > device. Userspace tools don't have binding relationships, l=
+ike perf.
+> > > > > > > > Tools must traverse PMU devices before use.
+> > > > > > >
+> > > > > > > The device is under /sys/bus/event_source/ which indates it i=
+s PMU device.
+> > > > > > > As far as I know, most of PMU devices do not endup with a '_p=
+mu' prefix.
+> > > > > >
+> > > > > > The point is the name "dwc_rootport_" is misleading, suggesting=
+ an
+> > > > > > extra PCIE RP in the system. Best to change the name to intuiti=
+ve
+> > > > > > "xx_pmu".
+> > > > >
+> > > > > As pointed out above, changing the name will break userspace. So =
+it's
+> > > > > simply not an option, sorry.
+> > > >
+> > > > Could you specify what in the userspace is broken and give an examp=
+le?
+> > >
+> > > Can't I just take the documented example from dwc_pcie_pmu.rst:
+> > >
+> > > $# perf stat -a -e dwc_rootport_13018/Rx_PCIe_TLP_Data_Payload/
+> > >
+> > > If I have a script that uses that command on a machine today, then
+> > > applying your kernel patch will break the script, no?
 > >
-> > NOTE: The following checkpatch warning is generated since we do
-> > include the header in the example, but this is a false positive warning=
-.
-> > WARNING: DT binding docs and includes should be a separate patch. See:
-> > Documentation/devicetree/bindings/submitting-patches.rst
->=20
-> This does not belong to commit message, it's irrelevant. You can mention =
-in
-> the changelog, though, but IMO, that's really not important for this patc=
-h.
->=20
-> >
-> > Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
-> > ---
-> >  v2:
-> >   - Update commit subject
-> >   - Add NOTE for false positive warning
-> > ---
->=20
-> ...
->=20
-> > +
-> > +  memory-region:
-> > +    maxItems: 1
-> > +    description: |
-> > +      Phandle to the reserved memory nodes to be associated with the
-> > +      VE. VE will acquires memory space for 3 purposes:
-> > +        1. JPEG header
-> > +        2. Compressed result
-> > +        3. Temporary transformed image data
-> > +
-> > +  aspeed,scu:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description: |
->=20
-> Do not need '|' unless you need to preserve formatting.
-OK.
+> > Well, this is just a usage guide for the PCIe PMU and has no binding
+> > with perf. In user space, the existing PCIe PMUs in the system should
+> > be traversed first, and then perf stat/record ... can be executed.
+>
+> "should be". ha! You know we can't rely on userspace doing whatever we
+> think it "should" do.
+>
+> > It's okay not to change the name, but it's better to change
+> > dwc_rootport_%x to dwc_rootport_%d to correspond with
+> > platform_device_register_data(NULL, "dwc_pcie_pmu", ...). It'll be
+> > more intuitive. What do you think?
+>
+> No, as I said earlier, we cannot break userspace like this. Please stop
+> trying to rename things that cannot be changed.
+>
 
->=20
-> > +      Specifies the scu node that is needed if video wants to capture
-> > +      from sources other than Host VGA.
-> > +
-> > +  aspeed,gfx:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
->=20
-> None of these two properties were in original binding with *justification=
-*. You
-> must describe any changes done during conversion, otherwise you could add
-> here whatever property you wish, right?
-Sure, I will add information for these properties in later patch.
+All right, I'll update it to v2.
 
->=20
-> > +    description: |
-> > +      Specifies the Soc Display(gfx) node that needs to be queried to =
-get
-> > +      related information if video wants to use gfx as capture source.
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - interrupts
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    #include <dt-bindings/clock/ast2600-clock.h>
-> > +
-> > +    video@1e700000 {
->=20
-> Looks rather like: isp@
-Do you prefer other node-name??
+> Will
 
->=20
-> > +      compatible =3D "aspeed,ast2600-video-engine";
-> > +      reg =3D <0x1e700000 0x1000>;
-> > +      clocks =3D <&syscon ASPEED_CLK_GATE_VCLK>,
-> > +               <&syscon ASPEED_CLK_GATE_ECLK>;
-> > +      clock-names =3D "vclk", "eclk";
-> > +      interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> > +      aspeed,scu =3D <&syscon>;
-> > +      aspeed,gfx =3D <&gfx>;
->=20
->=20
->=20
-> Best regards,
-> Krzysztof
-
-Best regards,
-Jammy
+Thanks,
+Yunhui
 
