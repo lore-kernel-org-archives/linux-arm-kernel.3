@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B2CC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AABFC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 08:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWX2DEz8S2fG1f4J342f+Iev+23o5SFIDH9XACpi9M8=; b=SYfp0eQ7ICD6aXTCqhr9gd4c57
-	MZhQptiyJ/GzAQJtAmXq/sGGzjb80gEGt0/6IfLvIBBgHPwArxaNORFphuqySy4F6x5dGWFf1As1q
-	6eb4DsUO9SbXc1ac56wrkqAxgW+JdZTMnhjCt+hmQHZZJZ2mfOuBnd0FeESXNm8PvHWUbourzAz0x
-	z9tmN/sV65vExA5ceJ919+jXw2uxRV3iWwhoI0ftU3vqRNoXUpsED9fS+ICOpu1ar4eggIiERlI/T
-	kZfTFYFlZ5hKYNzT3KZ0uFIVzxT8XsPixOWL/E7qsQGipMpV4vOB4o4JkLZxBKje7A8wajV3Mv5mS
-	RyOiYM4A==;
+	bh=fphqbAC6hD9iKeAub6wRjsmCAPTasLh9rb8S8+PlrZs=; b=mNJ6cEbNSOZ7fWsegnPbg0Qo7d
+	YGcDoabS8oRFRKZcExdD5zBE/JMWI+CAs/sKrGwEQsMB3CiRWXI5mPbL2krrxi2NEkUUvpKrr+8Zv
+	xvQunRjeiAayuu+DVTS7SVEYZcukaMqryKQleh73Ha285Hl4+xXoQtjehTJ5uzR4l7k/39hLJntUl
+	H0tSFyxEN/0kRno3abzMqFqHTx9dNQASpo/OieBY3v582W2HC9QRi5RuI1pD4akQuqbY5bZ6sbHbU
+	wOmLJQCbX7VSO7Ow8MC5LwrxfWEU7LmnVskmA6IO42Q5Cv8jrvmfMYD8gQetw4s7y7giropGkPWc4
+	bBfQPf2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfb6q-00000002chR-1h5p;
-	Wed, 05 Feb 2025 08:50:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfbBO-00000002dRf-1jo8;
+	Wed, 05 Feb 2025 08:54:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfb4p-00000002cHu-3viG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 08:48:09 +0000
+	id 1tfbA1-00000002d8S-2br9;
+	Wed, 05 Feb 2025 08:53:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 225B7A4326A;
-	Wed,  5 Feb 2025 08:46:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B900C4CED1;
-	Wed,  5 Feb 2025 08:48:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 217C55C5C1C;
+	Wed,  5 Feb 2025 08:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFFEDC4CED1;
+	Wed,  5 Feb 2025 08:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738745286;
-	bh=gDxFlomX3dUPHwAXjNXKKOGj1Fq1lpYag63Qntcsa+I=;
+	s=k20201202; t=1738745608;
+	bh=Mx/hiLYA8u5CZDU8ZLhxLsxACP2y++BBtVO3RiUnK6U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EP0JHukCBN3XkCr772neoXDy3/otFczJ33X9/L+Buwm2QgLLrZlgaEP6RHhs7xQQ3
-	 FZmbGwEIOIVmVNQ0SXuHltZBRqFSAXArlIYI/OusNSh6ncU0qiUgc5gQ37mHB3Fzh6
-	 ChhvAizusnR6JEMAn5TolwnQKLepPGlEtHcao9v/3XQXbXcENuPOi80Xrrq+e8k/sX
-	 WmYdPLOzHxKMC4ELTKmga1l/kfmyTns3lFFh0eSI0neSTDoeRRRY2r0X9cJ1dO/Z8q
-	 DhK7maPCL8BbEAPXSMLTqpqXB+5qLnV1etoTBvaMNpsA/a5KDCquQln0EUSlIqI+3h
-	 MW4XPnqZuvdRA==
-Date: Wed, 5 Feb 2025 09:48:03 +0100
+	b=kTz1zKwHNJxYnZ+oyxTOsYZQb/B8+nxN/2/NsZL73VZrQ/JqLeMWYB/gQJhOqfelY
+	 /bWec1gzKioMF8lfqfMvbXxXDwRaJToqfGKZnyp32/mVa2y96IT9oHHCcLNRmosjVl
+	 wQOd0K+331SR9zyx7KF8aNPy/wScoXQ0L4Js2LTIibmvecM4tS+MsGvzIC7CrklEtn
+	 gZbzX17jvDSbnHh0ke59sm5PBTRsD5UOWtDZS0RWK8aNOYZcZmKgAEvAa8gpQYglSe
+	 TRFuIsKw354zOot0DxAsd3SboMuNaczDUJKrfvUbjcssLUP7GRaheCUj0yvpe3PBqm
+	 C+GMZgv7XezzA==
+Date: Wed, 5 Feb 2025 09:53:25 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Sergey Lisov <sleirsgoevy@gmail.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
- exynos7870 support
-Message-ID: <20250205-carp-of-inspiring-science-6dfebb@krzk-bin>
-References: <20250204-exynos7870-usb-v1-0-a7753f8183a4@disroot.org>
- <20250204-exynos7870-usb-v1-1-a7753f8183a4@disroot.org>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Vivek Gautam <gautam.vivek@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Sergey Lisov <sleirsgoevy@gmail.com>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/4] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and
+ SSC_REFCLKSEL masks in refclk
+Message-ID: <20250205-nice-amiable-lynx-a616b0@krzk-bin>
+References: <20250204-exynos7870-usbphy-v1-0-f30a9857efeb@disroot.org>
+ <20250204-exynos7870-usbphy-v1-1-f30a9857efeb@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250204-exynos7870-usb-v1-1-a7753f8183a4@disroot.org>
+In-Reply-To: <20250204-exynos7870-usbphy-v1-1-f30a9857efeb@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_004808_039326_3D582D5F 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_005329_704662_55715816 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,15 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 02:09:29AM +0530, Kaustabh Chakraborty wrote:
-> Document compatible string for Exynos7870 DWC3-compatible USB 2.0
-> driver. The devicetree node requires three clocks, named "usbdrd20",
-> "usbdrd20_ctrl_clk", and "usbdrd20_ref_clk".
+On Tue, Feb 04, 2025 at 02:10:12AM +0530, Kaustabh Chakraborty wrote:
+> In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
+> PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
+> inverted when applied to the register values. Fix it.
 > 
-> Unlike other variants, Exynos7870's USB node doesn't require extra
+> Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
 
-I don't think that's true. What makes you think it does not require
-them? Device works without power?
+Missing Cc-stable and this should be sent separately.
+
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index c421b495eb0fe4396d76f8c9d7c198ad7cd08869..4a108fdab118c0edd76bd88dc9dbf6a498e064b3 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -488,9 +488,9 @@ exynos5_usbdrd_pipe3_set_refclk(struct phy_usb_instance *inst)
+>  	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
+>  
+>  	/* FSEL settings corresponding to reference clock */
+> -	reg &= ~PHYCLKRST_FSEL_PIPE_MASK |
+> -		PHYCLKRST_MPLL_MULTIPLIER_MASK |
+> -		PHYCLKRST_SSC_REFCLKSEL_MASK;
+> +	reg &= ~(PHYCLKRST_FSEL_PIPE_MASK |
+> +		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
+> +		 PHYCLKRST_SSC_REFCLKSEL_MASK);
+>  	switch (phy_drd->extrefclk) {
+>  	case EXYNOS5_FSEL_50MHZ:
+>  		reg |= (PHYCLKRST_MPLL_MULTIPLIER_50M_REF |
+> @@ -532,9 +532,9 @@ exynos5_usbdrd_utmi_set_refclk(struct phy_usb_instance *inst)
+>  	reg &= ~PHYCLKRST_REFCLKSEL_MASK;
+>  	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
+>  
+> -	reg &= ~PHYCLKRST_FSEL_UTMI_MASK |
+> -		PHYCLKRST_MPLL_MULTIPLIER_MASK |
+> -		PHYCLKRST_SSC_REFCLKSEL_MASK;
+> +	reg &= ~(PHYCLKRST_FSEL_UTMI_MASK |
+> +		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
+> +		 PHYCLKRST_SSC_REFCLKSEL_MASK);
+>  	reg |= PHYCLKRST_FSEL(phy_drd->extrefclk);
+
+This part does not set MPLL_MULTIPLIER and SSC_REFCLKSEL fields later,
+but I also assume intention was to clear the fields.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
