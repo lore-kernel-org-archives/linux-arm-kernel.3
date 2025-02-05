@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138FFC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA56FC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 12:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hWpBM1bFgKOZf1GWq0UE8veQruj9KfPNvB2YK72Gjv8=; b=djDUlIuhNhCkHC4bS0LhKpsnq1
-	xKdrJNKpqFUClCwZMSqAWSjnaFLV7L0E0HEZ4HdPsfWVQEW6msBimQTYyoInl4943YVqj8oJeAqwm
-	2BVY7FcsnA81wyS8E3no+hvAkGkYS1MydRNQDGG8m8F8iWbix8kmNX8SRE5OFaHbDiaati3pKBIFc
-	DRMxkC2cbmGZZKxmC2tmj1TJ67SdV10ksEX65Gut3O2EKiaHl4nMtl/HkrRkXoOgaU7JA30TzRhQD
-	5MInyyShyWZXZB4GkYwbDqxGgjuC9jGoZDwlFHc9aUpbM1grDsoXPPdqs7UWIJ7x0ZwAnjeDIIGbL
-	xHPBFj3Q==;
+	bh=5bSZVshzrjkinWqjSAFuVs+darkV+EJzG4bFX1AZBm8=; b=RIU4zQbIOH7qFJslvbHi//vL4Q
+	g/edlNgd5DuexmJj1UsyGENkiVryyWROxiiCTM5qhcksSzUvSnYwQyeNM4k9aaquS913n/6Ks4xAW
+	cjl3xO/sh6NEtdgpdqt94+hZg2x1NzyGeNTb6QErciHmtykJzfZBKthUa/SUUHwwzFlYcyDa93C59
+	vivHmmOejUC8Un7fMrg+RYEbbOefl22esfkljMQzUL5kuqndO/+Cz+svRhQP/51CFdCiLgK2Nf0cY
+	oxi4WBZev6YV+qKMW7BA4m1bLcMkj49fKnM76rtolaFYpTko/VbV+DufuwSvWdcD1xZG2RdvaxGY5
+	xSul4t/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfesB-00000003HYf-0D4v;
-	Wed, 05 Feb 2025 12:51:19 +0000
+	id 1tfetW-00000003Ht9-0RMd;
+	Wed, 05 Feb 2025 12:52:42 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfelb-00000003G6T-1meD;
-	Wed, 05 Feb 2025 12:44:32 +0000
+	id 1tfelg-00000003G8z-2YH0;
+	Wed, 05 Feb 2025 12:44:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 931FCA43591;
-	Wed,  5 Feb 2025 12:42:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA77C4CEE3;
-	Wed,  5 Feb 2025 12:44:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7CC8A41085;
+	Wed,  5 Feb 2025 12:42:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B4BC4CEE2;
+	Wed,  5 Feb 2025 12:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738759470;
-	bh=W+a+Yoja6r+NjMKoIeKEbzYjPLUdxxkyp8N0b43Me78=;
+	s=k20201202; t=1738759475;
+	bh=BKicQvUmuXjDNbRZxUNlJ8r+EcHKaqqCQZUX4SaRzuA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=cHiPW2GRXOB2XptJXk5LSz96Ia4+t1cp8W3f+DjXmFm1jc1a5SGi1e9G3Xs5XRr7k
-	 Bp2O945I1s12eAmTAH39vCkV7ebN1Tj8vpfe5dRLipRUvnb4/neXwswzHoTL9XgRuB
-	 Df8CF8KXW9e/JWSTFb7E81Cji+UqA6LZvJnv+M5TM0lCmudj5RcTvGtLEuc6E0Ie5p
-	 XouIMYERSqzENyEgy0tEapD6RL1i6SK+yWXiZuRczgZvp/Ra7iTibRL8W7qQcHiJm6
-	 DEJLlIPZ6M78Lj5s+6B7vkd1lVnqNI/H9Ykx7iL0O1erAMdpY4zJS9I4fc57vUMiZm
-	 YHhyFOOlchP1A==
+	b=IjYjSZvwELSQpD5fB7WkqjYVoxJq4rM1/k43Ug4L7RVYc8tveaU3L2TBDc/fdHgaI
+	 qnUoeGvd/JwyW+FcHFNFKluby6U/yZP2HSsp/sTT96hMRvdEVcnPdQBBGVAWpE7RWl
+	 VH3L02IuUR+P6PXu9O60xRnhSBwuurZ1MJKOEeXbHXk1vB0FQ23e498CuVggoISxWc
+	 jUhCuNFw4F1zwCEql9Up5sji8o8iG9WdiwnPItFGlMBr3si2cT+1614uklRtIzzfPL
+	 jhbLmnMUaiK5lMnKe8Z8wjnaPOjB9cXYXpsCDWrEcLBQQvDrNjyBGFsikae59SB1BS
+	 oSdWN6fJ8roBw==
 From: Mark Brown <broonie@kernel.org>
-To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, linux@treblig.org
+To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+ linux@treblig.org
 Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250128005243.295977-1-linux@treblig.org>
-References: <20250128005243.295977-1-linux@treblig.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt6358: Remove unused functions
-Message-Id: <173875946845.32457.11968319889637039495.b4-ty@kernel.org>
-Date: Wed, 05 Feb 2025 12:44:28 +0000
+In-Reply-To: <20250201005021.447726-1-linux@treblig.org>
+References: <20250201005021.447726-1-linux@treblig.org>
+Subject: Re: [PATCH] ASoC: mediatek: Remove unused mtk_memif_set_rate
+Message-Id: <173875947335.32457.7286096499117133517.b4-ty@kernel.org>
+Date: Wed, 05 Feb 2025 12:44:33 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_044431_536107_8D492DB9 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250205_044436_722837_E0455246 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,13 +73,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jan 2025 00:52:43 +0000, linux@treblig.org wrote:
-> The functions:
->   mt6358_mtkaif_calibration_disable()
->   mt6358_mtkaif_calibration_enable()
->   mt6358_set_mtkaif_calibration_phase()
-> were added in the 2019
-> commit 6a8d4198ca80 ("ASoC: mediatek: mt6358: add codec driver")
+On Sat, 01 Feb 2025 00:50:21 +0000, linux@treblig.org wrote:
+> mtk_memif_set_rate() has been unused since it was added in the 2019
+> commit 9cdf85a19b3a ("ASoC: mediatek: common: add some helpers to control
+> mtk_memif")
+> 
+> Remove it.
+> 
+> (The _substream version is used, and is left in)
 > 
 > [...]
 
@@ -88,8 +90,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: mediatek: mt6358: Remove unused functions
-      commit: fb6ec1d27608c008bfe1ab0dfec3720990eb2451
+[1/1] ASoC: mediatek: Remove unused mtk_memif_set_rate
+      commit: c9e9aa80022c6db71bc097a621a6145f39aa0ade
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
