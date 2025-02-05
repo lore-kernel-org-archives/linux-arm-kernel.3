@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25810C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C768CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 14:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bL3gxLmyKoIOFUQltNWan7x+Q3hxZzBXfuqkmaS2PY=; b=cz5YYcHpHEYtES/Q/yZIfsKeeS
-	Wy8SCnO1AGm1gqM1WwoqyPMegtl3OaEhTEzaWEoKoXMVTIhNKHNhwrFqjUfRN7Zb9DZ35JoiRuZq4
-	d1BrOKXAHVi9VDPU9zaKTOlltxts/R1/gdvfCLufdLTXfu1crEDxV51pWaXbVVwu+4Qi//FCywZgK
-	jqtGN1mVK1vlNrjDRrnGJKbwxoiIPl4lI9ZfPjKRsWfINFCM0jW3VslSJjmNWT8p6pXAD2VBSRNFV
-	HuwN+ZsBegSUTISHmKeTkdo0M36wiAFphryj4fC4+R3iamQO/oq1LrHbtzw3dUNhv+DNn7mA7iXBN
-	1A+H0Mrg==;
+	bh=cEiBKmEICWctotPHCUAWGTwbH/Iy+hrCjjP5QKi/9Lo=; b=oZplspnXapca44bwAmuQXRKH4o
+	MbT6swV75g9E41YIMeztQgSX4PJLY5N9XBI+AFh42hJRzHhRZ5QgPgGHyTQEseOktgKgoE7nVZE6r
+	Wg6USLAMxPt+mEY5lAWhDBj7EL5xh8+4BLYzbcFY1wZyweOx68zFM1Gfe+2dj/N4kM/2KcfGOXmrZ
+	E+ulBpBD3EswSK+2S+k4VDlanC+nLNsW6j1CdNJUepKbK1/wSdEh7HXAILtB2hM3ZZ3LsuJVzOYe8
+	pMrPGGtq/igt7lECD4uJ//gWPob3ONc63p5djIWjbKVHOX8NLyIqu9J2bIP1VQFegfBrIzOGuruSY
+	qx6LQOFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgao-00000003Zn2-1YDv;
-	Wed, 05 Feb 2025 14:41:30 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tfgcA-00000003aPC-1mhI;
+	Wed, 05 Feb 2025 14:42:54 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgZI-00000003ZGs-2dvn
+	id 1tfgaF-00000003ZW5-3oOz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 14:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0bL3gxLmyKoIOFUQltNWan7x+Q3hxZzBXfuqkmaS2PY=; b=VeLMyF8biNfumqmuZmc/C6wCWs
-	cYHL1aCStiFMh3q45g/T0gP/yblv4P2Sr/aG2NKh5HsTcytUdyGSRMXfQHuOl00YgiuU8X10nSp4d
-	kknFpGsZJs26ahI6wJZ5Np3T8QPegTgBgvDL/erMWki4TMPAzMFMssXY7J5BWBYT7glwODUwdaCkH
-	sVLbHj3pwXrk/oHU+rfSNeXfURFWx/Doph3ecygwITrKTsKOMC40Gb98HftgsxOQguZc+G0grkk46
-	E+l2hNjQaqhq46/kyWqSK8dor0UoSKkUpcC2R9AtG2kDqWJrcf1r7XUM9TdmkY+oKoFZni+5d3qWy
-	hoQTXHUw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54016)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tfgZ3-0007N2-1Q;
-	Wed, 05 Feb 2025 14:39:41 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tfgYx-0002Uc-2s;
-	Wed, 05 Feb 2025 14:39:35 +0000
-Date: Wed, 5 Feb 2025 14:39:35 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Yanteng Si <si.yanteng@linux.dev>
-Cc: Jakub Kicinski <kuba@kernel.org>, Steven Price <steven.price@arm.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Jose Abreu <joabreu@synopsys.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Furong Xu <0x1207@gmail.com>, Petr Tesarik <petr@tesarici.cz>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xi Ruoyao <xry111@xry111.site>
-Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
-Message-ID: <Z6N4J-_C3lq5a_VQ@shell.armlinux.org.uk>
-References: <20250203093419.25804-1-steven.price@arm.com>
- <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
- <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
- <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk>
- <20250203142342.145af901@kernel.org>
- <f728a006-e588-4eab-b667-b1ff7dfd66c5@linux.dev>
+	Wed, 05 Feb 2025 14:40:57 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FF991038193F;
+	Wed,  5 Feb 2025 15:40:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1738766451;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cEiBKmEICWctotPHCUAWGTwbH/Iy+hrCjjP5QKi/9Lo=;
+	b=cLgXJWLAdAMZvNv+TCbu3Fl/9FxjBS8zH7YHTKts/CjAxxH5YGIV4eGxb6BU2yIjt7+yb+
+	8r/EGuxZtRCFA3dYOFw6yk1NU56YSKX6LfoV5/780QCG0fKpirmzFbkP8DbsZe6jBsySVU
+	AJFeXmosGVZHKGIpRNa9CVZp0b4ibN8O6DoL7nV7+BCCs9gBRwXyoi5WLcYQ5JA84kmyJc
+	A+3cCN08MaudaM2OTRcqq2aN1oP4Bqfr2dusv+piah0EYAPetkqzo2L8arhp0CL0a68szQ
+	8DIlW9B5/EY+xjYxFvBYC5IQPGrV6Ap58bCHAgvnnZgt0zXWui0SYxrKdhu1sQ==
+Date: Wed, 5 Feb 2025 15:40:44 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <quic_jesszhan@quicinc.com>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
+ Wahren <wahrenst@gmx.net>
+Subject: Re: [RESEND PATCH v11 1/3] dt-bindings: display: Add
+ powertip,{st7272|hx8238a} as DT Schema description
+Message-ID: <20250205154044.7b1fd2c5@wsk>
+In-Reply-To: <20250203132108.77f2123c@wsk>
+References: <20250109154149.1212631-1-lukma@denx.de>
+	<20250203132108.77f2123c@wsk>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f728a006-e588-4eab-b667-b1ff7dfd66c5@linux.dev>
+Content-Type: multipart/signed; boundary="Sig_/NX.kk_nUKqVaGcqUC8c2=oO";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_063956_672065_4D767883 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20250205_064056_235234_FD9E0F05 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,38 +82,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 10:22:00PM +0800, Yanteng Si wrote:
-> 
-> 在 2/4/25 06:23, Jakub Kicinski 写道:
-> > On Mon, 3 Feb 2025 11:16:34 +0000 Russell King (Oracle) wrote:
-> > > > I've no opinion whether the original series "had value" - I'm just
-> > > > trying to fix the breakage that entailed. My first attempt at a patch
-> > > > was indeed a (partial) revert, but Andrew was keen to find a better
-> > > > solution[1].
-> > > There are two ways to fix the breakage - either revert the original
-> > > patches (which if they have little value now would be the sensible
-> > > approach IMHO)
-> > +1, I also vote revert FWIW
-> 
-> +1, same here.
-> 
-> 
-> For a driver that runs on so much hardware, we need to act
-> 
-> cautiously. A crucial prerequisite is that code changes must
-> 
-> never cause some hardware to malfunction. I was too simplistic
-> 
-> in my thinking when reviewing this before, and I sincerely
-> 
-> apologize for that.
-> 
-> 
-> Steven, thank you for your tests, Let's revert it.
+--Sig_/NX.kk_nUKqVaGcqUC8c2=oO
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-https://lore.kernel.org/r/E1tfeyR-003YGJ-Gb@rmk-PC.armlinux.org.uk
+Dear Community,
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Dear Community,
+>=20
+> > This patch provides the DT Schema description of:
+> > - powertip,st7272  320 x 240 LCD display
+> > - powertip,hx8238a 320 x 240 LCD display
+> >=20
+> > Used with the different HW revisions of btt3 devices.
+> >  =20
+>=20
+> Gentle ping on this window... I hope that it will make it into
+
+Not "ping on this window" :-) but on this patch :-)
+
+> upstream during this merge window.
+>=20
+> Thanks in advance.
+>=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> > ---
+> >=20
+> > Changes for v9:
+> > - New patch
+> >=20
+> > Changes for v10:
+> > - None
+> >=20
+> > Changes for v11:
+> > - Combine both separate dt-bindings patches for powertip,st7272 and
+> >   powertip,hx8238a into one
+> > - Drop the quotes for in "title" entry of powertip*.yaml files
+> > ---
+> >  .../display/panel/powertip,hx8238a.yaml       | 29
+> > +++++++++++++++++++ .../display/panel/powertip,st7272.yaml        |
+> > 29 +++++++++++++++++++ 2 files changed, 58 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
+> > create mode 100644
+> > Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
+> >=20
+> > diff --git
+> > a/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
+> > b/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
+> > new file mode 100644 index 000000000000..b7d74faeb5d5 --- /dev/null
+> > +++
+> > b/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
+> > @@ -0,0 +1,29 @@ +# SPDX-License-Identifier: GPL-2.0-only OR
+> > BSD-2-Clause +%YAML 1.2
+> > +---
+> > +$id:
+> > http://devicetree.org/schemas/display/panel/powertip,hx8238a.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml# +
+> > +title: Powertip Electronic Technology Co. 320 x 240 LCD panel
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > +
+> > +allOf:
+> > +  - $ref: panel-dpi.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: powertip,hx8238a
+> > +      - {} # panel-dpi, but not listed here to avoid false select
+> > +
+> > +  height-mm: true
+> > +  panel-timing: true
+> > +  port: true
+> > +  power-supply: true
+> > +  width-mm: true
+> > +
+> > +additionalProperties: false
+> > +
+> > +...
+> > diff --git
+> > a/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
+> > b/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
+> > new file mode 100644 index 000000000000..f3622800f13f --- /dev/null
+> > +++
+> > b/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
+> > @@ -0,0 +1,29 @@ +# SPDX-License-Identifier: GPL-2.0-only OR
+> > BSD-2-Clause +%YAML 1.2
+> > +---
+> > +$id:
+> > http://devicetree.org/schemas/display/panel/powertip,st7272.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml# +
+> > +title: Powertip Electronic Technology Co. 320 x 240 LCD panel
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > +
+> > +allOf:
+> > +  - $ref: panel-dpi.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: powertip,st7272
+> > +      - {} # panel-dpi, but not listed here to avoid false select
+> > +
+> > +  height-mm: true
+> > +  panel-timing: true
+> > +  port: true
+> > +  power-supply: true
+> > +  width-mm: true
+> > +
+> > +additionalProperties: false
+> > +
+> > +... =20
+>=20
+>=20
+>=20
+>=20
+> Best regards,
+>=20
+> Lukasz Majewski
+>=20
+> --
+>=20
+> DENX Software Engineering GmbH,      Managing Director: Erika Unter
+> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
+> lukma@denx.de
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/NX.kk_nUKqVaGcqUC8c2=oO
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmejeGwACgkQAR8vZIA0
+zr26xggAneqSbPpy5mv8Ai9RLDSjNCc66Zdwn6xEQ1QHl2zwo2neclEt7RRCRXC1
+k8e5eu/5fagPSCCrZLJbMSYLENWkdYfx/RG5WMjaAeypsLKTpbHHfp3R1RWihe+f
+TppC0mjbvF+a3Yu1y80L2myhIaWFPZtgjW0cx50h5CRtSFeopgrpUB7aXNGanyGR
+JrL4/OiQ65yKiyewwjRVPSHsqfvq7RnhKFR9znVSiUgnhgv81QgGRybI8GtrwLST
+NvSbxfelBlFeBQ1G8cqhXbfX3efIo/wy/P1C/ILRU0fVgBiUIz1Y68s3CuySnA52
+3/EsVzfwOo3PpqQQpY0xecKeZtHlhg==
+=Z4og
+-----END PGP SIGNATURE-----
+
+--Sig_/NX.kk_nUKqVaGcqUC8c2=oO--
 
