@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A1C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 19:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5974BC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 19:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X0ZTsssVvHzsc0e1DxaZAFNaCnLOP9m4uEkLrLv90vI=; b=iGBYl3iIQaj338/XSXs4xP1qSK
-	8a5SUe91jTUUhMo9/jpLOVDhjT3wQuqnahGdbp/i5IGJKNFghyhTmCF6qrz9GHUURsc/pePv8GyYg
-	0oS6napORtEdvjrCOwbrlDZY5O6e08FWbtKGPfE2VXxNGx83axVqImNbggRNHJaamofaPm0lgW5Zz
-	KLmIfJnvzGSTkDvap1gkep76jjvDuhtB1f4dmYfFw09LkswVLKUQbbHciyFnExh/elmko9n+N/aoL
-	YHOGlE7Hwr5PDugGamszwfTcmNjK26BoIEqMClUJ3t3m3+NVkdjQpcY25YUkFE2GH8wK+bJGErYcb
-	9SxzOVOA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K3SR5rYqhar5HSluEhYKtptLhpVhd2aXLVfmSOkbzz8=; b=BjBQrgCcI2BtUZGduYKVQFu2mB
+	eIgiWyxkuMJ9HiFsBovP050UUOanmk0TU3VsUspCRCh4EXptJdKKDXtjB0FNNGWS0FIb1HmDOaevN
+	U+liLUHjINXmdGTAxb3/GMmb8HBo7XIRSr0PNAc6RM3nGFzqwgN1RKPI83xQN/M/De4aLFnO25UWA
+	l3qOr0xoSUFpojMiBmEBuDVqflnZLt5XhKZHqwan55KHYNYjO1jteTx0NSwVN8vCzz6hYNLGGbAj+
+	uZIx5bC7GQcSE8cGTpWAvfghEQDqduSdijh5uafahGnLyS2xGNdlwW1tAEe4fh1ulkLD8o5iaoK7E
+	spr1mR3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfkvx-00000004OM0-0Aby;
-	Wed, 05 Feb 2025 19:19:37 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tfkxI-00000004OU8-3278;
+	Wed, 05 Feb 2025 19:21:00 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfkpH-00000004Mk5-3UpG
+	id 1tfkpS-00000004MnS-0lnF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 19:12:46 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21f05693a27so2266785ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 11:12:43 -0800 (PST)
+	Wed, 05 Feb 2025 19:12:55 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f9c97af32eso51479a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 11:12:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1738782763; x=1739387563; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X0ZTsssVvHzsc0e1DxaZAFNaCnLOP9m4uEkLrLv90vI=;
-        b=Nium8749FyqfIvcQ/6bcbVkuWPd+W+Ay4VkQOaGQrxCxmHFMWKMQixCXZGuM3db2ds
-         6U2m0I3uyC4t/un+r+kl8plgl0IoDmwtwpodYF+alZnJG2Kd3jMYtZ04G1BkPWx+gYHr
-         7kgdxXO9mlwKZSc5+BGtPNpzZOdgbfyIds3z4=
+        d=broadcom.com; s=google; t=1738782773; x=1739387573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=K3SR5rYqhar5HSluEhYKtptLhpVhd2aXLVfmSOkbzz8=;
+        b=avS+nV7mqJOor+pDcarXhlGwlwDbdwy6oHyCszYgEWK4TJzqiaYLVoGCfnDkR001oD
+         DNS5I2YjDr7p0wzHFJxSkZb2jVmBCIwDvt+tZA3B6nyoUPPnwDnC3fW1il8hrFvYng/7
+         ePsMTDesZyPQAFSyWDxKNZLHihKCd9EOzR0VE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738782763; x=1739387563;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X0ZTsssVvHzsc0e1DxaZAFNaCnLOP9m4uEkLrLv90vI=;
-        b=sIlci0+DqiWJ8omZZPmMts4Sb6JqYIC87Vb+HcDA0RX2qtgNIpfF+CaaC9NxnMYqWA
-         TcmBZ/uj+hRZJmu8lWw3/+By1IHWoBLEKifqjgnN9Kz+dn5xml8Smr4VTgpcTifmy17I
-         7ZlbYdUx4gn6dD7FW48dW7Ex6nVWxYg8dUCV9TcUVxyKtvbCKsDIHjFIBWEvZXTeIiD1
-         FiMKT9eIpXE94lN1ow4b30IsI+SpxEmNzBHVWEEGFAgTIwWCygeQ3n3r0hETzfhh8Cjt
-         8v8VMkJvleR9oGbysS5AzBJKYxBwMfppor5a4frHtJJp5LgUz3RRZQmTYDDAFb54tdi5
-         tpvw==
-X-Forwarded-Encrypted: i=1; AJvYcCWt2PB2KxtCr2WD5oj3qmwD/LIKEZxoEzEk5sfLZkKWz9BbQv4KA/fjNRkrbfPDKwsWkySFOHnWvM5glH0N2Cfp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx112HZErF4g+90iEA90meffEa/PoINeLx1lTkjxtTKALl9yOEC
-	rpmDIFMV8ICZaQDsXTE7l/woXVrpMqNex/A3BVYGzfW0g/KjSZnC6qfhpdyByA==
-X-Gm-Gg: ASbGncvP1kgQz66twYvqxzPUkb7OcX/347vTqdPqxADfIgIc3IkezVPaP0kSYil5EGt
-	Eawkr4nJYv7POp7CBqzDA97uT79O0U0F6ZMqdERNvwrnOD5HNntoDOdBbiD1bFwUh1qMSXrRhf5
-	RxneAKlWDjESutrIazn0CplPnYCCUfOAjKBa2zGoEv/XhvWUlV9Kr+A/bJZ8a0UdwJ0FH9IAHBB
-	7Bs2nJRJk2qMpUrah655gEoFhMtqGvbd6XiSbzipFyDs51fq5cTVSc1oYUHhj+Om+Kxzkq9I+8v
-	trFW8TyqZLdki7lBs/VRD9W8IlRRqPZizFr9xrkHGjtN8jqChS5c2yjyj1koSN/ytu5Jr/E=
-X-Google-Smtp-Source: AGHT+IEXcZFzv42qZ8TJ/klgDwqqS/+A00tWNgeMvaWCk7kbJI8shXduYKzokviPveKCUA311SJ4wA==
-X-Received: by 2002:a05:6a00:851:b0:725:96f2:9e63 with SMTP id d2e1a72fcca58-73035224858mr7975973b3a.24.1738782762954;
-        Wed, 05 Feb 2025 11:12:42 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738782773; x=1739387573;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K3SR5rYqhar5HSluEhYKtptLhpVhd2aXLVfmSOkbzz8=;
+        b=sut+P09B8zbUOQKnhevjuSnDkVy9CE6jfn/HuGlu4EebBY5vzzgcQk4fCXjLa4kOpz
+         2kqQgE0wjbQn0IfBGVdxNONDE8nK7tWg1f0Rxa96XvhzR8N26U6HLxvIXs5S0jlHhvbE
+         1Wyk9yCbpMTiE7lIii0j+S1hRSONVIKEaYvixK7+nPEU1PRQTxbEle0rnF2mgAf4m41+
+         xcFKkYdPRL1wUeYrui472p5L9AMWoqkWXiM3yTAFl8Og1/YvvOfttppr9Ev6+z0vJldP
+         3pXR8eyubzXT6Ro57HHJgg4tX10gS/ZSGoOAARKNFFAig60CNTHjHgQu8K1fugqn3iNr
+         zjiA==
+X-Forwarded-Encrypted: i=1; AJvYcCV4SigQ+oiIjyZwsFct2zMbPFuntuP7Ect8dQoyBjgCT8N698h/MS+iV1Yb0+fmEWZhAg7uG+ICRe6Gq2AuDw/N@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXcFgw2WIPxILdkTV8Ztg1TYKm1mU2MW1FLsojtU7uNNrJh1+8
+	ipePD15Gw4k07/Cm1JHBn1aQ9bUkz8yX34CHsdOlb67pMa+1BmMU4GTLiJzG+w==
+X-Gm-Gg: ASbGncvBwxmF5iNRgQ29eAP6eDgGW1QIrLpVSQEZ7Wk4SWVNjLlOI1rVPW2aiQbVmSy
+	LBYJ1m5aAxHuCq55bl5k2uTafe3a7PA/hVP9q2BcYJ/JGvhfba9UplftZhJeZ8gUdKb9zX0ldWq
+	TjB4LYVzuVzEE/at+wI81FWDrBFNz5E0iE62FnXLSXhUlM75Gt4AH46ezpTzWqG5CCf5UBmNsg8
+	BV/2Z+TY/oQjjR+y3AhY3GEuVwey//KidPPJm73bJvCInXkwWdcs6vQJzdfUgKqG74l/54AgSCd
+	gz4o52bAebxN9r5h+81Xdp+i+FVAWLMDd9Lry9dYDZkFri8K6hl/mK9fPrtkmWVvbNHsJqY=
+X-Google-Smtp-Source: AGHT+IGXI/zeQKWdy9WGXNP0IFCmaXexbux+MNSbbXKXHNOnb9/pDSTNXOi7k9q65haUFvvYkJLYBA==
+X-Received: by 2002:a05:6a00:9095:b0:72a:8f07:2bf2 with SMTP id d2e1a72fcca58-73035117eabmr6665165b3a.9.1738782743623;
+        Wed, 05 Feb 2025 11:12:23 -0800 (PST)
 Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ceb1csm12670842b3a.151.2025.02.05.11.12.40
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ceb1csm12670842b3a.151.2025.02.05.11.12.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 11:12:42 -0800 (PST)
+        Wed, 05 Feb 2025 11:12:23 -0800 (PST)
 From: Jim Quinlan <james.quinlan@broadcom.com>
 To: linux-pci@vger.kernel.org,
 	Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -75,25 +74,21 @@ To: linux-pci@vger.kernel.org,
 	bcm-kernel-feedback-list@broadcom.com,
 	jim2101024@gmail.com,
 	james.quinlan@broadcom.com
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v1 6/6] PCI: brcmstb: Cast an int variable to an irq_hw_number_t
-Date: Wed,  5 Feb 2025 14:12:06 -0500
-Message-ID: <20250205191213.29202-7-james.quinlan@broadcom.com>
+	linux-kernel@vger.kernel.org (open list),
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE)
+Subject: [PATCH v1 0/6] PCI: brcmstb: Misc small tweaks and fixes
+Date: Wed,  5 Feb 2025 14:12:00 -0500
+Message-ID: <20250205191213.29202-1-james.quinlan@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250205191213.29202-1-james.quinlan@broadcom.com>
-References: <20250205191213.29202-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_111243_912067_516DC57B 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250205_111254_223421_CEACA7C1 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just make it clear to the reader that there is a conversion happening,
-in this case from an int type to an irq_hw_number_t, an unsigned long int.
+Six small fixes and improvements for the driver.  This may be applied
+before or after Stan's V5 [1] on pci-next (they should not conflict).
 
-Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
----
- drivers/pci/controller/pcie-brcmstb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[1] https://lore.kernel.org/linux-pci/20250127113251.b2tqacoalcjrtcap@localhost.localdomain/T/#rfe31466507e3e540ad681278924e0ae4e0b8a727
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index da7b10036948..1e24e7fc895c 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -560,7 +560,7 @@ static int brcm_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 		return hwirq;
- 
- 	for (i = 0; i < nr_irqs; i++)
--		irq_domain_set_info(domain, virq + i, hwirq + i,
-+		irq_domain_set_info(domain, virq + i, (irq_hw_number_t)hwirq + i,
- 				    &brcm_msi_bottom_irq_chip, domain->host_data,
- 				    handle_edge_irq, NULL, NULL);
- 	return 0;
+Jim Quinlan (6):
+  PCI: brcmstb: Refactor max speed limit functionality
+  PCI: brcmstb: Fix error path upon call of regulator_bulk_get()
+  PCI: brcmstb: Fix potential premature regluator disabling
+  PCI: brcmstb: Use same constant table for config space access
+  PCI: brcmstb: Make two changes in MDIO register fields
+  PCI: brcmstb: Cast an int variable to an irq_hw_number_t
+
+ drivers/pci/controller/pcie-brcmstb.c | 41 ++++++++++++++-------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
+
+
+base-commit: 647d69605c70368d54fc012fce8a43e8e5955b04
+prerequisite-patch-id: 17728ad3425bcbd72e06271f2537a5aeec9ec0f2
+prerequisite-patch-id: fab98130bbf5ffc881704b02153e387aa4a08e87
+prerequisite-patch-id: 0d2d8d02821ca742aed46f16e9ed60db2ead359d
+prerequisite-patch-id: 8cddbbc69bd26c0284784d29f5abcc30db1c8327
+prerequisite-patch-id: b5d9165e3627079a44c08faaa306c17ef735fc9f
+prerequisite-patch-id: 95858e79f69b693a7955cf12549ff1ce8df27699
+prerequisite-patch-id: cc66e7df1fc7acef4ce10f99033a39359b6d57ab
+prerequisite-patch-id: af00ddbf164acf1742020616d8c0f05cbd5c1fa0
+prerequisite-patch-id: e37b800216e856a32ec7e7231d5191f17026ebc9
+prerequisite-patch-id: edeed902cf9a962e3431132dacbd95781b1cf970
+prerequisite-patch-id: da4f731901ffc44f2f1a3e69c1c35213d531fcae
 -- 
 2.43.0
 
