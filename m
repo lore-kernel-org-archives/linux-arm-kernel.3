@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30428C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B013C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjrvvQmo/fKDtVMvtCDb2bRjs6bfmJhMEvD/yxRPZ2U=; b=LO4g2Ow3ldt0caHverPbErYX+q
-	jpPgZewU7QqTFj9b8+Bd++P6BwecSyslCE1jLCPX44XFOl1ocbX04BNB7gq2Peyr0rlmo5hIjPSeC
-	LgmCR6uEVtTUf4SJTNL4HrROLA7InQUT7nALKYNmXuKQiCRMqz9FdXzZiY0kUylj3Oh9mW7KNL259
-	pBvFIy64VXL+w/pnO3d4gLekY5dlPdvz7cghAR/azSMyk+yadD82khHUUjFoMVV8b0ezut9RAepmx
-	y90CEE7spfLUu2ZTIurtR4QQUqfHBdukEigFiDj7Qx+Avl8XIqSOT7l+QQh/2dYn+DQKQrCtNFbb4
-	ObK+hQlQ==;
+	bh=F6z/JXAGt2FXgiGe8/akTm//4xUh6kUJF+WrzkEi6SM=; b=1Bm1WA+ZCOFfRlV0JsJMcYeYG7
+	zUW6xpCbqwSovXqyuKyixEgaI9fvtSxazWT9ufpTXenBzL2EI85vOSSorNvSSlXI65ildITbBNstD
+	xRDMq1BDNQSl5WT00JlW/PEXN4CAw+XHk+zQzIFwUElp4G8C9rMc+qfHaKTfZMbBn2j7Ls+FKCHzT
+	IthAUWT2VhHorE9HInYepwoFmQ+dB139FKlTDLfx3gfn+Hzv4Aah7ZClXgytCn7PU5f4wePtUg4aN
+	eZILpmwkmMs8sO6LzFfX0Z1Li5blQWT3jg3JX5ZpK3VmbvGe1zREC84fYPMD7qd9a/aakPRYlDxsr
+	jvHIbEMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgtY-00000003gVB-0Fc3;
-	Wed, 05 Feb 2025 15:00:52 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tfgwD-00000003gtk-3fvq;
+	Wed, 05 Feb 2025 15:03:37 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgqq-00000003g62-2mig
+	id 1tfgqt-00000003g7D-3LaB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 14:58:05 +0000
+	Wed, 05 Feb 2025 14:58:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738767485; x=1770303485;
+  t=1738767488; x=1770303488;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=LWWSgceP4b2NC/0ZlJaLRWZ5tS4LiVtbK0mjSJfEAow=;
-  b=T2CsNcXjRU0nRa5ClclabJqdPR8wBo3cVe48UP8ltAA7GVfLkyCPZWFL
-   kVeh8z/R0Zkggz7n0K9uAk/ku0gWQmPB+WPzkMOxRrBoB03e3jpPj9IAT
-   k9w36QBB7enFo0N7MclvRRfNcVjK0nMjO3Pp1cgBYRr2hUfMd9fEaWD8/
-   aKgH7zW1j1SXaba0/iYQ22gn16RRp0UXGzGiq9suSksvmwnhjtYn/U37d
-   U7F3fGCW5BMCoDUA1xj3fnOVzJpvG0vFcFD11a5assaSlxlCg4I7eXVfy
-   uoxB5lAF8VwZCAyQa4dDyuRBG8OmvAgsk7qYOsXIEvPhTXi3SlBNFlsmM
+  bh=uvnNcC/P2j4xylOfl/Tcg9K+1wXoPmdsdMK/xVegdEE=;
+  b=kNBcJolPBfewbDDOECnC/GQ6XBdk0uyBFeTyIQKo8pKFzBPXCsof5DPp
+   Tn+MlKke1KBR3Xziov0nJlunC4HEZpOnsUSJx+SMDkSJi/e/uNmzidZd/
+   HWXQn0VAJtXetzXWLsYFLWQxzPkix9DXL4DvlbE1nSzAabWpolEMR2zda
+   MaRH7dinwE3RXsw9vCLB8IQxdMqHfffF7i1mWmocaLpGh7nu0wQG/XwEg
+   fJq5XHPq+tRFDpn43KKcrLTByQU51MEtKFFw9iCxPxvgPp62mXzE6AXey
+   pHUDoU5bf0qm/62MynYAQd2u90qedkOP0vcNKcxCnorjg1BISFuMR4as2
    Q==;
-X-CSE-ConnectionGUID: Z44wamFaTX+87x5RAg6KcQ==
-X-CSE-MsgGUID: CI0TwyCMSW+6uKWx1+8U3Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39599710"
+X-CSE-ConnectionGUID: QHf6D5U0QtiIdhz9i98t8Q==
+X-CSE-MsgGUID: RrbOEji5RuGtCfCUx8WUmA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39232349"
 X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="39599710"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 06:58:03 -0800
-X-CSE-ConnectionGUID: K6nc5QcQSXiYTt2XdJuX+A==
-X-CSE-MsgGUID: TxFOuydCRDyH9A6DioS8jA==
+   d="scan'208";a="39232349"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 06:58:04 -0800
+X-CSE-ConnectionGUID: ve7rhMT8RhOcIscPbAcCeQ==
+X-CSE-MsgGUID: 4IezkWDmRTGdOzeqUX5fIw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="115968401"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="111806976"
 Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa004.fm.intel.com with ESMTP; 05 Feb 2025 06:58:01 -0800
+  by orviesa008.jf.intel.com with ESMTP; 05 Feb 2025 06:58:00 -0800
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id CD62914E; Wed, 05 Feb 2025 16:57:58 +0200 (EET)
+	id AE98D10A; Wed, 05 Feb 2025 16:57:58 +0200 (EET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Amelie Delaunay <amelie.delaunay@foss.st.com>,
@@ -71,17 +71,17 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH v3 4/4] dmaengine: Unify checks in dma_request_chan()
-Date: Wed,  5 Feb 2025 16:57:12 +0200
-Message-ID: <20250205145757.889247-5-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v3 1/4] dmaengine: Replace dma_request_slave_channel() by dma_request_chan()
+Date: Wed,  5 Feb 2025 16:57:09 +0200
+Message-ID: <20250205145757.889247-2-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
 In-Reply-To: <20250205145757.889247-1-andriy.shevchenko@linux.intel.com>
 References: <20250205145757.889247-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_065804_709157_E2B06B41 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250205_065807_876377_0403C279 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_fwnode() to simplify the check logic for Device Tree and ACPI
-in dma_request_chan().
+Replace dma_request_slave_channel() by dma_request_chan() as suggested
+since the former is deprecated.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/dmaengine.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/dma/imx-sdma.c    | 5 ++---
+ include/linux/dmaengine.h | 4 ++--
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index dd4224d90f07..758fcd0546d8 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -40,6 +40,8 @@
- #include <linux/dmaengine.h>
- #include <linux/hardirq.h>
- #include <linux/spinlock.h>
-+#include <linux/of.h>
-+#include <linux/property.h>
- #include <linux/percpu.h>
- #include <linux/rcupdate.h>
- #include <linux/mutex.h>
-@@ -812,15 +814,13 @@ static const struct dma_slave_map *dma_filter_match(struct dma_device *device,
-  */
- struct dma_chan *dma_request_chan(struct device *dev, const char *name)
+diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+index 3449006cd14b..02a85d6f1bea 100644
+--- a/drivers/dma/imx-sdma.c
++++ b/drivers/dma/imx-sdma.c
+@@ -1459,9 +1459,8 @@ static int sdma_alloc_chan_resources(struct dma_chan *chan)
+ 	 * dmatest, thus create 'struct imx_dma_data mem_data' for this case.
+ 	 * Please note in any other slave case, you have to setup chan->private
+ 	 * with 'struct imx_dma_data' in your own filter function if you want to
+-	 * request dma channel by dma_request_channel() rather than
+-	 * dma_request_slave_channel(). Othwise, 'MEMCPY in case?' will appear
+-	 * to warn you to correct your filter function.
++	 * request DMA channel by dma_request_channel(), otherwise, 'MEMCPY in
++	 * case?' will appear to warn you to correct your filter function.
+ 	 */
+ 	if (!data) {
+ 		dev_dbg(sdmac->sdma->dev, "MEMCPY in case?\n");
+diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+index 346251bf1026..83cbf7197a76 100644
+--- a/include/linux/dmaengine.h
++++ b/include/linux/dmaengine.h
+@@ -1639,8 +1639,8 @@ static inline struct dma_chan
  {
-+	struct fwnode_handle *fwnode = dev_fwnode(dev);
- 	struct dma_device *d, *_d;
- 	struct dma_chan *chan = NULL;
+ 	struct dma_chan *chan;
  
--	/* If device-tree is present get slave info from here */
--	if (dev->of_node)
--		chan = of_dma_request_slave_channel(dev->of_node, name);
--
--	/* If device was enumerated by ACPI get slave info from here */
--	if (has_acpi_companion(dev) && !chan)
-+	if (is_of_node(fwnode))
-+		chan = of_dma_request_slave_channel(to_of_node(fwnode), name);
-+	else if (is_acpi_device_node(fwnode))
- 		chan = acpi_dma_request_slave_chan_by_name(dev, name);
+-	chan = dma_request_slave_channel(dev, name);
+-	if (chan)
++	chan = dma_request_chan(dev, name);
++	if (!IS_ERR(chan))
+ 		return chan;
  
- 	if (PTR_ERR(chan) == -EPROBE_DEFER)
+ 	if (!fn || !fn_param)
 -- 
 2.43.0.rc1.1336.g36b5255a03ac
 
