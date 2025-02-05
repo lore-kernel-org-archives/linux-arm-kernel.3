@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53D9C02199
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0094BC0219B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JviheAOfcGY+fam4/mBliU2Kfgw+lI2qsF7LU6cAtEk=; b=U3ld9cPI9WnEweX6xU+2afEdId
-	nGQm4WQs06pV/Pj04/LQMkMxlNLBk5IeEznN2/054K9FKn/zbUS0p2HHK4mo6MhW2LGgSZS/eViG3
-	ABbnMbOFm+oVQGU5aNrnDxrqZG1S37+d62jT2n1TGv5Eu4eECyfos08UGLif/G1KqaQTGgd2s4PRx
-	qLziVe+0HrFIoK6LtxcL92N5zAlcBhhesXbqvo9SVXSRorGbooYLfkPbjqPp9DwK8i7PTKqjzyrgb
-	kjdbXwCDuXvSwE8jAW4G384tMOsjhDXGfcscyJqoIxjydKF0zsZ5SHjEC/JVokjEi42dpbxHYGpyj
-	us91oTUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x2Wg7ipOHS9h/7vXcm6WYoPVNqc1Nl/RvVeuF5UGJks=; b=ttvQAZFHAS+wOk
+	mBuZga0CrukfHZWnc+xCf1twTNrlv3TC1FK94BlRnNUz6670FVhx65988p/o+dNwAkTp4Bn0nyATl
+	41Hc9lGj3Kphatxnz67PqwK1AOPHkP92G//0zu1BVO97mwx0uOFPR3XtnAPRSouaxswX4RdDKBg/4
+	eGC3Zy9iDRwrSPkNeb6eJFk8iMnMdlqv6feV7VuJeiImzVnIzCvZkwfXnN1/z23PKcBJXdFhWddYA
+	xv+NWWItP6K8JoNtmdtxFDgCFbqkLkPlwNs74e12IAQoIX7cIeP5ye9Be1iqUCROh++TsdUTVsSMk
+	CyH5xd4ntrRBveW4yiuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjVG-0000000497n-3lEV;
-	Wed, 05 Feb 2025 17:47:58 +0000
+	id 1tfjVF-00000004962-2l34;
+	Wed, 05 Feb 2025 17:47:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjOk-0000000481X-3q1K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Feb 2025 17:41:15 +0000
+	id 1tfjOA-000000047xG-2LU1;
+	Wed, 05 Feb 2025 17:40:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JviheAOfcGY+fam4/mBliU2Kfgw+lI2qsF7LU6cAtEk=; b=UYOofyk7LfpEk66lmnR6ux2Skf
-	eeSLTROvLSmOZr4a5/byeIIfY1TeAVVS8ZiY85YLoLLOdRQwDNQ1jIdA/u5p3RJ6d8r8dB0C0E6Lb
-	1rPM8aX/sl2lOCwFb9bWdc6sF+8aScLeTHXkc8J55aPP073iJphmL1moi9uKSYE29AxmbShozIR2P
-	Nst1BYwP5XQ1aeFI8QCBH3a19AtkahndIGfc5kNGC4MFTPj7RERG07vG/WpzfRjjaOWU8RauMRTJc
-	OAWR2/jVrS84DTIFYriZZZILH5sKg48sK6esBwc8uGxGe8l+svHsN0j2nAHl2UbVsNRKXxgMYILF/
-	3aFdV1ng==;
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
+	MIME-Version:Sender:Content-ID:Content-Description;
+	bh=x2Wg7ipOHS9h/7vXcm6WYoPVNqc1Nl/RvVeuF5UGJks=; b=Hwr+Jud91SBpjSFPeLtAlXKcsH
+	itlRjm9i6fvYd+bRbHiX8muLvxtZM9pHH0XXd2y4jWBo5qFkq/37PIiPCLm3fjsnR/qC8l+GC5T2j
+	/nVuwS6ZeBiqPSYBbTFN/m18fmdMX/KB2irqp3Q2N0577gRvUHLtV6AJjVIjWP/iq7LNezseqrK/q
+	D4Ax0/sfQhXGBoG3FvP3YR8s02dVbQQl8ks6+iptwNvx8BUZGanYYXEDVDAikVAbocjUfHYpNUmZe
+	FjCi2HFPAx3lKSx38jG5dB6IEFXoSicgIQihKTATjkdw+2e3yJuxUlMb9K3aXb7nJ6NmwmbgNNM1+
+	TKE4TBQg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjOh-0000000GjbS-2430
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 17:41:13 +0000
-Received: from phl-compute-01.internal (phl-compute-01.phl.internal [10.202.2.41])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 822C0254016F;
-	Wed,  5 Feb 2025 12:41:04 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Wed, 05 Feb 2025 12:41:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1738777264; x=1738863664; bh=JviheAOfcGY+fam4/mBliU2Kfgw+lI2qsF7
-	LU6cAtEk=; b=ZEKOlpeIY1hKtAp2dj02SWmILkEsLYGoHFBIhdaBULcWMVoyQpu
-	KzfAjF8pvjtTF4lN4dnc+yfrdQ3gu5VmdclWrtk+RRblOTrTs+RV/ySBTzhYrIhs
-	We0em8144KiF7E+I59c4mxMgbxGf905v7Sj55jV6FVhrGpOQ3gjipVswyXq/jPQJ
-	U5aUj0w2Vc9yCU+OcHLM3WVcEppDYlKD7L5S9IqaEo2pLfRrVcYtAZWqrThiZFx+
-	tAGxot3+aNI0zc1jcVV0hAMD+p1ttK0t6u3P/C/MsUJJOKio/tQ8rD+1e6MA/1IP
-	4hF07xGbvjG1PH3qhB/QuswNLbOzdldpHkQ==
-X-ME-Sender: <xms:r6KjZ7s7MsnLlVFwDXTvWOa1kjYpINM-exd9-U2Mn05ci8nQd6r87w>
-    <xme:r6KjZ8eMZ05c9ssWZuaZ48i2jNVhIGMTzfwk88dv3Hq_gRidwDIAHTnzR7ouXzEcX
-    ddkZG1IksiVExY>
-X-ME-Received: <xmr:r6KjZ-wSZrt9SGKDgAQk8cUrFe9ZeODH2xbU9scCMJso-3E-rggZonmspkZq>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgedtlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddv
-    necuhfhrohhmpefkughoucfutghhihhmmhgvlhcuoehiughoshgthhesihguohhstghhrd
-    horhhgqeenucggtffrrghtthgvrhhnpeetudfghfelieetjedvhfevfeduvdetgffgudel
-    uefgkeffueeltdejvdettedufeenucffohhmrghinhepihhurdgvughupdhkvghrnhgvlh
-    drohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhm
-    pehiughoshgthhesihguohhstghhrdhorhhgpdhnsggprhgtphhtthhopedvhedpmhhoug
-    gvpehsmhhtphhouhhtpdhrtghpthhtohepmhdqmhgrlhhlrgguihesthhirdgtohhmpdhr
-    tghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnih
-    hshhgrnhifrghrsehtihdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrght
-    rdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhope
-    gvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggr
-    vhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluh
-    hnnhdrtghhpdhrtghpthhtohepsghpfhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:r6KjZ6OC6d3nrGjKvfHfIHaG7SURZuoKgzNUQ3ICfgDIzAEcRrQ67w>
-    <xmx:r6KjZ7_VUkzrSRTTwpmM_8MYcyk4CA4pzZxMHqSJs75nyLleEP2aLg>
-    <xmx:r6KjZ6U4SRoztKmYfzJCF1g0Osm-g593CwyW0FLZ9MPOZ_Khp2xNOw>
-    <xmx:r6KjZ8ftyrqq_5yaaFlEazqMapXDZAQ71v9J3gxNSe2pyx39exlAmA>
-    <xmx:sKKjZxPbTGyNchIvuM930pj-PPoTOhF2PZ47K3Ks0DY0owW0elyqGulr>
-Feedback-ID: i494840e7:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Feb 2025 12:41:02 -0500 (EST)
-Date: Wed, 5 Feb 2025 19:41:00 +0200
-From: Ido Schimmel <idosch@idosch.org>
-To: "Malladi, Meghana" <m-malladi@ti.com>
-Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, robh@kernel.org,
-	matthias.schiffer@ew.tq-group.com, dan.carpenter@linaro.org,
-	rdunlap@infradead.org, diogo.ivo@siemens.com,
-	schnelle@linux.ibm.com, glaroque@baylibre.com,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [EXTERNAL] Re: [PATCH net 1/3] net: ti: icssg-prueth: Use
- page_pool API for RX buffer allocation
-Message-ID: <Z6OirBmdSLuY5YkI@shredder>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-2-m-malladi@ti.com>
- <Z5J4jjJ4_arvfF9E@shredder>
- <9287a623-5663-4705-b61a-3ab5f5cb2424@ti.com>
+	id 1tfjO7-0000000GjaP-2yWU;
+	Wed, 05 Feb 2025 17:40:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CDEBD5C6D7F;
+	Wed,  5 Feb 2025 17:39:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F578C4CEDD;
+	Wed,  5 Feb 2025 17:40:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738777232;
+	bh=I4jW9o/4B+Z8UC6sywEnjRYy1f2QJpfv+cAZ+qa4pnw=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=M+DXVKsqzuEqwi8PgguM2uouwIcSnsgTqEJs/U/Ab4o/wHhEsrjT3DkDeTfRsLxKF
+	 UKf+bY9qowD5PyJTJakWcXUQNxDljxBAF0iSYLe21Y+d+0ZAqcPJix4TT/6hWvloMm
+	 KQeZ4MpJai34ciLaaMamAn1Y8Kgg02hgH3DIlZdyxaP1EmXnisBBOGNpDHQJcRW3W5
+	 uGXV0xZTbILmebKO+XcZXeW7G5hRbHDsNsdgMpu+M8N3qiTeztV9hI4I/GqsL+HBjH
+	 tpKbyYHTdMD5GqZwtf3bp/bUy2fcmaTs4T5x90Pp4HsxkLRIFe4qLACrQghtHCDAHK
+	 xOTA1hogj174Q==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-540201cfedbso1274e87.3;
+        Wed, 05 Feb 2025 09:40:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVaKZyqiM1eI1BiU6TVTQ/xtw9PExePMTVtPPPC88oH+EZ0/qwd6FYQ1SlznC3m8yNh+s49tTLq2CwKqsQTZfw=@lists.infradead.org, AJvYcCXUHfujXfXSNpn+9sYh7HhaWTB6cTYQxeuUh9tMtmQ+aqwXrwR0CEIzz7LgIuzjZXDlkP0S2Nh88b/ZAdc85h8L@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+qC/zYNsTKyQgI3U/9csG/VE9iAkrIzm+/6349VzyanpQ3gt6
+	h3CRTdg/7s3XWtWfHZdDPfEXKVlY8QTWqe+XvqxaXK6Hb1I0S8/ff3uw/8/ebU0yPSH0FD2ugYW
+	pRm1LCRQW2ka4mkOIHxT1jvKBz9M=
+X-Google-Smtp-Source: AGHT+IG8lhakou025la5Jappucv8WLtdehhFKE96djLZ79QU2Y1TtjR/MkLvLzNVVS5NW5nvfFdoY99dvlkSP3I4BEQ=
+X-Received: by 2002:a05:6512:3e03:b0:543:e3e2:879e with SMTP id
+ 2adb3069b0e04-54405a7b6c1mr1242587e87.51.1738777230659; Wed, 05 Feb 2025
+ 09:40:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9287a623-5663-4705-b61a-3ab5f5cb2424@ti.com>
+References: <20250204161359.3335241-1-wens@kernel.org> <20250204134331.270d5c4e@kernel.org>
+ <CAGb2v641vvtVKv8QbiEfHnMWngcKYTJZAgfH5k+G_nOvZcbC9g@mail.gmail.com> <20250205173824.GJ554665@kernel.org>
+In-Reply-To: <20250205173824.GJ554665@kernel.org>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 6 Feb 2025 01:40:17 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64CZWZwC7T9NNN7Re8pkCLQZEh3bcraYjcQRyVxtJgS5w@mail.gmail.com>
+X-Gm-Features: AWEUYZksuSbRuZZAzWd77ituAitD1pgvI4pAn_LVLBqoUUFzO5mWdzzigczPLts
+Message-ID: <CAGb2v64CZWZwC7T9NNN7Re8pkCLQZEh3bcraYjcQRyVxtJgS5w@mail.gmail.com>
+Subject: Re: [PATCH netdev] net: stmmac: dwmac-rk: Provide FIFO sizes for
+ DWMAC 1000
+To: Simon Horman <horms@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Paolo Abeni <pabeni@redhat.com>, Heiko Stuebner <heiko@sntech.de>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Steven Price <steven.price@arm.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_174112_071881_1931D43F 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250205_174036_000755_AB53CC71 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +100,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 11:25:02PM +0530, Malladi, Meghana wrote:
-> Seems like none of the pages which have been allocated aren't getting
-> recycled in the rx path after being used unless its some error case. Will
-> try to fix this.
+On Thu, Feb 6, 2025 at 1:38=E2=80=AFAM Simon Horman <horms@kernel.org> wrot=
+e:
+>
+> On Wed, Feb 05, 2025 at 11:45:17AM +0800, Chen-Yu Tsai wrote:
+> > On Wed, Feb 5, 2025 at 5:43=E2=80=AFAM Jakub Kicinski <kuba@kernel.org>=
+ wrote:
+> > >
+> > > On Wed,  5 Feb 2025 00:13:59 +0800 Chen-Yu Tsai wrote:
+> > > > Since a fix for stmmac in general has already been sent [1] and a r=
+evert
+> > > > was also proposed [2], I'll refrain from sending mine.
+> > >
+> > > No, no, please do. You need to _submit_ the revert like a normal patc=
+h.
+> > > With all the usual details in the commit message.
+> >
+> > Mine isn't a revert, but simply downgrading the error to a warning.
+> > So... yet another workaround approach.
+>
+> I think the point is that someone needs to formally
+> submit the revert. And I assume it should target the net tree.
 
-skb_mark_for_recycle() should help with page recycling when an skb that
-uses them is freed.
-
-Anyway, I believe that I don't see put call when tearing down the Rx
-ring because prueth_rx_cleanup() is using page_pool_recycle_direct()
-when it shouldn't. AFAICT, prueth_rx_cleanup() is only called from the
-control path (upon ndo_stop()) and not in NAPI context.
-
-> Also I have noticed, in prueth_prepare_rx_chan() pages are allocated per
-> number of descriptors for a channel, but they are not being used when a
-> packet is being recieved (in emac_rx_packet()) and rather new page is
-> allocated for the next upcoming packet. Is this a valid design, what are
-> your thoughts on this ?
-
-The new page is possibly a page that was recycled into the pool when a
-previous packet was freed / dropped.
-
-[...]
-
-> Yes I will add PP_FLAG_DMA_SYNC_DEV as well.
-> I believe page_pool_dma_sync_for_cpu() needs to be called sync Rx page for
-> CPU, am I right ? If so can you tell me, in what all cases should I call
-> this function.
-
-Before accessing the packet data.
-
-> https://lkml.iu.edu/hypermail/linux/kernel/2312.1/06353.html
-> In the above link it is quoted - "Note that this version performs DMA sync
-> unconditionally, even if the associated PP doesn't perform sync-for-device"
-> for the page_pool_dma_sync_for_cpu() function. So does that mean if I am
-> using this function I don't need explicily sync for device call?
-
-It's explained in the page pool documentation:
-
-"Driver is always responsible for syncing the pages for the CPU. Drivers
-may choose to take care of syncing for the device as well or set the
-PP_FLAG_DMA_SYNC_DEV flag to request that pages allocated from the page
-pool are already synced for the device."
-
-https://docs.kernel.org/networking/page_pool.html#dma-sync
+Russell sent one a couple hours ago, so I think we're covered.
 
