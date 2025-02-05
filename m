@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5D9C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B2CC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dVPrvgxnzxsAfTYi9Dah/Z/7cPmJ2a+tEu4/yE+RZHs=; b=WWi5oJrZLG+6p4zgaQxWUdjZNk
-	WaRo5IQOvS9DtKFB0LQCLE3UObud/pv3FTMHjmAm4KhPqhq5tO6OgrIkgq7gCqtXDyznMksvYsVlh
-	zBtBFurE7OZ5sNWozbjGdNewE2dcqa48mz2E7Ys7RIZyZILiZna0/fExfVPi0Vve2jVYSRsGGUiiw
-	HkzJtTet+bvuHk9G1BQgYF6KoKUKKmswfKJwAZBEGudWDribP1YualFvlfiF28SLyRSJskDyL6QEj
-	ZoLOPq7rruezmeSSXxduq+4hGYbDW+SbMQGnVOw6+opFPSAfS+uT47YZi4EsnDuvFiZUvmDCUN5Ak
-	6QYJWEEA==;
+	bh=OkH6mYXJp0TjRSwBtmBs0YmaHm+TspyfIyTEYgopupM=; b=aLPrKtg3S9Whxjcn+9MRXAkdvg
+	qSBmLM3SsH4KMMjdgfgzcloTul1NRQKDSVvpdRZsBdH+mbBMltPPLE8Z1fWGRnHRthXr0ta42KAdO
+	0VyTdwbvy+BIn90IKHib5Bm2BKH3lS5RK4xig2gM0nWKpRTVcxfNdSNK9MFsuZ1TGXMR33SYWTokN
+	dQxJhiMDra29ZpV4kYYw6fxu74dGNK1pqT8alY+pFKWlONCCy9B5jcSHAcjg0E4LQCTcaywsTgUPj
+	MUzycuMOqi376xXUmiVb/r9KhLJRbskxJHclPC4hMgxqc3e2Vhci1zEz2HMzeOFXYKNwcpxTiqaz+
+	owgNkWFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhCI-00000003jxg-0YZN;
-	Wed, 05 Feb 2025 15:20:14 +0000
+	id 1tfhDd-00000003kEN-04Od;
+	Wed, 05 Feb 2025 15:21:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfh36-00000003iCY-2Fjq
+	id 1tfh39-00000003iE3-1Hyq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 15:10:45 +0000
+	Wed, 05 Feb 2025 15:10:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE7D41063;
-	Wed,  5 Feb 2025 07:11:07 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D37F1063;
+	Wed,  5 Feb 2025 07:11:10 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A24303F5A1;
-	Wed,  5 Feb 2025 07:10:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 712D43F5A1;
+	Wed,  5 Feb 2025 07:10:44 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -52,17 +52,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
-Date: Wed,  5 Feb 2025 15:09:46 +0000
-Message-ID: <20250205151003.88959-7-ryan.roberts@arm.com>
+Subject: [PATCH v1 07/16] arm64: hugetlb: Use ___set_ptes() and ___ptep_get_and_clear()
+Date: Wed,  5 Feb 2025 15:09:47 +0000
+Message-ID: <20250205151003.88959-8-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250205151003.88959-1-ryan.roberts@arm.com>
 References: <20250205151003.88959-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_071044_666580_0B61E067 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250205_071047_436424_4673274A 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,184 +77,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor __set_ptes(), set_pmd_at() and set_pud_at() so that they are
-all a thin wrapper around a generic ___set_ptes(), which takes pgsize
-parameter. This cleans up the code to remove the confusing
-__set_pte_at() (which was only ever used for pmd/pud) and will allow us
-to perform future barrier optimizations in a single place. Additionally,
-it will permit the huge_pte API to efficiently batch-set pgtable entries
-and take advantage of the future barrier optimizations.
+Refactor the huge_pte helpers to use the new generic ___set_ptes() and
+___ptep_get_and_clear() APIs.
 
-___set_ptes() calls the correct page_table_check_*_set() function based
-on the pgsize. This means that huge_ptes be able to get proper coverage
-regardless of their size, once it's plumbed into huge_pte. Currently the
-huge_pte API always uses the pte API which assumes an entry only covers
-a single page.
+This provides 2 benefits; First, when page_table_check=on, hugetlb is
+now properly/fully checked. Previously only the first page of a hugetlb
+folio was checked. Second, instead of having to call __set_ptes(nr=1)
+for each pte in a loop, the whole contiguous batch can now be set in one
+go, which enables some efficiencies and cleans up the code.
 
-While we are at it, refactor __ptep_get_and_clear() and
-pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
-also takes a pgsize parameter. This will provide the huge_pte API the
-means to clear ptes corresponding with the way they were set.
+One detail to note is that huge_ptep_clear_flush() was previously
+calling ptep_clear_flush() for a non-contiguous pte (i.e. a pud or pmd
+block mapping). This has a couple of disadvantages; first
+ptep_clear_flush() calls ptep_get_and_clear() which transparently
+handles contpte. Given we only call for non-contiguous ptes, it would be
+safe, but a waste of effort. It's preferable to go stright to the layer
+below. However, more problematic is that ptep_get_and_clear() is for
+PAGE_SIZE entries so it calls page_table_check_pte_clear() and would not
+clear the whole hugetlb folio. So let's stop special-casing the non-cont
+case and just rely on get_clear_contig_flush() to do the right thing for
+non-cont entries.
 
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h | 108 +++++++++++++++++++------------
- 1 file changed, 67 insertions(+), 41 deletions(-)
+ arch/arm64/mm/hugetlbpage.c | 50 ++++++++-----------------------------
+ 1 file changed, 11 insertions(+), 39 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0b2a2ad1b9e8..3b55d9a15f05 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -420,23 +420,6 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
- 	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
- }
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index e870d01d12ea..02afee31444e 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -166,12 +166,12 @@ static pte_t get_clear_contig(struct mm_struct *mm,
+ 	pte_t pte, tmp_pte;
+ 	bool present;
  
--static inline void __set_ptes(struct mm_struct *mm,
--			      unsigned long __always_unused addr,
--			      pte_t *ptep, pte_t pte, unsigned int nr)
--{
--	page_table_check_ptes_set(mm, ptep, pte, nr);
--	__sync_cache_and_tags(pte, nr);
--
--	for (;;) {
--		__check_safe_pte_update(mm, ptep, pte);
--		__set_pte(ptep, pte);
--		if (--nr == 0)
--			break;
--		ptep++;
--		pte = pte_advance_pfn(pte, 1);
+-	pte = __ptep_get_and_clear(mm, addr, ptep);
++	pte = ___ptep_get_and_clear(mm, ptep, pgsize);
+ 	present = pte_present(pte);
+ 	while (--ncontig) {
+ 		ptep++;
+ 		addr += pgsize;
+-		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
++		tmp_pte = ___ptep_get_and_clear(mm, ptep, pgsize);
+ 		if (present) {
+ 			if (pte_dirty(tmp_pte))
+ 				pte = pte_mkdirty(pte);
+@@ -215,7 +215,7 @@ static void clear_flush(struct mm_struct *mm,
+ 	unsigned long i, saddr = addr;
+ 
+ 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+-		__ptep_get_and_clear(mm, addr, ptep);
++		___ptep_get_and_clear(mm, ptep, pgsize);
+ 
+ 	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+ }
+@@ -226,32 +226,20 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+ 	size_t pgsize;
+ 	int i;
+ 	int ncontig;
+-	unsigned long pfn, dpfn;
+-	pgprot_t hugeprot;
+ 
+ 	ncontig = num_contig_ptes(sz, &pgsize);
+ 
+ 	if (!pte_present(pte)) {
+ 		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+-			__set_ptes(mm, addr, ptep, pte, 1);
++			___set_ptes(mm, ptep, pte, 1, pgsize);
+ 		return;
+ 	}
+ 
+-	if (!pte_cont(pte)) {
+-		__set_ptes(mm, addr, ptep, pte, 1);
+-		return;
 -	}
--}
 -
- /*
-  * Hugetlb definitions.
-  */
-@@ -641,30 +624,59 @@ static inline pgprot_t pud_pgprot(pud_t pud)
- 	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
- }
- 
--static inline void __set_pte_at(struct mm_struct *mm,
--				unsigned long __always_unused addr,
--				pte_t *ptep, pte_t pte, unsigned int nr)
-+static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
-+			       unsigned int nr, unsigned long pgsize)
- {
--	__sync_cache_and_tags(pte, nr);
--	__check_safe_pte_update(mm, ptep, pte);
--	__set_pte(ptep, pte);
-+	unsigned long stride = pgsize >> PAGE_SHIFT;
-+
-+	switch (pgsize) {
-+	case PAGE_SIZE:
-+		page_table_check_ptes_set(mm, ptep, pte, nr);
-+		break;
-+	case PMD_SIZE:
-+		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
-+		break;
-+	case PUD_SIZE:
-+		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
-+		break;
-+	default:
-+		VM_WARN_ON(1);
-+	}
-+
-+	__sync_cache_and_tags(pte, nr * stride);
-+
-+	for (;;) {
-+		__check_safe_pte_update(mm, ptep, pte);
-+		__set_pte(ptep, pte);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		pte = pte_advance_pfn(pte, stride);
-+	}
- }
- 
--static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
--			      pmd_t *pmdp, pmd_t pmd)
-+static inline void __set_ptes(struct mm_struct *mm,
-+			      unsigned long __always_unused addr,
-+			      pte_t *ptep, pte_t pte, unsigned int nr)
- {
--	page_table_check_pmd_set(mm, pmdp, pmd);
--	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
--						PMD_SIZE >> PAGE_SHIFT);
-+	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
- }
- 
--static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
--			      pud_t *pudp, pud_t pud)
-+static inline void __set_pmds(struct mm_struct *mm,
-+			      unsigned long __always_unused addr,
-+			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
-+{
-+	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
-+}
-+#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
-+
-+static inline void __set_puds(struct mm_struct *mm,
-+			      unsigned long __always_unused addr,
-+			      pud_t *pudp, pud_t pud, unsigned int nr)
- {
--	page_table_check_pud_set(mm, pudp, pud);
--	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
--						PUD_SIZE >> PAGE_SHIFT);
-+	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
- }
-+#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
- 
- #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
- #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
-@@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
- 
--static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
--				       unsigned long address, pte_t *ptep)
-+static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
-+				       unsigned long pgsize)
- {
- 	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
- 
--	page_table_check_pte_clear(mm, pte);
-+	switch (pgsize) {
-+	case PAGE_SIZE:
-+		page_table_check_pte_clear(mm, pte);
-+		break;
-+	case PMD_SIZE:
-+		page_table_check_pmd_clear(mm, pte_pmd(pte));
-+		break;
-+	case PUD_SIZE:
-+		page_table_check_pud_clear(mm, pte_pud(pte));
-+		break;
-+	default:
-+		VM_WARN_ON(1);
-+	}
- 
- 	return pte;
- }
- 
-+static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-+				       unsigned long address, pte_t *ptep)
-+{
-+	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
-+}
-+
- static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
- 				pte_t *ptep, unsigned int nr, int full)
- {
-@@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long address, pmd_t *pmdp)
- {
--	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
+-	pfn = pte_pfn(pte);
+-	dpfn = pgsize >> PAGE_SHIFT;
+-	hugeprot = pte_pgprot(pte);
 -
--	page_table_check_pmd_clear(mm, pmd);
--
--	return pmd;
-+	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
+ 	/* Only need to "break" if transitioning valid -> valid. */
+-	if (pte_valid(__ptep_get(ptep)))
++	if (pte_cont(pte) && pte_valid(__ptep_get(ptep)))
+ 		clear_flush(mm, addr, ptep, pgsize, ncontig);
+ 
+-	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+-		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
++	___set_ptes(mm, ptep, pte, ncontig, pgsize);
  }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
+ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+@@ -441,11 +429,9 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 			       unsigned long addr, pte_t *ptep,
+ 			       pte_t pte, int dirty)
+ {
+-	int ncontig, i;
++	int ncontig;
+ 	size_t pgsize = 0;
+-	unsigned long pfn = pte_pfn(pte), dpfn;
+ 	struct mm_struct *mm = vma->vm_mm;
+-	pgprot_t hugeprot;
+ 	pte_t orig_pte;
+ 
+ 	VM_WARN_ON(!pte_present(pte));
+@@ -454,7 +440,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
+ 
+ 	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+-	dpfn = pgsize >> PAGE_SHIFT;
+ 
+ 	if (!__cont_access_flags_changed(ptep, pte, ncontig))
+ 		return 0;
+@@ -469,19 +454,14 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+ 	if (pte_young(orig_pte))
+ 		pte = pte_mkyoung(pte);
+ 
+-	hugeprot = pte_pgprot(pte);
+-	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+-		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+-
++	___set_ptes(mm, ptep, pte, ncontig, pgsize);
+ 	return 1;
+ }
+ 
+ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 			     unsigned long addr, pte_t *ptep)
+ {
+-	unsigned long pfn, dpfn;
+-	pgprot_t hugeprot;
+-	int ncontig, i;
++	int ncontig;
+ 	size_t pgsize;
+ 	pte_t pte;
+ 
+@@ -494,16 +474,11 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ 	}
+ 
+ 	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+-	dpfn = pgsize >> PAGE_SHIFT;
+ 
+ 	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+ 	pte = pte_wrprotect(pte);
+ 
+-	hugeprot = pte_pgprot(pte);
+-	pfn = pte_pfn(pte);
+-
+-	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+-		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
++	___set_ptes(mm, ptep, pte, ncontig, pgsize);
+ }
+ 
+ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+@@ -517,10 +492,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ 	pte = __ptep_get(ptep);
+ 	VM_WARN_ON(!pte_present(pte));
+ 
+-	if (!pte_cont(pte))
+-		return ptep_clear_flush(vma, addr, ptep);
+-
+-	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
++	ncontig = num_contig_ptes(page_size(pte_page(pte)), &pgsize);
+ 	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+ }
  
 -- 
 2.43.0
