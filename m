@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F33C02197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F65EC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 07:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=; b=RjE6vsF/ma0wVT568JCNG4pQxL
-	w1hZHkWY150IBWIp/y8yEdMAHLNUqs+uQwFbYMHGjbDmtrx8xntwpYX3n1NzvXy65mkKwGEasYtc8
-	cDHlaZo0+jivBcZ/1LU0LYSWCli6kyf4l6fXK/+blKOi9lqJt9lbAhIfE7oKgPGlwZejAN3LlMp4+
-	OQyw1Ava967sEhblIs4XsIAiR1iZRS02myfsp/zrQ4VAq3/2VXeofaqHCw/4M+Z61JWGxb/Mtgow3
-	4z49Af+xbskYnzRlo43+hmDUNLRBkAidF3fiGaAlLVGvC9r9IabW9Kj7ZJhPzdrJSCadhSu5U6/HA
-	l5mw0Ovw==;
+	bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=; b=IN5PEWreGEHLQidsxwLePKJO2a
+	/Tpc54pmQnYTzeYvfrcJN4qIxWVardrDfJmWi3NcVhXcy94mkhj74rA9R+LIESy0tXPohFVXZRlRg
+	m3IccIqsxvRvpZSTPJh6v7ZbYOD94aqt6yvmGTdpG+5Bt9sZOy+phwU+h+pziuxe+/ZvZ8C7GhZb3
+	ZOL0XJUDTk+gRlDX8Xn/s6ZgGYjxDm9xn2HmtCOS/8zIRa5m336eTfMy497MuP911tEvxHtBORkts
+	PP5Ck/jtaSu1/IbGsiIzCZMZ779Y5of0OWMTp+ggORBnTzfe7xrVxGJxi36wBzfId5FNjxLLYvqT5
+	MYy4OUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZPk-00000002THM-2m9Z;
-	Wed, 05 Feb 2025 07:01:36 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tfZR5-00000002TWa-1dVG;
+	Wed, 05 Feb 2025 07:02:59 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZON-00000002T44-1j6M
+	id 1tfZPH-00000002TAb-2vMC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 07:00:12 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21f200014f1so1232535ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 23:00:10 -0800 (PST)
+	Wed, 05 Feb 2025 07:01:08 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2f9d74037a7so1851843a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Feb 2025 23:01:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738738810; x=1739343610; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738738867; x=1739343667; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=;
-        b=va0Q9HNsX3gl+akZ5T0aDuRDLWeeVnIL7GtJt9ZLTEW4mkvr56an7K6xrTmMCjKg3e
-         0fgRlAY5uQfOvQP6KUdA93OelglUnv/TouTqaD4uu52WadmPdhsPF9OCsEjtcxmU2vZL
-         jsbQHOkmGNRhOMcRlPCEbP1T3AENjsh2e5g5933umBLWXehPHcgaxOm935KD7yjZchL0
-         pSBhBrCsrzBDJfpHvSq+SbFIrYenzD8EpfPCcDeBMNfAGjex2T9eqEMCNSwByFczn2Pk
-         RLgr1xrTlpodsJdwR9YKy+xVcDjOmZ6HbuGhYw40QrgxKHCwA317JBoK5LiOUpKomsx0
-         4Urw==
+        bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=;
+        b=offyAg23RVZwUdEmA71XMjDmmcShP1Jfb5PKwiUpnxpbeAP0cKbwtfvsoACUej98O1
+         RrGpPVmbS2W5HhEtHbQ6o2BIzN/oH+uQXbW6qnIr+vMpxkTHW8OFXL8Bt/DpxEyNEJ9x
+         SYgd27wCRfkzRv/9oVojefP9UpsdJsjrrVZbXU9BMmpWQeBejH+8j1YBPLKCHlLCuCqW
+         V6LurNRqADA79K/dub4cV9uSeRZnrnGDDxMPORXLFDbi9gj6R3gLDB+en5IiuJbbgaBH
+         GSRmmqGumuGUmk4KwV3QdEPds+Yyt3fPyCFs6lnTnddQiznwek5aNuvserGpsRKZqjCj
+         /lrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738738810; x=1739343610;
+        d=1e100.net; s=20230601; t=1738738867; x=1739343667;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+8ws3eogQ75UF4XPAfpmrJb1OdBIIOKRn93Q6XsSWXQ=;
-        b=KyzjNDed8Tu69gV33JMPXJQBmzuUS8e0ahC2FwMZF2BVQQxWql8pZuVX9nVWMu7Yt7
-         qevh/2qV9MjBj81fMoDRDFAN21g4t6wZUewmDVLjOp/RTleTy0Bu1wZ3KFhX8u/uiwh0
-         F4G/JKuOte0rMYcWznsxwCvP6QAiLyNwbaUtwUftsrWK1/elnX6lHGTUsmEv7uDGpUKI
-         KK9kcBLkNMCSFz56XWiUIsO4qN9KA3o/QXaKYOyYQgrOXn5dVaIbqiZ736uuDmPurnVH
-         7htpJOuP8paIqDuFv+nrglGZQ0GbdPFHCiRigr0lDnEXZ7j8aiqkELMUum7wpEplnVl5
-         8v0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXtcU/QUVPgdxt9WS6nsNdjIGmQQITisAW2Thfyn4famv66CKs9IM6bu0+fDVPbNyR3khsOkVhaoXA7lJLYU4He@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR09cS2KtWiV59cHm3uA3fc6THRHqb7vuBizWRY3BG3Y/vy7hZ
-	/e4FmMi83Hcbo8N8J2c0Tf3ek4J1WoY4oUgs/u9cpKSvX8nnPxK1tznTNQDBxbg=
-X-Gm-Gg: ASbGnctbZLcDnoAcgp68c6Zky7hfHWjIZjDutXJzzvNfzgDEUzFsirmWtcqS90KxDQu
-	0B7xe32ej2bx61bodheDoNbfb3Tn9YkhWBgjOT9B3tjdRZMfRRZCSR1QEpBGnFAXy6wYD1jsR2Z
-	k//uXWKSlfwq02OgQEFwuS8sOMN0j5JYeCctQGtS8IrE2bqcqYSp8cx3Bhfzs0xenJdLFvitIfV
-	sMPPnTU4jAP3QRMLuNh6eQz/E7ugA3I7xthcrDd79ODUFRDSGLPQpqar1k6ZyRt1z9mErSCOHlT
-	5FNcfy3hnqnH4jKKaA==
-X-Google-Smtp-Source: AGHT+IFcBfowwoWBH0FBPbI4cZlw9NudpkT74gZC6XMMWGu1ebXPwbrRqUXqsIP4PMl1f/5/sfi3NQ==
-X-Received: by 2002:a05:6300:668a:b0:1e1:94ee:c37a with SMTP id adf61e73a8af0-1ede883b7b3mr3096336637.15.1738738810041;
-        Tue, 04 Feb 2025 23:00:10 -0800 (PST)
+        bh=6N/xvMPywVw8Ta/fzMCKBPH/2e9AxLxEOg5T5Sofx6w=;
+        b=MCHvo/zUJeeYrbf9dJrp/tlX7yZA94je/2EQHofgaIPq/SyW0mwVzqgeDduFa5Y3Kn
+         1vTe7ZcNgpUzvpEvJQhv7ge8GENN4+6Jzc6Y48cbPb+jaSjyr4yLYKonF3u48dLWLEgR
+         /UuNwEuMH209umzE02uYLyxrTpAfAl3WPTy7dLtpacWqdz5ACqhxx86P6AEt569TrbiP
+         PEm44sHQrqClU075TOil/usIbGXMznFnWnWBbkSJwpo9SZwWjPyzJ8i5UoqaB+auW9mx
+         kci0vOotOmncJzTMOkC3pstqmmiy4R8ty9lgSR3gWmVmmXXcwtEtN+jNDSN73Y0x8ANO
+         XW2g==
+X-Forwarded-Encrypted: i=1; AJvYcCX7Yg3U/pwK3A/xYUAoxigBNXu5tlz4tAt8koM3FLhOW3Sa8oBvQW8LZm4X6YAPuKorEuEs1qWuyE8gxfg3RAFP@lists.infradead.org
+X-Gm-Message-State: AOJu0YycO0oWypXwgMM3CiqihZYVEppsXN+kt0F5x4+CrF6XiXhhqFWy
+	wbuLPahAdKaAVObSqlPDM19LPmUxVg/2wDarKymORpNPnK68g8Y9Cj6G5jDQHUA=
+X-Gm-Gg: ASbGncsOuN7ZEykqAyGKvUKxJifRfTcCQSeMFLmDER4VrpCh36uEaMCSFzMO3KDTltw
+	BgA0FakGBdItG1IMspIaSYaKn9yr9AtOQ1/nVapH5eQJy74SvVMqMS23xQ8E8KazfpTxiAW5Q/T
+	6n5iWpddhSgY0xs6db642Fzf/ed7XYJk8gUk0a60AwJYDFi7gvvMXAOLyQhg0XSly0PmE+4KLlQ
+	fRXzJP2MPT1Mqv4K3tQ1RaURnLJ07RF8YlnXW8Aqe8cexeKNaEofig7lP74iJXg9xrENNGFKDUj
+	5PJEku0w5C5018vLQg==
+X-Google-Smtp-Source: AGHT+IEu7fqxtK7w5SoEhI6cbco/xUvu7X3eM4no2kX0m2LQwZj0KIS55DISe84WBXdk8tWZ91sBcg==
+X-Received: by 2002:a17:90b:38c3:b0:2ea:3d2e:a0d7 with SMTP id 98e67ed59e1d1-2f9e0792de0mr2925113a91.15.1738738866797;
+        Tue, 04 Feb 2025 23:01:06 -0800 (PST)
 Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ba380sm11638732b3a.118.2025.02.04.23.00.08
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f9e1e4253bsm762453a91.49.2025.02.04.23.01.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 23:00:09 -0800 (PST)
-Date: Wed, 5 Feb 2025 12:30:06 +0530
+        Tue, 04 Feb 2025 23:01:06 -0800 (PST)
+Date: Wed, 5 Feb 2025 12:31:04 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
 To: Beata Michalska <beata.michalska@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -75,20 +75,25 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
 	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
 	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com, ptsm@linux.microsoft.com
-Subject: Re: [PATCH v10 1/4] cpufreq: Allow arch_freq_get_on_cpu to return an
- error
-Message-ID: <20250205070006.zpslntq6nwo73o4u@vireshk-i7>
+	zhanjie9@hisilicon.com, ptsm@linux.microsoft.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	x86@kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <20250205070104.6k4n3zcyuki366am@vireshk-i7>
 References: <20250131162439.3843071-1-beata.michalska@arm.com>
- <20250131162439.3843071-2-beata.michalska@arm.com>
+ <20250131162439.3843071-3-beata.michalska@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250131162439.3843071-2-beata.michalska@arm.com>
+In-Reply-To: <20250131162439.3843071-3-beata.michalska@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_230011_462784_6C22FDED 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_230107_765929_9F54B8EB 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,13 +109,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 31-01-25, 16:24, Beata Michalska wrote:
-> Allow arch_freq_get_on_cpu to return an error for cases when retrieving
-> current CPU frequency is not possible, whether that being due to lack of
-> required arch support or due to other circumstances when the current
-> frequency cannot be determined at given point of time.
+> Currently the CPUFreq core exposes two sysfs attributes that can be used
+> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
+> and scaling_cur_freq. Both provide slightly different view on the
+> subject and they do come with their own drawbacks.
+> 
+> cpuinfo_cur_freq provides higher precision though at a cost of being
+> rather expensive. Moreover, the information retrieved via this attribute
+> is somewhat short lived as frequency can change at any point of time
+> making it difficult to reason from.
+> 
+> scaling_cur_freq, on the other hand, tends to be less accurate but then
+> the actual level of precision (and source of information) varies between
+> architectures making it a bit ambiguous.
+> 
+> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
+> distinct interface, exposing an average frequency of a given CPU(s), as
+> reported by the hardware, over a time frame spanning no more than a few
+> milliseconds. As it requires appropriate hardware support, this
+> interface is optional.
+> 
+> Note that under the hood, the new attribute relies on the information
+> provided by arch_freq_get_on_cpu, which, up to this point, has been
+> feeding data for scaling_cur_freq attribute, being the source of
+> ambiguity when it comes to interpretation. This has been amended by
+> restoring the intended behavior for scaling_cur_freq, with a new
+> dedicated config option to maintain status quo for those, who may need
+> it.
+> 
+> CC: Jonathan Corbet <corbet@lwn.net>
+> CC: Thomas Gleixner <tglx@linutronix.de>
+> CC: Ingo Molnar <mingo@redhat.com>
+> CC: Borislav Petkov <bp@alien8.de>
+> CC: Dave Hansen <dave.hansen@linux.intel.com>
+> CC: H. Peter Anvin <hpa@zytor.com>
+> CC: Phil Auld <pauld@redhat.com>
+> CC: x86@kernel.org
+> CC: linux-doc@vger.kernel.org
 > 
 > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 > Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
 
 Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
