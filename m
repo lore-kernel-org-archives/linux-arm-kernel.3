@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3383C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 05:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF028C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 06:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KU/O/7ev4fbCeDbK7r0sJts/XxWnwh7KmfwoDtDd6Y=; b=q+QXOPjgCDBPSnAcuI63Wivk2N
-	rmU2q7hZMNO542OVqLGfAAWnnuAtuQcqk2cg8xHsu3HHZM1mNgSueZz6h8DiI+I+esBEsVeU70RZK
-	0ibpzEcNwSx1DQhbhE2hpffnWuLQzJM9JGEPHG9wuVtsw6ppbZpdAsGrMgd9a7JJ62UXp60PFRLwN
-	Rzh1a3h9iD+PiADo+uK07+LBvkZu23YHgGKykXsyzt5bN+RbmRiMRGT4ZeyLglTTp4VLFy/xLhXiZ
-	hD0rrlRYewVFbCn66ddqqCMs4Fz9kP+S2XuXKukuU5lkup91XstTvG3oAzT/46Fx3afl57wD+ENDR
-	dTKyJ0+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eqKxRAE0hEhB/gkwHUJjHYvFkAhY4M48O0HRCPE2xfU=; b=oqgelG6f8enPzDgL0eTHTVVIkO
+	5ljHj9zeUbV61nszKdna3eIk709e1QDix2y8fxFPPUz0KFLXXhTdPQsa9A/sS5SRFF7dnyqfBTrU5
+	iAE8iwYI3LSl+KUL4zqCVg76Wkk1guORc96rkbrCPH/Rok/NPsKsL3oKl8xlVEyo1+Y12rmE4tqRr
+	LooceX3Hkw6OkuT0GsFdsVMOhum4A9TUckePzKL/Pf8D2CRibnlp7Bk2CWImoywfZkvjKZcHc+g8I
+	ouqc2v/NJqI6ajYy1hTZhCedZGOqcK5m9zC0gqfYNkPFtlEpyGnzn7mdpjDiaKNnVUVSy5bv93Rek
+	di3a2g2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfYK6-00000002MxJ-2wlh;
-	Wed, 05 Feb 2025 05:51:42 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tfYpt-00000002Pue-2Ppt;
+	Wed, 05 Feb 2025 06:24:33 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfYGT-00000002MUK-40Mm
+	id 1tfYoX-00000002PYG-0baN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 05:47:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1738734478; x=1770270478;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=JsjoMsPukH3T9bblFYEe4cs8XB5AgUk3iFQC9hIrb0o=;
-  b=rH1GCTISxQEhMvWu9XbQGB7P55r7GZgOVcCX1sED8uBfHRa/QJiMs5T3
-   5yMXJfXnOy1pSEMu5+pnD8w7ATqADpNMYSLJKIVjNmPuUQP3vyzBQ59tS
-   gsP17vSVbJCD3HvWiezcqJIWma6TTZxPdMm59iX2D9jbqy6NPmXdE2+I1
-   2BiVXqMW/ZlPn7jkkd+efa+EdjwUJ1RXKTHbpszlD/XRQKkHWsfXHxYxD
-   qE6tS+cpbmGTcXoHgLVI2WwJNO2Eu80T6TvlSg7uL75TkUtE8ADION5Me
-   7pDuOOSX0kz99t83cFrMO6X0c15GiDgZuCzKwrNV80+fVRf8VwemjFkWd
-   g==;
-X-CSE-ConnectionGUID: a1yIP19sQpy3wWAhZXasEg==
-X-CSE-MsgGUID: w4SM+3nqQ7OA++T7fyzE7g==
-X-IronPort-AV: E=Sophos;i="6.13,260,1732604400"; 
-   d="scan'208";a="268620150"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Feb 2025 22:47:55 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 4 Feb 2025 22:47:17 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Tue, 4 Feb 2025 22:47:11 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Wed, 5 Feb 2025 11:17:02 +0530
-Subject: [PATCH 1/2] dmaengine: at_xdmac: get the number of DMA channels
- from device tree
+	Wed, 05 Feb 2025 06:23:10 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5156MaeQ3300929
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Feb 2025 00:22:36 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738736556;
+	bh=eqKxRAE0hEhB/gkwHUJjHYvFkAhY4M48O0HRCPE2xfU=;
+	h=From:To:CC:Subject:Date;
+	b=M6kIYbzB80Dul28IF5RJDxDRWcCqB/Jtb29S/cnvoqqeP2fKjEj2abTh9S4wQ/8nL
+	 TBnkjtXBptqBcNCNV9BrHaemf/9iSiyroyx21zZPqJoV5wd+GQ/FEjXDFWpEhUfgWw
+	 RjJl0vkckD26cbR5AVgWs7AaVBIWvwUNNOYkwjgQ=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5156Ma8w091493
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 5 Feb 2025 00:22:36 -0600
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 5
+ Feb 2025 00:22:35 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 5 Feb 2025 00:22:36 -0600
+Received: from uda0490681.. ([10.24.69.142])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5156MT6A076445;
+	Wed, 5 Feb 2025 00:22:30 -0600
+From: Vaishnav Achath <vaishnav.a@ti.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <quic_bjorande@quicinc.com>,
+        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
+        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
+        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
+        <nm@ti.com>, <vigneshr@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <nfrayer@baylibre.com>, <glaroque@baylibre.com>, <tglx@linutronix.de>,
+        <u-kumar1@ti.com>, <geert@linux-m68k.org>, <d-gole@ti.com>,
+        <vaishnav.a@ti.com>
+Subject: [PATCH v3] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
+Date: Wed, 5 Feb 2025 11:52:29 +0530
+Message-ID: <20250205062229.3869081-1-vaishnav.a@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250205-mchp-dma-v1-1-124b639d5afe@microchip.com>
-References: <20250205-mchp-dma-v1-0-124b639d5afe@microchip.com>
-In-Reply-To: <20250205-mchp-dma-v1-0-124b639d5afe@microchip.com>
-To: Ludovic Desroches <ludovic.desroches@microchip.com>, Vinod Koul
-	<vkoul@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Charan Pedumuru <charan.pedumuru@microchip.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <dmaengine@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, "Dharma
- Balasubiramani" <dharma.b@microchip.com>, Tony Han <tony.han@microchip.com>,
-	Cristian Birsan <cristian.birsan@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738734425; l=1880;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=X9SQwn97RGxJg8ugL0Ib/dqZ8wQ0Ij6oC+ZtdNgnIYg=;
- b=3ftho3/4GdrP6BA9CFwUb30ZhtSnR4DgrScHBRl8xbqlrnW2oEimp6Hp9AZca55l2SCQPVHEu
- wN1IVZvpjyKBlkmuMfPIAgLw/aI7RyH9FxvJUQaIJUegfXltGHOleDZ
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_214758_002695_D7886AE5 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250204_222309_270488_05EE5B8D 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tony Han <tony.han@microchip.com>
+Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
+These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
+for core functionality like DMA, GPIO Interrupts which is necessary
+during boot, thus make them built-in.
 
-In case of kernel runs in non-secure mode, the number of DMA channels can be
-got from device tree since the value read from GTYPE register is "0" as it's
-always secured. As the number of channels can never be negative, update them
-to the type "unsigned".
+bloat-o-meter summary on vmlinux:
+	add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
+	...
+	Total: Before=31615984, After=31778459, chg +0.51%
 
-Signed-off-by: Tony Han <tony.han@microchip.com>
-Reviewed-by: Cristian Birsan <cristian.birsan@microchip.com>
+These configs were previously selected for ARCH_K3 in respective Kconfigs
+till commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+dropped them and few driver configs (TI_K3_UDMA, TI_K3_RINGACC)
+dependent on these also got disabled due to this. While re-enabling the
+TI_SCI_INT_*_IRQCHIP configs, these configs with missing dependencies
+(which are already part of arm64 defconfig) also get re-enabled which
+explains the slightly larger size increase from the bloat-o-meter summary.
+
+Fixes: 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+Fixes: b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+
+Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+Tested-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 ---
- drivers/dma/at_xdmac.c | 26 +++++++++++++++++++++++---
- 1 file changed, 23 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
-index ba25c23164e7..f777b0665c63 100644
---- a/drivers/dma/at_xdmac.c
-+++ b/drivers/dma/at_xdmac.c
-@@ -2259,12 +2259,29 @@ static int __maybe_unused atmel_xdmac_runtime_resume(struct device *dev)
- 	return clk_enable(atxdmac->clk);
- }
- 
-+static inline int at_xdmac_get_channel_number(struct platform_device *pdev,
-+					      u32 reg, u32 *pchannels)
-+{
-+	int ret;
-+
-+	if (reg) {
-+		*pchannels = AT_XDMAC_NB_CH(reg);
-+		return 0;
-+	}
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "dma-channels", pchannels);
-+	if (ret)
-+		dev_err(&pdev->dev, "can't get number of channels\n");
-+
-+	return ret;
-+}
-+
- static int at_xdmac_probe(struct platform_device *pdev)
- {
- 	struct at_xdmac	*atxdmac;
--	int		irq, nr_channels, i, ret;
-+	int		irq, ret;
- 	void __iomem	*base;
--	u32		reg;
-+	u32		nr_channels, i, reg;
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
-@@ -2280,7 +2297,10 @@ static int at_xdmac_probe(struct platform_device *pdev)
- 	 * of channels to do the allocation.
- 	 */
- 	reg = readl_relaxed(base + AT_XDMAC_GTYPE);
--	nr_channels = AT_XDMAC_NB_CH(reg);
-+	ret = at_xdmac_get_channel_number(pdev, reg, &nr_channels);
-+	if (ret)
-+		return ret;
-+
- 	if (nr_channels > AT_XDMAC_MAX_CHAN) {
- 		dev_err(&pdev->dev, "invalid number of channels (%u)\n",
- 			nr_channels);
+V2 : https://lore.kernel.org/all/20250203150801.2399555-1-vaishnav.a@ti.com/
+V1 : https://lore.kernel.org/all/20250119182121.3956546-1-vaishnav.a@ti.com/
 
+V2->V3:
+	* Justify in commit message that the patch only restores
+	previous behaviour and also the reason for size increase.
+	* Collect Dhruva's T-by/R-by.
+V1->V2:
+	* Add Fixes tag.
+	* Add bloat-o-meter summary to commit message.
+
+Previously both of these configs were selected for ARCH_K3 in respective
+Kconfigs, but commit b8b26ae398c4 ("irqchip/ti-sci-inta : Add module build support")
+and commit 2d95ffaecbc2 ("irqchip/ti-sci-intr: Add module build support")
+dropped this recently without adding those back in arm64
+defconfig, this causes boot failure in all TI K3 platforms.
+
+Passing bootlog with configs enabled:
+https://gist.github.com/vaishnavachath/03d8d3ce0f22219643c2f4d1dd243fd1
+
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..1f25423de383 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1551,6 +1551,8 @@ CONFIG_PWM_VISCONTI=m
+ CONFIG_SL28CPLD_INTC=y
+ CONFIG_QCOM_PDC=y
+ CONFIG_QCOM_MPM=y
++CONFIG_TI_SCI_INTR_IRQCHIP=y
++CONFIG_TI_SCI_INTA_IRQCHIP=y
+ CONFIG_RESET_GPIO=m
+ CONFIG_RESET_IMX7=y
+ CONFIG_RESET_QCOM_AOSS=y
 -- 
-2.43.0
+2.34.1
 
 
