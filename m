@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEFE4C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 16:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B0C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 16:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2Nifoc2V8crwadCAwungit5yl8Sm75klj6EjsQLBZI=; b=FRP16+C9wKRNZX1BXyfFFLXor6
-	aAZnRQmoYwaIM+K9fSC2XQ3X3AW47fPZRjgxMZlHThEtsFKGKWVf9JtL8iUVXrdiPSq1c7R8IqDg+
-	pcvVspSKPy4QnauU3MpFILde9DqQaP6Qm3OG6zyV3rO2OYVxqb5uqZlu/OF+9d9DoFU0Z+ChL/VuW
-	bOU/JvR2CPzF0d3rimxNoB2isJhdeTi8KoKwLz+Ui9qoyyTKLoB8MxebvtGKu7+Gu9BUi9E6oAIEB
-	AAXXyBsoKKBoC5ED+RA6nEjEe0r5S3Py77SheH4uiwwVjzyLRPFTa9UQyjHJNKbTk3IfDmZLujSip
-	r7cYVOog==;
+	bh=fyyQn04qSJgYSD1sA7lC3ArSUrMY9LCBhg2ySpWehL4=; b=lj+Rry4gPLRQc0ELZ0+lLFCtfM
+	sKDYhgcHC8T5jlGqTTCr26k2vezgEKVu1Ra93z08tYK4KNkAtJauCvpbw49j5mPkByhS6lxRUOJfB
+	2eJf4b0x2MWNQQimAcHDFt073nHKZPm8G/MzwPUnvQQG4OZ6B86jAU7qRmkrFKXnN432m0XtDHBr4
+	PHOPoRL7kiBcFf6ib6hSNfD7xe4dZx6edq2YaX/jqBr7qoG9AWqSTyIn2KoAZx8t3OLC3FiZAJzSz
+	tbmMY/D2HsFxVJM7rRz8DwCCHqJ0I1TOp15awTWhMLXfyIDlqkB9qXRa6G1wTJq35dgnRvw6brO5b
+	mNx9ob5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfiCl-00000003y56-0XvO;
-	Wed, 05 Feb 2025 16:24:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfiIF-00000003zCT-1UxI;
+	Wed, 05 Feb 2025 16:30:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfi4V-00000003wHG-2RFw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Feb 2025 16:16:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=i2Nifoc2V8crwadCAwungit5yl8Sm75klj6EjsQLBZI=; b=G/NBc17bYAfsE6FpI2MZQjF2Zy
-	UFrEu9oy+JdX6mPHyKJVvLWD5/NWEYVKBW/NyB/VbED+WZjMW4oeL5QCp79kIT5pZnJZPzWF/VmVR
-	1iJo8hAf/XlmgixaxtfSlZXgPCCXLPNDwyp8wHNR/1q1i4j9OLFAGLYtrgv0NASE6N/MzNbdX4hoA
-	BoRE9QJwaObS590nA6pQvLwseqtu6ClYPnMbsWuAOuVkoLU4EUrTIHoTQexTBiBPF6zFx934EsV7v
-	kQkmX42wsDp6jFNq7+sIAORPJ6aHRUCFbpN5Gvbr1RmMZmGhoxVkds168CcyrsM/AmczXbzaAKsO1
-	Q6/k0MKw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfi4R-0000000GhB1-3Nuo
+	id 1tfiFW-00000003yfY-1CRF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 16:16:14 +0000
+	Wed, 05 Feb 2025 16:27:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9482B5C6AEA
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Feb 2025 16:15:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13FCBC4CEE3
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Feb 2025 16:16:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02D79A43820;
+	Wed,  5 Feb 2025 16:25:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A8D8DC4CED6;
+	Wed,  5 Feb 2025 16:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738772167;
-	bh=zb/iX4Cf+0Jzol0g4P79TQLGHW78nLKS0momp3r6Gsg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=htWNq/qqQKRHbPxlhkjEc9yURkuuV7MOIpK6DIoK+fxKZZ0/H3OdNbk1nrMtqVcIV
-	 wpv14TwYYMZY4wWzj6D26D2EkiWY6SBoSUQNLd3xobZdsNHF8OXwD1Ka3YiAo0TPik
-	 YwFYWL0dtsmtQRE4xVFPTJbzwE/zUl+GSkndE8m0+OD0VCAnjo5QDoBPP7AmoQH7IQ
-	 6tgmf5uQmt2HZ5Jmi0Jy2C1ZP513Nuo9qV2TSlGzbQr9dcLcFoexJHmvybho38ukas
-	 7csNv/zJ7AHSeC13suKRFBV3OqEh6xy6wnqMgf2txe5bP2I3zBBsONYtit8hUpljdK
-	 bCZuHMA/+T9yg==
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-5dcea5d8f16so384321a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 08:16:07 -0800 (PST)
-X-Gm-Message-State: AOJu0YxmfKHs/aFBcD6XGaiajUmawFJ3seuk6YB0iJ57cY/6CBVq388u
-	nrQx2FGTU5GSI7Yy1yRCQBDcAZstNmiF9L/iak2aWtDkxK+9XSA8baBz4PyLjPm6lLwa8AzQ6EX
-	NrEQkwAjzPrlQRmS1Sfkd8GOoHw==
-X-Google-Smtp-Source: AGHT+IF47XQkSGXjWRrqSSirUPlUOCBjYFDjH0/GAFZRbqnMaUXk4XT8o2qq8MuQTNdO8oVrfaizAVU50e2YjSe04BM=
-X-Received: by 2002:a05:6402:4342:b0:5db:68ce:2125 with SMTP id
- 4fb4d7f45d1cf-5dcdb717867mr3836131a12.14.1738772165454; Wed, 05 Feb 2025
- 08:16:05 -0800 (PST)
+	s=k20201202; t=1738772856;
+	bh=3WCeHKUquon5irHUJD4jzhZkUaSii5krx8N1K9lpJEs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=MaKiVLR9PJtglvsok8HHlCEQ/Jnjbm02RXX/B24BJszKAIPZwDu8Ud9y63AVE4IP0
+	 2uTBM+Q5JPJBqcs0FKeXg/wjdL5WMAhuJSmWk7+5Ywbj+AOgKWahLgTWKKu4t6rwKK
+	 43axh8nhSilU7w7de0UQr2eUwmbnm3Ji1MSHjwrZDBdVQattZOYovr52zz4wO0Qq9Y
+	 kRGPETu508cXiSPx5DJU3/WaWNGWXEnP6pk1GoRV3P92wvo69obSpL2wkvW1tPUAkQ
+	 G/zJEiPAB5J+1SiZ6tDL1tPFYfriPZUujLALrp8zHBn156ZQ1cWrEDCB48QAjPUkEh
+	 WRWsw04WJF7oQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 96150C02192;
+	Wed,  5 Feb 2025 16:27:36 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Wed, 05 Feb 2025 17:27:26 +0100
+Subject: [PATCH v6 1/4] dt-bindings: input: touchscreen: Add Z2 controller
 MIME-Version: 1.0
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org> <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
- <CAL_JsqKTNDQn9omG3g=6Rb4Nwt6hG9Gw7-VXL_fjQeEQmmtJQg@mail.gmail.com>
- <630f630d-241e-45f5-b449-243147fb888b@linaro.org> <CAL_JsqKY8MjD=iFf6MiT04WmCHYUxGtWG9JfX5-5fuG32F77qQ@mail.gmail.com>
- <3c7e1ce0-9a5d-43fb-9767-8e4ca92a450d@linaro.org>
-In-Reply-To: <3c7e1ce0-9a5d-43fb-9767-8e4ca92a450d@linaro.org>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 5 Feb 2025 10:15:54 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKHGROJa1EW94iy1XzCadEst-hPWZY2BmxKgMB93nDp4w@mail.gmail.com>
-X-Gm-Features: AWEUYZmD0GhWsXkOM4VInQT6jDCLQRcl1WRNEY-U-AEgGQ8zURnAJv3OUj_QUT4
-Message-ID: <CAL_JsqKHGROJa1EW94iy1XzCadEst-hPWZY2BmxKgMB93nDp4w@mail.gmail.com>
-Subject: Re: [PATCH v19 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-To: James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250205-z2-v6-1-cc60cbee1d5b@gmail.com>
+References: <20250205-z2-v6-0-cc60cbee1d5b@gmail.com>
+In-Reply-To: <20250205-z2-v6-0-cc60cbee1d5b@gmail.com>
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Neal Gompa <neal@gompa.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738772855; l=2558;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=YsJBZIlUWueL847WfE8oTE2SBEqURcyodFewZWJ1ffc=;
+ b=P0nOwVrC2TEhvCSXsYluQLtg1ChRx6e4J/55HYolTaLijokWgUeudF/wkqncsKzx08uZ9+Ee8
+ Po7Rsn0zhnyD4vWdm4VMjQySuG+eYLX+6dno9UjoJPRyaGRSqpT1/Su
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_161612_149933_AF6A6EFD 
-X-CRM114-Status: GOOD (  79.59  )
+X-CRM114-CacheID: sfid-20250205_082738_459245_A4EB9AA4 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,293 +89,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 5, 2025 at 8:38=E2=80=AFAM James Clark <james.clark@linaro.org>=
- wrote:
-> On 04/02/2025 3:03 pm, Rob Herring wrote:
-> > On Tue, Feb 4, 2025 at 6:03=E2=80=AFAM James Clark <james.clark@linaro.=
-org> wrote:
-> >> On 03/02/2025 5:58 pm, Rob Herring wrote:
-> >>> On Mon, Feb 3, 2025 at 10:53=E2=80=AFAM James Clark <james.clark@lina=
-ro.org> wrote:
-> >>>> On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
-> >>>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>>>>
-> >>>>> The ARMv9.2 architecture introduces the optional Branch Record Buff=
-er
-> >>>>> Extension (BRBE), which records information about branches as they =
-are
-> >>>>> executed into set of branch record registers. BRBE is similar to x8=
-6's
-> >>>>> Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffe=
-r
-> >>>>> (BHRB).
-> >
-> > [...]
-> >
-> >>>>> +     /*
-> >>>>> +      * Require that the event filter and branch filter permission=
-s match.
-> >>>>> +      *
-> >>>>> +      * The event and branch permissions can only mismatch if the =
-user set
-> >>>>> +      * at least one of the privilege branch filters in PERF_SAMPL=
-E_BRANCH_PLM_ALL.
-> >>>>> +      * Otherwise, the core will set the branch sample permissions=
- in
-> >>>>> +      * perf_copy_attr().
-> >>>>> +      */
-> >>>>> +     if ((event->attr.exclude_user !=3D !(branch_type & PERF_SAMPL=
-E_BRANCH_USER)) ||
-> >>>>> +         (event->attr.exclude_kernel !=3D !(branch_type & PERF_SAM=
-PLE_BRANCH_KERNEL)) ||
-> >>>>
-> >>>> I don't think this one is right. By default perf_copy_attr() copies =
-the
-> >>>> exclude_ settings into the branch settings so this works, but if the
-> >>>> user sets any _less_ permissive branch setting this fails. For examp=
-le:
-> >>>>
-> >>>>     # perf record -j any,u -- true
-> >>>>     Error:
-> >>>>     cycles:PH: PMU Hardware or event type doesn't support branch sta=
-ck
-> >>>>     sampling.
-> >>>>
-> >>>> Here we want the default sampling permissions (exclude_kernel =3D=3D=
- 0,
-> >>>> exclude_user =3D=3D 0), but only user branch records, which doesn't =
-match.
-> >>>> It should be allowed because it doesn't include anything that we're =
-not
-> >>>> allowed to see.
-> >>>
-> >>> I know it is allowed(on x86), but why would we want that? If you do
-> >>> something even more restricted:
-> >>>
-> >>> perf record -e cycles:k -j any,u -- true
-> >>>
-> >>> That's allowed on x86 and gives you samples with user addresses. But
-> >>> all the events happened in the kernel. How does that make any sense?
-> >>>
-> >>> I suppose in your example, we could avoid attaching branch stack on
-> >>> samples from the kernel. However, given how my example works, I'm
-> >>> pretty sure that's not what x86 does.
-> >>>
-> >>> There's also combinations that are allowed, but record no samples.
-> >>> Though I think that was with guest events. I've gone with reject
-> >>> non-sense combinations as much as possible. We can easily remove thos=
-e
-> >>> restrictions later if needed. Changing the behavior later (for the
-> >>> same configuration) wouldn't be good.
-> >>>
-> >>>
-> >>
-> >> Rejecting ones that produce no samples is fair enough, but my example
-> >> does produce samples. To answer the question "why would we want that?"=
-,
-> >> nothing major, but there are a few small reasons:
-> >>
-> >>    * Perf includes both user and kernel by default, so the shortest
-> >>      command to only gather user branches doesn't work (-j any,u)
-> >>    * The test already checks for branch stack support like this, so ol=
-d
-> >>      Perf test versions don't work
-> >
-> > I would be more concerned about this one except that *we* wrote that
-> > test. (I'm not sure why we wrote a new test rather than adapting
-> > record_lbr.sh...)
-> >
->
-> record_lbr.sh was added 6 months ago, test_brstack.sh 3 years ago so
-> it's the other way around.
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Sigh...
+Add bindings for touchscreen controllers attached using the Z2 protocol.
+Those are present in most Apple devices.
 
-> Although record_lbr.sh also tests --call-graph and --stitch-lbr as well,
-> so I think it's fine for test_brstack.sh to test only --branch-filter
-> options at the lowest level.
->
-> Looking at that test though I see there is a capability
-> "/sys/devices/cpu/caps/branches". I'm wondering whether we should be
-> adding that on the Arm PMU for BRBE?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ .../input/touchscreen/apple,z2-multitouch.yaml     | 70 ++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
 
-I noticed that too. I suppose we should. Though I suppose that could
-give weird results if userspace is expecting LBR. Adding that would
-make record_lbr.sh run and then the LBR callgraph test is going to
-fail.
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..402ca6bffd3473a1a889ced7890e9836e6a76e45
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/apple,z2-multitouch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple touchscreens attached using the Z2 protocol
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++description: A series of touschscreen controllers used in Apple products
++
++allOf:
++  - $ref: touchscreen.yaml#
++  - $ref: /schemas/spi/spi-peripheral-props.yaml#
++
++properties:
++  compatible:
++    enum:
++      - apple,j293-touchbar
++      - apple,j493-touchbar
++
++  interrupts:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++
++  firmware-name:
++    maxItems: 1
++
++  apple,z2-cal-blob:
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    maxItems: 4096
++    description:
++      Calibration blob supplied by the bootloader
++
++required:
++  - compatible
++  - interrupts
++  - reset-gpios
++  - firmware-name
++  - touchscreen-size-x
++  - touchscreen-size-y
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    spi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        touchscreen@0 {
++            compatible = "apple,j293-touchbar";
++            reg = <0>;
++            spi-max-frequency = <11500000>;
++            reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
++            interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
++            firmware-name = "apple/dfrmtfw-j293.bin";
++            touchscreen-size-x = <23045>;
++            touchscreen-size-y = <640>;
++        };
++    };
++
++...
 
-> Ignoring the tests, the man pages (and some pages on the internet) give
-> this example: "--branch-filter any_ret,u,k". This doesn't work either
-> because it doesn't match the default exclude_hv option. It just seems a
-> bit awkward and incompatible to me, for not much gain.
->
-> >>    * You might only be optimising userspace, but still interested in t=
-he
-> >>      proportion of time spent or particular place in the kernel
-> >
-> > How do you see that? It looks completely misleading to me. 'perf
-> > report' seems to only list branch stack addresses in this case. There
-> > doesn't seem to be any matching of the event address to branch stack
-> > addresses.
-> >
->
-> Perf script will show everything with all it's various options, or
-> --branch-history on perf report will show both too. Also there are tools
-> other than Perf, AutoFDO seems like something that BRBE can be used with.
->
-> >>    * Consistency with existing implementations and for people porting
-> >>      existing tools to Arm
-> >>    * It doesn't cost anything to support it (I think we just
-> >>      only check if exclude_* is set rather than !=3D)
-> >>    * Permissions checks should be handled by the core code so that
-> >>      they're consistent
-> >>    * What's the point of separate branch filters anyway if they always
-> >>      have to match the event filter?
-> >
-> > IDK, I wish someone could tell me. I don't see the usecase for them
-> > being mismatched.
-> >
-> > In any case, I don't care too much one way or the other what we do
-> > here. If everyone thinks we should relax this, then that's fine with
-> > me.
-> >
->
-> Seeing the branch history from userspace that led up to a certain thing
-> in the kernel happening doesn't seem like that much of an edge case to
-> me. If you always have to have both on then you lose the userspace
-> branch history because the buffer isn't that big and gets overwritten.
+-- 
+2.48.1
 
-Okay, let's drop this check...
 
-> >> Some of these things could be fixed in Perf, but not in older versions=
-.
-> >> Even if we can't think of a real use case now, it doesn't sound like t=
-he
-> >> driver should be so restrictive of an option that doesn't do any harm.
-> >>
-> >>>> This also makes the Perf branch test skip because it uses
-> >>>> any,save_type,u to see if BRBE exists.
-> >>>
-> >>> Yes, I plan to update that if we keep this behavior.
-> >>>
-> >>>>> +         (!is_kernel_in_hyp_mode() &&
-> >>>>> +          (event->attr.exclude_hv !=3D !(branch_type & PERF_SAMPLE=
-_BRANCH_HV))))
-> >>>>> +             return false;
-> >>>>> +
-> >>>>> +     event->hw.branch_reg.config =3D branch_type_to_brbfcr(event->=
-attr.branch_sample_type);
-> >>>>> +     event->hw.extra_reg.config =3D branch_type_to_brbcr(event->at=
-tr.branch_sample_type);
-> >>>>> +
-> >>>>> +     return true;
-> >>>>> +}
-> >>>>> +
-> >>>> [...]
-> >>>>> +static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG=
-_EXIT + 1][2] =3D {
-> >>>>> +     [BRBINFx_EL1_TYPE_DIRECT_UNCOND] =3D { PERF_BR_UNCOND, 0 },
-> >>>>
-> >>>> Does the second field go into 'new_type'? They all seem to be zero s=
-o
-> >>>> I'm not sure why new_type isn't ignored instead of having it mapped.
-> >>>
-> >>> Well, left over from when all the Arm specific types were supported.
-> >>> So yeah, that can be simplified.
-> >>>
-> >>>>> +     [BRBINFx_EL1_TYPE_INDIRECT] =3D { PERF_BR_IND, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_DIRECT_LINK] =3D { PERF_BR_CALL, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_INDIRECT_LINK] =3D { PERF_BR_IND_CALL, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_RET] =3D { PERF_BR_RET, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_DIRECT_COND] =3D { PERF_BR_COND, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_CALL] =3D { PERF_BR_CALL, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_ERET] =3D { PERF_BR_ERET, 0 },
-> >>>>> +     [BRBINFx_EL1_TYPE_IRQ] =3D { PERF_BR_IRQ, 0 },
-> >>>>
-> >>>> How do ones that don't map to anything appear in Perf? For example
-> >>>> BRBINFx_EL1_TYPE_TRAP is missing, and the test that was attached to =
-the
-> >>>> previous versions fails because it doesn't see the trap that jumps t=
-o
-> >>>> the kernel, but it does still see the ERET back to userspace:
-> >>>>
-> >>>>      [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
-> >>>>
-> >>>> In older versions we'd also have BRBINFx_EL1_TYPE_TRAP mapping to
-> >>>> PERF_BR_SYSCALL so you could see it go into the kernel before the re=
-turn:
-> >>>>
-> >>>>      trap_bench+0x1C/[unknown]/-/-/-/0/SYSCALL/-
-> >>>>      [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
-> >>>
-> >>> My read of that was we should see a CALL in this case. Whether SVC
-> >>> generates a TRAP or CALL depends on HFGITR_EL2.SVC_EL0 (table D18-2).
-> >>> I assumed "SVC due to HFGITR_EL2.SVC_EL0" means when SVC_EL0 is set
-> >>> (and set has additional conditions). We have SVC_EL0 cleared, so that
-> >>> should be a CALL. Maybe the FVP has this wrong?
-> >>>
-> >>
-> >> The test is doing this rather than a syscall:
-> >>
-> >>     asm("mrs %0, ID_AA64ISAR0_EL1" : "=3Dr" (val));   /* TRAP + ERET *=
-/
-> >>
-> >> So I think trap is right. Whether that should be mapped to SYSCALL or
-> >> some other branch type I don't know, but the point is that it's missin=
-g now.
-> >
-> > We aren't supporting any of the Arm specific traps/exceptions. One
-> > reason is for consistency with x86 like you just argued for. The only
->
-> Does x86 leave holes in the program flow though, or is it complete? IMO
-> it makes it harder for tools to make sense of the branch buffer if there
-> are things like an ERET with no previous trap to match it up to.
-
-I'll have to test that. x86 has SYSRET for "syscall return". We added
-ERET which maps to x86 interrupt return. So I guess x86 only records
-syscalls and their returns. There's also "sw interrupt" on x86 which
-gets mapped to PERF_BR_UNKNOWN. I don't think there's any way for us
-to distinguish a syscall return from any other exception return.
-
-> > exception types supported are syscall and IRQ. Part of the issue is
-> > there is no userspace control over enabling all the extra Arm ones.
-> > There's no way to say enable all branches except debug, fault, etc.
-> > exceptions. If we want to support these, I think there should be user
-> > control over enabling them. But that can come later if there's any
-> > demand for them.
-> >
-> > Rob
->
-> In this patchset we enable PERF_BR_IRQ with PERF_SAMPLE_BRANCH_ANY,
-> without any way to selectively disable it. I would assume trap could be
-> done with the same option.
-
-If I was designing the interface, I would make PERF_BR_IRQ separately
-controllable. But we're kind of stuck with what x86 did. I suppose we
-could add a negative 'noirq' option.
-
-Are you of the opinion that we should enable everything or some subset
-of them? There's basically inst/data/algn faults, FIQ, SError, and
-debug. The debug ones seem questionable to me, or at least ones you'd
-want to opt-in for. For FIQ, if that's used by secure world, do we
-want non-secure world recording when FIQs happen? Could the timing of
-those be used maliciously?
-
-> If we're filtering some of them out it might be worth documenting that
-> "PERF_SAMPLE_BRANCH_ANY" doesn't actually mean 'any' branch type on Arm,
-> and some types are recorded but discarded out before sending to userspace=
-.
->
-> There could be some confusion when there are partially filled or empty
-> branch buffers, and the reason wouldn't be that there weren't any
-> branches recorded, but they were all filtered out even with the 'any'
-> option.
-
-Fair enough. I think we need Mark to chime in here. He was questioning
-the need for these.
-
-Rob
 
