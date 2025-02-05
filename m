@@ -4,88 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BCEC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE864C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 09:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+S6G4zmkA5YzJTmgMp+eR+5O8QLItpFjyk2X1UppwnM=; b=4gTJmtxqgi+5fdFLSfsqNGPuDZ
-	FDizXWp+o3SuUAOwsXKP4RN/oRbIdGT7Wjdm9wTqrRvBiivB3o3wNaocrnwuUnnQnkqcPnbS7PoiG
-	1v+aoSf1aVADH5teEEquYLzso/9geLQuBdc1lFGLD/zu3dSDHQInapZHqM8U/4vlP0TsCZJ27uHFP
-	Y7YO5mFaVPxqCS6cqvuomJcWOLZMWJBJ1N/5lkCiNNPPzvPeZnBstYGG5+DYZ1zR3sAbLKjsxnZy0
-	AdXQGjA0wgQhRuTCJkeo+CH2gVAu6j+HD6yGARCfciL9rfpDCtXEFal2YBocFKakh1bmyeLD2zzqw
-	6GAZhSHA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wlvvt5ovoMWCErTTdfe2Vt8LrPlHxGdstTFLeXQ9fbI=; b=mWGr48+q85X9vnrT1QcUsCJPb3
+	4DUarStFBm0TZKoxbW4VXn4fd9mz9IR0t1zuGBgw/if8couAx3GVBdWDGs+gbUVa1NkKpLY9G0n2T
+	SfStvbUlxedh9l/L42qN14IYepDrxKqGz9JbA66GNEfiFuUjoky60WbSSD2oM0IY2RJe7G7WTcpHT
+	7mFLT2nQHKpBMqMHbi8toXsp4vXRDAAJNBJTiArpdDCgmAdWxIX3rj6peNsox53ncaA2nGAugjOIQ
+	mRX8qS9OqXE+Uq/5KoCop/96wkiIPo8gfkjGq0q63/OGm2WziqZvUOVn4q7fo0RWU1CURmxiShxRe
+	xuA1MlYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfbRn-00000002f5v-34wa;
-	Wed, 05 Feb 2025 09:11:51 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1tfbVJ-00000002fcY-4AW2;
+	Wed, 05 Feb 2025 09:15:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfbQQ-00000002exO-30O0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 09:10:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1738746612; x=1739351412; i=wahrenst@gmx.net;
-	bh=+S6G4zmkA5YzJTmgMp+eR+5O8QLItpFjyk2X1UppwnM=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=NXWJAh5/TP0katLwlPIkMz4gW1nMygeAwVIc9QKTIGd8F3iLQ05GxXm6j39g81a/
-	 yV0DPJakaW/+/hGOaIT/2axh8rlg3XS1DP6noOG3sE1Y2rASjH9iuU0ofdUHoR5KM
-	 LUElrviAffarXTH/1AOi3B4MnmNwBvAPIibU4RJvlCvN1nAALAa7VP6SEmd7sbtTa
-	 NVkkPdCxKZwx1Au8WlHg642fzbz2Q6We1Mijhj7bMSIjUCzDj3UUyZ74GesoSj7DV
-	 ProE8gcJh3M7OT/slYg17cMlIVRzIINL67/UeUbUtBMNQHXPpxlxIxdYUW+wgv198
-	 CeMLTC/ZtjxQGw6acw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MBlxM-1ta42S1z5A-002ape; Wed, 05
- Feb 2025 10:10:12 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sherry Sun <sherry.sun@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>
-Cc: Luke Wang <ziniu.wang_1@nxp.com>,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] tty: serial: fsl_lpuart: Make interrupt name distinct
-Date: Wed,  5 Feb 2025 10:10:07 +0100
-Message-Id: <20250205091007.4528-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	id 1tfbTx-00000002fSC-0HiF;
+	Wed, 05 Feb 2025 09:14:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 94F6B5C5E1D;
+	Wed,  5 Feb 2025 09:13:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D14B7C4CED1;
+	Wed,  5 Feb 2025 09:13:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738746844;
+	bh=4C2JCBvwyEf/X2nHPrRMmWtMS/VF3OfV5sTLegNX37Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qgTAJYj7he3xj5vx6537c+N0Gqm8DOtAgpmH3h1hKA+KhJr6iB1oBfJrM/4FpnYK9
+	 zY5e/VJxhZPBQMwAQQgUeZ/cNHG0tTwtgErxvItRjxJOiVejHN0FirRST+0kSMMJRr
+	 ut6HN5jaAgWOFwxv64Vv/+xG8oEXJQxPIe/ymoaNkxM8LPiXkwuAK/zahlRbALG2V6
+	 WnhtEt6n3F7hqezB6lJRWKI2GEgcZNPpq9Xqoq7IIxVoaMLwm7QWSoFkspkjvCHz2U
+	 W+GDekkfQDVL82VGA+02ti+atf6xdm2gc65+nD7vW0MnGFPN8DVul8qOMJWlmT5kNm
+	 ndaQtCogl6k4A==
+Message-ID: <c0aad911-ecc4-4b04-a453-6da226f76ed2@kernel.org>
+Date: Wed, 5 Feb 2025 10:13:52 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:60Tc+1nIQ9nSFeQy+OlyzbUZCfnlD2oCBLSginRi6opc//X7uOb
- 0PM7u/75AlC9rhPjKduoQfozROIpMV/lE3LsNPtQCbXn51Lt0Xva/mdv5XC2F9rv5xF6cGT
- FVWQNryz5HHI62wVv4756mgg/wDt3nHPNZRjznxi+Q5x5Oefiy9yx3ORqUHJfqrkwT9oP6G
- 9EFO56uJ0Wu9NOmoLqXiQ==
-UI-OutboundReport: notjunk:1;M01:P0:+udilvF9vPM=;1P0AXIvJe/Fy0DmsA/dAQLODzdr
- jkatR2oOVXuNJo7osLepH56asvcNnkJlkNsImJG0SkIjiNGIzhGIe6asdsMl07KhJ6ncr4dJF
- o7J86t3VkYiatuOHxvbIR7I3kQnh0w9WpieaRVBi/oC/ISgJfoO22ESrY74shCdbgAzR0Pg4Y
- AVI0E+1kMXLmXERy1PbTUCl1/TPBIEI+HwX+5bVZSOveymFpldBr7wtgPtwW670Hisqy5Uuwq
- 602rsSHmjarX8DBAva7n/zjHyWEfN++lRWFlg0eMnUDVGCl+N0RNDkLRMoz15WxeFF9McUcdw
- 08aIOJaKp5a2eFxhnDPxHEB4RPlJkI5ZrT3Wor0vIgyjR/Xiutd59VdmsooL9sZhlSn+JXwwl
- FjfqbCQ68wf3GL7C4P2et7xrUTgPISU/IJraniAyD7TUWHr4Ulzbe+u0FNKCf3u9hPdZZ+Ddg
- Bt9c37UXN72FTXlCZAQNz1mpQNJFM865o0OUXZ3PjUhnfYv+l9zfL+5SYNToeA8l1lp7iL1IU
- DzGbfYgUlil6oZFGviY0m+CHBRRq1i7AStRPZiAHKVaB0iTrs5gxZi/E3hj3M+a/qf4ZlkJu2
- a+K80OihyVLqGqd+xhO6+RzAgB2Vkj86aFAGidoBNBCnfBh46QUv+gJjqbpgJQN8U7D+tjj63
- NvNtAC0+EYZVEvj022B1C90QtFHg1tqUZP63dDLYjjjQ6f3E5lieao1ToGn4ODPEJmwDa6t4v
- 8a5fpwVn241eVkB+Oz9VMX3QlHIYQAPu2E02ar4MRYOruy4veyvQrg1kvzfRyin634PnTfwti
- DbYtEW2cUSePItOwHgnBMqSX0N0lV5rbbJdAAKid4oVCnvfkP2gbzrcmB8CaqCAVAd/sfhAmh
- +dOVNeI86BB3n9ADgHlI5eO3L5kuDZNZX9j6lHow6ppZ+3uA4ee4LMjIqkAo4s0+4zYvQhUYA
- rNt3SUrPJhYWZP2WeNMdS8i6h9HRLBlP1AbTimCjBNFRJ104j4GHvOA5hlZ+Ny/107heEXG73
- jJpHDDAp/LUzsT4MJy/4uooRc/wcAloOQwH+ZHlhUSxJ2nQS9J5IYxLQzz1vCHRjZoYRY7nVT
- Z+IJWnGyzIQkgA/oCmLQGcxBOr98ANRh0Ja5rM0saicGfRJ39uxfTuGSoPsvqVL3onTer6+oo
- MAFnkXORlXL5gDXYVRbeR/p+QpE6HcnEHAWkK4zB7Bb4vb8FmintDQd5/xOisdkNTgrCk/m2r
- ooXU1JPOw/6MIpb1Rm+G2230DUIASPD6du3RQD+whDEmXkddaWWSCWnEuT9xIHDsC2oySqjrA
- A/3D9JMQFPWPOmTsgsJjysrbDhyd68dQW5BHme65/CvL4s=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/5] dt-bindings: gpu: Add protected heap name to Mali
+ Valhall CSF binding
+To: Florent Tomasin <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T . J . Mercier" <tjmercier@google.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Yong Wu <yong.wu@mediatek.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ nd@arm.com, Akash Goel <akash.goel@arm.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+ <36b57dcf20860398ba83985e1c5b6f6958d08ba7.1738228114.git.florent.tomasin@arm.com>
+ <7234f25c-a2aa-4834-931b-aeeb7a49dfa7@kernel.org>
+ <4b9deab1-e330-4c93-8260-75276c2bc9ff@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <4b9deab1-e330-4c93-8260-75276c2bc9ff@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_011027_196944_291E4371 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250205_011405_197300_CB9195B7 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +137,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SoCs like the i.MX93 have several lpuart interfaces, but fsl_lpuart
-uses the driver name to request the IRQ. This makes it hard to
-identify interfaces from outputs like /proc/interrupts .
-So use the dev_name() for requesting instead.
+On 03/02/2025 16:31, Florent Tomasin wrote:
+> Hi Krzysztof
+> 
+> On 30/01/2025 13:25, Krzysztof Kozlowski wrote:
+>> On 30/01/2025 14:08, Florent Tomasin wrote:
+>>> Allow mali-valhall-csf driver to retrieve a protected
+>>> heap at probe time by passing the name of the heap
+>>> as attribute to the device tree GPU node.
+>>
+>> Please wrap commit message according to Linux coding style / submission
+>> process (neither too early nor over the limit):
+>> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+> Apologies, I think I made quite few other mistakes in the style of the
+> patches I sent. I will work on improving this aspect, appreciated
+> 
+>> Why this cannot be passed by phandle, just like all reserved regions?
+>>
+>> From where do you take these protected heaps? Firmware? This would
+>> explain why no relation is here (no probe ordering, no device links,
+>> nothing connecting separate devices).
+> 
+> The protected heap is generaly obtained from a firmware (TEE) and could
+> sometimes be a carved-out memory with restricted access.
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/tty/serial/fsl_lpuart.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Which is a reserved memory, isn't it?
 
-diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpua=
-rt.c
-index c91b9d9818cd..91d02c55c470 100644
-=2D-- a/drivers/tty/serial/fsl_lpuart.c
-+++ b/drivers/tty/serial/fsl_lpuart.c
-@@ -2954,7 +2954,7 @@ static int lpuart_probe(struct platform_device *pdev=
-)
- 		goto failed_attach_port;
+> 
+> The Panthor CSF kernel driver does not own or manage the protected heap
+> and is instead a consumer of it (assuming the heap is made available by
+> the system integrator).
+> 
+> I initially used a phandle, but then I realised it would introduce a new
+> API to share the heap across kernel driver. In addition I found this
+> patch series:
+> -
+> https://lore.kernel.org/lkml/20230911023038.30649-1-yong.wu@mediatek.com/#t
+> 
+> which introduces a DMA Heap API to the rest of the kernel to find a
+> heap by name:
+> - dma_heap_find()
+> 
+> I then decided to follow that approach to help isolate the heap
+> management from the GPU driver code. In the Panthor driver, if the
+> heap is not found at probe time, the driver will defer the probe until
+> the exporter made it available.
 
- 	ret =3D devm_request_irq(&pdev->dev, sport->port.irq, handler, 0,
--				DRIVER_NAME, sport);
-+			       dev_name(&pdev->dev), sport);
- 	if (ret)
- 		goto failed_irq_request;
 
-=2D-
-2.34.1
+I don't talk here really about the driver but even above mediatek
+patchset uses reserved memory bindings.
 
+You explained some things about driver yet you did not answer the
+question. This looks like reserved memory. If it does not, bring
+arguments why this binding cannot be a reserved memory, why hardware is
+not a carve out memory.
+
+Best regards,
+Krzysztof
 
