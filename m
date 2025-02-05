@@ -4,83 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448F8C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A506FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NpSUpwiTP/Xiue7s5oWlbnZP8JdPTRuZjo6UuAa6VL8=; b=uZrqjgoXNImjeZGkJg6tmMcMw2
-	XUvCxxJ+8XOlwKYuxg9EvGF6LwQGTkXzb1rHWcl/5rBZo3K4YwNcSQOztRCC90voasDO8OeG1+swt
-	/5WzYJUQw7oGF+KlXRilrlD/LCN+Nj/2ROh5Dp+JU+T0QucqoADSF10uVVS6tjagCNiA8pStfjgg0
-	kYIS+G5fEYr0UYS2WSXulG52ljM4Ir6rpB9IRVs9cWtV6wDOzaGm1k/piThZ5Dn4XVpHGhUcWeqpw
-	xbB0yI2vKFny3pSJkr5NtKAfckQorw5hxOvdS2QxxGnlxMIVS6UUv+lBFCVLymk8m8g13z1E0DOV8
-	YN6otPVw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=; b=mjm+CmlhATM6Tp+FMz32W3wCTE
+	eu7OINAms9Dz/FiJDi6QHE6OULOcoiniGyhcLMkDRAjj3uEgaxLMtt/OS7VHWSwuLmEdvDBV9WRRv
+	0UAEa9W/2gF8ddPQOFT4TeP9rzddz7Djlo0OTCnxOcdbKtlCkFIZvJtWA0DOqOIk4Qp/G55Al6zKX
+	Z+oTufL7mSjjC+T9gkUGFvrvlXW3MQTCzz3h9mLDcaJN/K2U/NTU0EaVri24g6pac7ISX+QvY0iP9
+	vnwJOYajbg0/GXbIrbm3TDFVG3eSAaFwDsqbvqs/VH/uI7lbzrPSVR8HLxrEEOuYQKJb1Qgu2ET3b
+	qH6iIttg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfj0V-000000043iF-124N;
+	id 1tfj0V-000000043iW-3MhV;
 	Wed, 05 Feb 2025 17:16:11 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgqs-00000003g7D-2djd
+	id 1tfhow-00000003sqH-2NYz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Feb 2025 16:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=; b=GgEjLpY0OwT0bpWQJ+msw1DG6Y
+	HXF+wSB/qJ9eMIrKKrs+GTDRRaAl2uWELIBWNHeIfGuqmQYe6B4XSgl2ZRl/tDATVnoux6NeQnyVW
+	sHrhzFU+FhbISi9+TzD6S/NtiKT4Dwwed8h4kCBqjq4fA0YKTmvDSFQM/TURVAzpoEI+0gIjQ7n7l
+	AHV/zZ1WRro0Me1X9XCEFv+vGkxbmTw3a7DYdQV7909atto44CkE8saR4T0kt7m/m1IQfCB15qr9A
+	sUBIATpM01bzCqJGrCiQ2XYjIg6TVtye/VOtSwCivzgRmrBkk1LHQoZcgIwIZys1ixTye22Ws+SgD
+	rolWuIBg==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfhot-0000000GgKn-2JnX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 14:58:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738767487; x=1770303487;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=7H2ugvXbJPmCuRopy+9t0WK9d/y8xYbHP4xu7MXLSn4=;
-  b=eu6IwLpRvS2Y4MS9RW09eaE1mf3Ui1wz7U/+w2vu27EniHs3XhB0c4be
-   f7o7FqnJVPkVASFpNI5xD/2n3c9yWvsOlIIMdPs5/3SBk2gF8t0gK5FBm
-   FNbi/0/JRot8TX260oB+BvuCWBKNShYEZ7o3mscCYsu1sEF43P01GIR/E
-   J6oTeoHoGSQtmdPzEBbnRFObTuYWhfezf9n3lz+760QOt1awe1SXk+SCg
-   6Uktuj0XpOVKfe4ungCmqmqRJ5yrp2EP2w3tkG31Pjik4YNnydNEq5JP/
-   /hDre1mCftrEzkSCxWATIwqmvuncNWpiZZtQ1G6+1j0npllBE/eKcq7wU
-   A==;
-X-CSE-ConnectionGUID: YZdRW1AFQcWQ1X4lwB5tLA==
-X-CSE-MsgGUID: G9x8dl13SB2Sg9iLBhM2YA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39232340"
-X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="39232340"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 06:58:04 -0800
-X-CSE-ConnectionGUID: NAfUT5uvTf2GQBabAJrOmg==
-X-CSE-MsgGUID: vZjT9jKDTv+KWp5c2VKFQg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="111806974"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by orviesa008.jf.intel.com with ESMTP; 05 Feb 2025 06:58:00 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 9983710D; Wed, 05 Feb 2025 16:57:58 +0200 (EET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Shawn Guo <shawnguo@kernel.org>,
+	Wed, 05 Feb 2025 16:00:09 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21f200014f1so9654185ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 08:00:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738771205; x=1739376005; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=;
+        b=RHAUBPB2DvScUihMQzh6RFEtnszQm1n25B5Ts/O4zEC+bJIjw/PG1cbgHieFBGztkp
+         GkDdhWL/4xu4sG/n4chiE6/c9i26pXY1UPNn1RgZ4c2DOxg0gfKUm9CmV70hBWXonmvA
+         rV3KhGOmpHmYQZZesz+EFcl9EbkMBOLb1HonKP5nldiyVBpUvJfi2ik7dtTFu+8vwqnO
+         Cp2kT1Y2WUUF1nSlpc9S6foGJb43BRU3eT4aBnI0FZkGNIHnEb52xN4QenQnlkymqBwh
+         NqsmQuo06/ztNctcEJ52ETPBxXFEoF2xH9OW1/zcz46hw82L4laQdWLlJVvMF6XmvMmI
+         xqHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738771205; x=1739376005;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=;
+        b=gg+/aT7OjXaDmb/ZliKAsPRcm5DiUr6uJpKJ32Q27KKl7mBjfHWAyrMDuibIJ6ElQB
+         F7N2a2PCLtIO6Wqt7ISEFmAChnSlD+LEOdNQs9HHtPzJdO5ADADvYB59cnQVgnqAHuLr
+         dKB8fW8rOnE8XGC0S5PyppoF+spr1WtRfHxniqGCsb+YLYTF/0A7mi+srlZSHKhE+qOF
+         m1DhnJkbWxuIleR6vSoUBDjIqm3qLS1WUZo2KCRTPXZnR2JFRhBodJBdO/4f9Xz7ZavH
+         9OfMO7AvFwkdhvdF4UOGUrXO8l53AXywrWMenjaqG8jeo4XdYXFRWMc8Cx+M4g0OHp2r
+         2GtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUwkYLPB0TzALgwMsT5OcOec7TmIOienqZ9mTXstQlwqgjmobVM8CEMELm9dqXU52txDBt07d9BcSUb62lqiIYo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyumx2mNNZcsY6OiwNGRQExfH9ACiaEjyX6np1mgXEYxP0RT2Gm
+	0jTid+Yawx4+DZkf8+MLYXjSff0lwYF4QpnBvQNE5f7hQfdjAgjy0MYhIjOhH7A=
+X-Gm-Gg: ASbGncuG4lvrjkAdhis1K/RqssUXtzn1QxxxJ4VmiRu7It55KWWAczgyWxYZlL8rG1v
+	92YdV4Zkvk1630ywNaVk3nlRObzFLIo4HjQoJlysLiY2rxgbvAqrk9phQaZbLtwaWkmmn1fNbKU
+	10xc7dH+y74Cq64yRGMZNYLmyufLobn10yz3Oott+uS5EtpyJiYbypm9JsUoCfWbVk9qRkNRqSr
+	RQY5F3XM4aqLnmULGQPFMv1UVXUVNpNCSh92IqpBL2r7YbbhwKYHlpf7iJhjBnpWm+Qxdix0wUN
+	BI8fYZrfPr0U9LZDl0ZoU7+vRCZ7sfgziUvpaPPrpYS0o/mQURR1wSM=
+X-Google-Smtp-Source: AGHT+IFxrHkC5lry9v73hirVrwz0VwaueSl7vlCr1NVutMq+Q53roymPHtPchmK1sMCpMcVptQ1tdg==
+X-Received: by 2002:a17:902:d28b:b0:216:410d:4c53 with SMTP id d9443c01a7336-21f17ebba71mr44908125ad.41.1738771204969;
+        Wed, 05 Feb 2025 08:00:04 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21edddf883fsm99369015ad.4.2025.02.05.07.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 08:00:04 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH v3 0/4] dmaengine: dma_request_chan*() amendments
-Date: Wed,  5 Feb 2025 16:57:08 +0200
-Message-ID: <20250205145757.889247-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v4 01/11] irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+Date: Wed,  5 Feb 2025 21:29:37 +0530
+Message-ID: <20250205155948.81385-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250205155948.81385-1-apatel@ventanamicro.com>
+References: <20250205155948.81385-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_065806_716500_BE7F7F5D 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_160007_818868_CBC15DB2 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +128,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andrew Jones <ajones@ventanamicro.com>
 
-Reduce the scope of the use of some rarely used DMA request channel APIs
-in order to make the step of their removal or making static in the
-future. No functional changes intended.
+Instead of using imsic_irq_set_affinity() for leaf MSI domains,
+use imsic_irq_set_affinity() for the non-leaf IMSIC base domain
+and use irq_chip_set_affinity_parent() for leaf MSI domains.
 
-In v3:
-- rebased on top of v6.14-rc1
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-In v2:
-- updated the commit messages (Frank)
-
-Andy Shevchenko (4):
-  dmaengine: Replace dma_request_slave_channel() by dma_request_chan()
-  dmaengine: Use dma_request_channel() instead of
-    __dma_request_channel()
-  dmaengine: Add a comment on why it's okay when kasprintf() fails
-  dmaengine: Unify checks in dma_request_chan()
-
- drivers/dma/dmaengine.c   | 16 ++++++++--------
- drivers/dma/imx-sdma.c    |  5 ++---
- include/linux/dmaengine.h |  6 +++---
- 3 files changed, 13 insertions(+), 14 deletions(-)
-
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index c708780e8760..5d7c30ad8855 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 				  bool force)
+ {
+ 	struct imsic_vector *old_vec, *new_vec;
+-	struct irq_data *pd = d->parent_data;
+ 
+-	old_vec = irq_data_get_irq_chip_data(pd);
++	old_vec = irq_data_get_irq_chip_data(d);
+ 	if (WARN_ON(!old_vec))
+ 		return -ENOENT;
+ 
+@@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 		return -ENOSPC;
+ 
+ 	/* Point device to the new vector */
+-	imsic_msi_update_msg(d, new_vec);
++	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+ 
+ 	/* Update irq descriptors with the new vector */
+-	pd->chip_data = new_vec;
++	d->chip_data = new_vec;
+ 
+-	/* Update effective affinity of parent irq data */
+-	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
++	/* Update effective affinity */
++	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+ 
+ 	/* Move state of the old vector to the new vector */
+ 	imsic_vector_move(old_vec, new_vec);
+@@ -135,6 +134,9 @@ static struct irq_chip imsic_irq_base_chip = {
+ 	.name			= "IMSIC",
+ 	.irq_mask		= imsic_irq_mask,
+ 	.irq_unmask		= imsic_irq_unmask,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= imsic_irq_set_affinity,
++#endif
+ 	.irq_retrigger		= imsic_irq_retrigger,
+ 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
+ 	.flags			= IRQCHIP_SKIP_SET_WAKE |
+@@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+ 		if (WARN_ON_ONCE(domain != real_parent))
+ 			return false;
+ #ifdef CONFIG_SMP
+-		info->chip->irq_set_affinity = imsic_irq_set_affinity;
++		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+ #endif
+ 		break;
+ 	default:
 -- 
-2.43.0.rc1.1336.g36b5255a03ac
+2.43.0
 
 
