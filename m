@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E44C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 19:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2804DC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 19:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MhYh0K0cs6hRJ2EkOy56lZy1JN8Whdz+VjNW5lkSwwA=; b=xsKfhZTw9/R6DrO6h7CTke1Ngu
-	7gnR4Mi44yErk1qeWl27qy4Fyp+J1KDDOS+GeNgJLwhMD/n7QkSM9fOvUUggNNLiCqSt/lIOt5IhC
-	Tu2U8aTnxbxi+ujko++fADKdNlOWUxMTSk00BLHAexDsVdAXUxZOlCa1nw436SnS0zTYzFlT5OUth
-	TUQUh5YnhxcVCARGZ8tQRTmSlEY3eKQCYE+edGhRPAoeDJLEbv+ZmwG6AzSjZNFY752e5GdpYz5ft
-	9ljFL6Xnf/OHxOvbVntot/ogSYq5rp3/HySYYBJGrl+TC3mcoqtDTX3tFz42JnrnK4tV/9MNmfC+y
-	EuSjR67w==;
+	bh=rl5E0UVjy+KHHY0GruFIRH1nxCM5/nCEesXNNBsIatY=; b=1Btvcrzl7wMpIvwA+5NueBa+RN
+	4oowyY0fCsIY5bcCIKstyr7WCc4Yd5sirhyucw+LvJrGbn5EtZhZVrUQtzLs032cANMsNEmBbmr5J
+	ECKVXMdvrfkVkAUOOBQtD0IbHyOKpxZT4C6kkuoVbivFzpdeYrQPtCSOTtu4SpeRffe+bLw1KVuUF
+	5UG5XTpYDF9I4J19bBbm9dPSUOYoejhkV0v5i6y2eemkuI8XEv7s8UqH4xCXVXPVrOjxPXalQ0s9q
+	qg7iVY5RlX2KuLmYAsmPUgjT7uM35U0KwbME21yDCGd/5WOm/wQoELWvaSpERQPP97qA3PcyR9tNi
+	s7c4wLkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfksi-00000004NWZ-2eCl;
-	Wed, 05 Feb 2025 19:16:16 +0000
-Received: from 009.lax.mailroute.net ([199.89.1.12])
+	id 1tfktA-00000004NoF-3Zxo;
+	Wed, 05 Feb 2025 19:16:45 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjjs-00000004ByD-0IRt;
-	Wed, 05 Feb 2025 18:03:05 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 009.lax.mailroute.net (Postfix) with ESMTP id 4Yp7Pg4mNTzlgTwJ;
-	Wed,  5 Feb 2025 18:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1738778574; x=1741370575; bh=MhYh0K0cs6hRJ2EkOy56lZy1
-	JN8Whdz+VjNW5lkSwwA=; b=KgqAQ+ZyBTnOrx4lrw7J5MNMgRb9DWfwiFF+nyfE
-	0ECqUOSNnBEMfFYO5vah6+KGICdbDdJqrNb4JMogDb29erGrkDZeyeatDqpIxn0W
-	Gp77cx3Ar3deNjqZYOEx8e3LSUFd/I4Jvd2pJVqJa7fysnXrgxR4QFVyJz38g4mZ
-	68GwmE9kpsy7WF54QEBKGGxHOqn80Sh/W0q69MbvsUt1oYdgpZ4YscY6SZxryEbK
-	kDV0hLPJY53bDXayl9uxuL/famauO2GvCy3km08peZo394QSwikrd1hAJ8uvz0tw
-	S9+vtOkM0LYo5Of+ZbDtU0ovn/0eKixBDrhFElAf87YjHA==
-X-Virus-Scanned: by MailRoute
-Received: from 009.lax.mailroute.net ([127.0.0.1])
- by localhost (009.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id yPbHVnEeDhAD; Wed,  5 Feb 2025 18:02:54 +0000 (UTC)
-Received: from [100.66.154.22] (unknown [104.135.204.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 009.lax.mailroute.net (Postfix) with ESMTPSA id 4Yp7PJ56d7zlgTw2;
-	Wed,  5 Feb 2025 18:02:44 +0000 (UTC)
-Message-ID: <45a2da01-966f-4019-8d7f-ee2b66575804@acm.org>
-Date: Wed, 5 Feb 2025 10:02:42 -0800
+	id 1tfkp8-00000004MhL-13f6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Feb 2025 19:12:35 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21f169e9595so2614015ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 11:12:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1738782753; x=1739387553; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rl5E0UVjy+KHHY0GruFIRH1nxCM5/nCEesXNNBsIatY=;
+        b=N/QSqxOolX4zcPCRX9nduBMgNiKBDqu7UrshMh/yePtCbL8suWkNSvd5Wgxk9eK5IU
+         csRoanT2mZJ+iMO61MtBLxWd6bw97NRsRa/JBPhsNNmzLa0gKFU82n5TxeI88mWad/bf
+         2L+Rf+MBcLv/Z5xfPqI2w0nbtyL+Rhy2RDRMQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738782753; x=1739387553;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rl5E0UVjy+KHHY0GruFIRH1nxCM5/nCEesXNNBsIatY=;
+        b=nTvOuAGjyl7RUxVka0hvXRtBB3Q0YGm5UYvDaG39lNJPgxAMl94Nfyq7WZzUuwYw1J
+         cwSKdlIBwzkv86oe/tBFAlRE6XW1p+cmuMCIU6ke76xW9ZOanpSpQY7xQ0nhLekni5j/
+         loeUl9tkHcO/ocNHYyRjLtqAi2juPSADt7eZxeKailV4dcu+Q08qI4ltL/CNbOASV2Bp
+         ApbML8L1vzZgwA5XoPoNfK+GeOehedOs2mF6RXsJmmOIC8AFbEr5UDxqHwBX1XylOfIl
+         1Hqaym6QVs5RKEbPV6Ah4cXUbIsn5267A3oPwSA9OdbW6HmSJXhkXVdVcpi9s26dWAio
+         f1BA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGywBw0FNBvN9VPAIQFpNwZb8konAv31snBVCvLaBntxbzM86tnmwI1n7OucqDyTOKtVLCTj0OsvRVtnbaVkhz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfN4DyOHp9dJVvckayXXpliXbOxOtqaGBl97H/a6HbNsLPz1Mz
+	GG1vScUajuzGnB++izOVtj3mRvBR9hcKZNtNhCaivZLkMLDwYlSW/E2lGlWaBQ==
+X-Gm-Gg: ASbGncvue+a9fPfkz3Ovr6KYUoWAQgX2gssClXZwA+KOsk9Rv3is9Rb3VkXWQ/u+WwL
+	1ReCVTUnhhGolftXOYaS+FdzIQO45f/bQ+Q4zoNHfFPmJmvwkvk2QaDCaVvRSLW8G37CdSb7POl
+	UlabR0EJIVOvSrFUNsS6yEq05lENz9rabYizL5AJtVC2DbnFSD5TnQDWa1Ah8fs3OCBdTBR42ap
+	GURLtePQHxWwOmFayBElV4M7woap320RkPsbg7QIJKHiPjKqWAazuB3l/gDi0Ia4mBW1JUb9qFX
+	WOHnUFLt3SEgSyLWalAQgrjzLFd7NYKhUUroOYhHzh1D4UTvU3X4DtHa7nP9sTleIEHGEzU=
+X-Google-Smtp-Source: AGHT+IGHNDQdUmc+0d+Oa25tolqBbEh64Eprx1WXUEnsJUtgXypSDf+wemV6e9iAiBws6tIO7Kj01Q==
+X-Received: by 2002:a05:6a00:3cc3:b0:72d:3c4d:c1ea with SMTP id d2e1a72fcca58-730351017f7mr5551115b3a.7.1738782753270;
+        Wed, 05 Feb 2025 11:12:33 -0800 (PST)
+Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69ceb1csm12670842b3a.151.2025.02.05.11.12.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 11:12:32 -0800 (PST)
+From: Jim Quinlan <james.quinlan@broadcom.com>
+To: linux-pci@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com,
+	jim2101024@gmail.com,
+	james.quinlan@broadcom.com
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v1 3/6] PCI: brcmstb: Fix potential premature regluator disabling
+Date: Wed,  5 Feb 2025 14:12:03 -0500
+Message-ID: <20250205191213.29202-4-james.quinlan@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250205191213.29202-1-james.quinlan@broadcom.com>
+References: <20250205191213.29202-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vop
-To: Ziqi Chen <quic_ziqichen@quicinc.com>, quic_cang@quicinc.com,
- mani@kernel.org, beanhuo@micron.com, avri.altman@wdc.com,
- junwoo80.lee@samsung.com, martin.petersen@oracle.com,
- quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
- quic_rampraka@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
- Alim Akhtar <alim.akhtar@samsung.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andrew Halaney <ahalaney@redhat.com>, Eric Biggers <ebiggers@google.com>,
- Minwoo Im <minwoo.im@samsung.com>, open list <linux-kernel@vger.kernel.org>,
- "moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-mediatek@lists.infradead.org>,
- "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-arm-kernel@lists.infradead.org>
-References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
- <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_100304_134071_C20DE724 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_111234_293833_228AED45 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,14 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/3/25 12:11 AM, Ziqi Chen wrote:
-> Instead of only two frequencies, if OPP V2 is used, the UFS devfreq clock
-> scaling may scale the clock among multiple frequencies, so just passing
-> up/down to vop clk_scale_notify() is not enough to cover the intermediate
-> clock freqs between the min and max freqs. Hence pass the target_freq ,
-> which will be used in successive commits, to clk_scale_notify() to allow
-> the vop to perform corresponding configurations with regard to the clock
-> freqs.
+Our system for enabling and disabling regulators is designed to work
+only on the port driver below the root complex.  The conditions to
+discriminate for this case should be the same when we are adding or
+removing the bus.  Without this change the regulators may be disabled
+prematurely when a bus further down the tree is removed.
 
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
+Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+---
+ drivers/pci/controller/pcie-brcmstb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index bf919467cbcd..4f5d751cbdd7 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -1441,7 +1441,7 @@ static void brcm_pcie_remove_bus(struct pci_bus *bus)
+ 	struct subdev_regulators *sr = pcie->sr;
+ 	struct device *dev = &bus->dev;
+ 
+-	if (!sr)
++	if (!sr || !bus->parent || !pci_is_root_bus(bus->parent))
+ 		return;
+ 
+ 	if (regulator_bulk_disable(sr->num_supplies, sr->supplies))
+-- 
+2.43.0
+
 
