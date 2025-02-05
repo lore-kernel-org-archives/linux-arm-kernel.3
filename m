@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70311C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E725C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LO2er1K6vaE6/L7m9yk2utZM2k5CwTiygTMMgy6dNQ0=; b=40yAEMm5hr5cTsGSRykJCgUA7p
-	8lxG3REsMzvjJCybJPBf2R1zmKPKNv9wb1GWXY4wiz6X0c7KqoRBeIyBSeJ4k2dABYsV94jVHWW5j
-	ylYjlmw6aiibluUm9OJjFHHYXRFDWaBXYNBTlLzs77M8+v3amqpXx54K1ow/HniGegJ4aYT+1y2Zx
-	Wsgayy6Uzeevxbw82fCjqAhMbg08JXAU9nkvBWxEBmmZEE7J+AEo0WZ8JuLd2reZr+Z+ri9Obi2/f
-	ZsrZ9vooqU4y37p3Ne86IEkfE/VsfCJfvMQt8fsy9zB5Y3gUKCJ16OdmQ2fy26rbhIHPjfEOklfRU
-	OpDbGUUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rn6yddGTL+4r9BPnRCa7YNZbMZP/n2LoEprLl201Fhg=; b=wRomuVYNRFPQzBIp1VJ4KhP7C3
+	/LKr7wJB6x3wqbXR9ofJWnK+nh3gvSoKVatikV/GFxu5x8SAGGdz5jacYuqxJCL5PlpYd1ViaU319
+	AnQkZPMZ6k8PWH/5EklfxBLPz8xI1PeYuU2YyKhtUJ68SSDOpQg5jmRsdTKSb9XAd+0BuStKI39za
+	kslfP6QNMyij6lPcw/l5u4FAo71Q4H4w5AWiLvzzWh8YYIUTL27rVTp7Mc6BJU28OuR+9CFmRKJmz
+	Oj6q4NaWaJhQjnThzlqJOc4fPzOqJg5kXEhvzhySAE/tmh07ooefgPi2YjYqroxvTMWT956kzRvIs
+	yi8lw6Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjVE-0000000494k-0Xno;
-	Wed, 05 Feb 2025 17:47:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tfjVD-0000000493s-1yhF;
+	Wed, 05 Feb 2025 17:47:55 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjM6-000000047dq-2Zdz;
-	Wed, 05 Feb 2025 17:38:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8064A438D1;
-	Wed,  5 Feb 2025 17:36:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9547EC4CEE2;
-	Wed,  5 Feb 2025 17:38:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738777109;
-	bh=6QJJPtO3WlYPPGSP0H8aWwAJg0ctvHWUXT0e2WNEeHE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MsLyFODUcEFb8uO9sgi4xZpO9PYRDdZOES/lZgiqBuN8wK0rpYCZyyFUZPsRV/815
-	 eVszkZ84dPOVH3oi7rt+AbIWKXy03058S4pFxx7l5DQ6Z1/aI1g+IVpQn6g+cxDIl9
-	 QOWiN0BSBHDQPpDQV2dp7S8V+JJQ0tqEreVR/ejFgVrEBi2Hq+i8UV5e3i8elKKxMy
-	 3Qgndet8XKwPQTJJutsYvw441+bty+yDxo5KIBzoW3wbIaIspA/f+NL7dZuOf89MPr
-	 a6l+h/rNIdMjTWZXDTh2TVMGC4DGBrLzpraW+eHCTJqhl6aVLcGhtxSEM1mV8dmDyy
-	 1VNweqr9a9gzA==
-Date: Wed, 5 Feb 2025 17:38:24 +0000
-From: Simon Horman <horms@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Steven Price <steven.price@arm.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH netdev] net: stmmac: dwmac-rk: Provide FIFO sizes for
- DWMAC 1000
-Message-ID: <20250205173824.GJ554665@kernel.org>
-References: <20250204161359.3335241-1-wens@kernel.org>
- <20250204134331.270d5c4e@kernel.org>
- <CAGb2v641vvtVKv8QbiEfHnMWngcKYTJZAgfH5k+G_nOvZcbC9g@mail.gmail.com>
+	id 1tfjKe-000000047QZ-0Kh4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Feb 2025 17:37:01 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 2CBB9A0748;
+	Wed,  5 Feb 2025 18:36:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=Rn6yddGTL+4r9BPnRCa7YNZbMZP/n2LoEprLl201Fhg=; b=
+	kIEwVyTn98fyHeB3ZPrtD11ZqobExsQeb9IkBVpo6AJPfeKxBLtFl5YPqyKDk196
+	K1ZRHGJtpBMIoJr2r3l4eRHbfVCjWkdMexBglv4viBCke4Xf7t/I47oYW8p7yo2p
+	/S4GOZvNuQWjp+KZAL9BPXrw6WiXlfaFbiT1yN+oDAtbUnHe3uSJFafrfVuDIfl3
+	F/8iHKneQUtkaWbIqN1zF9viyteAJAIuBHH1QuMcn8KF9bSvKDC2E4YVTU+6h/AB
+	K0Vwkwqk5JIa6xblQJ0eI1oreStRhF8+Mczx2qbjm3HTNl8a8g71dzSY6sZZh6zU
+	ibodccHUCc82AtIn60S2Zj/sHcMfCC76+O9ZStQmqiKzuYDSw6yGUZisJTXYow1l
+	oXvbGA5e8E7UsBD2Pt7AL3t9hnhKUO7JTeI8YFnP3UVF4l9vH+txvGLiBVwvHA5W
+	n949X020wpvNpjPuIseVRHy2hiBgsKeH7/QQIJV4NR1/9Doep76tkAxlb8kGxJB5
+	Wcepx7y4q9ATiL6ddDTFm8wUr9GdoLD+v8hI2rdRH20flJbLt5nwYGUVMVeR4qTZ
+	EwkcEV8S44DPThV0Drmr8tqP3JT4ez6CbT6kTY996uwQMPVILLDcA00vLwO2k/lL
+	ph6yWXu1yGfb4NhFRM33RzN/bATuqt2bFZ2fvWjnURc=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Chen-Yu
+ Tsai" <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Vinod
+ Koul <vkoul@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+	<samuel@sholland.org>
+Subject: [PATCH v3] dma-engine: sun4i: Use devm functions in probe()
+Date: Wed, 5 Feb 2025 18:36:30 +0100
+Message-ID: <20250205173630.112020-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v641vvtVKv8QbiEfHnMWngcKYTJZAgfH5k+G_nOvZcbC9g@mail.gmail.com>
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738777013;VERSION=7984;MC=1924755684;ID=266573;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852667D60
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_093830_721532_B244FBCC 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250205_093700_582918_A690C524 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +80,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 11:45:17AM +0800, Chen-Yu Tsai wrote:
-> On Wed, Feb 5, 2025 at 5:43 AM Jakub Kicinski <kuba@kernel.org> wrote:
-> >
-> > On Wed,  5 Feb 2025 00:13:59 +0800 Chen-Yu Tsai wrote:
-> > > Since a fix for stmmac in general has already been sent [1] and a revert
-> > > was also proposed [2], I'll refrain from sending mine.
-> >
-> > No, no, please do. You need to _submit_ the revert like a normal patch.
-> > With all the usual details in the commit message.
-> 
-> Mine isn't a revert, but simply downgrading the error to a warning.
-> So... yet another workaround approach.
+Clean up error handling by using devm functions
+and dev_err_probe(). This should make it easier
+to add new code, as we can eliminate the "goto
+ladder" in probe().
 
-I think the point is that someone needs to formally
-submit the revert. And I assume it should target the net tree.
+Suggested-by: Chen-Yu Tsai <wens@kernel.org>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+
+Notes:
+    Changes in v2:
+    * rebase on current next
+    Changes in v3:
+    * rebase on current next
+    * collect Jernej's tag
+
+ drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
+ 1 file changed, 6 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 24796aaaddfa..b10639720efd 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (priv->irq < 0)
+ 		return priv->irq;
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+-		dev_err(&pdev->dev, "No clock specified\n");
+-		return PTR_ERR(priv->clk);
++		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), "Couldn't start the clock");
+ 	}
+ 
+ 	if (priv->cfg->has_reset) {
+@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 		vchan_init(&vchan->vc, &priv->slave);
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "Couldn't enable the clock\n");
+-		return ret;
+-	}
+-
+ 	/*
+ 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
+ 	 * likes to leave these dirty
+@@ -1344,32 +1337,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
+ 			       0, dev_name(&pdev->dev), priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "Cannot request IRQ\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ");
+ 	}
+ 
+-	ret = dma_async_device_register(&priv->slave);
++	ret = dmaenginem_async_device_register(&priv->slave);
+ 	if (ret) {
+-		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
+-		goto err_clk_disable;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register DMA engine device");
+ 	}
+ 
+ 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
+ 					 priv);
+ 	if (ret) {
+-		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
+-		goto err_dma_unregister;
++		return dev_err_probe(&pdev->dev, ret, "Failed to register translation function");
+ 	}
+ 
+ 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
+ 
+ 	return 0;
+-
+-err_dma_unregister:
+-	dma_async_device_unregister(&priv->slave);
+-err_clk_disable:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
+ }
+ 
+ static void sun4i_dma_remove(struct platform_device *pdev)
+@@ -1380,9 +1364,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	disable_irq(priv->irq);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&priv->slave);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static struct sun4i_dma_config sun4i_a10_dma_cfg = {
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.48.1
+
+
 
