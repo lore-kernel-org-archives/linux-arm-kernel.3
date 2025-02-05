@@ -4,184 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B298C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 18:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D769C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 18:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpqfG/W71tkAw5COWljSL2p5SdgR4d23n2yMtZDxGZQ=; b=II8gBJlwF0iIQ7VgymSqqiC8EJ
-	xzTzy05w4N85peQW3EwVObQMEVcmgzoguM8mFFg7AIP+aYT8JAkL7V+nJD1h+QIk8jnoEbvgP/ZNP
-	ASv29YfONp1fHEpji7NTLy9SpQV6dWWfB5C8k+6ViDH7BScj7+T9sfmVTSM8KBALAQTEH/RjWvjK3
-	G0mcThCo1B7DCIme3PqJMJhGQaEd8rGlecncKmKLYjOpfvkLETzALJtV2f62RJtfmVnVAqNoq0nO9
-	NaRS+eDCDvl86yNgnlID566xmrjyk2bGgnwnbIGYAQvFkzetrTFC+l0kCJvQjinLOa3JlZfxEdj4T
-	2gBTIb5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X+u19ffeBg/wFqZCuorClrVP7j4RCbjs/ZXDY/Cavpo=; b=SPDkc6+eW7HxaavC0GaqFBJ+2N
+	JJwiZI9eZ36Ey8UughAsAXEAjXohEa3IuHrqX0702uK1Pi4CeefHDdJ+jBhW1wN8Cs7mBBaxuYZU6
+	qkGpJA12j8cwxtyFMwK/ie91qhV1iUNBOpZaDGtF2itjRz/ukwy/dNvGPW/K5h9BT8bi3muglM+R6
+	oHDzVr1bphNJEu6mOtLCiWfXPQALQ7je8GsxF5KXmjQnb7XMlJL2D0N9Urd2xIRZd2IxEHfgoWU5w
+	u/h+uwJlC/V1GIN7Vs8Mw1ZV5H9i4P766rIjRS+Y5ZWd2f9C91fuFUBVFfU6psrkU2FfQQQBW+O5L
+	ZdDWZAiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfkB8-00000004Gle-1K4Z;
-	Wed, 05 Feb 2025 18:31:14 +0000
-Received: from mail-westeuropeazon11011069.outbound.protection.outlook.com ([52.101.70.69] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tfkBf-00000004GzH-38RN;
+	Wed, 05 Feb 2025 18:31:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfj3L-000000044Qc-3dmC;
-	Wed, 05 Feb 2025 17:19:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pMNejJd9QssK/uY4mvKAVCQneBCL3TFOm3pJhFIwguq8VIud+kmzWQlR3p9jBWnjdBqS5690TTZm2QDI8dsqjSgIVtDfiTOW0y3/8kLa1DDTADupXZXOgiq/+j+CSzlfffwnMzTTxXGHW9zERBrCsgW+T1VTzyjZgzUMoCqICKUAa4AfVO1zzHT29oS3yNS6HWN5JcHL3o9uNN1MVTwYHWUeSIE4i5EOIVHI6Qb4hwGQ7laBMxu9Kr8vr9Q5W24gxelb/iJBtrOclUW0QRLIY1dEzpQoS2MTMzH3djUgyJoSrDE75rb5lpaDn56edLtqcvDnVQ4XyYvJU6HCa6QJbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hpqfG/W71tkAw5COWljSL2p5SdgR4d23n2yMtZDxGZQ=;
- b=YrnTt4Fi/qUNK13pwTdS1/qBZytovyz5xjbzH1rsARGFB1BeDE+alswdjDQi4Mx85dqmrya6b7IEOBASWWmJq73lIAfigBh0rzXDPgwv/7mK2NQhb4rsqj74gv0gaDDoN9k8sixwf+6S6AphT0Jx6FWAUvvDY63sTjaNOnx7Rs7o0xJ8qjGyE9VCctgIVQ+4fwfEPLK3AaYc5/p2ghMhbcvJKd1JRn0DTN1SUH873sprLNqV9E/DSr77ediNzj2XyNZLdyjlWaLnuXTP+pkTt0rSbfa+DEd7KbURrNUa/hFgOi+SW1GxMSNYo6MeJx0o6FaoOuSpKBaNMvkhv64Cng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hpqfG/W71tkAw5COWljSL2p5SdgR4d23n2yMtZDxGZQ=;
- b=Ro6YelrG7pXQZEpuOadvHMfZq7pkBTkTGaIaoVhlpMrC9oh/WAyJD0Ew+hJVJ/gHGdymuxMqatigk+7/L+afMadYtldndxgcLVzvDxqYR629tyQ0mva0kDlEv+3gH/rtHJsoCtn2fCJYqePXWO77v075xIzKLXq5rh9hZemcqwWHyy1l94voe7fFgVxR8Qo/9DpeN/n+k2jqlzCgc2Wyj4jcmeRRw/GB/4r+YvYzE5YOlekF6oCzlq/1pQj8B2c/tvirK3rHpKF6azQB/9d1UmH5RbvmR09YBN/wz1CCIeC7QzRpsjEueqURCWKqwnt12szWBTn8puj8hoxDc/owig==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI2PR04MB10546.eurprd04.prod.outlook.com (2603:10a6:800:274::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Wed, 5 Feb
- 2025 17:19:04 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8398.021; Wed, 5 Feb 2025
- 17:19:04 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 05 Feb 2025 12:18:12 -0500
-Subject: [PATCH v2 03/14] dt-bindings: firmware: imx: add property
- reset-controller
+	id 1tfk2a-00000004EbO-35uZ;
+	Wed, 05 Feb 2025 18:22:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=X+u19ffeBg/wFqZCuorClrVP7j4RCbjs/ZXDY/Cavpo=; b=f1bzxu0lvNB0WE6AtIEVl/esXI
+	HodUAsTEjVY/bznbjcnDKvGzPQWdmRWTjBTwu2fZ0ncwBS9ORF9jOTBeWMuJnNlbV/po//YUOKQud
+	8BbMlFyTKIc5SvwGHcACqxaoX59e8ZnSxoeYs+WtwJY/b3hUeBK/JIqhiGzbc3N+U3F0K3KA4mMfh
+	v6KcSr3TVMhewjUiLq6yS7s4SbrjqboDVT/IkBKHIGCYmkttFaUCBW8da8J+jjYzO5aULuRfnbeiI
+	uwcjrE7Xl5DABBsbBhgt+Z0939kQ+oT3Rhrx7VODcWDtfdk3ZABU75wDmnmVFgRtvESa5cBF07LNT
+	00g3Cg5Q==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfk2X-0000000Gl8a-107O;
+	Wed, 05 Feb 2025 18:22:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AD48D5C6DF7;
+	Wed,  5 Feb 2025 18:21:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B33DFC4CEEA;
+	Wed,  5 Feb 2025 18:22:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738779737;
+	bh=s5r+AI5CoWy7fB3orb1C3bppD7WLV8ax2lMNTdU5FZk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JsVIwOet9cIVFOpiR4GfmzxB1X7Tzz9TgJrWCcQwI445ymBhSY7IluCQohy0YiQWA
+	 MYXpR6hXo6sW26FcAGzQ9nzbWmgUHGPJHn4AJiBB2I78r5g+iZv1Zj43MMB3VHlzxA
+	 yLvtHyT8odOr1YnxRMT0cg9kI1+DK1wcP9q+7ka/OuV7tuIImidV0d+o5GFBfM0LiS
+	 Y15wqPQTNaMXGp2egLBTFs2bLNxLcMFFd7ga9XTx+k+B3wZL+j/lckHVyYfNouZw5I
+	 W1EzpFPUkSyiVVz8C5J+e9QVIv7wNlb3u7vtK2I9Y9XmKwURG5gBgr4Kn6M6CNM1Dt
+	 ESLPYvkFq+M6A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 05 Feb 2025 19:21:24 +0100
+Subject: [PATCH net-next 05/13] net: airoha: Move DSA tag in DMA descriptor
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250205-8qxp_camera-v2-3-731a3edf2744@nxp.com>
-References: <20250205-8qxp_camera-v2-0-731a3edf2744@nxp.com>
-In-Reply-To: <20250205-8qxp_camera-v2-0-731a3edf2744@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+Message-Id: <20250205-airoha-en7581-flowtable-offload-v1-5-d362cfa97b01@kernel.org>
+References: <20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org>
+In-Reply-To: <20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>, 
- Purism Kernel Team <kernel@puri.sm>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- "Guoniu.zhou" <guoniu.zhou@nxp.com>, Robby Cai <robby.cai@nxp.com>, 
- Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738775920; l=1140;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=H5gTC4PfC7wWWTYky7p7fJU8O57o+xQMMNJDpGMWCcA=;
- b=U/jH1JkdDP4CXIwgXa1Fnn9fmQT3Aq9c4OOMMFF2UGp5elsODve9veCSPuObzYSt35fVbHjfA
- F8rugV5tF+CDYo3RzHXoHmOyGPcWTQS1N+8oU7OrMNrtwLFnLFgPd/U
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0001.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10546:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14c69450-04d6-432a-3b27-08dd460930b3
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Kzh0Q3drMEVpNEVqZTA2cFRkTVF6Ly9iR3VxQmhrelArNjhmeWhlZmJkRGpX?=
- =?utf-8?B?Nll4eUtWL1djcHVjTUkvWUdlNEtkUldMcmtDelVtZFluWG5PZm9WUHd2Z1hB?=
- =?utf-8?B?WHN0NDlLVnJ6TVd1QU9TOEc4cG1zVndjNWRTVmF1MUY5eVBoR1FhVjBTQnVt?=
- =?utf-8?B?K1NBbW5rMWE5QWRoZWI0SFJ5ZWlocnZVMkUwOExkUmNUS1M2c08zU3BRVkJL?=
- =?utf-8?B?VS9MM01vQko4eVpwVUZ4Qmt6WG12azArT2xYVWpXbGkrOTE1WXcwbDlyZ2x1?=
- =?utf-8?B?L3l4QU83SjNmWHBBUjlqRGdCYjQyc1dqeExXTVduRUZzTm4wOFlyZnhObE5L?=
- =?utf-8?B?RUtkTjRkWklJTTFPeXNGazQxNGRUZE5ISkkvSFdFcVd6a3hBdTZJY0NlSHRY?=
- =?utf-8?B?SjJlUzJud0h1bi82RXJLdU1FUGFyTXRWT3FETnF6RkpYRGVmRVBQNHZTSnZy?=
- =?utf-8?B?QTcrWDZlUThyNENlNVZVVG9QVE5iRkJMRkgza1IxU3BPQ3hBenhVcTI1YWo2?=
- =?utf-8?B?Q1lIU0tibHJzaU41bVlEc0ZyUFZaSEhyRE5Bd29HMDhnNUhBdTQrWHArMnNm?=
- =?utf-8?B?UDZDZ04vTDMyako5SXZsMnVRelVtOCswMGZORXB3dWI5dWhRc1hUd2NtYWp6?=
- =?utf-8?B?Q1RHVTJWcmFCVkE0aTBJSjB4TGtJUUp6ZlVBeXNpTExiM1ppY2E3cEtqcmNQ?=
- =?utf-8?B?ZitYeGhaTDArSWNiRlUwOWk3VURWWlVIektPY2pVMjQ3N01icENaWGZSWEx3?=
- =?utf-8?B?Y3c2bmViQmhqNW9GRDl6YVpVbXRiZFlTa1NjaVg3Vm5YRFpzNCtzQUwwU293?=
- =?utf-8?B?bGRKUFRGd0QzaWpNektOLy96QzNXVjk5TE9LTmNVWUNoWE45WXorNncxcCtJ?=
- =?utf-8?B?eVE5d1ZWMFBXa3h6a3QzUDV5Uy9JaFNXbHREeE5MUzBoMVNWZ25uMXJyVzJM?=
- =?utf-8?B?Z0VBYmdFWnRadGtQUWdEdDBjTXFXbEo5MmJwbExmSWM2M3d5Y25VM3JCbnIz?=
- =?utf-8?B?Rk56cTVxQXdTODdydFY2Nlh4OGg5VkNKNkJFUXEwNHNrT2s4b0w4ejk2Snlu?=
- =?utf-8?B?ck44ekN1MVJSU2FIT0ZZS1oyV1dIU2NFaGt6dDBsWVZlcmZ6djRnUEpDZzUr?=
- =?utf-8?B?TVVjY3FkTmF3RXpqZzRIVXBRK1JxeVRkQ293SGg3Y3VKdGt4Sm1jMldaVEgz?=
- =?utf-8?B?ZFNoc1ZzY0FTWnkwTUI0NUx2Y2hBRExJc2N2Y0F1T0FEZlM4NlV3TnRhSjhI?=
- =?utf-8?B?UnlnRkxmV3RBNUoxR3c1aUVVT20vMVBBT3hUTUthSDQ2M3dhNXFpc0JQU0U5?=
- =?utf-8?B?ZGRuNVVKaDFLREtuSFkxRWYxNGRDM0h4Y3dJR1VnQ1F2YnlJNnN4V3oycGU5?=
- =?utf-8?B?aHA3Y0lxUmFMMHhhTU1VQldGNko1NExQN0IrL0I1QStISDZoSXYyWklUNWt3?=
- =?utf-8?B?RWpUbGpGSmdESWdKVHBQRVF4czlOTDJyOWdlRnhGczhxV3RxbStDWXY5VlZL?=
- =?utf-8?B?MTdhMktxYk9saWd4L3drd2pGZm9GcXl3NW9CVHBLN1U0OFc4RkI5RkRRQmxS?=
- =?utf-8?B?NjlYUTExSkhFSzJnVFNXVVRlRFdja2pjbE52S0lLeldIYzlodGtWU3A5R1FE?=
- =?utf-8?B?bGZGK3Z2OUhQMldYMnpyZ0lENUVvNmF2S0llcnlNeVJYWW45dHUwMDJoSC9R?=
- =?utf-8?B?MFNDM2FIVDFYMHUrZFRvekVuWmU1QksrVGlDTytaMU5jNEhFZ1RKSWhwcGJs?=
- =?utf-8?B?aG9SNUdhK0tlVTJkd1kyY0xFT3dCZTl2bUJlRjZ4dXNMTzJyOFJRQURpQnVP?=
- =?utf-8?B?RDV6ZWsyUzNDZGdrVXpERFZKbzRZSDlsZUdkU3E0UXk4eTJ4NVJscWVQR1pQ?=
- =?utf-8?B?TWlBT1M2YmpISTBoM0MyTXVITkE0alhwSHJrZTFEamhhc0kxMXk5MC9WUFEx?=
- =?utf-8?B?L1JWQTV5cDl5OXZ1TWhaOEp3d1dwTTN3SjFoNG05MzlqNnpna1dyZHRvc0ZG?=
- =?utf-8?B?TnRaYlMzQitBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZmF0cWtNZmw5aHBGVHl6eTB4UDQyQ1dDQkVIVlZaN3QwTEtFdmpoNTJ2dUhO?=
- =?utf-8?B?Y2QrSFNzSFM5bk4xNnBQWUtFMTZOemxwdzl2WnYwVGtUcFZZVUJFRk1Fa0Nn?=
- =?utf-8?B?bGdmbzd6N2JXY1ZmSmJWVWZOK1Z1cThNVEluOS85b2dmWWNESXdxYjBVZmEy?=
- =?utf-8?B?aEY4OFNvOE1jUUM1MW5USm1oZVZiT0N1QWk0NDZrcFpWWGtnTUxGWDBvMkJ6?=
- =?utf-8?B?bzNxY2c0T3Z1UTZLZjE3RHpxTzVhUnd0ZTlFRzUxeklvdXV5NzBmVXExK0NG?=
- =?utf-8?B?d2gweHVBT0lMdGF5Ykxxbkg3bXJoUXVxeStsUmlOdkV4UFdGUjgrZkF2NTNt?=
- =?utf-8?B?RHhEcXBkVkJqYzF2c1R5TTlMTEVTY3h5NWVhYmRqcERsdkxOMmZ5R01XZHhH?=
- =?utf-8?B?YU90N0g2S3YyVnIzVEVWQXZDSWd4L3pZWUtEZkZRQmxVQXpZV3JwU2U4TmIy?=
- =?utf-8?B?RytDMDBxcE5KVHE3QmlFNXBsM1NNbGV1V210ZHNhdnZkdzRnZVVhd2pmdjBv?=
- =?utf-8?B?aUhGT05sS2J0eFZ3bEY1RnUwL0FSMm92eFZtY2VZeVJtMVYxWDU3bEljVmdW?=
- =?utf-8?B?OHdGV0IwWllwRDJ6SWFZakw2QXFJQTcySGhrbU9yZlVwaEV1S0Jnd2NRdS9M?=
- =?utf-8?B?eCtUTzZTditmbnREQjZzTDA5T0lnRmw2YmQyM04vQ1JSOVRJSjNkNmFYTkJa?=
- =?utf-8?B?TG52QzduelZxcitZN3JWMEcxZUZvZ2dISlgwd24xa0ZXT05yM0hvTjh0bmYz?=
- =?utf-8?B?TUV0eXByazZ1QVhCeU9aT2s4MnY3RDBDaElmQmhqQ2xOUitaeGNLMGhRMUl4?=
- =?utf-8?B?QkVrL2dlZ084RjVBY2ZmcU5EazR4dUhNMGtpdU1qM0JIb3RyT1FhKy82aTdn?=
- =?utf-8?B?WXBmQzhyK1o5VG1WVGI3SnM5M0h1b2NNMVNzTUswR000YlM2STM0RUw1TkIz?=
- =?utf-8?B?ZGIyWUlVZjFnTDRCRy82U0l2aWkzUVhTSklTZzhLb3RSalo3V0pMS1NibzJY?=
- =?utf-8?B?YXhYcThYOVp0YVBEQU1IaTd5VWRjbk5VTXJQQnJwRHpVcFFzcFR2SWJhRmhw?=
- =?utf-8?B?NGJSMnpHTTN6bWZuOHB3b3RwWlhVZVM4RzZ6TjIzRFRhR0JEUytLbDErMXJ0?=
- =?utf-8?B?UGZKSHN0NE5uVzd1dU16SXVjb2RBQjFZdTd1NFFra3M5Yzh0eExwaFJ5MHBR?=
- =?utf-8?B?VWhJZHpYRHExenFEekNNak1STEhmS3dvVXpqNzBnazVGTG96enI0ZEFVTFA3?=
- =?utf-8?B?YjkrWHA5TkJPNE1CTmhja01tQXVwb2VFQ2pONGYyNGhhU0xDUVgwWmtBZ1Bi?=
- =?utf-8?B?cWV6V0JROVJuYXRlU084aEhiUGVOM05qaTViUjRTNXU2ZGxwTzk2SnJrdnJJ?=
- =?utf-8?B?enJpQUw5SVJsN3hUUXVJK1Y5Y0U5QWJHRHBDbTZTQkVwMm92MHZ3T2xrcWRl?=
- =?utf-8?B?Q3Y4cUJmcEhnSGZwdFREc1RCeWtGaGlKN2oxdWN3aVRUS1NwVGM3VU5ET1pC?=
- =?utf-8?B?QWhhTFpBcG5FM1A0V3YxOUNvVEJNMVl2cGgzWDlkUWpSbHQxYUtaUjVyNi9z?=
- =?utf-8?B?aUFVMmZraTkyOW1Dd2dKUW5MV1dlSEtEanRCbE9yTEZGMTF6MkFGajVCR3lD?=
- =?utf-8?B?RW5LVEhjU211OFlvNUJEdGJJK0NSd3Y3S29hNlduQm9OZzU4OGFyay9KZG1a?=
- =?utf-8?B?eFo0WkZ3K3lSZ29saW9qUWZqODBLR3BzdTVjejVNR3NnQ2t3WkE3NmhSV0dF?=
- =?utf-8?B?Ykcza2ZQNVpBRnpSOHlEV2J4QnFPZ2VoUkpncHdPeDJwcmluVkZ6ZkZMRTJo?=
- =?utf-8?B?TndENG1Xc202Q0tyQ21ldWNLdHlnQkhXUHZHTHQ1YjFrV3BNdUFIb3R6V2p4?=
- =?utf-8?B?alZjNlFIcm5HUThLVDErc2ZFVDdicmR3cDFKVDRzd2dlSzR6VFVYc3g1UThp?=
- =?utf-8?B?STNYWG1lYWdmVzNpSGlnRHIrVHNFRldOZG4yYWZxY0d3eVpKNGV1MEhqdVJs?=
- =?utf-8?B?RThyRzV2OG51dkJjT1ptVHQ3NlI2NXlwTE9EclhHYmtJVk84a0x1M29IbDVM?=
- =?utf-8?B?aXRYeisydVdLbFdTMTkydUsyY1RCSlM0MUVxWGxOdlNwZkwvemd4bzJuQlRZ?=
- =?utf-8?Q?rPfHjNd/UJMSkMxpvdEGl106o?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14c69450-04d6-432a-3b27-08dd460930b3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2025 17:19:04.3316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Nf6RNt5jSZm6/1UzM57jvsgqL0G7FWai6rI+IS9jlHkQUszba9NFpavyNdbSulGl7mfOuBQKzn3w5IHNTBxaNQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10546
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ upstream@airoha.com
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_091907_916018_7640DEBB 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_182222_206296_7BC7A3CC 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,42 +94,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-System Controller Firmware(SCU) reset some peripherals, such as CSI. So add
-reset-controller for it.
+Packet Processor Engine (PPE) module reads DSA tags from the DMA descriptor
+and requires untagged DSA packets to properly parse them. Move DSA tag
+in the DMA descriptor on TX side and read DSA tag from DMA descriptor
+on RX side. In order to avoid skb reallocation, store tag in skb_dst on
+RX side.
+This is a preliminary patch to enable netfilter flowtable hw offloading
+on EN7581 SoC.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-change from v1 to v2
-- new patch, move reset-controller in top fsl,scu.yaml
----
- Documentation/devicetree/bindings/firmware/fsl,scu.yaml | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/net/ethernet/airoha/airoha_eth.c  | 112 ++++++++++++++++++++++++++++--
+ drivers/net/ethernet/airoha/airoha_eth.h  |   7 ++
+ drivers/net/ethernet/airoha/airoha_regs.h |   2 +
+ 3 files changed, 116 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-index 557e524786c22..f9ba18f063692 100644
---- a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-+++ b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-@@ -45,6 +45,18 @@ properties:
-       Keys provided by the SCU
-     $ref: /schemas/input/fsl,scu-key.yaml
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index a99d98be86a00f7bd000e2b8218afcde53b1946f..ab95f3da21d90bd42282a9f3f5474ce42a69c9d4 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -9,6 +9,7 @@
+ #include <linux/tcp.h>
+ #include <linux/u64_stats_sync.h>
+ #include <net/dsa.h>
++#include <net/dst_metadata.h>
+ #include <net/page_pool/helpers.h>
+ #include <net/pkt_cls.h>
+ #include <uapi/linux/ppp_defs.h>
+@@ -656,6 +657,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
+ 		dma_addr_t dma_addr = le32_to_cpu(desc->addr);
+ 		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
++		struct airoha_gdm_port *port;
+ 		struct sk_buff *skb;
+ 		int len, p;
  
-+  reset-controller:
-+    type: object
-+    properties:
-+      compatible:
-+        const: fsl,imx-scu-reset
-+      '#reset-cells':
-+        const: 1
-+    required:
-+      - compatible
-+      - '#reset-cells'
-+    additionalProperties: false
+@@ -683,6 +685,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 			continue;
+ 		}
+ 
++		port = eth->ports[p];
+ 		skb = napi_build_skb(e->buf, q->buf_size);
+ 		if (!skb) {
+ 			page_pool_put_full_page(q->page_pool,
+@@ -694,10 +697,26 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		skb_reserve(skb, 2);
+ 		__skb_put(skb, len);
+ 		skb_mark_for_recycle(skb);
+-		skb->dev = eth->ports[p]->dev;
++		skb->dev = port->dev;
+ 		skb->protocol = eth_type_trans(skb, skb->dev);
+ 		skb->ip_summed = CHECKSUM_UNNECESSARY;
+ 		skb_record_rx_queue(skb, qid);
 +
-   mboxes:
-     description:
-       A list of phandles of TX MU channels followed by a list of phandles of
++		if (netdev_uses_dsa(port->dev)) {
++			/* PPE module requires untagged packets to work
++			 * properly and it provides DSA port index via the
++			 * DMA descriptor. Report DSA tag to the DSA stack
++			 * via skb dst info.
++			 */
++			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
++					      le32_to_cpu(desc->msg0));
++
++			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
++			    port->dsa_meta[sptag])
++				skb_dst_set_noref(skb,
++						  &port->dsa_meta[sptag]->dst);
++		}
++
+ 		napi_gro_receive(&q->napi, skb);
+ 
+ 		done++;
+@@ -1636,26 +1655,69 @@ static u16 airoha_dev_select_queue(struct net_device *dev, struct sk_buff *skb,
+ 	return queue < dev->num_tx_queues ? queue : 0;
+ }
+ 
++static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
++{
++#if IS_ENABLED(CONFIG_NET_DSA)
++	__be16 *phdr = (__be16 *)(skb->data + 2 * ETH_ALEN);
++	u16 tag = be16_to_cpu(*phdr);
++	u8 xmit_tpid = tag >> 8;
++	struct dsa_port *dp;
++
++	if (!netdev_uses_dsa(dev))
++		return 0;
++
++	dp = dev->dsa_ptr;
++	if (IS_ERR(dp))
++		return 0;
++
++	if (dp->tag_ops->proto != DSA_TAG_PROTO_MTK)
++		return 0;
++
++	switch (xmit_tpid) {
++	case MTK_HDR_XMIT_TAGGED_TPID_8100:
++		*phdr = cpu_to_be16(ETH_P_8021Q);
++		break;
++	case MTK_HDR_XMIT_TAGGED_TPID_88A8:
++		*phdr = cpu_to_be16(ETH_P_8021AD);
++		break;
++	default:
++		/* PPE module requires untagged DSA packets to work properly,
++		 * so move DSA tag to DMA descriptor.
++		 */
++		memmove(skb->data + MTK_HDR_LEN, skb->data, 2 * ETH_ALEN);
++		skb_pull_rcsum(skb, MTK_HDR_LEN);
++		break;
++	}
++
++	return tag;
++#else
++	return 0;
++#endif
++}
++
+ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 				   struct net_device *dev)
+ {
+ 	struct skb_shared_info *sinfo = skb_shinfo(skb);
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+-	u32 msg0, msg1, len = skb_headlen(skb);
++	u32 tag, msg0, msg1, len = skb_headlen(skb);
+ 	struct airoha_qdma *qdma = port->qdma;
+ 	u32 nr_frags = 1 + sinfo->nr_frags;
+ 	struct netdev_queue *txq;
+ 	struct airoha_queue *q;
+-	void *data = skb->data;
++	void *data;
+ 	int i, qid;
+ 	u16 index;
+ 	u8 fport;
+ 
+ 	qid = skb_get_queue_mapping(skb) % ARRAY_SIZE(qdma->q_tx);
++	tag = airoha_get_dsa_tag(skb, dev);
++
+ 	msg0 = FIELD_PREP(QDMA_ETH_TXMSG_CHAN_MASK,
+ 			  qid / AIROHA_NUM_QOS_QUEUES) |
+ 	       FIELD_PREP(QDMA_ETH_TXMSG_QUEUE_MASK,
+-			  qid % AIROHA_NUM_QOS_QUEUES);
++			  qid % AIROHA_NUM_QOS_QUEUES) |
++	       FIELD_PREP(QDMA_ETH_TXMSG_SP_TAG_MASK, tag);
+ 	if (skb->ip_summed == CHECKSUM_PARTIAL)
+ 		msg0 |= FIELD_PREP(QDMA_ETH_TXMSG_TCO_MASK, 1) |
+ 			FIELD_PREP(QDMA_ETH_TXMSG_UCO_MASK, 1) |
+@@ -1692,7 +1754,9 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 		return NETDEV_TX_BUSY;
+ 	}
+ 
++	data = skb->data;
+ 	index = q->head;
++
+ 	for (i = 0; i < nr_frags; i++) {
+ 		struct airoha_qdma_desc *desc = &q->desc[index];
+ 		struct airoha_queue_entry *e = &q->entry[index];
+@@ -2226,6 +2290,37 @@ static const struct ethtool_ops airoha_ethtool_ops = {
+ 	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
+ };
+ 
++static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(port->dsa_meta); i++) {
++		struct metadata_dst *md_dst;
++
++		md_dst = metadata_dst_alloc(0, METADATA_HW_PORT_MUX,
++					    GFP_KERNEL);
++		if (!md_dst)
++			return -ENOMEM;
++
++		md_dst->u.port_info.port_id = i;
++		port->dsa_meta[i] = md_dst;
++	}
++
++	return 0;
++}
++
++static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(port->dsa_meta); i++) {
++		if (!port->dsa_meta[i])
++			continue;
++
++		metadata_dst_free(port->dsa_meta[i]);
++	}
++}
++
+ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
+ {
+ 	const __be32 *id_ptr = of_get_property(np, "reg", NULL);
+@@ -2298,6 +2393,10 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
+ 	port->id = id;
+ 	eth->ports[index] = port;
+ 
++	err = airoha_metadata_dst_alloc(port);
++	if (err)
++		return err;
++
+ 	return register_netdev(dev);
+ }
+ 
+@@ -2390,8 +2489,10 @@ static int airoha_probe(struct platform_device *pdev)
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+ 
+-		if (port && port->dev->reg_state == NETREG_REGISTERED)
++		if (port && port->dev->reg_state == NETREG_REGISTERED) {
++			airoha_metadata_dst_free(port);
+ 			unregister_netdev(port->dev);
++		}
+ 	}
+ 	free_netdev(eth->napi_dev);
+ 	platform_set_drvdata(pdev, NULL);
+@@ -2416,6 +2517,7 @@ static void airoha_remove(struct platform_device *pdev)
+ 			continue;
+ 
+ 		airoha_dev_stop(port->dev);
++		airoha_metadata_dst_free(port);
+ 		unregister_netdev(port->dev);
+ 	}
+ 	free_netdev(eth->napi_dev);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 743aaf10235fe09fb2a91b491f4b25064ed8319b..fee6c10eaedfd30207205b6557e856091fd45d7e 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -15,6 +15,7 @@
+ 
+ #define AIROHA_MAX_NUM_GDM_PORTS	1
+ #define AIROHA_MAX_NUM_QDMA		2
++#define AIROHA_MAX_DSA_PORTS		7
+ #define AIROHA_MAX_NUM_RSTS		3
+ #define AIROHA_MAX_NUM_XSI_RSTS		5
+ #define AIROHA_MAX_MTU			2000
+@@ -43,6 +44,10 @@
+ #define QDMA_METER_IDX(_n)		((_n) & 0xff)
+ #define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
+ 
++#define MTK_HDR_LEN			4
++#define MTK_HDR_XMIT_TAGGED_TPID_8100	1
++#define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
++
+ enum {
+ 	QDMA_INT_REG_IDX0,
+ 	QDMA_INT_REG_IDX1,
+@@ -231,6 +236,8 @@ struct airoha_gdm_port {
+ 	/* qos stats counters */
+ 	u64 cpu_tx_packets;
+ 	u64 fwd_tx_packets;
++
++	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
+ };
+ 
+ struct airoha_eth {
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 7c9dadb348834cb5a856760abe45e8221d6fd700..e467dd81ff44a9ad560226cab42b7431812f5fb9 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -624,6 +624,8 @@
+ #define QDMA_ETH_TXMSG_ACNT_G1_MASK	GENMASK(10, 6)	/* 0x1f do not count */
+ #define QDMA_ETH_TXMSG_ACNT_G0_MASK	GENMASK(5, 0)	/* 0x3f do not count */
+ 
++/* RX MSG0 */
++#define QDMA_ETH_RXMSG_SPTAG		GENMASK(21, 14)
+ /* RX MSG1 */
+ #define QDMA_ETH_RXMSG_DEI_MASK		BIT(31)
+ #define QDMA_ETH_RXMSG_IP6_MASK		BIT(30)
 
 -- 
-2.34.1
+2.48.1
 
 
