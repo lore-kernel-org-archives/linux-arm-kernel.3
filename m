@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B04C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 18:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37C9C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 19:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=rOrAEmmc0o2wzEyiwOq4DQ4uXK1/Mbcgtx+WsCmakwQ=; b=W6xzRuBLS69bOG
-	2wHi/Fo79N0vPrmY5dKSH0YNddQUaQNADPL5hDCw7rGcX0dQ19KMuVUNZd4LnwRBO92sSF5sQtYsN
-	WBIyKc5IRkKbEBGjwplDVsetDDbqPCQt6bqdIjt3hBtZboi1ocEQ02zCyDZiJE0L19+mC/+I/oLZV
-	US1b9/4cnP+WByoOfqVDtjXPArijJ3BvBN5X/WUNA7hlAckmclrAkJqVKO6uPFW1bOWMB5E51pZVc
-	9HG1CokcmMO119jRlVbTFeZ7m4cAMx7KD23kaxvA34FhER5kO82u0xeykwENlWqE9ge1R4FvmyJ8H
-	tYeMOoUGrFDU2SL64G4Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZxmPkxju0bqkthdY4DxuNKOG1AYb+XTMaSuW/Yn7jbs=; b=GSjDRs3TNRLvIBNcuoo4+qsehW
+	iCU1OcYbhRHsX5yuZbxlw9+n/6lNgHi2zoGqrwBRAnZGnAM+He1+1LMsbRfs6T8xNXc/PPi/QfQFG
+	PAeV71LL6o9z61pTsPiq6waBSguUwhIXFBwWcyZ2t0xuwKEFwQGZWSuGunHhT8bF2bXB5d80iFqNN
+	FUCj0ht809BfWSUvCTXntB5uM58RHM8ld+VYKaE/EQULks40ps9l39PURNelJQEkTYbX4aA6Zx41g
+	KPNE4G02Rrgkt4N0fx/2dRvu6nqMoWct5ywNAwIo9rSgWBjCLmnIxHGe2A0+p6rXCiQVBc/QblDYQ
+	3uvCw2uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfkbf-00000004L6E-11Zj;
-	Wed, 05 Feb 2025 18:58:39 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1tfkoc-00000004MXq-0BR3;
+	Wed, 05 Feb 2025 19:12:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfkaH-00000004KtY-396c
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 18:57:14 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3cfba354f79so1248365ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 10:57:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738781832; x=1739386632; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=rOrAEmmc0o2wzEyiwOq4DQ4uXK1/Mbcgtx+WsCmakwQ=;
-        b=q/YyquCpM6bD6FVGjlCLHnUIbhVqDuCusLqOZeQ5EAuXtF1nfMQbOoYJl7pMIc4L6U
-         7ltGagTCBPEvtwBAT7oa6aMzDt71CWbiXlg9WUdchFczUkXRnF54LkQt8lymFy65TyPV
-         2+xEeZh2+EqC6iurxDk8iB+O410jr4nWqq13VaO0BkeEmkQsNcFHnviwU23cLRfuNz6O
-         wH4gD0CMpCxYZAmQQJ5s/UO274s412F1vSMN3QJnNeBHX3z1ib0yhPmcQoKt7GNMCh1s
-         GM/yvk8NhHvJ81LOLNyaFnH2lfeDCUri6ejaEQtPb9kb4vCgyS61TCLfZrLwcqSby0FX
-         AMMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738781832; x=1739386632;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rOrAEmmc0o2wzEyiwOq4DQ4uXK1/Mbcgtx+WsCmakwQ=;
-        b=Bjs0JpDbxDyV//blt2FiDmw5q4yMbvdtupEjZ/U2NPWXeKsn1Q9X+qQ5QRFXXWYc15
-         iCF1K80D9ozqRl3qT7JCytwY6fHGpFhoNL/xAG5Doj/jqFdhIRftRI6qGjDc7RQ2VSxo
-         kLqkTWam6+I/U8YRwbRdlmC2TB4sSCRB3flmpSg1L/D6ZEL7Pa8y6O5Uaqj1SFmT2tbO
-         n0Cy1QaohypqppbnNfB0yqmwFB+eCyQnRPZ66qQ7DIn9IVD8GGaNedIFm/IVLakAMA8e
-         3JWHVMQSI3VuFMTVM6hjeKdXeuqmgwsfoeqdnrUsthRMiEe8gnzfREmdCVtDxxFJkh0X
-         NRJw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4P1ah7rgPBhxeRg3jFyvhcan/UjiFBzxhCk85BATBlIw1ECV6T8gSTsKwn3khhFWbphUD70KS96S00SvXECZm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxp79OHbb8wyBc4v+X70V+FFTXj05/KfEd24EVEmcvkyOwVShnX
-	GODefkEAVDxnLPA3fOp5CJuPpm2z4VeL1XqGvi+fmpbYmoHo/eOvVTDK1/LVtyx/e8szxYz0y7i
-	BJldemV98J/I/lxGFpDI+AQ==
-X-Google-Smtp-Source: AGHT+IFWjXwnbjoiuM23Lh8ngijtdwE4nXRVNLab1fsF4fpL0OVJ9k6mAwaRhufdfdCX0QUJltSRVIg24JQ3/eImKg==
-X-Received: from ilbbe10.prod.google.com ([2002:a05:6e02:304a:b0:3d0:e0a:64e1])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:2197:b0:3d0:1fc4:edf2 with SMTP id e9e14a558f8ab-3d04f41ec43mr42282665ab.7.1738781831860;
- Wed, 05 Feb 2025 10:57:11 -0800 (PST)
-Date: Wed, 05 Feb 2025 18:57:10 +0000
-In-Reply-To: <Z6KqDR3S_AWXXLJK@linux.dev> (message from Oliver Upton on Wed, 5
- Feb 2025 00:00:13 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntpljw1apl.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH 2/2] perf: arm_pmuv3: Uninvert dependency between {asm,perf}/arm_pmuv3.h
-From: Colton Lewis <coltonlewis@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	id 1tfknD-00000004MNO-43jb;
+	Wed, 05 Feb 2025 19:10:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F3BC35C6E32;
+	Wed,  5 Feb 2025 19:09:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19032C4CED1;
+	Wed,  5 Feb 2025 19:10:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738782634;
+	bh=ETdqFpdQWKnBh+I298fz06UxdSXFr90lIy6URSg4kaA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IW9+39AID1lcEbXaiCKZIk7Cm+9fGecb98BRFaRHhP9a1Iyi3q9gmTF0VE+8Gqdz6
+	 6Gn3MD174LfUMy2NeBzeXsMH66CTU4yWmleh54TGTdYvywqkeSWFULL3UeTmJ4UmpO
+	 EhrA66XdJDnwXnJCUSt/+6KbgSDUsy97XJflygurMKjb6jH27FBAJR2IcqHGqzBuQ0
+	 rXCqaRMa4d8QxePE6ZYQl2vTvHym5SKVhHHeF/vFQsAe8f+2rML9WgboYcBcubtXzq
+	 9gyiIdc5MukId3ZAjg6yjOEwoXCW92eam1wc3FM9/L0LUxgr//JEP52TxjR7MzWPtu
+	 IzvlMlC6Gb90g==
+Date: Wed, 5 Feb 2025 19:10:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH net-next 09/13] dt-bindings: net: airoha: Add airoha,npu
+ phandle property
+Message-ID: <20250205-cleaver-evaluator-648c8f0b99bb@spud>
+References: <20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org>
+ <20250205-airoha-en7581-flowtable-offload-v1-9-d362cfa97b01@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="JnOj/fdaK/Kw9pqY"
+Content-Disposition: inline
+In-Reply-To: <20250205-airoha-en7581-flowtable-offload-v1-9-d362cfa97b01@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_105713_787076_8368DDD8 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250205_111036_110311_0ECFF8EB 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +85,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Oliver Upton <oliver.upton@linux.dev> writes:
 
-> On Tue, Feb 04, 2025 at 07:57:08PM +0000, Colton Lewis wrote:
->> perf/arm_pmuv3.h includes asm/arm_pmuv3.h at the bottom of the
->> file. This counterintiutive decision was presumably made so
->> asm/arm_pmuv3.h would be included everywhere perf/arm_pmuv3.h was even
->> though the actual dependency relationship goes the other way because
->> asm/arm_pmuv3.h depends on the PMEVN_SWITCH macro that was presumably
->> put there to avoid duplicating it in the asm files for arm and arm64.
+--JnOj/fdaK/Kw9pqY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> Extract the relevant macro to its own file to avoid this unusual
->> structure so it may be included in the asm headers without worrying
->> about ordering issues.
+On Wed, Feb 05, 2025 at 07:21:28PM +0100, Lorenzo Bianconi wrote:
+> Introduce the airoha,npu property for the npu syscon node available on
+> EN7581 SoC. The airoha Network Processor Unit (NPU) is used to offload
+> network traffic forwarded between Packet Switch Engine (PSE) ports.
+>=20
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml=
+ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> index c578637c5826db4bf470a4d01ac6f3133976ae1a..6388afff64e990a20230b0c4e=
+58534aa61f984da 100644
+> --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> @@ -63,6 +63,12 @@ properties:
+>    "#size-cells":
+>      const: 0
+> =20
+> +  airoha,npu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the syscon node used to configure the NPU module
+> +      used for traffic offloading.
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+Why do you need a phandle for this, instead of a lookup by compatible?
+Do you have multiple instances of this ethernet controller on the
+device, that each need to look up a different npu?
 
-> Is the intention of this change to allow asm/arm_pmuv3.h to be directly
-> included? If yes, what's the issue with using perf/arm_pmuv3.h?
+> +
+>  patternProperties:
+>    "^ethernet@[1-4]$":
+>      type: object
+> @@ -132,6 +138,8 @@ examples:
+>                       <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+>                       <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+> =20
+> +        airoha,npu =3D <&npu>;
+> +
+>          #address-cells =3D <1>;
+>          #size-cells =3D <0>;
+> =20
+>=20
+> --=20
+> 2.48.1
+>=20
 
-That isn't the primary intent, but it's a good side effect. Headers that
-can't be directly included violate people's expectations.
+--JnOj/fdaK/Kw9pqY
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> We already use definitions from the non-arch header in KVM anyway...
+-----BEGIN PGP SIGNATURE-----
 
-My intention here was just reorganizing a counterintuitive use of
-headers. The arch header depends on definitions in the non-arch header
-even though the inclusion relationship is the other way around.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6O3pAAKCRB4tDGHoIJi
+0r90AQCPFWieY3rJFPgYre/U5p5JhiHPBES11cYsO6z7cPd7JgD+LbhWNBtMLabp
+sVw4Vk5SnTfpxAWmdYRThF4q2n8QHAU=
+=ee/X
+-----END PGP SIGNATURE-----
 
-But this patch doesn't matter as much as fixing the cyclical dependency.
+--JnOj/fdaK/Kw9pqY--
 
