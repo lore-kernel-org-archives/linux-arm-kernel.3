@@ -4,73 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6EBC02197
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 16:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2574DC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 16:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQmaHYcX4kSHNC5WcNtxux8lMrgIRKUaKugL4PZ1nTI=; b=ZytMc53qq9zoJqrQ08BGJDdG+q
-	oLsroh5+gg16DhfL1IuFuba2T3ElNmbm9UfKWrzXe9pqTNuf51cxCA0rj1GfvBV21kV5Cq6zVWDRT
-	dDJdVbuaJpsoDuc2i9Ogw8XpCAeZm7QKZuknWSyJpGHXuzAS+Wyp1v2TSwL8c/qKu5fgc6B067Z4U
-	JRwHOnBdv8FkvZDrKUNQ8U5yN5GngQItJDqsSm6ZewqeFf9SvB9kGac5kcjIs6SNj/YXBnkYVRaGa
-	EYbEf0nD+fntbvlmLsuSM1ocdhLue4yMy7Z2juaW5YBawA+FVzqNtibcbCcs4T4BAQ+KKBnShhUhD
-	IcMHyazg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rp+BM2YYmo27ZSOn3/PF/LUKik/iqtqeYKVoRcFyVog=; b=unFGws1V16ViYmpoDn/f1VNp7N
+	blq+sM0I18y0Ora031DR5Un1E8SRVt1pV4XqPxOC4BcM51qKg6mrwUDGoyqkBUuUqKFZorRbKwqKp
+	dbbalsBF1/Ib1Kg/NEvvRqSKwVRlIyZp4GQ/noVswf03J55eauOsVrL9cgdqiX6A38WZ7U0RGZt/C
+	ysHnhCx2WBB1YpIcREcRdtzDLtfGFIRKfYXcfdK9TdaVa1YneDYPDRN6N30x2Wnye1EVdTAuw2s+a
+	XFOD/AdMJ+cxFKFb7mVFkS4yStlBw+s07dD2wWQh6iMTso5Uo1erryGgzJ+FcStJ1NjtB2FP43kg1
+	vuDWZX7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhpq-00000003t4I-2oXQ;
-	Wed, 05 Feb 2025 16:01:06 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tfhrC-00000003tMh-1si0;
+	Wed, 05 Feb 2025 16:02:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhoS-00000003skA-2TYs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 15:59:41 +0000
+	id 1tfhor-00000003soW-0gPa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Feb 2025 16:00:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YQmaHYcX4kSHNC5WcNtxux8lMrgIRKUaKugL4PZ1nTI=; b=Q6pivajQwCs/0BR8aHjA2zgzhx
-	XSLlH5hTv7B02RtMAVVWhc0AMRRbF5jEkLar2wEGpnOq8YhV4OVBXGbULrkZR6cBqDcmVC+blfQ66
-	/aLTDjcz2vsW0vb9+WEiNn4TG79qsLgy5Y3R/CzqozJgG1J+kRnQnC1Quny8KFEuIjJfVNFGPjX9V
-	ShIwVYQbFccDc37snxuf6t1fN5pz6+9yLNDh1tQNV4j2kXFff1uKbPyzLq+jvE65jl32nVqBAtYFV
-	D0/k7YzDcFyJ8dkEFVnHdLfH2xUniqdmjMhSpHk1/VPB/qCGXPy5JdH6JPfcgOp9S7+T8sa4/UmFA
-	+ZtZPljA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36620)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tfhoJ-0007bW-14;
-	Wed, 05 Feb 2025 15:59:31 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tfhoG-0002X9-1F;
-	Wed, 05 Feb 2025 15:59:28 +0000
-Date: Wed, 5 Feb 2025 15:59:28 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Domenico Andreoli <domenico.andreoli@linux.com>
-Cc: Jason Montleon <jason@montleon.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	"hayashi.kunihiko@socionext.com" <hayashi.kunihiko@socionext.com>,
-	"si.yanteng@linux.dev" <si.yanteng@linux.dev>,
-	"pabeni@redhat.com" <pabeni@redhat.com>
-Subject: Re: [REGRESSION,6.14.0-rc1]: rk_gmac-dwmac: no ethernet device shows
- up (NanoPi M4)
-Message-ID: <Z6OK4PXGa_ixzQQc@shell.armlinux.org.uk>
-References: <Z6CfoZtq7CBgc393@localhost>
- <INKEBRCGF47MsjO5WHpLcf1OTcQHw2KG6_Ez-K9QiTwAnb4MRVErnxoUT1euX_o9oRrxUILDRDvlOZ7ezguCU4maUyvkk-UqU52l6xLsF8U=@montleon.com>
- <Z6NEyCRHTVfnM1vf@localhost>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=rp+BM2YYmo27ZSOn3/PF/LUKik/iqtqeYKVoRcFyVog=; b=cg4X2/L06yj0zBades0JqgDuCL
+	Cw1bL0M8bDHH8hBTwCaOOFGZvBe8359fp0qH3rugcbR2NGIbPkE0xU1h22d5DV6XHxLO1nUnGbA37
+	VOM1vvBANCpiKEhAA7zjDkyEYU3o63c8rGZma9eNAOy+P96dWaGkrLkn3Hv1t/0WAW51sEAVJKEOY
+	V7j9A9R2cf/Os3EmEVcaOvWXHJ4uech+5RK7Hop65KQfBvIJNxEnZEj2aD9Ji9lTZq5wQVGVYHUYh
+	U8ke4ancvhE65aIoHy6xM7pcnSIM9UvSEAt/7dpBP44RZrwloslIH4G5TBEWVg6lbQNEPISdjqYp2
+	+LAwM+2Q==;
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfhon-0000000GgJS-37ey
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Feb 2025 16:00:03 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21628b3fe7dso129623005ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 08:00:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738771199; x=1739375999; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rp+BM2YYmo27ZSOn3/PF/LUKik/iqtqeYKVoRcFyVog=;
+        b=WuZpBpwTEE+v0f1XcpXMnqtAlPjjryP6cjtZuO5L6YfUzBgOcBvDGGFyObxQjay4AZ
+         tAdXAmoYIMfIBZbUal5rnJLhhQInwstpSHws3maw4nOi0pGJzlZNXWVkjsKNw2Uhj1N6
+         gRLd1g1+NG/NGyu8EenA4/PQifNfL4jZQyIdOrkgLyxZaOvRTysJI16pgzsBqaDp/WKs
+         SAzV7TuOxcl9NYMVdbO4IGmr3e3ZDRLoDDOi0w34lRsuAlL71dEDo+k3qd9NXE9TINIv
+         mVj/7xeQx3IlF1VtesbBkTnQ7F7f5F83i0SDsk0xvZQpo1GXRFOlcrc7JP/AeGxo2rQ+
+         nHgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738771199; x=1739375999;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rp+BM2YYmo27ZSOn3/PF/LUKik/iqtqeYKVoRcFyVog=;
+        b=hhwBw1EPpfJgBYnJd8P2+jnMOaqkSamlVV6d8d/QRM7ebWw2K3t9Q4ANKp45WwS487
+         BU+7DS7eJG0S2Gz9kehVRF7pVyAwg61eocuqoidl2VntuA1KdjYlLtMQcyHe3BQQLmz0
+         iCNhPY46aSj2XN9uAyW4boxYN1m3fYqmchSrWJmytYIY1vOSivOpIXTCix+5XWVOx1D4
+         +BoYTHILX5aLcF6HeucY88SVpTZvruIIJ/3Re/CJ3aiyhwkXo7UeBeyWOo2IVVV8gNRq
+         YzKH0UJeWEFnddXY1NQ//vzJuaeSdCmiEV3ks4x0HWLVpouVCcKdYlj0mwKajNDnQw8G
+         wqNg==
+X-Forwarded-Encrypted: i=1; AJvYcCV5vAVWSLLBZGgxmQJOiY6++U+8scaiGBl0rF1aI+l3aUpaJDAaBYUXxZ08kg1RVZbvC6LUZUOO/SVHYQFJB2M0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8tppomrBCm7CwVWbr6ZcO3LSyinCPdKZn0IXKKildqRiK4Ep+
+	XafY72h4j7mUbhlTZTTcKyEBlKpZhOJ326dEufzEVyoLvcp6Ou03ysIlk+GZ9aQ=
+X-Gm-Gg: ASbGncsy+eNHZbo11K+U8rvSCG95q5xLJPrpl/d7/3ccuzjMKsnN7GhWruWkODvmkj1
+	h73lRHsRPt9W7mOnZDXswX+zGXN93aa4ryF/f+U5N7JseUzxLhpgtH/epFrr2Q68Dqj3EtQs4fn
+	0zHwZ94uHiZ9/Pe7GhUOjvwyrG7+ZDtpPuFyYWBgBQvziMtsVbF13VF6nCf16qDxjhZB8GMwRov
+	pq7UAxnuE0GkYsB8Gm8ibBbU23R/FvZ5CUEbKzIkea5nhjWnRId3hfldbomzzTfvFoO/2IKsrW1
+	DGN749Qv9reLmCvBmL1bw3GKJ0aW5xEHRkZjnxoWPwma9U3ZB3V5t2Q=
+X-Google-Smtp-Source: AGHT+IG/1yS9kPdzHzlz6pxYz4TJGEpsfp15GF1V712EzlJPFVPcBMbHsLPYkxwfxuOCVyO08gz4DA==
+X-Received: by 2002:a17:903:41cf:b0:21f:dd1:8355 with SMTP id d9443c01a7336-21f17e4cabfmr58273655ad.15.1738771198793;
+        Wed, 05 Feb 2025 07:59:58 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21edddf883fsm99369015ad.4.2025.02.05.07.59.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 07:59:58 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v4 00/11] RISC-V IMSIC driver improvements
+Date: Wed,  5 Feb 2025 21:29:36 +0530
+Message-ID: <20250205155948.81385-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6NEyCRHTVfnM1vf@localhost>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_075940_627131_EC263FEC 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250205_160001_901605_2B83FFEE 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +125,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 12:00:24PM +0100, Domenico Andreoli wrote:
-> On Wed, Feb 05, 2025 at 04:19:58AM +0000, Jason Montleon wrote:
-> > On Monday, February 3rd, 2025 at 5:51 AM, Domenico Andreoli <domenico.andreoli@linux.com> wrote:
-> > > Hi,
-> > >
-> > > This morning I tried 6.14.0-rc1 on my NanoPi M4, the ethernet does not
-> > > show up.
-> > 
-> > I am experiencing similar behavior on the Lichee Pi 4A with thead-dwmac. It works fine on 6.12.12 and 6.13.1, but with 6.14-rc1 I don't see these last several lines of output as in your case. I did also see the same new error:
-> > +stmmaceth ffe7070000.ethernet: Can't specify Rx FIFO size
-> > 
-> > It looks like this message was introduced in the following commit and if I build with it reverted my ethernet interfaces work again.
-> > 
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/net/ethernet/stmicro?h=v6.14-rc1&id=8865d22656b442b8d0fb019e6acb2292b99a9c3c
-> 
-> Confirmed, reverting it resurrects the ethernet also for me.
+This series is based on recent discussion on LKML:
+https://lore.kernel.org/lkml/20241114161845.502027-18-ajones@ventanamicro.com/
 
-This is a known issue. A revert has been submitted:
+It primarily focuses on moving to RISC-V IMSIC driver use common MSI
+lib and GENERIC_PENDING_IRQ.
 
-https://lore.kernel.org/r/E1tfeyR-003YGJ-Gb@rmk-PC.armlinux.org.uk
+PATCH1: Fix for handling non-atomic MSI updates
+PATCH2 & PATCH3: Preparatory patches
+PATCH4: Main patch which updates IMSIC driver to use MSI lib
+PATCH5: Preparatory patch for moving to GENERIC_PENDING_IRQ
+PATCH6 to PATCH10: Patches use GENERIC_PENDING_IRQ in IMSIC driver
+
+These patches can also be found in the riscv_imsic_imp_v4 branch at:
+https://github.com/avpatel/linux.git
+
+Changes since v3:
+ - Dropped PATCH1 of v3 series and updated last patch of this series
+   to handle the intermediate state for non-atomic MSI update.
+ - Added new PATCH6 in this series to remove stale kconfig option
+   GENERIC_PENDING_IRQ_CHIPFLAGS.
+
+Changes since v2:
+ - Rebased upon Linux-6.14-rc1
+ - Dropped PATCH5 of v2 series since that patch is already merged
+
+Changes since v1:
+ - Changed series subject
+ - Expand this series to use GENERIC_PENDING_IRQ in IMSIC driver
+
+Andrew Jones (1):
+  irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+
+Anup Patel (8):
+  genirq: Introduce common irq_force_complete_move() implementation
+  genirq: Introduce irq_can_move_in_process_context()
+  genirq: Remove unused GENERIC_PENDING_IRQ_CHIPFLAGS kconfig option
+  RISC-V: Select GENERIC_PENDING_IRQ
+  irqchip/riscv-imsic: Separate next and previous pointers in IMSIC
+    vector
+  irqchip/riscv-imsic: Implement irq_force_complete_move() for IMSIC
+  irqchip/riscv-imsic: Replace hwirq with irq in the IMSIC vector
+  irqchip/riscv-imsic: Special handling for non-atomic device MSI update
+
+Thomas Gleixner (2):
+  irqchip/irq-msi-lib: Optionally set default irq_eoi/irq_ack
+  irqchip/riscv-imsic: Move to common MSI lib
+
+ arch/riscv/Kconfig                         |   1 +
+ drivers/irqchip/Kconfig                    |   8 +-
+ drivers/irqchip/irq-gic-v2m.c              |   1 +
+ drivers/irqchip/irq-imx-mu-msi.c           |   1 +
+ drivers/irqchip/irq-msi-lib.c              |  11 +-
+ drivers/irqchip/irq-mvebu-gicp.c           |   1 +
+ drivers/irqchip/irq-mvebu-odmi.c           |   1 +
+ drivers/irqchip/irq-mvebu-sei.c            |   1 +
+ drivers/irqchip/irq-riscv-imsic-early.c    |  14 +-
+ drivers/irqchip/irq-riscv-imsic-platform.c | 197 ++++++++++-----------
+ drivers/irqchip/irq-riscv-imsic-state.c    | 152 ++++++++++++----
+ drivers/irqchip/irq-riscv-imsic-state.h    |  12 +-
+ include/linux/irq.h                        |   7 +
+ include/linux/msi.h                        |  11 ++
+ kernel/irq/Kconfig                         |   4 -
+ kernel/irq/migration.c                     |  20 +++
+ 16 files changed, 280 insertions(+), 162 deletions(-)
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
