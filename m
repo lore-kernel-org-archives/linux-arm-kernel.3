@@ -4,94 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F93C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00653C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 15:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=; b=stRmc3HqwCJEt8BPlJ1vwGtwM2
-	Q4VEYqDU9WGnqnKpJIDzQuB2Z6tbsTAOxyxkLBJzmR/erX63wJWJcqyMf3A63qIoHClL8TxkJIXRb
-	M6K9WYB53DuP9aQuQRO+2vFlx6LOI2/AF1xm7r/TI41c5Yr3za+zt0k8p//GOv83PvjXhbuEiDxGf
-	AqCxqOhKUdY4d+1r4fb4UHE2btSUR7d8z0QQainJXD7u7d7UftkRkB0oLf43n+6zgW7rUrrcRwKxT
-	5DigcQHkZkflpByrsnLaElGEiDx6FVLIyJWHdoVPI677w3POWrvD2Fvy79Td4G0kiV7itHBRXlOmy
-	WqIVriPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YxqsoO5YRFSxRwF52mpSuo5ohU/ja/zCcFmdgD0i/xY=; b=OFz15lpw1wPBpB
+	UEWFQk4eGOIYvSm6SaVoGlYMMMrQOkC63SmKvFhO+CP8g4O8norGFe4kTA2B5sMMdWCKcH6NCOVx8
+	j+wb7vePu08O+y4aNf+BVMTwGzArKWXaYqicmO5lTtpACIjB9LwtczSH8qPm81eeQKMZZLL0EjExz
+	0zh4B4aJJKl2wzOl3F/Owhck0FHCjFNjsbJl4c/zzuUUTWftJ67qdzKE1iCQ+X7HTpBUtbyZNpAUC
+	At9voadc4f/CrE9hYZ6WpYSwiVEa3aamJIgyIDYiACPwGqUQtzM5/9z+soZYPF8F6j3mR626RaB97
+	oi8ueJ7YLB81XZGOtz7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhWS-00000003oUJ-0127;
-	Wed, 05 Feb 2025 15:41:04 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tfhZY-00000003pE5-2utw;
+	Wed, 05 Feb 2025 15:44:16 +0000
+Received: from cross.elm.relay.mailchannels.net ([23.83.212.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhLY-00000003lpa-1vG5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 15:29:49 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38db0146117so979063f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 07:29:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1738769387; x=1739374187; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=;
-        b=XerbbnrqaOyBgJ1SEZgaQrAFeXu/3Fo6BsM/5IOY+rNuzcOBLzwVKdQssuj+64FJMp
-         nh8kwGoVflbeLr0MLDS1y5qi73UQyH/WZQUid8EcN7/M7/B5BX4yP39Y5AaHVbuMI+l5
-         gG0EkdbpWH6xs8jXyUdSOP0Ku+C6XrjFISKyA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738769387; x=1739374187;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=;
-        b=YciNI02ZxKPaifGphkKcJCWponvxOR8eHdKJjvBuoFW+4lMAD8G0ZbqNw0vWBeHHrR
-         mHJsGpTu4m6BKFsoCI2ahyrfukNKBLkPSFbB4nDtJx5CZDgoryQ9hzPzNolCIWJ8M64l
-         P/an14TN+VV5kuDtKDkmcpdFFHFlSYstG8CQm8+5aC3rjPwp0qfi2KCg/oO1+tHGODTf
-         aA5MWia7TPL6um8njJGiKJaHItu+apS9YHEJ8M7hJoCKHG5VShLMgiA5bqze/8hOl06G
-         uJSMGJRUEOe6uUButZYrKNc0HxxbP/MS8NRaalWNFkGKq0wYYTUJW1BgKlpG5LTNBfsS
-         Bucw==
-X-Forwarded-Encrypted: i=1; AJvYcCWokkwTZ7Oh6IxJVx8CqlcgtQDfXzIU3ZLOugS7UjZjHPxbyXL9YreRtmRdkv9YNX6KQXfMYYPn0k/kDXwOanGh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDJSaVNp5DiN8ipLGmJsfPETF84sz44ah8Sb3FDERzEC3se9MP
-	cgqQFFvHpQPGgAgHCUB9Wqtv6SYu43nvRt5GPv0VdN9TqPFbaMpXX+BRTm0tuww=
-X-Gm-Gg: ASbGncuNvCO1XxpnoMmyyygLTaMg/VrP700wBWNcDNmhOq0lO01t67ikOXc/XzjxPfJ
-	zPG8YJ1N9CSrF4ro1uKf4yTJC5SLPAsstD8ux3Z/5N+hD0Nt20Kt9ZUlAJQxkUR1alOZCVzjCDt
-	4Ff3uyZQO4Ciip55LETuLMtnPginrPnVtBVkN2qafEirq56cTQeeRHSWiUUnMN6AZh7C5N0Ux9K
-	LZUYANxC8IL3XiYhMerk/8csyQcfNo6diSboGbF2J+RoadC40lk4Z7mjTYGqNlr55g45fPRIaaH
-	YmBy2O2nm0HmGsYmEnoUeUWFeNYipjfUygB/7nxiWsjbJBLs8kTjzJ6K
-X-Google-Smtp-Source: AGHT+IHUegMKoF3Uu+JDrnonpKTLGgAqfUbpAC5vcQvzwsUpc+CNMtcSoxp8JpOvJyhpCCI3zm2NQA==
-X-Received: by 2002:a05:6000:1868:b0:38a:4184:151a with SMTP id ffacd0b85a97d-38db48fdf85mr2428469f8f.37.1738769386468;
-        Wed, 05 Feb 2025 07:29:46 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.42.151])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38daf999747sm4475386f8f.19.2025.02.05.07.29.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 07:29:46 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3] drm/mxsfb: Remove generic DRM drivers in probe function
-Date: Wed,  5 Feb 2025 16:29:36 +0100
-Message-ID: <20250205152942.954381-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tfhYB-00000003ovo-2PdD;
+	Wed, 05 Feb 2025 15:42:53 +0000
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id C48B890122A;
+	Wed,  5 Feb 2025 15:42:41 +0000 (UTC)
+Received: from uk-fast-smtpout3.hostinger.io (100-119-10-57.trex-nlb.outbound.svc.cluster.local [100.119.10.57])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 8C5B490333A;
+	Wed,  5 Feb 2025 15:42:38 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1738770161; a=rsa-sha256;
+	cv=none;
+	b=OsjNgaApkZXHkKD/sbtUQKjQRhGJ2Zq4aYcD2R2LQ+7V4IHpBZY5MnRt6cd4THcDWdpqrp
+	0I1dewPpzuBAhBfRcxTDAR/ECYZKlUjrrsQe8cv7UzXK7Ywd0AhHzELZLzRgOS/uouqzlS
+	IJRtyxwnw12iBOZrjnnvhtsU+ZyRYaCdErq3wk9cRDtnNLqgqhwnF4c+MwEl045EZkLX7e
+	1oHp7JYLGgdpcL+yVMdYNVXPCG0XGtLj/QWQhx7hZgK77iH+aDxyxlZoPT5uCQSD2SKda9
+	izXxs+Qszu/KZrbdp7bzXQUh4QH8heR9CNQMq9DfHGFF4a3QUMI40Zw2wAS4mQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1738770161;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=YxqsoO5YRFSxRwF52mpSuo5ohU/ja/zCcFmdgD0i/xY=;
+	b=t6+W/vx5mso4vB+SWRCH8lmC9dKhTPMhggT7XrhJ96mbDPYsnXo/jUXSMIjceYy4/dhu6w
+	8y3jDg5870/ubnGlERD0ICP3XjUf+xZ8waOCaK1rBR+QLmcaWxnEJ2FHUudIVMNpHmGA3c
+	BYLnPcW0PgviCjLkB3fVrB84L1kBJ2HVHF7MtC3JPMvsi4wj9jto1Wtsy+dZ3lvkWV4sVc
+	TeEEYvH9Bcd15zkE6/RhvMNP+6NrcbNjVqVlRGpfOCVDU9aFW5o8/j4xvOQeHNC0P7BezG
+	cmd+HlgTFx3YJf4AGN8LVyP8C67sdFO71FzKYw+ZoYWrMeomwduRGJXJN9PxHg==
+ARC-Authentication-Results: i=1;
+	rspamd-854f7f575d-hc7pr;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Keen-Shrill: 6d08bb6615a96223_1738770161601_1876515665
+X-MC-Loop-Signature: 1738770161601:354085814
+X-MC-Ingress-Time: 1738770161601
+Received: from uk-fast-smtpout3.hostinger.io (uk-fast-smtpout3.hostinger.io
+ [31.220.23.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.119.10.57 (trex/7.0.2);
+	Wed, 05 Feb 2025 15:42:41 +0000
+Message-ID: <10de11cf-a443-472e-aaec-df9e2ed54090@arinc9.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1738770156;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YxqsoO5YRFSxRwF52mpSuo5ohU/ja/zCcFmdgD0i/xY=;
+	b=j8IPL+DuU8GProATJm/Duv9PuKhykYmg2E302XRtT0REzY7Xwyuw+AODU+wsrNKKnCH0Gq
+	Pi8RuEsYTrm8lSe5baEgUQ8WboBnIbhpdjrTaowqnNWEgzMzEGa5ahAkvmbMbfVvbRMaWJ
+	kW2tuUGiICsBsneDgqZR60Nm2rk8kKKepv2+l1hxZKdV38DpIrd/z1QHQ9jmgGTed8s/Cc
+	2nvhl7M/UkFqNCge5BY93gZfhGoYxQOic8FulAB7rXS8mRZnV5AbKNzyeZlxTj3DBfXlhR
+	5drXh2xtuX6XJZhg0Z4dprka1SvB7AMlBMX5XF9n3wugc5pViJx/6jbsGG+sNA==
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 3/3] net: dsa: mt7530: convert to phylink managed
+ EEE
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Daniel Golle <daniel@makrotopia.org>, "David S. Miller"
+ <davem@davemloft.net>, DENG Qingfang <dqfext@gmail.com>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+ Simon Horman <horms@kernel.org>, Vladimir Oltean <olteanv@gmail.com>
+References: <Z6N_ge7H5oTYt6n8@shell.armlinux.org.uk>
+ <E1tfh3R-003aRS-3M@rmk-PC.armlinux.org.uk>
+Content-Language: en-US
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+In-Reply-To: <E1tfh3R-003aRS-3M@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Wed, 05 Feb 2025 15:42:30 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=FNtJxPos c=1 sm=1 tr=0 ts=67a386ec a=gmHaVq+lWCOlvlVL1vhg7g==:117 a=gmHaVq+lWCOlvlVL1vhg7g==:17 a=IkcTkHD0fZMA:10 a=6jP-D5u7NbJpRVPPYh4A:9 a=QEXdDO2ut3YA:10
+X-CM-Envelope: MS4xfAbWRb9fpDBlM9PTOARaxKCQyT5N9lFLaT9hxBqpt8YY33csIIzo851RrRdUcj5OuWXj7LSHEKhkC6+c5m8RjZidR1ptXPzfh8YMhel7wLhrOeBLbUpf JgMvwFTcDNgAx3ceEmj3huh1o46TpAlX5mSthdlNUUIQ6s1l1yhTlRncANe2sWXi50R9YEKDeu1r5brkFSXnd8aZCi4pMYOoC+ltzo6qC5mVKQ0Eeyxo7pJZ A/LidGzRHjB84GsE/q6zji3shJkrIMh18zrw9S6FoYyLWGc61BvYGM906zB+L5NvO4KAxYMUnhDGlwMlNnRHWNVnFYdGIlEikxpHcUSsz8tTfR8c/ncy0kay rpFcvj9dCveq0qgLroiqbutE249qdK93MlZqSoFgPJmKuFc44LG9ky2wz86e5B5NL8Z2ZYVIFNy4ipvY9BhyF2KirZC9ZMiRR5pX1n+fxDlmEZImQ5+O8Elk V/8ZyDAJq7+sE163uO91r2sDP4m2zdtzVyIAUFjeObQHbv/0T9Qs1EoQFcnoxgsZnIh8rGklhoyCoeTVIunvX58mTuV8YgxCPG1WQsDS8VTZc5dTgh/JlukD B2OnJPwM+GuYpKwpX75MCEGhHlh5wzn0QNxGhwmkclXZJdIfGBq6sWCZRYzH2A+qu5del/RcL2XgBfRcD+GF5+swHwrvSqh0XxYXFM7ohvC9yFM2idldV5mh c9vh3AIl/ffLLXCNTfVReOReLYBeC2Jwa80fuJr6CIjfYzhas2U8xA==
+X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_072948_510930_7FBFCA54 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250205_074252_034732_B71353FD 
+X-CRM114-Status: UNSURE (   5.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +125,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use aperture helpers to remove all generic graphics drivers before
-loading mxsfb. Makes mxsfb compatible with simpledrm.
+Hello Russell.
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+On 05/02/2025 15:11, Russell King (Oracle) wrote:
+> Fixme: doesn't bit 25 and 26 also need to be set in the PMCR for
+> PMCR_FORCE_EEE100 and PMCR_FORCE_EEE1G to take effect?
 
----
+Yes, but only for MT7531 and the switch component of the MT7988 SoC. For
+MT7530 and the switch component of the AN7581 SoC, bit 15
+(MT7530_FORCE_MODE) must be set. The MT753X DSA subdriver sets these bits
+accordingly at the setup function that pertains to the specific switch
+model.
 
-Changes in v3:
-- Add 'Reviewed-by' of  Thomas Zimmermann
-
-Changes in v2:
-- Use aperture_remove_all_conflicting_devices() instead of
-  drm_aperture_remove_framebuffers().
-
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 59020862cf65..e5eb644b54ae 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -8,6 +8,7 @@
-  * Copyright (C) 2008 Embedded Alley Solutions, Inc All Rights Reserved.
-  */
- 
-+#include <linux/aperture.h>
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-@@ -361,6 +362,15 @@ static int mxsfb_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_free;
- 
-+	/*
-+	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
-+	 * located anywhere in RAM
-+	 */
-+	ret = aperture_remove_all_conflicting_devices(mxsfb_driver.name);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't kick out existing framebuffers\n");
-+
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
- 		goto err_unload;
--- 
-2.43.0
-
+Chester A.
 
