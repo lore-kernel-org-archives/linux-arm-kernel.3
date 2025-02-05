@@ -4,66 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C7AC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AB2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uQPhe9Q9fTAa3bNgtFo33/GH5oRyrVQ+DZv0AxHQG/s=; b=mhfORRUjgSwVXFI0xBvGDO72T9
-	gtdEpxs+dpqEo7yCp9+xm59CdPjoxJsU5QrfQunAzOsufKSHg2kpMUDM7DIzOPKM7UJNy5FKBkaxu
-	YYWViIh6duqrUx9YTsqSKsdhsFXFMzwFGw3OKWXT9+VoY46S0l79rsPfA2XWPUiQHE8RLe8KZnysY
-	hN7Slj+77LU6w/h+Mn72N8ZF0Z3tJcHRQsAIITFd8xELr8uS75v1OEEeKWuSfcdNTiJEnWXVSlxH2
-	LXYD4RJp7tFOZTJV/ILfgGPH+Nt7/3T+/DlzugjcQBQc5R+Y+7x2vgJrcgjrhSaKEJzhasGj6Qd2s
-	njhHVMZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NQLoSPXYDr51lamHBGq/Y/llq/sejWYEkVMpWtzffRo=; b=K6eGhSSFZ0McJOfZ1a6MEf8o3P
+	iEMVjrS4VER6DesID00h7nlg8J9D/Ec0VMD4EfCSdUTPI/Rm1530HZnfd6/wfAUtFaBjrBTEokBvf
+	Lnrz5oAoV+q69cZrx6zzGtgJCl8OCFHhvNNusx1pO4NB0qHHPOfHX6O5owHvSg1/H0BFklwnehvH9
+	d+0Z1VZCYa2RcKaUQEoeOle3B3a/h7LxhUsry9T/tZZd+RRwGW19m9K1dReMN2Mfq1/hmdZibUjrS
+	7W3VptaisU7cFIr78mCPuMoflC1MFfu2Vs0gmkBa4uckMsS9P3ENXC/Di9HIlDTjv3C67miPIocaM
+	d2HM96Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjOV-000000047zB-2Exn;
-	Wed, 05 Feb 2025 17:40:59 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1tfjVC-0000000493F-3j2S;
+	Wed, 05 Feb 2025 17:47:54 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjEK-000000046AE-1GgQ
+	id 1tfiUx-000000040Q1-1F1K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 17:30:30 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id A0346240101
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Feb 2025 18:30:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.de; s=2017;
-	t=1738776623; bh=f2yEvU4TM3aZYdPhq5G+l+SmpWWP3YrRm11kspLYSHc=;
-	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:From;
-	b=bq3wprTFJ7yxSG9ilTIJrap/95T51GgcgFDWZkvJno2xrBO5accQnAvcMrqQ/r+ef
-	 6c2kr7NL+K0Vv1ap8/iQuieLfDA8V/nrH3z/LSZLH4+AT8hxqKIu7GCkNaFbI3ckwc
-	 KpKx8Mel4qR4r8HINtGVEMnhtxvEZP2uGOaDavSuBS31enMc5TrKx7WhOikl/aLzri
-	 38KBizqPyWS+LgDNXtzodkwhBjSFFixdbbUyIBijHzXWbH1NaqYwD4LQ2iYrnKIt6G
-	 7hZP7Yg1dzUlfE6bjclOcjAzrR4EVbHB92T9Va+nfzq50ug0bMC+k92X4Jatq/1Rdi
-	 3rhwd3L1nwdPQ==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4Yp6gv6fyqz9rxK;
-	Wed,  5 Feb 2025 18:30:19 +0100 (CET)
-From: =?UTF-8?q?Martin=20Kepplinger-Novakovi=C4=87?= <martink@posteo.de>
-To: laurent.pinchart@ideasonboard.com,
-	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Martin=20Kepplinger-Novakovi=C4=87?= <martink@posteo.de>
-Subject: [PATCH] media: nxp: imx8-isi: check return value of media_pad_remote_pad_first()
-Date: Wed,  5 Feb 2025 17:29:57 +0000
-Message-Id: <20250205172957.182362-1-martink@posteo.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Wed, 05 Feb 2025 16:43:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uk5AyKWD2+Z7WrO7H/azVb1tyZnfoLuRXsCeRn4hM4hMrQ/nOKMk4G51tgXI68ET2ZN+IacjEXp8Ra1Noa06snCvXWv+1HefKu2l1DtD4WXhOZxqx//2FhncQlijmRLP+JH6T/+nloxDlZPA76NrDcBix1VC5AAOUyaQI5KqhvlC5nNQsFcffNDxkeLajGzrCrXuXNhpH3lSupfx6BapJkAo+MzcGBn3SXCDo8hbleys7fiqK23fEniTENY9oLIrkok3yQ24Q1n2yTDb9C9qAa0dLhqQzDxkLlbzX7NwNKFQDUPSW+aoiSzzI0PiRbi7cBp8HBcghxYwRpMi2Q1ENQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qCEWx8J7pmt8jN0oKw+Ae5INs9+16vcntHYKo3UeBNQ=;
+ b=lf6RfCeeG/fAexizwAqiRjiJ8uxWNdq2td+1YY8cK/3TfvfU8XVrA8yiV9v7w3OCAw/+RtfDEa/dQZ6BQixU2CXwPEKPj5BLu9EBRxNCdx8Scua2WtGz8Dd3OjE6EE2zwWPD1LJWsbJnrZE68yutciRRCc4If8rgPe33ehM2MGtwOdq45FLiAi8Dok5zOxu6K74NzyUz4pGN4zPbbCQPEhg3JMf+zJ2LcQ1mTadkEM5Cl1aCkJ25/VAGvbXj7ww7F3y5+xwqeVeAu/5JnkYjIQSRtCzdcPsHZm7HMlkqQ+xeBG/+WhvVUxPE0mVD5owKGVZLcR83HRLJl9sbdHUiJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qCEWx8J7pmt8jN0oKw+Ae5INs9+16vcntHYKo3UeBNQ=;
+ b=UZ0/l8PVTw3f7KwOXNEllQVW0f92L+6yTq42W3R5AIaLv9Ss2jtOsbIG4cwh3Ae6vLZZodfWdjLYmZLyGdPVYDv0zNwOjdsrskxI5r2dXpZ1kEgx9YsjrjAmoNkZAzFcMeZRIymX7gKbHJ3qzDlqFPqxhgv5UM4k8CI8czIXSrvPp7f4o+RX7AawaCc36p2TOk1Hz9om869v0U5fuxkJ0+gVHzYPGWoLyC3xDEt7Z1fepuxiwnui+/zmoQmhaFI7XBgfbw3HQM+g1TY2rFN+sYgtoZaUzEX5uQk0XYjVxek5PJl8b9aNEgufUu+l9m5/ztVw3b9HU3Bdy23EUVYMEA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBBPR04MB7785.eurprd04.prod.outlook.com (2603:10a6:10:1e7::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.26; Wed, 5 Feb
+ 2025 16:43:30 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8398.021; Wed, 5 Feb 2025
+ 16:43:30 +0000
+Date: Wed, 5 Feb 2025 11:43:22 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] nvmem: imx-ocotp: Support accessing controller for
+ i.MX8M Nano
+Message-ID: <Z6OVKqy+bRLNa4GY@lizhi-Precision-Tower-5810>
+References: <20250130130101.1040824-1-alexander.stein@ew.tq-group.com>
+ <4961006.GXAFRqVoOG@steina-w>
+ <Z5z0/382k8MkcZpP@lizhi-Precision-Tower-5810>
+ <6396921.lOV4Wx5bFT@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <6396921.lOV4Wx5bFT@steina-w>
+X-ClientProxiedBy: SJ0PR05CA0079.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7785:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1f5edaa-688c-41f6-fd57-08dd46043883
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?n4NHNmU6a6H8qxthvORgZ8syPx+eZDmb6wzEwKWqtBK+8nnYRlhgPYHB+h?=
+ =?iso-8859-1?Q?D8tHcTPxOXdU9rCcu/468Er5llh6rZg3aray1i8nwM0mBSs3lL+gqpzm1L?=
+ =?iso-8859-1?Q?0+PPtDpN8bURO/xfR0oalRvXorS24z4w26Kx8ROyRUIVssH/YC4jBl0oIu?=
+ =?iso-8859-1?Q?lyoTQNonDDFSqxhbI3317yz+To6SB7e0t7toQumQDOyHdWgyjYIfu/r/Gt?=
+ =?iso-8859-1?Q?H8h+OMpii8Lzbxvy/54Z/ZkX5M+WsccjyGXT/MjS1n20+B4AOWx+fAbWoT?=
+ =?iso-8859-1?Q?OLOTRKz1ARiYd9/A9wt58vs6l48z18Sw60au1UQNI7ao/Dontfn3xe3mxM?=
+ =?iso-8859-1?Q?Uk6X5Y33+Z8jTyztnQYyophHcSvwLc4Kz/AbOoABO/OZ8TicU6Whq3TD9s?=
+ =?iso-8859-1?Q?2U3B0ywiRtKcKzyBX+JNYPs0zhsSp4cHR4DN1F3IWTVQLXpGNpKxaXvUnQ?=
+ =?iso-8859-1?Q?qYNVbaGSYXnupvWqx42aRFucqsNgb740ms94MvkHN+QppKK+AWPVhGC8fL?=
+ =?iso-8859-1?Q?1dkwjPOAqGtWebRJzNackm5hgi9hZsQ+Tn3C9JeGCMuuL4prqDbal2L0g0?=
+ =?iso-8859-1?Q?r+hmB0w9yu5FBjxtADNVnk6xAA+ZlUN/mely0+QvNaLtdut7iF/gh096xI?=
+ =?iso-8859-1?Q?w7UH5PblDsrQnuwNjf9z2Y6UB9Ek7jnotuO4Of0XMJDoTMwawOrQ0Dq2NO?=
+ =?iso-8859-1?Q?xnEJbOuegN4YzYbDA/jA/qe0i4bVBDic6TgXQ7VfGKPVz2LP8VagtWHB75?=
+ =?iso-8859-1?Q?qeyTJDkjTtEFsm5Apttqz8zjVzCmIr7Z6kuqTlvrFcTj1I6ZD9vgAqJVBF?=
+ =?iso-8859-1?Q?C1yL1hVihpzNBbpeDTzG55x7n+nllBX2p/FjF5IP7XdRNmcLVWIg/dpFxo?=
+ =?iso-8859-1?Q?oR/txA1TfuuyaJhXlRfAcj+0e/RJsgMWQeD6KyXtFRkw4RkZv1cl8UXGmH?=
+ =?iso-8859-1?Q?BlA2gv26LBRZM3xRqEqUiq1RNEzxK6HAB0h20kB0d5LoF4NW9f/MgyofG5?=
+ =?iso-8859-1?Q?B32FjoVU4FWHB7qVr9ADEHk3m7zT4RbkdzvpvnD08NH6XzsYNAdQTR95Nc?=
+ =?iso-8859-1?Q?Pu/3mV09eX2KNqJmrkoAqNsp25tDFM3CX3WiO60WC57Guz2l6CDslS0Y60?=
+ =?iso-8859-1?Q?+E+U0cFi6s9Vt0tEFhPwhsMH0v2J3PSkVtL7pUJcKzLsynFHNceW0x6jZc?=
+ =?iso-8859-1?Q?pDQhDcGZ4nG5SyKSTbFJYtSzYcM4vaEFFTXV39FwLuUQIcoa2z7rsT2aK2?=
+ =?iso-8859-1?Q?4qwDhhZ+RrbDar/NbFnvq6U21PzRUGmXSvqcmTNaqPtfdPKo1lXdEizpoB?=
+ =?iso-8859-1?Q?u9okfIVx+pIJwwH6jfHt/ym/MSRa14YVSA4dT7KqnZQFngxQwt56A+e8J5?=
+ =?iso-8859-1?Q?X0naccOddExUxXCBRTwUG28h6SiXysQSfvq+wEB8FLkwyjRVJTVOQBAfkV?=
+ =?iso-8859-1?Q?98znCdxk9ffO4sOQ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?W88TnhkXwa6GlxjNbjJ2UuiJlXwOytLuzarsp76jWfc1Vjo6fAPhcHaaRI?=
+ =?iso-8859-1?Q?vlz5ln9wyky3Si3APLabCXxzUCDlO1H8B0wCggezeLlx99evxSl8ffIUpB?=
+ =?iso-8859-1?Q?kSdku3UTj83nVau45KQjrelBlKciyemFTO035p0b4LrfP6hFe1sdk6DQ6x?=
+ =?iso-8859-1?Q?/0NNqHKykg4AofpycZux85W4GZUGOvW7q3LxCNX7HJbIATRLpH+mgaFtEB?=
+ =?iso-8859-1?Q?ge15jhUkROHcCgfFxMR+RPXqSFzueMlAEOtnziEqt7XLn7YdZhGJ+2KdzH?=
+ =?iso-8859-1?Q?tk3mSbkX2IRsopsSHQ2obQZ+Kh0OlzPXda+xsgNld8VIy9azqhcv3Jwchc?=
+ =?iso-8859-1?Q?msAwhbTgbu8QqpJocNQ6KuKPnvT/RMJWiG/s5ftE+hOQuIbmZwkEC848Rl?=
+ =?iso-8859-1?Q?7n9BROsqcWy9vkrPj8j5ayfD89chcSkKJn8sfpP769ZyEYKbZ9fpDUtsgv?=
+ =?iso-8859-1?Q?szsZGyJi8ZDULMzC0YEr7w03b3747yVKR5t+qJAIpGh2Qv48c0taXUr8iJ?=
+ =?iso-8859-1?Q?TN9BiAGyUqJltPoQ2D51PUjVOwMiy278zmF83Ymv1bsfwXtSlrPpukKR+3?=
+ =?iso-8859-1?Q?dCyqsKudpFoX2Pp3C8rHDpre5KQ1SVO5oytrVkcQQZFyiEpP0M4i6P5zpH?=
+ =?iso-8859-1?Q?Jvxo0bVH/Ovb9PEM5Kjob2S5iNOiEtyiIdGHBvDE/8fZ1QNLr/hpCuyqxW?=
+ =?iso-8859-1?Q?xqBUXyJDU7ojnrVaJnqeKfKwk8lrv6Erb//zwzpmGtrpMudeMEN8rkZSdh?=
+ =?iso-8859-1?Q?ITdLlvF/Omvy0/AwyrOJbQvBhKpJj/zl+Lttl92uJ4FNI0cmSiEozUN+WH?=
+ =?iso-8859-1?Q?Uw2VJZbavFMjm1pUZLHjmgRLZldyl3sY9Fvlme95f8aB4+sXzsBe4ZL9J/?=
+ =?iso-8859-1?Q?tTaHMQH8UQF/vF11bSR/0VTz2kxyGkao8SRzw0L1GPa8+jwTd8AjfxYZ8V?=
+ =?iso-8859-1?Q?/RFP4Z+7RXAuERBhqtaSTJwo07j8+t6l2BE8wjGXt66Nw80lzCl+i5vsTS?=
+ =?iso-8859-1?Q?l2tZiAC0kEGmcg4WllB5LE8YLl1Q6V+wzN9s32dLycSXnZWA2AXBD2pewx?=
+ =?iso-8859-1?Q?Xh95yZWp/O6YJqK+T7iM7CE6OYn9d308SUJU/DPn0Nn9ZxlDXRl9b4TCnx?=
+ =?iso-8859-1?Q?0aiio5qtuoMF8G4AEdRsgCKnS4YSXzRrY50rTAw/4e/+tRiX14k63buefG?=
+ =?iso-8859-1?Q?MeCjMxOr7kMPtHggai8kMw5KX98NYoVAOVpP4nG1qqY/3wcl2gSKHWscLa?=
+ =?iso-8859-1?Q?OahB+lsIa3cg/j0GYa4LkgmEH9M1aA7hHlObTBWuR02tkmzyVKuomxk2Yc?=
+ =?iso-8859-1?Q?cwDGrkNkOXXtDQw2Fo4yLha7VEBDmkzSaYimuSCZGGOVExMbk+hOrjTq2j?=
+ =?iso-8859-1?Q?u1QcYXzb2HQIzCF+6ICZqUI06QHuohJdHIQUR1gjDrFzZB/P7iuINrJWDJ?=
+ =?iso-8859-1?Q?x8mV/knrji/Pm2N7ECJHZz/wHlfvkgV7ysBTi/PCHB0o745bMuFP4RVq2z?=
+ =?iso-8859-1?Q?z9tkiVAhQ8kEeLVpiNo78k4whLat+qVChr2pdG/xreO40sY+DgTLK4ppxk?=
+ =?iso-8859-1?Q?AS7GhTnUbOQpFm7C1bpZoN3/DUryO2vaT++LDjfa9/QVUY2HPHAXQPGt9d?=
+ =?iso-8859-1?Q?IOGd3LXARDtNQQ3ASYWqnd3qJ0gLeNg+sB?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1f5edaa-688c-41f6-fd57-08dd46043883
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2025 16:43:29.9795
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lcJdt/jaT5l4wg2S+61Wv61RpxwDNOiLw+tAw1Id3sUvrxaIuLBmH4sU7ON2i5VD2/iZHXpGztJrnXXHG9borQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7785
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_093028_628958_10401D92 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250205_084335_335481_BC048CE9 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,126 +167,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-media_pad_remote_pad_first() return NULL if "no enabled link has been found".
-Check for that.
+On Wed, Feb 05, 2025 at 07:51:23AM +0100, Alexander Stein wrote:
+> Am Freitag, 31. Januar 2025, 17:06:23 CET schrieb Frank Li:
+> > On Fri, Jan 31, 2025 at 02:54:06PM +0100, Alexander Stein wrote:
+> > > Hi,
+> > >
+> > > Am Donnerstag, 30. Januar 2025, 17:42:32 CET schrieb Frank Li:
+> > > > On Thu, Jan 30, 2025 at 02:01:00PM +0100, Alexander Stein wrote:
+> > > > > i.MX8M OCOTP supports a specific peripheral or function being fused
+> > > > > which means disabled, so
+> > > > >  - Introduce disable_fuse for a list of possible fused peripherals.
+> > > > >  - Iterate all nodes to check accessing permission. If not
+> > > > >    allowed to be accessed, detach the node
+> > > > >
+> > > > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > > > > ---
+> > > > >  drivers/nvmem/Kconfig     |   3 ++
+> > > > >  drivers/nvmem/imx-ocotp.c | 105 +++++++++++++++++++++++++++++++++++++-
+> > > > >  2 files changed, 107 insertions(+), 1 deletion(-)
+> > > > >
+...
+> > > multiples fuses for disables. This is an excerpt from imx8mp WIP
+> > > > struct disable_fuse imx8mp_disable_fuse[] = {
+> > > > 	[IMX8MP_OCOTP_CAN_DISABLE]		= { .fuse_addr = 16, .mask = BIT(28) },
+> > > > 	[IMX8MP_OCOTP_CAN_FD_DISABLE]		= { .fuse_addr = 16, .mask = BIT(29) },
+> > > > 	[IMX8MP_OCOTP_VPU_VC8000E_DISABLE]	= { .fuse_addr = 16, .mask = BIT(30) },
+> > > > 	[IMX8MP_OCOTP_IMG_ISP1_DISABLE]		= { .fuse_addr = 20, .mask = BIT(0) },
+> > > > 	[IMX8MP_OCOTP_IMG_ISP2_DISABLE]		= { .fuse_addr = 20, .mask = BIT(1) },
+> > > > 	[IMX8MP_OCOTP_IMG_DEWARP_DISABLE]	= { .fuse_addr = 20, .mask = BIT(2) },
+> > > > };
+> > >
+> > > Notice the fuse_addr of 16 and 20.
+> >
+> > Yes, I am not sure if it good idea to encode fuse_addr to IMX8MP_OCOTP_CAN_DISABLE
+> >
+> > like
+> >
+> > #define IMX8MP_OCOTP_CAN_DISABLE  16 << 16 | BIT(28)
+> >
+> > So dt-bindings/nvmem/fsl,imx8mn-ocotp.h can be moved to dts directory.
+>
+> Mh, I personally don't like encoding offsets into bits. How about using
+> > '#access-controller-cells = <2>'
+> and using the defines like this
+> > #define IMX8MP_OCOTP_CAN_DISABLE  16 0x10000000
 
-backstory
-=========
-While trying to get a (Y10 grey) sensor working on imx8mp (v6.12.12 now and
-I know the hardware works on an ancient nxp-kernel),
-I tried to enable the sensor link, set formats and stream:
+I think it is good. better told peng fan to align this!
 
-media-ctl -d 1 --links "'vc-mipi-cam 3-001a':0->'csis-32e50000.csi':0[1]"
-media-ctl -d "platform:32e00000.isi" --set-v4l2 '"vc-mipi-cam 3-001a":0[fmt:Y10_1X10/2592x1944 field:none]'
-media-ctl -d "platform:32e00000.isi" --set-v4l2 '"csis-32e50000.csi":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-media-ctl -d "platform:32e00000.isi" --set-v4l2 '"crossbar":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-media-ctl -d "platform:32e00000.isi" --set-v4l2 '"mxc_isi.0":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-v4l2-ctl -d /dev/video1 --set-fmt-video=width=2592,height=1944,pixelformat="Y10 "
-v4l2-ctl --verbose --device /dev/video1 --stream-mmap
+Frank
 
-and what I got was the NULL pointer deref, I append below. With this patch I
-at least get a nice "VIDIOC_STREAMON returned -1 (Broken pipe)".
-
-[   29.936640] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000020
-[   29.947993] Mem abort info:
-[   29.950791]   ESR = 0x0000000096000006
-[   29.954544]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   29.959861]   SET = 0, FnV = 0
-[   29.962935]   EA = 0, S1PTW = 0
-[   29.966084]   FSC = 0x06: level 2 translation fault
-[   29.970977] Data abort info:
-[   29.973860]   ISV = 0, ISS = 0x00000006, ISS2 = 0x00000000
-[   29.979358]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   29.984414]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   29.989740] user pgtable: 4k pages, 48-bit VAs, pgdp=000000004536d000
-[   29.996186] [0000000000000020] pgd=08000000452ec003, p4d=08000000452ec003, pud=080000004361a003, pmd=0000000000000000
-[   30.006820] Internal error: Oops: 0000000096000006 [#1] PREEMPT SMP
-[   30.013087] Modules linked in:
-[   30.016143] CPU: 3 UID: 0 PID: 433 Comm: v4l2-ctl Not tainted 6.12.12-ge-24.09+-gd7393141dd76 #104
-[   30.025102] Hardware name: MMI4.0 i.MX8MPlus (DT)
-[   30.029804] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   30.036766] pc : mxc_isi_crossbar_xlate_streams+0xb0/0x10c
-[   30.042258] lr : mxc_isi_crossbar_xlate_streams+0xac/0x10c
-[   30.047745] sp : ffff800083db3930
-[   30.051058] x29: ffff800083db3930 x28: ffff800083db39e8 x27: ffff800083db39f0
-[   30.058200] x26: ffff800083db39ec x25: ffff000002eff0a8 x24: 0000000000000000
-[   30.065339] x23: 0000000000000001 x22: 0000000000000001 x21: 0000000000000001
-[   30.072478] x20: 0000000000000003 x19: ffff000003e3c4b8 x18: 0000000000000000
-[   30.079616] x17: 0000000000000000 x16: ffff800080000000 x15: 000000000099e000
-[   30.086756] x14: 0000000000000002 x13: 0000000000036754 x12: 0000000000000010
-[   30.093894] x11: 0000000000000001 x10: 0000000000000064 x9 : 0000000000000004
-[   30.101032] x8 : ffff00000348332c x7 : ffff000003483200 x6 : ffff800083db39ec
-[   30.108172] x5 : ffff000003483000 x4 : 000000000fffffff x3 : ffff000002eff110
-[   30.115312] x2 : ffff0000048a5270 x1 : 0000000000000000 x0 : 0000000000000000
-[   30.122453] Call trace:
-[   30.124898]  mxc_isi_crossbar_xlate_streams+0xb0/0x10c
-[   30.130038]  mxc_isi_crossbar_enable_streams+0x44/0x16c
-[   30.135263]  v4l2_subdev_enable_streams.part.0+0x130/0x2ac
-[   30.140750]  v4l2_subdev_enable_streams+0x48/0x68
-[   30.145454]  mxc_isi_pipe_enable+0x1d4/0x24c
-ed 0 (Success)
-		[V  I D3I0O.C149725]  mxc_isi_vb2_start_streaming+0xa0/0xe4
-[   30.156596]  vb2_start_streaming+0x6c/0x180
-[   30.160782]  vb2_core_streamon+0x100/0x1c4
-[   30.164880]  vb2_streamon+0x18/0x64
-[   30.168369]  mxc_isi_video_streamon+0x284/0x2f4
-[   30.172901]  v4l_streamon+0x24/0x30
-[   30.176391]  __video_do_ioctl+0x15c/0x3c0
-[   30.180402]  video_usercopy+0x1a4/0x67c
-[   30.184240]  video_ioctl2+0x18/0x24
-[   30.187732]  v4l2_ioctl+0x40/0x60
-[   30.191047]  __arm64_sys_ioctl+0xac/0xf0
-[   30.194972]  invoke_syscall+0x48/0x110
-[   30.198726]  el0_svc_common.constprop.0+0x40/0xe0
-[   30.203431]  do_el0_svc+0x1c/0x28
-[   30.206747]  el0_svc+0x30/0xd0
-[   30.209806]  el0t_64_sync_handler+0x100/0x12c
-[   30.214164]  el0t_64_sync+0x190/0x194
-[   30.217830] Code: 937a7f00 8b000020 97fec7a3 aa0003e1 (f9401000)
-[   30.223923] ---[ end trace 0000000000000000 ]---
-_QBUF returned 0 (Success)
-		VIDIOC_QBUF returned 0 (Success)
-		VIDIOC_QBUF returned 0 (Success)
-		VIDIOC_QBUF returned 0 (Success)
-
-Signed-off-by: Martin Kepplinger-NovakoviÄ‡ <martink@posteo.de>
----
-
-the real problem
-================
-Obviously "broken pipe" for "stream on" is still not what I want :)
-
-The "no enabled link has been found" seems to happen during "VIDIOC_QBUF".
-
-Does anything come to mind what goes wrong here for me?
-
-thanks a lot for having a look,
-
-                                      martin
-
-
-
-
- drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-index 93a55c97cd173..e53a8e01c8be1 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-@@ -160,6 +160,11 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
- 	}
- 
- 	pad = media_pad_remote_pad_first(&xbar->pads[sink_pad]);
-+	if (!pad) {
-+		dev_warn(xbar->isi->dev, "no enabled link has been found.\n");
-+		return ERR_PTR(-EPIPE);
-+	}
-+
- 	sd = media_entity_to_v4l2_subdev(pad->entity);
- 	if (!sd) {
- 		dev_dbg(xbar->isi->dev,
--- 
-2.39.5
-
+>
+> DT stays the same:
+> > access-controllers = <&ocotp IMX8MP_OCOTP_CAN_DISABLE>;
+>
+> Note: It seems BIT(x) is not usable in DT.
+>
+> Best regards,
+> Alexander
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+>
+>
 
