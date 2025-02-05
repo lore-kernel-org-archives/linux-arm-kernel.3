@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2C3C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD686C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 13:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCgrvolpeVtBRhdXXFPqB+lBoyOb9dLW104z170Vv8Y=; b=1YcfeUbvmpNn8YoRt24rvBtftR
-	+PvnO0DxmpSiah+VFXKOt6Tntpoh7JLQSaMrrv4tzBvdiQsz3rqtRTNQz7x+/QOQQkwRHV77FUf+c
-	61nQF9RTRXYpio1vqwePBucytoVmFLO/hWWFX7hLA0MPnnQ77RvBieLqyR0sEd+K33cf/DGrgHHh4
-	rK3x/JjxnglbT0hVLJ03Fi+HmHMDScsplmQYr6U+RBbRzMyWl0m/SeIP3btGwEe4aXDchiChxFt6b
-	WdbmmLfAmuspscnWVoRWnDojhdw9B03Kqnwyp1CPGGnUi5tzGrXtcZb4n9BPzYiseX4SthAWMprRa
-	XyfRn/Eg==;
+	bh=7wzqVEG4YmhcZfFsDxnn0J/g7QtnEP23oOLAdp01iVs=; b=XHq501vicH+gh/cQzbcGppX+c9
+	yvP1Gh8NUQTX+gv2vIrEb2wfcBlxUZUhuGFh7gfX5nuriyll6wchguWQ7+7SFuYy1JSBZKFKgVkE1
+	zB+VLcsPFObPf2pXnEalIztN98cF0BsvKFnUIq6A69ObDwvTetBuV8vSvG3ZR5WhBIyG+fWyzA1W9
+	yZN1+l4Ynm22NBnugU0g028g+f02tH4IZEQfcwFlINJdeVENbQYacAM21RmRnnixsaPigwcReDE3t
+	+ElCfn7BNwKC3FxTEBnox65a4+1/fX3MeSRXsHRylIkr0ZpDWTs3aTV2YzSMjfiwEVLDuvAA4S/6g
+	lyhRehJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfflc-00000003RPB-2lni;
-	Wed, 05 Feb 2025 13:48:36 +0000
+	id 1tffmx-00000003Rbn-1LQw;
+	Wed, 05 Feb 2025 13:49:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffdu-00000003Q8o-3Bp3
+	id 1tffdz-00000003Q9L-3qMC
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Feb 2025 13:40:38 +0000
+	Wed, 05 Feb 2025 13:40:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=XCgrvolpeVtBRhdXXFPqB+lBoyOb9dLW104z170Vv8Y=; b=XLbrGhYw3srfz5/dWmcCte8Bf7
-	///t9bwWCe60PKo+KX9DvxLCvcMIh1H2GLGZRpyK2rNx69aaJzJ0AmgJCjYbrPHcoJ1JaRNURNyNt
-	5K5LG4rJcJ2CkQnuvX4DCCLM+P783WgvFXdVmc4O/ObVk7WSNofo20tHpyhQHffO7zOjLQ/d5VZvq
-	rxyXxO2vnA7+sWoMshbYZ+hNfbvV21cGR6sTr5OyCorNxCFUPnCbEVB2IMSMGmyryTIuOCXLYZ9Re
-	GPQFWX2BSUx9PbiOKRFBaSDHLBNJDZmzYxcSA0bLdn5BhaYOIeNSQUg0JzHGok+KKIYYoY1TliK7J
-	3IlrJ5tg==;
+	bh=7wzqVEG4YmhcZfFsDxnn0J/g7QtnEP23oOLAdp01iVs=; b=Opa6iwsJSec/zrV2L9/09PGebA
+	LqeuLK9Qo7OCpjFr2CPxUf6V89UwNFxTEhe0gtXPHwRSVSuJ08pOH5jSikUZ7mJPsC4jclXUrM5iA
+	obAR8UqGlKDhKS3Bexx+mWuDpwJph8sDQA3n0nZZoB7GnqnKYQOX+fUC9wHaY6YC8PGT1AP+7895K
+	e5lrT1/oG7u9984QQ+IxloJJnK4K0A5/sbGWj7QoQr2KIozihqqFGPlZs8KJJSsbok5l6C25KTW7u
+	DVVuaIdfe3BT1niBo2Fvh65PT9ZlUaXiR6mwlGhUCXGbyhJD2BLPHk28LaRTUIaQTd2jpY08GVoCg
+	EHaWoa3Q==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffdr-0000000GeUA-45TV
+	id 1tffdx-0000000GeUl-0cUj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 13:40:37 +0000
+	Wed, 05 Feb 2025 13:40:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XCgrvolpeVtBRhdXXFPqB+lBoyOb9dLW104z170Vv8Y=; b=bqsb/M9RRJbqpAgsznC6r9t1W7
-	qL950Iy50tm32dySs3vV+ykUJS7aOhyt01+103S/4psZmrErn+caQoC3I0EU8azASY9xIwVrSw9/a
-	055py/5+PHgUvTejDyG6yQbnT+iSJx+TADPBhLyhIJFJkepRFfwEHcCPEPS3Wf7Y2WNTKn09QSRBC
-	NY6zaKhF8aWQNxV61+dblufRw0Qae3dyTKM0LmabxXWTwGh9TTj5xaL2hS/kf8RRqt3l2rxe8WIdr
-	lQX56affiuDkqDRbmIKm7LDaiTdwnQ3CqeR7EllBgUKsBR0PncCi+PqGzmO9X2hplquTZx7Uh9Jmb
-	C6pKqRaA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50868 helo=rmk-PC.armlinux.org.uk)
+	bh=7wzqVEG4YmhcZfFsDxnn0J/g7QtnEP23oOLAdp01iVs=; b=oR0F+Qr/FX41EyBCkqh5BDGZQH
+	pgJPnC55/0iaRAD0jkEnCBcQH8roQU7OmkVUXRRIQGiN5m6TuzIg86w1iFj9k2wqneP2AY2yMmSLQ
+	G2imYbim+1lHJ0lmBB68B/jzPhEsGaYoBnwMiHRL5uXizfbTEjHDarK9jV4mFnNTEOpcZkBlm1Y/U
+	7ITYstp/6X8YU+d3c42Hg4iW/GBmAIf1mX7eBI7SDfK0/JjaKAKxmmvJ/OQspITZWcui4hFtVT0Ro
+	9gXihcjSnteIp7thSZnH4S7rvIcp6zZOWOJp9vgzlBe7KYMsuZ1rm8tCnm1jAfpbBNqqWd2ftRMDk
+	ZNnMFhpg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:60762 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tffdm-0007B9-13;
-	Wed, 05 Feb 2025 13:40:30 +0000
+	id 1tffdr-0007BR-1W;
+	Wed, 05 Feb 2025 13:40:35 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tffdS-003ZHz-Qi; Wed, 05 Feb 2025 13:40:10 +0000
+	id 1tffdX-003ZI5-UV; Wed, 05 Feb 2025 13:40:15 +0000
 In-Reply-To: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
 References: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -78,17 +78,17 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 06/14] net: stmmac: remove unnecessary
- priv->eee_active tests
+Subject: [PATCH net-next 07/14] net: stmmac: remove unnecessary
+ priv->eee_enabled tests
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tffdS-003ZHz-Qi@rmk-PC.armlinux.org.uk>
-Date: Wed, 05 Feb 2025 13:40:10 +0000
+Message-Id: <E1tffdX-003ZI5-UV@rmk-PC.armlinux.org.uk>
+Date: Wed, 05 Feb 2025 13:40:15 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_134036_140493_32501A3B 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250205_134041_267044_503749BC 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +103,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since priv->eee_active is assigned with a constant value in each of
-these methods, there is no need to test its value later. Remove these
-unnecessary tests.
+Phylink will not call the mac_disable_tx_lpi() and mac_enable_tx_lpi()
+methods randomly - the first method to be called will be the enable
+method, and then after, the disable method will be called once between
+subsequent enable calls. Thus there is a guaranteed ordering.
+
+Therefore, we know the previous state of priv->eee_enabled, and can
+remove it from both methods.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 29 ++++++++-----------
- 1 file changed, 12 insertions(+), 17 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 37 +++++++++----------
+ 1 file changed, 17 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index ce527d4ae11f..6c8685c30022 100644
+index 6c8685c30022..695e75de41b3 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1047,21 +1047,17 @@ static void stmmac_mac_disable_tx_lpi(struct phylink_config *config)
+@@ -1046,18 +1046,17 @@ static void stmmac_mac_disable_tx_lpi(struct phylink_config *config)
+ 
  	mutex_lock(&priv->lock);
  
- 	/* Check if it needs to be deactivated */
--	if (!priv->eee_active) {
--		if (priv->eee_enabled) {
--			netdev_dbg(priv->dev, "disable EEE\n");
--			priv->eee_sw_timer_en = false;
--			del_timer_sync(&priv->eee_ctrl_timer);
--			stmmac_reset_eee_mode(priv, priv->hw);
--			stmmac_set_eee_timer(priv, priv->hw, 0,
--					     STMMAC_DEFAULT_TWT_LS);
--			if (priv->hw->xpcs)
--				xpcs_config_eee(priv->hw->xpcs,
--						priv->plat->mult_fact_100ns,
--						false);
--		}
--		priv->eee_enabled = false;
-+	if (priv->eee_enabled) {
-+		netdev_dbg(priv->dev, "disable EEE\n");
-+		priv->eee_sw_timer_en = false;
-+		del_timer_sync(&priv->eee_ctrl_timer);
-+		stmmac_reset_eee_mode(priv, priv->hw);
-+		stmmac_set_eee_timer(priv, priv->hw, 0, STMMAC_DEFAULT_TWT_LS);
-+		if (priv->hw->xpcs)
-+			xpcs_config_eee(priv->hw->xpcs,
-+					priv->plat->mult_fact_100ns, false);
- 	}
-+	priv->eee_enabled = false;
+-	/* Check if it needs to be deactivated */
+-	if (priv->eee_enabled) {
+-		netdev_dbg(priv->dev, "disable EEE\n");
+-		priv->eee_sw_timer_en = false;
+-		del_timer_sync(&priv->eee_ctrl_timer);
+-		stmmac_reset_eee_mode(priv, priv->hw);
+-		stmmac_set_eee_timer(priv, priv->hw, 0, STMMAC_DEFAULT_TWT_LS);
+-		if (priv->hw->xpcs)
+-			xpcs_config_eee(priv->hw->xpcs,
+-					priv->plat->mult_fact_100ns, false);
+-	}
+ 	priv->eee_enabled = false;
++
++	netdev_dbg(priv->dev, "disable EEE\n");
++	priv->eee_sw_timer_en = false;
++	del_timer_sync(&priv->eee_ctrl_timer);
++	stmmac_reset_eee_mode(priv, priv->hw);
++	stmmac_set_eee_timer(priv, priv->hw, 0, STMMAC_DEFAULT_TWT_LS);
++	if (priv->hw->xpcs)
++		xpcs_config_eee(priv->hw->xpcs, priv->plat->mult_fact_100ns,
++				false);
++
  	mutex_unlock(&priv->lock);
  }
  
-@@ -1075,13 +1071,12 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+@@ -1071,13 +1070,13 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
  
  	mutex_lock(&priv->lock);
  
--	if (priv->eee_active && !priv->eee_enabled) {
-+	if (!priv->eee_enabled) {
- 		stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
- 				     STMMAC_DEFAULT_TWT_LS);
- 		if (priv->hw->xpcs)
- 			xpcs_config_eee(priv->hw->xpcs,
--					priv->plat->mult_fact_100ns,
--					true);
-+					priv->plat->mult_fact_100ns, true);
- 	}
+-	if (!priv->eee_enabled) {
+-		stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
+-				     STMMAC_DEFAULT_TWT_LS);
+-		if (priv->hw->xpcs)
+-			xpcs_config_eee(priv->hw->xpcs,
+-					priv->plat->mult_fact_100ns, true);
+-	}
++	priv->eee_enabled = true;
++
++	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
++			     STMMAC_DEFAULT_TWT_LS);
++	if (priv->hw->xpcs)
++		xpcs_config_eee(priv->hw->xpcs, priv->plat->mult_fact_100ns,
++				true);
  
  	if (priv->plat->has_gmac4 && priv->tx_lpi_timer <= STMMAC_ET_MAX) {
+ 		/* Use hardware LPI mode */
+@@ -1092,8 +1091,6 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 		stmmac_restart_sw_lpi_timer(priv);
+ 	}
+ 
+-	priv->eee_enabled = true;
+-
+ 	mutex_unlock(&priv->lock);
+ 	netdev_dbg(priv->dev, "Energy-Efficient Ethernet initialized\n");
+ 
 -- 
 2.30.2
 
