@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72640C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 18:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B277C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 18:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NU343bS9tujTpsxS0pvEsPWsJvqxL7DKggJ7rJQHSbU=; b=Z/2zu1AcSNrW8QljjVLifnxsji
-	p+qzPjK3u4TgP2oTpN6fFEAURW0CeJ5NMAd43JE23268yKw0f2ez+coCNZ3Hk10QMDygbtFpRpM44
-	eoMRZSMePejffck5TNK/fi7ikWoDXf2shfReSdUuP8rX2W1l+JEyaHyqTWKYHVc3TGF9hmRJm/Ihv
-	0QK9TY130EuRJx3vYiyN8/+vzrG6X8/YlxxFQhkPCQBKzLNZYg7gxJCYols+6QN1PncmUa9E6LOjW
-	U2gBe/HaV3VAXoZLsxl3+9CTMLOOylSTIrzHG2Eqsz4TrfyNwPwMfd51QwsSqMAnoIxlvfOY1DrAD
-	bUtapXgg==;
+	bh=fMAEufYTCwR87g7HGV6xU9skq8IOQ0ObyPdkgemU744=; b=KbZwbfaTsyKIlORSmQYQX8lkcG
+	Zj7ZfeKV/I6dZxDNLlxHQO1XlpR+rBaBkkzinChxiJ2TLxM9MN6MsfZSs493YQ9JXGobMuS3ObRTY
+	QTrsEAO+lQz4HFQY4jILZ4A3+ujN0EV+hg4uB88E2jZcBviRULvCM7C95mOiLNushXfxVRdtqq6uR
+	BZ4Pi36MsUc0eqK65SoLAZOYtjppsR/TDIhE6it14MN50JW3thW14OSfnFeL7m0PSaBmYiejYp+Eg
+	cswUDw1y34rOwPKFQ1FzarM5TzpDDD1z5hugb9n7jEFOB2rNDhdgIllzxF4Pqn3Nyo+yBDZDQr2dJ
+	LgXNEvXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjjZ-00000004Bfo-1AQg;
-	Wed, 05 Feb 2025 18:02:45 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1tfjjc-00000004BiJ-2my2;
+	Wed, 05 Feb 2025 18:02:48 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfiZY-000000040p9-21AU
+	id 1tfjfR-00000004BKk-3CLa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 16:48:22 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=NU343bS9tujTpsxS0pvEsPWsJvqxL7DKggJ7rJQHSbU=;
-	b=AvwqPksi1/kD+FGN8EPUXp/VOGmeDjp8Jf1XgGdficKblWPmFMZWQdlfVbZBu16e0rmV2jJSt2j1k/WavDtp2/JCtf+XnyeObjSMMJBtCwBRTuHE6SUKGHyDZZ/+b5KMrV+Fb4xPByNtfNRpFX+7q+w7Vlzi60Xii+g0qSBnH7Q=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Wed, 5 Feb 2025 17:48:16 +0100
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v9 4/4] ARM: dts: sunxi: add support for NetCube Systems Kumquat
-Date: Wed,  5 Feb 2025 17:47:13 +0100
-Message-Id: <20250205164716.2509650-5-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250205164716.2509650-1-lukas.schmid@netcube.li>
-References: <20250205164716.2509650-1-lukas.schmid@netcube.li>
+	Wed, 05 Feb 2025 17:58:31 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab7515df1faso14196266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 09:58:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738778308; x=1739383108; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fMAEufYTCwR87g7HGV6xU9skq8IOQ0ObyPdkgemU744=;
+        b=feEI16mYyjbzIJu0gNGDm+OP4qChLpeSi+P/EqdC2BkRpNyErhWV0x/uyUfA0E46C5
+         UGJPQPBkQVAWgip5Uzgfibz88ZTN2qcX+1Lg34hYpGpK3PgP6vHZtEbAEdJaefASR+ap
+         ekrjXWzavateRZlt8unJGbjt9se5qZpRnG3Qh8K/9uuxMf7m09mte75W/nC1evizYjL8
+         SmUVTl9cKzYexyzmfG4bGfqP0CRjW/FD8Vc7sHEJksQKhvNbYqK4xjg/2czzttaCLuSk
+         Q8q7pvmWWPruYD158q7BZ7LoSEotgjOak0P3arNvnDPqtSZYsb1drLPUD7t8IpaNcrfu
+         O2Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738778308; x=1739383108;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fMAEufYTCwR87g7HGV6xU9skq8IOQ0ObyPdkgemU744=;
+        b=Mc0rQtjX9bLh0F5VBEVSHv6EserGsLp2Uh9S0I6ogV3lmii6ZJD6GmhC+Fe2zWQEKi
+         W8qFpNSYfPT3T/o+5Lq7gaBVPFBvk/zTbOr6Y6nSXhdhvGEwTakyRjaVeBtCKvhCUTDR
+         FQeHQ5NySRvjffEiYAkW59LOELI/xgX1iscEB10w8bjkivRuoewqJAUKPN6IGKuJuMhc
+         u0EkBXhsMMVhfzYkHzrLiJgk5cUhgd2wosA8AM6dcibkXtmhobJ+PttUVLAZTO5PXEos
+         p9KX3C4b73i6oNOwi5e1MXcRGpIg3QSVeAKOuBxWlTKUDDi8YBRcjop36jKKSJ9mDwIG
+         473Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWTQlJxKNI9CczNje42yNlkwMXqJcMjwkQXH1r67aZQsY0H1hBcgkpmhaI21ofoMBR0MeuAHFJwH8I0EI0uq03F@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCxIJ9xawwcEhlwFwbrb4NXxHOlcFbe9e3Jp6Kp7PHEgWjvo/w
+	EHe6M9a3nlgOq1AoUx91tmYWsxKNVkcb6XtJ04yVREYdhk9cD+ffwVv8gA==
+X-Gm-Gg: ASbGnctuBEaq5eiYwxCATglNrF7XuC5/jH3LuODFa0EAWViLq/Qr2jW1vxC2W128f12
+	eIhRD+uXKAM15PKt1ciVnBiG3/1APj1lPf16XTZQhEsf2slhSaP9yoBkkQO8yuQU3qUgehaRtJr
+	JuZgh9/72+v9850FficKEJtAEvWLoBAwxof7HJMFHpcRHowo2FD2z0LMCN8KfbE0Iik59EPuI8d
+	pUiJJ3Q94bDBKtMjRCn0D+7fihq3Au05pKrTa5vW3fFDeH9Mt8DaOLCxBjoFJ1Ji6tm8RaGXEHN
+	T0FVbAwEXhJXxa/yicmqy3CzqNufNfDtFclSevblnc1z4wpm0kx62OQrXSo7LRbaog==
+X-Google-Smtp-Source: AGHT+IGilRrBoelGh6e28f+nxniHAFHixKNw+Hqvl/uNj+kVv7H6qbFpMqopbuHdNVB1hSsL6gks3Q==
+X-Received: by 2002:a17:906:c144:b0:ab2:b4bc:41ef with SMTP id a640c23a62f3a-ab75e2a7677mr388312766b.29.1738778306863;
+        Wed, 05 Feb 2025 09:58:26 -0800 (PST)
+Received: from [192.168.50.244] (83.11.225.21.ipv4.supernova.orange.pl. [83.11.225.21])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab6e49ffe44sm1133806466b.113.2025.02.05.09.58.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Feb 2025 09:58:26 -0800 (PST)
+Message-ID: <ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com>
+Date: Wed, 5 Feb 2025 18:58:25 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/7] dt-bindings: mfd: brcm,bcm59056: Add compatible
+ for BCM59054
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ ~postmarketos/upstreaming@lists.sr.ht
+References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
+ <20250131-bcm59054-v3-2-bbac52a84787@gmail.com>
+ <20250202-noisy-impala-of-triumph-c9aa8b@krzk-bin>
+From: Artur Weber <aweber.kernel@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20250202-noisy-impala-of-triumph-c9aa8b@krzk-bin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_084820_885969_6B58C765 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250205_095829_805498_538D6A70 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,333 +111,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Kumquat is a board based on the Allwinner V3s SoC,
-including:
+On 2.02.2025 14:24, Krzysztof Kozlowski wrote:
+> On Fri, Jan 31, 2025 at 07:13:50PM +0100, Artur Weber wrote:
+>> ...
+>> @@ -22,7 +24,6 @@ properties:
+>>     regulators:
+>>       type: object
+>>       description: Container node for regulators.
+>> -    $ref: ../regulator/brcm,bcm59056.yaml
+> 
+> Refs should rather stay here, so I don't think keeping these devices in
+> one binding makes it simpler.
+> 
+> Simpler - drop ref and add properties compatible with enum for your
+> regulator compatibles.
+> 
 
-- 64MB DDR2 included in SoC
-- 10/100 Mbps Ethernet
-- USB-C DRD
-- Audio Codec
-- Isolated CAN-FD
-- ESP32 over SDIO
-- 8MB SPI-NOR Flash for bootloader
-- I2C EEPROM for MAC addresses
-- SDIO Connector for eMMC or SD-Card
-- 8x 12/24V IOs, 4x normally open relays
-- DS3232 RTC with Battery Backup
-- QWIIC connectors for external I2C devices
+The only problem with that is that the regulator nodes have no
+compatibles. I see two ways out of it: either we add a compatible then
+use the compatible enum (might break existing users who don't have the
+compatible, unless we make the driver ignore it), or if we just want to
+simplify but not add compatibles, list all the refs under an oneOf
+condition (like it's done in
+Documentation/devicetree/bindings/mfd/qcom,spmi-pmic.yaml[1]).
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- arch/arm/boot/dts/allwinner/Makefile          |   2 +
- .../allwinner/sun8i-v3s-netcube-kumquat.dts   | 276 ++++++++++++++++++
- 2 files changed, 278 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+Personally I'm in favor of keeping this as-is, though, for the benefit
+of the DT linter preventing accidental mixing of bindings for different
+device types (e.g. BCM59056 MFD node with BCM59054 regulators). There's
+at least some precedent for this method[2]. But if making it simple is
+what's considered better, I'll go with one of the aforementioned
+options.
 
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index 48666f73e638..d799ad153b37 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-+DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
- 	sun8i-a23-gt90h-v4.dtb \
-@@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-v3s-anbernic-rg-nano.dtb \
- 	sun8i-v3s-licheepi-zero.dtb \
- 	sun8i-v3s-licheepi-zero-dock.dtb \
-+	sun8i-v3s-netcube-kumquat.dtb \
- 	sun8i-v40-bananapi-m2-berry.dtb
- dtb-$(CONFIG_MACH_SUN9I) += \
- 	sun9i-a80-optimus.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-new file mode 100644
-index 000000000000..5143cb4e7b78
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
-@@ -0,0 +1,276 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-v3s.dtsi"
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/{
-+	model = "NetCube Systems Kumquat";
-+	compatible = "netcube,kumquat", "allwinner,sun8i-v3s";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		ethernet0 = &emac;
-+		rtc0 = &ds3232;
-+		rtc1 = &rtc; /* not battery backed */
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	/* 40 MHz Crystal Oscillator on PCB */
-+	clk_can0: clock-can0 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency  = <40000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		autorepeat;
-+
-+		key-user {
-+			label = "GPIO Key User";
-+			linux,code = <KEY_PROG1>;
-+			gpios = <&pio 1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PB2 */
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			gpios = <&pio 4 4 GPIO_ACTIVE_HIGH>; /* PE4 */
-+			linux,default-trigger = "heartbeat";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+
-+		led-mmc0-act {
-+			gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
-+			linux,default-trigger = "mmc0";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_DISK;
-+		};
-+	};
-+
-+	/* EA3036C Switching 3 Channel Regulator - Channel 2 */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v0>;
-+	};
-+
-+	/* K7805-1000R3 Switching Regulator supplied from main 12/24V terminal block */
-+	reg_vcc5v0: regulator-5v0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+};
-+
-+&codec {
-+	allwinner,audio-routing =
-+		"Headphone", "HP",
-+		"Headphone", "HPCOM",
-+		"MIC1", "Mic",
-+		"Mic", "HBIAS";
-+	status = "okay";
-+};
-+
-+&ehci {
-+	status = "okay";
-+};
-+
-+&emac {
-+	allwinner,leds-active-low;
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+
-+	tusb320: typec@60 {
-+		compatible = "ti,tusb320";
-+		reg = <0x60>;
-+		interrupts-extended = <&pio 1 5 IRQ_TYPE_LEVEL_LOW>;  /* PB5 */
-+	};
-+
-+	ds3232: rtc@68 {
-+		compatible = "dallas,ds3232";
-+		reg = <0x68>;
-+	};
-+};
-+
-+/* Exposed as the Flash/SD Header on the board */
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	broken-cd;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	broken-cd;
-+	status = "okay";
-+};
-+
-+&ohci {
-+	status = "okay";
-+};
-+
-+/* Disable external 32k osc as it is broken on current revision */
-+&osc32k {
-+	status = "disabled";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pc-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "CAN_nCS", "CAN_nINT", "USER_SW", "PB3", // PB
-+			  "USB_ID", "USBC_nINT", "I2C0_SCL", "I2C0_SDA",
-+			  "UART0_TX", "UART0_RX", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "SPI_MISO", "SPI_SCK", "FLASH_nCS", "SPI_MOSI", // PC
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "", // PD
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "Q12", "Q11", "Q10", "Q9", // PE
-+			  "LED_SYS0", "I1", "Q1", "Q2",
-+			  "I2", "I3", "Q3", "Q4",
-+			  "I4", "I5", "Q5", "Q6",
-+			  "I6", "I7", "Q7", "Q8",
-+			  "I8", "UART1_TXD", "UART1_RXD", "ESP_nRST",
-+			  "ESP_nBOOT", "", "", "",
-+			  "", "", "", "",
-+			  "SD_D1", "SD_D0", "SD_CLK", "SD_CMD", // PF
-+			  "SD_D3", "SD_D2", "LED_SYS1", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+			  "ESP_D2", "ESP_D3", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
-+/* Disable external 32k osc as it is broken on current revision */
-+&rtc {
-+	/delete-property/ clocks;
-+};
-+
-+/* Exposed as a USB-C connector with USB-Serial converter */
-+&uart0 {
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	extcon = <&tusb320 0>;
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 1 4 GPIO_ACTIVE_HIGH>; /* PB4 */
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	cs-gpios = <0>, <&pio 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		label = "firmware";
-+		spi-max-frequency = <40000000>;
-+	};
-+
-+	can@1 {
-+		compatible = "microchip,mcp2518fd";
-+		reg = <1>;
-+		clocks = <&clk_can0>;
-+		interrupts-extended = <&pio 1 1 IRQ_TYPE_LEVEL_LOW>;  /* PB1 */
-+		spi-max-frequency = <20000000>;
-+		vdd-supply = <&reg_vcc3v3>;
-+		xceiver-supply = <&reg_vcc3v3>;
-+	};
-+};
--- 
-2.39.5
+Best regards
+Artur
 
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/mfd/qcom,spmi-pmic.yaml#n147
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/mfd/samsung,s2mps11.yaml#n69
 
