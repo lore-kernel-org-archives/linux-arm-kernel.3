@@ -4,102 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC518C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D260C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Feb 2025 10:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L663zWHJAJ0zSwFRe0E4kjWKNAWHc7L/2kdkPLFx/qk=; b=JCBIubMMpalG4kIiPw5YT2Kupc
-	6IylR0CrC7ahzFVkADHXCiSxcp2ST9dBlizozjQVQxKtD8oNw1sA45fWcWJJcAZJVu2qVHM57ICol
-	rp/R53GcvjCJwWPxs8MBgLnG0vgu4C05Eg1KhGJtMM/S5CbaE+LpPTKo6p+TmJojG1OQZEqkYVATy
-	fHbYOnUjg8Yq5VZ/tbcv/hXbSpjuxM6VW5ZavkPb9W/2GqhcldLjZJUTfmGQfVQd9z0aFK2VhY1cS
-	q4I0/Af5iJh65tXleTJTX72wOen2vJCKzR/CtT5WsQYbGbpdnF7yv32CQ/N51IG7JYPlmBROY7kZr
-	gZW5FHAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eaj2hF5PJOQtH2xPQWCRpX95tOHDhHY5WQHstGrnojw=; b=GFufvkB4Xgx5Re5A1tFt04RXp3
+	Q2I4/OwR4eDKlO7hgScL2KoqgPPILb2jlAe33SRF+CNhzicri6dmiy1OLjWZsHVJVgN3kfegquvPR
+	6XdiuNxRIvLOAeHBcX1U3T+mMnn+pYDxEW39LXWDeBwW3WA4QJfhL8us6l+Up9iO8MGBdQHTjw3ff
+	22HWGygjfi8f2F1Su9y0U1EqN4wtUxsMiQdsF2DWmJOAHF52SpiDkpA84lBROGycPgZUgMgo0jh0d
+	/8NM0++GXIG2PbU1ptcaf0Zz+4AX1XzJ+E7ywrlH1xycormzEk0iIeXiYc8toCyDXDREdT30gqyh5
+	qJbIHAkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcP9-00000002q1D-1aKQ;
-	Wed, 05 Feb 2025 10:13:11 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tfcQU-00000002qC2-0U1v;
+	Wed, 05 Feb 2025 10:14:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcIA-00000002oNy-2Z2Z
+	id 1tfcIG-00000002oPH-2GFO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Feb 2025 10:05:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738749959; x=1770285959;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=0OdUdx+lahN2+LUJ2jOFDFj83SCLzyn+8zKWv0oeisM=;
-  b=PdzDGmu2Gdg2ISe+844STd0FKAxPRuJ6NE03n2XE8N0cT1M/baOBRrMQ
-   kZNuqBWDLgMZMQfOlnQJn0qPjCZmbgPw2SuxoQo477LZD9k8BsT4idKlE
-   vCZQ+9VOUW28pMyIE83JBlvURJZAugv+x/2dsmafPtJUbH4QYonwdEm4q
-   5bpGlt3Z3B3VEmtMo3AUpLLvAIydrMLVEVNIJHP042uPYYStAIJ4n4WZw
-   p/nQPChmWXQ51I6hPSu9YbJv7rl8D2V0KC6/XAyG4gSRLr7N/6RKjxjQi
-   n7B0m/Iv7gtO63yMMAh5l/Q1q7v0nCGbFbDJERI0KfnD79PVHsJlOIe6v
-   Q==;
-X-CSE-ConnectionGUID: vA2Iaq0nSx6F2kVP5QkxIg==
-X-CSE-MsgGUID: k/OVwi1uTdaVgBHgHKvWng==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39204705"
-X-IronPort-AV: E=Sophos;i="6.13,261,1732608000"; 
-   d="scan'208";a="39204705"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 02:05:59 -0800
-X-CSE-ConnectionGUID: w4+X2uWMRSiBqd4c+mmb3g==
-X-CSE-MsgGUID: kprGnA/oS7Cxwm+v3SIPjw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="111297712"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa007.jf.intel.com with ESMTP; 05 Feb 2025 02:05:51 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Furong Xu <0x1207@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Petr Tesarik <petr@tesarici.cz>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v2 3/9] igc: Optimize the TX packet buffer utilization
-Date: Wed,  5 Feb 2025 05:05:18 -0500
-Message-Id: <20250205100524.1138523-4-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
+	Wed, 05 Feb 2025 10:06:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4F0CA5C62AF;
+	Wed,  5 Feb 2025 10:05:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11214C4CEE5;
+	Wed,  5 Feb 2025 10:06:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738749962;
+	bh=hkYngXU+6IeLPNhNvs13cKpx26XKj3YSH/OAeRpga3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qunve0YxKKubq7KmDTNg1Ed8RfUlCXKjxIzL3LUwAiVW1oCrwBK5KmsdpdmdLog6h
+	 6n+BNwajJMcrhwjfhHINnbjyzOtnfW7+CXcTbMRF83YaLZpw/c17deWk5eDDDAPvos
+	 Gvkcy+Mo/BdB31t1Bfg7hxlg5PW/8+JBtbOt+x83ZBTFKTonl2WC+atoe3V/1bFV76
+	 KOrQk1YUV4sjzM2de+xrK7o58Y6OOy3ui3BKNW7JACcvTM1DKfrz/QaeqH+fz1cdWK
+	 D2nFniznztdCTJjRskVTZBt1mIJShJ8WwchuDTQ4SUGZ5wSQ14tVKmBJU9awZ7FNJI
+	 bu5WcyXuPSBIQ==
+Date: Wed, 5 Feb 2025 11:05:59 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Shawn Guo <shawnguo@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 3/4] dt-bindings: memory-controllers:
+ samsung,exynos4210-srom: Split out child node properties
+Message-ID: <20250205-wild-classic-ringtail-98cbc2@krzk-bin>
+References: <20250203-dt-lan9115-fix-v1-0-eb35389a7365@kernel.org>
+ <20250203-dt-lan9115-fix-v1-3-eb35389a7365@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250203-dt-lan9115-fix-v1-3-eb35389a7365@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_020558_735466_35C11F3A 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_020604_619412_62F45D00 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Packet buffers (RX + TX) total 64KB. Neither RX or TX buffers can be
-larger than 34KB. So divide the buffer equally, 32KB for each.
+On Mon, Feb 03, 2025 at 03:29:15PM -0600, Rob Herring (Arm) wrote:
+> In order to validate devices in child nodes, the device schemas need to
+> reference any child node properties. In order to do that, the properties
+> for child nodes need to be included in mc-peripheral-props.yaml.
+> 
+> "reg: { maxItems: 1 }" was also incorrect. It's up to the device schemas
+> how many reg entries they have.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../bindings/memory-controllers/exynos-srom.yaml   | 35 ----------------------
+>  .../memory-controllers/mc-peripheral-props.yaml    |  1 +
+>  .../samsung,exynos4210-srom-peripheral-props.yaml  | 35 ++++++++++++++++++++++
+>  3 files changed, 36 insertions(+), 35 deletions(-)
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
----
- drivers/net/ethernet/intel/igc/igc_defines.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
-index 8e449904aa7d..516ef70c98e9 100644
---- a/drivers/net/ethernet/intel/igc/igc_defines.h
-+++ b/drivers/net/ethernet/intel/igc/igc_defines.h
-@@ -400,7 +400,8 @@
- #define I225_TXPBSIZE_DEFAULT	0x04000014 /* TXPBSIZE default */
- #define IGC_RXPBS_CFG_TS_EN	0x80000000 /* Timestamp in Rx buffer */
- 
--#define IGC_TXPBSIZE_TSN	0x04145145 /* 5k bytes buffer for each queue */
-+ /* 7KB bytes buffer for each tx queue (total 4 queues) + 4KB for BMC*/
-+#define IGC_TXPBSIZE_TSN	0x041c71c7
- 
- #define IGC_DTXMXPKTSZ_TSN	0x19 /* 1600 bytes of max TX DMA packet size */
- #define IGC_DTXMXPKTSZ_DEFAULT	0x98 /* 9728-byte Jumbo frames */
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
