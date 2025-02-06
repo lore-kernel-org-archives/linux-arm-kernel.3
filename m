@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C2EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32267C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8rlKArYVbbfkMOQLEil2R2SAvQ0afSCP1rUmme1+B8A=; b=S9C68dBo5ozF2fNN4vqGzn6PBM
-	lrMgTBxSn3hMJm7W4jIYU8t+IZNkqFS+bBl+k5Yf0Ht1h5aUK9ko2mMj8U6cnycjhh6eAJg96QP83
-	bVYmIoga0d6TfiG0r0ZFK1q9RMVMs117g+iZh0WAvOAFcxOQCFbPKyiKT4LlhuFuMcOzi7k0GvOSe
-	VUM7XvDfS2SbRCIFHln/vwMpgPB+/rlPOIWJdPzM3whfb/UQZKuqH4+7T0g8A2+O8BDgnSbtm07M+
-	F3x/FP5oq0r8CqgRo2fReQUUKoeH+uztIIdIbRsLVLDZmBAzTnuw7AyoNhiqDsffm0LFAzZxo6UcV
-	xW/MC5iw==;
+	bh=eSODbqt1dCHlKuqG5gOGW7Y2t1iZh7V36JKTjYF1S7o=; b=BZo1gyoMvTcPnvf8qVhepYVj0/
+	KXinLtISmrOBy5lg+6bNluZ5B3UqmtjXBiwuRGToX/IoergZV5BddUMDbAM3Ynprt48bOnUZw/7OS
+	/uOVjWCYRin0otq6fN5n63OJDiNFrfKi7U+NkydY1l63oiE56U7fzcRk2BOC2RyVyv4mSkrth+Nx4
+	kLtQtfdWhs2L8i+JdluR3d4m//T/JdqMp+IW6XDO4J1UhEBYugH5buZwRdAtMHQuoU8mqSXUlWCMD
+	/Imma23UMSfKAe1YYMbKZihNpqW00LK50an8j3Fp17rQxitPlq9V5/GQXu/naFM6k3nBlGJgkn8Vu
+	Fo/wVoRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3HR-00000006ect-1b29;
-	Thu, 06 Feb 2025 14:55:01 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tg3NZ-00000006fKp-3IGd;
+	Thu, 06 Feb 2025 15:01:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg34g-00000006cqm-2Fgx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:41:51 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so202620766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:41:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall-org.20230601.gappssmtp.com; s=20230601; t=1738852909; x=1739457709; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8rlKArYVbbfkMOQLEil2R2SAvQ0afSCP1rUmme1+B8A=;
-        b=fUfF55mSMInKO7GVOPuStOHUPPk3x8KWeZZrSxpVroWDT6gLWgNzoGdjFzwS1uD+Fo
-         5pPp9rAfuupjTxAcESe9yvj3fo4/oo2HPohzkXyk+md8d5sHcdN5xTN8GzxbbXBJYx8/
-         1kku8lubvKDxzC4+AQBBiTek2cl1ziOiKVoqKD0VU0bB3Iu+lZOkM/SBfrQt5XGQrde2
-         B/L0hodptfxfROznClJyNjgw3t8WGj4exUSCP1NLZswmAHiUZLy7cLDZR0wcD4gv6gCF
-         g7MfXatMihqoxxGqXig51EP+J8bixWgxnq6eMYPhGyXj4PMvZNI6LSFY/arPYveDDCHO
-         +16g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738852909; x=1739457709;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8rlKArYVbbfkMOQLEil2R2SAvQ0afSCP1rUmme1+B8A=;
-        b=wkMYWdrQiCnwDb6+kXz0Tn5tc25vBHp+z+qvLEze6wY8Su5mVKC+TIAUQAjZtPFiOf
-         IuCIUIB4G/blny4s48TKjLxLgidWPLlI7GwHu8sRLgDcpnyZKX2h3zTiXLKnPZY2rjnk
-         ViuwLzq6PH/c0kUAaFbIfFjIK20OQE9rH+i4WfzMY/97vWsesWLkA39nSlYbMYTFHfTP
-         J4dppUf2Vkycz+I9WfEQMMTZG+7r9pFJfjPO7UR7yH6xCwAl7/YpPgUGzAkHtc6WdM+V
-         OsqKBFnIbe7jQMHqO3AgTfZbx0gdbAn9EtDNVUpqnQ3bCgMzEo65wM2b8lQLmPSfXpoC
-         4fJA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwd5hOtiG4lFlEWW0ZPyKuTgYIGKYhGTbwPy80XIIVg1TVGb65hlZZZXGy5/4QBDxy6jbSF6yHzuHDyjpiioX6@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk+CF0bSfuH3JuXRt7NOSwMUemCqcCFxrWeUqbiGghAsS2MRs8
-	RplKCH7BrKHj8iafHvFUES8I6smjCnP2Hmao0kKJnXRp7P+K6wrEGVqAZOg7Un0=
-X-Gm-Gg: ASbGncvutc6JmQtJGdJCisynEXQ9lPD9PukAz30fOPE7ziiSyWC2dvBbhrjRY2lX9FI
-	CmTTK+84ulDyKCSlfjUXSFDj0R9rXsJhx20nyJxpxdPJAEme6M8cqKW3bujzr/zKcDzkCO7UGJP
-	SZD8wt//9rjvaI0ilabhAeLTEP9PCx2GIZzlLX8lULsljr6Nzly/AnWQSLjn3kuyxORth5JRJat
-	Krvrx3XheLgu1Nugj8PWwWq6bYZN+xlEX6IZaPxumprXlfXVX2Biz5lFFLHAUPHQ3I7INAQa+Pu
-	445qlQ/8MtGstoHXX0P4X8iJTj7vS/uc1FU2DvvOn24peYc=
-X-Google-Smtp-Source: AGHT+IGYS6d4HsD5MEqTfuQgUgTGOYMkujVYUnjTnyeKJRhPZPj1m191dnJjgGKyqlpsKlnGfxYIDA==
-X-Received: by 2002:a17:907:c23:b0:aa6:a7ef:7f1f with SMTP id a640c23a62f3a-ab75e233e41mr751067866b.11.1738852909025;
-        Thu, 06 Feb 2025 06:41:49 -0800 (PST)
-Received: from [192.168.0.205] (78-154-15-142.ip.btc-net.bg. [78.154.15.142])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab772f484acsm109660266b.11.2025.02.06.06.41.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2025 06:41:48 -0800 (PST)
-Message-ID: <ffcafced-51a2-4a09-ba45-1aafc8f39081@blackwall.org>
-Date: Thu, 6 Feb 2025 16:41:46 +0200
+	id 1tg1x2-00000006R47-1YvY;
+	Thu, 06 Feb 2025 13:29:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8CC13A4426C;
+	Thu,  6 Feb 2025 13:28:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8439C4CEDD;
+	Thu,  6 Feb 2025 13:29:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738848591;
+	bh=1txtjW96JxUndZYD9a00W/76sD+LvXXvrxBD/8JuEQE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Mvy2lbhpllMBnnyJK/ZkaYgJSkQKeGHs+Q9PA1rGGi1MWQw8SCI9y53zhVA8MhcPW
+	 umRbwPhZK1MIY+MGeqpJY+Q4K1KriPoBHFFeU1mUXBHZNVykg6dnluODkAN0hAGvyM
+	 a+pW17FtbIxucMLTKmm2OLhVdZBXxATM+cFA5MiyCLIMwQ+ubMNwe8H2BVfuaYKRPx
+	 VijP3Vocku1QnN/NBswC9idxp0054VWMo+t7FpS7i4O0OMK2rmyHCU72RxHmRitVI8
+	 hzEmnGVnh1y0Ziuiwgpf/8Ap0fUKJN5vJbWyQe29fgLAKaxyNyv9bB2KWVsgmUri/l
+	 JhEn8cdB5h2Yw==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH v4 11/14] x86/setup: use memblock_reserve_kern for memory used by kernel
+Date: Thu,  6 Feb 2025 15:27:51 +0200
+Message-ID: <20250206132754.2596694-12-rppt@kernel.org>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250206132754.2596694-1-rppt@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 net-next 11/14] netfilter: nft_flow_offload: No
- ingress_vlan forward info for dsa user port
-To: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Jozsef Kadlecsik <kadlec@netfilter.org>, Jiri Pirko <jiri@resnulli.us>,
- Ivan Vecera <ivecera@redhat.com>, Roopa Prabhu <roopa@nvidia.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Kuniyuki Iwashima <kuniyu@amazon.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Vladimir Oltean <olteanv@gmail.com>,
- Frank Wunderlich <frank-w@public-files.de>,
- Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- bridge@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250204194921.46692-1-ericwouds@gmail.com>
- <20250204194921.46692-12-ericwouds@gmail.com>
-Content-Language: en-US
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20250204194921.46692-12-ericwouds@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_064150_569738_815AA16C 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250206_052952_545359_F0C77DB9 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,17 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/4/25 21:49, Eric Woudstra wrote:
-> The bitfield info->ingress_vlans and correcponding vlan encap are used for
-> a switchdev user port. However, they should not be set for a dsa user port.
-> 
-> Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
-> ---
->  net/netfilter/nft_flow_offload.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
+memblock_reserve() does not distinguish memory used by firmware from memory
+used by kernel.
 
+The distinction is nice to have for accounting of early memory allocations
+and reservations, but it is essential for kexec handover (kho) to know how
+much memory kernel consumes during boot.
+
+Use memblock_reserve_kern() to reserve kernel memory, such as kernel image,
+initrd and setup data.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ arch/x86/kernel/setup.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index cebee310e200..c80c124af332 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -220,8 +220,8 @@ static void __init cleanup_highmap(void)
+ static void __init reserve_brk(void)
+ {
+ 	if (_brk_end > _brk_start)
+-		memblock_reserve(__pa_symbol(_brk_start),
+-				 _brk_end - _brk_start);
++		memblock_reserve_kern(__pa_symbol(_brk_start),
++				      _brk_end - _brk_start);
+ 
+ 	/* Mark brk area as locked down and no longer taking any
+ 	   new allocations */
+@@ -294,7 +294,7 @@ static void __init early_reserve_initrd(void)
+ 	    !ramdisk_image || !ramdisk_size)
+ 		return;		/* No initrd provided by bootloader */
+ 
+-	memblock_reserve(ramdisk_image, ramdisk_end - ramdisk_image);
++	memblock_reserve_kern(ramdisk_image, ramdisk_end - ramdisk_image);
+ }
+ 
+ static void __init reserve_initrd(void)
+@@ -347,7 +347,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
+ 	}
+ 
+ 	if (data->size) {
+-		memblock_reserve(data->addr, data->size);
++		memblock_reserve_kern(data->addr, data->size);
+ 		ima_kexec_buffer_phys = data->addr;
+ 		ima_kexec_buffer_size = data->size;
+ 	}
+@@ -447,7 +447,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
+ 		len = sizeof(*data);
+ 		pa_next = data->next;
+ 
+-		memblock_reserve(pa_data, sizeof(*data) + data->len);
++		memblock_reserve_kern(pa_data, sizeof(*data) + data->len);
+ 
+ 		if (data->type == SETUP_INDIRECT) {
+ 			len += data->len;
+@@ -461,7 +461,7 @@ static void __init memblock_x86_reserve_range_setup_data(void)
+ 			indirect = (struct setup_indirect *)data->data;
+ 
+ 			if (indirect->type != SETUP_INDIRECT)
+-				memblock_reserve(indirect->addr, indirect->len);
++				memblock_reserve_kern(indirect->addr, indirect->len);
+ 		}
+ 
+ 		pa_data = pa_next;
+@@ -649,7 +649,7 @@ static void __init early_reserve_memory(void)
+ 	 * __end_of_kernel_reserve symbol must be explicitly reserved with a
+ 	 * separate memblock_reserve() or they will be discarded.
+ 	 */
+-	memblock_reserve(__pa_symbol(_text),
++	memblock_reserve_kern(__pa_symbol(_text),
+ 			 (unsigned long)__end_of_kernel_reserve - (unsigned long)_text);
+ 
+ 	/*
+-- 
+2.47.2
 
 
