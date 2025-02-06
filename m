@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCE1C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A969CC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=hgN1YNURyiYxqFeIA6+C2nHwSg2o8UTPEWCWsMMrnaY=; b=RprnLwObQaJs0r8zEia80KCnSk
-	5uoQRBJCnekN+Aq/WtmxWZ/FbHstSLktU2gpxoZ7Mm2ac5Gj8rUbCFhyOTKh22xnkRUxryhN+6h3Z
-	I76lZcPjQ+BkqRq5zqx0lg2h0x2L4/O2GwFWW39c2fT4NsJHuZBUa4xsHK4+roQWEz1PcH8wzsgLU
-	xoAdJb/x/OJoYNiK75y3YVHyjvjp1z8KkQBe8R0sj4dhHEoqTpyniBKD5oLY5yL80nCZimQIrvNnt
-	bgeRc2b70IMRC9PxMfy44bExnJA26NRil4pQruRkFtlJ62csbxm97rEMFhEqmI/gJ6NdXbagT5qpb
-	gpKRaJ8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lFYs9CF2krLOKV1+Ib/ZV5GYYaYEcVMj0+s+Jrj0azU=; b=tK2FCp7k6M8lTwTWluJvQ2k0p5
+	lUZ6g2s1R2ESBNuN+S6942BjD4oMdYWUA9v6yEljwNYZWJOft5v9iUx5LrrbHmiW1CkIFJsLFHUIv
+	HbpZDsZGBRa9nyF9digdtFKnQ797GThQsaB2Kw5N6cclHwDXl92VKy8fTlloz4Vh7AIKM73tIljuK
+	cP5J6ij+sc+3L1UKVYPDepeuD+tvZxyHY5mBN56hf63QTP34pygFWRBY/rPO0O/wwla5soeQxGHdH
+	zNSqgIovhCwBvELtzyOowUhTVUunk6lHdrwDAmgsZB8xxeonBnYfq9YIv0i+FmY3cMu4n1nN0+Ipn
+	4ObJCbdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7AO-00000007JWL-11Sz;
-	Thu, 06 Feb 2025 19:04:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tg7Bk-00000007Jdi-1Vf0;
+	Thu, 06 Feb 2025 19:05:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6iI-00000007DVR-3clJ;
-	Thu, 06 Feb 2025 18:34:59 +0000
+	id 1tg6YR-00000007Aza-0LYB;
+	Thu, 06 Feb 2025 18:24:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B7FE05C6E45;
-	Thu,  6 Feb 2025 18:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F280DC4CEDD;
-	Thu,  6 Feb 2025 18:34:56 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 55640A4440F;
+	Thu,  6 Feb 2025 18:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A9C7C4CEDD;
+	Thu,  6 Feb 2025 18:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738866897;
-	bh=07vDG66ev83p01zAaMT8kEqDUlGghdgthMVYXHknZ9U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=bfZGlCVXrdk7w4t/8iKv9a/DiBQN+DvjO915t3HY6MQufd2NZVp+N4GP4WBt6Khob
-	 NLngTWmxmAfI4U71bmPGuAnq6lB8mPtZ/AnpVlwKWR97rW0O0l+SbpV/Exs6enToHV
-	 ONLJtr37mxuT3Kr0UGbYYiayecdgBxMXFNiVCs/XCBeQP2AHr+DH1HyxYu6rYzFV6m
-	 Q4HLPAudirfbIaX2XdGVLx0zcfjYkjaaP9OfYmCaAjhFI1CYr4TsgtHVwFpP0dHLVw
-	 r5cGkmtqOLJJisal+M3cYRcwAiKb+79H4JCPDenlEVI5ofFDOuNm+IruoZ2JafGW/p
-	 Eeso3Isa4at0g==
-Date: Thu, 6 Feb 2025 12:34:55 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	s=k20201202; t=1738866286;
+	bh=53zJkpFR18b9Ggt/TwIC2xs8XPYRRBAHjr15GY57Wrw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EchApnR6LI/AE9zaSEU0xrSO5CJrAIwdYiOYs3nEpROrfkzXVB23aqPS6Tiurf2bl
+	 g9FM3C3yDhm8aRh825IAWU+FFnqD90dBqy6sjjWjYWL7BQW6LttgflCdt+oKxa8F1d
+	 iSwrD5Z/uxSNpyTw2xFkoLESoir/Z8KjKUeFmriKF7Hqm/63Hwx60SnBoNfMoMnO+3
+	 deCndpmR70QViPcvDbgf2IwGciFQ1GcNeHv7mOYXfQZ9D8zWzeew1Pw3cL9OzlGS8V
+	 F6wbqCbigrDRVxLTWsZp/x4swPMvR6NOIdWT3lyblAK2/a1uWB3baigFDYYfa2TEsv
+	 e3l5RDUubNQjA==
+Date: Thu, 6 Feb 2025 18:24:40 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Lorenzo Bianconi <lorenzo.bianconi@redhat.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/6] PCI: brcmstb: Fix error path upon call of
- regulator_bulk_get()
-Message-ID: <20250206183455.GA994612@bhelgaas>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH net-next 09/13] dt-bindings: net: airoha: Add airoha,npu
+ phandle property
+Message-ID: <20250206-charbroil-armhole-078069994058@spud>
+References: <20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org>
+ <20250205-airoha-en7581-flowtable-offload-v1-9-d362cfa97b01@kernel.org>
+ <20250205-cleaver-evaluator-648c8f0b99bb@spud>
+ <Z6O8-dUrLNmvnW1u@lore-desk>
+ <20250205-disagree-motive-517efca2b90c@spud>
+ <Z6PPfnYV57NmWV6N@lore-desk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="2K4ihKtAKq5vhnGT"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+-6iNwws3On9-VJ-vF55o5LwKYpOHtfRYLtoQ5=bh7uGTfYkg@mail.gmail.com>
+In-Reply-To: <Z6PPfnYV57NmWV6N@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_103458_989791_E6ABFF67 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20250206_102447_255999_524A5D1A 
+X-CRM114-Status: GOOD (  30.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +90,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 01:22:54PM -0500, Jim Quinlan wrote:
-> On Thu, Feb 6, 2025 at 12:29 PM Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > On Wed, Feb 05, 2025 at 02:12:02PM -0500, Jim Quinlan wrote:
-> > > If regulator_bulk_get() returns an error, no regulators are
-> > > created and we need to set their number to zero.  If we do
-> > > not do this and the PCIe link-up fails, regulator_bulk_free()
-> > > will be invoked and effect a panic.
-> > >
-> > > Also print out the error value, as we cannot return an error
-> > > upwards as Linux will WARN on an error from add_bus().
 
-> > > Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
-> > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> > > ---
-> > >  drivers/pci/controller/pcie-brcmstb.c | 3 ++-
-> > >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> > > index f8fc3d620ee2..bf919467cbcd 100644
-> > > --- a/drivers/pci/controller/pcie-brcmstb.c
-> > > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> > > @@ -1417,7 +1417,8 @@ static int brcm_pcie_add_bus(struct pci_bus *bus)
-> > >
-> > >               ret = regulator_bulk_get(dev, sr->num_supplies, sr->supplies);
-> > >               if (ret) {
-> > > -                     dev_info(dev, "No regulators for downstream device\n");
-> > > +                     dev_info(dev, "Did not get regulators; err=%d\n", ret);
-> > > +                     sr->num_supplies = 0;
-> > >                       goto no_regulators;
-> >
-> > I think it might have been better if we could do the
-> > regulator_bulk_get() separately, before pci_host_probe(), so that if
-> > this error happens, we can deal with it more easily.
-> 
-> Keep in mind that brcm_pcie_add_bus() cannot return a non-zero error
-> code, as it will get a WARN() from the caller if it does.
-> 
-> Would you  accept deallocating the "sr" array and setting it to NULL
-> like the following error condition does?  In that way we would not be
-> invoking any regulator_bulk_xxxx() functions with nr==0.  I'm really
-> wary of moving things around...
+--2K4ihKtAKq5vhnGT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yeah, don't move anything around right now.  My wondering is just
-about whether the alloc and bulk_get() could be done earlier, leaving
-only the bulk_enable() to be done in brcm_pcie_add_bus().
+On Wed, Feb 05, 2025 at 09:52:14PM +0100, Lorenzo Bianconi wrote:
+> > On Wed, Feb 05, 2025 at 08:33:13PM +0100, Lorenzo Bianconi wrote:
+> > > > On Wed, Feb 05, 2025 at 07:21:28PM +0100, Lorenzo Bianconi wrote:
+> > > > > Introduce the airoha,npu property for the npu syscon node availab=
+le on
+> > > > > EN7581 SoC. The airoha Network Processor Unit (NPU) is used to of=
+fload
+> > > > > network traffic forwarded between Packet Switch Engine (PSE) port=
+s.
+> > > > >=20
+> > > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > > > > ---
+> > > > >  Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml | 8=
+ ++++++++
+> > > > >  1 file changed, 8 insertions(+)
+> > > > >=20
+> > > > > diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-=
+eth.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > > > > index c578637c5826db4bf470a4d01ac6f3133976ae1a..6388afff64e990a20=
+230b0c4e58534aa61f984da 100644
+> > > > > --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > > > > +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > > > > @@ -63,6 +63,12 @@ properties:
+> > > > >    "#size-cells":
+> > > > >      const: 0
+> > > > > =20
+> > > > > +  airoha,npu:
+> > > > > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > > > > +    description:
+> > > > > +      Phandle to the syscon node used to configure the NPU module
+> > > > > +      used for traffic offloading.
+> > > >=20
+> > > > Why do you need a phandle for this, instead of a lookup by compatib=
+le?
+> > > > Do you have multiple instances of this ethernet controller on the
+> > > > device, that each need to look up a different npu?
+> > >=20
+> > > actually not, but looking up via the compatible string has been naked=
+ by
+> > > Krzysztof on a different series [0].
+> >=20
+> > Hmm, I disagree with adding phandles that are not needed. I don't agree
+> > that there's no reuse, if you can treat the phandle identically on a new
+> > device, in all likelihood, that node should have a fallback to the
+> > existing one.
+>=20
+> honestly I do not have a strong opinion about it, I am fine both ways.
+>=20
+> >=20
+> > That said, the bigger problem in what you link is the ABI break caused =
+by
+> > requiring the presence of a new node. I'd NAK that patch too.
+>=20
+> there is no PCIe support in dts for this device upstream yet, so I guess =
+there
+> is no ABI break, right?
 
-The alloc and bulk_get() depend on DT things and it's nice to catch
-those errors earlier.
+The binding and driver are upstream and therefore there could be users.
+Whether or not the dts is upstream isn't what determines ABI break or not!
+If the thing worked before adding the syscon in the PCIe patch you'd linked,
+the syscon should remain optional - unless there really are no users
+that will be impacted. If it didn't work without the syscon, then I
+wonder why it was upstreamed like that at all.
 
-Bjorn
+--2K4ihKtAKq5vhnGT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6T+aAAKCRB4tDGHoIJi
+0q4aAQDZ7TcfNn+m4kHVpqE+dO6WwwXPFBYx5ZPAIVaG70FGqwD+L/yuigkFs46b
++PUbXOf0VcC8ooyHGLrQiOQ+p3oOSgA=
+=l89c
+-----END PGP SIGNATURE-----
+
+--2K4ihKtAKq5vhnGT--
 
