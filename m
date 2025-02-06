@@ -4,117 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840A4C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46391C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=; b=Mu5lMTJpP+RG1GEqTEiy76YwPO
-	/15gylwtcIjPSu66WyJYNBP3Hlgao1KibVgPvGZ2MJhIBcM/V71c/iIFNCZN2XNVGWgaSz47BnAQ8
-	6n9XsM9ltSlmm3X45e4a9Qk236OR70Khpo3F3PnBCByCAfYb/btlgxYZfHFlfa77G79afnrHb7uH3
-	2ggNnbuBzKqIWxvHfAXxwj+zcW5Kcl8+81MvqsWM2ehIsXN1ZXiytgKX3EsLbjA9+6B2oo0IK9aHl
-	qvhd4q1OHF+mxapt0Ukeu+zDFPoGPMSBreCJAPICSRKsxVovmie9aUbH6Rnoy6BVMBHVmH8RD2Hgy
-	mKPwQX7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2nQiAX5kbnc2+092r6wL3DXI8snZnGo3iGbU34BwyOs=; b=4R583/K7PLGUXwHm0ion4ximq7
+	oEZIfEPxSJnybyiuhrjwAK6TT26aQZx3sxn/WR4LDzjdcKmRpjYnohrmChHAH8FUs3RGmahvPz8aS
+	P3TYIRVXELbzx+4TS4JcXRN+m7EfFI9Av0J27db4z/h+7IQwWJKRN0LWO0KXVAAWuVzZLOPJUZViC
+	zzwTKUUrsOZzdJUW4tH2K8ZhmiPf/xvrX7otP3UFd5nxn7UNGuJnhxU+W1T4Sfvfi4FOEgYuRtqNY
+	ZRc+UY70yE0XBh2qd01JXlGI5H6sQxgDXK2jdpDgLm7tStdQmoEGT+BLkEyDQn40pAMLEj6g/e10T
+	3v6a27eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg08U-0000000696k-3oV5;
-	Thu, 06 Feb 2025 11:33:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzXR-000000061kr-0qF5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 10:55:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=; b=eSZxFN1ucie0a45jh1cb7+va+q
-	t2ADAUpYcL9/1TT0Hv5opLmnwxOmQfKejOO2YaVs0zwW/xumZxQUq4x+2CLDUYnNiJwUyAhWULWh4
-	V5F3O08ocps7yAtGjeBbnZnp0ohO+u2Ryfpqk5BujwUoJNCPcAlOPOab6bYOPMkmfVlB6bOcEPggT
-	Cvp0mqcKCMIBl6Gf+1Fn2nkovtXT7448NJ88UhppheW2bVeNctyllLuW/7I0SXYszTX0ijM9w46/F
-	ILrbR/UzcQoEupsxSF/r2FGC4tyQE3ZtqD5m4xyAaw8vj/z2dmaSbn8uM/I6Auq69SXiItZTpzL6f
-	CpHnVxog==;
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzXO-0000000GuzF-24EM
+	id 1tg09o-000000069KT-2T26;
+	Thu, 06 Feb 2025 11:34:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfzXa-000000061nJ-40z2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:55:16 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-43621d27adeso4641015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:55:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839313; x=1739444113; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=;
-        b=eVfq8q8hvviI2N4WrrDmWqDg8u72VrrkKLCfq6vzfqdELFtpPGu6o7di0r8jS/CYto
-         rI6Sb1Qrszm5r2vvLcWiw0jIpvAMH1Squg940kDYrPbwW8Jlx5tAjUOMbLLLbds6VMvi
-         bJqpOm6f0hul0POzCvXqCJWiYN/Z0arEvB+HjyyBxz7TCeLXUENXsDvWuFyAxCBpLeYw
-         kXuN6j2iiavx5dwIGIhLLpDMq1D2rXsoiLCxlcmf+B+m4ypoWpZ0XBDB3Pm31gDwo5Np
-         qMHTv6HCyGc8A2b4BWZwGOPsabzL4LKHiAnh8hmeeJ+uq11b1ZzF6I4QA59Z/00mq9gl
-         m+9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839313; x=1739444113;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=;
-        b=hmxkc2jE3HqXgK9YyQvLWDL45gTorqzLXGO253NovnLuRcfR8IlcefpGLxc/pVPNID
-         BwtJh37hxjUcmtIXZYKJMPzQ2UEIF4qks/NQ00fKCQ5Xl5s9++ijQqCcANM5FRl4u2DQ
-         hI08x0CRpbSRN5c20opSbkYyT2gAVX1GEJP1iXbK7EBHiiQ0BA9YF5OF6YIJkOgmytYs
-         EwE2sGJSzuth88N66vt2x4c4egY86jQSrQAqMx/k7vCZ5e+lRTJV9yadV1BVFWHTXmRf
-         MQc+sYz2l6J5KgO77jLzmEHPgzVAoSGTX8rW4FI2/Ze+nRR6P4EkYmnNVqaZ0lvuq53T
-         dYuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGaRAdWmt4aYGNlTJnydJf6uk1s2zq3lvIEf4NUkd3L296WpCX9x90WeUvd8fWe6OHAZcBtxi5iUBzh1DP3Gb5@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywggzn/QPog7E13YYqeJLI5dftGJq+0WmG+SAHeFyA4QV8l5iIv
-	momuRDyk+IaaiFpc56RveT8ZIOObeu0SX/6cRZCgxSPuu9qS9Cy3
-X-Gm-Gg: ASbGnct+8BtkbmcdeAa491Q0RTwzui2mXGnLZ8T98FToPA1eqIkr/pm65uDjxXQH5mF
-	l+nMVRfxVIm1wjJ/RATcoTCacGZJeFZT8hvrzITmM2h2+9ovP6FnhFqwCMTa8V1dRr9xF/Csr0p
-	b0m1+5+9L7kV5lt4Uq1t6B1qUw6hqE8sdYtH57n5tt0JYqZmCngy2L8ZSTVCvXh3wfwEWAVDa4q
-	aSzyu+0xVMOSiOmB3Qxvso+oCIRNfh/iSw9026Ir01ae2xWi9vfKYd++P5w4RczbDp5liOBhzlw
-	9SuLqQ==
-X-Google-Smtp-Source: AGHT+IHxQpWySsSSj+am/9movA5RR05zhmTuyQQ7kRFsu9/Thv/ZrVIRrKuBYgF71sqgdttaSpcNlA==
-X-Received: by 2002:a05:600c:1d01:b0:434:f335:855 with SMTP id 5b1f17b1804b1-4390d5a3b1amr46396125e9.28.1738839312912;
-        Thu, 06 Feb 2025 02:55:12 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:1e::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d9334e7sm50903345e9.6.2025.02.06.02.55.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:55:12 -0800 (PST)
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-To: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>,
-	Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 26/26] selftests/bpf: Add tests for rqspinlock
-Date: Thu,  6 Feb 2025 02:54:34 -0800
-Message-ID: <20250206105435.2159977-27-memxor@gmail.com>
-X-Mailer: git-send-email 2.43.5
-In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
-References: <20250206105435.2159977-1-memxor@gmail.com>
+	Thu, 06 Feb 2025 10:55:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5E7A1CC4;
+	Thu,  6 Feb 2025 02:55:49 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 548BC3F5A1;
+	Thu,  6 Feb 2025 02:55:24 -0800 (PST)
+Date: Thu, 6 Feb 2025 10:55:21 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com,
+	jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com,
+	stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH 7/8] KVM: arm64: Mark some header functions as inline
+Message-ID: <Z6SVGbr7cvrVnNMz@J2N7QTR9R3>
+References: <20250204152100.705610-1-mark.rutland@arm.com>
+ <20250204152100.705610-8-mark.rutland@arm.com>
+ <b76803b7-c1b3-426b-a375-0c01b98142c9@sirena.org.uk>
+ <Z6SJAkogWN9D7ZKf@J2N7QTR9R3>
+ <86seortkve.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15931; h=from:subject; bh=T/KW/xDA8UwHhiAJo3V+JzDoebizVQBXrYloT3/u9JY=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRnrlHnn/tBJ6oJ5t/DtGyjE2XhsWglV3leICP3 GP9uxzCJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZwAKCRBM4MiGSL8RygPCEA C9S+AZeaRDMKdILDKrL+7frf+PUkXKd4iu4zWS7lzhMl7sqS4Nh9t1j2+axKLBCR5GW16UadRkev9l 4AqI35PX5zJhmHuS98mojbAK0CpS2CGHXnEXEpFuaCyNsa1YcLtCp8cDsiMtko27s7eQKM+0JRXgV+ AHn3SqCKzv/56wYO8tQGN0xPhYGQyIQ358ZD+GyyR3NdWiQb7vmIK5qkZqGMpNOL1HQvR8gRQR6ptA 1PW4+UutQskXBQHy4BPCv1jc6WKr+5Dd2aa0c1PBdcGQ7fUZs9/wTKkNT+FDdNx7MlEYXg8Woa9RaX 14OIHH8WAYCA+BnP1Y20WdBptw0RU82vmXwQ5iwUyfjNyUeysFqk1dyT4ly8Wbg5CV4CXoBTsnyN6Y Sx5LJXb4UWDkzQm5GxqC7CXVXeFuV7ziqEu7dPwt7sqeT/WA9HEesT7Sc7e8S5gWuSULdoaCcKXMMz TxZWf652+WNHPkKtVodaoP4JvTJc8Vy2F+Li5/I7kMaVt2ZkqX18Qvf/4YXl2tJ/gWb6R9YYamNkwq EMJZ+zkvqv4Il+pSYLhiaoVY+mwAId1+LWNwv6b8UDTr5yVtRGYkxuTFGQWj7zgc3fxNJAX/9H6jHi OlLJLdnUrJZafds/4uVLPPoZVywAm415gF0IkMsXK0ujQlvIw6wx9VqTeeog==
-X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86seortkve.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_105514_620020_9925AC9F 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250206_025527_034694_DE8D3AE8 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,596 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce selftests that trigger AA, ABBA deadlocks, and test the edge
-case where the held locks table runs out of entries, since we then
-fallback to the timeout as the final line of defense. Also exercise
-verifier's AA detection where applicable.
+On Thu, Feb 06, 2025 at 10:42:29AM +0000, Marc Zyngier wrote:
+> On Thu, 06 Feb 2025 10:03:46 +0000,
+> Mark Rutland <mark.rutland@arm.com> wrote:
+> > That said, I'm going to go with the below, adding 'inline' to
+> > kvm_hyp_handle_memory_fault() and using CPP defines to alias the
+> > function names:
+> > 
+> > | static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
+> > |                                                u64 *exit_code)
+> > | {
+> > |         if (!__populate_fault_info(vcpu))
+> > |                 return true;
+> > | 
+> > |         return false;
+> > | }
+> > | #define kvm_hyp_handle_iabt_low         kvm_hyp_handle_memory_fault
+> > | #define kvm_hyp_handle_watchpt_low      kvm_hyp_handle_memory_fault
+> > 
+> > I think that's clearer, and it's more alisnged with how we usually alias
+> > function names in headers. Other than these two cases, __alias() is only
+> > used in C files to create a sesparate exprted symbol, and it's odd to
+> > use it in a header anyhow.
+> > 
+> > Marc, please should if you'd prefer otherwise.
+> 
+> Nah, that's fine by me.
+> 
+> My only issue was with marking functions as inline, and yet storing
+> pointers to these functions. But it looks like the compiler (GCC 12.2
+> in my case) is doing a good job noticing the weird pattern, and
+> generating only one function, even if we store multiple pointers.
 
-Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
----
- .../selftests/bpf/prog_tests/res_spin_lock.c  |  99 +++++++
- tools/testing/selftests/bpf/progs/irq.c       |  53 ++++
- .../selftests/bpf/progs/res_spin_lock.c       | 143 ++++++++++
- .../selftests/bpf/progs/res_spin_lock_fail.c  | 244 ++++++++++++++++++
- 4 files changed, 539 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
- create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock.c
- create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
+That's fair -- I'm fairly certain that we do this elsewhere too, but I
+can switch to __maybe_unused if we're worried that might bite us in
+future?
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
-new file mode 100644
-index 000000000000..5a46b3e4a842
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
-@@ -0,0 +1,99 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <test_progs.h>
-+#include <network_helpers.h>
-+
-+#include "res_spin_lock.skel.h"
-+#include "res_spin_lock_fail.skel.h"
-+
-+static void test_res_spin_lock_failure(void)
-+{
-+	RUN_TESTS(res_spin_lock_fail);
-+}
-+
-+static volatile int skip;
-+
-+static void *spin_lock_thread(void *arg)
-+{
-+	int err, prog_fd = *(u32 *) arg;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 10000,
-+	);
-+
-+	while (!READ_ONCE(skip)) {
-+		err = bpf_prog_test_run_opts(prog_fd, &topts);
-+		ASSERT_OK(err, "test_run");
-+		ASSERT_OK(topts.retval, "test_run retval");
-+	}
-+	pthread_exit(arg);
-+}
-+
-+static void test_res_spin_lock_success(void)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 1,
-+	);
-+	struct res_spin_lock *skel;
-+	pthread_t thread_id[16];
-+	int prog_fd, i, err;
-+	void *ret;
-+
-+	skel = res_spin_lock__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "res_spin_lock__open_and_load"))
-+		return;
-+	/* AA deadlock */
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	ASSERT_OK(err, "error");
-+	ASSERT_OK(topts.retval, "retval");
-+
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_held_lock_max);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	ASSERT_OK(err, "error");
-+	ASSERT_OK(topts.retval, "retval");
-+
-+	/* Multi-threaded ABBA deadlock. */
-+
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_AB);
-+	for (i = 0; i < 16; i++) {
-+		int err;
-+
-+		err = pthread_create(&thread_id[i], NULL, &spin_lock_thread, &prog_fd);
-+		if (!ASSERT_OK(err, "pthread_create"))
-+			goto end;
-+	}
-+
-+	topts.repeat = 1000;
-+	int fd = bpf_program__fd(skel->progs.res_spin_lock_test_BA);
-+	while (!topts.retval && !err && !READ_ONCE(skel->bss->err)) {
-+		err = bpf_prog_test_run_opts(fd, &topts);
-+	}
-+
-+	WRITE_ONCE(skip, true);
-+
-+	for (i = 0; i < 16; i++) {
-+		if (!ASSERT_OK(pthread_join(thread_id[i], &ret), "pthread_join"))
-+			goto end;
-+		if (!ASSERT_EQ(ret, &prog_fd, "ret == prog_fd"))
-+			goto end;
-+	}
-+
-+	ASSERT_EQ(READ_ONCE(skel->bss->err), -EDEADLK, "timeout err");
-+	ASSERT_OK(err, "err");
-+	ASSERT_EQ(topts.retval, -EDEADLK, "timeout");
-+end:
-+	res_spin_lock__destroy(skel);
-+	return;
-+}
-+
-+void test_res_spin_lock(void)
-+{
-+	if (test__start_subtest("res_spin_lock_success"))
-+		test_res_spin_lock_success();
-+	if (test__start_subtest("res_spin_lock_failure"))
-+		test_res_spin_lock_failure();
-+}
-diff --git a/tools/testing/selftests/bpf/progs/irq.c b/tools/testing/selftests/bpf/progs/irq.c
-index b0b53d980964..3d4fee83a5be 100644
---- a/tools/testing/selftests/bpf/progs/irq.c
-+++ b/tools/testing/selftests/bpf/progs/irq.c
-@@ -11,6 +11,9 @@ extern void bpf_local_irq_save(unsigned long *) __weak __ksym;
- extern void bpf_local_irq_restore(unsigned long *) __weak __ksym;
- extern int bpf_copy_from_user_str(void *dst, u32 dst__sz, const void *unsafe_ptr__ign, u64 flags) __weak __ksym;
- 
-+struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
-+struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
-+
- SEC("?tc")
- __failure __msg("arg#0 doesn't point to an irq flag on stack")
- int irq_save_bad_arg(struct __sk_buff *ctx)
-@@ -441,4 +444,54 @@ int irq_ooo_refs_array(struct __sk_buff *ctx)
- 	return 0;
- }
- 
-+SEC("?tc")
-+__failure __msg("cannot restore irq state out of order")
-+int irq_ooo_lock_cond_inv(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1, flags2;
-+
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&lockB, &flags2)) {
-+		bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+		return 0;
-+	}
-+
-+	bpf_res_spin_unlock_irqrestore(&lockB, &flags1);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags2);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("function calls are not allowed")
-+int irq_wrong_kfunc_class_1(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1;
-+
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
-+		return 0;
-+	/* For now, bpf_local_irq_restore is not allowed in critical section,
-+	 * but this test ensures error will be caught with kfunc_class when it's
-+	 * opened up. Tested by temporarily permitting this kfunc in critical
-+	 * section.
-+	 */
-+	bpf_local_irq_restore(&flags1);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("function calls are not allowed")
-+int irq_wrong_kfunc_class_2(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1, flags2;
-+
-+	bpf_local_irq_save(&flags1);
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags2))
-+		return 0;
-+	bpf_local_irq_restore(&flags2);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+	return 0;
-+}
-+
- char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock.c b/tools/testing/selftests/bpf/progs/res_spin_lock.c
-new file mode 100644
-index 000000000000..f68aa2ccccc2
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/res_spin_lock.c
-@@ -0,0 +1,143 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+
-+#define EDEADLK 35
-+#define ETIMEDOUT 110
-+
-+struct arr_elem {
-+	struct bpf_res_spin_lock lock;
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARRAY);
-+	__uint(max_entries, 64);
-+	__type(key, int);
-+	__type(value, struct arr_elem);
-+} arrmap SEC(".maps");
-+
-+struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
-+struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
-+
-+SEC("tc")
-+int res_spin_lock_test(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem1, *elem2;
-+	int r;
-+
-+	elem1 = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem1)
-+		return -1;
-+	elem2 = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem2)
-+		return -1;
-+
-+	r = bpf_res_spin_lock(&elem1->lock);
-+	if (r)
-+		return r;
-+	if (!bpf_res_spin_lock(&elem2->lock)) {
-+		bpf_res_spin_unlock(&elem2->lock);
-+		bpf_res_spin_unlock(&elem1->lock);
-+		return -1;
-+	}
-+	bpf_res_spin_unlock(&elem1->lock);
-+	return 0;
-+}
-+
-+SEC("tc")
-+int res_spin_lock_test_AB(struct __sk_buff *ctx)
-+{
-+	int r;
-+
-+	r = bpf_res_spin_lock(&lockA);
-+	if (r)
-+		return !r;
-+	/* Only unlock if we took the lock. */
-+	if (!bpf_res_spin_lock(&lockB))
-+		bpf_res_spin_unlock(&lockB);
-+	bpf_res_spin_unlock(&lockA);
-+	return 0;
-+}
-+
-+int err;
-+
-+SEC("tc")
-+int res_spin_lock_test_BA(struct __sk_buff *ctx)
-+{
-+	int r;
-+
-+	r = bpf_res_spin_lock(&lockB);
-+	if (r)
-+		return !r;
-+	if (!bpf_res_spin_lock(&lockA))
-+		bpf_res_spin_unlock(&lockA);
-+	else
-+		err = -EDEADLK;
-+	bpf_res_spin_unlock(&lockB);
-+	return err ?: 0;
-+}
-+
-+SEC("tc")
-+int res_spin_lock_test_held_lock_max(struct __sk_buff *ctx)
-+{
-+	struct bpf_res_spin_lock *locks[48] = {};
-+	struct arr_elem *e;
-+	u64 time_beg, time;
-+	int ret = 0, i;
-+
-+	_Static_assert(ARRAY_SIZE(((struct rqspinlock_held){}).locks) == 32,
-+		       "RES_NR_HELD assumed to be 32");
-+
-+	for (i = 0; i < 34; i++) {
-+		int key = i;
-+
-+		/* We cannot pass in i as it will get spilled/filled by the compiler and
-+		 * loses bounds in verifier state.
-+		 */
-+		e = bpf_map_lookup_elem(&arrmap, &key);
-+		if (!e)
-+			return 1;
-+		locks[i] = &e->lock;
-+	}
-+
-+	for (; i < 48; i++) {
-+		int key = i - 2;
-+
-+		/* We cannot pass in i as it will get spilled/filled by the compiler and
-+		 * loses bounds in verifier state.
-+		 */
-+		e = bpf_map_lookup_elem(&arrmap, &key);
-+		if (!e)
-+			return 1;
-+		locks[i] = &e->lock;
-+	}
-+
-+	time_beg = bpf_ktime_get_ns();
-+	for (i = 0; i < 34; i++) {
-+		if (bpf_res_spin_lock(locks[i]))
-+			goto end;
-+	}
-+
-+	/* Trigger AA, after exhausting entries in the held lock table. This
-+	 * time, only the timeout can save us, as AA detection won't succeed.
-+	 */
-+	if (!bpf_res_spin_lock(locks[34])) {
-+		bpf_res_spin_unlock(locks[34]);
-+		ret = 1;
-+		goto end;
-+	}
-+
-+end:
-+	for (i = i - 1; i >= 0; i--)
-+		bpf_res_spin_unlock(locks[i]);
-+	time = bpf_ktime_get_ns() - time_beg;
-+	/* Time spent should be easily above our limit (1/2 s), since AA
-+	 * detection won't be expedited due to lack of held lock entry.
-+	 */
-+	return ret ?: (time > 1000000000 / 2 ? 0 : 1);
-+}
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
-new file mode 100644
-index 000000000000..3222e9283c78
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
-@@ -0,0 +1,244 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_core_read.h>
-+#include "bpf_misc.h"
-+#include "bpf_experimental.h"
-+
-+struct arr_elem {
-+	struct bpf_res_spin_lock lock;
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARRAY);
-+	__uint(max_entries, 1);
-+	__type(key, int);
-+	__type(value, struct arr_elem);
-+} arrmap SEC(".maps");
-+
-+long value;
-+
-+struct bpf_spin_lock lock __hidden SEC(".data.A");
-+struct bpf_res_spin_lock res_lock __hidden SEC(".data.B");
-+
-+SEC("?tc")
-+__failure __msg("point to map value or allocated object")
-+int res_spin_lock_arg(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock((struct bpf_res_spin_lock *)bpf_core_cast(&elem->lock, struct __sk_buff));
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("AA deadlock detected")
-+int res_spin_lock_AA(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock(&elem->lock);
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("AA deadlock detected")
-+int res_spin_lock_cond_AA(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock))
-+		return 0;
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_mismatch_1(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock))
-+		return 0;
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_mismatch_2(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	bpf_res_spin_unlock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_irq_mismatch_1(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_local_irq_save(&f1);
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_irq_mismatch_2(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
-+		return 0;
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__success
-+int res_spin_lock_ooo(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock)) {
-+		bpf_res_spin_unlock(&res_lock);
-+		return 0;
-+	}
-+	bpf_res_spin_unlock(&elem->lock);
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__success
-+int res_spin_lock_ooo_irq(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1, f2;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&elem->lock, &f2)) {
-+		bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+		/* We won't have a unreleased IRQ flag error here. */
-+		return 0;
-+	}
-+	bpf_res_spin_unlock_irqrestore(&elem->lock, &f2);
-+	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+	return 0;
-+}
-+
-+struct bpf_res_spin_lock lock1 __hidden SEC(".data.OO1");
-+struct bpf_res_spin_lock lock2 __hidden SEC(".data.OO2");
-+
-+SEC("?tc")
-+__failure __msg("bpf_res_spin_unlock cannot be out of order")
-+int res_spin_lock_ooo_unlock(struct __sk_buff *ctx)
-+{
-+	if (bpf_res_spin_lock(&lock1))
-+		return 0;
-+	if (bpf_res_spin_lock(&lock2)) {
-+		bpf_res_spin_unlock(&lock1);
-+		return 0;
-+	}
-+	bpf_res_spin_unlock(&lock1);
-+	bpf_res_spin_unlock(&lock2);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("off 1 doesn't point to 'struct bpf_res_spin_lock' that is at 0")
-+int res_spin_lock_bad_off(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock((void *)&elem->lock + 1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("R1 doesn't have constant offset. bpf_res_spin_lock has to be at the constant offset")
-+int res_spin_lock_var_off(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	u64 val = value;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem) {
-+		// FIXME: Only inline assembly use in assert macro doesn't emit
-+		//	  BTF definition.
-+		bpf_throw(0);
-+		return 0;
-+	}
-+	bpf_assert_range(val, 0, 40);
-+	bpf_res_spin_lock((void *)&value + val);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("map 'res_spin.bss' has no valid bpf_res_spin_lock")
-+int res_spin_lock_no_lock_map(struct __sk_buff *ctx)
-+{
-+	bpf_res_spin_lock((void *)&value + 1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("local 'kptr' has no valid bpf_res_spin_lock")
-+int res_spin_lock_no_lock_kptr(struct __sk_buff *ctx)
-+{
-+	struct { int i; } *p = bpf_obj_new(typeof(*p));
-+
-+	if (!p)
-+		return 0;
-+	bpf_res_spin_lock((void *)p);
-+	return 0;
-+}
-+
-+char _license[] SEC("license") = "GPL";
--- 
-2.43.5
-
+Mark.
 
