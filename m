@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6EDC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7117C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h5o85IRwQAQol+2RyeyjqUcm77MQO6iNnucufEg6oxQ=; b=tvTr5L41xYwy3DKx4lAMJZwe7q
-	eGCgu8srnN8YGPb3rqfb6pAlWTz27YAaxzgaUa5z5vFxpsivuP42wQmgRFoPgBTaCvFKw9i6x/wbR
-	/kUXh69goLiipuT789T9+Y5xTSQV725fEVN7YZYyEZKZPZGGwJ3AgarpwK4Y42LNxmF2vVQlMvNnS
-	Jlq/p19aHWWenmAjKwFdq8OYsFIch4bAbVviKJQLtY/ecRNHtz/0qaYFsGT858kge179W9o9CzQDS
-	bn7pYQKKyWB1e/LChPWDvS/1QBMJJR/r2UbZB+85y2HbQktsWffJzb9NUiv2uOz4mdBddarDHjdAW
-	DbojlNXw==;
+	bh=usgSqRfES1Gzj42d5clZFSs6dxStdYKZxMssEmW/wH0=; b=lx/pKQw1jlvVecGs5LBGPrhJOR
+	iz++PO8B5cxxZLF1sydAgRnKGeM4Xe5tQVeroDTqb9BmpLxLh25Po/L+ALDwj3TAnuMy2wS8KmKkN
+	dNsHLPSq5t9/pYep29dKJ6K3co6t2dJ707kMndaJcXsq43dsoJGsEKpY8x7H1IyneZHbis/z5VxCp
+	HBPFgcyFap4C/ImU0p15WTbbof1HNy4rzMYE4L+fUP+mkUXXRs7SJb9lgaEIneU93/skpynU8afQV
+	eevKW6MbQg40ztmW0jLH8Sw7+IzVFN3LLzk5ThpCM3wHJLDvvNkI5HVpu0THdHVH+itcJ0bR7gS7S
+	JywcAJLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0MF-00000006BwA-2eV4;
-	Thu, 06 Feb 2025 11:47:47 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tg0Na-00000006C78-2o28;
+	Thu, 06 Feb 2025 11:49:10 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzkV-000000064iA-1ili;
-	Thu, 06 Feb 2025 11:08:48 +0000
+	id 1tfzkW-000000064ib-0eeU;
+	Thu, 06 Feb 2025 11:08:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1738840125;
-	bh=8iUqAlvy20/ugHD4XAj0Q41lxITTOI+gRyQEhcW7HYE=;
+	s=mail; t=1738840126;
+	bh=8lSiNbk0Ww5hds1Fb3dZ9RfxdJ4VHhcD9zA3wffpAzc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=CZOj5nDpAp1zv5PZljzdV/FMlXFlD4v3Zb21YEOCZYH8SwwK1RMWv6skvvcp+rs3x
-	 IAwmpG89URgjHBJppYniq8fjNyKVN8ZC4Dp6r5XEySURd+4gT5TuXtFz7rug+7SUfj
-	 HYmnU8jzGNbEkijGY3BSh0bYiq8SnH5UzSGGSp47zjDk2z3uAeb21fk3nDy9M6wN4/
-	 /94x3YHscS4uLMrCOFt1h3RKKvzpDr/WjLTK5Kj/Dn/ohZAlUX5GWs3bAVZbWfue3o
-	 PjV5TjHdfugGkqgWe60+8NOAdWg/StUtwX/bSVa/uKnI0YDKhVMXm8bDa+ah4iYzNV
-	 JIvftXuxIoGtg==
+	b=G5EI84RKQU9mWu/p6S/vIjWZmyqLD4Xupzx0ar7iVdROE1VvLMXGGOd0xsIR1LAvv
+	 XDbzVoi2Onc7kIRCHPkOuT6d6z8qxdbH/4VK7JuSA/aGmb464xhKAZ/1sPmptuZ01U
+	 cCpvBIhFUE+6opryBpXfawlCOrEkJ8BT9yotozS06fcYAmbi9JpMV/9IB4ZfKL4qCt
+	 wfEQY1GcGWNLuf0F2EMxS9iRazSQ1/H+g8Q8Cyw1yrcspRKycVJ14qxSimYZBu8var
+	 UbjWN+QuH/lxw+cVlHHYYFG/1AmAzb3ymjnayW/vlrKr5HxpZrgm/vPAaC3vtNQtA5
+	 TitYAycOsF1rQ==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B615617E0FCC;
-	Thu,  6 Feb 2025 12:08:44 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0998E17E1411;
+	Thu,  6 Feb 2025 12:08:45 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
- Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>, 
- amergnat@baylibre.com
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Fabien Parent <fparent@baylibre.com>
-In-Reply-To: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
-References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
-Subject: Re: (subset) [PATCH v7 0/6] Add display support for the MT8365-EVK
- board
-Message-Id: <173884012467.110657.7286906897029273506.b4-ty@collabora.com>
-Date: Thu, 06 Feb 2025 12:08:44 +0100
+ Sean Wang <sean.wang@mediatek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20250206-dts_mt8370-genio-510-v3-0-5ca5c3257a4c@collabora.com>
+References: <20250206-dts_mt8370-genio-510-v3-0-5ca5c3257a4c@collabora.com>
+Subject: Re: [PATCH v3 0/4] Add support for Mediatek Genio 510 EVK board
+Message-Id: <173884012597.110657.15653298981143162594.b4-ty@collabora.com>
+Date: Thu, 06 Feb 2025 12:08:45 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_030847_626182_2AF39F6C 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_030848_347801_4CC7B1C9 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +79,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jan 2025 14:31:10 +0100, amergnat@baylibre.com wrote:
-> The purpose of this series is to add the display support for the mt8365-evk.
+On Thu, 06 Feb 2025 11:38:07 +0100, Louis-Alexis Eyraud wrote:
+> This patchset adds the basic support of the Mediatek Genio 510 EVK
+> board, based on the Mediatek MT8370 SoC.
 > 
-> This is the list of HWs / IPs support added:
-> - Connectors (HW):
->   - HDMI
->   - MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)
-> - HDMI bridge (it66121)
-> - DSI pannel (startek,kd070fhfid015)
-> - SoC display blocks (IP):
->   - OVL0 (Overlay)
->   - RDMA0 (Data Path Read DMA)
->   - Color0
->   - CCorr0 (Color Correction)
->   - AAL0 (Adaptive Ambient Light)
->   - GAMMA0
->   - Dither0
->   - DSI0 (Display Serial Interface)
->   - RDMA1 (Data Path Read DMA)
->   - DPI0 (Display Parallel Interface)
+> It adds a device-tree file for the board (mt8370-genio-510-evk.dtb)
+> and an include file for the SoC (mt8370.dtsi), in order to be able to
+> boot. As the board is very close to the Genio 700 EVK board, an include file
+> (mt8390-genio-common.dtsi) is also created to factorize the common
+> definitions.
 > 
 > [...]
 
 Applied to v6.14-next/dts64, thanks!
 
-[5/6] arm64: dts: mediatek: add display blocks support for the MT8365 SoC
-      commit: ec207ea7f6f9abb5b0c50394b02f434aa1ca7e52
-[6/6] arm64: dts: mediatek: add display support for mt8365-evk
-      commit: b7b5052f6b13061db179cf2f0f16c3334e27239c
+[1/4] dt-bindings: arm: mediatek: add mt8370-evk board
+      commit: a11256de6296fd8e0122ebe067bbaa936b7fef12
+[2/4] arm64: dts: mediatek: add support for MT8370 SoC
+      commit: 49b07ed22e3707a120c1f4a11be9560d9d712e31
+[3/4] arm64: dts: mediatek: mt8390-genio-700-evk: Move common parts to dtsi
+      commit: e9a4cfe83fe27a82b92cfd6870ce1e71e414fd6e
+[4/4] arm64: dts: mediatek: add device-tree for Genio 510 EVK board
+      commit: 3ac908716b8297d3ba6c6010104065517ec341a8
 
 Cheers,
 Angelo
