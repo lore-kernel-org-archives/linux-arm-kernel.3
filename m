@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8C1C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EDDC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yua/USW/1aj6iciF4+Quq99t1aTQP9ob76c3VlC+xvw=; b=eHr1i5V5tasy8YohIand6Bk3CQ
-	zL0ZAUM1WKa1jZPsaPPRGyYYEh5JSV/7vqUuC0FhkpnNLrS4pRmzz4+g65B4uzYNU6j0DDlqGCYz8
-	+QoTRQYdr6oYHNOrvGFJ2uUJoHA85zH1qh/qy4/F5ENlkcwsck1RpTnTq7BGaFLv3ueKkbZLgZJ0K
-	h6eNLAQYGFfd9E9ooQKGK5+iPs4sLzv2Di3LCe6bbYPj/8lxsVFGbG+dML5wyOy9ma+i5C7APY8nF
-	8h/ftq5goeQAXICA581fNH5BLwKjFYNhzbFew6RXlB9kt+/cEOMk0an9H6hCPC8M63Nl8lNO3ShU5
-	w55siYIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CvFj6ZjyeRDT2lFZ3Nl5eiNmrdLo1clWZhOsPQXtbMc=; b=JI3XoooqVBzh03qP4yPI8Kkowi
+	mmwU6eoKxbnJq5wnDu3FDXR9NfZG6+2pTRr6MDYSECFzKXgL0FTZqXo3w4Ci12YZRQh6v33vXXFvJ
+	/H77cnGv7wOj6ceCSDd1SEao4oBu59PRXMLJSaXwBLfpbZidrxWEHTDbwLAX8Xr0gARWW174OtcF5
+	izdpJctL9TcBQEuNJ2yPv6wkfj7n3u0W6HULt9vc9dIju6nmmHFOyONANODTW6nK/zSzZbh8luXmZ
+	UaJjQkBeIVk0iFbagghlJw0utxPfXK4qjtO1RhukmmiTfXgfqcQN+Z65a7GEpktoP/2z7KkJIz5PF
+	rx5EYJYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfx6C-00000005hEs-46hT;
-	Thu, 06 Feb 2025 08:19:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tfxFV-00000005hua-0pml;
+	Thu, 06 Feb 2025 08:28:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfx4p-00000005h8s-3mk0
+	id 1tfxE7-00000005hif-3MHk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 08:17:37 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5167xh7A006173;
-	Thu, 6 Feb 2025 08:17:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Yua/USW/1aj6iciF4+Quq99t1aTQP9ob76c3VlC+xvw=; b=WJHT/uJbrpihI1nw
-	pjHS4zPZEe4DarYaNYknkNe7YKL4SUSncUUlml4yf60l2pze0tQJ7MfU4ObgxpAV
-	20P2AHEYOHDw5aaRNxCPnM4R9dUNhvJeTo8wf5m2EpX84myDGqjyFocKQN3nea62
-	5JtLh53dMosy2r/nF8ONR4b1aiVcXD8x/luq+RDok4XkKLszWaPj6L11ZqW7O2c7
-	oLzAdqniP1jXnsYo8hjsRHBrjnaZ/doUeqq3W2/aJhlLxaYfi2IqFGPF2A3QZLUY
-	BNljcQPkcc0d3QZ7Gwlo6ffbxZjx6YcKp1kARe6xgO04doF80hmy9FDx+c/kwm3Z
-	OwmK6g==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44mp648f6g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Feb 2025 08:17:27 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5168HQe2004233
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 6 Feb 2025 08:17:26 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 6 Feb 2025
- 00:17:21 -0800
-Message-ID: <bc44f10b-eafa-4f18-9d3c-b81dda0051a7@quicinc.com>
-Date: Thu, 6 Feb 2025 16:17:18 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight-tmc: stop disabling tmc when flush timeout
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: <kernel@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250103-fix_cpu_hung-v1-1-a7b9b3893d44@quicinc.com>
-Content-Language: en-US
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-In-Reply-To: <20250103-fix_cpu_hung-v1-1-a7b9b3893d44@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: gStDnVDkp0XwBq6GiCK5c8mJPJPRzO1A
-X-Proofpoint-ORIG-GUID: gStDnVDkp0XwBq6GiCK5c8mJPJPRzO1A
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-06_01,2025-02-05_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
- clxscore=1015 malwarescore=0 mlxlogscore=909 mlxscore=0 bulkscore=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 adultscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502060067
+	Thu, 06 Feb 2025 08:27:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6A9CA43EDE;
+	Thu,  6 Feb 2025 08:25:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7696BC4CEDD;
+	Thu,  6 Feb 2025 08:27:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738830430;
+	bh=0qtYGiPYsqYZLBqgJ+4cbTZlqzHvL7ZKnM+o5kglBH4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=n/ecygOy6uKcaclmbQ12QrdKFZ7C2/0m+gI3kwhl3imre6Lv2sCXRBxobHM0niAfP
+	 TG8qr9FuyEenPumR3fFXnqKp6TG5fW/W3vaC+EXUsJ/9mt5MgyP3Vb8nqh24PPemuV
+	 dziSwQTFj2C1mr+6QmR79/tfzrVUyMK0Nb0NILWqj+wK+IX7wAzxDtQlbwZQF48amT
+	 cZC8HOdc0aCm2AH8P44vaBicHO4wU41uUo6MZmndlfenPuIV0VNMuxHE2ga9UPqF4r
+	 jqm0migL8XEdlIou78rSL1kpUbUaBXfpDP5+OE3d8pkZQFhHcYGghBlHyGKAuEDe/O
+	 01NVyRtseB++A==
+Received: from 82-132-235-183.dab.02.net ([82.132.235.183] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tfxE3-00131o-Fj;
+	Thu, 06 Feb 2025 08:27:07 +0000
+Date: Thu, 06 Feb 2025 08:27:08 +0000
+Message-ID: <87frkrtr4z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2] KVM: arm64: Remove cyclical dependency in arm_pmuv3.h
+In-Reply-To: <20250206001744.3155465-1-coltonlewis@google.com>
+References: <20250206001744.3155465-1-coltonlewis@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.235.183
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_001736_076639_71DF5E01 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250206_002711_965027_2BE137D3 
+X-CRM114-Status: GOOD (  34.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,128 +91,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Colton,
 
-
-On 1/3/2025 4:01 PM, Yuanfang Zhang wrote:
-> When multiple ETMs are enabled simultaneously, the time required
-> to complete a flush in the process of reading the TMC device node
-> may exceed the default wait time of 100us. If the TMC capture is
-> stopped while any ETM has not completed its flush, it can cause
-> the corresponding CPU to hang.
-> Fix the by checking the TMCReady bit after the flush. If TMCReady
-> bit is set, TraceCaptEn bit can be clear; otherwise, return directly
-> and stop the TMC read.
+On Thu, 06 Feb 2025 00:17:44 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
 > 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> asm/kvm_host.h includes asm/arm_pmu.h which includes perf/arm_pmuv3.h
+> which includes asm/arm_pmuv3.h which includes asm/kvm_host.h This
+> causes confusing compilation problems why trying to use anything
+> defined in any of the headers in any other headers. Header guards is
+> the only reason this cycle didn't create tons of redefinition
+> warnings.
+> 
+> The motivating example was figuring out it was impossible to use the
+> hypercall macros kvm_call_hyp* from kvm_host.h in arm_pmuv3.h. The
+> compiler will insist they aren't defined even though kvm_host.h is
+> included. Many other examples are lurking which could confuse
+> developers in the future.
+
+Well, that's because contrary to what you have asserted in v1, not all
+include files are legitimate to use willy-nilly. You have no business
+directly using asm/kvm_host.h, and linux/kvm_host.h is what you need.
+
+> 
+> Break the cycle by taking asm/kvm_host.h out of asm/arm_pmuv3.h
+> because asm/kvm_host.h is huge and we only need a few functions from
+> it. Move the required declarations to a new header asm/kvm_pmu.h.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
 > ---
->  drivers/hwtracing/coresight/coresight-tmc-etf.c | 17 +++++++++++++++--
->  drivers/hwtracing/coresight/coresight-tmc-etr.c | 22 +++++++++++++++++-----
->  2 files changed, 32 insertions(+), 7 deletions(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> index d4f641cd9de69488fe3d1c1dc9b5a9eafb55ed59..bded290c42891d782344d9a6e63ebdbed6719133 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> @@ -80,11 +80,21 @@ static void tmc_etb_dump_hw(struct tmc_drvdata *drvdata)
->  	return;
->  }
->  
-> -static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
-> +static int __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
->  {
-> +	int rc;
-> +
->  	CS_UNLOCK(drvdata->base);
->  
->  	tmc_flush_and_stop(drvdata);
-> +
-> +	rc = tmc_wait_for_tmcready(drvdata);
-> +	if (rc) {
-> +		dev_err(&drvdata->csdev->dev,
-> +			"Failed to disable : TMC is not ready\n");
-> +		CS_LOCK(drvdata->base);
-> +		return rc;
-> +	}
->  	/*
->  	 * When operating in sysFS mode the content of the buffer needs to be
->  	 * read before the TMC is disabled.
-> @@ -94,6 +104,7 @@ static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
->  	tmc_disable_hw(drvdata);
->  
->  	CS_LOCK(drvdata->base);
-> +	return 0;
->  }
->  
->  static void tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
-> @@ -650,7 +661,9 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
->  			ret = -EINVAL;
->  			goto out;
->  		}
-> -		__tmc_etb_disable_hw(drvdata);
-> +		ret = __tmc_etb_disable_hw(drvdata);
-> +		if (ret)
-> +			goto out;
->  	}
->  
->  	drvdata->reading = true;
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index a48bb85d0e7f44a25b813f3c828cc3d705d16012..63a1f7501562fa0b5c2fe6ea53dce4d82842bec3 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1135,11 +1135,21 @@ static void tmc_etr_sync_sysfs_buf(struct tmc_drvdata *drvdata)
->  	}
->  }
->  
-> -static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
-> +static int __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
->  {
-> +	int rc;
-> +
->  	CS_UNLOCK(drvdata->base);
->  
->  	tmc_flush_and_stop(drvdata);
-> +
-> +	rc = tmc_wait_for_tmcready(drvdata);
-> +	if (rc) {
-> +		dev_err(&drvdata->csdev->dev,
-> +			"Failed to disable : TMC is not ready\n");
-> +		CS_LOCK(drvdata->base);
-> +		return rc;
-> +	}
->  	/*
->  	 * When operating in sysFS mode the content of the buffer needs to be
->  	 * read before the TMC is disabled.
-> @@ -1150,7 +1160,7 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
->  	tmc_disable_hw(drvdata);
->  
->  	CS_LOCK(drvdata->base);
-> -
-> +	return 0;
->  }
->  
->  void tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
-> @@ -1779,9 +1789,11 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
->  	}
->  
->  	/* Disable the TMC if we are trying to read from a running session. */
-> -	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-> -		__tmc_etr_disable_hw(drvdata);
-> -
-> +	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
-> +		ret = __tmc_etr_disable_hw(drvdata);
-> +		if (ret)
-> +			goto out;
-> +	}
->  	drvdata->reading = true;
->  out:
->  	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> 
-> ---
-> base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
-> change-id: 20250103-fix_cpu_hung-b5a95179ada4
-> 
-> Best regards,
+> Possibly spinning more definitions out of asm/kvm_host.h would be a
+> good idea, but I'm not interested in getting bogged down in which
+> functions ideally belong where. This is sufficient to break the
 
-gently reminder.
+Tough luck. I'm not interested in half baked solutions, and "what
+belongs where" *is* the problem that needs solving.
 
+> cyclical dependency and get rid of the compilation issues. Though I
+> mention the one example I found, many other similar problems could
+> confuse developers in the future.
+> 
+> v2:
+> * Make a new header instead of moving kvm functions into the
+>   dedicated pmuv3 header
+> 
+> v1:
+> https://lore.kernel.org/kvm/20250204195708.1703531-1-coltonlewis@google.com/
+> 
+>  arch/arm64/include/asm/arm_pmuv3.h |  3 +--
+>  arch/arm64/include/asm/kvm_host.h  | 14 --------------
+>  arch/arm64/include/asm/kvm_pmu.h   | 26 ++++++++++++++++++++++++++
+>  include/kvm/arm_pmu.h              |  1 -
+>  4 files changed, 27 insertions(+), 17 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/kvm_pmu.h
+> 
+> diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
+> index 8a777dec8d88..54dd27a7a19f 100644
+> --- a/arch/arm64/include/asm/arm_pmuv3.h
+> +++ b/arch/arm64/include/asm/arm_pmuv3.h
+> @@ -6,9 +6,8 @@
+>  #ifndef __ASM_PMUV3_H
+>  #define __ASM_PMUV3_H
+> 
+> -#include <asm/kvm_host.h>
+> -
+>  #include <asm/cpufeature.h>
+> +#include <asm/kvm_pmu.h>
+>  #include <asm/sysreg.h>
+> 
+>  #define RETURN_READ_PMEVCNTRN(n) \
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7cfa024de4e3..6d4a2e7ab310 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1385,25 +1385,11 @@ void kvm_arch_vcpu_ctxflush_fp(struct kvm_vcpu *vcpu);
+>  void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
+>  void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu);
+> 
+> -static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+> -{
+> -	return (!has_vhe() && attr->exclude_host);
+> -}
+> -
+>  #ifdef CONFIG_KVM
+> -void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+> -void kvm_clr_pmu_events(u64 clr);
+> -bool kvm_set_pmuserenr(u64 val);
+>  void kvm_enable_trbe(void);
+>  void kvm_disable_trbe(void);
+>  void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest);
+>  #else
+> -static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+> -static inline void kvm_clr_pmu_events(u64 clr) {}
+> -static inline bool kvm_set_pmuserenr(u64 val)
+> -{
+> -	return false;
+> -}
+>  static inline void kvm_enable_trbe(void) {}
+>  static inline void kvm_disable_trbe(void) {}
+>  static inline void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest) {}
+> diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
+> new file mode 100644
+> index 000000000000..3a8f737504d2
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/kvm_pmu.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#ifndef __KVM_PMU_H
+> +#define __KVM_PMU_H
+> +
+> +void kvm_vcpu_pmu_resync_el0(void);
+> +
+> +#ifdef CONFIG_KVM
+> +void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+> +void kvm_clr_pmu_events(u64 clr);
+> +bool kvm_set_pmuserenr(u64 val);
+> +#else
+> +static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+> +static inline void kvm_clr_pmu_events(u64 clr) {}
+> +static inline bool kvm_set_pmuserenr(u64 val)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+> +static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+> +{
+> +	return (!has_vhe() && attr->exclude_host);
+> +}
+> +
+> +#endif
+
+How does this solve your problem of using the HYP-calling macros?
+
+> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+> index 147bd3ee4f7b..2c78b1b1a9bb 100644
+> --- a/include/kvm/arm_pmu.h
+> +++ b/include/kvm/arm_pmu.h
+> @@ -74,7 +74,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu);
+>  struct kvm_pmu_events *kvm_get_pmu_events(void);
+>  void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+>  void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+> -void kvm_vcpu_pmu_resync_el0(void);
+> 
+>  #define kvm_vcpu_has_pmu(vcpu)					\
+>  	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+>
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+
+I'm absolutely not keen on *two* PMU-related include files. They both
+describe internal APIs, and don't see a good reasoning for this
+arbitrary split other than "it works better for me and I don't want to
+do more than strictly necessary".
+
+For example, include/kvm was only introduced to be able to share files
+between architectures, and with 32bit KVM/arm being long dead, this
+serves no purpose anymore. Moving these things out of the way would be
+a good start and would provide a better base for further change.
+
+So please present a rationale on what needs to go where and why based
+on their usage pattern rather than personal convenience, and then
+we'll look at a possible patch. But not the other way around.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
