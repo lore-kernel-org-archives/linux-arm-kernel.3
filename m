@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FB5C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49524C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q/hPjfrmBqGxLdAhschBZsF6fpecnKff2pCdRQJEkKM=; b=enbZKUhNoY/nXEncx2fXnGZw8W
-	GIjMUo8TDvTsLQ9m5S+TUPbDTnBQ/4eAXH3tBkJKscW01Tfi6MmRc5ul6OZnNfYIcEXog1vjflI0L
-	oDChd/G7cOyNm3JCkvDvVZbJ5QV2M5M/F+E3NFm8855d3emQy4a58nQzguxDb5+CuKQ7izPH3uEfv
-	QWnwHW5ynmbujOaJWOn8aMhdljQuHEK4hcFRTZcKUqRO+f/Ee7eSmCCqW8H8GxTwc3z0Dksfuecqp
-	rlwukzR3Ausbjy2LXv5VHczWmH0kH14iMWxKl2jHcaA6u7KX2FI9BdpcB4gMz1iuLe9ER/rH+wCoy
-	y5Nr9pqg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jX+BsNnJhq2mryQxr8s7JIl4isTBBIXZ+aJFSDZ21XE=; b=mwS/Bvk9dfGcFF6o8nRa8upIO0
+	G68MY6c+P+XNssA0xlQNy6hplLLQXI7SkBHlkiZQlfi/cE06B3J79CU7Dq0AbflRDEbsuoyVMwAXx
+	4faFe7ExRGSFptM6yk4GnqBQAKLl9Hih9Mlis237uCwPrnIXzQdFFIv2esuwuAEZY756crmwXFCN1
+	yJZexQLLBvC+aUXJ7znWDb1b9hjXUeO42/XU9rZPT8jl/JxFtJwD9l28wQCzbDxU7kM3yL1lSEx8T
+	1ACrSp9Xil+SoDcEgCiV0V3xg/TC8MX0wfyKrivqedCkmZ2kB7N+YK7WQzmuVVydeaepFmm0dHkH7
+	21zMrRQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfy5t-00000005oxF-2Nn3;
-	Thu, 06 Feb 2025 09:22:45 +0000
-Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
+	id 1tfy7E-00000005p8m-0p5S;
+	Thu, 06 Feb 2025 09:24:08 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfy4V-00000005oks-2yMl
+	id 1tfy4g-00000005olT-2Lf8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 09:21:21 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5169L0aC3525872
+	Thu, 06 Feb 2025 09:21:31 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5169LIih3525916
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 6 Feb 2025 03:21:00 -0600
+	Thu, 6 Feb 2025 03:21:18 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738833660;
-	bh=q/hPjfrmBqGxLdAhschBZsF6fpecnKff2pCdRQJEkKM=;
-	h=From:To:CC:Subject:Date;
-	b=Y6TbVl68Ibizx7RIPtSmeC2N5R5Ca8bfs0aZA6vbn+xXBwzktXlVw6FOsDTT8Qyad
-	 4pHlKzcpa0THLDN/zhVELahIhrlyvPmP7MjgWFeXArRROceIO+mfuobxH7JSYe4Dz9
-	 u/lRyJ3izAzRLzxh33gElIbE+ADzMkpa6N3hAE2Q=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5169L0Ul007091
+	s=ti-com-17Q1; t=1738833678;
+	bh=jX+BsNnJhq2mryQxr8s7JIl4isTBBIXZ+aJFSDZ21XE=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=qNJSzotH5ss/CdG3DNblTNxg3K0eTxfR8+CY5xkuzeDL95Cj/lpaLsIAkzRgSrs/R
+	 aFoMJ7SRxFi4QPAEf00KyDjuJUvm+YTDbBaiyB1csaUZCob78UGbN+cN7pOgt/hJtJ
+	 JmfjLiPiSURdKCE7gsXMC3EoCmMJeIMNapnZ98nk=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5169LI3b023406
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 6 Feb 2025 03:21:00 -0600
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 6 Feb 2025 03:21:18 -0600
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
- Feb 2025 03:20:59 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ Feb 2025 03:21:17 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 6 Feb 2025 03:20:59 -0600
+ Frontend Transport; Thu, 6 Feb 2025 03:21:18 -0600
 Received: from pratham-Workstation-PC (pratham-workstation-pc.dhcp.ti.com [172.24.227.40])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5169Kwr3009086;
-	Thu, 6 Feb 2025 03:20:59 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5169LGFJ129535;
+	Thu, 6 Feb 2025 03:21:17 -0600
 From: T Pratham <t-pratham@ti.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>,
         "David S. Miller"
@@ -73,19 +73,20 @@ CC: T Pratham <t-pratham@ti.com>, <linux-crypto@vger.kernel.org>,
         Kamlesh Gurudasani
 	<kamlesh@ti.com>,
         Manorit Chawdhry <m-chawdhry@ti.com>
-Subject: [PATCH RFC 0/3] Add support for Texas Instruments DTHE V2 crypto accelerator
-Date: Thu, 6 Feb 2025 14:44:29 +0530
-Message-ID: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
+Subject: [PATCH RFC 1/3] dt-bindings: crypto: Add binding for TI DTHE V2 driver
+Date: Thu, 6 Feb 2025 14:44:30 +0530
+Message-ID: <20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
+References: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20250205-dthe-v2-aes-80ea2dd58185
 X-Mailer: b4 0.14.2
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_012120_036795_338BD916 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250206_012130_694819_258B89D4 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +101,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds support for TI DTHE V2 crypto accelerator. DTHE V2 is a new
-crypto accelerator which contains multiple crypto IPs.
-This series implements support for ECB and CBC modes of the AES Engine
-of DTHE, using skcipher APIs of the kernel.
+Add new DT binding for Texas Instruments DTHE V2 crypto driver.
 
-Tested with:
-CONFIG_CRYPTO_MANAGER_DISABLE_TESTS is not set
-CONFIG_CRYPTO_MANAGER_EXTAR_TESTS=y
-
-and tcrypt,
-sudo modprobe tcrypt mode=500 sec=1
+DTHE V2 is introduced as a part of TI AM62L SoC and can currently be
+only found in it.
 
 Signed-off-by: T Pratham <t-pratham@ti.com>
 ---
-T Pratham (3):
-      dt-bindings: crypto: Add binding for TI DTHE V2 driver
-      crypto: ti: Add driver for DTHE V2 AES Engine (ECB, CBC)
-      arm64: defconfig: enable DTHE V2 module
+PS: Please note that the dmas option in dt-bindings is subject to change in
+future as dma driver is not finalized yet. Any updated changes will be
+sent in the next version of the patch.
 
- .../devicetree/bindings/crypto/ti,dthev2.yaml      |  50 ++
- MAINTAINERS                                        |   7 +
- arch/arm64/configs/defconfig                       |   1 +
- drivers/crypto/Kconfig                             |   1 +
- drivers/crypto/Makefile                            |   1 +
- drivers/crypto/ti/Kconfig                          |  11 +
- drivers/crypto/ti/Makefile                         |   1 +
- drivers/crypto/ti/dthev2.c                         | 749 +++++++++++++++++++++
- 8 files changed, 821 insertions(+)
----
-base-commit: 9d4f8e54cef2c42e23ef258833dbd06a1eaff89b
-change-id: 20250205-dthe-v2-aes-80ea2dd58185
+ .../devicetree/bindings/crypto/ti,dthev2.yaml      | 50 ++++++++++++++++++++++
+ MAINTAINERS                                        |  6 +++
+ 2 files changed, 56 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml b/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..9c871fe191ae0a3341d047d4565ec1e1bf1f21ef
+--- /dev/null
++++ b/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml
+@@ -0,0 +1,50 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/crypto/ti,dthev2.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: K3 SoC DTHE V2 crypto module
++
++maintainers:
++  - T Pratham <t-pratham@ti.com>
++
++properties:
++  compatible:
++    enum:
++      - ti,dthe-v2
++
++  reg:
++    maxItems: 1
++
++  dmas:
++    items:
++      - description: 'AES Engine RX DMA Channel'
++      - description: 'AES Engine TX DMA Channel'
++      - description: 'SHA Engine TX DMA Channel'
++
++  dma-names:
++    items:
++      - const: rx
++      - const: tx1
++      - const: tx2
++
++
++required:
++  - compatible
++  - reg
++  - dmas
++  - dma-names
++
++additionalProperties: false
++
++examples:
++  - |
++
++    crypto: crypto@40800000 {
++		compatible = "ti,dthe-v2";
++		reg = <0x00 0x40800000 0x00 0x10000>;
++
++		dmas = <&main_bcdma 0 0xc701 0>, <&main_bcdma 0 0x4700 0>, <&main_bcdma 0 0xc700 0>;
++		dma-names = "tx", "rx", "tx2";
++	};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0d65aa9093f63ed8f09bee3d6f31fe6d8e0d16b6..e3a32533cf3922d799439b14453248d23350bb18 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23433,6 +23433,12 @@ S:	Odd Fixes
+ F:	drivers/clk/ti/
+ F:	include/linux/clk/ti.h
+ 
++TI DATA TRANSFORM AND HASHING ENGINE (DTHE) V2 CRYPTO ACCELERATOR DRIVER
++M:	T Pratham <t-pratham@ti.com>
++L:	linux-crypto@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/crypto/ti,dthe-v2.yaml
++
+ TI DAVINCI MACHINE SUPPORT
+ M:	Bartosz Golaszewski <brgl@bgdev.pl>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+
 -- 
-T Pratham <t-pratham@ti.com>
+2.34.1
 
 
