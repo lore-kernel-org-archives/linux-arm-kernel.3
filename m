@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CCC4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 03:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C37C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 03:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FKRHF1m9vSxG53fGyhmajJ13PLGzPs6jS768SI2ZSR8=; b=qM5+TzkerQBpkOY9Gk90/P1RsQ
-	hGCV5xb1cd20Md32tYMXDMzDJ60EEpmqza6wg4QoP2Z//odcKff+mnfJZyJdwcovCPAY/UyKXOCIp
-	6/yXfkW/5F3SAB12993fJmOAXdxP4kBwXTowUVR5ixqKbnSxeN6Ik9BfJzILv27f15G3bOH5wx9XC
-	foMDsRd6wabVyaCB/MALzkYsAM1W2JKYfmcKPZ9CwUga8GmZiXQ+ptQSzWb00gjTDh9jtp2fXzCLr
-	egfPxt9CkP5cAZF6bRIx2wowCPvlF0UUCrYtcn17QqeEgsdJSfTaltDJSuhjXAsdMpdp0iUsabIAc
-	CTsHoobQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kHXeN8LIM9w54fK8BX5YrWdpuop7tLiyGoSgZk7eNoc=; b=QBnhrhX1rJxrdzZNc1L5QowOXQ
+	dCAnu+xg9HNpMB62AVD74sERbKEKFAjpI3VDfrcYSckPwFWRq0krSFDAfUrNHRrs+UrrmurxSKBDG
+	7J3IU1zJ6VkFO+uo2Bp9wJGTAAnFxckUmKlwzt7Tot1YZIDok+nvX+hphcWnGBW1jJ6Wgiz6nKn/F
+	cwHBRmMD2anyPtAy6pXzfssd58ATvlh3iRFfSdu7Fziz9HpFxpMotPvIDuy4SoFQ7qOPwlH41BPIJ
+	HfJqnb5Lvk9hgd8IhIhVXPrgw600Hxju7j/p7dPvJ6MW6Sw/J/8Lf8ZWKPLe4SubnF8JgRALZ0vpb
+	/AOcgzHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfsD8-000000056R0-3cXE;
-	Thu, 06 Feb 2025 03:05:50 +0000
-Received: from mail-m49207.qiye.163.com ([45.254.49.207])
+	id 1tfsET-000000056Yz-2Jcx;
+	Thu, 06 Feb 2025 03:07:13 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfsBj-000000056Dv-1b2s;
-	Thu, 06 Feb 2025 03:04:25 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id a47c7aa7;
-	Thu, 6 Feb 2025 11:04:16 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andy.yan@rock-chips.com,
-	hjc@rock-chips.com,
-	sebastian.reichel@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v7 0/2] Fix label name of hdptxphy for RK3588
-Date: Thu,  6 Feb 2025 11:03:28 +0800
-Message-Id: <20250206030330.680424-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tfsBl-000000056Ei-0jpn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 03:04:27 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ab744d5e567so78917466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 19:04:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jms.id.au; s=google; t=1738811063; x=1739415863; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kHXeN8LIM9w54fK8BX5YrWdpuop7tLiyGoSgZk7eNoc=;
+        b=CvAL2OcWmr7AzXiuf0Dawu1RNBPYmFaB5pespeRZDAfyVjBoSRqgAGI/4LCmo+TbzZ
+         Y7wVE4Z00SGg5l6Kq8mPO/tmig/5hWrSunovN61u8HqsldMkit4GujnkORIMNx4DWZb6
+         xUk3C5qmc62GIfcE6uz1zEdMlhn07PCiRvV3Y=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738811063; x=1739415863;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kHXeN8LIM9w54fK8BX5YrWdpuop7tLiyGoSgZk7eNoc=;
+        b=i3I684fZSfnSwqCqB9PFxfNsDsLTfAXFQ7kMScwcFYJOW5jcWJuBBcckOiyNt9fCys
+         SqNPI3jloagaUaa8/CtLm1wsth5zp95CIuNZlxm7ZIy9C3zv+zD2Y+t9Mchus3Rkx3EL
+         x1/xExAwO/DxpTWhV8rxsDEriUaF+8YRyiA51YY3nVCLzpocKMqRW7PDMQT9J9hxaMhM
+         vl5UG4oCfy64J1WhZNap4OaCq3hgs3jic7f84KeclAyTG98WRRP6FFkDrdBGzdR3kZl9
+         X7dp4Iy/50m6ZNIqC6vV6vHTvoy5YIKHkC6skSOQDxkIFmoMpMLhOfbXSzOhRxPzOdwn
+         Yfww==
+X-Forwarded-Encrypted: i=1; AJvYcCURN/+74SQPKZsj/xP1stoD/2yP3xtkW3SiDVxj+WaL+TjNM8tFOqDugry8pirF4SBv+Fjv4S+dDo3VCQtw5lvW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH06XoAe9QgT0ycAT0KZPvis5tK2EJYUTrhPsdyEaGhqhcKY7N
+	cYIXxI1ejYjsmYSFoMmtn4uZwUoFv1ubjPqfO1cySJbnJXkT/SFOYzyTDDdyv4aQUe6p6uKM4Hm
+	q52MTtbhP1rqTr86FpC0iUcYDDCI=
+X-Gm-Gg: ASbGncun9JpbHPgowH/5AkRhbmizCyJXMkIivre6ckyF1cZzEe0Nme6jrw0DEYBl0L5
+	XOxnY1k3CuRXSuzYvJJv/8yg6CKPZqHd0JM+lkS0VjzYQkCNeOX8Lcn3wGm01PqYo4Hf11c+x
+X-Google-Smtp-Source: AGHT+IHqxAD/mAroNe/du82YKfNv9KCYjKV/xBzj38++g3h5xV+O074K8SXXeCFqLMo6ZY+71Vf5+TGBbTDseAZx9Xc=
+X-Received: by 2002:a17:907:72c1:b0:ab6:d575:3c4a with SMTP id
+ a640c23a62f3a-ab76e878417mr125480566b.9.1738811063095; Wed, 05 Feb 2025
+ 19:04:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0pPT1ZPSx1LGE1CTxkaSkxWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94d937235a03a3kunma47c7aa7
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OSo6Qhw5TTIJFgkhFS80FS4s
-	OhUwFDJVSlVKTEhDQ0pKS05DSExCVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJS05KNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=hmxGW/ujnIBUnqOd2kHaYMDkwiyHlXllkRrXoVAfcVaTt2di6w368VAv/rbgQYgiStTbse0vwbnsCirj2+ys8xbVE2KvoLxnz6tRcDmjKBxphES/Vy7oYP8jvlIdEkxLn2PONn/3iqP0ZqLRQ4yqjTKj71s+Duo1Y13l4++fAFg=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=FKRHF1m9vSxG53fGyhmajJ13PLGzPs6jS768SI2ZSR8=;
-	h=date:mime-version:subject:message-id:from;
+References: <20250203-aspeed-maintainer-v1-1-60bc3a5f0a7c@codeconstruct.com.au>
+In-Reply-To: <20250203-aspeed-maintainer-v1-1-60bc3a5f0a7c@codeconstruct.com.au>
+From: Joel Stanley <joel@jms.id.au>
+Date: Thu, 6 Feb 2025 13:34:10 +1030
+X-Gm-Features: AWEUYZnF0CfsV_4ImWi4JVAR627wkvGoxLYm6rTH2Jjlr9IDQ3zsK4d4k_9LZjU
+Message-ID: <CACPK8Xe_3t0n=BDcbFQLt+M1K-PTHMWGs37k=4B9P6tfsqEXeQ@mail.gmail.com>
+Subject: Re: [PATCH] MAINTAINERS: Mark Andrew as M: for ASPEED MACHINE SUPPORT
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-aspeed@lists.ozlabs.org, arnd@arndb.de, soc@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_190423_950348_ACDE4186 
-X-CRM114-Status: UNSURE (   6.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_190425_307578_C1813F2A 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Picked from:
-https://patchwork.kernel.org/project/linux-rockchip/list/?series=927102
+On Mon, 3 Feb 2025 at 13:27, Andrew Jeffery <andrew@codeconstruct.com.au> wrote:
+>
+> From discussion in [1] and in-person with Joel, flip my entry from R:
+> to M:.
 
-The hdptxphy is a combo transmit-PHY for HDMI2.1 TMDS Link, FRL Link, DP
-and eDP Link. Therefore, it is better to name it hdptxphy0 other than
-hdptxphy_hdmi0, which will be referenced by both hdmi0 and edp0 nodes.
+I'm off the hook!
 
-Damon Ding (2):
-  dt-bindings: display: rockchip: Fix label name of hdptxphy for RK3588
-    HDMI TX Controller
-  arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
+Acked-by: Joel Stanley <joel@jms.id.au>
 
- .../bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi                 | 4 ++--
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts        | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dts    | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts              | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dts     | 2 +-
- .../boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts      | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts           | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts                | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts        | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts       | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts               | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts          | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts      | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi           | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts            | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi          | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts              | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts              | 2 +-
- 21 files changed, 22 insertions(+), 22 deletions(-)
-
--- 
-2.34.1
-
+>
+> Link: https://lore.kernel.org/all/CACPK8Xe8yZLXzEQPp=1D2f0TsKA7hBZG=pHHW6U51FMpp_BiRQ@mail.gmail.com/ [1]
+> Cc: Joel Stanley <joel@jms.id.au>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: soc@lists.linux.dev
+> Cc: linux-aspeed@lists.ozlabs.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+> ---
+>  MAINTAINERS | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 896a307fa06545e2861abe46ea7029f9b4d3628e..305e5530560e53c10f0b610fa7b4456ca78fdfc2 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2285,7 +2285,7 @@ F:        drivers/irqchip/irq-aspeed-i2c-ic.c
+>
+>  ARM/ASPEED MACHINE SUPPORT
+>  M:     Joel Stanley <joel@jms.id.au>
+> -R:     Andrew Jeffery <andrew@codeconstruct.com.au>
+> +M:     Andrew Jeffery <andrew@codeconstruct.com.au>
+>  L:     linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  L:     linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+>  S:     Supported
+>
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250203-aspeed-maintainer-dddbbe22da46
+>
+> Best regards,
+> --
+> Andrew Jeffery <andrew@codeconstruct.com.au>
+>
+>
 
