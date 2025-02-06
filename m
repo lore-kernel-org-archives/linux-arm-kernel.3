@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21477C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4101BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MU2HIF4it41Dryt/FA0wGCssSCMZUCxro5pod3022Gw=; b=nN27lyUWAhAWUjcgdTwxHgAQQV
-	Yxee2907xcRK1M67848lLPuu/0xI17mV+7yghlCL1l/Lz+L36y3kwe6ak61lt/IUSZPXa7k05GFm9
-	EcS5ZZyHm9s3tO1IFJc1OUr0q7UWStM3UsgK730Med9r8PxuOPISNPdNB5NVQ2gPU48EAFE+wlPaT
-	qytHnZk9okG9Qvq6knvBu1l+RvK3rvz9/y4NgluHTEJ6WRl69MYVEWbrtQIVezI5qrljXB7WXXXmo
-	sVVFdLjP403AqtcaK+t1YZreeyrMI3Gk244rPYYwK2veSMQeBrfM/Nm1ik1XeJf/N8Xxu69MopYaT
-	9jrlLGKA==;
+	bh=E8KTyrfZ6+nzYfbZxZhULp9H/Oi2Fu/QLYLIm7hG3aM=; b=dK19Tiirh1AKaH98Hyf0BIg3wR
+	87h5lHDc1KKhFX8RxDdppfoUu4r7v5myseHXEn9k2qr9SQGH51OC7jP+N3bjeSHlRVX9WbtFQ+c3s
+	xAQstPdlX/u1mTme+dG2uqq4WP0UtFn4NDjV12gLRmEIfU/rdHX3G5pyR0aFyjLuxrlIblZVWJm9C
+	zoNA4od9l1+gYf+HmOKu7w/tBSkw2ztnojjNzSIlSmvssDxxpd4nmFLpVaiDw9VhzYrHnZKFKh3xQ
+	BNJypGJMmm8PwLzjPoKMZJE8hn3aqohiVpskyN09IxQcFxJNLpnPP2s3lZywktdud6oTk19nUH7pX
+	dhHBZtPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg4OW-00000006nXw-3oVq;
-	Thu, 06 Feb 2025 16:06:24 +0000
+	id 1tg4Ps-00000006niJ-2eCa;
+	Thu, 06 Feb 2025 16:07:48 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg48O-00000006kyI-2Ys0
+	id 1tg48P-00000006kz1-0psn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 15:49:46 +0000
+	Thu, 06 Feb 2025 15:49:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53E675C640F;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 54DBF5C6410;
 	Thu,  6 Feb 2025 15:49:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1F40C4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1956C4CEDF;
 	Thu,  6 Feb 2025 15:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1738856983;
-	bh=6I7LairJneVEog/EFugOYQ8Yud/ywIBnSaGtTjQ8Pkk=;
+	bh=oxZl/z5YTJjY4m544xAMfF/ABMCdrpKtr24LV+e4IlE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O0PUKn6f7BQavD2iGHXodQ7NAPLA42MbhdrT2e4LTatLSezLC3ySe4Bi/fiyvCoBS
-	 vkvpEWkMue6LUESoxfXmXG9d/JU2Tp6FdRDp4et0DXrboukYIGWbq4wBstkw6po4tB
-	 kQLc5b0/0lVvo5AUb3ewy6EyACgxwP8Qdz0P/jUMyPUaE2PlyghgBXqDxeJwyV1EZS
-	 Q4H/OQQ+L55E2UgWZn1KrcPTTkiJZB9CKBTdbcdDBsc+dmrQSCDhcBnHU5fFoJYbkl
-	 DdoAy44cyXt+Nq8MH/40ybQWgI62CQztfn78cYurfWoR13HN/SnGyR3VuDTKCdXwQV
-	 6cNFW0O0F++Wg==
+	b=Cko9gweAIcVuCb6N8F8lgbKKI2gKZZGWeq//4GBU2Lh3jUJoy+jKzv8SUN0qNhIKK
+	 WaInweJLb/uhXwodxZMR7YTizJ6fnjhZ/dDWTjm2RsTiW1hrrQnu1vd0BQThE1Wpwn
+	 eXU0mmsEN9ILhG9ix473wkcYELIkhCYpZd3t+KlkK4ABU3AAWwXNRG+K1MN36BYucC
+	 EeJPnyef6JxtV2jNrUdV2+ff15oD/p660TZ1mzB0U+9mc6ru4vaRZsHC5Gcvjtrb3W
+	 N+cTiqc3Vnotr+amOhO4/4kGTSVLhe5dO3IO/zqqNnwV2dVwnjKYE6crCLWNz2eksw
+	 O7ykAQDbsECyg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tg48L-001BOX-O8;
-	Thu, 06 Feb 2025 15:49:41 +0000
+	id 1tg48M-001BOX-0Z;
+	Thu, 06 Feb 2025 15:49:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v3 11/16] KVM: arm64: nv: Respect virtual HCR_EL2.TWx setting
-Date: Thu,  6 Feb 2025 15:49:20 +0000
-Message-Id: <20250206154925.1109065-12-maz@kernel.org>
+Subject: [PATCH v3 12/16] KVM: arm64: nv: Request vPE doorbell upon nested ERET to L2
+Date: Thu,  6 Feb 2025 15:49:21 +0000
+Message-Id: <20250206154925.1109065-13-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250206154925.1109065-1-maz@kernel.org>
 References: <20250206154925.1109065-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_074944_745024_7EA394D7 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20250206_074945_365790_00DC8E43 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +87,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jintack Lim <jintack.lim@linaro.org>
+From: Oliver Upton <oliver.upton@linux.dev>
 
-Forward exceptions due to WFI or WFE instructions to the virtual EL2 if
-they are not coming from the virtual EL2 and virtual HCR_EL2.TWx is set.
+Running an L2 guest with GICv4 enabled goes absolutely nowhere, and gets
+into a vicious cycle of nested ERET followed by nested exception entry
+into the L1.
 
-Signed-off-by: Jintack Lim <jintack.lim@linaro.org>
+When KVM does a put on a runnable vCPU, it marks the vPE as nonresident
+but does not request a doorbell IRQ. Behind the scenes in the ITS
+driver's view of the vCPU, its_vpe::pending_last gets set to true to
+indicate that context is still runnable.
+
+This comes to a head when doing the nested ERET into L2. The vPE doesn't
+get scheduled on the redistributor as it is exclusively part of the L1's
+VGIC context. kvm_vgic_vcpu_pending_irq() returns true because the vPE
+appears runnable, and KVM does a nested exception entry into the L1
+before L2 ever gets off the ground.
+
+This issue can be papered over by requesting a doorbell IRQ when
+descheduling a vPE as part of a nested ERET. KVM needs this anyway to
+kick the vCPU out of the L2 when an IRQ becomes pending for the L1.
+
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+Link: https://lore.kernel.org/r/20240823212703.3576061-4-oliver.upton@linux.dev
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 13 +++++++++++++
- arch/arm64/kvm/handle_exit.c         |  6 +++++-
- 2 files changed, 18 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h |  2 ++
+ arch/arm64/kvm/emulate-nested.c   |  2 ++
+ arch/arm64/kvm/vgic/vgic-v4.c     | 18 +++++++++++++++++-
+ 3 files changed, 21 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 47f2cf408eeda..fad4f28ed7e81 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -275,6 +275,19 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
- 	return vcpu->arch.fault.esr_el2;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 31030ee784dc1..ca5a103c56930 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -958,6 +958,8 @@ struct kvm_vcpu_arch {
+ #define PMUSERENR_ON_CPU	__vcpu_single_flag(sflags, BIT(5))
+ /* WFI instruction trapped */
+ #define IN_WFI			__vcpu_single_flag(sflags, BIT(6))
++/* KVM is currently emulating a nested ERET */
++#define IN_NESTED_ERET		__vcpu_single_flag(sflags, BIT(7))
+ 
+ 
+ /* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 9986bb88c2597..834c587500699 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2503,6 +2503,7 @@ void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	preempt_disable();
++	vcpu_set_flag(vcpu, IN_NESTED_ERET);
+ 	kvm_arch_vcpu_put(vcpu);
+ 
+ 	if (!esr_iss_is_eretax(esr))
+@@ -2514,6 +2515,7 @@ void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu)
+ 	*vcpu_cpsr(vcpu) = spsr;
+ 
+ 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
++	vcpu_clear_flag(vcpu, IN_NESTED_ERET);
+ 	preempt_enable();
+ 
+ 	kvm_pmu_nested_transition(vcpu);
+diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
+index eedecbbbcf31b..0d9fb235c0180 100644
+--- a/arch/arm64/kvm/vgic/vgic-v4.c
++++ b/arch/arm64/kvm/vgic/vgic-v4.c
+@@ -336,6 +336,22 @@ void vgic_v4_teardown(struct kvm *kvm)
+ 	its_vm->vpes = NULL;
  }
  
-+static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
++static inline bool vgic_v4_want_doorbell(struct kvm_vcpu *vcpu)
 +{
-+	u64 esr = kvm_vcpu_get_esr(vcpu);
-+	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
-+	u64 hcr_el2 = __vcpu_sys_reg(vcpu, HCR_EL2);
++	if (vcpu_get_flag(vcpu, IN_WFI))
++		return true;
 +
-+	if (!vcpu_has_nv(vcpu) || vcpu_is_el2(vcpu))
++	if (likely(!vcpu_has_nv(vcpu)))
 +		return false;
 +
-+	return ((is_wfe && (hcr_el2 & HCR_TWE)) ||
-+		(!is_wfe && (hcr_el2 & HCR_TWI)));
++	/*
++	 * GICv4 hardware is only ever used for the L1. Mark the vPE (i.e. the
++	 * L1 context) nonresident and request a doorbell to kick us out of the
++	 * L2 when an IRQ becomes pending.
++	 */
++	return vcpu_get_flag(vcpu, IN_NESTED_ERET);
 +}
 +
- static __always_inline int kvm_vcpu_get_condition(const struct kvm_vcpu *vcpu)
+ int vgic_v4_put(struct kvm_vcpu *vcpu)
  {
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index 512d152233ff2..b73dc26bc44b4 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -129,8 +129,12 @@ static int kvm_handle_fpasimd(struct kvm_vcpu *vcpu)
- static int kvm_handle_wfx(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
-+	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
+ 	struct its_vpe *vpe = &vcpu->arch.vgic_cpu.vgic_v3.its_vpe;
+@@ -343,7 +359,7 @@ int vgic_v4_put(struct kvm_vcpu *vcpu)
+ 	if (!vgic_supports_direct_msis(vcpu->kvm) || !vpe->resident)
+ 		return 0;
  
--	if (esr & ESR_ELx_WFx_ISS_WFE) {
-+	if (guest_hyp_wfx_traps_enabled(vcpu))
-+		return kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-+
-+	if (is_wfe) {
- 		trace_kvm_wfx_arm64(*vcpu_pc(vcpu), true);
- 		vcpu->stat.wfe_exit_stat++;
- 	} else {
+-	return its_make_vpe_non_resident(vpe, !!vcpu_get_flag(vcpu, IN_WFI));
++	return its_make_vpe_non_resident(vpe, vgic_v4_want_doorbell(vcpu));
+ }
+ 
+ int vgic_v4_load(struct kvm_vcpu *vcpu)
 -- 
 2.39.2
 
