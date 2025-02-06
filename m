@@ -4,102 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913CAC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5093AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrAPzN3R+g1+r+81eLhRZv0SycNO8ZdkZdwOO3LB4P0=; b=du54QUlvNACHLQG59Xf+VEDzq6
-	QzkUfLL0U1odtwl+LzJ1i9TC9WpuXymUAeyfyb7FwG1lPH6WU9Iqtrqrejhos3F4CIa5aOsAvysH8
-	PVCK1kbHMdL6XvbPOjQyW/sx1FoKnyIgTxWO+NpErPzFAYN03KQUsu1IjZq8Hv4IzysreQIstmrkV
-	MdwZz7veGkn8wPfjk3t9C+Fa9mrWLaUj7KM/UpsQa6d6XojyAqTat72h2/o3SJl5q5IWFw9JbhBlW
-	oO1fm2+aJ4Shq7Tz3BnH1tPUZJkOZbS1kv+in44Ip3ZPBjLTEL3BCbGJwRlhhyROiPK4l3anjAA19
-	bus+v5lQ==;
+	bh=z6Wb+5iWOd1a9wYG/H92CM/zaVBKIBkdm5Dafxe4iQQ=; b=vhkHu9vNOS12Pu/Pi6t+8ynpfx
+	L79ecdcF9oGuKpoC7/Qy8mZKK1qeJNomTuvqpLP7FRe4OfQxOS54QR5v0P6l3UOJbcnKdm+4PnC2L
+	nDObfr942Tk7sUc/FHaZG8e+Cr4iO35hbM2vKuEADt/tEwpdZEZSuCvqk8CIGkTezqNx1GzVJqczh
+	7k13Vky4w9LmahMixP+KjxTVcNmzVZGn/TRtt2mN+aVC0zPRmXhkf8Y2Rf7oYY/IKs2dJ5OeyGp6U
+	Tiv/geyBenCEkiThf8B79zcpDkBj1vJ5x/ty1eDXoE6BczJC1mymX2bumTFOeC6mSzsTbR5zvedC6
+	0GUzelAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfvza-00000005VrA-0AKV;
-	Thu, 06 Feb 2025 07:08:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfvtg-00000005UJa-3yEy
+	id 1tfw0v-00000005W2F-0KuC;
+	Thu, 06 Feb 2025 07:09:29 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfvxL-00000005V7D-0DfG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:02:02 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 515J0TJv031638;
-	Thu, 6 Feb 2025 07:01:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZrAPzN3R+g1+r+81eLhRZv0SycNO8ZdkZdwOO3LB4P0=; b=Yp060fIwEXZ2Lmia
-	I6xC/YsvbTDluwBhMfCfrp2hjbbBVCu8BlrYf7D12R1+/z/0KMJGO8jox3N5Xe5e
-	Q1QqKHaOvy2aLbSLhA+Mr6/5AvuMjLuaqRhtnq6IFN0ZcNA/KhH/GXPlm8+sSh5k
-	tPpcayFuwe7TGdxLouIxrWMpnnt5HUkqfElJXDiVySnzqOz9x2N/yrpc3erJsTeW
-	XhF+NltzsWBqcVy5QDRhTLAZ/Ie7nJOu2au2uKuQXzFB1ha+88JBb0vIrgT9dt9u
-	DX8lcAmoFPJ5xO8kZtiKqmTLM2/mNgFNGEFsg+FGFxOO7cYNA1RUvKHxkO2PxfWy
-	6ZXQOg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44mds2hbb4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Feb 2025 07:01:46 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51671i9h019165
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 6 Feb 2025 07:01:44 GMT
-Received: from [10.152.195.140] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 5 Feb 2025
- 23:01:36 -0800
-Message-ID: <1cac47ba-f33d-4d2b-8808-c56012b5bbaf@quicinc.com>
-Date: Thu, 6 Feb 2025 12:31:33 +0530
+	Thu, 06 Feb 2025 07:05:48 +0000
+Received: from unknown (HELO iyokan2-ex.css.socionext.com) ([172.31.9.54])
+  by mx.socionext.com with ESMTP; 06 Feb 2025 16:05:41 +0900
+Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
+	by iyokan2-ex.css.socionext.com (Postfix) with ESMTP id 139D8200705C;
+	Thu,  6 Feb 2025 16:05:41 +0900 (JST)
+Received: from iyokan2.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Thu, 6 Feb 2025 16:05:41 +0900
+Received: from [192.168.1.141] (unknown [10.213.44.71])
+	by iyokan2.css.socionext.com (Postfix) with ESMTP id 14A9CAB188;
+	Thu,  6 Feb 2025 16:05:40 +0900 (JST)
+Message-ID: <ac319cf8-5501-40f2-bf23-fc04a91d4f1f@socionext.com>
+Date: Thu, 6 Feb 2025 16:05:39 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/7] clk: qcom: Add NSS clock Controller driver for
- IPQ9574
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>
-CC: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
-        <geert+renesas@glider.be>, <angelogioacchino.delregno@collabora.com>,
-        <neil.armstrong@linaro.org>, <arnd@arndb.de>,
-        <nfraprado@collabora.com>, <quic_anusha@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
-References: <20241025035520.1841792-1-quic_mmanikan@quicinc.com>
- <20241025035520.1841792-6-quic_mmanikan@quicinc.com>
- <jhykmuvgltvuqf74evvenbagmftam2gaeoknuq5msxop4mkh65@dya6vvqytfcx>
- <21365836-aa06-4269-885c-591f43e2e5fc@quicinc.com>
- <befd6574-b9f0-4483-a767-684a729cfde0@oss.qualcomm.com>
+Subject: Re: [PATCH] net: stmmac: Allow zero for [tr]x_fifo_size
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ Yanteng Si <si.yanteng@linux.dev>
+Cc: Jakub Kicinski <kuba@kernel.org>, Steven Price <steven.price@arm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@google.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Jose Abreu <joabreu@synopsys.com>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ Furong Xu <0x1207@gmail.com>, Petr Tesarik <petr@tesarici.cz>,
+ Serge Semin <fancer.lancer@gmail.com>, Xi Ruoyao <xry111@xry111.site>
+References: <20250203093419.25804-1-steven.price@arm.com>
+ <Z6CckJtOo-vMrGWy@shell.armlinux.org.uk>
+ <811ea27c-c1c3-454a-b3d9-fa4cd6d57e44@arm.com>
+ <Z6Clkh44QgdNJu_O@shell.armlinux.org.uk> <20250203142342.145af901@kernel.org>
+ <f728a006-e588-4eab-b667-b1ff7dfd66c5@linux.dev>
+ <Z6N4J-_C3lq5a_VQ@shell.armlinux.org.uk>
 Content-Language: en-US
-From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-In-Reply-To: <befd6574-b9f0-4483-a767-684a729cfde0@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: WdhfDpuHSihYg8CzZyg0zXeFFz5NP4Q0
-X-Proofpoint-GUID: WdhfDpuHSihYg8CzZyg0zXeFFz5NP4Q0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-06_01,2025-02-05_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0 mlxscore=0
- spamscore=0 adultscore=0 mlxlogscore=709 bulkscore=0 malwarescore=0
- impostorscore=0 clxscore=1011 suspectscore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502060057
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <Z6N4J-_C3lq5a_VQ@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_230201_125921_51901697 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250205_230547_203801_E114055E 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +81,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Russell,
 
-
-On 12/30/2024 8:18 PM, Konrad Dybcio wrote:
-> On 28.10.2024 7:25 AM, Manikanta Mylavarapu wrote:
+On 2025/02/05 23:39, Russell King (Oracle) wrote:
+> On Wed, Feb 05, 2025 at 10:22:00PM +0800, Yanteng Si wrote:
+>>
+>> 在 2/4/25 06:23, Jakub Kicinski 写道:
+>>> On Mon, 3 Feb 2025 11:16:34 +0000 Russell King (Oracle) wrote:
+>>>>> I've no opinion whether the original series "had value" - I'm just
+>>>>> trying to fix the breakage that entailed. My first attempt at a
+>>>>> patch
+>>>>> was indeed a (partial) revert, but Andrew was keen to find a better
+>>>>> solution[1].
+>>>> There are two ways to fix the breakage - either revert the original
+>>>> patches (which if they have little value now would be the sensible
+>>>> approach IMHO)
+>>> +1, I also vote revert FWIW
+>>
+>> +1, same here.
 >>
 >>
->> On 10/25/2024 11:21 AM, Dmitry Baryshkov wrote:
->>> On Fri, Oct 25, 2024 at 09:25:18AM +0530, Manikanta Mylavarapu wrote:
->>>> From: Devi Priya <quic_devipriy@quicinc.com>
->>>>
->>>> Add Networking Sub System Clock Controller(NSSCC) driver for ipq9574 based
->>>> devices.
->>>>
->>>> Reported-by: kernel test robot <lkp@intel.com>
->>>> Closes: https://lore.kernel.org/oe-kbuild-all/202410101431.tjpSRNTY-lkp@intel.com/
->>>
->>> These tags are incorrect. Please read the text of the email that you've
->>> got.
+>> For a driver that runs on so much hardware, we need to act
 >>
->> Added these tags since the dependent patch [1] was included in v8.
->> Please let me know if this should be removed.
+>> cautiously. A crucial prerequisite is that code changes must
+>>
+>> never cause some hardware to malfunction. I was too simplistic
+>>
+>> in my thinking when reviewing this before, and I sincerely
+>>
+>> apologize for that.
+>>
+>>
+>> Steven, thank you for your tests, Let's revert it.
 > 
-> These tags are useful when you submit a faulty patch, it gets merged
-> quickly, and only then the robot reports it. In that situation, you
-> would be expected to send a fix, including these tags to credit the
-> robot for catching the issue.
-> 
-> Here, your patches haven't been merged yet, so it's not applicable.
+> https://lore.kernel.org/r/E1tfeyR-003YGJ-Gb@rmk-PC.armlinux.org.uk
 
-Hi Konrad,
+I'm sorry to bother you. Thanks for posting revert.
 
-I apologize for the delay. I will remove the tags and post the next version.
+There are variations in the capabilities that the hardware has, and more
+hardware needs to be verified to show that they work correctly, so it had
+to be handled carefully. Reports that the change patch "worked" or
+"didn't work" on any hardware are helpful.
 
-Thanks & Regards,
-Manikanta.
+I apologize that posting this change to "-net" was inappropriate
+because I added a completely new feature.
 
+Thank you,
+
+---
+Best Regards
+Kunihiko Hayashi
 
