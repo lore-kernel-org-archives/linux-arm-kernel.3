@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCAFCC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5090C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGZLluwkDCjp1kHB/F87oV4x0FXPfwe2Z3Cbt+cBMY0=; b=d9jvCBdrDxkaXUjXbr/ppfq8FU
-	tE4jHD8maUuJNLoyJ2llyxbeIMoakwPN1ms48SSWVyj46G3N/aFb6ADcBuodI9w4vXQ+pa5IhNkBJ
-	rgTr0z0M0OXO4YT4PdqZliXXE8cyuNxFNjjYmay9QokWTI30bM+NqhJSPmzwsGiFnxLOwyM9fWMBx
-	WTVbBn1S5t6bBfPPzextcMlxSVLz1zSZRsdod1R3c786DuVaxD9PW0DaeerEyuyt/7ZvQj9WhB9Ch
-	3ZiVCAt79h9mJg2Z+hI+kuFfddoKjgQgH8nk4F1FzB8iXUT1Xj6JzMQGLeEE9xLs3WezZ3ujKaXr8
-	AfcybYVA==;
+	bh=WfEAnvIODb0MmG3S/Br6HR0LaSDyjKlXquR7BwTnfnk=; b=HDh0CedBwkDvsniRJFvbIX69Q6
+	vTLKmIhNvvKK/U1XuiXkwUw3ldZkcqj3y0WDpRXH89vbGke+1WfUiqcvcRrTxp/7syj+/fqRi3iPv
+	1CIOKorDyCy/qVM3Ek6fcDVaxb/v4SuI3o2q+NhexMsZxE55XEDaVo6LkinvSMOzm7hMudMVgDLpg
+	fPvdsGGz4Gzdvgy7CcfMtbyHPX677f4t6CNmW8kQBn8oJGFFvX7yQ6NUFXQxKx9Rf0lOXS6U8fjmX
+	OIrxcEcKLBdz/TL8A8ckWmTEprEqP3oNW0uppR2xNi/Nlew7QbUvOgJ1Tq/5W2Ap5OrZEgHlp9Esy
+	mz/rMDyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg77k-00000007Hwx-2DPq;
-	Thu, 06 Feb 2025 19:01:16 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tg77f-00000007Hs8-2pCn;
+	Thu, 06 Feb 2025 19:01:11 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6PM-0000000786p-2rka
+	id 1tg6P1-000000077vT-0SlK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 18:15:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9A325442D4;
-	Thu,  6 Feb 2025 18:15:20 +0000 (UTC)
+	Thu, 06 Feb 2025 18:15:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D90DC442D7;
+	Thu,  6 Feb 2025 18:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738865723;
+	t=1738865701;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=dGZLluwkDCjp1kHB/F87oV4x0FXPfwe2Z3Cbt+cBMY0=;
-	b=dcwocTIPbXtLHpayEIyBz/uxIiTZQEiHi4KaM+Mz28d/scIiEZQyjWjQzRu+kIuOEhJn71
-	wvsmE0NLkbQdkXP7O8e0ZEyLviqni70ms1O4TQdIRajiqg6SA/yjtWM58Kea4YGeiqUa7R
-	owoU7X6AwiXhIk2zLrVLEozHTKUOXKXbpkdJV+NRNmRLvoW2WR36iTU2FAthzcO1z02Gz9
-	GXaQs1qoQswQj2h8a7KjfDzv+ZjL/7vGHtqsH47s1/gHCth/jX0+kBLr0n4oG+MV4GOq3E
-	LMP7xMdYbBRaJ/loMAzukV/i6J4Gorer6VYYwaDMTvuI70lmfY5xTfPL8+N3TA==
+	bh=WfEAnvIODb0MmG3S/Br6HR0LaSDyjKlXquR7BwTnfnk=;
+	b=edUmkGGMvGYPJ7a/FimUusEEcNKQwLB8Qxmr9qnFbT6OUb1ynvPdZyYQrkPyK4sajWFfER
+	1YrNGUg1lovimdcjL+4LRQOVjhFYLrAVrpy8813GsnzjanRabbWQzXScs1P8nqfVQuez6R
+	vwT9S9N+9/+OGQUu2am8pLam6z+eVoq1dc44PBACppAYeSTet9FRJY804CVOeJ6B/6GiYp
+	3lha6aXmJvtc7u7j9jbBTJlYu3xTfgRUZqA0l0DOKgIIwe4XMr2RFH2UdyZN41tB5fUQf5
+	T3OVPdx/TZ6lRbcNF1iLGPstcX2+dpOcCGQQtOyUtTw4trgRDqWujH+gmZnDkA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 06 Feb 2025 19:14:32 +0100
-Subject: [PATCH v6 17/26] drm/bridge: add devm_drm_put_bridge() and
- devm_drm_put_and_clear_bridge()
+Date: Thu, 06 Feb 2025 19:14:24 +0100
+Subject: [PATCH v6 09/26] drm/bridge: move devm_drm_of_get_bridge and
+ drmm_of_get_bridge to drm_bridge.c
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250206-hotplug-drm-bridge-v6-17-9d6f2c9c3058@bootlin.com>
+Message-Id: <20250206-hotplug-drm-bridge-v6-9-9d6f2c9c3058@bootlin.com>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 In-Reply-To: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 To: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
@@ -81,12 +81,12 @@ Cc: Paul Kocialkowski <contact@paulk.fr>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpeduheenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghom
- hdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtohhrsggvtheslhifnhdrnhgvthdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpeejnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgedphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeekpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmp
+ dhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghvpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptghorhgsvghtsehlfihnrdhnvghtpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopegurhhiqdguvghvvghlsehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhg
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_101524_879846_20F60BE7 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250206_101503_489040_DE8C1CFF 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,14 +101,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges obtained via devm_drm_of_get_bridge() will be put when the
-requesting device is removed. However drivers which obtained them may need
-to put the obtained reference way before being destroyed, especially in
-case of hot-unplug of the bridge they hold a reference to.
+devm_drm_of_get_bridge() and drmm_of_get_bridge() do not have anything to
+do with struct drm_panel anymore, they just manage bridges. So move them
+from bridge/panel.c to drm_bridge.c.
 
-Add devm_drm_put_bridge() to manually release a devm-obtained bridge.
+Move also of_drm_find_bridge_by_endpoint() which is used only by
+devm_drm_of_get_bridge() and drmm_of_get_bridge().
 
-Also add a macro to additionally clear the pointer in a safe way.
+No code changes, only move functions to a different file within the same
+module and add an #include as needed.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
@@ -116,81 +117,245 @@ Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 This patch was added in v6.
 ---
- drivers/gpu/drm/drm_bridge.c | 36 ++++++++++++++++++++++++++++++++++++
- include/drm/drm_bridge.h     |  6 ++++++
- 2 files changed, 42 insertions(+)
+ drivers/gpu/drm/bridge/panel.c | 102 -----------------------------------------
+ drivers/gpu/drm/drm_bridge.c   | 100 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 100 insertions(+), 102 deletions(-)
 
+diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
+index 6995de605e7317dd1eb153afd475746ced764712..1230ae50b2020e7a9306cac83009dd600dd61d26 100644
+--- a/drivers/gpu/drm/bridge/panel.c
++++ b/drivers/gpu/drm/bridge/panel.c
+@@ -418,49 +418,6 @@ int drm_of_find_panel_or_bridge(const struct device_node *np,
+ }
+ EXPORT_SYMBOL_GPL(drm_of_find_panel_or_bridge);
+ 
+-/**
+- * of_drm_find_bridge_by_endpoint - return drm_bridge connected to an endpoint
+- * @np: device tree node containing encoder output ports
+- * @port: port in the device tree node
+- * @endpoint: endpoint in the device tree node
+- * @bridge: pointer to hold returned drm_bridge (must not be NULL)
+- *
+- * Given a DT node's port and endpoint number, find the connected node and
+- * return the associated struct drm_bridge.
+- *
+- * Returns zero if successful, or one of the standard error codes if it fails.
+- */
+-static int of_drm_find_bridge_by_endpoint(const struct device_node *np,
+-					  int port, int endpoint,
+-					  struct drm_bridge **bridge)
+-{
+-	int ret = -EPROBE_DEFER;
+-	struct device_node *remote;
+-
+-	if (!bridge)
+-		return -EINVAL;
+-
+-	/*
+-	 * of_graph_get_remote_node() produces a noisy error message if port
+-	 * node isn't found and the absence of the port is a legit case here,
+-	 * so at first we silently check whether graph presents in the
+-	 * device-tree node.
+-	 */
+-	if (!of_graph_is_present(np))
+-		return -ENODEV;
+-
+-	remote = of_graph_get_remote_node(np, port, endpoint);
+-	if (!remote)
+-		return -ENODEV;
+-
+-	*bridge = of_drm_find_bridge(remote);
+-	if (*bridge)
+-		ret = 0;
+-
+-	of_node_put(remote);
+-	return ret;
+-}
+-
+ /**
+  * of_drm_get_panel_orientation - look up the orientation of the panel through
+  * the "rotation" binding from a device tree node
+@@ -1150,62 +1107,3 @@ struct drm_connector *drm_panel_bridge_connector(struct drm_bridge *bridge)
+ 	return &panel_bridge->connector;
+ }
+ EXPORT_SYMBOL(drm_panel_bridge_connector);
+-
+-#ifdef CONFIG_OF
+-/**
+- * devm_drm_of_get_bridge - Return next bridge in the chain
+- * @dev: device to tie the bridge lifetime to
+- * @np: device tree node containing encoder output ports
+- * @port: port in the device tree node
+- * @endpoint: endpoint in the device tree node
+- *
+- * Given a DT node's port and endpoint number, finds the connected node
+- * and returns the associated bridge if any.
+- *
+- * Returns a pointer to the bridge if successful, or an error pointer
+- * otherwise.
+- */
+-struct drm_bridge *devm_drm_of_get_bridge(struct device *dev,
+-					  struct device_node *np,
+-					  u32 port, u32 endpoint)
+-{
+-	struct drm_bridge *bridge;
+-	int ret;
+-
+-	ret = of_drm_find_bridge_by_endpoint(np, port, endpoint, &bridge);
+-	if (ret)
+-		return ERR_PTR(ret);
+-
+-	return bridge;
+-}
+-EXPORT_SYMBOL(devm_drm_of_get_bridge);
+-
+-/**
+- * drmm_of_get_bridge - Return next bridge in the chain
+- * @drm: device to tie the bridge lifetime to
+- * @np: device tree node containing encoder output ports
+- * @port: port in the device tree node
+- * @endpoint: endpoint in the device tree node
+- *
+- * Given a DT node's port and endpoint number, finds the connected node
+- * and returns the associated bridge if any.
+- *
+- * Returns a drmm managed pointer to the bridge if successful, or an error
+- * pointer otherwise.
+- */
+-struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm,
+-				      struct device_node *np,
+-				      u32 port, u32 endpoint)
+-{
+-	struct drm_bridge *bridge;
+-	int ret;
+-
+-	ret = of_drm_find_bridge_by_endpoint(np, port, endpoint, &bridge);
+-	if (ret)
+-		return ERR_PTR(ret);
+-
+-	return bridge;
+-}
+-EXPORT_SYMBOL(drmm_of_get_bridge);
+-
+-#endif
 diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index fca860d582f86b35c9172b27be20060de086e38f..92ce40adfaa59a278a972ac862bebee06970ff83 100644
+index 87cebec2de806781cee22da54d666eee9bde3648..2aa17fbe538b86066c4e68f0d0e8046e9ca9b965 100644
 --- a/drivers/gpu/drm/drm_bridge.c
 +++ b/drivers/gpu/drm/drm_bridge.c
-@@ -1548,6 +1548,42 @@ struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
- }
- EXPORT_SYMBOL(devm_drm_of_get_bridge_by_node);
+@@ -25,6 +25,7 @@
+ #include <linux/media-bus-format.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
++#include <linux/of.h>
  
-+/**
-+ * devm_drm_put_bridge - Release a bridge reference obtained via devm
-+ * @dev: device that got the bridge via devm
-+ * @bridge: pointer to a struct drm_bridge obtained via devm
-+ *
-+ * Same as drm_bridge_put() for bridge pointers obtained via devm functions
-+ * such as devm_drm_of_get_bridge().
-+ *
-+ * See also devm_drm_put_and_clear_bridge() which is more handy in many
-+ * cases.
-+ */
-+void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge)
-+{
-+	devm_release_action(dev, devm_drm_bridge_put_void, bridge);
-+}
-+EXPORT_SYMBOL(devm_drm_put_bridge);
+ #include <drm/drm_atomic_state_helper.h>
+ #include <drm/drm_bridge.h>
+@@ -1334,6 +1335,105 @@ struct drm_bridge *of_drm_find_bridge(struct device_node *np)
+ 	return NULL;
+ }
+ EXPORT_SYMBOL(of_drm_find_bridge);
 +
 +/**
-+ * devm_drm_put_and_clear_bridge - Given a bridge pointer obained via devm,
-+ *                                 clear the pointer then put the bridge
++ * of_drm_find_bridge_by_endpoint - return drm_bridge connected to an endpoint
++ * @np: device tree node containing encoder output ports
++ * @port: port in the device tree node
++ * @endpoint: endpoint in the device tree node
++ * @bridge: pointer to hold returned drm_bridge (must not be NULL)
 + *
-+ * @dev: device that got the bridge via devm
-+ * @bridge_pp: pointer to pointer to a struct drm_bridge obtained via devm
++ * Given a DT node's port and endpoint number, find the connected node and
++ * return the associated struct drm_bridge.
 + *
-+ * Same as drm_bridge_put_and_clear() for bridge pointers obtained via devm
-+ * functions such as devm_drm_of_get_bridge().
++ * Returns zero if successful, or one of the standard error codes if it fails.
 + */
-+void devm_drm_put_and_clear_bridge(struct device *dev, struct drm_bridge **bridge_pp)
++static int of_drm_find_bridge_by_endpoint(const struct device_node *np,
++					  int port, int endpoint,
++					  struct drm_bridge **bridge)
 +{
-+	struct drm_bridge *bridge = *bridge_pp;
++	int ret = -EPROBE_DEFER;
++	struct device_node *remote;
 +
-+	*bridge_pp = NULL;
-+	devm_drm_put_bridge(dev, bridge);
++	if (!bridge)
++		return -EINVAL;
++
++	/*
++	 * of_graph_get_remote_node() produces a noisy error message if port
++	 * node isn't found and the absence of the port is a legit case here,
++	 * so at first we silently check whether graph presents in the
++	 * device-tree node.
++	 */
++	if (!of_graph_is_present(np))
++		return -ENODEV;
++
++	remote = of_graph_get_remote_node(np, port, endpoint);
++	if (!remote)
++		return -ENODEV;
++
++	*bridge = of_drm_find_bridge(remote);
++	if (*bridge)
++		ret = 0;
++
++	of_node_put(remote);
++	return ret;
 +}
-+EXPORT_SYMBOL(devm_drm_put_and_clear_bridge);
 +
- static void drmm_bridge_put_void(struct drm_device *drm, void *ptr)
- {
- 	struct drm_bridge *bridge = ptr;
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 43cef0f6ccd36034f64ad2babfebea62db1d9e43..b6b76161a3c6bb2a4df4b3331bc152a560823fd7 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -1230,6 +1230,8 @@ struct drm_bridge *devm_drm_of_get_bridge(struct device *dev, struct device_node
- 					  u32 port, u32 endpoint);
- struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
- 						  struct device_node *bridge_node);
-+void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge);
-+void devm_drm_put_and_clear_bridge(struct device *dev, struct drm_bridge **bridge_pp);
- struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm, struct device_node *node,
- 					  u32 port, u32 endpoint);
- #else
-@@ -1247,6 +1249,10 @@ static inline struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *d
- 	return ERR_PTR(-ENODEV);
- }
++/**
++ * devm_drm_of_get_bridge - Return next bridge in the chain
++ * @dev: device to tie the bridge lifetime to
++ * @np: device tree node containing encoder output ports
++ * @port: port in the device tree node
++ * @endpoint: endpoint in the device tree node
++ *
++ * Given a DT node's port and endpoint number, finds the connected node
++ * and returns the associated bridge if any.
++ *
++ * Returns a pointer to the bridge if successful, or an error pointer
++ * otherwise.
++ */
++struct drm_bridge *devm_drm_of_get_bridge(struct device *dev,
++					  struct device_node *np,
++					  u32 port, u32 endpoint)
++{
++	struct drm_bridge *bridge;
++	int ret;
++
++	ret = of_drm_find_bridge_by_endpoint(np, port, endpoint, &bridge);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return bridge;
++}
++EXPORT_SYMBOL(devm_drm_of_get_bridge);
++
++/**
++ * drmm_of_get_bridge - Return next bridge in the chain
++ * @drm: device to tie the bridge lifetime to
++ * @np: device tree node containing encoder output ports
++ * @port: port in the device tree node
++ * @endpoint: endpoint in the device tree node
++ *
++ * Given a DT node's port and endpoint number, finds the connected node
++ * and returns the associated bridge if any.
++ *
++ * Returns a drmm managed pointer to the bridge if successful, or an error
++ * pointer otherwise.
++ */
++struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm,
++				      struct device_node *np,
++				      u32 port, u32 endpoint)
++{
++	struct drm_bridge *bridge;
++	int ret;
++
++	ret = of_drm_find_bridge_by_endpoint(np, port, endpoint, &bridge);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return bridge;
++}
++EXPORT_SYMBOL(drmm_of_get_bridge);
+ #endif
  
-+static inline void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge) {}
-+static inline void devm_drm_put_and_clear_bridge(struct device *dev,
-+						 struct drm_bridge **bridge_pp) {}
-+
- static inline struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm,
- 						     struct device_node *node,
- 						     u32 port,
+ MODULE_AUTHOR("Ajay Kumar <ajaykumar.rs@samsung.com>");
 
 -- 
 2.34.1
