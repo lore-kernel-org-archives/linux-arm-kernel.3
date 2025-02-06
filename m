@@ -4,139 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD711C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A60C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MbneBm+0ZstsZATYKn2W9iRVf+I3oXALqoBUOor/2G0=; b=Kgb+r1nGhz41kv8f5neCJ75Pu5
-	4jbHfDoQfvMeIaoOlfY8BJq0JFcOnqKP6U4JFfLM0Yycgb7AeJmRDDiqdua1ZnTIyxxdgElOzqNNY
-	rRi96RiWKE4Jqt33s2AQRkkA2+yCapamJQhWPYBZvpV7FTWam7hh5PpHHHrdvGQUMlKsxJeKEBHo7
-	IKC3aQHWzLFST800gX0Ms6+L4/qKjW/Ofhqwi4SkRSLcHRg4c1zF1knfvnJY0Wvhf68m1lgqUf046
-	Tnjs+GILJ0U8s8u9mx2JKzsP+eKg4V5/6SigJ+xyUyJ8RzskW9vcXtl29gLEukh8kK3+eMIcLNBJp
-	vLpxZoxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ExNM5vQ8iZJe621CqISPZyIbe/P7qzPG8wBj8S3n81Y=; b=ovgmsjcqRN7m/kN/FAaBl+cASZ
+	+tKI/RlAzpXglpfZrS+N7UpVbtOausftZl/qNbmE2pO1QtgaqniTF0V/I/W+7IvpBYgY5MWm1aj1X
+	QVp4QsrddoRc7eJnvq4tBO/uCXEXBh857P56exM8tzgzzwckKh3J1jpgtNjOHRiQiggKCMPKyik/1
+	Lpt4aY1bxZ5vSQngV5xo+iD1MbE3qtIm3gKUKzs5mQiCmiEULYPDFvBh2OvAVVtxlemJzHwJVP0LT
+	wc+E9vbmzk/PO31OiuaGwYpzWylmvuF+j+pWGD6N+Bn0gb7OOFb2wXv8eMVtZ+L9zGVM6skKZryBS
+	wlOEW9ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg53c-00000006u4g-2bv3;
-	Thu, 06 Feb 2025 16:48:52 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tg5Ae-00000006ur9-35s4;
+	Thu, 06 Feb 2025 16:56:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg51e-00000006ts2-0wX9
+	id 1tg59G-00000006uik-3rbd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 16:46:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738860410; x=1770396410;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=ATMIiU+Ci2luWIZJIX8XTUarrtJN3EZMmLUtcy7ySfw=;
-  b=HV8pWJx2UuraJ2/MzNwG3PXrthUySdiXoM+3YJ+qDgHkxxax3aq1Hxxs
-   bsrc2csWtJn4jvEH8hXL35eULRpq1D7jRtLIR49daodSevx05or31frv+
-   4WHx8dA57Dx2Ft6U7y+Io847u+5jpY0pfOL7TkK+TLjn1rPbBlIZVpMVr
-   rjYP8JKGIot4Asv6CgPRYm2h3LVHZEg9tX+I3ZeZgW45cafN1kUvRDel7
-   9iH3VUkrMQQEwimnt5Fy7v4KwXfDdPEQHNzjGIZoagWksozzUzGm93gUM
-   4h1I6SdW6yw+eCLi60K50GK9yGQ7V9pCwYZ0Llk13jHkicbGLrn1bbP75
-   w==;
-X-CSE-ConnectionGUID: kLD506xRQq+crs9+Jbnvzw==
-X-CSE-MsgGUID: uiHAlVB2Tzi+TGxAE71ksA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39346506"
-X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="39346506"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 08:46:26 -0800
-X-CSE-ConnectionGUID: QIWgW/mPR46JvsO+fjSr2w==
-X-CSE-MsgGUID: vTDDBNblR1GMyl+aqdgkDQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="111176227"
-Received: from mgoodin-mobl2.amr.corp.intel.com (HELO [10.125.110.238]) ([10.125.110.238])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 08:46:23 -0800
-Message-ID: <063bd012-d377-4d3d-9dcc-57e360d8f462@intel.com>
-Date: Thu, 6 Feb 2025 08:46:24 -0800
+	Thu, 06 Feb 2025 16:54:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 15664A433C3;
+	Thu,  6 Feb 2025 16:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89006C4CEDF;
+	Thu,  6 Feb 2025 16:54:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738860881;
+	bh=PsZQ/79SdnZPsMKJdNhXcP5V1qKRUZBQqLW7woOhAqY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j4uA8B2s4R+u2Mcao02pmJN/jScM9pY9gXpm09oKZOdD796l6Xske3ij0fx5I4Gkv
+	 K6JH237xMMGRqd48bLH06K74ejTHUkN5VAT4jtpvYy34z32TJctrtirqtNZjqEd2eu
+	 vSSSXGk9w4V2GjB6i4FrPbYiLsxN/S32NxpZDUXsNpL5pVxM0CWmfJyviQoYTqirTI
+	 TIYOeUBhfur4T9N5qR3EnsPvd+KNGz7n2Ec2Abx7TzdK5H4Grj293tiT6YjY4rezEA
+	 +8vs03WpNPRsxGOdPUYvTJWSrMEeDhSW7KU2PwJVVCTgK0aUywTekvMtoPy6ltm2dO
+	 OPoJd0ZoFmF0g==
+Date: Thu, 6 Feb 2025 09:54:37 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Handle .ARM.attributes section in linker
+ scripts
+Message-ID: <20250206165437.GD180182@ax162>
+References: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
+ <20250206130526.GB3204@willie-the-truck>
+ <20250206135715.GA180182@ax162>
+ <20250206152246.GA3468@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/7] arch: x86: add IPC mailbox accessor
- function and add SoC register access
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- David E Box <david.e.box@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>,
- Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
- David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
- Mengyuan Lou <mengyuanlou@net-swift.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Serge Semin <fancer.lancer@gmail.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
- <20250206131859.2960543-4-yong.liang.choong@linux.intel.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20250206131859.2960543-4-yong.liang.choong@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206152246.GA3468@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_084650_355622_FEB775E7 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20250206_085443_087055_96F38764 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,127 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/25 05:18, Choong Yong Liang wrote:
+On Thu, Feb 06, 2025 at 03:22:47PM +0000, Will Deacon wrote:
+> On Thu, Feb 06, 2025 at 06:57:15AM -0700, Nathan Chancellor wrote:
+> > Hi Will,
+> > 
+> > On Thu, Feb 06, 2025 at 01:05:26PM +0000, Will Deacon wrote:
+> > > On Tue, Feb 04, 2025 at 10:48:55AM -0700, Nathan Chancellor wrote:
+> > > > A recent LLVM commit [1] started generating an .ARM.attributes section
+> > > > similar to the one that exists for 32-bit, which results in orphan
+> > > > section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+> > > > because it is not handled in the arm64 linker scripts.
+> > > > 
+> > > >   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > >   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > > 
+> > > >   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > >   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > >   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > > 
+> > > > Discard the new sections in the necessary linker scripts to resolve the
+> > > > warnings, as the kernel and vDSO do not need to retain it, similar to
+> > > > the .note.gnu.property section.
+> > > > 
+> > > > Cc: stable@vger.kernel.org
+> > > > Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+> > > > Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+> > > > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> > > > ---
+> > > > Changes in v2:
+> > > > - Discard the section instead of adding it to the final artifacts to
+> > > >   mirror the .note.gnu.property section handling (Will).
+> > > 
+> > > Thanks for the v2. Just a minor nit:
+> > > 
+> > > > - Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+> > > > ---
+> > > >  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+> > > >  arch/arm64/kernel/vmlinux.lds.S   | 1 +
+> > > >  2 files changed, 2 insertions(+)
+> > > > 
+> > > > diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> > > > index 4ec32e86a8da..8095fef66209 100644
+> > > > --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> > > > +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> > > > @@ -80,6 +80,7 @@ SECTIONS
+> > > >  		*(.data .data.* .gnu.linkonce.d.* .sdata*)
+> > > >  		*(.bss .sbss .dynbss .dynsbss)
+> > > >  		*(.eh_frame .eh_frame_hdr)
+> > > > +		*(.ARM.attributes)
+> > > >  	}
+> > > 
+> > > Can we chuck this in the earlier /DISCARD/ section along with
+> > > .note.gnu.property? i.e.
+> > 
+> > Sure, I don't see why not. Do you want the comment above it updated to
+> > mention this section or should I leave it as is?
 > 
-> - Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
-> - Add support to use IPC command allows host to access SoC registers 
-> through PMC firmware that are otherwise inaccessible to the host due
-> to security policies.
+> If you can think of something useful to add to the comment, don't let me
+> stop you!
 
-I'm not quite parsing that second bullet as a complete sentence.
+Eh, I could not come up with much so I will leave it as is. v3 incoming
+shortly.
 
-But that sounds scary! Why is the fact that they are "otherwise
-inaccessible" relevant here?
-
-...
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 87198d957e2f..631c1f10776c 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -688,6 +688,15 @@ config X86_AMD_PLATFORM_DEVICE
->  	  I2C and UART depend on COMMON_CLK to set clock. GPIO driver is
->  	  implemented under PINCTRL subsystem.
->  
-> +config INTEL_PMC_IPC
-> +	tristate "Intel Core SoC Power Management Controller IPC mailbox"
-> +	depends on ACPI
-> +	help
-> +	  This option enables sideband register access support for Intel SoC
-> +	  power management controller IPC mailbox.
-> +
-> +	  If you don't require the option or are in doubt, say N.
-
-Could we perhaps beef this up a bit to help users figure out if they
-want to turn this on? Really the only word in the entire help text
-that's useful is "Intel".
-
-I'm not even sure we *want* to expose this to users. Can we just leave
-it as:
-
-	config INTEL_PMC_IPC
-		def_tristate n
-		depends on ACPI
-
-so that it only gets enabled by the "select" in the other patches?
-
-> + * Authors: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> + *          David E. Box <david.e.box@linux.intel.com>
-
-I'd probably just leave the authors bit out. It might have been useful
-in the 90's, but that's what git is for today.
-
-> +	obj = buffer.pointer;
-> +	/* Check if the number of elements in package is 5 */
-> +	if (obj && obj->type == ACPI_TYPE_PACKAGE && obj->package.count == 5) {
-> +		const union acpi_object *objs = obj->package.elements;
-> +
-
-The comment there is just not super useful. It might be useful to say
-*why* the number of elements needs to be 5.
-
-> +EXPORT_SYMBOL(intel_pmc_ipc);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("Intel PMC IPC Mailbox accessor");
-
-Honestly, is this even worth being a module? How much code are we
-talking about here?
-
-> diff --git a/include/linux/platform_data/x86/intel_pmc_ipc.h b/include/linux/platform_data/x86/intel_pmc_ipc.h
-> new file mode 100644
-> index 000000000000..d47b89f873fc
-> --- /dev/null
-> +++ b/include/linux/platform_data/x86/intel_pmc_ipc.h
-> @@ -0,0 +1,34 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Intel Core SoC Power Management Controller Header File
-> + *
-> + * Copyright (c) 2023, Intel Corporation.
-> + * All Rights Reserved.
-...
-
-This copyright is a _bit_ funky. It's worth at least saying in the cover
-letter that this patch has been sitting untouched for over a year, thus
-the old copyright.
-
-Or, if you've done actual work with it, I'd assume the copyright needs
-to get updated.
-
-> +struct pmc_ipc_cmd {
-> +	u32 cmd;
-> +	u32 sub_cmd;
-> +	u32 size;
-> +	u32 wbuf[4];
-> +};
-> +
-> +/**
-> + * intel_pmc_ipc() - PMC IPC Mailbox accessor
-> + * @ipc_cmd:  struct pmc_ipc_cmd prepared with input to send
-
-You probably don't need to restate the literal type of ipc_cmd.
-
-> + * @rbuf:     Allocated u32[4] array for returned IPC data
-
-The "Allocated" thing here threw me a bit. Does this mean it *must* be
-"allocated" as in it comes from kmalloc()? Or can it be on the stack? Or
-part of a static variable?
-
-> + * Return: 0 on success. Non-zero on mailbox error
-> + */
-> +int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, u32 *rbuf);
-
-Also, if it can *only* be u32[4], then the best way to declare it is:
-
-struct pmc_ipc_rbuf {
-	u32 buf[4];
-};
-
-and:
-
-int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd,
-		  struct pmc_ipc_rbuf rbuf *rbuf);
-
-Then you don't need a comment saying that it must be a u32[4]. It's
-implied in the structure.
+Cheers,
+Nathan
 
