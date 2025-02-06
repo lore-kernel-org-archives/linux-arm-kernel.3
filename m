@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBDFC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35DEC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lmN/Mh96pOHwdG2ab4VMFJLNlZMvsX21i4tOrmIkk0=; b=cD1qVbXdAa+wK6JyzANdpj6qdv
-	hXX1zhauui8VD7hkF+Tr29frZ9S6OJ8se1rtZKe+nMESK2FDBJcmeXYv2T8ovXv8Oi9JI3s862CiL
-	B8i/mN7L2+uf07jOLRGuYQ2Wu35G5SKwm0Ln2eFZEtHNxETlC1QGk9pFZBSyYaokhi6OS8ZbsiPH9
-	HoLk8LESfFAaNK1b/uiHmFcnRvgsQ6Gkr0nqQD2672UjHgSCwk7D4DJOL/oUudylLW+kqDYpYl4Al
-	KvY1dX8jhpbmtek1D9jO+MN3EDLL4WWPnsngUx3SvRiLqFLpQCLkvABf6zF/xkmepSSYwQTHzw4HU
-	n7ggAHUw==;
+	bh=l8wiv1UFeF5daypgLNnkA8k+FKehfEILLSYFEtag8nQ=; b=eRKa1kq5diHgpglBgUHKad0RkC
+	mkmiJEeOwEOtjwMEC+iPGh/mTMxQuQROmMYbSY113W15Sz0/sPb5NTHO11//50GOl4qmYUYnOROJ4
+	4UPxRoObXvd1DxmoW9oLxoGecP4+3h3MqxZ4Vu7cV9fpuGcTArgd0TJjmjBAUADdWa8AbqAwzn1Sh
+	Uz5UUBYeWYtqRD66yP8kiiHu6prj/JDXVhqlq390Gv9+61kXN9WnNSYma3D31pEZFETE63BBXvlAv
+	15xz02rDaS7n0c+P5K/jXSO9ZQHpcMfCXvEC2PM66WpbC3r8gSo4IlyRrsdhx36c1D+tkZ0K9PZ6s
+	LlZdWieg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3mE-00000006hmZ-46gQ;
-	Thu, 06 Feb 2025 15:26:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tg3nZ-00000006hvA-2rvB;
+	Thu, 06 Feb 2025 15:28:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3gu-00000006hAe-2AbW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 15:21:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1lmN/Mh96pOHwdG2ab4VMFJLNlZMvsX21i4tOrmIkk0=; b=ShS2Jy73uCzUvFFfrSLbnYB7Zn
-	inKSSaI3s/tQtSqyLpX/Fm5rGJarx8Qn+fM1dlFjAk9laNMb2+wfLMhk0NBq0SZYYEoRP7iODItW8
-	s+FhcNFbDiQSRSTmiuW8M751qQ9xqI+0qYLk6Fru50rxz7TZT/R7V21QOTkHFlYKLOgBaPC9poOx2
-	PW0585V6b9WqOm76gr+svi4s/bKC98YxFFBKl56dz7drHUq9i/rMqJFsm+zSQjzaL32LDDthQ+c/3
-	aiwTQIlU8kDF/S/3CBQ5blh0qLDbjP8SEslTDW54VsP5VBgR4huMKZM45tvyYSInxDHzWUqLYfhCG
-	rrBuG15Q==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3gr-0000000GySP-1as6
+	id 1tg3iD-00000006hDv-33zK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 15:21:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D8F25C624A;
-	Thu,  6 Feb 2025 15:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBB9AC4CEDF;
-	Thu,  6 Feb 2025 15:21:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738855272;
-	bh=fGkPZyC1lHaD1dNGIgbR3MqllKvLH1NgrTHM4VOF/rQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DAPAqhM8xt+twMxtoArge3pECx/FD9GqReBEPTDv1rOzbK/WPMa8I5zDqHagGBREk
-	 sA74L5y7Q2TjyKTfzg6Y7Fj8e0h5n85bsW8bf4mdTALDj/uWCBofnPeTSa9P5HjMli
-	 gcbnTqicA8AIvE5PCAfMd3Z8O6dZ41167rto5b1sM1YrwPozWZAp221XLGw5z9JIW0
-	 TnFmoY6LXIcuOADbNyrH5df0HBRJ4BRFiz6quAld7tsUDDwgmy5qB9S2se5PH37x7M
-	 BlI4iTBR2tnnpvZPn1CsvSVwyt75dQnEk5pvqfrL4aDQSgNNmBx2GeJE/aspcTdaJ5
-	 TTzTmIQsD2IZw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tg3gk-001Axu-CO;
-	Thu, 06 Feb 2025 15:21:10 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Alexander Potapenko <glider@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 1/3] KVM: arm64: timer: Drop warning on failed interrupt signalling
-Date: Thu,  6 Feb 2025 15:20:58 +0000
-Message-Id: <20250206152100.1107909-2-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250206152100.1107909-1-maz@kernel.org>
-References: <20250206152100.1107909-1-maz@kernel.org>
+	Thu, 06 Feb 2025 15:22:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738855359;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l8wiv1UFeF5daypgLNnkA8k+FKehfEILLSYFEtag8nQ=;
+	b=cIePmnRcYf1vliWjGReTX6rdBvnOILhl11yCuxXuPZp3BKaHZmV65XpUAPe0tktp+wHsx3
+	MQ+aoMgpJeHlIaq/kHE74+h6xR2ngMeJXHZAzecBsaHta2emmVslnULI8qnfIr4dVXeln8
+	3jxZp5nKW91FDP+BYbL5MjtzdxUE3T0=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-589-RcxHZ1MRMXyMuNUzvOKTYA-1; Thu, 06 Feb 2025 10:22:36 -0500
+X-MC-Unique: RcxHZ1MRMXyMuNUzvOKTYA-1
+X-Mimecast-MFC-AGG-ID: RcxHZ1MRMXyMuNUzvOKTYA
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6e433680e07so21361346d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 07:22:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738855356; x=1739460156;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1NFq9H4xzFSAei+rLqp5nsYutfgP4NhNUe6F6I53Ixk=;
+        b=S8HrHxa4MBzSnZVr44ZOMRbf8P0twZmCC/3++XGVUecx10sg2ynbzZr5j6IyW0g9VS
+         fSTRTz8XqeTKa16gYJCFvhs0WqUBhSTeW19dytx38TCQd5bL9pu4ZIz3ksd+aZcLMLVF
+         h2bYnCjFl2x/ZEwPlxd4p38tu4VJLjKoBRsy35IPbewsuusSl+RH9UJzsZGTQuqHr/9S
+         P590IzhmxcznqyW8hDMoKJBoPO4xgwFjGsDQ+d5yAgmY+V2PuSd5BAnXDvLOkjG5asZ/
+         3vMxUQZ3RSEf2xD96thRjdks7hmyFSKDtMReZXyd2lJX2b1eVRNhBpJyY2EFkYMNF0SP
+         3xGQ==
+X-Gm-Message-State: AOJu0YwMs9jIYa7+bhu84IVEtp4Tfusmjw95XSxBUgK4lHXCKfPi40K8
+	LXxrtLH96TS2E6YyF2I0KCEeIb7jtyKhXO5bBE7hKsVimYHfrSkVtghR+hBXjhkxtaF3/mD6hVc
+	QqriR7sZni+vFxbHZYzqjDgJzLL4ztRJ59iblCCpf0SydvwGjVvEYgmpvlPwYQytfQYGGd5+L
+X-Gm-Gg: ASbGncso1cSsyaF56nfTxhUQOq2ZQHFDKZEX4z5bQ4kclGKGXyWe9UtKk3i1ssM+4tR
+	qslRs2MFwLLIIjXfBsqva6EZzMeDx9imYHMR+1vBatRnTlVldMZ67h1iV/02gZg4CUuqIPx0Ug1
+	sfRW5iFY7E+QFsv/OZvoeqRNCZtT2t881NUzjrvMEaZwxcE6gaheJUc+1s1ZO/qM2Syp3iP+beS
+	Vo2UwTXsWgWF8usBrEb/ukEK7KWO5oULfqzrGBeIxzWxJY1EPyQFwZmSlug53DREYjQ4QuUQTgL
+	hgdHQ59+5DsYmU7umF0ilVJ4GeFWP+TDjhZsypkfrcIuOvI8e2wPW/s72o2aTsYZ5IJcUDgB
+X-Received: by 2002:ad4:5ba3:0:b0:6d4:19a0:202 with SMTP id 6a1803df08f44-6e42fc4596emr90050546d6.33.1738855355813;
+        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGZBomskQjXv/yjz790a4y8HP1KFNYr9pAPvFI1pJr69NYxgJJffFxrdg7+GOugUsAv1PyziA==
+X-Received: by 2002:ad4:5ba3:0:b0:6d4:19a0:202 with SMTP id 6a1803df08f44-6e42fc4596emr90050286d6.33.1738855355535;
+        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
+Received: from thinkpad-p1.localdomain (pool-174-112-193-187.cpe.net.cable.rogers.com. [174.112.193.187])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e43ba2bfbasm6704836d6.1.2025.02.06.07.22.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
+Message-ID: <2106533f69de3e9d699317fffb7cafb6eecce0c9.camel@redhat.com>
+Subject: Re: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to
+ cacheinfo array
+From: Radu Rendec <rrendec@redhat.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>
+Date: Thu, 06 Feb 2025 10:22:33 -0500
+In-Reply-To: <20250206130213.GA3204@willie-the-truck>
+References: <20250123181159.1849346-1-rrendec@redhat.com>
+	 <20250204123955.GD1063@willie-the-truck>
+	 <bc37567a390a5ebe1fac2a196358ac139c751561.camel@redhat.com>
+	 <20250206130213.GA3204@willie-the-truck>
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, glider@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: gyp_Yf7mvR4k8sOqMSMmTa2vaFMJic78GA-lGQLASi0_1738855356
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_152117_586854_72419D73 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250206_072241_842213_41DDF0AC 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +112,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently spit out a warning if making a timer interrupt pending
-fails. But not only this is loud and easy to trigger from userspace,
-we also fail to do anything useful with that information.
+On Thu, 2025-02-06 at 13:02 +0000, Will Deacon wrote:
+> On Tue, Feb 04, 2025 at 10:55:53AM -0500, Radu Rendec wrote:
+> > On Tue, 2025-02-04 at 12:39 +0000, Will Deacon wrote:
+> > > On Thu, Jan 23, 2025 at 01:11:59PM -0500, Radu Rendec wrote:
+> > > > diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cach=
+einfo.c
+> > > > index d9c9218fa1fdd..77ffda7284754 100644
+> > > > --- a/arch/arm64/kernel/cacheinfo.c
+> > > > +++ b/arch/arm64/kernel/cacheinfo.c
+> > > > @@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
+> > > > =C2=A0=09unsigned int level, idx;
+> > > > =C2=A0=09enum cache_type type;
+> > > > =C2=A0=09struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cp=
+u);
+> > > > -=09struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
+> > > > +=09struct cacheinfo *infos =3D this_cpu_ci->info_list;
+> > > > =C2=A0
+> > > > =C2=A0=09for (idx =3D 0, level =3D 1; level <=3D this_cpu_ci->num_l=
+evels &&
+> > > > -=09=C2=A0=C2=A0=C2=A0=C2=A0 idx < this_cpu_ci->num_leaves; idx++, =
+level++) {
+> > > > +=09=C2=A0=C2=A0=C2=A0=C2=A0 idx < this_cpu_ci->num_leaves; level++=
+) {
+> > > > =C2=A0=09=09type =3D get_cache_type(level);
+> > > > =C2=A0=09=09if (type =3D=3D CACHE_TYPE_SEPARATE) {
+> > > > -=09=09=09ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+> > > > -=09=09=09ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+> > > > +=09=09=09if (idx + 2 > this_cpu_ci->num_leaves)
+> > > > +=09=09=09=09break;
+> > >=20
+> > > Why are you checking 'idx + 2' rather than 'idx + 1'?
+> >=20
+> > I don't like "magic constants", and I thought "idx + 2" would be more
+> > suggestive since 2 elements were added.
+> >=20
+> > The check is correct though. For example, if this_cpu_ci->num_leaves =
+=3D 3
+> > (the array size is 3) and idx =3D 2, then 2 + 2 > 3 is true, so you can=
+'t
+> > add two more elements. On the other hand, if idx =3D 1, then 1 + 2 > 3 =
+is
+> > false, so you can add the two elements (at indices 1 and 2).
+> >=20
+> > If there's a strong preference for "idx + 1", I can change it. But then
+> > of course ">" will need to change to ">=3D" as well.
+>=20
+> Might just be me, but I'd personally find that clearer given that we're
+> assigning to infos[idx] and infos[idx + 1].
 
-Dropping the warning is the easiest thing to do for now. We can
-always add error reporting if we really want in the future.
+Fair enough. I don't feel strongly about it, and since nobody else has
+chimed in, I will make the change and post v2.
 
-Reported-by: Alexander Potapenko <glider@google.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/arch_timer.c | 16 +++++++---------
- 1 file changed, 7 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 231c0cd9c7b4b..70802e4c91cf5 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -447,21 +447,19 @@ static void kvm_timer_update_status(struct arch_timer_context *ctx, bool level)
- static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
- 				 struct arch_timer_context *timer_ctx)
- {
--	int ret;
--
- 	kvm_timer_update_status(timer_ctx, new_level);
- 
- 	timer_ctx->irq.level = new_level;
- 	trace_kvm_timer_update_irq(vcpu->vcpu_id, timer_irq(timer_ctx),
- 				   timer_ctx->irq.level);
- 
--	if (!userspace_irqchip(vcpu->kvm)) {
--		ret = kvm_vgic_inject_irq(vcpu->kvm, vcpu,
--					  timer_irq(timer_ctx),
--					  timer_ctx->irq.level,
--					  timer_ctx);
--		WARN_ON(ret);
--	}
-+	if (userspace_irqchip(vcpu->kvm))
-+		return;
-+
-+	kvm_vgic_inject_irq(vcpu->kvm, vcpu,
-+			    timer_irq(timer_ctx),
-+			    timer_ctx->irq.level,
-+			    timer_ctx);
- }
- 
- /* Only called for a fully emulated timer */
--- 
-2.39.2
+--=20
+Thanks,
+Radu
 
 
