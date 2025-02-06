@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA133C0219E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBEBC0219F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YGdBF5amQn6183NcAyaMY643bdra7yDi7L3ZDBI8C9M=; b=OL3Qy8eY+rf9D/vMRG+WbE/1G3
-	en+RMhQK/hgmbeYbWW4UqSvZhG57SNy1dLLNQdSuYgQ8IHl9axRbBmPn3eYqz1QqiL5bswp584P9v
-	xt9U6jBCSrTTmIa1B0+Qpg1geP34tIIs/q7vHi0VG18f9GCqcswynHPs5SLMwHRJfufA61i1dsE/r
-	+n+PCjKR0z5OLj+KyClULaxwDqAT1bWZpbN+mK00RkPjlU2u9NGVvqDpetfKJFrCD8AZuCoaRsyFm
-	+vZ0EIdevZxGdAofqA1JZTbGd5PxMoZn1rjmQZwzEAeGYHnWbR5mTRqwpHYSqRhe/o72qGZpIGGq4
-	K6b8dSVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/z/5CqWrmjy7DzVQJLiYDt57i0I/SeVL0TZ7/80aHk=; b=Ki8jW+L5zfZY/Yr8TGcxEPq3sj
+	8fiCI1ZXJC062Mi2n1uhVR/m7jwz8DwYduMVfdmraK0L5tGfNy5xL1OEvIVcLyppYnRT5k19jMSde
+	CKtvbVPIOusA+iF7wxVd5tzO904SlA7ez7xgGdm0EFyghaOqGzprOHIhsnR/LZTxgIsrzuU9PO2IE
+	+FvX2j5Pox8/mffZQh6+EgH8bYhzj96M6maxIQNXyrM2N6CEd3K/zQVUmsgDp66svykTMhRWcvXBk
+	O4aeaS4x7R2PFMq0d1w36Xc9jdEbuit7C0T+x87rDS8JSi/OrlEWj5utNOVRQkBKSv7v7TugbIdJu
+	ZKfznung==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0nf-00000006El7-3IYh;
+	id 1tg0nf-00000006EkD-0Zc1;
 	Thu, 06 Feb 2025 12:16:07 +0000
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0ec-00000006EC4-1upY
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg0e5-00000006E9K-1Fbi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 12:06:48 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5dce3763140so1867476a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 04:06:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738843605; x=1739448405; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YGdBF5amQn6183NcAyaMY643bdra7yDi7L3ZDBI8C9M=;
-        b=QG86W4FQ2kgHwOzTQZflAmmDvHQSSngKgInI/daQvgSNASWM+OAW7nlVAwu6Njz5Hr
-         U9/7tWDUWUmXhNIRYssM23WIe8DgXzGXxAOPyTERMYuRPlethqFdzPfgng38ZyUSToWf
-         VsDRLCBAzGM26vzIhLOR+RIUOrURvvbudsOuuPRY0wJUt6kdRi5NUB9uQgPvbZIdrweB
-         gNCLnkz4OjtOfxrzH4O/hSSzjGC5C4WxN7FvT3/z4NOMt66Kc3Yq1nhWsQ767+oORVSO
-         dGNQJVVXV3GJQN+bBMJ5sH/CdIyXfD5Zw01+Nha1UuRIO5mQjFc264bo+lcSSqE+zX60
-         ja2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738843605; x=1739448405;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YGdBF5amQn6183NcAyaMY643bdra7yDi7L3ZDBI8C9M=;
-        b=C67wF6RN+4aJj8t/adDvGiSwdYX5v7D405htgsvD6dTECKK2RdhWDrOyh1Vc2CzCos
-         YDY3PSvXqP2p7boY9C0dofWpwxceHB1v5XORhMxBqcA5Exf16OSeZgg8sxjd+fiNtiR2
-         xBgVG1yJ/GR1ZCiwXBELOgpQbVhhD/yUeBmpQG3QBXiuGf5DR1M1JPEa83KovSOSmw4D
-         ttO2kxnrWgFyklxkphf4gIxgc124mOziPDyQlfJezSFp71+oprn5rDHazDz5RN/7UplD
-         ZaYoEh4AWNpFi0L0F3F/NOjDFZWAyH0vMDta35G96SPi8BKdeLqN4LA2btMVRS4iml/e
-         djWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUeUI619EAU9muVQvG43FY66Xl4lce5HVeVHcFPnLv9EuKNaWJuG5Rquz9HH+EHy0z2as25XclUx5G/0EjM7AZP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6nwKTZFIPogZ7kgHp6mYYPFf2rLIWj7NDTH/fkcyKbFizNThk
-	rCqmWx4Om5Nr43VubdP4arxFJLUwtYsnJvOE3YHwHptHnryt8APyoFuHWnQ60Sg=
-X-Gm-Gg: ASbGncsL2flrZX2Ec48rD+/ASF8F7FnRcyVuKGEhdEMArGcoN+MUz/6Xs7b5y9TV4T7
-	i4hVxCNRdQc2y8ak2kvcppzrXExr5bNxFls8YEQqn5B4XlzMocnqBhZmhf4tKaiVobJEvAmhT2w
-	DwOJJGbmxoWiBgh6odtNwB0ZpGitOYm89DzkVSnsJE907GYNYAK9VdoKhfIF1jL5kYQq+7a9XW8
-	54SwPZGArj9YrG7//51W4F51S/o4mw9o+72Z2YVvsxGGPk5qeu7ezpZkHRRibbjeLLTSSjnCdqc
-	S2AzThMFxFF44XFKI03RiNKCaYvVwIDHWOQ406DdrB6WdreaS9t9mhRPhA==
-X-Google-Smtp-Source: AGHT+IHr/BfZzmlAYdHkONK5DIkNc2MOki3sCNB0+BjvRciFMqB5iZ1wTz2F8JJQatrKAPl5mZWCuw==
-X-Received: by 2002:a17:907:6d05:b0:aa6:6e10:61f6 with SMTP id a640c23a62f3a-ab75e322b40mr566158166b.52.1738843604642;
-        Thu, 06 Feb 2025 04:06:44 -0800 (PST)
-Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7732e7089sm90262266b.95.2025.02.06.04.06.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 04:06:44 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
-Cc: =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>,
-	linux-pwm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 0/3] pwm: pxa: Use #pwm-cells = <3>
-Date: Thu,  6 Feb 2025 13:06:24 +0100
-Message-ID: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.1
+	Thu, 06 Feb 2025 12:06:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D11B212FC;
+	Thu,  6 Feb 2025 04:06:35 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D2013F63F;
+	Thu,  6 Feb 2025 04:06:10 -0800 (PST)
+Date: Thu, 6 Feb 2025 12:06:03 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
+ machine_blocklist
+Message-ID: <Z6Slq4KjS_RJ3ItB@pluto>
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+ <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1886; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=P+DmhZ5fsqW2fWssaaB0vb1pG+aNe17OBNu8J4YPM98=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnpKXAtvNUKlDIiKRsWNc4oyxCFo6Grjdo842L2 udPu4gsGnmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ6SlwAAKCRCPgPtYfRL+ Tp+9B/0R1HkHEHRU6lkinzAWJleWmmSCWIyIEVGQG4zUoQtf/j5DA0sacW/x5ONM9h62C/Kw2+y +0qbisvUZZia5cZwrm6U7p8g5rXBzXUrIRRz4fdXbKoLRa8mPOAtbrzAx0O4DPVvmfDjv/ezG9O KyJ/u7oU/x1Zl1DoIdSJ7mXZ1p5jczi1/1I5d7cy1C7NNdgQn2290PTgXIoq6N+aSBOcgQ1hxRR PPLThy7HagPJmewucOC9xEL3EQWvsVKO7vo+OLfFkvujO6IgdZJ5bpxYvIP5iIFUsF497yNWOKk BbpVuEQ5Ep9aEgIzUvWwN5n+ZtqJLzLT3Vfl8E+YQtezJviW
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_040646_680430_5454E82F 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250206_040613_426345_D6441A47 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Mon, Jan 20, 2025 at 03:13:30PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
 
-this series' goal is to soften the special device-tree binding of
-marvel,pxa-pwm devices. This is the only binding that doesn't pass the
-line index as first parameter.
+Hi,
 
-Here the #pwm-cells value is bumped from 1 to 3, keeping compatibility
-with the old binding.
+> There are two cases:
+> pinctrl-scmi.c and pinctrl-imx-scmi.c, both use SCMI_PROTOCOL_PINCTRL.
+> If both drivers are built in, and the scmi device with name "pinctrl-imx"
+> is created earlier, and the fwnode device points to the scmi device,
+> non-i.MX platforms will never have the pinctrl supplier ready.
+> 
 
-The motivation for this was that Hervé sent a patch introducing pwm
-nexus nodes which don't work nicely with the marvel,pxa-pwm
-particularities.
+The pinctrl-imx case is an unfortunate exception because you have a
+custom Vendor SCMI driver using a STANDARD protocol: this was never
+meant to be an allowed normal practice: the idea of SCMI Vendor extensions
+is to allow Vendors to write their own Vendor protocols (>0x80) and their
+own SCMI drivers on top of their custom vendor protocols.
 
-Changes since (implicit) v1, available at
-https://lore.kernel.org/linux-pwm/cover.1738777221.git.u.kleine-koenig@baylibre.com:
+This list-based generalization seems to me dangerous because allows the
+spreading of such bad practice of loading custom Vendor drivers on top of
+standard protocols using the same protocol to do the same thing in a
+slightly different manner, with all the rfelated issues of fragmentation
 
- - Use #pwm-cells = <3> also in the binding example (*sigh*), pointed
-   out by Rob
- - Add review, ack and test tags by Hervé Codina, Conor Dooley, Duje
-   Mihanović and Daniel Mack. Thanks!
+...also I feel it could lead to an umaintainable mess of tables of
+compatibles....what happens if I write a 3rd pinctrl-cristian driver on
+top of it...both the new allowlist and the general pinctrl blocklist
+will need to be updated.
 
-I intend to take the first patch via my pwm tree. Assuming the pxa and
-device tree maintainers and bots are happy now: Dear pxa maintainers,
-please tell if I should take the whole series via pwm, or if you want to
-take patches #2 and #3. If the latter: Do you want to delay application
-or should I provide an immutable branch for patch #1?
+The issue as we know is the interaction with devlink given that all of
+these same-protocol devices are created with the same device_node, since
+there is only one of them per-protocol in the DT....
 
-Best regards
-Uwe
+...not sure what Sudeep thinks..just my opinion...
 
-Uwe Kleine-König (3):
-  pwm: Add upgrade path to #pwm-cells = <3> for users of
-    of_pwm_single_xlate()
-  dt-bindings: pwm: marvell,pxa-pwm: Update to use #pwm-cells = <3>
-  ARM: dts: pxa: Use #pwm-cells = <3> for marvell,pxa-pwm devices
+> Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
+> With both drivers built in, two scmi devices will be created, and both
+> drivers will be probed. On A's patform, feature Y probe may fail, vice
+> verus.
+>
 
- .../devicetree/bindings/pwm/marvell,pxa-pwm.yaml |  5 ++---
- arch/arm/boot/dts/intel/pxa/pxa25x.dtsi          |  4 ++--
- arch/arm/boot/dts/intel/pxa/pxa27x.dtsi          |  8 ++++----
- .../dts/intel/pxa/pxa300-raumfeld-controller.dts |  2 +-
- arch/arm/boot/dts/intel/pxa/pxa3xx.dtsi          |  8 ++++----
- drivers/pwm/core.c                               | 16 ++++++++++++++++
- 6 files changed, 29 insertions(+), 14 deletions(-)
+That's definitely an issue much worse than fw_devlink above....we indeed take
+care to pick the right vendor-protocol at runtime BUT no check is peformed
+against the SCMI drivers so you could end up picking up a completely unrelated
+protocol operations...damn...
 
+I think this is more esily solvable though....by adding a Vendor tag in
+the device_table (like the protocols do) you could skip device creation
+based on a mismatching Vendor, instead of using compatibles that are
+doomed to grow indefinitely as a list....
 
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
--- 
-2.47.1
+So at this point you would have an optional Vendor and an optional flags
+(as mentioned in the other thread) in the device_table...
 
+I wonder if we can use the same logic for the above pinctrl case,
+without using compatibles ?
+I have not really thougth this through properly....
+
+In general, most of these issues are somehow Vendor-dependent, so I was
+also wondering if it was not the case to frame all of this in some sort
+of general vendor-quirks framework that could be used also when there
+are evident and NOT fixable issues on deployed FW SCMI server, so that
+we will have to flex a bit the kernel tolerance to cope with existing
+deployed HW that cannot be fixed fw-wise....
+
+...BUT I thought about this even less thoroughly :P...so it could be just a
+bad idea of mine...
+
+Thanks,
+Cristian
 
