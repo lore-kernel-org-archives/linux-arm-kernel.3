@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2110C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 02:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D214C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 02:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViowYAtKnSgIGUsyb3LQAMZn+nH6X/QGE2D/FYlj+/A=; b=f1gZ8RqGDhQe2A6SVIMoehCvOv
-	PrFzGBy1TikRy5r9a3dz7VwcNTRFzmy2VSZ6vtn3JZTkFYoqJR0BvBgloE12zJRNmImSX6LMTPYU2
-	rm1Tat9dhsh5HhM/kcbeHQWLs5HPul5ZENkawZKyccamnZLc1/dVnTPWJDw/SntENbgZV0xzD3woi
-	djSGB+xS1uqLy+ubHSpjzoFHw1rgrWmiQfingSEOCAOcnZABGglxoLdHpiaDvGmdd+O8R7OU8bLnC
-	yy3P/MWpVCIwzcTbXILDS4IB7e1oDSEuwkVE9uhxCtxHYd5T0+qrEZIip24C26VVn4EYGFj4BK8qz
-	7ByKo88g==;
+	bh=gdGwZSqMLG6HB7z6DCIwBH9sgCuX6xLn9aSU88g46T4=; b=rM3u1jpayPrLWTx+DgHZiK7GYV
+	unWpAwUqzedeuVek4zUDHqGcsh+AalcLavdKb95T/Z7TsssvGHcNSaalvHiuJj/fZNjhMz9ndFqH4
+	mp0fu3CVbnqs95AsbFu6smTwtzD2aYzbNOpRiQWkfybZc3wag9XZj/dGwXywNhzm7UdVYiTqmxSyw
+	TQosvQKUY21JOrloOCI5GKNTZeKqE0UO9U8PyGUSSkaxnzEJpqRtFswb34TyxPPYpozPg367JvBe4
+	eWoQ+BBK2wFgL/nP6vNk5N4+/w62hpQIlSIcdQyz4d9iKdzIqS151dehgFH5JFY3DRZPGU9mbyoWQ
+	sMFJEoeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfrX6-0000000536H-28D9;
-	Thu, 06 Feb 2025 02:22:24 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tfrYR-000000053H3-0aT4;
+	Thu, 06 Feb 2025 02:23:47 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfrVk-00000005309-1hrE
+	id 1tfrWy-0000000535V-1Wei
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 02:21:01 +0000
+	Thu, 06 Feb 2025 02:22:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738808460; x=1770344460;
+  t=1738808537; x=1770344537;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=zPwqGjttrG32SeOK9jJ5H18H/d8dhdmDbDCuLS50y9c=;
-  b=n6FDsaYRfz/QSc36dG77ccf0tjn1CDONtXDDw1mqecBNQmxtfu0Wm8cM
-   7dV/QtQ9OPXfj6zQKcCX9wgya0NbnB3DQMMT+aGxVQ0dsMea/Pk913rMT
-   isdv2CuM4I3Kj3nqaBo3OQm5Bwtq0i80EP/0uLJhA228/IAXfNOAw9iXv
-   pnomcMpOtoaNilMRcyxo2xNwdEgKVwL0MUGj2AYkjHhamv14N/AXGlRE0
-   65fF+Wc8zPrrMlPRHt+827gv9o99T+EFZQ3cNKKC9pRbZdTgGlEa3t2Q4
-   rmY5wfxV0JP7+ATPs7VlijIEJsbLY42F7eXYee4dIqdWTlfRsNF+IhWy9
-   w==;
-X-CSE-ConnectionGUID: egqwmYr+RtCAzRQ0DkjCkw==
-X-CSE-MsgGUID: X2mxNv8kSzys4OD6SGjJNA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39293310"
+  bh=uEkC8AyPD4Fb3fQjLKAq4+ZamiFbVbnCIjXewv18gyk=;
+  b=XeEVF0C1S/BPHQZUco4tFg/3VhBOlZIux958+ffj6Iz/ihFDVWm6vAiT
+   6/iaooUqL6xpNmriQ5W4RS6TdsrjB7R9/cqrbg1lTSdygzwOa/fufn1P/
+   1n39IHUp75Skju+8EOM0wA6POScvbdyay9HKolecPv1ThZKTxM8eHVuSn
+   0iX+p5iP09g1wGDAY4L8uQ+JWvdb3KCFo3bgrwXlg+cbsMJOfOVFom3Q0
+   eLJIGfCFMfEF13mh5hKQgZTEMlXPJYJklQ88u2Omc0WLEMnRJHVUJ4pz3
+   oUl8gdh4YkUwFSnR5UkUEhJRjrLCtM4AblNo1dIXg12VtoGQFMvdO1Yeq
+   Q==;
+X-CSE-ConnectionGUID: nwn7OxwWTCyDG+ufeVGMVw==
+X-CSE-MsgGUID: s3Y14owUQuW4X0RouMIjUA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39096056"
 X-IronPort-AV: E=Sophos;i="6.13,263,1732608000"; 
-   d="scan'208";a="39293310"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 18:20:58 -0800
-X-CSE-ConnectionGUID: OK8fuaBZQQK2CspFAUPF7g==
-X-CSE-MsgGUID: BWMiBxz9QR6bzBug7zF8uA==
+   d="scan'208";a="39096056"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 18:22:16 -0800
+X-CSE-ConnectionGUID: W6Q6U9DXR1edt5B9hcX8PA==
+X-CSE-MsgGUID: tg8iji2aSfKqHi2AdolNjg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,263,1732608000"; 
-   d="scan'208";a="116069233"
+   d="scan'208";a="141957433"
 Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.114.122]) ([10.247.114.122])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 18:20:50 -0800
-Message-ID: <b0b9e3d4-5e65-491d-81c1-232520d73ab3@linux.intel.com>
-Date: Thu, 6 Feb 2025 10:20:47 +0800
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 18:22:07 -0800
+Message-ID: <f272cb2a-1167-4e34-9209-ffdbbb107bdd@linux.intel.com>
+Date: Thu, 6 Feb 2025 10:22:04 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH net-next v6 4/7] stmmac: intel: configure SerDes according
  to the interface mode
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
  Jose Abreu <Jose.Abreu@synopsys.com>,
  David E Box <david.e.box@linux.intel.com>,
@@ -75,25 +75,25 @@ Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
  <mcoquelin.stm32@gmail.com>, Alexandre Torgue
  <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
  Mengyuan Lou <mengyuanlou@net-swift.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Hans de Goede <hdegoede@redhat.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
  Richard Cochran <richardcochran@gmail.com>,
  Andrew Halaney <ahalaney@redhat.com>, Serge Semin <fancer.lancer@gmail.com>,
- x86@kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Netdev <netdev@vger.kernel.org>, platform-driver-x86@vger.kernel.org,
+ x86@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
 References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
  <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
- <71b15c65-4790-50e0-fa96-dbc42c90079f@linux.intel.com>
+ <Z6IDWiRF73sdVWob@shell.armlinux.org.uk>
 Content-Language: en-US
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-In-Reply-To: <71b15c65-4790-50e0-fa96-dbc42c90079f@linux.intel.com>
+In-Reply-To: <Z6IDWiRF73sdVWob@shell.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_182100_493586_D174D5C5 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20250205_182216_452465_312F1DD4 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,33 +110,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 4/2/2025 4:25 pm, Ilpo Järvinen wrote:
-> On Tue, 4 Feb 2025, Choong Yong Liang wrote:
+On 4/2/2025 8:08 pm, Russell King (Oracle) wrote:
+> On Tue, Feb 04, 2025 at 02:10:17PM +0800, Choong Yong Liang wrote:
+>> +	int (*config_serdes)(struct net_device *ndev,
+>> +			     void *priv,
+>> +			     phy_interface_t interface);
 > 
-> The logic could be reversed + return immediately to reduce the indentation
-> of the block below.
+> Since you call this from phylink's mac_finish() method, I would much
+> rather the call down into platform code was also called the same so
+> we don't end up with a proliferation of methods called from that
+> function. As such, please also arrange for it to pass the AN mode as
+> well.
 > 
-> If you just want to have them initialized, it's enough to use {}, no dummy
-> 0 is necessary.
-> 
-> This looks somewhat ugly. Perhaps it would be better if you make the call
-> on main level of the function and use local variables to hold the regs
-> array and its number of elements until then.
-> 
-> It would be even better if you could just store the pointer and # of
-> elements into some platform info structure so that it wouldn't need to be
-> calculated on the fly here (but I don't know this driver well enough to
-> know if that's viable/easy to do).
-> 
-> Why are these arrays in a header and not in the C file that uses them???
+> Thanks.
 > 
 
-Hi Ilpo,
+Hi Russell,
 
-Thank you for your detailed review and comments on the patch.
+Thank you for your feedback on the patch. Based on your suggestion, I have 
+updated the code to align with the mac_finish() method and included the AN 
+mode as well. The updated function signature is as follows:
 
-I'll reverse the logic in intel_tsn_lane_is_available, define the magic 
-number, initialize arrays with {}, refactor intel_config_serdes, and move 
-the arrays to the C file.
+int (*mac_finish)(struct net_device *ndev,
+                   void *priv,
+                   unsigned int mode,
+                   phy_interface_t interface);
 
+Could you please confirm if this meets your expectations, or if there are 
+any further adjustments needed?
 
