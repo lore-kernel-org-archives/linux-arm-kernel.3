@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2ADC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 22:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AE3C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 22:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Pl4tUFCa3d0d2o/tbPal9aLBUD8h4VeJHXvBJClyXk=; b=eskomM19WfzaxXV5cguynBL3Uo
-	q+XrYqZkdDNSEBSw9ujBe6NNV1PK24F/v/CnkU4rfTHGKVVpjhCdiM9NWtGqiwH03Zap9Y25PPUNt
-	TNlggyN6P1o1TxzWr0yWre5K8jIBRmdMTKo2j+zRMEDNFZv/Vi2qxWo2m1tYqmEtbPmck3hDnJWRq
-	QlV5jr6r76JydN8bbrZb1XLqS6vVAZlgYRxQgkzcUXviEqoTXUa5uF9vzo54YgoLcRXt0VUWXQQJo
-	xHyDkhgjA7SsRMiFZfXQzBmqMioKmhvTnjV3eTBVbrsHiAIV1IY50Wp7JtfBhjDYuo7mki77Suh8Q
-	sZJ3POgA==;
+	bh=O/a4xSagbqmb3UAk03PlQCeWIa4LP7rwRFx2VsXaGsc=; b=LdCROdjzvvYVIGoqeebq1k2u0q
+	NTd/48qGRSaGl8Mc4BICmLdSDEIweyID7HiQWZf3LSG2twZ1WoyBaa5m7HsjnwS8jNJKy69Ixw095
+	nSwCVzTyqU3qQ0CzT42i5yM5cne2wI2H+7sTsA3LJR818lIeRTapQDL08D/j9oYJxd2tvuHw6+Jhu
+	o9qLHLjWvZ9rE3nmjrjXdR/RhbF4hhd/3nEejVLqgflHScvbj0RxBpzVBMBw4/5h3SdWh+C4d0Psr
+	GNYgtjozn3NB8I7bpK/ye0/vkuYX51EFXNJnnTmEaHHE9Bn0Zb3fsVR1CbTWUrgEx+eBO359koqD9
+	Zmmz8BoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgA72-00000007ezQ-013q;
-	Thu, 06 Feb 2025 22:12:44 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1tgA8M-00000007fE3-2jM5;
+	Thu, 06 Feb 2025 22:14:06 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgA4L-00000007eeY-08rY
+	id 1tgA4T-00000007eg3-1HKT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 22:09:58 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5f2dee7d218so683584eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 14:09:56 -0800 (PST)
+	Thu, 06 Feb 2025 22:10:06 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-5fa22d0b88fso834616eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 14:10:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1738879796; x=1739484596; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1738879804; x=1739484604; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=2Pl4tUFCa3d0d2o/tbPal9aLBUD8h4VeJHXvBJClyXk=;
-        b=ZXDA5ZrRBcQWTMCpVEF87WJzhgKevEkH5lyHi4nhqhHjI1qEj36+4GuCzBrvxBY8+M
-         zGJSAzbVuLt3/FxUFbSxgFClUMbE71BnS5HUjPu7rMYTAdwO52bxrg2H6xeNhdkHinN2
-         +Jxz8oNHsNHDTzCwzI0a9utN3ZYEPkUBq7VQ8=
+        bh=O/a4xSagbqmb3UAk03PlQCeWIa4LP7rwRFx2VsXaGsc=;
+        b=XxwOs/tz0qksiNmLuuATzX0ZwuNO5F6i7e4rM52xcaxlqYR+jN9FBmxsImEa9YRftD
+         wLiby7J7vOfXm7dW+CPqSbNoEESvPh6tDgoJ0iPcAc/Kv3USP6LKaBHofWd59ubAknhQ
+         c9URYZF8rO/sO6Y+MVH+lYsuJE71MVqDSdOzg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738879796; x=1739484596;
+        d=1e100.net; s=20230601; t=1738879804; x=1739484604;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2Pl4tUFCa3d0d2o/tbPal9aLBUD8h4VeJHXvBJClyXk=;
-        b=Peb/LcqjJWm5MrTF4ULBWJqV/swxZXgA55c6Q0KSaZeT6FcbBxayuKOKlt9iiadc4H
-         QS5fncMpscAA4HNA75LsHyNj9q6z6R1GbsVG1lS6tN8SE44bLkflRb9onoeJ16X8eUfd
-         qhNWPUGd+ps5viaP91akdSvK3GUrpMgxBCIC1Nl3H6dTLiycAa6KN5Z72dKtQu9DHIZa
-         xyAb88vxRSa9oCk+iFjGFS+dM0vDoM5rofmRWbLQIf7cjO9bH3sgqeuC4OIWXkQQhtX9
-         /RV5yhFe3AJ7VPgQHgJJl2Y9TkQ37QWxs+2ZKYpUYsZk3syOmojSaWrabQCYOrovy2vm
-         TK7w==
-X-Forwarded-Encrypted: i=1; AJvYcCV+FPoHtVK8gnZd49xzuZk5LjSpLe9+SHIWjSfUC9qVpSTE5ASGxa5ZRHFUO7d/mBkoXtSzkWGrv2lgCNKj+gc0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRXP1tC/t+9Mjmy1iH+GdccVlCHmkc+VZCuONG6nI8NG5es4q5
-	20cFZt1w/qstZqbUp8+wNF4jogdqYzQxBY04rdTAmSKLpIrJCaGfXKhzL0nS4w==
-X-Gm-Gg: ASbGnctwrbTUPh6W+MGQdTOD05dfYEMgQ1GCg8h9gqbYjAXL2AHTcObuG3/LFFYcIh9
-	l0VmHWZwZr1qKmxVs4FtaLWne+jq0LelMTF3THeDBAUP9YFbZfWW47vjEFqMqAXngT/754CAhGR
-	hGV8NRday49wJR0IDieCBXEASod6H0J6suh9fJoVTelHkkTSmiWCyZRDaY+/HeLshmX0myTZOg8
-	A8Brf+nWWa5Lgfj3isy6ZWcTQ0q505F7KLYn0jb8kN9Z895ndnrULsRCrqCum5V4HZowb09iKdG
-	iFyFex3wWj6rrRNsDvCe3SsDDU+1Q9nGjNHolDuDyea85/Fr90U=
-X-Google-Smtp-Source: AGHT+IGlUzW1l3o5ytaJqT4i8iUSbyIPWL/1ehx8OrH22X5CWc59YzYvc6ftg2KkIleqzAjSWYmUCA==
-X-Received: by 2002:a05:6820:f09:b0:5fa:1ee7:1325 with SMTP id 006d021491bc7-5fc5e746384mr872671eaf.7.1738879796045;
-        Thu, 06 Feb 2025 14:09:56 -0800 (PST)
+        bh=O/a4xSagbqmb3UAk03PlQCeWIa4LP7rwRFx2VsXaGsc=;
+        b=u5pNp6+xnIKLN+n9xSuVojqWU8eEg1grY6FK4dNhWEojLJte2neOid5xkK0l9h80Vs
+         9suXlH1nFCaTnpncz7MWhB+/I2w4YZWv+HII0R6OHvPqmC98M8EuJCGNygu/yIfVn2iK
+         /GXXao3+cn46mD7To/+IFH1eVcGSGJJ0aQUMDa+8REmnmQek881yKQwxXN2RvpnyPb+4
+         D+13gQVjsOhIeQ9nPdlphSSWEQwSV3MyqW8r719/YMgifAN2OeRciDdBa85aL2bBYlG5
+         h7UtPXLuGBw4a7FcT/Z9IgoAUp+EVL/F9pUZi4PFftaKkLwC8ytrySqshW+NK2rSR4x+
+         /64Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV3XIAaKkqt0t6RXDIlea9KOnQkO0NX2JqV3lheK//Q+cA8rhVaL43YCUGIzi42SvZOTATcW4yzf0/VrRLxYNAA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy53wLoRKru3hDPWjK4L7nMpFyKo7Lii3KB8M43iC7j6UUZO3Q1
+	j8P+qZpYm2sLWqzSccN7QBIKa6rePU6+Muzk6M0s7H//hgVGoIP5eqRR5gRPGP9AviwSz7N1VAt
+	C+Y6D
+X-Gm-Gg: ASbGnctAaUD88uJvhm1Ccmz1NtmYBVeLQIP9KsHY00KZAbnwPv7Dxp734WpNEQ61jBo
+	yuLIDoaRh2iZtjPk25qQ0Ceq5ynq2kXP7ojA/yixLyLjZrgj2r955uSyISLV7JRwqyLgdMcg5m5
+	RxtqXHpuOsIyFX/J7lGyqWlji0ctAZr6Ukmumo9YIGgoh4kQzrksKvLbTWx0RlqshzLeskYlixR
+	j+7mBZZ5rHOIMuEr4/H9tO9bqGXd3vevYPpg86CS2xR5yUTbsD5rgtT2HGreSUtw0C9Fqpaq0cW
+	lyRXLeXTyKVTaoWT8J/+5b/NectL4JyIZuI8/zHYDzY8KRFpMrs=
+X-Google-Smtp-Source: AGHT+IFUhC9g3GBMlrCIsfgANO5KdvzDEnLHzgT9bVl7MomkcLWvLwEBIiP+tF9jny8ui4xtcfFe6w==
+X-Received: by 2002:a05:6820:1689:b0:5f8:b916:2516 with SMTP id 006d021491bc7-5fc5e45b47fmr729717eaf.0.1738879804274;
+        Thu, 06 Feb 2025 14:10:04 -0800 (PST)
 Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fc544cf88esm454109eaf.15.2025.02.06.14.09.54
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fc544cf88esm454109eaf.15.2025.02.06.14.10.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 14:09:55 -0800 (PST)
+        Thu, 06 Feb 2025 14:10:03 -0800 (PST)
 From: Kamal Dasu <kamal.dasu@broadcom.com>
 To: ulf.hansson@linaro.org,
 	linux-kernel@vger.kernel.org,
@@ -76,15 +77,16 @@ To: ulf.hansson@linaro.org,
 Cc: f.fainelli@gmail.com,
 	bcm-kernel-feedback-list@broadcom.com,
 	Kamal Dasu <kdasu@broadcom.com>
-Subject: [PATCH RFC 1/3] mmc: add request_start() and request_done() mmc ops
-Date: Thu,  6 Feb 2025 17:09:38 -0500
-Message-Id: <20250206220940.10553-2-kamal.dasu@broadcom.com>
+Subject: [PATCH RFC 2/3] dt-bindings: mmc: brcm,sdhci-brcmstb: Add sdio sharing support
+Date: Thu,  6 Feb 2025 17:09:39 -0500
+Message-Id: <20250206220940.10553-3-kamal.dasu@broadcom.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250206220940.10553-1-kamal.dasu@broadcom.com>
 References: <20250206220940.10553-1-kamal.dasu@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_140957_072313_02B41283 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250206_141005_344696_85CCD1C1 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +103,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Kamal Dasu <kdasu@broadcom.com>
 
-These ops enable host vendor driver to take action on request
-start and request done both in case of sdhci and cqe requests.
+Introduce emmc flash sharing support using hardware semaphore
+and SDIO share register to synchronize between TZOS and linux.
 
 Signed-off-by: Kamal Dasu <kdasu@broadcom.com>
 ---
- drivers/mmc/core/core.c  | 14 +++++++++++++-
- include/linux/mmc/host.h |  4 ++++
- 2 files changed, 17 insertions(+), 1 deletion(-)
+ .../bindings/mmc/brcm,sdhci-brcmstb.yaml         | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mmc/core/core.c b/drivers/mmc/core/core.c
-index 5241528f8b90..a835ebc6282c 100644
---- a/drivers/mmc/core/core.c
-+++ b/drivers/mmc/core/core.c
-@@ -206,8 +206,11 @@ void mmc_request_done(struct mmc_host *host, struct mmc_request *mrq)
- 	 * Request starter must handle retries - see
- 	 * mmc_wait_for_req_done().
- 	 */
--	if (mrq->done)
-+	if (mrq->done) {
- 		mrq->done(mrq);
-+		if (host->ops->request_done)
-+			host->ops->request_done(host, mrq);
-+	}
- }
+diff --git a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+index eee6be7a7867..b0ee39aeccb1 100644
+--- a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
++++ b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+@@ -27,15 +27,23 @@ properties:
+           - const: brcm,sdhci-brcmstb
  
- EXPORT_SYMBOL(mmc_request_done);
-@@ -340,6 +343,9 @@ int mmc_start_request(struct mmc_host *host, struct mmc_request *mrq)
+   reg:
+-    maxItems: 2
++    minItems: 2
  
- 	init_completion(&mrq->cmd_completion);
+   reg-names:
+     items:
+       - const: host
+       - const: cfg
++      - const: share        # Optional reg 
++      - const: mmc_sem      # Optional reg
++      - const: flshr_ipis0  # Optional reg
  
-+	if (host->ops->request_start)
-+		host->ops->request_start(host, mrq);
+   interrupts:
+-    maxItems: 1
++    minItems: 1
 +
- 	mmc_retune_hold(host);
++  interrupt-names:
++    items:
++      - const: SDIO1_0
++      - const: recv_ipi0   # Optional interrupt
  
- 	if (mmc_card_removed(host->card))
-@@ -437,6 +443,9 @@ int mmc_cqe_start_req(struct mmc_host *host, struct mmc_request *mrq)
- {
- 	int err;
+   clocks:
+     minItems: 1
+@@ -76,6 +84,7 @@ required:
+   - compatible
+   - reg
+   - interrupts
++  - interrupt-names
+   - clocks
+   - clock-names
  
-+	if (host->ops->request_start)
-+		host->ops->request_start(host, mrq);
-+
- 	/*
- 	 * CQE cannot process re-tuning commands. Caller must hold retuning
- 	 * while CQE is in use.  Re-tuning can happen here only when CQE has no
-@@ -512,6 +521,9 @@ void mmc_cqe_request_done(struct mmc_host *host, struct mmc_request *mrq)
- 	}
- 
- 	mrq->done(mrq);
-+
-+	if (host->ops->request_done)
-+		host->ops->request_done(host, mrq);
- }
- EXPORT_SYMBOL(mmc_cqe_request_done);
- 
-diff --git a/include/linux/mmc/host.h b/include/linux/mmc/host.h
-index 68f09a955a90..739b14117c26 100644
---- a/include/linux/mmc/host.h
-+++ b/include/linux/mmc/host.h
-@@ -171,6 +171,10 @@ struct mmc_host_ops {
- 			    int err);
- 	void	(*pre_req)(struct mmc_host *host, struct mmc_request *req);
- 	void	(*request)(struct mmc_host *host, struct mmc_request *req);
-+	void	(*request_start)(struct mmc_host *host,
-+				 struct mmc_request *req);
-+	void	(*request_done)(struct mmc_host *host,
-+				 struct mmc_request *req);
- 	/* Submit one request to host in atomic context. */
- 	int	(*request_atomic)(struct mmc_host *host,
- 				  struct mmc_request *req);
+@@ -111,7 +120,8 @@ examples:
+       supports-cqe;
+       non-removable;
+       bus-width = <0x8>;
+-      interrupts = <0x0 0x27 0x4>;
++      interrupts-extended = <0x1 0x0 0x1f 0x4 0x18 0x11>;
++      interrupt-names = "SDIO1_0", "recv_ipi0";
+       clocks = <&scmi_clk 245>;
+       clock-names = "sw_sdio";
+     };
 -- 
 2.17.1
 
