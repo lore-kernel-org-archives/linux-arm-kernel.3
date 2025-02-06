@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BCBC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D781C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=gYico9MqOG/kwCFHxAoko3jccsDh08QzF8G1EJ66AB4=; b=QmOap+d4GyoIEi
-	xuYxO/oW5EssD7H1yMhN1gH47BlNbM2CE75OIlT/lu/EvjlShL4PS1xRownmoKyK0nE2ujXOa+aRE
-	nKQo/wBB/sUb5BgF1tELp+ahyqpQ3/ppxnyiucjQIIOgBIPKGwOD4aAVdj8+NxBE/kO49CPTC+onW
-	iCKtZ9njbcYKP61A1Yxv4j3dmDAkj6aseFtIcR9xuTQkbZqG/8fAi+cgYIh31+IeODeqgevzejDfs
-	SoAMXU2jXYXfKoRNaxMMxMbpwM2WvraYsugKZgTFChhm1CV/ErVJJ91iW3Lp6uYL/QocpMFsjsZ2a
-	nfJ2EFp0gnwEeMup8Ykw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hiyu+pEc2sVtmebeH3zognnXRrUmdN5uvRUJe9gUEE=; b=pbEiyq6HjFhbzSCgbxDcLbwH+M
+	93fRsBMuf1JVdifxtJRzade07urjjJ5DGlqLD4Y/j+GSdOwXrwG/9yXRq3osOWg4HkmSD1fPdvTOO
+	3ssxmlnb8A2gs6aotYH0cp6V+nLmO2LWPBrpHnVRyEBzJj4im2EbnGddKnq3KxhJzYLxMA69fvbM9
+	1RbI3KV1EDYDOB0qITeTvre2IzY3hssKEIHytLYEELqfMGkmXCyOdYAze8ULRJXAw1+8OpVpEG1n5
+	/HUGuOvFUcUB/h0VnEN5XmQePR5rlN1RLTe5nql6xhRnZb8R1lr48kVLei7kkJpK9HNRKA/ag7fqk
+	VVI7aBgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5iS-00000006zj2-2P5C;
-	Thu, 06 Feb 2025 17:31:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tg5jp-00000006zxi-2t8o;
+	Thu, 06 Feb 2025 17:32:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5h3-00000006zMv-2gpd;
-	Thu, 06 Feb 2025 17:29:38 +0000
+	id 1tg5hb-00000006zTQ-0VdY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 17:30:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 525B85C66EF;
-	Thu,  6 Feb 2025 17:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B3A1C4CEDD;
-	Thu,  6 Feb 2025 17:29:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8B75C5C5822;
+	Thu,  6 Feb 2025 17:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A309C4CEDD;
+	Thu,  6 Feb 2025 17:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738862976;
-	bh=ZFUgiEXBwBsq3cq1cnrV8wXRIbWYk/FzOHDXWiMPIuo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=LjldJCd1N9i6F2+at+s8vw0UYjW1hZLi57idJMOjzMxFeT4puhC5nOo/zQbwL1vJ2
-	 7u/TX3Cy6iIfP3iLdZHOuHL4VvCH04iI4FehKGJJAziJmjjfe3mpNTuG5RGnVFwWuO
-	 sjJcCSj+6facGTP/+OOSpRQQ8oEuPXJqWvmG5VzAHWJmycziliimQjwFT8qVUiYTG7
-	 pBsRHA7avRWoZf/lMX3EhDLaF/a6LQaGz+yEvsayHlCGPglJlXeJIJmifPvEunADF9
-	 VazugdRiewd1sVVTgAgvt27p9fVn+w7MUoxYZn/6RHL4IkSZcTHLEYGru8EhTmPRbh
-	 Zu5CyshDpgWZQ==
-Date: Thu, 6 Feb 2025 11:29:35 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/6] PCI: brcmstb: Fix error path upon call of
- regulator_bulk_get()
-Message-ID: <20250206172935.GA990026@bhelgaas>
+	s=k20201202; t=1738863009;
+	bh=09KTedSG77AXoeir+b4HyRhzwue2u0WYm3LwzHo7ci8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=i3w9pT2vZ2WN2ZQqCvJ21gyp79pu6ADWMlJ7U9AgIiZ54nFrA9zlaSLwyGNCFgREg
+	 ivD32IvE5fcC62tCMypL24Xl0dBcN1mpO7FMY+26DTOpZQszDS7I2Bp6nSTZaqKPrM
+	 mTe1MtnUyqNpBG5+FBCJlcwOXfAMQeq0tJp+wM7w+Yo629LE2a+KC2Q3Hd/cteLtIJ
+	 YBFfzN7siD6ARNGFkXy3hME3T9NjShiU17CkXag6Yh9lSF+W1kgFBA1DnyoRmG4vfA
+	 Dr1p/fHrKOtFX6RvBXYIqlKf5k2PEXQ8QojGJ/GgcZgaMzL1WXJLuu1SE53LHmYK90
+	 O5hi3H/hZaw5A==
+From: Mark Brown <broonie@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, 
+ alexandre.belloni@bootlin.com, lgirdwood@gmail.com, 
+ Andrei Simion <andrei.simion@microchip.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+In-Reply-To: <20250203091111.21667-1-andrei.simion@microchip.com>
+References: <20250203091111.21667-1-andrei.simion@microchip.com>
+Subject: Re: [PATCH v2] ASoC: dt-bindings: atmel,at91-ssc: Convert to YAML
+ format
+Message-Id: <173886300585.325569.12869992577309610074.b4-ty@kernel.org>
+Date: Thu, 06 Feb 2025 17:30:05 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250205191213.29202-3-james.quinlan@broadcom.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_092937_720755_3A46439A 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20250206_093011_218744_64CB7628 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 02:12:02PM -0500, Jim Quinlan wrote:
-> If regulator_bulk_get() returns an error, no regulators are
-> created and we need to set their number to zero.  If we do
-> not do this and the PCIe link-up fails, regulator_bulk_free()
-> will be invoked and effect a panic.
+On Mon, 03 Feb 2025 11:11:12 +0200, Andrei Simion wrote:
+> Convert devicetree binding atmel-ssc.txt to YAML format.
+> Update the documentation supported file for MICROCHIP SSC DRIVER.
 > 
-> Also print out the error value, as we cannot return an error
-> upwards as Linux will WARN on an error from add_bus().
-
-Wrap all these commit logs to fill 75 columns.  No point in leaving
-unused space when most things are formatted to fill 80ish columns or
-more.
-
-> Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->  drivers/pci/controller/pcie-brcmstb.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index f8fc3d620ee2..bf919467cbcd 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -1417,7 +1417,8 @@ static int brcm_pcie_add_bus(struct pci_bus *bus)
->  
->  		ret = regulator_bulk_get(dev, sr->num_supplies, sr->supplies);
->  		if (ret) {
-> -			dev_info(dev, "No regulators for downstream device\n");
-> +			dev_info(dev, "Did not get regulators; err=%d\n", ret);
-> +			sr->num_supplies = 0;
->  			goto no_regulators;
 
-I think it might have been better if we could do the
-regulator_bulk_get() separately, before pci_host_probe(), so that if 
-this error happens, we can deal with it more easily.
+Applied to
 
-Setting num_supplies = 0 is an unusual way of handling this error, and
-if this pattern of managing PCIe regulators spreads to other drivers,
-we might trip over this again.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Not asking for a redesign here, and maybe it wouldn't even be
-possible, but it kind of fits with thinking about splitting Root Port
-support from the Root Complex/host bridge support.
+Thanks!
 
-Bjorn
+[1/1] ASoC: dt-bindings: atmel,at91-ssc: Convert to YAML format
+      commit: 6603c5133daadbb3277fbd93be0d0d5b8ec928e8
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
