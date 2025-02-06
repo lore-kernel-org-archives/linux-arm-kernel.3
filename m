@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF95C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3E8C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0X1+UYLXLNf68smwsb01lX6eFqtHiz/IPso40v3JOxM=; b=WHGvx4Tt2T7NvEzJ2zCX1DqHrA
-	t4qk70rT87OM9cNgKrnXnoon48R3FmPr9UoaHlQQcYva0Zpo8sTxuteFSxDswpm5kKDOvgCSAKy+l
-	fr6Wadh4JoIbAxNjym3u1RNR4mR1/ZyYyGYIBgIFVLdLxtUbRwacyqNk5+TmK2oURLIHGZPy5B8IR
-	BJFUadJu7fGHN0qtZgy2H8wSsyFCUYdYvRzv2c0wX6Mlgw/7rAlPlHbKKq2EG5+buEYY0d0+8DcvY
-	FAwAfgYXObUTkD0KywmhdSoZjmVGcxNNltQ1QvCdrQ6fUqL4y2ImaY/DFqDV8s1qu7KbA0pUouELF
-	nRVgFC2g==;
+	bh=2U/x1GfGP9j2cvu14gMbHcehw03jG1C+3eyWlyvy1zM=; b=WETv4BjAO0iycx+s5DHWr1D3NI
+	hRccSlRygfgGWAVqOsZ2ZlA5DKcxqwMKSRnaLQoRpRXvzUvME+XUx+wotKd2Q5W7aebSc3JHjzU0t
+	H5usjgnDK2IG4dnT9tTrApUcZRUgawfMXAkFQoivfMK+yHzN/+walKmLxBLX4dXX99u04dqkKvKDJ
+	KqM8yA91xnmCqzqv++SfpUmZ8VPRS2gpdPM6iJBRyD4Xjx15478Po1q0T5J4Wx7odSMlDR4UMWJZB
+	m0dszE9gX4YBJakgx49z0svwQieAEy89IONNiUDZzm2Um4OQC5SGekomQHkNpWbsw52wEhu/JWXyI
+	BVE7HDbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzr1-0000000663i-0e0P;
-	Thu, 06 Feb 2025 11:15:31 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1tfzsM-000000066Id-3KBW;
+	Thu, 06 Feb 2025 11:16:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzX9-000000061bz-1nR7
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tfzXA-000000061cl-1xcU
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 06 Feb 2025 10:55:00 +0000
-Received: by mail-wr1-x444.google.com with SMTP id ffacd0b85a97d-38db10ab86cso601968f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=2U/x1GfGP9j2cvu14gMbHcehw03jG1C+3eyWlyvy1zM=; b=laO5VTWis+Ew6TN6IDHw03UI70
+	/ULqCVz7R8ajfESw3ILM5YHkQM4Jtp/1IytE9RqYl6VFEDDLva21vPf+QwaVbng2gARCpMyzGB951
+	yX59IkgZ4YRZIHNIGivuO4KjfNwSbcxRaEfSJcBeNfKILEq4Z98Sn9ggS/kiDDj8xek9dDM718CVB
+	z3fnBYdNZpPIy/NAbv4LOtyJVcYcqltLk9TxgiI73Qc3X/ZFHC9Hj8q0IrwwntlXwAJalUHrjJSIu
+	6bDy8xjA8upxEDovUjyJMJ+ews9tMuR4e8y6sRSj2FaM1XWbBMJyuHZsSpoQ8+j1jbwzufmaohlqC
+	BikGM6zw==;
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfzX6-0000000GuuQ-4Aqj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 10:54:59 +0000
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-43624b2d453so7936385e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839298; x=1739444098; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738839295; x=1739444095; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0X1+UYLXLNf68smwsb01lX6eFqtHiz/IPso40v3JOxM=;
-        b=D9ZtK6UkX9ACRUOUZ4TfrTaP8wyUFAngZrBbo00dV4vsLMA7z+fzJ9Ylsf4hIn9Wqx
-         k3u43+GwEeomEn9rUwGAZgGyOZyJUo2j1qN4uzpnN03l26SE4gIYc8z1pIstU6HcFgec
-         92zbMEwUStRBpIcTcubMxfcDm5zTjBR6ri8lTNC+pze6VBWIYP9qATZMZwKTubtqTAT6
-         FIMll6PJNafh/nMf1q1EiPjqHSU1/NYMpDYXtocr5gM27F6h7DoQ4+IBJlETPSrK4+yW
-         yiwPYEi+vHaHclAfkPDOGU2FFosqRcY+Cxm37lORIzbETaXUaChBFfup5vRGlQNnOGzv
-         KqAg==
+        bh=2U/x1GfGP9j2cvu14gMbHcehw03jG1C+3eyWlyvy1zM=;
+        b=F05kbMgigUjlEKw65Ezp5zAMoLbKs4+5teX6j8wq+/jJo1eoVN4hiC3uDdIdrLWfge
+         OJBYma+nASs/R+ylEqcuHxc5UJ5PYmRZwjmXEcmF9K4oh5wkShXdmK6W/OVPmoux66EI
+         /giJtNVQsc+qZ7tP5E48iZM28tZdM1D8OgmeIonqZiJfW/jBuC9m+5FW2PJOCprlZblb
+         OmPBlYYLAGsGm5IrCpepKbsEITV/drQ6BlBhUnzJsONUyZaMe78fwiiaXDKxM0khEY9c
+         xSAhIUza39boyuLVwu/cNxlBv1q1aybSd7DMRQaMUnuxdSdNPjRFEJYgYGLrFJO/et54
+         sKNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839298; x=1739444098;
+        d=1e100.net; s=20230601; t=1738839295; x=1739444095;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0X1+UYLXLNf68smwsb01lX6eFqtHiz/IPso40v3JOxM=;
-        b=WnbQKu2T932pkmC2LKrGn970j1szxBAUIqnkxIFWgJcfGPXoMQh7Ey/HAN6nkHgpnz
-         0iAYZgvFdL9SqkwvMebkKXkQgwyqne2HQGgX206UQqug4ufFISZPBaA+XuLmjigKJUjn
-         mpht1gTvF7QFH2pLOngwkXFtAJr8bm8DLfWk0vGv7E+Z3X9/TLnDeUqXsNSxFjqY23mk
-         jdGFvJA87uQEHnbV3mU51qGKknkcWT/XAuX00ckpajeCa/LMZPWG6OaEZfd52nnzp4Y7
-         EWlYhmjQaaWeQhqNfdQ6gQvzW2xhpVfwttrZVfOWFZOQhNwzs5349FekB5F6/ET0E+4c
-         3OOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVP/neknrXf06C13uOnvNMmNsWG5xnH9BG1KYMDafrofwxqI5EpO3NFMW/VeNgSzhp5lSVbXRHB7FUXZVEgtvgX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwCzIC/N+byKWzUIK73zdL+4tunSIrj7GQLk6+GPxJblB2+mIK
-	TgyXX5YFcY9YaybPYpGDwR/JEZfavY2zsxJA24V76cao2kvdLxP0
-X-Gm-Gg: ASbGncvnLUz3tQbZH2cdgsYuLmTxDhJagIZQJOKp0H1hcymQg0vv23R5E5mq+stkKWu
-	qVoKnu/CaUwD+OrAYhRnIcRjdCTXXVbbLH3cnNmBqtooCRyImrDmzJt8AVfbH4inPilkYGAqIrD
-	jB6beuHcG8ySBsro/eyy02A8Lf/7JZGaSX6e9NvytvuOEVODoM4bwr0KEeK8rUh5O6kYBn6gO1x
-	F0c3pQ7nQt2zH542jTP4eSqhxuLSTE7DdqMS0gl/1zMUn2Pp9ldHwmP6TP7TZ8Wxcvz72xjxygE
-	Mz8y8A==
-X-Google-Smtp-Source: AGHT+IHFPsmZFGzMQgNIZxyin0+PS7DDeJ1kbh/KGqhqHLUU4fvdAQOI2sLLSlmyZkzlKcZIDN7WyQ==
-X-Received: by 2002:a5d:5222:0:b0:38d:b051:5a0e with SMTP id ffacd0b85a97d-38db495f8c3mr3602518f8f.49.1738839297924;
-        Thu, 06 Feb 2025 02:54:57 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:16::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd36776sm1432693f8f.32.2025.02.06.02.54.57
+        bh=2U/x1GfGP9j2cvu14gMbHcehw03jG1C+3eyWlyvy1zM=;
+        b=h5b5+oEGtvPHsSwNcnNPXH1htOd2fNX1+1LhqkxzFRbG/XhvLK0a+hKOiRfAqrGos9
+         P9QrppFZRRrVOzgqrCNYDhGdbr3SL2v0lCwaeO3cIp6jsaJLdYrzae9K93aUrQCwYpE3
+         SMzWqxtvJfbDARPn4XlxiSTPmG7N8UtdBSzMcfKoZFwRotvTOpMhri+Vw6EnLTIqnHCo
+         ct/fnIcNCCAaWwRaip9J/i8Z1QnJBJ34CiEDS+hYRxZqDEDFkZmZh0x9PRl8M47/hNA7
+         A41pkW2pPzo+zoLH2liqrUCyLSNclocyOOqex+odbArXI0SXViYcy3CvACnUNTpBsPk9
+         uSOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWDAq1WrEHsBkV3BVX2ga5GIqO5tiCrZbp7QpN0tZ1slrsL5W8tgmiscJETigheLkZffFG4Q3/FXoBcWmGB0QY+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDlW8DJ+jUrmsbAlo0hOT7/iDMSgHGS6CnGmSWGlShtGZQRj77
+	b6Xy+o5UBXszjg/CGSZyLvZyE4nMyuRITGri8fv396zFtmdUQ0RO
+X-Gm-Gg: ASbGncupoI5ftdD+Ockip8rer3dbfsC37M7qajWd4ZNfspW+UiMWKgISMvwi3kU8IfO
+	5nxCLDXUO2l80cnkxQZEWia+hX14leUE5pbdgsTjNo5J9Yz3NTftQk96DFVrrmuU9qIB5Q+t3jD
+	8iBuUE6WpoUxsqHX2hnToNLq29cQPlNpgazefGhIuB3JjU+rh1ISVaG9Y6JhgdSuy6WjPLqvjzE
+	rmQ0l1V276p2CwtHrHrXC1suGZV5AEX/pW+WZ1Vz5CxVoM8KJyFPiCVBkYceniDLjfQ43cOzN8T
+	jtU9
+X-Google-Smtp-Source: AGHT+IECKDGAzq+Depq2+nIptoAD3ksbrPRr2mBSOELhwPjJa2kOGcthn5Lo7ZSMn0/ZXamyQQJB4g==
+X-Received: by 2002:a05:600c:4f05:b0:434:f739:7cd9 with SMTP id 5b1f17b1804b1-4390d4350c4mr57549575e9.9.1738839295278;
+        Thu, 06 Feb 2025 02:54:55 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:8::])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd7f081sm1429621f8f.58.2025.02.06.02.54.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:54:57 -0800 (PST)
+        Thu, 06 Feb 2025 02:54:54 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -87,19 +102,19 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 15/26] rqspinlock: Add macros for rqspinlock usage
-Date: Thu,  6 Feb 2025 02:54:23 -0800
-Message-ID: <20250206105435.2159977-16-memxor@gmail.com>
+Subject: [PATCH bpf-next v2 13/26] rqspinlock: Add basic support for CONFIG_PARAVIRT
+Date: Thu,  6 Feb 2025 02:54:21 -0800
+Message-ID: <20250206105435.2159977-14-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3270; h=from:subject; bh=itMjJLB45N5MLJdgdgQDHOOS7VmFDUaHlV/BKezdr3U=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRmSdisG+iOEzxKLgDdJjXZN/mncOFg8pv5dO3d bZNJg+GJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZgAKCRBM4MiGSL8RyqPRD/ 9gG2FU1oHAJPUn4UJ3fwKsuQm4i95ajoiPlT/m5kT+DPF9gSa+xO4hKuGYliwEJvf+nuxUe7FMhCUo nbsTx4KiQesdJvFLBEyC8lMRvIh0qaD//aym3Fhb4D5zAgaUBULNbyDh5gj/mVvu5FLRbI+DT3LJmw r1bostFusx1GdFieKe+yhrTChSjrfqKbnpY9R/8w5UkGN/g+vLsyykEbwnbgHhL0Ycvk+yqbXaob++ hWud3ejpfkcyQRqDBeycTn+q3cMN4T33wASR6VfBgNAggDQplTQ0NL97l+Dn3qdgtj1L8+PzWkyEy7 uzYnLPsU1re215zb4P38apAspYJP0lf30MOhhmObWuxKLqtviREsn0uOBZNsmdc4R3mfydqsDy2K3i fXrNShGCY4YJFjLqUeWDnW9g2IHVA0Y3GNq49DhGgN8ZGExFHkkLHKfWWt1vd80tJx+3FcaAcbrHN6 jqnPSeoZw9H/Gv0GIoXD05hjLkUhPcZYt3gM2eUbE0LjEPwU3A1PAq0320Z5j0ZxsuHnEQt80v5ElR 1N2IG2VJNeILB6c4gNBsyn59IW7xvMo0y6wnEpgTgAJHBxYZqffi0Js1mYt58TEIo6iaH05Sdjgvz5 U5PZ/7rUM15c0KeEcHBAwD6NKswh6LfL192Y9X7h+EChg4E+eQnBkpyXm7gw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3266; h=from:subject; bh=zXQSTFNS/c2U8KM3FgC7kOLmnF5sm9qLW6KNbuMrArs=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRlcUneWOnutzdUSHTyEeSH9ShV4gvRxjc/jId8 1YMMoZSJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZQAKCRBM4MiGSL8RyojREA CAY3vlIDeTRuUpYBE+KFscZYPr9H8/q9UrVdKjYtlSmP4kUMnaYDdROM+/Z1eAE/ooLx/8vdb6tzBt fc3B+DxVL7tQO7jgkFhs8TWzKKlBa8uCE08YnUR183pRuI7FMMaaHbBakUz76eIN1rHwUUZnragSZK FI/5+wGEKE4O3AFSc0b6AVE2v7Ac5Qz5hBBsks/FANKm3Hdx0yJa1axdExsWkJREbmmLTO1RDjCoQZ MVoAxyPIBWrHsWFp3WUr3AGAwW/LT5cz1ADzDNURb97YC4QLdg4MG3NfjpdyWd2jj378mOBYDMydU7 ifjlmuV1KLLhJCbrDsvImh8rxY4aiH1tOMPpfC/pCCARozVsCCt/0NqyneZEa6ebt3Dn6xqnWrSM0D P8kjr4HmLnUenqsX6gCzKA1pntH7LoAXkWLdXVX0Ekt+LIx9dUbZSsloW9AwF+9r/JRRMOBYnNcUDq YDOdMDyfNFfvCjHd9qxbMa/52CU9Tl7upwFr/RbcEK4zY0ZgsV0kmffC3TAPnB+MzzJZwwtdF0ajVp nFsUX1lkdCe1xJTlMFPMzPgqFnxoN8cIGLIKW7BMNq3lr6eU9cBn3XZGlQqrCRwdk/yLylSriVacdL F0y6Ga5GbeLS7YaM3SQtcTwKK5K5ODeXnTU57iP8D7BcG5/WmFu88d6x4oxw==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_025459_461686_B9C405A1 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250206_105457_334371_0CFCC044 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,99 +129,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce helper macros that wrap around the rqspinlock slow path and
-provide an interface analogous to the raw_spin_lock API. Note that
-in case of error conditions, preemption and IRQ disabling is
-automatically unrolled before returning the error back to the caller.
+We ripped out PV and virtualization related bits from rqspinlock in an
+earlier commit, however, a fair lock performs poorly within a virtual
+machine when the lock holder is preempted. As such, retain the
+virt_spin_lock fallback to test and set lock, but with timeout and
+deadlock detection. We can do this by simply depending on the
+resilient_tas_spin_lock implementation from the previous patch.
 
-Ensure that in absence of CONFIG_QUEUED_SPINLOCKS support, we fallback
-to the test-and-set implementation.
+We don't integrate support for CONFIG_PARAVIRT_SPINLOCKS yet, as that
+requires more involved algorithmic changes and introduces more
+complexity. It can be done when the need arises in the future.
 
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- include/asm-generic/rqspinlock.h | 71 ++++++++++++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+ arch/x86/include/asm/rqspinlock.h | 29 +++++++++++++++++++++++++++++
+ include/asm-generic/rqspinlock.h  | 14 ++++++++++++++
+ kernel/locking/rqspinlock.c       |  3 +++
+ 3 files changed, 46 insertions(+)
+ create mode 100644 arch/x86/include/asm/rqspinlock.h
 
+diff --git a/arch/x86/include/asm/rqspinlock.h b/arch/x86/include/asm/rqspinlock.h
+new file mode 100644
+index 000000000000..cbd65212c177
+--- /dev/null
++++ b/arch/x86/include/asm/rqspinlock.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_X86_RQSPINLOCK_H
++#define _ASM_X86_RQSPINLOCK_H
++
++#include <asm/paravirt.h>
++
++#ifdef CONFIG_PARAVIRT
++DECLARE_STATIC_KEY_FALSE(virt_spin_lock_key);
++
++#define resilient_virt_spin_lock_enabled resilient_virt_spin_lock_enabled
++static __always_inline bool resilient_virt_spin_lock_enabled(void)
++{
++       return static_branch_likely(&virt_spin_lock_key);
++}
++
++struct qspinlock;
++extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
++
++#define resilient_virt_spin_lock resilient_virt_spin_lock
++static inline int resilient_virt_spin_lock(struct qspinlock *lock, u64 timeout)
++{
++	return resilient_tas_spin_lock(lock, timeout);
++}
++
++#endif /* CONFIG_PARAVIRT */
++
++#include <asm-generic/rqspinlock.h>
++
++#endif /* _ASM_X86_RQSPINLOCK_H */
 diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
-index bbe049dcf70d..46119fc768b8 100644
+index 92e53b2aafb9..bbe049dcf70d 100644
 --- a/include/asm-generic/rqspinlock.h
 +++ b/include/asm-generic/rqspinlock.h
-@@ -134,4 +134,75 @@ static __always_inline void release_held_lock_entry(void)
- 	smp_wmb();
- }
+@@ -35,6 +35,20 @@ extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
+ extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
+ #endif
  
-+#ifdef CONFIG_QUEUED_SPINLOCKS
-+
-+/**
-+ * res_spin_lock - acquire a queued spinlock
-+ * @lock: Pointer to queued spinlock structure
-+ */
-+static __always_inline int res_spin_lock(rqspinlock_t *lock)
++#ifndef resilient_virt_spin_lock_enabled
++static __always_inline bool resilient_virt_spin_lock_enabled(void)
 +{
-+	int val = 0;
-+
-+	if (likely(atomic_try_cmpxchg_acquire(&lock->val, &val, _Q_LOCKED_VAL))) {
-+		grab_held_lock_entry(lock);
-+		return 0;
-+	}
-+	return resilient_queued_spin_lock_slowpath(lock, val, RES_DEF_TIMEOUT);
++	return false;
 +}
-+
-+#else
-+
-+#define res_spin_lock(lock) resilient_tas_spin_lock(lock, RES_DEF_TIMEOUT)
-+
-+#endif /* CONFIG_QUEUED_SPINLOCKS */
-+
-+static __always_inline void res_spin_unlock(rqspinlock_t *lock)
-+{
-+	struct rqspinlock_held *rqh = this_cpu_ptr(&rqspinlock_held_locks);
-+
-+	if (unlikely(rqh->cnt > RES_NR_HELD))
-+		goto unlock;
-+	WRITE_ONCE(rqh->locks[rqh->cnt - 1], NULL);
-+unlock:
-+	this_cpu_dec(rqspinlock_held_locks.cnt);
-+	/*
-+	 * Release barrier, ensures correct ordering. See release_held_lock_entry
-+	 * for details.  Perform release store instead of queued_spin_unlock,
-+	 * since we use this function for test-and-set fallback as well. When we
-+	 * have CONFIG_QUEUED_SPINLOCKS=n, we clear the full 4-byte lockword.
-+	 */
-+	smp_store_release(&lock->locked, 0);
-+}
-+
-+#ifdef CONFIG_QUEUED_SPINLOCKS
-+#define raw_res_spin_lock_init(lock) ({ *(lock) = (rqspinlock_t)__ARCH_SPIN_LOCK_UNLOCKED; })
-+#else
-+#define raw_res_spin_lock_init(lock) ({ *(lock) = (rqspinlock_t){0}; })
 +#endif
 +
-+#define raw_res_spin_lock(lock)                    \
-+	({                                         \
-+		int __ret;                         \
-+		preempt_disable();                 \
-+		__ret = res_spin_lock(lock);	   \
-+		if (__ret)                         \
-+			preempt_enable();          \
-+		__ret;                             \
-+	})
++#ifndef resilient_virt_spin_lock
++static __always_inline int resilient_virt_spin_lock(struct qspinlock *lock, u64 timeout)
++{
++	return 0;
++}
++#endif
 +
-+#define raw_res_spin_unlock(lock) ({ res_spin_unlock(lock); preempt_enable(); })
+ /*
+  * Default timeout for waiting loops is 0.5 seconds
+  */
+diff --git a/kernel/locking/rqspinlock.c b/kernel/locking/rqspinlock.c
+index ea034e80f855..13d1759c9353 100644
+--- a/kernel/locking/rqspinlock.c
++++ b/kernel/locking/rqspinlock.c
+@@ -325,6 +325,9 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 
+ 	BUILD_BUG_ON(CONFIG_NR_CPUS >= (1U << _Q_TAIL_CPU_BITS));
+ 
++	if (resilient_virt_spin_lock_enabled())
++		return resilient_virt_spin_lock(lock, timeout);
 +
-+#define raw_res_spin_lock_irqsave(lock, flags)    \
-+	({                                        \
-+		int __ret;                        \
-+		local_irq_save(flags);            \
-+		__ret = raw_res_spin_lock(lock);  \
-+		if (__ret)                        \
-+			local_irq_restore(flags); \
-+		__ret;                            \
-+	})
-+
-+#define raw_res_spin_unlock_irqrestore(lock, flags) ({ raw_res_spin_unlock(lock); local_irq_restore(flags); })
-+
- #endif /* __ASM_GENERIC_RQSPINLOCK_H */
+ 	RES_INIT_TIMEOUT(ts, timeout);
+ 
+ 	/*
 -- 
 2.43.5
 
