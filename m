@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF02CC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E840C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qL59SAaW/f93czy5nN3xV+oWJd2trEeNu/dPztZX2/U=; b=wmfP8ndTX3onCaGVA3QRxpq2Rc
-	Sj28bqG8WFKM4pcw4BWA1X3sX3dEW0eG6o8D7oGpthotBrDHPluOcbWT+lE6cvt8bzeUlZeei//sk
-	IbeMi/nc2RVt8UM6ls2fyj6krqEypkxLtZyBPIgmpzraqi+GO4ptNB0IsL9LzQ2MMZvmI7c+Jcx4b
-	mGp1kkReTmkgkByvf5iG6aYGoN4jSqHhXxwjQwVpdZzFf2S+rUR6rYryEVHKNITzFjtQ6f1xQExya
-	qCL9+M+2pTBZnkpbe0ffri/tBSurR61RlDBF8SeWZ0Z0QcLICNi6J0H2I3eaqGd+NjwxhWSRGfyON
-	aqpWL+pw==;
+	bh=JbbYg198eimMLo/foX/4FeBDIQyTMvjV4FgkD6eW1IQ=; b=QRYvJZNE3kzDVfhiVe/FKAFlYm
+	4nlcraWF3uB16qStdW+m0FMgnXfHq0Ibx5CbooYXHz/cvsq62nClg7r2Vx43265m/+7+7AL//NfG+
+	hLGK1a0HwVHYbGBbDJeAWPqFfTLTGDiYSgrtdqhvWz2gFDbRH5R7rs2YwMfCx1lLaGGQsq2XK6MZ2
+	M1cF9Fy9D7PbvsoAMO39ZWtINeKRS8swLIX9IZVfNXrUhgWIE/gvs2LydYRTR/hywz45H9oadkeb+
+	jDSsSRcyieVvTChK5YfaL6liT4TUelfNDWDrTCuNPCuyS7V7X2SymYsM5owAfS8xHvBN7oMWVZyAA
+	j9OGzmkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgBKh-00000007nXq-2oV5;
-	Thu, 06 Feb 2025 23:30:55 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tgBgZ-00000007p26-36Nk;
+	Thu, 06 Feb 2025 23:53:31 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgBIO-00000007mxU-47Me
+	id 1tgBfB-00000007oiQ-3DR2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 23:28:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738884513; x=1770420513;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IqCJRbnd/ake/rfsaywutu7ZEKHtAxX14+3WiTsN3po=;
-  b=l2IdOUxzEh12QeeDpRuHM0GdiyjhleCzX5c9IApyGZ34xhR7fER158jv
-   2mB07r9+FquEWpcyd49g8m9LgtOKfF3JnN1g2wh+M3cK50j8r/7M1GIi6
-   n7YqSjTmnc72zKjlNYeCneAynyuhzHKTDuwpaHw5L4Z251rcTxSquIZ3h
-   A+FGgVhGCI1cC+3Fp4uZSFYwy0O+gjTlwEG/Eza30L9ItduzgcRhuEYm6
-   7iOZNutKUw5+5CNpZ7aCKAbAXC9kz1j21zzUnH1Yh0XF7z4nadxMfFtYG
-   VrrBVCOgX8ZdtUGb5QG8Bvwh57nmxmPqHIwxPMKjXyixd7uaLogVuPJim
-   w==;
-X-CSE-ConnectionGUID: +TsZvmo2S4SR69UlyeWiow==
-X-CSE-MsgGUID: L4R4RJG1RuqeLaXZbOTirg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39646305"
-X-IronPort-AV: E=Sophos;i="6.13,265,1732608000"; 
-   d="scan'208";a="39646305"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 15:28:32 -0800
-X-CSE-ConnectionGUID: 0cmOU3WWQ066b+PBqxIT4w==
-X-CSE-MsgGUID: d3vf7E8eTA28v3i/7CNOvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,265,1732608000"; 
-   d="scan'208";a="116395562"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 06 Feb 2025 15:28:28 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgBII-000xVn-1R;
-	Thu, 06 Feb 2025 23:28:26 +0000
-Date: Fri, 7 Feb 2025 07:27:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>
-Subject: Re: [PATCH v2] KVM: arm64: Remove cyclical dependency in arm_pmuv3.h
-Message-ID: <202502070744.hqS7ZVVX-lkp@intel.com>
-References: <20250206001744.3155465-1-coltonlewis@google.com>
+	Thu, 06 Feb 2025 23:52:07 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq0rF3642641
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 6 Feb 2025 17:52:00 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738885920;
+	bh=JbbYg198eimMLo/foX/4FeBDIQyTMvjV4FgkD6eW1IQ=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=xtE05zHaIHcG0BbpksxNy6bjRFLYArBYwMhFmmsABkZaia3GPjSsw+VnaezzAzFZh
+	 a6848Gdgh8I2089lm6Ce2zJbac7Xbzp+FMx3LlwrvIuItdbzMSjR6XONh4MjWCMYM3
+	 YWQUas9th9lSyjoXMEoz+HjYN3W5GcxY85LgFZMA=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq0PJ026279
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 6 Feb 2025 17:52:00 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
+ Feb 2025 17:52:00 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 6 Feb 2025 17:52:00 -0600
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516Nq0vG021560;
+	Thu, 6 Feb 2025 17:52:00 -0600
+From: Judith Mendez <jm@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>, Judith Mendez <jm@ti.com>
+Subject: [PATCH v4 5/9] arm64: dts: ti: k3-am62a7-sk: Enable IPC with remote processors
+Date: Thu, 6 Feb 2025 17:51:55 -0600
+Message-ID: <20250206235200.3128163-6-jm@ti.com>
+X-Mailer: git-send-email 2.48.0
+In-Reply-To: <20250206235200.3128163-1-jm@ti.com>
+References: <20250206235200.3128163-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206001744.3155465-1-coltonlewis@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_152833_062289_79D0CE89 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250206_155205_901149_32E96987 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,69 +88,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
+From: Devarsh Thakkar <devarsht@ti.com>
 
-kernel test robot noticed the following build errors:
+For each remote proc, reserve memory for IPC and bind the mailbox
+assignments. Two memory regions are reserved for each remote processor.
+The first region of 1MB of memory is used for Vring shared buffers
+and the second region is used as external memory to the remote processor
+for the resource table and for tracebuffer allocations.
 
-[auto build test ERROR on 2014c95afecee3e76ca4a56956a936e23283f05b]
+Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+Signed-off-by: Judith Mendez <jm@ti.com>
+---
+Changes since v3:
+- No change
+---
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 90 +++++++++++++++++++++++--
+ 1 file changed, 84 insertions(+), 6 deletions(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/KVM-arm64-Remove-cyclical-dependency-in-arm_pmuv3-h/20250206-082034
-base:   2014c95afecee3e76ca4a56956a936e23283f05b
-patch link:    https://lore.kernel.org/r/20250206001744.3155465-1-coltonlewis%40google.com
-patch subject: [PATCH v2] KVM: arm64: Remove cyclical dependency in arm_pmuv3.h
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20250207/202502070744.hqS7ZVVX-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502070744.hqS7ZVVX-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502070744.hqS7ZVVX-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/arm64/include/asm/kvm_host.h:38,
-                    from include/linux/kvm_host.h:45,
-                    from arch/arm64/kernel/asm-offsets.c:15:
->> include/kvm/arm_pmu.h:177:20: error: static declaration of 'kvm_vcpu_pmu_resync_el0' follows non-static declaration
-     177 | static inline void kvm_vcpu_pmu_resync_el0(void) {}
-         |                    ^~~~~~~~~~~~~~~~~~~~~~~
-   In file included from arch/arm64/include/asm/arm_pmuv3.h:10,
-                    from include/linux/perf/arm_pmuv3.h:316,
-                    from include/kvm/arm_pmu.h:11:
-   arch/arm64/include/asm/kvm_pmu.h:6:6: note: previous declaration of 'kvm_vcpu_pmu_resync_el0' with type 'void(void)'
-       6 | void kvm_vcpu_pmu_resync_el0(void);
-         |      ^~~~~~~~~~~~~~~~~~~~~~~
-   make[3]: *** [scripts/Makefile.build:102: arch/arm64/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1264: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:251: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:251: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +/kvm_vcpu_pmu_resync_el0 +177 include/kvm/arm_pmu.h
-
-5421db1be3b11c5 Marc Zyngier           2021-04-14  163  
-20492a62b99bd43 Marc Zyngier           2022-05-16  164  #define kvm_vcpu_has_pmu(vcpu)		({ false; })
-20492a62b99bd43 Marc Zyngier           2022-05-16  165  static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
-20492a62b99bd43 Marc Zyngier           2022-05-16  166  static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
-20492a62b99bd43 Marc Zyngier           2022-05-16  167  static inline void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu) {}
-27131b199f9fdc0 Raghavendra Rao Ananta 2023-10-20  168  static inline void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu) {}
-3d0dba5764b9430 Marc Zyngier           2022-11-13  169  static inline u8 kvm_arm_pmu_get_pmuver_limit(void)
-3d0dba5764b9430 Marc Zyngier           2022-11-13  170  {
-3d0dba5764b9430 Marc Zyngier           2022-11-13  171  	return 0;
-3d0dba5764b9430 Marc Zyngier           2022-11-13  172  }
-bc512d6a9b92390 Oliver Upton           2023-10-19  173  static inline u64 kvm_pmu_evtyper_mask(struct kvm *kvm)
-bc512d6a9b92390 Oliver Upton           2023-10-19  174  {
-bc512d6a9b92390 Oliver Upton           2023-10-19  175  	return 0;
-bc512d6a9b92390 Oliver Upton           2023-10-19  176  }
-b1f778a223a2a8a Marc Zyngier           2023-08-20 @177  static inline void kvm_vcpu_pmu_resync_el0(void) {}
-20492a62b99bd43 Marc Zyngier           2022-05-16  178  
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index a6f0d87a50d8a..eaffbab093cc1 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -49,6 +49,42 @@ linux,cma {
+ 			linux,cma-default;
+ 		};
+ 
++		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x99800000 0x00 0x100000>;
++			no-map;
++		};
++
++		c7x_0_memory_region: c7x-memory@99900000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x99900000 0x00 0xf00000>;
++			no-map;
++		};
++
++		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9b800000 0x00 0x100000>;
++			no-map;
++		};
++
++		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9b900000 0x00 0xf00000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9c800000 0x00 0x100000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9c900000 0x00 0x1e00000>;
++			no-map;
++		};
++
+ 		secure_tfa_ddr: tfa@9e780000 {
+ 			reg = <0x00 0x9e780000 0x00 0x80000>;
+ 			alignment = <0x1000>;
+@@ -60,12 +96,6 @@ secure_ddr: optee@9e800000 {
+ 			alignment = <0x1000>;
+ 			no-map;
+ 		};
+-
+-		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+-			no-map;
+-		};
+ 	};
+ 
+ 	opp-table {
+@@ -737,3 +767,51 @@ dpi1_out: endpoint {
+ 		};
+ 	};
+ };
++
++&mailbox0_cluster0 {
++	mbox_r5_0: mbox-r5-0 {
++		ti,mbox-rx = <0 0 0>;
++		ti,mbox-tx = <1 0 0>;
++	};
++};
++
++&mailbox0_cluster1 {
++	mbox_c7x_0: mbox-c7x-0 {
++		ti,mbox-rx = <0 0 0>;
++		ti,mbox-tx = <1 0 0>;
++	};
++};
++
++&mailbox0_cluster2 {
++	mbox_mcu_r5_0: mbox-mcu-r5-0 {
++		ti,mbox-rx = <0 0 0>;
++		ti,mbox-tx = <1 0 0>;
++	};
++};
++
++&wkup_r5fss0 {
++	status = "okay";
++};
++
++&wkup_r5fss0_core0 {
++	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
++	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
++			<&wkup_r5fss0_core0_memory_region>;
++};
++
++&mcu_r5fss0 {
++	status = "okay";
++};
++
++&mcu_r5fss0_core0 {
++	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
++	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
++			<&mcu_r5fss0_core0_memory_region>;
++};
++
++&c7x_0 {
++	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
++	memory-region = <&c7x_0_dma_memory_region>,
++			<&c7x_0_memory_region>;
++	status = "okay";
++};
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.48.0
+
 
