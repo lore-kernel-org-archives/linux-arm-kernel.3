@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4994C021A1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5752FC0219E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGzraMmw+fA8wevuBLQcisstrYKOBwuJV7qXecxusco=; b=H4VllTL2ppTPTX4ZCeo5NvAmEs
-	vxzow2l8x/saOW42v5eh7b/2VXuM2EwwNg7iR9kZo4Cl5mLkEGZyavN3Gwe3MSQmHnqYDijU120MH
-	OPnLf8V5g2DDfiaLB0lfN+ItmPQRP6ZQcRQj2h8our+gVbJJJiJGEYTuUPDpnvwaUcKlo/5Hkgnox
-	dJa4XUU/RBFv1x0yebJr7kPJiay9LEWKqVjUO4prRjRGpIY+lRZDmKCgcheU6pFBvz1PWfFsAX1dT
-	gNd/TIDP0auINmswEE0N4Ew9OEHPOeufgrGYFp94PokzgJPCzzNx39oTdSqcr8Xvhakso7hB5CHHf
-	h57/NjTw==;
+	bh=7hEIMHOGsS3+ATVWYr8D/aXMIeb192mdar/am881FQI=; b=Zy7tRP6uyjxHtrXcbJuIDqzs4s
+	3++wvaJa0UFpAoY9JgkhueLCCeTpr4eJNbkJXKe2COYqbQZwRIe3FmdRqmcky4YEz9e+FAf0sKfl2
+	luJ0dCmXN1p/40DUJQLm0S9vAQc13NYsU7EssTNXn+TB9FvWA8HO3i/QSAJRQ/iffo5gHuymeYzuo
+	ncUcGOBP6CS9nzCdBjkE2rzejTg0+0wHMSb3vDQIlD8c/yYjQytH1+4qbRZfatOImdMfM758C5iqn
+	6ebJlZkeqDRe2sKTCjIx+mlFHDkgp69V1jOEzEqVW9ptxoPDLzDcV8jw0+2Xl3WSCnpL0MBS5/4bJ
+	d1wql0cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg77o-00000007I1M-2ubz;
-	Thu, 06 Feb 2025 19:01:20 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tg77e-00000007Hrs-0Th2;
+	Thu, 06 Feb 2025 19:01:10 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6Pd-000000078HA-0eAG
+	id 1tg6Ov-000000077r5-0hx5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 18:15:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 16A5143297;
-	Thu,  6 Feb 2025 18:15:37 +0000 (UTC)
+	Thu, 06 Feb 2025 18:14:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1128643297;
+	Thu,  6 Feb 2025 18:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738865739;
+	t=1738865695;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=aGzraMmw+fA8wevuBLQcisstrYKOBwuJV7qXecxusco=;
-	b=kGjz6KxsyWT27vY60CZKrslgCFbs+dKlEkuHKWDcoVNbh0Gc7ociJPjPpnqlPIrM4ez4+w
-	gbgn7+t9jYJjDI0j6E05eqGO9e2Jf9P5t7mpaEvKsyax1U4/lJDnY44sV4PeuO52dYKcEg
-	FTPFvTP9NgedbG7Ln014Yqq8HhCGMgjwRH17I3xqEXk0jzNPgTgivit6ioysGy7ZFfBVAx
-	nDOA9MXl7n0rp5qxk4osl+iMPrRzvG+KR8VSd6QU1O3VJgeN3YsBZJtRFEB1OQia2iYCFP
-	J/ZBmJQI8dpDwMBm+iJY+ngg7UMSHXSfzkPP8eEgwUmXvoZeryT86IXSoCfwoQ==
+	bh=7hEIMHOGsS3+ATVWYr8D/aXMIeb192mdar/am881FQI=;
+	b=Q9jQ0R4KMalETViSW+r0bhr24TWVJb/1mXJe9b8MrFtitkFWCkQlJdBKFEk45jqtb60UFX
+	JAcsGbZ+YyMhxJR6myPefToAm7CJtn+STTAE8Jy4zHHKf/3ERgYKAaAU9nDcAQCuCBB+9N
+	o2WEtgVRE92wzsO8cx2CBBjHLEeB1ustH0WkmAxXETPTeVl67f2H/5iJvfP0vLIzLouxKK
+	Q8do/LvDCnla/UaPo0iFl+JRchKWlDzzKbAdtcBnw+bMhfz5+3fOOCs5NPAr9X82p84CNm
+	yKGGE288BwGuBnNpmTGhgCZ7kQFQP6UWtkb0JcqafPkVldLBV10F4RPiPaA4JA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 06 Feb 2025 19:14:38 +0100
-Subject: [PATCH v6 23/26] drm/bridge: samsung-dsim: use refcounting for the
- out_bridge
+Date: Thu, 06 Feb 2025 19:14:22 +0100
+Subject: [PATCH v6 07/26] drm/bridge: panel: forbid initializing a panel
+ with unknown connector type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250206-hotplug-drm-bridge-v6-23-9d6f2c9c3058@bootlin.com>
+Message-Id: <20250206-hotplug-drm-bridge-v6-7-9d6f2c9c3058@bootlin.com>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 In-Reply-To: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 To: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
@@ -81,12 +81,12 @@ Cc: Paul Kocialkowski <contact@paulk.fr>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpedvtdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghom
- hdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtohhrsggvtheslhifnhdrnhgvthdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpeehnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgedphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeekpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmp
+ dhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghvpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptghorhgsvghtsehlfihnrdhnvghtpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopegurhhiqdguvghvvghlsehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhg
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_101541_341042_A55FA14A 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250206_101457_358685_BE37EB0F 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case the samsung-dsim is fixed and the following bridge is
-hot-unplugged, we need to handle the dynamic lifetime of the following
-bridge by putting the reference when disposing of it.
+Having an DRM_MODE_CONNECTOR_Unknown connector type is consuidered bad, and
+drm_panel_bridge_add_typed() and derivatives are deprecated for this.
 
-The devm functions used to get the next bridge reference will put it only
-when this device is removed. Do it explicitly on detach and in the error
-paths.
+drm_panel_init() won't prevent initializing a panel with a
+DRM_MODE_CONNECTOR_Unknown connector type. Luckily there are no in-tree
+users doing it, so take this as an opportinuty to document a valid
+connector type must be passed.
+
+Returning an error if this rule is violated is not possible because
+drm_panel_init() is a void function. Add at least a warning to make any
+violations noticeable, especially to non-upstream drivers.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Changed in v6:
- - use new devm_drm_put[_and_clear]_bridge()
-
-This patch was added in v5.
+This patch was added in v6.
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/panel.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index bbd0a4f5a3f52b61bf48f10d6e8ca741bffa5e46..8e94f099d67bee93655129625b40d4c1af023fcc 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1732,13 +1732,13 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	if (!(device->mode_flags & MIPI_DSI_MODE_VIDEO)) {
- 		ret = samsung_dsim_register_te_irq(dsi, &device->dev);
- 		if (ret)
--			return ret;
-+			goto err_devm_put_bridge;
- 	}
- 
- 	if (pdata->host_ops && pdata->host_ops->attach) {
- 		ret = pdata->host_ops->attach(dsi, device);
- 		if (ret)
--			return ret;
-+			goto err_devm_put_bridge;
- 	}
- 
- 	dsi->lanes = device->lanes;
-@@ -1748,6 +1748,10 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	dsi->out_bridge = out_bridge;
- 
- 	return 0;
+diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
+index bd61e57e1a2dd3d1eb034da4f9213a6bcb3e6dc5..58570ff6952ca313b3def084262c9bb3772272ef 100644
+--- a/drivers/gpu/drm/bridge/panel.c
++++ b/drivers/gpu/drm/bridge/panel.c
+@@ -40,7 +40,7 @@ static LIST_HEAD(panel_list);
+  * @dev: parent device of the panel
+  * @funcs: panel operations
+  * @connector_type: the connector type (DRM_MODE_CONNECTOR_*) corresponding to
+- *	the panel interface
++ *	the panel interface (must NOT be DRM_MODE_CONNECTOR_Unknown)
+  *
+  * Initialize the panel structure for subsequent registration with
+  * drm_panel_add().
+@@ -48,6 +48,9 @@ static LIST_HEAD(panel_list);
+ void drm_panel_init(struct drm_panel *panel, struct device *dev,
+ 		    const struct drm_panel_funcs *funcs, int connector_type)
+ {
++	if (connector_type == DRM_MODE_CONNECTOR_Unknown)
++		DRM_WARN("%s: %s: a valid connector type is required!\n", __func__, dev_name(dev));
 +
-+err_devm_put_bridge:
-+	devm_drm_put_bridge(dev, out_bridge);
-+	return ret;
- }
- 
- static void samsung_dsim_unregister_te_irq(struct samsung_dsim *dsi)
-@@ -1764,7 +1768,7 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
- 	struct samsung_dsim *dsi = host_to_dsi(host);
- 	const struct samsung_dsim_plat_data *pdata = dsi->plat_data;
- 
--	dsi->out_bridge = NULL;
-+	devm_drm_put_and_clear_bridge(dsi->dev, &dsi->out_bridge);
- 
- 	if (pdata->host_ops && pdata->host_ops->detach)
- 		pdata->host_ops->detach(dsi, device);
+ 	INIT_LIST_HEAD(&panel->list);
+ 	INIT_LIST_HEAD(&panel->followers);
+ 	mutex_init(&panel->follower_lock);
 
 -- 
 2.34.1
