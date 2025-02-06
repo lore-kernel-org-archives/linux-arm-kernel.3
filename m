@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0565FC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 10:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F100BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 10:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgzVntF6KzzMR3V4Q+CcBzkSm5YqLod2dgAwatkHa6w=; b=Yr7otClhainElsEnOIpFPJrEMA
-	eE7V335CW1ixH9p6RxfCFcp+aMmQlINKYaDUBjCD1rmb4sXDsLt2mZRXuqbSxfostyY34mF6UQpw6
-	b3Vr4ao2b5QLkoyZu+yvqEpdPIdDlwVJZEQAtTLwWDzT83ALWpF9gYY+611g6iSn7NbKiD4MquJMs
-	q6vZkfUh7bwane+51xBwDKF2GbBPkBJg5jsK5Ox6Q2wor9FLcDUPA1Kvk7PDfhXUzOUly0WCnbM5T
-	AO68xeVoE9dBDVVYodMmL8DmTiheE2KgCGSloQQDhBxc7Xcp4PNoaJBKdW8oCpfhrEtkzSnolSJFf
-	d2S4Lq+g==;
+	bh=CZg6wwh8xcXPdvLRYkuCKP4kUADz5CJ+ekvgu1I/GGU=; b=mpi3FSfXWSn1aSyyj3oxOmc6/X
+	cqpD00RLECzsrGGdeGGyYRfRHtH6/31D1fqK1+vTFEILdNEd+92zj8bPPZiTgbmLv3YhMyb8HtRpj
+	UhvztLNpQO7szI1Wng8AOUA1XDc7wfz8uLSAV9puWFM7bDEvHpnxWmPx8O8wvyjO4rKw1YWs4YqF1
+	81DiExp3dT65R9kqmSubVWyd6A9Ob9jAgsXvWmysNG3fXs9LvMARxpZ2t/uQsfPDQortw/2xxf59o
+	M4B/GC2q7F32l1afJWtOGCQv2+5N+fX3fwQeL1tK1qo0MoUf4AUQxZsOEDIiI2EWCH78ryEBletiw
+	p08v2w8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfz5O-00000005y3B-2ZSW;
-	Thu, 06 Feb 2025 10:26:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfz40-00000005xvV-3Vzn
+	id 1tfz96-00000005yXw-2ccR;
+	Thu, 06 Feb 2025 10:30:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfz7h-00000005yPs-1DY2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:24:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0561DA43FAB;
-	Thu,  6 Feb 2025 10:23:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6924FC4CEDD;
-	Thu,  6 Feb 2025 10:24:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738837491;
-	bh=8NibMNg1KpbAk3gyqnaDTpTU/kJdok1+bj45BuBRHt4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=lW4fVloVz9Io3J8oEN7v4cAKcg7dA4GPvPOKaTZAJwK5PjTxwESlWVLDPvcszxrDk
-	 Rs8hatmSaIqc+Rztpi9gUHO0hgVBuQESqNpWC7l5xBNKg/ycmcsV2OnI2eOxm+eIrl
-	 aadxYmUpzYn93Uljgk6s/jMnI7v6/P32GfVVicfFwQLcwZl+A1YP2SOSqyGNeo8Y12
-	 Ne1J132begwnVpNk3ZgHbP66V28voQXTMoI5Ms8w60i8pk83nbIBpZMA/Lh658Ekhv
-	 XJnI59/5yfStDblAYp/tG5czHQ9k9BNDnm/zH9TM9cK25GSOVaguqbykGq3Fh1GfPt
-	 KbbKjdSxVD6MQ==
-Date: Thu, 06 Feb 2025 04:24:50 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 06 Feb 2025 10:28:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7740112FC;
+	Thu,  6 Feb 2025 02:29:03 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D961A3F63F;
+	Thu,  6 Feb 2025 02:28:37 -0800 (PST)
+Date: Thu, 6 Feb 2025 10:28:35 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, fweimer@redhat.com,
+	jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com,
+	stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+Message-ID: <Z6SO0x-T4QRT31Y_@J2N7QTR9R3>
+References: <20250204152100.705610-1-mark.rutland@arm.com>
+ <20250204152100.705610-9-mark.rutland@arm.com>
+ <861pwdvbd3.wl-maz@kernel.org>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Kamlesh Gurudasani <kamlesh@ti.com>, Will Deacon <will@kernel.org>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Praneeth Bajjuri <praneeth@ti.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Vignesh Raghavendra <vigneshr@ti.com>, 
- Manorit Chawdhry <m-chawdhry@ti.com>, linux-crypto@vger.kernel.org, 
- devicetree@vger.kernel.org
-To: T Pratham <t-pratham@ti.com>
-In-Reply-To: <20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com>
-References: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
- <20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com>
-Message-Id: <173883749024.411608.17744779894418319775.robh@kernel.org>
-Subject: Re: [PATCH RFC 1/3] dt-bindings: crypto: Add binding for TI DTHE
- V2 driver
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <861pwdvbd3.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_022453_001176_E14D87C2 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250206_022841_372165_5A767059 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +67,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 04, 2025 at 06:00:24PM +0000, Marc Zyngier wrote:
+> On Tue, 04 Feb 2025 15:21:00 +0000,
+> Mark Rutland <mark.rutland@arm.com> wrote:
 
-On Thu, 06 Feb 2025 14:44:30 +0530, T Pratham wrote:
-> Add new DT binding for Texas Instruments DTHE V2 crypto driver.
+> > +static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+> > +{
+> > +	u64 zcr_el1, zcr_el2;
+> > +
+> > +	if (!guest_owns_fp_regs())
+> > +		return;
+> > +
+> > +	if (vcpu_has_sve(vcpu)) {
+> > +		/* A guest hypervisor may restrict the effective max VL. */
+> > +		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))
+> > +			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+> > +		else
+> > +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> > +
+> > +		sve_cond_update_zcr_vq(zcr_el2, SYS_ZCR_EL2);
 > 
-> DTHE V2 is introduced as a part of TI AM62L SoC and can currently be
-> only found in it.
+> Not a big deal, but I though I'd mention it here: Using ZCR_EL2 (or
+> any other register using the _EL2 suffix) is a source of expensive
+> traps with NV. We're much better off using the _EL1 accessor if we are
+> running VHE, as this will involve no trap at all.
 > 
-> Signed-off-by: T Pratham <t-pratham@ti.com>
-> ---
-> PS: Please note that the dmas option in dt-bindings is subject to change in
-> future as dma driver is not finalized yet. Any updated changes will be
-> sent in the next version of the patch.
-> 
->  .../devicetree/bindings/crypto/ti,dthev2.yaml      | 50 ++++++++++++++++++++++
->  MAINTAINERS                                        |  6 +++
->  2 files changed, 56 insertions(+)
-> 
+> nVHE will of course trap, but using nVHE with SVE under NV is not
+> something I'm prepared to give a damn about.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Ah, sorry. I had forgotten that wrinkle.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:22:22: [error] string value is redundantly quoted with any quotes (quoted-strings)
-./Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:23:22: [error] string value is redundantly quoted with any quotes (quoted-strings)
-./Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:24:22: [error] string value is redundantly quoted with any quotes (quoted-strings)
-./Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:45:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
+Given the compiler warnings reported by Mark Brown [1] and the kernel
+test robot [2], I'll go spin a v2 with that cleaned up.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:45:1: found character '\t' that cannot start any token
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/crypto/ti,dthev2.example.dts'
-Documentation/devicetree/bindings/crypto/ti,dthev2.yaml:45:1: found character '\t' that cannot start any token
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/crypto/ti,dthev2.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
+I'll use write_sysreg_el2() here, i.e.
 
-doc reference errors (make refcheckdocs):
-Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/crypto/ti,dthe-v2.yaml
-MAINTAINERS: Documentation/devicetree/bindings/crypto/ti,dthe-v2.yaml
+	if (vcpu_has_sve(vcpu)) {
+		/* A guest hypervisor may restrict the effective max VL. */
+		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))
+			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+		else
+			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com
+		write_sysreg_el2(scr_el2, SYS_ZCR);
+	}
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+That'll use the preferred alias automatically, and it matches the style
+used to write to ZCR_EL{1,12} immediately after.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+Likewise for the other instances.
 
-pip3 install dtschema --upgrade
+Mark.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+[1] https://lore.kernel.org/linux-arm-kernel/b76803b7-c1b3-426b-a375-0c01b98142c9@sirena.org.uk/
+[2] https://lore.kernel.org/oe-kbuild-all/202502061341.FvsCMKEH-lkp@intel.com/
 
