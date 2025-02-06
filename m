@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43291C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8068C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=; b=FBLVSxtH56h2azrf662f7YE/o/
-	8j5qcCko+RtuSnBYLCVcvF8LtQdfwcJRktS7oYAHVumpijukaORBMc0N8WeC1ZGyKGNSmD3OGZxhW
-	3pA41kvYjy5KNglRRCDn/IbHcK8aZ3ZiCK+K+VwV1db/bPYo2JTUnp8dsqloudr1FTsTBXb0w9qdz
-	ivnXLPrYPDkCF9vj508ifZDyBGsBiZEDw3ru+pRa9UvPiumQM3faoFGKzIoTaSfHzfZL7aSwAeIS8
-	EsBydI3MFUrmHsSX2aXLtepVKMlFaSPIP2gxT+Iqw47G24Fq0fLAGtvn9ROjmGuWjwFtG9AL/2Yg7
-	rn76wbAw==;
+	bh=8M3jGKVoMOaiDp/mgjTJ4k4swCXfL8TDoJbCV0k94ZM=; b=h+c71Wwn9x/Ol2sUUFb/K7qjfN
+	1/QhuDe3eQDxlHyiWkmoLYZ/fLjE8WjmD3aJ7NKe2+Oyh6aKIYHiUxbG4rHqJkvdcJIVKNJMDaO+a
+	HzoWUpVTZAkv9cOsUe2Lyvdll0klUDxuVY0jhaiuvJQY8CvDauSCAgchA7zrH5KaGfyzDuFyQt7A8
+	d+12PBXBWQgwJ0+/XTH9cFWmtYgboy6q4TRgaDoSLkC4/iJOISkipeGxUvoKcHArXes8plAAWUES0
+	I/agddrigYdjPhL//rDvXi1GoBb7pr3R1g8RdlBPqucCaqhzz9+qKcXlwC5XBWvqfpt13GYJ1K62W
+	QE5d9z3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzkJ-000000064eQ-2sTU;
-	Thu, 06 Feb 2025 11:08:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfzlf-0000000650Q-1mWv;
+	Thu, 06 Feb 2025 11:09:59 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzX2-000000061Zh-3Gut
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 10:54:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=; b=JMqdVXVI/H70quOW4ot+PXSFvl
-	T1gmkfgdGaAFj83VsffSsAgw20fbtYKpwto37lWQZUUbvp9trONjuR/pDBWh8GH9kEKHZHPFm9bGf
-	3KWLpkDOewCMLZ1UzvQ8tjgsRkF0eIJtxobywmvgpRgV7C8oAhB1YgD7A0YuiDNi/UrgNISwJExv8
-	HjhGyvKE0d1xl3b42Z3n0t8p2Iv4SzObR4tZbbbrqfEpUF1LCZ0UZuuOk9vg3N2PPq8NC74tseyoI
-	wdz2VeV2HCn5eqP5bw4omDMqAOp3/BbH0zaDuLyqfdVA3HrjkRugGLY5bE6lCp5fBBXRnD3wAQm0T
-	jy46VRXg==;
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzX0-0000000Gusx-01Jr
+	id 1tfzX3-000000061Zt-3tkx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:54:51 +0000
-Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-38dabb11eaaso357089f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:48 -0800 (PST)
+	Thu, 06 Feb 2025 10:54:55 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-435f8f29f8aso4985875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839288; x=1739444088; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738839292; x=1739444092; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=;
-        b=gV+Zwy/a1UALMSQyIyQT0o/Pin8nhGZTC5VutdSku83xdNhePIIRrELYXWfJvSSXVi
-         Cku9DfKVkhR8RL8pJe3BP5YWQ2bpveZ8aFlTVBCMpC7UctNEUilOJuW9kS7hqgmawIJK
-         RaOv5kg5Bu4wosi4T47asImnayxXMdh/hJUBKnRYYREw9JT2vblB3wsEtIZ53MW1kmdM
-         DS9ER+++ME8BfRStgQprVT89AX3hOCdI1sAoa9Ey0RmdnCIrvSyF/futXaY7plXUb39D
-         1MPMRB+aEr7D29Edv18ghGAo2PXRtl2t2Pgc1HcPbCBmz7jJVAoK8dxef8nz/hpUXEed
-         CHJA==
+        bh=8M3jGKVoMOaiDp/mgjTJ4k4swCXfL8TDoJbCV0k94ZM=;
+        b=DygAKKjTVovJMtEVTTanpiQZDmoMS1XmJIC0gk1MDnhpJ6uLEEAwZxgjXvAlpGFZWq
+         /q99KyHbuCmSO59c5Bpg4bAjEtWuIjWLpMRg43aRnBn7eE/hDbNDhd2G70wCaYqo7MZy
+         fc2t27Y9I6gAvssCKVChVMJjVXJ0Oe3PKARz5zadojmOObKnC5NXoJwa4ZewLqyYA0m9
+         mrjsscLbbKvdjXQmDNN1c7dzhdB/7MYUsk42D9NdeEw7kiGpG2l/9ycwF+j7XePfva+4
+         igTRdw+7wyZNXapSZc+d6XAosXX1yRi9HqOHbCz3uxh3T0cSCFUVogs5wcC3sMUtf/nr
+         LTcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839288; x=1739444088;
+        d=1e100.net; s=20230601; t=1738839292; x=1739444092;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=;
-        b=XZkqVJsl8w/EEcAGEnZYalslXt1gOnrs3NcJtbgBWV97AXEuTS7oAbLUPCMy6MrAOU
-         9ZSdiD75C+KyRQjK5TbALflqcusJaRmvCI/0MZQ2ZQ1pQzoZxMrL1z3O7rAw02+hgaUW
-         T6WnJv/ofvOkICeN8jOqqI/2nXWPFkXDh732uUdu/F54F0P5gjClmqy3MQ6IBl3fv6t8
-         HWremoLtYwWXD5hEW/ffl1NZEXU4zOIbjOMe95M/bSKgZlP4DTA6iDC2l1xalgo/mits
-         Bbb3pSZ5yfMWLUEYHHdVTN7LEl2IunS7RgfqV/ETUP3fogKDaHTfzF/tkvpMrBGA0l57
-         indw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGCZmJG3OK56ebDvUC/y9x7tIjGjSJ9V8TkrgRUogNxtJRPZsVGOnUa+SzPq9QwbSO+XycJ2YvaKQu7hB4KmAR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9qh73/35hyexMzZmK8I9ppdZS/7StpvuLlqkFDNtUxeHscLXQ
-	wDAZZXhUAwHdbcFr856swyb9K8aGT4DfwFQQ3u3Xfp7VLq9HRFdJ
-X-Gm-Gg: ASbGnctDIo7evZ7YrhtEZiwgm+VPicpPdqpeecz6xdWzS6d+RKfYAqNTSANi7RRITDo
-	okuVAmfQPv4dMdxqCboD3QxJJcnBeBdvbf5lYK78eFSjgmCAz/vqVoiEw0YxlzLCjYlqqv0gt2F
-	ckxIYlxFDyOfdNc+U/Yb2uXYtrtarTsxoZ4YJoClCW3SglmsKfUkHFJG0xbncXUScsuz1fZeYfU
-	JmTKowJ5n/rKpfn8+ipGOmNugiPBSJQ6WvOdM+VnX4XkHUXQBCoAMixbIB8P2C6adUqdKybX/6l
-	9TkAiA==
-X-Google-Smtp-Source: AGHT+IEFTmIDnkApoCxo9XEdAou5ZGEMDlqk297HAU+HLuXK1+LhNaJhCM/rdUs7kriHnIXhGFI/oA==
-X-Received: by 2002:a5d:5988:0:b0:38c:1362:41b5 with SMTP id ffacd0b85a97d-38db486108amr4754830f8f.6.1738839287460;
-        Thu, 06 Feb 2025 02:54:47 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:72::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde0fd3csm1414640f8f.62.2025.02.06.02.54.46
+        bh=8M3jGKVoMOaiDp/mgjTJ4k4swCXfL8TDoJbCV0k94ZM=;
+        b=LOYLTWBEU1qVgo5a4BA3Lg54QdgQeTUr9OnCnxGiS7CZhqZWUMihyDj2gom41lea03
+         s0QcR5K084PEuT+DGmXqNN63kv2c7uxAlkQKf+LSGX2A/w2nqHMzMcBVpJLtWwO8QXGA
+         8kyL65HtTulwZBSP1RWBvHef2Q2qt9zM8pS15oFvlM8r0kNZTcDmANyj7Tfv43vMmumL
+         w2HxF7TFev59AyhufmCqOin/Ai/qv+cyEX15F9C1XBui7KmJpj+SbW5iXML/HnV/C84G
+         XpeNN5wuvl+FrfZSPXz9RFl/ADm3pCbi+2Jyze+YtnZRjYR50s3c4kzRDpNRotuI83Xy
+         CLDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2o9pKgPW7hJEzOTBpkeOlhI8xmwWKoawErqDwRGNa0irSC4sgAXOFOnuJoUtd9U6tuQ1Tycr077DWeoCd62Dq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLWiEG0F4401dIGa37d9n84SK5Adqvl3L7B3fI2R17ePpGqjdU
+	znrQ0WvxS4YQ1wpVIP9QhSBdlfU6PU65qZZBoTA8XFQUGm3P3KrL
+X-Gm-Gg: ASbGncvISuW4lqeX6BJZp/Uhl89JO2AeuhGxquycffzqSIO7+9dk49fqK8Nku1si9AD
+	yB1KOXfN1FewLTEXOYwPVFZsp3itJac9Bplds2FHS+amxr59DbssV4sv2hELd9jceEYvLtQyIeS
+	jbRsHB/OOooPRJN3Rp3w/k6+D381573p/lBO4UKrkCnOnhhYt0Ze2Wgpt6dfb6X+tM/rdNkKG7J
+	WCkHw2TbnlwKhO4oFTpAp+5SJyRwFM3VBHkrJXtGXqw2UIPfDeVvQI4hS13iOhRo/foAgPLdyGX
+	yVDW5A==
+X-Google-Smtp-Source: AGHT+IE6Ytf9lAGZg/32w5jdCCc5bYoMNRLBU5aCkHim0FkVJBaC7h0Wj/nvgFrS1eA2CBln15W8Xg==
+X-Received: by 2002:a7b:cbce:0:b0:434:9499:9e87 with SMTP id 5b1f17b1804b1-43912d37614mr17657335e9.25.1738839292380;
+        Thu, 06 Feb 2025 02:54:52 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:73::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d964c7csm50548735e9.17.2025.02.06.02.54.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:54:46 -0800 (PST)
+        Thu, 06 Feb 2025 02:54:51 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Cc: Barret Rhoden <brho@google.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Will Deacon <will@kernel.org>,
 	Waiman Long <llong@redhat.com>,
@@ -98,23 +82,24 @@ Cc: Barret Rhoden <brho@google.com>,
 	Eduard Zingerman <eddyz87@gmail.com>,
 	"Paul E. McKenney" <paulmck@kernel.org>,
 	Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>,
 	Josh Don <joshdon@google.com>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 08/26] rqspinlock: Protect pending bit owners from stalls
-Date: Thu,  6 Feb 2025 02:54:16 -0800
-Message-ID: <20250206105435.2159977-9-memxor@gmail.com>
+Subject: [PATCH bpf-next v2 11/26] rqspinlock: Add deadlock detection and recovery
+Date: Thu,  6 Feb 2025 02:54:19 -0800
+Message-ID: <20250206105435.2159977-12-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4602; h=from:subject; bh=PZAstj2WMwdJ5zpDKugp3FElz+LV+4cvINkXq1LfzVc=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRlQkqPybkJ7GSLq/QqBmQtgES+UrYcxxOebbfU QQitnoeJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZQAKCRBM4MiGSL8RyrK9D/ 9TAnlSHxA1Q3uFCYcCdMIawjW1IJgTMIKG08AH5HflcEBfh12ex5nIURCNNtVmT8KNdznwDtmSyf9F Dz9E3Hb1omPeX7fZXLE7IFq92YLTS8ZhF954tYzs/ccHTnFSiRQUEYaPNN5BjAreKu7VsuNJTWWwh2 Zk18PTGBgcCoITYY2U9kPpt8H0ss5SjjE/v472ug3Sxr+ikSfRFCNfqHQlM07gdJeffwM2YhPLmyrA pS/ZOZBqjyv6FJgGZvfHKwzMoadC1/BvbPU7eQpAJasZGBSDhGpgWqGWPnrkd1Xx+Qpo5SaJTQv2Bf FVE3fsLPC8zh8SYzTkjlRiUuMQDkkUeC71FmooULzLbfpkqhhr5IlQIpcVaKafW3bGY7gkNkxgbUcR ZjGTHp06O6I30+WbvFpEoQXIBKla/RBxSi2qHXXdZ5xlHp/f0BpJfujOwZr5R+QHWNX4h8hvTigyRu JMiZjgK3a/DfYdZdkC7+3+Y4IWzCH5XFsthPvV6ZgI+HUdIaJu6gLuw1LHLahy0sUtSdl3j3nbkdnN nk5039QdF/msE7FiR8sEyIhyL9JjjIcbswOwvAx+cPa7i/XoU9RVLyZ+toJUpPQsXNfR7MRq1YEGFC OwvNNjfgANI5dQmuZkKEQfmCLhErAm7WdD82gJqews3JIUZe0bapo/LeUq6A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15389; h=from:subject; bh=msNcOGVmrnAfRu3MV0az2zqDUq7IHfqHVuBu+GMrk4A=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRlbGObmmTmVt1u04gEed3cMy7FmALO/uAVks+a TeeoBgaJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZQAKCRBM4MiGSL8RyiK0EA CnsJbt64sQX0kL016RYhlMZNffg/GcHvfv3Z9oFIBHQcHLm5bLwHfs4H4NTMyGbVhYbcOgTPdLdE2D DthUBlKJzI3++9fzS21vMoTArLRc+cWJMJlPcldmQQN9GEWs+b/JWYeCkyYbCSaTMqfXWCi/2rknpd IiM1cB9cu/wfEfje5N5LFnbXnCHoMreNOieQzxB0QIh/i86hmD+ykd3UqiUv760Z68PHozD3TfRpuT a7PXTCg4c8cYvwNs7CUHE2MF8SKHu2yYK7VA64+d6gkAsPGSctiNYcK9x0UYRHp/PZlfIbUrKsJWYW tTrmTMXAB0cNc3BBtMolkvMRTrXuMvMxootdKJZ810qc6RYfElFL7pzLsXWo8oB4OGyn3Gau3po3VG AJYUxKpTKF4k2WW+F+TbGolt6W/7v1jo2OXUzoMs/LFeFEB5XB16UoTp4po/kxAuX3GqLvlMtWsZcQ SG7GVcmsGx9lvto9F6yVjMvevUytjuT4u6A0cwgTSC4pDTlJXyDoN7VwX0iuTqnKddyh943RII4MuK d+rkjWBQWNMkwlqTLUJ4UxOusNS50rJNbWBpHmlApS0Stlf0zCOKqKcIVM+XepT1nadbnyrUe/Bhy8 FhajBZBdwockQWCjCt2Z1Mi6wiwkcY6rTQvd6J62f7BWXOkVhH+60sQr9qyQ==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_105450_176740_6C3191BF 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20250206_025454_119219_DF587B4A 
+X-CRM114-Status: GOOD (  39.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,120 +114,433 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pending bit is used to avoid queueing in case the lock is
-uncontended, and has demonstrated benefits for the 2 contender scenario,
-esp. on x86. In case the pending bit is acquired and we wait for the
-locked bit to disappear, we may get stuck due to the lock owner not
-making progress. Hence, this waiting loop must be protected with a
-timeout check.
+While the timeout logic provides guarantees for the waiter's forward
+progress, the time until a stalling waiter unblocks can still be long.
+The default timeout of 1/2 sec can be excessively long for some use
+cases.  Additionally, custom timeouts may exacerbate recovery time.
 
-To perform a graceful recovery once we decide to abort our lock
-acquisition attempt in this case, we must unset the pending bit since we
-own it. All waiters undoing their changes and exiting gracefully allows
-the lock word to be restored to the unlocked state once all participants
-(owner, waiters) have been recovered, and the lock remains usable.
-Hence, set the pending bit back to zero before returning to the caller.
+Introduce logic to detect common cases of deadlocks and perform quicker
+recovery. This is done by dividing the time from entry into the locking
+slow path until the timeout into intervals of 1 ms. Then, after each
+interval elapses, deadlock detection is performed, while also polling
+the lock word to ensure we can quickly break out of the detection logic
+and proceed with lock acquisition.
 
-Introduce a lockevent (rqspinlock_lock_timeout) to capture timeout
-event statistics.
+A 'held_locks' table is maintained per-CPU where the entry at the bottom
+denotes a lock being waited for or already taken. Entries coming before
+it denote locks that are already held. The current CPU's table can thus
+be looked at to detect AA deadlocks. The tables from other CPUs can be
+looked at to discover ABBA situations. Finally, when a matching entry
+for the lock being taken on the current CPU is found on some other CPU,
+a deadlock situation is detected. This function can take a long time,
+therefore the lock word is constantly polled in each loop iteration to
+ensure we can preempt detection and proceed with lock acquisition, using
+the is_lock_released check.
 
-Reviewed-by: Barret Rhoden <brho@google.com>
+We set 'spin' member of rqspinlock_timeout struct to 0 to trigger
+deadlock checks immediately to perform faster recovery.
+
+Note: Extending lock word size by 4 bytes to record owner CPU can allow
+faster detection for ABBA. It is typically the owner which participates
+in a ABBA situation. However, to keep compatibility with existing lock
+words in the kernel (struct qspinlock), and given deadlocks are a rare
+event triggered by bugs, we choose to favor compatibility over faster
+detection.
+
+The release_held_lock_entry function requires an smp_wmb, while the
+release store on unlock will provide the necessary ordering for us. Add
+comments to document the subtleties of why this is correct. It is
+possible for stores to be reordered still, but in the context of the
+deadlock detection algorithm, a release barrier is sufficient and
+needn't be stronger for unlock's case.
+
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- include/asm-generic/rqspinlock.h  |  2 +-
- kernel/locking/lock_events_list.h |  5 +++++
- kernel/locking/rqspinlock.c       | 28 +++++++++++++++++++++++-----
- 3 files changed, 29 insertions(+), 6 deletions(-)
+ include/asm-generic/rqspinlock.h |  83 +++++++++++++-
+ kernel/locking/rqspinlock.c      | 183 ++++++++++++++++++++++++++++---
+ 2 files changed, 252 insertions(+), 14 deletions(-)
 
 diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
-index c89733cbe643..0981162c8ac7 100644
+index 0981162c8ac7..c1dbd25287a1 100644
 --- a/include/asm-generic/rqspinlock.h
 +++ b/include/asm-generic/rqspinlock.h
-@@ -20,6 +20,6 @@ typedef struct qspinlock rqspinlock_t;
+@@ -11,15 +11,96 @@
+ 
+ #include <linux/types.h>
+ #include <vdso/time64.h>
++#include <linux/percpu.h>
+ 
+ struct qspinlock;
+ typedef struct qspinlock rqspinlock_t;
+ 
++extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
++
+ /*
+  * Default timeout for waiting loops is 0.5 seconds
   */
  #define RES_DEF_TIMEOUT (NSEC_PER_SEC / 2)
  
--extern void resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
-+extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
+-extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
++#define RES_NR_HELD 32
++
++struct rqspinlock_held {
++	int cnt;
++	void *locks[RES_NR_HELD];
++};
++
++DECLARE_PER_CPU_ALIGNED(struct rqspinlock_held, rqspinlock_held_locks);
++
++static __always_inline void grab_held_lock_entry(void *lock)
++{
++	int cnt = this_cpu_inc_return(rqspinlock_held_locks.cnt);
++
++	if (unlikely(cnt > RES_NR_HELD)) {
++		/* Still keep the inc so we decrement later. */
++		return;
++	}
++
++	/*
++	 * Implied compiler barrier in per-CPU operations; otherwise we can have
++	 * the compiler reorder inc with write to table, allowing interrupts to
++	 * overwrite and erase our write to the table (as on interrupt exit it
++	 * will be reset to NULL).
++	 */
++	this_cpu_write(rqspinlock_held_locks.locks[cnt - 1], lock);
++}
++
++/*
++ * It is possible to run into misdetection scenarios of AA deadlocks on the same
++ * CPU, and missed ABBA deadlocks on remote CPUs when this function pops entries
++ * out of order (due to lock A, lock B, unlock A, unlock B) pattern. The correct
++ * logic to preserve right entries in the table would be to walk the array of
++ * held locks and swap and clear out-of-order entries, but that's too
++ * complicated and we don't have a compelling use case for out of order unlocking.
++ *
++ * Therefore, we simply don't support such cases and keep the logic simple here.
++ */
++static __always_inline void release_held_lock_entry(void)
++{
++	struct rqspinlock_held *rqh = this_cpu_ptr(&rqspinlock_held_locks);
++
++	if (unlikely(rqh->cnt > RES_NR_HELD))
++		goto dec;
++	WRITE_ONCE(rqh->locks[rqh->cnt - 1], NULL);
++dec:
++	this_cpu_dec(rqspinlock_held_locks.cnt);
++	/*
++	 * This helper is invoked when we unwind upon failing to acquire the
++	 * lock. Unlike the unlock path which constitutes a release store after
++	 * we clear the entry, we need to emit a write barrier here. Otherwise,
++	 * we may have a situation as follows:
++	 *
++	 * <error> for lock B
++	 * release_held_lock_entry
++	 *
++	 * try_cmpxchg_acquire for lock A
++	 * grab_held_lock_entry
++	 *
++	 * Since these are attempts for different locks, no sequentiality is
++	 * guaranteed and reordering may occur such that dec, inc are done
++	 * before entry is overwritten. This permits a remote lock holder of
++	 * lock B to now observe it as being attempted on this CPU, and may lead
++	 * to misdetection.
++	 *
++	 * In case of unlock, we will always do a release on the lock word after
++	 * releasing the entry, ensuring that other CPUs cannot hold the lock
++	 * (and make conclusions about deadlocks) until the entry has been
++	 * cleared on the local CPU, preventing any anomalies. Reordering is
++	 * still possible there, but a remote CPU cannot observe a lock in our
++	 * table which it is already holding, since visibility entails our
++	 * release store for the said lock has not retired.
++	 *
++	 * We don't have a problem if the dec and WRITE_ONCE above get reordered
++	 * with each other, we either notice an empty NULL entry on top (if dec
++	 * succeeds WRITE_ONCE), or a potentially stale entry which cannot be
++	 * observed (if dec precedes WRITE_ONCE).
++	 */
++	smp_wmb();
++}
  
  #endif /* __ASM_GENERIC_RQSPINLOCK_H */
-diff --git a/kernel/locking/lock_events_list.h b/kernel/locking/lock_events_list.h
-index 97fb6f3f840a..c5286249994d 100644
---- a/kernel/locking/lock_events_list.h
-+++ b/kernel/locking/lock_events_list.h
-@@ -49,6 +49,11 @@ LOCK_EVENT(lock_use_node4)	/* # of locking ops that use 4th percpu node */
- LOCK_EVENT(lock_no_node)	/* # of locking ops w/o using percpu node    */
- #endif /* CONFIG_QUEUED_SPINLOCKS */
- 
-+/*
-+ * Locking events for Resilient Queued Spin Lock
-+ */
-+LOCK_EVENT(rqspinlock_lock_timeout)	/* # of locking ops that timeout	*/
-+
- /*
-  * Locking events for rwsem
-  */
 diff --git a/kernel/locking/rqspinlock.c b/kernel/locking/rqspinlock.c
-index 200454e9c636..8e512feb37ce 100644
+index df7adec59cec..42e8a56534b6 100644
 --- a/kernel/locking/rqspinlock.c
 +++ b/kernel/locking/rqspinlock.c
-@@ -138,12 +138,12 @@ static DEFINE_PER_CPU_ALIGNED(struct qnode, qnodes[_Q_MAX_NODES]);
-  * contended             :    (*,x,y) +--> (*,0,0) ---> (*,0,1) -'  :
-  *   queue               :         ^--'                             :
+@@ -30,6 +30,7 @@
+  * Include queued spinlock definitions and statistics code
   */
--void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout)
-+int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout)
+ #include "qspinlock.h"
++#include "rqspinlock.h"
+ #include "qspinlock_stat.h"
+ 
+ /*
+@@ -74,16 +75,146 @@
+ struct rqspinlock_timeout {
+ 	u64 timeout_end;
+ 	u64 duration;
++	u64 cur;
+ 	u16 spin;
+ };
+ 
+ #define RES_TIMEOUT_VAL	2
+ 
+-static noinline int check_timeout(struct rqspinlock_timeout *ts)
++DEFINE_PER_CPU_ALIGNED(struct rqspinlock_held, rqspinlock_held_locks);
++
++static bool is_lock_released(rqspinlock_t *lock, u32 mask, struct rqspinlock_timeout *ts)
++{
++	if (!(atomic_read_acquire(&lock->val) & (mask)))
++		return true;
++	return false;
++}
++
++static noinline int check_deadlock_AA(rqspinlock_t *lock, u32 mask,
++				      struct rqspinlock_timeout *ts)
++{
++	struct rqspinlock_held *rqh = this_cpu_ptr(&rqspinlock_held_locks);
++	int cnt = min(RES_NR_HELD, rqh->cnt);
++
++	/*
++	 * Return an error if we hold the lock we are attempting to acquire.
++	 * We'll iterate over max 32 locks; no need to do is_lock_released.
++	 */
++	for (int i = 0; i < cnt - 1; i++) {
++		if (rqh->locks[i] == lock)
++			return -EDEADLK;
++	}
++	return 0;
++}
++
++/*
++ * This focuses on the most common case of ABBA deadlocks (or ABBA involving
++ * more locks, which reduce to ABBA). This is not exhaustive, and we rely on
++ * timeouts as the final line of defense.
++ */
++static noinline int check_deadlock_ABBA(rqspinlock_t *lock, u32 mask,
++					struct rqspinlock_timeout *ts)
++{
++	struct rqspinlock_held *rqh = this_cpu_ptr(&rqspinlock_held_locks);
++	int rqh_cnt = min(RES_NR_HELD, rqh->cnt);
++	void *remote_lock;
++	int cpu;
++
++	/*
++	 * Find the CPU holding the lock that we want to acquire. If there is a
++	 * deadlock scenario, we will read a stable set on the remote CPU and
++	 * find the target. This would be a constant time operation instead of
++	 * O(NR_CPUS) if we could determine the owning CPU from a lock value, but
++	 * that requires increasing the size of the lock word.
++	 */
++	for_each_possible_cpu(cpu) {
++		struct rqspinlock_held *rqh_cpu = per_cpu_ptr(&rqspinlock_held_locks, cpu);
++		int real_cnt = READ_ONCE(rqh_cpu->cnt);
++		int cnt = min(RES_NR_HELD, real_cnt);
++
++		/*
++		 * Let's ensure to break out of this loop if the lock is available for
++		 * us to potentially acquire.
++		 */
++		if (is_lock_released(lock, mask, ts))
++			return 0;
++
++		/*
++		 * Skip ourselves, and CPUs whose count is less than 2, as they need at
++		 * least one held lock and one acquisition attempt (reflected as top
++		 * most entry) to participate in an ABBA deadlock.
++		 *
++		 * If cnt is more than RES_NR_HELD, it means the current lock being
++		 * acquired won't appear in the table, and other locks in the table are
++		 * already held, so we can't determine ABBA.
++		 */
++		if (cpu == smp_processor_id() || real_cnt < 2 || real_cnt > RES_NR_HELD)
++			continue;
++
++		/*
++		 * Obtain the entry at the top, this corresponds to the lock the
++		 * remote CPU is attempting to acquire in a deadlock situation,
++		 * and would be one of the locks we hold on the current CPU.
++		 */
++		remote_lock = READ_ONCE(rqh_cpu->locks[cnt - 1]);
++		/*
++		 * If it is NULL, we've raced and cannot determine a deadlock
++		 * conclusively, skip this CPU.
++		 */
++		if (!remote_lock)
++			continue;
++		/*
++		 * Find if the lock we're attempting to acquire is held by this CPU.
++		 * Don't consider the topmost entry, as that must be the latest lock
++		 * being held or acquired.  For a deadlock, the target CPU must also
++		 * attempt to acquire a lock we hold, so for this search only 'cnt - 1'
++		 * entries are important.
++		 */
++		for (int i = 0; i < cnt - 1; i++) {
++			if (READ_ONCE(rqh_cpu->locks[i]) != lock)
++				continue;
++			/*
++			 * We found our lock as held on the remote CPU.  Is the
++			 * acquisition attempt on the remote CPU for a lock held
++			 * by us?  If so, we have a deadlock situation, and need
++			 * to recover.
++			 */
++			for (int i = 0; i < rqh_cnt - 1; i++) {
++				if (rqh->locks[i] == remote_lock)
++					return -EDEADLK;
++			}
++			/*
++			 * Inconclusive; retry again later.
++			 */
++			return 0;
++		}
++	}
++	return 0;
++}
++
++static noinline int check_deadlock(rqspinlock_t *lock, u32 mask,
++				   struct rqspinlock_timeout *ts)
++{
++	int ret;
++
++	ret = check_deadlock_AA(lock, mask, ts);
++	if (ret)
++		return ret;
++	ret = check_deadlock_ABBA(lock, mask, ts);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static noinline int check_timeout(rqspinlock_t *lock, u32 mask,
++				  struct rqspinlock_timeout *ts)
  {
- 	struct mcs_spinlock *prev, *next, *node;
- 	struct rqspinlock_timeout ts;
-+	int idx, ret = 0;
- 	u32 old, tail;
--	int idx;
+ 	u64 time = ktime_get_mono_fast_ns();
++	u64 prev = ts->cur;
  
- 	BUILD_BUG_ON(CONFIG_NR_CPUS >= (1U << _Q_TAIL_CPU_BITS));
+ 	if (!ts->timeout_end) {
++		ts->cur = time;
+ 		ts->timeout_end = time + ts->duration;
+ 		return 0;
+ 	}
+@@ -91,20 +222,30 @@ static noinline int check_timeout(struct rqspinlock_timeout *ts)
+ 	if (time > ts->timeout_end)
+ 		return -ETIMEDOUT;
  
-@@ -201,8 +201,25 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
- 	 * clear_pending_set_locked() implementations imply full
- 	 * barriers.
- 	 */
--	if (val & _Q_LOCKED_MASK)
--		smp_cond_load_acquire(&lock->locked, !VAL);
-+	if (val & _Q_LOCKED_MASK) {
-+		RES_RESET_TIMEOUT(ts);
-+		smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret));
++	/*
++	 * A millisecond interval passed from last time? Trigger deadlock
++	 * checks.
++	 */
++	if (prev + NSEC_PER_MSEC < time) {
++		ts->cur = time;
++		return check_deadlock(lock, mask, ts);
 +	}
 +
-+	if (ret) {
-+		/*
-+		 * We waited for the locked bit to go back to 0, as the pending
-+		 * waiter, but timed out. We need to clear the pending bit since
-+		 * we own it. Once a stuck owner has been recovered, the lock
-+		 * must be restored to a valid state, hence removing the pending
-+		 * bit is necessary.
-+		 *
-+		 * *,1,* -> *,0,*
-+		 */
-+		clear_pending(lock);
-+		lockevent_inc(rqspinlock_lock_timeout);
-+		return ret;
-+	}
+ 	return 0;
+ }
  
+-#define RES_CHECK_TIMEOUT(ts, ret)                    \
+-	({                                            \
+-		if (!(ts).spin++)                     \
+-			(ret) = check_timeout(&(ts)); \
+-		(ret);                                \
++#define RES_CHECK_TIMEOUT(ts, ret, mask)                              \
++	({                                                            \
++		if (!(ts).spin++)                                     \
++			(ret) = check_timeout((lock), (mask), &(ts)); \
++		(ret);                                                \
+ 	})
+ 
+ /*
+  * Initialize the 'duration' member with the chosen timeout.
++ * Set spin member to 0 to trigger AA/ABBA checks immediately.
+  */
+-#define RES_INIT_TIMEOUT(ts, _timeout) ({ (ts).spin = 1; (ts).duration = _timeout; })
++#define RES_INIT_TIMEOUT(ts, _timeout) ({ (ts).spin = 0; (ts).duration = _timeout; })
+ 
+ /*
+  * We only need to reset 'timeout_end', 'spin' will just wrap around as necessary.
+@@ -192,6 +333,11 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 		goto queue;
+ 	}
+ 
++	/*
++	 * Grab an entry in the held locks array, to enable deadlock detection.
++	 */
++	grab_held_lock_entry(lock);
++
  	/*
- 	 * take ownership and clear the pending bit.
-@@ -211,7 +228,7 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 * We're pending, wait for the owner to go away.
+ 	 *
+@@ -205,7 +351,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
  	 */
- 	clear_pending_set_locked(lock);
- 	lockevent_inc(lock_pending);
--	return;
-+	return 0;
+ 	if (val & _Q_LOCKED_MASK) {
+ 		RES_RESET_TIMEOUT(ts);
+-		smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret));
++		smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_MASK));
+ 	}
+ 
+ 	if (ret) {
+@@ -220,7 +366,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 		 */
+ 		clear_pending(lock);
+ 		lockevent_inc(rqspinlock_lock_timeout);
+-		return ret;
++		goto err_release_entry;
+ 	}
  
  	/*
- 	 * End of pending bit optimistic spinning and beginning of MCS
-@@ -362,5 +379,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
- 	 * release the node
+@@ -238,6 +384,11 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 */
+ queue:
+ 	lockevent_inc(lock_slowpath);
++	/*
++	 * Grab deadlock detection entry for the queue path.
++	 */
++	grab_held_lock_entry(lock);
++
+ 	node = this_cpu_ptr(&qnodes[0].mcs);
+ 	idx = node->count++;
+ 	tail = encode_tail(smp_processor_id(), idx);
+@@ -257,9 +408,9 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 		lockevent_inc(lock_no_node);
+ 		RES_RESET_TIMEOUT(ts);
+ 		while (!queued_spin_trylock(lock)) {
+-			if (RES_CHECK_TIMEOUT(ts, ret)) {
++			if (RES_CHECK_TIMEOUT(ts, ret, ~0u)) {
+ 				lockevent_inc(rqspinlock_lock_timeout);
+-				break;
++				goto err_release_node;
+ 			}
+ 			cpu_relax();
+ 		}
+@@ -350,7 +501,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 */
+ 	RES_RESET_TIMEOUT(ts);
+ 	val = atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK) ||
+-				       RES_CHECK_TIMEOUT(ts, ret));
++				       RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_PENDING_MASK));
+ 
+ waitq_timeout:
+ 	if (ret) {
+@@ -375,7 +526,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 			WRITE_ONCE(next->locked, RES_TIMEOUT_VAL);
+ 		}
+ 		lockevent_inc(rqspinlock_lock_timeout);
+-		goto release;
++		goto err_release_node;
+ 	}
+ 
+ 	/*
+@@ -422,5 +573,11 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
  	 */
  	__this_cpu_dec(qnodes[0].mcs.count);
-+	return 0;
+ 	return ret;
++err_release_node:
++	trace_contention_end(lock, ret);
++	__this_cpu_dec(qnodes[0].mcs.count);
++err_release_entry:
++	release_held_lock_entry();
++	return ret;
  }
  EXPORT_SYMBOL(resilient_queued_spin_lock_slowpath);
 -- 
