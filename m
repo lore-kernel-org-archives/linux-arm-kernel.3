@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7C6C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B66C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H26hCa0BkZ3dMHTQ+5j05dxgsk8Xe5RdYR/UT/6FR1s=; b=bm+1Dwhmlp7AreycdR9w7twHDo
-	VihL64gvR4qQR+Q81LLQAQ9ab6hMId0Wuok3q/8jjsL7b5UpWWlkjbZnaaDSPGG5GkfOjRAil22WL
-	2osZNpXpa5s0SpSnM7chCrhT9gidJ4DY3PZVXvIgPGavjjn1tu3pIhsN3v2QWNp+V5/xdRB3whgvN
-	8r5paZRKip9Mybmhf/ThSYZWoAKT2fnYxbbaQBOH+rqrbB8iUz5EDgJKaTef+iOshCkbqWy64d9dV
-	peMiFaCzvUDGQ/9SirBwr025oi0cIIOsMy9meImIXW5tKVkI6eptFsCSAhwVlM/3pqRYKuKvNFZfm
-	NskYFf2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bq0tD51R8RdS2G7MP8/tMVA0OGRzm/QTEon9er2CSPo=; b=KEmx6qE2VYSjufZ1iacgcE0QCE
+	ZYc2vtJlkHK/3uThktZp0rWeF4WuetAofpXqe/dwtl2Vj4ZFLEjTjw+Ypi2Hn9OCh2JCFuwWnmNuI
+	X9DVTV1L2ow5gjyCq83TJ8yy8ZLcagjuzizJkw6ZeULGItNBJhN9GYVsnyxJ90orrTv8IUFHd95hM
+	NfMnA1KLfaVb7HmOVXnx3pe8zP1q0xj+TiN4POb+dkHjqO7UEfhm9d0myu/17VE96jMedF+jtq0vw
+	txr2CB4QsO1BH8cRFPvwcr2hc8WkosS5GDCYVb7DrEYUkncIUI2evUOHQdFVsGbFe0hyJUUK5PwER
+	9/PKsS9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7Ea-00000007K0v-1MuF;
-	Thu, 06 Feb 2025 19:08:20 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tg7KT-00000007Kc3-1F7z;
+	Thu, 06 Feb 2025 19:14:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg78G-00000007InB-0cJf
+	id 1tg7J5-00000007KUA-2Y8e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 19:01:49 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5401be44b58so1422856e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 11:01:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738868506; x=1739473306; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H26hCa0BkZ3dMHTQ+5j05dxgsk8Xe5RdYR/UT/6FR1s=;
-        b=x5ZlkXnFNjlgFGS2Ex5QWTCHXa7B/CFcEdgUJM2ciybTNtkv3OsZgNY1XwCGKNz2UM
-         /uc8ld9VfW8xVuVUooO55H+kO4WRwAubZ4S4vJe71IPoOqLXYAsLsyf+DtQgWFKTrXK0
-         NJygyrpaHj+GOitsKpm+Idn/XzVKOKW/ewWd+jXa/kgDisoE2PFmj4s5pE+s7aEs7/FJ
-         zbifbH08UP9k5RJP7T5fqQ4qOXQgSIZaOvF0SP2aLZIhztBhdXvA502LdfJ9VwyZat6+
-         yx0JM4z2qgLf8MRp29yxPIxnZVkZZZl9009HjlSPDbHTsJB1drKSJ6vDOxbLteht1DBy
-         Eydw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738868506; x=1739473306;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=H26hCa0BkZ3dMHTQ+5j05dxgsk8Xe5RdYR/UT/6FR1s=;
-        b=MNRtFQ5acez955QjMhNxpDVxo8CVWGIbqZQIbSIfltp2mp7JzaJ1Mpcf5gN9h2jDqX
-         +/5zQ0tI4JDhO9oueSfj12onRXnwMdMjkjzJuMb6BaifZb6Jc+ml6T8hOQ/HGDyZgUSD
-         dfxobqEYvMoIhZIRhrmw3vkcXfIO5ZXoIia1GBeLKiOxxXuI3FKLGuyV4CvW8HXQEYeS
-         e+t8xLGiKE3/Nvoj57cUGqqWWm9STpBgqg1ZzFmAhEK3Tkx1crX52bTcvzk5NfQAtFw2
-         cutJ1e/wcDN4C87bLqoDaN52uglrNRA8m1y+c8+QnRG10kIfNNf/DQfYUqXb37uK3yL9
-         7dgw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4Be0e2INLFn6jNeswnkt4CfEua5LSuSVodKOgA7lx6TJ3SCBdj1xjAM94kCCbXathvlaIgpeRqXsYLn8oMWi5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW9XriCZWoShiWstDQb1r5oaf9G1uoQeul52fHdwgv+j57OMvV
-	TRQwwvzq6spvXfJlGDzM9gXLAfMbO6MEDZg5V9x7rNzPCb0+M9VI35y3lVW2O5ieW3If+qzljJs
-	dbN7IEFi0xJs0ZlVNpiri8rgttbAj3id1byvHYA==
-X-Gm-Gg: ASbGncsA5iXHpD98nf+EtvsueTy4pMATs3hw6I3OWBJVy1IUQJ28aA1wVpzQMbS/Jqz
-	oi+pOmHFLmmdJU+9V2zpuFfMIJj9MoMGZF3l4EsUfITXLqpbmXukEN+PlppzHkL1laGb/Drg=
-X-Google-Smtp-Source: AGHT+IGYbTW64WX7v4eRIud9aI7sO+r6eN6uxSXvFM2flvdaMCaTnXZkw1PV8dpsvo+PKiCDP3tZfZA6qctV7ZLyAak=
-X-Received: by 2002:a2e:a10c:0:b0:302:3de5:b039 with SMTP id
- 38308e7fff4ca-307e57bc6b9mr333711fa.8.1738868506188; Thu, 06 Feb 2025
- 11:01:46 -0800 (PST)
+	Thu, 06 Feb 2025 19:13:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CDFEAA4459C;
+	Thu,  6 Feb 2025 19:11:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B887BC4CEE0;
+	Thu,  6 Feb 2025 19:12:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738869178;
+	bh=g9/g/hpUUywCC6oyxEmQw01HogHxdD6MoRuJVjntsiU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ktnqYp0p/btUoBkPX5EIvvqEirIqBp/Wz0b38Bh1kBQj17p/6hDw3zy368JIKput7
+	 89Rqp7LxNfhNiQ2FqZBfm17aCOSvfWTwa8GAK9Oe6awvMXk7GAXHGGknE8/lD+4/yQ
+	 57ppLhBLeawa+kAWYPo9r7sYA+nK92S5X5dx1a4DKVJ+PAFxYXTs2CVRse1nsUK9xA
+	 kjHe3vtUBbJsYB5Wp/mphJrtoaK6F/QnZrTvZuRKIOKVg6WD+Q6fd6S9dL+K3llZ9e
+	 No5a9bdBpSLXQI4R4ggKoX3h/LxsPOlZ2vbl65D8oab9VklliW2EC2kj6ik+deSR/P
+	 oLE9wNyVpUtjw==
+Date: Thu, 6 Feb 2025 19:12:52 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	eauger@redhat.com, eric.auger@redhat.com, fweimer@redhat.com,
+	jeremy.linton@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com,
+	wilco.dijkstra@arm.com, will@kernel.org
+Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+Message-ID: <9972d29a-1387-408c-9070-d53b025191f2@sirena.org.uk>
+References: <20250206141102.954688-1-mark.rutland@arm.com>
+ <20250206141102.954688-9-mark.rutland@arm.com>
 MIME-Version: 1.0
-References: <20250203101839.1223008-1-kevin.brodsky@arm.com> <20250203101839.1223008-9-kevin.brodsky@arm.com>
-In-Reply-To: <20250203101839.1223008-9-kevin.brodsky@arm.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 6 Feb 2025 20:01:34 +0100
-X-Gm-Features: AWEUYZkf3utqCGGAYFw3Wd0K9HPUGk1pvzmcRu62yuHXXkM5758Qny3DAHNgUk4
-Message-ID: <CACRpkdZ_eGsfZh2vkG8dtSyZDbStMfDUuj7s7TQ4FcDwThJVkg@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 08/15] mm: Introduce kernel_pgtables_set_pkey()
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Pierre Langlois <pierre.langlois@arm.com>, 
-	Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, 
-	Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TAjyd6cungso5X+6"
+Content-Disposition: inline
+In-Reply-To: <20250206141102.954688-9-mark.rutland@arm.com>
+X-Cookie: With your bare hands?!?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_110148_197722_B319AC7E 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250206_111259_711042_751DD26C 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
 
-thanks for your patch!
+--TAjyd6cungso5X+6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Mon, Feb 3, 2025 at 11:20=E2=80=AFAM Kevin Brodsky <kevin.brodsky@arm.co=
-m> wrote:
+On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
 
-> kernel_pgtables_set_pkey() allows setting the pkey of all page table
-> pages in swapper_pg_dir, recursively. This will be needed by
-> kpkeys_hardened_pgtables, as it relies on all PTPs being mapped with
-> a non-default pkey. Those initial kernel page tables cannot
-> practically be assigned a non-default pkey right when they are
-> allocated, so mutating them during (early) boot is required.
->
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> +static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 zcr_el1, zcr_el2;
+> +
+> +	if (!guest_owns_fp_regs())
+> +		return;
+> +
+> +	if (vcpu_has_sve(vcpu)) {
+> +		/* A guest hypervisor may restrict the effective max VL. */
+> +		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))
+> +			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+> +		else
+> +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> +
+> +		write_sysreg_el2(zcr_el2, SYS_ZCR);
+> +
+> +		zcr_el1 = __vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu));
+> +		write_sysreg_el1(zcr_el1, SYS_ZCR);
+> +	}
+> +}
 
-(...)
+I don't think we should worry about it for this series but just for
+future reference:
 
-> +static int set_page_pkey(void *p, int pkey)
-> +static int set_pkey_pte(pmd_t *pmd, int pkey)
-> +static int set_pkey_pmd(pud_t *pud, int pkey)
-> +static int set_pkey_pud(p4d_t *p4d, int pkey)
-> +static int set_pkey_p4d(pgd_t *pgd, int pkey)
-> +int kernel_pgtables_set_pkey(int pkey)
+These new functions do unconditional writes for EL2, the old code made
+use of sve_cond_update_zcr_vq() which suppresses the writes but didn't
+have the selection of actual sysreg that write_sysreg_el2() has.  I
+believe this was done due to a concern about potential overheads from
+writes to the LEN value effective in the current EL.  OTOH that also
+introduced an additional read to get the current value, and that was all
+done without practical systems to benchmark any actual impacts from noop
+writes so there's a reasonable chance it's just not a practical issue.
+We should check this on hardware, but that can be done separately.
 
-Aren't these all discardable after boot, so the whole set should
-be tagged with __init?
+--TAjyd6cungso5X+6
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Other than that it LGTM.
+-----BEGIN PGP SIGNATURE-----
 
-Yours,
-Linus Walleij
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmelCbMACgkQJNaLcl1U
+h9CrEgf/TGgo4RVmaJxXS634U8oUIbNEIuXqOQJAqsTazdIud+hAZMt+dIaXwL+7
+fNdixA7N2DycoddigmHo+3CMMWlhdqjUx+6KKg/hA/RLflnT3LyT4h/lmRgxiz8d
+6MaxnP3+7vRubFCHotGBIQayLt5VhIlOYpwDikHcXAU2xWd7i0tAYqkzUivQJD2z
+mT1QjZOh7Dd/AKNOH9z2PeAfEn/EsMksgzWl3p/ElBEQ2Qbyq7GVadyGn6xhLooP
+UyQLxrI+ReiZj2kXHa6kez9GYlhABFU9dlz0VDUtKLlgdR2m4mC7HJ4bTWm/xuaD
+6pR0opLZp/dGO/Djx6pnmvuH+ri02A==
+=FSAp
+-----END PGP SIGNATURE-----
+
+--TAjyd6cungso5X+6--
 
