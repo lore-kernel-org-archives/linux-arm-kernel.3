@@ -4,66 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEFDC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73272C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BTvtW9J4GUhNqqG9DHzZa1E2UHLm6NteXVEG5VcLNgc=; b=Rhnt2NQSXDNNBvGM625vnxkhtD
-	TtYWHNEyh14Dif8M418fD5dt9PxnBlxu+zYbazlWFDIkH2+gUAcFwWAPpZ1bk/8sJukVUQoNUnc4n
-	Gy0IRYxeXoeyYbvALAy35tIercxA+Q6QF59FFbcTN+ZtaDGFC5k2CmQRSB/5S8uknF4dauOLTbBQz
-	c+kZeZyMMLZB9LPHe2tg1OFGULdudc+P59wk1QOqkbWXkVVgPrU528SCYzUqaKiL2xpOgm8Hybrcc
-	nIJ9o5VFGmNYFuHWySvHMoF5G/eimtzm1taXXpy1dqRThMzGtRmPqAXUoZcqKK+KQqEFkts5DYHzh
-	TIZJmDXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMJ1sNLL9WXBsJJGrMJJvJq50hmSatgcU29inNdcEj4=; b=h5obgVaKMX6ULzuI5I/cg7kpAf
+	UiVon5O22VV6EbBRCrgu/53cow606udc4roWu5KJy+IHIc8Jb/f5H8oofAI2WswFGwb29s6Ox1mf0
+	gxXbAEtiEvjWs9ktZ5vcgDFSFtE+8CxxX/hyT4G45stHGrU47F335oKFaL8nkcLRkX5bnzDJuWxJM
+	Xe9+QDCHYe+oOCLeTzEdTjbO8HW6wtMOZb+xhXeq9aXpsZInbBH7lhoO0+RhPqqOYADKGUd+FOrw/
+	rccS0Bv+YcE/mfepKi+fgpr4i2V3N+JJMNF0S2bQMoVl04mhTPSizO7qQX5bJTlkKFNZEOeNQF+xG
+	lXD3wTFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7pB-00000007OeS-36Ae;
-	Thu, 06 Feb 2025 19:46:09 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1tg7qY-00000007P1L-26HE;
+	Thu, 06 Feb 2025 19:47:34 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7le-00000007O2t-0D5U
+	id 1tg7oK-00000007OQ1-1zQ4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 19:42:31 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738870942;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BTvtW9J4GUhNqqG9DHzZa1E2UHLm6NteXVEG5VcLNgc=;
-	b=kfSUVNG201YB9rDs9iqbzhnGFCV9SFHcqMCDYa9VPbnrRM/Q0AwCmZi4DHDZ3f6GoFuPiY
-	nkKLOPq+qvEg/tT9gcxg7bhtOWFtYWC8rmTP9Bh7DnsT05xYynWf80j5WNvPSrkInZfn4p
-	EBaJHS8svuIRXNfrFToXlV5urAVkIaA=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR XILINX)
-Cc: Thomas Zimmermann <tzimmermann@suse.de>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	David Airlie <airlied@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
-Date: Thu,  6 Feb 2025 14:41:19 -0500
-Message-Id: <20250206194117.1496245-3-sean.anderson@linux.dev>
-In-Reply-To: <20250206194117.1496245-1-sean.anderson@linux.dev>
-References: <20250206194117.1496245-1-sean.anderson@linux.dev>
+	Thu, 06 Feb 2025 19:45:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738871116; x=1770407116;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=TAUR8CITq0NWvA+Vq2453t9DVtds67bY33qC7or/0lg=;
+  b=e+3cl9BU1fxC4RZJGv8PCJLzOlkSGUYkrjkWq7/S9UgrbCezL8hSQCTM
+   84n88LOHXoWP89MWEjhqyaC9vaLThUYrudPci38VrBCgijYrFMKDApp79
+   Bc3KJpEX25xXG0GBwDfjuJ44JYfeYltu7NAB/Ze8kj1HnLNHGoZfxzwqV
+   JOT2HWYnEU+eHUf1rZ2ezkU2L2R3iQB8orJhI+9rRYJNmhzoAzb6xs1P3
+   +8cstcGgLF+/DdtgFTD4lqmf3/ZJRhQ7oI88oJ6u4/zZYJVZSbEyQF4pV
+   3lZLKhLIv49TUhM6jO5ZxqLObgB084aNmAfXCHJbYOr37oOuNiIruF1x9
+   Q==;
+X-CSE-ConnectionGUID: nuD/8YyXRx6JlF5n1pQYAw==
+X-CSE-MsgGUID: e0IXkGx3T1i+hht/5TmE/w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="27102714"
+X-IronPort-AV: E=Sophos;i="6.13,265,1732608000"; 
+   d="scan'208";a="27102714"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 11:45:11 -0800
+X-CSE-ConnectionGUID: YAnxC5dXSrKvEgKnxmSoMg==
+X-CSE-MsgGUID: KRxVrKbOQqixdWOvzFRQ7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="116251149"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa003.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 06 Feb 2025 11:45:11 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 6 Feb 2025 11:45:10 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Thu, 6 Feb 2025 11:45:10 -0800
+Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.49) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Thu, 6 Feb 2025 11:45:09 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M2DOzGIHdghmUsxH+PouHxCntA7oJT8+7+DzkFEuhJKl0pXZMaMbIfOIPNNNBd/q0rruVmXVJTC9XEaSMABKGnPe49z7nlW0PVRC+t+ObibXaZc7CfUhQeFx5prGqjssqhQXneo8r7S4q0lBL4+GaX+A2Tp58W9FerWvUPaEwoU5aF1gVHZS6S/FyYQ8feASoMSQPSnMUUnVX4bANLl0F6IKsSFL9QpGokimMaQH9dtlydVMs0izBmYRRj9us5xu4yqbEOes22IdGfJpx/E8m28m6PjLrVbGFwV0P0kU/nFAidLWhXtIy0wA4mY+9GRTjljQN8o6V/LdYhomOR8rFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OMJ1sNLL9WXBsJJGrMJJvJq50hmSatgcU29inNdcEj4=;
+ b=PiLM/sBu2cY38bpUaNCoEE3c5ypRqXKGZGp2oYQYM2lIqdx1BqrfhKG6J2TJNWHToY3+Ow1urRfwa4gtBs+BMRwIx1pQaYQkxEf8f0UNOP+LSq3BuIdwejNqtY7L1IECfzQ4KAoljzu6lB0VfT3RvKGUR/8Sto4FqqyAvUhryNYtTzBJDRRoCGhzveYsiWgaXPhJpi49EobjBozM0yS66nK1zJy5t2dbciEzG3IPEzKXu1qKxe3f15jSbMMO43u/OoRjF2A2GWGjf+lDMlnF7bWKzUqa4BgqI95vZKpV21gBKbvasa12YPPHe7tywQmhuznRaBP4X/zQl5CeEhBOGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by DM4PR11MB8130.namprd11.prod.outlook.com (2603:10b6:8:181::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Thu, 6 Feb
+ 2025 19:44:31 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8422.011; Thu, 6 Feb 2025
+ 19:44:31 +0000
+Date: Thu, 6 Feb 2025 11:44:27 -0800
+From: Dan Williams <dan.j.williams@intel.com>
+To: Asahi Lina <lina@asahilina.net>, Dan Williams <dan.j.williams@intel.com>,
+	Vivek Goyal <vgoyal@redhat.com>, Alistair Popple <apopple@nvidia.com>
+CC: <akpm@linux-foundation.org>, <dan.j.williams@intel.com>,
+	<linux-mm@kvack.org>, <alison.schofield@intel.com>, <zhang.lyra@gmail.com>,
+	<gerald.schaefer@linux.ibm.com>, <vishal.l.verma@intel.com>,
+	<dave.jiang@intel.com>, <logang@deltatee.com>, <bhelgaas@google.com>,
+	<jack@suse.cz>, <jgg@ziepe.ca>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <dave.hansen@linux.intel.com>,
+	<ira.weiny@intel.com>, <willy@infradead.org>, <djwong@kernel.org>,
+	<tytso@mit.edu>, <linmiaohe@huawei.com>, <david@redhat.com>,
+	<peterx@redhat.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <nvdimm@lists.linux.dev>,
+	<linux-cxl@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-ext4@vger.kernel.org>, <linux-xfs@vger.kernel.org>,
+	<jhubbard@nvidia.com>, <hch@lst.de>, <david@fromorbit.com>,
+	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <loongarch@lists.linux.dev>,
+	Hanna Czenczek <hreitz@redhat.com>, German Maglione <gmaglione@redhat.com>
+Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
+Message-ID: <67a5111b2f805_2d2c29448@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
+ <Z6NhkR8ZEso4F-Wx@redhat.com>
+ <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
+ <A1E3C5B2-CCD8-41BA-BBC8-E8338C18D485@asahilina.net>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <A1E3C5B2-CCD8-41BA-BBC8-E8338C18D485@asahilina.net>
+X-ClientProxiedBy: MW4PR04CA0154.namprd04.prod.outlook.com
+ (2603:10b6:303:85::9) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DM4PR11MB8130:EE_
+X-MS-Office365-Filtering-Correlation-Id: f59e907a-6dca-492c-49fe-08dd46e6ad1c
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OIgdx/QS0F2VfD7RcMrlPZggvaQr+lm/b3Eocp+x63W65zCENK5LqxguXCTb?=
+ =?us-ascii?Q?AD4zwkboTq6R0jFaKXCayyE9yt5X7uPOtHJX/iPUdYvdb3sp+8+iRwLGDbXT?=
+ =?us-ascii?Q?3YcuvnkekyiIsJpciB55VQ2DCeZmq48aNrTcp1XIAr8Yw2g5hIz71PaB/XVH?=
+ =?us-ascii?Q?ApUePWjG7r2oLFLVw9VMsZWrVcoYlXh2NnocXpdE2HrvzecffmskeHv4x5YE?=
+ =?us-ascii?Q?bopn6aOgZt9y2SyjCh7i9i1Oy5O2NJJo9XWJhad1BKB0q3ZM16/YtZz6rs+O?=
+ =?us-ascii?Q?FKbpRJ0bjxSq1tsr6olyyjvYDL+d6quNxPDwKp2YGgEchGZUUZEFphXkxDeM?=
+ =?us-ascii?Q?BD7xm0s6RuIEVKTAng/Tbw6E0qisKcuWTqQxdGeqUcbhZ82OCzHKgAfBYbMg?=
+ =?us-ascii?Q?DqRdzGpN+P6T9rVi7m3TfNfV4DuIv/YLCu6FkyPKJdoB6WkMOMOdcE1Sa53y?=
+ =?us-ascii?Q?pA+5V+YnI+HS24qFisfvrr9oM5QF+a+zwsdP5hIlJxJf8kCxXgOvjAQDU1Pr?=
+ =?us-ascii?Q?ZkPQh4rmpBNJFEwMYY9MCqyQWRTBLPv1XiN6X4FthZUqNUMjXz/pCQWnKfD0?=
+ =?us-ascii?Q?jpETDWyKxyd3ah62mzB4MVAVdC6XmKUlI4HjLtyb8LgoJ/eFmUrJc+ORLnZK?=
+ =?us-ascii?Q?xh6YirfJk6oS5oDOpq7hykwZmmk05XTHP6TLXlHpTkit6IqsryXvqYb8jOzS?=
+ =?us-ascii?Q?NF4eeHChjjKO8xXKDqngNDkkc6mM/6KmiT0mps0Vo3qLONkFcsg+4XNbX/+L?=
+ =?us-ascii?Q?qv5y7lauKoWyFhRkvMRd0/zvc8SJSY0FWkclUK+8gl3pcet33Ga/WVzKMeYx?=
+ =?us-ascii?Q?XTDPAp0CVUh+TS7CsThdX7aobv14uJ3nvBmL0LGIliMwKsdSMotgWQn8g6+H?=
+ =?us-ascii?Q?CsAVqkdHhc/5i/AkPnKh09OaizoLwfdB8QwdBvVdEN9SItqGX44oZ+AIEjjs?=
+ =?us-ascii?Q?/muKcjLxgQY1TZyP+otBcCINOjJdwC2qjhwsfngpv4iPm79qfeuCSo1eoRd4?=
+ =?us-ascii?Q?a+aZEMQsY7lxalFY2ku1+l2XS60jarjglp96zI2Gd4XaIantnhdocglFt4pT?=
+ =?us-ascii?Q?99otIrATIhUWIwMnFZBZE0JRZt5fH/VNNZtAmkSChrcyL7BL27zuCwA0HGXV?=
+ =?us-ascii?Q?o6JgQ/owVhxzlLxYKM1JRosBjJ9E5WSQ8Sf7w1/lPL4yKBC0+xMFwbsFsuEN?=
+ =?us-ascii?Q?CFConB5tYnjdmYUZ8/A3QV0iaMurGpt8+fajMQvJIMLj8iBTT6/c3c6VPPIL?=
+ =?us-ascii?Q?BrrY4Wg9ue/gjZ7UeUgP+va5pmYtQaphBkK11PgsJThZnWE7Qizf5bBz7uhZ?=
+ =?us-ascii?Q?uv4VtFoHIetDGPJ13ZsZ0iyBvlg57mZZiv7iiME9777/BTlkPoieDcJcvNNr?=
+ =?us-ascii?Q?lObIiQjV0q9pdCYmpr4lGhlH22aP?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7uGLCczOQuER7M5SfIyEkqSTQar39xFt+f7Z0u04lYTkjg9SKQg4r6AY/Jzo?=
+ =?us-ascii?Q?U7oPBtpIgnZfnJBIBFyZ4tT8R1FHZfaTGwBLkXrgYV/k1cEqKAMy8KI/GlX0?=
+ =?us-ascii?Q?Z5Fa+6ucK3XADFtZtoK7SlJiFK2bf3/fgIJ2DF3TSkZtClEcBqFHhplKKfth?=
+ =?us-ascii?Q?3A8rXpkyolSSBh2AnNzbJvdxdoJd+gcVsFPAwv6W7NwOPFwBOZ/FQkWoUj81?=
+ =?us-ascii?Q?ZHIpxJGU2KZGfVJRzIsdtwasS+RLsA+6hq21tjKm9F7cBY51cy0oJ403FEl+?=
+ =?us-ascii?Q?87zEz8WfI4WbK5SJ07q6++otLTlF4EFi8SNw5jf2zwjy3mGPLamrBsSD6FSr?=
+ =?us-ascii?Q?oS3Vua2OBE9UZY3h3EmWHQhBX/DWIeBzqI7sG9LWOmDHQq+SN5WJEChbiuFf?=
+ =?us-ascii?Q?efV3e1XGNh/yjXfyLTZjqaCNgyWFxN9tqVKGY10EacWIqBSdhtP9+eE0HxJM?=
+ =?us-ascii?Q?poWB9BxpHll5BpVlOVwPGEzZhSqwqFln7pxwWghUJ32nXDEQUb4nU2yR/4Fu?=
+ =?us-ascii?Q?f0149tzNVLbx3+leho4wmZaqQEHUMyXnTWQt9+bD7IKO90cQyaEBXehjhigj?=
+ =?us-ascii?Q?qYJnxD/X45Lbr56zDFmBIvei9/KSNR9fDeXzrBXGPwjdRbNHGrLzt/fERm4S?=
+ =?us-ascii?Q?dTMAIElRCm3Pap4bQj4pqkULT1u8j0J8LK2MPtG47nGIK/rtbMry1cRSNP/P?=
+ =?us-ascii?Q?i8qpClafpRpUwyL6eJE9GDwd+4ywHMQSklKZLv1E/M/LVJGNbpFL5CJrXdEb?=
+ =?us-ascii?Q?F0s53GpE6CSaKoRYPn9PZu6emamk0aZjY/gYrlrHmmQv916UaUVhQrwsQ9oh?=
+ =?us-ascii?Q?e/SjuURqvckuVB+05yAbIb7Ug2hxIOtKg/HevvkzCpPUDwKLReN5LzdL33nF?=
+ =?us-ascii?Q?RKt6FydNRmpn2xHlRZWXV8/5JImO7eFuyYLmsHAd8GLcHNHmEDKRJQ/fDn8Y?=
+ =?us-ascii?Q?j/z+CN54ShHCb8RYbt/Gg6Bc/zXPeOn0qEiwMyA4cV/zqDcym6ejP7YJqDnA?=
+ =?us-ascii?Q?b0UIRPqaHJm4qR2ryAgDCPMVpWuItfK/XhFmUgmzAyPdq4mfJsjsCRjtEfJF?=
+ =?us-ascii?Q?Ayb55xeyo/pm8Wtg3K7Vj+AH0XXC1aQUNhLwzqPizP0zDR4AqRurwY43GUos?=
+ =?us-ascii?Q?UWfH0UkxCpucU9mBXLP065FXhwWHfD1Aoi7H4IYH54beZv3bcWDwOX5HxQ4e?=
+ =?us-ascii?Q?cFtevy6kPbv18RLoJSHCSfaqGOloyH/0yIP5Hzyf97iQNon1W32tzcOWq1L8?=
+ =?us-ascii?Q?nrRX9JJhW5dZ6g/Xc6LI0QjHFB+WOMyjeI/xuiGzQJGYBcMSwEjbtJ7Bi9NK?=
+ =?us-ascii?Q?9ucYg6oEdVR+JY8ywt/KTZCUFipF/C3LfPed3aGQGuESpxTI5k6w2yPz0zlv?=
+ =?us-ascii?Q?u+la8XsisLfR4WqZmS/MiDtUzjAts6N4ZY13ZWzWhjnDdLfe7dqILCb+lhVI?=
+ =?us-ascii?Q?mDYlyhaF5l8uet9+qOGvtA1HAHFS7LYWFJ6kDvCpm5QoYv5uME+I3CB7S+CA?=
+ =?us-ascii?Q?2dT6rxmzLsIvMAEBWkFIH66nmIRcchaqJ8VTvcXQwP4WoAY13OzXVJkPfqA0?=
+ =?us-ascii?Q?p6t4Fm5Ut51iMaqsuDI8ueaMU+yKXIbTJijQjVtuRWN/RkagV3ZCMcpFcHDr?=
+ =?us-ascii?Q?Bg=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: f59e907a-6dca-492c-49fe-08dd46e6ad1c
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 19:44:31.8389
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hL+fObs4Q4imKcdifzMWJ0Esx3KVRqeHklKCHR0uqmKutoCXw9sRrRFc7+mE2n90XlEZt3UgnE/GMrwWS+HwqWxfliAMAh//0WWTeYiyXdg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB8130
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_114230_234334_1978B58B 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250206_114516_526761_AD6D4F10 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,430 +210,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert most mutex_(un)lock calls to use (scoped_)guard instead. This
-generally reduces line count and prevents bugs like forgetting to unlock
-the mutex. I've left traditional calls in a few places where scoped
-helpers would be more verbose. This mostly happens where
-debugfs_file_put needs to be called regardless. I looked into defining a
-CLASS for debugfs_file, but it seems like more effort than it's worth
-since debugfs_file_get can fail.
+Asahi Lina wrote:
+> Hi,
+> 
+> On February 6, 2025 1:10:15 AM GMT+01:00, Dan Williams <dan.j.williams@intel.com> wrote:
+> >Vivek Goyal wrote:
+> >> On Fri, Jan 10, 2025 at 05:00:29PM +1100, Alistair Popple wrote:
+> >> > FS DAX requires file systems to call into the DAX layout prior to unlinking
+> >> > inodes to ensure there is no ongoing DMA or other remote access to the
+> >> > direct mapped page. The fuse file system implements
+> >> > fuse_dax_break_layouts() to do this which includes a comment indicating
+> >> > that passing dmap_end == 0 leads to unmapping of the whole file.
+> >> > 
+> >> > However this is not true - passing dmap_end == 0 will not unmap anything
+> >> > before dmap_start, and further more dax_layout_busy_page_range() will not
+> >> > scan any of the range to see if there maybe ongoing DMA access to the
+> >> > range. Fix this by passing -1 for dmap_end to fuse_dax_break_layouts()
+> >> > which will invalidate the entire file range to
+> >> > dax_layout_busy_page_range().
+> >> 
+> >> Hi Alistair,
+> >> 
+> >> Thanks for fixing DAX related issues for virtiofs. I am wondering how are
+> >> you testing DAX with virtiofs. AFAIK, we don't have DAX support in Rust
+> >> virtiofsd. C version of virtiofsd used to have out of the tree patches
+> >> for DAX. But C version got deprecated long time ago.
+> >> 
+> >> Do you have another implementation of virtiofsd somewhere else which
+> >> supports DAX and allows for testing DAX related changes?
+> >
+> >I have personally never seen a virtiofs-dax test. It sounds like you are
+> >saying we can deprecate that support if there are no longer any users.
+> >Or, do you expect that C-virtiofsd is alive in the ecosystem?
+> 
+> I accidentally replied offlist, but I wanted to mention that libkrun
+> supports DAX and we use it in muvm. It's a critical part of x11bridge
+> functionality, since it uses DAX to share X11 shm fences between X11
+> clients in the VM and the XWayland server on the host, which only
+> works if the mmaps are coherent.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
-
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 151 ++++++++++++-------------------
- 1 file changed, 58 insertions(+), 93 deletions(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index 189a08cdc73c..ffb81714c6a3 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -1534,10 +1534,10 @@ zynqmp_dp_bridge_mode_valid(struct drm_bridge *bridge,
- 	}
- 
- 	/* Check with link rate and lane count */
--	mutex_lock(&dp->lock);
--	rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
--				  dp->link_config.max_lanes, dp->config.bpp);
--	mutex_unlock(&dp->lock);
-+	scoped_guard(mutex, &dp->lock)
-+		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
-+					  dp->link_config.max_lanes,
-+					  dp->config.bpp);
- 	if (mode->clock > rate) {
- 		dev_dbg(dp->dev, "filtered mode %s for high pixel rate\n",
- 			mode->name);
-@@ -1722,13 +1722,9 @@ static enum drm_connector_status __zynqmp_dp_bridge_detect(struct zynqmp_dp *dp)
- static enum drm_connector_status zynqmp_dp_bridge_detect(struct drm_bridge *bridge)
- {
- 	struct zynqmp_dp *dp = bridge_to_dp(bridge);
--	enum drm_connector_status ret;
- 
--	mutex_lock(&dp->lock);
--	ret = __zynqmp_dp_bridge_detect(dp);
--	mutex_unlock(&dp->lock);
--
--	return ret;
-+	guard(mutex)(&dp->lock);
-+	return __zynqmp_dp_bridge_detect(dp);
- }
- 
- static const struct drm_edid *zynqmp_dp_bridge_edid_read(struct drm_bridge *bridge,
-@@ -1881,10 +1877,9 @@ static ssize_t zynqmp_dp_pattern_read(struct file *file, char __user *user_buf,
- 	if (unlikely(ret))
- 		return ret;
- 
--	mutex_lock(&dp->lock);
--	ret = snprintf(buf, sizeof(buf), "%s\n",
--		       test_pattern_str[dp->test.pattern]);
--	mutex_unlock(&dp->lock);
-+	scoped_guard(mutex, &dp->lock)
-+		ret = snprintf(buf, sizeof(buf), "%s\n",
-+			       test_pattern_str[dp->test.pattern]);
- 
- 	debugfs_file_put(dentry);
- 	return simple_read_from_buffer(user_buf, count, ppos, buf, ret);
-@@ -1939,24 +1934,21 @@ static int zynqmp_dp_enhanced_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.enhanced;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_enhanced_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.enhanced = val;
- 	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_test_setup(dp);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_enhanced, zynqmp_dp_enhanced_get,
-@@ -1966,24 +1958,21 @@ static int zynqmp_dp_downspread_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.downspread;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_downspread_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.downspread = val;
- 	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_test_setup(dp);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_downspread, zynqmp_dp_downspread_get,
-@@ -1993,33 +1982,32 @@ static int zynqmp_dp_active_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.active;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_active_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
-+	int ret;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	if (val) {
- 		if (val < 2) {
- 			ret = zynqmp_dp_test_setup(dp);
- 			if (ret)
--				goto out;
-+				return ret;
- 		}
- 
- 		ret = zynqmp_dp_set_test_pattern(dp, dp->test.pattern,
- 						 dp->test.custom);
- 		if (ret)
--			goto out;
-+			return ret;
- 
- 		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 		if (ret)
--			goto out;
-+			return ret;
- 
- 		dp->test.active = true;
- 	} else {
-@@ -2032,10 +2020,8 @@ static int zynqmp_dp_active_set(void *data, u64 val)
- 				 err);
- 		zynqmp_dp_train_loop(dp);
- 	}
--out:
--	mutex_unlock(&dp->lock);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_active, zynqmp_dp_active_get,
-@@ -2053,7 +2039,8 @@ static ssize_t zynqmp_dp_custom_read(struct file *file, char __user *user_buf,
- 		return ret;
- 
- 	mutex_lock(&dp->lock);
--	ret = simple_read_from_buffer(user_buf, count, ppos, &dp->test.custom,
-+	ret = simple_read_from_buffer(user_buf, count, ppos,
-+				      &dp->test.custom,
- 				      sizeof(dp->test.custom));
- 	mutex_unlock(&dp->lock);
- 
-@@ -2102,9 +2089,8 @@ static int zynqmp_dp_swing_get(void *data, u64 *val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.train_set[priv->lane] & DP_TRAIN_VOLTAGE_SWING_MASK;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2113,12 +2099,11 @@ static int zynqmp_dp_swing_set(void *data, u64 val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 	u8 *train_set = &dp->test.train_set[priv->lane];
--	int ret = 0;
- 
- 	if (val > 3)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*train_set &= ~(DP_TRAIN_MAX_SWING_REACHED |
- 			DP_TRAIN_VOLTAGE_SWING_MASK);
- 	*train_set |= val;
-@@ -2126,10 +2111,9 @@ static int zynqmp_dp_swing_set(void *data, u64 val)
- 		*train_set |= DP_TRAIN_MAX_SWING_REACHED;
- 
- 	if (dp->test.active)
--		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_swing, zynqmp_dp_swing_get,
-@@ -2140,10 +2124,9 @@ static int zynqmp_dp_preemphasis_get(void *data, u64 *val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = FIELD_GET(DP_TRAIN_PRE_EMPHASIS_MASK,
- 			 dp->test.train_set[priv->lane]);
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2152,12 +2135,11 @@ static int zynqmp_dp_preemphasis_set(void *data, u64 val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 	u8 *train_set = &dp->test.train_set[priv->lane];
--	int ret = 0;
- 
- 	if (val > 2)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*train_set &= ~(DP_TRAIN_MAX_PRE_EMPHASIS_REACHED |
- 			DP_TRAIN_PRE_EMPHASIS_MASK);
- 	*train_set |= val;
-@@ -2165,10 +2147,9 @@ static int zynqmp_dp_preemphasis_set(void *data, u64 val)
- 		*train_set |= DP_TRAIN_MAX_PRE_EMPHASIS_REACHED;
- 
- 	if (dp->test.active)
--		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_preemphasis, zynqmp_dp_preemphasis_get,
-@@ -2178,31 +2159,27 @@ static int zynqmp_dp_lanes_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.link_cnt;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_lanes_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
- 	if (val > ZYNQMP_DP_MAX_LANES)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
--	if (val > dp->num_lanes) {
--		ret = -EINVAL;
--	} else {
--		dp->test.link_cnt = val;
--		if (dp->test.active)
--			ret = zynqmp_dp_test_setup(dp);
--	}
--	mutex_unlock(&dp->lock);
-+	guard(mutex)(&dp->lock);
-+	if (val > dp->num_lanes)
-+		return -EINVAL;
- 
--	return ret;
-+	dp->test.link_cnt = val;
-+	if (dp->test.active)
-+		return zynqmp_dp_test_setup(dp);
-+
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_lanes, zynqmp_dp_lanes_get,
-@@ -2212,9 +2189,8 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2222,7 +2198,6 @@ static int zynqmp_dp_rate_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
- 	int link_rate;
--	int ret = 0;
- 	u8 bw_code;
- 
- 	if (do_div(val, 10000))
-@@ -2237,13 +2212,12 @@ static int zynqmp_dp_rate_set(void *data, u64 val)
- 	    bw_code != DP_LINK_BW_5_4)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.bw_code = bw_code;
- 	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_test_setup(dp);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_rate, zynqmp_dp_rate_get,
-@@ -2253,9 +2227,8 @@ static int zynqmp_dp_ignore_aux_errors_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->aux.hw_mutex);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->ignore_aux_errors;
--	mutex_unlock(&dp->aux.hw_mutex);
- 	return 0;
- }
- 
-@@ -2266,9 +2239,8 @@ static int zynqmp_dp_ignore_aux_errors_set(void *data, u64 val)
- 	if (val != !!val)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->aux.hw_mutex);
-+	guard(mutex)(&dp->lock);
- 	dp->ignore_aux_errors = val;
--	mutex_unlock(&dp->aux.hw_mutex);
- 	return 0;
- }
- 
-@@ -2280,9 +2252,8 @@ static int zynqmp_dp_ignore_hpd_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->ignore_hpd;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2293,9 +2264,8 @@ static int zynqmp_dp_ignore_hpd_set(void *data, u64 val)
- 	if (val != !!val)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->ignore_hpd = val;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2391,14 +2361,12 @@ static void zynqmp_dp_hpd_work_func(struct work_struct *work)
- 	struct zynqmp_dp *dp = container_of(work, struct zynqmp_dp, hpd_work);
- 	enum drm_connector_status status;
- 
--	mutex_lock(&dp->lock);
--	if (dp->ignore_hpd) {
--		mutex_unlock(&dp->lock);
--		return;
--	}
-+	scoped_guard(mutex, &dp->lock) {
-+		if (dp->ignore_hpd)
-+			return;
- 
--	status = __zynqmp_dp_bridge_detect(dp);
--	mutex_unlock(&dp->lock);
-+		status = __zynqmp_dp_bridge_detect(dp);
-+	}
- 
- 	drm_bridge_hpd_notify(&dp->bridge, status);
- }
-@@ -2410,11 +2378,9 @@ static void zynqmp_dp_hpd_irq_work_func(struct work_struct *work)
- 	u8 status[DP_LINK_STATUS_SIZE + 2];
- 	int err;
- 
--	mutex_lock(&dp->lock);
--	if (dp->ignore_hpd) {
--		mutex_unlock(&dp->lock);
-+	guard(mutex)(&dp->lock);
-+	if (dp->ignore_hpd)
- 		return;
--	}
- 
- 	err = drm_dp_dpcd_read(&dp->aux, DP_SINK_COUNT, status,
- 			       DP_LINK_STATUS_SIZE + 2);
-@@ -2428,7 +2394,6 @@ static void zynqmp_dp_hpd_irq_work_func(struct work_struct *work)
- 			zynqmp_dp_train_loop(dp);
- 		}
- 	}
--	mutex_unlock(&dp->lock);
- }
- 
- static irqreturn_t zynqmp_dp_irq_handler(int irq, void *data)
--- 
-2.35.1.1320.gc452695387.dirty
-
+Ah, good to hear. It would be lovely to integrate an muvm smoketest
+somewhere in https://github.com/pmem/ndctl/tree/main/test so that we
+have early warning on potential breakage.
 
