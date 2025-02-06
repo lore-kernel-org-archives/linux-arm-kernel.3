@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDABC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05645C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88iRX8irqERVHqBMl74vPIF+rogOEUfOrJex91RNWYg=; b=12HNP3H6nTX8HHf/d4PrbXg5dp
-	BejGMi5qi3y03kpPBU8GhPAYoTwTvOpafYwstqrEY5n7DgUBW+/p1dBKWaih8xauiLQsDpkRJuFlX
-	rCSNaqMUM7NmWsuIzLushGaKCNfjYo0QnSe2PdGFFxdgWXAm/FL1wfU5yNWfeN2yhZfDmVZnlo6EV
-	c+wT/SwO/ZzZcCOKf/k6qfrJapIVihNuZBvwZoSr6+DZnj1q6MUO/PVUQ93qs4uzEjYAvIa/74pWt
-	OHEoSfhNFSeYnG29UdXImqRJt2XLSa2J6prdwxnt8J0AsgoWXGbThQBCu9wp+UeyKUhzfP70vq/8G
-	+dN5IEiw==;
+	bh=jRMVTZ8vtbtPKIa+qHrZs2AF3LH6qpkmLAQTzSfxb2Q=; b=Fw69ipXXdljNnEzSxMq4hIWHAr
+	aCZS/GdaHpbtnDmpG7VUwdrKQVz2Q9Hg9i5+fGn1fyPclHWkzVaFb2MnNL8iuBiENxTFlE9FXAoAM
+	+kQ/GD3zgJMbpP48lD02dfteNPZkQN9mq++uTw+9srTk57YXWOffzdclw9flWQ8eev6H6Nmw1ZAd7
+	BruVPwCJhiqcqrwW8auNkeDNlUrvv/oBYc6fCiEPmaQVnAiFwlXCpC0k+E8LN47gE8hqfT1LO6knV
+	Nb5iJT/IJYWyzNpcMHt5h7QdIdNkdm+91QOMZLHJQxt5wPd0MyREBFW2sMm1cbKb/yG8E2JKz1AFc
+	qzT1Sp4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2bN-00000006Wy5-1lUU;
-	Thu, 06 Feb 2025 14:11:33 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tg2ci-00000006X91-0NIe;
+	Thu, 06 Feb 2025 14:12:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2SC-00000006Vp1-3Rzo
+	id 1tg2SF-00000006Vpx-1hrg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Feb 2025 14:02:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=jRMVTZ8vtbtPKIa+qHrZs2AF3LH6qpkmLAQTzSfxb2Q=; b=IuXLgbvL3/Mwz+mHtYQ+pzi6s8
+	qVejuDIr8VIWUnTMyMuCRchHFXRMzkdhw5HY5+RlGkyRKCdbMPdq7oC6wTKuZPMiRZTQp652WtLOM
+	2DWs7ldTPaV3CCmiOXzP+UxmulbWDGgGTBzZDgXGbRp9JBk7uRfB1TWdWlYej2EP6D2OVTsCp7g/P
+	cOye4V3i0QeVOuV3c4ihILBSMqop0NqDAVpxts8bvD1jC98UPZ04tJRUsIKraSx1TVj00Y0UzJnLk
+	r0vsxpNdtDSnrPpnUJIY0syr/vK51y22hWPCy+saWnDnu0Fv2G9/aotpALY9Fu6bEesxskjoXhk4w
+	rFfWCT1w==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg2SB-0000000Gxdq-09jy
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Feb 2025 14:02:06 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516E1Vbh2812418
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 6 Feb 2025 08:01:31 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738850492;
-	bh=88iRX8irqERVHqBMl74vPIF+rogOEUfOrJex91RNWYg=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=eCCp3949bwfLnkf8zD3DSkOK9WljWAwbZ1L/ni8wAQRp7eoOYixFjxg/Y61w9mHhu
-	 k8S7s75de3G+P08aQBdYm31veRoBRac5Czz1ZbEb1+v91Y+oU9lcc9lO+oZQ3UMY+1
-	 a+54Sf6OWM09GHBE+MJjPpkYPisjjRXZknApCiFY=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 516E1VJD057574
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 6 Feb 2025 08:01:31 -0600
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
- Feb 2025 08:01:31 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 6 Feb 2025 08:01:31 -0600
-Received: from [172.24.23.168] (lt9560gk3.dhcp.ti.com [172.24.23.168])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516E1N6m039077;
-	Thu, 6 Feb 2025 08:01:24 -0600
-Message-ID: <04ff4911-de4b-4d68-b72f-f03915baa9c9@ti.com>
-Date: Thu, 6 Feb 2025 19:31:23 +0530
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EB958A442FD;
+	Thu,  6 Feb 2025 14:00:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 64B64C4CEF2;
+	Thu,  6 Feb 2025 14:02:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738850520;
+	bh=P/SzQu6y7u6xqUaNho59arHMiKdq98AWgwmXeu+7vz0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=dwi3QvqEq7jxSdsWTrDKf9itCxNZY436QN18swCyu80Mhp28CPn0Ep0iUhybqReiN
+	 mpDVcF2e2mt2m+oFx4cwr0GHchBi++P60t7j1kncrwDL328R/7qw1oaohtxUE9Y9ZK
+	 TgkSwFTK8ACS71cra/Dz4rsAFAwhGowEjBPJHls/LAcWW8BocZAb0+eT9bonmUkCZ8
+	 +okUQTpdUk/h2X0SpW2KjEKbpzChxwm95xum7sav6L5atmBTNaon50bYwnlG1ZTmhX
+	 U9zq9854A/n7yqKuSVrM/FBOL8EHWJ8Avzkj4tMg5cVU/QaMh/5a2spGFKa3z8VGd4
+	 nd6d15V8LrdCA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5064EC02196;
+	Thu,  6 Feb 2025 14:02:00 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Thu, 06 Feb 2025 15:01:58 +0100
+Subject: [PATCH v6 5/5] MAINTAINERS: Add entries for touchbar display
+ driver
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH net 3/3] net: ti: icssg-prueth: Add AF_XDP
- support
-To: Ido Schimmel <idosch@idosch.org>
-CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <robh@kernel.org>,
-        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
-        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
-        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-4-m-malladi@ti.com> <Z5J7kGFU_ZgneFAF@shredder>
- <f1cf5bfc-e767-4ced-9aad-76a578c53706@ti.com> <Z6Oj7eMRV9z9lF2I@shredder>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <Z6Oj7eMRV9z9lF2I@shredder>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250206-adpdrm-v6-5-c8ab9348b853@gmail.com>
+References: <20250206-adpdrm-v6-0-c8ab9348b853@gmail.com>
+In-Reply-To: <20250206-adpdrm-v6-0-c8ab9348b853@gmail.com>
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+ Janne Grunau <j@jannau.net>
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738850518; l=1351;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=QZbXiYlIe2lkzDC1TDBQjKD2XWfozo+Zu2nizcpe9lI=;
+ b=hj74DCc42VipOopXJGsCkSRizSll3yOyirOlf2oPMfapmTohJQUmlU4r3lofykfmq5AHwFP+F
+ bbydgCBWvAqADwAMvKgHsfBuyv6Di5rePfJ34zTrCW5jOs99CKBslCR
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_060204_949076_4FEF546B 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20250206_140203_387936_8B0E29B0 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,56 +109,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
+Add the MAINTAINERS entries for the driver
 
-On 2/5/2025 11:16 PM, Ido Schimmel wrote:
-> On Tue, Feb 04, 2025 at 11: 25: 39PM +0530, Malladi, Meghana wrote: > On 
-> 1/23/2025 10: 55 PM, Ido Schimmel wrote: > > XDP program could have 
-> changed the packet length, but driver seems to be > > This will be true 
-> given, emac->xdp_prog
-> ZjQcmQRYFpfptBannerStart
-> This message was sent from outside of Texas Instruments.
-> Do not click links or open attachments unless you recognize the source 
-> of this email and know the content is safe.
-> Report Suspicious
-> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
-> v9dnXdhkNoe0hkqlFZKoUhMAqXZwolk5zXhypw1qeZY8pxUHTuuleZBOKulyBnK9eA$>
-> ZjQcmQRYFpfptBannerEnd
-> 
-> On Tue, Feb 04, 2025 at 11:25:39PM +0530, Malladi, Meghana wrote:
->> On 1/23/2025 10:55 PM, Ido Schimmel wrote:
->> > XDP program could have changed the packet length, but driver seems to be
->> 
->> This will be true given, emac->xdp_prog is not NULL. What about when XDP is
->> not enabled ?
-> 
-> I don't understand the question. My point is that the packet doesn't
-> necessarily look the same after XDP ran.
-> 
+Acked-by: Sven Peter <sven@svenpeter.dev>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ MAINTAINERS | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-emac_rx_packet() is a common function for both XDP and non-XDP use 
-cases. XDP will only run when emac->xdp_prog is not NULL. I understand 
-that when XDP ran, it can change the contents of the packet hence it is 
-advisable to use "xdp_build_skb_from_buff(const struct xdp_buff *xdp)", 
-but for cases when xdp doesn't run - the xdp struct has junk/zero value 
-which cannot be converted into some valid skb. But I think I will do 
-something like this:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a87ddad78e26f28ffd0f3433560d6db1518f9f95..895d682bcf4e351971b04c6515ebf685fd39b662 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -7746,6 +7746,22 @@ F:	drivers/gpu/host1x/
+ F:	include/linux/host1x.h
+ F:	include/uapi/drm/tegra_drm.h
+ 
++DRM DRIVERS FOR PRE-DCP APPLE DISPLAY OUTPUT
++M:	Sasha Finkelstein <fnkl.kernel@gmail.com>
++R:	Janne Grunau <j@jannau.net>
++L:	dri-devel@lists.freedesktop.org
++L:	asahi@lists.linux.dev
++S:	Maintained
++W:	https://asahilinux.org
++B:	https://github.com/AsahiLinux/linux/issues
++C:	irc://irc.oftc.net/asahi-dev
++T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
++F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
++F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
++F:	Documentation/devicetree/bindings/display/panel/apple,summit.yaml
++F:	drivers/gpu/drm/adp/
++F:	drivers/gpu/drm/panel/panel-summit.c
++
+ DRM DRIVERS FOR RENESAS R-CAR
+ M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+ M:	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 
-if (emac->xdp_prog)
-	xdp_build_skb_from_buff(xdp);
-else
-	skb = napi_build_skb(pa, PAGE_SIZE);
+-- 
+2.48.1
 
-Hope this will address your comment.
-
->> 
->> > building the skb using original length read from the descriptor.
->> > Consider using xdp_build_skb_from_buff()
->> > 
->> 
-> 
 
 
