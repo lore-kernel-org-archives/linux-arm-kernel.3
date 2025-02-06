@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8B9C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30745C0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWI8RI6FOSgBCCFO3J8+gcjsjkfFsZW4MgM69Rsgqqo=; b=rhNkmRlkPtPruj8sWh8q1HZ3GH
-	Hwh2mwEVZyRS/I1AcIOSN4A/6eZ/3PVaiKoMygI9ClOA7QfX4NFKCQ31VXbQBxEJZj/KQS/ynJmyh
-	8XvV8RkeemLIIbgs5rza+APPRuNvI1/iK9FosFYoX3GSgCncgip04GO56ESkWifqo9k3wEHOM/6AB
-	NlrqojnS/OIGo7iMq/Hg9RTxobnqgQt1dohLqTAEz011jaH6Jil+Hd7gkYpVpz8UvaChsBM/WRAsD
-	xHEcdo1YYNFoOlzaWDzKT7/p10XdGqa77qM8yU/FyeeepOGaAB+njrUlxcL7SCXL/jJMTUdU2B0sk
-	Q/tFe+pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=; b=iG/lQ0vbHkRrBFt+MaIEBGfWyS
+	uCJlHiK7GpJxE039RAKyqXIOcveXTvqqdt7Syn8yh2vUsso58YKyWaL6nh5wFZ8qavkzMJZz+FGFx
+	KTmms3Re4hLVY5phzxbUP6XBWK+OlKoSwetU5hKorKlory2z4FGlCf+bm2P+5SLNnxVeUFnwGG2RQ
+	FFmafV+tKDev1ZafPA4yCUBZcEO/CgtGMwxowFOFBSTYUELX7PqV3J8W/TV0heimhGoeoGK5kI5TP
+	TLyq0pxBdycXT4QzuvndEhK5Vj/cR+Wk9IXkH8CYCkW/1U/FqocoPwXpG7tCEKiVvR7sZgnLghDQQ
+	WfZAV3ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxRH-00000005jZf-2JMk;
-	Thu, 06 Feb 2025 08:40:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tfxWd-00000005k83-2pEX;
+	Thu, 06 Feb 2025 08:46:19 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxPt-00000005jN6-3A9i;
-	Thu, 06 Feb 2025 08:39:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10CB3A43E9B;
-	Thu,  6 Feb 2025 08:37:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78557C4CEDD;
-	Thu,  6 Feb 2025 08:39:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738831160;
-	bh=4EoQP8op2lAGcHar7BdkrcIMw40H7AoccbKxT2py+Qw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ZREJ8x2zY6TIGZHCfl/84rBc0S2xinJlMJs2/w3GoQEOc8gA82c3EZaZA/1evU9Dw
-	 SOEdkFtAWEQ+Pule34w3jSIfcjF/Q6U8Sl4THNRKWchC0T+7gTllGLGavdKOMYPnFV
-	 dFETGh+TWLGqDKOn+UQ+gfsBACv+TAbbX6elvZCIrPm4zSrhjl5WlgrpRYneiX7ArY
-	 sLH4awxLQr31h653xp03Vxh0ePK2IyGcruO/zYGGMQDLUU8TGuP5nDHe8Sy99nkZjc
-	 gw7495UUpZsVzmLv8bz9eJaFihO1wlcvcqZ3yRpCu6Q2o9So3ObsZiJI0TbsCw/cxQ
-	 bOfz0PQL1wEtQ==
-Date: Thu, 06 Feb 2025 02:39:19 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tfwEe-00000005YGZ-1sBa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 07:23:43 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so988497a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826620; x=1739431420; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=;
+        b=eDrumcNty6D85nHbDA2bKP3QQVTcCpLtqOg5jlx7O3MK7YBTEOlaj1/tfGvm7N3S0r
+         e2Z+hftb2T1F9HE8lHICDVPD0t1vKMJ7XnHN5xOG69oZryFZhhFL/wb8zmMAyy4WUSVX
+         Bu8PJQgg0w1KyApAAZKgOI4/PlFleKhUTLq/eyCwXY1tHZsYEgleUy8SdBDgaoYkHqVG
+         1iG3XrKKlad7qm9DxKojHfd85d8ea2BAIVFxbT2CbvsLk8hZiIb4WFo6zVNlkBNs9FLi
+         WGeYKOFjbXhsLCnP9hqquasH7a+WcQAScuCC6LKHAP1J64NQDrvIFow4cm9bSazrrL9I
+         nyLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738826620; x=1739431420;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=;
+        b=MbG9Frwu/mANQoyY5UfDYh50wn1WzwKahjnolBHelxhtHi5VmuUWDTbzL2e5Qhh1kN
+         M+06ed/1s5/m8VGdvja0EKH7d2VQIBMz3/+GYwAFuRF3BsslD6TQQBTCOnJ1PGFlyFyt
+         4c+L+BUKx3CQu465iGF7pO4+sw+OLwS6ySCu8jw2BP6KAbCylsb11IUendkjy0aSFhYZ
+         I8J20PS/deUHES9KfTrObZpXURCDOsvXUyzSvOFPiGb6pk92gyKwKPZQFmagvlc7IWFC
+         xJOkD4vr+oicumk84DjLICU1EmJSQm0xrEoByvBlRI3XJaoqEPpoEsw3DMxPVEMMFkKD
+         jO5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUEQ9JnFf04eApAuAX1pE1vO1fd+Jaqalpp2HVY44sZcp33uiTu/hJw7uNtJmBkwpj1OfOxCF5uyOjUxqztgLLn@lists.infradead.org
+X-Gm-Message-State: AOJu0YytLwSBFFhvnJwOEvb6sLAt8bL5WSFYs/61r6XoBAx8INDNOgws
+	ROpak1ZPbGky1KYpwN5AH2tPF/b1Av3MD/Z0ry4GHkOVJU6/Lv5wM4BIgFmgnG0=
+X-Gm-Gg: ASbGnct/Bm4PbmOHQ1baGxdobsFdue7ha3LI0MecvV7GVBtTaOTAec7bXKrqUlNUqxb
+	fxq225Efhl5lnFez+YPkQ0Soi/9S9svGDrYRCiJvlCIINPRPcwtG6MS6jJoyLwsUtVFU9wSu9EQ
+	iHxDuRNA2vpeioe+u9Vn7mByezCpESJEp6MZIL8GwZhZ1CYHzx+nGruQE4KAcKIvDiaO0W0Yt9+
+	qdMEH7sqQ0h3VG1+3ex5GaIsHrkeFS3PdhfLKqJXo/Rb5LvyYI0vEYHh7N6Ffy65br1j2puWOXD
+	spBEiMgURmOwFV65V9G71QRV/BZA
+X-Google-Smtp-Source: AGHT+IHr3HVst/0GQEzeOnoyNAyzJUxG9J5qyTanVRpVP7lxbmu+OPESYtyRFZuabnz8KqnI9biZIQ==
+X-Received: by 2002:a17:90b:4c43:b0:2ee:fdf3:390d with SMTP id 98e67ed59e1d1-2f9e084fcc0mr8578133a91.31.1738826619909;
+        Wed, 05 Feb 2025 23:23:39 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 23:23:39 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Wed, 05 Feb 2025 23:23:20 -0800
+Subject: [PATCH v4 15/21] RISC-V: perf: Skip PMU SBI extension when not
+ implemented
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, weilin.wang@intel.com, 
- devicetree@vger.kernel.org, kvm@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Conor Dooley <conor+dt@kernel.org>, Atish Patra <atishp@atishpatra.org>, 
- linux-riscv@lists.infradead.org, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Conor Dooley <conor@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Will Deacon <will@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- kvm-riscv@lists.infradead.org, Ian Rogers <irogers@google.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Adrian Hunter <adrian.hunter@intel.com>, 
- Ingo Molnar <mingo@redhat.com>
-To: Atish Patra <atishp@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-10-835cfa88e3b1@rivosinc.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250205-counter_delegation-v4-15-835cfa88e3b1@rivosinc.com>
 References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-10-835cfa88e3b1@rivosinc.com>
-Message-Id: <173883115938.126290.3444587267516997369.robh@kernel.org>
-Subject: Re: [PATCH v4 10/21] dt-bindings: riscv: add Counter delegation
- ISA extensions description
+In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ Atish Patra <atishp@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_003921_918004_C358A72D 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250205_232340_594985_AD87EBE7 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +112,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Charlie Jenkins <charlie@rivosinc.com>
 
-On Wed, 05 Feb 2025 23:23:15 -0800, Atish Patra wrote:
-> Add description for the Smcdeleg/Ssccfg extension.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  .../devicetree/bindings/riscv/extensions.yaml      | 45 ++++++++++++++++++++++
->  1 file changed, 45 insertions(+)
-> 
+When the PMU SBI extension is not implemented, sbi_v2_available should
+not be set to true. The SBI implementation for counter config matching
+and firmware counter read  should also be skipped when the SBI extension
+is not implemented.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_dev.c | 46 ++++++++++++++++++++++++++------------------
+ 1 file changed, 27 insertions(+), 19 deletions(-)
 
-yamllint warnings/errors:
+diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
+index 5112049b491c..219f65eb167c 100644
+--- a/drivers/perf/riscv_pmu_dev.c
++++ b/drivers/perf/riscv_pmu_dev.c
+@@ -410,18 +410,22 @@ static void rvpmu_sbi_check_event(struct sbi_pmu_event_data *edata)
+ 	}
+ }
+ 
+-static void rvpmu_sbi_check_std_events(struct work_struct *work)
++static void rvpmu_check_std_events(struct work_struct *work)
+ {
+-	for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_sbi_map); i++)
+-		rvpmu_sbi_check_event(&pmu_hw_event_sbi_map[i]);
+-
+-	for (int i = 0; i < ARRAY_SIZE(pmu_cache_event_sbi_map); i++)
+-		for (int j = 0; j < ARRAY_SIZE(pmu_cache_event_sbi_map[i]); j++)
+-			for (int k = 0; k < ARRAY_SIZE(pmu_cache_event_sbi_map[i][j]); k++)
+-				rvpmu_sbi_check_event(&pmu_cache_event_sbi_map[i][j][k]);
++	if (riscv_pmu_sbi_available()) {
++		for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_sbi_map); i++)
++			rvpmu_sbi_check_event(&pmu_hw_event_sbi_map[i]);
++
++		for (int i = 0; i < ARRAY_SIZE(pmu_cache_event_sbi_map); i++)
++			for (int j = 0; j < ARRAY_SIZE(pmu_cache_event_sbi_map[i]); j++)
++				for (int k = 0; k < ARRAY_SIZE(pmu_cache_event_sbi_map[i][j]); k++)
++					rvpmu_sbi_check_event(&pmu_cache_event_sbi_map[i][j][k]);
++	} else {
++		DO_ONCE_LITE_IF(1, pr_err, "Boot time config matching not required for smcdeleg\n");
++	}
+ }
+ 
+-static DECLARE_WORK(check_std_events_work, rvpmu_sbi_check_std_events);
++static DECLARE_WORK(check_std_events_work, rvpmu_check_std_events);
+ 
+ static ssize_t rvpmu_format_show(struct device *dev,
+ 				 struct device_attribute *attr, char *buf)
+@@ -549,6 +553,9 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
+ 
+ 	cflags = rvpmu_sbi_get_filter_flags(event);
+ 
++	if (!riscv_pmu_sbi_available())
++		return -ENOENT;
++
+ 	/*
+ 	 * In legacy mode, we have to force the fixed counters for those events
+ 	 * but not in the user access mode as we want to use the other counters
+@@ -562,10 +569,9 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
+ 			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
+ 			ctr_mask = BIT(CSR_INSTRET - CSR_CYCLE);
+ 		}
+-	}
+-
+-	if (pmu_sbi_is_fw_event(event) && cdeleg_available)
++	} else if (pmu_sbi_is_fw_event(event) && cdeleg_available) {
+ 		ctr_mask = firmware_cmask;
++	}
+ 
+ 	/* retrieve the available counter index */
+ #if defined(CONFIG_32BIT)
+@@ -871,7 +877,7 @@ static u64 rvpmu_ctr_read(struct perf_event *event)
+ 		return val;
+ 	}
+ 
+-	if (pmu_sbi_is_fw_event(event)) {
++	if (pmu_sbi_is_fw_event(event) && riscv_pmu_sbi_available()) {
+ 		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+ 				hwc->idx, 0, 0, 0, 0, 0);
+ 		if (ret.error)
+@@ -1940,14 +1946,16 @@ static int __init rvpmu_devinit(void)
+ 	int ret;
+ 	struct platform_device *pdev;
+ 
+-	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
+-	    sbi_probe_extension(SBI_EXT_PMU)) {
+-		static_branch_enable(&riscv_pmu_sbi_available);
+-		sbi_available = true;
++	if (sbi_probe_extension(SBI_EXT_PMU)) {
++		if (sbi_spec_version >= sbi_mk_version(0, 3)) {
++			static_branch_enable(&riscv_pmu_sbi_available);
++			sbi_available = true;
++		}
++
++		if (sbi_spec_version >= sbi_mk_version(2, 0))
++			sbi_v2_available = true;
+ 	}
+ 
+-	if (sbi_spec_version >= sbi_mk_version(2, 0))
+-		sbi_v2_available = true;
+ 	/*
+ 	 * We need all three extensions to be present to access the counters
+ 	 * in S-mode via Supervisor Counter delegation.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/extensions.yaml: properties:riscv,isa-extensions:allOf:4: 'if' is a dependency of 'then'
-	hint: Keywords must be a subset of known json-schema keywords
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/extensions.yaml: properties:riscv,isa-extensions:allOf:4: 'anyOf' conditional failed, one must be fixed:
-	'If' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
-	'type' was expected
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/extensions.yaml: properties:riscv,isa-extensions:allOf:5: 'if' is a dependency of 'then'
-	hint: Keywords must be a subset of known json-schema keywords
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/extensions.yaml: properties:riscv,isa-extensions:allOf:5: 'anyOf' conditional failed, one must be fixed:
-	'If' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
-	'type' was expected
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250205-counter_delegation-v4-10-835cfa88e3b1@rivosinc.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.43.0
 
 
