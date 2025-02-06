@@ -4,81 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD8BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDD7C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8JIB6d7R5kKl6+damfWRxYdrapnjk0INN1HmKYI0wY=; b=rEVQY2dc0gg+L+xVNlMa+ltgC0
-	t83I6YqtlLZ2EROstLLqZ8CFNj0Z1e/7ZDuTBwf6hjkZH0muhxlTTW413YYcpmeaDSphypnZw1OC/
-	ucuRAjd+wqJeisteyBw8ZY7ti5HYnVNYqnmd6ef82iG2KVBkIviWFXGhkKgKwtqP1eTRGSqKNPwXh
-	lAsJWwgga3pGsGuOURAvDK6ryzrcwkU2f8GRVTf3qkdeV1s6HvwHV4UYuip5XTiRyRTsDYrpH62Et
-	mHbcG1iv8aLhYJA8/tSe0md9UsLxR5GNnqfBXJjxSAMqy36zjgJ9yyGOtdZa3zbPq7Fu9Z0rjvVeE
-	YMZRcuqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YTtSVK0+vPoN//qdkuO94h4horigWqVPU0eUgn/OJXI=; b=i3GfC78Anlku80Im9vC1+MCGx2
+	JOy9CihvfqwDMCAy7xLJ1M+rHdvbAd4qx9WApUJhXdW7wiKmPuU9pgVYe0Pn45t0YfS9N4gWK8i49
+	N0kNsZ3t5bJwlF8RtiwE/yOb21g7UvBG4EPMcqDWoHgUfqP+q4CzNfmixEK2PIABFueVWPf38jGRM
+	pyMR+5qzerd6X6zHO8btiqA4uiS9L24gvi1nRcZFx/EaWlvyWtGsd248pMVErerU7coRKBUmCr2yl
+	ymuzsqH4amiSnaAdimc5hrQtjFNtgOG1lc4w2jhJotRAnENLI21KcIQNsJZZa4RJ//Tprkbrgr/ya
+	rsWOrhkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3Pp-00000006fng-3DCF;
-	Thu, 06 Feb 2025 15:03:41 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1tg3Rw-00000006g3R-1sak;
+	Thu, 06 Feb 2025 15:05:52 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3OR-00000006fZ0-0KBC
+	id 1tg3QY-00000006frf-2CjN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 15:02:16 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-21f4666364bso3938065ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 07:02:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738854134; x=1739458934; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=r8JIB6d7R5kKl6+damfWRxYdrapnjk0INN1HmKYI0wY=;
-        b=poIQTJV1hwm73TT9o2TtBKzbh9zgvpt13fFSimPL1ROCZRr46/AJGqRDHdon97xAH/
-         zEt9hY2VfZQSJ628qz5uPKu9LetM4NOqEJtDorKzzQ3X3jeQf3zBaf4VoHP8wdWSlDIL
-         dlrDDrRfNggmNc/kwZ6Q7lsFgbAfIX1a/vYrteJ5obI9AM+PO4HEI31IZd5kJjuLAP3l
-         GZJYYc5G8Lr99C6MiV9IP99e4bo8EJKNsUDuN3VVTp/X7RAAOc+QA8by12eRsv7boIMH
-         Pc8BHpAnILJ27DZGw8cf/NsRzqfhtYWHWD9259CIPR7XKuplNccgmU0q8uWzt9q8b870
-         /PYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738854134; x=1739458934;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=r8JIB6d7R5kKl6+damfWRxYdrapnjk0INN1HmKYI0wY=;
-        b=L0ivaEiG7MJrmNCXOK2V8yQw7lu98sL6Put7UflwPCw7mUYjoeyJqLnypfxezIS+R4
-         Si9pT1P3XqwiHwxlwdqT1OEPx1fTpf8HvE6eJHGeQHOMHi/Eaf0i2Hc/uQ0pZ7pYCb6o
-         dxnlaeLimtqlEwAMCw2goFcYyEhzfjh9asf0AxWWLyCwqIjVl3exm3sDugKh+6ZabVwr
-         02Oe6Pkl/gXaLCWBGY/WR0NYZcruj/SPz9Ve1d6LZmHd3ahVrheXPaE6k0l5lgy9CaZ8
-         CmdFps7lrBaD0EPDgrz6vuYLT0rEB8uWfLSi5Kx+RVtGLAEGfmUSXyxtLAp8i+61F/Yy
-         LSUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWdWvvvurIKFN3Wnlsr6Ob93T9jg7QPfSbl+iui2zB7rolndhlM2ucQdphk270xNKRlE616+5PNKVwWDU8/UTcX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXwujHQg2p0gM8HDDNp4QrgRbBbdn4iGdjTbZyJvWWphosZ09d
-	rNtaYFysWrcc65I33ROsLmIpmHCF+D7WL9rQTBsqr2EZJ02WjkW0hbaFr+2HnxcNxcEseggzyg=
-	=
-X-Google-Smtp-Source: AGHT+IE/pkwOkH9gpTz/SBuNLKZB4tv6JFu6biVE5oxwhrNUKnmXYncr6SL+F14kZKDgOV7jBcW5hq8JMQ==
-X-Received: from pgbfq3.prod.google.com ([2002:a05:6a02:2983:b0:ad5:bda:6aef])
- (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d481:b0:21f:3abc:b9fc
- with SMTP id d9443c01a7336-21f3abcbac0mr21818855ad.6.1738854133684; Thu, 06
- Feb 2025 07:02:13 -0800 (PST)
-Date: Thu,  6 Feb 2025 15:02:12 +0000
-In-Reply-To: <mb61pwme55kuw.fsf@kernel.org>
-Mime-Version: 1.0
-References: <mb61pwme55kuw.fsf@kernel.org>
-X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
-Message-ID: <20250206150212.2485132-1-wnliu@google.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-From: Weinan Liu <wnliu@google.com>
-To: puranjay@kernel.org
-Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com, 
-	jpoimboe@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org, 
-	live-patching@vger.kernel.org, mark.rutland@arm.com, peterz@infradead.org, 
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org, 
-	wnliu@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 06 Feb 2025 15:04:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OGyskRDpqffktCFKRReimNwXYO7jx47DBTcqhZwYeOcAnNzW5SHKuLiy4NgoItLZvFwHMLtRuFLJEFPcJGrJSbtJqxW636TDi8T7Y6BBczkpWTrkJjsiF0+cFZ5x5W1twQnnch9s6qiJMIIsJl2quOt4vs1+DZAN87KycUvS2wYGAu/Olu0YYxXMFYtfiqiCRQWRtrpuAgyjglP7Gn74eHSfGtRY4jXHJG6oD7x4+MfhkcSWpeL1fj8d6bGLaUlQHlSJTYYDJRNitoMJoFx9WoBxmwM+dXqhybYRp37mJbXSSlNKVz4JTJhWE+a/B0iyocbk7w0UoWhFsiORxpvKqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YTtSVK0+vPoN//qdkuO94h4horigWqVPU0eUgn/OJXI=;
+ b=cevzlPkVVXKbRcPGz6xTreFW1Qik09JodRICrth3S+f4NFxGSe8yWqqSPIv8xAvY1SnsEAN7QhIt5Ny92rIESKZclTy+oukBkstjbiwZBRdOsy/FfieYXiitRDAfT87FkbmzniDOLah0ZQfXavfsU9s9GCyE77YNgEm4nkCLVWR/9uw7J2Sk00bRhLh2YUL6k2/mm/jd6Px7+G1JUdQVmri9YeUkFN9/vBCBsXR1WrbZkxKKbJiWf+1UXPkPObfjy/JOa6Bsyr4E71GcdR5w7dzq8ZMwKhso1tkBxqPIPB6z+thCnxZtADbt7DIiPgJvWlPmqb1G/6rLwL6hb+0VZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YTtSVK0+vPoN//qdkuO94h4horigWqVPU0eUgn/OJXI=;
+ b=aXfMfU+97sXQcY3IkpfHVYJX4Ri4C2xUXKGDf+GATQr2Q0LSqtyedQ5N3KIytsePSVtilMvFQU6R76mNkttyUMvLDMgCIrMW6S57N1kZKkWYlYRhmphq6Y6RY6wDOp1ei/BIvv1FJ2hovLmqU8uwHImrrbnA/7lLj8ei1rlupRkopRkpw2hJyQrAnhcg+CkHps0iYBOwUwSf1k7j3Nfrz5MayhCx2PB/Ytq3vJM2p0bAzPA04E+hMXt4Ozlgo3VhT0alOmoLfHIym6BuDUqaMEhnSD3hcCKVsmp1SXsDFMp1FWVpYXJ98E15kkAhumc9vDygdlw+yD8rJwCPIfz1hA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by DB9PR04MB9673.eurprd04.prod.outlook.com (2603:10a6:10:305::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.26; Thu, 6 Feb
+ 2025 15:04:14 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8422.012; Thu, 6 Feb 2025
+ 15:04:14 +0000
+Date: Thu, 6 Feb 2025 17:04:10 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Furong Xu <0x1207@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Petr Tesarik <petr@tesarici.cz>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v2 5/9] igc: Add support for frame preemption
+ verification
+Message-ID: <20250206150410.u4rehwxnnuhtcfxr@skbuf>
+References: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
+ <20250205100524.1138523-6-faizal.abdul.rahim@linux.intel.com>
+ <20250205171234.cuscjpzdyc34ofbn@skbuf>
+ <6bf3f4b2-efee-41fe-97b3-cb53eca4dfed@linux.intel.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6bf3f4b2-efee-41fe-97b3-cb53eca4dfed@linux.intel.com>
+X-ClientProxiedBy: VI1PR08CA0210.eurprd08.prod.outlook.com
+ (2603:10a6:802:15::19) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DB9PR04MB9673:EE_
+X-MS-Office365-Filtering-Correlation-Id: af6a6446-1f62-4308-9b83-08dd46bf8510
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MXlLaDl3YS9CcEpnV2ZKb0JWWlkxUE9TdDR2bGJ0VVd3N1B5UVY1U1dkZDlw?=
+ =?utf-8?B?ZnVQdnZGcWZWeTUybEVLZndXOW1DaXg4TjZ0R3pkZ2Jhbmt0b2d4VHJiK3h2?=
+ =?utf-8?B?eGxzS1VtNHUwY0hiRlRNeUVuWXQrWi8wRlNxaVlaWjFlbm0rZ2svdlRzMUto?=
+ =?utf-8?B?QTNDM05OQ3pZZGxET3Zwa25RSFQwbjZUNDlWbFFpMS9MVU03NVlDUnNzaHcw?=
+ =?utf-8?B?a29tc1NBZEUyOXl0NnBYWXgrQ0x2TXE0c1V0TVF4MU12d3R2MmczSGFRaDV1?=
+ =?utf-8?B?UWEweEtIaE1QNEVjVnlZS3lWTFVsTzdhbjlqWkNFU0p0WUluVGlRZ01IVmJj?=
+ =?utf-8?B?NE5pdVZTM1B6R1ZQL3UxazJGQVBLTW5GS1R6ZW11SDJaM3pQVHlQQ1Zpb2FC?=
+ =?utf-8?B?OW1VcnI0YTZ3eGRUblNER0pOV2hxS3pGMG9BMVRxcE55QXJibVFQZjVoK3Vi?=
+ =?utf-8?B?TnBYWldMUDVqSHhtZmkrYUZZcWZTSHdwckZiM2tDZlVBcTNoM0ZYRVU4M0dV?=
+ =?utf-8?B?NmhzVFdKTEpyY2gveTZEenR1QW5iNEZRaWxuQ2wwN2JqSk1NNVR0Q0JIc2RV?=
+ =?utf-8?B?Um1GbkhqTE9MS0ZQSk93ZktCcVhOT3RBdmNEdGhmVFRCbHVTUlp3ODR6RzR1?=
+ =?utf-8?B?L2NmWkcxVU15RSsvUWVSZ2lIV2I0TWlKVDNIZm5MN05raXN3YjJjSjBnM2xv?=
+ =?utf-8?B?WU0vZFFIRytSOEVueFJmSVV4KzJrMHArZHR4VEs1aWVKNEU2ZWJGMndNdzYy?=
+ =?utf-8?B?M2lhL2tVU0E4NzJqVk55cWN4YXJDbWtCUXBES3NPTHdzQzNvSkVzK1MxczEz?=
+ =?utf-8?B?Q3dxNVY0SkdVeW1xMUxvNFdZZjcwODduM20yK2xFT1pQMExKWEtrZW1zaUZB?=
+ =?utf-8?B?UVpCby84UGI1bkJ5T25HT3JiWk9YcnBwSG9rdTR2L0VWOVpQOWZMR2dUMUYy?=
+ =?utf-8?B?QWpCbGVOS3ZXOUdybndVTElad0g1L2haLytKZ3NKb1h3OVVMTFNlL0JMWEpQ?=
+ =?utf-8?B?b0NFUHkrT0VLUkRSanNUVjVhNjkwYzgrM255VC9YMmhFa1BIQjVsc2dCOXhq?=
+ =?utf-8?B?NzRhMTR5RjQvWnJYSlFJYTY3NUVZWHZFNGx3L0FhdG1VenpRcEFudGt6emRZ?=
+ =?utf-8?B?Q1ExSk9Ha21WQkgvcUV4czZTREdRR1VzYXlKUnZBUDNKcGQyUWhBL2pMb3Nm?=
+ =?utf-8?B?WldwWlYzT1NDWWJmR1BaWWFWSW4wZ0RmTHllWWNTUncyOWZSaXcyajhtZTNH?=
+ =?utf-8?B?aGxPRnQ3RkF4MHFzMWUweHRCZTNDRXhJSUZnVCtGNGtjSmtROEpldWFteGNx?=
+ =?utf-8?B?d2dIZHR6RGNDT2hzb2lQNUVoQllvcDFnWDgzTkNZWld4ZXk2VEdXaEFhb2Vv?=
+ =?utf-8?B?QmlDTlkxUjR6OEswVnJ4Z3lBWVEwZHZ3eXBweGJ0NW9kYndSMlZaWFR6cVA2?=
+ =?utf-8?B?djh0VWNvNjdGT09QVURJZE5mOVFsWFRhMEx5NVovUFE2ZHR0NzcwSEF1QVNq?=
+ =?utf-8?B?aFVyTS9jMGlFN1ZEZ2hXRWFqaXR2N3BSYUk2S0Z3YUZLdVFhK1lYc1pmOFNv?=
+ =?utf-8?B?TmJ0Y2s2RkJvb004ZzlSRGFoSkpjd3FWSUp5Z2NZYTZEOTdUOU43YzkxYjlh?=
+ =?utf-8?B?WDNremFvYTBQdnEwUW5XdW5aakg2d0lKNVpjSTUxM25lSzZnL0x2a2VwL3c4?=
+ =?utf-8?B?U2tHcnRzMmhMaGpzK0lBMkRMWjVNTDdpQ3hxaG90T0JmZWg3TEVhM2MrNWdD?=
+ =?utf-8?B?RFk0WVFpMEVrancydThQNXhwRjV0d1VHSnNZRlUyKzZQUnhjakg2bEtnS094?=
+ =?utf-8?B?L0J0VjNjeG1HWlN0TmZpQVhlSTFiYnQxUXJOTkIrc2tTWWg1S0NvSDNLaG9T?=
+ =?utf-8?Q?YdBapmsTbouZx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1pobGN0M0RvMzVtSUJxRGF6N2EwYUs1MkZISWx5S3Z2TUlTRlFUSEx0YlR0?=
+ =?utf-8?B?Zi9SZDUwY0d4WHRkbEdkTkxMd1pVeGZLY1p2eTdrQWNvYnhkY0FId3MrZnhV?=
+ =?utf-8?B?NExCUUxsTkcwYkhlZEZBK0J2UXZVK2JhV3dSNDRBVEZXbm1rcWtaMWlMMkxy?=
+ =?utf-8?B?ODc3cmNRSGJJM0VlVmdCcEhDbTN4UERBTnpFdzZhWWljS1lLNDhtdnJ5b0Zv?=
+ =?utf-8?B?WThPSUNyc2k0c0VHZStEWDJPSElQanhVR1pab2V2MjlWYVhHeXhBZHJLVVBT?=
+ =?utf-8?B?YVdmTmtNQWJJUzFRYzN1SXhlaUFxK1pjcWlITk5XMHVRc3duZEpKZUYzL05u?=
+ =?utf-8?B?aXNlM2ZpZjdVenRIdHhYN09NOUNneDJKTEVSWHJRaU5oSCsvbkV6VThSUVVV?=
+ =?utf-8?B?MG1zanNadWswVVNlYVgzT21QQ2RER1cxRXVkazRHb0VldERnYjJiVUdCcGZh?=
+ =?utf-8?B?RjdUNGRVdml5WmdWVit2VlYrUXNqZ0Z3UWtoWWUrVGxUV2ZXMzJaTG1NMm1v?=
+ =?utf-8?B?YWNWQ3h1Vi9kSVZPdDBhYjgxTXlHRmpRbmVMVjU0bEJaZ1lUN0pMT2dseHM4?=
+ =?utf-8?B?SEZ3TDBOckU1NjJwOHVvSzJpOFZwekxVUHl4aS9Kd1FuRTBGbkFsdjEzRnZp?=
+ =?utf-8?B?aU83RzU5MXVyZ2QvWXVMU3FkcXphclNoM0xPQkZYbkE3c082QmN2aTlUUUNq?=
+ =?utf-8?B?YUcvM2NuWHIzY01VNVVRMy9oT2Z4N0szRmdSejZOR2h0ODMzTmNzV3ZDbUlj?=
+ =?utf-8?B?YkdIUWFZb2JSdXlEVTFiSjBDMlpxY2x3YkVEb0RwTHlKOFEzSGpBbzB2VXcx?=
+ =?utf-8?B?SURRUUZyL0JMVXdQWDZ0SmNHR0JiZVg3Z1RCMGhaRUpIN3ZOL2pGUGdMSXZo?=
+ =?utf-8?B?L2d3MXI2bnFJbVIzR3NDcHlDNU9VZ1pabEU5bEIxOXp6ckd2QjJCNXVaRDRY?=
+ =?utf-8?B?M1YxejJhSG4yWHNuOE4vT3BhRWwxVFQ0R1JldXlleDFlRkVkVXdUd3prM2dF?=
+ =?utf-8?B?TksyelMyZ0pIejU5bVpaaEYxWnFldTc4a3JqM3F5Q21DTXB4RXlRcUhmWWZV?=
+ =?utf-8?B?alc5R2VPMVBvK3MvYzR1WG53TDZGZmorcDBVelN6RjhObHJNOGpNVW44SWF5?=
+ =?utf-8?B?RWJyZ0Qwb0xiYlVIK0NSTUkxSWpCT1BFM1pURGs3VzM3WFlLK1Avc0pEaTQ4?=
+ =?utf-8?B?b1Z2YmkwWXlPaXBuVjZrTnVpSHRhUkRMTmJmdmdLbVBvQTYyRnFoNHRVWS80?=
+ =?utf-8?B?YzdCT1gzaE4xNEl6TTV4cTNnUkVobE5tc0ZyTkZDenhBczJNM0Y1L1JQSzUy?=
+ =?utf-8?B?enJSOXpJSFh3d2hMWjBCL092TnlGRnJCUWJvTXRxK3JsbkVxMXJ4N3AyeDBH?=
+ =?utf-8?B?M0hNSEg0bnkxYnB5RG5UMnJjWkJDV2U1QVM2ZlNNUzJ0d3d2RzRueFdzUWR2?=
+ =?utf-8?B?ODBZN2pkTFo3bXBVVU5XcndFUkRjUzdvRFVzUURqczU1TDBBbk1oQWROak1i?=
+ =?utf-8?B?dWdCOVRCU2pKTTF3Y2JLOXhlN25vOG1CZERJSURESi80ODU0MVZzM3VXU3dI?=
+ =?utf-8?B?ZDdtSUlObzF0MGNsTExyc09GTjZxRWM4WnFKTU5obkIzSVFhd1k1MFY2RnNC?=
+ =?utf-8?B?RGp3VWY0UTR5MVFhcjh0dmF4a3BzaWRsQlBxREpDdWY1cVNjYWYweGhxZTMy?=
+ =?utf-8?B?S1pRWW11RTVxeTdHTDh2Zml2QjY4MmNFM2JIYXpERG8zMERpTGlHOUQ1UzlT?=
+ =?utf-8?B?TFp1cEFtM0xCa3c3OTFzLzNnb0tDYnQ4VDdnYmhBYTVwQW94ekJieE5BM0Fx?=
+ =?utf-8?B?QVZ3OXBCNnYyZU0yOU1rVDM2d2pQN21TUXVObWtiM0d4SEhWZnFOTWVhb05j?=
+ =?utf-8?B?WExuNnNKc1ZmZGtLU1hhMnF6WkZGM3hyeDBDbytuaHZQTGFndEtsZDBaWHgz?=
+ =?utf-8?B?dW5zcmtLWlFTc0ZPejMrWnA4bWdTQkUxZzMwSy9id05yZThpTXpBK1dxK3lE?=
+ =?utf-8?B?OEFzNkxhSzQrenpFZmtYelNXSkdmS0U3a2Q0SktuVS9kdlROVGU2YkZEazUx?=
+ =?utf-8?B?anM2SUh2NTZ3N1dUeE1rNnFFaTRtYWkvQldrNUdONk1WaXNDOFUvaWNzMmNv?=
+ =?utf-8?B?Sk1OQkkwemJSTUVDc0hIeW5BYVZ6YWpSZGI3eUZVRGZXaU41djJjaC9OamFN?=
+ =?utf-8?B?emc9PQ==?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: af6a6446-1f62-4308-9b83-08dd46bf8510
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 15:04:14.3352
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TD/bPElEacaXgMx3G4hLgcyAPeOicOJuFxj/kzn5SoNalmR1IZQRN28kyqyFSWK6YoyWvhLW3oGXvq3Exixr9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_070215_117497_F202250A 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20250206_070426_736389_05AAE0D3 
+X-CRM114-Status: GOOD (  38.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,90 +202,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> After some debugging this is what I found:
+On Thu, Feb 06, 2025 at 10:40:11PM +0800, Abdul Rahim, Faizal wrote:
 > 
-> devtmpfsd() calls devtmpfs_work_loop() which is marked '__noreturn' and has an
-> infinite loop. The compiler puts the `bl` to devtmpfs_work_loop() as the the
-> last instruction in devtmpfsd() and therefore on entry to devtmpfs_work_loop(),
-> LR points to an instruction beyond devtmpfsd() and this consfuses the unwinder.
+> Hi Vladimir,
 > 
-> ffff800080d9a070 <devtmpfsd>:
-> ffff800080d9a070:       d503201f        nop
-> ffff800080d9a074:       d503201f        nop
-> ffff800080d9a078:       d503233f        paciasp
-> ffff800080d9a07c:       a9be7bfd        stp     x29, x30, [sp, #-32]!
-> ffff800080d9a080:       910003fd        mov     x29, sp
-> ffff800080d9a084:       f9000bf3        str     x19, [sp, #16]
-> ffff800080d9a088:       943378e8        bl      ffff800081a78428 <devtmpfs_setup>
-> ffff800080d9a08c:       90006ca1        adrp    x1, ffff800081b2e000 <unique_processor_ids+0x3758>
-> ffff800080d9a090:       2a0003f3        mov     w19, w0
-> ffff800080d9a094:       912de021        add     x1, x1, #0xb78
-> ffff800080d9a098:       91002020        add     x0, x1, #0x8
-> ffff800080d9a09c:       97cd2a43        bl      ffff8000800e49a8 <complete>
-> ffff800080d9a0a0:       340000d3        cbz     w19, ffff800080d9a0b8 <devtmpfsd+0x48>
-> ffff800080d9a0a4:       2a1303e0        mov     w0, w19
-> ffff800080d9a0a8:       f9400bf3        ldr     x19, [sp, #16]
-> ffff800080d9a0ac:       a8c27bfd        ldp     x29, x30, [sp], #32
-> ffff800080d9a0b0:       d50323bf        autiasp
-> ffff800080d9a0b4:       d65f03c0        ret
-> ffff800080d9a0b8:       97f06526        bl      ffff8000809b3550 <devtmpfs_work_loop>
-> ffff800080d9a0bc:       00000000        udf     #0
-> ffff800080d9a0c0:       d503201f        nop
-> ffff800080d9a0c4:       d503201f        nop
+> Thanks for the quick review, appreciate your help.
 > 
-> find_fde() got pc=0xffff800080d9a0bc which is not in [sfde_func_start_address, sfde_func_size)
+> On 6/2/2025 1:12 am, Vladimir Oltean wrote:
+> > On Wed, Feb 05, 2025 at 05:05:20AM -0500, Faizal Rahim wrote:
+> > > This patch implements the "ethtool --set-mm" callback to trigger the
+> > > frame preemption verification handshake.
+> > > 
+> > > Uses the MAC Merge Software Verification (mmsv) mechanism in ethtool
+> > > to perform the verification handshake for igc.
+> > > The structure fpe.mmsv is set by mmsv in ethtool and should remain
+> > > read-only for the driver.
+> > > 
+> > > igc does not use two mmsv callbacks:
+> > > a) configure_tx()
+> > >     - igc lacks registers to configure FPE in the transmit direction.
+> > 
+> > Yes, maybe, but it's still important to handle this. It tells you when
+> > the preemptible traffic classes should be sent as preemptible on the wire
+> > (i.e. when the verification is either disabled, or it succeeded).
+> > 
+> > There is a selftest called manual_failed_verification() which supposedly
+> > tests this exact condition: if verification fails, then packets sent to
+> > TC0 are supposed to bump the eMAC's TX counters, even though TC0 is
+> > configured as preemptible. Otherwise stated: even if the tc program says
+> > that a certain traffic class is preemptible, you don't want to actually
+> > send preemptible packets if you haven't verified the link partner can
+> > handle them, since it will likely drop them on RX otherwise.
 > 
-> output for readelf --sframe for devtmpfsd()
+> Even though fpe in tx direction isn't set in igc, it still checks
+> ethtool_mmsv_is_tx_active() before setting a queue as preemptible.
 > 
-> func idx [51825]: pc = 0xffff800080d9a070, size = 76 bytes
->     STARTPC           CFA       FP        RA
->     ffff800080d9a070  sp+0      u         u
->     ffff800080d9a07c  sp+0      u         u[s]
->     ffff800080d9a080  sp+32     c-32      c-24[s]
->     ffff800080d9a0b0  sp+0      u         u[s]
->     ffff800080d9a0b4  sp+0      u         u
->     ffff800080d9a0b8  sp+32     c-32      c-24[s]
+> This is done in :
+> igc_tsn_enable_offload(struct igc_adapter *adapter) {
+> {
+> 	....
+> 	if (ethtool_mmsv_is_tx_active(&adapter->fpe.mmsv) &&
+>             ring->preemptible)
+> 	    txqctl |= IGC_TXQCTL_PREEMPTIBLE;
 > 
-> The unwinder and all the related infra is assuming that the return address
-> will be part of a valid function which is not the case here.
 > 
-> I am not sure which component needs to be fixed here, but the following
-> patch(which is a hack) fixes the issue by considering the return address as
-> part of the function descriptor entry.
-> 
-> -- 8< --
-> 
-> diff --git a/kernel/sframe_lookup.c b/kernel/sframe_lookup.c
-> index 846f1da95..28bec5064 100644
-> --- a/kernel/sframe_lookup.c
-> +++ b/kernel/sframe_lookup.c
-> @@ -82,7 +82,7 @@ static struct sframe_fde *find_fde(const struct sframe_table *tbl, unsigned long
->         if (f >= tbl->sfhdr_p->num_fdes || f < 0)
->                 return NULL;
->         fdep = tbl->fde_p + f;
-> -       if (ip < fdep->start_addr || ip >= fdep->start_addr + fdep->size)
-> +       if (ip < fdep->start_addr || ip > fdep->start_addr + fdep->size)
->                 return NULL;
-> 
->         return fdep;
-> @@ -106,7 +106,7 @@ static int find_fre(const struct sframe_table *tbl, unsigned long pc,
->         else
->                 ip_off = (int32_t)(pc - (unsigned long)tbl->sfhdr_p) - fdep->start_addr;
-> 
-> -       if (ip_off < 0 || ip_off >= fdep->size)
-> +       if (ip_off < 0 || ip_off > fdep->size)
->                 return -EINVAL;
-> 
->         /*
-> 
-> -- >8 --
-> 
-> Thanks,
-> Puranjay
+> Wouldn't this handle the situation mentioned ?
+> Sorry if I miss something here.
 
-Thank you for reporting this issue.
-I just found out that Josh also intentionally uses '>' instead of '>=' for the same reason
-https://lore.kernel.org/lkml/20250122225257.h64ftfnorofe7cb4@jpoimboe/T/#m6d70a20ed9f5b3bbe5b24b24b8c5dcc603a79101
+And what if tx_active becomes true after you had already configured the
+queues with tc (and the above check caused IGC_TXQCTL_PREEMPTIBLE to not
+be set)? Shouldn't you set IGC_TXQCTL_PREEMPTIBLE now? Isn't
+ethtool_mmsv_configure_tx() exactly the function that notifies you of
+changes to tx_active, and hence, aren't you interested in setting up a
+callback for it?
 
-QQ, do we need to care the stacktrace after '__noreturn' function?
+Or is igc_tsn_reset() -> igc_tsn_enable_offload() called through some
+other path, after verification succeeds, that I'm not seeing? I don't
+think so. Maybe coincidentally, but not guaranteed.
+
+> I briefly checked the driver code and the i226 SW User Manual.
+> 
+> The code calls igc_reset_task() → igc_reset() → igc_reinit_locked() →
+> igc_down() → igc_reset() → igc_power_down_phy_copper_base().
+> 
+> I suspect igc_power_down_phy_copper_base() contributes to the link loss, but
+> there are likely other factors as well.
+> 
+> The SW User Manual states that a software reset (CTRL.DEV_RST) affects
+> several components, including "Port Configuration Autoload from NVM, Data
+> Path, On-die Memories, MAC, PCS, Auto Negotiation and other Port-related
+> Logic, Function Queue Enable, Function Interrupt and Statistics registers,
+> Wake-up Management Registers, and Memory Configuration Registers."
+> 
+> Given this, right now, I’m unsure about the feasibility of making this
+> change, though I see the benefits mentioned.
+> Validating this would require significant exploration—i.e., investigating
+> the code, running experiments, reviewing commit history, confirming hardware
+> expectations from the SW manual, and consulting other hardware SMEs.
+> 
+> Resetting the adapter is a common mechanism in igc that relies on shared
+> functions, which can be triggered in various scenarios. Modifying this
+> behavior (if feasible) could introduce some risks and would likely require
+> additional testing across those scenarios. Focusing on this right now might
+> delay the current series, which is primarily aimed at enabling Qbu on
+> i225/6.
+> 
+> Would it be alright if I explore this separately from this Qbu series?
+
+Ok - as I said, it's not as if I couldn't eventually tolerate the workaround
+you chose. We'd be putting a dependency of this feature on some unrelated
+thing with a high degree of uncertainty. For example, I asked if this is
+fiber or a twisted pair PHY, because while for the copper PHY the issue
+might be more tractable (clause 28 autoneg on the media side is completely
+independent of what the host side NIC is doing - it may reset, it may do
+whatever - unless the MAC provides a clock that is important for PHY
+operation), I do wonder if anything at all could be done to avoid the
+link partner seeing a link loss over fiber, because there, the connection
+is direct PCS-to-PCS. If you have to reset, you have to reset, and then
+pick up the pieces, I understand.
+
+It's good you're committing to look into this in more depth, though.
 
