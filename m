@@ -4,106 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69157C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526B7C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGgmYkw6S3QB8nQjqhMJ6Fie806x5kcRxdlBZmNnaQY=; b=Sq8N+BmmJpJLBJg291Lj3cIyOU
-	wtgMD/w+7EUVANMzwRucFw62XfpwOWhPjIagsgMacKaZFK7Tc5feKPfeJMqMbrZvEC3KkB9wDHTlE
-	Q5Xl076md7jddiNm2mG6MMZU+rWc3ol6R4hkYqA+LIRsy5nqZ987KGunkb6m2nvH954E++D0g2/Cq
-	0TVl44L9kAgZcWko8jjDWOUCBlJiWJnkzriUvTyrOg6Faj9/yvjmTlcLDp+cpg1DYYHDJCoM5hV1e
-	rEI5cSghHI6xDhlg8qS4u+aRhvw+6C2Ic4N4jtO536VzEDLaG4KPSiMUMS9LqBR6OtS9btrI2pP/y
-	SiMqf4oQ==;
+	bh=n3B6GkoF4/TUzTqGKurnKW93IpQpwd5TQSP6kcfbI30=; b=cTyAwPqc0LSbLz+ahSCPDk/t/Z
+	RTP/l5l6lDFs+83pTU0/58SmOdbXfTKQAj+2sfiZu44WE8ymZ9YPT2e0qJKWtxvN91/lhShyN5QLf
+	OIwlFKpG8Xv58kBJFLPsOMB1vktd09caytK5k9bo5LKYyH41b5P1uZtFnPLRbKEdfEEgWwbciXWHz
+	tHNCs28+6LGgDaDn0vubKnvlO0WQ8kzXlzXmhuAfSrIIGs8dhRRx78E4niFIw2pFCCGyHl+qRuOET
+	JJKPwf3AzYwh+HDwA80C17ewGqegGF18gugAXvLsShpZnpO/4F3vR5qyYsqwj3m+GKGYD2iiV/cmU
+	TDRnzjPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwob-00000005fSw-3MDW;
-	Thu, 06 Feb 2025 08:00:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tfwrH-00000005fnO-2wHy;
+	Thu, 06 Feb 2025 08:03:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwX3-00000005dBc-3mHM
+	id 1tfwgQ-00000005eQF-0EUr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:42:43 +0000
+	Thu, 06 Feb 2025 07:52:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8727C5C6F5C;
-	Thu,  6 Feb 2025 07:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A64BC4CEE0;
-	Thu,  6 Feb 2025 07:42:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738827761;
-	bh=O5290eTZVCm7uwuI5E8jAfGJ2seQdNU2kjjYxqFEkEE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QLIBkopQBHu7+X/2RzpYEeEf9zcGZgPS+Hgs+wAoLtJOs9JDMyyqMywAoqHPXEFXW
-	 itEhzzUcTEgsIZIvbKUk3rJA5Pblx92fjbZVJp2znhpbr/2rmzpQrkUD2Tp7xwFVOx
-	 MO8wpyiSqKJBIuInBBhL3arNkTfD2ByKiDjMB/WkZFVAL3KUap6F21iR6fdFFAzEwA
-	 8p3tga3kauRcV+KhV5wv8b22iQIguOIdDqbgSM31br9JM9shQFNKiLLGNJNKwasfRY
-	 UDNTFRrA3wYs6r4Z76rWzEu3vTq1b3p64RT+RUa0aU0OueZE+A0Uas7sD7R0NfbSis
-	 ueTd12ixWW2xw==
-Message-ID: <dbee624b-f9e4-4bd6-9829-a0071857efa6@kernel.org>
-Date: Thu, 6 Feb 2025 08:42:39 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/9] spi: dt-bindings: samsung: add
- samsung,exynos990-spi compatible
-To: Denzeel Oliva <wachiturroxd150@gmail.com>, alim.akhtar@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250205222223.613-1-wachiturroxd150@gmail.com>
- <20250205222223.613-6-wachiturroxd150@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250205222223.613-6-wachiturroxd150@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7E665A439F8;
+	Thu,  6 Feb 2025 07:50:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C493C4CEDD;
+	Thu,  6 Feb 2025 07:52:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1738828340;
+	bh=88KiQixzKQj5rRXEekbKnJmhNWTZtXqiwpRxpjLPSJU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=s/04mWHLv/q0fTizs8GnPLLAN21F3yucrVtVGTFut5UMv/abPKUv6mx1R+nfI1F86
+	 NYoh/PmmwupjFT8CL9zWItndkNSsA1RSpozAdPa+MRDLFXrkFaEQQgCR172XSZRqpa
+	 YUqUWLrX2t36zIOACa4NI6+RI8Z4OUDjcNgySxeo=
+Date: Wed, 5 Feb 2025 23:52:19 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Muchun Song <muchun.song@linux.dev>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Uladzislau Rezki <urezki@gmail.com>, Christoph
+ Hellwig <hch@infradead.org>, Mark Rutland <mark.rutland@arm.com>, Ard
+ Biesheuvel <ardb@kernel.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>, Alexandre Ghiti
+ <alexghiti@rivosinc.com>, Steve Capper <steve.capper@linaro.org>, Kevin
+ Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 00/16] hugetlb and vmalloc fixes and perf
+ improvements
+Message-Id: <20250205235219.3c3a4b968087d1386d708b04@linux-foundation.org>
+In-Reply-To: <20250205151003.88959-1-ryan.roberts@arm.com>
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_234242_033961_1F931CC2 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250205_235222_168902_4ED51F8A 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,34 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/02/2025 23:22, Denzeel Oliva wrote:
-> According to the Exynos 990 downstream kernel,
-> almost all of them do not use the same 64 bytes depth.
-> Some SPI nodes using a depth of 256 bytes (SPI 9/8/10).
-> But in the end these nodes work.
-> 
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-> ---
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
+On Wed,  5 Feb 2025 15:09:40 +0000 Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+>  I'm guessing that going in
+> through the arm64 tree is the right approach here?
 
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
+Seems that way, just from the line counts.
 
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
-
-Best regards,
-Krzysztof
+I suggest two series - one for the four cc:stable patches and one for
+the 6.14 material.  This depends on whether the ARM maintainers want to
+get patches 1-4 into the -stable stream before the 6.14 release.
 
