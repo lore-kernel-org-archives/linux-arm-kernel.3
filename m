@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9040C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D026FC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBOACnQwhkJ8APxPUD8sQWxJbSY5RUjjmmm4r9DSsCg=; b=UpNlrUU/oS3F6Kf7bFKK4R+VcY
-	sxrQ+xjPPA8wbgTzv1l+ht0+9hC1ygeZ5CDUFle4wyNSaXVAVexBHmXA9JrVXnXZqHNT0+jppSm9H
-	EMlGKkLy8JGrpFLORLcP6KxoXgp5Aj7BchGYHwQFrX5gf/20iztYudkE1wJn9Ev1Lhh0HQwwIXrHU
-	6gr6Kc5ZY/AcrSkPZSKiZGBBww2nCpEj6KorslOqBraeyHBwy/ErFb0EBeNVa6bj/ZiEGnNpshwIR
-	LgeuqEC1A+JVp1oCOF1QtB1HLKrqEIuZQfbJApMNsdN2aYInN+YPsVSmPqsq/EexE3owRVsrvmwoW
-	PlGAIJNw==;
+	bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=; b=lIFaSe6rOgt7Q9WnIPKC8dU+8V
+	Z8W1OwgCV5nY+069vorJdlOZDStC81Hxn1MIi8EdiiWz/tartHn9mZU0+05TPnBW5CYgs1OF6HdEw
+	uD2BznGbwVBTNNSabr/M3YgJY+S/9c735runI1zwVe2uAebZv8o1qE9fnqkKCjzBpbZh3CEVPLqhf
+	uEpOen4neOcbsYlqwNRY86h2iVLj+jdaYviLN8TfkCgHidQTb6jt3PpZThp24slaXzDqGQ2xt88nB
+	W++R71jsfQ4MS4zdQenGw//X2CTOdqmNeR7kdKQ6yL/bpg5oSmpMKL5xb4jJ13UpPUzMCt2APGBfr
+	0MdfxZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2uX-00000006aiT-2dWi;
-	Thu, 06 Feb 2025 14:31:21 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tg2vZ-00000006b68-1poi;
+	Thu, 06 Feb 2025 14:32:25 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1o7-00000006OfZ-0E35
+	id 1tg2ll-00000006YV3-2RMg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:20:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738848039; x=1770384039;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=yzDPso7yjcqP6nNSsXNQ3ms2IDIS5dYrMz/0mfWPAF4=;
-  b=lgkOCH76BUWO5NwpL0qeSkDCd1CjW/GM6pke/G5VycVveBsE5Lqw3h0L
-   +7rGEB20zJSz4m9KxOA8dcegA6guCeGgHQ/Ak8GReoUho+HNvC1XyXm9T
-   GcYK5xHD99UO7Dp1ypEbHefDRKaT6U0Bs2GWeZ+lYpJfO03wolzP6yKQc
-   vIdq8U7lQURyDREeTXSsm7HsWt2e2jdlVqRalI5M8c1fiEda7Og4AhMnW
-   pnDL6MSoF0RiqIG8jYs5Vzclm0eUTlmIi6yc9J1KPR5CeudcE3B/9CXes
-   x4A7LxKxOfcTDhYs1vMnIcvWarhA4XPycJKml72genPS0XqnfCN9Uc7ST
-   g==;
-X-CSE-ConnectionGUID: 4qy6LDrWSU+n3ZoTdxtJow==
-X-CSE-MsgGUID: graMRngvTn6JkD5pQyEgdg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="43203784"
-X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="43203784"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 05:20:39 -0800
-X-CSE-ConnectionGUID: OFRcAinIR3yrc53bVuXoww==
-X-CSE-MsgGUID: oRJNEe/lRsGAT1yQ1gy2Ig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="116397355"
-Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa005.jf.intel.com with ESMTP; 06 Feb 2025 05:20:31 -0800
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-To: Simon Horman <horms@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans de Goede <hdegoede@redhat.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>
-Cc: x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v7 5/7] net: stmmac: configure SerDes on mac_finish
-Date: Thu,  6 Feb 2025 21:18:57 +0800
-Message-Id: <20250206131859.2960543-6-yong.liang.choong@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
-References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
+	Thu, 06 Feb 2025 14:22:18 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab74ecfdae4so143941366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:22:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall-org.20230601.gappssmtp.com; s=20230601; t=1738851736; x=1739456536; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=;
+        b=pM/nAHsXAtqxMs0+OpDQzeMnBeu6sOEpI6Ee4E/JCfe+9gHBaKamPhh4YCUj6bKGRe
+         fplN/9MTwoHM5Lo0fSjg0tQc3HmvoURDaIPfFD+2wTZ6ET8+ZJ/wmRp60BHwz+TYHr5H
+         kKo+Wgaj/50s2lJolL/3aTYKjbCVKKyHojsL4LX7eZcpGONvPsNNSyPeTtpixDC2rQ3T
+         mqIoYVlzaWHW4TTBRlvQiHDPUElbQPIFSKXKskIVzo7S5rtoBPAsoTOIqZRJlSAiyUKl
+         zxzeAWrupQVBaKSJJUFzn1Pd4ueesH64yt310nb3S6fd7pkaKxhC83gK+z5QNdYe7S5x
+         UVFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738851736; x=1739456536;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=;
+        b=VL/TuiwFxgB4WYT1PVsYP83NzMyZ0WLRIlarhovKUk//pg/VrQJmFOV3nIEn4AvFB6
+         MDSU+jOPf53ok/eQNqYRWEX20HTb5OYUgauejI7YeBX2aIbiOy//9u8Mkyln9f9peWTN
+         QurHaMIvVrxaI7AirFWaPrrxtNB0lkOj0FTJPGtEcW+1SsC1jNCQLcWS/S+eIS38cam0
+         avrrT5lLOQnvynlXML43FD1Jvzaet1tLNyv2+y4At7xyuTrXZu5ar4CP/fjuV4B+OcS7
+         zzEYG9GmaaQvaFwRb+IFBXQJGTwLuMIaxrK3GDAwqtS3OlKrx04EZQii/qVIiNJZpMkJ
+         pxeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWeLx3KNnDstL0qq1JucvqeH8157vWgZIsqKhU2qjsobeh5idrXkNQ6/EsMAFlTJQ0QdX2OMDLEJy5cjGRbf0H1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwknihzQYv4yrlOyEAUDJaSK6VJ37jaUj6iLo+gqBjAAT1eG4+e
+	rryJRMDbKjANFdrTxDihylYHFcLKnISwOYBqj7csPq3cCpZl7jvsc3UTRoqi2Wg=
+X-Gm-Gg: ASbGncsuZSp7J8WLsDsMh9tLPK9F9gAz6mdRmagSxQkqFyCvry2yEbQlkRcT7B4Hxti
+	cJfTBWOiPb3h1BhCf1+uTHaw3u2G1IBHMVHk68QGGE3buk9ACzzKBDdoNhJm0dBv5zzkpJnHwSX
+	J4GaG6lsbmDOu7DxJfB05BP1soDQt89KAzSxxFt81PG8KpO4FQQ7izflBoZwdGy9s4v85g+8oIs
+	WbFVcWgEYkQa3WfrOxYRr8w/BMF1iNWK8FYOukSJY/x+JI9N26iWMcU+UUGc3FrmPL29hS61TDR
+	KJpSJDKr2zYsswf4Oc4ZXB130eRsQJohCHsDvwAGXCA6JGk=
+X-Google-Smtp-Source: AGHT+IG6aiDjgy1nFvIKHnHHwV2g9kBo0v+xziTDZFU9m8b3NS4nlzYz1Qp3ZZ0dcQwrhEvWNvqV8Q==
+X-Received: by 2002:a17:907:7249:b0:ab6:36fd:1c8f with SMTP id a640c23a62f3a-ab75e2f655emr719799466b.39.1738851735691;
+        Thu, 06 Feb 2025 06:22:15 -0800 (PST)
+Received: from [192.168.0.205] (78-154-15-142.ip.btc-net.bg. [78.154.15.142])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab77f5f5a0esm40785966b.155.2025.02.06.06.22.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Feb 2025 06:22:15 -0800 (PST)
+Message-ID: <cc8b741a-72a4-4059-bbcd-3f32c7ef56d0@blackwall.org>
+Date: Thu, 6 Feb 2025 16:22:13 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 net-next 13/14] bridge: Introduce
+ DEV_PATH_BR_VLAN_KEEP_HW for bridge-fastpath
+To: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Jozsef Kadlecsik <kadlec@netfilter.org>, Jiri Pirko <jiri@resnulli.us>,
+ Ivan Vecera <ivecera@redhat.com>, Roopa Prabhu <roopa@nvidia.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Vladimir Oltean <olteanv@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ bridge@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250204194921.46692-1-ericwouds@gmail.com>
+ <20250204194921.46692-14-ericwouds@gmail.com>
+Content-Language: en-US
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <20250204194921.46692-14-ericwouds@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_052039_137966_4C3BA61E 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250206_062217_625795_2EE331D4 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,46 +117,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SerDes will configure according to the provided interface mode after
-finish a major reconfiguration of the interface mode.
+On 2/4/25 21:49, Eric Woudstra wrote:
+> This patch introduces DEV_PATH_BR_VLAN_KEEP_HW. It is needed in the
+> bridge fastpath for switchdevs supporting SWITCHDEV_OBJ_ID_PORT_VLAN.
+> 
+> It is similar to DEV_PATH_BR_VLAN_TAG, with the correcponding bit in
+> ingress_vlans set.
+> 
+> In the forward fastpath it is not needed.
+> 
+> Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
+> ---
+>  include/linux/netdevice.h        |  1 +
+>  net/bridge/br_device.c           |  4 ++++
+>  net/bridge/br_vlan.c             | 18 +++++++++++-------
+>  net/netfilter/nft_flow_offload.c |  3 +++
+>  4 files changed, 19 insertions(+), 7 deletions(-)
+> 
 
-Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d04543e5697b..1c2c83d17f5a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1124,6 +1124,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
- 	return 0;
- }
- 
-+static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
-+			     phy_interface_t interface)
-+{
-+	struct net_device *ndev = to_net_dev(config->dev);
-+	struct stmmac_priv *priv = netdev_priv(ndev);
-+
-+	if (priv->plat->mac_finish)
-+		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode, interface);
-+
-+	return 0;
-+}
-+
- static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
- 	.mac_get_caps = stmmac_mac_get_caps,
- 	.mac_select_pcs = stmmac_mac_select_pcs,
-@@ -1132,6 +1144,7 @@ static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
- 	.mac_link_up = stmmac_mac_link_up,
- 	.mac_disable_tx_lpi = stmmac_mac_disable_tx_lpi,
- 	.mac_enable_tx_lpi = stmmac_mac_enable_tx_lpi,
-+	.mac_finish = stmmac_mac_finish,
- };
- 
- /**
--- 
-2.34.1
+Acked-by: Nikolay Aleksandrov <razor@blackwall.org>
 
 
