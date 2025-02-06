@@ -4,159 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB97FC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A4BC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hwDFSvXl5S6HeN47+bAm4IHmoRkVQUmhsi8kIBKzi4=; b=upd+iGQ8NQY29czCa/rr2lnbts
-	XJzEP1izLppawogOywik/SJumGUf5Y3pOT1AtyljuR4CybmRcH9RWhy4NMFBseR4FTaWwnMPEonon
-	BOVmNvaQq/uzGmCFLaDo6VdmrQKAcN+0jzFpEuciyN/zTgnKhHjE9QNzNQvTRkc9wyQNJFd1lU5RY
-	1rhyD78MMXXFt2Z8gxv6pqox7GqPol9QUaOu9xRzHJuGFRgnO9NjxI68Fy51LREGVnrSrlLojGfXX
-	iWoDzqCbUoczeVjMdFXQ9W811GoX+PvefdhmwsH9/BeJWJg8n1whr5YCCr/CR3/OtBiyOYJeyl/e5
-	7V1G35wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67BEcOVTAEE0TOmQPQF4Hx8qLpCcB/5I8uUeqsPN1no=; b=B5JSiSLazrvIPnYfmP1bkquEdG
+	YtapG20VK2MgrwYIQ7Dt6lLe6OWvH577U/5EDR51xvlKonTQhMZ6+ijvabfS5A+6k08KQG41nWqjP
+	WvIA4Vq+n7wLKTtY8MHDfP8PTh+GHNqwCe6o3rkoLYxIx8E4KWXQbkRkA3AZi7cdzsT/VIiCD3/A/
+	V4DHOr2O0XSKb5CUKlfueGr0ZZGJAjd8QCkytxQCsFidVF26XkYJz6AlgLHMN3hYD6Qd13pND8Uib
+	/UQit4fya+x2za5SR2H1RoXSmwnH0cFByTpEpmqdIjb6bmntapN+4IiK6+hngUAaBmOGjo1i6dchA
+	hAzcf5jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1cn-00000006MB1-1KEF;
-	Thu, 06 Feb 2025 13:08:57 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1a7-00000006LdC-2DTT
+	id 1tg1e8-00000006MTW-41r9;
+	Thu, 06 Feb 2025 13:10:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg1bw-00000006Lvi-1P9a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:06:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yKphgPiykOX5pv93OANUIwQAwgnfaGMmW9kH8pGq6xSSnzJm4gZN/P+8sEJWmRHPeL2Yf+aQ8xBBGHO0wXL4F75fbBwk0YroqPSYsctweljJc8zojFdG2KYKpKf7InIX8aUg0/k/aFgDupLaV0OHbQajIOsbkmAvbhbpanjGTmGF9Bm3YjTn7QpwV4Tij7waeJwsdtqKFbs0cZz+ikmWkCkx/x0LpC/7ciGeoWP5TRdY4cZJARGufljzxrZ6y2an9zSu3N6QFsQrQsPEpGo3l8+0MXf7beoAZ3qZbnewrAdohEL59rpldH3jCdhLk+596V+6iqB9rLjTwIZuWWeydg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1hwDFSvXl5S6HeN47+bAm4IHmoRkVQUmhsi8kIBKzi4=;
- b=omoR+BXzUCtNPRE1HQVYN9gxWxL3jahN56SuPn+gWzMhpKx09RyXPDaJF/hy8/GvKKoZ7S4WHdzI1prqeUkfQLzkVXeLUWuPAOHTdzBOpeUGQqmGwLLnTv+wTFnFeLFvre6f3HowR4vPX40iG7kqRKj/tmb5YcP+gPME2DOehMDW+/Z0Wd2Exy+dDxKU+F8Q4kBtsdkdPPz/1LLy9uCqyaYNLVzLQwxtKWWm2c8TnnDqpjTuBtCMXC1opdEDP7eCr5DZxZhceN9eNZvkSXCw04f9j0mocZcGbfr77W1Uk1ufrxjtsaVEvwRp+4VnAubUaX0kMi4YMcL2blYVZmKXRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1hwDFSvXl5S6HeN47+bAm4IHmoRkVQUmhsi8kIBKzi4=;
- b=PJcYdYPAuZ1EmhGTFh/e0WHOCDWT62O/8gjOFGAaaY05pe5FkhmJxGxTmw2o7oZ0mADwBG1WnRZaUv8FAwZvNfLGu93HPVMoY0aqBfZpbWQ3TYBeyveSgCYTzArMNQTJ47PKie+sojFrbijfkzQ4mZX7ToyeDeQuub2mnVljqRxuS2VhEf17Tb3PGtctP2gI/9De7OY64AwZQcxXwYQr6TQ2sAa4QOq68ng7MmxR3PyTJDFRLrc6aeRVLKL+bD7WoIzWauOTl1sZsK7w3rS7e1pGnPuMnGG+gdE3ueMNkoKEiqu/odx0RSUcB7i7HzbUaD5uxS6FKJCF5Gi+HM880g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB10570.eurprd04.prod.outlook.com (2603:10a6:800:27f::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Thu, 6 Feb
- 2025 13:06:07 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.010; Thu, 6 Feb 2025
- 13:06:06 +0000
-Date: Thu, 6 Feb 2025 22:12:48 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
- machine_blocklist
-Message-ID: <20250206141248.GB27490@localhost.localdomain>
-References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
- <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com>
- <Z6Slq4KjS_RJ3ItB@pluto>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6Slq4KjS_RJ3ItB@pluto>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR04CA0006.apcprd04.prod.outlook.com
- (2603:1096:4:197::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 06 Feb 2025 13:08:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C82F8FEC;
+	Thu,  6 Feb 2025 05:08:25 -0800 (PST)
+Received: from [10.57.80.166] (unknown [10.57.80.166])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB8383F5A1;
+	Thu,  6 Feb 2025 05:07:59 -0800 (PST)
+Message-ID: <fde425d3-699e-4e72-8823-2f50629468d0@arm.com>
+Date: Thu, 6 Feb 2025 13:07:32 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10570:EE_
-X-MS-Office365-Filtering-Correlation-Id: 752aec2c-ef71-4c51-566e-08dd46af0481
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|1800799024|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QbXo59jaQX3vWJpqDRfHAW3g4OUXChl97iWVTn0htGZSsm9Z9IGPLMaq+Siw?=
- =?us-ascii?Q?ZnuLMOiGJv8mS5VDijyMNrFIC0AiIjG8eHvNmCKG53jcj/yjCmS5czMqOUVN?=
- =?us-ascii?Q?X1enjBIiY90jDEdPCNBihDaDwZztBRIwbWhgHZPzT7I8OWw7bTaQ0wPr+FfF?=
- =?us-ascii?Q?NwK0sN5My1KO95wvvlr9PJ+xoYW9MGZz8bs812s2Eh9Fqw2xdp0Eh7fjicZ5?=
- =?us-ascii?Q?DufRaaFnVJ5jGlH5bz5R0jj8QyduIK6GvlXg+Z6z5sXD5EqNZf+51mmsx3+U?=
- =?us-ascii?Q?sLyh0z2QZvJBm6L9HsMqKJoGWi3DkgUckqyjB2rQYVSrm9fPSGdLqMDbLyMd?=
- =?us-ascii?Q?3ZXLdNMRujWKblmot8FQUbBKCxEljJhwDxAsrAv1sBzWpa4ScMT/H2flTsS0?=
- =?us-ascii?Q?fcKqRYAYr3PSzk6p4Q2beige9+t+1/KOH1ninj3sGBaDDM/a69cl+Bp1+8BT?=
- =?us-ascii?Q?x66A0e/lBHdbR7rpnvglKsieTA1lwlbFVwlguKZdXhST+GMw1cuJh8PLTF5V?=
- =?us-ascii?Q?3OPQ74PS0NQ7EkUjOatz5+CapyhOWxmbloLjxvq4BYdmOQ3zoAbFm0VnITyq?=
- =?us-ascii?Q?DIh/i/BOEGI9mA2TUx0Q/NG04qiSXUdxq6+y7cmIJjoOZNPWtEbFzjPGUcq7?=
- =?us-ascii?Q?C47iIFO+CEt0izvYUYih7cBP7ZffmPvIytRPrHSyN+kiaho+SmdhqXbBX4d3?=
- =?us-ascii?Q?uxvOkITAMvXo3zndrXy+ocoyEwvIHwaYLtXC+op5QzyRl9qgSoA05UCsNEpb?=
- =?us-ascii?Q?xzrlpcZEM2v9iS3oaBkRHs1ILKGUhI2w8oso4JF1FcPa+NeF5P3V7NWBHOmd?=
- =?us-ascii?Q?kC5OEOlcEeCQmq0HOQN1Wcb8O7uojBwZj3aedoSCC4xTugvcMHkD2dw558lX?=
- =?us-ascii?Q?sKZfMe4x8jIE/tRUofYQVuSiyYiX+zL9JQ5HG2p8OPFkAvZ0jHq12o5IAFN8?=
- =?us-ascii?Q?WjZYjPhiSYe/k8FMv3lR4yK7cnF9GEa9DBO9vkWEAAn++Nj8rb/QmACDofRy?=
- =?us-ascii?Q?Lznd3TnnklKMaTPVQBNsQCUU4BuRz9uOCmoE7xHmwglUYlh2MwXoRR5Au1ZR?=
- =?us-ascii?Q?ngDgp4mF/SwL+lY8jwEaa/H8lN6Vb2I3oQry6KRayiesa4q1RomkIHXSOrDR?=
- =?us-ascii?Q?s0qrwjBGa3AFwkJIeVeZwdf3MVho+aAjyDT3YUpai2+SHCYRW6mZiV25RPQm?=
- =?us-ascii?Q?0W+2Pu1eTe0Bo/NVgDyUOqQ8iLuggJlFTMo8XJ53esvUybDFuM/TBXvCX5OD?=
- =?us-ascii?Q?Mqx8xQLeMXdilqzy1cO54fZdXvxQzVllPw2PIQ2zOst7pCG7H27NO1S9f2WH?=
- =?us-ascii?Q?/FI1Y1CSUNi97KvwbhmxbVoOfI/VfQvATPOm6mf2trM0w0Y8aYzAsUKMsF+c?=
- =?us-ascii?Q?WY/hqLfEZwTw0GMsPD2sIQZGH3EU7Q9SgAtFUcLXVZIlnSfVf8JW8z1ZXWfl?=
- =?us-ascii?Q?13p1B2He0nuqzNhkwXGHM196XW3BjXKw?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ih/a2+vH7kBKT/43ZTu4zn8rs0bxIswxwPDd1s3hr+7g82eg/4OaIxUEY7nY?=
- =?us-ascii?Q?M8L3s074Q2VYNQmbe3Q3MLk5dblLToRC7FNCIIgJ8uhy4CNilBrFzEO4z6mr?=
- =?us-ascii?Q?sh0fZh7LcjDMT4oCJ1XC8yejwQ8ZizRjKPjbYsH4+IBioONkSS8xn8isHZrh?=
- =?us-ascii?Q?bvZnt2cCWnFp/Flk8ZodU+Dh5XIgNuGgMoWZJ2zSgc9m8+IjeWyDpMOJVTp5?=
- =?us-ascii?Q?krKT9PQ3c5NIEbcIKjC1UJpXfc4nPcaopFs8prI5MLeRzrUtmmwHJJKckSUk?=
- =?us-ascii?Q?DszAwgnw5zFTY44EdHTs6QZV8BJWK7k38u/l3FYjpXRmFImCUZKtc/EVb7Bi?=
- =?us-ascii?Q?NZHsiX4K9H+Iw3pGc86gZodM4qUobpbCyBS2BOb9QfNbPUQmgYwazsLQuKdA?=
- =?us-ascii?Q?oOJ0pDfa8Z6XEPvAppMTEq5dXqdmNO1nl66/Jqkru9yRy8wSEBaPFGKB5gQt?=
- =?us-ascii?Q?pyjDpmKjs+DuWSdjQFh5kaWL/sb6d8pChIvTGxhCub7K62i8iMm6PLzFPUO5?=
- =?us-ascii?Q?lTiXqpUFljaq6M4P1R7liJklIQ1+fjAK2wK2exX83DMD8kBOCSiwmTMgAwJc?=
- =?us-ascii?Q?3ig+Bw6XnI3oL/nYjqNFpxriQue/PEe5Bdw67N9MybCeXSHHvS6ssWJ9WhD6?=
- =?us-ascii?Q?Q/Wm2gFJyPOjgTXiZ2dblguIlN8GT9Tiz2qLwTBWOqXbstpiY2LCLfBLgrh3?=
- =?us-ascii?Q?jU/VA5BeRg3A9KsQiWB421iDBhUL4/NbO1H46jlV7nJ9XG10UuHxiHiPGyIL?=
- =?us-ascii?Q?5FNMCxgdAA99j0oDp12vduym1ZeUtE2O2qHaaJzFjVn8afRjf8J1TWMfgLcp?=
- =?us-ascii?Q?Z1rpznb/k6ZW4gI+S6K1S1VPdz8sefNbMjqpvrQz04hTEOu6iX9tADNk5Law?=
- =?us-ascii?Q?ofqAgdWWFMMhUcLGLNvSwnyVFTd5i4Tgi4Cu1E4OmjeNo5agoL11RsDUTtk1?=
- =?us-ascii?Q?TreSjPb0UL2x4YeiCYKnL+j6mBycSSh/ai30R6xTdocI9KtzQpVQtB1ytEZt?=
- =?us-ascii?Q?EcGgRfhCT4EwDMGeHUhA6a2gCawM4liX+3+8404Zytqoy7UOA8lhvM3maTAy?=
- =?us-ascii?Q?/f65m2Tb4Pb2M2453W35Bx5SuoiJ8cn2IO4QrmDqekTVL92QLZpvkAhjbxoa?=
- =?us-ascii?Q?44oy1DaStacTwpcG/FsiU0BaU0ddgSOFRugIFwCtxV9PJEQgD1hzTE+coBR2?=
- =?us-ascii?Q?pMxpXC2EE2lF5JlgH1f1ekqZ2BgAYreY+EYk/y/yWDy72TDUYs8ZSHvHoc1i?=
- =?us-ascii?Q?FlnO1BJK8YxVZlPdNmeDO2qpCbyyQ1SpqJaWGMJtUstdzXNbkQLXLTG8oeU8?=
- =?us-ascii?Q?IA3qApunkmlgBIOIa5g4cEcw9S9B2tAW6I6ip1l98xGjV4Rg7+aLRfN/g0hv?=
- =?us-ascii?Q?De6PRolzaaKXzdJpmKfa2uO5HkbxGrF9nIae+8/1wcv0t9ld9G/fys++OsQ/?=
- =?us-ascii?Q?88fJPxBczj6tH5G34QBvjg8bNHRF4avX+tiK4BNhEHi9U3sZWwemYLHOWSXV?=
- =?us-ascii?Q?OaaT/S1LxVP4idygs1X0GYSJdeXuOcx7cIoHVDA+oQvPqeUFR0qsV9+leBCo?=
- =?us-ascii?Q?rKwwrrYNuzR6CWFgTCteB2xTtdSn2XSEyQ1Xi7Jp?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 752aec2c-ef71-4c51-566e-08dd46af0481
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 13:06:06.6672
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tTmAeUVnw9DxNBBfRmRpp2Np02F5kV9Ub/IsQ0sK8n7KNc7vPcpKwVBX6E0pjCTLBvUk87uVOqIY9ggDTYxyAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10570
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 05/16] mm/page_table_check: Batch-check pmds/puds just
+ like ptes
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-6-ryan.roberts@arm.com>
+ <d86b6d7f-0ab3-4737-85cd-70cddcffc1e8@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <d86b6d7f-0ab3-4737-85cd-70cddcffc1e8@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_050611_569560_F19883A6 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20250206_050804_409117_8D9AEBF1 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,90 +75,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 12:06:03PM +0000, Cristian Marussi wrote:
->On Mon, Jan 20, 2025 at 03:13:30PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->
->Hi,
->
->> There are two cases:
->> pinctrl-scmi.c and pinctrl-imx-scmi.c, both use SCMI_PROTOCOL_PINCTRL.
->> If both drivers are built in, and the scmi device with name "pinctrl-imx"
->> is created earlier, and the fwnode device points to the scmi device,
->> non-i.MX platforms will never have the pinctrl supplier ready.
->> 
->
->The pinctrl-imx case is an unfortunate exception because you have a
->custom Vendor SCMI driver using a STANDARD protocol: this was never
->meant to be an allowed normal practice: the idea of SCMI Vendor extensions
->is to allow Vendors to write their own Vendor protocols (>0x80) and their
->own SCMI drivers on top of their custom vendor protocols.
->
->This list-based generalization seems to me dangerous because allows the
->spreading of such bad practice of loading custom Vendor drivers on top of
->standard protocols using the same protocol to do the same thing in a
->slightly different manner, with all the rfelated issues of fragmentation
->
->...also I feel it could lead to an umaintainable mess of tables of
->compatibles....what happens if I write a 3rd pinctrl-cristian driver on
->top of it...both the new allowlist and the general pinctrl blocklist
->will need to be updated.
->
->The issue as we know is the interaction with devlink given that all of
->these same-protocol devices are created with the same device_node, since
->there is only one of them per-protocol in the DT....
->
->...not sure what Sudeep thinks..just my opinion...
->
->> Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
->> With both drivers built in, two scmi devices will be created, and both
->> drivers will be probed. On A's patform, feature Y probe may fail, vice
->> verus.
+On 06/02/2025 10:55, Anshuman Khandual wrote:
+> On 2/5/25 20:39, Ryan Roberts wrote:
+>> Convert page_table_check_p[mu]d_set(...) to
+>> page_table_check_p[mu]ds_set(..., nr) to allow checking a contiguous set
+>> of pmds/puds in single batch. We retain page_table_check_p[mu]d_set(...)
+>> as macros that call new batch functions with nr=1 for compatibility.
 >>
->
->That's definitely an issue much worse than fw_devlink above....we indeed take
->care to pick the right vendor-protocol at runtime BUT no check is peformed
->against the SCMI drivers so you could end up picking up a completely unrelated
->protocol operations...damn...
->
->I think this is more esily solvable though....by adding a Vendor tag in
->the device_table (like the protocols do) you could skip device creation
->based on a mismatching Vendor, instead of using compatibles that are
->doomed to grow indefinitely as a list....
->
->So at this point you would have an optional Vendor and an optional flags
->(as mentioned in the other thread) in the device_table...
+>> arm64 is about to reorganise its pte/pmd/pud helpers to reuse more code
+>> and to allow the implementation for huge_pte to more efficiently set
+>> ptes/pmds/puds in batches. We need these batch-helpers to make the
+>> refactoring possible.
+> 
+> A very small nit.
+> 
+> Although this justification here is reasonable enough but not sure if
+> platform specific requirements, need to be spelled out in such detail
+> for a generic MM change.
 
-This is indeed better.
+Personally I find the "why" to be the most useful part of a commit log. I'd
+prefer to leave it in unless any mm people complain.
 
->
->I wonder if we can use the same logic for the above pinctrl case,
->without using compatibles ?
->I have not really thougth this through properly....
 
-Since i.MX pinctrl driver probe earlier than generic pinctrl scmi driver(
-compilation order or whatelse may change the order in future),
-so adding a vendor flag to i.MX pinctrl could work for now.
+> 
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+> 
+> Regardless, LGTM.
+> 
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-But if order changes..
+Thanks!
 
-Anyway I will give a look, then back here.
+> 
+>>  include/linux/page_table_check.h | 30 +++++++++++++++++-----------
+>>  mm/page_table_check.c            | 34 +++++++++++++++++++-------------
+>>  2 files changed, 38 insertions(+), 26 deletions(-)
+>>
+>> diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+>> index 6722941c7cb8..289620d4aad3 100644
+>> --- a/include/linux/page_table_check.h
+>> +++ b/include/linux/page_table_check.h
+>> @@ -19,8 +19,10 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
+>>  void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
+>>  void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+>>  		unsigned int nr);
+>> -void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd);
+>> -void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud);
+>> +void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
+>> +		unsigned int nr);
+>> +void __page_table_check_puds_set(struct mm_struct *mm, pud_t *pudp, pud_t pud,
+>> +		unsigned int nr);
+>>  void __page_table_check_pte_clear_range(struct mm_struct *mm,
+>>  					unsigned long addr,
+>>  					pmd_t pmd);
+>> @@ -74,22 +76,22 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+>>  	__page_table_check_ptes_set(mm, ptep, pte, nr);
+>>  }
+>>  
+>> -static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+>> -					    pmd_t pmd)
+>> +static inline void page_table_check_pmds_set(struct mm_struct *mm,
+>> +		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+>>  {
+>>  	if (static_branch_likely(&page_table_check_disabled))
+>>  		return;
+>>  
+>> -	__page_table_check_pmd_set(mm, pmdp, pmd);
+>> +	__page_table_check_pmds_set(mm, pmdp, pmd, nr);
+>>  }
+>>  
+>> -static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
+>> -					    pud_t pud)
+>> +static inline void page_table_check_puds_set(struct mm_struct *mm,
+>> +		pud_t *pudp, pud_t pud, unsigned int nr)
+>>  {
+>>  	if (static_branch_likely(&page_table_check_disabled))
+>>  		return;
+>>  
+>> -	__page_table_check_pud_set(mm, pudp, pud);
+>> +	__page_table_check_puds_set(mm, pudp, pud, nr);
+>>  }
+>>  
+>>  static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
+>> @@ -129,13 +131,13 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
+>>  {
+>>  }
+>>  
+>> -static inline void page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp,
+>> -					    pmd_t pmd)
+>> +static inline void page_table_check_pmds_set(struct mm_struct *mm,
+>> +		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+>>  {
+>>  }
+>>  
+>> -static inline void page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp,
+>> -					    pud_t pud)
+>> +static inline void page_table_check_puds_set(struct mm_struct *mm,
+>> +		pud_t *pudp, pud_t pud, unsigned int nr)
+>>  {
+>>  }
+>>  
+>> @@ -146,4 +148,8 @@ static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
+>>  }
+>>  
+>>  #endif /* CONFIG_PAGE_TABLE_CHECK */
+>> +
+>> +#define page_table_check_pmd_set(mm, pmdp, pmd)	page_table_check_pmds_set(mm, pmdp, pmd, 1)
+>> +#define page_table_check_pud_set(mm, pudp, pud)	page_table_check_puds_set(mm, pudp, pud, 1)
+>> +
+>>  #endif /* __LINUX_PAGE_TABLE_CHECK_H */
+>> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+>> index 509c6ef8de40..dae4a7d776b3 100644
+>> --- a/mm/page_table_check.c
+>> +++ b/mm/page_table_check.c
+>> @@ -234,33 +234,39 @@ static inline void page_table_check_pmd_flags(pmd_t pmd)
+>>  		WARN_ON_ONCE(swap_cached_writable(pmd_to_swp_entry(pmd)));
+>>  }
+>>  
+>> -void __page_table_check_pmd_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd)
+>> +void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
+>> +		unsigned int nr)
+>>  {
+>> +	unsigned int i;
+>> +	unsigned long stride = PMD_SIZE >> PAGE_SHIFT;
+>> +
+>>  	if (&init_mm == mm)
+>>  		return;
+>>  
+>>  	page_table_check_pmd_flags(pmd);
+>>  
+>> -	__page_table_check_pmd_clear(mm, *pmdp);
+>> -	if (pmd_user_accessible_page(pmd)) {
+>> -		page_table_check_set(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT,
+>> -				     pmd_write(pmd));
+>> -	}
+>> +	for (i = 0; i < nr; i++)
+>> +		__page_table_check_pmd_clear(mm, *(pmdp + i));
+>> +	if (pmd_user_accessible_page(pmd))
+>> +		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
+>>  }
+>> -EXPORT_SYMBOL(__page_table_check_pmd_set);
+>> +EXPORT_SYMBOL(__page_table_check_pmds_set);
+>>  
+>> -void __page_table_check_pud_set(struct mm_struct *mm, pud_t *pudp, pud_t pud)
+>> +void __page_table_check_puds_set(struct mm_struct *mm, pud_t *pudp, pud_t pud,
+>> +		unsigned int nr)
+>>  {
+>> +	unsigned int i;
+>> +	unsigned long stride = PUD_SIZE >> PAGE_SHIFT;
+>> +
+>>  	if (&init_mm == mm)
+>>  		return;
+>>  
+>> -	__page_table_check_pud_clear(mm, *pudp);
+>> -	if (pud_user_accessible_page(pud)) {
+>> -		page_table_check_set(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT,
+>> -				     pud_write(pud));
+>> -	}
+>> +	for (i = 0; i < nr; i++)
+>> +		__page_table_check_pud_clear(mm, *(pudp + i));
+>> +	if (pud_user_accessible_page(pud))
+>> +		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
+>>  }
+>> -EXPORT_SYMBOL(__page_table_check_pud_set);
+>> +EXPORT_SYMBOL(__page_table_check_puds_set);
+>>  
+>>  void __page_table_check_pte_clear_range(struct mm_struct *mm,
+>>  					unsigned long addr,
 
-Thanks,
-Peng.
-
->
->In general, most of these issues are somehow Vendor-dependent, so I was
->also wondering if it was not the case to frame all of this in some sort
->of general vendor-quirks framework that could be used also when there
->are evident and NOT fixable issues on deployed FW SCMI server, so that
->we will have to flex a bit the kernel tolerance to cope with existing
->deployed HW that cannot be fixed fw-wise....
->
->...BUT I thought about this even less thoroughly :P...so it could be just a
->bad idea of mine...
->
->Thanks,
->Cristian
 
