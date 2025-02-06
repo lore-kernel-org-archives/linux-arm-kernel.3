@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCCBC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840A4C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEAtfk9sZ7vuzt+HmDZCm4BnfnO/7nvi4Al6O9lbnV0=; b=hvE0h/HOvhqdEiMa7YeYQkBBtw
-	t40aNNohvrSQL3qVAjHIaBSE78AFcfEy40gzXXTw/nmbIqAkcmP9NXAmExWSyzW3DJ2Bh/FI7zz+c
-	qzBlRYGW4DwHClVpF87OoCKcfe3+4wy2p+HxoFkDHElKnkg3st0VGy2uGggfUh5KMXoki6PB/zQK3
-	jZeq5mSh2AOGxxphILHNUNkT2IDibXlIaflj7cWQ9cIp8dh8ymFYO8dpYBlYnM3YwKz2oJD3rA+SF
-	WCS7RqleT1bJ85mEosjnmlY/BLk0kPItBELh2lfdCaw3BM8H9havSlKGDunnE1IEB7Gtrmz0gyAkC
-	shxPw6QA==;
+	bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=; b=Mu5lMTJpP+RG1GEqTEiy76YwPO
+	/15gylwtcIjPSu66WyJYNBP3Hlgao1KibVgPvGZ2MJhIBcM/V71c/iIFNCZN2XNVGWgaSz47BnAQ8
+	6n9XsM9ltSlmm3X45e4a9Qk236OR70Khpo3F3PnBCByCAfYb/btlgxYZfHFlfa77G79afnrHb7uH3
+	2ggNnbuBzKqIWxvHfAXxwj+zcW5Kcl8+81MvqsWM2ehIsXN1ZXiytgKX3EsLbjA9+6B2oo0IK9aHl
+	qvhd4q1OHF+mxapt0Ukeu+zDFPoGPMSBreCJAPICSRKsxVovmie9aUbH6Rnoy6BVMBHVmH8RD2Hgy
+	mKPwQX7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg07A-000000068yu-10ER;
-	Thu, 06 Feb 2025 11:32:12 +0000
+	id 1tg08U-0000000696k-3oV5;
+	Thu, 06 Feb 2025 11:33:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzXP-000000061k6-3Xmy
+	id 1tfzXR-000000061kr-0qF5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 10:55:15 +0000
+	Thu, 06 Feb 2025 10:55:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=bEAtfk9sZ7vuzt+HmDZCm4BnfnO/7nvi4Al6O9lbnV0=; b=hDndw1XKALXqPzA71iDZCd2pDs
-	A4rn+z3bMsQVaa52PJ/dh8q1RWVhMaeck+OQrtXrEbgm3hCh9nk99L3+Z4e/F4FunYNWdszcuKebC
-	2V50eMs9usg6o7sftDVuKIVrn7ZLTTe47xEgrIOeNpwTWJPbcONc1vIa2uTvLggUCi3yGI6iq0rEL
-	ELVAbqK9gtvnwbIQCZ4gnj6lK+92z4V+kMVHuyoLaEzaEnTxhqYnfMNlQfTNwobeT50H29HsOg6jH
-	iQ8vDfBMxMqdDqX7lxtc/LhCZGUbB3rJ+wXOmatyrPaa0niMy3XWjjKZ0ku4X4G9vwJyCmhDqmezG
-	V3iSrGMA==;
+	bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=; b=eSZxFN1ucie0a45jh1cb7+va+q
+	t2ADAUpYcL9/1TT0Hv5opLmnwxOmQfKejOO2YaVs0zwW/xumZxQUq4x+2CLDUYnNiJwUyAhWULWh4
+	V5F3O08ocps7yAtGjeBbnZnp0ohO+u2Ryfpqk5BujwUoJNCPcAlOPOab6bYOPMkmfVlB6bOcEPggT
+	Cvp0mqcKCMIBl6Gf+1Fn2nkovtXT7448NJ88UhppheW2bVeNctyllLuW/7I0SXYszTX0ijM9w46/F
+	ILrbR/UzcQoEupsxSF/r2FGC4tyQE3ZtqD5m4xyAaw8vj/z2dmaSbn8uM/I6Auq69SXiItZTpzL6f
+	CpHnVxog==;
 Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzXM-0000000GuyQ-3B1y
+	id 1tfzXO-0000000GuzF-24EM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:55:14 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-4361dc6322fso4702105e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:55:12 -0800 (PST)
+	Thu, 06 Feb 2025 10:55:16 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-43621d27adeso4641015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:55:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839311; x=1739444111; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738839313; x=1739444113; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bEAtfk9sZ7vuzt+HmDZCm4BnfnO/7nvi4Al6O9lbnV0=;
-        b=fTvDt4fpFjuv7VfSj7Zz6tr8hG98jK2lxt2JEfO0z2HgmSrDjm820MANHtGSFR7a7w
-         efKHDyXi/c6VFq576E8/D8Jju5mAvCkaWHDPKZWkT/9eMLrYP7WhNGJJ3LEj3k3CErKF
-         Zs8cCei36gkGU4SCN8xAX6n5YKkz/k8YGVUk+8I9VqL/QyPIbb0ToZ11E0bkDkSVbKXl
-         25+3o4/gFng7ZXBAsnaYm/lqTrAGFFwRO7DC86pVwkxAk2+kKPQ9w/GAvLUI96NoJ4Ef
-         apq05fIDVMYE69AOfdqrV9691bSDmerCjrAVSskQPhKmnv+C/OQSbpAonOsS5jvlsOWk
-         98kw==
+        bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=;
+        b=eVfq8q8hvviI2N4WrrDmWqDg8u72VrrkKLCfq6vzfqdELFtpPGu6o7di0r8jS/CYto
+         rI6Sb1Qrszm5r2vvLcWiw0jIpvAMH1Squg940kDYrPbwW8Jlx5tAjUOMbLLLbds6VMvi
+         bJqpOm6f0hul0POzCvXqCJWiYN/Z0arEvB+HjyyBxz7TCeLXUENXsDvWuFyAxCBpLeYw
+         kXuN6j2iiavx5dwIGIhLLpDMq1D2rXsoiLCxlcmf+B+m4ypoWpZ0XBDB3Pm31gDwo5Np
+         qMHTv6HCyGc8A2b4BWZwGOPsabzL4LKHiAnh8hmeeJ+uq11b1ZzF6I4QA59Z/00mq9gl
+         m+9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839311; x=1739444111;
+        d=1e100.net; s=20230601; t=1738839313; x=1739444113;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bEAtfk9sZ7vuzt+HmDZCm4BnfnO/7nvi4Al6O9lbnV0=;
-        b=mqpH3JQ0Off+Ceu7oGKGgXtwzTn6d0tegU0TqZE6Y418IcYOB8w88XtuUpG/f6zkga
-         OrmcguWql10LNGuHlcggtgVMJbSgKXY2DMThJ9Aw7ep530//3CYDproOHz4iP5EtuhyR
-         aDiC+dKcdcwGAlI6zLpjQZS/LzBfXTFff6zfjoT89cWQIPGY8+OnFA7TzfkF4yJBBUSK
-         +Hws7yDUPm5EEjuKD4lbMECqpR6G0Vve9mxyClMToPyYPbUbMjIkyPhRGlVUfs8r92+L
-         4vaTMkavgtBQXSLK+wXZmjuXyCWH/88NnhRFupCaQ2Fsi9++nLu/Xw6PgYT8R06WE0WB
-         ZDFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWZ3bNDstKsWO1NOzMEB4JUDHkIbgTiWJjKfZhmvn1g2LXwe3+MPJVIZMebUeqKsXm8LOEE6qNUfnY1x68kVMy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSjmKkygRHVru143JoykKpka2b3QXQDRupR8w7PAyobCKQ4SNr
-	LapXWCdkMo4go+9hYVn5a4T4DR101r3oj/HGrGvF/yo9z4lah45D
-X-Gm-Gg: ASbGncss/2W8cRSEFs58NHAWHfDEOs8oMfXWOp7bugOIEADXr+gG2Ux20ICcjQd/lm9
-	MvcCa3UBNnlEc9wcdERnYpt/zsC289iPn0XnbYL0dTmvx4VBvsVN7thISp6JLiOYB+wj7Md+mPq
-	HCVzZw7fOQgjLSeICM0L/4dHNgt5o2MFqY6zYOuzPskU48RLjNO4AOdT4fe8JiWUAr7DwWnE+of
-	mk3f7Dk3yMzrHIo3SkALn2Bz/YpGCK2ADr2D2g0KuMpDTwRDGzusqrYxoOrLePXXy8f76x6Tc+l
-	/KV8Sw==
-X-Google-Smtp-Source: AGHT+IFqbAZGecNZkCkV4EyCt9uLl+Me6VZBFwE4Ef4f+7NoRNBRql5C5/fdSnEXvukiZ8DRRQsg4A==
-X-Received: by 2002:a05:600c:3502:b0:434:a468:4a57 with SMTP id 5b1f17b1804b1-4390d56d740mr41168565e9.26.1738839311535;
-        Thu, 06 Feb 2025 02:55:11 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:18::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d966faasm51736715e9.23.2025.02.06.02.55.10
+        bh=XI5mR9awotpFmMGmD6PyGcm5Yi9TOUmCSpGD+JUgaXI=;
+        b=hmxkc2jE3HqXgK9YyQvLWDL45gTorqzLXGO253NovnLuRcfR8IlcefpGLxc/pVPNID
+         BwtJh37hxjUcmtIXZYKJMPzQ2UEIF4qks/NQ00fKCQ5Xl5s9++ijQqCcANM5FRl4u2DQ
+         hI08x0CRpbSRN5c20opSbkYyT2gAVX1GEJP1iXbK7EBHiiQ0BA9YF5OF6YIJkOgmytYs
+         EwE2sGJSzuth88N66vt2x4c4egY86jQSrQAqMx/k7vCZ5e+lRTJV9yadV1BVFWHTXmRf
+         MQc+sYz2l6J5KgO77jLzmEHPgzVAoSGTX8rW4FI2/Ze+nRR6P4EkYmnNVqaZ0lvuq53T
+         dYuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGaRAdWmt4aYGNlTJnydJf6uk1s2zq3lvIEf4NUkd3L296WpCX9x90WeUvd8fWe6OHAZcBtxi5iUBzh1DP3Gb5@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywggzn/QPog7E13YYqeJLI5dftGJq+0WmG+SAHeFyA4QV8l5iIv
+	momuRDyk+IaaiFpc56RveT8ZIOObeu0SX/6cRZCgxSPuu9qS9Cy3
+X-Gm-Gg: ASbGnct+8BtkbmcdeAa491Q0RTwzui2mXGnLZ8T98FToPA1eqIkr/pm65uDjxXQH5mF
+	l+nMVRfxVIm1wjJ/RATcoTCacGZJeFZT8hvrzITmM2h2+9ovP6FnhFqwCMTa8V1dRr9xF/Csr0p
+	b0m1+5+9L7kV5lt4Uq1t6B1qUw6hqE8sdYtH57n5tt0JYqZmCngy2L8ZSTVCvXh3wfwEWAVDa4q
+	aSzyu+0xVMOSiOmB3Qxvso+oCIRNfh/iSw9026Ir01ae2xWi9vfKYd++P5w4RczbDp5liOBhzlw
+	9SuLqQ==
+X-Google-Smtp-Source: AGHT+IHxQpWySsSSj+am/9movA5RR05zhmTuyQQ7kRFsu9/Thv/ZrVIRrKuBYgF71sqgdttaSpcNlA==
+X-Received: by 2002:a05:600c:1d01:b0:434:f335:855 with SMTP id 5b1f17b1804b1-4390d5a3b1amr46396125e9.28.1738839312912;
+        Thu, 06 Feb 2025 02:55:12 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:1e::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d9334e7sm50903345e9.6.2025.02.06.02.55.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:55:10 -0800 (PST)
+        Thu, 06 Feb 2025 02:55:12 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -102,19 +102,19 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 25/26] bpf: Maintain FIFO property for rqspinlock unlock
-Date: Thu,  6 Feb 2025 02:54:33 -0800
-Message-ID: <20250206105435.2159977-26-memxor@gmail.com>
+Subject: [PATCH bpf-next v2 26/26] selftests/bpf: Add tests for rqspinlock
+Date: Thu,  6 Feb 2025 02:54:34 -0800
+Message-ID: <20250206105435.2159977-27-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4773; h=from:subject; bh=CpkXgirFn/osRo9yRzXQj0S5SI5kmNKbptLkawFmaSc=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRn9kSW/6/ffD2Y5sJ0f0LySFJbetcpzORHAy69 oJgq0WmJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZwAKCRBM4MiGSL8RysTTEA Cs/dM0FPIuRegO0Ni1ae0PS45twSts6Al635nhtr0pJrXE19WwWgKiImtGQFXqq3EPB5/8SvfuaE8G J1P1qGxlxHodgTsNGv+svmEY0/JEu+q38yAWvB4eRw3JLHg9CbMW51ggxE1p3ZpyZYdbpTgg6oxbQE tBXlQcMrV6jKRRSW1tnaKkmrC9wWPdweMrStWBRYVKxQBsyiRvRP58LTSpAeAwLr8stkpLRqzpdlUM WixOEfnvLFoJZoPEOHf1EBfFZyIThmEomcF7O0RKWuNsk5bXmo/QkqIcglaJT064UNbt+Xcpn2Bdgv Q+c7mIOHcVf31dJK9WBMiOB2YeIOcQuybv5/L73vuSoYFc4o2Hj5Rl0C+sRvUP8mIlwf25+jxQvYBP 4tTP5udWN/wvGI3i3o1VSO5asN9D7U6bGMJ1ZAfO4SBI7Jy7BbBDsa143gR8A2A30Kw9d5HSmip4a0 DmlaU7qWHdV2XFecXaKQvl/1VrvRH9XWp3ofuOWKzZkjOYKHnOjpcqd9d0JVn9LNE+45UH8SAgmHyl VGJ9BQJpdJmgnhnBI4c3ltCVvXs7IkhGfKc0k5MJwxPnQTv+uV0xjj9cFG4MJ77JOXjgkV1tpM1Nka 70APhaWwVIcUoIfaNj8H3ninXADBCDCYIA8glTB00cVm16MtNyCn/PsFhxVQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15931; h=from:subject; bh=T/KW/xDA8UwHhiAJo3V+JzDoebizVQBXrYloT3/u9JY=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRnrlHnn/tBJ6oJ5t/DtGyjE2XhsWglV3leICP3 GP9uxzCJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZwAKCRBM4MiGSL8RygPCEA C9S+AZeaRDMKdILDKrL+7frf+PUkXKd4iu4zWS7lzhMl7sqS4Nh9t1j2+axKLBCR5GW16UadRkev9l 4AqI35PX5zJhmHuS98mojbAK0CpS2CGHXnEXEpFuaCyNsa1YcLtCp8cDsiMtko27s7eQKM+0JRXgV+ AHn3SqCKzv/56wYO8tQGN0xPhYGQyIQ358ZD+GyyR3NdWiQb7vmIK5qkZqGMpNOL1HQvR8gRQR6ptA 1PW4+UutQskXBQHy4BPCv1jc6WKr+5Dd2aa0c1PBdcGQ7fUZs9/wTKkNT+FDdNx7MlEYXg8Woa9RaX 14OIHH8WAYCA+BnP1Y20WdBptw0RU82vmXwQ5iwUyfjNyUeysFqk1dyT4ly8Wbg5CV4CXoBTsnyN6Y Sx5LJXb4UWDkzQm5GxqC7CXVXeFuV7ziqEu7dPwt7sqeT/WA9HEesT7Sc7e8S5gWuSULdoaCcKXMMz TxZWf652+WNHPkKtVodaoP4JvTJc8Vy2F+Li5/I7kMaVt2ZkqX18Qvf/4YXl2tJ/gWb6R9YYamNkwq EMJZ+zkvqv4Il+pSYLhiaoVY+mwAId1+LWNwv6b8UDTr5yVtRGYkxuTFGQWj7zgc3fxNJAX/9H6jHi OlLJLdnUrJZafds/4uVLPPoZVywAm415gF0IkMsXK0ujQlvIw6wx9VqTeeog==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_105512_986934_390BE66B 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250206_105514_620020_9925AC9F 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,130 +129,595 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since out-of-order unlocks are unsupported for rqspinlock, and irqsave
-variants enforce strict FIFO ordering anyway, make the same change for
-normal non-irqsave variants, such that FIFO ordering is enforced.
-
-Two new verifier state fields (active_lock_id, active_lock_ptr) are used
-to denote the top of the stack, and prev_id and prev_ptr are ascertained
-whenever popping the topmost entry through an unlock.
-
-Take special care to make these fields part of the state comparison in
-refsafe.
+Introduce selftests that trigger AA, ABBA deadlocks, and test the edge
+case where the held locks table runs out of entries, since we then
+fallback to the timeout as the final line of defense. Also exercise
+verifier's AA detection where applicable.
 
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- include/linux/bpf_verifier.h |  3 +++
- kernel/bpf/verifier.c        | 33 ++++++++++++++++++++++++++++-----
- 2 files changed, 31 insertions(+), 5 deletions(-)
+ .../selftests/bpf/prog_tests/res_spin_lock.c  |  99 +++++++
+ tools/testing/selftests/bpf/progs/irq.c       |  53 ++++
+ .../selftests/bpf/progs/res_spin_lock.c       | 143 ++++++++++
+ .../selftests/bpf/progs/res_spin_lock_fail.c  | 244 ++++++++++++++++++
+ 4 files changed, 539 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
+ create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock.c
+ create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
 
-diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-index ed444e44f524..92cd2289b743 100644
---- a/include/linux/bpf_verifier.h
-+++ b/include/linux/bpf_verifier.h
-@@ -269,6 +269,7 @@ struct bpf_reference_state {
- 		REF_TYPE_LOCK		= (1 << 3),
- 		REF_TYPE_RES_LOCK 	= (1 << 4),
- 		REF_TYPE_RES_LOCK_IRQ	= (1 << 5),
-+		REF_TYPE_LOCK_MASK	= REF_TYPE_LOCK | REF_TYPE_RES_LOCK | REF_TYPE_RES_LOCK_IRQ,
- 	} type;
- 	/* Track each reference created with a unique id, even if the same
- 	 * instruction creates the reference multiple times (eg, via CALL).
-@@ -435,6 +436,8 @@ struct bpf_verifier_state {
- 	u32 active_locks;
- 	u32 active_preempt_locks;
- 	u32 active_irq_id;
-+	u32 active_lock_id;
-+	void *active_lock_ptr;
- 	bool active_rcu_lock;
- 
- 	bool speculative;
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 294761dd0072..9cac6ea4f844 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -1421,6 +1421,8 @@ static int copy_reference_state(struct bpf_verifier_state *dst, const struct bpf
- 	dst->active_preempt_locks = src->active_preempt_locks;
- 	dst->active_rcu_lock = src->active_rcu_lock;
- 	dst->active_irq_id = src->active_irq_id;
-+	dst->active_lock_id = src->active_lock_id;
-+	dst->active_lock_ptr = src->active_lock_ptr;
- 	return 0;
- }
- 
-@@ -1520,6 +1522,8 @@ static int acquire_lock_state(struct bpf_verifier_env *env, int insn_idx, enum r
- 	s->ptr = ptr;
- 
- 	state->active_locks++;
-+	state->active_lock_id = id;
-+	state->active_lock_ptr = ptr;
- 	return 0;
- }
- 
-@@ -1559,16 +1563,24 @@ static void release_reference_state(struct bpf_verifier_state *state, int idx)
- 
- static int release_lock_state(struct bpf_verifier_state *state, int type, int id, void *ptr)
- {
-+	void *prev_ptr = NULL;
-+	u32 prev_id = 0;
- 	int i;
- 
- 	for (i = 0; i < state->acquired_refs; i++) {
--		if (state->refs[i].type != type)
--			continue;
--		if (state->refs[i].id == id && state->refs[i].ptr == ptr) {
-+		if (state->refs[i].type == type && state->refs[i].id == id &&
-+		    state->refs[i].ptr == ptr) {
- 			release_reference_state(state, i);
- 			state->active_locks--;
-+			/* Reassign active lock (id, ptr). */
-+			state->active_lock_id = prev_id;
-+			state->active_lock_ptr = prev_ptr;
- 			return 0;
- 		}
-+		if (state->refs[i].type & REF_TYPE_LOCK_MASK) {
-+			prev_id = state->refs[i].id;
-+			prev_ptr = state->refs[i].ptr;
-+		}
- 	}
- 	return -EINVAL;
- }
-@@ -8123,6 +8135,14 @@ static int process_spin_lock(struct bpf_verifier_env *env, int regno, int flags)
- 			type = REF_TYPE_RES_LOCK;
- 		else
- 			type = REF_TYPE_LOCK;
-+		if (!find_lock_state(cur, type, reg->id, ptr)) {
-+			verbose(env, "%s_unlock of different lock\n", lock_str);
-+			return -EINVAL;
-+		}
-+		if (reg->id != cur->active_lock_id || ptr != cur->active_lock_ptr) {
-+			verbose(env, "%s_unlock cannot be out of order\n", lock_str);
-+			return -EINVAL;
-+		}
- 		if (release_lock_state(cur, type, reg->id, ptr)) {
- 			verbose(env, "%s_unlock of different lock\n", lock_str);
- 			return -EINVAL;
-@@ -12284,8 +12304,7 @@ static int check_reg_allocation_locked(struct bpf_verifier_env *env, struct bpf_
- 
- 	if (!env->cur_state->active_locks)
- 		return -EINVAL;
--	s = find_lock_state(env->cur_state, REF_TYPE_LOCK | REF_TYPE_RES_LOCK | REF_TYPE_RES_LOCK_IRQ,
--			    id, ptr);
-+	s = find_lock_state(env->cur_state, REF_TYPE_LOCK_MASK, id, ptr);
- 	if (!s) {
- 		verbose(env, "held lock and object are not in the same allocation\n");
- 		return -EINVAL;
-@@ -18288,6 +18307,10 @@ static bool refsafe(struct bpf_verifier_state *old, struct bpf_verifier_state *c
- 	if (!check_ids(old->active_irq_id, cur->active_irq_id, idmap))
- 		return false;
- 
-+	if (!check_ids(old->active_lock_id, cur->active_lock_id, idmap) ||
-+	    old->active_lock_ptr != cur->active_lock_ptr)
-+		return false;
+diff --git a/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
+new file mode 100644
+index 000000000000..5a46b3e4a842
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
+@@ -0,0 +1,99 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
++#include <test_progs.h>
++#include <network_helpers.h>
 +
- 	for (i = 0; i < old->acquired_refs; i++) {
- 		if (!check_ids(old->refs[i].id, cur->refs[i].id, idmap) ||
- 		    old->refs[i].type != cur->refs[i].type)
++#include "res_spin_lock.skel.h"
++#include "res_spin_lock_fail.skel.h"
++
++static void test_res_spin_lock_failure(void)
++{
++	RUN_TESTS(res_spin_lock_fail);
++}
++
++static volatile int skip;
++
++static void *spin_lock_thread(void *arg)
++{
++	int err, prog_fd = *(u32 *) arg;
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.data_in = &pkt_v4,
++		.data_size_in = sizeof(pkt_v4),
++		.repeat = 10000,
++	);
++
++	while (!READ_ONCE(skip)) {
++		err = bpf_prog_test_run_opts(prog_fd, &topts);
++		ASSERT_OK(err, "test_run");
++		ASSERT_OK(topts.retval, "test_run retval");
++	}
++	pthread_exit(arg);
++}
++
++static void test_res_spin_lock_success(void)
++{
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.data_in = &pkt_v4,
++		.data_size_in = sizeof(pkt_v4),
++		.repeat = 1,
++	);
++	struct res_spin_lock *skel;
++	pthread_t thread_id[16];
++	int prog_fd, i, err;
++	void *ret;
++
++	skel = res_spin_lock__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "res_spin_lock__open_and_load"))
++		return;
++	/* AA deadlock */
++	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test);
++	err = bpf_prog_test_run_opts(prog_fd, &topts);
++	ASSERT_OK(err, "error");
++	ASSERT_OK(topts.retval, "retval");
++
++	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_held_lock_max);
++	err = bpf_prog_test_run_opts(prog_fd, &topts);
++	ASSERT_OK(err, "error");
++	ASSERT_OK(topts.retval, "retval");
++
++	/* Multi-threaded ABBA deadlock. */
++
++	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_AB);
++	for (i = 0; i < 16; i++) {
++		int err;
++
++		err = pthread_create(&thread_id[i], NULL, &spin_lock_thread, &prog_fd);
++		if (!ASSERT_OK(err, "pthread_create"))
++			goto end;
++	}
++
++	topts.repeat = 1000;
++	int fd = bpf_program__fd(skel->progs.res_spin_lock_test_BA);
++	while (!topts.retval && !err && !READ_ONCE(skel->bss->err)) {
++		err = bpf_prog_test_run_opts(fd, &topts);
++	}
++
++	WRITE_ONCE(skip, true);
++
++	for (i = 0; i < 16; i++) {
++		if (!ASSERT_OK(pthread_join(thread_id[i], &ret), "pthread_join"))
++			goto end;
++		if (!ASSERT_EQ(ret, &prog_fd, "ret == prog_fd"))
++			goto end;
++	}
++
++	ASSERT_EQ(READ_ONCE(skel->bss->err), -EDEADLK, "timeout err");
++	ASSERT_OK(err, "err");
++	ASSERT_EQ(topts.retval, -EDEADLK, "timeout");
++end:
++	res_spin_lock__destroy(skel);
++	return;
++}
++
++void test_res_spin_lock(void)
++{
++	if (test__start_subtest("res_spin_lock_success"))
++		test_res_spin_lock_success();
++	if (test__start_subtest("res_spin_lock_failure"))
++		test_res_spin_lock_failure();
++}
+diff --git a/tools/testing/selftests/bpf/progs/irq.c b/tools/testing/selftests/bpf/progs/irq.c
+index b0b53d980964..3d4fee83a5be 100644
+--- a/tools/testing/selftests/bpf/progs/irq.c
++++ b/tools/testing/selftests/bpf/progs/irq.c
+@@ -11,6 +11,9 @@ extern void bpf_local_irq_save(unsigned long *) __weak __ksym;
+ extern void bpf_local_irq_restore(unsigned long *) __weak __ksym;
+ extern int bpf_copy_from_user_str(void *dst, u32 dst__sz, const void *unsafe_ptr__ign, u64 flags) __weak __ksym;
+ 
++struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
++struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
++
+ SEC("?tc")
+ __failure __msg("arg#0 doesn't point to an irq flag on stack")
+ int irq_save_bad_arg(struct __sk_buff *ctx)
+@@ -441,4 +444,54 @@ int irq_ooo_refs_array(struct __sk_buff *ctx)
+ 	return 0;
+ }
+ 
++SEC("?tc")
++__failure __msg("cannot restore irq state out of order")
++int irq_ooo_lock_cond_inv(struct __sk_buff *ctx)
++{
++	unsigned long flags1, flags2;
++
++	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
++		return 0;
++	if (bpf_res_spin_lock_irqsave(&lockB, &flags2)) {
++		bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
++		return 0;
++	}
++
++	bpf_res_spin_unlock_irqrestore(&lockB, &flags1);
++	bpf_res_spin_unlock_irqrestore(&lockA, &flags2);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("function calls are not allowed")
++int irq_wrong_kfunc_class_1(struct __sk_buff *ctx)
++{
++	unsigned long flags1;
++
++	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
++		return 0;
++	/* For now, bpf_local_irq_restore is not allowed in critical section,
++	 * but this test ensures error will be caught with kfunc_class when it's
++	 * opened up. Tested by temporarily permitting this kfunc in critical
++	 * section.
++	 */
++	bpf_local_irq_restore(&flags1);
++	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("function calls are not allowed")
++int irq_wrong_kfunc_class_2(struct __sk_buff *ctx)
++{
++	unsigned long flags1, flags2;
++
++	bpf_local_irq_save(&flags1);
++	if (bpf_res_spin_lock_irqsave(&lockA, &flags2))
++		return 0;
++	bpf_local_irq_restore(&flags2);
++	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
++	return 0;
++}
++
+ char _license[] SEC("license") = "GPL";
+diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock.c b/tools/testing/selftests/bpf/progs/res_spin_lock.c
+new file mode 100644
+index 000000000000..f68aa2ccccc2
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/res_spin_lock.c
+@@ -0,0 +1,143 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
++#include <vmlinux.h>
++#include <bpf/bpf_tracing.h>
++#include <bpf/bpf_helpers.h>
++#include "bpf_misc.h"
++
++#define EDEADLK 35
++#define ETIMEDOUT 110
++
++struct arr_elem {
++	struct bpf_res_spin_lock lock;
++};
++
++struct {
++	__uint(type, BPF_MAP_TYPE_ARRAY);
++	__uint(max_entries, 64);
++	__type(key, int);
++	__type(value, struct arr_elem);
++} arrmap SEC(".maps");
++
++struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
++struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
++
++SEC("tc")
++int res_spin_lock_test(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem1, *elem2;
++	int r;
++
++	elem1 = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem1)
++		return -1;
++	elem2 = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem2)
++		return -1;
++
++	r = bpf_res_spin_lock(&elem1->lock);
++	if (r)
++		return r;
++	if (!bpf_res_spin_lock(&elem2->lock)) {
++		bpf_res_spin_unlock(&elem2->lock);
++		bpf_res_spin_unlock(&elem1->lock);
++		return -1;
++	}
++	bpf_res_spin_unlock(&elem1->lock);
++	return 0;
++}
++
++SEC("tc")
++int res_spin_lock_test_AB(struct __sk_buff *ctx)
++{
++	int r;
++
++	r = bpf_res_spin_lock(&lockA);
++	if (r)
++		return !r;
++	/* Only unlock if we took the lock. */
++	if (!bpf_res_spin_lock(&lockB))
++		bpf_res_spin_unlock(&lockB);
++	bpf_res_spin_unlock(&lockA);
++	return 0;
++}
++
++int err;
++
++SEC("tc")
++int res_spin_lock_test_BA(struct __sk_buff *ctx)
++{
++	int r;
++
++	r = bpf_res_spin_lock(&lockB);
++	if (r)
++		return !r;
++	if (!bpf_res_spin_lock(&lockA))
++		bpf_res_spin_unlock(&lockA);
++	else
++		err = -EDEADLK;
++	bpf_res_spin_unlock(&lockB);
++	return err ?: 0;
++}
++
++SEC("tc")
++int res_spin_lock_test_held_lock_max(struct __sk_buff *ctx)
++{
++	struct bpf_res_spin_lock *locks[48] = {};
++	struct arr_elem *e;
++	u64 time_beg, time;
++	int ret = 0, i;
++
++	_Static_assert(ARRAY_SIZE(((struct rqspinlock_held){}).locks) == 32,
++		       "RES_NR_HELD assumed to be 32");
++
++	for (i = 0; i < 34; i++) {
++		int key = i;
++
++		/* We cannot pass in i as it will get spilled/filled by the compiler and
++		 * loses bounds in verifier state.
++		 */
++		e = bpf_map_lookup_elem(&arrmap, &key);
++		if (!e)
++			return 1;
++		locks[i] = &e->lock;
++	}
++
++	for (; i < 48; i++) {
++		int key = i - 2;
++
++		/* We cannot pass in i as it will get spilled/filled by the compiler and
++		 * loses bounds in verifier state.
++		 */
++		e = bpf_map_lookup_elem(&arrmap, &key);
++		if (!e)
++			return 1;
++		locks[i] = &e->lock;
++	}
++
++	time_beg = bpf_ktime_get_ns();
++	for (i = 0; i < 34; i++) {
++		if (bpf_res_spin_lock(locks[i]))
++			goto end;
++	}
++
++	/* Trigger AA, after exhausting entries in the held lock table. This
++	 * time, only the timeout can save us, as AA detection won't succeed.
++	 */
++	if (!bpf_res_spin_lock(locks[34])) {
++		bpf_res_spin_unlock(locks[34]);
++		ret = 1;
++		goto end;
++	}
++
++end:
++	for (i = i - 1; i >= 0; i--)
++		bpf_res_spin_unlock(locks[i]);
++	time = bpf_ktime_get_ns() - time_beg;
++	/* Time spent should be easily above our limit (1/2 s), since AA
++	 * detection won't be expedited due to lack of held lock entry.
++	 */
++	return ret ?: (time > 1000000000 / 2 ? 0 : 1);
++}
++
++char _license[] SEC("license") = "GPL";
+diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
+new file mode 100644
+index 000000000000..3222e9283c78
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
+@@ -0,0 +1,244 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
++#include <vmlinux.h>
++#include <bpf/bpf_tracing.h>
++#include <bpf/bpf_helpers.h>
++#include <bpf/bpf_core_read.h>
++#include "bpf_misc.h"
++#include "bpf_experimental.h"
++
++struct arr_elem {
++	struct bpf_res_spin_lock lock;
++};
++
++struct {
++	__uint(type, BPF_MAP_TYPE_ARRAY);
++	__uint(max_entries, 1);
++	__type(key, int);
++	__type(value, struct arr_elem);
++} arrmap SEC(".maps");
++
++long value;
++
++struct bpf_spin_lock lock __hidden SEC(".data.A");
++struct bpf_res_spin_lock res_lock __hidden SEC(".data.B");
++
++SEC("?tc")
++__failure __msg("point to map value or allocated object")
++int res_spin_lock_arg(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	bpf_res_spin_lock((struct bpf_res_spin_lock *)bpf_core_cast(&elem->lock, struct __sk_buff));
++	bpf_res_spin_lock(&elem->lock);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("AA deadlock detected")
++int res_spin_lock_AA(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	bpf_res_spin_lock(&elem->lock);
++	bpf_res_spin_lock(&elem->lock);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("AA deadlock detected")
++int res_spin_lock_cond_AA(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock(&elem->lock))
++		return 0;
++	bpf_res_spin_lock(&elem->lock);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("unlock of different lock")
++int res_spin_lock_mismatch_1(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock(&elem->lock))
++		return 0;
++	bpf_res_spin_unlock(&res_lock);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("unlock of different lock")
++int res_spin_lock_mismatch_2(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock(&res_lock))
++		return 0;
++	bpf_res_spin_unlock(&elem->lock);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("unlock of different lock")
++int res_spin_lock_irq_mismatch_1(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++	unsigned long f1;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	bpf_local_irq_save(&f1);
++	if (bpf_res_spin_lock(&res_lock))
++		return 0;
++	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("unlock of different lock")
++int res_spin_lock_irq_mismatch_2(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++	unsigned long f1;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
++		return 0;
++	bpf_res_spin_unlock(&res_lock);
++	return 0;
++}
++
++SEC("?tc")
++__success
++int res_spin_lock_ooo(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock(&res_lock))
++		return 0;
++	if (bpf_res_spin_lock(&elem->lock)) {
++		bpf_res_spin_unlock(&res_lock);
++		return 0;
++	}
++	bpf_res_spin_unlock(&elem->lock);
++	bpf_res_spin_unlock(&res_lock);
++	return 0;
++}
++
++SEC("?tc")
++__success
++int res_spin_lock_ooo_irq(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++	unsigned long f1, f2;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
++		return 0;
++	if (bpf_res_spin_lock_irqsave(&elem->lock, &f2)) {
++		bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
++		/* We won't have a unreleased IRQ flag error here. */
++		return 0;
++	}
++	bpf_res_spin_unlock_irqrestore(&elem->lock, &f2);
++	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
++	return 0;
++}
++
++struct bpf_res_spin_lock lock1 __hidden SEC(".data.OO1");
++struct bpf_res_spin_lock lock2 __hidden SEC(".data.OO2");
++
++SEC("?tc")
++__failure __msg("bpf_res_spin_unlock cannot be out of order")
++int res_spin_lock_ooo_unlock(struct __sk_buff *ctx)
++{
++	if (bpf_res_spin_lock(&lock1))
++		return 0;
++	if (bpf_res_spin_lock(&lock2)) {
++		bpf_res_spin_unlock(&lock1);
++		return 0;
++	}
++	bpf_res_spin_unlock(&lock1);
++	bpf_res_spin_unlock(&lock2);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("off 1 doesn't point to 'struct bpf_res_spin_lock' that is at 0")
++int res_spin_lock_bad_off(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem)
++		return 0;
++	bpf_res_spin_lock((void *)&elem->lock + 1);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("R1 doesn't have constant offset. bpf_res_spin_lock has to be at the constant offset")
++int res_spin_lock_var_off(struct __sk_buff *ctx)
++{
++	struct arr_elem *elem;
++	u64 val = value;
++
++	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
++	if (!elem) {
++		// FIXME: Only inline assembly use in assert macro doesn't emit
++		//	  BTF definition.
++		bpf_throw(0);
++		return 0;
++	}
++	bpf_assert_range(val, 0, 40);
++	bpf_res_spin_lock((void *)&value + val);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("map 'res_spin.bss' has no valid bpf_res_spin_lock")
++int res_spin_lock_no_lock_map(struct __sk_buff *ctx)
++{
++	bpf_res_spin_lock((void *)&value + 1);
++	return 0;
++}
++
++SEC("?tc")
++__failure __msg("local 'kptr' has no valid bpf_res_spin_lock")
++int res_spin_lock_no_lock_kptr(struct __sk_buff *ctx)
++{
++	struct { int i; } *p = bpf_obj_new(typeof(*p));
++
++	if (!p)
++		return 0;
++	bpf_res_spin_lock((void *)p);
++	return 0;
++}
++
++char _license[] SEC("license") = "GPL";
 -- 
 2.43.5
 
