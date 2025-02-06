@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7876C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CF6C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=seZ029Q53nwro5iKR4Hust2uqj8wFf1yj8lBclF71bA=; b=1Kg3skKM78L9wyP2YD28P3EzTM
-	RjqIlo5cLwo8K3Q+cDWYA+IP1IXeLr+lzUbaw8WGHB1JHIq98j3fpUm7rvhBYx+b8BzlrjEKnbPUu
-	XPJL/vwFaJLRSnRdJDeR+dy3rZWFuEZFgZa0VrTraE1dRieRiewI9nurE5tTVfwUHoDe7ayJYvMJd
-	4UPpgzkcMLIR1iy4EwxygcQzTIeXwHXT2JGkPRjb6/pOPJnix5l682OvIZgQ0RKs59I+HAc+HAezk
-	5O+wYY7JVnmwhB91fRXZ8fQSIUySXnMrH+zsUAFu9WKz3DHWGpnuDRhczb5ZaRCvnbEi4Xn3ux3Oj
-	++FS0gKQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VTq5cm6Y2Q+I77uffCJShyuG5+eZpkHkByv+e81C568=; b=lp0cxiDWEXq0HigNUjgPRvJXOa
+	UVPnGCM2S1ujeVteajwe8jUnAICV01LL0NatzoNy7ckTRYeWzKMQ3blVTpXcDy7k6buthsJVCv9fE
+	EAvSzJNaYQFHvPZ/z/nPWMcrYUkGjGa7qH41Hj36OInxD+Lgdow6zRA/GraqrHS2CaHaYH1zcDQqH
+	JNjqRgdWiohwuREg9kx1MPamdVIne0QDlyX4yl2sqxefQA0iRlEhyqT27IQMeGb06ozilXOs3et9C
+	Z5gY+4tUV/y2nmngEQXZyxPzFFVyAs55oVZw8OF7/sFja4V+3RHjMCZZqeps/32PpI+SG6OwD3fZE
+	UgEfukPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg211-00000006Ryp-0n4f;
-	Thu, 06 Feb 2025 13:33:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1ti-00000006QIU-3htJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:26:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D749FEC;
-	Thu,  6 Feb 2025 05:26:49 -0800 (PST)
-Received: from [10.57.80.166] (unknown [10.57.80.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 318D33F5A1;
-	Thu,  6 Feb 2025 05:26:23 -0800 (PST)
-Message-ID: <0538d186-470e-4c4d-974c-0d7f2c96e549@arm.com>
-Date: Thu, 6 Feb 2025 13:26:08 +0000
+	id 1tg22M-00000006SCu-1sOP;
+	Thu, 06 Feb 2025 13:35:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg1vR-00000006QUD-1dWV;
+	Thu, 06 Feb 2025 13:28:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 97E3C5C5036;
+	Thu,  6 Feb 2025 13:27:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834C8C4CEDD;
+	Thu,  6 Feb 2025 13:28:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738848492;
+	bh=Gd1a6I/rgNkLBhg+heY/5rsHpIz19/CKISEK4EbgRGk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sAzPesXYT5XjA43mn9mjFSddx+URHz4e/EE+TI3tjsmUlMnvvxe3jqJrb2ZlJ1bFe
+	 B7+8xsYs0Lf82U6R5w7KQ/X3thA0P5Vsv1IuUIZmkZkTuKAjpJ4muaWX7EGNTjUhC4
+	 bZV2MS1WewT5ByL1wNIty3jPoHW4H3Vyor5VoLRrdG99UAFuY9bBiBQc4dDvz1yc/B
+	 m4Lis+O+AukrcalbjmakOOzhODUgl5kkuuVbQyLwPVyALQK8q98kZUlzRx0UPIQiAE
+	 OI2uNPgsj+QWMfQrPrWgpfkFk3ouWr/Kzq4PvmvXT8ljEvVyUKp1Hs2LJmIW688fhH
+	 LSkXPLg4eF0bg==
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
+Date: Thu,  6 Feb 2025 15:27:40 +0200
+Message-ID: <20250206132754.2596694-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and
- __ptep_get_and_clear()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-7-ryan.roberts@arm.com>
- <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_052627_017311_E9B7C111 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20250206_052813_520751_63A3B6EF 
+X-CRM114-Status: GOOD (  36.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,252 +104,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 11:48, Anshuman Khandual wrote:
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> Refactor __set_ptes(), set_pmd_at() and set_pud_at() so that they are
->> all a thin wrapper around a generic ___set_ptes(), which takes pgsize
-> 
-> s/generic/common - as generic might be misleading for being generic MM.
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Good spot. I'll make this change.
+Hi,
 
-> 
->> parameter. This cleans up the code to remove the confusing
->> __set_pte_at() (which was only ever used for pmd/pud) and will allow us
->> to perform future barrier optimizations in a single place. Additionally,
->> it will permit the huge_pte API to efficiently batch-set pgtable entries
->> and take advantage of the future barrier optimizations.
-> 
-> Makes sense.
-> 
->>
->> ___set_ptes() calls the correct page_table_check_*_set() function based
->> on the pgsize. This means that huge_ptes be able to get proper coverage
->> regardless of their size, once it's plumbed into huge_pte. Currently the
->> huge_pte API always uses the pte API which assumes an entry only covers
->> a single page.
-> 
-> Right
-> 
->>
->> While we are at it, refactor __ptep_get_and_clear() and
->> pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
->> also takes a pgsize parameter. This will provide the huge_pte API the
->> means to clear ptes corresponding with the way they were set.
-> 
-> __ptep_get_and_clear() refactoring does not seem to be related to the
-> previous __set_ptes(). Should they be separated out into two different
-> patches instead - for better clarity and review ? Both these clean ups
-> have enough change and can stand own their own.
+This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
+series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
+just to make things simpler instead of ftrace we decided to preserve
+"reserve_mem" regions.
 
-Yeah I think you're probably right... I was being lazy... I'll separate them.
+The patches are also available in git:
+https://git.kernel.org/rppt/h/kho/v4
 
-> 
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 108 +++++++++++++++++++------------
->>  1 file changed, 67 insertions(+), 41 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 0b2a2ad1b9e8..3b55d9a15f05 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -420,23 +420,6 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
->>  	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
->>  }
->>  
->> -static inline void __set_ptes(struct mm_struct *mm,
->> -			      unsigned long __always_unused addr,
->> -			      pte_t *ptep, pte_t pte, unsigned int nr)
->> -{
->> -	page_table_check_ptes_set(mm, ptep, pte, nr);
->> -	__sync_cache_and_tags(pte, nr);
->> -
->> -	for (;;) {
->> -		__check_safe_pte_update(mm, ptep, pte);
->> -		__set_pte(ptep, pte);
->> -		if (--nr == 0)
->> -			break;
->> -		ptep++;
->> -		pte = pte_advance_pfn(pte, 1);
->> -	}
->> -}
->> -
->>  /*
->>   * Hugetlb definitions.
->>   */
->> @@ -641,30 +624,59 @@ static inline pgprot_t pud_pgprot(pud_t pud)
->>  	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
->>  }
->>  
->> -static inline void __set_pte_at(struct mm_struct *mm,
->> -				unsigned long __always_unused addr,
->> -				pte_t *ptep, pte_t pte, unsigned int nr)
->> +static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
->> +			       unsigned int nr, unsigned long pgsize)
-> 
-> So address got dropped and page size got added as an argument.
 
-Yeah; addr is never used in our implementations so I figured why haul it around
-everywhere?
+Kexec today considers itself purely a boot loader: When we enter the new
+kernel, any state the previous kernel left behind is irrelevant and the
+new kernel reinitializes the system.
 
-> s/___set_ptes/___set_pxds ? to be more generic for all levels.
+However, there are use cases where this mode of operation is not what we
+actually want. In virtualization hosts for example, we want to use kexec
+to update the host kernel while virtual machine memory stays untouched.
+When we add device assignment to the mix, we also need to ensure that
+IOMMU and VFIO states are untouched. If we add PCIe peer to peer DMA, we
+need to do the same for the PCI subsystem. If we want to kexec while an
+SEV-SNP enabled virtual machine is running, we need to preserve the VM
+context pages and physical memory. See "pkernfs: Persisting guest memory
+and kernel/device state safely across kexec" Linux Plumbers
+Conference 2023 presentation for details:
 
-So now we are into naming... I agree that in some senses pte feels specific to
-the last level. But it's long form "page table entry" seems more generic than
-"pxd" which implies only pmd, pud, p4d and pgd. At least to me...
+  https://lpc.events/event/17/contributions/1485/
 
-I think we got stuck trying to figure out a clear and short term for "page table
-entry at any level" in the past. I think ttd was the best we got; Translation
-Table Descriptor, which is the term the Arm ARM uses. But that opens a can of
-worms as now we need tdd_t and all the converters pte_tdd(), tdd_pte(),
-pmd_tdd(), ... and probably a bunch more stuff on top.
+To start us on the journey to support all the use cases above, this patch
+implements basic infrastructure to allow hand over of kernel state across
+kexec (Kexec HandOver, aka KHO). As a really simple example target, we use
+memblock's reserve_mem.
+With this patch set applied, memory that was reserved using "reserve_mem"
+command line options remains intact after kexec and it is guaranteed to
+reside at the same physical address.
 
-So personally I prefer to take the coward's way out and just reuse pte.
+== Alternatives ==
 
-> 
->>  {
->> -	__sync_cache_and_tags(pte, nr);
->> -	__check_safe_pte_update(mm, ptep, pte);
->> -	__set_pte(ptep, pte);
->> +	unsigned long stride = pgsize >> PAGE_SHIFT;
->> +
->> +	switch (pgsize) {
->> +	case PAGE_SIZE:
->> +		page_table_check_ptes_set(mm, ptep, pte, nr);
->> +		break;
->> +	case PMD_SIZE:
->> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
->> +		break;
->> +	case PUD_SIZE:
->> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
->> +		break;
-> 
-> This is where the new page table check APIs get used for batch testing.
+There are alternative approaches to (parts of) the problems above:
 
-Yes and I anticipate that the whole switch block should be optimized out when
-page_table_check is disabled.
+  * Memory Pools [1] - preallocated persistent memory region + allocator
+  * PRMEM [2] - resizable persistent memory regions with fixed metadata
+                pointer on the kernel command line + allocator
+  * Pkernfs [3] - preallocated file system for in-kernel data with fixed
+                  address location on the kernel command line
+  * PKRAM [4] - handover of user space pages using a fixed metadata page
+                specified via command line
 
-> 
->> +	default:
->> +		VM_WARN_ON(1);
->> +	}
->> +
->> +	__sync_cache_and_tags(pte, nr * stride);
->> +
->> +	for (;;) {
->> +		__check_safe_pte_update(mm, ptep, pte);
->> +		__set_pte(ptep, pte);
->> +		if (--nr == 0)
->> +			break;
->> +		ptep++;
->> +		pte = pte_advance_pfn(pte, stride);
->> +	}
->>  }
-> 
-> LGTM
-> 
->>  
->> -static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
->> -			      pmd_t *pmdp, pmd_t pmd)
->> +static inline void __set_ptes(struct mm_struct *mm,
->> +			      unsigned long __always_unused addr,
->> +			      pte_t *ptep, pte_t pte, unsigned int nr)
->>  {
->> -	page_table_check_pmd_set(mm, pmdp, pmd);
->> -	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
->> -						PMD_SIZE >> PAGE_SHIFT);
->> +	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
->>  }
->>  
->> -static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
->> -			      pud_t *pudp, pud_t pud)
->> +static inline void __set_pmds(struct mm_struct *mm,
->> +			      unsigned long __always_unused addr,
->> +			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->> +{
->> +	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
->> +}
->> +#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
->> +
->> +static inline void __set_puds(struct mm_struct *mm,
->> +			      unsigned long __always_unused addr,
->> +			      pud_t *pudp, pud_t pud, unsigned int nr)
->>  {
->> -	page_table_check_pud_set(mm, pudp, pud);
->> -	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
->> -						PUD_SIZE >> PAGE_SHIFT);
->> +	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
->>  }
->> +#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
-> 
-> LGTM
-> 
->>  
->>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
->>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
->> @@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
->>  }
->>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
->>  
->> -static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
->> -				       unsigned long address, pte_t *ptep)
->> +static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
->> +				       unsigned long pgsize)
-> 
-> So address got dropped and page size got added as an argument.
-> 
->>  {
->>  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
->>  
->> -	page_table_check_pte_clear(mm, pte);
->> +	switch (pgsize) {
->> +	case PAGE_SIZE:
->> +		page_table_check_pte_clear(mm, pte);
->> +		break;
->> +	case PMD_SIZE:
->> +		page_table_check_pmd_clear(mm, pte_pmd(pte));
->> +		break;
->> +	case PUD_SIZE:
->> +		page_table_check_pud_clear(mm, pte_pud(pte));
->> +		break;
->> +	default:
->> +		VM_WARN_ON(1);
->> +	}
->>  
->>  	return pte;
->>  }
->>  
->> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
->> +				       unsigned long address, pte_t *ptep)
->> +{
->> +	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
->> +}
->> +
->>  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->>  				pte_t *ptep, unsigned int nr, int full)
->>  {
->> @@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
->>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->>  					    unsigned long address, pmd_t *pmdp)
->>  {
->> -	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
->> -
->> -	page_table_check_pmd_clear(mm, pmd);
->> -
->> -	return pmd;
->> +	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
->>  }
->>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>  
-> 
-> Although currently there is no pudp_huge_get_and_clear() helper on arm64
-> reworked ___ptep_get_and_clear() will be able to support that as well if
-> and when required as it now supports PUD_SIZE page size.
+All of the approaches above fundamentally have the same problem: They
+require the administrator to explicitly carve out a physical memory
+location because they have no mechanism outside of the kernel command
+line to pass data (including memory reservations) between kexec'ing
+kernels.
 
-yep.
+KHO provides that base foundation. We will determine later whether we
+still need any of the approaches above for fast bulk memory handover of for
+example IOMMU page tables. But IMHO they would all be users of KHO, with
+KHO providing the foundational primitive to pass metadata and bulk memory
+reservations as well as provide easy versioning for data.
 
-Thanks for all your review so far!
+== Overview ==
+
+We introduce a metadata file that the kernels pass between each other. How
+they pass it is architecture specific. The file's format is a Flattened
+Device Tree (fdt) which has a generator and parser already included in
+Linux. When the root user enables KHO through /sys/kernel/kho/active, the
+kernel invokes callbacks to every driver that supports KHO to serialize
+its state. When the actual kexec happens, the fdt is part of the image
+set that we boot into. In addition, we keep a "scratch regions" available
+for kexec: A physically contiguous memory regions that is guaranteed to
+not have any memory that KHO would preserve.  The new kernel bootstraps
+itself using the scratch regions and sets all handed over memory as in use.
+When drivers initialize that support KHO, they introspect the fdt and
+recover their state from it. This includes memory reservations, where the
+driver can either discard or claim reservations.
+
+== Limitations ==
+
+Currently KHO is only implemented for file based kexec. The kernel
+interfaces in the patch set are already in place to support user space
+kexec as well, but it is still not implemented it yet inside kexec tools.
+
+== How to Use ==
+
+To use the code, please boot the kernel with the "kho=on" command line
+parameter.
+KHO will automatically create scratch regions. If you want to set the
+scratch size explicitly you can use "kho_scratch=" command line parameter.
+For instance, "kho_scratch=512M,256M" will create a global scratch area of
+512Mib and per-node scrath areas of 256Mib.
+
+Make sure to to have a reserved memory range requested with reserv_mem
+command line option. Then before you invoke file based "kexec -l", activate
+KHO:
+
+  # echo 1 > /sys/kernel/kho/active
+  # kexec -l Image --initrd=initrd -s
+  # kexec -e
+
+The new kernel will boot up and contain the previous kernel's reserve_mem
+contents at the same physical address as the first kernel.
+
+== Changelog ==
+
+v3 -> v4:
+  - Major rework of scrach management. Rather than force scratch memory
+    allocations only very early in boot now we rely on scratch for all
+    memblock allocations.
+  - Use simple example usecase (reserv_mem instead of ftrace)
+  - merge all KHO functionality into a single kernel/kexec_handover.c file
+  - rename CONFIG_KEXEC_KHO to CONFIG_KEXEC_HANDOVER
+
+v1 -> v2:
+  - Removed: tracing: Introduce names for ring buffers
+  - Removed: tracing: Introduce names for events
+  - New: kexec: Add config option for KHO
+  - New: kexec: Add documentation for KHO
+  - New: tracing: Initialize fields before registering
+  - New: devicetree: Add bindings for ftrace KHO
+  - test bot warning fixes
+  - Change kconfig option to ARCH_SUPPORTS_KEXEC_KHO
+  - s/kho_reserve_mem/kho_reserve_previous_mem/g
+  - s/kho_reserve/kho_reserve_scratch/g
+  - Remove / reduce ifdefs
+  - Select crc32
+  - Leave anything that requires a name in trace.c to keep buffers
+    unnamed entities
+  - Put events as array into a property, use fingerprint instead of
+    names to identify them
+  - Reduce footprint without CONFIG_FTRACE_KHO
+  - s/kho_reserve_mem/kho_reserve_previous_mem/g
+  - make kho_get_fdt() const
+  - Add stubs for return_mem and claim_mem
+  - make kho_get_fdt() const
+  - Get events as array from a property, use fingerprint instead of
+    names to identify events
+  - Change kconfig option to ARCH_SUPPORTS_KEXEC_KHO
+  - s/kho_reserve_mem/kho_reserve_previous_mem/g
+  - s/kho_reserve/kho_reserve_scratch/g
+  - Leave the node generation code that needs to know the name in
+    trace.c so that ring buffers can stay anonymous
+  - s/kho_reserve/kho_reserve_scratch/g
+  - Move kho enums out of ifdef
+  - Move from names to fdt offsets. That way, trace.c can find the trace
+    array offset and then the ring buffer code only needs to read out
+    its per-CPU data. That way it can stay oblivient to its name.
+  - Make kho_get_fdt() const
+
+v2 -> v3:
+
+  - Fix make dt_binding_check
+  - Add descriptions for each object
+  - s/trace_flags/trace-flags/
+  - s/global_trace/global-trace/
+  - Make all additionalProperties false
+  - Change subject to reflect subsysten (dt-bindings)
+  - Fix indentation
+  - Remove superfluous examples
+  - Convert to 64bit syntax
+  - Move to kho directory
+  - s/"global_trace"/"global-trace"/
+  - s/"global_trace"/"global-trace"/
+  - s/"trace_flags"/"trace-flags"/
+  - Fix wording
+  - Add Documentation to MAINTAINERS file
+  - Remove kho reference on read error
+  - Move handover_dt unmap up
+  - s/reserve_scratch_mem/mark_phys_as_cma/
+  - Remove ifdeffery
+  - Remove superfluous comment
+
+Alexander Graf (9):
+  memblock: Add support for scratch memory
+  kexec: Add Kexec HandOver (KHO) generation helpers
+  kexec: Add KHO parsing support
+  kexec: Add KHO support to kexec file loads
+  kexec: Add config option for KHO
+  kexec: Add documentation for KHO
+  arm64: Add KHO support
+  x86: Add KHO support
+  memblock: Add KHO support for reserve_mem
+
+Mike Rapoport (Microsoft) (5):
+  mm/mm_init: rename init_reserved_page to init_deferred_page
+  memblock: add MEMBLOCK_RSRV_KERN flag
+  memblock: introduce memmap_init_kho_scratch()
+  x86/setup: use memblock_reserve_kern for memory used by kernel
+  Documentation: KHO: Add memblock bindings
+
+ Documentation/ABI/testing/sysfs-firmware-kho  |   9 +
+ Documentation/ABI/testing/sysfs-kernel-kho    |  53 ++
+ .../admin-guide/kernel-parameters.txt         |  24 +
+ .../kho/bindings/memblock/reserve_mem.yaml    |  41 +
+ .../bindings/memblock/reserve_mem_map.yaml    |  42 +
+ Documentation/kho/concepts.rst                |  80 ++
+ Documentation/kho/index.rst                   |  19 +
+ Documentation/kho/usage.rst                   |  60 ++
+ Documentation/subsystem-apis.rst              |   1 +
+ MAINTAINERS                                   |   3 +
+ arch/arm64/Kconfig                            |   3 +
+ arch/x86/Kconfig                              |   3 +
+ arch/x86/boot/compressed/kaslr.c              |  52 +-
+ arch/x86/include/asm/setup.h                  |   4 +
+ arch/x86/include/uapi/asm/setup_data.h        |  13 +-
+ arch/x86/kernel/e820.c                        |  18 +
+ arch/x86/kernel/kexec-bzimage64.c             |  36 +
+ arch/x86/kernel/setup.c                       |  39 +-
+ arch/x86/realmode/init.c                      |   2 +
+ drivers/of/fdt.c                              |  36 +
+ drivers/of/kexec.c                            |  42 +
+ include/linux/cma.h                           |   2 +
+ include/linux/kexec.h                         |  37 +
+ include/linux/kexec_handover.h                |  10 +
+ include/linux/memblock.h                      |  38 +-
+ kernel/Kconfig.kexec                          |  13 +
+ kernel/Makefile                               |   1 +
+ kernel/kexec_file.c                           |  19 +
+ kernel/kexec_handover.c                       | 808 ++++++++++++++++++
+ kernel/kexec_internal.h                       |  16 +
+ mm/Kconfig                                    |   4 +
+ mm/internal.h                                 |   5 +-
+ mm/memblock.c                                 | 247 +++++-
+ mm/mm_init.c                                  |  19 +-
+ 34 files changed, 1775 insertions(+), 24 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-kho
+ create mode 100644 Documentation/ABI/testing/sysfs-kernel-kho
+ create mode 100644 Documentation/kho/bindings/memblock/reserve_mem.yaml
+ create mode 100644 Documentation/kho/bindings/memblock/reserve_mem_map.yaml
+ create mode 100644 Documentation/kho/concepts.rst
+ create mode 100644 Documentation/kho/index.rst
+ create mode 100644 Documentation/kho/usage.rst
+ create mode 100644 include/linux/kexec_handover.h
+ create mode 100644 kernel/kexec_handover.c
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.47.2
 
 
