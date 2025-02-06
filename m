@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72284C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 20:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB22C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 20:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=wsnrmbgv/ixh4W6I253tgjjjvCdro2UjGLIWEuTX21I=; b=Yan1X9NRcqCAHkrBDcc2pWGUx0
-	9MtSYPpK0+1PMiUx6D8bTwe1MAX/PrhAvz8sF0TvdAzT+Mu/l0f9VV60KZXu7XQwnGt1F1wu8YJWB
-	sW2/KFAjyBlrFyJfc6tm1as9HDpvzRGgGYVneu41yZE7xVqTq5FMvL6OX84waRfrtVEAtir/79EZk
-	hH0cNu453Bxz+M0IAmfRXaHBnfZhCe1GzymzpDoZZocTWGFR6Pozy8IseQU5I18lMZHf+E6TgAclN
-	svta6Pk8qraLDk5FAAP3sWvld4GAfkDM5+7p6wgt1dttUSCfzcwkNJLNw64WF3FvkG3yGdKekdGz7
-	rJZn8U5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2NJpuP8QAvrvl+PVL24frdpuVZt5EE9YT2b5o/wg7Sc=; b=uI0GOkOt3xy4wJAu6ytRQQK4VF
+	qIZPPWaYJfgS3QCVrFPzY4cOHC2bq7BjGKJF1DmZ9Nle2qHF1kALoAELX1PGHofHpTNtRKbE7xPYj
+	DqmsCpGE3OdDBLHp9o3lNZQYb6LMpAZK/RwfgMzYXVYeSPI3R47BDr1KitSAcAmEtffrgl/KYhzOC
+	whEeKVUV7uzu4knrN3nuYk5VYHs66YnsCUyFVpFzCWdXJc1ZxWw/BT3muQ69Ngig0rYPVeruBNqxL
+	AFGCFh2PmCINGz2wA6O03E2FHULB/lqtlJUu8Z69TxD1LWzPBaogUS+YPIVxaAIB5wYZWZ5lx+u1B
+	HuIgulSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8Lh-00000007T8S-0SSE;
-	Thu, 06 Feb 2025 20:19:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tg8YQ-00000007Ud5-0Y7Y;
+	Thu, 06 Feb 2025 20:32:54 +0000
+Received: from 008.lax.mailroute.net ([199.89.1.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8KK-00000007Sys-02fV;
-	Thu, 06 Feb 2025 20:18:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C260F5C15C1;
-	Thu,  6 Feb 2025 20:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ADADC4CEDF;
-	Thu,  6 Feb 2025 20:18:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738873099;
-	bh=GvVXBTemD8hLI4sDIDJsvsxj1CuS5Lpg/Tdst6/Kwvc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=iy7LgHXJkzA1mz/gw/rzfCaoVA9gfOKC2PdEO25m0bz1brGms1iGghSjJyHNO96N/
-	 SQC0JlWX61TQXrbA0J2lZcvRUN97J8PKO27rcUymErg9BDru8+cTg5FdZJ8uZjE1hJ
-	 ze0w/Zsc/iro165y5Rslt8nNSgsW4/aic0eMrn2Dv0T4Tb5SJgOuXrukly2f0Vb9kE
-	 e603/OX9msz66Pp7ojWp7RO+8q0eZ3sXCtXnOEmZZJxyggbeovQ/+rPvPg7ImgqGnb
-	 1WsVCCMPSTbswC3R4l6JHrCdx5osrOJL19XdkwE0BQVM94ZjJSZDDwRGz+638O3Irb
-	 GkEXG1/YHyzng==
-Date: Thu, 6 Feb 2025 14:18:16 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/6] PCI: brcmstb: Refactor max speed limit
- functionality
-Message-ID: <20250206201816.GA1000559@bhelgaas>
+	id 1tg8X2-00000007URg-20XX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 20:31:29 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 008.lax.mailroute.net (Postfix) with ESMTP id 4YppfR5j1Hz6CmQyc;
+	Thu,  6 Feb 2025 20:31:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1738873880; x=1741465881; bh=2NJpuP8QAvrvl+PVL24frdpu
+	VZt5EE9YT2b5o/wg7Sc=; b=YQauap5vt91p/64wa2xD++T/ZIQ2JWQO8wxX1/RH
+	Xar37Pyvo92+OPWWeZ+xi1WOLRBHtV/o65PEcuTNSTtJhoelhJGqiaPtWgTRUMS4
+	pzdDUvF+W7dBvu8Iczfu+BO9oGWPB+QYNrAW49iKHVKbA+09SWwrTFUeNbWCK7Sb
+	4W/ktd5YuQuXCHFkGP1TvI5ywA0tdtuIbXEcRb0h4u/wbo/rCUB251x649M3BKc/
+	alyVBChUDX8ea7FdZ6ocro8HJeCSx0ThYkXkNa+eUNbpHcy6ra1WUWuOITFRXX6G
+	6fGY/AQhisdqp6w6+oLB0o1DknrAat3T/0tZOaVi0FKTLw==
+X-Virus-Scanned: by MailRoute
+Received: from 008.lax.mailroute.net ([127.0.0.1])
+ by localhost (008.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id SA9dIvRNaZcF; Thu,  6 Feb 2025 20:31:20 +0000 (UTC)
+Received: from [100.66.154.22] (unknown [104.135.204.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 008.lax.mailroute.net (Postfix) with ESMTPSA id 4YppfF2X6tz6CmQyZ;
+	Thu,  6 Feb 2025 20:31:16 +0000 (UTC)
+Message-ID: <373d62da-810f-492c-af2f-53b32cc90b33@acm.org>
+Date: Thu, 6 Feb 2025 12:31:14 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+-6iNwY-Fc-nfawc_EtDRBvYht_491v80THW=4F-iY7Nqa81w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
+To: Sean Anderson <sean.anderson@linux.dev>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "open list:DRM DRIVERS FOR XILINX" <dri-devel@lists.freedesktop.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>, David Airlie <airlied@gmail.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Michal Simek
+ <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+References: <20250206194117.1496245-1-sean.anderson@linux.dev>
+ <20250206194117.1496245-3-sean.anderson@linux.dev>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20250206194117.1496245-3-sean.anderson@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_121820_090092_A377C110 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250206_123128_534658_B6AD51D8 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 01:27:44PM -0500, Jim Quinlan wrote:
-> On Thu, Feb 6, 2025 at 12:04 PM Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > On Wed, Feb 05, 2025 at 02:12:01PM -0500, Jim Quinlan wrote:
-> > > Make changes to the code that limits the PCIe max speed.
-> ...
+On 2/6/25 11:41 AM, Sean Anderson wrote:
+>   static int zynqmp_dp_enhanced_set(void *data, u64 val)
+>   {
+>   	struct zynqmp_dp *dp = data;
+> -	int ret = 0;
+>   
+> -	mutex_lock(&dp->lock);
+> +	guard(mutex)(&dp->lock);
+>   	dp->test.enhanced = val;
+>   	if (dp->test.active)
+> -		ret = zynqmp_dp_test_setup(dp);
+> -	mutex_unlock(&dp->lock);
+> +		return zynqmp_dp_test_setup(dp);
+>   
+> -	return ret;
+> +	return 0;
+>   }
 
-> And here I thought that uXX_replace_bits() was the up-and-coming
-> solution to be used :-)
+Has it been considered to combine the two return statements into one
+with the ternary operator (?:)?
 
-:)  Yeah, I was kind of surprised that it isn't used more, given that
-it was merged in 2017.  And it *does* reduce some repetition, which is
-definitely an advantage.  But the fact that those functions are hard
-to find with grep is a big turnoff for me.
+>   static int zynqmp_dp_downspread_set(void *data, u64 val)
+>   {
+>   	struct zynqmp_dp *dp = data;
+> -	int ret = 0;
+>   
+> -	mutex_lock(&dp->lock);
+> +	guard(mutex)(&dp->lock);
+>   	dp->test.downspread = val;
+>   	if (dp->test.active)
+> -		ret = zynqmp_dp_test_setup(dp);
+> -	mutex_unlock(&dp->lock);
+> +		return zynqmp_dp_test_setup(dp);
+>   
+> -	return ret;
+> +	return 0;
+>   }
 
-I wasn't really a fan of GENMASK() and FIELD_PREP() at first either,
-but now I'm a big fan because you don't need _SHIFT #defines and it
-reduces shift/mask errors.  So probably the same will happen with
-uXX_replace_bits().
+Same question here.
+
+> @@ -2053,7 +2039,8 @@ static ssize_t zynqmp_dp_custom_read(struct file *file, char __user *user_buf,
+>   		return ret;
+>   
+>   	mutex_lock(&dp->lock);
+> -	ret = simple_read_from_buffer(user_buf, count, ppos, &dp->test.custom,
+> +	ret = simple_read_from_buffer(user_buf, count, ppos,
+> +				      &dp->test.custom,
+>   				      sizeof(dp->test.custom));
+
+This change has not been mentioned in the patch description and is not
+related to the other changes in this patch?
+
+> -	return ret;
+> +	dp->test.link_cnt = val;
+> +	if (dp->test.active)
+> +		return zynqmp_dp_test_setup(dp);
+> +
+> +	return 0;
+>   }
+
+Has it been considered to use the ternary operator here?
+
+Thanks,
+
+Bart.
 
