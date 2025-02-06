@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A051C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 20:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8601AC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 20:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/WyK6vRoG5SvaOVIStlOKOP4rX2lqtxKCb+Y8Y6C15k=; b=4jukSd393oQ5cS1fGwxyRM5Kak
-	FOU0HxqOAERy/h0lZeD7rwAll+pC+mGuI+vQF2oK6pNovPi8Zl6C0YMiOB0r+nRaFfzosgIfAO1kj
-	Ei6Lta6OnlkN3UnQR0/05jSvpsFrc4WvufEbjqih0l8C8d7FGaAi3HJuFBZls34tiMMp1gQKcW5/Y
-	S2cgfx1fUl1o5VnctvhLH4B5T70s8Bn8l/JMsa0LEyFs8xgECIVS8rPAyPTeyokBx7+cEjJkBuOir
-	8U3d53iSK4IaRsR/JTOssIYC7ATpbSyXZKxj29liADw+YYZdAZnrhdvpn5/dRcTaNIEH3tmsuTQEd
-	8xikXElA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NjEaGuJsOIEX41KTQZnWk9kTKnJ6sOvoVBJoUoormHg=; b=GwVqURlNVCAmPvrAloAVWeXaVo
+	07s8MvKfJP22E28YtbT9AcYRFI0OREQCNG+8g9mNcWYZxoUpUqXPkqnQyWk482dDlGTB5jFiVh05F
+	EmQREkZWQKWwwwq20Wh7hcQHxe1RgbrXb7nNptQP74+TlIoDE5AEBdVcdYXH4+8l+ztMTPx2XgYXT
+	dmc8oy81i/8gw5CN5ddS5eopy2XChZnrk/wRlHm8EUXK6C5m4G2fNGfo1iGCbGHaztGKpq3K+AyyS
+	E8UgHNPice0QJKvunDb+5VvVc7IDTGW4i3l3mWN0O9ybH7n2S3mqEzPKzqHvFs2c2dxAYd9jK356n
+	zqnWtvzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8ee-00000007VLF-38Yv;
-	Thu, 06 Feb 2025 20:39:20 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1tg8g0-00000007VSB-1bZA;
+	Thu, 06 Feb 2025 20:40:44 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8dH-00000007VCk-0rjF
+	id 1tg8dM-00000007VD4-3I1I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 20:37:56 +0000
-Message-ID: <c10a8643-6f6f-4428-91a7-e7f5c92a3f58@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738874272;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/WyK6vRoG5SvaOVIStlOKOP4rX2lqtxKCb+Y8Y6C15k=;
-	b=pBG5+4mVjB1wCwVfamE6jbu2Sp4OgvrtK4kKPXsOUOYbYZ47J0onJi1xzn5vqNhXDlyRAY
-	rqs93SbLUS5C4BHgrpb7jrGORPH9aeagOaEDLkJ78/XP+gcJHXMaqfjexUnQQd6QPBd0gy
-	39hovJ3GT+kdg0GIvNOQlePzERbQnXU=
-Date: Thu, 6 Feb 2025 15:37:48 -0500
+	Thu, 06 Feb 2025 20:38:02 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DE1E41198;
+	Thu,  6 Feb 2025 21:36:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1738874201;
+	bh=5mXvQd3CneBXdKXgCdHA5M7k1+OX9VqlZ0ZD8Zqbwm8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IU94JLeg6sNSomp5TUI4RVTuWRKfqiDj/mlWqvcmC/16KSKlIEcWrZ1nnVRTsb3Mp
+	 3z6yoAdanHa1Sja/kBnJUPyqKLB2g0FwseptGe0C/EjROTGu4L6muaZZb7n6GXXqIU
+	 ge6BIq3HCOd2126eyEximadQRIk59/lkeahaZzyo=
+Date: Thu, 6 Feb 2025 22:37:49 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] media: nxp: imx8-isi: better handle the m2m
+ usage_count
+Message-ID: <20250206203749.GD7524@pendragon.ideasonboard.com>
+References: <20241023085643.978729-1-laurentiu.palcu@oss.nxp.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
-To: Bart Van Assche <bvanassche@acm.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- "open list:DRM DRIVERS FOR XILINX" <dri-devel@lists.freedesktop.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, David Airlie <airlied@gmail.com>,
- Dan Carpenter <dan.carpenter@linaro.org>, Michal Simek
- <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-References: <20250206194117.1496245-1-sean.anderson@linux.dev>
- <20250206194117.1496245-3-sean.anderson@linux.dev>
- <373d62da-810f-492c-af2f-53b32cc90b33@acm.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <373d62da-810f-492c-af2f-53b32cc90b33@acm.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241023085643.978729-1-laurentiu.palcu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_123755_607474_0DFBDED0 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250206_123801_151477_6C70F040 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +76,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/25 15:31, Bart Van Assche wrote:
-> On 2/6/25 11:41 AM, Sean Anderson wrote:
->>   static int zynqmp_dp_enhanced_set(void *data, u64 val)
->>   {
->>       struct zynqmp_dp *dp = data;
->> -    int ret = 0;
->>   -    mutex_lock(&dp->lock);
->> +    guard(mutex)(&dp->lock);
->>       dp->test.enhanced = val;
->>       if (dp->test.active)
->> -        ret = zynqmp_dp_test_setup(dp);
->> -    mutex_unlock(&dp->lock);
->> +        return zynqmp_dp_test_setup(dp);
->>   -    return ret;
->> +    return 0;
->>   }
+Hi Laurentiu,
+
+Thank you for the patch.
+
+On Wed, Oct 23, 2024 at 11:56:43AM +0300, Laurentiu Palcu wrote:
+> Currently, if streamon/streamoff calls are imbalanced we can either end up
+> with a negative ISI m2m usage_count (if streamoff() is called more times
+> than streamon()) in which case we'll not be able to restart the ISI pipe
+> next time, or the usage_count never gets to 0 and the pipe is never
+> switched off.
 > 
-> Has it been considered to combine the two return statements into one
-> with the ternary operator (?:)?
-
-I didn't consider it, but the line is short enough that I can add it.
-
->> @@ -2053,7 +2039,8 @@ static ssize_t zynqmp_dp_custom_read(struct file *file, char __user *user_buf,
->>           return ret;
->>         mutex_lock(&dp->lock);
->> -    ret = simple_read_from_buffer(user_buf, count, ppos, &dp->test.custom,
->> +    ret = simple_read_from_buffer(user_buf, count, ppos,
->> +                      &dp->test.custom,
->>                         sizeof(dp->test.custom));
+> To avoid that, add a 'streaming' flag to mxc_isi_m2m_ctx_queue_data and use it
+> in the streamon/streamoff to avoid incrementing/decrementing the usage_count
+> uselessly, if called multiple times from the same context.
 > 
-> This change has not been mentioned in the patch description and is not
-> related to the other changes in this patch?
+> Fixes: cf21f328fcafac ("media: nxp: Add i.MX8 ISI driver")
+> Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> ---
+> v3:
+>  * Changed the implementation as suggested by Laurent and add a Suggested-by
+>    tag to reflect that;
+> 
+> v2:
+>  * Changed the way 'usage_count' is incremented/decremented by taking
+>    into account the context the streamon/streamoff functions are called
+>    from;
+>  * Changed the commit message and subject to reflect the changes;
+> 
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 9745d6219a166..dc10e1a9f27c1 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -43,6 +43,7 @@ struct mxc_isi_m2m_ctx_queue_data {
+>  	struct v4l2_pix_format_mplane format;
+>  	const struct mxc_isi_format_info *info;
+>  	u32 sequence;
+> +	bool streaming;
+>  };
+>  
+>  struct mxc_isi_m2m_ctx {
+> @@ -486,6 +487,7 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+>  				enum v4l2_buf_type type)
+>  {
+>  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+>  	const struct v4l2_pix_format_mplane *out_pix = &ctx->queues.out.format;
+>  	const struct v4l2_pix_format_mplane *cap_pix = &ctx->queues.cap.format;
+>  	const struct mxc_isi_format_info *cap_info = ctx->queues.cap.info;
+> @@ -495,6 +497,9 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+>  
 
-I think I made this change while refactoring, but it turned out not to
-be necessary. I will remove it for the next revision.
+While at it I'll drop the blank line here when applying the patch.
 
---Sean
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  	int ret;
+>  
+> +	if (q->streaming)
+> +		return 0;
+> +
+>  	mutex_lock(&m2m->lock);
+>  
+>  	if (m2m->usage_count == INT_MAX) {
+> @@ -547,6 +552,8 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+>  		goto unchain;
+>  	}
+>  
+> +	q->streaming = true;
+> +
+>  	return 0;
+>  
+>  unchain:
+> @@ -569,10 +576,14 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
+>  				 enum v4l2_buf_type type)
+>  {
+>  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+>  	struct mxc_isi_m2m *m2m = ctx->m2m;
+>  
+>  	v4l2_m2m_ioctl_streamoff(file, fh, type);
+>  
+> +	if (!q->streaming)
+> +		return 0;
+> +
+>  	mutex_lock(&m2m->lock);
+>  
+>  	/*
+> @@ -598,6 +609,8 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
+>  
+>  	mutex_unlock(&m2m->lock);
+>  
+> +	q->streaming = false;
+> +
+>  	return 0;
+>  }
+>  
+
+-- 
+Regards,
+
+Laurent Pinchart
 
