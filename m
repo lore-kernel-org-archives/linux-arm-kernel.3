@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B8EC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C4F6C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVIqXYzlOehlZiy0ALlRjz1XQBncBUDd5NT43WUTgZ8=; b=OXK9oM6+6duD1OHdSl5FZ7f721
-	yiu9agO1cjhmh2HVXQhc0lYcbROiJPyApie5WVip1MiM2eKQny/uxxKPMxe+wxn/CqC7SgeqKH0uB
-	/LcTBmCx4z8zGctwpGEb7RUb1iHpMxCzzlCVa5DeVdT3nKVLy/TuhHPL2whzH2quVOXiCO0HGsqeF
-	b5AahWj+Kc/MGKpEMXumpcY+RqZK7vJQCUN+h3x6Eg11e86C6+8V4D3o2JPkwWzKlXWqCBZDn3DhV
-	O2hy5I08AhNev2dzj43RPK6rOaW82cpQeFXyVykK2TSZ+4hPFNebipm4TZvFuROc20k6QkGaCCTCN
-	df2gJOqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OyCuvjHuxSPR1hkagfM/RsHa0ENTfkjdD4WRpNm9UZQ=; b=16PYbOSD2rTqtObkhVZJthozO9
+	HdUwXzFNDsDORcMF9xmtGrcZ70H8/mOZ3JsxK6XMJjXa3VXnTB3h4Asy4ztSDpdtVDS90pyuWmu9u
+	lrsQlrZnC08VTpYL/0YFHUGWmc0nF+EWYvHRx9EL9I0yMYA5m80I8B70AeD4afHSv2hGxkVWeIYSC
+	3d7/AbSSjHExRsJqB5Y7n1BluHYzCI+2JhtFnk3zbqFMcMiJoQBLa69GQ6taxAUWHpWK9BlG7lax6
+	Zkz6a6EpAHPXx2fFKtICTHWE/IvF24HsIknoAIfm4ECZg7TLZZixh+RJJqhWfCh7G5ClyBGs7+CWP
+	S4UtQlMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5Xw-00000006yXF-1QNK;
-	Thu, 06 Feb 2025 17:20:12 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tg5gD-00000006zDW-3q4P;
+	Thu, 06 Feb 2025 17:28:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5WY-00000006yNF-3Onh;
-	Thu, 06 Feb 2025 17:18:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1738862280; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=PPCYLM87aFcVCAfMPQQ0yXcTyrsvnyTkKS+eEJWcy9cBCCuvU9Z/z8+pzbkYFtSX/1MtKPTSysfLFbXWsfEn4byj3fWbAOF50Y5tLH18AvdCZkKxLHaumA6PPi+w7cpbrzAW/zHZKRqAzxiN4l2puMicJGcIhAlDALNZ/b9YfU8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1738862280; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=HVIqXYzlOehlZiy0ALlRjz1XQBncBUDd5NT43WUTgZ8=; 
-	b=lPCdyF7Zdv6I6M84wss5fyglm2/LO3RG4Et3v4lfGLGQtmGbCACYz2VhVdDLcJWcdkQycgDbkuk4ZGGxHhKk3iAeh8IIV+awP5nEJB6tY9fg6a7T5kzzIZdXZPuU8y+dOu74c75bQ/v04kDe4qTY+pxoFi38JCRIwNMDaaZrC74=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1738862280;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=HVIqXYzlOehlZiy0ALlRjz1XQBncBUDd5NT43WUTgZ8=;
-	b=Xnnm+nO0wx4RBQFTK/tSarsm6Bq5OMFkZ+7cIhAlPgfpa8rlnBCfdv+urPIUC2vV
-	cVB821xhg1vXmN291QFqArQSM1Jav3BdpYYLbFovhHAs0as6IBcrW3FP/nqYb12ynyh
-	Wy1JW0YmE72r82iNQ0hiaJt67LjAQrKfsPFHG18w=
-Received: by mx.zohomail.com with SMTPS id 173886227382959.44952550211565;
-	Thu, 6 Feb 2025 09:17:53 -0800 (PST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org, Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Alexey Charkov <alchark@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Dragan Simic <dsimic@manjaro.org>, Jianfeng Liu <liujianfeng1994@gmail.com>,
- Niklas Cassel <cassel@kernel.org>, FUKAUMI Naoki <naoki@radxa.com>,
- Kever Yang <kever.yang@rock-chips.com>, Johan Jonker <jbx6244@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Algea Cao <algea.cao@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
- Sugar Zhang <sugar.zhang@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org, kernel@collabora.com
-Subject: Re: [PATCH v5 2/3] arm64: dts: rockchip: Add HDMI0 audio output for rk3588
- SoC
-Date: Thu, 06 Feb 2025 12:17:51 -0500
-Message-ID: <2781606.mvXUDI8C0e@earth>
-In-Reply-To: <bfe9cb98-12ba-484c-95af-e5842edaab76@cherry.de>
-References: <20250203171925.126309-1-detlev.casanova@collabora.com>
- <20250203171925.126309-3-detlev.casanova@collabora.com>
- <bfe9cb98-12ba-484c-95af-e5842edaab76@cherry.de>
+	id 1tg5eq-00000006z1F-1keR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 17:27:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0DC255C66EE;
+	Thu,  6 Feb 2025 17:26:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BCF6C4CEDD;
+	Thu,  6 Feb 2025 17:27:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738862839;
+	bh=pPmLZssZVb0h1amjrYDb6Gwl7U84SRos3SRqFBYvoCo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=bYBURifiYdmqDU+oTvDryxlGF6HdiUW+WvteWC1oxTFN+XGfdL1BNVaER58x8OtIE
+	 IdKrOpUoXHVeykjblCZ4ptC6a04lDIVjqsrj9c5rgGpj1bK6NXA0U48B+lFnoMObIE
+	 gYtgFeBqOog5L317/SLiPgBPKKtoESVsFBhkXYcuXNoky9w8UByRZ/8OYrrDiep3EV
+	 rsOfHBP2MyesRJroDTO5kPFpjUUbcWcgJB3B1P/o1hcvnu1j0WbBsPjCUsRnh47IDI
+	 aeTapHdfhAakZ39fwHXZ3BXCGThmljkoP7u8sr3XS+w6qzw4wzXor+jPiNTFNwYiPl
+	 IVNkCU6/AqYKg==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Thu, 06 Feb 2025 10:21:38 -0700
+Subject: [PATCH v3] arm64: Handle .ARM.attributes section in linker scripts
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250206-arm64-handle-arm-attributes-in-linker-script-v3-1-d53d169913eb@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKHvpGcC/5WNyw6CMBBFf4V07Rj6QnTlfxgXBQadiIVMK9EQ/
+ t1CYoxLl+fe5JxJBGTCIA7ZJBhHCtT7BHqTifrq/AWBmsRC5crmUmlwfC8MpKvpcAFwMTJVj4g
+ ByENH/oYMoWYaIpTKISqrpXa1SMqBsaXnmjudE18pxJ5fa32Uy/oJmf9CowQJOyO1rYq61WZ/T
+ KfHbtvzRSylUX3tKv/XrpK9KUqT73ettdb82Od5fgPktuqQRwEAAA==
+X-Change-ID: 20250123-arm64-handle-arm-attributes-in-linker-script-82aee25313ac
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, stable@vger.kernel.org, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2841; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=pPmLZssZVb0h1amjrYDb6Gwl7U84SRos3SRqFBYvoCo=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDOlLPnxV+6A67+IFds/l3b5sU1/8niS54G3eHR6XVy03n
+ H2kn4fJdZSyMIhxMciKKbJUP1Y9bmg45yzjjVOTYOawMoEMYeDiFICJKB1jZNhiENbys+tSl9w+
+ rkVL94q4npbStW/y+bFusfHsh8rWLf8ZGVr7NlVukIz0WbhMdH7u8hsfLriuOKzteLeT/7rQas3
+ FScwA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_091846_903757_22CA49EC 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20250206_092720_544171_06E6BE5C 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +85,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 4 February 2025 05:14:37 EST Quentin Schulz wrote:
-> Hi Detlev,
-> 
-> On 2/3/25 6:16 PM, Detlev Casanova wrote:
-> > Use the simple-audio-card driver with the hdmi0 QP node as CODEC and
-> > the i2s5 device as CPU.
-> > 
-> > The simple-audio-card,mclk-fs value is set to 128 as it is done in
-> > the downstream driver.
-> > 
-> > The #sound-dai-cells value is set to 0 in the hdmi0 node so that it can be
-> > used as an audio codec node.
-> > 
-> > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> > ---
-> > 
-> >   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 17 +++++++++++++++++
-> >   1 file changed, 17 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi index
-> > 8cfa30837ce72..767bdfc06b7ec 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > @@ -1369,6 +1369,22 @@ i2s9_8ch: i2s@fddfc000 {
-> > 
-> >   		status = "disabled";
-> >   	
-> >   	};
-> > 
-> > +	hdmi0_sound: hdmi0-sound {
-> > +		compatible = "simple-audio-card";
-> > +		simple-audio-card,format = "i2s";
-> > +		simple-audio-card,mclk-fs = <128>;
-> > +		simple-audio-card,name = "hdmi0";
-> > +		status = "disabled";
-> > +
-> > +		simple-audio-card,codec {
-> > +			sound-dai = <&hdmi0>;
-> > +		};
-> > +
-> > +		simple-audio-card,cpu {
-> > +			sound-dai = <&i2s5_8ch>;
-> > +		};
-> > +	};
-> > +
-> 
-> This is an address/bus-less device, so I believe it needs to be put
-> among other address/bus-less devices, which for Rockchip SoCs is at the
-> top of the DT? c.f.
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.
-> html
-> 
-> **I** would put it between the firmware and the pmu-a55 nodes.
+A recent LLVM commit [1] started generating an .ARM.attributes section
+similar to the one that exists for 32-bit, which results in orphan
+section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+because it is not handled in the arm64 linker scripts.
 
-I wasn't sure about this. It makes sense to move it with address-less devices, 
-but the rk3399 device tree has it above the hdmi node, so I wanted to stay 
-consistent with that.
+  ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
 
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger Haikou
-> 
-> Thanks!
-> Quentin
+  ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+  ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
 
+Discard the new sections in the necessary linker scripts to resolve the
+warnings, as the kernel and vDSO do not need to retain it, similar to
+the .note.gnu.property section.
 
+Cc: stable@vger.kernel.org
+Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+Changes in v3:
+- Update location of section discard in vDSO to align with
+  .note.gnu.property discard since the sectionss are similar in
+  nature (Will).
+- Link to v2: https://lore.kernel.org/r/20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org
 
+Changes in v2:
+- Discard the section instead of adding it to the final artifacts to
+  mirror the .note.gnu.property section handling (Will).
+- Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+---
+ arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+ arch/arm64/kernel/vmlinux.lds.S   | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 4ec32e86a8da..47ad6944f9f0 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -41,6 +41,7 @@ SECTIONS
+ 	 */
+ 	/DISCARD/	: {
+ 		*(.note.GNU-stack .note.gnu.property)
++		*(.ARM.attributes)
+ 	}
+ 	.note		: { *(.note.*) }		:text	:note
+ 
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index f84c71f04d9e..e73326bd3ff7 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -162,6 +162,7 @@ SECTIONS
+ 	/DISCARD/ : {
+ 		*(.interp .dynamic)
+ 		*(.dynsym .dynstr .hash .gnu.hash)
++		*(.ARM.attributes)
+ 	}
+ 
+ 	. = KIMAGE_VADDR;
+
+---
+base-commit: 1dd3393696efba1598aa7692939bba99d0cffae3
+change-id: 20250123-arm64-handle-arm-attributes-in-linker-script-82aee25313ac
+
+Best regards,
+-- 
+Nathan Chancellor <nathan@kernel.org>
 
 
