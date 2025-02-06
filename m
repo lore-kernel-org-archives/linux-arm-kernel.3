@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3114FC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF77C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HprnZz+23vuC9LmGL8XnbIXriJHxrQ66oBlYZJmUzXo=; b=en3L7+Po6E2DHdbQbJ1aRzFV6m
-	gjFOeEXhcN499FfbP2gU1nlrLkurjEJVQ3pN/UnRbPUjR9L8hdSTDQzoPhu9mE/i+5BDkgk0gA72x
-	xonOGO3jcAQZlkWwKnozyluHgC+nY6pHU9HSzAFHKdfrzrq2Fo4AEeIO4Yo1MLKBEAl8zcWTw2RhN
-	qz34Esu1/6IZV/79Q8SNLPO5+DuysCOEcNNexGH/GryMcNUYtf0p2EqNSxNE8dViMJIrR8sNPHtli
-	Tcs8keY++j/eUNzAS45sYj1kzo0HeGneX+vGWCX9BqVwOmLJhPI7EDa7qJ21B0gM7IMRcwFOkUrOW
-	zxNxguEQ==;
+	bh=V+gxbSsEreFJyiRfbcRA4T6b6InHxmXT5GtSoKZT5rw=; b=1nRnGuoxaHvjioe7d3hvae8xdP
+	mYfi1Q45aeR3iFlJv9KZ0BVvnYdDwkHPwQUZ5GCxIwmEKvwyRgAAD6MVhzQquMRZYDjKTFXKWvCp+
+	6KPtEQ5UDIEFpHm9L3Uu0qDfPSHexx9bamq47FX2wLeOFfqxpL7cBmqz9JetJfjXVJ3VvDfF3t9mA
+	VIGn29PZNW0F4IrkMqvCwfYKSkGXBx6KcJBfHbW/J9J1Cx+9nIl0GOQAPAQDomHRG5PZ9dWs5aFcU
+	c4g7NfYAExZdwiYvLSqxPgCjJP1cj8VyrE5ks5Khno2FKrVWEVTl9midvaQEP7draaybYPE904Klc
+	sCNl8zbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2uW-00000006ahM-1gtZ;
+	id 1tg2uW-00000006ahn-461t;
 	Thu, 06 Feb 2025 14:31:20 +0000
 Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1o3-00000006OfZ-14kl
+	id 1tg1o6-00000006Oh5-1JCR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:20:36 +0000
+	Thu, 06 Feb 2025 13:20:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738848035; x=1770384035;
+  t=1738848038; x=1770384038;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=5bkc6SzUBfdWPSB7gExlTFthIkT/D4tk+mfb1mANDSw=;
-  b=PkIj0Ov8cJRzehG27lNCJLiDEuMuOcLruay8ynQdeOmUQBreM+iUtlRd
-   4RxB1cyAD34GlzAk2ngHEDVvksNXlGvBp341auQBu+XSjGsimZ9g+5wZ2
-   qF+o741cYsd4gQbugxIGsAYTdqATqoAsYXLHQY+2UDnXrNe9y8BD5N7mV
-   BWHNOpULanqeVkTn0vtYESpJSVRCmxxjiRnlPIwoV1TSVi2cF3O8i9AMM
-   zU8tA1PqJQ+EeG7nrxQ/Hu/wRkgF6ecOOEUKbjnzmVW1u1jkkT6g0WltK
-   HEkZZp5/FUAglKnLBbxPNZCQqBUd+mKx2GWDiUNc9Jg0hr4ePRXKu6UGw
+  bh=lOxPWBQ/UPAGy6nREPmx7d08BAoMjZkLK0OTKYz+EjQ=;
+  b=dgF4BqNOV3MD9Hxq/E09RUpBYGsrS5mis8wiuZUMi4Rha/BAAHUW1Q2L
+   KS8A47aJYAFuQteTzT3xYpxJaGvNDdLVAdzldKwEa22fGt7XyTzKiuVTZ
+   hY7K22r0fn/T/Lh6j763BUJis9e3NCBAq8a8O60RKtTo9ihjUXnFSofE9
+   kE0zRTCROD/Gj5yYvzNEet0eNeulbnEseX4LE2rfkXP0a6rCSbRvhfdRI
+   SjvbwV7JGnjXnhQEXChKWMR7JHX82LN9FK40M5hfT+gxG6gNUGsXblMBr
+   +SlLaL1D5+D3rBGy/8OsJWf+H0rs8XGxDDVfMfFueN0Y0R9NMwAaBQAOO
    g==;
-X-CSE-ConnectionGUID: f6hAi9AaQmOI/VSiaAwCzg==
-X-CSE-MsgGUID: Z+055qWNS1i8ZI8jRHF4vw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="43203702"
+X-CSE-ConnectionGUID: AOZZFBzeQIewguCRL+GIvQ==
+X-CSE-MsgGUID: vOhV2Ik5QZ+8xN+0IT0KtA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="43203765"
 X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="43203702"
+   d="scan'208";a="43203765"
 Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 05:20:11 -0800
-X-CSE-ConnectionGUID: b5zDbrMATBqn4J0F6EZCLw==
-X-CSE-MsgGUID: qsNBivt5QuaTxQqftJkw4A==
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 05:20:29 -0800
+X-CSE-ConnectionGUID: 36xqX2d9QOqYVEy7T8O28g==
+X-CSE-MsgGUID: puTWITCMSxaQNpTZ6t8aag==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="116397257"
+   d="scan'208";a="116397326"
 Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa005.jf.intel.com with ESMTP; 06 Feb 2025 05:20:04 -0800
+  by orviesa005.jf.intel.com with ESMTP; 06 Feb 2025 05:20:22 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Simon Horman <horms@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -87,17 +87,17 @@ Cc: x86@kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v7 2/7] net: pcs: xpcs: re-initiate clause 37 Auto-negotiation
-Date: Thu,  6 Feb 2025 21:18:54 +0800
-Message-Id: <20250206131859.2960543-3-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net-next v7 4/7] stmmac: intel: configure SerDes according to the interface mode
+Date: Thu,  6 Feb 2025 21:18:56 +0800
+Message-Id: <20250206131859.2960543-5-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
 References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_052035_355577_A63776E0 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250206_052038_424956_17563CF2 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,121 +112,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The xpcs_switch_interface_mode function was introduced to handle
-interface switching.
+Intel platform will configure the SerDes through PMC API based on the
+provided interface mode.
 
-According to the XPCS datasheet, a soft reset is required to initiate
-Clause 37 auto-negotiation when the XPCS switches interface modes.
-
-When the interface mode is set to 2500BASE-X, Clause 37 auto-negotiation
-is turned off.
-
-Subsequently, when the interface mode switches from 2500BASE-X to SGMII,
-re-initiating Clause 37 auto-negotiation is required for the SGMII
-interface mode to function properly.
+This patch adds several new functions below:-
+- intel_tsn_lane_is_available(): This new function reads FIA lane
+  ownership registers and common lane registers through IPC commands
+  to know which lane the mGbE port is assigned to.
+- intel_mac_finish(): To configure the SerDes based on the assigned
+  lane and latest interface mode, it sends IPC command to the PMC through
+  PMC driver/API. The PMC acts as a proxy for R/W on behalf of the driver.
+- intel_set_reg_access(): Set the register access to the available TSN
+  interface.
 
 Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 ---
- drivers/net/pcs/pcs-xpcs-wx.c |  4 +--
- drivers/net/pcs/pcs-xpcs.c    | 60 ++++++++++++++++++++++++++++++++---
- 2 files changed, 57 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   2 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 146 +++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  29 ++++
+ include/linux/stmmac.h                        |   4 +
+ 4 files changed, 179 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/pcs/pcs-xpcs-wx.c b/drivers/net/pcs/pcs-xpcs-wx.c
-index fc52f7aa5f59..f73ab04d09f0 100644
---- a/drivers/net/pcs/pcs-xpcs-wx.c
-+++ b/drivers/net/pcs/pcs-xpcs-wx.c
-@@ -172,11 +172,9 @@ int txgbe_xpcs_switch_mode(struct dw_xpcs *xpcs, phy_interface_t interface)
- 		return 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 4cc85a36a1ab..25154b915b02 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -307,6 +307,8 @@ config DWMAC_INTEL
+ 	default X86
+ 	depends on X86 && STMMAC_ETH && PCI
+ 	depends on COMMON_CLK
++	depends on ACPI
++	select INTEL_PMC_IPC
+ 	help
+ 	  This selects the Intel platform specific bus support for the
+ 	  stmmac driver. This driver is used for Intel Quark/EHL/TGL.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index 48acba5eb178..837fd3fbaedb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -5,15 +5,30 @@
+ #include <linux/clk-provider.h>
+ #include <linux/pci.h>
+ #include <linux/dmi.h>
++#include <linux/platform_data/x86/intel_pmc_ipc.h>
+ #include "dwmac-intel.h"
+ #include "dwmac4.h"
+ #include "stmmac.h"
+ #include "stmmac_ptp.h"
+ 
++struct pmc_serdes_regs {
++	u8 index;
++	u32 val;
++};
++
++struct pmc_serdes_reg_info {
++	const struct pmc_serdes_regs *regs;
++	u8 num_regs;
++};
++
+ struct intel_priv_data {
+ 	int mdio_adhoc_addr;	/* mdio address for serdes & etc */
+ 	unsigned long crossts_adj;
+ 	bool is_pse;
++	const int *tsn_lane_regs;
++	int max_tsn_lane_regs;
++	struct pmc_serdes_reg_info pid_1g;
++	struct pmc_serdes_reg_info pid_2p5g;
+ };
+ 
+ /* This struct is used to associate PCI Function of MAC controller on a board,
+@@ -35,6 +50,42 @@ struct stmmac_pci_info {
+ 	int (*setup)(struct pci_dev *pdev, struct plat_stmmacenet_data *plat);
+ };
+ 
++static const struct pmc_serdes_regs pid_modphy3_1g_regs[] = {
++	{ PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_1G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_1G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_1G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_1G },
++	{ PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_1G },
++	{}
++};
++
++static const struct pmc_serdes_regs pid_modphy3_2p5g_regs[] = {
++	{ PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_2P5G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_2P5G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_2P5G },
++	{ PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_2P5G },
++	{ PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G },
++	{}
++};
++
++static const struct pmc_serdes_regs pid_modphy1_1g_regs[] = {
++	{ PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_1G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_1G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_1G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_1G },
++	{ PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_1G },
++	{}
++};
++
++static const struct pmc_serdes_regs pid_modphy1_2p5g_regs[] = {
++	{ PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0,	B_MODPHY_PCR_LCPLL_DWORD0_2P5G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2,	N_MODPHY_PCR_LCPLL_DWORD2_2P5G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7,	N_MODPHY_PCR_LCPLL_DWORD7_2P5G },
++	{ PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10,	N_MODPHY_PCR_LPPLL_DWORD10_2P5G },
++	{ PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30,	N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G },
++	{}
++};
++
+ static int stmmac_pci_find_phy_addr(struct pci_dev *pdev,
+ 				    const struct dmi_system_id *dmi_list)
+ {
+@@ -93,7 +144,7 @@ static int intel_serdes_powerup(struct net_device *ndev, void *priv_data)
+ 	data &= ~SERDES_RATE_MASK;
+ 	data &= ~SERDES_PCLK_MASK;
+ 
+-	if (priv->plat->max_speed == 2500)
++	if (priv->plat->phy_interface == PHY_INTERFACE_MODE_2500BASEX)
+ 		data |= SERDES_RATE_PCIE_GEN2 << SERDES_RATE_PCIE_SHIFT |
+ 			SERDES_PCLK_37p5MHZ << SERDES_PCLK_SHIFT;
+ 	else
+@@ -415,6 +466,95 @@ static void intel_mgbe_pse_crossts_adj(struct intel_priv_data *intel_priv,
  	}
- 
--	if (xpcs->interface == interface && !txgbe_xpcs_mode_quirk(xpcs))
-+	if (!txgbe_xpcs_mode_quirk(xpcs))
- 		return 0;
- 
--	xpcs->interface = interface;
--
- 	ret = txgbe_pcs_poll_power_up(xpcs);
- 	if (ret < 0)
- 		return ret;
-diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-index 1faa37f0e7b9..fb3d1548a8e0 100644
---- a/drivers/net/pcs/pcs-xpcs.c
-+++ b/drivers/net/pcs/pcs-xpcs.c
-@@ -817,6 +817,58 @@ static int xpcs_config_2500basex(struct dw_xpcs *xpcs)
- 			   BMCR_SPEED1000);
  }
  
-+static int xpcs_switch_to_aneg_c37_sgmii(const struct dw_xpcs_compat *compat,
-+					 struct dw_xpcs *xpcs,
-+					 unsigned int neg_mode)
++static int intel_tsn_lane_is_available(struct net_device *ndev,
++				       struct intel_priv_data *intel_priv)
 +{
-+	bool an_c37_enabled;
-+	int ret, mdio_ctrl;
++	struct stmmac_priv *priv = netdev_priv(ndev);
++	struct pmc_ipc_cmd tmp = {};
++	u32 rbuf[4] = {};
++	int ret = 0, i, j;
++	const int max_fia_regs = 5;
 +
-+	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
-+		mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
-+		if (mdio_ctrl < 0)
-+			return mdio_ctrl;
++	tmp.cmd = IPC_SOC_REGISTER_ACCESS;
++	tmp.sub_cmd = IPC_SOC_SUB_CMD_READ;
 +
-+		an_c37_enabled = mdio_ctrl & BMCR_ANENABLE;
-+		if (!an_c37_enabled) {
-+			//Perform soft reset to initiate C37 auto-negotiation
-+			ret = xpcs_soft_reset(xpcs, compat);
-+			if (ret)
-+				return ret;
++	for (i = 0; i < max_fia_regs; i++) {
++		tmp.wbuf[0] = R_PCH_FIA_15_PCR_LOS1_REG_BASE + i;
++
++		ret = intel_pmc_ipc(&tmp, rbuf);
++		if (ret < 0) {
++			netdev_info(priv->dev, "Failed to read from PMC.\n");
++			return ret;
 +		}
++
++		for (j = 0; j <= intel_priv->max_tsn_lane_regs; j++)
++			if ((rbuf[0] >>
++				(4 * (intel_priv->tsn_lane_regs[j] % 8)) &
++					B_PCH_FIA_PCR_L0O) == 0xB)
++				return ret;
 +	}
-+	return 0;
++
++	return ret;
 +}
 +
-+static int xpcs_switch_interface_mode(const struct dw_xpcs_compat *compat,
-+				      struct dw_xpcs *xpcs,
-+				      phy_interface_t interface,
-+				      unsigned int neg_mode)
++static int intel_set_reg_access(const struct pmc_serdes_regs *regs, int max_regs)
 +{
++	int ret = 0, i;
++
++	for (i = 0; i < max_regs; i++) {
++		struct pmc_ipc_cmd tmp = {};
++		u32 buf[4] = {};
++
++		tmp.cmd = IPC_SOC_REGISTER_ACCESS;
++		tmp.sub_cmd = IPC_SOC_SUB_CMD_WRITE;
++		tmp.wbuf[0] = (u32)regs[i].index;
++		tmp.wbuf[1] = regs[i].val;
++
++		ret = intel_pmc_ipc(&tmp, buf);
++		if (ret < 0)
++			return ret;
++	}
++
++	return ret;
++}
++
++static int intel_mac_finish(struct net_device *ndev,
++			    void *intel_data,
++			    unsigned int mode,
++			    phy_interface_t interface)
++{
++	struct intel_priv_data *intel_priv = intel_data;
++	struct stmmac_priv *priv = netdev_priv(ndev);
++	const struct pmc_serdes_regs *regs;
++	int max_regs = 0;
 +	int ret = 0;
 +
-+	if (xpcs->interface != interface) {
-+		if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
-+			ret = txgbe_xpcs_switch_mode(xpcs, interface);
-+		} else {
-+			switch (compat->an_mode) {
-+			case DW_AN_C37_SGMII:
-+				ret = xpcs_switch_to_aneg_c37_sgmii(compat, xpcs, neg_mode);
-+				break;
-+			default:
-+				break;
-+			}
-+		}
-+
-+		if (ret)
-+			return ret;
-+
-+		xpcs->interface = interface;
++	ret = intel_tsn_lane_is_available(ndev, intel_priv);
++	if (ret < 0) {
++		netdev_info(priv->dev, "No TSN lane available to set the registers.\n");
++		return ret;
 +	}
 +
-+	return 0;
++	if (interface == PHY_INTERFACE_MODE_2500BASEX) {
++		regs = intel_priv->pid_2p5g.regs;
++		max_regs = intel_priv->pid_2p5g.num_regs;
++	} else {
++		regs = intel_priv->pid_1g.regs;
++		max_regs = intel_priv->pid_1g.num_regs;
++	}
++
++	ret = intel_set_reg_access(regs, max_regs);
++	if (ret < 0)
++		return ret;
++
++	priv->plat->phy_interface = interface;
++
++	intel_serdes_powerdown(ndev, intel_priv);
++	intel_serdes_powerup(ndev, intel_priv);
++
++	return ret;
 +}
 +
- static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
- 			  const unsigned long *advertising,
- 			  unsigned int neg_mode)
-@@ -828,11 +880,11 @@ static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
- 	if (!compat)
- 		return -ENODEV;
+ static void common_default_data(struct plat_stmmacenet_data *plat)
+ {
+ 	plat->clk_csr = 2;	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+@@ -650,7 +790,7 @@ static int ehl_sgmii_data(struct pci_dev *pdev,
+ 	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
+-
++	plat->mac_finish = intel_mac_finish;
+ 	plat->clk_ptp_rate = 204800000;
  
--	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
--		ret = txgbe_xpcs_switch_mode(xpcs, interface);
--		if (ret)
--			return ret;
-+	ret = xpcs_switch_interface_mode(compat, xpcs, interface, neg_mode);
-+	if (ret)
-+		return ret;
+ 	return ehl_common_data(pdev, plat);
+@@ -709,6 +849,7 @@ static int ehl_pse0_sgmii1g_data(struct pci_dev *pdev,
+ 	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
++	plat->mac_finish = intel_mac_finish;
+ 	return ehl_pse0_common_data(pdev, plat);
+ }
  
-+	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID) {
- 		/* Wangxun devices need backplane CL37 AN enabled for
- 		 * SGMII and 1000base-X
- 		 */
+@@ -750,6 +891,7 @@ static int ehl_pse1_sgmii1g_data(struct pci_dev *pdev,
+ 	plat->speed_mode_2500 = intel_speed_mode_2500;
+ 	plat->serdes_powerup = intel_serdes_powerup;
+ 	plat->serdes_powerdown = intel_serdes_powerdown;
++	plat->mac_finish = intel_mac_finish;
+ 	return ehl_pse1_common_data(pdev, plat);
+ }
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+index 0a37987478c1..a12f8e65f89f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h
+@@ -50,4 +50,33 @@
+ #define PCH_PTP_CLK_FREQ_19_2MHZ	(GMAC_GPO0)
+ #define PCH_PTP_CLK_FREQ_200MHZ		(0)
+ 
++/* Modphy Register index */
++#define R_PCH_FIA_15_PCR_LOS1_REG_BASE			8
++#define R_PCH_FIA_15_PCR_LOS2_REG_BASE			9
++#define R_PCH_FIA_15_PCR_LOS3_REG_BASE			10
++#define R_PCH_FIA_15_PCR_LOS4_REG_BASE			11
++#define R_PCH_FIA_15_PCR_LOS5_REG_BASE			12
++#define B_PCH_FIA_PCR_L0O				GENMASK(3, 0)
++#define PID_MODPHY1_B_MODPHY_PCR_LCPLL_DWORD0		13
++#define PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD2		14
++#define PID_MODPHY1_N_MODPHY_PCR_LCPLL_DWORD7		15
++#define PID_MODPHY1_N_MODPHY_PCR_LPPLL_DWORD10		16
++#define PID_MODPHY1_N_MODPHY_PCR_CMN_ANA_DWORD30	17
++#define PID_MODPHY3_B_MODPHY_PCR_LCPLL_DWORD0		18
++#define PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD2		19
++#define PID_MODPHY3_N_MODPHY_PCR_LCPLL_DWORD7		20
++#define PID_MODPHY3_N_MODPHY_PCR_LPPLL_DWORD10		21
++#define PID_MODPHY3_N_MODPHY_PCR_CMN_ANA_DWORD30	22
++
++#define B_MODPHY_PCR_LCPLL_DWORD0_1G		0x46AAAA41
++#define N_MODPHY_PCR_LCPLL_DWORD2_1G		0x00000139
++#define N_MODPHY_PCR_LCPLL_DWORD7_1G		0x002A0003
++#define N_MODPHY_PCR_LPPLL_DWORD10_1G		0x00170008
++#define N_MODPHY_PCR_CMN_ANA_DWORD30_1G		0x0000D4AC
++#define B_MODPHY_PCR_LCPLL_DWORD0_2P5G		0x58555551
++#define N_MODPHY_PCR_LCPLL_DWORD2_2P5G		0x0000012D
++#define N_MODPHY_PCR_LCPLL_DWORD7_2P5G		0x001F0003
++#define N_MODPHY_PCR_LPPLL_DWORD10_2P5G		0x00170008
++#define N_MODPHY_PCR_CMN_ANA_DWORD30_2P5G	0x8200ACAC
++
+ #endif /* __DWMAC_INTEL_H__ */
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index c9878a612e53..83131bf7a5ef 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -236,6 +236,10 @@ struct plat_stmmacenet_data {
+ 	int (*serdes_powerup)(struct net_device *ndev, void *priv);
+ 	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
+ 	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
++	int (*mac_finish)(struct net_device *ndev,
++			  void *priv,
++			  unsigned int mode,
++			  phy_interface_t interface);
+ 	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
+ 	int (*init)(struct platform_device *pdev, void *priv);
+ 	void (*exit)(struct platform_device *pdev, void *priv);
 -- 
 2.34.1
 
