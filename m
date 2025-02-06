@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B975C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 21:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1398C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 21:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjMZZDjHtCceqfzd+zK9UkArZCmEsWhxxeyu2AQZCbw=; b=4oRi/nZGz+BPz5tFwJDHpkMDEL
-	wvBcUWBXNg6/pH70IoUI8enNV4mbGUDfDMxgkeKUqCt1TJ/yLkhMM0WoWKsQnJCZKr816Ova9Q/nR
-	WYXmyGusW+jnEIDgvj7plwV3oPUY4ogV4X36KWvtoW78KuBXvqzJevqIJfSZbF2I3Sg1bd4GKQJVM
-	9LK7aifUvkUJJW5+PiLPsQQS3ogD0n5hDLfOenVmznEkPCit1899vMTe0nPOSpL5h26bl0AJSnzQW
-	OT5AFoK4lkMK2Y2RGhRy5PdOok+chfJdjppfZwJDDoUlMJNnqRLmCjjCJItbn3B2zNsTQuJKjsB+5
-	6g45BzRw==;
+	bh=6x8IkEHoGzEoV22BcxNT1P4XAV28qH88FMQRED/bjOk=; b=H5VB/GfOOJI6D4pyaUi+lep1Az
+	Wxn0mV9JxnVt0lcufVhpkAShLopbhGBSgAUzYIQG+mAphHe8B0fxt5rfLjQea87ctwX9vSre2+Uzq
+	QvjfStIjhuUxfv0gL4baGnb8ou0OhV9ctw+LBGAeCBBHZohI3TYn26rt0GFOZbDJJildkMVDFGw8z
+	AGmKxLabM3zUgNhxwitLeVsgCWX99dbAR8UGimeVNJ6AzvOi5clEVN6URDEoLTRqX/hZcp10rBJoZ
+	p84WqBpqUAKTVkkDo5ZREDNZv4ycz7lMP1DMu2HQEGTCqoMmtPg+8t37+Bl+Fz+S/mVbomgY91SF9
+	a77nyheA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg96O-00000007Xbv-3txC;
-	Thu, 06 Feb 2025 21:08:00 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tg9EI-00000007YnF-0rjX;
+	Thu, 06 Feb 2025 21:16:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg94z-00000007XCE-2kiw
+	id 1tg9Cu-00000007YgC-1Ahj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 21:06:35 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f9ba87f5d4so1960235a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 13:06:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738875992; x=1739480792; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BjMZZDjHtCceqfzd+zK9UkArZCmEsWhxxeyu2AQZCbw=;
-        b=FWvz9yhs0Ejk8IM2U5VDjLwBrPW1Frkxd1AziOb3mHq7Dnt2x7tmPSi+Hqo2oqurX0
-         NWNug8P+PXs73jiCuNLbJ2RwlZPtUlXQzxS+P+nrXFwHyl37LSH8Vb+eutkVgKAORLIB
-         vsumt/aRl+3KtGvJJLrqOM1WA5SBdedAW/sgGYG//l0QAHUeA6i0UY9zIEUJgutb4fJL
-         JMII9ovbo3ob3JUENRYi9zLi6PIakyOuS+g9P0yx1UEb+9cbvw1YdLx9pbb8bjb2QGP7
-         q3kbF1Klec6l+T1Mblo1h7JvRz8o1nYbxXhKA/bAouJ55ci6BIWgJqeyCKoq80CDXUzH
-         51gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738875992; x=1739480792;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BjMZZDjHtCceqfzd+zK9UkArZCmEsWhxxeyu2AQZCbw=;
-        b=k5lHvIe38wgIR4pIoKEQ22Y9MaAB0O4HlQMddH4JmmX6w1totXoYwZM+7Xfqmkbm+F
-         EgeT8BV1RtjwKfSl8P252tiPvM2BRUx+qKRVqDjUZRceO7dvsLablh1qPtpSFWiU+5Xq
-         DpJvkETSXUUZG4FDjvR1mGHxvUEPQkQ9pEMvOM5NWp+KwEwebao+d3QlV9YAAErY0Hep
-         BcTeQYq25NCOcLeH5IYmbmiJ/lZm+GNloG3gzmVxZSsQBmobHhNdbnI7EBi2aDBB3ezm
-         Emgp/ukfJd/8IczF5014FAf2VwwsjSaFAJKF5J/u6VclHAokmzA/zwypwPNiYTHJTVaz
-         I3XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwSKXlFmtFcNKZdtVkWrY8kklbIeFT3fvy9ckJwbJEYTENHrKOg6KeGgrGFw91kH5NhPpEDgct2bR1w0jKnVBn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5Ww2K1Oa4s6m6wAurHnMV0781iUSIa/SK81Bo+XLrzQ/OPaoj
-	wzYXnXWOeApS3Iv+OqrXhp+aiUEeebs09OHCpWLPFnkaQs9WadPK
-X-Gm-Gg: ASbGnctUXg1lSQw0ouc5G5bdTPzxJCCuna6CaYTQebwm24lefqZ07f3mFPzXUJxtN/M
-	W991j9WGgmBXm1Arbf4hdj1aPW8MJnaO9C9qx9z57wh4r5weGNI164Tr7SFByOfTUtYGuIhgzLN
-	fAqM1dYdg6xvohXH0Ov88j3m7oDMDfEtsQFlmif/kzrIG6iopbmK8zYSFvcaBcdMo48nSSZxuK8
-	eF9BQQFqaTF/RTNkC26VV/sJrp1z5Vt+gRnum2neCxGyKhLMHb6X7OKAmx+4xy44oiCFr4wu/7o
-	lYrYJ4qjopoYASWWs6F6bZWc9oyR
-X-Google-Smtp-Source: AGHT+IH78/uCL9JiB7gG2UlgfTf9jp7yPy30ClKcc0/9tpp9zOrpumyNaOrCnZmQL5OMHTgXCvjCaA==
-X-Received: by 2002:a17:90b:4b8c:b0:2fa:f8d:65e7 with SMTP id 98e67ed59e1d1-2fa23f43a0emr821750a91.2.1738875992197;
-        Thu, 06 Feb 2025 13:06:32 -0800 (PST)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa17618064sm1089562a91.41.2025.02.06.13.06.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 13:06:31 -0800 (PST)
-Date: Thu, 6 Feb 2025 13:06:30 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
-	Alison Schofield <alison.schofield@intel.com>, lina@asahilina.net,
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
-	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
-	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-	david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH v7 19/20] fs/dax: Properly refcount fs dax pages
-Message-ID: <f5e487d8-6466-442b-ae97-a7c294dc531e@roeck-us.net>
-References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
- <b5c33b201b9dc0131d8bb33b31661645c68bf398.1738709036.git-series.apopple@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b5c33b201b9dc0131d8bb33b31661645c68bf398.1738709036.git-series.apopple@nvidia.com>
+	Thu, 06 Feb 2025 21:14:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D1EB15C6388;
+	Thu,  6 Feb 2025 21:14:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD4FC4CEDD;
+	Thu,  6 Feb 2025 21:14:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738876483;
+	bh=e2SOY182HjtRf1jcrCmT/yGU2J8GDiU314PnbVwrp7g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gd1alUST0IO6Lv5wd3A05bXQe2+4UMAsApIHndqvLWYKsFxSJzLnSIV1pH9/FJEqq
+	 Oi/vtKp55eWJktVqKpkXp4yTqD78gZ2JEtTIG56M//S0kfut3Q3jDQb5ptyEq5BacG
+	 +wKIIYrqqsV3d4LGFrh7nZXDTaDYVpD6MxHmJYSvB41BRRfYFWNdwmkSspuGzhqrPP
+	 eEUwS7WCmQfGgwo58hQ1FGiPp0H/tp/WuNVSAJ6mvbyo9ELleMKAqT3Vsoj/DDL52s
+	 q71wajBFFmlPiKz/UXxG1M4pIua9Wx016A9MJYiMBWeMuD8VSVqvPOhkbjHAu/dzBN
+	 gwiHw8Tl3Pjgw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tg9Cq-001J8q-PU;
+	Thu, 06 Feb 2025 21:14:40 +0000
+Date: Thu, 06 Feb 2025 21:14:39 +0000
+Message-ID: <86o6zeu668.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	darren@os.amperecomputing.com,
+	scott@os.amperecomputing.com
+Subject: Re: [RFC PATCH 1/2] KVM: arm64: nv: selftests: Add guest hypervisor test
+In-Reply-To: <20250206164120.4045569-2-gankulkarni@os.amperecomputing.com>
+References: <20250206164120.4045569-1-gankulkarni@os.amperecomputing.com>
+	<20250206164120.4045569-2-gankulkarni@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, darren@os.amperecomputing.com, scott@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_130633_694822_73B38D62 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250206_131444_408963_3EC13496 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,49 +92,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 09:48:16AM +1100, Alistair Popple wrote:
-> Currently fs dax pages are considered free when the refcount drops to
-> one and their refcounts are not increased when mapped via PTEs or
-> decreased when unmapped. This requires special logic in mm paths to
-> detect that these pages should not be properly refcounted, and to
-> detect when the refcount drops to one instead of zero.
+On Thu, 06 Feb 2025 16:41:19 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> On the other hand get_user_pages(), etc. will properly refcount fs dax
-> pages by taking a reference and dropping it when the page is
-> unpinned.
+> This patch adds the required changes to init vcpu in vEL2 context.
+> Also adds a KVM selftest to execute guest code as a guest hypervisor(L1).
 > 
-> Tracking this special behaviour requires extra PTE bits
-> (eg. pte_devmap) and introduces rules that are potentially confusing
-> and specific to FS DAX pages. To fix this, and to possibly allow
-> removal of the special PTE bits in future, convert the fs dax page
-> refcounts to be zero based and instead take a reference on the page
-> each time it is mapped as is currently the case for normal pages.
-> 
-> This may also allow a future clean-up to remove the pgmap refcounting
-> that is currently done in mm/gup.c.
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
-> 
+> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 > ---
-...
-> -static inline unsigned long dax_page_share_put(struct page *page)
-> +static inline unsigned long dax_folio_put(struct folio *folio)
->  {
-> -	WARN_ON_ONCE(!page->share);
-> -	return --page->share;
-> +	unsigned long ref;
+>  tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+>  .../selftests/kvm/arm64/nv_guest_hypervisor.c | 83 +++++++++++++++++++
+>  .../kvm/include/arm64/kvm_util_arch.h         |  3 +
+>  .../selftests/kvm/include/arm64/nv_util.h     | 28 +++++++
+>  .../testing/selftests/kvm/include/kvm_util.h  |  1 +
+>  .../selftests/kvm/lib/arm64/processor.c       | 59 +++++++++----
+>  6 files changed, 161 insertions(+), 14 deletions(-)
+>  create mode 100644 tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
+>  create mode 100644 tools/testing/selftests/kvm/include/arm64/nv_util.h
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> index 4277b983cace..a85d3bec9fb1 100644
+> --- a/tools/testing/selftests/kvm/Makefile.kvm
+> +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> @@ -154,6 +154,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
+>  TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
+>  TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
+> +TEST_GEN_PROGS_arm64 += arm64/nv_guest_hypervisor
+>  TEST_GEN_PROGS_arm64 += access_tracking_perf_test
+>  TEST_GEN_PROGS_arm64 += arch_timer
+>  TEST_GEN_PROGS_arm64 += coalesced_io_test
+> diff --git a/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c b/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
+> new file mode 100644
+> index 000000000000..5aeefe43aff7
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
+> @@ -0,0 +1,83 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Ampere Computing LLC
+> + */
+> +#include <kvm_util.h>
+> +#include <nv_util.h>
+> +#include <processor.h>
+> +#include <vgic.h>
 > +
-> +	if (!dax_folio_is_shared(folio))
-> +		ref = 0;
+> +static void guest_code(void)
+> +{
+> +	if (read_sysreg(CurrentEL) == CurrentEL_EL2)
+> +		GUEST_PRINTF("Executing guest code in vEL2\n");
 > +	else
-> +		ref = --folio->share;
+> +		GUEST_FAIL("Fail to run in vEL2\n");
 > +
-> +	WARN_ON_ONCE(ref < 0);
+> +	GUEST_DONE();
+> +}
+> +
+> +static void guest_undef_handler(struct ex_regs *regs)
+> +{
+> +	GUEST_FAIL("Unexpected exception far_el1 = 0x%lx", read_sysreg(far_el1));
+> +}
+> +
+> +static void test_run_vcpu(struct kvm_vcpu *vcpu)
+> +{
+> +	struct ucall uc;
+> +
+> +	do {
+> +		vcpu_run(vcpu);
+> +
+> +		switch (get_ucall(vcpu, &uc)) {
+> +		case UCALL_ABORT:
+> +			REPORT_GUEST_ASSERT(uc);
+> +			break;
+> +		case UCALL_PRINTF:
+> +			printf("%s", uc.buffer);
+> +			break;
+> +		case UCALL_DONE:
+> +			printf("Test PASS\n");
+> +			break;
+> +		default:
+> +			TEST_FAIL("Unknown ucall %lu", uc.cmd);
+> +		}
+> +	} while (uc.cmd != UCALL_DONE);
+> +}
+> +
+> +static void test_nv_guest_hypervisor(void)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +	struct kvm_vm *vm;
+> +	struct kvm_vcpu_init init;
+> +	int gic_fd;
+> +
+> +	vm = vm_create(1);
+> +	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
+> +
+> +	init.features[0] = 0;
+> +	init_vcpu_nested(&init);
+> +	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
+> +
+> +	__TEST_REQUIRE(is_vcpu_nested(vcpu), "Failed to Enable NV");
+> +
+> +	vm_init_descriptor_tables(vm);
+> +	vcpu_init_descriptor_tables(vcpu);
+> +	gic_fd = vgic_v3_setup(vm, 1, 64);
+> +	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3");
+> +
+> +	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
+> +				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
+> +
+> +	test_run_vcpu(vcpu);
+> +	kvm_vm_free(vm);
+> +}
+> +
+> +int main(int argc, char *argv[])
+> +{
+> +	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_EL2));
+> +
+> +	test_nv_guest_hypervisor();
+> +
+> +	return 0;
+> +}
+> diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> index e43a57d99b56..ab5279c24413 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> @@ -2,6 +2,9 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +#define CurrentEL_EL1		(1 << 2)
+> +#define CurrentEL_EL2		(2 << 2)
+> +
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/arm64/nv_util.h b/tools/testing/selftests/kvm/include/arm64/nv_util.h
+> new file mode 100644
+> index 000000000000..4fecf1f18554
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/include/arm64/nv_util.h
+> @@ -0,0 +1,28 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2025 Ampere Computing
+> + */
+> +#ifndef SELFTEST_NV_UTIL_H
+> +#define SELFTEST_NV_UTIL_H
+> +
+> +#include <linux/bitmap.h>
+> +
+> +/* NV helpers */
+> +static inline void init_vcpu_nested(struct kvm_vcpu_init *init)
+> +{
+> +	init->features[0] |= (1 << KVM_ARM_VCPU_HAS_EL2);
+> +}
+> +
+> +static inline bool kvm_arm_vcpu_has_el2(struct kvm_vcpu_init *init)
+> +{
+> +	unsigned long features = init->features[0];
+> +
+> +	return test_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+> +}
+> +
+> +static inline bool is_vcpu_nested(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->nested;
+> +}
+> +
+> +#endif /* SELFTEST_NV_UTIL_H */
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 4c4e5a847f67..8c53dbc17f8f 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -58,6 +58,7 @@ struct kvm_vcpu {
+>  	struct kvm_dirty_gfn *dirty_gfns;
+>  	uint32_t fetch_index;
+>  	uint32_t dirty_gfns_count;
+> +	bool nested;
+>  };
+>  
+>  struct userspace_mem_regions {
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> index 7ba3aa3755f3..35ba2ace61a2 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> @@ -10,6 +10,7 @@
+>  
+>  #include "guest_modes.h"
+>  #include "kvm_util.h"
+> +#include "nv_util.h"
+>  #include "processor.h"
+>  #include "ucall_common.h"
+>  
+> @@ -258,14 +259,47 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+>  	}
+>  }
+>  
+> +static void aarch64_vcpu_set_reg(struct kvm_vcpu *vcpu, uint64_t sctlr_el1,
+> +			uint64_t tcr_el1, uint64_t ttbr0_el1)
+> +{
+> +	uint64_t fpen;
+> +
+> +	/*
+> +	 * Enable FP/ASIMD to avoid trapping when accessing Q0-Q15
+> +	 * registers, which the variable argument list macros do.
+> +	 */
+> +	fpen = 3 << 20;
+> +
+> +	if (is_vcpu_nested(vcpu)) {
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPTR_EL2), fpen);
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL2), sctlr_el1);
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL2), tcr_el1);
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL2), DEFAULT_MAIR_EL1);
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL2), ttbr0_el1);
+> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), vcpu->id);
 
-Kind of unlikely for an unsigned long to ever be < 0.
+How about some of the basics such as HCR_EL2, MDCR_EL2? A bunch of
+things there do have an impact on how the guest behaves, and relying
+on defaults feels like a bad idea.
 
-[ thanks to coverity for noticing ]
+This also assumes VHE, without trying to enforce it.
 
-Guenter
+Finally, how to you plan to make all the existing tests run as EL2
+guests if TPIDR_EL1 isn't populated with the expected value? Surely
+you need to change the read side...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
