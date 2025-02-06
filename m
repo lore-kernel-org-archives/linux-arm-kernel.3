@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC15C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D7CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1dyvuSoKzEddJsfYldzEVfa/MmYSJUDzhZO1Mphdyc=; b=uJqHpZx109qf36VqyWh+Wan3z9
-	HgqKeLkVLD7HAVPTtFfOBfUPOHmL1nkPXRlGkvOHWQD0yEvf50wFIYNL5FUciHxYudP8napBiP7/C
-	L4Y8sZAYkuutBAp+x1sVWMzfk750lCIMEPAlUGO6MCMDHr8zbz9VZJsOpErser8Im9lqFGUvuceIR
-	DhWcrkax0AFK+rYQgkjMHp/QNVXjYwZWmvQG280kb5rkRvDtm1YzLixMUaImN0g6ytMoq0pGJ2oJS
-	CwIjlAmdtPQtBlSFbMvClvM1q21+KvOIjICU31cENrl9wIq7StwaNYo6X3E4y0uK1Hlsh64fGRCgj
-	KSsDB+xQ==;
+	bh=idqS613Xm08a2H6cIuqtamLIUouR/CqrkF7y3uWXZyU=; b=W7YCXVHmBUGnDB8zj31WvII37F
+	2FVZsJqEmriub/qxar53+CWOV5zFiG+GRQivvAnceiinx5ETq+F1T0zK9f5ueVjatSpP/lL7SoKTj
+	2TJgEg1kHiYWVPjUyeDSDkRwBu3qvaDvjvHOnJAbqPGkBhXQiloMuRLwhHkXuTBZbPrhP+5rPJCJj
+	Nlh9+kb/m0Qa27kFDdkVA5FAkkjU6Dirya5uFhAawPtizvDOlNNycRKFCFLNS+798Tv54v4Vst9AJ
+	XHRvcLXsXXsqN8uhtRdvRntaKxi8e1pNc2dvKpg3lUZ9B4JZt3r17Rrq+jv2bzrm2zRPXO2Skpltm
+	brM0ckLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg77m-00000007HzF-2Yxr;
-	Thu, 06 Feb 2025 19:01:18 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tg77q-00000007I4W-1xll;
+	Thu, 06 Feb 2025 19:01:22 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6PV-000000078CI-0FDt
+	id 1tg6Pi-000000078KT-2CQp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 18:15:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0594443297;
-	Thu,  6 Feb 2025 18:15:28 +0000 (UTC)
+	Thu, 06 Feb 2025 18:15:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8CCD9442D7;
+	Thu,  6 Feb 2025 18:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738865731;
+	t=1738865745;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W1dyvuSoKzEddJsfYldzEVfa/MmYSJUDzhZO1Mphdyc=;
-	b=pR9z6iaMA4MmRIYCSeFn2g3o4cAlKmx6c7dA5IoxSDVWChae97WHa4QMSqirikSPUb8jsy
-	IHkBsZEGkNMDMuQPANYstrdBMqlkQNH3I8Sd9bR49WLvrNlL26nGMKavjdRTdllvdjdPQq
-	mEkHV+FmwisCxQX0vVETwEP6roQxsxZxbz5YoNciVTLWa7hatSw9cIEoCgVbDxWrSwB2GI
-	Iv4su/iIbW72fctloDmbmuKXXInFumtxjj3aMJOSFpMjJaxFZDFRBl21jJ0kvbnIjHtvFo
-	kbXrg07BtFCC/MCY5Ba/vNjQVEtYxVnbrCtBagh77SaFDoT+UZEfQT1CvrjssA==
+	bh=idqS613Xm08a2H6cIuqtamLIUouR/CqrkF7y3uWXZyU=;
+	b=h3+fI3ZXzSWbrMkmro0quY9ipebZgI8r1JPnhGPltxKVhkP8zFlLGKqyldYPSRg5WeDImb
+	CyWhoMn1L/BNBG7c60F4vMBtXR7GsbD15AYe4cIPQSIqWW4dT+Rs9NTn2pZaYoh0w0hTee
+	fRGFMVZYhy7kMg2nOgDzK/FlVVfJLAL4f31hDmUBiCcH/xK+j0TWZhH9CArKhb9D8bGKLf
+	O9gBnZCG5AxtNH7uEnyZTg0TsxLFoPcx65/oCQeqJsPh50otpi1nSYvXQFKH7OGmY5U/cd
+	uvZHkl96TTe2jdUiXs4bj2pb0U1s4X9WlPZ1QIP5NC/FtyyueczB9c0IvikE3Q==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 06 Feb 2025 19:14:35 +0100
-Subject: [PATCH v6 20/26] drm/debugfs: bridges_show: show refcount
+Date: Thu, 06 Feb 2025 19:14:40 +0100
+Subject: [PATCH v6 25/26] drm/bridge: ti-sn65dsi83: use dynamic lifetime
+ management
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250206-hotplug-drm-bridge-v6-20-9d6f2c9c3058@bootlin.com>
+Message-Id: <20250206-hotplug-drm-bridge-v6-25-9d6f2c9c3058@bootlin.com>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 In-Reply-To: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 To: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
@@ -80,13 +81,12 @@ Cc: Paul Kocialkowski <contact@paulk.fr>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpedukeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghom
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpedvvdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghom
  hdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtohhrsggvtheslhifnhdrnhgvthdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_101533_256770_812FD0CB 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_101546_698263_5F91B747 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +101,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that bridges are optionally refcounted, it is useful to know about that
-in debugfs.
+Allow this bridge to be removable without dangling pointers and
+use-after-free, together with proper use of drm_bridge_get() and _put() by
+consumers.
 
-Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-This patch was added in v6.
----
- drivers/gpu/drm/drm_debugfs.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Changed in v6:
+ - Update to use devm_drm_bridge_alloc(), remove .destroy
 
-diff --git a/drivers/gpu/drm/drm_debugfs.c b/drivers/gpu/drm/drm_debugfs.c
-index 7424d5237e7615d63de6bba572ee6050da6709d0..629074247ffec4fa18df7af2d9023255abed501c 100644
---- a/drivers/gpu/drm/drm_debugfs.c
-+++ b/drivers/gpu/drm/drm_debugfs.c
-@@ -743,6 +743,12 @@ void drm_debugfs_crtc_remove(struct drm_crtc *crtc)
- static void bridge_print(struct drm_printer *p, struct drm_bridge *bridge, unsigned int idx)
- {
- 	drm_printf(p, "bridge[%u]: %ps\n", idx, bridge->funcs);
-+
-+	if (drm_bridge_is_refcounted(bridge))
-+		drm_printf(p, "\trefcount: %u\n", kref_read(&bridge->refcount));
-+	else
-+		drm_printf(p, "\trefcount: N/A\n");
-+
- 	drm_printf(p, "\ttype: [%d] %s\n",
- 		   bridge->type,
- 		   drm_get_connector_type_name(bridge->type));
+This patch was added in v5.
+---
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+index e683b62d340564978bda37698f2cb1bffd961df5..14e991e999db857725f4c46de3e4c4e4861c3c8a 100644
+--- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
++++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+@@ -941,9 +941,9 @@ static int sn65dsi83_probe(struct i2c_client *client)
+ 	struct sn65dsi83 *ctx;
+ 	int ret;
+ 
+-	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+-	if (!ctx)
+-		return -ENOMEM;
++	ctx = devm_drm_bridge_alloc(dev, struct sn65dsi83, bridge, &sn65dsi83_funcs);
++	if (IS_ERR(ctx))
++		return PTR_ERR(ctx);
+ 
+ 	ctx->dev = dev;
+ 	INIT_WORK(&ctx->reset_work, sn65dsi83_reset_work);
+@@ -983,7 +983,6 @@ static int sn65dsi83_probe(struct i2c_client *client)
+ 	dev_set_drvdata(dev, ctx);
+ 	i2c_set_clientdata(client, ctx);
+ 
+-	ctx->bridge.funcs = &sn65dsi83_funcs;
+ 	ctx->bridge.of_node = dev->of_node;
+ 	ctx->bridge.pre_enable_prev_first = true;
+ 	drm_bridge_add(&ctx->bridge);
 
 -- 
 2.34.1
