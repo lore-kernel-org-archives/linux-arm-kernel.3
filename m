@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A8AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 03:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D0CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 04:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DdG5Jn1MW15Wn8u30uTGjRTJ9vbOt12LrxRPZobjB0=; b=sD5q97fRGcFHnLr774PIdtWtny
-	SMz2t/bniNew3edS6weNMiBkqIjRVsfN+lkaKKHZq6wZabfYtaKjd6VU1JACqSWniszlrUz2vnv1L
-	QyQ1HCmXr1gETSExaQiLvfQa62mrISS4Odz1c070dzDHA/8ii46hhzn5+E7ghSR06PVN1LcIeKaqf
-	BZsKsycEU8mOoybtx9jkoMnJ7I7K57Bo4J5Jr/uPWLyL7sGb+aq7JvtUMkcCma0ysiCm2lAH5aBjG
-	Ev5pc5f4dA/XGxpaWDGVKSS1/6B0o7cWX11qu6xJLQCqTz2kbIfzeAjXZSQgq1AlZfQwNPcEuB84v
-	fzjS0BOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuAgdwDajVK2vGTyHl3+wr9kL1qPUEk2o7H/YzCfeIA=; b=b5kgAa848bUWrO5UnE3+mT+qBW
+	AAllGQ9j70kkfDnb328sdYbI0MKbuCuU4Y3P7toWZT34VIhc5kddPupJN7FwQ/sdrJdUWwRra+3aT
+	Oz1TcOlunDzHIw2pZx0if4rMuHR9AmT00Z/4up7vASG4/Kye+jeP+nwTQJ3FXYqMU4SILilHMXyQX
+	8hdgMDcPo7WDgZD5ElZ1rCUpEmU9Fb4w2P6qxcsSJFz/q+khiUCdmMAF2lFaAHNfKLlfyVqmRsZJ3
+	cQt6wZU9TQhevQuyEkxjij2G0X/wiZGrX1CIcZnCz6AFAYwIwC3h3VxfW4iru5Fup2enIe7xyNkff
+	9wymJ5vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfsYs-0000000586n-1xiy;
-	Thu, 06 Feb 2025 03:28:18 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfsXU-000000057vY-1mor
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 03:26:53 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30616d71bb0so4902411fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 19:26:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738812410; x=1739417210; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5DdG5Jn1MW15Wn8u30uTGjRTJ9vbOt12LrxRPZobjB0=;
-        b=ouLjqF+XR/EVSmMHv9Z1VUTDVFAzFmpbc8/VF5WpYFjXYILQ5354a4UbEBVP5ddq9n
-         VCUI54IuC9x9Ix47ZFmdmsG6tbemWcOgfssa1YjW7Gej6YsXsGzagKN5b/owWHczYB3l
-         Ruwrj93wz5LnYUEVUU7nRwDZUQBEiesNndkj07/LG2/9ZMWeJDSMYRp1v/yIZf5j+sTo
-         dIk/nQgWLIgYiOoFJmOlrSyfiOGST7SLkapD77IVoAhGMm9xvQeD1ky5YI3pGCKKPnId
-         cWZPV2HTOZyERuH3G/xt8Kw4NG4gWMKOtBqBg8BEVG3uq2Mxs4efmXMSiVJE/zDijS0n
-         fhSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738812410; x=1739417210;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5DdG5Jn1MW15Wn8u30uTGjRTJ9vbOt12LrxRPZobjB0=;
-        b=b1fbM6CAT0ymDu8nAvbZDC4uxJllxiJxE8GoA+6jZqdptWcaCKOaGMlLYguxk1q8Ie
-         uufgbXqdIPA+aPRoQi3lZfAhrEz89pCgJMbjcw7fd5lCVK1W9Fs1rP4ETSUQuli0GSmh
-         ST0gIX+qF8tNUMqatLJVUOTfVSRp6JQns4OrcOAEGSwOPoW6hvxj07rfEUSUy7L2DTgh
-         dR2QUXpqyCAth2YJ1MiOeQguwbBz37sm4Iblu4UYQ1u6sgv5PqozR9yOiMvyJkDszaX7
-         1PIYNn88YWKN7y1oVD3ccVViG8qShf3QMg4W0/IallMnJ4tMoLBR3TPOwytb6g0ApZI5
-         r3Og==
-X-Forwarded-Encrypted: i=1; AJvYcCUipR2zL168VMsnx67/ZGB5TYzOP/nZYXoN4vBWqcPdG/HHtrjqRvsN6oGneVjDU8khgJ5FLhilWnQKLs4Bq6J9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBlp+QcWjiFElJTx0BjVtVUiB9cZguBCIIw0G5qp1fw7bG2HTA
-	9wx5CjQ95DpqsTjvLeMqbXEKMV9C0OzHtAAfDLy8UAyxOrpGK20KMI/JgeEhKzo=
-X-Gm-Gg: ASbGncuK87+iOAjB3RX3M5gf7k7PGxDTI/u29Lkx0imqnuQT2J6AgY9k7c1B2vrA/BB
-	svs4t2o2SqvwN9/5vXawHcOFoiABfsUMPcHJr42mJSWACs6CPTrvC4DnhluBX8PVM74ZeOXlj8+
-	Z1kEjoZjdXHqysg5LOcTaWIF74ovd2vOpYDrfNfQJbPCvWKWortQmTjHVXeznbjQw7qzOu2Q4iv
-	oRh3RVwVBAlwz+267aINQ1mQ6B7SBeDrYOjTKv99xlGvBAnoeeGHJ+yyknC0PG+oHzwq7/ZiLGz
-	XR4h0FwSdxk+gPMQEB2kvN5pEVkoBD5eSM6aa2+mGW1wZK0+bLeIoj+Ki+RZvzqedYUrrNk=
-X-Google-Smtp-Source: AGHT+IHW1jb3KW8x6tt/qBgkvjmxR3wnyBKxeKsQxRREB62A0u+WNaONlVtge6tXCMFRwKna1G8X8A==
-X-Received: by 2002:a2e:a54f:0:b0:300:33b1:f0e1 with SMTP id 38308e7fff4ca-307cf23dbd9mr17475791fa.0.1738812410424;
-        Wed, 05 Feb 2025 19:26:50 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1c797csm236761fa.63.2025.02.05.19.26.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 19:26:49 -0800 (PST)
-Date: Thu, 6 Feb 2025 05:26:46 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: fnkl.kernel@gmail.com
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v5 2/5] drm: adp: Add Apple Display Pipe driver
-Message-ID: <lnsv5o2uln3bvwryxybx7xb4w3j4e3rr2h5inj7t6cat5zord5@lgohn6yrygrt>
-References: <20250205-adpdrm-v5-0-4e4ec979bbf2@gmail.com>
- <20250205-adpdrm-v5-2-4e4ec979bbf2@gmail.com>
+	id 1tftQD-00000005B9Y-27p6;
+	Thu, 06 Feb 2025 04:23:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tftOn-00000005B2x-3y1Q;
+	Thu, 06 Feb 2025 04:21:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 823831007;
+	Wed,  5 Feb 2025 20:22:19 -0800 (PST)
+Received: from [10.163.34.115] (unknown [10.163.34.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F38B13F5A1;
+	Wed,  5 Feb 2025 20:21:48 -0800 (PST)
+Message-ID: <d5a2b423-2e13-48a1-b3b7-8e1c638bf716@arm.com>
+Date: Thu, 6 Feb 2025 09:51:45 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250205-adpdrm-v5-2-4e4ec979bbf2@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2] mm/ptdump: Drop GENERIC_PTDUMP
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-mm@kvack.org, steven.price@arm.com, christophe.leroy@csgroup.eu,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20250205050039.1506377-1-anshuman.khandual@arm.com>
+ <Z6M23dR5wvZKW4JE@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Z6M23dR5wvZKW4JE@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_192652_472042_230A0E27 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250205_202158_080556_898E973F 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +74,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 11:10:51PM +0100, Sasha Finkelstein via B4 Relay wrote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> 
-> This display controller is present on M-series chips and is used
-> to drive the touchbar display.
-> 
-> Co-developed-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  drivers/gpu/drm/Kconfig        |   2 +
->  drivers/gpu/drm/Makefile       |   1 +
->  drivers/gpu/drm/adp/Kconfig    |  17 ++
->  drivers/gpu/drm/adp/Makefile   |   5 +
->  drivers/gpu/drm/adp/adp-mipi.c | 276 ++++++++++++++++++
->  drivers/gpu/drm/adp/adp_drv.c  | 617 +++++++++++++++++++++++++++++++++++++++++
->  6 files changed, 918 insertions(+)
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
--- 
-With best wishes
-Dmitry
+On 2/5/25 15:31, Mark Rutland wrote:
+> On Wed, Feb 05, 2025 at 10:30:39AM +0530, Anshuman Khandual wrote:
+>> GENERIC_PTDUMP does not guard any code but instead just used for platform's
+>> subscription into core ptdump defined under PTDUMP_CORE, which is selected.
+> 
+> Selected by what?
+
+I guess that sentence was incomplete. PTDUMP_CORE gets selected by all
+the real users which requires core PTDUMP to be built and enabled.
+
+arch/arm64/kvm/Kconfig: select PTDUMP_CORE	/* config PTDUMP_STAGE2_DEBUGFS */
+arch/x86/Kconfig.debug: select PTDUMP_CORE	/* config EFI_PGT_DUMP */
+
+mm/Kconfig.debug:       select PTDUMP_CORE	/* config PTDUMP_DEBUGFS */
+mm/Kconfig.debug:       select PTDUMP_CORE	/* config DEBUG_WX */
+
+> 
+>> Instead use PTDUMP_CORE for platform subscription and drop GENERIC_PTDUMP.
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Jonathan Corbet <corbet@lwn.net>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Michael Ellerman <mpe@ellerman.id.au>
+>> Cc: Nicholas Piggin <npiggin@gmail.com>
+>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>> Cc: Heiko Carstens <hca@linux.ibm.com>
+>> Cc: Vasily Gorbik <gor@linux.ibm.com>
+>> Cc: Thomas Gleixner <tglx@linutronix.de>
+>> Cc: Ingo Molnar <mingo@redhat.com>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-doc@vger.kernel.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linuxppc-dev@lists.ozlabs.org
+>> Cc: linux-riscv@lists.infradead.org
+>> Cc: linux-s390@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> This patch applies on v6.14-rc1
+>>
+>> Changes in V2:
+>>
+>> - Keep arch/powerpc/Kconfig alphabetically sorted per Christophe
+>>
+>> Changes in V1:
+>>
+>> https://lore.kernel.org/all/20241217034807.2541349-1-anshuman.khandual@arm.com/
+>>
+>>  Documentation/arch/arm64/ptdump.rst       | 1 -
+>>  arch/arm64/Kconfig                        | 2 +-
+>>  arch/arm64/kvm/Kconfig                    | 3 +--
+>>  arch/powerpc/Kconfig                      | 2 +-
+>>  arch/powerpc/configs/mpc885_ads_defconfig | 1 -
+>>  arch/riscv/Kconfig                        | 2 +-
+>>  arch/s390/Kconfig                         | 2 +-
+>>  arch/x86/Kconfig                          | 2 +-
+>>  arch/x86/Kconfig.debug                    | 2 +-
+>>  kernel/configs/debug.config               | 1 -
+>>  mm/Kconfig.debug                          | 8 ++------
+>>  11 files changed, 9 insertions(+), 17 deletions(-)
+>>
+>> diff --git a/Documentation/arch/arm64/ptdump.rst b/Documentation/arch/arm64/ptdump.rst
+>> index 5dcfc5d7cddf..61ca040a885b 100644
+>> --- a/Documentation/arch/arm64/ptdump.rst
+>> +++ b/Documentation/arch/arm64/ptdump.rst
+>> @@ -22,7 +22,6 @@ offlining of memory being accessed by the ptdump code.
+>>  In order to dump the kernel page tables, enable the following
+>>  configurations and mount debugfs::
+>>  
+>> - CONFIG_GENERIC_PTDUMP=y
+>>   CONFIG_PTDUMP_CORE=y
+>>   CONFIG_PTDUMP_DEBUGFS=y
+>>  
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index fcdd0ed3eca8..1f516bed81dd 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -157,7 +157,7 @@ config ARM64
+>>  	select GENERIC_IRQ_SHOW_LEVEL
+>>  	select GENERIC_LIB_DEVMEM_IS_ALLOWED
+>>  	select GENERIC_PCI_IOMAP
+>> -	select GENERIC_PTDUMP
+>> +	select PTDUMP_CORE
+>>  	select GENERIC_SCHED_CLOCK
+>>  	select GENERIC_SMP_IDLE_THREAD
+>>  	select GENERIC_TIME_VSYSCALL
+> 
+> This change means that the ptdump core code will be built regardless of
+> whether any users are selected:
+> 
+>   [mark@lakrids:~/src/linux]% git grep CONFIG_PTDUMP_CORE
+>   Documentation/arch/arm64/ptdump.rst: CONFIG_PTDUMP_CORE=y
+>   arch/arm64/include/asm/ptdump.h:#ifdef CONFIG_PTDUMP_CORE
+>   arch/arm64/include/asm/ptdump.h:#endif /* CONFIG_PTDUMP_CORE */
+>   arch/arm64/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)        += ptdump.o
+>   arch/powerpc/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)      += ptdump/
+>   arch/riscv/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
+>   arch/s390/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += dump_pagetables.o
+>   arch/x86/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)  += dump_pagetables.o
+>   mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
+> 
+> GENERIC_PTDUMP means "this architecture uses generic ptdump code for
+> ptdump", i.e. the architecture implements all the necessary bits for
+> that to work *IF* it is built.
+> 
+> PTDUMP_CORE means "actually build the core ptdump code".
+> 
+> If everyone uses the generic ptdump code now, maybe it's worth renaming
+> GENERIC_PTDUMP to ARCH_HAS_PTDUMP or something like that, but I don't
+> think this change makes sense as-is.
+
+Seems like a combination of ARCH_HAS_CORE_PTDUMP for subscription and
+CORE_PTDUMP for actual enablement will make things clear. _CORE_ here
+would still let platforms define their own CONFIG_PTDUMP if preferred
+and not subscribe the generic CORE_DUMP.
+
+currently GENERIC_PTDUMP and CORE_PTDUMP just seems disjoint, because
+GENERIC_PTDUMP does not not appear to be the platform opt in required
+for CORE_PTDUMP.
+
+There is another problem.
+
+mm/Kconfig.debug
+
+config DEBUG_WX
+        bool "Warn on W+X mappings at boot"
+        depends on ARCH_HAS_DEBUG_WX
+        depends on MMU
+        select PTDUMP_CORE
+        help
+
+Before selecting PTDUMP_CORE it does not ensure platform has opted in
+via GENERIC_PTDUMP or not. Instead it should be
+
+config DEBUG_WX
+        bool "Warn on W+X mappings at boot"
+        depends on ARCH_HAS_DEBUG_WX
+	depends on GENERIC_PTDUMP
+	depends on 
+        depends on MMU
+        select PTDUMP_CORE
+        help
+
+PTDUMP_STAGE2_DEBUGFS on arm64 does that where as EFI_PGT_DUMP on x86
+does not. Although it will be ideal but that's not a problem if the
+platform knows for sure that it opts in GENERIC_PTDUMP.
+
+> 
+> [...]
+> 
+>> diff --git a/kernel/configs/debug.config b/kernel/configs/debug.config
+>> index 20552f163930..8aafd050b754 100644
+>> --- a/kernel/configs/debug.config
+>> +++ b/kernel/configs/debug.config
+>> @@ -73,7 +73,6 @@ CONFIG_DEBUG_VM=y
+>>  CONFIG_DEBUG_VM_PGFLAGS=y
+>>  CONFIG_DEBUG_VM_RB=y
+>>  CONFIG_DEBUG_VM_VMACACHE=y
+>> -CONFIG_GENERIC_PTDUMP=y
+>>  CONFIG_KASAN=y
+>>  CONFIG_KASAN_GENERIC=y
+>>  CONFIG_KASAN_INLINE=y
+> 
+> I think this is wrong today, and removing it is the right thing to do.
+> 
+> Architectures with support will select this themselves, and on
+> architectures without support this either does nothing or causes a build
+> failure.
+
+Alright, will separate this change out first.
 
