@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0D8C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43291C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYidbmwxCEV+eSEjHIGui462v/Vxn8uyk3zJ0J48/Wg=; b=UzGXmcEnvLMB/AxG4qoFFoNhf6
-	EcNoXRlCFBkaz+F+MxBPSlOyRhdbndyYBzXxLrkTqdDVK501zHQHoECPMn1J7CaT11cCvk3fIDMUH
-	RknAiZWtj4kRpGTJz8JPPD4x/8YGLXej3zbluVetLHS8+TK6ccxyszsz5V17OIiAdC7BPatxrlUZe
-	A+Thqn8rqjFVgPVXqOrvKwZU0SB9F6+byL6UJHCfR73l0Yu5DdcV2J12ItLrMBXzetMmlbflRuf8P
-	T7RJm+1C63zSkHX23yR+MgqIR6G/hqV9m0dXQmyxqsdR5iPXZAUA3MPxZKqvR6zSATq2smIFYurP0
-	v7OIo5Ug==;
+	bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=; b=FBLVSxtH56h2azrf662f7YE/o/
+	8j5qcCko+RtuSnBYLCVcvF8LtQdfwcJRktS7oYAHVumpijukaORBMc0N8WeC1ZGyKGNSmD3OGZxhW
+	3pA41kvYjy5KNglRRCDn/IbHcK8aZ3ZiCK+K+VwV1db/bPYo2JTUnp8dsqloudr1FTsTBXb0w9qdz
+	ivnXLPrYPDkCF9vj508ifZDyBGsBiZEDw3ru+pRa9UvPiumQM3faoFGKzIoTaSfHzfZL7aSwAeIS8
+	EsBydI3MFUrmHsSX2aXLtepVKMlFaSPIP2gxT+Iqw47G24Fq0fLAGtvn9ROjmGuWjwFtG9AL/2Yg7
+	rn76wbAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzix-000000064Fr-2J5y;
-	Thu, 06 Feb 2025 11:07:11 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1tfzkJ-000000064eQ-2sTU;
+	Thu, 06 Feb 2025 11:08:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzX0-000000061Yy-35dP
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tfzX2-000000061Zh-3Gut
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 06 Feb 2025 10:54:52 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-4361b6f9faeso4042505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=; b=JMqdVXVI/H70quOW4ot+PXSFvl
+	T1gmkfgdGaAFj83VsffSsAgw20fbtYKpwto37lWQZUUbvp9trONjuR/pDBWh8GH9kEKHZHPFm9bGf
+	3KWLpkDOewCMLZ1UzvQ8tjgsRkF0eIJtxobywmvgpRgV7C8oAhB1YgD7A0YuiDNi/UrgNISwJExv8
+	HjhGyvKE0d1xl3b42Z3n0t8p2Iv4SzObR4tZbbbrqfEpUF1LCZ0UZuuOk9vg3N2PPq8NC74tseyoI
+	wdz2VeV2HCn5eqP5bw4omDMqAOp3/BbH0zaDuLyqfdVA3HrjkRugGLY5bE6lCp5fBBXRnD3wAQm0T
+	jy46VRXg==;
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfzX0-0000000Gusx-01Jr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 10:54:51 +0000
+Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-38dabb11eaaso357089f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839289; x=1739444089; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738839288; x=1739444088; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iYidbmwxCEV+eSEjHIGui462v/Vxn8uyk3zJ0J48/Wg=;
-        b=CF1d5ORV1Dt5Pe2jbTlfoXsNh7y00KUkrF6KTb7PFmgKYtmmB1+U4njFIKkk4vr9v5
-         O8JEIgB/prOzJ3Ua5PnU4ionXUBg6nwLc0aRCvMrKrGlAzQcsQ1K1ojh4N4c/0b/g2P2
-         nsO9qU45GMILoM1WGhhhcOVe6BTsl8+k6sBx94k1TNwqPIh5gXdryj5ilefwI1OBqzx4
-         1+q1zl4t33jUFlOuiR4JSClnjjLw8GuvUgwjW1XLTW0KYgSR/hpEETjjrtN+kxnOwVmX
-         bBVi1HboochR+kDi88UO0WMgQbAn9sHVPFXxTaAHhEay7CG01OUOmNph/jboN6X7Z13y
-         wLUw==
+        bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=;
+        b=gV+Zwy/a1UALMSQyIyQT0o/Pin8nhGZTC5VutdSku83xdNhePIIRrELYXWfJvSSXVi
+         Cku9DfKVkhR8RL8pJe3BP5YWQ2bpveZ8aFlTVBCMpC7UctNEUilOJuW9kS7hqgmawIJK
+         RaOv5kg5Bu4wosi4T47asImnayxXMdh/hJUBKnRYYREw9JT2vblB3wsEtIZ53MW1kmdM
+         DS9ER+++ME8BfRStgQprVT89AX3hOCdI1sAoa9Ey0RmdnCIrvSyF/futXaY7plXUb39D
+         1MPMRB+aEr7D29Edv18ghGAo2PXRtl2t2Pgc1HcPbCBmz7jJVAoK8dxef8nz/hpUXEed
+         CHJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839289; x=1739444089;
+        d=1e100.net; s=20230601; t=1738839288; x=1739444088;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iYidbmwxCEV+eSEjHIGui462v/Vxn8uyk3zJ0J48/Wg=;
-        b=PvoLdwcwMBU5Pykc/GtuajLuH3yFMz/TsTxdQGy5scypfvuY0yvuE12i7YpuAmxwjX
-         XiaiHVHsS8QYyioU2+84YWbUwaKoP/T9aun8C1N3f/ysrtcU8Go/uZXU3tjKTd+N6zJU
-         fvyufFuOwAAsxrQShqfW3eRVmgbOcO5YWFxCYlrqxwQEyhpyubtKcJ6rUromgFgg7wbj
-         RDyBRc5uGPemSWlFDHg1HV8D+6JMg7doYXP4Y9xpE1MbS7dB8+8LmVZycSVAAMcRPJb2
-         qgImJaNHzslKjfYNdGY3A56zgSas9DARoLNFJKwhZjvS21kGJsPVHSFX31jYeFUHwrRY
-         XgQA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9fd7htT1430bAP3Km230YAMDl5KDg5hGuer/cKZ0yj0m5xAX4Ug4hTY/8cVsdthFKFAQt9etjpeaZXeTJbOMv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6dRLIcrToJD/meAFkPSPqjMBCZ9BB11ZxuIae6zKHbIjsFS0r
-	6McG8iMMBlFMocdrNSN/44/Oo+yO8SVMFmpzrqr1t+LC3q6Pup9b
-X-Gm-Gg: ASbGnctJVkBx3CLemDaH1rKyr6arf7TCD8YzNsbQvtAjCZHA/7c9G2nEGReV2Vd/9XI
-	ydUrmA0SOs5at1IhFJTV07JbzoUpmnjBjeURBp+rexNRAzZIF7WIPUm5VgGymXo65RH6aSWld1l
-	f0bUxDdnHi0k7MVUYg5xMzqbp0mVRJ7MKv8xWhh7ULoX06gVupVdbHuekR8FwEy5eE0H2uNZ5Oj
-	XvymXvUJyfQ+Rg0hhIz6N9mrsD/XxNYZsdaRh456C1JKApS2WXl1lCPplRbcqpt/83KgisOJRss
-	09fLZg==
-X-Google-Smtp-Source: AGHT+IFphip47QJW2PrpFsbKi02KtCDzlFv4DF2sCZj2+AejG4aG7KuSt5Jt87tvagiOv6cvGdW9aA==
-X-Received: by 2002:a05:600c:a47:b0:436:e3ea:64dd with SMTP id 5b1f17b1804b1-43912d3ef4bmr20857325e9.11.1738839289015;
-        Thu, 06 Feb 2025 02:54:49 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:70::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd4df6bsm1429709f8f.39.2025.02.06.02.54.48
+        bh=u6HfEz6FnLcnMW+Wa6mBmkJ5vtGaoNq/ogsTG9QK4tE=;
+        b=XZkqVJsl8w/EEcAGEnZYalslXt1gOnrs3NcJtbgBWV97AXEuTS7oAbLUPCMy6MrAOU
+         9ZSdiD75C+KyRQjK5TbALflqcusJaRmvCI/0MZQ2ZQ1pQzoZxMrL1z3O7rAw02+hgaUW
+         T6WnJv/ofvOkICeN8jOqqI/2nXWPFkXDh732uUdu/F54F0P5gjClmqy3MQ6IBl3fv6t8
+         HWremoLtYwWXD5hEW/ffl1NZEXU4zOIbjOMe95M/bSKgZlP4DTA6iDC2l1xalgo/mits
+         Bbb3pSZ5yfMWLUEYHHdVTN7LEl2IunS7RgfqV/ETUP3fogKDaHTfzF/tkvpMrBGA0l57
+         indw==
+X-Forwarded-Encrypted: i=1; AJvYcCWGCZmJG3OK56ebDvUC/y9x7tIjGjSJ9V8TkrgRUogNxtJRPZsVGOnUa+SzPq9QwbSO+XycJ2YvaKQu7hB4KmAR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9qh73/35hyexMzZmK8I9ppdZS/7StpvuLlqkFDNtUxeHscLXQ
+	wDAZZXhUAwHdbcFr856swyb9K8aGT4DfwFQQ3u3Xfp7VLq9HRFdJ
+X-Gm-Gg: ASbGnctDIo7evZ7YrhtEZiwgm+VPicpPdqpeecz6xdWzS6d+RKfYAqNTSANi7RRITDo
+	okuVAmfQPv4dMdxqCboD3QxJJcnBeBdvbf5lYK78eFSjgmCAz/vqVoiEw0YxlzLCjYlqqv0gt2F
+	ckxIYlxFDyOfdNc+U/Yb2uXYtrtarTsxoZ4YJoClCW3SglmsKfUkHFJG0xbncXUScsuz1fZeYfU
+	JmTKowJ5n/rKpfn8+ipGOmNugiPBSJQ6WvOdM+VnX4XkHUXQBCoAMixbIB8P2C6adUqdKybX/6l
+	9TkAiA==
+X-Google-Smtp-Source: AGHT+IEFTmIDnkApoCxo9XEdAou5ZGEMDlqk297HAU+HLuXK1+LhNaJhCM/rdUs7kriHnIXhGFI/oA==
+X-Received: by 2002:a5d:5988:0:b0:38c:1362:41b5 with SMTP id ffacd0b85a97d-38db486108amr4754830f8f.6.1738839287460;
+        Thu, 06 Feb 2025 02:54:47 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:72::])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde0fd3csm1414640f8f.62.2025.02.06.02.54.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:54:48 -0800 (PST)
+        Thu, 06 Feb 2025 02:54:46 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -87,19 +102,19 @@ Cc: Barret Rhoden <brho@google.com>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 09/26] rqspinlock: Protect waiters in queue from stalls
-Date: Thu,  6 Feb 2025 02:54:17 -0800
-Message-ID: <20250206105435.2159977-10-memxor@gmail.com>
+Subject: [PATCH bpf-next v2 08/26] rqspinlock: Protect pending bit owners from stalls
+Date: Thu,  6 Feb 2025 02:54:16 -0800
+Message-ID: <20250206105435.2159977-9-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7029; h=from:subject; bh=Xa/jCeO/bNAS2DABSLS2XeyE6NH1yv2QeubXVXtSfFg=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRl7An7/KiEUm98Ur9vnCib0zAC2FnG3ihYCJKd QcDong6JAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZQAKCRBM4MiGSL8RyrulD/ 0QF/IO1vH6JRLlfF5fdCoL2J3bq6TUizWVQKnJM58Ak3TLWy8SAYpkkznDpIqhFohSNctWXqvIZ+9p 16sVoQkzVrUVZ7oFbcrGdJRcSkqMQc1LJCTJG+1+S0O458BwdjYHBxyoigb2bJxJ1AqoTakaX6rOFp q41csSMJragiD4b837bqZkq6Kcnt5NFp7XO/6Ca4/ZgmqpXuFA/o2zmajpZUM8v+bjVz/X16xlcuV6 SBxSHt0aPLBsnLU1BoCQrQWdpFpl1mJe+oslsG53qb/RfuoKcTBhetjeceQB8Hit/6sBcswtT44WAR Cx69D/8D2KZO/Q4Lrg08OxeuZadzrtnc6jOHnXI5DGab+HO17FzujG+flkF5KdBYru82bFLsWr3W9W P6WH1ACcX5G6Ivg/ah/wpe8/6GW6+02j3XKd5r0tgiGp4JDq0CnMOs8Sfe+LmDPiEuo+1zg/17KnwP G2OnXHvHPsyjcj5T2kVQOok60uFZk2WMFKXgMR23OcgQ/3g4sugfLA3JBDlw+xL1XfUSYgGPaGyi7o YNfJ07vRVHBXylG06/Y/GytWzKZoeQxLMeb8CkChWXxgnS28C3OZY3G1thv2fdFQ1sG/nUDTHZxqbj n/6RKyGflImPIdWq7jQWqYNDTxpBkJyANG+96Y+NtplOkmtZPIZtX2ePJ0yQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4602; h=from:subject; bh=PZAstj2WMwdJ5zpDKugp3FElz+LV+4cvINkXq1LfzVc=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRlQkqPybkJ7GSLq/QqBmQtgES+UrYcxxOebbfU QQitnoeJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZQAKCRBM4MiGSL8RyrK9D/ 9TAnlSHxA1Q3uFCYcCdMIawjW1IJgTMIKG08AH5HflcEBfh12ex5nIURCNNtVmT8KNdznwDtmSyf9F Dz9E3Hb1omPeX7fZXLE7IFq92YLTS8ZhF954tYzs/ccHTnFSiRQUEYaPNN5BjAreKu7VsuNJTWWwh2 Zk18PTGBgcCoITYY2U9kPpt8H0ss5SjjE/v472ug3Sxr+ikSfRFCNfqHQlM07gdJeffwM2YhPLmyrA pS/ZOZBqjyv6FJgGZvfHKwzMoadC1/BvbPU7eQpAJasZGBSDhGpgWqGWPnrkd1Xx+Qpo5SaJTQv2Bf FVE3fsLPC8zh8SYzTkjlRiUuMQDkkUeC71FmooULzLbfpkqhhr5IlQIpcVaKafW3bGY7gkNkxgbUcR ZjGTHp06O6I30+WbvFpEoQXIBKla/RBxSi2qHXXdZ5xlHp/f0BpJfujOwZr5R+QHWNX4h8hvTigyRu JMiZjgK3a/DfYdZdkC7+3+Y4IWzCH5XFsthPvV6ZgI+HUdIaJu6gLuw1LHLahy0sUtSdl3j3nbkdnN nk5039QdF/msE7FiR8sEyIhyL9JjjIcbswOwvAx+cPa7i/XoU9RVLyZ+toJUpPQsXNfR7MRq1YEGFC OwvNNjfgANI5dQmuZkKEQfmCLhErAm7WdD82gJqews3JIUZe0bapo/LeUq6A==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_025450_782185_5240D49E 
-X-CRM114-Status: GOOD (  36.35  )
+X-CRM114-CacheID: sfid-20250206_105450_176740_6C3191BF 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,181 +129,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the wait queue cleanup algorithm for rqspinlock. There are
-three forms of waiters in the original queued spin lock algorithm. The
-first is the waiter which acquires the pending bit and spins on the lock
-word without forming a wait queue. The second is the head waiter that is
-the first waiter heading the wait queue. The third form is of all the
-non-head waiters queued behind the head, waiting to be signalled through
-their MCS node to overtake the responsibility of the head.
+The pending bit is used to avoid queueing in case the lock is
+uncontended, and has demonstrated benefits for the 2 contender scenario,
+esp. on x86. In case the pending bit is acquired and we wait for the
+locked bit to disappear, we may get stuck due to the lock owner not
+making progress. Hence, this waiting loop must be protected with a
+timeout check.
 
-In this commit, we are concerned with the second and third kind. First,
-we augment the waiting loop of the head of the wait queue with a
-timeout. When this timeout happens, all waiters part of the wait queue
-will abort their lock acquisition attempts. This happens in three steps.
-First, the head breaks out of its loop waiting for pending and locked
-bits to turn to 0, and non-head waiters break out of their MCS node spin
-(more on that later). Next, every waiter (head or non-head) attempts to
-check whether they are also the tail waiter, in such a case they attempt
-to zero out the tail word and allow a new queue to be built up for this
-lock. If they succeed, they have no one to signal next in the queue to
-stop spinning. Otherwise, they signal the MCS node of the next waiter to
-break out of its spin and try resetting the tail word back to 0. This
-goes on until the tail waiter is found. In case of races, the new tail
-will be responsible for performing the same task, as the old tail will
-then fail to reset the tail word and wait for its next pointer to be
-updated before it signals the new tail to do the same.
+To perform a graceful recovery once we decide to abort our lock
+acquisition attempt in this case, we must unset the pending bit since we
+own it. All waiters undoing their changes and exiting gracefully allows
+the lock word to be restored to the unlocked state once all participants
+(owner, waiters) have been recovered, and the lock remains usable.
+Hence, set the pending bit back to zero before returning to the caller.
 
-Lastly, all of these waiters release the rqnode and return to the
-caller. This patch underscores the point that rqspinlock's timeout does
-not apply to each waiter individually, and cannot be relied upon as an
-upper bound. It is possible for the rqspinlock waiters to return early
-from a failed lock acquisition attempt as soon as stalls are detected.
-
-The head waiter cannot directly WRITE_ONCE the tail to zero, as it may
-race with a concurrent xchg and a non-head waiter linking its MCS node
-to the head's MCS node through 'prev->next' assignment.
+Introduce a lockevent (rqspinlock_lock_timeout) to capture timeout
+event statistics.
 
 Reviewed-by: Barret Rhoden <brho@google.com>
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- kernel/locking/rqspinlock.c | 42 +++++++++++++++++++++++++++++---
- kernel/locking/rqspinlock.h | 48 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 87 insertions(+), 3 deletions(-)
- create mode 100644 kernel/locking/rqspinlock.h
+ include/asm-generic/rqspinlock.h  |  2 +-
+ kernel/locking/lock_events_list.h |  5 +++++
+ kernel/locking/rqspinlock.c       | 28 +++++++++++++++++++++++-----
+ 3 files changed, 29 insertions(+), 6 deletions(-)
 
+diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
+index c89733cbe643..0981162c8ac7 100644
+--- a/include/asm-generic/rqspinlock.h
++++ b/include/asm-generic/rqspinlock.h
+@@ -20,6 +20,6 @@ typedef struct qspinlock rqspinlock_t;
+  */
+ #define RES_DEF_TIMEOUT (NSEC_PER_SEC / 2)
+ 
+-extern void resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
++extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
+ 
+ #endif /* __ASM_GENERIC_RQSPINLOCK_H */
+diff --git a/kernel/locking/lock_events_list.h b/kernel/locking/lock_events_list.h
+index 97fb6f3f840a..c5286249994d 100644
+--- a/kernel/locking/lock_events_list.h
++++ b/kernel/locking/lock_events_list.h
+@@ -49,6 +49,11 @@ LOCK_EVENT(lock_use_node4)	/* # of locking ops that use 4th percpu node */
+ LOCK_EVENT(lock_no_node)	/* # of locking ops w/o using percpu node    */
+ #endif /* CONFIG_QUEUED_SPINLOCKS */
+ 
++/*
++ * Locking events for Resilient Queued Spin Lock
++ */
++LOCK_EVENT(rqspinlock_lock_timeout)	/* # of locking ops that timeout	*/
++
+ /*
+  * Locking events for rwsem
+  */
 diff --git a/kernel/locking/rqspinlock.c b/kernel/locking/rqspinlock.c
-index 8e512feb37ce..fdc20157d0c9 100644
+index 200454e9c636..8e512feb37ce 100644
 --- a/kernel/locking/rqspinlock.c
 +++ b/kernel/locking/rqspinlock.c
-@@ -77,6 +77,8 @@ struct rqspinlock_timeout {
- 	u16 spin;
- };
- 
-+#define RES_TIMEOUT_VAL	2
-+
- static noinline int check_timeout(struct rqspinlock_timeout *ts)
+@@ -138,12 +138,12 @@ static DEFINE_PER_CPU_ALIGNED(struct qnode, qnodes[_Q_MAX_NODES]);
+  * contended             :    (*,x,y) +--> (*,0,0) ---> (*,0,1) -'  :
+  *   queue               :         ^--'                             :
+  */
+-void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout)
++int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout)
  {
- 	u64 time = ktime_get_mono_fast_ns();
-@@ -305,12 +307,18 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
- 	 * head of the waitqueue.
+ 	struct mcs_spinlock *prev, *next, *node;
+ 	struct rqspinlock_timeout ts;
++	int idx, ret = 0;
+ 	u32 old, tail;
+-	int idx;
+ 
+ 	BUILD_BUG_ON(CONFIG_NR_CPUS >= (1U << _Q_TAIL_CPU_BITS));
+ 
+@@ -201,8 +201,25 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 * clear_pending_set_locked() implementations imply full
+ 	 * barriers.
  	 */
- 	if (old & _Q_TAIL_MASK) {
-+		int val;
+-	if (val & _Q_LOCKED_MASK)
+-		smp_cond_load_acquire(&lock->locked, !VAL);
++	if (val & _Q_LOCKED_MASK) {
++		RES_RESET_TIMEOUT(ts);
++		smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret));
++	}
 +
- 		prev = decode_tail(old, qnodes);
- 
- 		/* Link @node into the waitqueue. */
- 		WRITE_ONCE(prev->next, node);
- 
--		arch_mcs_spin_lock_contended(&node->locked);
-+		val = arch_mcs_spin_lock_contended(&node->locked);
-+		if (val == RES_TIMEOUT_VAL) {
-+			ret = -EDEADLK;
-+			goto waitq_timeout;
-+		}
- 
- 		/*
- 		 * While waiting for the MCS lock, the next pointer may have
-@@ -334,7 +342,35 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
- 	 * sequentiality; this is because the set_locked() function below
- 	 * does not imply a full barrier.
- 	 */
--	val = atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK));
-+	RES_RESET_TIMEOUT(ts);
-+	val = atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK) ||
-+				       RES_CHECK_TIMEOUT(ts, ret));
-+
-+waitq_timeout:
 +	if (ret) {
 +		/*
-+		 * If the tail is still pointing to us, then we are the final waiter,
-+		 * and are responsible for resetting the tail back to 0. Otherwise, if
-+		 * the cmpxchg operation fails, we signal the next waiter to take exit
-+		 * and try the same. For a waiter with tail node 'n':
++		 * We waited for the locked bit to go back to 0, as the pending
++		 * waiter, but timed out. We need to clear the pending bit since
++		 * we own it. Once a stuck owner has been recovered, the lock
++		 * must be restored to a valid state, hence removing the pending
++		 * bit is necessary.
 +		 *
-+		 * n,*,* -> 0,*,*
-+		 *
-+		 * When performing cmpxchg for the whole word (NR_CPUS > 16k), it is
-+		 * possible locked/pending bits keep changing and we see failures even
-+		 * when we remain the head of wait queue. However, eventually,
-+		 * pending bit owner will unset the pending bit, and new waiters
-+		 * will queue behind us. This will leave the lock owner in
-+		 * charge, and it will eventually either set locked bit to 0, or
-+		 * leave it as 1, allowing us to make progress.
++		 * *,1,* -> *,0,*
 +		 */
-+		if (!try_cmpxchg_tail(lock, tail, 0)) {
-+			next = smp_cond_load_relaxed(&node->next, VAL);
-+			WRITE_ONCE(next->locked, RES_TIMEOUT_VAL);
-+		}
++		clear_pending(lock);
 +		lockevent_inc(rqspinlock_lock_timeout);
-+		goto release;
++		return ret;
 +	}
  
  	/*
- 	 * claim the lock:
-@@ -379,6 +415,6 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 * take ownership and clear the pending bit.
+@@ -211,7 +228,7 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
+ 	 */
+ 	clear_pending_set_locked(lock);
+ 	lockevent_inc(lock_pending);
+-	return;
++	return 0;
+ 
+ 	/*
+ 	 * End of pending bit optimistic spinning and beginning of MCS
+@@ -362,5 +379,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val,
  	 * release the node
  	 */
  	__this_cpu_dec(qnodes[0].mcs.count);
--	return 0;
-+	return ret;
++	return 0;
  }
  EXPORT_SYMBOL(resilient_queued_spin_lock_slowpath);
-diff --git a/kernel/locking/rqspinlock.h b/kernel/locking/rqspinlock.h
-new file mode 100644
-index 000000000000..3cec3a0f2d7e
---- /dev/null
-+++ b/kernel/locking/rqspinlock.h
-@@ -0,0 +1,48 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Resilient Queued Spin Lock defines
-+ *
-+ * (C) Copyright 2024 Meta Platforms, Inc. and affiliates.
-+ *
-+ * Authors: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-+ */
-+#ifndef __LINUX_RQSPINLOCK_H
-+#define __LINUX_RQSPINLOCK_H
-+
-+#include "qspinlock.h"
-+
-+/*
-+ * try_cmpxchg_tail - Return result of cmpxchg of tail word with a new value
-+ * @lock: Pointer to queued spinlock structure
-+ * @tail: The tail to compare against
-+ * @new_tail: The new queue tail code word
-+ * Return: Bool to indicate whether the cmpxchg operation succeeded
-+ *
-+ * This is used by the head of the wait queue to clean up the queue.
-+ * Provides relaxed ordering, since observers only rely on initialized
-+ * state of the node which was made visible through the xchg_tail operation,
-+ * i.e. through the smp_wmb preceding xchg_tail.
-+ *
-+ * We avoid using 16-bit cmpxchg, which is not available on all architectures.
-+ */
-+static __always_inline bool try_cmpxchg_tail(struct qspinlock *lock, u32 tail, u32 new_tail)
-+{
-+	u32 old, new;
-+
-+	old = atomic_read(&lock->val);
-+	do {
-+		/*
-+		 * Is the tail part we compare to already stale? Fail.
-+		 */
-+		if ((old & _Q_TAIL_MASK) != tail)
-+			return false;
-+		/*
-+		 * Encode latest locked/pending state for new tail.
-+		 */
-+		new = (old & _Q_LOCKED_PENDING_MASK) | new_tail;
-+	} while (!atomic_try_cmpxchg_relaxed(&lock->val, &old, new));
-+
-+	return true;
-+}
-+
-+#endif /* __LINUX_RQSPINLOCK_H */
 -- 
 2.43.5
 
