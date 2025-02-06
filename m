@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0800EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EED1C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5N+Al59YmEDtBoKSzwKPTh6WUXLbEAKXSUpJ7QukWWw=; b=peyFK2syl/p5zxeZahbGivVhgc
-	KvCfT9Rzy2bUHFyfkP432NwSw3bcgaL17ZbKwUsEz+4trv5adPNs11Gp+FNGZHI3nAnoZN7sNQ3Yy
-	MKCCrj0Aw9v8dH6EklrVLMpA9wScGnXxkwC288LlC6SbYnt6Jl2L+KiqfNqeuJaJnh29dbHwwUYrX
-	H6sh4J4VVCupnACLzO/02UPyYziJmzDc7pOWCsMmgWXxE+vojwo1DYbj1ff9S5kuPnACTXtmmNSrH
-	i7uJtMX6CvR1JgtyVr9QgyypfxPmrK4SS9cX5u3exjQHQVylDb54hb16VE88mDhS0dYCa5jejLBIM
-	pO/QVxOg==;
+	bh=oWCoK5Bcd5+DS1TWtGzrPhBx20PKdoTpfltF3CTwAe4=; b=Ij6MMVzAp1hFOVc4TRjcgMd4NI
+	jzrWLnVL/auyIXjGL3oWJMP783TRTle4XVQI9YMr/uR1fSAokNbzvOGcjSZq5AVSDwru6OgXRzC7l
+	wiZJ1L/VYzg3QOH5+MIhV6vLxq6Xubp3qh9D5AMtRljS8azfmEgouKXP6fpBVwRMPoqMF2H8Ggota
+	dU6i0AFdWYYI4PDLd07c5Es9NEoMlSGEwkoWETBIxxxasTIGsh/F8vwfJ+B0ZmqZ9di8/94fLCnqB
+	Ro0VyXiKlgf8QOa6ztbzPs/wxbn1h4SOyEvb8fGniwq2FqLBopaJlHJAG0ju+HQ9O8RLec95IDZ1M
+	DnVJgbRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2PA-00000006VJB-418j;
-	Thu, 06 Feb 2025 13:58:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tg2QX-00000006VeR-09w7;
+	Thu, 06 Feb 2025 14:00:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg24q-00000006SUd-2ueW
+	id 1tg2Nc-00000006V5W-3UcU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:37:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738849074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5N+Al59YmEDtBoKSzwKPTh6WUXLbEAKXSUpJ7QukWWw=;
-	b=Mgvo+vzs3KjHSP/DDhot9MOS1Khk6BNrq7OM4Pt3BiAqHe0GKf0LPOvInLT+lFrj+UmkDE
-	BaSCD1u3U0Vid6Rj1rO9cgH/+xuv/L+WvtJRRA/xdZRZEmni/FFvPG61JdG9C0GX2BXCvJ
-	Fg6ZOIbYdnYESLEMQcRRPmMP8Fi2+G4=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-537-Z1CCXbCkNJ6JlHV_rykxEg-1; Thu,
- 06 Feb 2025 08:37:51 -0500
-X-MC-Unique: Z1CCXbCkNJ6JlHV_rykxEg-1
-X-Mimecast-MFC-AGG-ID: Z1CCXbCkNJ6JlHV_rykxEg
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3A21C18DFE39;
-	Thu,  6 Feb 2025 13:37:14 +0000 (UTC)
-Received: from fedora.redhat.com (unknown [10.22.64.235])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4FC6618004A7;
-	Thu,  6 Feb 2025 13:37:09 +0000 (UTC)
-Received: by fedora.redhat.com (Postfix, from userid 1000)
-	id 9E1E56AA45D; Thu,  6 Feb 2025 08:37:07 -0500 (EST)
-Date: Thu, 6 Feb 2025 08:37:07 -0500
-From: Vivek Goyal <vgoyal@redhat.com>
-To: Dan Williams <dan.j.williams@intel.com>
-Cc: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net,
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
-	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
-	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-	david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	loongarch@lists.linux.dev, Hanna Czenczek <hreitz@redhat.com>,
-	German Maglione <gmaglione@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>
-Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
-Message-ID: <Z6S7A-51SdPco_3Z@redhat.com>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
- <Z6NhkR8ZEso4F-Wx@redhat.com>
- <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
+	Thu, 06 Feb 2025 13:57:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C0F3AA442CE;
+	Thu,  6 Feb 2025 13:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26496C4CEDD;
+	Thu,  6 Feb 2025 13:57:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738850239;
+	bh=LxYhiBiaZHBVR5Gszv7w/Tef4B8mfeE8hfjbsuT8Pxw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dvGXW9vruqA5OZ9jMC8fhfP2uAjPcXoOle4tDfQuEYs4gH0YggZyErKDMfT9Alr2a
+	 eM95P7GIGqg7QnFhRRAzE+W4nVFhTG0MPnaMIq0kfrDtDnsTnPnE732p9gp54tbNGq
+	 B8Fy4oZMq6EKMb2DCQY0rJwuu832LoI4rM9mSqQBP8zqDnRYLZQbFBTdRG6cm7idVC
+	 NJbq4UTsyAWJ4F4uz+8Kvr6LxvoN/6g//lvxu+TR53N9R/rBaHWjuxpk02XLISHd85
+	 0eeDmR6aSyIqlu1Id/+TWsuejTLv1d5TUfFWMJU5eZPTzkGYCQ0gbYsx4yMBKghOmc
+	 WDErRNAxO1unw==
+Date: Thu, 6 Feb 2025 06:57:15 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Handle .ARM.attributes section in linker
+ scripts
+Message-ID: <20250206135715.GA180182@ax162>
+References: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
+ <20250206130526.GB3204@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+In-Reply-To: <20250206130526.GB3204@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_053756_815587_24DBD886 
-X-CRM114-Status: GOOD (  30.85  )
+X-CRM114-CacheID: sfid-20250206_055721_000651_F27DF056 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,65 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 04:10:15PM -0800, Dan Williams wrote:
-> Vivek Goyal wrote:
-> > On Fri, Jan 10, 2025 at 05:00:29PM +1100, Alistair Popple wrote:
-> > > FS DAX requires file systems to call into the DAX layout prior to unlinking
-> > > inodes to ensure there is no ongoing DMA or other remote access to the
-> > > direct mapped page. The fuse file system implements
-> > > fuse_dax_break_layouts() to do this which includes a comment indicating
-> > > that passing dmap_end == 0 leads to unmapping of the whole file.
-> > > 
-> > > However this is not true - passing dmap_end == 0 will not unmap anything
-> > > before dmap_start, and further more dax_layout_busy_page_range() will not
-> > > scan any of the range to see if there maybe ongoing DMA access to the
-> > > range. Fix this by passing -1 for dmap_end to fuse_dax_break_layouts()
-> > > which will invalidate the entire file range to
-> > > dax_layout_busy_page_range().
+Hi Will,
+
+On Thu, Feb 06, 2025 at 01:05:26PM +0000, Will Deacon wrote:
+> On Tue, Feb 04, 2025 at 10:48:55AM -0700, Nathan Chancellor wrote:
+> > A recent LLVM commit [1] started generating an .ARM.attributes section
+> > similar to the one that exists for 32-bit, which results in orphan
+> > section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+> > because it is not handled in the arm64 linker scripts.
 > > 
-> > Hi Alistair,
+> >   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> >   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
 > > 
-> > Thanks for fixing DAX related issues for virtiofs. I am wondering how are
-> > you testing DAX with virtiofs. AFAIK, we don't have DAX support in Rust
-> > virtiofsd. C version of virtiofsd used to have out of the tree patches
-> > for DAX. But C version got deprecated long time ago.
+> >   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> >   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> >   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
 > > 
-> > Do you have another implementation of virtiofsd somewhere else which
-> > supports DAX and allows for testing DAX related changes?
+> > Discard the new sections in the necessary linker scripts to resolve the
+> > warnings, as the kernel and vDSO do not need to retain it, similar to
+> > the .note.gnu.property section.
+> > 
+> > Cc: stable@vger.kernel.org
+> > Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+> > Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> > ---
+> > Changes in v2:
+> > - Discard the section instead of adding it to the final artifacts to
+> >   mirror the .note.gnu.property section handling (Will).
 > 
-> I have personally never seen a virtiofs-dax test. It sounds like you are
-> saying we can deprecate that support if there are no longer any users.
-> Or, do you expect that C-virtiofsd is alive in the ecosystem?
+> Thanks for the v2. Just a minor nit:
+> 
+> > - Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+> > ---
+> >  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+> >  arch/arm64/kernel/vmlinux.lds.S   | 1 +
+> >  2 files changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> > index 4ec32e86a8da..8095fef66209 100644
+> > --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> > +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> > @@ -80,6 +80,7 @@ SECTIONS
+> >  		*(.data .data.* .gnu.linkonce.d.* .sdata*)
+> >  		*(.bss .sbss .dynbss .dynsbss)
+> >  		*(.eh_frame .eh_frame_hdr)
+> > +		*(.ARM.attributes)
+> >  	}
+> 
+> Can we chuck this in the earlier /DISCARD/ section along with
+> .note.gnu.property? i.e.
 
-Ashai Lina responded that they need and test DAX using libkrun.
+Sure, I don't see why not. Do you want the comment above it updated to
+mention this section or should I leave it as is?
 
-C version of virtiofsd is now gone. We are actively working and testing
-Rust version of virtiofsd. We have not been able to add DAX support to
-it yet for various reasons. 
-
-Biggest unsolved problem with viritofsd DAX mode is guest process should
-get a SIGBUS if it tries to access a file beyond the file. This can happen
-if file has been truncated on the host (while it is still mapped inside
-the guest). 
-
-I had tried to summarize the problem in this presentation in the section
-"KVM Page fault error handling".
-
-https://kvm-forum.qemu.org/2020/KVMForum2020_APF.pdf
-
-This is a tricky problem to handle. Once this gets handled, it becomes
-safer to use DAX with virtiofs. Otherwise you can't share the filesystem
-with other guests in DAX mode and use cases are limited.
-
-And then there are challenges at QEMU level. virtiofsd needs additional
-vhost-user commands to implement DAX and these never went upstream in
-QEMU. I hope these challenges are sorted at some point of time.
-
-I think virtiofs DAX is a very cool piece of technology. I would not like
-to deprecate it. It has its own problems and challenges and once we
-are able to solve these, it might see wider usage/adoption.
-
-Thanks
-Vivek
-
+> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> index 4ec32e86a8da..47ad6944f9f0 100644
+> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> @@ -41,6 +41,7 @@ SECTIONS
+>          */
+>         /DISCARD/       : {
+>                 *(.note.GNU-stack .note.gnu.property)
+> +               *(.ARM.attributes)
+>         }
+>         .note           : { *(.note.*) }                :text   :note
+> 
+> 
+> Will
 
