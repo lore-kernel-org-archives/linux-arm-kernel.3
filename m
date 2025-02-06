@@ -4,101 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD67C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDABC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MKa9JBuHk02AFSWU2kppcFeR1qEwoAZQtrzxB7+46M=; b=c/uWx3g54W/O5Vzu2HGDnLNuhG
-	SI+Hl+7sVVzf2Hw8FMLzeS93TGNE+yaNNjgEcmUgB9520h3U+3/QTR4YPwUHX7pn8DVRh+2LTSbTY
-	JhC3PHKcXL7HlVzoyEMEzEBWADtJPG8pnAgN5mN3MtPAiw1WpSQjLSRdx6dIyTUTALI28IiOLe06n
-	7t0CUZTKMST6lkMZcQ36CttAMdTpFcIrlaAds11MXRQ2gnLvgzMhIBr64QduLND30dX7nI15Z7Uep
-	Ak9i+7qgFdp3Y29L6O4JLD2DanRTuR2PpBrBP3kzlA8TZF+JC8vBh41pMzus90t89eAhB9BFilFda
-	JSLtA+OQ==;
+	bh=88iRX8irqERVHqBMl74vPIF+rogOEUfOrJex91RNWYg=; b=12HNP3H6nTX8HHf/d4PrbXg5dp
+	BejGMi5qi3y03kpPBU8GhPAYoTwTvOpafYwstqrEY5n7DgUBW+/p1dBKWaih8xauiLQsDpkRJuFlX
+	rCSNaqMUM7NmWsuIzLushGaKCNfjYo0QnSe2PdGFFxdgWXAm/FL1wfU5yNWfeN2yhZfDmVZnlo6EV
+	c+wT/SwO/ZzZcCOKf/k6qfrJapIVihNuZBvwZoSr6+DZnj1q6MUO/PVUQ93qs4uzEjYAvIa/74pWt
+	OHEoSfhNFSeYnG29UdXImqRJt2XLSa2J6prdwxnt8J0AsgoWXGbThQBCu9wp+UeyKUhzfP70vq/8G
+	+dN5IEiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2a1-00000006WpP-3HYX;
-	Thu, 06 Feb 2025 14:10:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tg2bN-00000006Wy5-1lUU;
+	Thu, 06 Feb 2025 14:11:33 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2SD-00000006VpJ-3ONY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 14:02:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=6MKa9JBuHk02AFSWU2kppcFeR1qEwoAZQtrzxB7+46M=; b=fgK6MsJNjIgqQwNzKO87+gEidF
-	ciCReaXyFbMSUZkUIb1IKoN5zqm1ByKiMDxJfOZ1KPpXCj1PhrdiNH/KBLE8h74sr6SGVSmZOmt7P
-	TMlx0cvu3q5Q5reBtjAYUVxAg2tWI1vBvT6ljzu/uXk0OUafBHh1k/iwm43Bk6FN7P4lL6HhaQAuB
-	ceCCoraABsvJzDxx00faIGWmMl5bf9luB2G0gkDegANhYEyW1HNha+V6iVU9W6SAZFt9ancC0aA3b
-	ECECga3V7yxJiqIZwTgoLPaKdANGWceRE4exoG2o7LhUaddGFW5Pd+3Lfze9u8wod/V7gCb1M7b4b
-	ndnYJ/LA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2SA-0000000Gxdo-2ml9
+	id 1tg2SC-00000006Vp1-3Rzo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:02:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBEA15C5E8E;
-	Thu,  6 Feb 2025 14:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1C662C4CEEC;
-	Thu,  6 Feb 2025 14:02:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738850520;
-	bh=c90hMaO3LfY7MAQLAulRSS88BWYPAshA8QP0FmZt4W4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KNKVQ/zq2oeVVXcq81CgxUWBb0NRGuYYajkH6Ef+qOVcJ5vpYEqhIL74GpHM9JpJT
-	 X0EzTyOzcrYLiTJMtqrdlAo1vkS/Pf4fLlT5iGAGzEtXNr94JfQNPBvmnFeUR8b23s
-	 RUzCB7fX7j7Et1Y8bTpGI5ybEBcrSoxL50eBNQP3khzwoJ9jGiUh4WZWUj1ZCGk9II
-	 /v1iq+AOmExMmL3fFYjtbLe1FW/Dz5wNjQgMaeQShv2lSXrlSIvhjP8pAFvc+qYz4D
-	 xIxJXyoNARzdSLTxMPRZ1x8CPcLWzRE5e2+taSEvyspKIxoABOvATiTd6DkUqIDqHU
-	 6NUECkmeBYGJQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05C8BC02196;
-	Thu,  6 Feb 2025 14:02:00 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Thu, 06 Feb 2025 15:01:56 +0100
-Subject: [PATCH v6 3/5] drm: panel: Add a panel driver for the Summit
- display
+	Thu, 06 Feb 2025 14:02:06 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516E1Vbh2812418
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 6 Feb 2025 08:01:31 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738850492;
+	bh=88iRX8irqERVHqBMl74vPIF+rogOEUfOrJex91RNWYg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=eCCp3949bwfLnkf8zD3DSkOK9WljWAwbZ1L/ni8wAQRp7eoOYixFjxg/Y61w9mHhu
+	 k8S7s75de3G+P08aQBdYm31veRoBRac5Czz1ZbEb1+v91Y+oU9lcc9lO+oZQ3UMY+1
+	 a+54Sf6OWM09GHBE+MJjPpkYPisjjRXZknApCiFY=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 516E1VJD057574
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 6 Feb 2025 08:01:31 -0600
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
+ Feb 2025 08:01:31 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 6 Feb 2025 08:01:31 -0600
+Received: from [172.24.23.168] (lt9560gk3.dhcp.ti.com [172.24.23.168])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516E1N6m039077;
+	Thu, 6 Feb 2025 08:01:24 -0600
+Message-ID: <04ff4911-de4b-4d68-b72f-f03915baa9c9@ti.com>
+Date: Thu, 6 Feb 2025 19:31:23 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250206-adpdrm-v6-3-c8ab9348b853@gmail.com>
-References: <20250206-adpdrm-v6-0-c8ab9348b853@gmail.com>
-In-Reply-To: <20250206-adpdrm-v6-0-c8ab9348b853@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
- Janne Grunau <j@jannau.net>
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Nick Chan <towinchenmi@gmail.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738850518; l=6093;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=dZPCmmw2dlzFublwHZZM31vEYHqYWVyzQLhge3ZDlNs=;
- b=CUVkIntGXDEAD4K5Xl1fx+z8f3Yx/vsXggv1DCuuwqJFgnix7Kn8Kc6TQrK3zRMmGmvls5WIv
- gx1psoblHThB2UBm23n4vP/xQfZa9ll/jcLDC9cZG2N+rvP+z0xK6HT
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH net 3/3] net: ti: icssg-prueth: Add AF_XDP
+ support
+To: Ido Schimmel <idosch@idosch.org>
+CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <robh@kernel.org>,
+        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
+        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
+        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
+        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+References: <20250122124951.3072410-1-m-malladi@ti.com>
+ <20250122124951.3072410-4-m-malladi@ti.com> <Z5J7kGFU_ZgneFAF@shredder>
+ <f1cf5bfc-e767-4ced-9aad-76a578c53706@ti.com> <Z6Oj7eMRV9z9lF2I@shredder>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <Z6Oj7eMRV9z9lF2I@shredder>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_140203_143236_757BC367 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250206_060204_949076_4FEF546B 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,198 +94,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-This is the display panel used for the touchbar on laptops that have it.
 
-Co-developed-by: Nick Chan <towinchenmi@gmail.com>
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
- drivers/gpu/drm/panel/Kconfig        |   9 +++
- drivers/gpu/drm/panel/Makefile       |   1 +
- drivers/gpu/drm/panel/panel-summit.c | 132 +++++++++++++++++++++++++++++++++++
- 3 files changed, 142 insertions(+)
+On 2/5/2025 11:16 PM, Ido Schimmel wrote:
+> On Tue, Feb 04, 2025 at 11: 25: 39PM +0530, Malladi, Meghana wrote: > On 
+> 1/23/2025 10: 55 PM, Ido Schimmel wrote: > > XDP program could have 
+> changed the packet length, but driver seems to be > > This will be true 
+> given, emac->xdp_prog
+> ZjQcmQRYFpfptBannerStart
+> This message was sent from outside of Texas Instruments.
+> Do not click links or open attachments unless you recognize the source 
+> of this email and know the content is safe.
+> Report Suspicious
+> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+> v9dnXdhkNoe0hkqlFZKoUhMAqXZwolk5zXhypw1qeZY8pxUHTuuleZBOKulyBnK9eA$>
+> ZjQcmQRYFpfptBannerEnd
+> 
+> On Tue, Feb 04, 2025 at 11:25:39PM +0530, Malladi, Meghana wrote:
+>> On 1/23/2025 10:55 PM, Ido Schimmel wrote:
+>> > XDP program could have changed the packet length, but driver seems to be
+>> 
+>> This will be true given, emac->xdp_prog is not NULL. What about when XDP is
+>> not enabled ?
+> 
+> I don't understand the question. My point is that the packet doesn't
+> necessarily look the same after XDP ran.
+> 
 
-diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
-index d7469c565d1db8b8e974dd6c45d03d9352d99d63..5085a82e4bc695e85cabbc3200859bbe10cb0f91 100644
---- a/drivers/gpu/drm/panel/Kconfig
-+++ b/drivers/gpu/drm/panel/Kconfig
-@@ -925,6 +925,15 @@ config DRM_PANEL_SIMPLE
- 	  that it can be automatically turned off when the panel goes into a
- 	  low power state.
- 
-+config DRM_PANEL_SUMMIT
-+	tristate "Apple Summit display panel"
-+	depends on OF
-+	depends on DRM_MIPI_DSI
-+	depends on BACKLIGHT_CLASS_DEVICE
-+	help
-+	  Say Y if you want to enable support for the "Summit" display panel
-+	  used as a touchbar on certain Apple laptops.
-+
- config DRM_PANEL_SYNAPTICS_R63353
- 	tristate "Synaptics R63353-based panels"
- 	depends on OF
-diff --git a/drivers/gpu/drm/panel/Makefile b/drivers/gpu/drm/panel/Makefile
-index 7dcf72646cacff11bab90c78e3b8b1f357e5f14a..10ac2e850f5cd6d6546439de75483466e4015d1a 100644
---- a/drivers/gpu/drm/panel/Makefile
-+++ b/drivers/gpu/drm/panel/Makefile
-@@ -89,6 +89,7 @@ obj-$(CONFIG_DRM_PANEL_SHARP_LS060T1SX01) += panel-sharp-ls060t1sx01.o
- obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7701) += panel-sitronix-st7701.o
- obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7703) += panel-sitronix-st7703.o
- obj-$(CONFIG_DRM_PANEL_SITRONIX_ST7789V) += panel-sitronix-st7789v.o
-+obj-$(CONFIG_DRM_PANEL_SUMMIT) += panel-summit.o
- obj-$(CONFIG_DRM_PANEL_SYNAPTICS_R63353) += panel-synaptics-r63353.o
- obj-$(CONFIG_DRM_PANEL_SONY_ACX565AKM) += panel-sony-acx565akm.o
- obj-$(CONFIG_DRM_PANEL_SONY_TD4353_JDI) += panel-sony-td4353-jdi.o
-diff --git a/drivers/gpu/drm/panel/panel-summit.c b/drivers/gpu/drm/panel/panel-summit.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..e780faee18570c9970d381b3f7c65b95665469cd
---- /dev/null
-+++ b/drivers/gpu/drm/panel/panel-summit.c
-@@ -0,0 +1,132 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/backlight.h>
-+#include <drm/drm_device.h>
-+#include <drm/drm_mipi_dsi.h>
-+#include <drm/drm_mode.h>
-+#include <drm/drm_modes.h>
-+#include <drm/drm_panel.h>
-+#include <drm/drm_probe_helper.h>
-+#include <video/mipi_display.h>
-+
-+struct summit_data {
-+	struct mipi_dsi_device *dsi;
-+	struct backlight_device *bl;
-+	struct drm_panel panel;
-+};
-+
-+static int summit_set_brightness(struct device *dev)
-+{
-+	struct summit_data *s_data = dev_get_drvdata(dev);
-+	int level = backlight_get_brightness(s_data->bl);
-+
-+	return mipi_dsi_dcs_set_display_brightness(s_data->dsi, level);
-+}
-+
-+static int summit_bl_update_status(struct backlight_device *dev)
-+{
-+	return summit_set_brightness(&dev->dev);
-+}
-+
-+static const struct backlight_ops summit_bl_ops = {
-+	.update_status	= summit_bl_update_status,
-+};
-+
-+static struct drm_display_mode summit_mode = {
-+	.vdisplay = 2008,
-+	.hdisplay = 60,
-+	.hsync_start = 60 + 8,
-+	.hsync_end = 60 + 8 + 80,
-+	.htotal = 60 + 8 + 80 + 40,
-+	.vsync_start = 2008 + 1,
-+	.vsync_end = 2008 + 1 + 15,
-+	.vtotal = 2008 + 1 + 15 + 6,
-+	.clock = ((60 + 8 + 80 + 40) * (2008 + 1 + 15 + 6) * 60) / 1000,
-+	.type = DRM_MODE_TYPE_DRIVER,
-+	.flags = DRM_MODE_FLAG_PHSYNC | DRM_MODE_FLAG_NVSYNC,
-+};
-+
-+static int summit_get_modes(struct drm_panel *panel,
-+			    struct drm_connector *connector)
-+{
-+	connector->display_info.non_desktop = true;
-+	drm_object_property_set_value(&connector->base,
-+				      connector->dev->mode_config.non_desktop_property,
-+				      connector->display_info.non_desktop);
-+
-+	return drm_connector_helper_get_modes_fixed(connector, &summit_mode);
-+}
-+
-+static const struct drm_panel_funcs summit_panel_funcs = {
-+	.get_modes = summit_get_modes,
-+};
-+
-+static int summit_probe(struct mipi_dsi_device *dsi)
-+{
-+	struct backlight_properties props = { 0 };
-+	struct device *dev = &dsi->dev;
-+	struct summit_data *s_data;
-+	int ret;
-+
-+	s_data = devm_kzalloc(dev, sizeof(*s_data), GFP_KERNEL);
-+	if (!s_data)
-+		return -ENOMEM;
-+
-+	mipi_dsi_set_drvdata(dsi, s_data);
-+	s_data->dsi = dsi;
-+
-+	ret = device_property_read_u32(dev, "max-brightness", &props.max_brightness);
-+	if (ret)
-+		return ret;
-+	props.type = BACKLIGHT_RAW;
-+
-+	s_data->bl = devm_backlight_device_register(dev, dev_name(dev),
-+						    dev, s_data, &summit_bl_ops, &props);
-+	if (IS_ERR(s_data->bl))
-+		return PTR_ERR(s_data->bl);
-+
-+	drm_panel_init(&s_data->panel, dev, &summit_panel_funcs,
-+		       DRM_MODE_CONNECTOR_DSI);
-+	drm_panel_add(&s_data->panel);
-+
-+	return mipi_dsi_attach(dsi);
-+}
-+
-+static void summit_remove(struct mipi_dsi_device *dsi)
-+{
-+	struct summit_data *s_data = mipi_dsi_get_drvdata(dsi);
-+
-+	mipi_dsi_detach(dsi);
-+	drm_panel_remove(&s_data->panel);
-+}
-+
-+static int summit_suspend(struct device *dev)
-+{
-+	struct summit_data *s_data = dev_get_drvdata(dev);
-+
-+	return mipi_dsi_dcs_set_display_brightness(s_data->dsi, 0);
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(summit_pm_ops, summit_suspend,
-+				summit_set_brightness);
-+
-+static const struct of_device_id summit_of_match[] = {
-+	{ .compatible = "apple,summit" },
-+	{},
-+};
-+
-+MODULE_DEVICE_TABLE(of, summit_of_match);
-+
-+static struct mipi_dsi_driver summit_driver = {
-+	.probe = summit_probe,
-+	.remove = summit_remove,
-+	.driver = {
-+		.name = "panel-summit",
-+		.of_match_table = summit_of_match,
-+		.pm = pm_sleep_ptr(&summit_pm_ops),
-+	},
-+};
-+module_mipi_dsi_driver(summit_driver);
-+
-+MODULE_DESCRIPTION("Summit Display Panel Driver");
-+MODULE_LICENSE("GPL");
+emac_rx_packet() is a common function for both XDP and non-XDP use 
+cases. XDP will only run when emac->xdp_prog is not NULL. I understand 
+that when XDP ran, it can change the contents of the packet hence it is 
+advisable to use "xdp_build_skb_from_buff(const struct xdp_buff *xdp)", 
+but for cases when xdp doesn't run - the xdp struct has junk/zero value 
+which cannot be converted into some valid skb. But I think I will do 
+something like this:
 
--- 
-2.48.1
+if (emac->xdp_prog)
+	xdp_build_skb_from_buff(xdp);
+else
+	skb = napi_build_skb(pa, PAGE_SIZE);
 
+Hope this will address your comment.
+
+>> 
+>> > building the skb using original length read from the descriptor.
+>> > Consider using xdp_build_skb_from_buff()
+>> > 
+>> 
+> 
 
 
