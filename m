@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64B8C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B06BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=smQJl3ePCs8jGnt2Sj26A0AseZjXwWnj+sjvgFlY7DA=; b=wvD4Q2VRGjW5y5wtUtLJo/PXB4
-	0AvACU7RuYHQECP62G9QoNo/YgnQarU7cH7zAXmbKhUm8GL77m3/VHG62lBch3qjcEMhLnBdD5Lc3
-	4FH9EVNuHhleLwWW9cao7KNYa/p4hQRlz2Kx3AdFPWQmPNW5Gc1CBmi0IfHMHLcQRVM/a0Ez/HCew
-	9cdPWc9Qz2Er1oKONeE55hpRwsSZTfiUWrbAhKfZU7FOm/TJQ5HDjDMEWpNM+BZ+bsopx8GCMJcfD
-	Zy9kH3x1TbRTdq+4U8Lao35B9/Ee1VSjx1YbRLB8T/4yOmUTgjqmBiLePRv5WyyKufWSxGgKYRX9V
-	D0DAsZCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pk38UllpiRJ5HjBfUpqXeVrQFPBZtVwvcteXVNjXhwQ=; b=U+yNDVfM6FwA2Iq6yi1LsHJGUC
+	6XJVNUDqKf91YaIo8K9s4Lp9WCxBWNCqE2vwBN8AJ4FCxLXGlabEWLErU3URjJG5ovCXK3K+s01Y7
+	Okar/+HlXXCDk3hVab/17wuqBoQiTi7q2T56MEKAwNZJ6JGskzy2pHDJpWlQnimzIc4VvnNuASXi+
+	7hlG2AFt/SAJaJ5rNFY/6OUac45PUsHc4yiMVqYXSzWMrAvpB0ueBYtqKBZvawEA3T694/tFBogcB
+	nUQjM5D6GIKNPyK6X1FgCm3opztwaDeyPbPcXlbAKy1+alGEkYY0Plv3RPk0Ss8eQnwhn/Om69++q
+	dloTNMFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgAzT-00000007lbh-1Rth;
-	Thu, 06 Feb 2025 23:08:59 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tgBJL-00000007nDZ-2SZU;
+	Thu, 06 Feb 2025 23:29:31 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgAy5-00000007lVZ-3yCA;
-	Thu, 06 Feb 2025 23:07:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738883253; x=1770419253;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=boGdQ7S8b0YyNfxIm4I50jD6mtmzak8c74/jeqYssO4=;
-  b=k1xniVivBAiawgDg65TlbBya4MT+frFcK3aywFGPcR9vJZ6h4wdlOZqZ
-   5ec6nGNZfmTL/6UFgT+mYW9TJL9qLjiTeE2hrlSXq0ql3IiVfTzVQVwlj
-   94hxokEO2W589mfYkWM7dLDgTRaVi76cVkdaNNb24RRU1TukOiHAPSC9a
-   M1IhFryblXcqoPXd9lMSW4cgjfIa9p/+6ha8u0e0Lda/oJSpOgzDOYij/
-   xgfIrMhKsREMO+slB6zA1xEsUavSFXDdFJ91fqVYZy2hc7yQBTQ+W/qPs
-   snX/KVh4qQyR/rmQ+Vg1VbpVF9yhjsHaABnAcre9y/C6XADkStrn5zYPQ
-   Q==;
-X-CSE-ConnectionGUID: S58PUdRgRAKBJoWUJSOn+w==
-X-CSE-MsgGUID: tL1AE8syRsCmclwuapAJZg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50946262"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="50946262"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 15:07:32 -0800
-X-CSE-ConnectionGUID: EQwYRrGCRW2DHPzG7W2gkg==
-X-CSE-MsgGUID: q85618KpRbu5Bb86PHmPeQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,265,1732608000"; 
-   d="scan'208";a="111132680"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 06 Feb 2025 15:07:27 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgAxw-000xUd-1j;
-	Thu, 06 Feb 2025 23:07:24 +0000
-Date: Fri, 7 Feb 2025 07:06:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next 10/13] net: airoha: Introduce PPE initialization
- via NPU
-Message-ID: <202502070610.tbfoIwkS-lkp@intel.com>
-References: <20250205-airoha-en7581-flowtable-offload-v1-10-d362cfa97b01@kernel.org>
+	id 1tgBHw-00000007mrL-2WpY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 23:28:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 7D3F54459F;
+	Thu,  6 Feb 2025 23:27:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1738884478; bh=QlOTyoQRutUhDbYeblAFtLa22VXCRSrxf7eaRid7ykc=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=GhBU9aw8TGPLHWJwo9N0ckjDZgW1uwyuWtksqgpUtCx8KQNNOsZejU9RC9RabqwyN
+	 ETkVWPzO698bkB6blKlA2VidgfiBi5QfGYrYx1j3cjFbvy5lP7O47IC3m/szYHWsH2
+	 7EzcLroSI+bVqFwk+hJWCZdBnyi8sCa51pAnU6D/957oyXyI9G5ujq3SoAnCwP6inr
+	 2BImm1PmeSWvnM8sJolcqzYd9woCsW1IbKosJ06rIJjCvfqYeFbiEv+0teZANlnuQE
+	 H3ZS8Vc5V4K/AijhK0HIrsXR1fSE7UGEdhbOHCeeLz1ahX80pFD+U4I9o0RGCYu8Ys
+	 8FtbzunZ3tjiA==
+Message-ID: <ecd655ca-61e7-4ef1-81ad-606c9ce95df4@marcan.st>
+Date: Fri, 7 Feb 2025 08:27:54 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250205-airoha-en7581-flowtable-offload-v1-10-d362cfa97b01@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND 0/9] Add Apple A7-A11, T2 SoC cpufreq nodes
+To: Nick Chan <towinchenmi@gmail.com>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, soc@lists.linux.dev,
+ Arnd Bergmann <arnd@arndb.de>
+References: <20250203124747.41541-1-towinchenmi@gmail.com>
+From: Hector Martin <marcan@marcan.st>
+Content-Language: en-US
+In-Reply-To: <20250203124747.41541-1-towinchenmi@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_150733_996860_715D7584 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250206_152805_039170_2C1371BD 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,119 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Hey Nick,
 
-kernel test robot noticed the following build warnings:
+I'm not sure if we're still waiting for DT reviews for these, but either
+way, please send DT and drivers/soc/apple changes to soc@lists.linux.dev
+going forward (or perhaps they should go through ARM64?), as I am no
+longer a maintainer for Apple DTs/SoC stuff myself. [1]
 
-[auto build test WARNING on 135c3c86a7cef4ba3d368da15b16c275b74582d3]
+[1]
+https://lore.kernel.org/asahi/CAEg-Je_SSTiiq5R9hce-7j5W02GaQqNUj=bFH+FwgjjxWugFqQ@mail.gmail.com/T/#t
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/net-airoha-Move-airoha_eth-driver-in-a-dedicated-folder/20250206-022555
-base:   135c3c86a7cef4ba3d368da15b16c275b74582d3
-patch link:    https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-offload-v1-10-d362cfa97b01%40kernel.org
-patch subject: [PATCH net-next 10/13] net: airoha: Introduce PPE initialization via NPU
-config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20250207/202502070610.tbfoIwkS-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502070610.tbfoIwkS-lkp@intel.com/reproduce)
+On 2025/02/03 21:43, Nick Chan wrote:
+> This series adds performance-controller and operating-points-v2 cpufreq
+> nodes for Apple A7-A11, T2 SoCs.
+> 
+> Dependencies:
+> 
+> - arm64: dts: apple: Split s8000/s8003 SoC DTS files
+> https://lore.kernel.org/asahi/20250203113949.14760-1-towinchenmi@gmail.com/T
+> 
+> - Device Tree for Apple T2 (T8012) SoC devices
+> https://lore.kernel.org/asahi/20250203114417.16453-1-towinchenmi@gmail.com/T
+> 
+> Note, this will have conflicts with Apple A7-A11, T2 PMGR nodes [1] due to
+> both of the series adding things to the same part of the .dts files, they are
+> unrelated, so keep both of additions.
+> 
+> 1: https://lore.kernel.org/asahi/20250203121831.36053-1-towinchenmi@gmail.com/T
+> 
+> Nick Chan
+> 
+> ---
+> Nick Chan (9):
+>   arm64: dts: apple: s5l8960x: Add cpufreq nodes
+>   arm64: dts: apple: t7000: Add cpufreq nodes
+>   arm64: dts: apple: t7001: Add cpufreq nodes
+>   arm64: dts: apple: Add cpufreq nodes for S8000/S8003
+>   arm64: dts: apple: s8001: Add cpufreq nodes
+>   arm64: dts: apple: t8010: Add cpufreq nodes
+>   arm64: dts: apple: t8011: Add cpufreq nodes
+>   arm64: dts: apple: t8012: Add cpufreq nodes
+>   arm64: dts: apple: t8015: Add cpufreq nodes
+> 
+>  arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi    |   1 +
+>  arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi  |   1 +
+>  arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi |   1 +
+>  arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi   |  45 +++++++
+>  arch/arm64/boot/dts/apple/s5l8960x.dtsi       |  10 ++
+>  arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi   |  45 +++++++
+>  arch/arm64/boot/dts/apple/s800-0-3.dtsi       |  10 ++
+>  arch/arm64/boot/dts/apple/s8000.dtsi          |  53 +++++++-
+>  arch/arm64/boot/dts/apple/s8001.dtsi          |  59 +++++++++
+>  arch/arm64/boot/dts/apple/s8003.dtsi          |  53 +++++++-
+>  arch/arm64/boot/dts/apple/t7000-6.dtsi        |   4 +
+>  arch/arm64/boot/dts/apple/t7000-j42d.dts      |   4 +
+>  arch/arm64/boot/dts/apple/t7000-mini4.dtsi    |   4 +
+>  arch/arm64/boot/dts/apple/t7000.dtsi          |  46 +++++++
+>  arch/arm64/boot/dts/apple/t7001.dtsi          |  52 ++++++++
+>  arch/arm64/boot/dts/apple/t8010-7.dtsi        |   8 ++
+>  arch/arm64/boot/dts/apple/t8010-ipad6.dtsi    |   8 ++
+>  arch/arm64/boot/dts/apple/t8010.dtsi          |  86 ++++++++++++
+>  arch/arm64/boot/dts/apple/t8011.dtsi          |  79 +++++++++++
+>  arch/arm64/boot/dts/apple/t8012.dtsi          |  83 ++++++++++++
+>  arch/arm64/boot/dts/apple/t8015.dtsi          | 123 ++++++++++++++++++
+>  21 files changed, 773 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi
+>  create mode 100644 arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi
+> 
+> 
+> base-commit: a14d9039c2aea103eeedc5602ebab731ef3eb73e
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502070610.tbfoIwkS-lkp@intel.com/
+- Hector
 
-All warnings (new ones prefixed by >>):
-
-   In file included from include/linux/device.h:15,
-                    from include/linux/devcoredump.h:8,
-                    from drivers/net/ethernet/airoha/airoha_npu.c:7:
-   drivers/net/ethernet/airoha/airoha_npu.c: In function 'airoha_npu_run_firmware':
->> drivers/net/ethernet/airoha/airoha_npu.c:200:30: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'size_t' {aka 'unsigned int'} [-Wformat=]
-     200 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ^~~
-   include/linux/dev_printk.h:154:56: note: in expansion of macro 'dev_fmt'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                        ^~~~~~~
-   drivers/net/ethernet/airoha/airoha_npu.c:200:17: note: in expansion of macro 'dev_err'
-     200 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                 ^~~~~~~
-   drivers/net/ethernet/airoha/airoha_npu.c:200:60: note: format string is defined here
-     200 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                                                          ~~^
-         |                                                            |
-         |                                                            long int
-         |                                                          %d
-   drivers/net/ethernet/airoha/airoha_npu.c:220:30: warning: format '%ld' expects argument of type 'long int', but argument 4 has type 'size_t' {aka 'unsigned int'} [-Wformat=]
-     220 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ^~~
-   include/linux/dev_printk.h:154:56: note: in expansion of macro 'dev_fmt'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                        ^~~~~~~
-   drivers/net/ethernet/airoha/airoha_npu.c:220:17: note: in expansion of macro 'dev_err'
-     220 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                 ^~~~~~~
-   drivers/net/ethernet/airoha/airoha_npu.c:220:60: note: format string is defined here
-     220 |                 dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-         |                                                          ~~^
-         |                                                            |
-         |                                                            long int
-         |                                                          %d
-
-
-vim +200 drivers/net/ethernet/airoha/airoha_npu.c
-
-   187	
-   188	static int airoha_npu_run_firmware(struct airoha_npu *npu, struct reserved_mem *rmem)
-   189	{
-   190		struct device *dev = &npu->pdev->dev;
-   191		const struct firmware *fw;
-   192		void __iomem *addr;
-   193		int ret;
-   194	
-   195		ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-   196		if (ret)
-   197			return ret;
-   198	
-   199		if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
- > 200			dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-   201				NPU_EN7581_FIRMWARE_RV32, fw->size);
-   202			ret = -E2BIG;
-   203			goto out;
-   204		}
-   205	
-   206		addr = devm_ioremap(dev, rmem->base, rmem->size);
-   207		if (!addr) {
-   208			ret = -ENOMEM;
-   209			goto out;
-   210		}
-   211	
-   212		memcpy_toio(addr, fw->data, fw->size);
-   213		release_firmware(fw);
-   214	
-   215		ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-   216		if (ret)
-   217			return ret;
-   218	
-   219		if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-   220			dev_err(dev, "%s: fw size too overlimit (%ld)\n",
-   221				NPU_EN7581_FIRMWARE_DATA, fw->size);
-   222			ret = -E2BIG;
-   223			goto out;
-   224		}
-   225	
-   226		memcpy_toio(npu->base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-   227	out:
-   228		release_firmware(fw);
-   229	
-   230		return ret;
-   231	}
-   232	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
