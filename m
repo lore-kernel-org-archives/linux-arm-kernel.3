@@ -4,100 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED17C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92798C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=; b=UUuw2sMrCGSNU39hFO0AN9yGYy
-	VDkDSpoMJftz7lclFbPsQ2Wz3jZLPEgb1UMIT/6GUl3j+NmUS4No0T7UfE4hSa7qEDiz5f5vrBs0n
-	GKrZGfCaSDcpPsgrYjuuXNRcFoRezt/1SE7FrbhLqAinfpdA2wrQOezstKdVsgV6ORT9MPJYn+bF/
-	551gqN3gCy6e7hbwjdYH9HMkM4PUg+ltO3esum5nWwnO4HbZiyuVjnqiXsp4jRIhwxr6kNVkSbuJ6
-	URX7pckEEZ4Y9UZbJH/drp6dqdOnAauIXvjXLbZInSOrXacaxVNrJZJt7zFaNx2M8YFZ9uHx93vto
-	eZosHfwQ==;
+	bh=ZPzy1Z8VbxCdd+MyKxJcvToGmvpLxSPc4zUEljsmwWY=; b=cj1UgobP5bjKdVaB81vZtkb3ac
+	b2iAcN5vUEf9/j00jFfjoCGjF4CfWfw43OGbOSdQcU8ygbyeXUT/CZVgrdtX7tESbBKGupnBG1xAp
+	hfyZP8sB0Ie9yde43dvsnrUY30Lnw+hPjOyuyGXu7b1OuI18jVvZM7SuvBoARv+MbowJAbo4mWnql
+	REG7pe3mss4iE3ic6LTn8fxUtS3A9hn0ig+7F5pw6S1kre8RqJAifjlIy+FbdjcnUBrMoKqsHTeKZ
+	x8/5w9tDmkmQ0R+Piqrhsqr0lCycV4WUIVQCRGzeq/hX1wDkIy7fpTNZhT2BlfkdrIzr1Bf0nookA
+	Y9AUB5dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxl7-00000005m5t-2ZtN;
-	Thu, 06 Feb 2025 09:01:17 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tfxnS-00000005n0i-1eos;
+	Thu, 06 Feb 2025 09:03:42 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwEm-00000005YPS-1BQQ
+	id 1tfxm4-00000005mQz-38Gc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:23:49 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f9c97af32eso749028a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:48 -0800 (PST)
+	Thu, 06 Feb 2025 09:02:18 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4361f65ca01so6133305e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 01:02:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826628; x=1739431428; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
-        b=f7/jHbAvKj0AJ7bnIUnvmip8pbymK1FCKAqeO030qoI5V5r/Y53DmAE+RVUgxp2cNX
-         TGWsrdQ0FNpLnUfAPuAl/JG83MKoVcvjPkPbYFBQTenKO6UkzbC2Y6tupoZ8GvefhsHx
-         R2y9oAwyL+hGkfgDbMMdA6qrym5UCnw89XJ03qOXac5U93Kzf8uCSr12bW8yTLtRlYyD
-         xrpg9nAB2viERR4CQcJLMfRE9FpZfUeEg4aYstQVAQ8eKMBaJXndsX4ohoT6/nbIfvie
-         HyqyVkloknqu7YduLiFTQhZzzy/2YYy+LEvzI3zGatU9mY1XoDViqROa+xcEUIS/UW1j
-         hF/g==
+        d=linaro.org; s=google; t=1738832534; x=1739437334; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZPzy1Z8VbxCdd+MyKxJcvToGmvpLxSPc4zUEljsmwWY=;
+        b=gnznNDb4B94XfgAKOCbuTB5fyqnkDt3O73FUlv6uY+Nvly9zYpN8eXy9KDz3eBJvsA
+         WfkS7P1sepzmHg3yucYGhoAGCjYWsrHcElOnYAlHhj7bmmM0Qo0tDBHroBV3AbQPdHc8
+         xliCeuXQs+4FHYst952M5jRYCUjl8X3F/NOWGNY7fLtj+gWGNADLF9rWGS3df9lJE1f9
+         dJoo2jk1+3/96uQkYZH10UCJJPWnU881Jg0iSGfXQ1lJPuVMp25LRUY0uY77Yu1iGh/7
+         gZy+0hN/TpW8+R/OanQiWQGJJ6hM2mInhg9SryVPb1SNJXweVG091fpXnBJgF12TiVU3
+         N+jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738826628; x=1739431428;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
-        b=CKGbYehCjymvXnxevecVXP4Xq0jliC31+VDNCHH76EBbaHc4GBSG7qI0MSY57z2s1k
-         LLWlCqT6HePmatUadTMyh1RqO/IE2ehFz+XCfWP04uEvIBrlrKHgIt6JsIG/v9EZvkkZ
-         2ksq2TSlDVLY1/LEURIUiYdlS1wINoLO2YYlzVDTsqj7fEeUHhmcTBWSBLVK2Cdma0RV
-         +ESuGyju37y3w5dZiTDSARZa7RwAHvAUWic5pOiNeTL09Wo9GLEWtMBe09BGBuBvb15x
-         E6QXX7XcbZs8ENyR8tDozdxlael4IGzwuHV92J7V3O0U3yN8mURlPG68zxSQqr9wo/9o
-         nIMA==
-X-Forwarded-Encrypted: i=1; AJvYcCV8uncfkxoMDVXymjLtIEI6PhXDdFQ6OVxEEc3UZexyTxunRcpXJANzRj3s4ECxaUagTTMe+OOzDUgw5xzPHoIF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBDN32E27CO4PbkJOK3ZX1L4qpDUj/lfflAzOgXvHvq/lfsq2g
-	EuSi76IruWCmzE5/v+zl0JYPXdcvEO6lynKgLAmqf75S3xhf5p2hAxU6ra84CTM=
-X-Gm-Gg: ASbGncsVyG+qNdGLHq0VqCevQ4EOQI6T50Aw+sPpufvzDbwuP+A9XSXBizAAXHVxS0e
-	oOjr67GydPmwQkewf3G9PR88P2AH0d2p0HQCiJ8Sc2GfeEJXZHjQfpDCnc+UkpuxXz+8U1aB7Rp
-	Ki80OJjxWJ1QFGjXv0Qevoyh3A2y8ClWXD+tFtf6v0yaFOqQoq3oLvzENUcfqy1TpRVcFHOAmuL
-	y/bvQbu4Cdp0XLDH0X+Iw5CAMiFBntJOkhY5JMT1oCCP0DCrwVvtjsPK0UZgwFGLvT8qdZ+rUeA
-	Dwj6pRjKBGNIlHxEWmoVy0VbJGeu
-X-Google-Smtp-Source: AGHT+IEP7EfP8VYTZfd5HpBEgA2d9buHDVtURDszS/7//CqJNqgdAtdkSc3vqiKyaUdxMxfHiRPc5Q==
-X-Received: by 2002:a17:90b:5108:b0:2ee:ba84:5cac with SMTP id 98e67ed59e1d1-2f9e0753cc2mr9646959a91.7.1738826627792;
-        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 05 Feb 2025 23:23:25 -0800
-Subject: [PATCH v4 20/21] tools/perf: Pass the Counter constraint values in
- the pmu events
+        d=1e100.net; s=20230601; t=1738832534; x=1739437334;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZPzy1Z8VbxCdd+MyKxJcvToGmvpLxSPc4zUEljsmwWY=;
+        b=EXADDcgwE69G/XIR3NpWCSQZonF8OTkzej5iEm12NehI3hRTVdv1W1HpmVVGSdwB1K
+         lRuuMEDoOl9yZEnUPWHRz+fdiPyfgjsxVMjk2SPb2+iK01/n5BybgxlvpIawpn0Rg1nT
+         xnF8on8xpOGQGigiSzbOxEIfDZ8/gqHpe8phd8w6th+nyhwM63d/9AQBpk7ztV1Zk6K3
+         TjsR6+BaIhJmNrvpJDZR/bZhp6Lsyi6AJoEfwlrmfm5G4RPQeTV9pQTQv2pzVkhGHoYR
+         rHIqLWa9DqP/SPIsTzpb2iB/4/0PSeStmCJWDFkGEU1YCsQ6aGGjDQtlafBO1Xx52IM/
+         SNGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWM4vSIDWbcMDwP8lQH5aDzwDY72Sx/4zIi3lnRXINVqYFgMpID/jFi4tq6TiCoWTMcjaC4OJ2Rr1xo5y119dXm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx97ctxg08VfKKr3FRPlsDB8UKBJ3MrhI7GdThhCZoP8UAp2YW
+	CPkocUy/uPDbgpkCZrO2xXgJkRhH0Y/pA+e9cEB2LkQ5HGFwE2YrI6mKVVfq6Qg=
+X-Gm-Gg: ASbGncsT+YRp+On7jt4+1kJjjTjt2Z8tw35az7Bwq45CXkDuU8TiKaSwD1wB/HMy9DF
+	waRxgaiEFGUJgePVcLxUrHaKyfdYk9enZN6Ieow9O8wJtiC5+oQy4sMnxpUTYdcgVmvcckA4j+1
+	TaSKiMajV8RT+chSRDH70WcRrn+GntverZayen/bniLNNH3UZws9+DQ1ZQq3IEEhPILQDyWGyqg
+	f4c+5w6FP9C3UJUfVqoocsOTFNKzvPWfvpLcmVz6VbNkv7yR5X9Po7z0Ldle4BiW11XbAvOEGT5
+	nzZEK1KlBvonDW1Cwc7r7jrl
+X-Google-Smtp-Source: AGHT+IHb4g4QZ/ozYPa6vvDOHmEuKFym5OBNx5m4o6Nj8tDENoav/RWlv4fqN6xllweSDexUwkeGoQ==
+X-Received: by 2002:a05:6000:1a8b:b0:386:407c:40b9 with SMTP id ffacd0b85a97d-38db48d247amr4779823f8f.28.1738832534542;
+        Thu, 06 Feb 2025 01:02:14 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.251])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbf6e4a4bsm786590f8f.92.2025.02.06.01.02.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Feb 2025 01:02:13 -0800 (PST)
+Message-ID: <1fa54c76-d82f-483b-b577-79322908fabc@linaro.org>
+Date: Thu, 6 Feb 2025 09:02:11 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] firmware: add Exynos ACPM protocol driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org,
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+References: <20250116-gs101-acpm-v6-0-e3a2e1a3007c@linaro.org>
+ <20250116-gs101-acpm-v6-2-e3a2e1a3007c@linaro.org>
+ <f83ccdb0-4d22-441f-9311-d9a2c8cd3493@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <f83ccdb0-4d22-441f-9311-d9a2c8cd3493@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250205-counter_delegation-v4-20-835cfa88e3b1@rivosinc.com>
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_232348_378793_A7FC4BEB 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250206_010216_803416_5A3E41BD 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RISC-V doesn't have any standard event to counter mapping discovery
-mechanism in the ISA. The ISA defines 29 programmable counters and
-platforms can choose to implement any number of them and map any
-events to any counters. Thus, the perf tool need to inform the driver
-about the counter mapping of each events.
 
-The current perf infrastructure only parses the 'Counter' constraints
-in metrics. This patch extends that to pass in the pmu events so that
-any driver can retrieve those values via perf attributes if defined
-accordingly.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- tools/perf/pmu-events/jevents.py | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On 2/5/25 4:52 PM, Krzysztof Kozlowski wrote:
+>> +static const struct acpm_handle *acpm_get_by_phandle(struct device *dev)
+> "by_phandle" takes the name of the property with phandle as an argument,
+> because otherwise you do not have here phandle part at all in the
+> interface (see syscon API).
+> 
 
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 28acd598dd7c..c21945238469 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -274,6 +274,11 @@ class JsonEvent:
-         return fixed[name.lower()]
-       return event
- 
-+    def counter_list_to_bitmask(counterlist):
-+      counter_ids = list(map(int, counterlist.split(',')))
-+      bitmask = sum(1 << pos for pos in counter_ids)
-+      return bitmask
-+
-     def unit_to_pmu(unit: str) -> Optional[str]:
-       """Convert a JSON Unit to Linux PMU name."""
-       if not unit or unit == "core":
-@@ -427,6 +432,10 @@ class JsonEvent:
-       else:
-         raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
- 
-+    if self.counters['list']:
-+      bitmask = counter_list_to_bitmask(self.counters['list'])
-+      event += f',counterid_mask={bitmask:#x}'
-+
-     self.event = real_event(self.name, event)
- 
-   def __repr__(self) -> str:
+Indeed.
 
--- 
-2.43.0
+> Other option would be by actual phandle - see of_find_node_by_phandle().
+> 
+> I would propose in such case only acpm_get() or maybe better of_acpm_get()?
+> 
+>> +{
 
+cut
+
+>> +	np = of_parse_phandle(dev->of_node, "exynos,acpm_ipc", 0);
+> You need bindings for this somewhere and fix the underscore->hyphen...
+> and vendor prefix. It really would not be accepted that way so please
+> post consumer bindings anywhere.
+
+There's no consumer upstreamed yet, I don't know where I shall specify
+it. How about keeping the function name and modify the declaration to
+
++static const struct acpm_handle *acpm_get_by_phandle(struct device_node
+*np,
++						     const char *property)
+
+This shall be in line with the syscon API and doesn't force me to
+introduce bindings for the consumers now.
+
+Thanks!
+ta
 
