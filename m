@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DC1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EEAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQ0FdpNgHOekWmP2VoCpsk8gYuzsChIxdkx5orIICcA=; b=BwqxbH3CkCJD4TDHAeCYg8P0md
-	7XSDe1SzqL3/Zekv7UIrG8vngNcYRNaVbllcISKqfYhbf5y4BeotCHxM88zYWPM9oGb8M2T5aUH/v
-	Eh1dKedYAwkgkMacwYDKd8yQiJwUxGDbPXSHwCCWzPIsRcKdwpj8ECtZHMcWyFQ3G+hXRDg/m1B86
-	vdnK31Lb+w7YuDfvsHz5JnBV0eabTGEvT7UJ9V0jWUD+I2QBLgY6fj0TgtNj9kAO/qmc7y9NEV8Tw
-	fkRCOt1KcRRE3zAgMcvwdEve1jpe/6qRGyYqVx1GB9qx7a1MQDlNEanTfOW6CIUDNZYJoJ/n/ZEOL
-	jGXtHdsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kH0+JGJ28AOCheBpS02kDekVXIgobDL51e4ShaB0Zjs=; b=iVJo8p902zNhU2CarW3/Mt1B2H
+	a+cjEzgFISFr8jlwxrmcAnV4j3tcmwoCQ8obOisIi5ZWTQphxEHB28ghx1fC55B7qfSWs4zzrfE83
+	aW58FlpCT7MJwExkLhTJvO4rw3ocpjXeqcPu3Mx9/8UoXLLUZnwL5pF7+AROgeU/3J21ZHhVdg0+C
+	WDN9kc+puv55nl3zlhv/y0keOpuRbRsxrahelMLPjeGupiX8osOzHW53WxEyT2jqwz14mtBZ/AcBa
+	hqxD2EQhaFeYYLBBDAXE3JpWOypy46NYbj4aEpwhRvoTg+XCGu88dLC5IJ8MvFdoyrdMu3XCCfI3D
+	CTNav8pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3u7-00000006izS-4586;
-	Thu, 06 Feb 2025 15:34:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tg3zr-00000006jlz-0IOx;
+	Thu, 06 Feb 2025 15:40:55 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3sk-00000006iLb-1jwy
+	id 1tg3yR-00000006jTy-0zBV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 15:33:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cQ0FdpNgHOekWmP2VoCpsk8gYuzsChIxdkx5orIICcA=; b=wFMh7IIqWLcDH4ZdUBSwhGC7hT
-	KAple1XmoomeYbrKzex41iFR/7byyI62Rmox1VtsvppXUxxDoq5L0fgJf4nGLPX9/4vdsjn81cIcy
-	ySrNV3KlsBTXGKznowYajXxOw6ivDfvB8TRz26mgBQTYCmh24NqZ1evcB+M7LXHGj6vc6TS7LZwGt
-	USN46/YhkZzAd1KiVjlJbJejwwc2xJVVdJyKafyppyyK0LukdKxmTHaXua2pWNERrsvpsyAy32jsO
-	UE3XUNH74+8kogXNTDPyepANF3PN20DY4ymDPjhitqNQzodxxNaaVwWXJoWHEdlingxOKpluTEzZH
-	vAXhaGEw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54766)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tg3py-0002c8-0a;
-	Thu, 06 Feb 2025 15:30:42 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tg3pp-0003WN-2X;
-	Thu, 06 Feb 2025 15:30:33 +0000
-Date: Thu, 6 Feb 2025 15:30:33 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 2/7] net: pcs: xpcs: re-initiate clause 37
- Auto-negotiation
-Message-ID: <Z6TVmdCZeWerAZKP@shell.armlinux.org.uk>
-References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
- <20250206131859.2960543-3-yong.liang.choong@linux.intel.com>
+	Thu, 06 Feb 2025 15:39:30 +0000
+Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id B4F9B1FA0A;
+	Thu,  6 Feb 2025 16:39:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1738856359;
+	bh=kH0+JGJ28AOCheBpS02kDekVXIgobDL51e4ShaB0Zjs=; h=From:To:Subject;
+	b=sNo7iFwFXaS/G6IrumBfAqnjDFIN5KPso8Am/Ghd0RMqQpT+D6DzlP7h4fmvEtmJU
+	 vbUQlhZC6EXau5evJUgdZs0/eRdOD7Et7STwiVL3lOSk5/10vpmdbsjDcoXZj4Qi+J
+	 sUQo5JgqQ9AIOiPuNFUrOgdCh6AA5DoXBskUWlvp5mW2/LbdwEcyYDKzhK1AXpwk0v
+	 TecKe1fU+gGo0bSDIUXeyP1HhkIsaEiEj7fa6GNu348aWtlsZhps4LHuMoes3gvXgE
+	 xz+yo9NAJ5IFyoWxxSGw5FuCs609qX9vJPq5AmTxnM8xoOT6Iha7ONVHRawR21EsJV
+	 eV03cTtxB9Ugw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: ti: k3-am62p: Enable AUDIO_REFCLKx
+Date: Thu,  6 Feb 2025 16:39:11 +0100
+Message-Id: <20250206153911.414702-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206131859.2960543-3-yong.liang.choong@linux.intel.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_073334_449497_107FA8DC 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250206_073928_322723_01861307 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 09:18:54PM +0800, Choong Yong Liang wrote:
-> The xpcs_switch_interface_mode function was introduced to handle
-> interface switching.
-> 
-> According to the XPCS datasheet, a soft reset is required to initiate
-> Clause 37 auto-negotiation when the XPCS switches interface modes.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Hmm. Given that description, taking it literally, claus 37
-auto-negotiation is 1000BASE-X, not Cisco SGMII (which isn't an IEEE
-802.3 standard.) Are you absolutely sure that this applies to Cisco
-SGMII?
+On AM62P-based SoCs the AUDIO_REFCLKx clocks can be used as an input to
+external peripherals when configured through CTRL_MMR, so add the
+clock nodes.
 
-If the reset is required when switching to SGMII, should it be done
-before or after configuring the XPCS for SGMII?
+Link: http://downloads.ti.com/tisci/esd/latest/5_soc_doc/am62px/clocks.html
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-Also, if the reset is required, what happens if we're already using
-SGMII, but AN has been disabled temporarily and is then re-enabled?
-Is a reset required?
-
-What about 1000BASE-X when AN is enabled or disabled and then switching
-to SGMII?
-
-> +static int xpcs_switch_to_aneg_c37_sgmii(const struct dw_xpcs_compat *compat,
-> +					 struct dw_xpcs *xpcs,
-> +					 unsigned int neg_mode)
-> +{
-> +	bool an_c37_enabled;
-> +	int ret, mdio_ctrl;
-> +
-> +	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
-> +		mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
-> +		if (mdio_ctrl < 0)
-> +			return mdio_ctrl;
-> +
-> +		an_c37_enabled = mdio_ctrl & BMCR_ANENABLE;
-> +		if (!an_c37_enabled) {
-
-I don't think that we need "an_c37_enabled" here, I think simply:
-
-		if (!(mdio_ctrl & BMCR_ANENABLE)) {
-
-would be sufficient.
-
-> +			//Perform soft reset to initiate C37 auto-negotiation
-> +			ret = xpcs_soft_reset(xpcs, compat);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +	}
-> +	return 0;
-
-I'm also wondering (as above) whether this soft reset needs to happen
-_after_ xpcs_config_aneg_c37_sgmii() has done its work - this function
-temporarily disables AN while it's doing its work.
-
-I'm also wondering whether AN being disabled is really a deciding
-factor (e.g. when switching from 1000BASE-X AN-enabled to SGMII, is a
-reset required?)
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+index 420c77c8e9e5..4b47b0774330 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+@@ -42,6 +42,26 @@ &inta_main_dmss {
+ 	ti,interrupt-ranges = <5 69 35>;
+ };
+ 
++&main_conf {
++	audio_refclk0: clock-controller@82e0 {
++		compatible = "ti,am62-audio-refclk";
++		reg = <0x82e0 0x4>;
++		clocks = <&k3_clks 157 0>;
++		assigned-clocks = <&k3_clks 157 0>;
++		assigned-clock-parents = <&k3_clks 157 16>;
++		#clock-cells = <0>;
++	};
++
++	audio_refclk1: clock-controller@82e4 {
++		compatible = "ti,am62-audio-refclk";
++		reg = <0x82e4 0x4>;
++		clocks = <&k3_clks 157 18>;
++		assigned-clocks = <&k3_clks 157 18>;
++		assigned-clock-parents = <&k3_clks 157 34>;
++		#clock-cells = <0>;
++	};
++};
++
+ &main_pmx0 {
+ 	pinctrl-single,gpio-range =
+ 		<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.39.5
+
 
