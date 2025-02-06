@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED35C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC1AC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CC73hfx/xdEwQzx0mqhvPJwAxj42f8+ghz1yMlEDxZ8=; b=cL7qm1ZLsQ/vRh
-	QJvh7ExOmSieKVPxM6R4YMW9TqygSqd/LVio7LWD4AQ1u0k6tFeLwhCkVmDVyN6C6hJ127KGUJPEK
-	ndvcFkRBXVyiQI4MOJXPpUaqxcB0aURfGQ+EtXqw99Hv5AC5AsAcY7LU/FODOHRr2+Pro404jJjVJ
-	QQB7aKV/CHKsES8Em7lkJkotYvwhwT3W9VEc9HswP6gfkHkCu5McgM4G0rA71Opl/2CgkuYaPZFzF
-	yXzX4mwRN/or8NkT42aAXxwmFPem5yU21gdNxiissXNfspn8H32UfZNGLyf5ENmdN4AUNMM7laahQ
-	tGbCg+lV827JNbUW02bg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sDAg+ppQjoLROQ6tgZmSgyH+iG6RB5+F1jMAwfLcm78=; b=zd6eTdkEdfdlAMl3Ow08/rULyM
+	nuMJqVgMgbosRKIlDmfbr5P7LY9eaeSFTARdgcp/0NyRIKlSAvedCRLBxFQ5YupMgF4Y7s78wCU5l
+	gKHZq0odvGZa94uWeHKGiFNSh759c5iQJdYSu+etnkMH5/n8MD5Lmi6BPHb7iu0BhvOPipDz/h6kf
+	gO2UjGfVZ7bvAFd360GcPYUbXLFQBaaIwPQlSqm8JaFHCXOIiEKCWxr+iGZ/Nt54o8gRAMa0zq3rJ
+	pmguyM6gZb2QrJ7YqzMRBE6IDeJZS/5YKCxZfKxOwiuCdgnulaV5n65UdayaNmCvHfXX9Ic2hAPFh
+	jW+68I+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1fU-00000006Mma-2prN;
-	Thu, 06 Feb 2025 13:11:44 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1tg1gp-00000006N1D-1ZDU;
+	Thu, 06 Feb 2025 13:13:07 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1cD-00000006Lzp-3SyE
+	id 1tg1cE-00000006Lzt-0daY
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Feb 2025 13:08:23 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5dc7eba78e6so1914616a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 05:08:20 -0800 (PST)
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5de3c29ebaeso75485a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 05:08:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738847299; x=1739452099; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CC73hfx/xdEwQzx0mqhvPJwAxj42f8+ghz1yMlEDxZ8=;
-        b=Ny3Yo0+KBn0/ntKmLLM/Bsw4vSxa6yjsryA0zCUim4obLTUNU9HrJxQeLKFLQKVs8O
-         pN4xLeKobFCWX+lxPsXYj+fSHhuE2/3+gVpphJO1cAv48luPckbmE+7BUbw6vfqeVs4z
-         lJS160fDOeGfeqvC2C/WMhqIWH1kJ3Sa2u2l0RkVUVy2q9FoOl+Kcba1DLge5UpAM1Uw
-         A1tjA45wAkqWskdNg3oDpkStqUBFRuCQsc+y9IWeVbOAI4+6Sy+Z9hAbEvOwB7cSjmOg
-         SnSrwL3ugaBhAqekzqMwcc/MNzUYXvMVRMFy3sWFAgCbSmjztuSJOJp0g9X43GaDmy5S
-         w2qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738847299; x=1739452099;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1738847300; x=1739452100; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CC73hfx/xdEwQzx0mqhvPJwAxj42f8+ghz1yMlEDxZ8=;
-        b=JBPPSXllObYJrQnAgWIQVyBzQlxuLNzZrHhdxltHUlIzGMMWBzCr1I9Udro+Fa1971
-         Vwn9CVi/r8Ty7KsJZ12RsADf1/57paQ8Fa/DyqrsATfIJywAFYMkRDAMcGom0loMeG+s
-         r6AJHoljexybJ85I7vj0ucM4qLdrRCL+ul23wApcOVPI+38wyJlThUKWjM4y11f5OD/1
-         DcaZ54wMNJkZy9yiVmQY9vwLl+FNM7U6k88EjvR7kIB00X1mwMd5gb6y8wgYyKzA55EO
-         NKIjet9yzFl+3XEyqbGv1bjl2VjPB5fMSzg3y2q3SyHTE0iMJZLFanBfccqGHzjXaa9y
-         HDCA==
-X-Forwarded-Encrypted: i=1; AJvYcCWutxqr4GZg0MdR0DiVUMR9feohPpvk0ktPMI/ljzzj4zNLCMnFw2JAwFdHl9coxO4wLtKI1gsjFMISscVmjRcR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9TfQYZKuvhFOceMIm6+lU88ZCNJDSUZ0g/xsmBH2wFq1Ldn+b
-	cxyA+bNPHbAVRi4hXw77CrZoWGavRCsnD3JaZoGwIkb42VimGFrRo2coHcxiRlU=
-X-Gm-Gg: ASbGncsceQo0aXrOA7gINfmjakfEdC68UtBEzC8acGxYx/w7zHWspqY9WVTrxPlF+/n
-	78GdLTH7Yt4Pph+mP8Nvryobykxm4ZTgKPZpxYxntfSBz8OlmI/5se1NZm/YFwf+3X4LCu38VtH
-	Wrs49mDDR5AXvwm7bxk8WDGJ5DWpc09O1aTxGT/TEXvX1TNyT37uXsHVIXk7lgnOZ1fMdQ6Xpvo
-	aNNyvh5Tao4Op5vRpaIP9V5ciHhvRRTWkdk5rCCfoiw+vgGjpNy5/R9D+2qirU9yKsNolA/skh7
-	k56IN1DHNkX+5kgUb1lRQbVDB9oxC1CrB2VAmr7D5g2ULuW+O/iWYByqTsaiZySMl/fyLm6SWqE
+        bh=sDAg+ppQjoLROQ6tgZmSgyH+iG6RB5+F1jMAwfLcm78=;
+        b=UguGZFtwri+s+ttT5XxUUdCbk79CvFh6Vh93s2y13yeevqjuyFow3T7h0ApXbevQy3
+         E3taQMshOK88GkhuK6FERtHovyhfGw2fHjFcXqSwSezgzgdQ+8TDbuqJ/wsIceXJEgEW
+         j9b509IHah8N24f86D2NRUENzVtYFkl41W0o0TP90bd52LSMY4Na8Xm3TETB1Fl8zzXE
+         jWYDNw/Q5Pln+CLJHwOwWJ/IzeK0FOFW/yfm4cMv2dUVN8ASu0QSoukyO2tDrFvxR1BS
+         gp+9baNdxfl6LPDMG5g+DjO9CP5VkpEBFJ+RhtrfsxPpaHRcG5qWD/0YmOqSvpQD0usM
+         ZKlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738847300; x=1739452100;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sDAg+ppQjoLROQ6tgZmSgyH+iG6RB5+F1jMAwfLcm78=;
+        b=hV5q0P2MDZr70hTHrIfjY8cEHdynut5vIRUUPjXlKhi/EYUigU4t3nIzi/BEEnLZiT
+         nwA+LmdFmJ+HUOxfZdu/U6AegxJDb7PzruXly5yustBj8iDH5jPe8eeY//P2cpCPygyH
+         Z3eckSG9q2FkybwoO9gHNqCuzbj0t45TyzfDnNmjItgYajwVo1lTEZqZz5xqgqe2O12E
+         yrbAA6VtQOgXy/AoPDXyvUIj8T0RnIqEQdEUEP5S4nYZCFcaQFONrpKN99Me/cLbkkI+
+         dEQmJEjvTGxTYap5op9Wb2Xf3GgUrKJt6aUixmrNf4H5gQw2+ooyt2bOOvBX7EUNtv8f
+         Z53g==
+X-Forwarded-Encrypted: i=1; AJvYcCVqZFkw4xG1Uis1z9Mfz22V9C22Zvknk0ON7Wdku3Mjz5fBqDJOWSLIIcfuctty0vaXUFzTHHCuEa+85LEjaBv7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf5+fMVcxT60BjH3yCJ7rZ2SfswJuTCeiI8mS4rNCNYHo/ZGQ0
+	vS5AE6SRheYuO5Hm9RHTq/Xnfbf+IqhZWmYsnB8jyvq4V3nPNE5NE2OKl9+sAtY=
+X-Gm-Gg: ASbGncupt8EzRGVWrJsXyIKJRPw7eNUDkCg5o3fSquCWHvzCKbi9IAYSbVhuSBdgCnL
+	ZuWpSWUlsS+vAA7RAZ0o53AU2/QENFddHpzzzXdWAvD5LZPAaczf7/EdxZlSqjbCyvrOdMUDUcQ
+	VQSZOXAb1leOC+ttjrfnD8QNp8yzms+9Mpat6fSqQlWYMPfvqELak7+XIL8kxZgQtmAy24EmONs
+	Vnp3ivYh4gzUYw08gTO4I9GrqbKaIKw4yu0zJxXfNTTN0S5vk0c/mT7R+j8loMEIy8eWHm0eFED
+	Elm4n5fKD6ACUZynbRo2HsoxsglODp2+S1T1xgnmu/ZNaXBBYLmCjjmShgy8zuk9sQ4X9h5Rpuo
 	=
-X-Google-Smtp-Source: AGHT+IGHBChEeQbZZWdB6VUb2tAPzM2QubPuRCkq9llaK78PumUt20gOs9+K10OlU484h2rpI5M7EQ==
-X-Received: by 2002:a05:6402:27c8:b0:5d9:f5c4:a227 with SMTP id 4fb4d7f45d1cf-5dcdb778e7emr7219614a12.20.1738847299436;
-        Thu, 06 Feb 2025 05:08:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFTAdVpqgZ0wqgMByKwDevPfkkbqJL1+kBcqsh/Cv6cjwQ8nQLxo1utspkD+w2738TsWHLVKA==
+X-Received: by 2002:a05:6402:520d:b0:5dc:d34f:a315 with SMTP id 4fb4d7f45d1cf-5dcdb729597mr7450061a12.15.1738847300001;
+        Thu, 06 Feb 2025 05:08:20 -0800 (PST)
 Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf1b73f8csm830235a12.8.2025.02.06.05.08.18
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf1b73f8csm830235a12.8.2025.02.06.05.08.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 06 Feb 2025 05:08:19 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Subject: [PATCH 0/3] gs101 reboot updates (DT)
-Date: Thu, 06 Feb 2025 13:08:17 +0000
-Message-Id: <20250206-gs101-renppt-dts-v1-0-cdfe993fb3c5@linaro.org>
+Date: Thu, 06 Feb 2025 13:08:18 +0000
+Subject: [PATCH 1/3] arm64: dts: exynos: gs101: drop explicit regmap from
+ reboot nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAEG0pGcC/x3MQQqAIBBA0avErBtQKamuEi00x5qNiRMRRHdPW
- r7F/w8IFSaBqXmg0MXCR6rQbQPr7tJGyKEajDK9MsriJlppLJRyPjGcgqsfnLc+WjN2ULNcKPL
- 9L+flfT+SZeZYYgAAAA==
+Message-Id: <20250206-gs101-renppt-dts-v1-1-cdfe993fb3c5@linaro.org>
+References: <20250206-gs101-renppt-dts-v1-0-cdfe993fb3c5@linaro.org>
+In-Reply-To: <20250206-gs101-renppt-dts-v1-0-cdfe993fb3c5@linaro.org>
 To: Peter Griffin <peter.griffin@linaro.org>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,9 +89,8 @@ Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_050821_867339_1F11A017 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_050822_189230_CA8D89C7 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The regmap property for syscon-poweroff and syscon-reboot is unneeded
+here because the poweroff and reboot nodes are children of syscon
+already. It also is deprecated.
 
-These patches update some of gs101's reboot / power off requests to
-bring them in line with downstream / bootloader / EL3 monitor
-expectations.
-
-In particular:
-* an unnecessary property is removed from the DT
-* the reboot / shutdown SMC calls are aligned with downstream now
-* we now implement the requested boot mode as a notification for the
-  boot loader 
-
-Cheers,
-Andre'
+We can just drop it to simplify the DT.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
-André Draszik (3):
-      arm64: dts: exynos: gs101: drop explicit regmap from reboot nodes
-      arm64: dts: exynos: gs101: align reboot and poweroff writes with downstream
-      arm64: dts: exynos: gs101: add reboot-mode support (SYSIP_DAT0)
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
 
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 19 +++++++++++++++----
- 1 file changed, 15 insertions(+), 4 deletions(-)
----
-base-commit: 808eb958781e4ebb6e9c0962af2e856767e20f45
-change-id: 20250206-gs101-renppt-dts-cb8ab6bf6294
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+index 813f96089578..e78dcd506a5c 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
++++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+@@ -1400,14 +1400,12 @@ pmu_system_controller: system-controller@17460000 {
+ 
+ 			poweroff: syscon-poweroff {
+ 				compatible = "syscon-poweroff";
+-				regmap = <&pmu_system_controller>;
+ 				offset = <0x3e9c>; /* PAD_CTRL_PWR_HOLD */
+ 				mask = <0x100>; /* reset value */
+ 			};
+ 
+ 			reboot: syscon-reboot {
+ 				compatible = "syscon-reboot";
+-				regmap = <&pmu_system_controller>;
+ 				offset = <0x3a00>; /* SYSTEM_CONFIGURATION */
+ 				mask = <0x2>; /* SWRESET_SYSTEM */
+ 				value = <0x2>; /* reset value */
 
-Best regards,
 -- 
-André Draszik <andre.draszik@linaro.org>
+2.48.1.362.g079036d154-goog
 
 
