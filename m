@@ -4,63 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75387C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617FCC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrpYSEtzsFQnwLJHnyVAvEpHL2iQ1in8TOr0EDYOWYg=; b=vIRiEfs8Nnpmd4Ncr/+utJCfkQ
-	DX0tQBiJEMx4AZaVYYqhiXg1NXe4tA6TRI+4EsexREUCaJUuikwQlnsyzF/uCstUUSMfQ0HXYpYbe
-	elC912YvlZQEZrNnqDOCU/YzBBAC5BCGBljBtoxbxN6BZRktE9CnIUkfF6r2qnY0ZJHkpJAGhf0nM
-	81ayviFsPjDjpQBBJfrAgwDGfAnqASPNOODrYYpUCS9tCgvIcFmNr6w8OuL+Uriw3Sqc3NxFok3S5
-	BcWP0HqiRSIEpwcuMXF+eDmf1pITjn/z1SSO2KKjNGGseUIKY7s+/NbgEep6xfPHftKfRbvo6fuL6
-	CGboCxkA==;
+	bh=t9nxlc2gVdRgkfK+9g7k7PvXPxIVZmZ3lhTkJf7wy0M=; b=majTmPIZEUEuMiGh41uSpvPP3I
+	03Ec+bAeGgLtoNNxw/RHmbzKzQqxHa8sGTAJQgiIXiPNWbWzkmX3WWxShzSYHD1+muCcNYV2FtYXX
+	iqo5CiYFJsQII/Zx/89V59DqzaVcFJp0eEVijyQpWOB4SeWQrqaVwq4jvhHZzZ5T3WglMyvqsMsf8
+	qh2hK/4jLzeUfu8O9wrS+SwgSZKf6gqRsDXEwObLFy9q5y9Sj4fYT6rspLL6qqfB6hNysCasXnvhk
+	y4gZ599CrMn1xoNyFWkn9IwccCDs/tXoAC8mjrKva69Yyc9ApPVbUgNr/rWNSKxQ3tQ/nZ4KOeY4M
+	grOk60tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1RV-00000006K95-3tql;
-	Thu, 06 Feb 2025 12:57:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1Q3-00000006Jx5-3iVN
+	id 1tg1UB-00000006KdY-2yyo;
+	Thu, 06 Feb 2025 13:00:03 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg1So-00000006KOG-0O4V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 12:55:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C6B9FEC;
-	Thu,  6 Feb 2025 04:56:09 -0800 (PST)
-Received: from [10.57.80.166] (unknown [10.57.80.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FE513F5A1;
-	Thu,  6 Feb 2025 04:55:43 -0800 (PST)
-Message-ID: <25155f6e-8a62-405e-852d-c07a55be0ac5@arm.com>
-Date: Thu, 6 Feb 2025 12:55:41 +0000
+	Thu, 06 Feb 2025 12:58:39 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ab7157cf352so392947466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 04:58:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738846716; x=1739451516; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=t9nxlc2gVdRgkfK+9g7k7PvXPxIVZmZ3lhTkJf7wy0M=;
+        b=dBceHMykvUq+EzYgmzrPeHhXQYhrP5eRqzAnxEJmK1ii8GBaci/r8QBinvPa8xqqiE
+         b19k6zDbg6vhWxqFl2MtwzYuuUv01N5dXdxJ+0qlUm23p4Nkwk6b/CfAgBp/hn61UquD
+         kR3EnzhOHDmswhsQTw2MlD8Ej7sLZrjYRRqTXAnSudygtWybbSTHTHEC5NNO6OXEcOQR
+         KyUGpidSesdZoJzYAaCfhXRzZLdMvLNleBCmciKlP3t1RZVbx2skUv6OVA1FyNHXUS1l
+         ehwg7GjAnyKM5uiPUPIEXi7aAaJLKV9gaYkuIxd8eTqjqefwOmIzCiwvUrL2Mf5lxmJ9
+         toXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738846716; x=1739451516;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t9nxlc2gVdRgkfK+9g7k7PvXPxIVZmZ3lhTkJf7wy0M=;
+        b=KnjW1f5FmCBl5C0re7aHaDEaCrT8qBN4DRcY0YwXgaOVbJ5toIpT9f5p0B2bVTp/F2
+         OQwH+p+Gzt//fzjGHRX+ptC5ot3ecopZcDp68FOX2L4il+c7vOF20gwGjYjjKojPzAq/
+         YrbC0ubK9z2MF7DmAOpsYf0wvWX87kF3GMPlxrF/aSGzAHTanYp/v64hvUjnNx0//AOy
+         Ew+qNuMQdmcFNfdgVeY33AHTYThHJleJhln6/Anc/1akHTWQh/y/9E3hbFvk88xsn61p
+         DIFTH+nDnCTD0cdlglr9tzUHxlvFV4GhBHkC6+6HuQhxGkmSVuLoSA6kHhpVhw2jJ9dG
+         yBaw==
+X-Gm-Message-State: AOJu0Yy4nkxTMWu7PSTurjHUcyiKuekXWrs73vSPNvV33k49sjG4loOq
+	i0HwfzRuJ5jQfHcBS1r0pYkcqWpbAkFtDpWG+qMdWuA0H3semGRFkSL6neHMPOY=
+X-Gm-Gg: ASbGncsWJzUN26ySfc1Fnwfer15+i0OqgytjBHi1pq2eWFeXbnnFP10VP+SEPlJQKn3
+	Yj4aIrlFHCpWUeljSUi85JWoLtIb3IdgPzaA43JV6j1X6zfnZFAsvqLmLX81Nnr0TGtTSgnjHZq
+	9qZhUqGcipwDrQMAgtnefB8gj4MG/TUASEyWSHrcWjckdGd+9c1hR/Xv/wolx2a4GA54DDNOXLI
+	rSupSRcqZrj+aPF4NHZ/DQ8Zps3yg5rathpgXB7F6nYAddwbpFLZpc8scQvIHlGS1cV9Ga5cynX
+	qouJsly6YkLPbrFUhNzipXQruw==
+X-Google-Smtp-Source: AGHT+IECG2Og4HOQAjuT4F+XFrfhk8Mhc4LucLG60WazGfhVmFMGz2JtXe62pSAA9VTn2VX8teci1g==
+X-Received: by 2002:a17:907:6d21:b0:ab6:8bb8:af2e with SMTP id a640c23a62f3a-ab76e913b7amr351703766b.26.1738846716275;
+        Thu, 06 Feb 2025 04:58:36 -0800 (PST)
+Received: from [192.168.68.163] ([212.105.145.75])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab773339e82sm96240266b.143.2025.02.06.04.58.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Feb 2025 04:58:35 -0800 (PST)
+Message-ID: <3b07c400-e1a8-46b9-a5af-81239dd316f3@linaro.org>
+Date: Thu, 6 Feb 2025 12:58:33 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 02/16] arm64: hugetlb: Fix huge_ptep_get_and_clear()
- for non-present ptes
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-3-ryan.roberts@arm.com>
- <83103cbb-e2b8-4177-aeaf-c3b6e6b08008@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <83103cbb-e2b8-4177-aeaf-c3b6e6b08008@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v19 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: Rob Herring <robh@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-11-1c1300802385@kernel.org>
+ <0415d354-0c44-4fff-b92b-b0f5c9c72b11@linaro.org>
+ <CAL_JsqKTNDQn9omG3g=6Rb4Nwt6hG9Gw7-VXL_fjQeEQmmtJQg@mail.gmail.com>
+ <630f630d-241e-45f5-b449-243147fb888b@linaro.org>
+ <CAL_JsqKY8MjD=iFf6MiT04WmCHYUxGtWG9JfX5-5fuG32F77qQ@mail.gmail.com>
+ <3c7e1ce0-9a5d-43fb-9767-8e4ca92a450d@linaro.org>
+ <CAL_JsqKHGROJa1EW94iy1XzCadEst-hPWZY2BmxKgMB93nDp4w@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAL_JsqKHGROJa1EW94iy1XzCadEst-hPWZY2BmxKgMB93nDp4w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_045548_061362_C0EA4E30 
-X-CRM114-Status: GOOD (  56.36  )
+X-CRM114-CacheID: sfid-20250206_045838_150057_1A75DA67 
+X-CRM114-Status: GOOD (  59.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,313 +112,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 06:15, Anshuman Khandual wrote:
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> arm64 supports multiple huge_pte sizes. Some of the sizes are covered by
->> a single pte entry at a particular level (PMD_SIZE, PUD_SIZE), and some
->> are covered by multiple ptes at a particular level (CONT_PTE_SIZE,
->> CONT_PMD_SIZE). So the function has to figure out the size from the
->> huge_pte pointer. This was previously done by walking the pgtable to
->> determine the level, then using the PTE_CONT bit to determine the number
->> of ptes.
-> 
-> Actually PTE_CONT gets used to determine if the entry is normal i.e
-> PMD/PUD based huge page or cont PTE/PMD based huge page just to call
-> into standard __ptep_get_and_clear() or specific get_clear_contig(),
-> after determining find_num_contig() by walking the page table.
-> 
-> PTE_CONT presence is only used to determine the switch above but not
-> to determine the number of ptes for the mapping as mentioned earlier.
 
-Sorry I don't really follow your distinction; PTE_CONT is used to decide whether
-we are operating on a single entry (pte_cont()==false) or on multiple entires
-(pte_cont()==true). For the multiple entry case, the level tells you the exact
-number.
 
-I can certainly tidy up this description a bit, but I think we both agree that
-the value of PTE_CONT is one of the inputs into deciding how many entries need
-to be operated on?
-
-> 
-> There are two similar functions which determines the 
-> 
-> static int find_num_contig(struct mm_struct *mm, unsigned long addr,
->                            pte_t *ptep, size_t *pgsize)
-> {
->         pgd_t *pgdp = pgd_offset(mm, addr);
->         p4d_t *p4dp;
->         pud_t *pudp;
->         pmd_t *pmdp;
-> 
->         *pgsize = PAGE_SIZE;
->         p4dp = p4d_offset(pgdp, addr);
->         pudp = pud_offset(p4dp, addr);
->         pmdp = pmd_offset(pudp, addr);
->         if ((pte_t *)pmdp == ptep) {
->                 *pgsize = PMD_SIZE;
->                 return CONT_PMDS;
->         }
->         return CONT_PTES;
-> }
-> 
-> find_num_contig() already assumes that the entry is contig huge page and
-> it just finds whether it is PMD or PTE based one. This always requires a
-> prior PTE_CONT bit being set determination via pte_cont() before calling
-> find_num_contig() in each instance.
-
-Agreed.
-
-> 
-> But num_contig_ptes() can get the same information without walking the
-> page table and thus without predetermining if PTE_CONT is set or not.
-> size can be derived from VMA argument when present.
-
-Also agreed. But VMA is not provided to this function. And because we want to
-use it for kernel space mappings, I think it's a bad idea to pass VMA.
-
-> 
-> static inline int num_contig_ptes(unsigned long size, size_t *pgsize)
-> {
->         int contig_ptes = 0;
-> 
->         *pgsize = size;
-> 
->         switch (size) {
-> #ifndef __PAGETABLE_PMD_FOLDED
->         case PUD_SIZE:
->                 if (pud_sect_supported())
->                         contig_ptes = 1;
->                 break;
-> #endif
->         case PMD_SIZE:
->                 contig_ptes = 1;
->                 break;
->         case CONT_PMD_SIZE:
->                 *pgsize = PMD_SIZE;
->                 contig_ptes = CONT_PMDS;
->                 break;
->         case CONT_PTE_SIZE:
->                 *pgsize = PAGE_SIZE;
->                 contig_ptes = CONT_PTES;
->                 break;
->         }
-> 
->         return contig_ptes;
-> }
-> 
-> On a side note, why cannot num_contig_ptes() be used all the time and
-> find_num_contig() be dropped ? OR am I missing something here.
-
-There are 2 remaining users of find_num_contig() after my series:
-huge_ptep_set_access_flags() and huge_ptep_set_wrprotect(). Both of them can
-only be legitimately called for present ptes (so its safe to check pte_cont()).
-huge_ptep_set_access_flags() already has the VMA so it would be easy to convert
-to num_contig_ptes(). huge_ptep_set_wrprotect() doesn't have the VMA but I guess
-you could do the trick where you take the size of the folio that the pte points to?
-
-So yes, I think we could drop find_num_contig() and I agree it would be an
-improvement.
-
-But to be honest, grabbing the folio size also feels like a hack to me (we do
-this in other places too). While today, the folio size is guarranteed to be be
-the same size as the huge pte in practice, I'm not sure there is any spec that
-mandates that?
-
-Perhaps the most robust thing is to just have a PTE_CONT bit for the swap-pte so
-we can tell the size of both present and non-present ptes, then do the table
-walk trick to find the level. Shrug.
-
-> 
+On 05/02/2025 4:15 pm, Rob Herring wrote:
+> On Wed, Feb 5, 2025 at 8:38 AM James Clark <james.clark@linaro.org> wrote:
+>> On 04/02/2025 3:03 pm, Rob Herring wrote:
+>>> On Tue, Feb 4, 2025 at 6:03 AM James Clark <james.clark@linaro.org> wrote:
+>>>> On 03/02/2025 5:58 pm, Rob Herring wrote:
+>>>>> On Mon, Feb 3, 2025 at 10:53 AM James Clark <james.clark@linaro.org> wrote:
+>>>>>> On 03/02/2025 12:43 am, Rob Herring (Arm) wrote:
+>>>>>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>>>
+>>>>>>> The ARMv9.2 architecture introduces the optional Branch Record Buffer
+>>>>>>> Extension (BRBE), which records information about branches as they are
+>>>>>>> executed into set of branch record registers. BRBE is similar to x86's
+>>>>>>> Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
+>>>>>>> (BHRB).
+>>>
+>>> [...]
+>>>
+>>>>>>> +     /*
+>>>>>>> +      * Require that the event filter and branch filter permissions match.
+>>>>>>> +      *
+>>>>>>> +      * The event and branch permissions can only mismatch if the user set
+>>>>>>> +      * at least one of the privilege branch filters in PERF_SAMPLE_BRANCH_PLM_ALL.
+>>>>>>> +      * Otherwise, the core will set the branch sample permissions in
+>>>>>>> +      * perf_copy_attr().
+>>>>>>> +      */
+>>>>>>> +     if ((event->attr.exclude_user != !(branch_type & PERF_SAMPLE_BRANCH_USER)) ||
+>>>>>>> +         (event->attr.exclude_kernel != !(branch_type & PERF_SAMPLE_BRANCH_KERNEL)) ||
+>>>>>>
+>>>>>> I don't think this one is right. By default perf_copy_attr() copies the
+>>>>>> exclude_ settings into the branch settings so this works, but if the
+>>>>>> user sets any _less_ permissive branch setting this fails. For example:
+>>>>>>
+>>>>>>      # perf record -j any,u -- true
+>>>>>>      Error:
+>>>>>>      cycles:PH: PMU Hardware or event type doesn't support branch stack
+>>>>>>      sampling.
+>>>>>>
+>>>>>> Here we want the default sampling permissions (exclude_kernel == 0,
+>>>>>> exclude_user == 0), but only user branch records, which doesn't match.
+>>>>>> It should be allowed because it doesn't include anything that we're not
+>>>>>> allowed to see.
+>>>>>
+>>>>> I know it is allowed(on x86), but why would we want that? If you do
+>>>>> something even more restricted:
+>>>>>
+>>>>> perf record -e cycles:k -j any,u -- true
+>>>>>
+>>>>> That's allowed on x86 and gives you samples with user addresses. But
+>>>>> all the events happened in the kernel. How does that make any sense?
+>>>>>
+>>>>> I suppose in your example, we could avoid attaching branch stack on
+>>>>> samples from the kernel. However, given how my example works, I'm
+>>>>> pretty sure that's not what x86 does.
+>>>>>
+>>>>> There's also combinations that are allowed, but record no samples.
+>>>>> Though I think that was with guest events. I've gone with reject
+>>>>> non-sense combinations as much as possible. We can easily remove those
+>>>>> restrictions later if needed. Changing the behavior later (for the
+>>>>> same configuration) wouldn't be good.
+>>>>>
+>>>>>
+>>>>
+>>>> Rejecting ones that produce no samples is fair enough, but my example
+>>>> does produce samples. To answer the question "why would we want that?",
+>>>> nothing major, but there are a few small reasons:
+>>>>
+>>>>     * Perf includes both user and kernel by default, so the shortest
+>>>>       command to only gather user branches doesn't work (-j any,u)
+>>>>     * The test already checks for branch stack support like this, so old
+>>>>       Perf test versions don't work
+>>>
+>>> I would be more concerned about this one except that *we* wrote that
+>>> test. (I'm not sure why we wrote a new test rather than adapting
+>>> record_lbr.sh...)
+>>>
 >>
->> But the PTE_CONT bit is only valid when the pte is present. For
->> non-present pte values (e.g. markers, migration entries), the previous
->> implementation was therefore erroniously determining the size. There is
->> at least one known caller in core-mm, move_huge_pte(), which may call
->> huge_ptep_get_and_clear() for a non-present pte. So we must be robust to
->> this case. Additionally the "regular" ptep_get_and_clear() is robust to
->> being called for non-present ptes so it makes sense to follow the
->> behaviour.
+>> record_lbr.sh was added 6 months ago, test_brstack.sh 3 years ago so
+>> it's the other way around.
 > 
-> With VMA argument and num_contig_ptes() dependency on PTE_CONT being set
-> and the entry being mapped might not be required.
-> >>
->> Fix this by using the new sz parameter which is now provided to the
->> function. Additionally when clearing each pte in a contig range, don't
->> gather the access and dirty bits if the pte is not present.
+> Sigh...
 > 
-> Makes sense.
-> 
+>> Although record_lbr.sh also tests --call-graph and --stitch-lbr as well,
+>> so I think it's fine for test_brstack.sh to test only --branch-filter
+>> options at the lowest level.
 >>
->> An alternative approach that would not require API changes would be to
->> store the PTE_CONT bit in a spare bit in the swap entry pte. But it felt
->> cleaner to follow other APIs' lead and just pass in the size.
+>> Looking at that test though I see there is a capability
+>> "/sys/devices/cpu/caps/branches". I'm wondering whether we should be
+>> adding that on the Arm PMU for BRBE?
 > 
-> Right, changing the arguments in the API will help solve this problem.
+> I noticed that too. I suppose we should. Though I suppose that could
+> give weird results if userspace is expecting LBR. Adding that would
+> make record_lbr.sh run and then the LBR callgraph test is going to
+> fail.
+
+Looks like we should add it. The "branches" cap seems to imply that any 
+of the branch recording options are supported.
+
+For --call-graph=lbr, that's a special branch type 
+PERF_SAMPLE_BRANCH_CALL_STACK which we reject as not supported in BRBE. 
+The test already does an additional skip if --call-graph=lbr isn't 
+supported over the top of checking the branches cap. But there are other 
+sub tests that don't use that option that should pass. They are only 
+checking for non zero branch stack entries.
+
 > 
+>> Ignoring the tests, the man pages (and some pages on the internet) give
+>> this example: "--branch-filter any_ret,u,k". This doesn't work either
+>> because it doesn't match the default exclude_hv option. It just seems a
+>> bit awkward and incompatible to me, for not much gain.
 >>
->> While we are at it, add some debug warnings in functions that require
->> the pte is present.
+>>>>     * You might only be optimising userspace, but still interested in the
+>>>>       proportion of time spent or particular place in the kernel
+>>>
+>>> How do you see that? It looks completely misleading to me. 'perf
+>>> report' seems to only list branch stack addresses in this case. There
+>>> doesn't seem to be any matching of the event address to branch stack
+>>> addresses.
+>>>
 >>
->> As an aside, PTE_CONT is bit 52, which corresponds to bit 40 in the swap
->> entry offset field (layout of non-present pte). Since hugetlb is never
->> swapped to disk, this field will only be populated for markers, which
->> always set this bit to 0 and hwpoison swap entries, which set the offset
->> field to a PFN; So it would only ever be 1 for a 52-bit PVA system where
->> memory in that high half was poisoned (I think!). So in practice, this
->> bit would almost always be zero for non-present ptes and we would only
->> clear the first entry if it was actually a contiguous block. That's
->> probably a less severe symptom than if it was always interpretted as 1
->> and cleared out potentially-present neighboring PTEs.
+>> Perf script will show everything with all it's various options, or
+>> --branch-history on perf report will show both too. Also there are tools
+>> other than Perf, AutoFDO seems like something that BRBE can be used with.
 >>
->> Cc: <stable@vger.kernel.org>
->> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit")
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/mm/hugetlbpage.c | 54 ++++++++++++++++++++-----------------
->>  1 file changed, 29 insertions(+), 25 deletions(-)
+>>>>     * Consistency with existing implementations and for people porting
+>>>>       existing tools to Arm
+>>>>     * It doesn't cost anything to support it (I think we just
+>>>>       only check if exclude_* is set rather than !=)
+>>>>     * Permissions checks should be handled by the core code so that
+>>>>       they're consistent
+>>>>     * What's the point of separate branch filters anyway if they always
+>>>>       have to match the event filter?
+>>>
+>>> IDK, I wish someone could tell me. I don't see the usecase for them
+>>> being mismatched.
+>>>
+>>> In any case, I don't care too much one way or the other what we do
+>>> here. If everyone thinks we should relax this, then that's fine with
+>>> me.
+>>>
 >>
->> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->> index 06db4649af91..328eec4bfe55 100644
->> --- a/arch/arm64/mm/hugetlbpage.c
->> +++ b/arch/arm64/mm/hugetlbpage.c
->> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->>  			     unsigned long pgsize,
->>  			     unsigned long ncontig)
->>  {
->> -	pte_t orig_pte = __ptep_get(ptep);
->> -	unsigned long i;
->> -
->> -	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
->> -		pte_t pte = __ptep_get_and_clear(mm, addr, ptep);
->> -
->> -		/*
->> -		 * If HW_AFDBM is enabled, then the HW could turn on
->> -		 * the dirty or accessed bit for any page in the set,
->> -		 * so check them all.
->> -		 */
->> -		if (pte_dirty(pte))
->> -			orig_pte = pte_mkdirty(orig_pte);
->> -
->> -		if (pte_young(pte))
->> -			orig_pte = pte_mkyoung(orig_pte);
->> +	pte_t pte, tmp_pte;
->> +	bool present;
->> +
->> +	pte = __ptep_get_and_clear(mm, addr, ptep);
->> +	present = pte_present(pte);
->> +	while (--ncontig) {
+>> Seeing the branch history from userspace that led up to a certain thing
+>> in the kernel happening doesn't seem like that much of an edge case to
+>> me. If you always have to have both on then you lose the userspace
+>> branch history because the buffer isn't that big and gets overwritten.
 > 
-> Although this does the right thing by calling __ptep_get_and_clear() once
-> for non-contig huge pages but wondering if cont/non-cont separation should
-> be maintained in the caller huge_ptep_get_and_clear(), keeping the current
-> logical bifurcation intact.
-
-To what benefit?
-
+> Okay, let's drop this check...
 > 
->> +		ptep++;
->> +		addr += pgsize;
->> +		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
->> +		if (present) {
+>>>> Some of these things could be fixed in Perf, but not in older versions.
+>>>> Even if we can't think of a real use case now, it doesn't sound like the
+>>>> driver should be so restrictive of an option that doesn't do any harm.
+>>>>
+>>>>>> This also makes the Perf branch test skip because it uses
+>>>>>> any,save_type,u to see if BRBE exists.
+>>>>>
+>>>>> Yes, I plan to update that if we keep this behavior.
+>>>>>
+>>>>>>> +         (!is_kernel_in_hyp_mode() &&
+>>>>>>> +          (event->attr.exclude_hv != !(branch_type & PERF_SAMPLE_BRANCH_HV))))
+>>>>>>> +             return false;
+>>>>>>> +
+>>>>>>> +     event->hw.branch_reg.config = branch_type_to_brbfcr(event->attr.branch_sample_type);
+>>>>>>> +     event->hw.extra_reg.config = branch_type_to_brbcr(event->attr.branch_sample_type);
+>>>>>>> +
+>>>>>>> +     return true;
+>>>>>>> +}
+>>>>>>> +
+>>>>>> [...]
+>>>>>>> +static const int brbe_type_to_perf_type_map[BRBINFx_EL1_TYPE_DEBUG_EXIT + 1][2] = {
+>>>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_UNCOND] = { PERF_BR_UNCOND, 0 },
+>>>>>>
+>>>>>> Does the second field go into 'new_type'? They all seem to be zero so
+>>>>>> I'm not sure why new_type isn't ignored instead of having it mapped.
+>>>>>
+>>>>> Well, left over from when all the Arm specific types were supported.
+>>>>> So yeah, that can be simplified.
+>>>>>
+>>>>>>> +     [BRBINFx_EL1_TYPE_INDIRECT] = { PERF_BR_IND, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_LINK] = { PERF_BR_CALL, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_INDIRECT_LINK] = { PERF_BR_IND_CALL, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_RET] = { PERF_BR_RET, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_DIRECT_COND] = { PERF_BR_COND, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_CALL] = { PERF_BR_CALL, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_ERET] = { PERF_BR_ERET, 0 },
+>>>>>>> +     [BRBINFx_EL1_TYPE_IRQ] = { PERF_BR_IRQ, 0 },
+>>>>>>
+>>>>>> How do ones that don't map to anything appear in Perf? For example
+>>>>>> BRBINFx_EL1_TYPE_TRAP is missing, and the test that was attached to the
+>>>>>> previous versions fails because it doesn't see the trap that jumps to
+>>>>>> the kernel, but it does still see the ERET back to userspace:
+>>>>>>
+>>>>>>       [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+>>>>>>
+>>>>>> In older versions we'd also have BRBINFx_EL1_TYPE_TRAP mapping to
+>>>>>> PERF_BR_SYSCALL so you could see it go into the kernel before the return:
+>>>>>>
+>>>>>>       trap_bench+0x1C/[unknown]/-/-/-/0/SYSCALL/-
+>>>>>>       [unknown]/trap_bench+0x20/-/-/-/0/ERET/-
+>>>>>
+>>>>> My read of that was we should see a CALL in this case. Whether SVC
+>>>>> generates a TRAP or CALL depends on HFGITR_EL2.SVC_EL0 (table D18-2).
+>>>>> I assumed "SVC due to HFGITR_EL2.SVC_EL0" means when SVC_EL0 is set
+>>>>> (and set has additional conditions). We have SVC_EL0 cleared, so that
+>>>>> should be a CALL. Maybe the FVP has this wrong?
+>>>>>
+>>>>
+>>>> The test is doing this rather than a syscall:
+>>>>
+>>>>      asm("mrs %0, ID_AA64ISAR0_EL1" : "=r" (val));   /* TRAP + ERET */
+>>>>
+>>>> So I think trap is right. Whether that should be mapped to SYSCALL or
+>>>> some other branch type I don't know, but the point is that it's missing now.
+>>>
+>>> We aren't supporting any of the Arm specific traps/exceptions. One
+>>> reason is for consistency with x86 like you just argued for. The only
+>>
+>> Does x86 leave holes in the program flow though, or is it complete? IMO
+>> it makes it harder for tools to make sense of the branch buffer if there
+>> are things like an ERET with no previous trap to match it up to.
 > 
-> Checking for present entries makes sense here.
+> I'll have to test that. x86 has SYSRET for "syscall return". We added
+> ERET which maps to x86 interrupt return. So I guess x86 only records
+> syscalls and their returns. There's also "sw interrupt" on x86 which
+> gets mapped to PERF_BR_UNKNOWN. I don't think there's any way for us
+> to distinguish a syscall return from any other exception return.
 > 
->> +			if (pte_dirty(tmp_pte))
->> +				pte = pte_mkdirty(pte);
->> +			if (pte_young(tmp_pte))
->> +				pte = pte_mkyoung(pte);
->> +		}
->>  	}
->> -	return orig_pte;
->> +	return pte;
->>  }
->>  
->>  static pte_t get_clear_contig_flush(struct mm_struct *mm,
->> @@ -401,13 +400,8 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
->>  {
->>  	int ncontig;
->>  	size_t pgsize;
->> -	pte_t orig_pte = __ptep_get(ptep);
->> -
->> -	if (!pte_cont(orig_pte))
->> -		return __ptep_get_and_clear(mm, addr, ptep);
->> -
->> -	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
->>  
->> +	ncontig = num_contig_ptes(sz, &pgsize);
+
+Any return type is fine really, as long as you can potentially make 
+sense of it in the end.
+
+>>> exception types supported are syscall and IRQ. Part of the issue is
+>>> there is no userspace control over enabling all the extra Arm ones.
+>>> There's no way to say enable all branches except debug, fault, etc.
+>>> exceptions. If we want to support these, I think there should be user
+>>> control over enabling them. But that can come later if there's any
+>>> demand for them.
+>>>
+>>> Rob
+>>
+>> In this patchset we enable PERF_BR_IRQ with PERF_SAMPLE_BRANCH_ANY,
+>> without any way to selectively disable it. I would assume trap could be
+>> done with the same option.
 > 
-> __ptep_get_and_clear() can still be called here if 'ncontig' is
-> returned as 0 indicating a normal non-contig huge page thus
-> keeping get_clear_contig() unchanged just to handle contig huge
-> pages.
-
-I think you're describing the case where num_contig_ptes() returns 0? The
-intention, from my reading of the function, is that num_contig_ptes() returns
-the number of ptes that need to be operated on (e.g. 1 for a single entry or N
-for a contig block). It will only return 0 if called with an invalid huge size.
-I don't believe it will ever "return 0 indicating a normal non-contig huge page".
-
-Perhaps the right solution is to add a warning if returning 0?
-
+> If I was designing the interface, I would make PERF_BR_IRQ separately
+> controllable. But we're kind of stuck with what x86 did. I suppose we
+> could add a negative 'noirq' option.
 > 
->>  	return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
->>  }
->>  
->> @@ -451,6 +445,8 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  	pgprot_t hugeprot;
->>  	pte_t orig_pte;
->>  
->> +	VM_WARN_ON(!pte_present(pte));
->> +
->>  	if (!pte_cont(pte))
->>  		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
->>  
->> @@ -461,6 +457,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  		return 0;
->>  
->>  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
->> +	VM_WARN_ON(!pte_present(orig_pte));
->>  
->>  	/* Make sure we don't lose the dirty or young state */
->>  	if (pte_dirty(orig_pte))
->> @@ -485,7 +482,10 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
->>  	size_t pgsize;
->>  	pte_t pte;
->>  
->> -	if (!pte_cont(__ptep_get(ptep))) {
->> +	pte = __ptep_get(ptep);
->> +	VM_WARN_ON(!pte_present(pte));
->> +
->> +	if (!pte_cont(pte)) {
->>  		__ptep_set_wrprotect(mm, addr, ptep);
->>  		return;
->>  	}
->> @@ -509,8 +509,12 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->>  	struct mm_struct *mm = vma->vm_mm;
->>  	size_t pgsize;
->>  	int ncontig;
->> +	pte_t pte;
->>  
->> -	if (!pte_cont(__ptep_get(ptep)))
->> +	pte = __ptep_get(ptep);
->> +	VM_WARN_ON(!pte_present(pte));
->> +
->> +	if (!pte_cont(pte))
->>  		return ptep_clear_flush(vma, addr, ptep);
->>  
->>  	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+> Are you of the opinion that we should enable everything or some subset
+> of them? There's basically inst/data/algn faults, FIQ, SError, and
+> debug. The debug ones seem questionable to me, or at least ones you'd
+> want to opt-in for. For FIQ, if that's used by secure world, do we
+> want non-secure world recording when FIQs happen? Could the timing of
+> those be used maliciously?
 > 
-> In all the above instances should not num_contig_ptes() be called to determine
-> if a given entry is non-contig or contig huge page, thus dropping the need for
-> pte_cont() and pte_present() tests as proposed here.
 
-Yeah maybe. But as per above, we have options for how to do that. I'm not sure
-which is preferable at the moment. What do you think? Regardless, I think that
-cleanup would be a separate patch (which I'm happy to add for v2). For this bug
-fix, I was trying to do the minimum.
+I would say include everything that's already filling the buffer and can 
+affect the program flow, even if they have to map to unknown or some 
+slightly off mapping. These tools are supposed to increase visibility, 
+not hide it. If silicon and buffer space are being consumed by branches, 
+let userspace decide if it wants to do anything with them or not. It 
+doesn't sound like changing 'unknown' to a more specific type in the 
+future would be a breaking change.
 
-Thanks,
-Ryan
+Except for any security stuff of course, if FIQ is an issue because of 
+that, filter it out.
 
+>> If we're filtering some of them out it might be worth documenting that
+>> "PERF_SAMPLE_BRANCH_ANY" doesn't actually mean 'any' branch type on Arm,
+>> and some types are recorded but discarded out before sending to userspace.
+>>
+>> There could be some confusion when there are partially filled or empty
+>> branch buffers, and the reason wouldn't be that there weren't any
+>> branches recorded, but they were all filtered out even with the 'any'
+>> option.
+> 
+> Fair enough. I think we need Mark to chime in here. He was questioning
+> the need for these.
+> 
+> Rob
+
+I suppose you could say any branches that leave and return to the same 
+place in userspace aren't useful, like trap and eret (but isn't syscall 
+the same, and we have those?). But that's only if you filter out kernel. 
+With both enabled the trap actually goes somewhere and I'm sure that's 
+interesting to someone.
+
+It might be fine to say that the types that we have now don't match up 
+well enough, so we can revisit this in the future and add them in with 
+the right types rather than a potentially breaking change from unknown. 
+I will leave it to you.
+
+I was mainly stuck on the permissions issue which seemed like a blocker. 
+I noticed this one because the test was actually testing it, but you're 
+right these more obscure branch types in userspace aren't exactly the 
+MVP of BRBE.
+
+Although I will say that leaving the associated ERETs in but filtering 
+out the thing that took it there is a bit odd. Maybe that's just a 
+personal thing without much technical merit.
+
+A lot of words to say I don't really know for sure either.
 
 
