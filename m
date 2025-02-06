@@ -4,100 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35DEC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B5EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8wiv1UFeF5daypgLNnkA8k+FKehfEILLSYFEtag8nQ=; b=eRKa1kq5diHgpglBgUHKad0RkC
-	mkmiJEeOwEOtjwMEC+iPGh/mTMxQuQROmMYbSY113W15Sz0/sPb5NTHO11//50GOl4qmYUYnOROJ4
-	4UPxRoObXvd1DxmoW9oLxoGecP4+3h3MqxZ4Vu7cV9fpuGcTArgd0TJjmjBAUADdWa8AbqAwzn1Sh
-	Uz5UUBYeWYtqRD66yP8kiiHu6prj/JDXVhqlq390Gv9+61kXN9WnNSYma3D31pEZFETE63BBXvlAv
-	15xz02rDaS7n0c+P5K/jXSO9ZQHpcMfCXvEC2PM66WpbC3r8gSo4IlyRrsdhx36c1D+tkZ0K9PZ6s
-	LlZdWieg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RfuWMu9pGpGDXGkPzWf+fp6WRdDkqYG8tZr9BNBnr6A=; b=WPKkJvbau8lljy2p1HanzWxflF
+	HyEyNEXk71uSxTBsPIqxWAhPCoNtC5bD50qEZcIzMrzhJ3pdDwDgvzRfx/TF0QiQYxpG4q9ZIz4Iq
+	4IOjiOy8YxLsRpAf+ca1Dvd17cmWnYmtoC2zoZqd0DY5mLJQA6q9Kr5VEw+F6GntmSUxse9fD5RkO
+	JJqUhCZxjMlX1oyHBAoK0z/FTVNEbfQECgMpntj+gGQSTKJJAReOw6elM41dCOLQtWMmarJURpbzs
+	m+5FKvSJDPgO0PPNy6LtQ/L/CIdh+TQqsIl/nqGJBx9GKTsL7+dfP+h+mfxat1ax26MBIYLyxtMYg
+	gmCCU3BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3nZ-00000006hvA-2rvB;
-	Thu, 06 Feb 2025 15:28:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tg3ov-00000006i8s-1Lz7;
+	Thu, 06 Feb 2025 15:29:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3iD-00000006hDv-33zK
+	id 1tg3iO-00000006hFx-23nL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 15:22:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738855359;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l8wiv1UFeF5daypgLNnkA8k+FKehfEILLSYFEtag8nQ=;
-	b=cIePmnRcYf1vliWjGReTX6rdBvnOILhl11yCuxXuPZp3BKaHZmV65XpUAPe0tktp+wHsx3
-	MQ+aoMgpJeHlIaq/kHE74+h6xR2ngMeJXHZAzecBsaHta2emmVslnULI8qnfIr4dVXeln8
-	3jxZp5nKW91FDP+BYbL5MjtzdxUE3T0=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-589-RcxHZ1MRMXyMuNUzvOKTYA-1; Thu, 06 Feb 2025 10:22:36 -0500
-X-MC-Unique: RcxHZ1MRMXyMuNUzvOKTYA-1
-X-Mimecast-MFC-AGG-ID: RcxHZ1MRMXyMuNUzvOKTYA
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6e433680e07so21361346d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 07:22:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738855356; x=1739460156;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1NFq9H4xzFSAei+rLqp5nsYutfgP4NhNUe6F6I53Ixk=;
-        b=S8HrHxa4MBzSnZVr44ZOMRbf8P0twZmCC/3++XGVUecx10sg2ynbzZr5j6IyW0g9VS
-         fSTRTz8XqeTKa16gYJCFvhs0WqUBhSTeW19dytx38TCQd5bL9pu4ZIz3ksd+aZcLMLVF
-         h2bYnCjFl2x/ZEwPlxd4p38tu4VJLjKoBRsy35IPbewsuusSl+RH9UJzsZGTQuqHr/9S
-         P590IzhmxcznqyW8hDMoKJBoPO4xgwFjGsDQ+d5yAgmY+V2PuSd5BAnXDvLOkjG5asZ/
-         3vMxUQZ3RSEf2xD96thRjdks7hmyFSKDtMReZXyd2lJX2b1eVRNhBpJyY2EFkYMNF0SP
-         3xGQ==
-X-Gm-Message-State: AOJu0YwMs9jIYa7+bhu84IVEtp4Tfusmjw95XSxBUgK4lHXCKfPi40K8
-	LXxrtLH96TS2E6YyF2I0KCEeIb7jtyKhXO5bBE7hKsVimYHfrSkVtghR+hBXjhkxtaF3/mD6hVc
-	QqriR7sZni+vFxbHZYzqjDgJzLL4ztRJ59iblCCpf0SydvwGjVvEYgmpvlPwYQytfQYGGd5+L
-X-Gm-Gg: ASbGncso1cSsyaF56nfTxhUQOq2ZQHFDKZEX4z5bQ4kclGKGXyWe9UtKk3i1ssM+4tR
-	qslRs2MFwLLIIjXfBsqva6EZzMeDx9imYHMR+1vBatRnTlVldMZ67h1iV/02gZg4CUuqIPx0Ug1
-	sfRW5iFY7E+QFsv/OZvoeqRNCZtT2t881NUzjrvMEaZwxcE6gaheJUc+1s1ZO/qM2Syp3iP+beS
-	Vo2UwTXsWgWF8usBrEb/ukEK7KWO5oULfqzrGBeIxzWxJY1EPyQFwZmSlug53DREYjQ4QuUQTgL
-	hgdHQ59+5DsYmU7umF0ilVJ4GeFWP+TDjhZsypkfrcIuOvI8e2wPW/s72o2aTsYZ5IJcUDgB
-X-Received: by 2002:ad4:5ba3:0:b0:6d4:19a0:202 with SMTP id 6a1803df08f44-6e42fc4596emr90050546d6.33.1738855355813;
-        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGZBomskQjXv/yjz790a4y8HP1KFNYr9pAPvFI1pJr69NYxgJJffFxrdg7+GOugUsAv1PyziA==
-X-Received: by 2002:ad4:5ba3:0:b0:6d4:19a0:202 with SMTP id 6a1803df08f44-6e42fc4596emr90050286d6.33.1738855355535;
-        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
-Received: from thinkpad-p1.localdomain (pool-174-112-193-187.cpe.net.cable.rogers.com. [174.112.193.187])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e43ba2bfbasm6704836d6.1.2025.02.06.07.22.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 07:22:35 -0800 (PST)
-Message-ID: <2106533f69de3e9d699317fffb7cafb6eecce0c9.camel@redhat.com>
-Subject: Re: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to
- cacheinfo array
-From: Radu Rendec <rrendec@redhat.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>
-Date: Thu, 06 Feb 2025 10:22:33 -0500
-In-Reply-To: <20250206130213.GA3204@willie-the-truck>
-References: <20250123181159.1849346-1-rrendec@redhat.com>
-	 <20250204123955.GD1063@willie-the-truck>
-	 <bc37567a390a5ebe1fac2a196358ac139c751561.camel@redhat.com>
-	 <20250206130213.GA3204@willie-the-truck>
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40)
+	Thu, 06 Feb 2025 15:22:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F5355C2A94;
+	Thu,  6 Feb 2025 15:22:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85CB8C4CEDD;
+	Thu,  6 Feb 2025 15:22:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738855371;
+	bh=FrLHXacAKu7E8PIh7mv5/7UyuK0ZoDb/ggVEpXUiGJI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GtJx5H6uD4arsQxYHReeieGtNLb5HEPaP+XikrDzrkEIEkr5tFKHPffQXcFzGR4wc
+	 8RpS2oaekOqsSGsbQi906lQjVUomwO5uAB0h8gx72/aFNZ34DL9/Bvj7uB1u9NRN4d
+	 oKxW/VFr56qRdgy+5FlwxFr7JnLgLwrFVX2TM8v3M3G4muu5uJXDly6tN/B4EVM6Nz
+	 CK5gQCkbnEzr9KtIaHF/keibaJMTkX5azZZEiC6/xuTeh6fIrroFwX69zD8JF/I7mR
+	 qE5diBGxt4zDD43aNOb2VpZUZO/+LJggzzk1T2TJjrkhbMGg7zwBYGY/zrY/6bCcKP
+	 sXSlKD5XSKFLg==
+Date: Thu, 6 Feb 2025 15:22:47 +0000
+From: Will Deacon <will@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Handle .ARM.attributes section in linker
+ scripts
+Message-ID: <20250206152246.GA3468@willie-the-truck>
+References: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
+ <20250206130526.GB3204@willie-the-truck>
+ <20250206135715.GA180182@ax162>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gyp_Yf7mvR4k8sOqMSMmTa2vaFMJic78GA-lGQLASi0_1738855356
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206135715.GA180182@ax162>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_072241_842213_41DDF0AC 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250206_072252_617465_9CC40573 
+X-CRM114-Status: GOOD (  26.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,60 +76,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-02-06 at 13:02 +0000, Will Deacon wrote:
-> On Tue, Feb 04, 2025 at 10:55:53AM -0500, Radu Rendec wrote:
-> > On Tue, 2025-02-04 at 12:39 +0000, Will Deacon wrote:
-> > > On Thu, Jan 23, 2025 at 01:11:59PM -0500, Radu Rendec wrote:
-> > > > diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cach=
-einfo.c
-> > > > index d9c9218fa1fdd..77ffda7284754 100644
-> > > > --- a/arch/arm64/kernel/cacheinfo.c
-> > > > +++ b/arch/arm64/kernel/cacheinfo.c
-> > > > @@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
-> > > > =C2=A0=09unsigned int level, idx;
-> > > > =C2=A0=09enum cache_type type;
-> > > > =C2=A0=09struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cp=
-u);
-> > > > -=09struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
-> > > > +=09struct cacheinfo *infos =3D this_cpu_ci->info_list;
-> > > > =C2=A0
-> > > > =C2=A0=09for (idx =3D 0, level =3D 1; level <=3D this_cpu_ci->num_l=
-evels &&
-> > > > -=09=C2=A0=C2=A0=C2=A0=C2=A0 idx < this_cpu_ci->num_leaves; idx++, =
-level++) {
-> > > > +=09=C2=A0=C2=A0=C2=A0=C2=A0 idx < this_cpu_ci->num_leaves; level++=
-) {
-> > > > =C2=A0=09=09type =3D get_cache_type(level);
-> > > > =C2=A0=09=09if (type =3D=3D CACHE_TYPE_SEPARATE) {
-> > > > -=09=09=09ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> > > > -=09=09=09ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> > > > +=09=09=09if (idx + 2 > this_cpu_ci->num_leaves)
-> > > > +=09=09=09=09break;
-> > >=20
-> > > Why are you checking 'idx + 2' rather than 'idx + 1'?
-> >=20
-> > I don't like "magic constants", and I thought "idx + 2" would be more
-> > suggestive since 2 elements were added.
-> >=20
-> > The check is correct though. For example, if this_cpu_ci->num_leaves =
-=3D 3
-> > (the array size is 3) and idx =3D 2, then 2 + 2 > 3 is true, so you can=
-'t
-> > add two more elements. On the other hand, if idx =3D 1, then 1 + 2 > 3 =
-is
-> > false, so you can add the two elements (at indices 1 and 2).
-> >=20
-> > If there's a strong preference for "idx + 1", I can change it. But then
-> > of course ">" will need to change to ">=3D" as well.
->=20
-> Might just be me, but I'd personally find that clearer given that we're
-> assigning to infos[idx] and infos[idx + 1].
+On Thu, Feb 06, 2025 at 06:57:15AM -0700, Nathan Chancellor wrote:
+> Hi Will,
+> 
+> On Thu, Feb 06, 2025 at 01:05:26PM +0000, Will Deacon wrote:
+> > On Tue, Feb 04, 2025 at 10:48:55AM -0700, Nathan Chancellor wrote:
+> > > A recent LLVM commit [1] started generating an .ARM.attributes section
+> > > similar to the one that exists for 32-bit, which results in orphan
+> > > section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+> > > because it is not handled in the arm64 linker scripts.
+> > > 
+> > >   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> > >   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > 
+> > >   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > >   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > >   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+> > > 
+> > > Discard the new sections in the necessary linker scripts to resolve the
+> > > warnings, as the kernel and vDSO do not need to retain it, similar to
+> > > the .note.gnu.property section.
+> > > 
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+> > > Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+> > > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> > > ---
+> > > Changes in v2:
+> > > - Discard the section instead of adding it to the final artifacts to
+> > >   mirror the .note.gnu.property section handling (Will).
+> > 
+> > Thanks for the v2. Just a minor nit:
+> > 
+> > > - Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+> > > ---
+> > >  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+> > >  arch/arm64/kernel/vmlinux.lds.S   | 1 +
+> > >  2 files changed, 2 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> > > index 4ec32e86a8da..8095fef66209 100644
+> > > --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> > > +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> > > @@ -80,6 +80,7 @@ SECTIONS
+> > >  		*(.data .data.* .gnu.linkonce.d.* .sdata*)
+> > >  		*(.bss .sbss .dynbss .dynsbss)
+> > >  		*(.eh_frame .eh_frame_hdr)
+> > > +		*(.ARM.attributes)
+> > >  	}
+> > 
+> > Can we chuck this in the earlier /DISCARD/ section along with
+> > .note.gnu.property? i.e.
+> 
+> Sure, I don't see why not. Do you want the comment above it updated to
+> mention this section or should I leave it as is?
 
-Fair enough. I don't feel strongly about it, and since nobody else has
-chimed in, I will make the change and post v2.
+If you can think of something useful to add to the comment, don't let me
+stop you!
 
---=20
-Thanks,
-Radu
-
+Will
 
