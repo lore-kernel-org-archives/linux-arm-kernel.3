@@ -4,112 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7895C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 22:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66E1C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 22:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dxtZrCctgBhiPn6B+3RMzEgrZOTooCI6T92FZv6MTPk=; b=kS54O5Fi2TfokIQv/KgXZY/GlJ
-	bDIczvos0GHtm7bvTUS0dtrfJgGZYtkI1gBObZ4mlYgIbLTkayk1SH5D6/QQJnOFdzeh0nNh5pdei
-	oxOWXal6ojmN7ajnVkCcmgRc8ikFmILg05mS/QcHZzlSo/TS9P9DMJKKb5dvn1JMvb+iPd5StBivt
-	qZ2+0kTgqLMnSH9fYzLegqAV9137aeTQYygtBKHCpxN+TvYjFHmP1/KscZtlos3R4IPPaQr6hGXGh
-	ItMYiuyYKxytROtL7+G4X9RpnSSLMuKZys3BWB10uReK58My3IOu2qTvOyhNdA5zA1xu5R2sNc449
-	ne++rI2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h/rUZaXRYLxrgBgshCQbA6+1bE3H/k/sIM+X94Cx5yk=; b=0dwsVBmA1dbUdB37u4VImE35PI
+	xmt18Jzj7bfmIFmLB6Q/2V0VZ8LEMEbYcPxGYkpHpyzysfnsp/l5is3PdwzM+z6XIJy2h4UL+yDr/
+	T7lQIr+t/WmkXOkiOMtLdXg8QW6C0+oS4YAL3Fvl/zGAfYzIUJjMJzb0L3dRK8fgATZ+XFiJ+BJ3x
+	qbP/zG4Ve7PXM32Qls7fUNcF53jnHhsd4f9YgFYgKil/BQvBpHLJwLhw528xvH8QUm7XQrYhZDqKs
+	aXLDB0kbh13IBMrAU2S25uspCwAhilit9LpXaX9i5l7vtOjMyFELEPZW7+D+dHSAVVE3G5+febrQL
+	qBRGoftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgAFW-00000007fnP-3AOk;
-	Thu, 06 Feb 2025 22:21:30 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1tgAaH-00000007hkO-3G0f;
+	Thu, 06 Feb 2025 22:42:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgAE8-00000007ff9-0wNP;
-	Thu, 06 Feb 2025 22:20:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1738880391; x=1739485191; i=wahrenst@gmx.net;
-	bh=dxtZrCctgBhiPn6B+3RMzEgrZOTooCI6T92FZv6MTPk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=R6IgtnxwhC/48wpm38U/C1njOpeUq9DonRCJ50qndlZyB6SDDvTKwqxmnNUoPl0T
-	 Cahkwq0zAmhBLnpt23ROyFo7mmyg6fu4dyzTQI4+eSixGgSi4AeRNpmDYRMyyayZj
-	 mmoddlOhmEKwqt5WuaN5frPUPzNXuEYMaahU5DI6iug4pwugWtgNNcSlbuQSbUhSU
-	 bPvPtYAfzNJToDiu3SRtW4U9jwBTFcJha4ZLQX51yJnE9ha+MWKS9oOjKxKh4Hgvt
-	 ABvsJgexP2XiO+luOscnTl+kRrijcTG5957Y/bvtSNQlCpTA2ZlWF9zYHpZFcQ1pk
-	 IC8SfJhTBloKDFR7qw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1McH5Q-1t8Cux0kmq-00kgXn; Thu, 06
- Feb 2025 23:19:51 +0100
-Message-ID: <67b38b32-ce4e-4d8d-a55f-d56d5389b488@gmx.net>
-Date: Thu, 6 Feb 2025 23:19:49 +0100
+	id 1tgAYt-00000007hdM-3h3U
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 22:41:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8F51D5C483A;
+	Thu,  6 Feb 2025 22:40:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F18F8C4CEDD;
+	Thu,  6 Feb 2025 22:41:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738881691;
+	bh=qSJN84svPdMWH8aktcRiZHTS6zg+RmikFW+FS9uQhxA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CPLy65USrvJKh1O4UBNVOzteiSFzuXeFerLTb+QfV5TWiJR91p4EYvI8e1wIozhmq
+	 mBHh+a4brX8oUQGHiI9fEl4mptmMRtN+ilHcPNMjdWcnh8pzA3ZVtef0ryiT5h6UKT
+	 BBXtAuGf/+iaqZhdwI2ZYA8nNBC4yvJnKpc6XYZ6ilSh+HdDw4v/97jDG7htOuIX34
+	 rrEBhpt4wYRzTL4eRzOjqqEaGJOcs2FMvVPIFak//CM7yxbIyO5/vY+J7JG5RkPHga
+	 HOga/YPGjWP1Gh4gKO4w3i6miIzZlq7prT8DIUgCu+DdC6//nGDqwcsUtZEuNvWGuc
+	 cZa70cGISwVkw==
+Date: Thu, 6 Feb 2025 14:41:30 -0800
+From: Kees Cook <kees@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org
+Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
+Message-ID: <202502061422.517A57F8@keescook>
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 6/6] PCI: brcmstb: Cast an int variable to an
- irq_hw_number_t
-To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Cyril Brulebois <kibi@debian.org>, Stanimir Varbanov <svarbanov@suse.de>,
- bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20250205191213.29202-1-james.quinlan@broadcom.com>
- <20250205191213.29202-7-james.quinlan@broadcom.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250205191213.29202-7-james.quinlan@broadcom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:sTGnfuSTXZK7MNvCp5CKmJzOpF5On8p7IkfI//o0gj6Vs+nZ3zo
- HIgCyeUZCL+1EetfpRQ79B69GgcxGbIHPTicg/Pn0Sqj62W/9RMLRBH1Z8K1h9eOfay9Iyp
- aDTp97Q+1glUN5bYInLOb2GTCwl1TFa8G3Rfy/3stJszHIeb8xR/iTj3MqC7hrzP9Yl2Ek6
- 3sGEeafqsDL0/i+myDJdA==
-UI-OutboundReport: notjunk:1;M01:P0:7t9Vbysqt/o=;fZrYQ9MrCW2wQMR1vnqMNUEr3j7
- YNy0Sy0mrI8o56qCWcPXMbwFeKvZSYDLQIc0Ijjhgm03dUSzahEEI5f5HJDL+lLnbJH2mHfsu
- /3aSr79J7grLGa3G2M+UjL2cM2GJi3NHbLIlCl8WD/mHq46Imv2v59bRf+pYfKGvX/ZuvOiYU
- DnpmpV7kbDT6/fhZ8JXVgC1OTplZDPTbyAMxG3hN+A+5NKx0WKjbPoSA0sK0STWM7FQQcD8ax
- GSUE32/VvkPo4Q5TL+5IAfE4GpCO6q0qCl9b5MTtUrN1Gi54ZVrqd8bpNnHPJmaqCXeVnyou3
- 8OOgngG3NtWM7mIq6HwTu6tlL675ZJZkBpb0N9ysRQoxScqa82aWYgW1uGHP7iw1tr9OTlklW
- Af8JdgneDmNsftOWp0XDewJbxL6k+YIcrIcueNzIBB6Lp2+RcsbIG1RLEJOyJSlFxLwb32uJn
- 0jlg22vKVVvftzg9MnniqUVC1PFueFP15WpJbZXZ1oibjbxXxofS9B0qc76OazPveloHMcz1v
- juErKA0P7mjiZHs2rOfXF/63Y7/UgHN4EPeK7Lf/SLhBLd9CAp5zsjtLjg2WUspzU8Wmhq8FQ
- 4xQlK9pPBjF4OzQzeP9S/8Wm8rSKdFT21BIOD9PDdCz/Lu2JH9/ZSkTFXVQIKlRmwZH6RWf9D
- hWGqFCSyi9R+GLlpH0VeiIQgX7RFbxBZ/4H+9a2HJb7Z4uwDZlIx2vcNXknXiUfi3vwd7iOCa
- 9Ux2ZzhNHYrfR8sd0Pfaac1Z4QnVrPn96ootZ6uCoEW2a+qLIlKjnXSdr6CKE9T89NCw/ltJM
- f1SP3PvPyUDOqQfA37h77OS5cbURdmHKlf7V6qHI6EQXXwRVdJx8MlbA35ZKxlGTie5BcMb+7
- ljtTmjbMjfWPnr5kvGf1WC5Vm36wRbcapLgR7Zw78ZJuleZJFcwSn3Youn/pZfxIhZEu1rTBr
- kdFZeHuBxobBDCLVX+YDNhdybXvWsMolE1kiGuaQyahnNZZlUiZr+K936rLe0Fe9aQ7YU7nsw
- zcXgl7CIMy9JFlLP8vt/htmDplcHa3T4otinI33g+OhHD9WGAvgofic0ppXuZnfloA/3FXtCL
- vbFuMGcs6t56hhNbXeQO3WKBMo6vQUYLK8YwvIlAJe+JBlEJNdpVoLvQfOjRqy5PwnlPqGHNh
- QAYf3sOGhrKgEKmbE2Fm8SJOfRWOnHe00WNkYmWfQBgW+6L4hOfLRusGvrSAjrWmvxdwC8ij4
- /Z6fcj7NHesEs7wTPqxsNSd+KnzBLsicXb3JgMzhq0jcMlko52WGkRAA7du/tljgWcHV17A4N
- MWYZ+vZaPs2nqjGy5EUqS9QM/7cDA7pRhMQcL5mZw2wj4v2SW67P8nn6IDVHzxR70H9v7YjtB
- /IPW04WzyIOb1frR17z8o28MBkjrXl84b3NqhSOcFy8bChaAduQTKy+Wtf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203101839.1223008-1-kevin.brodsky@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_142004_567469_BD0D8577 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250206_144132_004987_331FBF4C 
+X-CRM114-Status: GOOD (  29.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,37 +88,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jim,
+On Mon, Feb 03, 2025 at 10:18:24AM +0000, Kevin Brodsky wrote:
+> This is a proposal to leverage protection keys (pkeys) to harden
+> critical kernel data, by making it mostly read-only. The series includes
+> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+> as well as a page table hardening feature based on that framework
+> (kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
+> concept, but they are designed to be compatible with any architecture
+> implementing pkeys.
 
-Am 05.02.25 um 20:12 schrieb Jim Quinlan:
-> Just make it clear to the reader that there is a conversion happening,
-> in this case from an int type to an irq_hw_number_t, an unsigned long in=
-t.
-I'm not a fan of this generic subject. A possible suggestion might be:
+Does QEMU support POE? The only mention I could find is here:
+https://mail.gnu.org/archive/html/qemu-arm/2024-03/msg00486.html
+where the answer is, "no and it looks difficult". :P
 
-PCI: brcmstb: Clarify conversion by irq_domain_set_info
+> # Threat model
+> 
+> The proposed scheme aims at mitigating data-only attacks (e.g.
+> use-after-free/cross-cache attacks). In other words, it is assumed that
+> control flow is not corrupted, and that the attacker does not achieve
+> arbitrary code execution. Nothing prevents the pkey register from being
+> set to its most permissive state - the assumption is that the register
+> is only modified on legitimate code paths.
 
-Regards
->
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->   drivers/pci/controller/pcie-brcmstb.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/control=
-ler/pcie-brcmstb.c
-> index da7b10036948..1e24e7fc895c 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -560,7 +560,7 @@ static int brcm_irq_domain_alloc(struct irq_domain *=
-domain, unsigned int virq,
->   		return hwirq;
->
->   	for (i =3D 0; i < nr_irqs; i++)
-> -		irq_domain_set_info(domain, virq + i, hwirq + i,
-> +		irq_domain_set_info(domain, virq + i, (irq_hw_number_t)hwirq + i,
->   				    &brcm_msi_bottom_irq_chip, domain->host_data,
->   				    handle_edge_irq, NULL, NULL);
->   	return 0;
+Do you have any tests that could be added to drivers/misc/lkdtm that
+explicitly exercise the protection? That is where many hardware security
+features get tested. (i.e. a successful test will generally trigger a
+BUG_ON or similar.)
 
+> The arm64 implementation should be considered a proof of concept only.
+> The enablement of POE for in-kernel use is incomplete; in particular
+> POR_EL1 (pkey register) should be reset on exception entry and restored
+> on exception return.
+
+As in, make sure the loaded pkey isn't leaked into an exception handler?
+
+> # Open questions
+> 
+> A few aspects in this RFC that are debatable and/or worth discussing:
+> 
+> - There is currently no restriction on how kpkeys levels map to pkeys
+>   permissions. A typical approach is to allocate one pkey per level and
+>   make it writable at that level only. As the number of levels
+>   increases, we may however run out of pkeys, especially on arm64 (just
+>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+>   use the same pkey for the data associated to multiple levels.
+> 
+>   Another potential concern is that a given piece of code may require
+>   write access to multiple privileged pkeys. This could be addressed by
+>   introducing a notion of hierarchy in trust levels, where Tn is able to
+>   write to memory owned by Tm if n >= m, for instance.
+> 
+> - kpkeys_set_level() and kpkeys_restore_pkey_reg() are not symmetric:
+>   the former takes a kpkeys level and returns a pkey register value, to
+>   be consumed by the latter. It would be more intuitive to manipulate
+>   kpkeys levels only. However this assumes that there is a 1:1 mapping
+>   between kpkeys levels and pkey register values, while in principle
+>   the mapping is 1:n (certain pkeys may be used outside the kpkeys
+>   framework).
+
+Is the "levels" nature of this related to how POE behaves? It sounds
+like there can only be 1 pkey active at a time (a role), rather than
+each pkey representing access to a specific set of pages (a key in a
+keyring), where many pkeys could be active at the same time. Am I
+understanding that correctly?
+
+> Any comment or feedback will be highly appreciated, be it on the
+> high-level approach or implementation choices!
+
+As hinted earlier with my QEMU question... what's the best way I can I
+test this myself? :)
+
+Thanks for working on this! Data-only attacks have been on the rise for
+a while now, and I'm excited to see some viable mitigations appearing.
+Yay!
+
+-Kees
+
+-- 
+Kees Cook
 
