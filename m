@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7853BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 10:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487A4C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 10:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGtT4jJj54W9qkniOIuHDmAyLAJNfLsZ3atVdSoL2Sw=; b=Sq31FURdaHESs+GwFBpg579Zm/
-	0EfVbDk9RrBh7XVXl+Im/GWDSkUoHHooTHG0Awrey0aJue1S4TMz3SIj/qfvc7EVorfmeqmzvAUZ/
-	Bq0fcTaEu/i/oeS41YZOfiteQcK3ikjOLrJnADmyn9NaXHwEPMLhsHsMI5vuLFvb22Eni30TydKxS
-	HSMSdCuATIIUOaQDe9/0HnuyCIU5idKocqbt0XxZxWBG384Zfrf/J5O6yskq71a5jCU51OrYsaaPl
-	p1tkuoE5aqcnqPr0nDbm0T5MOUILIYfUy8cSqJ3vxAdu3hiGP/nv1UktfHJohDvo1mhVlqxiCmu9G
-	zOTZIHOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r2/IIP3n3Vq0jAraoBBXavMXEaBuRqCM8Y1vyh7jgZo=; b=xOlllIFdKYs62L
+	kOmv6e1fD98OmvmZADqr+5zIPD9LzdeWBtu1+bCSv6HGGJ+ZoRVyftNy5Cgi+sNYa8cYYYyf9XN+E
+	1ITXlbwb7/WBkusy/hDNlndfaiXyTldKyNWuCK6wrtHWEGR/IAIIfMgRB4483IJMEMPZoPqHDzDpS
+	ka/7472SmWzyVjyPmPqUijj4v/xj6/Xmftvnql4fN75TzDYNqg7Ecu8Rvt1h3UHq1XuyJqxu7msEK
+	Pqtl9IcjZcpRqnaAtk/5g01aa/25qFcK+ec4TPpPNge1QfaBCmM7nyNR5vsAdLj+NaMo8adL52D6O
+	d8IZf8EiV0CiL8syQCbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfyvV-00000005xGD-02Z9;
-	Thu, 06 Feb 2025 10:16:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tfywp-00000005xPN-2fZa;
+	Thu, 06 Feb 2025 10:17:27 +0000
+Received: from mail-lf1-f41.google.com ([209.85.167.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfyrj-00000005wjm-13Gj
+	id 1tfyu9-00000005wzl-1apn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:12:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IGtT4jJj54W9qkniOIuHDmAyLAJNfLsZ3atVdSoL2Sw=; b=VrGjZMXNKqp11sBPpNPyr9bd8j
-	iDW8pjUfPny4JDeSdAM75qSlzDloRDzAuw8WPJ+YuCmZrT/uT0LWIy5VkIf9jmIxSMpOpb6SgsdTz
-	+G/JpsS0x5S/EIl2UzUs7CYJrHEb12+B0+LZp+ntHccablhQbEOP6Cy+ZaXE0VSy1uFyMo53wgLfH
-	2hzZRTL4roOnp4giNFVCOQ1gW/WFSYAStewJD3KnebYOAQ68PoitLuWosk5mUgkGk6NMo3H8ZUfCN
-	PpjJf3Ew9XEO+zWoiOltaJbtDSQyt0EopVzMPvXzJaHI9iniyUZh974YIgNFl/TXHxlLDo/DfkjRE
-	J+0zciZA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58646)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tfyqw-0001h6-11;
-	Thu, 06 Feb 2025 10:11:22 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tfyqn-0003LY-04;
-	Thu, 06 Feb 2025 10:11:13 +0000
-Date: Thu, 6 Feb 2025 10:11:12 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v6 4/7] stmmac: intel: configure SerDes
- according to the interface mode
-Message-ID: <Z6SKwNF8ib2BgIsL@shell.armlinux.org.uk>
-References: <20250204061020.1199124-1-yong.liang.choong@linux.intel.com>
- <20250204061020.1199124-5-yong.liang.choong@linux.intel.com>
- <Z6IDWiRF73sdVWob@shell.armlinux.org.uk>
- <f272cb2a-1167-4e34-9209-ffdbbb107bdd@linux.intel.com>
+	Thu, 06 Feb 2025 10:14:42 +0000
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-54412a7d75cso91518e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:14:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738836879; x=1739441679;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=r2/IIP3n3Vq0jAraoBBXavMXEaBuRqCM8Y1vyh7jgZo=;
+        b=AkeNAHUSuG40DskQIJa8kyM9iXZrvMRuNQOGQb92g+ZEZD1dRHhAXURFjh0kB5R2Wx
+         FwywEvKx1ZHy3euay1j3K7eTET1IqBrf1pvWveYtkRG9tk3XcG7JXRaMXaS/+s/3gVYw
+         OEvaCNM/FlxNFx+IQiebAfS1+g10F1WnJNOzAyh771uBjvOgvaSAbFwuWmwH9F0PgmCL
+         AiLIJ+fKH6UM/QsGzhw26EvAnmd3mhxk2dM+axutLVdHh9FdrKk1obf50Jjf1OLrylZ1
+         rn0xo0KqD59hpqAb/ykLZ9j1neYo+TIpXkUPurd5ozKWGy2BhZJ87r2MN0QZHJbpGDIs
+         2d4Q==
+X-Gm-Message-State: AOJu0Yy2gdWq6Hyc9k6HwRlBNNwu4oC364dD2TqSz1zj5u9AYTJv0R9F
+	3Hm7ttLmqdXT3xQQrmSC4YkeWVnzCH+RzHhSeQEIGDq3+pEUj2E/AJyvrp5o
+X-Gm-Gg: ASbGnctaEgPGd235a5QHALQHGH1PkjuhUaZwZDImCJ0S/N/xJ7uPUvXmLNKJ6ps5yMX
+	7+XknAg98UdDvTO5tnRcAagOqckNlv9FnS8H/Jkeztlhzeao+LbHBIEqtY3q+FdAhLdv/yUSatl
+	fnpoxM0mSp7IUcsBHU8J3a5h/3seidn0lmYjs01di/cwcZckoRvg+9SqZZqJQn7UtkdwdLbN2yj
+	uv/03BGFhDJQLNFM34ipaOfdMOKUWvPdIZkrMpg6l9QcLmbk0o/3f2WnLK56gcUXGqyj/wx6zLm
+	p2MINpRkST3P3muHFK2aHGiIKrByfhncX/chhcC9xmx3wCgb
+X-Google-Smtp-Source: AGHT+IGDQPZ5gMKi6b93TSK34/VQPJ0kC599Ayijejb3CgfTAscM3BUKn7/lFSwA+wiIJdR//apg6Q==
+X-Received: by 2002:ac2:4850:0:b0:544:f67:f0d with SMTP id 2adb3069b0e04-5440f6711e4mr584526e87.17.1738836878771;
+        Thu, 06 Feb 2025 02:14:38 -0800 (PST)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441055573asm95865e87.81.2025.02.06.02.14.38
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Feb 2025 02:14:38 -0800 (PST)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-307e00d6b09so2255131fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:14:38 -0800 (PST)
+X-Received: by 2002:a2e:a912:0:b0:301:12:1ef3 with SMTP id 38308e7fff4ca-307cf2ecc76mr23979521fa.4.1738836878292;
+ Thu, 06 Feb 2025 02:14:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f272cb2a-1167-4e34-9209-ffdbbb107bdd@linux.intel.com>
+References: <20250206093956.46593-1-regis.dargent@gmail.com>
+In-Reply-To: <20250206093956.46593-1-regis.dargent@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Thu, 6 Feb 2025 18:14:26 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67tmzGfcFPchjzfSima-sT_u7viYd1UDGB9r6ZeJEgdyg@mail.gmail.com>
+X-Gm-Features: AWEUYZlm4gSn7cw1IB1gbPXGlwF-pdLLAGIdGOws-wlbxjHAlekI14cTphPxU20
+Message-ID: <CAGb2v67tmzGfcFPchjzfSima-sT_u7viYd1UDGB9r6ZeJEgdyg@mail.gmail.com>
+Subject: Re: [PATCH]: watchdog: Allow watchdog to remain enabled after probe
+To: Regis Dargent <regis.dargent@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, linux-watchdog@vger.kernel.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_021211_290537_9D6799BB 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250206_021441_419434_36A2936A 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +90,206 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 10:22:04AM +0800, Choong Yong Liang wrote:
-> Thank you for your feedback on the patch. Based on your suggestion, I have
-> updated the code to align with the mac_finish() method and included the AN
-> mode as well. The updated function signature is as follows:
-> 
-> int (*mac_finish)(struct net_device *ndev,
->                   void *priv,
->                   unsigned int mode,
->                   phy_interface_t interface);
-> 
-> Could you please confirm if this meets your expectations, or if there are
-> any further adjustments needed?
+On Thu, Feb 6, 2025 at 5:40=E2=80=AFPM Regis Dargent <regis.dargent@gmail.c=
+om> wrote:
 
-That's fine, thanks.
+Please format your commit subject correctly. See previous commits for
+examples.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Please provide a commit message including justification for the change.
+The message below already makes sense, though it could be made more
+concise.
+
+Please also include your Signed-off-by.
+
+> ---
+> The sunxi_wdt watchdog unconditionally stops the watchdog during probe (o=
+n my Allwinner H616).
+>
+> What I want to achieve with this patch is to start the watchdog in the bo=
+otloader (either manually or automatically), then boot Linux.
+> The watchdog is about 16sec timeout maximum, while the full boot to userl=
+and lasts about 90sec, and I want the board to reset if, eg.
+> the rootfs cannot be mounted. So I need the watchdog to be handled by the=
+ kernel during boot (which it can do pretty well).
+>
+> The thing is, the current driver stops the watchdog during probe, so it d=
+oes not run during boot, and it also does not manages the "status"
+> field, so the kernel would know that it must handle the HW watchdog.
+> This avoids automatic reboot in case a problem occurs during boot (and fo=
+r example handling in the bootloader).
+>
+> The driver should detect if the HW watchdog is already running during pro=
+be and set its appropriate status bit to allow the kernel to handle the wat=
+chdog pings itself.
+> The call to sunxi_wdt_start/stop allows for proper driver and device conf=
+iguration.
+> By default, the kernel will then ping the HW watchdog at apropriate frequ=
+ency, but the user can have it stop after a time with open_timeout paramete=
+r.
+
+                                                           ^ appropriate
+
+Please wrap your messages under 80 characters per line.
+
+>  drivers/watchdog/sunxi_wdt.c | 20 +++++++++++++++++++-
+>  1 file changed, 19 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
+> index b85354a99582..20fe7da445ea 100644
+> --- a/drivers/watchdog/sunxi_wdt.c
+> +++ b/drivers/watchdog/sunxi_wdt.c
+> @@ -192,6 +192,16 @@ static int sunxi_wdt_start(struct watchdog_device *w=
+dt_dev)
+>         return 0;
+>  }
+>
+> +static int sunxi_wdt_enabled(struct sunxi_wdt_dev *wdt)
+
+Make it return bool.
+
+> +{
+> +       u32 reg;
+> +       void __iomem *wdt_base =3D wdt->wdt_base;
+> +       const struct sunxi_wdt_reg *regs =3D wdt->wdt_regs;
+> +
+> +       reg =3D readl(wdt_base + regs->wdt_mode);
+> +       return (reg & WDT_MODE_EN);
+
+          return !!(reg & WDT_MODE_EN);
+> +}
+> +
+>  static const struct watchdog_info sunxi_wdt_info =3D {
+>         .identity       =3D DRV_NAME,
+>         .options        =3D WDIOF_SETTIMEOUT |
+> @@ -268,6 +278,11 @@ static int sunxi_wdt_probe(struct platform_device *p=
+dev)
+>         sunxi_wdt->wdt_dev.max_timeout =3D WDT_MAX_TIMEOUT;
+>         sunxi_wdt->wdt_dev.min_timeout =3D WDT_MIN_TIMEOUT;
+>         sunxi_wdt->wdt_dev.parent =3D dev;
+> +       if (sunxi_wdt_enabled(sunxi_wdt)) {
+> +               set_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
+
+Maybe also read back the current timeout? This should be done after
+watchdog_init_timeout(), so ...
+
+> +       } else {
+> +               clear_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
+> +       }
+
+... you should just combine the if-else block with the one below.
+
+>
+>         watchdog_init_timeout(&sunxi_wdt->wdt_dev, timeout, dev);
+>         watchdog_set_nowayout(&sunxi_wdt->wdt_dev, nowayout);
+> @@ -275,7 +290,10 @@ static int sunxi_wdt_probe(struct platform_device *p=
+dev)
+>
+>         watchdog_set_drvdata(&sunxi_wdt->wdt_dev, sunxi_wdt);
+>
+> -       sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
+> +       if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
+> +               sunxi_wdt_start(&sunxi_wdt->wdt_dev);
+> +       else
+> +               sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
+
+FWIW this is what the dw_wdt driver does as well.
+
+
+Thanks
+ChenYu
+
+>         watchdog_stop_on_reboot(&sunxi_wdt->wdt_dev);
+>         err =3D devm_watchdog_register_device(dev, &sunxi_wdt->wdt_dev);
+> --
+> 2.25.1
+>
+
+On Thu, Feb 6, 2025 at 5:40=E2=80=AFPM Regis Dargent <regis.dargent@gmail.c=
+om> wrote:
+>
+> ---
+> The sunxi_wdt watchdog unconditionally stops the watchdog during probe (o=
+n my Allwinner H616).
+>
+> What I want to achieve with this patch is to start the watchdog in the bo=
+otloader (either manually or automatically), then boot Linux.
+> The watchdog is about 16sec timeout maximum, while the full boot to userl=
+and lasts about 90sec, and I want the board to reset if, eg.
+> the rootfs cannot be mounted. So I need the watchdog to be handled by the=
+ kernel during boot (which it can do pretty well).
+>
+> The thing is, the current driver stops the watchdog during probe, so it d=
+oes not run during boot, and it also does not manages the "status"
+> field, so the kernel would know that it must handle the HW watchdog.
+> This avoids automatic reboot in case a problem occurs during boot (and fo=
+r example handling in the bootloader).
+>
+> The driver should detect if the HW watchdog is already running during pro=
+be and set its appropriate status bit to allow the kernel to handle the wat=
+chdog pings itself.
+> The call to sunxi_wdt_start/stop allows for proper driver and device conf=
+iguration.
+> By default, the kernel will then ping the HW watchdog at apropriate frequ=
+ency, but the user can have it stop after a time with open_timeout paramete=
+r.
+>
+>  drivers/watchdog/sunxi_wdt.c | 20 +++++++++++++++++++-
+>  1 file changed, 19 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
+> index b85354a99582..20fe7da445ea 100644
+> --- a/drivers/watchdog/sunxi_wdt.c
+> +++ b/drivers/watchdog/sunxi_wdt.c
+> @@ -192,6 +192,16 @@ static int sunxi_wdt_start(struct watchdog_device *w=
+dt_dev)
+>         return 0;
+>  }
+>
+> +static int sunxi_wdt_enabled(struct sunxi_wdt_dev *wdt)
+> +{
+> +       u32 reg;
+> +       void __iomem *wdt_base =3D wdt->wdt_base;
+> +       const struct sunxi_wdt_reg *regs =3D wdt->wdt_regs;
+> +
+> +       reg =3D readl(wdt_base + regs->wdt_mode);
+> +       return (reg & WDT_MODE_EN);
+> +}
+> +
+>  static const struct watchdog_info sunxi_wdt_info =3D {
+>         .identity       =3D DRV_NAME,
+>         .options        =3D WDIOF_SETTIMEOUT |
+> @@ -268,6 +278,11 @@ static int sunxi_wdt_probe(struct platform_device *p=
+dev)
+>         sunxi_wdt->wdt_dev.max_timeout =3D WDT_MAX_TIMEOUT;
+>         sunxi_wdt->wdt_dev.min_timeout =3D WDT_MIN_TIMEOUT;
+>         sunxi_wdt->wdt_dev.parent =3D dev;
+> +       if (sunxi_wdt_enabled(sunxi_wdt)) {
+> +               set_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
+> +       } else {
+> +               clear_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
+> +       }
+>
+>         watchdog_init_timeout(&sunxi_wdt->wdt_dev, timeout, dev);
+>         watchdog_set_nowayout(&sunxi_wdt->wdt_dev, nowayout);
+> @@ -275,7 +290,10 @@ static int sunxi_wdt_probe(struct platform_device *p=
+dev)
+>
+>         watchdog_set_drvdata(&sunxi_wdt->wdt_dev, sunxi_wdt);
+>
+> -       sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
+> +       if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
+> +               sunxi_wdt_start(&sunxi_wdt->wdt_dev);
+> +       else
+> +               sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
+>
+>         watchdog_stop_on_reboot(&sunxi_wdt->wdt_dev);
+>         err =3D devm_watchdog_register_device(dev, &sunxi_wdt->wdt_dev);
+> --
+> 2.25.1
+>
 
