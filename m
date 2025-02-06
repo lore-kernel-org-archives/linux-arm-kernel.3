@@ -4,124 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30880C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7086EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrTw0kr9iB/h7ScWcHM4VQywDsutpu1is2zOnROeCPc=; b=OzLpvpW7QGZ5b/R36PMDhyxU1F
-	Zr8rVckb5b8CI2qMLb5wHGPvDKMGJtL68GyA+7VNHw3se+3g9hob7IbLhaEBrru2q3rWIvSV+0/9G
-	W04npZYYEd/FNK6ro8HG90KLRHS40JdegUQZtjifsiUz8W9hayI0vd82ZUaV2sJCU3sFvuHxEZvPh
-	MCotzOvTZaVLfG3rHyt7gN5jv7Iy1dMSiglEsrfDKH897eMcjG9Y7G070mwEwWqxxs47kynuwDK1z
-	am2Hnw/oG/8+V5wr7jbsWcPaDvPjYd0lGQ4cJVEdpvO511o2hQBVp9gT/uU0nF/VmdKGcs/26mbXs
-	djxhdH5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jY/M1Di5W5T0Mlu92AFW/gNksF8Ks5jFZoyam7gJ1VE=; b=yhLVH0mxvock+ikVmwZVJGK2dP
+	dA86aIRIDvg/Ad6pLOA3Xon4mtypjZOnhXnJHa1Vwvd6Jgf/oXJ5/Vcp+zTeMJXShmoe2WSO6ErXW
+	xdEJu31fw8jdEoMUZgYJYKwqnLbnK72OLrNiOWWxJajgOGbbEH6wz/k/sSMckw+FtA31rNENcqKfd
+	jAbJ6WhwcaxAiGuu7Md9Bq9MXTsqqN1lqScDOC1i7Lvl7dJRvGO1lzAFM7FZLsmz14mfZoaKbk+vy
+	s3/o5Lxf8PaZ775yIcb3bqRx9/5ylBQeJ95pvcFDdr92FPPlTv3CoTxdcR+mDcBVu74tN4iT+vOkP
+	nXSZJjzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2e3-00000006XK8-2ydN;
-	Thu, 06 Feb 2025 14:14:19 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2Wj-00000006WNj-26PQ
+	id 1tg2fP-00000006XWu-2Al3;
+	Thu, 06 Feb 2025 14:15:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg2b8-00000006Wv2-2aaP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:06:46 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4362bae4d7dso6581375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:06:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738850804; x=1739455604; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QrTw0kr9iB/h7ScWcHM4VQywDsutpu1is2zOnROeCPc=;
-        b=gE6/pTIDELIzrn+2+EppimSaDeA8UFgcwMPZYzQqB+6KUs58lJviwpQj5aWQxwtWLv
-         IbMNCEExAvdLFEJD+8lkxTphMdRHv0sWWjTnqFS9vahgCW0llHX5iTmShDUYUUHWtNwb
-         OPtCcgRWGeW3m7Ckzdvvtfuzm5fdoGigwC6/ApAk+graO1TpdMcr+PIRSaNVJDZXS6oU
-         zVTbfHbIyG8yOMGVzPy7sQKnqP7xLKOTZ4scce4UWEVxLraIMphUEnX1yQTVrUezJbUY
-         ZYdfwcepVujBatuM8WLapFVxJxUayZow0nBKYnk2ooZTWDS5ktKHd/XODy2qLULoQyYq
-         bVjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738850804; x=1739455604;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=QrTw0kr9iB/h7ScWcHM4VQywDsutpu1is2zOnROeCPc=;
-        b=DoyiFJJx7i6pPvzZKJ6b+3d26Uw+sXSaYmUf6twrVAC6buKGGt5/JVMWPRDQcxpeIk
-         CQnILB6414eDnwuULZouTLxW0x5kkSziVcMWEFRThReAvaJELdJbKZU+QIsX5rq3ft23
-         CuRXyQaY3hXPS0r2SvOhHfgz5N2a+OoZSk4OH5qtJd/yr9g/zrGCTMieWGwcDrPf3Ui2
-         VLS3jy0MKCbuEzRnOnE4dDjxdUgnWMJmPeedNhepciYfEncoyXfh5l4QMOWh7SjRjOOL
-         e5aTY2/xAUeMVcYySsNqXZCzZHAt36uPhLtwDGc/nSSA8en3obNGL5upkIhapnR0tRoA
-         OZdw==
-X-Gm-Message-State: AOJu0YyZ1MhmB29U2bNPF+2G95+XvyEr+XZ6cZLJxJOY+bn7Nrhvf5UO
-	xoBzipIMU2V727r/1QBfSmmPbTyqp2tJJxy+t0UbNq+qOS82EgHfF2ZCVMMG3/Q=
-X-Gm-Gg: ASbGncuCx1RgdFTeOjxH/QJRn6KLLqH8t1cwBeuh1apwqV/NM+r4peEazyWONTwsCZN
-	igu9NaIqi9gVIsWtfRWlcnMwFBnFajU6G5/M7mSXOx0kpLNdp0DpNBnZvPmiq2miarQDlzW9ic/
-	lxYDQJTa6C4V9lfgmVs7QTm7QhiErjAsRTWXhFxmsSW9PYU6TVUj5ubqquKsT2cVjyCS9BWfzid
-	gEbz9DY2Rdx0RLOKw4LKAzj0K/6oDSmAkPv52NNQ4YSgIRE1EMTlVbyc5YTWqa9WPTENuvYT3Lu
-	vyXAhnhtQ9wGJAzY4VosRoVefcrBovbhOnAlePU/E+v0FM2Gp6a629xzBfuLzTa5QTZu
-X-Google-Smtp-Source: AGHT+IHs1VOvbH74HBC3VcwOcN7MOCMT0bodbdljyOmjoFYNhPQCucKzp9v30TbevBnlEmQ683kP3g==
-X-Received: by 2002:a05:600c:5254:b0:438:a913:a99 with SMTP id 5b1f17b1804b1-4390d5b2fa8mr64022775e9.31.1738850803080;
-        Thu, 06 Feb 2025 06:06:43 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:4972:46a2:e0cb:c0a6? ([2a01:e0a:982:cbb0:4972:46a2:e0cb:c0a6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbf6e4a4bsm1444844f8f.92.2025.02.06.06.06.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2025 06:06:42 -0800 (PST)
-Message-ID: <cd9b99b0-0a63-4c6c-8064-e48f98fa7c02@linaro.org>
-Date: Thu, 6 Feb 2025 15:06:41 +0100
+	Thu, 06 Feb 2025 14:11:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D52AF1063;
+	Thu,  6 Feb 2025 06:11:39 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 238243F63F;
+	Thu,  6 Feb 2025 06:11:13 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	eric.auger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: [PATCH v2 0/8] KVM: arm64: FPSIMD/SVE/SME fixes
+Date: Thu,  6 Feb 2025 14:10:54 +0000
+Message-Id: <20250206141102.954688-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v6 5/5] MAINTAINERS: Add entries for touchbar display
- driver
-To: fnkl.kernel@gmail.com, Hector Martin <marcan@marcan.st>,
- Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jessica Zhang
- <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
- Janne Grunau <j@jannau.net>
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alyssa Ross <hi@alyssa.is>
-References: <20250206-adpdrm-v6-0-c8ab9348b853@gmail.com>
- <20250206-adpdrm-v6-5-c8ab9348b853@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250206-adpdrm-v6-5-c8ab9348b853@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_060645_562988_9B722293 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250206_061118_748626_5E2B6F23 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,49 +69,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 15:01, Sasha Finkelstein via B4 Relay wrote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> 
-> Add the MAINTAINERS entries for the driver
-> 
-> Acked-by: Sven Peter <sven@svenpeter.dev>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->   MAINTAINERS | 16 ++++++++++++++++
->   1 file changed, 16 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a87ddad78e26f28ffd0f3433560d6db1518f9f95..895d682bcf4e351971b04c6515ebf685fd39b662 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -7746,6 +7746,22 @@ F:	drivers/gpu/host1x/
->   F:	include/linux/host1x.h
->   F:	include/uapi/drm/tegra_drm.h
->   
-> +DRM DRIVERS FOR PRE-DCP APPLE DISPLAY OUTPUT
-> +M:	Sasha Finkelstein <fnkl.kernel@gmail.com>
-> +R:	Janne Grunau <j@jannau.net>
-> +L:	dri-devel@lists.freedesktop.org
-> +L:	asahi@lists.linux.dev
-> +S:	Maintained
-> +W:	https://asahilinux.org
-> +B:	https://github.com/AsahiLinux/linux/issues
-> +C:	irc://irc.oftc.net/asahi-dev
-> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-> +F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
-> +F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-> +F:	Documentation/devicetree/bindings/display/panel/apple,summit.yaml
-> +F:	drivers/gpu/drm/adp/
-> +F:	drivers/gpu/drm/panel/panel-summit.c
-> +
->   DRM DRIVERS FOR RENESAS R-CAR
->   M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->   M:	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> 
+These patches fix some issues with the way KVM manages FPSIMD/SVE/SME
+state. The series supersedes my earlier attempt at fixing the host SVE
+state corruption issue:
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+  https://lore.kernel.org/linux-arm-kernel/20250121100026.3974971-1-mark.rutland@arm.com/
+
+Patch 1 addresses the host SVE state corruption issue by always saving
+and unbinding the host state when loading a vCPU, as discussed on the
+earlier patch:
+
+  https://lore.kernel.org/linux-arm-kernel/Z4--YuG5SWrP_pW7@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86plkful48.wl-maz@kernel.org/
+
+Patches 2 to 4 remove code made redundant by patch 1. These probably
+warrant backporting along with patch 1 as there is some historical
+brokenness in the code they remove.
+
+Patches 5 to 7 are preparatory refactoring for patch 8, and are not
+intended to have any functional impact.
+
+Patch 8 addresses some mismanagement of ZCR_EL{1,2} which can result in
+the host VMM unexpectedly receiving a SIGKILL. To fix this, we eagerly
+switch ZCR_EL{1,2} at guest<->host transitions, as discussed on another
+series:
+
+  https://lore.kernel.org/linux-arm-kernel/Z4pAMaEYvdLpmbg2@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86o6zzukwr.wl-maz@kernel.org/
+  https://lore.kernel.org/linux-arm-kernel/Z5Dc-WMu2azhTuMn@J2N7QTR9R3/
+
+The end result is that KVM loses ~100 lines of code, and becomes a bit
+simpler to reason about.
+
+I've pushed these patches to the  arm64-kvm-fpsimd-fixes-20250206 tag on
+my kernel.org repo:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
+  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
+
+The (unstable) arm64/kvm/fpsimd-fixes branch in that repo contains the
+fixes plus additional debug patches I've used for testing. I've given
+this some basic testing on a virtual platform, booting a host and a
+guest with and without constraining the guest's max SVE VL, with:
+
+* kvm_arm.mode=vhe
+* kvm_arm.mode=nvhe
+* kvm_arm.mode=protected (IIUC this will default to hVHE)
+
+Since v1 [1]:
+* Address some additional compiler warnings in patch 7
+* Use ZCR_EL1 alias in VHE code
+* Fold in Tested-by and Reviewed-by tags
+* Fix typos
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250204152100.705610-1-mark.rutland@arm.com/
+
+Mark.
+
+Mark Rutland (8):
+  KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+  KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+  KVM: arm64: Refactor CPTR trap deactivation
+  KVM: arm64: Refactor exit handlers
+  KVM: arm64: Mark some header functions as inline
+  KVM: arm64: Eagerly switch ZCR_EL{1,2}
+
+ arch/arm64/include/asm/kvm_emulate.h    |  42 --------
+ arch/arm64/include/asm/kvm_host.h       |  22 +----
+ arch/arm64/kernel/fpsimd.c              |  25 -----
+ arch/arm64/kvm/arm.c                    |   8 --
+ arch/arm64/kvm/fpsimd.c                 | 100 ++-----------------
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 125 +++++++++++++++++-------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  15 ++-
+ arch/arm64/kvm/hyp/nvhe/switch.c        |  91 ++++++++---------
+ arch/arm64/kvm/hyp/vhe/switch.c         |  33 ++++---
+ 9 files changed, 174 insertions(+), 287 deletions(-)
+
+-- 
+2.30.2
+
 
