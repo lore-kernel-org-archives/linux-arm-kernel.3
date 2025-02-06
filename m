@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6492C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BA0C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xRnnqccViHY7/lghQF8XBSkl+CSYtWIn8P+USXrKzcc=; b=skBnKxy2b+JmVD9g6vwQ4yh4Br
-	25etA4i3x+5/fm/M4nE9Pxu05TlSxsTwxRXOxi22MhwlfIJJdxmUiCjHYySWd2iojjYoYlbAMtiWT
-	jeRkdaO6KSOKQXCUC1MkcaY0EXyh3ZPqVcTfMNhHUEVoLaIAx9VrisKUhKYHqwbGSjLlfgfLOzbs2
-	9zo2//yVotb/oIxtBJAs0/HLf7SWSvbabJl5mZF+SsHxIBLPGokDODZNzY4enUgsmQgxaywekutKG
-	z2fkfIWxB6TU0qxzRlYD/2sIAKwhRHEG02RfRqQ7eVejSYCMgJMLlBNT/HgC0/+yRz+Kpz9l89dtl
-	0fpywejg==;
+	bh=4CfJw+1dBkn575YP/OVBT5/h2reem2evYjbVkWTvC2E=; b=lSCAQo8uBWBbi7NeluzZZqZmtv
+	3CEW5kz3T4vI7JrdrlFgW+ADP7WFsO5Gm9FwY7pTVVQGzvPMMAvQed4fx8yVlT+caQ0H93hA/fYUh
+	VzmgLMtfIih7dKanTysBgXr9rAFLkFg7F1CMpt4e1rFgZFRBjOxox3izXvxbwVF+68/FIQHRGDt4K
+	qLpMrgu4Jae0bVMMbftdmZPaBb4Pm8o2fzy3CpSQD3YCdLrJQeqixHCcPgVHBS249x/RiM/cUrHcn
+	nWM2Hg2e/I6ZfUWt7l+Hz2C/FTrztzpU7Q2kSOdUZ5Ra3Yrupp+QyOshqoQXVAv0Dif1s64+ylX/y
+	6U54hD1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0t1-00000006GCS-2EpD;
-	Thu, 06 Feb 2025 12:21:39 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0oF-00000006FHx-23Eb;
-	Thu, 06 Feb 2025 12:16:44 +0000
-X-UUID: 35f933c0e48411ef82ff63e91e7eb18c-20250206
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=xRnnqccViHY7/lghQF8XBSkl+CSYtWIn8P+USXrKzcc=;
-	b=evF1VNiYvi7/7ZTNV9HxDthbEnLebT1Gh6AXoG7yn1eLDRCQ6WJaiyNKnlmflnQVJMnwCB8gzPbur8GnUFX4HwxgAWZsGdfaKzIxZ0OkipBW/c22FA1LtLPhcrjRVEFRSbuSxCL4AOEEOF/IHU2htRYt1QJWJRZ5cYF0DmqHHFQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:1c6a2498-48bb-4be8-8028-5b79632c2eb6,IP:0,U
-	RL:25,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:003b3fff-c190-4cfe-938d-595d7f10e0dc,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1|
-	19,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 35f933c0e48411ef82ff63e91e7eb18c-20250206
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <crystal.guo@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1258812141; Thu, 06 Feb 2025 05:16:36 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Thu, 6 Feb 2025 20:16:33 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Thu, 6 Feb 2025 20:16:33 +0800
-From: Crystal Guo <crystal.guo@mediatek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Crystal Guo
-	<crystal.guo@mediatek.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [v2,2/2] dt-bindings: memory-controllers: Add MediaTek DRAM controller interface
-Date: Thu, 6 Feb 2025 20:16:09 +0800
-Message-ID: <20250206121629.12186-3-crystal.guo@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250206121629.12186-1-crystal.guo@mediatek.com>
-References: <20250206121629.12186-1-crystal.guo@mediatek.com>
+	id 1tg0zD-00000006H54-20Fy;
+	Thu, 06 Feb 2025 12:28:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg0xq-00000006GrM-0PSE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 12:26:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FFE812FC;
+	Thu,  6 Feb 2025 04:27:00 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FD453F63F;
+	Thu,  6 Feb 2025 04:26:34 -0800 (PST)
+Date: Thu, 6 Feb 2025 12:26:32 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Abel Vesa <abelvesa@kernel.org>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH NOT APPLY v2 4/4] clk: scmi: Support spread spectrum
+Message-ID: <Z6SqeNsAqbZM8nr1@pluto>
+References: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com>
+ <20250205-clk-ssc-v2-4-fa73083caa92@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250205-clk-ssc-v2-4-fa73083caa92@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_041643_542623_7A50A9EC 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250206_042638_220209_CD16AC85 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,202 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A MediaTek DRAM controller interface to provide the current DDR data rate.
+On Wed, Feb 05, 2025 at 05:49:54PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Support Spread Spectrum with adding scmi_clk_set_spread_spectrum
+> 
 
-Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
----
- .../mediatek,common-dramc.yaml                | 129 ------------------
- .../memory-controllers/mediatek,dramc.yaml    |  44 ++++++
- 2 files changed, 44 insertions(+), 129 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
- create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml
+Hi,
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
-deleted file mode 100644
-index c9e608c7f183..000000000000
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
-+++ /dev/null
-@@ -1,129 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
--# Copyright (c) 2024 MediaTek Inc.
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/memory-controllers/mediatek,common-dramc.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: MediaTek Common DRAMC (DRAM Controller)
--
--maintainers:
--  - Crystal Guo <crystal.guo@mediatek.com>
--
--description: |
--  The DRAM controller of MediaTek SoC provides an interface to
--  get the current data rate of DRAM.
--
--properties:
--  compatible:
--    const: mediatek,common-dramc
--
--  reg:
--    minItems: 9
--    items:
--      - description: DRAMC_AO_CHA_BASE
--      - description: DRAMC_AO_CHB_BASE
--      - description: DRAMC_AO_CHC_BASE
--      - description: DRAMC_AO_CHD_BASE
--      - description: DRAMC_NAO_CHA_BASE
--      - description: DRAMC_NAO_CHB_BASE
--      - description: DRAMC_NAO_CHC_BASE
--      - description: DRAMC_NAO_CHD_BASE
--      - description: DDRPHY_AO_CHA_BASE
--      - description: DDRPHY_AO_CHB_BASE
--      - description: DDRPHY_AO_CHC_BASE
--      - description: DDRPHY_AO_CHD_BASE
--      - description: DDRPHY_NAO_CHA_BASE
--      - description: DDRPHY_NAO_CHB_BASE
--      - description: DDRPHY_NAO_CHC_BASE
--      - description: DDRPHY_NAO_CHD_BASE
--      - description: SLEEP_BASE
--
--  support-ch-cnt:
--    maxItems: 1
--
--  fmeter-version:
--    maxItems: 1
--    description:
--      Fmeter version for calculating dram data rate
--
--  crystal-freq:
--    maxItems: 1
--    description:
--      Reference clock rate in MHz
--
--  shu-of:
--    maxItems: 1
--
--  pll-id: true
--  shu-lv: true
--  sdmpcw: true
--  posdiv: true
--  fbksel: true
--  dqsopen: true
--  async-ca: true
--  dq-ser-mode: true
--
--required:
--  - compatible
--  - reg
--  - support-ch-cnt
--  - fmeter-version
--  - crystal-freq
--  - pll-id
--  - shu-lv
--  - shu-of
--  - sdmpcw
--  - posdiv
--  - fbksel
--  - dqsopen
--  - async-ca
--  - dq-ser-mode
--
--additionalProperties: false
--
--examples:
--  - |
--    soc {
--        #address-cells = <2>;
--        #size-cells = <2>;
--
--        dramc: dramc@10230000 {
--            compatible = "mediatek,common-dramc";
--            reg = <0 0x10230000 0 0x2000>, /* DRAMC_AO_CHA_BASE */
--                <0 0x10240000 0 0x2000>, /* DRAMC_AO_CHB_BASE */
--                <0 0x10250000 0 0x2000>, /* DRAMC_AO_CHC_BASE */
--                <0 0x10260000 0 0x2000>, /* DRAMC_AO_CHD_BASE */
--                <0 0x10234000 0 0x1000>, /* DRAMC_NAO_CHA_BASE */
--                <0 0x10244000 0 0x1000>, /* DRAMC_NAO_CHB_BASE */
--                <0 0x10254000 0 0x1000>, /* DRAMC_NAO_CHC_BASE */
--                <0 0x10264000 0 0x1000>, /* DRAMC_NAO_CHD_BASE */
--                <0 0x10238000 0 0x2000>, /* DDRPHY_AO_CHA_BASE */
--                <0 0x10248000 0 0x2000>, /* DDRPHY_AO_CHB_BASE */
--                <0 0x10258000 0 0x2000>, /* DDRPHY_AO_CHC_BASE */
--                <0 0x10268000 0 0x2000>, /* DDRPHY_AO_CHD_BASE */
--                <0 0x10236000 0 0x2000>, /* DDRPHY_NAO_CHA_BASE */
--                <0 0x10246000 0 0x2000>, /* DDRPHY_NAO_CHB_BASE */
--                <0 0x10256000 0 0x2000>, /* DDRPHY_NAO_CHC_BASE */
--                <0 0x10266000 0 0x2000>, /* DDRPHY_NAO_CHD_BASE */
--                <0 0x10006000 0 0x1000>; /* SLEEP_BASE */
--            support-ch-cnt = <4>;
--            fmeter-version = <1>;
--            crystal-freq = <26>;
--            pll-id = <0x0e98 0x02000000 25>;
--            shu-lv = <0x0e98 0x0000c000 14>;
--            shu-of = <0x700>;
--            sdmpcw = <0x0908 0x0007fff8 3>,
--                <0x0928 0x0007fff8 3>;
--            posdiv = <0x090c 0x00003800 11>,
--                <0x092c 0x00003800 11>;
--            fbksel = <0x0910 0x00000040 6>,
--                <0x0910 0x00000040 6>;
--            dqsopen = <0x0d94 0x04000000 26>,
--                <0x0d94 0x04000000 26>;
--            async-ca = <0x0d08 0x00000001 0>,
--                <0x0d08 0x00000001 0>;
--            dq-ser-mode = <0x0dc4 0x00000018 3>,
--                <0x0dc4 0x00000018 3>;
--        };
--    };
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml
-new file mode 100644
-index 000000000000..8bdacfc36cb5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,dramc.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (c) 2025 MediaTek Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/memory-controllers/mediatek,dramc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek DRAM Controller (DRAMC)
-+
-+maintainers:
-+  - Crystal Guo <crystal.guo@mediatek.com>
-+
-+description:
-+  A MediaTek DRAM controller interface to provide the current data rate of DRAM.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - mediatek,mt8196-dramc
-+
-+  reg:
-+    items:
-+      - description: anaphy registers
-+      - description: ddrphy registers
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        memory-controller@10236000 {
-+            compatible = "mediatek,mt8196-dramc";
-+            reg = <0 0x10236000 0 0x2000>,
-+                  <0 0x10238000 0 0x2000>;
-+        };
-+    };
--- 
-2.18.0
+I forwarded ATG with our latest exchange on the possibility of using a
+standard OEM type instead of Vendor one if it is general enough....
 
+...waiting for their feedback on this before reviewing further...BUT
+just one comment down below
+
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/clk/clk-scmi.c        | 47 +++++++++++++++++++++++++++++++++++++++++--
+>  include/linux/scmi_protocol.h |  6 ++++++
+>  2 files changed, 51 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+> index 15510c2ff21c0335f5cb30677343bd4ef59c0738..56b9d0166b0170807c1a83fff391033fecee2159 100644
+> --- a/drivers/clk/clk-scmi.c
+> +++ b/drivers/clk/clk-scmi.c
+> @@ -23,6 +23,7 @@ enum scmi_clk_feats {
+>  	SCMI_CLK_RATE_CTRL_SUPPORTED,
+>  	SCMI_CLK_PARENT_CTRL_SUPPORTED,
+>  	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
+> +	SCMI_CLK_SSC_SUPPORTED,
+>  	SCMI_CLK_FEATS_COUNT
+>  };
+>  
+> @@ -98,6 +99,36 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
+>  	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
+>  }
+>  
+> +static int scmi_clk_set_spread_spectrum(struct clk_hw *hw,
+> +					struct clk_spread_spectrum *clk_ss)
+> +{
+> +	struct scmi_clk *clk = to_scmi_clk(hw);
+> +	int ret;
+> +	u32 val;
+> +
+> +	/*
+> +	 * extConfigValue[7:0]   - spread percentage (%)
+> +	 * extConfigValue[23:8]  - Modulation Frequency (KHz)
+> +	 * extConfigValue[24]    - Enable/Disable
+> +	 * extConfigValue[31:25] - Modulation method
+> +	 */
+> +	val = FIELD_PREP(SCMI_CLOCK_EXT_SS_PERCENTAGE_MASK, clk_ss->spreaddepth);
+> +	val |= FIELD_PREP(SCMI_CLOCK_EXT_SS_MOD_FREQ_MASK, clk_ss->modfreq);
+> +	val |= FIELD_PREP(SCMI_CLOCK_EXT_SS_METHOD_MASK, clk_ss->method);
+> +	if (clk_ss->enable)
+> +		val |= SCMI_CLOCK_EXT_SS_ENABLE_MASK;
+> +	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
+> +						 SCMI_CLOCK_CFG_SSC,
+> +						 val, false);
+> +	if (ret)
+> +		dev_warn(clk->dev,
+> +			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
+> +			 clk_ss->modfreq, clk_ss->spreaddepth, clk_ss->method,
+> +			 clk->id);
+> +
+> +	return ret;
+> +}
+> +
+>  static u8 scmi_clk_get_parent(struct clk_hw *hw)
+>  {
+>  	struct scmi_clk *clk = to_scmi_clk(hw);
+> @@ -316,9 +347,17 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
+>  		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
+>  	}
+>  
+> +	if (feats_key & BIT(SCMI_CLK_SSC_SUPPORTED))
+> +		ops->set_spread_spectrum = scmi_clk_set_spread_spectrum;
+> +
+>  	return ops;
+>  }
+>  
+> +static const char * const scmi_clk_imxlist[] = {
+> +	"fsl,imx95",
+> +	NULL
+> +};
+> +
+>  /**
+>   * scmi_clk_ops_select() - Select a proper set of clock operations
+>   * @sclk: A reference to an SCMI clock descriptor
+> @@ -370,8 +409,12 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
+>  	if (!ci->parent_ctrl_forbidden)
+>  		feats_key |= BIT(SCMI_CLK_PARENT_CTRL_SUPPORTED);
+>  
+> -	if (ci->extended_config)
+> -		feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
+> +	if (ci->extended_config) {
+> +		if (of_machine_compatible_match(scmi_clk_imxlist))
+
+... please NOT this also here if we use a standard OEM type :D..if it
+won't be a vendor thing anymore, you should query with CONFIG_GET, OR we
+should think also about adding some way in the spec to query the support
+for extended configs like we do for other clock features...
+
+Thanks,
+Cristian
 
