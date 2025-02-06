@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FA8C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8F8C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgmvOyDRE/uHdGDx6ezBHiwZ8Zmst4a3Z/7igl9yl54=; b=Z4PAlm1bUb7l/Bm08tHhUNmeMD
-	yY9tZstz+ey3HUlCi8VubWHy9BuXW+hM7+nMm4Zah+n+SYL5evA9XJ74noY06SYylEvKM7Wycgqbd
-	PmWbG998uCAPI76kl/KV8N1KE3LlX5vBzD805WL68QdqRQj8KHdvS0L/GxUEIYkTVa+I2vxoEWgWK
-	WHw0/WSlojPldXC0OtBxF9yCqLUUCeziS4VrvysNUdhZBkE5dO8sRYeF1xjIMQCSZ+wdMU9NCWodm
-	MqWrWJH7fcfr32ypdf6+CkD1w9qvFQ63kaS+h021wFVXpuWo4wxgKrBntJJI1d6t0fmQqJk+ymt96
-	1JnJVilw==;
+	bh=FML/jIvPcAoxlA62EsuMUSBptbx5cKUmte0tA2musTk=; b=UAjN0n06ya2kzLcUY+4j1duIhF
+	ckTMhKBH4Ypxl8hS29/fSVhVdXiuaQ+HY4xyjwceFNFJN5iRGiT6MpG2oxg2+r3futvOxsCiXXJ/1
+	aKMw3d56n5mWxR0ihQFgvAD68tn/olAYHK1jQu70Of6fvZu2KjRxTblPVRZenRV6l/CCHvITapgvL
+	k5aGwhJP9bg3jHlgYwo9R0FkPzaDlNpDPkBdtVK4KRNwf9niJOU8JBva4VeQQYyPM0thVCg1nIDus
+	zMEJLjVVnRgNZ9jIQLcFk1V3lMQ0Y1lYV7QB/Sm9rZiXCGTZN3zZ+E5SOq8qWUnBvZrbjIkDwynIk
+	zBzupOWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzcE-000000062q9-49gA;
-	Thu, 06 Feb 2025 11:00:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzWv-000000061Wl-0y2F
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 10:54:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hgmvOyDRE/uHdGDx6ezBHiwZ8Zmst4a3Z/7igl9yl54=; b=hnEgQD6qVwYETPZvAJMGhtO0po
-	X4Ug1AlJRm5s0xnGuGsL1EIb/0v/EzpePqbsPbC2HEqj7gtIMQ3Od9/KjsrCmYZ19XPy3iPqNaSud
-	m9sJC+3zdVTVgIpfFqMz20dZJ7OLTMwAmq7HCkWddlR6cjo78zuzDEbXSqpqrPpud7HEq/GWpQVHO
-	AkikFyy8clupBaz7EHcmXJTzbCeJgFaoVJO8os3y3LcmP06aQioZUr5z/Rhql8iKiY119MmXALkzZ
-	02TXV5FaRBXgd0vUth2XNqdhzt9v5XH+EEal9sChi/I3+MORZgvpzr7Orocx7d+ewUNljIe79/VbE
-	aNs6j8yA==;
+	id 1tfzdZ-000000063CO-3htq;
+	Thu, 06 Feb 2025 11:01:37 +0000
 Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzWr-0000000Guq9-3kmL
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfzWw-000000061X8-31xA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:54:44 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-43624b2d453so7933755e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:40 -0800 (PST)
+	Thu, 06 Feb 2025 10:54:47 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-4361815b96cso4768485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:54:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839280; x=1739444080; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738839285; x=1739444085; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hgmvOyDRE/uHdGDx6ezBHiwZ8Zmst4a3Z/7igl9yl54=;
-        b=GAtMOdcycMajTV+/QRlzZlWplNgQZbgs5829puTTNUukxdJt6pw/ruopDqxpZpqPBI
-         GQPpn01iNK/uZFGyIQlDo2q5Wcybf/SaYQXd65NxO+ZUxyPGT38y+R/sfkvInByoU3FJ
-         JTrZBCzLGLa2X3Kf9CHmn57QLD+w564LLMGUEA5dpbKbaI6nA1x1Hj8eWEGASZEplKax
-         H86G0lMsM/0Q8/qZHwxiz5FL9ByO/1gHAUuwtTe/goNERpJ7QnU449usPX233LUUN1MK
-         8FhDOUXLAKItYOgT8mRVUXLXSt9Pky7opprKcqb7Epw2XCwephbIbH89FltQADSXNvzX
-         Qu9w==
+        bh=FML/jIvPcAoxlA62EsuMUSBptbx5cKUmte0tA2musTk=;
+        b=IfXOL+scrpPlc17T5rkNuolnRDHusHmgg1DHuIQHiODxRxM70xDjxPbzVSnirIKxTv
+         fnX3BpAGYnTftzoQtg5Eis1UOdoTtM4FjXsT5rzK912t8VT/H9do4j103hcBDVBN/nH2
+         5pqkOLtfceJbNnT9thzwjR5d9vYtP5ld6OLhXSotIkenaKAUj0nfPP45II8F+tgILgIX
+         U9COpBfn+bcdX7HftCtvq2bguI5XJ1amioqvwsbOpljz+1tot7LkSX/CPFcLSWVfvlQr
+         Uwf5momH6fqbkUb/Uo6WzJ2sIJJGF861+Y2VdQnzKoqz9AVPc94W3CuF44bx+OLX/i/a
+         nnbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839280; x=1739444080;
+        d=1e100.net; s=20230601; t=1738839285; x=1739444085;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hgmvOyDRE/uHdGDx6ezBHiwZ8Zmst4a3Z/7igl9yl54=;
-        b=QbkTsyK0yYPK6zyDCVNkaXN1kLF38yuola5l+G8ilnh/UZD8WRsLJepO/SqR5XVAJV
-         TfD5J56nsBi9EZV7OzaLLd/omiuYXoYNQldIyjShQqvh69mknQVFYzO7TrGKSJSdbkDO
-         8owgFjxqJkzlrqlwUzEs48Cu7MYi6ucSuZUZYtPjD6MYT7ZFLvMvIivxfMV68Fd81NID
-         BmkD6DNV6adERKaWegzAHE59xH0QJvMKu475phSkAVUszLryyM/2QiDJzlW+BfmEVOzQ
-         iGXcDo8CrGAVwVoZMXnQnf+jzVoRme1YgfvO7P1+XKsHZD5AIy+XhtJHEUNa9YVjwTU8
-         bBkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKxumKXIxCOSFvZ6tvvfaoU+MUfMO1lu7b/nLlKBT7UJ8o8cGsiJi+AonA0gQ6HRqTB0j2UUzZ6YCh6LYSwNFM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzF/g6RK5tAP3CiDp5n/WIT76mZXglcBgvbfmmbFuktXUdZVZhf
-	+jkZVZigTKMshypa6wfXpLqAFSFv4G7Fp+GKHwoI4pyjHBQ+Fj+j
-X-Gm-Gg: ASbGncucd7WhnbHjiplG0H0q7fTHe8vSmOhKQXlgXExBDcdWJQaPwe5zOigAHTkztkP
-	1Jd2XAoNTTG6gAEUweGPlMZ2QDpGiFvndMpKh/DzS6/y7rzk6zRCn0dZN2SZB6B0udLSAkSP5+F
-	7rwLOOE0SHzf+FsU30LvfFc4MjYLryBbFvUU28pS3z29SvtNGCMe23OJQX6Ixnnw31FaLQLtVAj
-	mvkD4NJjackbAKy96pVZw7VBD2cRFoISA7YOLIrHVQAaigCalR+K2IItuS5iTllVUqSBUY8/pDM
-	ozHgLw==
-X-Google-Smtp-Source: AGHT+IF4f8Xm3MmGWzddNVFfOdt5/pxOK6cPOqeFWXHyrZxzL6gB3MirVU0RpJy3SYCQ5MPv9d7ldg==
-X-Received: by 2002:a05:600c:3593:b0:436:18d0:aa6e with SMTP id 5b1f17b1804b1-4390d42f849mr64907365e9.5.1738839279263;
-        Thu, 06 Feb 2025 02:54:39 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:20::])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd5c87csm1439525f8f.52.2025.02.06.02.54.38
+        bh=FML/jIvPcAoxlA62EsuMUSBptbx5cKUmte0tA2musTk=;
+        b=nWrQjCPsM+okIQuRH7yLueMwzw1EUj2TTXIv05Iu9EeC7cYmpW7BvtT+Yx6l6CDLST
+         SqqL/jPXm4Zv8fIxs+HEqBLp7dg14wFCn8roC1Vt1OTy5wj8EeF5UwZn7B2E40vZ4aXT
+         eiyejM4jOytjTuL0wzc85cl9AQb+ig2v1WdWkZs2mOW7rUPeJ5c7r5B3KOQc5+fvsVsC
+         sm8fbB75FmylNByIxhFYMB5Nv6cGK0YhVsua0884uP0gVedY8A0vMpN1NgL8tTwqcxo0
+         TiTsyyF9PGDV6syg1jWTkK2IDhlBjquMudP4W3JbGgIJFVv6I3jm1iKjyh+UW4WarAac
+         SqFA==
+X-Forwarded-Encrypted: i=1; AJvYcCUex0eSyVDKJwNGXZ9tcYh+NTKlRcJgNxZK4L9syKC4q9OdV3qSL6ECP0GlUl+tzHm3dVZKHPU7xtp18I8uHmdP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOZd3E/pokFLlPWji//uBBDsQF2lvBGauM4E3zkPx8KhuI+p3v
+	wovQkJ+6vL8JpZVML1QvDr27ey0KOi1OTLVQ1qXYEsY/aLEnXEPa
+X-Gm-Gg: ASbGncvJtRjIxOORm/G73kgtZLjVvEIKs+ZxQsFvmffkSnrVKoYdtQTrTG6pPHHEj3P
+	SI8mUyaaeEIX8LDF94Hq4lrUT0K8Kz0xAH5wvBLLE3Pc8KdmCxRL1pZefXLNth3o7gF8EFUsbYK
+	VmYIDtZaQfMmgxEASeCQ9RL6hBb3JoWTM0XnDzkvlbjEx7o2EyStMhxNBIfjAKRdawOktWXnRfK
+	14tRqY2D2If8l5vfbykcnMXsujBMGwppijElR8uudAxkMNl+BUHz7H9kMvXQeToK8RoRjH9Kpk1
+	zIQeWQ==
+X-Google-Smtp-Source: AGHT+IEOmTjECXHJOHu9cs/SJ+6ticeS7+QaeLa0eVa8SFVT2qBWkqUoeVUR/OVwzkrcdhv+Xm5HzQ==
+X-Received: by 2002:a05:600c:1c90:b0:434:f270:a513 with SMTP id 5b1f17b1804b1-4390d56e3admr51732625e9.29.1738839284871;
+        Thu, 06 Feb 2025 02:54:44 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:17::])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43907f6741esm44971815e9.3.2025.02.06.02.54.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 02:54:38 -0800 (PST)
+        Thu, 06 Feb 2025 02:54:44 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -102,19 +87,19 @@ Cc: Barret Rhoden <brho@google.com>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v2 02/26] locking: Move common qspinlock helpers to a private header
-Date: Thu,  6 Feb 2025 02:54:10 -0800
-Message-ID: <20250206105435.2159977-3-memxor@gmail.com>
+Subject: [PATCH bpf-next v2 06/26] rqspinlock: Drop PV and virtualization support
+Date: Thu,  6 Feb 2025 02:54:14 -0800
+Message-ID: <20250206105435.2159977-7-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13562; h=from:subject; bh=eKJ3qxGBtRJg8l1rvSHjaQtIHqaeLQcTbgGFSWnocak=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRkkVfZqT1tCitfFNFTby5Hz/Q0Ls5KtoFEDTCL cZHH7UOJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZAAKCRBM4MiGSL8RylRQD/ 9ZckUJptWve6Ivsaj0tCRlXmeXvXakYFfReqoU4TTSiK5e60c9zMXr1PSHiloHlftlQqfuKi7ug6yx A0bUp3hubkSGlTfDSdMPwLh1AN2D0QpPIKuW9AIo5mw5fag+zRMjgwdjsh3o2biZZ4JsC36jA+tvRV OhywUPmmoZL/U7GKGzWmptqXq4iD7oAmPhyHSIyZ80efwrSDnwF8UIzoX8wR8vqgwUPSp3g3TAgdqS Wu+LKgl9hNtbykaP4Jj433O5chD603DDAL+C0COzSBRTNaFTRqqXx3o/3rvGoEDspvDUhm+uXtQJyl AHG62uLsNo3EyObbRiK6pLo/hjsdzLmLnWdfJb2NV9sJPp2VA5FxIiDCkL+P/08d6XoTHUePanJNRI p2OhTqrJFD4fN/JDiNEwhFAcdlvwcrSZV/qDLoUrrD0UYVuywjxrranVRZz6bQyIV9JZv/P8i0TkzE w1DQVyyoWScGq6wi5NLOun+C1IdPnB/k7AISjvxU+vTO7bhPWcKARMgbyFTCw+uBqNq614OwvBHiR1 SktvlKEmTFENUpURQ5Kkx8YOM8Bu1bLOunw6V1hyLl9WU5VH5WgZ2AhT3MLH8H1SixfIzevgMLkfIN BLB2b1rHlEnEgsNDOx3qTtgKlgKaHmaveMw+6M64H8QDFPh3iV10yEj7kN0A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6325; h=from:subject; bh=r7k8qGdKN/3/qwxHoOfh+ZQmucFzyerAvWUxzRBa3Nw=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnpJRkILe/Rfrs9nCkS/jAFdrxKRcYv7G3/iAaCR9O 5XUAiaGJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ6SUZAAKCRBM4MiGSL8Ryt6cD/ 9T4mqw3kZqs2TP+tHKQuzgqUq8fvSH8yl7t36bQGme497vOAOYDUHMeNE4NNyj7xPtcdwP+75JT6jQ wb7DTCpWkXZuXyGsVYOqkRCTrIpl86UhY4KJl7kpw0Fu/l4dVh2eGgHzXhYTOAo3UfEW3sblt0q+J+ HtBSelQEJJ2OiEIXdozIXjKe1DouxA6jfr9ixQF5KRP3O4K0H2jeTFQw6ruH2RXH0V+42ZwyL/q4Sb j0fby9n8kP9ZDxMNUNWPVhnFWuMwb3b9rwsQZME31GLbIEi/IEz54iXXAjlwVeS8CtY3ZuiDqfn4LC 8vkJ/5biap6lg9ReRc9H8WCmVZuC1O18jeYfRVCk9BRgjFDmynobDC5PWqUEaxs/4weWUTipElhtHA 7rTqLuMsOilmIdBqGSY9cpHXiMj/9tfMraqZKztusV0dkACiFyAXpSgpqErFXM4z8J7b6tx0wu+gza wtTNXet8pwRgRUHVnbyGX81YgMCL5AQXwiOot10sXBM00IBvoKOrdjO2422YWhUOHy6sF6R5id4V9D gM4HflpQhz5PAIg3z56BGX8bWfOlfbWkA6/HEA5p+yyTD21iW/w4wyZuPUEWaHIhxlVrp81m7Ajv+d 8KZJHw5wvIc5BbaAV1NGrm4shlGp+OwQG7OPQO17A7Vq6h8oz8Q8NJUJBu4w==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_105442_061345_F48095B4 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20250206_025446_767540_4DCCCA3E 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,460 +114,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move qspinlock helper functions that encode, decode tail word, set and
-clear the pending and locked bits, and other miscellaneous definitions
-and macros to a private header. To this end, create a qspinlock.h header
-file in kernel/locking. Subsequent commits will introduce a modified
-qspinlock slow path function, thus moving shared code to a private
-header will help minimize unnecessary code duplication.
+Changes to rqspinlock in subsequent commits will be algorithmic
+modifications, which won't remain in agreement with the implementations
+of paravirt spin lock and virt_spin_lock support. These future changes
+include measures for terminating waiting loops in slow path after a
+certain point. While using a fair lock like qspinlock directly inside
+virtual machines leads to suboptimal performance under certain
+conditions, we cannot use the existing virtualization support before we
+make it resilient as well.  Therefore, drop it for now.
 
 Reviewed-by: Barret Rhoden <brho@google.com>
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- kernel/locking/qspinlock.c | 193 +----------------------------------
- kernel/locking/qspinlock.h | 200 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 205 insertions(+), 188 deletions(-)
- create mode 100644 kernel/locking/qspinlock.h
+ kernel/locking/rqspinlock.c | 89 -------------------------------------
+ 1 file changed, 89 deletions(-)
 
-diff --git a/kernel/locking/qspinlock.c b/kernel/locking/qspinlock.c
-index 7d96bed718e4..af8d122bb649 100644
---- a/kernel/locking/qspinlock.c
-+++ b/kernel/locking/qspinlock.c
-@@ -25,8 +25,9 @@
- #include <trace/events/lock.h>
- 
- /*
-- * Include queued spinlock statistics code
-+ * Include queued spinlock definitions and statistics code
-  */
-+#include "qspinlock.h"
- #include "qspinlock_stat.h"
- 
- /*
-@@ -67,36 +68,6 @@
+diff --git a/kernel/locking/rqspinlock.c b/kernel/locking/rqspinlock.c
+index 18eb9ef3e908..52db60cd9691 100644
+--- a/kernel/locking/rqspinlock.c
++++ b/kernel/locking/rqspinlock.c
+@@ -11,8 +11,6 @@
+  *          Peter Zijlstra <peterz@infradead.org>
   */
  
- #include "mcs_spinlock.h"
--#define MAX_NODES	4
+-#ifndef _GEN_PV_LOCK_SLOWPATH
 -
--/*
-- * On 64-bit architectures, the mcs_spinlock structure will be 16 bytes in
-- * size and four of them will fit nicely in one 64-byte cacheline. For
-- * pvqspinlock, however, we need more space for extra data. To accommodate
-- * that, we insert two more long words to pad it up to 32 bytes. IOW, only
-- * two of them can fit in a cacheline in this case. That is OK as it is rare
-- * to have more than 2 levels of slowpath nesting in actual use. We don't
-- * want to penalize pvqspinlocks to optimize for a rare case in native
-- * qspinlocks.
-- */
--struct qnode {
--	struct mcs_spinlock mcs;
--#ifdef CONFIG_PARAVIRT_SPINLOCKS
--	long reserved[2];
--#endif
--};
--
--/*
-- * The pending bit spinning loop count.
-- * This heuristic is used to limit the number of lockword accesses
-- * made by atomic_cond_read_relaxed when waiting for the lock to
-- * transition out of the "== _Q_PENDING_VAL" state. We don't spin
-- * indefinitely because there's no guarantee that we'll make forward
-- * progress.
-- */
--#ifndef _Q_PENDING_LOOPS
--#define _Q_PENDING_LOOPS	1
--#endif
- 
- /*
-  * Per-CPU queue node structures; we can never have more than 4 nested
-@@ -106,161 +77,7 @@ struct qnode {
+ #include <linux/smp.h>
+ #include <linux/bug.h>
+ #include <linux/cpumask.h>
+@@ -75,38 +73,9 @@
+  * contexts: task, softirq, hardirq, nmi.
   *
-  * PV doubles the storage and uses the second cacheline for PV state.
+  * Exactly fits one 64-byte cacheline on a 64-bit architecture.
+- *
+- * PV doubles the storage and uses the second cacheline for PV state.
   */
--static DEFINE_PER_CPU_ALIGNED(struct qnode, qnodes[MAX_NODES]);
--
+ static DEFINE_PER_CPU_ALIGNED(struct qnode, qnodes[_Q_MAX_NODES]);
+ 
 -/*
-- * We must be able to distinguish between no-tail and the tail at 0:0,
-- * therefore increment the cpu number by one.
+- * Generate the native code for resilient_queued_spin_unlock_slowpath(); provide NOPs
+- * for all the PV callbacks.
 - */
 -
--static inline __pure u32 encode_tail(int cpu, int idx)
--{
--	u32 tail;
+-static __always_inline void __pv_init_node(struct mcs_spinlock *node) { }
+-static __always_inline void __pv_wait_node(struct mcs_spinlock *node,
+-					   struct mcs_spinlock *prev) { }
+-static __always_inline void __pv_kick_node(struct qspinlock *lock,
+-					   struct mcs_spinlock *node) { }
+-static __always_inline u32  __pv_wait_head_or_lock(struct qspinlock *lock,
+-						   struct mcs_spinlock *node)
+-						   { return 0; }
 -
--	tail  = (cpu + 1) << _Q_TAIL_CPU_OFFSET;
--	tail |= idx << _Q_TAIL_IDX_OFFSET; /* assume < 4 */
+-#define pv_enabled()		false
 -
--	return tail;
--}
+-#define pv_init_node		__pv_init_node
+-#define pv_wait_node		__pv_wait_node
+-#define pv_kick_node		__pv_kick_node
+-#define pv_wait_head_or_lock	__pv_wait_head_or_lock
 -
--static inline __pure struct mcs_spinlock *decode_tail(u32 tail)
--{
--	int cpu = (tail >> _Q_TAIL_CPU_OFFSET) - 1;
--	int idx = (tail &  _Q_TAIL_IDX_MASK) >> _Q_TAIL_IDX_OFFSET;
--
--	return per_cpu_ptr(&qnodes[idx].mcs, cpu);
--}
--
--static inline __pure
--struct mcs_spinlock *grab_mcs_node(struct mcs_spinlock *base, int idx)
--{
--	return &((struct qnode *)base + idx)->mcs;
--}
--
--#define _Q_LOCKED_PENDING_MASK (_Q_LOCKED_MASK | _Q_PENDING_MASK)
--
--#if _Q_PENDING_BITS == 8
--/**
-- * clear_pending - clear the pending bit.
-- * @lock: Pointer to queued spinlock structure
-- *
-- * *,1,* -> *,0,*
-- */
--static __always_inline void clear_pending(struct qspinlock *lock)
--{
--	WRITE_ONCE(lock->pending, 0);
--}
--
--/**
-- * clear_pending_set_locked - take ownership and clear the pending bit.
-- * @lock: Pointer to queued spinlock structure
-- *
-- * *,1,0 -> *,0,1
-- *
-- * Lock stealing is not allowed if this function is used.
-- */
--static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
--{
--	WRITE_ONCE(lock->locked_pending, _Q_LOCKED_VAL);
--}
--
--/*
-- * xchg_tail - Put in the new queue tail code word & retrieve previous one
-- * @lock : Pointer to queued spinlock structure
-- * @tail : The new queue tail code word
-- * Return: The previous queue tail code word
-- *
-- * xchg(lock, tail), which heads an address dependency
-- *
-- * p,*,* -> n,*,* ; prev = xchg(lock, node)
-- */
--static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
--{
--	/*
--	 * We can use relaxed semantics since the caller ensures that the
--	 * MCS node is properly initialized before updating the tail.
--	 */
--	return (u32)xchg_relaxed(&lock->tail,
--				 tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
--}
--
--#else /* _Q_PENDING_BITS == 8 */
--
--/**
-- * clear_pending - clear the pending bit.
-- * @lock: Pointer to queued spinlock structure
-- *
-- * *,1,* -> *,0,*
-- */
--static __always_inline void clear_pending(struct qspinlock *lock)
--{
--	atomic_andnot(_Q_PENDING_VAL, &lock->val);
--}
--
--/**
-- * clear_pending_set_locked - take ownership and clear the pending bit.
-- * @lock: Pointer to queued spinlock structure
-- *
-- * *,1,0 -> *,0,1
-- */
--static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
--{
--	atomic_add(-_Q_PENDING_VAL + _Q_LOCKED_VAL, &lock->val);
--}
--
--/**
-- * xchg_tail - Put in the new queue tail code word & retrieve previous one
-- * @lock : Pointer to queued spinlock structure
-- * @tail : The new queue tail code word
-- * Return: The previous queue tail code word
-- *
-- * xchg(lock, tail)
-- *
-- * p,*,* -> n,*,* ; prev = xchg(lock, node)
-- */
--static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
--{
--	u32 old, new;
--
--	old = atomic_read(&lock->val);
--	do {
--		new = (old & _Q_LOCKED_PENDING_MASK) | tail;
--		/*
--		 * We can use relaxed semantics since the caller ensures that
--		 * the MCS node is properly initialized before updating the
--		 * tail.
--		 */
--	} while (!atomic_try_cmpxchg_relaxed(&lock->val, &old, new));
--
--	return old;
--}
--#endif /* _Q_PENDING_BITS == 8 */
--
--/**
-- * queued_fetch_set_pending_acquire - fetch the whole lock value and set pending
-- * @lock : Pointer to queued spinlock structure
-- * Return: The previous lock value
-- *
-- * *,*,* -> *,1,*
-- */
--#ifndef queued_fetch_set_pending_acquire
--static __always_inline u32 queued_fetch_set_pending_acquire(struct qspinlock *lock)
--{
--	return atomic_fetch_or_acquire(_Q_PENDING_VAL, &lock->val);
--}
+-#ifdef CONFIG_PARAVIRT_SPINLOCKS
+-#define resilient_queued_spin_lock_slowpath	native_resilient_queued_spin_lock_slowpath
 -#endif
 -
--/**
-- * set_locked - Set the lock bit and own the lock
-- * @lock: Pointer to queued spinlock structure
-- *
-- * *,*,0 -> *,0,1
-- */
--static __always_inline void set_locked(struct qspinlock *lock)
--{
--	WRITE_ONCE(lock->locked, _Q_LOCKED_VAL);
--}
+-#endif /* _GEN_PV_LOCK_SLOWPATH */
 -
-+static DEFINE_PER_CPU_ALIGNED(struct qnode, qnodes[_Q_MAX_NODES]);
+ /**
+  * resilient_queued_spin_lock_slowpath - acquire the queued spinlock
+  * @lock: Pointer to queued spinlock structure
+@@ -136,12 +105,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
  
- /*
-  * Generate the native code for queued_spin_unlock_slowpath(); provide NOPs for
-@@ -410,7 +227,7 @@ void __lockfunc queued_spin_lock_slowpath(struct qspinlock *lock, u32 val)
- 	 * any MCS node. This is not the most elegant solution, but is
- 	 * simple enough.
- 	 */
--	if (unlikely(idx >= MAX_NODES)) {
-+	if (unlikely(idx >= _Q_MAX_NODES)) {
- 		lockevent_inc(lock_no_node);
- 		while (!queued_spin_trylock(lock))
- 			cpu_relax();
-@@ -465,7 +282,7 @@ void __lockfunc queued_spin_lock_slowpath(struct qspinlock *lock, u32 val)
- 	 * head of the waitqueue.
- 	 */
- 	if (old & _Q_TAIL_MASK) {
--		prev = decode_tail(old);
-+		prev = decode_tail(old, qnodes);
+ 	BUILD_BUG_ON(CONFIG_NR_CPUS >= (1U << _Q_TAIL_CPU_BITS));
  
+-	if (pv_enabled())
+-		goto pv_queue;
+-
+-	if (virt_spin_lock(lock))
+-		return;
+-
+ 	/*
+ 	 * Wait for in-progress pending->locked hand-overs with a bounded
+ 	 * number of spins so that we guarantee forward progress.
+@@ -212,7 +175,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 */
+ queue:
+ 	lockevent_inc(lock_slowpath);
+-pv_queue:
+ 	node = this_cpu_ptr(&qnodes[0].mcs);
+ 	idx = node->count++;
+ 	tail = encode_tail(smp_processor_id(), idx);
+@@ -251,7 +213,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 
+ 	node->locked = 0;
+ 	node->next = NULL;
+-	pv_init_node(node);
+ 
+ 	/*
+ 	 * We touched a (possibly) cold cacheline in the per-cpu queue node;
+@@ -288,7 +249,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
  		/* Link @node into the waitqueue. */
  		WRITE_ONCE(prev->next, node);
-diff --git a/kernel/locking/qspinlock.h b/kernel/locking/qspinlock.h
-new file mode 100644
-index 000000000000..d4ceb9490365
---- /dev/null
-+++ b/kernel/locking/qspinlock.h
-@@ -0,0 +1,200 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Queued spinlock defines
-+ *
-+ * This file contains macro definitions and functions shared between different
-+ * qspinlock slow path implementations.
-+ */
-+#ifndef __LINUX_QSPINLOCK_H
-+#define __LINUX_QSPINLOCK_H
-+
-+#include <asm-generic/percpu.h>
-+#include <linux/percpu-defs.h>
-+#include <asm-generic/qspinlock.h>
-+#include <asm-generic/mcs_spinlock.h>
-+
-+#define _Q_MAX_NODES	4
-+
-+/*
-+ * The pending bit spinning loop count.
-+ * This heuristic is used to limit the number of lockword accesses
-+ * made by atomic_cond_read_relaxed when waiting for the lock to
-+ * transition out of the "== _Q_PENDING_VAL" state. We don't spin
-+ * indefinitely because there's no guarantee that we'll make forward
-+ * progress.
-+ */
-+#ifndef _Q_PENDING_LOOPS
-+#define _Q_PENDING_LOOPS	1
-+#endif
-+
-+/*
-+ * On 64-bit architectures, the mcs_spinlock structure will be 16 bytes in
-+ * size and four of them will fit nicely in one 64-byte cacheline. For
-+ * pvqspinlock, however, we need more space for extra data. To accommodate
-+ * that, we insert two more long words to pad it up to 32 bytes. IOW, only
-+ * two of them can fit in a cacheline in this case. That is OK as it is rare
-+ * to have more than 2 levels of slowpath nesting in actual use. We don't
-+ * want to penalize pvqspinlocks to optimize for a rare case in native
-+ * qspinlocks.
-+ */
-+struct qnode {
-+	struct mcs_spinlock mcs;
-+#ifdef CONFIG_PARAVIRT_SPINLOCKS
-+	long reserved[2];
-+#endif
-+};
-+
-+/*
-+ * We must be able to distinguish between no-tail and the tail at 0:0,
-+ * therefore increment the cpu number by one.
-+ */
-+
-+static inline __pure u32 encode_tail(int cpu, int idx)
-+{
-+	u32 tail;
-+
-+	tail  = (cpu + 1) << _Q_TAIL_CPU_OFFSET;
-+	tail |= idx << _Q_TAIL_IDX_OFFSET; /* assume < 4 */
-+
-+	return tail;
-+}
-+
-+static inline __pure struct mcs_spinlock *decode_tail(u32 tail, struct qnode *qnodes)
-+{
-+	int cpu = (tail >> _Q_TAIL_CPU_OFFSET) - 1;
-+	int idx = (tail &  _Q_TAIL_IDX_MASK) >> _Q_TAIL_IDX_OFFSET;
-+
-+	return per_cpu_ptr(&qnodes[idx].mcs, cpu);
-+}
-+
-+static inline __pure
-+struct mcs_spinlock *grab_mcs_node(struct mcs_spinlock *base, int idx)
-+{
-+	return &((struct qnode *)base + idx)->mcs;
-+}
-+
-+#define _Q_LOCKED_PENDING_MASK (_Q_LOCKED_MASK | _Q_PENDING_MASK)
-+
-+#if _Q_PENDING_BITS == 8
-+/**
-+ * clear_pending - clear the pending bit.
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * *,1,* -> *,0,*
-+ */
-+static __always_inline void clear_pending(struct qspinlock *lock)
-+{
-+	WRITE_ONCE(lock->pending, 0);
-+}
-+
-+/**
-+ * clear_pending_set_locked - take ownership and clear the pending bit.
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * *,1,0 -> *,0,1
-+ *
-+ * Lock stealing is not allowed if this function is used.
-+ */
-+static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
-+{
-+	WRITE_ONCE(lock->locked_pending, _Q_LOCKED_VAL);
-+}
-+
-+/*
-+ * xchg_tail - Put in the new queue tail code word & retrieve previous one
-+ * @lock : Pointer to queued spinlock structure
-+ * @tail : The new queue tail code word
-+ * Return: The previous queue tail code word
-+ *
-+ * xchg(lock, tail), which heads an address dependency
-+ *
-+ * p,*,* -> n,*,* ; prev = xchg(lock, node)
-+ */
-+static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-+{
-+	/*
-+	 * We can use relaxed semantics since the caller ensures that the
-+	 * MCS node is properly initialized before updating the tail.
-+	 */
-+	return (u32)xchg_relaxed(&lock->tail,
-+				 tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-+}
-+
-+#else /* _Q_PENDING_BITS == 8 */
-+
-+/**
-+ * clear_pending - clear the pending bit.
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * *,1,* -> *,0,*
-+ */
-+static __always_inline void clear_pending(struct qspinlock *lock)
-+{
-+	atomic_andnot(_Q_PENDING_VAL, &lock->val);
-+}
-+
-+/**
-+ * clear_pending_set_locked - take ownership and clear the pending bit.
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * *,1,0 -> *,0,1
-+ */
-+static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
-+{
-+	atomic_add(-_Q_PENDING_VAL + _Q_LOCKED_VAL, &lock->val);
-+}
-+
-+/**
-+ * xchg_tail - Put in the new queue tail code word & retrieve previous one
-+ * @lock : Pointer to queued spinlock structure
-+ * @tail : The new queue tail code word
-+ * Return: The previous queue tail code word
-+ *
-+ * xchg(lock, tail)
-+ *
-+ * p,*,* -> n,*,* ; prev = xchg(lock, node)
-+ */
-+static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-+{
-+	u32 old, new;
-+
-+	old = atomic_read(&lock->val);
-+	do {
-+		new = (old & _Q_LOCKED_PENDING_MASK) | tail;
-+		/*
-+		 * We can use relaxed semantics since the caller ensures that
-+		 * the MCS node is properly initialized before updating the
-+		 * tail.
-+		 */
-+	} while (!atomic_try_cmpxchg_relaxed(&lock->val, &old, new));
-+
-+	return old;
-+}
-+#endif /* _Q_PENDING_BITS == 8 */
-+
-+/**
-+ * queued_fetch_set_pending_acquire - fetch the whole lock value and set pending
-+ * @lock : Pointer to queued spinlock structure
-+ * Return: The previous lock value
-+ *
-+ * *,*,* -> *,1,*
-+ */
-+#ifndef queued_fetch_set_pending_acquire
-+static __always_inline u32 queued_fetch_set_pending_acquire(struct qspinlock *lock)
-+{
-+	return atomic_fetch_or_acquire(_Q_PENDING_VAL, &lock->val);
-+}
-+#endif
-+
-+/**
-+ * set_locked - Set the lock bit and own the lock
-+ * @lock: Pointer to queued spinlock structure
-+ *
-+ * *,*,0 -> *,0,1
-+ */
-+static __always_inline void set_locked(struct qspinlock *lock)
-+{
-+	WRITE_ONCE(lock->locked, _Q_LOCKED_VAL);
-+}
-+
-+#endif /* __LINUX_QSPINLOCK_H */
+ 
+-		pv_wait_node(node, prev);
+ 		arch_mcs_spin_lock_contended(&node->locked);
+ 
+ 		/*
+@@ -312,23 +272,9 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 * store-release that clears the locked bit and create lock
+ 	 * sequentiality; this is because the set_locked() function below
+ 	 * does not imply a full barrier.
+-	 *
+-	 * The PV pv_wait_head_or_lock function, if active, will acquire
+-	 * the lock and return a non-zero value. So we have to skip the
+-	 * atomic_cond_read_acquire() call. As the next PV queue head hasn't
+-	 * been designated yet, there is no way for the locked value to become
+-	 * _Q_SLOW_VAL. So both the set_locked() and the
+-	 * atomic_cmpxchg_relaxed() calls will be safe.
+-	 *
+-	 * If PV isn't active, 0 will be returned instead.
+-	 *
+ 	 */
+-	if ((val = pv_wait_head_or_lock(lock, node)))
+-		goto locked;
+-
+ 	val = atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK));
+ 
+-locked:
+ 	/*
+ 	 * claim the lock:
+ 	 *
+@@ -341,11 +287,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 */
+ 
+ 	/*
+-	 * In the PV case we might already have _Q_LOCKED_VAL set, because
+-	 * of lock stealing; therefore we must also allow:
+-	 *
+-	 * n,0,1 -> 0,0,1
+-	 *
+ 	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
+ 	 *       above wait condition, therefore any concurrent setting of
+ 	 *       PENDING will make the uncontended transition fail.
+@@ -369,7 +310,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 		next = smp_cond_load_relaxed(&node->next, (VAL));
+ 
+ 	arch_mcs_spin_unlock_contended(&next->locked);
+-	pv_kick_node(lock, next);
+ 
+ release:
+ 	trace_contention_end(lock, 0);
+@@ -380,32 +320,3 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	__this_cpu_dec(qnodes[0].mcs.count);
+ }
+ EXPORT_SYMBOL(resilient_queued_spin_lock_slowpath);
+-
+-/*
+- * Generate the paravirt code for resilient_queued_spin_unlock_slowpath().
+- */
+-#if !defined(_GEN_PV_LOCK_SLOWPATH) && defined(CONFIG_PARAVIRT_SPINLOCKS)
+-#define _GEN_PV_LOCK_SLOWPATH
+-
+-#undef  pv_enabled
+-#define pv_enabled()	true
+-
+-#undef pv_init_node
+-#undef pv_wait_node
+-#undef pv_kick_node
+-#undef pv_wait_head_or_lock
+-
+-#undef  resilient_queued_spin_lock_slowpath
+-#define resilient_queued_spin_lock_slowpath	__pv_resilient_queued_spin_lock_slowpath
+-
+-#include "qspinlock_paravirt.h"
+-#include "rqspinlock.c"
+-
+-bool nopvspin;
+-static __init int parse_nopvspin(char *arg)
+-{
+-	nopvspin = true;
+-	return 0;
+-}
+-early_param("nopvspin", parse_nopvspin);
+-#endif
 -- 
 2.43.5
 
