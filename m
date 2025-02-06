@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC0FC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80421C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rgm4tzwUKVFwXJjmQmXTd1jgTRz3WNxTI+37e9/vAYY=; b=MqnnbH/F7KgZlI/RVQ66B0vPKo
-	2zJUoJFla2F4LguTzAA9s+CSsoOrkD1dXGFcYD3UsaKC34QCvYcEp4uEUfbb5XWQ8XUmaiVT8craJ
-	28csGvrSf0ttcUZE6adfvR93810rn+IfASew6FhlSLuesMmQksNu7sX89bbkZrRRHba8+EwUYBk7C
-	/DlC2d/lPUDwAmaYzJm9xxW4N4kFxC9s5HcCIVeYyMX3vREqMlIvRuKJIgwQ3glUUtedCHgtBSRSn
-	RS/9kWbTZhMjsvu8VjRIVbDBXB2Wn3dC2jWmmzUdESULwxT2VT3GP4HYp+5gBkZrbu3ajFDiqmUoJ
-	i45AUlGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3+o6j1h8yfZZvlMm0xz4Wn2mMnH1wEvcnKhuOcTzzw=; b=YpFi0UoPqKh3m0YpdV8OCDt2Po
+	luDsV0hnWcvPCJCWK+ZIxSbYnUgMx716SsQdJeYfe7SqBqly7v2jRsm8H6lG3CkDl2CIsSG4cyN9d
+	HRQb3U1xkPiUe1rgag3OqIdA/ZcQV3Yagn45vRlmRm6Kxv93jOP+4eREriIifNZKusFTUlGXxn/rm
+	ZE9QeLO7cTgGvkmuUM6lwn9CLieoUhlDcZgqceyLmMcqKvg5mtVHD5s3aZ9m0m2hhHG2i2X0hFwaS
+	FXHTUayKjRgD2ZlRKQrT1FO8/lmQCwuYVFnnBHhpURcz0H6HfeOjLAuJvST7ZxMhl0IaQz2K2Ogqm
+	g5RK961Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5lB-000000070HD-1bIy;
-	Thu, 06 Feb 2025 17:33:53 +0000
+	id 1tg5mW-000000070S1-1SoO;
+	Thu, 06 Feb 2025 17:35:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5hk-00000006zW1-43Pw;
-	Thu, 06 Feb 2025 17:30:22 +0000
+	id 1tg5iB-00000006ze7-196H
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 17:30:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A22755C6740;
-	Thu,  6 Feb 2025 17:29:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B1FBC4CEDF;
-	Thu,  6 Feb 2025 17:30:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ED1D25C5C26;
+	Thu,  6 Feb 2025 17:30:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AEB6C4CEDD;
+	Thu,  6 Feb 2025 17:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738863020;
-	bh=+PAq1d83UlU8oLR/YEeDk9SvrGKk3RNvw6lhYjscWBI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=PitP9Zed77UsBd3nKEkR0UAclDy4vwOIAmfNR+jk+dqPCSZF6vw1xnzwr/TxzRZJ9
-	 qDXQM3Sy2uS21IDxmqF/hvAex5tsMs3AlKNkDf72xX+1Nj+qMyfBg0ucmNMvgI2vPC
-	 cPbwHAPEfdnBXDoTo6gWSHEn2nLpXpg0bJs+D1HCLxq0LfvvHSM5b4emdn//2EgUbb
-	 O4MNsVagzyWudHQLRIo890+MDEQWXrKN92n2tQ6GmSRuIF9evVgWh6GvD0NMIL+926
-	 NUU2d3Gh9+5jkHxSHtKcko6x50/H354RwJHSL4KdM0c/LYjt9roG5m8VkJDfD8uD9K
-	 zj+0Q8Kx9f4sA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
- Bard Liao <yung-chuan.liao@linux.intel.com>, 
- Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Thorsten Blum <thorsten.blum@linux.dev>
-Cc: sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20250204153806.3587-2-thorsten.blum@linux.dev>
-References: <20250204153806.3587-2-thorsten.blum@linux.dev>
-Subject: Re: [PATCH] ASoC: SOF: mediatek: Use str_on_off() helper function
-Message-Id: <173886301607.325569.16667965221124695083.b4-ty@kernel.org>
-Date: Thu, 06 Feb 2025 17:30:16 +0000
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+	s=k20201202; t=1738863046;
+	bh=dEzyg2r4tZKWMxK6fgAdi9bkgZ+Gg97tUdv2KrGqngY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kmJhN3pEUEX7HmbyYzousuk6RwyqiD+uQ0neynfv0Zzru2qTIJfYAYAQ9M15TgToN
+	 B8oYRMKQdkCh5HoMPT831dhlNYGZPK9b/aeb5P8Ts1mISgehqbU/yejenz2dRDFjS6
+	 SRlqjkQuUPrT4guXBqtotmRYS96p+1LCjZZaBDeI4v/YMhVZXj9MrfDuJeNmp3YINj
+	 4Wi7TyYvrfNr3ZXbxSp6U53QCPiLJAJfbG0F/R3ON0KY8lxSTOCk+MlJfvHU/cPcM0
+	 0x1Zee1z3BDwOh/2k1s43SwA0zFNFuxAfSvX0xwcinHTD1NBjz1GmXLv2ZUrLNshGz
+	 alEImmKigZ4ug==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tg5i7-001DLm-VD;
+	Thu, 06 Feb 2025 17:30:44 +0000
+Date: Thu, 06 Feb 2025 17:30:43 +0000
+Message-ID: <86pljvt1z0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	darren@os.amperecomputing.com,
+	scott@os.amperecomputing.com
+Subject: Re: [RFC PATCH 2/2] KVM: arm64: nv: selftests: Access VNCR mapped registers
+In-Reply-To: <20250206164120.4045569-3-gankulkarni@os.amperecomputing.com>
+References: <20250206164120.4045569-1-gankulkarni@os.amperecomputing.com>
+	<20250206164120.4045569-3-gankulkarni@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, darren@os.amperecomputing.com, scott@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_093021_057289_2211F037 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_093047_403709_02DC708D 
+X-CRM114-Status: GOOD (  34.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +92,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Feb 2025 16:38:04 +0100, Thorsten Blum wrote:
-> Remove hard-coded strings by using the str_on_off() helper function.
+On Thu, 06 Feb 2025 16:41:20 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
+> With NV2 enabled, some of the EL1/EL2/EL12 register accesses are
+> transformed to memory accesses. This test code accesses all those
+> registers in guest code to validate that they are not trapped to L0.
+>
+
+Traps to L0 are invisible to the guest -- by definition. What the
+guest can observe is an exception, be it injected by L0 or directly
+delivered by the HW.
+
+But the *absence* of an exception doesn't mean things are fine. Quite
+the opposite.
+
+> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+> ---
+>  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>  .../selftests/kvm/arm64/nv_vncr_regs_test.c   | 255 ++++++++++++++++++
+>  2 files changed, 256 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/arm64/nv_vncr_regs_test.c
 > 
+> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> index a85d3bec9fb1..7790e4021013 100644
+> --- a/tools/testing/selftests/kvm/Makefile.kvm
+> +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> @@ -155,6 +155,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
+>  TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
+>  TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
+>  TEST_GEN_PROGS_arm64 += arm64/nv_guest_hypervisor
+> +TEST_GEN_PROGS_arm64 += arm64/nv_vncr_regs_test
+>  TEST_GEN_PROGS_arm64 += access_tracking_perf_test
+>  TEST_GEN_PROGS_arm64 += arch_timer
+>  TEST_GEN_PROGS_arm64 += coalesced_io_test
+> diff --git a/tools/testing/selftests/kvm/arm64/nv_vncr_regs_test.c b/tools/testing/selftests/kvm/arm64/nv_vncr_regs_test.c
+> new file mode 100644
+> index 000000000000..d05b20b828ff
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/arm64/nv_vncr_regs_test.c
+> @@ -0,0 +1,255 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Ampere Computing LLC
+> + *
+> + * This is a test to validate Nested Virtualization.
+> + */
+> +#include <kvm_util.h>
+> +#include <nv_util.h>
+> +#include <processor.h>
+> +#include <vgic.h>
+> +
+> +#define __check_sr_read(r)					\
+> +	({							\
+> +		uint64_t val;					\
+> +								\
+> +		handled = false;				\
+> +		dsb(sy);					\
+> +		val = read_sysreg_s(SYS_ ## r);			\
+> +		val;						\
+> +	})
+> +
+> +#define __check_sr_write(r)					\
+> +	do {							\
+> +		handled = false;				\
+> +		dsb(sy);					\
+> +		write_sysreg_s(0, SYS_ ## r);			\
+> +		isb();						\
+> +	} while (0)
+> +
+> +
+> +#define check_sr_read(r)					  \
+> +	do {							  \
+> +		__check_sr_read(r);				  \
+> +		__GUEST_ASSERT(!handled, #r "Read Test Failed");  \
+> +	} while (0)
+> +
+> +#define check_sr_write(r)					  \
+> +	do {							  \
+> +		__check_sr_write(r);				  \
+> +		__GUEST_ASSERT(!handled, #r "Write Test Failed"); \
+> +	} while (0)
+> +
+> +#define check_sr_rw(r)				\
+> +	do {					\
+> +		GUEST_PRINTF("%s\n", #r);	\
+> +		check_sr_write(r);		\
+> +		check_sr_read(r);		\
+> +	} while (0)
 
-Applied to
+Instead of lifting things from existing tests, you could move these
+things to an include file for everybody's benefit.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+> +
+> +static void test_vncr_mapped_regs(void);
+> +static void regs_test_ich_lr(void);
+> +
+> +static volatile bool handled;
+> +
+> +static void regs_test_ich_lr(void)
+> +{
+> +	int nr_lr, lr;
+> +
+> +	nr_lr  = (read_sysreg_s(SYS_ICH_VTR_EL2) & 0xf);
+> +
+> +	for (lr = 0; lr <= nr_lr;  lr++) {
+> +		switch (lr) {
+> +		case 0:
+> +			check_sr_rw(ICH_LR0_EL2);
+> +			break;
+> +		case 1:
+> +			check_sr_rw(ICH_LR1_EL2);
+> +			break;
+> +		case 2:
+> +			check_sr_rw(ICH_LR2_EL2);
+> +			break;
+> +		case 3:
+> +			check_sr_rw(ICH_LR3_EL2);
+> +			break;
+> +		case 4:
+> +			check_sr_rw(ICH_LR4_EL2);
+> +			break;
+> +		case 5:
+> +			check_sr_rw(ICH_LR5_EL2);
+> +			break;
+> +		case 6:
+> +			check_sr_rw(ICH_LR6_EL2);
+> +			break;
+> +		case 7:
+> +			check_sr_rw(ICH_LR7_EL2);
+> +			break;
+> +		case 8:
+> +			check_sr_rw(ICH_LR8_EL2);
+> +			break;
+> +		case 9:
+> +			check_sr_rw(ICH_LR9_EL2);
+> +			break;
+> +		case 10:
+> +			check_sr_rw(ICH_LR10_EL2);
+> +			break;
+> +		case 11:
+> +			check_sr_rw(ICH_LR11_EL2);
+> +			break;
+> +		case 12:
+> +			check_sr_rw(ICH_LR12_EL2);
+> +			break;
+> +		case 13:
+> +			check_sr_rw(ICH_LR13_EL2);
+> +			break;
+> +		case 14:
+> +			check_sr_rw(ICH_LR14_EL2);
+> +			break;
+> +		case 15:
+> +			check_sr_rw(ICH_LR15_EL2);
+> +			break;
+> +		default:
+> +			break;
+> +		}
+> +	}
+> +}
+> +
+> +/*
+> + * Validate READ/WRITE to VNCR Mapped registers for NV1=0
+> + */
+> +
+> +static void test_vncr_mapped_regs(void)
+> +{
+> +	/*
+> +	 * Access all VNCR Mapped registers, and fail if we get an UNDEF.
+> +	 */
 
-Thanks!
+No. You are accessing a lot of random registers, irrespective of the
+configuration exposed to the guest. Being able to access it is not an
+indication of correctness. Seeing it UNDEF is not an indication of a
+bug.
 
-[1/1] ASoC: SOF: mediatek: Use str_on_off() helper function
-      commit: 3f75771987f32a9f512c8944e70e343f8c6d71c1
+Also, this is supposed to be an EL2 test that doesn't deal with NV
+*itself*. There is no VNCR page in this test. The fact that the host
+uses VNCR as a way to virtualise EL2 has nothing to do with the test
+at all.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> +
+> +	GUEST_PRINTF("VNCR Mapped registers access test:\n");
+> +	check_sr_rw(VTTBR_EL2);
+> +	check_sr_rw(VTCR_EL2);
+> +	check_sr_rw(VMPIDR_EL2);
+> +	check_sr_rw(CNTVOFF_EL2);
+> +	check_sr_rw(HCR_EL2);
+> +	check_sr_rw(HSTR_EL2);
+> +	check_sr_rw(VPIDR_EL2);
+> +	check_sr_rw(TPIDR_EL2);
+> +	check_sr_rw(VNCR_EL2);
+> +	check_sr_rw(CPACR_EL12);
+> +	check_sr_rw(CONTEXTIDR_EL12);
+> +	check_sr_rw(SCTLR_EL12);
+> +	check_sr_rw(ACTLR_EL1);
+> +	check_sr_rw(TCR_EL12);
+> +	check_sr_rw(AFSR0_EL12);
+> +	check_sr_rw(AFSR1_EL12);
+> +	check_sr_rw(ESR_EL12);
+> +	check_sr_rw(MAIR_EL12);
+> +	check_sr_rw(AMAIR_EL12);
+> +	check_sr_rw(MDSCR_EL1);
+> +	check_sr_rw(SPSR_EL12);
+> +	check_sr_rw(CNTV_CVAL_EL02);
+> +	check_sr_rw(CNTV_CTL_EL02);
+> +	check_sr_rw(CNTP_CVAL_EL02);
+> +	check_sr_rw(CNTP_CTL_EL02);
+> +	check_sr_rw(HAFGRTR_EL2);
+> +	check_sr_rw(TTBR0_EL12);
+> +	check_sr_rw(TTBR1_EL12);
+> +	check_sr_rw(FAR_EL12);
+> +	check_sr_rw(ELR_EL12);
+> +	check_sr_rw(SP_EL1);
+> +	check_sr_rw(VBAR_EL12);
+> +
+> +	regs_test_ich_lr();
+> +
+> +	check_sr_rw(ICH_AP0R0_EL2);
+> +	check_sr_rw(ICH_AP1R0_EL2);
+> +	check_sr_rw(ICH_HCR_EL2);
+> +	check_sr_rw(ICH_VMCR_EL2);
+> +	check_sr_rw(VDISR_EL2);
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+This should absolutely UNDEF in the absence of FEAT_RAS exposed to the
+guest. And yet it won't. Why? That's because the architecture doesn't
+allow this to be trapped. Does it mean being able to access it is
+right? Absolutely not. This is an *architecture* bug.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> +	check_sr_rw(MPAM1_EL12);
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+This should UNDEF in the test if the configuration doesn't expose MPAM
+to the guest. And I really hope it explodes or this is a glaring bug,
+because MPAM should never be exposed to a guest.
 
-Thanks,
-Mark
+The conclusion is that blindly testing that you can R/W registers buys
+us nothing if you are not checking the validity of the access against
+the architecture rules.
 
+Any test should take as input:
+
+- the configuration of the guest
+
+- the expected outcome of the access for that particular configuration
+  and trap configuration, as described in the ARM ARM pseudocode (or,
+  even better, in the BSD-licensed JSON file that has all that
+  information)
+
+The result of the access must then be matched against these inputs and
+any discrepancy reported, either as fatal (because the outcome of the
+access wasn't the expected one) or as an expected, non-fatal failure
+(because we know that the architecture is not self-consistent).
+
+Yes, this looks a lot like a full CPU validation suite. What a
+surprise.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
