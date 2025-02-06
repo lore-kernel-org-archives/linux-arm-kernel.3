@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD3CC02199
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DD1C02194
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fq5C2UpZXs2chSO/JvclF+1SBup+VkqtxAljzA1IgBw=; b=RYsbjuhroVrD/qMkD67iZlEJZw
-	9IhYGYl1UzPjR4TmAvs67V5Gazu0M6i8fgrIGDwUG3m3Kmg4GxYzdIivbLEHCtMXPZeFPLNMlCPoK
-	D5e8jHfHSN36G8Tftjw+m6WBl8ZbnNzXNze/RpXs/vykgAP6pawS59jPhpGMTlZELYCB+xdi+jAzr
-	pp4RUpWq0NZVLWdxFEQ0M3cbYFWV3GhTb058/SNaNmb2Ja/7N9TnHjGype8wxj2ll2CgSS5sMM+2J
-	pHJxTZjPAlePWwPKIb7JtbMi4So2cPJ3Ex7aO9yrcbGIEfF1O4nvgx8TERhVzJrfWow2wVdc4W95h
-	WyfVoKAg==;
+	bh=dCSIGE2wMg1P8xDRWTGSRIaw1+BvNT3ut4B4Mu1BE8Q=; b=qRxBgc0HZuBmJBLCauBPzB/Of4
+	kt//1HNeyCVjo0f4dvRDkhOLBheeOlGQ7vyDU6YBFgSvCGJSovtxalpTMBbKIN4a9na3WsizkDFRa
+	bwf76l71KzPMN2E0jI8CxuC5dOgxAWtJU1kx1wrAgd21wPY7BwUfaT87ftFBCIJPVN+bIxyVEAY9e
+	LRz0WFlOAOGVN8ehDixrCwAnwenpx87ivxCqu7mIc7zlBiqWbhvV0lcR/3XJp0y4lbGoScbXJTGUw
+	PM5Uf2iYnoOOUlhtBZ87CV9oSQ6BQZodxD6c9ulbhp26f1qBcf4uRhDVGeA4jr1vspwgQiOhQWYhF
+	kRV4bfmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0nd-00000006Ej3-34Fv;
-	Thu, 06 Feb 2025 12:16:05 +0000
+	id 1tg0nY-00000006Eea-3G3q;
+	Thu, 06 Feb 2025 12:16:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0Xh-00000006DXx-3pDP
+	id 1tg0Mn-00000006C2v-1Mgd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 11:59:39 +0000
+	Thu, 06 Feb 2025 11:48:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BBD312FC;
-	Thu,  6 Feb 2025 04:00:00 -0800 (PST)
-Received: from [192.168.68.112] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A5253F63F;
-	Thu,  6 Feb 2025 03:59:35 -0800 (PST)
-Message-ID: <b0a6ccd0-205d-42d8-9b98-6efb34c117e4@arm.com>
-Date: Thu, 6 Feb 2025 11:59:33 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A47312FC;
+	Thu,  6 Feb 2025 03:48:44 -0800 (PST)
+Received: from [10.163.34.115] (unknown [10.163.34.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0405E3F5A1;
+	Thu,  6 Feb 2025 03:48:14 -0800 (PST)
+Message-ID: <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
+Date: Thu, 6 Feb 2025 17:18:12 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/16] hugetlb and vmalloc fixes and perf improvements
-Content-Language: en-GB
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+Subject: Re: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and
+ __ptep_get_and_clear()
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Muchun Song <muchun.song@linux.dev>,
  Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
  Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
  Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky
- <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
 References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205235219.3c3a4b968087d1386d708b04@linux-foundation.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250205235219.3c3a4b968087d1386d708b04@linux-foundation.org>
+ <20250205151003.88959-7-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250205151003.88959-7-ryan.roberts@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_035937_990958_0804BAD3 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250206_034821_463244_71D248ED 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +74,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 07:52, Andrew Morton wrote:
-> On Wed,  5 Feb 2025 15:09:40 +0000 Ryan Roberts <ryan.roberts@arm.com> wrote:
+On 2/5/25 20:39, Ryan Roberts wrote:
+> Refactor __set_ptes(), set_pmd_at() and set_pud_at() so that they are
+> all a thin wrapper around a generic ___set_ptes(), which takes pgsize
+
+s/generic/common - as generic might be misleading for being generic MM.
+
+> parameter. This cleans up the code to remove the confusing
+> __set_pte_at() (which was only ever used for pmd/pud) and will allow us
+> to perform future barrier optimizations in a single place. Additionally,
+> it will permit the huge_pte API to efficiently batch-set pgtable entries
+> and take advantage of the future barrier optimizations.
+
+Makes sense.
+
 > 
->>  I'm guessing that going in
->> through the arm64 tree is the right approach here?
+> ___set_ptes() calls the correct page_table_check_*_set() function based
+> on the pgsize. This means that huge_ptes be able to get proper coverage
+> regardless of their size, once it's plumbed into huge_pte. Currently the
+> huge_pte API always uses the pte API which assumes an entry only covers
+> a single page.
+
+Right
+
 > 
-> Seems that way, just from the line counts.
+> While we are at it, refactor __ptep_get_and_clear() and
+> pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
+> also takes a pgsize parameter. This will provide the huge_pte API the
+> means to clear ptes corresponding with the way they were set.
+
+__ptep_get_and_clear() refactoring does not seem to be related to the
+previous __set_ptes(). Should they be separated out into two different
+patches instead - for better clarity and review ? Both these clean ups
+have enough change and can stand own their own.
+
 > 
-> I suggest two series - one for the four cc:stable patches and one for
-> the 6.14 material.  This depends on whether the ARM maintainers want to
-> get patches 1-4 into the -stable stream before the 6.14 release.
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h | 108 +++++++++++++++++++------------
+>  1 file changed, 67 insertions(+), 41 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 0b2a2ad1b9e8..3b55d9a15f05 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -420,23 +420,6 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
+>  	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
+>  }
+>  
+> -static inline void __set_ptes(struct mm_struct *mm,
+> -			      unsigned long __always_unused addr,
+> -			      pte_t *ptep, pte_t pte, unsigned int nr)
+> -{
+> -	page_table_check_ptes_set(mm, ptep, pte, nr);
+> -	__sync_cache_and_tags(pte, nr);
+> -
+> -	for (;;) {
+> -		__check_safe_pte_update(mm, ptep, pte);
+> -		__set_pte(ptep, pte);
+> -		if (--nr == 0)
+> -			break;
+> -		ptep++;
+> -		pte = pte_advance_pfn(pte, 1);
+> -	}
+> -}
+> -
+>  /*
+>   * Hugetlb definitions.
+>   */
+> @@ -641,30 +624,59 @@ static inline pgprot_t pud_pgprot(pud_t pud)
+>  	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
+>  }
+>  
+> -static inline void __set_pte_at(struct mm_struct *mm,
+> -				unsigned long __always_unused addr,
+> -				pte_t *ptep, pte_t pte, unsigned int nr)
+> +static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+> +			       unsigned int nr, unsigned long pgsize)
 
-Thanks Andrew, I'm happy to take this approach assuming Catalin/Will agree.
+So address got dropped and page size got added as an argument.
+s/___set_ptes/___set_pxds ? to be more generic for all levels.
 
-But to be pedantic for a moment, I nominated patches 1-3 and 13 as candidates
-for stable. 1-3 should definitely go via arm64. 13 is a pure mm fix. But later
-arm64 patches in the series depend on it being fixed. So I wouldn't want to put
-13 in through mm tree if it means 14-16 will be in the arm64 tree without the
-fix for a while.
+>  {
+> -	__sync_cache_and_tags(pte, nr);
+> -	__check_safe_pte_update(mm, ptep, pte);
+> -	__set_pte(ptep, pte);
+> +	unsigned long stride = pgsize >> PAGE_SHIFT;
+> +
+> +	switch (pgsize) {
+> +	case PAGE_SIZE:
+> +		page_table_check_ptes_set(mm, ptep, pte, nr);
+> +		break;
+> +	case PMD_SIZE:
+> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
+> +		break;
+> +	case PUD_SIZE:
+> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
+> +		break;
 
-Anyway, 13 doesn't depend on anything before it in the series so I can gather
-the fixes in to a series of 4 as you suggest. Then the improvements become a
-series of 12. And both can go via arm64?
+This is where the new page table check APIs get used for batch testing.
 
-I'll gather review comments then re-post as 2 series for v2; assuming
-Will/Catalin are happy.
+> +	default:
+> +		VM_WARN_ON(1);
+> +	}
+> +
+> +	__sync_cache_and_tags(pte, nr * stride);
+> +
+> +	for (;;) {
+> +		__check_safe_pte_update(mm, ptep, pte);
+> +		__set_pte(ptep, pte);
+> +		if (--nr == 0)
+> +			break;
+> +		ptep++;
+> +		pte = pte_advance_pfn(pte, stride);
+> +	}
+>  }
 
-Thanks,
-Ryan
+LGTM
+
+>  
+> -static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+> -			      pmd_t *pmdp, pmd_t pmd)
+> +static inline void __set_ptes(struct mm_struct *mm,
+> +			      unsigned long __always_unused addr,
+> +			      pte_t *ptep, pte_t pte, unsigned int nr)
+>  {
+> -	page_table_check_pmd_set(mm, pmdp, pmd);
+> -	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
+> -						PMD_SIZE >> PAGE_SHIFT);
+> +	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
+>  }
+>  
+> -static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+> -			      pud_t *pudp, pud_t pud)
+> +static inline void __set_pmds(struct mm_struct *mm,
+> +			      unsigned long __always_unused addr,
+> +			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+> +{
+> +	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
+> +}
+> +#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
+> +
+> +static inline void __set_puds(struct mm_struct *mm,
+> +			      unsigned long __always_unused addr,
+> +			      pud_t *pudp, pud_t pud, unsigned int nr)
+>  {
+> -	page_table_check_pud_set(mm, pudp, pud);
+> -	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
+> -						PUD_SIZE >> PAGE_SHIFT);
+> +	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
+>  }
+> +#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
+
+LGTM
+
+>  
+>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
+>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
+> @@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+>  
+> -static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+> -				       unsigned long address, pte_t *ptep)
+> +static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
+> +				       unsigned long pgsize)
+
+So address got dropped and page size got added as an argument.
+
+>  {
+>  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+>  
+> -	page_table_check_pte_clear(mm, pte);
+> +	switch (pgsize) {
+> +	case PAGE_SIZE:
+> +		page_table_check_pte_clear(mm, pte);
+> +		break;
+> +	case PMD_SIZE:
+> +		page_table_check_pmd_clear(mm, pte_pmd(pte));
+> +		break;
+> +	case PUD_SIZE:
+> +		page_table_check_pud_clear(mm, pte_pud(pte));
+> +		break;
+> +	default:
+> +		VM_WARN_ON(1);
+> +	}
+>  
+>  	return pte;
+>  }
+>  
+> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+> +				       unsigned long address, pte_t *ptep)
+> +{
+> +	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
+> +}
+> +
+>  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+>  				pte_t *ptep, unsigned int nr, int full)
+>  {
+> @@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
+>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>  					    unsigned long address, pmd_t *pmdp)
+>  {
+> -	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
+> -
+> -	page_table_check_pmd_clear(mm, pmd);
+> -
+> -	return pmd;
+> +	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+
+Although currently there is no pudp_huge_get_and_clear() helper on arm64
+reworked ___ptep_get_and_clear() will be able to support that as well if
+and when required as it now supports PUD_SIZE page size.
 
