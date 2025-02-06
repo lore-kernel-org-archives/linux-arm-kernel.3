@@ -4,125 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95C7C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F9FC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/Bse1dCSk7wlBTxWxrw+fvF90V1hOkdi4rEK3c8vEo=; b=ZWhRd6e2s3E8uE/9Y2GKrRfxdR
-	a0RIuMN4UCJFg3SJ1gS3qxZWEf75cynz/TgL43UUINhuPyMOyA8Zui7EpUEyD3AZEXpfGY1BGNsff
-	tBPo+ZfgyUDi2Oj3Oj3wGZ7d4yCEmXSq6wFVy1F05Z3rxKEPbAUPuRpBm5GbEYA3XsdTRus25aqzg
-	BRT9P0pXv/iJYafVQT40xtDSQHp2jQDp4E2TBv4Fgc1A/o0ITxtKLWfgyyw5h3++OwIUzek4UctCO
-	48eSB2ovxVeVsBUl7ZaEmzipA3ZNhMZ+Lbtium2GxCJTFJk2zMS+Owy38n9/E+sC9IoRFNAk1Rikz
-	sde3eltQ==;
+	bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=; b=C3DdUrAv9/SXDl83O6Fp41ice7
+	vqjyewanS0UCgXg/kxkMEcjT4rs1fvx6W/rZfTPErlkqMv66UmDNL0wxQJ8Ku3GsGkIQNpnR1H2ZR
+	vfYTA3rr0ZRth+Ymo2OZKoEwoEWwdvm/9UjlmrtPnzN8agWnbnhAf1HN8fN4sVjgkmQp/GXghR+Q9
+	DnCAYSVnKmTH72+Hn17hh0o8IxlWrcErMHSqDGGQ3tMhixcOmbpPgXG7Xaj0BDhTs1eTZxTNPEIfT
+	l174jpYemjghqndGGRj1KlljbIhW4DefLM5EYrj6X+JaVmqRa0aCcauHqSdDxnpRoY3v6I/6KA4UH
+	ja/C0MIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfyb2-00000005u6S-1m1M;
-	Thu, 06 Feb 2025 09:54:56 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tfyfR-00000005uf4-3bgB;
+	Thu, 06 Feb 2025 09:59:29 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfyZe-00000005txV-3C6T
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 09:53:31 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38dc1dfd9f2so156157f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 01:53:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738835609; x=1739440409; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y/Bse1dCSk7wlBTxWxrw+fvF90V1hOkdi4rEK3c8vEo=;
-        b=KmA4GfIMcLGUZSq8MZwmqinsof3arpXNLEWI7KxTRwfaD34VQdjI86uhC9vvKRcfdz
-         bOEddFNp22+HLHRHTXT1rD6AlXLQyX8R81zv082KcB6imC/WlcL9mPHMwyqnZlWbm0eU
-         Iqi4zWtddqxty0pKTLoJ7EUnpjk+/v3pCoYn3nhclHKBJ4nbf7DTjPlxZVrAHd+7FjFv
-         6IqTIi7IPPAri+RyxmcQfd9Vc679U6YUEnqcaQ0qBSgB4Lr+uV7B2UuxFSoDaczRK/lU
-         o0EwE1hxPB1JQRKllFl6P7KqueoyKBm493smsWVpbD0Lj5/VDjTX5YU4vK83gGA0luC1
-         aLrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738835609; x=1739440409;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Y/Bse1dCSk7wlBTxWxrw+fvF90V1hOkdi4rEK3c8vEo=;
-        b=AA2hmZGwDmOH5mN/cmPv51YCyYt2FYF0CsG/1q71XaTRQkP0+7zgv7ObB0t6R3huEN
-         yRAHdbTuOjL/RkAc7nMnq8ak3gclrE33zz+59hh3m+Lc0HnD4N4/e4AsbMixZaVvYlrh
-         CLnkmaXfVbHWecr80MW2wMDZULgXkUUztPmh/cVpcNfHrUVPnVXqH70bnXL2v77WuDrj
-         1k1PqCZLxl3QUT7Hhado/YHwSW2MVtj5xKk6d5eNi2+eqbc1T8H3meXFU8GJ84Atmnwy
-         pZlzhNqIvV6djOFfrd/KX6PgISwGjgZix0FII0QUnjTW57JDAurIcTCWgAJ5o3IJdW1Q
-         ShiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXObmOT+5BF11U3C3eXIzMhq5st7N1Elz+LMH56eGppBWfPP6KErCwO1CIZt19eNMnj4E1rbx/V11Q+FdAGpn6m@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZK56Qom9VyZvw64+H8gUjR3q1ibbVHwEERrVjJnwBfyG86QRk
-	YCEsyFklU/lVrw3BL4ioPciVBbNLaKUZGoVRKnMN5BfHS++mSUWeIqkMN1NSnCg=
-X-Gm-Gg: ASbGncv9A2OqVwF1lUo0quE5PCrXZuarzP7ql4LsQGxbKh8nFG8yi3IFoxKvbuPjeWX
-	n2R24R37Sx/WO6wk3JL0gkCsdLq6A0gsV6F8khHpaqHFdZIDav1u6qmKY0cDyTM8rnXCPKo4bho
-	Z5uwmLMFPhJYiI3ioUh8MjpZSttnReGZQ2B5Hv2uz/Yj7eK0xD7F8E2Fyc4dHyQ4Is0S5ZU0h/4
-	yT8DwnCLU3ylyf8bxrUZNo1lLv5EviQm21QDwn7ajqrxqxn3C3hjeFGwPWSc2mfXfNwYfXAeuM6
-	Eqa9tVBLB90bzLBkL3r8AMmpeV2j3C2ahOTN6OH+li+YDl8m3tnLmNdYY7sPeHYPNcfd
-X-Google-Smtp-Source: AGHT+IFZ/YD1C+lwl5UFVIadECKSzvAxjxJXg73+g+VHFrSip3JyQPnIew9WOECpn6y9hKaGtkaC7Q==
-X-Received: by 2002:a5d:5f4c:0:b0:385:fae2:f443 with SMTP id ffacd0b85a97d-38db48d5d49mr3733434f8f.34.1738835608907;
-        Thu, 06 Feb 2025 01:53:28 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:4972:46a2:e0cb:c0a6? ([2a01:e0a:982:cbb0:4972:46a2:e0cb:c0a6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc31b9394sm337288f8f.11.2025.02.06.01.53.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2025 01:53:28 -0800 (PST)
-Message-ID: <63578f71-e5f5-482a-98a7-779053b1caf7@linaro.org>
-Date: Thu, 6 Feb 2025 10:53:27 +0100
+	id 1tfye3-00000005uKZ-2oTQ;
+	Thu, 06 Feb 2025 09:58:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ofhvfod16IhNxYjfkskVhCjoR7+Bpp+kGT1FTXN6smGemw6OfbvryxqUYlOJVJ6WQr2mxSxjrXkuefnlaXmrJ7UzbSZ5FeEyyHxtsh3YFHW5aGez7eOeh8SerSTwkjuNocelYomDKTQiUM86XAXUBH8KCsVuJwkH1bSrIo/bxJfimvQhW3KlLM/a3F8/rS8XrqrKzBoYT3venYosobYPL40IbIakil4+4V88051xEvcqHGj4/XQdoteg3fvsu+fY69Uw0CVs7xZUN93vpIO0TowWFHRKBlLiLEs9vHYS2Y5RsvHB0qYk15qPuixw3EqMdOmNKQFjqIvUNhaymIX+Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
+ b=lwTUzIgGNtvFoQx+q3T9DpCzGeP2btzvw5pBJqHIfKgk4RZnsUJyVSJcirT+cbVfpUwp4rVzjGEeJ7YfRcgPponKweEk/ZSE+wcOGpNZQbAqDnClMRE74NfxkEHsSWgja+b73dkESBYhjJ5TDT1ZG1GKSytB61iD0m9/yYq5zn6ZnyPqaqBKGH5r2qvS7pyPqGIC5C4RK9flQBx1+J71SFvXET6aqbBOEbkCRPQRr7in5FWYmv0IQ0dgwyK8M4HvZ8gmsepPRfFE6vzHLT6cyYQHPygGiuIYIuM1AxilZpJcW7lPspJ6y9ZN1pByn5tyWtimBXq9f8y7EFbB9FVYJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wolfvision.net; dmarc=pass action=none
+ header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
+ b=wSj3OMpLht3DUJGlrWXM6iDulbIvMiMXby1BzTXrRzAiYVkokTy1CeZQrGMZ1Y56dJKZhKUYDjSoVRD3ugp1nKe11zAgMV0gV7SYYGO1+AZz7YYNT+acezi/gu1WmBgcDnfpwNenEKWIccRfc7MRguqiLh17bH2f7IOfQJ5yHJY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wolfvision.net;
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
+ by AS8PR08MB10170.eurprd08.prod.outlook.com (2603:10a6:20b:63f::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Thu, 6 Feb
+ 2025 09:57:57 +0000
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8398.025; Thu, 6 Feb 2025
+ 09:57:57 +0000
+From: Michael Riesch <michael.riesch@wolfvision.net>
+Date: Thu, 06 Feb 2025 10:57:39 +0100
+Subject: [PATCH v3 1/7] media: dt-bindings: media: video-interfaces: add
+ defines for sampling modes
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250206-v6-8-topic-rk3568-vicap-v3-1-69d1f19e5c40@wolfvision.net>
+References: <20250206-v6-8-topic-rk3568-vicap-v3-0-69d1f19e5c40@wolfvision.net>
+In-Reply-To: <20250206-v6-8-topic-rk3568-vicap-v3-0-69d1f19e5c40@wolfvision.net>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Fricke <sebastian.fricke@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738835873; l=948;
+ i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
+ bh=Jwfb9ka7Co1QU4YFQj1bP68YHW3VZLAiB9reUK6eW8Q=;
+ b=FvtZqmG6ZoB/lNG/Jbh5+3EZqtcxtn/DAsJit+MfhM3rNebNrr1Vt2WE0MHlWGm0TwLiUDWvT
+ Md+0y2DAnoxDMxdG/uI6g+VZiovS0VoLDDF5/Xxlq7zAZ0BUXmM5t+o
+X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
+ pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
+X-ClientProxiedBy: FR0P281CA0158.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b3::16) To DU0PR08MB9155.eurprd08.prod.outlook.com
+ (2603:10a6:10:416::5)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v3 0/8] Support Multi-frequency scale for UFS
-To: Ziqi Chen <quic_ziqichen@quicinc.com>, quic_cang@quicinc.com,
- bvanassche@acm.org, mani@kernel.org, beanhuo@micron.com,
- avri.altman@wdc.com, junwoo80.lee@samsung.com, martin.petersen@oracle.com,
- quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
- quic_rampraka@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "open list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-mediatek@lists.infradead.org>
-References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|AS8PR08MB10170:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fcddba5-ff62-4f9f-c053-08dd4694bb5f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzBLYW92ZFNVUkxhdGs2clRRU2JRMVBuRUU3bFZHaVZkZXFlTzltRXFDZXNy?=
+ =?utf-8?B?czhRV3g3Q2JqU0E1ckRpRE0xbno3STl2SnRXZ1ZVTHF3a1k5Zk9UbVNGYlFU?=
+ =?utf-8?B?WG5kdmRsQ3hPQjl2dTdacmJIWVM2RTRDY2dGZmF1VEs1cGsvY3pGWkRIUTlY?=
+ =?utf-8?B?WFNHY252S0lTR3pSYURVeWp5MnRZMzAyanlVTDNjM29aTUVlbDM4ZXZSQWpK?=
+ =?utf-8?B?cHpuTDZpM0NvTnJiSkpITGJKSWk3anl5c052VGpRdTE5cVgraVJ1MW9zQ0Qx?=
+ =?utf-8?B?bzEwRXJlZ3dpa1BiMjhRME83OXBXWXVRZUg5cThLWTh2R0FZMkZRdTVpWjlm?=
+ =?utf-8?B?elhYalY5L2l1bzhrSkFMTlg4NEV5WmdjelN2RHZXV0VadDU0dnIra2N3OTJs?=
+ =?utf-8?B?VUdXWmU3azZCcVFCRXlLNlRsL1JmakhqMnhkRUlWNUdyYTFEaUlEdGdPUmky?=
+ =?utf-8?B?b2lDemlDelUwRSs1dGRzZC9pVnJQZHQ1VHVMZElQL2p2dko4LzB3bjM5OGY4?=
+ =?utf-8?B?YU5SVVJFbGFJdVlHOE4ycjlIUXJTUWJidjdNWlUvOVlWT3g1MTU1N1NUbDNY?=
+ =?utf-8?B?UVVoSlk1TldxM0RVTk55d09rcko3T2FybUphQWR1OHhjN2lJcGRoYmJ5bU1q?=
+ =?utf-8?B?ZmdPVzlnb3FxQ2Vzd1BYaHFYNHViZTJQMk9UVW5iUjZFdVpLR1RHMjBkek82?=
+ =?utf-8?B?NnpPNGxxYTNYZTMxdVZTRlRNUlhVVytoTlhPK3dDNkJGc2sxRmRqWEgzWWg0?=
+ =?utf-8?B?aWR5RHNwc1ZUSVpEeWZLdm5xMW4zcU1SREtaSUVyS09FS0p3c3BxbkdGa1Nu?=
+ =?utf-8?B?d0pFS0twcFZJNHBjS0ZRU0xiNkdFZVUxWWZpdHFQNkwveHhwVElONVllRFU3?=
+ =?utf-8?B?SkVvMHhLM1JGTlp1aTgyejhUOTVHY3NMYWJKMmlvNkVDZExqbXJNUklad08w?=
+ =?utf-8?B?Z2svalZGK0kwb0RoQ0E2M0kvVjdhclZuYk1QR0sxZDBEZUVkcGczSW53b0dj?=
+ =?utf-8?B?SllPa2d5RU9qSUV2VWkrbkVrRm94TWIrSyswS2JaZmIzVDBsM2ovZU5IZ2NR?=
+ =?utf-8?B?emNBOEVKVnBUeGpIbGV6dTg5cDNCaGNCZFprUXRWTTFkT3lMYWFtcWhWV0gx?=
+ =?utf-8?B?UVJjOVgxTmlwaEFDcUE5cm10SHEwNFN1bmZ6SHR6aVM4K04yZzlERWFGN0VK?=
+ =?utf-8?B?SEJVVUt1eXVuV0ZXZTd6bVN0YXR3Vk02dENMZlU2NzFCMzQ0dytndnVlSVpW?=
+ =?utf-8?B?dVR6aHlyOEZPS1FqZWpUSlhhaTJOb1NLUHgyQ3dvT01FUjVxR3dMVTFiV0xK?=
+ =?utf-8?B?dlFpQkV5dkJqWWtaOWo0U2tSNm5hbTJ6Z1kwc3lyNGRuUmhhOWxSUlpIbG1y?=
+ =?utf-8?B?V25GRVhKTUViYjBwWW5xOXd0K3dQMHNPLytWWWNrdHB2bUpYVmc1SzdLU1ov?=
+ =?utf-8?B?aXRoc2FXZDNNellyUlljdWQwNnM4UWlra1QvNy9PK0ZmcXZhVzhqYWFEUnZt?=
+ =?utf-8?B?cTNFZGYzVGdta2FqRDZ4bXhWSVFTc1R5emRiQWViMFFDZkIwQitwVGdaa2F2?=
+ =?utf-8?B?RE5Sdnd6ZmZZNTFOSEFGNjVVczdoampVWXB1NUNUS0dWaGw3bHF6MGZUaSt3?=
+ =?utf-8?B?ckRKbDlVOEllbUNlbCtUT2ZTM1RhZDNIUml1bEIycGpJL2l2dG1SQXVJY0Z0?=
+ =?utf-8?B?ZGtLYlFhWng1b0J2Mi8xRmhaUmZVSEQyeUhRVmVYajlhK3l0Z1BNWi9UMnJY?=
+ =?utf-8?B?ZHFSS2h2VUZneDdiVzQ1RURUV3J2QWYrZGgzaU1JT1VneS9BYy94NFpHRmdx?=
+ =?utf-8?B?Z1U2WXM5MjYxQ2Z6c3VuaW52dUpHQjZRYkVoQjdHTm1aL3U3OWpqaWl0c0ox?=
+ =?utf-8?B?SnJkL1dYUFBINWFLWldDVlU5NDd3ZXgxSmdWMnRVd1RzL1Evc3o3aGRlVTM1?=
+ =?utf-8?B?YnR1cWUvWFBBR2wvVXg4QTZxVFlBNkx2YUQ5RExIaDVxUGJWdU0zUW5GMW5u?=
+ =?utf-8?B?bTBKQVMyd3BRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d254elBKb0hnMWg1K1ZWcWJZcnBHRlpCblJQWW54YUhCTzdmVHJUc2MxL0RU?=
+ =?utf-8?B?NkZyMjV3L1JDRk9lQmFYcW1aSDBWb2hYWW9nM3lyUGphZ2xiSmd6ZVR2YlRL?=
+ =?utf-8?B?emRNMUlXSnB2ZlNqdFBIMEcxdnNBNlRnM1dacnNxRy9XejZPLzB1Vmw1R3Vv?=
+ =?utf-8?B?UWRncXVrY3BxVjAwcWpIak40dTBiaU1LWU5FcVVaMnlDZ2JmZktkbnhOWGE4?=
+ =?utf-8?B?SjFBS1pzbXJQYzlxYzdCZTY4VUdpV0RMaG1KQ3BtK1VOMVJvL0JTUXMyR2tL?=
+ =?utf-8?B?QWptcDdMQ1pVMmk4UVdVVTg3RndSenZIdzZtVUg4ZEk5R3gySTNZaXc1WWlp?=
+ =?utf-8?B?VzVPNUpROWRjNHlkd21EOW92OHNreTZzOGlCMWlsNTJTYUZkRHNvWHVPOFVk?=
+ =?utf-8?B?K0N1REsvY2hiYS9lTEVKbnhqYlNsOUFLa1lkWnd3dmc0R3pmOWl1eGxGbmsy?=
+ =?utf-8?B?dDk3N2NWamc4ZDBRVm9penBGaytwd2pMZWh3MUJveHE2blZ6QTNhaHJxOWYw?=
+ =?utf-8?B?cHVwbjFPWUpid0JaNno3NzRPeWEzdTZjUC92RjAzYWo0NDQ5UWw2bkF0Tlo1?=
+ =?utf-8?B?eG11ZzdWNGZQUXJBQm5OR1VjVFBQaHU5RFZDeXhxamJRbmpYYlJ4aHdGTGEy?=
+ =?utf-8?B?aGE3SmZDVmZPMnlpTVVLKzl6QndmZjFmMGRCM0tOaXhTSkhhRzJBOUs2cFNG?=
+ =?utf-8?B?V3J6ZTh2SDZVSWxiQ2d2L2hOakcvWU5ZUFpYellCNnM3Rm85Z1NlNy9QZzg1?=
+ =?utf-8?B?WE9aMFBPUFlKRFFmZ2NlNXNvQTI1aDczNThVNmx0U2UrZjVyOTNRc2hUT211?=
+ =?utf-8?B?ZE9ibFE3WUZtbmJDdnJ3akc5YllWRjJpa1BOYXRlMUVkZTI5dC9CWFlxZVdH?=
+ =?utf-8?B?VEVnMUhLRWVKWGZTdmRNR2NSN1Iwblk4WVM5Vkp4Yi9EcDM5emxsdGZlZGw5?=
+ =?utf-8?B?STNSb0VhS0FTK09DZTg2a3huVWNQVlJORVZkd0NjWmRSL2Y3U3B2M3NIR0VL?=
+ =?utf-8?B?RXoxQ3Z6UEtIbCtZODM0K1RRZnN0MzVwQmVNTXVubVhiMWVTN1BjOVd2aUd6?=
+ =?utf-8?B?bWw5NDVKWFhSZm0wWlFydFcvZjBvQVFkaGZyR09nYjJOQm1YSHZIbkk1RnhG?=
+ =?utf-8?B?ckFBK0FsbGdjVjdUZU9QbzRObndsYUhDOWphOXVWUnlBTENBeTgwYTA0eUNv?=
+ =?utf-8?B?dVMvY29nOUJPRUhEMUQvd2x1MFcwdk92bHdibVNMQThLRDVDdXpUN095bDZT?=
+ =?utf-8?B?aXgzaDNXR0xNeVZpbDh2MDIzbU9DRXZXczJJbDVodTArc0JLWW15eHBoQ2gy?=
+ =?utf-8?B?amtBYXFMUHlyTllhbG9URnVGRGxTK085WUlNWlAvTTFRejB5KzNoR0ZLWUZk?=
+ =?utf-8?B?aTkySzQ3WkdTYy9tSW5hSW50SDhvdU8yQ1NkajkxSzBlZUZ1WG8xazVVV0li?=
+ =?utf-8?B?Z0JRV0xiT2ZWQU1VaU16LzRlQTBGN1Rwb0FYRkh1WndCNHdVUDZEblB2NkJx?=
+ =?utf-8?B?QWZvbUxoWHVRRzBiMkdCcTY1Tmg1N2hiek9iYmVhbGt6dmVDWEoyV2RvQUZY?=
+ =?utf-8?B?dVhTMjRyRFBzMkJHUGN1Z3RFM2JPazZVOHZ6Q3FtaytGRkpoeXlGKy8xR21E?=
+ =?utf-8?B?NEtQM202aFkvUXR3by8vRHBjMDB2T05GYWJxMUlLZFF3SkxrYndiRURLK0t6?=
+ =?utf-8?B?a3ArR0RuRnBMT0pCL3BlNDkzbUZrb2d5S25pWFAxWWdRdGdmTk5MejR1UkNP?=
+ =?utf-8?B?RHQweFdvSXZXcXVmSFErNG90SEhYYUVQUHd5QU96SmJ1a0V1V1M4RXRNdXo3?=
+ =?utf-8?B?OUxvbFQ1SWRVNjl6Q2x6Vldha01nbkFQWUEwMytZYWJaN3ZOSCtQSS8rSS95?=
+ =?utf-8?B?NmViYWV0MG1ic1ZFY1dGSG5pL01Rb0dmOTVBME1pVXBqMWRSR2ZWNUUyaW1U?=
+ =?utf-8?B?K1Axdml6T1ZTSTZtRUhHSjFrYUt5RXJPVU9vcGFaWDRXOVg0RnhNUkJ1UUZ2?=
+ =?utf-8?B?VS92NlVWdERMWHNrcXB3dkZWTi9QZ3M1MVp2TkJxQUNDNjRENW9CYmRGQkIz?=
+ =?utf-8?B?Z2U2dk4wRm9mb3o3Ly9YTlZFbmZndXFmaHRoVDVvZk1aaXhtbzkrZjIvalZT?=
+ =?utf-8?B?VHRsOS9taVdPZG1ERlRYTnZRazJvVjNjWmQ4U0FndHo1MjcvclhvWVFZcVNy?=
+ =?utf-8?B?TlE9PQ==?=
+X-OriginatorOrg: wolfvision.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fcddba5-ff62-4f9f-c053-08dd4694bb5f
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 09:57:57.0461
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g5NqKRTgithUrNmQ6SX1UuX5yama3y+gX9Dxj19YrLijLtra3WC/RR8SlCSu6YSaB1KEHL4T2en1DuUxI0IKvvMYfVbkSreOflbgNMZ4fos=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_015330_795211_03F7CD69 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250206_015803_736434_767D20AD 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,69 +200,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2025 09:11, Ziqi Chen wrote:
-> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
-> plans. However, the gear speed is only toggled between min and max during
-> clock scaling. Enable multi-level gear scaling by mapping clock frequencies
-> to gear speeds, so that when devfreq scales clock frequencies we can put
-> the UFS link at the appropraite gear speeds accordingly.
-> 
-> This series has been tested on below platforms -
-> sm8550 mtp + UFS3.1
-> SM8650 MTP + UFS3.1
-> SM8750 MTP + UFS4.0
-> 
-> v1 -> v2:
-> 1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for UFS on SM8650"
-> 2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs addributes"
-> 3. Modify commit message for  "scsi: ufs: core: Pass target_freq to clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change"
-> 4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post change", use common Macro HZ_PER_MHZ in function ufs_qcom_set_core_clk_ctrl()
-> 5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", print out freq and gear info as debugging message
-> 6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the lable "do_pmc" to "config_pwr_mode"
-> 7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize the local variables "wb_en" as "false"
-> 
-> v2 -> v3:
-> 1. Change 'vops' to 'vop' in all commit message
-> 2. keep the indentation consistent for clk_scale_notify() definition.
-> 3. In "scsi: ufs: core: Add a vop to map clock frequency to gear speed", "scsi: ufs: qcom: Implement the freq_to_gear_speed() vop"
->     and "scsi: ufs: core: Enable multi-level gear scaling", remove the parameter 'gear' and use it as return result in function freq_to_gear_speed()
-> 4. In "scsi: ufs: qcom: Implement the freq_to_gear_speed(), removed the variable 'ret' in function ufs_qcom_freq_to_gear_speed()
-> 5. In "scsi: ufs: core: Enable multi-level gear scaling", use assignment instead memcpy() in function ufshcd_scale_gear()
-> 6. Improve the grammar of attributes' descriptions in “ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes”
-> 7. Typo fixed for some commit messages.
-> 
-> Can Guo (6):
->    scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
->    scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
->    scsi: ufs: core: Add a vop to map clock frequency to gear speed
->    scsi: ufs: qcom: Implement the freq_to_gear_speed() vop
->    scsi: ufs: core: Enable multi-level gear scaling
->    scsi: ufs: core: Toggle Write Booster during clock scaling base on
->      gear speed
-> 
-> Ziqi Chen (2):
->    scsi: ufs: core: Check if scaling up is required when disable clkscale
->    ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes
-> 
->   Documentation/ABI/testing/sysfs-driver-ufs | 33 ++++++++++
->   drivers/ufs/core/ufshcd-priv.h             | 15 ++++-
->   drivers/ufs/core/ufshcd.c                  | 76 +++++++++++++++++-----
->   drivers/ufs/host/ufs-mediatek.c            |  1 +
->   drivers/ufs/host/ufs-qcom.c                | 62 ++++++++++++++----
->   include/ufs/ufshcd.h                       |  9 ++-
->   6 files changed, 160 insertions(+), 36 deletions(-)
-> 
+Add defines for the pixel clock sampling modes (rising edge, falling edge,
+dual edge) for parallel video interfaces.
+This avoids hardcoded constants in device tree sources.
 
-Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8550-QRD
-Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8550-HDK
-Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8650-HDK
+Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+---
+ include/dt-bindings/media/video-interfaces.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I added some traces and played with devfreq max_freq while copying data
-from the UFS disk, no issues observed.
+diff --git a/include/dt-bindings/media/video-interfaces.h b/include/dt-bindings/media/video-interfaces.h
+index 88b9d05d8075..0b19c9b2e627 100644
+--- a/include/dt-bindings/media/video-interfaces.h
++++ b/include/dt-bindings/media/video-interfaces.h
+@@ -20,4 +20,8 @@
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CAB	4
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CBA	5
+ 
++#define MEDIA_PCLK_SAMPLE_FALLING_EDGE		0
++#define MEDIA_PCLK_SAMPLE_RISING_EDGE		1
++#define MEDIA_PCLK_SAMPLE_DUAL_EDGE		2
++
+ #endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACES_H__ */
 
-Neil		
+-- 
+2.34.1
+
 
