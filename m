@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF82C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15A6C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I88Es5nW96kSoOcv6Dbr94uSnbNRzJurf3m4q8mKZlI=; b=owuSvFDQriK46ECSzXuWTpd2T+
-	O1luYpAF6Y3Re/j5VN4wkiMnKGUGkgzm5hhPRLfV6MZiXKx1d9jaf104UFCTjMgqObVvTx7OxvAs5
-	nvdoCtC1wV9/rpR21PPXfhczjeo1uYTSahFCmHUG/NBgksswBrFqREWqEMJzWlFucrxnzJTt3C47b
-	MmN7BZG3JTY1Rwvc1oIBDhIks3tr06eQM4Ms+SEhWXuUyLPEG7SWjRP9cSl+hq/s9cgDDXb8rUx3f
-	d/IGb0gt/X97XRk4YH677xY2gBvoJvgYI1iP/LeALy9iDbkUpIMBAl948dd5CAo/jHP4CiWF7Ga/4
-	EpwjpcEw==;
+	bh=HV7rdfOO37+bLA4QCT63lTmO77gcJONDjGXKxVKB6mQ=; b=Kcwadr8HZL5xcafAtvmHAZKc/x
+	382Luo0fePcta4cvwHzPY4QSDsCSTNtLEwYGaQIlJfG7VuvfcLKjTXLraMv/TnhplaF/ZIyMRcMQJ
+	YFDTKJaua5/2DrpMy4W9BkjMTCGsRwnXkLIFblsxAJKHMtx+xWtYMhIihfB1QGhf3psQpBexH7jAZ
+	CpNKuNN7SJVAxM94nvH/nPMYvhnP5UobAB+mShpzRGSh8DsPQBXOdv5lwqFiWou+2RrmfhGy7n8un
+	xIAzWLgUNULF3S9u4sX/iXfZMjjDsnXYqc/QqUtYRALPLAbE1F7jkY8mB64Hnofrvc8KCG8oehplm
+	BnIagfXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxWe-00000005k8Y-26u1;
-	Thu, 06 Feb 2025 08:46:20 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tfxae-00000005krB-2htQ;
+	Thu, 06 Feb 2025 08:50:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwEg-00000005YHz-0URd
+	id 1tfxZH-00000005kfS-0qWc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:23:44 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f9e415fa42so968452a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826621; x=1739431421; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=I88Es5nW96kSoOcv6Dbr94uSnbNRzJurf3m4q8mKZlI=;
-        b=a1aduA+zQqFCWxcAUl/VsUEjZf801HcGxqpYvFlvv5kBN0aYTybOLh/mZ2tRJEk+jT
-         b0buqoZvFwFsKfnae4FAz+qac71xgx+I/cpWC1r+RoDOsKlK6sJ+EK2Fn1dJvrMMBcXk
-         pZY17kw8Gd8juCYJtGeSaufL6vpzLr1DvzT+PRXLxlnWVsgPpXh83BwoCeMroqtAOGZq
-         msQogjCzpLv0aYlAFNUVYFLJtNH+2PCQm7Ppf0rqLR4ia1wTkoqGYzmXhDbl4/DBA7jC
-         lqyIsf3BOguAXeyleOTcG5OInISY4Yu+AhbPofss72hJmVqgWX+8DjRu/X85R5SzaNPk
-         CJ5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738826621; x=1739431421;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I88Es5nW96kSoOcv6Dbr94uSnbNRzJurf3m4q8mKZlI=;
-        b=p40l5/9V8zOE/gQ22OASEMbxCl1gAHkR7DPPmnByxPiFjvNTeoE2+MkjxZrncXPYX1
-         hWarl55EKkr7wper6/YCqHUFwmLSoRMfep4gfEeJ3E5Q5DMfDrwEZjyaJXyVcCK8utAc
-         9xlsVw36C46krcuUbMRUa4J75x6CzrqziRqKQ5bzxnAy0UQlwi5yOydeK7UdKBWGusSo
-         E7ZPvsS/SwWigwFEUrUDoDRdlcTXZK56IBpTTS5RWAsSU6x42kZB94yKhy4oqwVdjLdb
-         n5HPXH8sow0NraGJXrh0RS/sIWc5adWqffYPrf7S2feSbQ9RCtGiVHFTrNRCTCM59vq6
-         ZGAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgh4GeATzLYQO9pZRPtHPcduSX+4bKxrpjxOWabFiJtQqehJO65mgo38jc/nlEELwIgxR5B2eE6lMgxJmYED0o@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj3/1X64BMnJ/0ZzLpCaPOyAXWZ4QDynmlraVlcVFy2WJyjKqG
-	cQQj3Fo9XopTJLwVX7XVm8yVh5td/fEyCIz6H52O5PFx+EK5/5fQnHiGWZLYJic=
-X-Gm-Gg: ASbGncuaDp7E7TcuW0IDZvqczhqQIrcd0DohyBB8U7mk2xAbC17mkO4PcVWlwd7CMWm
-	jtFnuZ5a1n/YNFruncWFXmRIspDu4MYvzrRUGrb8tCUPuq+nsJG3losFBJQAMajPSK7ins4bJSG
-	kcbKRxAFRGOPUgy83cBHRM3iDAzBqalGqLb9cEsdvFLZQSyIyQOF+QZhkYXIzVitWWFlhYZ9gaB
-	/KMnB5qdJdrUH90iDZcegY773kwqFqDwGNRX/IW2vlXKMixQT7j+aoQNr5SKEWl2CMi8nBCU1YA
-	JWD9BPrRLBU3jxGW3DZDFP36cCyR
-X-Google-Smtp-Source: AGHT+IHw8z00oYKwQWOlOfDB9fO1eIwPs/hkvMz9GejIoBfl+7Quq44eHbwbfyI2Rhdhk6N6OB3X8w==
-X-Received: by 2002:a17:90a:12c8:b0:2fa:b84:b31f with SMTP id 98e67ed59e1d1-2fa0b84b6ffmr1530733a91.25.1738826621487;
-        Wed, 05 Feb 2025 23:23:41 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 23:23:41 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 05 Feb 2025 23:23:21 -0800
-Subject: [PATCH v4 16/21] RISC-V: perf: Use config2/vendor table for event
- to counter mapping
+	Thu, 06 Feb 2025 08:49:04 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5167xquF006451;
+	Thu, 6 Feb 2025 08:48:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HV7rdfOO37+bLA4QCT63lTmO77gcJONDjGXKxVKB6mQ=; b=MNHCTiRuJXvvYBfh
+	b2jUL9P8/F/1lpzXvgFaX/n7QhMKlCtbRXshaV4SOUlAicsDLPKS/ld879TaM/AK
+	l8JBFGZBEbJ4aVUWPpeB+KcjoOEiZcWPUjMLwYQ8IzURZS3Kr6Sd5ptBw6oecxTi
+	IGo1k8jukP4VE5Yjkt2vhf9vjlh30HzsRABMdFXu6owZqKBzcM7dRL4paIqFwhW0
+	bJutjtPFZNzJD0+AqdWw+vbWbnRR+uIU4DmG7z0tb8K9vLW4F04c65eDbKYl2plx
+	fDBu6+5T2DS6PCJaPfE+XITsuer1qr2+ym7SLs8+gxy+SiMiOuqHtKu4lyfMLf8G
+	uP3Faw==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44mp648hgu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 06 Feb 2025 08:48:48 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5168mlmn017334
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 6 Feb 2025 08:48:47 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 6 Feb 2025
+ 00:48:43 -0800
+Message-ID: <10a970c0-e8f2-41c5-a68f-3ac4ae88d9d0@quicinc.com>
+Date: Thu, 6 Feb 2025 16:48:35 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250205-counter_delegation-v4-16-835cfa88e3b1@rivosinc.com>
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] arm64: mm: Populate vmemmap/linear at the page level
+ for hotplugged sections
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
+        <stable@vger.kernel.org>
+References: <20250109093824.452925-1-quic_zhenhuah@quicinc.com>
+ <9ae36424-2cb6-491d-8ac2-95bfe39828a2@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <9ae36424-2cb6-491d-8ac2-95bfe39828a2@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: pK0AeNTT_iaLFAnCN66di-FsCCP3I7ts
+X-Proofpoint-ORIG-GUID: pK0AeNTT_iaLFAnCN66di-FsCCP3I7ts
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-06_01,2025-02-05_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
+ clxscore=1015 malwarescore=0 mlxlogscore=999 mlxscore=0 bulkscore=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 adultscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502060071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_232342_266737_DCFB3E48 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20250206_004903_354420_70520604 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,159 +105,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The counter restriction specified in the json file is passed to
-the drivers via config2 paarameter in perf attributes. This allows
-any platform vendor to define their custom mapping between event and
-hpmcounters without any rules defined in the ISA.
+Dear Catalin and Anshuman,
 
-For legacy events, the platform vendor may define the mapping in
-the driver in the vendor event table.
-The fixed cycle and instruction counters are fixed (0 and 2
-respectively) by the ISA and maps to the legacy events. The platform
-vendor must specify this in the driver if intended to be used while
-profiling. Otherwise, they can just specify the alternate hpmcounters
-that may monitor and/or sample the cycle/instruction counts.
+Given that it's a genuine bug affecting stability, we need to address it 
+:). Could you please let me know if you have any additional concerns or 
+thoughts?
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_dev.c   | 79 ++++++++++++++++++++++++++++++++++--------
- include/linux/perf/riscv_pmu.h |  2 ++
- 2 files changed, 67 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 219f65eb167c..bbf5bcff51fc 100644
---- a/drivers/perf/riscv_pmu_dev.c
-+++ b/drivers/perf/riscv_pmu_dev.c
-@@ -76,6 +76,7 @@ static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct devic
- 	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
- 
- PMU_FORMAT_ATTR(firmware, "config:62-63");
-+PMU_FORMAT_ATTR(counterid_mask, "config2:0-31");
- 
- static bool sbi_v2_available;
- static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
-@@ -112,6 +113,7 @@ static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
- static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
- 	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
- 	&format_attr_firmware.attr,
-+	&format_attr_counterid_mask.attr,
- 	NULL,
- };
- 
-@@ -1383,24 +1385,77 @@ static int rvpmu_deleg_find_ctrs(void)
- 	return num_hw_ctr;
- }
- 
-+/*
-+ * The json file must correctly specify counter 0 or counter 2 is available
-+ * in the counter lists for cycle/instret events. Otherwise, the drivers have
-+ * no way to figure out if a fixed counter must be used and pick a programmable
-+ * counter if available.
-+ */
- static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	return -EINVAL;
-+	struct hw_perf_event *hwc = &event->hw;
-+	bool guest_events = event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS;
-+
-+	if (guest_events) {
-+		if (hwc->event_base == SBI_PMU_HW_CPU_CYCLES)
-+			return 0;
-+		if (hwc->event_base == SBI_PMU_HW_INSTRUCTIONS)
-+			return 2;
-+		else
-+			return -EINVAL;
-+	}
-+
-+	if (!event->attr.config2)
-+		return -EINVAL;
-+
-+	if (event->attr.config2 & RISCV_PMU_CYCLE_FIXED_CTR_MASK)
-+		return 0; /* CY counter */
-+	else if (event->attr.config2 & RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK)
-+		return 2; /* IR counter */
-+	else
-+		return -EINVAL;
- }
- 
- static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	unsigned long hw_ctr_mask = 0;
-+	u32 hw_ctr_mask = 0, temp_mask = 0;
-+	u32 type = event->attr.type;
-+	u64 config = event->attr.config;
-+	int ret;
- 
--	/*
--	 * TODO: Treat every hpmcounter can monitor every event for now.
--	 * The event to counter mapping should come from the json file.
--	 * The mapping should also tell if sampling is supported or not.
--	 */
-+	/* Select only available hpmcounters */
-+	hw_ctr_mask = cmask & (~0x7) & ~(cpuc->used_hw_ctrs[0]);
-+
-+	switch (type) {
-+	case PERF_TYPE_HARDWARE:
-+		temp_mask = current_pmu_hw_event_map[config].counter_mask;
-+		break;
-+	case PERF_TYPE_HW_CACHE:
-+		ret = cdeleg_pmu_event_find_cache(config, NULL, &temp_mask);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PERF_TYPE_RAW:
-+		/*
-+		 * Mask off the counters that can't monitor this event (specified via json)
-+		 * The counter mask for this event is set in config2 via the property 'Counter'
-+		 * in the json file or manual configuration of config2. If the config2 is not set,
-+		 * it is assumed all the available hpmcounters can monitor this event.
-+		 * Note: This assumption may fail for virtualization use case where they hypervisor
-+		 * (e.g. KVM) virtualizes the counter. Any event to counter mapping provided by the
-+		 * guest is meaningless from a hypervisor perspective. Thus, the hypervisor doesn't
-+		 * set config2 when creating kernel counter and relies default host mapping.
-+		 */
-+		if (event->attr.config2)
-+			temp_mask = event->attr.config2;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (temp_mask)
-+		hw_ctr_mask &= temp_mask;
- 
--	/* Select only hpmcounters */
--	hw_ctr_mask = cmask & (~0x7);
--	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
- 	return __ffs(hw_ctr_mask);
- }
- 
-@@ -1429,10 +1484,6 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
- 	u64 priv_filter;
- 	int idx;
- 
--	/*
--	 * TODO: We should not rely on SBI Perf encoding to check if the event
--	 * is a fixed one or not.
--	 */
- 	if (!is_sampling_event(event)) {
- 		idx = get_deleg_fixed_hw_idx(cpuc, event);
- 		if (idx == 0 || idx == 2) {
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 9e2758c32e8b..e58f83811988 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -30,6 +30,8 @@
- #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
- 
- #define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-+#define RISCV_PMU_CYCLE_FIXED_CTR_MASK 0x01
-+#define RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK 0x04
- 
- #define HW_OP_UNSUPPORTED		0xFFFF
- #define CACHE_OP_UNSUPPORTED		0xFFFF
-
--- 
-2.43.0
+On 2025/1/15 10:13, Zhenhua Huang wrote:
+> Gentle reminder if you happened to miss it :)
+> 
+> On 2025/1/9 17:38, Zhenhua Huang wrote:
+>> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+>> to 27, making one section 128M. The related page struct which vmemmap
+>> points to is 2M then.
+>> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+>> vmemmap to populate at the PMD section level which was suitable
+>> initially since hot plug granule is always one section(128M). However,
+>> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+>> existing arm64 assumptions.
+>>
+>> Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
+>> pmd_sect() is true, the entire PMD section is cleared, even if there is
+>> other effective subsection. For example page_struct_map1 and
+>> page_strcut_map2 are part of a single PMD entry and they are hot-added
+>> sequentially. Then page_struct_map1 is removed, vmemmap_free() will clear
+>> the entire PMD entry freeing the struct page map for the whole section,
+>> even though page_struct_map2 is still active. Similar problem exists
+>> with linear mapping as well, for 16K base page(PMD size = 32M) or 64K
+>> base page(PMD = 512M), their block mappings exceed SUBSECTION_SIZE.
+>> Tearing down the entire PMD mapping too will leave other subsections
+>> unmapped in the linear mapping.
+>>
+>> To address the issue, we need to prevent PMD/PUD/CONT mappings for both
+>> linear and vmemmap for non-boot sections if corresponding size on the
+>> given base page exceeds SUBSECTION_SIZE(2MB now).
+>>
+>> Cc: stable@vger.kernel.org # v5.4+
+>> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+>> ---
+>> Hi Catalin and Anshuman,
+>> I have addressed comments so far, please help review.
+>> One outstanding point which not finalized is in vmemmap_populate(): 
+>> how to judge hotplug
+>> section. Currently I am using system_state, discussion:
+>> https://lore.kernel.org/linux-mm/1515dae4-cb53-4645-8c72- 
+>> d33b27ede7eb@quicinc.com/
+>>   arch/arm64/mm/mmu.c | 46 ++++++++++++++++++++++++++++++++++++---------
+>>   1 file changed, 37 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index e2739b69e11b..8718d6e454c5 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -42,9 +42,13 @@
+>>   #include <asm/pgalloc.h>
+>>   #include <asm/kfence.h>
+>> -#define NO_BLOCK_MAPPINGS    BIT(0)
+>> -#define NO_CONT_MAPPINGS    BIT(1)
+>> -#define NO_EXEC_MAPPINGS    BIT(2)    /* assumes FEAT_HPDS is not 
+>> used */
+>> +#define NO_PMD_BLOCK_MAPPINGS    BIT(0)
+>> +#define NO_PUD_BLOCK_MAPPINGS    BIT(1)  /* Hotplug case: do not want 
+>> block mapping for PUD */
+>> +#define NO_BLOCK_MAPPINGS    (NO_PMD_BLOCK_MAPPINGS | 
+>> NO_PUD_BLOCK_MAPPINGS)
+>> +#define NO_PTE_CONT_MAPPINGS    BIT(2)
+>> +#define NO_PMD_CONT_MAPPINGS    BIT(3)  /* Hotplug case: do not want 
+>> cont mapping for PMD */
+>> +#define NO_CONT_MAPPINGS    (NO_PTE_CONT_MAPPINGS | 
+>> NO_PMD_CONT_MAPPINGS)
+>> +#define NO_EXEC_MAPPINGS    BIT(4)    /* assumes FEAT_HPDS is not 
+>> used */
+>>   u64 kimage_voffset __ro_after_init;
+>>   EXPORT_SYMBOL(kimage_voffset);
+>> @@ -224,7 +228,7 @@ static void alloc_init_cont_pte(pmd_t *pmdp, 
+>> unsigned long addr,
+>>           /* use a contiguous mapping if the range is suitably aligned */
+>>           if ((((addr | next | phys) & ~CONT_PTE_MASK) == 0) &&
+>> -            (flags & NO_CONT_MAPPINGS) == 0)
+>> +            (flags & NO_PTE_CONT_MAPPINGS) == 0)
+>>               __prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>>           init_pte(ptep, addr, next, phys, __prot);
+>> @@ -254,7 +258,7 @@ static void init_pmd(pmd_t *pmdp, unsigned long 
+>> addr, unsigned long end,
+>>           /* try section mapping first */
+>>           if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+>> -            (flags & NO_BLOCK_MAPPINGS) == 0) {
+>> +            (flags & NO_PMD_BLOCK_MAPPINGS) == 0) {
+>>               pmd_set_huge(pmdp, phys, prot);
+>>               /*
+>> @@ -311,7 +315,7 @@ static void alloc_init_cont_pmd(pud_t *pudp, 
+>> unsigned long addr,
+>>           /* use a contiguous mapping if the range is suitably aligned */
+>>           if ((((addr | next | phys) & ~CONT_PMD_MASK) == 0) &&
+>> -            (flags & NO_CONT_MAPPINGS) == 0)
+>> +            (flags & NO_PMD_CONT_MAPPINGS) == 0)
+>>               __prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>>           init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+>> @@ -358,8 +362,8 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned 
+>> long addr, unsigned long end,
+>>            * For 4K granule only, attempt to put down a 1GB block
+>>            */
+>>           if (pud_sect_supported() &&
+>> -           ((addr | next | phys) & ~PUD_MASK) == 0 &&
+>> -            (flags & NO_BLOCK_MAPPINGS) == 0) {
+>> +            ((addr | next | phys) & ~PUD_MASK) == 0 &&
+>> +            (flags & NO_PUD_BLOCK_MAPPINGS) == 0) {
+>>               pud_set_huge(pudp, phys, prot);
+>>               /*
+>> @@ -1177,7 +1181,13 @@ int __meminit vmemmap_populate(unsigned long 
+>> start, unsigned long end, int node,
+>>   {
+>>       WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>> -    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>> +    /*
+>> +     * Hotplugged section does not support hugepages as
+>> +     * PMD_SIZE (hence PUD_SIZE) section mapping covers
+>> +     * struct page range that exceeds a SUBSECTION_SIZE
+>> +     * i.e 2MB - for all available base page sizes.
+>> +     */
+>> +    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || system_state != 
+>> SYSTEM_BOOTING)
+>>           return vmemmap_populate_basepages(start, end, node, altmap);
+>>       else
+>>           return vmemmap_populate_hugepages(start, end, node, altmap);
+>> @@ -1339,9 +1349,27 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>>               struct mhp_params *params)
+>>   {
+>>       int ret, flags = NO_EXEC_MAPPINGS;
+>> +    unsigned long start_pfn = PFN_DOWN(start);
+>> +    struct mem_section *ms = __pfn_to_section(start_pfn);
+>>       VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>> +    /* should not be invoked by early section */
+>> +    WARN_ON(early_section(ms));
+>> +
+>> +    /*
+>> +     * Disallow BlOCK/CONT mappings if the corresponding size exceeds
+>> +     * SUBSECTION_SIZE which now is 2MB.
+>> +     *
+>> +     * PUD_BLOCK or PMD_CONT should consistently exceed SUBSECTION_SIZE
+>> +     * across all variable page size configurations, so add them 
+>> directly
+>> +     */
+>> +    flags |= NO_PUD_BLOCK_MAPPINGS | NO_PMD_CONT_MAPPINGS;
+>> +    if (SUBSECTION_SHIFT < PMD_SHIFT)
+>> +        flags |= NO_PMD_BLOCK_MAPPINGS;
+>> +    if (SUBSECTION_SHIFT < CONT_PTE_SHIFT)
+>> +        flags |= NO_PTE_CONT_MAPPINGS;
+>> +
+>>       if (can_set_direct_map())
+>>           flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> 
+> 
 
 
