@@ -4,115 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88623C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43199C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2CXRkSzd4LW5IV8mtGWOkMlVaZyNScQT8kSGB+ZHxc=; b=JuipVbkg/lLgmLFxUeTPy+dFUi
-	WP5lgzHU2j2Ind8UMT4qu2bUUTkTrpaX1OsCzaC43fxSqsYunVBOjsaUoGvlUDD+MxmS9+lVKC2EW
-	BFsur121oLnsivQDxotVwyYoeiZ7UJHoGcGytbV+NyNxfSLDL/LOV/nVcPfnPf27f1NMd+5ZoZRbV
-	qNGRK5W/2gwXLICVGh0Mw8wxALFv/CTVEtCx/JK0zCJBT2ERNrKTsIE8NSfLTPK1inW7UcX2Ezqh6
-	kBUUhDgnfi8Mo+n2a1UPzi4//v1mkMjksvEiBS3SRSQjmMfngBkblwo0t0k2N08GQyNeB2wDmBF+j
-	kQGJTx1w==;
+	bh=OmixHTQ9t/qRSkZNn5w1s5t25ZKJIK2uygP8YckJ0Zs=; b=mYpUbTct4U+Ruh4kIPxar4xvRY
+	X+wR3mKydtzzEfOXMVFqmj7ODeDEya3UobUtHjr9/JFjEbqPiii+QVzWN7UhcUPv/LZ4pWJn4G3Ry
+	ymxms4HNPMCvvMVGf4XJWnUzsREyuX2Elc0QFekXlORwplVuml8aG2LV5YYddqR0E0a0p+JFMEcFE
+	EMnuSXv9ijh49KsDwYc+RIiTpHreIw23URVm1tr39pUibiBMkYddyANeCH7g0zovyuiHqyQg1BnUs
+	XdsN7vTn8tfYhwLJxA5i2w01TP8d6QIEKHgo+oqSfs+D/mPCHjgfbNAMNhiFOIpIW+22tTIeHmbYb
+	zrLUkVxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwhv-00000005egp-2sUK;
-	Thu, 06 Feb 2025 07:53:55 +0000
+	id 1tfwka-00000005f0F-3Qp8;
+	Thu, 06 Feb 2025 07:56:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwFB-00000005YYB-2P7S
+	id 1tfwVs-00000005cq7-21kD
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 07:24:13 +0000
+	Thu, 06 Feb 2025 07:41:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=p2CXRkSzd4LW5IV8mtGWOkMlVaZyNScQT8kSGB+ZHxc=; b=kLOX4u3eiuPS5I89Uw0Q8d7N3i
-	BH93Pu1rJ58z9YGeUCGPQuTJ7ZvOgx8+Dxu9gwhftfenEMZdrkoBQuV7leM9NnOseibaT+3n3pGB3
-	JlSdZ5vmsFni0ZCkHWgzmcWggBS+OXiqV2L/SVxnV9gW8dPuS77vjCWmoe+UTKfiDYE1qGZ6fCPnS
-	jwHDGPXk3hmv6kcWMn3I3WyMxnejlhmXINhm33J1cEPcoJhE0Rnsffiy7+BAmQxwrCNx3SvT1o9mM
-	Xfc6sihoAVtA2Vq9ZzGI+dGV1B7Y9LbKB46iJwK0iVoCrmYx3kV/KkMiM4agF8lH6fDeqkzvbIfsa
-	PC12h25A==;
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=OmixHTQ9t/qRSkZNn5w1s5t25ZKJIK2uygP8YckJ0Zs=; b=dFA92YTnuI9+6/+Aqzo3qsR3vj
+	TEIyWx6bpgc74iuX98Pj2ZwJjPif9TL2bL/vzbmR1ZMzw/n+qJPkykyWoyLtM79SzY+7DsOI/cTnK
+	0J9pTBP6mRlb1rieHbANTRAG7i6mCjdtxu4RibtaCUDyzu/QCBNHqByBuxGwq4gijI/A1HGNuwMm9
+	0kdygfL6F6s70nkMFSK1hussbOwUvh6YVyDq9h4ygVs7ymvmVtWJ26FucHAXguFfDcPTibjyWg1N7
+	zZOF6CuS6HmQY7WNPr+HdiOGQhUhtRnwIFP4xIPb4aHtFZWeEVMzVazBWXCichJ5ALLXgmJAmCp/E
+	jA4XA/HQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwES-0000000GqmY-335T
+	id 1tfwVp-0000000GrB6-0QeC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:24:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so988162a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826602; x=1739431402; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p2CXRkSzd4LW5IV8mtGWOkMlVaZyNScQT8kSGB+ZHxc=;
-        b=BrPiFDy76FGI+TDP/fj/cJv/czjB6vwGe7i3zMfTEWSz4F6ryDOQOhJo5t+p3D1QJh
-         OQNYh/lDLwsPZ7vVFTXiAU5t4SQaCCYUa8Q44ISRsn/Uv4OcFWF6+OMEr6TFA0B4tGly
-         coU4VaJNxo+G8JDxu+m8/FdHlewcGQH87hNEhXCQ25xHvarSFUTEXIdkWSXtTE2gpAXM
-         ksO4vLabA0vBIJpieOCrW28T2uQq5nJYEHuAmZ4jUVgtA7PVlx8rFdIBNPbZk99QJwZF
-         lum3icJB8LVp5ceJhYL3OOeS9z1h5Tt3cpnN/kDaj+KjUZs8bOEs++7AxJ7CZ/auMtj9
-         OELQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738826602; x=1739431402;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p2CXRkSzd4LW5IV8mtGWOkMlVaZyNScQT8kSGB+ZHxc=;
-        b=EYi38eRaKt8nccgT24RawSqKhh2QQqbcYjIbq/ZjFDzWHyJpeWu1aqjOI3ps77D4GA
-         wIZ+wSxntl9c8JxuNffa4Pnbq8ibr4ST4leussATSTVXqIdUp7en3goBoh4dwMuO6vgN
-         KhS48EUXVf1vbA/u8Y1IpWtovPFM7xi+VMzt/JY6Ut20Y7s4e40kU25brUama6IDRBdF
-         WnWK32YDZWK7HAjo5go1hYHbzRli7LJBRABMGuteVj6Eo+yMBtVm2gaYYVTCT+TvX73q
-         vYZXrir1dGXDtrEzfLCKCD1wssqmn4pDBq1yO2nRV6lJbddQZJ3ToJwkzOB1hYXiQn03
-         BK+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWTGGHknFOcUd7+hFXajnUPqlG6+8zq3g6jy10tKsNrSNxUqKx+cYWGxHLYFIjnNgJ3fTxLFSYi9RYK4xa5beHw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxmz4ksxnUEnVtUcH8G//+Ic/eoDbBr7qlZIjDO4eU5mLlGYhEi
-	zuZOJp6/cmOI1kGf1vqhJ+d0RH3XPHREGCijMiFFUFhkOfTsjTRKaIaDriMPelg=
-X-Gm-Gg: ASbGncvRfUV+gnZ/pbA+oHSrAPNa9sx9RrXPoME8dH7qDI/bqYygLRAYgeZUVEzYL72
-	mp73WZnzbktcn9NGjd9Dx3ajNH5JWRUHel9NLGLcd4BX7577AFqwk8+wY5qOCvBfehCVJaFnZyJ
-	xVgzkU0gpG0IhBcjE1Qoy35bgiIYpixA24jxNK5C1MJwgsSWftsWZhT22pMTx4pw8vyEpAGHIjL
-	pMmLQGHeGuHLrEzqjnjn9+ZbptGib12AwaunNW/Mm/nr51ypr9bDDN7VfBqIH5jHBA6GAInahiF
-	e0+Q6N2Blcd6UxzVJeftyB5oDlCM
-X-Google-Smtp-Source: AGHT+IEsdW7e0nnU+hOuQNSvBNjT6hUmPYli2IAeU6lmXJs5V7j20UKpuutlBvTAACwmkO+Xy8ldvg==
-X-Received: by 2002:a17:90b:17d1:b0:2ee:df70:1ff3 with SMTP id 98e67ed59e1d1-2f9e06a1b1dmr11330512a91.0.1738826601990;
-        Wed, 05 Feb 2025 23:23:21 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 23:23:21 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 05 Feb 2025 23:23:09 -0800
-Subject: [PATCH v4 04/21] dt-bindings: riscv: add Sxcsrind ISA extension
- description
+	Thu, 06 Feb 2025 07:41:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 780E35C06B9;
+	Thu,  6 Feb 2025 07:40:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6A4C4CEDD;
+	Thu,  6 Feb 2025 07:41:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738827681;
+	bh=EsX6xJcMAoQ0G6QHnLUpoKL/0TeLwQplV36mP5PqyxY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=I++RmrPz9l5+iEND7V0yP94dA4D20zYkBUr6VACuQa5UnpunsncHeckcKriD4N3bx
+	 eVmPv4+bCgg96KLvePim6IpH6g/4ZmMcmWDedtHDtmMPPnp+pptcnRXhScA0pXbZCU
+	 kdbOc8sm0ffuLg28b1TvWFUH7jEa1G9vwpTsVd0n8dxY2LXBlnbZm0Mx1yBtCQAtMy
+	 FrruVOf/rvmK33kRjQ1bHIEya9Ko3vnYz4qBJgU8V4lRBPSvBdKd7s/1r8HWqLmDSY
+	 kZ3Kz6wkjSMqWFbCUnCPyhzhGJPAyX9FtMkNh1r9qUHw6by1I+M7KwcZpiGaMxsY2b
+	 OW6AaGVKf94sA==
+Message-ID: <6ed4ffb4-47ec-4747-a715-10d7f1fc6be3@kernel.org>
+Date: Thu, 6 Feb 2025 08:41:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/9] dt-bindings: clock: samsung,exynos990-clock: add
+ PERIC0/1 clock management unit
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, alim.akhtar@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250205222223.613-1-wachiturroxd150@gmail.com>
+ <20250205222223.613-2-wachiturroxd150@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250205222223.613-2-wachiturroxd150@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250205-counter_delegation-v4-4-835cfa88e3b1@rivosinc.com>
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_072338_238383_5D1926F6 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250206_074125_602880_CBC324BB 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,49 +134,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the S[m|s]csrind ISA extension description.
+On 05/02/2025 23:22, Denzeel Oliva wrote:
+> Add dt-schema documentation for
+> the Connectivity Peripheral 0 / 1 (PERIC0/1) clock management unit.
+> 
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> ---
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- Documentation/devicetree/bindings/riscv/extensions.yaml | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 9c7dd7e75e0c..42e2494b126d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -128,6 +128,14 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcsrind
-+          description: |
-+            The standard Smcsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Smaia extension. This
-+            extension allows other ISA extension to use indirect CSR access
-+            mechanism in M-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
-+
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -146,6 +154,14 @@ properties:
-             added by other RISC-V extensions in H/S/VS/U/VU modes and as
-             ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
- 
-+        - const: sscsrind
-+          description: |
-+            The standard Sscsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Ssaia extension. This
-+            extension allows other ISA extension to use indirect CSR access
-+            mechanism in S-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
-+
-         - const: ssaia
-           description: |
-             The standard Ssaia supervisor-level extension for the advanced
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
--- 
-2.43.0
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
+Best regards,
+Krzysztof
 
