@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B1BC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 18:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D23FC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 18:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L1Ng9lldW/83WhLxtsVxj1Z34scX9+JOOnEphNXYxHw=; b=w7HadVGhdtH09F6FFXkulpzw+T
-	TGwna7IIA3HSgJoufSJFSD1wLLJCownmsvjdubjbaTXT9Bn3z4Xytg+1JS1nDsWPBoudwcpvfg3eb
-	8ku+UQRMOqSmcESl/hNuvrmnTAPWFNGfnA2hYqVhpfua74MipaYNXYMb9CeMMdDAg5s82FsLuXVa8
-	nZ6PCy3gmgfm1o9StYzEAYKsM0s2QW9Z1gUlFUxSYQdUvqFZhS0SsoOZTdUZZ3nfV/4MglDl3PA6S
-	/VPM3yx9sr9dy/12nF/gye8GMMhwB2VGlbj3l5DljOVW8PDSYAsWkwUIl5UeN/WW/zWU8HQRObHBA
-	nxlqdijQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1H6zMSHgovZ8rpqxVZkBI0Z3cJ30uvILWLcJm8N02JM=; b=gIjTev1X5oXZTj
+	Wru9eWcmHmpMWKj6Dcf1IzF6G1/HyS7B9IFg5R7aPtSmpmMn2nps2+wlAkHT9OWFdie6CvXYWJhOc
+	76NgHolsuJswswlglio2qOTzqUua33vzAw3g7r0UcN6ftc8tAmJd2spcD+GFj3yjhv1OH/vetBuYr
+	sy9qV2XZGvLD81BteN8U2IsAC4jY0KTfzKw+xjk4lmcYlnJW2m1hPaWC2iaQZH0wMDzHWJqfbfIFN
+	3JPJhxJLTwOqwB0FWcb+c8L5zRS291GVmp/qm0fedeuXjQdSlqAiBOo9MRW+JriGWzBlATnK8tcqW
+	lhoIH7TlVog/V+OomF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6Md-000000077KG-21aV;
-	Thu, 06 Feb 2025 18:12:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tg6Q2-000000078S1-1agH;
+	Thu, 06 Feb 2025 18:16:06 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6LF-000000076rt-1iNm
+	id 1tg6Od-000000077gj-277D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 18:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738865468;
+	Thu, 06 Feb 2025 18:14:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2AD0A43297;
+	Thu,  6 Feb 2025 18:14:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1738865675;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L1Ng9lldW/83WhLxtsVxj1Z34scX9+JOOnEphNXYxHw=;
-	b=Q0rKUKKYOwfszoaS+oITbJYMPn42PBXWq5YwKRYgIXMSK559Q27/ZYVawluDjvA0CACdkR
-	xP+SDHAYGTMvqtI4nAbTmzzBVI8RwiBrgdEDK4UKfz9qqyIu917R480prlVMvZ7Z0Aww0d
-	T7QJz3zE3mvVoCHyU5+nZr8PtaTMOvc=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-257-8E3rdXJoPkCOp7n7f2PNnw-1; Thu,
- 06 Feb 2025 13:11:05 -0500
-X-MC-Unique: 8E3rdXJoPkCOp7n7f2PNnw-1
-X-Mimecast-MFC-AGG-ID: 8E3rdXJoPkCOp7n7f2PNnw
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8B6E61955BC0;
-	Thu,  6 Feb 2025 18:10:26 +0000 (UTC)
-Received: from localhost (unknown [10.2.16.145])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EA005180087A;
-	Thu,  6 Feb 2025 18:10:21 +0000 (UTC)
-Date: Thu, 6 Feb 2025 13:10:19 -0500
-From: Stefan Hajnoczi <stefanha@redhat.com>
-To: Albert Esteve <aesteve@redhat.com>
-Cc: Vivek Goyal <vgoyal@redhat.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net,
-	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
-	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
-	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
-	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-	david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	loongarch@lists.linux.dev, Hanna Czenczek <hreitz@redhat.com>,
-	German Maglione <gmaglione@redhat.com>
-Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
-Message-ID: <20250206181019.GA413673@fedora>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
- <Z6NhkR8ZEso4F-Wx@redhat.com>
- <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
- <Z6S7A-51SdPco_3Z@redhat.com>
- <20250206143032.GA400591@fedora>
- <CADSE00+2o5Ma0W6FBLHwpUaKut9Tf74GKLCU-377qgxr08EeoQ@mail.gmail.com>
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1H6zMSHgovZ8rpqxVZkBI0Z3cJ30uvILWLcJm8N02JM=;
+	b=ZPyHjq0BGCRWUOtBshRR21ZOe22wJBcxc6Ej72SMJpslJ+N+kx7dQ/OLu5Q7eCXhNJLqS+
+	HFadNUx6LkwnrOSiEgODArRmq4sQso+jUCqHFyeAMIlyfpdsSsHuAZgZv6ylGSBgD7lW+4
+	fj+00WOK2gdoMgQPG/S0UcMN6KN9C31qCFJ1NhiZEUBPLfakzEGjU2qM7mTkFnnbNFSWwg
+	wuNDfG2gIFQAW1nDSVjXJmklNsm2IlXNpDxkiW0lEI744uqd2eYfWBj6I/4NsEAblWz/es
+	QiDKUcyAyy/SmtnACOGGNjffG0HnBWqX0XNxdL8MMa2PvxaFEISvq5g80t/mdw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v6 00/26] Add support for hot-pluggable DRM bridges
+Date: Thu, 06 Feb 2025 19:14:15 +0100
+Message-Id: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9gaKO0MQEl4+jp8i"
-Content-Disposition: inline
-In-Reply-To: <CADSE00+2o5Ma0W6FBLHwpUaKut9Tf74GKLCU-377qgxr08EeoQ@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPj7pGcC/23PzW7DIAwH8FepOI8J82GSnvYe0w4FnAapDRXJ0
+ KYq7z5STYumcvxb9s/2nc2UI83seLizTCXOMU014MuB+fE0nYnHUDOTQmqhoOdjWm6XzzMP+cp
+ djqF2ALoOCe1AvWR18JZpiF8P9P2j5jHOS8rfjx0FtuovJ7HFFeCCa2fAGXLWBPPmUloucXr16
+ co2sMgdMSCaiKwIeSUH6RGDwWdE7Ugnmo8VVRGnPdhOdcL5/hnRO9KDbSJ6Q7wOAxGCo8Yl5g8
+ BqaCJmIqAVQLNCcgT/EfWdf0Bk7JiN8oBAAA=
+X-Change-ID: 20240319-hotplug-drm-bridge-16b86e67fe92
+To: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Daniel Thompson <danielt@kernel.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Sam Ravnborg <sam@ravnborg.org>, Boris Brezillon <bbrezillon@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Jessica Zhang <quic_jesszhan@quicinc.com>
+Cc: Paul Kocialkowski <contact@paulk.fr>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfeiteekkefgtdduveeuffeuffevkeehieduhfefvdfhueekuefhhfdttddvkeefnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvl
+ hhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtohhrsggvtheslhifnhdrnhgvthdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_101109_531861_39AE7CB9 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20250206_101439_800974_14781849 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +103,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---9gaKO0MQEl4+jp8i
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+this series aims at supporting Linux devices with a DRM pipeline whose
+final components can be hot-plugged and hot-unplugged, including one or
+more bridges.
 
-On Thu, Feb 06, 2025 at 03:59:03PM +0100, Albert Esteve wrote:
-> Hi!
->=20
-> On Thu, Feb 6, 2025 at 3:30=E2=80=AFPM Stefan Hajnoczi <stefanha@redhat.c=
-om> wrote:
-> >
-> > On Thu, Feb 06, 2025 at 08:37:07AM -0500, Vivek Goyal wrote:
-> > > And then there are challenges at QEMU level. virtiofsd needs addition=
-al
-> > > vhost-user commands to implement DAX and these never went upstream in
-> > > QEMU. I hope these challenges are sorted at some point of time.
-> >
-> > Albert Esteve has been working on QEMU support:
-> > https://lore.kernel.org/qemu-devel/20240912145335.129447-1-aesteve@redh=
-at.com/
-> >
-> > He has a viable solution. I think the remaining issue is how to best
-> > structure the memory regions. The reason for slow progress is not
-> > because it can't be done, it's probably just because this is a
-> > background task.
->=20
-> It is partially that, indeed. But what has me blocked for now on posting =
-the
-> next version is that I was reworking a bit the MMAP strategy.
-> Following David comments, I am relying more on RAMBlocks and
-> subregions for mmaps. But this turned out more difficult than anticipated.
->=20
-> I hope I can make it work this month and then post the next version.
-> If there are no major blockers/reworks, further iterations on the
-> patch shall go smoother.
->=20
-> I have a separate patch for the vhost-user spec which could
-> iterate faster, if that'd help.
+Use case and overall description
+================================
 
-Let's see if anyone needs the vhost-user spec extension now. Otherwise
-it seems fine to merge it together with the implementation of that spec.
+If you don't know the topic, see cover letter for v5:
+https://lore.kernel.org/all/20241231-hotplug-drm-bridge-v5-0-173065a1ece1@bootlin.com/
 
-Stefan
+Roadmap and current status
+==========================
 
---9gaKO0MQEl4+jp8i
-Content-Type: application/pgp-signature; name="signature.asc"
+Up to v4 the design idea was heavily based on a "hotplug bridge driver" to
+decouple the two sides of the DRM pipeline. After a long discussion during
+Linux Plumbers Conference 2024, a different strategy was agreed with other
+DRM developers, which adds:
 
------BEGIN PGP SIGNATURE-----
+ 1. add refcounting to DRM bridges (struct drm_bridge)
+ 2. handle gracefully atomic updates during bridge removal
+ 3. avoid DSI host drivers to have dangling pointers to DSI devices 
+ 4. finish the hotplug bridge work, removing the "always-disconnected"
+    connector, moving code to the core and potentially removing the
+    hotplug-bridge itself (this needs to be clarified as points 1-3 are
+    developed)
 
-iQEzBAEBCAAdFiEEhpWov9P5fNqsNXdanKSrs4Grc8gFAmek+wsACgkQnKSrs4Gr
-c8iv1AgAtw36d3ZukmPTk9VmX0NGRgWskCoroH9Kztfi3UeYUTi5bn/AL9yD+73x
-aQ8w4QvmQQBq/U85J8DNgOJ6hXW4uE2XpHCEtdgVWRFatuEwWtlLNZ46gUMD+AJb
-QtUvCLNwOtMYbADhEDUiIDIZS3DxHUvTI8JZWN6tNCFme7tuoUiJ4hWEhHhQ07yS
-yebWMNRoW2UmDtVWBMsp/v7zhoroqrrIcRvAaLUBTIE/k2myl3zxEPRW7j69jl9S
-7XwGGLC9Odz8ssha4UIg5fbwuUqpbJQA/PwPQVeJWR0a4OXhbFWebWEGdrXiTKP4
-04dxu53buvDo8JePVLkCaQZfazl9Cg==
-=cm2Y
------END PGP SIGNATURE-----
+This version implements the first item but in a way more complete form than
+in v5. Items 2-4 have not yet been developed. This version is sent to allow
+discussing the bridge refcounting in its latest and greatest shape.
 
---9gaKO0MQEl4+jp8i--
+The largest change singe v5 is now we always create a panel_bridge when a
+drm_panel is added. This wight be not strictly needed, but makes
+panel_bridge creation and lifetime way more straightforward, thusmakeing
+the bridge refcounting work a tad more linear.
+
+Patch series overview
+=====================
+
+ * 2 Preliminary patches (maybe to be removed as this work progresses):
+   - drm/bridge: allow bridges to be informed about added and removed bridges
+   - drm/encoder: add drm_encoder_cleanup_from()
+
+ * Implement refcounting in the drm_bridge core:
+   - drm/bridge: add support for refcounted DRM bridges
+   - drm/tests: bridge: add KUnit tests for DRM bridges (init and destroy)
+   - drm/bridge: add documentation of refcounted bridges
+
+ * Adapt some existing bridges to be refcounted and/or to refcount bridges
+   they take a pointer to:
+   - drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+   - drm/bridge: panel: use dynamic lifetime management
+   - drm/bridge: samsung-dsim: use supporting variable for out_bridge
+   - drm/bridge: samsung-dsim: refcount the out_bridge
+
+ * Add hotplug-bridge (may be removed as this work progresses): 
+   - drm/bridge: hotplug-bridge: add driver to support hot-pluggable DSI bridges
+
+ * Prelimiary, simple cleanups:
+   - drm/debugfs: fix printk format for bridge index
+   - drm: of: drm_of_find_panel_or_bridge: move misplaced comment
+   - drm/bridge: panel: use drm_bridge_is_panel() instead of open code
+   - drm/bridge: panel: drm_panel_bridge_remove: warn when called on non-panel bridge
+
+ * debugfs improvements to show bridges, part 1:
+   - drm/debugfs: add top-level 'bridges' file showing all added bridges
+
+ * Restructure panel code to always add a panel_bridge:
+   - drm/panel: move all code into bridge/panel.c
+   - drm/bridge: panel: forbid initializing a panel with unknown connector type
+   - drm/bridge: panel: add a panel_bridge to every panel
+   - drm/bridge: move devm_drm_of_get_bridge and drmm_of_get_bridge to drm_bridge.c
+
+ * Add new get_bridge variant for drivers supporting non-graph DT:
+   - drm/bridge: add devm_drm_of_get_bridge_by_node()
+   - drm/bridge: samsung-dsim: use devm_drm_of_get_bridge[_by_node] to find the out_bridge
+   
+ * Preliminary patches (maybe to be removed as this work progresses):
+   - drm/bridge: allow bridges to be informed about added and removed bridges
+   - drm/encoder: add drm_encoder_cleanup_from()
+
+ * Implement refcounting in the drm_bridge core:
+   - drm/bridge: add support for refcounted DRM bridges
+   - drm/bridge: devm_drm_of_get_bridge and drmm_of_get_bridge: automatically put the bridge
+   - drm/bridge: increment refcount in of_drm_find_bridge()
+   - drm/bridge: add devm_drm_put_bridge() and devm_drm_put_and_clear_bridge()
+   - drm/bridge: add documentation of refcounted bridges
+   - drm/tests: bridge: add KUnit tests for DRM bridges (init and destroy)
+
+ * debugfs improvements to show bridges, part 2:
+   - drm/debugfs: bridges_show: show refcount
+   - drm/bridge: add list of removed refcounted bridges
+   - drm/debugfs: show removed bridges
+   
+ * Adapt some existing bridges to be refcounted and/or to refcount bridges
+   they take a pointer to:
+   - drm/bridge: samsung-dsim: use refcounting for the out_bridge
+   - drm/bridge: panel: use dynamic lifetime management
+   - drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+   
+ * Add hotplug-bridge (may be removed as this work progresses): 
+   - drm/bridge: hotplug-bridge: add driver to support hot-pluggable DSI bridges (HEAD -> ge/luca/wip)
+
+That's all
+==========
+
+Thanks for you patience in reading this, and many thanks to Dmitry
+Baryshkov for the very nice and useful discussion during FOSDEM.
+
+Luca
+
+Changes in v6:
+- add drm_bridge_alloc() for safe initial refcount
+- always create panel bridge when adding a panel
+  - as a prerequisite, move all drm_panel.c code into bridge/panel.c
+- add devm functions to get bridges (auto put on consumer removal)
+- add devm_drm_of_get_bridge_by_node() for drivers supporting non-graph DT
+- debugfs: show refcount and "[removed]" in bridges file
+- debugfs: add /sys/kernel/debug/dri/bridges showing all bridges
+  (including removed ones)
+- add preliminary, trivial cleanup patches
+- Link to v5: https://lore.kernel.org/r/20241231-hotplug-drm-bridge-v5-0-173065a1ece1@bootlin.com
+
+Changes in v5:
+- Implemented DRM bridge refcounting
+- removed the non-DRM patches, now in a separate series
+- Updated To/Cc list
+- Link to v4: https://lore.kernel.org/r/20240917-hotplug-drm-bridge-v4-0-bc4dfee61be6@bootlin.com
+
+Changes in v4:
+- Replaced DRM bridge notifier with a new callback in struct drm_bridge_funcs
+- Added patch for missing devlink (LEDs used by backlight)
+- Various cleanups
+- Rebased on v6.11
+- Link to v3: https://lore.kernel.org/r/20240809-hotplug-drm-bridge-v3-0-b4c178380bc9@bootlin.com
+
+Changes in v3 (too many changes in v3 to mention them all, but here are the
+big ones):
+- Rewrote the DT format to allow fully decoupled overlays and to avoid
+  adding properties (with the NVMEM exception still to be solved)
+- Implemented device instantiation based on the new DT format: i2c in
+  i2c-core-of.c nobus-devices in the connector driver
+- DRM: insert/remove an LVDS DRM connector on hot(un)plug events
+- Added patch for a devlink issue on overlay removal (mostly to start
+  discussion)
+- Link to v2: https://lore.kernel.org/r/20240510-hotplug-drm-bridge-v2-0-ec32f2c66d56@bootlin.com
+
+Changes in v2:
+- Added bindings and driver for ge,sunh-addon-connector
+- Removed bindings for the hotplug-video-connector, this is now represented
+  in DT as part of the ge,sunh-addon-connector
+- Various monior improvements to the DRM hotplug-bridge driver
+- Link to v1: https://lore.kernel.org/r/20240326-hotplug-drm-bridge-v1-0-4b51b5eb75d5@bootlin.com
+
+Co-developed-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Luca Ceresoli (26):
+      drm/debugfs: fix printk format for bridge index
+      drm: of: drm_of_find_panel_or_bridge: move misplaced comment
+      drm/bridge: panel: use drm_bridge_is_panel() instead of open code
+      drm/bridge: panel: drm_panel_bridge_remove: warn when called on non-panel bridge
+      drm/debugfs: add top-level 'bridges' file showing all added bridges
+      drm/panel: move all code into bridge/panel.c
+      drm/bridge: panel: forbid initializing a panel with unknown connector type
+      drm/bridge: panel: add a panel_bridge to every panel
+      drm/bridge: move devm_drm_of_get_bridge and drmm_of_get_bridge to drm_bridge.c
+      drm/bridge: add devm_drm_of_get_bridge_by_node()
+      drm/bridge: samsung-dsim: use devm_drm_of_get_bridge[_by_node] to find the out_bridge
+      drm/bridge: allow bridges to be informed about added and removed bridges
+      drm/encoder: add drm_encoder_cleanup_from()
+      drm/bridge: add support for refcounted DRM bridges
+      drm/bridge: devm_drm_of_get_bridge and drmm_of_get_bridge: automatically put the bridge
+      drm/bridge: increment refcount in of_drm_find_bridge()
+      drm/bridge: add devm_drm_put_bridge() and devm_drm_put_and_clear_bridge()
+      drm/bridge: add documentation of refcounted bridges
+      drm/tests: bridge: add KUnit tests for DRM bridges (init and destroy)
+      drm/debugfs: bridges_show: show refcount
+      drm/bridge: add list of removed refcounted bridges
+      drm/debugfs: show removed bridges
+      drm/bridge: samsung-dsim: use refcounting for the out_bridge
+      drm/bridge: panel: use dynamic lifetime management
+      drm/bridge: ti-sn65dsi83: use dynamic lifetime management
+      drm/bridge: hotplug-bridge: add driver to support hot-pluggable DSI bridges
+
+ Documentation/gpu/drm-kms-helpers.rst   |  11 +-
+ MAINTAINERS                             |   6 +-
+ drivers/gpu/drm/Makefile                |   1 -
+ drivers/gpu/drm/atmel-hlcdc/Kconfig     |   2 +-
+ drivers/gpu/drm/bridge/Kconfig          |  42 +-
+ drivers/gpu/drm/bridge/Makefile         |   1 +
+ drivers/gpu/drm/bridge/hotplug-bridge.c | 666 +++++++++++++++++++++++++++++
+ drivers/gpu/drm/bridge/panel.c          | 716 ++++++++++++++++++++++++++++----
+ drivers/gpu/drm/bridge/samsung-dsim.c   |  65 +--
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c   |   7 +-
+ drivers/gpu/drm/drm_bridge.c            | 444 +++++++++++++++++++-
+ drivers/gpu/drm/drm_debugfs.c           |  84 +++-
+ drivers/gpu/drm/drm_drv.c               |   1 +
+ drivers/gpu/drm/drm_encoder.c           |  21 +
+ drivers/gpu/drm/drm_internal.h          |  10 +
+ drivers/gpu/drm/drm_kms_helper_common.c |   1 +
+ drivers/gpu/drm/drm_of.c                |  68 ---
+ drivers/gpu/drm/drm_panel.c             | 575 -------------------------
+ drivers/gpu/drm/tests/Makefile          |   1 +
+ drivers/gpu/drm/tests/drm_bridge_test.c |  72 ++++
+ include/drm/drm_bridge.h                | 154 +++++++
+ include/drm/drm_encoder.h               |   1 +
+ include/drm/drm_of.h                    |   1 +
+ include/drm/drm_panel.h                 |   8 +
+ 24 files changed, 2131 insertions(+), 827 deletions(-)
+---
+base-commit: 08dbfc84db00b76df96829787bacc734c1c018b9
+change-id: 20240319-hotplug-drm-bridge-16b86e67fe92
+
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
