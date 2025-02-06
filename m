@@ -4,89 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14D1C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D72DC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USBL3Bi8iE9n2Sl7YVwR873K49AsaDipUTVzCmvsvW0=; b=PYTb+74j9bYb7gwOWAdMPkKBmW
-	j4wP0apkZiFEFdp26X4gw79eE0xG6peyaA6gNmQFZ68Lwgm1HUqleDv9mPqKnOGW5+fEK70Ss7irH
-	DUV8fCQqReUQX2PBJ1dkyZm9Dvd8nDJSun1jr006mpRybsa3sBwhj9WGko92ddyNAmrfzloUE6OX5
-	432WyRZ1nDoExwBlVd85uY1rD8VsrQG1AhKJ2rRcmmioAVTS1Ywayq9NCKQ8P/eFE828OggmQfAaM
-	zSVaLH0LPJLy44UxQt1k4+rWEJZd/05mr7Pjk9/XZRxw4igf4TJSae34ly0pLKAFmgLdZ/ASvXL7a
-	Ukuo7Tmg==;
+	bh=kWy8NHsiXBRim0RmpDVxrPiTMk7OmkLCR7nSU3fC/xM=; b=lsgwO1OlcYjrL7Ji48WDL8d6LA
+	5BGqH+1S3UCiR5MffxQo6AS4F52EVASpkq/1jYgst9AMWEqDs2njUquPQ7VcuqXRL8cmAiqa0xTgU
+	XQN/atQfNnqCQxwJW19vN/WjGW9j99/4Qu4H5j3oHZDRGF+p5NLtbqVb/ZBDCICwE+cSS8t4Ame7g
+	Yi4/2ES2xqzMobmKtGVBzo9TK2f50cz5QGD9RuhQBiDQnJV/DU3gf88oa+u+zQmU9hL0rfsW9Gh+R
+	Hi/EvRNZh29fbLNMGAksDSTVuI6nnVjSKhWdW+yyqh2nWYtrowkUsKDmBFvSr6b1MUrcguVRZ3zGq
+	nF+PgDow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxsq-00000005nV7-2mGV;
-	Thu, 06 Feb 2025 09:09:16 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tfxzd-00000005nwR-3D3U;
+	Thu, 06 Feb 2025 09:16:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxrS-00000005nOz-3rqQ
+	id 1tfwZv-00000005dhN-2xmT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Feb 2025 07:45:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kWy8NHsiXBRim0RmpDVxrPiTMk7OmkLCR7nSU3fC/xM=; b=rNTEbH5opH+5ez4NbIHi+9Gsxq
+	oSPtZaHMzvdmhmmlvAimn3Liyk5wsBW3mcOf8B8zmyO3mNNxLfl5ncEHfgsk8SSGgu/RW4tDdyjOf
+	EBuutekcuujiycrNVFtxUdCqeet9WdTj0mVXej8LuPyWRWmDD9Cm9ubU++8RO+BrsoOhWOywBqekT
+	T+SnkSRtME77Gis9drLCABLkAV7dE82ytmnLcKlQjsDIBs0qQs30fmmpFXaxqLgRD8lJbc257DcmW
+	w/33VFh6cPA9FHIl4Kk4PMnX9gCqFxN8cnnjhpSkfJ4R4prHopN0L5TrU+L/9cFvK56pszLa8qGE1
+	ax9FBcGw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfwZs-0000000GrJG-1MDj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 09:07:52 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-307325f2436so6000541fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 01:07:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738832868; x=1739437668; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=USBL3Bi8iE9n2Sl7YVwR873K49AsaDipUTVzCmvsvW0=;
-        b=EFdCwAcAI7p+rPcLVRNIvkkP0Fvbj2wc55Wfi/UdP22DTSpQVxk4j9nP7ZvgICEAay
-         mcT00TwudlzLJSg26kyrp9oQTumhbLRLo1jHZWmA+a1V/W9ajPeMmg4eGJGcD86Lk4ko
-         l9GCkrchmdRQT0pgis2KfpD60YrrhH3h0+Pb7iXy1YYE0F/1QHVT8s3pW0geYrET3H6m
-         BNomvcxyR7aaMqhkuGlsy+SvosJFVPt2mTWbf84PGdfZjrjD++RgNwJiRwDDDY1dzGUK
-         Lx137lJjQeULjdQcgDe8t1iM9WAHpQS7c/tdN2JcPvlYjeFSx6NgymtgrO1EorwdOorp
-         Oo3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738832868; x=1739437668;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=USBL3Bi8iE9n2Sl7YVwR873K49AsaDipUTVzCmvsvW0=;
-        b=JxlCRxmBfKcVx1h/Jvtkou6e3iBYTpUqxFcn5G68XhMScgIkcJEB5/Yf2WaRuWtCtd
-         RX6NLWRYvZ1D83lruyHXp8XuGTUOehsnng1U7V4hw1Mqwf49J6HZtKpH4iodmv5QVNyH
-         XodWYf/jLOw/rIWbzV9EAlYKCrs5R2Ww1A+Wj8Ra++Z32/I7J5JOjbyFXdBsFsICX0l+
-         XxAOrskxr1RLbfuctEkiPWM8df9ak88o/J+4PjPCxZHIX2F6A80/REltgvHZ6OT3iusx
-         iNNn7ubeGfJ1TS0INebivulNIRQl4qt9tDfATjF+xmxITaJc47HZ/XetXjIgsN2rvdiz
-         WJuA==
-X-Forwarded-Encrypted: i=1; AJvYcCXp523uAeUmOdjkdOeGnJM1vul3AhtD7i7XYOQb68VQGLI+exjbFOJ4ryOLLz1K1FGCalUe/d9PJmuDdTD67nH0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtXNbgl5D0M68DBNdsaWu+hIaK+3fsEHe5VE5xtZasiVCr5g5N
-	eGWlkI19L0BIv/twEI0+vIaGkUmeCvKIz1XhYtYSQQktvj5hvemO6KF6lzwXrYMdUzfZn/rYh0t
-	9pvTpQQrY+wGY+uvISG2DXw9uL9RIk5EXKiChyg==
-X-Gm-Gg: ASbGnctxA2g2ElqCSQuAVjyBTzXg/tpQTlV/F/BD0j1xKJqDAro8oOy1HAmylDzFV38
-	Lv9ocESAF7VPs9Dc96zrYrRzDjefyQV+WxTS/hIDMl3nynhqr/bR/hMopvRMsUQUgOKb4Iq8=
-X-Google-Smtp-Source: AGHT+IFMvokVoCNJp7A3lkxgigywWrPi05v98IDrumPEAYrql6H51kRCzThn+r8IlTxIEYbaKMGx7LiQg6tGfTHRK7I=
-X-Received: by 2002:a2e:a917:0:b0:300:1c9a:80ce with SMTP id
- 38308e7fff4ca-307cf385308mr20165081fa.33.1738832868506; Thu, 06 Feb 2025
- 01:07:48 -0800 (PST)
+	Thu, 06 Feb 2025 07:45:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2431AA43E79;
+	Thu,  6 Feb 2025 07:43:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 676E3C4CEE0;
+	Thu,  6 Feb 2025 07:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738827933;
+	bh=VMElEO1lAAPOMM82o0jEQzZz7g+TiKwKRSpBKqmdnz4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CDBDQUHnp0wezjjaXy9iB1+GdI1WE6fuDIDOvPFH3njhcJ5JRptF7KJh5Npy5ProS
+	 HiV6ykww8bRJLAQURrZF0MOVwqtg9UZepL3xGZv3vK6hqCNz8PDRbpyISDDZtbSQ3J
+	 br3BfotqxOpgITIJtluDFskmtKIbVurryK9oaGSUqEyg1V8V6PIgJuAeHJ9efrn1Yd
+	 S78ZCTWx4x0lpWZ24IwqsArbSyAUzKxXpnEJCiMpf6ey2Egxxt42lhV9lafRxLMpKF
+	 m+U7t7f0HgSANooFwvI7EzM8llBEhN6PSLZMpBtQad//2QVRs8+CyZkzval/p+DC4z
+	 gthM4LM4z8SHA==
+Message-ID: <26d8a9c6-be03-4a86-83c7-336d38fc2bcf@kernel.org>
+Date: Thu, 6 Feb 2025 08:45:30 +0100
 MIME-Version: 1.0
-References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com> <PAXPR04MB845925677F9AB860552A421988F42@PAXPR04MB8459.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB845925677F9AB860552A421988F42@PAXPR04MB8459.eurprd04.prod.outlook.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 6 Feb 2025 10:07:37 +0100
-X-Gm-Features: AWEUYZk9rGC_78qVqTxr81SNDU-6p5M6XpnmcdwLF8h4Nn9OhqhPBv8W52Ra8WI
-Message-ID: <CACRpkdZ1zBkagd478Ee+JAUWrXF1z-Hts=dH+_jgT3Vi26W84g@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] scmi: Bypass set fwnode and introduce allow/block
- list to address devlink issue
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Saravana Kannan <saravanak@google.com>, 
-	Aisheng Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/9] Add PERIC0/1 support for Exynos 990
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, alim.akhtar@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250205222223.613-1-wachiturroxd150@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250205222223.613-1-wachiturroxd150@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_010750_959542_13E3F782 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20250206_074536_780814_2EB897F7 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,17 +132,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 4, 2025 at 4:31=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+On 05/02/2025 23:22, Denzeel Oliva wrote:
+> This patch series introduces support for
+> the PERIC0 and PERIC1 blocks in the Exynos 990 SoC.
+> It includes devicetree bindings, clock definitions,
+> and driver support for the following components:
+> 
+Same comments as for 7870.
 
-> > Subject: [PATCH v2 0/4] scmi: Bypass set fwnode and introduce
-> > allow/block list to address devlink issue
->
-> Any comments on this patchset?
+https://lore.kernel.org/lkml/54d9a2ef-baaa-4d09-afc8-974bd9bd9daa@kernel.org/
 
-The pinctrl changes look OK to me so for those 2 patches:
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-in case you want to merge it through some other tree.
+Additionally for all your patches:
 
-Yours,
-Linus Walleij
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+
+Best regards,
+Krzysztof
 
