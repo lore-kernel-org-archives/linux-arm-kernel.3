@@ -4,62 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DD1C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C13C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dCSIGE2wMg1P8xDRWTGSRIaw1+BvNT3ut4B4Mu1BE8Q=; b=qRxBgc0HZuBmJBLCauBPzB/Of4
-	kt//1HNeyCVjo0f4dvRDkhOLBheeOlGQ7vyDU6YBFgSvCGJSovtxalpTMBbKIN4a9na3WsizkDFRa
-	bwf76l71KzPMN2E0jI8CxuC5dOgxAWtJU1kx1wrAgd21wPY7BwUfaT87ftFBCIJPVN+bIxyVEAY9e
-	LRz0WFlOAOGVN8ehDixrCwAnwenpx87ivxCqu7mIc7zlBiqWbhvV0lcR/3XJp0y4lbGoScbXJTGUw
-	PM5Uf2iYnoOOUlhtBZ87CV9oSQ6BQZodxD6c9ulbhp26f1qBcf4uRhDVGeA4jr1vspwgQiOhQWYhF
-	kRV4bfmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nlPA5sJK+RrtmAbsqXLO5U2BNtdfDlY8hLcmpjZ4xE8=; b=gIk7ZPNk6Bdo3SR7KvSBmmZn1M
+	0kwLA3SnF+AQVKuemGSbNABm0mi/s2uqcf/Q8Xnm48fjgsGfBEeAnqqANK9j00sfWwnL8L+EWC6PR
+	zOVWLNU4Bs2SJdSj9IIa/GGuEF8HGkNsrDdi3b0uLaVMeD6XzlE/bPjrSAXlpJyUyko+dW0s1chJQ
+	14G5CiHrdCbYWAX0ay7GybdT0NeOabaW+Gepilq6eavL5hDK8YC/ureH+NXtoQ07ZujJWMyYrZcgm
+	pwp1gkYhxJ/+QVNGGLNwBXxIb7TyTxWaJ4iDXWEcuLatzUOLVtZIBDFeYs5+u0GDqqoaZTadIdDIx
+	EF5K7Q4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0nY-00000006Eea-3G3q;
-	Thu, 06 Feb 2025 12:16:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0Mn-00000006C2v-1Mgd
+	id 1tg0nd-00000006EiV-0jCp;
+	Thu, 06 Feb 2025 12:16:05 +0000
+Received: from mail-dm6nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2413::625] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg0Vp-00000006DK3-0xVt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 11:48:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A47312FC;
-	Thu,  6 Feb 2025 03:48:44 -0800 (PST)
-Received: from [10.163.34.115] (unknown [10.163.34.115])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0405E3F5A1;
-	Thu,  6 Feb 2025 03:48:14 -0800 (PST)
-Message-ID: <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
-Date: Thu, 6 Feb 2025 17:18:12 +0530
+	Thu, 06 Feb 2025 11:57:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rU4REPmIH700DrtVFQo7v59OKMdnCX0ywwDAMtFE1UeRvys7qWJarg7/UMr4es7Tvk5dPOqM3XFl2tuyNmjK2yawk6IQvXbT5UbS/3eSasVTt7VOYJqHvM5dC5DuZLNR4AgXVwJXRKy3LMbYqtDo/mYwpjFE09e643NoAeXh2uaWqQInN3Q66tCwkE6l+1m5pAIHDNKvNu0yFLLRMU0Ants6fah4HbrxDHl/ELmf8x5KDCcW3PesfZOdVuFfCidbUKqLDp7yddMNsAV/yNL2/QIExHhqjIAPbnRFLcMJECoqlGVKTFgtI6k1YIGrqbFS7uktFyotnxMZZra9vR5I8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nlPA5sJK+RrtmAbsqXLO5U2BNtdfDlY8hLcmpjZ4xE8=;
+ b=Q39K2mJKIVNIH3K6E9DVhqouMojqyvUKycZbGDVI97Xgb+8X21J0/5adKpTx9EDa1fUwchA5UfNqDy+QDxT4Jrygx8N30Rv/f6kXNrfxdsPdD/l/xbkZCt1mrRE88vXWIVOdlA/Nz0qYAdK6WMddB+lwxNCVuPE9XzTG+lq6o4vYrn0ogdM3NneixgN9aGs4KUv2uVla6UZV+r60e0UBJ5rJS7lqALWputMRR63y7j1daAozEynske95v8N7wcrDfs9pjNLAWsfEipy2kt7gvR8uUd3BxKZ0l+pcAWBfuR7GoU61mcOX5mwhlVNEXPMAgKZSSSAp8eghRqDVT2v8Gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nlPA5sJK+RrtmAbsqXLO5U2BNtdfDlY8hLcmpjZ4xE8=;
+ b=lyA4ssgZZqusE34NASJgdLk5W/C3eZdSzSWHO9aSeRvwBw5JjRQyMcwLo15o/yRQV//8HmLcZmlLoI9qNwIAF/LrJadzY2SolDlcIIF9HiAnSwGfWIvxczHuBKRm+uTsjbnt6hiT/86TvlF1Ltl1cO0ysGYqpNpMjsTuPPpIXWw=
+Received: from SA1P222CA0059.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2c1::11)
+ by PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Thu, 6 Feb
+ 2025 11:57:35 +0000
+Received: from SN1PEPF000397B1.namprd05.prod.outlook.com
+ (2603:10b6:806:2c1:cafe::61) by SA1P222CA0059.outlook.office365.com
+ (2603:10b6:806:2c1::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.28 via Frontend Transport; Thu,
+ 6 Feb 2025 11:57:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SN1PEPF000397B1.mail.protection.outlook.com (10.167.248.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8398.14 via Frontend Transport; Thu, 6 Feb 2025 11:57:34 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
+ 2025 05:57:34 -0600
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
+ 2025 05:57:33 -0600
+Received: from xhdsneeli40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Thu, 6 Feb 2025 05:57:30 -0600
+From: Manikanta Guntupalli <manikanta.guntupalli@amd.com>
+To: <git@amd.com>, <michal.simek@amd.com>, <andi.shyti@kernel.org>,
+	<p.zabel@pengutronix.de>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <radhey.shyam.pandey@amd.com>, <srinivas.goud@amd.com>,
+	<shubhrajyoti.datta@amd.com>, <manikantaguntupalli09@gmail.com>, "Manikanta
+ Guntupalli" <manikanta.guntupalli@amd.com>
+Subject: [PATCH 2/2] i2c: cadence: Move reset_control_assert after pm_runtime_set_suspended in probe error path
+Date: Thu, 6 Feb 2025 17:27:08 +0530
+Message-ID: <20250206115708.1085523-3-manikanta.guntupalli@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250206115708.1085523-1-manikanta.guntupalli@amd.com>
+References: <20250206115708.1085523-1-manikanta.guntupalli@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and
- __ptep_get_and_clear()
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-7-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250205151003.88959-7-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B1:EE_|PH7PR12MB5712:EE_
+X-MS-Office365-Filtering-Correlation-Id: faaf0a2c-6565-44a5-9291-08dd46a571db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?e12cD1iH39StaTZwxgNMcGUJQssUJMxWyScpS2E7P2hLCoi5rJwJeYUYxpcd?=
+ =?us-ascii?Q?CUz+VWRtnAscDrqUh7GFyFwGjjyPBSTl5GFWtE+rk81e0H0rTzi8dRHJOSEC?=
+ =?us-ascii?Q?uFzfdy7nM/fuhAXa4YlJxQeKWZwvbi88tDjElRMQsL8u9iMIcAZFIg0KqYrr?=
+ =?us-ascii?Q?Pr8gsr4lyCtMPMn1X+uTkgrZv1WBkd5D7R1lduAETuPJHhrTo5dQ/TEqGcQx?=
+ =?us-ascii?Q?uNBX0PhjTVAG8lVgUaIMOw6npa9V/sC29XV2wft7wAnGu3r6rkw/iwAjwXeC?=
+ =?us-ascii?Q?r3t/zrDoF8ZO/bXhS3IhNLhcRSqAaFkw7N/CyOy1i0jJMOq2j1JzPzEbSn5s?=
+ =?us-ascii?Q?GVtm2OoQ3UeLjLY5IpFF1KAJK2/AkLdfsXkBbBqsa5fDDz26r3s7v2f4bx4d?=
+ =?us-ascii?Q?Vx7bvt7b2KJ73P436aJk3FWmhr4EKqlS16IYyDoEC++xhvu3jbEyB9zsqwCL?=
+ =?us-ascii?Q?asb7msVzDb85PLb+mdRlqotLWPS3VoURTAloJ6r5I/hAXnzK7F0kNS0il49r?=
+ =?us-ascii?Q?cTV9DaBPWqn9Mz6k+mTZm3V2dH3neHjq0avp1uYtEANpTVeBJcx0L0S5HGPV?=
+ =?us-ascii?Q?8ADDorvhLuo7zqMPjtu+e12VeYcwaj+9uprW2AovrJ52PUhuV0OxyucrfhHj?=
+ =?us-ascii?Q?JNGOQgDKjUlp/i7+Z0Up/XmwCvHVEomoPO05DCw7iKCAypWI6rb3HDbp/QLt?=
+ =?us-ascii?Q?AWIl6QSLYaKem+kcOncUODS7dp7cxC8UJS0Fjq49vfcm0Jjz+Rtghpz/3CKx?=
+ =?us-ascii?Q?sqX3OO9JZ9odm8r1lHnB5ehLjHpKS3hVjvoZ9uE1in56gRNz5bptZtX/1HqW?=
+ =?us-ascii?Q?gNS67hX/0XujDlerZqndoLzB0eQF3LRnaZ6bMfIYWemHYIYMz8rvoyxl41pT?=
+ =?us-ascii?Q?NlRimdW5SwvFo6vyMbZuaOBH4GKcQQybrcKnD5DByK1f4OZ3JuE1c7jN0Iq4?=
+ =?us-ascii?Q?8FmAVd143fQVRsPUkJmjvhA1aHxYC4ifj5ThCuMdT57LOY0H0ahpC0hgLTX1?=
+ =?us-ascii?Q?YKxoJ6j8qC81SAKVbtRVrWi7lf9fkLgpsivHJve5UQphOZecKNzQ2Pm8sLdM?=
+ =?us-ascii?Q?DdLCGtdBwoW45QunvNSYbkxXV8lw1QtwecW4APJqo7ZmfQJNi9Mp0DUuaLOD?=
+ =?us-ascii?Q?zC3J4Fh0xMkFGXRaPibILaQEQP8xeHhZVB36s2fw54eDhwNAKKsrWi5YD5FH?=
+ =?us-ascii?Q?htNVnwd1aj4c87+CX7H0Hh0UxuW7SMpxZxip3ud+6Rbf7ALl0Y8nUu/yLbou?=
+ =?us-ascii?Q?sgNHV9Ja6a5q5oCApjbC8SpfBFdrqzK3ybcnrZABGJvaS31TP187V6bfKmEJ?=
+ =?us-ascii?Q?RXKfHa+mb1WgMvUbDuUhIfkwZC2NW7Ua0jmElM/zwkMho/t4FESGwnzhPO2c?=
+ =?us-ascii?Q?MpgJjeBvj2+DHw0diAwJVWBwWkc8d3g6hFLJ4XnL1kBNdIjA6gHLjVAdPZcr?=
+ =?us-ascii?Q?lIJo1ljfVXjv3zAgOQ16NCm0exb0ffYRib1cVkgeTOgkYCutkosdmNmH/T2+?=
+ =?us-ascii?Q?9xMOKTiL6qlnAA8=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 11:57:34.9460
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: faaf0a2c-6565-44a5-9291-08dd46a571db
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_034821_463244_71D248ED 
-X-CRM114-Status: GOOD (  27.59  )
+X-CRM114-CacheID: sfid-20250206_035741_267770_9D71372B 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,219 +150,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/5/25 20:39, Ryan Roberts wrote:
-> Refactor __set_ptes(), set_pmd_at() and set_pud_at() so that they are
-> all a thin wrapper around a generic ___set_ptes(), which takes pgsize
+Ensure reset_control_assert() is called after pm_runtime_set_suspended()
+in the cdns_i2c_probe exit path to maintain proper power management
+sequence in error cases.
 
-s/generic/common - as generic might be misleading for being generic MM.
+Signed-off-by: Manikanta Guntupalli <manikanta.guntupalli@amd.com>
+---
+ drivers/i2c/busses/i2c-cadence.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> parameter. This cleans up the code to remove the confusing
-> __set_pte_at() (which was only ever used for pmd/pud) and will allow us
-> to perform future barrier optimizations in a single place. Additionally,
-> it will permit the huge_pte API to efficiently batch-set pgtable entries
-> and take advantage of the future barrier optimizations.
+diff --git a/drivers/i2c/busses/i2c-cadence.c b/drivers/i2c/busses/i2c-cadence.c
+index 51dc7728d133..8df63aaf2a80 100644
+--- a/drivers/i2c/busses/i2c-cadence.c
++++ b/drivers/i2c/busses/i2c-cadence.c
+@@ -1609,9 +1609,9 @@ static int cdns_i2c_probe(struct platform_device *pdev)
+ 
+ err_clk_notifier_unregister:
+ 	clk_notifier_unregister(id->clk, &id->clk_rate_change_nb);
+-	reset_control_assert(id->reset);
+ 	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_set_suspended(&pdev->dev);
++	reset_control_assert(id->reset);
+ 	return ret;
+ }
+ 
+-- 
+2.34.1
 
-Makes sense.
-
-> 
-> ___set_ptes() calls the correct page_table_check_*_set() function based
-> on the pgsize. This means that huge_ptes be able to get proper coverage
-> regardless of their size, once it's plumbed into huge_pte. Currently the
-> huge_pte API always uses the pte API which assumes an entry only covers
-> a single page.
-
-Right
-
-> 
-> While we are at it, refactor __ptep_get_and_clear() and
-> pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
-> also takes a pgsize parameter. This will provide the huge_pte API the
-> means to clear ptes corresponding with the way they were set.
-
-__ptep_get_and_clear() refactoring does not seem to be related to the
-previous __set_ptes(). Should they be separated out into two different
-patches instead - for better clarity and review ? Both these clean ups
-have enough change and can stand own their own.
-
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h | 108 +++++++++++++++++++------------
->  1 file changed, 67 insertions(+), 41 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 0b2a2ad1b9e8..3b55d9a15f05 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -420,23 +420,6 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
->  	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
->  }
->  
-> -static inline void __set_ptes(struct mm_struct *mm,
-> -			      unsigned long __always_unused addr,
-> -			      pte_t *ptep, pte_t pte, unsigned int nr)
-> -{
-> -	page_table_check_ptes_set(mm, ptep, pte, nr);
-> -	__sync_cache_and_tags(pte, nr);
-> -
-> -	for (;;) {
-> -		__check_safe_pte_update(mm, ptep, pte);
-> -		__set_pte(ptep, pte);
-> -		if (--nr == 0)
-> -			break;
-> -		ptep++;
-> -		pte = pte_advance_pfn(pte, 1);
-> -	}
-> -}
-> -
->  /*
->   * Hugetlb definitions.
->   */
-> @@ -641,30 +624,59 @@ static inline pgprot_t pud_pgprot(pud_t pud)
->  	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
->  }
->  
-> -static inline void __set_pte_at(struct mm_struct *mm,
-> -				unsigned long __always_unused addr,
-> -				pte_t *ptep, pte_t pte, unsigned int nr)
-> +static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
-> +			       unsigned int nr, unsigned long pgsize)
-
-So address got dropped and page size got added as an argument.
-s/___set_ptes/___set_pxds ? to be more generic for all levels.
-
->  {
-> -	__sync_cache_and_tags(pte, nr);
-> -	__check_safe_pte_update(mm, ptep, pte);
-> -	__set_pte(ptep, pte);
-> +	unsigned long stride = pgsize >> PAGE_SHIFT;
-> +
-> +	switch (pgsize) {
-> +	case PAGE_SIZE:
-> +		page_table_check_ptes_set(mm, ptep, pte, nr);
-> +		break;
-> +	case PMD_SIZE:
-> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
-> +		break;
-> +	case PUD_SIZE:
-> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
-> +		break;
-
-This is where the new page table check APIs get used for batch testing.
-
-> +	default:
-> +		VM_WARN_ON(1);
-> +	}
-> +
-> +	__sync_cache_and_tags(pte, nr * stride);
-> +
-> +	for (;;) {
-> +		__check_safe_pte_update(mm, ptep, pte);
-> +		__set_pte(ptep, pte);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		pte = pte_advance_pfn(pte, stride);
-> +	}
->  }
-
-LGTM
-
->  
-> -static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> -			      pmd_t *pmdp, pmd_t pmd)
-> +static inline void __set_ptes(struct mm_struct *mm,
-> +			      unsigned long __always_unused addr,
-> +			      pte_t *ptep, pte_t pte, unsigned int nr)
->  {
-> -	page_table_check_pmd_set(mm, pmdp, pmd);
-> -	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
-> -						PMD_SIZE >> PAGE_SHIFT);
-> +	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
->  }
->  
-> -static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-> -			      pud_t *pudp, pud_t pud)
-> +static inline void __set_pmds(struct mm_struct *mm,
-> +			      unsigned long __always_unused addr,
-> +			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
-> +{
-> +	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
-> +}
-> +#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
-> +
-> +static inline void __set_puds(struct mm_struct *mm,
-> +			      unsigned long __always_unused addr,
-> +			      pud_t *pudp, pud_t pud, unsigned int nr)
->  {
-> -	page_table_check_pud_set(mm, pudp, pud);
-> -	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
-> -						PUD_SIZE >> PAGE_SHIFT);
-> +	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
->  }
-> +#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
-
-LGTM
-
->  
->  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
->  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
-> @@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
->  
-> -static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-> -				       unsigned long address, pte_t *ptep)
-> +static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
-> +				       unsigned long pgsize)
-
-So address got dropped and page size got added as an argument.
-
->  {
->  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
->  
-> -	page_table_check_pte_clear(mm, pte);
-> +	switch (pgsize) {
-> +	case PAGE_SIZE:
-> +		page_table_check_pte_clear(mm, pte);
-> +		break;
-> +	case PMD_SIZE:
-> +		page_table_check_pmd_clear(mm, pte_pmd(pte));
-> +		break;
-> +	case PUD_SIZE:
-> +		page_table_check_pud_clear(mm, pte_pud(pte));
-> +		break;
-> +	default:
-> +		VM_WARN_ON(1);
-> +	}
->  
->  	return pte;
->  }
->  
-> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-> +				       unsigned long address, pte_t *ptep)
-> +{
-> +	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
-> +}
-> +
->  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, unsigned int nr, int full)
->  {
-> @@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
->  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->  					    unsigned long address, pmd_t *pmdp)
->  {
-> -	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
-> -
-> -	page_table_check_pmd_clear(mm, pmd);
-> -
-> -	return pmd;
-> +	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->  
-
-Although currently there is no pudp_huge_get_and_clear() helper on arm64
-reworked ___ptep_get_and_clear() will be able to support that as well if
-and when required as it now supports PUD_SIZE page size.
 
