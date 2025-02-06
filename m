@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01707C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED13C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dVP15nWlaJTuF5QAI5a7hQoatbM7KGy1mQBSxj1R2Xo=; b=FN/FqAhE+Zlc+z02LXeTeIbj/t
-	MvCAZdqClxXPCunZXGJuz64HobZsZ/cOgboDnVlr9dPHiMODvQqmF05y1/XR5de5wqCJKlbKwDaUH
-	aAUuhDDuL8hQo8KZeNes8HJHtVo7TcD4UXb28dO8AJqhlP7sPIoe7V7ZHSbypPfsp3ATDI34U9DJy
-	IvEMM0fzkur62j61qfo8usKZAajOF8GXmCtJqRUQ/tirA+ARt4UQ0pE8Qk5WrD/dZMoJ1be8uxP1Q
-	NR92scqjsCrvb7UMhHT75bzaBboCH9L7xANemyMcY/n9SuD5dWhvhS58DKDrv7i/wHRv6XYViZkVZ
-	gGPLBBnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kuimryCjZ2Ztqx7vxfPlkW5S79f/2oVyGI8EiyfQHMM=; b=Rx5CzRASTjLwAqmwx6nSk9PYuD
+	ZSmHbrzNhdf52QumhOwFMwEt1kGChc/J2sIZKrzAQPPlZKLc2O6sw6lf7fZeyAOHLS2YfT1/GU8XC
+	broix1vGnW/XE0PG0U0AnUP0Xqi/zIK57MpkBUGSqXL3sG6B385fuFPdwXjrIFsQiQVCKxgQcuyTn
+	dCPRlAhwjg9Z2bXe84qyq1M885HLJLQqyvkJR5mKOSBQZBzoiqzEsPMHZbmkAt4OV1/eYVpjvfz0E
+	6vSF3M1yF5wM/+LAkZmjMxB4JnoYmwVs17E/GIdT/wiaQVPyE+NivfgmiD72lq2Qycn6HaWIfjf4s
+	NHEWbfhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1Xm-00000006L5a-0ihk;
-	Thu, 06 Feb 2025 13:03:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1WN-00000006Kvq-3mmi
+	id 1tg1a6-00000006LdD-3t63;
+	Thu, 06 Feb 2025 13:06:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg1Yj-00000006LKL-14ft
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:02:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 784E75C57D9;
-	Thu,  6 Feb 2025 13:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB887C4CEDD;
-	Thu,  6 Feb 2025 13:02:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738846938;
-	bh=gMnKCXJJNauCnoNW3VMTOeQupLk2wpUlZoB93lQkTRI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oBd+0AB65uFPz1BTJrl7XALLiRqtd8nV3WZObgdI7ERBuQ2LTvgaUCOooHYV0WQbU
-	 HCnn47UMXsSNMJ8ehggMypBX1Rp2BlnKqClWGlR7e9sfxt7hPXG2Bl3iSkL//6C2HT
-	 TeiqE9FKOo0ZlHAGS9A63MCFXchMTHsXAjOVSgoNFELq3FgYEFINAoS0qAvUla18Ue
-	 xBgBfOGhE1t8mopo/SppjaFK5Xya1VXh5uaBT/EI9RR5PESF8p9jRRcVvYX0zQolLS
-	 1NlfKTtX7Wu/gkxZkMWyUP2V08kp975V5XnVi+ap+ZlnZEyj286hrKJ/uFRINqr49X
-	 68k45E6Ex1OOg==
-Date: Thu, 6 Feb 2025 13:02:14 +0000
-From: Will Deacon <will@kernel.org>
-To: Radu Rendec <rrendec@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Borislav Petkov <bp@alien8.de>
-Subject: Re: [PATCH] arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo
- array
-Message-ID: <20250206130213.GA3204@willie-the-truck>
-References: <20250123181159.1849346-1-rrendec@redhat.com>
- <20250204123955.GD1063@willie-the-truck>
- <bc37567a390a5ebe1fac2a196358ac139c751561.camel@redhat.com>
+	Thu, 06 Feb 2025 13:04:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6213FEC;
+	Thu,  6 Feb 2025 05:05:07 -0800 (PST)
+Received: from [10.57.80.166] (unknown [10.57.80.166])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4A733F5A1;
+	Thu,  6 Feb 2025 05:04:41 -0800 (PST)
+Message-ID: <b2485f33-73fb-44b3-be36-9c5b6bae4d09@arm.com>
+Date: Thu, 6 Feb 2025 13:04:40 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <bc37567a390a5ebe1fac2a196358ac139c751561.camel@redhat.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 03/16] arm64: hugetlb: Fix flush_hugetlb_tlb_range()
+ invalidation level
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-4-ryan.roberts@arm.com>
+ <e2809c59-6453-4a90-88ad-0b22e82f869f@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <e2809c59-6453-4a90-88ad-0b22e82f869f@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_050219_985929_D35053D3 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20250206_050445_382575_EB118D3B 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +75,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 10:55:53AM -0500, Radu Rendec wrote:
-> On Tue, 2025-02-04 at 12:39 +0000, Will Deacon wrote:
-> > On Thu, Jan 23, 2025 at 01:11:59PM -0500, Radu Rendec wrote:
-> > > diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-> > > index d9c9218fa1fdd..77ffda7284754 100644
-> > > --- a/arch/arm64/kernel/cacheinfo.c
-> > > +++ b/arch/arm64/kernel/cacheinfo.c
-> > > @@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
-> > >  	unsigned int level, idx;
-> > >  	enum cache_type type;
-> > >  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-> > > -	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
-> > > +	struct cacheinfo *infos = this_cpu_ci->info_list;
-> > >  
-> > >  	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
-> > > -	     idx < this_cpu_ci->num_leaves; idx++, level++) {
-> > > +	     idx < this_cpu_ci->num_leaves; level++) {
-> > >  		type = get_cache_type(level);
-> > >  		if (type == CACHE_TYPE_SEPARATE) {
-> > > -			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
-> > > -			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> > > +			if (idx + 2 > this_cpu_ci->num_leaves)
-> > > +				break;
-> > 
-> > Why are you checking 'idx + 2' rather than 'idx + 1'?
+On 06/02/2025 06:46, Anshuman Khandual wrote:
 > 
-> I don't like "magic constants", and I thought "idx + 2" would be more
-> suggestive since 2 elements were added.
 > 
-> The check is correct though. For example, if this_cpu_ci->num_leaves = 3
-> (the array size is 3) and idx = 2, then 2 + 2 > 3 is true, so you can't
-> add two more elements. On the other hand, if idx = 1, then 1 + 2 > 3 is
-> false, so you can add the two elements (at indices 1 and 2).
+> On 2/5/25 20:39, Ryan Roberts wrote:
+>> commit c910f2b65518 ("arm64/mm: Update tlb invalidation routines for
+>> FEAT_LPA2") changed the "invalidation level unknown" hint from 0 to
+>> TLBI_TTL_UNKNOWN (INT_MAX). But the fallback "unknown level" path in
+>> flush_hugetlb_tlb_range() was not updated. So as it stands, when trying
+>> to invalidate CONT_PMD_SIZE or CONT_PTE_SIZE hugetlb mappings, we will
+>> spuriously try to invalidate at level 0 on LPA2-enabled systems.
+>>
+>> Fix this so that the fallback passes TLBI_TTL_UNKNOWN, and while we are
+>> at it, explicitly use the correct stride and level for CONT_PMD_SIZE and
+>> CONT_PTE_SIZE, which should provide a minor optimization.
+>>
+>> Cc: <stable@vger.kernel.org>
+>> Fixes: c910f2b65518 ("arm64/mm: Update tlb invalidation routines for FEAT_LPA2")
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>  arch/arm64/include/asm/hugetlb.h | 20 ++++++++++++++------
+>>  1 file changed, 14 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
+>> index 03db9cb21ace..8ab9542d2d22 100644
+>> --- a/arch/arm64/include/asm/hugetlb.h
+>> +++ b/arch/arm64/include/asm/hugetlb.h
+>> @@ -76,12 +76,20 @@ static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+>>  {
+>>  	unsigned long stride = huge_page_size(hstate_vma(vma));
+>>  
+>> -	if (stride == PMD_SIZE)
+>> -		__flush_tlb_range(vma, start, end, stride, false, 2);
+>> -	else if (stride == PUD_SIZE)
+>> -		__flush_tlb_range(vma, start, end, stride, false, 1);
+>> -	else
+>> -		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 0);
+>> +	switch (stride) {
+>> +	case PUD_SIZE:
+>> +		__flush_tlb_range(vma, start, end, PUD_SIZE, false, 1);
+>> +		break;
 > 
-> If there's a strong preference for "idx + 1", I can change it. But then
-> of course ">" will need to change to ">=" as well.
+> Just wondering - should not !__PAGETABLE_PMD_FOLDED and pud_sect_supported()
+> checks also be added here for this PUD_SIZE case ?
 
-Might just be me, but I'd personally find that clearer given that we're
-assigning to infos[idx] and infos[idx + 1].
+Yeah I guess so. TBH, it's never been entirely clear to me what the benefit is?
+Is it just to remove (a tiny amount of) dead code when we know we don't support
+blocks at the level? Or is there something more fundamental going on that I've
+missed?
+
+We seem to be quite inconsistent with the use of pud_sect_supported() in
+hugetlbpage.c.
+
+Anyway, I'll add this in, I guess it's preferable to follow the established pattern.
 
 Thanks,
+Ryan
 
-Will
+> 
+>> +	case CONT_PMD_SIZE:
+>> +	case PMD_SIZE:
+>> +		__flush_tlb_range(vma, start, end, PMD_SIZE, false, 2);
+>> +		break;
+>> +	case CONT_PTE_SIZE:
+>> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 3);
+>> +		break;
+>> +	default:
+>> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, TLBI_TTL_UNKNOWN);
+>> +	}
+>>  }
+>>  
+>>  #endif /* __ASM_HUGETLB_H */
+
 
