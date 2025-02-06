@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77EA6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 05:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE81C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 05:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRoJEJRUPVObRh6bcpNHZcCJSeUoo6qbmkVpHeNteUs=; b=euL3Lid8XGEMyRd3dw/f+7Mr15
-	nV6SGe2J+fn3gd/JfgVRx1eJ1PTtHJevEN1FjvYoUgpO3lipQvf0yt6m7l8qxU4oFgHQuXwJB9GMk
-	eGgR1u3ycSJ75RlAKkuTMeMgZuzYE+HRQv8enbzEvECIoKp0G1vdb0H/Bn2zN/1ZSy3CWLSvTd5EJ
-	ZLzWp81OKzXGJIf0Xryq6KvXQCoyisiJbpdvb8tHcyoXO5qjzTX3k49ye7EyZ9RzJLP1ddl6mAUie
-	y0soj423NbxdubVyhjr2C7VQCbMFKoBW48W1kOY/m5+w64RgSCPlAMywvw7H2sAJQEK2maIFpe0qr
-	EzTtKIhA==;
+	bh=U5ldcxqakXbm8AP3lHPyZs0Noc32OWjVSFhOYUYpAno=; b=brUVMBFglaOt9w/WkZ2+51X6dw
+	50ueG6/wtTcnng8bpNqFR9yzsA5lb5YYxg/NbxwAT5Huf2H6o+iF9krFPhleEKzTcvCwBwIWHobuz
+	SMY2go56bPrzdQWmsQhCPBhe1IR76tmdc1mMPhhmkpirPE0BM69tlFMXTFYqRABP6biF7O8KTzVVa
+	zSbLcXQD0PIiPMUmFaR5pcfotCj3sRhE013DBFHj2FmsvJP4Uy8nh2mPbZrkqvDo9KZ+bBcAlIjzJ
+	vuqoo5LFA75VpT65NS1hN43nETiX5S8NBxVIfmaTwAnyBndd7aI6KCyZoJKcJnVduk5mrrpcuBaJd
+	G0lHY6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfuUF-00000005HAS-2qmA;
-	Thu, 06 Feb 2025 05:31:39 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tfuqQ-00000005K6e-2sgN;
+	Thu, 06 Feb 2025 05:54:34 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfuSo-00000005H4U-2S09
+	id 1tfup0-00000005JyS-3Dr5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 05:30:13 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2164b662090so10504835ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 21:30:09 -0800 (PST)
+	Thu, 06 Feb 2025 05:53:08 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-219f8263ae0so11237115ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 21:53:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738819809; x=1739424609; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738821186; x=1739425986; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pRoJEJRUPVObRh6bcpNHZcCJSeUoo6qbmkVpHeNteUs=;
-        b=f2iTzNMd0r6J4YutlIZtEDWZSGE2qg113t7f6X3UusRvz1uWmGC94/KraHhR8rIJ5m
-         dEZQiGrDqSBWAJqdxIs3O3cpTm5bIC4XmM+858a5XlZsyN85qBDZYDH8B2PCQJBS4gZw
-         O42PBxnzQaxh0/NXJYsGo8z/5oWaAsTepLi2v4Qq2GGhQTJkyaTRTHMhL3xW/Op7I8ss
-         wYXcK6+D/gYJBSfxK/LIDPSpE83Q7t5D3IMnYXmKIVbrWyLPbNfkqLi9tyySvG9qd2yR
-         NoOEBo9AuPttJI6oaBN+gTTfuLyHRDNlZ4PJ24for5dGplCu23AdOd3vtjfX0aHlG+R9
-         3I2w==
+        bh=U5ldcxqakXbm8AP3lHPyZs0Noc32OWjVSFhOYUYpAno=;
+        b=0Mo/hnrRL9Gva56NBKALw640MJLrMj/l2ptBc8G+TkoyMxQ8tYpGk5wyXk/hFNGxYS
+         PBTlmmL4enYAqaJ3lbqcNp5VrXTf/3qOPzFbHlA0+Cjh3R/omiGenpK/BoeC6mBohq9j
+         E7voT5pDTzyieH31GvzPSB0Fv+wLtRTHO7mnp7PtUVI+d70+pF+UJTao0xzMHRLXJSE/
+         Nn3JDPJ8jK9GtZnszhVoA65p+BlQLAu+1VTwVTSXvOPNeXCEeJuRDPJ1GCPfnpxI2Oft
+         hL4nDM/gP8MyLnKWAlHUI67Nk6kIo3NIXrPXHMvkYo9rTsSmXlwHboHPo2DUpesAHpUi
+         Musw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738819809; x=1739424609;
+        d=1e100.net; s=20230601; t=1738821186; x=1739425986;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pRoJEJRUPVObRh6bcpNHZcCJSeUoo6qbmkVpHeNteUs=;
-        b=shzYCQ8Jjc3KvcQEXm9LU6MMZx4ThT5kOt2NJhAoekjmudFV8m/dHbUmvxfvXzyNzj
-         xTDMZ9ni+fT5PtJ5foY4UWguucLb8n+piT24dRf/MANTk5UiZ7ddcI4Sl+5uOI7xusZG
-         PXTXMVWLhooWT5Z4lJDpDC76T4kEa47mM2a7eWRwubTMZk/JEDVFFfcDSSkstSUxLNe8
-         MOsgG1DWq8bNNcJkASxoi7yldtYr9+AEgTILWxMQbQc1KTaTvSnIwmGhnWP54pci3FXH
-         2W4hNZFgLUADjkMjgfUba9UR1ivEVS02y8qCkDdPg4mE2H4uA+4TVv3ka/Q8xEmBe2mj
-         9TNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXkIbID4NhLBExlUmRBADe7LUYb/Ny1LKWrdmccwq0eNqAcXgcPXsS52I3lyOCNh8YvSVEQvsG3EnauEqDA16zI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw82b4ZSSvsUaLIS1XvPW8dX2m9NO6/gZPnKkjxSccqjlOtzAPv
-	z1BUFauCr1mLQi0jyxKdk1g4biI3bT5HfD9sA9YDboSg+q6bQ5TKntLJShlt1Do=
-X-Gm-Gg: ASbGncuLs7Ial5tq0cMjuAeo/OrCxKA2OuzGBLYxHk2C8aWoQFCb7vrQwJqtbdDEnv4
-	+ryIHYFIz6tz3s+D1PlWiJldQcZgfN8mpRBHFREfdedQrH3WPUgWdf319sa8KtxS9hlGBQ1T+IW
-	fHkZTbZHOQQWa56wZV99SohYC4kPapv7d4MyFiMycoFtRwefVQXC2ElJzWXH+PNc8RuxXpk6wCj
-	fLAlen5c3hAOkHco1igoRkkfJzM8x0z5kgTWeP+oR5kWXv02SE74nWgTkyT2mUWfwHg7H1p02D7
-	tPSfLR8qwPB+ii0uD+IzhcFYE8GwVY96WQ==
-X-Google-Smtp-Source: AGHT+IE1tNZkBLKVThcpOUcjJPjEE6LeUB5SuPAtY9c/ZHJbnXa2ZNVKpzCci8Lb0vwwFKWpOtSe+Q==
-X-Received: by 2002:a17:902:d28b:b0:216:410d:4c53 with SMTP id d9443c01a7336-21f17ebba71mr74788475ad.41.1738819809035;
-        Wed, 05 Feb 2025 21:30:09 -0800 (PST)
+        bh=U5ldcxqakXbm8AP3lHPyZs0Noc32OWjVSFhOYUYpAno=;
+        b=gp7Z0qydpsxFx+xa4O92Tnu9AsP9hRlMDjAHxUiIGmwjpQfu0ha5XQ0y2Xr0H7WFYJ
+         QSC/MFxTlahlXlf4vOz9XXakGnb2mDdyXfUrRhHaNHt2Nl07yJnhmDxl9k2pv3Bs8Yqx
+         NC5jbW6qx+u+5AN+BvJ6exruO9v96UP+IzIKMeMwEbXhmlVZ9Z3oZSRXB8BTGVNqbkzR
+         kZfLsKK4Jxu1e2iWd9sBmj2hHmPMYaJVdXejZAk3WMZZPxUwTJCXf4XUlb8XQHAWv7Np
+         Kq12CYYMQzLIbdnfuqVij/erK7yIqyAsh7apbjIsw473Sc7qrcj/3/KPhMK5DZVliGfx
+         BrPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXSK2pNwB8XjVHuM6m0UIXND7kqcbXRIaMsn/bde/F/RrJDAAmDGq6dt6hRVxG6srAArSG7oXUk+LPGaQRVhR9u@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNEL7jZbvzztPBSkWU84v4Kkmuq+Wi8g83w6WwwPBW8SHM86pz
+	rDPvq0Jcy28sYIohWajDVNp4IXGfwVZBAPOYtkAT4Q4bu7//j5WYL5CFDbD7sm0=
+X-Gm-Gg: ASbGncsiLttjETm8Axdl6wdAOHvhE/kViBBWN0PmMPbTJMm+k3xV4fm5P7isZ5yUMkk
+	Na+gOljQSK2upvCjTVJsOsv9SF5Bt5VG7XmY6VOjUJ0Yh0hhWewgnWUjsT5/tq+8prQA9b3uEyN
+	mQAr1mUaKPicu1NkS81laHMDt+sVMZ+z5cEqn25HrVSRWP/mBUZPx3E5kW9ZVvrWX+dXrfqWAb1
+	gsnU5FzMHb5edlucH47yp8FKov3wZaeyTt89fWl3RH8A7/fIaa9a+GFKPqbaM4JD65DR9BPeYh4
+	LpKWltCxB1sKd/qZ6t1zF73BUXetAQIlbw==
+X-Google-Smtp-Source: AGHT+IGCr9xd2Dhw5KUTmjMsz2hIPxrdWNp4ze88e5FpvAsB5Znxk1UOOvf/vmpixanfPva87r8KEw==
+X-Received: by 2002:a17:902:c403:b0:21f:35fd:1b6a with SMTP id d9443c01a7336-21f35fd2116mr20176495ad.51.1738821185899;
+        Wed, 05 Feb 2025 21:53:05 -0800 (PST)
 Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3653c997sm3459215ad.78.2025.02.05.21.30.07
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c746sm3841885ad.180.2025.02.05.21.53.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 21:30:08 -0800 (PST)
-Date: Wed, 5 Feb 2025 21:30:05 -0800
+        Wed, 05 Feb 2025 21:53:05 -0800 (PST)
+Date: Wed, 5 Feb 2025 21:53:02 -0800
 From: Tomasz Jeznach <tjeznach@rivosinc.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -99,18 +99,17 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
 	David Rientjes <rientjes@google.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 17/19] iommu/riscv: Update to use
- iommu_alloc_pages_node_lg2()
-Message-ID: <Z6RI3ftJTrm3UxoO@tjeznach.ba.rivosinc.com>
+Subject: Re: [PATCH 09/19] iommu/riscv: Convert to use struct iommu_pages_list
+Message-ID: <Z6ROPsbXHYlQ0TgF@tjeznach.ba.rivosinc.com>
 References: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+ <9-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <9-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_213010_874783_1D9856BC 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250205_215306_799950_1011CD29 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,81 +124,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 02:34:58PM -0400, Jason Gunthorpe wrote:
-> One part of RISCV already has a computed size, the other part seems to use
-> PAGE_SIZE (which is probably SZ_4K?). Convert the call.
+On Tue, Feb 04, 2025 at 02:34:50PM -0400, Jason Gunthorpe wrote:
+> Change the internal freelist to use struct iommu_pages_list.
+> 
+> riscv uses this page list to free page table levels that are replaced
+> with leaf ptes.
 > 
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
->  drivers/iommu/riscv/iommu.c | 15 ++++++++-------
->  1 file changed, 8 insertions(+), 7 deletions(-)
+>  drivers/iommu/riscv/iommu.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
 > 
 > diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 549bd8d0615d75..b7cee3d651b179 100644
+> index 6e7df7273426da..549bd8d0615d75 100644
 > --- a/drivers/iommu/riscv/iommu.c
 > +++ b/drivers/iommu/riscv/iommu.c
-> @@ -65,13 +65,15 @@ static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p
->  	return devres->addr == target->addr;
->  }
+> @@ -1085,7 +1085,8 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
+>  #define _io_pte_entry(pn, prot)	((_PAGE_PFN_MASK & ((pn) << _PAGE_PFN_SHIFT)) | (prot))
 >  
-> -static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
-> +static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu,
-> +				   unsigned int size)
+>  static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
+> -				 unsigned long pte, struct list_head *freelist)
+> +				 unsigned long pte,
+> +				 struct iommu_pages_list *freelist)
 >  {
->  	struct riscv_iommu_devres *devres;
->  	void *addr;
->  
-> -	addr = iommu_alloc_pages_node(dev_to_node(iommu->dev),
-> -				      GFP_KERNEL_ACCOUNT, order);
-> +	addr = iommu_alloc_pages_node_lg2(dev_to_node(iommu->dev),
-> +					  GFP_KERNEL_ACCOUNT,
-> +					  order_base_2(size));
->  	if (unlikely(!addr))
->  		return NULL;
->  
-> @@ -161,9 +163,8 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
->  	} else {
->  		do {
->  			const size_t queue_size = entry_size << (logsz + 1);
-> -			const int order = get_order(queue_size);
->  
-> -			queue->base = riscv_iommu_get_pages(iommu, order);
-> +			queue->base = riscv_iommu_get_pages(iommu, queue_size);
->  			queue->phys = __pa(queue->base);
-
-All allocations must be 4k aligned, including sub-page allocs.
-
-Note from IOMMU/RISC-V spec:
-
-"If the command-queue has 256 or fewer entries then the base address of the
-queue is always aligned to 4-KiB."
-
-I can't find this to be guaranteed with new allocation API.
-
->  		} while (!queue->base && logsz-- > 0);
->  	}
-> @@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
->  				break;
->  			}
->  
-> -			ptr = riscv_iommu_get_pages(iommu, 0);
-> +			ptr = riscv_iommu_get_pages(iommu, PAGE_SIZE);
->  			if (!ptr)
->  				return NULL;
->  
-> @@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
+>  	unsigned long *ptr;
+>  	int i;
+> @@ -1103,7 +1104,7 @@ static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
 >  	}
 >  
->  	if (!iommu->ddt_root) {
-> -		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
-> +		iommu->ddt_root = riscv_iommu_get_pages(iommu, PAGE_SIZE);
->  		iommu->ddt_phys = __pa(iommu->ddt_root);
->  	}
+>  	if (freelist)
+> -		list_add_tail(&virt_to_page(ptr)->lru, freelist);
+> +		iommu_pages_list_add(freelist, ptr);
+>  	else
+>  		iommu_free_page(ptr);
+>  }
+> @@ -1192,7 +1193,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
+>  	unsigned long *ptr;
+>  	unsigned long pte, old, pte_prot;
+>  	int rc = 0;
+> -	LIST_HEAD(freelist);
+> +	struct iommu_pages_list freelist = IOMMU_PAGES_LIST_INIT(freelist);
 >  
+>  	if (!(prot & IOMMU_WRITE))
+>  		pte_prot = _PAGE_BASE | _PAGE_READ;
+> @@ -1223,7 +1224,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
+>  
+>  	*mapped = size;
+>  
+> -	if (!list_empty(&freelist)) {
+> +	if (!iommu_pages_list_empty(&freelist)) {
+>  		/*
+>  		 * In 1.0 spec version, the smallest scope we can use to
+>  		 * invalidate all levels of page table (i.e. leaf and non-leaf)
 > -- 
 > 2.43.0
 > 
 
-best,
+Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+
+Thanks,
 - Tomasz
 
