@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A60C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F26C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExNM5vQ8iZJe621CqISPZyIbe/P7qzPG8wBj8S3n81Y=; b=ovgmsjcqRN7m/kN/FAaBl+cASZ
-	+tKI/RlAzpXglpfZrS+N7UpVbtOausftZl/qNbmE2pO1QtgaqniTF0V/I/W+7IvpBYgY5MWm1aj1X
-	QVp4QsrddoRc7eJnvq4tBO/uCXEXBh857P56exM8tzgzzwckKh3J1jpgtNjOHRiQiggKCMPKyik/1
-	Lpt4aY1bxZ5vSQngV5xo+iD1MbE3qtIm3gKUKzs5mQiCmiEULYPDFvBh2OvAVVtxlemJzHwJVP0LT
-	wc+E9vbmzk/PO31OiuaGwYpzWylmvuF+j+pWGD6N+Bn0gb7OOFb2wXv8eMVtZ+L9zGVM6skKZryBS
-	wlOEW9ZQ==;
+	bh=n3Hy+POSduc71X+W8hWlAuSJjnlkGON1R9mAu4I/VXM=; b=XQuoGtAaoXI4bFtmGo7rWxGauL
+	33jfcqm+151W5g/L9UyvD1LxHN5zlDV/TaOugew6EjpnjhymW0Y7JIHBAJOTx0nBmLN7liB/xUSdv
+	kjCXBVG5IwtpGDiFme85GkyZ13Zf0NYMr6+bwYPy/dYovr7xlToiCDFL6aaLkdrU1e8bggvc7t9vu
+	+7dunAuNVPqUK3rbTgW45wM19dI9oZHAofXwqmNurhtLtYah6nvRXvwIRrp1LJ0GwbUv9Fmt426cl
+	oMUHltcjW/rzRJwcuxKOgdFgtRkNkhHR4OMfI7QHMmRPzKfAtYMqi8jQkvUJX4BYvNDnDjZbDzyQK
+	g1hDwQDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5Ae-00000006ur9-35s4;
-	Thu, 06 Feb 2025 16:56:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg59G-00000006uik-3rbd
+	id 1tg5Di-00000006vGD-3qt5;
+	Thu, 06 Feb 2025 16:59:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg5CK-00000006v51-3br7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 16:54:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 15664A433C3;
-	Thu,  6 Feb 2025 16:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89006C4CEDF;
-	Thu,  6 Feb 2025 16:54:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738860881;
-	bh=PsZQ/79SdnZPsMKJdNhXcP5V1qKRUZBQqLW7woOhAqY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j4uA8B2s4R+u2Mcao02pmJN/jScM9pY9gXpm09oKZOdD796l6Xske3ij0fx5I4Gkv
-	 K6JH237xMMGRqd48bLH06K74ejTHUkN5VAT4jtpvYy34z32TJctrtirqtNZjqEd2eu
-	 vSSSXGk9w4V2GjB6i4FrPbYiLsxN/S32NxpZDUXsNpL5pVxM0CWmfJyviQoYTqirTI
-	 TIYOeUBhfur4T9N5qR3EnsPvd+KNGz7n2Ec2Abx7TzdK5H4Grj293tiT6YjY4rezEA
-	 +8vs03WpNPRsxGOdPUYvTJWSrMEeDhSW7KU2PwJVVCTgK0aUywTekvMtoPy6ltm2dO
-	 OPoJd0ZoFmF0g==
-Date: Thu, 6 Feb 2025 09:54:37 -0700
-From: Nathan Chancellor <nathan@kernel.org>
+	Thu, 06 Feb 2025 16:57:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 656A312FC;
+	Thu,  6 Feb 2025 08:58:13 -0800 (PST)
+Received: from NH27D9T0LF (unknown [10.57.10.111])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 409213F63F;
+	Thu,  6 Feb 2025 08:57:49 -0800 (PST)
+Date: Thu, 6 Feb 2025 17:57:41 +0100
+From: Emanuele Rocca <emanuele.rocca@arm.com>
 To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: Handle .ARM.attributes section in linker
- scripts
-Message-ID: <20250206165437.GD180182@ax162>
-References: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
- <20250206130526.GB3204@willie-the-truck>
- <20250206135715.GA180182@ax162>
- <20250206152246.GA3468@willie-the-truck>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
+References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+ <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
+ <20250131124103.GA29766@willie-the-truck>
+ <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
+ <20250204100014.GA777@willie-the-truck>
+ <Z6OWxUFxkK9plrm0@NH27D9T0LF>
+ <20250206131154.GD3204@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206152246.GA3468@willie-the-truck>
+In-Reply-To: <20250206131154.GD3204@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_085443_087055_96F38764 
-X-CRM114-Status: GOOD (  28.34  )
+X-CRM114-CacheID: sfid-20250206_085752_938564_3BA85C67 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +70,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:22:47PM +0000, Will Deacon wrote:
-> On Thu, Feb 06, 2025 at 06:57:15AM -0700, Nathan Chancellor wrote:
-> > Hi Will,
-> > 
-> > On Thu, Feb 06, 2025 at 01:05:26PM +0000, Will Deacon wrote:
-> > > On Tue, Feb 04, 2025 at 10:48:55AM -0700, Nathan Chancellor wrote:
-> > > > A recent LLVM commit [1] started generating an .ARM.attributes section
-> > > > similar to the one that exists for 32-bit, which results in orphan
-> > > > section warnings (or errors if CONFIG_WERROR is enabled) from the linker
-> > > > because it is not handled in the arm64 linker scripts.
-> > > > 
-> > > >   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
-> > > >   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
-> > > > 
-> > > >   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
-> > > >   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
-> > > >   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
-> > > > 
-> > > > Discard the new sections in the necessary linker scripts to resolve the
-> > > > warnings, as the kernel and vDSO do not need to retain it, similar to
-> > > > the .note.gnu.property section.
-> > > > 
-> > > > Cc: stable@vger.kernel.org
-> > > > Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
-> > > > Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
-> > > > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > > > ---
-> > > > Changes in v2:
-> > > > - Discard the section instead of adding it to the final artifacts to
-> > > >   mirror the .note.gnu.property section handling (Will).
-> > > 
-> > > Thanks for the v2. Just a minor nit:
-> > > 
-> > > > - Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
-> > > > ---
-> > > >  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
-> > > >  arch/arm64/kernel/vmlinux.lds.S   | 1 +
-> > > >  2 files changed, 2 insertions(+)
-> > > > 
-> > > > diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
-> > > > index 4ec32e86a8da..8095fef66209 100644
-> > > > --- a/arch/arm64/kernel/vdso/vdso.lds.S
-> > > > +++ b/arch/arm64/kernel/vdso/vdso.lds.S
-> > > > @@ -80,6 +80,7 @@ SECTIONS
-> > > >  		*(.data .data.* .gnu.linkonce.d.* .sdata*)
-> > > >  		*(.bss .sbss .dynbss .dynsbss)
-> > > >  		*(.eh_frame .eh_frame_hdr)
-> > > > +		*(.ARM.attributes)
-> > > >  	}
-> > > 
-> > > Can we chuck this in the earlier /DISCARD/ section along with
-> > > .note.gnu.property? i.e.
-> > 
-> > Sure, I don't see why not. Do you want the comment above it updated to
-> > mention this section or should I leave it as is?
-> 
-> If you can think of something useful to add to the comment, don't let me
-> stop you!
+On 2025-02-06 01:11, Will Deacon wrote:
+> In your screenshot, x6 looks like it's retained its poison value, but
+> that was the register being corrupted in the initial report. Maybe you
+> could share the diff you made?
 
-Eh, I could not come up with much so I will leave it as is. v3 incoming
-shortly.
+Sure, please see [1]. A kernel built with that patch crashes and all
+registers retain their poison values.
 
-Cheers,
-Nathan
+I now also tried moving the poisoning before the smccc_version /
+smccc_conduit assignments, and the resulting kernel does *not* crash.
+See [2].
+
+[1] https://people.debian.org/~ema/w1-w17-crash.diff
+[2] https://people.debian.org/~ema/w1-w17-nocrash.diff
 
