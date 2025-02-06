@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82572C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7403EC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 11:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCwEnHmZYStesPLVZzhLCy/SlMOkoHP6UZc4smqj+Is=; b=FzzCsJyCpTvYkCJtSVWFeME9RS
-	+X8cWvtNh2naP5n3GiVrosV/KaGxpJ+/YkVTu8w28AwqJvjvc4HZrnWPiVp28ejNbE1vj+SNOuoug
-	ZSIkbHZp+l+I+MqW/XPMo0ARX3SgvsX5Om0APF6+nbxKoOPeBMpNmwSzy2sRtCMXQA1MVPm72jUjH
-	QTCxrMpebGMLmT23Xv6QjjpSzX049iY3IMo65SWCFyk0fj825UHYFV7IEeI7bqcFhLklPXuDSgsAF
-	GfYL8n6axzsDx+MLN3k61oUZC5KoYEeBX41/PMMbZ/eRdQawGUhg0an/EYGUTR6CHGlurBiMgUDt0
-	KJPWJ9Mw==;
+	bh=RKka8q8Has39PLR0Yd8RpCT4IAmN7UpWKg6ZilU2jFU=; b=zs6BvlVrClJC1cs5Wy3tpyWmb1
+	bGvga0StB9Eor82bimbM89dzuVRYKPRljKdbepoKfXwN2psco2dl+pLM9eisVxWyztuwCJki+jHsU
+	HscpLIlbsla/1ByX3ED8/3Eh91KIxbyVP/tyh4tGn++y6Wlo9c9n+7L/cR7mnQDPi8nJouUWLFufm
+	GkA+LDg727+RaZEDHk5LnwwDZz4SfX6Ts06QpLeWGs++0zw51eq7K7T3uGWuA1mlZlAXTffU/HGRl
+	K4J96LWd4Ze5gZSiH00YYZl3AOH3Y8Ep1MANdoFyJpIaPlN9uxWfCNk7GQEkH7WUsONXE+YWlfxPI
+	1pu6+aBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0UI-00000006D7N-3n9H;
-	Thu, 06 Feb 2025 11:56:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tg0Vd-00000006DHK-2L97;
+	Thu, 06 Feb 2025 11:57:29 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfza6-000000062LX-3rEC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 10:58:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UCwEnHmZYStesPLVZzhLCy/SlMOkoHP6UZc4smqj+Is=; b=dl/TKL4/B76wg//y47dlW6Msmm
-	lkCWDXmIJLiKeh3M+wKr2ByWGbhCusVlcmHUpsPse5LzKZh/udDWfzwzV7lstYPKoGuXO3kVqaAUc
-	YKEN2tYt6n47wmBW2lWJxBFr6P1DnKP9T8+A9lfM7c9Wc0OQICPXUpWNvb72YDsu8GjdZIrDJ10IU
-	bQyeDnYVNdJxb4e2CzgtZYy6h5lDfoViK9/rtvfKb2bEZ1j+DQNuUTqnDHKCtGeiOyJgGwXTPXseS
-	9mWUlB35FHr/IdP/1/3/h7+27X23xpTRIQTk5n96hOPoEeuLaf0DWB48OkWOB925HYinJrBSw7aCO
-	yKfWj/YA==;
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfza3-0000000Gv1l-41eC
+	id 1tg0Ey-00000006AGl-0wmw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 10:58:01 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5dce1d61b44so1488263a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 02:57:58 -0800 (PST)
+	Thu, 06 Feb 2025 11:40:17 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385dece873cso322845f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 03:40:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738839478; x=1739444278; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UCwEnHmZYStesPLVZzhLCy/SlMOkoHP6UZc4smqj+Is=;
-        b=KNJ3GOhvdFqEEU9Ud4OGvQlOI4YpxRBYeEkxMh1gHTGPgaSxZXLB4XvtYInmRQnxvg
-         L86DBdYhKVPWnjt5NDlPUZ/flnx4PALGyH9yLgSdVuBdnF9IBUU4fE/9BXneqF164EyQ
-         ognCyYDe52469H9/t58Zs3xShBiC12zuMF/xg6hVbk7xfd8qESjEdFh/9lXVoIut6EwA
-         g0DqK4RO65vPd2ZULJxL0WEidkomE9NQNy/Jie/Jw7Fk1yUvP44nyRcpz3btkuTWNV00
-         A4DqSqmgo6bvOEkaUMAs/gYoNBh8FTBcJtYAQDmbt9eJy9VrUgLj8YHJQG5aYmIoi9Uz
-         MDPQ==
+        d=linaro.org; s=google; t=1738842014; x=1739446814; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RKka8q8Has39PLR0Yd8RpCT4IAmN7UpWKg6ZilU2jFU=;
+        b=OBGorFLbQ8V+lfXl+g36hAkY05sNnExg8LDbxOTZ4j5G33lMRWteD3/UuR4ir3Re1U
+         NXCsyOCbdGsmgciKD1yH7QSTIpwW4SNTD11ajfJoFX5Y8bHkH+4iBFguGdXnmZbt4+/U
+         bO+YNK9gKmrNj3nCPqlnqDzhF+gHnoj+eZ7bj8Uf/bfED+W87gxd/DsvRIJ/JWwZdKO0
+         PykJbHQUsTx1g6vUiwLgpgMqJtj6OkgtHfDoc9TYQbKxvBbHCzs2goMp0vJHrk5WlWUF
+         LgLFHeg+HKmdnEJlA0PeFGZnmO9zhpdDtUpKoqeXZPuWnfX8FYfdHYzgwuyEZaQKYdWT
+         U2VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738839478; x=1739444278;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UCwEnHmZYStesPLVZzhLCy/SlMOkoHP6UZc4smqj+Is=;
-        b=GAwVCT75AItiCZP7iuWZp3cBgZBg457YEjxPKJbsHjvmhsyTE3eYRjKLUONiAeevAd
-         YgqJgNhTKrtirVP/YZKRgvUCpzTfagaBs2ublpajiaxu5lOGboF3lJ7G+A5t06c+ghuE
-         aXmlZszKItaZ8vALj5KiKe1Lteh1n7xwYR0N748/Og/osXL8TeXVKXATyF+rLP6WJge7
-         r8GLMP1SbdR4tAI6DY7yF5lk7uCSlBj7tly3kX9HXpxuMUxYxuP5GUauTlPNiVLDXmbf
-         A67LtBiJHjmVv2ho52iwUiwPEPYfWnM1VFT72eq0t9ZsgmD/1rwZ093kXa3h+7wEmhlJ
-         f1zQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXceSUg0O3k6qhqOZaMKFr3xbda1/Q/zgP9a/wNGJo+kkbBouG4LnjCMH7UsoCwKhb/YhI7LVPhCRC53OMPq1Rk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkKLZyr+4SD9sC8fvRlWGFodb5rHCZkdAm9cxmNQmsnGZcCa94
-	uuER+LupSvrrN+nx3TOJa5R4N4koKtYqU7ql+dxckOS0rnkn9XUr8oxLXelvB8npei4mYytILP7
-	/Stajc7QBncauwDNUbZQOJMvWmOk=
-X-Gm-Gg: ASbGncud3kqbY+EFLApIi21IWQBxjiQ8Y3FjexgVS2ep91I/m4O1GNhRMWkVX5JBRZu
-	iXjWqOC0kmlQfnYR6dXS7XMT0KNqoAm3ImIDqpDBYHM/PQ/6B9UTQDVTRZjksPzMDahEhnCoiba
-	g=
-X-Google-Smtp-Source: AGHT+IGP8tAW0CXvHNHg7p5sWcAX+S7UmNuU0OrOMLWbPyPHRVVI4cXsDxphL4+JA8N5RtUQ7mSHl6x3rrvdPIqiBpg=
-X-Received: by 2002:a05:6402:27c6:b0:5da:a97:ad73 with SMTP id
- 4fb4d7f45d1cf-5dcdb71bb7emr7512035a12.13.1738839477521; Thu, 06 Feb 2025
- 02:57:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738842014; x=1739446814;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RKka8q8Has39PLR0Yd8RpCT4IAmN7UpWKg6ZilU2jFU=;
+        b=VrQSXhhwrpKrUOwM0rbTbITtDH1yo43WrV2EYVN7WuqWMnjVPiRsqfE0YDwmb22/m7
+         ifP+zupWCBixY8aK0Oil+uw1n1rD3dhHHUEBzA/LESlNy+DVlzD6btiq5sWW2YJ2fe5e
+         XXOnNg5vyXlae0oFiAPljwNiuqXv6AkfCTTagzsk0cToVJt8Wgoi52WE6S7UTLa0nTvG
+         v/YSDU7N/1dWDZSGnxglgXNbI15LsoQTsh94I4L1Gj6cBl4nVqIjSl++d6GIGVvJ/oN+
+         RWZkxyUa3KbIwSY1/2q42i4aaJi5yVCkqxMeJtvXFpgDSik+a+AThC9VTNYS06SuEfA0
+         OLNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVeKRzRKB0OyNzlfCwJ72mK1Ri+AimOYK1fKIT3tCJ4EVDhbqn0C6clqnQH5AT73ddqmjDFp+0pvctWi3FcY+Jf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7MDi/2zjpvSC9joeeFKYYfuhgBpKFgBFMuuSfiryFmajp/5vc
+	nfkM6RTNr6l0Nn/FfHTc0/hpjBcpgkBUO52qk6qW+fvoeRbyQbn3ipMqGslz+eE=
+X-Gm-Gg: ASbGncttUaCe/xJ/ACQFXG/1Tq7J1CA0hhZEm5ke6CPsRAn5z10ZCLIhemH/9JuIAok
+	oeEnlKzGY0J2AMSzCXxw4SKSQDQ3+6OORnzQv0hiVwA4aIF8m8mWD9dYSbZvHKB9KaMP47oZB8C
+	Q4dXOgqq1arl55zDbOlxWW2qc94+zF0RN9zQNt9zquxaxvukhHa+pyY1ZfWZpRVRL15Y6IShnAE
+	EIr9dtG57pZ0VVppN0A1AJc8vBf7WyoUrn3s5Y4b8uoPnKyPcOW5eNCgPlXWo46GiBLu5wDhf58
+	ujKr3T4YhT7xCoZ8j6Gl
+X-Google-Smtp-Source: AGHT+IHK7xN1+O0lC7SA+Z4hYlZwlXq1mhwhsAv5rC/JniJV62KNS95+EeAeYIVWA7BzbT+PnwAdWQ==
+X-Received: by 2002:a5d:588c:0:b0:38d:b6e6:4445 with SMTP id ffacd0b85a97d-38db6e647bamr3919617f8f.24.1738842014402;
+        Thu, 06 Feb 2025 03:40:14 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4390d9334e7sm52136505e9.6.2025.02.06.03.40.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 03:40:14 -0800 (PST)
+Date: Thu, 6 Feb 2025 14:40:11 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
+ machine_blocklist
+Message-ID: <15f20562-d5f3-4432-94e1-06c8174bf3c1@stanley.mountain>
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+ <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com>
+ <230612a4-92ee-4acc-85bf-f1c47dc3c35b@stanley.mountain>
+ <20250206110508.GB22527@localhost.localdomain>
 MIME-Version: 1.0
-References: <20250203214911.898276-1-ankur.a.arora@oracle.com>
-In-Reply-To: <20250203214911.898276-1-ankur.a.arora@oracle.com>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Thu, 6 Feb 2025 11:57:21 +0100
-X-Gm-Features: AWEUYZn3un_MskJWBGcJT6aFZUZFVS49qML1cEO5eTlJd56xDvMM1MKgwwStIVI
-Message-ID: <CAP01T75B-UjoKugBsCHnfjwMmL5Bdfs+-YK3QH7mLUJs0+mmCA@mail.gmail.com>
-Subject: Re: [PATCH 0/4] barrier: Introduce smp_cond_load_*_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: bpf <bpf@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org, 
-	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org, 
-	zhenglifeng1@huawei.com, joao.m.martins@oracle.com, 
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206110508.GB22527@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_105800_189447_F1E81ADC 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20250206_034016_267091_E0A305BB 
+X-CRM114-Status: GOOD (  32.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +110,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Feb 2025 at 22:49, Ankur Arora <ankur.a.arora@oracle.com> wrote:
->
-> Hi,
->
-> This series adds waited variants of the smp_cond_load() primitives:
-> smp_cond_load_relaxed_timewait(), and smp_cond_load_acquire_timewait().
->
-> There are two known users for these interfaces:
->
->  - poll_idle() [1]
->  - resilient queued spinlocks [2]
->
-> For both of these cases we want to wait on a condition but also want
-> to terminate the wait at some point.
->
-> Now, in theory, that can be worked around by making the time check a
-> part of the conditional expression provided to smp_cond_load_*():
->
->    smp_cond_load_relaxed(&cvar, !VAL || time_check());
->
-> That approach, however, runs into two problems:
->
->   - smp_cond_load_*() only allow waiting on a condition: this might
->     be okay when we are synchronously spin-waiting on the condition,
->     but not on architectures where are actually waiting for a store
->     to a cacheline.
->
->   - this semantic problem becomes a real problem on arm64 if the
->     event-stream is disabled. That means that there will be no
->     asynchronous event (the event-stream) that periodically wakes
->     the waiter, which might lead to an interminable wait if VAL is
->     never written to.
->
-> This series extends the smp_cond_load_*() interfaces by adding two
-> arguments: a time-check expression and its associated time limit.
-> This is sufficient to allow for both a synchronously waited
-> implementation (like the generic cpu_relax() based loop), or one
-> where the CPU waits for a store to a cacheline with an out-of-band
-> timer.
->
-> Any comments appreciated!
->
+On Thu, Feb 06, 2025 at 07:05:08PM +0800, Peng Fan wrote:
+> Hi Dan,
+> 
+> On Thu, Feb 06, 2025 at 11:02:04AM +0300, Dan Carpenter wrote:
+> >On Mon, Jan 20, 2025 at 03:13:30PM +0800, Peng Fan (OSS) wrote:
+> >> From: Peng Fan <peng.fan@nxp.com>
+> >> 
+> >> There are two cases:
+> >> pinctrl-scmi.c and pinctrl-imx-scmi.c, both use SCMI_PROTOCOL_PINCTRL.
+> >> If both drivers are built in, and the scmi device with name "pinctrl-imx"
+> >> is created earlier, and the fwnode device points to the scmi device,
+> >> non-i.MX platforms will never have the pinctrl supplier ready.
+> >> 
+> >> Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
+> >> With both drivers built in, two scmi devices will be created, and both
+> >> drivers will be probed. On A's patform, feature Y probe may fail, vice
+> >> verus.
+> >> 
+> >> Introduce machine_allowlist and machine_blocklist to allow or block
+> >> the creation of scmi devices to address above issues.
+> >> 
+> >> machine_blocklist is non-vendor protocols, but vendor has its own
+> >> implementation. Saying need to block pinctrl-scmi.c on i.MX95.
+> >> machine_allowlist is for vendor protocols. Saying vendor A drivers only
+> >> allow vendor A machine, vendor B machines only allow vendor B machine.
+> >> 
+> >
+> >I think patches 2-4 should be combined into one patch.  This commit
+> 
+> They are in different subsystems, so I separate them.
+> 
 
-Thanks for splitting this and sending it out.
-+cc bpf@ for visibility (please keep it in cc for subsequent versions).
+I mean if the i.MX driver prevents the generic driver from working then
+we need a Fixes tag.  It really makes it simpler to understand and backport
+if they're sent as one patch.  Normally we would collect Acks from the
+maintainers who're involved and but still do it as one patch.
 
->
->  [...]
+> >message is a bit confusing.  I don't really understand how the
+> >"fwnode device points to the scmi device".  I understand vaguely
+> >what that means but in terms of code, I couldn't point to it.
+> 
+> Sorry for not being clear.
+> 
+> The devlink framework will take i.MX as pinctrl provider, because the
+> fwnode is occupied by i.MX pinctrl scmi device which is created earlier
+> than generic pinctrl scmi device.
+> 
+
+Ah.  Got it.  Thanks.
+
+> >
+> >> Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
+> >> With both drivers built in, two scmi devices will be created, and both
+> >> drivers will be probed. On A's patform, feature Y probe may fail, vice
+> >> verus.
+> >
+> >You're describing the code before.  Is it a problem that only one driver
+> >is probed successfully?  I thought that would be fine.  What's the
+> >problem?
+> 
+> VendorA 0x80
+> VendorB 0x80
+> 
+> If both drivers runs into probe, VenderB 0x80 driver may crash VendorA firmware
+> if the firmware not designed well.
+> 
+> Not big issue. I just think we should block the probe.
+> 
+
+This is a theoretical issue for now.  I would just leave it out of the
+commit message because it's kind of confusing and it might not even happen
+in real life.
+
+regards,
+dan carpenter
+
 
