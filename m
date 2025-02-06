@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E0DC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FB5C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75f1P6iVf+i4W13Qo+NmU3fW0Iy4nt+5CCt2TeREJe8=; b=A9QrUPZZfX2TQ42x4QpSX8GqDe
-	nzqqPc0bVZCU0Rvx8kzl6sMwxiR+4D8pvFAyKImey0BPYABhdxhSJzz2j2EnX4VcQNBldEilBmvN+
-	IvaObf7vEPtU9e22/5WoBH2wtLb+rOU4j/vPs2d0Cg/6JfjIAzohBsuHTMm95n4U7kzFkFC+CaZPG
-	uRFD64m5XQTdtY272fn+1gcaBQuHPfsr+OPZo6yskSiWSyoUk8y0tjwhIXfbL56je6ho+kyLX8Ih2
-	KX5Kuj2YoyGdQsCTG/lX9mPQrJeiuuHHnb/yar/6DmInSgYrkj/jemXXPJ6WW15Y8Hf286gej+ynX
-	CVl78fZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q/hPjfrmBqGxLdAhschBZsF6fpecnKff2pCdRQJEkKM=; b=enbZKUhNoY/nXEncx2fXnGZw8W
+	GIjMUo8TDvTsLQ9m5S+TUPbDTnBQ/4eAXH3tBkJKscW01Tfi6MmRc5ul6OZnNfYIcEXog1vjflI0L
+	oDChd/G7cOyNm3JCkvDvVZbJ5QV2M5M/F+E3NFm8855d3emQy4a58nQzguxDb5+CuKQ7izPH3uEfv
+	QWnwHW5ynmbujOaJWOn8aMhdljQuHEK4hcFRTZcKUqRO+f/Ee7eSmCCqW8H8GxTwc3z0Dksfuecqp
+	rlwukzR3Ausbjy2LXv5VHczWmH0kH14iMWxKl2jHcaA6u7KX2FI9BdpcB4gMz1iuLe9ER/rH+wCoy
+	y5Nr9pqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfy2G-00000005oJI-3g6n;
-	Thu, 06 Feb 2025 09:19:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tfy5t-00000005oxF-2Nn3;
+	Thu, 06 Feb 2025 09:22:45 +0000
+Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfy0t-00000005oA9-0Sol
+	id 1tfy4V-00000005oks-2yMl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 09:17:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 561705C4BE6;
-	Thu,  6 Feb 2025 09:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AE27C4CEDD;
-	Thu,  6 Feb 2025 09:17:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738833453;
-	bh=OprUX3sf+GllvjoTCMMHPEd9To8pLBDgBAKjQLuN4bk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mlMqEO9yqjddagGvhpyIFTCCScBLoIgdQQqQMCaV3jJZ5roJ3Rafcskhyg91jS88z
-	 xc9fT2zVeuM5WPf+6livRm1gQCXzW7oGbxdNYQ+/KVEUGbD1WvseO/ekE4tGTWcY70
-	 GEQY5xeGHhTx7J7YCnhVjokZcMMV/BvL1/7awqvro9cQ8JbJ5amYNcG8pC86iSRMZY
-	 bHFhuNo0O27tmaNs/EMKJTeS3TlYwayG0ddQng4Y3Qk4pb+qIV565y2Dzk08wYHNwC
-	 MzreoZNOVi/InNqbtYb8gJRqJLiAJELAABvnWp43MQ4EFpu29Tzfm2glpZGhG7CDZK
-	 xQXdLzaDPiX4w==
-Date: Thu, 6 Feb 2025 10:17:30 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: fnkl.kernel@gmail.com
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>
-Subject: Re: [PATCH v5 5/5] MAINTAINERS: Add entries for touchbar display
- driver
-Message-ID: <20250206-caped-premium-squid-595ecd@houat>
-References: <20250205-adpdrm-v5-0-4e4ec979bbf2@gmail.com>
- <20250205-adpdrm-v5-5-4e4ec979bbf2@gmail.com>
+	Thu, 06 Feb 2025 09:21:21 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5169L0aC3525872
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 6 Feb 2025 03:21:00 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738833660;
+	bh=q/hPjfrmBqGxLdAhschBZsF6fpecnKff2pCdRQJEkKM=;
+	h=From:To:CC:Subject:Date;
+	b=Y6TbVl68Ibizx7RIPtSmeC2N5R5Ca8bfs0aZA6vbn+xXBwzktXlVw6FOsDTT8Qyad
+	 4pHlKzcpa0THLDN/zhVELahIhrlyvPmP7MjgWFeXArRROceIO+mfuobxH7JSYe4Dz9
+	 u/lRyJ3izAzRLzxh33gElIbE+ADzMkpa6N3hAE2Q=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5169L0Ul007091
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 6 Feb 2025 03:21:00 -0600
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
+ Feb 2025 03:20:59 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 6 Feb 2025 03:20:59 -0600
+Received: from pratham-Workstation-PC (pratham-workstation-pc.dhcp.ti.com [172.24.227.40])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5169Kwr3009086;
+	Thu, 6 Feb 2025 03:20:59 -0600
+From: T Pratham <t-pratham@ti.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: T Pratham <t-pratham@ti.com>, <linux-crypto@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Praneeth Bajjuri <praneeth@ti.com>,
+        Kamlesh Gurudasani
+	<kamlesh@ti.com>,
+        Manorit Chawdhry <m-chawdhry@ti.com>
+Subject: [PATCH RFC 0/3] Add support for Texas Instruments DTHE V2 crypto accelerator
+Date: Thu, 6 Feb 2025 14:44:29 +0530
+Message-ID: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="s5i444uyid5tefem"
-Content-Disposition: inline
-In-Reply-To: <20250205-adpdrm-v5-5-4e4ec979bbf2@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20250205-dthe-v2-aes-80ea2dd58185
+X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_011735_230516_F6C8EE86 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250206_012120_036795_338BD916 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds support for TI DTHE V2 crypto accelerator. DTHE V2 is a new
+crypto accelerator which contains multiple crypto IPs.
+This series implements support for ECB and CBC modes of the AES Engine
+of DTHE, using skcipher APIs of the kernel.
 
---s5i444uyid5tefem
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 5/5] MAINTAINERS: Add entries for touchbar display
- driver
-MIME-Version: 1.0
+Tested with:
+CONFIG_CRYPTO_MANAGER_DISABLE_TESTS is not set
+CONFIG_CRYPTO_MANAGER_EXTAR_TESTS=y
 
-On Wed, Feb 05, 2025 at 11:10:54PM +0100, Sasha Finkelstein via B4 Relay wr=
-ote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
->=20
-> Add the MAINTAINERS entries for the driver
->=20
-> Acked-by: Sven Peter <sven@svenpeter.dev>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  MAINTAINERS | 5 +++++
->  1 file changed, 5 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a87ddad78e26f28ffd0f3433560d6db1518f9f95..4ce0d3bcf67910d909ba41261=
-535dcb14a24a7b7 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2189,6 +2189,9 @@ F:	Documentation/devicetree/bindings/arm/apple.yaml
->  F:	Documentation/devicetree/bindings/arm/apple/*
->  F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
->  F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
-> +F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.=
-yaml
-> +F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-> +F:	Documentation/devicetree/bindings/display/panel/apple,summit.yaml
->  F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
->  F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
->  F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
-> @@ -2208,6 +2211,8 @@ F:	drivers/bluetooth/hci_bcm4377.c
->  F:	drivers/clk/clk-apple-nco.c
->  F:	drivers/cpufreq/apple-soc-cpufreq.c
->  F:	drivers/dma/apple-admac.c
-> +F:	drivers/gpu/drm/adp/
-> +F:	drivers/gpu/drm/panel/panel-summit.c
->  F:	drivers/pmdomain/apple/
->  F:	drivers/i2c/busses/i2c-pasemi-core.c
->  F:	drivers/i2c/busses/i2c-pasemi-platform.c
+and tcrypt,
+sudo modprobe tcrypt mode=500 sec=1
 
-Sorry to figure it out that late, but how do you plan on maintaining it?
-Where will the patches go through, and who will you send PR to?
+Signed-off-by: T Pratham <t-pratham@ti.com>
+---
+T Pratham (3):
+      dt-bindings: crypto: Add binding for TI DTHE V2 driver
+      crypto: ti: Add driver for DTHE V2 AES Engine (ECB, CBC)
+      arm64: defconfig: enable DTHE V2 module
 
-Maxime
+ .../devicetree/bindings/crypto/ti,dthev2.yaml      |  50 ++
+ MAINTAINERS                                        |   7 +
+ arch/arm64/configs/defconfig                       |   1 +
+ drivers/crypto/Kconfig                             |   1 +
+ drivers/crypto/Makefile                            |   1 +
+ drivers/crypto/ti/Kconfig                          |  11 +
+ drivers/crypto/ti/Makefile                         |   1 +
+ drivers/crypto/ti/dthev2.c                         | 749 +++++++++++++++++++++
+ 8 files changed, 821 insertions(+)
+---
+base-commit: 9d4f8e54cef2c42e23ef258833dbd06a1eaff89b
+change-id: 20250205-dthe-v2-aes-80ea2dd58185
 
---s5i444uyid5tefem
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+-- 
+T Pratham <t-pratham@ti.com>
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6R+KQAKCRAnX84Zoj2+
-dpFcAX9vWLHvXu193dJYEBiwU4fhNxzryOdXkTE4drAdUIoskcpd7us4hCIDO00j
-dW3IY38BfRaxBKVSxfcDLKpB5L6e3vgphx4Fp+ODyheOilHTZ2A2Heqy+uVVhSmE
-jpTyN5zhyA==
-=D+sS
------END PGP SIGNATURE-----
-
---s5i444uyid5tefem--
 
