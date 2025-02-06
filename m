@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5A1C0219F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCAFCC0219D
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8iJmfJohMLskNWh1/d0vxg24JxdxKf1x+OOa7rjoPoQ=; b=3SGY4mmKpgg2u2DiYHK898jBxo
-	VEbjyjCEuF45vcVjRKu02Xz1fURtFFqu9lcinFcGGyt7YBTjgQduRlgqumBiaZlNz8zyew05X3unC
-	5FeAquLI8Wu6aiwbjWWiCZlKL8R0YRRwUSK5vyKxUDT2yDMP7NdmDj9kIOmECrEMuBOqL48Tk/hHS
-	dK5IDD3S/0RE/I28XOTSRA4aQG7PomYSTTyCtOvIrKXVGFLyT6/FF7/P+CbEYv09CdzfM194da9/Q
-	Ca6qpzEAFvMqm2+yC/20TXIiDsRYatk5jFpyNy10EAyNlKf8PuIT3CDcOYZDByVyFMeYIDobbWkPl
-	T3Rm32Vg==;
+	bh=dGZLluwkDCjp1kHB/F87oV4x0FXPfwe2Z3Cbt+cBMY0=; b=d9jvCBdrDxkaXUjXbr/ppfq8FU
+	tE4jHD8maUuJNLoyJ2llyxbeIMoakwPN1ms48SSWVyj46G3N/aFb6ADcBuodI9w4vXQ+pa5IhNkBJ
+	rgTr0z0M0OXO4YT4PdqZliXXE8cyuNxFNjjYmay9QokWTI30bM+NqhJSPmzwsGiFnxLOwyM9fWMBx
+	WTVbBn1S5t6bBfPPzextcMlxSVLz1zSZRsdod1R3c786DuVaxD9PW0DaeerEyuyt/7ZvQj9WhB9Ch
+	3ZiVCAt79h9mJg2Z+hI+kuFfddoKjgQgH8nk4F1FzB8iXUT1Xj6JzMQGLeEE9xLs3WezZ3ujKaXr8
+	AfcybYVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg77h-00000007Hti-1mkA;
-	Thu, 06 Feb 2025 19:01:13 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tg77k-00000007Hwx-2DPq;
+	Thu, 06 Feb 2025 19:01:16 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg6P8-000000077z4-3om8
+	id 1tg6PM-0000000786p-2rka
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 18:15:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C97AF442D7;
-	Thu,  6 Feb 2025 18:15:06 +0000 (UTC)
+	Thu, 06 Feb 2025 18:15:25 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9A325442D4;
+	Thu,  6 Feb 2025 18:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738865709;
+	t=1738865723;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8iJmfJohMLskNWh1/d0vxg24JxdxKf1x+OOa7rjoPoQ=;
-	b=lBoVSeHlKoZKgObkr/7yH+eB6a28/qBL2c815XIuOrLvGMzwIO27CvahjbLLJROTvzCE5L
-	3YotwQGDyNa6viU6GczZ7FATkIvf6fxX4rgB7bhbgZ8cHCmB3uCGKyLRPxFjHQ47iqZG1I
-	94jMS/fhat15/+DcEg8+cFPfIR7V8/Pn9qJXL2Ry9LWrsDHyb+kZ1nYyOgWAz468z3mAh7
-	IPmWTzzP2wZVS/bJpqm7lgpZRA8eTtMJ5iPH3dfwvphiPTbt7y9pNdG3ZcVnlC3XtwybOh
-	UkkZX6nQW/s8PqE2cmf9S9xN42UgSc01janAnUjiCVEiOSz5fxKe92B+Ql/XVg==
+	bh=dGZLluwkDCjp1kHB/F87oV4x0FXPfwe2Z3Cbt+cBMY0=;
+	b=dcwocTIPbXtLHpayEIyBz/uxIiTZQEiHi4KaM+Mz28d/scIiEZQyjWjQzRu+kIuOEhJn71
+	wvsmE0NLkbQdkXP7O8e0ZEyLviqni70ms1O4TQdIRajiqg6SA/yjtWM58Kea4YGeiqUa7R
+	owoU7X6AwiXhIk2zLrVLEozHTKUOXKXbpkdJV+NRNmRLvoW2WR36iTU2FAthzcO1z02Gz9
+	GXaQs1qoQswQj2h8a7KjfDzv+ZjL/7vGHtqsH47s1/gHCth/jX0+kBLr0n4oG+MV4GOq3E
+	LMP7xMdYbBRaJ/loMAzukV/i6J4Gorer6VYYwaDMTvuI70lmfY5xTfPL8+N3TA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 06 Feb 2025 19:14:27 +0100
-Subject: [PATCH v6 12/26] drm/bridge: allow bridges to be informed about
- added and removed bridges
+Date: Thu, 06 Feb 2025 19:14:32 +0100
+Subject: [PATCH v6 17/26] drm/bridge: add devm_drm_put_bridge() and
+ devm_drm_put_and_clear_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250206-hotplug-drm-bridge-v6-12-9d6f2c9c3058@bootlin.com>
+Message-Id: <20250206-hotplug-drm-bridge-v6-17-9d6f2c9c3058@bootlin.com>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 In-Reply-To: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
 To: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
@@ -81,12 +81,12 @@ Cc: Paul Kocialkowski <contact@paulk.fr>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpeelnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgedphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeekpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmp
- dhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghvpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptghorhgsvghtsehlfihnrdhnvghtpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopegurhhiqdguvghvvghlsehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieeiuedvffetgfeuudelheeutefggfejieettdetteekueeuueeukeevvedvueevnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemhegrgedtmedvughfieemrgdulegvmedutgejgeenucevlhhushhtvghrufhiiigvpeduheenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumeehrgegtdemvdgufheimegrudelvgemudgtjeegpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghom
+ hdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtohhrsggvtheslhifnhdrnhgvthdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_101511_110598_7A2D971F 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250206_101524_879846_20F60BE7 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,107 +101,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for allowing bridges to be added to and removed from a DRM
-card without destroying the whole card, add a new DRM bridge function
-called on addition and removal of bridges.
+Bridges obtained via devm_drm_of_get_bridge() will be put when the
+requesting device is removed. However drivers which obtained them may need
+to put the obtained reference way before being destroyed, especially in
+case of hot-unplug of the bridge they hold a reference to.
+
+Add devm_drm_put_bridge() to manually release a devm-obtained bridge.
+
+Also add a macro to additionally clear the pointer in a safe way.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Changed in v6:
- - rebased fixing conflicts
-
-Changed in v5:
- - fixed kerneldoc errors
-
-This patch was added in v4.
+This patch was added in v6.
 ---
- drivers/gpu/drm/drm_bridge.c | 12 ++++++++++++
- include/drm/drm_bridge.h     | 23 +++++++++++++++++++++++
- 2 files changed, 35 insertions(+)
+ drivers/gpu/drm/drm_bridge.c | 36 ++++++++++++++++++++++++++++++++++++
+ include/drm/drm_bridge.h     |  6 ++++++
+ 2 files changed, 42 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index b0834b8644284e5f7751cec81724af849b4180e7..1955a231378050abf1071d74a145831b425c47c5 100644
+index fca860d582f86b35c9172b27be20060de086e38f..92ce40adfaa59a278a972ac862bebee06970ff83 100644
 --- a/drivers/gpu/drm/drm_bridge.c
 +++ b/drivers/gpu/drm/drm_bridge.c
-@@ -207,12 +207,18 @@ LIST_HEAD(bridge_list);
-  */
- void drm_bridge_add(struct drm_bridge *bridge)
- {
-+	struct drm_bridge *br, *tmp;
-+
- 	mutex_init(&bridge->hpd_mutex);
- 
- 	if (bridge->ops & DRM_BRIDGE_OP_HDMI)
- 		bridge->ycbcr_420_allowed = !!(bridge->supported_formats &
- 					       BIT(HDMI_COLORSPACE_YUV420));
- 
-+	list_for_each_entry_safe(br, tmp, &bridge_list, list)
-+		if (br->funcs->bridge_event_notify)
-+			br->funcs->bridge_event_notify(br, DRM_EVENT_BRIDGE_ADD, bridge);
-+
- 	mutex_lock(&bridge_lock);
- 	list_add_tail(&bridge->list, &bridge_list);
- 	mutex_unlock(&bridge_lock);
-@@ -249,10 +255,16 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
-  */
- void drm_bridge_remove(struct drm_bridge *bridge)
- {
-+	struct drm_bridge *br, *tmp;
-+
- 	mutex_lock(&bridge_lock);
- 	list_del_init(&bridge->list);
- 	mutex_unlock(&bridge_lock);
- 
-+	list_for_each_entry_safe(br, tmp, &bridge_list, list)
-+		if (br->funcs->bridge_event_notify)
-+			br->funcs->bridge_event_notify(br, DRM_EVENT_BRIDGE_REMOVE, bridge);
-+
- 	mutex_destroy(&bridge->hpd_mutex);
+@@ -1548,6 +1548,42 @@ struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
  }
- EXPORT_SYMBOL(drm_bridge_remove);
+ EXPORT_SYMBOL(devm_drm_of_get_bridge_by_node);
+ 
++/**
++ * devm_drm_put_bridge - Release a bridge reference obtained via devm
++ * @dev: device that got the bridge via devm
++ * @bridge: pointer to a struct drm_bridge obtained via devm
++ *
++ * Same as drm_bridge_put() for bridge pointers obtained via devm functions
++ * such as devm_drm_of_get_bridge().
++ *
++ * See also devm_drm_put_and_clear_bridge() which is more handy in many
++ * cases.
++ */
++void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge)
++{
++	devm_release_action(dev, devm_drm_bridge_put_void, bridge);
++}
++EXPORT_SYMBOL(devm_drm_put_bridge);
++
++/**
++ * devm_drm_put_and_clear_bridge - Given a bridge pointer obained via devm,
++ *                                 clear the pointer then put the bridge
++ *
++ * @dev: device that got the bridge via devm
++ * @bridge_pp: pointer to pointer to a struct drm_bridge obtained via devm
++ *
++ * Same as drm_bridge_put_and_clear() for bridge pointers obtained via devm
++ * functions such as devm_drm_of_get_bridge().
++ */
++void devm_drm_put_and_clear_bridge(struct device *dev, struct drm_bridge **bridge_pp)
++{
++	struct drm_bridge *bridge = *bridge_pp;
++
++	*bridge_pp = NULL;
++	devm_drm_put_bridge(dev, bridge);
++}
++EXPORT_SYMBOL(devm_drm_put_and_clear_bridge);
++
+ static void drmm_bridge_put_void(struct drm_device *drm, void *ptr)
+ {
+ 	struct drm_bridge *bridge = ptr;
 diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 1561347c4991dac6022319774510f9560c9283c3..ad7ba444a13e5ecf16f996de3742e4ac67dc21f1 100644
+index 43cef0f6ccd36034f64ad2babfebea62db1d9e43..b6b76161a3c6bb2a4df4b3331bc152a560823fd7 100644
 --- a/include/drm/drm_bridge.h
 +++ b/include/drm/drm_bridge.h
-@@ -56,6 +56,11 @@ enum drm_bridge_attach_flags {
- 	DRM_BRIDGE_ATTACH_NO_CONNECTOR = BIT(0),
- };
+@@ -1230,6 +1230,8 @@ struct drm_bridge *devm_drm_of_get_bridge(struct device *dev, struct device_node
+ 					  u32 port, u32 endpoint);
+ struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
+ 						  struct device_node *bridge_node);
++void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge);
++void devm_drm_put_and_clear_bridge(struct device *dev, struct drm_bridge **bridge_pp);
+ struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm, struct device_node *node,
+ 					  u32 port, u32 endpoint);
+ #else
+@@ -1247,6 +1249,10 @@ static inline struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *d
+ 	return ERR_PTR(-ENODEV);
+ }
  
-+enum drm_bridge_event_type {
-+	DRM_EVENT_BRIDGE_ADD,
-+	DRM_EVENT_BRIDGE_REMOVE,
-+};
++static inline void devm_drm_put_bridge(struct device *dev, struct drm_bridge *bridge) {}
++static inline void devm_drm_put_and_clear_bridge(struct device *dev,
++						 struct drm_bridge **bridge_pp) {}
 +
- /**
-  * struct drm_bridge_funcs - drm_bridge control functions
-  */
-@@ -729,6 +734,24 @@ struct drm_bridge_funcs {
- 				      struct drm_bridge *bridge,
- 				      bool enable, int direction);
- 
-+	/**
-+	 * @bridge_event_notify:
-+	 *
-+	 * Notify that another bridge is being added or removed.
-+	 *
-+	 * This callback is optional. Bridges implementing it must always
-+	 * check whether the event refers to a bridge they actually need to
-+	 * interact with.
-+	 *
-+	 * @bridge: bridge being notified
-+	 * @event: event happened (add/remove bridge)
-+	 * @event_bridge: the bridge mentioned by the event (i.e. the
-+	 * bridge being added or removed)
-+	 */
-+	void (*bridge_event_notify)(struct drm_bridge *bridge,
-+				    enum drm_bridge_event_type event,
-+				    struct drm_bridge *event_bridge);
-+
- 	/**
- 	 * @debugfs_init:
- 	 *
+ static inline struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm,
+ 						     struct device_node *node,
+ 						     u32 port,
 
 -- 
 2.34.1
