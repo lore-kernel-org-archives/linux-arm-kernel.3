@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED13C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1184C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 13:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuimryCjZ2Ztqx7vxfPlkW5S79f/2oVyGI8EiyfQHMM=; b=Rx5CzRASTjLwAqmwx6nSk9PYuD
-	ZSmHbrzNhdf52QumhOwFMwEt1kGChc/J2sIZKrzAQPPlZKLc2O6sw6lf7fZeyAOHLS2YfT1/GU8XC
-	broix1vGnW/XE0PG0U0AnUP0Xqi/zIK57MpkBUGSqXL3sG6B385fuFPdwXjrIFsQiQVCKxgQcuyTn
-	dCPRlAhwjg9Z2bXe84qyq1M885HLJLQqyvkJR5mKOSBQZBzoiqzEsPMHZbmkAt4OV1/eYVpjvfz0E
-	6vSF3M1yF5wM/+LAkZmjMxB4JnoYmwVs17E/GIdT/wiaQVPyE+NivfgmiD72lq2Qycn6HaWIfjf4s
-	NHEWbfhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bcl7WjWH0ga0feZ9cdjBxJ88YKE5Vz+6PyKwqg4g9gc=; b=t8o9r1wfB2o3PcIUaSHLiZrPiB
+	1bGtaKrftclJKT5xPX0ztvJkLYCmLEIE3AD21072WETyMhYc2eweVoqs/tsuv0sWCiZ+R5FEFUtP2
+	w+CV9M0cRuYURgTRRPpNobohN3yGxfob8EUNk12IB7OcTDLIX0slhhXAOPAG1fz1LgJSLUdFo2aGl
+	r197m3SBMXWYlmjHeEWYvFpqHkXbRxU84hXgxiyBzGyMqy8bNH2q1k9xXZ+GYA3lPyDoFNESOd2/D
+	bQEkL391OrQtm5OvDRC+L45Wc/umBJGtLQ6W1BtDZkcThCfUsq3dFLlEalKh6vuVShV0G6s+gzsb3
+	7bFG6jyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1a6-00000006LdD-3t63;
-	Thu, 06 Feb 2025 13:06:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1Yj-00000006LKL-14ft
+	id 1tg1bS-00000006Lq6-2fKr;
+	Thu, 06 Feb 2025 13:07:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg1ZU-00000006LVc-1AQO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 13:04:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6213FEC;
-	Thu,  6 Feb 2025 05:05:07 -0800 (PST)
-Received: from [10.57.80.166] (unknown [10.57.80.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4A733F5A1;
-	Thu,  6 Feb 2025 05:04:41 -0800 (PST)
-Message-ID: <b2485f33-73fb-44b3-be36-9c5b6bae4d09@arm.com>
-Date: Thu, 6 Feb 2025 13:04:40 +0000
+	Thu, 06 Feb 2025 13:05:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0079F5C4C47;
+	Thu,  6 Feb 2025 13:04:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 423A4C4CEDD;
+	Thu,  6 Feb 2025 13:05:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738847131;
+	bh=rE1sy+FfaAGMIzwM8EZBoJ3Dv8Fmfq/jdRSMzL/N0zQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=reHjMAq+muONPXIODduR0Z1IFIXihk/zEBurSpK6NU3cj6eHgP8XSkMWe8cgq16nn
+	 2Eq9+Msb4OXBJeQBkgf+VIOZvprx3ykRrLqbhaEO5ZCa3VBDfm9H3ln+I8jlviwYml
+	 L1q4qEZ5g4wo754Htix+d5qrmMaDXkxnW/DLpg3/Q0nhE9lpD1KWqjngA2k6+JghHR
+	 kT1Tf6v2RRSWQjphLkxr2B6m5IpfUeKhG/wy+SOzOlXYIv8pfQGOt4jMgWxx5qM3ps
+	 9H7D98c322tzHKBc32/i4H11zTyWs0Kj6tcQrED0+JvYrlRK71DoP05bz/dxEEqesn
+	 Bz58iDr4nW08A==
+Date: Thu, 6 Feb 2025 13:05:26 +0000
+From: Will Deacon <will@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Handle .ARM.attributes section in linker
+ scripts
+Message-ID: <20250206130526.GB3204@willie-the-truck>
+References: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 03/16] arm64: hugetlb: Fix flush_hugetlb_tlb_range()
- invalidation level
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-4-ryan.roberts@arm.com>
- <e2809c59-6453-4a90-88ad-0b22e82f869f@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <e2809c59-6453-4a90-88ad-0b22e82f869f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250204-arm64-handle-arm-attributes-in-linker-script-v2-1-d684097f5554@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_050445_382575_EB118D3B 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20250206_050532_404878_190534A5 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 06:46, Anshuman Khandual wrote:
+Hi Nathan,
+
+On Tue, Feb 04, 2025 at 10:48:55AM -0700, Nathan Chancellor wrote:
+> A recent LLVM commit [1] started generating an .ARM.attributes section
+> similar to the one that exists for 32-bit, which results in orphan
+> section warnings (or errors if CONFIG_WERROR is enabled) from the linker
+> because it is not handled in the arm64 linker scripts.
 > 
+>   ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.ARM.attributes) is being placed in '.ARM.attributes'
 > 
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> commit c910f2b65518 ("arm64/mm: Update tlb invalidation routines for
->> FEAT_LPA2") changed the "invalidation level unknown" hint from 0 to
->> TLBI_TTL_UNKNOWN (INT_MAX). But the fallback "unknown level" path in
->> flush_hugetlb_tlb_range() was not updated. So as it stands, when trying
->> to invalidate CONT_PMD_SIZE or CONT_PTE_SIZE hugetlb mappings, we will
->> spuriously try to invalidate at level 0 on LPA2-enabled systems.
->>
->> Fix this so that the fallback passes TLBI_TTL_UNKNOWN, and while we are
->> at it, explicitly use the correct stride and level for CONT_PMD_SIZE and
->> CONT_PTE_SIZE, which should provide a minor optimization.
->>
->> Cc: <stable@vger.kernel.org>
->> Fixes: c910f2b65518 ("arm64/mm: Update tlb invalidation routines for FEAT_LPA2")
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/include/asm/hugetlb.h | 20 ++++++++++++++------
->>  1 file changed, 14 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
->> index 03db9cb21ace..8ab9542d2d22 100644
->> --- a/arch/arm64/include/asm/hugetlb.h
->> +++ b/arch/arm64/include/asm/hugetlb.h
->> @@ -76,12 +76,20 @@ static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
->>  {
->>  	unsigned long stride = huge_page_size(hstate_vma(vma));
->>  
->> -	if (stride == PMD_SIZE)
->> -		__flush_tlb_range(vma, start, end, stride, false, 2);
->> -	else if (stride == PUD_SIZE)
->> -		__flush_tlb_range(vma, start, end, stride, false, 1);
->> -	else
->> -		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 0);
->> +	switch (stride) {
->> +	case PUD_SIZE:
->> +		__flush_tlb_range(vma, start, end, PUD_SIZE, false, 1);
->> +		break;
+>   ld.lld: error: vmlinux.a(lib/vsprintf.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: vmlinux.a(lib/win_minmax.o):(.ARM.attributes) is being placed in '.ARM.attributes'
+>   ld.lld: error: vmlinux.a(lib/xarray.o):(.ARM.attributes) is being placed in '.ARM.attributes'
 > 
-> Just wondering - should not !__PAGETABLE_PMD_FOLDED and pud_sect_supported()
-> checks also be added here for this PUD_SIZE case ?
-
-Yeah I guess so. TBH, it's never been entirely clear to me what the benefit is?
-Is it just to remove (a tiny amount of) dead code when we know we don't support
-blocks at the level? Or is there something more fundamental going on that I've
-missed?
-
-We seem to be quite inconsistent with the use of pud_sect_supported() in
-hugetlbpage.c.
-
-Anyway, I'll add this in, I guess it's preferable to follow the established pattern.
-
-Thanks,
-Ryan
-
+> Discard the new sections in the necessary linker scripts to resolve the
+> warnings, as the kernel and vDSO do not need to retain it, similar to
+> the .note.gnu.property section.
 > 
->> +	case CONT_PMD_SIZE:
->> +	case PMD_SIZE:
->> +		__flush_tlb_range(vma, start, end, PMD_SIZE, false, 2);
->> +		break;
->> +	case CONT_PTE_SIZE:
->> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 3);
->> +		break;
->> +	default:
->> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, TLBI_TTL_UNKNOWN);
->> +	}
->>  }
->>  
->>  #endif /* __ASM_HUGETLB_H */
+> Cc: stable@vger.kernel.org
+> Fixes: b3e5d80d0c48 ("arm64/build: Warn on orphan section placement")
+> Link: https://github.com/llvm/llvm-project/commit/ee99c4d4845db66c4daa2373352133f4b237c942 [1]
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> Changes in v2:
+> - Discard the section instead of adding it to the final artifacts to
+>   mirror the .note.gnu.property section handling (Will).
 
+Thanks for the v2. Just a minor nit:
+
+> - Link to v1: https://lore.kernel.org/r/20250124-arm64-handle-arm-attributes-in-linker-script-v1-1-74135b6cf349@kernel.org
+> ---
+>  arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+>  arch/arm64/kernel/vmlinux.lds.S   | 1 +
+>  2 files changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> index 4ec32e86a8da..8095fef66209 100644
+> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> @@ -80,6 +80,7 @@ SECTIONS
+>  		*(.data .data.* .gnu.linkonce.d.* .sdata*)
+>  		*(.bss .sbss .dynbss .dynsbss)
+>  		*(.eh_frame .eh_frame_hdr)
+> +		*(.ARM.attributes)
+>  	}
+
+Can we chuck this in the earlier /DISCARD/ section along with
+.note.gnu.property? i.e.
+
+
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 4ec32e86a8da..47ad6944f9f0 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -41,6 +41,7 @@ SECTIONS
+         */
+        /DISCARD/       : {
+                *(.note.GNU-stack .note.gnu.property)
++               *(.ARM.attributes)
+        }
+        .note           : { *(.note.*) }                :text   :note
+
+
+Will
 
