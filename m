@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7372C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF464C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEZDWG/9ZyiuU06it9eq26Nqc/R4+499YYPwReOts6c=; b=fCEE715nWr58eoGnfdl7KaPgj0
-	Yn2jD+UXaSwBcNYCueG5mqjI2DXeKHe3MoldZNxyknUCeeA/15cq7d6Y8BxuSok5DGF4OuTnWKkOn
-	g4MaU44M6eQtGSlpDjrN79JMyOmsOQzgDNfiGJkB4U7hlcd0tUFV3a+9pUDKnh8dhgIs5v+uxosVj
-	LJR1bT5WCcED/3EUqsTrAAk8lUJRMVj9xctaZNtRzDfR62Y3cH7AkpoNVs3riMHwITXwfCfalCfF1
-	wiLtdfAfdTo3XWHz+z19LK759Aage8vsrzaFK11XlxxoFyjTTj6dsq5Dm57RpKhgQvMK6Rn+Ic0+R
-	B8cdtwRQ==;
+	bh=u1wM2GMerEpph7OMIcvMX+rFaqiN9heP6XwngnRioLg=; b=G9shJTA+UX5VX8fzHbzzishJjz
+	WeJ9Z0hCtzX4o3WkXyp6qYfme7xZN+nqsVEBnofSQ7tB7hyBp3oERNzKFZgQSr/rmgWbAt3liI/kx
+	iJgShdD5NvH4AIF96pHzJPkA3Z11uizNR8jlHjWD6wSWv3caTa7xQOCWNBoe/Caj5cOzVV2RJRlrC
+	YLs9VGwrKYC6yq2LIUtyvnvTlOVvDgVhYP+TddKjXfe/MEmwiDi/BZErDMc/+B/DqLkO0MJjdnrth
+	+DQbVQqv5WT5vLoLDqe3nc4QkmzYwv6Z8n6CZu1FKM0uR05rRGCTrEqollvq5pLGYcO1H4n0BKpkx
+	tanhg6rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg4B6-00000006lbi-2goF;
-	Thu, 06 Feb 2025 15:52:32 +0000
+	id 1tg4CR-00000006lnN-1DPg;
+	Thu, 06 Feb 2025 15:53:55 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg48M-00000006kvx-1jQG
+	id 1tg48M-00000006kvz-2Umo
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Feb 2025 15:49:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02F6F5C0CB4;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58DBF5C63F4;
 	Thu,  6 Feb 2025 15:49:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55BFAC4CEDD;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0C5C4CEE5;
 	Thu,  6 Feb 2025 15:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1738856981;
-	bh=ts+KsyyZtF3jcHz3GegwN4ReluPA0vhC5Z7R9LkRvkE=;
+	bh=kJD6aMoTO7I76BGZFNoXThdgd5zqwB3hMKG+1tg5hBI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yap4LQM21hb6pQLHtKjtHjS1+r+ae+h1DeJwXUaNNxCBUUZzhT77jQEeexzQgu72f
-	 jldr7GZiGhAwdQ8xv9/tHoDCaK3fpjNYUW+1S/c1nVA1peEJUZBnZ2ja+9O2IZx6QJ
-	 vtxyAEGYOZK4dypXZfT4cZ7EIazaL2Tn1LoIHI74KB3e0secC6uEuEicKC0aJURzLs
-	 Y/kOvxpKa4btPCcoqb81YqFAYRTv5UZ7++QZ4NW8aoKd8DAunkp+V+CpFB93B8SWLg
-	 NPXIy38lowiWwJRCfvfQg2nTAJfFoTh42ibE2OuVpVFf+h1jqzFPZ5ZHOYHnD9kmmg
-	 0aveSuPcAWjZg==
+	b=QkgFik/RKI89TcGLfUavb6ww03+/l/5gEvBAPfK6F9NCAszRg1DJmv5GulrcJKS42
+	 ECiAcxkGdtMTZlgPWgJu8ULz6JV1HVWkl4ewhwj0lShsh5qwcP6A/YNN054DI6zjjO
+	 C3HX96gtHt1pGuSCyGtbP6IVT1RzFJK705Yw+nsuOIloq0KUy5wAkNNl6tV4PoEyCr
+	 TDYd1ErHsHKrG3dFamfnVIB6nYty5ApkiwJiuvACw6i3FSD96mOMdecn2s74t2U1Jx
+	 FNfWeIKXnUpHuHmUihpLYWZQ2+zw8BtCnKesCZr8f6XXhunCMVpNaij3HxsHsS2Ket
+	 URcZlKlmbNICQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tg48J-001BOX-3U;
+	id 1tg48J-001BOX-Sa;
 	Thu, 06 Feb 2025 15:49:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v3 01/16] arm64: sysreg: Add layout for ICH_HCR_EL2
-Date: Thu,  6 Feb 2025 15:49:10 +0000
-Message-Id: <20250206154925.1109065-2-maz@kernel.org>
+Subject: [PATCH v3 04/16] KVM: arm64: nv: Load timer before the GIC
+Date: Thu,  6 Feb 2025 15:49:13 +0000
+Message-Id: <20250206154925.1109065-5-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250206154925.1109065-1-maz@kernel.org>
 References: <20250206154925.1109065-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_074942_535483_A528F478 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20250206_074942_675441_3051C5F0 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,307 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ICH_HCR_EL2-related macros are missing a number of control
-bits that we are about to handle. Take this opportunity to fully
-describe the layout of that register as part of the automatic
-generation infrastructure.
+In order for vgic_v3_load_nested to be able to observe which timer
+interrupts have the HW bit set for the current context, the timers
+must have been loaded in the new mode and the right timer mapped
+to their corresponding HW IRQs.
 
-This results in a bit of churn, unfortunately.
+At the moment, we load the GIC first, meaning that timer interrupts
+injected to an L2 guest will never have the HW bit set (we see the
+old configuration).
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Swapping the two loads solves this particular problem.
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h       | 12 ------------
- arch/arm64/kvm/emulate-nested.c       | 16 ++++++++--------
- arch/arm64/kvm/hyp/vgic-v3-sr.c       | 14 +++++++-------
- arch/arm64/kvm/vgic/vgic-v3.c         | 17 +++++++++--------
- arch/arm64/tools/sysreg               | 22 ++++++++++++++++++++++
- drivers/irqchip/irq-apple-aic.c       |  8 ++++----
- tools/arch/arm64/include/asm/sysreg.h | 12 ------------
- 7 files changed, 50 insertions(+), 51 deletions(-)
+ arch/arm64/kvm/arm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 05ea5223d2d55..76a88042390f3 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -562,7 +562,6 @@
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 646e806c6ca69..f3ffd8a6aebe2 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -576,8 +576,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ nommu:
+ 	vcpu->cpu = cpu;
  
- #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
- #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
--#define SYS_ICH_HCR_EL2			sys_reg(3, 4, 12, 11, 0)
- #define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
- #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
- #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
-@@ -1003,17 +1002,6 @@
- #define ICH_LR_PRIORITY_SHIFT	48
- #define ICH_LR_PRIORITY_MASK	(0xffULL << ICH_LR_PRIORITY_SHIFT)
- 
--/* ICH_HCR_EL2 bit definitions */
--#define ICH_HCR_EN		(1 << 0)
--#define ICH_HCR_UIE		(1 << 1)
--#define ICH_HCR_NPIE		(1 << 3)
--#define ICH_HCR_TC		(1 << 10)
--#define ICH_HCR_TALL0		(1 << 11)
--#define ICH_HCR_TALL1		(1 << 12)
--#define ICH_HCR_TDIR		(1 << 14)
--#define ICH_HCR_EOIcount_SHIFT	27
--#define ICH_HCR_EOIcount_MASK	(0x1f << ICH_HCR_EOIcount_SHIFT)
--
- /* ICH_VMCR_EL2 bit definitions */
- #define ICH_VMCR_ACK_CTL_SHIFT	2
- #define ICH_VMCR_ACK_CTL_MASK	(1 << ICH_VMCR_ACK_CTL_SHIFT)
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 607d37bab70b4..9986bb88c2597 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -412,26 +412,26 @@ static const struct trap_bits coarse_trap_bits[] = {
- 	},
- 	[CGT_ICH_HCR_TC] = {
- 		.index		= ICH_HCR_EL2,
--		.value		= ICH_HCR_TC,
--		.mask		= ICH_HCR_TC,
-+		.value		= ICH_HCR_EL2_TC,
-+		.mask		= ICH_HCR_EL2_TC,
- 		.behaviour	= BEHAVE_FORWARD_RW,
- 	},
- 	[CGT_ICH_HCR_TALL0] = {
- 		.index		= ICH_HCR_EL2,
--		.value		= ICH_HCR_TALL0,
--		.mask		= ICH_HCR_TALL0,
-+		.value		= ICH_HCR_EL2_TALL0,
-+		.mask		= ICH_HCR_EL2_TALL0,
- 		.behaviour	= BEHAVE_FORWARD_RW,
- 	},
- 	[CGT_ICH_HCR_TALL1] = {
- 		.index		= ICH_HCR_EL2,
--		.value		= ICH_HCR_TALL1,
--		.mask		= ICH_HCR_TALL1,
-+		.value		= ICH_HCR_EL2_TALL1,
-+		.mask		= ICH_HCR_EL2_TALL1,
- 		.behaviour	= BEHAVE_FORWARD_RW,
- 	},
- 	[CGT_ICH_HCR_TDIR] = {
- 		.index		= ICH_HCR_EL2,
--		.value		= ICH_HCR_TDIR,
--		.mask		= ICH_HCR_TDIR,
-+		.value		= ICH_HCR_EL2_TDIR,
-+		.mask		= ICH_HCR_EL2_TDIR,
- 		.behaviour	= BEHAVE_FORWARD_RW,
- 	},
- };
-diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-index 3f9741e51d41b..b47dede973b3c 100644
---- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-+++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-@@ -218,7 +218,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
- 
- 		elrsr = read_gicreg(ICH_ELRSR_EL2);
- 
--		write_gicreg(cpu_if->vgic_hcr & ~ICH_HCR_EN, ICH_HCR_EL2);
-+		write_gicreg(cpu_if->vgic_hcr & ~ICH_HCR_EL2_En, ICH_HCR_EL2);
- 
- 		for (i = 0; i < used_lrs; i++) {
- 			if (elrsr & (1 << i))
-@@ -274,7 +274,7 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
- 	 * system registers to trap to EL1 (duh), force ICC_SRE_EL1.SRE to 1
- 	 * so that the trap bits can take effect. Yes, we *loves* the GIC.
- 	 */
--	if (!(cpu_if->vgic_hcr & ICH_HCR_EN)) {
-+	if (!(cpu_if->vgic_hcr & ICH_HCR_EL2_En)) {
- 		write_gicreg(ICC_SRE_EL1_SRE, ICC_SRE_EL1);
- 		isb();
- 	} else if (!cpu_if->vgic_sre) {
-@@ -752,7 +752,7 @@ static void __vgic_v3_bump_eoicount(void)
- 	u32 hcr;
- 
- 	hcr = read_gicreg(ICH_HCR_EL2);
--	hcr += 1 << ICH_HCR_EOIcount_SHIFT;
-+	hcr += 1 << ICH_HCR_EL2_EOIcount_SHIFT;
- 	write_gicreg(hcr, ICH_HCR_EL2);
- }
- 
-@@ -1069,7 +1069,7 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
- 	case SYS_ICC_EOIR0_EL1:
- 	case SYS_ICC_HPPIR0_EL1:
- 	case SYS_ICC_IAR0_EL1:
--		return ich_hcr & ICH_HCR_TALL0;
-+		return ich_hcr & ICH_HCR_EL2_TALL0;
- 
- 	case SYS_ICC_IGRPEN1_EL1:
- 		if (is_read &&
-@@ -1090,10 +1090,10 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
- 	case SYS_ICC_EOIR1_EL1:
- 	case SYS_ICC_HPPIR1_EL1:
- 	case SYS_ICC_IAR1_EL1:
--		return ich_hcr & ICH_HCR_TALL1;
-+		return ich_hcr & ICH_HCR_EL2_TALL1;
- 
- 	case SYS_ICC_DIR_EL1:
--		if (ich_hcr & ICH_HCR_TDIR)
-+		if (ich_hcr & ICH_HCR_EL2_TDIR)
- 			return true;
- 
- 		fallthrough;
-@@ -1101,7 +1101,7 @@ static bool __vgic_v3_check_trap_forwarding(struct kvm_vcpu *vcpu,
- 	case SYS_ICC_RPR_EL1:
- 	case SYS_ICC_CTLR_EL1:
- 	case SYS_ICC_PMR_EL1:
--		return ich_hcr & ICH_HCR_TC;
-+		return ich_hcr & ICH_HCR_EL2_TC;
- 
- 	default:
- 		return false;
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index d7233ab982d01..5e9682a550460 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -24,7 +24,7 @@ void vgic_v3_set_underflow(struct kvm_vcpu *vcpu)
- {
- 	struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
- 
--	cpuif->vgic_hcr |= ICH_HCR_UIE;
-+	cpuif->vgic_hcr |= ICH_HCR_EL2_UIE;
- }
- 
- static bool lr_signals_eoi_mi(u64 lr_val)
-@@ -42,7 +42,7 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
- 
- 	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
- 
--	cpuif->vgic_hcr &= ~ICH_HCR_UIE;
-+	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
- 
- 	for (lr = 0; lr < cpuif->used_lrs; lr++) {
- 		u64 val = cpuif->vgic_lr[lr];
-@@ -292,7 +292,7 @@ void vgic_v3_enable(struct kvm_vcpu *vcpu)
- 					    ICH_VTR_PRI_BITS_SHIFT) + 1;
- 
- 	/* Get the show on the road... */
--	vgic_v3->vgic_hcr = ICH_HCR_EN;
-+	vgic_v3->vgic_hcr = ICH_HCR_EL2_En;
- }
- 
- void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
-@@ -301,18 +301,19 @@ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
- 
- 	/* Hide GICv3 sysreg if necessary */
- 	if (!kvm_has_gicv3(vcpu->kvm)) {
--		vgic_v3->vgic_hcr |= ICH_HCR_TALL0 | ICH_HCR_TALL1 | ICH_HCR_TC;
-+		vgic_v3->vgic_hcr |= (ICH_HCR_EL2_TALL0 | ICH_HCR_EL2_TALL1 |
-+				      ICH_HCR_EL2_TC);
- 		return;
- 	}
- 
- 	if (group0_trap)
--		vgic_v3->vgic_hcr |= ICH_HCR_TALL0;
-+		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TALL0;
- 	if (group1_trap)
--		vgic_v3->vgic_hcr |= ICH_HCR_TALL1;
-+		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TALL1;
- 	if (common_trap)
--		vgic_v3->vgic_hcr |= ICH_HCR_TC;
-+		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TC;
- 	if (dir_trap)
--		vgic_v3->vgic_hcr |= ICH_HCR_TDIR;
-+		vgic_v3->vgic_hcr |= ICH_HCR_EL2_TDIR;
- }
- 
- int vgic_v3_lpi_sync_pending_status(struct kvm *kvm, struct vgic_irq *irq)
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 762ee084b37c5..fa77621aba1a3 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3035,6 +3035,28 @@ Field	31:16	PhyPARTID29
- Field	15:0	PhyPARTID28
- EndSysreg
- 
-+Sysreg	ICH_HCR_EL2	3	4	12	11	0
-+Res0	63:32
-+Field	31:27	EOIcount
-+Res0	26:16
-+Field	15	DVIM
-+Field	14	TDIR
-+Field	13	TSEI
-+Field	12	TALL1
-+Field	11	TALL0
-+Field	10	TC
-+Res0	9
-+Field	8	vSGIEOICount
-+Field	7	VGrp1DIE
-+Field	6	VGrp1EIE
-+Field	5	VGrp0DIE
-+Field	4	VGrp0EIE
-+Field	3	NPIE
-+Field	2	LRENPIE
-+Field	1	UIE
-+Field	0	En
-+EndSysreg
-+
- Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
- Fields	CONTEXTIDR_ELx
- EndSysreg
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index da5250f0155cf..7a5cc26529f82 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -409,15 +409,15 @@ static void __exception_irq_entry aic_handle_irq(struct pt_regs *regs)
- 	 * in use, and be cleared when coming back from the handler.
- 	 */
- 	if (is_kernel_in_hyp_mode() &&
--	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EN) &&
-+	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
- 	    read_sysreg_s(SYS_ICH_MISR_EL2) != 0) {
- 		generic_handle_domain_irq(aic_irqc->hw_domain,
- 					  AIC_FIQ_HWIRQ(AIC_VGIC_MI));
- 
--		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EN) &&
-+		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
- 			     read_sysreg_s(SYS_ICH_MISR_EL2))) {
- 			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM, disabling.\n");
--			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EN, 0);
-+			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
- 		}
- 	}
- }
-@@ -840,7 +840,7 @@ static int aic_init_cpu(unsigned int cpu)
- 				   VM_TMR_FIQ_ENABLE_V | VM_TMR_FIQ_ENABLE_P, 0);
- 
- 		/* vGIC maintenance IRQ */
--		sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EN, 0);
-+		sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
- 	}
- 
- 	/* PMC FIQ */
-diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-index 150416682e2cb..0ce8fc540fe22 100644
---- a/tools/arch/arm64/include/asm/sysreg.h
-+++ b/tools/arch/arm64/include/asm/sysreg.h
-@@ -558,7 +558,6 @@
- 
- #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
- #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
--#define SYS_ICH_HCR_EL2			sys_reg(3, 4, 12, 11, 0)
- #define SYS_ICH_VTR_EL2			sys_reg(3, 4, 12, 11, 1)
- #define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
- #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
-@@ -999,17 +998,6 @@
- #define ICH_LR_PRIORITY_SHIFT	48
- #define ICH_LR_PRIORITY_MASK	(0xffULL << ICH_LR_PRIORITY_SHIFT)
- 
--/* ICH_HCR_EL2 bit definitions */
--#define ICH_HCR_EN		(1 << 0)
--#define ICH_HCR_UIE		(1 << 1)
--#define ICH_HCR_NPIE		(1 << 3)
--#define ICH_HCR_TC		(1 << 10)
--#define ICH_HCR_TALL0		(1 << 11)
--#define ICH_HCR_TALL1		(1 << 12)
--#define ICH_HCR_TDIR		(1 << 14)
--#define ICH_HCR_EOIcount_SHIFT	27
--#define ICH_HCR_EOIcount_MASK	(0x1f << ICH_HCR_EOIcount_SHIFT)
--
- /* ICH_VMCR_EL2 bit definitions */
- #define ICH_VMCR_ACK_CTL_SHIFT	2
- #define ICH_VMCR_ACK_CTL_MASK	(1 << ICH_VMCR_ACK_CTL_SHIFT)
+-	kvm_vgic_load(vcpu);
+ 	kvm_timer_vcpu_load(vcpu);
++	kvm_vgic_load(vcpu);
+ 	kvm_vcpu_load_debug(vcpu);
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
 -- 
 2.39.2
 
