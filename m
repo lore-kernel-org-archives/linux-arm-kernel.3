@@ -4,74 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9983DC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B124FC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 17:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0tGaR17zCYehWILaJaYgqBJKc3qyJ/bjhxwyeAXjD14=; b=jovHaRi+UST8w0aXXoVNcoFL5M
-	gLx6oO2gfE0FVLTd1ybwxfnPDZ4Ehzpuy8ItCbfSTYyj3ZD8Y5VXBEqQQZwiAKKJERwFP1cRqWDg6
-	vFhBAnNmso3kBFJJsNziD3Z8Wa4lRAv8x1UGXJbA2SF9FhMZeRzy9ebKsujpOJYDblvcp0FP9DP91
-	tmjoiJ1YGpFK14O+a4tWPE2OVvwePv28A916tV/VZNp2j1NB4iZXd5qpJwWVw/8di8un5oBwBm4ft
-	FpYPce7b6DCZN5sJnuUrW30TYzI1U6jMzOuR2n89hiuqYdNwB/GaBSWk9qRUX91uF6GCYcvs4zx2I
-	duqWggZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kW8Qrz9B3P3zYKqFJs0jd++hV5Qr6xS1PmxTkhIFD5U=; b=xn3qciFVU9VfzoaPnMt+TjI0lj
+	cAAK7qIn/kk623qGS3ZLdcPwTSC6hEud1L2oBW+37ZEmA+FrQcPYTnLR1/G4laXxlNSQZ/aAycVqy
+	yLsPQQWxh4f1r+irkQgE21NURm+54TfL5hr07MKqCPzpA4jCymXpnOASS3jVkkIJ6K/4sTQzvZCyf
+	65QMuu+gx4THLw+EUSKWj0BIAjWnEeE+bn6UHD6059TaBUM3cGmZF8mo544j7/G9cwQnzmC7YY6gN
+	hJbeeFeU992sEKvXiupKE5JVY6ABfSh3t40jkdDd5/dBIzjpG7Nb1l947xvuaImkjYxvJzXNnNmuu
+	/EOu2q0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5x2-000000071nB-0kA8;
-	Thu, 06 Feb 2025 17:46:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tg60V-000000072Ut-42OI;
+	Thu, 06 Feb 2025 17:49:43 +0000
+Received: from mail-bn8nam04on20607.outbound.protection.outlook.com ([2a01:111:f403:2408::607] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5ve-000000071iE-0eBM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 17:44:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738863880;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=0tGaR17zCYehWILaJaYgqBJKc3qyJ/bjhxwyeAXjD14=;
-	b=Uw97fMlPVDRiVmXRSKfGLfX2DrjAJTu4/Zzvmp8QyawfW8U4Sn1uclDdZNNnM1ExNw6xBN
-	CPkGu+OAa/S8At0T5lVPTxgkN/+8HfRFdnGe9yIrPEBDg1LPdEIN1EifwgsGQg/TcAGeDR
-	9gglwjACdicwhEgHNdTj9ecFHgQ8FZE=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-336-gutPIKKcMLmbzEpZaGhPwQ-1; Thu,
- 06 Feb 2025 12:44:35 -0500
-X-MC-Unique: gutPIKKcMLmbzEpZaGhPwQ-1
-X-Mimecast-MFC-AGG-ID: gutPIKKcMLmbzEpZaGhPwQ
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C76071800877;
-	Thu,  6 Feb 2025 17:44:32 +0000 (UTC)
-Received: from thinkpad-p1.kanata.rendec.net (unknown [10.22.66.164])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E26AA1955F1B;
-	Thu,  6 Feb 2025 17:44:30 +0000 (UTC)
-From: Radu Rendec <rrendec@redhat.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Borislav Petkov <bp@alien8.de>
-Subject: [PATCH v2] arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
-Date: Thu,  6 Feb 2025 12:44:20 -0500
-Message-ID: <20250206174420.2178724-1-rrendec@redhat.com>
+	id 1tg5z7-000000072Go-3zOI;
+	Thu, 06 Feb 2025 17:48:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I9NE32ZdreAZPj2MaPUSBiCkg35knqriNdeVq/qIVo84vL+iDAs+8cWYlsD598i1KWrQsJFqmAzFa3PkPrj8KbHA5ygWxFC3IzQD+m3GQICPqJFNJLrHSC15Sby0bQUuq3qvMPOI77JqrzhNbnVXJYZTuBNyESPViujKM/JWlVn2cjEnXYjvVIZ6eiYfrKnxEtBbBnSu8TW4eNZECa7vuKbmQCXy7MUdF1agLLZm4Amj6HUAe7HdIn9RAab5O/zU2Rg19k2avU71hlPpRCSSHfBzK9mFNErO6JRvUT9qfoZIaC+9h+aYbVCtdR8vhCh2WWUT4QhLmP5ejkVUqPqWzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kW8Qrz9B3P3zYKqFJs0jd++hV5Qr6xS1PmxTkhIFD5U=;
+ b=hIpTqbziFrq6/Q8hgRO90CmEcxLi+7//2Y8OQ/t7GIz0mpVnO2Rcjr2ALEFJkfQhA7z5PO5vtNlYa0dhNsP5ElTFQvKRhmxNMIzS7BUZJLMdsEaVDOVrwtof/XQJsAZzAZ8JHhNxnhFAJWQkfO7+YWJdhRFWhB4V0DWJLjWjvT6KFNP6xZoTwXaqa0++1p1b8cb43V3ncqMgCdcR3T0WNtZ7x0ahWKBwKYztFZZgSy6ZMQItj9CLQi4YN+yILeO2lo72w2xLnu7xpqnF4xLm+I0wII5mZMbJjEX1iAf9A6swsS8w0uY4ZgKBVk3MCnSTTkUsmRgoJ5B5OSp59cXtnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kW8Qrz9B3P3zYKqFJs0jd++hV5Qr6xS1PmxTkhIFD5U=;
+ b=iteiJeiGhPOjZf5XrS+ob/r7KEJVosDvNXV8xKulQmo1l15Opkt8MAFM9TMZbTAq/peGDUM1eh8Nc2fhK0sw2UvEUqw++88kwD9tGizyf1ZD/Ck9NYdIEgKDWzSzMWAyoP/S+VAINVmXfpmMkrNfZbHmmh/38RpblGlS0HOeh5vL//HfDOQZ03ZFdOWx62MkJiD4TTEOJMgjU1cNUUK95hsB3KGClT+KPIMm1mxRPp6+JcV/VM7NeaFKrh3ZKfNoTEClOXBm+EGHi/KLs44Fu9MbhIJwV7lTuSyAJWATD61YIQfNHi+onYufy9kk01XNEk3PnkuyrLDCKUyjUPppcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.10; Thu, 6 Feb
+ 2025 17:48:09 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Thu, 6 Feb 2025
+ 17:48:09 +0000
+Date: Thu, 6 Feb 2025 13:48:08 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH 02/19] iommu/tegra: Do not use struct page as the handle
+ for pts
+Message-ID: <20250206174808.GH2960738@nvidia.com>
+References: <2-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+ <be153973-550c-4ea8-bf65-35b5ce28ac22@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <be153973-550c-4ea8-bf65-35b5ce28ac22@arm.com>
+X-ClientProxiedBy: BN0PR07CA0019.namprd07.prod.outlook.com
+ (2603:10b6:408:141::9) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fX6IMcQn6U2HZr908W_fMcaIw8e6h75yW045cFPBl8I_1738863874
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV2PR12MB5869:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09ac5bac-ae03-4078-5000-08dd46d66b62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ioBuEAk4w9w6CRcD/Dy/D3qgH8AR39rMq5flXQ68Xqr6/rUYtctqKdaSLLRx?=
+ =?us-ascii?Q?nirf6XQVkdNGPy0s4gbUgYWARGzDzC7svuXBqKNPud2SXTzNfPxQ9o4N/BW4?=
+ =?us-ascii?Q?n/EJ6yue4ojcp/gy88b3FiZejGwGQFqO4GtBb6wqbOCOEOKjqfSec47wiqmG?=
+ =?us-ascii?Q?56Gs2A7Zu3Lq9wJEjWJw0dxArVTQmSuDa0hPwZu2zHlmQqVw6NX0AymB6EfW?=
+ =?us-ascii?Q?0QA2Fu4jUpVoQgo8gkOoR28dzX0/CjHCqxg3ThRXsGH++bgOpXGmoGkmCWgv?=
+ =?us-ascii?Q?DW3iNbhONVimc2/QnvT//PJwT7fx8R3jxAYVHEpqYdjRCesIex+fwcZ1kzIL?=
+ =?us-ascii?Q?hZMljGpIkUy9sgbDnU8SQIyoZYqpYuHuDDpApgXK/DnJYJ8fIIOPZXQDWlUo?=
+ =?us-ascii?Q?reorZotZ10JR6pueW4GwYQuS6Clcb+2lpFXlb0BOYrpqKRsNedFOiItnqpr0?=
+ =?us-ascii?Q?lKeNsg5saOhcF6HPcOK85aMpKeXPbqGujDuxFKhAyIJPFu8909r3Ihxsp59N?=
+ =?us-ascii?Q?+tvl/FJb0gePcCZyFIxfYdiEYoSn/oRb1fxPsjeT8AsPBLMMEdtyGo4hwSYd?=
+ =?us-ascii?Q?Vp33pouM/31hfmM2Fcwownhcr7lMbv0lvkyH3gZyRvz5ZUiew8yHuZfVejxr?=
+ =?us-ascii?Q?XSMu6z888dMtzq1ZOYFCPRDBxNAF0FNeHpGuuhgYEi614n8H/2UoBSy6lG1x?=
+ =?us-ascii?Q?QopOMXrvv5OmhcGXcarTSQP0j90nGDF3nTHfQBWzD4aDZCz8KbYkFnTg3RSE?=
+ =?us-ascii?Q?wQXkERhQTH2x/5ax0puANj6BlgfMopsFI9XsK2EoUB62xekzt2q+EqJfikmS?=
+ =?us-ascii?Q?uStEyqfVoNP9S5In9LxIxTdIIuQkUmNu/osl4ItRCp9qErnQKNX9MY4h4Ucr?=
+ =?us-ascii?Q?b7nwUNk1eLHour0EJwDmQGwV/jYXNt4XRO8PTbGXz91lK4a7HKPjYLfytNqH?=
+ =?us-ascii?Q?r+q/kLBpi9vdoFPgfHC/1gwKwT1GaxIK4G4XKs2bBR00WJoI2bvKv2fINRUo?=
+ =?us-ascii?Q?fn3dFTEJwOCcEcoAimpuxMaLuciTFHK+NQPhBBDNdfYAUG9FCQF0cseAT41J?=
+ =?us-ascii?Q?YuORWjqxSsaE65zPOcvm0OTFMVzkWrVtYHFDw2cf7StDqQO6p6hJSWE4l6N0?=
+ =?us-ascii?Q?r+uiHtGPtPiP8vqDlC8E8Pl5C8uuktNQrYu9Qyk3zn1luDoldyMTJZAu6ySv?=
+ =?us-ascii?Q?CF6fz1ORXb8AOD/YfB9i3JB1QIjx77/bMUql8kS5qvyt8/daeV/Z25Ah7Ezr?=
+ =?us-ascii?Q?M1k1YC21tppUxEMBIUf+pXaTauh0M5OqGnBDT2XsYcHzleky/zRWaO9rTV0H?=
+ =?us-ascii?Q?MdMsPZa5hr1QiwbNeUsWrrOxO+pgR6EAbwBGtcBFFxRNLPjeUwsNnEp9bDji?=
+ =?us-ascii?Q?0PgD0WgH3UrkxPkvbllftqs36ArG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eEmoZA6l5IQUXc5atFO0LozYaYzEPUMJqsBT5kRqUlBIl3FsMKOajUnGap8o?=
+ =?us-ascii?Q?mCHCv3cJh17RYdXrENT1rekh7UxNR6HbbFrYaI7OgaIuZIFmP/FoNRRiXc0/?=
+ =?us-ascii?Q?c5aiYkeweo8jzHUU79/He4jmNH1zAfc+MZyn9f3tJL1YPkNsC7k+LOXHtMpy?=
+ =?us-ascii?Q?wh5EAtm0JmlhMssELBCDDtsbZTk/1o//aMjRyq22V6o2A+hVqH/1aJYoQ1dC?=
+ =?us-ascii?Q?UBaao0p6DKT9VyHcXielS+yPYif8nD6dBo3Dyhl/+rxNX27D8OkcXp+BqUod?=
+ =?us-ascii?Q?YhXxcNCqC+BtyWWocY2Y5bljbbRHuG//0sCx3z4zC9PJByV+dX6GSuKYGvxw?=
+ =?us-ascii?Q?/krPGUZPsIPq5oLGMkfGSC839m/OKilU8bWLv8wn7O8KnJzi7zF7gqm+9SdU?=
+ =?us-ascii?Q?eBUgM8LnsQ6Zfu+76wPO69Mfb93Jz5Avhtfy4JF8kpLeJ8hpcpRpjQOO4ZAD?=
+ =?us-ascii?Q?yXoPGH8kzxuGqkkn47LYTowXW/lmRnDjT6fSqRYMa3MdEec9GMVO6AuWI59w?=
+ =?us-ascii?Q?iym5CWEybfyYCd/A4Dmij8Xh6nscEqov3WfmfvcExBkSGUznouvaQKLnJMJO?=
+ =?us-ascii?Q?FW/2Ww9G+ym2c7eYYy0/yeG7FhOybhf2VHUcjq2If9gsZE+4KVL7HoiHhev2?=
+ =?us-ascii?Q?4eIGsNoEx6s44EfEAJwLRYqHx2NUarcw+5IHXZp6xZvnG3Uw7Q3SJSkM3F/j?=
+ =?us-ascii?Q?lzgNhVGYQoqiFjuEk1+dZLOzUQSkvTYNgRMmUyGVD+wWUDHmCpNKnFcoHt7u?=
+ =?us-ascii?Q?YwWOCQVsUlbn6Qt6VtKiBbWdFLeNXdRa+iCGmj/CezVvXBI75i074L/f0Rp5?=
+ =?us-ascii?Q?MiROmV1EcsOB4lpok79m2l4BrUyDMAtvx3mQNyr9m4E8puS5/QaRIyqAZ6a3?=
+ =?us-ascii?Q?uKVQRMUWe/bOPCRR5v+YjEHyulszAw352fwYD/mOlQ+r2BR+nPEjuFLQsbWE?=
+ =?us-ascii?Q?FyXesystTv+FByhPKdOMJElvOXpwHWpCS3VIjUroe5+T1F/n6J4QBYPhtLsV?=
+ =?us-ascii?Q?S3tcXr9Y99Pd/GwP15yssAdbdJ6ltVC0EYz8Nk0MWTDfajNfedMoakChn3Xg?=
+ =?us-ascii?Q?GPbjtqLC7siJFGRPEoRk/c5PcNPZ8rpdkX2wvrTqqgQ9ug7desgzBkWkTVYY?=
+ =?us-ascii?Q?bCTFL6Rf6amURq92DVG9k3nGUOzaTBZceVQa4WnRdUtxClUGxIo5H67xb7Ib?=
+ =?us-ascii?Q?YAgvNGYKB1yKNGEppu5Bzasa6jk5iM9QfB38rScfmGBurR/3AMDk/daEKb5O?=
+ =?us-ascii?Q?wBriMXG4XXwkaZOovGe0oFvppEoSPrmMMhKk/gLlClYlN/9BTiqtCXtDNyVv?=
+ =?us-ascii?Q?iwDUISb+uG5JzDL6EhPQ0eDly2QeTQSIoj4QNxzK3bfGe6TYQdP72c/KdnK2?=
+ =?us-ascii?Q?4QA77c05yt+7IWuqIxhStPAFzm8WcrfzgmWZb6WB2I1b3o+X2nFRzoF82iU+?=
+ =?us-ascii?Q?O9GRYI8Z0X2SQAA+997Q6WYDWm9i+r6CuS5ZhfARkhd8elBaWWJlSYKf7g1K?=
+ =?us-ascii?Q?e7DjrOf2yLZDrqSU0yJ1tEzrNa525mrRTZjXA2savS8LyZ6uhMrUPQrFzEF2?=
+ =?us-ascii?Q?CeNt7+wYakOOv50Hh6X5yDiYD+Ejfmnp+UH0AMPY?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09ac5bac-ae03-4078-5000-08dd46d66b62
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 17:48:09.7047
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aEFACmhZ7OeSY+jPMhzDSmgRrCTTTPLcdvtJPRToMtlEOt+DB1ssnobwDfUgUeWP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5869
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_094442_261954_32E03476 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250206_094817_983595_9F4A6B2A 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,111 +183,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The (percpu) cacheinfo array is allocated based on the number of cache
-leaves that is determined by fetch_cache_info(). When the device tree or
-the ACPI tables provide information about the cache, that information is
-used to determine the number of leaves. However, for arm64 systems, the
-cacheinfo array is filled later in populate_cache_leaves() based on the
-information from the CLIDR_EL1 register. If this information happens to
-be inconsistent with the device tree or ACPI tables, and if the number
-of cache leaves exposed by CLIDR_EL1 is larger than the pre-determined
-number, populate_cache_leaves() happily writes past the allocated struct
-cacheinfo array.
+On Wed, Feb 05, 2025 at 07:28:37PM +0000, Robin Murphy wrote:
+> On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
+> > Instead use the virtual address and dma_map_single() like as->pd
+> > uses. Introduce a small struct tegra_pt instead of void * to have some
+> > clarity what is using this API and add compile safety during the
+> > conversion.
+> 
+> Hmm, I'm not sure it's all that clear to have a major discrepancy between
+> how different levels of pagetable are referenced
 
-An example is the Renesas R-Car S4 Spider board, where the cache
-information is described in arch/arm64/boot/dts/renesas/r8a779f0.dtsi.
-The CPU nodes contain no explicit info (other than `next-level-cache`),
-so of_count_cache_leaves() defaults to 2. The next cache level has an
-explicit `cache-level` property equal to 3 and `cache-unified`, so at
-the first iteration in init_of_cache_level(), the level is bumped to 3
-(from 1) and the leaves count is incremented to 3. So, it ends up with
-a total of 3 levels and 3 leaves. Essentially, the device tree describes
-a split L1 cache, no L2 cache and a unified L3 cache, and that's
-consistent with the technical reference manual. However, according to
-CLIDR_EL1, the unified cache is at L2, and there is no L3. So, the code
-in populate_cache_leaves() populates the 3 leaves for L1 and L2, but it
-also examines L3 (for which it finds CACHE_TYPE_NOCACHE) and attempts to
-populate a 4th leaf, which hasn't been allocated.
+Well, with a trivial conversion the pd would be u32* and the pt would
+be u32**. There is 1 usage of a tegra_pd and 7 of a tegra_pt.
 
-This is easily observed on boot if KASAN is enabled:
-8<----------------------------------------------------------------------
-BUG: KASAN: slab-out-of-bounds in populate_cache_leaves+0x314/0x388
-Write of size 4 at addr ffff0004402e16c4 by task swapper/0/1
+Spraying u32** all over the place was pretty ugly. Removing
+one of the *'s was more than I wanted to do on this old driver.
 
-CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc6+ #14
-Hardware name: Renesas Spider CPU and Breakout boards based on r8a779f0 (DT)
-Call trace:
- show_stack+0x34/0x98 (C)
- dump_stack_lvl+0x7c/0xa0
- print_address_description.constprop.0+0x90/0x320
- print_report+0x108/0x1f0
- kasan_report+0xb4/0x100
- __asan_report_store4_noabort+0x20/0x30
- populate_cache_leaves+0x314/0x388
- detect_cache_attributes+0x2f0/0x440
- update_siblings_masks+0x30/0x5b0
- store_cpu_topology+0x154/0x1d8
- smp_prepare_cpus+0x34/0x180
- kernel_init_freeable+0x338/0x480
- kernel_init+0x28/0x170
- ret_from_fork+0x10/0x20
+So, lets a type for pd.
 
-Allocated by task 1:
- kasan_save_stack+0x2c/0x58
- kasan_save_track+0x20/0x40
- kasan_save_alloc_info+0x40/0x60
- __kasan_kmalloc+0xd4/0xd8
- __kmalloc_noprof+0x190/0x4b0
- allocate_cache_info+0x90/0x188
- fetch_cache_info+0x320/0x408
- init_cpu_topology+0x318/0x398
- smp_prepare_cpus+0x28/0x180
- kernel_init_freeable+0x338/0x480
- kernel_init+0x28/0x170
- ret_from_fork+0x10/0x20
-8<----------------------------------------------------------------------
+> > @@ -596,21 +600,21 @@ static u32 *as_get_pte(struct tegra_smmu_as *as, dma_addr_t iova,
+> >   	if (!as->pts[pde]) {
+> >   		dma_addr_t dma;
+> > -		dma = dma_map_page(smmu->dev, page, 0, SMMU_SIZE_PT,
+> > -				   DMA_TO_DEVICE);
+> > +		dma = dma_map_single(smmu->dev, pt, SMMU_SIZE_PD,
+> 
+> SMMU_SIZE_PT (yeah they're numerically the same, but still...)
 
-The loop that detects/populates cache information already has a bounds
-check on the array size but does not account for cache levels with
-separate data/instructions cache. Fix this by incrementing the index
-for any populated leaf (instead of any populated level).
+Oops, copy pasteo
 
-Fixes: 5d425c186537 ("arm64: kernel: add support for cpu cache information")
+> > +				     DMA_TO_DEVICE);
+> >   		if (dma_mapping_error(smmu->dev, dma)) {
+> > -			__iommu_free_pages(page, 0);
+> > +			iommu_free_page(pt);
+> >   			return NULL;
+> >   		}
+> >   		if (!smmu_dma_addr_valid(smmu, dma)) {
+> >   			dma_unmap_page(smmu->dev, dma, SMMU_SIZE_PT,
+> >   				       DMA_TO_DEVICE);
+> 
+> All the unmaps should be converted to _single as well (and in patch #1) -
+> the APIs are not officially interchangeable.
 
-Signed-off-by: Radu Rendec <rrendec@redhat.com>
----
- arch/arm64/kernel/cacheinfo.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+Missed, that got it on both patches
 
-diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-index d9c9218fa1fd..309942b06c5b 100644
---- a/arch/arm64/kernel/cacheinfo.c
-+++ b/arch/arm64/kernel/cacheinfo.c
-@@ -101,16 +101,18 @@ int populate_cache_leaves(unsigned int cpu)
- 	unsigned int level, idx;
- 	enum cache_type type;
- 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
--	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
-+	struct cacheinfo *infos = this_cpu_ci->info_list;
- 
- 	for (idx = 0, level = 1; level <= this_cpu_ci->num_levels &&
--	     idx < this_cpu_ci->num_leaves; idx++, level++) {
-+	     idx < this_cpu_ci->num_leaves; level++) {
- 		type = get_cache_type(level);
- 		if (type == CACHE_TYPE_SEPARATE) {
--			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
--			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-+			if (idx + 1 >= this_cpu_ci->num_leaves)
-+				break;
-+			ci_leaf_init(&infos[idx++], CACHE_TYPE_DATA, level);
-+			ci_leaf_init(&infos[idx++], CACHE_TYPE_INST, level);
- 		} else {
--			ci_leaf_init(this_leaf++, type, level);
-+			ci_leaf_init(&infos[idx++], type, level);
- 		}
- 	}
- 	return 0;
--- 
-2.48.1
-
+Thanks,
+Jason
 
