@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4529C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA24C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqhPo9ta4iBL6YwMdbyL5HGD55Dm8ujj4PSl7i6Hsgs=; b=HlnW2Ji1xCI2AsMcUOfcq/u2BD
-	Nl8drC+Anae1Bmt1kIOr2jRHakgbLLIE0x0Cnyp5vs5CWIjoHdRyyRzRoVs0WCNm2rvW0s9EpbPp6
-	l79OxFmFozfMgSgV7j255U9wGp66GF5fRkvrGKb/Gh81WUrET1RalFORLYG1Zi81QVx5RkKn3GDJy
-	SIzKjhBBrmRBh1yVmvRAtCFuf3ZlDKSECHAhFBHIXol9FDWTwlImo29/0sT5hx1EaCez2jXbRoyz+
-	teg0BRkIgwrWHIxfKguhWxoGbDiwefJ7tF3fiKUwwGiGD4o07M75RwTfAS5ZZqP1QhShds9VX0Gwc
-	LNj35qqg==;
+	bh=U74SGZiAIGmMlazRLhrpYiZ/iTjbN0drFn9h+a0WXAw=; b=RCo3r1/oBBgmuwGI1doo4ur1sM
+	pfyMJRxNWhiLVsbLKRfH+/nSkGFw+kewYUeUCYhD4/YQgrW4PMunlEG8IoECAAtbtI7jnzLA0c0mX
+	imTM6NkSTfJz0yRd+GfaqOtbRUUajU5IXRsRqYGQsCNC+hOSEvNeWMtHqTxIME5EzkJux7MlwOtKg
+	0nGDVWvIakEkO1sZkufwysl1BJ2CO7TFPQlBlsDmkAxz88bhGgAec0PpPBw8bGdt1/REez8NOIcxq
+	p/pXOqlAi8TaFREC/rsj4x49M2+cfiXIe8bs6qp2bbXiS3XTyP7d+EGqKuEoz94MzvNGQcXiPI8GE
+	/jiyLWPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3NY-00000006fKe-3k3A;
-	Thu, 06 Feb 2025 15:01:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tg3OR-00000006fZI-0Hfe;
+	Thu, 06 Feb 2025 15:02:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1wt-00000006R0g-2mLb;
-	Thu, 06 Feb 2025 13:29:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90828A43521;
-	Thu,  6 Feb 2025 13:27:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6746C4CEE5;
-	Thu,  6 Feb 2025 13:29:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738848582;
-	bh=YhQ3gt0FcvyhHrH/fq8eDTzHj2J/JGVva+XZhcAjRME=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WFHeaz2Wf6zAlFKNEJGYupJoP4tb+oKUBXfVqahTutVYbwIRBynlBQHaXayGwkEu2
-	 DuphCe8xk2pe+8oH7+XZQSe9pjgWZGsmkIospzcHjxO3RytUcsVovJmfiYKBBORcsL
-	 4luOZoe358T6aqKuQn/upUfy7Z5PmlquzBJHTrWLVRYP7hc0VriUcgl4lPKOe4bajV
-	 ZVwAy9jBA2xpMFC/I3n9y07yrA5AKtZFTK9AcidCwRDnRl6rYTvWRjSGn6dW1qiFfP
-	 OHYDZqXXjaHUsYQmI1svg4fNC3oyX5TyerVpmcK3gD0lOT5H5hMpCAfnQUVx3w8RiF
-	 MCVMFhIn9tgsQ==
-From: Mike Rapoport <rppt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-mm@kvack.org,
-	x86@kernel.org
-Subject: [PATCH v4 10/14] arm64: Add KHO support
-Date: Thu,  6 Feb 2025 15:27:50 +0200
-Message-ID: <20250206132754.2596694-11-rppt@kernel.org>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250206132754.2596694-1-rppt@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
+	id 1tg3N2-00000006fIP-00of
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 15:00:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738854045;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U74SGZiAIGmMlazRLhrpYiZ/iTjbN0drFn9h+a0WXAw=;
+	b=QpNApFv05AZ8vtoqPLtBvvl9uTwpPo38ZWdAq0FlVr43iIC4V/FFRanKsqbTyUJX1ygEvk
+	xwZa5Y6aISSLa7GlLBg+325BUWdkamO1fjC4T7/guV9wWIdHfW+LO5JS1Pnjo0ktZOizx1
+	m3zW/yVTNkJYCG99QkxKONl2euY4ReM=
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
+ [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-351-Qvd_UocsOS-Js63-ko2vDw-1; Thu, 06 Feb 2025 09:59:16 -0500
+X-MC-Unique: Qvd_UocsOS-Js63-ko2vDw-1
+X-Mimecast-MFC-AGG-ID: Qvd_UocsOS-Js63-ko2vDw
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-2f780a3d6e5so2215269a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:59:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738853955; x=1739458755;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U74SGZiAIGmMlazRLhrpYiZ/iTjbN0drFn9h+a0WXAw=;
+        b=w1IlsKAn2SDQBi4ztBNVvv9SVxtegQbMH02lDbxHErh+xW4N3J4KETpwWrBoI6BZ9S
+         jSwhC29VZn7YjZZAYa+JMibm+ZKLW77eFqWXN/Y+IevuNPkZtPHBozAONDmrt8dm6yLf
+         PN+BbwxMWiIKnFSLf8UlRU6rcBmWmNKs6QArhhQ6I9OJl5F6YtyyADhT94HUSS3brFeX
+         irPNBRsuv1uU4O7Xj276CWwBvfdKrzAfL/tSzlJjczFB7F5t9RSJ1UVXIzOC1xgwxEaC
+         ibFvkmgIwVIH76iH9G9Nzq94eQXavFYrWFG23aTe4sUTh0+xL4VEwsmzpv72DgQrjDGi
+         2SfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWagRcenysIRLwZkvaMPFS5H4fPEp0p4lmb4SXxOM6sdnae0c40lY5xxC/2KAyHB2+QH3qSt/7b1O+bQ1DZB1m7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6V06xeQ+eEBNTOiSsJReZaIfrIC926liseg4eteoxix9J4M+o
+	dmel0o2vvL3LFRjnP2D2zYrL6kVZ9tNZg5cIY5ZgYQVrhMxuN+wiX1jgCn2bqMJ15kFB8S8atXv
+	hUm3MJpyVbqXg7zUs8LvJo6LG9FyHhPYw5/z2fdX1hWPmPuiuPTZUpm6yX5md4rapL7P+qNyJzt
+	w4QGhg4xXgrQpeXkArHelJ1O8Jr0vuMQtKI4CVM93uGmlZQes=
+X-Gm-Gg: ASbGncsmp6z+jdIs2sw5WzJOy+No3F+g2b7y60mzU3MAelZtboqC0vd9OWlr5KeV8gh
+	WeddIACxwHT9xRtMLl0vaHJl3YWzR/pPImR4ucIriuZPQ9I9b7z226PfhauqEG4X3
+X-Received: by 2002:a17:90b:2786:b0:2ee:e518:c1d8 with SMTP id 98e67ed59e1d1-2f9e082f33emr11110481a91.30.1738853955572;
+        Thu, 06 Feb 2025 06:59:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFWpQlGfjL4+bcsd9CXoOi/pDbHuiuuwkJUWCLm8Y4KSWCpEnRWVj/utErs2ioiglleYEOHWPatBsG9+Rhw180=
+X-Received: by 2002:a17:90b:2786:b0:2ee:e518:c1d8 with SMTP id
+ 98e67ed59e1d1-2f9e082f33emr11110445a91.30.1738853955312; Thu, 06 Feb 2025
+ 06:59:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
+ <Z6NhkR8ZEso4F-Wx@redhat.com> <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
+ <Z6S7A-51SdPco_3Z@redhat.com> <20250206143032.GA400591@fedora>
+In-Reply-To: <20250206143032.GA400591@fedora>
+From: Albert Esteve <aesteve@redhat.com>
+Date: Thu, 6 Feb 2025 15:59:03 +0100
+X-Gm-Features: AWEUYZm-M5VdAvcj3hSDqRtWWsY2KSl-UpKtCd6mALNvZQI6X9XPfCW9uUgmKYc
+Message-ID: <CADSE00+2o5Ma0W6FBLHwpUaKut9Tf74GKLCU-377qgxr08EeoQ@mail.gmail.com>
+Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
+To: Stefan Hajnoczi <stefanha@redhat.com>
+Cc: Vivek Goyal <vgoyal@redhat.com>, Dan Williams <dan.j.williams@intel.com>, 
+	Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	alison.schofield@intel.com, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com, 
+	hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, Hanna Czenczek <hreitz@redhat.com>, 
+	German Maglione <gmaglione@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: okItCgu_u07oHkDoevm41mXwbGNdLzEA6_5v847leRY_1738853956
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_052943_824207_3AA5F6A3 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250206_070048_105947_28E55E0F 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,151 +120,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Graf <graf@amazon.com>
+Hi!
 
-We now have all bits in place to support KHO kexecs. This patch adds
-awareness of KHO in the kexec file as well as boot path for arm64 and
-adds the respective kconfig option to the architecture so that it can
-use KHO successfully.
+On Thu, Feb 6, 2025 at 3:30=E2=80=AFPM Stefan Hajnoczi <stefanha@redhat.com=
+> wrote:
+>
+> On Thu, Feb 06, 2025 at 08:37:07AM -0500, Vivek Goyal wrote:
+> > And then there are challenges at QEMU level. virtiofsd needs additional
+> > vhost-user commands to implement DAX and these never went upstream in
+> > QEMU. I hope these challenges are sorted at some point of time.
+>
+> Albert Esteve has been working on QEMU support:
+> https://lore.kernel.org/qemu-devel/20240912145335.129447-1-aesteve@redhat=
+.com/
+>
+> He has a viable solution. I think the remaining issue is how to best
+> structure the memory regions. The reason for slow progress is not
+> because it can't be done, it's probably just because this is a
+> background task.
 
-Signed-off-by: Alexander Graf <graf@amazon.com>
-Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/arm64/Kconfig |  3 +++
- drivers/of/fdt.c   | 36 ++++++++++++++++++++++++++++++++++++
- drivers/of/kexec.c | 42 ++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 81 insertions(+)
+It is partially that, indeed. But what has me blocked for now on posting th=
+e
+next version is that I was reworking a bit the MMAP strategy.
+Following David comments, I am relying more on RAMBlocks and
+subregions for mmaps. But this turned out more difficult than anticipated.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index fcdd0ed3eca8..5d9f07cea258 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1590,6 +1590,9 @@ config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
- config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
- 	def_bool y
- 
-+config ARCH_SUPPORTS_KEXEC_HANDOVER
-+	def_bool y
-+
- config ARCH_SUPPORTS_CRASH_DUMP
- 	def_bool y
- 
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index aedd0e2dcd89..3178bf9c6bd2 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -875,6 +875,39 @@ void __init early_init_dt_check_for_usable_mem_range(void)
- 		memblock_add(rgn[i].base, rgn[i].size);
- }
- 
-+/**
-+ * early_init_dt_check_kho - Decode info required for kexec handover from DT
-+ */
-+static void __init early_init_dt_check_kho(void)
-+{
-+	unsigned long node = chosen_node_offset;
-+	u64 kho_start, scratch_start, scratch_size;
-+	const __be32 *p;
-+	int l;
-+
-+	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER) || (long)node < 0)
-+		return;
-+
-+	p = of_get_flat_dt_prop(node, "linux,kho-dt", &l);
-+	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
-+		return;
-+
-+	kho_start = dt_mem_next_cell(dt_root_addr_cells, &p);
-+
-+	p = of_get_flat_dt_prop(node, "linux,kho-scratch", &l);
-+	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
-+		return;
-+
-+	scratch_start = dt_mem_next_cell(dt_root_addr_cells, &p);
-+	scratch_size = dt_mem_next_cell(dt_root_addr_cells, &p);
-+
-+	p = of_get_flat_dt_prop(node, "linux,kho-mem", &l);
-+	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
-+		return;
-+
-+	kho_populate(kho_start, scratch_start, scratch_size);
-+}
-+
- #ifdef CONFIG_SERIAL_EARLYCON
- 
- int __init early_init_dt_scan_chosen_stdout(void)
-@@ -1169,6 +1202,9 @@ void __init early_init_dt_scan_nodes(void)
- 
- 	/* Handle linux,usable-memory-range property */
- 	early_init_dt_check_for_usable_mem_range();
-+
-+	/* Handle kexec handover */
-+	early_init_dt_check_kho();
- }
- 
- bool __init early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys)
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index 5b924597a4de..f6cf0bc13246 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -264,6 +264,43 @@ static inline int setup_ima_buffer(const struct kimage *image, void *fdt,
- }
- #endif /* CONFIG_IMA_KEXEC */
- 
-+static int kho_add_chosen(const struct kimage *image, void *fdt, int chosen_node)
-+{
-+	void *dt = NULL;
-+	phys_addr_t dt_mem = 0;
-+	phys_addr_t dt_len = 0;
-+	phys_addr_t scratch_mem = 0;
-+	phys_addr_t scratch_len = 0;
-+	int ret = 0;
-+
-+#ifdef CONFIG_KEXEC_HANDOVER
-+	dt = image->kho.dt.buffer;
-+	dt_mem = image->kho.dt.mem;
-+	dt_len = image->kho.dt.bufsz;
-+
-+	scratch_mem = image->kho.scratch.mem;
-+	scratch_len = image->kho.scratch.bufsz;
-+#endif
-+
-+	if (!dt)
-+		goto out;
-+
-+	pr_debug("Adding kho metadata to DT");
-+
-+	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-dt",
-+				       dt_mem, dt_len);
-+	if (ret)
-+		goto out;
-+
-+	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-scratch",
-+				       scratch_mem, scratch_len);
-+	if (ret)
-+		goto out;
-+
-+out:
-+	return ret;
-+}
-+
- /*
-  * of_kexec_alloc_and_setup_fdt - Alloc and setup a new Flattened Device Tree
-  *
-@@ -414,6 +451,11 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
- #endif
- 	}
- 
-+	/* Add kho metadata if this is a KHO image */
-+	ret = kho_add_chosen(image, fdt, chosen_node);
-+	if (ret)
-+		goto out;
-+
- 	/* add bootargs */
- 	if (cmdline) {
- 		ret = fdt_setprop_string(fdt, chosen_node, "bootargs", cmdline);
--- 
-2.47.2
+I hope I can make it work this month and then post the next version.
+If there are no major blockers/reworks, further iterations on the
+patch shall go smoother.
+
+I have a separate patch for the vhost-user spec which could
+iterate faster, if that'd help.
+
+BR,
+Albert.
+
+>
+> Please discuss with Albert if QEMU support is urgent.
+>
+> Stefan
 
 
