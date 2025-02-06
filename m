@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FB4C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 04:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E652CC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 05:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSULbx90MavrGcud20wi+2LVOs7EXJ0/u5A63tDNIa4=; b=y/fpO2n1DT2dWI3No/ApJxtFPg
-	QhxLFMJGC0215L3VaCo4uzOaLJbWF8TfQ3JD3bQtR/AeUNvOnlW+GCfLKwYHQvfJpXaX0Kdqk/HPf
-	qTXpbhSEgQgNOXg88HC1g0ctNW/vc1GfaALCizljPBVyOcqtUpZR8StVIZdC4ca2h8RzvgOcdG8mu
-	tkW5AXDSrWjiDqicp9DhP6E7etM3RI4EV0cYjjYw9UNG9rUKl+ZEvS3RUSZmCFProZkaCmTPjm3t6
-	5bLphIEnIfd731YETypG1OJebl6URINZ2TAbVlDSc38qARb6qHXlRAjNkeWDV53MyD9DO8Q0l+ZF6
-	vcgD0gtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kf6yOcI/L1Rue2Wpuc/T35GQQ3sLAWy/sV2md2xNQ9M=; b=TzxkuPp2DAy+rY6MnSrCZ4f4QJ
+	KeDKW6OytaOkfixDOEMXFTTiWL1UUQM4cw92QMWYSnRRdtE3uwbfXOrsWfh1D2bvGvazmU4O1xX28
+	6dkhYL5lhCUdLhlGpUH48BEQFCTEb/ljh7lRH702mVB62zAehyMb/B7xZRHi4LwYgdNFzhw8kDfTK
+	+M/Q/wpIhvjOTZHWcCvH9ERf+qZo6++Ej60PIowc7hdAJt4itlMx1mC1hm/FiSVT7B/fiu24FGd3M
+	kAjR+ykVzmP9lwQjWcMVJAXv2Zr1az3C0QaUNdkkJdjqMEO8ToFmiFBJy+r4CATNFjO5/ruMNpEcO
+	QTSxmIUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tftbV-00000005CZR-0y4y;
-	Thu, 06 Feb 2025 04:35:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfta5-00000005CCa-2x76
+	id 1tfuEr-00000005FCj-23U8;
+	Thu, 06 Feb 2025 05:15:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfuDS-00000005F8q-0rz7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 04:33:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 51338A437CC;
-	Thu,  6 Feb 2025 04:31:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338C0C4CEDD;
-	Thu,  6 Feb 2025 04:33:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738816416;
-	bh=4F2vE5gZXQ1R9viY2NLtHPxaPmsZDZ7NBG0hKYFwBCE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=AGD/3vqi10PbGGO6q8Q1hjwNUeY9KxYOBiDmSdGKaSSVof+gp80epr4BeMT00PKNs
-	 32zpNG5sTPyqywLObYnaT76LudTJ/bygPlPFj0/XjsnjCK9CG/DgVIObZ12yuESM90
-	 yb2KhsTdU7MXWsSlAqZrmSAl8ClEHIm1QgZNOzAAOWxzyaEvSPSqjl0SBXGMxUKgoh
-	 7CwJmXJLEp7m826F2gw2AN8NgSSntof5V1gTJaZV5e7SrZ5LJ71BoDVHoo+dXIe37a
-	 0rExcoMtzU0q+h+MOSb7+QQcvokJKXW4swM6WgCDLBwFjBeHozQRuha6BedG0kNDiI
-	 cQHIEqsHaZjrg==
-X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>,
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>
-Subject: Re: [PATCH v6 20/43] arm64: RME: Runtime faulting of memory
-In-Reply-To: <3f0caace-ee05-4ddf-ae75-2157e77aa57c@redhat.com>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-21-steven.price@arm.com>
- <3f0caace-ee05-4ddf-ae75-2157e77aa57c@redhat.com>
-Date: Thu, 06 Feb 2025 10:03:25 +0530
-Message-ID: <yq5a34grsne2.fsf@kernel.org>
+	Thu, 06 Feb 2025 05:14:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D88401063;
+	Wed,  5 Feb 2025 21:04:24 -0800 (PST)
+Received: from [10.163.34.115] (unknown [10.163.34.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F04D3F63F;
+	Wed,  5 Feb 2025 21:03:47 -0800 (PST)
+Message-ID: <d8ef8240-e202-464c-ad16-1a34953cc872@arm.com>
+Date: Thu, 6 Feb 2025 10:33:34 +0530
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/16] mm: hugetlb: Add huge page size param to
+ huge_ptep_get_and_clear()
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, stable@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-2-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250205151003.88959-2-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_203337_865932_F86F2F7B 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250205_211418_332363_82247CBD 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,103 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gavin Shan <gshan@redhat.com> writes:
 
-> On 12/13/24 1:55 AM, Steven Price wrote:
- 
-....
 
->> +static int private_memslot_fault(struct kvm_vcpu *vcpu,
->> +				 phys_addr_t fault_ipa,
->> +				 struct kvm_memory_slot *memslot)
->> +{
->> +	struct kvm *kvm = vcpu->kvm;
->> +	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
->> +	gfn_t gfn = gpa >> PAGE_SHIFT;
->> +	bool priv_exists = kvm_mem_is_private(kvm, gfn);
->> +	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
->> +	struct page *page;
->> +	kvm_pfn_t pfn;
->> +	int ret;
->> +	/*
->> +	 * For Realms, the shared address is an alias of the private GPA with
->> +	 * the top bit set. Thus is the fault address matches the GPA then it
->> +	 * is the private alias.
->> +	 */
->> +	bool is_priv_gfn = (gpa == fault_ipa);
->> +
->
-> We may rename 'priv_exists' to 'was_priv_gfn', which is consistent to 'is_priv_gfn'.
-> Alternatively, we may use 'was_private' and 'is_private'.
->
->> +	if (priv_exists != is_priv_gfn) {
->> +		kvm_prepare_memory_fault_exit(vcpu,
->> +					      gpa,
->> +					      PAGE_SIZE,
->> +					      kvm_is_write_fault(vcpu),
->> +					      false, is_priv_gfn);
->> +
->> +		return -EFAULT;
->> +	}
->> +
->> +	if (!is_priv_gfn) {
->> +		/* Not a private mapping, handling normally */
->> +		return -EINVAL;
->> +	}
->> +
->> +	ret = kvm_mmu_topup_memory_cache(memcache,
->> +					 kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = kvm_gmem_get_pfn(kvm, memslot, gfn, &pfn, &page, NULL);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
->> +	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
->> +			    memcache);
->> +	if (!ret)
->> +		return 1; /* Handled */
->> +
->> +	put_page(page);
->> +	return ret;
->> +}
+On 2/5/25 20:39, Ryan Roberts wrote:
+> In order to fix a bug, arm64 needs to be told the size of the huge page
+> for which the huge_pte is being set in huge_ptep_get_and_clear().
+> Provide for this by adding an `unsigned long sz` parameter to the
+> function. This follows the same pattern as huge_pte_clear() and
+> set_huge_pte_at().
+> 
+> This commit makes the required interface modifications to the core mm as
+> well as all arches that implement this function (arm64, loongarch, mips,
+> parisc, powerpc, riscv, s390, sparc). The actual arm64 bug will be fixed
+> in a separate commit.
+> 
+> Cc: <stable@vger.kernel.org>
+> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit")
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/hugetlb.h     |  4 ++--
+>  arch/arm64/mm/hugetlbpage.c          |  8 +++++---
+>  arch/loongarch/include/asm/hugetlb.h |  6 ++++--
+>  arch/mips/include/asm/hugetlb.h      |  6 ++++--
+>  arch/parisc/include/asm/hugetlb.h    |  2 +-
+>  arch/parisc/mm/hugetlbpage.c         |  2 +-
+>  arch/powerpc/include/asm/hugetlb.h   |  6 ++++--
+>  arch/riscv/include/asm/hugetlb.h     |  3 ++-
+>  arch/riscv/mm/hugetlbpage.c          |  2 +-
+>  arch/s390/include/asm/hugetlb.h      | 12 ++++++++----
+>  arch/s390/mm/hugetlbpage.c           | 10 ++++++++--
+>  arch/sparc/include/asm/hugetlb.h     |  2 +-
+>  arch/sparc/mm/hugetlbpage.c          |  2 +-
+>  include/asm-generic/hugetlb.h        |  2 +-
+>  include/linux/hugetlb.h              |  4 +++-
+>  mm/hugetlb.c                         |  4 ++--
+>  16 files changed, 48 insertions(+), 27 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
+> index c6dff3e69539..03db9cb21ace 100644
+> --- a/arch/arm64/include/asm/hugetlb.h
+> +++ b/arch/arm64/include/asm/hugetlb.h
+> @@ -42,8 +42,8 @@ extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  				      unsigned long addr, pte_t *ptep,
+>  				      pte_t pte, int dirty);
+>  #define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
+> -extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
+> -				     unsigned long addr, pte_t *ptep);
+> +extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
+> +				     pte_t *ptep, unsigned long sz);
 
-I also found the names confusing. Can we do
-
-modified   arch/arm64/kvm/mmu.c
-@@ -1487,7 +1487,7 @@ static int private_memslot_fault(struct kvm_vcpu *vcpu,
- 	struct kvm *kvm = vcpu->kvm;
- 	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
- 	gfn_t gfn = gpa >> PAGE_SHIFT;
--	bool priv_exists = kvm_mem_is_private(kvm, gfn);
-+	bool is_priv_gfn = kvm_mem_is_private(kvm, gfn);
- 	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
- 	struct page *page;
- 	kvm_pfn_t pfn;
-@@ -1497,19 +1497,19 @@ static int private_memslot_fault(struct kvm_vcpu *vcpu,
- 	 * the top bit set. Thus is the fault address matches the GPA then it
- 	 * is the private alias.
- 	 */
--	bool is_priv_gfn = (gpa == fault_ipa);
-+	bool is_priv_fault = (gpa == fault_ipa);
- 
--	if (priv_exists != is_priv_gfn) {
-+	if (is_priv_gfn != is_priv_fault) {
- 		kvm_prepare_memory_fault_exit(vcpu,
- 					      gpa,
- 					      PAGE_SIZE,
- 					      kvm_is_write_fault(vcpu),
--					      false, is_priv_gfn);
-+					      false, is_priv_fault);
- 
- 		return 0;
- 	}
- 
--	if (!is_priv_gfn) {
-+	if (!is_priv_fault) {
- 		/* Not a private mapping, handling normally */
- 		return -EINVAL;
- 	}
+If VMA could be passed instead of MM, the size of the huge page can
+be derived via huge_page_size(hstate_vma(vma)) and another argument
+here need not be added. Also MM can be derived from VMA if required.
 
