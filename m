@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3905EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F7FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 16:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2zTCdAiwjtGMltpjeuEXZsdfuHYHujZVn54Jf3PZ28=; b=PWkFagpC1x1CNdNY0hmaIlye9H
-	ElNJtfhftSJV+/4H7BKsHkE9Pbv3iKOuZoKHByREhBokrsrYQ7uzzdRPXxdzG9DuD0GwSf7Z0iY7Q
-	/LL61BzYpPcpERRj7ZbHikQTE9D9l+ChbTdYKlKc5z7Ln1e5KLwjNPkXriU9YNM9PIp06IK4Nk4W7
-	wgnphy3mUjuKuNMmWxE8oJ31YzXlnYElVlRtO86XyBwl/Ew9gDE5nmyF74KwS1435HWS/1mWOTFuB
-	ZZYEHQ7j9SOUDZiEF4Z4dh+zRvM0IB40ybY8vEE3+Z+n5i//LPRZ0YtXZV55Eef/ncEdNMBGHq3M7
-	QkkSqZew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=07oSBwgh/00XqU8S9NwC+z5K2Q1ohr8OmAinlMr1GuU=; b=Zs0dYpp7Aw7h9sdkydYEoxIfj5
+	6Gnxw5PUBFRffr+e/+HtBIYKxOxM0QNSkAxG6XpviBfQiktq0PnedsvcopiJajyI63z2NbNuI+cp8
+	gBhIpgOVuxh2TeIi8Qyr35t6PKDDMUX6+iWAA9zjMe2B1G6phPLBqVnOaoqEH+G+5cp2vwmCoQjd/
+	VyjvZfp85ZWWf8YAHexWyoEbjQg1ZEhx+GcJRmbgCk94+vtgiaLN9UaOat80honqkV4xFlObB3qiF
+	JWC0iW9gLFprBwrdyyyBZQNDvE7zvT0a7GYue4hTpKYlkytQMmaj0y9nX7jT3r8RQtrxkzdrF4h/e
+	J17R9Fwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg4c0-00000006puT-0L2L;
-	Thu, 06 Feb 2025 16:20:20 +0000
-Received: from layka.disroot.org ([178.21.23.139])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg4Xv-00000006owV-1Rpl;
-	Thu, 06 Feb 2025 16:16:11 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 7229C25BAE;
-	Thu,  6 Feb 2025 17:16:02 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id hyL6I1G5C-bU; Thu,  6 Feb 2025 17:15:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=getgoogleoff.me;
-	s=mail; t=1738858540;
-	bh=Art8KyjybfoeMsnHABrcEmWzkyDUcEOdHCbqDbJH+iQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WoPMQMphaWzP9CeiXeEat/xaNv13qpR57gZ4ZZv4MlMnvrnMPnN3kO4QIpqjFu6gE
-	 S1ELpMzJHCILHrn+eLo1BM8n7WHjRtX6khq0Dq3vG+Z76Yx0AbppnNSq+vEFTaq4+g
-	 GhixIAbTP5K1DtQrb2jWzPvZF9jj68vjpyREtL2vcM2o+d4G5vm0ciP6NupzKyLlrz
-	 fy0XdClOAdGjnbpC5/FUfD4ZSF9Sd6VfS2IuGdSVCXezMIDEf9gKk1gmE40uNU4YlW
-	 DbjjlD7efyOQ5KAf5SWPlu2Nq0PZIbxTSEuMScAN0uFTYgTomNtGs78bU/Q0vdiS12
-	 MWz8hdrqZDl0Q==
-Message-ID: <19c8e021-d2c8-44b4-968b-153d798c140d@getgoogleoff.me>
-Date: Fri, 7 Feb 2025 00:14:31 +0800
+	id 1tg4dL-00000006q5u-37f9;
+	Thu, 06 Feb 2025 16:21:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg4Yt-00000006p6I-2keu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 16:17:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAA9912FC;
+	Thu,  6 Feb 2025 08:17:27 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 660E43F63F;
+	Thu,  6 Feb 2025 08:17:01 -0800 (PST)
+Date: Thu, 6 Feb 2025 16:16:58 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH v2 3/4] clk: imx: pll14xx: support spread spectrum clock
+ generation
+Message-ID: <Z6TgesTZklGvmI56@bogus>
+References: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com>
+ <20250205-clk-ssc-v2-3-fa73083caa92@nxp.com>
+ <CABGWkvqXf0ZmJKofrbahB5N5uer6ye6Q4s_PXz_Z61vG2pMu=g@mail.gmail.com>
+ <PAXPR04MB8459F1CE0E8049355ADC9F3C88F62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <CABGWkvrKe6az5XR=MvdMwBOfeXqd5yPoF4Yf4pqyyGPD4Kpvpg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: amlogic: add support for
- xiaomi-aquaman/Mi TV Stick
-To: Ferass El Hafidi <funderscore@postmarketos.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-amlogic@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
- Artur Weber <aweber.kernel@gmail.com>,
- Christian Hewitt <christianshewitt@gmail.com>
-References: <20250203174346.13737-1-funderscore@postmarketos.org>
- <20250203174346.13737-3-funderscore@postmarketos.org>
-Content-Language: en-US
-From: exxxxkc <exxxxkc@getgoogleoff.me>
-In-Reply-To: <20250203174346.13737-3-funderscore@postmarketos.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CABGWkvrKe6az5XR=MvdMwBOfeXqd5yPoF4Yf4pqyyGPD4Kpvpg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_081607_795592_1FE7093B 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_081707_785412_79F2752A 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +82,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +
-> +/* Wireless SDIO Module */
-> +&sd_emmc_a {
-> +	status = "disabled";
-> +	pinctrl-0 = <&sdio_pins>;
-> +	pinctrl-1 = <&sdio_clk_gate_pins>;
-> +	pinctrl-names = "default", "clk-gate";
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-> +	max-frequency = <50000000>;
-> +
-> +	non-removable;
-> +	disable-wp;
-> +
-> +	/* WiFi firmware requires power to be kept while in suspend */
-> +	keep-power-in-suspend;
-> +
-> +	mmc-pwrseq = <&sdio_pwrseq>;
-> +
-> +	vmmc-supply = <&vddao_3v3>;
-> +	vqmmc-supply = <&vddio_boot>;
-> +};
-> +
+Hi Peng,
+
+I apologise in advance for exploiting this thread to make my point.
+
+On Thu, Feb 06, 2025 at 04:31:46PM +0100, Dario Binacchi wrote:
 >
-  um it seem the sdio wifi module/chip connected to sd_emmc_a it is 
-actually connected to sd_emmc_b
+> Sorry if I miscounted the lines, but here we are not considering who
+> actually implemented
+> the algorithmic part of the SSC management and all the time spent
+> testing the code on more
+> than one platform/board with each submission of the series for all 9 versions.
+>
+> [1] https://lore.kernel.org/all/20250118124044.157308-18-dario.binacchi@amarulasolutions.com/
+>
+> Your changes, which are unnecessary for the clk-scmi.c changes, only
+> serve to support the
+> DT binding `assigned-clock-sscs`, which, as Krzysztof also reiterated:
+>
+> https://github.com/devicetree-org/dt-schema/pull/154
+>
+> you should have proposed during the review of series [1]. You are the
+> NXP reviewer.
+>
+> >
+> > If you think it is not fair, I could drop this patch in V3 and leave it to you to handle.
+> > I take this patch in the patchset, mainly to ease your work and make
+>
+> Sorry for quoting Krzysztof again, but:
+> "Three months iMX8 patchsets, multiple reviews and no single comment
+> from you till January!"
+>
+> So please, if you really want to ease my work, then remove this patch
+> from this series and resume
+> reviewing series [1].
+>
 
-i tried to enable sd_emmc_a but nothing showed up in the kernel thus i 
-tried to enabled sdd_emmc_b and there are a sdio device showed in the 
-kernel (sdio:c07v8888d8888)
+I had complained once in the past. I am repeating that again. You are not
+new to the kernel development, yet at times I get really surprised with
+the way you manage your patches and create so much confusion. It gets
+extremely difficult to track what is happening if one doesn't follow all
+your patches for a week(week is too lenient IMO, you manage sometime to
+create same amount of confusion in just 2 days).
 
-<https://matrix.to/#/!bDDAcbaDDYYwsVgelj:pixie.town/$YUSQIZ-pF22j9-ElrCst8XCUg1pac7CzWbUinNZL9HI?via=pixie.town&via=matrix.org&via=dissonant.dev>
+And as usually you ignore merge window and post a whole set of new series
+on the first day of merge window. Which is fine especially if you are new
+to kernel development(not true in your case though) or even otherwise if
+you don't regularly track upstream cycle so much because of corporate
+commitments(which may be true in your case and I am fine with that). But
+you need to wait at-least a few days after the merge window so you give
+every one a chance to follow your work.
 
-acc to https://paste.coreelec.org/CoolersHurry 
-<https://paste.coreelec.org/CoolersHurry> it seem it is amlogic w1 chip ?
+And in this case, I would have avoided scmi changes are you have non-scmi
+specific driver to get the core clock changes review first and then added
+SCMI as it is OEM specific and we need to analyse it without other things
+in flux or under discussion.
 
-(well on my board it is amlogic w1. there are some variant that use 
-other wifi chip )
+--
+Regards,
+Sudeep
 
