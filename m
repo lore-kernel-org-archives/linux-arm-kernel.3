@@ -4,105 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D026FC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1261C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=; b=lIFaSe6rOgt7Q9WnIPKC8dU+8V
-	Z8W1OwgCV5nY+069vorJdlOZDStC81Hxn1MIi8EdiiWz/tartHn9mZU0+05TPnBW5CYgs1OF6HdEw
-	uD2BznGbwVBTNNSabr/M3YgJY+S/9c735runI1zwVe2uAebZv8o1qE9fnqkKCjzBpbZh3CEVPLqhf
-	uEpOen4neOcbsYlqwNRY86h2iVLj+jdaYviLN8TfkCgHidQTb6jt3PpZThp24slaXzDqGQ2xt88nB
-	W++R71jsfQ4MS4zdQenGw//X2CTOdqmNeR7kdKQ6yL/bpg5oSmpMKL5xb4jJ13UpPUzMCt2APGBfr
-	0MdfxZ1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/zlovYkaw6CK6HANLI9igiT9FiqGDvrGT1y2KkK0JU=; b=YJ93PDMSPQ08qBZzg0O9hDmYcC
+	0UXx+4APWzMO6NFHH2sDtRBD+e6NcFXd9x3CQfHX8eChH54M6EjK/pTpEAZ/KQZU/eR7ham06/rMJ
+	wHpTqbQRsTZ9U9MkvatbMUFomzlDGS9C8FRtEnsaHGccge8bc0pdvBXrGCHV5MHggqZJs1cc9k9iH
+	tIsU0ug2zI0IKeEiuvuN2HzPydP8aVA+X+WUo0g+RdkNKS8LXqALffj//PFuPdRAkF6M5qBFFofAS
+	r0beTICoaOEfzQ9+OJxcsIZtO/Rd85evT7BUHPMbPiye8UczA/zxEOqQMaYVjxtPoUKl22IjpMCW8
+	Rf+ZGzfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2vZ-00000006b68-1poi;
-	Thu, 06 Feb 2025 14:32:25 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tg2xJ-00000006bWf-2JGy;
+	Thu, 06 Feb 2025 14:34:13 +0000
+Received: from mail-bn8nam11on20623.outbound.protection.outlook.com ([2a01:111:f403:2414::623] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2ll-00000006YV3-2RMg
+	id 1tg2mY-00000006Yh8-0PmG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:22:18 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab74ecfdae4so143941366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:22:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall-org.20230601.gappssmtp.com; s=20230601; t=1738851736; x=1739456536; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=;
-        b=pM/nAHsXAtqxMs0+OpDQzeMnBeu6sOEpI6Ee4E/JCfe+9gHBaKamPhh4YCUj6bKGRe
-         fplN/9MTwoHM5Lo0fSjg0tQc3HmvoURDaIPfFD+2wTZ6ET8+ZJ/wmRp60BHwz+TYHr5H
-         kKo+Wgaj/50s2lJolL/3aTYKjbCVKKyHojsL4LX7eZcpGONvPsNNSyPeTtpixDC2rQ3T
-         mqIoYVlzaWHW4TTBRlvQiHDPUElbQPIFSKXKskIVzo7S5rtoBPAsoTOIqZRJlSAiyUKl
-         zxzeAWrupQVBaKSJJUFzn1Pd4ueesH64yt310nb3S6fd7pkaKxhC83gK+z5QNdYe7S5x
-         UVFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738851736; x=1739456536;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qy52E7wooPVVAtEuLO+Qhyc2iLHEhNjVLiIzlhHyrWs=;
-        b=VL/TuiwFxgB4WYT1PVsYP83NzMyZ0WLRIlarhovKUk//pg/VrQJmFOV3nIEn4AvFB6
-         MDSU+jOPf53ok/eQNqYRWEX20HTb5OYUgauejI7YeBX2aIbiOy//9u8Mkyln9f9peWTN
-         QurHaMIvVrxaI7AirFWaPrrxtNB0lkOj0FTJPGtEcW+1SsC1jNCQLcWS/S+eIS38cam0
-         avrrT5lLOQnvynlXML43FD1Jvzaet1tLNyv2+y4At7xyuTrXZu5ar4CP/fjuV4B+OcS7
-         zzEYG9GmaaQvaFwRb+IFBXQJGTwLuMIaxrK3GDAwqtS3OlKrx04EZQii/qVIiNJZpMkJ
-         pxeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWeLx3KNnDstL0qq1JucvqeH8157vWgZIsqKhU2qjsobeh5idrXkNQ6/EsMAFlTJQ0QdX2OMDLEJy5cjGRbf0H1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwknihzQYv4yrlOyEAUDJaSK6VJ37jaUj6iLo+gqBjAAT1eG4+e
-	rryJRMDbKjANFdrTxDihylYHFcLKnISwOYBqj7csPq3cCpZl7jvsc3UTRoqi2Wg=
-X-Gm-Gg: ASbGncsuZSp7J8WLsDsMh9tLPK9F9gAz6mdRmagSxQkqFyCvry2yEbQlkRcT7B4Hxti
-	cJfTBWOiPb3h1BhCf1+uTHaw3u2G1IBHMVHk68QGGE3buk9ACzzKBDdoNhJm0dBv5zzkpJnHwSX
-	J4GaG6lsbmDOu7DxJfB05BP1soDQt89KAzSxxFt81PG8KpO4FQQ7izflBoZwdGy9s4v85g+8oIs
-	WbFVcWgEYkQa3WfrOxYRr8w/BMF1iNWK8FYOukSJY/x+JI9N26iWMcU+UUGc3FrmPL29hS61TDR
-	KJpSJDKr2zYsswf4Oc4ZXB130eRsQJohCHsDvwAGXCA6JGk=
-X-Google-Smtp-Source: AGHT+IG6aiDjgy1nFvIKHnHHwV2g9kBo0v+xziTDZFU9m8b3NS4nlzYz1Qp3ZZ0dcQwrhEvWNvqV8Q==
-X-Received: by 2002:a17:907:7249:b0:ab6:36fd:1c8f with SMTP id a640c23a62f3a-ab75e2f655emr719799466b.39.1738851735691;
-        Thu, 06 Feb 2025 06:22:15 -0800 (PST)
-Received: from [192.168.0.205] (78-154-15-142.ip.btc-net.bg. [78.154.15.142])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab77f5f5a0esm40785966b.155.2025.02.06.06.22.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2025 06:22:15 -0800 (PST)
-Message-ID: <cc8b741a-72a4-4059-bbcd-3f32c7ef56d0@blackwall.org>
-Date: Thu, 6 Feb 2025 16:22:13 +0200
+	Thu, 06 Feb 2025 14:23:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=inc5iG8YaBHJ2QL5iEV9oW44k4SUgQWWC083PDAO/7QTdk62YIk34dKWdPREbwVW50ERSI8kmIaN1jtpqU6ZyoGaZI5E+qwbAAjBMd7Bhad037OxSwCg+UfTk9vkpG84PL2VQDU8CE8MdMSpggQSeRyMdcrf6qFZa9ZD+BJT/FXN0pOf081GaAy1KZkRs3ryAu9S2m28e+32oCoermXBVossghhl2kEBvtLLLfZURy09zTClWJMzpwdxmvzTHsFHXZIqv8T547oNkM8jWqYnJxCRdBiTAvjTMkuijSSk3wEL2KGxD2LkhVQf+zu/pMDawS6dWxA1KtGvoZ31KHkIPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z/zlovYkaw6CK6HANLI9igiT9FiqGDvrGT1y2KkK0JU=;
+ b=ZGeR6uW7oGnA0d1BZvMZPYHE7kpBmi++Mk6R/TEJR4E9zuw9wF4/eWBjzq4koF6PNhSyk3b5x+yleVnpVHKinKdVinGEJi0MuooT5YzepJ6T5W97ktIDdw6j9yp8iGuDVZV1vKnmwbvpnPRz6LTy/52HsPTwLTv9IJya1Wb69uOTPf/fZrZYHT+ahonQoduGBKE/kKXcVjc1MxmwNXqaVLpATcEuoggtbqSSyQLBCwJDDOwc0zjDFRvUcLORvDKiRM92K4B0BybnCxl1yRW9R0Ly/vg40z/N8Yd3R5VEUZOfk4yOz3rNpxu2Gi2CERZzYohYxnhvB42q6BzXx0NqHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z/zlovYkaw6CK6HANLI9igiT9FiqGDvrGT1y2KkK0JU=;
+ b=oRoGaRpOEm59a+X7B5Gobp7fpwFuJsjun4T8/2QhvN74GaNn8v2Z8toY2I0JcLFO74Ph3h23WEIwIgcdjh3vCvZRvH+kDzIXKk+vLWY66u/h1VXebOUkSumu8d0dgS42nHG46+GQ149qXhjSx+hpmXKdtckz9rxb/Oi16vKJsP0=
+Received: from MW4P221CA0003.NAMP221.PROD.OUTLOOK.COM (2603:10b6:303:8b::8) by
+ SN7PR12MB7156.namprd12.prod.outlook.com (2603:10b6:806:2a7::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Thu, 6 Feb
+ 2025 14:23:01 +0000
+Received: from SJ5PEPF000001CE.namprd05.prod.outlook.com
+ (2603:10b6:303:8b:cafe::c7) by MW4P221CA0003.outlook.office365.com
+ (2603:10b6:303:8b::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.28 via Frontend Transport; Thu,
+ 6 Feb 2025 14:22:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ5PEPF000001CE.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8398.14 via Frontend Transport; Thu, 6 Feb 2025 14:22:58 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
+ 2025 08:22:58 -0600
+Received: from xsjwillw50.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Thu, 6 Feb 2025 08:22:57 -0600
+From: Ronak Jain <ronak.jain@amd.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<michal.simek@amd.com>, <nava.kishore.manne@amd.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Ronak Jain <ronak.jain@amd.com>
+Subject: [PATCH 3/3] dt-bindings: firmware: xilinx: Move FPGA schema references under allOf
+Date: Thu, 6 Feb 2025 06:22:44 -0800
+Message-ID: <20250206142244.2553237-4-ronak.jain@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250206142244.2553237-1-ronak.jain@amd.com>
+References: <20250206142244.2553237-1-ronak.jain@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 net-next 13/14] bridge: Introduce
- DEV_PATH_BR_VLAN_KEEP_HW for bridge-fastpath
-To: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Jozsef Kadlecsik <kadlec@netfilter.org>, Jiri Pirko <jiri@resnulli.us>,
- Ivan Vecera <ivecera@redhat.com>, Roopa Prabhu <roopa@nvidia.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Kuniyuki Iwashima <kuniyu@amazon.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Vladimir Oltean <olteanv@gmail.com>,
- Frank Wunderlich <frank-w@public-files.de>,
- Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- bridge@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250204194921.46692-1-ericwouds@gmail.com>
- <20250204194921.46692-14-ericwouds@gmail.com>
-Content-Language: en-US
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20250204194921.46692-14-ericwouds@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: ronak.jain@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CE:EE_|SN7PR12MB7156:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4a4e58d-a3d7-4aa7-a689-08dd46b9c1d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hTvg1IUiSjwafelBaLnEmzZbLk8DWy32AJimYxgqr+IiEnNpa9XMaUJgt0VH?=
+ =?us-ascii?Q?1EXkqOUadxj1HGyE60bh1eft9D+t4pZev6dylOsRt+uHb/geIGldpDEqmFK6?=
+ =?us-ascii?Q?VShqGa68G95LotNkvR5yJaRa800sqWo9rgbtIbXVIvAG7sxNaK3nMfAZ8X/c?=
+ =?us-ascii?Q?t7jBsKqoSTMzXwK7A64nNRSE4fSICsmrWN9At2l9oW0w7pgM9N/7PXMcfmMs?=
+ =?us-ascii?Q?bz5syx+B6RQ2qPg0CTw1ln6hPqnxFzBAOhRmgC2IlOIiKZAnl51xbjMS677T?=
+ =?us-ascii?Q?O312s7dRrpgsfaD3NNj99uKvU/wGk4dsJmyBD2d00PnmR2oIMmfSTzPX4hY9?=
+ =?us-ascii?Q?tWSH5k5uMj8wY8S7wTwVnf8rgCQUV/b4UUVzVNvZE+b+6wg3d5OIBA4GHRb5?=
+ =?us-ascii?Q?aS0gWnIsBnyi1rXE72KKU+5EMn2VB6sF1FG8rfgr7zZyZP0TCnFOzy6MvREe?=
+ =?us-ascii?Q?9TKW+ek0O8OTFh7eEOLXahP95+p5EG9NXi8FnoGRsBJCRk8Ak+PoMlV1cWgf?=
+ =?us-ascii?Q?5Wq6Su14n5+mtiYDbGlul30wTY2FjUzJDlLA3KY4gXHys+VlpmmIXNTTmLFQ?=
+ =?us-ascii?Q?Z0JVGRaF9QJv+bzHNbEuDlKQ5uuXaxS4nSaiHFd3V+NiO4ALNySdoc7iVA4x?=
+ =?us-ascii?Q?KKBs7nygMYYQ104FnU3WKVWj2r69g2GbYHU87JYe4RZJ/2miM+qHua9f7XlO?=
+ =?us-ascii?Q?9qKl/sqbsab1mXDSkqdYQOvZ3d9oqr1EagPae9DAYGjwn4ju6/dCvHc3Eqk2?=
+ =?us-ascii?Q?72z83ueovt5/EQR1Fk8FVouNZps6rhhOR2As2WMxhOvZYb3Fl3MuKiECV2Sy?=
+ =?us-ascii?Q?qcgKKewanUdtXWYwvgar1/09cJf2l3GYO8bACDLK5i3MEnZRauLgNzziNGZp?=
+ =?us-ascii?Q?OHc7OHgB2PGKj/yriqxfa/8/LymPcNRJ2mT1nXTSuPjtFHicVRHb0jpIzRVr?=
+ =?us-ascii?Q?uZsI2JRLG59szFxnn/dXqNAVooOQeIQr+I6Ul7OVkfBajmqmRC7ldeplGN1x?=
+ =?us-ascii?Q?XNpRM3QuAkr9TwAxJsKyZ/LJGOAJq9A2aEOQ7jg8ghUtlMhjAMsD/drolJum?=
+ =?us-ascii?Q?Q2gRz8b14ek+VvzsordGSzoFq2cYkb6o/DXOb4XGCYI9rIqzKCQaVye383j/?=
+ =?us-ascii?Q?HtbqMJOBaeZPnZ9Kff3dyxG0Kcs6kLumWXbVzVPrUGuIFlXH84EpNWID/4D+?=
+ =?us-ascii?Q?p5NWYp+iiatz5ij2oqN8vGBl5duSWYht1ljxPOn1IF+1inafmiYCUAS9+TKy?=
+ =?us-ascii?Q?/QovnnYRefXpJQWdGqZPe3hZDpDm2YTGRwLlnH0DtoksuIclL6QKfRoXc3nU?=
+ =?us-ascii?Q?kulsACBmFhPkjuuntSDbzmhPUTGBPPSD9qgtLJFP7XXAq1M/gLxqSI0fy7XW?=
+ =?us-ascii?Q?AbLWWaiC+LEAUrIuHpvYPxfy9e4n/GXvdr3QpLWhIixYZHWTHXPFh/jYdytc?=
+ =?us-ascii?Q?6rkq6vFvnJDlEB+JnK/et1rn22pMhtKw47ztx8GjmLmbvHlV4Z9xTtnT4yBa?=
+ =?us-ascii?Q?fm+yeYQ79KD4B7Q=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 14:22:58.9945
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4a4e58d-a3d7-4aa7-a689-08dd46b9c1d7
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_062217_625795_2EE331D4 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250206_062306_141428_F27EE954 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +146,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/4/25 21:49, Eric Woudstra wrote:
-> This patch introduces DEV_PATH_BR_VLAN_KEEP_HW. It is needed in the
-> bridge fastpath for switchdevs supporting SWITCHDEV_OBJ_ID_PORT_VLAN.
-> 
-> It is similar to DEV_PATH_BR_VLAN_TAG, with the correcponding bit in
-> ingress_vlans set.
-> 
-> In the forward fastpath it is not needed.
-> 
-> Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
-> ---
->  include/linux/netdevice.h        |  1 +
->  net/bridge/br_device.c           |  4 ++++
->  net/bridge/br_vlan.c             | 18 +++++++++++-------
->  net/netfilter/nft_flow_offload.c |  3 +++
->  4 files changed, 19 insertions(+), 7 deletions(-)
-> 
+The "pcap" and "versal-fpga" schema references are moved under the
+conditional schema "allOf" to align with the expected structure so
+that versal-fpga is only available via the versal firmware and pcap
+via zynqmp firmware.
 
-Acked-by: Nikolay Aleksandrov <razor@blackwall.org>
+Signed-off-by: Ronak Jain <ronak.jain@amd.com>
+---
+ .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml      | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+index d50438b0fca8..46d18ce4a045 100644
+--- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
++++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+@@ -69,7 +69,6 @@ properties:
+     type: object
+ 
+   pcap:
+-    $ref: /schemas/fpga/xlnx,zynqmp-pcap-fpga.yaml
+     description: The ZynqMP SoC uses the PCAP (Processor Configuration Port) to
+       configure the Programmable Logic (PL). The configuration uses the
+       firmware interface.
+@@ -93,7 +92,6 @@ properties:
+     type: object
+ 
+   versal-fpga:
+-    $ref: /schemas/fpga/xlnx,versal-fpga.yaml#
+     description: Compatible of the FPGA device.
+     type: object
+ 
+@@ -115,10 +113,14 @@ allOf:
+       properties:
+         pinctrl:
+           $ref: /schemas/pinctrl/xlnx,zynqmp-pinctrl.yaml#
++        pcap:
++          $ref: /schemas/fpga/xlnx,zynqmp-pcap-fpga.yaml#
+     else:
+       properties:
+         pinctrl:
+           $ref: /schemas/pinctrl/xlnx,versal-pinctrl.yaml#
++        versal-fpga:
++          $ref: /schemas/fpga/xlnx,versal-fpga.yaml#
+ 
+ required:
+   - compatible
+-- 
+2.34.1
 
 
