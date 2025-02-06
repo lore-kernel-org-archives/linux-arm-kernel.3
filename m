@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A13C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F505C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 23:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qwbmdEpjuUvEJ9zZbBb6m11hhz/AufPH/BP4AJH1mM=; b=tRHazxAjIX8OkcQulYVW0hhOhW
-	ZVQDi0ZpnGmVTN+DfVafgZ7xN9I4NK8Af1dsmoOAY/JuqzY390/vaC/l/uCD5bhTkcKpeBgyGLIXQ
-	6Sqx3ROz4ZD6hKwiQ9ZuGbMgWOUBAcmn/7XCTjyl9vM6K432raxtxvL2pOHZM3FlS2dpyJ1nVVMNh
-	F0lnFj2u+Iua+bLijhClJsQHMF317F1U5Q5UNF5SOHGwsLnHrXffW56fjHZ4Bg5nPAv4CU9Vq9XoZ
-	X85NdqK6up1iuNqikJ6c0LaGIcrbEq7OO28uNPnW7yCV0m65VT/cWCpQnBLhbaJnPX0NfBQjP9NIe
-	/sa5B1sg==;
+	bh=2tK3lI0djpS/6LRZIvhHPLKSSVignyzxq9XZE0uHegg=; b=ITCMwP17XN9tupMKcqBJ81aXFM
+	WUN1PM23Pd5zpTEwHZizwnlEovAPkaCDJ7Bdj8L3zRRr+5xnPAXktpwjgLIpQtaLOLPIuKe4cIR0g
+	eISW/vQuuQqqbdvttDITIVw9MdDWOahk7gIVjG6NogFMPIyGE3X3Wm6TDm6Zs3EBpVzhq0OJiO7MW
+	QfVIHvBVMCxLaeOC6ifGFC2Hgle/xkYCWRVBqQ6nUXJSzgzPbYh1CQ+2t1LwLL+PMxE3LokWNblMR
+	07rU3C8bUwGvWi6gEWKI/a5ccLmsc3BekytNc6sKTHriplxEgW1mmKRdEn9QNvXDiXQ55u+qbl3C4
+	iAPFKueQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgBjH-00000007pWl-0F2w;
-	Thu, 06 Feb 2025 23:56:19 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tgBkc-00000007pfx-2vzG;
+	Thu, 06 Feb 2025 23:57:42 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgBfB-00000007oiS-3pNO
+	id 1tgBfC-00000007oiZ-06dB
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Feb 2025 23:52:08 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq16u3642675
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq05N2820121
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 6 Feb 2025 17:52:01 -0600
+	Thu, 6 Feb 2025 17:52:00 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1738885921;
-	bh=7qwbmdEpjuUvEJ9zZbBb6m11hhz/AufPH/BP4AJH1mM=;
+	bh=2tK3lI0djpS/6LRZIvhHPLKSSVignyzxq9XZE0uHegg=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=txwHdXJ44a8ebYQb2t67D2TCQUhvHeHIhJp5K6EbnRMJNbBh+DjQRNPnAH0Uzlx38
-	 dF+BlkQx/ZmRcFyMb8h8VfAj4N9WOtqLhjLmYLVCKKrXrZpgbZFBDCG3Z5uT42Dv7e
-	 4us7Q5o9yvJYAyQwXFuplbZ2VcVcAIfx1eoE2/jI=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq1ml026291
+	b=eB0mmLx4myPCt6EV7h+EwVfJDYTrLWdLrCY4eAKToOdW7DPGjssnphGPcVBfWwvZR
+	 Motxhb/jow0x8xwS+r5rk8ygU6ZeAhFaU4p+/22pU8N2VwqVC64Ymct6m67k/h67iz
+	 ElO3hiq4itKHEXIhugkZbwbO5cPJ5KhMZAjpvr3k=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 516Nq0lM018984
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 6 Feb 2025 17:52:01 -0600
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 6 Feb 2025 17:52:00 -0600
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
  Feb 2025 17:52:00 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
  Frontend Transport; Thu, 6 Feb 2025 17:52:00 -0600
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516Nq0vK021560;
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516Nq0vC021560;
 	Thu, 6 Feb 2025 17:52:00 -0600
 From: Judith Mendez <jm@ti.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
@@ -61,9 +61,9 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         <linux-kernel@vger.kernel.org>, Andrew Davis
 	<afd@ti.com>,
         Hari Nagalla <hnagalla@ti.com>, Judith Mendez <jm@ti.com>
-Subject: [PATCH v4 9/9] arm64: dts: ti: k3-am62a7-sk: Reserve main_rti4 for C7x DSP
-Date: Thu, 6 Feb 2025 17:51:59 -0600
-Message-ID: <20250206235200.3128163-10-jm@ti.com>
+Subject: [PATCH v4 1/9] arm64: dts: ti: k3-am62-wakeup: Add wakeup R5F node
+Date: Thu, 6 Feb 2025 17:51:51 -0600
+Message-ID: <20250206235200.3128163-2-jm@ti.com>
 X-Mailer: git-send-email 2.48.0
 In-Reply-To: <20250206235200.3128163-1-jm@ti.com>
 References: <20250206235200.3128163-1-jm@ti.com>
@@ -72,8 +72,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_155205_995577_A469ABD7 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20250206_155206_154404_8D65E48C 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +91,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hari Nagalla <hnagalla@ti.com>
 
-The main rti4 watchdog timer is used by the C7x DSP, so reserve the
-timer in the linux device tree.
+AM62 SoC devices have a single core R5F processor in wakeup domain.
+The R5F processor in wakeup domain is used as a device manager
+for the SoC.
 
+Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
 Signed-off-by: Hari Nagalla <hnagalla@ti.com>
 Signed-off-by: Judith Mendez <jm@ti.com>
 ---
 Changes since v3:
 - No change
 ---
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 25 ++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-index f03b06b7de51d..ffa437873f6d1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-@@ -820,3 +820,8 @@ &c7x_0 {
- 			<&c7x_0_memory_region>;
- 	status = "okay";
- };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+index 9b8a1f85aa15c..061819a64300f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+@@ -106,6 +106,31 @@ wkup_rti0: watchdog@2b000000 {
+ 		status = "reserved";
+ 	};
+ 
++	wkup_r5fss0: r5fss@78000000 {
++		compatible = "ti,am62-r5fss";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x78000000 0x00 0x78000000 0x8000>,
++			 <0x78100000 0x00 0x78100000 0x8000>;
++		power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
++		status = "disabled";
 +
-+/* main_rti4 is used by C7x DSP */
-+&main_rti4 {
-+	status = "reserved";
-+};
++		wkup_r5fss0_core0: r5f@78000000 {
++			compatible = "ti,am62-r5f";
++			reg = <0x78000000 0x00008000>,
++			      <0x78100000 0x00008000>;
++			reg-names = "atcm", "btcm";
++			ti,sci = <&dmsc>;
++			ti,sci-dev-id = <121>;
++			ti,sci-proc-ids = <0x01 0xff>;
++			resets = <&k3_reset 121 1>;
++			firmware-name = "am62-wkup-r5f0_0-fw";
++			ti,atcm-enable = <1>;
++			ti,btcm-enable = <1>;
++			ti,loczrama = <1>;
++		};
++	};
++
+ 	wkup_vtm0: temperature-sensor@b00000 {
+ 		compatible = "ti,j7200-vtm";
+ 		reg = <0x00 0xb00000 0x00 0x400>,
 -- 
 2.48.0
 
