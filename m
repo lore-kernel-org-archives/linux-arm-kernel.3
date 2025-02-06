@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B66C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D89C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bq0tD51R8RdS2G7MP8/tMVA0OGRzm/QTEon9er2CSPo=; b=KEmx6qE2VYSjufZ1iacgcE0QCE
-	ZYc2vtJlkHK/3uThktZp0rWeF4WuetAofpXqe/dwtl2Vj4ZFLEjTjw+Ypi2Hn9OCh2JCFuwWnmNuI
-	X9DVTV1L2ow5gjyCq83TJ8yy8ZLcagjuzizJkw6ZeULGItNBJhN9GYVsnyxJ90orrTv8IUFHd95hM
-	NfMnA1KLfaVb7HmOVXnx3pe8zP1q0xj+TiN4POb+dkHjqO7UEfhm9d0myu/17VE96jMedF+jtq0vw
-	txr2CB4QsO1BH8cRFPvwcr2hc8WkosS5GDCYVb7DrEYUkncIUI2evUOHQdFVsGbFe0hyJUUK5PwER
-	9/PKsS9w==;
+	bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=; b=g+TWgf9kvo/zAgzLOnGjQ9BYCm
+	46GFuZZTZGdjqgfCZDt55cO1l0lCG6ZOIM7UqUsfHsct/rDNn3ERrQSgpsqye1PxpBLMQFiy6P14q
+	JkXjZguN++NBwheA379Ur6bRXNxF+hkDMrI6NJWJZA1WMqh041OQ55VrfnN+SfpwDTb/G7J837zwU
+	Rw1I+o5dMwt6SXRiRdn74tonpcLtQXlQ+ipAY1/+1ZSJLCs3Nw73WKBP8aAU2xno4CtX1g2UcHbe6
+	No0bTMBeDqAsrGnGPPvM4nLUEELk0op5r8QcgSh7OCmAvHZj0tDYVwzH3DYwWlhl1ZTkYW31936G7
+	62bANomg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7KT-00000007Kc3-1F7z;
-	Thu, 06 Feb 2025 19:14:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tg7OA-00000007L3O-0SGH;
+	Thu, 06 Feb 2025 19:18:14 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7J5-00000007KUA-2Y8e
+	id 1tg7Mm-00000007KvN-1iNC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 19:13:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CDFEAA4459C;
-	Thu,  6 Feb 2025 19:11:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B887BC4CEE0;
-	Thu,  6 Feb 2025 19:12:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738869178;
-	bh=g9/g/hpUUywCC6oyxEmQw01HogHxdD6MoRuJVjntsiU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ktnqYp0p/btUoBkPX5EIvvqEirIqBp/Wz0b38Bh1kBQj17p/6hDw3zy368JIKput7
-	 89Rqp7LxNfhNiQ2FqZBfm17aCOSvfWTwa8GAK9Oe6awvMXk7GAXHGGknE8/lD+4/yQ
-	 57ppLhBLeawa+kAWYPo9r7sYA+nK92S5X5dx1a4DKVJ+PAFxYXTs2CVRse1nsUK9xA
-	 kjHe3vtUBbJsYB5Wp/mphJrtoaK6F/QnZrTvZuRKIOKVg6WD+Q6fd6S9dL+K3llZ9e
-	 No5a9bdBpSLXQI4R4ggKoX3h/LxsPOlZ2vbl65D8oab9VklliW2EC2kj6ik+deSR/P
-	 oLE9wNyVpUtjw==
-Date: Thu, 6 Feb 2025 19:12:52 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	eauger@redhat.com, eric.auger@redhat.com, fweimer@redhat.com,
-	jeremy.linton@arm.com, maz@kernel.org, oliver.upton@linux.dev,
-	pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com,
-	wilco.dijkstra@arm.com, will@kernel.org
-Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
-Message-ID: <9972d29a-1387-408c-9070-d53b025191f2@sirena.org.uk>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
- <20250206141102.954688-9-mark.rutland@arm.com>
+	Thu, 06 Feb 2025 19:16:49 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2fa0892f9bdso1678440a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 11:16:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738869407; x=1739474207; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=;
+        b=Cjin5iAXLpoGzhkoRnluk3kA13OidYqv0XAeb93qygvjEKjqYDZZgJNM3k71MpoG01
+         4W7dh0r8gcvl9SSrgXuqVBMsy2ogHnqLDZgP8Mdo9vlozVqu0imEQijAZPJJQ13H4Ri4
+         pUS1PWaPfpMMZuxx69YAHsSPfHJnVscJ8PENPnfwRQL2uIRp/rXevkhqGGyJ+8Elrb2h
+         isFpopBcnwtpzQ3mTU2jPOddDttmHmqOW0jBQGrYB3y7pk+CzcMeIpKQHmYTcdEgS0OD
+         4oz56pwc23bc3u8Z1KHSa1homrabAHqrdn2dEXfwnNQozA/HdC+gtH5GTim+tzSoxeQt
+         TDdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738869407; x=1739474207;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=;
+        b=ia3p8M4BJfD25Geq8Hy3z0RaUZSKAD3ZeL5CeMwcZL2a7gqd4Gp9cA5E4xLqbT/7nV
+         dwZoZaBmSzE0/90AwdPpcQnhuSnx5ayzlBrXa48OTCHvyV824AhT+V4LvOuUY/md0bbs
+         U2hierhO+/AT8LSxHdlxIbTUWiDol5Soi04qoftlZystWfzgmJH5u2+42drSqN9BRLKE
+         1h+x+HV75qCT1GGCOuklBiL8a2dEfc02jdwZCsxuSjqWUJ5VAPqUG6kf6rxg7v3Or0TB
+         RpaLowgQvTKub7ZSsSgQQKuc5xM1C5br2n2NAw0aEunHJ5SDXkv1Swr+XAJBrTdoR30v
+         59Cw==
+X-Forwarded-Encrypted: i=1; AJvYcCUgnGBonJ9LJzJW5SBe5wJObOMyeQMtLbYYv5RoF4MmdKH7Ovfx0+huZ8j2+cUtoXQvkqhnPcw4T26IjPnIbjyK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMypn7RMsNlYA/R5LwNNT4luGCcsv42PKbpY4shNwLYDj+Eiz5
+	+Z1FQZl5JltHhfs8D9LtnKR8ACCztFBEn64d/SWUv+CTknEmF2TWjUVM5rUg
+X-Gm-Gg: ASbGnctmI32pLbO5yUdvewoD7iVqdmdWQDjj2rvjkI6YmeMBwUvU44BeqUdbzhn0R9a
+	UUC3WFL9bfPQCG/5/C/EeYB8qxf+fI624rZlsXVTmVDvkQAb1abQ+aynOVjkls3D9SaWV8BuxBW
+	d2416tTOhbEFTJ3T5V8PwYHLctmefztZVEpc0QP88Imh3cR7nQa8tJS8gQ4+UvFEiQSczHXbvDM
+	WyVvgpEqzyANuSYWlvP5jc5NKAjG4/NLpraOC3z/Dmp1+gpNj2XL7X1gRxrjmJ/jbqgiwokSMLU
+	zPq/ZzQc9xT4vWI=
+X-Google-Smtp-Source: AGHT+IGyBu8HGooogVECSDxGIUQ5Z40l4h+BQiOH7nR1Zf9Q9rLywn17YBVVdpSAMvv59KLxYaoxWQ==
+X-Received: by 2002:a17:90b:38c3:b0:2fa:13d9:39c with SMTP id 98e67ed59e1d1-2fa24064f31mr383637a91.14.1738869406961;
+        Thu, 06 Feb 2025 11:16:46 -0800 (PST)
+Received: from localhost ([216.228.125.131])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a1848asm1794373a91.12.2025.02.06.11.16.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 11:16:46 -0800 (PST)
+Date: Thu, 6 Feb 2025 14:16:44 -0500
+From: Yury Norov <yury.norov@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v2 0/2] gpio: xilinx: Replace custom bitmap APIs
+Message-ID: <Z6UKnNyf9cDVSUPF@thinkpad>
+References: <20250205093200.373709-1-andriy.shevchenko@linux.intel.com>
+ <Z6MzExQFcIz9HlkN@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TAjyd6cungso5X+6"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206141102.954688-9-mark.rutland@arm.com>
-X-Cookie: With your bare hands?!?
+In-Reply-To: <Z6MzExQFcIz9HlkN@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_111259_711042_751DD26C 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20250206_111648_448177_D0EAEA33 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 05, 2025 at 11:44:51AM +0200, Andy Shevchenko wrote:
+> +Cc: Yury
+> 
+> On Wed, Feb 05, 2025 at 11:31:09AM +0200, Andy Shevchenko wrote:
+> > Relatively recently bitmap APIs gain a few new calls which may help
+> > to convert the GPIO Xilinx driver to use them and become shorter and
+> > nicer. This mini-series does exactly that.
+> > 
+> > Changelog v2:
+> > - fixed a regression in patch 2
+> > 
+> > Andy Shevchenko (2):
+> >   gpio: xilinx: Use better bitmap APIs where appropriate
+> >   gpio: xilinx: Replace custom variants of bitmap_read()/bitmap_write()
+> 
+> Yury, just FYI, after this series, if applied, the bitmap_remap() and
+> bitmap_bitremap() may be moved to the NUMA only APIs. Or i.o.w. the
+> commit cde3d0f81e67 ("bitmap: Make bitmap_remap() and bitmap_bitremap()
+> available to users") may be reverted.
 
---TAjyd6cungso5X+6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
-
-> +static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
-> +{
-> +	u64 zcr_el1, zcr_el2;
-> +
-> +	if (!guest_owns_fp_regs())
-> +		return;
-> +
-> +	if (vcpu_has_sve(vcpu)) {
-> +		/* A guest hypervisor may restrict the effective max VL. */
-> +		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu))
-> +			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
-> +		else
-> +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-> +
-> +		write_sysreg_el2(zcr_el2, SYS_ZCR);
-> +
-> +		zcr_el1 = __vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu));
-> +		write_sysreg_el1(zcr_el1, SYS_ZCR);
-> +	}
-> +}
-
-I don't think we should worry about it for this series but just for
-future reference:
-
-These new functions do unconditional writes for EL2, the old code made
-use of sve_cond_update_zcr_vq() which suppresses the writes but didn't
-have the selection of actual sysreg that write_sysreg_el2() has.  I
-believe this was done due to a concern about potential overheads from
-writes to the LEN value effective in the current EL.  OTOH that also
-introduced an additional read to get the current value, and that was all
-done without practical systems to benchmark any actual impacts from noop
-writes so there's a reasonable chance it's just not a practical issue.
-We should check this on hardware, but that can be done separately.
-
---TAjyd6cungso5X+6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmelCbMACgkQJNaLcl1U
-h9CrEgf/TGgo4RVmaJxXS634U8oUIbNEIuXqOQJAqsTazdIud+hAZMt+dIaXwL+7
-fNdixA7N2DycoddigmHo+3CMMWlhdqjUx+6KKg/hA/RLflnT3LyT4h/lmRgxiz8d
-6MaxnP3+7vRubFCHotGBIQayLt5VhIlOYpwDikHcXAU2xWd7i0tAYqkzUivQJD2z
-mT1QjZOh7Dd/AKNOH9z2PeAfEn/EsMksgzWl3p/ElBEQ2Qbyq7GVadyGn6xhLooP
-UyQLxrI+ReiZj2kXHa6kez9GYlhABFU9dlz0VDUtKLlgdR2m4mC7HJ4bTWm/xuaD
-6pR0opLZp/dGO/Djx6pnmvuH+ri02A==
-=FSAp
------END PGP SIGNATURE-----
-
---TAjyd6cungso5X+6--
+Thanks Andy, I'll keep an eye on it.
 
