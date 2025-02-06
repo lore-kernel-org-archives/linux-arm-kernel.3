@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D89C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255BDC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 19:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=; b=g+TWgf9kvo/zAgzLOnGjQ9BYCm
-	46GFuZZTZGdjqgfCZDt55cO1l0lCG6ZOIM7UqUsfHsct/rDNn3ERrQSgpsqye1PxpBLMQFiy6P14q
-	JkXjZguN++NBwheA379Ur6bRXNxF+hkDMrI6NJWJZA1WMqh041OQ55VrfnN+SfpwDTb/G7J837zwU
-	Rw1I+o5dMwt6SXRiRdn74tonpcLtQXlQ+ipAY1/+1ZSJLCs3Nw73WKBP8aAU2xno4CtX1g2UcHbe6
-	No0bTMBeDqAsrGnGPPvM4nLUEELk0op5r8QcgSh7OCmAvHZj0tDYVwzH3DYwWlhl1ZTkYW31936G7
-	62bANomg==;
+	bh=o/Cvskt8D20Y+64SGsgngTiMZM5AMK9RlfGMhgihOAw=; b=reoJQ6u0+tm1pv8DcN6fa3a9d9
+	lmZvuyoUCeITnxD4oQbqwc6FEG43uyeZQATyxcejKW9IFXWlpHkfV8sE7QQuY0mFEfGLpB26yokdj
+	xO+VcmEB5yO+b4KAXwlQiam45ccQul4/o3kZG7ZoQd7xSAmjxSMhdXGvTJ+ozHbM3ZEQI67U4/ffw
+	uxYFL4fgCIPk9YnGktVHyRi9HOKxsQzx2J7m9Dh/bMeRZni9r7sALHhbxgmQSqLyhLLVYyEXoUBv3
+	YQ2+CCF0a/AY5pPejg6mJDstvMsp24QiEe4UrG3PktVE5pmTbpfWyQSqh67GAWN7AP6vfL5Ha+LOU
+	pPfii05w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7OA-00000007L3O-0SGH;
-	Thu, 06 Feb 2025 19:18:14 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tg7ka-00000007NkP-3Bvj;
+	Thu, 06 Feb 2025 19:41:24 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg7Mm-00000007KvN-1iNC
+	id 1tg7jC-00000007NWA-210F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 19:16:49 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2fa0892f9bdso1678440a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 11:16:47 -0800 (PST)
+	Thu, 06 Feb 2025 19:39:59 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54412a7d75cso709122e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 11:39:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738869407; x=1739474207; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=;
-        b=Cjin5iAXLpoGzhkoRnluk3kA13OidYqv0XAeb93qygvjEKjqYDZZgJNM3k71MpoG01
-         4W7dh0r8gcvl9SSrgXuqVBMsy2ogHnqLDZgP8Mdo9vlozVqu0imEQijAZPJJQ13H4Ri4
-         pUS1PWaPfpMMZuxx69YAHsSPfHJnVscJ8PENPnfwRQL2uIRp/rXevkhqGGyJ+8Elrb2h
-         isFpopBcnwtpzQ3mTU2jPOddDttmHmqOW0jBQGrYB3y7pk+CzcMeIpKQHmYTcdEgS0OD
-         4oz56pwc23bc3u8Z1KHSa1homrabAHqrdn2dEXfwnNQozA/HdC+gtH5GTim+tzSoxeQt
-         TDdw==
+        d=broadcom.com; s=google; t=1738870796; x=1739475596; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=o/Cvskt8D20Y+64SGsgngTiMZM5AMK9RlfGMhgihOAw=;
+        b=VkytqI6XPnBbxBlsMEfGo6BB47bnLTu3jNjywWcNhGiDaZwKuwdQr1JG0Kmj1wwSws
+         RTpVRAETSnV6v6BPm4heCxKUThO8NVVMfOAOj1kWiFGQyUAeKvlIuPELtcqxOThU0WRj
+         +7lh8EYryBsq75DdKmJY4wmAbGnyizg0OB7nA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738869407; x=1739474207;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GCdO692bHBghPfQRGV/NUxGlZvxVvv1uNkFJcvuit2M=;
-        b=ia3p8M4BJfD25Geq8Hy3z0RaUZSKAD3ZeL5CeMwcZL2a7gqd4Gp9cA5E4xLqbT/7nV
-         dwZoZaBmSzE0/90AwdPpcQnhuSnx5ayzlBrXa48OTCHvyV824AhT+V4LvOuUY/md0bbs
-         U2hierhO+/AT8LSxHdlxIbTUWiDol5Soi04qoftlZystWfzgmJH5u2+42drSqN9BRLKE
-         1h+x+HV75qCT1GGCOuklBiL8a2dEfc02jdwZCsxuSjqWUJ5VAPqUG6kf6rxg7v3Or0TB
-         RpaLowgQvTKub7ZSsSgQQKuc5xM1C5br2n2NAw0aEunHJ5SDXkv1Swr+XAJBrTdoR30v
-         59Cw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgnGBonJ9LJzJW5SBe5wJObOMyeQMtLbYYv5RoF4MmdKH7Ovfx0+huZ8j2+cUtoXQvkqhnPcw4T26IjPnIbjyK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMypn7RMsNlYA/R5LwNNT4luGCcsv42PKbpY4shNwLYDj+Eiz5
-	+Z1FQZl5JltHhfs8D9LtnKR8ACCztFBEn64d/SWUv+CTknEmF2TWjUVM5rUg
-X-Gm-Gg: ASbGnctmI32pLbO5yUdvewoD7iVqdmdWQDjj2rvjkI6YmeMBwUvU44BeqUdbzhn0R9a
-	UUC3WFL9bfPQCG/5/C/EeYB8qxf+fI624rZlsXVTmVDvkQAb1abQ+aynOVjkls3D9SaWV8BuxBW
-	d2416tTOhbEFTJ3T5V8PwYHLctmefztZVEpc0QP88Imh3cR7nQa8tJS8gQ4+UvFEiQSczHXbvDM
-	WyVvgpEqzyANuSYWlvP5jc5NKAjG4/NLpraOC3z/Dmp1+gpNj2XL7X1gRxrjmJ/jbqgiwokSMLU
-	zPq/ZzQc9xT4vWI=
-X-Google-Smtp-Source: AGHT+IGyBu8HGooogVECSDxGIUQ5Z40l4h+BQiOH7nR1Zf9Q9rLywn17YBVVdpSAMvv59KLxYaoxWQ==
-X-Received: by 2002:a17:90b:38c3:b0:2fa:13d9:39c with SMTP id 98e67ed59e1d1-2fa24064f31mr383637a91.14.1738869406961;
-        Thu, 06 Feb 2025 11:16:46 -0800 (PST)
-Received: from localhost ([216.228.125.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a1848asm1794373a91.12.2025.02.06.11.16.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 11:16:46 -0800 (PST)
-Date: Thu, 6 Feb 2025 14:16:44 -0500
-From: Yury Norov <yury.norov@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v2 0/2] gpio: xilinx: Replace custom bitmap APIs
-Message-ID: <Z6UKnNyf9cDVSUPF@thinkpad>
-References: <20250205093200.373709-1-andriy.shevchenko@linux.intel.com>
- <Z6MzExQFcIz9HlkN@smile.fi.intel.com>
+        d=1e100.net; s=20230601; t=1738870796; x=1739475596;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o/Cvskt8D20Y+64SGsgngTiMZM5AMK9RlfGMhgihOAw=;
+        b=HZ5KHpx/1ekU7/vlYn+6/A/oXFi8xlVrFmXEk9YTV9lT2OPHxhV6GIYsyt7Vx5VRga
+         g9SbPc8O3b93XNPz8cXeQQOpX1J0swYnXPk/p3MkYmDSHpZHjdCKzplDDykQ3LIRyDgB
+         uUM9MqQ39j3/TMCjWg5S2jegbPKRmWC1mWskH+yuCWJvqmWhbslpUgPwZ3bdr9y9nVn2
+         Bskb1O/4sDHNVgTbvgMB28VD6va9d08G2cU5xlaQ/wQNww1ulvCrNGLJz2nFKcirOnAq
+         O1qmtt7fz6z9EP1eBo1TNQDNcawCndw3zTE7Jy1MqMb5QM6TGWVt38cz1LffyDOk1oHs
+         Vurg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbbKmSFiXccWCTPgJ1u1+A+rRIPnVQP7592uH3Q/uO51gdspxOwk0BaAbLmvqtcVrVIw/A+Qgez62GIUI9SE/A@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMx7nuaoFEIon2I/h6TBpqeh+lbvZJ2AqICHcBB1sFmHKGl0jZ
+	DtTLAl8UNz6c4n4UbVz8jX09QLTJZVEEJBJqYtZ+wDc/8mP5MaBDbiLhDUJW6AFHZcHuzDrYoe3
+	GDTe+KTAUzj5zUVWXQ+PaJodXBI5Bx5P/ktFt
+X-Gm-Gg: ASbGncvmyOCdu4WFJxNfQDubgrQY1TrC2ZnEj7Gcl0zfR915D7QmPM+0Oqi/hfM5P+e
+	iPhesBojmfr0hYkAREAxQNPPGSCHLjuCGRo3hlvT4UXKddm4BqCU3WchZ0I7w3xfyq6juQU1bcQ
+	==
+X-Google-Smtp-Source: AGHT+IEcLjm//BRgdSvW6BdZVtXln0kkGrDo5VDCw6zizTEiDrZsnTY6/xpZnzEp0UWLsdq/tQ4o0WfZNT4rm70r4hg=
+X-Received: by 2002:a05:6512:b9b:b0:544:ed0:b686 with SMTP id
+ 2adb3069b0e04-54414a9cbe8mr51784e87.15.1738870795950; Thu, 06 Feb 2025
+ 11:39:55 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6MzExQFcIz9HlkN@smile.fi.intel.com>
+References: <CA+-6iNwws3On9-VJ-vF55o5LwKYpOHtfRYLtoQ5=bh7uGTfYkg@mail.gmail.com>
+ <20250206183455.GA994612@bhelgaas>
+In-Reply-To: <20250206183455.GA994612@bhelgaas>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Thu, 6 Feb 2025 14:39:44 -0500
+X-Gm-Features: AWEUYZmJV49J_V5lCzC8oSRhkYqAedlRPse_RFiaEYA4qurfDTZPYmCNEGGz38I
+Message-ID: <CA+-6iNxz-==Ws-EZTBbSzqmEApAX=bsq9=x=3=Z9G3kqxD53Hg@mail.gmail.com>
+Subject: Re: [PATCH v1 2/6] PCI: brcmstb: Fix error path upon call of regulator_bulk_get()
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	Cyril Brulebois <kibi@debian.org>, Stanimir Varbanov <svarbanov@suse.de>, 
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="00000000000020fd93062d7e68ee"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_111648_448177_D0EAEA33 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250206_113958_515069_E1C436EC 
+X-CRM114-Status: GOOD (  35.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,25 +99,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 11:44:51AM +0200, Andy Shevchenko wrote:
-> +Cc: Yury
-> 
-> On Wed, Feb 05, 2025 at 11:31:09AM +0200, Andy Shevchenko wrote:
-> > Relatively recently bitmap APIs gain a few new calls which may help
-> > to convert the GPIO Xilinx driver to use them and become shorter and
-> > nicer. This mini-series does exactly that.
-> > 
-> > Changelog v2:
-> > - fixed a regression in patch 2
-> > 
-> > Andy Shevchenko (2):
-> >   gpio: xilinx: Use better bitmap APIs where appropriate
-> >   gpio: xilinx: Replace custom variants of bitmap_read()/bitmap_write()
-> 
-> Yury, just FYI, after this series, if applied, the bitmap_remap() and
-> bitmap_bitremap() may be moved to the NUMA only APIs. Or i.o.w. the
-> commit cde3d0f81e67 ("bitmap: Make bitmap_remap() and bitmap_bitremap()
-> available to users") may be reverted.
+--00000000000020fd93062d7e68ee
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks Andy, I'll keep an eye on it.
+On Thu, Feb 6, 2025 at 1:34=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org> w=
+rote:
+>
+> On Thu, Feb 06, 2025 at 01:22:54PM -0500, Jim Quinlan wrote:
+> > On Thu, Feb 6, 2025 at 12:29=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.o=
+rg> wrote:
+> > > On Wed, Feb 05, 2025 at 02:12:02PM -0500, Jim Quinlan wrote:
+> > > > If regulator_bulk_get() returns an error, no regulators are
+> > > > created and we need to set their number to zero.  If we do
+> > > > not do this and the PCIe link-up fails, regulator_bulk_free()
+> > > > will be invoked and effect a panic.
+> > > >
+> > > > Also print out the error value, as we cannot return an error
+> > > > upwards as Linux will WARN on an error from add_bus().
+>
+> > > > Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulat=
+ors from DT")
+> > > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> > > > ---
+> > > >  drivers/pci/controller/pcie-brcmstb.c | 3 ++-
+> > > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/co=
+ntroller/pcie-brcmstb.c
+> > > > index f8fc3d620ee2..bf919467cbcd 100644
+> > > > --- a/drivers/pci/controller/pcie-brcmstb.c
+> > > > +++ b/drivers/pci/controller/pcie-brcmstb.c
+> > > > @@ -1417,7 +1417,8 @@ static int brcm_pcie_add_bus(struct pci_bus *=
+bus)
+> > > >
+> > > >               ret =3D regulator_bulk_get(dev, sr->num_supplies, sr-=
+>supplies);
+> > > >               if (ret) {
+> > > > -                     dev_info(dev, "No regulators for downstream d=
+evice\n");
+> > > > +                     dev_info(dev, "Did not get regulators; err=3D=
+%d\n", ret);
+> > > > +                     sr->num_supplies =3D 0;
+> > > >                       goto no_regulators;
+> > >
+> > > I think it might have been better if we could do the
+> > > regulator_bulk_get() separately, before pci_host_probe(), so that if
+> > > this error happens, we can deal with it more easily.
+> >
+> > Keep in mind that brcm_pcie_add_bus() cannot return a non-zero error
+> > code, as it will get a WARN() from the caller if it does.
+> >
+> > Would you  accept deallocating the "sr" array and setting it to NULL
+> > like the following error condition does?  In that way we would not be
+> > invoking any regulator_bulk_xxxx() functions with nr=3D=3D0.  I'm reall=
+y
+> > wary of moving things around...
+>
+> Yeah, don't move anything around right now.  My wondering is just
+> about whether the alloc and bulk_get() could be done earlier, leaving
+> only the bulk_enable() to be done in brcm_pcie_add_bus().
+>
+> The alloc and bulk_get() depend on DT things and it's nice to catch
+> those errors earlier.
+
+IIRC, I believe the reason that this code is in
+brcm_pcie_{add,remove}_bus() is because the reviewers wanted the code
+outside of the RC driver, as it was the port driver that "owned'  the
+regulator.  I also vaguely recall one of my submissions that had
+generic pci_subdev_regulators_{add,remove}_bus()  calls in pcie/bus.c,
+but  was  later redirected back to the brcmstb RC driver.
+
+Regards,
+Jim Quinlan
+Broadcom STB/CM
+>
+> Bjorn
+
+--00000000000020fd93062d7e68ee
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
+uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
+AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
+c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
+AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
+TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
+bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
+L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
+BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
+VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
+z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
+b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
++R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
+AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
+75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICbTCC
+AmkCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
+AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
+MA0GCWCGSAFlAwQCAQUAoIHUMC8GCSqGSIb3DQEJBDEiBCAHXCadyti7wrHNm0RaYE58d9lufGDA
+rpDfVD/f0wT5UTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNTAy
+MDYxOTM5NTZaMGkGCSqGSIb3DQEJDzFcMFowCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
+hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEKMAsGCSqGSIb3DQEBBzALBglghkgBZQME
+AgEwDQYJKoZIhvcNAQEBBQAEggEAp/SsdJlI4AzqdMYTvmdQDTNHS+DdQnMN7GkLqf2R16n/ycFa
+NVOb05deVoMqimoJxG0BJgwlgIdEYiw55tmEgjDmKcoNnlVxpmar8u/jrtCub4DqYOmwRqcO8Awz
+VNz88W05eAt9Am9haTYqKPR3eBAfRbVYYSHDEzHDl+rDY8HvEmyRl1TuSW+kp+KFsdXlolJ9f7/N
+8L95PVWhERX5Fky/BUm4xFhbsW0gAddFx2DRIv0I2V3+L54lKcGGPzKcC9zEI4cT+gjbNoFmzD+w
+5iUrX9/BXty5Dmh0qBiluLtsnFqQ+E9JaAy06Gjw8wQoFYyRr/wFf078XaoKHyVmnA==
+--00000000000020fd93062d7e68ee--
 
