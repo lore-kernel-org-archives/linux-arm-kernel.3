@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43199C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA71FC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 07:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmixHTQ9t/qRSkZNn5w1s5t25ZKJIK2uygP8YckJ0Zs=; b=mYpUbTct4U+Ruh4kIPxar4xvRY
-	X+wR3mKydtzzEfOXMVFqmj7ODeDEya3UobUtHjr9/JFjEbqPiii+QVzWN7UhcUPv/LZ4pWJn4G3Ry
-	ymxms4HNPMCvvMVGf4XJWnUzsREyuX2Elc0QFekXlORwplVuml8aG2LV5YYddqR0E0a0p+JFMEcFE
-	EMnuSXv9ijh49KsDwYc+RIiTpHreIw23URVm1tr39pUibiBMkYddyANeCH7g0zovyuiHqyQg1BnUs
-	XdsN7vTn8tfYhwLJxA5i2w01TP8d6QIEKHgo+oqSfs+D/mPCHjgfbNAMNhiFOIpIW+22tTIeHmbYb
-	zrLUkVxQ==;
+	bh=PRTCLUDsbyoOj7OW3TuP7saKBqybMLwjTuaONY//ub0=; b=aozYUrSU2A9AtMNvDH1sambSxa
+	TkmMs+dQb3lRaS+CF/5S3sqQuUxAQ5Ep23IrZWakrPtShV8VVQbKJedQVMXsR1eJgUYoiecCdQX0F
+	rT9vm1otm0EFUyMLc7HXIdvGtWe21A4ThrgsnxLeSbz1FjrGDOQ7rKIfKDTWD3ZVpNBLlfmbAbQaG
+	vc1PbuYCU5FdeX2GLQgBRAKFIiaQQDOb/knnZDcvsi3ZJXfRes2Hb2595h34+GISPrd9/A4mEGa8S
+	oMJyV3uVig3SNsR2HeILOHnXEfFbMSZPwbqMq+1zfM9810FowXqzOedUG1Ul+lnEmtb4DelaDUh5F
+	pvarck4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwka-00000005f0F-3Qp8;
-	Thu, 06 Feb 2025 07:56:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfwlv-00000005fAB-2Aac;
+	Thu, 06 Feb 2025 07:58:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwVs-00000005cq7-21kD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Feb 2025 07:41:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OmixHTQ9t/qRSkZNn5w1s5t25ZKJIK2uygP8YckJ0Zs=; b=dFA92YTnuI9+6/+Aqzo3qsR3vj
-	TEIyWx6bpgc74iuX98Pj2ZwJjPif9TL2bL/vzbmR1ZMzw/n+qJPkykyWoyLtM79SzY+7DsOI/cTnK
-	0J9pTBP6mRlb1rieHbANTRAG7i6mCjdtxu4RibtaCUDyzu/QCBNHqByBuxGwq4gijI/A1HGNuwMm9
-	0kdygfL6F6s70nkMFSK1hussbOwUvh6YVyDq9h4ygVs7ymvmVtWJ26FucHAXguFfDcPTibjyWg1N7
-	zZOF6CuS6HmQY7WNPr+HdiOGQhUhtRnwIFP4xIPb4aHtFZWeEVMzVazBWXCichJ5ALLXgmJAmCp/E
-	jA4XA/HQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwVp-0000000GrB6-0QeC
+	id 1tfwWC-00000005cyJ-0N61
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:41:27 +0000
+	Thu, 06 Feb 2025 07:41:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 780E35C06B9;
-	Thu,  6 Feb 2025 07:40:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6A4C4CEDD;
-	Thu,  6 Feb 2025 07:41:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 27A8CA43E75;
+	Thu,  6 Feb 2025 07:40:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51355C4CEDD;
+	Thu,  6 Feb 2025 07:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738827681;
-	bh=EsX6xJcMAoQ0G6QHnLUpoKL/0TeLwQplV36mP5PqyxY=;
+	s=k20201202; t=1738827706;
+	bh=nY9aN4VnSUiFqElBq4AQ12dHlVn267Zo9tlZ/3dLj1k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I++RmrPz9l5+iEND7V0yP94dA4D20zYkBUr6VACuQa5UnpunsncHeckcKriD4N3bx
-	 eVmPv4+bCgg96KLvePim6IpH6g/4ZmMcmWDedtHDtmMPPnp+pptcnRXhScA0pXbZCU
-	 kdbOc8sm0ffuLg28b1TvWFUH7jEa1G9vwpTsVd0n8dxY2LXBlnbZm0Mx1yBtCQAtMy
-	 FrruVOf/rvmK33kRjQ1bHIEya9Ko3vnYz4qBJgU8V4lRBPSvBdKd7s/1r8HWqLmDSY
-	 kZ3Kz6wkjSMqWFbCUnCPyhzhGJPAyX9FtMkNh1r9qUHw6by1I+M7KwcZpiGaMxsY2b
-	 OW6AaGVKf94sA==
-Message-ID: <6ed4ffb4-47ec-4747-a715-10d7f1fc6be3@kernel.org>
-Date: Thu, 6 Feb 2025 08:41:18 +0100
+	b=PxCAZ5M6nUT7VGMd1YRlYsnkYhMicW3/G8KQD2B/lYSYjy2gh7yuTa1mGufnHtZ9p
+	 C+eeqGqb6b20KH+4sk2PW38QAoPp/Bgl0vPzkZzosSfphRLYq8ewnLFg8chxoq7dlL
+	 UVZld+ONW8+jQqdVzZSls9f0MibTluAU1mrJDfKZhFtBfvGZgpf4Ks6UH45WW+eeu5
+	 y4o+QZwNGIoiuOhtgXGyqhIzY4Wu1BOLdmVFF+f1oq6iQMv/Rv4xsBH0bEmZjKb10k
+	 vCfhaWRI1Fdd/hyDtvkL+rV8lb+mLQRP9h5wu1Ff+MyyFC7cYCYVhYRbvvnobrdIbN
+	 KChZesegvCzWQ==
+Message-ID: <28db20ed-a490-47f2-99fa-b665317999b3@kernel.org>
+Date: Thu, 6 Feb 2025 08:41:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/9] dt-bindings: clock: samsung,exynos990-clock: add
- PERIC0/1 clock management unit
+Subject: Re: [PATCH v1 2/9] dt-bindings: i2c: exynos5: add
+ samsung,exynos990-hsi2c compatible
 To: Denzeel Oliva <wachiturroxd150@gmail.com>, alim.akhtar@samsung.com
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org
 References: <20250205222223.613-1-wachiturroxd150@gmail.com>
- <20250205222223.613-2-wachiturroxd150@gmail.com>
+ <20250205222223.613-3-wachiturroxd150@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +98,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250205222223.613-2-wachiturroxd150@gmail.com>
+In-Reply-To: <20250205222223.613-3-wachiturroxd150@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_074125_602880_CBC324BB 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20250205_234148_287658_B32E3FB2 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,8 +120,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 05/02/2025 23:22, Denzeel Oliva wrote:
-> Add dt-schema documentation for
-> the Connectivity Peripheral 0 / 1 (PERIC0/1) clock management unit.
+> Add samsung,exynos990-hsi2c dedicated compatible
+> for representing I2C of Exynos990 SoC.
 > 
 > Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
