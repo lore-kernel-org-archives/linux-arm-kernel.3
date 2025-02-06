@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA1CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C55C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 15:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JzgXDfs7zolLM+ECMRMomq4NQK9sGoV7mYHLd1cpZVo=; b=LGYyshKX/zcB/SBVl1vZKwSboT
-	b+OwOrvk0+1uLECKtuT8iNT5Xuq/qaV+4z4vQhVymY/ji36gEjdK8cec7ODM/o2WVTEisqPFyFWC0
-	hyV/uzpsSmeYPz2XElMzPi6EsEWZe1k8TvEqn0ypoym2q/ngPaKrwhe1tF0ocwfU880YhG3jCdMKC
-	CxJaY03ZPNM9PayPniRV+ydGNbZy6JF8BYYkOYOjsr338g7EaAtNpThoyxoMle4L+kO/H8BiRRaXb
-	64hncMDw9Npmc6S6J7eAOqEDUVQB/Q0AKzxSvIQAhVxErr5wr4YrEbCXvRIBZ7H90hJ/swuvXxb3G
-	NBdVSOCw==;
+	bh=IkaC0JDmp9LDpZ4draWjYw8kfSk/HVwQq5Eku/l4nTM=; b=jTADWINDVSmxnpEeV2dILfLyPx
+	x9oEHcS1if4jfY7N5nX8bxS8daWpjfyG5DoTAPJjM20sJ9iqBgfweWHaxqlcmWkye5rFjHUH7583u
+	HAx+qwjVoyok7doOJZVNsYdHNGJKYg8ycm9DIxlrGSmny/oyOMVFs1+TpoGP8G0T8nZFEGq9zLXG4
+	Bjv/W7ntkhsbyaTUwmW8hTXshLQwzQV5K0i/hRUoHC/M4cJ7aH8cFxNjxNrbQrYabzDYJPGrmPDKT
+	zDiOANju5n0kJ1FAGkCbDFRe8HZLyArDFISpkr37XC3SjGUeUN1E1/8ldYnZa4k4fTcfBUdalA30Z
+	mp0QJNPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3c4-00000006ghE-31bk;
-	Thu, 06 Feb 2025 15:16:20 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tg3iC-00000006hDw-0OcP;
+	Thu, 06 Feb 2025 15:22:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2Rv-00000006Vn7-2XeX
+	id 1tg3gp-00000006h9Q-1cAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:01:48 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 516E1Chb3635411
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Thu, 6 Feb 2025 08:01:12 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738850472;
-	bh=JzgXDfs7zolLM+ECMRMomq4NQK9sGoV7mYHLd1cpZVo=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=VWyBHEcG11Mm9E81MM4ZcZVa8kxViqwaJRsrM5RFvCmQwgzNjEx6LADeoBb6YmeiH
-	 SDfLHGu8sgOq6g1h2Lp2byT6n5codLVs7aXewmoNKbUrONPJsgE7/aVyRw7BLkJVLN
-	 2nDpP/BrcLvOI8GsO2v5E51nyGo6J7X/ywvicuJw=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516E1Cdt015489;
-	Thu, 6 Feb 2025 08:01:12 -0600
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
- Feb 2025 08:01:11 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 6 Feb 2025 08:01:12 -0600
-Received: from [172.24.23.168] (lt9560gk3.dhcp.ti.com [172.24.23.168])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 516E142U027248;
-	Thu, 6 Feb 2025 08:01:04 -0600
-Message-ID: <631429d8-9da6-4333-80ce-6ff59e5ecdf6@ti.com>
-Date: Thu, 6 Feb 2025 19:31:03 +0530
+	Thu, 06 Feb 2025 15:21:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4A0EA43998;
+	Thu,  6 Feb 2025 15:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAE2C4CEDD;
+	Thu,  6 Feb 2025 15:21:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738855274;
+	bh=FA5r9vVNn5Za/abXLyc0dZQCbgu8AwK0WPUB657F/R0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dtvx5bfG+YzBIuNgI8MutaU6u4MEd+a5+k0FDYQPlfyJjS/w8VfJWz/2rDBwnmhHC
+	 GTOSIQgxMTddh1inJiPR9eaU10ug3jfaiyk90/Z95UOc5kty8cnBhHAXNVXPCA1yNV
+	 BePhIjh0pabLNtOMr3NFUcDzG+qEfxk2Oxn6W16FCF1T/HNY4IfGVr3CzuCgTot6pT
+	 5zRX+aogXO7Y9f0OkYxgnSzKRzEaggryQEKA+qhlmJbgbRxNhL965qeh9SWLix+inV
+	 lRyOS2A1bHVUr8p9/Ri3QfixSve/FTtoy7Ovfg0EYgdOnBhkFLPYxGLAA0RCPgKdac
+	 bhS9eyD6kp+Ug==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tg3gm-001Axu-0W;
+	Thu, 06 Feb 2025 15:21:12 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexander Potapenko <glider@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 3/3] KVM: arm64: vgic: Gracefully handle resetting an unallocated interrupt
+Date: Thu,  6 Feb 2025 15:21:00 +0000
+Message-Id: <20250206152100.1107909-4-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250206152100.1107909-1-maz@kernel.org>
+References: <20250206152100.1107909-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH net 1/3] net: ti: icssg-prueth: Use
- page_pool API for RX buffer allocation
-To: Ido Schimmel <idosch@idosch.org>
-CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <robh@kernel.org>,
-        <matthias.schiffer@ew.tq-group.com>, <dan.carpenter@linaro.org>,
-        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
-        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-References: <20250122124951.3072410-1-m-malladi@ti.com>
- <20250122124951.3072410-2-m-malladi@ti.com> <Z5J4jjJ4_arvfF9E@shredder>
- <9287a623-5663-4705-b61a-3ab5f5cb2424@ti.com> <Z6OirBmdSLuY5YkI@shredder>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <Z6OirBmdSLuY5YkI@shredder>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, glider@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_060147_729416_7D1DF2D0 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20250206_072115_491243_4A55F229 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,78 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Playing with racing vcpu reset and vgic teardown makes it relatively
+easy to trigger a case where, by the time we try to reset a mapped
+interrupt such as a timer's, the vgic is gone and there is no
+interrupt to play with.
 
+Check for NULL upfront to avoid further embarassement.
 
-On 2/5/2025 11:11 PM, Ido Schimmel wrote:
-> On Tue, Feb 04, 2025 at 11: 25: 02PM +0530, Malladi, Meghana wrote: > 
-> Seems like none of the pages which have been allocated aren't getting > 
-> recycled in the rx path after being used unless its some error case. 
-> Will > try to fix this. 
-> ZjQcmQRYFpfptBannerStart
-> This message was sent from outside of Texas Instruments.
-> Do not click links or open attachments unless you recognize the source 
-> of this email and know the content is safe.
-> Report Suspicious
-> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
-> v9dnXdhkXiNQgIoLtH6jcbhWBIydfvayMZ6bf68taZCHXfcLg8XIOscUa_XNxqzQWA$>
-> ZjQcmQRYFpfptBannerEnd
-> 
-> On Tue, Feb 04, 2025 at 11:25:02PM +0530, Malladi, Meghana wrote:
->> Seems like none of the pages which have been allocated aren't getting
->> recycled in the rx path after being used unless its some error case. Will
->> try to fix this.
-> 
-> skb_mark_for_recycle() should help with page recycling when an skb that
-> uses them is freed.
-> 
-> Anyway, I believe that I don't see put call when tearing down the Rx
-> ring because prueth_rx_cleanup() is using page_pool_recycle_direct()
-> when it shouldn't. AFAICT, prueth_rx_cleanup() is only called from the
-> control path (upon ndo_stop()) and not in NAPI context.
-> 
+Reported-by: Alexander Potapenko <glider@google.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/vgic/vgic.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Ok I will use skb_mark_for_recycle()/page_pool_recycle_direct() 
-accordingly to recycle the pages.
-
->> Also I have noticed, in prueth_prepare_rx_chan() pages are allocated per
->> number of descriptors for a channel, but they are not being used when a
->> packet is being recieved (in emac_rx_packet()) and rather new page is
->> allocated for the next upcoming packet. Is this a valid design, what are
->> your thoughts on this ?
-> 
-> The new page is possibly a page that was recycled into the pool when a
-> previous packet was freed / dropped.
-> 
-> [...]
-> 
->> Yes I will add PP_FLAG_DMA_SYNC_DEV as well.
->> I believe page_pool_dma_sync_for_cpu() needs to be called sync Rx page for
->> CPU, am I right ? If so can you tell me, in what all cases should I call
->> this function.
-> 
-> Before accessing the packet data.
->
-
-Ok, thanks.
-
->> https://urldefense.com/v3/__https://lkml.iu.edu/hypermail/linux/ 
-> kernel/2312.1/06353.html__;!!G3vK!R- 
-> autrVAgf5rAbl3CYoqlN5gRE_NqPqYRg1NHkJ405Q33b6uKiHFI73PeRky46dBYBWQpmFThUyD$ <https://urldefense.com/v3/__https://lkml.iu.edu/hypermail/linux/kernel/2312.1/06353.html__;!!G3vK!R-autrVAgf5rAbl3CYoqlN5gRE_NqPqYRg1NHkJ405Q33b6uKiHFI73PeRky46dBYBWQpmFThUyD$>
->> In the above link it is quoted - "Note that this version performs DMA sync
->> unconditionally, even if the associated PP doesn't perform sync-for-device"
->> for the page_pool_dma_sync_for_cpu() function. So does that mean if I am
->> using this function I don't need explicily sync for device call?
-> 
-> It's explained in the page pool documentation:
-> 
-> "Driver is always responsible for syncing the pages for the CPU. Drivers
-> may choose to take care of syncing for the device as well or set the
-> PP_FLAG_DMA_SYNC_DEV flag to request that pages allocated from the page
-> pool are already synced for the device."
-> 
-> https://urldefense.com/v3/__https://docs.kernel.org/networking/ 
-> page_pool.html*dma-sync__;Iw!!G3vK!R- 
-> autrVAgf5rAbl3CYoqlN5gRE_NqPqYRg1NHkJ405Q33b6uKiHFI73PeRky46dBYBWQphNIm6Qm$ <https://urldefense.com/v3/__https://docs.kernel.org/networking/page_pool.html*dma-sync__;Iw!!G3vK!R-autrVAgf5rAbl3CYoqlN5gRE_NqPqYRg1NHkJ405Q33b6uKiHFI73PeRky46dBYBWQphNIm6Qm$>
-> 
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index f454cef59e24b..2ea6d1d1d3091 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -542,6 +542,9 @@ void kvm_vgic_reset_mapped_irq(struct kvm_vcpu *vcpu, u32 vintid)
+ 	struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, vintid);
+ 	unsigned long flags;
+ 
++	if (!irq)
++		return;
++
+ 	if (!irq->hw)
+ 		goto out;
+ 
+-- 
+2.39.2
 
 
