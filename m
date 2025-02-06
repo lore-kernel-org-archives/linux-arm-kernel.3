@@ -4,195 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB08C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 00:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EA3C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 00:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6qxBDQu/p90h4cOQeI8Slzx6GlmQZwCIwPzLe2KxRo=; b=Im/iHxix8CgpG1NcWD53L1UhIF
-	nCiMDZGZnThhD5BcHZJiOkTU8fWmEIxNlJxJNaJDuNbTgxyCWVcKnFFkKI4U/YIDsYRBH0ll21w+V
-	0YFEJGlCz7uMo8KxlyygMdAVOp3/eFL07GuiELhaQdu/yOI4r0TEFv5O+4SFGqthOhovvSbgAvp6/
-	sEFxqt9qIrVVnUPytfSEx2Yn53vuDX+KbjFohW40cYX65W4lknSlrKbu+vjHQbCx9b7K2kw187Lox
-	vcrLW3CNPCrbY0e1LqO3cxz4baUA7sEU06bwlyo4SlNeFy2KyCWCtPzMfTd/OwWim3v0SI/AsA/0Z
-	NQcnO44w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zr3/LuzVjUoCOE75RpPvv8HgrgBhtrHXf0v0cKrFx3I=; b=J/5O4ouzR0rXkq3h1qEXYQUcgm
+	nFOL6TaKRTT8SnjNgp3Aq7i7hKVz+MoAb24iBE29MBpKV35oqyh7r3oA/0CEn1Hqgo+ItZLLoSflK
+	qxRZooDEk/br9TVr8RfPNPS4PWwwRs6joCs72kQugBj5jsHWrZ1N2air7ZyA5C7hJ/ejl9xo1or0N
+	vFfKxgTAfmkvD/VWxg8lqxOBC/uHSMx5J1eyKOl20rZ2iaPQWBjigdk2i228CSNqAvDYIa4dsLpl0
+	OizlFNo0ehUfc7L5dX7tY2i1zcifKWa5iZAZgfcZO6JLoNzI89frl6VXXbEH8yOLC5rT137MsjdmQ
+	ksB3i20Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfpUl-00000004uDo-3E9V;
-	Thu, 06 Feb 2025 00:11:51 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tfpcZ-00000004uk7-1O5y;
+	Thu, 06 Feb 2025 00:19:55 +0000
+Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfpTO-00000004u4s-16Ai
+	id 1tfpbC-00000004uc3-15RQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 00:10:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738800627; x=1770336627;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=hAWeaSDUhuQjxR9TBMQk8nDaRuOV49YjzfNcKRPYCKA=;
-  b=cqyWiDyyRYPp0BqEYD0aAHmbMFel+Bx7JAsCDeTqyXRZoboLeKo7qRBe
-   Paei4vX7kuri26fmuv7U8139w21ge3eLunfwZI+O5hyH5W2BLXS3UMYMw
-   vAPYzYnYK9zk4D6PgbQulXACVhgbsBzOTxpMhmHEtOLxKmVHXGh3E/Zy/
-   VhpsZV70dany3ffAZxCza+zryWzP8EC92TxE8hvpzfr4fvLKtGJhjpwg1
-   i8ImYbJWMqEmnLSKb9gEiOHyOUiJCsNRaCKliRuuYyOmE21ly1cEjV5tA
-   wx1xqaDo/kFuOGCcUIjjXbRLnIY7bFZbDZhjB0juX7i6RAvuQs72BodvS
-   w==;
-X-CSE-ConnectionGUID: iImAvl5YTlGAc2pUg4xxeg==
-X-CSE-MsgGUID: SkCsH6fQQMaL9w5CFQ6Zpw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39522929"
-X-IronPort-AV: E=Sophos;i="6.13,262,1732608000"; 
-   d="scan'208";a="39522929"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2025 16:10:25 -0800
-X-CSE-ConnectionGUID: vZqSb/V6Rbacv+FBy8vo/A==
-X-CSE-MsgGUID: 0OFgLGEjSW+PTO/omdehbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="116245106"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by orviesa005.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 05 Feb 2025 16:10:25 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 5 Feb 2025 16:10:23 -0800
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Wed, 5 Feb 2025 16:10:23 -0800
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com (104.47.57.47) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 5 Feb 2025 16:10:23 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CAXpkC4eBU0zaxQ7cmJlYmKmU4TeUMTSy9IeguuDnxKLp6hvFZQ0jl0Db7Bo3dNUCXRbjj3PS+SzGgj6Q7UzfFtxayOd8wELKJXsOow5eVHg11wUwkYdV9/j+l/7MsFXQHNyx78RkUJWSN+tsUa5XT6Zn9n1KPL05GAc7w5GsETQPIv+lWLgTM54W39yLKwPuhgDjz2vKUv9tnx2G8mD4mnWoZwGWy/MKPZUnVrBD6zSLOZsYub+r0gsytPu2Tk+kbVo0RC6OABPMKVrihVzFk+v2w+A+0VZkski1PIPP840SOcpl2P4B8RZHbFtzbRiC5PmYVgq0vnd64Dn5sGQng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i6qxBDQu/p90h4cOQeI8Slzx6GlmQZwCIwPzLe2KxRo=;
- b=UkBdLskk4Ys6CvB1aRY7Sl+pA2ybi5ZL6AF+DfXoYHH7Pt6MStETyu1o6D++mpysv1onERfkaKZYlwNVYKFzpz9Wg+x91iYEFNJ20/DpKvW3JVXQ7vBuotmdZzrnJeyjnYXJ83WDXfw1eD9HZVU6P/f4UGX7bSQ0WbeON5R7SZCBYiEKmOWWq4DJ4dB9AjJDtmYORQbgZdwyF2QCgkh7PIza4h9ZgkWWpaaS8pVp/VQnTeot8lpt9gaAFk/evAIxLwsQbfNhYO0F4cZi5VdGjTxW7v/Nu7s1p8PkixQvsytdZe9IBpSIkfSR3IJ9SAdWk7ZKPdOvGB1z6zDDEad0Ww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by DM4PR11MB5971.namprd11.prod.outlook.com (2603:10b6:8:5e::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.26; Thu, 6 Feb 2025 00:10:21 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::6b05:74cf:a304:ecd8%4]) with mapi id 15.20.8398.025; Thu, 6 Feb 2025
- 00:10:20 +0000
-Date: Wed, 5 Feb 2025 16:10:15 -0800
-From: Dan Williams <dan.j.williams@intel.com>
-To: Vivek Goyal <vgoyal@redhat.com>, Alistair Popple <apopple@nvidia.com>
-CC: <akpm@linux-foundation.org>, <dan.j.williams@intel.com>,
-	<linux-mm@kvack.org>, <alison.schofield@intel.com>, <lina@asahilina.net>,
-	<zhang.lyra@gmail.com>, <gerald.schaefer@linux.ibm.com>,
-	<vishal.l.verma@intel.com>, <dave.jiang@intel.com>, <logang@deltatee.com>,
-	<bhelgaas@google.com>, <jack@suse.cz>, <jgg@ziepe.ca>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <mpe@ellerman.id.au>,
-	<npiggin@gmail.com>, <dave.hansen@linux.intel.com>, <ira.weiny@intel.com>,
-	<willy@infradead.org>, <djwong@kernel.org>, <tytso@mit.edu>,
-	<linmiaohe@huawei.com>, <david@redhat.com>, <peterx@redhat.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<nvdimm@lists.linux.dev>, <linux-cxl@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
-	<david@fromorbit.com>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<loongarch@lists.linux.dev>, Hanna Czenczek <hreitz@redhat.com>, "German
- Maglione" <gmaglione@redhat.com>
-Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
-Message-ID: <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
-References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
- <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
- <Z6NhkR8ZEso4F-Wx@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <Z6NhkR8ZEso4F-Wx@redhat.com>
-X-ClientProxiedBy: MW4PR04CA0374.namprd04.prod.outlook.com
- (2603:10b6:303:81::19) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|DM4PR11MB5971:EE_
-X-MS-Office365-Filtering-Correlation-Id: 544d3815-c84f-4207-f235-08dd4642a4fb
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OyVzQYNXaLnfcLBXZTk+TJCDLPyoVQlBPaXHb+dDuy9/NETnDk1rQhVG3Jd2?=
- =?us-ascii?Q?3Uzs9A3/Oo88cgbeQ4Lv4vaOYsHBF00/i2x+jpJl1DXowWJL12BEDI41ztUb?=
- =?us-ascii?Q?WNs8yBvi3Bd0C+4yoNlytsgTyLZVUXjIGslWvQJiMle9mXFE/aDi/yZnxeIe?=
- =?us-ascii?Q?29nvs/waLtp7Os3ZBUN3VoBPyg3wM00g0bEl+lUOfu3j2F60+SqiXw/AvStP?=
- =?us-ascii?Q?dl7N8oheVotTvf3iFC2nMjz8MGGqknOJBOvGbhcgbxB4LFX+T2VFHpGCtbqK?=
- =?us-ascii?Q?nMmZgFuwFyux/TSwejG3hHm8KpUxP2XrJB9JNn8cyCFK6BaAtsvMLdc/TEN3?=
- =?us-ascii?Q?2EHYLUAMEPIKktPzXGr84hMLmCsjCH8rnULG2Bp4z7snweyQyq/JQGNZJwBW?=
- =?us-ascii?Q?zSMbLxjU7e5F5UoVFu5QvySxKxwFJyTykArHueFqBBmLk/0iFUquS+hqnjir?=
- =?us-ascii?Q?r1UuGJMmNXS0FSMdpWqEruw2ccRDdJxpEjqpkNJWgw/Rh/xefFtZCxttyUD9?=
- =?us-ascii?Q?fHsrHlRqx6O9YtwrHrTEFF4XQIRC9wRLOqcxHS/33T/OfZ92oXhxxTQa96IS?=
- =?us-ascii?Q?NeMtxUeZV5cB5Fx+quKs6wx9svIbDpGaxVS5HxRlQIbDaEojjnD3KLht7o/x?=
- =?us-ascii?Q?u8IvA1NaL7+RK2NGuXgMbEVHRgtYXep97IF889HR4EMxhNOzEGt5QwGabpfO?=
- =?us-ascii?Q?Q1M98tF3MBlQ+X9fQ/5sgdhh6Cc2O4PUK00JAVcURUufAhZJm+6imbbAkx/L?=
- =?us-ascii?Q?3OL/j6wjyQadrH+PjbLOrgB7PuyDAzcPSbqsXfoUv8DkGx4GAJnh1hupIOuU?=
- =?us-ascii?Q?TZZH8SHftFEvFlNTpkJLOKxCdZRxN2PuUjU7wORejC/alowctwyTMyY8wfuD?=
- =?us-ascii?Q?E4bLI44+QWTssXiLNm59y5fN1ZVzLAvaP7OZPTS5XXbMOu3DhovNEs7abWEa?=
- =?us-ascii?Q?HrBlxTxTLa2Gu3gfuBFFyN0YZ9coWVpkofbchnkpFlgmsqq9PvAqE5nkje3I?=
- =?us-ascii?Q?AbEsQpcNFYGUKfSeqCfkuaC4Vx2fw2QGfO5VnAE9zs6KEylqsf5xb6rwkuHs?=
- =?us-ascii?Q?tazQoLY3YbZqPpbPdyPymQDpZ1MLxutMipl1hx2qBr/j0rjzNhphtMDcpQwb?=
- =?us-ascii?Q?8PmQ4tPt7lb2mChPh5IsmmZD7DdwS4XzYEyvm7berEwZVJZzyNBSlC+L40KU?=
- =?us-ascii?Q?lrOkQf6uUnKUoN7lm09vuY2pXDhQ5FFm0HmKQrBcea0q8NHU+NK2INcXmCci?=
- =?us-ascii?Q?mLwHafgIlZXYIHj7bkPff+8mAlxOTloe0a9LosFwS2DsfjQLhaUBWAKs7bhZ?=
- =?us-ascii?Q?3adyIUYuGu6CSSCMUFR8eKezUgOA6SK+4Qq8SR/L2b8NyveAW2LjWLTEsj1/?=
- =?us-ascii?Q?Ej4rbaAKZwPziyY5H9O7DV4uRijU?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+T5iBUn1qdTtEKp6HCrqaIk2cHoeaDRO4fizQiMpEkZk3c9orOek2ToYVNCk?=
- =?us-ascii?Q?OCTUXCJgLDwWmABzBi/jadbfudG7G2h/ltKFfJ4WXtO3IGky7KDKup+O1SNV?=
- =?us-ascii?Q?8SjYI4v3c8dM2qduOVGLE/Gjg1iZNClbWuKdNhzGliteuodz30ng2Sz88Go7?=
- =?us-ascii?Q?6r3VQhHb2vkf+zNrdXptW0ITn5w+jFctSQrwd2aRqmcdPgJo+GVnfh5tn8Dr?=
- =?us-ascii?Q?ZBd6FzgKjPFpjVKc7wRhH2qrgqgRDoBjSpIPK8e0sCANfEz05CbKfelvOu5S?=
- =?us-ascii?Q?JH3HrVRUiL0Cp5MzhesKWXdxyRdQNiNflPX9YockAJ+0SUr3RHRlBcsoVbLQ?=
- =?us-ascii?Q?0zYYFzl7k9HQmu5uxAcxwLnJG4Ze+oFACdvqSsX5KNfz99kg9ByX0IseaVOg?=
- =?us-ascii?Q?UQVnppq2BZO0Frfl5Ef5nVYPir2/pBFrMenjY27/2A3bxmCFgBrVoMviegNS?=
- =?us-ascii?Q?PRyS4SQDzbUP8CEe2CxquEfID1AHz0NtGFMaBZOZxtRZdV2QIz3ycscZt33h?=
- =?us-ascii?Q?G4cxcS7E5Njb7OvrOSGzpS4QYhe8DEwFBC8EfL53T0s7vpshuBLmLq0nCUT5?=
- =?us-ascii?Q?bLncurZw3P5ZmRPlThQjBfiVNhtQ/W1vh44syVOVBdqMydkZwUwOBOTYOzcj?=
- =?us-ascii?Q?+5FWI68Qxr15J0sflAxwV+fMCw0JseA+pmmxdS1JjRjOPC04omJ1Zm6RKmVH?=
- =?us-ascii?Q?8ASybsL7vQ/gWm6yhryQXekh1YWmtyevTfzOrqeMwUL4wQtvkxS1aOZOBcEZ?=
- =?us-ascii?Q?YYifer/BrWyLXh2qiIS3lkdCKX0upLmvF6lnZ0OCFgrUhnnMcZxVFyI47b5T?=
- =?us-ascii?Q?8LJ8UlCLTGmXr14x4l4XmL9X1ryQgGdrfZBB1vCjOR+X61qGnKP+ZHji9NLF?=
- =?us-ascii?Q?+2cH19xKroC8X6M/9W3nLjVkgFJOZIh8B6B2lnCIn+O6+Bgi/baq7YpN0mwb?=
- =?us-ascii?Q?taUZf69HNQgZX6qNbEvWoA0uldwNT1DRPMmWtdlJb81Fj9TJ1E4IpSOglDb0?=
- =?us-ascii?Q?IUk0daNVfNRWHqU9pvvbLfyValZEHOeeD3LtmDE/xzcd+OweRLJJHlnGwUYy?=
- =?us-ascii?Q?OSjJQv2IBdp55xxuMRyctnoPDjaidBea5rop/+v5ukPRvSPRdy040mgm3XmU?=
- =?us-ascii?Q?AL3qzzmVrrkNAuQPtyhJS7gI1TiCKOwf27lU21H6gh6E27EPbzWdGMNZjHGx?=
- =?us-ascii?Q?9IsWUx4+PGBcjxxL7Qgtof0TJ1yWpqJ56QhUYonhSt0lGeMnMEMV3kd4Zz3w?=
- =?us-ascii?Q?rvOr0xAI4nBRK6Ec1Vr1DIhSMSXRjc0mkMwcadjVugL5ELTCPMszp0/oImSX?=
- =?us-ascii?Q?4B1ybgFOcbsQ6bl+kmPaitg//mOeMaWjP3AK06g2QSJw4tzm8mts/9GDbVKa?=
- =?us-ascii?Q?yurX6KDoOAkrIED3LZM7iBlU96U8dKvCaPNpLlhtMt5JiF9p6UvlV77pCO+0?=
- =?us-ascii?Q?Oip5P71gBJ+W382cqhnofus9x6U9qprDjng7i4GlYeeGbLeaWNads9o5Oz1i?=
- =?us-ascii?Q?kxEKd7SsSeraI4YuG/cxeDgb1clIvpz+qD8foPDpZP5+iHCB661hJx13ylsH?=
- =?us-ascii?Q?kRz7toINxsI4zHwI3sUKwwpumXuatATSKkNpBqL2yq96Sxs4b7EKulsoglVS?=
- =?us-ascii?Q?Sg=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 544d3815-c84f-4207-f235-08dd4642a4fb
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 00:10:20.8344
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TNsMnUuN1Omf1B/uG3ULfekZ6W1ZmjvvmtdfS8waz/VXUVxh2HEovG6l9QPdTtTsROTsrgRRqtfiPKRR9+0nug47/9du/bhS3FJAfon5gw0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB5971
-X-OriginatorOrg: intel.com
+	Thu, 06 Feb 2025 00:18:31 +0000
+Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-71e27b42a09so428924a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 16:18:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1738801109; x=1739405909; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Zr3/LuzVjUoCOE75RpPvv8HgrgBhtrHXf0v0cKrFx3I=;
+        b=UAj4FMeNEr+QsgPjGSbBvv348ONsjLQw9vAvbN6YMvr02WUp0YwG7g8jYGP71BJDQb
+         8KZpwNTjZ9CZKuwfd5JGCYmFDzm9SyXNQb8QFbUzm4Trn7BnNFs+VPJYYPi0/O3rK7WN
+         N7m6f2TgK36sWXne4PapXr+4WdaSctwbY4gnjyrhZ6DeWebK75sZ9kGPzn0wBwiX8Rit
+         X2IS4CtEVGXxhAyJWfmGilIjEiSutOXCwFwIgjvx7P68E1LfDdpV0SSrm3F9cu9NNSz4
+         iVaCJATtkMul/UK+SoCDkDnup2QNKLF8xCUvsMl4owUm9RZ2obTkVnNGtN7amoYCQmLO
+         Zklw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738801109; x=1739405909;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Zr3/LuzVjUoCOE75RpPvv8HgrgBhtrHXf0v0cKrFx3I=;
+        b=hC/f9yf2o21U42gh//XwJWWnQMx01ORs/FivMp1E0YKw9Cgx8lXNpTeM9qSPUya6EX
+         PETNaax+dTRqzK6RAHVy2x/Y+c+PaeimFrVePe8G+/hUJz+QBdlk9VnJsqsgajfoZavh
+         uK+5bXLFoniBXVCRyR7/iAMq6M3Kp5jJw5pWp/675kL5phf8TY9JpX7R64uBg1wdBxt2
+         b7QUGQXG0bhuM6EgRs6A5gBXYJRjEoxbkt6yv6FP+yYrRcyCJeZysuIOYJkKiSrfINFv
+         rpHPvq7RH/9vTeTPSishG+6wMBjthLGuur+g4axb4zTw4rHCQD13kGnoCmp2vUBY2H6T
+         VzbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX6w0S/GdO41U9vOpycFCCUXcc7f7WUV3oujcMSCuao3I6X2+4kS6gL/mdhiuq6vNbKv7kZKFAL20sPZKXAFoxk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIM677a/McdS/FbmjuFhrIILYxdxYgTyddgcZNm6zS3gvkfXat
+	/4dqvffHMMeWShfdZfoyHvIOb7Dv9fLSgQhz5BXPdY9KbAhe61wRUDJ+k3ngxKyfm20ykLEt+Zu
+	ZZAFenM9twNzwFe3oTCpkmA==
+X-Google-Smtp-Source: AGHT+IEVrsS8ZrjIpYlGyg1Ed1+MVibgRhSBBaTAljJpus0kxqPO6kMqiuj10XnP6c5iR6jfwp3/WzcdNy0U3kgBdA==
+X-Received: from otqn6.prod.google.com ([2002:a9d:6f06:0:b0:71d:fe90:fac3])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6830:3982:b0:71d:eee3:fd1a with SMTP id 46e09a7af769-726a3fbc8e8mr3724016a34.0.1738801108890;
+ Wed, 05 Feb 2025 16:18:28 -0800 (PST)
+Date: Thu,  6 Feb 2025 00:17:44 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
+Message-ID: <20250206001744.3155465-1-coltonlewis@google.com>
+Subject: [PATCH v2] KVM: arm64: Remove cyclical dependency in arm_pmuv3.h
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_161026_350112_9F0FEAE5 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20250205_161830_323563_57FC4700 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,32 +90,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Vivek Goyal wrote:
-> On Fri, Jan 10, 2025 at 05:00:29PM +1100, Alistair Popple wrote:
-> > FS DAX requires file systems to call into the DAX layout prior to unlinking
-> > inodes to ensure there is no ongoing DMA or other remote access to the
-> > direct mapped page. The fuse file system implements
-> > fuse_dax_break_layouts() to do this which includes a comment indicating
-> > that passing dmap_end == 0 leads to unmapping of the whole file.
-> > 
-> > However this is not true - passing dmap_end == 0 will not unmap anything
-> > before dmap_start, and further more dax_layout_busy_page_range() will not
-> > scan any of the range to see if there maybe ongoing DMA access to the
-> > range. Fix this by passing -1 for dmap_end to fuse_dax_break_layouts()
-> > which will invalidate the entire file range to
-> > dax_layout_busy_page_range().
-> 
-> Hi Alistair,
-> 
-> Thanks for fixing DAX related issues for virtiofs. I am wondering how are
-> you testing DAX with virtiofs. AFAIK, we don't have DAX support in Rust
-> virtiofsd. C version of virtiofsd used to have out of the tree patches
-> for DAX. But C version got deprecated long time ago.
-> 
-> Do you have another implementation of virtiofsd somewhere else which
-> supports DAX and allows for testing DAX related changes?
+asm/kvm_host.h includes asm/arm_pmu.h which includes perf/arm_pmuv3.h
+which includes asm/arm_pmuv3.h which includes asm/kvm_host.h This
+causes confusing compilation problems why trying to use anything
+defined in any of the headers in any other headers. Header guards is
+the only reason this cycle didn't create tons of redefinition
+warnings.
 
-I have personally never seen a virtiofs-dax test. It sounds like you are
-saying we can deprecate that support if there are no longer any users.
-Or, do you expect that C-virtiofsd is alive in the ecosystem?
+The motivating example was figuring out it was impossible to use the
+hypercall macros kvm_call_hyp* from kvm_host.h in arm_pmuv3.h. The
+compiler will insist they aren't defined even though kvm_host.h is
+included. Many other examples are lurking which could confuse
+developers in the future.
+
+Break the cycle by taking asm/kvm_host.h out of asm/arm_pmuv3.h
+because asm/kvm_host.h is huge and we only need a few functions from
+it. Move the required declarations to a new header asm/kvm_pmu.h.
+
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
+---
+
+Possibly spinning more definitions out of asm/kvm_host.h would be a
+good idea, but I'm not interested in getting bogged down in which
+functions ideally belong where. This is sufficient to break the
+cyclical dependency and get rid of the compilation issues. Though I
+mention the one example I found, many other similar problems could
+confuse developers in the future.
+
+v2:
+* Make a new header instead of moving kvm functions into the
+  dedicated pmuv3 header
+
+v1:
+https://lore.kernel.org/kvm/20250204195708.1703531-1-coltonlewis@google.com/
+
+ arch/arm64/include/asm/arm_pmuv3.h |  3 +--
+ arch/arm64/include/asm/kvm_host.h  | 14 --------------
+ arch/arm64/include/asm/kvm_pmu.h   | 26 ++++++++++++++++++++++++++
+ include/kvm/arm_pmu.h              |  1 -
+ 4 files changed, 27 insertions(+), 17 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_pmu.h
+
+diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
+index 8a777dec8d88..54dd27a7a19f 100644
+--- a/arch/arm64/include/asm/arm_pmuv3.h
++++ b/arch/arm64/include/asm/arm_pmuv3.h
+@@ -6,9 +6,8 @@
+ #ifndef __ASM_PMUV3_H
+ #define __ASM_PMUV3_H
+
+-#include <asm/kvm_host.h>
+-
+ #include <asm/cpufeature.h>
++#include <asm/kvm_pmu.h>
+ #include <asm/sysreg.h>
+
+ #define RETURN_READ_PMEVCNTRN(n) \
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7cfa024de4e3..6d4a2e7ab310 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1385,25 +1385,11 @@ void kvm_arch_vcpu_ctxflush_fp(struct kvm_vcpu *vcpu);
+ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
+ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu);
+
+-static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+-{
+-	return (!has_vhe() && attr->exclude_host);
+-}
+-
+ #ifdef CONFIG_KVM
+-void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+-void kvm_clr_pmu_events(u64 clr);
+-bool kvm_set_pmuserenr(u64 val);
+ void kvm_enable_trbe(void);
+ void kvm_disable_trbe(void);
+ void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest);
+ #else
+-static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+-static inline void kvm_clr_pmu_events(u64 clr) {}
+-static inline bool kvm_set_pmuserenr(u64 val)
+-{
+-	return false;
+-}
+ static inline void kvm_enable_trbe(void) {}
+ static inline void kvm_disable_trbe(void) {}
+ static inline void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest) {}
+diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
+new file mode 100644
+index 000000000000..3a8f737504d2
+--- /dev/null
++++ b/arch/arm64/include/asm/kvm_pmu.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef __KVM_PMU_H
++#define __KVM_PMU_H
++
++void kvm_vcpu_pmu_resync_el0(void);
++
++#ifdef CONFIG_KVM
++void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
++void kvm_clr_pmu_events(u64 clr);
++bool kvm_set_pmuserenr(u64 val);
++#else
++static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
++static inline void kvm_clr_pmu_events(u64 clr) {}
++static inline bool kvm_set_pmuserenr(u64 val)
++{
++	return false;
++}
++#endif
++
++static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
++{
++	return (!has_vhe() && attr->exclude_host);
++}
++
++#endif
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 147bd3ee4f7b..2c78b1b1a9bb 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -74,7 +74,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu);
+ struct kvm_pmu_events *kvm_get_pmu_events(void);
+ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+-void kvm_vcpu_pmu_resync_el0(void);
+
+ #define kvm_vcpu_has_pmu(vcpu)					\
+ 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+--
+2.48.1.362.g079036d154-goog
 
