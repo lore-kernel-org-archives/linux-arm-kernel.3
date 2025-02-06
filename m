@@ -4,139 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB825C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1545EC0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 12:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k4tor78wDeDAw2elfKudEJkLytXrBfI4m3Xs9YXA2IE=; b=aHirp/OAvLA3HxG7cyA45zBOWj
-	UXsFBxdNlvKRyizBxj4tNgxlwGMvbqE6o3IRhB+rn4uP5VqBYrVcNiSf3/Uf/pJLqL6E5kVVwNdc5
-	6rECEz3INzmk5JZqpMoagHKoOnY5u9RhJlEI1Lc0paWlEIr9Dwhjk5C9rZSo7OgALxm3Tk7SmxqNV
-	hIsOshbQ46Nv2szue4BvzpJnPvHTs2ICpjIeMokxra8gPgbjH/kwqkpD/86dMpDq3c9sFnrj3ejlG
-	T8Ho+Jmf5kbhn/ubX0ij8rl/ng+q+v8WfUA8OQXVLEgvyRJWtC42DHlF3ix6Rz5kG955xlaciQJxW
-	LBWi2sDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JzeO14o/pXr8ezTGYZalXSXV/Bh7c/D19pERNYYPjQ8=; b=XO0hjybrmkMU8wOUO23ZEUq2Se
+	YRuyZYqUvWNtVnqmTE99K/+RoxjIvIcOjwN7f+vuQ2v0+GRLbc9FyVmjHu1LKDRsB0Aw4fWpzydTm
+	BSBdiR+yfz8XFjhG0/iSxOgZJfo7FIXQ+uRzQMjWYltSjJmi+r3g1xp3dUpfMTX/LQLMq6e5ye19L
+	hIluBnhHFzTzxaCP4D4QtaLyFtAVMCHhVyLrI22xO6Xw9JfZeGkccrPfzdjQtQLBB6cRRqZzQYMEr
+	DOFA81SOco2PFe4tEaoQGUPOcxV9rxl2FQDMVwjCIXi9xs8ocbvDFvHlQqmIEUcaEKFrW6WOlxWcb
+	f1myg+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0nb-00000006Egp-3nl6;
-	Thu, 06 Feb 2025 12:16:03 +0000
-Received: from mail-dm6nam10on20621.outbound.protection.outlook.com ([2a01:111:f403:2413::621] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tg0nh-00000006En3-1Lel;
+	Thu, 06 Feb 2025 12:16:09 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0Vc-00000006DH3-2tG9
+	id 1tg0ef-00000006ECd-2CO9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 11:57:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rTZlT0xuJiXBPaQCH/jN8lZhyzHq2F5kdv07BJ/I/rLORc6UT9DsGKHhblWBu/PEsJx/aK88LbdeE+CDgvyWWcQv5PnN4QDzF6MhNzKxK7Fi9tp31KEo6vrGac1v7zKdxFdKc8chcjPxnBDfwZFy1224p/iWTMpn4+n6EaABawjrMDW/oY2A3T5SsHvnUhHDkmCjpYLysPYl7X5cOjgUfWwzEasmpo5oCpnyr03wuCEr2Eu0P3ftJmJ9HICvR2B5p87kflvz8ltLQjo/g6ZRi/YlYAoATxGKxfUToDi+RIPj8tlDII6wBawKzUDOwIm2kWQBrYRiORAacYnOSxVv3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k4tor78wDeDAw2elfKudEJkLytXrBfI4m3Xs9YXA2IE=;
- b=Gc18ZxgkXLP8TtByALZ6hmDHOEm27SNSP0fx0llnMGzYEzrsveu8fqH47yVeY1q7zH9UbPFH9z5c0awUvj3rWkgaztzAT46xrb2AaNZizi6M3B2/1lLKBsLZj9M3sgc1lLvHjAQ6ajearFMnv9yCwNLn4AFUIns6zZkka/ybEHYjUcXtAti1vZMYjl/4WIQ3mLFm/bR3p6N/nuEr4d9GKv63i0mUi/r/WrsmCftbaI1XO5fUEar4n1cHlsn2mWP6Ai88S9nKsXfOjNqSPgu2muClVCXDaYlW0oyBWq4HikeVsrniJjwEL7QR30Zt5kGQN0s9qO93w1a2AxXmKtHW9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k4tor78wDeDAw2elfKudEJkLytXrBfI4m3Xs9YXA2IE=;
- b=WRYylxq+kSO/YpNNSghuS97wUyALmXLaKbrmuLFVX9yQNZjlP9VRtG/HTfWE0fHak3l5DOApKMxq6G5g67D92QuTVmWhmQD2uhGOVUAvZ6s3k994pdRkXSZiGaZmv36Tx4Ny+O0o6vzTJ4JO/ZR8G481xDsMBomvhuYVwvLotU4=
-Received: from PH7P220CA0060.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32b::29)
- by CH3PR12MB9026.namprd12.prod.outlook.com (2603:10b6:610:125::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Thu, 6 Feb
- 2025 11:57:23 +0000
-Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
- (2603:10b6:510:32b:cafe::10) by PH7P220CA0060.outlook.office365.com
- (2603:10b6:510:32b::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.22 via Frontend Transport; Thu,
- 6 Feb 2025 11:57:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8398.14 via Frontend Transport; Thu, 6 Feb 2025 11:57:22 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
- 2025 05:57:22 -0600
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
- 2025 05:57:21 -0600
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 6 Feb 2025 05:57:18 -0600
-From: Manikanta Guntupalli <manikanta.guntupalli@amd.com>
-To: <git@amd.com>, <michal.simek@amd.com>, <andi.shyti@kernel.org>,
-	<p.zabel@pengutronix.de>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <radhey.shyam.pandey@amd.com>, <srinivas.goud@amd.com>,
-	<shubhrajyoti.datta@amd.com>, <manikantaguntupalli09@gmail.com>, "Manikanta
- Guntupalli" <manikanta.guntupalli@amd.com>
-Subject: [PATCH 0/2] Simplify clock handling and fix probe error handling sequence
-Date: Thu, 6 Feb 2025 17:27:06 +0530
-Message-ID: <20250206115708.1085523-1-manikanta.guntupalli@amd.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 06 Feb 2025 12:06:50 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5de38c3d2acso184430a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 04:06:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738843608; x=1739448408; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JzeO14o/pXr8ezTGYZalXSXV/Bh7c/D19pERNYYPjQ8=;
+        b=T9yuPwUdr9aJ6c43VndIPsZ9D62SGI4EYCDrNJux7iMeVBDuUH/kUIjc/u7yXVTmc+
+         mtOB3GC6IHz+ICEk7vUFkGkyEHiXCgARU4QA/jQ9zqkVgWGdHve5mwFDtJIKrsg7Ds9m
+         UZXDUzseAy9UD99WADMBWgJsZIXlUjbgHA2h2eGOfzhlxZEZ6pw8L04u9+OCuPGqBIWg
+         /90I/qOlWW7+BPl3448yDiuM37yOqCktadaHDp5TcnFTXX/hijPNuXq/WjP3ASTbJ7bR
+         VTgMJahVVNMLUEtSfYxIwu6ZqZry9DaKdOBpoDzXfw6DWKMle1t1XbkCfKmsH2edmUmO
+         TvGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738843608; x=1739448408;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JzeO14o/pXr8ezTGYZalXSXV/Bh7c/D19pERNYYPjQ8=;
+        b=KqfkbnNRtxjSGsAksEy61hHMAm5406v/ohtRyIGKJC6z5HwpspKCHUX3VQMdK/7YmX
+         zR+OcUIEvLC/QjDIRs2yS/WXjT/ZmtkEjpxUhekWLFqGgvICoAbi4p8Q4swqa1a5XlVj
+         RwkNQKA2P+X1UeG0fmoWw2wxHPaJLBvfID9ze9xF/VV2Pf7XSslybuej/l19FphpQkjx
+         owe7t+8wb9hTH1G0BeDj2vl0lpnJxrniOFLc7/rcdwxA2vHm/NFnR3oYunR6/gff96yw
+         iIkLSRg5tPrjhf067WumbRHlgaJAWKO/WqPqqJ909im7UocPJ3VVuU5wGoisLEljGePE
+         5C+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUSL/WsrknEIY90u10IJkahulU59jnCvAUFM6FAIOA/DHp2xmfN6XLHZKfWI0NBH2QsfBdCIl2wsAwJIsb71rUF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwquqZ4nAs04SjI+qWVogfKJ5tEPSw6o1BZYT7tAxww3J/85i1N
+	xXK6IFSZ7t4PddFbr/BeEPrZxx/nzf9G/OzuZQV4ZQZCUa7xr0KCEuPgc/6odtQ=
+X-Gm-Gg: ASbGnctmIM47Xo96Ij/Ru78CtRLnMikczoC3NYtbPgb3igkWYC7NBZX7JoBLjLDloKO
+	LPl9gq+7uexas3b/g4nLmsUULVAOGbENjF/wJOaS+/5KIerUHRVNyVW3roMpzbZzbYt0q1CEhCb
+	nBmKV8LdhCexQIwT0cdHDgGsH8FsojVj0NL8bKaSCozYaj4lCQohyRcF5/Z6hpO04CXvDTqMYrd
+	0aKMdOQIlFkqU3TplY+3NCeW5wqveaowdvykdMZ5pXNrm5T3y5vALekKIMzsxjTU2RJaS3HED0n
+	K3eD3eEJ0VF0BaZvqfPHLxboZ+uOoleHPFWabMOWyHDc8qCwmueXvUP4Og==
+X-Google-Smtp-Source: AGHT+IFI71F4BsOEuE5LOsmA6xvcL/sHCHHEInIj/bQ3b2TPDGHazfEmK+Cl66ACwGBnNwW8wYr3HA==
+X-Received: by 2002:a17:906:6a11:b0:ab7:5b58:f467 with SMTP id a640c23a62f3a-ab75e345e29mr775388066b.40.1738843607801;
+        Thu, 06 Feb 2025 04:06:47 -0800 (PST)
+Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab772fdb84esm87896166b.80.2025.02.06.04.06.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 04:06:47 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+Cc: =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>,
+	linux-pwm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 2/3] dt-bindings: pwm: marvell,pxa-pwm: Update to use #pwm-cells = <3>
+Date: Thu,  6 Feb 2025 13:06:26 +0100
+Message-ID: <cb799d8a5bb284cd861785a691b8d5e329300d99.1738842938.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
+References: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1472; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=mzzlOW4s4XFlnUNQki2gOaCCsd4YELQmA5LEb/HxHuc=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnpKXFkdfzIMqsUtFwSC7Ld/W0uHO72JRAcmq1S vHKqGCjSruJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ6SlxQAKCRCPgPtYfRL+ TllnCACpIZYHCIIgQPnWJ7NTPt7U9cHpdvBcYDh7PLjBCpqtcQkZicOtQI7NV/JICkQU8Isjs19 CPCh/yYAFydLFCGOv/MN4EnlEkJlFwahKCN7rpXFy6pdkS03oXiTeIYqky8YGxIX14ZNCyXQeZb XKJaAZXe5awZ+y6mk9uPJObdxRIr7Z2zC8aXD2ZU6RE1U4KrvAi31L8royEpMX2S/AmySoP4Aij GOrngzrp9VRJMt8MRh7BFoP9UuTlSKOKluK7EM4m+3v7ilSS14oiyc5eLn90WvCII5GKsV8cPnF H/vGOgRL8LVRoUBdBrvojRriw6CopeMcUJc8xs4a5tOoZdeV
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: manikanta.guntupalli@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|CH3PR12MB9026:EE_
-X-MS-Office365-Filtering-Correlation-Id: 943f28e5-35fb-45db-8e07-08dd46a56aaa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IQ57rpVi5zfnJ1MoQ9ky3BqXsuo43QM12lJ+7+nV3PK5Z+YCnfXl3tZK3gnX?=
- =?us-ascii?Q?Rlijyn6WDAQfG+pr9tkm3xNC51sYDbi03B0//+onbgb27yVoRBGoleDeQTDB?=
- =?us-ascii?Q?ACHBcOFF6ipb/hLVySqhazyeDy7eBUfkmiG9EDZuGB//ADS90DvnN7L4bQVr?=
- =?us-ascii?Q?4dtbhGidSg4noKPp+KSKwhNu1ZjE14opWzxUmj8PuFKTkHrVGVDmV1UMsiTa?=
- =?us-ascii?Q?brxb1ZackQwQnd5BVv+cwrXwSEuFKnVC/4JjWHDqkZy1p+FrErI66dqBHzKF?=
- =?us-ascii?Q?nYskubccotozBQzA4UTQ1chs0VEOi2F3bZjSqa0tN1fDlPTbge1/LxScn4nW?=
- =?us-ascii?Q?qCuSPzxPjsDcp07pjEpnbp/8DzCIsX2GTxcHjTLXmIhEAQq5Ip5Z7Nl24rVb?=
- =?us-ascii?Q?Gyj8N3Ki5NTappg3HX08kfmE0xlQDwdo/dibZoSu5ZWLIjiiX1tqCrxLI4HD?=
- =?us-ascii?Q?D4wKf8XtCVdHJXChttN5niKsLa/tF+VnKm/My5t4NUxqillazuXpJwFqVVEw?=
- =?us-ascii?Q?QGA1XzTj8lH6RzxDmndvbN4sdL/CEsdZx4fkzxMmjvjdNGs+ob3+FVQDwTQi?=
- =?us-ascii?Q?Ky94vEucTigWgU9rRNxtZ1WhY3BxomXgjOiurOZmjXl1cFV1kEz5QuTJL0nF?=
- =?us-ascii?Q?+QLltH6upbZI9o2V95g54t2RG9b4qnXVkiudPoHOTZQWeSjnWAY2+2ODF/S0?=
- =?us-ascii?Q?jWyarAJWSBoJHPlO9JwHNXS3NSUS9wM2SRg3eUagGo2b0VAsVqQ2rk1Wtdd4?=
- =?us-ascii?Q?b+TAfRzHKzlJDI+5WM5JnhpK5/YfTlIEKoYh6quBXWz/2GJB5Y9uNVaYZ45C?=
- =?us-ascii?Q?PR0Jp6/ofz5HB3J3atpErd2D3Vpd8qSfvClKiK13Ld/YEMDS8XNjAggZCeZV?=
- =?us-ascii?Q?NspHgKeaQqFhpYKP34JG8opv/mamZRI4LUQBw+XElLpnTTsZnpPe8ONRJ+en?=
- =?us-ascii?Q?5iS7HIo08zxQuOMLM1H1st6LQ4uHoBWsvW/0HnKe1CxOA9hIYLdWbhVhQUIx?=
- =?us-ascii?Q?B97Ca7TVmgmSutuiO5SNuQ3ovhXtCZZ84cFj8nJOwa0OgJKBjYc0aIFfAswW?=
- =?us-ascii?Q?M89G1iFZ4YX7vsJkas+ivGP1kFQaI4SMvcj4543hQeiEpCw8CfykJtSsjVM2?=
- =?us-ascii?Q?w8cjDd840kF36no3lTnwyqEJdswYqeyn0EFBRnVHBRA5tZW0stHNh/qGQ169?=
- =?us-ascii?Q?nK7n4UUCj21yv+m7HA3rRL/+KbxN8l/Uhp3E8TYDI0kFT2j71oddTkVMPeZ5?=
- =?us-ascii?Q?9GuWTzaaYG90jJ4qcu8ii45bk6yoPeG21dyX+2LSmQ3kSEwqwWQQazaMXp8s?=
- =?us-ascii?Q?sDYbv89Zdub8liveA++8LEGM20CHR/xTfIqCfk3a5mpFyb5Nh7Mie7cJ3KhV?=
- =?us-ascii?Q?OdvZwjWGWUSqoXcgXaA6ZbsXiD6VIJFiLeQ71vAU77UyxNF07nKwpgl+j/FR?=
- =?us-ascii?Q?YhX4EDD5XEuOvSoeMPpdGDN83M42sPXcU0C2lqJYKyk2XjepCWomyCQokMOc?=
- =?us-ascii?Q?Cx39vYAkKu2F2y4=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 11:57:22.8807
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 943f28e5-35fb-45db-8e07-08dd46a56aaa
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_035728_728191_0AE09F03 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_040649_561547_F7FA4F27 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,21 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series includes two patches that improve the Cadence I2C driver
-by simplifying clock handling and ensuring correct reset sequencing
-in the probe error path.
+The PXA PWM binding is the only one that doesn't pass the PWM line index
+as first parameter of the parameter cells. However this can be upgraded
+to the mandatory binding for all new PWM drivers without breaking
+compatibility for old device trees using #pwm-cells = <1>.
 
-Manikanta Guntupalli (1):
-  i2c: cadence: Move reset_control_assert after pm_runtime_set_suspended
-    in probe error path
+So bump #pwm-cells to 3 with the (undocumented) promise to keep the old
+behaviour for #pwm-cells = <1>.
 
-Michal Simek (1):
-  i2c: cadence: Simplify using devm_clk_get_enabled()
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Duje Mihanović <duje.mihanovic@skole.hr>
+Reviewed-by: Daniel Mack <daniel@zonque.org>
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
- drivers/i2c/busses/i2c-cadence.c | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml b/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
+index 9ee1946dc2e1..74f2d5964742 100644
+--- a/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
+@@ -25,8 +25,7 @@ properties:
+     maxItems: 1
+ 
+   "#pwm-cells":
+-    # Used for specifying the period length in nanoseconds
+-    const: 1
++    const: 3
+ 
+   clocks:
+     maxItems: 1
+@@ -45,6 +44,6 @@ examples:
+     pwm0: pwm@40b00000 {
+       compatible = "marvell,pxa250-pwm";
+       reg = <0x40b00000 0x10>;
+-      #pwm-cells = <1>;
++      #pwm-cells = <3>;
+       clocks = <&clks CLK_PWM0>;
+     };
 -- 
-2.34.1
+2.47.1
 
 
