@@ -4,135 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE33EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59CAC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BoB297i7Z1w2yek2V4/2sNbvmXC7t5mfKrStn1iDh98=; b=e9/2EKql4I9ayT96BDKxoG6qOO
-	gwKLUMRG7yYrQMpedXGseWOUgl64YPcE4p6B7M7yOZCPMDIwtBB2ovuZjg3Kmd3zEivXZ+Ur2PkQR
-	Z3t6cp5uyFShcqCiy1n6LgUaMHlre1UdFD5H52aKAiuS1G/Ka+ykcwW9osdwSEjVKCOp9GSQPLCIz
-	r0CzAsleGpRwEjnQzh7o025hjjgJpnWsNHtN2NvCzdcQPxGYST2RPJSxpdPvwutfB1jhqtm9j+ACv
-	XoQJVxTk9l4pENkUp7tJtxwZi2f5eLAkb/CkQZuxJN3+vADFrYJaAqw2hVOSi66Wp9ivot1nD0+rG
-	4cH0RtSQ==;
+	bh=WdipNZI3y5wwEW1WPJkKmfPilkJ7iVaBxEPNzdzmX4E=; b=YzaIeyQk/SNbeeuy1FmkALLVM0
+	j8oHRGG66HmJWsEwoUecEi0llNBftXfLbEPQkXI0svLOILWQiUxfRFOm1JpA2GDVIKG2C4+mr+kB4
+	Lhb08JqO08xwKMckHFy5Yde2F3C6yVger93dLQWAuR/QCQlX4pj1jHvjCD2JVd5IcvX+RIVSJ1YyZ
+	GUFMan+ZC7CGLR7+vseokm19E9LPl1Nktduvk2Hd262WkbilcLE2QEVUlLWrmMqKzr1c6GG3an0Tj
+	Y65z0PibB8uWxOlRMgH43VycR2t/hMxNnJaHBeXstyhZuba/7gK7mQNl20WefhzxR3eFVTxkeNkcS
+	Djnl26iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg341-00000006ciM-1IXz;
-	Thu, 06 Feb 2025 14:41:09 +0000
-Received: from mail-mw2nam12on2061a.outbound.protection.outlook.com ([2a01:111:f403:200a::61a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tg35L-00000006cwT-3ymQ;
+	Thu, 06 Feb 2025 14:42:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2mW-00000006YgB-1FsR
+	id 1tg2u0-00000006aTv-1jAP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:23:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HWC15wKHVnCmACg3VrAhvwsTfbDqB70LAubb6l4qoqMJSPubj5YGDprGH3e/272VbGVHwrvw/nuCB7lvFhsd2kv/bwTKiJ6GJfBwnTk17wQUTZT/AGR9JatMGE9lD5nCcInhD7OLdvbeIUuxEi1Km42z+sjPYkflNiIWkHeYYnpvxSeGZwPppslcU45U9qis7mYA/JGfTPq/LjZJ8rPbsfS2xAAUIImzU0X0cuEIpPdql1LOTZRgWi0a/NAGW57q3xSmUEpQbvoTFJsM3AJvRLCHrOsrLDskL5PI3887de2jJhFbDt+Snj5VXYct2tkIeYL3M3cFmTeER0kJCI7NUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BoB297i7Z1w2yek2V4/2sNbvmXC7t5mfKrStn1iDh98=;
- b=s3fctC+kinkK99kbgzNJs01P2zrwDFHRHTeJm4w0oybRZhaYZPmHawsyM4Sbdz+YOlAg/TJXh94TRd9QL9usHpTBM+LE059gvc6N9LsI1HgL2LbMSkX3KiCLKRpz6ZzwGFG037wNa8dChs4Fxi8jlFu8f+wBdG2Rslr4aWgkuCUjEc7yivuLLgggjgE6vhjJgRQ+mX7cpVannwtSOtMILCyWlwyR9GCSdAWSPebOkpImyXi4cVjON7meBUUsHxuWtlxu/NVMvp3c1l9vuJRlCneWzJYpYDdzJDwyvOvW1bT0fOds2GFRVAe+tZoYr5klXDAsYXprTU9dIgC9FdTdxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BoB297i7Z1w2yek2V4/2sNbvmXC7t5mfKrStn1iDh98=;
- b=QyiKUmgKbdVh2gdPLCpstf0m+KPVyacpSb34z7QLSQuZHKc9uhiLrAfBf34gV+Gvmdb8oBmhzNtXXKw5AEilhr8Bv6A6RgEGQctaBSVi3/jfW8cn1ku5IJKrSZ67Xxqgf1U+VlQM2NUyGHIlzMwKSDX13AvcPiCA3c8IYNRNALA=
-Received: from BN0PR07CA0004.namprd07.prod.outlook.com (2603:10b6:408:141::22)
- by PH7PR12MB6468.namprd12.prod.outlook.com (2603:10b6:510:1f4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.12; Thu, 6 Feb
- 2025 14:22:57 +0000
-Received: from BN2PEPF000044A0.namprd02.prod.outlook.com
- (2603:10b6:408:141:cafe::e6) by BN0PR07CA0004.outlook.office365.com
- (2603:10b6:408:141::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.21 via Frontend Transport; Thu,
- 6 Feb 2025 14:22:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- BN2PEPF000044A0.mail.protection.outlook.com (10.167.243.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8398.14 via Frontend Transport; Thu, 6 Feb 2025 14:22:57 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Feb
- 2025 08:22:56 -0600
-Received: from xsjwillw50.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 6 Feb 2025 08:22:56 -0600
-From: Ronak Jain <ronak.jain@amd.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<michal.simek@amd.com>, <nava.kishore.manne@amd.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Ronak Jain <ronak.jain@amd.com>
-Subject: [PATCH 1/3] dt-bindings: firmware: xilinx: Add xlnx,zynqmp-firmware compatible
-Date: Thu, 6 Feb 2025 06:22:42 -0800
-Message-ID: <20250206142244.2553237-2-ronak.jain@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250206142244.2553237-1-ronak.jain@amd.com>
-References: <20250206142244.2553237-1-ronak.jain@amd.com>
+	Thu, 06 Feb 2025 14:30:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738852246;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WdipNZI3y5wwEW1WPJkKmfPilkJ7iVaBxEPNzdzmX4E=;
+	b=CDkjfouyt5dauUvfIC7ViNGjW3fTIMDVyTCX3dsHs8Z5w4RfUfCxD+D5wQsK8l1cmH2SXN
+	0PHJPqTyne8Bmrr7LAmkIQccLhQ6aZwBgP3jzT8lmE3eTqGUXUJSD7kSh575dlDvoxt275
+	Bt6yi//cS5ogLeqN+q+v78ujJUn5+so=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-669-jpp1Wx5AN3GqEECzTVdKQg-1; Thu,
+ 06 Feb 2025 09:30:43 -0500
+X-MC-Unique: jpp1Wx5AN3GqEECzTVdKQg-1
+X-Mimecast-MFC-AGG-ID: jpp1Wx5AN3GqEECzTVdKQg
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AAACC1956086;
+	Thu,  6 Feb 2025 14:30:36 +0000 (UTC)
+Received: from localhost (unknown [10.2.16.145])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6D97B1800878;
+	Thu,  6 Feb 2025 14:30:33 +0000 (UTC)
+Date: Thu, 6 Feb 2025 09:30:32 -0500
+From: Stefan Hajnoczi <stefanha@redhat.com>
+To: Vivek Goyal <vgoyal@redhat.com>
+Cc: Dan Williams <dan.j.williams@intel.com>,
+	Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
+	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net,
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+	bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com,
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu,
+	linmiaohe@huawei.com, david@redhat.com, peterx@redhat.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+	david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	loongarch@lists.linux.dev, Hanna Czenczek <hreitz@redhat.com>,
+	German Maglione <gmaglione@redhat.com>,
+	Albert Esteve <aesteve@redhat.com>
+Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
+Message-ID: <20250206143032.GA400591@fedora>
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
+ <Z6NhkR8ZEso4F-Wx@redhat.com>
+ <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
+ <Z6S7A-51SdPco_3Z@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB03.amd.com: ronak.jain@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A0:EE_|PH7PR12MB6468:EE_
-X-MS-Office365-Filtering-Correlation-Id: e420f685-c771-4ccf-27aa-08dd46b9c0b3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bmMw/MiathuzBoW2pvA94aCzHe82RWWTaPilibhzttsOFTSmVxvWhAJ8qZpx?=
- =?us-ascii?Q?aMsPwvQ5UVxsaAUHC7qd+86c+HbbNBOF2wDnYPIEJLiUDcXUTjdqELWldTsQ?=
- =?us-ascii?Q?XjsBAUKhy060ydcFpfhayfA4hx/cSNr/LVfDPqjw6nWnWqJyYGQKZ2G7gUNl?=
- =?us-ascii?Q?xsGgqHW38uTsALbh0HIjhVobe4rKlrY7bFXgr9P19aFR5fsV+O5YqCHmwoRV?=
- =?us-ascii?Q?MA7efLEEE11eYA1m3LIggYPVu7/LlPJK9iqnGqKvboqeSy4iVpduqblC0xks?=
- =?us-ascii?Q?oKjvJc4oL2jqQ5plwE7F5BF4uwW8VyaM/595Z2g4vitpYz9iqcZMhfyBYoDW?=
- =?us-ascii?Q?e1ffj67aIDkPR1wmJK2n8xjrWgDDUEBMFB5PoHLRVetbuCqeI6DSyrFjGGHz?=
- =?us-ascii?Q?T6Rhaay8Dz2MCxtztIa9rscgOKDjp9vGu9GAFD8/6WCH9DpbGdAe/l0AkoIS?=
- =?us-ascii?Q?H7HFLxFOSOmXR5nMJxLUtsQEftsr0HASYZKUeKzQEbDhoAPJ1g+JGYEF2Pw5?=
- =?us-ascii?Q?IV7iibplIH0iNLifU6Tw9XiSTypQL0yFPfPQnYeXQT5a8ucDE74ohppPqsWv?=
- =?us-ascii?Q?VrnFD9Qe6ZzQjvqG4/9vQVywfQK1RKs4ZbsPAAgu5jzVAlThtMbr+tjDBAMD?=
- =?us-ascii?Q?7K4Af0yoln5f+8xcNVt5z8+y4Fi/m7Ju8YIKyGE8FDe/2UvBCqxCAsasZW2i?=
- =?us-ascii?Q?iqug+JZEIwnXWFRsDiCKRZcHr1FFlyrpeoYPzywFmW0fAqKGGlqxc1ZJIbGG?=
- =?us-ascii?Q?iC/cgHQfmZKr8NX/VrK10yGCwN+xfM1fXSAUV2PpZc6PbuOb7k589P2ckJif?=
- =?us-ascii?Q?wbpLTJG/L3PsqGNRHD7qu7atpgzXOxkrAGP98LBhBtuZtAVxXk1pESm6xT7X?=
- =?us-ascii?Q?5qrQQ5hahfgtZs5ScTPa889pJq4m17xFbTb7Ega37go+EaQeGH49DZkJuqUa?=
- =?us-ascii?Q?b3YbwSJiIoM/ZSgzX5U6u60J1+j5FRf4atHkN1QUIyIAkgWXu/pCfsSMt3Dq?=
- =?us-ascii?Q?x9eub7zCvVLrgNKeP3WP6U8bTPVbROr1SwYbYQ1QwdmrZ6szHsMDcA7mmk5q?=
- =?us-ascii?Q?Mzz/sj6AiGtKR2OIWsTcMZ47JpAoh7yK/xoSqMCv/PlJGfCt5JqGWFu7eYi3?=
- =?us-ascii?Q?ckWNp9b24TahUXPJ9wRCahZKJaADT8Yx367pbKVgMGFlcxIQogWX0Gc8Jjsb?=
- =?us-ascii?Q?NM6o2Gt2Vts+Z6Vyj4q6U3l1vMW8sQ2+yjbuP7moz7XVuTcKqv4YoAmlEacI?=
- =?us-ascii?Q?dtUvxCCyP1agSm11pIfsYXM1Fm3mZBiNShrt9niAN2nA7zct08g2KlvTBVIh?=
- =?us-ascii?Q?E8cvW4PDKbjmYjqxvEiiP0bF0GQqHndSvImus7ZrUqO5M9fmV2OOaBBaBi4g?=
- =?us-ascii?Q?oFyd/DelMX2mjJF55my6nTbc6bionubOJRytHHxFcsyXAnbSkMEgglxMl+0l?=
- =?us-ascii?Q?r+q1xI+mvIAujuAabUadhdcX+T/l29vCmO/g4qaHAD6COFVoHaLhtlFjsKYS?=
- =?us-ascii?Q?kRRAhXiWFh/fVGE=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 14:22:57.1557
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e420f685-c771-4ccf-27aa-08dd46b9c0b3
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A0.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6468
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dVdFjdbROmPA0Gp+"
+Content-Disposition: inline
+In-Reply-To: <Z6S7A-51SdPco_3Z@redhat.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_062304_335716_A95AD4C4 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_063048_519128_70FC2056 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,30 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The absence of a compatible property caused dt_binding_check to skip
-the zynqmp_firmware node.
 
-To address this, add "xlnx,zynqmp-firmware" to the compatible property
-in the example section for the zynqmp_firmware node.
+--dVdFjdbROmPA0Gp+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Ronak Jain <ronak.jain@amd.com>
----
- .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml           | 1 +
- 1 file changed, 1 insertion(+)
+On Thu, Feb 06, 2025 at 08:37:07AM -0500, Vivek Goyal wrote:
+> And then there are challenges at QEMU level. virtiofsd needs additional
+> vhost-user commands to implement DAX and these never went upstream in
+> QEMU. I hope these challenges are sorted at some point of time.
 
-diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-index 9b6066c7ffe4..2b72fb9d3c22 100644
---- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-+++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
-@@ -116,6 +116,7 @@ examples:
-     #include <dt-bindings/power/xlnx-zynqmp-power.h>
-     firmware {
-       zynqmp_firmware: zynqmp-firmware {
-+        compatible = "xlnx,zynqmp-firmware";
-         #power-domain-cells = <1>;
-         soc-nvmem {
-           compatible = "xlnx,zynqmp-nvmem-fw";
--- 
-2.34.1
+Albert Esteve has been working on QEMU support:
+https://lore.kernel.org/qemu-devel/20240912145335.129447-1-aesteve@redhat.com/
+
+He has a viable solution. I think the remaining issue is how to best
+structure the memory regions. The reason for slow progress is not
+because it can't be done, it's probably just because this is a
+background task.
+
+Please discuss with Albert if QEMU support is urgent.
+
+Stefan
+
+--dVdFjdbROmPA0Gp+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEhpWov9P5fNqsNXdanKSrs4Grc8gFAmekx4gACgkQnKSrs4Gr
+c8jOKwf/ZukZTp1v1Bj1iqbpAm6HBWN90Y4JWmyzZGuKRqLAwN8AyiIJ6Ms1fx+v
+WJLR47NztCQ3sDtsTQT1814wwXSpJlPguLu6isoWbCGpUwAZZk3JTpHNBofs7IKj
+04NWFZ9B2tOVgirm8OMtsVVJwzQhvQc7YtMhdB9naCzqcdC7ynKp6mLH9bd7Q+Ze
+K9CwEFtKcTm9Ge+t3U0E3Q7MI2D55far3KPi84MpfI9oEu6l0MOzzmKjaOBq9+wy
+XXZCisxWbGLZtfbY2BAQxTUhKq9TTXgeQm/Ti/SzsVLf/Qd7nrEkG1v51xs5HCnR
+FMQhDw7oBmFsGs5S/Qywvta1pcaYwg==
+=JZcT
+-----END PGP SIGNATURE-----
+
+--dVdFjdbROmPA0Gp+--
 
 
