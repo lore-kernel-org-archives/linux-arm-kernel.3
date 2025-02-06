@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30745C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32594C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 08:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=; b=iG/lQ0vbHkRrBFt+MaIEBGfWyS
-	uCJlHiK7GpJxE039RAKyqXIOcveXTvqqdt7Syn8yh2vUsso58YKyWaL6nh5wFZ8qavkzMJZz+FGFx
-	KTmms3Re4hLVY5phzxbUP6XBWK+OlKoSwetU5hKorKlory2z4FGlCf+bm2P+5SLNnxVeUFnwGG2RQ
-	FFmafV+tKDev1ZafPA4yCUBZcEO/CgtGMwxowFOFBSTYUELX7PqV3J8W/TV0heimhGoeoGK5kI5TP
-	TLyq0pxBdycXT4QzuvndEhK5Vj/cR+Wk9IXkH8CYCkW/1U/FqocoPwXpG7tCEKiVvR7sZgnLghDQQ
-	WfZAV3ew==;
+	bh=bxHoYiVqgOBhm1wpVoVRMHPjl115bpEgggXMBP5Q3iA=; b=bKLSBcpj4gw4TdwqMIDNqTuugM
+	DPkj6Q3/qHXQMNnjigeogQg7HE3NKDIbHdyb1vpplZ0LMh294KUB67DX3JfoNWA7c4LVdPCYq4XMb
+	PolGgkNAuVFZ4r3Ih4FaZW/6JBLaT19dkKYVVXx5gH4fIyTpp6ybAWzRsenq8nwB7WqKZenoecECZ
+	cZgWjmcWy/RVcDwefD5VXOtlv1luNwblNiXeoBswDlc/MtB4tT1FsBWBc0mS/k1rKfJ3dDM7hYz2I
+	hQxhSp1RD1IMrkrPXBCH8Bu2vU4NqNPUXRptbss14uPLqNAk3E643TNj7rhtR64GIkpbx/yArBpEH
+	XWDlxwaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxWd-00000005k83-2pEX;
+	id 1tfxWc-00000005k7l-0fRa;
 	Thu, 06 Feb 2025 08:46:19 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwEe-00000005YGZ-1sBa
+	id 1tfwEW-00000005Y7I-23Qv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 07:23:43 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f43d17b0e3so988497a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:40 -0800 (PST)
+	Thu, 06 Feb 2025 07:23:34 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-216728b1836so10521335ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826620; x=1739431420; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826612; x=1739431412; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=;
-        b=eDrumcNty6D85nHbDA2bKP3QQVTcCpLtqOg5jlx7O3MK7YBTEOlaj1/tfGvm7N3S0r
-         e2Z+hftb2T1F9HE8lHICDVPD0t1vKMJ7XnHN5xOG69oZryFZhhFL/wb8zmMAyy4WUSVX
-         Bu8PJQgg0w1KyApAAZKgOI4/PlFleKhUTLq/eyCwXY1tHZsYEgleUy8SdBDgaoYkHqVG
-         1iG3XrKKlad7qm9DxKojHfd85d8ea2BAIVFxbT2CbvsLk8hZiIb4WFo6zVNlkBNs9FLi
-         WGeYKOFjbXhsLCnP9hqquasH7a+WcQAScuCC6LKHAP1J64NQDrvIFow4cm9bSazrrL9I
-         nyLw==
+        bh=bxHoYiVqgOBhm1wpVoVRMHPjl115bpEgggXMBP5Q3iA=;
+        b=xzLy8Fit/VigAm9+binRgu0zhGOGFcp74CH9QJqHO12aUVBIu4wDcoBy1k48+mD1GS
+         1XknV1LKkDqOmzWz5x71B8rqsTsBiK3zmSbmOTs0gQ9kr1qfmXdVzY8Q70riaRExPpV8
+         DxE5yJ+IXr+CAiGxp9/q5iruyMXcGkUpDK77uLrWlkXk4yvsh3tzPiuqnLqe8jUBsblu
+         HU51Kl8KmA/64kYCdmADu/iFiOckgdc7oyOHn0UmQweFwmtISk7ow139jhLGPPG1bBen
+         dZFUxIBWPsikZCW+u/oqJHCl4OpUHRrPGQg3YTpdzi9gicXOWmUk3vd8Cb2BktzMcBi9
+         ByUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738826620; x=1739431420;
+        d=1e100.net; s=20230601; t=1738826612; x=1739431412;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YQ1bM+mdYO24XpbpY93Gza0u/hfSg2U52kt5rlPb2uw=;
-        b=MbG9Frwu/mANQoyY5UfDYh50wn1WzwKahjnolBHelxhtHi5VmuUWDTbzL2e5Qhh1kN
-         M+06ed/1s5/m8VGdvja0EKH7d2VQIBMz3/+GYwAFuRF3BsslD6TQQBTCOnJ1PGFlyFyt
-         4c+L+BUKx3CQu465iGF7pO4+sw+OLwS6ySCu8jw2BP6KAbCylsb11IUendkjy0aSFhYZ
-         I8J20PS/deUHES9KfTrObZpXURCDOsvXUyzSvOFPiGb6pk92gyKwKPZQFmagvlc7IWFC
-         xJOkD4vr+oicumk84DjLICU1EmJSQm0xrEoByvBlRI3XJaoqEPpoEsw3DMxPVEMMFkKD
-         jO5g==
-X-Forwarded-Encrypted: i=1; AJvYcCUEQ9JnFf04eApAuAX1pE1vO1fd+Jaqalpp2HVY44sZcp33uiTu/hJw7uNtJmBkwpj1OfOxCF5uyOjUxqztgLLn@lists.infradead.org
-X-Gm-Message-State: AOJu0YytLwSBFFhvnJwOEvb6sLAt8bL5WSFYs/61r6XoBAx8INDNOgws
-	ROpak1ZPbGky1KYpwN5AH2tPF/b1Av3MD/Z0ry4GHkOVJU6/Lv5wM4BIgFmgnG0=
-X-Gm-Gg: ASbGnct/Bm4PbmOHQ1baGxdobsFdue7ha3LI0MecvV7GVBtTaOTAec7bXKrqUlNUqxb
-	fxq225Efhl5lnFez+YPkQ0Soi/9S9svGDrYRCiJvlCIINPRPcwtG6MS6jJoyLwsUtVFU9wSu9EQ
-	iHxDuRNA2vpeioe+u9Vn7mByezCpESJEp6MZIL8GwZhZ1CYHzx+nGruQE4KAcKIvDiaO0W0Yt9+
-	qdMEH7sqQ0h3VG1+3ex5GaIsHrkeFS3PdhfLKqJXo/Rb5LvyYI0vEYHh7N6Ffy65br1j2puWOXD
-	spBEiMgURmOwFV65V9G71QRV/BZA
-X-Google-Smtp-Source: AGHT+IHr3HVst/0GQEzeOnoyNAyzJUxG9J5qyTanVRpVP7lxbmu+OPESYtyRFZuabnz8KqnI9biZIQ==
-X-Received: by 2002:a17:90b:4c43:b0:2ee:fdf3:390d with SMTP id 98e67ed59e1d1-2f9e084fcc0mr8578133a91.31.1738826619909;
-        Wed, 05 Feb 2025 23:23:39 -0800 (PST)
+        bh=bxHoYiVqgOBhm1wpVoVRMHPjl115bpEgggXMBP5Q3iA=;
+        b=Wvh4K05ASx6Hh9kCQc/65x/eph2AkUdIMFatiNsg3/eKasoVAHIx1d3Gy9Vkz3bFeq
+         WTOTLnLI0EILj9ABEJQEWQGkSd1/SxeyK0nNt5H10TtMqezwBKDSCm8QxxfG3LKtlUO2
+         QLAg6V5YhYf7JYXfhfc+V/QtihzALjbM2bVr4NL8OFxTB9oK0u+8lGs6175NVA21Gh51
+         QKuS7Xp2pzPIb3M/8wSidXwxDkYtn+VjEka/ORKRoetMocnpd2aAhYK8v0J3WBjO8fcG
+         vhCnKpvliZaOHf76TACftnR9xNJKhC0GATvpzLjpdCWbK5CC4PaTynT8aP8H3B8KD3a+
+         55iA==
+X-Forwarded-Encrypted: i=1; AJvYcCVRS4TZV3r5Ecz0FFaXpto/FP+vLCpX0Q0VVvGMQWa6JAltYq2b8QQJsK1u5X0Iv5OsuIYFNQKhiv2xI8sh5nXH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/F73WiRMX3+NauJuXSkfUp/6vMiie71WrxnrtbSf+GkgP12AM
+	3lT8KWKANSiVufS1BSuG4Loa8uwoP8dwQ1RRHWJGOPuQVyagJYhGOw7JAeqwrTE=
+X-Gm-Gg: ASbGnct4kV2XIYxwSefKnhG2LqmBMeAYNc4cbCutUIWYvNF/lBx6CHTpdHQ9tkOkgZE
+	9YmkgjWcmoDJsdpAD02zhWHYds4bAdQ2e/blb3Ezp01odKmpP+YNaNXs8wTSYqJ5a1xIYTkp1lI
+	0kkDY6yn4VvfKvnf1HwhhbyLZA6jo4Rdk59CCBkNEzzuHt6X39LAtaEQ2ve67L09Izx8doOEbVK
+	Qg5AFELEFykJ8gYVpGGDw/T4R0zBkYjRL/2ZT3dp/Fn2joT8LBETr+xABhRIn9+qye7kpAuHUEJ
+	wUz8x7xEn1UMcbzsYh6SrL/rU8wt
+X-Google-Smtp-Source: AGHT+IHdxb765FF/tuEHMIXniBEbzBGChueSqoBlXVwelYSzs5G+a6kTSb+Hcc24wmC4wtSYLVHKkg==
+X-Received: by 2002:a17:902:f64b:b0:216:7c33:8994 with SMTP id d9443c01a7336-21f17f32366mr113621535ad.53.1738826611778;
+        Wed, 05 Feb 2025 23:23:31 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 23:23:39 -0800 (PST)
+        Wed, 05 Feb 2025 23:23:31 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 05 Feb 2025 23:23:20 -0800
-Subject: [PATCH v4 15/21] RISC-V: perf: Skip PMU SBI extension when not
- implemented
+Date: Wed, 05 Feb 2025 23:23:15 -0800
+Subject: [PATCH v4 10/21] dt-bindings: riscv: add Counter delegation ISA
+ extensions description
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250205-counter_delegation-v4-15-835cfa88e3b1@rivosinc.com>
+Message-Id: <20250205-counter_delegation-v4-10-835cfa88e3b1@rivosinc.com>
 References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
 In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -93,11 +93,11 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
  kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
+ Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_232340_594985_AD87EBE7 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20250205_232332_602623_8A16B5F2 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,110 +112,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Charlie Jenkins <charlie@rivosinc.com>
-
-When the PMU SBI extension is not implemented, sbi_v2_available should
-not be set to true. The SBI implementation for counter config matching
-and firmware counter read  should also be skipped when the SBI extension
-is not implemented.
+Add description for the Smcdeleg/Ssccfg extension.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- drivers/perf/riscv_pmu_dev.c | 46 ++++++++++++++++++++++++++------------------
- 1 file changed, 27 insertions(+), 19 deletions(-)
+ .../devicetree/bindings/riscv/extensions.yaml      | 45 ++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 5112049b491c..219f65eb167c 100644
---- a/drivers/perf/riscv_pmu_dev.c
-+++ b/drivers/perf/riscv_pmu_dev.c
-@@ -410,18 +410,22 @@ static void rvpmu_sbi_check_event(struct sbi_pmu_event_data *edata)
- 	}
- }
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index be9ebe927a64..b20dc75457d2 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -128,6 +128,13 @@ properties:
+             changes to interrupts as frozen at commit ccbddab ("Merge pull
+             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
  
--static void rvpmu_sbi_check_std_events(struct work_struct *work)
-+static void rvpmu_check_std_events(struct work_struct *work)
- {
--	for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_sbi_map); i++)
--		rvpmu_sbi_check_event(&pmu_hw_event_sbi_map[i]);
--
--	for (int i = 0; i < ARRAY_SIZE(pmu_cache_event_sbi_map); i++)
--		for (int j = 0; j < ARRAY_SIZE(pmu_cache_event_sbi_map[i]); j++)
--			for (int k = 0; k < ARRAY_SIZE(pmu_cache_event_sbi_map[i][j]); k++)
--				rvpmu_sbi_check_event(&pmu_cache_event_sbi_map[i][j][k]);
-+	if (riscv_pmu_sbi_available()) {
-+		for (int i = 0; i < ARRAY_SIZE(pmu_hw_event_sbi_map); i++)
-+			rvpmu_sbi_check_event(&pmu_hw_event_sbi_map[i]);
++        - const: smcdeleg
++          description: |
++            The standard Smcdeleg supervisor-level extension for the machine mode
++            to delegate the hpmcounters to supvervisor mode so that they are
++            directlyi accessible in the supervisor mode as ratified in the
++            20240213 version of the privileged ISA specification.
 +
-+		for (int i = 0; i < ARRAY_SIZE(pmu_cache_event_sbi_map); i++)
-+			for (int j = 0; j < ARRAY_SIZE(pmu_cache_event_sbi_map[i]); j++)
-+				for (int k = 0; k < ARRAY_SIZE(pmu_cache_event_sbi_map[i][j]); k++)
-+					rvpmu_sbi_check_event(&pmu_cache_event_sbi_map[i][j][k]);
-+	} else {
-+		DO_ONCE_LITE_IF(1, pr_err, "Boot time config matching not required for smcdeleg\n");
-+	}
- }
+         - const: smcsrind
+           description: |
+             The standard Smcsrind supervisor-level extension extends the
+@@ -175,6 +182,14 @@ properties:
+             behavioural changes to interrupts as frozen at commit ccbddab
+             ("Merge pull request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
  
--static DECLARE_WORK(check_std_events_work, rvpmu_sbi_check_std_events);
-+static DECLARE_WORK(check_std_events_work, rvpmu_check_std_events);
- 
- static ssize_t rvpmu_format_show(struct device *dev,
- 				 struct device_attribute *attr, char *buf)
-@@ -549,6 +553,9 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
- 
- 	cflags = rvpmu_sbi_get_filter_flags(event);
- 
-+	if (!riscv_pmu_sbi_available())
-+		return -ENOENT;
++        - const: ssccfg
++          description: |
++            The standard Ssccfg supervisor-level extension for configuring
++            the delegated hpmcounters to be accessible directly in supervisor
++            mode as ratified in the 20240213 version of the privileged ISA
++            specification. This extension depends on Sscsrind, Smcdeleg, Zihpm,
++            Zicntr extensions.
 +
- 	/*
- 	 * In legacy mode, we have to force the fixed counters for those events
- 	 * but not in the user access mode as we want to use the other counters
-@@ -562,10 +569,9 @@ static int rvpmu_sbi_ctr_get_idx(struct perf_event *event)
- 			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
- 			ctr_mask = BIT(CSR_INSTRET - CSR_CYCLE);
- 		}
--	}
--
--	if (pmu_sbi_is_fw_event(event) && cdeleg_available)
-+	} else if (pmu_sbi_is_fw_event(event) && cdeleg_available) {
- 		ctr_mask = firmware_cmask;
-+	}
+         - const: sscofpmf
+           description: |
+             The standard Sscofpmf supervisor-level extension for count overflow
+@@ -685,6 +700,36 @@ properties:
+         then:
+           contains:
+             const: zca
++      # Smcdeleg depends on Sscsrind, Zihpm, Zicntr
++      - If:
++          contains:
++            const: smcdeleg
++        then:
++          allOf:
++            - contains:
++                const: sscsrind
++            - contains:
++                const: zihpm
++            - contains:
++                const: zicntr
++      # Ssccfg depends on Smcdeleg, Sscsrind, Zihpm, Zicntr, Sscofpmf, Smcntrpmf
++      - If:
++          contains:
++            const: ssccfg
++        then:
++          allOf:
++            - contains:
++                const: smcdeleg
++            - contains:
++                const: sscsrind
++            - contains:
++                const: sscofpmf
++            - contains:
++                const: smcntrpmf
++            - contains:
++                const: zihpm
++            - contains:
++                const: zicntr
  
- 	/* retrieve the available counter index */
- #if defined(CONFIG_32BIT)
-@@ -871,7 +877,7 @@ static u64 rvpmu_ctr_read(struct perf_event *event)
- 		return val;
- 	}
- 
--	if (pmu_sbi_is_fw_event(event)) {
-+	if (pmu_sbi_is_fw_event(event) && riscv_pmu_sbi_available()) {
- 		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
- 				hwc->idx, 0, 0, 0, 0, 0);
- 		if (ret.error)
-@@ -1940,14 +1946,16 @@ static int __init rvpmu_devinit(void)
- 	int ret;
- 	struct platform_device *pdev;
- 
--	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
--	    sbi_probe_extension(SBI_EXT_PMU)) {
--		static_branch_enable(&riscv_pmu_sbi_available);
--		sbi_available = true;
-+	if (sbi_probe_extension(SBI_EXT_PMU)) {
-+		if (sbi_spec_version >= sbi_mk_version(0, 3)) {
-+			static_branch_enable(&riscv_pmu_sbi_available);
-+			sbi_available = true;
-+		}
-+
-+		if (sbi_spec_version >= sbi_mk_version(2, 0))
-+			sbi_v2_available = true;
- 	}
- 
--	if (sbi_spec_version >= sbi_mk_version(2, 0))
--		sbi_v2_available = true;
- 	/*
- 	 * We need all three extensions to be present to access the counters
- 	 * in S-mode via Supervisor Counter delegation.
+ allOf:
+   # Zcf extension does not exist on rv64
 
 -- 
 2.43.0
