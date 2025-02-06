@@ -4,105 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5C8C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0982C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 14:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gFMFd8yvXqVnAGCGrRETRe/V8KRYdG7T8ArDcX9VBwI=; b=dmI2wU1IwNm3REl5IBvfeWaN9v
-	c9j1NlcgKBWfJrp/qdHAmtI4EburLMB6VUsKqHoA4kUun2fV0pRM0jLXdrJCjYF2vBeAwA5MPLu2w
-	X1lQ5JcgQO63eRohftLEOpY6R2QQoed1+BVZaADW5eqC5xsM9zlVRuRPC+jS8PEqi+5iymMBi34Af
-	5vRDgdBbDbbSKZLlVm05QJ4IRxYP1j4Mk/8BEyJZsSLBgWSG6MMItR7NGFy/5aiinyfADqCk4gJRD
-	hhsa6AB3T9ZL3Kpd01qtW7K4VJmVhj2BbgTEyA9oy1giEsg5NMVdWeTOpbBrkP595LPGxN6a2GSWk
-	/LaSvLyw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=53rr3CDYuzgx9l4SobdsL5u30FzC6mU+cVM3ZptSU04=; b=dhRGIxCEiBVze+fgW9r2vc1Mps
+	Fe+k+4jWgtRFard1IMejFHkkpGRJ4TqyR0m4MwrP6AyIMtmvS26FBhU2ANoslb0vcR0xHd0qyyE5e
+	Offvanurzue0daDy36QuojspNTs8a8Al6xPEGSsuqGyL4lReIHbJ8i6gxMIb2R5c+SOFrdzlgi0hw
+	Jrv2rNSeanTE+oDODFMjEyq3+ZLrqt1Fc4oaGbdke2vwgTauWVmco9cQj6hEN0n5XPN/GHWtYfTk8
+	mBS+yRHuuUbVknZquVJHPctErjMvveAimaFYtzUYGcl+95biPBLa3bqLArFPcEPMaxW3xZnrw7dcf
+	qH4vT1ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2zy-00000006bqA-3gyl;
-	Thu, 06 Feb 2025 14:36:58 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg2mh-00000006Yjk-1LAQ
+	id 1tg31L-00000006c5j-02rj;
+	Thu, 06 Feb 2025 14:38:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg2ns-00000006Yzq-30Q4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Feb 2025 14:23:16 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5dcc38c7c6bso1959365a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 06:23:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall-org.20230601.gappssmtp.com; s=20230601; t=1738851794; x=1739456594; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gFMFd8yvXqVnAGCGrRETRe/V8KRYdG7T8ArDcX9VBwI=;
-        b=zdE2MWGffMnq7DVpjWNXmykwnZXhoE9gGgswuXoTn7r6JspB1+PHEfoAWkZcVgM5vs
-         96tr/K1+OB6FHEPHvyca1iKnoIC9CMhnGQ+NJP672qBqnOnuGEnTOSUJVjCJTDgV2n3N
-         du0e0lFBWtJhZCZCXQeFN5d9T1gPN8EK1TQ00ARY9Pr2yCHSYWsLR4qje3NyCqkuJnmY
-         LfNrXxPgQXZCfEW0Ds2+9+szrjYKCZNDhyvoAmAknMFSW9xqbNZRyLWXR88VLsfBQBkK
-         F4P52TV08j9tNnCuBw95+VMIorXHf2+mxOKPjcpWSci2BEe0bJ5Z1YyilISGORd5Wkb/
-         ArpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738851794; x=1739456594;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gFMFd8yvXqVnAGCGrRETRe/V8KRYdG7T8ArDcX9VBwI=;
-        b=adMpKe/+U/o137mYBbzlyGzbR2sJiaDntzuLZX5Y1M0vLuABgHoDmf+OYoiNkuh4rD
-         3Y/of1/LPVEBT0YQirAPahHa6f0d9UXhL+xrXP463cTxlIl1yAiXii8OVmcGozDt8beI
-         B9e5BXNhpRzkUizVtItq9yuJ2U8RNLXK/YeaiXE86fZ53jqk/Am1cWxhcBnblc7a9L6c
-         feleTNTcwCmR9w0/d8t9vjhcULxn3Zs4nnB9BGp5DCvetVw7yZFp4hYriPR0M+aulHf0
-         /NCreGw6cj6ibol9wJKNGdrSOOHrH2Se/g7v3C5QQkhiGs6laOBAyue1uKHJnd5CfP1w
-         eliA==
-X-Forwarded-Encrypted: i=1; AJvYcCXWc5YFmlBUPUJwd85WXKWzBqhAOOtLPgG7NoCIp2WEf4M8d0cRrZY60lkiOgimjaps9HCE+kxZWL208Cq+0+b+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyo+gsGssQUqtdi0RCCWU46Q3cO4MvrELEjWrW6CZgCGIb5gUOW
-	KKlZNy0UEmuiqGELb8dyGFNsX+z/NpBTEfdu+PZXgpU7L0RcBhFdAjWPA0JY0KY=
-X-Gm-Gg: ASbGnctoLpkO1K6OIRZwNOzRFTd7IU5Huv5uetBRQdlo+1EkSAxYtyorGJsBSA0CrM+
-	M3Bmaw0FIES8BAACoaaH1pTvFL3oGOJ+8ojowq8M8svxfdYbikDZkFNVED3MkYXfQsjgpzBQ/JI
-	Q8+a7ohZgRdME3d0+/LvyhekNtBqCTRwSVbM+Ceg5wiECCJyt8TB6P5EGnxFni2tpBOKNAl24I/
-	TnXk8qubrMzA+KDAw9c/zzBw38u74HO2NsuGthInHsR9J1Vg+hCrjartr3Bygb0H8FSQUazUr9+
-	wbuC2hakRhHnVKWYJMpWKsvVCNTwm/NEvQRcBCy7ki1cA38=
-X-Google-Smtp-Source: AGHT+IFFyvQfINAl6lz2A01y9ohntI7gR0hYfp3ILlqctgCUIUMFbzNkfcNhO1QK5iS0p6NSxCJe9w==
-X-Received: by 2002:a17:907:8694:b0:ab7:b93:f77d with SMTP id a640c23a62f3a-ab75e245be1mr816768366b.3.1738851793676;
-        Thu, 06 Feb 2025 06:23:13 -0800 (PST)
-Received: from [192.168.0.205] (78-154-15-142.ip.btc-net.bg. [78.154.15.142])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab772f486c7sm106211766b.23.2025.02.06.06.23.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2025 06:23:13 -0800 (PST)
-Message-ID: <5de6707a-6a77-41d1-8964-19667a0e91b2@blackwall.org>
-Date: Thu, 6 Feb 2025 16:23:11 +0200
+	Thu, 06 Feb 2025 14:24:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1C0E1063;
+	Thu,  6 Feb 2025 06:24:49 -0800 (PST)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B28253F63F;
+	Thu,  6 Feb 2025 06:24:25 -0800 (PST)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	ilkka@os.amperecomputing.com
+Subject: [PATCH] perf/arm-cmn: Minor event type housekeeping
+Date: Thu,  6 Feb 2025 14:24:04 +0000
+Message-Id: <ef46a47fc4ab909093f14b2b4289a4835836ab6c.1738851844.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 net-next 06/14] net: core: dev: Add
- dev_fill_bridge_path()
-To: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Jozsef Kadlecsik <kadlec@netfilter.org>, Jiri Pirko <jiri@resnulli.us>,
- Ivan Vecera <ivecera@redhat.com>, Roopa Prabhu <roopa@nvidia.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Kuniyuki Iwashima <kuniyu@amazon.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Vladimir Oltean <olteanv@gmail.com>,
- Frank Wunderlich <frank-w@public-files.de>,
- Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- bridge@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250204194921.46692-1-ericwouds@gmail.com>
- <20250204194921.46692-7-ericwouds@gmail.com>
-Content-Language: en-US
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <20250204194921.46692-7-ericwouds@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_062315_373755_89D5D0BE 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20250206_062428_797629_1CE77828 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +62,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/4/25 21:49, Eric Woudstra wrote:
-> New function dev_fill_bridge_path(), similar to dev_fill_forward_path().
-> It handles starting from a bridge port instead of the bridge master.
-> The structures ctx and nft_forward_info need to be already filled in with
-> the (vlan) encaps.
-> 
-> Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
-> ---
->  include/linux/netdevice.h |  2 ++
->  net/core/dev.c            | 66 +++++++++++++++++++++++++++++++--------
->  2 files changed, 55 insertions(+), 13 deletions(-)
-> 
+While handling RN-D nodes under the functionally-identical RN-I type
+works fine for perf tool users using the "rnid_" event aliases, and that
+is the documented and expected ABI, there's little reason not to be
+permissive and accept the actual RN-D type as an additional encoding for
+the same events as well. This may be convenient for other tooling
+generating event configs directly from its own topology data.
 
-Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
+In the RN-I event mood, it also seems as good a time as any to clean up
+a forgotten macro for CCLA_RNI events which ended up being unnecessary.
+
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index ef959e66db7c..d4fe30ff225b 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -802,8 +802,6 @@ static umode_t arm_cmn_event_attr_is_visible(struct kobject *kobj,
+ 	CMN_EVENT_ATTR(_model, ccha_##_name, CMN_TYPE_CCHA, _event)
+ #define CMN_EVENT_CCLA(_name, _event)				\
+ 	CMN_EVENT_ATTR(CMN_ANY, ccla_##_name, CMN_TYPE_CCLA, _event)
+-#define CMN_EVENT_CCLA_RNI(_name, _event)				\
+-	CMN_EVENT_ATTR(CMN_ANY, ccla_rni_##_name, CMN_TYPE_CCLA_RNI, _event)
+ #define CMN_EVENT_HNS(_name, _event)				\
+ 	CMN_EVENT_ATTR(CMN_ANY, hns_##_name, CMN_TYPE_HNS, _event)
+ 
+@@ -1798,6 +1796,9 @@ static int arm_cmn_event_init(struct perf_event *event)
+ 	} else if (type == CMN_TYPE_XP &&
+ 		   (cmn->part == PART_CMN700 || cmn->part == PART_CMN_S3)) {
+ 		hw->wide_sel = true;
++	} else if (type == CMN_TYPE_RND) {
++		/* Secretly permit this as an alias for "rnid" events */
++		type = CMN_TYPE_RNI;
+ 	}
+ 
+ 	/* This is sufficiently annoying to recalculate, so cache it */
+-- 
+2.39.2.101.g768bb238c484.dirty
+
 
