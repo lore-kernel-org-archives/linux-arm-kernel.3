@@ -4,114 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EAFC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED17C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Feb 2025 09:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUlG3UNtQJExnVI2dfP6DGSLfDrec9VsYrxCHKK+B9Q=; b=OyRGmxO9LZL6Kk93VSb/Yl3lFt
-	JMYpBHz8xIbBiJxhbGqUgVCwSBbdtwt/oMuWVdf4pO9+exhA6a1ITBpAq0ZQ+gUSJXU1ep4D3Htt8
-	PJyc90ySov167DWAHM3xXPdxhx/PIk/fYzP9J/c4WrPqi4Bll42O2ybYeKjpxk/bzV8vXTqKI5+wr
-	GX2UnVg1gHMscHRF9FGuqbfRNsVsKb0lr6GC9fISKzwj5bKcm2s7699S/IX/Kutvh7wcqSl3P++8m
-	soOUR7xXwkG4C2aGD7FDpDKdaTZxMGiT8a7l6HO8EleMqn5IEqnvj57NsurMXLr3NmmTm+UBenN28
-	AuHE7m4A==;
+	bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=; b=UUuw2sMrCGSNU39hFO0AN9yGYy
+	VDkDSpoMJftz7lclFbPsQ2Wz3jZLPEgb1UMIT/6GUl3j+NmUS4No0T7UfE4hSa7qEDiz5f5vrBs0n
+	GKrZGfCaSDcpPsgrYjuuXNRcFoRezt/1SE7FrbhLqAinfpdA2wrQOezstKdVsgV6ORT9MPJYn+bF/
+	551gqN3gCy6e7hbwjdYH9HMkM4PUg+ltO3esum5nWwnO4HbZiyuVjnqiXsp4jRIhwxr6kNVkSbuJ6
+	URX7pckEEZ4Y9UZbJH/drp6dqdOnAauIXvjXLbZInSOrXacaxVNrJZJt7zFaNx2M8YFZ9uHx93vto
+	eZosHfwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxl9-00000005m6o-0251;
-	Thu, 06 Feb 2025 09:01:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tfxl7-00000005m5t-2ZtN;
+	Thu, 06 Feb 2025 09:01:17 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwOW-00000005bZN-1Pee;
-	Thu, 06 Feb 2025 07:33:53 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5163JoOM017544;
-	Thu, 6 Feb 2025 07:32:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WUlG3UNtQJExnVI2dfP6DGSLfDrec9VsYrxCHKK+B9Q=; b=btVR24liqNCeM9Pr
-	EtL5s5B+8EeiipP6Vg6GGPUkkKDE1MMbC3xyoyq3REh+1JVp9KskNuo/fHkey7FP
-	rmVGhSThcXEmbAj6xloDDepk5LKAZ+yIEF0IABfBjT+hp4ngRXGeILgxExmt60uU
-	7HoVQmVyJ5tnWVAtUPb7rRL/ASnTK+T9WJQCjbiDyn58fISm3eeBDQbVLypbMfoM
-	dAHKtOfZv/koM0V5d36dTJFFMOAG3bu/zkHG8fKTu4FMHBgSouRhDzhR4SVMcH92
-	vzUbxp5jK0VRvoRJrgtEeSv+vEyOV2TAAkETYtQNc3UMk5CvMxyUJnFbtxpGknc/
-	55Owzw==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44mn2ygge1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Feb 2025 07:32:39 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5167WcmY004871
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 6 Feb 2025 07:32:38 GMT
-Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 5 Feb 2025
- 23:32:32 -0800
-Message-ID: <a56ee502-658c-4189-a963-51b488da95a6@quicinc.com>
-Date: Thu, 6 Feb 2025 15:32:09 +0800
+	id 1tfwEm-00000005YPS-1BQQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Feb 2025 07:23:49 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2f9c97af32eso749028a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Feb 2025 23:23:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826628; x=1739431428; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
+        b=f7/jHbAvKj0AJ7bnIUnvmip8pbymK1FCKAqeO030qoI5V5r/Y53DmAE+RVUgxp2cNX
+         TGWsrdQ0FNpLnUfAPuAl/JG83MKoVcvjPkPbYFBQTenKO6UkzbC2Y6tupoZ8GvefhsHx
+         R2y9oAwyL+hGkfgDbMMdA6qrym5UCnw89XJ03qOXac5U93Kzf8uCSr12bW8yTLtRlYyD
+         xrpg9nAB2viERR4CQcJLMfRE9FpZfUeEg4aYstQVAQ8eKMBaJXndsX4ohoT6/nbIfvie
+         HyqyVkloknqu7YduLiFTQhZzzy/2YYy+LEvzI3zGatU9mY1XoDViqROa+xcEUIS/UW1j
+         hF/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738826628; x=1739431428;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
+        b=CKGbYehCjymvXnxevecVXP4Xq0jliC31+VDNCHH76EBbaHc4GBSG7qI0MSY57z2s1k
+         LLWlCqT6HePmatUadTMyh1RqO/IE2ehFz+XCfWP04uEvIBrlrKHgIt6JsIG/v9EZvkkZ
+         2ksq2TSlDVLY1/LEURIUiYdlS1wINoLO2YYlzVDTsqj7fEeUHhmcTBWSBLVK2Cdma0RV
+         +ESuGyju37y3w5dZiTDSARZa7RwAHvAUWic5pOiNeTL09Wo9GLEWtMBe09BGBuBvb15x
+         E6QXX7XcbZs8ENyR8tDozdxlael4IGzwuHV92J7V3O0U3yN8mURlPG68zxSQqr9wo/9o
+         nIMA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8uncfkxoMDVXymjLtIEI6PhXDdFQ6OVxEEc3UZexyTxunRcpXJANzRj3s4ECxaUagTTMe+OOzDUgw5xzPHoIF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBDN32E27CO4PbkJOK3ZX1L4qpDUj/lfflAzOgXvHvq/lfsq2g
+	EuSi76IruWCmzE5/v+zl0JYPXdcvEO6lynKgLAmqf75S3xhf5p2hAxU6ra84CTM=
+X-Gm-Gg: ASbGncsVyG+qNdGLHq0VqCevQ4EOQI6T50Aw+sPpufvzDbwuP+A9XSXBizAAXHVxS0e
+	oOjr67GydPmwQkewf3G9PR88P2AH0d2p0HQCiJ8Sc2GfeEJXZHjQfpDCnc+UkpuxXz+8U1aB7Rp
+	Ki80OJjxWJ1QFGjXv0Qevoyh3A2y8ClWXD+tFtf6v0yaFOqQoq3oLvzENUcfqy1TpRVcFHOAmuL
+	y/bvQbu4Cdp0XLDH0X+Iw5CAMiFBntJOkhY5JMT1oCCP0DCrwVvtjsPK0UZgwFGLvT8qdZ+rUeA
+	Dwj6pRjKBGNIlHxEWmoVy0VbJGeu
+X-Google-Smtp-Source: AGHT+IEP7EfP8VYTZfd5HpBEgA2d9buHDVtURDszS/7//CqJNqgdAtdkSc3vqiKyaUdxMxfHiRPc5Q==
+X-Received: by 2002:a17:90b:5108:b0:2ee:ba84:5cac with SMTP id 98e67ed59e1d1-2f9e0753cc2mr9646959a91.7.1738826627792;
+        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Wed, 05 Feb 2025 23:23:25 -0800
+Subject: [PATCH v4 20/21] tools/perf: Pass the Counter constraint values in
+ the pmu events
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] scsi: ufs: core: Pass target_freq to
- clk_scale_notify() vop
-To: Bean Huo <huobean@gmail.com>, <quic_cang@quicinc.com>,
-        <bvanassche@acm.org>, <mani@kernel.org>, <beanhuo@micron.com>,
-        <avri.altman@wdc.com>, <junwoo80.lee@samsung.com>,
-        <martin.petersen@oracle.com>, <quic_nguyenb@quicinc.com>,
-        <quic_nitirawa@quicinc.com>, <quic_rampraka@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,
-        Peter Wang
-	<peter.wang@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        "Manivannan
- Sadhasivam" <manivannan.sadhasivam@linaro.org>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Andrew Halaney
-	<ahalaney@redhat.com>,
-        Eric Biggers <ebiggers@google.com>, Minwoo Im
-	<minwoo.im@samsung.com>,
-        open list <linux-kernel@vger.kernel.org>,
-        "moderated
- list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
-	<linux-mediatek@lists.infradead.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
-References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
- <20250203081109.1614395-2-quic_ziqichen@quicinc.com>
- <ceeee4f93b22ab53c4243eec85449a95b0305c70.camel@gmail.com>
-Content-Language: en-US
-From: Ziqi Chen <quic_ziqichen@quicinc.com>
-In-Reply-To: <ceeee4f93b22ab53c4243eec85449a95b0305c70.camel@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: HCq-x5_05vsA-b4SdG6bzT-DOJeaUXeF
-X-Proofpoint-GUID: HCq-x5_05vsA-b4SdG6bzT-DOJeaUXeF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-06_01,2025-02-05_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxscore=0
- impostorscore=0 spamscore=0 mlxlogscore=999 clxscore=1011
- lowpriorityscore=0 bulkscore=0 suspectscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2501170000 definitions=main-2502060061
+Message-Id: <20250205-counter_delegation-v4-20-835cfa88e3b1@rivosinc.com>
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_233352_386112_E6357FFC 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250205_232348_378793_A7FC4BEB 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,38 +112,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bean,
+RISC-V doesn't have any standard event to counter mapping discovery
+mechanism in the ISA. The ISA defines 29 programmable counters and
+platforms can choose to implement any number of them and map any
+events to any counters. Thus, the perf tool need to inform the driver
+about the counter mapping of each events.
 
-Thanks for your review ~
+The current perf infrastructure only parses the 'Counter' constraints
+in metrics. This patch extends that to pass in the pmu events so that
+any driver can retrieve those values via perf attributes if defined
+accordingly.
 
--Ziqi
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ tools/perf/pmu-events/jevents.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-On 2/3/2025 5:37 PM, Bean Huo wrote:
-> On Mon, 2025-02-03 at 16:11 +0800, Ziqi Chen wrote:
->> From: Can Guo <quic_cang@quicinc.com>
->>
->> Instead of only two frequencies, if OPP V2 is used, the UFS devfreq
->> clock
->> scaling may scale the clock among multiple frequencies, so just
->> passing
->> up/down to vop clk_scale_notify() is not enough to cover the
->> intermediate
->> clock freqs between the min and max freqs. Hence pass the target_freq
->> ,
->> which will be used in successive commits, to clk_scale_notify() to
->> allow
->> the vop to perform corresponding configurations with regard to the
->> clock
->> freqs.
->>
->> Signed-off-by: Can Guo <quic_cang@quicinc.com>
->> Co-developed-by: Ziqi Chen <quic_ziqichen@quicinc.com>
->> Signed-off-by: Ziqi Chen <quic_ziqichen@quicinc.com>
-> 
-> I have reviewed patches [1/8], [2/8], [3/8], [4/8] in the v2, since you
-> just changed coding types, and typos , but no logic change in v3. Add
-> my review tag agaion:
-> 
-> Reviewed-by: Bean Huo <beanhuo@micron.com>
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 28acd598dd7c..c21945238469 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -274,6 +274,11 @@ class JsonEvent:
+         return fixed[name.lower()]
+       return event
+ 
++    def counter_list_to_bitmask(counterlist):
++      counter_ids = list(map(int, counterlist.split(',')))
++      bitmask = sum(1 << pos for pos in counter_ids)
++      return bitmask
++
+     def unit_to_pmu(unit: str) -> Optional[str]:
+       """Convert a JSON Unit to Linux PMU name."""
+       if not unit or unit == "core":
+@@ -427,6 +432,10 @@ class JsonEvent:
+       else:
+         raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
+ 
++    if self.counters['list']:
++      bitmask = counter_list_to_bitmask(self.counters['list'])
++      event += f',counterid_mask={bitmask:#x}'
++
+     self.event = real_event(self.name, event)
+ 
+   def __repr__(self) -> str:
+
+-- 
+2.43.0
 
 
