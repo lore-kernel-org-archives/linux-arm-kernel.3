@@ -4,65 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADD4C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25FBC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSY+UBE9kzGHPUbh5Y1nwA/QIwhXvgGkQmB5IgW7iD8=; b=gECneHrZqyag6+W0e5K5NCqJSr
-	CrLZdyEGxjDmF2XxVbhi6DFRqGo0HZl5jKccT0vn/dL1Ilw8hr9XvcXBxGGCHLxkWk44Ult4fYo/E
-	ExlpUqpDcl3XycnzVsr6ltt7+BaqKfIVodyChDUK6rJ6Xhpco//Aj0rPe/FbW/OJyRupV6tiLd6AV
-	vZOjmc1sBs8lq8b/RYKvKCDpNnb8wZj0ZlitsGkXjebdxYkhljClz8ZMEL2G6tNAwKpMrBuz2HtGr
-	/zPfHZN/NiO1sx5i2XGEKe6PFmcANcFv5xKWRJ4Onz1ksauBkRnnOBPN7W7QXfIbGQViMSx57uR5C
-	6ggdM7Tg==;
+	bh=+TCBcWmHetahew8mhm+D8ZyzzvkYFdF5zWLs1bNn+BU=; b=qab0YWy6A1wUMvLrluYSjU2wR6
+	pR2yyqLiB3Hl2KfkBR1G1EISpaJtEHNIOxDiKD185SRKSU6FKqKEHzQngHPzOOzNupkKZli+b4Muh
+	pVbSGLd796ToQ3+9PvF0LKTaMG+fHQ8Ac/9eS8ug/pg6HP1hwfrf7FPQ0ZJ3YLYLH84Jt+FQrWFFP
+	iCj6q0ljGlO+Oq7kO5vNAnizCfiL9w5zpG9qaHFPMjlzT029Vjl9q0xlG8EbTWsN3EHa3dXYXRDjH
+	oJVU64z+SsS8UdZ5nHtFzaXnfSc58vmXS9T4IALK32vHRA2DXnMHUtyKUzhRBL8vuOkV1S1jf6sTt
+	t6QhKh2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRJ9-0000000AJH1-3SE1;
-	Fri, 07 Feb 2025 16:34:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tgRKV-0000000AJQD-3cee;
+	Fri, 07 Feb 2025 16:35:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRBv-0000000AHK8-14Zg;
-	Fri, 07 Feb 2025 16:26:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=vSY+UBE9kzGHPUbh5Y1nwA/QIwhXvgGkQmB5IgW7iD8=; b=nnLV+fH3QgbE4NxH2MnzuOzcXp
-	AEUqh289SqdQcp1CGI8/2lemUy7JUg6wvk4YWVS7tTKTjaPSkfxtFtyY2Y81NhTdTE02wvt22AzpT
-	6gmCUdy5EEZvyFe7LsxoLIZVFjqZxHj6zHfgqb5AUKJRoAJRvkLsI+U2443VhKuzoq/csCDZ5Xd49
-	VkZJcYX3nPRaUhR9MLTQ2BAcu1bo54EyQlgSR/DAh1udOxp46rpyZARZNyxVXyJHe3UeHJYcxojvZ
-	PC7TGLfAERmo93bTf24H4o38n5N/eATokZ+xhq7kRrAFXHtmJfSmM0AbbfIQJbb4lo3NCY+V6wJe3
-	2w1WqRZA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRBs-0000000HFsu-0iFe;
-	Fri, 07 Feb 2025 16:26:54 +0000
+	id 1tgRBu-0000000AHK9-3ybz;
+	Fri, 07 Feb 2025 16:26:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53AB25C5A66;
-	Fri,  7 Feb 2025 16:26:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F92C4CEDF;
-	Fri,  7 Feb 2025 16:26:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AE13B5C09ED;
+	Fri,  7 Feb 2025 16:26:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B76D4C4CED1;
+	Fri,  7 Feb 2025 16:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738945608;
-	bh=IpkbnQD0aqV4zTrDQLNPfko65wJI87nBEI5JGdjdZk8=;
+	s=k20201202; t=1738945614;
+	bh=obYgSC2EXfhhCIacH2bcpqqvIZQXINjXQ4LiWYYsW7w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PdsnjcEqWOmaf3lNyOquxRA7g2Q/SWYbOO+V+nmqy3F7m3evMFZ1EmFA5JkyY88Te
-	 7qkzai8CMKLAk4qqtCli44fVojQ+5xw0Vwn6uMtosJ34/nhUxzqvm2vP8xlKrp7IsL
-	 SqCBCiuyCF2XX/g3MGBe/cecAgz+Rp+MJ6U2xxBeqzhsScqA5LnC5MTLjLtOysdzOF
-	 kvZQi+gyWw6GRxc7eqcfGuOyTjSp8VBqPicspjaGvV1KhZ5udfVkr0Y3fNBB//oNWQ
-	 lkTy3ZAZZDqNdzeGFdYktxbqXl+dPjxN1saQD5Q+FcHfmazIvu5TeascA/slkQGKhd
-	 Omo3+rR4j/05w==
+	b=BYuKa2Ja2WWKgfUoHYPtgZNVBXw0UILrivEaoMFcE+G6DUXqvYYC2ag4b9nE15GH/
+	 owxTDsfNrRLa+AlXrh2nWL4yasQWuA9EqBp8YjmYJayoyevtPe+Z+5r5VRivHyD62Z
+	 3Yf40/z1R2N3JMa6NI1Cz1jn8WrAKEDZjaTAxQJx652Q9Ea+iNR4FEa7sHOKkZYNC0
+	 NQs7b9jUBysV5BG4XMI4q9B4KCGXDtuW0jW+v/n49hRCK52HVXwWcuU0CY9sR713/D
+	 VYJpIoEOs2TlMoRvyDWF1A9nMk6tCgDSoay3Lgs8Mldn44l7c0HeJv8kFs1e6wArwH
+	 A1AWEuBp07j8A==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 07 Feb 2025 17:26:16 +0100
-Subject: [PATCH net-next v2 01/15] net: airoha: Move airoha_eth driver in a
- dedicated folder
+Date: Fri, 07 Feb 2025 17:26:18 +0100
+Subject: [PATCH net-next v2 03/15] net: airoha: Move reg/write utility
+ routines in airoha_eth.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-1-3a2239692a67@kernel.org>
+Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-3-3a2239692a67@kernel.org>
 References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -82,8 +68,8 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  upstream@airoha.com
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_162652_623195_23885B0B 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250207_082655_078604_8E9A66AA 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +84,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The airoha_eth driver has no codebase shared with mtk_eth_soc one.
-Moreover, the upcoming features (flowtable hw offloading, PCS, ..) will
-not reuse any code from MediaTek driver. Move the Airoha driver in a
-dedicated folder.
+This is a preliminary patch to introduce flowtable hw offloading
+support for airoha_eth driver.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/Kconfig                           |  2 ++
- drivers/net/ethernet/Makefile                          |  1 +
- drivers/net/ethernet/airoha/Kconfig                    | 18 ++++++++++++++++++
- drivers/net/ethernet/airoha/Makefile                   |  6 ++++++
- drivers/net/ethernet/{mediatek => airoha}/airoha_eth.c |  0
- drivers/net/ethernet/mediatek/Kconfig                  |  8 --------
- drivers/net/ethernet/mediatek/Makefile                 |  1 -
- 7 files changed, 27 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 28 +++-------------------------
+ drivers/net/ethernet/airoha/airoha_eth.h | 26 ++++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
-index 977b42bc1e8c1e8804eb7fafa9ed85252d956cad..7941983d21e9e84cbd78241d5c1d48c95e50a8e4 100644
---- a/drivers/net/ethernet/Kconfig
-+++ b/drivers/net/ethernet/Kconfig
-@@ -20,6 +20,8 @@ source "drivers/net/ethernet/actions/Kconfig"
- source "drivers/net/ethernet/adaptec/Kconfig"
- source "drivers/net/ethernet/aeroflex/Kconfig"
- source "drivers/net/ethernet/agere/Kconfig"
-+source "drivers/net/ethernet/airoha/Kconfig"
-+source "drivers/net/ethernet/mellanox/Kconfig"
- source "drivers/net/ethernet/alacritech/Kconfig"
- source "drivers/net/ethernet/allwinner/Kconfig"
- source "drivers/net/ethernet/alteon/Kconfig"
-diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
-index 99fa180dedb80555e64b0fbcd7767044262cf432..67182339469a0d8337cc4e92aa51e498c615156d 100644
---- a/drivers/net/ethernet/Makefile
-+++ b/drivers/net/ethernet/Makefile
-@@ -10,6 +10,7 @@ obj-$(CONFIG_NET_VENDOR_ADAPTEC) += adaptec/
- obj-$(CONFIG_GRETH) += aeroflex/
- obj-$(CONFIG_NET_VENDOR_ADI) += adi/
- obj-$(CONFIG_NET_VENDOR_AGERE) += agere/
-+obj-$(CONFIG_NET_VENDOR_AIROHA) += airoha/
- obj-$(CONFIG_NET_VENDOR_ALACRITECH) += alacritech/
- obj-$(CONFIG_NET_VENDOR_ALLWINNER) += allwinner/
- obj-$(CONFIG_NET_VENDOR_ALTEON) += alteon/
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..b6a131845f13b23a12464cfc281e3abe5699389f
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -0,0 +1,18 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config NET_VENDOR_AIROHA
-+	bool "Airoha devices"
-+	depends on ARCH_AIROHA || COMPILE_TEST
-+	help
-+	  If you have a Airoha SoC with ethernet, say Y.
-+
-+if NET_VENDOR_AIROHA
-+
-+config NET_AIROHA
-+	tristate "Airoha SoC Gigabit Ethernet support"
-+	depends on NET_DSA || !NET_DSA
-+	select PAGE_POOL
-+	help
-+	  This driver supports the gigabit ethernet MACs in the
-+	  Airoha SoC family.
-+
-+endif #NET_VENDOR_AIROHA
-diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..73a6f3680a4c4ce92ee785d83b905d76a63421df
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Airoha for the Mediatek SoCs built-in ethernet macs
-+#
-+
-+obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-similarity index 100%
-rename from drivers/net/ethernet/mediatek/airoha_eth.c
-rename to drivers/net/ethernet/airoha/airoha_eth.c
-diff --git a/drivers/net/ethernet/mediatek/Kconfig b/drivers/net/ethernet/mediatek/Kconfig
-index 95c4405b7d7bee53b964243480a0c173b555da56..7bfd3f230ff50739b3fc6103cd5d0e57ab8f70e1 100644
---- a/drivers/net/ethernet/mediatek/Kconfig
-+++ b/drivers/net/ethernet/mediatek/Kconfig
-@@ -7,14 +7,6 @@ config NET_VENDOR_MEDIATEK
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index a9074c6b55efc5c2fc1f09f8f8a6fdb34508d5cd..5916600555d6094a86c4bd3c17fa7bf8750059bd 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -673,17 +673,17 @@ struct airoha_qdma_fwd_desc {
+ 	__le32 rsv1;
+ };
  
- if NET_VENDOR_MEDIATEK
+-static u32 airoha_rr(void __iomem *base, u32 offset)
++u32 airoha_rr(void __iomem *base, u32 offset)
+ {
+ 	return readl(base + offset);
+ }
  
--config NET_AIROHA
--	tristate "Airoha SoC Gigabit Ethernet support"
--	depends on NET_DSA || !NET_DSA
--	select PAGE_POOL
--	help
--	  This driver supports the gigabit ethernet MACs in the
--	  Airoha SoC family.
+-static void airoha_wr(void __iomem *base, u32 offset, u32 val)
++void airoha_wr(void __iomem *base, u32 offset, u32 val)
+ {
+ 	writel(val, base + offset);
+ }
+ 
+-static u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val)
++u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val)
+ {
+ 	val |= (airoha_rr(base, offset) & ~mask);
+ 	airoha_wr(base, offset, val);
+@@ -691,28 +691,6 @@ static u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val)
+ 	return val;
+ }
+ 
+-#define airoha_fe_rr(eth, offset)				\
+-	airoha_rr((eth)->fe_regs, (offset))
+-#define airoha_fe_wr(eth, offset, val)				\
+-	airoha_wr((eth)->fe_regs, (offset), (val))
+-#define airoha_fe_rmw(eth, offset, mask, val)			\
+-	airoha_rmw((eth)->fe_regs, (offset), (mask), (val))
+-#define airoha_fe_set(eth, offset, val)				\
+-	airoha_rmw((eth)->fe_regs, (offset), 0, (val))
+-#define airoha_fe_clear(eth, offset, val)			\
+-	airoha_rmw((eth)->fe_regs, (offset), (val), 0)
 -
- config NET_MEDIATEK_SOC_WED
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
- 	def_bool NET_MEDIATEK_SOC != n
-diff --git a/drivers/net/ethernet/mediatek/Makefile b/drivers/net/ethernet/mediatek/Makefile
-index ddbb7f4a516caccf5eef7140de1872e9b35e3471..03e008fbc859b35067682f8640dab05ccce6caf7 100644
---- a/drivers/net/ethernet/mediatek/Makefile
-+++ b/drivers/net/ethernet/mediatek/Makefile
-@@ -11,4 +11,3 @@ mtk_eth-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_debugfs.o
- endif
- obj-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_ops.o
- obj-$(CONFIG_NET_MEDIATEK_STAR_EMAC) += mtk_star_emac.o
--obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
+-#define airoha_qdma_rr(qdma, offset)				\
+-	airoha_rr((qdma)->regs, (offset))
+-#define airoha_qdma_wr(qdma, offset, val)			\
+-	airoha_wr((qdma)->regs, (offset), (val))
+-#define airoha_qdma_rmw(qdma, offset, mask, val)		\
+-	airoha_rmw((qdma)->regs, (offset), (mask), (val))
+-#define airoha_qdma_set(qdma, offset, val)			\
+-	airoha_rmw((qdma)->regs, (offset), 0, (val))
+-#define airoha_qdma_clear(qdma, offset, val)			\
+-	airoha_rmw((qdma)->regs, (offset), (val), 0)
+-
+ static void airoha_qdma_set_irqmask(struct airoha_qdma *qdma, int index,
+ 				    u32 clear, u32 set)
+ {
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 3310e0cf85f1d240e95404a0c15703e5f6be26bc..743aaf10235fe09fb2a91b491f4b25064ed8319b 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -248,4 +248,30 @@ struct airoha_eth {
+ 	struct airoha_gdm_port *ports[AIROHA_MAX_NUM_GDM_PORTS];
+ };
+ 
++u32 airoha_rr(void __iomem *base, u32 offset);
++void airoha_wr(void __iomem *base, u32 offset, u32 val);
++u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
++
++#define airoha_fe_rr(eth, offset)				\
++	airoha_rr((eth)->fe_regs, (offset))
++#define airoha_fe_wr(eth, offset, val)				\
++	airoha_wr((eth)->fe_regs, (offset), (val))
++#define airoha_fe_rmw(eth, offset, mask, val)			\
++	airoha_rmw((eth)->fe_regs, (offset), (mask), (val))
++#define airoha_fe_set(eth, offset, val)				\
++	airoha_rmw((eth)->fe_regs, (offset), 0, (val))
++#define airoha_fe_clear(eth, offset, val)			\
++	airoha_rmw((eth)->fe_regs, (offset), (val), 0)
++
++#define airoha_qdma_rr(qdma, offset)				\
++	airoha_rr((qdma)->regs, (offset))
++#define airoha_qdma_wr(qdma, offset, val)			\
++	airoha_wr((qdma)->regs, (offset), (val))
++#define airoha_qdma_rmw(qdma, offset, mask, val)		\
++	airoha_rmw((qdma)->regs, (offset), (mask), (val))
++#define airoha_qdma_set(qdma, offset, val)			\
++	airoha_rmw((qdma)->regs, (offset), 0, (val))
++#define airoha_qdma_clear(qdma, offset, val)			\
++	airoha_rmw((qdma)->regs, (offset), (val), 0)
++
+ #endif /* AIROHA_ETH_H */
 
 -- 
 2.48.1
