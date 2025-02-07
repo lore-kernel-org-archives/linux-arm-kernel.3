@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E25BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6416C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEOqSU3fRYeG3aRtUri3lwHgcB2Rym9rKZGuN/X3BPk=; b=J6DEJCYCiz9XH+kDGZ2pIn2NLo
-	dgLB/QCKD6saOQfpwgrdoVN0uKJjU2UsfNztijHZcmt2q5CjRUvQ58/8aKawQ/Q9KEbc0e8QMi9e2
-	87mwgYTxYfMypG0ZrOI5OHslqVpv3ffDvi8CQLt7CQreCALbCn+sRnTDPcrdnFv8//bFeEpDBLgyL
-	ZolfFj+Th6ZeJ7bSi66aKuf9J/uys5ri30ghvK09+mrqAn/HJIyQKn2GgNKqMVFL5fxGARPlqRPU1
-	fAFCVn98cQczX7SQ0g845RuI7QvCmmfFADBeJXKAO5LtKgYx4OzqtX0fc3ZpmAJtpRl+J6ux0/nO+
-	cF4Nci/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kSCcx6zEWqZS3mmBUm4FWFtzCHOSUlu1kduPG3MBIwE=; b=suSeKQtiup9QpNIuytkbRG7S+k
+	ptDSdE8HjkU3OqqwgRwOv+3rODVJVFa1HfnVRKZWfssF1EtE30GdzQRnbZR2YiaWuujkb7UuZIlW7
+	bKWeA+5NrD1MLK9S9Bsh+Vzk8+GCadwIKZBdVjRzvJiZQCV+NLY7ghtyICHJz/wZx/QfhxjYvGR80
+	y6erhaNGukyw3kkF8h6WNXPXjHadCqZTrjEidumPrR9jFDZtvICHFdRnFam2MiXqH8i3r8D4fwnyu
+	OSiR7c5oy+fN2DwmccAj05zCx3H+W1KZCC4lW7FUUFMMSJmPmC4cKSp4WMPD41o1YfyohxtxIaJQC
+	ft1c+w8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOgV-00000009i7P-26lW;
-	Fri, 07 Feb 2025 13:46:19 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tgOlc-00000009iss-2dvo;
+	Fri, 07 Feb 2025 13:51:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOeW-00000009he6-05w9
+	id 1tgOkD-00000009idl-25r2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 13:44:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738935856; x=1770471856;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yvDb/9al0b5cbGYGz+egPFvQ2z5zm9IAuwXMbV2aY9g=;
-  b=UJcrWYj8vxwHNBuwzgZYTu4L3Gr4BSKf/1Tje0gr+JbAW655GQPLKk6A
-   ZIoZZ+q9WBlkNn7CULRyzZKdSbSWimV8jQ/AxbSVGamcWzO5UqHuc/S12
-   GTt/UuSimA5N+cGjxLo/9lJurXQv+vtCKqQ37/QIYruOceGxk5NuIbwWn
-   YNcj+gQYnHT2Htf1bki//aRd9giraY8q3WQE29lJtVxNwgjj2vWYFE4Dj
-   HP/iMhWXflyix+2Y+nWZf1naWby1IUzgIFUqGAYTZPuNH69bEcenZgvth
-   lsERRQBWqgx37XCBohXJr+zFzPZvlkFC9avTCZT4gW7SH3fnPcSEvLj2T
-   w==;
-X-CSE-ConnectionGUID: shJHfU3CTy2K/tHT+ZS74w==
-X-CSE-MsgGUID: 6DwvhHNATnqgfXbksJAAwQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39448798"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="39448798"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 05:44:15 -0800
-X-CSE-ConnectionGUID: YD3vx1NJSq2zirfoHgButQ==
-X-CSE-MsgGUID: ndUXSvlTQgKqyCDXne74cw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="116533405"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 07 Feb 2025 05:44:10 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgOeN-000yPD-1L;
-	Fri, 07 Feb 2025 13:44:07 +0000
-Date: Fri, 7 Feb 2025 21:43:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 22/26] bpf: Introduce rqspinlock kfuncs
-Message-ID: <202502072155.DbOeX8Le-lkp@intel.com>
-References: <20250206105435.2159977-23-memxor@gmail.com>
+	Fri, 07 Feb 2025 13:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E21715C5D64;
+	Fri,  7 Feb 2025 13:49:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53E9FC4CED1;
+	Fri,  7 Feb 2025 13:50:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738936208;
+	bh=wTtl5yJ8SjYiIxrTRTttS85uraz4y2R/n0v+mo941ls=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=B+vOcqO+5ZsH5kpNEe1fCWSSclq4+rOI7n4L+pVZWLuBRvAQkNBcHDjngccsWITGB
+	 xSHq/0zB7wOHAdKBGeMZm1j3wDBplMqYddIEG+j9R2JSJ6OXz4bVhlJFODvozVy2vW
+	 2iTJUXi+i4j6c4hp0UUqrHirYRllKEmdZsc4F+FtHxZx89HuFMtLDu1NMzCDcL3B0R
+	 rHw8qtyKC5bXPyFArICs3JfCVa8vXY3RueTYapxhLhJy3U39nAuS00C1+Dc3HaiZeX
+	 TywTaaeA4p8ah+t60i+QguHPmOxZ80BV3bRh6D/YZwqi8TGtc1n6Dm08oAJ9jpJ//e
+	 idS7DXhsYAbTQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E57380AAF2;
+	Fri,  7 Feb 2025 13:50:37 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206105435.2159977-23-memxor@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2 0/7] Add of_get_available_child_by_name()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173893623629.2244005.12944730869712078303.git-patchwork-notify@kernel.org>
+Date: Fri, 07 Feb 2025 13:50:36 +0000
+References: <20250205124235.53285-1-biju.das.jz@bp.renesas.com>
+In-Reply-To: <20250205124235.53285-1-biju.das.jz@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: robh@kernel.org, saravanak@google.com, matthias.bgg@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ andrew@lunn.ch, angelogioacchino.delregno@collabora.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, geert+renesas@glider.be,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, biju.das.au@gmail.com,
+ linux-renesas-soc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_054416_114605_51DC72AC 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250207_055009_577373_802B238D 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,106 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kumar,
+Hello:
 
-kernel test robot noticed the following build errors:
+This series was applied to netdev/net-next.git (main)
+by David S. Miller <davem@davemloft.net>:
 
-[auto build test ERROR on 0abff462d802a352c87b7f5e71b442b09bf9cfff]
+On Wed,  5 Feb 2025 12:42:20 +0000 you wrote:
+> There are lot of net drivers using of_get_child_by_name() followed by
+> of_device_is_available() to find the available child node by name for a
+> given parent. Provide a helper for these users to simplify the code.
+> 
+> v1->v2:
+>  * Make it as a series as per [1] to cover the dependency.
+>  * Added Rb tag from Rob for patch#1 and this patch can be merged through
+>    net as it is the main user.
+>  * Updated all the patches with patch suffix net-next
+>  * Dropped _free() usage.
+> 
+> [...]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Kumar-Kartikeya-Dwivedi/locking-Move-MCS-struct-definition-to-public-header/20250206-190258
-base:   0abff462d802a352c87b7f5e71b442b09bf9cfff
-patch link:    https://lore.kernel.org/r/20250206105435.2159977-23-memxor%40gmail.com
-patch subject: [PATCH bpf-next v2 22/26] bpf: Introduce rqspinlock kfuncs
-config: x86_64-buildonly-randconfig-004-20250207 (https://download.01.org/0day-ci/archive/20250207/202502072155.DbOeX8Le-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502072155.DbOeX8Le-lkp@intel.com/reproduce)
+Here is the summary with links:
+  - [net-next,v2,1/7] of: base: Add of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/8d3bbe4355ad
+  - [net-next,v2,2/7] net: dsa: rzn1_a5psw: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/46df19a8dfdf
+  - [net-next,v2,3/7] net: dsa: sja1105: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/a76568865c15
+  - [net-next,v2,4/7] net: ethernet: mtk-star-emac: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/876e52b2d3f4
+  - [net-next,v2,5/7] net: ethernet: mtk_eth_soc: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/1364004b5b91
+  - [net-next,v2,6/7] net: ethernet: actions: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/76c82eb04332
+  - [net-next,v2,7/7] net: ibm: emac: Use of_get_available_child_by_name()
+    https://git.kernel.org/netdev/net-next/c/0584a917a209
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502072155.DbOeX8Le-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from fs/timerfd.c:26:
-   In file included from include/linux/syscalls.h:94:
-   In file included from include/trace/syscall.h:7:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:62:
-   In file included from include/linux/security.h:35:
-   In file included from include/linux/bpf.h:33:
-   In file included from arch/x86/include/asm/rqspinlock.h:27:
->> include/asm-generic/rqspinlock.h:40:12: error: conflicting types for 'resilient_tas_spin_lock'
-      40 | extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
-         |            ^
-   arch/x86/include/asm/rqspinlock.h:17:12: note: previous declaration is here
-      17 | extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
-         |            ^
-   1 error generated.
---
-   In file included from fs/splice.c:27:
-   include/linux/mm_inline.h:47:41: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-      47 |         __mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
-         |                                    ~~~~~~~~~~~ ^ ~~~
-   include/linux/mm_inline.h:49:22: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-      49 |                                 NR_ZONE_LRU_BASE + lru, nr_pages);
-         |                                 ~~~~~~~~~~~~~~~~ ^ ~~~
-   In file included from fs/splice.c:31:
-   In file included from include/linux/syscalls.h:94:
-   In file included from include/trace/syscall.h:7:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:62:
-   In file included from include/linux/security.h:35:
-   In file included from include/linux/bpf.h:33:
-   In file included from arch/x86/include/asm/rqspinlock.h:27:
->> include/asm-generic/rqspinlock.h:40:12: error: conflicting types for 'resilient_tas_spin_lock'
-      40 | extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
-         |            ^
-   arch/x86/include/asm/rqspinlock.h:17:12: note: previous declaration is here
-      17 | extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
-         |            ^
-   2 warnings and 1 error generated.
---
-   In file included from fs/aio.c:20:
-   In file included from include/linux/syscalls.h:94:
-   In file included from include/trace/syscall.h:7:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:62:
-   In file included from include/linux/security.h:35:
-   In file included from include/linux/bpf.h:33:
-   In file included from arch/x86/include/asm/rqspinlock.h:27:
->> include/asm-generic/rqspinlock.h:40:12: error: conflicting types for 'resilient_tas_spin_lock'
-      40 | extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
-         |            ^
-   arch/x86/include/asm/rqspinlock.h:17:12: note: previous declaration is here
-      17 | extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
-         |            ^
-   In file included from fs/aio.c:29:
-   include/linux/mman.h:159:9: warning: division by zero is undefined [-Wdivision-by-zero]
-     159 |                _calc_vm_trans(flags, MAP_SYNC,       VM_SYNC      ) |
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:137:21: note: expanded from macro '_calc_vm_trans'
-     137 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
-         |                     ^ ~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:160:9: warning: division by zero is undefined [-Wdivision-by-zero]
-     160 |                _calc_vm_trans(flags, MAP_STACK,      VM_NOHUGEPAGE) |
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mman.h:137:21: note: expanded from macro '_calc_vm_trans'
-     137 |    : ((x) & (bit1)) / ((bit1) / (bit2))))
-         |                     ^ ~~~~~~~~~~~~~~~~~
-   2 warnings and 1 error generated.
-
-
-vim +/resilient_tas_spin_lock +40 include/asm-generic/rqspinlock.h
-
-c34e46edef2a89 Kumar Kartikeya Dwivedi 2025-02-06  39  
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06 @40  extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  41  #ifdef CONFIG_QUEUED_SPINLOCKS
-6516ce00a1482f Kumar Kartikeya Dwivedi 2025-02-06  42  extern int resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val, u64 timeout);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  43  #endif
-6516ce00a1482f Kumar Kartikeya Dwivedi 2025-02-06  44  
-
+You are awesome, thank you!
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
