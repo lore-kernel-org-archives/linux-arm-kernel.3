@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3775EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 11:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D1BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 11:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvUyMisxvcrDH1c/MoT4T2q749JDE4C/EcU6cWH6XTE=; b=Pqv4139+w+FCVsVr+JuWCNDK8H
-	h7wfWQsqinwA2/8Mo4EEXU0anVrveQ8Fd8K9CzTMr5wARUI4sovpkfIhrmTN3LO8Ruk0JbfFZQ7wL
-	n+tOKdEnujPZWs1YXm2uEsY6moAR0q07EklBS2g4Gmrov4G2P26gBVWnvUUDlEygsFbki9/1YsBPn
-	wDFD+WwP7L4DV3bPN0hs4EhB1e4ONOMBidCDRhH7RMMGKP/22T66w0Kiw86GDQaCuHIGo8CYtvpmh
-	Vbwb3KXn3QvjC4RF9EnEONNqAD7TzeNUqpTrOcDx+Eh2PieeP1NQ7Jt2tyBkF+TF/9AuM0vxEVEFb
-	lS92Lk7w==;
+	bh=hxMin5k2DHnOfHYSYqCdaaI5797V0knlMPhGhFKeAnA=; b=WMuWmfgaGkkFDMZoTLJcFa3HVt
+	TWT0pTMIPi6DLBfr04g6Mlgk9NJpgiupj2RtOQEjcV1N6YZQx6cwKrK5ONucRVtrc9186ra2KNLR4
+	DbI8uKk0GgSQ7OKFAVVLmRsxOHXCi31lFtqp0ie69qTO9N3mbbhsJTbc79ezut8IB3kxB00CVpgd1
+	biJzEGh7c7HI3WmysmIf38rD7W1zc9+jyVb6YtZ0EUwNO32QcC/H5+AKAZ155QBCvo9urmzXQfdmv
+	ALoDAGNGkc1YWpKrUBqCxI66oLeib/TTOQrvpHVdczwuXO4Kbjxj0Zw3U1OlkXbF7ZK3s3YQ5PcUf
+	ihB0eNjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgMrN-00000009PM5-0WRI;
-	Fri, 07 Feb 2025 11:49:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tgMwH-00000009Q5e-0ITE;
+	Fri, 07 Feb 2025 11:54:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgMpy-00000009Ozs-2Smq
+	id 1tgMur-00000009PqJ-2wln
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 11:47:59 +0000
+	Fri, 07 Feb 2025 11:53:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 711E0A4325B;
-	Fri,  7 Feb 2025 11:46:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86377C4CED1;
-	Fri,  7 Feb 2025 11:47:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 361AE5C4C4D;
+	Fri,  7 Feb 2025 11:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F152C4CED1;
+	Fri,  7 Feb 2025 11:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738928874;
-	bh=nEdBXnQOKdhAznLz7iWf7QdsK9vcI38EpNgrZYx51b0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HPfTnn/G8Kfuy6BFL8oJzo7HRZNgNcwUfKwiv7MYu/FzQDFZ70VpvttQzTigwYqKw
-	 SCrMbw70yRmUNreLqA8lXOGzBL4dZIiVr6Fnw2qk1aOSbWEJlKM+1i4UPQBxfbkxwH
-	 Fj9OzFn1jT980/Ep415KnJh78j944B3PKFu4Slqw8iPBPF8Q+FMSTlbtD6t4alJptI
-	 nF9RIWMduDMMCvtjH/LkLLjnTbSOyPjrX/Kwt0pmHqXFd9v2gBG36decnVB47ZyJgR
-	 7peNSMHX8hA6yiAweNkBYSxI5Vu5IA9UFoBmgdJ3LeQK+imd8pV96VP1yIEDOA1W4Y
-	 eex0KKdFfWDWQ==
-Date: Fri, 7 Feb 2025 12:47:51 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-Message-ID: <20250207-ingenious-daffodil-dugong-51be57@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="onr6klnz6qtdrilr"
-Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
+	s=k20201202; t=1738929179;
+	bh=5jnt/4GcTEHWI7EyJGL1G1JCr157JsJUEBy4mhXV3xE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aO5KtaCcTFUSqTjTjxgXr9cD3jNh41kdxHHWwDQJi18Qrfr6RA54oFomcJNHN/ElP
+	 Y72S3/jYHNql0r5l89oqxEG2dV2pzEI3BYrK8Ue717hObLJFt+0nExTODzM/pNkwA/
+	 eYqeeBoeeIUgrDzChJ/R9K9LBXVz2FZ5ba/HU93HRfQNd5XyKEROI5TKl4+E/+lpRa
+	 BFe3laovH70B13YbpBRjcE126xS3Cg5Rof7pmZEV7Ls/+N6K2FmBFWrh6ATNCjhu6c
+	 xfWP8XyTqtAdIhL6wE6FTcRHm1SoWScH1pm4jF8RqMESmPWPj2jvSg5brFNYYGEx+M
+	 FhD6uI9PmdICg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tgMum-001bfT-UQ;
+	Fri, 07 Feb 2025 11:52:57 +0000
+Date: Fri, 07 Feb 2025 11:52:56 +0000
+Message-ID: <86lduit1if.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2] KVM: arm64: Remove cyclical dependency in arm_pmuv3.h
+In-Reply-To: <gsntmsey26xc.fsf@coltonlewis-kvm.c.googlers.com>
+References: <87frkrtr4z.wl-maz@kernel.org>
+	<gsntmsey26xc.fsf@coltonlewis-kvm.c.googlers.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_034758_762730_FC5CA268 
-X-CRM114-Status: GOOD (  46.15  )
+X-CRM114-CacheID: sfid-20250207_035301_836564_C3CC1B43 
+X-CRM114-Status: GOOD (  67.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,306 +89,297 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 06 Feb 2025 19:45:51 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> Hey Marc, thanks for the review. I thought of a different solution at
+> the very bottom. Please let me know if that is preferable.
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > Colton,
+> 
+> > On Thu, 06 Feb 2025 00:17:44 +0000,
+> > Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> >> asm/kvm_host.h includes asm/arm_pmu.h which includes perf/arm_pmuv3.h
+> >> which includes asm/arm_pmuv3.h which includes asm/kvm_host.h This
+> >> causes confusing compilation problems why trying to use anything
+> >> defined in any of the headers in any other headers. Header guards is
+> >> the only reason this cycle didn't create tons of redefinition
+> >> warnings.
+> 
+> >> The motivating example was figuring out it was impossible to use the
+> >> hypercall macros kvm_call_hyp* from kvm_host.h in arm_pmuv3.h. The
+> >> compiler will insist they aren't defined even though kvm_host.h is
+> >> included. Many other examples are lurking which could confuse
+> >> developers in the future.
+> 
+> > Well, that's because contrary to what you have asserted in v1, not all
+> > include files are legitimate to use willy-nilly. You have no business
+> > directly using asm/kvm_host.h, and linux/kvm_host.h is what you need.
+> 
+> That's what I'm trying to fix. I'm trying to *remove* asm/kvm_host.h
+> from being included in asm/arm_pmu.h.
+> 
+> I agree with you that it *should not be included there* but it currently
+> is. And I can't drop-in replace the include with linux/kvm_host.h
+> because the that just adds another link in the cyclical dependency.
+> 
+> 
+> >> Break the cycle by taking asm/kvm_host.h out of asm/arm_pmuv3.h
+> >> because asm/kvm_host.h is huge and we only need a few functions from
+> >> it. Move the required declarations to a new header asm/kvm_pmu.h.
+> 
+> >> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> >> ---
+> 
+> >> Possibly spinning more definitions out of asm/kvm_host.h would be a
+> >> good idea, but I'm not interested in getting bogged down in which
+> >> functions ideally belong where. This is sufficient to break the
+> 
+> > Tough luck. I'm not interested in half baked solutions, and "what
+> > belongs where" *is* the problem that needs solving.
+> 
+> Fair point, but a small solution is not half-baked if it is better than
+> what we have.
 
---onr6klnz6qtdrilr
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-MIME-Version: 1.0
+No. Less crap is still crap.
 
-Hi,
+This sort of reasoning may fly for a quick fix that would otherwise
+result in a a crash or something similarly unpleasant. But for a
+rework that is only there to enable your particular project, you have
+all the time in the world to do it right.
 
-On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote:
-> DRM bridges are currently considered as a fixed element of a DRM card, and
-> thus their lifetime is assumed to extend for as long as the card
-> exists. New use cases, such as hot-pluggable hardware with video bridges,
-> require DRM bridges to be added and removed to a DRM card without tearing
-> the card down. This is possible for connectors already (used by DP MST), =
-so
-> add this possibility to DRM bridges as well.
->=20
-> Implementation is based on drm_connector_init() as far as it makes sense,
-> and differs when it doesn't. A difference is that bridges are not exposed
-> to userspace, hence struct drm_bridge does not embed a struct
-> drm_mode_object which would provide the refcount. Instead we add to struct
-> drm_bridge a refcount field (we don't need other struct drm_mode_object
-> fields here) and instead of using the drm_mode_object_*() functions we
-> reimplement from those functions the few lines that drm_bridge needs for
-> refcounting.
->=20
-> Also add a new devm_drm_bridge_alloc() macro to allocate a new refcounted
-> bridge.
->=20
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> 
+> >> cyclical dependency and get rid of the compilation issues. Though I
+> >> mention the one example I found, many other similar problems could
+> >> confuse developers in the future.
+> 
+> >> v2:
+> >> * Make a new header instead of moving kvm functions into the
+> >>    dedicated pmuv3 header
+> 
+> >> v1:
+> >> https://lore.kernel.org/kvm/20250204195708.1703531-1-coltonlewis@google.com/
+> 
+> >>   arch/arm64/include/asm/arm_pmuv3.h |  3 +--
+> >>   arch/arm64/include/asm/kvm_host.h  | 14 --------------
+> >>   arch/arm64/include/asm/kvm_pmu.h   | 26 ++++++++++++++++++++++++++
+> >>   include/kvm/arm_pmu.h              |  1 -
+> >>   4 files changed, 27 insertions(+), 17 deletions(-)
+> >>   create mode 100644 arch/arm64/include/asm/kvm_pmu.h
+> 
+> >> diff --git a/arch/arm64/include/asm/arm_pmuv3.h
+> >> b/arch/arm64/include/asm/arm_pmuv3.h
+> >> index 8a777dec8d88..54dd27a7a19f 100644
+> >> --- a/arch/arm64/include/asm/arm_pmuv3.h
+> >> +++ b/arch/arm64/include/asm/arm_pmuv3.h
+> >> @@ -6,9 +6,8 @@
+> >>   #ifndef __ASM_PMUV3_H
+> >>   #define __ASM_PMUV3_H
+> 
+> >> -#include <asm/kvm_host.h>
+> >> -
+> >>   #include <asm/cpufeature.h>
+> >> +#include <asm/kvm_pmu.h>
+> >>   #include <asm/sysreg.h>
+> 
+> >>   #define RETURN_READ_PMEVCNTRN(n) \
+> >> diff --git a/arch/arm64/include/asm/kvm_host.h
+> >> b/arch/arm64/include/asm/kvm_host.h
+> >> index 7cfa024de4e3..6d4a2e7ab310 100644
+> >> --- a/arch/arm64/include/asm/kvm_host.h
+> >> +++ b/arch/arm64/include/asm/kvm_host.h
+> >> @@ -1385,25 +1385,11 @@ void kvm_arch_vcpu_ctxflush_fp(struct
+> >> kvm_vcpu *vcpu);
+> >>   void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu);
+> >>   void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu);
+> 
+> >> -static inline bool kvm_pmu_counter_deferred(struct perf_event_attr
+> >> *attr)
+> >> -{
+> >> -	return (!has_vhe() && attr->exclude_host);
+> >> -}
+> >> -
+> >>   #ifdef CONFIG_KVM
+> >> -void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+> >> -void kvm_clr_pmu_events(u64 clr);
+> >> -bool kvm_set_pmuserenr(u64 val);
+> >>   void kvm_enable_trbe(void);
+> >>   void kvm_disable_trbe(void);
+> >>   void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest);
+> >>   #else
+> >> -static inline void kvm_set_pmu_events(u64 set, struct
+> >> perf_event_attr *attr) {}
+> >> -static inline void kvm_clr_pmu_events(u64 clr) {}
+> >> -static inline bool kvm_set_pmuserenr(u64 val)
+> >> -{
+> >> -	return false;
+> >> -}
+> >>   static inline void kvm_enable_trbe(void) {}
+> >>   static inline void kvm_disable_trbe(void) {}
+> >>   static inline void kvm_tracing_set_el1_configuration(u64
+> >> trfcr_while_in_guest) {}
+> >> diff --git a/arch/arm64/include/asm/kvm_pmu.h
+> >> b/arch/arm64/include/asm/kvm_pmu.h
+> >> new file mode 100644
+> >> index 000000000000..3a8f737504d2
+> >> --- /dev/null
+> >> +++ b/arch/arm64/include/asm/kvm_pmu.h
+> >> @@ -0,0 +1,26 @@
+> >> +/* SPDX-License-Identifier: GPL-2.0-only */
+> >> +
+> >> +#ifndef __KVM_PMU_H
+> >> +#define __KVM_PMU_H
+> >> +
+> >> +void kvm_vcpu_pmu_resync_el0(void);
+> >> +
+> >> +#ifdef CONFIG_KVM
+> >> +void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+> >> +void kvm_clr_pmu_events(u64 clr);
+> >> +bool kvm_set_pmuserenr(u64 val);
+> >> +#else
+> >> +static inline void kvm_set_pmu_events(u64 set, struct
+> >> perf_event_attr *attr) {}
+> >> +static inline void kvm_clr_pmu_events(u64 clr) {}
+> >> +static inline bool kvm_set_pmuserenr(u64 val)
+> >> +{
+> >> +	return false;
+> >> +}
+> >> +#endif
+> >> +
+> >> +static inline bool kvm_pmu_counter_deferred(struct perf_event_attr
+> >> *attr)
+> >> +{
+> >> +	return (!has_vhe() && attr->exclude_host);
+> >> +}
+> >> +
+> >> +#endif
+> 
+> > How does this solve your problem of using the HYP-calling macros?
+> 
+> This code does not directly solve that problem. It makes a solution to
+> that problem possible because it breaks up the cyclical dependency by
+> getting asm/kvm_host.h out of asm/arm_pmuv3.h while still providing the
+> declarations to arm_pmuv3.c
+> 
+> With a cyclical dependency the compiler gets confused if you try to use
+> anything from asm/kvm_host.h inside asm/arm_pmuv3.h (like HYP-calling
+> macros defined there for example). Again, I believe that inclusion
+> should not be there in the first place which is the motivation for this
+> patch.
+> 
+> But since it is included, here's what happens if you try:
+> 
+> When asm/kvm_host.h is included somewhere, it indirectly includes
+> asm/arm_pmuv3.h via the chain described in my commit message.
+> asm/arm_pmuv3.h is then effectively pasted into asm/kvm_host.h and due
+> to include guards is passed over this time, but this means that many
+> things in asm/kvm_host.h aren't defined yet so any symbols from
+> asm/kvm_host.h defined after the include of asm/arm_pmuv3.h are used
+> before their definition: boom, confusing compiler errors
+>
+> You might argue: just don't do that, but I think it's a terrible
+> developer experience when you can't use definitions from a file that is
+> currently included. I spent hours puzzling over errors before realizing
+> a cyclical dependency was the root cause and want to save other devs
+> from the same fate.
 
-So, a couple of general comments:
+Then do it correctly. Or don't do that. Nobody other than you gets
+confused by this, it seems.
 
-- I've said it a couple of times already, but I really think you're
-  making it harder than necessary for you here. This (and only this!)
-  should be the very first series you should be pushing. The rest can
-  only ever work if that work goes through, and it's already hard enough
-  as it is. So, split that patch into a series of its own, get that
-  merged, and then we will be able to deal with panels conversion and
-  whatever. That's even more true with panels since there's ongoing work
-  that will make it easier for you too. So the best thing here is
-  probably to wait.
+> 
+> >> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+> >> index 147bd3ee4f7b..2c78b1b1a9bb 100644
+> >> --- a/include/kvm/arm_pmu.h
+> >> +++ b/include/kvm/arm_pmu.h
+> >> @@ -74,7 +74,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu);
+> >>   struct kvm_pmu_events *kvm_get_pmu_events(void);
+> >>   void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+> >>   void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+> >> -void kvm_vcpu_pmu_resync_el0(void);
+> 
+> >>   #define kvm_vcpu_has_pmu(vcpu)					\
+> >>   	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+> 
+> >> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> 
+> > I'm absolutely not keen on *two* PMU-related include files. They both
+> > describe internal APIs, and don't see a good reasoning for this
+> > arbitrary split other than "it works better for me and I don't want to
+> > do more than strictly necessary".
+> 
+> I understand the point which is why v1 tried not to introduce a new
+> header file and I was advised to make a new header file.
+> 
+> > For example, include/kvm was only introduced to be able to share files
+> > between architectures, and with 32bit KVM/arm being long dead, this
+> > serves no purpose anymore. Moving these things out of the way would be
+> > a good start and would provide a better base for further change.
+> 
+> Good to know. I avoided doing that because it would be a lot of change
+> noise and I wasn't sure such changes would be welcome.
+> 
+> > So please present a rationale on what needs to go where and why based
+> > on their usage pattern rather than personal convenience, and then
+> > we'll look at a possible patch. But not the other way around.
+> 
+> My rationale is fixing a cyclical dependency due to an inclusion of
+> asm/kvm_host.h where we both seem to agree it shouldn't be. Cyclical
+> dependencies are really bad and cause nasty surprises when something
+> that seems like it should obviously work doesn't. Fixing things like
+> this makes programming here more conveneint for everyone, not just
+> me. So I thought it was worth a separate patch.
 
-- This patch really needs to be split into several patches, something
-  along the lines of:
+That's not a rationale. That's the umpteenth repetition of a circular
+argument. This "make it easy for everyone" is a total fallacy. If you
+really want to make it easy, split the include files using a clear
+definition of what goes where. That would *actually* help.
 
-  + Creating devm_drm_bridge_alloc()
-  + Adding refcounting
-  + Taking the references in all the needed places
-  + Converting a bunch of drivers
+> 
+> Another possible solution that avoids moving anything around is to take
+> asm/kvm_host.h out of asm/arm_pmuv3.h and do
+> 
+> #ifdef CONFIG_ARM64
+> #include <linux/kvm_host.h>
+> #endif
+> 
+> directly in arm_pmuv3.c which breaks the cycle while still providing the
+> correct declarations for arm_pmuv3.c (and admittedly many more than
+> necessary).
+> 
+> I find this conditional inclusion ugly and possibly you will have an
+> objection to it, but let me know.
 
-> Changes in v6:
->  - use drm_warn, not WARN_ON (Jani Nikula)
->  - Add devm_drm_bridge_alloc() to replace drm_bridge_init() (similar to
->    drmm_encoder_alloc)
->  - Remove .destroy func: deallocation is done via the struct offset
->    computed by the devm_drm_bridge_alloc() macro
->  - use fixed free callback, as the same callback is used in all cases
->    anyway (remove free_cb, add bool is_refcounted)
->  - add drm_bridge_get/put() to drm_bridge_attach/detach() (add the bridge
->    to a list)
->  - make some DRM_DEBUG() strings more informative
->=20
-> This patch was added in v5.
-> ---
->  drivers/gpu/drm/drm_bridge.c |  76 ++++++++++++++++++++++++++--
->  include/drm/drm_bridge.h     | 117 +++++++++++++++++++++++++++++++++++++=
-++++++
->  2 files changed, 189 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 1955a231378050abf1071d74a145831b425c47c5..f694b32ca59cb91c32846bc00=
-b43360df41cc1ad 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -200,6 +200,57 @@
->  DEFINE_MUTEX(bridge_lock);
->  LIST_HEAD(bridge_list);
-> =20
-> +/* Internal function (for refcounted bridges) */
-> +void __drm_bridge_free(struct kref *kref)
-> +{
-> +	struct drm_bridge *bridge =3D container_of(kref, struct drm_bridge, ref=
-count);
-> +	void *container =3D ((void *)bridge) - bridge->container_offset;
-> +
-> +	DRM_DEBUG("bridge=3D%p, container=3D%p FREE\n", bridge, container);
+No. I want a full solution, not a point hack. Since you are not
+willing to define things, let me do it for you.
 
-Pointers are not really useful to track here, since they are obfuscated
-most of the time. Using the bridge device name would probably be better
-(or removing the SHOUTING DEBUG entirely :))
+- Anything that is at the interface between the host PMU driver and
+  KVM moves in its own include file. Nothing from kvm_host.h should be
+  needed for this, and the driver code only includes that particular
+  file.  Make is standalone, so that it doesn't require contextual
+  inclusions (see how your kvm_pmu.h doesn't include anything, and yet
+  depends on perf_event_attr being defined as well as has_vhe()).
 
-> +	kfree(container);
-> +}
-> +EXPORT_SYMBOL(__drm_bridge_free);
-> +
-> +static void drm_bridge_put_void(void *data)
-> +{
-> +	struct drm_bridge *bridge =3D (struct drm_bridge *)data;
-> +
-> +	drm_bridge_put(bridge);
-> +}
-> +
-> +void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t of=
-fset,
-> +			      const struct drm_bridge_funcs *funcs)
-> +{
-> +	void *container;
-> +	struct drm_bridge *bridge;
-> +	int err;
-> +
-> +	if (!funcs) {
-> +		dev_warn(dev, "Missing funcs pointer\n");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	container =3D kzalloc(size, GFP_KERNEL);
-> +	if (!container)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	bridge =3D container + offset;
-> +	bridge->container_offset =3D offset;
-> +	bridge->funcs =3D funcs;
-> +	kref_init(&bridge->refcount);
-> +	bridge->is_refcounted =3D 1;
-> +
-> +	err =3D devm_add_action_or_reset(dev, drm_bridge_put_void, bridge);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +
-> +	DRM_DEBUG("bridge=3D%p, container=3D%p, funcs=3D%ps ALLOC\n", bridge, c=
-ontainer, funcs);
-> +
-> +	return container;
-> +}
-> +EXPORT_SYMBOL(__devm_drm_bridge_alloc);
-> +
->  /**
->   * drm_bridge_add - add the given bridge to the global bridge list
->   *
-> @@ -209,6 +260,10 @@ void drm_bridge_add(struct drm_bridge *bridge)
->  {
->  	struct drm_bridge *br, *tmp;
-> =20
-> +	DRM_DEBUG("bridge=3D%p ADD\n", bridge);
-> +
-> +	drm_bridge_get(bridge);
-> +
->  	mutex_init(&bridge->hpd_mutex);
-> =20
->  	if (bridge->ops & DRM_BRIDGE_OP_HDMI)
-> @@ -257,6 +312,8 @@ void drm_bridge_remove(struct drm_bridge *bridge)
->  {
->  	struct drm_bridge *br, *tmp;
-> =20
-> +	DRM_DEBUG("bridge=3D%p REMOVE\n", bridge);
-> +
->  	mutex_lock(&bridge_lock);
->  	list_del_init(&bridge->list);
->  	mutex_unlock(&bridge_lock);
-> @@ -266,6 +323,8 @@ void drm_bridge_remove(struct drm_bridge *bridge)
->  			br->funcs->bridge_event_notify(br, DRM_EVENT_BRIDGE_REMOVE, bridge);
-> =20
->  	mutex_destroy(&bridge->hpd_mutex);
-> +
-> +	drm_bridge_put(bridge);
->  }
->  EXPORT_SYMBOL(drm_bridge_remove);
-> =20
-> @@ -326,11 +385,17 @@ int drm_bridge_attach(struct drm_encoder *encoder, =
-struct drm_bridge *bridge,
->  	if (!encoder || !bridge)
->  		return -EINVAL;
-> =20
-> -	if (previous && (!previous->dev || previous->encoder !=3D encoder))
-> -		return -EINVAL;
-> +	drm_bridge_get(bridge);
-> =20
-> -	if (bridge->dev)
-> -		return -EBUSY;
-> +	if (previous && (!previous->dev || previous->encoder !=3D encoder)) {
-> +		ret =3D -EINVAL;
-> +		goto err_put_bridge;
-> +	}
-> +
-> +	if (bridge->dev) {
-> +		ret =3D -EBUSY;
-> +		goto err_put_bridge;
-> +	}
-> =20
->  	bridge->dev =3D encoder->dev;
->  	bridge->encoder =3D encoder;
-> @@ -379,6 +444,8 @@ int drm_bridge_attach(struct drm_encoder *encoder, st=
-ruct drm_bridge *bridge,
->  			      "failed to attach bridge %pOF to encoder %s\n",
->  			      bridge->of_node, encoder->name);
-> =20
-> +err_put_bridge:
-> +	drm_bridge_put(bridge);
->  	return ret;
->  }
->  EXPORT_SYMBOL(drm_bridge_attach);
-> @@ -399,6 +466,7 @@ void drm_bridge_detach(struct drm_bridge *bridge)
-> =20
->  	list_del(&bridge->chain_node);
->  	bridge->dev =3D NULL;
-> +	drm_bridge_put(bridge);
->  }
-> =20
->  /**
-> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-> index ad7ba444a13e5ecf16f996de3742e4ac67dc21f1..43cef0f6ccd36034f64ad2bab=
-febea62db1d9e43 100644
-> --- a/include/drm/drm_bridge.h
-> +++ b/include/drm/drm_bridge.h
-> @@ -31,6 +31,7 @@
->  #include <drm/drm_encoder.h>
->  #include <drm/drm_mode_object.h>
->  #include <drm/drm_modes.h>
-> +#include <drm/drm_print.h>
-> =20
->  struct device_node;
-> =20
-> @@ -863,6 +864,22 @@ struct drm_bridge {
->  	const struct drm_bridge_timings *timings;
->  	/** @funcs: control functions */
->  	const struct drm_bridge_funcs *funcs;
-> +
-> +	/**
-> +	 * @container_offset: Offset of this struct within the container
-> +	 * struct embedding it. Used for refcounted bridges to free the
-> +	 * embeddeing struct when the refcount drops to zero. Unused on
-> +	 * legacy bridges.
-> +	 */
-> +	size_t container_offset;
+- Anything that is internal to KVM moves to kvm_host.h. Eventually,
+  this could move to a kvm_internal.h that is nobody else's business
+  (just like we have a vgic.h that is not visible to anyone).
 
-This shouldn't be in there. You can create an intermediate structure and
-store both pointers for the action to consume.
+- include/kvm/arm_pmu.h dies.
 
-> +	/**
-> +	 * @refcount: reference count for bridges with dynamic lifetime
-> +	 * (see drm_bridge_init)
-> +	 */
-> +	struct kref refcount;
-> +	/** @is_refcounted: this bridge has dynamic lifetime management */
-> +	bool is_refcounted;
-> +
+And since I like putting my words into action, here's the result of a
+10 minute rework:
 
-I'm not sure we want to treat both paths separately too. It'll require
-to update most of/all the drivers, but it's not too hard with
-coccinelle:
+https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/pmu-includes
 
-virtual patch
+Not exactly rocket science.
 
-@@
-identifier f;
-identifier b, c, d;
-expression bf;
-type T;
-@@
+	M.
 
- f(...)
- {
-	...
--	T *c;
-+	T *c;
-	...
--	c =3D devm_kzalloc(d, ...);
-+	c =3D devm_drm_bridge_alloc(d, T, b, bf);
-	...
--	c->b.funcs =3D bf;
-	...
-	drm_bridge_add(&c->b);
-	...
- }
-
-We need to add a bit more variations (like kzalloc vs devm_kzalloc,
-drm_bridge_add vs devm_drm_bridge_add, etc.), but it should be a good
-first approximation
-
-Maxime
-
---onr6klnz6qtdrilr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6Xy2wAKCRAnX84Zoj2+
-dlxoAX9TP8qOkQ0zoddMR5ii8MgL64pt6E8LkMYScFxgRiGlWE8FkjffkXmD5uAv
-LRbGvWEBfRh9LAS0twZb7UV9k+bsXBpO84KxLkYUPBuu0xs2nRUYsfKm7hu2pw4l
-lZArDO243A==
-=F2Te
------END PGP SIGNATURE-----
-
---onr6klnz6qtdrilr--
+-- 
+Without deviation from the norm, progress is not possible.
 
