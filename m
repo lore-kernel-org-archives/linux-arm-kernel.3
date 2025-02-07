@@ -4,103 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F0CC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A61C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ffr0OMCgv5rw2MLpHSX7E1qg3OY60t4awxWCHQtHUac=; b=iVpIHGUhojq3Co8/MyYBM77N14
-	Zi5prHkge0ayZS3tmw9GFMLJB22S93D+nBJ6WdC1efnLoMv54SUQ4NretejBzGXu/2iEmHhGiTiDq
-	aJsH+Q5EAeDruxfkLoe+30mWXgNl4wdtNQluS0zrsGXAvHWSlpCcNEie3bNgba9YQSLR8hbkPP+mo
-	vC/PrArFeD5LukMYEGiRNQL4a33rA9+VymbyEt0DdXeP/TZe/jbM0fDwZs6WwWs8T57zYL4rXjpoc
-	tzMqvuu5Y4r4e4BS6XQF5yTAKhRy4d8E5F1hgWJY1nH0A09Fld7hBaadUF2xCmj13AADX4JXtqr6Z
-	DSkInWkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hQ8V9KXvhygSj/cIkAlhhxlgO75Xj/X7PeQoxRpjPcs=; b=q+opKAT9XWJGxS
+	e8GLjOj02PfAgHrShVVAXXw+K8jNcvWXzLP4AiHcLa1ueuom3Gud+rxNlbh18u5qMfFNy/WnbFteq
+	QFUW3MYbWexna50qFW+ujgd+IEzR2eEy1wW9vh3Uxh6Gj55T+czmr7Ftdh5exSlBrXn99kN3rgZGQ
+	dJfNzDjihSeEr252rLLg57Esk+s0D1J9xoSjutsXZrK27ALS4/miOgvxd7cZB7RzEx37hh7D/a8Af
+	uz/FOnkXWqnKtSD0jnGiytkLDf8M1vDzXw+HljokVqGMkQHSt0PWBI+L6+09BK02AcodYxeYk+xZO
+	UHLfe+OXc7ybOYWuoWHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJWI-00000008mRe-0PmW;
-	Fri, 07 Feb 2025 08:15:26 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tgJfy-00000008o48-3ui2;
+	Fri, 07 Feb 2025 08:25:26 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJUu-00000008m8y-03D1
+	id 1tgJea-00000008njb-45oA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:14:01 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-438a39e659cso11390485e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 00:13:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738916038; x=1739520838; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ffr0OMCgv5rw2MLpHSX7E1qg3OY60t4awxWCHQtHUac=;
-        b=guaslo/auxQyaNOWSGQtg9fVtVAy6kFjVvZdk/XyEjCmy2FK6RUnKZKiMOHU5H1y49
-         I4GWmlMTLKeNkHJd0iqPXa5QF247jH8AmtJmXEQPZ9aLIVMWZUDuijF1UwXr2mv0ggtO
-         SFYEapCHSsBxMywHvPVg2EMchVz6xcpre0B0WDFYoQ4dIM2Br7VkLlNmVDT1V2Dw+vYc
-         23UjPPvzet404WwZC277/HH8xV0R72tZm4JnUnQbuVCbnlw5RS+nPu5488NQ8qEDi8Jb
-         cLl/6BQCZ9DyxgshpD12UUeOQBRzYkknd4mASbI3Bqnt4Ypxsj02DpMTAS51dJG4GpHD
-         iTfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738916038; x=1739520838;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ffr0OMCgv5rw2MLpHSX7E1qg3OY60t4awxWCHQtHUac=;
-        b=EwghQyCH6r07GsvDE70c5jZCJJ4tLhkyj6Y+4e7ThEQjwMyqn9fI8NpGByELndUxaM
-         ONrxoR1nklAmT4AHu2gNP35eTVVvvihb5pPePF8XmLHPHZwQndEmmdNfwxk55OAc802j
-         u5P4wMI+AD7huMuGc1XNQZY+jjdXABLFfAYDIp9hgGHdMutwZ7aucXKUxrm1Q5q4A2BQ
-         BYzbineN3lOMlR0lPRZQ5QuzfFVALdKPgaayvhueBhvXzXjfXwxO3D1rANu0LsNtuYp8
-         wQDRuaBiNraEEB7Lh5YWdSU90OGkMPJPU5/9X6dcE4EhCbeJAVbZiUi5C+nfSQwoySay
-         40UQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXF7Sj7riVzxoVbDoR4ohz6isI3Iq0zPiMkkk0YaP717lwqAgNS7szDAv+xN/fdaw6dnh3bUosE84oDVl0WIgMO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0qnwfPdyl6nng48quJqj5dvIjmrKj7oW2PRIdyJ75UbZ582Pv
-	p2adrpqZPcyYB8pPzA6A6OtsfRSBHGtpg2Ne9ZJ7JE35ARM4qBHuqP+XolSspgHUBkC3BHseEUD
-	20hY=
-X-Gm-Gg: ASbGncv8H+f+NIL+1pShXC9kkv+sxeXZeovDD2TSm5+VGMWpNI1bBpmnlfHO7HTSZ9x
-	WIAtbKeMfFmxxex8GUuhq79udftwCNid4rQPrL0s6dsDSY583MKacjuwuydxSOV0SLFphBdcju4
-	79DAe5BnsUWGx9UYbF5L5DTSckypukaKmPW1JWRzuqPpPjXv3itt97qp8Kfe6YZDBWba1Jg4+8B
-	6Vq+ZFbF+KWd5aeeGPaFSjDsg+JuXHXsSNxDnSxVPnhA5EGoESwZ7CsJKnmxWyWxijtMf6MTo7R
-	whMyLn+I3z5H7Udo/jv4VNkMbHMoZnJn8elXzHbNyriEnEEE8ClVWVJGghbD
-X-Google-Smtp-Source: AGHT+IEGr/YRTYNXaAzVLspq4nx30yqY6bs6EtU6OBmGn64/zPMRjPnpKtSGL4mxDnpbYdH0c6ehyw==
-X-Received: by 2002:a05:600c:35c5:b0:438:e231:d35e with SMTP id 5b1f17b1804b1-439248b6ebamr20948965e9.0.1738916038069;
-        Fri, 07 Feb 2025 00:13:58 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc09fc2d9sm3167994f8f.6.2025.02.07.00.13.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 00:13:57 -0800 (PST)
-Message-ID: <d03581a9-495d-47df-99f2-96065b06ee8f@rivosinc.com>
-Date: Fri, 7 Feb 2025 09:13:56 +0100
+	Fri, 07 Feb 2025 08:24:02 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Fri, 7 Feb
+ 2025 16:23:51 +0800
+Received: from twmbx02.aspeed.com (192.168.10.10) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Fri, 7 Feb 2025 16:23:51 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: <eajames@linux.ibm.com>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
+	<andrew@aj.id.au>, <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3] media: dt-bindings: aspeed,video-engine: Convert to json schema
+Date: Fri, 7 Feb 2025 16:23:51 +0800
+Message-ID: <20250207082351.1298990-1-jammy_huang@aspeedtech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/21] RISC-V: Add Ssccfg ISA extension definition and
- parsing
-To: Atish Patra <atishp@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-9-835cfa88e3b1@rivosinc.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-9-835cfa88e3b1@rivosinc.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_001400_053178_35FF4CD8 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250207_002401_015405_4DB3E4D0 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,81 +64,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert aspeed-video.txt to yaml format.
+Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
 
+Additional changes:
+- Two phandle properties, 'aspeed,scu' and 'aspeed,gfx', are added for
+  video engine to capture video from sources other than VGA.
+- Update examples and include appropriate file directives to resolve
+  errors identified by `dt_binding_check` and `dtbs_check`.
 
-On 06/02/2025 08:23, Atish Patra wrote:
-> Ssccfg (‘Ss’ for Privileged architecture and Supervisor-level
-> extension, ‘ccfg’ for Counter Configuration) provides access to
-> delegated counters and new supervisor-level state.
-> 
-> This patch just enables the definitions and enable parsing.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/include/asm/hwcap.h | 2 ++
->  arch/riscv/kernel/cpufeature.c | 2 ++
->  2 files changed, 4 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index b4eddcb57842..fa5e01bcb990 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -103,6 +103,8 @@
->  #define RISCV_ISA_EXT_SSCSRIND		94
->  #define RISCV_ISA_EXT_SMCSRIND		95
->  #define RISCV_ISA_EXT_SMCNTRPMF         96
-> +#define RISCV_ISA_EXT_SSCCFG            97
-> +#define RISCV_ISA_EXT_SMCDELEG          98
->  
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 8f225c9c3055..3cb208d4913e 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -390,12 +390,14 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->  	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
->  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
->  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> +	__RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
+Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+---
+ v3:
+  - Add Additional changes into comments.
+  - Remove | after phandle description
 
-Hi Atish,
+ v2:
+  - Update patch subject
+  - Add NOTE for false positive warning
+---
+ .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
+ .../bindings/media/aspeed-video.txt           | 33 --------
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 85 insertions(+), 34 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.txt
 
-based on your dt-binding commit, if smcdeleg depends on Sscsrind, Zihpm,
-Zicntr, then you could add a validation callback here:
+diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+new file mode 100644
+index 000000000000..93917c9ecfc3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED Video Engine
++
++maintainers:
++  - Eddie James <eajames@linux.ibm.com>
++
++description:
++  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
++  capture and compress video data from digital or analog sources.
++
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2400-video-engine
++      - aspeed,ast2500-video-engine
++      - aspeed,ast2600-video-engine
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: vclk
++      - const: eclk
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  memory-region:
++    maxItems: 1
++    description:
++      Phandle to the reserved memory nodes to be associated with the
++      VE. VE will acquires memory space for 3 purposes:
++        1. JPEG header
++        2. Compressed result
++        3. Temporary transformed image data
++
++  aspeed,scu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Specifies the scu node that is needed if video wants to capture
++      from sources other than Host VGA.
++
++  aspeed,gfx:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Specifies the Soc Display(gfx) node that needs to be queried to get
++      related information if video wants to use gfx as capture source.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/ast2600-clock.h>
++
++    video@1e700000 {
++        compatible = "aspeed,ast2600-video-engine";
++        reg = <0x1e700000 0x1000>;
++        clocks = <&syscon ASPEED_CLK_GATE_VCLK>,
++                 <&syscon ASPEED_CLK_GATE_ECLK>;
++        clock-names = "vclk", "eclk";
++        interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++        aspeed,scu = <&syscon>;
++        aspeed,gfx = <&gfx>;
++    };
+diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/Documentation/devicetree/bindings/media/aspeed-video.txt
+deleted file mode 100644
+index d2ca32512272..000000000000
+--- a/Documentation/devicetree/bindings/media/aspeed-video.txt
++++ /dev/null
+@@ -1,33 +0,0 @@
+-* Device tree bindings for Aspeed Video Engine
+-
+-The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
+-capture and compress video data from digital or analog sources.
+-
+-Required properties:
+- - compatible:		"aspeed,ast2400-video-engine" or
+-			"aspeed,ast2500-video-engine" or
+-			"aspeed,ast2600-video-engine"
+- - reg:			contains the offset and length of the VE memory region
+- - clocks:		clock specifiers for the syscon clocks associated with
+-			the VE (ordering must match the clock-names property)
+- - clock-names:		"vclk" and "eclk"
+- - resets:		reset specifier for the syscon reset associated with
+-			the VE
+- - interrupts:		the interrupt associated with the VE on this platform
+-
+-Optional properties:
+- - memory-region:
+-	phandle to a memory region to allocate from, as defined in
+-	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+-
+-Example:
+-
+-video-engine@1e700000 {
+-    compatible = "aspeed,ast2500-video-engine";
+-    reg = <0x1e700000 0x20000>;
+-    clocks = <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_ECLK>;
+-    clock-names = "vclk", "eclk";
+-    resets = <&syscon ASPEED_RESET_VIDEO>;
+-    interrupts = <7>;
+-    memory-region = <&video_engine_memory>;
+-};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 896a307fa065..7e59daa1e89d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
+ L:	linux-media@vger.kernel.org
+ L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/aspeed-video.txt
++F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ F:	drivers/media/platform/aspeed/
+ 
+ ASUS EC HARDWARE MONITOR DRIVER
 
-static int riscv_smcdeleg_validate(const struct riscv_isa_ext_data
-*data, const unsigned long *isa_bitmap)
-{
-	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSCSRIND) &&
-	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZIHPM) &&
-	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZICNTR))
-		return 0;
-
-	return -EPROBE_DEFER;
-}
-
-__RISCV_ISA_EXT_DATA_VALIDATE(smcdeleg, RISCV_ISA_EXT_SMCDELEG,
-riscv_smcdeleg_validate),
-
->  	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
->  	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
->  	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
->  	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
->  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
->  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> +	__RISCV_ISA_EXT_DATA(ssccfg, RISCV_ISA_EXT_SSCCFG),
-
-Ditto for this one with Smcdeleg, Sscsrind, Zihpm, Zicntr, Sscofpmf,
-Smcntrpmf.
-
-Thanks,
-
-Clément
-
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->  	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
->  	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
-> 
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.25.1
 
 
