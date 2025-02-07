@@ -4,190 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF58C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55472C0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9X+knquTO9ej4q47PyzzFDdPAOxwjpKgKMQpW/RBiI=; b=w+w1N/fBK05KsSB1rTNdSv6/hA
-	j8z4Q6KgKQBWw+QuYf1zoG4Uk7XgkbDj5l7bHLT0RJVea3qizVAh7lsWZPYu8dyFoV7TO45SxWFJe
-	hnoY2rqnIQab6sbdQf7rnrPEJvjiR+cLZCAy2iZM+KhAjXbbrtZh44SJ2shMu60kUK7CrcsRiFF7l
-	YMXbka7FkKthbeNM/A4I+XrqnY6pDwn6nI3TZHs/pBYvyTpvpS+jddQHcM97MnJowwhlblXOwiZOL
-	NdobXheQnAXqRKu6raqbZ7hGg7wEtdYnEH9dEW1mNE0QP6g0SKD08BI/gnTyWL+1S8JgFdPXlIyhZ
-	bOAkcmPA==;
+	bh=6ru1wvh36CbOfubIqIyD+5sQyMz21Y8aZYTgm/d3+5o=; b=F3fdq19k7gwAELnt8YY4p2DUbO
+	G2YLXojXjIT+G+Nedgm3UsvYKkWlwjUG1rN0pbEy8q+kaZl4w48+VW8PeWvnZcud5RmJADHzdmnfX
+	hKGaQQoq5nafwcn1KH/uCMb8j2O1Yj6UXsq7ZArOgh7oqqb6p6wGLnwOIQB38uRAShRvraTq5Vo4z
+	yskVnImrqswLi5/HsGRZ5G8gl/EO+0QSqfOAl6HBT5/n+bblZd0CndYnSEJHZYWZrEejw0e55YdCq
+	6pmP308sF2oQ0RyVOvjIJtk3qGuKICmbT4CcdkHss6ec81Xzrvd2WP2IpvtaGFaoXRafYrBovh53l
+	0Z8xf3Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUyv-0000000B49m-0sw2;
-	Fri, 07 Feb 2025 20:29:45 +0000
-Received: from mail-vi1eur05on2061a.outbound.protection.outlook.com ([2a01:111:f403:2613::61a] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tgUz2-0000000B4N9-1VzW;
+	Fri, 07 Feb 2025 20:29:52 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUEZ-0000000AwSg-3Zts
+	id 1tgUQW-0000000AzPW-2bHu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 19:41:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iNw3ygOJ1ZfP0mVpIUzXp9+p2FTu18osspXj3maX2zNbGw4vU7JZPV+GjeXJ6QgQmADYuIsylEuQ+cfXXFKLBVcO6i2DbeEyeepEHBUr9a0bIrpH2RS1Sb5FrC7XbxfA2on0kqSgb/h6fzKu4pFnQOhtc0XQXmwQ4+AjRQjJjiomZv2IjQsAJN192jOdTfhCjefgHlHtWm6ECr2N8Uk5Rr+VVxfSHRHGnUaKEWBToarA8IxWIWJjzkwWJI20m/CwlXHeojbTVF9qRY+NurdZwJ14NtzqE49bC6qGCcxBVpGjJvJx4wrKUEElUx+PwANnW23eJp3Fa8GS4IMeMBJllg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T9X+knquTO9ej4q47PyzzFDdPAOxwjpKgKMQpW/RBiI=;
- b=uqybQ0Q3nLLAExw7T7socxMKtfzUWxQ7JZzR4zgNJVUwCQolbtuzxsVw88KwXYwLQSDRmtzZR1SufbtmjmQeKLVwmEQLL6FI5sXrEpbYSia7b/kbeyObB6V32o/aNYAq26e4YYzaV3sEqOHS0PcXfiMW2+8Tq8eJHhczPeA9H4tiReuwo7Es6fYC47BRoWt22ZWS19YcD4AnUfVNrRGPCOtKew0i3ZobKmCPmF0jqM721WNdkKZmhOVGlrQga7N6D9CZjqx7DF8Bd5cQZrqOKhECuBB2VfySKaKUoKJXgaw4t7zs0pwbbKru+nRrXKjNj8lelvdlYQsQ1rTA7zwabQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T9X+knquTO9ej4q47PyzzFDdPAOxwjpKgKMQpW/RBiI=;
- b=RDTHJxCpi6DMakspRocnB6DDSw+ESvEj/lHMyYixWQ0l+BhXncvLY6s85zic05+6+9LaLM60daeManF9xA68pxWX3GQyZ/UnslvlANTCydyGQQ/bwA2XkpkNzAmTcxSnXWbdPMLnPnjKVk/uYBnuGATcXB2STYIqeuFjRMisXiYx6pcGOxx+w1T4O/JuBWwFxTk2U4B+vwgq6f+4AJItLCUvUAyzNw0ovg25kIOHWh9F0eyntUYEMQFlagR3Q3uZsgxN3KBDcS9CO4wQe3AIp58gMriD94V3JDE6Dqsc3uwMPntag4ARPDaPX2RCL2TBplT9hl/+cF8xTAyJxwsugg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
- 2025 19:41:49 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
- 19:41:49 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 07 Feb 2025 14:39:55 -0500
-Subject: [PATCH v14 13/15] pci: imx6: Add LUT setting for MSI/IOMMU in
- Endpoint mode
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-ep-msi-v14-13-9671b136f2b8@nxp.com>
-References: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-In-Reply-To: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738957203; l=1452;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=oN0Pxva54y+kREmFI8Y3KVwAsrcH8/SuevTvoVVNFtQ=;
- b=Tkoj5Yfjky1aQVj0oiXNY3c5Nb5ydpEKX8yeKfFmyBTbAVkBjtwG9MzFYoFA5pjIywVNMHSyM
- AEeqvp1c3RCAfWHbGa9k0qCpqCHBiafGZcy7YMOCT+mu8zdpZ75QWUm
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 07 Feb 2025 19:54:13 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-543d8badc30so2907287e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 11:54:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738958051; x=1739562851; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6ru1wvh36CbOfubIqIyD+5sQyMz21Y8aZYTgm/d3+5o=;
+        b=IDE/kOLHBSfWAX5VQIwibcTbwZxWO8DdrNu/lakmwi79pFCS7/Qn9vUaJmiz7xb4vW
+         VRhe0694VIwqreyoeZNQ5lCJ5jnYZX0qeXn0XaNt+iUjRUAHVnW1ejUjqucHmjeLCj5m
+         H5TQYyI4HZDPJRyIMZN2q6mzzMZ/Hs3uCQTuxvaJA6sLzOzCEqIq4L8je4uuRn3mUUWJ
+         YTRTAd4ndXighkdKwb3H8wRY0draai2Vv0MyT5gN2BOwu/oYSjypsecKhm8gWXsrf+9U
+         ng8RE6QuvCjTSct7Kbo/ASmbRUZaHSc9aQHhmr3uWEWkKIp4+X6CSTsQ7wDej9fcUHr3
+         mbKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738958051; x=1739562851;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6ru1wvh36CbOfubIqIyD+5sQyMz21Y8aZYTgm/d3+5o=;
+        b=IZZvipqru31vS2B4D3CpNhVw8L0+FZEZPkwbih/pjUKAdzH7/xke9G42dZYD+YuCbk
+         XWQ1lRAWClYr5oOLf+L69eSDJGiXzO2Tsv7upl2TWR04k883DHsPD/HFxkHfIGb4P4Av
+         WYsseYq/eEoQrI5BSA08SsLtU4Os8Wr43E2MzTh9hVelznCSpIab2WUjkCdtAZoTNhpO
+         NAr6vMWNMhuIkIb3Nyx00gHPJu5RX8w4Wa0VrZ0EyExHOZmLOlIQsK6vZJLSjihknS/w
+         HmUN78+7DJw6Zi76Kuig5oK2svi72vXyt1t0/Nm5UeswFEScrRcLdXYw/k0SZ86HPY0N
+         atuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXzDs8rLnZpZ11asYryS4FAjotmgrMyBcmhw+uyUSW83riejtlK0QlYmq2cuoDO/GLFIrPSc6SsvbK76wG8MkUs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqic7LNzJpi263WN0UrLz4Mf6jV+vuJlgvp/2TdfM2J6afmT+u
+	zCQZ9LlyxuLQv7JczJsutCvmkEFs7QNVEVUvFBMtyA59HfqB4HKuOsAG04XMXqw=
+X-Gm-Gg: ASbGncuUErb1jfdKRyGxnULpnf+402Zqt8hnYKChFipq9kOY35PJRhfXcMWII/8iQuY
+	Bm1l9TVHgwjeWVlgyKAWWOCqyGziwWBvicr365QF+MZijV9+V6gNWaoYv3ffKQ+Jy9+8lrYKvul
+	c8iujleVRVYWjt4+PDS1wxLW/Do3MhxjsOT/XeMH823XE6DxeMkv1WjcS5iM06DlKNeHS6iZMuv
+	b8NeP0GmaOlQm1DS+eUVtLniTsq4JibSeKnyozfLmmA53YbUcFEgsfNSYu6Szq+Yd1+1NI5Y7LL
+	t9jDjYYG+YAfCpvTm183TGExevjWOqMzCLPt6DgKp3u+sLu3lxrMR57ZFpfN3poPDdrTfJk=
+X-Google-Smtp-Source: AGHT+IFAea/MRPW5NqZuydSkxXmqLttpsbttAcYS0zhETRXM+wh1dfpRWMrPcOicMETtA2XEcZqpWg==
+X-Received: by 2002:a05:6512:108d:b0:540:2a92:7da9 with SMTP id 2adb3069b0e04-54414ab5605mr1626033e87.21.1738958050673;
+        Fri, 07 Feb 2025 11:54:10 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54502a4efa2sm58959e87.195.2025.02.07.11.54.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 11:54:09 -0800 (PST)
+Date: Fri, 7 Feb 2025 21:54:06 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Maxime Ripard <mripard@kernel.org>
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+Message-ID: <ucttjaf3trkgtpvhnsj7xfsybhnoi4qqow5ucwghlggivbagy7@gngjhbtu73lb>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
+ <20250207-ingenious-daffodil-dugong-51be57@houat>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9787:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14b508c1-9d98-4761-2c85-08dd47af7677
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M2N2WDBkaUlUOCsyVlRjVnZXV0ZVZlNPcTY3TVVrWlZwZlhUVGxDa0RORXpS?=
- =?utf-8?B?TTJrMHJRTXJRR0NNdEZHdDRnRi9tbDlWbE1zRUZ4VHUxWXdHRXpMV1FRQndl?=
- =?utf-8?B?Ky9LQ3l4ZjRQT3N2cXY0NDFFc214VXFKQTF4RGVUSHBvY0NDWWF4MWc2WU1t?=
- =?utf-8?B?a1BRZWF0MGVZbUZJVkpjUlNXVmQxMVZmSjFITytOcGw0eS9NN2NNR1hCcjN1?=
- =?utf-8?B?dHdFV0QyVUtadGN0RDdjeVczUUhJb0FROFIzbHhOQWo3Tzc1OE1ySDl4eUpW?=
- =?utf-8?B?SlhKaXFsaGhBd1o0T0RsNnZadjNQU2RsQnZFcitBUCtJUVdLT2pEWGhRU3R3?=
- =?utf-8?B?a0I3eDNrc2syTTZoWkI5WUd1bG9TWlpJdVNveHZCRnM0MmtSNWovZXZzWk5N?=
- =?utf-8?B?MVFGL0FsZ2pEY1U3R2dMckNwQ3BJTlVNVXJkeERnb2tpbFREWmwxZm5jZlpm?=
- =?utf-8?B?RVhKUFBhTDJNUzJMQjl1UEVUek1pTnpja2ZLSTgxRXQrVlFFMVprMFVLQmJa?=
- =?utf-8?B?dHBmSGVoZEFwcklEZzJONkE4eWRHdUdISlJQcGZGUER0eHVKdEtqQXZuMjVN?=
- =?utf-8?B?REVuMVV5TDhMUFY3MXE0K2x4T0hlZ1hLc2tQblU1Ky9tMGQwOUdQWkNYbXZn?=
- =?utf-8?B?bmJDTlR6UGpYeUI3VTNsb0lVdGFDYmpTbHR6MmdlQVp2U2lwMUlmTG1jMXBs?=
- =?utf-8?B?WFhLS09SN3E1OXhreGRyOHV1R09KeFBWcWhCeUEvNlZqNnlIb3JsNlJaelhK?=
- =?utf-8?B?NWdDT3V6cnBzWlc3QzJUZkVmTGdLR1NYRkgwVkRKZnBzSFlxaDY5UDIvQ0VN?=
- =?utf-8?B?cC95aW5CK2w1ZTY4OG41cldkOFlnMnlDdEdaejkwalhCNEJqVG4xUUFHWlky?=
- =?utf-8?B?cjVtRG5lNGJzVVgyTmFiaExCbjdEeElhOURSYldSYjJOaENpZnJwZnBWdHFm?=
- =?utf-8?B?OGRHcFdXZGNrTHpnZVROcWRVQUtBTUxjaTRkZFp5aFdGQ01vcU1EQkpHVnhJ?=
- =?utf-8?B?bEpHSlQra3krL1NwMGxlTzl1ZnRQNkdNSUhuTnRIK3RNckFZelhCOHF2WUMr?=
- =?utf-8?B?Z3FOcmZDUmVKUXNWc1ppZmxldFAzeXlRdytaYU1TWFhmcjFtNUtjejZnTzVj?=
- =?utf-8?B?ay9JVUMvZHlJQStXMlBUTnQwK3lxS3MwOWNEY1RxejY0UUd3YzZNdE4wVnZN?=
- =?utf-8?B?RWZmREtsNXpNbk94aE44R3ozQnpaWTduKytvWG5zSEdRRWxlQU5KOVBlb2hJ?=
- =?utf-8?B?U3dOSWJPYUdNVUE0V3RiMmJkejRmQTQ4Uml4YjRNWE5tRStqL0tUS0tRMDZj?=
- =?utf-8?B?dVhqY01IMmVIYzFtcENjSHFqRUpSQlZINlRGaC9wdmNzdUpKVTBGRlFUUFZw?=
- =?utf-8?B?YTNwcy83bFROZU1jTzgrMVFvajV0SG9JMXgxUnc0ZEl6RWpwS2ovVlQrM01u?=
- =?utf-8?B?NzdIWEl3L3VuMmh5SGZWK0J4ZEVUM1RwTHhYVUlCNTRCQzR3bitzdHRqVkZW?=
- =?utf-8?B?elR0dU1uMDk5OU44QUp2RnlTSDNFNFVQeGFBWnhNZ0I4MmNuZ0NrOVJ1bEpQ?=
- =?utf-8?B?eE84ZlpXQmtoOTlsUERZcUNyQkUrMFBQOGdzdGJ0Zmlvb2lpalhQZE80aG95?=
- =?utf-8?B?SzlGTUF4UGl6emRQbjBlSjc2UkVQSHp4eFJEdUh4L0JLMUM2ZjlvbU5UU3hX?=
- =?utf-8?B?RXJSdmhjR0FLMnRadWo4aVFzcUNRZmVJMk5mMVY2Q1EzOHpha1VnMUNHU1NB?=
- =?utf-8?B?Qm5oZ0dRamQwLzg5akw2OEFZNEY1a2pFTjIvcHpzMktYNC92N2Q2TE1PcUZ5?=
- =?utf-8?B?TCtvL3VRenZTNEJ1WTVuZVFSWUVnZXp2MDhVOXRRd2puRUFmeDlMYU1UR1BC?=
- =?utf-8?B?QzRBTlFYVGdxSlZBakZQWG1KZVlad1RGaVZHZFRDRVc1cFVKaFBzTVpKdVNG?=
- =?utf-8?B?YmV6M0V1alJSeWxlQ1JrVHVOYk1iUEdvazMydDBDU0hvekUvSVZuYWJBU2xZ?=
- =?utf-8?B?c2NOdUV3RVRRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzMwb3liRkh1VWF3MjFQQVRmTUZiaGh1MzJFNkRBeUx2d1FUR3oxUUtmdFBL?=
- =?utf-8?B?aVJWRVFYQmN3M2pIQ094Y0I4dDhNZGk5K0Fvck5MKzlCakhibmp1RERGK0Yv?=
- =?utf-8?B?U0hPSTJmME05enlHQTdOUHQ3OU5Hb0pQQ0ZLRXRNRkRIeG9rZjBTYUNCdHVo?=
- =?utf-8?B?TW90bng1WTlzZkxvenhBbEgrdlZpeVUzS1RSS2FCR29LbVRiMThDclA3aUFs?=
- =?utf-8?B?K05PWTlISXhWUW9PRXZicTA5WHNYQ2hLTnB4VnNBdDZFN2EwT2YxRDBmNTMx?=
- =?utf-8?B?anUwRnlHTC9wUjlzaDAwTkcxZFEvYld3ZWJmSkJzbEg3akwyV01vTUpqb2hR?=
- =?utf-8?B?REJuQ3VNTURianhwSVdmVktWNzBJdHAyb1l2R2duekROOGxoa0VVaFRiU2hS?=
- =?utf-8?B?U2N1eGI3NCt2clVaT3dvMGxwRVpUNEtaYWFDQ3RPQ2twRUJ0cmRnQlVEcUJl?=
- =?utf-8?B?MDVEYWlVbHJkcVUzZ05zd3JxWTg5U1MxcTkxeEhLSU12dUphVFlZQWFjbTUv?=
- =?utf-8?B?NWpxbkxuR3kyWGttK2pvM0RiYVE5R2o2VzBNSDZwbFI5UUdRSkRTTGxENFJq?=
- =?utf-8?B?NWR4S1lMcSszZlpOWitvQ1ZpNDlpSTJxYzk4V010aUc5aGpMcXFhbEFGM3BX?=
- =?utf-8?B?YjI1eHFFQ0lBZTJNMGJJUGlRLzRuYjd3V2U3L0piaFNJanUxeTNIR1VTbEV1?=
- =?utf-8?B?OHNUYmFrOHM5K21nTk9EYmZ5dWZteGthbnRCY0xSRS9oclhRaHp6TXVqUitw?=
- =?utf-8?B?QVp4TDJFSDArRkRiSldSckQ1azR3RlZ5bmtobVA2RldvbnlXdDdhNTlUSWQ5?=
- =?utf-8?B?NmppY3ZkT0Y4dTc1L3dmMDRMVFVZZ3hLUklMdGJDam9WNk9jTk8yYXlQOGRm?=
- =?utf-8?B?V3VCN2MwUWdxc0JtRkhEK3RhQldlWVRpUGlQR1BnanBHc3Y0Q1NJRVcwdCt0?=
- =?utf-8?B?L2hCYkJsTTZrY3NTZ3ZsSjNmRmhoK3B5ZDRBU0hQVXdVNFFiWVM5bkZpaFF0?=
- =?utf-8?B?aE9QTE5JMkcvWE4wQjJPdHRpM1ltUndtS3l1S1o5UUpoaW9JaE1wRW0xQkta?=
- =?utf-8?B?SVB2Y1VlRUVhUWp1bWxlSVdQdWlZQURqQmZjSHdYZkl3RjRIMUp6VHhqZ2sz?=
- =?utf-8?B?MkZPSFhBRjI4Z3NMZzZEekxtMmNjbzNJR0JPaWJ4c0VLMDRQUFlweDF3LzJL?=
- =?utf-8?B?blU3ckRaaTBpL1k1V1p1RXJmc0pPYm50dTUyTDc4Wi9jQ1dmWEJZQnVLZTBZ?=
- =?utf-8?B?WDlRVmY1OStNS3dOdjBQSjFCQ0dIeTJIelhkNHNTK21BT0lOQ29XYld4dWJG?=
- =?utf-8?B?dDdDbUNZbmQzS1pMQnBvdmx4R1pnTEEzRGVmcythdDFySjczWDJnWlFwYUJN?=
- =?utf-8?B?dzRKNnlKTVp5ZzZ5ZktYSXZkYm1wV2U2QndJZnpsM1NuczVnL2M0akIwSHJB?=
- =?utf-8?B?MDhkQ3hxbm9LbG1YeUFKL0w4enNCUzhVanhyMksreGZRSDE1SUhDS2dLQUFt?=
- =?utf-8?B?SXNlckFuck9Famp2eUxZTmUxTDh6dnpJWml4dm52MTlwT2pObTVDRGVBbkxU?=
- =?utf-8?B?MlpJRUh5UzBZUTZsOU9iWjBIZnlUc0gvOXp2WGVqOGZhL2ZnTGRBeGN4K0dr?=
- =?utf-8?B?OXJ0dzhscDNaL0xNc1FaUktBSGIwS3lkNUYyei9ycVRudHB2RjR4dVh2cWI3?=
- =?utf-8?B?NzJWNUNMdzhmOXFtYWpzRHk3OVprR0dZV25yaHZ6My83OWN2NFZJME1ORGFl?=
- =?utf-8?B?eStyQ0JWN0ZqNFFmU3dKaS9SRkRTYzVGbG91bFN2Yks0WGxhNW1wOW5MQi8r?=
- =?utf-8?B?WWtlcHZ5aXJlc0QwWFR5dDhQRVkxa3lrb1FZRW8xRXZxSmFMNllkTkpmeWlT?=
- =?utf-8?B?KzFSK2MrYWRFak1ENDN2enRZalkwQnBKMjVoTEI1cmZsem0xT2Y0Rm0velE3?=
- =?utf-8?B?RklTM0VtUm1rSTk4OFF0eTRVcFR5VTlyaXR1VnhRMUdFTFhrcUs3RXB5Y2o2?=
- =?utf-8?B?K3kvMnNRZnpQTldROGViL2Y2ZTVDVlNWQjlGby9QUkhvalkrdS83MU1hOWhr?=
- =?utf-8?B?dXVWNXRJZE5TZjF3eEVIRFZXYnRxRkdXSWVVK29oRlFCN1FhNTg4UExqMFFx?=
- =?utf-8?Q?9Ag6YshCUEIZEyoHPAE37AFCd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14b508c1-9d98-4761-2c85-08dd47af7677
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 19:41:49.0402
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mBnSJVmKnKrRETgaLipxALeL7bZhVFVd8iPNGY2yXbKuVJd+TRvl43GtF8I90uG5ZcT4mhqJjOsRKRrCRczvCQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250207-ingenious-daffodil-dugong-51be57@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_114151_907617_4269481F 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250207_115412_662939_FAB8115E 
+X-CRM114-Status: GOOD (  44.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,48 +94,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support only one physical function, so call imx_pcie_add_lut_by_rid(0)
-to add a single LUT entry when operating in EP mode.
+On Fri, Feb 07, 2025 at 12:47:51PM +0100, Maxime Ripard wrote:
+> Hi,
+> 
+> On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote:
+> > DRM bridges are currently considered as a fixed element of a DRM card, and
+> > thus their lifetime is assumed to extend for as long as the card
+> > exists. New use cases, such as hot-pluggable hardware with video bridges,
+> > require DRM bridges to be added and removed to a DRM card without tearing
+> > the card down. This is possible for connectors already (used by DP MST), so
+> > add this possibility to DRM bridges as well.
+> > 
+> > Implementation is based on drm_connector_init() as far as it makes sense,
+> > and differs when it doesn't. A difference is that bridges are not exposed
+> > to userspace, hence struct drm_bridge does not embed a struct
+> > drm_mode_object which would provide the refcount. Instead we add to struct
+> > drm_bridge a refcount field (we don't need other struct drm_mode_object
+> > fields here) and instead of using the drm_mode_object_*() functions we
+> > reimplement from those functions the few lines that drm_bridge needs for
+> > refcounting.
+> > 
+> > Also add a new devm_drm_bridge_alloc() macro to allocate a new refcounted
+> > bridge.
+> > 
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> 
+> So, a couple of general comments:
+> 
+> - I've said it a couple of times already, but I really think you're
+>   making it harder than necessary for you here. This (and only this!)
+>   should be the very first series you should be pushing. The rest can
+>   only ever work if that work goes through, and it's already hard enough
+>   as it is. So, split that patch into a series of its own, get that
+>   merged, and then we will be able to deal with panels conversion and
+>   whatever. That's even more true with panels since there's ongoing work
+>   that will make it easier for you too. So the best thing here is
+>   probably to wait.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change from v13 to v14
-- new patch
----
- drivers/pci/controller/dwc/pci-imx6.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Luca and I had a quick chat on this during FOSDEM. I really think that
+panel (part of the) series can go in first as it fixes a very well known
+bug _and_ allows a pretty good cleanup to a whole set of drivers. With
+all those panel / bridge wrappers gone we should be able to see a
+clearer picture of what individual drivers are doing. In other words,
+which memory and which code actually hosts and uses internal
+'next_bridge' reference.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index e20d91988c718..adcca3e644332 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -995,7 +995,10 @@ static int imx_pcie_add_lut(struct imx_pcie *imx_pcie, u16 rid, u8 sid)
- 	data1 |= IMX95_PE0_LUT_VLD;
- 	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, data1);
- 
--	data2 = IMX95_PE0_LUT_MASK; /* Match all bits of RID */
-+	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE)
-+		data2 = 0x7; /* EP side's RID from RC, only 'D' is meansful */
-+	else
-+		data2 = IMX95_PE0_LUT_MASK; /* Match all bits of RID */
- 	data2 |= FIELD_PREP(IMX95_PE0_LUT_REQID, rid);
- 	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, data2);
- 
-@@ -1652,6 +1655,9 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		ret = imx_add_pcie_ep(imx_pcie, pdev);
- 		if (ret < 0)
- 			return ret;
-+
-+		/* Only support one physical function */
-+		imx_pcie_add_lut_by_rid(imx_pcie, 0);
- 	} else {
- 		pci->pp.use_atu_msg = true;
- 		ret = dw_pcie_host_init(&pci->pp);
+> - This patch really needs to be split into several patches, something
+>   along the lines of:
+> 
+>   + Creating devm_drm_bridge_alloc()
+>   + Adding refcounting
+>   + Taking the references in all the needed places
+>   + Converting a bunch of drivers
+
+The last two parts seem troublematic to me, but, I must admit, I didn't
+spend so much time reviewing all drm_bridge usage patterns.
+
+> 
+> > Changes in v6:
+> >  - use drm_warn, not WARN_ON (Jani Nikula)
+> >  - Add devm_drm_bridge_alloc() to replace drm_bridge_init() (similar to
+> >    drmm_encoder_alloc)
+> >  - Remove .destroy func: deallocation is done via the struct offset
+> >    computed by the devm_drm_bridge_alloc() macro
+> >  - use fixed free callback, as the same callback is used in all cases
+> >    anyway (remove free_cb, add bool is_refcounted)
+> >  - add drm_bridge_get/put() to drm_bridge_attach/detach() (add the bridge
+> >    to a list)
+> >  - make some DRM_DEBUG() strings more informative
+> > 
+> > This patch was added in v5.
+> > ---
+> >  drivers/gpu/drm/drm_bridge.c |  76 ++++++++++++++++++++++++++--
+> >  include/drm/drm_bridge.h     | 117 +++++++++++++++++++++++++++++++++++++++++++
+> >  2 files changed, 189 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> > index 1955a231378050abf1071d74a145831b425c47c5..f694b32ca59cb91c32846bc00b43360df41cc1ad 100644
+> > --- a/drivers/gpu/drm/drm_bridge.c
+> > +++ b/drivers/gpu/drm/drm_bridge.c
+> > @@ -200,6 +200,57 @@
+> >  DEFINE_MUTEX(bridge_lock);
+> >  LIST_HEAD(bridge_list);
+> >  
+> > +/* Internal function (for refcounted bridges) */
+> > +void __drm_bridge_free(struct kref *kref)
+> > +{
+> > +	struct drm_bridge *bridge = container_of(kref, struct drm_bridge, refcount);
+> > +	void *container = ((void *)bridge) - bridge->container_offset;
+> > +
+> > +	DRM_DEBUG("bridge=%p, container=%p FREE\n", bridge, container);
+> 
+> Pointers are not really useful to track here, since they are obfuscated
+> most of the time. Using the bridge device name would probably be better
+> (or removing the SHOUTING DEBUG entirely :))
+
+bridge device name or bridge funcs (I opted for the latter for the
+debugfs file)
+
 
 -- 
-2.34.1
-
+With best wishes
+Dmitry
 
