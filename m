@@ -4,51 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23527C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADD4C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maJU5qNEjaEiswoDyV4oNEhtOfWWutNcUuvM5zT5R6w=; b=R1PSUXDStzSYsUbLHcxGxccaDQ
-	B7mIG9cgCJh7oAOtriTipkaMlwVKAxdKYu14mIrHr2NukQ2nSnwX16lI2lDeyUXHaM5Jxz36cGIUm
-	sP4X8QeCMT6bwmXOhKjPX/TaZxWdZgy+afDlqH8+wkSRwcnir8z+s+k7e8WbGNRVMldCLyjkDxWqx
-	1JWFYrC3mfRNjhzOweQRtbyipftsuuX1Z1J6ok08nqJseulSUIFEAw/gak/IIuRcJmyFdSIbszUYB
-	eQGzlY+JHZBg+cnq/tPmQaymCUqmQNpkBKP1n2pVTgzohugTkr1JFdWzbPDCwhqtrs9cfm4aDBr2b
-	LMwdfOug==;
+	bh=vSY+UBE9kzGHPUbh5Y1nwA/QIwhXvgGkQmB5IgW7iD8=; b=gECneHrZqyag6+W0e5K5NCqJSr
+	CrLZdyEGxjDmF2XxVbhi6DFRqGo0HZl5jKccT0vn/dL1Ilw8hr9XvcXBxGGCHLxkWk44Ult4fYo/E
+	ExlpUqpDcl3XycnzVsr6ltt7+BaqKfIVodyChDUK6rJ6Xhpco//Aj0rPe/FbW/OJyRupV6tiLd6AV
+	vZOjmc1sBs8lq8b/RYKvKCDpNnb8wZj0ZlitsGkXjebdxYkhljClz8ZMEL2G6tNAwKpMrBuz2HtGr
+	/zPfHZN/NiO1sx5i2XGEKe6PFmcANcFv5xKWRJ4Onz1ksauBkRnnOBPN7W7QXfIbGQViMSx57uR5C
+	6ggdM7Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRHo-0000000AJ3c-2TvV;
-	Fri, 07 Feb 2025 16:33:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tgRJ9-0000000AJH1-3SE1;
+	Fri, 07 Feb 2025 16:34:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRBs-0000000AHJh-3inY;
+	id 1tgRBv-0000000AHK8-14Zg;
+	Fri, 07 Feb 2025 16:26:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=vSY+UBE9kzGHPUbh5Y1nwA/QIwhXvgGkQmB5IgW7iD8=; b=nnLV+fH3QgbE4NxH2MnzuOzcXp
+	AEUqh289SqdQcp1CGI8/2lemUy7JUg6wvk4YWVS7tTKTjaPSkfxtFtyY2Y81NhTdTE02wvt22AzpT
+	6gmCUdy5EEZvyFe7LsxoLIZVFjqZxHj6zHfgqb5AUKJRoAJRvkLsI+U2443VhKuzoq/csCDZ5Xd49
+	VkZJcYX3nPRaUhR9MLTQ2BAcu1bo54EyQlgSR/DAh1udOxp46rpyZARZNyxVXyJHe3UeHJYcxojvZ
+	PC7TGLfAERmo93bTf24H4o38n5N/eATokZ+xhq7kRrAFXHtmJfSmM0AbbfIQJbb4lo3NCY+V6wJe3
+	2w1WqRZA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgRBs-0000000HFsu-0iFe;
 	Fri, 07 Feb 2025 16:26:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 10C5B5C6E3D;
-	Fri,  7 Feb 2025 16:26:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A228C4CED1;
-	Fri,  7 Feb 2025 16:26:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 53AB25C5A66;
+	Fri,  7 Feb 2025 16:26:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F92C4CEDF;
+	Fri,  7 Feb 2025 16:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738945611;
-	bh=E5CgnPuNJDJJvPpS9f1NTAdUYTnxtSuro4juipSapFA=;
+	s=k20201202; t=1738945608;
+	bh=IpkbnQD0aqV4zTrDQLNPfko65wJI87nBEI5JGdjdZk8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=icKAtaL+Vm15czEPCnUaRzYUg8ggjcplZ4BpVsUJHQ8NJQKrviyEg5LgDJRCjqnF1
-	 fNSrSIES4Lf3gVwvXYwQ5N0VZvNzvrRJDS6voG6YH7ZKfdhaYlKSzy/Bxabd02q3KW
-	 iFGkZ/bvkgYYB324OEunmTxMeQK8K8FNZm934yIEwOxlWDoobvGniCVPENa6Jmce86
-	 d7NbT5xMoGFUOx8M9BqiqkbXT7qs3s+o0CKWXj6bPB03BoYNKVTc5MsxQ39AIIF4Mu
-	 8mOoLRHsT6FRRDmT82LKDIcZLma8lYz24cwztbvvIDYDwF9hYSMo0BfYB8SktkQby1
-	 7bWV9awGJ++Kw==
+	b=PdsnjcEqWOmaf3lNyOquxRA7g2Q/SWYbOO+V+nmqy3F7m3evMFZ1EmFA5JkyY88Te
+	 7qkzai8CMKLAk4qqtCli44fVojQ+5xw0Vwn6uMtosJ34/nhUxzqvm2vP8xlKrp7IsL
+	 SqCBCiuyCF2XX/g3MGBe/cecAgz+Rp+MJ6U2xxBeqzhsScqA5LnC5MTLjLtOysdzOF
+	 kvZQi+gyWw6GRxc7eqcfGuOyTjSp8VBqPicspjaGvV1KhZ5udfVkr0Y3fNBB//oNWQ
+	 lkTy3ZAZZDqNdzeGFdYktxbqXl+dPjxN1saQD5Q+FcHfmazIvu5TeascA/slkQGKhd
+	 Omo3+rR4j/05w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 07 Feb 2025 17:26:17 +0100
-Subject: [PATCH net-next v2 02/15] net: airoha: Move definitions in
- airoha_eth.h
+Date: Fri, 07 Feb 2025 17:26:16 +0100
+Subject: [PATCH net-next v2 01/15] net: airoha: Move airoha_eth driver in a
+ dedicated folder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-2-3a2239692a67@kernel.org>
+Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-1-3a2239692a67@kernel.org>
 References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -68,8 +82,8 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  upstream@airoha.com
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082653_011080_6F067DB8 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250207_162652_623195_23885B0B 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,542 +98,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move common airoha_eth definitions in airoha_eth.h in order to reuse
-them for Packet Processor Engine (PPE) codebase.
-PPE module is used to enable support for flowtable hw offloading in
-airoha_eth driver.
+The airoha_eth driver has no codebase shared with mtk_eth_soc one.
+Moreover, the upcoming features (flowtable hw offloading, PCS, ..) will
+not reuse any code from MediaTek driver. Move the Airoha driver in a
+dedicated folder.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 240 +----------------------------
- drivers/net/ethernet/airoha/airoha_eth.h | 251 +++++++++++++++++++++++++++++++
- 2 files changed, 252 insertions(+), 239 deletions(-)
+ drivers/net/ethernet/Kconfig                           |  2 ++
+ drivers/net/ethernet/Makefile                          |  1 +
+ drivers/net/ethernet/airoha/Kconfig                    | 18 ++++++++++++++++++
+ drivers/net/ethernet/airoha/Makefile                   |  6 ++++++
+ drivers/net/ethernet/{mediatek => airoha}/airoha_eth.c |  0
+ drivers/net/ethernet/mediatek/Kconfig                  |  8 --------
+ drivers/net/ethernet/mediatek/Makefile                 |  1 -
+ 7 files changed, 27 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 09f448f291240257c5748725848ede231c502fbd..a9074c6b55efc5c2fc1f09f8f8a6fdb34508d5cd 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -3,14 +3,9 @@
-  * Copyright (c) 2024 AIROHA Inc
-  * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-  */
--#include <linux/etherdevice.h>
--#include <linux/iopoll.h>
--#include <linux/kernel.h>
--#include <linux/netdevice.h>
- #include <linux/of.h>
- #include <linux/of_net.h>
- #include <linux/platform_device.h>
--#include <linux/reset.h>
- #include <linux/tcp.h>
- #include <linux/u64_stats_sync.h>
- #include <net/dsa.h>
-@@ -18,35 +13,7 @@
- #include <net/pkt_cls.h>
- #include <uapi/linux/ppp_defs.h>
- 
--#define AIROHA_MAX_NUM_GDM_PORTS	1
--#define AIROHA_MAX_NUM_QDMA		2
--#define AIROHA_MAX_NUM_RSTS		3
--#define AIROHA_MAX_NUM_XSI_RSTS		5
--#define AIROHA_MAX_MTU			2000
--#define AIROHA_MAX_PACKET_SIZE		2048
--#define AIROHA_NUM_QOS_CHANNELS		4
--#define AIROHA_NUM_QOS_QUEUES		8
--#define AIROHA_NUM_TX_RING		32
--#define AIROHA_NUM_RX_RING		32
--#define AIROHA_NUM_NETDEV_TX_RINGS	(AIROHA_NUM_TX_RING + \
--					 AIROHA_NUM_QOS_CHANNELS)
--#define AIROHA_FE_MC_MAX_VLAN_TABLE	64
--#define AIROHA_FE_MC_MAX_VLAN_PORT	16
--#define AIROHA_NUM_TX_IRQ		2
--#define HW_DSCP_NUM			2048
--#define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
--#define TX_DSCP_NUM			1024
--#define RX_DSCP_NUM(_n)			\
--	((_n) ==  2 ? 128 :		\
--	 (_n) == 11 ? 128 :		\
--	 (_n) == 15 ? 128 :		\
--	 (_n) ==  0 ? 1024 : 16)
--
--#define PSE_RSV_PAGES			128
--#define PSE_QUEUE_RSV_PAGES		64
--
--#define QDMA_METER_IDX(_n)		((_n) & 0xff)
--#define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
-+#include "airoha_eth.h"
- 
- /* FE */
- #define PSE_BASE			0x0100
-@@ -706,211 +673,6 @@ struct airoha_qdma_fwd_desc {
- 	__le32 rsv1;
- };
- 
--enum {
--	QDMA_INT_REG_IDX0,
--	QDMA_INT_REG_IDX1,
--	QDMA_INT_REG_IDX2,
--	QDMA_INT_REG_IDX3,
--	QDMA_INT_REG_IDX4,
--	QDMA_INT_REG_MAX
--};
--
--enum {
--	XSI_PCIE0_PORT,
--	XSI_PCIE1_PORT,
--	XSI_USB_PORT,
--	XSI_AE_PORT,
--	XSI_ETH_PORT,
--};
--
--enum {
--	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
--	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
--	XSI_USB_VIP_PORT_MASK	= BIT(25),
--	XSI_ETH_VIP_PORT_MASK	= BIT(24),
--};
--
--enum {
--	DEV_STATE_INITIALIZED,
--};
--
--enum {
--	CDM_CRSN_QSEL_Q1 = 1,
--	CDM_CRSN_QSEL_Q5 = 5,
--	CDM_CRSN_QSEL_Q6 = 6,
--	CDM_CRSN_QSEL_Q15 = 15,
--};
--
--enum {
--	CRSN_08 = 0x8,
--	CRSN_21 = 0x15, /* KA */
--	CRSN_22 = 0x16, /* hit bind and force route to CPU */
--	CRSN_24 = 0x18,
--	CRSN_25 = 0x19,
--};
--
--enum {
--	FE_PSE_PORT_CDM1,
--	FE_PSE_PORT_GDM1,
--	FE_PSE_PORT_GDM2,
--	FE_PSE_PORT_GDM3,
--	FE_PSE_PORT_PPE1,
--	FE_PSE_PORT_CDM2,
--	FE_PSE_PORT_CDM3,
--	FE_PSE_PORT_CDM4,
--	FE_PSE_PORT_PPE2,
--	FE_PSE_PORT_GDM4,
--	FE_PSE_PORT_CDM5,
--	FE_PSE_PORT_DROP = 0xf,
--};
--
--enum tx_sched_mode {
--	TC_SCH_WRR8,
--	TC_SCH_SP,
--	TC_SCH_WRR7,
--	TC_SCH_WRR6,
--	TC_SCH_WRR5,
--	TC_SCH_WRR4,
--	TC_SCH_WRR3,
--	TC_SCH_WRR2,
--};
--
--enum trtcm_param_type {
--	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
--	TRTCM_TOKEN_RATE_MODE,
--	TRTCM_BUCKETSIZE_SHIFT_MODE,
--	TRTCM_BUCKET_COUNTER_MODE,
--};
--
--enum trtcm_mode_type {
--	TRTCM_COMMIT_MODE,
--	TRTCM_PEAK_MODE,
--};
--
--enum trtcm_param {
--	TRTCM_TICK_SEL = BIT(0),
--	TRTCM_PKT_MODE = BIT(1),
--	TRTCM_METER_MODE = BIT(2),
--};
--
--#define MIN_TOKEN_SIZE				4096
--#define MAX_TOKEN_SIZE_OFFSET			17
--#define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
--#define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
--
--struct airoha_queue_entry {
--	union {
--		void *buf;
--		struct sk_buff *skb;
--	};
--	dma_addr_t dma_addr;
--	u16 dma_len;
--};
--
--struct airoha_queue {
--	struct airoha_qdma *qdma;
--
--	/* protect concurrent queue accesses */
--	spinlock_t lock;
--	struct airoha_queue_entry *entry;
--	struct airoha_qdma_desc *desc;
--	u16 head;
--	u16 tail;
--
--	int queued;
--	int ndesc;
--	int free_thr;
--	int buf_size;
--
--	struct napi_struct napi;
--	struct page_pool *page_pool;
--};
--
--struct airoha_tx_irq_queue {
--	struct airoha_qdma *qdma;
--
--	struct napi_struct napi;
--
--	int size;
--	u32 *q;
--};
--
--struct airoha_hw_stats {
--	/* protect concurrent hw_stats accesses */
--	spinlock_t lock;
--	struct u64_stats_sync syncp;
--
--	/* get_stats64 */
--	u64 rx_ok_pkts;
--	u64 tx_ok_pkts;
--	u64 rx_ok_bytes;
--	u64 tx_ok_bytes;
--	u64 rx_multicast;
--	u64 rx_errors;
--	u64 rx_drops;
--	u64 tx_drops;
--	u64 rx_crc_error;
--	u64 rx_over_errors;
--	/* ethtool stats */
--	u64 tx_broadcast;
--	u64 tx_multicast;
--	u64 tx_len[7];
--	u64 rx_broadcast;
--	u64 rx_fragment;
--	u64 rx_jabber;
--	u64 rx_len[7];
--};
--
--struct airoha_qdma {
--	struct airoha_eth *eth;
--	void __iomem *regs;
--
--	/* protect concurrent irqmask accesses */
--	spinlock_t irq_lock;
--	u32 irqmask[QDMA_INT_REG_MAX];
--	int irq;
--
--	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
--
--	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
--	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
--
--	/* descriptor and packet buffers for qdma hw forward */
--	struct {
--		void *desc;
--		void *q;
--	} hfwd;
--};
--
--struct airoha_gdm_port {
--	struct airoha_qdma *qdma;
--	struct net_device *dev;
--	int id;
--
--	struct airoha_hw_stats stats;
--
--	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
--
--	/* qos stats counters */
--	u64 cpu_tx_packets;
--	u64 fwd_tx_packets;
--};
--
--struct airoha_eth {
--	struct device *dev;
--
--	unsigned long state;
--	void __iomem *fe_regs;
--
--	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
--	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
--
--	struct net_device *napi_dev;
--
--	struct airoha_qdma qdma[AIROHA_MAX_NUM_QDMA];
--	struct airoha_gdm_port *ports[AIROHA_MAX_NUM_GDM_PORTS];
--};
--
- static u32 airoha_rr(void __iomem *base, u32 offset)
- {
- 	return readl(base + offset);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
+index 977b42bc1e8c1e8804eb7fafa9ed85252d956cad..7941983d21e9e84cbd78241d5c1d48c95e50a8e4 100644
+--- a/drivers/net/ethernet/Kconfig
++++ b/drivers/net/ethernet/Kconfig
+@@ -20,6 +20,8 @@ source "drivers/net/ethernet/actions/Kconfig"
+ source "drivers/net/ethernet/adaptec/Kconfig"
+ source "drivers/net/ethernet/aeroflex/Kconfig"
+ source "drivers/net/ethernet/agere/Kconfig"
++source "drivers/net/ethernet/airoha/Kconfig"
++source "drivers/net/ethernet/mellanox/Kconfig"
+ source "drivers/net/ethernet/alacritech/Kconfig"
+ source "drivers/net/ethernet/allwinner/Kconfig"
+ source "drivers/net/ethernet/alteon/Kconfig"
+diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
+index 99fa180dedb80555e64b0fbcd7767044262cf432..67182339469a0d8337cc4e92aa51e498c615156d 100644
+--- a/drivers/net/ethernet/Makefile
++++ b/drivers/net/ethernet/Makefile
+@@ -10,6 +10,7 @@ obj-$(CONFIG_NET_VENDOR_ADAPTEC) += adaptec/
+ obj-$(CONFIG_GRETH) += aeroflex/
+ obj-$(CONFIG_NET_VENDOR_ADI) += adi/
+ obj-$(CONFIG_NET_VENDOR_AGERE) += agere/
++obj-$(CONFIG_NET_VENDOR_AIROHA) += airoha/
+ obj-$(CONFIG_NET_VENDOR_ALACRITECH) += alacritech/
+ obj-$(CONFIG_NET_VENDOR_ALLWINNER) += allwinner/
+ obj-$(CONFIG_NET_VENDOR_ALTEON) += alteon/
+diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
 new file mode 100644
-index 0000000000000000000000000000000000000000..3310e0cf85f1d240e95404a0c15703e5f6be26bc
+index 0000000000000000000000000000000000000000..b6a131845f13b23a12464cfc281e3abe5699389f
 --- /dev/null
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -0,0 +1,251 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2024 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
++++ b/drivers/net/ethernet/airoha/Kconfig
+@@ -0,0 +1,18 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config NET_VENDOR_AIROHA
++	bool "Airoha devices"
++	depends on ARCH_AIROHA || COMPILE_TEST
++	help
++	  If you have a Airoha SoC with ethernet, say Y.
 +
-+#ifndef AIROHA_ETH_H
-+#define AIROHA_ETH_H
++if NET_VENDOR_AIROHA
 +
-+#include <linux/etherdevice.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/netdevice.h>
-+#include <linux/reset.h>
++config NET_AIROHA
++	tristate "Airoha SoC Gigabit Ethernet support"
++	depends on NET_DSA || !NET_DSA
++	select PAGE_POOL
++	help
++	  This driver supports the gigabit ethernet MACs in the
++	  Airoha SoC family.
 +
-+#define AIROHA_MAX_NUM_GDM_PORTS	1
-+#define AIROHA_MAX_NUM_QDMA		2
-+#define AIROHA_MAX_NUM_RSTS		3
-+#define AIROHA_MAX_NUM_XSI_RSTS		5
-+#define AIROHA_MAX_MTU			2000
-+#define AIROHA_MAX_PACKET_SIZE		2048
-+#define AIROHA_NUM_QOS_CHANNELS		4
-+#define AIROHA_NUM_QOS_QUEUES		8
-+#define AIROHA_NUM_TX_RING		32
-+#define AIROHA_NUM_RX_RING		32
-+#define AIROHA_NUM_NETDEV_TX_RINGS	(AIROHA_NUM_TX_RING + \
-+					 AIROHA_NUM_QOS_CHANNELS)
-+#define AIROHA_FE_MC_MAX_VLAN_TABLE	64
-+#define AIROHA_FE_MC_MAX_VLAN_PORT	16
-+#define AIROHA_NUM_TX_IRQ		2
-+#define HW_DSCP_NUM			2048
-+#define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
-+#define TX_DSCP_NUM			1024
-+#define RX_DSCP_NUM(_n)			\
-+	((_n) ==  2 ? 128 :		\
-+	 (_n) == 11 ? 128 :		\
-+	 (_n) == 15 ? 128 :		\
-+	 (_n) ==  0 ? 1024 : 16)
++endif #NET_VENDOR_AIROHA
+diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..73a6f3680a4c4ce92ee785d83b905d76a63421df
+--- /dev/null
++++ b/drivers/net/ethernet/airoha/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Airoha for the Mediatek SoCs built-in ethernet macs
++#
 +
-+#define PSE_RSV_PAGES			128
-+#define PSE_QUEUE_RSV_PAGES		64
-+
-+#define QDMA_METER_IDX(_n)		((_n) & 0xff)
-+#define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
-+
-+enum {
-+	QDMA_INT_REG_IDX0,
-+	QDMA_INT_REG_IDX1,
-+	QDMA_INT_REG_IDX2,
-+	QDMA_INT_REG_IDX3,
-+	QDMA_INT_REG_IDX4,
-+	QDMA_INT_REG_MAX
-+};
-+
-+enum {
-+	XSI_PCIE0_PORT,
-+	XSI_PCIE1_PORT,
-+	XSI_USB_PORT,
-+	XSI_AE_PORT,
-+	XSI_ETH_PORT,
-+};
-+
-+enum {
-+	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
-+	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
-+	XSI_USB_VIP_PORT_MASK	= BIT(25),
-+	XSI_ETH_VIP_PORT_MASK	= BIT(24),
-+};
-+
-+enum {
-+	DEV_STATE_INITIALIZED,
-+};
-+
-+enum {
-+	CDM_CRSN_QSEL_Q1 = 1,
-+	CDM_CRSN_QSEL_Q5 = 5,
-+	CDM_CRSN_QSEL_Q6 = 6,
-+	CDM_CRSN_QSEL_Q15 = 15,
-+};
-+
-+enum {
-+	CRSN_08 = 0x8,
-+	CRSN_21 = 0x15, /* KA */
-+	CRSN_22 = 0x16, /* hit bind and force route to CPU */
-+	CRSN_24 = 0x18,
-+	CRSN_25 = 0x19,
-+};
-+
-+enum {
-+	FE_PSE_PORT_CDM1,
-+	FE_PSE_PORT_GDM1,
-+	FE_PSE_PORT_GDM2,
-+	FE_PSE_PORT_GDM3,
-+	FE_PSE_PORT_PPE1,
-+	FE_PSE_PORT_CDM2,
-+	FE_PSE_PORT_CDM3,
-+	FE_PSE_PORT_CDM4,
-+	FE_PSE_PORT_PPE2,
-+	FE_PSE_PORT_GDM4,
-+	FE_PSE_PORT_CDM5,
-+	FE_PSE_PORT_DROP = 0xf,
-+};
-+
-+enum tx_sched_mode {
-+	TC_SCH_WRR8,
-+	TC_SCH_SP,
-+	TC_SCH_WRR7,
-+	TC_SCH_WRR6,
-+	TC_SCH_WRR5,
-+	TC_SCH_WRR4,
-+	TC_SCH_WRR3,
-+	TC_SCH_WRR2,
-+};
-+
-+enum trtcm_param_type {
-+	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
-+	TRTCM_TOKEN_RATE_MODE,
-+	TRTCM_BUCKETSIZE_SHIFT_MODE,
-+	TRTCM_BUCKET_COUNTER_MODE,
-+};
-+
-+enum trtcm_mode_type {
-+	TRTCM_COMMIT_MODE,
-+	TRTCM_PEAK_MODE,
-+};
-+
-+enum trtcm_param {
-+	TRTCM_TICK_SEL = BIT(0),
-+	TRTCM_PKT_MODE = BIT(1),
-+	TRTCM_METER_MODE = BIT(2),
-+};
-+
-+#define MIN_TOKEN_SIZE				4096
-+#define MAX_TOKEN_SIZE_OFFSET			17
-+#define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
-+#define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
-+
-+struct airoha_queue_entry {
-+	union {
-+		void *buf;
-+		struct sk_buff *skb;
-+	};
-+	dma_addr_t dma_addr;
-+	u16 dma_len;
-+};
-+
-+struct airoha_queue {
-+	struct airoha_qdma *qdma;
-+
-+	/* protect concurrent queue accesses */
-+	spinlock_t lock;
-+	struct airoha_queue_entry *entry;
-+	struct airoha_qdma_desc *desc;
-+	u16 head;
-+	u16 tail;
-+
-+	int queued;
-+	int ndesc;
-+	int free_thr;
-+	int buf_size;
-+
-+	struct napi_struct napi;
-+	struct page_pool *page_pool;
-+};
-+
-+struct airoha_tx_irq_queue {
-+	struct airoha_qdma *qdma;
-+
-+	struct napi_struct napi;
-+
-+	int size;
-+	u32 *q;
-+};
-+
-+struct airoha_hw_stats {
-+	/* protect concurrent hw_stats accesses */
-+	spinlock_t lock;
-+	struct u64_stats_sync syncp;
-+
-+	/* get_stats64 */
-+	u64 rx_ok_pkts;
-+	u64 tx_ok_pkts;
-+	u64 rx_ok_bytes;
-+	u64 tx_ok_bytes;
-+	u64 rx_multicast;
-+	u64 rx_errors;
-+	u64 rx_drops;
-+	u64 tx_drops;
-+	u64 rx_crc_error;
-+	u64 rx_over_errors;
-+	/* ethtool stats */
-+	u64 tx_broadcast;
-+	u64 tx_multicast;
-+	u64 tx_len[7];
-+	u64 rx_broadcast;
-+	u64 rx_fragment;
-+	u64 rx_jabber;
-+	u64 rx_len[7];
-+};
-+
-+struct airoha_qdma {
-+	struct airoha_eth *eth;
-+	void __iomem *regs;
-+
-+	/* protect concurrent irqmask accesses */
-+	spinlock_t irq_lock;
-+	u32 irqmask[QDMA_INT_REG_MAX];
-+	int irq;
-+
-+	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
-+
-+	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
-+	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
-+
-+	/* descriptor and packet buffers for qdma hw forward */
-+	struct {
-+		void *desc;
-+		void *q;
-+	} hfwd;
-+};
-+
-+struct airoha_gdm_port {
-+	struct airoha_qdma *qdma;
-+	struct net_device *dev;
-+	int id;
-+
-+	struct airoha_hw_stats stats;
-+
-+	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-+
-+	/* qos stats counters */
-+	u64 cpu_tx_packets;
-+	u64 fwd_tx_packets;
-+};
-+
-+struct airoha_eth {
-+	struct device *dev;
-+
-+	unsigned long state;
-+	void __iomem *fe_regs;
-+
-+	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
-+	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
-+
-+	struct net_device *napi_dev;
-+
-+	struct airoha_qdma qdma[AIROHA_MAX_NUM_QDMA];
-+	struct airoha_gdm_port *ports[AIROHA_MAX_NUM_GDM_PORTS];
-+};
-+
-+#endif /* AIROHA_ETH_H */
++obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
+diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+similarity index 100%
+rename from drivers/net/ethernet/mediatek/airoha_eth.c
+rename to drivers/net/ethernet/airoha/airoha_eth.c
+diff --git a/drivers/net/ethernet/mediatek/Kconfig b/drivers/net/ethernet/mediatek/Kconfig
+index 95c4405b7d7bee53b964243480a0c173b555da56..7bfd3f230ff50739b3fc6103cd5d0e57ab8f70e1 100644
+--- a/drivers/net/ethernet/mediatek/Kconfig
++++ b/drivers/net/ethernet/mediatek/Kconfig
+@@ -7,14 +7,6 @@ config NET_VENDOR_MEDIATEK
+ 
+ if NET_VENDOR_MEDIATEK
+ 
+-config NET_AIROHA
+-	tristate "Airoha SoC Gigabit Ethernet support"
+-	depends on NET_DSA || !NET_DSA
+-	select PAGE_POOL
+-	help
+-	  This driver supports the gigabit ethernet MACs in the
+-	  Airoha SoC family.
+-
+ config NET_MEDIATEK_SOC_WED
+ 	depends on ARCH_MEDIATEK || COMPILE_TEST
+ 	def_bool NET_MEDIATEK_SOC != n
+diff --git a/drivers/net/ethernet/mediatek/Makefile b/drivers/net/ethernet/mediatek/Makefile
+index ddbb7f4a516caccf5eef7140de1872e9b35e3471..03e008fbc859b35067682f8640dab05ccce6caf7 100644
+--- a/drivers/net/ethernet/mediatek/Makefile
++++ b/drivers/net/ethernet/mediatek/Makefile
+@@ -11,4 +11,3 @@ mtk_eth-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_debugfs.o
+ endif
+ obj-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_ops.o
+ obj-$(CONFIG_NET_MEDIATEK_STAR_EMAC) += mtk_star_emac.o
+-obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
 
 -- 
 2.48.1
