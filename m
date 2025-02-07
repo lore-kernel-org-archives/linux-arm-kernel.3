@@ -4,98 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B12C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 21:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA2DC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 22:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gr9VEPaQiARLAyCwAlhOr4tBEEh63PrDoIaQP0hl77Q=; b=0NWvq+GuCwQhzVMON3Faf24JbT
-	yb5TLm7ty64hsKa0Cz8MA/M56MvXqjxLX+FXm/SoudnYLZY2HxWxiTAS+n5m+yxmQuameRCa/Klon
-	i9Yn10asg3ezc9Z7q6d1AwJsAroAjTlfTj/scUiShYN3yDsz/82zXwWAspjWprf/U0eGjv7upIfuh
-	T/aFPDfWl7r2VJQ3vrhtz1HVutonPOzUEP8+cEe9azEZ4ql7KjimDNU0ex++MIlktELK/6+/0rpAi
-	8pIykBRmMueLMvHJy0qp0V9ly/T7ScW8kjyuI79TpVsWbgJ+ZKPWcBtxLrZs7WwcMrFvOzAJqIp3T
-	I/SCqNUQ==;
+	bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=; b=T93rs51R3/QUd7ps9Lo4SC9Ngp
+	nRYxkbSxtoPA8gr2WJ5XPI6ErMg2tsNUCU/GhcgiiTdXM1OAbK+inChpI/TCMc0TI8Q1cGPEMV9jk
+	MoUK6CKarrrPpaFFEiHuz4Ktc1QdhNOEIAgPW29fGh6yS4mTlyI2EWtu6d0n6W4SjdQeQVO/Os/Jh
+	846U178S5WxsziIFHeKEzBn5QBLPSbFv7+kkjTtrS9Ze4kCerxg669UwP1C968wfbs65RPXl6zZsy
+	iHQfmv7vaWfVwcUAKg9pWCPqUB2XoQEP7Yl6fYUiiqL6q8tVIBlwLTp9wNtLJ6EMKgeUrdpRamTi3
+	DRKtEceg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgWEi-0000000BIoF-3OKR;
-	Fri, 07 Feb 2025 21:50:08 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tgWTk-0000000BLEj-2jWk;
+	Fri, 07 Feb 2025 22:05:40 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgW3S-0000000BGYu-0aJU;
-	Fri, 07 Feb 2025 21:38:31 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ab7908ecb31so17073466b.1;
-        Fri, 07 Feb 2025 13:38:29 -0800 (PST)
+	id 1tgWSM-0000000BL52-0dYv;
+	Fri, 07 Feb 2025 22:04:15 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ab79eaafca8so1172466b.1;
+        Fri, 07 Feb 2025 14:04:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738964309; x=1739569109; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738965852; x=1739570652; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gr9VEPaQiARLAyCwAlhOr4tBEEh63PrDoIaQP0hl77Q=;
-        b=TSqrqnnm4b7O4F/YlcIT1unMn7+5ArQeRNVl+ZvxuYzBIjroR1YEJbuWjLPh8b87y+
-         0/lllyWfWFfcWLeg4JyWOyjxFpgMxZ2MydWBMle1WdxJ2i/b7XGZXfUagaqRmc/FwEYM
-         Mrjbzs5xkeIxWsT2wZX5n8wxZTHMlc4HidYn+FW4ScFRTO+lHSy18zOUrDvAJfL8zgxt
-         m0k2qVV8d5J254tD7pX+HX8UywBcrKy94RzCcS9uAA17qmNywjspbLoIfxI4bhjpaH4Y
-         qvSpqABRXjXnGq8PhUrRj53fCz2dYPzjrUGfR8D53q62xC3gDI8oUnn1nTgOyCbRIGQR
-         R1tw==
+        bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=;
+        b=ko+grKWtnHgKKV6HSv5Ynl/+kSSqHoOLfLmmjrW6nu3QBJKDmCDYb3g+Lt2YiNZhd4
+         MRVsT7xdS2qnYexFlj8u2LwsHHYl5Mc3UOgGi/QHeSDjmsaiv7at7oiQpVtrAWd6QVcX
+         ny7munBvMCWi3j6tntTNZcq+qU5nPvpcyp4Cg5llIUAtTOfvamWf5w2pioIW7iOkdVvE
+         YDJADqOdbtjbDFIls+93xBVIqOvI1E2AdbCoLYjS2w9kuycoxEwtn4GOIWuo1EfXZJpu
+         pbu+ZhGX7f8GgxvI1txEt7jl8SbsMi5PPPhu4u1gasE7mcMzqotkMDmX/gtdREopedim
+         k9Pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738964309; x=1739569109;
+        d=1e100.net; s=20230601; t=1738965852; x=1739570652;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gr9VEPaQiARLAyCwAlhOr4tBEEh63PrDoIaQP0hl77Q=;
-        b=AGjKcuUz6gIgX2JAlLD4pnWbF+Vz3fh//xYbEPOsisCRd/cRvygZ/+BkrWwrlugnKo
-         MKUSAfjqqYjNFs2PzSB+Pmh+DtjIk0idrpAfPnZm0EvyXMsdqTP15yuEZGTBSKwVInjR
-         pHy0idqamt+MXrT5qqGe9eeg+HC7XZO4ecAbAq0vLl689I1IkKO4yQRYY5tobMv+KcWh
-         5/QZcHJ76md/7Y6qFMXYh2BlcFbszEEZ75LXH0LlGu/rVI0zObZr6LUj/YQ74WQV1eWA
-         fsLTRWPATvpSSws9cjTrl1TVhHeSHg/jNYQHZSJI8RrztO3I1XSEnRp3/i4x/ghYOX6V
-         clyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWTAgm7yvnJ9WDNLyqYcxfu3oWsvwzbvww/friCViLsZRwa/CidF82z9iecjj9A2okzwoeRCqSHwmsjHzPUp9tA@lists.infradead.org, AJvYcCX70AJotwuyt5MR8deh6saMU+lEawIF3rK6mzh/K3ISc4B7dzeHs1MlbgDkWYzQPi+M+7WPPveO7mSp/9vFNCs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDBvOmOuFimWjxsElWCs+XB+WbShvWtoYrIZKYXb2zsFnSrjVI
-	ontTwxLEYfOxq6S6x8M3c/wsIPAXurPgOkqjmHcJl447+1sUC8xuknrAOA==
-X-Gm-Gg: ASbGncseS9OjiGxbE0tXcOU2D5q2P4EFnKU+h3/N7vnpQn9EIZ6q/nGLC3Q5cap7I9q
-	MKb0U3ip3yjOywwwPJicywquRyTw2GNtAetfBSulcZO0KHiYaeO3iWPHaQ2Avr0G+0llI285Cll
-	Rs9y4CJIKi2LvPe9bh969UDbgKfK203GhoOoLVULTrm2krXsSNuuJ3B6oJFg4EcYwcLRnL8wEZe
-	0EvXlaPqMTbuLD6clzwRE8K9Q7aj4GQvPyRIkW/W92bQnfwIGGmOjFosTJ6UCYggbRwU5VP2OgT
-	MSQ=
-X-Google-Smtp-Source: AGHT+IEbl3ScrFja/NJm9wAQ69PqhUaZeve8wDcZpAf9mkb2psE9C9zpwnLLE8BSnYVHKlIS6q1f3A==
-X-Received: by 2002:a05:6402:5254:b0:5dc:740b:3cd9 with SMTP id 4fb4d7f45d1cf-5de450aba25mr1916038a12.5.1738964308342;
-        Fri, 07 Feb 2025 13:38:28 -0800 (PST)
+        bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=;
+        b=ea59TZc7DkMYmlnx/dOjMESqKXpTNhF8EHdXwGeJnGJn687VwTlOwp6hT6FvGw8rR6
+         aMbpxfg/aXKTSa5hSydjuW52uYmmDi2jl2OQ6utpXDyo/fjvNlldYiWuFRU/0Nxdl73Y
+         rJ8itP5CnWkX59x8qB37sCStttW3wvYHts0H9fCCaTWEiWdcNC4XQ4G4qdhe6sAfzgcT
+         FmDKH9S9wP9b3dpL2M7ez7sZdp87d5tz75f1hGjnVezBbxuUNpEjc18XRt2VC+fBQ0h8
+         37ebquPfHnRUZC38HPZjwv8DizBHh5oI2l/6Wf+KzmFvcfyPVhEXHAL2v6EazeiA/4Nq
+         jwCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV1bJhD9Mt1vO9iexHzk/QvbSp4R9NfvPu7RM57oXajK2JOSj58yalj8c1mdWBffJHypf3vb/GLgnKrgblDiGA=@lists.infradead.org, AJvYcCVHBtNoG80z2QNYD3YvxHDtybSd6J3T8fjJWRp8mfTPN0xtfMNe7nejPMDxovblPBfEO6eunAwnlXm9zBL1Kv+z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2QeGi3NhRyFznzT4Pxbb4mYhbNCbaeqZH007bCIt4Ts2Mx9D2
+	9szyWCOKSzM8K08xYSXJJK8V8eW+FWRXo+b/0DyB/JhmnLAJKR4V
+X-Gm-Gg: ASbGncu4FOBEAPLJF6DWyhvQnCcHAzYxJ62AtYZKCAYAIz03zYmsbm/8PEY0NY+B9Df
+	vOV0Of/b56oHl4gpFoAgk7zLPhdefkvAhN6ndc37Xkp5VnJkYNlWB2HWvUoaxTDWrT7J80SS6W0
+	4M6dpwhhj9pn4GmKUQFEu163u3qVxF/wFfcuGgG23CPDnK5VOXtIbiVt9jinCZtCV66f52Dy8tq
+	/LhtZ7ye+O9vGMOLimSX1ltbdVnXRopwz+rJsdbcRT57S5+T0aHDxEHguOquiJbASVAjXJJE0Z+
+	ol0=
+X-Google-Smtp-Source: AGHT+IFsi3+NWjssSKSXZEmvjnEsxFYODgK8SKJ6cgvDO7NhfH/SlmKt0XPdmk4uFCMFK0SjvH4aEg==
+X-Received: by 2002:a17:907:7fa8:b0:ab6:3b87:d32a with SMTP id a640c23a62f3a-ab789c2f3d7mr190605566b.11.1738965852001;
+        Fri, 07 Feb 2025 14:04:12 -0800 (PST)
 Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf6c9f8besm3202574a12.52.2025.02.07.13.38.25
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab773337e98sm337699266b.151.2025.02.07.14.04.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 13:38:27 -0800 (PST)
-Date: Fri, 7 Feb 2025 23:38:23 +0200
+        Fri, 07 Feb 2025 14:04:11 -0800 (PST)
+Date: Sat, 8 Feb 2025 00:04:08 +0200
 From: Vladimir Oltean <olteanv@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
+To: Eric Woudstra <ericwouds@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Jozsef Kadlecsik <kadlec@netfilter.org>,
+	Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>,
+	Roopa Prabhu <roopa@nvidia.com>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kuniyuki Iwashima <kuniyu@amazon.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Joe Damato <jdamato@fastly.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH net-next v2 2/3] net: dsa: allow use of phylink managed
- EEE support
-Message-ID: <20250207213823.2uofelxulqxpdtka@skbuf>
-References: <Z6YF4o0ED0KLqYS9@shell.armlinux.org.uk>
- <E1tgO70-003ilF-1x@rmk-PC.armlinux.org.uk>
- <20250207151959.jab2c36oejmdhf3k@skbuf>
- <Z6Yn2jTVmbEmhPf9@shell.armlinux.org.uk>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 net-next 12/14] bridge: No DEV_PATH_BR_VLAN_UNTAG_HW
+ for dsa foreign
+Message-ID: <20250207220408.zipucrmm2yafj4wu@skbuf>
+References: <20250204194921.46692-1-ericwouds@gmail.com>
+ <20250204194921.46692-13-ericwouds@gmail.com>
+ <20250207150340.sxhsva7qz7bb7qjd@skbuf>
+ <78a30eab-cae6-4026-b701-7d7002fe3abb@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z6Yn2jTVmbEmhPf9@shell.armlinux.org.uk>
+In-Reply-To: <78a30eab-cae6-4026-b701-7d7002fe3abb@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_133830_175905_353DFA23 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250207_140414_211359_D53BA341 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +120,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 03:33:46PM +0000, Russell King (Oracle) wrote:
-> Bah - actually I _did_ update the patch, but in a different tree:
+On Fri, Feb 07, 2025 at 09:04:28PM +0100, Eric Woudstra wrote:
+> Or should mlxsw_sp_switchdev_blocking_event() use
+> switchdev_handle_port_obj_add_foreign() to add the vxlan
+> foreign port?
+> 
+> Then all foreign ports are added in a uniform manner and
+> SWITCHDEV_F_NO_FOREIGN is respected.
+> 
+> I do not have the hardware to test any changes in that code.
 
-I'm glad there's a reasonable explanation for what appears to be an
-oversight on your part, and I wish to make nothing more out of the event
-in itself.
+Personally, in your place I wouldn't have the courage to refactor that
+much in a driver as complex as spectrum, but if you CC the right people
+from Nvidia who can test, I guess you could give that a try.
 
-I just want you to know that it was really hard for me, looking back in
-that thread to make sure I'm not misremembering that I asked for this
-change, to get reminded how quick you were to jump to an insulting and
-sarcastic conclusion in that same reply. It was a shit reaction and it
-really didn't sit well with me then, and it still doesn't sit any better
-re-reading it 3 weeks later either.
+Actually, how I came to spectrum was that I was thinking about an
+alternative mechanism of detecting "foreign or not", other than emitting
+two switchdev notifiers. You emit just the usual, single one, but
+whoever handles it for a foreign bridge port will set a new bool
+port_obj_info->handled_by_foreign, very similar to the existing
+bool port_obj_info->handled. I was looking around to see who else
+open-codes the switchdev object handling rather than use the
+switchdev_handle_*() helpers, and that's how I came across spectrum.
+It would seem, at first glance, easier to set just this in spectrum:
 
-I don't like it that the more subtle hints apparently pass you by, like
-me leaving a link to your entire reply, so I have to tell you straight,
-even though I like that even less. I want to respect you and I'm very
-careful with my words around you, Russell, but I need to know that you're
-mindful of your own reactions too, because otherwise it makes me feel
-that we're on an unequal footing.
+diff --git a/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c b/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
+index 6397ff0dc951..6926aaae7278 100644
+--- a/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
++++ b/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
+@@ -3953,6 +3953,7 @@ mlxsw_sp_switchdev_vxlan_vlans_add(struct net_device *vxlan_dev,
+ 		return 0;
+ 
+ 	port_obj_info->handled = true;
++	port_obj_info->handled_by_foreign = true;
+ 
+ 	bridge_device = mlxsw_sp_bridge_device_find(mlxsw_sp->bridge, br_dev);
+ 	if (!bridge_device)
 
-Whenever you make a sarcastic comment about how people don't do what you
-expect them to, as if the only possible explanation is that they must
-not have read what you said, because if they did they must be dumb or
-something, you just put yourself up on a pedestal where you're above
-making mistakes and above misunderstanding or not thinking things
-through - which is such an obtuse way of looking at life. And so, when
-you make mistakes like all humans do, it's really hard for me to react
-in a way that isn't just giving you back a little bit of your own venom.
-But I've tried that before, and it led nowhere, so now I'm trying to be
-kind, which to my desperation seems to be treated neutrally/not seen,
-and it's just too much for me.
+and this in the object replication helper:
 
-You know how with Andrew, whenever he says something on the mailing
-lists that you disagree with, you never make a sarcastic comment
-about it? I want that too, and not because I dare to compare myself
-with Andrew technically, but because the way in which you treat a
-human should not be based solely on your respect for their technical
-prowess, and you shouldn't get away with reactions that stink because
-you're good technically.
+diff --git a/net/switchdev/switchdev.c b/net/switchdev/switchdev.c
+index c48f66643e99..be82e79b5feb 100644
+--- a/net/switchdev/switchdev.c
++++ b/net/switchdev/switchdev.c
+@@ -763,6 +763,8 @@ static int __switchdev_handle_port_obj_add(struct net_device *dev,
+ 	if (!foreign_dev_check_cb(switchdev, dev))
+ 		return err;
+ 
++	port_obj_info->handled_by_foreign = true;
++
+ 	return __switchdev_handle_port_obj_add(br, port_obj_info, check_cb,
+ 					       foreign_dev_check_cb, add_cb);
+ }
+
+Just some care needs to be taken to only consider "handled_by_foreign"
+just when "handled" is true.
+
+I haven't yet decided which variant I like better, just thought I'd
+mention this as something which requires a single switchdev notification.
+
+Anyway, in the future I'll have to do some more tweaks with these flags
+in the context of LAG. These flags (BR_VLFLAG_ADDED_BY_SWITCHDEV, now
+also BR_VLFLAG_TAGGING_BY_SWITCHDEV after this patch) can dynamically
+change, and the existing code isn't great because it doesn't handle that.
+
+For example:
+
+ip link add br0 type bridge
+ip link set swp0 master br0
+ip link set bond0 master br0 # bond0 is a foreign interface to swp0 at this time
+bridge vlan add dev bond0 vid 100 # this won't get BR_VLFLAG_TAGGING_BY_SWITCHDEV
+ip link set swp1 master bond0 # bond0 is no longer a foreign interface to swp0, assuming the same phys_switch_id
+# vid 100 should get BR_VLFLAG_TAGGING_BY_SWITCHDEV during br_switchdev_vlan_replay()
+
+Considering that br_switchdev_vlan_replay() will need to re-evaluate the
+BR_VLFLAG_TAGGING_BY_SWITCHDEV flag, I guess I do prefer the simpler
+variant after all - it is one call less that will have to be made during
+replay as well.
 
