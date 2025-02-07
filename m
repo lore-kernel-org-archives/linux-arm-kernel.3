@@ -4,147 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EFFC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E40C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oLQeMbJifdne4SBDc1v0kcVsA3kayRbQPRLmAZmH6g=; b=zQha+lHEVzLCs0X2jwCrMgtV/P
-	fvaawg07pElOZvLfp728Yl/+orUckPfIbhMZOEscVRwMc4kwt7C1jSx011oCPoO9ZBQGYD3ixpUOL
-	+x8eBNa6ZnTXUgHIF0QN8ACUqzvaXloF0S8qwV52t0RUeVr02MtXCY3d+5bYNst7KYCgx/XXA0Akv
-	a1JHAYaqsm+7ZdVSvzVIJq/ZDtsjBlXnEyipOsSkU6PjSe9OWNBrIOihc9kdES/pN1T5xI2U1AC2n
-	15ZXCJkyQS1jFOQn0PWCnm97z8wYwaE/y9/6sFizJEBWvs0p9XZpTMczLbmPi6zRxc/MQCIQIeO1z
-	kPh1aB6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hD+eCZVAmu9HYlJ66O10gtRu+u/xshw0dNIF0ppHeG4=; b=o9WAe59oKTwVOiFwosr57b6yef
+	8uU+0vDb4Tt/2+O2lAlzIjQz0jLOGdUgD9k0T/Q394EAwG8FRJVBt4leb5Jyl/Aj8+5GYvw3iTKCx
+	hJvtEXcX/6hJf6b97MammFP1o2YR8CLBaMzFm0BFwoKl2Cb7OLs5NXGR+e8Nimw7w0mJ/pT04B5aG
+	suc0bTPOORARwONkf0URFpqhmllaqzGpG6KtlLv0syb6HHHqrVEk38wg9QW66AZWQwCw5zvCYIMJb
+	jsu2rpPQB9nx8JE+55z44dTkI29z0bfRGLQzbHs29QnNLfIs196WXXsDs3Pty7OzrPzuL3l1+PW6I
+	75Oi2QOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQtk-0000000ADjk-2T1E;
-	Fri, 07 Feb 2025 16:08:08 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1tgR3C-0000000AEoA-10QX;
+	Fri, 07 Feb 2025 16:17:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQqj-0000000AD8U-2NLl;
-	Fri, 07 Feb 2025 16:05:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cF064I3pfa2T0dVSWmKSVgw1xN21ux40bYKvn0KA9pqpeXBDa1ZZd6WNUahSSrwJ2TsnrIH+xK2MN3wHGgDfr6NfkJotICOYumcQRgPDR1qWNDx1dRyPFbFRyUBCfHf2OKcqoCv6RbZO7yos5gB402XKymjmRnE2FrVyDRviQCk8WGWxv2KH7X0YL8O4ffn6qb/YcIlcCJ6x7SFklyBq9JAhYxvxoQZpRe03mlIx8L0MXALBeyYpygxc3LVi3z5ZWfgpfuMKsClxAy7NThkhasUGNnfnNEJzawL4Kpw09ZebGanOTzNaZy+WfGcaDWiMKt9ranpVw21sNs8HNAfEOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+oLQeMbJifdne4SBDc1v0kcVsA3kayRbQPRLmAZmH6g=;
- b=JTev3BWAg6FmTnwkOXP5m6WzbOhVstjB9NLJ7yKwJBMmKmG8f5JoOrz9laGye+qEXIpBlOJjZfQIoiyWsnidrNlYSnP5o8sTarOhGd5aMHNBt0e/zRAqBB0+69KSdJBuOgKolg7k19kQXDngdMKJCITPsSczR8hIhDTUxBnUiaOcywYGKS4LG9RwFRYVU6uu/3L/tAwFuo4x2eiTsUatQIPtd+cxZuEgdF1UIKaaY45kjsQ9t0GfLEKKR0VslxNggaQdykl8CgMYjETJ+9SvKrN+i5HYHshq3mpUcFhkic+Pnxi+qOUIB44AVuteHdvLN3EPd6N5HiUv26FVIl4fpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+oLQeMbJifdne4SBDc1v0kcVsA3kayRbQPRLmAZmH6g=;
- b=CuS4COOjFY9COKdLxfXb3gERXUdQtJ0wEpxW3sTUAgPAj1op8ahSoP4U6LABL9FD5IamZvHsOzks0ZmAwztiD2Gb8ZE1PpfdbkdNKZVrcJ4Qz0lurVki5yyGJQv/fAAz7WCdqVDZvWd4mA9RQ4z2ylFXdO6bX2dTAoxe9NR4QKqBG0so/P+W1BaT5qpnAf9SktqJp3idecb6Gd8AUfFcV9iGDwFNtwtH3s3vYoqdVJxgEI2j6ZNjpy8UJ0YaesfIgf8ZdbMLHWmNJYqQjkqu7PouJho46gOeQSSfFHpf9YhfzDRDaNfy8m3np/Wi1BRTHtcip/X4G+nPxTaj/u4fww==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI0PR04MB10173.eurprd04.prod.outlook.com (2603:10a6:800:245::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
- 2025 16:04:52 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
- 16:04:51 +0000
-Date: Fri, 7 Feb 2025 11:04:44 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: disable IOMMU when running rk3588
- in PCIe endpoint mode
-Message-ID: <Z6YvHCT51CQxlqkL@lizhi-Precision-Tower-5810>
-References: <20250207143900.2047949-2-cassel@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207143900.2047949-2-cassel@kernel.org>
-X-ClientProxiedBy: SJ0PR13CA0209.namprd13.prod.outlook.com
- (2603:10b6:a03:2c3::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1tgR1o-0000000AEbo-0S8p
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 16:16:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738944986;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hD+eCZVAmu9HYlJ66O10gtRu+u/xshw0dNIF0ppHeG4=;
+	b=Iy+C5GtDbg/9azw5oPqlrn3HdOpy+W2ByHcxeinX/c6klmLMjMQx+1tJe2kNOjT0bmde9C
+	1N+62MNO2eSw72d/Z0c+3cpVEs0Npk+YCGmADIXqNWjKyXBOwS4gtwEvePuOFQDPUOofnh
+	h5HjFVIRZq1aZXbzqIBgAXGFz4TF32c=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-606-1PTXf02ZPUehHZQhbZW_HA-1; Fri, 07 Feb 2025 11:16:23 -0500
+X-MC-Unique: 1PTXf02ZPUehHZQhbZW_HA-1
+X-Mimecast-MFC-AGG-ID: 1PTXf02ZPUehHZQhbZW_HA
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2fa32e4044bso1003055a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 08:16:22 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738944982; x=1739549782;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hD+eCZVAmu9HYlJ66O10gtRu+u/xshw0dNIF0ppHeG4=;
+        b=Vy0fAj9vzdiWJrwf+pK2S0pX+SixCpDuYLbLG3UXcZctBb/OmqsDiKEx5gPbREI2Fx
+         Q5dncCeUewQURuALT4d+3qyhYVG3H7MerpDlp+9zDN39UIN5WDtNpH7w1SDpvBy6AB32
+         EPmok7HISYkSvYUBD1sfKqChec+lkad82+f2YoQgNdm6R6pwOaOEd4EzZJ7ZqjcuCqhV
+         oc5nPNxrIuMkXS41htFpOl61ZxM2ATJBXsYQSevCpD5LsCzfV195h46eh/IFihd6/7yO
+         MjJVOVwVTS+s+7jS5DSSJlWquxJO+IWvcya16oD/VKUSia6e98rzxgX/ElkxIIhLiPwL
+         ATQw==
+X-Forwarded-Encrypted: i=1; AJvYcCXyWFiBxR9M1p0WfwCmXyKL7jhP0i7BJ7UiHiHgProun1bNrirB5JtmIg5Il7eR29Sd/rSV+CVB1dnK+Kcfwagq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8roc5hRzB7Z9oJmiQtTl8WY2mWIs3odKgmLWoMjtMupmw4u8+
+	cT4jfkx55ZGdhO7xUWk5VLVy52pBu4TL11MM0s8COVBVSdQedJvz9aTWDPtwYIiUI8TtWYTTsf2
+	gb7tN9pt/1DJEqm69TESqZmuGqq9C41a3gfzymXKQ0KhWywXiDhycCezUZqrScNzIoxZpdsqxxv
+	OLN+k55IDbgP8R9tTMgIkx8X4xNAOoFEzjYveZrwDN9nmm6vo=
+X-Gm-Gg: ASbGncsjCYqDMo9eScZy/5NS9nrEt2s3ixMoOcJ68K6j08k/oAjs4VmX87YbPnJlK+B
+	qWEmSbUAPPyeL/TvCNXz4tU4FDFse//42gnqtYKwayrFUNqpLDblHOQDlOY7BDcHR
+X-Received: by 2002:a17:90b:1b44:b0:2f4:f7f8:fc8b with SMTP id 98e67ed59e1d1-2fa242e7602mr5367390a91.27.1738944981893;
+        Fri, 07 Feb 2025 08:16:21 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG9qQ6Ac9CdjS0hM2Fp5CTCftFgkMjfVYiNIpp2aFlk5UPLOL/FOPn2I3gKNt5IDhZaRA3QY4m6BBB8aMlIkFs=
+X-Received: by 2002:a17:90b:1b44:b0:2f4:f7f8:fc8b with SMTP id
+ 98e67ed59e1d1-2fa242e7602mr5367287a91.27.1738944981087; Fri, 07 Feb 2025
+ 08:16:21 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI0PR04MB10173:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8bafec7-72f6-48d0-a5e0-08dd47912798
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i3bMA8t3QQZsO22gc40yZWO/UPBSWW6kbkZNvDb7qMv3wSpWL5TLSe3bM6f0?=
- =?us-ascii?Q?xYeYmavmbdFmMmYadWXhNJQVDy04nno4OGP8ZU6WR2DtUpBxHWqZ/Ifvtnto?=
- =?us-ascii?Q?alGKAkXcAyu6WVhqoqhgdBtaAw2sgOp2JWKZ0I6rrpp5ISikYat0cU4ipS3t?=
- =?us-ascii?Q?k/s5zWkTvOy+b3iJ1J3ZNDdGZPBuqxKOO1ZIVeOQmUCzunB01uPCAVyT7CGM?=
- =?us-ascii?Q?i1deyzxbQ3Rw71ZI7lTppn4ik20/gFRL7Vo+VUUdEtTb0jk2qalf+570JAaP?=
- =?us-ascii?Q?F5GKP8nkNZwYF7E2UzWp8quOlIPO+Hqjx+5c5MWJsF19QA5pd1YWCgjG7did?=
- =?us-ascii?Q?Zy41xRABPxw41qyzI8FhFkytj8BrlgQ07X8t9ry0JNIYLHHtDhuAGMZJWs5x?=
- =?us-ascii?Q?4pSBEiBRjdwMcqXArr9Lj38U8y9eU7Ae6BBLMqhRiPdvZCKf72StlExpzWqR?=
- =?us-ascii?Q?2FULqnmeifYoSYdIfQQSwXsRbEcZI01oJyk82YcutZOiHw1VaytZDd2xAa7e?=
- =?us-ascii?Q?i8VoStvrHtBEKdxAztQkWjFx3QU1fRyYpkFTscUoVTXN8AaqgtWm2g0yAb0k?=
- =?us-ascii?Q?pswqnSKq/Fl0NxW31VGSTA7hv9XAyPYgTsN2pY/1esIwbUf3dhIeSEdNpdEz?=
- =?us-ascii?Q?gr04yQFwp9Nsbq7bBm1vAWbmxHQ2mMSkRovbqtIDa4TMZCg25DLlR+jvoulU?=
- =?us-ascii?Q?BITYWhBHAiMqFc7xHCE6nFFYpVcDEo1inP7iPArAm3xbeWymR9DzLqwnJ/6T?=
- =?us-ascii?Q?Uf8ARyayEiExFNOOKstb9XcFLGXTXeKlF6n8QZ/8hfflmKvouUMEr/2LWpWF?=
- =?us-ascii?Q?EX74TCsAV7SerklQB9CIoabNuylwUYg9OCMil0+czG/9H8pWMsVpOT86DKBS?=
- =?us-ascii?Q?tjHsM/jMlS3fJ7hFhksJZ8qES7qmR0fYkN9291hIcs3CdxhtjxnM1AId16tj?=
- =?us-ascii?Q?OCDv/AckaCG7V2aHn9QiwuuvRIm2zGpU+Z2xfw3LSpdMsd8ZCTWWyLcSWCv8?=
- =?us-ascii?Q?/akSGuJwjV537hZbW/DdstIUVfoRGxM9cbuX4lMlbQAZbXubyjZV6A4LTccS?=
- =?us-ascii?Q?tnaXWYphgSqhqL9UWKpKfVzFB7JwqXRHO/FLZunGosvEshcuIKlY8S5+5P67?=
- =?us-ascii?Q?48N8nnO7/bUuJFfq7h7sc1UlMsYtJxZWqy/Yl9XwWqet87rEkhjPlG4RjfUZ?=
- =?us-ascii?Q?O2eAGhoqkRBPIS3cB+W1ySSWAW9bke6JrwGSjfkdAyiYX1ByODy2LwpYCgIs?=
- =?us-ascii?Q?3G23LRkNQ8ZOF6CoEq6D3WnmhczC0NVavKK9FGJWWiyf22qWsz5KUL5e06nF?=
- =?us-ascii?Q?nr0FuBAgEN16HV9xkkMUr0VZY4lTqCyZ/47oUh5OX08sQ7w3cazQ7lZTPKxo?=
- =?us-ascii?Q?r0j5fiy1XgioaFLy6Sc83e8mCvRxfoLtXz+NxtYm8ObCeZEatHreD1k3qb4w?=
- =?us-ascii?Q?NH/XZ1S8m6nIjnbe91ASp230n0+82MKx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W5aRn0U81RIV1fIDOUnHWdjKWYTyTXQrXJPdFf2bey/stbnB991yUygmelbn?=
- =?us-ascii?Q?bZHa0h72djb42tlKsTpuBmD36nrj6MxNAQXhTHll6w59VCjh+30SJQh1c8WD?=
- =?us-ascii?Q?PYLDRrAZ5/nrglscRL/sP/SHQ/gXzabTNHEk9qeFmxtYlLX8AVYcoWRzviA3?=
- =?us-ascii?Q?zfzRoiwv+cP5DLzMInT1F+dbYBMWGJxQjm+62EYQVTJM5kKihEfO9ryaj+rh?=
- =?us-ascii?Q?SYvpQgg/K/OGjsz2OOLxyrNri5g41RME7oIBvFGTf83ozH6ygfE+Gvqczkw6?=
- =?us-ascii?Q?Ld9AzNvWtgJig1ydcFe3GLii6xUW/YtW5GHHNa+1kbjRQqm7zAe/N9Xrzpgj?=
- =?us-ascii?Q?TzvBhKYoJjr6FD4srMHoxVVvAHf84H3PRxqkGmZ8mNSg4WKzn9TfwnVlIEJY?=
- =?us-ascii?Q?RAA52aZQxHHR9/FBFudhJkyZTNFgBsMdN8MeZ5hvA1xcTQqcCN9bq0DW7HU/?=
- =?us-ascii?Q?lx2lmTddVW1WAjcAL6KmURoCpeFmK+/PNwz6ATDo8CmCp36V7+mP8PoxFNy2?=
- =?us-ascii?Q?RTFGyGP5B2Yy9/3H6qyJRlMCBx9oZheRuIRM245/4UQdvgKqkrmzC3qaiG3T?=
- =?us-ascii?Q?Zd1Z0T7AWQ9g/64YwGcz+6auetnzyQ2LtY4BPJuAFrPRjDtf+rkNEwQKU+RA?=
- =?us-ascii?Q?HoW7oISAYY9ixyk6MXAFuPyRcgHClOanHf6aEl95LsoBbUapEG8Yjdzhdy9t?=
- =?us-ascii?Q?hATRG5r9bjTWfIIBrDHINaTXsTmFX53y6PenVOBCzYFGfbM//rLWw8TnWls7?=
- =?us-ascii?Q?FhBjDDONe+GQMbSD/HEyuOWiBcYxuWtIS1cj7PpI0X6uvHxoCFu1/VAVOHtD?=
- =?us-ascii?Q?risPB0jl/P8xHwDVEB1Hjk7V9zFYQVI/ndzuW3tnwLVYX1mJRubzZ/F2oWeb?=
- =?us-ascii?Q?kh98HblOuooO+VekVNTOYkdwyZpLTFiiJlzn5+F2w32QvZjE+UYkU9va3aam?=
- =?us-ascii?Q?wJaQvgugnzOykEk7jkHY/xDVmLZ6X6ajVkhXflpO/LNH+ORQy8kU2U5ftq16?=
- =?us-ascii?Q?bwOyCEbUwNSlTdxZ+o20m4dfjW1oNBxUV7z1SihykyHSMN6ZnGkpFalaewIO?=
- =?us-ascii?Q?YnbRAEGlfr8XR8SWbwt+AKDQ5HPP/Nhmlh0U4IZLmFpVOrpkpZcFS4ao2sfV?=
- =?us-ascii?Q?JEBi+/lOmIHpFL5unxf2Jd/QPkfBNWmszhBxlRfqa69EXN59X32JJX5zwYBq?=
- =?us-ascii?Q?NCnMIQyusCbk3jsIXxhpvnUbxnaMLAEHq4Fr+dkyd27jyYbqoYkqjt56rNCd?=
- =?us-ascii?Q?7NLXb1gy+fL2StyPjFD/YDRwEYFEOZONPjqYIsntbMvbFYI5e+j9CiJf1fQK?=
- =?us-ascii?Q?tGBZJOS2nLCTpSj0+XQ9BsJavDrVNfCourAHfXNjf/S11e+ErFR+9n7vO0+B?=
- =?us-ascii?Q?/M5DGnenK0Z7h95uVGPxN/Z/ilC8Kyb9GQreMQFaLWzk05tshzioqGXaoJhG?=
- =?us-ascii?Q?wGdaDBkjeu48CEIbA5RFbjowsqnrE9624ZmQHotqNKBmQBL+7laNUIMEetMq?=
- =?us-ascii?Q?CVZdcEr7RgPXlPPHa1sUEwlmbXwNvHtt/Ylg3oqxS90rEsMItrr0RGRVcraq?=
- =?us-ascii?Q?XPRw2qUdlFnG5KxywtU=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8bafec7-72f6-48d0-a5e0-08dd47912798
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 16:04:51.7789
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UZRw3eqz98mjzKYlZyKvroVYr2nDEWhLFyZU9kvQtjCoE6gSislbuWnvCYMOuWjRww6Lsvdyf3RH34o9BTcpZg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10173
+References: <cover.11189864684e31260d1408779fac9db80122047b.1736488799.git-series.apopple@nvidia.com>
+ <bfae590045c7fc37b7ccef10b9cec318012979fd.1736488799.git-series.apopple@nvidia.com>
+ <Z6NhkR8ZEso4F-Wx@redhat.com> <67a3fde7da328_2d2c2942b@dwillia2-xfh.jf.intel.com.notmuch>
+ <Z6S7A-51SdPco_3Z@redhat.com> <20250206143032.GA400591@fedora>
+ <CADSE00+2o5Ma0W6FBLHwpUaKut9Tf74GKLCU-377qgxr08EeoQ@mail.gmail.com> <e1630046-8889-4452-9f8f-07695ba07772@redhat.com>
+In-Reply-To: <e1630046-8889-4452-9f8f-07695ba07772@redhat.com>
+From: Albert Esteve <aesteve@redhat.com>
+Date: Fri, 7 Feb 2025 17:16:09 +0100
+X-Gm-Features: AWEUYZnF6uEewR9F7JdT3B1cLzxz-kUGRVOwAxRfyR8MegKqDpoCLJWu8Fphkbs
+Message-ID: <CADSE00KUeTp_C_kZPS1U2JcLiWuN1s6Se72gtFiN71kXCZx4UA@mail.gmail.com>
+Subject: Re: [PATCH v6 01/26] fuse: Fix dax truncate/punch_hole fault path
+To: David Hildenbrand <david@redhat.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>, Vivek Goyal <vgoyal@redhat.com>, 
+	Dan Williams <dan.j.williams@intel.com>, Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, alison.schofield@intel.com, lina@asahilina.net, 
+	zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, 
+	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	peterx@redhat.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, 
+	david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, Hanna Czenczek <hreitz@redhat.com>, 
+	German Maglione <gmaglione@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: gA0F7ciGkOs-xEJarfiad543uqBlzdCAn_GJmbrfJ3U_1738944982
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_080501_608588_F88E9C7B 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20250207_081628_209816_05F2B233 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,88 +121,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 03:39:01PM +0100, Niklas Cassel wrote:
-> Commit da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU
-> on the rk3588 SoC") enabled the mmu600_pcie IOMMU, both in the normal case
-> (when all PCIe controllers are running in Root Complex mode) and in the
-> case when running the pcie3x4 PCIe controller in Endpoint mode.
+On Thu, Feb 6, 2025 at 7:22=E2=80=AFPM David Hildenbrand <david@redhat.com>=
+ wrote:
 >
-> There have been no issues detected when running the PCIe controllers in
-> Root Complex mode. During PCI probe time, we will add a SID to the IOMMU
-> for each PCI device enumerated on the bus, including the root port itself.
+> On 06.02.25 15:59, Albert Esteve wrote:
+> > Hi!
+> >
+> > On Thu, Feb 6, 2025 at 3:30=E2=80=AFPM Stefan Hajnoczi <stefanha@redhat=
+.com> wrote:
+> >>
+> >> On Thu, Feb 06, 2025 at 08:37:07AM -0500, Vivek Goyal wrote:
+> >>> And then there are challenges at QEMU level. virtiofsd needs addition=
+al
+> >>> vhost-user commands to implement DAX and these never went upstream in
+> >>> QEMU. I hope these challenges are sorted at some point of time.
+> >>
+> >> Albert Esteve has been working on QEMU support:
+> >> https://lore.kernel.org/qemu-devel/20240912145335.129447-1-aesteve@red=
+hat.com/
+> >>
+> >> He has a viable solution. I think the remaining issue is how to best
+> >> structure the memory regions. The reason for slow progress is not
+> >> because it can't be done, it's probably just because this is a
+> >> background task.
+> >
+> > It is partially that, indeed. But what has me blocked for now on postin=
+g the
+> > next version is that I was reworking a bit the MMAP strategy.
+> > Following David comments, I am relying more on RAMBlocks and
+> > subregions for mmaps. But this turned out more difficult than anticipat=
+ed.
 >
-> However, when running the pcie3x4 PCIe controller in Endpoint mode, we
-> will only add a single SID to the IOMMU (the SID specified in the iommus
-> DT property).
->
-> The enablement of IOMMU in endpoint mode was verified on setup with two
-> Rock 5b:s, where the BDF of the Root Complex has BDF (00:00.0).
->
-> A Root Complex sending a TLP to the Endpoint will have Requester ID set
-> to the BDF of the initiator. On the EP side, the Requester ID will then
-> be used as the SID. This works fine if the Root Complex has a BDF that
-> matches the iommus DT property, however, if the Root Complex has any other
-> BDF, we will see something like:
-> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
-> on the endpoint side.
->
-> For PCIe controllers running in endpoint mode that always uses the
-> incoming Requester ID as the SID, the iommus DT property simply isn't
-> a viable solution. (Neither is iommu-map a viable solution, as there is
-> no enumeration done on the endpoint side.)
->
-> Thus, partly revert commit da92d3dfc871 ("arm64: dts: rockchip: enable the
-> mmu600_pcie IOMMU on the rk3588 SoC") by disabling the PCI IOMMU when
-> running the pcie3x4 PCIe controller in Endpoint mode.
->
-> Since the PCI IOMMU is working as expected in the normal case, keep it
-> enabled when running all PCIe controllers in Root Complex mode.
->
-> Fixes: da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU on the rk3588 SoC")
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> Yeah, if that turns out to be too painful, we could start with the
+> previous approach and work on that later. I also did not expect that to
+> become that complicated.
 
-I notify this problem when try to enable msi doorbell problem. Some system
-(may most sysystem simple use PCIe Requester ID (BDF) as stream ID. BDF is
-variances depend on host system's configuration.
+Thanks. I'd like to do it properly, so I think will try a bit more to get i=
+t
+to work. Maybe another week. If I do not manage, I may do
+what you suggested (I'll align with you first) to move the patch forward.
 
-Some platform supports mask BD. The key EP don't known request ID before
-recieve a request from PCI RC.
+That said, if I end up doing that, I will definitively revisit it later.
 
-May we need discuss at PCI mail list to figure out how to resolve this
-problem.
+BR,
+Albert.
 
-Frank
-
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi           | 1 -
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso | 4 ++++
->  2 files changed, 4 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> index 42b57e27ee4c..b5feefda9d2d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> @@ -215,7 +215,6 @@ pcie3x4_ep: pcie-ep@fe150000 {
->  		interrupt-names = "sys", "pmc", "msg", "legacy", "err",
->  				  "dma0", "dma1", "dma2", "dma3";
->  		max-link-speed = <3>;
-> -		iommus = <&mmu600_pcie 0x0000>;
->  		num-lanes = <4>;
->  		phys = <&pcie30phy>;
->  		phy-names = "pcie-phy";
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> index 672d748fcc67..f229cb49da68 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> @@ -23,3 +23,7 @@ &pcie3x4_ep {
->  	vpcie3v3-supply = <&vcc3v3_pcie30>;
->  	status = "okay";
->  };
-> +
-> +&mmu600_pcie {
-> +	status = "disabled";
-> +};
 > --
-> 2.48.1
+> Cheers,
 >
+> David / dhildenb
+>
+
 
