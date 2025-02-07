@@ -4,86 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A1FC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAEAC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3nkfxSaNeN7hJYI9UBbIfRFZwlZD8sEoPkfxHM5WLE=; b=n2D0P02NiUV5A7jGhnsBo7WcdT
-	P3QB/Bd4A9gNVaQkH7MpxyxkuQVCyaM282X9Cvg5u4OLi6xeoAnQVzBBX8gn80v3qRJ/OBSPIpJCr
-	m4wNSDWn4rEqMKC0hcGa2JLY5ko9Mx+RY0hUNDK45JL1IvjK0HjyX+AkGm9WRk9iyVQ3DVNAnBWNS
-	fvHXww2uvaNzNYfE9DgLOp5QkHdBE1148ebPieDua55hw67u+8vkzI/C3bFjN8TsywW5caVr2BOEM
-	NOg1P/6Lic9cHHs0ucnK+AwnQge1cmPJ5z84Sx8NwX55DN3QxFLFo41Q/ck5WN1T1Uy9ZVFUm7pwq
-	+yM52e6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N7+57nAAv8QP4u/IKjzXqebMrcWsPnCBFtc7wCFJPUQ=; b=l/1epnG10TnZ2VtU5xD0dDrEfk
+	W8O8TSqDRyZO9J6mXCDfhW01qryxntgg/yzQVohr4RqQNmGwtAFiysKjuo/MaEfQYPK7cngUABBj8
+	YxaJkPgB02NXj3C3qJgKBCif8QDaUaPz4OFjI5ni6GR3LqprvAoWbw5V617kmmRtOs3IIDA/+BUUv
+	cLn7sXPBA2zAxrkBDpKrx23nX8e4PYbOdm2gU1Yi8dnaJ7gwqiYHTTDmmvoCOr7l3iwt9rdYBQT+u
+	zwwIxDYkEuhAw3ugSsyi1axb9nJG3FDZjazLwfzTFCXFjGkbxzg9Gqdyw4rRAthZoUcZG+bcN/Cmn
+	nb1BiViQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJPZ-00000008kar-11j0;
-	Fri, 07 Feb 2025 08:08:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tgJQv-00000008l7m-29u3;
+	Fri, 07 Feb 2025 08:09:53 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJOB-00000008kLM-0CAT;
-	Fri, 07 Feb 2025 08:07:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F3EECA4289D;
-	Fri,  7 Feb 2025 08:05:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C3BEC4CED1;
-	Fri,  7 Feb 2025 08:06:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738915621;
-	bh=gmvjh4dkLXQWB/aNPOCFxhvy4MCVdZfnnTa23d2Vqx4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N9hGFt1MT9MudOB8G3xhPsgVkPL13CsGiEUsLxyCU38gOEui2kZK2TRDIJuOwNn9d
-	 3LIB+f8dOdcZerYT7pIiLFGBBv3bhQdSSBnOKrJ3b1XwzaZvoXfU1qYQIWj0ngmh69
-	 p//fwX1B1vzkSXX3A5dH7nIbzFPmXcKnMSPSs5YWDWVpC1BuLcz0KBpWZZXW+CkvwE
-	 UObo9g70YkW+RiyeycGMCSps8itwC4ifzY34sO99kkNeTyp5bijklQEj0VbqEndkq5
-	 ZKExFJOSeC4i1Y+VcMCFjWcQ06zZUJ33AFWJ1Q88KJo74WN355g5NTlF4Nz5ZJaFaH
-	 CKchBYGyDprFw==
-Date: Fri, 7 Feb 2025 10:06:41 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-Message-ID: <Z6W_EcyPO5lBbCKZ@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206162939.a1f86fb835f1eeb7ed73ff1c@linux-foundation.org>
+	id 1tgJPH-00000008kVn-1oZx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 08:08:12 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4361dc6322fso11597625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 00:08:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738915689; x=1739520489; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N7+57nAAv8QP4u/IKjzXqebMrcWsPnCBFtc7wCFJPUQ=;
+        b=wgiUCXjk66r196pzS8nn4L9mUhDNRHTVu/3iYrhILe2Ef+UUwnqllIOVuNCcF9IL0f
+         09Xwqfn5Ezsj2671z63amrh7G+05WC8vUI1bP0xZKbTm3wP+To1SD40YEhdVLoYdCIWW
+         xz7TZIZaLby+hwnCrpS1WTbRxsod/KjV8TdTZelzZPIsJqfppA2A6hHc8uSNtiabi07j
+         HitrKO4mHnaK7oUFuXdgkPb3sj6QI6grVgcZUh6wCiP0ZQ71brHLkNL2zS3RAr4Lt7OK
+         fBLNy7Mbk+E2SvRO6tyRcsIrmngFaCW2//MkqGr1ra1MOJeDf2Bh8Fg5EI6558fWsf7z
+         K2Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738915689; x=1739520489;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=N7+57nAAv8QP4u/IKjzXqebMrcWsPnCBFtc7wCFJPUQ=;
+        b=wF08ykfQ6QSk0oVyxxub8OsGtcuWUt3mheriHumY3x6LOfZ1fR3sKKtUtRiCgyrmaD
+         fWxpRXDFwjYxrYIct3bo/nq44kZFMBO71dbr1jz8MP98Hlww0JeuHMFR/bIioyOV2jGR
+         pzUhHhCgBm7HzxPfEHsHer7ijRXVCH4g+gKLfYV27W3pn9qZrN544HbGMwukHn4dSmhi
+         0h3MKmlOOckBr0qZ6zIlu+V7X0NDpRTXQfj/Znh1ftGndaXJMU/xJJKX82VdOTP2ZIvp
+         KJC4i53r+/+nsaUTQDCB0xQobfzQ3XODq4hDZGhd0LU4k9rtOjUowdaLBaIwD9DSPUCb
+         NvYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUU3XF9fCl8Ii6ZhZkrIJ4TvSt0uoUDyPkRmSnZ61LKl3E8dZA1xcIO5/jFBCTLqqH76f2PdY90h3hNsUWVPZjT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxInK2RfF2WJFi9Mz1oqRVtKEaWwJN9sfHkvCA+EXQ17RyhmkRc
+	UBnnZrwE0lzJjdrHAMX0o/bzHDbDxiFw/+QASgbnh/9GhMNlIMqEkteO+j1/Cx0=
+X-Gm-Gg: ASbGncuy1bK54phcEag/o6mjAKMELmb5hMG1zcPS9V0b/9oCjcTO96HCwzerFi90p4q
+	ShcApR7XUVYEBb3XWlsH9x7RcNjeRj3sy2UfgM6PaD7DlI6qoudPBzo0RAJ1uZywzhwDu2qPdkR
+	AX+8QnwgQYnER9MuiZCD1o8LLTJGaBQfxm4UX8su+yjnfhubNF9PopVeoXmN9/c9Bjshm7upNM4
+	t1UtvSjEHM3zsaxvD9UGsJw/LNC4zAeHqPtDBkkaNg7wrY6wStpEuXm0wjNX1DY0I3XudflRZ41
+	nmRbjXKRKVPT3UxNPtbEAYz4AsPjAoi43hgKsYZySu6/iRQwM122nq/mzsGB
+X-Google-Smtp-Source: AGHT+IEpCAnzMJ9gzxKx250V5bllvFofCg+NZdnX2FF6QiB0L9kNIhtil4j6rsAH/g8Ai7a/4f4w3g==
+X-Received: by 2002:a05:600c:6c52:b0:434:f335:83b with SMTP id 5b1f17b1804b1-43924a27b10mr19870375e9.5.1738915689136;
+        Fri, 07 Feb 2025 00:08:09 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391dca004esm45229805e9.13.2025.02.07.00.08.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Feb 2025 00:08:08 -0800 (PST)
+Message-ID: <d5138234-b0c3-4f78-af9e-33e0d5039ea3@rivosinc.com>
+Date: Fri, 7 Feb 2025 09:08:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206162939.a1f86fb835f1eeb7ed73ff1c@linux-foundation.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/21] RISC-V: Add Ssccfg ISA extension definition and
+ parsing
+To: Atish Patra <atishp@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+ <20250205-counter_delegation-v4-9-835cfa88e3b1@rivosinc.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20250205-counter_delegation-v4-9-835cfa88e3b1@rivosinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_000703_203893_9627BED6 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20250207_000811_475610_BF7A0A27 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,65 +114,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 04:29:39PM -0800, Andrew Morton wrote:
-> On Thu,  6 Feb 2025 15:27:40 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+
+
+On 06/02/2025 08:23, Atish Patra wrote:
+> Ssccfg (‘Ss’ for Privileged architecture and Supervisor-level
+> extension, ‘ccfg’ for Counter Configuration) provides access to
+> delegated counters and new supervisor-level state.
+
+Hi Atish,
+
+The spec seems to primarly use Smcdeleg rather than Ssccfg. This commits
+adds both but only mention Ssccfg in the commit title/description. Maybe
+it could be nice to mention both as well.
+
+Thanks,
+
+Clément
+
 > 
-> > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
-> > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
-> > just to make things simpler instead of ftrace we decided to preserve
-> > "reserve_mem" regions.
-> > 
-> > The patches are also available in git:
-> > https://git.kernel.org/rppt/h/kho/v4
-> > 
-> > 
-> > Kexec today considers itself purely a boot loader: When we enter the new
-> > kernel, any state the previous kernel left behind is irrelevant and the
-> > new kernel reinitializes the system.
+> This patch just enables the definitions and enable parsing.
 > 
-> I tossed this into mm.git for some testing and exposure.
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/hwcap.h | 2 ++
+>  arch/riscv/kernel/cpufeature.c | 2 ++
+>  2 files changed, 4 insertions(+)
 > 
-> What merge path are you anticipating?
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b4eddcb57842..fa5e01bcb990 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -103,6 +103,8 @@
+>  #define RISCV_ISA_EXT_SSCSRIND		94
+>  #define RISCV_ISA_EXT_SMCSRIND		95
+>  #define RISCV_ISA_EXT_SMCNTRPMF         96
+> +#define RISCV_ISA_EXT_SSCCFG            97
+> +#define RISCV_ISA_EXT_SMCDELEG          98
+>  
+>  #define RISCV_ISA_EXT_XLINUXENVCFG	127
+>  
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 8f225c9c3055..3cb208d4913e 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -390,12 +390,14 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>  	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
+>  	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
+>  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+> +	__RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
+>  	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
+>  	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+>  	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+>  	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
+>  	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+>  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+> +	__RISCV_ISA_EXT_DATA(ssccfg, RISCV_ISA_EXT_SSCCFG),
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
+>  	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
+> 
 
-I think your tree is the most appropriate, but let's wait for Acks from x86
-and arm64 people ;-)
-
-> Review activity seems pretty thin thus far?
-
-Yeah :(
-Maybe with Pasha's version on top of that we'll have more people reviewing.
-
-And here is another fixup for a sparse error kbuild reported:
-
-
-From e1e34b96b96b89a01ee31be223c8dfc2ce1c4cbe Mon Sep 17 00:00:00 2001
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Fri, 7 Feb 2025 09:55:03 +0200
-Subject: [PATCH] kho: make bin_attr_dt_kern static
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- kernel/kexec_handover.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
-index c26753d613cb..c21ea2a09d47 100644
---- a/kernel/kexec_handover.c
-+++ b/kernel/kexec_handover.c
-@@ -258,7 +258,7 @@ static ssize_t dt_read(struct file *file, struct kobject *kobj,
- 	return count;
- }
- 
--struct bin_attribute bin_attr_dt_kern = __BIN_ATTR(dt, 0400, dt_read, NULL, 0);
-+static struct bin_attribute bin_attr_dt_kern = __BIN_ATTR(dt, 0400, dt_read, NULL, 0);
- 
- static int kho_expose_dt(void *fdt)
- {
--- 
-2.47.2
-
-
--- 
-Sincerely yours,
-Mike.
 
