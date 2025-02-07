@@ -4,103 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D7AC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D1DC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtB8ZCdlBBHdTv5h1BbZ8qcQh0YZJ6JHHBwv75ZzjyQ=; b=5EjkGi2KQchCxGay6xAsBpd8wd
-	9MPDmWfLkGqPrs6kaQ8A9pievbjVWUXOIsibOHK39OZYItf9p++qmzAjqYeJal+38AREk+01G71pB
-	2Yn3JTdmOwAiMoJmOt4iRQg2KrV6KwUiz+UPhkFAeSOhtycPtHvSLUoSJVmIyqAhUH/f7ggo2KMB5
-	D4WAEsUNkPD5e/vvToVv7ZPmGl6zfqmwRpiBwxUIt50JUI/bf9+seKZhTB0zRJx6OOz/iETG3n4a6
-	llnzCmFfv8PZO/Ifyat9RcjkGCkLzfOjran1Ky/UmRm4uho7POZGOQM+pIN03/edQtHwU/g2IAyFs
-	CrbBQtnw==;
+	bh=2zri0YGU7tlFtITZQ9YMGtcv5e9E37p1MNnjf0vhx08=; b=S2Kp88wrBA6Q40SARwBvuxvIGt
+	ryno8U1cyTyXLxdg0RYpsdSnAr0uZE/8XbGTiCAqUXYjSfl9t6BY1eZ0g51sTjXRmxl2ro+f09rjr
+	L6YtOmCAYguHFHBo8MCjsj1BTsOqQKS+quqGvQe8MtQ3lHagL3vPAivoKY3tfYTkqJgG3TvVPDGly
+	O8mSnsEljw56x8kVYfwrSC7loNtbdK0xsJxaf7PJkM1nEaasPqrc6PEx5ASvhBO5mtdY6f7bRGK3p
+	Br7ssuNRI/5md537u5hFdOqqoxxs1XGo0HCySWJYd/pNJ8VtnwX8peyeFg7Vl4slFwIu6P3Qpznp4
+	Ex5PTPcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgS7H-0000000AU24-3zce;
-	Fri, 07 Feb 2025 17:26:11 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tgS8e-0000000AUKs-2T3Q;
+	Fri, 07 Feb 2025 17:27:36 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRgG-0000000AO3L-48d1
+	id 1tgRgk-0000000AOAT-0mmr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:58:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738947497; x=1770483497;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=yLXa2yaR9NgwmMapus7AuHWRbw/3UQlE2Bja3/Bf6S4=;
-  b=FrAUFRWl8TdByrqtIXUprVHZ8eCAUBHYo/0Gjl3FqSN0AH0QppLoDGPs
-   9Z59pWni4Qy7vGYrzb+ftElBCAz5Zy49HlXCkjNwre520m7WNu0+DjBml
-   hzuEHYTNz0eNslW0y7032tEkhTo2pG9VYkQa8Bd6ea0Jjw7ps4TeKOlgc
-   D+dFqtetfuu4hQ30V/lpg1Y1EeRff4nC2F68SdRTpNvmkvkkMZAbW4ROR
-   hFUU1AzlNWeO50HKxa73Odg22VfqF+y74pHb4tuwIS8K83DgC7pvZjyKB
-   XGLD6pBgRul4k55GDXxoGNSoQZXNaS3+mkNGYBTbC6RqP3K5NvVmzbR8S
-   A==;
-X-CSE-ConnectionGUID: hyDSyAohTVqd2R7d9RgEXg==
-X-CSE-MsgGUID: Swg5TRQ+SJuZ7DtBCeT5hg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39723094"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="39723094"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:58:17 -0800
-X-CSE-ConnectionGUID: 3dCaZTDKQAO3v8G6d9C7rQ==
-X-CSE-MsgGUID: 6QgvxFLLT/+mTQr13Bgo4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="111534667"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa006.jf.intel.com with ESMTP; 07 Feb 2025 08:58:08 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v3 9/9] igc: Add support to get frame preemption statistics via ethtool
-Date: Fri,  7 Feb 2025 11:56:49 -0500
-Message-Id: <20250207165649.2245320-10-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
+	Fri, 07 Feb 2025 16:58:47 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 517GwfnQ3861324
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Fri, 7 Feb 2025 10:58:41 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738947521;
+	bh=2zri0YGU7tlFtITZQ9YMGtcv5e9E37p1MNnjf0vhx08=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=leL05ieF6zpLhg2FiTFTeRMLLae99qfp4tExBvi3pzjhdFroseaKK5JCD0Tk3zq18
+	 eW3IKGeGD+IxR5sGR63deUXFee/iTp3JHlbsbTGORS14jIV+oWp0OFxtxSqe6kBz0K
+	 Tw/G3jXxXy2zf3Kv0y5urFjXWJ+XWK50bPvXKxLM=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517Gwf6n060034;
+	Fri, 7 Feb 2025 10:58:41 -0600
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
+ Feb 2025 10:58:41 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 7 Feb 2025 10:58:41 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517GweNg097409;
+	Fri, 7 Feb 2025 10:58:40 -0600
+Message-ID: <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
+Date: Fri, 7 Feb 2025 10:58:40 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/9] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
+ remote processors
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla
+	<hnagalla@ti.com>
+References: <20250206235200.3128163-1-jm@ti.com>
+ <20250206235200.3128163-7-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250206235200.3128163-7-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_085817_084705_CCD17CDB 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250207_085846_393424_866772CA 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,144 +91,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implemented "ethtool --include-statistics --show-mm" callback for IGC.
+On 2/6/25 5:51 PM, Judith Mendez wrote:
+> From: Devarsh Thakkar <devarsht@ti.com>
+> 
+> For each remote proc, reserve memory for IPC and bind the mailbox
+> assignments. Two memory regions are reserved for each remote processor.
+> The first region of 1MB of memory is used for Vring shared buffers
+> and the second region is used as external memory to the remote processor
+> for the resource table and for tracebuffer allocations.
+> 
+> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+> Changes since v3:
+> - Add SRAM child node for am62p MCU R5 core 0
+> ---
+>   .../dts/ti/k3-am62p-j722s-common-mcu.dtsi     | 13 +++++
+>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 50 ++++++++++++++++---
+>   2 files changed, 57 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+> index b33aff0d65c9d..0be3463bc21c5 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+> @@ -6,6 +6,18 @@
+>    */
+>   
+>   &cbass_mcu {
+> +	mcu_ram: sram@79100000 {
+> +		compatible = "mmio-sram";
+> +		reg = <0x00 0x79100000 0x00 0x80000>;
+> +		ranges = <0x00 0x00 0x79100000 0x80000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +
+> +		mcu_sram1@0 {
 
-Tested preemption scenario to check preemption statistics:
-1) Trigger verification handshake on both boards:
-    $ sudo ethtool --set-mm enp1s0 pmac-enabled on
-    $ sudo ethtool --set-mm enp1s0 tx-enabled on
-    $ sudo ethtool --set-mm enp1s0 verify-enabled on
-2) Set preemptible or express queue in taprio for tx board:
-    $ sudo tc qdisc replace dev enp1s0 parent root handle 100 taprio \
-      num_tc 4 map 3 2 1 0 3 3 3 3 3 3 3 3 3 3 3 3 \
-      queues 1@0 1@1 1@2 1@3 base-time 0 sched-entry S F 100000 \
-      fp E E P P
-3) Send large size packets on preemptible queue
-4) Send small size packets on express queue to preempt packets in
-   preemptible queue
-5) Show preemption statistics on the receiving board:
-   $ ethtool --include-statistics --show-mm enp1s0
-     MAC Merge layer state for enp1s0:
-     pMAC enabled: on
-     TX enabled: on
-     TX active: on
-     TX minimum fragment size: 64
-     RX minimum fragment size: 60
-     Verify enabled: on
-     Verify time: 128
-     Max verify time: 128
-     Verification status: SUCCEEDED
-     Statistics:
-     	MACMergeFrameAssErrorCount: 0
-	MACMergeFrameSmdErrorCount: 0
-	MACMergeFrameAssOkCount: 511
-	MACMergeFragCountRx: 764
-	MACMergeFragCountTx: 0
-	MACMergeHoldCount: 0
+What does this node do for us? Seems you reserve the whole SRAM
+area from the start, but shouldn't the phandle in mcu_r5fss0_core0
+point to this node? Or better it would use the normal SRAM API
+to request an allocation from this region.
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
----
- drivers/net/ethernet/intel/igc/igc_ethtool.c | 36 ++++++++++++++++++++
- drivers/net/ethernet/intel/igc/igc_main.c    |  1 +
- drivers/net/ethernet/intel/igc/igc_regs.h    | 16 +++++++++
- 3 files changed, 53 insertions(+)
+Since this is still not resolved, and you don't mention it in
+the commit message, might be good to drop this SRAM part of this
+patch and deal with this in a later series.
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-index 7f0052e0d50c..97a1194399b1 100644
---- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
-+++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-@@ -1819,6 +1819,41 @@ static int igc_ethtool_set_mm(struct net_device *netdev,
- 	return igc_tsn_offload_apply(adapter);
- }
- 
-+/**
-+ * igc_ethtool_get_frame_ass_error - Get the frame assembly error count.
-+ * @dev: Pointer to the net_device structure.
-+ * Return: The count of frame assembly errors.
-+ */
-+static u64 igc_ethtool_get_frame_ass_error(struct net_device *dev)
-+{
-+	struct igc_adapter *adapter = netdev_priv(dev);
-+	u32 ooo_smdc, ooo_frame_cnt, ooo_frag_cnt; /* Out of order statistics */
-+	struct igc_hw *hw = &adapter->hw;
-+	u32 miss_frame_frag_cnt;
-+	u32 reg_value;
-+
-+	reg_value = rd32(IGC_PRMEXPRCNT);
-+	ooo_smdc = FIELD_GET(IGC_PRMEXPRCNT_OOO_SMDC, reg_value);
-+	ooo_frame_cnt = FIELD_GET(IGC_PRMEXPRCNT_OOO_FRAME_CNT, reg_value);
-+	ooo_frag_cnt = FIELD_GET(IGC_PRMEXPRCNT_OOO_FRAG_CNT, reg_value);
-+	miss_frame_frag_cnt = FIELD_GET(IGC_PRMEXPRCNT_MISS_FRAME_FRAG_CNT,
-+					reg_value);
-+
-+	return ooo_smdc + ooo_frame_cnt + ooo_frag_cnt + miss_frame_frag_cnt;
-+}
-+
-+static void igc_ethtool_get_mm_stats(struct net_device *dev,
-+				     struct ethtool_mm_stats *stats)
-+{
-+	struct igc_adapter *adapter = netdev_priv(dev);
-+	struct igc_hw *hw = &adapter->hw;
-+
-+	stats->MACMergeFrameAssErrorCount = igc_ethtool_get_frame_ass_error(dev);
-+	stats->MACMergeFrameAssOkCount = rd32(IGC_PRMPTDRCNT);
-+	stats->MACMergeFragCountRx =  rd32(IGC_PRMEVNTRCNT);
-+	stats->MACMergeFragCountTx = rd32(IGC_PRMEVNTTCNT);
-+}
-+
- static int igc_ethtool_get_link_ksettings(struct net_device *netdev,
- 					  struct ethtool_link_ksettings *cmd)
- {
-@@ -2108,6 +2143,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
- 	.get_channels		= igc_ethtool_get_channels,
- 	.get_mm			= igc_ethtool_get_mm,
- 	.set_mm			= igc_ethtool_set_mm,
-+	.get_mm_stats		= igc_ethtool_get_mm_stats,
- 	.set_channels		= igc_ethtool_set_channels,
- 	.get_priv_flags		= igc_ethtool_get_priv_flags,
- 	.set_priv_flags		= igc_ethtool_set_priv_flags,
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index f15ac7565fbd..cd5160315993 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -3076,6 +3076,7 @@ static bool igc_clean_tx_irq(struct igc_q_vector *q_vector, int napi_budget)
- 			break;
- 
- 		if (static_branch_unlikely(&igc_fpe_enabled) &&
-+		    adapter->fpe.mmsv.pmac_enabled &&
- 		    igc_fpe_transmitted_smd_v(tx_desc))
- 			ethtool_mmsv_event_handle(&adapter->fpe.mmsv,
- 						  ETHTOOL_MMSV_LD_SENT_VERIFY_MPACKET);
-diff --git a/drivers/net/ethernet/intel/igc/igc_regs.h b/drivers/net/ethernet/intel/igc/igc_regs.h
-index 12ddc5793651..41dbfb07eb2f 100644
---- a/drivers/net/ethernet/intel/igc/igc_regs.h
-+++ b/drivers/net/ethernet/intel/igc/igc_regs.h
-@@ -222,6 +222,22 @@
- 
- #define IGC_FTQF(_n)	(0x059E0 + (4 * (_n)))  /* 5-tuple Queue Fltr */
- 
-+/* Time sync registers - preemption statistics */
-+#define IGC_PRMPTDRCNT		0x04284	/* Good RX Preempted Packets */
-+#define IGC_PRMEVNTTCNT		0x04298	/* TX Preemption event counter */
-+#define IGC_PRMEVNTRCNT		0x0429C	/* RX Preemption event counter */
-+
-+ /* Preemption Exception Counter */
-+#define IGC_PRMEXPRCNT					0x42A0
-+/* Received out of order packets with SMD-C */
-+#define IGC_PRMEXPRCNT_OOO_SMDC				0x000000FF
-+/* Received out of order packets with SMD-C and wrong Frame CNT */
-+#define IGC_PRMEXPRCNT_OOO_FRAME_CNT			0x0000FF00
-+/* Received out of order packets with SMD-C and wrong Frag CNT */
-+#define IGC_PRMEXPRCNT_OOO_FRAG_CNT			0x00FF0000
-+/* Received packets with SMD-S and wrong Frag CNT and Frame CNT */
-+#define IGC_PRMEXPRCNT_MISS_FRAME_FRAG_CNT		0xFF000000
-+
- /* Transmit Scheduling Registers */
- #define IGC_TQAVCTRL		0x3570
- #define IGC_TXQCTL(_n)		(0x3344 + 0x4 * (_n))
--- 
-2.34.1
+Andrew
 
+> +			reg = <0x0 0x80000>;
+> +		};
+> +	};
+> +
+>   	mcu_pmx0: pinctrl@4084000 {
+>   		compatible = "pinctrl-single";
+>   		reg = <0x00 0x04084000 0x00 0x88>;
+> @@ -213,6 +225,7 @@ mcu_r5fss0_core0: r5f@79000000 {
+>   			ti,atcm-enable = <0>;
+>   			ti,btcm-enable = <1>;
+>   			ti,loczrama = <0>;
+> +			sram = <&mcu_ram>;
+>   		};
+>   	};
+>   };
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> index ad71d2f27f538..9609727d042d3 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> @@ -48,6 +48,30 @@ reserved-memory {
+>   		#size-cells = <2>;
+>   		ranges;
+>   
+> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
+> +			no-map;
+> +		};
+> +
+>   		secure_tfa_ddr: tfa@9e780000 {
+>   			reg = <0x00 0x9e780000 0x00 0x80000>;
+>   			no-map;
+> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
+>   			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+>   			no-map;
+>   		};
+> -
+> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+> -			no-map;
+> -		};
+>   	};
+>   
+>   	vmain_pd: regulator-0 {
+> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>   	};
+>   };
+>   
+> +&wkup_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&wkup_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> +			<&wkup_r5fss0_core0_memory_region>;
+> +};
+> +
+> +&mcu_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&mcu_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+> +			<&mcu_r5fss0_core0_memory_region>;
+> +};
+> +
+>   &main_uart0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_uart0_pins_default>;
 
