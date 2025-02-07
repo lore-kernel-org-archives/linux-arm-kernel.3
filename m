@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAD2C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81E9C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=; b=xI3kIHLMFkH3ma+N7T3VE47pVd
-	dH/eka5ocpvRSDmiaVx+DtlP+S3Nzq2krqN90KOf9/OVkcWt1+ySl5dsmmcy36U6rMww/wrnIjkLR
-	EDoc+hBQCxvNbGIylcTeL28GgIE4edN20eIUMbHNPmR+emcZZCqwpKKyAao+6I4OVr+asw2eNGjv3
-	Eu0JPUd0/HdUC0k6RmtORnoQ491aCzZUOsVkwrHYUIokjBbsy1MwBwPLcZvgvDiE+ixaGcO2QTX4G
-	cL1IoL1q26wZtdwAWYK6Ye3Lbs2mNFNCi9kAzx4Kq4DScCwS7Yqf64w4CeVjz0LoIdK6BTp+yaYai
-	HSgwPX1A==;
+	bh=utsQz0jHzCVhfns5+q6OzU+DlKbU+YHZ/y10fPGd99I=; b=gH9T5bZR9XBgcVQvjjzMC+02JM
+	BhLYWp3tvAjnmvADKiZgCQxG7OJrvrpcWS2ipgqZPJyapRbaHLSzyMD9gGZCgB2Ako7Z/Tupiezhk
+	O6avjkmUMTd/aBayOylNt3Xo1XaUl6o5PbGJaXA0o94Bwn5GfVTfctmdIsR4C3i4ypZvhAqeiORvh
+	P1GCIn4OJB24/ItWuQtqF7mjEAkPdl2AaGw9SPVeDd294UcaE9adm6kk3ZD4Q/UXX/wx+RCvui/pH
+	T7RnHtLEA9dC4Ss4BEQL2AWfVUBwBZa+vQ/WEGaTe8zmWaMLOQUWzedzfoMFnE6GNQGIAz9H8xSkI
+	NNkKgX5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLdB-00000009Cpu-0vqS;
-	Fri, 07 Feb 2025 10:30:41 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLbm-00000009CVv-0wMI
+	id 1tgLmC-00000009EfI-3AnV;
+	Fri, 07 Feb 2025 10:40:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgLko-00000009EQv-1T1A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 10:29:15 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4361815b96cso12648585e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 02:29:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738924152; x=1739528952; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
-        b=UtKzgx1N1crJZ11lK67wtikJsjccEwo9jscSOpXkurLDgYW6LD4t12tgdcbFioY/2Z
-         0Lo3qzcm2IkYPS+VWsVpWHL0qOgV999J+6Aa4764IB1k7NI+9P45BdqIPpL+dMGx/HkX
-         qJXUfC/up2b7MFuckza6l9LkNPtW+hCZokWVv63/VhwybsXJz9set97uIoGuFAeuGPBQ
-         beW6M14vn9UA3AvnUHeCRM/cQ+6iZf89uNrTWE4faL7NHmujNOIEdAxW0UbiK01zNa5d
-         0lVA4Mbhch2/LvOpiufW1S99bLTLq9DXrqYumYwUzgye4tcISicW3RdVmADtjhcKD5w6
-         bmbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738924152; x=1739528952;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
-        b=YxwDBTsYWd0tV4RZV/Q0FQcT9lgxcZ8HVxj3fLaAjTuh28v13tCoq8Ne8WyH4u7S8e
-         65KgsNe0XXH24GH8jQvbqu0TFg00dJfsUdrh+UUe9UauZL4lS251Gi3jf+IzmvtXapwj
-         p9hwt3K2yObgf3t7aUO6S7AelahJdKzIBUFLiNVmaxixnzUY6p9WAxVxNqTiOxJM2fGQ
-         qG4Yun5lXKouCkUOGhqKPLlkvyMoKpng8v3P0i+DOQt1oFzFtdemDHXOQ6XhffrPgb2l
-         xjhWvohbYrQVHIeTRmKZSQYDyp+KvCSWzChNgYSL+fAlCMh5PMZlhMvCGlVRrFyvq9fy
-         Pn2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUjgJ1/ahtj8cRQOkOhvraaBCquD3FEbxZ6hnZQi7Q87kp43cRbRz2gev2MR/izY8HhfNFym3dZyqAGcBexE2qu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3Y/ToVKO7ILT0wVZ+f+ckatoBrnqDfLodT+PMSHlPNAj2JCxN
-	x7nhobY14S3YmDgc+01FAzee0+8pR81b0YBG/a5DiCO7+/mFvQken08a25BMDrA=
-X-Gm-Gg: ASbGnctMqDqqNCW0sIOTN6IPXaLbyv3jinti/DWRVHV4rvDXDQ+3cgRJjBHEJHwUle1
-	BZM8sEeCx+OVPpXnlf/WSe22Yl/xEMQb963ItA3cG+ftKq5KXsOZ7Z9DxlMJtJtEtTetCqIcpqP
-	1Z2ewcHO1zPFKTVs2BfTZ9VPKKCHRlnumxEI6Hl0XrdQQfJcA0eWwDBdaMspP+ynrkFCIECKZqu
-	VTHaDKz9s2wqMFrsx7gpLMDMeuuYttb7aRGe7dK2MvClpPxhCoks4CH5HMZmn+grtdpHX5KMPNU
-	eVqDHatSpQvbEgf6JIFdQjr0Qfb6/NmKCfYC+2MEa001JHZ0qv0R37kTG4CD
-X-Google-Smtp-Source: AGHT+IHCoYm88N9w7MLKhv47jx2sJHV5XaJtNjy2Kt9tKO8gApEJnGbxZzlJthncRDoGbW5dA9LdfQ==
-X-Received: by 2002:a05:600c:c19:b0:436:fb02:e68 with SMTP id 5b1f17b1804b1-4392497f9cbmr21820835e9.2.1738924150908;
-        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d933794sm87719805e9.7.2025.02.07.02.29.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
-Message-ID: <586dc43d-74cd-413b-86e2-545384ad796f@rivosinc.com>
-Date: Fri, 7 Feb 2025 11:29:08 +0100
+	Fri, 07 Feb 2025 10:38:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FC44113E;
+	Fri,  7 Feb 2025 02:38:56 -0800 (PST)
+Received: from [10.57.81.111] (unknown [10.57.81.111])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C4C1D3F63F;
+	Fri,  7 Feb 2025 02:38:30 -0800 (PST)
+Message-ID: <e0400886-d4bc-40f5-8375-fc3d515fd386@arm.com>
+Date: Fri, 7 Feb 2025 10:38:28 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/21] RISC-V: perf: Modify the counter discovery
- mechanism
-To: Atish Patra <atishp@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
+Subject: Re: [PATCH v1 08/16] arm64/mm: Hoist barriers out of ___set_ptes()
+ loop
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-9-ryan.roberts@arm.com>
+ <858ecac5-9ba7-48da-8f34-ffda28d17609@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <858ecac5-9ba7-48da-8f34-ffda28d17609@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_022914_529647_CA0475B7 
-X-CRM114-Status: GOOD (  41.37  )
+X-CRM114-CacheID: sfid-20250207_023834_487873_FF227A59 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,251 +75,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 06/02/2025 08:23, Atish Patra wrote:
-> If both counter delegation and SBI PMU is present, the counter
-> delegation will be used for hardware pmu counters while the SBI PMU
-> will be used for firmware counters. Thus, the driver has to probe
-> the counters info via SBI PMU to distinguish the firmware counters.
+On 07/02/2025 05:35, Anshuman Khandual wrote:
 > 
-> The hybrid scheme also requires improvements of the informational
-> logging messages to indicate the user about underlying interface
-> used for each use case.
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_dev.c | 118 ++++++++++++++++++++++++++++++++-----------
->  1 file changed, 88 insertions(+), 30 deletions(-)
+> On 2/5/25 20:39, Ryan Roberts wrote:
+>> ___set_ptes() previously called __set_pte() for each PTE in the range,
+>> which would conditionally issue a DSB and ISB to make the new PTE value
+>> immediately visible to the table walker if the new PTE was valid and for
+>> kernel space.
+>>
+>> We can do better than this; let's hoist those barriers out of the loop
+>> so that they are only issued once at the end of the loop. We then reduce
+>> the cost by the number of PTEs in the range.
+>>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>  arch/arm64/include/asm/pgtable.h | 14 ++++++++++----
+>>  1 file changed, 10 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index 3b55d9a15f05..1d428e9c0e5a 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -317,10 +317,8 @@ static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
+>>  	WRITE_ONCE(*ptep, pte);
+>>  }
+>>  
+>> -static inline void __set_pte(pte_t *ptep, pte_t pte)
+>> +static inline void __set_pte_complete(pte_t pte)
+>>  {
+>> -	__set_pte_nosync(ptep, pte);
+>> -
+>>  	/*
+>>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
+>>  	 * or update_mmu_cache() have the necessary barriers.
+>> @@ -331,6 +329,12 @@ static inline void __set_pte(pte_t *ptep, pte_t pte)
+>>  	}
+>>  }
+>>  
+>> +static inline void __set_pte(pte_t *ptep, pte_t pte)
+>> +{
+>> +	__set_pte_nosync(ptep, pte);
+>> +	__set_pte_complete(pte);
+>> +}
+>> +
+>>  static inline pte_t __ptep_get(pte_t *ptep)
+>>  {
+>>  	return READ_ONCE(*ptep);
+>> @@ -647,12 +651,14 @@ static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+>>  
+>>  	for (;;) {
+>>  		__check_safe_pte_update(mm, ptep, pte);
+>> -		__set_pte(ptep, pte);
+>> +		__set_pte_nosync(ptep, pte);
+>>  		if (--nr == 0)
+>>  			break;
+>>  		ptep++;
+>>  		pte = pte_advance_pfn(pte, stride);
+>>  	}
+>> +
+>> +	__set_pte_complete(pte);
 > 
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 6b43d844eaea..5ddf4924c5b3 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -66,6 +66,10 @@ static bool sbi_v2_available;
->  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->  #define sbi_pmu_snapshot_available() \
->  	static_branch_unlikely(&sbi_pmu_snapshot_available)
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
-> +static bool cdeleg_available;
-> +static bool sbi_available;
->  
->  static struct attribute *riscv_arch_formats_attr[] = {
->  	&format_attr_event.attr,
-> @@ -88,7 +92,8 @@ static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
->  
->  /*
->   * This structure is SBI specific but counter delegation also require counter
-> - * width, csr mapping. Reuse it for now.
-> + * width, csr mapping. Reuse it for now we can have firmware counters for
-> + * platfroms with counter delegation support.
->   * RISC-V doesn't have heterogeneous harts yet. This need to be part of
->   * per_cpu in case of harts with different pmu counters
->   */
-> @@ -100,6 +105,8 @@ static unsigned int riscv_pmu_irq;
->  
->  /* Cache the available counters in a bitmask */
->  static unsigned long cmask;
-> +/* Cache the available firmware counters in another bitmask */
-> +static unsigned long firmware_cmask;
->  
->  struct sbi_pmu_event_data {
->  	union {
-> @@ -778,35 +785,49 @@ static int rvpmu_sbi_find_num_ctrs(void)
->  		return sbi_err_map_linux_errno(ret.error);
->  }
->  
-> -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
-> +static int rvpmu_deleg_find_ctrs(void)
-> +{
-> +	/* TODO */
-> +	return -1;
-> +}
-> +
-> +static int rvpmu_sbi_get_ctrinfo(int nsbi_ctr, int ndeleg_ctr)
+> Given that the loop now iterates over number of page table entries without corresponding
+> consecutive dsb/isb sync, could there be a situation where something else gets scheduled
+> on the cpu before __set_pte_complete() is called ? Hence leaving the entire page table
+> entries block without desired mapping effect. IOW how __set_pte_complete() is ensured to
+> execute once the loop above completes. Otherwise this change LGTM.
 
-Hi Atish,
+I don't think this changes the model. Previously, __set_pte() was called, which
+writes the pte to the pgtable, then issues the barriers. So there is still a
+window where the thread could be unscheduled after the write but before the
+barriers. Yes, my change makese that window bigger, but if it is a bug now, it
+was a bug before.
 
-These parameters could be unsigned I think.
+Additionally, the spec for set_ptes() is:
 
->  {
->  	struct sbiret ret;
-> -	int i, num_hw_ctr = 0, num_fw_ctr = 0;
-> +	int i, num_hw_ctr = 0, num_fw_ctr = 0, num_ctr = 0;
->  	union sbi_pmu_ctr_info cinfo;
->  
-> -	pmu_ctr_list = kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL);
-> -	if (!pmu_ctr_list)
-> -		return -ENOMEM;
-> -
-> -	for (i = 0; i < nctr; i++) {
-> +	for (i = 0; i < nsbi_ctr; i++) {
->  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
->  		if (ret.error)
->  			/* The logical counter ids are not expected to be contiguous */
->  			continue;
->  
-> -		*mask |= BIT(i);
-> -
->  		cinfo.value = ret.value;
->  		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
->  			num_fw_ctr++;
-> -		else
-> +
-> +		if (!cdeleg_available) {
+/**
+ * set_ptes - Map consecutive pages to a contiguous range of addresses.
+ * @mm: Address space to map the pages into.
+ * @addr: Address to map the first page at.
+ * @ptep: Page table pointer for the first entry.
+ * @pte: Page table entry for the first page.
+ * @nr: Number of pages to map.
+ *
+ * When nr==1, initial state of pte may be present or not present, and new state
+ * may be present or not present. When nr>1, initial state of all ptes must be
+ * not present, and new state must be present.
+ *
+ * May be overridden by the architecture, or the architecture can define
+ * set_pte() and PFN_PTE_SHIFT.
+ *
+ * Context: The caller holds the page table lock.  The pages all belong
+ * to the same folio.  The PTEs are all in the same PMD.
+ */
 
-What is the rationale for using additional boolean identical to the
-static keys ? Reducing the amount of code patch site in cold path ? If
-so, I guess you can use static_key_enabled(&riscv_pmu_cdeleg_available).
-But your solution is fine as well, it just duplicates two identical values.
+Note that the caller is required to hold the page table lock. That's a spin lock
+so should be non-preemptible at this point (perhaps not for RT?)
 
->  			num_hw_ctr++;
-> -		pmu_ctr_list[i].value = cinfo.value;
-> +			cmask |= BIT(i);
-> +			pmu_ctr_list[i].value = cinfo.value;
-> +		} else if (cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> +			/* Track firmware counters in a different mask */
-> +			firmware_cmask |= BIT(i);
-> +			pmu_ctr_list[i].value = cinfo.value;
-> +		}
-> +
->  	}
->  
-> -	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
-> +	if (cdeleg_available) {
-> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, ndeleg_ctr);
-> +		num_ctr = num_fw_ctr + ndeleg_ctr;
-> +	} else {
-> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
-> +		num_ctr = nsbi_ctr;
-> +	}
->  
-> -	return 0;
-> +	return num_ctr;
->  }
->  
->  static inline void rvpmu_sbi_stop_all(struct riscv_pmu *pmu)
-> @@ -1067,16 +1088,33 @@ static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
->  	/* TODO: Counter delegation implementation */
->  }
->  
-> -static int rvpmu_find_num_ctrs(void)
-> +static int rvpmu_find_ctrs(void)
->  {
-> -	return rvpmu_sbi_find_num_ctrs();
-> -	/* TODO: Counter delegation implementation */
-> -}
-> +	int num_sbi_counters = 0, num_deleg_counters = 0, num_counters = 0;
->  
-> -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
-> -{
-> -	return rvpmu_sbi_get_ctrinfo(nctr, mask);
-> -	/* TODO: Counter delegation implementation */
-> +	/*
-> +	 * We don't know how many firmware counters available. Just allocate
-> +	 * for maximum counters driver can support. The default is 64 anyways.
-> +	 */
-> +	pmu_ctr_list = kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list),
-> +			       GFP_KERNEL);
-> +	if (!pmu_ctr_list)
-> +		return -ENOMEM;
-> +
-> +	if (cdeleg_available)
-> +		num_deleg_counters = rvpmu_deleg_find_ctrs();
-> +
-> +	/* This is required for firmware counters even if the above is true */
-> +	if (sbi_available)
-> +		num_sbi_counters = rvpmu_sbi_find_num_ctrs();
-> +
-> +	if (num_sbi_counters >= RISCV_MAX_COUNTERS || num_deleg_counters >= RISCV_MAX_COUNTERS)
-> +		return -ENOSPC;
+Although actually, vmalloc doesn't hold a lock when calling these helpers; it
+has a lock when allocating the VA space, then drops it.
 
-Why is this using '>=' ? You allocated space for RISCV_MAX_COUNTERS, so
-RISCV_MAX_COUNTERS should fit right ?
+So yes, I think there is a chance of preemption after writing the pgtable entry
+but before issuing the barriers.
 
-> +
-> +	/* cache all the information about counters now */
-> +	num_counters = rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
-> +
-> +	return num_counters;
+But in that case, we get saved by the DSB in the context switch path. There is
+no guarrantee of an ISB in that path (AFAIU). But the need for an ISB is a bit
+whooly anyway. My rough understanding is that the ISB is there to prevent
+previous speculation from determining that a given translation was invalid and
+"caching" that determination in the pipeline. That could still (theoretically)
+happen on remote CPUs I think, and we have the spurious fault handler to detect
+that. Anyway, once you context switch, the local CPU becomes remote and we don't
+have the ISB there, so what's the difference... There's a high chance I've
+misunderstood a bunch of this.
 
-return rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
 
->  }
->  
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
-> @@ -1377,12 +1415,21 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->  	int ret = -ENODEV;
->  	int num_counters;
->  
-> -	pr_info("SBI PMU extension is available\n");
-> +	if (cdeleg_available) {
-> +		pr_info("hpmcounters will use the counter delegation ISA extension\n");
-> +		if (sbi_available)
-> +			pr_info("Firmware counters will be use SBI PMU extension\n");
+In conclusion, I don't think I've made things any worse.
 
-s/will be use/will use
+Thanks,
+Ryan
 
-> +		else
-> +			pr_info("Firmware counters will be not available as SBI PMU extension is not present\n");
-
-s/will be not/will not
-
-> +	} else if (sbi_available) {
-> +		pr_info("Both hpmcounters and firmware counters will use SBI PMU extension\n");
-> +	}
-> +
->  	pmu = riscv_pmu_alloc();
->  	if (!pmu)
->  		return -ENOMEM;
->  
-> -	num_counters = rvpmu_find_num_ctrs();
-> +	num_counters = rvpmu_find_ctrs();
->  	if (num_counters < 0) {
->  		pr_err("SBI PMU extension doesn't provide any counters\n");
->  		goto out_free;
-> @@ -1394,9 +1441,6 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->  		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
->  	}
->  
-> -	/* cache all the information about counters now */
-> -	if (rvpmu_get_ctrinfo(num_counters, &cmask))
-> -		goto out_free;
->  
->  	ret = rvpmu_setup_irqs(pmu, pdev);
->  	if (ret < 0) {
-> @@ -1486,13 +1530,27 @@ static int __init rvpmu_devinit(void)
->  	int ret;
->  	struct platform_device *pdev;
->  
-> -	if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> -	    !sbi_probe_extension(SBI_EXT_PMU)) {
-> -		return 0;
-> +	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
-> +	    sbi_probe_extension(SBI_EXT_PMU)) {
-> +		static_branch_enable(&riscv_pmu_sbi_available);
-> +		sbi_available = true;
->  	}
->  
->  	if (sbi_spec_version >= sbi_mk_version(2, 0))
->  		sbi_v2_available = true;
-> +	/*
-> +	 * We need all three extensions to be present to access the counters
-> +	 * in S-mode via Supervisor Counter delegation.
-> +	 */
-> +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
-> +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
-> +	    riscv_isa_extension_available(NULL, SSCSRIND)) {
-> +		static_branch_enable(&riscv_pmu_cdeleg_available);
-> +		cdeleg_available = true;
-> +	}
-> +
-> +	if (!(sbi_available || cdeleg_available))
-> +		return 0;
->  
->  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
->  				      "perf/riscv/pmu:starting",
 > 
+>>  }
+>>  
+>>  static inline void __set_ptes(struct mm_struct *mm,
 
 
