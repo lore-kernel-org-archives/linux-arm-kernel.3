@@ -4,72 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92CBC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 06:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9B1C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 07:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yEy4iUEQRwnQgoFRJSbVa2XrH/UVGGcgBH3QNERPzdM=; b=ZQ6RqZl9+SS+lZwrLuLkuLQIM2
-	LzbObTY43iKIpSnT85UCtF8gBx75eQZtRveNduO20S15HL4svxUryMj2+JBoDHURWlP2hWDFwLZ9N
-	vLOkniUA5oLDb293ry7u2CMnMe5qDZTiZEfd4ja2Ig3lQg8gmNeoHXLPyjCSyZYIA3bJpfAUU7EOY
-	V939uIZy+me4JqgaOxPPVn2Xl25SK0fVbgMWQjpBAxyYuYf4wjfyz/mL9IUEI8qVe+zF0XyoaTWc5
-	GKzbv1m3iwgc7lms8hVVNDKh/rlQenQKnQtvlzDcNiRYC+vm8iFk4vBtqifTijtsv9k7rb8MQOw2f
-	2eBBbeWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJi0q22ErnVh69NftfZYlL1/SvdFNAtQbqlfFhTW3ss=; b=hVmhpqBBCFzFMZrC/5XDK2fhdb
+	2lNylZmKiqp3ejSkSZikySEP0nLMIip0UiKS6VfSyw2/mlXO59WGZeJYTB08xVGfxpNefTrR1ZahR
+	YfSPk2FSflcR19Q/1o33AluGrCzQDLwQIXghp84nDNrHPYnJTL3OiY8pvWy6jW1+6yQExTm/MBePc
+	uZgwi77E3BudD4S+qd7voPUPQnkFoyGzmMRwwhJvYC3jvOB8r/EtSEixw8J6OaLmMqMBz6jzsgw+e
+	r7SkMNgYN50HCvgbQhCdUf2FGQoXmJ1B0GeI/nbK5JwmyNrJRXL+nfuApQwoGcHyEAAFWuxQNWZx3
+	nsgZ8gIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgIH2-00000008Z6V-2Iym;
-	Fri, 07 Feb 2025 06:55:36 +0000
-Received: from [198.47.23.234] (helo=lelvem-ot01.ext.ti.com)
+	id 1tgIMO-00000008aVL-2Lka;
+	Fri, 07 Feb 2025 07:01:08 +0000
+Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgID7-00000008YRN-2nDj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 06:51:35 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5176pS6F3777752
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 7 Feb 2025 00:51:28 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738911088;
-	bh=yEy4iUEQRwnQgoFRJSbVa2XrH/UVGGcgBH3QNERPzdM=;
-	h=From:To:CC:Subject:Date;
-	b=x4uN012BIh7LsG+twhT0FOQ+32fYslGI/rGRtOs5sJJpiYgkSi11ddWrts5UovQ9f
-	 kYEyNwuKYG60eCJjIBYHbkpZMc8T4Yghb7Auilz0ofRlfvxrLO62cbSwwnuaZbRkrR
-	 aK887DEHLHSpWfvemLOTq4KDO3JnW9EquFBETP/Y=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5176pSxn032038
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 7 Feb 2025 00:51:28 -0600
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Feb 2025 00:51:27 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Feb 2025 00:51:27 -0600
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.104])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5176pOX8077856;
-	Fri, 7 Feb 2025 00:51:25 -0600
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <u-kumar1@ti.com>, <vigneshr@ti.com>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH] soc: ti: k3-ringacc: include platform_device header
-Date: Fri, 7 Feb 2025 12:21:23 +0530
-Message-ID: <20250207065123.879863-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tgIKz-00000008a7r-0tye;
+	Fri, 07 Feb 2025 06:59:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PWjTk2I8vwJPR+xO7VOE41QSgx7GNIjAce1ZOja1G94oxXQzRlpWAPJESbVYKc7CKRzmNQqBPsnJnbU8MbWY0qy+FkC+ynJ3mCjs+Xny9nLRfx3GRag+1vUQoK223t0FYFSqOrKlE9IR0WayAkcSDlHDPKZ8pG6v0/UZ1hKfUyM+N1olUtzAMqGkOFE0ZKcvzCZ9QPVpyBa5vIGqLGoq5lLCW4gwD1RF2rk3gYWIgqgMjEyyNltdexLpNUzDgZBlfcebVBfAovKUjg8bCPoOXB3xnsWcEJxRALKvgvWCsze2/IQ6Bgopxa4il/udS2yOUksX8Dup+UzZhgiEEG1PkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PJi0q22ErnVh69NftfZYlL1/SvdFNAtQbqlfFhTW3ss=;
+ b=giCrcgRVma1qzFJsZQ5D8QCLvNSsh/y1mxhyjJIjlGi39x6OG1lKIFrJFXf4DVOQH9aCTPk/HUYCMdfA0OGHd1Y4p5/MjXJxydHUQ1RD2FbAHCh+yRLtczpzfighZYgL0vaM0R4TmUiw9Hhxbxwa2fO51jodUDjGEBGEg2apBMELmvv1aXJzyCHzBfm2dRJLzBLrh9TS5Xc+uUcCxu95ItwcFOJeUWmgcKrSbrcxD0tdxR91qqsyrfJDlqyL5QWBQsj8Jzd8/kDMLAHUd0ZFWL1OQJx5dLukBYYTstee2Ba+62vBEy6bjLWLxJDvI5JyVaAjsiFUSufBArF2U3QDrg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PJi0q22ErnVh69NftfZYlL1/SvdFNAtQbqlfFhTW3ss=;
+ b=pf056tLmiyNvt8Z9XS4nY2WJtc4OSY0NKCYCxAzsc+Gph5wRlOUlcqBFh1wUXCP08n6wkxIeOsz+OmNIVfiO8+u3U2zzlEd+ThOr5cPMaJDwlyWGXvNlbhdrGDi2DGPbIonWBahJlQeS489ZZi+kxvctLHkn1KJ25eUWnIn5Oc67P38jxZzLa7JQ1wyZE+Sj81linSTc4KXAz7i2p89rkyhHsavFiGnACAIfqT+NLdiqRdSZ23mdNcW7FlCpHnRd4JzXGjQNJGL6QNNwbyqJb0a0j8m1PG5iF6w00Y6rkrUnWDWkOwfOgPj+NvuoGNPMQFNhotFQ0NXAcw6ColAu6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by KL1PR03MB7647.apcprd03.prod.outlook.com (2603:1096:820:e7::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
+ 2025 06:59:20 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123%7]) with mapi id 15.20.8398.021; Fri, 7 Feb 2025
+ 06:59:19 +0000
+Message-ID: <b12d31b3-9d0d-480c-9adb-baa3aa7aa437@amlogic.com>
+Date: Fri, 7 Feb 2025 14:59:15 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] dt-bindings: pinctrl: Add support for Amlogic SoCs
+To: Rob Herring <robh@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20250122-amlogic-pinctrl-v4-0-4677b2e18ff1@amlogic.com>
+ <20250122-amlogic-pinctrl-v4-1-4677b2e18ff1@amlogic.com>
+ <20250127185939.GA612868-robh@kernel.org>
+Content-Language: en-US
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <20250127185939.GA612868-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR02CA0024.apcprd02.prod.outlook.com
+ (2603:1096:3:17::36) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|KL1PR03MB7647:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e55f1a6-f81e-4c7d-1ea1-08dd4744f18d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aTVLc1p3U0hDSHNiMUQvOUdxMVVIWmNmRDN4aUxFWmtVL0gveDFTNG1oWEg0?=
+ =?utf-8?B?cHQ1RHVuS2JZSnFoLzl6TGZmaXllSjJkbmwwb09oS3o5SWZqeTlmMGc3Z0JP?=
+ =?utf-8?B?TENmWWwrS1ZZZ2h5YUhJRlpuUEVBRGVmbk02WS9XcUwwRkpXQTFPSVI2eWh1?=
+ =?utf-8?B?NDdiZXRxcWQ1UU5XeEgzdm9KVDFSRDladURObEVJc080aFMwZVNJYm4zbGdn?=
+ =?utf-8?B?ZVlHenU1RDhEaGxOSnU2NVliODNxNFBuTkROekl1WmwvSjNvQ0VpZW9qa2R6?=
+ =?utf-8?B?VXlDM0NXajV6L1RiVjRrbW44OFhLb0VkZTBiMTBIQ082YitHYkN3VkZ4em5T?=
+ =?utf-8?B?eXVuRUtIakJoNVZsQ09OTGVkYTBrc05JVndEYXMwbWdFcFIzQk9tYnhOZjEz?=
+ =?utf-8?B?dGtIUHFiZU5iQWRpMFlUSkdqTzg2OElhVGJJOGl1eTlZSk9SbjdPSi9iZGEx?=
+ =?utf-8?B?dFhrdFIzOGxkSERJclFHWGlHT1VsQXZydktzdytpMGo1eUtSazZ5WlNHZXhS?=
+ =?utf-8?B?Z096Nm1MTWpOTy9PanppTnppYnNIYnl0QjhLUU5zZWUwcCtVWU1JdDZUNVRm?=
+ =?utf-8?B?bFhjdFZrK1pidUgwMXpiSEMxSStoRGN3WTFmTnJrd05KUXJHOEZWMElycGM2?=
+ =?utf-8?B?YWUreHBzTEJpRDdiRnZyYlNJSy8rL1c4OVBIWEpCSXRWakU3WGc4Q0FxQzN4?=
+ =?utf-8?B?S2hEQTVwS3RWdjNNMExMekErajdjUDNNa2xGUXBPamtyV1h2OXVsd2dUVEUr?=
+ =?utf-8?B?VFZTVTNCTVczc013TjRET2p1N1NxWGErdUV2YkVjeWo1L0JyWEduMEsxZ3Zv?=
+ =?utf-8?B?eGEzcFVrNXVwUnl0eit2eUZrdzlHaDhZZDdkVHp1WWs3emFlL2czV2RJTTlV?=
+ =?utf-8?B?MWFLeWhONGxqV0VMTWo0VzVtbTN1clQ5NXFZQkNYeThwdHFqdFVRWFdad3VU?=
+ =?utf-8?B?WkI2UEFTOERYdFNxTXJ4QkwwOGtzMnpYT3ZFbUtJTUhQanpaNDE4V25ZYzd1?=
+ =?utf-8?B?aE1TTnp1K3F4MXVuUC8rUURIcUpHbHEzaklMK3R4R29Kdmg1NTNPMlpSK1g4?=
+ =?utf-8?B?Y3krdU9tWFZMbDN5ZHpQbHgxY25OVlo3MG1FTFFoSmtPMnNUMERpdVpxeGFj?=
+ =?utf-8?B?WkRCUnBkbFNqcFYrQk9Za3FVb0JoK0s0THhkZUo3MDUxOFlhdWxwZS9UWnJz?=
+ =?utf-8?B?NDNhU3pVZzh2NU9IVmlvVmhibk9vSjlSakpyYTN6T1Q0ZGozalRkY2QyR2xP?=
+ =?utf-8?B?MzBoUjNkaTloNXVMRkYzSXN2RUpjU3ZDa0xEVnZLLzM1NklFSkJCWTdrNkx4?=
+ =?utf-8?B?dkxPcDNzT25DSFZmem5CdlZOS1lWa29QWWtHYVE1WFRaOVRHSW9jWlREcDY4?=
+ =?utf-8?B?NGRVd0FYWFZPaWtQZ0M5OGkxdHd1MC9GemI1cUNDNkhwTm9VTEJUOG80NWx0?=
+ =?utf-8?B?Ky8vcnRLbEtwRzlqa1NNa09GcjFyMXFPOEIyR3pMaUZvc3lUa0FJMnVRK05y?=
+ =?utf-8?B?cXZNL1U1SG1Oc29PcTAvUFdwbnIxSDYySS9ZcExwRU5Vdm4wOG53UlorZzJ0?=
+ =?utf-8?B?YlRhcGYzSWQ1WXVrWHlPUjhNRHlOK3pXM0ZoL2w2dnM3aWtOWDYwYWFqNk92?=
+ =?utf-8?B?akQ5aEJHQnliUnpvYnNkb3JNanIrNWJqdHo4dUt4aFlmT3l2bzlkOTZldzI0?=
+ =?utf-8?B?OGRYZlppQ1JmTVE1SGZjcXdyNHJwTVlQcEdNaEc4TC8yOTVuWTFJVFArVjFL?=
+ =?utf-8?B?RmtOQVNSZEw3UjNlSUJhQWYxbno0MytjQ2ZKVVA3QlJZemwxbGo3eWFiNEx5?=
+ =?utf-8?B?WUpmeVBGMHZuQ0YySTh5Zz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c1g3K003MFcrVFFUNmx3RDQzZ0ZHN0I0RzIzVXlYVDdaZnh1VG9UT2pCT1k5?=
+ =?utf-8?B?ZUt6VnZ4ZWNSZUZkSXpneXJ4bWVsK3owanpCWm9MbUt1WUhQTmsxZzZ6TlhJ?=
+ =?utf-8?B?SXQ0TXBML3RyclN1VDluUmhGM05vOFF3eVRpakpOK010dmJtaGhyclBYZFBy?=
+ =?utf-8?B?MURtNHYxZzBzLzBNRXZHMFIwZUNyQVFMaXVLczdqWkxFZHZoZGxPM0pEd0tl?=
+ =?utf-8?B?b3FIMVpac25tQkNObCtYejgwVTl3RUkwblhBdU1uV1dHNjBSZlBjNkd1V2tw?=
+ =?utf-8?B?ZTVSWVhYSjBaMGFNQ055Skg4RGZaaFNDMjh2ZWw2ZHh6L2FXNHN5cGJ5UHNF?=
+ =?utf-8?B?VzY4RE5RQTZCTGloRm1pUFVtQVN0Zm91emMwak05M2xORThSY29acEV0dXpt?=
+ =?utf-8?B?empWY0tOMjY0bjYvOXRzZDlQeG9FUWZETE5TUEV4ejdxNWhISVBBYlBFMW91?=
+ =?utf-8?B?Wm9DNCtBV1hVZktjeTUyWHVUOG1PamVFcjU1VS9NbWhiUkZaMlRIQWpSQUdC?=
+ =?utf-8?B?aGFBTVNVN0pxSmhmUUlQcithR2ZOakpJa3hBUkZoWUVzQUV2QVNDdHRSNi8x?=
+ =?utf-8?B?WUZJZjJ3bGt2WDhsOE1oQWtsbnhCYjFUNSsxa0NvWkdRNWllN3hGQy8yT0Fn?=
+ =?utf-8?B?a1F4dzZEczRnN3FZVktPbU5MR1kzRkxNK1Yrb0R3VWI1Sy9rL0loR2JMYS96?=
+ =?utf-8?B?aU1mNFlpdGtCeXZDbkptdHNlZVRObTVuQlhNaWl1UTlWL0F4cGJLU3FuUWtQ?=
+ =?utf-8?B?ZnBjVks5a0hlSHYyQkVGNTAzUTFMSzc5UnBqMkswMlZkd291VFdLRXdQOEZU?=
+ =?utf-8?B?NlQ4dTVyQ0pYa0JrTHZxSUxEL2ltbnFpdmJ2QVRoSkQ4L2RQSnRvaSszVjZ3?=
+ =?utf-8?B?VGJHN2lPWENVbjBhSzNLd203czk1azhxY2dWQ0t4ZWpQayt4VC94OHpIa1N1?=
+ =?utf-8?B?Vk1uRU9DR1c0R2RvWHZjSEQ5NC9kakFSb0ZEYXFJMDFzbSt4YVdvay8ya090?=
+ =?utf-8?B?QUNVWk5BT3NXeTNaaWRkd2wrM2h1bFZDNlB1bkd0MFhiSmFWWEtqL2Vjcmxo?=
+ =?utf-8?B?em5Nc3ZlUGo2azcvN1ZocngyVmNpRUVvcS9Cb2laTkhTNjVxNWZFNGVkaHBs?=
+ =?utf-8?B?LzdsblgycVpiUXliVHZiSndjcktzdVdHd3hSWCtwRlFNTjc1MU41QTZkTkda?=
+ =?utf-8?B?dG5OREtXVnhDUERqMGxWU3lVczBOZExjb2F4REZWSWRDQThHakEyOTZVYjNx?=
+ =?utf-8?B?RGlCMlZ4M1BpSllNU0RYNVVQTmpRVVZaSzhzZG4zMUMrTmMwejdzbDB1a0kr?=
+ =?utf-8?B?K2V4VGszZlhFTjNqdXd4eUF4SHNIT0s2ckpjeXRtVzNkOXArVW53K201ZlJV?=
+ =?utf-8?B?cjc2ZEFYM0EwQjZSVVNRWTV1RmJlSG8wakFCVUttUmR0ejNScmVJRE9PV05a?=
+ =?utf-8?B?SkQ1RDJPY3NJZThoSGhUK3RYV1RTZWxVb0ZRUFh5M1dwVGplU0xxQWRFbnBy?=
+ =?utf-8?B?ZEpGR2EzaUVxWGxmbWlHUUlKVktEc1FDZ215c2hsQlZCVm9WQ2dzcll2N2E2?=
+ =?utf-8?B?WEk5a0x5VDBrSGw5T29Zb0FONU8ra2t5WVJjdGh3N0FKTEN1RU1GVXBNSzE4?=
+ =?utf-8?B?bGQ3OW1Gd0NoMk1UZENKMVFraUhoUVBpQjBXcTVNdEVVbkZ5RTN4cVhMQjJS?=
+ =?utf-8?B?aGI5eFVBeFY4c2YzYTdscExYNmczUFBscmlzeXUzZklOZkg0RnZvclU2K0Fo?=
+ =?utf-8?B?WlNweG84VVJEa21tU2xrVVZZMnE1U200blBiZDBtTE91N3RwUjBMbzV2bjVJ?=
+ =?utf-8?B?bWUvQWJqTjhaOWxtQTQ3am1LdHFBRjJLMjFyLzc3K20zOWJRcWNlNnFCc281?=
+ =?utf-8?B?NjM3eDN5b1VZaXVHNm43eHdheDB5Q1A5UjVEdndvQ3RSUXUrUUUxSGlTV1Rr?=
+ =?utf-8?B?czZmWmFjUGpEcFJNRlNoLy83bWJpbHNuQkhxd0hVMyttaWxSVVBPQytjSVoy?=
+ =?utf-8?B?ZFAxY2FrNHRFb1hYY2lmMWdjRFlIK2t1UzVsejJiTzZ4U2dCNTBMbk85cmtw?=
+ =?utf-8?B?WVAwN08yUlJYVmRYUTNqejZBNWw2RDVOS1l4ejNGa0pCVzBLT1dBU0NFYVhS?=
+ =?utf-8?B?cUllOFpRM052MnMvNGRUOTJpY2J4MDk5aDRqaGhtdEFJcGVQWGdGKzgxOHRO?=
+ =?utf-8?B?NXc9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e55f1a6-f81e-4c7d-1ea1-08dd4744f18d
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 06:59:19.4660
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tv8a/vB/spiVngwCooGhLzugyxwcNu3io0s0NuRl/4NdPHRvLJXT06srCispZReDt5AvL1TtJaADpHRMw9cnG1SbQ67UaCp/frBfUt505RU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB7647
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_225133_856977_7EFAB1BB 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_225941_430863_048F43F6 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +181,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Users of "k3-ringacc" APIs may not necessarily be platform devices. Such
-users therefore will not include "platform_device.h", resulting in
-compilation warnings for the APIs declared in "k3-ringacc.h" which assume
-inclusion of "platform_device.h" by its users.
+Hi Rob,
+    Thanks for your reply.
 
-Fix the compilation warnings by including the "platform_device" header
-file, which should ideally have been included since commit under Fixes.
+On 2025/1/28 02:59, Rob Herring wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> On Wed, Jan 22, 2025 at 11:25:59AM +0800, Xianwei Zhao wrote:
+>> Add the dt-bindings for Amlogic pin controller, and add a new
+>> dt-binding header file which document the GPIO bank names of
+>> all Amlogic subsequent SoCs.
+> 
+> Did you mean 'all subsequent Amlogic SoCs'? How can you know that?
+> Future SoCs may be different.
+> > Update the subject to say this is for A4 SoC.
+> 
 
-Fixes: d782298c6f6b ("soc: ti: k3-ringacc: add AM64 DMA rings support.")
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
+Will do.
 
-Hello,
+>>
+>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> ---
+>>   .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       | 127 +++++++++++++++++++++
+>>   include/dt-bindings/pinctrl/amlogic,pinctrl.h      |  46 ++++++++
+>>   2 files changed, 173 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+>> new file mode 100644
+>> index 000000000000..c4fdcd69bbf5
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+>> @@ -0,0 +1,127 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/pinctrl/amlogic,pinctrl-a4.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Amlogic pinmux controller
+>> +
+>> +maintainers:
+>> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> +
+>> +allOf:
+>> +  - $ref: pinctrl.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: amlogic,pinctrl-a4
+>> +
+>> +  "#address-cells":
+>> +    const: 2
+>> +
+>> +  "#size-cells":
+>> +    const: 2
+> 
+> Do you really need 2^64 address space to define the GPIO nodes?
+> 
 
-This patch is based on commit
-bb066fe812d6 Merge tag 'pci-v6.14-fixes-2' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci
-of Mainline Linux.
+I discussed it with Krzysztof earlier in the V3.
+32-bit is enough, but since APB bus is defined as 64-bit, here is following.
 
-Regards,
-Siddharth.
+https://lore.kernel.org/all/d08136ac-e08f-4e5d-b562-78529f34d86f@kernel.org/
 
- include/linux/soc/ti/k3-ringacc.h | 1 +
- 1 file changed, 1 insertion(+)
+>> +
+>> +  ranges: true
+>> +
+>> +patternProperties:
+>> +  "^gpio@[0-9a-f]+$":
+>> +    type: object
+>> +
+>> +    properties:
+>> +      reg:
+>> +        minItems: 1
+>> +        items:
+>> +          - description: pin config register
+>> +          - description: pin mux setting register (some special pin fixed function)
+>> +          - description: pin drive strength register (optional)
+>> +
+>> +      reg-names:
+>> +        minItems: 1
+>> +        items:
+>> +          - const: gpio
+>> +          - const: mux
+>> +          - const: ds
+>> +
+>> +      gpio-controller: true
+>> +
+>> +      "#gpio-cells":
+>> +        const: 2
+>> +
+>> +      gpio-ranges:
+>> +        maxItems: 1
+>> +
+>> +    required:
+>> +      - reg
+>> +      - reg-names
+>> +      - gpio-controller
+>> +      - "#gpio-cells"
+>> +      - gpio-ranges
+>> +
+>> +    additionalProperties: false
+> 
+> Move this above 'properties'
+>
 
-diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
-index 39b022b92598..6bbb58068048 100644
---- a/include/linux/soc/ti/k3-ringacc.h
-+++ b/include/linux/soc/ti/k3-ringacc.h
-@@ -8,6 +8,7 @@
- #ifndef __SOC_TI_K3_RINGACC_API_H_
- #define __SOC_TI_K3_RINGACC_API_H_
- 
-+#include <linux/platform_device.h>
- #include <linux/types.h>
- 
- struct device_node;
--- 
-2.43.0
+Will do.
 
+>> +
+>> +  "^func-[0-9a-z-]+$":
+>> +    type: object
+>> +    patternProperties:
+>> +      "^group-[0-9a-z-]+$":
+>> +        type: object
+>> +        allOf:
+>> +          - $ref: /schemas/pinctrl/pincfg-node.yaml
+>> +          - $ref: /schemas/pinctrl/pinmux-node.yaml
+>> +
+>> +        required:
+>> +          - pinmux
+>> +    additionalProperties: false
+> 
+> Move this above 'patternProperties'
+> 
+
+Will do.
+
+>> +
+>> +required:
+>> +  - compatible
+>> +  - "#address-cells"
+>> +  - "#size-cells"
+>> +  - ranges
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+>> +    apb {
+>> +      #address-cells = <2>;
+>> +      #size-cells = <2>;
+>> +      periphs_pinctrl: pinctrl {
+>> +        compatible = "amlogic,pinctrl-a4";
+>> +        #address-cells = <2>;
+>> +        #size-cells = <2>;
+>> +        ranges;
+>> +
+>> +        gpio@14 {
+>> +          reg = <0 0x14 0 0x10>, <0 0x14 0 0x10>;
+> 
+> Both registers at the same address? I hope that's a typo.
+> 
+
+Will fix it.
+
+>> +          reg-names = "gpio", "mux";
+>> +          gpio-controller;
+>> +          #gpio-cells = <2>;
+>> +          gpio-ranges = <&periphs_pinctrl 0 8 10>;
+>> +        };
+>> +
+>> +        func-uart-b {
+>> +          group-default {
+>> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 1, 4)>;
+>> +            bias-pull-up;
+>> +            drive-strength-microamp = <4000>;
+>> +          };
+>> +
+>> +          group-pins1 {
+>> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 5, 2)>;
+>> +            bias-pull-up;
+>> +            drive-strength-microamp = <4000>;
+>> +          };
+>> +        };
+>> +
+>> +        func-uart-c {
+>> +          group-default {
+>> +            pinmux = <AML_PINMUX(AMLOGIC_GPIO_B, 3, 1)>,
+>> +                     <AML_PINMUX(AMLOGIC_GPIO_B, 2, 1)>;
+>> +            bias-pull-up;
+>> +            drive-strength-microamp = <4000>;
+>> +          };
+>> +        };
+>> +      };
+>> +    };
+>> diff --git a/include/dt-bindings/pinctrl/amlogic,pinctrl.h b/include/dt-bindings/pinctrl/amlogic,pinctrl.h
+>> new file mode 100644
+>> index 000000000000..7d40aecc7147
+>> --- /dev/null
+>> +++ b/include/dt-bindings/pinctrl/amlogic,pinctrl.h
+>> @@ -0,0 +1,46 @@
+>> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+>> +/*
+>> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
+>> + * Author: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> + */
+>> +
+>> +#ifndef _DT_BINDINGS_AMLOGIC_PINCTRL_H
+>> +#define _DT_BINDINGS_AMLOGIC_PINCTRL_H
+>> +/* Normal PIN bank */
+>> +#define AMLOGIC_GPIO_A               0
+>> +#define AMLOGIC_GPIO_B               1
+>> +#define AMLOGIC_GPIO_C               2
+>> +#define AMLOGIC_GPIO_D               3
+>> +#define AMLOGIC_GPIO_E               4
+>> +#define AMLOGIC_GPIO_F               5
+>> +#define AMLOGIC_GPIO_G               6
+>> +#define AMLOGIC_GPIO_H               7
+>> +#define AMLOGIC_GPIO_I               8
+>> +#define AMLOGIC_GPIO_J               9
+>> +#define AMLOGIC_GPIO_K               10
+>> +#define AMLOGIC_GPIO_L               11
+>> +#define AMLOGIC_GPIO_M               12
+>> +#define AMLOGIC_GPIO_N               13
+>> +#define AMLOGIC_GPIO_O               14
+>> +#define AMLOGIC_GPIO_P               15
+>> +#define AMLOGIC_GPIO_Q               16
+>> +#define AMLOGIC_GPIO_R               17
+>> +#define AMLOGIC_GPIO_S               18
+>> +#define AMLOGIC_GPIO_T               19
+>> +#define AMLOGIC_GPIO_U               20
+>> +#define AMLOGIC_GPIO_V               21
+>> +#define AMLOGIC_GPIO_W               22
+>> +#define AMLOGIC_GPIO_X               23
+>> +#define AMLOGIC_GPIO_Y               24
+>> +#define AMLOGIC_GPIO_Z               25
+>> +
+>> +/* Special PIN bank */
+>> +#define AMLOGIC_GPIO_DV              26
+>> +#define AMLOGIC_GPIO_AO              27
+>> +#define AMLOGIC_GPIO_CC              28
+>> +#define AMLOGIC_GPIO_TEST_N  29
+>> +#define AMLOGIC_GPIO_ANALOG  30
+>> +
+>> +#define AML_PINMUX(bank, offset, mode)       (((((bank) << 8) + (offset)) << 8) | (mode))
+>> +
+>> +#endif /* _DT_BINDINGS_AMLOGIC_PINCTRL_H */
+>>
+>> --
+>> 2.37.1
+>>
 
