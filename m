@@ -4,59 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB08C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1D5C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gKiGI1lOXAaZwC/l1zpWg8G3iuUVUu+MQ65Z4M5VaBI=; b=cDrmwBtAFSpY2g6aVbTOAZvQVV
-	zrCKQUiVIoigE9mA/uN3iSjNczrPcmqG3HD12FMge5X4J1h22UEsHHCgPmYwuOIpwa800tykpEE9r
-	XFX5F1qx2LuzO1cDjKdf7rv0wwsD3X3m35U26krQ10cG6GHetNVm2xiWLp3BlOCqoD3FHSOMg1jqJ
-	wm4dr5cWC2G8Gt3cSIlT0qXegWBKrTIKjatpgp3o42Bhkxs4PPy4GKPJyK2YiOSCSCH0HNmVngBGL
-	CL3GSKDQneSwYiOxjJ2cIAGNQzoMr5Lpxuokv2fvspFPfB3/RvgOEXWRDKgeDADZPN/Qwclz73+ju
-	fcQO1paA==;
+	bh=ZolRaIlCgaZRdZ2y7P6BoM5Dq+0ObR3jHsmtYgVaSNI=; b=HdaIJmQlDYcQsCBlHusZPGmgkl
+	l+/rzW04NT2sExLrvyHuEY8TsIazq4UfCXl0e3jhmmpqwWvj0hYC2rZ7pmtyqecln8eL54GK/6IUm
+	WWQrYkv77Oiv3Ygwc3UIDBTwmSV+iCIFp9LMEw70aPNW8YUlu8qk3+JAZcSzsvQjCU8jLJwKOLhmU
+	gYnmiARoq8BPAzSbpj8iSC8IVR8kBgnpmXhnrFjwqksgo3wxIhPtO8YxbVyOWAJWlDlPF6bnvJd5d
+	EeWOBcejHQ5QzJw/v9TcosUHa5wD758UxI62OUDbTwaSUCziBWfW0TdnZvX305iTvvdsi7D+gwxir
+	sdkQau4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSpJ-0000000AdcD-1kjY;
-	Fri, 07 Feb 2025 18:11:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tgSqf-0000000AdvC-07Ks;
+	Fri, 07 Feb 2025 18:13:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSnu-0000000AdN9-3utc
+	id 1tgSnx-0000000AdNj-22uE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Feb 2025 18:10:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZolRaIlCgaZRdZ2y7P6BoM5Dq+0ObR3jHsmtYgVaSNI=; b=SyqEht+hBOH5oNElya5qOsFAH8
+	UHV4GxI8y96WmCpGi96mCwb9pzkqqaUZfC5I43MNOlmdNZ4CmOMQUylKD2vhEOmDmEbLBpOosGbAz
+	RqcjQ5SoWCWgaCe2IQXv8CxbF1ZhQ1Ywrw8r3GtggJcIc50iuOBrgftQrZr3a6YcSyf7ZjqGkOwgJ
+	5W+vPaPkwknddbX3QVB5NZbXw5WwBdKq84h6Ju75+EoPSvj8hUnBaSOOU/Q2U9+0qvVrEHYKztN1G
+	PPsKt0JP8Cnzu/ztnfegrrQ8PWsAAL8rxMdrFiGRMdQ+7YKCWX4Boqg7oYzy9uz/ot/AM+cAvDUn4
+	lIXyVApQ==;
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgSnu-0000000HHW1-25wQ
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Feb 2025 18:10:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3DEE8A43906;
-	Fri,  7 Feb 2025 18:08:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F219C4CED1;
-	Fri,  7 Feb 2025 18:10:10 +0000 (UTC)
-Date: Fri, 7 Feb 2025 18:10:08 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
+Date: Fri, 7 Feb 2025 10:09:58 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738951803;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZolRaIlCgaZRdZ2y7P6BoM5Dq+0ObR3jHsmtYgVaSNI=;
+	b=DBeVwjXjnPTYpQs6Lq9Mvygma9/LdKK5EEukS36yscCrnbkZZcopW5h0QH0FR9304mEJVg
+	Xlr/eeKMf+3R0mb40Kic+82+T0Sp+HGlGTQFnlHe2KBXWxMaPSOoRxAfoJk472uVfK3Kh2
+	TQvD3khEOYtwiOiOb/dYlH+PWd6e21k=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
 To: Marc Zyngier <maz@kernel.org>
-Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org,
-	mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com,
-	sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com,
-	jiangkunkun@huawei.com, jonathan.cameron@huawei.com,
-	anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org,
-	linuxarm@huawei.com
-Subject: Re: [PATCH v6 4/4] arm64: paravirt: Enable errata based on
- implementation CPUs
-Message-ID: <Z6ZMgDyyA5oV99hu@arm.com>
-References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
- <20250205132222.55816-5-shameerali.kolothum.thodi@huawei.com>
- <Z6YT7GxVKGKcnYmL@arm.com>
- <86h655u8r3.wl-maz@kernel.org>
+Cc: Eric Auger <eauger@redhat.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org,
+	catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com,
+	yuzenghui@huawei.com, darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If
+ timer expired
+Message-ID: <Z6ZMdv8jJUvYwQzT@linux.dev>
+References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+ <86y10osr19.wl-maz@kernel.org>
+ <4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+ <2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+ <152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+ <86h661wje4.wl-maz@kernel.org>
+ <4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+ <86cygpwfy0.wl-maz@kernel.org>
+ <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+ <86frkptzr6.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86h655u8r3.wl-maz@kernel.org>
+In-Reply-To: <86frkptzr6.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_101015_035347_1CE4C3D8 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250207_181014_698460_132C1664 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,58 +98,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 02:31:12PM +0000, Marc Zyngier wrote:
-> On Fri, 07 Feb 2025 14:08:44 +0000,
-> Catalin Marinas <catalin.marinas@arm.com> wrote:
-> > On Wed, Feb 05, 2025 at 01:22:22PM +0000, Shameer Kolothum wrote:
-> > >  static inline bool is_midr_in_range(struct midr_range const *range)
-> > >  {
-> > > -	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-> > > -				       range->rv_min, range->rv_max);
-> > > +	int i;
-> > > +
-> > > +	if (!target_impl_cpu_num)
-> > > +		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-> > > +					       range->rv_min, range->rv_max);
-> > > +
-> > > +	for (i = 0; i < target_impl_cpu_num; i++) {
-> > > +		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
-> > > +					    range->model,
-> > > +					    range->rv_min, range->rv_max))
-> > > +			return true;
-> > > +	}
-> > > +	return false;
-> > >  }
-> > 
-> > It's a interesting approach but how does this work in practice if an
-> > erratum requires a firmware counterpart? Do we expect firmwares on all
-> > machines involved to have workarounds for the other machines? Or is KVM
-> > going to intercept those SMCs and pretend the EL3 counterpart is there?
+Hey,
+
+On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
+> I found at least one issue that could fail the migration. Before the
+> VM starts running, we limit the feature set to the subset we actually
+> support with NV.
 > 
-> KVM already traps SMCs, and could do something on behalf of the guest
-> (such as pretending that the mitigation has happened if not on the
-> correct host) *IF* the mitigation is architected (à la WA{1,2,3}).
+> By doing this, we also change the value of IDreg fields that are not
+> writable, because they describe features that we don't support.
+> Obviously, that fails on restore.
+> 
+> I need to have a think...
 
-That's the main thing I had in mind. I don't think we have any other
-errata that requires firmware run-time discovery and interaction, though
-you never know when we'll add new one.
+We spoke about this a while ago (and I forgot til now), but I was
+wondering if we could use vCPU feature flags to describe NV, including
+the selection between FEAT_E2H0 and FEAT_VHE.
 
-> If it is implementation specific, then we can immediately stop
-> pretending that a guest running on those systems can be migrated.
-
-Makes sense.
-
-> The only thing it helps a bit is big-little.
-
-It does help a bit or, at least, we have some code for handling these
-variations that cab be extended. However, with this patchset, the host
-only probes the availability of the workarounds on the SoC it booted. It
-has no idea about the extra MIDRs the VMM picks and what the other
-machines in the clouds support.
-
-Anyway, let's hope the VMs only migrate between platforms that are
-equally broken.
+I think this might match userspace expectations a bit more closely where
+the state of the ID registers after init gives the actual feature set
+supported by the VM.
 
 -- 
-Catalin
+Thanks,
+Oliver
 
