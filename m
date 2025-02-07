@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08196C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 22:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A555DC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 22:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2wwIuZGsf+9GgXH3SQHylIgyzv/EwGPzzpkxTm4iROQ=; b=m3oH3hUWnlKEM0Ft9HBjHyVJfC
-	P8vIQSGXPs+cWEkLhGPVIvDR/0FClfJn7ya8QarQ7b5/l4CDXWXVPRQOuzGP4D1Cckl/9lH4Tncy1
-	4fLs0lheuym4sU3gGzjfukCekUzDEGbqb5wxNchOE6MZa/rQGZoU5QDSyYlAk2ZunUbQeXw9OyORH
-	pL0RuowuDxs1SNMX9gINPByBW1YK5Hd729eJI7c64sW6EA6PXjhsHHNCckv42JQxEoo8vo63QDgXQ
-	HNXe3dc/xhF4vYqwVp5HxZDJ1zLK5SSFq0jW2KNG1hFSCc2ervp/KC85rIVbDYIZd3Ebnu3/0D7dG
-	CdTB40mQ==;
+	bh=uohfn9yIVdrgM7Xs4JN8//5R/l+TX3fiWCkR+sXkdVc=; b=YPZrTIf8tljRvYDnpvX17QFW6B
+	NPgr5ijOpiS4UAA0yEtHq0ApS2GvuMbQUEvH2NrOCmOoELlrDTDq3mcBb+dHKVix9pTg+7kl6kiN5
+	7Be8ehD7BaKsSKix31W6Rr/cRzrZcWDK6MJIzYpea9JOks44p5Obp/Mu/TwUZysiPTX2tIn5a3Y1H
+	22oIXf2ggtttCjIwLNX974M+emjIc6rdkKZBYr9Bp2M2tA7MbpN2MdB+/jyjo6k0Z0w5OWXrmPPNU
+	khKnAXKccN3ln3edAqS00fRllBv12z15PzYwlptI5Ocxp7mbNsY5SsbXJzq3lPquOVL3IDZT/QLun
+	upitZgbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgX3J-0000000BQbU-1020;
-	Fri, 07 Feb 2025 22:42:25 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tgX4f-0000000BQmj-3cWo;
+	Fri, 07 Feb 2025 22:43:49 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgWxq-0000000BP9X-2Xj4
+	id 1tgWxr-0000000BPBX-0VXT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 22:36:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D0F7D20479;
-	Fri,  7 Feb 2025 22:36:40 +0000 (UTC)
+	Fri, 07 Feb 2025 22:36:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3F4A220457;
+	Fri,  7 Feb 2025 22:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738967802;
+	t=1738967805;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2wwIuZGsf+9GgXH3SQHylIgyzv/EwGPzzpkxTm4iROQ=;
-	b=ZlXmzbf+0UEhos5XNFabRBj8MrQ7dij8HsDGoI7ch9pAljQj7uJ0/O66Ai0Zd0buHBrXYl
-	SyeN7YnR2gStsSFJBYiEkFbF3SMhT11jsj3PWY/Xksqwp5DQ9LZdNsHkGdgZNxugJI1eX7
-	6WsihLZF9X258nmWmPd5t0plNDbtpmK4LCw8zdQkgTNz7FO6oVPDfKobnO6gwlUp4YoLpW
-	yiP60KMUORX2dDR1YgiwG+JYTc4dwN4gWWuvGHnYweCKNlgRW/LeXL/sv8B9BWI6kCLLPM
-	5nWGpGpAAT/UKQ3226tkodFZuJd/0lSShC8KwfdhaJ2TQyrQV7c+EQb8UkUGMA==
+	bh=uohfn9yIVdrgM7Xs4JN8//5R/l+TX3fiWCkR+sXkdVc=;
+	b=X3ImIHuT1Fqn9GdVOuhhWxORb/DICobRo+8GgQc7hHKuZ5OCeEwdprwDxN00hUGXMHejhw
+	vLHinbApSl0O0b0UfJBoAsHzVJqur9yJeKdaYsxS7VpLeQgbLXxlEnuY/mGzV+z/uDY5lC
+	n6oo1IqqvRRP6X7KIZbPFMgwiPsbyBC3G0nwM6L9T0FrlNthjGvcPjkEKL2yS5bbgy6NJn
+	hScHDp1A+8/k9WLGS3Wrra/0NuuvytfLSdRtYUp69edgzcPL0Ml/BCqy8rfQFzc+LvB4sc
+	Xa+v45wvPo1JwVTk3semWSgLjLnlXwadj/6uBQIlUeIoyXbdtudMg77OPYYj8Q==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -71,9 +71,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>
-Subject: [PATCH net-next 02/13] net: ethtool: Export the link_mode_params definitions
-Date: Fri,  7 Feb 2025 23:36:21 +0100
-Message-ID: <20250207223634.600218-3-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 04/13] net: phy: dp83822: Add support for phy_port representation
+Date: Fri,  7 Feb 2025 23:36:23 +0100
+Message-ID: <20250207223634.600218-5-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
 References: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
@@ -81,12 +81,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdehtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemtggtfegtmeeglehfgeemfeeiheehmegsheejgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegttgeftgemgeelfhegmeefieehheemsgehjeegpdhhvghlohepfhgvughorhgrqddurdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvledprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrr
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdehtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemtggtfegtmeeglehfgeemfeeiheehmegsheejgeenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegttgeftgemgeelfhegmeefieehheemsgehjeegpdhhvghlohepfhgvughorhgrqddurdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvledprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrr
  dhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_143646_809933_F349CE1B 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250207_143647_289635_1B1C10F6 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +101,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-link_mode_params contains a lookup table of all 802.3 link modes that
-are currently supported with structured data about each mode's speed,
-duplex, number of lanes and mediums.
-
-As a preparation for a port representation, export that table for the
-rest of the net stack to use.
+With the phy_port representation intrduced, we can use .attach_port to
+populate the port information based on either the straps or the
+ti,fiber-mode property. This allows simplifying the probe function and
+allow users to override the strapping configuration.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- include/linux/ethtool.h | 10 ++++++++++
- net/ethtool/common.c    |  1 +
- net/ethtool/common.h    |  9 ---------
- 3 files changed, 11 insertions(+), 9 deletions(-)
+ drivers/net/phy/dp83822.c | 64 ++++++++++++++++++++++++---------------
+ 1 file changed, 40 insertions(+), 24 deletions(-)
 
-diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index 62b5a9d7efd5..519a90ce24d3 100644
---- a/include/linux/ethtool.h
-+++ b/include/linux/ethtool.h
-@@ -258,6 +258,16 @@ static inline const char *phy_mediums(enum ethtool_link_medium medium)
- 	}
+diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
+index 6599feca1967..af535b0a3914 100644
+--- a/drivers/net/phy/dp83822.c
++++ b/drivers/net/phy/dp83822.c
+@@ -11,6 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/phy.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
+ #include <linux/bitfield.h>
+ 
+@@ -781,17 +782,6 @@ static int dp83822_of_init(struct phy_device *phydev)
+ 	struct device *dev = &phydev->mdio.dev;
+ 	const char *of_val;
+ 
+-	/* Signal detection for the PHY is only enabled if the FX_EN and the
+-	 * SD_EN pins are strapped. Signal detection can only enabled if FX_EN
+-	 * is strapped otherwise signal detection is disabled for the PHY.
+-	 */
+-	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
+-		dp83822->fx_signal_det_low = device_property_present(dev,
+-								     "ti,link-loss-low");
+-	if (!dp83822->fx_enabled)
+-		dp83822->fx_enabled = device_property_present(dev,
+-							      "ti,fiber-mode");
+-
+ 	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
+ 		if (strcmp(of_val, "mac-if") == 0) {
+ 			dp83822->gpio2_clk_out = DP83822_CLK_SRC_MAC_IF;
+@@ -884,6 +874,43 @@ static int dp83822_read_straps(struct phy_device *phydev)
+ 	return 0;
  }
  
-+struct link_mode_info {
-+	int                             speed;
-+	u8                              min_lanes;
-+	u8                              lanes;
-+	u8                              duplex;
-+	enum ethtool_link_medium        medium;
-+};
++static int dp83822_attach_port(struct phy_device *phydev, struct phy_port *port)
++{
++	struct dp83822_private *dp83822 = phydev->priv;
++	int ret;
 +
-+extern const struct link_mode_info link_mode_params[];
++	if (port->mediums) {
++		if (phy_port_is_fiber(port) ||
++		    port->mediums & BIT(ETHTOOL_LINK_MEDIUM_BASEX))
++			dp83822->fx_enabled = true;
++	} else {
++		ret = dp83822_read_straps(phydev);
++		if (ret)
++			return ret;
 +
- /* declare a link mode bitmap */
- #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
- 	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
-diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-index 8798ff1abed3..7b43ae04d731 100644
---- a/net/ethtool/common.c
-+++ b/net/ethtool/common.c
-@@ -434,6 +434,7 @@ const struct link_mode_info link_mode_params[] = {
- 	__DEFINE_LINK_MODE_PARAMS(800000, VR4, Full, V),
- };
- static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
-+EXPORT_SYMBOL_GPL(link_mode_params);
++#ifdef CONFIG_OF_MDIO
++		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
++			dp83822->fx_signal_det_low =
++				device_property_present(dev, "ti,link-loss-low");
++		if (!dp83822->fx_enabled)
++			dp83822->fx_enabled =
++				device_property_present(dev, "ti,fiber-mode");
++#endif
++
++		if (dp83822->fx_enabled) {
++			port->lanes = 1;
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASEF) |
++					BIT(ETHTOOL_LINK_MEDIUM_BASEX);
++		} else {
++			/* This PHY can only to 100BaseTX max, so on 2 lanes */
++			port->lanes = 2;
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
++		}
++	}
++
++	return 0;
++}
++
+ static int dp8382x_probe(struct phy_device *phydev)
+ {
+ 	struct dp83822_private *dp83822;
+@@ -900,25 +927,13 @@ static int dp8382x_probe(struct phy_device *phydev)
  
- const char netif_msg_class_names[][ETH_GSTRING_LEN] = {
- 	[NETIF_MSG_DRV_BIT]		= "drv",
-diff --git a/net/ethtool/common.h b/net/ethtool/common.h
-index b25011a05fea..ee250a5c5364 100644
---- a/net/ethtool/common.h
-+++ b/net/ethtool/common.h
-@@ -14,14 +14,6 @@
+ static int dp83822_probe(struct phy_device *phydev)
+ {
+-	struct dp83822_private *dp83822;
+ 	int ret;
  
- #define __SOF_TIMESTAMPING_CNT (const_ilog2(SOF_TIMESTAMPING_LAST) + 1)
+ 	ret = dp8382x_probe(phydev);
+ 	if (ret)
+ 		return ret;
  
--struct link_mode_info {
--	int				speed;
--	u8				min_lanes;
--	u8				lanes;
--	u8				duplex;
--	enum ethtool_link_medium	medium;
--};
+-	dp83822 = phydev->priv;
 -
- struct genl_info;
- struct hwtstamp_provider_desc;
+-	ret = dp83822_read_straps(phydev);
+-	if (ret)
+-		return ret;
+-
+-	ret = dp83822_of_init(phydev);
+-	if (ret)
+-		return ret;
+-
+-	if (dp83822->fx_enabled)
+-		phydev->port = PORT_FIBRE;
++	dp83822_of_init(phydev);
  
-@@ -34,7 +26,6 @@ tunable_strings[__ETHTOOL_TUNABLE_COUNT][ETH_GSTRING_LEN];
- extern const char
- phy_tunable_strings[__ETHTOOL_PHY_TUNABLE_COUNT][ETH_GSTRING_LEN];
- extern const char link_mode_names[][ETH_GSTRING_LEN];
--extern const struct link_mode_info link_mode_params[];
- extern const char netif_msg_class_names[][ETH_GSTRING_LEN];
- extern const char wol_mode_names[][ETH_GSTRING_LEN];
- extern const char sof_timestamping_names[][ETH_GSTRING_LEN];
+ 	return 0;
+ }
+@@ -1104,6 +1119,7 @@ static int dp83822_led_hw_control_get(struct phy_device *phydev, u8 index,
+ 		.led_hw_is_supported = dp83822_led_hw_is_supported,	\
+ 		.led_hw_control_set = dp83822_led_hw_control_set,	\
+ 		.led_hw_control_get = dp83822_led_hw_control_get,	\
++		.attach_port = dp83822_attach_port		\
+ 	}
+ 
+ #define DP83825_PHY_DRIVER(_id, _name)				\
 -- 
 2.48.1
 
