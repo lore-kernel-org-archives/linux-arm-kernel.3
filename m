@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D7AC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D815C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDJPIIRI6GLKY+Zyqq8NOfeinTkGodpwbMUhAI5OLLM=; b=m68QknUan51sOaZQk47noHpxhm
-	mZ7RFoxIa/JKvz2nhQGVbX3Skmct+x3zLgOixF76O8QeWuyS0shzBKhoNJpDBTOd5kKs1OJQgmBBR
-	y4DfInHx8u4JoLr6MkrUEuh6dABnqME+AhMNlBTBCO4Js5t0xHfujZicWO6AT1+aSpWriLYae2BYN
-	mSxCjNkS/4yZDaIgnN5TqZGxXdcy+a5P5Rb8yHFskApnpD3rmuxQtPsskkGH4zbyI25lh6uLgDCSV
-	t/yHW0dwKm4vVdY8nGn1SJdFD0zs4jNQEe19dNgPVSXWp8da2RAF3DA4oxMZjO0GxSFmKidyz5s+c
-	MupUnoHQ==;
+	bh=lniNSUn6162O5PDdXje7jyIZ/reSQ42wbs2b2Ye2MZA=; b=nqOIEMT/+x6Srg6pl7zBIyPA+M
+	3E8++0a11dcwDk5r7eLtInMqpD3fxkGGaQ4m4dn0F1KOtisVSMlwi8WXWT2hN1T/osK7noKtyG7zh
+	wRbrdtzHgDX+CPiUyrHnH0oE88fQiA+8k1eWTENQr3xMMlavLqzHU/mpbCRFZy9iJIa8+RR0LGZdK
+	oc7f0sIk+io6CTms9pEcdZZhq0HqKJE1o8AuS2ZyaCo7XQJ7JboSvN+xfhwfQKGBIcQd6DVxCAkNa
+	daBEt87kJo5qr5YuISEaqY3TeIx52TiI9be1vV8gWXQbdNlT9I+aedEF2SQinpSoWMPti0Nl/tOEj
+	H3QHUSbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQlV-0000000AC1H-2qru;
-	Fri, 07 Feb 2025 15:59:37 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tgQmr-0000000ACMS-3cw2;
+	Fri, 07 Feb 2025 16:01:01 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQil-0000000ABBC-3zwf
+	id 1tgQin-0000000ABBg-04az
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 15:56:49 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38dc8b5bb0bso558326f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 07:56:47 -0800 (PST)
+	Fri, 07 Feb 2025 15:56:50 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38dd14c99c3so69710f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 07:56:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738943806; x=1739548606; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738943807; x=1739548607; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xDJPIIRI6GLKY+Zyqq8NOfeinTkGodpwbMUhAI5OLLM=;
-        b=RMYoB/+5HxD/u3ekkA3X+Jyy8RC3Qg89YmiVqEK+lItBrx7tza2Ft4geUyNRs2IhRV
-         181o488VQnXjNhO1bR7zANj447nCxWHDxcKuZmVZF68EYS6HjPOl1kzWI1QfNdCE4fEF
-         DyrdVxNFboDlpsF7OrNs0L7CSm7BOXYl4Q2N8Q4qPbgKDDRKpu3VMKOVpm3qXF1WekgM
-         6MrharVSH4QMYkaXwDdtzHdDRgKwHTzWLdPucn8POZdnVBRXoxWOTPsZ5jI54r34FZG3
-         1oh/xQgoqdzszAWa1r5QjuFoAfN55Y4CFldFqOUEOsPnbynuy1n8LJOc5gZs22dy7Acp
-         lM+A==
+        bh=lniNSUn6162O5PDdXje7jyIZ/reSQ42wbs2b2Ye2MZA=;
+        b=GGXNrhyoT7dRWCVtxxQFHLBRfoSKwdYh6sZDTTTaKCrOHDyldvcZq6E7Fpx9onBF/B
+         Zrsxy8A5JnrTNch2jOFteSZkvHuMLxlbTk+gDpRutReDExDH6WjYli3yqb7ytFfGkc++
+         AsoqzWDD6qLnCJh7LTs6Z7/KvwfDTnLt74TjDY5aF288h+hVRvqdrGqiUE5MmDJnpqt3
+         yLbjaLJsWf9FiT+Tk4Hc6OCWDvWdiZ+szXhfqB0/MffpVS36RCTBjGebQNwtQT3jBzIG
+         0+YjCzVdGAWCGVn9w2B5KEd8bVvXdl/1CQaueLKdw03pxMnqM8DKvOT7qgMQY667MKOt
+         nZOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738943806; x=1739548606;
+        d=1e100.net; s=20230601; t=1738943807; x=1739548607;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xDJPIIRI6GLKY+Zyqq8NOfeinTkGodpwbMUhAI5OLLM=;
-        b=lzIrzZ6sRA7te8MZejx+cxhMEGMQMA36knjozBEavsMFs0ztA4DMPH8Xan145cAdCB
-         Ch/wnqU5OhAYDhbDpmZl+3RmWUchWbYpQmKR27/VRnpE8iEO1YVXruAWhgsC8SRj7ia0
-         /ap+MKZmDP1Cfu2+dHfCUOi7Q5K7ewIKi2d9vEAheQ7LSw6Pg3G/JA/HLpz6b2dXHrEQ
-         FAjX2TOJorvMa5LSynsm6rZYZSeHv8CDrBBNJDl1Uk0ZDfTuJX101tPRkcJBhD+QJ5QE
-         utO0+KIIwm9fFrwczw4+FxLCkMgQaxGaPAYEgZXFB6PzGIDhzRF0y9MKt/juKkrl1Pf8
-         htlg==
-X-Gm-Message-State: AOJu0YxI+Qn74hojFMoU8ARLRVQrE84AK0u5jRS1218ynupU4nBXcaXe
-	epzL0MKBphfdhMxg1xKa6B9Y5GWK1MdH/k4NDybxensY4cCu5oKwMtq1OrdcJi8+TbHihsH1k1r
-	LZ24=
-X-Gm-Gg: ASbGnctE/Di+rXK/lNwRv6zUYDzCMYF8xLqvSU2B80xYh0HI31eH3cCQRWuuE482uPP
-	Kf0EFmSAT+scMCI5C2toA2MiS3xXGcz9zILe8wDirraksRgeDPaPKpYYRWz3ITVsyOd5pUOFITV
-	whnrAq52HgSKQO5bdU3okoIbNWeEuXwHUgBA/SAA8YOcA/kGeoDPDrWm+dulDN+HfnDOJjbvPru
-	S2McP5vpGW4YVUTvt9k7zCKHNgjSXn9h1prYjKh0dRahJjb1uH0BCdB2S8evHrx1FmdlTGSWJE0
-	CHoVy7VSggMbIzxwsiOyyuzTt/0NPRYmubvQ/guEJBOiA30ABVJI8ovTd7LcrQR/QDDWnJQ=
-X-Google-Smtp-Source: AGHT+IHnKFv0qsVS5sklaHz1Yd7IBiDcXh/yMTaA/ZuLIr7eWFDaCoBMx4syf1mCNT3/xbSNPX0bQw==
-X-Received: by 2002:a5d:6dab:0:b0:38d:c600:ad30 with SMTP id ffacd0b85a97d-38dc937461dmr3251623f8f.40.1738943806441;
-        Fri, 07 Feb 2025 07:56:46 -0800 (PST)
+        bh=lniNSUn6162O5PDdXje7jyIZ/reSQ42wbs2b2Ye2MZA=;
+        b=ng83i5kE9sPwWtXTiEOBas4GJK6wmCbmUV9A9DV1BXuq/pwzyifA1aTEsGs3sWphZP
+         56PODmkgV3y4VfMTcCxLqsCPZdFajfxV+L8yIfIXrF70W5Wy2ILSF9MakqZm38/F4r6j
+         jqhJ0tCtmtYfKkjDmKx4UVQ+c7mrGxMW2/StWRW0OoAOyagJDFHbJGXhxwAFblnGLpGo
+         8d2hInaEetIZQtDcD3NMaRIXbKoaXA1XQ7KZYxPqxOTdfNdNcGzyONRq1wfzCnjmKDv/
+         s8GzMpagL5oB625ugbpUbT15LBzgFz6m4HUz06DhcTYVNHBV6Nlz8pHqfBAaA9NLdxnG
+         m3KQ==
+X-Gm-Message-State: AOJu0YzzuFxU+b11BTEiZjj/HSSVj6iU/8JsOhb392Euga1KsbI1RjMb
+	8PjBnVQbO5xSHa6Ks6nsNOnZNt9+Ua2dhb1n5G7/ld0avXddBW0p76sWAZ/aVws=
+X-Gm-Gg: ASbGnculq39q2E1KClQEM28cXYqn2DFiGqh3zAP3cNQUORm+REckRUxcHccG7+x6xRq
+	z+7znkzrliA7/NBvxOA49P8TT3Wl7gizcEJk1lrGNAf0xq6DIBk9JdvHs7MyR1bjWPPvwOCq6+2
+	nO7nJMhLGaNXHGJdvwXKhOhvnQGG4ao2Vvx8u+K10yE2EQrrLv4b6NGBXZIHoDezQEZhk7PdV3K
+	x2SrSBcZ5hUWpVp+0lWih6l9BjEpogZqKF5vlQ8KneYl1PHL0RXZwkmfTcndD6mxXbyMTEcGu9T
+	GfDYmplVWAycXL9qopN8iu1mXf5Kr9Z51XXmnqMqWWB9SCOBwPGqvQQiLzILxR6uNbYaTPc=
+X-Google-Smtp-Source: AGHT+IHi8rK+1gm4ZytmYt85/APeyehBbsrxKAffiG9SmO0U6k2MkOEmbX+kpklIstUrpkqeHLkOtg==
+X-Received: by 2002:a05:6000:18af:b0:38d:cbc2:29c3 with SMTP id ffacd0b85a97d-38dcbc2310fmr1909394f8f.33.1738943807281;
+        Fri, 07 Feb 2025 07:56:47 -0800 (PST)
 Received: from ta2.c.googlers.com (169.178.77.34.bc.googleusercontent.com. [34.77.178.169])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc09fc2d9sm4197507f8f.6.2025.02.07.07.56.45
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc09fc2d9sm4197507f8f.6.2025.02.07.07.56.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Fri, 07 Feb 2025 07:56:46 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 07 Feb 2025 15:56:43 +0000
-Subject: [PATCH v4 1/4] arm64: dts: exynos: gs101: add SRAM node
+Date: Fri, 07 Feb 2025 15:56:44 +0000
+Subject: [PATCH v4 2/4] arm64: dts: exynos: gs101: add AP to APM mailbox
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-gs101-acpm-dt-v4-1-230ba8663a2d@linaro.org>
+Message-Id: <20250207-gs101-acpm-dt-v4-2-230ba8663a2d@linaro.org>
 References: <20250207-gs101-acpm-dt-v4-0-230ba8663a2d@linaro.org>
 In-Reply-To: <20250207-gs101-acpm-dt-v4-0-230ba8663a2d@linaro.org>
 To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  Jassi Brar <jassisinghbrar@gmail.com>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738943805; l=979;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738943805; l=1282;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=gLGpUaEfuGzvyJ3L21mz+M8nf5rblyz9ev0wDFYPZyI=;
- b=W+YHCJGY2GIXCUKGut3Wfq+1GKcVPMtY2lKeBH1krh5h4o/lXoE38WAw1arV4/Dsph/OOfBF0
- hjqR38r5uj9A+fc2ySsi4yNFJXljZTKwquPyuW0/YhFHH+hN/sGvmuM
+ bh=pYolsvKglKk9Jl9llzXxb7ekkcAK7LRlmIETEtDeUxQ=;
+ b=HnSbYgmTkBKh9ZEimff9jE5hKC0fcClxXqEW2F9dsY5a0SY6Ul5MRx0rc8W8ndKqIF0ff2xTI
+ /aGvzXwNFs8Cwta+kPFRA9Oe+eKp77wt/V2H2oPsj0NJgHfzj8zwQzR
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_075647_996182_9C310192 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250207_075649_060273_82A7E6FC 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,34 +113,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SRAM is used by the ACPM protocol to retrieve the ACPM channels
-information, which includes the TX/RX rings among other channel
-configuration data. Add the SRAM node.
+GS101 has 14 mailbox controllers. Add the AP to APM mailbox node.
+
+Mailbox controllers have a shared register that can be used for passing
+the mailbox messages. The AP to APM mailbox controller is used just as a
+doorbell mechanism. It raises interrupt to the firmware after the mailbox
+message has been written to SRAM where the TX/RX rings are defined.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index c5335dd59dfe..798ed7b4c4c6 100644
+index 798ed7b4c4c6..25ba262e3b3c 100644
 --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
 +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -269,6 +269,14 @@ bldr_log_hist_reserved: bldr-log-hist-reserved@fd900000 {
+@@ -1448,6 +1448,15 @@ wakeup-interrupt-controller {
+ 			};
  		};
- 	};
  
-+	apm_sram: sram@2039000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0x2039000 0x40000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x0 0x2039000 0x40000>;
-+	};
++		ap2apm_mailbox: mailbox@17610000 {
++			compatible = "google,gs101-mbox";
++			reg = <0x17610000 0x1000>;
++			clocks = <&cmu_apm CLK_GOUT_APM_MAILBOX_APM_AP_PCLK>;
++			clock-names = "pclk";
++			interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH 0>;
++			#mbox-cells = <0>;
++		};
 +
- 	soc: soc@0 {
- 		compatible = "simple-bus";
- 		#address-cells = <1>;
+ 		pinctrl_gsactrl: pinctrl@17940000 {
+ 			compatible = "google,gs101-pinctrl";
+ 			reg = <0x17940000 0x00001000>;
 
 -- 
 2.48.1.502.g6dc24dfdaf-goog
