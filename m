@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F370FC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABB5C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xpgkq6FcxCvZJGGnyFIsya8EZlBNvo+IVwY+umvMyNQ=; b=DlgTxAOv7p6QbDd1vUDUTAMh4Z
-	XDBacrnr/AVQ8J4URax/WRaGcWIUMTdCg7xQLJ/BtWrEr4DuJtC12xfLiAIgwYTd6KtLFNSOjcQUG
-	oNQ6hao+wjvNigbmuVThp6fG3T1Y4e8eXglekZ/AhW370ZjTmSKWxGaECvrnMJDBTnEwTYsb5areN
-	TnwLL5RDF/047t0eHF38Reax758kOCe63CoMQa3xfb1o6/h1dWeMwsPnX9Yl5StEQfDNzPUkbp83S
-	a8OGNaXr2AejxRKqL94iCF29j8hyT/ObQZ/2WDGNFdewu8wnCcD3A2oWyr9bFjlZHqzEvrW+n6nMD
-	/UdoIxdA==;
+	bh=mhPdizBdEHYgY3H5420Q5Nzi64SVZlQwfxBI1zhvHQo=; b=RjB1htD4Q/LT7Bwi+G5E7IS1uM
+	SDYUnWdPcSa395TTPkFVpe3yT8QcBcedS1mqHaYsKt7/pwgre3xICiOSmUmhDL1ff5EQaVuCfUcX/
+	KIAPaM/4GmesTeHNMgtsHmSGmZAa4Dv2wSRJaamub/e79vt04KNQ20l3WcL6hHRwjpJsDEl0lEEhv
+	TUPRJ3NeqZmGoWDzqPBi1s1/oqUO0I6+Gq+gP1md5KoJW8WNx88QPcVAvMmXHGzE0x2LMIorACA/a
+	5pRFtOJigeLCYAJtMhR8aFZI1PWSDajFoAqkf3d2GBj8J28Tkm9WTXuXYtssqhGq+9v4n+3he+xFC
+	BS8XElnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRPv-0000000AKVr-0Wx4;
-	Fri, 07 Feb 2025 16:41:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tgRSc-0000000AKui-2Vg7;
+	Fri, 07 Feb 2025 16:44:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRC6-0000000AHOs-2jxG;
-	Fri, 07 Feb 2025 16:27:07 +0000
+	id 1tgRCB-0000000AHRe-31Z4;
+	Fri, 07 Feb 2025 16:27:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 028A75C6E1F;
-	Fri,  7 Feb 2025 16:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFD8C4CEDF;
-	Fri,  7 Feb 2025 16:27:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DAB19A426EC;
+	Fri,  7 Feb 2025 16:25:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15FAAC4CED1;
+	Fri,  7 Feb 2025 16:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738945625;
-	bh=b8KVn1GzHBRsxxYc2agv9jSTthBrazkDNNMMiDPN+yQ=;
+	s=k20201202; t=1738945630;
+	bh=4Qk8X7qpIVCbN/KBSqhoxxEZY1Ovomp+1fX44eKyUmk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=W6dTMEPSuge+FwxVwDcxiuNc0zJcv17Kco3vVS6XVwifRKEDs/1/XgwvKXu7SkZ1M
-	 j+ASUiHhsXe6Oq+7czQm7KpQBqfvlcG/JM3m04+tP6ulimsn1t7GP9cMOIw2/dS/8g
-	 eiZ4kQjF9VjyXFk3jdoHsVX3bgYDLiwip+cIOQWZc9+NqY2coDdlyLTxU9ykC6cl6C
-	 1Qke57NDxcoiSYfzt+Ahcm/gICoL03tuNU3CwBNENl1TSWKEV3uoKQxeMEXS1Da17H
-	 pXhltrzWnsw0cvWUxvQiWktGifJ69HAas6DUJ+2onffMbZsKnTD8qISsBg1sCFowrV
-	 mLvBN7U/T589Q==
+	b=CLY+/YPu+e8E6LOxIrIQWdtzysanVhH+MsFYa2mt5qgUjr/bv0qNGwnvOYOEeGd7p
+	 ywKSjVPna8eW2qPI6TL6OwP3vX1x5TKvLZzcOvKPhzyWGwCSsKP4p9XOCSvaD4YfZR
+	 Mry1PFhNHKxYOyyew3OUcOVEG82qP6j6rLg14nnvus8ExPWr77pBwCBx4Uhq3r/k7Q
+	 zFCJKf06N4FPcspWM9LeOEJoeiF/YXXMT1l20hb2w0KrT/vRuI3gyDvc3woMMcsSN7
+	 +KLqYSTVbUF94nMB5Ln7/vFALMxCe79StoauFXqRTQ+y/Ww2fFO3EWWREvTKlgKI2J
+	 aoTTpTcEZjb2w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 07 Feb 2025 17:26:22 +0100
-Subject: [PATCH net-next v2 07/15] net: airoha: Enable support for multiple
- net_devices
+Date: Fri, 07 Feb 2025 17:26:24 +0100
+Subject: [PATCH net-next v2 09/15] net: airoha: Rename
+ airoha_set_gdm_port_fwd_cfg() in airoha_set_vip_for_gdm_port()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-7-3a2239692a67@kernel.org>
+Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-9-3a2239692a67@kernel.org>
 References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -65,11 +65,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com, Christian Marangi <ansuelsmth@gmail.com>
+ upstream@airoha.com
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082706_773306_BCBC5636 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250207_082711_890724_1592FCF5 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,148 +84,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the current codebase airoha_eth driver supports just a single
-net_device connected to the Packet Switch Engine (PSE) lan port (GDM1).
-As shown in commit 23020f049327 ("net: airoha: Introduce ethernet
-support for EN7581 SoC"), PSE can switch packets between four GDM ports.
-Enable the capability to create a net_device for each GDM port of the
-PSE module. Moreover, since the QDMA blocks can be shared between
-net_devices, do not stop TX/RX DMA in airoha_dev_stop() if there are
-active net_devices for this QDMA block.
-This is a preliminary patch to enable flowtable hw offloading for EN7581
-SoC.
+Rename airoha_set_gdm_port() in airoha_set_vip_for_gdm_port().
+Get rid of airoha_set_gdm_ports routine.
 
-Co-developed-by: Christian Marangi <ansuelsmth@gmail.com>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 35 +++++++++++++++++++-------------
- drivers/net/ethernet/airoha/airoha_eth.h |  4 +++-
- 2 files changed, 24 insertions(+), 15 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 49 +++++++-------------------------
+ drivers/net/ethernet/airoha/airoha_eth.h |  8 ------
+ 2 files changed, 11 insertions(+), 46 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index ab95f3da21d90bd42282a9f3f5474ce42a69c9d4..42b5e0945fb8738f70d0b77bf597a7a04e5f0716 100644
+index db75a9b1d5766bfaaa92312d625c395e19c88368..52be276039eff7772b3c604cf7db5d456ec155ab 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1562,6 +1562,7 @@ static int airoha_dev_open(struct net_device *dev)
- 	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
- 			GLOBAL_CFG_TX_DMA_EN_MASK |
- 			GLOBAL_CFG_RX_DMA_EN_MASK);
-+	atomic_inc(&qdma->users);
+@@ -105,25 +105,23 @@ static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
+ 		      FIELD_PREP(GDM_UCFQ_MASK, val));
+ }
  
+-static int airoha_set_gdm_port(struct airoha_eth *eth, int port, bool enable)
++static int airoha_set_vip_for_gdm_port(struct airoha_gdm_port *port,
++				       bool enable)
+ {
++	struct airoha_eth *eth = port->qdma->eth;
+ 	u32 vip_port;
+ 
+-	switch (port) {
+-	case XSI_PCIE0_PORT:
++	switch (port->id) {
++	case 3:
++		/* FIXME: handle XSI_PCIE1_PORT */
+ 		vip_port = XSI_PCIE0_VIP_PORT_MASK;
+ 		break;
+-	case XSI_PCIE1_PORT:
+-		vip_port = XSI_PCIE1_VIP_PORT_MASK;
+-		break;
+-	case XSI_USB_PORT:
+-		vip_port = XSI_USB_VIP_PORT_MASK;
+-		break;
+-	case XSI_ETH_PORT:
++	case 4:
++		/* FIXME: handle XSI_USB_PORT */
+ 		vip_port = XSI_ETH_VIP_PORT_MASK;
+ 		break;
+ 	default:
+-		return -EINVAL;
++		return 0;
+ 	}
+ 
+ 	if (enable) {
+@@ -137,31 +135,6 @@ static int airoha_set_gdm_port(struct airoha_eth *eth, int port, bool enable)
  	return 0;
  }
-@@ -1577,16 +1578,20 @@ static int airoha_dev_stop(struct net_device *dev)
+ 
+-static int airoha_set_gdm_ports(struct airoha_eth *eth, bool enable)
+-{
+-	const int port_list[] = {
+-		XSI_PCIE0_PORT,
+-		XSI_PCIE1_PORT,
+-		XSI_USB_PORT,
+-		XSI_ETH_PORT
+-	};
+-	int i, err;
+-
+-	for (i = 0; i < ARRAY_SIZE(port_list); i++) {
+-		err = airoha_set_gdm_port(eth, port_list[i], enable);
+-		if (err)
+-			goto error;
+-	}
+-
+-	return 0;
+-
+-error:
+-	for (i--; i >= 0; i--)
+-		airoha_set_gdm_port(eth, port_list[i], false);
+-
+-	return err;
+-}
+-
+ static void airoha_fe_maccr_init(struct airoha_eth *eth)
+ {
+ 	int p;
+@@ -1539,7 +1512,7 @@ static int airoha_dev_open(struct net_device *dev)
+ 	int err;
+ 
+ 	netif_tx_start_all_queues(dev);
+-	err = airoha_set_gdm_ports(qdma->eth, true);
++	err = airoha_set_vip_for_gdm_port(port, true);
  	if (err)
  		return err;
  
--	airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
--			  GLOBAL_CFG_TX_DMA_EN_MASK |
--			  GLOBAL_CFG_RX_DMA_EN_MASK);
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++)
-+		netdev_tx_reset_subqueue(dev, i);
+@@ -1565,7 +1538,7 @@ static int airoha_dev_stop(struct net_device *dev)
+ 	int i, err;
  
--	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
--		if (!qdma->q_tx[i].ndesc)
--			continue;
-+	if (atomic_dec_and_test(&qdma->users)) {
-+		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-+				  GLOBAL_CFG_TX_DMA_EN_MASK |
-+				  GLOBAL_CFG_RX_DMA_EN_MASK);
- 
--		airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
--		netdev_tx_reset_subqueue(dev, i);
-+		for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-+			if (!qdma->q_tx[i].ndesc)
-+				continue;
-+
-+			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
-+		}
- 	}
- 
- 	return 0;
-@@ -2321,13 +2326,14 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
- 	}
- }
- 
--static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
-+static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-+				 struct device_node *np, int index)
- {
- 	const __be32 *id_ptr = of_get_property(np, "reg", NULL);
- 	struct airoha_gdm_port *port;
- 	struct airoha_qdma *qdma;
- 	struct net_device *dev;
--	int err, index;
-+	int err, p;
- 	u32 id;
- 
- 	if (!id_ptr) {
-@@ -2336,14 +2342,14 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 	}
- 
- 	id = be32_to_cpup(id_ptr);
--	index = id - 1;
-+	p = id - 1;
- 
- 	if (!id || id > ARRAY_SIZE(eth->ports)) {
- 		dev_err(eth->dev, "invalid gdm port id: %d\n", id);
- 		return -EINVAL;
- 	}
- 
--	if (eth->ports[index]) {
-+	if (eth->ports[p]) {
- 		dev_err(eth->dev, "duplicate gdm port id: %d\n", id);
- 		return -EINVAL;
- 	}
-@@ -2391,7 +2397,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 	port->qdma = qdma;
- 	port->dev = dev;
- 	port->id = id;
--	eth->ports[index] = port;
-+	eth->ports[p] = port;
- 
- 	err = airoha_metadata_dst_alloc(port);
+ 	netif_tx_disable(dev);
+-	err = airoha_set_gdm_ports(qdma->eth, false);
++	err = airoha_set_vip_for_gdm_port(port, false);
  	if (err)
-@@ -2463,6 +2469,7 @@ static int airoha_probe(struct platform_device *pdev)
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_qdma_start_napi(&eth->qdma[i]);
+ 		return err;
  
-+	i = 0;
- 	for_each_child_of_node(pdev->dev.of_node, np) {
- 		if (!of_device_is_compatible(np, "airoha,eth-mac"))
- 			continue;
-@@ -2470,7 +2477,7 @@ static int airoha_probe(struct platform_device *pdev)
- 		if (!of_device_is_available(np))
- 			continue;
- 
--		err = airoha_alloc_gdm_port(eth, np);
-+		err = airoha_alloc_gdm_port(eth, np, i++);
- 		if (err) {
- 			of_node_put(np);
- 			goto error_napi_stop;
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index fee6c10eaedfd30207205b6557e856091fd45d7e..74bdfd9e8d2fb3706f5ec6a4e17fe07fbcb38c3d 100644
+index 74bdfd9e8d2fb3706f5ec6a4e17fe07fbcb38c3d..44834227a58982d4491f3d8174b9e0bea542f785 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -13,7 +13,7 @@
- #include <linux/netdevice.h>
- #include <linux/reset.h>
+@@ -57,14 +57,6 @@ enum {
+ 	QDMA_INT_REG_MAX
+ };
  
--#define AIROHA_MAX_NUM_GDM_PORTS	1
-+#define AIROHA_MAX_NUM_GDM_PORTS	4
- #define AIROHA_MAX_NUM_QDMA		2
- #define AIROHA_MAX_DSA_PORTS		7
- #define AIROHA_MAX_NUM_RSTS		3
-@@ -212,6 +212,8 @@ struct airoha_qdma {
- 	u32 irqmask[QDMA_INT_REG_MAX];
- 	int irq;
- 
-+	atomic_t users;
-+
- 	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
- 
- 	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+-enum {
+-	XSI_PCIE0_PORT,
+-	XSI_PCIE1_PORT,
+-	XSI_USB_PORT,
+-	XSI_AE_PORT,
+-	XSI_ETH_PORT,
+-};
+-
+ enum {
+ 	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
+ 	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
 
 -- 
 2.48.1
