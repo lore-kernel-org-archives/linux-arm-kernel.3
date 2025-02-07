@@ -4,96 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB6AC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04E9C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6DSgMi12Y1DTWXSxB1u+L8gWNg8zLGbTo3gPZs3j0U=; b=yitO1Qsy9vImkBvX7RwFikmKq2
-	vjz+ID4c7w25gARnFH5Uolh4VHeDsM7ljfjuh7rmPeErWDhfzQLnTIZZ9MhKV2l8v60szNm5pyGWd
-	jd4quOKwC/xS/kncHsOkWv+fCFMCeNf/AJ/VfFWwezjIbPbrz3ZaH2jPrgxgir2EYlrojbnSU/mby
-	B8Kxs6JrUBY9nmBkfoQbjuzMF6IfeXOwxctFXuIwcyh7/5vJnONxuvcB+qfxG8G3Lf88qJAmXhfS4
-	yX1lNTqVTgYycfX+dpCJ8Q9dIYzeLZeaLVsMUzKp9R2WXuI4Y87KO8/X0ptWWVnXZ5WBhMFKSsnyF
-	9aLSyKzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MlXjtyzT0awBuxej0ALsl35Zl5WCC4lgXasicAd2b6k=; b=tf6TxY+vhq5f3t
+	P96miR+i3wkEnQQPkpUfLZK5Bbmo7Cot94EikksIhzcL518t047rL/Q59/4E+XIIfIHg852FA5xa2
+	CeSAGeSbfdiHSOVp/z0ckrIUgT8UPxTux/jpenqGzzZt+6xHgyfqVTKuCaCn08V8TYoRRpho2ZqXq
+	HvDTvwki1z5KMoTq+ZVeefp3Tq66nIntAJdl77bY2w79csPUdmcyyzleNYhEwSYHHbMnYusqRNw8W
+	vNzpo2kJezZnZPht3NPR+/uduBj/h54CAt8PB4IaMsREvexEZOzSXnIvt7IGMIwVRVJH05ubf/dR8
+	OKCDHb17qodJWAnTECeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSQG-0000000AXpm-18oY;
-	Fri, 07 Feb 2025 17:45:48 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tgSQu-0000000AY3d-3Wb0;
+	Fri, 07 Feb 2025 17:46:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSEe-0000000AVTN-1sBz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:33:49 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21f61b01630so8235385ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:33:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738949627; x=1739554427; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=b6DSgMi12Y1DTWXSxB1u+L8gWNg8zLGbTo3gPZs3j0U=;
-        b=LwkXSqCjqhUSxBx2bpsa434kNLUFXcv0kxYxmo3ifvcu7AK4k/zcokhK691LJ4zttb
-         x7iBH/ulthAXVBhXjwfEw3KzcgzkxEPb2zsikeklRfmxs3FC7P9JOAh4kjkMDvnCH7W3
-         lnThyBf+FxsoptEP9/mc3SE1+SDm5GSupO4+qJqXfQ8RWTaVrTQxVGF28PBUX+QSo99c
-         U+jU5oHt196oDhz+onSXnXDEub1269Dg1R3OiURAeORNHGaKvM3SJy40EUoa58kkkRc1
-         CPvnIuJW2876XXmqm+Xml5xO3efZ/p8+a/dhnVfxHVIesF2xHykLUsrpNd39Ah7xxRSK
-         3dHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738949627; x=1739554427;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b6DSgMi12Y1DTWXSxB1u+L8gWNg8zLGbTo3gPZs3j0U=;
-        b=Bd4rg7aAwuYKI97Ng8iOdpXkuxUiSN2aneJK3ka+GTCFHe5VRZecYubI8hsqBGSPQD
-         W+F7usZvhm/AsbFEAwZxpufRosWOhHdfjCGwObRC98C527ttVESMU2y53rFeQFC1kJ8x
-         mOLcI41voA86sZNdXoMDipkmD/7YlyNGmqrjbeob0vKqcsKMmtXTyEFvWAui+mYgeC6X
-         phdlvJlP7FRv8UIxeGzuzheOcjSGUNL1YcD5ABXWQSA6Fw9PY6VlUUUnUtxc7g1m8IPH
-         +NKS+9BGADdfiaFOmsc0pbVLfmLVdApYZWJaw+idYPKg0KtokhVMhflKB00cAyFsh1EY
-         dzGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUIwNiUNGg7UxmcuXU3OSNI/bR5uc61dvRldV7JINSz3i75lZWYk25AykZJfwb+GB/61o8ehcNUlPa61uxBraId@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTNoLnwwnmubFWKbC5VGIj8LCeiqbkBgCE5DlpoBAnPvDcw8YM
-	gtwBXQhpnljV4YnMNh8YpvONvGW1DwkyERhP8sblc5gWzqwH12+DD9uTWMT++g==
-X-Gm-Gg: ASbGncsoCNblWeRqZyCSjdY+MoSgIeto4sWtxdvnWAEnCiM3Cx9+ObtUwMN3zCtSSCH
-	Go+qCKj096175IY8UiXEiLr23MJXFGVBrz43ZaHQqFU1JzvFBjbOQUmUaRnBMq8cWiX7h/t2VyS
-	rMbQSbEyaIGfqQBidz1Tj2lGOR8KUs2wqt8+wUdVb5YSFUyPEiv1wHcvxZFykHjeBY0Pr8bOFZF
-	8xGv+3xEzhyZshbErbofxH9U5Vhd16QTVVOxwtA0LpC5W795cZZpalsmRgvpEwnZROUDxQ+W8qb
-	PIF2do0BfnxUStPhD8lHEnOf3g==
-X-Google-Smtp-Source: AGHT+IF/6HJMivCoSnQWmuUQfnYzeYmJJ18uAMqp9K/Rr+W3BGx4zE82YztHxZQyN+t5mKrGChZ44g==
-X-Received: by 2002:a05:6a20:2d07:b0:1e1:b105:158f with SMTP id adf61e73a8af0-1edf36f3822mr13144747637.19.1738949627535;
-        Fri, 07 Feb 2025 09:33:47 -0800 (PST)
-Received: from thinkpad ([120.60.76.168])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ad51aee5bb1sm3342184a12.38.2025.02.07.09.33.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 09:33:46 -0800 (PST)
-Date: Fri, 7 Feb 2025 23:03:41 +0530
-From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
-To: Wilson Ding <dingwei@marvell.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thomas.petazzoni@bootlin.com" <thomas.petazzoni@bootlin.com>,
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Sanghoon Lee <salee@marvell.com>
-Subject: Re: [PATCH 1/1] PCI: armada8k: Disable LTSSM on link down interrupts
-Message-ID: <20250207173341.anqw7ybp7vn6md4s@thinkpad>
-References: <20241112064241.749493-1-jpatel2@marvell.com>
- <20241112214337.GA1861873@bhelgaas>
- <BY3PR18MB4673E2698A6F465FEB56B5A2A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <BY3PR18MB467343D941D2F7706FD88FCBA7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
+	id 1tgRBn-0000000AHHg-06Ah;
+	Fri, 07 Feb 2025 16:26:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4A218A43752;
+	Fri,  7 Feb 2025 16:25:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE8AC4CED1;
+	Fri,  7 Feb 2025 16:26:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738945605;
+	bh=u+i95IR3MVOK1O+Tnb4juPc0WoJPr81JyopjZ2dKp/Q=;
+	h=From:Subject:Date:To:Cc:From;
+	b=GCIZMgYTQkqmivbMNyPjb1wStpCQeA8rKEqwbug0hMrRDg2I9XcmWSxjbQov4GffM
+	 iG7RWsQDUZ+EFjoDaorFRmItUvlB0o6orqGjkiUEhbpg9js5j6hA2eZ8HhH7L3Arvy
+	 FgHa9pD/kWPIc5m6tFbR+XXdda6RbHr3aJE657YbTv7F22OuujNmWOW9+SQmEGeWaY
+	 I+BbFXFsioKC5DTmmyRFhxqh6cPSZhOCyanwcQHdA5/aESpfYWtuoq3vmkxFQ6dWT8
+	 LnoOdk/LwG9lUtBaN/y5Up9fVOKh5ga2be98K25euO+4smAmFaL+b4bdR64voLHdjT
+	 VKcKI4YWr7bcQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v2 00/15] Introduce flowtable hw offloading in
+ airoha_eth driver
+Date: Fri, 07 Feb 2025 17:26:15 +0100
+Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <BY3PR18MB467343D941D2F7706FD88FCBA7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACc0pmcC/42NTQ6CMBBGr0K6dkx/RNSV9zAspnQKjaQlU4Iaw
+ t2tnMDd977Fe6vIxIGyuFWrYFpCDikW0IdKdAPGniC4wkJLXUsta8DAaUCg2NQXBX5MrxntSJB
+ 82eiADCpljTUndKJYJiYf3nvh0RYeQp4Tf/bgon7v/+5FgQRnzrrzeG2sVPcncaTxmLgX7bZtX
+ zMzGZPPAAAA
+X-Change-ID: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ upstream@airoha.com, Christian Marangi <ansuelsmth@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_093348_499346_977CBE8F 
-X-CRM114-Status: GOOD (  32.91  )
+X-CRM114-CacheID: sfid-20250207_082647_203399_35ACED78 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,120 +87,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 01, 2025 at 12:57:56AM +0000, Wilson Ding wrote:
-> I am writing to follow up on this serious of PCIe patches submitted by Jenish.
-> Unfortunately, he has since left the company, and some comments on these
->  patches were not addressed in a timely manner. I apologize for the delay
-> and any inconvenience this may have caused. I have reviewed the feedback
-> provided and am now taking over this work. I appreciate the time and effort
-> you have put into reviewing the patch and providing valuable comments.
-> I will ensure that the necessary changes are made and resubmit the patch
-> in the proper manner, as it was not initially submitted as a series.
-> 
-> > > When a PCI link down condition is detected, the link training state
-> > > machine must be disabled immediately.
-> > 
-> > Why?
-> > 
-> > "Immediately" has no meaning here.  Arbitrary delays are possible and must
-> > not break anything.
-> 
-> Yes, I agree. A delay cannot be avoided. The issue we encountered is that
-> the RC may not be aware of the link down when it happens. In this case,
-> any access to the PCI config space may hang up PCI bus. The only thing we
-> can do is to rely on this link down interrupt. By disabling APP_LTSSM_EN,
-> RC will bypass all device accesses with returning all ones (for read).
-> 
+Introduce netfilter flowtable integration in airoha_eth driver to
+offload 5-tuple flower rules learned by the PPE module if the user
+accelerates them using a nft configuration similar to the one reported
+below:
 
-Ok. One comment below.
+table inet filter {
+	flowtable ft {
+		hook ingress priority filter
+		devices = { lan1, lan2, lan3, lan4, eth1 }
+		flags offload;
+	}
+	chain forward {
+		type filter hook forward priority filter; policy accept;
+		meta l4proto { tcp, udp } flow add @ft
+	}
+}
 
-> > > Signed-off-by: Jenishkumar Maheshbhai Patel
-> > > <mailto:jpatel2@marvell.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-armada8k.c | 38
-> > > ++++++++++++++++++++++
-> > >  1 file changed, 38 insertions(+)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c
-> > > b/drivers/pci/controller/dwc/pcie-armada8k.c
-> > > index b5c599ccaacf..07775539b321 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-armada8k.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-armada8k.c
-> > > @@ -53,6 +53,10 @@ struct armada8k_pcie {
-> > >  #define PCIE_INT_C_ASSERT_MASK		BIT(11)
-> > >  #define PCIE_INT_D_ASSERT_MASK		BIT(12)
-> > >
-> > > +#define PCIE_GLOBAL_INT_CAUSE2_REG	(PCIE_VENDOR_REGS_OFFSET
-> > + 0x24)
-> > > +#define PCIE_GLOBAL_INT_MASK2_REG	(PCIE_VENDOR_REGS_OFFSET
-> > + 0x28)
-> > > +#define PCIE_INT2_PHY_RST_LINK_DOWN	BIT(1)
-> > > +
-> > >  #define PCIE_ARCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET
-> > + 0x50)
-> > >  #define PCIE_AWCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET
-> > + 0x54)
-> > >  #define PCIE_ARUSER_REG			(PCIE_VENDOR_REGS_OFFSET
-> > + 0x5C)
-> > > @@ -204,6 +208,11 @@ static int armada8k_pcie_host_init(struct
-> > dw_pcie_rp *pp)
-> > >  	       PCIE_INT_C_ASSERT_MASK | PCIE_INT_D_ASSERT_MASK;
-> > >  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK1_REG, reg);
-> > >
-> > > +	/* Also enable link down interrupts */
-> > > +	reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG);
-> > > +	reg |= PCIE_INT2_PHY_RST_LINK_DOWN;
-> > > +	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG, reg);
-> > > +
-> > >  	return 0;
-> > >  }
-> > >
-> > > @@ -221,6 +230,35 @@ static irqreturn_t armada8k_pcie_irq_handler(int
-> > irq, void *arg)
-> > >  	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG);
-> > >  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG, val);
-> > >
-> > > +	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE2_REG);
-> > > +
-> > > +	if (PCIE_INT2_PHY_RST_LINK_DOWN & val) {
-> > > +		u32 ctrl_reg = dw_pcie_readl_dbi(pci,
-> > PCIE_GLOBAL_CONTROL_REG);
-> > 
-> > Add blank line.
-> > 
-> > > +		/*
-> > > +		 * The link went down. Disable LTSSM immediately. This
-> > > +		 * unlocks the root complex config registers. Downstream
-> > > +		 * device accesses will return all-Fs
-> > > +		 */
-> > > +		ctrl_reg &= ~(PCIE_APP_LTSSM_EN);
-> > > +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_CONTROL_REG,
-> > ctrl_reg);
-> > 
-> > And here.
-> > 
-> > > +		/*
-> > > +		 * Mask link down interrupts. They can be re-enabled once
-> > > +		 * the link is retrained.
-> > > +		 */
-> > > +		ctrl_reg = dw_pcie_readl_dbi(pci,
-> > PCIE_GLOBAL_INT_MASK2_REG);
-> > > +		ctrl_reg &= ~PCIE_INT2_PHY_RST_LINK_DOWN;
-> > > +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG,
-> > ctrl_reg);
-> > 
-> > And here.  Follow existing coding style in this file.
-> > 
-> > > +		/*
-> > > +		 * At this point a worker thread can be triggered to
-> > > +		 * initiate a link retrain. If link retrains were
-> > > +		 * possible, that is.
-> > > +		 */
+Packet Processor Engine (PPE) module available on EN7581 SoC populates
+the PPE table with 5-tuples flower rules learned from traffic forwarded
+between the GDM ports connected to the Packet Switch Engine (PSE) module.
+airoha_eth driver configures and collects data from the PPE module via a
+Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
+Move airoha_eth driver in a dedicated folder
+(drivers/net/ethernet/airoha).
 
-Who is supposed to retrain the link? Where is the worker thread?
+---
+Changes in v2:
+- Add airoha-npu document binding
+- Enable Rx SPTAG on MT7530 dsa switch for EN7581 SoC.
+- Fix warnings in airoha_npu_run_firmware()
+- Fix sparse warnings
+- Link to v1: https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org
 
-- Mani
+---
+Lorenzo Bianconi (15):
+      net: airoha: Move airoha_eth driver in a dedicated folder
+      net: airoha: Move definitions in airoha_eth.h
+      net: airoha: Move reg/write utility routines in airoha_eth.h
+      net: airoha: Move register definitions in airoha_regs.h
+      net: airoha: Move DSA tag in DMA descriptor
+      net: dsa: mt7530: Enable Rx sptag for EN7581 SoC
+      net: airoha: Enable support for multiple net_devices
+      net: airoha: Move REG_GDM_FWD_CFG() initialization in airoha_dev_init()
+      net: airoha: Rename airoha_set_gdm_port_fwd_cfg() in airoha_set_vip_for_gdm_port()
+      dt-bindings: arm: airoha: Add the NPU node for EN7581 SoC
+      dt-bindings: net: airoha: Add airoha,npu phandle property
+      net: airoha: Introduce PPE initialization via NPU
+      net: airoha: Introduce flowtable offload support
+      net: airoha: Add loopback support for GDM2
+      net: airoha: Introduce PPE debugfs support
 
+ .../devicetree/bindings/arm/airoha,en7581-npu.yaml |   71 ++
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml |   10 +
+ drivers/net/dsa/mt7530.c                           |    5 +
+ drivers/net/dsa/mt7530.h                           |    4 +
+ drivers/net/ethernet/Kconfig                       |    2 +
+ drivers/net/ethernet/Makefile                      |    1 +
+ drivers/net/ethernet/airoha/Kconfig                |   23 +
+ drivers/net/ethernet/airoha/Makefile               |    9 +
+ .../net/ethernet/{mediatek => airoha}/airoha_eth.c | 1261 +++++---------------
+ drivers/net/ethernet/airoha/airoha_eth.h           |  626 ++++++++++
+ drivers/net/ethernet/airoha/airoha_npu.c           |  501 ++++++++
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  823 +++++++++++++
+ drivers/net/ethernet/airoha/airoha_ppe_debugfs.c   |  175 +++
+ drivers/net/ethernet/airoha/airoha_regs.h          |  793 ++++++++++++
+ drivers/net/ethernet/mediatek/Kconfig              |    8 -
+ drivers/net/ethernet/mediatek/Makefile             |    1 -
+ 16 files changed, 3310 insertions(+), 1003 deletions(-)
+---
+base-commit: 26db4dbb747813b5946aff31485873f071a10332
+change-id: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
