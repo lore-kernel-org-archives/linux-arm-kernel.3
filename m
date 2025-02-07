@@ -4,106 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38552C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59141C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=; b=M9avBN3Rz+iFNeXvnk8VQnEbY5
-	HMPIQGYHw8WcuEkFAYFlFm6cGgdYbCeYNKwLJGP5J3X7aQOmXYr4zS405fOQpo3iORakIw+k+UwDE
-	/2fqdfkBdbMTenkPvpn16CstgdInXOXqkCUAn3NwILqw2yAS/LLONLrLtSvjzGSr9Y0SenCGWdSXo
-	s2KBpPWoGnIuH1wvPbzG7qhehbMS/HuEZR+AYlCwc/ylrlL6BH/MjCl8GroDOxRqWIY39pPAHN20h
-	pnD0nvcsQh5I3Lo3uB6lqT0T7wCmlevkIxThjnvQb7GlrctTtcfdw8bbesIkn58jW2lz1O2/Io0oV
-	34IiXDow==;
+	bh=CZfmOYEjsOOigbYsvY6i0SBzuIazvcfmaA15U8nykOU=; b=uZ+s6Ra/HyT+FI1Ler/8QnJpWq
+	GDIigx8Zw+AjPJH85T3W2IVs7ju9US7r9Z5EJZHEMXdyvtBy5mFc7cSOKILnGRDc6CTph3yoYEU5U
+	AAJBgKfkSa3qPZYsKTN+IJ+FhkbrdkronB4QI2VENB2fLA2CzT4NSjFzRHcxF6HkApUg3Wxvg46Dg
+	kbcH0xfJboA2i8QLbSzf7rftPQ6UnfXDsOOa84P9POQ943HEAkiMXY9Pt8QuVmMT3o2v2QwQ5Wq43
+	5RPBndfyQnT3sujOa4zVelseicpDE26sDkVDTk+XTNnqRqBKUnO9xLcnHNDgQFU3yNPvaO4vJN+iC
+	V7XBGQ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKWK-00000008zbe-3KOB;
-	Fri, 07 Feb 2025 09:19:32 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKMe-00000008xMC-3w88
+	id 1tgKY9-0000000902O-2Cln;
+	Fri, 07 Feb 2025 09:21:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgKWl-00000008zl9-254n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 09:09:34 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21f2cfd821eso33156595ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:09:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738919372; x=1739524172; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=;
-        b=kRUVv2v7286RgR1oFHxg3XaYtEdKxVYjssOqPmKyLvLebWFC7IovCPSL2tjOKci34D
-         kLmn+KUv6psNEQ8Mgt3VUa5gWC8RAsJCWINiyjfI1iHAPGKsai74Ur/lHjeaK0RCYx1i
-         9lWrqy9dQrRFNWzsscC2QiLReaNyzTa4ZSB+VhIZq8+vKEci7zPuoSzj+geidYVcxB7P
-         y0+UqbU7WjjRf4s3/RluoFmRnyAeufJUNzBI+djngkVepJYc0+5Pi5P2n8NYqyz4+/GU
-         sY6EBQzqN/WHZ4oG6zZs1kckdcuCAMNvekOxuq2RKIGzh9hOUqOtj3bLZVUKeWF65IrX
-         Z9SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738919372; x=1739524172;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=;
-        b=eDmghwUvPTCZjC4GWinWSMs9pjlSJNn6XGU3j+kGfE57d3dfK79cG0/34BTLYoc39o
-         IFdWBa47FShPDs+pRl67vUzNbju3zAMqEZTNI/CcTJ0hN5x4GPLCA9rwbPOAZsxAgQuw
-         dcq3ejDFUP0klKExRqHp0vU2g7V4GtQpgUNGScWCryK905g6mhtYE0nR/3k1REJvxZ6u
-         MhWz1EwBgzXucj9QUT5FVmdVH8IGi2M1cTmkFWTXWqHaU+zI60uIUFtw6wBqu47BEnLf
-         7XVnzgnbLwdY7UXSA4RwafCs28GBw15rA/iixYiZG4SAOFDMYmvaNqQfvj9F1mbXV1v3
-         GpOA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/ysN6NB1CtqjA6s+AZ7sIHFjQW6aujTbOv2y3yeY2pUV4WbyPKfvWLCdz3wOvAtaRX5zmBFpz4qgns1O7gmGr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBuWcc0HEhVe6ChHtt9ELdqD2hgux9zij+KLQwwiLJl7umP/+L
-	yfbyTRXXcvXlZZYLJn3jVs2tVcZyr8I+7MAtZFDwfch+pkIf8PNX
-X-Gm-Gg: ASbGnctYuiBfDpvEDN9p9q/0Vpfy5LWytmw54DB8OYAb9PZRam/h7eLzsDqIXIXPxd4
-	Dx0luO9u6lmM/0CPpGd7NQSzh+pSJfBRG21bVZwe1eoHY36VQlYeihpQokVGcz+l2IEHxGCs7JR
-	8czCusDW8DSO8Lzooxdt+L7jCmHgcFwd6oCPGpIs8OFV7UNVewsoEgcKJc8D+6ec+5QjfGU2qrl
-	Iap2ySTKxz0+o9YRc9ZBCYccQ1gWmlzK5YrFPNXc1GSSpW7zp8ekTsO2J+O78HMlK3G9Ejgcqb5
-	bATW3UnG9JY8
-X-Google-Smtp-Source: AGHT+IHdbdRPTIQl2gSZ+CotH7ac/oBwZCxsHs4UvbL1u5MkN8h8LbL1QYV1lgF7a8TsacFSkfg1rg==
-X-Received: by 2002:a17:902:ea0c:b0:216:760c:3879 with SMTP id d9443c01a7336-21f4e781389mr39271805ad.46.1738919371696;
-        Fri, 07 Feb 2025 01:09:31 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f36881e14sm25847215ad.207.2025.02.07.01.09.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 01:09:31 -0800 (PST)
-Date: Fri, 7 Feb 2025 17:07:44 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>, Ido Schimmel
- <idosch@idosch.org>, Andrew Lunn <andrew@lunn.ch>, Brad Griffis
- <bgriffis@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
- <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
- non-XDP RX path
-Message-ID: <20250207170744.00006ceb@gmail.com>
-In-Reply-To: <108592a6-de5b-4804-92ff-c7d4547beff0@nvidia.com>
-References: <cover.1736910454.git.0x1207@gmail.com>
-	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
-	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
-	<20250124003501.5fff00bc@orangepi5-plus>
-	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
-	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
-	<20250124104256.00007d23@gmail.com>
-	<Z5S69kb7Qz_QZqOh@shredder>
-	<20250125230347.0000187b@gmail.com>
-	<kyskevcr5wru66s4l6p4rhx3lynshak3y2wxjfjafup3cbneca@7xpcfg5dljb2>
-	<108592a6-de5b-4804-92ff-c7d4547beff0@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 07 Feb 2025 09:20:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACBCB106F;
+	Fri,  7 Feb 2025 01:20:21 -0800 (PST)
+Received: from [10.162.16.89] (a077893.blr.arm.com [10.162.16.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AF5C3F5A1;
+	Fri,  7 Feb 2025 01:19:53 -0800 (PST)
+Message-ID: <e1fe2a0c-d567-4a26-af06-89e3a37ba638@arm.com>
+Date: Fri, 7 Feb 2025 14:49:50 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 11/16] mm/vmalloc: Gracefully unmap huge ptes
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-12-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250205151003.88959-12-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_010932_981656_DA91FDFD 
-X-CRM114-Status: GOOD (  34.60  )
+X-CRM114-CacheID: sfid-20250207_011959_630513_F1FC7AF5 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,70 +73,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jon,
 
-On Wed, 29 Jan 2025 14:51:35 +0000, Jon Hunter <jonathanh@nvidia.com> wrote:
-> Hi Furong,
-> 
-> On 27/01/2025 13:28, Thierry Reding wrote:
-> > On Sat, Jan 25, 2025 at 11:03:47PM +0800, Furong Xu wrote:  
-> >> Hi Thierry
-> >>
-> >> On Sat, 25 Jan 2025 12:20:38 +0200, Ido Schimmel wrote:
-> >>  
-> >>> On Fri, Jan 24, 2025 at 10:42:56AM +0800, Furong Xu wrote:  
-> >>>> On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch>
-> >>>> wrote:  
-> >>>>>> Just to clarify, the patch that you had us try was not intended
-> >>>>>> as an actual fix, correct? It was only for diagnostic purposes,
-> >>>>>> i.e. to see if there is some kind of cache coherence issue,
-> >>>>>> which seems to be the case?  So perhaps the only fix needed is
-> >>>>>> to add dma-coherent to our device tree?  
-> >>>>>
-> >>>>> That sounds quite error prone. How many other DT blobs are
-> >>>>> missing the property? If the memory should be coherent, i would
-> >>>>> expect the driver to allocate coherent memory. Or the driver
-> >>>>> needs to handle non-coherent memory and add the necessary
-> >>>>> flush/invalidates etc.  
-> >>>>
-> >>>> stmmac driver does the necessary cache flush/invalidates to
-> >>>> maintain cache lines explicitly.  
-> >>>
-> >>> Given the problem happens when the kernel performs syncing, is it
-> >>> possible that there is a problem with how the syncing is performed?
-> >>>
-> >>> I am not familiar with this driver, but it seems to allocate multiple
-> >>> buffers per packet when split header is enabled and these buffers are
-> >>> allocated from the same page pool (see stmmac_init_rx_buffers()).
-> >>> Despite that, the driver is creating the page pool with a non-zero
-> >>> offset (see __alloc_dma_rx_desc_resources()) to avoid syncing the
-> >>> headroom, which is only present in the head buffer.
-> >>>
-> >>> I asked Thierry to test the following patch [1] and initial testing
-> >>> seems OK. He also confirmed that "SPH feature enabled" shows up in the
-> >>> kernel log.  
-> >>
-> >> It is recommended to disable the "SPH feature" by default unless some
-> >> certain cases depend on it. Like Ido said, two large buffers being
-> >> allocated from the same page pool for each packet, this is a huge waste
-> >> of memory, and brings performance drops for most of general cases.
-> >>
-> >> Our downstream driver and two mainline drivers disable SPH by default:
-> >> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c#n357
-> >> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c#n471  
-> > 
-> > Okay, that's something we can look into changing. What would be an
-> > example of a use-case depending on SPH? Also, isn't this something
-> > that should be a policy that users can configure?
-> > 
-> > Irrespective of that we should fix the problems we are seeing with
-> > SPH enabled.  
-> 
-> 
-> Any update on this?
 
-Sorry for my late response, I was on Chinese New Year holiday.
+On 2/5/25 20:39, Ryan Roberts wrote:
+> Commit f7ee1f13d606 ("mm/vmalloc: enable mapping of huge pages at pte
+> level in vmap") added its support by reusing the set_huge_pte_at() API,
+> which is otherwise only used for user mappings. But when unmapping those
+> huge ptes, it continued to call ptep_get_and_clear(), which is a
+> layering violation. To date, the only arch to implement this support is
+> powerpc and it all happens to work ok for it.
+> 
+> But arm64's implementation of ptep_get_and_clear() can not be safely
+> used to clear a previous set_huge_pte_at(). So let's introduce a new
+> arch opt-in function, arch_vmap_pte_range_unmap_size(), which can
+> provide the size of a (present) pte. Then we can call
+> huge_ptep_get_and_clear() to tear it down properly.
+> 
+> Note that if vunmap_range() is called with a range that starts in the
+> middle of a huge pte-mapped page, we must unmap the entire huge page so
+> the behaviour is consistent with pmd and pud block mappings. In this
+> case emit a warning just like we do for pmd/pud mappings.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  include/linux/vmalloc.h |  8 ++++++++
+>  mm/vmalloc.c            | 18 ++++++++++++++++--
+>  2 files changed, 24 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
+> index 31e9ffd936e3..16dd4cba64f2 100644
+> --- a/include/linux/vmalloc.h
+> +++ b/include/linux/vmalloc.h
+> @@ -113,6 +113,14 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, uns
+>  }
+>  #endif
+>  
+> +#ifndef arch_vmap_pte_range_unmap_size
+> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
+> +							   pte_t *ptep)
+> +{
+> +	return PAGE_SIZE;
+> +}
+> +#endif
+> +
+>  #ifndef arch_vmap_pte_supported_shift
+>  static inline int arch_vmap_pte_supported_shift(unsigned long size)
+>  {
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index fcdf67d5177a..6111ce900ec4 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -350,12 +350,26 @@ static void vunmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  			     pgtbl_mod_mask *mask)
+>  {
+>  	pte_t *pte;
+> +	pte_t ptent;
+> +	unsigned long size = PAGE_SIZE;
 
-The fix is sent, and it will be so nice to have your Tested-by: tag there:
-https://lore.kernel.org/all/20250207085639.13580-1-0x1207@gmail.com/
+Default fallback size being PAGE_SIZE like before.
+
+>  
+>  	pte = pte_offset_kernel(pmd, addr);
+>  	do {
+> -		pte_t ptent = ptep_get_and_clear(&init_mm, addr, pte);
+> +#ifdef CONFIG_HUGETLB_PAGE
+> +		size = arch_vmap_pte_range_unmap_size(addr, pte);
+> +		if (size != PAGE_SIZE) {
+> +			if (WARN_ON(!IS_ALIGNED(addr, size))) {
+> +				addr = ALIGN_DOWN(addr, size);
+> +				pte = PTR_ALIGN_DOWN(pte, sizeof(*pte) * (size >> PAGE_SHIFT));
+> +			}
+> +			ptent = huge_ptep_get_and_clear(&init_mm, addr, pte, size);
+> +			if (WARN_ON(end - addr < size))
+> +				size = end - addr;
+> +		} else
+> +#endif
+> +			ptent = ptep_get_and_clear(&init_mm, addr, pte);
+
+ptep_get_and_clear() gets used both, when !HUGETLB_PAGE or HUGETLB_PAGE with
+arch_vmap_pte_range_unmap_size() returned value being PAGE_SIZE, which makes
+sense.
+
+>  		WARN_ON(!pte_none(ptent) && !pte_present(ptent));
+> -	} while (pte++, addr += PAGE_SIZE, addr != end);
+> +	} while (pte += (size >> PAGE_SHIFT), addr += size, addr != end);
+>  	*mask |= PGTBL_PTE_MODIFIED;
+>  }
+>  
+
+LGTM
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
