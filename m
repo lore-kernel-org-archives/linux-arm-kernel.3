@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9860C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB669C0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjEYXYYFGiS+ok9Nh+/z5YU6v5848ZmIPcSBuZoxDhQ=; b=yP2r5VX4Ky07jySCam5zwHmYOY
-	387wr28BHLRuljm1dKWvB/UiD1wUcCDtXg1Nlc6TDbsVcXQj4Vh5sEu8jGoZWgCNIDTWkD2vLkbwF
-	t1vRRSkGyZ8MzpczIj+CfdrhzUaBYMXiuPeNrbDKi1Qo1rM8spD3Us3hPwfuczaAISVbWjzf2uvtM
-	N7E+0etsbei5yaI+LUNsdNC+qE7b3XCwg7HjidbX4jlGK/4HAEnFpjKePhxTxuecyi6f1zRuyXtgG
-	gwrQ3/FNpT3Uc6oBGpWsaljrxNwTBT5xxuEWRAQWJM+eI0Y8BzRk+XjFmFaMeOkldxv6E5ODbcl8W
-	sFb+o+BA==;
+	bh=TJez20VszaxXxj16JRKu4nw9gm00N8RRdq6k9u0AALs=; b=Mek0+8nO6QHVSsc+0u4aooXc6a
+	MLLoLpsiSj5F6aueFJFc9wDzQ2SmySMCP6Kn7K47whOPFn8j4xDiaPmSM9BOy52wnT6alR9vxdft5
+	W75R5kOKzmqjJmbRmiJ20SF4IILEfuLUd6EcTZc5PqMGlsg3s+A9KjeuBvvf0Sk3FlO5rWsh5ax3r
+	v2w5rS7Gecc2y29VTY8ZAdLzvH3cM4DUDeKehaJeQAOHB5cIMb8m/1ExW6p7/UKqN3OPV1bPpBSwb
+	64uOvyi471soH+y5fBt0qHjkQ+w0ak5JpTByVCAvw1jk9EPF0YNMMkoH2TchE1+2msENgqL/oS9kQ
+	GLziWRkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgTMz-0000000Am8m-3uTB;
-	Fri, 07 Feb 2025 18:46:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRn4-0000000APdQ-49nG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:05:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18D66113E;
-	Fri,  7 Feb 2025 09:05:41 -0800 (PST)
-Received: from [10.1.26.24] (e122027.cambridge.arm.com [10.1.26.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D53073F63F;
-	Fri,  7 Feb 2025 09:05:13 -0800 (PST)
-Message-ID: <9f4ff6dd-b2e1-411a-a231-4575be04540d@arm.com>
-Date: Fri, 7 Feb 2025 17:05:13 +0000
+	id 1tgTN0-0000000Am9H-4AE7;
+	Fri, 07 Feb 2025 18:46:31 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgRtl-0000000ARZZ-1pCx;
+	Fri, 07 Feb 2025 17:12:14 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 27/43] arm64: rme: support RSI_HOST_CALL
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-28-steven.price@arm.com>
- <69a424e0-1350-484c-9ce7-b40c4fcacd8e@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <69a424e0-1350-484c-9ce7-b40c4fcacd8e@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1738948331;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TJez20VszaxXxj16JRKu4nw9gm00N8RRdq6k9u0AALs=;
+	b=V5/suE0s6oboVud4LDBpamVYDrXqsi8RJPxWLTE2+OK9RWMpYDTiGsmDcSVqaI3eWFAz4h
+	4gKGUmUH0lriTYz6mztqG53hyQadYcUVIBq2OfILB90liak70DL9Rk2OiSI6CNflipScd4
+	PPtIqyvwPkfP1Zuioojr8i7tFgGcbscIdQubYhwO5xrQRUH5PnZ9BI4/15+h4fJgqKGn0R
+	Pumgn53Y2HSZ5pOkiIZTp0SEz3u2zWAcnMMpru4gbCFn3V9mEpMCoZobzcoZuq8ETUuAyQ
+	1BoJc/fDRKh6YHfHIUmZ0NvUcRB1pep8rK/8vX/P6b7ICZdmZVXZMjqq8Bzq6A==
+Date: Fri, 07 Feb 2025 18:12:10 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Maximilian Weigand <mweigand@mweigand.net>, Marek Kraus <gamiee@pine64.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: rockchip: add 'chassis-type' property on
+ PineNote
+In-Reply-To: <D7MD194WS7UL.FT324IUB9BIA@cknow.org>
+References: <20250207111157.297276-1-didi.debian@cknow.org>
+ <502523554b482a2e10d85d37761932a0@manjaro.org>
+ <D7MD194WS7UL.FT324IUB9BIA@cknow.org>
+Message-ID: <97df4fc0db4bf43a2a3f2d4d110e3105@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_090519_161593_1FF94889 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20250207_091213_636150_B7374344 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,101 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/2025 06:41, Gavin Shan wrote:
-> On 12/13/24 1:55 AM, Steven Price wrote:
->> From: Joey Gouly <joey.gouly@arm.com>
->>
->> Forward RSI_HOST_CALLS to KVM's HVC handler.
->>
->> Signed-off-by: Joey Gouly <joey.gouly@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v4:
->>   * Setting GPRS is now done by kvm_rec_enter() rather than
->>     rec_exit_host_call() (see previous patch - arm64: RME: Handle realm
->>     enter/exit). This fixes a bug where the registers set by user space
->>     were being ignored.
->> ---
->>   arch/arm64/kvm/rme-exit.c | 22 ++++++++++++++++++++++
->>   1 file changed, 22 insertions(+)
->>
->> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
->> index 8f0f9ab57f28..b2a367474d74 100644
->> --- a/arch/arm64/kvm/rme-exit.c
->> +++ b/arch/arm64/kvm/rme-exit.c
->> @@ -103,6 +103,26 @@ static int rec_exit_ripas_change(struct kvm_vcpu
->> *vcpu)
->>       return 0;
->>   }
->>   +static int rec_exit_host_call(struct kvm_vcpu *vcpu)
->> +{
->> +    int ret, i;
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +
->> +    vcpu->stat.hvc_exit_stat++;
->> +
->> +    for (i = 0; i < REC_RUN_GPRS; i++)
->> +        vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
->> +
->> +    ret = kvm_smccc_call_handler(vcpu);
->> +
->> +    if (ret < 0) {
->> +        vcpu_set_reg(vcpu, 0, ~0UL);
->> +        ret = 1;
->> +    }
->> +
->> +    return ret;
->> +}
->> +
+On 2025-02-07 17:39, Diederik de Haas wrote:
+> On Fri Feb 7, 2025 at 4:01 PM CET, Dragan Simic wrote:
+>> On 2025-02-07 12:11, Diederik de Haas wrote:
+>>> Add the recommended chassis-type root node property so userspace can
+>>> request the form factor and adjust their behavior accordingly.
+>>> 
+>>> Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+>>> Link:
+>>> https://github.com/devicetree-org/devicetree-specification/blob/main/source/chapter3-devicenodes.rst#root-node
+>> 
+>> Maybe the Link tag should be converted into a "[1]" reference?
+>> To me, this is more like a reference for this DT addition.
+>> 
+>> In general, references can also be placed closer to the contents
+>> they back up, which isn't possible with Link tags, but of course
+>> that doesn't matter much in this case.
 > 
-> It seems that the return value from kvm_smccc_call() won't be negative.
-
-Well the comment above kvm_psci_call() explains that the return value
-can be negative which would be passed through, so there's definitely a
-convention that it could be negative. However...
-
-> Besides,
-> the host call requests are currently handled by kvm_psci_call(), which
-> isn't
-> what we want.
-
-Indeed, we shouldn't be getting PSCI calls this way as the RMM needs to
-be involved for proper handling of PSCI.
-
-> So I think a new helper is needed and called in> kvm_smccc_call_handler().
-> The new helper simply push the error (NOT_SUPPORTED) to x0. Otherwise, a
-> unexpected
-> return value will be seen by guest.
+> I generally use the "[1]" format when linking to specific claims, which
+> I could've done wrt the "recommended". But I considered this a general
+> background link and then I prefer to do it via a Link tag.
 > 
-> handle_rec_exit
->   rec_exit_host_call
->     kvm_smccc_call_handler
+> If requested by a maintainer I'll change it ofc, but otherwise I prefer
+> to keep it as is.
 
+Indeed, in this case it's pretty much irrelevant which format is used.
+In fact, it may look nicer to use a Link tag, because there are only
+a few lines in the patch description in total. :)
 
-I'm not sure I follow here. Are you saying that we should have separate
-handling of HOST_CALLs to SMCCC? That's certainly a possibility, but the
-expectation is that HOST_CALL is effectively equivalent to a simple
-SMC/HVC call in a normal guest. To be honest a "Realm Host Interface" is
-something that we're currently lacking a spec for.
-
-Thanks,
-Steve
-
->>   static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
->>   {
->>       struct realm_rec *rec = &vcpu->arch.rec;
->> @@ -164,6 +184,8 @@ int handle_rec_exit(struct kvm_vcpu *vcpu, int
->> rec_run_ret)
->>           return rec_exit_psci(vcpu);
->>       case RMI_EXIT_RIPAS_CHANGE:
->>           return rec_exit_ripas_change(vcpu);
->> +    case RMI_EXIT_HOST_CALL:
->> +        return rec_exit_host_call(vcpu);
->>       }
->>         kvm_pr_unimpl("Unsupported exit reason: %u\n",
-> 
-> Thanks,
-> Gavin
-> 
-
+My comment was more about longer commit/patch descriptions with multiple
+references, which should benefit from placing references closer to the
+backed-up contents using the "[*]" layout, instead of relying on Link
+tags to bunch it all together at the end of the description.
 
