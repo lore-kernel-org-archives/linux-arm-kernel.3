@@ -4,114 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31EBC02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAC1C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NqxrxK3xet8+h8NdpIJWE0d4FKW87vOgxxpkOISpEs=; b=e13Dgt9Rk2ICuQlohrNp4AKxnA
-	lomA3Aod0xER2m1FMVg0OQgFwYrQGHNznB7Nd+FSp2Q5/FuTYRBmrDeWS6f2fCo0kYBrJvyX1F6BY
-	CUOv4MEcEQo625LO277h5Wbv226XpnxHOmcCOnxfN3VQ6BpXupU4tJTl4eH1V8afT+vIztew4zTDr
-	37GNykvyK6UjnElocl2ze69Y+kVBzkEpZeoKisxvuMFrQvvAz14Uq/j2mDgw2475cMhYbRTu0BCgz
-	aCMvaAkTswNTNdcO1CqoJjnRq1rJnCXzBJ4fxUlmd86DB3KaALdzJTQBL1vfg+9Vg5jFkf58QrPU9
-	r8sHxFNw==;
+	bh=bTv0l3P8oHjIwWa0vJ1xNlM+ceYNV5pE7I4XlmUzuLU=; b=mypVUQvNhPc4yIn5Ic3vGR8P5c
+	0O8vNWIfcuBLLLgoeH+Sn3gDmf/wcWWO/PRjnh8tI7JTgKzskgy3Uszflmxcj3EyMpGzxQwLbJMaU
+	Tvytq/GReP0k5W/hdJxr0qcxLX8rrD8ISVs8r+TrvsALQ5hEBmE2f9Otu1vT5G72tDksG68j7jQKZ
+	a1Ti9AETFXdcFV/rAmzCwN82Koygz8ZmrW48QUAaM/RvZz0Pbug/P/PIY0k4HRU65uFZE7mJIHnh/
+	Qzh14ximQNZtZ5pEvQ+6hzYHfCH6gCQK79NlQpV3f+16yvGAP+L4pcOemoe5aeyY1tx0Yoe3b+GUg
+	eRGx4q3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKi3-000000092LY-3kzG;
-	Fri, 07 Feb 2025 09:31:39 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tgKmG-0000000933f-1437;
+	Fri, 07 Feb 2025 09:36:00 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKfK-000000091cH-1SLF
+	id 1tgKhB-00000009277-3cVm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 09:28:51 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51770MJr016568
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 7 Feb 2025 09:28:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8NqxrxK3xet8+h8NdpIJWE0d4FKW87vOgxxpkOISpEs=; b=ntYJUBZBAEroMqow
-	mnj8ab2Di391eqecP8vTQu5LJSa060xRl0VQGhxs+O6xRd8uaUSJcUl29fpAz5s8
-	2Y7lmBlyW5/iTaKCBmCtVO0hdf70ViVbw6VLCz8b7EuYNLNDCC4d+n0VVdyY+dLK
-	+ri611+AnFNBPJEOMvwwdmAZKgNr5umdwvs1JsTDbR4KQhHMuqDBTmXb8FjJ5yuo
-	1DXxrMMZHK4fRBqVT2QeJAAv3QE3tu8s/0sTJ4A9ocWa1Or58+SYk06IetzoZ8BR
-	7yo3+PU8POBIFbMzo13M1wkehrdCbZgd3uScAKcZRrdF+wAStF/uzYK2m0c3sR7i
-	M9dsAQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44nddh0ca1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:28:49 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-21f5067e443so10202595ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:28:49 -0800 (PST)
+	Fri, 07 Feb 2025 09:30:47 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4368a293339so19967265e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:30:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738920644; x=1739525444; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bTv0l3P8oHjIwWa0vJ1xNlM+ceYNV5pE7I4XlmUzuLU=;
+        b=McT7dYGT+FVlZvazL4SCa5RU7xqHQstCj4qhVg5A7gA/jvRSeYRo3WOj0yda9TShZv
+         g4B/YtvN2mNU/2tEbtP+yxr7ARwr4kup9DBqa0sDIWU1UEXf6kKL2Nmsl/QJ6mNohgAb
+         AwcxCisMMsBt0HWePnlgNcup8zseIhfPATsG5y3pMG9QTs+UYHSkj8U6UQqN/9cpIdVf
+         0nUF8edBjVxTKzAJY4KP4jnmTw4nzPIKHr72O9utbeDabxO09icloW4sezQGPvvhpUS9
+         gjSFcgiKUEfXKDk5wig7w+z+18+2HLusM0yibVI9DGeeXc82UyPNf+uUmgPVSty5I23Y
+         ZrtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738920528; x=1739525328;
+        d=1e100.net; s=20230601; t=1738920644; x=1739525444;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8NqxrxK3xet8+h8NdpIJWE0d4FKW87vOgxxpkOISpEs=;
-        b=dYvkR4Y/BS/W7V7A7oI4Jl7cnAD/Eki/qevq6QKKEuwkQGBN4wwy/XCgy+MiFIeT66
-         WPQay2OLXY0FUnba/057EG+htXuBTerPfeWq2ez7Qjaj+ncSclpF13cES9WR51ShqUaD
-         mmHGmBcajnlLgOyK2DKKhgeli/EANPLxqX39LK3rLv/ID0RXm/lwvw0iI4G2e03/U8ys
-         yHylpBLfi92mA7Ljj6GM7Kn7U6osbba1/IyFtaFt7JjYNI5BbajAg5XjK4K4L1TCW67p
-         25hm6J5A8gSP5XLxpGMoFiCKJAsqSpJq8ZURgpEUwZx+NhPblsYSBMFG8dHXRbell2aO
-         ShYQ==
-X-Gm-Message-State: AOJu0YylXcCm4EIBDwmOdEn/X5vb57l1wt8JKOxXUU+NGYiNym81vsk0
-	UEhfdmN8updxfolpe0oBoJ9e8r7gIXMe1Beq9eAnGDlU4Ih+WM85oH5zP05bIV1dPAP6aO7hIJI
-	6+HqTzj4Jow7JmEcz6Pk+XQmXpbgMIXltiDuoc1hv0LjYzML9BZ0k9TZohH035AhZyVMaoiWG6Q
-	==
-X-Gm-Gg: ASbGncuQsK2l4u2GNfwb29i7C8+j9nEzqUK5Wh2e8h+P2Z7SsrNF4a7zztWScNSWEbh
-	wW1wkOM/09PbFdAvKiGnbTgsIqyVS/XC2DnEKS5gMknMkuBFHasy0d0Jsg/y4rhD1SKAJy9E8/T
-	+jHJxDR9aD4zLaQaWF7lRhmmpT5yShFh3T0Ee5WLOtsvvIH/64Eu+RUmuc0ycyg0NG2SEfs7KLz
-	Ud0tnMZOIkU6+e4ggCQ5zA9Q557D4Mv5y9npWg/tOxki6IDu8bcg9GEuyqkot/hNkP4VdvK48Il
-	ds1Bq1DT3ZLlysYdVjZwG2sB5EdmOiCB9bcWDDYIFrjpRjJZQlQE7TjRFE9zQyY=
-X-Received: by 2002:a17:902:fc4f:b0:21a:8769:302e with SMTP id d9443c01a7336-21f4e6ad349mr47724595ad.14.1738920527977;
-        Fri, 07 Feb 2025 01:28:47 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHdITSY3Xbsq3qeExulM7OKAMdr3dJ0xmAXSbW0AXp7CYFXVCNY98Q+WzzN9OaitkXgQXgptQ==
-X-Received: by 2002:a17:902:fc4f:b0:21a:8769:302e with SMTP id d9443c01a7336-21f4e6ad349mr47724115ad.14.1738920527391;
-        Fri, 07 Feb 2025 01:28:47 -0800 (PST)
-Received: from [10.133.33.7] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f36896b86sm26147275ad.212.2025.02.07.01.28.37
+        bh=bTv0l3P8oHjIwWa0vJ1xNlM+ceYNV5pE7I4XlmUzuLU=;
+        b=EXvekSP2trzV7/n4L6Nb235+OnDsrd11xzLFZJ8ePGYioKf3FCVHCryDxq8yoTNltq
+         LZFyEtCC8b1vVv/P3juB5Qq/8o8DnHu7DVKIDpkSK9Bvd6OmiIJq7T+h1besWAH/uzhY
+         OjGXzpyOhiqpUQ8ZXDQnEQSe+V7TtMJqkmZRF+c4Q970XNLJHQvLVQLgYxdJsQ0TxUNb
+         IOuGGywOVz7k13NDMSg5nSrkE05RuU4myL48KVvlzWim+HEBY5XnxA0Xs+GXyI6wcuzF
+         QFXOT5xnAlrmtaoHKhmxOfbox/hrJ4hj5IVxOXc8OBElFddWOKTs0aXAyZJvm1fPhtbB
+         hTBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX4qixaKTAA8K2a7An0n4fbFgEtfJuuJjMTfW0dqwu4Zrau7Ovu8CEhc3H+JBC2eCgASOYgsZJ1KFQ2HsVOkG4a@lists.infradead.org
+X-Gm-Message-State: AOJu0YygbKWXDmRtIyZryW/G9Kq+C+Y5t2jrRFyHP0tBTw/5g+6Hcu+9
+	earhmXlz8/MPcHSM7rXkl35lYR1o1cCnvDVMsqOb2s33SEirk1/XI45bWna3l5lhAEYU8pQE5gl
+	oFIA=
+X-Gm-Gg: ASbGncsZoGMEL0jQVeFAkRvgHLkaV4687idR9D0ByPVRQTlxm9urfdJQyQ28Opie0+B
+	P/LfY2LCZ3OXhJpo9p/UDPAzsj8lPUOGICQoZnm5mGaYggkLQfcRyFrOYT2lg3JV7a4PRrQMg4v
+	SVIE9s8nSx1sp+vP3ZBjB7gn/npNXLn0oVyhim+RdQtTM1pwl8gckOAoheCJvC0lbQg18pDW58y
+	1Sv6ds7zk3Ij73ZhgFLB1CxGF4WpKjZVZJ0VLI9/Xhd+2U0oKdNQY+u6GDPBQ040nIbLm+YNm/c
+	0ElscYABV7gLdpW49rL+gfHgUf4L3h9484wfP54ItJNVsZnFZw3sl3bZMCzXNa4=
+X-Google-Smtp-Source: AGHT+IElsKs0XLYEriSWI3dDW9xTs2P0W29PLLdDtB0wMdiWa2+7KZzbYDArv0YRFXODUIVGn6d1iQ==
+X-Received: by 2002:a05:600c:4ece:b0:436:1971:2a4 with SMTP id 5b1f17b1804b1-439249913damr19584105e9.17.1738920643824;
+        Fri, 07 Feb 2025 01:30:43 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8? ([2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d94dd1esm85365915e9.16.2025.02.07.01.30.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 01:28:46 -0800 (PST)
-Message-ID: <61045cc3-d030-4c63-8a1b-103ff8c374f3@oss.qualcomm.com>
-Date: Fri, 7 Feb 2025 17:28:34 +0800
+        Fri, 07 Feb 2025 01:30:43 -0800 (PST)
+Message-ID: <82b5b5d6-2009-45d6-bb4e-517b8978b88c@baylibre.com>
+Date: Fri, 7 Feb 2025 10:30:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 2/2] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
-        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@linaro.org>
-References: <20250207090422.1609260-1-quic_vikramsa@quicinc.com>
- <20250207090422.1609260-3-quic_vikramsa@quicinc.com>
+Subject: Re: [PATCH 2/2] rtc: mt6359: fix year issue
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
+ <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250109-enable-rtc-v1-0-e8223bf55bb8@baylibre.com>
+ <20250109-enable-rtc-v1-2-e8223bf55bb8@baylibre.com>
+ <202501091546387cff95fd@mail.local>
+ <49b100ae-9b81-404d-b64c-93c60baa859f@collabora.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20250207090422.1609260-3-quic_vikramsa@quicinc.com>
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <49b100ae-9b81-404d-b64c-93c60baa859f@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: g8v7uJKNX6ENQKp1o5wfmUO-ok2EN0Rz
-X-Proofpoint-GUID: g8v7uJKNX6ENQKp1o5wfmUO-ok2EN0Rz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-07_04,2025-02-07_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
- clxscore=1015 mlxlogscore=999 lowpriorityscore=0 impostorscore=0
- mlxscore=0 spamscore=0 priorityscore=1501 adultscore=0 malwarescore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502070072
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_012850_409843_AD9EFD96 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20250207_013045_916268_198183ED 
+X-CRM114-Status: GOOD (  33.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,149 +107,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Alex and Angelo
+
+Thanks for your comments
+
+Angelo, IMHO, "regmap_read_poll_timeout", mutex, RTC_PROT, register read/write,... aren't related to 
+this issue (but I've verified anyway to be sure and everything works as expected ;) )
+
+After digging a bit more, RTC_MIN_YEAR_OFFSET (68) hide another problems.
+Please, keep in mind that I probably misunderstand how range_min, range_max, start_secs have to be use.
+
+1)
+Default driver values:
+	rtc->rtc_dev->range_min = mktime64(1900, 1, 1, 0, 0, 0);
+	rtc->rtc_dev->range_max = mktime64(2027, 1, 1, 23, 59, 59);
+	rtc->rtc_dev->start_secs = mktime64(1968, 1, 2, 0, 0, 0);
+
+First issue is HW alarm doesn't fire.
+When the PMIC is powered-on, the year register value is 42 (is it a bug or usefull feature ?)
+When "hwclock -r" (read) is sent, the RTC framework steps are:
+- read time from the HW registers
+- set alarm
+- HW alarm triggered
+- read time from the HW registers
+...
+
+But the year value written during the "set alarm" is different from 42 due to an offset issue. Then 
+the alarm will trigger some years later and the timeout fire instead.
+
+I understand that offset_secs value come from different formulas depending of the 3 variable value.
+In this case, the formula is 'offset_secs = start_secs - range_min'.
+
+Then change start_secs to mktime64(1942, 1, 1, 0, 0, 0) to have, in theory, the good offset.
+But now, I don't reach the set_alarm step and have:
+
+     Waiting for clock tick...
+     ioctl(3, RTC_UIE_ON, 0): Invalid argument
+     Waiting in loop for time from /dev/rtc0 to change
+     hwclock: ioctl(RTC_RD_NAME) to /dev/rtc0 to read the time failed: Invalid argument
+     ...synchronization failed
 
 
-On 2/7/2025 5:04 PM, Vikram Sharma wrote:
-> The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-> Enable the IMX577 on the vision mezzanine.
-> 
-> An example media-ctl pipeline for the imx577 is:
-> 
-> media-ctl --reset
-> media-ctl -v -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> 
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-> 
-> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   arch/arm64/boot/dts/qcom/Makefile             |  4 +
->   .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 89 +++++++++++++++++++
->   2 files changed, 93 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-> index 140b0b2abfb5..213d941b1b79 100644
-> --- a/arch/arm64/boot/dts/qcom/Makefile
-> +++ b/arch/arm64/boot/dts/qcom/Makefile
-> @@ -116,6 +116,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-> +
-> +qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-> +
-> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
-> diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> new file mode 100644
-> index 000000000000..2a59d2f22eb8
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> @@ -0,0 +1,89 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-It's 2025 now, it should be 2024-2025.
+This issue above doesn't appear if I remove this piece of code
+	/*
+	 * Since the reading time values from RTC device are always in the RTC
+	 * original valid range, but we need to skip the overlapped region
+	 * between expanded range and original range, which is no need to add
+	 * the offset.
+	 */
+	if (rtc->start_secs > rtc->range_min && secs >= rtc->start_secs)
+		return;
 
-Thanks,
-Jie
 
-> + */
-> +
-> +/*
-> + * Camera Sensor overlay on top of rb3gen2 core kit.
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&camss {
-> +	vdda-phy-supply = <&vreg_l10c_0p88>;
-> +	vdda-pll-supply = <&vreg_l6b_1p2>;
-> +
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* The port index denotes CSIPHY id i.e. csiphy3 */
-> +		port@3 {
-> +			reg = <3>;
-> +
-> +			csiphy3_ep: endpoint {
-> +				clock-lanes = <7>;
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&imx577_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cci1 {
-> +	status = "okay";
-> +};
-> +
-> +&cci1_i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	camera@1a {
-> +		compatible = "sony,imx577";
-> +
-> +		reg = <0x1a>;
-> +
-> +		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-> +		pinctrl-names = "default", "suspend";
-> +		pinctrl-0 = <&cam2_default>;
-> +		pinctrl-1 = <&cam2_suspend>;
-> +
-> +		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-> +		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-> +		assigned-clock-rates = <24000000>;
-> +
-> +		dovdd-supply = <&vreg_l18b_1p8>;
-> +		avdd-supply = <&vph_pwr>;
-> +		dvdd-supply = <&vph_pwr>;
-> +
-> +		port {
-> +			imx577_ep: endpoint {
-> +				link-frequencies = /bits/ 64 <600000000>;
-> +				data-lanes = <1 2 3 4>;
-> +				remote-endpoint = <&csiphy3_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&tlmm {
-> +	cam2_default: cam2-default-state {
-> +		pins = "gpio67";
-> +		function = "cam_mclk";
-> +		drive-strength = <2>;
-> +		bias-disable;
-> +	};
-> +
-> +	cam2_suspend: cam2-suspend-state {
-> +		pins = "gpio67";
-> +		function = "cam_mclk";
-> +		drive-strength = <2>;
-> +		bias-pull-down;
-> +	};
-> +};
+Better but not over.
+My current local time is 7:31:4 1-0-42 (hour:min:sec day-month-year)
+Now the alarm setup value is 7:31:5 1-1-84. Compared to working setup, year value isn't consistent, 
+it should be 42 instead of 84.
+The removed piece of code isn't the cause of that because before removing it I've workarounded it by 
+adding 8 hours (or one day) to the start_secs (mktime64(1942, 1, 1, 8, 0, 0)) and I observe the same 
+issue: alarm value = 15:31:5 1-1-84 which is 8 hours and 42 years more than expected. Come back to 
+the first issue, alarm doesn't fire, that make sense.
 
+So why the alarm value is 1-1-84 instead of 1-1-42 for "start_secs = mktime64(1942, 1, 1, 0, 0, 0)" ?
+
+2)
+Playing with range allow me to find these 2 setup which have a working alarm setup and return me 
+clock time : 2070/01/01, and I can't change the 2070 event if I shift the range.
+In this case, the formula is 'offset_secs = range_max - range_min + 1', so change start_secs is 
+useless unless I go out of the range and then, I have another issue...
+
+	rtc->rtc_dev->range_min = mktime64(1960, 1, 1, 0, 0, 0);
+	rtc->rtc_dev->range_max = mktime64(2087, 12, 31, 23, 59, 59);
+	rtc->rtc_dev->start_secs = mktime64(2010, 1, 1, 0, 0, 0);
+or
+	rtc->rtc_dev->range_min = mktime64(2000, 1, 1, 0, 0, 0);
+	rtc->rtc_dev->range_max = mktime64(2128, 1, 1, 23, 59, 59);
+	rtc->rtc_dev->start_secs = mktime64(2010, 1, 1, 0, 0, 0);
+or
+	rtc->rtc_dev->range_min = mktime64(2004, 1, 1, 0, 0, 0);
+	rtc->rtc_dev->range_max = mktime64(2132, 1, 1, 23, 59, 59);
+	rtc->rtc_dev->start_secs = mktime64(2010, 1, 1, 0, 0, 0);
+
+Note that I must add 1 day to the range_max in the 2nd & 3rd example to make it work, probably due 
+to leap years ?
+
+
+My first though was min and max range give the supported hardware year range, and start_secs a 
+wished "software" value applying offset to the HW value. But after some try, I see a lot of 
+limitations and requierements to make it "working", so I probably misunderstand how range_min, 
+range_max, start_secs have to be use.
+
+
+Regards
+Alexandre Mergnat
+
+On 14/01/2025 11:53, AngeloGioacchino Del Regno wrote:
+> Il 09/01/25 16:46, Alexandre Belloni ha scritto:
+>> On 09/01/2025 16:29:52+0100, Alexandre Mergnat wrote:
+>>> Removing the RTC_MIN_YEAR_OFFSET addition and subtraction has
+>>> introduced a regression.
+>>>
+>>> ~# hwclock -r --verbose
+>>> hwclock from util-linux 2.37.4
+>>> System Time: 1262312013.143552
+>>> Trying to open: /dev/rtc0
+>>> Using the rtc interface to the clock.
+>>> Assuming hardware clock is kept in UTC time.
+>>> Waiting for clock tick...
+>>> hwclock: select() to /dev/rtc0 to wait for clock tick timed out
+>>> ...synchronization failed
+>>>
+>>> Bring back the RTC_MIN_YEAR_OFFSET to fix the RTC.
+>>>
+>>
+>> NAK, you'd have to investigate a bit more, I want to get rid of the
+>> RTC_MIN_YEAR_OFFSET insanity.
+>>
+> 
+> If literally all currently supported MediaTek PMICs RTC are working fine (and
+> it's not just one), but the one that is introduced here has issues, clearly
+> the problem is *not* about the min_year_offset not being there, I'd say!
+> 
+> Btw:
+> "hwclock: select() to /dev/rtc0 to wait for clock tick timed out"
+> ...is the WRTGR write failing? :-)
+> 
+> And no, Alexandre M, don't trust the regmap_read_poll_timeout() to return an
+> error, I'm not sure that the CBUSY gets set to zero for *literally all* failures...
+> 
+> In particular.... some RTCs are *locked* and need to be *unlocked*, and in that
+> case I'm not sure if the write just goes through but gets ignored or if CBUSY
+> stays set.
+> 
+> Anyway, check the RTC_PROT register for the unlocking mechanism :-)
+> 
+> Cheers,
+> Angelo
+> 
+>>> Fixes: 34bbdc12d04e ("rtc: mt6359: Add RTC hardware range and add support for start-year")
+>>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+>>> ---
+>>>   drivers/rtc/rtc-mt6397.c | 9 +++++++++
+>>>   1 file changed, 9 insertions(+)
+>>>
+>>> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
+>>> index 55e75712edd4..9930b6bdb6ca 100644
+>>> --- a/drivers/rtc/rtc-mt6397.c
+>>> +++ b/drivers/rtc/rtc-mt6397.c
+>>> @@ -96,6 +96,12 @@ static int mtk_rtc_read_time(struct device *dev, struct rtc_time *tm)
+>>>               goto exit;
+>>>       } while (sec < tm->tm_sec);
+>>> +    /* HW register use 7 bits to store year data, minus
+>>> +     * RTC_MIN_YEAR_OFFSET before write year data to register, and plus
+>>> +     * RTC_MIN_YEAR_OFFSET back after read year from register
+>>> +     */
+>>> +    tm->tm_year += RTC_MIN_YEAR_OFFSET;
+>>> +
+>>>       /* HW register start mon/wday from one, but tm_mon/tm_wday start from zero. */
+>>>       tm->tm_mon--;
+>>>       tm->tm_wday--;
+>>> @@ -110,6 +116,7 @@ static int mtk_rtc_set_time(struct device *dev, struct rtc_time *tm)
+>>>       int ret;
+>>>       u16 data[RTC_OFFSET_COUNT];
+>>> +    tm->tm_year -= RTC_MIN_YEAR_OFFSET;
+>>>       tm->tm_mon++;
+>>>       tm->tm_wday++;
+>>> @@ -167,6 +174,7 @@ static int mtk_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
+>>>       tm->tm_mon = data[RTC_OFFSET_MTH] & RTC_AL_MTH_MASK;
+>>>       tm->tm_year = data[RTC_OFFSET_YEAR] & RTC_AL_YEA_MASK;
+>>> +    tm->tm_year += RTC_MIN_YEAR_OFFSET;
+>>>       tm->tm_mon--;
+>>>       return 0;
+>>> @@ -182,6 +190,7 @@ static int mtk_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
+>>>       int ret;
+>>>       u16 data[RTC_OFFSET_COUNT];
+>>> +    tm->tm_year -= RTC_MIN_YEAR_OFFSET;
+>>>       tm->tm_mon++;
+>>>       mutex_lock(&rtc->lock);
+>>>
+>>> -- 
+>>> 2.25.1
+>>>
+>>
+> 
+> 
+
+-- 
+Regards,
+Alexandre
 
