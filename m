@@ -4,98 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0412CC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15989C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViEYKen56Zein15LENOgrGuz5JoJanFVz6I34hEeRqU=; b=vUxj1lrHiPaekCrvuIk4GSEmsE
-	PSKnPwiuFe6IfoALQas8m/57lsF/mpXNNeN/Rc80ufu0mC99G1TkNwD6viLOjt7qG6WbSv5F76AqX
-	a54EdocotLMlnJcW/CydBC1pGD5h9fOVciELOXTxVyZJUUX9H73NzJWloPUiRIhNWO+WNQGyasEju
-	3SFvgAzB7uUD519rSrb3r+mhva9nlZMZLZf1awHA+EZi6HjWDbeXsowtbN58cUO8JaXM6RJpUmOVh
-	YlRWwVVz4JdpLKxtB2lkCo+37RLRmG9CZe1sl6cyaO5SiHNC7Vazmf7cxuN+uPPkZaLAWM0c7rHa9
-	p+D47GJQ==;
+	bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=; b=GjdAH6p6MptuxRsw4EHVXDSut/
+	g5XStOJTG/FDPpvoWtbzIR6QDw+OK3m4vngU9zCt9BBkX9SrZsQTiosd/rHU61v2DAO0aYjI0dPJQ
+	/WXH8gz9w2+SBTNIRMUlfZKiaNoMMxMIYL45ZTYO6cZ7VvI64fz/hBoJjsuZ3vb7D0pmDWLOYpWlR
+	uQO9/yDOJhDr2TSe3COAQIXn+FO0kxrkq9GNGLNsHWPz8k/dVgZyMgX9RsaMX5HxUTjJVYmpwfcur
+	aEZ3drAIBzPRXuAyZz2RCghPmYilNRdghYUYvuJM9Z4EmM3kAbb9W0vrL48P4fehVWQs3pz6WUBty
+	KwSgp8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQUu-0000000A7ob-3a8f;
-	Fri, 07 Feb 2025 15:42:28 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1tgQWG-0000000A8B0-3nwf;
+	Fri, 07 Feb 2025 15:43:52 +0000
+Received: from mail-sn1nam02on20626.outbound.protection.outlook.com ([2a01:111:f403:2406::626] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQGR-0000000A4NN-16hF;
-	Fri, 07 Feb 2025 15:27:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738942051; x=1770478051;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6GE9Dr6wuDcMJE5qZBlWMnYEgJHzTHm8FhWdCrRJ3Gs=;
-  b=W7MwL0Dj+hB2ChFDCCj9fh74l8avilohF5itG0F7PhH6wGZRMjbwRL/S
-   S97M4titlUb2yMCSBw65v+MPfr6VgriWZDqClmLFR5liPa16NuUnBSQwm
-   Cw24CJD5B1k7gyLzQYT18eDz+aQrXMys4USBHmNcb1mImZaefFOPBgOkg
-   EqFu2lsu2VM67Q3mBzEZ1fSh7gwNMaVMglCE75BPdIJwcOD5VZcRVJB2E
-   khIHT+WqaXFnDdhaDYbcfOAueKe0gZ2rZjFerz7wQ7mJNHfDPSIe4f784
-   BmD1ljs2uGkJC7N1ATivYcrQBR4S2NUo++6nOqz9VRgEkfE7/vhanAMwr
-   g==;
-X-CSE-ConnectionGUID: POTIAYVzSfe5usv5kPH0/Q==
-X-CSE-MsgGUID: UColjF/zT8ipKqd4vddTew==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="42426787"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="42426787"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 07:27:26 -0800
-X-CSE-ConnectionGUID: 0SbW1BpCT1KUK1j159TXaQ==
-X-CSE-MsgGUID: dTs5T6O9TJ6I7nDWk0GB7g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="116556719"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 07 Feb 2025 07:27:21 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgQGD-000yWJ-2O;
-	Fri, 07 Feb 2025 15:27:17 +0000
-Date: Fri, 7 Feb 2025 23:27:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Michael Riesch <michael.riesch@wolfvision.net>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Gerald Loacker <gerald.loacker@wolfvision.net>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Val Packett <val@packett.cool>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Michael Riesch <michael.riesch@wolfvision.net>
-Subject: Re: [PATCH v3 4/7] media: rockchip: add a driver for the rockchip
- camera interface
-Message-ID: <202502072356.crcHKSbX-lkp@intel.com>
-References: <20250206-v6-8-topic-rk3568-vicap-v3-4-69d1f19e5c40@wolfvision.net>
-MIME-Version: 1.0
+	id 1tgQH4-0000000A4bi-0frI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 15:28:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I8+J+AOllysKKg4GFWbQGMUiWBQouuGT1yWf4oNA6DXIR015yEUpov5Ic3gTY5eu5iZSOpE52JYEGxeZsW6MrbUeU6VDsOA68GccIxMMloUK8YKNOnp8IEq7mcCGf4vtsNwoa0OM5b2XmLeVceF/xS3/ZPvhK9stMu1Hoc4Y+/U/q806jK/4ZMtsIfup2HMAqs6TO1HVZgwjwmpCzZD6dY+ng/Do4MLzrChRVZ9CzI6ZZO99gUAtDBPSLHAkqGuHgCKm5VIKsoPlrA05UWPOoThQU2Q2LFTEn6M3hvHNmFrvzh0j/CbDjni8b2M0ELeAZwRYTz4EG4I6chipK0Fbeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=;
+ b=BBtMjM1YB7vIzveJlkboan/eLZlrVvT35p/AXvztWHDRR0HRDrWBv2qunAVhSIdR2a7V/RS5x22PZw7fYGkYJrRy/3E3NK08r0Wv/WzwNE0uGKQYWJC4EJfuSGEqJlHfqFTSLmd7f+VUqTjfJn8F4kYtZF0WXlgvXF8+cmjsso0FC1sQGPrQ4r1vURz+gsyQ29PdVayKbrppfSIj1/ANmG0G/JYTgi/HrRnriimbcoWHHPm5i4iqGVBVo3oOxq3PG6uOdR77XYTy7ySiaVkf92yKWZalK5zqyNGgleCq/4IslwjeF1SvENLMxXwGxlY6r22RsVdwQmfDJr7voQ4zKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=;
+ b=F2A+en1adjP0AsY2vtW3hT3upc25TPZ7uOp2VkBlSENlDr6NWAdyBoh3VTccztzRPU/MBK96uIH2wejZMA890VwlQdfgxy0VGoBsefN6B+lDs4/9QQGdC2Cl1QtNCcKyeJujTg4biycRUuiH5HdvZUpPvOrHQmQ7q6R2jFH77iyRzFdndml9Smly4oFOBuS7Xp3Xc+D9lNYbDkYgazPSlueDBL6V9nLcYNXv93+hdGWOdJepDp0UpNl+DsyGSR4O5aNEBV0LEfuV1C7P0NF1HNAPyNLsHtfFRsEFnLBleeZMR+MkYq3PjfAnEXY6HgFaDUMWJjED3S01jGlAZr5BIA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB6604.namprd12.prod.outlook.com (2603:10b6:208:3a0::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
+ 2025 15:28:03 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.011; Fri, 7 Feb 2025
+ 15:28:02 +0000
+Date: Fri, 7 Feb 2025 11:28:01 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Eric Auger <eric.auger@redhat.com>, will@kernel.org,
+	robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
+	maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
+	shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
+	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+	bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
+	nipun.gupta@amd.com, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	patches@lists.linux.dev, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com
+Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
+ ioctls
+Message-ID: <20250207152801.GV2960738@nvidia.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
+ <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
+ <20250129145800.GG5556@nvidia.com>
+ <Z6WLXTiYVzuN368E@Asurada-Nvidia>
+ <20250207143020.GR2960738@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206-v6-8-topic-rk3568-vicap-v3-4-69d1f19e5c40@wolfvision.net>
+In-Reply-To: <20250207143020.GR2960738@nvidia.com>
+X-ClientProxiedBy: BN9PR03CA0703.namprd03.prod.outlook.com
+ (2603:10b6:408:ef::18) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB6604:EE_
+X-MS-Office365-Filtering-Correlation-Id: bef4de26-1b8e-446d-3b8c-08dd478c02d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oA+7td6602OBogNE7n0u7TCEg4PU8GwTgRGB4ZrKms4oag2dwdH1T8q3Vp4o?=
+ =?us-ascii?Q?t3Zrhole4Gor+Qs6pBt8fhG6T5n2Bl0kUyfHvZUfRe88ose5tLubMtNHbpan?=
+ =?us-ascii?Q?AH7LMJHcY0AsMbUdX9SID+Nuc6R0OkPZ4QddxOakDMlHkHbmIN3ma3XfQJ4d?=
+ =?us-ascii?Q?HCSjcMj5+r11WgAcUIQIHOF2TdRGitWEZ/n292zQikQolzp2wLrRy70ixvn/?=
+ =?us-ascii?Q?x+CVxtxHm4rVJaszeAc+jq2L7VNP4TwCa5N4/MCQ0hDST3RX0ZeC2ojybwpY?=
+ =?us-ascii?Q?1KRvNA93aS7bggm1mghEQRAl8HF2zJZqzf62jQBZKeIfwLP4RSJI9ciiwEaT?=
+ =?us-ascii?Q?PtKq2cHk4TAnDMP9TRz5/WoSyXP+9roYTLt3rOr4UDBaULVSXBwWaxfx2OMh?=
+ =?us-ascii?Q?QcMSIvtTd/cQpOsEyuq8f5YNNdIPSfAilRqiFrf1YO8eKJIXcShLYq0BCWyV?=
+ =?us-ascii?Q?G94bqs+VbnZmlGfMOyTeSfX/bOebCtaAfHW9locnAJAyQ4GBk/vMAMCmEukl?=
+ =?us-ascii?Q?NBnhihiPkkynAeX8QkQXZbGVU3MYuDZI/lKBOsU9XDFjjhBhjAdNKtEyyNON?=
+ =?us-ascii?Q?A9ltPdp+ox9rKor9dH+us0D8MSbi2SR3JVVL+7HUT4dZHJuU8GeJzn2f3hzk?=
+ =?us-ascii?Q?wB015+6JDZ7G7sVKjvLFSF2TWxfESofz8utSWqnPNZKOzUFPfD6F5VQwvOtz?=
+ =?us-ascii?Q?ETquGktaRlorSZ4rffTNgOCE9v4cylaFsYqyyUXMnialQV/FjbGBstlQr4vY?=
+ =?us-ascii?Q?TsmmJ9Kvy8zQDRZw7RN64AaC15ucIePw/SNny0k1KKvNWDqr1ZNVCW0onevg?=
+ =?us-ascii?Q?81wS900FpuUNX/rv3pOh+qPYgHYxAnaAk66sNkTFEIpoUde/3AheZ+Ie/jtK?=
+ =?us-ascii?Q?jRKMn3RI+/Uqa0uskL9srcP35etwTV8la2lRZojBPGRif6bwAmv+Gi/draoR?=
+ =?us-ascii?Q?rfwLvDjB+kdvc5acgOEmtWe72qwetES6iz8Tar1XmuM5xXjONNRBJmqVOgye?=
+ =?us-ascii?Q?5ZzuXebrP6pQCf+w/BFs2L67roffUgeqdY5mTj4qrQsgssfge371x9F4Z4fR?=
+ =?us-ascii?Q?5NqvsNHqL2T1+9CMubh4ohMIwLfH0TE+txR6C+DJseFjESD05vOIDtBt9uPI?=
+ =?us-ascii?Q?g9YuL0BSFABDN5QUHEPJNXK8HO1Omm/9jWNYe1qT6nZo89EtCsQzRx+SHsGo?=
+ =?us-ascii?Q?CLuZZ4n+qATACkOmgcpTvAa+ZHCDxdu7VHVfGnTD3jXvYui+jxY4pTqyjBK1?=
+ =?us-ascii?Q?JNltFdNihMITPv5SOaPuV8C2otVtq9VIUOfqjfHhIfCXApWvSbM7tQvyTYHV?=
+ =?us-ascii?Q?vlFYFCdqCaBcRDaBZhDnMJeUY8MxETEfnVMJlfrhdNd9doCS63v+tFo0tp0u?=
+ =?us-ascii?Q?d/kp6YzqNO2aDgIF145gtiFSNosU?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qtrvzjyDeK089hrF/yyczm0dT2PF54m3qVFYs60UO6Zwpqt0zsOy9kRTzZkF?=
+ =?us-ascii?Q?0bz5WL7PgwdiEjBWivdGR6SuPrTVroyS1F5eigRWmY2lANIUnrwpY8iAeEpN?=
+ =?us-ascii?Q?LZUnojNssorvGGOgjFz6UYvUNOT7e6yAt3tWRgLIgFx/N5h+ZTPa+4k6oNxH?=
+ =?us-ascii?Q?U51Wt3Fc4xuexFEqVETa44wC3RO7QQ/7hyoKXVlZNLjOJoEoaHKV3VENbNjQ?=
+ =?us-ascii?Q?JgJ0tipvLhUlzsYcO5PLb8k7/6XTtIqfUETJykNBZOIiF0JmvGejXzPqpUkg?=
+ =?us-ascii?Q?kZ3qh53kFoT8ongJkWt7qtjlSC+thaYnj94Qw8zzVxe+N1QG+SekpWjrv5Yi?=
+ =?us-ascii?Q?dgr9xAtQ1y42G14Ged4YSxPcWyxvfU0dYjM3VH2HSLVaQ6dlti8curPfkZoU?=
+ =?us-ascii?Q?yXjI7s/ddkNVvBtKztWrnyHnVANOzEo0856kv7rd5OOr/ANajz3ZGJ8dQsqH?=
+ =?us-ascii?Q?dZB/1NYthsAjaQSZyH4mfE3M7LjqVTxFlmU2HFtXfLsw5ioTW/wl3ESZQlN3?=
+ =?us-ascii?Q?n1eOFlyC5LbxydUCYKjy+eWpXpk4L+CxK8KCkqaMarmM4wlirjw3m3Eybt5B?=
+ =?us-ascii?Q?PTGBpp4GuhsZ0vd1DLmgk29WxClzAACwHo0b7I7FziPkeaDW2DU8rwmnJ5ZQ?=
+ =?us-ascii?Q?JcsF5p12QIO5EvuhU84x4IPn3xCmqFzYmzE7d9OU1EOGEyAmZmdOzo8CqAXF?=
+ =?us-ascii?Q?86W0skk3fzPKW1m38szgdRgYmDv3ohrEBB4F/c9+MqGV9rmkVLyUoIQw16KE?=
+ =?us-ascii?Q?mQxdaAjHUjpBo5gkXM9i8usY0pGNWUXrPBCa163Go06Ms+2wDb+p/w1tM98h?=
+ =?us-ascii?Q?r1No5pSFJ795fVfS8w/gb9ApJ1JJvhMkfvtCf1Cx53erfFowKbXc21ec7rGY?=
+ =?us-ascii?Q?c/5e9ZZg8E3CgJLNRntDPnGtz3iBEsHFF8UoquxZsWRY5ZkULnLlHVtslEWz?=
+ =?us-ascii?Q?cbc2sYdkmPf1ETrKBB6RWa5YiD5cOQbELW6j/dCL+an8IShPDZCcl5U8P00M?=
+ =?us-ascii?Q?hu1ElNc8nRUalEM8NfDS53Hw1Er8ozsJy7MOTO/uw9KPL/Au+uaC5TVnTrHu?=
+ =?us-ascii?Q?QoW0pghh5SdywVRZnaNiIzQs6XJSvKGbgI+ub8Y7rmJRJRzTRwzB+q2DT50h?=
+ =?us-ascii?Q?jMwJA7v2rSq0Nu9SEFkjPZ9RXxDz7w/mOGXWgG8A9J+qvX6Brn14t/t/5uBX?=
+ =?us-ascii?Q?9Hyq0rUwEojcNHpw8VNYjRnyL05T+4g83mFj8tJYNAnTmHFKxzEE3fiI5N8Y?=
+ =?us-ascii?Q?FL5//Mk1Bg2LZn7IwwgCm/Ixjh4IY/CGlmO60NXVTwLIRbLgZSmoVJmQzPHL?=
+ =?us-ascii?Q?X0zh6Cxxl1f72EORrGEmZifQaevpQen6QUP2Ul+x4pr2X4V6ctdgZUvbhD6L?=
+ =?us-ascii?Q?jBr+svZdXh5imBLKMnre2J7s+QbX3Tc4+rIikEBoJ04Kwz+4pvOBT6dnhvg4?=
+ =?us-ascii?Q?e8xT6w0EUSFd51znm8b51IW7AdqW0IhIJjjXvdmGEE+DtvWuPW2Uw7X/ywWR?=
+ =?us-ascii?Q?QvfRhl4g5VV5xIcurM++MUyldxi6MpgKWksw1PnqCnnrgGmMZTqbjuHi//mL?=
+ =?us-ascii?Q?YrVUr71cbvuwa3jtF9JdcAzYHN6gERVDojOcGcss?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bef4de26-1b8e-446d-3b8c-08dd478c02d7
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 15:28:02.7501
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 75CRVrA3CMsXkbSD5JpeM3JimhRJaqsSmiP+Pah9gJURDHe5TkNFTNBrprTNya1E
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6604
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_072731_318701_AEE43D5D 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250207_072810_199266_B2D0C24F 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +171,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+On Fri, Feb 07, 2025 at 10:30:20AM -0400, Jason Gunthorpe wrote:
+> On Thu, Feb 06, 2025 at 08:26:05PM -0800, Nicolin Chen wrote:
+> > Yea, I found iopt_reserve_iova() is actually missed entirely...
+> > 
+> > While fixing this, I see a way to turn the OPTIONs back to per-
+> > idev, if you still prefer them to be per-idev(?). Then, we can
+> > check a given input in the set_option() against the device's
+> > reserved region list from the driver, prior to device attaching
+> > to any HWPT.
+> 
+> I didn't have a strong opinion, if the idev works without complexity
+> then I'd stick with that on the basis of narrower scope is usually
+> better.
 
-kernel test robot noticed the following build warnings:
+If you make it per-idev then it is also implicitly per-GIC as well
+since each idev has exactly one GIC
 
-[auto build test WARNING on 2014c95afecee3e76ca4a56956a936e23283f05b]
+This would make it useful as a way to get each ITS page mapped into a
+single fixed location.. 
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Michael-Riesch/media-dt-bindings-media-video-interfaces-add-defines-for-sampling-modes/20250206-180041
-base:   2014c95afecee3e76ca4a56956a936e23283f05b
-patch link:    https://lore.kernel.org/r/20250206-v6-8-topic-rk3568-vicap-v3-4-69d1f19e5c40%40wolfvision.net
-patch subject: [PATCH v3 4/7] media: rockchip: add a driver for the rockchip camera interface
-config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20250207/202502072356.crcHKSbX-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502072356.crcHKSbX-lkp@intel.com/reproduce)
+Really hard to use from the VMM though
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502072356.crcHKSbX-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c: In function 'rkcif_dvp_isr':
->> drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c:759:32: warning: variable 'ctl' set but not used [-Wunused-but-set-variable]
-     759 |         u32 lastline, lastpix, ctl, cif_frmst;
-         |                                ^~~
-
-
-vim +/ctl +759 drivers/media/platform/rockchip/rkcif/rkcif-capture-dvp.c
-
-   752	
-   753	irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
-   754	{
-   755		struct device *dev = ctx;
-   756		struct rkcif_device *rkcif = dev_get_drvdata(dev);
-   757		struct rkcif_stream *stream;
-   758		unsigned int intstat;
- > 759		u32 lastline, lastpix, ctl, cif_frmst;
-   760		irqreturn_t ret = IRQ_NONE;
-   761	
-   762		if (!rkcif->match_data->dvp)
-   763			return ret;
-   764	
-   765		intstat = cif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
-   766		cif_frmst = cif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
-   767		lastline = RKCIF_FETCH_Y_LAST_LINE(
-   768			cif_dvp_read(rkcif, RKCIF_DVP_LAST_LINE));
-   769		lastpix = RKCIF_FETCH_Y_LAST_LINE(
-   770			cif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
-   771		ctl = cif_dvp_read(rkcif, RKCIF_DVP_CTRL);
-   772	
-   773		if (intstat & RKCIF_INTSTAT_FRAME_END) {
-   774			cif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
-   775				      RKCIF_INTSTAT_FRAME_END_CLR |
-   776					      RKCIF_INTSTAT_LINE_END_CLR);
-   777	
-   778			stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
-   779	
-   780			if (stream->stopping) {
-   781				cif_dvp_stop_streaming(stream);
-   782				wake_up(&stream->wq_stopped);
-   783				return IRQ_HANDLED;
-   784			}
-   785	
-   786			if (lastline != stream->pix.height) {
-   787				v4l2_err(&rkcif->v4l2_dev,
-   788					 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
-   789					 intstat, cif_frmst, lastpix, lastline);
-   790	
-   791				cif_dvp_reset_stream(rkcif);
-   792			}
-   793	
-   794			rkcif_stream_pingpong(stream);
-   795	
-   796			ret = IRQ_HANDLED;
-   797		}
-   798	
-   799		return ret;
-   800	}
-   801	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jason
 
