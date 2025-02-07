@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A5EC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7F1C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XB2Oc/FhDgobnT3Hw+HhSPBFb/59SO9aXoZLju3UaQ=; b=snLyQ3qYq3cewMf14cZfdifXGk
-	vGHk/rFB8WGI8ElAsFUP/nTeDr0Nt/boX1bBWh7TcOV7OWaiVFyGeZcH7D0RaSZLB1hlVxalZ76Qx
-	rzbVtn8ZiVvdvULhuUgrGk63Q4PpPHTWZvTBg6y5YVaqel84NI0iKBFx5nS88/6bad5ZlvwtGQhXy
-	0+LfkbA1ESaZs4clyyH5MJluEgBUUKoaVaPlScVkM2K7uD9goih3bQcDkubrKo6tPXwsyX0Eh1YKI
-	yMEugc4b0niKT0X4jW9SJlxh6etDub6qVqAa9+l+5KYLH1GiUja5CUrCRVpuSAgP3XLCbgnGq/zmD
-	a9VVAcqg==;
+	bh=K0G53MKFU+QVr2xiDHlFWZnAAB3twrsam44rAosj2Zw=; b=Eee8He09o5Itbg4tXfRVMkDZEv
+	lQEiW/v6K8eTv+2e+AU2Pw8DktlvoPiml/Y1ERPF7X1ZrH5K4123bfzsQdfatpQDL55PRW9uEVec6
+	JnyooFDXqvSMvO/MraHkitoDgUb5wdxNDxboKUFLEAyiDGMP8AsBvzoSWwjbiOljnEvA1Ck9NBm5V
+	amWzrIbBBb8i9dyWtfRfEl0qzEBAaZHOrWSparpplbqiInL2UW+vWcYEa+GJLAcElK+H3xWtUT1KS
+	w7vZPJHGMfldLpZNrJ/7nnKAjxZmS+GWGmPR+vl+/MrAoc1uD6KRoitVOSIkbEYZTAR0gV+Ueucnt
+	biyf0/sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSZl-0000000AaDE-3lZS;
-	Fri, 07 Feb 2025 17:55:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tgScT-0000000Aapm-3XvE;
+	Fri, 07 Feb 2025 17:58:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSQ6-0000000AXmm-1RtT
+	id 1tgSX9-0000000AZbv-3nyf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:45:39 +0000
+	Fri, 07 Feb 2025 17:52:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4AC9EA4386B;
-	Fri,  7 Feb 2025 17:43:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7EA6C4CED1;
-	Fri,  7 Feb 2025 17:45:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 76E345C6A45;
+	Fri,  7 Feb 2025 17:52:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D52C4CED1;
+	Fri,  7 Feb 2025 17:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738950336;
-	bh=3AhHH+IIgrOYeTXC6491GVKSYE85dc/aXAWC+t2j57k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DQq0ZdCrM+etyDgProVmvATLt+I/WsYPwrRdfuN5VYwcoPttACqy0tBNOVwlZRw6L
-	 C0ZhxuhkHHvFJPA6cM0FaYYWtOxkgWXmNPz3gBJmiaSmZ4KIhvYAfiBqJWVLj0PYBj
-	 2CKDZJRijCY/S1npPSa8o+hKzheh9fi1JUOlJHKhma2NxyAO0ozFvk5zm3Eqz9hoqJ
-	 IqxMVpRf5gPF9tYvCZrvZH2V8vq8Ul0VQDNoTSc7/DMaNj70hmPaYnk0BdnqCOyD/4
-	 cB13jEpLhvix8J8wNhYVAaHTGJn/5kw6g3/NXT+tOkqs4+HcWDF0vycF2UFN+IAUVb
-	 GyidZ/cVo6ICA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tgSQ2-001jBl-7g;
-	Fri, 07 Feb 2025 17:45:34 +0000
-Date: Fri, 07 Feb 2025 17:45:33 +0000
-Message-ID: <86frkptzr6.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	kvmarm <kvmarm@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
-	<867c89tc4q.wl-maz@kernel.org>
-	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
-	<865xntt2kv.wl-maz@kernel.org>
-	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
-	<bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eauger@redhat.com, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1738950774;
+	bh=o7WL3rojOnZteVHaXqfHStpkFhdgk+b0ovUxVviMNXA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G40TBqV1iOeetam5qpFi3xZs0wRJjQws8L0f8wwMs7uRHkjDRWs1fzI/pB4PdJgxo
+	 qpCGqWEq02xMTTrow+jjp6zEyegQ9cL5WZfavmKDK9+67ajyf4v5ZGvX05aWD3cG+1
+	 oQR2BU7Gaaw7D1dlP21wzupMrNYGnNeQ+PmRddAdqI0De8HLOxp6aazIjHtrgga0Py
+	 V9NpsPHmTNEXO1BOkwVk9J2WHEWTX3gwASbcaLwH4Y4MTvvVRGtJ/NIPE9gA0iawE5
+	 C0XXs8m3lk/E+u+7P5LyNbjG8OX1sTZ2PmlbD33flwqsdbVEHtuPNeIdgGorYXKbVh
+	 Re8DBUsIAP5ww==
+Date: Fri, 7 Feb 2025 09:52:52 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Weinan Liu <wnliu@google.com>, indu.bhagat@oracle.com,
+	irogers@google.com, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
+	mark.rutland@arm.com, peterz@infradead.org,
+	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250207175252.wtsfjqnm52jkevog@jpoimboe>
+References: <mb61pwme55kuw.fsf@kernel.org>
+ <20250206150212.2485132-1-wnliu@google.com>
+ <mb61pikpm3q76.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <mb61pikpm3q76.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_094538_517139_A1EB96ED 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20250207_095255_983758_18528644 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,74 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jan 2025 17:52:10 +0000,
-Eric Auger <eauger@redhat.com> wrote:
+On Fri, Feb 07, 2025 at 12:16:29PM +0000, Puranjay Mohan wrote:
+> Weinan Liu <wnliu@google.com> writes:
+> > Thank you for reporting this issue.
+> > I just found out that Josh also intentionally uses '>' instead of '>=' for the same reason
+> > https://lore.kernel.org/lkml/20250122225257.h64ftfnorofe7cb4@jpoimboe/T/#m6d70a20ed9f5b3bbe5b24b24b8c5dcc603a79101
+> >
+> > QQ, do we need to care the stacktrace after '__noreturn' function?
 > 
-> Hi Marc,
-> 
-> On 1/14/25 4:52 PM, Marc Zyngier wrote:
-> > On Tue, 14 Jan 2025 14:57:43 +0000,
-> > Eric Auger <eauger@redhat.com> wrote:
-> >>
-> >> Hi Marc,
-> >>
-> >> On 1/14/25 3:38 PM, Marc Zyngier wrote:
-> >>> Hi Eric,
-> >>>
-> >>> On Tue, 14 Jan 2025 13:12:21 +0000,
-> >>> Eric Auger <eauger@redhat.com> wrote:
-> >>>>
-> >>>> I also confirm that using a mailine edk2 fixed the issues I faced
-> >>>> previously (fed/rhel L1 guest not booting).
-> >>>>
-> >>>> I used Marc's nv-next branch and qemu rebase.
-> >>>
-> >>> When did you sample this branch? It is almost daily rebased at the
-> >>> moment, given that we keep piling up things in kvmarm/next.
-> >> 5 days ago.
-> > 
-> > OK, so probably before I reapplied everything on top of kvmarm/next.
-> > Not necessarily a bad thing, just slightly older. The core NV code
-> > isn't rapidly changing anymore, with the exception of the recursive
-> > nesting stuff that I am currently rewriting.
-> > 
-> >>
-> >> If you want me to test a specific branch, please let me know, esp. in
-> >> the context of latest series including
-> >>
-> >> [PATCH v2 00/17] KVM: arm64: Add NV GICv3 support
-> > 
-> > That'd be the current nv-next then, which has all the series currently
-> > on the list, and a few more.
-> > 
-> >>>
-> >>>> With a rhel L1 guest I can now boot buildroot, debian and rhel guest as
-> >>>> L2 (feat mainline edk2). For rhel, I tested different kinds of page size
-> >>>> combinations for L1/L2 (4k and 64kB) and it worked.
-> >>>>
-> >>>> I tested on AmpereOne and Grace-Hopper systems
-> >>>
-> >>> Thanks for the confirmation. I haven't had a chance to try QEMU yet,
-> >>> but I expect that save/restore will not work. Something to look into,
-> >> I have not tested this yet.I will give it a try.
-> > 
-> > Thanks, that'd be super helpful.
-> 
-> I confirm the migration fails when putting some registers on the dest
-> side. I will further investigate.
+> Yes, I think we should, but others people could add more to this.
 
-I found at least one issue that could fail the migration. Before the
-VM starts running, we limit the feature set to the subset we actually
-support with NV.
+FYI, here's how ORC handles this:
 
-By doing this, we also change the value of IDreg fields that are not
-writable, because they describe features that we don't support.
-Obviously, that fails on restore.
+	/*
+	 * Find the orc_entry associated with the text address.
+	 *
+	 * For a call frame (as opposed to a signal frame), state->ip points to
+	 * the instruction after the call.  That instruction's stack layout
+	 * could be different from the call instruction's layout, for example
+	 * if the call was to a noreturn function.  So get the ORC data for the
+	 * call instruction itself.
+	 */
+	orc = orc_find(state->signal ? state->ip : state->ip - 1);
 
-I need to have a think...
-
-	M.
+and state->signal is only set for exceptions/interrupts (including
+preemption and page faults) and newly forked tasks which haven't run
+yet.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Josh
 
