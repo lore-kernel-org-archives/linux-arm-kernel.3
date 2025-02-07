@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D1CC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AA4C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hv90/4Ii7oHU4TLhsDR0XOWXVnCVpBGLvijyzK1ZPiM=; b=zFMG6d7gKjkV88UGC7iflVEENG
-	y2rqDoyAB2LJYYF8pONQb6/gSJ83QJwzC+1oA9crXTIqX9mtV7B/XmqGcewuWKGpJ+4M8EZqP9DDQ
-	TzIoDsZxBIcMidza1RYjzqA9H1t25h8LY9q1cuGp+Tp6J/bzt+GhyPNz6EjiNmehI2NFrU0gMsThT
-	m49NWyvIgF6vaEm8cJ7JkcxzrVM5f7bGZCMYcF4D0KoI0U6OkQ6wW171WkKTaiMj1PeVU6wl0R7+7
-	pZLaep1Lxml6XTByx5VJ19OHlDCSFAGNIXG5MWzFWXIU/6uiXq/mFWO63E0jJJYUTWfitA4ur4nuq
-	n+tmzzmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ja8x65DogyFB+iDom6PTwdcc69z6F1d2KuMfXWkWU38=; b=02Pcf2SwKxmIIa4OaN99P6iJ3R
+	T4t2jEA5MnSuiQ25cz4/pGqQl9Ob/CYI3UY7T09euJi0j4vS+qkLo1NBaLOCKC2MeMylivFriZ+af
+	ThMHxq2qp6wXzyY2GGqUcMnPVlphEDGm4A6OUBLBmXHkqb0noYunziYyq4S+PlneFyzdNmYR7ng0T
+	JWzDp+qVDJDA3coeRYyiDXTguDy5IqO0bCmqMD90ueC13WrqBIjcR03ovWd0iGKozRRKylQ02Oyj7
+	JV53Aiz7ye+eO9GClwKINDIe+5ZJK+DU7CHDlU0u6blbQpppZ8aoAnX5D8n2FEqwnqlhn5z759qhU
+	I5cIgZAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgPdj-00000009vwm-1gby;
-	Fri, 07 Feb 2025 14:47:31 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tgPf7-00000009wMv-3Bjr;
+	Fri, 07 Feb 2025 14:48:57 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgPcJ-00000009vQP-1qNn
+	id 1tgPcb-00000009vXX-3gbM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 14:46:05 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436a03197b2so14687415e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 06:46:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738939562; x=1739544362; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Hv90/4Ii7oHU4TLhsDR0XOWXVnCVpBGLvijyzK1ZPiM=;
-        b=kB26pp6eTj4MqJ3+eTmaz2jdgqYEB4xZ5ptLehGwZQU0K9ggFtokIJF0rKKgWl/qZb
-         gQw2SEbVpsGJF3HdpTXuM1iFUVSBnogeOSN819KWh+agXaPY5AW47KUEm4CO+XHaJ8s+
-         hdVAwKRpbIfU0uebo2uh912RohgISsJbZeEqACF08XdTDn5Y9bPZICLpbuMXWC+OqfCf
-         pUGrOVgsk+iHP6lb3h2i/SsN8nIxo330s0yi6IZpDgSGjMXSZpIjDwpp2/7rXoxcf+RT
-         CHw2ygkSlRDt6clx3mKeuICLywTDQ8Wk7MRlsA0jIcQJgePAaI/TxE1ckbt7W56eANQ4
-         xCbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738939562; x=1739544362;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Hv90/4Ii7oHU4TLhsDR0XOWXVnCVpBGLvijyzK1ZPiM=;
-        b=CAkpo9S2f13FvR2jLdc60hhb/S+x1s7gvuSwoIREyO0mijD7jziqTuSsJvUeXnT+RV
-         Lpk/gskNbCX9eo9mDiDfOfc/0LvR1FF/8heBJN6U5hDcCYro0IsAc6vy0ii3VQduCfk9
-         UtE1PxngcAM4PnJ4P3HXgD/SzfqvX6Gr1vxvGlL0jgiHMVPjQotbytPO6/rParPlxVP1
-         S8g9PJWjNBc9R03YDLzcxwo0WsgzA9achfQ+ZZwKePPtj3mDxNXrqcJlKDpnH/otyVpV
-         E4oc3qkrxnrHiy6zJ6aBVekRrr0oalr8xAX0Rb6haXmH5uEU9rNOEcXARBYY9x7rE7eR
-         +4gA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2FlmkMT38raJZks2i+FOJWUKPD0ZTmSaU/sm6NYtFWujrgpxKqgmoCwCzsFYCIN0YlnyZ1uZ8K9IcYG5BxonK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNP7mXh6noEaHiqYmrT4/7tZg9P/HThhPYjfz4zb8NhNT3o7j+
-	gPl5w+O5GvfYlNatyPn3O2Txf1EgQUABa9coapoSBwHODE5G1rfB5C2RZhfBD8c=
-X-Gm-Gg: ASbGnctnyU9/P5/jT8HkEQ4GLZfnDoQg2RrsA7jR+Of/hEobC8N3OKtK5ZveiOIzjDN
-	VweoljKldebfLvBqKCuPyZ4KOOU4guC5+eFNAwg0sq4fde0fKvgYw0ghpGnvbxZwZdgejVqb5VG
-	rw8pwFMbPB4v78Ax8uk5XWXv3CHfUBou2G7gLCQGb+/15IeX+HXdOn5/oEnykRIyoTeIZMhCHxo
-	5a9F/23JaRG50fwt7pHbwHUm5Pkv4T1eHa2qxkWcEvOXW/1PhwBuSMYXJUTIcJ3fGDMF+JsVIfI
-	fkau4ghEJF88coawmhPsqr3NmrTn7nDQQr25sqH4YjWM7L2p5cYlQuX9IJXyt+A=
-X-Google-Smtp-Source: AGHT+IHFc+CaRU85moSCDGrb/7WzOtXGy8Znz1lNZW2tGN9O7ngj6L2f+YkxFTgGpjCIR2UBQc+Nww==
-X-Received: by 2002:a05:6000:188b:b0:38d:c58f:4ceb with SMTP id ffacd0b85a97d-38dc9374960mr2633679f8f.43.1738939561733;
-        Fri, 07 Feb 2025 06:46:01 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8? ([2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc5839877sm3206265f8f.3.2025.02.07.06.46.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 06:46:01 -0800 (PST)
-Message-ID: <18fd9544-f9ef-4f58-9a8a-026737c26b94@baylibre.com>
-Date: Fri, 7 Feb 2025 15:45:59 +0100
+	Fri, 07 Feb 2025 14:46:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738939582; x=1770475582;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vC/OWDm/dfWU9Rdnb1rw4VdhifWMLCVsGEWZ1Y/wwg0=;
+  b=BRJEqvykvjkix7Nwc7I3F3UG5F+tYNuYq5qORTBIvilBgOdABz/d7WUG
+   SSfjgU28b9esg0kxwZ1Lkwszo3KcrXhalo3GE2ybYXjMnzQtvuC8w3s25
+   9ArZUn+nkXtuj8NerO2vnN/oKVndnbqzpu9+tSJm+HjSqUN2Xuf/LTL91
+   vW1QbU1mMNuQ0BMvMTMycHHvmdGi1+YvbsErQz+L0QYru/MNpxnnfdfmF
+   1huWSBDOW7ozLs1aQbIuKC7IkMFaokTmKEi2RQd0f6EyfBBhyFYXd2u0O
+   YDXm79IZMYKGcvcfYMnGFJTCGV/pmqUqSpN7oOU/sk+5DrY60wtLy0ItT
+   A==;
+X-CSE-ConnectionGUID: atq2OZLQSfiQstm8iUgpyA==
+X-CSE-MsgGUID: h7C5g67gRnqYj1UdVXiGmA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="56997461"
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="56997461"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 06:46:21 -0800
+X-CSE-ConnectionGUID: PLb9YVuETr67WQ2KncdH5Q==
+X-CSE-MsgGUID: 4WBlToFGQvOsbbsT4/3MBQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="111461551"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 07 Feb 2025 06:46:16 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tgPcU-000yTX-08;
+	Fri, 07 Feb 2025 14:46:14 +0000
+Date: Fri, 7 Feb 2025 22:45:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Peter Zijlstra <peterz@infradead.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
+Subject: Re: [PATCH bpf-next v2 18/26] rqspinlock: Add entry to Makefile,
+ MAINTAINERS
+Message-ID: <202502072210.Fzbbpkun-lkp@intel.com>
+References: <20250206105435.2159977-19-memxor@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 21/34] drm/mediatek: mtk_hdmi: Move CEC device parsing
- in new function
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com,
- jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
- ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
- jason-jh.lin@mediatek.com
-References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
- <20250113145232.227674-22-angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <20250113145232.227674-22-angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206105435.2159977-19-memxor@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_064603_500261_826EF546 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20250207_064621_988060_BB492101 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,164 +98,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kumar,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on 0abff462d802a352c87b7f5e71b442b09bf9cfff]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Kumar-Kartikeya-Dwivedi/locking-Move-MCS-struct-definition-to-public-header/20250206-190258
+base:   0abff462d802a352c87b7f5e71b442b09bf9cfff
+patch link:    https://lore.kernel.org/r/20250206105435.2159977-19-memxor%40gmail.com
+patch subject: [PATCH bpf-next v2 18/26] rqspinlock: Add entry to Makefile, MAINTAINERS
+config: arm-randconfig-001-20250207 (https://download.01.org/0day-ci/archive/20250207/202502072210.Fzbbpkun-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502072210.Fzbbpkun-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502072210.Fzbbpkun-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from kernel/locking/rqspinlock.c:77:
+>> kernel/locking/mcs_spinlock.h:57:27: warning: 'struct mcs_spinlock' declared inside parameter list will not be visible outside of this definition or declaration
+      57 | void mcs_spin_lock(struct mcs_spinlock **lock, struct mcs_spinlock *node)
+         |                           ^~~~~~~~~~~~
+   kernel/locking/mcs_spinlock.h: In function 'mcs_spin_lock':
+>> kernel/locking/mcs_spinlock.h:62:13: error: invalid use of undefined type 'struct mcs_spinlock'
+      62 |         node->locked = 0;
+         |             ^~
+   kernel/locking/mcs_spinlock.h:63:13: error: invalid use of undefined type 'struct mcs_spinlock'
+      63 |         node->next   = NULL;
+         |             ^~
+   In file included from <command-line>:
+   kernel/locking/mcs_spinlock.h:83:24: error: invalid use of undefined type 'struct mcs_spinlock'
+      83 |         WRITE_ONCE(prev->next, node);
+         |                        ^~
+   include/linux/compiler_types.h:522:23: note: in definition of macro '__compiletime_assert'
+     522 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:9: note: in expansion of macro 'compiletime_assert'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:28: note: in expansion of macro '__native_word'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |                            ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:60:9: note: in expansion of macro 'compiletime_assert_rwonce_type'
+      60 |         compiletime_assert_rwonce_type(x);                              \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:9: note: in expansion of macro 'WRITE_ONCE'
+      83 |         WRITE_ONCE(prev->next, node);
+         |         ^~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:24: error: invalid use of undefined type 'struct mcs_spinlock'
+      83 |         WRITE_ONCE(prev->next, node);
+         |                        ^~
+   include/linux/compiler_types.h:522:23: note: in definition of macro '__compiletime_assert'
+     522 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:9: note: in expansion of macro 'compiletime_assert'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:28: note: in expansion of macro '__native_word'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |                            ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:60:9: note: in expansion of macro 'compiletime_assert_rwonce_type'
+      60 |         compiletime_assert_rwonce_type(x);                              \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:9: note: in expansion of macro 'WRITE_ONCE'
+      83 |         WRITE_ONCE(prev->next, node);
+         |         ^~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:24: error: invalid use of undefined type 'struct mcs_spinlock'
+      83 |         WRITE_ONCE(prev->next, node);
+         |                        ^~
+   include/linux/compiler_types.h:522:23: note: in definition of macro '__compiletime_assert'
+     522 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:9: note: in expansion of macro 'compiletime_assert'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:28: note: in expansion of macro '__native_word'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |                            ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:60:9: note: in expansion of macro 'compiletime_assert_rwonce_type'
+      60 |         compiletime_assert_rwonce_type(x);                              \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:9: note: in expansion of macro 'WRITE_ONCE'
+      83 |         WRITE_ONCE(prev->next, node);
+         |         ^~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:24: error: invalid use of undefined type 'struct mcs_spinlock'
+      83 |         WRITE_ONCE(prev->next, node);
+         |                        ^~
+   include/linux/compiler_types.h:522:23: note: in definition of macro '__compiletime_assert'
+     522 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:9: note: in expansion of macro 'compiletime_assert'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:28: note: in expansion of macro '__native_word'
+      36 |         compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
+         |                            ^~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:60:9: note: in expansion of macro 'compiletime_assert_rwonce_type'
+      60 |         compiletime_assert_rwonce_type(x);                              \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:9: note: in expansion of macro 'WRITE_ONCE'
+      83 |         WRITE_ONCE(prev->next, node);
+         |         ^~~~~~~~~~
+   kernel/locking/mcs_spinlock.h:83:24: error: invalid use of undefined type 'struct mcs_spinlock'
+      83 |         WRITE_ONCE(prev->next, node);
+         |                        ^~
+   include/linux/compiler_types.h:522:23: note: in definition of macro '__compiletime_assert'
+     522 |                 if (!(condition))                                       \
+         |                       ^~~~~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/asm-generic/rwonce.h:36:9: note: in expansion of macro 'compiletime_assert'
 
 
-On 13/01/2025 15:52, AngeloGioacchino Del Regno wrote:
-> Move the CEC device parsing logic to a new function called
-> mtk_hdmi_get_cec_dev(), and move the parsing action to the end
-> of mtk_hdmi_dt_parse_pdata(), allowing to remove gotos in this
-> function, reducing code size and improving readability.
+vim +62 kernel/locking/mcs_spinlock.h
 
-Why CEC device parsing logic isn't done mtk_cec.c driver ? Then add "mtk_cec_get_dev" function to 
-mtk_cec.c too. Finally, call this new function in mtk_hdmi_probe after mtk_hdmi_dt_parse_pdata().
-
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->   drivers/gpu/drm/mediatek/mtk_hdmi.c | 84 ++++++++++++++---------------
->   1 file changed, 40 insertions(+), 44 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> index 48c37294dcbb..eb285ec394a3 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> @@ -1367,24 +1367,16 @@ static const struct drm_bridge_funcs mtk_hdmi_bridge_funcs = {
->   	.edid_read = mtk_hdmi_bridge_edid_read,
->   };
->   
-> -static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
-> -				   struct platform_device *pdev)
-> +static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hdmi, struct device *dev, struct device_node *np)
->   {
-> -	struct device *dev = &pdev->dev;
-> -	struct device_node *np = dev->of_node;
-> -	struct device_node *remote, *i2c_np;
->   	struct platform_device *cec_pdev;
-> -	struct regmap *regmap;
-> +	struct device_node *cec_np;
->   	int ret;
->   
-> -	ret = mtk_hdmi_get_all_clk(hdmi, np);
-> -	if (ret)
-> -		return dev_err_probe(dev, ret, "Failed to get clocks\n");
-> -
->   	/* The CEC module handles HDMI hotplug detection */
->   	cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
-
-If it's done in mtk_cec.c, the hardcoded compatible string method will be replaced by of_match_table 
-(mtk_cec_of_ids), which is scalable and consistent.
-
->   	if (!cec_np)
-> -		return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
-> +		return dev_err_probe(dev, -ENOTSUPP, "Failed to find CEC node\n");
->   
->   	cec_pdev = of_find_device_by_node(cec_np);
->   	if (!cec_pdev) {
-> @@ -1393,65 +1385,69 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->   		return -EPROBE_DEFER;
->   	}
->   	of_node_put(cec_np);
-> -	hdmi->cec_dev = &cec_pdev->dev;
->   
->   	/*
->   	 * The mediatek,syscon-hdmi property contains a phandle link to the
->   	 * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
->   	 * registers it contains.
->   	 */
-> -	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
-> -	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1,
-> -					 &hdmi->sys_offset);
-> -	if (IS_ERR(regmap))
-> -		ret = PTR_ERR(regmap);
-> -	if (ret) {
-> -		dev_err_probe(dev, ret,
-> -			      "Failed to get system configuration registers\n");
-> -		goto put_device;
-> -	}
-> -	hdmi->sys_regmap = regmap;
-> +	hdmi->sys_regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
-> +	if (IS_ERR(hdmi->sys_regmap))
-> +		return PTR_ERR(hdmi->sys_regmap);
-> +
-> +	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1, &hdmi->sys_offset);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to get system configuration registers\n");
-> +
-> +	hdmi->cec_dev = &cec_pdev->dev;
-> +	return 0;
-> +}
-> +
-> +static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
-> +				   struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct device_node *remote, *i2c_np;
-> +	int ret;
-> +
-> +	ret = mtk_hdmi_get_all_clk(hdmi, np);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get clocks\n");
->   
->   	hdmi->regs = device_node_to_regmap(dev->of_node);
-> -	if (IS_ERR(hdmi->regs)) {
-> -		ret = PTR_ERR(hdmi->regs);
-> -		goto put_device;
-> -	}
-> +	if (IS_ERR(hdmi->regs))
-> +		return PTR_ERR(hdmi->regs);
->   
->   	remote = of_graph_get_remote_node(np, 1, 0);
-> -	if (!remote) {
-> -		ret = -EINVAL;
-> -		goto put_device;
-> -	}
-> +	if (!remote)
-> +		return -EINVAL;
->   
->   	if (!of_device_is_compatible(remote, "hdmi-connector")) {
->   		hdmi->next_bridge = of_drm_find_bridge(remote);
->   		if (!hdmi->next_bridge) {
->   			dev_err(dev, "Waiting for external bridge\n");
->   			of_node_put(remote);
-> -			ret = -EPROBE_DEFER;
-> -			goto put_device;
-> +			return -EPROBE_DEFER;
->   		}
->   	}
->   
->   	i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
->   	of_node_put(remote);
-> -	if (!i2c_np) {
-> -		ret = dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
-> -		goto put_device;
-> -	}
-> +	if (!i2c_np)
-> +		return dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
->   
->   	hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
->   	of_node_put(i2c_np);
-> -	if (!hdmi->ddc_adpt) {
-> -		ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
-> -		goto put_device;
-> -	}
-> +	if (!hdmi->ddc_adpt)
-> +		return dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
-> +
-> +	ret = mtk_hdmi_get_cec_dev(hdmi, dev, np);
-> +	if (ret)
-> +		return ret;
->   
->   	return 0;
-> -put_device:
-> -	put_device(hdmi->cec_dev);
-> -	return ret;
->   }
->   
->   /*
+e207552e64ea05 include/linux/mcs_spinlock.h  Will Deacon     2014-01-21  39  
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  40  /*
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  41   * Note: the smp_load_acquire/smp_store_release pair is not
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  42   * sufficient to form a full memory barrier across
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  43   * cpus for many architectures (except x86) for mcs_unlock and mcs_lock.
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  44   * For applications that need a full barrier across multiple cpus
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  45   * with mcs_unlock and mcs_lock pair, smp_mb__after_unlock_lock() should be
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  46   * used after mcs_lock.
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  47   */
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  48  
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  49  /*
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  50   * In order to acquire the lock, the caller should declare a local node and
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  51   * pass a reference of the node to this function in addition to the lock.
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  52   * If the lock has already been acquired, then this will proceed to spin
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  53   * on this node->locked until the previous lock holder sets the node->locked
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  54   * in mcs_spin_unlock().
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  55   */
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  56  static inline
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21 @57  void mcs_spin_lock(struct mcs_spinlock **lock, struct mcs_spinlock *node)
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  58  {
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  59  	struct mcs_spinlock *prev;
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  60  
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  61  	/* Init node */
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21 @62  	node->locked = 0;
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  63  	node->next   = NULL;
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  64  
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  65  	/*
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  66  	 * We rely on the full barrier with global transitivity implied by the
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  67  	 * below xchg() to order the initialization stores above against any
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  68  	 * observation of @node. And to provide the ACQUIRE ordering associated
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  69  	 * with a LOCK primitive.
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  70  	 */
+920c720aa5aa39 kernel/locking/mcs_spinlock.h Peter Zijlstra  2016-02-01  71  	prev = xchg(lock, node);
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  72  	if (likely(prev == NULL)) {
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  73  		/*
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  74  		 * Lock acquired, don't need to set node->locked to 1. Threads
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  75  		 * only spin on its own node->locked value for lock acquisition.
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  76  		 * However, since this thread can immediately acquire the lock
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  77  		 * and does not proceed to spin on its own node->locked, this
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  78  		 * value won't be used. If a debug mode is needed to
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  79  		 * audit lock status, then set node->locked value here.
+5faeb8adb956a5 include/linux/mcs_spinlock.h  Jason Low       2014-01-21  80  		 */
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  81  		return;
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  82  	}
+4d3199e4ca8e66 kernel/locking/mcs_spinlock.h Davidlohr Bueso 2015-02-22  83  	WRITE_ONCE(prev->next, node);
+e207552e64ea05 include/linux/mcs_spinlock.h  Will Deacon     2014-01-21  84  
+e207552e64ea05 include/linux/mcs_spinlock.h  Will Deacon     2014-01-21  85  	/* Wait until the lock holder passes the lock down. */
+e207552e64ea05 include/linux/mcs_spinlock.h  Will Deacon     2014-01-21  86  	arch_mcs_spin_lock_contended(&node->locked);
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  87  }
+e72246748ff006 include/linux/mcs_spinlock.h  Tim Chen        2014-01-21  88  
 
 -- 
-Regards,
-Alexandre
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
