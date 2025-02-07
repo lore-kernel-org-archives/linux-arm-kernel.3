@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67BD1C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D7AC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DarbtvQxDDWxDTWjIoJdK23xXRs1zpehpsumAur9MpY=; b=IvVk98M1TwNMYTMzhz7s6g8sDf
-	vvtpiqo68COMs2d4Lv0/f5IdWG7arOASI+RR9hAfpB2Y2/Bscp9fGhWkZ8eQ9nRsdtj6H5brRu4FL
-	+SdKgM/0jjoyGSliJ9aBBBWItS4ZOiOir25byc/qcxlqEWcp7XH566JNXt36cnGStkEhcwY+F/4/A
-	py/FUMQSQehgvQki8utFHB2Hy+Y5Pw3PvWWwpnYiQa9iREZ49Z7vy/rXREmxr3gUdhcLMNZWCGvS2
-	Lemr7GItJVl+j5MonbIUfkfiiCX/NyZDhssdRfbK6bz0bYonYsgXhA+QRGX9c1LhpO4zywAlJiuAh
-	0umF53TQ==;
+	bh=OtB8ZCdlBBHdTv5h1BbZ8qcQh0YZJ6JHHBwv75ZzjyQ=; b=5EjkGi2KQchCxGay6xAsBpd8wd
+	9MPDmWfLkGqPrs6kaQ8A9pievbjVWUXOIsibOHK39OZYItf9p++qmzAjqYeJal+38AREk+01G71pB
+	2Yn3JTdmOwAiMoJmOt4iRQg2KrV6KwUiz+UPhkFAeSOhtycPtHvSLUoSJVmIyqAhUH/f7ggo2KMB5
+	D4WAEsUNkPD5e/vvToVv7ZPmGl6zfqmwRpiBwxUIt50JUI/bf9+seKZhTB0zRJx6OOz/iETG3n4a6
+	llnzCmFfv8PZO/Ifyat9RcjkGCkLzfOjran1Ky/UmRm4uho7POZGOQM+pIN03/edQtHwU/g2IAyFs
+	CrbBQtnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgS5w-0000000ATmf-12R4;
-	Fri, 07 Feb 2025 17:24:48 +0000
+	id 1tgS7H-0000000AU24-3zce;
+	Fri, 07 Feb 2025 17:26:11 +0000
 Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRg8-0000000AO0d-3bij
+	id 1tgRgG-0000000AO3L-48d1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:58:09 +0000
+	Fri, 07 Feb 2025 16:58:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738947489; x=1770483489;
+  t=1738947497; x=1770483497;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=qK9qrQMjSldwbrNHCdVyeZMm0a8dUnl6Ry1EmjgiouE=;
-  b=NURfRR7tLRkkubT71TcDx6OrJ/9vgRAvHABEJoDlWUiVAsAVivhsRFcU
-   s2mwu6OUsTsUJdmObuqEFRBnFszkClWdiX52e2oyawBhEBTt6dTOUS4j/
-   n2XY3ziyn0fjk83r/9iSD0sJB8DR67UwrY8xBxGa1Ao685RXqs+ceAhA+
-   g3x+uZEuaLTI+8qnUF+glkGkANAa+X7Gr1XPi+Hk9wDtYAIhaiooy9LSk
-   AYeuF5UOYtFdpJ1nlcfHDQ4M7QHfJC3Ahb5OB2FUmavwQHAkQNiyslfAf
-   8cmuGNZoq2O2KMQ5bCfFxir9kqBpnIqapH7xaiJPNaOAMhb9Tn2Dqar45
-   Q==;
-X-CSE-ConnectionGUID: wO30mrPDQm+mPestmJl+QA==
-X-CSE-MsgGUID: N3ggupvjTO6yPnQzwfHwRA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39723069"
+  bh=yLXa2yaR9NgwmMapus7AuHWRbw/3UQlE2Bja3/Bf6S4=;
+  b=FrAUFRWl8TdByrqtIXUprVHZ8eCAUBHYo/0Gjl3FqSN0AH0QppLoDGPs
+   9Z59pWni4Qy7vGYrzb+ftElBCAz5Zy49HlXCkjNwre520m7WNu0+DjBml
+   hzuEHYTNz0eNslW0y7032tEkhTo2pG9VYkQa8Bd6ea0Jjw7ps4TeKOlgc
+   D+dFqtetfuu4hQ30V/lpg1Y1EeRff4nC2F68SdRTpNvmkvkkMZAbW4ROR
+   hFUU1AzlNWeO50HKxa73Odg22VfqF+y74pHb4tuwIS8K83DgC7pvZjyKB
+   XGLD6pBgRul4k55GDXxoGNSoQZXNaS3+mkNGYBTbC6RqP3K5NvVmzbR8S
+   A==;
+X-CSE-ConnectionGUID: hyDSyAohTVqd2R7d9RgEXg==
+X-CSE-MsgGUID: Swg5TRQ+SJuZ7DtBCeT5hg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39723094"
 X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="39723069"
+   d="scan'208";a="39723094"
 Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:58:08 -0800
-X-CSE-ConnectionGUID: tfr/YcbRRh+AHkcpbOl+AA==
-X-CSE-MsgGUID: zvqMVvaISreU+qfufv+6zQ==
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:58:17 -0800
+X-CSE-ConnectionGUID: 3dCaZTDKQAO3v8G6d9C7rQ==
+X-CSE-MsgGUID: 6QgvxFLLT/+mTQr13Bgo4w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="111534649"
+   d="scan'208";a="111534667"
 Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa006.jf.intel.com with ESMTP; 07 Feb 2025 08:58:00 -0800
+  by orviesa006.jf.intel.com with ESMTP; 07 Feb 2025 08:58:08 -0800
 From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
@@ -90,17 +90,17 @@ To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v3 8/9] igc: Add support to get MAC Merge data via ethtool
-Date: Fri,  7 Feb 2025 11:56:48 -0500
-Message-Id: <20250207165649.2245320-9-faizal.abdul.rahim@linux.intel.com>
+Subject: [PATCH iwl-next v3 9/9] igc: Add support to get frame preemption statistics via ethtool
+Date: Fri,  7 Feb 2025 11:56:49 -0500
+Message-Id: <20250207165649.2245320-10-faizal.abdul.rahim@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
 References: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_085808_940087_47552865 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250207_085817_084705_CCD17CDB 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,73 +115,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement "ethtool --show-mm" callback for IGC.
+Implemented "ethtool --include-statistics --show-mm" callback for IGC.
 
-Tested with command:
-$ ethtool --show-mm enp1s0.
-  MAC Merge layer state for enp1s0:
-  pMAC enabled: on
-  TX enabled: on
-  TX active: on
-  TX minimum fragment size: 64
-  RX minimum fragment size: 60
-  Verify enabled: on
-  Verify time: 128
-  Max verify time: 128
-  Verification status: SUCCEEDED
+Tested preemption scenario to check preemption statistics:
+1) Trigger verification handshake on both boards:
+    $ sudo ethtool --set-mm enp1s0 pmac-enabled on
+    $ sudo ethtool --set-mm enp1s0 tx-enabled on
+    $ sudo ethtool --set-mm enp1s0 verify-enabled on
+2) Set preemptible or express queue in taprio for tx board:
+    $ sudo tc qdisc replace dev enp1s0 parent root handle 100 taprio \
+      num_tc 4 map 3 2 1 0 3 3 3 3 3 3 3 3 3 3 3 3 \
+      queues 1@0 1@1 1@2 1@3 base-time 0 sched-entry S F 100000 \
+      fp E E P P
+3) Send large size packets on preemptible queue
+4) Send small size packets on express queue to preempt packets in
+   preemptible queue
+5) Show preemption statistics on the receiving board:
+   $ ethtool --include-statistics --show-mm enp1s0
+     MAC Merge layer state for enp1s0:
+     pMAC enabled: on
+     TX enabled: on
+     TX active: on
+     TX minimum fragment size: 64
+     RX minimum fragment size: 60
+     Verify enabled: on
+     Verify time: 128
+     Max verify time: 128
+     Verification status: SUCCEEDED
+     Statistics:
+     	MACMergeFrameAssErrorCount: 0
+	MACMergeFrameSmdErrorCount: 0
+	MACMergeFrameAssOkCount: 511
+	MACMergeFragCountRx: 764
+	MACMergeFragCountTx: 0
+	MACMergeHoldCount: 0
 
-Verified that the fields value are retrieved correctly.
-
+Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
 Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 ---
- drivers/net/ethernet/intel/igc/igc_ethtool.c | 14 ++++++++++++++
- drivers/net/ethernet/intel/igc/igc_tsn.h     |  1 +
- 2 files changed, 15 insertions(+)
+ drivers/net/ethernet/intel/igc/igc_ethtool.c | 36 ++++++++++++++++++++
+ drivers/net/ethernet/intel/igc/igc_main.c    |  1 +
+ drivers/net/ethernet/intel/igc/igc_regs.h    | 16 +++++++++
+ 3 files changed, 53 insertions(+)
 
 diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-index 081e24f228b2..7f0052e0d50c 100644
+index 7f0052e0d50c..97a1194399b1 100644
 --- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
 +++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-@@ -1782,6 +1782,19 @@ static int igc_ethtool_set_eee(struct net_device *netdev,
- 	return 0;
+@@ -1819,6 +1819,41 @@ static int igc_ethtool_set_mm(struct net_device *netdev,
+ 	return igc_tsn_offload_apply(adapter);
  }
  
-+static int igc_ethtool_get_mm(struct net_device *netdev,
-+			      struct ethtool_mm_state *cmd)
++/**
++ * igc_ethtool_get_frame_ass_error - Get the frame assembly error count.
++ * @dev: Pointer to the net_device structure.
++ * Return: The count of frame assembly errors.
++ */
++static u64 igc_ethtool_get_frame_ass_error(struct net_device *dev)
 +{
-+	struct igc_adapter *adapter = netdev_priv(netdev);
-+	struct fpe_t *fpe = &adapter->fpe;
++	struct igc_adapter *adapter = netdev_priv(dev);
++	u32 ooo_smdc, ooo_frame_cnt, ooo_frag_cnt; /* Out of order statistics */
++	struct igc_hw *hw = &adapter->hw;
++	u32 miss_frame_frag_cnt;
++	u32 reg_value;
 +
-+	ethtool_mmsv_get_mm(&fpe->mmsv, cmd);
-+	cmd->tx_min_frag_size = fpe->tx_min_frag_size;
-+	cmd->rx_min_frag_size = IGC_RX_MIN_FRAG_SIZE;
++	reg_value = rd32(IGC_PRMEXPRCNT);
++	ooo_smdc = FIELD_GET(IGC_PRMEXPRCNT_OOO_SMDC, reg_value);
++	ooo_frame_cnt = FIELD_GET(IGC_PRMEXPRCNT_OOO_FRAME_CNT, reg_value);
++	ooo_frag_cnt = FIELD_GET(IGC_PRMEXPRCNT_OOO_FRAG_CNT, reg_value);
++	miss_frame_frag_cnt = FIELD_GET(IGC_PRMEXPRCNT_MISS_FRAME_FRAG_CNT,
++					reg_value);
 +
-+	return 0;
++	return ooo_smdc + ooo_frame_cnt + ooo_frag_cnt + miss_frame_frag_cnt;
 +}
 +
- static int igc_ethtool_set_mm(struct net_device *netdev,
- 			      struct ethtool_mm_cfg *cmd,
- 			      struct netlink_ext_ack *extack)
-@@ -2093,6 +2106,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
- 	.set_rxfh		= igc_ethtool_set_rxfh,
- 	.get_ts_info		= igc_ethtool_get_ts_info,
++static void igc_ethtool_get_mm_stats(struct net_device *dev,
++				     struct ethtool_mm_stats *stats)
++{
++	struct igc_adapter *adapter = netdev_priv(dev);
++	struct igc_hw *hw = &adapter->hw;
++
++	stats->MACMergeFrameAssErrorCount = igc_ethtool_get_frame_ass_error(dev);
++	stats->MACMergeFrameAssOkCount = rd32(IGC_PRMPTDRCNT);
++	stats->MACMergeFragCountRx =  rd32(IGC_PRMEVNTRCNT);
++	stats->MACMergeFragCountTx = rd32(IGC_PRMEVNTTCNT);
++}
++
+ static int igc_ethtool_get_link_ksettings(struct net_device *netdev,
+ 					  struct ethtool_link_ksettings *cmd)
+ {
+@@ -2108,6 +2143,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
  	.get_channels		= igc_ethtool_get_channels,
-+	.get_mm			= igc_ethtool_get_mm,
+ 	.get_mm			= igc_ethtool_get_mm,
  	.set_mm			= igc_ethtool_set_mm,
++	.get_mm_stats		= igc_ethtool_get_mm_stats,
  	.set_channels		= igc_ethtool_set_channels,
  	.get_priv_flags		= igc_ethtool_get_priv_flags,
-diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.h b/drivers/net/ethernet/intel/igc/igc_tsn.h
-index 898c4630bc70..c82f9718cb85 100644
---- a/drivers/net/ethernet/intel/igc/igc_tsn.h
-+++ b/drivers/net/ethernet/intel/igc/igc_tsn.h
-@@ -4,6 +4,7 @@
- #ifndef _IGC_TSN_H_
- #define _IGC_TSN_H_
+ 	.set_priv_flags		= igc_ethtool_set_priv_flags,
+diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
+index f15ac7565fbd..cd5160315993 100644
+--- a/drivers/net/ethernet/intel/igc/igc_main.c
++++ b/drivers/net/ethernet/intel/igc/igc_main.c
+@@ -3076,6 +3076,7 @@ static bool igc_clean_tx_irq(struct igc_q_vector *q_vector, int napi_budget)
+ 			break;
  
-+#define IGC_RX_MIN_FRAG_SIZE		60
- #define SMD_FRAME_SIZE			60
+ 		if (static_branch_unlikely(&igc_fpe_enabled) &&
++		    adapter->fpe.mmsv.pmac_enabled &&
+ 		    igc_fpe_transmitted_smd_v(tx_desc))
+ 			ethtool_mmsv_event_handle(&adapter->fpe.mmsv,
+ 						  ETHTOOL_MMSV_LD_SENT_VERIFY_MPACKET);
+diff --git a/drivers/net/ethernet/intel/igc/igc_regs.h b/drivers/net/ethernet/intel/igc/igc_regs.h
+index 12ddc5793651..41dbfb07eb2f 100644
+--- a/drivers/net/ethernet/intel/igc/igc_regs.h
++++ b/drivers/net/ethernet/intel/igc/igc_regs.h
+@@ -222,6 +222,22 @@
  
- DECLARE_STATIC_KEY_FALSE(igc_fpe_enabled);
+ #define IGC_FTQF(_n)	(0x059E0 + (4 * (_n)))  /* 5-tuple Queue Fltr */
+ 
++/* Time sync registers - preemption statistics */
++#define IGC_PRMPTDRCNT		0x04284	/* Good RX Preempted Packets */
++#define IGC_PRMEVNTTCNT		0x04298	/* TX Preemption event counter */
++#define IGC_PRMEVNTRCNT		0x0429C	/* RX Preemption event counter */
++
++ /* Preemption Exception Counter */
++#define IGC_PRMEXPRCNT					0x42A0
++/* Received out of order packets with SMD-C */
++#define IGC_PRMEXPRCNT_OOO_SMDC				0x000000FF
++/* Received out of order packets with SMD-C and wrong Frame CNT */
++#define IGC_PRMEXPRCNT_OOO_FRAME_CNT			0x0000FF00
++/* Received out of order packets with SMD-C and wrong Frag CNT */
++#define IGC_PRMEXPRCNT_OOO_FRAG_CNT			0x00FF0000
++/* Received packets with SMD-S and wrong Frag CNT and Frame CNT */
++#define IGC_PRMEXPRCNT_MISS_FRAME_FRAG_CNT		0xFF000000
++
+ /* Transmit Scheduling Registers */
+ #define IGC_TQAVCTRL		0x3570
+ #define IGC_TXQCTL(_n)		(0x3344 + 0x4 * (_n))
 -- 
 2.34.1
 
