@@ -4,93 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB582C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 19:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74585C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fiYJOBuDsPAv4YjLBaRLOwTbINfg99vX0rBYmLWDOI=; b=cGGpvfHbYt6lRKQFi7rcplLu8f
-	ow+EGsOIHVYDHb3myk9T2jEFihz7OPmh1owAP87SeBHNTi47CA8p4i3LIprq0nGkxLgTma0JKIT9d
-	a+eYeyYvpKLw1tu3+oTtmxQ70LEgwcYR4mRyqgbTw4vTUpAXqr5g1wXpv264+Ay9QBQ2PWOGUJc1S
-	ioPv6agIw6IqEchQJLXnwJeqMxPymc/hbNyWz/IwYfC1HrMmZ+HLts/vjLYJSFT0SCU4/sLUULBcd
-	Zh2xkE7TMWtsbRnku8Ap46ZJWrg5CPGJoiNz+adzU5ytnMduGMKRM5BEBorrUXgXK/rPoxhvWkJRD
-	mqlH0YTA==;
+	bh=11zjesIx54hnVOJZBhLgNcOrc2hK/+UJ5cRfpoOaclI=; b=seQYKZTJqo2OG6NsaTs7Z8WyJx
+	3vnEB0BTdrkSMQmHZJ72+tSj/cdw7JjOHdgcLGFIxX/rDDjOXCLomW7LL9gaZJKFuFYQCUcR/KYxK
+	YaBX/Eny45bBRwVWcljLOHPpJHOo7WWsfe8689yDa2OtXpyVqgwi/LigBVbY73C9zJ6gIa2QL9LOo
+	CdUpaoZpyERfgjjsWscM9/1DE9zky6wruFhMmH2JK3Z0At7Ifmpu9sNH1dUZlnWDwQjHNXKv6OvzS
+	+O8b95VPlbCHOgmayFnuCyx2cxNowCmo2h6N1I37n/7p6Tctv1XzKQOW3AKwTfaI7bdlP1KVMQJK7
+	zybPy9TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUJ4-0000000Axrr-0bm5;
-	Fri, 07 Feb 2025 19:46:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tgUyo-0000000B43X-028W;
+	Fri, 07 Feb 2025 20:29:38 +0000
+Received: from mail-vi1eur05on20602.outbound.protection.outlook.com ([2a01:111:f403:2613::602] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgTFE-0000000AjrI-0Gd4
+	id 1tgUDk-0000000Aw94-2y62
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 18:38:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C70815C6E54;
-	Fri,  7 Feb 2025 18:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F752C4CED1;
-	Fri,  7 Feb 2025 18:38:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738953507;
-	bh=IuEkWS/NeyEzfm3i6D8opFH8M053JN7Jz2y2irFVkzY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=OA0YeZM/gCesGVQMq5OSI7dzXDnAk0M3rovFjYOuyL/hyjFGyvG50ZwhJsp38P/Uy
-	 zVGXs+cQ+a06nyAnNYBXHNuVY4S3AU3GSCwuPr2Ma1TMGpnX3dL1PjJtOIRBP16piH
-	 ZzA9SPl4Xdcz0r6T57miigab7WugY8M48s3IQcdnVIwjw+m0Hb6kGhI0XTqgoHtWRf
-	 oKaEydO7zmMO1beJUrVO8+X/6xoHGh8zPBv07EK5PhPwzsJT8YDHeMpj8/X2uj3VXJ
-	 5x3LCFef46qEXYCX0wSUJyJUnU3q/q3UDv/w7xvCfVNYsJ34cnY+ms1tQ9mK9xv9Rb
-	 G6zfL1m58aELQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tgTFA-001kXx-3e;
-	Fri, 07 Feb 2025 18:38:24 +0000
-Date: Fri, 07 Feb 2025 18:38:22 +0000
-Message-ID: <86bjvdtxb5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Eric Auger <eauger@redhat.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	kvmarm <kvmarm@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <Z6ZMdv8jJUvYwQzT@linux.dev>
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-	<86frkptzr6.wl-maz@kernel.org>
-	<Z6ZMdv8jJUvYwQzT@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, eauger@redhat.com, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 07 Feb 2025 19:41:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DP1kMmUHHKJ3TEA1Le4DolfzggpBIjfaP+oRg4qxQAeJq0o82mbutfMQjJdW0Ipnu50LFF3DI2HISfr1eY9lDm50OPo93BzMf5njM/PrL/X6C2DS1M9NRVpUKew5K239F0vDbUsv8OHYwXbcsO7eILC7/qu+SPXDE4oLQiaElFWmySk/wXXZc8e8lnuWMHCyeD++Nxyl7PgAmOVS+LMrur3xtwGeROVq99LLsJOtbQZOpskhc1myRBKdG+bb7qtoA7Xgjc173sWmP5G45soLtIPLwoGMTomKUAnFfL0u5qQlFUBDCm9zYnJgU7WIXIeYULI3Lu3RKZlZjdv+UytwCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=11zjesIx54hnVOJZBhLgNcOrc2hK/+UJ5cRfpoOaclI=;
+ b=BKVeBVHO/eanpvyA1GX/eKh5ONuCnAZ9VnuTgsdJgqZ/VIgIctWXj8c3Qu1x58MVUbBm8DVVXvPBwK7GNORVOA3sLhpQGgftI3WsJ5Tae/FHRf+e3uKJ9UZOeZPRnXl5jlyD5X7gXcqN+AQFk6H8Y8rAZtFj1DN+P6Y89Ks2+2IUQdyYurgJICYlhzNDgFxQuLLn09aWQQXAMSAn/bc3J6HXqogLiFXq+/sFMzoG7Kr1GpqHZ6Qzxy/hRxiRuwLr+OUKIeMTkPF4JqGYJO/ziwxwBu91VTpn/s0oHjDx99HfoKxY9iDxDvLFPJ1cB4enoQPieG04teMWPuvG6LiWVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=11zjesIx54hnVOJZBhLgNcOrc2hK/+UJ5cRfpoOaclI=;
+ b=YqjAXZ2TmqfNXlCEOV396A5fYL+cEEOLrtpFyfAYolemMmn9nu+9eFSG18VNrJpt6IR+gmrIz+FY2B8G9mfMlCVzVHTMBPECQeo04bNjl3UrGOHMyqfROH3qQkCpyqNIzHEpG12tUeKUrrD/JthoMgjXqx8OgWYzozGFaMzdYR7DtJ6sgy5myTF9//BDgmr7TlEt9RhCAEB/cI2obQkoQoIx8x5LNUflqEvxjUGkHDcQuzxKaF+VkDdW2Em21Flb7+r7PVIVq8e4rMfizRddqKN0TQ8To8dRr0O3rkTpVEyciysttReMs2WKvt7PGpvSYd0/LDNYLjpXJhO/OTpeXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
+ 2025 19:40:56 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 19:40:56 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Fri, 07 Feb 2025 14:39:48 -0500
+Subject: [PATCH v14 06/15] PCI: endpoint: Add RC-to-EP doorbell support
+ using platform MSI controller
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250207-ep-msi-v14-6-9671b136f2b8@nxp.com>
+References: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
+In-Reply-To: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738957203; l=7112;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=UTWSQ9BYud4VdJmQue4uH88S+Q5amwr2z4IDdmIuKug=;
+ b=n+Xjvxy1/5l+3NC619ONrimmMueTq/mbDNy4BM4ztHU03vEvKIq0fJMBkhfApxMSSGOCP2o5U
+ YKakqfkL9JiDSmJgOfjoVoBuJyOE+xBCOl4wyxrvOaRLo71TGiS6dTm
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:41b::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9787:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7a505ec2-d33e-4c88-3764-08dd47af5723
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QU5HS3RZS3QrY1I0RWJyRXYvVkwwTmI5RVdLOHgwTjYwMGFOZGtJN0hHeEtq?=
+ =?utf-8?B?aVljanNFSlFONDlhNEZmTHYvNWRCQUpjRUk3dWUralpDWi9EYW1jYVR2RHA5?=
+ =?utf-8?B?dysvT3YzVVZEQXYydVlQUDlKRVBkcVZRajdrU3R4eUxyMXJENTVxUnNlVGF5?=
+ =?utf-8?B?d3hoWFB6aWhFcEx0djBndWtJK2toekczaGhBaHNrZXVkYjVVbzArQklJdjN1?=
+ =?utf-8?B?blJWbWxNM3hvU1RFNlV5YkxwRGxYeU0yM05CRVFoMWZWT1cvbTIybFNXVnBM?=
+ =?utf-8?B?b2tKWm5ZY1BWY25QUFEwWjZweHNNZndtUWNhYTRiZGNlMmEzSUl4a2dTSU9y?=
+ =?utf-8?B?U29JVHlEbFJDb2ppenlnQUFILzNhYTlQaWk2blUwOTFhT01aT3dqZ0pWNUNr?=
+ =?utf-8?B?ZHNjR0FFVlFwUmRnMGtEeHBGaFdvaTAzdjVMZU4rRjg1dGtIUEVlVkJVSkRW?=
+ =?utf-8?B?Zk9TN1dubTh0RERHQWJXRUQ0d0NnRVBGNTN1cTlXMldJTU5SOVpyclNxSFVE?=
+ =?utf-8?B?VWVLMkg3Z2EwVldabzk1WmtPaXBPU0RydHY4K2pVUVdiZXNkS09FWEhmWGxL?=
+ =?utf-8?B?dnZNbm5kdWh0dTVsMEpDeDJtclhoN2daamZqcHFuYUp2aDJxdGcrZnhVays4?=
+ =?utf-8?B?c2wyZEdrZ1gxeGdWQUZEeEtma1ZCazFEVWNTTGQ2RkRpYTNpWU93WG9RaGpy?=
+ =?utf-8?B?b3VSbnY1MFJYZkFYNEwzNkVZTE9VTTl6N2pBWXB5Um96U0RBcWRTcGxva3lm?=
+ =?utf-8?B?eDdpcXBhVHBDTEFCUFl6SUtEYlJZQkFWNDVRWFRGWXpEVnZ2VVEzOHpuZDYx?=
+ =?utf-8?B?Sm1la1BpNmRMRU1oUTdFQWNiRWxCajg2OW5JTnFWNlN4ekNOaHVkdFgxQkdm?=
+ =?utf-8?B?cW80WTRFSVlrcWhORURnU0ovaGhnUVp3UWhXSzNoM01haUd1LzRjelZmQ1dl?=
+ =?utf-8?B?WVJQeDBaZlk4T0wzMXdKYW5EYlBrSVFKT2c3YnFENDdwbmd0VTJwbDlBTkpH?=
+ =?utf-8?B?RjdYYWxWUjFJaG5tU3RFMFVmdVRhMmp3YytEVzRlVTJnamR3eU9aWUxJNTB1?=
+ =?utf-8?B?M0NaangxakZEaFZaQ05EQUJLMGp6R0M3Z2wwcDloTXNUVVVHdStlYStCeE13?=
+ =?utf-8?B?Sm5RRHBSMTNYMTc1ZTkzSTZNdGFJRjkvcjhVYWhHNFJ3VEZkZUZNTzZGSlZo?=
+ =?utf-8?B?ZzBaV0Z3dDFZcnB5QmpkVjdwUnhMZld2T2pVdkRhd3pNb3p1NUY4OC9JRlR5?=
+ =?utf-8?B?enIrT0JZU21TT2JCNjJ4QWEzWFVGM2EwTEU3bkVucTNsNHBuTTAzRGpJUUlq?=
+ =?utf-8?B?TzNYSExYakJqVCtDbWlrcWEwalVacmJiZWcwbUpFa2FGdzZlako4WW1sRkpF?=
+ =?utf-8?B?LzhteHdrSEhOQXgrc3FwSE9pL2dEVUdjQnNzaHF5dEpOYnBJZW4vK0ZlZVY5?=
+ =?utf-8?B?ZzRINTU3cy9zUjVhVzlSemJ1Z2lZNlZkZzdGZWtMcVlwMGsrRHdBeVp2V250?=
+ =?utf-8?B?OTI4emFUbWpXSEM0Smx1QnpvcHJWS0tTeUh5RDB1YkZaaDA4Z1hZU3ZSemdW?=
+ =?utf-8?B?VTJ2N2tyOERzRzVnbzZnWkRvOHAvc1ZyZ2paT2hISUJ5aXhaYmRpTWpRZWpn?=
+ =?utf-8?B?SkhjYW5QWURjODdnR2Vna1RRS3ZuODU3VFBFVjhMYmU0Ny9jWEdiUmFDTENR?=
+ =?utf-8?B?dlNWcWlkL2VTaU9TMFlZNUJwQ20yRk9FVW1MTlpnS1NKZy9ucXNCN0p0dGVV?=
+ =?utf-8?B?Sm9Md2lwcmF3K1BsN0VDWDNxRjZwMm9pdVNjNWg0OEpRdFV0VU1mWjUreVNB?=
+ =?utf-8?B?OHJXOW8wNTR1NVlXOWIxV2x1a3RxZzV2ZlhlZldvWnZHUCtCcENoWSt4Nk1x?=
+ =?utf-8?B?L1ZMZk85d3A5QjJYWndwTzVjRzhlRzB2cUNGNjVMTmVJRm1YY0RLejI4RmV0?=
+ =?utf-8?B?ZS9pNUhqbUo0bHlYRzRPU3BmYkc5cktaVGI1akhWWkNoSFdzcXlRTWFCekll?=
+ =?utf-8?B?SUFjNnlvZXJBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WnlSWmJ1Z05FeUFUSXd1MjVJaEtYWk9ubVdsSExVSzIxRXBPTGU5OW9JOGs0?=
+ =?utf-8?B?VGRzVHM5V24wcGhPZk5ieFdGd3BJVVc4bk9UWlRXQmNRalY4WWV2ZTNqMEk2?=
+ =?utf-8?B?L3FHYTRPQXFGWXNYbUl1dU9Jc2dlZXphbE5tS2RSczlPTHZWWUlqUDZidjlp?=
+ =?utf-8?B?cFlRMjIrd0FBbmJqL3hwRUcrS1RGdFdJZlJVd1djYlcwa0ZwSGpPd3Z6VWdW?=
+ =?utf-8?B?V1RFSEdndWs0MyttWjBla1NJQm5HaHlnalBuOGNNSWJlSGVKell3MVhFME4x?=
+ =?utf-8?B?RU1qei9DWkNiclE5dDQ5ZW1oa1Q5S3JxZFFDN0tzU3VrM0xEdDcxSEtWYVd5?=
+ =?utf-8?B?Y2ZhaDZxaHVIK1VhQjFuMHdidVE2VFIveVVBUzFKL0phQ2p3c3U2aDZmeW5K?=
+ =?utf-8?B?Q0V1RHdUUVgrRFNnTmhzNHg2Qk1jVS80M3BMMDRnKzN4Vy9MdEd2MjRlRnFa?=
+ =?utf-8?B?aWZXempMYTVjamU5NTNSaktNamVzQW1iMFBiWUdIaW16TE5SQ1BvVzhPcG0w?=
+ =?utf-8?B?dUZjbU1US2owMVVWbEMzNFpRSENwa3c5aUpRUUsxVmhMMjNDS25hcTd4VFF0?=
+ =?utf-8?B?aURUTGFNZjFib2pDMlVFRTkya0lmOHB0QW5OcktzUXBoZnNsT3lLZmRuVGZE?=
+ =?utf-8?B?MlpmQ1Q0NHdqS3pObEh0bVpEQW5WM2pTTW5IcHF2bkNROG1LSVZRelVTQUtu?=
+ =?utf-8?B?MlZ6Z3RxSHNISldqdktpNVRDMXNLL3RHMEh3RlNURndBcFZXMHM1M3ZjdDhy?=
+ =?utf-8?B?R29udGt1L1dxZVlzcnM1OThnYXBLbGpYcG9tbTFCUUtzK0F4YzE5Z3hJSHpp?=
+ =?utf-8?B?VzZVd2pXbkFORktnWnFUckdycklmcXZ4emNONkhjZnB5T2U5N2xVZkt6dmFS?=
+ =?utf-8?B?by9reUZHTHc0bDZNVlFGZ090b3hVQW0yaU1DK21RTXl6dGw1OHphR3R1WkNI?=
+ =?utf-8?B?cXFxdG1vdE1iRHdSZC9rSjhTWGJOMUdhWmJNL2V4Mjh3V3laWUZPYVc1b1ZV?=
+ =?utf-8?B?YWwwbnI2VnlMVG5VaEd2OEFEVXMrVmJEckM0UFZZQkovWERqOUFzUzRYM3pT?=
+ =?utf-8?B?Z0hsenhTZm1YYjY2YXNrS1Q2ZEdwVXI3VHRkYkNzK25mUExsenF1TENoajlw?=
+ =?utf-8?B?L3g0eWM5WnF0cTdmaEZHckhqMlB3UGlOYXcyVFpYVDdGRW9DV3JxUHJDMk9p?=
+ =?utf-8?B?bVdpYUtnTVBmWm9rTyt5K09GWXlzK0xpZ1RuK0pnTkZCajlwZngrVFB5OWNM?=
+ =?utf-8?B?YzdrTWNWdkpQY1p3ZFJkTnNaODErVVNQcWJXZG9aR3Q2UUpOenpXOE1DejdG?=
+ =?utf-8?B?SG5wdVVqeEttT3doWHFkVmNWWTliSXJnb1d4c0VuajZob2kwSHo2WW5xOUY2?=
+ =?utf-8?B?QnZXK242QnJRSVNwOGZYcEJLSjVPZS95ajk3aXBBVGRvVDZaYUd1RkxzVzly?=
+ =?utf-8?B?cktBMzdwRkd6dnNCemcwYmRwMWMyTytaKzJqMUlDR0FCekpZaDlEZ1crVm05?=
+ =?utf-8?B?VDBPSWdNSlpTSHNKN045Tld4TFVlbi9jNnZyK3ZJbWV1OEd6dk1aMVVIOE81?=
+ =?utf-8?B?dUgwbmRLS3N3eDV1aGZpbzhFRERoYUZOeHpvejUwcHJkQnBGNXFtc0RkMDBI?=
+ =?utf-8?B?V2VjaWloY3FqaDZtTndLMzdoVjIxVnVaaE12Q3dhU1NYWXJ4V05yWkwzczdD?=
+ =?utf-8?B?cEt2Snl0b1o3WlZMRUFodkVXZE42ak1HT25HVUx4THc1dDJaVExMNitDa21Y?=
+ =?utf-8?B?aWpVeGs3UUpVSDY2ME40clhZa2ZBNlRoYlhLYnY0VnlQVTFoZ2tKVTJlS0M4?=
+ =?utf-8?B?YlVoRWZaVmlzYUtiMitRQXNvTVlhVzNDQUpHV2FkMENCV3lSSnJUd29tRmx3?=
+ =?utf-8?B?d0pVLzdRMEJDZWFQeXJTL2F0SWNWWVZxWEh2MUxiWmJtbVQ2L3IvRUZIUFpt?=
+ =?utf-8?B?T2M4aW1zY3Vnb1o5dTNBS1hhTWxvZFlrN1JCZzA2S1I4U3BEZVpqZCtXa3Ex?=
+ =?utf-8?B?ZjlPSW9WMWZJT3kvUjBVQTRsZ1BrZXdSemRvYWtkZGMvU2locFNMUFcyaEth?=
+ =?utf-8?B?RXN6VGVZZHpJdzlmS3YyVkxRWjdDenBmanRYeTVkY1hBMVJvUGplTlRyRGFY?=
+ =?utf-8?Q?fNuAmifoaaskf4BYkQEULLHTA?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a505ec2-d33e-4c88-3764-08dd47af5723
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 19:40:56.4326
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kRFh6BWki4XsWLoXEvuZutaVRlv6uaAN7Py8mr+SLFFNR5qSlCB+l37xdDZMuklkIjMQhD2NsmpshSGzXGAsdg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_103828_237851_6BE0B97D 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20250207_114100_922101_E6BC767E 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,51 +202,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Feb 2025 18:09:58 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> Hey,
-> 
-> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
-> > I found at least one issue that could fail the migration. Before the
-> > VM starts running, we limit the feature set to the subset we actually
-> > support with NV.
-> > 
-> > By doing this, we also change the value of IDreg fields that are not
-> > writable, because they describe features that we don't support.
-> > Obviously, that fails on restore.
-> > 
-> > I need to have a think...
-> 
-> We spoke about this a while ago (and I forgot til now), but I was
-> wondering if we could use vCPU feature flags to describe NV, including
-> the selection between FEAT_E2H0 and FEAT_VHE.
-> 
-> I think this might match userspace expectations a bit more closely where
-> the state of the ID registers after init gives the actual feature set
-> supported by the VM.
+Doorbell feature is implemented by mapping the EP's MSI interrupt
+controller message address to a dedicated BAR in the EPC core. It is the
+responsibility of the EPF driver to pass the actual message data to be
+written by the host to the doorbell BAR region through its own logic.
 
-I'm not sure that's enough. Let me give you an example:
+Tested-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change from v13 to v14
+- basic roll back to v9
+- use device:id as msi-map input, its will handle it
+- use existed platform_device_msi_init_and_alloc_irqs()
+- pass down epf->dev point, because epf->dev of-node will be the same as
+epc's parent.
 
-My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-reason, we don't allow this field to be written to, even out of NV
-context. This is odd, because for an EL1 VM, this field means nothing
-at all.
+Change from v12 to v13
+- Use DOMAIN_BUS_DEVICE_PCI_EP_MSI
 
-However, we don't yet support FEAT_XNX with NV (it requires some extra
-surgery in the S2 walker, in the S2 shadowing code and in AT).
+Change from v10 to v12
+- none
 
-How would you manage this field if you had a vcpu flag saying E2H0 or
-not? I don't think it helps, at least not in that particular case. It
-may help for some things, but not all.
+Change from v9 to v10
+- Create msi domain for each function device.
+- Remove only function support limiation. My hardware only support one
+function, so not test more than one case.
+- use "msi-map" descript msi information
 
-It feels that we need to define the field limit (and what is writable
-or not) based on the NV/!NV support, and maybe E2H0/VHE as well.
+  msi-map = <func_no << 8  | vfunc_no, &its, start_stream_id,  size>;
 
-This is getting complicated...
+Chagne from v8 to v9
+- sort header file
+- use pci_epc_get(dev_name(msi_desc_to_dev(desc)));
+- check epf number at pci_epf_alloc_doorbell
+- Add comments for miss msi-parent case
 
-	M.
+change from v5 to v8
+-none
+
+Change from v4 to v5
+- Remove request_irq() in pci_epc_alloc_doorbell() and leave to EP function
+driver, so ep function driver can register differece call back function for
+difference doorbell events and set irq affinity to differece CPU core.
+- Improve error message when MSI allocate failure.
+
+Change from v3 to v4
+- msi change to use msi_get_virq() avoid use msi_for_each_desc().
+- add new struct for pci_epf_doorbell_msg to msi msg,virq and irq name.
+- move mutex lock to epc function
+- initialize variable at declear place.
+- passdown epf to epc*() function to simplify code.
+---
+ drivers/pci/endpoint/Makefile     |  2 +-
+ drivers/pci/endpoint/pci-ep-msi.c | 81 +++++++++++++++++++++++++++++++++++++++
+ include/linux/pci-ep-msi.h        | 26 +++++++++++++
+ include/linux/pci-epf.h           | 16 ++++++++
+ 4 files changed, 124 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pci/endpoint/Makefile b/drivers/pci/endpoint/Makefile
+index 95b2fe47e3b06..a1ccce440c2c5 100644
+--- a/drivers/pci/endpoint/Makefile
++++ b/drivers/pci/endpoint/Makefile
+@@ -5,4 +5,4 @@
+ 
+ obj-$(CONFIG_PCI_ENDPOINT_CONFIGFS)	+= pci-ep-cfs.o
+ obj-$(CONFIG_PCI_ENDPOINT)		+= pci-epc-core.o pci-epf-core.o\
+-					   pci-epc-mem.o functions/
++					   pci-epc-mem.o pci-ep-msi.o functions/
+diff --git a/drivers/pci/endpoint/pci-ep-msi.c b/drivers/pci/endpoint/pci-ep-msi.c
+new file mode 100644
+index 0000000000000..53820744ce502
+--- /dev/null
++++ b/drivers/pci/endpoint/pci-ep-msi.c
+@@ -0,0 +1,81 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PCI Endpoint *Controller* (EPC) MSI library
++ *
++ * Copyright (C) 2025 NXP
++ * Author: Frank Li <Frank.Li@nxp.com>
++ */
++
++#include <linux/device.h>
++#include <linux/module.h>
++#include <linux/msi.h>
++#include <linux/of_irq.h>
++#include <linux/pci-epc.h>
++#include <linux/pci-epf.h>
++#include <linux/pci-ep-cfs.h>
++#include <linux/pci-ep-msi.h>
++#include <linux/slab.h>
++
++static void pci_epf_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
++{
++	struct pci_epf *epf = to_pci_epf(desc->dev);
++
++	if (epf && epf->db_msg && desc->msi_index < epf->num_db)
++		memcpy(&epf->db_msg[desc->msi_index].msg, msg, sizeof(*msg));
++}
++
++int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
++{
++	struct pci_epc *epc = epf->epc;
++	struct device *dev = &epf->dev;
++	struct irq_domain *dom;
++	void *msg;
++	u32 rid;
++	int ret;
++	int i;
++
++	rid = PCI_EPF_DEVID(epf->func_no, epf->vfunc_no);
++	dom = of_msi_map_get_device_domain(epc->dev.parent, rid, DOMAIN_BUS_PLATFORM_MSI);
++	if (!dom) {
++		dev_err(dev, "Can't find msi domain\n");
++		return -EINVAL;
++	}
++
++	dev_set_msi_domain(dev, dom);
++
++	msg = kcalloc(num_db, sizeof(struct pci_epf_doorbell_msg), GFP_KERNEL);
++	if (!msg)
++		return -ENOMEM;
++
++	epf->num_db = num_db;
++	epf->db_msg = msg;
++
++	ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
++	if (ret) {
++		/*
++		 * The pcie_ep DT node has to specify 'msi-parent' for EP
++		 * doorbell support to work. Right now only GIC ITS is
++		 * supported. If you have GIC ITS and reached this print,
++		 * perhaps you are missing 'msi-map' in DT.
++		 */
++		dev_err(dev, "Failed to allocate MSI\n");
++		kfree(msg);
++		return -ENOMEM;
++	}
++
++	for (i = 0; i < num_db; i++)
++		epf->db_msg[i].virq = msi_get_virq(dev, i);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pci_epf_alloc_doorbell);
++
++void pci_epf_free_doorbell(struct pci_epf *epf)
++{
++	platform_device_msi_free_irqs_all(&epf->dev);
++
++	kfree(epf->db_msg);
++	epf->db_msg = NULL;
++	epf->num_db = 0;
++}
++EXPORT_SYMBOL_GPL(pci_epf_free_doorbell);
+diff --git a/include/linux/pci-ep-msi.h b/include/linux/pci-ep-msi.h
+new file mode 100644
+index 0000000000000..26b1c86893ee4
+--- /dev/null
++++ b/include/linux/pci-ep-msi.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * PCI Endpoint *Function* side MSI header file
++ *
++ * Copyright (C) 2024 NXP
++ * Author: Frank Li <Frank.Li@nxp.com>
++ */
++
++#ifndef __PCI_EP_MSI__
++#define __PCI_EP_MSI__
++
++#ifdef CONFIG_PCI_ENDPOINT
++int pci_epf_msi_domain_get_msi_rid(struct device *dev, u32 *rid);
++#else
++static inline int pci_epf_msi_domain_get_msi_rid(struct device *dev, u32 *rid)
++{
++	return -EINVAL;
++}
++#endif
++
++struct pci_epf;
++
++int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 nums);
++void pci_epf_free_doorbell(struct pci_epf *epf);
++
++#endif /* __PCI_EP_MSI__ */
+diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
+index d2790b8b29394..518bc4171285e 100644
+--- a/include/linux/pci-epf.h
++++ b/include/linux/pci-epf.h
+@@ -12,6 +12,7 @@
+ #include <linux/configfs.h>
+ #include <linux/device.h>
+ #include <linux/mod_devicetable.h>
++#include <linux/msi.h>
+ #include <linux/pci.h>
+ 
+ struct pci_epf;
+@@ -125,6 +126,17 @@ struct pci_epf_bar {
+ 	int		flags;
+ };
+ 
++/**
++ * struct pci_epf_doorbell_msg - represents doorbell message
++ * @msi_msg: MSI message
++ * @virq: irq number of this doorbell MSI message
++ * @name: irq name for doorbell interrupt
++ */
++struct pci_epf_doorbell_msg {
++	struct msi_msg msg;
++	int virq;
++};
++
+ /**
+  * struct pci_epf - represents the PCI EPF device
+  * @dev: the PCI EPF device
+@@ -152,6 +164,8 @@ struct pci_epf_bar {
+  * @vfunction_num_map: bitmap to manage virtual function number
+  * @pci_vepf: list of virtual endpoint functions associated with this function
+  * @event_ops: Callbacks for capturing the EPC events
++ * @db_msg: data for MSI from RC side
++ * @num_db: number of doorbells
+  */
+ struct pci_epf {
+ 	struct device		dev;
+@@ -182,6 +196,8 @@ struct pci_epf {
+ 	unsigned long		vfunction_num_map;
+ 	struct list_head	pci_vepf;
+ 	const struct pci_epc_event_ops *event_ops;
++	struct pci_epf_doorbell_msg *db_msg;
++	u16 num_db;
+ };
+ 
+ /**
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
