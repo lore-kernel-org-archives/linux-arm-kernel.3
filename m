@@ -4,185 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2975BC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96B5C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+6Z+RZdfDV70Rt43PlEP5YHjcvpEoPwyVNtpjotEnE=; b=olVxwH1nsur8bdQx8P+z83UFLZ
-	O7YuVGrjWcmj/NSyZEgD0/XWGJreiN1oXTAFH/UmbuyPa/deiceyCmTBnaleNZU6Acv301ibKhoWB
-	BWfEQuOS7y4o8Mxf8KaNZQL7TdSm0QTGFYothEIuitUEQiYRvWW1TScnuOLLtIcOdu0TH3uJnsd21
-	BZZhsPW8jk3uXrtPzBKVoYucwoQqxFuERmfao9nNJUl/8yAnnlOzRx09xoxPTW7PnwWcLvvQOc+wJ
-	H5z9wasS9A+ud9jgxbyKOuIF/k0YP20X3Ul2WzJA7SMyeXMI772swuxqMDf90cQQ8JPG9vmqnWAND
-	WgaXP+GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mZhL/i95ufAfBWtuvZLq8ibK5stp23ydEZNFiLC6sWs=; b=Xhkp9Hjq7AaQqomCm/G2/sULo1
+	+VxirsyMx7FOewvFETZXy7jQDqQ+d4MExWqTdoN+49C9P11xJC5GF/l0gmq2a7rPNfOwxoRriCKue
+	tmDDos8C6j+vJBiWTrXWpBAUq06Y6cAIyzp6y1FTyJzLnYNIA+bDCT29bmpKtbWMJIusrh0GHb6I0
+	oooJpE3e2WYmnNaD/g/dpMKwFt19Qco8i7yFQCu22vOQO1Zor8YDvGihKcLFhppSqJSBpyzBexW6B
+	VNX1uYo/DPjq9OevRLnVcGiH7htJCUnNWjTQs9XCIBPzhbKLrp8neSwEle79bSygnLehCZMsJqVnI
+	4edrq2ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKnw-000000093fo-0lRd;
-	Fri, 07 Feb 2025 09:37:44 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tgKpH-000000093zk-3gzj;
+	Fri, 07 Feb 2025 09:39:07 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKmX-000000093Fi-3R7s
+	id 1tgKnJ-000000093XM-3XKK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 09:36:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UCn/qoAjNALnGYybHQWjU80w/Tlx8twiEnzOBJ4/OBK9uuZGPMa/MptOmqbvQPQPBq1WEOYg7YToqN38mtfkXMq9z6KyROpqmhA+hW0fCnTLo7WMOB2yjIqTs341Cv86H7pCM2W8GoqNrTty10CIeup6ZSx+n2m1vifTPkpid8NJJTR6d+/O8cvL+V+i2uBVFUp6EUtRwYfScTmBDa80ZcnpS2W0JbMPUaQawJIPuK3Dob3i+bOs3HUY5DYG9mp8HwhdhVp0ONslE72tfBrRiw7p6uCFM4uFGaZRtpnwuxEIVeGnHtROu8C4STC7LEiAR3iC9ConAnhKBj+2kN9NZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B+6Z+RZdfDV70Rt43PlEP5YHjcvpEoPwyVNtpjotEnE=;
- b=zB25XI4/lX4UO2bRJRkpIAGlH3JwHPOC4kl3hkMDqhK6Px6swFLUte9E5INV1kVApXuuBZxB0V9bQJLqgA8nZxOWko8U+McLX8GGNRTy/JS/e/df/7fqoaijjwsOWZx52jlZKOWnIhVv5FLAZ/9OrIIol0ZBmFwlvnOZ2e4pFe4dx/TX70kU6ppdu25HyhSzlDpyrZPwPzyAJn/4zCwa5KpyIFqdnmv9bJqd4SLNWaWLy+I1ir0X5S3Auwk/6aj1cj61Jwb7XyF48isGAJNMMg4yXtN6U4CvIm5hndgoRn6qdoYrmmLBvi7pMQGOc/LTGCFvVsajdJHcBia3i/Mymg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B+6Z+RZdfDV70Rt43PlEP5YHjcvpEoPwyVNtpjotEnE=;
- b=Wn2ZzRcPNjLQtox65zSDmFmlcWeoPbFbQm0R7gw4dso2pjhza1oRjh79aIsH2b7L682OLoUumM4kyWk7tNJmeHYEH2lGPpauEv/4eyGoTr46IsPDOcdqrOgRIA6DJaLvg+T8teAa7qPepoTKZYTTSZJuarQWDJM+cgQwghC9ymLMFxDuM03r7GA/u63q1OljsZ/MADu2nFhHNS09T00tcICEOYip/weYSQaJvbev16yBtkRYmGk2Zd9brW13NKcCiwCiLe7aRLr9RTAh9ubJCbuwVqCVUvqDlNppm97wIZqWyVDAqWYrZELfURRmo8QojeXjpy5XgriaWJ/IZpQUJw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB9498.eurprd04.prod.outlook.com (2603:10a6:10:360::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.23; Fri, 7 Feb
- 2025 09:36:09 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
- 09:36:09 +0000
-Date: Fri, 7 Feb 2025 18:42:45 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH v2 3/4] clk: imx: pll14xx: support spread spectrum clock
- generation
-Message-ID: <20250207104245.GA14860@localhost.localdomain>
-References: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com>
- <20250205-clk-ssc-v2-3-fa73083caa92@nxp.com>
- <CABGWkvqXf0ZmJKofrbahB5N5uer6ye6Q4s_PXz_Z61vG2pMu=g@mail.gmail.com>
- <PAXPR04MB8459F1CE0E8049355ADC9F3C88F62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <CABGWkvrKe6az5XR=MvdMwBOfeXqd5yPoF4Yf4pqyyGPD4Kpvpg@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CABGWkvrKe6az5XR=MvdMwBOfeXqd5yPoF4Yf4pqyyGPD4Kpvpg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR01CA0185.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 07 Feb 2025 09:37:06 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21f3c119fe6so36222515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:37:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1738921024; x=1739525824; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mZhL/i95ufAfBWtuvZLq8ibK5stp23ydEZNFiLC6sWs=;
+        b=isCrakp5AtoN/8lPELLn/zloiXQmD5t8u+PnjoPCcHxKXb3uKEnKBFUs/tRn8DNtYV
+         mzD/pMz/qizfybVSaAqg+NitcTSrfKtlswvdux/C/Wkxu6M8eNO34ffEVjgDZLt+kxNS
+         xomNdTvUawfq4qjoMz6xu+LojEoXi4AHN7HWk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738921024; x=1739525824;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mZhL/i95ufAfBWtuvZLq8ibK5stp23ydEZNFiLC6sWs=;
+        b=mhcnD6fixxljuQv3hz28UBIhHP7xYEfYhzrjpvb0M4kfaJ3a1FYOXocfdbcwgT2vty
+         7QviKSWNL61RwdOUnS5gMOzrvxxELlTQ6w4L0MlNrw+vC0GjVruZkS9ZAPJdlfAuVvNV
+         7BOOJZCL/0PfsUmFStueLUUyNH6bAsoDN592cCIVGwsJcfVu+HzTh2QVT58kfq1zEF0N
+         FxnljRGibkEuz8f+VmZrEeDp3AsUU97nHsOqRlRQkrD1XE0zaGnhJCuyO0EK1XexZj07
+         kS1Pt5O741d+1MYWXT4JpViBtAQdLecZCf+nZ1HsELPkPiKp/tshCZKk5gmzfEFlCC5a
+         pyBQ==
+X-Gm-Message-State: AOJu0YwfeBtxOUSPjmn4cH4zeLEu5LUB7XxxO5pVbqG6r1K73Dy1HUVI
+	DT2d6FKKPPodo7VYWKFdxpJLtJnkzM8q9oag7k8uRazDPkgwjYkyBkiNMryz/hAzIDTeVjBlBsK
+	k3B4qiyaM6dp4yhMMzRP79pSLQee1scH8AND3tw==
+X-Gm-Gg: ASbGncv395QKgiCgPMD+O85wHp1heZmUzGapXVOx9Hwdf0dZcKhTGE48pEaeeLUG12Z
+	NCfJbFX806bXSQ8vb6Pc/b+fKQE0mAKzXDfRNCZUOHUqYajAMUN+wcRLGTpfVZoCrNrK7Hrxg
+X-Google-Smtp-Source: AGHT+IFTLRhnIeDIBc4n+YndP4Au8s5C7yvvKdpJtnBdEJ/up0+6t3+ZYUTTXzsYnvptmiW9sQLE5qK9ckc0ExxBDGE=
+X-Received: by 2002:a17:902:f787:b0:216:644f:bc0e with SMTP id
+ d9443c01a7336-21f4e6c899dmr50764465ad.24.1738921024624; Fri, 07 Feb 2025
+ 01:37:04 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB9498:EE_
-X-MS-Office365-Filtering-Correlation-Id: 101a32ff-e8bd-49e9-be2e-08dd475ada45
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|13003099007|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1pNWnZ5UnYwczE5UVRYakdNTmRyOVhBNnF1YjhrQXdQRVhKU1dwQkh1cnJm?=
- =?utf-8?B?bW1vbWZSeVlVakVBTXVuRkNLT013VUdjTFNxOXV3VjgzL1RwWWEvOWpxa1Q3?=
- =?utf-8?B?SC9WTm9ocHF2OVJidlFkSzVLTWI0MU5hUlpkakJJK0RlREFqalRuWVRVQ3A1?=
- =?utf-8?B?eFM2V09ldCtLdk4vMTRHU1JPbHBFbml5YVhtcjJtUHpYeUlsa2NZSnFKSTRF?=
- =?utf-8?B?YVpnbUpWVVpvZDh2N203Y2RFL0NiOEVBZ3FIblJGRGlYS2xQeHdhK3NsTEU3?=
- =?utf-8?B?UnBCL09LY0FpZEo0MlYxR3lOV0RDMzJCL0ZMenRwOEl5Y1FNMGV4ektvb3o2?=
- =?utf-8?B?YVE1RU1ackZCKzZyT0RwV0ZuSlVoZWkvcW1tbEUvMEgwd0hzdm95SUJqWkRu?=
- =?utf-8?B?cERCeVJFQ09qcTc0eEMxQ04zMmVUSGhrOXNzUFh3V2RQZ3MzODlEZEdra3ln?=
- =?utf-8?B?d2xaS0VDVE1tb0NwZkVabzFqV2crTjlxVmhIaC84N2VPdmtBNWhtbHlSNHlX?=
- =?utf-8?B?Um0xSmhXc25WblVkeWV0Q1hFZk9IYTNobkJveTJPSTJLZnJMTDlDRDZiQXRa?=
- =?utf-8?B?eG5VRTRLRGdNTm5YdEorS2JMN3dqc3Ixb0ZsQnV2ZXhrYlNrMjZ2Zm5HOXY5?=
- =?utf-8?B?Y3VBVU1iSDZjWldnZUJPdEN1dU1YYTlqSnRZbHZWNUE1TnB0bTNvMFZ0akds?=
- =?utf-8?B?OWdtMG9FSWVjNUJJVEUwV1U3Q0FlOW5yOCtpVFhPSFVVS1FZUlB6OU9PdnRl?=
- =?utf-8?B?dVo4d3JRWlFBNjdZOWhPTkhQazRwNytmc3ZjenZiUURHLzFTaXdsb1diSzlZ?=
- =?utf-8?B?eVpHaXFvYllMbzVoMk05R0xJKzNzeHFKd3UrbEdGeEdjbHdHNGwyVk15OEtV?=
- =?utf-8?B?amtSTXdXZEVFbjFFVy82aHJZaU5paTljQkdqclJxYThGZC9SanRRcmlYMG1a?=
- =?utf-8?B?bmpZaHRMQUZiRTMrRERlNlhqMUt0WVhrQmVFTFN5MjJnVGVZMGlUdDZJa1BJ?=
- =?utf-8?B?eXRDVklGcTFsK1dvbDBOOXh0ejdGNWhpb3pDVkdpb1c4cS9ORWpXbnVEUFZU?=
- =?utf-8?B?UXl6M2g0NGtxUi9TVFBhTWF4SU41bVNaNytxazhIbm9hMGFhNGxjT1ltck1F?=
- =?utf-8?B?ZlRJN1FVdVZ0QmNsSWJ0TWRmNXJ3azhWTHM0UTR2ZGUvcUY3ZENpbUNDbW9q?=
- =?utf-8?B?Mll5ZDZHakU2c0lpMHpveUt0MnlQSHAyS1lhaG13UGx2VjBqdi9KZG0wdjVH?=
- =?utf-8?B?ZDdQSUJQdlJWOW5RK1hFcjU3MkpyUWQ5d0x3d2U2dnc0dGhKcE9TK2RYckNy?=
- =?utf-8?B?WWJYdFBPcHpwVzRTSHZUTTlldU1FNkoyY0VVY3QxdUdLdGs3eE1UOUxLM3l6?=
- =?utf-8?B?VHpaMExPTnBRTWw3dmFzZ2ZLWU9CdTB4QUthZXJudTJDMUJwL1JrMVg1Z1Zv?=
- =?utf-8?B?N3d1dlBFSzNkdk5sb1JuOExnaThYS2ZPR3NuVWpOSWFWMFhjOUo3SnN5cDN0?=
- =?utf-8?B?SW96b0FnUDBodzJ1bm1CRmpNY3V4M0FVTmhWWkl0Wk56Wkl6Y1QrRGFWYjFp?=
- =?utf-8?B?R01IV0c1eGZydjVoUHdUakw2OEdNZ0JGUlFjcW8yOEdpZ0Q5L1U4T1VSZmsx?=
- =?utf-8?B?K3ZTWUF2TS9WUUFpMU53RjNURHdYWnFZdjM3VHNaTThIOU01V1d2UDF2Vk9S?=
- =?utf-8?B?dG9sYW92YlZnbG0zRnN2ZEtGZGlVQ1lKTzVQelQxMnl0bnFEbFd2RVJROHU0?=
- =?utf-8?B?dzhIdXdFbkNLNTFOZVlDVm1kZ2lPSHdJeGcvQ3pUeUFBM2pPajBiYk1yWGtI?=
- =?utf-8?B?TTVtRnBodDB1YmZxMmNENHc0VWZJNjVWOHhVcnhHZHdDVkRCaXhZbml0VkE3?=
- =?utf-8?B?UGViR3RNUnRrMngrT1FYUkdVODlmMXp0eWVjMitkNnZ4OWc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(13003099007)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXowcHFTYytXZFlCRlRXWkFDTDlaUC96TjVaVTNrVkk1L0luU29GSXlxeTJl?=
- =?utf-8?B?M1IzTnA1ZEhEczFnSWVpblo2RGkrYitjczlLeE1pd0NmSkx5RFlQWkxzN0JC?=
- =?utf-8?B?Wjg2T3dxN2dyQW5BTDJZY2srazI1Z21jZFk0REZ6RkpFWkxWMjU3NkRJVG5C?=
- =?utf-8?B?emw1THNHRFJjcC92ZC9UM1ovWS9XcFR6VXNlelFrckI3aXF1OC9DNVQzZG5W?=
- =?utf-8?B?L3lVQ25ObnRFdG5FWVlxYjJ5aU1KZ1E3dmFsNjFDYUN2MS8vZVhkNHh4bXlh?=
- =?utf-8?B?cUh5N0kxc0UvZGprNWFnTktpdWZVVU4xWk9zRVdJYUdqVit6OXl3YWVwaXRQ?=
- =?utf-8?B?ZHRBRWQ2Z3NjNGV3L2VkZHZxOFgzeUZQdjYwcGsvdWVoTlVjNm9lUnpOdkVB?=
- =?utf-8?B?bDh0K0pPRTZLem5TdEYwU09pZ2VBWHZUS1h6akc1aFkwU1paeHZIWDdUZ040?=
- =?utf-8?B?MTdaNnZtUVdYYy8yZ0VIcUVCN3Q3VUxmK3dsL1JwMmtFOGw1RXluOHllSEll?=
- =?utf-8?B?NzdaTnFLWUdndjZ6N3lRTzJJdUoySXB2a1gyRVhUaFFrdXc2VkZxVE9WTVRj?=
- =?utf-8?B?RGxzU0VJZU1qZnNjQTBvbUNhUDh3MndBRmtOZDcxc0JUNHhiUEx2TEp5VDlW?=
- =?utf-8?B?eFFnSkNuL09jM0d1MXZBOXJlQm44Mzc5TVExM3MyYmNyNk9RbUFETjVIVjFF?=
- =?utf-8?B?N2dGUDZBejhyVE5ZTkFjYnppMWpSN3FYVGZuR1R0R3ZyVTBWS1daREtXejI5?=
- =?utf-8?B?b2cyOXFJSEsvKzF3MG9oWm1OSVVyL3hUV1pXZmlMbi9tRmR4Mi9LcUtDR3Y0?=
- =?utf-8?B?NDYvVVhCY1dvVE5RUjdSQ3BXbENtY0pwMUJ1dW40QnRRR1pqZUwzRUpnNDg5?=
- =?utf-8?B?UFNYaHljUFd5NVhzb3FJbmxCNExHdVF0enVTYzFmTG0wdmErdTYwbFFuU2NV?=
- =?utf-8?B?SGQzYTY2UHVqYk85K1BVdUJCVmt3WmVzT2FMTVZiTk5nUkVoMTFLM3Z1OU13?=
- =?utf-8?B?ODFZa2lkaGhNOXhVdURJTEpheU9qYUcxTnZvZStwMFQ3YXZZVDljV2lFbWdX?=
- =?utf-8?B?VG1IcTh4d2Y3ZkhVeE5teDdQdnY2MS9OWldXMnV6ZzdHUDhsWlIrQ3ZIbGVW?=
- =?utf-8?B?Q0FEcTg4Y2g1dE03UUlMdXJpcStydStpQzNzZC9ycG1zbTlMSUs5eGZHd0F1?=
- =?utf-8?B?VVNhSTFGYVM1cTRBSURGMGltK2VSbEgzREl3R3RTME5kb2pGMWs1YTJTV0Np?=
- =?utf-8?B?RGJnNDhxK3ZvdG1mS1M4dVMxaG50S3BvM2Z6THFvVWZnK0xPRm1uM1kzaWlv?=
- =?utf-8?B?Unh4aFZiYTRob1g1UUNLWlkzUTFVQy9iYzRTRkRFcDVTRXRwN0pYMjQxL2lp?=
- =?utf-8?B?cVhEOVlCOE1wS3ZxUWprTGNvQy9mQVVvMlBMOThXdHdaZ21nakkzQjNGcWxl?=
- =?utf-8?B?KzdEVFB4encvWXRQME83NG96SlY2VmNXUmxya1c5UmY5UWgrbUd2RE9CQ3pH?=
- =?utf-8?B?Wm9ybTdSQi9wY3pQeUhxcjVDa3FLWUJPS090N1NxRHBDOFBmZG8wRFlTU1BQ?=
- =?utf-8?B?M0xrWmVaR3hNc2RVU09uOHJIMUN5b2d3NTBEMlUzOTVoNTljVmdPNDh2VHV5?=
- =?utf-8?B?TDJVb3ZWTW9UdDlNalZ2eFZXZFN2TWZBWFZxeEgvOVl4SzQzSmlnd29mMXJh?=
- =?utf-8?B?cG8reW90M3YraWcraDhXb1V4V09BVnpEM0Mvd2VFMXNGQnVYYmR6bWVKMmg2?=
- =?utf-8?B?NHBpYVBNTnR3aVlWeGY3MStKRGxqWmwwMUI1UVZWcFdLOTVFVHZnVXZ2QXlD?=
- =?utf-8?B?RVYwTTN3K1NnRFFMK0xYV0JBak1SNnlzT0VOLzZEcVFCU1l4SXJnaEhyM1JH?=
- =?utf-8?B?cGFDQ29ZbVdVQ3dwaVg1TmxiMUxOKytnTWNEd1ViR0tHVVNpVnJUazhkbEtu?=
- =?utf-8?B?ZG5pSURtTlcrSzNKQXA5eHpJdmVhK2Z3YzR3ZGRjbFBRSFB1U2tRT3NhSGlw?=
- =?utf-8?B?dCt2d043NzBCcGRrR1pCNU9LZTBlQXV5VDdvUUNLd0FzeGdsT0hsaEVQNW00?=
- =?utf-8?B?OWlDRzNFdUNPK1NYeUhWQnJXclREMmJlNXkybXA5TjRpM3ZIK0ZmVkZ3enBq?=
- =?utf-8?Q?J/CyyhamkwtU7/jtxC6btKZM7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 101a32ff-e8bd-49e9-be2e-08dd475ada45
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 09:36:09.5506
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1ysC65khfyrn4XC99/KuW/Slwt3QL2zeKOugywEsjlrO5ApOrYus2KV3p4wH+0BiFodZ4mgNSEQDIRCfjQAnvg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9498
+From: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
+Date: Fri, 7 Feb 2025 10:36:53 +0100
+X-Gm-Features: AWEUYZmCkCyH1BS9LZ9x1n2fW_-lsuLLPCRZlTScJUM6VWkGhV88TleerD02bZU
+Message-ID: <CAOf5uw=SHCLAH21RbZCVYyU6m4KRD9g=KsYg0b9vq=AFu+cb+Q@mail.gmail.com>
+Subject: EDAC on imx8mp and ddr scaling
+To: Shawn Guo <shawnguo@kernel.org>, Sherry Sun <sherry.sun@nxp.com>
+Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_013618_021955_58539231 
-X-CRM114-Status: GOOD (  30.99  )
+X-CRM114-CacheID: sfid-20250207_013705_890346_F7D222D7 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,337 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Sherry and Shawn
 
-On Thu, Feb 06, 2025 at 04:31:46PM +0100, Dario Binacchi wrote:
->Hi Peng,
->
->On Thu, Feb 6, 2025 at 1:53 AM Peng Fan <peng.fan@nxp.com> wrote:
->>
->> > Subject: Re: [PATCH v2 3/4] clk: imx: pll14xx: support spread spectrum
->> > clock generation
->> >
->> > Hi Peng,
->> >
->> > On Wed, Feb 5, 2025 at 10:51 AM Peng Fan (OSS)
->> > <peng.fan@oss.nxp.com> wrote:
->> > >
->> > > From: Peng Fan <peng.fan@nxp.com>
->> > >
->> > > Add support for spread spectrum clock (SSC) generation to the
->> > pll14xxx
->> > > driver.
->> > >
->> > > Co-developed-by: Dario Binacchi
->> > <dario.binacchi@amarulasolutions.com>
->> > > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> >
->> > It doesn’t seem right to me.
->> > You can’t take 90% of my patch, where the SSC management was
->> > actually implemented, add 10%, and consider yourself the author of
->> > the patch.
->> > Please correct it in version 3.
->>
->> Ah. But if you look into the patches, 10% is not accurate
->> per lines I change.
->> you could see more changes compared with your patch
->> https://lore.kernel.org/all/20250118124044.157308-18-dario.binacchi@amarulasolutions.com/.
->>
->> 1. Use set_spread_spectrm ops
->> 2. Use clk_spread_spectrum to replace imx_pll14xx_ssc
->> 3. Drop imx_clk_pll14xx_ssc_parse_dt and clk_pll14xx_ssc_mod_type. This one would
->>  count over 50% changes.
->>
->> The logic that I only did minor update is the function
->> clk_pll1443x_enable_ssc with switching to use clk_spread_sectrum
->
->Sorry if I miscounted the lines, but here we are not considering who
->actually implemented
->the algorithmic part of the SSC management and all the time spent
->testing the code on more
->than one platform/board with each submission of the series for all 9 versions.
->
->[1] https://lore.kernel.org/all/20250118124044.157308-18-dario.binacchi@amarulasolutions.com/
->
->Your changes, which are unnecessary for the clk-scmi.c changes, only
->serve to support the
->DT binding `assigned-clock-sscs`, which, as Krzysztof also reiterated:
->
->https://github.com/devicetree-org/dt-schema/pull/154
->
->you should have proposed during the review of series [1]. You are the
->NXP reviewer.
->
->>
->> If you think it is not fair, I could drop this patch in V3 and leave it to you to handle.
->> I take this patch in the patchset, mainly to ease your work and make
->
->Sorry for quoting Krzysztof again, but:
->"Three months iMX8 patchsets, multiple reviews and no single comment
->from you till January!"
+I have seen that with this patch "arm64: dts: imx8mp: add ddr
+controller node to support EDAC on imx8mp" but on the same time
+the ddr scaling is coming from arm_smccc_smc DVFS frequency scaling
+that is managed from imx8m-ddrc. We have tested it a bit
+to understand if the circle to have the code call from linux to ATF
+was somehow working. We don't check other than small things.
+If the imx8mp is compatible with imx8m-ddrc and synopsys memory
+controller, should not needed to merge the support in the
+synopsys connected to the board platform data?
 
-
-Sigh! I feel depressed, frustrated on such conclusion.
-
-My previous reviewing work got ignored.
-
-For the i.MX clk patches that changes dt-bindings. Only when the dt-binding
-patches got R-b/A-b or not have big issues, I start to review the driver
-changes.
-
-So in your V1/V2, I not engage, because Krzysztof has major
-comments on your bindings that needs big driver changes.
-
-In you V3,
-Krzysztof is still not happy with the binding part, so I start to propose
-a potential solution to split anatop and ccm. This is in 2024 Nov-8th which is
-two days just after you posted the patchset.
-
-In your V4, you still have binding changes required from Krzysztof.
-In your V6, after you got R-b/A-b from Krzysztof and addressed some
-binding comments, I provided my R-b for some patches. This is in 2024 Dec-24th.
-
-In your V8, you got my R-b for all the changes related to driver changes.
-This is 2024 Jan-6th, which is 7 days after you posted the patchset.
-
-In your V9, you added extra 5 patches. I not continue my reviewing for
-the extra 5 patches.
-
->
->So please, if you really want to ease my work, then remove this patch
->from this series and resume
->reviewing series [1].
-
-Krzysztof raised that "assigned-clock-sscs" makes the vendor properties
-legacy, so I will not review the extra 5 patches unless the
-'assigned-clock-sscs' stuff got rejected. Sorry.
-
-I had similar situation that my access-controller v8 patch got a comment
-that needs big changes. Complain does not make things good. This may not
-be common, but it could suddenly jump in.
-
-So please not blame me.
-
-I will drop this patch in future version of this patchset.
-
-Thanks,
-Peng.
-
->
->Thanks and regards,
->Dario
->
->> assigned-clock-sscs moving forward, considering SCMI spec needs update
->> (clk-scmi.c changes will not land soon).
->>
->> Regards
->> Peng.
->>
->> >
->> > Thanks and regards,
->> > Dario
->> >
->> > > ---
->> > >  drivers/clk/imx/clk-pll14xx.c | 66
->> > > +++++++++++++++++++++++++++++++++++++++++++
->> > >  1 file changed, 66 insertions(+)
->> > >
->> > > diff --git a/drivers/clk/imx/clk-pll14xx.c
->> > > b/drivers/clk/imx/clk-pll14xx.c index
->> > >
->> > f290981ea13bdba3602af7aa44aaadfe0b78dcf9..3bdce762a9d651a6fb
->> > 048dcbf58d
->> > > b396af9d3aaf 100644
->> > > --- a/drivers/clk/imx/clk-pll14xx.c
->> > > +++ b/drivers/clk/imx/clk-pll14xx.c
->> > > @@ -20,6 +20,8 @@
->> > >  #define GNRL_CTL       0x0
->> > >  #define DIV_CTL0       0x4
->> > >  #define DIV_CTL1       0x8
->> > > +#define SSCG_CTRL      0xc
->> > > +
->> > >  #define LOCK_STATUS    BIT(31)
->> > >  #define LOCK_SEL_MASK  BIT(29)
->> > >  #define CLKE_MASK      BIT(11)
->> > > @@ -31,15 +33,26 @@
->> > >  #define KDIV_MASK      GENMASK(15, 0)
->> > >  #define KDIV_MIN       SHRT_MIN
->> > >  #define KDIV_MAX       SHRT_MAX
->> > > +#define SSCG_ENABLE    BIT(31)
->> > > +#define MFREQ_CTL_MASK GENMASK(19, 12) #define
->> > MRAT_CTL_MASK
->> > > +GENMASK(9, 4)
->> > > +#define SEL_PF_MASK    GENMASK(1, 0)
->> > >
->> > >  #define LOCK_TIMEOUT_US                10000
->> > >
->> > > +enum imx_pll14xx_ssc_mod_type {
->> > > +       IMX_PLL14XX_SSC_DOWN_SPREAD,
->> > > +       IMX_PLL14XX_SSC_UP_SPREAD,
->> > > +       IMX_PLL14XX_SSC_CENTER_SPREAD, };
->> > > +
->> > >  struct clk_pll14xx {
->> > >         struct clk_hw                   hw;
->> > >         void __iomem                    *base;
->> > >         enum imx_pll14xx_type           type;
->> > >         const struct imx_pll14xx_rate_table *rate_table;
->> > >         int rate_count;
->> > > +       struct clk_spread_spectrum      ssc_conf;
->> > >  };
->> > >
->> > >  #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
->> > > @@ -349,6 +362,42 @@ static int clk_pll1416x_set_rate(struct
->> > clk_hw *hw, unsigned long drate,
->> > >         return 0;
->> > >  }
->> > >
->> > > +static void clk_pll1443x_enable_ssc(struct clk_hw *hw, unsigned
->> > long parent_rate,
->> > > +                                   unsigned int pdiv, unsigned int
->> > > +mdiv) {
->> > > +       struct clk_pll14xx *pll = to_clk_pll14xx(hw);
->> > > +       struct clk_spread_spectrum *conf = &pll->ssc_conf;
->> > > +       u32 sscg_ctrl, mfr, mrr, mod_type;
->> > > +
->> > > +       sscg_ctrl = readl_relaxed(pll->base + SSCG_CTRL);
->> > > +       sscg_ctrl &=
->> > > +               ~(SSCG_ENABLE | MFREQ_CTL_MASK | MRAT_CTL_MASK |
->> > > + SEL_PF_MASK);
->> > > +
->> > > +       mfr = parent_rate / (conf->modfreq * pdiv * (1 << 5));
->> > > +       mrr = ((conf->spreaddepth / 100) * mdiv * (1 << 6)) / (100 *
->> > > + mfr);
->> > > +
->> > > +       switch (conf->method) {
->> > > +       case CLK_SSC_CENTER_SPREAD:
->> > > +               mod_type = IMX_PLL14XX_SSC_CENTER_SPREAD;
->> > > +               break;
->> > > +       case CLK_SSC_UP_SPREAD:
->> > > +               mod_type = IMX_PLL14XX_SSC_UP_SPREAD;
->> > > +               break;
->> > > +       case CLK_SSC_DOWN_SPREAD:
->> > > +               mod_type = IMX_PLL14XX_SSC_DOWN_SPREAD;
->> > > +               break;
->> > > +       default:
->> > > +               mod_type = IMX_PLL14XX_SSC_DOWN_SPREAD;
->> > > +               break;
->> > > +       }
->> > > +
->> > > +       sscg_ctrl |= SSCG_ENABLE | FIELD_PREP(MFREQ_CTL_MASK,
->> > mfr) |
->> > > +               FIELD_PREP(MRAT_CTL_MASK, mrr) |
->> > > +               FIELD_PREP(SEL_PF_MASK, mod_type);
->> > > +
->> > > +       writel_relaxed(sscg_ctrl, pll->base + SSCG_CTRL); }
->> > > +
->> > >  static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long
->> > drate,
->> > >                                  unsigned long prate)  { @@ -370,6
->> > > +419,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw,
->> > unsigned long drate,
->> > >                 writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
->> > >                                pll->base + DIV_CTL1);
->> > >
->> > > +               if (pll->ssc_conf.enable)
->> > > +                       clk_pll1443x_enable_ssc(hw, prate, rate.pdiv,
->> > > + rate.mdiv);
->> > > +
->> > >                 return 0;
->> > >         }
->> > >
->> > > @@ -410,6 +462,9 @@ static int clk_pll1443x_set_rate(struct
->> > clk_hw *hw, unsigned long drate,
->> > >         gnrl_ctl &= ~BYPASS_MASK;
->> > >         writel_relaxed(gnrl_ctl, pll->base + GNRL_CTL);
->> > >
->> > > +       if (pll->ssc_conf.enable)
->> > > +               clk_pll1443x_enable_ssc(hw, prate, rate.pdiv,
->> > > + rate.mdiv);
->> > > +
->> > >         return 0;
->> > >  }
->> > >
->> > > @@ -465,6 +520,16 @@ static void clk_pll14xx_unprepare(struct
->> > clk_hw *hw)
->> > >         writel_relaxed(val, pll->base + GNRL_CTL);  }
->> > >
->> > > +static int clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
->> > > +                                           struct clk_spread_spectrum
->> > > +*clk_ss) {
->> > > +       struct clk_pll14xx *pll = to_clk_pll14xx(hw);
->> > > +
->> > > +       memcpy(&pll->ssc_conf, clk_ss, sizeof(pll->ssc_conf));
->> > > +
->> > > +       return 0;
->> > > +}
->> > > +
->> > >  static const struct clk_ops clk_pll1416x_ops = {
->> > >         .prepare        = clk_pll14xx_prepare,
->> > >         .unprepare      = clk_pll14xx_unprepare,
->> > > @@ -485,6 +550,7 @@ static const struct clk_ops clk_pll1443x_ops
->> > = {
->> > >         .recalc_rate    = clk_pll14xx_recalc_rate,
->> > >         .round_rate     = clk_pll1443x_round_rate,
->> > >         .set_rate       = clk_pll1443x_set_rate,
->> > > +       .set_spread_spectrum = clk_pll1443x_set_spread_spectrum,
->> > >  };
->> > >
->> > >  struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const
->> > char
->> > > *name,
->> > >
->> > > --
->> > > 2.37.1
->> > >
->> >
->> >
->> > --
->> >
->> > Dario Binacchi
->> >
->> > Senior Embedded Linux Developer
->> >
->> > dario.binacchi@amarulasolutions.com
->> >
->> > __________________________________
->> >
->> >
->> > Amarula Solutions SRL
->> >
->> > Via Le Canevare 30, 31100 Treviso, Veneto, IT
->> >
->> > T. +39 042 243 5310
->> > info@amarulasolutions.com
->> >
->> > https://eur01.safelinks.protection.outlook.com/?url=http%3A%2F%2F
->> > www.amarulasolutions.com%2F&data=05%7C02%7Cpeng.fan%40nxp.
->> > com%7Cbeaf5bdcc6694a5a1a1708dd45d701db%7C686ea1d3bc2b4c6
->> > fa92cd99c5c301635%7C0%7C0%7C638743511953067272%7CUnkno
->> > wn%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDA
->> > wMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C
->> > %7C%7C&sdata=UFgy1bS7QJ7qenzKFTkPBNfOGn0V89CGR9NLOBka0U
->> > 8%3D&reserved=0
->
->
->
->-- 
->
->Dario Binacchi
->
->Senior Embedded Linux Developer
->
->dario.binacchi@amarulasolutions.com
->
->__________________________________
->
->
->Amarula Solutions SRL
->
->Via Le Canevare 30, 31100 Treviso, Veneto, IT
->
->T. +39 042 243 5310
->info@amarulasolutions.com
->
->www.amarulasolutions.com
+Best regards
+Michael
 
