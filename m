@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2036BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EF2C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxcMc+Jnd6liI/vVt2TNxV/WalgtHG3QV00utKpzyUs=; b=ip7hKugw7WhK8u/Jsur4YKz/tc
-	fBKJ5T9p6XE5MldpD2CSU/Z6r0+4SvFV1YstXGbTc4r1S38Q70K/43IOQjk2y4IugKKsfOyfv27cf
-	Z6DOUwEJgzx//DleR0uJLkwgAX8eohr+s1xXaD2XSDnNGRckNvV1c9DixBgXfPHQ1NlpfyNlDJqwo
-	jlDlF+gsv6RmCYFA1/iCqBktl4KP5pmacH/5mFDto3Ajvvq3ePFx9uF7BV7IXCHTKYSwUKa+YAg6j
-	Q21UKbMp9IssaL2E6yv71LoNHR6rRC5QMQ0/jEsuzosKP/gVWvd8sp3maH9yEXxfzsQagrEK7lwUh
-	BszLI22g==;
+	bh=3KRJ17DViepnf8E3KQTzXcqlWYspDMFXaJFpjLfW09g=; b=ljNahV/O7178KQmUq7K8pHFPco
+	k6KHBZxwnStj/WHoaeuelaztlq5KI6TYQFPg1u8GMb81U613BMd/suW9eEs6fUOgDNm7EfMpKC7AN
+	RWg8CHRQx+0mPREbbAnPkE790rio6uGg7NVT5BX+2YLaW9aCCb9tBPxtHNnYQtoVmrPt6QDE27OLb
+	rC40MxlLIuMLQH7yPuYIG+qgexD8KTk6YY9rEyhTfBgHpO+PxsRq4KaZEFds+p6hP1882D4VIJX2p
+	1l0BOltdbT9VzkRFjFiUw5YZvD6fQqZ1bsjBZY1aEBr6QTwD0eQ80ELuT7ax2P/ZAX1xiqEmnCfzk
+	uUNne8QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSGn-0000000AVrc-0Mgg;
-	Fri, 07 Feb 2025 17:36:01 +0000
+	id 1tgSI8-0000000AWEA-3Jpx;
+	Fri, 07 Feb 2025 17:37:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRnD-0000000APh5-1rhQ
+	id 1tgRnW-0000000APo0-2DDH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:05:28 +0000
+	Fri, 07 Feb 2025 17:05:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4515113E;
-	Fri,  7 Feb 2025 09:05:49 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D024C113E;
+	Fri,  7 Feb 2025 09:06:08 -0800 (PST)
 Received: from [10.1.26.24] (e122027.cambridge.arm.com [10.1.26.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DFEE3F63F;
-	Fri,  7 Feb 2025 09:05:21 -0800 (PST)
-Message-ID: <2987f990-6535-4df0-896f-7cb0eec79aca@arm.com>
-Date: Fri, 7 Feb 2025 17:05:21 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA6573F63F;
+	Fri,  7 Feb 2025 09:05:41 -0800 (PST)
+Message-ID: <7e03ad4a-ca82-4fe6-b789-1990dbbaf256@arm.com>
+Date: Fri, 7 Feb 2025 17:05:39 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 28/43] arm64: rme: Allow checking SVE on VM instance
+Subject: Re: [PATCH v6 29/43] arm64: RME: Always use 4k pages for realms
 To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
  Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-29-steven.price@arm.com>
- <4cd1b360-6902-4800-93a2-905cfd8ca7f8@redhat.com>
+ <20241212155610.76522-30-steven.price@arm.com>
+ <82659880-f7a6-48ad-bf54-8371fc3d41d8@redhat.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <4cd1b360-6902-4800-93a2-905cfd8ca7f8@redhat.com>
+In-Reply-To: <82659880-f7a6-48ad-bf54-8371fc3d41d8@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_090527_573622_214CD54B 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250207_090546_645449_F6949A21 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,102 +76,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/2025 06:00, Gavin Shan wrote:
+On 02/02/2025 06:52, Gavin Shan wrote:
 > On 12/13/24 1:55 AM, Steven Price wrote:
->> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Always split up huge pages to avoid problems managing huge pages. There
+>> are two issues currently:
 >>
->> Given we have different types of VMs supported, check the
->> support for SVE for the given instance of the VM to accurately
->> report the status.
+>> 1. The uABI for the VMM allows populating memory on 4k boundaries even
+>>     if the underlying allocator (e.g. hugetlbfs) is using a larger page
+>>     size. Using a memfd for private allocations will push this issue onto
+>>     the VMM as it will need to respect the granularity of the allocator.
 >>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> 2. The guest is able to request arbitrary ranges to be remapped as
+>>     shared. Again with a memfd approach it will be up to the VMM to deal
+>>     with the complexity and either overmap (need the huge mapping and add
+>>     an additional 'overlapping' shared mapping) or reject the request as
+>>     invalid due to the use of a huge page allocator.
+>>
+>> For now just break everything down to 4k pages in the RMM controlled
+>> stage 2.
+>>
 >> Signed-off-by: Steven Price <steven.price@arm.com>
 >> ---
->>   arch/arm64/include/asm/kvm_rme.h | 2 ++
->>   arch/arm64/kvm/arm.c             | 5 ++++-
->>   arch/arm64/kvm/rme.c             | 5 +++++
->>   3 files changed, 11 insertions(+), 1 deletion(-)
+>>   arch/arm64/kvm/mmu.c | 4 ++++
+>>   1 file changed, 4 insertions(+)
 >>
->> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->> asm/kvm_rme.h
->> index 90a4537ad38d..0d89ab1645c1 100644
->> --- a/arch/arm64/include/asm/kvm_rme.h
->> +++ b/arch/arm64/include/asm/kvm_rme.h
->> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
->>   u32 kvm_realm_ipa_limit(void);
->>   u32 kvm_realm_vgic_nr_lr(void);
->>   +bool kvm_rme_supports_sve(void);
->> +
->>   int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
->>   int kvm_init_realm_vm(struct kvm *kvm);
->>   void kvm_destroy_realm(struct kvm *kvm);
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 134acb4ee26f..6f7f96ab781d 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -456,7 +456,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
->> long ext)
->>           r = get_kvm_ipa_limit();
->>           break;
->>       case KVM_CAP_ARM_SVE:
->> -        r = system_supports_sve();
->> +        if (kvm_is_realm(kvm))
->> +            r = kvm_rme_supports_sve();
->> +        else
->> +            r = system_supports_sve();
->>           break;
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index e88714903ce5..9ede143ccef1 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1603,6 +1603,10 @@ static int user_mem_abort(struct kvm_vcpu
+>> *vcpu, phys_addr_t fault_ipa,
+>>       if (logging_active) {
+>>           force_pte = true;
+>>           vma_shift = PAGE_SHIFT;
+>> +    } else if (kvm_is_realm(kvm)) {
+>> +        // Force PTE level mappings for realms
+>> +        force_pte = true;
+>> +        vma_shift = PAGE_SHIFT;
+>>       } else {
+>>           vma_shift = get_vma_page_shift(vma, hva);
+>>       }
 > 
-> kvm_vm_ioctl_check_extension() can be called by
-> ioctl(KVM_CHECK_EXTENSION) on the
-> file descriptor of '/dev/kvm'. kvm is NULL and kvm_is_realm() returns
-> false in
-> this case.
+> Since a memory abort is specific to a vCPU instead of a VM, so
+> vcpu_is_rec()
+> instead of kvm_is_realm() is more accurate for the check. Besides, it looks
+> duplicate to the check added by "PATCH[20/43] arm64: RME: Runtime faulting
+> of memory", which is as below.
 > 
-> kvm_dev_ioctl
->   kvm_vm_ioctl_check_extension_generic  // kvm is NULL
->     kvm_vm_ioctl_check_extension
+>        /* FIXME: We shouldn't need to disable this for realms */
+>        if (vma_pagesize == PAGE_SIZE && !(force_pte || device ||
+> kvm_is_realm(kvm))) {
+>                                                                 
+> ^^^^^^^^^^^^^^^^^
+>                                                                  Can be
+> dropped now.
 
-See my reply in patch 25
-
->>       case KVM_CAP_ARM_PTRAUTH_ADDRESS:
->>       case KVM_CAP_ARM_PTRAUTH_GENERIC:
->> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
->> index 5831d379760a..27a479feb907 100644
->> --- a/arch/arm64/kvm/rme.c
->> +++ b/arch/arm64/kvm/rme.c
->> @@ -20,6 +20,11 @@ static bool rme_supports(unsigned long feature)
->>       return !!u64_get_bits(rmm_feat_reg0, feature);
->>   }
->>   +bool kvm_rme_supports_sve(void)
->> +{
->> +    return rme_supports(RMI_FEATURE_REGISTER_0_SVE_EN);
->> +}
->> +
-> 
-> If rme_supports() becomes a public helper, it can be directly used. In
-> turn,
-> kvm_rme_supports_sve() can be dropped. RMI_FEATURE_REGISTER_0_SVE_EN is
-> obvious
-> to indicate the corresponding feature.
-
-I agree this seem reasonable. Sadly the use of u64_get_bits() is
-assuming that the 'feature' parameter is constant at runtime. I could
-rework it to not require a constant, but considering this is the only
-function which is exposing rme_supports() without any further checks I
-feel it's better to leave the code as it is.
-
-Obviously if we get more feature bits like this in the future then it
-would be worth revisiting.
+Indeed, thanks for that - one less FIXME ;)
 
 Thanks,
 Steve
 
->>   static int rmi_check_version(void)
->>   {
->>       struct arm_smccc_res res;
-> 
 > Thanks,
 > Gavin
+>                 
 > 
 
 
