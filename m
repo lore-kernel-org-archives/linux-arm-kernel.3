@@ -4,66 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75AAC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E60C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S2JN7acEOnnpYF6SorF298vSINNq+oWjlH4/5NBSfyY=; b=St9YBuuds8Zv1u
-	DvhfTOu27y3PW7Clsr7AzLT6rdInfeOoYd5/1RzHxpzWlHDRHN3m8LK9iz4FNyd6UqGM1TWB/v+bl
-	bPNkzX3IVPMqXB4NgkpL4cGQNLHtIbDVPsmlCOG2wb+Vi9gIHDOjgZPGdVh5R/ujw5hMfBFAGvy4S
-	YrrmmAj/6DKAFQxxbp2643/QWUDhkUe3AVHgc62e7prDG7tillr1wwHjgsjwDHCGFlYF+qTxn643q
-	ARsOW/E0ZmWtlLHxCjGFXtQmzxpnwb697lAdnYWugt6zKQQgsVFdpSPJ3xGSXuLJCj5pJIIEKqG0V
-	eAM3MhMSj+OhIw7H+cwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7D2miebxBIT6q8sHGNpLMvU70E41mW7zkJcH/f6s7NQ=; b=qJtUkWcpqSSKqNw+E29faknOU0
+	whLiCgHte5tmzYHelPJ7lSgkLKKqS164RdPnmKn3lFWoy3uvIQp3BoZMnaX9mshmAtcPhGqp6dcb4
+	cTQchCPdd6SbXHvhdSyIg1bU23iyYMHvPZh7SlacgIscwee3QR7vjzLEAB3tnMsLWSrRAAmntOW8e
+	ujr1PYkqEC01SoKhsIrXh7iBjXJTk+ANZYetDM2orgucmUq3c7pSaxXjeXeMBSfDoHUDouyW4udV6
+	hyynpd3QHNsfai7wzFuceaEkmyAAVRQUGML8Njbs4c9Z2q+McMjzEilGB82vyfex82cCztvFoKYmQ
+	edxz28ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLrb-00000009Fbe-3Iyb;
-	Fri, 07 Feb 2025 10:45:35 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tgLur-00000009G9j-2JQH;
+	Fri, 07 Feb 2025 10:48:57 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLqD-00000009FGX-08EM
+	id 1tgLtT-00000009Fyd-1ARl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 10:44:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CA82E4341E;
-	Fri,  7 Feb 2025 10:44:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738925046;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=S2JN7acEOnnpYF6SorF298vSINNq+oWjlH4/5NBSfyY=;
-	b=HaNH6WWFViXuiG2j0REEdEA7Huzmr47PqsGfPagJxsHdJYbotxExCUATLn7KdciQ5z+OeE
-	SnVoCCuh7O0xu/LfCMmQJwrpdXU9wivbuYvqL3xNOv857o9Kt5lTkkd/BelPnyK0SK7oD/
-	eHx646DAA+sZUqiq3xhAMU2z4255Uq4y4P2sL2XLOKKoag0s8Ya0dVf5/s/GlGB2nSvmqr
-	xeP7XFChYhGVl+Fyfkg+QJUnP5VcHft/XlsrsoE4Ev0W+NRdxPZ0tXdKMHmDi53JWapH7P
-	gEIQuiMR/bsX0Qi+Z8oLFEQYHSjji99C06ryYEuNQMDD4P/dbggMiSEFEuBUOw==
-Date: Fri, 7 Feb 2025 11:44:01 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v6 15/26] drm/bridge: devm_drm_of_get_bridge and
- drmm_of_get_bridge: automatically put the bridge
-Message-ID: <20250207114401.7869b422@booty>
-In-Reply-To: <w3qufv73ldzdcfuz6n3prx4di2dhoq2wfqmmvxvxkea6uqxkge@pjwmugvicsbt>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
-	<20250206-hotplug-drm-bridge-v6-15-9d6f2c9c3058@bootlin.com>
-	<w3qufv73ldzdcfuz6n3prx4di2dhoq2wfqmmvxvxkea6uqxkge@pjwmugvicsbt>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Fri, 07 Feb 2025 10:47:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dN2yIBy1mxk91RQsr+edvWKwTtVZ3s1ArlCT3V+di+Pb3rT7J/iZWihEg8z89ZJNWxlQOpoZMLjEcaX7BFgwVywU6um45fYzOVEBW/tmvFBs+HbQjmTmypiGJRB8BpAJ/BOx+mRoRBE+4VVVrqfmMUH8dWXGfp9JZLOS1rJECI5vUR6BhApcyXdH2PJvQWb4dTp+djFmHrTJpNzYtgKJdQX2nulHlanTlv+GOh7TDQjjK6UxLH1sUZWVAWMtTnzUtOZxXgDRGWMPg53DPZ+R5VokpHwx0GrJu8LPWKhaTLymZLfb1LziPwtL05diRIvh98b2e0HB1U7LDJ8vU5NYpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7D2miebxBIT6q8sHGNpLMvU70E41mW7zkJcH/f6s7NQ=;
+ b=h6KR+xvp7hYVRbsM6LId9keUaDLOyYYjYwjZiTNhI58UnYa99HdhzLiLJqzTustqPZHQcNB/i3x5pYIHSYO/5H//0EsmGNh0OHF/WnrSDRgzm/s1rW7SaNKSIVvCfPsmsnxnYrBMels2DHMMKoqUNxkYMcQJzHhObHRap5W83Ds5a+FpqivsxmYK6VgIioaCl9lCjqSnN4LVF+5bN3Wt7X9j2eF6nMW/Aam46M8wdjzEf/z6RsprOAXa5DuFvkqY7cT/5/ANRQLXRq2ZmllLo2QJ7sJxc1hLD6MBTqWj1ecGzHF+YqdcCMRtwgYy9/YKrYauBUoXDoIOZ4XfpuzOgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7D2miebxBIT6q8sHGNpLMvU70E41mW7zkJcH/f6s7NQ=;
+ b=XfU4zUB+bx6a2H5W0xn3PEX4IId80nAK00CsJTjHQMOZu+Mc33p5drr5Ai2jbRwyJH7pBA4nxfV15FWDJO158gMlgcMnFpSYJsZQesedAVTe4dX9F8ZqARK2+p4I/dI22YGhLAt56au4RJr084pqqqu8t1MTigXStqHidUb/VEK5KzugkmuhRWSUMqKJi1Z+qjzAWDy5D7J4Wdh0sK98MTEHY0SAIHytncefyCJIAEAYZiKnop5AHmo/5W+XIYeAA4GDehJ3q7A1B9r49FkX3mX2p2lnEo/KiWw9WxuC44qVDtZavVOOQbDy48dILKy8CfQGnB8FP/t84h/Mi3UieQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8491.eurprd04.prod.outlook.com (2603:10a6:102:1df::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
+ 2025 10:47:27 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 10:47:27 +0000
+Date: Fri, 7 Feb 2025 19:54:11 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 03/10] arm64: dts: imx8mn: Add i.MX8M Nano OCOTP
+ disable fuse definitions
+Message-ID: <20250207115411.GC14860@localhost.localdomain>
+References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com>
+ <20250207083616.1442887-4-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250207083616.1442887-4-alexander.stein@ew.tq-group.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR06CA0212.apcprd06.prod.outlook.com
+ (2603:1096:4:68::20) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopegumhhithhrhidrsggrrhihshhhkhhovheslhhinhgrrhhordhorhhgpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehinhhkihdruggrvgesshgrmhhsuhhnghdrt
- ghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8491:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9333236f-78e0-4121-2cce-08dd4764d05b
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t4pGgmpAzax0UgQXr59wVjK/bPW/SGI+pUpw0FHXHRBWALQaYBL9+Q9mme8+?=
+ =?us-ascii?Q?TQzxyW2aEsKEVLdfGAbQuepNN/TNlXITwNZKcXW63vnXuYV2htWPahiTmY9i?=
+ =?us-ascii?Q?w9RR19m2J7sTViym5fnZBq+ogdboIbOCZ7BM+hbPBySOCq/XcPRUfVUg2Npg?=
+ =?us-ascii?Q?RVaOmkqEWXgfgRtPbQRdC5dutgyMvHp24oHFZ7tbvALLyX6yNT+li9KjQeCN?=
+ =?us-ascii?Q?nRT4PYe3GQpwg9TV0AD1qL6dk6j4XDQFZNUfeTbjYtmgtg/pbc9BqAZNBo/Z?=
+ =?us-ascii?Q?iHceIcQ8GmuLdK+4HJycIYakoQOCXbgzg8FE12gN0fiT7/oUti0EFEZcZhKb?=
+ =?us-ascii?Q?M759G+OwsS/mZLQw3aGOCedlLQ5PElkAqLY/1fvR63B2RdmlOmj6FwFYM+eV?=
+ =?us-ascii?Q?vAn1s9mw2kdAZTEDAeANLrU1QCUca48Baz2wkji1djNeBqmqV19d4zAp4Ftm?=
+ =?us-ascii?Q?qVsnj+6ozBe41KhaY6AyxDs2S8uqKYgY2jXEN9StxUvI3LaDoSgEInx/uukF?=
+ =?us-ascii?Q?8H7IuccyqHz9N0iK6WeChAaEp7N/mTNbmAMbG0Ks7cde9fn6XZ1Ld1vlBJXC?=
+ =?us-ascii?Q?z6Sd5d7H/cZFzYiFIhiv4zAQItYnI1d6sfxKkxrphZkMNstn15LEfLuKL2Fo?=
+ =?us-ascii?Q?Isl7lSQanC5yhCKhZpoBy8ZtZYn1u4RVHOoW7iMMhCpQJ93ES3m9wdzTRhZF?=
+ =?us-ascii?Q?LGxvNU2rClgCBNqleuzuWt9c3z+6w6A8hwGqea7LeNBUvVLQ1QVewbQwQMpE?=
+ =?us-ascii?Q?TQpDkyANdG+LQWjyrdknHjgyi1Cf+eVWVh+XHDHeMQRi+in7e7GRksGnL+Hd?=
+ =?us-ascii?Q?+zRC+JsJfXk6DH1XQh0B59MuB5nJ89e/wsQFZKPcvMpDCXbiFbByEVGuDNB7?=
+ =?us-ascii?Q?f78HlKtsdInP/T9q+wmn8V8QcyH1cfTHu6f2Jhr3Yc49t3NfXUfXzlOpqvbk?=
+ =?us-ascii?Q?JGSFO0mg54ZWxhCUkYDfnyqHbSfpV/fGxGDkq7D5o9d5mJ7dQZ58aMn77UQy?=
+ =?us-ascii?Q?SVUtDqzHV5GpkNctTWu5PRYZzhJTeDXoVoflSoGjS9bBKfFJCISyyCqcQvkj?=
+ =?us-ascii?Q?AFEwO+x5w/6Fn94+CL/SPH2JIfeNA3etGFtH2PlCRgacAQLY0JIRT7XwM1g6?=
+ =?us-ascii?Q?QPRMqIRILD5j+3BMhPsHKsmHD14pjdfChL0X/3oyDb2JuMyuOTlhQOQuEkzu?=
+ =?us-ascii?Q?gm26PWXuMaYXCpjDKbJTtVcTbWyAs2mpoAv4m4BGHB+/G2G+6UB61+0BIdE6?=
+ =?us-ascii?Q?fIY1h4Rf0ByhItale0lWL8shHHvtJ+EvyuAGmA9shmrYWJKfGOC+HcqC2KoL?=
+ =?us-ascii?Q?1jsxUWyqiJk0Gg7/agzGfZweczNQcrkZ54S973DD6SQf5rZpHmivqrt1OdgU?=
+ =?us-ascii?Q?/Y4qFNAF0kkbJUJ0vk06+0H67jFGLtw1bD9ppArOidWX/L7mJmRuJ7yhqZBu?=
+ =?us-ascii?Q?pGJ2BEzGVBvfodx0l6aPhGWuWVaAxwH8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sy0evFBktboa/ZR+kALTInBIlxeOiHd+vQ2209FRuMfBeb+kKK7md1HrDs2D?=
+ =?us-ascii?Q?4udWhuANZPnFERUCXdnFEDpLCQq6OfmMJINfDOORyrAcp91e9abTrtJNL4RC?=
+ =?us-ascii?Q?i2HxmldALS8/kmGbKykw3jXYI6mlMtzrmiLV5w+2LRXEn1daRMjcF5ecu+Fa?=
+ =?us-ascii?Q?VnhyEK8IKGsrp+lPg7cxuUceAYm8ZHQkkzz6K/wogXV0L7AzO4Bbmix6EXzT?=
+ =?us-ascii?Q?QTWatIX51GcVu5VxQf3BafmFrFiUrAu8/aBtjZL0UNP7SUtCo0KV0DFHDlGp?=
+ =?us-ascii?Q?a8AUO8PpjT7FCc61YICl5r7zN4x+8kmHvX3AeUzEUFR4a/R57L5+I65apj+x?=
+ =?us-ascii?Q?H5k4SuGCCy6DzsTzqRq1gy87mjreSzlwQ+8c/b2OpXk1YEE+ARBPGqOsEPpc?=
+ =?us-ascii?Q?/t6KQKMWzMlE9nsTxZhbPU3OJdN+42VDWlHHSntO0mfGyLUHBgEg8k+ddkwM?=
+ =?us-ascii?Q?qdMRNmthJXjLFdYrKZRaIavZacNlrISSrIr09EG8xmQ5U+acPtFYP6wj0nU2?=
+ =?us-ascii?Q?4oA0tX6j/LNnIPBZwIM8F6v/kIaq885aGt5bHXAc1Cvlb/iAlBGn12hPj9+I?=
+ =?us-ascii?Q?xaYGI6TJCKtkhlt46FOUVVBTvwTiOGNykTmvGRqiOJMhp+9dlMto9OAF57/f?=
+ =?us-ascii?Q?jRQS72Ah0xiFCAi37kmOQirGm0xJwjg+/RVr17I/DK5keqCAvlYn7Pz0MIwj?=
+ =?us-ascii?Q?8Sf2gKkZIbsZkC6g6eHqkc1Ife/4ytZsYnQvz9DQ9apcK+dVG+B7wtikH/UA?=
+ =?us-ascii?Q?B/2MwNCN6XI8l1+NuLXZMUwf7s9mwe7zpBp9eFyQkpTYh9xAc6cjd0Zd0vHu?=
+ =?us-ascii?Q?OU8v0Lq92daMowlUb4kQGW/7he2p861/UeXkjOXdwtTvWO3Tg7uknzTdSIIg?=
+ =?us-ascii?Q?cmsZtXEx9mYJB4HbnqJsJ6vyvL16sJyWTSW6CkhqQ0VDINNYjsfEHUOF4V4+?=
+ =?us-ascii?Q?R/V6EkfnBbs7Z6F0fsYkGPJ9H8VHdCL20suTcUCZqGPZ9C1lPTVSWK2S2vdl?=
+ =?us-ascii?Q?Cf19NZaQr136aZaV0VBmyapjg5HMNPYI2L7hojU0+gZXj/cgBJFeBfVADuMO?=
+ =?us-ascii?Q?R5kC1DZTAvD1PApUBPM4CNSJD2xq29cmkgjrpCc7Oy/yeFkJH2PKOl+38PNe?=
+ =?us-ascii?Q?qG5cNXkSGJtvEgtRGydhFjSRquONwFtXwkclkws3tzqEJwidnfmnVB0ceANv?=
+ =?us-ascii?Q?AfOlDEBz6K4A+aapBsja7WSu5DKi3o4zK3LtX2HQvcxPy9JveM2ATVTDR6r0?=
+ =?us-ascii?Q?o9FiglZg69Nu4J3qO8GIfmm1y+JPILqKWABZ8q1uyZi7RzYr0raixy1yTqPL?=
+ =?us-ascii?Q?+mlk6AzX3u4die1P5yldTIw7OWKKs4O3AdDXDxmM7KSwr0U7og9L84rDyhC+?=
+ =?us-ascii?Q?yVSFVZOFbxHtuqvQUhlYtJyLYxdZlzrxYaCQWufTmh9rPz5W98/Flh93txfE?=
+ =?us-ascii?Q?eWQ8/MTex3eB4H41d6hiVacgpvno0lF//kM8zuPpEGlc46CD0PSb33cJ3Uq1?=
+ =?us-ascii?Q?nz2eVnbQfTfuEeaRskJk6/mYjmouRWjuQkoPk/1qk99lhau3vydpj2X5RSES?=
+ =?us-ascii?Q?is1k9ZTg+NyIEG5W1eA+baHKc4YexjTYgYFywUkk?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9333236f-78e0-4121-2cce-08dd4764d05b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 10:47:27.5665
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VX0roLXbDaqrYmnD+5yUs8etNSPj/FBbxRtHMbMNCR5wEWwWcJoUochRtgecS5HwSwLaclefzxqjsv2LVGXdjw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8491
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_024409_221960_97C42C84 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250207_024731_315356_95B074D6 
+X-CRM114-Status: UNSURE (   6.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +165,14 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv?= =?UTF-8?Q?=C3=A9?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Feb 2025 05:17:43 +0200
-Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
+On Fri, Feb 07, 2025 at 09:36:08AM +0100, Alexander Stein wrote:
+>These definitions define the location of corresponding disable bits
+>in OCOTP peripheral.
+>
+>Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-> On Thu, Feb 06, 2025 at 07:14:30PM +0100, Luca Ceresoli wrote:
-> > Add a devm/drmm action to these functions so the bridge reference is
-> > dropped automatically when the caller is removed.  
-> 
-> I think the get() should go to the underlying of_drm_bridge_find() function.
-
-It is done in the following patch.
-
-Indeed I could swap patches 15 and 16 for clarity. Or I could squash
-together patches 14+15+16, as they are various parts or the refcounted
-bridge implementation, but I felt like keeping them separated would
-help reviewing.
-
-> Also it really feels like it's an overkill to keep the wrappers. After
-> getting bridge being handled by the panel code would it be possible to
-> drop all of them?
-
-Do you mean having only drm_of_get_bridge_by_node(), without any devm
-or drmm variant? I'm not sure it is a good idea. Most DRM code (well,
-all of it, technically) is currently unable of working with refcounted
-bridges, but if they use the devm variant they will put the ref when
-they disappear.
-
-> Then this patch might introduce one new devm_
-> function? Or are drmm_ functions actually being used to store data in
-> the drmm-managed memory?
-
-Which devm function are you thinking about? Sorry, I'm not following
-here.
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
