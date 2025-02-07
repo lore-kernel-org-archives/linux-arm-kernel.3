@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EF2C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C77EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3KRJ17DViepnf8E3KQTzXcqlWYspDMFXaJFpjLfW09g=; b=ljNahV/O7178KQmUq7K8pHFPco
-	k6KHBZxwnStj/WHoaeuelaztlq5KI6TYQFPg1u8GMb81U613BMd/suW9eEs6fUOgDNm7EfMpKC7AN
-	RWg8CHRQx+0mPREbbAnPkE790rio6uGg7NVT5BX+2YLaW9aCCb9tBPxtHNnYQtoVmrPt6QDE27OLb
-	rC40MxlLIuMLQH7yPuYIG+qgexD8KTk6YY9rEyhTfBgHpO+PxsRq4KaZEFds+p6hP1882D4VIJX2p
-	1l0BOltdbT9VzkRFjFiUw5YZvD6fQqZ1bsjBZY1aEBr6QTwD0eQ80ELuT7ax2P/ZAX1xiqEmnCfzk
-	uUNne8QQ==;
+	bh=pLksYmtV/LGt/QTVyUj/Eiqdx1WVJtDb2zhhPRveb5w=; b=MqdA/Ls66+Hkc+KdLLgzx3Njss
+	g0qn7q22uK2Uqze0QjOaWUPJujFn9gNRrGWbT3dcQl7Y3jO90taenqagWsc/bKkLglD1b4Iy3z0fO
+	kcu6lDEThir7PReUII+rkXK4ZFbPKeL3ebjlCEUHJwgUK7lbcHqwvslM+p1phW/+/UxmbDOyoKo8E
+	Dy/41K55iCJbVUZKo5v2ZmpnrGjrBbuHbHWHofw0o+dJ7h7a8HhnJmmMt3j9l2fqUQ6kTVnvf6T0T
+	qPVGx5CzkZk04ajtawRc5otuI5PXr3EHGNwgQXgqKLT/WtZ2ROYujIeC/43y7qr98QkIAmA5ttJwZ
+	ADWE9ZNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSI8-0000000AWEA-3Jpx;
-	Fri, 07 Feb 2025 17:37:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRnW-0000000APo0-2DDH
+	id 1tgSJU-0000000AWVc-3Un0;
+	Fri, 07 Feb 2025 17:38:48 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgRoK-0000000AQ0P-38K8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:05:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D024C113E;
-	Fri,  7 Feb 2025 09:06:08 -0800 (PST)
-Received: from [10.1.26.24] (e122027.cambridge.arm.com [10.1.26.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA6573F63F;
-	Fri,  7 Feb 2025 09:05:41 -0800 (PST)
-Message-ID: <7e03ad4a-ca82-4fe6-b789-1990dbbaf256@arm.com>
-Date: Fri, 7 Feb 2025 17:05:39 +0000
+	Fri, 07 Feb 2025 17:06:38 +0000
+Message-ID: <5f05d772-5d25-4b94-8759-95db3e283a6f@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1738947989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pLksYmtV/LGt/QTVyUj/Eiqdx1WVJtDb2zhhPRveb5w=;
+	b=sVzyMsw+PCLFyI241R6uxQ3C1W6cBpXLiQUfQFbDCzlMAi4VjyoHKX/YOL5/cMk4dM9GA5
+	8a4QS7E4snoI1vvGguhgu14FD7fjN9KNLFEAvL1Cds7x+k2hj2FKrcDt6BhCqOARffRXQZ
+	JtmxmwZ4DbHEGjiPY8B7/plBkC4rUIE=
+Date: Fri, 7 Feb 2025 12:06:25 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 29/43] arm64: RME: Always use 4k pages for realms
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-30-steven.price@arm.com>
- <82659880-f7a6-48ad-bf54-8371fc3d41d8@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <82659880-f7a6-48ad-bf54-8371fc3d41d8@redhat.com>
+Subject: Re: [PATCH v2 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "open list:DRM DRIVERS FOR XILINX" <dri-devel@lists.freedesktop.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Bart Van Assche
+ <bvanassche@acm.org>, Dan Carpenter <dan.carpenter@linaro.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+References: <20250207162528.1651426-1-sean.anderson@linux.dev>
+ <20250207162528.1651426-3-sean.anderson@linux.dev>
+ <20250207164446.GB24886@pendragon.ideasonboard.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250207164446.GB24886@pendragon.ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_090546_645449_F6949A21 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20250207_090637_136936_F2673CB4 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/2025 06:52, Gavin Shan wrote:
-> On 12/13/24 1:55 AM, Steven Price wrote:
->> Always split up huge pages to avoid problems managing huge pages. There
->> are two issues currently:
->>
->> 1. The uABI for the VMM allows populating memory on 4k boundaries even
->>     if the underlying allocator (e.g. hugetlbfs) is using a larger page
->>     size. Using a memfd for private allocations will push this issue onto
->>     the VMM as it will need to respect the granularity of the allocator.
->>
->> 2. The guest is able to request arbitrary ranges to be remapped as
->>     shared. Again with a memfd approach it will be up to the VMM to deal
->>     with the complexity and either overmap (need the huge mapping and add
->>     an additional 'overlapping' shared mapping) or reject the request as
->>     invalid due to the use of a huge page allocator.
->>
->> For now just break everything down to 4k pages in the RMM controlled
->> stage 2.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
+On 2/7/25 11:44, Laurent Pinchart wrote:
+> Hi Sean,
+> 
+> Thank you for the patch.
+> 
+> On Fri, Feb 07, 2025 at 11:25:28AM -0500, Sean Anderson wrote:
+>> Convert most mutex_(un)lock calls to use (scoped_)guard instead. This
+>> generally reduces line count and prevents bugs like forgetting to unlock
+>> the mutex. I've left traditional calls in a few places where scoped
+>> helpers would be more verbose. This mostly happens where
+>> debugfs_file_put needs to be called regardless. I looked into defining a
+>> CLASS for debugfs_file, but it seems like more effort than it's worth
+>> since debugfs_file_get can fail.
+>> 
+>> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 >> ---
->>   arch/arm64/kvm/mmu.c | 4 ++++
->>   1 file changed, 4 insertions(+)
->>
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index e88714903ce5..9ede143ccef1 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1603,6 +1603,10 @@ static int user_mem_abort(struct kvm_vcpu
->> *vcpu, phys_addr_t fault_ipa,
->>       if (logging_active) {
->>           force_pte = true;
->>           vma_shift = PAGE_SHIFT;
->> +    } else if (kvm_is_realm(kvm)) {
->> +        // Force PTE level mappings for realms
->> +        force_pte = true;
->> +        vma_shift = PAGE_SHIFT;
->>       } else {
->>           vma_shift = get_vma_page_shift(vma, hva);
->>       }
+>> 
+>> Changes in v2:
+>> - Convert some conditional return statements to returns of ternary
+>>   expressions.
+>> - Remove unnecessary whitespace change
+>> 
+>>  drivers/gpu/drm/xlnx/zynqmp_dp.c | 147 +++++++++++--------------------
+>>  1 file changed, 50 insertions(+), 97 deletions(-)
+>> 
+>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+>> index 189a08cdc73c..63842f657836 100644
+>> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
+>> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+>> @@ -1534,10 +1534,10 @@ zynqmp_dp_bridge_mode_valid(struct drm_bridge *bridge,
+>>  	}
+>>  
+>>  	/* Check with link rate and lane count */
+>> -	mutex_lock(&dp->lock);
+>> -	rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
+>> -				  dp->link_config.max_lanes, dp->config.bpp);
+>> -	mutex_unlock(&dp->lock);
+>> +	scoped_guard(mutex, &dp->lock)
+>> +		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
+>> +					  dp->link_config.max_lanes,
+>> +					  dp->config.bpp);
 > 
-> Since a memory abort is specific to a vCPU instead of a VM, so
-> vcpu_is_rec()
-> instead of kvm_is_realm() is more accurate for the check. Besides, it looks
-> duplicate to the check added by "PATCH[20/43] arm64: RME: Runtime faulting
-> of memory", which is as below.
+> Could we use curly braces even for single-statement scopes ?
 > 
->        /* FIXME: We shouldn't need to disable this for realms */
->        if (vma_pagesize == PAGE_SIZE && !(force_pte || device ||
-> kvm_is_realm(kvm))) {
->                                                                 
-> ^^^^^^^^^^^^^^^^^
->                                                                  Can be
-> dropped now.
-
-Indeed, thanks for that - one less FIXME ;)
-
-Thanks,
-Steve
-
-> Thanks,
-> Gavin
->                 
+> 	scoped_guard(mutex, &dp->lock) {
+> 		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
+> 					  dp->link_config.max_lanes,
+> 					  dp->config.bpp);
+> 	}
 > 
+> I think this would make the scope clearer.
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
+FWIW around 25% of existing scoped_guards use this style, and it seems
+to be idiomatic for short scopes:
+
+$ git grep scoped_guard | wc -l
+523
+$ git grep 'scoped_guard[^{]*$' | wc -l
+156
+$ git grep -A2 'scoped_guard.*{' | grep } | wc -l
+25
+
+--Sean
 
