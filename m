@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82439C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A94C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAIDUvMqJF3HsOg5RQnZHEKgK80JM34bXGrZoZu2NKg=; b=01PtprEqPx+ZuE/nTUXPDJNNzT
-	8JBb57Tx2A9y+t5oBq/2s+8b20th/W03O+6GouGIE/jylNpeAkkSzvgqPg5FNBof1jQy04F5bu+Mv
-	QmUedYF+guTBgb5xheaDsSw4RWV/QIp/mMWQwhuXYwvz/yKFo8dGDvVrHjEwPWEpkkBV1AK8Bkjfw
-	IMwstcIEMxChjK8aHM1o7yEe528tO8Z5+URWXrR270Ygmj1FfV2KF+E3VQ4bag67eKBf7x+9PRAD8
-	ZBVktSXWncLPLh7Xw0EKmkFDCSC2+A9wvuCnvBIMFA2rNh3OrNif0+ybPyobL82jxOBldtZyijFUv
-	4Fh5WR+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T4RI4nX9+gSCb65G1EaTQtd7vTXqjAhlRZ71a0d/Fho=; b=HgzO04VrCLlcyzpVMjR4Eh+6WH
+	mbkE2sferZbKNAzguWMDpS1+X+LzPxS8He/KhqOnKhBN+UYFaWcBum4w3jJtjnC8oJg99n+yoH8UJ
+	izz0uO/wWYJSoV2sgVKSF21sKkK4lzTCAfAf1hszrTdEA2HlmYeConFV+5G5KTj/Ruvo5Lp3J6fEm
+	u1mTkcF4JffOyjha895DGl1cP8GQ1dAJyWAg1gDX53Q4TG4N32ZNmux3c3zNOvJmVPE6CJETGNyJM
+	FFZjCFsTtQ+tocXjuSQ9dKElTWumge5hR4LWfgVqIYAMgGp8xvR34ruORd+TpbiaWxzXJuPw4mWKV
+	P/CK9cSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgO5N-00000009bU7-18AR;
-	Fri, 07 Feb 2025 13:07:57 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tgO7x-00000009bow-09sj;
+	Fri, 07 Feb 2025 13:10:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgO3z-00000009bH7-1vMM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 13:06:32 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab795eba9a3so6164266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 05:06:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738933589; x=1739538389; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UAIDUvMqJF3HsOg5RQnZHEKgK80JM34bXGrZoZu2NKg=;
-        b=CWhDlwuwOxO1TCi+l2fhIlXIt69knvWXP0mdNuN19Rsyx0jhlgZ/kEYNzod7DxbxpF
-         c8HLdBoxXv8SBoZZnJY//6LVTnrKHsBTqKxShbISu2lzN+Z0PBj9+mK226VdiMSJ+vDW
-         iv53u/49DTYwjriMm9UifImBAdbyvWFOpytM2zY2Nyyg6PSJxMUVQ20ElNhHhbmo3LP+
-         lsR08rZ2fZkuBiiDu3kKEaqAu5FB1E3EzymcAxc3PYGEz1RhmLQtK8s1Yhh+SxCx6Q13
-         ZKPVlWbvovazJkf+vT5M/miYwV7AVTfLNVyrWoPQgIHloAZzqLSC9IGMV2VU7k+ykGs4
-         oudg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738933589; x=1739538389;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UAIDUvMqJF3HsOg5RQnZHEKgK80JM34bXGrZoZu2NKg=;
-        b=tu+CyNGkwpgNBDEnkQOvBm9NOicQWNSpvHMZoJuY5UPwoWgJ8fLI5+RVfL4qGlnfbS
-         PZFhL19CyzsbyDlxq1TDL+FMWo+Trrf9EaW1ar4+l+OCTXb/R+fg760nhBLe9cZEjqTW
-         AQuvSW6UWDkYQ0SsmER5QaqtoRejU5NcWJEeroImJE+X4KAX88feiKgxoVagmH5e2HCq
-         gQP+3ApX5NoYmIgHrkBdZ5EoqNl26VZHN/rzxPoeyXB1AlUYBCpEt8Oicga8Dzy5pgDi
-         DN91lJyhxc+4GI7LNaOv1Y4ESuqAtGF4lRJIjTuTXzA3cP+Leh1UNrrrF4VG1DzEx7v8
-         k6UA==
-X-Forwarded-Encrypted: i=1; AJvYcCXq3aSRaFEPzVq93qtA9aHbJMhg7E1D+22jE/XtzmB1PvxJnmOcLwTjmA18XMkg9Chd+SIpyRx7qLQjYwStHIfl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwz9muCD5UwKAmt+TL4yTwFq+/5Wt0vL76UGggAycg9Vl3J+Oq
-	HhhM84z3yP/AOasTQhkN294p0sQqpA1dHqWBrWegxlLd4IRjH/Ym
-X-Gm-Gg: ASbGnctPRQdt88h7q/RCRZXak86254aMRHF6DaAfZqUEMmoIbKRsO9b5C5jWP5adldH
-	9ggNxmKLGUQCxG1k2KG56ewvY2SnCp3YzG/SgydAbpx7WYrAbYj3Q+NlFrB1reGzlPBnbkKvJFw
-	uLFowGQiJzX19cYEm1gjozGIPos5/N1ADzHxPw/FVHGxxhh0rsvq3588rh5RUMWppTj9Q3RbUGm
-	CGU05fZdYeh/8Fs7H9A3jF/1FkLtLInYzPTYeT1lWxLLBMl204jhYELgcnriv4R6oUFF/jWlz24
-	juVMcaMl2m5RP49RHh1i/8GnfQ2mJiDDbrrXz+/eTTLruI6Agf1aNFBcycIm
-X-Google-Smtp-Source: AGHT+IF23i+bLVu6xQLagQY0iQsPCDtzqSfKx065HMgxZ1ucv21ADcRH7FJoEMrvnNJprAQJAMH5TA==
-X-Received: by 2002:a17:907:6d23:b0:ab7:5fcd:d4de with SMTP id a640c23a62f3a-ab789c50af4mr308195866b.50.1738933588917;
-        Fri, 07 Feb 2025 05:06:28 -0800 (PST)
-Received: from [192.168.50.244] (83.8.206.8.ipv4.supernova.orange.pl. [83.8.206.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab772f893e9sm267815066b.65.2025.02.07.05.06.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 05:06:28 -0800 (PST)
-Message-ID: <bc9df0fe-ff2b-439b-a434-b6b88ee8e25c@gmail.com>
-Date: Fri, 7 Feb 2025 14:06:27 +0100
+	id 1tgO6Z-00000009bbe-1KYH;
+	Fri, 07 Feb 2025 13:09:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=T4RI4nX9+gSCb65G1EaTQtd7vTXqjAhlRZ71a0d/Fho=; b=dR2rJva/ceVGAF2nIpm+KjWRMj
+	52PJ0R4PPoRZ+3WJwmEXgvlTI8xzW0nmpzoKQWG14q0NfoqO+QaST1N+RMvmHEYw0bv9mf/NlJaOR
+	Wo664Z6lzYpm8e4qmWiZHMoM2zaS6KWb50N0RxWCAQLOnmtKpriXGW7ek7rAvqezgr2yiK2wjgy+f
+	yyOiJg4YFISeqWS11YZXeFEN6LM6lux5fj5zyjHdS+JNq93evvQF1lHXOvA/x10V56Nm3aEt10r+Z
+	5NXg1dz9Z/m3Z/kqDWeZ2zTYznFw0WjW6QPv9STeea/O+dczD9PqWmpawNvJENzIzCsxtaNXSA8tI
+	6+Getf3Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36072)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tgO6K-0005gr-0H;
+	Fri, 07 Feb 2025 13:08:56 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tgO6E-0004T4-1s;
+	Fri, 07 Feb 2025 13:08:50 +0000
+Date: Fri, 7 Feb 2025 13:08:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>
+Subject: [PATCH net-next v2 0/3] net: dsa: add support for phylink managed EEE
+Message-ID: <Z6YF4o0ED0KLqYS9@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] mfd: bcm590xx: Add compatible for BCM59054
-To: Lee Jones <lee@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ~postmarketos/upstreaming@lists.sr.ht
-References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
- <20250131-bcm59054-v3-4-bbac52a84787@gmail.com>
- <20250207084852.GC7593@google.com>
-From: Artur Weber <aweber.kernel@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20250207084852.GC7593@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_050631_501266_81E7E129 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250207_050911_354190_0A5249FC 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7.02.2025 09:48, Lee Jones wrote:
-> On Fri, 31 Jan 2025, Artur Weber wrote:
-> 
->> The BCM59056 supported by the bcm590xx driver is similar to the
->> BCM59054 MFD. Add a compatible for it in the driver, in preparation
->> for extending support of this chip in the bcm590xx regulator driver.
->>
->> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
->> ---
->> Changes in v3:
->> - Fix compilation warning about device_type pointer cast type
->> - Name the device types enum and use it as the type in the MFD struct
->> ---
->>   drivers/mfd/bcm590xx.c       | 6 +++++-
->>   include/linux/mfd/bcm590xx.h | 7 +++++++
->>   2 files changed, 12 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
->> index 8b56786d85d0182acf91da203b5f943556c08422..23036157480e0116301bfa93932c92f5a80010ea 100644
->> --- a/drivers/mfd/bcm590xx.c
->> +++ b/drivers/mfd/bcm590xx.c
->> @@ -50,6 +50,9 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
->>   	bcm590xx->dev = &i2c_pri->dev;
->>   	bcm590xx->i2c_pri = i2c_pri;
->>   
->> +	bcm590xx->device_type = \
->> +			  (uintptr_t) of_device_get_match_data(bcm590xx->dev);
-> 
-> Why are you dividing pointers with each other?
+Hi,
 
-That's not division, it's a line continuation (note the space before
-"\") - had to insert it for the line to fit in 80 characters. Though
-admittedly, there's probably a better way to do this than to force it
-with "\"...
+This series adds support for phylink managed EEE to DSA, and converts
+mt753x to make use of this feature.
 
-I will clean this up in the next version.
+Patch 1 implements a helper to indicate whether the MAC LPI operations
+are populated (suggested by Vladimir)
 
-Best regards
-Artur
+Patch 2 makes the necessary changes to the core code - we retain calling
+set_mac_eee(), but this method now becomes a way to merely validate the
+arguments when using phylink managed EEE rather than performing any
+configuration.
+
+Patch 3 converts the mt7530 driver to use phylink managed EEE.
+
+v2: fix mt7530 build error
+
+ drivers/net/dsa/mt7530.c  | 68 ++++++++++++++++++++++++++++++++---------------
+ drivers/net/phy/phylink.c |  3 +--
+ include/linux/phylink.h   | 12 +++++++++
+ net/dsa/user.c            | 21 +++++++++------
+ 4 files changed, 73 insertions(+), 31 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
