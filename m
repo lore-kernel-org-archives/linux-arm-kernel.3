@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68EAC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD573C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehW9K4c48CwLY/BR+mDs7xsKqDAw7Qeg9IJQ7Ou3tbg=; b=qUhaVgAe2AC9eepJ62mfab+PJi
-	KFhzEQ21g5g5+uzblJUPXvjFhA9+FKCbjUn+g1L/O3sAV4MmE/kfI1TcDvqikCEYx/jVCqmDOqY5/
-	9B8YEgn0kp9xJzNXl4h0ULhB/+rWEVpzzoH2OFDnn1CswRAh0eKau34JZBxE7N1OIDL9+3XlxVesH
-	gvXnm4lFbYDoNi1U52dlJ4jr6qSj5jpj4Dz+kNpby6cUM4zhKW4AjCyBCEtIPFFIN+R1qdiV8hi34
-	8YhKArMwMtjYM16JIrV0RW1tA6s0l0UfyVX+nIabTHns6K2ZMnZRnu4ll/cu0zBZSvJZgOogdGLN8
-	WrqzRT1Q==;
+	bh=qFkOJ1cCG0ZLzORzGTja0yFqMwsd+Y48rK9vqqRK8tY=; b=ZxKKs59lxnIGKfqvpDIUOIdeSI
+	l/q9XGH9s8Vg+NcHYZK5MrbjE6J1F+64itK12NFzTtzRCq3WBPKZNjaDIB0IRNU9ZbnYV3+aG4Ook
+	80VXJLTXkBmQHnIwRDtLRTS2cQW2ZdVkNqc0cx1nutaAf85W2eMdmeshv+Bs67j3qdgJt2oPnXFRp
+	OsaFUgQdRVeI9tBlXjsas2ZwtTfy3iK59BjlEVUTlQhOxkEMSP6n87j8oQkXOHjvXMmnNfGc7hvII
+	MYjbXES0Y2EPueWkHKh/o9rbmbtxmU5Dtw2xLF9/1q9mBJec6JJaaRiEngaObFCt+TDZzqDXDeYFi
+	rnpxEQ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSA0-0000000AUXL-13j3;
-	Fri, 07 Feb 2025 17:29:00 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRhM-0000000AOLl-40PL
+	id 1tgSBM-0000000AUoM-3ldg;
+	Fri, 07 Feb 2025 17:30:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgRmk-0000000APW0-40bt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:59:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738947565; x=1770483565;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=h75b+TdsJ58/EyAZzGusAGULFypKzhj4oZJY0fm1wu8=;
-  b=Cl6LlcBNDgMZSNek0LhjuIuQZShCcC3pLXwv1/7f5yf6Gp/KhAGfPojq
-   da/LDB3NzjblgoxzfXSVDMafs9NJxcaT9v24jkuPFIfGSGw0VfQBKAz26
-   bO1vCKlW/HLG5L38AlsOqBNRI4nxGkUYLYtbAB6s3WLNLjXIJDQxj9P+1
-   1gVJQeQQEBLItlkV17dK4piTVbMr6fA59v8iieYP1hiU+lH8d7geQLLp8
-   +nl7p5UqUUsHM6pbaEaNuL2x5zzKan931PM+iyYw5OlZkqdLv9PFQJ54L
-   ZJv4IZ+yUoXAqSmDSUEzG57dkQiA8DfsJQr98m1PdEPwzCVE7S8qMFQWn
-   g==;
-X-CSE-ConnectionGUID: sN5iJSGxTtW4dQheKajOeQ==
-X-CSE-MsgGUID: JclNT8+xRRmq3+gpF3URmw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="42436000"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="42436000"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:59:24 -0800
-X-CSE-ConnectionGUID: xh97f0y8TjGtJI3gx/8V4A==
-X-CSE-MsgGUID: uTOuguuVSR6n8OMUQ6ULHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="116777275"
-Received: from wkuan-mobl1.gar.corp.intel.com (HELO [10.247.64.179]) ([10.247.64.179])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:59:15 -0800
-Message-ID: <65c82c04-6c71-4120-aaa0-5d20e7eca0fe@linux.intel.com>
-Date: Sat, 8 Feb 2025 00:59:12 +0800
+	Fri, 07 Feb 2025 17:05:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17653113E;
+	Fri,  7 Feb 2025 09:05:18 -0800 (PST)
+Received: from [10.1.26.24] (e122027.cambridge.arm.com [10.1.26.24])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD7CB3F63F;
+	Fri,  7 Feb 2025 09:04:50 -0800 (PST)
+Message-ID: <f4411830-067e-448e-b43b-1418bb264e11@arm.com>
+Date: Fri, 7 Feb 2025 17:04:48 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v2 5/9] igc: Add support for frame preemption
- verification
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Petr Tesarik <petr@tesarici.cz>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
- <20250205100524.1138523-6-faizal.abdul.rahim@linux.intel.com>
- <20250205171234.cuscjpzdyc34ofbn@skbuf>
- <6bf3f4b2-efee-41fe-97b3-cb53eca4dfed@linux.intel.com>
- <20250206150410.u4rehwxnnuhtcfxr@skbuf>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <20250206150410.u4rehwxnnuhtcfxr@skbuf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v6 20/43] arm64: RME: Runtime faulting of memory
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-21-steven.price@arm.com>
+ <3f0caace-ee05-4ddf-ae75-2157e77aa57c@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <3f0caace-ee05-4ddf-ae75-2157e77aa57c@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_085925_013872_D574F74E 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250207_090459_091833_41DBD1CC 
+X-CRM114-Status: GOOD (  32.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,63 +76,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/2/2025 11:04 pm, Vladimir Oltean wrote:
-> On Thu, Feb 06, 2025 at 10:40:11PM +0800, Abdul Rahim, Faizal wrote:
->>
->> Hi Vladimir,
->>
->> Thanks for the quick review, appreciate your help.
->>
->> On 6/2/2025 1:12 am, Vladimir Oltean wrote:
->>> On Wed, Feb 05, 2025 at 05:05:20AM -0500, Faizal Rahim wrote:
->>>> This patch implements the "ethtool --set-mm" callback to trigger the
->>>> frame preemption verification handshake.
->>>>
->>>> Uses the MAC Merge Software Verification (mmsv) mechanism in ethtool
->>>> to perform the verification handshake for igc.
->>>> The structure fpe.mmsv is set by mmsv in ethtool and should remain
->>>> read-only for the driver.
->>>>
->>>> igc does not use two mmsv callbacks:
->>>> a) configure_tx()
->>>>      - igc lacks registers to configure FPE in the transmit direction.
->>>
->>> Yes, maybe, but it's still important to handle this. It tells you when
->>> the preemptible traffic classes should be sent as preemptible on the wire
->>> (i.e. when the verification is either disabled, or it succeeded).
->>>
->>> There is a selftest called manual_failed_verification() which supposedly
->>> tests this exact condition: if verification fails, then packets sent to
->>> TC0 are supposed to bump the eMAC's TX counters, even though TC0 is
->>> configured as preemptible. Otherwise stated: even if the tc program says
->>> that a certain traffic class is preemptible, you don't want to actually
->>> send preemptible packets if you haven't verified the link partner can
->>> handle them, since it will likely drop them on RX otherwise.
->>
->> Even though fpe in tx direction isn't set in igc, it still checks
->> ethtool_mmsv_is_tx_active() before setting a queue as preemptible.
->>
->> This is done in :
->> igc_tsn_enable_offload(struct igc_adapter *adapter) {
->> {
->> 	....
->> 	if (ethtool_mmsv_is_tx_active(&adapter->fpe.mmsv) &&
->>              ring->preemptible)
->> 	    txqctl |= IGC_TXQCTL_PREEMPTIBLE;
->>
->>
->> Wouldn't this handle the situation mentioned ?
->> Sorry if I miss something here.
+On 30/01/2025 05:22, Gavin Shan wrote:
+> On 12/13/24 1:55 AM, Steven Price wrote:
+[...]
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index d4561e368cd5..146ef598a581 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -602,6 +602,162 @@ static int fold_rtt(struct realm *realm,
+>> unsigned long addr, int level)
+>>       return 0;
+>>   }
+>>   +int realm_map_protected(struct realm *realm,
+>> +            unsigned long ipa,
+>> +            kvm_pfn_t pfn,
+>> +            unsigned long map_size,
+>> +            struct kvm_mmu_memory_cache *memcache)
+>> +{
+>> +    phys_addr_t phys = __pfn_to_phys(pfn);
+>> +    phys_addr_t rd = virt_to_phys(realm->rd);
+>> +    unsigned long base_ipa = ipa;
+>> +    unsigned long size;
+>> +    int map_level;
+>> +    int ret = 0;
+>> +
+>> +    if (WARN_ON(!IS_ALIGNED(ipa, map_size)))
+>> +        return -EINVAL;
+>> +
+>> +    switch (map_size) {
+>> +    case PAGE_SIZE:
+>> +        map_level = 3;
+>> +        break;
+>> +    case RMM_L2_BLOCK_SIZE:
+>> +        map_level = 2;
+>> +        break;
+>> +    default:
+>> +        return -EINVAL;
+>> +    }
+>> +
 > 
-> And what if tx_active becomes true after you had already configured the
-> queues with tc (and the above check caused IGC_TXQCTL_PREEMPTIBLE to not
-> be set)? Shouldn't you set IGC_TXQCTL_PREEMPTIBLE now? Isn't
-> ethtool_mmsv_configure_tx() exactly the function that notifies you of
-> changes to tx_active, and hence, aren't you interested in setting up a
-> callback for it?
-> 
+> The same block of code, to return the RTT level according to the map
+> size, has been
+> used for multiple times. It would be nice to introduce a helper for this.
 
-Ahh okay, got it. I sent v3 that also included this update. Thanks!
+I have some changes to support larger host (and guest) page sizes which
+rework this code which should help clean this up.
+
+>> +    if (map_level < RMM_RTT_MAX_LEVEL) {
+>> +        /*
+>> +         * A temporary RTT is needed during the map, precreate it,
+>> +         * however if there is an error (e.g. missing parent tables)
+>> +         * this will be handled below.
+>> +         */
+>> +        realm_create_rtt_levels(realm, ipa, map_level,
+>> +                    RMM_RTT_MAX_LEVEL, memcache);
+>> +    }
+>> +
+> 
+> This block of code could be dropped. If the RTTs have been existing,
+> realm_create_rtt_levels()
+> doesn't nothing, but several RMI calls are issued. RMI calls aren't
+> cheap and it can cause
+> performance lost.
+
+As mentioned in the patch 19 this is to prevent the first call to
+rmi_data_create_unknown() failing when we know we're going to need to
+create the RTTs. So this should generally reduce the number of RMIs
+calls not increase.
+
+>> +    for (size = 0; size < map_size; size += PAGE_SIZE) {
+>> +        if (rmi_granule_delegate(phys)) {
+>> +            /*
+>> +             * It's likely we raced with another VCPU on the same
+>> +             * fault. Assume the other VCPU has handled the fault
+>> +             * and return to the guest.
+>> +             */
+>> +            return 0;
+>> +        }
+> 
+> We probably can't bail immediately when error is returned from
+> rmi_granule_delegate()
+> because we intend to map a region whose size is 'map_size'. So a
+> 'continue' instead
+> of 'return 0' seems correct to me.
+
+The logic here is that two (or more) vCPUs have faulted on the same
+region. So if we get a failure here it means that we're the second vCPU
+to hit the fault. While we could continue, it's highly likely that the
+other vCPU will be faulting in the later parts of the region so we
+expect to hit more delegation failures.
+
+Returning to the guest and letting the guest retry the access means:
+a) The access might now continue because the other vCPU has completed
+(enough of) the mapping, or
+b) We fault a second time, but give the other vCPU some more time to
+progress in creating the mapping (and prevent the other vCPU being
+tripped up by continued attempts by this vCPU from delegating the pages).
+
+"continue" would work, but it's likely to waste CPU time with the two
+vCPUs fighting each other to complete the mapping.
+
+>> +
+>> +        ret = rmi_data_create_unknown(rd, phys, ipa);
+>> +
+>> +        if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>> +            /* Create missing RTTs and retry */
+>> +            int level = RMI_RETURN_INDEX(ret);
+>> +
+>> +            ret = realm_create_rtt_levels(realm, ipa, level,
+>> +                              RMM_RTT_MAX_LEVEL,
+>> +                              memcache);
+>> +            WARN_ON(ret);
+>> +            if (ret)
+>> +                goto err_undelegate;
+> 
+>             if (WARN_ON(ret))
+
+ack
+
+>> +
+>> +            ret = rmi_data_create_unknown(rd, phys, ipa);
+>> +        }
+>> +        WARN_ON(ret);
+>> +
+>> +        if (ret)
+>> +            goto err_undelegate;
+> 
+>         if (WARN_ON(ret))
+
+ack
+
+>> +
+>> +        phys += PAGE_SIZE;
+>> +        ipa += PAGE_SIZE;
+>> +    }
+>> +
+>> +    if (map_size == RMM_L2_BLOCK_SIZE)
+>> +        ret = fold_rtt(realm, base_ipa, map_level);
+>> +    if (WARN_ON(ret))
+>> +        goto err;
+>> +
+> 
+> The nested if statements are needed here because the WARN_ON() only
+> take effect on the return value from fold_rtt().
+> 
+>     if (map_size == RMM_L2_BLOCK_SIZE) {
+>         ret = fold_rtt(realm, base_ipa, map_level);
+>         if (WARN_ON(ret))
+>             goto err;
+>     }
+
+Technically to get here then ret==0 so there's no need to nest like
+this. But I agree it makes the intent much clearer so I'll update.
+
+Thanks,
+Steve
+
 
