@@ -4,190 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB255C0219D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF95C0219C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQRV15xEuqYShptV6LXNYxXUwjjQavO9It5cPdfJkJg=; b=Q3waoq+AeSG41eg6qtJf5Lni3T
-	xkA0JyNU8X1PJS5F5oP1C3h43G4Dfi3yI9ow7aBEohJXleh0us2/O3tzoqzTSm5aqgAauXGhRtOj3
-	dxQ2ROX/oMfPaPeKcltOJcBOCI/mFCtjUA4kEr/gx5mxHKJ16wXLSlv0iI0x1bIlWwvCO9Jp2U1Ih
-	agq+pLbS6JwqAz2rNemF+hPKQ8CHV2xLgaryROd/aGQz6rptEUbZagipngVeixVSigSQcWTBbb88V
-	wfgx46ovG6PiH16gZ/aQ2Hcvy/3bAvWbkgSZuWBCG1CEF6YgUxqXaX0o+ZfxFN31sXS+rIsxVyA6Q
-	icG+bJqw==;
+	bh=wJM77HZ1UmnRhLojKb2438RKQywcG1lAcAzGFls8E7A=; b=kfOSGE/tbJMh7d1YL4DigIbijQ
+	wcgbWqFUxDqpQ3yXWUJYdR5udwA5H0cRi8fIBGZeLIUV7Q6YqFyViJZZsN/qX4oyLXlHsnVlnvbIb
+	NvSBQvaYWVrfyvkmssU27qFYkVAmTJn7kGkK2J9TFRf9u0QSaM+hJqrDbUqIhmjmWNi2ViJxDslgT
+	OkmneXMfmKaDi8kpCBQEOKTCQFWdqlRVIsh4bQ76f/ZT5ji1cGVdGt2HYx1PQi+yhbG1CbXz3WtTw
+	ErXBrS/eJra4auiS9j14Anjh3YetwVtZegkIOpV7JsJ89aHuzW3w6yrVJna3ukz3hk4KyEWR4J4VA
+	xzB+cdPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUyp-0000000B44J-0uHw;
-	Fri, 07 Feb 2025 20:29:39 +0000
-Received: from mail-am6eur05on20619.outbound.protection.outlook.com ([2a01:111:f403:2612::619] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tgUyl-0000000B41B-1L3H;
+	Fri, 07 Feb 2025 20:29:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUDy-0000000AwEG-2AUJ
+	id 1tgScD-0000000Aaln-27De
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Feb 2025 17:58:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wJM77HZ1UmnRhLojKb2438RKQywcG1lAcAzGFls8E7A=; b=E7OKAlPV3wUtB0JJClahGI0CCG
+	bntDyFSsiC058VdKURkmPN9KMUungSrW7dcsHDrjZkw10VSbY2mpZbm8FkZVx7TmPG8LvSmSjGxbI
+	BMtDG4Hk2nsFgjWZWYIeXjj5M+/COJZ4Vw/8DOLpXta8kRhNF+P4/Lx7uhZ/BS7DFcuEBPzRdIQT0
+	OpzJhL5fU7hdSPti4A3g5UzUl1rrb3g5Ab3t3Ib91vPQ6vdhtek6GYzPPDtTbi4MLkpJOhSkWLXjc
+	emVCgnSxbx8YWqh1j3pDdUCnrl5BCJCuo1PqZ/Twf0p171QHyrho1mildou1+04bPgRGfFOJBinj4
+	quCwTfig==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgScA-0000000HHAD-0wkE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 19:41:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D/QHEJ+cM3dks2SsRjjVFxZvpv4mKM2yuAZ5Aq/8MiW6FPbSDB121/HCGLq2tH++AHtWtATyTlH+ggVfEUPYMqh0kvknXixOGrIk7JoshwhOdF4irGexkywwCTINP4GkZIKyHIBKFHoZutDJzE5hnzl9Arbn7yYbYAcXjKXfYq4hBFUDSal69sDOphOMjowyZr6ESZpr9iQQgmMnys3SOtDygLYt2FhjWiZeAm/D8OEAFjIUkt1ucjvYpUzqYe+y4usC6f4azstE0ntxGL3IODT3myG+xfKWRnF0GZ7oe8tb1vJz1qXZNJ53jw2cUBZhoRtzWj6qStAqKXm3YxJA3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iQRV15xEuqYShptV6LXNYxXUwjjQavO9It5cPdfJkJg=;
- b=D6zUFhsEPN/pd0h8LN9Kz3slSwojWZXY1MUqj4nyYeoP0FxVnxU2yyR4MWql4vNTfg8fckVJpsmrCcesPDOIOTVwymE1rWUUuKqhotuiTPAlU3M+nYU42CvomXC19tgBYIkMnXAu1ywy/NtfcfQvLk08XPh5zPZ1UspgTqpCpcmhn3hJgpI9jhQdAVdAbHm5XtcoSAZn3hQHIcuKhknZqVFP+SCl5fndWqy2nzSDa8xa2xtArBU7BJYEtGYyepXc654OalznjW5lc0xXo59odLLuBU7Ynx2RKd3+JPRFr+jWTHg5wUUSHwW0/EG/eau+QWPbpL/vQrbjXKEl9CTVAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iQRV15xEuqYShptV6LXNYxXUwjjQavO9It5cPdfJkJg=;
- b=hZHhwSugrpN9I+LSyt9Fe+iu/ix5lDfeEfcpH5yvWstG6lBvcLfOdK4avrO+/I0Llt0Lf1Ap7cWeUKk9Kb/82wabOepI2fPs//tt/rjglbDNYuxnybb53q5SnLdgOe3c0oRLvRGNB/XcQELQZvkWZD6o7Y7bzAOyEhCFhMVR33pyyPpWVspLflnJEp6hkUALlAf/y4j6hBko9mjB7F3tLOxZcoOddGdlp7rVSOHG8bm/YiSHmRON9jch4GtiN9s3GlBbYOI2uHTMALyxRaZATl38gniKg5l++5RQViwzfkJO3HuNiN+FxWs4UtRyXEd50nNF6Cl5C0R9sHp+8jjVrg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
- 2025 19:41:11 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
- 19:41:11 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 07 Feb 2025 14:39:50 -0500
-Subject: [PATCH v14 08/15] PCI: endpoint: Add pci_epf_align_inbound_addr()
- helper for address alignment
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-ep-msi-v14-8-9671b136f2b8@nxp.com>
-References: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-In-Reply-To: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738957203; l=3395;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=YbUj9P3D0sAyJp8B54JaH2JpUQIaScRA/2vrLLIycnI=;
- b=1i1jg5yYbJ9cvcOl6Sn612hw16rd5K/YoEF58TNDQZqjSziM2SDrz/gjkJSf3xGwJAzIC8Ypj
- S5VFPdv5gTlB2SXJXcUXheIPcpZdUPWdnj4HieAFsxOXjy6UHby5GF9
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 07 Feb 2025 17:58:08 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21f4a4fbb35so25674825ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:58:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738951084; x=1739555884; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=wJM77HZ1UmnRhLojKb2438RKQywcG1lAcAzGFls8E7A=;
+        b=dyBziHAgalNWPcm/NvQ3K5XCfCH/jJcdoyFMsJveCOZggLks8KcylILfBLLY3xOJeG
+         0Gb40QX3V9EVKYlFoN7CLZGstXcfwIPiCZwX3XHKSFZRva3Yb/XY64iryeR1BZZA2J33
+         orHmlWNh9VeqF8kYF9MCr+rGpsOj2gGFvmoNBt8NpSxxbONEjo/Vw9NbimP5fCp9/lBU
+         8flIG1Tt1fkMDU4J31SKusTukPV5Nx2XVCHwms9ThbyjRut2iAbvUrJgqrrJ24Nb+a+Q
+         zFtA87yov5m0X7AX3jKfMudYb8HCW4ZQIOKtstvJwr5P0QFE7E865z91kEMnQB9JJr/H
+         bLEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738951084; x=1739555884;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wJM77HZ1UmnRhLojKb2438RKQywcG1lAcAzGFls8E7A=;
+        b=T1ZiXWxsL1tOMQThKt2gZu0Fyh6YxGo5fLF+beeq1ylHlv6E0gmorsYlYtIKLnu7dO
+         EAVwv54naSm3eXNKGY1Ha/32iux3vUHoT0guGo0WWDLrkGnFZxF1TqJHkevo/V19ye1H
+         3L+V20UD2FSANr4/90OVDxabjiyWKWn2tr7LOEQez0AIUCSkM/ggqgrMpDjJ8oNjLDx3
+         3hjnthY+dp6pYAc+gpNmdUvYLaIPRDbascXy1cJQXzaZLB6XmvVQB3JUwbLONHT11mLH
+         0+PvU0wu2ko6IjH8/0rf2vtZ8UqsSRCKE5pOT4b6kpG3Dz5THCXQZ+svfyW+uszl4n0T
+         23kg==
+X-Forwarded-Encrypted: i=1; AJvYcCXEAS5pu3QJMN44Br2ojekc0yeaXTBSTqHm85P6XVuo9buFMnHnqPcJDhiiE7hF6s2CQdYZgDNenpXKiNJ53oFY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSRg1XEu7FPglUb3QHpVwgXZ4Hg2iLknhBXCgZak1/bUNllpFD
+	S8vD4hYaT1HeY5BKiVbVjH3J1RXHscfB+tCMxUABMnadtbdxgvF0W6Z85dMu6g==
+X-Gm-Gg: ASbGncvKQuiYKOxIvbHuP+HH6yMoP6KuG/rDXHLUG0/UUn5Y6BfepHUkivOHSAJdKf0
+	bJXFK0jGBbzW9sRJesJPZ6Rus6GEwz6O5Bb94JkZSa7VFAdKW24vcaTBOvyVF+D2YKomj4+7mk3
+	9RqM4ayXOPF2lSJTFJZZo0meHdnZ4222YPlS08BdWWXaxzjyk/U/kO/zEHHA751OUSvxi1KU4ZC
+	is62sRftZfI+f9rgAMF80PnbGe45IyMM/nJeYzoJH4Yk/sBuvb1HoysxH0Jgi8yikfos8BX6rOG
+	ko7NFnRsQbNbN5/H9VPIype3ew==
+X-Google-Smtp-Source: AGHT+IHJs/XZ6CiTFau0hB0u90Lhs4NJaZOV00tEkIwNjsA+gYtKS4ULQ+Eo/VyD0QJD/a9Hbkubyg==
+X-Received: by 2002:a17:902:d4c9:b0:21f:3352:8f64 with SMTP id d9443c01a7336-21f50158c3emr64628165ad.26.1738951084262;
+        Fri, 07 Feb 2025 09:58:04 -0800 (PST)
+Received: from thinkpad ([120.60.76.168])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f368cd38esm33196655ad.240.2025.02.07.09.58.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 09:58:03 -0800 (PST)
+Date: Fri, 7 Feb 2025 23:27:59 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Wilson Ding <dingwei@marvell.com>, cassel@kernel.org
+Cc: Bjorn Helgaas <helgaas@kernel.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"thomas.petazzoni@bootlin.com" <thomas.petazzoni@bootlin.com>,
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Sanghoon Lee <salee@marvell.com>
+Subject: Re: [PATCH 1/1] PCI: armada8k: Add link-down handle
+Message-ID: <20250207175759.jzmoox5mke3rachy@thinkpad>
+References: <20241112213255.GA1861331@bhelgaas>
+ <AD287CCE-9FFE-49BC-B9CA-B5CED4F05AF1@linaro.org>
+ <BY3PR18MB46737FB5FDBD75CF31B505B8A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <BY3PR18MB4673207A36B2CD7C3B75EBA0A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9787:EE_
-X-MS-Office365-Filtering-Correlation-Id: eea3202d-59dd-4441-bcf9-08dd47af6021
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R1ZrdW9BeWcrdHpBYmNQMUZGYUdhSzRZTGkzMjhVVFZkNmI4UWhHb1VtMVcx?=
- =?utf-8?B?OHpHblA5Uk1Ta0l2MDVGbytuZDJEcmxaZVZDaFJJMFBpR0JmSzE5bWpuQ21W?=
- =?utf-8?B?YnZxYkl6QUtpTnhBaTl4OGlaZGk1STV0cHJPemRzMmxFR0hPVHQ5aUFIeXdu?=
- =?utf-8?B?cFNJVjJUM1c0akZ5QlVaMWVlOVdDNDFhMmc3RmFyNGdDNkRIeGNUUTlYbkNy?=
- =?utf-8?B?ek83dm5HRlNzZGhnRytNSkhOc0lDZCsrdTN3ZDk2T29NTVQzNG9RY3BsWHAy?=
- =?utf-8?B?cDZaN3htQ1M1UW8yTzRwMzc5SnB5M1FCOVQ3eks3a2tUSVhzNHFmcStxVzly?=
- =?utf-8?B?SXVmTXpVOTcrMXFzZW9tMUVaVzBQbUxUWFZMNlZXRlpndWFRZkhhV2hJWlM5?=
- =?utf-8?B?SHZGemJyYjV1elBBZEdJYWFRRG1mM3FEcFYwTXNwV0Y5UVhsTkZxdEVuVC9s?=
- =?utf-8?B?SWlqNG1XRnpMdFh1UE9reHpKemkvWE9MejFrTVN4SGNqWFRJT0Jud05PVTRR?=
- =?utf-8?B?UExUOXdXaXU2MmVNUU1oMGJEMDlzc3JST0RCSVZQMWZHZU5TT1dkS1gzR3Bz?=
- =?utf-8?B?OUJTd0lIMFlwNENhQ0huTW5UREZkYzVuNlkrR1FlU3c2djd4NldJU0s3SmhJ?=
- =?utf-8?B?c1QrcHNxL0NrWHpkQjF1ejNUR3htRFZFbm03UFVNc2NwRVc2bHBYdVJFWkhS?=
- =?utf-8?B?akQxWm5vRFZ0b2kzSVFnYVJqb1ZJczJKSjRlYW94NWR4VUY3ZHo1eDRZMjB2?=
- =?utf-8?B?Q2dlcnVKRVM4QUZQUzFQUUZpOTRXZTIvcGc3cW5OSmxHZWRCd1VvMkV0OW8r?=
- =?utf-8?B?ZFFXZkpITmRBV3dTeklnc2MxUkd3OE5mZEgyTUVRMWZOSTRmYk5vQTRFdWtN?=
- =?utf-8?B?NDJJSEVmMDU2T20xUmNkQVJYOTYzblo5WUxCWHJacmx3b3pHMzN4bEdVd1Js?=
- =?utf-8?B?bGtKb2dmd2FDRFV2QVI4MnFkd3VlQkpFOFpNUFlUMkdIcy8ySjlYWUJqNW9m?=
- =?utf-8?B?VjgvMUpLRWp6S3EwQzR0Y2RGRGpVZTE2clZHNU1VL0xyaDFRM0cwS1gyc015?=
- =?utf-8?B?cGFFRWl2VjloNmtFQ1k2dzAvRFV0cTN6dmxmYTlzaVNaOXFVZzZMZ3VIQ0Nr?=
- =?utf-8?B?MGU2Mk1jVi9ZRFh6UmtpTnJESmNTQ21Tc1pwM3ZDNFhzSllHaUs4N25iRnBz?=
- =?utf-8?B?Y1pqcHowUjdzOTAzQk9MM3c3NkErM2MxckVHRE5VU1RwaUYvWER6MVphZWlr?=
- =?utf-8?B?eFZYM1lJY1AvNkFHY20vZ3NFYmdCV2wrQkFDdXdhdE1vOFVIc2xvRlN4N3d1?=
- =?utf-8?B?MUpRcWZZcXVhcEUwam9JdEU4OXdGd2Vxd21HM2pCdkswM0dIbGhlaUxINDVJ?=
- =?utf-8?B?TytWYVdLNE5mUzBPV0E5Z1c2eDlEcUswb0w5Zkt1OGYwd1pqUzZjUEZHbDN2?=
- =?utf-8?B?Z2RtYTc2bkJHZTdmMlVFNTBHUzd4TWNqZ0NGa0VSRlJzUExjeHFtWE5XbUZq?=
- =?utf-8?B?b3dRa2NuelRKUS9Na2R0ZmpFK2Z6UmNQMktVN3FzZUNiRzlZU2tmRGl5RS9p?=
- =?utf-8?B?MENSbVo2REMzaWdGeVlIQkFGdlpRSmw2TUpDNnQveUp4RFEraVZqT2lqNzB0?=
- =?utf-8?B?amdWM21TRmFpTDZnN0FYN3F4eW5hZzBGVkcvcDVJSFJzS3JKQW1wV0xDWVFP?=
- =?utf-8?B?Y0lmQVZRK3AvRFhoNlUwU1lsR21LSXBvblpFQzBDanFLcC91MGE4ZGdVY3RD?=
- =?utf-8?B?djRFaWw0bWRuSk9TWVduYVQveVZqSm9Pd2ZWa1JYRmQ5TW5DQXRKRWM5L2ZS?=
- =?utf-8?B?dVMzeUpDdFlaaFNIV284T25sdVhwblliOE5YMlZQTzFJYUZWSjVJK0JyeFZn?=
- =?utf-8?B?bS9EczcydzlyMXFBVnpqSW1naURQbXNXamd1ajlxNjVMRUgyZi9MalJjZ1dy?=
- =?utf-8?B?NVNxdW43RXlTcEpuRGxCSDRiQ0dkZytmSG9LOGlzK203SktZblU2c0h2WTRo?=
- =?utf-8?B?ZktxQWkyZkpBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RU55NExzSVZ6Z2VWNGFnbC9vaXJjMWNiUElVM0NOeGw4emdzUnBSL3d6SjY5?=
- =?utf-8?B?SEpBZDJyNjRmeXJnd1AvMTFLMG1VTmZwUlcwMGhUMUk1c0J0WkdONkNJUmdl?=
- =?utf-8?B?L2NXenYxZUtoSFRCU2lRdzVLZEdPWWFYZW1BVSt6S1FNNUE0bUEyTjUycGFj?=
- =?utf-8?B?c3l2dVAwVTZWWjFnVUEzUHczUDhNUXk1TGlQaVpaNFJoSVU0TW1YR0JqTXU3?=
- =?utf-8?B?WTRGclRnL1RrcEdnd2RvUmNWa213SjhZZHZmNmlUVXUvVDFYVDIyVGpiUFI1?=
- =?utf-8?B?SkgxYlpQbk1XZVk5YndEWk5YQ1RBdHFIWFhsMGNZNGNNei83RFZaY2F3a3Mz?=
- =?utf-8?B?V1RlQzdQV2RuRXhYR2dUUWp6QWZSdE9TMTdnamF3NFBsSlgwVFkwNlhpNVM1?=
- =?utf-8?B?LzFkekZOUzBhcUF4aVl1bHZpdWdtUW5lZXNRMEQ3ZWNLSmJWdGtwZjlLSkRw?=
- =?utf-8?B?d284dzIyU2dpYkxoWmRFY3F2QTdMYjF1eGRlRitkaFc0Z1hkVnovWTV6dzVv?=
- =?utf-8?B?NzVickFCaHZUUmNyYXM1cWFHU2ZSU3lSNWNzQlRYK1UwSUNxYWVKMm1GbjBC?=
- =?utf-8?B?b3o1emIwdmxuZFg0UDFSdjZGemorSGJISW9RditnNWtjRUdkZzVqdzNRenhT?=
- =?utf-8?B?WVh1dWUvU0x3cnFiVHZFdVdxYmhEUXd3SERSRmNDUDN6NjBRNFBqREg1NUY3?=
- =?utf-8?B?RnB1dENITi8vZXp6Zm5hME0xelpGT3V4WDFXa0hmTWEvaU1WNjBYVnlFUVF4?=
- =?utf-8?B?dDR2dHQ5blJWRVVaaEllTUpNT2FwL1IzMDRIR0ZxMXVycWlIdHJPZDNCZXJU?=
- =?utf-8?B?eXNNbXIzMGtVQnNVRGNLMjVHZGgwY2hKNkY5VURpdHZVVWpHSDV6ZVhObGFO?=
- =?utf-8?B?ZVdsZnEyc1hIdlB1UUdVQ1hKWlZoV3pZS2YwTTF3bzc5SlBVZW4rMHF1dEVn?=
- =?utf-8?B?dnNZc3RQMkczVVFBV2VMcU5FbnNtNWI0N0w2aXhoWDFaV2UxY3hLWHFHczJT?=
- =?utf-8?B?U1ArQ0czQjhNaUF0RmFWNVh6Vm5VeWtoMjZEdnlRVEpGTCs4b2NCenIrVy9F?=
- =?utf-8?B?RGc3Uk1EQ0VRb0NoUDhLQzJWWXlkWTdlRUkycTNDcmt1T29vMTRtdllEZG9k?=
- =?utf-8?B?WDhuL0tOaGp1dTdWY1R0N2VRWmpmZzRNQkw4VlJ0U2FSSjZYUWVVc3NKRHRM?=
- =?utf-8?B?SDlmd2xyajUzZTZxK2QxdmFKTGdXTHlaUDRyekFOMDFaKzdSNUlINmExSjVV?=
- =?utf-8?B?cXpGL2pDb1ZCU1hmU3RjMzUzNXFhZUNtR2NSYy8yajE5L3VkNFRZS1lOVzN3?=
- =?utf-8?B?SlFhZmJaNXBOR0JlMjgwd2kvd0xiaytON2hTMHpaU3JEb2oyMmlkRHZ6Q29q?=
- =?utf-8?B?WlVock1IUlkyZUZ3YjNTdFJjeERDTDVwbDR3K3BsTzlqNDczUC9ZU0poMWZW?=
- =?utf-8?B?VFVsbVFVdjhDVnIrdUowUTNsd3R5WmdJSmh5MEpERnMzUStiQVJncmY2SC9i?=
- =?utf-8?B?a1dYWW5ldEh1bWpOc1daUCtud0x0S1NSSEhtNE03S1dUblI0bUFpTnBXKzBB?=
- =?utf-8?B?dkZsK1pDdnFOa2Y0eElTbWx3emRmQkhxVnM0dnBZcldZL2NhcXZOY1BCY1Bw?=
- =?utf-8?B?WnhMVm42aFN4ZGJ3YWZ1Z0hhUU9xcjgycm15Y0xuT0NIMmtnazdpdW9YSDZF?=
- =?utf-8?B?cld4T01PL3JiRk85WVZjYWk2andib0thelJyaFVnSVhaNlhTTWxHUy9QQ2Zt?=
- =?utf-8?B?azNWdUNVVUxqbkQrSTlBdDdUU3FzM1VJU0FTVzFPOGl0VFJlcmZ2VjdaRHhp?=
- =?utf-8?B?T0FJL1RiWWxaNDFmYmZyMTQxTHVrYjlaMEQwK2YyRzJmUkRYL2k5ZVEzR1Ns?=
- =?utf-8?B?Vlhwd0RqcFM1bW9GOUJ5TmVnZUZMcjlRU056Q1pUbnlFL01EN3lsVjcvWmIw?=
- =?utf-8?B?VEIwN3kvczBZdzkzcTZwNFRTc3NTME9zcnBNRExkSGdUQXBQamE5UWVUQUxZ?=
- =?utf-8?B?Sm8rUGY1bzc5VnlLai8vOU9XMW5ERll6NHdWcUFtSEkxVkxocXJieGErRTA4?=
- =?utf-8?B?TE93S2FWczVCdzdEWG80dWVaTEJmbTIwelN2ajhkK1E4bUtRbUVmclkyVjdy?=
- =?utf-8?Q?TBtgL8xKAMhRyRhBa32WScd6D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eea3202d-59dd-4441-bcf9-08dd47af6021
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 19:41:11.5925
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3Qt0HAwldIuKnZyyvnRLhnwk1TFBSJ22zHFy1ksxfL51sjWGvfIGrHUzK8kmewCFOWZqRYwa4dKMFz5w4s9Y1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <BY3PR18MB4673207A36B2CD7C3B75EBA0A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_114114_560915_672471F5 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250207_175806_510741_44FCBDF0 
+X-CRM114-Status: GOOD (  38.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,102 +123,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the helper function pci_epf_align_inbound_addr() to adjust
-addresses according to PCI BAR alignment requirements, converting addresses
-into base and offset values.
++ Niklas (who was interested in link down handling)
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Change form v9 to v14
-- none
+On Sat, Feb 01, 2025 at 11:05:56PM +0000, Wilson Ding wrote:
+> > On November 13, 2024 3:02:55 AM GMT+05:30, Bjorn Helgaas
+> > <mailto:helgaas@kernel.org> wrote:
+> > >In subject:
+> > >
+> > >  PCI: armada8k: Add link-down handling
+> > >
+> > >On Mon, Nov 11, 2024 at 10:48:13PM -0800, Jenishkumar Maheshbhai
+> > Patel wrote:
+> > >> In PCIE ISR routine caused by RST_LINK_DOWN we schedule work to
+> > >> handle the link-down procedure.
+> > >> Link-down procedure will:
+> > >> 1. Remove PCIe bus
+> > >> 2. Reset the MAC
+> > >> 3. Reconfigure link back up
+> > >> 4. Rescan PCIe bus
+> > >
+> > >s/PCIE/PCIe/
+> > >
+> > >Rewrap to fill 75 columns.
+> > >
+> > >I assume this basically removes a Root Port (and the hierarchy below
+> > >it) if the link goes down, and then resets the MAC and tries to bring
+> > >up the link and enumerate the hierarchy again.
+> > >
+> > >No other drivers do this, so why does armada8k need it?  Is this to
+> > >work around some unreliable link?
+> > 
+> > Certainly Qcom IPs have this same feature and I was also looking to implement
+> > it. But the link down should not be handled by this in the controller driver.
+> > 
+> > Instead, it should be tied to bus reset in the core and the reset should be done
+> > through a callback implemented in the controller drivers. This way, the reset
+> > cannot happen in the back of PCI core and client drivers.
+> > 
+> > That said, the Link down IRQ received by this driver should also be propagated
+> > back to the PCI core and the core should then call the callback to reset the bus
+> > that I mentioned above.
+> > 
+> 
+> It's more than a work-around for the unreliable link. A few customers may have
+> such application - independent power supply to the device with dedicated reset
+> GPIO to #PRST. In this way, the power cycle and warm reset of RC and EP won't
+> have impact on each other. However, it may lead into the PCI driver not aware
+> of the link down when an unexpected power down or reset occurs on the device.
+> We cannot assume the link will be recovered soon. The worse thing is the driver
+> may continue access to the device, which may hang the bus. Since the device
+> is no longer present on the bus, it's better to remove it. Besides, in order to bring
+> up the link, the only way is to reset the MAC, which starts over the state machine
+> of LTSSM.
+> 
+> Well, we also noticed that there is no other driver that did this. I agree it is not
+> necessary if the power cycle or warm reset of the device is done gracefully. The
+> user can remove the device prior to the power cycle/reset.  And do the rescan
+> after the link is recovered. However, the unexpected power down is still possible.
+> Please enlighten me if there is any better approach to handle such unexpected
+> link down.
+> 
 
-change from v8 to v9
-- pci_epf_align_inbound_addr(), base and off must be not NULL
-- rm pci_epf_align_inbound_addr_lo_hi()
+There is no issue in retraining the link. My concern is that, the retrain should
+not happen autonomously in the controller driver. PCI core should be made
+informed of it. More below.
 
-change from v7 to v8
-- change name to pci_epf_align_inbound_addr()
-- update comment said only need for memory, which not allocated by
-pci_epf_alloc_space().
+> In the meanwhile, I am quite interested the callback implementation suggested
+> by Mani. But I am sure if we have such infrastructure right there. Mani, could
+> you please elaborate a bit more, or is there any examples in the existing code
+> and patches.
+> 
 
-change from v6 to v7
-- new patch
----
- drivers/pci/endpoint/pci-epf-core.c | 44 +++++++++++++++++++++++++++++++++++++
- include/linux/pci-epf.h             |  3 +++
- 2 files changed, 47 insertions(+)
+There is no such implementation available right now. This idea is on my mind for
+quite some time, but never had time to do it. Maybe this gives me motivation to
+do so.
 
-diff --git a/drivers/pci/endpoint/pci-epf-core.c b/drivers/pci/endpoint/pci-epf-core.c
-index f728ee2660a4e..04facefc70423 100644
---- a/drivers/pci/endpoint/pci-epf-core.c
-+++ b/drivers/pci/endpoint/pci-epf-core.c
-@@ -469,6 +469,50 @@ struct pci_epf *pci_epf_create(const char *name)
- }
- EXPORT_SYMBOL_GPL(pci_epf_create);
- 
-+/**
-+ * pci_epf_align_inbound_addr() - Get base address and offset that match BAR's
-+ *			  alignment requirement
-+ * @epf: the EPF device
-+ * @addr: the address of the memory
-+ * @bar: the BAR number corresponding to map addr
-+ * @base: return base address, which match BAR's alignment requirement.
-+ * @off: return offset.
-+ *
-+ * Helper function to convert input 'addr' to base and offset, which match
-+ * BAR's alignment requirement.
-+ *
-+ * The pci_epf_alloc_space() function already accounts for alignment. This is
-+ * primarily intended for use with other memory regions not allocated by
-+ * pci_epf_alloc_space(), such as peripheral register spaces or the trigger
-+ * address for a platform MSI controller.
-+ */
-+int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
-+			       u64 addr, u64 *base, size_t *off)
-+{
-+	const struct pci_epc_features *epc_features;
-+	u64 align;
-+
-+	if (!base || !off)
-+		return -EINVAL;
-+
-+	epc_features = pci_epc_get_features(epf->epc, epf->func_no, epf->vfunc_no);
-+	if (!epc_features) {
-+		dev_err(&epf->dev, "epc_features not implemented\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	align = epc_features->align;
-+	align = align ? align : 128;
-+	if (epc_features->bar[bar].type == BAR_FIXED)
-+		align = max(epc_features->bar[bar].fixed_size, align);
-+
-+	*base = round_down(addr, align);
-+	*off = addr & (align - 1);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(pci_epf_align_inbound_addr);
-+
- static void pci_epf_dev_release(struct device *dev)
- {
- 	struct pci_epf *epf = to_pci_epf(dev);
-diff --git a/include/linux/pci-epf.h b/include/linux/pci-epf.h
-index 518bc4171285e..1a5cc4d4ae362 100644
---- a/include/linux/pci-epf.h
-+++ b/include/linux/pci-epf.h
-@@ -240,6 +240,9 @@ void *pci_epf_alloc_space(struct pci_epf *epf, size_t size, enum pci_barno bar,
- 			  enum pci_epc_interface_type type);
- void pci_epf_free_space(struct pci_epf *epf, void *addr, enum pci_barno bar,
- 			enum pci_epc_interface_type type);
-+
-+int pci_epf_align_inbound_addr(struct pci_epf *epf, enum pci_barno bar,
-+			       u64 addr, u64 *base, size_t *off);
- int pci_epf_bind(struct pci_epf *epf);
- void pci_epf_unbind(struct pci_epf *epf);
- int pci_epf_add_vepf(struct pci_epf *epf_pf, struct pci_epf *epf_vf);
+Niklas: Did you get a chance to look into this? Else, let me know. I'll take a
+stab at it.
+
+- Mani
 
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
