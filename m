@@ -4,72 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B4FC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43047C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BanH4konQw9t6ScXXmvc+0jFV831MTsIu4QrS3IOnAM=; b=mEi3t+vu8SL0oOT4Fv/2dbEDrE
-	gGHwYScD2Vyy5uEcsVZ2uDaRR0yRXD3jx0O+qAu40mA3E+Qw1IacmTg36/xXhih3ZQw0wxGmThHXv
-	b1KukHhASV53m11XsTVl5ntyvTAaLycc8sfhju4H512P2JuaXO5mJD5sd7q7OI/d594uH91jnQnZd
-	QP5JpYl8DtsrR0PSJvOpsiAp9ypBoWWNWb9+cdC/Wp1U95VZuctvwe93FZ4zWVMsG/RKiPdPNRHD8
-	gJ9zUEW3UiKKmIrgDMAgULGoCrExLZWcsZhN39JXBjSllJQxk33TaKvQ5HKUigAUjBeTsPkgIHXJp
-	zUTHcqSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1eyHbVSPzPS2H7ccJkoRfXPoW37SSjWSYPml0H3RVrY=; b=AFWBIupr54a4VNfBroo41ZLl9B
+	wnW4qjUUvRXvzo6WHcZyEsg1kGxKToaXx3WWREag1UNHPYj8pUgQlfn55ZzUkIsE4PgLiycpB2V68
+	PHr9vcNfxqAYOiLZyKk+WOtNVaqdfjj+3BEsLIVoUYsjBpbTnQ8gMDnKCayILBnMpXxTAHKssmEPD
+	Ckogpk2KZciaF3c0ql8vnvP8SRfE/rXXsBFvD1Y/LusIkNE8iPywuJSNMBGN2tT92oD5gF3SWtPAZ
+	iRVgRg/aj6YceanJfV4lOWQE/7w+wrlUaq5VFLp6Zi2gP+KVVDEg1UNKLtPyTiW+QK2Akxt+gwtsU
+	VX3tivXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRaj-0000000AMg2-3E4E;
-	Fri, 07 Feb 2025 16:52:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tgRc6-0000000AN2F-1Nwg;
+	Fri, 07 Feb 2025 16:53:58 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRCR-0000000AHXk-3Xsi;
-	Fri, 07 Feb 2025 16:27:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 43F145C09ED;
-	Fri,  7 Feb 2025 16:26:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BF44C4CED1;
-	Fri,  7 Feb 2025 16:27:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738945646;
-	bh=Jx19gArTxLeP4or9st5PQJawzZEi9IZivLppm8OH6b8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AT2B/Jz932+Isd6jCRXxXLVtt7H4awUBN5bM6XNhxffelBF10JSppRIis6advy4N7
-	 n50C00v+DAvAtbk8C3QQge7fqBnLhBMNxZA8S5DjxKRhLu9gmx5JxWuy3cgPHSzBL9
-	 4D+5q5aGXzRT5u6H1i2duNiGEwJ+QdbUnXQko+Nha9BbklJcMqQtynWChx7hHbq5Rh
-	 /xJDlmun6MRFFIxtqdopK/sriJHjP9mkd9q35gF9L9ivmITubhi+UH9lg80Pn3d0Lw
-	 5kLrHp1xOa7JKcncVtNJoOtYxQ9CZU0HbiYLzqg3IJKVVaxLNX0+JhQDDDnhPKwtuo
-	 4nw/iH+TePGrQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 07 Feb 2025 17:26:30 +0100
-Subject: [PATCH net-next v2 15/15] net: airoha: Introduce PPE debugfs
- support
+	id 1tgRHC-0000000AIxI-1JDH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 16:32:23 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7b9bc648736so216777485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 08:32:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1738945941; x=1739550741; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1eyHbVSPzPS2H7ccJkoRfXPoW37SSjWSYPml0H3RVrY=;
+        b=Pn9B/8s3tUIquxzWcyuhp+b66W8Xehn5PjFQ0Jok4yHNFVCUhAD34n4AwknJ9BAeSd
+         TFv48fj5J9tm8IJfJZyX7yqyBB8a129+xukKTm21lR3uy500+zekJs6oPTodt2mOWQwQ
+         oHJcFtaFi9xnt8WXpCrf38xtgjx8OBHuBdXfNunQ2ltzPpcRblkk6JCQvDKoxd79UYrk
+         YUzM4+zShaSos/IfMClnQ/ZCkkkCsXYwf4U1RBdR5Wo8RTdlQSyc94h4JXtwi39Srvhi
+         wEdsDUJdUUpr9osazC8io9/Ce3Kt+PBz2vF3eC0Ff9UfBtS8JmS7Ahj9gn+CQAwR90fY
+         gbnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738945941; x=1739550741;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1eyHbVSPzPS2H7ccJkoRfXPoW37SSjWSYPml0H3RVrY=;
+        b=ZYRQtTk2LAEtxeRDLHu+TmijJeiQ3xwqtZDa5lCr1gF/Le2ltUWGDU8AP1bOfGXUY0
+         o3Dcuo6di1pReiHYcSMZgLCoP2zcDQxxVpYvlI7Gllh+P9oj9LYa50rK/5SqnEiId8To
+         RkLptUzsf6QRWgR3dD8uI6i9BxYn1U7pYn2D96UnBPEfbc2yTxbtiw0uVhXYwaDg2Y4V
+         LNEaMjf9zSi7L1V24tIJRs3YJb3vWZRBh7LY4sJOnoD6PhRRbvhTG/bugaN2qFXz53yy
+         slCIDXxKd+VEqY5HBDPW61w20n+SXuNVdHlk6L/N42LfnXXlR9k+iDcbRBKK3sDM4Rzs
+         ckjA==
+X-Forwarded-Encrypted: i=1; AJvYcCXtkjtT59MxaaSabaKWqv+l88kJvvvsZTGf+/Yc8Ux/ZlEzHiIFtUMo555OvtwkZ1twfuLkOjmmfZUrKE0i3rZI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0GRdK+rqpl6f8zliYkwns93JQm8rV7TmF/3Qc1+GNQ2DNJt+h
+	OdyyjHhyafJx94JUuTiVgBL2/cptc5oagHtXUVRZSF8YHQoZ37SiYDoLlQfcbHI=
+X-Gm-Gg: ASbGncuHxk0aAWmPz0bfOuNTfwx9LL52pMgLB8NA0AXXx+SO8FaysQBujbMTFX20K45
+	TouLYl4ddnRxGgSTHP8ru7ahS6/MaqvnY8nuWAF+PO0xJl7pBtfQ3koJdEeWz/UQElHZrPBPeme
+	ERl2BSia0D16vwfgpyq8n97i0uwIjJrkfTNwApEJ0dsBasNrdpDdsC4XUfMnGL03OIJSG2owNqw
+	4dco0bRe/GBYvRDncp4YUnjnSE0tVSF4DQw8yAKQkLlCBBya4fUsdtsNa6g/J4Hh9KaZCJzSclw
+	SKN00oMsmRl3p56s
+X-Google-Smtp-Source: AGHT+IHMskAJ2FFpcL+LoXxgmr/MIx5nX+eElBqeikyP+Zh17IpGj4yP1i1w+a51aWNGdndmORetGg==
+X-Received: by 2002:a05:620a:248e:b0:7b6:f17d:f5a7 with SMTP id af79cd13be357-7c047c1f9d5mr701310685a.6.1738945941025;
+        Fri, 07 Feb 2025 08:32:21 -0800 (PST)
+Received: from nicolas-tpx395.localdomain ([2606:6d00:11:e976::7a9])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c041eb7d12sm206602485a.106.2025.02.07.08.32.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 08:32:20 -0800 (PST)
+Message-ID: <2cef75795cf3eb1c224f3562134d2ed887dbff60.camel@ndufresne.ca>
+Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali
+ CSF GPUs
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Florent Tomasin	
+ <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Steven Price <steven.price@arm.com>, Liviu Dudau	
+ <liviu.dudau@arm.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,  Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>, Benjamin
+ Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey
+ <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T . J .
+ Mercier"	 <tjmercier@google.com>, Christian =?ISO-8859-1?Q?K=F6nig?=	
+ <christian.koenig@amd.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Yong
+ Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org, 
+	linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, nd@arm.com, Akash Goel
+ <akash.goel@arm.com>
+Date: Fri, 07 Feb 2025 11:32:18 -0500
+In-Reply-To: <20250207160253.42551fb1@collabora.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+		<3ykaewmjjwkp3y2f3gf5jvqketicd4p2xqyajqtfnsxci36qlm@twidtyj2kgbw>
+		<1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
+		<ppznh3xnfuqrozhrc7juyi3enxc4v3meu4wadkwwzecj7oxex7@moln2fiibbxo>
+		<9d0e381758c0e83882b57102fb09c5d3a36fbf57.camel@ndufresne.ca>
+		<1f436caa-1c27-4bbd-9b43-a94dad0d89d0@arm.com>
+		<20250205-amorphous-nano-agouti-b5baba@houat>
+		<2085fb785095dc5abdac2352adfb3e1e1c8ae549.camel@ndufresne.ca>
+	 <20250207160253.42551fb1@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-15-3a2239692a67@kernel.org>
-References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
-In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082727_987044_E4659D96 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20250207_083222_504137_72B77411 
+X-CRM114-Status: GOOD (  62.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,266 +124,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to PPE support for Mediatek devices, introduce PPE debugfs
-in order to dump binded and unbinded flows.
+Le vendredi 07 f=C3=A9vrier 2025 =C3=A0 16:02 +0100, Boris Brezillon a =C3=
+=A9crit=C2=A0:
+> Sorry for joining the party late, a couple of comments to back Akash
+> and Nicolas' concerns.
+>=20
+> On Wed, 05 Feb 2025 13:14:14 -0500
+> Nicolas Dufresne <nicolas@ndufresne.ca> wrote:
+>=20
+> > Le mercredi 05 f=C3=A9vrier 2025 =C3=A0 15:52 +0100, Maxime Ripard a =
+=C3=A9crit=C2=A0:
+> > > On Mon, Feb 03, 2025 at 04:43:23PM +0000, Florent Tomasin wrote: =20
+> > > > Hi Maxime, Nicolas
+> > > >=20
+> > > > On 30/01/2025 17:47, Nicolas Dufresne wrote: =20
+> > > > > Le jeudi 30 janvier 2025 =C3=A0 17:38 +0100, Maxime Ripard a =C3=
+=A9crit=C2=A0: =20
+> > > > > > Hi Nicolas,
+> > > > > >=20
+> > > > > > On Thu, Jan 30, 2025 at 10:59:56AM -0500, Nicolas Dufresne wrot=
+e: =20
+> > > > > > > Le jeudi 30 janvier 2025 =C3=A0 14:46 +0100, Maxime Ripard a =
+=C3=A9crit=C2=A0: =20
+> > > > > > > > Hi,
+> > > > > > > >=20
+> > > > > > > > I started to review it, but it's probably best to discuss i=
+t here.
+> > > > > > > >=20
+> > > > > > > > On Thu, Jan 30, 2025 at 01:08:56PM +0000, Florent Tomasin w=
+rote: =20
+> > > > > > > > > Hi,
+> > > > > > > > >=20
+> > > > > > > > > This is a patch series covering the support for protected=
+ mode execution in
+> > > > > > > > > Mali Panthor CSF kernel driver.
+> > > > > > > > >=20
+> > > > > > > > > The Mali CSF GPUs come with the support for protected mod=
+e execution at the
+> > > > > > > > > HW level. This feature requires two main changes in the k=
+ernel driver:
+> > > > > > > > >=20
+> > > > > > > > > 1) Configure the GPU with a protected buffer. The system =
+must provide a DMA
+> > > > > > > > >    heap from which the driver can allocate a protected bu=
+ffer.
+> > > > > > > > >    It can be a carved-out memory or dynamically allocated=
+ protected memory region.
+> > > > > > > > >    Some system includes a trusted FW which is in charge o=
+f the protected memory.
+> > > > > > > > >    Since this problem is integration specific, the Mali P=
+anthor CSF kernel
+> > > > > > > > >    driver must import the protected memory from a device =
+specific exporter. =20
+> > > > > > > >=20
+> > > > > > > > Why do you need a heap for it in the first place? My unders=
+tanding of
+> > > > > > > > your series is that you have a carved out memory region som=
+ewhere, and
+> > > > > > > > you want to allocate from that carved out memory region you=
+r buffers.
+> > > > > > > >=20
+> > > > > > > > How is that any different from using a reserved-memory regi=
+on, adding
+> > > > > > > > the reserved-memory property to the GPU device and doing al=
+l your
+> > > > > > > > allocation through the usual dma_alloc_* API? =20
+> > > > > > >=20
+> > > > > > > How do you then multiplex this region so it can be shared bet=
+ween
+> > > > > > > GPU/Camera/Display/Codec drivers and also userspace ? =20
+> > > > > >=20
+> > > > > > You could point all the devices to the same reserved memory reg=
+ion, and
+> > > > > > they would all allocate from there, including for their userspa=
+ce-facing
+> > > > > > allocations. =20
+> > > > >=20
+> > > > > I get that using memory region is somewhat more of an HW descript=
+ion, and
+> > > > > aligned with what a DT is supposed to describe. One of the challe=
+nge is that
+> > > > > Mediatek heap proposal endup calling into their TEE, meaning know=
+ing the region
+> > > > > is not that useful. You actually need the TEE APP guid and its IP=
+C protocol. If
+> > > > > we can dell drivers to use a head instead, we can abstract that S=
+oC specific
+> > > > > complexity. I believe each allocated addressed has to be mapped t=
+o a zone, and
+> > > > > that can only be done in the secure application. I can imagine si=
+milar needs
+> > > > > when the protection is done using some sort of a VM / hypervisor.
+> > > > >=20
+> > > > > Nicolas
+> > > > >  =20
+> > > >=20
+> > > > The idea in this design is to abstract the heap management from the
+> > > > Panthor kernel driver (which consumes a DMA buffer from it).
+> > > >=20
+> > > > In a system, an integrator would have implemented a secure heap dri=
+ver,
+> > > > and could be based on TEE or a carved-out memory with restricted ac=
+cess,
+> > > > or else. This heap driver would be responsible of implementing the
+> > > > logic to: allocate, free, refcount, etc.
+> > > >=20
+> > > > The heap would be retrieved by the Panthor kernel driver in order t=
+o
+> > > > allocate protected memory to load the FW and allow the GPU to enter=
+/exit
+> > > > protected mode. This memory would not belong to a user space proces=
+s.
+> > > > The driver allocates it at the time of loading the FW and initializ=
+ation
+> > > > of the GPU HW. This is a device globally owned protected memory. =
+=20
+> > >=20
+> > > The thing is, it's really not clear why you absolutely need to have t=
+he
+> > > Panthor driver involved there. It won't be transparent to userspace,
+> > > since you'd need an extra flag at allocation time, and the buffers
+> > > behave differently. If userspace has to be aware of it, what's the
+> > > advantage to your approach compared to just exposing a heap for those
+> > > secure buffers, and letting userspace allocate its buffers from there=
+? =20
+> >=20
+> > Unless I'm mistaken, the Panthor driver loads its own firmware. Since l=
+oading
+> > the firmware requires placing the data in a protected memory region, an=
+d that
+> > this aspect has no exposure to userspace, how can Panthor not be implic=
+ated ?
+>=20
+> Right, the very reason we need protected memory early is because some
+> FW sections need to be allocated from the protected pool, otherwise the
+> TEE will fault as soon at the FW enters the so-called 'protected mode'.
+>=20
+> Now, it's not impossible to work around this limitation. For instance,
+> we could load the FW without this protected section by default (what we
+> do right now), and then provide a DRM_PANTHOR_ENABLE_FW_PROT_MODE
+> ioctl that would take a GEM object imported from a dmabuf allocated
+> from the protected dma-heap by userspace. We can then reset the FW and
+> allow it to operate in protected mode after that point. This approach
+> has two downsides though:
+>=20
+> 1. We have no way of checking that the memory we're passed is actually
+> suitable for FW execution in a protected context. If we're passed
+> random memory, this will likely hang the platform as soon as we enter
+> protected mode.
+>=20
+> 2. If the driver already boot the FW and exposed a DRI node, we might
+> have GPU workloads running, and doing a FW reset might incur a slight
+> delay in GPU jobs execution.
+>=20
+> I think #1 is a more general issue that applies to suspend buffers
+> allocated for GPU contexts too. If we expose ioctls where we take
+> protected memory buffers that can possibly lead to crashes if they are
+> not real protected memory regions, and we have no way to ensure the
+> memory is protected, we probably want to restrict these ioctls/modes to
+> some high-privilege CAP_SYS_.
+>=20
+> For #2, that's probably something we can live with, since it's a
+> one-shot thing. If it becomes an issue, we can even make sure we enable
+> the FW protected-mode before the GPU starts being used for real.
+>=20
+> This being said, I think the problem applies outside Panthor, and it
+> might be that the video codec can't reset the FW/HW block to switch to
+> protected mode as easily as Panthor.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/Makefile             |   1 +
- drivers/net/ethernet/airoha/airoha_eth.h         |  12 ++
- drivers/net/ethernet/airoha/airoha_ppe.c         |   5 +
- drivers/net/ethernet/airoha/airoha_ppe_debugfs.c | 175 +++++++++++++++++++++++
- 4 files changed, 193 insertions(+)
+Overall the reset and reboot method is pretty ugly in my opinion. But to st=
+ick
+with the pure rationale, rebooting the SCP on MTK is much harder, since its=
+ not
+specific to a single HW/driver.
 
-diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
-index 50028cfc3e3e04efbdd353b1bd65f46b488637d8..e5321effdbeaeaf7c4ad3c6df9d0261fe12fdd12 100644
---- a/drivers/net/ethernet/airoha/Makefile
-+++ b/drivers/net/ethernet/airoha/Makefile
-@@ -5,4 +5,5 @@
- 
- obj-$(CONFIG_NET_AIROHA) += airoha-eth.o
- airoha-eth-y := airoha_eth.o airoha_ppe.o
-+airoha-eth-$(CONFIG_DEBUG_FS) += airoha_ppe_debugfs.o
- airoha-eth-$(CONFIG_NET_AIROHA_NPU) += airoha_npu.o
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 464d92ad5371a137681b4128cc49a7c1a91ddd19..87d2a2a928eaa6680ce3a256eea973c6ce324f13 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -7,6 +7,7 @@
- #ifndef AIROHA_ETH_H
- #define AIROHA_ETH_H
- 
-+#include <linux/debugfs.h>
- #include <linux/etherdevice.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-@@ -502,6 +503,8 @@ struct airoha_ppe {
- 
- 	struct hlist_head *foe_flow;
- 	u16 foe_check_time[PPE_NUM_ENTRIES];
-+
-+	struct dentry *debugfs_dir;
- };
- 
- struct airoha_eth {
-@@ -611,4 +614,13 @@ static inline int airoha_npu_foe_commit_entry(struct airoha_ppe *ppe,
- }
- #endif /* CONFIG_NET_AIROHA_NPU */
- 
-+#if CONFIG_DEBUG_FS
-+int airoha_ppe_debugfs_init(struct airoha_ppe *ppe);
-+#else
-+static inline int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
-+{
-+	return 0;
-+}
-+#endif
-+
- #endif /* AIROHA_ETH_H */
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 699330e28b6328f0a3ea43253143dedab48994ea..5c32045dc74d5d4f04ce5793428ce7f28e5a9a08 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -798,6 +798,10 @@ int airoha_ppe_init(struct airoha_eth *eth)
- 	if (err)
- 		goto error_npu_deinit;
- 
-+	err = airoha_ppe_debugfs_init(ppe);
-+	if (err)
-+		goto error_npu_deinit;
-+
- 	return 0;
- 
- error_npu_deinit:
-@@ -815,4 +819,5 @@ void airoha_ppe_deinit(struct airoha_eth *eth)
- 		airoha_npu_deinit(eth->npu);
- 	}
- 	rhashtable_destroy(&eth->flow_table);
-+	debugfs_remove(eth->ppe->debugfs_dir);
- }
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..f79788458903c93ca73d774edaca97f1e08f92a7
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-@@ -0,0 +1,175 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
-+
-+#include "airoha_eth.h"
-+
-+static void airoha_debugfs_ppe_print_tuple(struct seq_file *m,
-+					   void *src_addr, void *dest_addr,
-+					   u16 *src_port, u16 *dest_port,
-+					   bool ipv6)
-+{
-+	__be32 n_addr[IPV6_ADDR_WORDS];
-+
-+	if (ipv6) {
-+		ipv6_addr_cpu_to_be32(n_addr, src_addr);
-+		seq_printf(m, "%pI6", n_addr);
-+	} else {
-+		seq_printf(m, "%pI4h", src_addr);
-+	}
-+	if (src_port)
-+		seq_printf(m, ":%d", *src_port);
-+
-+	seq_puts(m, "->");
-+
-+	if (ipv6) {
-+		ipv6_addr_cpu_to_be32(n_addr, dest_addr);
-+		seq_printf(m, "%pI6", n_addr);
-+	} else {
-+		seq_printf(m, "%pI4h", dest_addr);
-+	}
-+	if (dest_port)
-+		seq_printf(m, ":%d", *dest_port);
-+}
-+
-+static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
-+				       bool bind)
-+{
-+	static const char *const ppe_type_str[] = {
-+		[PPE_PKT_TYPE_IPV4_HNAPT] = "IPv4 5T",
-+		[PPE_PKT_TYPE_IPV4_ROUTE] = "IPv4 3T",
-+		[PPE_PKT_TYPE_BRIDGE] = "L2B",
-+		[PPE_PKT_TYPE_IPV4_DSLITE] = "DS-LITE",
-+		[PPE_PKT_TYPE_IPV6_ROUTE_3T] = "IPv6 3T",
-+		[PPE_PKT_TYPE_IPV6_ROUTE_5T] = "IPv6 5T",
-+		[PPE_PKT_TYPE_IPV6_6RD] = "6RD",
-+	};
-+	static const char *const ppe_state_str[] = {
-+		[AIROHA_FOE_STATE_INVALID] = "INV",
-+		[AIROHA_FOE_STATE_UNBIND] = "UNB",
-+		[AIROHA_FOE_STATE_BIND] = "BND",
-+		[AIROHA_FOE_STATE_FIN] = "FIN",
-+	};
-+	struct airoha_ppe *ppe = m->private;
-+	int i;
-+
-+	for (i = 0; i < PPE_NUM_ENTRIES; i++) {
-+		const char *state_str, *type_str = "UNKNOWN";
-+		u16 *src_port = NULL, *dest_port = NULL;
-+		struct airoha_foe_mac_info_common *l2;
-+		unsigned char h_source[ETH_ALEN] = {};
-+		unsigned char h_dest[ETH_ALEN];
-+		struct airoha_foe_entry *hwe;
-+		u32 type, state, ib2, data;
-+		void *src_addr, *dest_addr;
-+		bool ipv6 = false;
-+
-+		hwe = airoha_ppe_foe_get_entry(ppe, i);
-+		if (!hwe)
-+			continue;
-+
-+		state = FIELD_GET(AIROHA_FOE_IB1_STATE, hwe->ib1);
-+		if (!state)
-+			continue;
-+
-+		if (bind && state != AIROHA_FOE_STATE_BIND)
-+			continue;
-+
-+		state_str = ppe_state_str[state % ARRAY_SIZE(ppe_state_str)];
-+		type = FIELD_GET(AIROHA_FOE_IB1_PACKET_TYPE, hwe->ib1);
-+		if (type < ARRAY_SIZE(ppe_type_str) && ppe_type_str[type])
-+			type_str = ppe_type_str[type];
-+
-+		seq_printf(m, "%05x %s %7s", i, state_str, type_str);
-+
-+		switch (type) {
-+		case PPE_PKT_TYPE_IPV4_HNAPT:
-+		case PPE_PKT_TYPE_IPV4_DSLITE:
-+			src_port = &hwe->ipv4.orig_tuple.src_port;
-+			dest_port = &hwe->ipv4.orig_tuple.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV4_ROUTE:
-+			src_addr = &hwe->ipv4.orig_tuple.src_ip;
-+			dest_addr = &hwe->ipv4.orig_tuple.dest_ip;
-+			break;
-+		case PPE_PKT_TYPE_IPV6_ROUTE_5T:
-+			src_port = &hwe->ipv6.src_port;
-+			dest_port = &hwe->ipv6.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV6_ROUTE_3T:
-+		case PPE_PKT_TYPE_IPV6_6RD:
-+			src_addr = &hwe->ipv6.src_ip;
-+			dest_addr = &hwe->ipv6.dest_ip;
-+			ipv6 = true;
-+			break;
-+		}
-+
-+		seq_puts(m, " orig=");
-+		airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
-+					       src_port, dest_port, ipv6);
-+
-+		switch (type) {
-+		case PPE_PKT_TYPE_IPV4_HNAPT:
-+		case PPE_PKT_TYPE_IPV4_DSLITE:
-+			src_port = &hwe->ipv4.new_tuple.src_port;
-+			dest_port = &hwe->ipv4.new_tuple.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV4_ROUTE:
-+			src_addr = &hwe->ipv4.new_tuple.src_ip;
-+			dest_addr = &hwe->ipv4.new_tuple.dest_ip;
-+			seq_puts(m, " new=");
-+			airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
-+						       src_port, dest_port,
-+						       ipv6);
-+			break;
-+		}
-+
-+		if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
-+			data = hwe->ipv6.data;
-+			ib2 = hwe->ipv6.ib2;
-+			l2 = &hwe->ipv6.l2;
-+		} else {
-+			data = hwe->ipv4.data;
-+			ib2 = hwe->ipv4.ib2;
-+			l2 = &hwe->ipv4.l2.common;
-+			*((__be16 *)&h_source[4]) =
-+				cpu_to_be16(hwe->ipv4.l2.src_mac_lo);
-+		}
-+
-+		*((__be32 *)h_dest) = cpu_to_be32(l2->dest_mac_hi);
-+		*((__be16 *)&h_dest[4]) = cpu_to_be16(l2->dest_mac_lo);
-+		*((__be32 *)h_source) = cpu_to_be32(l2->src_mac_hi);
-+
-+		seq_printf(m, " eth=%pM->%pM etype=%04x data=%08x"
-+			      " vlan=%d,%d ib1=%08x ib2=%08x\n",
-+			   h_source, h_dest, l2->etype, data,
-+			   l2->vlan1, l2->vlan2, hwe->ib1, ib2);
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_ppe_debugfs_foe_all_show(struct seq_file *m, void *private)
-+{
-+	return airoha_ppe_debugfs_foe_show(m, private, false);
-+}
-+DEFINE_SHOW_ATTRIBUTE(airoha_ppe_debugfs_foe_all);
-+
-+static int airoha_ppe_debugfs_foe_bind_show(struct seq_file *m, void *private)
-+{
-+	return airoha_ppe_debugfs_foe_show(m, private, true);
-+}
-+DEFINE_SHOW_ATTRIBUTE(airoha_ppe_debugfs_foe_bind);
-+
-+int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
-+{
-+	ppe->debugfs_dir = debugfs_create_dir("ppe", NULL);
-+	debugfs_create_file("entries", 0444, ppe->debugfs_dir, ppe,
-+			    &airoha_ppe_debugfs_foe_all_fops);
-+	debugfs_create_file("bind", 0444, ppe->debugfs_dir, ppe,
-+			    &airoha_ppe_debugfs_foe_bind_fops);
-+
-+	return 0;
-+}
+Other codecs like Samsung MFC, Venus/Iris, Chips&Media, etc. that approach =
+seams
+plausible, but we still can't trust the buffer, which to me is not acceptab=
+le.
 
--- 
-2.48.1
+>=20
+> Note that there's also downsides to the reserved-memory node approach,
+> where some bootloader stage would ask the secure FW to reserve a
+> portion of mem and pass this through the DT. This sort of things tend to
+> be an integration mess, where you need all the pieces of the stack (TEE,
+> u-boot, MTK dma-heap driver, gbm, ...) to be at a certain version to
+> work properly. If we go the ioctl() way, we restrict the scope to the
+> TEE, gbm/mesa and the protected-dma-heap driver, which is still a lot,
+> but we've ripped the bootloader out of the equation at least.
+>=20
+> Regards,
+>=20
+> Boris
 
 
