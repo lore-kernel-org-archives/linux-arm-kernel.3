@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FB2C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3A0C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WoCBmvVgLs4tJhNH3SvplVk6Y4bQ+vkNCqsIDM9G1+8=; b=3pT9yl38AIvX/p
-	cwPfgRttLDFt7KK4KcThUoOV6C4G5YUpRaCqswssGHiH9JvdvNNST9ZWQW5kqHq5j8ZEf1DOtuid+
-	HQ7lHUL7KuJagyWpswa4tqHoa8i/B2NLwG9fNJ+X73JzdVP+JyRTi35zvwcy1o3F1o8iMGulVGztW
-	qQeY+X6jz2Z6j4XazUJWyrB4ynzv03cRWy3r7wlRAZynY1gVAcux11RvEl+AgRYB6lwd5uMqQQ8Vz
-	OPxjBKj7eJ3WgLLpYnrfJgIqaSyODTVjpMAquuqgYEMHJ6DXcCKItmsS0DZDFUxEU0D+7vMbPGFpx
-	HaKxcPWx5LfnHE0AVPPQ==;
+	List-Owner; bh=bIOirByBUe+Z/pgSS0CP2M68HwFVjUFI3KKx8O+0aLM=; b=b7m8Q/nKBXYe1x
+	dch8DS49nYQij6rEz4+Z6XWXpuAs45f3hkR5tf/Tu/s0ToM0lcax9+t2UxXZf4VUHI2HFpMQPXQv1
+	jh5DaSVfsK3nC/58sQZHQtWRicBv8YnCCq3vAzEFZdxLQusplrzUvRekF0/5beThwP15h98n7xD9A
+	+rGBnwFwSV98kF/301pYdE3SoMEk6jXNvEU3NM/ymRJI87o+5HWoIbxBwuayeQVoDsLMouU61Eijo
+	JYRBJt3Fhwb9F3LGrETfx2E7nnf260vU/CVzME5tfMp4IH11ZPrRHJaChKtpPKyUi6HVWv+rH51PH
+	cN2sSYwV/H+d1Odd+k6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKEH-00000008vHe-3lf7;
-	Fri, 07 Feb 2025 09:00:53 +0000
+	id 1tgKFd-00000008vfE-2Yl9;
+	Fri, 07 Feb 2025 09:02:17 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgK7u-00000008tSi-2hqN
+	id 1tgK7y-00000008tU9-0VeX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:54:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 460B24448C;
-	Fri,  7 Feb 2025 08:54:11 +0000 (UTC)
+	Fri, 07 Feb 2025 08:54:23 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5221143421;
+	Fri,  7 Feb 2025 08:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1738918456;
+	t=1738918460;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WoCBmvVgLs4tJhNH3SvplVk6Y4bQ+vkNCqsIDM9G1+8=;
-	b=Z0VWSCoU5jthj1Xrq+bJ/gIslJpRHawXYRSzaJ0tk8lacrA2Nb2XpjKSaU19T/zoDRw8Hk
-	MxG8z7pEXHEn6hcgNkmYCMZEl+Q9Fc7jfeaHfkE8k3GpJ1GSCGLorF22GAbUb5AP+2DX+w
-	BY6oINzzqEDutBL5ApPD/xYq2lG4SndLtzVbEd8jdrNEEdILrJGYXKkWMEd1ohtD7M9v4e
-	db2ja8CycxHaTgaHHf4Yf9rQ3U+pElBRpnjLorme7LxLxa43lmqtX0S7Hy5a6+u/gBwegk
-	gBMCO/DIR588vja+dUxLoVJ3FE7dbQVN23tPj4HbP+N4aaClDCKbSqL0M74hHg==
-Date: Fri, 7 Feb 2025 09:54:09 +0100
+	bh=bIOirByBUe+Z/pgSS0CP2M68HwFVjUFI3KKx8O+0aLM=;
+	b=bRuyJMiTRrELEebdfdiA9B0NSk7cW0ACh8i8N6hUx8PLACKgule/KvdQcnqB9lKe7dUNw1
+	eD/BJlPRZFmDTaRa7bHHHXSO8ZtdQM9m5MgYCIMgoSMbVe4hSsFx+z3IfTeLJ5aT11v9Sa
+	AeUA2lH1hS9QJBP74PsqnxaNtwXAS/z2oEGU+Eyaz9Cb/rOSAwRUJ3CcwSBuWByv3RsfME
+	JSywNs/Mf/VjZNRgr9KyPKVoZxB/20BvhgAifmEsMu9OcuxHfasWSbrIde0nqYZFEYp74s
+	anr4OLGDP60vxZHT5o9+YQIWqgetIyGW7qMCZmOM2XnxIjC1YYPNsS7hEMd5KQ==
+Date: Fri, 7 Feb 2025 09:54:17 +0100
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
 To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v6 10/26] drm/bridge: add
- devm_drm_of_get_bridge_by_node()
-Message-ID: <20250207095409.1b6ba777@booty>
-In-Reply-To: <5izgpfrkxrcbcbzr7w5lpm6tidwl4lj66tmnm6l6xmncu6t3uk@2mswjcmi34el>
+Subject: Re: [PATCH v6 05/26] drm/debugfs: add top-level 'bridges' file
+ showing all added bridges
+Message-ID: <20250207095417.4328d05e@booty>
+In-Reply-To: <vnmkwcqv74y6qxbgmq7s5fkodjxiaow3hbob7xacfw2n6tyuth@ldddeoshkqdp>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
-	<20250206-hotplug-drm-bridge-v6-10-9d6f2c9c3058@bootlin.com>
-	<5izgpfrkxrcbcbzr7w5lpm6tidwl4lj66tmnm6l6xmncu6t3uk@2mswjcmi34el>
+	<20250206-hotplug-drm-bridge-v6-5-9d6f2c9c3058@bootlin.com>
+	<vnmkwcqv74y6qxbgmq7s5fkodjxiaow3hbob7xacfw2n6tyuth@ldddeoshkqdp>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
@@ -58,12 +58,12 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeekgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopegumhhithhrhidrsggrrhihshhhkhhovheslhhinhgrrhhordhorhhgpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehinhhkihdruggrvgesshgrmhhsuhhnghdrt
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeekgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopegumhhithhrhidrsggrrhihshhhkhhovheslhhinhgrrhhordhorhhgpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehinhhkihdruggrvgesshgrmhhsuhhnghdrt
  ghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_005418_819704_2DBEDB24 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250207_005422_294642_8C969E76 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +79,33 @@ Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv?= =?UTF-8?
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Feb 2025 04:53:32 +0200
+Hi Dmitry,
+
+On Fri, 7 Feb 2025 04:41:12 +0200
 Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
 
-> On Thu, Feb 06, 2025 at 07:14:25PM +0100, Luca Ceresoli wrote:
-> > devm_drm_of_get_bridge(), which is based on graph links, is the recommended
-> > function to get a pointer to the following bridge.
+> On Thu, Feb 06, 2025 at 07:14:20PM +0100, Luca Ceresoli wrote:
+> > The global bridges_list holding all the bridges between drm_bridge_add()
+> > and drm_bridge_remove() cannot be inspected via debugfs. Add a file showing
+> > it.
 > > 
-> > This is valid even for panels, for which the recommended device tree
-> > description is via graph links and not (or not only) panel subnodes of a
-> > panel controller (e.g. "dsi@1234" controller node with a "panel@0"
-> > subnode).
+> > To avoid code duplication, move the code printing a bridge info to a common
+> > function.
 > > 
-> > However there are drivers supporting the panel subnode description in  
+> > Note: this change requires exporting bridge_list and the mutex protecting
+> > it.
+> > 
+> > Also add a comment about bridge_lock to make checkpatch happy.  
 > 
-> I'd say, name them here (at least the one which we looked upon).
+> I think, exporting mutex _and_ a list is a bad idea (especially since
+> they don't have a proper prefix). It might be better to make the
+> bridge_print() function a more public one (and name it
+> drm_bridge_print()) and move allbridges attribute definition to
+> drm_bridge.c
 
-Sure, adding the samsung-dsim to the commit message. I'm not aware of
-other drivers doing the same, but I will do a quick search.
+I was also not happy with exporting these two symbols, and agree
+exporting a print function from drm_bridge.c is cleaner. I'll rearrange
+this for v7.
 
 Luca
 
