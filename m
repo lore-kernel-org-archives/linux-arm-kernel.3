@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D0DC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500F7C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=; b=JYDlfvGmR2uh0kaKYfsE4S6bMB
-	ijysHYdIYqfvAaK8y4KHkg/m/QHUz5tCq91zqWvUPQczRbuYA1cYRbQSscuAwfNSr2KyNMnhLpklx
-	hN3thEPb/bjy9CKQQAEgqC33j4XQF09y5n738Ojm6ZpqIElzDfO3g8eMbTeZt+Ze0iqX9sadRWMWX
-	UlVUPpERBXnygZcjAAaro6dFj/IKCOVB077uCNI06t17hWd3ICZf54yhxO6QKQ15MrHHSQWzb5pzQ
-	h9VYSSCDvHzbwV5u1f8ezBj627qjwZ3e13pInb+BG2oDkyvaokhdJwpXfLJjs0uNeeYpCrmkKPCol
-	ny4/AQLg==;
+	bh=dmmypO5lGpZElJBOwBx5Lqq47jvwTZgB8nZohxAsWnU=; b=XiAqReX8UcTTH/THUlWAQTKr+j
+	jr3TiuzBOExV8d0l5kQrMF3GJNfUq0I5iU3aWQEgMj+uO4cHm+LJobV5PyTs0FYrYMOcPLWbm4IqR
+	oFgXnH3Oe+4X5ApwQwrTjZQcJlTfNevjT2+UyLNECLnKbbvwsQfSiSM8lfAgCNQ/dUAcqFUpjQHbY
+	yZ/Whfjz/UJrxgeVnpTR+XDl80KDthD/xaYWoXoVpvx++50jqtPjNkxWlXs4//m0vcIwNgJpcbzBR
+	FanG2YdhtzBa8yWq1C03OLDlYOteCPCdJ+tor6ZXAaBeBGss3/W4TNmQoDHdlqdoR91NjkZI+U37T
+	XdAc7UKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSRc-0000000AYNF-3Xq0;
-	Fri, 07 Feb 2025 17:47:12 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tgSSy-0000000AYce-2WYj;
+	Fri, 07 Feb 2025 17:48:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSIy-0000000AWS7-3mlU
+	id 1tgSKi-0000000AWmz-3LG9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Feb 2025 17:40:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dmmypO5lGpZElJBOwBx5Lqq47jvwTZgB8nZohxAsWnU=; b=bLXvcFuEJtkK89LhnVDOAdBP8w
+	52du0Y3ZETeOxWCMqeyx5esiZ8bPVK3+rQQDKCYDw61hhlr/0MeORk9pyphKgZ59by968POlXlUel
+	a8WajRHQ3ltWqrjEipn8eUgL+5J8mNPsUtwyH2IBW7D+89Hc99vJhhkUOBTW9gGzUnL9XTmxC46is
+	T4bqNP6+EJXCvyrkzl1HSapAbeG0L3Rq51Yp0vnvbYnJpl4CYSKSahGtw4g7O+gKAdHilw4jhoWKu
+	mLsSHW6qNF4XcScZn9BpQjt3HxU3zo7U7UV5fxNKW9iMDFim/zWulVNFhpHFEXSHwal0G4am9r64E
+	UuPpWfQA==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgSKf-0000000HGuD-1uNc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:38:17 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f9cd9601b8so4227103a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:38:16 -0800 (PST)
+	Fri, 07 Feb 2025 17:40:03 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21f0444b478so35964005ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:39:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738949896; x=1739554696; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738949998; x=1739554798; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=;
-        b=EnCMseUUBIR15C2Ydob9yPm2vi6sxoCyuF5akBWhkIB47T5gBbLMSKKi0RAjtLT+kg
-         3bjv1OvnMb+WsjO8lgEIVL+yVvciZHU4jw1fYhNNEItU2ewbqxR083ezqEdx0+HgBGva
-         VvFv1SwWEy8XGX9+bkOvgGhkX+y1/rNVW2/bxybdteHnNIqba2kZOWzxFxTHXyqAiJvZ
-         3YtEVyqeyBsCCXRbIcmVL8Qcl0wBatyuWDeKhd8XBnUwfzURP/RE6RtvikluMkaXWAnn
-         LqUloWf0BkS/9x5pB3ryPGEMNpRVaKrSYe0HCpIJZsNH3M6bIeopCl+UxbAQMtw+YXlN
-         MoGA==
+        bh=dmmypO5lGpZElJBOwBx5Lqq47jvwTZgB8nZohxAsWnU=;
+        b=zxiKQQJI2HwcV0LajnP+hkt93LLStoEN9h9z8svEMyG/NL3rXxDfuxAb3M0//mvrmM
+         1ODp+UM6qfCi8H/1VZX9KjMB+XGaKKJ0S8bEOPKQ7DRwbadGbVL66AMVLekcORnAwJEM
+         ixftjxLiSDh+V6QoVKPe8vKH21qTiXMmBWXTzvo6LJmxqCBah2PUYGRCTGO32TvcoizR
+         DoRTbPOO9Y+U5QQHZkGkHCjlqM2XDMylaBsISn60XoMVkKkPWD2Mgsrl/Qd5lshpEVeQ
+         dvpqxFHWFUTJLXQO7RbUzfv8ce7ymE1hOX2yo3qCGH3FmUFklX/yJJdDrV59LFAdF22y
+         98hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738949896; x=1739554696;
+        d=1e100.net; s=20230601; t=1738949998; x=1739554798;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=;
-        b=ZIEOIcx7K1LQdL0/JPY6OhJTieGVPp1TSadpWn2oVliqhjoxhiha26Y27b2pyY+zNL
-         awerNjs10Lh95yKg5A1z2pZik8B/2gFV+7ndyRPStv5xjjpK7evsnt+dkBde9xov78ri
-         Z32gp+mnSP4gvX0j1uAzNKHniKvDXdliF2bpe1zgmhtL9hg7P7TsLHAQ/WLv9E9XLdMd
-         450qNeJpgZXnSNoxU/mSbbf1QdtMsiFvNLcCVoYYW6c7UzcIbYzXjomfjO5yJDOsc471
-         B052fpFBNTzTS9c+cQ+39vgXVvA7Xh046Yz6Jc04fzjKDXtf9POed9LjxfdTn1V7OkBD
-         XmUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWD3vS1oHKHRRCnBvzmCpIvdk+pmbi0V38U9/1n0OPzc/vOeXDNDXuB7iJ7gHXcCAQ3RzGZATHIgiwBxmfaazb6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3XVOlALCNctnWVcjBH37+PcJnzSyodUHKWVg6pzUEakXhJkTg
-	mN4n1TVBPBFML4KIibxgFN1yev8UP0/x4evzGupD93driIuA/MeRHWkLdAj5CQ==
-X-Gm-Gg: ASbGncv/XlCc4UyztGPv1RdKUmArt2rWQqhBomHA0GCKP/QCwcLRm9hxBMWwvDS+G59
-	G6XRKGKNmTSsdTS85iD7GfQXzWYdW453uBIUwjk3NXrI/herPGp8WW7TtMYIF4q8YXypov+fdXj
-	2uBkInJcu/vZE92Lz9HOraRIytnH30xJAEhX9LT8HT5KhnWvy14lPxpU41LVHbRCxQ+Wy6eGk+g
-	opQQuzvosgOtnb8Z/lEAV8TDQfNk5BLteybb889Km4d1sM5Vlo/Lgjdm8YaAoByyKcZjRGVukuQ
-	rTGT9+aGeJ1aYwMRr6R+HmV0YA==
-X-Google-Smtp-Source: AGHT+IFprNv/Fxes+yO0Is4d70/qLRRGy5XcxfptGmrec0u4U5JshNdQEzKB4xo6nsXGXHm3iHyxoQ==
-X-Received: by 2002:a17:90b:3903:b0:2fa:229f:d03a with SMTP id 98e67ed59e1d1-2fa243e9e0fmr5424081a91.26.1738949896065;
-        Fri, 07 Feb 2025 09:38:16 -0800 (PST)
+        bh=dmmypO5lGpZElJBOwBx5Lqq47jvwTZgB8nZohxAsWnU=;
+        b=ZZN+sleAmrdOpD6w8E9if3hjs22XVYqnV2mubuV8QoHFMQCVl+dtfWnmbuhemwD9+V
+         1yLWAZPauVD7gmctbTYTXrLV0MmRPvnYJB+FFHwluRIzTY5zQSzCY4qLhLJx6N9Yj+B6
+         5hWzvbjHpzdaDGy1/rcfno2EdXS7/Zhad1rfsh9I7Mx5FHpjC6MCukhzhyL5ODHwTAdA
+         /WU4FrkQ4GmiCixcCmLwmDCibZwaKnPilE63n/Ckm2gwLWUysPXWo2FhuowuhSsR1mh6
+         KuMSiufdyjqrhCAW5PXCxmOTTZ/0yTg+96udSdHbjHqbj29slP1JnAUxd0IBk7fZUc/F
+         aPzw==
+X-Forwarded-Encrypted: i=1; AJvYcCV799afwRxdEuW7I0nqp8jnWFGuwK+qeT+WV3JXGZ2usdeYwoEifdKdR52XJAkqH4gzZ38N9VmxpqTBZhXyWRzV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHV66Pu2wAcclIuFd10THWjJ0yMLQlZnwTdyjpQDeDiEl6vKjH
+	tNXxYhlh9Wdon/jP9A/wyicc+5H5Q2enBe2SMBRZWA6WCHGCAOqcexKxx4cbhgwhRlNGFo0zN/Y
+	=
+X-Gm-Gg: ASbGncvqwOTxJBU4mPJqLbpb4KlRSw8PytZ4IxoNoIkYe7Ar6V4KG+iC5+YCU+e5Aaw
+	LhFRAOQqmxlIDSaHNTC64D+i/vGQ/mBiYmIpS2W38CSX+2vs0H0kcrNg4hinNrVGbmMu7momkY+
+	34lAgYPu76hRhVZayKpjQUqly+C9d4OJ47IvR71RJZt4OrqNE8K26nKLjH+hG/HSMvD/npvA/Of
+	4lX54CiUG+1qDCQ8eAjVROUX4ut7FdUFxaEBLdSVVP1dPmbpGTcYeQWT2IdsO35DA19n0Dw4zCB
+	ebuq2fQf5hOIp0v+QI5Pd5iELA==
+X-Google-Smtp-Source: AGHT+IEHqbioMS1WS0fxuFiPxBnBQRht7nJ0wdLWWq8J6BK7IgFAuo6kNnHsIYM7adDcTJZyHqhf+w==
+X-Received: by 2002:a05:6a21:99a6:b0:1ed:a4cd:acfc with SMTP id adf61e73a8af0-1ee03a3cf11mr6657350637.10.1738949998229;
+        Fri, 07 Feb 2025 09:39:58 -0800 (PST)
 Received: from thinkpad ([120.60.76.168])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa0942d30esm3647036a91.0.2025.02.07.09.38.12
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048e20b2esm3324297b3a.179.2025.02.07.09.39.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 09:38:15 -0800 (PST)
-Date: Fri, 7 Feb 2025 23:08:09 +0530
+        Fri, 07 Feb 2025 09:39:57 -0800 (PST)
+Date: Fri, 7 Feb 2025 23:09:52 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] PCI: mediatek-gen3: Remove leftover mac_reset assert
- for Airoha EN7581 SoC.
-Message-ID: <20250207173809.wykxrugz3neinpru@thinkpad>
-References: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Biju Das <biju.das.au@gmail.com>
+Subject: Re: [PATCH] net: ethernet: actions: Use
+ of_get_available_child_by_name()
+Message-ID: <20250207173952.lpeazjyxnhfuhwb3@thinkpad>
+References: <20250201171530.54612-1-biju.das.jz@bp.renesas.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
+In-Reply-To: <20250201171530.54612-1-biju.das.jz@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_093816_938480_C3CBDC0D 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20250207_174001_693413_821DFB9B 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +122,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 01, 2025 at 12:00:18PM +0100, Lorenzo Bianconi wrote:
-> Remove a leftover assert for mac_reset line in mtk_pcie_en7581_power_up().
-> This is not harmful since EN7581 does not requires mac_reset and
-> mac_reset is not defined in EN7581 device tree.
+On Sat, Feb 01, 2025 at 05:15:18PM +0000, Biju Das wrote:
+> Use the helper of_get_available_child_by_name() to simplify
+> owl_emac_mdio_init().
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
 - Mani
 
 > ---
-> Changes in v2:
-> - fix typo in commit log
+> This patch is only compile tested and depend upon[1]
+> [1] https://lore.kernel.org/all/20250201093126.7322-1-biju.das.jz@bp.renesas.com/
 > ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 1 -
->  1 file changed, 1 deletion(-)
+>  drivers/net/ethernet/actions/owl-emac.c | 21 +++++----------------
+>  1 file changed, 5 insertions(+), 16 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..0f64e76e2111468e6a453889ead7fbc75804faf7 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -940,7 +940,6 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  	 */
->  	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
->  				  pcie->phy_resets);
-> -	reset_control_assert(pcie->mac_reset);
+> diff --git a/drivers/net/ethernet/actions/owl-emac.c b/drivers/net/ethernet/actions/owl-emac.c
+> index 115f48b3342c..3457ce041335 100644
+> --- a/drivers/net/ethernet/actions/owl-emac.c
+> +++ b/drivers/net/ethernet/actions/owl-emac.c
+> @@ -1323,22 +1323,15 @@ static int owl_emac_mdio_init(struct net_device *netdev)
+>  	struct owl_emac_priv *priv = netdev_priv(netdev);
+>  	struct device *dev = owl_emac_get_dev(priv);
+>  	struct device_node *mdio_node;
+> -	int ret;
+> +	struct device_node *mdio_node _free(device_node) =
+> +		of_get_available_child_by_name(dev->of_node, "mdio");
 >  
->  	/* Wait for the time needed to complete the reset lines assert. */
->  	msleep(PCIE_EN7581_RESET_TIME_MS);
-> 
-> ---
-> base-commit: 647d69605c70368d54fc012fce8a43e8e5955b04
-> change-id: 20250201-pcie-en7581-remove-mac_reset-16e7b6e3ef06
-> 
-> Best regards,
+> -	mdio_node = of_get_child_by_name(dev->of_node, "mdio");
+>  	if (!mdio_node)
+>  		return -ENODEV;
+>  
+> -	if (!of_device_is_available(mdio_node)) {
+> -		ret = -ENODEV;
+> -		goto err_put_node;
+> -	}
+> -
+>  	priv->mii = devm_mdiobus_alloc(dev);
+> -	if (!priv->mii) {
+> -		ret = -ENOMEM;
+> -		goto err_put_node;
+> -	}
+> +	if (!priv->mii)
+> +		return -ENOMEM;
+>  
+>  	snprintf(priv->mii->id, MII_BUS_ID_SIZE, "%s", dev_name(dev));
+>  	priv->mii->name = "owl-emac-mdio";
+> @@ -1348,11 +1341,7 @@ static int owl_emac_mdio_init(struct net_device *netdev)
+>  	priv->mii->phy_mask = ~0; /* Mask out all PHYs from auto probing. */
+>  	priv->mii->priv = priv;
+>  
+> -	ret = devm_of_mdiobus_register(dev, priv->mii, mdio_node);
+> -
+> -err_put_node:
+> -	of_node_put(mdio_node);
+> -	return ret;
+> +	return devm_of_mdiobus_register(dev, priv->mii, mdio_node);
+>  }
+>  
+>  static int owl_emac_phy_init(struct net_device *netdev)
 > -- 
-> Lorenzo Bianconi <lorenzo@kernel.org>
+> 2.43.0
 > 
 
 -- 
