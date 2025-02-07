@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39443C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60154C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDCd/liSq94LlP9BsRGO7m9yFUtRzT1Fwe9dr8EwFn8=; b=puQWMgmMHUFFxtOf3nv8Sx31vU
-	yp/K6AlLje7JNtivPZ2eymGWk/+aOey5X+Wjy4vzGcAXxGr6sNa4nzjBwP7eMPRzzmnsw6cAioy+f
-	NXII1R1tjpBxlumtvUGQr9e0XSxKLa4y9gcK80uGZSmtxdX+GbhspXtyZcAVsYn/8K16Q8q/cGJmy
-	dWQK0NL7qjrP75R5dDm1WfhDJsngSC7E76KvlApZPuT3SSU7fxdb+0K8k2HMWzpmx8sGq2J6PyiGx
-	GUWZ//QYWn+/b4NasUnrmOfUp7/mjdWJdHy0R2mFLXkQ2QhzzYQH7zqg2JFJtnOQgkdWk1FsDfRsL
-	JLGvcfiA==;
+	bh=y18GikFQdfmRz2Hf5GIeEbDG+TfAbsOeKrSuAuWiiO0=; b=l/ZawGhjGjAzj0bDLGahVisl+h
+	ZuIMr94tYZVAoY7b63lkTeyESgpZz4HV6DjMbnFTM4Xj2WQmj7nrKRpBLtNkvM9MVN9IxuQoUTsVw
+	Twj1zLB8agD26lttL6BFyFb5ajEzR8uaEoy6ZLoe7jIkt+DofYFCHCtsZIPwFDWNmrBonQH8E3KCh
+	ODhyXyjNrhlTEM1PVnjPtOmhMrkDesSAk30AOGRkn+NFXbKfTW0xlxRJ8GXGhFW+ryfnvEgcNJi0F
+	Y5q7sTBLcG7LB0xBgJ9OCWQxQT8GrQ0slUPO58tZ7kZWs1nsGEZ+F7xwxw8hh7+XNpOXVKnflLL1c
+	SQMqpCtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQG3-0000000A4Aa-2zIQ;
-	Fri, 07 Feb 2025 15:27:07 +0000
-Received: from smtp-8fab.mail.infomaniak.ch ([83.166.143.171])
+	id 1tgQHP-0000000A4gt-3WWC;
+	Fri, 07 Feb 2025 15:28:31 +0000
+Received: from smtp-190d.mail.infomaniak.ch ([185.125.25.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQ9P-0000000A2Jv-1cOq
+	id 1tgQ9P-0000000A2Ka-39iA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 15:20:17 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YqHhr1w0vzQKs;
+	Fri, 07 Feb 2025 15:20:18 +0000
+Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YqHhs2yJGzPtl;
+	Fri,  7 Feb 2025 16:20:13 +0100 (CET)
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YqHhr27xPznW7;
 	Fri,  7 Feb 2025 16:20:12 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YqHhp4yhMzpRh;
-	Fri,  7 Feb 2025 16:20:10 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 07 Feb 2025 16:19:58 +0100
-Subject: [PATCH v5 1/4] arm64: dts: rockchip: add overlay test for
- WolfVision PF5
+Date: Fri, 07 Feb 2025 16:19:59 +0100
+Subject: [PATCH v5 2/4] arm64: dts: rockchip: add overlay test for Edgeble
+ NCM6A
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-pre-ict-jaguar-v5-1-a70819ea0692@cherry.de>
+Message-Id: <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de>
 References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
 In-Reply-To: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -49,12 +49,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Jonas Karlman <jonas@kwiboo.se>, Dragan Simic <dsimic@manjaro.org>, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
+ Quentin Schulz <quentin.schulz@cherry.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_072015_569249_88F6B736 
-X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-CacheID: sfid-20250207_072015_940974_79B4EABD 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,47 +73,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The WolfVision PF5 can have a PF5 Visualizer display and PF5 IO Expander
-board connected to it. Therefore, let's generate an overlay test so the
-application of the two overlays are validated against the base DTB.
+The Edgeble NCM6A can have WiFi modules connected and this is handled
+via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble
+NCM6A WiFi6 Overlay")).
 
-Suggested-by: Michael Riesch <michael.riesch@wolfvision.net>
-Reviewed-by: Michael Riesch <michael.riesch@wolfvision.net>
+In order to make sure the overlay is still valid in the future, let's
+add a validation test by applying the overlay on top of the main base
+at build time.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/Makefile | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/arm64/boot/dts/rockchip/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index def1222c1907eb16b23cff6d540174a4e897abc9..534e70a649eeada7f9b6f12596b83f5c47b184b4 100644
+index 534e70a649eeada7f9b6f12596b83f5c47b184b4..02f98abe1df10f44f2ac27ea5f6c6e6c6334724e 100644
 --- a/arch/arm64/boot/dts/rockchip/Makefile
 +++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -170,3 +170,25 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
+@@ -192,3 +192,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
+ rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
+ 	rk3568-wolfvision-pf5-display-vz.dtbo \
+ 	rk3568-wolfvision-pf5-io-expander.dtbo
 +
-+# Overlay application tests
-+#
-+# A .dtbo must have its own
-+#
-+#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <overlay>.dtbo
-+#
-+# entry, and at least one overlay application test - ideally reflecting how it
-+# will be used in real life -:
-+#
-+#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <name of overlay application test>.dtb
-+#  <name of overlay application test>-dtbs := <base>.dtb <overlay-1>.dtbo [<overlay-2>.dtbo ...]
-+#
-+# This will make the <base>.dtb have symbols (like when DTC_FLAGS has -@ passed)
-+# and generate a new DTB (<name of overlay application test>.dtb) which is the
-+# result of the application of <overlay-1>.dtbo and other listed overlays on top
-+# of <base>.dtb.
-+
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
-+rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
-+	rk3568-wolfvision-pf5-display-vz.dtbo \
-+	rk3568-wolfvision-pf5-io-expander.dtbo
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
++rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
++	rk3588-edgeble-neu6a-wifi.dtbo
 
 -- 
 2.48.1
