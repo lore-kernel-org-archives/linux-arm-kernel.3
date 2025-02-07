@@ -4,84 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC57C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 03:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C4AC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 03:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17pakd/Znr7AQ717iCmCdIgifIQxR3pgh2Z0bF8TxTs=; b=EtMv89m63WsnsT2ld1bPsvSAGi
-	VgvGhYkvghbBj/fJhQ2FAsvbfw+J4i8eeK/G1D+PRuUP5o6dr12G9apYf/87HP9OFKywYm+WtkVO8
-	g6IJl8yvo2ZXV+NbO/2OoT+qsjYuy+hUVlYoW/5JOh9m4LOB+rTNaDVclk1uCjBO+AXLoG0IQFSeW
-	bBeS7osklwP0pb5yTjBaNw9typOayfXWnWsYbl/4A3YDv+JfbW4JsWBYcEZ4Sn9H+hIvOJOI/5z0t
-	72tUbBikGYQWHcpc0POHb4e1iN8uA84E/iKcI0a074H6KHIXCBr7SApFS0phHm/GM0VMJIfBfIvo+
-	K9xAPLkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8FLQmQ0c3Vy/txmDNUrwkn1oUQN3GmmHcI49m6qoCV4=; b=gsnEtGDBmcNe6j42seAg8EE0Iz
+	l/0hiDzIEPFNel8SwPVSKDvphQWZ0cC7aQ1k2afoC8sO2l0IoRysNe0vRnQqgtUdqNylfoNIIxaxv
+	hksbL+PuDRdKgD9+/uxdsMZmstupijR2EqeOUAKJfhRV2qTGQQaBqfPegcKqv57r/ytRuhBgN9c9D
+	ADZFdjyow5tXY/5k3343UuxxWXG+rlJtjDPePon+6Op64RPIajQm3637GilHZ7S7PWEPc2ku9+P6k
+	Gk5Mi2fxaqB33Z/Cpqi1PvIRL13G0Zupr09TIQdADq0aBFfOTb8zc7HLZfu55OOTDgfVzThQRuQE3
+	tKejahYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgEte-00000008BgP-0to1;
-	Fri, 07 Feb 2025 03:19:14 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tgF4q-00000008DEN-2UiG;
+	Fri, 07 Feb 2025 03:30:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgEsG-00000008BV9-0H1y
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 03:17:49 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5440d5aae5cso1752457e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 19:17:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738898266; x=1739503066; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=17pakd/Znr7AQ717iCmCdIgifIQxR3pgh2Z0bF8TxTs=;
-        b=EAVJ3OOHqwGEPwyrMO4i7lV3Bt81Ofge+/TTvFN2sN1na8YcgjBcyTnjwh7X6Qyf5n
-         T2kA9k/Zwzl9pmdE4TZ/+QRqsyJiwg1nxzs0G8gWXFYPKdQeeEIL9FsSpNTDp6WJETW2
-         GpzdFMw/VngikPhc6E0wYLpesw34E8VLrJwXhNw4p6v+EpHdqJ/xWtw4834GGKeQB0mN
-         ZVCKoUPwTWN+AHd6Afs5pGMDtHAmv94Uy3/yZ51uAKR6FPlarExo5mgPRlrf55bvZnrF
-         iGVs+u6Yb3GyHvixn4gGwxBx0HpkLI8AXKYj/+XedhC9n2sDvYJPSCDGsK7NCxli8Esp
-         Pciw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738898266; x=1739503066;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=17pakd/Znr7AQ717iCmCdIgifIQxR3pgh2Z0bF8TxTs=;
-        b=L7FnRq/+rWzTS6jKcXJmiOBOb/OGF8H7WswTkfB1dDhdafBBfb1lyo0hMxXlHmooKM
-         p5J7jQEnw3SlOz4fFCz1RJqu1JyTGlouaCcjR4lsMVtnQO03dQg0wVCAGiHQBhSOE7Vl
-         AUrZnW9NL0KDqsTDn4I628ldmfEqbum31XN9neomE0Qr+Lpxs/a85H7/Xdvx+v4qlyB3
-         PczkSjVrx3HXF8tmhot1YcWDzVCs4HwQPAG5czC3YCfIEQ31rUSrjQ8Jk6/4t/sHN1Mj
-         OdicGEGz8tqdXKSKxTwbuYZ1cHNvTOjGzYfkFJ1+1PV9vIgBBdr4dCiSwQM4qg94gVd2
-         7xGg==
-X-Forwarded-Encrypted: i=1; AJvYcCU8Fp+ZvQ674U2fVDMkGkkEBaIrbl2tGB5Ht4N4Nj5vVh8CzigCwH/pKNds0zr3tq5ruRLTLS+c8ltIF8dKMNcV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNKv4/T3tCuCcuKTVNpcnR0jUfZM3tVCY1g8CJxTSmu3WkY5cX
-	l/IwGYS5bDCxQM66KgX6pVv6kZxJR6ERybR9RFmdCye0GLv27HpnfB4jD9s6BvU=
-X-Gm-Gg: ASbGncuWnGGP6uZf0baHzBexoixqILi/Mq8WCBt2384LCOxvh/FYGxRtcyvcGPxYjKV
-	mnLAHrUukOMimZAHKmn41KXIa1/8d7vlODprQU3n3nZhcOKGyu3k0Mw/KjTrnDYYiGknyDXfTqM
-	eA3Dwr/YLV9oO2jTl1XISmjrw+a0w5+8phNyHFGOTYzneq4ba7yyLVwIzGr5gbOmIUfwb9fzYR8
-	Hwr8IWeKXmapjkgq9P5H/g8ExSjJU4e9aMln9drYhGndnF5a+ouXX9U9dyKODAZs3XI9dgWFI7P
-	2r5LV5JMnRMLP9UuDqgcjzzSyHUlb7mbEIjj5ld3N7FTq4Rsb1G7LHpDfvvWr1zanP9mbJA=
-X-Google-Smtp-Source: AGHT+IGFRWR3LZSENTzR1jrQjMzeY7hexf5uTv34xRfQ9DibP0IYIH3nm+4A52IVjL038EoBPPmYtg==
-X-Received: by 2002:a05:6512:2105:b0:53e:ca48:776e with SMTP id 2adb3069b0e04-54414b043d3mr248350e87.36.1738898266070;
-        Thu, 06 Feb 2025 19:17:46 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54410603876sm310371e87.211.2025.02.06.19.17.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 19:17:44 -0800 (PST)
-Date: Fri, 7 Feb 2025 05:17:43 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 15/26] drm/bridge: devm_drm_of_get_bridge and
- drmm_of_get_bridge: automatically put the bridge
-Message-ID: <w3qufv73ldzdcfuz6n3prx4di2dhoq2wfqmmvxvxkea6uqxkge@pjwmugvicsbt>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-15-9d6f2c9c3058@bootlin.com>
+	id 1tgF3R-00000008Cx1-46Vx;
+	Fri, 07 Feb 2025 03:29:23 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5172Iu7r003636;
+	Fri, 7 Feb 2025 03:29:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8FLQmQ0c3Vy/txmDNUrwkn1oUQN3GmmHcI49m6qoCV4=; b=KL/1s30BqeE/e0KQ
+	TAjUlUp4RS2BRaRAJGnvXiWSv/4CYks/oeCOjHYQ5rajidjkDM850aIzRocOF8yp
+	9pB5sv3g8fkM13PwwtfOoFUXxHS5Z2Tx8gKQM5DhKdwR2+dKaAEoNhABtfaRL7eH
+	7J70TWlRxz8VppzDd498JBcYgZ1NllwINYTqdyyLNTrV3rPjM5hcTjxhrmL60fyz
+	RmT2g/2t/nvQ5F7+ibzaRemPZtZ9NE7nrU+fsk1grirnkxS7ryqKr6xrBj8ZDbEg
+	zvBbUzSRKohSJJtLjkOTDraMrL/0Coa83bT2qJS5gjIgRSdmEkYdshg0rKPa/YR0
+	w/FsAA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44n99e84hq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 07 Feb 2025 03:29:12 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5173TBVV014274
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 7 Feb 2025 03:29:11 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 6 Feb 2025
+ 19:29:07 -0800
+Message-ID: <46aa5bbe-a7dd-4561-9d4a-0367779f0680@quicinc.com>
+Date: Fri, 7 Feb 2025 11:29:04 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-15-9d6f2c9c3058@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/8] Support Multi-frequency scale for UFS
+To: <neil.armstrong@linaro.org>, <quic_cang@quicinc.com>, <bvanassche@acm.org>,
+        <mani@kernel.org>, <beanhuo@micron.com>, <avri.altman@wdc.com>,
+        <junwoo80.lee@samsung.com>, <martin.petersen@oracle.com>,
+        <quic_nguyenb@quicinc.com>, <quic_nitirawa@quicinc.com>,
+        <quic_rampraka@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
+        "Matthias
+ Brugger" <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        "open list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-kernel@vger.kernel.org>,
+        "moderated
+ list:ARM/Mediatek SoC support:Keyword:mediatek"
+	<linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
+References: <20250203081109.1614395-1-quic_ziqichen@quicinc.com>
+ <63578f71-e5f5-482a-98a7-779053b1caf7@linaro.org>
+Content-Language: en-US
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <63578f71-e5f5-482a-98a7-779053b1caf7@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 5Ubfs8AnUQPDeBCS3H14rcbvplXejdNd
+X-Proofpoint-GUID: 5Ubfs8AnUQPDeBCS3H14rcbvplXejdNd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-07_02,2025-02-05_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 suspectscore=0
+ mlxscore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
+ phishscore=0 adultscore=0 mlxlogscore=999 malwarescore=0 spamscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502070024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_191748_119920_698D718A 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20250206_192922_138974_AAF02ED1 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,141 +109,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 07:14:30PM +0100, Luca Ceresoli wrote:
-> Add a devm/drmm action to these functions so the bridge reference is
-> dropped automatically when the caller is removed.
 
-I think the get() should go to the underlying of_drm_bridge_find() function.
 
-Also it really feels like it's an overkill to keep the wrappers. After
-getting bridge being handled by the panel code would it be possible to
-drop all of them? Then this patch might introduce one new devm_
-function? Or are drmm_ functions actually being used to store data in
-the drmm-managed memory?
+On 2/6/2025 5:53 PM, neil.armstrong@linaro.org wrote:
+> On 03/02/2025 09:11, Ziqi Chen wrote:
+>> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+>> plans. However, the gear speed is only toggled between min and max during
+>> clock scaling. Enable multi-level gear scaling by mapping clock 
+>> frequencies
+>> to gear speeds, so that when devfreq scales clock frequencies we can put
+>> the UFS link at the appropraite gear speeds accordingly.
+>>
+>> This series has been tested on below platforms -
+>> sm8550 mtp + UFS3.1
+>> SM8650 MTP + UFS3.1
+>> SM8750 MTP + UFS4.0
+>>
+>> v1 -> v2:
+>> 1. Withdraw old patch 8/8 "ARM: dts: msm: Use Operation Points V2 for 
+>> UFS on SM8650"
+>> 2. Add new patch 8/8 "ABI: sysfs-driver-ufs: Add missing UFS sysfs 
+>> addributes"
+>> 3. Modify commit message for  "scsi: ufs: core: Pass target_freq to 
+>> clk_scale_notify() vops" and "scsi: ufs: qcom: Pass target_freq to clk 
+>> scale pre and post change"
+>> 4. In "scsi: ufs: qcom: Pass target_freq to clk scale pre and post 
+>> change", use common Macro HZ_PER_MHZ in function 
+>> ufs_qcom_set_core_clk_ctrl()
+>> 5. In "scsi: ufs: qcom: Implement the freq_to_gear_speed() vops", 
+>> print out freq and gear info as debugging message
+>> 6. In "scsi: ufs: core: Enable multi-level gear scaling", rename the 
+>> lable "do_pmc" to "config_pwr_mode"
+>> 7. In "scsi: ufs: core: Toggle Write Booster during clock", initialize 
+>> the local variables "wb_en" as "false"
+>>
+>> v2 -> v3:
+>> 1. Change 'vops' to 'vop' in all commit message
+>> 2. keep the indentation consistent for clk_scale_notify() definition.
+>> 3. In "scsi: ufs: core: Add a vop to map clock frequency to gear 
+>> speed", "scsi: ufs: qcom: Implement the freq_to_gear_speed() vop"
+>>     and "scsi: ufs: core: Enable multi-level gear scaling", remove the 
+>> parameter 'gear' and use it as return result in function 
+>> freq_to_gear_speed()
+>> 4. In "scsi: ufs: qcom: Implement the freq_to_gear_speed(), removed 
+>> the variable 'ret' in function ufs_qcom_freq_to_gear_speed()
+>> 5. In "scsi: ufs: core: Enable multi-level gear scaling", use 
+>> assignment instead memcpy() in function ufshcd_scale_gear()
+>> 6. Improve the grammar of attributes' descriptions in “ABI: sysfs- 
+>> driver-ufs: Add missing UFS sysfs attributes”
+>> 7. Typo fixed for some commit messages.
+>>
+>> Can Guo (6):
+>>    scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
+>>    scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+>>    scsi: ufs: core: Add a vop to map clock frequency to gear speed
+>>    scsi: ufs: qcom: Implement the freq_to_gear_speed() vop
+>>    scsi: ufs: core: Enable multi-level gear scaling
+>>    scsi: ufs: core: Toggle Write Booster during clock scaling base on
+>>      gear speed
+>>
+>> Ziqi Chen (2):
+>>    scsi: ufs: core: Check if scaling up is required when disable clkscale
+>>    ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes
+>>
+>>   Documentation/ABI/testing/sysfs-driver-ufs | 33 ++++++++++
+>>   drivers/ufs/core/ufshcd-priv.h             | 15 ++++-
+>>   drivers/ufs/core/ufshcd.c                  | 76 +++++++++++++++++-----
+>>   drivers/ufs/host/ufs-mediatek.c            |  1 +
+>>   drivers/ufs/host/ufs-qcom.c                | 62 ++++++++++++++----
+>>   include/ufs/ufshcd.h                       |  9 ++-
+>>   6 files changed, 160 insertions(+), 36 deletions(-)
+>>
+> 
+> Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8550-QRD
+> Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8550-HDK
+> Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # on SM8650-HDK
+> 
+> I added some traces and played with devfreq max_freq while copying data
+> from the UFS disk, no issues observed.
+> 
+> Neil
 
-> 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> 
-> ---
-> 
-> This patch was added in v6.
-> ---
->  drivers/gpu/drm/drm_bridge.c | 39 +++++++++++++++++++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index f694b32ca59cb91c32846bc00b43360df41cc1ad..497ec06dfcb05ab5dee8ea5e8f1eafb9c2807612 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -33,6 +33,7 @@
->  #include <drm/drm_edid.h>
->  #include <drm/drm_encoder.h>
->  #include <drm/drm_file.h>
-> +#include <drm/drm_managed.h>
->  #include <drm/drm_of.h>
->  #include <drm/drm_print.h>
->  
-> @@ -1459,6 +1460,13 @@ static int of_drm_find_bridge_by_endpoint(const struct device_node *np,
->  	return ret;
->  }
->  
-> +static void devm_drm_bridge_put_void(void *data)
-> +{
-> +	struct drm_bridge *bridge = (struct drm_bridge *)data;
-> +
-> +	drm_bridge_put(bridge);
-> +}
-> +
->  /**
->   * devm_drm_of_get_bridge - Return next bridge in the chain
->   * @dev: device to tie the bridge lifetime to
-> @@ -1469,6 +1477,10 @@ static int of_drm_find_bridge_by_endpoint(const struct device_node *np,
->   * Given a DT node's port and endpoint number, finds the connected node
->   * and returns the associated bridge if any.
->   *
-> + * The refcount of the returned bridge is incremented, but the caller does
-> + * not have to call drm_bridge_put() when done with the bridge. It will be
-> + * done by devres when @dev is removed.
-> + *
->   * Returns a pointer to the bridge if successful, or an error pointer
->   * otherwise.
->   */
-> @@ -1483,6 +1495,10 @@ struct drm_bridge *devm_drm_of_get_bridge(struct device *dev,
->  	if (ret)
->  		return ERR_PTR(ret);
->  
-> +	ret = devm_add_action_or_reset(dev, devm_drm_bridge_put_void, bridge);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
->  	return bridge;
->  }
->  EXPORT_SYMBOL(devm_drm_of_get_bridge);
-> @@ -1497,6 +1513,10 @@ EXPORT_SYMBOL(devm_drm_of_get_bridge);
->   * graph link search is not enough, e.g. for drivers that need to support
->   * panels described only as subnodes.
->   *
-> + * The refcount of the returned bridge is incremented, but the caller does
-> + * not have to call drm_bridge_put() when done with the bridge. It will be
-> + * done by devres when @dev is removed.
-> + *
->   * RETURNS:
->   * A pointer to the bridge if successful, or an error pointer otherwise.
->   */
-> @@ -1513,10 +1533,21 @@ struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
->  	if (!bridge)
->  		return ERR_PTR(-ENODEV);
->  
-> +	ret = devm_add_action_or_reset(dev, devm_drm_bridge_put_void, bridge);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
->  	return bridge;
->  }
->  EXPORT_SYMBOL(devm_drm_of_get_bridge_by_node);
->  
-> +static void drmm_bridge_put_void(struct drm_device *drm, void *ptr)
-> +{
-> +	struct drm_bridge *bridge = ptr;
-> +
-> +	drm_bridge_put(bridge);
-> +}
-> +
->  /**
->   * drmm_of_get_bridge - Return next bridge in the chain
->   * @drm: device to tie the bridge lifetime to
-> @@ -1527,6 +1558,10 @@ EXPORT_SYMBOL(devm_drm_of_get_bridge_by_node);
->   * Given a DT node's port and endpoint number, finds the connected node
->   * and returns the associated bridge if any.
->   *
-> + * The refcount of the returned bridge is incremented, but the caller does
-> + * not have to call drm_bridge_put() when done with the bridge. It will be
-> + * done by drmm when @dev is removed.
-> + *
->   * Returns a drmm managed pointer to the bridge if successful, or an error
->   * pointer otherwise.
->   */
-> @@ -1541,6 +1576,10 @@ struct drm_bridge *drmm_of_get_bridge(struct drm_device *drm,
->  	if (ret)
->  		return ERR_PTR(ret);
->  
-> +	ret = drmm_add_action_or_reset(drm, drmm_bridge_put_void, bridge);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
->  	return bridge;
->  }
->  EXPORT_SYMBOL(drmm_of_get_bridge);
-> 
-> -- 
-> 2.34.1
-> 
+Thank Neil for your test result.
 
--- 
-With best wishes
-Dmitry
+-Ziqi
+
 
