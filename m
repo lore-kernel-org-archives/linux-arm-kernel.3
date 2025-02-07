@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7F1C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70185C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0G53MKFU+QVr2xiDHlFWZnAAB3twrsam44rAosj2Zw=; b=Eee8He09o5Itbg4tXfRVMkDZEv
-	lQEiW/v6K8eTv+2e+AU2Pw8DktlvoPiml/Y1ERPF7X1ZrH5K4123bfzsQdfatpQDL55PRW9uEVec6
-	JnyooFDXqvSMvO/MraHkitoDgUb5wdxNDxboKUFLEAyiDGMP8AsBvzoSWwjbiOljnEvA1Ck9NBm5V
-	amWzrIbBBb8i9dyWtfRfEl0qzEBAaZHOrWSparpplbqiInL2UW+vWcYEa+GJLAcElK+H3xWtUT1KS
-	w7vZPJHGMfldLpZNrJ/7nnKAjxZmS+GWGmPR+vl+/MrAoc1uD6KRoitVOSIkbEYZTAR0gV+Ueucnt
-	biyf0/sw==;
+	bh=dVICVXu4zKT/cD6e02SPJYrSdnbHCN2MelF/oM+2L6o=; b=C5/JG2J00GVupFXCyNCFElb7i7
+	NImJyu+4Ur5KVkdFbf9sgbboilKn6p5ckj67oe6l5XL/8yjae/aG7nrInpWAlZ72SVZM8vqWU4z/T
+	dVIV2S57MBSwZwWUz3/4uYTVk7Vjrvs5XmRcbVHrObYFa2I7Pb3CfyBDFQtelHEzgmvCa3vFCYW2u
+	GV46oNfloj021efm+QqdTf/vCWiP6CTmnuCOh5QKdcYaffR9q4guxgKAhuYrqbPY9nf8wsqRhfx1e
+	GrEZx0MOGQDlOBQnyWXRx0NcrJGuiUgpiEFVu1xAUhPttgcSBOSv4+6m0AoWUyh4zzYVv/NSioDoV
+	qUqs+sQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgScT-0000000Aapm-3XvE;
-	Fri, 07 Feb 2025 17:58:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tgSmT-0000000AclV-22Yy;
+	Fri, 07 Feb 2025 18:08:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSX9-0000000AZbv-3nyf
+	id 1tgSiy-0000000Ac2l-3SdW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:52:57 +0000
+	Fri, 07 Feb 2025 18:05:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 76E345C6A45;
-	Fri,  7 Feb 2025 17:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D52C4CED1;
-	Fri,  7 Feb 2025 17:52:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 607915C7048;
+	Fri,  7 Feb 2025 18:04:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F93FC4CED1;
+	Fri,  7 Feb 2025 18:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738950774;
-	bh=o7WL3rojOnZteVHaXqfHStpkFhdgk+b0ovUxVviMNXA=;
+	s=k20201202; t=1738951507;
+	bh=xaPsIZ/jqQ4lPwTrTDxAKUdh93uKhOu173yramQTkcM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G40TBqV1iOeetam5qpFi3xZs0wRJjQws8L0f8wwMs7uRHkjDRWs1fzI/pB4PdJgxo
-	 qpCGqWEq02xMTTrow+jjp6zEyegQ9cL5WZfavmKDK9+67ajyf4v5ZGvX05aWD3cG+1
-	 oQR2BU7Gaaw7D1dlP21wzupMrNYGnNeQ+PmRddAdqI0De8HLOxp6aazIjHtrgga0Py
-	 V9NpsPHmTNEXO1BOkwVk9J2WHEWTX3gwASbcaLwH4Y4MTvvVRGtJ/NIPE9gA0iawE5
-	 C0XXs8m3lk/E+u+7P5LyNbjG8OX1sTZ2PmlbD33flwqsdbVEHtuPNeIdgGorYXKbVh
-	 Re8DBUsIAP5ww==
-Date: Fri, 7 Feb 2025 09:52:52 -0800
+	b=a3KVzgPrUUgeDACHsdI0ZtODv2yrbcgQt6T8M8ttEcma2paCoa5KXeJ8MbyDZG/uX
+	 xUFkpNVcZxHGqcvnjWSxb6hLZkDy881N0mAAauf/Bfg8Fnhei0QqSwTzpo2PNmUt9+
+	 Xw9WqtoVhheBLuzTxKF6m9cBpSdH31AHj9NAhtkRanSnkozHIbeSyyOgmqyzzixZ1u
+	 Gz6ZnBQi8ipKeohb5IRlZSFF4zvgeVbViKnF6EPeKuRs8+2HioyVWpUIFia/MLGloA
+	 KWs668DjTBxa2r0vEPZUPqX/CcUIUWKqzHGEmhjD+hy+PmsIKpY+rk8ZvVaaHtzzzQ
+	 L/YFTFwnOIi3Q==
+Date: Fri, 7 Feb 2025 10:05:05 -0800
 From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Weinan Liu <wnliu@google.com>, indu.bhagat@oracle.com,
-	irogers@google.com, joe.lawrence@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-	mark.rutland@arm.com, peterz@infradead.org,
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <20250207175252.wtsfjqnm52jkevog@jpoimboe>
-References: <mb61pwme55kuw.fsf@kernel.org>
- <20250206150212.2485132-1-wnliu@google.com>
- <mb61pikpm3q76.fsf@kernel.org>
+To: Weinan Liu <wnliu@google.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Indu Bhagat <indu.bhagat@oracle.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/8] unwind: add sframe v2 header
+Message-ID: <20250207180505.iultkshvazootxfy@jpoimboe>
+References: <20250127213310.2496133-1-wnliu@google.com>
+ <20250127213310.2496133-4-wnliu@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <mb61pikpm3q76.fsf@kernel.org>
+In-Reply-To: <20250127213310.2496133-4-wnliu@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_095255_983758_18528644 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250207_100508_903880_F164CA3E 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 12:16:29PM +0000, Puranjay Mohan wrote:
-> Weinan Liu <wnliu@google.com> writes:
-> > Thank you for reporting this issue.
-> > I just found out that Josh also intentionally uses '>' instead of '>=' for the same reason
-> > https://lore.kernel.org/lkml/20250122225257.h64ftfnorofe7cb4@jpoimboe/T/#m6d70a20ed9f5b3bbe5b24b24b8c5dcc603a79101
-> >
-> > QQ, do we need to care the stacktrace after '__noreturn' function?
+On Mon, Jan 27, 2025 at 09:33:05PM +0000, Weinan Liu wrote:
+> Add sframe header so that we know how to access the sframe section
+> generated by compilers.
 > 
-> Yes, I think we should, but others people could add more to this.
+> This is the sframe header file borrowed from the patchset [1]
+> Josh Poimboeuf according to sframe v2 spec [2].
+> 
+> [1]: https://lore.kernel.org/lkml/42c0a99236af65c09c8182e260af7bcf5aa1e158.1730150953.git.jpoimboe@kernel.org/
+> [2]: https://sourceware.org/binutils/docs/sframe-spec.html
 
-FYI, here's how ORC handles this:
+FWIW, my v4 patchset has a more streamlined version of this file.
 
-	/*
-	 * Find the orc_entry associated with the text address.
-	 *
-	 * For a call frame (as opposed to a signal frame), state->ip points to
-	 * the instruction after the call.  That instruction's stack layout
-	 * could be different from the call instruction's layout, for example
-	 * if the call was to a noreturn function.  So get the ORC data for the
-	 * call instruction itself.
-	 */
-	orc = orc_find(state->signal ? state->ip : state->ip - 1);
-
-and state->signal is only set for exceptions/interrupts (including
-preemption and page faults) and newly forked tasks which haven't run
-yet.
+  https://lore.kernel.org/f27e8463783febfa0dabb0432a3dd6be8ad98412.1737511963.git.jpoimboe@kernel.org
 
 -- 
 Josh
