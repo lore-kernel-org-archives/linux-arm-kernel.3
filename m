@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9597C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F72CC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIvRVDhUAojUHbrCWzuM16eBFe9BZTzTrRg0NCgYhfw=; b=x6s6PQ5+USK7EQhnEBnkx6BqGb
-	bct4qrQS7J1q/BJgpCijkioufFf+Y2gCnfAhRGFYAbAE5ZIiTzN69cQAGWyp9R8uwd7Nww+dpNUcE
-	7S6tb33N0FIJW1b3BqE7kbkb4vwdaIzXkEVVnUrnPKTCklGiDIqhZZpV5kB6+C+CTeWusv6blayBZ
-	hPWtHbVRTviG+dQkpo6FN8nlt8gmLNWB+t4SaGYvy6HTDZrYHkkOqo8jWUv3IrMLlZdBuN8nLeNCt
-	/gSDWsnJJyQRP1tRivjqxupseKrixyJ06cJ0H/f2Y7iXr+krUxwPKytdLqy4BTxjnlSFAaNJiuLUL
-	d2JMtz5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z4XaH+BkrFcElpValwujf8MTwHDZlLF75VrF7xokMmE=; b=zIg/4NALMj0Pl8
+	Xz/gSHEUkNTccvdKKkk6bdux9NOM6dLWBMyFnyeRGyFmYITBmZoqFktVZk0IiUY+Qqw7T14ymHvPt
+	sMe8jCGQsnhaetcwAlP+soqvrb3igL8CxK9wcRXNMH6H//sq+DM7Q/FpkVAbqPj8O3WU9s2XJolmZ
+	r3p6DY/OrmLsF6RaYpDtfwDvU14z8vneX98/oKAyTBbnxZ0P+p/lKNsYyQHzEPZH8vcCILvTiLxYG
+	tdjFYNSG3kRnnuGUEON7bKmwFnbQrIdaNbMHlp392nzNgSQp5KchNZPONI4ih7dVzSJBp5RidZtUw
+	/7/v2n6r4WXyaN9R05uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQd2-0000000AA1J-3NFE;
-	Fri, 07 Feb 2025 15:50:52 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tgQk9-0000000ABVo-3ZXn;
+	Fri, 07 Feb 2025 15:58:13 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQOo-0000000A60B-0g8x;
-	Fri, 07 Feb 2025 15:36:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=lIvRVDhUAojUHbrCWzuM16eBFe9BZTzTrRg0NCgYhfw=; b=QXJn9+pIYGKd03PucI01BeMp8Y
-	5trHss2ZdbBc3MQKAMPhqcoHCp+wJjozpeWlHkvJZJ5XFbCIils23LS3gU+n24HqCkhbfGGYeL8IN
-	TIGwsyHhqyiOBU4YyPWfS19Zz4ZF3DMWez5Saro+smM5hZ6Yr2yqWJ6Y4V0orqCBPlCumiZkqCfdy
-	uaLGSHQeWcdIBRfzAVDISDxzqwu8BNguF19exj8Kh5VUEF+7hTUxDtWy5OPwNIzp6hYRQmUwA9lp4
-	Cte5hU9GaMVnsY/gxp3+TFMdBnAfmRo7cxT6Z/6Sn2WRgib+jCRwRVHjy0SvHmBu/vx+0XOWGzSir
-	FEsQGZKg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58702)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tgQMb-00065K-0Z;
-	Fri, 07 Feb 2025 15:33:53 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tgQMU-0004YF-1T;
-	Fri, 07 Feb 2025 15:33:46 +0000
-Date: Fri, 7 Feb 2025 15:33:46 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH net-next v2 2/3] net: dsa: allow use of phylink managed
- EEE support
-Message-ID: <Z6Yn2jTVmbEmhPf9@shell.armlinux.org.uk>
-References: <Z6YF4o0ED0KLqYS9@shell.armlinux.org.uk>
- <E1tgO70-003ilF-1x@rmk-PC.armlinux.org.uk>
- <20250207151959.jab2c36oejmdhf3k@skbuf>
+	id 1tgQil-0000000ABB7-1jbq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 15:56:48 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38dc0cd94a6so906836f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 07:56:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738943806; x=1739548606; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z4XaH+BkrFcElpValwujf8MTwHDZlLF75VrF7xokMmE=;
+        b=d+Ec7lrGtJhV71Y308ptdwxia2OaTDiHyrlNBH18zz3xzUHVQu1khN94bN4qOSA17F
+         oY44AupnBaf3ovVGK4XHrANI5ovalFdxsod0D1/EJA5DVZtDL6ZCwVo/f1jYvdf9RQuj
+         vu1S5OPRnD9tdBbXu+6ZAVxohaOGvt3oj4wGo1ZikPnRGCB0g+X6182IxO74ZP1198yU
+         Tjo1PGFPQxSmb+ajNuQBtLGmwMg8+VUWCN5P8dFvOaCBojhYYMY6E2OJ0pkKCNObfz2A
+         3sp1k94CGB+naLciPpfdpoGVEG/pVEBDfCnt1yejVmc+6TZpY56ctb4JAM5B75n7Gkci
+         FFJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738943806; x=1739548606;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Z4XaH+BkrFcElpValwujf8MTwHDZlLF75VrF7xokMmE=;
+        b=YYWcIXuS99CBpdpctR7LX4rVU045xsj3T/kRKu65HqmUaDvnB9QRCLSZyGatHzajeF
+         ovpt601hda3ahpuDoKcnPopEMJAWdlbL+14U81RKq9R70RN2i3Vs7+XyR3izhNAOu23o
+         PlSjBZaT3z3ilF4YWxo2oVOo0HPRxLlm0AKmJBss3ftqjT9yJJOkeyk8XoWxKDjOi68B
+         VFOrWTc/hKBZjlo2BvxxaddZhuFUTVitAOb9cRJfeW8kOtx0pq+h5VU4JCuXtLr3WzAF
+         qi99FrH4u7aeWisumAvwiSvq5IcKNpNImjrvNaX9wvJXjW8l6iiPdsKxR/vOUcnjRyYG
+         8IaA==
+X-Gm-Message-State: AOJu0YzQyFLHgQDPxcI5AyttLoAcsxof7IzkUM6HzWL2pROryktKmFOC
+	abGTzBSPc/IIs160j+/Fx5kEkrpdmIRGUSEqcOxEppTL93JoXIMHmpvlz5DueGE=
+X-Gm-Gg: ASbGnctQpJwpGoSnTt/wpFYbzLgLPzq8gItAaO8zjTrq2BTtTyMbIUrEDvurXQqE50y
+	SVKiK6vZJ9vmeThZIc0Xo6WDYjTg1HGJ4oe7jYsLyBZhittxHFAVXmmn2V/HpddDOiLbYFJLZ3c
+	atLEdWqRADvweXoSQucsuba2BhueMFG73Y+hnl5K4hkprunkawLveknnpbGJuB+dbR65IdMn2C1
+	Fd3EhVKIeNAeB1w1D2RXmkMcUynTUiqkB43/LTxzP6IQtku7rxITXfejd84cV5gKIcFiZhTguw+
+	NmuddaOvROAnuH9PScgbH//ivt0hH+SW9YI8Cb6tMEjQlfQ6r3T3kpDsUH8slx8Z+p2NEGg=
+X-Google-Smtp-Source: AGHT+IF1isjfJhpwBwRn2wFIcqnriDpf7RWiylXJF2/fIw66GnlQdlas3grGew4e61BN8nzPIDi9jQ==
+X-Received: by 2002:a05:6000:186d:b0:385:e1eb:a7af with SMTP id ffacd0b85a97d-38dc9491e85mr2957542f8f.48.1738943805838;
+        Fri, 07 Feb 2025 07:56:45 -0800 (PST)
+Received: from ta2.c.googlers.com (169.178.77.34.bc.googleusercontent.com. [34.77.178.169])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc09fc2d9sm4197507f8f.6.2025.02.07.07.56.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 07:56:45 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH v4 0/4] arm64: exynos: gs101: add ACPM related nodes
+Date: Fri, 07 Feb 2025 15:56:42 +0000
+Message-Id: <20250207-gs101-acpm-dt-v4-0-230ba8663a2d@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207151959.jab2c36oejmdhf3k@skbuf>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADotpmcC/3XMywrCMBCF4Vcps3Ykt2bhyveQLkInpgOalKSES
+ sm7G7t3+R843wHFZ/YFbsMB2VcunGIPcxlgXlwMHpl6gxLKSKUEhiKFRDevb6QNLc3kpbWjFg7
+ 6Z83+yfvpPabeC5ct5c/JV/1b/0lVo0BrFFlDzo0k7y+OLqdrygGm1toXB7I2fKsAAAA=
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org, 
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
+ Jassi Brar <jassisinghbrar@gmail.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738943805; l=1810;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=6Pxx6KI65/1OvLcTbyXFy8HVl7tEE5dMXgqx/8YkiDE=;
+ b=Ir9PpklqrZfAtoVJ4ojwHmNFqBLoHsRgq7+0zLdvsefNa+gLYJx+ogCrjXkLGQONm2MnOkOCR
+ Pdcub+4iX2yCB9rrP6hCk0igolpv9lrMS2AiWNEMmDCo/5o+wqcDM4a
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_073610_199569_0905C365 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20250207_075647_455158_8D29B32D 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +113,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 05:19:59PM +0200, Vladimir Oltean wrote:
-> On Fri, Feb 07, 2025 at 01:09:38PM +0000, Russell King (Oracle) wrote:
-> > In order to allow DSA drivers to use phylink managed EEE, changes are
-> > necessary to the DSA .set_eee() and .get_eee() methods. Where drivers
-> > make use of phylink managed EEE, these should just pass the method on
-> > to their phylink implementation without calling the DSA specific
-> > operations.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  net/dsa/user.c | 21 +++++++++++++--------
-> >  1 file changed, 13 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/net/dsa/user.c b/net/dsa/user.c
-> > index 291ab1b4acc4..2e0a51c1b750 100644
-> > --- a/net/dsa/user.c
-> > +++ b/net/dsa/user.c
-> > @@ -1243,16 +1243,21 @@ static int dsa_user_set_eee(struct net_device *dev, struct ethtool_keee *e)
-> >  	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
-> >  		return -EOPNOTSUPP;
-> >  
-> > -	/* Port's PHY and MAC both need to be EEE capable */
-> > -	if (!dev->phydev)
-> > -		return -ENODEV;
-> > +	/* If the port is using phylink managed EEE, then get_mac_eee is
-> > +	 * unnecessary.
-> 
-> You thanked me for spotting that this should have been set_mac_eee() in
-> the comment, but you didn't update it.
-> https://lore.kernel.org/netdev/Z4bC77mwoeypDAdH@shell.armlinux.org.uk/
+Define SRAM, mailbox and ACPM protocol in device tree.
+Enable the mailbox and ACPM protocol in defconfig.
 
-Bah - actually I _did_ update the patch, but in a different tree:
+Bindings for google,gs101-acpm-ipc are proposed at:
+Link: https://lore.kernel.org/linux-samsung-soc/20250207-gs101-acpm-v7-0-ffd7b2fb15ae@linaro.org/T/#mb557ee342de628b1a8e462d4fb7c3ac6eb8be4e4
 
-http://git.armlinux.org.uk/cgit/linux-arm.git/commit/?h=net-queue&id=2ee2b1d5f0f8cee7dd748cfae9c20af429d5a4c2
+Changes in v4:
+- rebase on top of v6.14-rc1.
+- describe in the cover letter where are the ACPM bindings.
+- Link to v3: https://lore.kernel.org/r/20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org
 
-I'm now looking at this wondering what updates were made in each tree
-and therefore what I need to pass across between the two trees...
+Changes in v3:
+- ACPM: don't specify the channel ID and type in DT: the channel ID is
+  discovered at runtime and the channel type is always DOORBELL for the
+  ACPM interface.
+- mbox: update #mbox-cells = <0>;
+- rebase on top of v6.13-rc3
+- Link to v2: https://lore.kernel.org/r/20241212-b4-acpm-v4-upstream-dts-v2-0-91b7a6f6d0b0@linaro.org
 
+Changes in v2:
+- update nodes based on the bindings updates
+- update mailbox and power-management (mailbox client) nodes to specify
+  channel type (doorbell or data) and channel ID.
+
+v1:
+Link: https://lore.kernel.org/linux-arm-kernel/20241205180200.203146-1-tudor.ambarus@linaro.org/
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Tudor Ambarus (4):
+      arm64: dts: exynos: gs101: add SRAM node
+      arm64: dts: exynos: gs101: add AP to APM mailbox node
+      arm64: dts: exynos: gs101: add ACPM protocol node
+      arm64: defconfig: enable ACPM protocol and Exynos mailbox
+
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 25 +++++++++++++++++++++++++
+ arch/arm64/configs/defconfig                 |  2 ++
+ 2 files changed, 27 insertions(+)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20241220-gs101-acpm-dt-6dcde166530a
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Tudor Ambarus <tudor.ambarus@linaro.org>
+
 
