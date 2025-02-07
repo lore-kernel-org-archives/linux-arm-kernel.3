@@ -4,61 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AECC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030FAC02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teZ6shkdX+fjTMz+tcHMkwyDHquO3sVPI/A3XHxSoPI=; b=EV8ItlXeAbIkj8RIdNNfPTsg2E
-	lyaRuYVWqi4L2Ysk6R+3/CahlyTCVbl+eFA37ZngU7S6znaxFpoH2wtnoxsp0xmJyeHSkOZDrTWcV
-	UmnGmpsb40aEhDRuROprPoUQ0HYvxq2zgiqztdtx1tQ27j/uqEzPSBetJXrJZX2wyL8xvGsPSpxIx
-	k2ATFh3razIM/CJD9TIdaSKuRrRWcTwMjwtFFHv4ZOXS/2kS4O1hsTeAFWj9a8ntPcT+kG5DXcLx5
-	rJ1RI+o/M5Idb3QMj7gm98p8g+gWlqwHVKmeS6CKzkb97nbA2EweNvbZ8NTImWBj+2i1q/+BvTHsQ
-	omrxGJkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9fSBJqsznMaUDFHfLeo6MzdH/1gCe4gpnxRIVslx+90=; b=y33u1fVAtyg2DS
+	8hg7yTvMO+0hw6omir+2rsVtxhKxAerUuaUaU9XtaUoOTN0ZiWQuLCp2WQTFdRzEPDigvMxTD3vWw
+	gZV0aV6eOnZaSJHFJC8jRqGNlwKaHFwWGdOUe2D2+Wsgdm6pIaa9nmNf2nPKCY1Ts2h6Lfyi6/vsP
+	WqTaoVfgSPRP/aEiwY+7Mj596hTFs1aYiEKSHIh3/Hk913/AYxOG87utruOriFApQ15NpxcOanwhh
+	bmCB+TDG5zuBLyiqYxDUonznSnrfl8YBizQdG/k3NgJuIks7V5ZHzrGu5nyrHPAi10fhFusG4Zen7
+	rXfZa87/W4YlrL/RYvsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLFK-0000000997p-3ENV;
-	Fri, 07 Feb 2025 10:06:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLDw-000000098uk-1FcY
+	id 1tgLPQ-00000009APl-3zSC;
+	Fri, 07 Feb 2025 10:16:28 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgLO2-00000009AE4-1v7V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 10:04:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABBE9106F;
-	Fri,  7 Feb 2025 02:04:58 -0800 (PST)
-Received: from [10.162.16.89] (a077893.blr.arm.com [10.162.16.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B212D3F63F;
-	Fri,  7 Feb 2025 02:04:30 -0800 (PST)
-Message-ID: <9a0d3009-18fc-4b53-941a-b6d830fce36a@arm.com>
-Date: Fri, 7 Feb 2025 15:34:27 +0530
+	Fri, 07 Feb 2025 10:15:04 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Fri, 7 Feb
+ 2025 18:14:58 +0800
+Received: from twmbx02.aspeed.com (192.168.10.10) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Fri, 7 Feb 2025 18:14:58 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: <eajames@linux.ibm.com>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
+	<andrew@aj.id.au>, <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v4] media: dt-bindings: aspeed,video-engine: Convert to json schema
+Date: Fri, 7 Feb 2025 18:14:58 +0800
+Message-ID: <20250207101458.3757723-1-jammy_huang@aspeedtech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 12/16] arm64/mm: Support huge pte-mapped pages in vmap
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-13-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250205151003.88959-13-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_020436_418840_AB3F5E75 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20250207_021502_503494_14562D49 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,124 +64,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert aspeed-video.txt to yaml format.
+Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
 
+Additional changes:
+- Two phandle properties, 'aspeed,scu' and 'aspeed,gfx', are added for
+  video engine to capture video from sources other than VGA.
+- Update examples and include appropriate file directives to resolve
+  errors identified by `dt_binding_check` and `dtbs_check`.
 
-On 2/5/25 20:39, Ryan Roberts wrote:
-> Implement the required arch functions to enable use of contpte in the
-> vmap when VM_ALLOW_HUGE_VMAP is specified. This speeds up vmap
-> operations due to only having to issue a DSB and ISB per contpte block
-> instead of per pte. But it also means that the TLB pressure reduces due
-> to only needing a single TLB entry for the whole contpte block.
+Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+---
+ v4:
+  - Keep | after phandle description to fix dt_binding_check error.
 
-Right.
+ v3:
+  - Add Additional changes into comments.
+  - Remove | after phandle description
 
-> 
-> Since vmap uses set_huge_pte_at() to set the contpte, that API is now
-> used for kernel mappings for the first time. Although in the vmap case
-> we never expect it to be called to modify a valid mapping so
-> clear_flush() should never be called, it's still wise to make it robust
-> for the kernel case, so amend the tlb flush function if the mm is for
-> kernel space.
+ v2:
+  - Update patch subject
+  - Add NOTE for false positive warning
+---
+ .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
+ .../bindings/media/aspeed-video.txt           | 33 --------
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 85 insertions(+), 34 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.txt
 
-Makes sense.
+diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+new file mode 100644
+index 000000000000..4edfbeaa5dc9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED Video Engine
++
++maintainers:
++  - Eddie James <eajames@linux.ibm.com>
++
++description:
++  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
++  capture and compress video data from digital or analog sources.
++
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2400-video-engine
++      - aspeed,ast2500-video-engine
++      - aspeed,ast2600-video-engine
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: vclk
++      - const: eclk
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  memory-region:
++    maxItems: 1
++    description: |
++      Phandle to the reserved memory nodes to be associated with the
++      VE. VE will acquires memory space for 3 purposes:
++        1. JPEG header
++        2. Compressed result
++        3. Temporary transformed image data
++
++  aspeed,scu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Specifies the scu node that is needed if video wants to capture
++      from sources other than Host VGA.
++
++  aspeed,gfx:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Specifies the Soc Display(gfx) node that needs to be queried to get
++      related information if video wants to use gfx as capture source.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/ast2600-clock.h>
++
++    video@1e700000 {
++        compatible = "aspeed,ast2600-video-engine";
++        reg = <0x1e700000 0x1000>;
++        clocks = <&syscon ASPEED_CLK_GATE_VCLK>,
++                 <&syscon ASPEED_CLK_GATE_ECLK>;
++        clock-names = "vclk", "eclk";
++        interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++        aspeed,scu = <&syscon>;
++        aspeed,gfx = <&gfx>;
++    };
+diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/Documentation/devicetree/bindings/media/aspeed-video.txt
+deleted file mode 100644
+index d2ca32512272..000000000000
+--- a/Documentation/devicetree/bindings/media/aspeed-video.txt
++++ /dev/null
+@@ -1,33 +0,0 @@
+-* Device tree bindings for Aspeed Video Engine
+-
+-The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
+-capture and compress video data from digital or analog sources.
+-
+-Required properties:
+- - compatible:		"aspeed,ast2400-video-engine" or
+-			"aspeed,ast2500-video-engine" or
+-			"aspeed,ast2600-video-engine"
+- - reg:			contains the offset and length of the VE memory region
+- - clocks:		clock specifiers for the syscon clocks associated with
+-			the VE (ordering must match the clock-names property)
+- - clock-names:		"vclk" and "eclk"
+- - resets:		reset specifier for the syscon reset associated with
+-			the VE
+- - interrupts:		the interrupt associated with the VE on this platform
+-
+-Optional properties:
+- - memory-region:
+-	phandle to a memory region to allocate from, as defined in
+-	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+-
+-Example:
+-
+-video-engine@1e700000 {
+-    compatible = "aspeed,ast2500-video-engine";
+-    reg = <0x1e700000 0x20000>;
+-    clocks = <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_ECLK>;
+-    clock-names = "vclk", "eclk";
+-    resets = <&syscon ASPEED_RESET_VIDEO>;
+-    interrupts = <7>;
+-    memory-region = <&video_engine_memory>;
+-};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 896a307fa065..7e59daa1e89d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
+ L:	linux-media@vger.kernel.org
+ L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/media/aspeed-video.txt
++F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+ F:	drivers/media/platform/aspeed/
+ 
+ ASUS EC HARDWARE MONITOR DRIVER
 
-> 
-> Tested with vmalloc performance selftests:
-> 
->   # kself/mm/test_vmalloc.sh \
-> 	run_test_mask=1
-> 	test_repeat_count=5
-> 	nr_pages=256
-> 	test_loop_count=100000
-> 	use_huge=1
-> 
-> Duration reduced from 1274243 usec to 1083553 usec on Apple M2 for 15%
-> reduction in time taken.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/include/asm/vmalloc.h | 40 ++++++++++++++++++++++++++++++++
->  arch/arm64/mm/hugetlbpage.c      |  5 +++-
->  2 files changed, 44 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-> index 38fafffe699f..fbdeb40f3857 100644
-> --- a/arch/arm64/include/asm/vmalloc.h
-> +++ b/arch/arm64/include/asm/vmalloc.h
-> @@ -23,6 +23,46 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->  	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->  }
->  
-> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
-> +						unsigned long end, u64 pfn,
-> +						unsigned int max_page_shift)
-> +{
-> +	if (max_page_shift < CONT_PTE_SHIFT)
-> +		return PAGE_SIZE;
-> +
-> +	if (end - addr < CONT_PTE_SIZE)
-> +		return PAGE_SIZE;
-> +
-> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
-> +		return PAGE_SIZE;
-> +
-> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
-> +		return PAGE_SIZE;
-> +
-> +	return CONT_PTE_SIZE;
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.25.1
 
-A small nit:
-
-Should the rationale behind picking CONT_PTE_SIZE be added here as an in code
-comment or something in the function - just to make things bit clear.
-
-> +}
-> +
-> +#define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
-> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
-> +							   pte_t *ptep)
-> +{
-> +	/*
-> +	 * The caller handles alignment so it's sufficient just to check
-> +	 * PTE_CONT.
-> +	 */
-> +	return pte_valid_cont(__ptep_get(ptep)) ? CONT_PTE_SIZE : PAGE_SIZE;
-
-I guess it is safe to query the CONT_PTE from the mapped entry itself.
-
-> +}
-> +
-> +#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
-> +static inline int arch_vmap_pte_supported_shift(unsigned long size)
-> +{
-> +	if (size >= CONT_PTE_SIZE)
-> +		return CONT_PTE_SHIFT;
-> +
-> +	return PAGE_SHIFT;
-> +}
-> +
->  #endif
->  
->  #define arch_vmap_pgprot_tagged arch_vmap_pgprot_tagged
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 02afee31444e..a74e43101dad 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -217,7 +217,10 @@ static void clear_flush(struct mm_struct *mm,
->  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
->  		___ptep_get_and_clear(mm, ptep, pgsize);
->  
-> -	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
-> +	if (mm == &init_mm)
-> +		flush_tlb_kernel_range(saddr, addr);
-> +	else
-> +		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->  }
->  
->  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-
-Otherwise LGTM.
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
