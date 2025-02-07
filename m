@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495A7C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A9DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQReq9xQ99y9zIKRJOryjTQFC2bFCDp3B7MQU03SZE4=; b=xGCCcQwkA7gf0DCu4zGPn3Kb3F
-	W6v/MPuNkz1dpFVTYbpNIO1FChqe8YKiMPrbMDPFUZAsC7G7sA6OYBmDNVLzNIcZE4/YHB8KOyTt8
-	LFNv1rG4FtfP9V22/vndxuR9R+wL7UNFE4gH96OqJmtFIOaepDlfpA109nIwUQtUk8Q4HsRWS6yFl
-	qS3AbQ6CGHa36CDPN4ZD+6K3KDNtBkRTOezxHfs01/AmTKgLb5Qm1Xp5BPogsT94q+pgaLvIybkBf
-	w7yu+6RHUOXjDpYhWsWXYEtq4+dE2X1xgcfju6MQOhvnk8qPwT3bCceWQdmOjEcRfHVOdyZu5LxC8
-	rrUzHqGw==;
+	bh=x1QxMKnddA91WCGvSvK0Kv8+Ui7raPxM47ZCxWA1T70=; b=wsB5xRDHYk+1xqLcUDSLLKbYcH
+	G1v6DOaMq0ol4HvkG/U1NWndCTWQrtKCIGrgcd2yxODzDX7Y+RI12/KeG+wfZQL4Xq6Qpr8J5zSea
+	NEu9bucda3TH+o6RwCpGv1oVT6o1CoXNsuxhhNX5/1RbAmLQVOXrVg1yktJBmlbThySw2I00GpbPG
+	/NegAud0d3qcNef0Wu6VynKffRMlhMIq0PtAZE10L9RPy3ogAu3h9pkbz5FwUh5Wes9dULWEczJ2M
+	ckCvMeYhhL9G6qyaTYCWQQbV0LKQABea6rIRNd1pgAX2rgAR2R1NPG5D3sAnwAh5Rh/tIec8gXUct
+	xA5b8B2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgENh-000000087Fd-2ktg;
-	Fri, 07 Feb 2025 02:46:13 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tgESB-000000087jq-2MMd;
+	Fri, 07 Feb 2025 02:50:51 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgEMK-0000000874w-0Pwh
+	id 1tgEQp-000000087ak-0DU9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 02:44:49 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5440d5b30a8so1878085e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 18:44:47 -0800 (PST)
+	Fri, 07 Feb 2025 02:49:28 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53e3778bffdso1649606e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 18:49:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738896286; x=1739501086; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738896565; x=1739501365; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MQReq9xQ99y9zIKRJOryjTQFC2bFCDp3B7MQU03SZE4=;
-        b=chopdQUHz226662KF6cPQFLgPkLmtcDcZswXO4kn29m+hVufuprYPxXtSxVweh9dtp
-         d0OaQg6PdpNDGIM9oZPMGiQFX9Gt29K93MvDRHE/B4ANm+CUEDclnsMiejOs5kcQB/dA
-         tmVGdsqQkTHEaabxs3mzTHw29r48jGLj4NHHs7+jZ2Al9eRJUFDqQVRsGIO4X3rRBUJT
-         z/7FvkffRKYboUUn6sI9jTINVVekvMrxBbcDIr9lQG/aeLhdUL5XPygxq2YVl3Qbgw3U
-         9c/rqBK+3XKLMLpx1rwQcmbf0SeK2hV4yxGlOSq33TXN4MpSwg/wrvWzfGC6e4ZksSJt
-         AlgA==
+        bh=x1QxMKnddA91WCGvSvK0Kv8+Ui7raPxM47ZCxWA1T70=;
+        b=gesXZiUE0jAXuQc0CDUjkSWGGw46fe2WoPTBHTbkK5braHtua5yusm4aZU+RfWElKJ
+         44dryuJuapi7QIaiA4yj/rDAaEDT8e1hsy6UQs2PJJd5wGvJSmMmIr1iD1ECFbxvYxeh
+         4dVr9b1Vsb41rLFWbabjHBD8qA8/nh67rzlY0PWiZhSlPd1ZsNGVXVIcdW/IWgxqUfRw
+         hSvaUtj/hpQBBEEXdhH93K8xQZ46DiXB4TRDDfuMM8hYp44LhZtVAyR2cl40Qd4tf/ON
+         lOHKBCKEPxV79d15RdJk+QXVkj2LsvL71PbfmL8+f3W5ioFx0gR+FUsr00biKzGZPrxr
+         +AZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738896286; x=1739501086;
+        d=1e100.net; s=20230601; t=1738896565; x=1739501365;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MQReq9xQ99y9zIKRJOryjTQFC2bFCDp3B7MQU03SZE4=;
-        b=kZeFAhvsRTAHoY+26jjebL135SxKkLdsyO30jurkWvAm3RStn2SyDNWplthB97Cd/T
-         tE26xcRKbxQzNTmOpolaKE0j1OYDEhbeSA17G1Vh9uGiEJb0dmyA2Xos8u2M6zFWFYdg
-         D9geRSgftzaghRQi/qYQV/Q+z0ZT4UPUZtqivvQaBFBXtvP58v89KcPSmaZATzgFELKb
-         8Wl/2R0nRyFzpWVDyKzWkyalXxkekf9cgDO+Ze39HfbFVypnTDooJTjHPehLsTh79QZS
-         Mu3rcbWFt8idrMrvm1D26NZAlOnl3x6+tkEB4ac6P5baKCUGK5wJB/ExtRSk7UJmi37d
-         4jRA==
-X-Forwarded-Encrypted: i=1; AJvYcCUa7IRMZNLXG0em+xhXo4viRDEqph3C6uJvJfDikD4qH2CMjqVFH7BgUc6dLwodinCM+X7AgoO4DSq+Ae5xIuEg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKpDH8dU9n0kRCYYseJiagrDhm9CawoeceuXicES7U5WIQdtXB
-	pa+yQoNvhfGOioJn0cLOUe1dI5vYq+NVn2iFJVOu8txS1QSIYKqz6zqhg0gjSLs=
-X-Gm-Gg: ASbGnctBkKfXPgnFLPXKMVxO447s3bVpCkK7tyfIrhwXeljdlgRTnco5u3bMWvt23yM
-	gNsh5iVethWU9HYNYc0a1fsF0wZLyEnCKRj/L81InVrpPFwVzPw81Th6/ha5Q9r/Yj/UxxlTPsj
-	dz1Bf44RkBYJNSf3vxaZH15wN5YPmmOb+jBa1LCyvfud3/sSqPBW00WfiT+0jhsc1f0f05K/9GG
-	8lVYAebATrZ36IqKR2rTHtvMPqVq/bfm4HU1goBNy0y+RLbwfAyWVmxmMTTiYj09Kjj3U0sm5fK
-	JFJ9jyocd67RlpyCNMeG6BcAr+9l0T3kAdMQCBrJHUrb4MDsTVWhSqf8xUXRIC1M9rsNUHg=
-X-Google-Smtp-Source: AGHT+IEMdrg6IaKfrHTFSkbGGZM6z3+o/AOEBo27rSaLzMBVYmx9IKsUOm6sC7QIz9laKpK7sx9QjQ==
-X-Received: by 2002:a05:6512:5d3:b0:540:fb1a:af1f with SMTP id 2adb3069b0e04-54414af5721mr284630e87.39.1738896286187;
-        Thu, 06 Feb 2025 18:44:46 -0800 (PST)
+        bh=x1QxMKnddA91WCGvSvK0Kv8+Ui7raPxM47ZCxWA1T70=;
+        b=w7JRmE9pGXhmZbPUaCw1NgYuMOIe+rIUIKd4LMca8ZBM6Ebxvp35RPJInzYrvN7hc+
+         sbXwUJgTYB2QiWEZw5x+ogl7ES72Ojz3emU0aAgzFVy5KV3DNDsp0k5iSA75oR3sDubO
+         VpETO9AFWDWT26y5KEHqDrKZNcZlDWTLsAQ0xMqtfWVmBTCewDcnlqjauw8DbIObzPlY
+         FSliLUCbl2D1VKGfOvDPUw4Bo9BhChjxO5AVkIr8kMioc+UeDmNmwNtxjssdMS3NwyiD
+         d9u8FoNNhAttO4UEvMY5IX4cNrERSiCTbjLC9QuIAfmJ+am46QcPmQvqrPjQDVX2yoh/
+         c1tg==
+X-Forwarded-Encrypted: i=1; AJvYcCWxcamf1ejPCjfFn81AyQMjIny4yIKpm0g54tSHxlqgRXnP9+PKLi1Elc/ln2VrJM/OxLrG8oWWBUv5q9Hjdqgp@lists.infradead.org
+X-Gm-Message-State: AOJu0YysznUkuGFf1CwlqUzV/G7prlmA4dWOTlxFrw116IpfuFTBZ871
+	YdFAoz/5vHnP8erQrPGZ3FlpOyZGPyWaETNZcPgjhbRVm26PyA/xzC0GEV4IdKc=
+X-Gm-Gg: ASbGncszxLvWmUjYo0ix9K3PaxBtWmf7hSp3tTTdr7xqRlhfX3f2zf7Z8OS9zGg8Ib5
+	MK8+m+LIy5azIsPAJwuSo1my3q0x3Js0nG5Pv3/fOOBoBeU5DUmeUDoE+btqqdwspcK3tAuic5U
+	/DV9b7lWisN0ylP0ODX74BhsgQz/EWRuHLyg3o8RUlV2QQjakfqB1e97IDrZ/2niqHixPtaS0L5
+	dHDLUgpeqo7j7WD0Y8TBisi6iNwlJyXrVrDkVCIaggwGfKkEWy7/zLJ/i3HD7GWXF4NP+uw+fJF
+	M+d7ZIDhEsf1jaT2fQlsfJMtvAIgrso71LS979DfLSDoFB1mLYWwjXCa+LO/GGChdfa0tOI=
+X-Google-Smtp-Source: AGHT+IFTPGY2nzRLHllSo8hDFl+TxXnd4EtAypxnHw3YEBN2TqXVdM1x8iFz55a0HF67J/9VnE7uOQ==
+X-Received: by 2002:a05:6512:70e:b0:540:1e17:10d2 with SMTP id 2adb3069b0e04-54414ae5f0amr254436e87.49.1738896565019;
+        Thu, 06 Feb 2025 18:49:25 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-544105bf58esm296912e87.107.2025.02.06.18.44.44
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441053ed63sm300364e87.41.2025.02.06.18.49.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 18:44:45 -0800 (PST)
-Date: Fri, 7 Feb 2025 04:44:43 +0200
+        Thu, 06 Feb 2025 18:49:23 -0800 (PST)
+Date: Fri, 7 Feb 2025 04:49:21 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 07/26] drm/bridge: panel: forbid initializing a panel
- with unknown connector type
-Message-ID: <cii3ko3pejzmvz3cft2saw3biyx6yipcsemd3mzihzy7tyhsdg@zpmqujujwcie>
+Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every
+ panel
+Message-ID: <iucfx6tewwazxnonivajmdqqaexdfn6izwxwlv2l5t3256uwfy@sp4cm5eifdt3>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-7-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-7-9d6f2c9c3058@bootlin.com>
+In-Reply-To: <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_184448_141207_8E33FFAE 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250206_184927_095412_B3B8F028 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,21 +97,45 @@ Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codi
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 07:14:22PM +0100, Luca Ceresoli wrote:
-> Having an DRM_MODE_CONNECTOR_Unknown connector type is consuidered bad, and
-
-considered
-
-> drm_panel_bridge_add_typed() and derivatives are deprecated for this.
+On Thu, Feb 06, 2025 at 07:14:23PM +0100, Luca Ceresoli wrote:
+> Adding a panel does currently not add a panel_bridge wrapping it. Usually
+> the panel_bridge creation happens when some other driver (e.g. the previous
+> bridge or the encoder) calls *_of_get_bridge() and the following element in
+> the pipeline is a panel.
 > 
-> drm_panel_init() won't prevent initializing a panel with a
-> DRM_MODE_CONNECTOR_Unknown connector type. Luckily there are no in-tree
-> users doing it, so take this as an opportinuty to document a valid
-> connector type must be passed.
+> This has some drawbacks:
 > 
-> Returning an error if this rule is violated is not possible because
-> drm_panel_init() is a void function. Add at least a warning to make any
-> violations noticeable, especially to non-upstream drivers.
+>  * the panel_bridge is not created in the context of the driver of the
+>    underlying physical device (the panel driver), but of some other driver
+>  * that "other driver" is not aware of whether the returned drm_bridge
+>    pointer is a panel_bridge created on the fly, a pre-existing
+>    panel_bridge or a non-panel bridge
+>  * removal of a panel_bridge requires calling drm_panel_bridge_remove(),
+>    but the "other driver" doesn't know whether this is needed because it
+>    doesn't know whether it has created a panel_bridge or not
+> 
+> So far this approach has been working because devm and drmm ensure the
+> panel bridge would be dealloacted at some later point. However with the
+> upcoming implementation of dynamic bridge lifetime this will get more
+> complicated.
+> 
+> Correct removal of a panel_bridge might possibly be obtained by adding more
+> devm/drmm technology to have it freed correctly at all times. However this
+> would add more complexity and not help making lifetime more understandable.
+> 
+> Use a different approach instead: always create a panel_bridge with a
+> drm_panel, thus matching the lifetime of the drm_panel and the panel_bridge
+> wrapping it. This makes lifetime much more straightforward to understand
+> and to further develop on.
+> 
+> With the panel_bridge always created, the functions to get a bridge
+> [devm_drm_of_get_bridge() and drmm_of_get_bridge()] become simpler because
+> the bridge they are looking for exists already (if it can exist at all). In
+> turn, this is implemented based on a variant of
+> drm_of_find_panel_or_bridge() that only looks for panels:
+> of_drm_find_bridge_by_endpoint(). In the future
+> drm_of_find_panel_or_bridge() can be progressively removed because there
+> will never be a panel not exposing a bridge.
 > 
 > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > 
@@ -119,11 +143,29 @@ considered
 > 
 > This patch was added in v6.
 > ---
->  drivers/gpu/drm/bridge/panel.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  drivers/gpu/drm/bridge/panel.c | 74 +++++++++++++++++++++++++++++++++---------
+>  include/drm/drm_panel.h        |  8 +++++
+>  2 files changed, 66 insertions(+), 16 deletions(-)
 > 
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+LGTM, minor issue below.
+
+> @@ -1018,6 +1067,11 @@ struct drm_bridge *devm_drm_panel_bridge_add_typed(struct device *dev,
+>  {
+>  	struct drm_bridge **ptr, *bridge;
+>  
+> +	if (panel->bridge) {
+> +		DRM_DEBUG("panel %s: returning existing bridge=%p", dev_name(dev), panel->bridge);
+> +		return panel->bridge;
+> +	}
+
+Shouldn't the rest of the function also be removed as you do in other
+cases?
+
+> +
+>  	ptr = devres_alloc(devm_drm_panel_bridge_release, sizeof(*ptr),
+>  			   GFP_KERNEL);
+>  	if (!ptr)
 
 -- 
 With best wishes
