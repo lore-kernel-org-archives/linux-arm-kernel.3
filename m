@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870A5C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F58C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYkob5dL+kHvl3z2XknwVDlIEJTWdgOpBDOpHuAAwH4=; b=sJsxt4Wd3m6z5fS1DRQfAzycZ6
-	UpI5UvJqLsT6ySyd4v+oW2zDQAKufF5WoAivPQDuT2Re2ciY8VrPnoY9BV1UtYHEooctYLlum67eA
-	zkOoukJiA5gW+13DldUaOIUwrvJwbYN/m+BM5BkGwopRxQDMy40UMF78YilaYxmmxpC5y3pWtiHDA
-	Wxp5HgVwOUwEMSmC2Pcrhl1nEcLdQLXZvN/OelFBP80DsmOv4yA9qO8SzLna6Yg3HmvLe8DypYQxs
-	oh8PHUB3GkwhpSrd4QIRmpWioHB2qKubZbQwtn5Q2qvonzcEbgqJ4bxZx+MAGK3mU0bmNcbhw/awA
-	6+KxnZaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zdk7cJsED5u3sVNSvmH7r+gr5N2ZEPAiGbOl+S/6VUY=; b=S3V8mGXQo5jZTj+dvkcJQXAUUZ
+	i+sIEYJ2bwFgkNLm7a0gXHVmG/HtXW7bIK2G/J/VIOSF8muRtBeJa36x/epnK6vvg4O2SaeIyNCjd
+	L1FKvbuZ0gZ1ud1GmfRmuPZ+Nz5GjjaZQwvOfVMcnwJjhN+9RhSddGcbgoAVK49MHCNJvnPvboyMK
+	Sdbn/1TwSf/vjFBhcprl/SVw8KfJ2NFxYuM0HVjSBY/E5ilAKojE8yxPR73YxrUa1ivvCJfPT2Z7R
+	nzZmdiK1ELmZlgz67cK2Ali+/f/IGEYUZUL17EMza9TX94VSoEICpzEtyys01jfFy1kz6LU13xR1I
+	+ygnWMkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUzS-0000000B5Bw-2A13;
-	Fri, 07 Feb 2025 20:30:18 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tgUzT-0000000B5EG-2ruo;
+	Fri, 07 Feb 2025 20:30:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUe3-0000000B1GO-3Tnc
+	id 1tgUfy-0000000B1VZ-4AMW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 20:08:13 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5440efe97baso2773171e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 12:08:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738958890; x=1739563690; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FYkob5dL+kHvl3z2XknwVDlIEJTWdgOpBDOpHuAAwH4=;
-        b=wVPLPiPoybSDyL2CoKq9A4/mPbpDhSiWF15P+/FZczBv6e+Ck80BQ9P94dcgTAPoYh
-         5ww6Qxw6+LNJWNTLxvZqhMJo0fAqwlS6l8dwXsSz/uVDBqduEPANGGjyndGd2mIp0IEx
-         qKUw954x6Zm+hFNKhIf5GjlYqfqSF/7FJSE1FXKHSrK4jfOZHT/yZXmjsrGHl1hhYwU7
-         NmisJuQEYYQvv8xXp/EWy00IVO7RhZwsSbYnLgXaZs5kWBTIHe8fMo9+a16Sgsk3Wlyp
-         0EAP94JtkziXicnH9A/bi+4U/HPg6HAEXsvHjNSdyimEZTsISJ1gd8Tu+G1VZFyzADyf
-         /AeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738958890; x=1739563690;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FYkob5dL+kHvl3z2XknwVDlIEJTWdgOpBDOpHuAAwH4=;
-        b=I49clMlj4P9aa4okVQMGy68q7md5yOAzbiDCN+XAfY9YqdvaJHAJoXKtt8ZMiUW5ng
-         7vRyDZd2nvcs+L5t/fAJAe+peax3b8AFMRY4RonwlHVynhYhvIdTQ5djTWS5//vOz8c8
-         a4Bp9Eyyb51ps0ovZOu/pFVz23Dirn+trXjO8ThvEqJZrwJdtovXF0hCAe0Ue/oImy5K
-         QeB+HShaqrlvHCwLXfq8cZ+TX8WL69G8tN60yLXhl40SLw9F8rY0gN6V/xRokgUgRMr6
-         27Q+qFA4WrJh/T6JdHzwBunMZdBOyI9Xv9SX+znHR+vuT+rjsFkm52S8UVyQeHltnH7s
-         mxbA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZSh4j6iiJBGk6XWuzzYuyVgFUI157lQBSDJ1DzbocyfklQzMdiU4Y9DuhFFf+YCI+5g9fyqutJRAItol+rp49@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkcFLNjYcMpGEUcOZnITqnFuhdAJ5jGpM5CmF/rpNzSRBODE/Y
-	gIE+thbpsUUK89g8N+TMxZjp/sORD/j4/u0GezZBdmLD1ZgprSrj/4mtes/sFzA=
-X-Gm-Gg: ASbGncuuJ7lieLGF6K1vXx/lRio4Vki7NbFG9AXrG8uaEDm/dDIS+9PGTEK5yBbICAi
-	+eTYGYrX+lEfnALi7c2fxA7B7X0VXDPWL+tGiIIHwpIREFvkNwZDkmsqQH++/tZC25seQUCUWoi
-	sTE2FqBg+Gc29Y+0tjAoPFRQReJB/EfkkvhHL5K/VmzAaE3+skSJy9/QdQCdHet9hNp4RTGLWBs
-	D3fyqLFluf9l7v9BNv1BdeMZNXchH/pFBW5qKav5+y17+vRCn7YIohGx5Vt0SGc0D7O4I0P/fBN
-	egCkVmrE1XqL+GlI5asyeenrObCUY0ENk3hKXPgEyDe015v28ptAZKaO8HG9CPMZAcVafa4=
-X-Google-Smtp-Source: AGHT+IG7/wH8lvWcq5WTdfj8YtPxXYAdI23+8Xf0vHDGS3N8knZZCrXym+bOiezQMN/DqbfaTNAu4w==
-X-Received: by 2002:a05:6512:a8f:b0:544:f77:1fbc with SMTP id 2adb3069b0e04-54414aa811bmr1516524e87.28.1738958890042;
-        Fri, 07 Feb 2025 12:08:10 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441053ecb6sm546134e87.6.2025.02.07.12.08.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 12:08:08 -0800 (PST)
-Date: Fri, 7 Feb 2025 22:08:07 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Vikram Sharma <quic_vikramsa@quicinc.com>
-Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org, 
-	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org, 
-	konradybcio@kernel.org, hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org, 
-	catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Konrad Dybcio <konrad.dybcio@linaro.org>
-Subject: Re: [PATCH v12 2/2] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Message-ID: <slpvv4gvncgnpexu3lc6ujbyvhfne66kmwau3ch7i7sqraogc3@enc2jhll6kid>
-References: <20250207090422.1609260-1-quic_vikramsa@quicinc.com>
- <20250207090422.1609260-3-quic_vikramsa@quicinc.com>
+	Fri, 07 Feb 2025 20:10:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4A67DA43BDF;
+	Fri,  7 Feb 2025 20:08:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB72FC4CED6;
+	Fri,  7 Feb 2025 20:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738959009;
+	bh=Rb6tOrngBKFH/uFi5jXEWLdvU2cKpJWevMKs0KTRLUs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=jT6w/IUsDCfqAGE1rHixJpsbEIHsyac3G88pcgDVqhXoqbFDrA1nkLKZ8ExpVE13r
+	 Li6qq/Y7u12Tes8DnkPUqsTKQKfzQJjQjNcszTkWnjRwbZLiYwtJoCDpEVrqix/+KY
+	 MhzZzvc2bBkQtNCqstWeFWeZvK3MdmsnjjrfBUZ0Bnm5B1ClGLh9tpFfCoh9Tw1MYL
+	 /2QXkBfzA90nL66vXWQEyegL2bRju/KvIfgjaITLMhptU4uAgsFmKoqBpuUFrTzrjb
+	 AH9oPm3OAsKj43AdhK0j2BTCkeB7v22MA+0z+VYugZP0tXkmbl+EtpN9486RKWgCk3
+	 yhKI1qqmAYuFg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEAA380AAF4;
+	Fri,  7 Feb 2025 20:10:38 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207090422.1609260-3-quic_vikramsa@quicinc.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/14] net: stmmac: yet more EEE updates
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173895903778.2367164.15308538342588355637.git-patchwork-notify@kernel.org>
+Date: Fri, 07 Feb 2025 20:10:37 +0000
+References: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
+In-Reply-To: <Z6NqGnM2yL7Ayo-T@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_120811_874784_DF52BE02 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250207_121011_166958_F384382C 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 02:34:22PM +0530, Vikram Sharma wrote:
-> The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
+Hello:
 
-No, RB3 uses a different sensor. RB3 != RB3 Gen2.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-> Enable the IMX577 on the vision mezzanine.
+On Wed, 5 Feb 2025 13:39:38 +0000 you wrote:
+> Hi,
 > 
-> An example media-ctl pipeline for the imx577 is:
+> Continuing on with the STMMAC EEE cleanups from last cycle, this series
+> further cleans up the EEE code, and fixes a problem with the existing
+> implementation - disabling EEE doesn't immediately disable LPI
+> signalling until the next packet is transmitted. It likely also fixes
+> a potential race condition when trying to disable LPI vs the software
+> timer.
 > 
-> media-ctl --reset
-> media-ctl -v -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> 
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-> 
+> [...]
 
+Here is the summary with links:
+  - [net-next,01/14] net: stmmac: delete software timer before disabling LPI
+    https://git.kernel.org/netdev/net-next/c/a923378ab0c4
+  - [net-next,02/14] net: stmmac: ensure LPI is disabled when disabling EEE
+    https://git.kernel.org/netdev/net-next/c/64c9936330cc
+  - [net-next,03/14] net: stmmac: dwmac4: ensure LPIATE is cleared
+    https://git.kernel.org/netdev/net-next/c/6e9c71ee65eb
+  - [net-next,04/14] net: stmmac: split stmmac_init_eee() and move to phylink methods
+    https://git.kernel.org/netdev/net-next/c/cc3f4d5508c8
+  - [net-next,05/14] net: stmmac: remove priv->dma_cap.eee test in tx_lpi methods
+    https://git.kernel.org/netdev/net-next/c/4abd57687355
+  - [net-next,06/14] net: stmmac: remove unnecessary priv->eee_active tests
+    https://git.kernel.org/netdev/net-next/c/2cc8e6d30895
+  - [net-next,07/14] net: stmmac: remove unnecessary priv->eee_enabled tests
+    https://git.kernel.org/netdev/net-next/c/faafe39c77fb
+  - [net-next,08/14] net: stmmac: clear priv->tx_path_in_lpi_mode when disabling LPI
+    https://git.kernel.org/netdev/net-next/c/54f85e5221c3
+  - [net-next,09/14] net: stmmac: remove unnecessary LPI disable when enabling LPI
+    https://git.kernel.org/netdev/net-next/c/9b6649a81075
+  - [net-next,10/14] net: stmmac: use common LPI_CTRL_STATUS bit definitions
+    https://git.kernel.org/netdev/net-next/c/6e37877d222d
+  - [net-next,11/14] net: stmmac: add new MAC method set_lpi_mode()
+    https://git.kernel.org/netdev/net-next/c/395c92c0fe3e
+  - [net-next,12/14] net: stmmac: dwmac4: clear LPI_CTRL_STATUS_LPITCSE too
+    https://git.kernel.org/netdev/net-next/c/a323ed92e40e
+  - [net-next,13/14] net: stmmac: use stmmac_set_lpi_mode()
+    https://git.kernel.org/netdev/net-next/c/305a0f68cfbf
+  - [net-next,14/14] net: stmmac: remove old EEE methods
+    https://git.kernel.org/netdev/net-next/c/62b0a039cac2
+
+You are awesome, thank you!
 -- 
-With best wishes
-Dmitry
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
