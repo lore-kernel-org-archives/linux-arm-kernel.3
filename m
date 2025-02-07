@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69892C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B85C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/t7vCxJWdDph//099EQUA35oIJvQPYCB3Z9DffQy6g=; b=JWXFHz25nKz2LllnzyusFQqlmT
-	8zKKp8hFvaIIufFEl2wI3px06lPeq8Q7XWNZIBCccIu4JTR2SfEWMmlv2wJdv1edu0ZAcl9KZSzNq
-	nbimxd9nUg45ziDuBQW5qxP1tgVgxKk3j8JHyOvLUnEnIeU9Mrul7K/F6Fdd3rm/2xC6tv9U808ew
-	z6JEyHbfyuiXNwBCJTq6DkWkXBmeqB40yiXBtDftoah0dT0jObXZwteP2MFIF5YHxmbbOdksRT30V
-	kI+z+rpdZMxyvs04oSlIC8SWXtd5bmK2Q0aLPzRJbuaULMdWxH1VG/4kJ9dMGIsaKP5Wo6MgRcuga
-	0El1V+PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e2+AE/2LJAYye9HkKHifG+tBEn1kiEbNgM5Be/SBU0Y=; b=FLjGXuQcUbtCErHNRuidRy7WWA
+	Y+WjdBlpMj/m3z+iZoDREefQ8nT13lRnASdIRGB5cHnnSGHA/f8t/2Gk0Gzx0u6CWoMF0iKH/1+DA
+	2JOOfzA9sN76IvNeTR5ZBj4oi+hzfMsUlHuTkv8C8ebDf7mZ89w1G7fnClm5Glt5z6JdLgOg+YO2W
+	XcKhvVTHpoRjCOEqR3lHjGOruKT8oYhhdYxRUq7bUotYN6nC4HCZ8P4kPxnGcmK4HC7kRP9QFoVq6
+	P9Gd2h8mbJcqJQro8h5qtVnjrZVCOQrH/C3KGMpa+G9EMT8GmF3swl+dakvCibyL8UbKfjXCQ2ylB
+	76/IgS/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJoo-00000008pyL-3LqQ;
-	Fri, 07 Feb 2025 08:34:34 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1tgJsR-00000008qbA-0TjI;
+	Fri, 07 Feb 2025 08:38:19 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJnP-00000008pfr-23UK
+	id 1tgJr1-00000008qEz-1lwC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:33:09 +0000
-Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 26D131F9E1;
-	Fri,  7 Feb 2025 09:33:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1738917182;
-	bh=l/t7vCxJWdDph//099EQUA35oIJvQPYCB3Z9DffQy6g=;
-	h=Received:From:To:Subject;
-	b=x4VMvHw4NptAo6x5XBmAV+QyJzCjjYW92WHrhRpEQEeN4AiwlYBrOWnwuYnv3+xdS
-	 CduSirEGbfD2odtgGD8sqFJCJ9+32bW/KFtb9wnnB99Hlaajp0rtKbVovJRKUvjTwS
-	 fmgzuipXjkP5rYLWk5Ax29PDsHC8Xj3MDh9oJ8djV50HYbtY3AGPacKWJAjnE6ep5D
-	 LVunkSKdESz3ahRx38ffZQLEZFJsJ43tp2PVrE7wr4082EtgSqslloEUpzynX0LRwf
-	 xnBmNBPjniMBj60NSNgxR9nqm4JDWFodHRONrpK1BWXQCA/tTG9gHLO6alYXXkyt5X
-	 U3irvwSolkaAA==
-Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
-	id BACC07F926; Fri,  7 Feb 2025 09:33:01 +0100 (CET)
-Date: Fri, 7 Feb 2025 09:33:01 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Fri, 07 Feb 2025 08:36:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1738917412; x=1770453412;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=e2+AE/2LJAYye9HkKHifG+tBEn1kiEbNgM5Be/SBU0Y=;
+  b=DvLiedO6UEmPWOac+atZ6ZTukiRUj2eV7t+gT0PnC2kE8oe4/UojDphk
+   cBZNgoQPWCTsxOIItawv22xaDm9oYppoYSG2rTtOUzAqbWL4KiNjkKiSn
+   g+NHPpcSglruEAYozwpvS/KBU1TaTE8TV1QoltJ9barfaJnfqAKi/TBUM
+   dTXt64p46pgvKtBVZRyAHtFAk/3kETsCQ/PK9CHxItIobi981oAz1C0ZC
+   b0rcffVT+SQ3a7H/HAvaV3eGjHzbKtoEt04k53YbkfIH+rg7WmqszJm8U
+   bepBOR2Cp1SFgtIYsh8MqYB0CEM8TIE2GfizvONfyZpNgcP7mE+jjpw+j
+   A==;
+X-CSE-ConnectionGUID: av5eSYpcTbOPWv03T6b2pQ==
+X-CSE-MsgGUID: 3BW5DVBDRlKWS9YBHJwkog==
+X-IronPort-AV: E=Sophos;i="6.13,266,1732575600"; 
+   d="scan'208";a="41636068"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 07 Feb 2025 09:36:25 +0100
+X-CheckPoint: {67A5C608-2E-2D67083E-CAF60585}
+X-MAIL-CPID: 986F74BA90AE23D311AA173614DDDFF0_0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11841167AAD;
+	Fri,  7 Feb 2025 09:36:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1738917380;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=e2+AE/2LJAYye9HkKHifG+tBEn1kiEbNgM5Be/SBU0Y=;
+	b=Sq5bQilYhtLsl41kYmMh+fxhdDs43vuoSiecvSFOK6itUhRXpRpxAyac9Gm2cdrt4ZhcSf
+	ynrbwFbxxgJje0dyPiRtbGdsk4LQTiEqXBqtbSp6Wn3/dajwQ3/MVTb3uzVySAxNiR8C3w
+	KKTpxw+7m0ZIAty2oXy0gOJFPh+pY4DIKYbC4UkOPBEsHFFWcPJglqQghkPJcT+7ehBKy6
+	QlP7pplYMPNKypCF3oSslFKjN9RXiZ5weE2QOVo87ICRfU1HkQju8s3s1jzcTy57l7gery
+	kctGmaSw2DegfQaLcXQJlHv+EuOtSs/EUcAPgA46rLk6DBvv0PoXunPMTSJ1Nw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62p: Enable AUDIO_REFCLKx
-Message-ID: <Z6XFPYaj069fvW1h@gaggiata.pivistrello.it>
-References: <20250206153911.414702-1-francesco@dolcini.it>
- <20250207014239.xzm6rfnusckql2uo@litigator>
+Subject: [PATCH v2 00/10] Make i.MX8M OCOTP work as accessing controller
+Date: Fri,  7 Feb 2025 09:36:05 +0100
+Message-Id: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207014239.xzm6rfnusckql2uo@litigator>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_003308_423428_D22A3702 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250207_003651_957885_0EFDE0C0 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,81 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nishanth,
+Hi,
 
-On Thu, Feb 06, 2025 at 07:42:39PM -0600, Nishanth Menon wrote:
-> On 16:39-20250206, Francesco Dolcini wrote:
-> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > 
-> > On AM62P-based SoCs the AUDIO_REFCLKx clocks can be used as an input to
-> > external peripherals when configured through CTRL_MMR, so add the
-> > clock nodes.
-> > 
-> > Link: http://downloads.ti.com/tisci/esd/latest/5_soc_doc/am62px/clocks.html
-> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > ---
-> >  arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 20 ++++++++++++++++++++
-> >  1 file changed, 20 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-> > index 420c77c8e9e5..4b47b0774330 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-> > @@ -42,6 +42,26 @@ &inta_main_dmss {
-> >  	ti,interrupt-ranges = <5 69 35>;
-> >  };
-> >  
-> > +&main_conf {
-> 
-> 	Why not add it to main_conf section it self in the file?
+inspired by [1] this adds the accessing controller feature to i.MX8M.
+The OCOTP eFuse has bits which can disable particular peripherals, such as
+GPU, MIPI-DSI oder USB.
 
-The reason is that main_conf is defined in k3-am62p-j722s-common-main.dtsi,
-that is shared between am62p and j722s.
+In OCOTP driver, the nodes under "/" will be iterated, and checked
+if property "#access-controllers" exsits. If not allow access, detach
+the node.
 
-On j722s the audio refclk is added in k3-j722s-main.dtsi the same way as I did
-here, so I cannot move this to k3-am62p-j722s-common-main.dtsi without updating
-also k3-j722s-main.dtsi.
+I successfully used this on a i.MX8M Nano DualLite which has GPU disabled.
+Without this patchset the default DT completly freezes the SoC if GPU
+is accessed.
+Using this patchset the GPU is disabled without any DT modification from
+bootloader:
+> imx_ocotp 30350000.efuse: /soc@0/gpu@38000000: disabled by fuse, device driver will not be probed
 
-I looked into the differences of j722s and am62p, and from my understanding,
-from the audio refclk point of view, they are identical (same IP, same reg, same
-clocks and same IDs), so this should naturally be moved to
-k3-am62p-j722s-common-main.dtsi as you are suggesting.
+Changes in v2:
+* Encode all addresses and bit offsets into DT directly
+  This eliminates the need for platform specific code in imx-ocotp
+* Added support for imx8mm, imx8mp and imx8mq as well
 
-... however, for some reason I am not aware of, on k3-j722s-main.dtsi a different
-parent clock is used, and I cannot understand the reason. The actual parent clocks
-in this patch are just the same we already have everywhere apart on j722s. I tried
-to look at the history of this and it seems that on the TI downstream kernel branch
-this is defined in the board dts file (!) and this confused me even more.
+Best regards,
+Alexander
 
-So, not wanting to break stuff I was not able to understand I came up with this
-proposal.
+[1] https://lore.kernel.org/all/20250204-imx-ocotp-v8-0-01be4a4bb045@nxp.com/
 
-An alternative could be to override the "unexpected" clocks from
-k3-j722s-main.dtsi to the board dts file, and have the "standard" clocks, as
-proposed in this patch and already used on all the other AM62 variants, in
-k3-am62p-j722s-common-main.dtsi.
+Alexander Stein (10):
+  nvmem: imx-ocotp: Sort header alphabetically
+  nvmem: imx-ocotp: Support accessing controller for i.MX8M
+  arm64: dts: imx8mn: Add i.MX8M Nano OCOTP disable fuse definitions
+  arm64: dts: imx8mn: Add access-controller references
+  arm64: dts: imx8mp: Add i.MX8M Plus OCOTP disable fuse definitions
+  arm64: dts: imx8mp: Add access-controller references
+  arm64: dts: imx8mm: Add i.MX8M Mini OCOTP disable fuse definitions
+  arm64: dts: imx8mm: Add access-controller references
+  arm64: dts: imx8mq: Add i.MX8M OCOTP disable fuse definitions
+  arm64: dts: imx8mq: Add access-controller references
 
-+Jayesh that is the author of this specific change in k3-j722s-main.dtsi.
+ arch/arm64/boot/dts/freescale/imx8mm-ocotp.h | 31 ++++++++
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi    | 13 ++++
+ arch/arm64/boot/dts/freescale/imx8mn-ocotp.h | 26 +++++++
+ arch/arm64/boot/dts/freescale/imx8mn.dtsi    |  8 +++
+ arch/arm64/boot/dts/freescale/imx8mp-ocotp.h | 42 +++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 26 +++++++
+ arch/arm64/boot/dts/freescale/imx8mq-ocotp.h | 37 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi    | 15 ++++
+ drivers/nvmem/Kconfig                        |  3 +
+ drivers/nvmem/imx-ocotp.c                    | 76 +++++++++++++++++++-
+ 10 files changed, 275 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-ocotp.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mn-ocotp.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-ocotp.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mq-ocotp.h
 
-Francesco
+-- 
+2.34.1
 
-> > +	audio_refclk0: clock-controller@82e0 {
-> > +		compatible = "ti,am62-audio-refclk";
-> > +		reg = <0x82e0 0x4>;
-> > +		clocks = <&k3_clks 157 0>;
-> > +		assigned-clocks = <&k3_clks 157 0>;
-> > +		assigned-clock-parents = <&k3_clks 157 16>;
-> > +		#clock-cells = <0>;
-> > +	};
-> > +
-> > +	audio_refclk1: clock-controller@82e4 {
-> > +		compatible = "ti,am62-audio-refclk";
-> > +		reg = <0x82e4 0x4>;
-> > +		clocks = <&k3_clks 157 18>;
-> > +		assigned-clocks = <&k3_clks 157 18>;
-> > +		assigned-clock-parents = <&k3_clks 157 34>;
-> > +		#clock-cells = <0>;
-> > +	};
-> > +};
-> > +
 
