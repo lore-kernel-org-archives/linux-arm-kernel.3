@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D068C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 03:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6F1C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 04:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KyZCs8qd3314ZlqPy/AmtZCpaiNemEYjj2AFav3eno=; b=k2IOtPoq2sJuj70D62ZO0L4el2
-	xkzIK7v/N+mTEZkblpi6LQ9MQ6CPxnW+cSuKqWEDCllis0VcJava7jgSDgLAlppxiqHql6Lyx5Pq1
-	IBahdY+QQwYXzkoSoZxD/YDM+LTM022MTV84/y1CKbz5azYfD1z0UmmRTlUQt9WseTdplTcWxQ+ma
-	65+x3vC6mJAnSWKO3ew1RAMMR3KXHT8vVykG8N2km6hVlggjEKC4yDNr/mPr6wt8cNQWbEd8iV8t7
-	UTA2uHQdByqV+3IBPJFY7LqQFKv+6MlefZQqL+Vs55YRq0ifaXE+5aHm12GgCudREjMYXzDywOTgJ
-	D23MiR6Q==;
+	bh=ItNRY/g2x+DGWrcBuWyM/sHE34fLNYAXLJOuMsQ7kkc=; b=IULZOXUIKfajPAPzu00Lfs9vsa
+	5ufXbL8qo4THwr85ftXpgMitjMgXe87N7tSzBn0V0NCGMblNfpm8TPORx5lWZLlsU5gw+NBymXIBd
+	q7m2ta6VqkDjMSBAbtiJ7HOYHAXZMVeuK194hq1vYhuy7YidY/dwqhgdvYCQoagXdTzHOjsPiMX0O
+	x+mr/bnjTgoZ6HZnwI7W52tWaumBW0yUOcGYDjuCs2am/0FRUEspW3dq35ZRdYr5Xtz5AXlZeIz0a
+	8xJvUW+pAIzWmhQ0U7utadVt/zIaekir6sCK+7ejFlmvjt+/oJF8Kc0gabh3SgcLOLK9qCD3f77UW
+	NcXNkQLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgFQK-00000008FPB-0hxB;
-	Fri, 07 Feb 2025 03:53:00 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgFOw-00000008FIA-0bmL
+	id 1tgFht-00000008Gq3-05Mx;
+	Fri, 07 Feb 2025 04:11:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgFgS-00000008GYU-3DIl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 03:51:35 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5173pE5e2855441
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 6 Feb 2025 21:51:14 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738900274;
-	bh=7KyZCs8qd3314ZlqPy/AmtZCpaiNemEYjj2AFav3eno=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=L/yjsi1bFWzokw220ffjHZa5zgitVMKp3w2YJQgnDnKRTIusfFEPN79Y6sBKNvsSB
-	 S1JzeQxbfZxAQX6NUBOoTAC+VLwgqzKFM3d4DqVxbUlI2vwznmZP5CyxiWITRHO6h1
-	 mfjKTxOiXd/ugcxQ74YDVGKskZVt4K17pYPg4YgY=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5173pE9c084941
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 6 Feb 2025 21:51:14 -0600
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 6
- Feb 2025 21:51:13 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 6 Feb 2025 21:51:13 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5173pDYf011862;
-	Thu, 6 Feb 2025 21:51:13 -0600
-From: Nishanth Menon <nm@ti.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <quic_bjorande@quicinc.com>,
-        <geert+renesas@glider.be>, <krzysztof.kozlowski@linaro.org>,
-        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
-        <nfraprado@collabora.com>, <ebiggers@google.com>, <ardb@kernel.org>,
-        <vigneshr@ti.com>, Vaishnav Achath
-	<vaishnav.a@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <nfrayer@baylibre.com>,
-        <glaroque@baylibre.com>, <tglx@linutronix.de>, <u-kumar1@ti.com>,
-        <geert@linux-m68k.org>, <d-gole@ti.com>
-Subject: Re: [PATCH v3] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
-Date: Thu, 6 Feb 2025 21:51:06 -0600
-Message-ID: <173890018688.4924.16249045892209116945.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250205062229.3869081-1-vaishnav.a@ti.com>
-References: <20250205062229.3869081-1-vaishnav.a@ti.com>
+	Fri, 07 Feb 2025 04:09:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4B38106F;
+	Thu,  6 Feb 2025 20:10:01 -0800 (PST)
+Received: from [10.162.16.89] (a077893.blr.arm.com [10.162.16.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D69983F63F;
+	Thu,  6 Feb 2025 20:09:33 -0800 (PST)
+Message-ID: <c804485f-d042-4013-9fef-ad7eb91c3a85@arm.com>
+Date: Fri, 7 Feb 2025 09:39:30 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 07/16] arm64: hugetlb: Use ___set_ptes() and
+ ___ptep_get_and_clear()
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-8-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250205151003.88959-8-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_195134_272933_643FACCA 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250206_200940_904392_E5776C98 
+X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,26 +74,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 05 Feb 2025 11:52:29 +0530, Vaishnav Achath wrote:
-> Enable TISCI Interrupt Router and Interrupt Aggregator drivers.
-> These IPs are found in all TI K3 SoCs like J721E, AM62X and is required
-> for core functionality like DMA, GPIO Interrupts which is necessary
-> during boot, thus make them built-in.
+On 2/5/25 20:39, Ryan Roberts wrote:
+> Refactor the huge_pte helpers to use the new generic ___set_ptes() and
+> ___ptep_get_and_clear() APIs.
 > 
-> bloat-o-meter summary on vmlinux:
-> 	add/remove: 460/1 grow/shrink: 4/0 up/down: 162483/-8 (162475)
-> 	...
-> 	Total: Before=31615984, After=31778459, chg +0.51%
+> This provides 2 benefits; First, when page_table_check=on, hugetlb is
+> now properly/fully checked. Previously only the first page of a hugetlb
+
+PAGE_TABLE_CHECK will be fully supported now in hugetlb irrespective of
+the page table level. This is definitely an improvement.
+
+> folio was checked. Second, instead of having to call __set_ptes(nr=1)
+> for each pte in a loop, the whole contiguous batch can now be set in one
+> go, which enables some efficiencies and cleans up the code.
+
+Improvements done to common __set_ptes() will automatically be available
+for hugetlb pages as well. This converges all batch updates in a single
+i.e __set_ptes() which can be optimized further in a single place. Makes
+sense.
+
 > 
-> [...]
+> One detail to note is that huge_ptep_clear_flush() was previously
+> calling ptep_clear_flush() for a non-contiguous pte (i.e. a pud or pmd
+> block mapping). This has a couple of disadvantages; first
+> ptep_clear_flush() calls ptep_get_and_clear() which transparently
+> handles contpte. Given we only call for non-contiguous ptes, it would be
+> safe, but a waste of effort. It's preferable to go stright to the layer
 
-Applied, thanks!
+A small nit - typo s/stright/straight
 
-[1/1] arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
-      commit: c7691aec5e991cec9c5c5fdab08c24856a1fc56f
+> below. However, more problematic is that ptep_get_and_clear() is for
+> PAGE_SIZE entries so it calls page_table_check_pte_clear() and would not
+> clear the whole hugetlb folio. So let's stop special-casing the non-cont
+> case and just rely on get_clear_contig_flush() to do the right thing for
+> non-cont entries.
 
-Best regards,
--- 
-Nishanth Menon <nm@ti.com>
+Like before, this change is unrelated to all the conversions done earlier for
+the set and clear paths above using the new helpers. Hence ideally it should
+be separated out into a different patch.
+
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/mm/hugetlbpage.c | 50 ++++++++-----------------------------
+>  1 file changed, 11 insertions(+), 39 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index e870d01d12ea..02afee31444e 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -166,12 +166,12 @@ static pte_t get_clear_contig(struct mm_struct *mm,
+>  	pte_t pte, tmp_pte;
+>  	bool present;
+>  
+> -	pte = __ptep_get_and_clear(mm, addr, ptep);
+> +	pte = ___ptep_get_and_clear(mm, ptep, pgsize);
+>  	present = pte_present(pte);
+>  	while (--ncontig) {
+>  		ptep++;
+>  		addr += pgsize;
+> -		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
+> +		tmp_pte = ___ptep_get_and_clear(mm, ptep, pgsize);
+>  		if (present) {
+>  			if (pte_dirty(tmp_pte))
+>  				pte = pte_mkdirty(pte);
+> @@ -215,7 +215,7 @@ static void clear_flush(struct mm_struct *mm,
+>  	unsigned long i, saddr = addr;
+>  
+>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+> -		__ptep_get_and_clear(mm, addr, ptep);
+> +		___ptep_get_and_clear(mm, ptep, pgsize);
+>  
+>  	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+>  }
+
+___ptep_get_and_clear() will have the opportunity to call page_table_check_pxx_clear()
+depending on the page size passed unlike the current scenario.
+
+> @@ -226,32 +226,20 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>  	size_t pgsize;
+>  	int i;
+>  	int ncontig;
+> -	unsigned long pfn, dpfn;
+> -	pgprot_t hugeprot;
+>  
+>  	ncontig = num_contig_ptes(sz, &pgsize);
+>  
+>  	if (!pte_present(pte)) {
+>  		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+> -			__set_ptes(mm, addr, ptep, pte, 1);
+> +			___set_ptes(mm, ptep, pte, 1, pgsize);
+
+IIUC __set_ptes() wrapper is still around in the header. So what's the benefit of
+converting this into ___set_ptes() ? __set_ptes() gets dropped eventually ?
+
+>  		return;
+>  	}
+>  
+> -	if (!pte_cont(pte)) {
+> -		__set_ptes(mm, addr, ptep, pte, 1);
+> -		return;
+> -	}
+> -
+> -	pfn = pte_pfn(pte);
+> -	dpfn = pgsize >> PAGE_SHIFT;
+> -	hugeprot = pte_pgprot(pte);
+> -
+>  	/* Only need to "break" if transitioning valid -> valid. */
+> -	if (pte_valid(__ptep_get(ptep)))
+> +	if (pte_cont(pte) && pte_valid(__ptep_get(ptep)))
+>  		clear_flush(mm, addr, ptep, pgsize, ncontig);
+>  
+> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
+>  }
+
+Similarly __set_ptes() will have the opportunity to call page_table_check_pxx_set()
+depending on the page size passed unlike the current scenario.
+
+>  
+>  pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+> @@ -441,11 +429,9 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  			       unsigned long addr, pte_t *ptep,
+>  			       pte_t pte, int dirty)
+>  {
+> -	int ncontig, i;
+> +	int ncontig;
+>  	size_t pgsize = 0;
+> -	unsigned long pfn = pte_pfn(pte), dpfn;
+>  	struct mm_struct *mm = vma->vm_mm;
+> -	pgprot_t hugeprot;
+>  	pte_t orig_pte;
+>  
+>  	VM_WARN_ON(!pte_present(pte));
+> @@ -454,7 +440,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
+>  
+>  	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+> -	dpfn = pgsize >> PAGE_SHIFT;
+>  
+>  	if (!__cont_access_flags_changed(ptep, pte, ncontig))
+>  		return 0;
+> @@ -469,19 +454,14 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  	if (pte_young(orig_pte))
+>  		pte = pte_mkyoung(pte);
+>  
+> -	hugeprot = pte_pgprot(pte);
+> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+> -
+> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
+>  	return 1;
+>  }
+
+This makes huge_ptep_set_access_flags() cleaner and simpler as well.
+
+>  
+>  void huge_ptep_set_wrprotect(struct mm_struct *mm,
+>  			     unsigned long addr, pte_t *ptep)
+>  {
+> -	unsigned long pfn, dpfn;
+> -	pgprot_t hugeprot;
+> -	int ncontig, i;
+> +	int ncontig;
+>  	size_t pgsize;
+>  	pte_t pte;
+>  
+> @@ -494,16 +474,11 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+>  	}
+>  
+>  	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+> -	dpfn = pgsize >> PAGE_SHIFT;
+>  
+>  	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+>  	pte = pte_wrprotect(pte);
+>  
+> -	hugeprot = pte_pgprot(pte);
+> -	pfn = pte_pfn(pte);
+> -
+> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
+> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
+>  }
+
+This makes huge_ptep_set_wrprotect() cleaner and simpler as well.
+
+>  
+>  pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+> @@ -517,10 +492,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+>  	pte = __ptep_get(ptep);
+>  	VM_WARN_ON(!pte_present(pte));
+>  
+> -	if (!pte_cont(pte))
+> -		return ptep_clear_flush(vma, addr, ptep);
+> -
+> -	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
+> +	ncontig = num_contig_ptes(page_size(pte_page(pte)), &pgsize);
+
+A VMA argument is present in this function huge_ptep_clear_flush(). Why not just
+use that to get the huge page size here, instead of retrieving the PFN contained
+in page table entry which might be safer ?
+
+s/page_size(pte_page(pte))/huge_page_size(hstate_vma(vma))
+
+>  	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
+>  }
+>  
 
