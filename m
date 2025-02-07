@@ -4,98 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B3DC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01093C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPRSrDHPMQkspBW9wFDUJ/iKaqBFin7bc0Krcp9BIfo=; b=YFOQqNZIwwf+28FkhdAx7YwW/o
-	jPdrPDdgWNop5Jau4qRzSx9mdz0DLGmanxE0fQ7zSd0V/ONCJwIhiwDhLi8VQbabCFOJ8Yu6Ifgh9
-	Y6TGdJP/0WqkHFbRGaE80WKyvlcn7x82bYctdILhMxnPQiDCRRC6z8bd9Ixodwm94usFTLGqhhfh4
-	aUPTaHr4+BfZhmSlfN/MfEuCy5M53oN6HWtrce7A6MTHOVXs61G5fLouVK+D7o0X5OsP0vJZofS5R
-	1e1JjkIfgrKym63G556tO7NqbX6UYIaaDhHVzcM42pq9iuQsHlwO/8YSYzmbJqi11l40Qmp5WnOC2
-	CbJRYxtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N33LzusrNwbFoJ2ztdUF12Qr7ws0KgyZyYfoWt8slpw=; b=dvssEE5oMZ04XS/SkLv9gFrg4i
+	0QFDIBQ5benPXJ3GyTsnrqiMO5Y05VlKamqaD5OaJ2LTNbP5n+C8/vPNxx75iYhivUStA8gUeSqc/
+	s3ezqgU3csujB7iyAZm7TF70n9MuOUCwFVGP0s/CuVh85+OhHPPAPlFldIlY4dguqcjyDwgkkpMmk
+	+UOvN+aFIWKW5FBUECTRQfLvxNww7Ea6sEhzcfTACYCyYHDJu7yp8h9UQ7BhdhhsOMWvi3VZtLVzc
+	0q7kml04i/gU/CfCADAsbWUv1ishNcy4XUL1AI3ET4ZTtCRM2XIPn0rpkOMEyOt45hAAjH1Jtqf7R
+	tC2hUGLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOZF-00000009goY-17nt;
-	Fri, 07 Feb 2025 13:38:49 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tgOdn-00000009hVO-0u5x;
+	Fri, 07 Feb 2025 13:43:31 +0000
+Received: from mail-bn8nam11on2062f.outbound.protection.outlook.com ([2a01:111:f403:2414::62f] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOXq-00000009gPm-0ihv
+	id 1tgOcO-00000009hId-2YTz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 13:37:24 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43618283dedso20374895e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 05:37:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738935440; x=1739540240; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rPRSrDHPMQkspBW9wFDUJ/iKaqBFin7bc0Krcp9BIfo=;
-        b=NhChMETUxlRPMu6mxiQX7jeMQOzAmlf8tPoy7wghHvOyrckY7g9/UQUeLE8DFg3By0
-         c7sDGJGoWdq5m9hyDYKv4bToFqN90NZ15FEOr7nbn352tAYcoacYH4a715Y/QI8feWq3
-         z5KJ4KlzQXLvF60GP0SiJ8nFVhd2M53KTqGysYJEPpwMxf9kVccrXi/GhGlmaQ3E0RI2
-         rUxuDLPgKjWe017zrlmppK6eNXXWAL9r5sYFM4UKjm5/PzfkdAj77JyHr0uwG/+9C31v
-         RzJiLZRrkh3rB0ZRDM+devNZkCS9gEOv4AKLsqtORg4I+5hNhcqtrOefq5aaB+IYUvIH
-         Oxgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738935440; x=1739540240;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rPRSrDHPMQkspBW9wFDUJ/iKaqBFin7bc0Krcp9BIfo=;
-        b=BLdYXtFElad8yfXaQEcMXgPm1vDPVz8epIuudE8yuoKX5LxSnyNemiq3jRan/05BgD
-         l6uNvY3peCHB9oh2m1a+DvttTWeOLXp5ZBb7T+Hxu5Alqqbd6q2YaCHvlx6f4Izh2nxH
-         VX5t0bFLT/siYqZdRxU1yMmS8de/grWg0vYnMw6ggSA0Ia+40lPIBQS2QEV/EgNqstQg
-         LFyr7n0xt9M7t76CBAOcRNSEqkO5N6CkKRUVeCt8XY2G9mSHFnXDSeBVVzm/UASHAvGE
-         Srg9cgairvrpYp49KIsX/mmjEVN205RHKccD6B+Hy6yu+Ymw4j2VWqDuLNbwMWAqunjR
-         XPIg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPNcWJe+9ukf2TIc2CXSXSDbRfiH6hHT+j3pQZeEMhaJkln0t5zH9IJYxXwaOuYlKtoMw8drRz1wFwgBxCwL0d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/mxUpXmmRoTY9knl78BZHEuNYEhyRn22ic72nw6yGscQWp6US
-	VFUWQBCsJk1d5Upe4xugVIftrbHiVtGdcuXFqwJZZ7pCJ/rKrmq47wCOqA5b/Mc=
-X-Gm-Gg: ASbGncsMr2Kmi9Fyige9OYuN22vtb0R5RSrCfjRaE1pFRIFBXBhAv3XvKcaUTWVjpYD
-	ymajGDYsXhTny8OGQw/c6Cz7PYssMz50bzsQbKI3ynjwCJBq+ybf0GG3dwmB68gSlTz/UXPH+cV
-	fu0HUvrcCyTvbkshPYaV8Z+JC2Q9wWdonx4Dii2rT624XswfsE9WzR7rvYPdYFtPmPBJveOz8aT
-	NatTpcIAqHPBuynVsXwAVhitdROrwNxuzVfssS2ddDwp8Gnb+kwGanpvkdsSIOquQY08ArWrX2p
-	djybCOc9xmeEweVK+CORJKmu7nKMw9sJHXun/IWdh3MxKG3wymGHH10QJc70sBo=
-X-Google-Smtp-Source: AGHT+IH3fH05sr0RzEENOHx7i7cRr0rsu4948lpsFnWwYRkB7HQdSGQ6B8ZBEJuZdUoLFPuxdIY6Mg==
-X-Received: by 2002:a5d:64ad:0:b0:38d:c5c7:4f07 with SMTP id ffacd0b85a97d-38dc8dd07bemr2770452f8f.16.1738935440380;
-        Fri, 07 Feb 2025 05:37:20 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8? ([2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc933ff9fsm2213064f8f.96.2025.02.07.05.37.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 05:37:19 -0800 (PST)
-Message-ID: <5dc5c251-4f66-4468-b253-6c8f58f5fd81@baylibre.com>
-Date: Fri, 7 Feb 2025 14:37:18 +0100
-MIME-Version: 1.0
+	Fri, 07 Feb 2025 13:42:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kS5mEQOTUn/oIXi3I+AbKmdQda/KT4lZV/Na5lFGzZIAq5u02dR+X+QNFcVVfjnykF/cJ4uJpaM53U7ohJ0QexOqB+R/+0Bv14QRyITch5H2hpL4bZ7x6qqc7qNBFCs6fmeiaqBeUuMBQAF3rEXqaKYvbglzPfvCh38g/QcKrtXXC3yBpeAcpwQDdGtykg8qC1fDuyRhZrjGpfXkXWf6TVpjhYKyG94AWxV7zx+cJEjaApSL0+xDWAChZLTPCZ08lORkBOQrL8mfPxxkMYNLzor1w03ctPflYXXgzNUFMaqkMpdTKF9aaApg01o/t4iZkHkVp+uM9FXQqlQPBWETIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N33LzusrNwbFoJ2ztdUF12Qr7ws0KgyZyYfoWt8slpw=;
+ b=cATAY2zfh4Axx1UkbJVrJh6yV9SMGfxRshWc/9vwFTW7zfSpTEDue9+uzQPW15LESliaxSH/M/gtf/QotRNltBTJDAExhlAE+sONNy00wSthiUlkOjJjWlXzFBSPo3XV73xOmVPTq51oRjeGFcvHbCOe8UqK3TZq4eGpbWjD1WAidhq0nXVdhLk+J96JFzt7PmB6AHp83i3mR0oo4RJSLTwUvysYIOZctU0dbDyAU3kJd7DQ4Efo1OQ6eO2jO0d6h0NlUaw+UEhFeLFBtCXtdJy4PlbhZDHHCSahxlX6Gl2Y/uV0QcBQvBxl1xZKCrkUfn02v0UfaAPOXUmjPGGxmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N33LzusrNwbFoJ2ztdUF12Qr7ws0KgyZyYfoWt8slpw=;
+ b=qgSUdSPb5BynkZxBelklWwBUSUxKWctRV6rDSJJ3U4OV9cgG+XqVrJIQ8CeUF6CPne7MAngCBm3oUBiIMzO4Bl/H3OzLJH3mY3j5U1DvV4DIwuHkoV1+fER1mk8f9s28wonP3qVFFhfJ/p1Gn2MLsAUz3KVzQt48Zof0AbLlzBu8zUa4D77kPP8VB/TtRJbk10VkaUFt1jiqbdMIqOTilZO9vBr4h3pgvMjIkGzvGR3BMnGmjmaMYbLdbSQ8YFiVVG+4aKhJHbtzSSRlnWiF5X9IKPz7RKjeREMs+H8kfiX7+CKjkUZSgaCtST14lubhohOXkP7UlF5/97BbF9mO1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
+ by SJ2PR12MB7962.namprd12.prod.outlook.com (2603:10b6:a03:4c2::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
+ 2025 13:41:58 +0000
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9%5]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 13:41:58 +0000
+Message-ID: <8fc7c79d-ace8-4e05-acef-1699ee6c4158@nvidia.com>
+Date: Fri, 7 Feb 2025 13:41:49 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] Add display support for the MT8365-EVK board
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
+Subject: Re: [PATCH net v1] net: stmmac: Apply new page pool parameters when
+ SPH is enabled
+To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, xfr@outlook.com,
+ Brad Griffis <bgriffis@nvidia.com>, Ido Schimmel <idosch@idosch.org>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20250207085639.13580-1-0x1207@gmail.com>
+From: Jon Hunter <jonathanh@nvidia.com>
 Content-Language: en-US
-From: Alexandre Mergnat <amergnat@baylibre.com>
-In-Reply-To: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
+In-Reply-To: <20250207085639.13580-1-0x1207@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0125.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:192::22) To SJ2PR12MB8784.namprd12.prod.outlook.com
+ (2603:10b6:a03:4d0::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|SJ2PR12MB7962:EE_
+X-MS-Office365-Filtering-Correlation-Id: 023b8b57-9581-404c-654d-08dd477d3146
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|10070799003|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1hybDBQWm04bkM4d2VvWHZoa0ZKaDZrUjB1dmxjT2x3dDkxOHpqaUtGMGU5?=
+ =?utf-8?B?QTVHKzBUMWEySWJxd28vTGowalJEQWhvVXVlcUw2N011OW1wNkcwSHhOR2xU?=
+ =?utf-8?B?ZzczRFl3c3B3NGZZTjdEdDNYTDBwWThNOUtyNWo2Vm9yVVE5TFoyT1hnL0Vw?=
+ =?utf-8?B?ZzN2dFdyOVJNUE5GVVpMUExJRkh1VEJrMlFDQ1BYUmhUNEpJc0cyRWY4S0hL?=
+ =?utf-8?B?c1ZuVnNCSGtYR1BRZ3hUSUZMM1hmaFZPdk9hUVpvM2FkWlM4Y2dXbmlRTFp0?=
+ =?utf-8?B?UE9PTytIZFVLZitlbVlNcWh5eHNWd01SYXRTckU3dWJxdVU2aVVuZmh3elBs?=
+ =?utf-8?B?V243bmptdElDbW0wL1R0Z1phNEdIZjdFaEJTdStaZEZhOWJTS1gzTTlsaFRT?=
+ =?utf-8?B?c2F2Vk5XWjJ6VVV0dVJCdnhldHM0T2IwM1MvZzVacG5Xc0FWeUpmUTZuZWNr?=
+ =?utf-8?B?VEJPYVNML3hzRWpEMjRCSUpsOFVFeWticTQxZDE4VmVSL01JYkp0eWdsTVpv?=
+ =?utf-8?B?Y3A2Nk5LTWtXN21TKzRobGhPNlVINlM4YlJSbHZhZkJ2ME1tNDQwd0JjS2pr?=
+ =?utf-8?B?d1JDYjU5cVpzcDk2NGErVldVTlZrOUhzcExqa2psbTZhamZ4T21yQXhuRDRr?=
+ =?utf-8?B?UXo3bkRjZWV2dDFsWU5Kd3NxT0MrOTBWVjNTcFltU1B6NE5kVWcxV0Q2cnUr?=
+ =?utf-8?B?MFRHaGtzS0FBK2VTMiszWndWSWMxVUo3aVNDeFVjbDFuVlEvTXJOcmtLU2JC?=
+ =?utf-8?B?a3dINkFvNjg0OVZlU1JXQ21ZUG5scm1ydFBOUlV6K2FlVWJYNlREZWpjWmNL?=
+ =?utf-8?B?c3JYNGxSWU9UK2RZQmswaWZYU3d2RWovb3VFWG9qYVpPSGFPd2thVlRCWGZT?=
+ =?utf-8?B?RlJuMjdhUmFaWXY1NnlIcm13dUpyOUIxeENIUlh3V3N4V2tTeExRY3hLZTRz?=
+ =?utf-8?B?MEFjaXU3bFAzYzVUUzBkMlYzTSszeXJGVitFemlmWUlMY09kOXJPTkxUZXJG?=
+ =?utf-8?B?Z3ZEWjd2ZXNNRFk4V1paNjRZa0p0RFNLYXlLRVIrSVpocWJRRlI5MkhoNHkv?=
+ =?utf-8?B?S1ZwWmUvNThSQ0MyN0l5SE1kdGx6a1p6T2xTODlGeDZ3STlCandPSUNxWjZV?=
+ =?utf-8?B?azNxT2VWY0N3dnNaNTFLbnlCWkZFN3pyb0dpRXIxN0ZQaHpiR20zMW9DLzR0?=
+ =?utf-8?B?OG1ZaHBSV3l4QVkxU3Q5ZS8wUnVzeFJZRGpSMVMvUkhHMnRVRjFMTUVxaWJw?=
+ =?utf-8?B?YU9FWFR1RzRLVFBjRDRsOUxRMk9sNjlUYm11RGdaRnE3NlFMSXRoQlBrc3dY?=
+ =?utf-8?B?R3QyVmhYRThNWkVxUU1mcU1sVVNvTkU1TWpjcXNtZldYM24vcHFiNjdtVzdL?=
+ =?utf-8?B?L3lzeGtkQ2Z2dEErWWJacTRWUjNjZG1iZDB6OEI1OGEwRGYxaXBCWkVhWlA2?=
+ =?utf-8?B?NjI0NmtiZ2pabytrc3EvUzVBUVVwUHV6NjV6WGl0VUxVZmlmTGMxMWdRZ1Nm?=
+ =?utf-8?B?MGR4eVYwampzRGlJNHJXYWtoR2k4OC8vOVhaSXpuLzZkZzVRd1FIVzc2Vmpi?=
+ =?utf-8?B?T0xTUWtPMkJVN0FmYW5DSlI3WVZHN3BVZjlxVjY0T20wR09PK3l4RUkvaHgz?=
+ =?utf-8?B?Mk9sU1B4UUFLZkdyTDJVRElrelFPN3JKUWh2MjNZMzQ4TFR5ZFBZMTFpeUFJ?=
+ =?utf-8?B?WFhIL3RxcHlOOWs4QkhrMVJDWEt3UXFZRWkydThHbXZUZG4va2Q0aUUxdTUy?=
+ =?utf-8?B?T05qeXQyMW9VaVJLbzFGNVRqU3RKL3dyV0dGb0MzZVNoRUs2WlFRclROK1BH?=
+ =?utf-8?B?WDFGZDdiNjRHcjRFNXE1cnBTUUN6ZmVIQkNkMWZpd3RVWjJtRURBalpoeFhV?=
+ =?utf-8?Q?PSR6prPydh+nv?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(10070799003)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1hQSElwNGNTd2VwaG5wMitIVTV6RlpqZlNmYXdvUGhvMDVMbXBnSXZ5NWRv?=
+ =?utf-8?B?ekZMS1IyVHBmUmNTUTFMV3lqVVlPUmxGcjZ2YUtWcXo0K3ZDK1B3KzJSQTlN?=
+ =?utf-8?B?QldRZGRtMGZxcFdQU0ZRRXA0ZmRQemJmclRCbHUxUDZRcURtTUpXelpkWWx0?=
+ =?utf-8?B?WUlsdGhOalY5TlVHcVI2elFoNkw4R2NaTXVJVkNuZUN6N0JuV2ViM1pnekxF?=
+ =?utf-8?B?QmJ1RHhjMWJUV0N1eVZjMnlwWitpTFFxQ3VlSlhsUVd3MzRKRzRSRjE4Q3ow?=
+ =?utf-8?B?MEhnbk9KakFJN091OXZNSkh0TGhVbHRLRnJDTjVyL1Yvd1Z6SjEwaWl3bnE4?=
+ =?utf-8?B?L0kyN2lRdGRhYVVnc3JWaUY1ZW9lb2p1ZEJpV0VnbkNwWllJOEFIUUhvellR?=
+ =?utf-8?B?SVJ2M2Q3WGQ2dGNvTDNlRVNkZ2VMTXpLcWFzTmdGM2xwMXNzMG5TdWZVRlUy?=
+ =?utf-8?B?OHRMUmMvaEU5bExxNjYrWlF6c3J1ajZsTFhYZ0dsdUFLaWF4RnFkbFl6Mjg0?=
+ =?utf-8?B?SWc0VWRhOGUxRE5kd2cxS3d1ZE9YQ1lWb2lLODdvZC9rUUlPb2pFcDEySXhl?=
+ =?utf-8?B?T0t1OTcvRVdhQldLS2ljanF1bUd5eHFiVzNYOTF5bkxORW1ISlY1a2dFc3Jk?=
+ =?utf-8?B?SXF2TGx6YmV3VHZJUnEweEpkdzRHS3MxMzBFTldvZ0xEY3pIOWJobERBakVl?=
+ =?utf-8?B?WVpZZG1JZThGWXRES3FVOTcvZ2I2TzNMa1hzTEVWSnFTQUg5Umx5Rmw2R0xk?=
+ =?utf-8?B?ZmVhc2VTRXpoQlVJQ2paNm82cTQrQ0ozSi8veTVJNTljMUdzR0M4bVVKL0lH?=
+ =?utf-8?B?dzBJNzdPUGY5RFhNYUQyVmNQc09wd0NwZ1RaZHhrU2JkR3lrVGU3OHcxSkJL?=
+ =?utf-8?B?U3RoRThOaE84aHR5QUpsanBHdXJKR1BNNzNlb0hzNG1sNWk0K0w0bERyQUhk?=
+ =?utf-8?B?aHB0cm9zUDBjbEFmaGFyOEIxcXZYdnpSTnlVVVBkWXZUeG4xUUdrZk5FLzVx?=
+ =?utf-8?B?QW01NDh2NlFmbGYzaS9FYU55U0JWeDRlckxaMVY2TGRBbjJZQ0FkQmNxZWJr?=
+ =?utf-8?B?NC85MzZhc3FhSEliS3NKTWlnK3JvK2VJNFhTZmRXc1pRaW12Y29jVXZ2TVlP?=
+ =?utf-8?B?UUg0L2FTRnlxY1FEWStBYkRHWGd0b1NSa0VIM1kyQ3JxY2Z5MW53SDJyWXBV?=
+ =?utf-8?B?Z2FNNm1ucDNUZTVkaUlnVVgrbFRzeDVDVTFFbExVMUphNzlmalVzemJtZy9P?=
+ =?utf-8?B?dmtOUlRyN3R1Z1F4SkZyM1h3N3g1UHZGOW9CYko3QnN3U0VnKzljQWRsRHps?=
+ =?utf-8?B?d3J0dTc3elMvN3dHTWxCWGc3eml5Wjhmc2laVVJFZnFVS2ZmWHN6d2c4azIw?=
+ =?utf-8?B?dXhySUwxU2lCMUNnb0FYaTlXTEx6TVJZNDR4ejJzcm9QaWtxVittZUZweGlC?=
+ =?utf-8?B?UVdmb3N0cUVRMWZqY2cwN2ZUUUIwMkVEdjh6cWo1K0tzV3NMRW5UTithOEw1?=
+ =?utf-8?B?bW1weVdoYVVwZElTV01FL2ZkalM1V2pUZ3hvT1N5TVhqdmhLdWE4M3hYaEFR?=
+ =?utf-8?B?Qi82ZVRDejVDQXRQeEo2TFNDd2FiSUxWRDlyMitFaUlqMk1tTUh0eTVxQXdn?=
+ =?utf-8?B?eFFYcXFVaHpuWkRqOTdPMm0wWDQwdEs3cnI3SFRMalhKdlNtMWNqWFZjUFpp?=
+ =?utf-8?B?ZVpRNURHUEdEZGt0UENUaVkxY0ZrVk1aZDdGZmlOZ0pzcGJoNHFlTVErOTFO?=
+ =?utf-8?B?WU1pSnZVUjJhcW5mYjdSMW1ZUjRmTGZycE56Mk4xOHF2S2poZXVtWHo2T0lI?=
+ =?utf-8?B?c3BCVjRXNTlDcFlkbDBxckZYbDhDQjNhY00yRldEb2xTWEVYZ2ptSVV4NTZn?=
+ =?utf-8?B?K0t3bGZNeWZKREFXWWhlQzhETFZSb0pSbU1CSzRWS0htaHllb0FFd2JtT1Nq?=
+ =?utf-8?B?b0RDZUhhZjZXR0x6Z2xjSjNPK2NmY29KQWpTczJlaUhaTDdpKzAvTnRiQytB?=
+ =?utf-8?B?SFE4cUZYVVg5Y0FtMitTZElhSTU5OFozZ2VnZ041NE41Nkw1clJPSnVXQ3NW?=
+ =?utf-8?B?aDV5bGlJSFpoeGFsRHpBemlocnFSMUF2NnFaeDRhWEsvbU95L3BEUlZLMERs?=
+ =?utf-8?B?VnV2V0ZHcDI0Y08yZzUyS1g2Q1VGV3NwOEFBMDdURGdLeFFPeDU0emNRL3Z5?=
+ =?utf-8?B?VjlaUnp5d3Vsc202bzRDUW9VZFd6TXdmV2pIT2M0QnNpeEpoTnB2QnB4d2dQ?=
+ =?utf-8?B?bG5mdHdDSVM5ZWV5WmlTVGJNa25nPT0=?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 023b8b57-9581-404c-654d-08dd477d3146
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 13:41:58.2534
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KoEYXbgpyqLdt/60y09MzIieWZUNSd5wmBNlyw8epLd9Yy+X/VIfCWYgtaEWB/sE36g2tzf4a5j3v3X0h/x56A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_053722_241344_23C6B5E0 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20250207_054204_655271_32A0AB6D 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,122 +184,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping for patch 1,2,3 and 4.
+Hi Furong,
 
-On 10/01/2025 14:31, amergnat@baylibre.com wrote:
-> The purpose of this series is to add the display support for the mt8365-evk.
+On 07/02/2025 08:56, Furong Xu wrote:
+> Commit df542f669307 ("net: stmmac: Switch to zero-copy in
+> non-XDP RX path") makes DMA write received frame into buffer at offset
+> of NET_SKB_PAD and sets page pool parameters to sync from offset of
+> NET_SKB_PAD. But when Header Payload Split is enabled, the header is
+> written at offset of NET_SKB_PAD, while the payload is written at
+> offset of zero. Uncorrect offset parameter for the payload breaks dma
+> coherence [1] since both CPU and DMA touch the page buffer from offset
+> of zero which is not handled by the page pool sync parameter.
 > 
-> This is the list of HWs / IPs support added:
-> - Connectors (HW):
->    - HDMI
->    - MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)
-> - HDMI bridge (it66121)
-> - DSI pannel (startek,kd070fhfid015)
-> - SoC display blocks (IP):
->    - OVL0 (Overlay)
->    - RDMA0 (Data Path Read DMA)
->    - Color0
->    - CCorr0 (Color Correction)
->    - AAL0 (Adaptive Ambient Light)
->    - GAMMA0
->    - Dither0
->    - DSI0 (Display Serial Interface)
->    - RDMA1 (Data Path Read DMA)
->    - DPI0 (Display Parallel Interface)
+> And in case the DMA cannot split the received frame, for example,
+> a large L2 frame, pp_params.max_len should grow to match the tail
+> of entire frame.
 > 
-> The Mediatek DSI, DPI and DRM drivers are also improved.
+> [1] https://lore.kernel.org/netdev/d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com/
 > 
-> The series is rebased on top of Angelo's series [1] to
-> use the OF graphs support.
-> 
-> Regards,
-> Alex
-> 
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+> Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> Reported-by: Brad Griffis <bgriffis@nvidia.com>
+> Suggested-by: Ido Schimmel <idosch@idosch.org>
+> Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path")
+> Signed-off-by: Furong Xu <0x1207@gmail.com>
 > ---
-> Changes in v7:
-> - Improve defconfig commit description
-> - Add comment in the DTS about pins clash with ethernet and HDMI (DPI0)
-> - Link to v6: https://lore.kernel.org/r/20231023-display-support-v6-0-c6af4f34f4d8@baylibre.com
+>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
+>   1 file changed, 5 insertions(+)
 > 
-> Changes in v6:
-> - Fix DPI binding: remove the duplicated property (power-domains).
-> - Squash defconfig commit.
-> - Fix the property order in the DTS.
-> - Link to v5: https://lore.kernel.org/r/20231023-display-support-v5-0-3905f1e4b835@baylibre.com
-> 
-> Changes in v5:
-> - Patch merged, then removed from the series:
->    - dt-bindings: display: mediatek: rdma: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: ovl: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: gamma: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: dpi: add compatible for MT8365
->    - dt-bindings: display: mediatek: dsi: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: dither: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: color: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: ccorr: add compatible for MT8365 SoC
->    - dt-bindings: display: mediatek: aal: add compatible for MT8365 SoC
-> - Enable STARTEK KD070FHFID015 panel in the defconfig.
-> - Rebase on top of 6.13-rc6.
-> - Link to v4: https://lore.kernel.org/all/20231023-display-support-v4-0-ed82eb168fb1@baylibre.com
-> 
-> Changes in v4:
-> - Patch merged, then removed from the series:
->    - dt-bindings: display: mediatek: dpi: add power-domains property
->    - dt-bindings: pwm: mediatek,pwm-disp: add compatible for mt8365 SoC
->    - clk: mediatek: mt8365-mm: fix DPI0 parent
-> - Remove mediatek,mt8365-dpi compatible from mtk_drm_drv.c because it
->    use the mt8192's data. It's a miss.
-> - Add MT8365 OF graphs support, remove the hardcoded display path and
->    rebase on top of Angelo's series [1].
-> - Link to v3: https://lore.kernel.org/r/20231023-display-support-v3-0-53388f3ed34b@baylibre.com
-> 
-> Changes in v3:
-> - Drop "drm/mediatek: add mt8365 dpi support" because it's the same
->    config as mt8192 SoC
-> - Drop "dt-bindings: pwm: mediatek,pwm-disp: add power-domains property"
->    because an equivalent patch has been merge already.
-> - Add DPI clock fix in a separate commit.
-> - Improve DTS(I) readability.
-> - Link to v2: https://lore.kernel.org/r/20231023-display-support-v2-0-33ce8864b227@baylibre.com
-> 
-> Changes in v2:
-> - s/binding/compatible/ in commit messages/titles.
-> - Improve commit messages as Conor suggest.
-> - pwm-disp: Set power domain property for MT8365. This one is optionnal
->    and can be used for other SoC.
-> - Fix mediatek,dsi.yaml issue.
-> - Remove the extra clock in the DPI node/driver and fix the dpi clock
->    parenting to be consistent with the DPI clock assignement.
-> - Link to v1: https://lore.kernel.org/r/20231023-display-support-v1-0-5c860ed5c33b@baylibre.com
-> 
-> [1] https://lore.kernel.org/lkml/20240516081104.83458-1-angelogioacchino.delregno@collabora.com/
-> 
-> ---
-> Alexandre Mergnat (4):
->        drm/mediatek: dsi: Improves the DSI lane setup robustness
->        arm64: defconfig: enable display support for mt8365-evk
->        arm64: dts: mediatek: add display blocks support for the MT8365 SoC
->        arm64: dts: mediatek: add display support for mt8365-evk
-> 
-> Fabien Parent (2):
->        dt-bindings: display: mediatek: dpi: add power-domains example
->        drm/mediatek: add MT8365 SoC support
-> 
->   .../bindings/display/mediatek/mediatek,dpi.yaml    |   2 +
->   arch/arm64/boot/dts/mediatek/mt8365-evk.dts        | 245 ++++++++++++++-
->   arch/arm64/boot/dts/mediatek/mt8365.dtsi           | 336 +++++++++++++++++++++
->   arch/arm64/configs/defconfig                       |   2 +
->   drivers/gpu/drm/mediatek/mtk_drm_drv.c             |   8 +
->   drivers/gpu/drm/mediatek/mtk_dsi.c                 |   2 +
->   6 files changed, 594 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
-> change-id: 20231023-display-support-c6418b30e419
-> 
-> Best regards,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b34ebb916b89..c0ae7db96f46 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2094,6 +2094,11 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+>   	pp_params.offset = stmmac_rx_offset(priv);
+>   	pp_params.max_len = dma_conf->dma_buf_sz;
+>   
+> +	if (priv->sph) {
+> +		pp_params.offset = 0;
+> +		pp_params.max_len += stmmac_rx_offset(priv);
+> +	}
+> +
+>   	rx_q->page_pool = page_pool_create(&pp_params);
+>   	if (IS_ERR(rx_q->page_pool)) {
+>   		ret = PTR_ERR(rx_q->page_pool);
+
+
+Thanks for sending this. I can confirm that it fixes the issue we are 
+seeing and so ...
+
+Tested-by: Jon Hunter <jonathanh@nvidia.com>
+
+Cheers
+Jon
 
 -- 
-Regards,
-Alexandre
+nvpublic
+
 
