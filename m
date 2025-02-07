@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2309C0219F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B66C0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YQfu5eAZOpEQuO+Sfc4ihsBhzM3CKhym7/o/Ff/aLE=; b=h8paKDH82nSOjQD655X4SYNZlR
-	p3Th62krTEk+NHdHA+Ex3CGhLJs/Si6FF/uL4HkF0lJNrGaDS+GdWSTAKN8jskeJR4zhHwebgVnn0
-	Pi9fIMUY44Lbk3QLUtkXIZ63Qii+IsqgB6EYquk3YzDoEknfZ8FeTB7329X8g4YXsPQctC2/QWWGX
-	3khOj/RGEe0WjYTC4MMUbIXuib4xRmSidojSXDccV6UypgaLZ7iEjQq2ZzP4y9UbbpD6L623Z1GYq
-	BYtOFqHI30QhuLcuD4loQ1X6vtyYD4rVCY+cIt54z0uZ7G5vFG4oObPIUnyDgJxFlC3MD++3aIjCw
-	bDylZ+uQ==;
+	bh=snTumn4iv+UCdzCDJTBtnrtlkQDZvBl625j3dPFfzu0=; b=fPlCtR8X8RSaLbjkkAB5oASO/f
+	Ypa8wrvfV3bvdmGMeg66JmCFnqLgseT3Vn0xPr8ATS9//XDcqUEJhqESjpGktSZr7BqKd46394ysq
+	lTR1cAlJANDG0dnCKYYWM0tN/ytHyJpvqkGTlKwl0mSNyQgJgDt1rNvH4ylm7L75Rgs7BC8SS+FhA
+	EqQTg0mBb2PAr3wdsec2vHWK2+xPULgoh5pB0Y0+cUNYrjtZgL2Hjh2PCsOhNmNEICDETcQMWEo/i
+	6C/Lo+IOC9HDU7UBLIRDqToV1tO2sVQHodLZz3KAeTTFk0kQ9lFW4hBawqCeh2EjT9pXXo8V9+Ol7
+	TCjUYfQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUzL-0000000B4xK-2UhH;
-	Fri, 07 Feb 2025 20:30:11 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tgUzI-0000000B4qv-2cFE;
+	Fri, 07 Feb 2025 20:30:08 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUZ0-0000000B0QF-425Z
+	id 1tgUYt-0000000B0N8-3plQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 20:03:00 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5dcea56d6e2so4544324a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 12:02:58 -0800 (PST)
+	Fri, 07 Feb 2025 20:02:53 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5de594e2555so404540a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 12:02:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738958577; x=1739563377; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738958570; x=1739563370; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9YQfu5eAZOpEQuO+Sfc4ihsBhzM3CKhym7/o/Ff/aLE=;
-        b=HEeZ1HKrW6MB+TmEB6PubSis6RJJSYtdYZgi7+Qw9zaAQZS6yEPhf5YIhtrQ4b1jE9
-         NC8a3Jdyv0iWIqV5Jae1w0n8vpv9A/btT8kb1dRIqgv1FNtQ2n8szOvdoTpxvD0m7oMl
-         iUAFWs7VoBwgPtNlBgizwCGqXREHHHyrH6XfzCRRywbueSUuUF1e+9nBtIgGZvWCuKRh
-         HB8+PLYtMA7SXcBQtBPvivF5E8c9tyr3yH0J4qoPOSKxK4Aj7pwmIUV4d089yCeYQC0q
-         hVSA6rXGZZkQgwJ9CXw5GkCOaAa++aIvd7e0m6NTcqcsEBnsciDtVjDo+qo340PTrwJF
-         gYZA==
+        bh=snTumn4iv+UCdzCDJTBtnrtlkQDZvBl625j3dPFfzu0=;
+        b=WQHTO39P2H9TZn4lLZ0XbNi9XFWu1hKKtV74lUPDNu+vz0zIJfVCYtoDULH5MQNuy9
+         dVk1eDg8GddA5WFvERrUIpRNF4Hzb7KmnJWxmRzgOhH9cz9SG+7w571dJbOt4HPLZoB8
+         9VIZcJsMJNTetGzc3xs2FWlQAm1MXu2hhJ0b0u8AmGkrm7bQ1h3rVN5tIQz5hXbc12D4
+         LDXMd07KFfa9NyxowfpnjSyueK8X6VxZ2YvHK51481Q0JM+r0HgsukvOXtLDlqubRh6U
+         HkAun13kHU40qHl4TRkv6wQQCBRFfRm/CW9uVkNt8saeph6Cfs0DXpT0HWVbq56El+k3
+         wGHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738958577; x=1739563377;
+        d=1e100.net; s=20230601; t=1738958570; x=1739563370;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9YQfu5eAZOpEQuO+Sfc4ihsBhzM3CKhym7/o/Ff/aLE=;
-        b=fT9dIQNVUHosZMl9rnfek81DmOqoZhkwGvRC4wFO+9hnaibw8Pvq7fPEH6vv/CsHtc
-         buzqxdyVBW1WeF5O0afifSvH/93bOqf7r5/a6YLBKTCL3jnOvpWOGxIxYtYrdJGoM5ZA
-         8UjaEKxM2SUdNqKoBtPOmnR7uJo3GieVo9yF861fjkh/xATOGlvNC2EOxYS8Ml31SegR
-         apr6280hScie1ZeT0GgrRWyLmLXeJNPA176p6WObDtV3xQvmTKkyBVv+gIhG9TR0eRAV
-         AcMBvIuEEAO1TRDq6kjZ2mZECnEZlEnJm1sZLO1ju44D5/JiVzbWkumioPCEfSQMOcCC
-         cE1g==
-X-Forwarded-Encrypted: i=1; AJvYcCWto5uXYYbiG+8xu/3fisFzg9DZuNVa1kAUYXrfzRdE1xOiAjR9OzRU+qLMR5LulCwGcJp2JYvxOM6J8JH0+Jy0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw05lOgO07mCpuLAdVZeQdXgUNxXA1K626erZfPAO0W1FrbNr1a
-	Tn/yzMRKQnfOt08cCRfpp/V/0k1fT6khcNOjPJRMdCk/WP5WRi8a
-X-Gm-Gg: ASbGncvLMeHvaMbEez9WVWROwI/vZ1McAAmTenskqlDDm7cAJKjZHiGLXeeOcWpTJJ1
-	KZlS1kx115vXJaLf2+kTYBqTWgspLt6af/hT/urYeuTjpGL1dIqiTriqpeVwWTJbZTfjoEQUhHN
-	m7RsBYbwUCZyq8eV1QDfErVMgOpwSHGh+Njng02tFaH4Cz0LTIoLSHhosbarlQTggHrOKC6sxza
-	nvW5ZQd8z368V8uHiKBQdpPvlf8pUE9Ezv7thZ9dt0IBv6d40OXP5vQYOGuxZ24nDaYmr7LRIQ+
-	4BwOPdLZPP3rL6RCDUkei7hJJynyRZG47gebx00wpkpu6+OwIO3+vKpJ
-X-Google-Smtp-Source: AGHT+IGArd5o2qj6FwAk4rsMGV7oNGar9jIgapAxx7P2O7Qq52Z6y8B+OG9m+chp8Y9vTLBqHIGQ/g==
-X-Received: by 2002:a05:6402:13c5:b0:5dc:88dd:38b3 with SMTP id 4fb4d7f45d1cf-5de4500570bmr6006538a12.12.1738958577134;
-        Fri, 07 Feb 2025 12:02:57 -0800 (PST)
+        bh=snTumn4iv+UCdzCDJTBtnrtlkQDZvBl625j3dPFfzu0=;
+        b=HFzJMcgrDhQ9nDRykzBjvCgXf4JsSIofsFiWXejAlQgowO17V0LbcdHUvW0vvKO8+z
+         EsSN7t6v6jYWaF1G89XIp+eR+w1Pbc75SQ/bEcCk+G9eAS1CqqUoiYSo0fg9jMp/RfaM
+         8LznTMx7jJ6n7fipHr9pChliR6lJl3yUuI4dTqkxfsFgUbUW86/qkoq3dUzqw2IMjoVO
+         3qjGmCVD1QTilRcPZZ8H1i8DAYyoYggYQJkzqFsdGESXt8ddXvPUAmNCdxqGnfOQvlOy
+         2vzQWNS9cbIZIKAQaeJagdwXN2/NN7h77v21oULdwJ42UUgsicRxGolWJw2MpKc6bynH
+         JZWA==
+X-Forwarded-Encrypted: i=1; AJvYcCXGnQNZXcVO7PROO0YO+c1c/lD1zcKzVrT0vJ8sovBwFQIQMW09BqfQ1IuInvG99uTkSVXV+F6YaHu3E18w4shO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr9H9HUvpLkueHU92fIT3Q/APEjt58hDIMNGxCbm0r/QHtyzpa
+	g3YVXKUC9l/5P1FU4e5hQzib+HdLpzsiN2VAcj0gdOHcy5nx9W70
+X-Gm-Gg: ASbGncvvpGuW1dIrRVq/OEfl/qG8C4bDeAenxdj0pk/mK3QmUtpw0arvnZoerbExAhf
+	pQ6mD0p+ipQxhd0O9aXHlztW6DmIH1X6yP6yJQ+WkIFLqwXPyGaIHGpiaXQoew5ckPybKdPtvp7
+	fq6RYQHb+DwTYB3NXsIQmYu2dL3j315SOVxz8P08NZme/47MU+pSuliyNfTUpj6YbMx3ljLOEQX
+	JrTC1FUqpj9/FWQXJmAeR/5JzXJP84RsXj5NpAZ54hRiW6tAtVicxIBdFr2yGcJqCxcSx7PJSi2
+	VvVh3AOtg1j25CoK827Qw47uHCkXKiZ7ANbjcWzGukR7+772VJ6X3h1B
+X-Google-Smtp-Source: AGHT+IGCPUsAGzXP7K9RVxO9Z6WwP3Y5roj4zr79piTcVK2Ignfim9J1sMITZ1seLm//dPBP7tYh7g==
+X-Received: by 2002:a05:6402:4344:b0:5de:5718:296 with SMTP id 4fb4d7f45d1cf-5de571802bemr1906286a12.13.1738958570162;
+        Fri, 07 Feb 2025 12:02:50 -0800 (PST)
 Received: from hex.my.domain (83.8.206.8.ipv4.supernova.orange.pl. [83.8.206.8])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de59f893ebsm256797a12.45.2025.02.07.12.02.55
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de59f893ebsm256797a12.45.2025.02.07.12.02.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 12:02:56 -0800 (PST)
+        Fri, 07 Feb 2025 12:02:49 -0800 (PST)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Fri, 07 Feb 2025 21:02:45 +0100
-Subject: [PATCH 6/7] ARM: dts: bcm2166x-common: Add pinctrl node
+Date: Fri, 07 Feb 2025 21:02:42 +0100
+Subject: [PATCH 3/7] pinctrl: bcm281xx: Use "unsigned int" instead of bare
+ "unsigned"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-bcm21664-pinctrl-v1-6-e7cfac9b2d3b@gmail.com>
+Message-Id: <20250207-bcm21664-pinctrl-v1-3-e7cfac9b2d3b@gmail.com>
 References: <20250207-bcm21664-pinctrl-v1-0-e7cfac9b2d3b@gmail.com>
 In-Reply-To: <20250207-bcm21664-pinctrl-v1-0-e7cfac9b2d3b@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -90,16 +91,16 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  ~postmarketos/upstreaming@lists.sr.ht, 
  Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738958562; l=896;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738958562; l=5672;
  i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
- bh=xRQ8Om8ehQPvJHYxu39ZbgjQg1cKM3esiDGEfRR8xBY=;
- b=ME2xPUcnl/FnRX4iZX+HH0rzRwVkalggFVStR7ufRE0Jy5Hs4Kr1KmlbvGiyk9yFUh1XD9qge
- 0bkt7oiEe7iDA4YqFr6lYcmFOGTUdshsElxxrS7QdA1CAt0FFP2lWv2
+ bh=8Mipz4VrzSKXY8BbbxBUC3KcuVRejyAjsTstQRtR2iA=;
+ b=K+VSp96VQgN7Bros04P/ItSpC06vyqMsR23IgxV8MplxUQarkS9iQvu0J0uGzMFKinz3YzfeB
+ DybagnrN2ytBkaHqtPDcbXgK2QIM2lu+es+9LhNknEnThX8jfmwOUrR
 X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
  pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_120259_002458_F2086983 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250207_120251_987049_C51A1087 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,30 +115,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the pinctrl driver supports the BCM21664, add a node for
-pinctrl in the DTS to allow for controlling pinmux pins.
+Replace uses of bare "unsigned" with "unsigned int" to fix checkpatch
+warnings. No functional change.
 
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/pinctrl/bcm/pinctrl-bcm281xx.c | 44 +++++++++++++++++-----------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-index 87180b7fd695e65b52c52743e6315cbcca385fba..d4b412ac8b0343bd3773f50c59a20fa00a3923f8 100644
---- a/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-@@ -46,6 +46,11 @@ gpio: gpio@1003000 {
- 			interrupt-controller;
- 		};
+diff --git a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+index cf6efa9c0364a1ad65885c982e7634f26d19c944..a039b490cdb8e6c41169bfd48abb371447c150a0 100644
+--- a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
++++ b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+@@ -72,7 +72,7 @@ static enum bcm281xx_pin_type hdmi_pin = BCM281XX_PIN_TYPE_HDMI;
+ struct bcm281xx_pin_function {
+ 	const char *name;
+ 	const char * const *groups;
+-	const unsigned ngroups;
++	const unsigned int ngroups;
+ };
  
-+		pinctrl: pinctrl@1004800 {
-+			compatible = "brcm,bcm21664-pinctrl";
-+			reg = <0x01004800 0x7f4>;
-+		};
-+
- 		timer@1006000 {
- 			compatible = "brcm,kona-timer";
- 			reg = <0x01006000 0x1c>;
+ /*
+@@ -84,10 +84,10 @@ struct bcm281xx_pinctrl_data {
+ 
+ 	/* List of all pins */
+ 	const struct pinctrl_pin_desc *pins;
+-	const unsigned npins;
++	const unsigned int npins;
+ 
+ 	const struct bcm281xx_pin_function *functions;
+-	const unsigned nfunctions;
++	const unsigned int nfunctions;
+ 
+ 	struct regmap *regmap;
+ };
+@@ -941,7 +941,7 @@ static struct bcm281xx_pinctrl_data bcm281xx_pinctrl = {
+ };
+ 
+ static inline enum bcm281xx_pin_type pin_type_get(struct pinctrl_dev *pctldev,
+-						  unsigned pin)
++						  unsigned int pin)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -985,7 +985,7 @@ static int bcm281xx_pinctrl_get_groups_count(struct pinctrl_dev *pctldev)
+ }
+ 
+ static const char *bcm281xx_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
+-						   unsigned group)
++						   unsigned int group)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -993,9 +993,9 @@ static const char *bcm281xx_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_get_group_pins(struct pinctrl_dev *pctldev,
+-					   unsigned group,
++					   unsigned int group,
+ 					   const unsigned **pins,
+-					   unsigned *num_pins)
++					   unsigned int *num_pins)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1007,7 +1007,7 @@ static int bcm281xx_pinctrl_get_group_pins(struct pinctrl_dev *pctldev,
+ 
+ static void bcm281xx_pinctrl_pin_dbg_show(struct pinctrl_dev *pctldev,
+ 					  struct seq_file *s,
+-					  unsigned offset)
++					  unsigned int offset)
+ {
+ 	seq_printf(s, " %s", dev_name(pctldev->dev));
+ }
+@@ -1029,7 +1029,7 @@ static int bcm281xx_pinctrl_get_fcns_count(struct pinctrl_dev *pctldev)
+ }
+ 
+ static const char *bcm281xx_pinctrl_get_fcn_name(struct pinctrl_dev *pctldev,
+-						 unsigned function)
++						 unsigned int function)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1037,9 +1037,9 @@ static const char *bcm281xx_pinctrl_get_fcn_name(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_get_fcn_groups(struct pinctrl_dev *pctldev,
+-					   unsigned function,
++					   unsigned int function,
+ 					   const char * const **groups,
+-					   unsigned * const num_groups)
++					   unsigned int * const num_groups)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1050,8 +1050,8 @@ static int bcm281xx_pinctrl_get_fcn_groups(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinmux_set(struct pinctrl_dev *pctldev,
+-			       unsigned function,
+-			       unsigned group)
++			       unsigned int function,
++			       unsigned int group)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 	const struct bcm281xx_pin_function *f = &pdata->functions[function];
+@@ -1082,7 +1082,7 @@ static const struct pinmux_ops bcm281xx_pinctrl_pinmux_ops = {
+ };
+ 
+ static int bcm281xx_pinctrl_pin_config_get(struct pinctrl_dev *pctldev,
+-					   unsigned pin,
++					   unsigned int pin,
+ 					   unsigned long *config)
+ {
+ 	return -ENOTSUPP;
+@@ -1091,9 +1091,9 @@ static int bcm281xx_pinctrl_pin_config_get(struct pinctrl_dev *pctldev,
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_std_pin_update(struct pinctrl_dev *pctldev,
+-				   unsigned pin,
++				   unsigned int pin,
+ 				   unsigned long *configs,
+-				   unsigned num_configs,
++				   unsigned int num_configs,
+ 				   u32 *val,
+ 				   u32 *mask)
+ {
+@@ -1207,9 +1207,9 @@ static const u16 bcm281xx_pullup_map[] = {
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_i2c_pin_update(struct pinctrl_dev *pctldev,
+-				   unsigned pin,
++				   unsigned int pin,
+ 				   unsigned long *configs,
+-				   unsigned num_configs,
++				   unsigned int num_configs,
+ 				   u32 *val,
+ 				   u32 *mask)
+ {
+@@ -1277,9 +1277,9 @@ static int bcm281xx_i2c_pin_update(struct pinctrl_dev *pctldev,
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_hdmi_pin_update(struct pinctrl_dev *pctldev,
+-				    unsigned pin,
++				    unsigned int pin,
+ 				    unsigned long *configs,
+-				    unsigned num_configs,
++				    unsigned int num_configs,
+ 				    u32 *val,
+ 				    u32 *mask)
+ {
+@@ -1321,9 +1321,9 @@ static int bcm281xx_hdmi_pin_update(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_pin_config_set(struct pinctrl_dev *pctldev,
+-					   unsigned pin,
++					   unsigned int pin,
+ 					   unsigned long *configs,
+-					   unsigned num_configs)
++					   unsigned int num_configs)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 	enum bcm281xx_pin_type pin_type;
 
 -- 
 2.48.1
