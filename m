@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF6DC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58219C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vR4zx2oagS+efqUKCMvK1ATS53EuOoZopH8YM7RNxZc=; b=MCIhKkv4y89qtAxjpK48KzIIET
-	Bou1rbWiqM69zdOhgEEARzRK9QqQX53uCnvWzw4F/+7TOapL4IL217hzYNOb8ReFGzeFm/7FNjJs+
-	yq2Xof4nJOHwkRstgCIaVsTX6meLjOg7elJcKZPpEF56+ruzWFZmW+8uI4a+npqNotaEVArXOH4C5
-	UzNukAA0qu/t8JwvvSPDg51cKF8nOO+DW31u5PaMGQ2q/ztzhtTcsmmw05q/EQbMMgjx8LEj0K6he
-	WjGwonOJbgizMC9j0q3qHgucF2sX5CtZFTQMsQu7YQHjKXjQDeql6iIc8s37jbqSEqUAFtB8bqIJk
-	CJVxKVJQ==;
+	bh=7B6nKxsZ/sgpbYSbmczXl/HDAlWGMnjUjIEUqDEu3fE=; b=gCOXQ/xhMPsu0Wr11v/2qmzAXo
+	wD0v4xtuOL7UCaEWCGh6Ntjj85FhGIKC3gzMBJvLJTSeYmcBCOHH0WWlLNZGorvIbyJj9j9oRiHMM
+	pXqYngsJosy0TyRA0/XLRZumSGDz4oJGuiL8oUS0GH4/00TZpsSvgejpGiGv+s2IZfc8QoqmC4UWN
+	X7FLOfivVdHIM+I0FDonBJU7k3T1EWH1CjY8wxUBpsjlCCjAuOsbMlzqF7wsK/NWQdPUtJBnm57V5
+	CAj3Wauz1VSbwpo05TG6v/0ce+wPvIyrKPZh5WmdCuLgniMl9f1ly96Q0bU/UrK/r2LJNJ5S16On4
+	QWDd0GaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOTB-00000009fBf-3bg3;
-	Fri, 07 Feb 2025 13:32:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tgOV2-00000009fj0-43y7;
+	Fri, 07 Feb 2025 13:34:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOQP-00000009eTf-3rM5;
-	Fri, 07 Feb 2025 13:29:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vR4zx2oagS+efqUKCMvK1ATS53EuOoZopH8YM7RNxZc=; b=c1tr/tnr9J63Np3nDQff6K5sYk
-	lDzbECFZwUg9b2y0xew+9b3UrLzYEOO6oXoearPTxuMmY1OP7l8As5gHXUojvp9a6rhPXqBVGR7pX
-	ItkLub/6K8cCaeF9t4nwbXN6vTk9HGT0yptexL9sgYCsTnO4HV9sxocFmXogbZ3wWX1nblcEi9rZ/
-	u5LwAPny7Dza9oe5m4VYVvQlU+asCdfF/wP91b+PYazWHb7sVL52a3XG9LpuEZKCz5LRWSplBUaK3
-	cBN/P0ffld06H6AQwE0MAMJl9U7rOLG8XbrF/LGIJ+QMFTBC04qalsHbhaVctUr/VlFlmvLXGsv2n
-	685ABR7Q==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tgOQE-0005vs-AZ; Fri, 07 Feb 2025 14:29:30 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Dragan Simic <dsimic@manjaro.org>,
- Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add overlay tests for Rock 5B PCIe
- overlays
-Date: Fri, 07 Feb 2025 14:29:29 +0100
-Message-ID: <4044639.44csPzL39Z@diego>
-In-Reply-To: <110a35c5-9450-47fb-9d5f-0ba73e290bf5@cherry.de>
-References: <20250131-pre-ict-jaguar-v4-0-c971e2852e8d@cherry.de>
- <cb8f370474df88d1194d9ee92d3ca4e0@manjaro.org>
- <110a35c5-9450-47fb-9d5f-0ba73e290bf5@cherry.de>
+	id 1tgOTf-00000009fL4-0fQv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 13:33:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=7B6nKxsZ/sgpbYSbmczXl/HDAlWGMnjUjIEUqDEu3fE=; b=ikZHdtybyl/A4VFw2VkwQGYUTI
+	I5VXMO2Dsq9C6j9NPVSnVHI8byHRtV/uaWU/t71xO8V9YWONlWrw4NkA31Qgj7jaXKhYUM+5sSJwd
+	EGZH7ss/mH8O6TO7DqY00Yy1HTQRU6CUGICBH3CUAKUQ5s0GbwiSc7s9zIREc3Phv1Fs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tgOT6-00Br1x-S2; Fri, 07 Feb 2025 14:32:28 +0100
+Date: Fri, 7 Feb 2025 14:32:28 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v7 2/7] net: pcs: xpcs: re-initiate clause 37
+ Auto-negotiation
+Message-ID: <12e86fbe-9515-4b81-951c-8bf86e2939d6@lunn.ch>
+References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
+ <20250206131859.2960543-3-yong.liang.choong@linux.intel.com>
+ <Z6TVmdCZeWerAZKP@shell.armlinux.org.uk>
+ <564ede5d-9f53-40be-9305-63f63b384e15@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <564ede5d-9f53-40be-9305-63f63b384e15@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_052941_977297_2D680F93 
-X-CRM114-Status: GOOD (  40.03  )
+X-CRM114-CacheID: sfid-20250207_053303_189562_D05DE7DB 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,114 +96,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 6. Februar 2025, 12:07:21 MEZ schrieb Quentin Schulz:
-> Hi Dragan,
->=20
-> On 2/4/25 2:35 PM, Dragan Simic wrote:
-> > Hello Quentin,
-> >=20
-> > On 2025-02-04 13:20, Quentin Schulz wrote:
-> >> On 2/4/25 12:22 PM, Dragan Simic wrote:
-> >>> > On 2025-01-31 11:40, Quentin Schulz wrote:
->=20
-> Not discussing CONFIG_OF_ALL_DTBS relevancy wrt hiding overlay tests=20
-> behind, unrelated to this series I believe :)
->=20
-> [...]
->=20
-> >>> With the above-proposed changes in place, and with CONFIG_OF_ALL_DTBS
-> >>> selected, the relevant part of the "make dtbs" output looks like this:
-> >>>
-> >>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb
-> >>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtbo
-> >>>    DTC     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtbo
-> >>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtb
-> >>>    OVL     arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb
-> >>>
-> >>> No more "phony targets" in the produced output. :)
-> >>
-> >> Funnily enough, I would prefer to see OVL for overlays rather than
-> >> DTC, but I guess it's just one more occurrence of developers
-> >> disagreeing on how to name things :)
-> >=20
-> > I actually agree with that, just like I prefer to see .dtbo files
-> > as additions to dtb-$(CONFIG_ARCH_XYZ).  It's all about the overlays,
-> > so they should be both specified and echoed back.
-> >=20
-> > Moreover, we currently also have additional .dtb files with applied
-> > overlays left after the build and installed afterwards, which doesn't
-> > make much sense to me.  To me, those additional .dtb files should be
-> > deleted as build artefacts and not installed.
-> >=20
->=20
-> I **think** it could be useful for systems without overlay support. Then=
-=20
-> you have a dtb which is the result of an overlay applied on top of the=20
-> base dtb and you can replace your previous dtb with that one, and voil=C3=
-=A0.
->=20
-> What I don't like is that it's difficult to differentiate them from the=20
-> "normal" base DTB or even from the DTBO (simple base DTB + overlay test=20
-> is usually named after the overlay, and in the case of the Rock 5B test:=
-=20
-> rk3588-rock-5b-pcie-srns.dtbo and=20
-> arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-srns.dtb), easy to pick=
-=20
-> the wrong one. Though that is on **me** as I could pick another name for=
-=20
-> the overlay test and e.g. prepend "test-ovl_" to the filename for example.
->=20
-> [...]
->=20
-> >> I won't be too difficult to convince here, just want some "authority"
-> >> or a piece of history about CONFIG_OF_ALL_DTBS that would go your
-> >> direction, before doing the change. I believe automated build tests
-> >> without needing to enable a symbol, and that taking DTB and DTBO from
-> >> the build output and apply DTBO on top of DTB works without having to
-> >> go through some length to get the symbols, are good reasons to keep it
-> >> the way it is in this patch series.
-> >=20
-> > I'd like the most to perform the above-proposed "divorcing" of the DT
-> > overlay tests from CONFIG_OF_ALL_DTBS, so we don't have to enable any
-> > additional options to have the overlay tests run automatically, but
-> > to keep .dtbo filenames in dtb-$(CONFIG_ARCH_XYZ).  I think that would
-> > bring the best of both worlds, so to speak.
-> >=20
->=20
-> So, just to recap:
->=20
-> dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5.dtb
-> dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-display-vz.dtbo
-> dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-io-expander.dtbo
->=20
-> stays and I add:
->=20
-> dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-vz-2-uhd.dtb
-> rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=3D rk3568-wolfvision-pf5.dtb \
-> 	rk3568-wolfvision-pf5-display-vz.dtbo \
-> 	rk3568-wolfvision-pf5-io-expander.dtbo
->=20
-> at the bottom of the Makefile. I specifically do NOT want to make this=20
-> depend on CONFIG_OF_ALL_DTBS (by using dtb- like in ti/), so that the=20
-> base DTB will always have the symbols in, regardless of CONFIG_OF_ALL_DTB=
-S.
->=20
-> I think the redundancy is unnecessary but I guess it's worth getting=20
-> away from implicit rules.
->=20
-> I can compromise on that :)
->=20
-> @Heiko does this work for you?
+> Good point. I cannot find this scenario in the datasheet. Please allow me
+> some time to test this scenario. I will update you with the results.
 
-Yes, I do like the variant of _not_ limiting these builds to
-CONFIG_OF_ALL_DTBS. From reading up on it, it's supposed to build all
-dtbs - even from non-selected architectures?
+By data sheet, do you mean documentation from Synopsis, or is this an
+internal document? Assuming the hardware engineers have not hacked up
+the Synopsis IP too much, the Synopsis documentation is probably the
+most accurate you have.
 
-So on a rockchip-only-build I'd still want to build the dtb+dtbo
-combination nevertheless.
+> > What about 1000BASE-X when AN is enabled or disabled and then switching
+> > to SGMII?
+> > 
+> According to the datasheet, a soft reset is required.
 
-zynq, renesas, qcom and more are doing this like Quentin proposed, where
-only ti is not.
+Do you know if this is specific to Intels integration of the Synopsis
+IP, or this is part of the core licensed IP?
 
+We need to understand when we need a quirk because intel did something
+odd, or it is part of the licensed IP and should happen for all
+devices using the IP.
 
+	Andrew
 
