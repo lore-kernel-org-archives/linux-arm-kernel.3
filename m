@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3475FC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B946C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shrdPw9FntfcT0ot4D8lNZmFBXlAqpCiwegyl2rC/aA=; b=KP54HMElfOdLVTnOHSa5QtvWyD
-	2xIIvMtSoYMucGQCvERMNkKjK7QBQBQtB4ZkpLBEpNux9W2hHq4WAkCg9swuH1gds00QnzMjAxhLt
-	8VWbIU2lFhZ1jcwmjLtMfll1pTHYsW7aitWbM4t60SE06eliUcDR38PG0GxYuILtG5wq0oXiJTdNp
-	XPFtMCp3JDIhSWfu2OVzp+grZkuviXDYjbI1I5ZAfSiS2tHaYYCxA20lDPISDdsat63j+kSWmu7OU
-	2GqsWnaS3VYnPRjNIe6j4w+q4SgX4tXNMnCXVRdXzdKR5TPuuHJWU7TgFGfkRv+LTvm3t0ZUTwieZ
-	fTTFwg8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Qvwf1guqeRULGqgBr7yvZ2W7EJYOZFk/gUId+/g8oM=; b=4S/7A3NATVFL0Rbqu2ghwfuUs8
+	qOQxGwWymhaFaP7/gejK1FfggLp4nJAub7klMF/FQNshr4HNZUHeZJ1lZ9go2HdClVENoA8uJhrCf
+	FlGaGDFODuOsMAtn4HpumfHVZ8WlG5yOVABpyspmMLoBJlRapWZUEKzYkJDIoN0K/S+jBT6jzP5f4
+	U+7UJ17jQAny3HwKOUATuNf0zQmilJuJbA9zE5FkcBUC7LpQIinAG7dMWU55U9cUMpdjwDOxn/2o4
+	g7pOBO8SUnYzcV8HvY+wOBOEi9LEIXHsvLEp0ELzVwLEFwZrsO/AwbNdd12qQwpWbN6RFsin68Rfn
+	Jb0Lh75A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQLT-0000000A5nG-0lzQ;
-	Fri, 07 Feb 2025 15:32:43 +0000
-Received: from smtp-8fab.mail.infomaniak.ch ([83.166.143.171])
+	id 1tgQMp-0000000A60d-2TSt;
+	Fri, 07 Feb 2025 15:34:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQ9R-0000000A2Mr-0zRS
+	id 1tgQAf-0000000A2jv-0SVm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 15:20:20 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YqHhw0vrKzNhJ;
-	Fri,  7 Feb 2025 16:20:16 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YqHht5cbszpRk;
-	Fri,  7 Feb 2025 16:20:14 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 07 Feb 2025 16:20:01 +0100
-Subject: [PATCH v5 4/4] arm64: dts: rockchip: minimal support for Pre-ICT
- tester adapter for RK3588 Jaguar
-MIME-Version: 1.0
+	Fri, 07 Feb 2025 15:21:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 60171A43676;
+	Fri,  7 Feb 2025 15:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1FF2C4CEDF;
+	Fri,  7 Feb 2025 15:21:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738941692;
+	bh=yCywyCvmmAZbWHiGvWpcFa1ywJvGn1bqilunL8XHMqM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=A800cHhpOmGzb0NkAxQm5wuE8IJ+Qgmm5pX3QYF9ACwfZUs8xnR9wCHSGlq9P4hAi
+	 n2jXNmLF4y5K5sPyUc02ORy2DEMs6M9B92C5gsyLVp3cZSBKRmJbK7WYkSN6xmRR4j
+	 DQC3Lmf81Y4aUw4TvF+qruS2MaH1y4atrYAimL22ja0G4iDkp2uMryoMzKx6DHQvGa
+	 HKFiFI5s9GwyZujRsJcNIfHZC3GpsmI7btMRIiHiG3BikwdYoWRrvEzFalVdQje/68
+	 AQO94MuvgcLXBndNMXvgIVrvYRnN/Sj05rxp+kOAxkGt+81RM28j6I85PmhOGy+uch
+	 jXoU/G3bEd2qg==
+Date: Fri, 07 Feb 2025 09:21:30 -0600
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-pre-ict-jaguar-v5-4-a70819ea0692@cherry.de>
-References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
-In-Reply-To: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, 
- Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Jonas Karlman <jonas@kwiboo.se>, Dragan Simic <dsimic@manjaro.org>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ alim.akhtar@samsung.com, krzk@kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+To: Denzeel Oliva <wachiturroxd150@gmail.com>
+In-Reply-To: <20250205222223.613-1-wachiturroxd150@gmail.com>
+References: <20250205222223.613-1-wachiturroxd150@gmail.com>
+Message-Id: <173894150599.330679.9502300326719327262.robh@kernel.org>
+Subject: Re: [PATCH v1 0/9] Add PERIC0/1 support for Exynos 990
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_072017_600450_D284C8AB 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20250207_072133_285003_B3BA25B5 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,230 +72,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
-proprietary Mezzanine connector.
+On Wed, 05 Feb 2025 22:22:14 +0000, Denzeel Oliva wrote:
+> This patch series introduces support for
+> the PERIC0 and PERIC1 blocks in the Exynos 990 SoC.
+> It includes devicetree bindings, clock definitions,
+> and driver support for the following components:
+> 
+> - Universal Serial Interface (USI):
+>   - Adds samsung,exynos990-usi compatible
+>     for defining USI nodes in PERIC0/1.
+>   - Supports UART, SPI, and I2C modes.
+>   - Defines all 18 USI nodes in the Exynos 990 device tree.
+> 
+> - SPI (Serial Peripheral Interface):
+>   - Adds `samsung,exynos990-spi` compatible.
+>   - Implements SPI port configuration data.
+>   - Some controllers (SPI 8, 9, and 10) use a 256 bytes FIFO depth
+>     instead of the usual 64 bytes.
+> 
+> - HSI2C (High-Speed I2C):
+>   - Adds `samsung,exynos990-hsi2c` compatible for Exynos 990.
+> 
+> - Clock Management Unit (CMU) for PERIC0/1:
+>   - Adds clock definitions for USI and I2C peripherals.
+>   - CMU_PERIC0/1 clocks are not marked as critical.
+> 
+> This has been tested on the Samsung Galaxy S20 FE (r8s),
+> where USI and SPI interfaces are confirmed to be functional.
+> 
+> Denzeel Oliva (9):
+>   dt-bindings: clock: samsung,exynos990-clock: add PERIC0 / 1 clock
+>     management unit
+>   dt-bindings: i2c: exynos5: add samsung,exynos990-hsi2c compatible
+>   dt-bindings: serial: samsung: add Exynos990 compatible
+>   dt-bindings: samsung: usi: add exynos990-usi compatible
+>   spi: dt-bindings: samsung: add samsung,exynos990-spi compatible
+>   dt-bindings: soc: samsung: exynos-sysreg: add compatibles peric0/1
+>     sysreg for Exynos990
+>   clk: samsung: exynos990: add support for CMU_PERIC0/1
+>   spi: s3c64xx: add support exynos990-spi to new port config data
+>   arm64: dts: exynos990: define all PERIC USI nodes
+> 
+>  .../clock/samsung,exynos990-clock.yaml        |   24 +
+>  .../devicetree/bindings/i2c/i2c-exynos5.yaml  |    1 +
+>  .../bindings/serial/samsung_uart.yaml         |    6 +
+>  .../bindings/soc/samsung/exynos-usi.yaml      |    1 +
+>  .../soc/samsung/samsung,exynos-sysreg.yaml    |    2 +
+>  .../devicetree/bindings/spi/samsung,spi.yaml  |    1 +
+>  arch/arm64/boot/dts/exynos/exynos990.dtsi     | 1711 +++++++++++++++++
+>  drivers/clk/samsung/clk-exynos990.c           | 1079 +++++++++++
+>  drivers/spi/spi-s3c64xx.c                     |   16 +
+>  include/dt-bindings/clock/samsung,exynos990.h |  178 +-
+>  10 files changed, 3018 insertions(+), 1 deletion(-)
+> 
+> --
+> 2.47.1
+> 
+> 
+> 
 
-It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
-connectors. Support for the latter will come once the rest of the camera
-stack is supported.
 
-Additionally, the adapter loops some GPIOs together as well as route
-some GPIOs to power rails.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-This adapter is used for manufacturing RK3588 Jaguar to be able to test
-the Mezzanine connector is properly soldered.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   5 +
- .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
- 2 files changed, 176 insertions(+)
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 8f93e0c4d6032d0ca2d93f44384c027e53aa5efb..58664453e019496420dfec7b781cc313fab04185 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -145,6 +145,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-firefly-itx-3588j.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-h96-max-v58.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
-@@ -197,6 +198,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
- rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
- 	rk3588-edgeble-neu6a-wifi.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
-+rk3588-jaguar-pre-ict-tester-dtbs := rk3588-jaguar.dtb \
-+	rk3588-jaguar-pre-ict-tester.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
- rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
- 	rk3588-rock-5b-pcie-ep.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..9d44dfe2f30d793accb994a230c58038f0c3daad
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-@@ -0,0 +1,171 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-+ *
-+ * Device Tree Overlay for the Pre-ICT tester adapter for the Mezzanine
-+ * connector on RK3588 Jaguar.
-+ *
-+ * This adapter has a PCIe Gen2 x1 M.2 M-Key connector and two proprietary
-+ * camera connectors (each their own I2C bus, clock, reset and PWM lines as well
-+ * as 2-lane CSI).
-+ *
-+ * This adapter routes some GPIOs to power rails and loops together some other
-+ * GPIOs.
-+ *
-+ * This adapter is used during manufacturing for validating proper soldering of
-+ * the mezzanine connector.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	pre_ict_tester_vcc_1v2: regulator-pre-ict-tester-vcc-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_1v2";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	pre_ict_tester_vcc_2v8: regulator-pre-ict-tester-vcc-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_2v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+};
-+
-+&combphy0_ps {
-+	status = "okay";
-+};
-+
-+&gpio3 {
-+	pinctrl-0 = <&pre_ict_pwr2gpio>;
-+	pinctrl-names = "default";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2x1l2_perstn_m0>;
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>; /* PCIE20X1_2_PERSTN_M0 */
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	pcie2x1l2 {
-+		pcie2x1l2_perstn_m0: pcie2x1l2-perstn-m0 {
-+			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pre-ict-tester {
-+		pre_ict_pwr2gpio: pre-ict-pwr2gpio-pins {
-+			rockchip,pins =
-+			/*
-+			 * GPIO3_A3 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_2. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_2 is properly routed, GPIO3_A3 should be
-+			 * LOW. The signal shall not read HIGH in the event
-+			 * GPIO3_A3 isn't properly routed due to soldering
-+			 * issue. Therefore, let's enforce a pull-up (which is
-+			 * the SoC default for this pin).
-+			 */
-+				<3 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_A4 is directly routed to VCC_1V8_S0_2 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_B2 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_1. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_1 is properly routed, GPIO3_B2 should be
-+			 * LOW. This is an issue if GPIO3_B2 isn't properly
-+			 * routed due to soldering issue, because GPIO3_B2
-+			 * default bias is pull-down therefore being LOW. So
-+			 * the worst case scenario and the pass scenario expect
-+			 * the same value. Make GPIO3_B2 a pull-up so that a
-+			 * soldering issue on GPIO3_B2 reports HIGH but proper
-+			 * soldering reports LOW.
-+			 */
-+				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_C6 is directly routed to VCC_1V8_S0_1 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * This is an issue if GPIO3_C6 or VCC_1V8_S0_1 isn't
-+			 * properly routed due to soldering issue, because
-+			 * GPIO3_C6 default bias is pull-up therefore being HIGH
-+			 * in all cases:
-+			 *  - GPIO3_C6 is floating (so HIGH) if GPIO3_C6 is not
-+			 *    routed properly,
-+			 *  - GPIO3_C6 is floating (so HIGH) if VCC_1V8_S0_1 is
-+			 *    not routed properly,
-+			 *  - GPIO3_C6 is HIGH if everything is proper,
-+			 * Make GPIO3_C6 a pull-down so that a soldering issue
-+			 * on GPIO3_C6 or VCC_1V8_S0_1 reports LOW but proper
-+			 * soldering reports HIGH.
-+			 */
-+				<3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D2 is routed to VCC_5V0_1 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD2 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D3 is routed to VCC_5V0_2 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D4 is routed to VCC_3V3_S3_1 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D5 is routed to VCC_3V3_S3_2 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
+  pip3 install dtschema --upgrade
 
--- 
-2.48.1
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250205222223.613-1-wachiturroxd150@gmail.com:
+
+Error: arch/arm64/boot/dts/exynos/exynos990.dtsi:225.20-21 syntax error
+FATAL ERROR: Unable to parse input tree
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-x1slte.dtb] Error 2
+Error: arch/arm64/boot/dts/exynos/exynos990.dtsi:225.20-21 syntax error
+FATAL ERROR: Unable to parse input tree
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-r8s.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-r8s.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-r8s.dtb] Error 2
+Error: arch/arm64/boot/dts/exynos/exynos990.dtsi:225.20-21 syntax error
+FATAL ERROR: Unable to parse input tree
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-c1s.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-c1s.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-c1s.dtb] Error 2
+Error: arch/arm64/boot/dts/exynos/exynos990.dtsi:225.20-21 syntax error
+FATAL ERROR: Unable to parse input tree
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-x1s.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-x1s.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-x1s.dtb] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+
+
+
+
 
 
