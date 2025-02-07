@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A61C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69892C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hQ8V9KXvhygSj/cIkAlhhxlgO75Xj/X7PeQoxRpjPcs=; b=q+opKAT9XWJGxS
-	e8GLjOj02PfAgHrShVVAXXw+K8jNcvWXzLP4AiHcLa1ueuom3Gud+rxNlbh18u5qMfFNy/WnbFteq
-	QFUW3MYbWexna50qFW+ujgd+IEzR2eEy1wW9vh3Uxh6Gj55T+czmr7Ftdh5exSlBrXn99kN3rgZGQ
-	dJfNzDjihSeEr252rLLg57Esk+s0D1J9xoSjutsXZrK27ALS4/miOgvxd7cZB7RzEx37hh7D/a8Af
-	uz/FOnkXWqnKtSD0jnGiytkLDf8M1vDzXw+HljokVqGMkQHSt0PWBI+L6+09BK02AcodYxeYk+xZO
-	UHLfe+OXc7ybOYWuoWHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/t7vCxJWdDph//099EQUA35oIJvQPYCB3Z9DffQy6g=; b=JWXFHz25nKz2LllnzyusFQqlmT
+	8zKKp8hFvaIIufFEl2wI3px06lPeq8Q7XWNZIBCccIu4JTR2SfEWMmlv2wJdv1edu0ZAcl9KZSzNq
+	nbimxd9nUg45ziDuBQW5qxP1tgVgxKk3j8JHyOvLUnEnIeU9Mrul7K/F6Fdd3rm/2xC6tv9U808ew
+	z6JEyHbfyuiXNwBCJTq6DkWkXBmeqB40yiXBtDftoah0dT0jObXZwteP2MFIF5YHxmbbOdksRT30V
+	kI+z+rpdZMxyvs04oSlIC8SWXtd5bmK2Q0aLPzRJbuaULMdWxH1VG/4kJ9dMGIsaKP5Wo6MgRcuga
+	0El1V+PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJfy-00000008o48-3ui2;
-	Fri, 07 Feb 2025 08:25:26 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1tgJoo-00000008pyL-3LqQ;
+	Fri, 07 Feb 2025 08:34:34 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJea-00000008njb-45oA
+	id 1tgJnP-00000008pfr-23UK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:24:02 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Fri, 7 Feb
- 2025 16:23:51 +0800
-Received: from twmbx02.aspeed.com (192.168.10.10) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
- Transport; Fri, 7 Feb 2025 16:23:51 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: <eajames@linux.ibm.com>, <mchehab@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
-	<andrew@aj.id.au>, <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3] media: dt-bindings: aspeed,video-engine: Convert to json schema
-Date: Fri, 7 Feb 2025 16:23:51 +0800
-Message-ID: <20250207082351.1298990-1-jammy_huang@aspeedtech.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 07 Feb 2025 08:33:09 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 26D131F9E1;
+	Fri,  7 Feb 2025 09:33:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1738917182;
+	bh=l/t7vCxJWdDph//099EQUA35oIJvQPYCB3Z9DffQy6g=;
+	h=Received:From:To:Subject;
+	b=x4VMvHw4NptAo6x5XBmAV+QyJzCjjYW92WHrhRpEQEeN4AiwlYBrOWnwuYnv3+xdS
+	 CduSirEGbfD2odtgGD8sqFJCJ9+32bW/KFtb9wnnB99Hlaajp0rtKbVovJRKUvjTwS
+	 fmgzuipXjkP5rYLWk5Ax29PDsHC8Xj3MDh9oJ8djV50HYbtY3AGPacKWJAjnE6ep5D
+	 LVunkSKdESz3ahRx38ffZQLEZFJsJ43tp2PVrE7wr4082EtgSqslloEUpzynX0LRwf
+	 xnBmNBPjniMBj60NSNgxR9nqm4JDWFodHRONrpK1BWXQCA/tTG9gHLO6alYXXkyt5X
+	 U3irvwSolkaAA==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id BACC07F926; Fri,  7 Feb 2025 09:33:01 +0100 (CET)
+Date: Fri, 7 Feb 2025 09:33:01 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62p: Enable AUDIO_REFCLKx
+Message-ID: <Z6XFPYaj069fvW1h@gaggiata.pivistrello.it>
+References: <20250206153911.414702-1-francesco@dolcini.it>
+ <20250207014239.xzm6rfnusckql2uo@litigator>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250207014239.xzm6rfnusckql2uo@litigator>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_002401_015405_4DB3E4D0 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250207_003308_423428_D22A3702 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,177 +78,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert aspeed-video.txt to yaml format.
-Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
+Hello Nishanth,
 
-Additional changes:
-- Two phandle properties, 'aspeed,scu' and 'aspeed,gfx', are added for
-  video engine to capture video from sources other than VGA.
-- Update examples and include appropriate file directives to resolve
-  errors identified by `dt_binding_check` and `dtbs_check`.
+On Thu, Feb 06, 2025 at 07:42:39PM -0600, Nishanth Menon wrote:
+> On 16:39-20250206, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > On AM62P-based SoCs the AUDIO_REFCLKx clocks can be used as an input to
+> > external peripherals when configured through CTRL_MMR, so add the
+> > clock nodes.
+> > 
+> > Link: http://downloads.ti.com/tisci/esd/latest/5_soc_doc/am62px/clocks.html
+> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > ---
+> >  arch/arm64/boot/dts/ti/k3-am62p-main.dtsi | 20 ++++++++++++++++++++
+> >  1 file changed, 20 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> > index 420c77c8e9e5..4b47b0774330 100644
+> > --- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> > +++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+> > @@ -42,6 +42,26 @@ &inta_main_dmss {
+> >  	ti,interrupt-ranges = <5 69 35>;
+> >  };
+> >  
+> > +&main_conf {
+> 
+> 	Why not add it to main_conf section it self in the file?
 
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
----
- v3:
-  - Add Additional changes into comments.
-  - Remove | after phandle description
+The reason is that main_conf is defined in k3-am62p-j722s-common-main.dtsi,
+that is shared between am62p and j722s.
 
- v2:
-  - Update patch subject
-  - Add NOTE for false positive warning
----
- .../bindings/media/aspeed,video-engine.yaml   | 84 +++++++++++++++++++
- .../bindings/media/aspeed-video.txt           | 33 --------
- MAINTAINERS                                   |  2 +-
- 3 files changed, 85 insertions(+), 34 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
- delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.txt
+On j722s the audio refclk is added in k3-j722s-main.dtsi the same way as I did
+here, so I cannot move this to k3-am62p-j722s-common-main.dtsi without updating
+also k3-j722s-main.dtsi.
 
-diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-new file mode 100644
-index 000000000000..93917c9ecfc3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASPEED Video Engine
-+
-+maintainers:
-+  - Eddie James <eajames@linux.ibm.com>
-+
-+description:
-+  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
-+  capture and compress video data from digital or analog sources.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - aspeed,ast2400-video-engine
-+      - aspeed,ast2500-video-engine
-+      - aspeed,ast2600-video-engine
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 2
-+
-+  clock-names:
-+    items:
-+      - const: vclk
-+      - const: eclk
-+
-+  resets:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  memory-region:
-+    maxItems: 1
-+    description:
-+      Phandle to the reserved memory nodes to be associated with the
-+      VE. VE will acquires memory space for 3 purposes:
-+        1. JPEG header
-+        2. Compressed result
-+        3. Temporary transformed image data
-+
-+  aspeed,scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Specifies the scu node that is needed if video wants to capture
-+      from sources other than Host VGA.
-+
-+  aspeed,gfx:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Specifies the Soc Display(gfx) node that needs to be queried to get
-+      related information if video wants to use gfx as capture source.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/ast2600-clock.h>
-+
-+    video@1e700000 {
-+        compatible = "aspeed,ast2600-video-engine";
-+        reg = <0x1e700000 0x1000>;
-+        clocks = <&syscon ASPEED_CLK_GATE_VCLK>,
-+                 <&syscon ASPEED_CLK_GATE_ECLK>;
-+        clock-names = "vclk", "eclk";
-+        interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+        aspeed,scu = <&syscon>;
-+        aspeed,gfx = <&gfx>;
-+    };
-diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/Documentation/devicetree/bindings/media/aspeed-video.txt
-deleted file mode 100644
-index d2ca32512272..000000000000
---- a/Documentation/devicetree/bindings/media/aspeed-video.txt
-+++ /dev/null
-@@ -1,33 +0,0 @@
--* Device tree bindings for Aspeed Video Engine
--
--The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
--capture and compress video data from digital or analog sources.
--
--Required properties:
-- - compatible:		"aspeed,ast2400-video-engine" or
--			"aspeed,ast2500-video-engine" or
--			"aspeed,ast2600-video-engine"
-- - reg:			contains the offset and length of the VE memory region
-- - clocks:		clock specifiers for the syscon clocks associated with
--			the VE (ordering must match the clock-names property)
-- - clock-names:		"vclk" and "eclk"
-- - resets:		reset specifier for the syscon reset associated with
--			the VE
-- - interrupts:		the interrupt associated with the VE on this platform
--
--Optional properties:
-- - memory-region:
--	phandle to a memory region to allocate from, as defined in
--	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
--
--Example:
--
--video-engine@1e700000 {
--    compatible = "aspeed,ast2500-video-engine";
--    reg = <0x1e700000 0x20000>;
--    clocks = <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_ECLK>;
--    clock-names = "vclk", "eclk";
--    resets = <&syscon ASPEED_RESET_VIDEO>;
--    interrupts = <7>;
--    memory-region = <&video_engine_memory>;
--};
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 896a307fa065..7e59daa1e89d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
- L:	linux-media@vger.kernel.org
- L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
- S:	Maintained
--F:	Documentation/devicetree/bindings/media/aspeed-video.txt
-+F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
- F:	drivers/media/platform/aspeed/
- 
- ASUS EC HARDWARE MONITOR DRIVER
+I looked into the differences of j722s and am62p, and from my understanding,
+from the audio refclk point of view, they are identical (same IP, same reg, same
+clocks and same IDs), so this should naturally be moved to
+k3-am62p-j722s-common-main.dtsi as you are suggesting.
 
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
--- 
-2.25.1
+... however, for some reason I am not aware of, on k3-j722s-main.dtsi a different
+parent clock is used, and I cannot understand the reason. The actual parent clocks
+in this patch are just the same we already have everywhere apart on j722s. I tried
+to look at the history of this and it seems that on the TI downstream kernel branch
+this is defined in the board dts file (!) and this confused me even more.
 
+So, not wanting to break stuff I was not able to understand I came up with this
+proposal.
+
+An alternative could be to override the "unexpected" clocks from
+k3-j722s-main.dtsi to the board dts file, and have the "standard" clocks, as
+proposed in this patch and already used on all the other AM62 variants, in
+k3-am62p-j722s-common-main.dtsi.
+
++Jayesh that is the author of this specific change in k3-j722s-main.dtsi.
+
+Francesco
+
+> > +	audio_refclk0: clock-controller@82e0 {
+> > +		compatible = "ti,am62-audio-refclk";
+> > +		reg = <0x82e0 0x4>;
+> > +		clocks = <&k3_clks 157 0>;
+> > +		assigned-clocks = <&k3_clks 157 0>;
+> > +		assigned-clock-parents = <&k3_clks 157 16>;
+> > +		#clock-cells = <0>;
+> > +	};
+> > +
+> > +	audio_refclk1: clock-controller@82e4 {
+> > +		compatible = "ti,am62-audio-refclk";
+> > +		reg = <0x82e4 0x4>;
+> > +		clocks = <&k3_clks 157 18>;
+> > +		assigned-clocks = <&k3_clks 157 18>;
+> > +		assigned-clock-parents = <&k3_clks 157 34>;
+> > +		#clock-cells = <0>;
+> > +	};
+> > +};
+> > +
 
