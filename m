@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7CBC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 03:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1E6C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 03:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rv/3RFVNWDMcc5HMME46hF6itjMzUu60Z1kcevabBlU=; b=gdXjyPBhHRwCMzW44NBOyBZD+y
-	Y0/lHl9HcO/qVj0vf17Y9PR/pej3U8r9pf08tuHzg/o4T1+wO6NmtbAMP1pFiyIOIkLztHg+qvsq/
-	i6/uN9dUmlBldAypnHPZagLSQB5XQNOoVxEaxVWv9BGPANAxBB/QWTlHoe7hA/SeuEwNVd4XVjWEM
-	8+BLHec0BZ0IOn+JJvFhRBKhglEF7cyCI26mQiYsZzz0fsfclCtJJBhyS1QTeqVUBWFw4t5atsusQ
-	cLnrIgmRaLHw92lhToCK5ctnBhyMRIZgNn1QRFdnDENDSUQjnDUOwnjYOOYSEgcw55fX9T5BVDoKq
-	WcHiZhTg==;
+	bh=ScckE3sdkg/vVUj7WnXQkdjlruhwNWA4ty0J/lG2SIg=; b=kz5Qh0UXfUVGj4pq9R+e+fSTvv
+	tPqQ0JnKMvuc1bQbiN+X3K05XL5QVer9eW9pAGiESfDg8v95RD2JZP2oAuY10kgQkg+ESy/HOWAkQ
+	5euz+FQHiC4ZPaE0fjTdyFJKYHpXzf1ZXz++YpLJTbnOw93MqX8cYzE55iE1/nIHEz0VY9kK4yM/q
+	B3nIi+1nZVFaOe6gwzucz/EIvyoeltGIioEgdfPKkuSU2+UVJftspUeeSke6fYNAwOSQJm/szsk6r
+	P/XLDoHJsqTiaNbEpAxmtBrILr+vAxanlvrGm658UQJVAdovuuxQ+zjnRBy/4x5dV032Oo6S0eJdf
+	6kHQs0YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgEdq-000000089Fu-02kI;
-	Fri, 07 Feb 2025 03:02:54 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1tgEfc-000000089jr-2mfV;
+	Fri, 07 Feb 2025 03:04:44 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgEcP-000000088zo-0Oap
+	id 1tgEeE-000000089O8-3F4e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 03:01:26 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-307325f2436so14357691fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 19:01:24 -0800 (PST)
+	Fri, 07 Feb 2025 03:03:19 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so1626394e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 19:03:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738897283; x=1739502083; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1738897397; x=1739502197; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rv/3RFVNWDMcc5HMME46hF6itjMzUu60Z1kcevabBlU=;
-        b=FbaatJ4cb9NFtyzO4LgfA3yPBPJ3P28YLVjpxJlpRX3dbEwQ2zrr/RAh0ugDi9dK8o
-         mVahCBNQ4U3rYZUGE8EEf7XRt4UVqaE8eIWos+oWttay/Qf4T3iJELlOQwmK/KdAiz64
-         DoP0fhI4LwECe5nYWpTeehRXfUzlxClPazC7Wpt1WICplcP9WSrh6zFUqyErhWFQP6FS
-         12FNrcVIgDRQp9AbxlcvlBTmswHbNFbkQvSXiQbX+iag1nX3MhWJIAvhelMoGwPnd3R+
-         0fQ2dOMwZRZWG3u0kg1rUqJ5kxsIEfoxzUkDStL2+le/zb8GTkHKhiZxGgElj1xR+2Gk
-         cYFA==
+        bh=ScckE3sdkg/vVUj7WnXQkdjlruhwNWA4ty0J/lG2SIg=;
+        b=VfTf/Ba+yE2hNpGAWz0UxTFBFc6yvyNNdvgog+m9wH9pIoHB4C81mpQUpDoc1AgNMA
+         7dRiTFgz+xKGqKdPwP9ju3yRRNBniw7wQx4vJ6PKJsBJ/t54JdqgTA7pzymAkBb0I3zP
+         K4gszsGLdc7n7q+WxjJ+mgvYZeEYibCDpZ9lHZia0xlpw6yNjSj45fymUZgwZcUHH72x
+         MDTPIGPe95ljCNJLy0pKOJnomlsE3P0tnY4yRhHlUEfYsvbULu85VFVqlirbgiCjKiCG
+         8Ih+JTGlhuVYrAKIB+pAY2vjHY1I/fULNr8yA6Tl3mGN+tUINs0S6f2DOofirpn3fvSZ
+         FOKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738897283; x=1739502083;
+        d=1e100.net; s=20230601; t=1738897397; x=1739502197;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rv/3RFVNWDMcc5HMME46hF6itjMzUu60Z1kcevabBlU=;
-        b=Phjo4V+eVLUX2k4H+XvX6jdYf6e1HBe4AdMU4IARRf5qYTZzYiw/MeBIbz3xYl7iCM
-         c8SIOIbjQ/yw40W5Gh8fL1FoBtuh+Hr70NZUi2d0R2g4QMd9hUMmOJWS2LcC7NWpE5d+
-         xFnoDQXhrO3kW0KGt7dKZWhWa06PnGmKlqjhdMSJ4dcqv9EbrKqKoJJYc2Qibl3mHNc2
-         QfLYokpmJXpZZXLcVz0mQCYlzRo106JHp1n0/kQbdOsYZO9hlJTCs8m7fng6gv2NTRAW
-         QrqP5Divw/9lHfJPUpRKW1ZfO61++IKhs7sfHkvRlNJrZUX0vHTCsXaLOH/JOE6mnjKb
-         44zA==
-X-Forwarded-Encrypted: i=1; AJvYcCX86SFFXJh24ZJrRD9JuZTndnQsghzvQQdBQWfzlre5YO5W2JGClQsvEt0Q5xM0w5SsrAZJtcxyTxadT+CLxath@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVokSqIaM/HLPcfOqkA3QAOLw7IkAC0Nso4qV48Na5eQiCcytx
-	N9gcaPX/wiicexZqyfKbWp4kRjNMTPGVVsqC/fh2ir9zOBr50Wt7tMSxPRHq4JY=
-X-Gm-Gg: ASbGncvteLf8QzmjUeeZ4IOn0OGlwZiVwuZgAkGoBaCiWPoE5vbTJsaJxmv74k/VGQC
-	8czXbmG9wA6IJMhxw5gAUaIC8B5qdhVM57frbq3csEagpMHZiuN3kA+496C8AMy6nDEOw2xUqeQ
-	LuOyHsR3coSf+9vvGNdXArKG64q+LyZn24q9ra+asaAZelodEiTfAIZ7D65PsYBUz8fJ1x2/+Oz
-	T784rK75SqBVd+UoXQvIBZhQDNCygfW+/J7xY2sAFM/t23GBFWOKaKtpgGfrV1xOh+ohzV7PHoc
-	VM8wa34g569CuoZa50/ADwqLpgm/weSp6TrjMDfHhgByHNduv3yRUkX3/PnRDOeimucvIZI=
-X-Google-Smtp-Source: AGHT+IGDqEkE6OWYr0NcLlg1JR9sknC45WBuXsh87/ud3ljT7djhN2ztl5wAF/TJfj5OXo6RJ8lw+Q==
-X-Received: by 2002:a2e:bc21:0:b0:302:244a:da2c with SMTP id 38308e7fff4ca-307e5a71d1amr2898811fa.31.1738897283014;
-        Thu, 06 Feb 2025 19:01:23 -0800 (PST)
+        bh=ScckE3sdkg/vVUj7WnXQkdjlruhwNWA4ty0J/lG2SIg=;
+        b=Kykq1IQyrA5MV1v8AcBiGuPOpdJNA/t4GrOfEqU0E7lVpFfKnI87Kf6uMhflA9JOMR
+         rs5dKGHOlGCDb9su7OvYk2U7o7uiUklq2IZknUwmzouD5jQP0VrsK3n8b42uq8mHYtRD
+         KPdNbWqqkG5UfSTMzd/wHiwHX+7sqzTakKgpYXmNPjBfeiLB8DWLiiMIqmwQDiBo/B/5
+         BQhV6H3/cktyiue2FeqD6fg1X+x9jS8Et97Bkcnf3QATAUM0iGp5+rY/kzO6P3ovgc02
+         mSzuTxPfOnMPYpPwaY3GgutYC4FU7EG/VkrCDeS0JE11LcoPbxciBbPEBpvcrNsJP/8X
+         f1aQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVqRjicWpeca5O0/QQXySbLhwtPgIaL250Su17f7B5vZGUs/nGmg7fIs6ZxAD+MmuRMtg241lqt5/8OZaFkwC1s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy96EZuaX3nRgxSqk0xSk1czPCIuFDA/vqaxF4ks/8rLc16zgZz
+	W9QRdKbuhUOIOWYHVWu0XUwBs8zWP/Ukj8GladtvCRLdWrCN9tO4WjVTA9P/tdU=
+X-Gm-Gg: ASbGnct3xYSlsohdvRDQzSfPqigpNa0ltEeZben3dLh1nffqs9yfXSX1LZHxVkI0WEC
+	g0fH0CpNcf6XshzJCJe3tLO1Gz34uPHcnntWyRNHGeDSdcuAbvVYEw98kZKlIELrzBgBmSggwhQ
+	Ha2Yj3mty0fGJvGLjFBM9SqRUrFGSa2I198ZWZt0h2G5l9vawD1d4/LSAd75kNmck2QjuLMkINR
+	nUmqjVnYbXpZcrLIggq09FSEB+gT+7qSD/vIFtW1VmBofHkPKTwFkhy1PYzhL7v22GJFUmmi30a
+	E+oDRf6t0nRdyUxFMWvswloLImsK46LD0RQEOZ3jGhgSJfJ3Bo1cNg1wY98R4/hObEPsTug=
+X-Google-Smtp-Source: AGHT+IF1zkGPC274Byqhl5z75QjvE44TjiZdR7ZFTdBZSZkQteq90ey7AMuc2ci0aBKLn5vOWSqUSA==
+X-Received: by 2002:a05:6512:2316:b0:540:1a40:ab0d with SMTP id 2adb3069b0e04-54414aa87e7mr369435e87.28.1738897396852;
+        Thu, 06 Feb 2025 19:03:16 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de18e48dsm2871441fa.27.2025.02.06.19.01.20
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54411cc9fa4sm261365e87.149.2025.02.06.19.03.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 19:01:21 -0800 (PST)
-Date: Fri, 7 Feb 2025 05:01:19 +0200
+        Thu, 06 Feb 2025 19:03:15 -0800 (PST)
+Date: Fri, 7 Feb 2025 05:03:13 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 12/26] drm/bridge: allow bridges to be informed about
- added and removed bridges
-Message-ID: <5roxoodskw3ieksvzqezs33gcwhppeqikagu5462wljc6zylif@5ls7bmdusmq5>
+Subject: Re: [PATCH v6 13/26] drm/encoder: add drm_encoder_cleanup_from()
+Message-ID: <spxzxwcs27uv2ttt5mh3r2767ihczvzzrtov6afdmex2ye7lam@r6kdqv5ocg5h>
 References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-12-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-13-9d6f2c9c3058@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-12-9d6f2c9c3058@bootlin.com>
+In-Reply-To: <20250206-hotplug-drm-bridge-v6-13-9d6f2c9c3058@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_190125_147427_24ADB513 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20250206_190318_815359_09211475 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,120 +96,76 @@ Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codi
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 07:14:27PM +0100, Luca Ceresoli wrote:
-> In preparation for allowing bridges to be added to and removed from a DRM
-> card without destroying the whole card, add a new DRM bridge function
-> called on addition and removal of bridges.
+On Thu, Feb 06, 2025 at 07:14:28PM +0100, Luca Ceresoli wrote:
+> Supporting hardware whose final part of the DRM pipeline can be physically
+> removed requires the ability to detach all bridges from a given point to
+> the end of the pipeline.
+> 
+> Introduce a variant of drm_encoder_cleanup() for this.
 > 
 > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > 
 > ---
 > 
-> Changed in v6:
->  - rebased fixing conflicts
+> Changes in v6: none
+> Changes in v5: none
+> Changes in v4: none
+> Changes in v3: none
 > 
-> Changed in v5:
->  - fixed kerneldoc errors
-> 
-> This patch was added in v4.
+> Changed in v2:
+>  - fix a typo in a comment
 > ---
->  drivers/gpu/drm/drm_bridge.c | 12 ++++++++++++
->  include/drm/drm_bridge.h     | 23 +++++++++++++++++++++++
->  2 files changed, 35 insertions(+)
+>  drivers/gpu/drm/drm_encoder.c | 21 +++++++++++++++++++++
+>  include/drm/drm_encoder.h     |  1 +
+>  2 files changed, 22 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index b0834b8644284e5f7751cec81724af849b4180e7..1955a231378050abf1071d74a145831b425c47c5 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -207,12 +207,18 @@ LIST_HEAD(bridge_list);
->   */
->  void drm_bridge_add(struct drm_bridge *bridge)
->  {
-> +	struct drm_bridge *br, *tmp;
-> +
->  	mutex_init(&bridge->hpd_mutex);
->  
->  	if (bridge->ops & DRM_BRIDGE_OP_HDMI)
->  		bridge->ycbcr_420_allowed = !!(bridge->supported_formats &
->  					       BIT(HDMI_COLORSPACE_YUV420));
->  
-> +	list_for_each_entry_safe(br, tmp, &bridge_list, list)
-> +		if (br->funcs->bridge_event_notify)
-> +			br->funcs->bridge_event_notify(br, DRM_EVENT_BRIDGE_ADD, bridge);
-> +
->  	mutex_lock(&bridge_lock);
->  	list_add_tail(&bridge->list, &bridge_list);
->  	mutex_unlock(&bridge_lock);
-> @@ -249,10 +255,16 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
->   */
->  void drm_bridge_remove(struct drm_bridge *bridge)
->  {
-> +	struct drm_bridge *br, *tmp;
-> +
->  	mutex_lock(&bridge_lock);
->  	list_del_init(&bridge->list);
->  	mutex_unlock(&bridge_lock);
->  
-> +	list_for_each_entry_safe(br, tmp, &bridge_list, list)
-> +		if (br->funcs->bridge_event_notify)
-> +			br->funcs->bridge_event_notify(br, DRM_EVENT_BRIDGE_REMOVE, bridge);
-> +
-
-I think the order should be different: notify about the added bridge
-after adding to the list, notify about bridge removal before removing it
-from the list.
-
->  	mutex_destroy(&bridge->hpd_mutex);
+> diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encoder.c
+> index 8f2bc6a28482229fd0b030a1958f87753ad7885f..472dfbefe2960924a4e83bec425af8c7ef5f5265 100644
+> --- a/drivers/gpu/drm/drm_encoder.c
+> +++ b/drivers/gpu/drm/drm_encoder.c
+> @@ -207,6 +207,27 @@ void drm_encoder_cleanup(struct drm_encoder *encoder)
 >  }
->  EXPORT_SYMBOL(drm_bridge_remove);
-> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-> index 1561347c4991dac6022319774510f9560c9283c3..ad7ba444a13e5ecf16f996de3742e4ac67dc21f1 100644
-> --- a/include/drm/drm_bridge.h
-> +++ b/include/drm/drm_bridge.h
-> @@ -56,6 +56,11 @@ enum drm_bridge_attach_flags {
->  	DRM_BRIDGE_ATTACH_NO_CONNECTOR = BIT(0),
->  };
+>  EXPORT_SYMBOL(drm_encoder_cleanup);
 >  
-> +enum drm_bridge_event_type {
-> +	DRM_EVENT_BRIDGE_ADD,
-> +	DRM_EVENT_BRIDGE_REMOVE,
-> +};
+> +/**
+> + * drm_encoder_cleanup_from - remove a given bridge and all the following
+> + * @encoder: encoder whole list of bridges shall be pruned
+> + * @bridge: first bridge to remove
+> + *
+> + * Removes from an encoder all the bridges starting with a given bridge
+> + * and until the end of the chain.
+> + *
+> + * This should not be used in "normal" DRM pipelines. It is only useful for
+> + * devices whose final part of the DRM chain can be physically removed and
+> + * later reconnected (possibly with different hardware).
+> + */
+> +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_bridge *bridge)
+> +{
+> +	struct drm_bridge *next;
 > +
+> +	list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain, chain_node)
+> +		drm_bridge_detach(bridge);
+> +}
+> +EXPORT_SYMBOL(drm_encoder_cleanup_from);
+
+Shouldn't drm_encoder_cleanup() also use this function?
+
+> +
+>  static void drmm_encoder_alloc_release(struct drm_device *dev, void *ptr)
+>  {
+>  	struct drm_encoder *encoder = ptr;
+> diff --git a/include/drm/drm_encoder.h b/include/drm/drm_encoder.h
+> index 977a9381c8ba943b4d3e021635ea14856df8a17d..bafcabb242674880a97dfb62a50d93cc4d80c1d4 100644
+> --- a/include/drm/drm_encoder.h
+> +++ b/include/drm/drm_encoder.h
+> @@ -320,6 +320,7 @@ static inline struct drm_encoder *drm_encoder_find(struct drm_device *dev,
+>  }
+>  
+>  void drm_encoder_cleanup(struct drm_encoder *encoder);
+> +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_bridge *bridge);
+>  
 >  /**
->   * struct drm_bridge_funcs - drm_bridge control functions
->   */
-> @@ -729,6 +734,24 @@ struct drm_bridge_funcs {
->  				      struct drm_bridge *bridge,
->  				      bool enable, int direction);
->  
-> +	/**
-> +	 * @bridge_event_notify:
-> +	 *
-> +	 * Notify that another bridge is being added or removed.
-> +	 *
-> +	 * This callback is optional. Bridges implementing it must always
-> +	 * check whether the event refers to a bridge they actually need to
-> +	 * interact with.
-> +	 *
-> +	 * @bridge: bridge being notified
-> +	 * @event: event happened (add/remove bridge)
-> +	 * @event_bridge: the bridge mentioned by the event (i.e. the
-> +	 * bridge being added or removed)
-> +	 */
-> +	void (*bridge_event_notify)(struct drm_bridge *bridge,
-> +				    enum drm_bridge_event_type event,
-> +				    struct drm_bridge *event_bridge);
-> +
-
-This creates a small issue. It requires drivers to have a bridge, even
-if they don't need one - e.g. the drm_encoder doesn't get notifications
-about the added bridges.
-
-I'm not sure if that can be solved in an efficient way.
-
->  	/**
->  	 * @debugfs_init:
->  	 *
+>   * drm_for_each_encoder_mask - iterate over encoders specified by bitmask
 > 
 > -- 
 > 2.34.1
