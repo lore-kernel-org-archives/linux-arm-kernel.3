@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D33C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B4BC02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 08:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4lbgYmPk9XP59vTZ4YMM9tWk6u+nU78RJ7QSsRKInw=; b=sM/wjwq5gU/8XX1o0F1kflCfr5
-	X/O567DN7KaX6pNr/1UiJJjywf75yyq/mHChsvk+pBcAlMZM2cacWr7zlUreG9M+eM2p4aFDHxE1j
-	DY1pN2oGoGPwKil6DLBcUSr3hHonONgVm4iLvMLi0ZzagJwks1DSN/ajGsUMU9hNFtqDBkhYYz4Pr
-	UrE43rJBTEg8hLL0hClm8vC7Wfvk4FwvLvrlhfpaj5mMgCqW/NpXzF9SwsltvvIzGgHBsY0CFrBAV
-	S6vIJFlVmWXM4rpl0gRFQVRFcEGgNIBgLAHAAyGCE8ZyJPK1yFT1N5bu9XTx7fBJkHU1YQcWWcl/w
-	GnPn7/bQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mKxj3pSD0UwzMwdxWit8kdJvq0oc5hRaBZzxFkTM46k=; b=4BDQcRZL+/gQNi
+	qErvT0mifAN90RkxksdVJcfXE1sebifCbhM5jZ4JOnMjLRri19DUjIG1WaJRIB5nGW5k17ROGTWjo
+	vPKWSFm8LURCXDnmGYmZ/2CocgZnXQHwKweVtUgUq8Gn25bwpwfDL0abQCdHUB7NijRy5iqVcQ10G
+	bk88n1fThM+YRvkkvBao0Yv7yITjUPxQ4d3Jf6aR79FOnAZurP/x/MUrb2WRaPYibkRWNDr94MiRQ
+	fyR/9DCemWsKRoL+uRLja+bxYo0STExT9m1u7M+ai43db2gAgy7vtBRB7ZfYZq+UxuqTY6BOmPwJA
+	X/ZJQJexHK1vBa8dAyIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKAD-00000008uCk-2MkX;
-	Fri, 07 Feb 2025 08:56:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tgKBZ-00000008ufI-1xqN;
+	Fri, 07 Feb 2025 08:58:05 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgK2l-00000008sT4-1vQj
+	id 1tgK75-00000008tDw-41kN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:49:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AEA0E5C5767;
-	Fri,  7 Feb 2025 08:48:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4607CC4CED1;
-	Fri,  7 Feb 2025 08:48:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738918138;
-	bh=wrxfkqUZXjG/NYNWJi4TM/I1dqfnQ+7iCKBkou4/NnQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hxYBhcKwI21p86UL8L8YlttFcR/8JoHb60J23SjdHmiFej1XmR3pm/W/i9jLB4gCs
-	 IRPIgXDoRM2bnXDGmb/J2hfcxKcO3F6s+9QR/wuHtXp0MltLcKnJqgbRKOa+HEul98
-	 wPe4o3X7P0fsZluTgNBTot1zKlbBB2Bt5iFCd9QN+G/RmXbQdx/L0pA9WxWO4qU0YR
-	 njMjp/yHVnTlW/pYmJW0zR2ct1ClZobOXPQY1tqpg6EfdQI/Udec814QLEIspHc6X3
-	 vocC1hCpRwrEja5nsh0TwQh49lHOFEDXcpgXwUCXgAFdTXDtLpngA5mOKXKP8/+TaF
-	 Ajdouxc3URaIw==
-Date: Fri, 7 Feb 2025 08:48:52 +0000
-From: Lee Jones <lee@kernel.org>
-To: Artur Weber <aweber.kernel@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v3 4/7] mfd: bcm590xx: Add compatible for BCM59054
-Message-ID: <20250207084852.GC7593@google.com>
-References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
- <20250131-bcm59054-v3-4-bbac52a84787@gmail.com>
+	Fri, 07 Feb 2025 08:53:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A9912442CE;
+	Fri,  7 Feb 2025 08:53:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1738918404;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mKxj3pSD0UwzMwdxWit8kdJvq0oc5hRaBZzxFkTM46k=;
+	b=Jt11DHRqH/hXBBUEMf6EkKmyU63Y9/C8UFL/hQXT+cT/sBvJcPNHnTdb21tQMKpXIIaS8n
+	Tjy72dAH3yPLxX3dqKeROQm5keBVXaUjd58v3UNMxIspmoEGRvwT69peKmMTNn0e6daa3V
+	al+b+2v6RA3XNUzYrjh+Ey+kJLdoxAbWb8xNz01kb1g5TW7VMLqikmvXvt4uv+Fj1KkHc1
+	DzrZkzZzMjh0JRsawywnNJabEBCijVEZfARH8y0/h/S76bj5yLmPNv8qg/6yDyiExoH/JF
+	SR5yL1Mt/orv91qMJq3j0p//MLNZTzIkWXA7UVywXc+HYC491xHAPngeJJyqBA==
+Date: Fri, 7 Feb 2025 09:53:18 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v6 13/26] drm/encoder: add drm_encoder_cleanup_from()
+Message-ID: <20250207095318.2fc8d54e@booty>
+In-Reply-To: <spxzxwcs27uv2ttt5mh3r2767ihczvzzrtov6afdmex2ye7lam@r6kdqv5ocg5h>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+	<20250206-hotplug-drm-bridge-v6-13-9d6f2c9c3058@bootlin.com>
+	<spxzxwcs27uv2ttt5mh3r2767ihczvzzrtov6afdmex2ye7lam@r6kdqv5ocg5h>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250131-bcm59054-v3-4-bbac52a84787@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeekgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopegumhhithhrhidrsggrrhihshhhkhhovheslhhinhgrrhhordhorhhgpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehinhhkihdruggrvgesshgrmhhsuhhnghdrt
+ ghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_004859_582000_1F8D32C3 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20250207_005328_446227_55F4E037 
+X-CRM114-Status: GOOD (  25.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +74,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv?= =?UTF-8?Q?=C3=A9?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jan 2025, Artur Weber wrote:
+On Fri, 7 Feb 2025 05:03:13 +0200
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
 
-> The BCM59056 supported by the bcm590xx driver is similar to the
-> BCM59054 MFD. Add a compatible for it in the driver, in preparation
-> for extending support of this chip in the bcm590xx regulator driver.
+> On Thu, Feb 06, 2025 at 07:14:28PM +0100, Luca Ceresoli wrote:
+> > Supporting hardware whose final part of the DRM pipeline can be physically
+> > removed requires the ability to detach all bridges from a given point to
+> > the end of the pipeline.
+> > 
+> > Introduce a variant of drm_encoder_cleanup() for this.
+> > 
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > 
+> > ---
+> > 
+> > Changes in v6: none
+> > Changes in v5: none
+> > Changes in v4: none
+> > Changes in v3: none
+> > 
+> > Changed in v2:
+> >  - fix a typo in a comment
+> > ---
+> >  drivers/gpu/drm/drm_encoder.c | 21 +++++++++++++++++++++
+> >  include/drm/drm_encoder.h     |  1 +
+> >  2 files changed, 22 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encoder.c
+> > index 8f2bc6a28482229fd0b030a1958f87753ad7885f..472dfbefe2960924a4e83bec425af8c7ef5f5265 100644
+> > --- a/drivers/gpu/drm/drm_encoder.c
+> > +++ b/drivers/gpu/drm/drm_encoder.c
+> > @@ -207,6 +207,27 @@ void drm_encoder_cleanup(struct drm_encoder *encoder)
+> >  }
+> >  EXPORT_SYMBOL(drm_encoder_cleanup);
+> >  
+> > +/**
+> > + * drm_encoder_cleanup_from - remove a given bridge and all the following
+> > + * @encoder: encoder whole list of bridges shall be pruned
+> > + * @bridge: first bridge to remove
+> > + *
+> > + * Removes from an encoder all the bridges starting with a given bridge
+> > + * and until the end of the chain.
+> > + *
+> > + * This should not be used in "normal" DRM pipelines. It is only useful for
+> > + * devices whose final part of the DRM chain can be physically removed and
+> > + * later reconnected (possibly with different hardware).
+> > + */
+> > +void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_bridge *bridge)
+> > +{
+> > +	struct drm_bridge *next;
+> > +
+> > +	list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain, chain_node)
+> > +		drm_bridge_detach(bridge);
+> > +}
+> > +EXPORT_SYMBOL(drm_encoder_cleanup_from);  
 > 
-> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
-> ---
-> Changes in v3:
-> - Fix compilation warning about device_type pointer cast type
-> - Name the device types enum and use it as the type in the MFD struct
-> ---
->  drivers/mfd/bcm590xx.c       | 6 +++++-
->  include/linux/mfd/bcm590xx.h | 7 +++++++
->  2 files changed, 12 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
-> index 8b56786d85d0182acf91da203b5f943556c08422..23036157480e0116301bfa93932c92f5a80010ea 100644
-> --- a/drivers/mfd/bcm590xx.c
-> +++ b/drivers/mfd/bcm590xx.c
-> @@ -50,6 +50,9 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
->  	bcm590xx->dev = &i2c_pri->dev;
->  	bcm590xx->i2c_pri = i2c_pri;
->  
-> +	bcm590xx->device_type = \
-> +			  (uintptr_t) of_device_get_match_data(bcm590xx->dev);
+> Shouldn't drm_encoder_cleanup() also use this function?
 
-Why are you dividing pointers with each other?
+Sure. I'll do it in v7.
 
->  	bcm590xx->regmap_pri = devm_regmap_init_i2c(i2c_pri,
->  						 &bcm590xx_regmap_config_pri);
->  	if (IS_ERR(bcm590xx->regmap_pri)) {
-> @@ -91,7 +94,8 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
->  }
->  
->  static const struct of_device_id bcm590xx_of_match[] = {
-> -	{ .compatible = "brcm,bcm59056" },
-> +	{ .compatible = "brcm,bcm59054", .data = (void *)BCM59054_TYPE },
-> +	{ .compatible = "brcm,bcm59056", .data = (void *)BCM59056_TYPE },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, bcm590xx_of_match);
-> diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
-> index 6b8791da6119b22514447bf1572238b71c8b0e97..b76fb57bf0dd17d51580e93db58ece4a4d6dc5e4 100644
-> --- a/include/linux/mfd/bcm590xx.h
-> +++ b/include/linux/mfd/bcm590xx.h
-> @@ -13,12 +13,19 @@
->  #include <linux/i2c.h>
->  #include <linux/regmap.h>
->  
-> +/* device types */
-> +enum bcm590xx_device_type {
-> +	BCM59054_TYPE,
-> +	BCM59056_TYPE,
-> +};
-> +
->  /* max register address */
->  #define BCM590XX_MAX_REGISTER_PRI	0xe7
->  #define BCM590XX_MAX_REGISTER_SEC	0xf0
->  
->  struct bcm590xx {
->  	struct device *dev;
-> +	enum bcm590xx_device_type device_type;
->  	struct i2c_client *i2c_pri;
->  	struct i2c_client *i2c_sec;
->  	struct regmap *regmap_pri;
-> 
-> -- 
-> 2.48.1
-> 
+Luca
 
 -- 
-Lee Jones [李琼斯]
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
