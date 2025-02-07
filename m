@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C77EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4974EC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLksYmtV/LGt/QTVyUj/Eiqdx1WVJtDb2zhhPRveb5w=; b=MqdA/Ls66+Hkc+KdLLgzx3Njss
-	g0qn7q22uK2Uqze0QjOaWUPJujFn9gNRrGWbT3dcQl7Y3jO90taenqagWsc/bKkLglD1b4Iy3z0fO
-	kcu6lDEThir7PReUII+rkXK4ZFbPKeL3ebjlCEUHJwgUK7lbcHqwvslM+p1phW/+/UxmbDOyoKo8E
-	Dy/41K55iCJbVUZKo5v2ZmpnrGjrBbuHbHWHofw0o+dJ7h7a8HhnJmmMt3j9l2fqUQ6kTVnvf6T0T
-	qPVGx5CzkZk04ajtawRc5otuI5PXr3EHGNwgQXgqKLT/WtZ2ROYujIeC/43y7qr98QkIAmA5ttJwZ
-	ADWE9ZNg==;
+	bh=C9sJgZkwObZZZ/WV0HjnziR3OT4ESIIcpDukzt2Zb4s=; b=fUEYPgy8tXeaAN3b3oEozdyJzp
+	FimOteXNoKy952PRJCrg1Yu8BmBrtfK0lJ8Z0g6noF+J8Zvol6NmezNzeaheh9cF9zWo7+xDkuBlD
+	LKKwLCj/HC/QlLtOsSE/uFPjw4oTZtgntV9/TDYnGbUnc934M6TCSz/dFbF0NLcw8QYsVZTivL8+0
+	Sy6ctprH5lR257f2v6O5YJ/wI39PLZetjDXKL2FCSfrtpvQbhD2SmqqavlKXJ0WyQMYUpm2fqbLkz
+	LwOS+J1f5ekoBuKxABOqvyO6QFmTkmskhTsgnPOMIMB8chwCa1Pw9anMBpiSRaLky+bAQz+Lx7VC2
+	alGBENCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSJU-0000000AWVc-3Un0;
-	Fri, 07 Feb 2025 17:38:48 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1tgSNY-0000000AX7m-0cl1;
+	Fri, 07 Feb 2025 17:43:00 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRoK-0000000AQ0P-38K8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 17:06:38 +0000
-Message-ID: <5f05d772-5d25-4b94-8759-95db3e283a6f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738947989;
+	id 1tgRwr-0000000AS3D-1lgZ;
+	Fri, 07 Feb 2025 17:15:27 +0000
+MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1738948522;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pLksYmtV/LGt/QTVyUj/Eiqdx1WVJtDb2zhhPRveb5w=;
-	b=sVzyMsw+PCLFyI241R6uxQ3C1W6cBpXLiQUfQFbDCzlMAi4VjyoHKX/YOL5/cMk4dM9GA5
-	8a4QS7E4snoI1vvGguhgu14FD7fjN9KNLFEAvL1Cds7x+k2hj2FKrcDt6BhCqOARffRXQZ
-	JtmxmwZ4DbHEGjiPY8B7/plBkC4rUIE=
-Date: Fri, 7 Feb 2025 12:06:25 -0500
-MIME-Version: 1.0
-Subject: Re: [PATCH v2 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- "open list:DRM DRIVERS FOR XILINX" <dri-devel@lists.freedesktop.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
- open list <linux-kernel@vger.kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Bart Van Assche
- <bvanassche@acm.org>, Dan Carpenter <dan.carpenter@linaro.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-References: <20250207162528.1651426-1-sean.anderson@linux.dev>
- <20250207162528.1651426-3-sean.anderson@linux.dev>
- <20250207164446.GB24886@pendragon.ideasonboard.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250207164446.GB24886@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+	bh=C9sJgZkwObZZZ/WV0HjnziR3OT4ESIIcpDukzt2Zb4s=;
+	b=Mme29LFFtloTAst8s+o3ggTPvUtlDtIDaHNR4Ti+CdP8H4fDOMgUQEFHtPReb4j4HU65w2
+	RYlzX9uZKgnJkc6CDP5htfsDwwlbFVD/D8XOX9Hd21Gqza6iHpkqjL/ir+H1VEX+OzIad1
+	bihpS+mAHXlaA4hORWckcP2yXtfX9NVlivPzKOHcAkbZo5KT9//J1DDDk2t5aJLv84vaAe
+	Cy7jdZPSSvyOI++KZXMB1YM9S9njI4GSZhbxR9ohSMw7DJ+LnezliWZ+Dj78pux/JGfbz4
+	2NeSnNAexum0rP1+jqyuneuVQlxKWUQ+jvf0SVXxQgwfllFfo2GRSaXduMKAZw==
+Date: Fri, 07 Feb 2025 18:15:22 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Trevor Woerner <twoerner@gmail.com>
+Cc: linux-kernel@vger.kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] thermal/drivers/rockchip: add missing rk3328 mapping
+ entry
+In-Reply-To: <20250207164740.14475-1-twoerner@gmail.com>
+References: <20250207164740.14475-1-twoerner@gmail.com>
+Message-ID: <fc3c4542d5cc4d95f74692140e5ea8b5@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_090637_136936_F2673CB4 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20250207_091525_611084_A75CF17F 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +75,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/7/25 11:44, Laurent Pinchart wrote:
-> Hi Sean,
-> 
-> Thank you for the patch.
-> 
-> On Fri, Feb 07, 2025 at 11:25:28AM -0500, Sean Anderson wrote:
->> Convert most mutex_(un)lock calls to use (scoped_)guard instead. This
->> generally reduces line count and prevents bugs like forgetting to unlock
->> the mutex. I've left traditional calls in a few places where scoped
->> helpers would be more verbose. This mostly happens where
->> debugfs_file_put needs to be called regardless. I looked into defining a
->> CLASS for debugfs_file, but it seems like more effort than it's worth
->> since debugfs_file_get can fail.
->> 
->> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> ---
->> 
->> Changes in v2:
->> - Convert some conditional return statements to returns of ternary
->>   expressions.
->> - Remove unnecessary whitespace change
->> 
->>  drivers/gpu/drm/xlnx/zynqmp_dp.c | 147 +++++++++++--------------------
->>  1 file changed, 50 insertions(+), 97 deletions(-)
->> 
->> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
->> index 189a08cdc73c..63842f657836 100644
->> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
->> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
->> @@ -1534,10 +1534,10 @@ zynqmp_dp_bridge_mode_valid(struct drm_bridge *bridge,
->>  	}
->>  
->>  	/* Check with link rate and lane count */
->> -	mutex_lock(&dp->lock);
->> -	rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
->> -				  dp->link_config.max_lanes, dp->config.bpp);
->> -	mutex_unlock(&dp->lock);
->> +	scoped_guard(mutex, &dp->lock)
->> +		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
->> +					  dp->link_config.max_lanes,
->> +					  dp->config.bpp);
-> 
-> Could we use curly braces even for single-statement scopes ?
-> 
-> 	scoped_guard(mutex, &dp->lock) {
-> 		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
-> 					  dp->link_config.max_lanes,
-> 					  dp->config.bpp);
-> 	}
-> 
-> I think this would make the scope clearer.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Hello Trevor,
 
-FWIW around 25% of existing scoped_guards use this style, and it seems
-to be idiomatic for short scopes:
+On 2025-02-07 17:47, Trevor Woerner wrote:
+> The mapping table for the rk3328 is missing the entry for -25°C which 
+> is
+> found in the TRM[1] §9.5.2 "Temperature-to-code mapping".
+> 
+> NOTE: the kernel uses the tsadc_q_sel=1'b1 mode which is defined as:
+>       4096-<code in table>. Whereas the table in the TRM gives the code
+>       "3774" for -25°C, the kernel uses 4096-3774=322.
+> 
+> Link:
+> https://opensource.rock-chips.com/images/9/97/Rockchip_RK3328TRM_V1.1-Part1-20170321.pdf
+> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
 
-$ git grep scoped_guard | wc -l
-523
-$ git grep 'scoped_guard[^{]*$' | wc -l
-156
-$ git grep -A2 'scoped_guard.*{' | grep } | wc -l
-25
+Thanks for the patch.  I think this should also include a Fixes tag
+and be submitted for inclusion into stable kernels.
 
---Sean
+> ---
+>  drivers/thermal/rockchip_thermal.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/thermal/rockchip_thermal.c
+> b/drivers/thermal/rockchip_thermal.c
+> index f551df48eef9..a8ad85feb68f 100644
+> --- a/drivers/thermal/rockchip_thermal.c
+> +++ b/drivers/thermal/rockchip_thermal.c
+> @@ -386,6 +386,7 @@ static const struct tsadc_table rk3328_code_table[] 
+> = {
+>  	{296, -40000},
+>  	{304, -35000},
+>  	{313, -30000},
+> +	{322, -25000},
+>  	{331, -20000},
+>  	{340, -15000},
+>  	{349, -10000},
 
