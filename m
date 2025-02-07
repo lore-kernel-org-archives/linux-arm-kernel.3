@@ -4,170 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CCFC02196
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 07:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984E9C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 07:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puu2+/4Po2GvPaRCKnnJMrHGieggJ+nvt3cw3+y3yDM=; b=gvLi1JXJiPBZqrmB3IxOECDP+j
-	L1Bm4FJXFsw+vS7LFf2UL1lE8JnndUjAe3CrVU5VcXmXE1hSAb6nk4EFYtmFyCltEePxAr4H12RqP
-	VQ8VdKJmo1D1XQ64of0wBTGM0q76e2D/jdbO0f8CDe2gwaDvSEuqAD7yPC5v2ZF00QxJaAelwXDLa
-	GTWpxLLymFfPcehRsMx131ob5NGWuiSmdZG2sJRpgDiIoClQUExyP4Y69rFO2yUutB8fbG64JbFQl
-	pEb1KQ17RVLlewcAM2ZNnMELP8dIjSfrYrVWQnC8BujCFSuYmOR/x1kUwQpzlqODs9VyOD8WrSf+Z
-	mIYpJbig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hsR/l7juiq4ts5nn339YbMnXmxHjFM8kaFQiNj600+w=; b=bgOtkBJpPSKH4+s+zzcHaXAeP6
+	jHwnk7yIUKy5bWeN9tVnsyW6emy7tU0cFF9xHfvK6Bu5rmTxjmEglQ9+C7y5g7eWgSKp/gFcocl/9
+	O8IC7Fe/XJ4aW9byHbjs0YHDG6Hg3K7yi3HXmiDrzh99IQsh3a6gp6bS7yliV9Wi28NNzt4FrEzX3
+	c4HkOMt6uylEAb//vknVvWxBI/R2WyUi+I9dwEpERgOQwPyLC7e7MZinpX1iFBiqqTTVwsLiwC7qU
+	xl51WIQ0ZdupLe8qnSNZnMBR3bceRBQS6KpL9Pe09mQ3FZhy4xq29nsgZhnfju1ArIUm1fNNeQF1l
+	e7nWcwjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgIU6-00000008bQJ-0LCK;
-	Fri, 07 Feb 2025 07:09:06 +0000
-Received: from mail-psaapc01on20701.outbound.protection.outlook.com ([2a01:111:f403:200e::701] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tgIlF-00000008dXj-3oNX;
+	Fri, 07 Feb 2025 07:26:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgISi-00000008bBq-0HMu;
-	Fri, 07 Feb 2025 07:07:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZrgRVPCrU1YZo4naKlZDxOtyx9i4h6CsEFhfLzn3RdPeok/rr24mHWjU2uxtlg+mC8myPoi92r7Knt3PudFQKMC5cpZoEd3ggmS9h5S0lMaxmlolNFG2s9UM3ISnD20Z2Kgk50h1t5PWzVOuDPBEcWy78lM+evo5qnVgQ63JM82U4i3QXs4o76KML4u5aG68Y/YqbElJPSkLBSiAxjY2VTak++xoJF2DaksZb3+C+bThKCda+x2bJ7OVJD4D6P5p8DWEdpjdHbKq633oA8+Ih0MSI1GZkyH1otNPjz5f0I8o4RkcNcnkCm6ijbRrQy2h7+b6RYgfqk7tHhlgeSxn+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=puu2+/4Po2GvPaRCKnnJMrHGieggJ+nvt3cw3+y3yDM=;
- b=MkNOeYFVODT3NtpkbI17VlR3AZ492iNH1jRKUMg5+trNA8VDiAd4X5vLf3xcEQSSwtTxKyV3S6/116NeP4ji6NP8nf3Uo9hsoE6lQH8yYhEB6bqaqLdO3CmSIYgvJZkHrtcROuFuttMEXX45Mbv3VEvpmBNZOht3wtOUvq9aw1YTVGSbcKVMaVbErls/lnYN6dB74szDdYPE7qFkmIssSgaloqmJuJ7OTk+0btsIXsmpvAUp6EtvlMqS6I8XP7oPHyrXwM+XR0VpKgMankAjLKebQp08Vioy3AY102FzsXfamtcGGdcLY9ltVcnW79zq1OM3+12LdMFoAZEB8esiiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=puu2+/4Po2GvPaRCKnnJMrHGieggJ+nvt3cw3+y3yDM=;
- b=G6mteD0GvYR6gO/nwmn0VSkKCC0c2NvLlFgnPFGM6oxZBBjMlQD9HouXXWrqCQ5d0ehKWctsWJWTskr9gv/yYPbzZ/7BuU2KjUB3OgVCaJa56CYaneuuBs1o6cx4LOeAzjQnUOktfNoH32655dTV7ctcFEmeZRPbW6qhGcfYUo27NtAWBoizuEjDgugkN8qqbYquJijSC9p/0nh3/fRxS4w8DXXT4/BGC+YW02XmpQFAGTzr6eU8PmQcbIVOvZ4acZrADRGSJdS/5OfLM5AnfBU2+HF9uUvCavCBv9xeHgNV7GG3aLK7SRx8uMqatio1+Ms7H+4rUHBZHjKlNAnAjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by SEYPR03MB6579.apcprd03.prod.outlook.com (2603:1096:101:86::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.12; Fri, 7 Feb
- 2025 07:07:32 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123%7]) with mapi id 15.20.8398.021; Fri, 7 Feb 2025
- 07:07:32 +0000
-Message-ID: <fc2ee33d-db32-425f-ae5b-e56a15bc27e4@amlogic.com>
-Date: Fri, 7 Feb 2025 15:07:27 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] pinctrl: Add driver support for Amlogic SoCs
-Content-Language: en-US
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-References: <20250122-amlogic-pinctrl-v4-0-4677b2e18ff1@amlogic.com>
- <20250122-amlogic-pinctrl-v4-3-4677b2e18ff1@amlogic.com>
- <CACRpkdZRbpd0Kw9V=aYX5P0vJLtErNR+aBzPagSwf=AZh6QERA@mail.gmail.com>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <CACRpkdZRbpd0Kw9V=aYX5P0vJLtErNR+aBzPagSwf=AZh6QERA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2P153CA0010.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::13) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	id 1tgIjs-00000008dJB-0rOE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 07:25:25 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5176Wuli009174;
+	Fri, 7 Feb 2025 07:25:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hsR/l7juiq4ts5nn339YbMnXmxHjFM8kaFQiNj600+w=; b=hDsz/CNGBR131zDp
+	hcI9ZSlp06L1IljgZOoNaYowp6tamoWPmVJwVFsvCJ4A9Ci3+jye80lxRI6ETDXd
+	KquCFoUMnMYo37pNlPyYELgekwQrw1/4XLHWwDuEgeSRGGQmdS/wAtR0dxNZ+79a
+	+SfOn0y9y8MTUk9fSffwusjQlBaqTi4FtRr9RM6SxQcPAwN5ZAYghWEQYPm6iy5A
+	WSrql/vHP7k//o1j+9aym0tf5gGOJeZHPKZOVSBXbYyfHahiBAUc/P7c1LN7rJho
+	r3OG9NZv3gcaTpC9sICG7c5Hh41gFFU4TvrLPI1FC3Y+LwJZFCif0ZLQaHoea2Yd
+	kvcZUQ==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44nd0f04a7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 07 Feb 2025 07:25:17 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5177PFwb011606
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 7 Feb 2025 07:25:15 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 6 Feb 2025
+ 23:25:10 -0800
+Message-ID: <a2d221a7-ca6d-4956-8537-bee39e89f61c@quicinc.com>
+Date: Fri, 7 Feb 2025 15:25:08 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SEYPR03MB6579:EE_
-X-MS-Office365-Filtering-Correlation-Id: da074f16-ec6b-46ba-8c32-08dd4746171f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RE95Ly9VbHhyR3pSU1ErdUxxQStja0crZnVpUGpHZ0tYRzRnL1VFakNZOTVE?=
- =?utf-8?B?YVFFcFJldUZRSkFSRVMwd2MxRnV5S2JYdlJGdmEyaHpRNWFyZ3B4L0tZVWxC?=
- =?utf-8?B?UkVnRUs0T1pBaE1haEZ4OHVjMGxmT29UeG4vWFcxWFlQNUVKMzVCL1dEUExL?=
- =?utf-8?B?L0Y3UmhBakFyaSsvY2o3djMzSXFTZm1oSGtUWmdMTXZvRFJDWFpPZzA3WVBi?=
- =?utf-8?B?RmZDT2JmU0MzYVhtVjN1aVlOazgxaDNaaTlQMDYwYTlTWng4RDVLTGZ4dy9o?=
- =?utf-8?B?ZExsditsVHlGc1hxUFp6OXN2YlNSeUZoYnpkd09FUjJJczVISElHVndOdm92?=
- =?utf-8?B?VHdMUDU0ZExxMWRPZDB4eW9iMTZFWlpZNmlzVmtIenpVNzl0eTRad1ViM0VV?=
- =?utf-8?B?SCsyb1l4VGN0NVl3MG8wRFNwY1JBZlRPV2tJUHZqMGFiN3pibWxaTmlDcGZo?=
- =?utf-8?B?VEwvYWp3aHk3WFJkQVFPaS9TSTdtZGlkMU9KUW8wbkNBUEFlbWp4dVdaSC9C?=
- =?utf-8?B?N0ZCMTY4Rnd0Q3hHQXRqNldCRHpkSzJFenhuUXNGQkFGSEwwc2V6czBXK3lL?=
- =?utf-8?B?MEd6U0FwQ3J6TjVTWVhJTmNVY2p0T09XYlhiVExJR21kcGdTbEVYeUdwak4z?=
- =?utf-8?B?ZGkzNUdjK29SdlJpRTlUUVhiVS96Tm9lcDl5T1RXM2ltS3dSa3FHc0VvQUJk?=
- =?utf-8?B?emNvd2Jpb3J4RzhYL0RwNjJaeUcxay9nWkN1TnZ5cXpmWDMwNExCUlBSUzV3?=
- =?utf-8?B?enVwVVpvNUxqeEpKWDk1Rzg5MVpDL2xuVExqTzY5Vno1SngrTTc1ZEZ1OHdV?=
- =?utf-8?B?T3hUYlF5SEhEeFRCelQzUTVYS2JmZitodHRmbTJ3NFRuNnVSYldib1NSaHdl?=
- =?utf-8?B?OHNpbFJneWgyK0FlMUtCdDk1VXVuRnhub3JFV0Uxd3ZHZzRsOHpQR1k5cm1H?=
- =?utf-8?B?L1JvdkNRbVhHbk1WZE9LdEovVnRNT0hEVStNMFcyZlZwVTdFQXVXWDJJZkR4?=
- =?utf-8?B?S3dSaUlpdVJJUDZjaTUrSDZUYnVyYkhmeXhKZmNldll3RlpKbVcxZ0l0eDF6?=
- =?utf-8?B?Y3BHci9ycWpSQ3M2WEJoZmxiaEtwL3U3Rjc1TEtOaWRmNWVwNHNGdXRVbGxi?=
- =?utf-8?B?YXM5NWt4OEpqa3hhUEUyS0QvczVvOEhtN1lyN0o0ekNhdzlML1NOSnhtYm1I?=
- =?utf-8?B?cXEveVVvbnhpY05tUEpmRENjTkNoT0RkbEhwL3I4VjZNa3dmUWtSeGNBcFB6?=
- =?utf-8?B?OG9BdE9LeDBOMmV2eGFaNGpQZDFNZWpaNjVPMXR0QTlpeFJHbGNLcHA4VGFH?=
- =?utf-8?B?VHR1cDg2VFRuN09LMlprS0ZoRjFlcW55MC9KQXhWOW5lbWUwL2pjRk02b296?=
- =?utf-8?B?WWw1cm92ZUxUenVvOFkrSW0rS0pvMzhyV3hDc3AwWUM5UTNUczRwc1hhRm9Y?=
- =?utf-8?B?S0lOS0h0blFnMC9neTNJcnlkK3FXeituOXFvaVNCOTd5ZlNaNXZmVW9vR2Nv?=
- =?utf-8?B?aVFRd2JyZUxlNTR0dFpCOUpKVWFWNXhaeUlCbmRZU3NiSzRqa2hOQm5EWW9u?=
- =?utf-8?B?OFY5VFhTTVhQeWpJVWlFcFR0V1Q5RjE3MDg4T2JIZ1NJUzduSFBkNFhuQmtZ?=
- =?utf-8?B?SVh1SFRLM3ZkZ0h1anJRRzVwT2wrYTRHcXFCcEd6SnJvSmJyNCtNL1hjZlZt?=
- =?utf-8?B?THNEWDdXUnRzbmFQc3JsTmRGenQ4bkgyOHRjYkVnUWFqWEhzeG03UHhIcUlB?=
- =?utf-8?B?ek1GMFh3N1lLejN5L2dKSjFDSFh4SkFqOGc5U1YraXU3bUU5dWJJbzBCeGE0?=
- =?utf-8?B?NjhzeGgwMy9ES1QwU0xiem1SUjJUUjNoWW9TR2VuYTlIeTc3dTBjWjl2amJN?=
- =?utf-8?Q?+nDLBOdgrifyi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MlUvckN2WHhNRldaN1o5UVlMT016VUt0dTQ2cEZrbjdhK2RMWm1hK0tnUEIv?=
- =?utf-8?B?OFl5b0x6Z2NFdnBKUEVDVmF6TFA2N2xXTGRCRWVEelk3M2poYnV1UGVlRDM4?=
- =?utf-8?B?SklaVE5pM2FwUGRkbVZZcWo0c2dxVmVUa0tDNXFqSktXc2FBWWU3SThzRFNz?=
- =?utf-8?B?Y0dDdHZaQVNxUzZFZHBUNkM3MzdORmdTaWJzUXdZaWdZVWNvbXE1L2lzSUVv?=
- =?utf-8?B?NFpKN3crdi9rQ2g4b1ZiZVB0RTBBUE5yTHI2TkJEOFBRQ0x3dGtTRlVDUnNO?=
- =?utf-8?B?QkVJam83RkovbUdYSHh1TzZXVVA3WUkwd3BOS1AybnFXSjMzQmx1ZGV3OW9M?=
- =?utf-8?B?NlhPZGI1RllENTE5RHd1bExIM1ZaQStxdTh2dFdsVlFmZXZiTU0rT0dSOWov?=
- =?utf-8?B?TVFYTnVDNmE0ZjJZRnE3dW5oVzhneWd1WExueHduR3VWU01weS81MHMvcmxZ?=
- =?utf-8?B?OTNEdmc5TmYxYThpOTBUSndOYmQvT3MvcE91d0Yxa29YS0dGUHNpelZWVldn?=
- =?utf-8?B?R0gyeU4yUHk0cjZ0MnBPYnBudDlHSW13WlVkTitZNDFKU3RqSTExYmZmeGt1?=
- =?utf-8?B?bVpIWGhTLzhFcFh0SjVra2V4T05MY1Q4NThXUEFDYjNGaDRpNjBCa0RJUkw3?=
- =?utf-8?B?cGxtc0pJejZaTXBqTDdxakU4WTlNTy9xVDR4ZmJIcDl1ZjFXblhLRE1TZDN5?=
- =?utf-8?B?SWRuL2NKWkVoU2Q1MkJXZS9lTHhQajVSOTc5RGRMSkxSdXlPNUFydWNzUVRQ?=
- =?utf-8?B?WnNWT2l3SWhUNDNkcHc5L0g1eko1TFpSa3c1M3R4OTNZZFIvSWlkM1dta1py?=
- =?utf-8?B?cFlvUk92QTluMTErOVdEUFMreU1lbXIzb1RycGNFTVYzRllkV2dLUDgzbVJi?=
- =?utf-8?B?K0JmaFBaMW84U0tZT2JuSFhGWUtvQTBlRVh4Q0JZd05CVm5WVDNFU0t4SklI?=
- =?utf-8?B?Y3lHR3lZaExZTHZRK3pHVE01Y01RVC8vUWkxTng0NUdpcmQxZEVwS3JHS3Bi?=
- =?utf-8?B?VHdCUmE5aFArc1RIV0krVnFHVkVmL2U2ZDJyWEJzUVBkdEc3TVMwdllHTzVC?=
- =?utf-8?B?UjhIZHNrVW9SdHR3TWtiL1VOVlR3eW5nSlIyTGt6R2lSaDBtZ3g0NHhCbFQ1?=
- =?utf-8?B?TlY2dG1LdE0rV0NVZ0dNbHBhb3dnTFpqdTZnYTJOMG9vbklmV1ZJSjRPV0RX?=
- =?utf-8?B?RUgxUHhOTGpLTHM0b3NKc0hQSVZUVWJLQ1p6ZjAyQnltTHVSNTEyNFVJMEcv?=
- =?utf-8?B?V1BSS3JIYTVYMjZxY3g5c0lGZGphdW00TlVDMm9aZlBGZUgyUTVHcHlLT2xh?=
- =?utf-8?B?V3VxYmFRTzVWbXIvejc4WUlpMVZmUktydEhNempTcmtodnI1ZjBSL3BITytH?=
- =?utf-8?B?WGdDcWVSOCs5NW9kOFpycklRR0UyajA4dEpJdTVmSThYTzNZb3EvbG5xR3Bo?=
- =?utf-8?B?MEorT2JnRWRPUzhlMzQ0aVFJemdRcmpYVmIxbmNiQTk2S0ZZNnU0YkpEQmhH?=
- =?utf-8?B?T3U1MzVDcUxpQ1RjTWtEQ01kaklqVjBPWFpVU3JpYUlYK3A3NnkvQ09rVHZX?=
- =?utf-8?B?dVFUTjJVVjJxR3Nqem9BeHpIOFlERlVmcFVyM1N0aUt0SkJ3N0tFYmttaER4?=
- =?utf-8?B?dWFqVllwOCs1TVM5SVBWS2dQV2dqUGMzeEpsWHAxQWxzR0FEOTVrL2NIdHJ3?=
- =?utf-8?B?MDZXeWdDbXpuQWR5REJhUXRuTDh2SHpydkZtcUhqR3B2WHFFVGxNQ0FheTJE?=
- =?utf-8?B?MU4xQkNrTWljUnc4Yzk2TENLdHRNYSsxL0lHa2pRbHVGd28wYUNhMU1ydnEr?=
- =?utf-8?B?L2oySU5YbWhOTVY1dEVUeXErWjdxQVBNMVpMRGZhQjRQQWE1V3FFTkZ4T1M2?=
- =?utf-8?B?ZU85eHZoaHZHUW1sZmJvSFNES3NVTzhvU1J3SlJYT1NFYVBSL2l1L3hmMHk2?=
- =?utf-8?B?TlhYUnl6VG80ekNvZWNTT3NhWS8rWWFqcWE3ZFZPZEdYcnNCdGtCNis5K1pl?=
- =?utf-8?B?dTQ5TkJHZmJNQ2h0dlQyY3FycGdXbkpkVng0eko1OENjR0QxOHJodW1aTnpk?=
- =?utf-8?B?QzBLLytwQVpYOFROajVXNnprUm5zeUF1eDFHMm9HbURXOU9ndHFVZkRieTgr?=
- =?utf-8?B?VDBKTFpyV2E5UDhpbERCek5qRHl3TWxNNmk1WTRvMjBzL0VJMXRwaHUzNzhp?=
- =?utf-8?B?R0E9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da074f16-ec6b-46ba-8c32-08dd4746171f
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 07:07:31.9622
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K4j2BLDmefGPbXvdO1NK9qtM6jyivye0q5wdjyakxY9Dt9t6Ww7WULnGw5qLsPA5OSOGMOKO9Zl/qr8x73wGRwndfzmwpu/FGRbXaNBf2C8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB6579
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight-tmc: stop disabling tmc when flush timeout
+To: Leo Yan <leo.yan@arm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        <kernel@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250103-fix_cpu_hung-v1-1-a7b9b3893d44@quicinc.com>
+ <20250206103213.GB8855@e132581.arm.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <20250206103213.GB8855@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: tnsEgEBAKxKwCDPY-SvT6kd_vqoOjR6A
+X-Proofpoint-GUID: tnsEgEBAKxKwCDPY-SvT6kd_vqoOjR6A
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-07_03,2025-02-07_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 bulkscore=0
+ lowpriorityscore=0 spamscore=0 suspectscore=0 mlxlogscore=999 mlxscore=0
+ adultscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502070056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_230740_105952_DACD02AB 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250206_232524_366990_071E3BD2 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,58 +105,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-    Thanks for your reply.
 
-On 2025/1/27 17:59, Linus Walleij wrote:
-> [ EXTERNAL EMAIL ]
+
+On 2/6/2025 6:32 PM, Leo Yan wrote:
+> Hi Yuanfang,
 > 
-> Hi Xianwei,
-> 
-> thanks for your patch!
-> 
-> On Wed, Jan 22, 2025 at 4:26 AM Xianwei Zhao via B4 Relay
-> <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
-> 
->> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> On Fri, Jan 03, 2025 at 04:01:54PM +0800, Yuanfang Zhang wrote:
 >>
->> Add a new pinctrl driver for Amlogic SoCs. All future Amlogic
->> SoCs pinctrl drives use this, such A4, A5, S6, S7 etc. To support
->> new Amlogic SoCs, only need to add the corresponding dts file.
+>> When multiple ETMs are enabled simultaneously, the time required
+>> to complete a flush in the process of reading the TMC device node
+>> may exceed the default wait time of 100us.
+> 
+> Have you tried how long time would be safe to wait for the
+> TMCREADY_BIT bit to be set on your platform?
+yes, 400000us.
+> 
+>> If the TMC capture is stopped while any ETM has not completed its
+>> flush, it can cause the corresponding CPU to hang.
 >>
->> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> Fix the by checking the TMCReady bit after the flush. If TMCReady
+>> bit is set, TraceCaptEn bit can be clear; otherwise, return directly
+>> and stop the TMC read.
+> 
+> When a timeout for TMC flush and stop is detected, if the driver
+> arbitrarily bails out without disabling TMC, this would leave the
+> hardware always on.
+> 
+> I would like first know if a longer timeout can fix the issue.
+> 
+> Thanks,
+> Leo
+> 
+yes, longer timeout can fix this issue.
+
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 >> ---
->>   drivers/pinctrl/Kconfig           |   18 +
->>   drivers/pinctrl/Makefile          |    1 +
->>   drivers/pinctrl/pinctrl-amlogic.c | 1053 +++++++++++++++++++++++++++++++++++++
-> 
-> Please move this file into drivers/pinctrl/meson as I requested
-> earlier. We can rename "meson" to "amlogic" later if that placement
-> is confusing.
-> 
+>>  drivers/hwtracing/coresight/coresight-tmc-etf.c | 17 +++++++++++++++--
+>>  drivers/hwtracing/coresight/coresight-tmc-etr.c | 22 +++++++++++++++++-----
+>>  2 files changed, 32 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> index d4f641cd9de69488fe3d1c1dc9b5a9eafb55ed59..bded290c42891d782344d9a6e63ebdbed6719133 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> @@ -80,11 +80,21 @@ static void tmc_etb_dump_hw(struct tmc_drvdata *drvdata)
+>>         return;
+>>  }
+>>
+>> -static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
+>> +static int __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
+>>  {
+>> +       int rc;
+>> +
+>>         CS_UNLOCK(drvdata->base);
+>>
+>>         tmc_flush_and_stop(drvdata);
+>> +
+>> +       rc = tmc_wait_for_tmcready(drvdata);
+>> +       if (rc) {
+>> +               dev_err(&drvdata->csdev->dev,
+>> +                       "Failed to disable : TMC is not ready\n");
+>> +               CS_LOCK(drvdata->base);
+>> +               return rc;
+>> +       }
+>>         /*
+>>          * When operating in sysFS mode the content of the buffer needs to be
+>>          * read before the TMC is disabled.
+>> @@ -94,6 +104,7 @@ static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
+>>         tmc_disable_hw(drvdata);
+>>
+>>         CS_LOCK(drvdata->base);
+>> +       return 0;
+>>  }
+>>
+>>  static void tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
+>> @@ -650,7 +661,9 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
+>>                         ret = -EINVAL;
+>>                         goto out;
+>>                 }
+>> -               __tmc_etb_disable_hw(drvdata);
+>> +               ret = __tmc_etb_disable_hw(drvdata);
+>> +               if (ret)
+>> +                       goto out;
+>>         }
+>>
+>>         drvdata->reading = true;
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index a48bb85d0e7f44a25b813f3c828cc3d705d16012..63a1f7501562fa0b5c2fe6ea53dce4d82842bec3 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1135,11 +1135,21 @@ static void tmc_etr_sync_sysfs_buf(struct tmc_drvdata *drvdata)
+>>         }
+>>  }
+>>
+>> -static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>> +static int __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>>  {
+>> +       int rc;
+>> +
+>>         CS_UNLOCK(drvdata->base);
+>>
+>>         tmc_flush_and_stop(drvdata);
+>> +
+>> +       rc = tmc_wait_for_tmcready(drvdata);
+>> +       if (rc) {
+>> +               dev_err(&drvdata->csdev->dev,
+>> +                       "Failed to disable : TMC is not ready\n");
+>> +               CS_LOCK(drvdata->base);
+>> +               return rc;
+>> +       }
+>>         /*
+>>          * When operating in sysFS mode the content of the buffer needs to be
+>>          * read before the TMC is disabled.
+>> @@ -1150,7 +1160,7 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>>         tmc_disable_hw(drvdata);
+>>
+>>         CS_LOCK(drvdata->base);
+>> -
+>> +       return 0;
+>>  }
+>>
+>>  void tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>> @@ -1779,9 +1789,11 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
+>>         }
+>>
+>>         /* Disable the TMC if we are trying to read from a running session. */
+>> -       if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+>> -               __tmc_etr_disable_hw(drvdata);
+>> -
+>> +       if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
+>> +               ret = __tmc_etr_disable_hw(drvdata);
+>> +               if (ret)
+>> +                       goto out;
+>> +       }
+>>         drvdata->reading = true;
+>>  out:
+>>         spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>>
+>> ---
+>> base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+>> change-id: 20250103-fix_cpu_hung-b5a95179ada4
+>>
+>> Best regards,
+>> --
+>> Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>>
+>>
 
-Will Move this file into drivers/pinctrl/meson in next version.
-
->> +config PINCTRL_AMLOGIC
-> 
-> There is already PINCTRL_AMLOGIC_C3 and PINCTRL_AMLOGIC_T7
-> as will be very apparent when you move this driver.
-> 
-> What is a *proper* name for this family of SoCs?
-> 
-
-This is for A4, Will use PINCTRL_AMLOGIC_A4 instead.
-
->> +MODULE_LICENSE("Dual BSD/GPL");
-> 
-> On the top of the file you have:
->> +// SPDX-License-Identifier: GPL-2.0-only
-> 
-> So this does not add up. Fix one or the other.
-> 
-
-Will drop "MODULE_LICENSE("Dual BSD/GPL");".
-
-> Yours,
-> Linus Walleij
 
