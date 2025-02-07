@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81E9C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75AAC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utsQz0jHzCVhfns5+q6OzU+DlKbU+YHZ/y10fPGd99I=; b=gH9T5bZR9XBgcVQvjjzMC+02JM
-	BhLYWp3tvAjnmvADKiZgCQxG7OJrvrpcWS2ipgqZPJyapRbaHLSzyMD9gGZCgB2Ako7Z/Tupiezhk
-	O6avjkmUMTd/aBayOylNt3Xo1XaUl6o5PbGJaXA0o94Bwn5GfVTfctmdIsR4C3i4ypZvhAqeiORvh
-	P1GCIn4OJB24/ItWuQtqF7mjEAkPdl2AaGw9SPVeDd294UcaE9adm6kk3ZD4Q/UXX/wx+RCvui/pH
-	T7RnHtLEA9dC4Ss4BEQL2AWfVUBwBZa+vQ/WEGaTe8zmWaMLOQUWzedzfoMFnE6GNQGIAz9H8xSkI
-	NNkKgX5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S2JN7acEOnnpYF6SorF298vSINNq+oWjlH4/5NBSfyY=; b=St9YBuuds8Zv1u
+	DvhfTOu27y3PW7Clsr7AzLT6rdInfeOoYd5/1RzHxpzWlHDRHN3m8LK9iz4FNyd6UqGM1TWB/v+bl
+	bPNkzX3IVPMqXB4NgkpL4cGQNLHtIbDVPsmlCOG2wb+Vi9gIHDOjgZPGdVh5R/ujw5hMfBFAGvy4S
+	YrrmmAj/6DKAFQxxbp2643/QWUDhkUe3AVHgc62e7prDG7tillr1wwHjgsjwDHCGFlYF+qTxn643q
+	ARsOW/E0ZmWtlLHxCjGFXtQmzxpnwb697lAdnYWugt6zKQQgsVFdpSPJ3xGSXuLJCj5pJIIEKqG0V
+	eAM3MhMSj+OhIw7H+cwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLmC-00000009EfI-3AnV;
-	Fri, 07 Feb 2025 10:40:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLko-00000009EQv-1T1A
+	id 1tgLrb-00000009Fbe-3Iyb;
+	Fri, 07 Feb 2025 10:45:35 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgLqD-00000009FGX-08EM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 10:38:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FC44113E;
-	Fri,  7 Feb 2025 02:38:56 -0800 (PST)
-Received: from [10.57.81.111] (unknown [10.57.81.111])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C4C1D3F63F;
-	Fri,  7 Feb 2025 02:38:30 -0800 (PST)
-Message-ID: <e0400886-d4bc-40f5-8375-fc3d515fd386@arm.com>
-Date: Fri, 7 Feb 2025 10:38:28 +0000
+	Fri, 07 Feb 2025 10:44:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CA82E4341E;
+	Fri,  7 Feb 2025 10:44:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1738925046;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S2JN7acEOnnpYF6SorF298vSINNq+oWjlH4/5NBSfyY=;
+	b=HaNH6WWFViXuiG2j0REEdEA7Huzmr47PqsGfPagJxsHdJYbotxExCUATLn7KdciQ5z+OeE
+	SnVoCCuh7O0xu/LfCMmQJwrpdXU9wivbuYvqL3xNOv857o9Kt5lTkkd/BelPnyK0SK7oD/
+	eHx646DAA+sZUqiq3xhAMU2z4255Uq4y4P2sL2XLOKKoag0s8Ya0dVf5/s/GlGB2nSvmqr
+	xeP7XFChYhGVl+Fyfkg+QJUnP5VcHft/XlsrsoE4Ev0W+NRdxPZ0tXdKMHmDi53JWapH7P
+	gEIQuiMR/bsX0Qi+Z8oLFEQYHSjji99C06ryYEuNQMDD4P/dbggMiSEFEuBUOw==
+Date: Fri, 7 Feb 2025 11:44:01 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v6 15/26] drm/bridge: devm_drm_of_get_bridge and
+ drmm_of_get_bridge: automatically put the bridge
+Message-ID: <20250207114401.7869b422@booty>
+In-Reply-To: <w3qufv73ldzdcfuz6n3prx4di2dhoq2wfqmmvxvxkea6uqxkge@pjwmugvicsbt>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+	<20250206-hotplug-drm-bridge-v6-15-9d6f2c9c3058@bootlin.com>
+	<w3qufv73ldzdcfuz6n3prx4di2dhoq2wfqmmvxvxkea6uqxkge@pjwmugvicsbt>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 08/16] arm64/mm: Hoist barriers out of ___set_ptes()
- loop
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-9-ryan.roberts@arm.com>
- <858ecac5-9ba7-48da-8f34-ffda28d17609@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <858ecac5-9ba7-48da-8f34-ffda28d17609@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvledtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegtvgejvgemiegtgegvmeeitggtjeemleekgeejpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopegumhhithhrhidrsggrrhihshhhkhhovheslhhinhgrrhhordhorhhgpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehinhhkihdruggrvgesshgrmhhsuhhnghdrt
+ ghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtphhtthhopehmrdhsiiihphhrohifshhkihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_023834_487873_FF227A59 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20250207_024409_221960_97C42C84 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,131 +75,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv?= =?UTF-8?Q?=C3=A9?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 05:35, Anshuman Khandual wrote:
+On Fri, 7 Feb 2025 05:17:43 +0200
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
+
+> On Thu, Feb 06, 2025 at 07:14:30PM +0100, Luca Ceresoli wrote:
+> > Add a devm/drmm action to these functions so the bridge reference is
+> > dropped automatically when the caller is removed.  
 > 
-> 
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> ___set_ptes() previously called __set_pte() for each PTE in the range,
->> which would conditionally issue a DSB and ISB to make the new PTE value
->> immediately visible to the table walker if the new PTE was valid and for
->> kernel space.
->>
->> We can do better than this; let's hoist those barriers out of the loop
->> so that they are only issued once at the end of the loop. We then reduce
->> the cost by the number of PTEs in the range.
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 14 ++++++++++----
->>  1 file changed, 10 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 3b55d9a15f05..1d428e9c0e5a 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -317,10 +317,8 @@ static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
->>  	WRITE_ONCE(*ptep, pte);
->>  }
->>  
->> -static inline void __set_pte(pte_t *ptep, pte_t pte)
->> +static inline void __set_pte_complete(pte_t pte)
->>  {
->> -	__set_pte_nosync(ptep, pte);
->> -
->>  	/*
->>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
->>  	 * or update_mmu_cache() have the necessary barriers.
->> @@ -331,6 +329,12 @@ static inline void __set_pte(pte_t *ptep, pte_t pte)
->>  	}
->>  }
->>  
->> +static inline void __set_pte(pte_t *ptep, pte_t pte)
->> +{
->> +	__set_pte_nosync(ptep, pte);
->> +	__set_pte_complete(pte);
->> +}
->> +
->>  static inline pte_t __ptep_get(pte_t *ptep)
->>  {
->>  	return READ_ONCE(*ptep);
->> @@ -647,12 +651,14 @@ static inline void ___set_ptes(struct mm_struct *mm, pte_t *ptep, pte_t pte,
->>  
->>  	for (;;) {
->>  		__check_safe_pte_update(mm, ptep, pte);
->> -		__set_pte(ptep, pte);
->> +		__set_pte_nosync(ptep, pte);
->>  		if (--nr == 0)
->>  			break;
->>  		ptep++;
->>  		pte = pte_advance_pfn(pte, stride);
->>  	}
->> +
->> +	__set_pte_complete(pte);
-> 
-> Given that the loop now iterates over number of page table entries without corresponding
-> consecutive dsb/isb sync, could there be a situation where something else gets scheduled
-> on the cpu before __set_pte_complete() is called ? Hence leaving the entire page table
-> entries block without desired mapping effect. IOW how __set_pte_complete() is ensured to
-> execute once the loop above completes. Otherwise this change LGTM.
+> I think the get() should go to the underlying of_drm_bridge_find() function.
 
-I don't think this changes the model. Previously, __set_pte() was called, which
-writes the pte to the pgtable, then issues the barriers. So there is still a
-window where the thread could be unscheduled after the write but before the
-barriers. Yes, my change makese that window bigger, but if it is a bug now, it
-was a bug before.
+It is done in the following patch.
 
-Additionally, the spec for set_ptes() is:
+Indeed I could swap patches 15 and 16 for clarity. Or I could squash
+together patches 14+15+16, as they are various parts or the refcounted
+bridge implementation, but I felt like keeping them separated would
+help reviewing.
 
-/**
- * set_ptes - Map consecutive pages to a contiguous range of addresses.
- * @mm: Address space to map the pages into.
- * @addr: Address to map the first page at.
- * @ptep: Page table pointer for the first entry.
- * @pte: Page table entry for the first page.
- * @nr: Number of pages to map.
- *
- * When nr==1, initial state of pte may be present or not present, and new state
- * may be present or not present. When nr>1, initial state of all ptes must be
- * not present, and new state must be present.
- *
- * May be overridden by the architecture, or the architecture can define
- * set_pte() and PFN_PTE_SHIFT.
- *
- * Context: The caller holds the page table lock.  The pages all belong
- * to the same folio.  The PTEs are all in the same PMD.
- */
+> Also it really feels like it's an overkill to keep the wrappers. After
+> getting bridge being handled by the panel code would it be possible to
+> drop all of them?
 
-Note that the caller is required to hold the page table lock. That's a spin lock
-so should be non-preemptible at this point (perhaps not for RT?)
+Do you mean having only drm_of_get_bridge_by_node(), without any devm
+or drmm variant? I'm not sure it is a good idea. Most DRM code (well,
+all of it, technically) is currently unable of working with refcounted
+bridges, but if they use the devm variant they will put the ref when
+they disappear.
 
-Although actually, vmalloc doesn't hold a lock when calling these helpers; it
-has a lock when allocating the VA space, then drops it.
+> Then this patch might introduce one new devm_
+> function? Or are drmm_ functions actually being used to store data in
+> the drmm-managed memory?
 
-So yes, I think there is a chance of preemption after writing the pgtable entry
-but before issuing the barriers.
+Which devm function are you thinking about? Sorry, I'm not following
+here.
 
-But in that case, we get saved by the DSB in the context switch path. There is
-no guarrantee of an ISB in that path (AFAIU). But the need for an ISB is a bit
-whooly anyway. My rough understanding is that the ISB is there to prevent
-previous speculation from determining that a given translation was invalid and
-"caching" that determination in the pipeline. That could still (theoretically)
-happen on remote CPUs I think, and we have the spurious fault handler to detect
-that. Anyway, once you context switch, the local CPU becomes remote and we don't
-have the ISB there, so what's the difference... There's a high chance I've
-misunderstood a bunch of this.
+Luca
 
-
-In conclusion, I don't think I've made things any worse.
-
-Thanks,
-Ryan
-
-> 
->>  }
->>  
->>  static inline void __set_ptes(struct mm_struct *mm,
-
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
