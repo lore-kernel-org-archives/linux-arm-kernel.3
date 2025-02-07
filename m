@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CF3C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D0DC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FEgLND8rJ7ClK8WOTOgJeElk/cOMf1xQg+bXVoacjU=; b=E607qSGdvc7wU0+VPOfceXNhFD
-	tYF+axElVMvM6hMx7Yj/rz5GgVkV5/QERfXoPvzrWt4cyNpx08Qw2Dqia3iYf7qszQ0yILjCjo8yM
-	fyKw0eFdFtP9U13nYXAqp5IhuAjjl2OVw4zG4PAIz7Eg+bMsIL77mc8K3M3yKUe3URb7RGmKJjtgT
-	9sjvBC+QriwViLlGWUR+TJCHMn3RBXr4xeAKAK5T3W/AR3/GOgJ9GBLF9MZjuk38fxGEVnXgpzEZ7
-	7F3OpnfC4qkfltBnSrEnV9pLfuGLWDRIe+O2/AYthhIUebRuMFJJJv61prfVj3X9fxttu0ALV3GBk
-	axNKqIww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=; b=JYDlfvGmR2uh0kaKYfsE4S6bMB
+	ijysHYdIYqfvAaK8y4KHkg/m/QHUz5tCq91zqWvUPQczRbuYA1cYRbQSscuAwfNSr2KyNMnhLpklx
+	hN3thEPb/bjy9CKQQAEgqC33j4XQF09y5n738Ojm6ZpqIElzDfO3g8eMbTeZt+Ze0iqX9sadRWMWX
+	UlVUPpERBXnygZcjAAaro6dFj/IKCOVB077uCNI06t17hWd3ICZf54yhxO6QKQ15MrHHSQWzb5pzQ
+	h9VYSSCDvHzbwV5u1f8ezBj627qjwZ3e13pInb+BG2oDkyvaokhdJwpXfLJjs0uNeeYpCrmkKPCol
+	ny4/AQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSQw-0000000AY5A-2iXk;
-	Fri, 07 Feb 2025 17:46:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tgSRc-0000000AYNF-3Xq0;
+	Fri, 07 Feb 2025 17:47:12 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRCE-0000000AHSm-0ape;
-	Fri, 07 Feb 2025 16:27:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8865FA426EC;
-	Fri,  7 Feb 2025 16:25:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FF57C4CEDF;
-	Fri,  7 Feb 2025 16:27:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738945633;
-	bh=9MLgp6BnjDhauGe+vw7L5oPe/nVs55P5xZ18grfkNcA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nGxGZ6U7cmQ8L+ico6eJK3xtFJysdSt0fWemEtoGiBSGGiAI0Dn58+G3m6oUUAFXL
-	 HgsRhSq66uhf3W5CZVS2QuAtvywV5enkj8kfJ2UuiKVejF3VM/W3G+mH7ATblU5BMX
-	 NdAeepwKZikuclVgCYo7fGhP+oXoR92kK8JDaiESqS8xHxCgWf5k6faprndV61ZuQi
-	 w8nMRL+Vb/5/sbdouXq0jiIfyyS0Ipl+2ai2HllhsAzu6+VbHgIN1EaR2rFfC3cdOm
-	 8UZUnupJ8Mtqs8RBnX8jL0eLuegdblVuZ+qUyzgBrcCHYdHVssDoGq28y1fjx8Ko/Q
-	 nYjRCpQklL5Uw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 07 Feb 2025 17:26:25 +0100
-Subject: [PATCH net-next v2 10/15] dt-bindings: arm: airoha: Add the NPU
- node for EN7581 SoC
+	id 1tgSIy-0000000AWS7-3mlU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 17:38:17 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f9cd9601b8so4227103a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 09:38:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738949896; x=1739554696; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=;
+        b=EnCMseUUBIR15C2Ydob9yPm2vi6sxoCyuF5akBWhkIB47T5gBbLMSKKi0RAjtLT+kg
+         3bjv1OvnMb+WsjO8lgEIVL+yVvciZHU4jw1fYhNNEItU2ewbqxR083ezqEdx0+HgBGva
+         VvFv1SwWEy8XGX9+bkOvgGhkX+y1/rNVW2/bxybdteHnNIqba2kZOWzxFxTHXyqAiJvZ
+         3YtEVyqeyBsCCXRbIcmVL8Qcl0wBatyuWDeKhd8XBnUwfzURP/RE6RtvikluMkaXWAnn
+         LqUloWf0BkS/9x5pB3ryPGEMNpRVaKrSYe0HCpIJZsNH3M6bIeopCl+UxbAQMtw+YXlN
+         MoGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738949896; x=1739554696;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4xyFJhUKmXvISbhvlxrsKbalUZLIqSWCZyj7Xp1Z3rU=;
+        b=ZIEOIcx7K1LQdL0/JPY6OhJTieGVPp1TSadpWn2oVliqhjoxhiha26Y27b2pyY+zNL
+         awerNjs10Lh95yKg5A1z2pZik8B/2gFV+7ndyRPStv5xjjpK7evsnt+dkBde9xov78ri
+         Z32gp+mnSP4gvX0j1uAzNKHniKvDXdliF2bpe1zgmhtL9hg7P7TsLHAQ/WLv9E9XLdMd
+         450qNeJpgZXnSNoxU/mSbbf1QdtMsiFvNLcCVoYYW6c7UzcIbYzXjomfjO5yJDOsc471
+         B052fpFBNTzTS9c+cQ+39vgXVvA7Xh046Yz6Jc04fzjKDXtf9POed9LjxfdTn1V7OkBD
+         XmUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWD3vS1oHKHRRCnBvzmCpIvdk+pmbi0V38U9/1n0OPzc/vOeXDNDXuB7iJ7gHXcCAQ3RzGZATHIgiwBxmfaazb6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3XVOlALCNctnWVcjBH37+PcJnzSyodUHKWVg6pzUEakXhJkTg
+	mN4n1TVBPBFML4KIibxgFN1yev8UP0/x4evzGupD93driIuA/MeRHWkLdAj5CQ==
+X-Gm-Gg: ASbGncv/XlCc4UyztGPv1RdKUmArt2rWQqhBomHA0GCKP/QCwcLRm9hxBMWwvDS+G59
+	G6XRKGKNmTSsdTS85iD7GfQXzWYdW453uBIUwjk3NXrI/herPGp8WW7TtMYIF4q8YXypov+fdXj
+	2uBkInJcu/vZE92Lz9HOraRIytnH30xJAEhX9LT8HT5KhnWvy14lPxpU41LVHbRCxQ+Wy6eGk+g
+	opQQuzvosgOtnb8Z/lEAV8TDQfNk5BLteybb889Km4d1sM5Vlo/Lgjdm8YaAoByyKcZjRGVukuQ
+	rTGT9+aGeJ1aYwMRr6R+HmV0YA==
+X-Google-Smtp-Source: AGHT+IFprNv/Fxes+yO0Is4d70/qLRRGy5XcxfptGmrec0u4U5JshNdQEzKB4xo6nsXGXHm3iHyxoQ==
+X-Received: by 2002:a17:90b:3903:b0:2fa:229f:d03a with SMTP id 98e67ed59e1d1-2fa243e9e0fmr5424081a91.26.1738949896065;
+        Fri, 07 Feb 2025 09:38:16 -0800 (PST)
+Received: from thinkpad ([120.60.76.168])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa0942d30esm3647036a91.0.2025.02.07.09.38.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 09:38:15 -0800 (PST)
+Date: Fri, 7 Feb 2025 23:08:09 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] PCI: mediatek-gen3: Remove leftover mac_reset assert
+ for Airoha EN7581 SoC.
+Message-ID: <20250207173809.wykxrugz3neinpru@thinkpad>
+References: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-10-3a2239692a67@kernel.org>
-References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
-In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250201-pcie-en7581-remove-mac_reset-v2-1-a06786cdc683@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082714_316949_11429CD4 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250207_093816_938480_C3CBDC0D 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,95 +107,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds the NPU document binding for EN7581 SoC.
-The Airoha Network Processor Unit (NPU) provides a configuration interface
-to implement wired and wireless hardware flow offloading programming Packet
-Processor Engine (PPE) flow table.
+On Sat, Feb 01, 2025 at 12:00:18PM +0100, Lorenzo Bianconi wrote:
+> Remove a leftover assert for mac_reset line in mtk_pcie_en7581_power_up().
+> This is not harmful since EN7581 does not requires mac_reset and
+> mac_reset is not defined in EN7581 device tree.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- .../devicetree/bindings/arm/airoha,en7581-npu.yaml | 71 ++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-diff --git a/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..a5bcfa299e7cd54f51e70f7ded113f1efcd3e8b7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
-@@ -0,0 +1,71 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/airoha,en7581-npu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha Network Processor Unit for EN7581 SoC
-+
-+maintainers:
-+  - Lorenzo Bianconi <lorenzo@kernel.org>
-+
-+description:
-+  The Airoha Network Processor Unit (NPU) provides a configuration interface
-+  to implement wired and wireless hardware flow offloading programming Packet
-+  Processor Engine (PPE) flow table.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - airoha,en7581-npu
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 15
-+
-+  memory-region:
-+    maxItems: 1
-+    description:
-+      Phandle to the node describing memory used to store NPU firmware binary.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - memory-region
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      npu@1e900000 {
-+        compatible = "airoha,en7581-npu", "syscon";
-+        reg = <0 0x1e900000 0 0x313000>;
-+        interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-+        memory-region = <&npu_binary>;
-+      };
-+    };
+- Mani
+
+> ---
+> Changes in v2:
+> - fix typo in commit log
+> ---
+>  drivers/pci/controller/pcie-mediatek-gen3.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..0f64e76e2111468e6a453889ead7fbc75804faf7 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -940,7 +940,6 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+>  	 */
+>  	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+>  				  pcie->phy_resets);
+> -	reset_control_assert(pcie->mac_reset);
+>  
+>  	/* Wait for the time needed to complete the reset lines assert. */
+>  	msleep(PCIE_EN7581_RESET_TIME_MS);
+> 
+> ---
+> base-commit: 647d69605c70368d54fc012fce8a43e8e5955b04
+> change-id: 20250201-pcie-en7581-remove-mac_reset-16e7b6e3ef06
+> 
+> Best regards,
+> -- 
+> Lorenzo Bianconi <lorenzo@kernel.org>
+> 
 
 -- 
-2.48.1
-
+மணிவண்ணன் சதாசிவம்
 
