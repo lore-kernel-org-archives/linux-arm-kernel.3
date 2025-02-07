@@ -4,55 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB68C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F592C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MIJQd8/xiO8zk0JzBELYAOXAcVPyFlMXoXFFjOZkwuA=; b=VgrEJYQ3sS2dOO9461bGXkGhln
-	yMA7CPuQs2YnzcqWfr2wjDKSEbv2TKFsbI8+/HfrXfsdAW8VW7jJwQQVChlyaiuz3RU8zkGTVhn9v
-	1QSJx+lYC3d9C+tNMzOZi58Mn+u/HQh7RfWPIUWmrJ3D2dUE+mSpT0YzKqNcE/BT+Gvvqs36SCsi4
-	w2LCvBwIQNWJOt3GtnVueRpnowOd01Q3aRsV5Urddjf9SXJp2l3V6vFNMKJ5b4G2YZdzff1A1VBY/
-	JDqd7lQuf0hPQyhSljI9L58YaXrrQiOEFvJGwShRyx2ObEtE/3+SoeDOcfC8HoJNj+Mz3OO6Z9nIk
-	OYnD3Awg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ihgnc3taSXbrknD0hSr+bBzd9N3zZ9ifJfj9N5E5nmY=; b=i41fyY3j687mWXQbHRTWXif6Yc
+	nuQSg7+5DAKwO+GbyXWY/UkAB7F9nJJpoZHHkoWcq7WNK5Oejj5CqJI0Ueh6u6MzdVCTJzol9TAAJ
+	0wz3KU4GigsnT3XcHK6Q6R002OtSe2mPmRE6jLEJnHkan1dO+84UGjNp5Opt9Gd3O+ZdtEebc3BQ8
+	bhIjLuu2zAQCQRtjSOIOLiyqtA4Yvnc9hL6b3MaQCDqKDL2VmWuVfZuXvfQihZcNYDgVu1drxw6Cu
+	MGbKnmUmnUTL2TKHoJjd8s3UugTqN2TrjDQn74qz6hvMXObPi2AYwzz/OAMKm2OyiYTzbuNB/AqjQ
+	HDIOM+7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgE04-000000084CY-3sTd;
-	Fri, 07 Feb 2025 02:21:48 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1tgE1f-000000084kp-2gCk;
+	Fri, 07 Feb 2025 02:23:27 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgDyR-000000083bC-0srK
+	id 1tgDzN-000000083zT-0ENs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 02:20:09 +0000
+	Fri, 07 Feb 2025 02:21:06 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30616d71bb0so16233021fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 18:21:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1738894802; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=MIJQd8/xiO8zk0JzBELYAOXAcVPyFlMXoXFFjOZkwuA=;
-	b=oJPb6odrzbdivn45m3DNDmOYcmtu5/4KGUzhPJrSEaww2asvPcETXIqYDFjJlxdbBdbDZ9GS4RHatwL7mvigTtCflnfzexA3wutgl8itcUIrAkQQppwskdhfgB8vq5erq+N+bqQoIad0133codl+p3GKpk8CjkC0xtZV4w+ZU28=
-Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WOxloU6_1738894800 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 07 Feb 2025 10:20:00 +0800
-Message-ID: <76dad20a-0180-46a0-9840-6d8444d1749a@linux.alibaba.com>
-Date: Fri, 7 Feb 2025 10:19:59 +0800
+        d=linaro.org; s=google; t=1738894863; x=1739499663; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ihgnc3taSXbrknD0hSr+bBzd9N3zZ9ifJfj9N5E5nmY=;
+        b=mgGZGpGgAPdXkUnzT78L/g1zV/uaQpsdAswNc3bRQlwnznecA44yCgBfIvNJKIwX3n
+         /flbwZn4MEmpHsx9HTapfpXglVTGKd1ElkmTddJt63y58HBVVFNbRdkKn2+1FbgkJbxV
+         EK2JMZy8VTylIJh5+72wuRNmQeeOaFU7lF+q0hPTHcZe0ckfMsjHF+/KANv5RD7bYUOt
+         prJ7GzdqYPTl1W391T+1HJHohZJbK7m3xfHubw3OLrPXktEqY8J2JVy2N9lUNPVXVYVN
+         5afkJJs5RnPNUQTC5IBoasLtJ5HAIRJMGkT27WlQODgtuZURWRgfYS11io+ahW/ad2w0
+         0/Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738894863; x=1739499663;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ihgnc3taSXbrknD0hSr+bBzd9N3zZ9ifJfj9N5E5nmY=;
+        b=NeMb9Pzb8+eH4e7QmouRSN4Ryp0WjBEc00cnsXbq6pDKqEd/2anpiNxPRcP3iY9rYl
+         tI4fwgAKXn+hQuZVxyXwdo/YoTVcw7fP8ERyklmNPwNNYbyOibJyvAUaneRnf5VA3XzW
+         kzOBVlTknvXXfxowZCZS7MV9ENg7x6L55qvzz4VExHJDjzIMOePBUG0wtJzpe4b+Of3N
+         8LjPLib+b2K68/IdwoZXtwmMRBwmOI44WLj7u6RYjVZvG2hc1bpWj4FujTcRoePtiBtc
+         pqXLTJOZSNN1VEu/J8Mqj36+7wNUjxxWFX0LgI6g8XbSCXkhjCdcw26dGLWqRUxQtIUw
+         XKiw==
+X-Forwarded-Encrypted: i=1; AJvYcCX9T033oCU98GjA9clS2KqFPk3ew3UZU4B4eiEUbhMmiyFxiYTURwNjWgdlTB80rapIkivrYkOk9Tojyht79/zA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHb6VT1+xMnCQepQBJBwN2HvMI3bCvvXzV+vlxHPdntDUxsu+a
+	RU3jYDd9S3W2nSv3nNzp9Lbi4q8WDYSaysQnlDsgVboCcw260BfkUKEVbYJqogc=
+X-Gm-Gg: ASbGncvLGo5fQ6Ed1H6M/q0OXXwnsKp6MBXCFPc/e/Lb4m30tSSA3yiA6rnIQ7eY9Y9
+	tf2xVJLqzHQ7pfm2y4me1wzocOqZb1Grv0kqs88SVB5gsH5LpmYtwi74H26tHQEbBtPX9RBhENH
+	HZcZHZ3SXimZpzKbgi/c2vhcM722U84w8W7qVFy7dYRXNw1MvI3t1/+ncyx4RSQqlPcAs48mbkX
+	upmNGBGjrAycIV35Sk8MCc0YKxMUtoPGB74va0DASdOTPB2eQF+mfBxU/WEQHoHZCmu0thsUAAd
+	oLLtHIST7/+eX0u6N1Z7n/UnTat8HjSFMfrq04ADKIupkPpX5fUVZcN5mMdVjtLpw87CGnE=
+X-Google-Smtp-Source: AGHT+IHRDTBhlu8pAlsQ3oP0N0FtT5qdWC2jNVUTMMclmHpLd2GBk+UOaDGiKoBFjKCmUJyp2r/OWA==
+X-Received: by 2002:a2e:a913:0:b0:300:3a15:8f22 with SMTP id 38308e7fff4ca-307e581b0bdmr3526211fa.21.1738894862959;
+        Thu, 06 Feb 2025 18:21:02 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de177d22sm2841571fa.2.2025.02.06.18.21.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 18:21:01 -0800 (PST)
+Date: Fri, 7 Feb 2025 04:20:59 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v6 02/26] drm: of: drm_of_find_panel_or_bridge: move
+ misplaced comment
+Message-ID: <w4iufoohajidadw6s6qwaa6uo4qna2yepieb4qe3thkk5terwe@m2b6wogduiiz>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-2-9d6f2c9c3058@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] perf/dwc_pcie: fix the incorrect reference count
-To: Yunhui Cui <cuiyunhui@bytedance.com>, renyu.zj@linux.alibaba.com,
- will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- Bjorn Helgaas <bhelgaas@google.com>
-References: <20250205031425.67265-1-cuiyunhui@bytedance.com>
- <20250205031425.67265-2-cuiyunhui@bytedance.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20250205031425.67265-2-cuiyunhui@bytedance.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206-hotplug-drm-bridge-v6-2-9d6f2c9c3058@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_182008_037135_9ADA1746 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250206_182105_092234_62581BE4 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,87 +93,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2025/2/5 11:14, Yunhui Cui 写道:
-> for_each_pci_dev increments pdev refcount. Call pci_dev_put after access
-> to decrement it.
+On Thu, Feb 06, 2025 at 07:14:17PM +0100, Luca Ceresoli wrote:
+> This comment is misleading as it refers to one of the inner if() branches
+> only, not the whole outer if(). Move it to the branch it refers to.
 > 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> 
 > ---
->   drivers/perf/dwc_pcie_pmu.c | 42 ++++++++++++++++++++++++++-----------
->   1 file changed, 30 insertions(+), 12 deletions(-)
 > 
-> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> index cccecae9823f..4ac53167d7ab 100644
-> --- a/drivers/perf/dwc_pcie_pmu.c
-> +++ b/drivers/perf/dwc_pcie_pmu.c
-> @@ -553,6 +553,7 @@ static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
->   
->   static void dwc_pcie_unregister_dev(struct dwc_pcie_dev_info *dev_info)
->   {
-> +	pci_dev_put(dev_info->pdev);
->   	platform_device_unregister(dev_info->plat_dev);
->   	list_del(&dev_info->dev_node);
->   	kfree(dev_info);
-> @@ -572,8 +573,10 @@ static int dwc_pcie_register_dev(struct pci_dev *pdev)
->   		return PTR_ERR(plat_dev);
->   
->   	dev_info = kzalloc(sizeof(*dev_info), GFP_KERNEL);
-> -	if (!dev_info)
-> +	if (!dev_info) {
-> +		platform_device_unregister(plat_dev);
->   		return -ENOMEM;
-> +	}
->   
->   	/* Cache platform device to handle pci device hotplug */
->   	dev_info->plat_dev = plat_dev;
-> @@ -594,8 +597,11 @@ static int dwc_pcie_pmu_notifier(struct notifier_block *nb,
->   	case BUS_NOTIFY_ADD_DEVICE:
->   		if (!dwc_pcie_des_cap(pdev))
->   			return NOTIFY_DONE;
-> -		if (dwc_pcie_register_dev(pdev))
-> +		pci_dev_get(pdev);
-> +		if (dwc_pcie_register_dev(pdev)) {
-> +			pci_dev_put(pdev);
->   			return NOTIFY_BAD;
-> +		}
->   		break;
->   	case BUS_NOTIFY_DEL_DEVICE:
->   		dev_info = dwc_pcie_find_dev_info(pdev);
-> @@ -730,20 +736,29 @@ static struct platform_driver dwc_pcie_pmu_driver = {
->   	.driver = {.name = "dwc_pcie_pmu",},
->   };
->   
-> +static void dwc_pcie_cleanup_devices(void)
-> +{
-> +	struct dwc_pcie_dev_info *dev_info, *tmp;
-> +
-> +	list_for_each_entry_safe(dev_info, tmp, &dwc_pcie_dev_info_head, dev_node) {
-> +		dwc_pcie_unregister_dev(dev_info);
-> +	}
-> +}
-> +
->   static int __init dwc_pcie_pmu_init(void)
->   {
->   	struct pci_dev *pdev = NULL;
->   	int ret;
->   
->   	for_each_pci_dev(pdev) {
-> -		if (!dwc_pcie_des_cap(pdev))
-> +		if (!dwc_pcie_des_cap(pdev)) {
-> +			pci_dev_put(pdev);
 
-If the pdev has no RAS cap, we do not need to put the device.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-> The reference count for @from is
-> always decremented if it is not %NULL.
-
-Please see comments from pci_get_device() for more details.
-
-Shuai
-
+-- 
+With best wishes
+Dmitry
 
