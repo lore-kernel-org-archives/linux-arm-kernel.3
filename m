@@ -4,75 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A71F3C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D10C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0ldyQiYGfavKrl+rJC5HGzP7xRqPKmHrEH8aVAUe+hs=; b=hFt1hHYCcgz1ZqGgX1s4sJMF42
-	d1dXqJOsFWtnzcieCgtpxO1DBRG9B4Wr+S4as3dO33v5JEaNVHnVB87GGF9zKpawhc6m3ku6waPqP
-	jIstRoAkj15iz6qqBpatb1QS8dWCV2hfrH8aC9ogIpSkTt5YZws9OS+lR8dC/Pk7jfg7V8K/Nsk1t
-	MngYom3HIXfFk5l7WZdUb/xUtM8lF577jjk7S++KvlohJh+7vEa9p15hI9hKSBryM1jRAf8dvSJtv
-	cgXCh6Lav0ohrob6ytQ1WiOKCk9CC+aQe/TpiriUaa2ueWmmUDPbltnKS8+cuvTY4ICkcqnO9g1XR
-	j4NptwHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ipOFZTxOZxoj16RgTXZauS2etwkMx8gyHG2OFMi4LKg=; b=rcNafIEAPrL+rUVnfWCxdpk/D7
+	nmyFQAXD/t5IFoPO6fWFAikfdUSrqpP54DQ0iYKcCbjetr3cL37RLUASaUyXORNu5cLlFcyhSgUqd
+	ozMJNxW4vo5/7ZxJY2b2ajMlRE2qnhoxS5ghjr2VaV65O7Xgc+CL6OFzi4VFsf6mFDF9yz3g/VPGg
+	mpZrQBU6l0U4rSh9/TA+PfPtSLL8qKgoCOTjrdhWW1cEpeHXWkkzeptqK5skY3JY+m5MZz+o/BhUK
+	rEStQD5Sjx2KPmtGsuj7pWlozI7ldi4+xZTIHDymHIOoIz58p0wvf+C8Ls1MacxCXxv/M7sluyLNo
+	bzXB53vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgPJR-00000009qHy-1asV;
-	Fri, 07 Feb 2025 14:26:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tgPOa-00000009rjy-1VPy;
+	Fri, 07 Feb 2025 14:31:52 +0000
+Received: from mail-dm6nam12on20630.outbound.protection.outlook.com ([2a01:111:f403:2417::630] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgPI2-00000009q6y-2WtQ
+	id 1tgPNB-00000009rGz-41I5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 14:25:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738938302;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=0ldyQiYGfavKrl+rJC5HGzP7xRqPKmHrEH8aVAUe+hs=;
-	b=Qox39g79AOtffv23hMOEv7Y5mXhX8Uz7n1EfiDz8A4ELYIO2i6Gccl8ozh8S8fPRD3enqh
-	QtWvjDGH4Al3sEkTCXjWrn0QJs3buEoD/2uJUt6W5iK5owIb6czLwrkV2BVVqfraHbtO64
-	EpQ0YYxQrnZxOkU4AjTyrE4cMAyxhyE=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-148-CvVLV_JdNQyrU558AGQK7A-1; Fri,
- 07 Feb 2025 09:23:03 -0500
-X-MC-Unique: CvVLV_JdNQyrU558AGQK7A-1
-X-Mimecast-MFC-AGG-ID: CvVLV_JdNQyrU558AGQK7A
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BE7361955DDD;
-	Fri,  7 Feb 2025 14:23:00 +0000 (UTC)
-Received: from localhost (unknown [10.22.65.209])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 48FB91956051;
-	Fri,  7 Feb 2025 14:22:58 +0000 (UTC)
-Date: Fri, 7 Feb 2025 11:22:57 -0300
-From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-To: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>
-Cc: linux-kernel@vger.kernel.org
-Subject: BUG: debug_exception_enter() disables preemption and may call
- sleeping functions on aarch64 with RT
-Message-ID: <Z6YW_Kx4S2tmj2BP@uudg.org>
-MIME-Version: 1.0
+	Fri, 07 Feb 2025 14:30:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x3P+OJSqv3UlgMPLpQMLVUD164LSHByz4B9WO+JTxwDNVNAKVaxAl1Vn8gEDwYySYTvzJr3NclQqtTExy7nwJCUlEf1ppIvzzgooBG9FJ8xezRy1lIWpmM6DV1fxJw08TLw6UfrmKtPiBnxf0b4kNnl/jOBHyo0Ud7VGK+IebsuMpeF/8Ex6tbW3y1RGj2WMU+KSqMXI5JHYL8bIu0NFE+D9Qv8esRUcrfi+b8LJjpU2MEFvjlHNUy+dLvgdz6gJcaqVbdfXq9t45rRffp0EK5Snnw2N6C53Ok1H/wyBjGm3Fx+rqNEiKM0V7ZNVFtGD2d3Pm1hyrlUNNc/sVHDgOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ipOFZTxOZxoj16RgTXZauS2etwkMx8gyHG2OFMi4LKg=;
+ b=eSBQ5ezaVRyXfJIj6h7WLy8T1PJv5telPW7h5Jw98n/HPgXt6vWWAW0zCexg5V6K2tF9iIfqoLLwJC6tAekC2axsudpSL413S/sevUFqhCKMwyKn1u6zOQebqqe4qDU6mONo20O/57WmD589tVfVMx8ztHygwhHIa1dAiEN6vox0Ut3wg5scYMRe7ipubsUNma3au2ehb+Tvcel97tT9T+LuapPWx/PLzDE/ynD8rgitEQEqY/pQYwaL+dRyzS+4YoquHkC3bwAOtRLLWBkqf0iu8q0kqbE7ae0ALuVPbQJVqnW5FpG4XnpQi/eDvSSD3uV5S5nWB0OI3be1W7O2ZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ipOFZTxOZxoj16RgTXZauS2etwkMx8gyHG2OFMi4LKg=;
+ b=LWp+7IDCJyQXRTJ8ssjkFgxZXnn5pyw4lg6X6vkfN8+FFNLDkMdVNLKESdoXPzKNZnDceab2jSff7rIdhcnam5oJnStageuAzDaROsMjrDd9gQqA2WgZJrU9IO0nT7xKgw2pHeQDLgavd9grJPSm0LwQDmnO4gn0C1AJqAjk4SaAVRoQGEX9GoexpYIiGG7QCEb11scoBjDm64klsloU/8oPURMLeagik5Y9UF3Kv4dJIVrFn67+CPScIMFarHiQvcpmj/77wpHqMUUCvdajTjyAJeIHabb32w6Q8v1UO2S6N71KOFMqFguVesCv/kWsJ3f8H22LKSpL+lT2nGbs2w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by LV8PR12MB9420.namprd12.prod.outlook.com (2603:10b6:408:200::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
+ 2025 14:30:21 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.011; Fri, 7 Feb 2025
+ 14:30:21 +0000
+Date: Fri, 7 Feb 2025 10:30:20 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Eric Auger <eric.auger@redhat.com>, will@kernel.org,
+	robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
+	maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
+	shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
+	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+	bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
+	nipun.gupta@amd.com, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	patches@lists.linux.dev, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com
+Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
+ ioctls
+Message-ID: <20250207143020.GR2960738@nvidia.com>
+References: <cover.1736550979.git.nicolinc@nvidia.com>
+ <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
+ <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
+ <20250129145800.GG5556@nvidia.com>
+ <Z6WLXTiYVzuN368E@Asurada-Nvidia>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+In-Reply-To: <Z6WLXTiYVzuN368E@Asurada-Nvidia>
+X-ClientProxiedBy: MN0P223CA0028.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:208:52b::17) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV8PR12MB9420:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5fd856ea-a7bd-4702-218d-08dd4783f398
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1EM23bpJ747+QvLN+70Zi8PijeL0eLyAyfG1Ztmx04KWrJ5UhLaB8VXQGYC7?=
+ =?us-ascii?Q?HYYj59Dg5Lx5OPw1dpef6mUs+R2wep8+aBP7OeMgui/CApS1615gktjmU24h?=
+ =?us-ascii?Q?QcpUNVjGPzckauZPfUXvI+HUXBphWMw5fCgFHfKzpzMDGTDH5WO/6QnV7UgL?=
+ =?us-ascii?Q?X4tV6+3Np+5BtN9EDs3oQLafEeOMbYJ2nrMgNwrUCoKrfNzh66Z6JwUfjr0x?=
+ =?us-ascii?Q?CUItOMX34Ayh1TVHUcSI4YqmoOZFnSVsygclZDPzP1kb08JIW0lovbBsdO+P?=
+ =?us-ascii?Q?qhRJofDxVFnGrCYmCIvvBSf5869sQRX0QVB8afbN/HD1J4mTH6DOI/YqWDPf?=
+ =?us-ascii?Q?+nU9qnkVbeYmwFKNhDH4BcabC3B+5QQ4j1Vm3WmfrXhreqp3MAQ+XmGRw6V2?=
+ =?us-ascii?Q?yh5jligML9o1CX85nhCk+GYxSKRBfLjw2OKUogXOx5yn8nVNhtC3IFQxL/LI?=
+ =?us-ascii?Q?FiygTvkwWGeTMT3FxvYhdmI4a1S6xoIfsI+JQ7i6FJPt4tirCfTL1xTLYL3S?=
+ =?us-ascii?Q?VtGQMk77MrFwCSrY28JRSnLQ+fA15Cn35eA+CcmcS0kWUmEauWSVl+Z01Zu8?=
+ =?us-ascii?Q?0My6I3zwLPgBDZ5baB0J4j9g5a97MHPl0d4RcF06EeFYiAN631aMNYj4pDr/?=
+ =?us-ascii?Q?lMAJnxtEbExpVf42IHm7a4lNwL1ERDbELHwjr+R4+WbZF5hYkWLeJEmStSxH?=
+ =?us-ascii?Q?CRsy7XCz5YQLeFOJn921HT3URiNbCecAPo2Jdg/0lCvoBahm9e3Ou4bRgPaO?=
+ =?us-ascii?Q?MxvYWsX9HAqgh7azj4mXcIjanYsoU0KW5epqr8ACVbeIeoqYOF6Yhy47hRm0?=
+ =?us-ascii?Q?JnlW5+NlSfFz7dJcI6L3UBf4W8lbkPmMxakHpsEz9K9y+Nlg9NpIWXWvnXe6?=
+ =?us-ascii?Q?Rus+Uu2oDuNQXe8Eqww+2J2RCSOKcPs8dZ4cllqeKFXrvosFFo+5X7ezyRl2?=
+ =?us-ascii?Q?Eo1/H534E3scICEgWWmgKTg6UmV4p+3S2y4DjFOuHSUtEMUgggayIxuh0zYI?=
+ =?us-ascii?Q?OIMbeVmrXTMFYOkgIemIA98UHG2dAKacT8wNNkSUP6fcvgCfnvjkv1MnFxAi?=
+ =?us-ascii?Q?/tW2cmKeuvT5oHVTzkuTx4lWIH12XT9uhB1g50XCc5fdMmqUZ4n4YGTCl7ZW?=
+ =?us-ascii?Q?XXRiGjMAIPLAQ0r51hh2qO/QnLGw/rdGxW0P3EiC4wcXpvOggxYUG3kXh99T?=
+ =?us-ascii?Q?uycMz36WGg2EJij3OhM41IyESO+/1kWri0b/JlbIOE4CySZ0g6LOF30V9F8E?=
+ =?us-ascii?Q?gkAON3WgRjlraII6bhGL547hGZIV57i69p3LSNBmK724dBs79cHrMMIGRFJq?=
+ =?us-ascii?Q?11A2iKzb1KLSNUKavEOGHg4VEbw+g2vMSGRzUeZTLOQtyMoSo4rgBIWKMvYG?=
+ =?us-ascii?Q?e2ehri3l4KgBg5kIqbtgLO4xW1Sz?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W5pdmYCtMkO5sWUb+fl0d93LW7XDodof8+cGPnIhAB2tX4j1Kzn1Vti2qu7U?=
+ =?us-ascii?Q?XcB9slYzc0Vx/Q/mXv2XziLD3TSVLsvWouCKq+O3DBa1FmBMDu6tr28hue3w?=
+ =?us-ascii?Q?9U4nqOp5CMXs5b54LTWepFn7wMtA7XKuOH7aIrfvuoJmkc/yqznxLp36dEOc?=
+ =?us-ascii?Q?27aEz6FMwiDwoiKjdm04sTzIMry4Cdi2HqdbSo3IDsjBwyaIqfvXaDEQwKf8?=
+ =?us-ascii?Q?hRoM6DvYdnxfxTwwjrV5ItkK5dU0G6W0+ksSM7IBvUr1l1uWGDiCEYKuQFdZ?=
+ =?us-ascii?Q?Zh5Xs3T9upxPbYaAz75RvV1g5GKBIfhgbWYEWll4nqoZImmSQGjlFw725B7P?=
+ =?us-ascii?Q?LTyH1zOFrrRVotVKI4oTzgpqQvavj3OluUYuF2auu345nzF0L8844xHAS8dv?=
+ =?us-ascii?Q?qJ5g1dk0L5rr3pkSkm2MxVuiE3AqRUNb+z5NLrAUxreJudp3OY0SDNLh6uG0?=
+ =?us-ascii?Q?jYJdpZ6YR9rh8LSHHfoYyf5XlgOB794Oqck6cj5Mi6UoJa0FZoFe81MHOxri?=
+ =?us-ascii?Q?tisH6Z994BaksePb9/tyncgpZoVYEfxMZjEogovvgaC3srKZeBEq4D7+mvp5?=
+ =?us-ascii?Q?zLe3mXov2HW+0qq6pUzSszT1c/kjuIQaDbFmpAJ9b0KpRvPDK4uoziYJ8SxH?=
+ =?us-ascii?Q?OJAANypuVns8POy+nbb3WzcW0rqbuUktGnbvUSxqOujh+3njiEML3iEofkXU?=
+ =?us-ascii?Q?+akAg/mCx8SvCQtRz25ZIn1Cmc5wGWRQpp+lD4nHRIBhExniOMoEBnSfXIsq?=
+ =?us-ascii?Q?nIXAmgDfQPUFaO0vPr0GEn990coj+6GzPQ3OOotbVNAwYCr/b2kKbgaCnMey?=
+ =?us-ascii?Q?5GzOz0uhiz+p96t/0LgP/wjTEECWi29slI+hyArgZeFW0FkW0GhkVwbLE8ak?=
+ =?us-ascii?Q?+kjpURl3CHEKQlM4FkKoK3YBZoKIHPo237xieYOkJ2bi85h51mbJ07c20bO2?=
+ =?us-ascii?Q?QDipiZ8zncj8dxSsJHNmTNAp79F7qcLaoIJUr2i8rhmGgCW+NtllZdSlyK9c?=
+ =?us-ascii?Q?kucqeS3hon3we8YspPbSLnSm2E/ZuU3G+SWrf84wnv206QXIizKWtOVgojHI?=
+ =?us-ascii?Q?dJGQlyFyoMDitJZH2xP4gpr1rIJ8+y3s5wLwsiJMjV00PoUNVDtPFrNPAg6A?=
+ =?us-ascii?Q?+BhhiGdUiCtnZy1PYfVTba1cYmzFVI8IpTE5vgR//AIkT2f0Z6GugQmXssVd?=
+ =?us-ascii?Q?Id4MkNRZOWIckj/n8TOukKx40+lnIPe6bDVi/mInFARjB+7y88nVUGFubnST?=
+ =?us-ascii?Q?0kMeTHMyvlXuxU1hX27i9VE2ZGQrXcOFug+Lj1ocs/oFFN50vIz9la+ODScJ?=
+ =?us-ascii?Q?dPBZ63KoRAfLudVTwC/+mWLDdMr+/9UTTgn5bdp0HAymGlmMmNHlyKK+n1QN?=
+ =?us-ascii?Q?Wj2vyrISSlfAL6H2V4a3a7HOFuI0+SkUOHQWb3i4+ZaeInmEEQ9lUt5r814k?=
+ =?us-ascii?Q?gbTNNhc5jr2J75kTZWfseWFhumFcE9ocxlDMorAKQKEOAdp8Treji/lmoaYW?=
+ =?us-ascii?Q?gln+f47wDCIAZF29P36e5pJ12PTKl75L8pjFmLzoPCnZbleW87THaUofxGPd?=
+ =?us-ascii?Q?YuXbtm39lkoMrrZx2MD9xATuWVfMKmgYVOwzgYHV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5fd856ea-a7bd-4702-218d-08dd4783f398
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 14:30:21.1569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8/GeIdvHIl3f5Hz5vqSGaxFg6K/f18CDyn++i9rBsB6Rd1T9vMw2p/1rKf2KFEtn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9420
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_062506_771608_7FECF012 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250207_063025_997462_11A61DA6 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,111 +171,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello!
+On Thu, Feb 06, 2025 at 08:26:05PM -0800, Nicolin Chen wrote:
+> Yea, I found iopt_reserve_iova() is actually missed entirely...
+> 
+> While fixing this, I see a way to turn the OPTIONs back to per-
+> idev, if you still prefer them to be per-idev(?). Then, we can
+> check a given input in the set_option() against the device's
+> reserved region list from the driver, prior to device attaching
+> to any HWPT.
 
-While running ssdd[1] from rt-tests on an aarch64 kernel with PREEMPT_RT and
-debug features enabled, this bug was triggered on every single run:
+I didn't have a strong opinion, if the idev works without complexity
+then I'd stick with that on the basis of narrower scope is usually
+better.
 
-[1] https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git/tree/src/ssdd/ssdd.c
-
-# ssdd
-
-[  273.115597] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-[  273.115607] in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 6077, name: ssdd
-[  273.115611] preempt_count: 1, expected: 0
-[  273.115614] RCU nest depth: 0, expected: 0
-[  273.115617] 1 lock held by ssdd/6077:
-[  273.115620]  #0: ffff07ffd77893e0 (&sighand->siglock){+.+.}-{3:3}, at: force_sig_info_to_task+0x58/0x200
-[  273.115642] Preemption disabled at:
-[  273.115644] [<ffffad24518bd1f4>] debug_exception_enter+0x1c/0x80
-[  273.115653] CPU: 47 UID: 0 PID: 6077 Comm: ssdd Not tainted 6.13.0-rt3 #1 PREEMPT_RT
-[  273.115659] Hardware name: GIGABYTE R152-P31-00/MP32-AR1-00, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
-[  273.115662] Call trace:
-[  273.115664]  show_stack+0x34/0x98 (C)
-[  273.115670]  dump_stack_lvl+0xa8/0xe8
-[  273.115675]  dump_stack+0x1c/0x38
-[  273.115680]  __might_resched+0x254/0x330
-[  273.115686]  rt_spin_lock+0xcc/0x220
-[  273.115692]  force_sig_info_to_task+0x58/0x200
-[  273.115697]  force_sig_fault+0xd0/0x120
-[  273.115702]  arm64_force_sig_fault+0x48/0x80
-[  273.115707]  send_user_sigtrap+0x88/0xe8
-[  273.115712]  single_step_handler+0x100/0x160
-[  273.115717]  do_debug_exception+0x94/0x160
-[  273.115722]  el0_dbg+0x54/0x150
-[  273.115727]  el0t_64_sync_handler+0x134/0x138
-[  273.115732]  el0t_64_sync+0x1ac/0x1b0
-
-The ptrace usage in ssdd eventually exercises the code path that starts on
-el0t_64_sync_handler() and may end up calling do_debug_exception(), which
-calls debug_exception_enter() that disables preemption.
-
-Looking at the backtrace, later in the call chain force_sig_info_to_task()
-tries to take a spinlock, which on PREEMPT_RT becomes a rtmutex and could
-sleep in case of contention. That triggers the "BUG: sleeping function
-called from invalid context" warning.
-
-It is also possible to reproduce the problem in an aarch64 kernel with
-PREEMPT_RT enabled, no extra debug features, by running ssdd in a loop.
-With that we can see not only the backtrace reported above but also other
-instances where the process is scheduled out while preemption is disabled:
-
-# while :; do ssdd; done
-
-[  754.673678] BUG: scheduling while atomic: ssdd/7340/0x00000002
-[  754.673682] Modules linked in: qrtr rfkill sunrpc vfat fat acpi_ipmi ipmi_ssif arm_spe_pmu igb ipmi_devintf ipmi_msghandler arm_dmc620_pmu arm_cmn cppc_cpufreq arm_dsu_pmu loop dm_multipath nfnetlink xfs nvme ghash_ce sha2_ce sha256_arm64 nvme_core sha1_ce nvme_auth sbsa_gwdt ast i2c_algo_bit i2c_designware_platform xgene_hwmon i2c_designware_core dm_mirror dm_region_hash dm_log dm_mod fuse
-[  754.673703] Preemption disabled at:
-[  754.673703] [<ffffa87a17ca470c>] do_debug_exception+0x54/0x100
-[  754.673710] CPU: 102 UID: 0 PID: 7340 Comm: ssdd Kdump: loaded Not tainted 6.14.0-rc1 #1
-[  754.673712] Hardware name: GIGABYTE R152-P31-00/MP32-AR1-00, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
-[  754.673713] Call trace:
-[  754.673714]  show_stack+0x34/0x98 (C)
-[  754.673718]  dump_stack_lvl+0x80/0xa8
-[  754.673721]  dump_stack+0x18/0x2c
-[  754.673722]  __schedule_bug+0x90/0xc0
-[  754.673726]  schedule_debug.isra.0+0x128/0x158
-[  754.673728]  __schedule+0x68/0x690
-[  754.673731]  schedule_rtlock+0x24/0x50
-[  754.673733]  rtlock_slowlock_locked+0x1c0/0x350
-[  754.673735]  rt_spin_lock+0xcc/0x130
-[  754.673737]  obj_cgroup_charge+0x54/0x138
-[  754.673740]  __memcg_slab_post_alloc_hook+0xcc/0x300
-[  754.673743]  kmem_cache_alloc_noprof+0x304/0x338
-[  754.673745]  __send_signal_locked+0x90/0x428
-[  754.673748]  send_signal_locked+0xe4/0x140
-[  754.673750]  force_sig_info_to_task+0xd0/0x160
-[  754.673753]  force_sig_fault+0x6c/0xa8
-[  754.673755]  arm64_force_sig_fault+0x48/0x80
-[  754.673757]  send_user_sigtrap+0x54/0xd0
-[  754.673759]  single_step_handler+0xc4/0xe0
-[  754.673761]  do_debug_exception+0x7c/0x100
-[  754.673762]  el0_dbg+0x40/0x158
-[  754.673766]  el0t_64_sync_handler+0x134/0x138
-[  754.673768]  el0t_64_sync+0x1ac/0x1b0
-
-In this case one of the local_lock_* calls in (the functions called by)
-obj_cgroup_charge() seems to hit contention and, as it is dealing with
-rtmutexes, be effectively scheduled out to sleep.
-
-The scary comment on top of debug_exception_enter() provides a reason for
-preemption being disabled at that point, but it seems to open a can of worms
-for PREEMPT_RT usage:
-
-    /*
-     * In debug exception context, we explicitly disable preemption despite
-     * having interrupts disabled.
-     * This serves two purposes: it makes it much less likely that we would
-     * accidentally schedule in exception context and it will force a warning
-     * if we somehow manage to schedule by accident.
-     */
-
-This is the data I gathered so far, using both v6.13.0-rt3 and 6.14.0-rc1
-for testing. But due to my ignorance wrt the debug exception treatment in
-aarch64 I can't devise a solution for the observed behavior.
-
-Any suggestions or comments?
-
-Best regards,
-Luis
-
+Jason
 
