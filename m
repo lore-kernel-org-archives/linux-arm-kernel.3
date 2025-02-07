@@ -4,139 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A77C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 11:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE03C02196
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 11:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2y5D/PM5tYq3BpNaRBiJG8iQwkDq/AIoKQCoGOFvkI=; b=Hxb83lLQ2LJQvA7kk/BNddOW/p
-	LebelRloPzvk9OT7FfBKll+dP1E40XoOoH9q7C1XsUeUihFa3bdczpCzqZmJQFMWwf72h7OHzbL6N
-	2kMOFlAIj/xxd+mQIOuN4snoQ1I4/tpdqCqWTcDw2ojrGxGPNYiOboVH55IIU6nDhK8ndoG8G4N8t
-	MoZKZe7V/66Q/cRZXG2nVA+t8QjOwVN36jaBYmphxwqc751R4xlgsF7u+zV9ENzAACKbUKNZ0sFwD
-	Fw3u9LNpGdP3XOMEvJ1BuPg+J8O5mliQIHDY8Gu7iTJ4h5B5EMxfuD8WQcw1ntoox6nC0y7bpCEwM
-	potli0OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JR3Vjat4//MGEukixFZKwpNgnByay/aE/Yu8JW2MD0s=; b=o6VSA77K2jHnWaDmJ5yGUNfit8
+	uN0tReBHaRYwF82Snt8uKydUGhpCz+BWc4YyMByR8zdFnbt6PShFaTvS0uZnBdfH483NuSOIG9/s+
+	f6KdEuB0rRMDmT7PyHiT2IC0M7mWadX43NkRgd4uqIkLtPDDMDktDkrfVAor8UdFB2c9FgMk+A5U1
+	/NFoRVHCHXBhUV2RlLM868+NAbJtU/+nEakmB6j1AdE3cs/w3Yk+ecs5t+gWnLXweuSzJTQe2Q/pB
+	R9fXXmvZyyAnI9U7qPtZbHMpc1LfAJG5pwSpZty9KGBPwHG2BVe5mL766BG6oUemjT/GUyNfEcCuX
+	CKGh5hXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgMZn-00000009MHy-3TX1;
-	Fri, 07 Feb 2025 11:31:15 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tgMb9-00000009Mke-23uC;
+	Fri, 07 Feb 2025 11:32:39 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgMYO-00000009LqI-3v2M
+	id 1tgMZZ-00000009MDd-0P8X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 11:29:50 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5175OffB030394;
-	Fri, 7 Feb 2025 11:29:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=H2y5D/
-	PM5tYq3BpNaRBiJG8iQwkDq/AIoKQCoGOFvkI=; b=mxl3GauPqUZLJtd+33HcpY
-	s4iWRKsCSYfQ99QxbBGgs/gB5WFyQ6qED06APzMm3S+vUuZ2YbKHwEojQeeQl+JL
-	Y35MfyBIbdsbGAAF2++5s9t4y92SbG3llXF5Omh5n9k1UGUGQR58t0PYVMUdXwj6
-	x/RhouZJA9BfSbnoejLLFnVTFgnwx7HjjgmNBRZAF4nnsFK1JfHWvR6j/k7HyviJ
-	om6eOsE2sSc1EE+0BuFC0BpdWdKuJoytBGRsMkTWKh3+DSBS74rzoQqaqWWT6UAI
-	hceCK4H9qqXvhMDsq3bwwifsmzDQJzuF8Z5BDbaJ85cuV0If4FOms4FVmReR+kiA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44nc08hndc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 07 Feb 2025 11:29:08 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 517BT77s016888;
-	Fri, 7 Feb 2025 11:29:07 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44nc08hncm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 07 Feb 2025 11:29:07 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5179oG8g016391;
-	Fri, 7 Feb 2025 11:28:49 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 44hwxsugjk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 07 Feb 2025 11:28:49 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 517BSkqZ60031420
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 7 Feb 2025 11:28:46 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 032A720169;
-	Fri,  7 Feb 2025 11:28:46 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 20C1520165;
-	Fri,  7 Feb 2025 11:28:44 +0000 (GMT)
-Received: from [127.0.0.1] (unknown [9.152.108.100])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri,  7 Feb 2025 11:28:44 +0000 (GMT)
-Message-ID: <cff3dc9eaa592dbe634e336eb83f9bb47dd9705a.camel@linux.ibm.com>
-Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
- store-release instructions
-From: Ilya Leoshkevich <iii@linux.ibm.com>
-To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Cc: bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>,
-        Eduard Zingerman
- <eddyz87@gmail.com>,
-        David Vernet <void@manifault.com>,
-        Alexei Starovoitov
- <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Andrii Nakryiko
- <andrii@kernel.org>,
-        Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
- <song@kernel.org>,
-        Yonghong Song <yonghong.song@linux.dev>,
-        John Fastabend
- <john.fastabend@gmail.com>,
-        KP Singh <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@fomichev.me>,
-        Hao Luo <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        "Paul E. McKenney"
- <paulmck@kernel.org>,
-        Puranjay Mohan <puranjay@kernel.org>,
-        Heiko Carstens
- <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Quentin Monnet
- <qmo@kernel.org>,
-        Mykola Lysenko <mykolal@fb.com>, Shuah Khan
- <shuah@kernel.org>,
-        Ihor Solodrai <ihor.solodrai@linux.dev>,
-        Yingchi Long
- <longyingchi24s@ict.ac.cn>,
-        Josh Don <joshdon@google.com>, Barret Rhoden
- <brho@google.com>,
-        Neel Natu <neelnatu@google.com>, Benjamin Segall
- <bsegall@google.com>,
-        linux-kernel@vger.kernel.org
-Date: Fri, 07 Feb 2025 12:28:43 +0100
-In-Reply-To: <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
-References: <cover.1738888641.git.yepeilin@google.com>
-	 <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	Fri, 07 Feb 2025 11:31:02 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38dcb7122c1so391968f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 03:31:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1738927859; x=1739532659; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JR3Vjat4//MGEukixFZKwpNgnByay/aE/Yu8JW2MD0s=;
+        b=dy2bJRiCQNRJN8EoOjyGNwrdA6rReEfFJkIeRArpRufljtZu0HAZ4EAPMYsCYwX9DB
+         njyOT7gqLOAiVG5+rrMHYgSl1oHsKkE4098CFNd/xHbZ3TueQwTn9mCjJNcWyKbA011G
+         Bz5gC2VwaOYlYk1m3EwXWWg/8KBTBEUbNljn4RdiX0T3K7oHhc02d6wjxHyC3HFsyYpO
+         OPBFUG1TaDmA/DL1m8Ic5+RpkR/3gzOUi0fEBhb7D64Vs6dIj0uxsXbeCO4y7CyPM8IR
+         Q7/Y2JsbZPPWSa7s0Eul0Hq4YnWIlLYo5yPJpJDsjeqafDFjxHu6nn8ejHCdTw4Rq1VV
+         NFOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738927859; x=1739532659;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JR3Vjat4//MGEukixFZKwpNgnByay/aE/Yu8JW2MD0s=;
+        b=LIp4auoBhy5oakCaLhEvOS4+jaPYt2ZcCY65sgYypZegCaOnObAB/FVXJtm3z7ODlm
+         x05vtNC8N58QwylQBuWkdAkINbLJlgagdp7jr38fky35BkGff3n18GJKaKDmdDrqHjzE
+         JYdVq6pWgiPGYa7JkKdDY3PeDx7LMAXu058vywz8Jz3+gEnr5I3RWzi/8V4KhqMU3+al
+         1fGoCw1OScISu4BGNlBkV9XtVAM0zuH1oTqLu+FLDl4Q5uWKUTfppz3ud7nTybQvEI+X
+         YVgG+FVHEVC5RXUE/lwRK0DDweJVY7D3G0SsfdOLPMqJ2XZBU4HgFZrL5u0gCp4e+tPg
+         pxsA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrsrW2NKmPKmWjMh1Cm4fqqFFJ6+44pv3x293L6T0cIN8CSxSOrIsprxgv43cLKD2Cu59JlCfvGKO1INwhdXlf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE1l+Ulp8k0WQFpwW6vIA6PuBYedsyGt7HoUUQEFdgVTSdhU43
+	Ty8SRWEWeYGkTJIgLE6UG4Suf9ACBBPxQilOM08bp700XJsvPsDFtrJGeiqoxWY=
+X-Gm-Gg: ASbGncsIuS4s3J/BA1WSzjKhbc0TPTw+MxYxR7ZD6mE8ehJ7mROFGLloYAg+B8iO7Xr
+	EcBJH/Z0To0nXPryzo0uJPhSkcHnewLansBOJ3Ht9wNWWkttdDR7DwQcbOFKmmmrezktwb++W3L
+	g7c+RfxXcakBXW5vlHzYfnuMa2P02TXFgZk0vBSYvn4WqD1Mad/I4qO787yUzB4qrPMFKCStkZS
+	nqp2DmJufdnznb5jwcK0w4Sh7Ibh54QqDx2x38c3Litae0rC5OpwcuHrIbFytaucpWP3yXAb0W2
+	GqMASuXrCb1z3bJI7Eo=
+X-Google-Smtp-Source: AGHT+IHLVbDAU0ivPxRDdiP+UpyYF00dtw+lzFrRq9UIR/rXFPesGkRa2kTN8/QLK8uHm5CRvnYQnw==
+X-Received: by 2002:a5d:5f83:0:b0:38d:b448:8ffc with SMTP id ffacd0b85a97d-38dc90eec01mr1724667f8f.27.1738927858852;
+        Fri, 07 Feb 2025 03:30:58 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:e0a:5ee:79d0:a437:fa6a:2619:f5d8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43907f19247sm73323765e9.1.2025.02.07.03.30.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 03:30:58 -0800 (PST)
+From: Alexandre Mergnat <amergnat@baylibre.com>
+Date: Fri, 07 Feb 2025 12:30:45 +0100
+Subject: [PATCH v2] arm64: dts: mediatek: add mmc2 support for mt8365-evk
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 2vqE_S-ZCmh4StDB4kvU9q_CRNjPQL4t
-X-Proofpoint-GUID: o5rg8snT-IXIrJ5LScYMNJP6aBEmf57u
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-07_05,2025-02-07_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=884 bulkscore=0
- malwarescore=0 spamscore=0 lowpriorityscore=0 mlxscore=0 adultscore=0
- suspectscore=0 impostorscore=0 priorityscore=1501 clxscore=1011
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502070088
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250109-mmc2-support-v2-1-8347af6d1a66@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAOTupWcC/3WNQQqDMBBFryJZd4oTUZqueo/iIhOnNaCJTFQq4
+ t2buu/yPfj/7SqxeE7qXuxKePXJx5BBXwrlehveDL7LrHSp6xJLA+PoNKRlmqLMYBqq2NbY4K1
+ ReUI2MZDY4Po8CsswZDkJv/znbDzbzL1Pc5TtTK74s3/eVwQEQ6ZDQstV3T3IboMn4auLo2qP4
+ /gCe0BNrsAAAAA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ macpaul.Lin@mediatek.com
+Cc: vsatoes@baylibre.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Alexandre Mergnat <amergnat@baylibre.com>
+X-Mailer: b4 0.12.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6037; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=tVdOnKU51B2x4WqhOEirUsHUGpi24fZC4xipg7NMb4A=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBnpe7xjVViz2dCkEp3rvXIrJpgQ7FrMDhLnOD1i90q
+ /WBT5JiJAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCZ6Xu8QAKCRArRkmdfjHURTksD/
+ 99nqDzp7HEBqvTVrbRBbDejfxW/0bhbEEIvuvQDXXg4IZI6gUXbIGTrTxRAolX4HVRO/DR5ny4dyLn
+ Q/MrDQn63P16JYKbuR+PuddQinpvC6eTOyCSZYEfhdFPvB2aJw07HaSgyGiApC8YWAhBf24yhAN2sj
+ iX83KxU0irHTkBX3yz8BxmYhrQREMoG15VlpMv7xtXZ9qEhlIWaHtAf+ycclleO/U/RF4GU+/4Uid7
+ TYvNumN6JMRWA592DStPnKU1oQ3AKh/aXjZHeas6C1ASQkR19vFSaLBeMsAeuNyPJHSU0vA6fVnZcz
+ lXekivU50HHu8JMoj5twpNlZUGcfNzRADEG6VnkUWSN3fXHzx0VBLPKQoqWiP2bUUm2Xam7HrmAb+B
+ 1wGh60XHuygjXmXYt9mlu/0nXuH3SN68VAPRU0rA7BdKhsBX/sP++9pkNHxA6kUKxUrxjV6fBQ1aRk
+ nNSWSVlgBucDM4vazVBiGIj74ns4mUvTizCZ6TZ0m9IzIhEB3xehW+ebTXdSuPXi4yhv3/cpOG6TwA
+ Eg1pPc3jENIfFcJb0RbbCmoEF4Oelbxy+LThNtUJhxdeINjofpqvQiLuRvswj1KF+D2Wpa4ey7Oly0
+ rq2IJ4QgSQuAkD8clsP6k22P3a88accBjHPRgr7XHMucouZtZAxmMglGg73A==
+X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
+ fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_032948_979191_892ECF72 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20250207_033101_165916_7CA57DCD 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,99 +120,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-02-07 at 02:05 +0000, Peilin Ye wrote:
-> Introduce BPF instructions with load-acquire and store-release
-> semantics, as discussed in [1].=C2=A0 The following new flags are defined=
-:
->=20
-> =C2=A0 BPF_ATOMIC_LOAD=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x=
-10
-> =C2=A0 BPF_ATOMIC_STORE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x20
-> =C2=A0 BPF_ATOMIC_TYPE(imm)=C2=A0=C2=A0=C2=A0 ((imm) & 0xf0)
->=20
-> =C2=A0 BPF_RELAXED=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x0
-> =C2=A0 BPF_ACQUIRE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x1
-> =C2=A0 BPF_RELEASE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x2
-> =C2=A0 BPF_ACQ_REL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x3
-> =C2=A0 BPF_SEQ_CST=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0x4
->=20
-> =C2=A0 BPF_LOAD_ACQ=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (BPF_ATOMIC_LOAD =
-| BPF_ACQUIRE)
-> =C2=A0 BPF_STORE_REL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (BPF_ATOMIC_STORE | BP=
-F_RELEASE)
->=20
-> A "load-acquire" is a BPF_STX | BPF_ATOMIC instruction with the 'imm'
-> field set to BPF_LOAD_ACQ (0x11).
->=20
-> Similarly, a "store-release" is a BPF_STX | BPF_ATOMIC instruction
-> with
-> the 'imm' field set to BPF_STORE_REL (0x22).
->=20
-> Unlike existing atomic operations that only support BPF_W (32-bit)
-> and
-> BPF_DW (64-bit) size modifiers, load-acquires and store-releases also
-> support BPF_B (8-bit) and BPF_H (16-bit).=C2=A0 An 8- or 16-bit load-
-> acquire
-> zero-extends the value before writing it to a 32-bit register, just
-> like
-> ARM64 instruction LDARH and friends.
->=20
-> As an example, consider the following 64-bit load-acquire BPF
-> instruction:
->=20
-> =C2=A0 db 10 00 00 11 00 00 00=C2=A0 r0 =3D load_acquire((u64 *)(r1 + 0x0=
-))
->=20
-> =C2=A0 opcode (0xdb): BPF_ATOMIC | BPF_DW | BPF_STX
-> =C2=A0 imm (0x00000011): BPF_LOAD_ACQ
->=20
-> Similarly, a 16-bit BPF store-release:
->=20
-> =C2=A0 cb 21 00 00 22 00 00 00=C2=A0 store_release((u16 *)(r1 + 0x0), w2)
->=20
-> =C2=A0 opcode (0xcb): BPF_ATOMIC | BPF_H | BPF_STX
-> =C2=A0 imm (0x00000022): BPF_STORE_REL
->=20
-> In arch/{arm64,s390,x86}/net/bpf_jit_comp.c, have
-> bpf_jit_supports_insn(..., /*in_arena=3D*/true) return false for the
-> new
-> instructions, until the corresponding JIT compiler supports them.
->=20
-> [1]
-> https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.com/
->=20
-> Acked-by: Eduard Zingerman <eddyz87@gmail.com>
-> Signed-off-by: Peilin Ye <yepeilin@google.com>
-> ---
-> =C2=A0arch/arm64/net/bpf_jit_comp.c=C2=A0 |=C2=A0 4 +++
-> =C2=A0arch/s390/net/bpf_jit_comp.c=C2=A0=C2=A0 | 14 +++++---
-> =C2=A0arch/x86/net/bpf_jit_comp.c=C2=A0=C2=A0=C2=A0 |=C2=A0 4 +++
-> =C2=A0include/linux/bpf.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 11 ++++++
-> =C2=A0include/linux/filter.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 2 ++
-> =C2=A0include/uapi/linux/bpf.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 13 +=
-++++++
-> =C2=A0kernel/bpf/core.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 63 ++++++++++++++++++++++++++++++--
-> --
-> =C2=A0kernel/bpf/disasm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 12 +++++++
-> =C2=A0kernel/bpf/verifier.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 45 ++++++++++++++++++++++--
-> =C2=A0tools/include/uapi/linux/bpf.h | 13 +++++++
-> =C2=A010 files changed, 168 insertions(+), 13 deletions(-)
+Adds support for the MMC2 interface on the MT8365 EVK board.
+It introduces a fixed regulator for the MMC2 VDD33 supply and configures
+the MMC2 node with a 4-bit bus width, high-speed capabilities, UHS
+modes, and appropriate power supplies. Enabled SDIO IRQ, wakeup source,
+and kept power during suspend (to save firmware module) for wireless
+chip functionality.
 
-Acked-by: Ilya Leoshkevich <iii@linux.ibm.com>
+Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+---
+Changes in v2:
+- Apply alphabetical order to pinctrl property items.
+- Improve commit message
+- Link to v1: https://lore.kernel.org/r/20250109-mmc2-support-v1-1-9b9d1b1ae35d@baylibre.com
+---
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts | 103 +++++++++++++++++++++++++---
+ 1 file changed, 94 insertions(+), 9 deletions(-)
 
-s390x has a strong memory model, and the regular load and store
-instructions are atomic as long as operand addresses are aligned.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+index 7d90112a7e274..a87f1b3ed6500 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+@@ -53,6 +53,15 @@ memory@40000000 {
+ 		reg = <0 0x40000000 0 0xc0000000>;
+ 	};
+ 
++	mmc2_vdd33: mmc2_vdd33-regulator {
++		compatible = "regulator-fixed";
++		regulator-name = "mmc2_vdd33";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		gpio = <&pio 121 0>;
++		enable-active-high;
++	};
++
+ 	usb_otg_vbus: regulator-0 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "otg_vbus";
+@@ -197,6 +206,28 @@ &mmc1 {
+ 	status = "okay";
+ };
+ 
++&mmc2 {
++	assigned-clock-parents = <&topckgen CLK_TOP_MSDCPLL>;
++	assigned-clocks = <&topckgen CLK_TOP_MSDC50_2_SEL>;
++	bus-width = <4>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	hs400-ds-delay = <0x12012>;
++	keep-power-in-suspend;
++	max-frequency = <200000000>;
++	non-removable;
++	pinctrl-0 = <&mmc2_default_pins>;
++	pinctrl-1 = <&mmc2_uhs_pins>;
++	pinctrl-names = "default", "state_uhs";
++	sd-uhs-sdr104;
++	sd-uhs-sdr25;
++	sd-uhs-sdr50;
++	vmmc-supply = <&mmc2_vdd33>;
++	vqmmc-supply = <&mt6357_vcn18_reg>;
++	wakeup-source;
++	status = "okay";
++};
++
+ &mt6357_pmic {
+ 	interrupts-extended = <&pio 145 IRQ_TYPE_LEVEL_HIGH>;
+ 	interrupt-controller;
+@@ -324,8 +355,8 @@ cmd-dat-pins {
+ 				 <MT8365_PIN_94_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
+ 				 <MT8365_PIN_93_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
+ 				 <MT8365_PIN_98_MSDC0_CMD__FUNC_MSDC0_CMD>;
+-			input-enable;
+ 			bias-pull-up;
++			input-enable;
+ 		};
+ 
+ 		rst-pins {
+@@ -337,8 +368,8 @@ rst-pins {
+ 	mmc0_uhs_pins: mmc0-uhs-pins {
+ 		clk-pins {
+ 			pinmux = <MT8365_PIN_99_MSDC0_CLK__FUNC_MSDC0_CLK>;
+-			drive-strength = <MTK_DRIVE_10mA>;
+ 			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <MTK_DRIVE_10mA>;
+ 		};
+ 
+ 		cmd-dat-pins {
+@@ -351,21 +382,21 @@ cmd-dat-pins {
+ 				 <MT8365_PIN_94_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
+ 				 <MT8365_PIN_93_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
+ 				 <MT8365_PIN_98_MSDC0_CMD__FUNC_MSDC0_CMD>;
+-			input-enable;
+-			drive-strength = <MTK_DRIVE_10mA>;
+ 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			drive-strength = <MTK_DRIVE_10mA>;
++			input-enable;
+ 		};
+ 
+ 		ds-pins {
+ 			pinmux = <MT8365_PIN_104_MSDC0_DSL__FUNC_MSDC0_DSL>;
+-			drive-strength = <MTK_DRIVE_10mA>;
+ 			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <MTK_DRIVE_10mA>;
+ 		};
+ 
+ 		rst-pins {
+ 			pinmux = <MT8365_PIN_97_MSDC0_RSTB__FUNC_MSDC0_RSTB>;
+-			drive-strength = <MTK_DRIVE_10mA>;
+ 			bias-pull-up;
++			drive-strength = <MTK_DRIVE_10mA>;
+ 		};
+ 	};
+ 
+@@ -386,16 +417,16 @@ cmd-dat-pins {
+ 				 <MT8365_PIN_91_MSDC1_DAT2__FUNC_MSDC1_DAT2>,
+ 				 <MT8365_PIN_92_MSDC1_DAT3__FUNC_MSDC1_DAT3>,
+ 				 <MT8365_PIN_87_MSDC1_CMD__FUNC_MSDC1_CMD>;
+-			input-enable;
+ 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			input-enable;
+ 		};
+ 	};
+ 
+ 	mmc1_uhs_pins: mmc1-uhs-pins {
+ 		clk-pins {
+ 			pinmux = <MT8365_PIN_88_MSDC1_CLK__FUNC_MSDC1_CLK>;
+-			drive-strength = <8>;
+ 			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <8>;
+ 		};
+ 
+ 		cmd-dat-pins {
+@@ -404,9 +435,63 @@ cmd-dat-pins {
+ 				 <MT8365_PIN_91_MSDC1_DAT2__FUNC_MSDC1_DAT2>,
+ 				 <MT8365_PIN_92_MSDC1_DAT3__FUNC_MSDC1_DAT3>,
+ 				 <MT8365_PIN_87_MSDC1_CMD__FUNC_MSDC1_CMD>;
+-			input-enable;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
+ 			drive-strength = <6>;
++			input-enable;
++		};
++	};
++
++	mmc2_default_pins: mmc2-default-pins {
++		clk-pins {
++			pinmux = <MT8365_PIN_81_MSDC2_CLK__FUNC_MSDC2_CLK>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <4>;
++		};
++
++		cmd-dat-pins {
++			pinmux = <MT8365_PIN_82_MSDC2_DAT0__FUNC_MSDC2_DAT0>,
++				 <MT8365_PIN_83_MSDC2_DAT1__FUNC_MSDC2_DAT1>,
++				 <MT8365_PIN_84_MSDC2_DAT2__FUNC_MSDC2_DAT2>,
++				 <MT8365_PIN_85_MSDC2_DAT3__FUNC_MSDC2_DAT3>,
++				 <MT8365_PIN_80_MSDC2_CMD__FUNC_MSDC2_CMD>;
+ 			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			drive-strength = <4>;
++			input-enable;
++		};
++
++		sys-en-pins {
++			pinmux = <MT8365_PIN_120_DMIC1_CLK__FUNC_GPIO120>;
++			output-low;
++		};
++	};
++
++	mmc2_uhs_pins: mmc2-uhs-pins {
++		clk-pins {
++			pinmux = <MT8365_PIN_81_MSDC2_CLK__FUNC_MSDC2_CLK>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <8>;
++		};
++
++		cmd-dat-pins {
++			pinmux = <MT8365_PIN_82_MSDC2_DAT0__FUNC_MSDC2_DAT0>,
++				 <MT8365_PIN_83_MSDC2_DAT1__FUNC_MSDC2_DAT1>,
++				 <MT8365_PIN_84_MSDC2_DAT2__FUNC_MSDC2_DAT2>,
++				 <MT8365_PIN_85_MSDC2_DAT3__FUNC_MSDC2_DAT3>,
++				 <MT8365_PIN_80_MSDC2_CMD__FUNC_MSDC2_CMD>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			drive-strength = <8>;
++			input-enable;
++		};
++
++		ds-pins {
++			pinmux = <MT8365_PIN_86_MSDC2_DSL__FUNC_MSDC2_DSL>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++			drive-strength = <8>;
++		};
++
++		sys-en-pins {
++			pinmux = <MT8365_PIN_120_DMIC1_CLK__FUNC_GPIO120>;
++			output-high;
+ 		};
+ 	};
+ 
 
-IIUC the verifier already enforces this unless BPF_F_ANY_ALIGNMENT
-is set, in which case whoever loaded the program is responsible for the
-consequences: memory accesses that happen to be unaligned would
-not trigger an exception, but they would not be atomic either.
+---
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+change-id: 20250109-mmc2-support-96b3ea516186
 
-So I can implement the new instructions as normal loads/stores after
-this series is merged.
+Best regards,
+-- 
+Alexandre Mergnat <amergnat@baylibre.com>
+
 
