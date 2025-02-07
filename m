@@ -4,64 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CFEC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6BCC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/T0xWBuXVRxU1P7IMQd29/h9SUwW7qNaqLQlXla6a0=; b=I2m93kqUBYcWcDTX6RJnWXkjBa
-	0izg865qt7MOcscXZ+3dPmgVDhKaqhkUt9ju+zxuyKTwu34ZhOqkNKvKsNxON75GCz9DAp0GN9Yp8
-	c39oojbMPrIyL2aSpaki87wQNfAVTn1IbeYboQ5x2LjtnVdVVDURHkkRsFXf8YTNVHHOlScRfmlKh
-	yLWn4W8Aw0Ys1cURGc3HA2XSEutoYuqlz5gIwGKiRgxpwfuPOycsGYjOAEfHI51co0PfmMcSgddVc
-	iiBPKJQenkh24JCIflYQp6ZQ79yuLhFnYobpByc78RJuz9cd8OApL0KBEw5tDUDLTRGm7vSa7TspI
-	YAPY5oJQ==;
+	bh=/FpefEuBx+BDK/chL0srnHQxUg6nbHFdUve3YdIzJuI=; b=JHLqsDz7aDd9X1PK8ls2+gFGeT
+	j5uzn7fgiZEnapmLWPx4ZCij9F9z/bjfSuyB+lG49GL/1UlAgxHMlpotK/Lf56ku7BFdosuht+pes
+	fCNnbK7YuNQZE57EjFWmMHbMcPMMCVImtJpO6jjAR9IdqBTNbx6Po56+qcPrQpt6kE8ZTKpQ10MXN
+	5qV1OHe3p1P4SlIMyrAlMa5SYj79YNkSJxzn9mk6ZyfGoCRxHbRdaOtW7h2NxJAYDIhoCGiNAQT34
+	z3iOWk/GpAJUecHkyPLUPTVfV3ALz3UM4wXKrg3ypog+W0DAuE32FZMOiBy0C0NLj75ebUrcKYjQZ
+	7m2cEOCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQPV-0000000A6OO-3qJi;
-	Fri, 07 Feb 2025 15:36:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tgQQr-0000000A6hp-3XLi;
+	Fri, 07 Feb 2025 15:38:17 +0000
+Received: from mail-vi1eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2613::603] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQAl-0000000A2oE-2c4k;
-	Fri, 07 Feb 2025 15:21:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EF516A43692;
-	Fri,  7 Feb 2025 15:19:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54999C4CEE7;
-	Fri,  7 Feb 2025 15:21:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738941698;
-	bh=BcaIGD1WwgtYK/3UX6TqGEgv5jNlncxbn2IW0AxOsfo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=WNirZF3Uc/QsUCNhuzr9RMbWlPSjcImb9wTl6ZQ2stdTTSAmakYsbMZj5itB0GC1o
-	 4h5m0tLmMggkNXSSI+SZ5GFtDqnb1LcO7TW/uNlbkMvg/n74J3E56DZS/71GXpaaVO
-	 uBuhCJtpnfCTzgqeNiMNaSA+D/kf+SCjuiP1WKcp8UDklRWKWxXb15KMv5rSFzjz9Y
-	 wJjGmbI5AXOlRI+xHN48Zc+NpJtr4ZeJJ7wkmWXJzHgqLP3IHVR87VL3jD0HGn8O/B
-	 lzxvzwRnXoexFWgE37+Sxdd4UU/jc1O2oLzPgj39ScQ/RuUaqhiZbdS75tUiwkDeUD
-	 g6GeTxYfB2cdg==
-Date: Fri, 07 Feb 2025 09:21:37 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tgQCC-0000000A3AP-0kS5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 15:23:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iCOwadqF/Q2Ziuw1vNnPX5MRwsK6LnaA9AyDk0PnXs1pSUpzE9wGDX4YxgHZlX0cG5kvmgrMo4QhDzl6xI/RyxSu+WEuvLEkzBDUAx/NqgzekaX1RNa2Nc8ZRAHQy15R6IOy5bOV5hPgdO3P//X7q/ReDr9BbbhTKAQMbHLfcAHhxefq8yhyjKqHgX16KTx9ClwBgcSt1k/tj1vJffpqA06giQMZ1SlUkrl7kjlAHkW6V4Spagy9ubS66oN8ELwkBW2TAQgKIqDo3lihuheE4g8eiaKhQdxeV9Kdnz3vmfq7YLhJH56VanetBWmfT4GF4iaM6+bNjTvFy+UxPKy1vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/FpefEuBx+BDK/chL0srnHQxUg6nbHFdUve3YdIzJuI=;
+ b=M1CYFCGfRme16D+ESOARoNSPlF3+qX+ui7oEa9hdQhBtuWXuy3LoZ2q4vAYbJpoLGqiy3n91ixtgQ5mewyavBuAy9mZhZlxMsToyphQALOXIDonj9cSMjf3/e/FK5pGhah/Yh321+OOwEYRkGORbizUpx0eBnPCh43MPyuMXcCWgS+TVVUKl8/juqkvI56eMEt+WpR1NbWwK07g7bcFmSKsdp/rTKaSWh4GHIyinOIJw7xV3zT7JEYoBDis/ExkTxjg0gpxt7aHt1r/vKtWbQwjeUChhc9egcDXY8YfcVZB0QYsKgGi1Qm6NjEeT+dL5xsJVfRRlQQaApi+0+ZtQww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/FpefEuBx+BDK/chL0srnHQxUg6nbHFdUve3YdIzJuI=;
+ b=VnOKF7h1LVuNXOx3SWRh+Q596gmnGnSpGHm/WLzN6l0uhUxmcltcD9wSmI5xs3DMZKKSjNLIJqyPGXWeURJYY8E3d8x8ukbRE0LC4HuHw8YSM8lgwDywYgqwk3zJFpiQA1Frp1MzzrB1U6p9Cl6PuLbO4HjM1zrHB848EKCiWZ9o7oZE/NARBWlg3jGonc2GYOLo6NztNb549/Jqd2GFRIWq4XVhnsRwD1jAQp9UavsQh1tY3pQndxSC2yiLz1aA+CZc6DTjmNy1x7rv4N7seVCbNv0wEVHfM+bfR4rrky2r2d+2gOhGOi6F/REZDxpUXhd8UI3ZaNMhoTsQyunBcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8844.eurprd04.prod.outlook.com (2603:10a6:20b:40b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
+ 2025 15:23:02 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 15:23:02 +0000
+Date: Fri, 7 Feb 2025 10:22:52 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/10] nvmem: imx-ocotp: Support accessing controller
+ for i.MX8M
+Message-ID: <Z6YlTA6M40u6Bj3e@lizhi-Precision-Tower-5810>
+References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com>
+ <20250207083616.1442887-3-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250207083616.1442887-3-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: SJ0PR05CA0025.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Sean Wang <sean.wang@mediatek.com>, kernel@collabora.com
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-In-Reply-To: <20250206-dts_mt8370-genio-510-v3-0-5ca5c3257a4c@collabora.com>
-References: <20250206-dts_mt8370-genio-510-v3-0-5ca5c3257a4c@collabora.com>
-Message-Id: <173894150906.331293.4896725763364735044.robh@kernel.org>
-Subject: Re: [PATCH v3 0/4] Add support for Mediatek Genio 510 EVK board
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8844:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23e2db38-28e6-40e6-4ce7-08dd478b4f9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JaTUOQU6YyJSdJHORAC2vRceYjKduPCnER8nJjDBFOAeM7lXG5yxkXKE13Pc?=
+ =?us-ascii?Q?2EykiQAstzrP4+PxApdMSrdlCWhtXNp5JK56liQjEnBFPDs2Olrhe/wTpZTH?=
+ =?us-ascii?Q?nvi/VDosDT3Tb0TT00dL2pai1VSpFYjyvRNheFUO9iKvU0ghXo5RZsR62T3G?=
+ =?us-ascii?Q?+m5jGVWVjMXLe6s7I3DGhSme2eF5vuawPJzvWm2y6+TdpWtq/bWWYjoGWNpK?=
+ =?us-ascii?Q?bqfgph8vfRGUd85V1sPDllP3t2rFfbP7uOHAlsycn/iTO6Z9wszShhl5NtrU?=
+ =?us-ascii?Q?AR6KfvLsYCYVgT4RZfticdr3fziSM/U0IHmsyDOnoYPwoRjl+7y7YUCwfZh2?=
+ =?us-ascii?Q?jd67sEbOIXC0LusNa6x2HploDahjQfpDHXmaiT/3ARpQVr7Ncaa0oWHCuzM3?=
+ =?us-ascii?Q?6+2IcGJvMws2SobfWHgBtCcjRJo3xNnbuK6bRrTTPl/YePn/0F4gbrfkufmI?=
+ =?us-ascii?Q?BMnJ8QtlMI7Ub40m00NqKYEYRgyCY9/e+O7qaHZttuLt/oXTSFmpXcUPIL5r?=
+ =?us-ascii?Q?LCep646Am2DvLsLSlzQR1VNchEpgnWJalDeEdPgI7gUF1lyy3VN4VAXfOioy?=
+ =?us-ascii?Q?XRkwIFFm4UZcKmvH8UmgNKsaG2tfkbY5hVKpYZByWsBOvQtIYynQafPF88H7?=
+ =?us-ascii?Q?EFBap7vJDBKv0z1DyBmAhBcNpiWN+G7kNAIJYZHKu8w16Po0Ak45KRO5FB49?=
+ =?us-ascii?Q?dDK1atmtaDiCvVXS8FuOxEpEWdDukfMuKzUNIDHBNgJdvr0CISbkymVVzCfI?=
+ =?us-ascii?Q?HN62pjO3BSTksRjZfL80UYbgxrJuikOSDmDwOqKT21jlt7rYorKS8IXI99OA?=
+ =?us-ascii?Q?4HQDVmJxkstVyptqn5+s+e38aNdikaLLKDFycInfy7T1N50Ur/iHiiqWuMbH?=
+ =?us-ascii?Q?vKXYW0rFezN/LTS21dADWfZoesl1kKHINSnHu/ptN2hCms+yuPo1Ocy79JVo?=
+ =?us-ascii?Q?wSsVWGD0Xyv0qpJMGoCq1HjcVrcJem3fOdvIJloJjV4N+NXaJhvN2v2iRTg9?=
+ =?us-ascii?Q?JfRfRigktPHnjPGot+spKa09peFyVo1tANGbo5cCtdTJ4wGNIK+i4yfp50oE?=
+ =?us-ascii?Q?EZ+LSk843nw6JF2AXDzItB9egnAr9Hs4319Qa/AKp0GcPepvyDywVNw/dGbs?=
+ =?us-ascii?Q?TY/+0zhV2W8ToOjg2k52Zv+BCZ+/sB0qxqJO+QG5gQRIgRhbUAlYW3mmR6zX?=
+ =?us-ascii?Q?Gs9V/Zl7fQfYiLb7ljHoI29Z3ku353AsUxUC6b3qyUxcLkjYJWeMyi9tiAjT?=
+ =?us-ascii?Q?5wpvBZUTYU5uDXxvEcaHDZG7/WQa/WEpXfBmR1ysBvJ5YKDzx7jyUykA5Fcb?=
+ =?us-ascii?Q?JYDqLWNy/Lr8gc7b3v/1V76VVIzPAn7ZjjJjv7DAGaNVBb+dSvqd/lhm2NQP?=
+ =?us-ascii?Q?iqxSvU69GQIvlcFYKY2pJHy2jdx5AdEIfnliOxE7g/5DP/M67CFQYyPfdUGv?=
+ =?us-ascii?Q?TW9fGPi7Ok7x6DL8TfzqKiGDuCUCq+Vx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QKeaKBjE36LkH/kI5J+KcMSVCh6kicV2CnFHIMxErResD+7GTdzf6VCyyzjg?=
+ =?us-ascii?Q?JNugFu8aHhlBKFo3isLRHqSJEa5dG2khQ1ldGWdUuplyvy08UwA0gim046VQ?=
+ =?us-ascii?Q?Qik28Bao5MxyjZ0tccYIJHlMDQ0giNEG/xYosuFcRCpYeakuv5y7pveQc4mH?=
+ =?us-ascii?Q?LPELrkNMWvFvVfNuX/E8NqkIGx/ynq+Q+egNaTg49CuC00fHg99u4ZL5EctO?=
+ =?us-ascii?Q?QozHkAmtyexOTxV206+zcB2lpEH8zCuSHr5x5jPAWiGA8zy/fCyVygirzqlX?=
+ =?us-ascii?Q?HqPH2MMw/cmb1EaLmnB6y6UJ+rEa1CaEvKPl3yYQVT7NEJYzTqBKabgnG5JC?=
+ =?us-ascii?Q?2Z2OpiGzn8gXsKQFaoV4lYuyuxWF21dUn8rcVOBWH+tC5eRe0Tk5+uQOz8Xx?=
+ =?us-ascii?Q?xSkOjB4cauOiaE0QOE70eTKpL9TjCC97kyDgP99csHNdn5tYxBwqwULZlVsq?=
+ =?us-ascii?Q?690j9HikAunrPfhm5q/Rfw+oBtGXSvk6F05bQAHlcOSOwItnHVLcXjoDdVWG?=
+ =?us-ascii?Q?2+XDyxJ9O7hOIPUKlTlxhBz1NaOURW/6lt57C6L8VW4gVLw6Su8yQ/973H20?=
+ =?us-ascii?Q?66YLV4uY7G6iIZAfm1Msl81wCgOpW0ktlDLef5aaG8GogI73Ro53lcCQ1j4H?=
+ =?us-ascii?Q?Z9SAB2CpbEAyOBImVVYm0X/99B+0flFsQeFQtVEcRBzwvzS3fM0NyHojbzhI?=
+ =?us-ascii?Q?RZL17LnLgWN2Xb1f1MY7Ajp4SNacdU/pL3IASFMOXPsg42gFbejdudoukqX1?=
+ =?us-ascii?Q?r+vW1gNIe33CdIGtKqji/Y7efxU5xoLB7G1f8lLOQ+1zagrawTKVITChfulZ?=
+ =?us-ascii?Q?/tnGYMMDMZHlTSmu30+9MsVvuUTmBWflAv5lK5Lsy729Z8skRbk3IrYsXbuI?=
+ =?us-ascii?Q?fCjSw7COTBCnqy1/AfPFvr/Bts5pp/unj0HqMIcvxN24EAP9aJjnTRpR7Uhq?=
+ =?us-ascii?Q?q6OC+NzaPOLGSo/UD9CNszeSU8Hkl4zwx4AuSuD0qcUk6q0IbVc1COhodULj?=
+ =?us-ascii?Q?+PnXq9fgx7jDMosqr/zaOzxw2S1rMMR8u6PwBssbtaXeJuVBSlan/k2Yk2LB?=
+ =?us-ascii?Q?wFMtxaO9Fom0v8LLgtr8ciYBISj9Uu5bsEeMm0WEsZBeJLJF/xoIRmylOMVZ?=
+ =?us-ascii?Q?XSyRPK+RC3mp9ZClnaBcY/SUwqQZZZuCROVDjF8iZwm9Un/PW4m9UsBkg1lC?=
+ =?us-ascii?Q?45cFzOq/NmmhS8HDRcNkJDDKcOKXt4KD/ouHO+MjriNTaq7Z8ZWtwrIU96NF?=
+ =?us-ascii?Q?qQN61jO9tc5gEyltlNya3dmjQHiOBpns691hZ+R7AXYQPM0oN2RWNCzNtK6O?=
+ =?us-ascii?Q?K0EhwwJ12g0chCdgORkDhT2hbdJaTwSnLPckoavxvcz6y/EnZ839AI3ItAqn?=
+ =?us-ascii?Q?LRQOvXM6blFMtAFf9IWB2P2syyglV+XWJEWzK22MDaoFyG/ln/XxTrbg1uzK?=
+ =?us-ascii?Q?y9YKqxkMyOg1/nXaovJVQOP2xzYCBNrC0yH1dRkXrhpavl4l6oLY98NLj2At?=
+ =?us-ascii?Q?NWId+N4RJhtZF7yKfpzHMla38ZlGyviQT9/NE8NU7iUjTC7lrcMbmjj8RtV1?=
+ =?us-ascii?Q?5l012IDcZlcyB62ZUcXPUm4t/mG1oKyC/ViLfib3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23e2db38-28e6-40e6-4ce7-08dd478b4f9b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 15:23:02.0055
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cXH478tSDaC0r7HPsPSKCN/iLrb0RvKSKCvm6C9pRdqPO/qUOR6bLthpPV4kFg8xisFQRsfIYFSBlRH1JYxdzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8844
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_072139_801015_E68AFF0F 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20250207_072308_233177_A5E8BD1B 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,118 +163,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 07, 2025 at 09:36:07AM +0100, Alexander Stein wrote:
+> i.MX8M OCOTP supports a specific peripheral or function being fused
+> which means disabled, so
+>  - Introduce disable_fuse for a list of possible fused peripherals.
+>  - Iterate all nodes to check accessing permission. If not
+>    allowed to be accessed, detach the node
+>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  drivers/nvmem/Kconfig     |  3 ++
+>  drivers/nvmem/imx-ocotp.c | 74 ++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 76 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index 8671b7c974b93..ba5c928cab520 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -84,6 +84,9 @@ config NVMEM_IMX_OCOTP
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called nvmem-imx-ocotp.
+>
+> +	  If built as modules, any other driver relying on this working
+> +	  as access controller also needs to be a module as well.
+> +
+>  config NVMEM_IMX_OCOTP_ELE
+>  	tristate "i.MX On-Chip OTP Controller support"
+>  	depends on ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+> index c5086a16450ac..b15cbdae66a7c 100644
+> --- a/drivers/nvmem/imx-ocotp.c
+> +++ b/drivers/nvmem/imx-ocotp.c
+> @@ -589,6 +589,74 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+>  	cell->read_post_process = imx_ocotp_cell_pp;
+>  }
+>
+> +static int imx_ocotp_check_access(struct ocotp_priv *priv, u32 addr, u32 bit)
+> +{
+> +	u32 mask, ret, val;
+> +
+> +	mask = BIT(bit);
+> +
+> +	ret = imx_ocotp_read(priv, addr, &val, sizeof(val));
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* true means disabled */
+> +	if (val & mask)
+> +		return -EACCES;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ocotp_grant_access(struct ocotp_priv *priv, struct device_node *parent)
+> +{
+> +	struct device *dev = priv->dev;
+> +
+> +	for_each_available_child_of_node_scoped(parent, child) {
+> +		struct of_phandle_args args;
+> +		u32 idx = 0;
+> +		u32 addr;
+> +		u32 bit;
+> +
+> +		while (!of_parse_phandle_with_args(child, "access-controllers",
+> +						   "#access-controller-cells",
+> +						   idx++, &args)) {
+> +			of_node_put(args.np);
+> +			if (args.np != dev->of_node)
+> +				continue;
+> +
+> +			/* Only support one cell */
 
-On Thu, 06 Feb 2025 11:38:07 +0100, Louis-Alexis Eyraud wrote:
-> This patchset adds the basic support of the Mediatek Genio 510 EVK
-> board, based on the Mediatek MT8370 SoC.
-> 
-> It adds a device-tree file for the board (mt8370-genio-510-evk.dtb)
-> and an include file for the SoC (mt8370.dtsi), in order to be able to
-> boot. As the board is very close to the Genio 700 EVK board, an include file
-> (mt8390-genio-common.dtsi) is also created to factorize the common
-> definitions.
-> 
-> The Genio 510 EVK has following features:
-> - MT8370 SoC
-> - MT6365 PMIC
-> - MT6319 Buck IC
-> - 4GB LPDDR4X
-> - 64GB eMMC 5.1
-> - 12V DC Jack
-> - Micro SD card slot
-> - Push Button x 4 (Power, Reset, Download and Home Key)
-> - LED x 4 (Power, Reset, System on and Charging Status)
-> - USB Device Port x 1 (Micro USB Connector)
-> - USB Host Port x 1 (Type-C USB Connector)
-> - 3.5mm Earphone Jack x 1 (with Microphone Input)
-> - 3.5mm Line Out Audio Jack x 1
-> - Analog Microphone x 1
-> - Digital Microphone x 2
-> - Gigabit Ethernet with RJ45 connector
-> - HDMI 2.0 TX port with Type A HDMI connector
-> - eDP port
-> - 3x UART with serial-to-usb converters and micro USB connectors
-> - M.2 Slot x 2
-> - I2C Capacitive Touch Pad
-> - 4-Lane DSI x 2
-> - 4-Data Lane CSI x 2
-> - I2S Pin header
-> - 40-Pin 2.54mm Pin Header x 1
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
-> Changes in v3:
-> - Reword commit messages to use imperative mood
-> - Add missing code-review trailers in commit messages
-> - Link to v2: https://lore.kernel.org/r/20250115-dts_mt8370-genio-510-v2-0-fc9b01d08834@collabora.com
-> 
-> Changes in v2:
-> - Reword "dt-bindings: arm: mediatek: add mt8370-evk board" commit
->   message to add details on MT8370 SoC and links to MT8188 and MT8390
-> - Add note about gpu support in "arm64: dts: mediatek: add support for
->   MT8370 SoC" commit message
-> - Split "arm64: dts: mediatek: add device-tree for Genio 510 EVK board"
->   commit in two, as requested by AngeloGioacchino Del Regno
-> - Link to v1: https://lore.kernel.org/r/20250114-dts_mt8370-genio-510-v1-0-8517ee0fdbe8@collabora.com
-> 
-> ---
-> Louis-Alexis Eyraud (4):
->       dt-bindings: arm: mediatek: add mt8370-evk board
->       arm64: dts: mediatek: add support for MT8370 SoC
->       arm64: dts: mediatek: mt8390-genio-700-evk: Move common parts to dtsi
->       arm64: dts: mediatek: add device-tree for Genio 510 EVK board
-> 
->  .../devicetree/bindings/arm/mediatek.yaml          |    5 +
->  arch/arm64/boot/dts/mediatek/Makefile              |    1 +
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi           |    8 +-
->  .../boot/dts/mediatek/mt8370-genio-510-evk.dts     |   19 +
->  arch/arm64/boot/dts/mediatek/mt8370.dtsi           |   64 ++
->  .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 1033 +------------------
->  .../boot/dts/mediatek/mt8390-genio-common.dtsi     | 1040 ++++++++++++++++++++
->  7 files changed, 1134 insertions(+), 1036 deletions(-)
-> ---
-> base-commit: 37136bf5c3a6f6b686d74f41837a6406bec6b7bc
-> change-id: 20250113-dts_mt8370-genio-510-3560b8010ba9
-> 
-> Best regards,
+nit: two cell?
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> +			if (args.args_count != 2) {
+> +				dev_err(dev, "wrong args count\n");
+> +				continue;
+> +			}
+> +
+> +			addr = args.args[0];
+> +			bit = args.args[1];
+> +
+> +			dev_dbg(dev, "Checking node: %pOF disable fuse addr: %u, bit %u\n", child, addr, bit);
+> +
+> +			if (imx_ocotp_check_access(priv, addr, bit)) {
+> +				of_detach_node(child);
+> +				dev_info(dev, "%pOF: disabled by fuse, device driver will not be probed\n",
+> +					 child);
+> +			}
+> +		}
+> +
+> +		imx_ocotp_grant_access(priv, child);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ocotp_access_control(struct ocotp_priv *priv)
+> +{
+> +	struct device_node *root __free(device_node) = of_find_node_by_path("/");
+> +
+> +	if (WARN_ON(!root))
+> +		return -EINVAL;
+> +
+> +	return imx_ocotp_grant_access(priv, root);
+> +}
+> +
+>  static int imx_ocotp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -622,9 +690,13 @@ static int imx_ocotp_probe(struct platform_device *pdev)
+>  	imx_ocotp_clr_err_if_set(priv);
+>  	clk_disable_unprepare(priv->clk);
+>
+> +	platform_set_drvdata(pdev, priv);
+> +
+>  	nvmem = devm_nvmem_register(dev, &imx_ocotp_nvmem_config);
+> +	if (IS_ERR(nvmem))
+> +		return PTR_ERR(nvmem);
+>
+> -	return PTR_ERR_OR_ZERO(nvmem);
+> +	return imx_ocotp_access_control(priv);
+>  }
+>
+>  static struct platform_driver imx_ocotp_driver = {
 > --
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250206-dts_mt8370-genio-510-v3-0-5ca5c3257a4c@collabora.com:
-
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pinctrl@10005000: 'pcie-default' does not match any of the regexes: '-pins$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8188-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: regulators: 'compatible' is a required property
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic: '#sound-dai-cells', 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10320000: 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: mailbox@10330000: 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
-arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: jpeg-decoder@1a040000: iommus: [[123, 685], [123, 686], [123, 690], [123, 691], [123, 692], [123, 693]] is too long
-	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
-
-
-
-
-
+> 2.34.1
+>
 
