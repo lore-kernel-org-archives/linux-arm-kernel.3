@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4974EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16771C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9sJgZkwObZZZ/WV0HjnziR3OT4ESIIcpDukzt2Zb4s=; b=fUEYPgy8tXeaAN3b3oEozdyJzp
-	FimOteXNoKy952PRJCrg1Yu8BmBrtfK0lJ8Z0g6noF+J8Zvol6NmezNzeaheh9cF9zWo7+xDkuBlD
-	LKKwLCj/HC/QlLtOsSE/uFPjw4oTZtgntV9/TDYnGbUnc934M6TCSz/dFbF0NLcw8QYsVZTivL8+0
-	Sy6ctprH5lR257f2v6O5YJ/wI39PLZetjDXKL2FCSfrtpvQbhD2SmqqavlKXJ0WyQMYUpm2fqbLkz
-	LwOS+J1f5ekoBuKxABOqvyO6QFmTkmskhTsgnPOMIMB8chwCa1Pw9anMBpiSRaLky+bAQz+Lx7VC2
-	alGBENCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uhBVZKSkYEr/KtA8/VNDLfsPsl02l5A5jOyrioNrzuc=; b=oP5nCYWOv3AQOS88Q6zM7Daat5
+	rFKttgTE4em8cVpyWwRV2+c0K+zFZXudctm5egF2C/nPpiKWVBPgF+rojyHJnblExAPAohP/Cprau
+	fSZPcBeL3slPLQoDfPH4Sm7K5bPU6wumifYwl944L8V5zNH8oEq9Mo2hxzaFQNIw7HDgFcfY02//E
+	dhSVeHjq9KByYzhiNgSKMaYTjTczsIhHI01Szdqmsq97pDBDlvhTD4lwha0Hywk4ezhYzkS8m320d
+	v3jskbId4HzQfFH8hXQ7xp6frZZxAoKB2kDftGuJ2EEu2h4z9ru8JvUcfC6sWWZpJOOBSUsxYwLfW
+	DK561sPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSNY-0000000AX7m-0cl1;
-	Fri, 07 Feb 2025 17:43:00 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tgSOu-0000000AXUJ-1vtF;
+	Fri, 07 Feb 2025 17:44:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRwr-0000000AS3D-1lgZ;
-	Fri, 07 Feb 2025 17:15:27 +0000
+	id 1tgS7H-0000000AU21-3ryL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 17:26:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00619A40249;
+	Fri,  7 Feb 2025 17:24:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22999C4CED1;
+	Fri,  7 Feb 2025 17:26:08 +0000 (UTC)
+Date: Fri, 7 Feb 2025 17:26:06 +0000
+From: Mark Brown <broonie@debian.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Fix uninitialized variable warning in
+ FPMR test
+Message-ID: <89da135a-8c14-478f-9830-0b03ecd0b14d@sirena.org.uk>
+References: <20250207-arm_fix_selftest-v1-1-0d6eeb04299e@debian.org>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1738948522;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C9sJgZkwObZZZ/WV0HjnziR3OT4ESIIcpDukzt2Zb4s=;
-	b=Mme29LFFtloTAst8s+o3ggTPvUtlDtIDaHNR4Ti+CdP8H4fDOMgUQEFHtPReb4j4HU65w2
-	RYlzX9uZKgnJkc6CDP5htfsDwwlbFVD/D8XOX9Hd21Gqza6iHpkqjL/ir+H1VEX+OzIad1
-	bihpS+mAHXlaA4hORWckcP2yXtfX9NVlivPzKOHcAkbZo5KT9//J1DDDk2t5aJLv84vaAe
-	Cy7jdZPSSvyOI++KZXMB1YM9S9njI4GSZhbxR9ohSMw7DJ+LnezliWZ+Dj78pux/JGfbz4
-	2NeSnNAexum0rP1+jqyuneuVQlxKWUQ+jvf0SVXxQgwfllFfo2GRSaXduMKAZw==
-Date: Fri, 07 Feb 2025 18:15:22 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Trevor Woerner <twoerner@gmail.com>
-Cc: linux-kernel@vger.kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] thermal/drivers/rockchip: add missing rk3328 mapping
- entry
-In-Reply-To: <20250207164740.14475-1-twoerner@gmail.com>
-References: <20250207164740.14475-1-twoerner@gmail.com>
-Message-ID: <fc3c4542d5cc4d95f74692140e5ea8b5@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hHw0qavQsd22qTLy"
+Content-Disposition: inline
+In-Reply-To: <20250207-arm_fix_selftest-v1-1-0d6eeb04299e@debian.org>
+X-Cookie: MMM-MM!!  So THIS is BIO-NEBULATION!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_091525_611084_A75CF17F 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250207_092612_023618_ED763D10 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +66,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Trevor,
 
-On 2025-02-07 17:47, Trevor Woerner wrote:
-> The mapping table for the rk3328 is missing the entry for -25°C which 
-> is
-> found in the TRM[1] §9.5.2 "Temperature-to-code mapping".
-> 
-> NOTE: the kernel uses the tsadc_q_sel=1'b1 mode which is defined as:
->       4096-<code in table>. Whereas the table in the TRM gives the code
->       "3774" for -25°C, the kernel uses 4096-3774=322.
-> 
-> Link:
-> https://opensource.rock-chips.com/images/9/97/Rockchip_RK3328TRM_V1.1-Part1-20170321.pdf
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+--hHw0qavQsd22qTLy
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the patch.  I think this should also include a Fixes tag
-and be submitted for inclusion into stable kernels.
+On Fri, Feb 07, 2025 at 03:06:42AM -0800, Breno Leitao wrote:
+> Fix compiler warning about potentially uninitialized orig_fpmr variable:
+>=20
+> 	testcases/fpmr_siginfo.c: In function =E2=80=98fpmr_present=E2=80=99:
+> 	testcases/fpmr_siginfo.c:68:25: warning: =E2=80=98orig_fpmr=E2=80=99 may=
+ be used uninitialized in this function [-Wmaybe-uninitialized]
+> 	                         fprintf(stderr, "FPMR in frame is %llx, was %ll=
+x\n",
+> 	                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~
+> 	                                 fpmr_ctx->fpmr, orig_fpmr);
+> 	                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-> ---
->  drivers/thermal/rockchip_thermal.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/thermal/rockchip_thermal.c
-> b/drivers/thermal/rockchip_thermal.c
-> index f551df48eef9..a8ad85feb68f 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -386,6 +386,7 @@ static const struct tsadc_table rk3328_code_table[] 
-> = {
->  	{296, -40000},
->  	{304, -35000},
->  	{313, -30000},
-> +	{322, -25000},
->  	{331, -20000},
->  	{340, -15000},
->  	{349, -10000},
+This seems like something that should be reported to the compiler
+people, we only print the FPMR value if have_fpmr and there's an
+assignment to orig_fpmr in that case.  Which compiler is this?
+
+--hHw0qavQsd22qTLy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmemQi0ACgkQJNaLcl1U
+h9AttAf/XRt7qoqT2772eKxoPwS3Sq6TxfiGGChnMGjdkvM2j6Oxm8hEirSFUG8t
+ueb91q79QHguSHJVjM+MOgwiHjexs85Itp5UG5lMGNoxKgVCPfZADc/NlsvTbXEP
+94bxiYfE+PA6RqVU7NN21YCLXCB3AOe54bY/klJbscm3wWV5Q/lBwRCpXfMkG90P
+qEp7UNTQChDTZmpJvjeFUdIp8jD4uWu+WgOvdfkhU+L2lPnERaMJ8GiOiIrPymrN
+VRpQHu3PPsczwbUJ+qNidgIPhiCvpX7CAMnzixVC9XU0iUc2iHm7hvC2P8mmbjpb
+wtyCIXytbPAH5vXZMvPE+Wm/jIGFvA==
+=5EkO
+-----END PGP SIGNATURE-----
+
+--hHw0qavQsd22qTLy--
 
