@@ -4,108 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA2DC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 22:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB17C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 22:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=; b=T93rs51R3/QUd7ps9Lo4SC9Ngp
-	nRYxkbSxtoPA8gr2WJ5XPI6ErMg2tsNUCU/GhcgiiTdXM1OAbK+inChpI/TCMc0TI8Q1cGPEMV9jk
-	MoUK6CKarrrPpaFFEiHuz4Ktc1QdhNOEIAgPW29fGh6yS4mTlyI2EWtu6d0n6W4SjdQeQVO/Os/Jh
-	846U178S5WxsziIFHeKEzBn5QBLPSbFv7+kkjTtrS9Ze4kCerxg669UwP1C968wfbs65RPXl6zZsy
-	iHQfmv7vaWfVwcUAKg9pWCPqUB2XoQEP7Yl6fYUiiqL6q8tVIBlwLTp9wNtLJ6EMKgeUrdpRamTi3
-	DRKtEceg==;
+	bh=Ucl/GOWiAbFSVtfu4fuiBKlLWVdkIuebAW+pzGN/cWQ=; b=GEE8FSgXDgwz9adEbxl65FzumC
+	w4XGNnObTLLLoFrCApWuGUlvYwSXC9DX/Mz4Na8KCNHaq/8c4umZZOoNFGQF+/uhlsqyuN2iRKwbq
+	Jvx00cRaK3eCQjj2iNppYiaO8JnhmWrwTrYq+jdKAbF+I4GcJR7Fh8HMCnYmgyrOlQINWFRgvMCRR
+	PwEdIOMqNyvulfjJdVKx1LJ952/AwF/RkkePIjg4R2dFGST9ajjAXv6D3f5ulKcv2GHOf/XEC1qT+
+	+cbG+arETDGev1tWmBv12RykEhtTS2lBAPaBbYG2ZWspxj/HgMcDQTgFozbBqvjPcOE+yO8BCuV3r
+	7wZW3oug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgWTk-0000000BLEj-2jWk;
-	Fri, 07 Feb 2025 22:05:40 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tgWnf-0000000BNmn-12dB;
+	Fri, 07 Feb 2025 22:26:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgWSM-0000000BL52-0dYv;
-	Fri, 07 Feb 2025 22:04:15 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ab79eaafca8so1172466b.1;
-        Fri, 07 Feb 2025 14:04:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738965852; x=1739570652; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=;
-        b=ko+grKWtnHgKKV6HSv5Ynl/+kSSqHoOLfLmmjrW6nu3QBJKDmCDYb3g+Lt2YiNZhd4
-         MRVsT7xdS2qnYexFlj8u2LwsHHYl5Mc3UOgGi/QHeSDjmsaiv7at7oiQpVtrAWd6QVcX
-         ny7munBvMCWi3j6tntTNZcq+qU5nPvpcyp4Cg5llIUAtTOfvamWf5w2pioIW7iOkdVvE
-         YDJADqOdbtjbDFIls+93xBVIqOvI1E2AdbCoLYjS2w9kuycoxEwtn4GOIWuo1EfXZJpu
-         pbu+ZhGX7f8GgxvI1txEt7jl8SbsMi5PPPhu4u1gasE7mcMzqotkMDmX/gtdREopedim
-         k9Pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738965852; x=1739570652;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9p4ESdWoXjaib9fV4OUyBdDHqaUGl8KIiJHqtkdvtBw=;
-        b=ea59TZc7DkMYmlnx/dOjMESqKXpTNhF8EHdXwGeJnGJn687VwTlOwp6hT6FvGw8rR6
-         aMbpxfg/aXKTSa5hSydjuW52uYmmDi2jl2OQ6utpXDyo/fjvNlldYiWuFRU/0Nxdl73Y
-         rJ8itP5CnWkX59x8qB37sCStttW3wvYHts0H9fCCaTWEiWdcNC4XQ4G4qdhe6sAfzgcT
-         FmDKH9S9wP9b3dpL2M7ez7sZdp87d5tz75f1hGjnVezBbxuUNpEjc18XRt2VC+fBQ0h8
-         37ebquPfHnRUZC38HPZjwv8DizBHh5oI2l/6Wf+KzmFvcfyPVhEXHAL2v6EazeiA/4Nq
-         jwCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1bJhD9Mt1vO9iexHzk/QvbSp4R9NfvPu7RM57oXajK2JOSj58yalj8c1mdWBffJHypf3vb/GLgnKrgblDiGA=@lists.infradead.org, AJvYcCVHBtNoG80z2QNYD3YvxHDtybSd6J3T8fjJWRp8mfTPN0xtfMNe7nejPMDxovblPBfEO6eunAwnlXm9zBL1Kv+z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2QeGi3NhRyFznzT4Pxbb4mYhbNCbaeqZH007bCIt4Ts2Mx9D2
-	9szyWCOKSzM8K08xYSXJJK8V8eW+FWRXo+b/0DyB/JhmnLAJKR4V
-X-Gm-Gg: ASbGncu4FOBEAPLJF6DWyhvQnCcHAzYxJ62AtYZKCAYAIz03zYmsbm/8PEY0NY+B9Df
-	vOV0Of/b56oHl4gpFoAgk7zLPhdefkvAhN6ndc37Xkp5VnJkYNlWB2HWvUoaxTDWrT7J80SS6W0
-	4M6dpwhhj9pn4GmKUQFEu163u3qVxF/wFfcuGgG23CPDnK5VOXtIbiVt9jinCZtCV66f52Dy8tq
-	/LhtZ7ye+O9vGMOLimSX1ltbdVnXRopwz+rJsdbcRT57S5+T0aHDxEHguOquiJbASVAjXJJE0Z+
-	ol0=
-X-Google-Smtp-Source: AGHT+IFsi3+NWjssSKSXZEmvjnEsxFYODgK8SKJ6cgvDO7NhfH/SlmKt0XPdmk4uFCMFK0SjvH4aEg==
-X-Received: by 2002:a17:907:7fa8:b0:ab6:3b87:d32a with SMTP id a640c23a62f3a-ab789c2f3d7mr190605566b.11.1738965852001;
-        Fri, 07 Feb 2025 14:04:12 -0800 (PST)
-Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab773337e98sm337699266b.151.2025.02.07.14.04.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 14:04:11 -0800 (PST)
-Date: Sat, 8 Feb 2025 00:04:08 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Eric Woudstra <ericwouds@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>,
-	Roopa Prabhu <roopa@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
+	id 1tgWmG-0000000BNYO-1wJd;
+	Fri, 07 Feb 2025 22:24:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Ucl/GOWiAbFSVtfu4fuiBKlLWVdkIuebAW+pzGN/cWQ=; b=0EwlWid4ktr90Dkzk/x4n56Lde
+	5e9qMNBwVHipCinIIpY8zIZrMqh0Bmp8qp3lFauwxNpRChQIKvy9nLM9KFyHFHb2HnjUUHKNnmDcj
+	tSL0cz+8Y/TeVV5xuIA++gMJKOz7dK7LztAoddAl9HE5UirHc/786tEfkG3+Jb4j8Rdpx0ZeGqRLL
+	qDFdVfYElp0kdtCUCAbEvB4g6L+rGp/OGFglOFUxs83jt7fliek64uHU7eQesiizQiIOInFfiI+2T
+	DkXFrRa/QRSOVJBIgtHTSUdDrvuUOEOrSDovdc1eHQZwgFpmvy+wePFZo3NFLplkvfcnMLbcu48+1
+	IdskfqXA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47456)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tgWm1-0007Ay-1q;
+	Fri, 07 Feb 2025 22:24:33 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tgWlw-0004oo-0L;
+	Fri, 07 Feb 2025 22:24:28 +0000
+Date: Fri, 7 Feb 2025 22:24:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kuniyuki Iwashima <kuniyu@amazon.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Joe Damato <jdamato@fastly.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, bridge@lists.linux.dev,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 net-next 12/14] bridge: No DEV_PATH_BR_VLAN_UNTAG_HW
- for dsa foreign
-Message-ID: <20250207220408.zipucrmm2yafj4wu@skbuf>
-References: <20250204194921.46692-1-ericwouds@gmail.com>
- <20250204194921.46692-13-ericwouds@gmail.com>
- <20250207150340.sxhsva7qz7bb7qjd@skbuf>
- <78a30eab-cae6-4026-b701-7d7002fe3abb@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net-next v2 2/3] net: dsa: allow use of phylink managed
+ EEE support
+Message-ID: <Z6aIGzHWdzF5Rlci@shell.armlinux.org.uk>
+References: <Z6YF4o0ED0KLqYS9@shell.armlinux.org.uk>
+ <E1tgO70-003ilF-1x@rmk-PC.armlinux.org.uk>
+ <20250207151959.jab2c36oejmdhf3k@skbuf>
+ <Z6Yn2jTVmbEmhPf9@shell.armlinux.org.uk>
+ <20250207213823.2uofelxulqxpdtka@skbuf>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <78a30eab-cae6-4026-b701-7d7002fe3abb@gmail.com>
+In-Reply-To: <20250207213823.2uofelxulqxpdtka@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_140414_211359_D53BA341 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20250207_142448_500461_147B3651 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,81 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 09:04:28PM +0100, Eric Woudstra wrote:
-> Or should mlxsw_sp_switchdev_blocking_event() use
-> switchdev_handle_port_obj_add_foreign() to add the vxlan
-> foreign port?
+On Fri, Feb 07, 2025 at 11:38:23PM +0200, Vladimir Oltean wrote:
+> On Fri, Feb 07, 2025 at 03:33:46PM +0000, Russell King (Oracle) wrote:
+> > Bah - actually I _did_ update the patch, but in a different tree:
 > 
-> Then all foreign ports are added in a uniform manner and
-> SWITCHDEV_F_NO_FOREIGN is respected.
+> I'm glad there's a reasonable explanation for what appears to be an
+> oversight on your part, and I wish to make nothing more out of the event
+> in itself.
 > 
-> I do not have the hardware to test any changes in that code.
+> I just want you to know that it was really hard for me, looking back in
+> that thread to make sure I'm not misremembering that I asked for this
+> change, to get reminded how quick you were to jump to an insulting and
+> sarcastic conclusion in that same reply. It was a shit reaction and it
+> really didn't sit well with me then, and it still doesn't sit any better
+> re-reading it 3 weeks later either.
 
-Personally, in your place I wouldn't have the courage to refactor that
-much in a driver as complex as spectrum, but if you CC the right people
-from Nvidia who can test, I guess you could give that a try.
+It was not intended to be insulting and sarcastic. It was based on a
+general observation from a whole raft of patch series that has led me
+to the conclusion that cover messages are basically completely ignored.
 
-Actually, how I came to spectrum was that I was thinking about an
-alternative mechanism of detecting "foreign or not", other than emitting
-two switchdev notifiers. You emit just the usual, single one, but
-whoever handles it for a foreign bridge port will set a new bool
-port_obj_info->handled_by_foreign, very similar to the existing
-bool port_obj_info->handled. I was looking around to see who else
-open-codes the switchdev object handling rather than use the
-switchdev_handle_*() helpers, and that's how I came across spectrum.
-It would seem, at first glance, easier to set just this in spectrum:
+Many times, I've posed questions in cover messages... and have _never_
+got a response to those questions.
 
-diff --git a/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c b/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
-index 6397ff0dc951..6926aaae7278 100644
---- a/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
-+++ b/drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c
-@@ -3953,6 +3953,7 @@ mlxsw_sp_switchdev_vxlan_vlans_add(struct net_device *vxlan_dev,
- 		return 0;
- 
- 	port_obj_info->handled = true;
-+	port_obj_info->handled_by_foreign = true;
- 
- 	bridge_device = mlxsw_sp_bridge_device_find(mlxsw_sp->bridge, br_dev);
- 	if (!bridge_device)
+I'd even started experimenting putting stuff in the cover messages to
+provoke some kind of a response... and got nothing.
 
-and this in the object replication helper:
+I had got to the point of wondering why I'm bothering to write
+expansive and detailed cover messages.
 
-diff --git a/net/switchdev/switchdev.c b/net/switchdev/switchdev.c
-index c48f66643e99..be82e79b5feb 100644
---- a/net/switchdev/switchdev.c
-+++ b/net/switchdev/switchdev.c
-@@ -763,6 +763,8 @@ static int __switchdev_handle_port_obj_add(struct net_device *dev,
- 	if (!foreign_dev_check_cb(switchdev, dev))
- 		return err;
- 
-+	port_obj_info->handled_by_foreign = true;
-+
- 	return __switchdev_handle_port_obj_add(br, port_obj_info, check_cb,
- 					       foreign_dev_check_cb, add_cb);
- }
+Everything was pointing towards cover messages being wholesale
+ignored - and it was a complete waste of time writing them.
 
-Just some care needs to be taken to only consider "handled_by_foreign"
-just when "handled" is true.
+Having got to that point, to then get asked, basically, "why are you
+including this patch" when I already said in the cover message for
+the _RFC_ series (requesting comments - obviously not a submission)
+that the 10th patch was preparatory for DSA, and would be included
+along with a user when it's submitted - that all suggested to me
+that, yet again, the cover message hadn't been read.
 
-I haven't yet decided which variant I like better, just thought I'd
-mention this as something which requires a single switchdev notification.
+You've said that you do read them (thanks) but I think you're probably
+the only one, and I still question their value given the lack of
+engagement with cover messages.
 
-Anyway, in the future I'll have to do some more tweaks with these flags
-in the context of LAG. These flags (BR_VLFLAG_ADDED_BY_SWITCHDEV, now
-also BR_VLFLAG_TAGGING_BY_SWITCHDEV after this patch) can dynamically
-change, and the existing code isn't great because it doesn't handle that.
+This is a serious point. What use are cover messages on patch series
+beyond providing an anchor to tie a patch series to and provide a
+diffstat? Given my observations over the last year, I don't think
+including very much else adds any value. Certainly not asking
+pertinent questions. Certainly not describing the patches in the
+series. Certainly not describing the overall rationale, nor
+(apparently) the plan for the patches.
 
-For example:
+You may have noticed that I'm no longer putting as much effort into
+cover messages - and this is precisely why. I honestly don't see
+that there's any point in spending much time on cover messages anymore.
 
-ip link add br0 type bridge
-ip link set swp0 master br0
-ip link set bond0 master br0 # bond0 is a foreign interface to swp0 at this time
-bridge vlan add dev bond0 vid 100 # this won't get BR_VLFLAG_TAGGING_BY_SWITCHDEV
-ip link set swp1 master bond0 # bond0 is no longer a foreign interface to swp0, assuming the same phys_switch_id
-# vid 100 should get BR_VLFLAG_TAGGING_BY_SWITCHDEV during br_switchdev_vlan_replay()
-
-Considering that br_switchdev_vlan_replay() will need to re-evaluate the
-BR_VLFLAG_TAGGING_BY_SWITCHDEV flag, I guess I do prefer the simpler
-variant after all - it is one call less that will have to be made during
-replay as well.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
