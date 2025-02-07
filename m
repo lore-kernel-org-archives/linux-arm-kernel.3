@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51FCC0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57394C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LshTTg7rs/CWUs5QRsTb+R10VEhXLnv8hJc6hzk7bx0=; b=4+0njoQxKnFTH0uSoR88FcqX30
-	5muEjHOsZRnKx3uUDWuab54IbuiSD+OZkswrs/SN+gYPjpXSVilU74Db6T0EQqnKbFAUksahbGzLL
-	smZpgMtDWxJWP4iBgE82c/dAHhWfMrDNqvhQrpNWMM1aJ2eCy3afms+oPLhe3AWRTTPO0T+beWYiP
-	IxWEa7JajhG+yJL5Q5ZfsO1eRMugDqRgijFnKaxNUVeVIx2HKmTp7QDjdLPXUKnMtdofHPr+A9eTP
-	wlDGqzr6zMKNKblm4MycS9uL87R9tyHdqosUh2U2m/nnovgaJdL+IqC9jBS3sUEShewnqrF474rwM
-	YKcXym9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=frrtBPb0NAdwmlC4EOhp4GZibJzXzr4342fkLqtDhXU=; b=UPtkVm76gbE79PnRyHvwbTo+AU
+	zleCZoCIhsl1/7TWVVSVHFjLCBYNReKKFeEa3Jf7QjEIVOJWCCAwRP0PrCP/I7WGBiYFg64e+SpGR
+	B625cs0wxlonm4wHQu7G5i5rAZBAsjvJ8Q49rWZfWlHXEy2etPG1ubLrmn2W7TSVjbSNw7L9Nag17
+	vdNFFu4Mv4d0rRHUyDXfnBAxwDXa1Ftee3BmsZ8ee1e+90eWYa8tUppFJYlxMzX5zjDNqa7c7OGQx
+	9IGcECpihd6NRMPmhA6h0bcNLuyoOPvSaL2yq7mymf3ypnyxYyojftANNS9B+TPGII3MPNjkzUrUi
+	W1gFKrjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQqt-0000000ADAn-412x;
-	Fri, 07 Feb 2025 16:05:11 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tgQsO-0000000ADWK-1MeQ;
+	Fri, 07 Feb 2025 16:06:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQj1-0000000ABES-1ze4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 15:57:04 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 517Fuwv13030315
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 7 Feb 2025 09:56:59 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738943819;
-	bh=LshTTg7rs/CWUs5QRsTb+R10VEhXLnv8hJc6hzk7bx0=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=nzcorFtUyqjQcAVRJSOSktqBEI8g7TYqdULE2yefIxNbtSOfQ0tNpqMX4V/ERNpci
-	 9IGvMEFW1Zaag7QxsLHmmLGYd5gHimRgpXGOR7If3QGlC/WplQTg3ZG+5XWIFmP2qK
-	 +EhK1BypHV0WCZbeUG27NVrabkwDB9obe/SZCvfM=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 517Fuwix000435
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 7 Feb 2025 09:56:58 -0600
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Feb 2025 09:56:58 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Feb 2025 09:56:58 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517FuvdQ030041;
-	Fri, 7 Feb 2025 09:56:58 -0600
-Message-ID: <9572caa4-fc17-4531-be68-8466753b70bc@ti.com>
-Date: Fri, 7 Feb 2025 09:56:57 -0600
+	id 1tgQp6-0000000AClG-186s;
+	Fri, 07 Feb 2025 16:03:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D916D5C5BC6;
+	Fri,  7 Feb 2025 16:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C931CC4CED1;
+	Fri,  7 Feb 2025 16:03:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738944199;
+	bh=OZqExQTgpVnAcofXSl/4YJt3huOhFICvFo1TvD+B5MQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cCc+goyw6gWdvp1Fsdw0g39SFhKTacSn3FidfRixezuSDjWxq/NjnMkQeAkCo3tEK
+	 QY5ha3hGNWuf8c05mPnoACbSSwhk9Wv1MocEhcAkL7X0G4KEL4yrQC05D5I66LTrYZ
+	 Yjh3HHNmjzmDngt9fTeZQITzVQZP2K+qpV8twbkTgWCh4jYP20FLf1ZLhFzcZJ0JEF
+	 4qmVOHbLszGngwpHWMTncxaouw1Beqru1sthhh0T6Kh+DrUKsEbUivPcPA3S4wY8Vm
+	 iBRfwPwSTmVrxJfRg5co9gh6AtyTxOYSLTMPJmBZsBniauB9pMt+EZBpHdh8zjNLxs
+	 GNd5+DeGkrv3Q==
+Date: Fri, 7 Feb 2025 16:03:14 +0000
+From: Conor Dooley <conor@kernel.org>
+To: neil.armstrong@linaro.org
+Cc: Dharma.B@microchip.com, ulf.hansson@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, khilman@baylibre.com,
+	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
+ property optional
+Message-ID: <20250207-cheating-winking-1dace55a4341@spud>
+References: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
+ <f6d7ffa0-6c08-45fb-9153-5e4aad1ca86a@linaro.org>
+ <003ffa44-c88a-4234-a54a-50cd1140982a@microchip.com>
+ <7180babd-302a-4f86-8770-bdd9f5c773cf@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/9] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250206235200.3128163-1-jm@ti.com>
- <20250206235200.3128163-6-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250206235200.3128163-6-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pz7qrlCazOFTDsBh"
+Content-Disposition: inline
+In-Reply-To: <7180babd-302a-4f86-8770-bdd9f5c773cf@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_075703_775729_DFDBCCD8 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20250207_080320_395615_287EC9E8 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,146 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/25 5:51 PM, Judith Mendez wrote:
-> From: Devarsh Thakkar <devarsht@ti.com>
-> 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
-> 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
-> Changes since v3:
-> - No change
-> ---
->   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 90 +++++++++++++++++++++++--
->   1 file changed, 84 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index a6f0d87a50d8a..eaffbab093cc1 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -49,6 +49,42 @@ linux,cma {
->   			linux,cma-default;
->   		};
->   
-> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		c7x_0_memory_region: c7x-memory@99900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -60,12 +96,6 @@ secure_ddr: optee@9e800000 {
->   			alignment = <0x1000>;
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	opp-table {
-> @@ -737,3 +767,51 @@ dpi1_out: endpoint {
->   		};
->   	};
->   };
-> +
-> +&mailbox0_cluster0 {
 
-Odd, these mailboxes should have been disabled by default as
-they are incomplete without this extra board-level info below.
+--pz7qrlCazOFTDsBh
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I'll have to fix that later. For now, could you add
-status = "okay"; here. That way they are already here and
-I don't have to modify this DT file later (which could
-cause a conflict if I do it this cycle).
+On Fri, Feb 07, 2025 at 10:17:29AM +0100, neil.armstrong@linaro.org wrote:
+> On 07/02/2025 10:02, Dharma.B@microchip.com wrote:
+> > On 07/02/25 2:25 pm, Neil Armstrong wrote:
+> > > EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> > > the content is safe
+> > >=20
+> > > On 05/02/2025 04:48, Dharma Balasubiramani wrote:
+> > > > Remove the compatible property from the list of required properties=
+ and
+> > > > mark it as optional.
+> > > >=20
+> > > > Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> > > > ---
+> > > > Changes in v2:
+> > > > - Instead of moving the compatible string to the other binding, just
+> > > > make it
+> > > >  =C2=A0=C2=A0 optional (remove from required list).
+> > > > - Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-
+> > > > dfc747a3d3fb@microchip.com
+> > > > ---
+> > > >  =C2=A0 Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
+> > > >  =C2=A0 1 file changed, 1 deletion(-)
+> > > >=20
+> > > > diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/
+> > > > Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> > > > index 1f0667828063..ca3d0114bfc6 100644
+> > > > --- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> > > > +++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> > > > @@ -29,7 +29,6 @@ properties:
+> > > >  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > >=20
+> > > >  =C2=A0 required:
+> > > > -=C2=A0 - compatible
+> > > >  =C2=A0=C2=A0=C2=A0 - reg
+> > >=20
+> > > If you remove it from here then it's still required in Documentation/
+> > > devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> > > so please add it.
+> >=20
+> > If moving the compatible to its specific binding isn't appropriate (as
+> > per Conor),
+> > and if removing it from the required list here doesn=E2=80=99t seem rea=
+sonable
+> > to you,
+> > then adding an unnecessary compatible string in our DTS files doesn=E2=
+=80=99t
+> > make sense to me.
+> >=20
+> > What could be the solution then?
+>=20
+> The solution is right but you modify the meson-mx-sdio bindings, so
+> simply add compatible in a required list for the slot node.
+>=20
+> Something like:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.=
+yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> index 022682a977c6..0d4d9ca6a8d9 100644
+> --- a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> @@ -60,6 +60,9 @@ patternProperties:
+>        bus-width:
+>          enum: [1, 4]
+>=20
+> +    required:
+> +      - compatible
+> +
+>      unevaluatedProperties: false
+>=20
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> Conor, Is it right ?
 
-Andrew
+Looks about right, ye.
 
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster1 {
-> +	mbox_c7x_0: mbox-c7x-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster2 {
-> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&c7x_0 {
-> +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
-> +	memory-region = <&c7x_0_dma_memory_region>,
-> +			<&c7x_0_memory_region>;
-> +	status = "okay";
-> +};
+--pz7qrlCazOFTDsBh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6YupQAKCRB4tDGHoIJi
+0lR7AQDXPOIB/dOY3/s7IOG1B+gKdzycmLoO1kXUzVZl9O+qDgEAvw94V1PMPp2c
+Ws95nHufVdgDH1bM8gATFJfYPq295wM=
+=tzxl
+-----END PGP SIGNATURE-----
+
+--pz7qrlCazOFTDsBh--
 
