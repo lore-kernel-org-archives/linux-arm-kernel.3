@@ -4,121 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51A2C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC682C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4NA/X6pVv6MhxU2rOACQGZ3o3qUufdc5q7/UZzaZAT4=; b=Z1tovyRjEZ3vh8Y5lcPPHAPSfQ
-	6b1cMYpgccfWsdPcXGgpdvKfIIvCZKTuKGJ1+VH+kfUttJiiCKVsbw8Ep4n/djju2wUuMUhSkbZea
-	PTQdEbdDB8KqgJaXYfzUqEhb9h+lxVR6tn4R7ayxmJnxYtIsmxPz1gZPmzmdWsUjNubvTR9c+3tyF
-	lZCdoTC4voB1BgdnCo67U1zR3f5M45jSUCGyCXRhZKdRc8HiQPn/TMgRRbtCvLWPXxzVJuEZV5VWs
-	wQzEYSumqlPc0HpLQWrVaRCEizZVPIdxCgnm1KjxikcCctPWwFiisCjkzbhaVsUcZMbf157n44vOe
-	HElf8F+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0Vx3ELvMf0qmQJJFnyKbMyptnWywqfF72JyrwcCPkjc=; b=bzGjVW9tCMpTIDyQ6lR7F3kATv
+	jV6wO82Joaoaon52anwlhcNEdT+Ytrkb9TC1MEs8EiguWjjuy1yBIPs1n4fl+9GZeuS24760hI7WO
+	DWtjca9PWNG/Jnh57b2tbnlcG9E9KXxjK5Piv46wQO9yro+CYNpVhpkYOA0GfQpbOGj0Ij+QjWGDa
+	eQxRQzeMJJj6aQrwVfQobjsRGkqW2HW7KPmq2BXvRAUJg41sgFqn9bG7M3ev6ACcf1FzIVYLtRJJE
+	0830EyFk+KXYmCAr6lYtP/SqnDgCuCHpvu1lS/ayqg1u8BKDDwpozPgxQaI3s+K5sYD/TOb4h4exC
+	MWpRKRAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKJh-00000008wbE-09rp;
-	Fri, 07 Feb 2025 09:06:29 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tgKL2-00000008wvE-3AbL;
+	Fri, 07 Feb 2025 09:07:52 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgK8d-00000008tfX-2XlZ
+	id 1tgKAY-00000008uKI-27FP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 08:55:06 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38daf14018eso1370266f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 00:55:02 -0800 (PST)
+	Fri, 07 Feb 2025 08:57:03 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-219f8263ae0so35981655ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 00:57:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738918501; x=1739523301; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4NA/X6pVv6MhxU2rOACQGZ3o3qUufdc5q7/UZzaZAT4=;
-        b=Pc+6tnviEnlwGdKXBQ+eqER4c5K80qxbxHbUHKGhUNxvKU/tnCAuw9K/fWVTULzucy
-         5279el/WDQc839MEhoDD42CdTJbsdJtddVd//0u1puJlcTFC4A1aNOg0qqNWcPEmJaIC
-         HEwjrFW4LzwgGZMMM6jmRCgfc41GS44LmeQSaLi+zDFp9GZxBKX7zlkOK9ATJs3yrGiP
-         wIyyQMado1Buh3zBpaWTA4DHSCg7+SJOg8Y/BHkDu4HX8mT5UebOz3eFdtcqCyKJuO6k
-         r+aSECXU+KLW/mCe8V+m6Eyddxcvex8MgAU0sTfavr6md2kvSMdhc6llmmDyx517NaLj
-         TAWQ==
+        d=gmail.com; s=20230601; t=1738918621; x=1739523421; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0Vx3ELvMf0qmQJJFnyKbMyptnWywqfF72JyrwcCPkjc=;
+        b=gBOVvqwm146Tl5wWTwFfoMKaYyBJsy9zZPwkFouaXGAXcc7ig+1VAQM4KXZNhFHLLT
+         nFz0KARxIZ8noxmO8OGcQ85qATkv3RJsyanVD1N3ERtigF6cRZ+avbb4P3+d65RRYcQm
+         NiLXXasbWBofD2r5cM7JfDOi8r6p5KTX4z3bfFQYarWNSscsVVG+wTkI7ePMjscq8zRD
+         hIsSdRtjah+on0o/epfKch9GRheIgW4X0zBF2vyLet2yudykLdBcy3YpHuIUYNwRGr9a
+         pK4ebaaZ78bb8KVPANLWsOI53GJIv2RAvWs03oSteCM09CjWM7jUkd0jJUjpWfrC+o/B
+         0CiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738918501; x=1739523301;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4NA/X6pVv6MhxU2rOACQGZ3o3qUufdc5q7/UZzaZAT4=;
-        b=EZjmb/bWj5jCCR5qOVvnrQthMkjD7lbWMEZ7jYK+BcbViGU8GIy0mLtddjsCmioPpV
-         2fba+qU6W6dWnnZ5INtWO4XgxvgsmnpAILAP8crN1QtXRGscTHjRk0pqO7lgww/j1WGd
-         GJd1sAmlsuD7sHT003GCo9P8YWHwEhCamuWmTM7enGCb1GknaZeLMrcRcAN7DcVQ/B4W
-         o5S+/XWOq0wjfr1GNRqp/FS+ORd84/DjxQ/fLhdxnruPacDRJTTMOzO1bP1pNXp71lT5
-         s6bNRAER361FfrDzEqJwkjyZKoxL+/0SKXjprpJu9hA3HiVjVmZP1NZJkfJRJ0TAZ90U
-         JJRA==
-X-Forwarded-Encrypted: i=1; AJvYcCVgatlSXWCQBKJgq7RVMarkiSIU/OHfZ2ro7bdhxBSUoGDbjoqeFTamll1kf+ol7aiD9uboCgGbsfFIvnVMK+bb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwASvkr4YHqm4YsQF0tVtktlWiWX1o2dtH6fhU83APtfBvS6yce
-	wEiTNMPHNAVdBdayEK5UsGKyaVzYZUeUF6xP5qEWAwk76aZW9RMkYddPpcxnuXY=
-X-Gm-Gg: ASbGnct/isb1eAY7IGn1eBHcxihCg8E02aPaaaUHatlR+xGGbNArjdThuPIIyr1Palf
-	ZyOI1yziUoBoDk6r72nSpSvGHV+t6Y+3S57Yl+MN13s8Wkt9q1j5QTovGdLrCcWx2eKo//l1Znm
-	akaTU2OZgF33VZOkmEbKiK9Tj9RxFOlqhnDXIaWDdV2JyydQJ0vggRFOhobw/XoNjzclLEfC5/t
-	QWfg3COYOcRB2ka0u9VWlDtBlEUjEbUliYGQT/jjF55JAiqAeK9YEeBe79e9DWXVRk6CGbZNqVI
-	19Q9HLz2Y+T+Pj/+kSivmV7JPyNrx2J/6rmqhLMmn8pfdqxCge5wsEM9DpHwQzHen/Iv
-X-Google-Smtp-Source: AGHT+IH/4XDsyicpqDQ9Y3WcFD83TXmZ51RuwSfEt0UMQTshRCiwBSTUAjS4DsFc8GU0SU2TumjluQ==
-X-Received: by 2002:a05:6000:dd0:b0:386:37f5:99e7 with SMTP id ffacd0b85a97d-38dc91133aamr1353355f8f.33.1738918501273;
-        Fri, 07 Feb 2025 00:55:01 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:5b26:96be:712e:30cd? ([2a01:e0a:982:cbb0:5b26:96be:712e:30cd])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d94db77sm82525305e9.15.2025.02.07.00.55.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 00:55:00 -0800 (PST)
-Message-ID: <f6d7ffa0-6c08-45fb-9153-5e4aad1ca86a@linaro.org>
-Date: Fri, 7 Feb 2025 09:55:00 +0100
+        d=1e100.net; s=20230601; t=1738918621; x=1739523421;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0Vx3ELvMf0qmQJJFnyKbMyptnWywqfF72JyrwcCPkjc=;
+        b=nM73aQ9XjGAGfTMq+YsJ6wlOqbGgXi1ThAMecmAteyt1rBGMLLCX+4xCl2C9xoHpJZ
+         xtGSJV3NPopLCMjigZrKKZm685jT0lKL931gcri5LYQaZIWeO4MF69cPyqkRvcc7YLSB
+         l1LM3rpSfUB9P8NMxQOtK7MIC1EU41sPClpqHdQIcB/PDzUMh3bgHK15xI8bWMK78+qR
+         ccIFnLq6hM7NUlOofENdGkUkZCza84W/y0O9/Vmn36ipKA9Hz/nO40XbtWWysnol2LLp
+         tFtl0bmZS0OzHn4vG4KdU4bmuX+OrKSG3cN/uALVmhwgVNlQVy7B0TOG9Pz4r1zSo5te
+         I+vw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlFS2+SvKqslLmYXySll0PDqCC30hBUC/qW1cL0qo7GJY+YQCnuZBmiEAGHEoRlRGSmQ/drKNxDdall1IjAGrM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiDJmyMQeJ1lMXU5LJSvZS4TW+mITuu1LdzmlMI3pe3fO6S9DH
+	xdl0cHj0qh5itQDTjd9XUBkOVNfecBEBwULXZiMvru2/Y2sLrwuu
+X-Gm-Gg: ASbGnctH/e96FNaG/+MIZ6oKV589WflG6P6Va+UfVz2pWZJq2GRFjx+vStd4ocVfBUS
+	CXwIdhl51QhEMnrAL5bjENNZ4+iqRGzJ+VYB7A2DOtdnl+bDBe3I9InlxGeGa2gqMypSCu065nb
+	6W1k5lBe5UlVqRzWa0oBnMxXbU8NV1W7xNfnb3+0nH1JU8Ofw8HfOTZVgzWPfFmLNtKYas6Mfdd
+	+uIrCbFpjz6jvTIkyOGmiNS5q7Cc0XuajFEq6jrSlDhOljeFEpeszK1JDEAJXj1abSrPipufUSz
+	lf76sQu8Lo9qmZItNnC6CrIbbRy7
+X-Google-Smtp-Source: AGHT+IFlNjPnbw667WtlBgeKpirAAyliI8fxFRqc6Br/oWFk5pHJMGbuj7/4JbGsPe3J/2mcAIkPMA==
+X-Received: by 2002:a17:903:19cc:b0:21f:35fd:1b6a with SMTP id d9443c01a7336-21f4e76cb06mr47882695ad.51.1738918621258;
+        Fri, 07 Feb 2025 00:57:01 -0800 (PST)
+Received: from localhost.localdomain ([129.146.253.192])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2fa2716c1ecsm945042a91.25.2025.02.07.00.56.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 00:57:00 -0800 (PST)
+From: Furong Xu <0x1207@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	xfr@outlook.com,
+	Furong Xu <0x1207@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Brad Griffis <bgriffis@nvidia.com>,
+	Ido Schimmel <idosch@idosch.org>
+Subject: [PATCH net v1] net: stmmac: Apply new page pool parameters when SPH is enabled
+Date: Fri,  7 Feb 2025 16:56:39 +0800
+Message-Id: <20250207085639.13580-1-0x1207@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
- property optional
-To: Dharma Balasubiramani <dharma.b@microchip.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_005503_661231_2A98B052 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250207_005702_541175_23ACD931 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,48 +104,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/02/2025 04:48, Dharma Balasubiramani wrote:
-> Remove the compatible property from the list of required properties and
-> mark it as optional.
-> 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-> ---
-> Changes in v2:
-> - Instead of moving the compatible string to the other binding, just make it
->    optional (remove from required list).
-> - Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com
-> ---
->   Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
->   1 file changed, 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-> index 1f0667828063..ca3d0114bfc6 100644
-> --- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-> @@ -29,7 +29,6 @@ properties:
->       maxItems: 1
->   
->   required:
-> -  - compatible
->     - reg
+Commit df542f669307 ("net: stmmac: Switch to zero-copy in
+non-XDP RX path") makes DMA write received frame into buffer at offset
+of NET_SKB_PAD and sets page pool parameters to sync from offset of
+NET_SKB_PAD. But when Header Payload Split is enabled, the header is
+written at offset of NET_SKB_PAD, while the payload is written at
+offset of zero. Uncorrect offset parameter for the payload breaks dma
+coherence [1] since both CPU and DMA touch the page buffer from offset
+of zero which is not handled by the page pool sync parameter.
 
-If you remove it from here then it's still required in Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-so please add it.
+And in case the DMA cannot split the received frame, for example,
+a large L2 frame, pp_params.max_len should grow to match the tail
+of entire frame.
 
-Thanks,
-Neil
+[1] https://lore.kernel.org/netdev/d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com/
 
->   
->   unevaluatedProperties: false
-> 
-> ---
-> base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
-> change-id: 20241219-mmc-slot-0574889daea3
-> 
-> Best regards,
+Reported-by: Jon Hunter <jonathanh@nvidia.com>
+Reported-by: Brad Griffis <bgriffis@nvidia.com>
+Suggested-by: Ido Schimmel <idosch@idosch.org>
+Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path")
+Signed-off-by: Furong Xu <0x1207@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b34ebb916b89..c0ae7db96f46 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2094,6 +2094,11 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	pp_params.offset = stmmac_rx_offset(priv);
+ 	pp_params.max_len = dma_conf->dma_buf_sz;
+ 
++	if (priv->sph) {
++		pp_params.offset = 0;
++		pp_params.max_len += stmmac_rx_offset(priv);
++	}
++
+ 	rx_q->page_pool = page_pool_create(&pp_params);
+ 	if (IS_ERR(rx_q->page_pool)) {
+ 		ret = PTR_ERR(rx_q->page_pool);
+-- 
+2.34.1
 
 
