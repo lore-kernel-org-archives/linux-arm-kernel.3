@@ -4,159 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15989C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F3BC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 15:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=; b=GjdAH6p6MptuxRsw4EHVXDSut/
-	g5XStOJTG/FDPpvoWtbzIR6QDw+OK3m4vngU9zCt9BBkX9SrZsQTiosd/rHU61v2DAO0aYjI0dPJQ
-	/WXH8gz9w2+SBTNIRMUlfZKiaNoMMxMIYL45ZTYO6cZ7VvI64fz/hBoJjsuZ3vb7D0pmDWLOYpWlR
-	uQO9/yDOJhDr2TSe3COAQIXn+FO0kxrkq9GNGLNsHWPz8k/dVgZyMgX9RsaMX5HxUTjJVYmpwfcur
-	aEZ3drAIBzPRXuAyZz2RCghPmYilNRdghYUYvuJM9Z4EmM3kAbb9W0vrL48P4fehVWQs3pz6WUBty
-	KwSgp8Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EuYjo4JUI+V0W3/HuzUdoJL4i7PKJSWth5jlL0TRFTk=; b=NzSqaEzDewDpaH
+	AhKksvDmNsqXO4c2RS8dSLa5WKmgfwSZX3GtX8DO0A9aYB8YVtlTDdq88XuNo5fP/peOsk5KpqP0W
+	bprBybcxPMDr0YTM9NULZuDwwHSiz8Dqm4iJRy+ERj2Vd03YQ+NdAqw7ZwIwYqmgWHZuFTbScoKg1
+	NvImKcvIUsMMERKM3ou/cJsN9Z+G3qfMZMJRo7kEXH1fvbD7quFn401Yp+amsfjDP3p8GCJ9voH32
+	yrAyEqV8Zr0UQx2vvlA5qkNxCR7AExTPhwzNE9oAdvvOg2v9EO+UGxE/O/HNI3smSxtvE/oZCLksp
+	G681YkjTevzrxusUlImw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQWG-0000000A8B0-3nwf;
-	Fri, 07 Feb 2025 15:43:52 +0000
-Received: from mail-sn1nam02on20626.outbound.protection.outlook.com ([2a01:111:f403:2406::626] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1tgQXd-0000000A8WU-2vK1;
+	Fri, 07 Feb 2025 15:45:17 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgQH4-0000000A4bi-0frI
+	id 1tgQIk-0000000A559-1ZM5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 15:28:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I8+J+AOllysKKg4GFWbQGMUiWBQouuGT1yWf4oNA6DXIR015yEUpov5Ic3gTY5eu5iZSOpE52JYEGxeZsW6MrbUeU6VDsOA68GccIxMMloUK8YKNOnp8IEq7mcCGf4vtsNwoa0OM5b2XmLeVceF/xS3/ZPvhK9stMu1Hoc4Y+/U/q806jK/4ZMtsIfup2HMAqs6TO1HVZgwjwmpCzZD6dY+ng/Do4MLzrChRVZ9CzI6ZZO99gUAtDBPSLHAkqGuHgCKm5VIKsoPlrA05UWPOoThQU2Q2LFTEn6M3hvHNmFrvzh0j/CbDjni8b2M0ELeAZwRYTz4EG4I6chipK0Fbeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=;
- b=BBtMjM1YB7vIzveJlkboan/eLZlrVvT35p/AXvztWHDRR0HRDrWBv2qunAVhSIdR2a7V/RS5x22PZw7fYGkYJrRy/3E3NK08r0Wv/WzwNE0uGKQYWJC4EJfuSGEqJlHfqFTSLmd7f+VUqTjfJn8F4kYtZF0WXlgvXF8+cmjsso0FC1sQGPrQ4r1vURz+gsyQ29PdVayKbrppfSIj1/ANmG0G/JYTgi/HrRnriimbcoWHHPm5i4iqGVBVo3oOxq3PG6uOdR77XYTy7ySiaVkf92yKWZalK5zqyNGgleCq/4IslwjeF1SvENLMxXwGxlY6r22RsVdwQmfDJr7voQ4zKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BEob+rSu3h/Q+RsvYkaVeS6ru+Hihdn24hXq5//BLwc=;
- b=F2A+en1adjP0AsY2vtW3hT3upc25TPZ7uOp2VkBlSENlDr6NWAdyBoh3VTccztzRPU/MBK96uIH2wejZMA890VwlQdfgxy0VGoBsefN6B+lDs4/9QQGdC2Cl1QtNCcKyeJujTg4biycRUuiH5HdvZUpPvOrHQmQ7q6R2jFH77iyRzFdndml9Smly4oFOBuS7Xp3Xc+D9lNYbDkYgazPSlueDBL6V9nLcYNXv93+hdGWOdJepDp0UpNl+DsyGSR4O5aNEBV0LEfuV1C7P0NF1HNAPyNLsHtfFRsEFnLBleeZMR+MkYq3PjfAnEXY6HgFaDUMWJjED3S01jGlAZr5BIA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA1PR12MB6604.namprd12.prod.outlook.com (2603:10b6:208:3a0::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Fri, 7 Feb
- 2025 15:28:03 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.011; Fri, 7 Feb 2025
- 15:28:02 +0000
-Date: Fri, 7 Feb 2025 11:28:01 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Eric Auger <eric.auger@redhat.com>, will@kernel.org,
-	robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
-	maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
-	shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
-	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
-	bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
-	nipun.gupta@amd.com, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com
-Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
- ioctls
-Message-ID: <20250207152801.GV2960738@nvidia.com>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
- <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
- <20250129145800.GG5556@nvidia.com>
- <Z6WLXTiYVzuN368E@Asurada-Nvidia>
- <20250207143020.GR2960738@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207143020.GR2960738@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0703.namprd03.prod.outlook.com
- (2603:10b6:408:ef::18) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 07 Feb 2025 15:29:56 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361b6f9faeso13433075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 07:29:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1738942193; x=1739546993; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EuYjo4JUI+V0W3/HuzUdoJL4i7PKJSWth5jlL0TRFTk=;
+        b=Q4ecrBBLOz0MwcIELbUpeLwHI0pgfeUhZ4J9iLHFG/MZwsHNxSqsn7vCsMWcOSdOxK
+         R8+/xwIAw1x8nnnJB7Cnc+5gf0O1yrzO+Tg73Ou6LblHL+SXUnyZ1s4T97YQSRSO1rHB
+         dBD65KEzRvq13hEfhlupi6xbGCui28kLtodOkSW8r8bh9WUoXk2rIUUb3ndCohxxwRHo
+         V80nS14OWXwwCZaaGA8KohpHWBCq5Zjsg0+ImM+ch5JQvg0yZLQvm3un1JabjGz95g2Q
+         oW0OHVVwyEVe9KSoDY1/7yWlqtgOpASPCF+snBLR0Dt8wbGegoAAVg/CtdDneJVPaPP2
+         b3KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738942193; x=1739546993;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EuYjo4JUI+V0W3/HuzUdoJL4i7PKJSWth5jlL0TRFTk=;
+        b=Vi3W1zuePLbJRzGzoQhA0iDsOW8NeAl4cCUHy8SVlJNywnaJbmeON1rf1Od1rbKnvL
+         O9DhtKf2WsHOCpHo+XFsde9bQso+j+Ln4R9mE+V3WZOAskZvaQyqt7Y5zVTVnosYIAbb
+         qAm0OjVJJJ4P1D8hSI7dt4FqDQOQns+9yoE+Qi0hYb/B805meE+/YR0EUQWV31gfK49h
+         mbUMSgtGlk+zHu1ra7KCIRAHCCEW09kCGxk7llmqxCX6Qhvn//s+hjFKynSqVNrkBFaZ
+         hRfJBcn+S163UO3chQpBkKGEyNLfOxJdtkMHSRthXBtaK7A1HILuvdjYqNXn3ph45IGN
+         w7Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCVOCAnGUqEvKIgBhP3mi03VT44THJuOHaqYu6xS41VmbZdbdh+mYa3BF97syD4kSW6/BmO+iHt7QTmJelTfoRKQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs4u0rbtIO7pWaomNDHR9jLKQy9ppiIW8+4pf/o/57sqnn2h4W
+	IHV8p1g3nUagJCzaFHlwhyb71ODPN6e2pPRDYCdiVFJhsM9LQ2d9OwC1LBQTq74=
+X-Gm-Gg: ASbGncuV9GjzHaoQcJQsmV7GLCdfeuaHI8dlvY/RfjEJ8M3Y89ENC76H/0+OX82cUFl
+	fMh9nuN6wpjJUlrDBHT/WObMt3ZwuFZddhWYrAbfzbMrHZ61BlwveR8aym4BfBsAZ4I1dIauZX+
+	RPKbYgTVWjYx5za/cRLEfhWMBYtXBktN+qQya2FX77EQNsMUbc634sQMX/4ZcZrogr0UveiDQFG
+	CTIDMzskS3m2OyLDPB+DUSMb3nHedPuuc0Me43etFaBLdDtq853CDzViMTL8JFuKaMMQZqVNSZ1
+	fA+/QDT1hpk2+QwDAxq/nPdOHBMloAJ/daXr3Jyb/GjEF5XyG5BdYWLVIAChXaOf1OX0hEo=
+X-Google-Smtp-Source: AGHT+IEyrqdIiXOe3BZgpVf7BRpZeU8Rj8m6AcURTfGve5w+fnKmbz6AYm2NAheZilOv2kTd5uUz2Q==
+X-Received: by 2002:a05:600c:1f0b:b0:434:9e17:190c with SMTP id 5b1f17b1804b1-4392529f3a2mr23842345e9.0.1738942192661;
+        Fri, 07 Feb 2025 07:29:52 -0800 (PST)
+Received: from ta2.c.googlers.com (169.178.77.34.bc.googleusercontent.com. [34.77.178.169])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391dc9ffd8sm57141905e9.10.2025.02.07.07.29.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 07:29:52 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH v7 0/3] firmware: add Exynos ACPM protocol driver
+Date: Fri, 07 Feb 2025 15:29:46 +0000
+Message-Id: <20250207-gs101-acpm-v7-0-ffd7b2fb15ae@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB6604:EE_
-X-MS-Office365-Filtering-Correlation-Id: bef4de26-1b8e-446d-3b8c-08dd478c02d7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oA+7td6602OBogNE7n0u7TCEg4PU8GwTgRGB4ZrKms4oag2dwdH1T8q3Vp4o?=
- =?us-ascii?Q?t3Zrhole4Gor+Qs6pBt8fhG6T5n2Bl0kUyfHvZUfRe88ose5tLubMtNHbpan?=
- =?us-ascii?Q?AH7LMJHcY0AsMbUdX9SID+Nuc6R0OkPZ4QddxOakDMlHkHbmIN3ma3XfQJ4d?=
- =?us-ascii?Q?HCSjcMj5+r11WgAcUIQIHOF2TdRGitWEZ/n292zQikQolzp2wLrRy70ixvn/?=
- =?us-ascii?Q?x+CVxtxHm4rVJaszeAc+jq2L7VNP4TwCa5N4/MCQ0hDST3RX0ZeC2ojybwpY?=
- =?us-ascii?Q?1KRvNA93aS7bggm1mghEQRAl8HF2zJZqzf62jQBZKeIfwLP4RSJI9ciiwEaT?=
- =?us-ascii?Q?PtKq2cHk4TAnDMP9TRz5/WoSyXP+9roYTLt3rOr4UDBaULVSXBwWaxfx2OMh?=
- =?us-ascii?Q?QcMSIvtTd/cQpOsEyuq8f5YNNdIPSfAilRqiFrf1YO8eKJIXcShLYq0BCWyV?=
- =?us-ascii?Q?G94bqs+VbnZmlGfMOyTeSfX/bOebCtaAfHW9locnAJAyQ4GBk/vMAMCmEukl?=
- =?us-ascii?Q?NBnhihiPkkynAeX8QkQXZbGVU3MYuDZI/lKBOsU9XDFjjhBhjAdNKtEyyNON?=
- =?us-ascii?Q?A9ltPdp+ox9rKor9dH+us0D8MSbi2SR3JVVL+7HUT4dZHJuU8GeJzn2f3hzk?=
- =?us-ascii?Q?wB015+6JDZ7G7sVKjvLFSF2TWxfESofz8utSWqnPNZKOzUFPfD6F5VQwvOtz?=
- =?us-ascii?Q?ETquGktaRlorSZ4rffTNgOCE9v4cylaFsYqyyUXMnialQV/FjbGBstlQr4vY?=
- =?us-ascii?Q?TsmmJ9Kvy8zQDRZw7RN64AaC15ucIePw/SNny0k1KKvNWDqr1ZNVCW0onevg?=
- =?us-ascii?Q?81wS900FpuUNX/rv3pOh+qPYgHYxAnaAk66sNkTFEIpoUde/3AheZ+Ie/jtK?=
- =?us-ascii?Q?jRKMn3RI+/Uqa0uskL9srcP35etwTV8la2lRZojBPGRif6bwAmv+Gi/draoR?=
- =?us-ascii?Q?rfwLvDjB+kdvc5acgOEmtWe72qwetES6iz8Tar1XmuM5xXjONNRBJmqVOgye?=
- =?us-ascii?Q?5ZzuXebrP6pQCf+w/BFs2L67roffUgeqdY5mTj4qrQsgssfge371x9F4Z4fR?=
- =?us-ascii?Q?5NqvsNHqL2T1+9CMubh4ohMIwLfH0TE+txR6C+DJseFjESD05vOIDtBt9uPI?=
- =?us-ascii?Q?g9YuL0BSFABDN5QUHEPJNXK8HO1Omm/9jWNYe1qT6nZo89EtCsQzRx+SHsGo?=
- =?us-ascii?Q?CLuZZ4n+qATACkOmgcpTvAa+ZHCDxdu7VHVfGnTD3jXvYui+jxY4pTqyjBK1?=
- =?us-ascii?Q?JNltFdNihMITPv5SOaPuV8C2otVtq9VIUOfqjfHhIfCXApWvSbM7tQvyTYHV?=
- =?us-ascii?Q?vlFYFCdqCaBcRDaBZhDnMJeUY8MxETEfnVMJlfrhdNd9doCS63v+tFo0tp0u?=
- =?us-ascii?Q?d/kp6YzqNO2aDgIF145gtiFSNosU?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qtrvzjyDeK089hrF/yyczm0dT2PF54m3qVFYs60UO6Zwpqt0zsOy9kRTzZkF?=
- =?us-ascii?Q?0bz5WL7PgwdiEjBWivdGR6SuPrTVroyS1F5eigRWmY2lANIUnrwpY8iAeEpN?=
- =?us-ascii?Q?LZUnojNssorvGGOgjFz6UYvUNOT7e6yAt3tWRgLIgFx/N5h+ZTPa+4k6oNxH?=
- =?us-ascii?Q?U51Wt3Fc4xuexFEqVETa44wC3RO7QQ/7hyoKXVlZNLjOJoEoaHKV3VENbNjQ?=
- =?us-ascii?Q?JgJ0tipvLhUlzsYcO5PLb8k7/6XTtIqfUETJykNBZOIiF0JmvGejXzPqpUkg?=
- =?us-ascii?Q?kZ3qh53kFoT8ongJkWt7qtjlSC+thaYnj94Qw8zzVxe+N1QG+SekpWjrv5Yi?=
- =?us-ascii?Q?dgr9xAtQ1y42G14Ged4YSxPcWyxvfU0dYjM3VH2HSLVaQ6dlti8curPfkZoU?=
- =?us-ascii?Q?yXjI7s/ddkNVvBtKztWrnyHnVANOzEo0856kv7rd5OOr/ANajz3ZGJ8dQsqH?=
- =?us-ascii?Q?dZB/1NYthsAjaQSZyH4mfE3M7LjqVTxFlmU2HFtXfLsw5ioTW/wl3ESZQlN3?=
- =?us-ascii?Q?n1eOFlyC5LbxydUCYKjy+eWpXpk4L+CxK8KCkqaMarmM4wlirjw3m3Eybt5B?=
- =?us-ascii?Q?PTGBpp4GuhsZ0vd1DLmgk29WxClzAACwHo0b7I7FziPkeaDW2DU8rwmnJ5ZQ?=
- =?us-ascii?Q?JcsF5p12QIO5EvuhU84x4IPn3xCmqFzYmzE7d9OU1EOGEyAmZmdOzo8CqAXF?=
- =?us-ascii?Q?86W0skk3fzPKW1m38szgdRgYmDv3ohrEBB4F/c9+MqGV9rmkVLyUoIQw16KE?=
- =?us-ascii?Q?mQxdaAjHUjpBo5gkXM9i8usY0pGNWUXrPBCa163Go06Ms+2wDb+p/w1tM98h?=
- =?us-ascii?Q?r1No5pSFJ795fVfS8w/gb9ApJ1JJvhMkfvtCf1Cx53erfFowKbXc21ec7rGY?=
- =?us-ascii?Q?c/5e9ZZg8E3CgJLNRntDPnGtz3iBEsHFF8UoquxZsWRY5ZkULnLlHVtslEWz?=
- =?us-ascii?Q?cbc2sYdkmPf1ETrKBB6RWa5YiD5cOQbELW6j/dCL+an8IShPDZCcl5U8P00M?=
- =?us-ascii?Q?hu1ElNc8nRUalEM8NfDS53Hw1Er8ozsJy7MOTO/uw9KPL/Au+uaC5TVnTrHu?=
- =?us-ascii?Q?QoW0pghh5SdywVRZnaNiIzQs6XJSvKGbgI+ub8Y7rmJRJRzTRwzB+q2DT50h?=
- =?us-ascii?Q?jMwJA7v2rSq0Nu9SEFkjPZ9RXxDz7w/mOGXWgG8A9J+qvX6Brn14t/t/5uBX?=
- =?us-ascii?Q?9Hyq0rUwEojcNHpw8VNYjRnyL05T+4g83mFj8tJYNAnTmHFKxzEE3fiI5N8Y?=
- =?us-ascii?Q?FL5//Mk1Bg2LZn7IwwgCm/Ixjh4IY/CGlmO60NXVTwLIRbLgZSmoVJmQzPHL?=
- =?us-ascii?Q?X0zh6Cxxl1f72EORrGEmZifQaevpQen6QUP2Ul+x4pr2X4V6ctdgZUvbhD6L?=
- =?us-ascii?Q?jBr+svZdXh5imBLKMnre2J7s+QbX3Tc4+rIikEBoJ04Kwz+4pvOBT6dnhvg4?=
- =?us-ascii?Q?e8xT6w0EUSFd51znm8b51IW7AdqW0IhIJjjXvdmGEE+DtvWuPW2Uw7X/ywWR?=
- =?us-ascii?Q?QvfRhl4g5VV5xIcurM++MUyldxi6MpgKWksw1PnqCnnrgGmMZTqbjuHi//mL?=
- =?us-ascii?Q?YrVUr71cbvuwa3jtF9JdcAzYHN6gERVDojOcGcss?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bef4de26-1b8e-446d-3b8c-08dd478c02d7
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 15:28:02.7501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 75CRVrA3CMsXkbSD5JpeM3JimhRJaqsSmiP+Pah9gJURDHe5TkNFTNBrprTNya1E
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6604
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOompmcC/23MSwrCMBSF4a2UjI3c3OaBjtyHOEhq0l7QpiQSl
+ NK9mxYcFByeA98/s+wT+czOzcySL5QpjnWYQ8O6wY6953SvmyGgFIjA+yxAcNtNTw7SnBCtk1p
+ JVsGUfKD3Frve6h4ov2L6bO2i1vdvpigOXAbUzgTXBhUuDxptiseYerZ2iv5ZBULondXV+taiF
+ 7YFMN3OLsvyBYfQUbPhAAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org, 
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738942191; l=5811;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=AyOjqptG1CCXHI+5Rg2T5T4EjrErcQnovY1byDNXtb8=;
+ b=S+mD91AuVIpuztF1IMBzbkM/81nYBhcVkeCR34Ma7BXeUmhZDzTtNJRVCBui+wkGCmG6g3JOb
+ ftFUxk2iibhAsFlC06/nMU6HWH37p3jIwL9V9gcRBoVxs6dLjY6QUKs
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_072810_199266_B2D0C24F 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250207_072954_442956_C99C2DE6 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,27 +114,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 10:30:20AM -0400, Jason Gunthorpe wrote:
-> On Thu, Feb 06, 2025 at 08:26:05PM -0800, Nicolin Chen wrote:
-> > Yea, I found iopt_reserve_iova() is actually missed entirely...
-> > 
-> > While fixing this, I see a way to turn the OPTIONs back to per-
-> > idev, if you still prefer them to be per-idev(?). Then, we can
-> > check a given input in the set_option() against the device's
-> > reserved region list from the driver, prior to device attaching
-> > to any HWPT.
-> 
-> I didn't have a strong opinion, if the idev works without complexity
-> then I'd stick with that on the basis of narrower scope is usually
-> better.
+Alive Clock and Power Manager (ACPM) Message Protocol is defined for
+the purpose of communication between the ACPM firmware and masters
+(AP, AOC, ...). ACPM firmware operates on the Active Power Management
+(APM) module that handles overall power activities.
 
-If you make it per-idev then it is also implicitly per-GIC as well
-since each idev has exactly one GIC
+This protocol driver provides the interface for all the client drivers
+making use of the features offered by the APM. Add ACPM protocol support.
 
-This would make it useful as a way to get each ITS page mapped into a
-single fixed location.. 
+Changes in v7:
+- drop device_node cleanup because it missed initializer and didn't make
+  things much smaller. Call of_not_put() after we're done with the dn.
+- pass the property name containing the phandle as argument to
+  acpm_get_by_phandle(). This lets consumers define their bindings 
+  later on, when introduced.
+- fix typo, s/acpm_dvfs_set_xfer/acpm_pmic_set_xfer.
+- now that the exynos mailbox driver is in v6.14-rc1, use the
+  exynos-message format for the message passed to the mailbox
+  controller.
+- Link to v6: https://lore.kernel.org/r/20250116-gs101-acpm-v6-0-e3a2e1a3007c@linaro.org
 
-Really hard to use from the VMM though
+Changes in v6:
+- Kconfig: s/depends on EXYNOS_MBOX/depends on MAILBOX, build time
+  dependency.
+- exynos-acpm-pmic: constify tx buf, make acpm_chan_id unsigned int,
+  u32 cmd[4] instead of u32 *cmd on function params.
+- exynos-acpm:
+  - drop acpm_memcpy_{from,to}io32 wrappers of __io{read, write}32_copy.
+    Right now unailgned accesses can not happen because the only
+    protocol implemented (PMIC), uses on stack u32 buffers.
+  - constify xfer to make it clear that the caller keeps ownership and
+    must ensure it is valid memory through the entire xfer time.
+  - rework acpm_get_by_phandle() and use try_module_get and device links.
+    With the device links, when acpm is unbind, its consumers are unbind
+    first. Thus the acpm drvdata will be destroyed after there are no
+    consumers alive, there's no need for kref. try_module_get() is used
+    because we'd like to be able to delete the acpm module only when
+    there are no consumers left.
+  - make 'struct acpm_xfer' private (move it in
+    drivers/firmware/samsung/exynos-acpm.h). Get rid of 'struct acpm_msg'
+    and use 'const u32 *txcmd'
+- bindings: add Krzysztof's R-b tag
+- Link to v5: https://lore.kernel.org/r/20241220-gs101-acpm-v5-0-4f26b7fb3f5f@linaro.org
 
-Jason
+Changes in v5:
+- depends on:
+  - Link: https://lore.kernel.org/all/20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org/
+  - it uses the newly introduced mbox_request_channel_by_args() API
+- dt-bindings:
+  - drop redundant binding word from the commit subject
+  - remove extra blank line and update example with by complying to
+    #mbox-cells = <0>;
+  - drop Krzysztof's R-b tag as the example was updated.
+- driver:
+  - channel identifiers are discovered at runtime, use
+    mbox_request_channel_by_args() instead of specifying them in DT.
+  - don't call mbox_free_channel() for PTR_ERR or NULL channels.
+  - introduce common method to init xfer
+  - rename guard name from __EXYNOS_ACPM_MFD_H__ to __EXYNOS_ACPM_PMIC_H__
+  - stop exporting devm_acpm_get_by_phandle(). We'll export the symbol
+    once a client is introduced.
+- rebase on top of v6.13-rc3
+- Link to v4: https://lore.kernel.org/r/20241212-b4-acpm-v4-upstream-firmware-v4-0-3f18ca64f1b9@linaro.org
+
+Changes in v4:
+- rename bindings filename based on compatible
+- bindings: drop nodename
+- bindings: drop mboxes description
+- bindings: remove initdata-base prop, and define it based on compatible
+- bindings: move additionalProperties after the required block
+- bindings: drop firmware node from examples
+- bindings: drop unused label in examples
+- bindings: rename node to power-management
+- driver: switch 2 macros to inline functions for readability
+- driver: add checl to avoid shift overflow on these inline functions
+- driver: use ktime_to_ms(ktime_get()) to record ktime
+- driver: use the default non-relaxed IO accessors
+- driver: remove atomic handling
+- driver: remove stray of_match_ptr()
+- driver: move header in include/linux/firmware
+- driver: make sure to, from are 32-bit aligned and count is a 32bit
+  quantity before calling __{ioread, write}32_copy
+- driver: reject IRQ channels (not supported yet_ at the top of do_xfer,
+  instead of when waiting for response.
+
+Changes in v3:
+- decouple the mailbox controller driver from the ACPM protocol driver
+- address Krzysztof's eview comments
+- add ACPM PMIC protocol helpers
+
+v2:
+https://lore.kernel.org/linux-arm-kernel/20241017163649.3007062-1-tudor.ambarus@linaro.org/
+
+v1:
+https://lore.kernel.org/linux-arm-kernel/20241004165301.1979527-1-tudor.ambarus@linaro.org/
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Tudor Ambarus (3):
+      dt-bindings: firmware: add google,gs101-acpm-ipc
+      firmware: add Exynos ACPM protocol driver
+      MAINTAINERS: add entry for the Samsung Exynos ACPM mailbox protocol
+
+ .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  50 ++
+ MAINTAINERS                                        |  10 +
+ drivers/firmware/Kconfig                           |   1 +
+ drivers/firmware/Makefile                          |   1 +
+ drivers/firmware/samsung/Kconfig                   |  14 +
+ drivers/firmware/samsung/Makefile                  |   4 +
+ drivers/firmware/samsung/exynos-acpm-pmic.c        | 229 ++++++
+ drivers/firmware/samsung/exynos-acpm-pmic.h        |  29 +
+ drivers/firmware/samsung/exynos-acpm.c             | 771 +++++++++++++++++++++
+ drivers/firmware/samsung/exynos-acpm.h             |  23 +
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  49 ++
+ 11 files changed, 1181 insertions(+)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20241220-gs101-acpm-047922ab4654
+
+Best regards,
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
+
 
