@@ -4,79 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D1DC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68EAC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zri0YGU7tlFtITZQ9YMGtcv5e9E37p1MNnjf0vhx08=; b=S2Kp88wrBA6Q40SARwBvuxvIGt
-	ryno8U1cyTyXLxdg0RYpsdSnAr0uZE/8XbGTiCAqUXYjSfl9t6BY1eZ0g51sTjXRmxl2ro+f09rjr
-	L6YtOmCAYguHFHBo8MCjsj1BTsOqQKS+quqGvQe8MtQ3lHagL3vPAivoKY3tfYTkqJgG3TvVPDGly
-	O8mSnsEljw56x8kVYfwrSC7loNtbdK0xsJxaf7PJkM1nEaasPqrc6PEx5ASvhBO5mtdY6f7bRGK3p
-	Br7ssuNRI/5md537u5hFdOqqoxxs1XGo0HCySWJYd/pNJ8VtnwX8peyeFg7Vl4slFwIu6P3Qpznp4
-	Ex5PTPcA==;
+	bh=ehW9K4c48CwLY/BR+mDs7xsKqDAw7Qeg9IJQ7Ou3tbg=; b=qUhaVgAe2AC9eepJ62mfab+PJi
+	KFhzEQ21g5g5+uzblJUPXvjFhA9+FKCbjUn+g1L/O3sAV4MmE/kfI1TcDvqikCEYx/jVCqmDOqY5/
+	9B8YEgn0kp9xJzNXl4h0ULhB/+rWEVpzzoH2OFDnn1CswRAh0eKau34JZBxE7N1OIDL9+3XlxVesH
+	gvXnm4lFbYDoNi1U52dlJ4jr6qSj5jpj4Dz+kNpby6cUM4zhKW4AjCyBCEtIPFFIN+R1qdiV8hi34
+	8YhKArMwMtjYM16JIrV0RW1tA6s0l0UfyVX+nIabTHns6K2ZMnZRnu4ll/cu0zBZSvJZgOogdGLN8
+	WrqzRT1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgS8e-0000000AUKs-2T3Q;
-	Fri, 07 Feb 2025 17:27:36 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tgSA0-0000000AUXL-13j3;
+	Fri, 07 Feb 2025 17:29:00 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRgk-0000000AOAT-0mmr
+	id 1tgRhM-0000000AOLl-40PL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:58:47 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 517GwfnQ3861324
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 7 Feb 2025 10:58:41 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1738947521;
-	bh=2zri0YGU7tlFtITZQ9YMGtcv5e9E37p1MNnjf0vhx08=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=leL05ieF6zpLhg2FiTFTeRMLLae99qfp4tExBvi3pzjhdFroseaKK5JCD0Tk3zq18
-	 eW3IKGeGD+IxR5sGR63deUXFee/iTp3JHlbsbTGORS14jIV+oWp0OFxtxSqe6kBz0K
-	 Tw/G3jXxXy2zf3Kv0y5urFjXWJ+XWK50bPvXKxLM=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517Gwf6n060034;
-	Fri, 7 Feb 2025 10:58:41 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Feb 2025 10:58:41 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Feb 2025 10:58:41 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517GweNg097409;
-	Fri, 7 Feb 2025 10:58:40 -0600
-Message-ID: <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
-Date: Fri, 7 Feb 2025 10:58:40 -0600
+	Fri, 07 Feb 2025 16:59:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738947565; x=1770483565;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=h75b+TdsJ58/EyAZzGusAGULFypKzhj4oZJY0fm1wu8=;
+  b=Cl6LlcBNDgMZSNek0LhjuIuQZShCcC3pLXwv1/7f5yf6Gp/KhAGfPojq
+   da/LDB3NzjblgoxzfXSVDMafs9NJxcaT9v24jkuPFIfGSGw0VfQBKAz26
+   bO1vCKlW/HLG5L38AlsOqBNRI4nxGkUYLYtbAB6s3WLNLjXIJDQxj9P+1
+   1gVJQeQQEBLItlkV17dK4piTVbMr6fA59v8iieYP1hiU+lH8d7geQLLp8
+   +nl7p5UqUUsHM6pbaEaNuL2x5zzKan931PM+iyYw5OlZkqdLv9PFQJ54L
+   ZJv4IZ+yUoXAqSmDSUEzG57dkQiA8DfsJQr98m1PdEPwzCVE7S8qMFQWn
+   g==;
+X-CSE-ConnectionGUID: sN5iJSGxTtW4dQheKajOeQ==
+X-CSE-MsgGUID: JclNT8+xRRmq3+gpF3URmw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="42436000"
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="42436000"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:59:24 -0800
+X-CSE-ConnectionGUID: xh97f0y8TjGtJI3gx/8V4A==
+X-CSE-MsgGUID: uTOuguuVSR6n8OMUQ6ULHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="116777275"
+Received: from wkuan-mobl1.gar.corp.intel.com (HELO [10.247.64.179]) ([10.247.64.179])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:59:15 -0800
+Message-ID: <65c82c04-6c71-4120-aaa0-5d20e7eca0fe@linux.intel.com>
+Date: Sat, 8 Feb 2025 00:59:12 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/9] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
- remote processors
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250206235200.3128163-1-jm@ti.com>
- <20250206235200.3128163-7-jm@ti.com>
+Subject: Re: [PATCH iwl-next v2 5/9] igc: Add support for frame preemption
+ verification
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Russell King <rmk+kernel@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Xiaolei Wang <xiaolei.wang@windriver.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Kory Maincent <kory.maincent@bootlin.com>, Petr Tesarik <petr@tesarici.cz>,
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com>
+ <20250205100524.1138523-6-faizal.abdul.rahim@linux.intel.com>
+ <20250205171234.cuscjpzdyc34ofbn@skbuf>
+ <6bf3f4b2-efee-41fe-97b3-cb53eca4dfed@linux.intel.com>
+ <20250206150410.u4rehwxnnuhtcfxr@skbuf>
 Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250206235200.3128163-7-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+In-Reply-To: <20250206150410.u4rehwxnnuhtcfxr@skbuf>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_085846_393424_866772CA 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20250207_085925_013872_D574F74E 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,142 +110,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/25 5:51 PM, Judith Mendez wrote:
-> From: Devarsh Thakkar <devarsht@ti.com>
+
+
+On 6/2/2025 11:04 pm, Vladimir Oltean wrote:
+> On Thu, Feb 06, 2025 at 10:40:11PM +0800, Abdul Rahim, Faizal wrote:
+>>
+>> Hi Vladimir,
+>>
+>> Thanks for the quick review, appreciate your help.
+>>
+>> On 6/2/2025 1:12 am, Vladimir Oltean wrote:
+>>> On Wed, Feb 05, 2025 at 05:05:20AM -0500, Faizal Rahim wrote:
+>>>> This patch implements the "ethtool --set-mm" callback to trigger the
+>>>> frame preemption verification handshake.
+>>>>
+>>>> Uses the MAC Merge Software Verification (mmsv) mechanism in ethtool
+>>>> to perform the verification handshake for igc.
+>>>> The structure fpe.mmsv is set by mmsv in ethtool and should remain
+>>>> read-only for the driver.
+>>>>
+>>>> igc does not use two mmsv callbacks:
+>>>> a) configure_tx()
+>>>>      - igc lacks registers to configure FPE in the transmit direction.
+>>>
+>>> Yes, maybe, but it's still important to handle this. It tells you when
+>>> the preemptible traffic classes should be sent as preemptible on the wire
+>>> (i.e. when the verification is either disabled, or it succeeded).
+>>>
+>>> There is a selftest called manual_failed_verification() which supposedly
+>>> tests this exact condition: if verification fails, then packets sent to
+>>> TC0 are supposed to bump the eMAC's TX counters, even though TC0 is
+>>> configured as preemptible. Otherwise stated: even if the tc program says
+>>> that a certain traffic class is preemptible, you don't want to actually
+>>> send preemptible packets if you haven't verified the link partner can
+>>> handle them, since it will likely drop them on RX otherwise.
+>>
+>> Even though fpe in tx direction isn't set in igc, it still checks
+>> ethtool_mmsv_is_tx_active() before setting a queue as preemptible.
+>>
+>> This is done in :
+>> igc_tsn_enable_offload(struct igc_adapter *adapter) {
+>> {
+>> 	....
+>> 	if (ethtool_mmsv_is_tx_active(&adapter->fpe.mmsv) &&
+>>              ring->preemptible)
+>> 	    txqctl |= IGC_TXQCTL_PREEMPTIBLE;
+>>
+>>
+>> Wouldn't this handle the situation mentioned ?
+>> Sorry if I miss something here.
 > 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
+> And what if tx_active becomes true after you had already configured the
+> queues with tc (and the above check caused IGC_TXQCTL_PREEMPTIBLE to not
+> be set)? Shouldn't you set IGC_TXQCTL_PREEMPTIBLE now? Isn't
+> ethtool_mmsv_configure_tx() exactly the function that notifies you of
+> changes to tx_active, and hence, aren't you interested in setting up a
+> callback for it?
 > 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
-> Changes since v3:
-> - Add SRAM child node for am62p MCU R5 core 0
-> ---
->   .../dts/ti/k3-am62p-j722s-common-mcu.dtsi     | 13 +++++
->   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 50 ++++++++++++++++---
->   2 files changed, 57 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-> index b33aff0d65c9d..0be3463bc21c5 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-> @@ -6,6 +6,18 @@
->    */
->   
->   &cbass_mcu {
-> +	mcu_ram: sram@79100000 {
-> +		compatible = "mmio-sram";
-> +		reg = <0x00 0x79100000 0x00 0x80000>;
-> +		ranges = <0x00 0x00 0x79100000 0x80000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +
-> +		mcu_sram1@0 {
 
-What does this node do for us? Seems you reserve the whole SRAM
-area from the start, but shouldn't the phandle in mcu_r5fss0_core0
-point to this node? Or better it would use the normal SRAM API
-to request an allocation from this region.
-
-Since this is still not resolved, and you don't mention it in
-the commit message, might be good to drop this SRAM part of this
-patch and deal with this in a later series.
-
-Andrew
-
-> +			reg = <0x0 0x80000>;
-> +		};
-> +	};
-> +
->   	mcu_pmx0: pinctrl@4084000 {
->   		compatible = "pinctrl-single";
->   		reg = <0x00 0x04084000 0x00 0x88>;
-> @@ -213,6 +225,7 @@ mcu_r5fss0_core0: r5f@79000000 {
->   			ti,atcm-enable = <0>;
->   			ti,btcm-enable = <1>;
->   			ti,loczrama = <0>;
-> +			sram = <&mcu_ram>;
->   		};
->   	};
->   };
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> index ad71d2f27f538..9609727d042d3 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> @@ -48,6 +48,30 @@ reserved-memory {
->   		#size-cells = <2>;
->   		ranges;
->   
-> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			no-map;
-> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
->   			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	vmain_pd: regulator-0 {
-> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
->   	};
->   };
->   
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
->   &main_uart0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_uart0_pins_default>;
+Ahh okay, got it. I sent v3 that also included this update. Thanks!
 
