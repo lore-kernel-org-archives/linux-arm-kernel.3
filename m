@@ -4,61 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59141C02192
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A88C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZfmOYEjsOOigbYsvY6i0SBzuIazvcfmaA15U8nykOU=; b=uZ+s6Ra/HyT+FI1Ler/8QnJpWq
-	GDIigx8Zw+AjPJH85T3W2IVs7ju9US7r9Z5EJZHEMXdyvtBy5mFc7cSOKILnGRDc6CTph3yoYEU5U
-	AAJBgKfkSa3qPZYsKTN+IJ+FhkbrdkronB4QI2VENB2fLA2CzT4NSjFzRHcxF6HkApUg3Wxvg46Dg
-	kbcH0xfJboA2i8QLbSzf7rftPQ6UnfXDsOOa84P9POQ943HEAkiMXY9Pt8QuVmMT3o2v2QwQ5Wq43
-	5RPBndfyQnT3sujOa4zVelseicpDE26sDkVDTk+XTNnqRqBKUnO9xLcnHNDgQFU3yNPvaO4vJN+iC
-	V7XBGQ1Q==;
+	bh=U40YS9CxwTxSqWYRm8Pu/lzfTyU6KzKQtqK1QBfpVb0=; b=QpPiTYE/xTtEanXCdABxL04xJ+
+	0ke3bB3bO7elmT4eUxplZIq9uz269L/FFua9Pm3MtltTDXpFiZHK8e+ottAbvetwKAHwS4cMA5hp2
+	3SYeVintR5coiUAizhzmmFUarqvPp/3f/eI0Fa8qrw/7Ea8wLJRp5pz7bJdg2nVY03V4uzUjXA+Fe
+	6RYcXqZzSuD8+rOprYf+Vx0+OjwYRe1qiUH1WLE5jZx9djNVJ6Nw37DK+8pUiCIPc/P/VSU3FtQOP
+	7APQ55WUdC7gnB6CgLGuObCZkkAUUW4S84pYSgP2YbKlgBu5QxaSBOiJVwUy1FvKWhXMCghbiZygW
+	Sv56Nb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKY9-0000000902O-2Cln;
-	Fri, 07 Feb 2025 09:21:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKWl-00000008zl9-254n
+	id 1tgKZV-000000090Is-0jfg;
+	Fri, 07 Feb 2025 09:22:49 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tgKXR-00000008ztq-2al2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 09:20:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACBCB106F;
-	Fri,  7 Feb 2025 01:20:21 -0800 (PST)
-Received: from [10.162.16.89] (a077893.blr.arm.com [10.162.16.89])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AF5C3F5A1;
-	Fri,  7 Feb 2025 01:19:53 -0800 (PST)
-Message-ID: <e1fe2a0c-d567-4a26-af06-89e3a37ba638@arm.com>
-Date: Fri, 7 Feb 2025 14:49:50 +0530
+	Fri, 07 Feb 2025 09:20:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738920041; x=1770456041;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=hA2SG/by2VlZkg0k+rBAIateDa8Wr9F6Pl3v/Hw6QSU=;
+  b=iDdjvuysaVA2bwEUZ2sfpU3gcIYBUYu2ek0KlY/tTlp49jgrnYf/ewte
+   9VCiKluyIZR9TwwX1xIS8lw94fe/jPlZBgdl/nyA9tAT28E34Rg+CZqOR
+   ZTgpk8AskmSLY+Q7ntxlWeFkPC7tW+3Gqgv0K2CaATK8pqn7+sR1iassF
+   iiwwuAxKiBS1lDsFPzIlK0eJ2ooaO9qJ0YmWbVbtKDN7nqFvLt4q+Bgyf
+   uFHydFiCnDdyceaqOJfE85hqV6Q4YufOGssLmpa6BkM94k00XPXGFK90H
+   29hJ1IzwmAm9k7h4VgtqoSaMOIaJOpsb9ofU11UgYOpu7SdKk5kXPA2yn
+   Q==;
+X-CSE-ConnectionGUID: KHa6zXlIRAmlnMMvrNJ6rA==
+X-CSE-MsgGUID: LUFtduJbRBO6p4wgDemVFQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="39428957"
+X-IronPort-AV: E=Sophos;i="6.13,266,1732608000"; 
+   d="scan'208";a="39428957"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 01:20:40 -0800
+X-CSE-ConnectionGUID: Rs/q4v6kTrSfo8mlMCbvMQ==
+X-CSE-MsgGUID: 4DBwnz/7TVqAchVWKhRZfg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="148692076"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.39.73]) ([10.247.39.73])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 01:20:32 -0800
+Message-ID: <564ede5d-9f53-40be-9305-63f63b384e15@linux.intel.com>
+Date: Fri, 7 Feb 2025 17:20:29 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 11/16] mm/vmalloc: Gracefully unmap huge ptes
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-12-ryan.roberts@arm.com>
+Subject: Re: [PATCH net-next v7 2/7] net: pcs: xpcs: re-initiate clause 37
+ Auto-negotiation
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>,
+ David E Box <david.e.box@linux.intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>,
+ Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+ David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
+ Mengyuan Lou <mengyuanlou@net-swift.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Hans de Goede <hdegoede@redhat.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
+ <20250206131859.2960543-3-yong.liang.choong@linux.intel.com>
+ <Z6TVmdCZeWerAZKP@shell.armlinux.org.uk>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250205151003.88959-12-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <Z6TVmdCZeWerAZKP@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_011959_630513_F1FC7AF5 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250207_012041_707433_58150DA8 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +110,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/5/25 20:39, Ryan Roberts wrote:
-> Commit f7ee1f13d606 ("mm/vmalloc: enable mapping of huge pages at pte
-> level in vmap") added its support by reusing the set_huge_pte_at() API,
-> which is otherwise only used for user mappings. But when unmapping those
-> huge ptes, it continued to call ptep_get_and_clear(), which is a
-> layering violation. To date, the only arch to implement this support is
-> powerpc and it all happens to work ok for it.
+On 6/2/2025 11:30 pm, Russell King (Oracle) wrote:
+> On Thu, Feb 06, 2025 at 09:18:54PM +0800, Choong Yong Liang wrote:
+>> The xpcs_switch_interface_mode function was introduced to handle
+>> interface switching.
+>>
+>> According to the XPCS datasheet, a soft reset is required to initiate
+>> Clause 37 auto-negotiation when the XPCS switches interface modes.
 > 
-> But arm64's implementation of ptep_get_and_clear() can not be safely
-> used to clear a previous set_huge_pte_at(). So let's introduce a new
-> arch opt-in function, arch_vmap_pte_range_unmap_size(), which can
-> provide the size of a (present) pte. Then we can call
-> huge_ptep_get_and_clear() to tear it down properly.
+> Hmm. Given that description, taking it literally, claus 37
+> auto-negotiation is 1000BASE-X, not Cisco SGMII (which isn't an IEEE
+> 802.3 standard.) Are you absolutely sure that this applies to Cisco
+> SGMII?
 > 
-> Note that if vunmap_range() is called with a range that starts in the
-> middle of a huge pte-mapped page, we must unmap the entire huge page so
-> the behaviour is consistent with pmd and pud block mappings. In this
-> case emit a warning just like we do for pmd/pud mappings.
+Hi Russell,
+
+Yes, you are correct that Clause 37 auto-negotiation is for 1000BASE-X. 
+However, I do not believe it applies to Cisco SGMII. The XPCS implements 
+Clause 37 auto-negotiation for both 1000BASE-X and SGMII.
+
+> If the reset is required when switching to SGMII, should it be done
+> before or after configuring the XPCS for SGMII?
 > 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  include/linux/vmalloc.h |  8 ++++++++
->  mm/vmalloc.c            | 18 ++++++++++++++++--
->  2 files changed, 24 insertions(+), 2 deletions(-)
+A soft reset is required before configuring the XPCS for SGMII. Based on 
+the existing XPCS handling in the initial state, the xpcs_create() function 
+will be called, and then xpcs->need_reset will be set to true. Later on, 
+phylink_major_config() will call xpcs_pre_config() to perform the 
+xpcs_soft_reset(), and then it will continue with xpcs_config().
+
+I apologize for missing this patch: 
+https://patchwork.kernel.org/project/netdevbpf/patch/E1svfMA-005ZI3-Va@rmk-PC.armlinux.org.uk/
+
+I think I should move xpcs_switch_interface_mode() to xpcs_pre_config() and 
+just update xpcs->need_reset instead of implementing my own method for 
+calling xpcs_soft_reset().
+
+> Also, if the reset is required, what happens if we're already using
+> SGMII, but AN has been disabled temporarily and is then re-enabled?
+> Is a reset required?
 > 
-> diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-> index 31e9ffd936e3..16dd4cba64f2 100644
-> --- a/include/linux/vmalloc.h
-> +++ b/include/linux/vmalloc.h
-> @@ -113,6 +113,14 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, uns
->  }
->  #endif
->  
-> +#ifndef arch_vmap_pte_range_unmap_size
-> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
-> +							   pte_t *ptep)
-> +{
-> +	return PAGE_SIZE;
-> +}
-> +#endif
-> +
->  #ifndef arch_vmap_pte_supported_shift
->  static inline int arch_vmap_pte_supported_shift(unsigned long size)
->  {
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index fcdf67d5177a..6111ce900ec4 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -350,12 +350,26 @@ static void vunmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  			     pgtbl_mod_mask *mask)
->  {
->  	pte_t *pte;
-> +	pte_t ptent;
-> +	unsigned long size = PAGE_SIZE;
+Good point. I cannot find this scenario in the datasheet. Please allow me 
+some time to test this scenario. I will update you with the results.
 
-Default fallback size being PAGE_SIZE like before.
+> What about 1000BASE-X when AN is enabled or disabled and then switching
+> to SGMII?
+> 
+According to the datasheet, a soft reset is required.
 
->  
->  	pte = pte_offset_kernel(pmd, addr);
->  	do {
-> -		pte_t ptent = ptep_get_and_clear(&init_mm, addr, pte);
-> +#ifdef CONFIG_HUGETLB_PAGE
-> +		size = arch_vmap_pte_range_unmap_size(addr, pte);
-> +		if (size != PAGE_SIZE) {
-> +			if (WARN_ON(!IS_ALIGNED(addr, size))) {
-> +				addr = ALIGN_DOWN(addr, size);
-> +				pte = PTR_ALIGN_DOWN(pte, sizeof(*pte) * (size >> PAGE_SHIFT));
-> +			}
-> +			ptent = huge_ptep_get_and_clear(&init_mm, addr, pte, size);
-> +			if (WARN_ON(end - addr < size))
-> +				size = end - addr;
-> +		} else
-> +#endif
-> +			ptent = ptep_get_and_clear(&init_mm, addr, pte);
+>> +static int xpcs_switch_to_aneg_c37_sgmii(const struct dw_xpcs_compat *compat,
+>> +					 struct dw_xpcs *xpcs,
+>> +					 unsigned int neg_mode)
+>> +{
+>> +	bool an_c37_enabled;
+>> +	int ret, mdio_ctrl;
+>> +
+>> +	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
+>> +		mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
+>> +		if (mdio_ctrl < 0)
+>> +			return mdio_ctrl;
+>> +
+>> +		an_c37_enabled = mdio_ctrl & BMCR_ANENABLE;
+>> +		if (!an_c37_enabled) {
+> 
+> I don't think that we need "an_c37_enabled" here, I think simply:
+> 
+> 		if (!(mdio_ctrl & BMCR_ANENABLE)) {
+> 
+> would be sufficient.
+> 
+>> +			//Perform soft reset to initiate C37 auto-negotiation
+>> +			ret = xpcs_soft_reset(xpcs, compat);
+>> +			if (ret)
+>> +				return ret;
+>> +		}
+>> +	}
+>> +	return 0;
+> 
+> I'm also wondering (as above) whether this soft reset needs to happen
+> _after_ xpcs_config_aneg_c37_sgmii() has done its work - this function
+> temporarily disables AN while it's doing its work.
+> 
+Based on the programming sequence in the datasheet, it is not necessary to 
+perform a soft reset after xpcs_config_aneg_c37_sgmii() has completed its work.
 
-ptep_get_and_clear() gets used both, when !HUGETLB_PAGE or HUGETLB_PAGE with
-arch_vmap_pte_range_unmap_size() returned value being PAGE_SIZE, which makes
-sense.
+> I'm also wondering whether AN being disabled is really a deciding
+> factor (e.g. when switching from 1000BASE-X AN-enabled to SGMII, is a
+> reset required?)
+> 
 
->  		WARN_ON(!pte_none(ptent) && !pte_present(ptent));
-> -	} while (pte++, addr += PAGE_SIZE, addr != end);
-> +	} while (pte += (size >> PAGE_SHIFT), addr += size, addr != end);
->  	*mask |= PGTBL_PTE_MODIFIED;
->  }
->  
-
-LGTM
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Thank you for pointing this out. The datasheet only mentions performing a 
+soft reset when switching to the 1000BASE-X and SGMII interfaces, and it 
+does not specify whether AN needs to be enabled or disabled. I thought 
+adding a check would reduce the calls to the soft reset. However, I did not 
+consider the scenario of switching from 1000BASE-X with AN enabled to SGMII 
+with AN enabled. This scenario might cause regression. I will remove all 
+the checks and just perform a soft reset when switching to the SGMII interface.
 
