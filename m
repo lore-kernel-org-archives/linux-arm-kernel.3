@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7F9C0219C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 12:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AC7C0219C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 12:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BCu/ryqDczot25TDMnKcJhaUWntHdW2uO8lsXLpQ4VQ=; b=duBDxGUUabeMMa
-	EXc1Eieg38r6FzTSEWWymI9BmbiRSJf0wNOEtqvtcL0vDAqbFJcUfLEp5RsrBg16/w4B6Sn2Qg5W8
-	sQL+2o0fVjt/B80jqr4ECpE+B4aiOjalX08f7KPE3rnugS45gZyCCfeDXW6y7WrBTrMnR3kNW3jHR
-	oxf8+kry+2DglCBHXGs5U1bLN9AoYrvgetwBKa2y1KNlPpukAYnAuaBen6UOGAqCATOMOfFH+hsCv
-	oaU7WFK50vg9xq+Z7xH9zhbDCLvgsNomFGs58ulZ5m5z/b2tHb0zCtWGMsXWQ2Y6piZxPivY2bWN8
-	P43IXGa3pc6SrbXSLsYw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EN5uKDKBs2TFBzx+EqNYKD0FORICT1RtSymVEFjrtcw=; b=AlKG6GJI1UUeIv
+	hOyqHH/mMSdgSgU4PM2ECt3io38rQczLUcobYptNmbrItqkYUk2xDtpK0gp5LAPZWhS9P9qmeYIxJ
+	dSPQMstn5HPb/W5ZAFiyCAoXcY6Xd4hOxg501YiZRbHLNrSY9NLdH40hqS1VkXrIqp4gxHf1RyaMY
+	s7wFBCC8NIw23wPOIMB2q7Fm3uYJVMlS5LR/eia9ZSPcQi5qH4ARn9oMe+GEkuOOGUGhL746ByEQx
+	ajdCrN0x5vGWty0bDEpqzZ9JfK9Q4v7nB1FV+F/Gteu+T8HEFeZSL3hjNg1txpKkrIWgM5Lh+Px8T
+	iDNeWM+8PRsadkYgGYQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgNna-00000009ZML-285p;
-	Fri, 07 Feb 2025 12:49:34 +0000
+	id 1tgNow-00000009Zbx-16m5;
+	Fri, 07 Feb 2025 12:50:58 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgNmB-00000009YtE-1ABu
+	id 1tgNmD-00000009Ytl-4033
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 12:48:08 +0000
+	Fri, 07 Feb 2025 12:48:11 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 9D100A037B;
-	Fri,  7 Feb 2025 13:48:05 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id A63C7A1756;
+	Fri,  7 Feb 2025 13:48:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=BCu/ryqDczot25TDMnKcJhaUWntHdW2uO8lsXLpQ4VQ=; b=
-	BytzGPT360C98IhBFxeTx3NOwsyn+LLjSv0HyYRHltnx/CHg6fMAUgNUP0g/vhjs
-	HJxPAeodhFy0B9L8D+VPCYnu98rFe4cKHSX/pojtKyvogse4DqFFAbg51iZ2Jup5
-	uIxAv+GAjZemdhK5q5MI/MPNV7WbWu1fyaoPYgvY6svrrFaBp0nRadftitN00V5D
-	pzR5HEXN65zo1P+kvq0W5U7nf6H8KYekVzRcB8DAYKyDC0q9SdChzmib9RP2W9EF
-	Hjq/LD2nIqLG5a4Q0+oThW6llaY4XNGwZvFLuVeonmW/LKGf3ztbwQF86bU1w2ED
-	wmdGDqj9mMFWbvbAVzr77z75vqzYYAbFqPy9iAvdB+GCvSPsPU+wtvC6yGdtLwJI
-	y8BkaR6EFSwIqjbZSUsmqlDSH9EIyqGuWDOp6+jRRvddW/TY0Z/ncsWqzfX0Ckry
-	QSAQ7jIvcO96yTxLPoTddO2EAZcNQIKRvcCbUSYLvoKz/+2KphB+qP3TyvMh4fmT
-	26DbUX/oORlbm50fgAzvDeZ3Yd7CIqen5uEGq3CfegZacs6yVTjjLMfVScpOAcus
-	TE6BU59rVCQ1HTxjXJxUthHBY7RTKe92xlAAO6xfmM9Tqgb6iRBkXfljpFvsXwTM
-	8axDWRciHBAbucV/68S2oTKfum+ucJ5A8Nd7pygzZYk=
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=EN5uKDKBs2TFBzx+EqNY
+	KD0FORICT1RtSymVEFjrtcw=; b=DXvx0o34J8tTdtOgr4q89tlci9jbO0RrQ6fW
+	TXNr7u1PtxCsnh1BOEsqRK97S3nrRPxf4GT7h8Gs0bKnTLAE/z/JwbaRRqbQDTYN
+	dD7s3YOw/jqtY4Wu8Jh8E46tn98ERfdFCavJR5OLn7cSGbK2gy8ITCkzEK3jVYNA
+	DvAoWLv0Euejeb0kHXdMxiy+nEQ/cXxrNcbChdCtl2nyduSoe2xpQ4yBCteGFQ6F
+	v/E+zIpAFn7+/QCptZZNjNHabqZOYi/wlE1IhoDuoOKaubX7AE7wmyxfgkjh0m8d
+	U4QWu6hLhQjA6TTltdO2GsfZ/SRmgj6LEayrIp75UclgXB/UqhIn5kN/PAqm/c5T
+	lkFPvRBqTNqyL9hyhmDsL4KZ0foqda9txlMoj/uvYvFwuRKKt0jJohUzLXO24S3d
+	N109isuNKJzQSwvZ2TJLdZQqFD71W7r4AjXH0Dmq6SDHMrkE/kjAiMdAlBfbrGae
+	nT8HgY51NWk9EPaM4R+BB0HLz/AiqWC7cXPHVMTmVR/PQPiNYTPIjfcwVnzuK8h/
+	7uohdHTTg7g5iOMz0e+96WvyX1lAqpjK3xl4C0EOk1BiltDqV6E4z+30hQ+kHT9H
+	EAd7c/vb3Qd3/ix1vbt1au1oYqvfoZ+8kmFMwL+A/OwqOYBcu9/inCAjVFcG3qI3
+	T4orMqc=
 From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: 
-Subject: [PATCH for-6.14 v3 0/4] Add more devm_ functions to simplify probe path in drivers/spi/atmel-quadspi.c
-Date: Fri, 7 Feb 2025 13:47:55 +0100
-Message-ID: <20250207124802.165408-1-csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH for-6.14 v3 3/4] spi: atmel-quadspi: Use `devm_dma_request_chan()`
+Date: Fri, 7 Feb 2025 13:47:58 +0100
+Message-ID: <20250207124802.165408-4-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250207124802.165408-1-csokas.bence@prolan.hu>
+References: <20250207124802.165408-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738932485;VERSION=7985;MC=412144077;ID=401531;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1738932487;VERSION=7985;MC=1603935075;ID=401535;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A29ACD94852617560
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_044807_470088_F6DB4C8B 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250207_044810_145180_880E6276 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +76,127 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Len Brown <len.brown@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, linux-kernel@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>, Alexander Dahl <ada@thorsis.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org, Pavel Machek <pavel@ucw.cz>, Varshini Rajendran <varshini.rajendran@microchip.com>, linux-spi@vger.kernel.org, =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Cc: Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Mark Brown <broonie@kernel.org>, =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe function of the atmel-quadspi driver got quite convoluted,
-especially since the addition of SAMA7G5 support, that was forward-ported
-from an older vendor kernel. To alleivate this - and similar problems in
-the future - an effort was made to migrate as many functions as possible,
-to their devm_ managed counterparts. The few functions, which did not yet
-have a devm_ variant, are added in patch 1 and 2 of this series. Patch 3
-and 4 then use these APIs to simplify and fix the probe() function.
+Leave releasing of DMA channels up to the devm
+facilities. This way we can eliminate the rest
+of the "goto ladder".
 
-Patch 4 in particular, fixes a bug present in 6.14-rc1, where the PM get()
-and put() calls were imbalanced.
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ drivers/spi/atmel-quadspi.c | 44 ++++++++++---------------------------
+ 1 file changed, 11 insertions(+), 33 deletions(-)
 
-Links to previous versions:
-pre-series:
-https://lore.kernel.org/linux-kernel/20241222141427.819222-1-csokas.bence@prolan.hu/
-https://lore.kernel.org/linux-kernel/20250114222851.1023194-1-csokas.bence@prolan.hu/
-v1:
-https://lore.kernel.org/linux-kernel/20250115160244.1102881-1-csokas.bence@prolan.hu/
-v2:
-https://lore.kernel.org/linux-kernel/20250124085221.766303-8-csokas.bence@prolan.hu/
-
-Bence Csókás (4):
-  dma: Add devm_dma_request_chan()
-  pm: runtime: Add new devm functions
-  spi: atmel-quadspi: Use `devm_dma_request_chan()`
-  spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
-
- drivers/base/power/runtime.c | 36 +++++++++++++++++++++
- drivers/dma/dmaengine.c      | 30 +++++++++++++++++
- drivers/spi/atmel-quadspi.c  | 62 ++++++++++--------------------------
- include/linux/dmaengine.h    |  7 ++++
- include/linux/pm_runtime.h   |  4 +++
- 5 files changed, 93 insertions(+), 46 deletions(-)
-
-
-base-commit: bb066fe812d6fb3a9d01c073d9f1e2fd5a63403b
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index abdc49d9d940..b1fb4426c78d 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1288,18 +1288,20 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(ctrl);
+ 	int ret;
+ 
+-	aq->rx_chan = dma_request_chan(&aq->pdev->dev, "rx");
++	aq->rx_chan = devm_dma_request_chan(&aq->pdev->dev, "rx");
+ 	if (IS_ERR(aq->rx_chan)) {
+ 		aq->rx_chan = NULL;
+ 		return dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
+ 				     "RX DMA channel is not available\n");
+ 	}
+ 
+-	aq->tx_chan = dma_request_chan(&aq->pdev->dev, "tx");
++	aq->tx_chan = devm_dma_request_chan(&aq->pdev->dev, "tx");
+ 	if (IS_ERR(aq->tx_chan)) {
+ 		ret = dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->tx_chan),
+ 				    "TX DMA channel is not available\n");
+-		goto release_rx_chan;
++		aq->rx_chan = NULL;
++		aq->tx_chan = NULL;
++		return ret;
+ 	}
+ 
+ 	ctrl->dma_rx = aq->rx_chan;
+@@ -1310,20 +1312,6 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 		 dma_chan_name(aq->tx_chan), dma_chan_name(aq->rx_chan));
+ 
+ 	return 0;
+-
+-release_rx_chan:
+-	dma_release_channel(aq->rx_chan);
+-	aq->rx_chan = NULL;
+-	aq->tx_chan = NULL;
+-	return ret;
+-}
+-
+-static void atmel_qspi_dma_release(struct atmel_qspi *aq)
+-{
+-	if (aq->rx_chan)
+-		dma_release_channel(aq->rx_chan);
+-	if (aq->tx_chan)
+-		dma_release_channel(aq->tx_chan);
+ }
+ 
+ static const struct atmel_qspi_ops atmel_qspi_ops = {
+@@ -1428,14 +1416,13 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	/* Request the IRQ */
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0) {
+-		err = irq;
+-		goto dma_release;
+-	}
++	if (irq < 0)
++		return irq;
++
+ 	err = devm_request_irq(&pdev->dev, irq, atmel_qspi_interrupt,
+ 			       0, dev_name(&pdev->dev), aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+@@ -1445,7 +1432,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	err = atmel_qspi_init(aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	err = spi_register_controller(ctrl);
+ 	if (err) {
+@@ -1453,18 +1440,12 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 		pm_runtime_disable(&pdev->dev);
+ 		pm_runtime_set_suspended(&pdev->dev);
+ 		pm_runtime_dont_use_autosuspend(&pdev->dev);
+-		goto dma_release;
++		return err;
+ 	}
+ 	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	return 0;
+-
+-dma_release:
+-	if (aq->caps->has_dma)
+-		atmel_qspi_dma_release(aq);
+-
+-	return err;
+ }
+ 
+ static int atmel_qspi_sama7g5_suspend(struct atmel_qspi *aq)
+@@ -1514,9 +1495,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
+ 
+ 	ret = pm_runtime_get_sync(&pdev->dev);
+ 	if (ret >= 0) {
+-		if (aq->caps->has_dma)
+-			atmel_qspi_dma_release(aq);
+-
+ 		if (aq->caps->has_gclk) {
+ 			ret = atmel_qspi_sama7g5_suspend(aq);
+ 			if (ret)
 -- 
 2.48.1
 
