@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C8BC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57B7C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 02:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lzta5S0gzTGOLstB++0r/Lba8xmTnzwJ+9gzDMBGEjI=; b=EegwDkVfyWZaZ5fSqBggEg+veb
-	uxb89CBP9mElJf8EeE+vVJ8tzW12uvHluu0960Xlg2y7eM0/BUJA2jdmHioeONFMF6z5RY+hsSZ/E
-	MB/q2qqI8NrDhj/NsLdbzuPod5ZhJFlRND/9Z0YHiOeE4iWmm4NPhnVtywfJP9p+LZGgfzPys/s7i
-	QkMmanA9hQF7wgAYboD7CZrhb6FRsFPRVVOkoYpLKFbTsPAzbtnSFIysbIropIeg8MCOQBjNOle8f
-	R1zApRBC2zCnWW9KqIim/V6q3+bPatW6czd3s1Ec5fpwr4s6zC7olimCpJfHfTOQIZ+9tkaxOi1pv
-	C2+wzr8w==;
+	bh=4xfkBHNnNfhnAk+NPVOb8AHFgB+axQL5PKulKsKTDgk=; b=pEBw6X1txnhqA3U9+DKaJGMV6Q
+	8L8WR0XBficd7AhNXDtv3BZkYY7yfZF0zP2BE6Pcf6m8NBfUeJC9lHIz/1RhBl3IwxHImODiCPEpk
+	Fr+k1dybKSKeU2l+Lc8PF4ZK4UaRr2U0I9OdSxqPGSbqrXD8+hxSmucl2afyvxac7oA6IKkpi/oMZ
+	QWPh3MjQOXPSPJVm38dsBseH1PRslgVyGWWCNsdoO5XeVWPqztwUhlu4Ng1Q1YLViJdN/29ukjUR6
+	I1ED94IZLP6LyohwaMQDgezCu7z6GAFrlwVqob+sTbM+nGdouA/7bWw3GHojdFnOPwETWNwWXGw8B
+	EpSp9kAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgE31-000000084x3-1CuB;
-	Fri, 07 Feb 2025 02:24:51 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tgE75-000000085R7-1Y9p;
+	Fri, 07 Feb 2025 02:29:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgE05-000000084C1-1EfO
+	id 1tgE3i-0000000852j-1qPA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 02:21:50 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-543cc81ddebso1830010e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Feb 2025 18:21:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738894907; x=1739499707; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lzta5S0gzTGOLstB++0r/Lba8xmTnzwJ+9gzDMBGEjI=;
-        b=j3kNV7IJsl8pq2UnC1u2fn7iIMoGhRtozlRw4eBFq8pN7gOyHvN+pMcK8sWc0i+Cqn
-         0UUu21Ztw/74Qxu7/LoOxOpH5fr7xtrKP8x1VW4YVXAYRPxZW+RUv4oe+RAeukKHj4Ow
-         umr/tICADOkmHsFNaaMqZAfsBlPHEmg/xE3OhRC4jsXrn+wDMTFDOVkNtZgZL02/Ao94
-         dsSusZ8+ooebHiKBok6thudmYr9XPpe9CKyzcpjbcGPLFkWz18VErfAhy58kWM5B0tOG
-         WSaKOeeAox0mxsX3pHLIEncTwFCMygcoHbyedthk7wlI9ih24yRjDq1olUDz+PpGDmvC
-         HoKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738894907; x=1739499707;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lzta5S0gzTGOLstB++0r/Lba8xmTnzwJ+9gzDMBGEjI=;
-        b=dqWyAousG6CugCAc6mK9dZW+4+3tB/IMAN6SVZQVkf6ywG3oIokxRaWwjl1ATcFggo
-         WtB12B3CltjHw3ZNPy5azD79sTIxVAZ/lU66Xhg+fMSgGmc6B7Mu0muWqGGNQAAEJA4l
-         5w340LhbMTzrbx1siURXxPD+0wPzf/WnDSZBeaRJ+QWrkrTXEmm8otvck/7JHtCpKwcM
-         SB91bmjyVUyTFa5nl515wfxU6XNhtAdnQFlGYcWagnHIMw9+L6VIuphCXOPy0IAmmtHb
-         X4xKuwZ4AGkY8b+zkOTND3qZyNAismNBzTbZfaDEmCY+EAr4aA/5oY389SfiuCjrGYlB
-         LWgA==
-X-Forwarded-Encrypted: i=1; AJvYcCUbRxHGhPYSZvvznr/RPmWWXb6jWtR80rgXFXBWFT9pkQxmvkpYwk16XGkz/b1qhziuCC5LdLH2kKJOgHA2weCz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzkk3p8FyvqniKfIP/g9TKsAtnvoBetM/xNz1o5Hx595x6XxeHv
-	Jwhkj8yTpHieSOaNVDmXSer0wliwz5Z7s7FlYgYmKE/wBxfYRAuTYQ8S4hkLx9U=
-X-Gm-Gg: ASbGncs34QB/YLtVE+Qj0T3vSJqFiT5LeZJeT8rsWeFzB0nvZspYXoacRkDCt7qQHXm
-	9VDkeb1Im0SFIDiGWaG+XOOGjDRaDkF8EGeyoJEZ6AYFp1HG7CjZopXxPnstf824tNL5HwKu6DI
-	yv1S0fkKUzBMewXs7NGOi5tWtaXTQVl3XGiTvugXXuy39htGqq9pERjnpPzYwS6RTzUbL+Txs4R
-	SM+tmoeHSqpnzI7WgPbuNH0QwVxIv0tayYUcmLpY390dW3ul2NmjlHyONYiakx2NxUVfwi9L0j7
-	57XxZP7VSv3NUinexRxuwwG+wslObMIklUyBNv2NC+IALapkgAySkx6Ji7W63tYzoqXPdVs=
-X-Google-Smtp-Source: AGHT+IEEMycc7B1Xywi6/voRjDNNe0jaAwgIo39w5VQbQbJyRuz6zbWk5Cv25Kf+Od2N2WEWuA4GlA==
-X-Received: by 2002:a05:6512:3d0b:b0:542:2388:3f09 with SMTP id 2adb3069b0e04-54414ae0b88mr338836e87.37.1738894907389;
-        Thu, 06 Feb 2025 18:21:47 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441053eb2dsm296973e87.28.2025.02.06.18.21.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Feb 2025 18:21:46 -0800 (PST)
-Date: Fri, 7 Feb 2025 04:21:44 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 03/26] drm/bridge: panel: use drm_bridge_is_panel()
- instead of open code
-Message-ID: <yokzxkh2fobfvrvcsp72o7j44tnhhb7w7sf5ofvsuibivju2my@bpauhrvwpkmh>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-3-9d6f2c9c3058@bootlin.com>
+	Fri, 07 Feb 2025 02:25:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 66955A44B0A;
+	Fri,  7 Feb 2025 02:23:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56F8BC4CEDD;
+	Fri,  7 Feb 2025 02:25:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738895133;
+	bh=O19jyvsGHqWSGaKQKD2496HsMxSWIhf1biOH4whG3x0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Mg81V0AFzNqlLXufz6dZLoe/3L46leDO3mLZO8/31BU39J0EjYvtJ8S5c4716uDTY
+	 d9ndYowId6BWt/WubqUhpYnQ7cTx8hLic47al6XjRHmJQNvF+Jcfgf+vRmvh5v4xZH
+	 9jYR0/pFYucasHTWIZw9JjMub7QIhDMyL6ZWxeKnkgjU/poBd+/7dH0ZmJlOu+4NIG
+	 F6MyqeYX1R9s48C9SEdNJ7gRz9U23lq14c3zsyTXf/OPe0QOoFGVTnpO63TZBWsOIq
+	 6GBvj8FcJleDnKC9V3BIwtdhpJcSBWhe0Rrl3KhDNr+rgA9LouS6qZ6Zq6CwK9yBX3
+	 gf1yyH1n7rX+g==
+Date: Fri, 7 Feb 2025 10:25:23 +0800
+From: Peter Chen <peter.chen@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: pawell@cadence.com, rogerq@kernel.org, gregkh@linuxfoundation.org,
+	balbi@kernel.org, jun.li@nxp.com, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH] usb: cdns3: exit cdns3_gadget_udc_start if
+ FAST_REG_ACCESS cannot be set
+Message-ID: <20250207022523.GA22848@nchen-desktop>
+References: <20250206125943.786949-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-3-9d6f2c9c3058@bootlin.com>
+In-Reply-To: <20250206125943.786949-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_182149_350976_701534C3 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250206_182534_604092_D97CFACE 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +71,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 07:14:18PM +0100, Luca Ceresoli wrote:
-> drm_panel_bridge_remove() reads bridge->funcs to find out whether this is a
-> panel bridge or another kind of bridge. drm_bridge_is_panel() is made
-> exactly for that, so use it.
+On 25-02-06 18:29:36, Siddharth Vadapalli wrote:
+> When the device is in a low power state, access to the following
+> registers takes a long time:
+> - EP_CFG
+> - EP_TRADDR
+> - EP_CMD
+> - EP_SEL
+> - EP_STS
+> - USB_CONF
 > 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> To address this, the fast register access feature can be enabled by
+> setting PUSB_PWR_FST_REG_ACCESS bit of the USB_PWR register, which
+> allows quick access by software. Software is expected to poll on
+> PUSB_PWR_FST_REG_ACCESS_STAT to ensure that fast register access has
+> been enabled by the controller. Attempting to access any of the
+> aforementioned registers after setting PUSB_PWR_FST_REG_ACCESS but
+> before PUSB_PWR_FST_REG_ACCESS_STAT has been set will result in
+> undefined behavior and potentially result in system hang.
 > 
+> Hence, poll on PUSB_PWR_FST_REG_ACCESS_STAT before proceeding with
+> gadget configuration, and exit if it cannot be enabled.
+> 
+> Fixes: b5148d946f45 ("usb: cdns3: gadget: set fast access bit")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 > ---
 > 
-> This patch was added in v6.
-> ---
->  drivers/gpu/drm/bridge/panel.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Hello,
 > 
+> This patch is based on commit
+> 92514ef226f5 Merge tag 'for-6.14-rc1-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux
+> of Mainline Linux.
+> 
+> Regards,
+> Siddharth.
+> 
+>  drivers/usb/cdns3/cdns3-gadget.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/usb/cdns3/cdns3-gadget.c b/drivers/usb/cdns3/cdns3-gadget.c
+> index fd1beb10bba7..b62691944272 100644
+> --- a/drivers/usb/cdns3/cdns3-gadget.c
+> +++ b/drivers/usb/cdns3/cdns3-gadget.c
+> @@ -2971,8 +2971,6 @@ static void cdns3_gadget_config(struct cdns3_device *priv_dev)
+>  	/* enable generic interrupt*/
+>  	writel(USB_IEN_INIT, &regs->usb_ien);
+>  	writel(USB_CONF_CLK2OFFDS | USB_CONF_L1DS, &regs->usb_conf);
+> -	/*  keep Fast Access bit */
+> -	writel(PUSB_PWR_FST_REG_ACCESS, &priv_dev->regs->usb_pwr);
+>  
+>  	cdns3_configure_dmult(priv_dev, NULL);
+>  }
+> @@ -2990,6 +2988,8 @@ static int cdns3_gadget_udc_start(struct usb_gadget *gadget,
+>  	struct cdns3_device *priv_dev = gadget_to_cdns3_device(gadget);
+>  	unsigned long flags;
+>  	enum usb_device_speed max_speed = driver->max_speed;
+> +	int ret;
+> +	u32 reg;
+>  
+>  	spin_lock_irqsave(&priv_dev->lock, flags);
+>  	priv_dev->gadget_driver = driver;
+> @@ -2997,6 +2997,20 @@ static int cdns3_gadget_udc_start(struct usb_gadget *gadget,
+>  	/* limit speed if necessary */
+>  	max_speed = min(driver->max_speed, gadget->max_speed);
+>  
+> +	/*  keep Fast Access bit */
+> +	writel(PUSB_PWR_FST_REG_ACCESS, &priv_dev->regs->usb_pwr);
+> +	reg = readl(&priv_dev->regs->usb_pwr);
+> +	if (!(reg & PUSB_PWR_FST_REG_ACCESS_STAT)) {
+> +		ret = readl_poll_timeout_atomic(&priv_dev->regs->usb_pwr, reg,
+> +						(reg & PUSB_PWR_FST_REG_ACCESS_STAT),
+> +						10, 1000);
+> +		if (ret) {
+> +			dev_err(priv_dev->dev, "Failed to enable fast access\n");
+> +			spin_unlock_irqrestore(&priv_dev->lock, flags);
+> +			return ret;
+> +		}
+> +	}
+> +
+>  	switch (max_speed) {
+>  	case USB_SPEED_FULL:
+>  		writel(USB_CONF_SFORCE_FS, &priv_dev->regs->usb_conf);
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Hi Siddharth,
 
--- 
-With best wishes
-Dmitry
+Would you please keep this change at cdns3_gadget_config in case the
+controller is power lost during the system suspend?
+
+Peter
 
