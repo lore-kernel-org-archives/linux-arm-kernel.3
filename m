@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4177C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563B0C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 13:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0LBvn6AryDEujPKvVZ6pcn6cMwbLiULsW+TgtgfRaI=; b=t3/jKvvuSyWF4wx60s+osioPQX
-	I6/b8aP6jaFOHeP0b4FrXhs13dYRzoCf4J3GlXJ5nRSf+cg8X8GF5vsDu4CB4PHQpsPW0yjn5/iTJ
-	Puq1hrtPKIosRru3Q+/bwJQaa8Uz0smfe8FTddJzxDmCG6jW1BQdh8kEoXAGXe0UbqlNRofDvD/CP
-	x5Qp31HXDTzg1OPpLfq2tB2mJ5poIH9xK2gojsm5jNJQ2j6K7UdN3pwkJD8/77IlgOUINOFZgOUlV
-	5MGrfBoYpyugbrr94zfx2kagtVemYbnqqRKRjsLnpqFX45HCpbj/Zm8JKm4apgvPHsq4lci+WyXOH
-	EFZyfrEQ==;
+	bh=eFIZAVuxn5LNa4zpyntsKVLMFZa8gU8T5EHqVMiE4xw=; b=o+XnFy2UvC26FMGnHbUCXFiD0B
+	rm/bg5tA6G75HkWyoe8j1ieZd1zrEJZ04Lv8YXO5vTxvcMVewLPTGLrWJSPFlbLBDWexG1SNZOZro
+	+jpDC/bwhIwh8vLAmB+R9qpbNl5OLbk0DO/0ReCzo/tqO70rn4Yb7g+KSJoUHN1YDoR822j/aOpGB
+	jdl10vzHNPjZ2Ze+IfpA77sVxMj9Ga3Ve7a6jg7JBAM5tjxOwsMawAfHlmETHaF16YDzQbv/k/tdq
+	RLbZM1+cHpZBF72FU/g5gDMuoGMkkQraHmtYseR0Ag0mXLyS6AjEPmUI6hBLnBrXpO4VJ9M5uQjAb
+	1yRWyr8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOGO-00000009czu-0Yk5;
-	Fri, 07 Feb 2025 13:19:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tgOHj-00000009dBD-3D9J;
+	Fri, 07 Feb 2025 13:20:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgOF1-00000009cr2-0uUB
+	id 1tgOFt-00000009cx5-3xTu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 13:17:56 +0000
+	Fri, 07 Feb 2025 13:18:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB134A43338;
-	Fri,  7 Feb 2025 13:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CA9DC4CED1;
-	Fri,  7 Feb 2025 13:17:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B5BAE5C0460;
+	Fri,  7 Feb 2025 13:18:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D19C4CED1;
+	Fri,  7 Feb 2025 13:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738934273;
-	bh=IkN+91g2ry7/izxkr090QMoaPLLE7yTdLaQvubsVUeA=;
+	s=k20201202; t=1738934329;
+	bh=eFIZAVuxn5LNa4zpyntsKVLMFZa8gU8T5EHqVMiE4xw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LXRnylWyhvFxk5XU/P0YRWezrAu+XaZzF4i5/Ca9GakNTqAStcaxowAAxrbLYxslV
-	 UwnunStOpd9y9+OwHqyqBNmM+yFZhlPaUOBPBMVSeU40ALmkhGG7Am2DmuWt2C2X4f
-	 2tp4C4hKc4ReBB2uAN0HPEk78oLh825TtTTtTBDEqUXFKrHA423xvVPqG1BY2cYxN7
-	 x3PD2BlNBL1EnTipjMxPMo8sEUKB4e4G3miCoowJbaUD4iaB+pWnY0rv96K7MJC3Rw
-	 l8UQYRPKIL2lDJQn3q/JARtbLiX7qPaq7FCZhSz6/Grxc5xQ+8QeK6EBoJWk9qjpo7
-	 Y+utI/Ogi0oGQ==
-Date: Fri, 7 Feb 2025 13:17:48 +0000
+	b=ekP5Lsbih4Qrni6R8KYuVNRJ8WRlBAeWg+Hu0ONFhF6aBh51clA7BNtyaooC8i1e0
+	 IAmVPKamC8BBigHoQMzjldd/m/rlgckmQaV/RVU6z+QVnnJzcGmj7vjTX65HuDyNfJ
+	 YgAfkv1OvdxhFW7kqg/U5JTZ8gUSB2NCVKdKdqcVQSH2AKxOYDSrp1M54LwJiAskUn
+	 9kCEd6/QBw5cHMhu6/8FfvO+11p74OOWW5bdWQbT2bi88J5mbBg2JDNDtJr+CL0GVy
+	 aA0e2KK0z8LJurpjLJQ8FTZ9WOH6efVoCPlAYlX5B4E2Ih/aQxD8jQao5S8TpcFIOH
+	 ptCuv/sgMmehg==
+Date: Fri, 7 Feb 2025 13:18:45 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
-Subject: Re: [PATCH resubmit2] spi: atmel-quadspi: remove references to
- runtime PM on error path
-Message-ID: <6aaa852e-9a7b-45c4-a5d2-20ebd8f848f9@sirena.org.uk>
-References: <20250207122145.162183-2-csokas.bence@prolan.hu>
+Subject: Re: [PATCH for-6.14 v3 3/4] spi: atmel-quadspi: Use
+ `devm_dma_request_chan()`
+Message-ID: <175b903c-59c9-40d6-baff-d5b8dc996318@sirena.org.uk>
+References: <20250207124802.165408-1-csokas.bence@prolan.hu>
+ <20250207124802.165408-4-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N8auyasM2SC+L5Gh"
+	protocol="application/pgp-signature"; boundary="yBiLvRP78GmtPzGu"
 Content-Disposition: inline
-In-Reply-To: <20250207122145.162183-2-csokas.bence@prolan.hu>
+In-Reply-To: <20250207124802.165408-4-csokas.bence@prolan.hu>
 X-Cookie: MMM-MM!!  So THIS is BIO-NEBULATION!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_051755_319675_5F4D640B 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250207_051850_024817_CF702794 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +70,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexander Dahl <ada@thorsis.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, Durai Manickam KR <durai.manickamkr@microchip.com>, Varshini Rajendran <varshini.rajendran@microchip.com>, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---N8auyasM2SC+L5Gh
+--yBiLvRP78GmtPzGu
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Feb 07, 2025 at 01:21:45PM +0100, Bence Cs=F3k=E1s wrote:
-> From: Claudiu Beznea <claudiu.beznea@microchip.com>
->=20
-> There is no need to call runtime PM put APIs on error path of
-> `atmel_qspi_sama7g5_transfer()` as the caller (`atmel_qspi_exec_op()`)
-> of it will take care of this if needed.
+On Fri, Feb 07, 2025 at 01:47:58PM +0100, Bence Cs=F3k=E1s wrote:
+> Leave releasing of DMA channels up to the devm
+> facilities. This way we can eliminate the rest
+> of the "goto ladder".
 
-Please stop sending this out so often, this is the second resend in just
-a couple of weeks.  Allow some time for review, having multiple copies
-on the list makes it harder to keep track of any reviews that do happen.
+This is just a code cleanup, it's not suitable for a bug fix.
 
---N8auyasM2SC+L5Gh
+--yBiLvRP78GmtPzGu
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmemB/sACgkQJNaLcl1U
-h9D7Wwf+M4ufdPA1DyzrOM/eDkbJJwzeNBiT4EENEGbaWFN3iNZZDY0apuK38f65
-ATrs1UHVLOyubSTpifTtz5he9gGCtr5QxN5fwYWH4nSo6PmmoV4twtadyjUTsGt1
-2D8Qa4tRD6Xwrda28O5tNjdouFD93jfMvhKlbOwucFGbjRXeL9ntYMV4hNqofixi
-t9wrmuekt3pEASBcfr9gI86Ff5jQ6/BvOzIhpmr0RWk5F2jKQt+V6tM2AvtKnxzO
-/oyV7gQAOSEhKMHGwWjW4bBrjaCEXQg9VIUOzGKXBqjaLChgX1s89T8dUcqhQtdY
-rk1bz3zqBTYoiMHBeMGyfJRL4PH7RQ==
-=QtKZ
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmemCDQACgkQJNaLcl1U
+h9BPmgf+PzP0hQysLpvxFfaX3oeQdksaEVIPruNAjK9B1f8EI048STKEjrQuZdrA
+bvp2WDGRMPu20hr9XeavQTfF0nfNt6fmjdD6ZOolH+pGJg6roepiZfRl9ALIdjQp
+3Wve+bFF3/nYUJqj0jlG/H+Pyx//sJTaBFKTHGe+dTkCGw6sJ/Nd7poI5DE9dMbX
+zPyuUVFqLEXAueYDdDb1pzaAwcNip3eAfcAtj+EtO42lWRIPL03cr5Ap+i/f0DX2
+X0+OUpNFy77gmoMauGmQAZ0HuFOwKizFq+mTkbSRUQBtSF/z6RqKZ9W3bwlUAYqS
+aG9u9rdrdC3/wcxaJNW+c1A0suIVUw==
+=82/r
 -----END PGP SIGNATURE-----
 
---N8auyasM2SC+L5Gh--
+--yBiLvRP78GmtPzGu--
 
