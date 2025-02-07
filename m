@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B5ABC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0D6C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 17:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OLvPkZKAPsSMnxafsZaEnvYemBph/BJy+bYFdl2FKPc=; b=b93AEIuhPPz1fKjhkPgzwsNhtO
-	hTZEDKxZQ6VUzribCTsynT8UJtgIL7p4Fx6INitmTjXHrQcKs1ZDSjOzdtEl4q9MPDeth+TBVR1c2
-	VAxLpdCvpU+i32SPck1ndQ1k78FdQpD5TYQBP73ShIbGrdd3bhyLJ2Bnzd4w92KJbTAgcUZLd0Tqu
-	ZNNLtFUmX1CYV3nvEHbJWBsjUdBPLvArneWFaAy1VOtlA2+CY2Xoe2i12F1S2SkoYo2OwF12Rh9kz
-	E8A4JxroTVdREOqWeQbofeoCkOdNMhWmwfW7N5OKp38tX/HAUOa3qn816QzieivxQh8MHur7wxryr
-	X/B2uYQg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0UvshL8nXVJdd7vp4+YSGo25p1rD7pCcETOL1e0fbZQ=; b=2yRpUwpYa7YQsT2393TFNowuBC
+	WRxiLl/VRv14Ra1EZtzFm90scwai7PP3b1tlSkLXQ3N5gjX0kmbTVFNuuH/qXDH3f++0SZKrRz5u6
+	XqEz+p8pUXQxx9zxKaj6bLzyEMnnpLr7XAXKcep4ZIHPATnMi7xJ7/89xHiimlkIZ1ezZjLRd3apK
+	n4bNSUSxD7k27PIqZxo9vBd1NW76Swx/jZPXfWlvy00W+u8hMkEr2deIHu795fPwZX8NxdUSiLss9
+	CLVCICLchG+NLkwVwvi+H/y4QG2kDc9vpvt398HMx7EVzAQHJzxmdthf4HendMPahGESPLeerip1a
+	ThzV78vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRsO-0000000ARHL-1RFZ;
-	Fri, 07 Feb 2025 17:10:48 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1tgRtl-0000000ARZf-2Iol;
+	Fri, 07 Feb 2025 17:12:13 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRWM-0000000ALrA-2pNI;
-	Fri, 07 Feb 2025 16:48:04 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7b6e5ee6ac7so171396385a.0;
-        Fri, 07 Feb 2025 08:48:02 -0800 (PST)
+	id 1tgRcI-0000000AN5U-1LZy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Feb 2025 16:54:12 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21f3e2b4eceso38396325ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 08:54:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738946881; x=1739551681; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OLvPkZKAPsSMnxafsZaEnvYemBph/BJy+bYFdl2FKPc=;
-        b=fJrbPES5yu3HMwHiTOguPSPHj01RNJFYaZVYurRj2CixjbGQGI09HzrQbgLfi9opn3
-         vK0GJIV3ag6nEd6PcmFRUfCN85NswLaeZjiltyUptPokv+A8nCUvOjNh4JRFhWxx1Iaw
-         +omNWcekk1PU1/ciTH92+1EyjKwUEzTYTU1ku7a8jkpLlgQIL4dkVdcmAme8LuTLcqfz
-         /NEFe6vQ1KWhnA8VoHYcKcmWEZApv5Fk0EhCO3zK/efMosExprueK+r2HGdD3B41cAjw
-         iZJ6y7t+VBNxFR6TG3AVuhdtLOGM46vmvZuH8WK150Avduh/r/ewyKZuYDHx0NfEbStm
-         702Q==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738947249; x=1739552049; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0UvshL8nXVJdd7vp4+YSGo25p1rD7pCcETOL1e0fbZQ=;
+        b=1FF10y2QbHjyjxXYr/oUQvbcJB00UKeMLeEt5hfWNytD+ojYL1gulndrOTk7XKzebx
+         7Gu01+5XEkGY50ioyUyhF+NLV8iXJXiIR1qnU/Ad/emRU1EsfwJHL8qDOBYNyvfFg2IP
+         Zbp4YCyEiaSbUkPzDJvRwBO7r6Pkb0+RXOGg5eWWO9KdaB5jC4sqqnIwqngTbqEOAxMp
+         lvDsrGZYh0L0MqJux1cNkQ08jcMcXmvtXv4iPdFKszL/1cc6mwR2nMbAEr3QjIDZUBHb
+         26FMb/RjPF+RONF0jW/ewo0k0mrAv477jbhxPVdAIPdmmYynrQ1vFSDXxjT40p/rAA7x
+         84Vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738946881; x=1739551681;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OLvPkZKAPsSMnxafsZaEnvYemBph/BJy+bYFdl2FKPc=;
-        b=HK+uIzkv12/fABnFeWkm81ejvVi/OwL+FFs9bHxE5OStE2An5Upb3gqSmTQcZwO+d+
-         A2hVnBEz15Y3afmF41TDo8ndQmDbIb5TMTcGwLXL+X+54h0tLh8SpMK4Mq7cdJbXreyj
-         lyV/hH7GSSpjHWdcllxL2fR3cB9ru6eFpplUh1BSYYH2+3r5i7XCIpO9RNZdmC3PlYRz
-         aPMlz7EyC5OqVFp9urniEMBSaCwuCc/nEp6vFJiBInRC0zeCRLMCIO7XKfnZx73Sve49
-         7vlH3D+I0SYylSFIFfGU2eY3Cb0dQQejBiP8j7M6Qgm3108VVsIFbpXKhbNcOwrtqIyH
-         Z0Ig==
-X-Forwarded-Encrypted: i=1; AJvYcCWZxGs3LN2nCwoPuOXPKUhiejikJh162gifT6keXBAa4Jz2bba7ZY0y+BQb6egHm0VmIdv3xMOjzJdgWPMnco/2@lists.infradead.org, AJvYcCX/oOf+5ZhhAL6bvUsDMhMSJgiH4iV8Ui3qo1vqSx9kka9L7umUBYtK1as5d9SafWIitsCiEqOIAMWGJCH7iVE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCEqsJt8lWaOidNgi5OWfBbtn7ApG0HYuvrE2AMT7bC5KJ4NN/
-	E03EWRbXk0DEZue176HKow8WRzEU1JUWJ1beQVbjc5sfLziyDZrI
-X-Gm-Gg: ASbGncsescnPZCkhJSIHzQun1zPb0JHORfsliCLL9mHKgoO3MXozeO/9gp7jvoQ8ckC
-	G4+63EHRE/rrwiPOB95tzy0G/UUUAdetSU+7Zt3sNB9/5u6aBIAG2CMJx5sWd2v4kC2MJIMZMaP
-	6wNr8zCD0PSvDQzSzOrd363cZQ0lSzSPMkysGcpyVdggtds/nAFuAvvTUr8idp/9RQU4sDWcSFn
-	x3RaOZzBSG9MU6h2HWcOTe9EhNf/zMdh3G8K/V/lr5Qm4+8wBRlwFGeUwqKfgQ3Et98nh0IOcLs
-	7fDYtsphze9nOwM/mFdzTUOnl+qhV+o2KFAoT0W451GH8Wb7ZNBgTDB2XFU=
-X-Google-Smtp-Source: AGHT+IEr3FTDT7SjKLFcV/86PKpmd1Ulc9pLBA2vnFIK1IvijuUo0pqO49m1oZQlx0sqziOn6memSg==
-X-Received: by 2002:a05:620a:4448:b0:7b6:c92e:2e6f with SMTP id af79cd13be357-7c047c1b895mr615602285a.22.1738946881480;
-        Fri, 07 Feb 2025 08:48:01 -0800 (PST)
-Received: from localhost.localdomain (pppoe-209-91-167-254.vianet.ca. [209.91.167.254])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c041ed0304sm208492185a.115.2025.02.07.08.48.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 08:48:00 -0800 (PST)
-From: Trevor Woerner <twoerner@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-pm@vger.kernel.org (open list:THERMAL),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
-Subject: [PATCH] thermal/drivers/rockchip: add missing rk3328 mapping entry
-Date: Fri,  7 Feb 2025 11:47:40 -0500
-Message-ID: <20250207164740.14475-1-twoerner@gmail.com>
-X-Mailer: git-send-email 2.44.0.501.g19981daefd7c
+        d=1e100.net; s=20230601; t=1738947249; x=1739552049;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0UvshL8nXVJdd7vp4+YSGo25p1rD7pCcETOL1e0fbZQ=;
+        b=qqYjUR1I4/Xq1c9CLasnyAs7Hma1YUaUgQ+cnaslTakfLGEGhhQwlv/Bnet37oTgG9
+         jvcCsrPjY6PR05z51mXbDPQPIBopYsYqRAsTWN0OkkTPy+izLV29o2+Jky7P9iSMOZNJ
+         MkgxGPSw9STaT8pxow/rT1Al28VilNebpJJzCBZlBLFiULMoQ8Ad7qj76BD9Ur+cnw+n
+         85EWzYyGPWNX0likzSyGQlFhy6wM6C5AcTQ1LyDbjEpPBnEF8zuitpX3Eiwlt0/zXveY
+         y8ryje4nBQV4GPNCYskXjoDFWnEjoKCP0v5i+ZoRX3IS1/jAtaZc3roh1hH+A6q0NgN0
+         bkDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTHOoMFW8/XtcwtOqTJOE0Jjz6YfeFFEl/pYjQhaJlkIn572eu6rTEhQDav6oDtRQDwQ0G/fReA/MNjQDBuleg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzwg3a2AVcR6vwri6f41e2DFBOHtfRjjnV5PZaDtPWfF6xb1mv2
+	/t+0l3wPN4+U0qHsO4wjSwoI53ahRMLQf6ubE6c/qtnpgxkqAsJAhuK8+YAPR+BT9zFKTvZlPIL
+	TowWMUWNvsN456KpC9HPyKDet0JeIixqssx0SsA==
+X-Gm-Gg: ASbGncuZRBo/vnnwd4HifJUo1OUMCxm5VzzVYE9EgLtzJTRgPhY4Tk5Rgg8TkRcMJVQ
+	G9vt8Sxp5+/Cdgd6IBzHYHbzSte7M5aPoL5mP7ueEtjCpvrizPz5LxKJRhMuPLZr0rINiClDGfQ
+	==
+X-Google-Smtp-Source: AGHT+IGcOreyYzVTdgMb0QBe7xfS8Hq4n/vBf0b22MVHxkWExD11jxox3l4GddXf+HqClKoe976BaxK99Tn7Vq/+DBg=
+X-Received: by 2002:a05:6a21:3399:b0:1e0:d4f4:5b39 with SMTP id
+ adf61e73a8af0-1ee03a9b0afmr7073525637.24.1738947249048; Fri, 07 Feb 2025
+ 08:54:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+ <20250205-counter_delegation-v4-11-835cfa88e3b1@rivosinc.com> <20250206105100.GA2971@willie-the-truck>
+In-Reply-To: <20250206105100.GA2971@willie-the-truck>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Fri, 7 Feb 2025 08:53:59 -0800
+X-Gm-Features: AWEUYZl2-SoqDPQ6r-GdOfUPJBX1qdNjRlIcNpQpRwZeLOQULWh9MTRajFVfra0
+Message-ID: <CAHBxVyEtxoRHLO791r6uFzHnX0vAcpeWMOcS+0tbVN+p6Oh2tQ@mail.gmail.com>
+Subject: Re: [PATCH v4 11/21] RISC-V: perf: Restructure the SBI PMU code
+To: Will Deacon <will@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_084802_710551_B1C893AE 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20250207_085410_377793_50E03FB7 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +104,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mapping table for the rk3328 is missing the entry for -25°C which is
-found in the TRM[1] §9.5.2 "Temperature-to-code mapping".
+On Thu, Feb 6, 2025 at 2:51=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
+>
+> On Wed, Feb 05, 2025 at 11:23:16PM -0800, Atish Patra wrote:
+> > With Ssccfg/Smcdeleg, we no longer need SBI PMU extension to program/
+> > access hpmcounter/events. However, we do need it for firmware counters.
+> > Rename the driver and its related code to represent generic name
+> > that will handle both sbi and ISA mechanism for hpmcounter related
+> > operations. Take this opportunity to update the Kconfig names to
+> > match the new driver name closely.
+> >
+> > No functional change intended.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  MAINTAINERS                                       |   4 +-
+> >  arch/riscv/include/asm/kvm_vcpu_pmu.h             |   4 +-
+> >  arch/riscv/include/asm/kvm_vcpu_sbi.h             |   2 +-
+> >  arch/riscv/kvm/Makefile                           |   4 +-
+> >  arch/riscv/kvm/vcpu_sbi.c                         |   2 +-
+> >  drivers/perf/Kconfig                              |  16 +-
+> >  drivers/perf/Makefile                             |   4 +-
+> >  drivers/perf/{riscv_pmu.c =3D> riscv_pmu_common.c}  |   0
+> >  drivers/perf/{riscv_pmu_sbi.c =3D> riscv_pmu_dev.c} | 214 ++++++++++++=
++---------
+>
+> This seems... gratuitous? It feels like renaming the file could be a pain
+> for managing backports and renaming the driver might cause some headaches
+> in userspace.
+>
+> What do you gain from such an invasive change?
+>
 
-NOTE: the kernel uses the tsadc_q_sel=1'b1 mode which is defined as:
-      4096-<code in table>. Whereas the table in the TRM gives the code
-      "3774" for -25°C, the kernel uses 4096-3774=322.
+The current upstream driver was developed only for SBI PMU[1] due to
+lack of any ISA extension support that allows PMU programming from the
+kernel.
+Thus, the name of the file and the functions reflect those assumptions.
 
-Link: https://opensource.rock-chips.com/images/9/97/Rockchip_RK3328TRM_V1.1-Part1-20170321.pdf
-Signed-off-by: Trevor Woerner <twoerner@gmail.com>
----
- drivers/thermal/rockchip_thermal.c | 1 +
- 1 file changed, 1 insertion(+)
+IMO, it would be confusing to use a driver named sbi that also uses
+the new ISA extensions that allows direct PMU programming from the
+kernel.
+This patch allows the internal functions and structure to clearly
+identify two ways of PMU programming.
+There are more PMU related ISA extensions planned in the future as
+well. Thus, I felt it would be best to do these changes now rather
+than later.
+I understand that managing the backport would be a pain as a result
+but I didn't quite understand the concern about the userspace
+headances.
+Can you please clarify that ?
 
-diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index f551df48eef9..a8ad85feb68f 100644
---- a/drivers/thermal/rockchip_thermal.c
-+++ b/drivers/thermal/rockchip_thermal.c
-@@ -386,6 +386,7 @@ static const struct tsadc_table rk3328_code_table[] = {
- 	{296, -40000},
- 	{304, -35000},
- 	{313, -30000},
-+	{322, -25000},
- 	{331, -20000},
- 	{340, -15000},
- 	{349, -10000},
--- 
-2.44.0.501.g19981daefd7c
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.=
+adoc
 
+
+> Will
 
