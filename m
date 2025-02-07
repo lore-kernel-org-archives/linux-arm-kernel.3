@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0FCC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A96C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJyg4sI0QyId4oE7ZRfE0Ib9s22gU7dFzyU94n/SzG4=; b=coHGMH8CgPDmqV4HacuBjdySPh
-	sR2L4xBA6Y0sAwc9zTQYZViTssPP3EuDk6xYL9a0vMvaCNrGCIDWPu4DZpfRNcbt9TSnYawDy6dRg
-	bPa8DdN4b38ETNmu2y4SA4DgT0geq28uyPPVfJzd+uJq2OHYgb/8GCjeuQbejfW9glsnymrlhZkms
-	NN6K7WduV9dm8jCAFYaC2rw1ztypJUo9s/Ogw1S9f0/6DyBZaUNsbYOZQe4pcrWPB9wUu/VtUaMGZ
-	DJm5PKoyXy7Oj6/FhLCPhWx0+dsuBYnixxjGa6+/ufT2iSgehA556y2WPdSKjyzkctC+BiRHxoV0i
-	rb/MLUXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7J0r4qdpm9ogCxxEXCmuWQ05YmyiQ/JmT0n5JH2LdWs=; b=M914kYJzvhYxKjqxP3agw5jZKm
+	GU+ECpubJ6jClG8J2Xd4tmbX7aeIQ/bDA7Rit+eVdaEoh5Bk6pjWpkT88ZofLmzOiAWyd8u9eXN6W
+	W6agjMvJcY84CIwCobobCe/ANUE/bammGgS0th/sjALcgIBdwh6X4CJOrz+zqMneuiSGglJzk76Gj
+	GDROdQ68+Buyj5s5/WWDmP9fvjStaIcSrNvf+cNXClX3LXN/Twoc6G/zAe9MSNU4oyK/mirp+uPhE
+	TAtVKurWQrX5lfp6CklyG4QWeVvmwthegeDhbbTwKElJoc6aIZejk2vYLY+my6mFA6E87pxH3DD0L
+	bUGmwjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSs1-0000000AeEo-1VXq;
-	Fri, 07 Feb 2025 18:14:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tgStx-0000000Aedz-0Rw7;
+	Fri, 07 Feb 2025 18:16:29 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSoX-0000000AdUa-1ajd
+	id 1tgRf5-0000000ANjn-3TTh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 18:10:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 04BA35C70D8;
-	Fri,  7 Feb 2025 18:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 419ADC4CEDF;
-	Fri,  7 Feb 2025 18:10:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738951852;
-	bh=MlvBE2BowHXDWbwjymFqCoSazPaseEcDREg8QI4ix3U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qcg2Wqooswd9VWz+nlJX5lAmqZv/x7OO/B5x6jJRT9Jb+QygFwyFIPSd1XDOmRqQl
-	 ZRkrqW9KbTiZnh73FeDCDHPUyiXXZGm/wmpFlpvofRdY4+OitfDVkOdRnj0UOweZrw
-	 nNJMyKM0Gt1EDuUnRcFRutAfIwHdg9xQk7SAZZxUc6PjqKOVfbuB4M/QVcJic/y7VV
-	 wuKZcbLDWRIPQ8Gl+HeY473+fU52En0MYZ1JSK+7qUITgYHQpeySpRjBOQdm8+a4aW
-	 Xx9PsmPKWhwlYGAnuSRHIXH1ws9llqzC1k0WkbCC/z3fJPQdTze9YfZUkEh25MyGQF
-	 nf2uyxNP9rHpg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tgSoT-001jk8-S4;
-	Fri, 07 Feb 2025 18:10:50 +0000
-Date: Fri, 07 Feb 2025 18:10:49 +0000
-Message-ID: <86ed09tyl2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev,
+	Fri, 07 Feb 2025 16:57:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738947424; x=1770483424;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=yi+lqoiaOf90NYBk5ORhTmBVwnJwPtvDSnNF5mudk+g=;
+  b=j6T8XvNsrvlBhFTX8bkndeB4C3O358LEoTsm3Zgwx+gUNtSkytlqSAib
+   Cw2gwQsy8f4cbKBYOX9Y2LadQ5e9JvKPwSLaefO3NzSvalxvJO8DdI6fJ
+   dRpPWsGnwkBg3YAL4FDsTUf/7h2UhQgZpXvO7aixdc9XTv+DYqZGclgtq
+   xdxKwHo6gIqRfLgK9Jl75xijWIadAsLhe0e6harqEySwy2+ZxHtzU9lAf
+   Ya7ASdXpafSh1lKe2MoUGr5KIeQgC2lxjrcUIFHZPp5sSWG9ExKuYpp6t
+   hHtiRZSflCyt3dsdLNCYzXqO7vZ7cm5S7BOIR0ZDCFEQkQUT/tXpThKa8
+   Q==;
+X-CSE-ConnectionGUID: ApmhYCC6TkSMB0uN6y4XwA==
+X-CSE-MsgGUID: nohHQRUOS6KnQN/dUvgcEg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39722847"
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="39722847"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:57:03 -0800
+X-CSE-ConnectionGUID: n988hgUKQKeTWgip6bqsFQ==
+X-CSE-MsgGUID: nVQxFxGYRYCqIs7rWWjTuQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="111534437"
+Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
+  by orviesa006.jf.intel.com with ESMTP; 07 Feb 2025 08:56:53 -0800
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Alexander Potapenko <glider@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 0/3] KVM: arm64: Assorted vgic fixes for 6.14
-In-Reply-To: <Z6ZLC1v5KU-zzbQR@linux.dev>
-References: <20250206152100.1107909-1-maz@kernel.org>
-	<Z6ZLC1v5KU-zzbQR@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, glider@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	bpf@vger.kernel.org
+Subject: [PATCH iwl-next v3 0/9] igc: Add support for Frame Preemption feature in IGC
+Date: Fri,  7 Feb 2025 11:56:40 -0500
+Message-Id: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_101053_461409_E14E7028 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20250207_085703_942874_E5F173FC 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +114,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Feb 2025 18:03:55 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Thu, Feb 06, 2025 at 03:20:57PM +0000, Marc Zyngier wrote:
-> > Alexander, while fuzzing KVM/arm64, found an annoying set of problems,
-> > all stemming from the fact that the vgic can be destroyed in parallel
-> > with the rest of the guest still being live.
-> > 
-> > Yes, this is annoying.
-> > 
-> > Fixing this is not going to happen overnight (though I have some
-> > ideas), but we can make what we have today a bit more robust.
-> > 
-> > This is what patch #2 is doing. Patch #1 is just removing a loud
-> > WARN_ON() that serves little purpose, and patch #3 fixes the actual
-> > bug that Alex reported.
-> > 
-> > Hopefully, none of that is controversial...
-> 
-> I'm a bit grumbly about slapping bandaids on the problem, but given the
-> fact that glider reported all of this a while ago and we still haven't
-> fixed it is enough to justify these patches. So:
+Introduces support for the FPE feature in the IGC driver.
 
-Yeah, same here. I'm starting to think that we need to either prevent
-the vgic from being asynchronously destroyed, or start refcounting all
-IRQs just like LPIs. Which is very annoying since we don't have a
-global namespace for SGIs and PPIs.
+The patches aligns with the upstream FPE API:
+https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
+https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
 
-But maybe simply refcounting the vgic itself would be enough.
-Thoughts?
+It builds upon earlier work:
+https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
 
-> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+The patch series adds the following functionalities to the IGC driver:
+a) Configure FPE using `ethtool --set-mm`.
+b) Display FPE settings via `ethtool --show-mm`.
+c) View FPE statistics using `ethtool --include-statistics --show-mm'.
+e) Enable preemptible/express queue with `fp`:
+   tc qdisc add ... root taprio \
+   fp E E P P
 
-Thanks,
+Change Log:
+v2 -> v3:
+- Implement configure_tx() mmsv callback (Vladimir)
+- Use static_branch_inc() and static_branch_dec() (Vladimir)
+- Add adapter->fpe.mmsv.pmac_enabled as extra check (Vladimir)
+- Remove unnecessary error check in igc_fpe_init_tx_descriptor() (Vladimir)
+- Additional places to use FIELD_PREP() instead of manual bit manipulation (Vladimir)
+- IGC_TXD_POPTS_SMD_V and IGC_TXD_POPTS_SMD_R type change to enum (Vladimir)
+- Remove unnecessary netif_running() check in igc_fpe_xmit_frame (Vladimir)
+- Rate limit print in igc_fpe_send_mpacket (Vladimir)
 
-	M.
+v1 -> v2:
+- Extract the stmmac verification logic into a common library (Vladimir)
+- igc to use common library for verification (Vladimir)
+- Fix syntax for kernel-doc to use "Return:" (Vladimir)
+- Use FIELD_GET instead of manual bit masking (Vladimir)
+- Don't assign 0 to statistics counter in igc_ethtool_get_mm_stats() (Vladimir)
+- Use pmac-enabled as a condition to allow MAC address value 0 (Vladimir)
+- Define macro register value in increasing value order (Vladimir)
+- Fix tx-min-frag-size handling for igc (Vladimir)
+- Handle link state changes with verification in igc (Vladimir)
+- Add static key for fast path code (Vladimir)
+- rx_min_frag_size get from constant (Vladimir)
 
--- 
-Without deviation from the norm, progress is not possible.
+v1: https://patchwork.kernel.org/project/netdevbpf/cover/20241216064720.931522-1-faizal.abdul.rahim@linux.intel.com/
+v2: https://patchwork.kernel.org/project/netdevbpf/cover/20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com/
+
+Faizal Rahim (8):
+  igc: Rename xdp_get_tx_ring() for non-xdp usage
+  igc: Optimize the TX packet buffer utilization
+  igc: Set the RX packet buffer size for TSN mode
+  igc: Add support for frame preemption verification
+  igc: Add support to set tx-min-frag-size
+  igc: Add support for preemptible traffic class in taprio
+  igc: Add support to get MAC Merge data via ethtool
+  igc: Add support to get frame preemption statistics via ethtool
+
+Vladimir Oltean (1):
+  net: ethtool: mm: extract stmmac verification logic into common
+    library
+
+ drivers/net/ethernet/intel/igc/igc.h          |  18 +-
+ drivers/net/ethernet/intel/igc/igc_base.h     |   1 +
+ drivers/net/ethernet/intel/igc/igc_defines.h  |  16 +-
+ drivers/net/ethernet/intel/igc/igc_ethtool.c  |  76 ++++++
+ drivers/net/ethernet/intel/igc/igc_main.c     | 101 +++++++-
+ drivers/net/ethernet/intel/igc/igc_regs.h     |  16 ++
+ drivers/net/ethernet/intel/igc/igc_tsn.c      | 220 ++++++++++++++++-
+ drivers/net/ethernet/intel/igc/igc_tsn.h      |  34 +++
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +---
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++-----------
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
+ include/linux/ethtool.h                       |  61 +++++
+ net/ethtool/mm.c                              | 224 +++++++++++++++++-
+ 15 files changed, 794 insertions(+), 217 deletions(-)
+
+--
+2.34.1
+
 
