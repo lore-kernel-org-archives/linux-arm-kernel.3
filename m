@@ -4,120 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44836C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38552C02192
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 09:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tq0arpYSvoFDp5urlt72DtEA/DJDLUpDJMGDTdBFzlc=; b=HB7ApFiOhuzeLzkTV1yGZh7PFN
-	h164sCwpyRGEsydGwwbOm0qJBZJAQBaQ0lVXE4iV67uigawTcuX+P8uhGmX8aO049FtY8KYDZzgXV
-	1+G5Gsl+XABhvncEhd0kdFkeDb0HwiKKPXZXYd1xhfBBA71TBu3kf/iCZtj/asb0PveDxAqPQbiPX
-	rbGZ4uiwdZrwlIMbqLIkTvQE866KPflN5AxyHzVBP7mRaFuu4q8DFvgvA/Ji8bOtuWElC/KnXu6rC
-	S4AQdRy+fpeI7WmF9oxrg/B/26uT0YvFpA3b1YzrUu7LgykjZy3Ns3GJzN4mT7wdx3gVj0MXxemrR
-	rQOuOR8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=; b=M9avBN3Rz+iFNeXvnk8VQnEbY5
+	HMPIQGYHw8WcuEkFAYFlFm6cGgdYbCeYNKwLJGP5J3X7aQOmXYr4zS405fOQpo3iORakIw+k+UwDE
+	/2fqdfkBdbMTenkPvpn16CstgdInXOXqkCUAn3NwILqw2yAS/LLONLrLtSvjzGSr9Y0SenCGWdSXo
+	s2KBpPWoGnIuH1wvPbzG7qhehbMS/HuEZR+AYlCwc/ylrlL6BH/MjCl8GroDOxRqWIY39pPAHN20h
+	pnD0nvcsQh5I3Lo3uB6lqT0T7wCmlevkIxThjnvQb7GlrctTtcfdw8bbesIkn58jW2lz1O2/Io0oV
+	34IiXDow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKWL-00000008zcS-2tc2;
-	Fri, 07 Feb 2025 09:19:33 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tgKWK-00000008zbe-3KOB;
+	Fri, 07 Feb 2025 09:19:32 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKUO-00000008zHH-2fRk
+	id 1tgKMe-00000008xMC-3w88
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 09:17:33 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436a03197b2so12065275e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:17:32 -0800 (PST)
+	Fri, 07 Feb 2025 09:09:34 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21f2cfd821eso33156595ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 01:09:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1738919851; x=1739524651; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Tq0arpYSvoFDp5urlt72DtEA/DJDLUpDJMGDTdBFzlc=;
-        b=TpoRWvwR8hN8VazbZKTLEoR8+z28DLwcn+6uV8MMwmotyEwXsBqN+hhIMAXSyAQ8IW
-         Q5UrXewT24RsZZSSMMrCwMf2hRiIIZUFYKhZDlsOLiqbAkqAkKA8KCBh60pBb2NiqDD8
-         /vrkWuo9TRRt/aeKgOmTh17O01ZmKbOqExP74RBpbT9aL1fNcVd4TZ3ZC+mBegxZvYPC
-         l0W/b9mop/VkRBpO1Bx1lTSZJeibB1X84b/RQ8FBP0ueQ++/Ara+u71WHAAabGNbe1s9
-         vLww5CBo8vA5eNXDwHud98B1PQzNp/2Pz1dvjnWgS/6N01msy9RAqN/UJubX9kopKybi
-         Gvrg==
+        d=gmail.com; s=20230601; t=1738919372; x=1739524172; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=;
+        b=kRUVv2v7286RgR1oFHxg3XaYtEdKxVYjssOqPmKyLvLebWFC7IovCPSL2tjOKci34D
+         kLmn+KUv6psNEQ8Mgt3VUa5gWC8RAsJCWINiyjfI1iHAPGKsai74Ur/lHjeaK0RCYx1i
+         9lWrqy9dQrRFNWzsscC2QiLReaNyzTa4ZSB+VhIZq8+vKEci7zPuoSzj+geidYVcxB7P
+         y0+UqbU7WjjRf4s3/RluoFmRnyAeufJUNzBI+djngkVepJYc0+5Pi5P2n8NYqyz4+/GU
+         sY6EBQzqN/WHZ4oG6zZs1kckdcuCAMNvekOxuq2RKIGzh9hOUqOtj3bLZVUKeWF65IrX
+         Z9SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738919851; x=1739524651;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Tq0arpYSvoFDp5urlt72DtEA/DJDLUpDJMGDTdBFzlc=;
-        b=TZlaeCBWBSWQq2C3wk4H7rtCNdQhsUZynDsV8yRGB3+i/LM347RpaXpZCBIZiPvIxR
-         CqXSHEtV6zLet4u/0z4r0WzFoCN3txMZdzDjF7pj42EsLh7g+8QJnya3fUDevGnZWW0y
-         9X69UpYRvotTnOnjGQlkjimhc9278w17ZljKsJI3fSqeLgFOCfWx0Ay8hqDJwCbotoSm
-         spyR5Ft3eOjKo66EjAACrjfpm5JmWK7olW9zz/ZtE9YfrM1lz3I9w0di7D//OlgrMzEh
-         Gl+sAOq85veDm13Is3Yo9Wf29AK3aoQJDH5nZf5IRY9EfhyMek+PiENbsil4GjvmM/8n
-         LEEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUELbxfBKMc+R6H4bXZ4KMDjQGpLqChxBegTXnZowhO/POkrqSnYau28ucJhGdXE/KLxH4zl3RQzCKT6keYMjIj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjdG8uIoGByKGaislYmX7TOKQFz+vkld6h/jubx95X3N+QfGHq
-	FZbNSE8q0Pqqwa6xOiC37sKqtZvUBR97x2yk/pNIWBDT6xVxuGRL5ZOCF7rE7Ro=
-X-Gm-Gg: ASbGnctNz9jH4iDmG3YpsAAdH9XZJjhyC2sQV+GLewQLHLK2frgMw7LsVyrQsxAW6Dp
-	NmM6tQwCFkrHiZiZ13rABjURz3ZGo6eclfai9F/99o5xx9Jp0zgKCfYvSxf4gLE++1gbzlI1gFs
-	FyeITZjLNNfb85KSwtkB43XMR11gWfY6pJcjEvaRvzJm4D/IUCoQdu6hDQzfGUqLmvgqYtcY1SV
-	PaGLPPLuy0Ip7p/WgCMcxApuLpVs0jI9zJGPvs4988RO5B1H8tNKuh2vQPJR8B7am+TLqThAZlB
-	tOCZ9mWnMjGzewQCpgF1HlLfmQuZVyHMkiVKL4qDyTTrp0o5KYIGfX+tWcLwWzklG+b1
-X-Google-Smtp-Source: AGHT+IGQfxMRIuGwsG2LhdgudYjnLLYSobR1Dg5dLuvm+yyL57tGU6pvxJPHQWM8uWlNOLtqEwvAaw==
-X-Received: by 2002:a05:600c:1d90:b0:436:faeb:2a1b with SMTP id 5b1f17b1804b1-43924991f5dmr20328145e9.13.1738919850827;
-        Fri, 07 Feb 2025 01:17:30 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:5b26:96be:712e:30cd? ([2a01:e0a:982:cbb0:5b26:96be:712e:30cd])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391dca0179sm47187875e9.11.2025.02.07.01.17.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 01:17:30 -0800 (PST)
-Message-ID: <7180babd-302a-4f86-8770-bdd9f5c773cf@linaro.org>
-Date: Fri, 7 Feb 2025 10:17:29 +0100
+        d=1e100.net; s=20230601; t=1738919372; x=1739524172;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5tYIxWjH4asPJ7vGr3zm8KkssG+yJatoWr9svY3RnU4=;
+        b=eDmghwUvPTCZjC4GWinWSMs9pjlSJNn6XGU3j+kGfE57d3dfK79cG0/34BTLYoc39o
+         IFdWBa47FShPDs+pRl67vUzNbju3zAMqEZTNI/CcTJ0hN5x4GPLCA9rwbPOAZsxAgQuw
+         dcq3ejDFUP0klKExRqHp0vU2g7V4GtQpgUNGScWCryK905g6mhtYE0nR/3k1REJvxZ6u
+         MhWz1EwBgzXucj9QUT5FVmdVH8IGi2M1cTmkFWTXWqHaU+zI60uIUFtw6wBqu47BEnLf
+         7XVnzgnbLwdY7UXSA4RwafCs28GBw15rA/iixYiZG4SAOFDMYmvaNqQfvj9F1mbXV1v3
+         GpOA==
+X-Forwarded-Encrypted: i=1; AJvYcCV/ysN6NB1CtqjA6s+AZ7sIHFjQW6aujTbOv2y3yeY2pUV4WbyPKfvWLCdz3wOvAtaRX5zmBFpz4qgns1O7gmGr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBuWcc0HEhVe6ChHtt9ELdqD2hgux9zij+KLQwwiLJl7umP/+L
+	yfbyTRXXcvXlZZYLJn3jVs2tVcZyr8I+7MAtZFDwfch+pkIf8PNX
+X-Gm-Gg: ASbGnctYuiBfDpvEDN9p9q/0Vpfy5LWytmw54DB8OYAb9PZRam/h7eLzsDqIXIXPxd4
+	Dx0luO9u6lmM/0CPpGd7NQSzh+pSJfBRG21bVZwe1eoHY36VQlYeihpQokVGcz+l2IEHxGCs7JR
+	8czCusDW8DSO8Lzooxdt+L7jCmHgcFwd6oCPGpIs8OFV7UNVewsoEgcKJc8D+6ec+5QjfGU2qrl
+	Iap2ySTKxz0+o9YRc9ZBCYccQ1gWmlzK5YrFPNXc1GSSpW7zp8ekTsO2J+O78HMlK3G9Ejgcqb5
+	bATW3UnG9JY8
+X-Google-Smtp-Source: AGHT+IHdbdRPTIQl2gSZ+CotH7ac/oBwZCxsHs4UvbL1u5MkN8h8LbL1QYV1lgF7a8TsacFSkfg1rg==
+X-Received: by 2002:a17:902:ea0c:b0:216:760c:3879 with SMTP id d9443c01a7336-21f4e781389mr39271805ad.46.1738919371696;
+        Fri, 07 Feb 2025 01:09:31 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f36881e14sm25847215ad.207.2025.02.07.01.09.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Feb 2025 01:09:31 -0800 (PST)
+Date: Fri, 7 Feb 2025 17:07:44 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>, Ido Schimmel
+ <idosch@idosch.org>, Andrew Lunn <andrew@lunn.ch>, Brad Griffis
+ <bgriffis@nvidia.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexander Lobakin <aleksander.lobakin@intel.com>, Joe Damato
+ <jdamato@fastly.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/4] net: stmmac: Switch to zero-copy in
+ non-XDP RX path
+Message-ID: <20250207170744.00006ceb@gmail.com>
+In-Reply-To: <108592a6-de5b-4804-92ff-c7d4547beff0@nvidia.com>
+References: <cover.1736910454.git.0x1207@gmail.com>
+	<bd7aabf4d9b6696885922ed4bef8fc95142d3004.1736910454.git.0x1207@gmail.com>
+	<d465f277-bac7-439f-be1d-9a47dfe2d951@nvidia.com>
+	<20250124003501.5fff00bc@orangepi5-plus>
+	<e6305e71-5633-48bf-988d-fa2886e16aae@nvidia.com>
+	<ccbecd2a-7889-4389-977e-10da6a00391c@lunn.ch>
+	<20250124104256.00007d23@gmail.com>
+	<Z5S69kb7Qz_QZqOh@shredder>
+	<20250125230347.0000187b@gmail.com>
+	<kyskevcr5wru66s4l6p4rhx3lynshak3y2wxjfjafup3cbneca@7xpcfg5dljb2>
+	<108592a6-de5b-4804-92ff-c7d4547beff0@nvidia.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
- property optional
-To: Dharma.B@microchip.com, ulf.hansson@linaro.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, khilman@baylibre.com,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
- <f6d7ffa0-6c08-45fb-9153-5e4aad1ca86a@linaro.org>
- <003ffa44-c88a-4234-a54a-50cd1140982a@microchip.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <003ffa44-c88a-4234-a54a-50cd1140982a@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_011732_667651_C8B4CB5C 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250207_010932_981656_DA91FDFD 
+X-CRM114-Status: GOOD (  34.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,94 +115,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 10:02, Dharma.B@microchip.com wrote:
-> On 07/02/25 2:25 pm, Neil Armstrong wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know
->> the content is safe
->>
->> On 05/02/2025 04:48, Dharma Balasubiramani wrote:
->>> Remove the compatible property from the list of required properties and
->>> mark it as optional.
->>>
->>> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
->>> ---
->>> Changes in v2:
->>> - Instead of moving the compatible string to the other binding, just
->>> make it
->>>     optional (remove from required list).
->>> - Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-
->>> dfc747a3d3fb@microchip.com
->>> ---
->>>    Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
->>>    1 file changed, 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/
->>> Documentation/devicetree/bindings/mmc/mmc-slot.yaml
->>> index 1f0667828063..ca3d0114bfc6 100644
->>> --- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
->>> +++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
->>> @@ -29,7 +29,6 @@ properties:
->>>        maxItems: 1
->>>
->>>    required:
->>> -  - compatible
->>>      - reg
->>
->> If you remove it from here then it's still required in Documentation/
->> devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
->> so please add it.
+Hi Jon,
+
+On Wed, 29 Jan 2025 14:51:35 +0000, Jon Hunter <jonathanh@nvidia.com> wrote:
+> Hi Furong,
 > 
-> If moving the compatible to its specific binding isn't appropriate (as
-> per Conor),
-> and if removing it from the required list here doesn’t seem reasonable
-> to you,
-> then adding an unnecessary compatible string in our DTS files doesn’t
-> make sense to me.
-> 
-> What could be the solution then?
-
-The solution is right but you modify the meson-mx-sdio bindings, so
-simply add compatible in a required list for the slot node.
-
-Something like:
-========================================================================
-diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-index 022682a977c6..0d4d9ca6a8d9 100644
---- a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-+++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-@@ -60,6 +60,9 @@ patternProperties:
-        bus-width:
-          enum: [1, 4]
-
-+    required:
-+      - compatible
-+
-      unevaluatedProperties: false
-
-========================================================================
-
-Conor, Is it right ?
-
-Neil
-
->>
->> Thanks,
->> Neil
->>
->>>
->>>    unevaluatedProperties: false
->>>
->>> ---
->>> base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
->>> change-id: 20241219-mmc-slot-0574889daea3
->>>
->>> Best regards,
->>
+> On 27/01/2025 13:28, Thierry Reding wrote:
+> > On Sat, Jan 25, 2025 at 11:03:47PM +0800, Furong Xu wrote:  
+> >> Hi Thierry
+> >>
+> >> On Sat, 25 Jan 2025 12:20:38 +0200, Ido Schimmel wrote:
+> >>  
+> >>> On Fri, Jan 24, 2025 at 10:42:56AM +0800, Furong Xu wrote:  
+> >>>> On Thu, 23 Jan 2025 22:48:42 +0100, Andrew Lunn <andrew@lunn.ch>
+> >>>> wrote:  
+> >>>>>> Just to clarify, the patch that you had us try was not intended
+> >>>>>> as an actual fix, correct? It was only for diagnostic purposes,
+> >>>>>> i.e. to see if there is some kind of cache coherence issue,
+> >>>>>> which seems to be the case?  So perhaps the only fix needed is
+> >>>>>> to add dma-coherent to our device tree?  
+> >>>>>
+> >>>>> That sounds quite error prone. How many other DT blobs are
+> >>>>> missing the property? If the memory should be coherent, i would
+> >>>>> expect the driver to allocate coherent memory. Or the driver
+> >>>>> needs to handle non-coherent memory and add the necessary
+> >>>>> flush/invalidates etc.  
+> >>>>
+> >>>> stmmac driver does the necessary cache flush/invalidates to
+> >>>> maintain cache lines explicitly.  
+> >>>
+> >>> Given the problem happens when the kernel performs syncing, is it
+> >>> possible that there is a problem with how the syncing is performed?
+> >>>
+> >>> I am not familiar with this driver, but it seems to allocate multiple
+> >>> buffers per packet when split header is enabled and these buffers are
+> >>> allocated from the same page pool (see stmmac_init_rx_buffers()).
+> >>> Despite that, the driver is creating the page pool with a non-zero
+> >>> offset (see __alloc_dma_rx_desc_resources()) to avoid syncing the
+> >>> headroom, which is only present in the head buffer.
+> >>>
+> >>> I asked Thierry to test the following patch [1] and initial testing
+> >>> seems OK. He also confirmed that "SPH feature enabled" shows up in the
+> >>> kernel log.  
+> >>
+> >> It is recommended to disable the "SPH feature" by default unless some
+> >> certain cases depend on it. Like Ido said, two large buffers being
+> >> allocated from the same page pool for each packet, this is a huge waste
+> >> of memory, and brings performance drops for most of general cases.
+> >>
+> >> Our downstream driver and two mainline drivers disable SPH by default:
+> >> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c#n357
+> >> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c#n471  
+> > 
+> > Okay, that's something we can look into changing. What would be an
+> > example of a use-case depending on SPH? Also, isn't this something
+> > that should be a policy that users can configure?
+> > 
+> > Irrespective of that we should fix the problems we are seeing with
+> > SPH enabled.  
 > 
 > 
+> Any update on this?
 
+Sorry for my late response, I was on Chinese New Year holiday.
+
+The fix is sent, and it will be so nice to have your Tested-by: tag there:
+https://lore.kernel.org/all/20250207085639.13580-1-0x1207@gmail.com/
 
