@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4B2C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23527C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 16:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtrrAUnVhr2/npIcNNgeOcdn36r2FvvJ+8p041cLvbU=; b=k6I8wU1ObXlwxckE1BWrglZFe2
-	r5pB5tjyHkqVIZOJeVnqG0T3FMIt7clAXTtMZ/E/osK2NlMt8yjAarVGF6wiFFE2WsEWKysa4IFTU
-	R6nHwyCYf351YMLUQS6mD+tVisfssN2qNn0mV7d8nFMY/DFRgivt0zvBpUt+DrYvBt/sfLCOFfDIp
-	22d1g9TPf9LiavbsqsS5fH1yClmRzDkCh8YDS1wlMlHU/WILBzlZyXec60IZFio1d3DatgEhWM7M7
-	foLCRwdtFsJF6X5rdSp9sxT9E8p3EaRn9cRhTrq0JBdNCrcxwMIUmobLz7FyGcUhle7fjBk1I4Vtg
-	VlziifUw==;
+	bh=maJU5qNEjaEiswoDyV4oNEhtOfWWutNcUuvM5zT5R6w=; b=R1PSUXDStzSYsUbLHcxGxccaDQ
+	B7mIG9cgCJh7oAOtriTipkaMlwVKAxdKYu14mIrHr2NukQ2nSnwX16lI2lDeyUXHaM5Jxz36cGIUm
+	sP4X8QeCMT6bwmXOhKjPX/TaZxWdZgy+afDlqH8+wkSRwcnir8z+s+k7e8WbGNRVMldCLyjkDxWqx
+	1JWFYrC3mfRNjhzOweQRtbyipftsuuX1Z1J6ok08nqJseulSUIFEAw/gak/IIuRcJmyFdSIbszUYB
+	eQGzlY+JHZBg+cnq/tPmQaymCUqmQNpkBKP1n2pVTgzohugTkr1JFdWzbPDCwhqtrs9cfm4aDBr2b
+	LMwdfOug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRF7-0000000AIZ9-3G9v;
-	Fri, 07 Feb 2025 16:30:13 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1tgRHo-0000000AJ3c-2TvV;
+	Fri, 07 Feb 2025 16:33:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRB4-0000000AH85-3dCT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:26:04 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1738945560;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gtrrAUnVhr2/npIcNNgeOcdn36r2FvvJ+8p041cLvbU=;
-	b=TdlVb8srJ1IBtTLD8Mw013xldVQpZUb7Va0U4+UpH1tVlVo61rtubJenxx9zFX1boowCE2
-	9+oRBuywu9LzrJP0s+5jCNfEC++TPNfImThVOU9e2NNqFFe4o2H+M3GZoCDUQtvLM19hDI
-	cmjEXE+BTG2tamEI4GiM4WvSPkw15GA=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR XILINX)
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v2 2/2] drm: zynqmp_dp: Use scope-based mutex helpers
-Date: Fri,  7 Feb 2025 11:25:28 -0500
-Message-Id: <20250207162528.1651426-3-sean.anderson@linux.dev>
-In-Reply-To: <20250207162528.1651426-1-sean.anderson@linux.dev>
-References: <20250207162528.1651426-1-sean.anderson@linux.dev>
+	id 1tgRBs-0000000AHJh-3inY;
+	Fri, 07 Feb 2025 16:26:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 10C5B5C6E3D;
+	Fri,  7 Feb 2025 16:26:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A228C4CED1;
+	Fri,  7 Feb 2025 16:26:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738945611;
+	bh=E5CgnPuNJDJJvPpS9f1NTAdUYTnxtSuro4juipSapFA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=icKAtaL+Vm15czEPCnUaRzYUg8ggjcplZ4BpVsUJHQ8NJQKrviyEg5LgDJRCjqnF1
+	 fNSrSIES4Lf3gVwvXYwQ5N0VZvNzvrRJDS6voG6YH7ZKfdhaYlKSzy/Bxabd02q3KW
+	 iFGkZ/bvkgYYB324OEunmTxMeQK8K8FNZm934yIEwOxlWDoobvGniCVPENa6Jmce86
+	 d7NbT5xMoGFUOx8M9BqiqkbXT7qs3s+o0CKWXj6bPB03BoYNKVTc5MsxQ39AIIF4Mu
+	 8mOoLRHsT6FRRDmT82LKDIcZLma8lYz24cwztbvvIDYDwF9hYSMo0BfYB8SktkQby1
+	 7bWV9awGJ++Kw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 07 Feb 2025 17:26:17 +0100
+Subject: [PATCH net-next v2 02/15] net: airoha: Move definitions in
+ airoha_eth.h
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250207-airoha-en7581-flowtable-offload-v2-2-3a2239692a67@kernel.org>
+References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
+In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ upstream@airoha.com
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082603_050620_86ABF6B1 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20250207_082653_011080_6F067DB8 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,419 +84,544 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert most mutex_(un)lock calls to use (scoped_)guard instead. This
-generally reduces line count and prevents bugs like forgetting to unlock
-the mutex. I've left traditional calls in a few places where scoped
-helpers would be more verbose. This mostly happens where
-debugfs_file_put needs to be called regardless. I looked into defining a
-CLASS for debugfs_file, but it seems like more effort than it's worth
-since debugfs_file_get can fail.
+Move common airoha_eth definitions in airoha_eth.h in order to reuse
+them for Packet Processor Engine (PPE) codebase.
+PPE module is used to enable support for flowtable hw offloading in
+airoha_eth driver.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
+ drivers/net/ethernet/airoha/airoha_eth.c | 240 +----------------------------
+ drivers/net/ethernet/airoha/airoha_eth.h | 251 +++++++++++++++++++++++++++++++
+ 2 files changed, 252 insertions(+), 239 deletions(-)
 
-Changes in v2:
-- Convert some conditional return statements to returns of ternary
-  expressions.
-- Remove unnecessary whitespace change
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 09f448f291240257c5748725848ede231c502fbd..a9074c6b55efc5c2fc1f09f8f8a6fdb34508d5cd 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -3,14 +3,9 @@
+  * Copyright (c) 2024 AIROHA Inc
+  * Author: Lorenzo Bianconi <lorenzo@kernel.org>
+  */
+-#include <linux/etherdevice.h>
+-#include <linux/iopoll.h>
+-#include <linux/kernel.h>
+-#include <linux/netdevice.h>
+ #include <linux/of.h>
+ #include <linux/of_net.h>
+ #include <linux/platform_device.h>
+-#include <linux/reset.h>
+ #include <linux/tcp.h>
+ #include <linux/u64_stats_sync.h>
+ #include <net/dsa.h>
+@@ -18,35 +13,7 @@
+ #include <net/pkt_cls.h>
+ #include <uapi/linux/ppp_defs.h>
+ 
+-#define AIROHA_MAX_NUM_GDM_PORTS	1
+-#define AIROHA_MAX_NUM_QDMA		2
+-#define AIROHA_MAX_NUM_RSTS		3
+-#define AIROHA_MAX_NUM_XSI_RSTS		5
+-#define AIROHA_MAX_MTU			2000
+-#define AIROHA_MAX_PACKET_SIZE		2048
+-#define AIROHA_NUM_QOS_CHANNELS		4
+-#define AIROHA_NUM_QOS_QUEUES		8
+-#define AIROHA_NUM_TX_RING		32
+-#define AIROHA_NUM_RX_RING		32
+-#define AIROHA_NUM_NETDEV_TX_RINGS	(AIROHA_NUM_TX_RING + \
+-					 AIROHA_NUM_QOS_CHANNELS)
+-#define AIROHA_FE_MC_MAX_VLAN_TABLE	64
+-#define AIROHA_FE_MC_MAX_VLAN_PORT	16
+-#define AIROHA_NUM_TX_IRQ		2
+-#define HW_DSCP_NUM			2048
+-#define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
+-#define TX_DSCP_NUM			1024
+-#define RX_DSCP_NUM(_n)			\
+-	((_n) ==  2 ? 128 :		\
+-	 (_n) == 11 ? 128 :		\
+-	 (_n) == 15 ? 128 :		\
+-	 (_n) ==  0 ? 1024 : 16)
+-
+-#define PSE_RSV_PAGES			128
+-#define PSE_QUEUE_RSV_PAGES		64
+-
+-#define QDMA_METER_IDX(_n)		((_n) & 0xff)
+-#define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
++#include "airoha_eth.h"
+ 
+ /* FE */
+ #define PSE_BASE			0x0100
+@@ -706,211 +673,6 @@ struct airoha_qdma_fwd_desc {
+ 	__le32 rsv1;
+ };
+ 
+-enum {
+-	QDMA_INT_REG_IDX0,
+-	QDMA_INT_REG_IDX1,
+-	QDMA_INT_REG_IDX2,
+-	QDMA_INT_REG_IDX3,
+-	QDMA_INT_REG_IDX4,
+-	QDMA_INT_REG_MAX
+-};
+-
+-enum {
+-	XSI_PCIE0_PORT,
+-	XSI_PCIE1_PORT,
+-	XSI_USB_PORT,
+-	XSI_AE_PORT,
+-	XSI_ETH_PORT,
+-};
+-
+-enum {
+-	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
+-	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
+-	XSI_USB_VIP_PORT_MASK	= BIT(25),
+-	XSI_ETH_VIP_PORT_MASK	= BIT(24),
+-};
+-
+-enum {
+-	DEV_STATE_INITIALIZED,
+-};
+-
+-enum {
+-	CDM_CRSN_QSEL_Q1 = 1,
+-	CDM_CRSN_QSEL_Q5 = 5,
+-	CDM_CRSN_QSEL_Q6 = 6,
+-	CDM_CRSN_QSEL_Q15 = 15,
+-};
+-
+-enum {
+-	CRSN_08 = 0x8,
+-	CRSN_21 = 0x15, /* KA */
+-	CRSN_22 = 0x16, /* hit bind and force route to CPU */
+-	CRSN_24 = 0x18,
+-	CRSN_25 = 0x19,
+-};
+-
+-enum {
+-	FE_PSE_PORT_CDM1,
+-	FE_PSE_PORT_GDM1,
+-	FE_PSE_PORT_GDM2,
+-	FE_PSE_PORT_GDM3,
+-	FE_PSE_PORT_PPE1,
+-	FE_PSE_PORT_CDM2,
+-	FE_PSE_PORT_CDM3,
+-	FE_PSE_PORT_CDM4,
+-	FE_PSE_PORT_PPE2,
+-	FE_PSE_PORT_GDM4,
+-	FE_PSE_PORT_CDM5,
+-	FE_PSE_PORT_DROP = 0xf,
+-};
+-
+-enum tx_sched_mode {
+-	TC_SCH_WRR8,
+-	TC_SCH_SP,
+-	TC_SCH_WRR7,
+-	TC_SCH_WRR6,
+-	TC_SCH_WRR5,
+-	TC_SCH_WRR4,
+-	TC_SCH_WRR3,
+-	TC_SCH_WRR2,
+-};
+-
+-enum trtcm_param_type {
+-	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
+-	TRTCM_TOKEN_RATE_MODE,
+-	TRTCM_BUCKETSIZE_SHIFT_MODE,
+-	TRTCM_BUCKET_COUNTER_MODE,
+-};
+-
+-enum trtcm_mode_type {
+-	TRTCM_COMMIT_MODE,
+-	TRTCM_PEAK_MODE,
+-};
+-
+-enum trtcm_param {
+-	TRTCM_TICK_SEL = BIT(0),
+-	TRTCM_PKT_MODE = BIT(1),
+-	TRTCM_METER_MODE = BIT(2),
+-};
+-
+-#define MIN_TOKEN_SIZE				4096
+-#define MAX_TOKEN_SIZE_OFFSET			17
+-#define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
+-#define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
+-
+-struct airoha_queue_entry {
+-	union {
+-		void *buf;
+-		struct sk_buff *skb;
+-	};
+-	dma_addr_t dma_addr;
+-	u16 dma_len;
+-};
+-
+-struct airoha_queue {
+-	struct airoha_qdma *qdma;
+-
+-	/* protect concurrent queue accesses */
+-	spinlock_t lock;
+-	struct airoha_queue_entry *entry;
+-	struct airoha_qdma_desc *desc;
+-	u16 head;
+-	u16 tail;
+-
+-	int queued;
+-	int ndesc;
+-	int free_thr;
+-	int buf_size;
+-
+-	struct napi_struct napi;
+-	struct page_pool *page_pool;
+-};
+-
+-struct airoha_tx_irq_queue {
+-	struct airoha_qdma *qdma;
+-
+-	struct napi_struct napi;
+-
+-	int size;
+-	u32 *q;
+-};
+-
+-struct airoha_hw_stats {
+-	/* protect concurrent hw_stats accesses */
+-	spinlock_t lock;
+-	struct u64_stats_sync syncp;
+-
+-	/* get_stats64 */
+-	u64 rx_ok_pkts;
+-	u64 tx_ok_pkts;
+-	u64 rx_ok_bytes;
+-	u64 tx_ok_bytes;
+-	u64 rx_multicast;
+-	u64 rx_errors;
+-	u64 rx_drops;
+-	u64 tx_drops;
+-	u64 rx_crc_error;
+-	u64 rx_over_errors;
+-	/* ethtool stats */
+-	u64 tx_broadcast;
+-	u64 tx_multicast;
+-	u64 tx_len[7];
+-	u64 rx_broadcast;
+-	u64 rx_fragment;
+-	u64 rx_jabber;
+-	u64 rx_len[7];
+-};
+-
+-struct airoha_qdma {
+-	struct airoha_eth *eth;
+-	void __iomem *regs;
+-
+-	/* protect concurrent irqmask accesses */
+-	spinlock_t irq_lock;
+-	u32 irqmask[QDMA_INT_REG_MAX];
+-	int irq;
+-
+-	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
+-
+-	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+-	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
+-
+-	/* descriptor and packet buffers for qdma hw forward */
+-	struct {
+-		void *desc;
+-		void *q;
+-	} hfwd;
+-};
+-
+-struct airoha_gdm_port {
+-	struct airoha_qdma *qdma;
+-	struct net_device *dev;
+-	int id;
+-
+-	struct airoha_hw_stats stats;
+-
+-	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+-
+-	/* qos stats counters */
+-	u64 cpu_tx_packets;
+-	u64 fwd_tx_packets;
+-};
+-
+-struct airoha_eth {
+-	struct device *dev;
+-
+-	unsigned long state;
+-	void __iomem *fe_regs;
+-
+-	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
+-	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
+-
+-	struct net_device *napi_dev;
+-
+-	struct airoha_qdma qdma[AIROHA_MAX_NUM_QDMA];
+-	struct airoha_gdm_port *ports[AIROHA_MAX_NUM_GDM_PORTS];
+-};
+-
+ static u32 airoha_rr(void __iomem *base, u32 offset)
+ {
+ 	return readl(base + offset);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..3310e0cf85f1d240e95404a0c15703e5f6be26bc
+--- /dev/null
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -0,0 +1,251 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2024 AIROHA Inc
++ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
++ */
++
++#ifndef AIROHA_ETH_H
++#define AIROHA_ETH_H
++
++#include <linux/etherdevice.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/netdevice.h>
++#include <linux/reset.h>
++
++#define AIROHA_MAX_NUM_GDM_PORTS	1
++#define AIROHA_MAX_NUM_QDMA		2
++#define AIROHA_MAX_NUM_RSTS		3
++#define AIROHA_MAX_NUM_XSI_RSTS		5
++#define AIROHA_MAX_MTU			2000
++#define AIROHA_MAX_PACKET_SIZE		2048
++#define AIROHA_NUM_QOS_CHANNELS		4
++#define AIROHA_NUM_QOS_QUEUES		8
++#define AIROHA_NUM_TX_RING		32
++#define AIROHA_NUM_RX_RING		32
++#define AIROHA_NUM_NETDEV_TX_RINGS	(AIROHA_NUM_TX_RING + \
++					 AIROHA_NUM_QOS_CHANNELS)
++#define AIROHA_FE_MC_MAX_VLAN_TABLE	64
++#define AIROHA_FE_MC_MAX_VLAN_PORT	16
++#define AIROHA_NUM_TX_IRQ		2
++#define HW_DSCP_NUM			2048
++#define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
++#define TX_DSCP_NUM			1024
++#define RX_DSCP_NUM(_n)			\
++	((_n) ==  2 ? 128 :		\
++	 (_n) == 11 ? 128 :		\
++	 (_n) == 15 ? 128 :		\
++	 (_n) ==  0 ? 1024 : 16)
++
++#define PSE_RSV_PAGES			128
++#define PSE_QUEUE_RSV_PAGES		64
++
++#define QDMA_METER_IDX(_n)		((_n) & 0xff)
++#define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
++
++enum {
++	QDMA_INT_REG_IDX0,
++	QDMA_INT_REG_IDX1,
++	QDMA_INT_REG_IDX2,
++	QDMA_INT_REG_IDX3,
++	QDMA_INT_REG_IDX4,
++	QDMA_INT_REG_MAX
++};
++
++enum {
++	XSI_PCIE0_PORT,
++	XSI_PCIE1_PORT,
++	XSI_USB_PORT,
++	XSI_AE_PORT,
++	XSI_ETH_PORT,
++};
++
++enum {
++	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
++	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
++	XSI_USB_VIP_PORT_MASK	= BIT(25),
++	XSI_ETH_VIP_PORT_MASK	= BIT(24),
++};
++
++enum {
++	DEV_STATE_INITIALIZED,
++};
++
++enum {
++	CDM_CRSN_QSEL_Q1 = 1,
++	CDM_CRSN_QSEL_Q5 = 5,
++	CDM_CRSN_QSEL_Q6 = 6,
++	CDM_CRSN_QSEL_Q15 = 15,
++};
++
++enum {
++	CRSN_08 = 0x8,
++	CRSN_21 = 0x15, /* KA */
++	CRSN_22 = 0x16, /* hit bind and force route to CPU */
++	CRSN_24 = 0x18,
++	CRSN_25 = 0x19,
++};
++
++enum {
++	FE_PSE_PORT_CDM1,
++	FE_PSE_PORT_GDM1,
++	FE_PSE_PORT_GDM2,
++	FE_PSE_PORT_GDM3,
++	FE_PSE_PORT_PPE1,
++	FE_PSE_PORT_CDM2,
++	FE_PSE_PORT_CDM3,
++	FE_PSE_PORT_CDM4,
++	FE_PSE_PORT_PPE2,
++	FE_PSE_PORT_GDM4,
++	FE_PSE_PORT_CDM5,
++	FE_PSE_PORT_DROP = 0xf,
++};
++
++enum tx_sched_mode {
++	TC_SCH_WRR8,
++	TC_SCH_SP,
++	TC_SCH_WRR7,
++	TC_SCH_WRR6,
++	TC_SCH_WRR5,
++	TC_SCH_WRR4,
++	TC_SCH_WRR3,
++	TC_SCH_WRR2,
++};
++
++enum trtcm_param_type {
++	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
++	TRTCM_TOKEN_RATE_MODE,
++	TRTCM_BUCKETSIZE_SHIFT_MODE,
++	TRTCM_BUCKET_COUNTER_MODE,
++};
++
++enum trtcm_mode_type {
++	TRTCM_COMMIT_MODE,
++	TRTCM_PEAK_MODE,
++};
++
++enum trtcm_param {
++	TRTCM_TICK_SEL = BIT(0),
++	TRTCM_PKT_MODE = BIT(1),
++	TRTCM_METER_MODE = BIT(2),
++};
++
++#define MIN_TOKEN_SIZE				4096
++#define MAX_TOKEN_SIZE_OFFSET			17
++#define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
++#define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
++
++struct airoha_queue_entry {
++	union {
++		void *buf;
++		struct sk_buff *skb;
++	};
++	dma_addr_t dma_addr;
++	u16 dma_len;
++};
++
++struct airoha_queue {
++	struct airoha_qdma *qdma;
++
++	/* protect concurrent queue accesses */
++	spinlock_t lock;
++	struct airoha_queue_entry *entry;
++	struct airoha_qdma_desc *desc;
++	u16 head;
++	u16 tail;
++
++	int queued;
++	int ndesc;
++	int free_thr;
++	int buf_size;
++
++	struct napi_struct napi;
++	struct page_pool *page_pool;
++};
++
++struct airoha_tx_irq_queue {
++	struct airoha_qdma *qdma;
++
++	struct napi_struct napi;
++
++	int size;
++	u32 *q;
++};
++
++struct airoha_hw_stats {
++	/* protect concurrent hw_stats accesses */
++	spinlock_t lock;
++	struct u64_stats_sync syncp;
++
++	/* get_stats64 */
++	u64 rx_ok_pkts;
++	u64 tx_ok_pkts;
++	u64 rx_ok_bytes;
++	u64 tx_ok_bytes;
++	u64 rx_multicast;
++	u64 rx_errors;
++	u64 rx_drops;
++	u64 tx_drops;
++	u64 rx_crc_error;
++	u64 rx_over_errors;
++	/* ethtool stats */
++	u64 tx_broadcast;
++	u64 tx_multicast;
++	u64 tx_len[7];
++	u64 rx_broadcast;
++	u64 rx_fragment;
++	u64 rx_jabber;
++	u64 rx_len[7];
++};
++
++struct airoha_qdma {
++	struct airoha_eth *eth;
++	void __iomem *regs;
++
++	/* protect concurrent irqmask accesses */
++	spinlock_t irq_lock;
++	u32 irqmask[QDMA_INT_REG_MAX];
++	int irq;
++
++	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
++
++	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
++	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
++
++	/* descriptor and packet buffers for qdma hw forward */
++	struct {
++		void *desc;
++		void *q;
++	} hfwd;
++};
++
++struct airoha_gdm_port {
++	struct airoha_qdma *qdma;
++	struct net_device *dev;
++	int id;
++
++	struct airoha_hw_stats stats;
++
++	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
++
++	/* qos stats counters */
++	u64 cpu_tx_packets;
++	u64 fwd_tx_packets;
++};
++
++struct airoha_eth {
++	struct device *dev;
++
++	unsigned long state;
++	void __iomem *fe_regs;
++
++	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
++	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
++
++	struct net_device *napi_dev;
++
++	struct airoha_qdma qdma[AIROHA_MAX_NUM_QDMA];
++	struct airoha_gdm_port *ports[AIROHA_MAX_NUM_GDM_PORTS];
++};
++
++#endif /* AIROHA_ETH_H */
 
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 147 +++++++++++--------------------
- 1 file changed, 50 insertions(+), 97 deletions(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index 189a08cdc73c..63842f657836 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -1534,10 +1534,10 @@ zynqmp_dp_bridge_mode_valid(struct drm_bridge *bridge,
- 	}
- 
- 	/* Check with link rate and lane count */
--	mutex_lock(&dp->lock);
--	rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
--				  dp->link_config.max_lanes, dp->config.bpp);
--	mutex_unlock(&dp->lock);
-+	scoped_guard(mutex, &dp->lock)
-+		rate = zynqmp_dp_max_rate(dp->link_config.max_rate,
-+					  dp->link_config.max_lanes,
-+					  dp->config.bpp);
- 	if (mode->clock > rate) {
- 		dev_dbg(dp->dev, "filtered mode %s for high pixel rate\n",
- 			mode->name);
-@@ -1722,13 +1722,9 @@ static enum drm_connector_status __zynqmp_dp_bridge_detect(struct zynqmp_dp *dp)
- static enum drm_connector_status zynqmp_dp_bridge_detect(struct drm_bridge *bridge)
- {
- 	struct zynqmp_dp *dp = bridge_to_dp(bridge);
--	enum drm_connector_status ret;
- 
--	mutex_lock(&dp->lock);
--	ret = __zynqmp_dp_bridge_detect(dp);
--	mutex_unlock(&dp->lock);
--
--	return ret;
-+	guard(mutex)(&dp->lock);
-+	return __zynqmp_dp_bridge_detect(dp);
- }
- 
- static const struct drm_edid *zynqmp_dp_bridge_edid_read(struct drm_bridge *bridge,
-@@ -1881,10 +1877,9 @@ static ssize_t zynqmp_dp_pattern_read(struct file *file, char __user *user_buf,
- 	if (unlikely(ret))
- 		return ret;
- 
--	mutex_lock(&dp->lock);
--	ret = snprintf(buf, sizeof(buf), "%s\n",
--		       test_pattern_str[dp->test.pattern]);
--	mutex_unlock(&dp->lock);
-+	scoped_guard(mutex, &dp->lock)
-+		ret = snprintf(buf, sizeof(buf), "%s\n",
-+			       test_pattern_str[dp->test.pattern]);
- 
- 	debugfs_file_put(dentry);
- 	return simple_read_from_buffer(user_buf, count, ppos, buf, ret);
-@@ -1939,24 +1934,18 @@ static int zynqmp_dp_enhanced_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.enhanced;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_enhanced_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.enhanced = val;
--	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
--
--	return ret;
-+	return dp->test.active ? zynqmp_dp_test_setup(dp) : 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_enhanced, zynqmp_dp_enhanced_get,
-@@ -1966,24 +1955,19 @@ static int zynqmp_dp_downspread_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.downspread;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_downspread_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.downspread = val;
--	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
- 
--	return ret;
-+	return dp->test.active ? zynqmp_dp_test_setup(dp) : 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_downspread, zynqmp_dp_downspread_get,
-@@ -1993,33 +1977,32 @@ static int zynqmp_dp_active_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.active;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_active_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
-+	int ret;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	if (val) {
- 		if (val < 2) {
- 			ret = zynqmp_dp_test_setup(dp);
- 			if (ret)
--				goto out;
-+				return ret;
- 		}
- 
- 		ret = zynqmp_dp_set_test_pattern(dp, dp->test.pattern,
- 						 dp->test.custom);
- 		if (ret)
--			goto out;
-+			return ret;
- 
- 		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 		if (ret)
--			goto out;
-+			return ret;
- 
- 		dp->test.active = true;
- 	} else {
-@@ -2032,10 +2015,8 @@ static int zynqmp_dp_active_set(void *data, u64 val)
- 				 err);
- 		zynqmp_dp_train_loop(dp);
- 	}
--out:
--	mutex_unlock(&dp->lock);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_active, zynqmp_dp_active_get,
-@@ -2102,9 +2083,8 @@ static int zynqmp_dp_swing_get(void *data, u64 *val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.train_set[priv->lane] & DP_TRAIN_VOLTAGE_SWING_MASK;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2113,12 +2093,11 @@ static int zynqmp_dp_swing_set(void *data, u64 val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 	u8 *train_set = &dp->test.train_set[priv->lane];
--	int ret = 0;
- 
- 	if (val > 3)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*train_set &= ~(DP_TRAIN_MAX_SWING_REACHED |
- 			DP_TRAIN_VOLTAGE_SWING_MASK);
- 	*train_set |= val;
-@@ -2126,10 +2105,9 @@ static int zynqmp_dp_swing_set(void *data, u64 val)
- 		*train_set |= DP_TRAIN_MAX_SWING_REACHED;
- 
- 	if (dp->test.active)
--		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_swing, zynqmp_dp_swing_get,
-@@ -2140,10 +2118,9 @@ static int zynqmp_dp_preemphasis_get(void *data, u64 *val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = FIELD_GET(DP_TRAIN_PRE_EMPHASIS_MASK,
- 			 dp->test.train_set[priv->lane]);
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2152,12 +2129,11 @@ static int zynqmp_dp_preemphasis_set(void *data, u64 val)
- 	struct zynqmp_dp_train_set_priv *priv = data;
- 	struct zynqmp_dp *dp = priv->dp;
- 	u8 *train_set = &dp->test.train_set[priv->lane];
--	int ret = 0;
- 
- 	if (val > 2)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*train_set &= ~(DP_TRAIN_MAX_PRE_EMPHASIS_REACHED |
- 			DP_TRAIN_PRE_EMPHASIS_MASK);
- 	*train_set |= val;
-@@ -2165,10 +2141,9 @@ static int zynqmp_dp_preemphasis_set(void *data, u64 val)
- 		*train_set |= DP_TRAIN_MAX_PRE_EMPHASIS_REACHED;
- 
- 	if (dp->test.active)
--		ret = zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
--	mutex_unlock(&dp->lock);
-+		return zynqmp_dp_update_vs_emph(dp, dp->test.train_set);
- 
--	return ret;
-+	return 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_preemphasis, zynqmp_dp_preemphasis_get,
-@@ -2178,31 +2153,24 @@ static int zynqmp_dp_lanes_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->test.link_cnt;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
- static int zynqmp_dp_lanes_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
--	int ret = 0;
- 
- 	if (val > ZYNQMP_DP_MAX_LANES)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
--	if (val > dp->num_lanes) {
--		ret = -EINVAL;
--	} else {
--		dp->test.link_cnt = val;
--		if (dp->test.active)
--			ret = zynqmp_dp_test_setup(dp);
--	}
--	mutex_unlock(&dp->lock);
-+	guard(mutex)(&dp->lock);
-+	if (val > dp->num_lanes)
-+		return -EINVAL;
- 
--	return ret;
-+	dp->test.link_cnt = val;
-+	return dp->test.active ? zynqmp_dp_test_setup(dp) : 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_lanes, zynqmp_dp_lanes_get,
-@@ -2212,9 +2180,8 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2222,7 +2189,6 @@ static int zynqmp_dp_rate_set(void *data, u64 val)
- {
- 	struct zynqmp_dp *dp = data;
- 	int link_rate;
--	int ret = 0;
- 	u8 bw_code;
- 
- 	if (do_div(val, 10000))
-@@ -2237,13 +2203,9 @@ static int zynqmp_dp_rate_set(void *data, u64 val)
- 	    bw_code != DP_LINK_BW_5_4)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->test.bw_code = bw_code;
--	if (dp->test.active)
--		ret = zynqmp_dp_test_setup(dp);
--	mutex_unlock(&dp->lock);
--
--	return ret;
-+	return dp->test.active ? zynqmp_dp_test_setup(dp) : 0;
- }
- 
- DEFINE_DEBUGFS_ATTRIBUTE(fops_zynqmp_dp_rate, zynqmp_dp_rate_get,
-@@ -2253,9 +2215,8 @@ static int zynqmp_dp_ignore_aux_errors_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->aux.hw_mutex);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->ignore_aux_errors;
--	mutex_unlock(&dp->aux.hw_mutex);
- 	return 0;
- }
- 
-@@ -2266,9 +2227,8 @@ static int zynqmp_dp_ignore_aux_errors_set(void *data, u64 val)
- 	if (val != !!val)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->aux.hw_mutex);
-+	guard(mutex)(&dp->lock);
- 	dp->ignore_aux_errors = val;
--	mutex_unlock(&dp->aux.hw_mutex);
- 	return 0;
- }
- 
-@@ -2280,9 +2240,8 @@ static int zynqmp_dp_ignore_hpd_get(void *data, u64 *val)
- {
- 	struct zynqmp_dp *dp = data;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	*val = dp->ignore_hpd;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2293,9 +2252,8 @@ static int zynqmp_dp_ignore_hpd_set(void *data, u64 val)
- 	if (val != !!val)
- 		return -EINVAL;
- 
--	mutex_lock(&dp->lock);
-+	guard(mutex)(&dp->lock);
- 	dp->ignore_hpd = val;
--	mutex_unlock(&dp->lock);
- 	return 0;
- }
- 
-@@ -2391,14 +2349,12 @@ static void zynqmp_dp_hpd_work_func(struct work_struct *work)
- 	struct zynqmp_dp *dp = container_of(work, struct zynqmp_dp, hpd_work);
- 	enum drm_connector_status status;
- 
--	mutex_lock(&dp->lock);
--	if (dp->ignore_hpd) {
--		mutex_unlock(&dp->lock);
--		return;
--	}
-+	scoped_guard(mutex, &dp->lock) {
-+		if (dp->ignore_hpd)
-+			return;
- 
--	status = __zynqmp_dp_bridge_detect(dp);
--	mutex_unlock(&dp->lock);
-+		status = __zynqmp_dp_bridge_detect(dp);
-+	}
- 
- 	drm_bridge_hpd_notify(&dp->bridge, status);
- }
-@@ -2410,11 +2366,9 @@ static void zynqmp_dp_hpd_irq_work_func(struct work_struct *work)
- 	u8 status[DP_LINK_STATUS_SIZE + 2];
- 	int err;
- 
--	mutex_lock(&dp->lock);
--	if (dp->ignore_hpd) {
--		mutex_unlock(&dp->lock);
-+	guard(mutex)(&dp->lock);
-+	if (dp->ignore_hpd)
- 		return;
--	}
- 
- 	err = drm_dp_dpcd_read(&dp->aux, DP_SINK_COUNT, status,
- 			       DP_LINK_STATUS_SIZE + 2);
-@@ -2428,7 +2382,6 @@ static void zynqmp_dp_hpd_irq_work_func(struct work_struct *work)
- 			zynqmp_dp_train_loop(dp);
- 		}
- 	}
--	mutex_unlock(&dp->lock);
- }
- 
- static irqreturn_t zynqmp_dp_irq_handler(int irq, void *data)
 -- 
-2.35.1.1320.gc452695387.dirty
+2.48.1
 
 
