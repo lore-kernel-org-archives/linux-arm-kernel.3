@@ -4,43 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5A0C02196
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10AECC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 10:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+fMfd/aWkmPtmZQ291AKWzl3eRyr8cpX0D6WXJzIJ4=; b=yC1SxiAlDvUpYgmAZABBcqacAu
-	PHgUvAee8bZshXkKsesvcATZbzIhkkNfebUGsdOCBcLTmWfKTiH66oepiImkOdU9APfsaXs+hYnQt
-	8g6TGOatKi4JcsOP4r+O8H2e78LEd668f0OZJhFXqnNbN1Dtrcya88tO13W805Iqyd54FWX27miJI
-	0e1PNbqwarqBLxHQpxSj8jpr2cFroCqLoQM8XGFHG9tQf2TFwFqLHBJNqJ1GO982iaj7GUMRZtFHi
-	Xkxbnf/9/iham3PgF94EIsMNsF0HzDUwZ8QCcbTb4IMzBqXYmEPQ4rFoNvkfySMSREB+vlFyOy05z
-	Zz6EPwBQ==;
+	bh=teZ6shkdX+fjTMz+tcHMkwyDHquO3sVPI/A3XHxSoPI=; b=EV8ItlXeAbIkj8RIdNNfPTsg2E
+	lyaRuYVWqi4L2Ysk6R+3/CahlyTCVbl+eFA37ZngU7S6znaxFpoH2wtnoxsp0xmJyeHSkOZDrTWcV
+	UmnGmpsb40aEhDRuROprPoUQ0HYvxq2zgiqztdtx1tQ27j/uqEzPSBetJXrJZX2wyL8xvGsPSpxIx
+	k2ATFh3razIM/CJD9TIdaSKuRrRWcTwMjwtFFHv4ZOXS/2kS4O1hsTeAFWj9a8ntPcT+kG5DXcLx5
+	rJ1RI+o/M5Idb3QMj7gm98p8g+gWlqwHVKmeS6CKzkb97nbA2EweNvbZ8NTImWBj+2i1q/+BvTHsQ
+	omrxGJkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLBe-000000098cm-2dI4;
-	Fri, 07 Feb 2025 10:02:14 +0000
+	id 1tgLFK-0000000997p-3ENV;
+	Fri, 07 Feb 2025 10:06:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLAC-000000098GB-1leW
+	id 1tgLDw-000000098uk-1FcY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 10:00:45 +0000
+	Fri, 07 Feb 2025 10:04:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97D06106F;
-	Fri,  7 Feb 2025 02:01:06 -0800 (PST)
-Received: from [10.57.81.111] (unknown [10.57.81.111])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B17743F63F;
-	Fri,  7 Feb 2025 02:00:40 -0800 (PST)
-Message-ID: <7fac347a-ada7-4912-8cce-d523951b9126@arm.com>
-Date: Fri, 7 Feb 2025 10:00:38 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABBE9106F;
+	Fri,  7 Feb 2025 02:04:58 -0800 (PST)
+Received: from [10.162.16.89] (a077893.blr.arm.com [10.162.16.89])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B212D3F63F;
+	Fri,  7 Feb 2025 02:04:30 -0800 (PST)
+Message-ID: <9a0d3009-18fc-4b53-941a-b6d830fce36a@arm.com>
+Date: Fri, 7 Feb 2025 15:34:27 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 07/16] arm64: hugetlb: Use ___set_ptes() and
- ___ptep_get_and_clear()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
+Subject: Re: [PATCH v1 12/16] arm64/mm: Support huge pte-mapped pages in vmap
+To: Ryan Roberts <ryan.roberts@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Muchun Song <muchun.song@linux.dev>,
  Pasha Tatashin <pasha.tatashin@soleen.com>,
@@ -52,15 +50,15 @@ To: Anshuman Khandual <anshuman.khandual@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org
 References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-8-ryan.roberts@arm.com>
- <c804485f-d042-4013-9fef-ad7eb91c3a85@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <c804485f-d042-4013-9fef-ad7eb91c3a85@arm.com>
+ <20250205151003.88959-13-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250205151003.88959-13-ryan.roberts@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_020044_568566_BE69A1D7 
-X-CRM114-Status: GOOD (  33.04  )
+X-CRM114-CacheID: sfid-20250207_020436_418840_AB3F5E75 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,244 +73,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 04:09, Anshuman Khandual wrote:
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> Refactor the huge_pte helpers to use the new generic ___set_ptes() and
->> ___ptep_get_and_clear() APIs.
->>
->> This provides 2 benefits; First, when page_table_check=on, hugetlb is
->> now properly/fully checked. Previously only the first page of a hugetlb
-> 
-> PAGE_TABLE_CHECK will be fully supported now in hugetlb irrespective of
-> the page table level. This is definitely an improvement.
-> 
->> folio was checked. Second, instead of having to call __set_ptes(nr=1)
->> for each pte in a loop, the whole contiguous batch can now be set in one
->> go, which enables some efficiencies and cleans up the code.
-> 
-> Improvements done to common __set_ptes() will automatically be available
-> for hugetlb pages as well. This converges all batch updates in a single
-> i.e __set_ptes() which can be optimized further in a single place. Makes
-> sense.
-> 
->>
->> One detail to note is that huge_ptep_clear_flush() was previously
->> calling ptep_clear_flush() for a non-contiguous pte (i.e. a pud or pmd
->> block mapping). This has a couple of disadvantages; first
->> ptep_clear_flush() calls ptep_get_and_clear() which transparently
->> handles contpte. Given we only call for non-contiguous ptes, it would be
->> safe, but a waste of effort. It's preferable to go stright to the layer
-> 
-> A small nit - typo s/stright/straight
-> 
->> below. However, more problematic is that ptep_get_and_clear() is for
->> PAGE_SIZE entries so it calls page_table_check_pte_clear() and would not
->> clear the whole hugetlb folio. So let's stop special-casing the non-cont
->> case and just rely on get_clear_contig_flush() to do the right thing for
->> non-cont entries.
-> 
-> Like before, this change is unrelated to all the conversions done earlier for
-> the set and clear paths above using the new helpers. Hence ideally it should
-> be separated out into a different patch.
-
-No this is very much related and must be done in this patch. Previously
-ptep_get_and_clear() would be called for a PMD or PUD entry. But
-ptep_get_and_clear() only considers itself to be operating on PAGE_SIZE entries.
-So when page_table_check=on, it will always forward to
-page_table_check_pte_clear(). That used to be fine when only the first page of
-the hugetlb folio was checked. But now that this patch changes the "set" side to
-use the appropriate page_table_check_pXXs_set() call, the "clear" side must be
-balanced. So we need to stop calling ptep_get_and_clear().
-
-> 
->>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/mm/hugetlbpage.c | 50 ++++++++-----------------------------
->>  1 file changed, 11 insertions(+), 39 deletions(-)
->>
->> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->> index e870d01d12ea..02afee31444e 100644
->> --- a/arch/arm64/mm/hugetlbpage.c
->> +++ b/arch/arm64/mm/hugetlbpage.c
->> @@ -166,12 +166,12 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->>  	pte_t pte, tmp_pte;
->>  	bool present;
->>  
->> -	pte = __ptep_get_and_clear(mm, addr, ptep);
->> +	pte = ___ptep_get_and_clear(mm, ptep, pgsize);
->>  	present = pte_present(pte);
->>  	while (--ncontig) {
->>  		ptep++;
->>  		addr += pgsize;
->> -		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
->> +		tmp_pte = ___ptep_get_and_clear(mm, ptep, pgsize);
->>  		if (present) {
->>  			if (pte_dirty(tmp_pte))
->>  				pte = pte_mkdirty(pte);
->> @@ -215,7 +215,7 @@ static void clear_flush(struct mm_struct *mm,
->>  	unsigned long i, saddr = addr;
->>  
->>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
->> -		__ptep_get_and_clear(mm, addr, ptep);
->> +		___ptep_get_and_clear(mm, ptep, pgsize);
->>  
->>  	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->>  }
-> 
-> ___ptep_get_and_clear() will have the opportunity to call page_table_check_pxx_clear()
-> depending on the page size passed unlike the current scenario.
-> 
->> @@ -226,32 +226,20 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
->>  	size_t pgsize;
->>  	int i;
->>  	int ncontig;
->> -	unsigned long pfn, dpfn;
->> -	pgprot_t hugeprot;
->>  
->>  	ncontig = num_contig_ptes(sz, &pgsize);
->>  
->>  	if (!pte_present(pte)) {
->>  		for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
->> -			__set_ptes(mm, addr, ptep, pte, 1);
->> +			___set_ptes(mm, ptep, pte, 1, pgsize);
-> 
-> IIUC __set_ptes() wrapper is still around in the header. So what's the benefit of
-> converting this into ___set_ptes() ? __set_ptes() gets dropped eventually ?
-
-__set_ptes() is explicitly operating on PAGE_SIZE entries. The double
-underscores is indicating that it's the layer below the contpte management layer.
-
-The new ___set_ptes() takes a pgsize and can therefore operate on PTEs any level
-in the pgtable.
-
-As per other thread, I'm proposing to rename ___set_ptes() to set_ptes_anylvl()
-and ___ptep_get_and_clear() to ptep_get_and_clear_anylvl(). I think that makes
-things a bit clearer?
 
 
-> 
->>  		return;
->>  	}
->>  
->> -	if (!pte_cont(pte)) {
->> -		__set_ptes(mm, addr, ptep, pte, 1);
->> -		return;
->> -	}
->> -
->> -	pfn = pte_pfn(pte);
->> -	dpfn = pgsize >> PAGE_SHIFT;
->> -	hugeprot = pte_pgprot(pte);
->> -
->>  	/* Only need to "break" if transitioning valid -> valid. */
->> -	if (pte_valid(__ptep_get(ptep)))
->> +	if (pte_cont(pte) && pte_valid(__ptep_get(ptep)))
->>  		clear_flush(mm, addr, ptep, pgsize, ncontig);
->>  
->> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
->> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
->> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
->>  }
-> 
-> Similarly __set_ptes() will have the opportunity to call page_table_check_pxx_set()
-> depending on the page size passed unlike the current scenario.
+On 2/5/25 20:39, Ryan Roberts wrote:
+> Implement the required arch functions to enable use of contpte in the
+> vmap when VM_ALLOW_HUGE_VMAP is specified. This speeds up vmap
+> operations due to only having to issue a DSB and ISB per contpte block
+> instead of per pte. But it also means that the TLB pressure reduces due
+> to only needing a single TLB entry for the whole contpte block.
 
-Sorry I don't understand this comment. __set_ptes() (2 leading underscores) is
-always implicitly operating on PAGE_SIZE entries. ___set_ptes() (3 leading
-underscores) allows the size of the entries to be passed in.
+Right.
 
 > 
->>  
->>  pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
->> @@ -441,11 +429,9 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  			       unsigned long addr, pte_t *ptep,
->>  			       pte_t pte, int dirty)
->>  {
->> -	int ncontig, i;
->> +	int ncontig;
->>  	size_t pgsize = 0;
->> -	unsigned long pfn = pte_pfn(pte), dpfn;
->>  	struct mm_struct *mm = vma->vm_mm;
->> -	pgprot_t hugeprot;
->>  	pte_t orig_pte;
->>  
->>  	VM_WARN_ON(!pte_present(pte));
->> @@ -454,7 +440,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
->>  
->>  	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
->> -	dpfn = pgsize >> PAGE_SHIFT;
->>  
->>  	if (!__cont_access_flags_changed(ptep, pte, ncontig))
->>  		return 0;
->> @@ -469,19 +454,14 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  	if (pte_young(orig_pte))
->>  		pte = pte_mkyoung(pte);
->>  
->> -	hugeprot = pte_pgprot(pte);
->> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
->> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
->> -
->> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
->>  	return 1;
->>  }
-> 
-> This makes huge_ptep_set_access_flags() cleaner and simpler as well.
-> 
->>  
->>  void huge_ptep_set_wrprotect(struct mm_struct *mm,
->>  			     unsigned long addr, pte_t *ptep)
->>  {
->> -	unsigned long pfn, dpfn;
->> -	pgprot_t hugeprot;
->> -	int ncontig, i;
->> +	int ncontig;
->>  	size_t pgsize;
->>  	pte_t pte;
->>  
->> @@ -494,16 +474,11 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
->>  	}
->>  
->>  	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
->> -	dpfn = pgsize >> PAGE_SHIFT;
->>  
->>  	pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
->>  	pte = pte_wrprotect(pte);
->>  
->> -	hugeprot = pte_pgprot(pte);
->> -	pfn = pte_pfn(pte);
->> -
->> -	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
->> -		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
->> +	___set_ptes(mm, ptep, pte, ncontig, pgsize);
->>  }
-> 
-> This makes huge_ptep_set_wrprotect() cleaner and simpler as well.
-> 
->>  
->>  pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->> @@ -517,10 +492,7 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->>  	pte = __ptep_get(ptep);
->>  	VM_WARN_ON(!pte_present(pte));
->>  
->> -	if (!pte_cont(pte))
->> -		return ptep_clear_flush(vma, addr, ptep);
->> -
->> -	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
->> +	ncontig = num_contig_ptes(page_size(pte_page(pte)), &pgsize);
-> 
-> A VMA argument is present in this function huge_ptep_clear_flush(). Why not just
-> use that to get the huge page size here, instead of retrieving the PFN contained
-> in page table entry which might be safer ?
-> 
-> s/page_size(pte_page(pte))/huge_page_size(hstate_vma(vma))
+> Since vmap uses set_huge_pte_at() to set the contpte, that API is now
+> used for kernel mappings for the first time. Although in the vmap case
+> we never expect it to be called to modify a valid mapping so
+> clear_flush() should never be called, it's still wise to make it robust
+> for the kernel case, so amend the tlb flush function if the mm is for
+> kernel space.
 
-Yes, that's a good idea. I'll make this change in the next version.
-
+Makes sense.
 
 > 
->>  	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
->>  }
->>  
+> Tested with vmalloc performance selftests:
+> 
+>   # kself/mm/test_vmalloc.sh \
+> 	run_test_mask=1
+> 	test_repeat_count=5
+> 	nr_pages=256
+> 	test_loop_count=100000
+> 	use_huge=1
+> 
+> Duration reduced from 1274243 usec to 1083553 usec on Apple M2 for 15%
+> reduction in time taken.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/vmalloc.h | 40 ++++++++++++++++++++++++++++++++
+>  arch/arm64/mm/hugetlbpage.c      |  5 +++-
+>  2 files changed, 44 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+> index 38fafffe699f..fbdeb40f3857 100644
+> --- a/arch/arm64/include/asm/vmalloc.h
+> +++ b/arch/arm64/include/asm/vmalloc.h
+> @@ -23,6 +23,46 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
+>  	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+>  }
+>  
+> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
+> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+> +						unsigned long end, u64 pfn,
+> +						unsigned int max_page_shift)
+> +{
+> +	if (max_page_shift < CONT_PTE_SHIFT)
+> +		return PAGE_SIZE;
+> +
+> +	if (end - addr < CONT_PTE_SIZE)
+> +		return PAGE_SIZE;
+> +
+> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
+> +		return PAGE_SIZE;
+> +
+> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
+> +		return PAGE_SIZE;
+> +
+> +	return CONT_PTE_SIZE;
 
+A small nit:
+
+Should the rationale behind picking CONT_PTE_SIZE be added here as an in code
+comment or something in the function - just to make things bit clear.
+
+> +}
+> +
+> +#define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
+> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
+> +							   pte_t *ptep)
+> +{
+> +	/*
+> +	 * The caller handles alignment so it's sufficient just to check
+> +	 * PTE_CONT.
+> +	 */
+> +	return pte_valid_cont(__ptep_get(ptep)) ? CONT_PTE_SIZE : PAGE_SIZE;
+
+I guess it is safe to query the CONT_PTE from the mapped entry itself.
+
+> +}
+> +
+> +#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
+> +static inline int arch_vmap_pte_supported_shift(unsigned long size)
+> +{
+> +	if (size >= CONT_PTE_SIZE)
+> +		return CONT_PTE_SHIFT;
+> +
+> +	return PAGE_SHIFT;
+> +}
+> +
+>  #endif
+>  
+>  #define arch_vmap_pgprot_tagged arch_vmap_pgprot_tagged
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 02afee31444e..a74e43101dad 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -217,7 +217,10 @@ static void clear_flush(struct mm_struct *mm,
+>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+>  		___ptep_get_and_clear(mm, ptep, pgsize);
+>  
+> -	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+> +	if (mm == &init_mm)
+> +		flush_tlb_kernel_range(saddr, addr);
+> +	else
+> +		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+>  }
+>  
+>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+
+Otherwise LGTM.
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
