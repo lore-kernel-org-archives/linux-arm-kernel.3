@@ -4,190 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACF9C02194
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DFB3C0219C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 20:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnxF+5Z/X/dt0aFC5AgL5PNoSsTkohrJxD2cbd3d2ng=; b=3IQueNuhRVYURyja13rmyQjZwG
-	ae8humO5CXN2tSG/cwLp75UBEo1nQjFj8jICSA2EhKOrTIH3YPW0t/yQTHjJAXZbDlNrLcxNrQ2qT
-	2g5K2oQah8aGY9B0FIGrLUcbwT3CtpCWNa+o36xgvwYBN8GNGb3QLNLg2gX9fFm9eG9P/lmCx+goU
-	n6BvgALFFsLcYgMdH9T6JEDDwWFKwfLGlWh/zdrfg850SH/lNHaKEhXrTWouTopEGV+nlkxmjQEyS
-	h4OPCmSE6+XOLhPKoaGP632lA9IlkhArvVJ+usJ+F0gRBpvn9PaqjceH7xbpii8r3LeZdFL4Pvtdl
-	lpQANH/Q==;
+	bh=2JHuDZGunc0oj552nWlsVo7IMGoB2fAlIREn0/2epcc=; b=rZFqMv0TYOqEu+Ew3c6xky0mpn
+	pyDqlWSOYnzpHRH69fykSUXUGoBVhjzmbltwOqYTtzlX8G6a1d2+9mtmiw8sYXZ7ClXp2Z3POGJo/
+	fUqRVqEAUDJF8TEixOLn/m44swE/Fiu64n8l0b2fmUkcesT1/otkj/I0XeU5Hxwr/l4jA4AYnId8f
+	DqybufBgqArWzdRuG9IhYVAUzPaO5Q3OFol75ADhvHuSz8Y0EdTRG9Sc0e/ctq31OmvUYT4t5nHse
+	xsJghTcEHtnriUqw+lZEFQzmKsCEporIhML2nxK2QxAGWGzkazUjdAGkFfC+AqFPpcUAHoIo2E/14
+	qORus/bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUyx-0000000B4Cz-0G7S;
+	id 1tgUyx-0000000B4EU-3iqv;
 	Fri, 07 Feb 2025 20:29:47 +0000
-Received: from mail-am6eur05on2082.outbound.protection.outlook.com ([40.107.22.82] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgUEp-0000000AwZz-39Qt
+	id 1tgUFF-0000000Awju-3oHO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 19:42:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T4WNuMYx5lCq8KyempBZ1nj+cSQntYv1pv0PT34axWuyODJlxywFDLaTm91cCavL6YkWhIzbqoMYffbBRLjKY9VT91byI6PuvcS+D3U9qtMN1gaVG8dorIx+xOIzBX/Qzl0/IVmwL+R5DURpL0NjoLTF5A2yvu1G6fYKCEHDYyEJBVbygqnp3d3q2suROfLvhltToQGcYM9BCUgNEKyNlxP6z6AEJht/t8uMNyuAlrvaJQDhv9e+9nuqHXYGugW6ySDdGcLowUUNIWnjzPflcrWT1kO7Bnw7tXate8GLz+HqXon9CkqbgNDBnTX7IdE87umZcEtaVPz20otoNl/JOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YnxF+5Z/X/dt0aFC5AgL5PNoSsTkohrJxD2cbd3d2ng=;
- b=FvfUqnmBGYevu8EbudXphjZiNVVbewZ3QWFG2VH+OISxQjsn/uLWhAzBkYJoYwB6bOhr4Iix2dv7mRHuvBoxcLe6EDfQ23d+UB6NQyron92dH8qBoMjU01jXRpDufE/8ei04rk7f9kLmp3yCQBzsNbn/SKFt99OMtp9r1Qsc0ExP5e/pfRzqt2/WDrczZ04ZIsuJkkyN7LdvVEoH2H3zeuot0zkL0t9md00h0aRydxzuskdwp6icgCZAEVrZXVEzKF0lkM3JDRDNrLMile3/HzJ54CDOu5+Zjq+7Mi122QAbztv9UVbzjHZe17D2ual544DHYRWS22sBw4ELkdBQ1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YnxF+5Z/X/dt0aFC5AgL5PNoSsTkohrJxD2cbd3d2ng=;
- b=YMg68Ws2/QJGHvRZb3Gzdg2Qknz4e2n7mGAALRgCEhZ+mKukhKEql+gtUtFjxi6mG7Q/0WHo6xzCyPD+Tem6Vhwqg9RylfC+SXKMsDisznqzYc2OYdHyRY5qEiJ7EoDa01IlJz7xf2lYAGa8BFk23MKKQki0I4NhMkqGMJuMiIqQ8OAqmKq1VlBsOkdn1dsSUrnMquTpJ57aPDYAmQLfGmMLZdMHMdtE+W+QZC16wdGLnkZx6kvBBUfFSKNylEL9YBltprZEkZuhjdG/UEJyPdJjaVN4NVXLDVNLgwJKqYgZGgM90ij+sWT13l7lOHbZjWBgE/8/SRJFAYESW+IS+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.14; Fri, 7 Feb
- 2025 19:42:04 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
- 19:42:04 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 07 Feb 2025 14:39:57 -0500
-Subject: [PATCH v14 15/15] arm64: dts: imx95-19x19-evk: Add PCIe1 endpoint
- function overlay file
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250207-ep-msi-v14-15-9671b136f2b8@nxp.com>
-References: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-In-Reply-To: <20250207-ep-msi-v14-0-9671b136f2b8@nxp.com>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738957203; l=1955;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=x7Baft40FQs3qktRIJPQ7a3I6QN5UrAWWQfC/8zsIfw=;
- b=Mm+uUzWhGzxprTqSZz/ohxCg4WB0Af7DumOpLqz0BUIK8jc23ApA3Yxonx2+kkX5hLZPUHR28
- 7pKtuwWRMDpCV2/rLTKNnk1/UmU+UMcXzh0b/tVB+DtANjASVVCFSkI
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 07 Feb 2025 19:42:35 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1tgUEq-0001XR-Nk; Fri, 07 Feb 2025 20:42:08 +0100
+Message-ID: <cfc5b39e21fb214c53fda3276847b8e235af818f.camel@pengutronix.de>
+Subject: Re: [PATCH v6 08/14] drm/rockchip: analogix_dp: Add support to get
+ panel from the DP AUX bus
+From: Lucas Stach <l.stach@pengutronix.de>
+To: Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org,  vkoul@kernel.org, sebastian.reichel@collabora.com, 
+ cristian.ciocaltea@collabora.com, dmitry.baryshkov@linaro.org, 
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org
+Date: Fri, 07 Feb 2025 20:42:06 +0100
+In-Reply-To: <20250123100747.1841357-9-damon.ding@rock-chips.com>
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+	 <20250123100747.1841357-9-damon.ding@rock-chips.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9787:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8aa907e6-b916-4428-04bb-08dd47af7fbe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z1pwSE5xaWV4UC9JdFVwUWRwYkJFVGVrSEZERFhOWkhjZ2tETlJKYkZoc1Nr?=
- =?utf-8?B?ZzRXcEVHQ3FWdi9FZ0Y1dHp4STV5U1U2eHo0SHJWYnBoYlRKT1hnT3JrOHdD?=
- =?utf-8?B?QWZFSzMxVWgrT2FvY1NncHMzNUZSTkxhN3pMM01QWEMwUDcvUG9vRmhJdHps?=
- =?utf-8?B?UmhJRDVPS2JNYTdoeW5MK1VkTC96b0JGRmJ4VWR5LzJmOVA5RVJzanQ5WFNl?=
- =?utf-8?B?YnZWYU9CK2g5SUc2Q3o3Mkx6RW5nZnUvYjBsTkVtZXljc1daMFUzeHV6ZWVE?=
- =?utf-8?B?UmVLK3lTWk9iWjRlOXI5TmUyRTBzTWlOdytrWStoK2VtVWF5UUozcTFaYWVV?=
- =?utf-8?B?emJ3WVZOQUlGd29YQTZ2RDFicisrb2NBSGl2amlHbHBFcldyTlBFdnczN1ZK?=
- =?utf-8?B?Y0pNekJpMFRuM3RRbG1nRmpJbm5QdlUwSmFFWXRtdzE4QzBRM2lhcEhzMUJ6?=
- =?utf-8?B?bzQ3WjdnVGxORXNJMFJES3FQb3NOcFFBemRkVFBVajk4V1podStia21CS243?=
- =?utf-8?B?REs5RWxQU1NNUXRXQ01yRzhPc2hjR09sWndiS3JaYUQ1U1hQVG5iMkw5dU0r?=
- =?utf-8?B?alVpVUpLbFRvczN5c1Vic2dGZDVWcjhzOTdDOXR2U3RHV1U3WlNCOENKSVlt?=
- =?utf-8?B?L25oWUxMWlNUdUpjOG9YbUs0Q0VoMmU2NzVhNk80RmYvaEJRYzA1U3g2OEJV?=
- =?utf-8?B?WXVrenRBcHdBZ2g0MkdlZHBLcWErZ05DcEx2V1JTN3NQQVUzMm9ZM1owYmNn?=
- =?utf-8?B?dWoveDJodnJhNWJhdlIza2xWTEhTakxJc2lzM25pVTdvVmgwemFkY0w3M1Rp?=
- =?utf-8?B?eXF0UXFMTzZ2ZWJ4cmFNVGtWN2dxYXZld21pUkg3ZVJpTndESUdpUmVPT3dR?=
- =?utf-8?B?S0tHaHhzaDdvUTVzNTY0L2JEL3RLK3hidU13THo0Z3M2cmhZZVhXWlFCSDA5?=
- =?utf-8?B?TXZuVXROTitVQ3Z3SGRWYlpjUUpTQlJXZXh2TEw1RGNSV2xsVUkxek1iTkZR?=
- =?utf-8?B?dG52Nk56NFo2eWlsblJoSmJsTE5nWTl4cUcwZlczbk92Wm5BWm4xSHdHb0xN?=
- =?utf-8?B?U0FGUmpyVTNGZFdwRnJrRGcwRVo0eFZiUVNZVUprdkp0RThxU1VqMVhXa1ZN?=
- =?utf-8?B?ZjhmUStmYWlqK1FERDdnalI0L1EvZXFmeGJYWWNwNDBQUXVuRWxRbmZ6Nnpj?=
- =?utf-8?B?UndFZXBDK01kZjRHbnV6eXZsMmM3NXV5V2dBdVNPaFNITTErTjYyVlZ0cG56?=
- =?utf-8?B?ZVFUV1pXWEE0bVpoQzY4WEVLS3JlNlcyQ3U0UW0rdHlGbTZYbUY1TURVdFV1?=
- =?utf-8?B?MDI1RTZ6TFdEUUl6YURNRU0ydEdsYS8zVDNueWRZdzAzSk5sd1FQSUkwTnB4?=
- =?utf-8?B?anhzUVNkV2xYRmRsSHJlaXI3OGUyeXBSS0pIMTFYdFM0cjFMQ1FybG1GUUYv?=
- =?utf-8?B?UXhYUlJZWkpGaEZaZ2duUTNEWkVCSjBPemh1bFZkenBxOFlGV1I3MUlCS1V2?=
- =?utf-8?B?UGVKbjM4UDd0SmV3RGVrUURodnB1R3IxSWg2Q3I5VTVZd1RXc3VlekFZczBx?=
- =?utf-8?B?WTdDdFZwMUw5ZHQ5UHpCT1B6K012MEk3Q1BjUWE4c1ZHamxKK1h5aDEwZXpQ?=
- =?utf-8?B?eHF6TStSbXQrSHEvQ1MyWW9aTUtlampyMi96am1ObGZIdFEwR3F4VEQrQURX?=
- =?utf-8?B?SG8rVzBTSis2QzhzWjAzK1ZqeHhvWS9YM0lwd3FYUVZVTUFnREMyWWpvNDJs?=
- =?utf-8?B?Vm4wOWNBV0JVN2MyUDNxNFN1YTNZelpJanBvSmVMTjlzRGthRlgvNWtPU2NZ?=
- =?utf-8?B?M0oxV1UxRXhTYnY5OEN2b1ZLQmEzM2dhR0orZkFOdHU2N0RrZWxjQUNRaitZ?=
- =?utf-8?B?SGpvaUlPRUNOV2VVdHFEY294M0dBaWxPeXN1MEx0QUE1ZUpTV21oWVJZd3BI?=
- =?utf-8?B?WGJJcHFNNW50bEJDNXNwZkx4aUNUbHlvY3RydmpwWE52YXhwU3hyL0FJMC9S?=
- =?utf-8?B?TEV2MXJTNmFRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dFhOdlVxN1NRZmtsWlFpcXZIeUVDNFF6TVV6V3BMNjFtcFpkcWZ5NmpOZXkv?=
- =?utf-8?B?a3RDTW5PQVN3dTI5Mm5XaW84dC9Lbk1wL0hENUQ4UDNUWUN0WHFVT3NVTm5Y?=
- =?utf-8?B?cTFtcDNmdEFKL2dGcTFMTitKV2YycEhxM05CSXZYQjZCc1ZtUktPdXh4S2ZM?=
- =?utf-8?B?RXNNZFpSRmdzMFd5VEdobDRLNGlBQzZvL1lZaW5WaElMT2VRdlVEdmRFWDMr?=
- =?utf-8?B?YnJpOFl5VVZxM2c1QzU3bnVBM0o3YTlVRzlrY3M3NUoyazZHV3p2ZXZ4OU9N?=
- =?utf-8?B?ejFBMDhNRThuZFF1VUs2djhteWMyYnRUL1R3WTl2Y3o1R2ZtSElyVU96dTht?=
- =?utf-8?B?RmZtL2JSUXUyVERqN1RvRnlKSmorU2tQN1lGYlpRRnJoTnh3K1NjOXJhWFBa?=
- =?utf-8?B?Z0dqSStoUERTMVgySENLTWZEY01CTDZXSG55aDhBNEswZi83UE41WDBzOXB6?=
- =?utf-8?B?cGp1SzNpaG1TSHovRDZFbXNMalVvNnk3Smx1d0VUV3ZMZjVVdS93WTlzUVh5?=
- =?utf-8?B?aUlzVEtWeTRoUGdlbzBRQkZmOWt3andPbEpEUFBsQnNGdW9NdWdmVWNpS0Vv?=
- =?utf-8?B?MkVvNDd1Q0dyYVYrZktIS05HZ1NMaW1EWXJTMVUrVmw0TlRLTHdYMXQ2NjA3?=
- =?utf-8?B?NVpjc1NmWkE0aVAwRHFBTlpWRzM3d2JtVmtWQmpKdGdRWmJKdEo4a2IyeHNi?=
- =?utf-8?B?YmxiOGd1cEdDTFI2WjV5bHFGMEFrRENCeVlTVTN4UkR1MDlBZk1xNG8zODdW?=
- =?utf-8?B?bG13NkRITG1aY3dOZmNnakZrdElqeWhHZUM4bjBCZk5mNGw2akhPOS9XWm1D?=
- =?utf-8?B?dGlrQWxUMk5pM1I4Zm5QZEg0SUNQRWt3a0tVRkdkUmhIZUxsVDRENEZyaUx0?=
- =?utf-8?B?Wnk1RVhhdXZlcm5oanRjbGpDMDVOdmg0d2FoaThOb2NDTW9IZ3JiVkgxdUtD?=
- =?utf-8?B?czdYQTZvT2tzM2tMRHRaYkIvSUx1blZ5U2RuejVxYVBWbGF4TmxhaXE3dlRz?=
- =?utf-8?B?eXVBbi9wSm5jc05Ld3prbk8rQ1F5N0N6QlIwZU1jbFNrNlRMRVZ3UHhUaUlO?=
- =?utf-8?B?VW1KbGNNRkE3N0kyTWVtZmh1Z20wSExQbVRML3FkbTBPZzJxVjU2eXZwdEs3?=
- =?utf-8?B?OHVRK3dGZEt3K01JdUdmMWVDMHNlRWhpa05VM1ZCeFdEY0w1Wk1BcDZRcUhh?=
- =?utf-8?B?VHZyZkdUbXhZUHVFL3lHdWNzV2hEQktvb0NLRUNJN0gvNlEwYVdxeWh6V1JQ?=
- =?utf-8?B?dzRQZ29lRWlya3JUNU9ZRWZ2Y3BnRWdMMkZvQ05NSjBOS3YxcjQ0NmY4MXg2?=
- =?utf-8?B?b1c2Y2QzRUpmQ210a3h6VlZIQ2FSRFVya1o1bFBPcE9OQjFCRGJ1OFlmQlZ5?=
- =?utf-8?B?MjlISDcyL3h0ZHl1dW9DVWJMVzBRNktTYmk4RVlodEdsaVJyMllRbUZVWStE?=
- =?utf-8?B?djAzUVN6VHRBQlU3MDdCTEV5OGcySktoWEgxRnNVdFNxOWFRRjB6clNpTUxx?=
- =?utf-8?B?WERHeEttMlg3TWl5Q1VRZnlCcmVmcGtaRjJGbG5jZytwT05FVWNSdGZXbmlI?=
- =?utf-8?B?RmFSbXBNQUNLaFFXTkRTNUlMU05URjVjMFNRcGd1R0lyT1dWcGt3WEFnNkxh?=
- =?utf-8?B?Zm8yRExVbHg0SThjSURXaGdqYU5xQVB2WDcyOW5jdERuZ0NaeFkxRjI3azZa?=
- =?utf-8?B?emtuRmRXdUVxNmxWYlZtUE5VaS9oZGcrdHJNRVBUOGNSaTdmbm0yakZnOHZq?=
- =?utf-8?B?WGUvbm4vd0FndFRyZmdUVE1Bckl6RmtkZzJFWFJJVWhpRllwamVMYUNDRTIw?=
- =?utf-8?B?NVZxcGNxVm0xZlpXRjhSSC9TQXQwYUFJekxKa2c4c01rZjYwMzR2ZGUzZzV4?=
- =?utf-8?B?RS9tTzRKbC9sZ2VITWNia212RmhjMVRDVEtkbVpSSjRGSGhCd0V1WS9ZcGcw?=
- =?utf-8?B?YWM4L2VmSCt3SXpMbWNUb0dyM0FuT1JmOFRMUXJZWEtCamVJMGJ1eEhrSStP?=
- =?utf-8?B?YTVLakNjelpNa05HSlFMNWozRW53VFkxelJSbGVIbVZUOVB1eC8vd2NoeTFW?=
- =?utf-8?B?aGVuMDg5WW9ieW5UWWxXcWpDK2dLNFIxZGFBZ2IxU0d4bXNpaDVSWUNYOFd1?=
- =?utf-8?Q?RKoZJMBxz6Q4Vh2cumxUPZNXC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa907e6-b916-4428-04bb-08dd47af7fbe
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 19:42:04.7005
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UW8lvnuKq1WXOrvoiiZOGqeuKMS7n2fzQ4VER97oaGC2195C5m8EFcnwVkWL1Ppf+gXXcRPjJuPCgI5WwKLfKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_114207_805024_72A8CB5C 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20250207_114233_945563_3B0D764C 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,61 +74,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an overlay file to configure PCIe1 to function as an endpoint. Enable
-PCIe1 to work as endpoint mode on the imx95-19x19-evk platform.
+Hi Damon,
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change from v13 to v14
-- new patch
----
- arch/arm64/boot/dts/freescale/Makefile              |  3 +++
- .../dts/freescale/imx95-19x19-evk-pcie1-ep.dtso     | 21 +++++++++++++++++++++
- 2 files changed, 24 insertions(+)
+Am Donnerstag, dem 23.01.2025 um 18:07 +0800 schrieb Damon Ding:
+> Move drm_of_find_panel_or_bridge() a little later and combine it with
+> component_add() into a new function rockchip_dp_link_panel(). The functio=
+n
+> will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
+> aiding to support for obtaining the eDP panel via the DP AUX bus.
+>=20
+> If failed to get the panel from the DP AUX bus, it will then try the othe=
+r
+> way to get panel information through the platform bus.
+>=20
+The changes in this patch effectively revert 86caee745e45
+("drm/rockchip: analogix_dp: allow to work without panel"). Please
+correct this in the next revision of this patchset.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 839432153cc7a..d892303fa7eab 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -287,6 +287,9 @@ imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-kontron-dl.dtb
- 
-+imx95-19x19-evk-pcie1-ep-dtbs += imx95-19x19-evk.dtb imx95-19x19-evk-pcie1-ep.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-pcie1-ep.dtb
-+
- imx8mm-venice-gw72xx-0x-imx219-dtbs	:= imx8mm-venice-gw72xx-0x.dtb imx8mm-venice-gw72xx-0x-imx219.dtbo
- imx8mm-venice-gw72xx-0x-rpidsi-dtbs	:= imx8mm-venice-gw72xx-0x.dtb imx8mm-venice-gw72xx-0x-rpidsi.dtbo
- imx8mm-venice-gw72xx-0x-rs232-rts-dtbs	:= imx8mm-venice-gw72xx-0x.dtb imx8mm-venice-gw72xx-0x-rs232-rts.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-pcie1-ep.dtso b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-pcie1-ep.dtso
-new file mode 100644
-index 0000000000000..696588e768e61
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-pcie1-ep.dtso
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&pcie1 {
-+	status = "disabled";
-+};
-+
-+&pcie1_ep {
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	pinctrl-names = "default";
-+	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_slot_pwr>;
-+	status = "okay";
-+};
+Regards,
+Lucas
 
--- 
-2.34.1
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>=20
+> ---
+>=20
+> Changes in v4:
+> - Use done_probing() to call drm_of_find_panel_or_bridge() and
+>   component_add() when getting panel from the DP AUX bus
+>=20
+> Changes in v5:
+> - Use the functions exported by the Analogix side to get the pointers of
+>   struct analogix_dp_plat_data and struct drm_dp_aux.
+> - Use dev_err() instead of drm_err() in rockchip_dp_poweron().
+>=20
+> Changes in v6:
+> - Keep drm_err() in rockchip_dp_poweron()
+> - Pass 'dp' in drm_...() rather than 'dp->drm_dev'
+> ---
+>  .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 37 ++++++++++++++-----
+>  1 file changed, 28 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gp=
+u/drm/rockchip/analogix_dp-rockchip.c
+> index 13f32aeea7ca..004b1b68d1cf 100644
+> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> @@ -393,11 +393,27 @@ static const struct component_ops rockchip_dp_compo=
+nent_ops =3D {
+>  	.unbind =3D rockchip_dp_unbind,
+>  };
+> =20
+> +static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
+> +{
+> +	struct analogix_dp_plat_data *plat_data =3D analogix_dp_aux_to_plat_dat=
+a(aux);
+> +	struct rockchip_dp_device *dp =3D pdata_encoder_to_dp(plat_data);
+> +	int ret;
+> +
+> +	ret =3D drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data-=
+>panel, NULL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D component_add(dp->dev, &rockchip_dp_component_ops);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return ret;
+> +}
+> +
+>  static int rockchip_dp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev =3D &pdev->dev;
+>  	const struct rockchip_dp_chip_data *dp_data;
+> -	struct drm_panel *panel =3D NULL;
+>  	struct rockchip_dp_device *dp;
+>  	struct resource *res;
+>  	int i;
+> @@ -407,10 +423,6 @@ static int rockchip_dp_probe(struct platform_device =
+*pdev)
+>  	if (!dp_data)
+>  		return -ENODEV;
+> =20
+> -	ret =3D drm_of_find_panel_or_bridge(dev->of_node, 1, 0, &panel, NULL);
+> -	if (ret < 0 && ret !=3D -ENODEV)
+> -		return ret;
+> -
+>  	dp =3D devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
+>  	if (!dp)
+>  		return -ENOMEM;
+> @@ -434,7 +446,6 @@ static int rockchip_dp_probe(struct platform_device *=
+pdev)
+> =20
+>  	dp->dev =3D dev;
+>  	dp->adp =3D ERR_PTR(-ENODEV);
+> -	dp->plat_data.panel =3D panel;
+>  	dp->plat_data.dev_type =3D dp->data->chip_type;
+>  	dp->plat_data.power_on =3D rockchip_dp_poweron;
+>  	dp->plat_data.power_off =3D rockchip_dp_powerdown;
+> @@ -450,9 +461,17 @@ static int rockchip_dp_probe(struct platform_device =
+*pdev)
+>  	if (IS_ERR(dp->adp))
+>  		return PTR_ERR(dp->adp);
+> =20
+> -	ret =3D component_add(dev, &rockchip_dp_component_ops);
+> -	if (ret)
+> -		return ret;
+> +	ret =3D devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockc=
+hip_dp_link_panel);
+> +	if (ret) {
+> +		if (ret !=3D -ENODEV) {
+> +			drm_err(dp, "failed to populate aux bus : %d\n", ret);
+> +			return ret;
+> +		}
+> +
+> +		ret =3D rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
+> +		if (ret)
+> +			return ret;
+> +	}
+> =20
+>  	return 0;
+>  }
 
 
