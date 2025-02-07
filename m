@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9720EC02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE9CC02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 14:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUIATTpWkJ6ksl2lAiv6DWKa1CBYWFtB/jrFlUcnowU=; b=mn4GXEtVnuQhQBy7/q/2nn0+kR
-	pucO2mi9mm4fPUlZBHVriXb08jSAogDw4AgQ4yF5m1mNjJAdRtIyK9smdvy4dMaDC+8phh6pP+H8x
-	VMUHv08TqW/bM9TfnQNUgqWeDWWQY292OS8+q5q35t1eG4PdQo6O6lglW4Nq1+cnTG4Dx0kZDwf+l
-	mVQY9nK+leFTwrugt9pz4lCWUA3412hIr+E8Rloy4diIqLnOWx0kch2vKx9NI3bVu4EH8DHfT4UTG
-	cOqGHqh/+x722U79obFtWXkyNN07kXKNn2OjImkS36Gl2aOI50djx2XZX0HZFne4kvr1Y81M/Epnp
-	CqlZu9rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DX9YVYA5jAptiqiz3ePOledX+7UoRF1EJu9+pXKGhZ4=; b=LKLxRw4rastSHq90CM8jbAA25i
+	Yi/yGS7BFUNKm4uy4/TBwDepdWHjNx7HkxUFPJq6S344FIJpkjjFXncZWgwAaeRQkiXBdg2/zV6Hz
+	aH1vD0zznWQHRIQE7Qdr3dr2YPIeZWW55eAWY6/Sxb5/YDhs3wiijtnND1ud4TDssMFBmm/x+fm10
+	KDzvpEqI7ixBSu1ilRGsIkS6+fA7TxGmFBUKi6wg9OrcCVaWlAEZvsB+mfjatD5vLrEmNQ9vNYCt7
+	D+vt7s4D/Xa8cMk3E+0McHbB7f3GPW62/wSzl6HUPyvMXPxElEqYJEtP1gH00u9TKMDyvmcNebGRl
+	vbzXN5mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgPA2-00000009omb-12bA;
-	Fri, 07 Feb 2025 14:16:50 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1tgPBN-00000009p2q-3f6u;
+	Fri, 07 Feb 2025 14:18:13 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgP8d-00000009oTD-2B6c
+	id 1tgP9N-00000009oaz-2ZxZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 14:15:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738937723; x=1770473723;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1FkVz/U+uzeZGFUK+7kMEhIACeTn3T5bXbi5T/k6aZk=;
-  b=CxyH/I/4p1Syomgj+xN9DiKxV8Z4FXjV57tR13XJ3og0/4QUZphvSR/S
-   76vjKGiAI69DiIqrsZm6KR91Kv7vm4LtB6R9LzkIIODbbfQH8OipZChDs
-   REkQgVmO9glm1MGN4ey9MvVL7YbnheVW1nRcL+Ufns1sj3WvzmyJEDdyx
-   opxZvUzZC62+7eY4YDJulf/8jIUiqVJAnk4HR+y5p1pnNPTTuKN0SKK1p
-   HJxLGAsNxL5sI7Amxx6uGM6we5bJLAyRjJb1/D86C4mfkJC9n174TB3ez
-   imLXU2YOI94Fh/6y/AttCOvh251LL5/bp+Xr5JVLLtdcrnLN4mWrP1DSc
-   w==;
-X-CSE-ConnectionGUID: O7LjROCdSAyJDQ9GgX6mOw==
-X-CSE-MsgGUID: 6618fL8IRTa5j7UjLivkgg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="50199283"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="50199283"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 06:15:17 -0800
-X-CSE-ConnectionGUID: qP9Nwvi7S+aRp61EDQ3aIQ==
-X-CSE-MsgGUID: RnF9zi/sS2yJP209glu42g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="111319995"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 07 Feb 2025 06:15:13 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgP8Q-000yQx-0z;
-	Fri, 07 Feb 2025 14:15:10 +0000
-Date: Fri, 7 Feb 2025 22:14:11 +0800
-From: kernel test robot <lkp@intel.com>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 18/26] rqspinlock: Add entry to Makefile,
- MAINTAINERS
-Message-ID: <202502072249.IXcsG9Tu-lkp@intel.com>
-References: <20250206105435.2159977-19-memxor@gmail.com>
+	Fri, 07 Feb 2025 14:16:10 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 517EFqeS3015119
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 7 Feb 2025 08:15:52 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1738937752;
+	bh=DX9YVYA5jAptiqiz3ePOledX+7UoRF1EJu9+pXKGhZ4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=H529LbRA3dyOtGm1qwWVVsm8+cYmWi8NhQtbcBehTXvYlPKm8skBqWQViaFJ3N07b
+	 919psV9wHQXE+ZMUk6t4MesmwxINdOSaKNyJGxKU5cBZIb3muGJIFzwarJ4Xe/IYnF
+	 I+o27B8qhmRiNNNtqGQIJeIuhy9gUF5N7p+XtdaE=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 517EFqgh021501
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 7 Feb 2025 08:15:52 -0600
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
+ Feb 2025 08:15:51 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 7 Feb 2025 08:15:51 -0600
+Received: from [10.250.151.109] ([10.250.151.109])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 517EFm2C044276;
+	Fri, 7 Feb 2025 08:15:49 -0600
+Message-ID: <274838d7-08e5-4e09-b872-47644b96a219@ti.com>
+Date: Fri, 7 Feb 2025 19:45:48 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206105435.2159977-19-memxor@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: ti: k3-ringacc: include platform_device header
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <peter.ujfalusi@gmail.com>,
+        <vkoul@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <vigneshr@ti.com>, <srk@ti.com>
+References: <20250207065123.879863-1-s-vadapalli@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250207065123.879863-1-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_061523_573580_EF4BDA45 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250207_061609_787942_64B8C6A4 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,80 +86,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kumar,
+Thanks for fix Siddharth
 
-kernel test robot noticed the following build errors:
+On 2/7/2025 12:21 PM, Siddharth Vadapalli wrote:
+> Users of "k3-ringacc" APIs may not necessarily be platform devices. Such
+> users therefore will not include "platform_device.h", resulting in
+> compilation warnings for the APIs declared in "k3-ringacc.h" which assume
+> inclusion of "platform_device.h" by its users.
+>
+> Fix the compilation warnings by including the "platform_device" header
+> file, which should ideally have been included since commit under Fixes.
+>
+> Fixes: d782298c6f6b ("soc: ti: k3-ringacc: add AM64 DMA rings support.")
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>
+> Hello,
+>
+> This patch is based on commit
+> bb066fe812d6 Merge tag 'pci-v6.14-fixes-2' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci
+> of Mainline Linux.
+>
+> Regards,
+> Siddharth.
+>
+>   include/linux/soc/ti/k3-ringacc.h | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
+> index 39b022b92598..6bbb58068048 100644
+> --- a/include/linux/soc/ti/k3-ringacc.h
+> +++ b/include/linux/soc/ti/k3-ringacc.h
+> @@ -8,6 +8,7 @@
+>   #ifndef __SOC_TI_K3_RINGACC_API_H_
+>   #define __SOC_TI_K3_RINGACC_API_H_
+>   
+> +#include <linux/platform_device.h>
+>   #include <linux/types.h>
+>   
 
-[auto build test ERROR on 0abff462d802a352c87b7f5e71b442b09bf9cfff]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Kumar-Kartikeya-Dwivedi/locking-Move-MCS-struct-definition-to-public-header/20250206-190258
-base:   0abff462d802a352c87b7f5e71b442b09bf9cfff
-patch link:    https://lore.kernel.org/r/20250206105435.2159977-19-memxor%40gmail.com
-patch subject: [PATCH bpf-next v2 18/26] rqspinlock: Add entry to Makefile, MAINTAINERS
-config: i386-randconfig-014-20250207 (https://download.01.org/0day-ci/archive/20250207/202502072249.IXcsG9Tu-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250207/202502072249.IXcsG9Tu-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502072249.IXcsG9Tu-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/x86/include/asm/rqspinlock.h:27,
-                    from kernel/locking/rqspinlock.c:28:
-   include/asm-generic/rqspinlock.h:33:12: error: conflicting types for 'resilient_tas_spin_lock'; have 'int(rqspinlock_t *, u64)' {aka 'int(struct rqspinlock *, long long unsigned int)'}
-      33 | extern int resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout);
-         |            ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/x86/include/asm/rqspinlock.h:17:12: note: previous declaration of 'resilient_tas_spin_lock' with type 'int(struct qspinlock *, u64)' {aka 'int(struct qspinlock *, long long unsigned int)'}
-      17 | extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
-         |            ^~~~~~~~~~~~~~~~~~~~~~~
->> kernel/locking/rqspinlock.c:293:16: error: conflicting types for 'resilient_tas_spin_lock'; have 'int(rqspinlock_t *, u64)' {aka 'int(struct rqspinlock *, long long unsigned int)'}
-     293 | int __lockfunc resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout)
-         |                ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/x86/include/asm/rqspinlock.h:17:12: note: previous declaration of 'resilient_tas_spin_lock' with type 'int(struct qspinlock *, u64)' {aka 'int(struct qspinlock *, long long unsigned int)'}
-      17 | extern int resilient_tas_spin_lock(struct qspinlock *lock, u64 timeout);
-         |            ^~~~~~~~~~~~~~~~~~~~~~~
-   kernel/locking/rqspinlock.c:204:13: warning: 'rqspinlock_report_violation' defined but not used [-Wunused-function]
-     204 | static void rqspinlock_report_violation(const char *s, void *lock)
-         |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
 
-vim +293 kernel/locking/rqspinlock.c
-
-65ba402b78bc5d Kumar Kartikeya Dwivedi 2025-02-06  288  
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  289  /*
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  290   * Provide a test-and-set fallback for cases when queued spin lock support is
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  291   * absent from the architecture.
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  292   */
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06 @293  int __lockfunc resilient_tas_spin_lock(rqspinlock_t *lock, u64 timeout)
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  294  {
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  295  	struct rqspinlock_timeout ts;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  296  	int val, ret = 0;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  297  
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  298  	RES_INIT_TIMEOUT(ts, timeout);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  299  	grab_held_lock_entry(lock);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  300  retry:
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  301  	val = atomic_read(&lock->val);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  302  
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  303  	if (val || !atomic_try_cmpxchg(&lock->val, &val, 1)) {
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  304  		if (RES_CHECK_TIMEOUT(ts, ret, ~0u)) {
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  305  			lockevent_inc(rqspinlock_lock_timeout);
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  306  			goto out;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  307  		}
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  308  		cpu_relax();
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  309  		goto retry;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  310  	}
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  311  
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  312  	return 0;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  313  out:
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  314  	release_held_lock_entry();
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  315  	return ret;
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  316  }
-7a9d3b27f7bf9c Kumar Kartikeya Dwivedi 2025-02-06  317  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>   struct device_node;
 
