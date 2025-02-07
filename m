@@ -4,102 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A96C02194
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53E0C02194
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Feb 2025 18:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7J0r4qdpm9ogCxxEXCmuWQ05YmyiQ/JmT0n5JH2LdWs=; b=M914kYJzvhYxKjqxP3agw5jZKm
-	GU+ECpubJ6jClG8J2Xd4tmbX7aeIQ/bDA7Rit+eVdaEoh5Bk6pjWpkT88ZofLmzOiAWyd8u9eXN6W
-	W6agjMvJcY84CIwCobobCe/ANUE/bammGgS0th/sjALcgIBdwh6X4CJOrz+zqMneuiSGglJzk76Gj
-	GDROdQ68+Buyj5s5/WWDmP9fvjStaIcSrNvf+cNXClX3LXN/Twoc6G/zAe9MSNU4oyK/mirp+uPhE
-	TAtVKurWQrX5lfp6CklyG4QWeVvmwthegeDhbbTwKElJoc6aIZejk2vYLY+my6mFA6E87pxH3DD0L
-	bUGmwjeg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+oahvmviFzPFAoZN76DRNcCqrSL09abI76mdM/E0da0=; b=dB6HJPH+1G4blBHgvdFIl+gJLc
+	nBiLeNY9sKsWQK5WkauE/RxFXDbJsh7c3ogZoaewVdqcpGt6J+rJ39VyNRL3GtwGYoFg1FhAg5Cod
+	5u9epa97HsTL2m7bVCjkITE1Ky9jwABJLvoYvHceQNOCJhXhxLtcmfx2NX6EPddzLnLLkQiWJe29G
+	12SMtPkZXpXjyIOPraRjedvEhldqANFxIpE6TKFIP3vRnMHPwiUhI4S/O1u0cT4gUDuMeRtsTcbQV
+	icnoi1Vq711cVLouDQqtf+OosJYkyF561TtZeRp9di3gARQFUKRlH4kN2ot+lldSB8XHlVW+M4LP6
+	vKR2N14Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgStx-0000000Aedz-0Rw7;
-	Fri, 07 Feb 2025 18:16:29 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tgSwW-0000000Af4u-0FIF;
+	Fri, 07 Feb 2025 18:19:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgRf5-0000000ANjn-3TTh
+	id 1tgSv7-0000000Aerg-3tl9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Feb 2025 16:57:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738947424; x=1770483424;
-  h=from:to:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=yi+lqoiaOf90NYBk5ORhTmBVwnJwPtvDSnNF5mudk+g=;
-  b=j6T8XvNsrvlBhFTX8bkndeB4C3O358LEoTsm3Zgwx+gUNtSkytlqSAib
-   Cw2gwQsy8f4cbKBYOX9Y2LadQ5e9JvKPwSLaefO3NzSvalxvJO8DdI6fJ
-   dRpPWsGnwkBg3YAL4FDsTUf/7h2UhQgZpXvO7aixdc9XTv+DYqZGclgtq
-   xdxKwHo6gIqRfLgK9Jl75xijWIadAsLhe0e6harqEySwy2+ZxHtzU9lAf
-   Ya7ASdXpafSh1lKe2MoUGr5KIeQgC2lxjrcUIFHZPp5sSWG9ExKuYpp6t
-   hHtiRZSflCyt3dsdLNCYzXqO7vZ7cm5S7BOIR0ZDCFEQkQUT/tXpThKa8
-   Q==;
-X-CSE-ConnectionGUID: ApmhYCC6TkSMB0uN6y4XwA==
-X-CSE-MsgGUID: nohHQRUOS6KnQN/dUvgcEg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39722847"
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="39722847"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:57:03 -0800
-X-CSE-ConnectionGUID: n988hgUKQKeTWgip6bqsFQ==
-X-CSE-MsgGUID: nVQxFxGYRYCqIs7rWWjTuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
-   d="scan'208";a="111534437"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa006.jf.intel.com with ESMTP; 07 Feb 2025 08:56:53 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Fri, 07 Feb 2025 18:17:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2BED1A43940;
+	Fri,  7 Feb 2025 18:15:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7976C4CED1;
+	Fri,  7 Feb 2025 18:17:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738952260;
+	bh=YhvnDYR7qidyZ65s/d8Jwkc5DnwWWVwS1PPCZ3EY69U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gPucrDyPZcN1CcF3AWhw3RFQsw3W6CRfcAOtMI9uFEr6/gMSUskb716fPRXw8IqmN
+	 xdbRWcc6XnqfL7bWDxuwKFcRgeCJzzteLaFJXDUnvBVZWEFF8FJuuZBPR5BvgjfvIB
+	 Ago7lvhT6ih9dmT23lszgNvVtxlPfeXuijqiXXh+h7N1gw9KWL5/MWvPLB5EGxFXsa
+	 2pkn1TElv4It7Bf0RsFaMyYm4GnKh5Dc3pXXtDAU++Z9FeajLRgJjIdbk8U8dB6KA1
+	 PUu5rxJLuCW+SztMbze8rV93IPchSH4YCf2vB4Qe8TRo2KrecFDf/d+k3IdtT7aS8A
+	 KdhRtUBbNo2rg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tgSv4-001jsU-9V;
+	Fri, 07 Feb 2025 18:17:38 +0000
+Date: Fri, 07 Feb 2025 18:17:37 +0000
+Message-ID: <86cyftty9q.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	cohuck@redhat.com,
+	eric.auger@redhat.com,
+	sebott@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	jiangkunkun@huawei.com,
+	jonathan.cameron@huawei.com,
+	anthony.jebson@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v3 0/9] igc: Add support for Frame Preemption feature in IGC
-Date: Fri,  7 Feb 2025 11:56:40 -0500
-Message-Id: <20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	linuxarm@huawei.com
+Subject: Re: [PATCH v6 4/4] arm64: paravirt: Enable errata based on implementation CPUs
+In-Reply-To: <Z6ZMgDyyA5oV99hu@arm.com>
+References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
+	<20250205132222.55816-5-shameerali.kolothum.thodi@huawei.com>
+	<Z6YT7GxVKGKcnYmL@arm.com>
+	<86h655u8r3.wl-maz@kernel.org>
+	<Z6ZMgDyyA5oV99hu@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_085703_942874_E5F173FC 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250207_101742_099378_7B51CCDD 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,82 +101,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduces support for the FPE feature in the IGC driver.
+On Fri, 07 Feb 2025 18:10:08 +0000,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
+>=20
+> On Fri, Feb 07, 2025 at 02:31:12PM +0000, Marc Zyngier wrote:
+> > On Fri, 07 Feb 2025 14:08:44 +0000,
+> > Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > > On Wed, Feb 05, 2025 at 01:22:22PM +0000, Shameer Kolothum wrote:
+> > > >  static inline bool is_midr_in_range(struct midr_range const *range)
+> > > >  {
+> > > > -	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> > > > -				       range->rv_min, range->rv_max);
+> > > > +	int i;
+> > > > +
+> > > > +	if (!target_impl_cpu_num)
+> > > > +		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> > > > +					       range->rv_min, range->rv_max);
+> > > > +
+> > > > +	for (i =3D 0; i < target_impl_cpu_num; i++) {
+> > > > +		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
+> > > > +					    range->model,
+> > > > +					    range->rv_min, range->rv_max))
+> > > > +			return true;
+> > > > +	}
+> > > > +	return false;
+> > > >  }
+> > >=20
+> > > It's a interesting approach but how does this work in practice if an
+> > > erratum requires a firmware counterpart? Do we expect firmwares on all
+> > > machines involved to have workarounds for the other machines? Or is K=
+VM
+> > > going to intercept those SMCs and pretend the EL3 counterpart is ther=
+e?
+> >=20
+> > KVM already traps SMCs, and could do something on behalf of the guest
+> > (such as pretending that the mitigation has happened if not on the
+> > correct host) *IF* the mitigation is architected (=C3=A0 la WA{1,2,3}).
+>=20
+> That's the main thing I had in mind. I don't think we have any other
+> errata that requires firmware run-time discovery and interaction, though
+> you never know when we'll add new one.
+>=20
+> > If it is implementation specific, then we can immediately stop
+> > pretending that a guest running on those systems can be migrated.
+>=20
+> Makes sense.
+>=20
+> > The only thing it helps a bit is big-little.
+>=20
+> It does help a bit or, at least, we have some code for handling these
+> variations that cab be extended. However, with this patchset, the host
+> only probes the availability of the workarounds on the SoC it booted. It
+> has no idea about the extra MIDRs the VMM picks and what the other
+> machines in the clouds support.
 
-The patches aligns with the upstream FPE API:
-https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
-https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
+But that's the contract. The VMM has to be omniscient and know exactly
+what it can safely migrate to. It literally says "trust me, I know
+what I'm doing".
 
-It builds upon earlier work:
-https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
+> Anyway, let's hope the VMs only migrate between platforms that are
+> equally broken.
 
-The patch series adds the following functionalities to the IGC driver:
-a) Configure FPE using `ethtool --set-mm`.
-b) Display FPE settings via `ethtool --show-mm`.
-c) View FPE statistics using `ethtool --include-statistics --show-mm'.
-e) Enable preemptible/express queue with `fp`:
-   tc qdisc add ... root taprio \
-   fp E E P P
+No shortage of that, I'm afraid! :)
 
-Change Log:
-v2 -> v3:
-- Implement configure_tx() mmsv callback (Vladimir)
-- Use static_branch_inc() and static_branch_dec() (Vladimir)
-- Add adapter->fpe.mmsv.pmac_enabled as extra check (Vladimir)
-- Remove unnecessary error check in igc_fpe_init_tx_descriptor() (Vladimir)
-- Additional places to use FIELD_PREP() instead of manual bit manipulation (Vladimir)
-- IGC_TXD_POPTS_SMD_V and IGC_TXD_POPTS_SMD_R type change to enum (Vladimir)
-- Remove unnecessary netif_running() check in igc_fpe_xmit_frame (Vladimir)
-- Rate limit print in igc_fpe_send_mpacket (Vladimir)
+	M.
 
-v1 -> v2:
-- Extract the stmmac verification logic into a common library (Vladimir)
-- igc to use common library for verification (Vladimir)
-- Fix syntax for kernel-doc to use "Return:" (Vladimir)
-- Use FIELD_GET instead of manual bit masking (Vladimir)
-- Don't assign 0 to statistics counter in igc_ethtool_get_mm_stats() (Vladimir)
-- Use pmac-enabled as a condition to allow MAC address value 0 (Vladimir)
-- Define macro register value in increasing value order (Vladimir)
-- Fix tx-min-frag-size handling for igc (Vladimir)
-- Handle link state changes with verification in igc (Vladimir)
-- Add static key for fast path code (Vladimir)
-- rx_min_frag_size get from constant (Vladimir)
-
-v1: https://patchwork.kernel.org/project/netdevbpf/cover/20241216064720.931522-1-faizal.abdul.rahim@linux.intel.com/
-v2: https://patchwork.kernel.org/project/netdevbpf/cover/20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com/
-
-Faizal Rahim (8):
-  igc: Rename xdp_get_tx_ring() for non-xdp usage
-  igc: Optimize the TX packet buffer utilization
-  igc: Set the RX packet buffer size for TSN mode
-  igc: Add support for frame preemption verification
-  igc: Add support to set tx-min-frag-size
-  igc: Add support for preemptible traffic class in taprio
-  igc: Add support to get MAC Merge data via ethtool
-  igc: Add support to get frame preemption statistics via ethtool
-
-Vladimir Oltean (1):
-  net: ethtool: mm: extract stmmac verification logic into common
-    library
-
- drivers/net/ethernet/intel/igc/igc.h          |  18 +-
- drivers/net/ethernet/intel/igc/igc_base.h     |   1 +
- drivers/net/ethernet/intel/igc/igc_defines.h  |  16 +-
- drivers/net/ethernet/intel/igc/igc_ethtool.c  |  76 ++++++
- drivers/net/ethernet/intel/igc/igc_main.c     | 101 +++++++-
- drivers/net/ethernet/intel/igc/igc_regs.h     |  16 ++
- drivers/net/ethernet/intel/igc/igc_tsn.c      | 220 ++++++++++++++++-
- drivers/net/ethernet/intel/igc/igc_tsn.h      |  34 +++
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +---
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++-----------
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
- include/linux/ethtool.h                       |  61 +++++
- net/ethtool/mm.c                              | 224 +++++++++++++++++-
- 15 files changed, 794 insertions(+), 217 deletions(-)
-
---
-2.34.1
-
+--=20
+Without deviation from the norm, progress is not possible.
 
