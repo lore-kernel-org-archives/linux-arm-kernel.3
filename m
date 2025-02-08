@@ -4,75 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5DBC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 01:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CE3C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 01:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CK3OU+ccGznZ31C7XUXFYPJpM/j/qxzEt5SxaGquhHg=; b=g33l8gCKZW78T+I29bfTSXqJTm
-	yK6r79IM1bs23mbVvc5ln8pz8LMk/YHNwN+lbvPlXYNTrEnDGjn5eg3cLWNhqsPIHi1Gbr4qYtXYh
-	ocizuPeuA/ebOPlQNDgRBebWGN0nKJJVRQ8Imfl45LEzf2sKYQJ47hDEfZnBK+qIrN2q0T8wqZdU8
-	/UekUVvNbvLq2GkgeaOLQ4Oj/7ZEt8flsxGHZJJGlU6b3xljKVJy0MHdW1+JYEChvwo9bfi/q/es3
-	fqZLh7gtT/AW1itwI8RydwhXES0OeqTYSSPIqS8w7EWCr1TWIZw4lou2M9uKST6D7p4w6y6YP6pzm
-	mLn7U+vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4OGpJKlqYKJlS0pLuHn983Uuh5n9DtUrxuwcndbRF+g=; b=42SXfN3mm0OhsZaWTPpzPIYxXL
+	0qLUyuULtkQwjYWh0bSbsAddUlbZB+j3F+FYqZl/jkmTN/FGifSRzNILJfjluUyHUHsCQHuWtR2PO
+	CsrUCPk9ZKL2CxllKNV+lrh3JtGvWHCyEWOyB8GXZ/4WtP4Liz5ytTlZJbZK3GKIqG+kwZ4f4E1J6
+	63Kl/TN0mBkdadCEdqIRJpBSnPKKTPAng0GryKJWxiVJxMKkVSYue9E1nmhPF/MiEWOdwLTVjsNA+
+	iPSKtN4tTOI0ldvBpblLpcUNXkMF2bRqZslE9xxAG7Q1d6SDB+vJt6i9WE+lYVOwEckRYgNR87V7k
+	Ca0kE0dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgZSi-0000000BnD5-0cTE;
-	Sat, 08 Feb 2025 01:16:48 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tgZpP-0000000BpbH-0UZS;
+	Sat, 08 Feb 2025 01:40:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgZRJ-0000000Bn2F-1FM3
+	id 1tgZnz-0000000BpQY-1wh4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 01:15:23 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YqXvw3Mjhz20q27;
-	Sat,  8 Feb 2025 09:15:40 +0800 (CST)
-Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id DFB99180043;
-	Sat,  8 Feb 2025 09:15:11 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemg200008.china.huawei.com (7.202.181.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 8 Feb 2025 09:15:10 +0800
-Message-ID: <c34ebe3f-b78a-1a17-0c6a-48d3874f8be9@huawei.com>
-Date: Sat, 8 Feb 2025 09:15:08 +0800
+	Sat, 08 Feb 2025 01:38:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738978725;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4OGpJKlqYKJlS0pLuHn983Uuh5n9DtUrxuwcndbRF+g=;
+	b=E6gWZsu+36TGo6CxBCuxK/KU0QOuFzlIS8NCLaALobr/rETVpkZjPAV0tfK6tgDpsaTkNx
+	1KluWd57+r8+QoFfiIIkBW5jWgN7jfWPLL3oBvs5P3qNV32R4SgMFfW+P4mnN/zgyjI5iG
+	AYAJKYUn25NcQ43fl4TAi0ND3ekQExk=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-692-CGeBAf_OMfe2Z_xYLc2IJA-1; Fri,
+ 07 Feb 2025 20:38:42 -0500
+X-MC-Unique: CGeBAf_OMfe2Z_xYLc2IJA-1
+X-Mimecast-MFC-AGG-ID: CGeBAf_OMfe2Z_xYLc2IJA
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4EE0C1956094;
+	Sat,  8 Feb 2025 01:38:36 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.20])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CBBC7180087A;
+	Sat,  8 Feb 2025 01:38:32 +0000 (UTC)
+Date: Sat, 8 Feb 2025 09:38:27 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>, Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	changyuanl@google.com
+Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
+Message-ID: <Z6a1kxR2GlQoepgI@MiWiFi-R3L-srv>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206162939.a1f86fb835f1eeb7ed73ff1c@linux-foundation.org>
+ <CA+CK2bD6204AKWGOgzLMiMsnVZ=tk+DGc+VWgi3RVt2byaLJJA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH -next v5 00/22] arm64: entry: Convert to generic entry
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
-	<sstabellini@kernel.org>, <tglx@linutronix.de>, <peterz@infradead.org>,
-	<luto@kernel.org>, <mingo@redhat.com>, <juri.lelli@redhat.com>,
-	<vincent.guittot@linaro.org>, <dietmar.eggemann@arm.com>,
-	<rostedt@goodmis.org>, <bsegall@google.com>, <mgorman@suse.de>,
-	<vschneid@redhat.com>, <kees@kernel.org>, <wad@chromium.org>,
-	<akpm@linux-foundation.org>, <samitolvanen@google.com>,
-	<masahiroy@kernel.org>, <hca@linux.ibm.com>, <aliceryhl@google.com>,
-	<rppt@kernel.org>, <xur@google.com>, <paulmck@kernel.org>, <arnd@arndb.de>,
-	<mbenes@suse.cz>, <puranjay@kernel.org>, <mark.rutland@arm.com>,
-	<pcc@google.com>, <ardb@kernel.org>, <sudeep.holla@arm.com>,
-	<guohanjun@huawei.com>, <rafael@kernel.org>, <liuwei09@cestc.cn>,
-	<dwmw@amazon.co.uk>, <Jonathan.Cameron@huawei.com>, <liaochang1@huawei.com>,
-	<kristina.martsenko@arm.com>, <ptosi@google.com>, <broonie@kernel.org>,
-	<thiago.bauermann@linaro.org>, <kevin.brodsky@arm.com>, <joey.gouly@arm.com>,
-	<liuyuntao12@huawei.com>, <leobras@redhat.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<xen-devel@lists.xenproject.org>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20241206101744.4161990-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemg200008.china.huawei.com (7.202.181.35)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+CK2bD6204AKWGOgzLMiMsnVZ=tk+DGc+VWgi3RVt2byaLJJA@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_171521_648544_B1A73671 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250207_173847_569669_359BAF66 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,132 +114,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 02/06/25 at 08:28pm, Pasha Tatashin wrote:
+> On Thu, Feb 6, 2025 at 7:29 PM Andrew Morton <akpm@linux-foundation.org> wrote:
+> >
+> > On Thu,  6 Feb 2025 15:27:40 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
+> > > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
+> > > just to make things simpler instead of ftrace we decided to preserve
+> > > "reserve_mem" regions.
+> > >
+> > > The patches are also available in git:
+> > > https://git.kernel.org/rppt/h/kho/v4
+> > >
+> > >
+> > > Kexec today considers itself purely a boot loader: When we enter the new
+> > > kernel, any state the previous kernel left behind is irrelevant and the
+> > > new kernel reinitializes the system.
+> >
+> > I tossed this into mm.git for some testing and exposure.
+> >
+> > What merge path are you anticipating?
+> >
+> > Review activity seems pretty thin thus far?
+> 
+> KHO is going to be discussed at the upcoming lsfmm, we are also
+> planning to send v5 of this patch series (discussed with Mike
+> Rapoport) in a couple of weeks. It will include enhancements needed
+> for the hypervisor live update scenario:
 
-
-On 2024/12/6 18:17, Jinjie Ruan wrote:
-> Currently, x86, Riscv, Loongarch use the generic entry. Convert arm64
-> to use the generic entry infrastructure from kernel/entry/*. The generic
-> entry makes maintainers' work easier and codes more elegant, which aslo
-> removed a lot of duplicate code.
-> 
-> The main steps are as follows:
-> - Make arm64 easier to use irqentry_enter/exit().
-> - Make arm64 closer to the PREEMPT_DYNAMIC code of generic entry.
-> - Split generic entry into generic irq entry and generic syscall to
->   make the single patch more concentrated in switching to one thing.
-> - Switch to generic irq entry.
-> - Make arm64 closer to the generic syscall code.
-> - Switch to generic entry completely.
-> 
-> Changes in v5:
-> - Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
-> - Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
-> - Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
-> - Update "irqentry_state_t ret/irq_state" to "state"
->   to keep it consistently.
-> - Use generic irq entry header for PREEMPT_DYNAMIC after split
->   the generic entry.
-> - Also refactor the ARM64 syscall code.
-> - Introduce arch_ptrace_report_syscall_entry/exit(), instead of
->   arch_pre/post_report_syscall_entry/exit() to simplify code.
-> - Make the syscall patches clear separation.
-> - Update the commit message.
-
-Gentle Ping.
+So is this V4 still a RFC if v5 will be sent by plan? Should we hold the
+reviewing until v5? Or this series is a infrustructure building, v5 will
+add more details as you listed as below. I am a little confused.
 
 > 
-> Changes in v4:
-> - Rework/cleanup split into a few patches as Mark suggested.
-> - Replace interrupts_enabled() macro with regs_irqs_disabled(), instead
->   of left it here.
-> - Remove rcu and lockdep state in pt_regs by using temporary
->   irqentry_state_t as Mark suggested.
-> - Remove some unnecessary intermediate functions to make it clear.
-> - Rework preempt irq and PREEMPT_DYNAMIC code
->   to make the switch more clear.
-> - arch_prepare_*_entry/exit() -> arch_pre_*_entry/exit().
-> - Expand the arch functions comment.
-> - Make arch functions closer to its caller.
-> - Declare saved_reg in for block.
-> - Remove arch_exit_to_kernel_mode_prepare(), arch_enter_from_kernel_mode().
-> - Adjust "Add few arch functions to use generic entry" patch to be
->   the penultimate.
-> - Update the commit message.
-> - Add suggested-by.
-> 
-> Changes in v3:
-> - Test the MTE test cases.
-> - Handle forget_syscall() in arch_post_report_syscall_entry()
-> - Make the arch funcs not use __weak as Thomas suggested, so move
->   the arch funcs to entry-common.h, and make arch_forget_syscall() folded
->   in arch_post_report_syscall_entry() as suggested.
-> - Move report_single_step() to thread_info.h for arm64
-> - Change __always_inline() to inline, add inline for the other arch funcs.
-> - Remove unused signal.h for entry-common.h.
-> - Add Suggested-by.
-> - Update the commit message.
-> 
-> Changes in v2:
-> - Add tested-by.
-> - Fix a bug that not call arch_post_report_syscall_entry() in
->   syscall_trace_enter() if ptrace_report_syscall_entry() return not zero.
-> - Refactor report_syscall().
-> - Add comment for arch_prepare_report_syscall_exit().
-> - Adjust entry-common.h header file inclusion to alphabetical order.
-> - Update the commit message.
-> 
-> Jinjie Ruan (22):
->   arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
->   arm64: entry: Refactor the entry and exit for exceptions from EL1
->   arm64: entry: Move arm64_preempt_schedule_irq() into
->     __exit_to_kernel_mode()
->   arm64: entry: Rework arm64_preempt_schedule_irq()
->   arm64: entry: Use preempt_count() and need_resched() helper
->   arm64: entry: Expand the need_irq_preemption() macro ahead
->   arm64: entry: preempt_schedule_irq() only if PREEMPTION enabled
->   arm64: entry: Use different helpers to check resched for
->     PREEMPT_DYNAMIC
->   entry: Split generic entry into irq and syscall
->   entry: Add arch_irqentry_exit_need_resched() for arm64
->   arm64: entry: Switch to generic IRQ entry
->   arm64/ptrace: Split report_syscall() function
->   arm64/ptrace: Refactor syscall_trace_enter()
->   arm64/ptrace: Refactor syscall_trace_exit()
->   arm64/ptrace: Refator el0_svc_common()
->   entry: Make syscall_exit_to_user_mode_prepare() not static
->   arm64/ptrace: Return early for ptrace_report_syscall_entry() error
->   arm64/ptrace: Expand secure_computing() in place
->   arm64/ptrace: Use syscall_get_arguments() heleper
->   entry: Add arch_ptrace_report_syscall_entry/exit()
->   entry: Add has_syscall_work() helepr
->   arm64: entry: Convert to generic entry
-> 
->  MAINTAINERS                           |   1 +
->  arch/Kconfig                          |   8 +
->  arch/arm64/Kconfig                    |   1 +
->  arch/arm64/include/asm/daifflags.h    |   2 +-
->  arch/arm64/include/asm/entry-common.h | 134 +++++++++
->  arch/arm64/include/asm/preempt.h      |   2 -
->  arch/arm64/include/asm/ptrace.h       |  11 +-
->  arch/arm64/include/asm/syscall.h      |   6 +-
->  arch/arm64/include/asm/thread_info.h  |  23 +-
->  arch/arm64/include/asm/xen/events.h   |   2 +-
->  arch/arm64/kernel/acpi.c              |   2 +-
->  arch/arm64/kernel/debug-monitors.c    |   9 +-
->  arch/arm64/kernel/entry-common.c      | 377 ++++++++-----------------
->  arch/arm64/kernel/ptrace.c            |  90 ------
->  arch/arm64/kernel/sdei.c              |   2 +-
->  arch/arm64/kernel/signal.c            |   3 +-
->  arch/arm64/kernel/syscall.c           |  31 +-
->  include/linux/entry-common.h          | 384 +------------------------
->  include/linux/irq-entry-common.h      | 389 ++++++++++++++++++++++++++
->  kernel/entry/Makefile                 |   3 +-
->  kernel/entry/common.c                 | 176 ++----------
->  kernel/entry/syscall-common.c         | 198 +++++++++++++
->  kernel/sched/core.c                   |   8 +-
->  23 files changed, 909 insertions(+), 953 deletions(-)
->  create mode 100644 arch/arm64/include/asm/entry-common.h
->  create mode 100644 include/linux/irq-entry-common.h
->  create mode 100644 kernel/entry/syscall-common.c
-> 
+> 1. Allow nodes to be added to the KHO tree at any time
+> 2. Remove "activate" (I will also send a live update framework that
+> provides the activate functionality).
+> 3. Allow serialization during shutdown.
+> 4. Decouple KHO from kexec_file_load(), as kexec_file_load() should
+> not be used during live update blackout time.
+> 5. Enable multithreaded serialization by using hash-table as an
+> intermediate step before conversion to FDT.
+
 
