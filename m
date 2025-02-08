@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA17AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 16:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFFBC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 19:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xdFqeiFrDRUq72QytNMO6f97xw5rdZlyJFez59Dpx8=; b=FjySZIqHj0U9VxA4lNBwcWY+uL
-	cYP44YQZd5smT/4XluSD1PY6D3dr4zzxuY1mS2BF/V/Qq/4unI1vdKtn25i3ZonrwlUOyHKcA8RJu
-	zRM8rU4zcdPFD7+BYOPa3PdYQhMZgLSUhnW7YLX1m/YglEYMEQa1kFr62w1yDwO0BFSxaQuydU5na
-	6hHGK7lTxYMkW5M2ZGsakmmL3UYEHETbwBNBZS0/VextC4keLRF5ZndYLzsmfij6U977nH7ZyIIyI
-	sl6cMxlBjD8+sMduAaSJ1OGRhqkQwWmJGi3po0CXZ23BGbxCpD2XNl4+gPDU/dFspvemEMnbiIdmx
-	21r0lKQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ce8ziv9NEZVw/ogWyF4YRzNRLf9hhIsAQWae2SYgPsI=; b=ahMyAsk6VeTFofL/3kQLlsx4Fs
+	oe2laQX1PVgA3rePKKOavtuAn5UXRKmO+KscNM40di+wMeEK4UtK3RhFA8i27OWQ6MCRSZGP4tmz/
+	re5QPfWAcGvEO5xj+tmTL+ksfsdRhYMvuJgAxjlf4reLhz518zRNNafl1/5gRTpWuiOjq+8sH5XgL
+	OgKnyGuF1NB/49jEl5PdRYGkGYmvEj2NDLUbA+Fjiv8tQi09kLnL5zbqw+SBqNHsW1lJQFKNszkOU
+	Eg6dkbjXPFEVQLYbyx8iibQNS9p2XptlU0AZfN4xFMCPgLA4h5Nwlt7SM/AEpzUOltw9gZ2FK+i+s
+	tKLKrd3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgo91-0000000DGWg-1zjm;
-	Sat, 08 Feb 2025 16:57:27 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tgq5N-0000000DPOx-2zXF;
+	Sat, 08 Feb 2025 19:01:49 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgo4w-0000000DG2H-0h2M
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 16:53:15 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 518FtpXZ012839;
-	Sat, 8 Feb 2025 16:53:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4xdFqeiFrDRUq72QytNMO6f97xw5rdZlyJFez59Dpx8=; b=Rb9U4eqkmfbL0R9d
-	vhYgN6qidCxJL0CVRn+m+BWmT7l4CvfdCqgDuwynUWCW2xUKYd7Mjyvf7h66kO32
-	8gAAvVARKeGOWxfB1DTePuMLbh+sm76TwSZqY5nPdct+wp+ystMMHAnwE6yQEMkk
-	S9BewJ8G9RKuU/dq2qW9jk/gMY2l6DfmiFJ5TZoZLGlPKgL18ENDlEwfIRdLMuC4
-	EdiiD40PMOSD6coguw6VXfOAHpc9DatFJMLYHWUbig20oRlqZ63owjIdYhaEnxS3
-	n055gyJ7mg6R9BC1i8v6P7sSv9Hg4YB4joDGYGPnPZd12bCjefDQx5aWzXmVjy4e
-	lUtYXA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0gurw5d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 08 Feb 2025 16:53:00 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 518GqxaH012847
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 8 Feb 2025 16:52:59 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sat, 8 Feb 2025 08:52:52 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Konrad Dybcio
-	<konrad.dybcio@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@linaro.org>
-Subject: [PATCH v13 1/2] arm64: dts: qcom: sc7280: Add support for camss
-Date: Sat, 8 Feb 2025 22:22:31 +0530
-Message-ID: <20250208165232.2371889-2-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
-References: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
+	id 1tgq3z-0000000DPHi-1fLJ;
+	Sat, 08 Feb 2025 19:00:25 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D2ADB25D01;
+	Sat,  8 Feb 2025 20:00:16 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 55FrgB_ujl9K; Sat,  8 Feb 2025 20:00:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739041215; bh=alWLYF/9OcbBa/I1+7yBqk1Z5iaf+prVR/oyQI0H9G4=;
+	h=From:Date:Subject:To:Cc;
+	b=DOC4jBhf/haJGplx2K8eiCjySQ5qbgEtpmkQ3ImmkbEXeHtImVv7v4Q3fGLF0mGE7
+	 7L/OdfBlNBQCIssAqszLDs+H4f+GEskwUBTuThpvWz4DJLpyk7I13rv35duIoF0HIj
+	 /ouUMNy8JwCqopdtjG2jKBi+M1Fz2V4bgJc+EjHZjbLHKZwwqgVa8OK2pNlc6PYcRI
+	 bdf8ePyZCdfuXsUrTZK+3FShLaP30618vZcaABPPC4Wj/AXXguL7RKve5Pv6ZLbikK
+	 xhalBciwDPH2s3/BZF79OXtG5DhHBeu/ojLzG2MQiAuJxWsx6zjhIDh4f/1dvtDzSL
+	 biy7RX9N2lDew==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Sun, 09 Feb 2025 00:29:30 +0530
+Subject: [PATCH] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and SSC_REFCLKSEL
+ masks in refclk
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 6UDFLb6AaK044a_hrHGyyTyfkX-3AFxJ
-X-Proofpoint-GUID: 6UDFLb6AaK044a_hrHGyyTyfkX-3AFxJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-08_06,2025-02-07_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 malwarescore=0 lowpriorityscore=0 phishscore=0
- clxscore=1015 adultscore=0 bulkscore=0 mlxscore=0 spamscore=0
- mlxlogscore=960 priorityscore=1501 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2501170000 definitions=main-2502080142
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
+X-B4-Tracking: v=1; b=H4sIAJGpp2cC/x3MQQ5AMBBA0avIrE1SjVKuIhboYCJKOiFE3F1j+
+ Rb/PyAUmATq5IFAJwtvPiJLExjmzk+E7KJBK22UVhbpuv0mBg/pXXC4drIIllRRUVkz5L2FmO6
+ BRr7+bdO+7wekWIFpZgAAAA==
+X-Change-ID: 20250208-exynos5-usbdrd-masks-7e9e6985c4b8
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Vivek Gautam <gautam.vivek@samsung.com>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739041209; l=2085;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=alWLYF/9OcbBa/I1+7yBqk1Z5iaf+prVR/oyQI0H9G4=;
+ b=u7SS0kBpPe4GLUkdpGBcrXSlzjYQ5lTUc9poNrKPxjumtkDDCLanuInoWrIfZdaYIYKdJwsQ8
+ spQArA691vLAEsK3NzHrFjhY0s2A0LvAotGppdNelchuuQ1ZOtDXhue
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_085314_313323_DC0E8A11 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250208_110023_847769_566112A1 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,208 +88,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add changes to support the camera subsystem on the SC7280.
+In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
+PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
+inverted when applied to the register values. Fix it.
 
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: stable@vger.kernel.org
+Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/qcom/sc7280.dtsi | 178 +++++++++++++++++++++++++++
- 1 file changed, 178 insertions(+)
+Patch picked up from:
+https://lore.kernel.org/all/20250204-exynos7870-usbphy-v1-1-f30a9857efeb@disroot.org/
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-index 0f2caf36910b..7fea63362e9d 100644
---- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-@@ -4430,6 +4430,184 @@ cci1_i2c1: i2c-bus@1 {
- 			};
- 		};
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index c421b495eb0fe4396d76f8c9d7c198ad7cd08869..4a108fdab118c0edd76bd88dc9dbf6a498e064b3 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -488,9 +488,9 @@ exynos5_usbdrd_pipe3_set_refclk(struct phy_usb_instance *inst)
+ 	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
  
-+		camss: isp@acb3000 {
-+			compatible = "qcom,sc7280-camss";
-+
-+			reg = <0x0 0x0acb3000 0x0 0x1000>,
-+			      <0x0 0x0acba000 0x0 0x1000>,
-+			      <0x0 0x0acc1000 0x0 0x1000>,
-+			      <0x0 0x0acc8000 0x0 0x1000>,
-+			      <0x0 0x0accf000 0x0 0x1000>,
-+			      <0x0 0x0ace0000 0x0 0x2000>,
-+			      <0x0 0x0ace2000 0x0 0x2000>,
-+			      <0x0 0x0ace4000 0x0 0x2000>,
-+			      <0x0 0x0ace6000 0x0 0x2000>,
-+			      <0x0 0x0ace8000 0x0 0x2000>,
-+			      <0x0 0x0acaf000 0x0 0x4000>,
-+			      <0x0 0x0acb6000 0x0 0x4000>,
-+			      <0x0 0x0acbd000 0x0 0x4000>,
-+			      <0x0 0x0acc4000 0x0 0x4000>,
-+			      <0x0 0x0accb000 0x0 0x4000>;
-+			reg-names = "csid0",
-+				    "csid1",
-+				    "csid2",
-+				    "csid_lite0",
-+				    "csid_lite1",
-+				    "csiphy0",
-+				    "csiphy1",
-+				    "csiphy2",
-+				    "csiphy3",
-+				    "csiphy4",
-+				    "vfe0",
-+				    "vfe1",
-+				    "vfe2",
-+				    "vfe_lite0",
-+				    "vfe_lite1";
-+
-+			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-+				 <&camcc CAM_CC_CSIPHY0_CLK>,
-+				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY1_CLK>,
-+				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY2_CLK>,
-+				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY3_CLK>,
-+				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY4_CLK>,
-+				 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
-+				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
-+				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
-+				 <&camcc CAM_CC_ICP_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_0_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_1_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CLK>,
-+				 <&camcc CAM_CC_IFE_2_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CSID_CLK>;
-+			clock-names = "camnoc_axi",
-+				      "cpas_ahb",
-+				      "csiphy0",
-+				      "csiphy0_timer",
-+				      "csiphy1",
-+				      "csiphy1_timer",
-+				      "csiphy2",
-+				      "csiphy2_timer",
-+				      "csiphy3",
-+				      "csiphy3_timer",
-+				      "csiphy4",
-+				      "csiphy4_timer",
-+				      "gcc_axi_hf",
-+				      "gcc_axi_sf",
-+				      "icp_ahb",
-+				      "vfe0",
-+				      "vfe0_axi",
-+				      "vfe0_cphy_rx",
-+				      "vfe0_csid",
-+				      "vfe1",
-+				      "vfe1_axi",
-+				      "vfe1_cphy_rx",
-+				      "vfe1_csid",
-+				      "vfe2",
-+				      "vfe2_axi",
-+				      "vfe2_cphy_rx",
-+				      "vfe2_csid",
-+				      "vfe_lite0",
-+				      "vfe_lite0_cphy_rx",
-+				      "vfe_lite0_csid",
-+				      "vfe_lite1",
-+				      "vfe_lite1_cphy_rx",
-+				      "vfe_lite1_csid";
-+
-+			interrupts = <GIC_SPI 464 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 466 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 640 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 641 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "csid0",
-+					  "csid1",
-+					  "csid2",
-+					  "csid_lite0",
-+					  "csid_lite1",
-+					  "csiphy0",
-+					  "csiphy1",
-+					  "csiphy2",
-+					  "csiphy3",
-+					  "csiphy4",
-+					  "vfe0",
-+					  "vfe1",
-+					  "vfe2",
-+					  "vfe_lite0",
-+					  "vfe_lite1";
-+
-+			interconnects = <&gem_noc  MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &cnoc2 SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-+					<&mmss_noc MASTER_CAMNOC_HF  QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-+			interconnect-names = "ahb",
-+					     "hf_0";
-+
-+			iommus = <&apps_smmu 0x800 0x4e0>;
-+
-+			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
-+					<&camcc CAM_CC_IFE_1_GDSC>,
-+					<&camcc CAM_CC_IFE_2_GDSC>,
-+					<&camcc CAM_CC_TITAN_TOP_GDSC>;
-+			power-domain-names = "ife0",
-+					     "ife1",
-+					     "ife2",
-+					     "top";
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+				};
-+
-+				port@4 {
-+					reg = <4>;
-+				};
-+			};
-+		};
-+
- 		camcc: clock-controller@ad00000 {
- 			compatible = "qcom,sc7280-camcc";
- 			reg = <0 0x0ad00000 0 0x10000>;
+ 	/* FSEL settings corresponding to reference clock */
+-	reg &= ~PHYCLKRST_FSEL_PIPE_MASK |
+-		PHYCLKRST_MPLL_MULTIPLIER_MASK |
+-		PHYCLKRST_SSC_REFCLKSEL_MASK;
++	reg &= ~(PHYCLKRST_FSEL_PIPE_MASK |
++		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
++		 PHYCLKRST_SSC_REFCLKSEL_MASK);
+ 	switch (phy_drd->extrefclk) {
+ 	case EXYNOS5_FSEL_50MHZ:
+ 		reg |= (PHYCLKRST_MPLL_MULTIPLIER_50M_REF |
+@@ -532,9 +532,9 @@ exynos5_usbdrd_utmi_set_refclk(struct phy_usb_instance *inst)
+ 	reg &= ~PHYCLKRST_REFCLKSEL_MASK;
+ 	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
+ 
+-	reg &= ~PHYCLKRST_FSEL_UTMI_MASK |
+-		PHYCLKRST_MPLL_MULTIPLIER_MASK |
+-		PHYCLKRST_SSC_REFCLKSEL_MASK;
++	reg &= ~(PHYCLKRST_FSEL_UTMI_MASK |
++		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
++		 PHYCLKRST_SSC_REFCLKSEL_MASK);
+ 	reg |= PHYCLKRST_FSEL(phy_drd->extrefclk);
+ 
+ 	return reg;
+
+---
+base-commit: df4b2bbff898227db0c14264ac7edd634e79f755
+change-id: 20250208-exynos5-usbdrd-masks-7e9e6985c4b8
+
+Best regards,
 -- 
-2.25.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
