@@ -4,74 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE96C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 12:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0453C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 13:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IIrwbK+DalIWYXuLGd2lW6KMIjzhUgBOxmxjvVe0Q2g=; b=21JlQM+ZeyCeectjB41WyrwEJx
-	i6hmJXw5IRCAw2vK2E9NsCJQO1OlBaAHu9VY9SQz5dxAcurhK5iPGc9XFi9KahB2C7wtC1WTZcHVv
-	fsLB2NV+xL2f9sz8CdgO0i+0jsmXmGBHLz6TrIj3sYNt0pv7fZEQOfcuPHR4PiWSArcXOJp+hsFA9
-	yh7xLPimefsk9WNE7eZAOMYeUOjx79+ZvlyIgj7+5LDjOoFUYYj90ymmUPnnVqBYqFbyTMXG6i832
-	F8CTSKwMkycMEnKGWEzX40rVkzlSu9BRG/J/S3kd7HoD2yX0ICW9K49JoeTydZS5gnw4CkmE9tusT
-	TTor2+Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dWN/WMPQcbVfSDc9fPPJzIhIiZWYJckBwsKgU2OM4rk=; b=ikYkmcpo73Gjk4uvBNbE6PiAnn
+	UL7o63F5Ojictryl7iZ2gmLhALtkb/jLJQ5KpvoLezE6wLX7hbdei0r/ZCEweAWImal5MdjNtzjlx
+	/d3Nqfgn4lJB1UmttLM4bZnFs6y/vb1nHSW6w5D4tTGLwWdTT0vDskMG+gnhA9BfHPGJEyrlNlO+k
+	IdN/IWkj1hn4i434rDtk93kayTlbPhrdiXI5rDLpaElKO8z9X0ZTUyN/4eHdAekLgCxjF2GJSPN8U
+	QFGlmANsIbkZUgQiidFF2o2LfkQp0lYuPJB8TXDxehaE4UOlJpWa/n4TpR43L44L+LhAeg+avA2JO
+	t7twyTmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgjqp-0000000Ctdx-2NPG;
-	Sat, 08 Feb 2025 12:22:23 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tgkoI-0000000CzVR-0Re7;
+	Sat, 08 Feb 2025 13:23:50 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgjpQ-0000000CtUb-2G4x
+	id 1tgkmt-0000000CzEj-2ivL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 12:20:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739017256; x=1770553256;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=Z0AYpSE++mauA/nSQ4WIDHtqZ8bhNfsQHTob/frjZS4=;
-  b=XxkoKB1PHs3rwLyWx9Uq0CCY6VlhVgxrIGqjjagX3M+Ax0lNakX74tYH
-   jpcFx/ipwufNVbvYVUOtHGs6jxJ6bIRsTXmp6eDe0w/DUvmUKn7+mdbsI
-   YLjYMBSBcEcT0jLoMpCtDktHni+Qed7F08gza00c673Hh2fDgucEcjrc8
-   S7dc64ArOtWW3NtdFJ7WTeY11ZzzPVtI8/1zcNjA7wrGt11Ot/1kuIdJc
-   QJnBZhYAjIgPDpGIk8zjZAuWa9QPwofS4iUT8WYDlE4WziSrEXkoAdyab
-   AY5wOQK8hJkvStQIL7F6+zrQkUCRgsAH8BXBX8tzk0a3/6amcAch1QfFv
-   g==;
-X-CSE-ConnectionGUID: 1AHoBV4oQDyKXGfVcwTTrg==
-X-CSE-MsgGUID: cUZMBDWxSiqzqeDc6TBBHQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11339"; a="50289937"
-X-IronPort-AV: E=Sophos;i="6.13,270,1732608000"; 
-   d="scan'208";a="50289937"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2025 04:20:52 -0800
-X-CSE-ConnectionGUID: WN9A1+EQSbS+nLZMZS87oA==
-X-CSE-MsgGUID: +pQmBIb6Sca0+2n2tz0Mww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="112200073"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 08 Feb 2025 04:20:51 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgjpI-000zwt-01;
-	Sat, 08 Feb 2025 12:20:48 +0000
-Date: Sat, 8 Feb 2025 20:20:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/pmu-includes 15/15]
- drivers/perf/arm_pmu.c:932:9: error: implicit declaration of function
- 'kvm_host_pmu_init'
-Message-ID: <202502082022.BTq0xSDj-lkp@intel.com>
+	Sat, 08 Feb 2025 13:22:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1739020926; x=1739625726; i=wahrenst@gmx.net;
+	bh=dWN/WMPQcbVfSDc9fPPJzIhIiZWYJckBwsKgU2OM4rk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=M7AwhCE33XGfAydDLp1Ad+zVEOlBypotrSfXepweD9SGs5UxcKJHFDc4ZpURSHHr
+	 lpPc2+sLr7HSHNUiOAMazmVXBJ4SlUR/Fy6fSMLe6UsQM2PFYTp8KJb3tH7CjYN74
+	 EKXicmXsw+QKjKaV98bBzTy+KShedSSouAVgj3zVCJWxMksL+jY8reXUXf2eOUMbg
+	 iU9P1xURrl1ge1lEUgSjEqkzw0u7hm2esblDU1+KdLzPuWNVRvRXQ/7Sbwl8e2/h0
+	 eovFiTHmuPlaOwWNgPIhpK1FffDrUIiAet9lJQ7XV1BBa9t2pzCMzVbzdQKNN4EDP
+	 SkkDfWe0RLAWuU6w+w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mof9F-1t5EE03hH7-00hAbQ; Sat, 08
+ Feb 2025 14:22:06 +0100
+Message-ID: <32e74c11-d6cb-4c42-b9e0-a52bab608c16@gmx.net>
+Date: Sat, 8 Feb 2025 14:22:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: brcmstb: Adjust message if L23 cannot be entered
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-pci@vger.kernel.org,
+ Jonathan Bell <jonathan@raspberrypi.com>
+References: <20250201121420.32316-1-wahrenst@gmx.net>
+ <20250208102748.2aytlzgzbvm6u4vi@thinkpad>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250208102748.2aytlzgzbvm6u4vi@thinkpad>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Th+KIiOCiIiw1MY1//6zdwJu9I+IeP3cHWtK/iTHEMJah+6DHB1
+ yAQhJRdfN2IAUvWdKHrRsTI+B+YkyoJ/IOt3M7EHSnqE++BpHuqk6/U19rmdqVw3y25V1iK
+ fq3I4OOKvMhp3JmTLFpI/5kcGx4ON6OxxAqDPOIjzyKqV83PJO+dWUPcRYMeG2Wd7KAHc9m
+ XpGvncZ01v1JFwWtl+huw==
+UI-OutboundReport: notjunk:1;M01:P0:UYMJ1v9vVw0=;m+GDyp6P17KHI1DxBeCSYS9Vmwr
+ PrbMWxRloDnN/1xnz3dv+hf1W9vsKIp4iPF1rsMMUqVYpiYkrqJKNkaWAAkessjZTSCGt4e9+
+ OUnm3fC7B3CXa+eU3RCreFAGJtNMLMKbc+y1d7x0jNYx1l9YZS8W2mjJkwdzFEERX7KOOE5eL
+ RbEuWMsYYUrav/uNT72oYca61gUCRcV9+ZGrXRnwr7wZwLTTh/7SIPdX1yqomlGKyfaPD2MJg
+ HuSCWmUVAcCmnxwvrO0IR/kZDyHvIHVG1vsJfQXJX890SAgDWsgnwCf8590rq+ql5hH6f10SH
+ CCe8UIgE1+gmT2IOGDLaq32YA4jBGmdIIYma9aBOgo9N3jP93epSaTaycH4xcMMoOXKzlz9yh
+ j/skxwLN1GrB5xMKtB2EjrSmazm+w2eS1s31d9xyV63pCbHG6Uxc1ZhEiCj5K+a/9nQETFHTQ
+ 7fHYFOEePSLJsCDs/n6jV2rGewYnbGYtOkTGSEfdd4O1pNah38/1FISGAYbx1R+gSk8Mwu5q+
+ eQeCOqf54v8iPbHlC4Z21UtfD57xi+y6CRiP/jLD30cFBK14nazPEOyHe4Kz35/SUnjRPfIrA
+ fCZkn+nKiCsLuXPqDrRjuPP3R5065xn53BvBqD2+Qpv0iYT0LVVanRUGshHr61+TFYWWAcSxq
+ jx3vLSsW0tmFzg6k6O4MLxzVpfeTS4vojl9AmQ4WEaqKdvu6tcLcHGK3i5ZTpbzbsSFu1xGej
+ xwj8z1BmbSUBHZ0VgQQSluWQgSoX7sJrgnIACJKfGsC4rtWNy2fZWppc9usv6lnwWUvcvxc/q
+ V3kr8DfeOGtV8Kf4cP+8iw6/ijstn9og5GYrY0wAL/u7yKOhelCopxxFkdNgux1QksY5TIZyC
+ yCSYuUfyudA9/p+HQHNX7/SC1YbWUMluK2oFomxYdv4tvkqc8AkEyQ8BM1pnh0Y2G22XY93KK
+ FKiqxARwEC4GlbJa8b84RUvrruAAIh4ksiKYEo04yUUsqS3B4gaUDB1nVVgvwesozVpkv8v/W
+ n8hiWakXgSP76LOEcPQjNQzkDMGabiMocfO/czhU7JK8YlS/sATxs2iFqF0J+DftDGzRAKyUY
+ +7oG2t5WLMRIkSpfMwXvz+rUpTmvVujMX+e84HCXI1X4nllbEQsDIgwOYacSOCa5XUVLgq/7q
+ sBvcPh/H2KylZ5cFqCsRPoz/kek8hdF04uAV3GlrJpPgaxkJRTOJ5qnLy8l3RVc2iC3vS0Fqr
+ +3U1EZcp3xLhV8mNIzm4QSMFJ2M3z8QtRg6vxCdYUKz+09Px/y1ub6W75w6AVzOFWmvOQRFte
+ Q8MX5abcLrr4bB55NASBxHz6sHCGcKczu+UiFmNUcAlz4s0X4cJtXK4xtmXcjAYtgY9c6EYoY
+ qw5/rGFruFz5d/XcsB9bdux7/X6v8OTUvVN7bUx7ckQeO1eOY4NdSuD4Fv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_042056_594711_E4C1E2BC 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250208_052224_003175_B0D4A7ED 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +117,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/pmu-includes
-head:   7f3348d6c8577e4e729279ef30f5e9013cf9fbd5
-commit: 7f3348d6c8577e4e729279ef30f5e9013cf9fbd5 [15/15] PMU include cleanup
-config: arm-randconfig-004-20250208 (https://download.01.org/0day-ci/archive/20250208/202502082022.BTq0xSDj-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250208/202502082022.BTq0xSDj-lkp@intel.com/reproduce)
+Hi Mani,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502082022.BTq0xSDj-lkp@intel.com/
+Am 08.02.25 um 11:27 schrieb Manivannan Sadhasivam:
+> On Sat, Feb 01, 2025 at 01:14:20PM +0100, Stefan Wahren wrote:
+>> The entering of L23 lower-power state is optional, because the
+>> connected endpoint might doesn't support it. So pcie-brcmstb shouldn't
+>> print an error if it fails.
+>>
+> Which part of the PCIe spec states that the L23 Ready state is optional?
+tbh i don't have access to the PCIe spec, so my statement based on this
+comment [1].
 
-All errors (new ones prefixed by >>):
+Thanks
 
-   drivers/perf/arm_pmu.c: In function 'armpmu_register':
->> drivers/perf/arm_pmu.c:932:9: error: implicit declaration of function 'kvm_host_pmu_init' [-Wimplicit-function-declaration]
-     932 |         kvm_host_pmu_init(pmu);
-         |         ^~~~~~~~~~~~~~~~~
+[1] -
+https://lore.kernel.org/all/CADQZjwcjLMTLZB1tzp+PYKK9rm=3DKe7a-KoGKMKb9zoW=
+odcRK-A@mail.gmail.com/
+>
+> - Mani
+>
+>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+>> ---
+>>   drivers/pci/controller/pcie-brcmstb.c | 7 +++++--
+>>   1 file changed, 5 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/contro=
+ller/pcie-brcmstb.c
+>> index e733a27dc8df..9e7c5349c6c2 100644
+>> --- a/drivers/pci/controller/pcie-brcmstb.c
+>> +++ b/drivers/pci/controller/pcie-brcmstb.c
+>> @@ -1399,7 +1399,10 @@ static void brcm_pcie_remove_bus(struct pci_bus =
+*bus)
+>>   	pcie->sr =3D NULL;
+>>   }
+>>
+>> -/* L23 is a low-power PCIe link state */
+>> +/*
+>> + * Try to enter L23 ( low-power PCIe link state )
+>> + * This might fail if connected endpoint doesn't support it.
+>> + */
+>>   static void brcm_pcie_enter_l23(struct brcm_pcie *pcie)
+>>   {
+>>   	void __iomem *base =3D pcie->base;
+>> @@ -1422,7 +1425,7 @@ static void brcm_pcie_enter_l23(struct brcm_pcie =
+*pcie)
+>>   	}
+>>
+>>   	if (!l23)
+>> -		dev_err(pcie->dev, "failed to enter low-power link state\n");
+>> +		dev_dbg(pcie->dev, "Unable to enter low-power link state\n");
+>>   }
+>>
+>>   static int brcm_phy_cntl(struct brcm_pcie *pcie, const int start)
+>> --
+>> 2.34.1
+>>
+>>
 
-
-vim +/kvm_host_pmu_init +932 drivers/perf/arm_pmu.c
-
-2681f0184276d7 Mark Rutland      2017-03-10  911  
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  912  int armpmu_register(struct arm_pmu *pmu)
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  913  {
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  914  	int ret;
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  915  
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  916  	ret = cpu_pmu_init(pmu);
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  917  	if (ret)
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  918  		return ret;
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  919  
-1d899c0e9bc2a1 Andrew Murray     2019-01-10  920  	if (!pmu->set_event_filter)
-1d899c0e9bc2a1 Andrew Murray     2019-01-10  921  		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
-1d899c0e9bc2a1 Andrew Murray     2019-01-10  922  
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  923  	ret = perf_pmu_register(&pmu->pmu, pmu->name, -1);
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  924  	if (ret)
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  925  		goto out_destroy;
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  926  
-bf5ffc8c80e0cf Rob Herring (Arm  2024-07-31  927) 	pr_info("enabled with %s PMU driver, %d (%*pb) counters available%s\n",
-bf5ffc8c80e0cf Rob Herring (Arm  2024-07-31  928) 		pmu->name, bitmap_weight(pmu->cntr_mask, ARMPMU_MAX_HWEVENTS),
-bf5ffc8c80e0cf Rob Herring (Arm  2024-07-31  929) 		ARMPMU_MAX_HWEVENTS, &pmu->cntr_mask,
-d8f6267f7ce5dc Julien Thierry    2020-09-24  930  		has_nmi ? ", using NMIs" : "");
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  931  
-e840f42a499257 Marc Zyngier      2021-09-19 @932  	kvm_host_pmu_init(pmu);
-e840f42a499257 Marc Zyngier      2021-09-19  933  
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  934  	return 0;
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  935  
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  936  out_destroy:
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  937  	cpu_pmu_destroy(pmu);
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  938  	return ret;
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  939  }
-74a2b3ea2d8c6c Mark Rutland      2017-04-11  940  
-
-:::::: The code at line 932 was first introduced by commit
-:::::: e840f42a49925707fca90e6c7a4095118fdb8c4d KVM: arm64: Fix PMU probe ordering
-
-:::::: TO: Marc Zyngier <maz@kernel.org>
-:::::: CC: Marc Zyngier <maz@kernel.org>
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
