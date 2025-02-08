@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA86C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D481EC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mx7GsGGiN8qI/cnEK3cRpdvpl4cmkBeU5/Nkgf8DQFw=; b=Tqd7aw1IhQ4bm9/j8pciumdwr+
-	DQcazQshx9YQ5auw64Krm0MRmyhqXt0ND/oSDTEsG3DbAppN5+utDdp74u7R1EvBOvC7FwKDfw7sT
-	cC73u1u8NxTgG7h8hg/UOKVJc3diGggvEEuaqjL/vuM1EptZ8owVmAl+emSzprj8rCFq0L6Dg2qJI
-	yDggzfdhDNy2rspQO2Lo82yTImoM5MkAk7lthsd+FBCMt/flbbzvG/nczJMn6ysbgQbz7uuzZ4zQ8
-	t5EsOtv0UF3tKMH/OzNZGjHguIr+R0xRhZtKav9UPkqkC48Jmr6nu/eJHVM0ljb6N600T4wVj+88R
-	5nqpBJcw==;
+	bh=Sh7wQrLZxDOxMjvtRdMEMxgWKn7Sh557t7kPahOEyMI=; b=fqIW/w+cuYN1KYZi0LNAggn1CL
+	q6k0xoY2R8Z9Qvvmk49iy90j8pj80hKawtyWUSMLPIyTOwZ1MzWkj8KF+0LWn/tBmZuuI2QKSqUXb
+	1CRymD0C8THWaKTTQFKozzs5TN0qATPX0yzzR7EyJRln6kBZawU55FqGliajrQqKZ/BB5gEbFUqdj
+	vSJBM1ROvZvFS2TJJjw6OZaLN+12L3n1arrOKE4qAVyBe4tUTpcAiplbUcxHrqdcs4MCEkml/u6xM
+	ltU4+NDuAauO+UnDZ5bgA+H2hSNMWFWZ2L6He0JTGoQIxr/1E3X7PI/TYuu4JOx+PWnNtPzmJuJBs
+	YY8ycwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsJu-0000000DZPI-0VWm;
-	Sat, 08 Feb 2025 21:24:58 +0000
+	id 1tgsLF-0000000DZX8-3Br6;
+	Sat, 08 Feb 2025 21:26:21 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsBt-0000000DYWE-0MbD
+	id 1tgsBv-0000000DYXD-2YWH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 21:16:42 +0000
+	Sat, 08 Feb 2025 21:16:45 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 3045941B62;
-	Sat,  8 Feb 2025 21:16:39 +0000 (UTC)
+	by a.peacevolution.org (Postfix) with ESMTPA id 90EC741B67;
+	Sat,  8 Feb 2025 21:16:41 +0000 (UTC)
 From: Aren Moynihan <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
@@ -53,26 +53,25 @@ Cc: Aren Moynihan <aren@peacevolution.org>,
 	Ondrej Jirman <megi@xff.cz>,
 	Dragan Simic <dsimic@manjaro.org>,
 	phone-devel@vger.kernel.org
-Subject: [PATCH v5 4/8] iio: light: stk3310: simplify and inline STK3310_REGFIELD macro
-Date: Sat,  8 Feb 2025 16:13:22 -0500
-Message-ID: <20250208211325.992280-6-aren@peacevolution.org>
+Subject: [PATCH v5 5/8] iio: light: stk3310: refactor to always make dev a variable
+Date: Sat,  8 Feb 2025 16:13:23 -0500
+Message-ID: <20250208211325.992280-7-aren@peacevolution.org>
 In-Reply-To: <20250208211325.992280-2-aren@peacevolution.org>
 References: <20250208211325.992280-2-aren@peacevolution.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++
+X-Spamd-Bar: +++
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1739049400;
+	s=dkim; t=1739049402;
 	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=Mx7GsGGiN8qI/cnEK3cRpdvpl4cmkBeU5/Nkgf8DQFw=;
-	b=e3cTbml3prtzCmxHCRYg0uCtzSSdKwUHWsADXg8UBkwdCD/d2zABsDeKwSi0A98k2pyaOb
-	BgoyVJgFwfO3GBvxhKhBg/CEwRT/Ib/7pYpAsO5SD8uPWRc/RuDRzniMpnNr+DEruN/iLa
-	g6OSGRkUZ79xBVXcdsKELaG7qF953YE=
+	bh=Sh7wQrLZxDOxMjvtRdMEMxgWKn7Sh557t7kPahOEyMI=;
+	b=Gu1chLssn9M/DwHkcpE3lBPErZZ2kSARpXYc7RdIMQQiSeAQX3vGgq6zX75y90xNTujuk0
+	EShh6UGm7HgyAgNWBHziTweEQEmUYsaXCqOj6019iXb2eQwfVUau6Mq/G6pIBf/6+yyH0j
+	EGLET+Frop/AqwvDCUaeKv02Ll5jcuQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_131641_263291_731CB44B 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250208_131643_789556_6371AB38 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,11 +86,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This macro has a conditional return statement, which obfuscates control
-flow. Inlining makes the control flow more clear.
-
-This also switches to using dev_err_probe for error reporting, which is
-a shorter way of expressing the same logic as before.
+This reduces syntactic noise where the dev variable is used, which
+should help improve readability.
 
 Signed-off-by: Aren Moynihan <aren@peacevolution.org>
 ---
@@ -99,85 +95,189 @@ Signed-off-by: Aren Moynihan <aren@peacevolution.org>
 Notes:
     Added in v5
 
- drivers/iio/light/stk3310.c | 58 +++++++++++++++++++++++++------------
- 1 file changed, 39 insertions(+), 19 deletions(-)
+ drivers/iio/light/stk3310.c | 40 ++++++++++++++++++-------------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index 9c38ff01fdf0f..2e883e24dc4b2 100644
+index 2e883e24dc4b2..2233eab63b7aa 100644
 --- a/drivers/iio/light/stk3310.c
 +++ b/drivers/iio/light/stk3310.c
-@@ -59,17 +59,6 @@
- 	"0.023680 0.047360 0.094720 0.189440 0.378880 0.757760 1.515520 " \
- 	"3.031040 6.062080"
+@@ -237,6 +237,7 @@ static int stk3310_read_event(struct iio_dev *indio_dev,
+ 	__be16 buf;
+ 	int ret;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
++	struct device *dev = &data->client->dev;
  
--#define STK3310_REGFIELD(name)						    \
--	do {								    \
--		data->reg_##name =					    \
--			devm_regmap_field_alloc(&client->dev, regmap,	    \
--				stk3310_reg_field_##name);		    \
--		if (IS_ERR(data->reg_##name)) {				    \
--			dev_err(&client->dev, "reg field alloc failed.\n"); \
--			return PTR_ERR(data->reg_##name);		    \
--		}							    \
--	} while (0)
--
- static const struct reg_field stk3310_reg_field_state =
- 				REG_FIELD(STK3310_REG_STATE, 0, 2);
- static const struct reg_field stk3310_reg_field_als_gain =
-@@ -568,14 +557,45 @@ static int stk3310_regmap_init(struct stk3310_data *data)
+ 	if (info != IIO_EV_INFO_VALUE)
+ 		return -EINVAL;
+@@ -253,7 +254,7 @@ static int stk3310_read_event(struct iio_dev *indio_dev,
+ 	ret = regmap_bulk_read(data->regmap, reg, &buf, 2);
+ 	mutex_unlock(&data->lock);
+ 	if (ret < 0) {
+-		dev_err(&data->client->dev, "register read failed\n");
++		dev_err(dev, "register read failed\n");
+ 		return ret;
  	}
- 	data->regmap = regmap;
+ 	*val = be16_to_cpu(buf);
+@@ -273,7 +274,7 @@ static int stk3310_write_event(struct iio_dev *indio_dev,
+ 	int ret;
+ 	unsigned int index;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
+-	struct i2c_client *client = data->client;
++	struct device *dev = &data->client->dev;
  
--	STK3310_REGFIELD(state);
--	STK3310_REGFIELD(als_gain);
--	STK3310_REGFIELD(ps_gain);
--	STK3310_REGFIELD(als_it);
--	STK3310_REGFIELD(ps_it);
--	STK3310_REGFIELD(int_ps);
--	STK3310_REGFIELD(flag_psint);
--	STK3310_REGFIELD(flag_nf);
-+	data->reg_state = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_state);
-+	if (IS_ERR(data->reg_state))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_state),
-+				     "reg_state alloc failed\n");
-+
-+	data->reg_als_gain = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_als_gain);
-+	if (IS_ERR(data->reg_als_gain))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_als_gain),
-+				     "reg_als_gain alloc failed\n");
-+
-+	data->reg_ps_gain = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_ps_gain);
-+	if (IS_ERR(data->reg_ps_gain))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_ps_gain),
-+				     "reg_ps_gain alloc failed\n");
-+
-+	data->reg_als_it = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_als_it);
-+	if (IS_ERR(data->reg_als_it))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_als_it),
-+				     "reg_als_it alloc failed\n");
-+
-+	data->reg_ps_it = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_ps_it);
-+	if (IS_ERR(data->reg_ps_it))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_ps_it),
-+				     "reg_ps_it alloc failed\n");
-+
-+	data->reg_int_ps = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_int_ps);
-+	if (IS_ERR(data->reg_int_ps))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_int_ps),
-+				     "reg_int_ps alloc failed\n");
-+
-+	data->reg_flag_psint = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_flag_psint);
-+	if (IS_ERR(data->reg_flag_psint))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_flag_psint),
-+				     "reg_flag_psint alloc failed\n");
-+
-+	data->reg_flag_nf = devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_flag_nf);
-+	if (IS_ERR(data->reg_flag_nf))
-+		return dev_err_probe(dev, PTR_ERR(data->reg_flag_nf),
-+				     "reg_flag_nf alloc failed\n");
+ 	ret = regmap_field_read(data->reg_ps_gain, &index);
+ 	if (ret < 0)
+@@ -292,7 +293,7 @@ static int stk3310_write_event(struct iio_dev *indio_dev,
+ 	buf = cpu_to_be16(val);
+ 	ret = regmap_bulk_write(data->regmap, reg, &buf, 2);
+ 	if (ret < 0)
+-		dev_err(&client->dev, "failed to set PS threshold!\n");
++		dev_err(dev, "failed to set PS threshold!\n");
  
- 	return 0;
+ 	return ret;
  }
+@@ -321,13 +322,13 @@ static int stk3310_write_event_config(struct iio_dev *indio_dev,
+ {
+ 	int ret;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
+-	struct i2c_client *client = data->client;
++	struct device *dev = &data->client->dev;
+ 
+ 	/* Set INT_PS value */
+ 	mutex_lock(&data->lock);
+ 	ret = regmap_field_write(data->reg_int_ps, state);
+ 	if (ret < 0)
+-		dev_err(&client->dev, "failed to set interrupt mode\n");
++		dev_err(dev, "failed to set interrupt mode\n");
+ 	mutex_unlock(&data->lock);
+ 
+ 	return ret;
+@@ -342,7 +343,7 @@ static int stk3310_read_raw(struct iio_dev *indio_dev,
+ 	int ret;
+ 	unsigned int index;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
+-	struct i2c_client *client = data->client;
++	struct device *dev = &data->client->dev;
+ 
+ 	if (chan->type != IIO_LIGHT && chan->type != IIO_PROXIMITY)
+ 		return -EINVAL;
+@@ -357,7 +358,7 @@ static int stk3310_read_raw(struct iio_dev *indio_dev,
+ 		mutex_lock(&data->lock);
+ 		ret = regmap_bulk_read(data->regmap, reg, &buf, 2);
+ 		if (ret < 0) {
+-			dev_err(&client->dev, "register read failed\n");
++			dev_err(dev, "register read failed\n");
+ 			mutex_unlock(&data->lock);
+ 			return ret;
+ 		}
+@@ -398,6 +399,7 @@ static int stk3310_write_raw(struct iio_dev *indio_dev,
+ 	int ret;
+ 	int index;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
++	struct device *dev = &data->client->dev;
+ 
+ 	if (chan->type != IIO_LIGHT && chan->type != IIO_PROXIMITY)
+ 		return -EINVAL;
+@@ -415,8 +417,7 @@ static int stk3310_write_raw(struct iio_dev *indio_dev,
+ 		else
+ 			ret = regmap_field_write(data->reg_ps_it, index);
+ 		if (ret < 0)
+-			dev_err(&data->client->dev,
+-				"sensor configuration failed\n");
++			dev_err(dev, "sensor configuration failed\n");
+ 		mutex_unlock(&data->lock);
+ 		return ret;
+ 
+@@ -432,8 +433,7 @@ static int stk3310_write_raw(struct iio_dev *indio_dev,
+ 		else
+ 			ret = regmap_field_write(data->reg_ps_gain, index);
+ 		if (ret < 0)
+-			dev_err(&data->client->dev,
+-				"sensor configuration failed\n");
++			dev_err(dev, "sensor configuration failed\n");
+ 		mutex_unlock(&data->lock);
+ 		return ret;
+ 	}
+@@ -454,7 +454,7 @@ static const struct iio_info stk3310_info = {
+ static int stk3310_set_state(struct stk3310_data *data, u8 state)
+ {
+ 	int ret;
+-	struct i2c_client *client = data->client;
++	struct device *dev = &data->client->dev;
+ 
+ 	/* 3-bit state; 0b100 is not supported. */
+ 	if (state > 7 || state == 4)
+@@ -463,7 +463,7 @@ static int stk3310_set_state(struct stk3310_data *data, u8 state)
+ 	mutex_lock(&data->lock);
+ 	ret = regmap_field_write(data->reg_state, state);
+ 	if (ret < 0) {
+-		dev_err(&client->dev, "failed to change sensor state\n");
++		dev_err(dev, "failed to change sensor state\n");
+ 	} else if (state != STK3310_STATE_STANDBY) {
+ 		/* Don't reset the 'enabled' flags if we're going in standby */
+ 		data->ps_enabled  = !!(state & STK3310_STATE_EN_PS);
+@@ -500,7 +500,7 @@ static int stk3310_init(struct iio_dev *indio_dev)
+ 
+ 	ret = stk3310_check_chip_id(chipid);
+ 	if (ret < 0)
+-		dev_info(&client->dev, "new unknown chip id: 0x%x\n", chipid);
++		dev_info(dev, "new unknown chip id: 0x%x\n", chipid);
+ 
+ 	state = STK3310_STATE_EN_ALS | STK3310_STATE_EN_PS;
+ 	ret = stk3310_set_state(data, state);
+@@ -618,12 +618,13 @@ static irqreturn_t stk3310_irq_event_handler(int irq, void *private)
+ 
+ 	struct iio_dev *indio_dev = private;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
++	struct device *dev = &data->client->dev;
+ 
+ 	/* Read FLAG_NF to figure out what threshold has been met. */
+ 	mutex_lock(&data->lock);
+ 	ret = regmap_field_read(data->reg_flag_nf, &dir);
+ 	if (ret < 0) {
+-		dev_err(&data->client->dev, "register read failed: %d\n", ret);
++		dev_err(dev, "register read failed: %d\n", ret);
+ 		goto out;
+ 	}
+ 	event = IIO_UNMOD_EVENT_CODE(IIO_PROXIMITY, 1,
+@@ -635,7 +636,7 @@ static irqreturn_t stk3310_irq_event_handler(int irq, void *private)
+ 	/* Reset the interrupt flag */
+ 	ret = regmap_field_write(data->reg_flag_psint, 0);
+ 	if (ret < 0)
+-		dev_err(&data->client->dev, "failed to reset interrupts\n");
++		dev_err(dev, "failed to reset interrupts\n");
+ out:
+ 	mutex_unlock(&data->lock);
+ 
+@@ -674,7 +675,7 @@ static int stk3310_probe(struct i2c_client *client)
+ 	struct stk3310_data *data;
+ 	struct device *dev = &client->dev;
+ 
+-	indio_dev = devm_iio_device_alloc(&client->dev, sizeof(*data));
++	indio_dev = devm_iio_device_alloc(dev, sizeof(*data));
+ 	if (!indio_dev) {
+ 		dev_err(&client->dev, "iio allocation failed!\n");
+ 		return -ENOMEM;
+@@ -684,8 +685,7 @@ static int stk3310_probe(struct i2c_client *client)
+ 	data->client = client;
+ 	i2c_set_clientdata(client, indio_dev);
+ 
+-	device_property_read_u32(&client->dev, "proximity-near-level",
+-				 &data->ps_near_level);
++	device_property_read_u32(dev, "proximity-near-level", &data->ps_near_level);
+ 
+ 	ret = devm_mutex_init(dev, &data->lock);
+ 	if (ret)
+@@ -722,7 +722,7 @@ static int stk3310_probe(struct i2c_client *client)
+ 		return ret;
+ 
+ 	if (client->irq > 0) {
+-		ret = devm_request_threaded_irq(&client->dev, client->irq,
++		ret = devm_request_threaded_irq(dev, client->irq,
+ 						stk3310_irq_handler,
+ 						stk3310_irq_event_handler,
+ 						IRQF_TRIGGER_FALLING |
 -- 
 2.48.1
 
