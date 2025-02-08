@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0453C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 13:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82EBEC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 13:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWN/WMPQcbVfSDc9fPPJzIhIiZWYJckBwsKgU2OM4rk=; b=ikYkmcpo73Gjk4uvBNbE6PiAnn
-	UL7o63F5Ojictryl7iZ2gmLhALtkb/jLJQ5KpvoLezE6wLX7hbdei0r/ZCEweAWImal5MdjNtzjlx
-	/d3Nqfgn4lJB1UmttLM4bZnFs6y/vb1nHSW6w5D4tTGLwWdTT0vDskMG+gnhA9BfHPGJEyrlNlO+k
-	IdN/IWkj1hn4i434rDtk93kayTlbPhrdiXI5rDLpaElKO8z9X0ZTUyN/4eHdAekLgCxjF2GJSPN8U
-	QFGlmANsIbkZUgQiidFF2o2LfkQp0lYuPJB8TXDxehaE4UOlJpWa/n4TpR43L44L+LhAeg+avA2JO
-	t7twyTmg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ngMN4AfYaipZpH7nNPiOSYeIhrr4AomcMNkVmcAm/w8=; b=tzoBqlb/ruFE2wNGB5itOEORi0
+	4rcZItB522mS/VVMUQUaBeb1xIdYlENvon4gXmxmwSIgPPsNDQjYX5lYW6NqBxr5R07MaX8rwwF2E
+	/LbrmU4ff5zcibO3PwCVgci0hGFEDDyGf4sbAoeXGFd0LIXCa7XmOJf/9M/Fc0GV/NGXS2mlr+J44
+	Q9STHRui1Hcp7vaM52kvUbIlF4my1yi4yMZxiB8bCvFC7nIVrZ+JmmZUsg4hwxlv0DB4gSUbFpP3M
+	DImBpAKL0B3DWeJRvnL+P7w2b+Wt4FVbWVOuOKaSpVrmLX4ELGRcKN2nfzDfuCgMAogUQSLolmCyc
+	xLrjITSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgkoI-0000000CzVR-0Re7;
-	Sat, 08 Feb 2025 13:23:50 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1tgl7n-0000000D1GS-0JrQ;
+	Sat, 08 Feb 2025 13:43:59 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgkmt-0000000CzEj-2ivL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 13:22:25 +0000
+	id 1tgl6P-0000000D19L-0338;
+	Sat, 08 Feb 2025 13:42:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1739020926; x=1739625726; i=wahrenst@gmx.net;
-	bh=dWN/WMPQcbVfSDc9fPPJzIhIiZWYJckBwsKgU2OM4rk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	s=s31663417; t=1739022138; x=1739626938; i=wahrenst@gmx.net;
+	bh=ngMN4AfYaipZpH7nNPiOSYeIhrr4AomcMNkVmcAm/w8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
 	 References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:cc:content-transfer-encoding:
 	 content-type:date:from:message-id:mime-version:reply-to:subject:
 	 to;
-	b=M7AwhCE33XGfAydDLp1Ad+zVEOlBypotrSfXepweD9SGs5UxcKJHFDc4ZpURSHHr
-	 lpPc2+sLr7HSHNUiOAMazmVXBJ4SlUR/Fy6fSMLe6UsQM2PFYTp8KJb3tH7CjYN74
-	 EKXicmXsw+QKjKaV98bBzTy+KShedSSouAVgj3zVCJWxMksL+jY8reXUXf2eOUMbg
-	 iU9P1xURrl1ge1lEUgSjEqkzw0u7hm2esblDU1+KdLzPuWNVRvRXQ/7Sbwl8e2/h0
-	 eovFiTHmuPlaOwWNgPIhpK1FffDrUIiAet9lJQ7XV1BBa9t2pzCMzVbzdQKNN4EDP
-	 SkkDfWe0RLAWuU6w+w==
+	b=ts+0NV/wBmL5QHLH3+9mQVm2rik2AXodnayQNhYUmhMb89ZeVB8LWQcwRZbbC4AZ
+	 C65wrfBlS80jYGBD/uG0ir75MDI/cqmCustTjdKhBX6NJNC2/0nl6rQN+cVJWr/dN
+	 /qdBVYX1URnv5hJYors7O1kOQo89VglFL+8RTtImzvwv33Xi1PP2NIuaaFhjcw6Xe
+	 W7hyZJoiT9VHc36efMdBnHzW3/AJs7AlHcu4i4IYIP8zFumJF6qIyt8CdfsnWjxm9
+	 hJ7A0XYJ6LR3Eg/mQRkhSM8DQj2a1OI0ww9M5xUiXb5QU/zJLWtugQnSxvVOErzQt
+	 hJuferDzxdtQrQAOFg==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mof9F-1t5EE03hH7-00hAbQ; Sat, 08
- Feb 2025 14:22:06 +0100
-Message-ID: <32e74c11-d6cb-4c42-b9e0-a52bab608c16@gmx.net>
-Date: Sat, 8 Feb 2025 14:22:02 +0100
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MXp9Y-1tuzeI2DYS-00L6yO; Sat, 08
+ Feb 2025 14:42:18 +0100
+Message-ID: <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
+Date: Sat, 8 Feb 2025 14:42:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: brcmstb: Adjust message if L23 cannot be entered
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
+Subject: Re: [PATCH v7 11/11] arm64: defconfig: Enable OF_OVERLAY option
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Bjorn Helgaas <bhelgaas@google.com>, linux-arm-kernel@lists.infradead.org,
- bcm-kernel-feedback-list@broadcom.com, linux-pci@vger.kernel.org,
- Jonathan Bell <jonathan@raspberrypi.com>
-References: <20250201121420.32316-1-wahrenst@gmx.net>
- <20250208102748.2aytlzgzbvm6u4vi@thinkpad>
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+References: <cover.1738963156.git.andrea.porta@suse.com>
+ <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Stefan Wahren <wahrenst@gmx.net>
 Autocrypt: addr=wahrenst@gmx.net; keydata=
@@ -72,37 +86,38 @@ Autocrypt: addr=wahrenst@gmx.net; keydata=
  f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
  V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
  aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250208102748.2aytlzgzbvm6u4vi@thinkpad>
+In-Reply-To: <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Th+KIiOCiIiw1MY1//6zdwJu9I+IeP3cHWtK/iTHEMJah+6DHB1
- yAQhJRdfN2IAUvWdKHrRsTI+B+YkyoJ/IOt3M7EHSnqE++BpHuqk6/U19rmdqVw3y25V1iK
- fq3I4OOKvMhp3JmTLFpI/5kcGx4ON6OxxAqDPOIjzyKqV83PJO+dWUPcRYMeG2Wd7KAHc9m
- XpGvncZ01v1JFwWtl+huw==
-UI-OutboundReport: notjunk:1;M01:P0:UYMJ1v9vVw0=;m+GDyp6P17KHI1DxBeCSYS9Vmwr
- PrbMWxRloDnN/1xnz3dv+hf1W9vsKIp4iPF1rsMMUqVYpiYkrqJKNkaWAAkessjZTSCGt4e9+
- OUnm3fC7B3CXa+eU3RCreFAGJtNMLMKbc+y1d7x0jNYx1l9YZS8W2mjJkwdzFEERX7KOOE5eL
- RbEuWMsYYUrav/uNT72oYca61gUCRcV9+ZGrXRnwr7wZwLTTh/7SIPdX1yqomlGKyfaPD2MJg
- HuSCWmUVAcCmnxwvrO0IR/kZDyHvIHVG1vsJfQXJX890SAgDWsgnwCf8590rq+ql5hH6f10SH
- CCe8UIgE1+gmT2IOGDLaq32YA4jBGmdIIYma9aBOgo9N3jP93epSaTaycH4xcMMoOXKzlz9yh
- j/skxwLN1GrB5xMKtB2EjrSmazm+w2eS1s31d9xyV63pCbHG6Uxc1ZhEiCj5K+a/9nQETFHTQ
- 7fHYFOEePSLJsCDs/n6jV2rGewYnbGYtOkTGSEfdd4O1pNah38/1FISGAYbx1R+gSk8Mwu5q+
- eQeCOqf54v8iPbHlC4Z21UtfD57xi+y6CRiP/jLD30cFBK14nazPEOyHe4Kz35/SUnjRPfIrA
- fCZkn+nKiCsLuXPqDrRjuPP3R5065xn53BvBqD2+Qpv0iYT0LVVanRUGshHr61+TFYWWAcSxq
- jx3vLSsW0tmFzg6k6O4MLxzVpfeTS4vojl9AmQ4WEaqKdvu6tcLcHGK3i5ZTpbzbsSFu1xGej
- xwj8z1BmbSUBHZ0VgQQSluWQgSoX7sJrgnIACJKfGsC4rtWNy2fZWppc9usv6lnwWUvcvxc/q
- V3kr8DfeOGtV8Kf4cP+8iw6/ijstn9og5GYrY0wAL/u7yKOhelCopxxFkdNgux1QksY5TIZyC
- yCSYuUfyudA9/p+HQHNX7/SC1YbWUMluK2oFomxYdv4tvkqc8AkEyQ8BM1pnh0Y2G22XY93KK
- FKiqxARwEC4GlbJa8b84RUvrruAAIh4ksiKYEo04yUUsqS3B4gaUDB1nVVgvwesozVpkv8v/W
- n8hiWakXgSP76LOEcPQjNQzkDMGabiMocfO/czhU7JK8YlS/sATxs2iFqF0J+DftDGzRAKyUY
- +7oG2t5WLMRIkSpfMwXvz+rUpTmvVujMX+e84HCXI1X4nllbEQsDIgwOYacSOCa5XUVLgq/7q
- sBvcPh/H2KylZ5cFqCsRPoz/kek8hdF04uAV3GlrJpPgaxkJRTOJ5qnLy8l3RVc2iC3vS0Fqr
- +3U1EZcp3xLhV8mNIzm4QSMFJ2M3z8QtRg6vxCdYUKz+09Px/y1ub6W75w6AVzOFWmvOQRFte
- Q8MX5abcLrr4bB55NASBxHz6sHCGcKczu+UiFmNUcAlz4s0X4cJtXK4xtmXcjAYtgY9c6EYoY
- qw5/rGFruFz5d/XcsB9bdux7/X6v8OTUvVN7bUx7ckQeO1eOY4NdSuD4Fv
+X-Provags-ID: V03:K1:MqewR4qhxQkLVlA/5AQd8FA2Y6QAAPMgpTkmIvKSeA6cgOvvxNi
+ IwPq/45hXyYwz0U19B9/ZViLl+kDRwuUyp/jZ5+oMkX5hQh4sgUIiu9/9JpPa65SQx566H6
+ 22SPhcJScjhWewRBZrGaj1nto68z8S2LWk0HLMta3zZA0nXgrRT48zsbbp2CvpiMu0lF8xx
+ K4Fjpli2GbeAMgx79RrmQ==
+UI-OutboundReport: notjunk:1;M01:P0:1K/4gpxF1gA=;i/nVL/nCb8vzm9lfLz1l+L8C0V9
+ Bj+A5yOpr5js2Zs2Hqcsw0M7tlmhSCn0cV6xjboP1kjOOqjHtH0n3+8ux3NHcWhghu82MqBB0
+ u+WgfslQrpAdsjdgCsS5A6F3M18zxhMQ38kuBRcfh3v2e9wCatAMSzBisyFFW5TSSiOb+ZRHQ
+ /C4xmKr6ljKpa9JMOlw+PqXACZ7o6Owug1m0GUIQYOYP0VLFnvTZZ9bUIqqAWLXwyHLpHtMTA
+ JVAbqaqhFv62JSxnZJJzoqpfPEjq8njZcYwZbdV5OA4gyEy9tpWuu5qDC1Di7ZlFcuzVSJ5hw
+ h1+ao3+1MUdiTt7pxrP5CW6bf7F91taRzf5EqnqANBr/xA9e+OGU1SQqBOQyEnsX560bo3cpF
+ MEhqdwJ3sasCpO7pmcFrmxxAgPWPm4C8Tw1hjx5pyxSzVokEWmAlqCm7MkHn6HrwHHvVYdCmv
+ xmEh/yzO/3I65k3SOIwuoWQ93aVlMWtplH1l50riqjJs9C9EAIo5axYnGwhS14872iaLWw6f/
+ maILJrVu8lXg2Z+BXWfUvMJF7F4+nPX66OWa5F7ira3HGZ391V/KMXj6CCkRLKIo4gSvApohW
+ RHB2hVrb6qGoF2EqFYsa66za8hbuY65Yu6RJ9MiJh4hNV7RncgiRWacmrLgUDrgdmDlAix93j
+ kzXFQKMg48v+czo9/iYoiofie78kUot9XyJ00cuV2dald+ylr8wov+5MDCM5iuXrUwYp2eDRT
+ osrZxXD2/8b37enyvrt0G20VKiFpKUTD9B8W73iVSZagQO6ch15sCC4iVGGbUKzyNNgB9rBu0
+ n8mTMHPU5buYnAcCbpW8VvPlVtslSDgwBSrxlI8UR0t1mYEM7X/FygYFlo8xrCiYtmpBAcSUt
+ PM3zOEu1sk3g4RK9V4Eox2HEsiekXeFO7jJ8AwUfJaY8yU4/P0ej9u2WZvJ88vT/2HD7x7rxb
+ 0OuZGpnIFN1Od/ZktIa/dinx8EtpNmG7e5XWWeaKEguh5Yl5TalHWXUbqfuBpwBP4mh22MMfi
+ nsiSjCR4rTPtzbXKvnJG4n4Mtqn/q1Me3d7OAViXBUueIW1ZO2Y0zzeuHjpG3ntpC0Mi4dgbY
+ CPGlLGfLG5DFAB+wtqRzSVZ5rt2YJQjn4j8JVwVlrOFSRMdbOXFk3AfkdokySP5g0D+eXiBpN
+ g05YnMq0JhtH6E86wGwcXulmjNr3EkK9tZ1HqzTVRHiY0p+dp328uKg1i97GSIWy+kkb0PK4Z
+ psuIo5YQJBadmEtZgU0upiVQ1Vb/JArDjSUIoznRQCBbTcmyZU3hlT5Wxpfx5AAFStRrChPF2
+ s5L9sNLpqFQ0dhgM6iBcMcEDJBbqNWX4QQqycq+jkntfo1pXUS3P4f9nJLr7+Ur0D/0w3XrYA
+ Dj4uThhpc/+6Q5YdMPySWpUFdL15CnueOOeM2oLhUuAc7vNProVYehtJSuNbIsBQogeZeiM1b
+ bwHAxNQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_052224_003175_B0D4A7ED 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250208_054233_356511_3BD974D9 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,62 +132,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
+Hi Andrea,
 
-Am 08.02.25 um 11:27 schrieb Manivannan Sadhasivam:
-> On Sat, Feb 01, 2025 at 01:14:20PM +0100, Stefan Wahren wrote:
->> The entering of L23 lower-power state is optional, because the
->> connected endpoint might doesn't support it. So pcie-brcmstb shouldn't
->> print an error if it fails.
->>
-> Which part of the PCIe spec states that the L23 Ready state is optional?
-tbh i don't have access to the PCIe spec, so my statement based on this
-comment [1].
+Am 07.02.25 um 22:31 schrieb Andrea della Porta:
+> The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
+> option. Enable that option in defconfig in order to produce a kernel
+> usable on RaspberryPi5 avoiding to enable it separately.
+>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+> This patch is *OPTIONAL* since I'm not sure if OF_OVERLAY is a desirable
+> feature to have enabled by default. It would be advisable to have it inc=
+luded
+> so that 'make defconfig' can produce a kernel config that will work out
+> of the box on Rpi5, otherwise OF_OVERLAY has to be enabled separately.
+I think this isn't a good approach to convince the arm64 maintainer.
+This change is not really optional for the Raspberry Pi 5 and possible
+users/testers/CI rely on a working default configuration.
 
-Thanks
+So my first suggestion would be to provide a scripts/bloat-o-meter
+output (before/after). Based on this the maintainer can better decided.
+
+In case this change is still rejected, we still have the option of
+something like this [1]
+
+Best regards
 
 [1] -
-https://lore.kernel.org/all/CADQZjwcjLMTLZB1tzp+PYKK9rm=3DKe7a-KoGKMKb9zoW=
-odcRK-A@mail.gmail.com/
->
-> - Mani
->
->> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> ---
->>   drivers/pci/controller/pcie-brcmstb.c | 7 +++++--
->>   1 file changed, 5 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/contro=
-ller/pcie-brcmstb.c
->> index e733a27dc8df..9e7c5349c6c2 100644
->> --- a/drivers/pci/controller/pcie-brcmstb.c
->> +++ b/drivers/pci/controller/pcie-brcmstb.c
->> @@ -1399,7 +1399,10 @@ static void brcm_pcie_remove_bus(struct pci_bus =
-*bus)
->>   	pcie->sr =3D NULL;
->>   }
->>
->> -/* L23 is a low-power PCIe link state */
->> +/*
->> + * Try to enter L23 ( low-power PCIe link state )
->> + * This might fail if connected endpoint doesn't support it.
->> + */
->>   static void brcm_pcie_enter_l23(struct brcm_pcie *pcie)
->>   {
->>   	void __iomem *base =3D pcie->base;
->> @@ -1422,7 +1425,7 @@ static void brcm_pcie_enter_l23(struct brcm_pcie =
-*pcie)
->>   	}
->>
->>   	if (!l23)
->> -		dev_err(pcie->dev, "failed to enter low-power link state\n");
->> +		dev_dbg(pcie->dev, "Unable to enter low-power link state\n");
->>   }
->>
->>   static int brcm_phy_cntl(struct brcm_pcie *pcie, const int start)
->> --
->> 2.34.1
->>
->>
-
+https://patchwork.kernel.org/project/linux-kbuild/patch/20200203184820.443=
+3-3-nsaenzjulienne@suse.de/
 
