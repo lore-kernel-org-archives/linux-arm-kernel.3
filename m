@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E629C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B1AC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=; b=24dR784TEhGWJ01CgFcRiSQxlt
-	PcOi0gRtazxCFEOAWRmyyux9zJeayOPdvmdrmCPvhG+qLbf3gQ9WpWvunOyvXDiTQzx72vtCdd2y8
-	2RlRcvJXgHbs3WEVRefMwqa+LbliczDEOsT5JmzYLsL1s8PxtqUDi6a2jYEf9sLyGKOrAt9oH/rew
-	p/pixYo/U0x/+RsdY8y56w19lUzqC6CwgAQO1q6NTKLpXmbNgsPofjcQyGXy40f+4h/iyLEZZSA2Q
-	c1TH7WUC9JGHxMug7pqRbGyaVkuuKk7i+X4GCOvaIklSK8c33MS2a2CTlfUe8VddQD1VKgDD1K1vS
-	Rn+sp99g==;
+	bh=PnO79n/yAvE5EfQyNJ74YN4HFwQURsznW0Z0JEn8xXo=; b=H1PCn0m6q6aYCUuVRsxKsaVGSX
+	QpojnVpTFZjp1YywTk65+V8x8LrryqIY1HbHLX8gXb9dIeMwtAaGIEmN2YAKFpURZtMBdSL5w4plA
+	o+hJ5JKWbqAZDnH8GYeBifwZFxwTLrpcUFf1Ul4pxVK1cF/A0pOXJaWSjzA0LeoVK2YEKzS3DMbg3
+	U2d0aIcmq0cfnq+/5LBuudrfTjLW5XYU0YAFoFOyI1wyk8AnRm0MrsFZdqwe5yGqJHAyRhFHfmX+0
+	u5BC70QYLzKJFAGGt6SFn69Y0gItHcwJVen40itCXMywtFgpIyEwlGoy863Fg9mWgG9bZgBjJS3mI
+	hb22EpLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaLl-0000000BtBZ-1Ruu;
-	Sat, 08 Feb 2025 02:13:41 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tgaN7-0000000BtPN-46eu;
+	Sat, 08 Feb 2025 02:15:06 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaDO-0000000Bs9y-4BIL
+	id 1tgaDj-0000000BsD4-2EM0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 02:05:04 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38dcc6bfbccso609880f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:05:02 -0800 (PST)
+	Sat, 08 Feb 2025 02:05:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738980301; x=1739585101; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=;
-        b=XazkQTpRzW+7kXxzWJJLkwLUKFUw04LOe1MShl+teHb6WC58x8uC5Lb9UIEWzVx96O
-         KP8YvRoBJFvxxsT0bXeFANwiZXyhWgLBam18eEiu+s8P7ZCYiLPN1FqOVk8rp0MMTwIa
-         HHjJmCIJMoDszoq7BZhsJUenuB+D85eD0w6wk0Vm3TwAiixgW7uDlnbdGBl1kpLaif5U
-         n4gdg0l5K967x2ANjlQ1P4YI/iI5I6TjXCR4ph22WqVTGARIoXl3HuNQioRe9ET77mQ8
-         tBc9O+oRG3XG/dfBX73iPpwR199YR9Zu9dJIxuVb6bA8C1rMFxNa/ay3DaBUPIx0vs/Z
-         bC+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738980301; x=1739585101;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=;
-        b=hFJp9gA+OF/ntPviZQLvIJXUV23J/cXuHNv4SkwR+de4K5BxCJybe0sljqvBjin+QU
-         WFU8uxhw29HtX/Px1hIWISY3jUJ0hgTzytG4c2cpfyvNvVs4UKxFaHbO1z0PzyP3MxFt
-         aYOHomG0/HQRYfPoRgIubANke/gRCVwAHChu4Mcdwytu8VdH0AtCDaYRbMiFxOotcIAe
-         ABR/+/UGzouhuQFZrzQdjBfMflfJ75TFMupNXoxfgIiizywps4ArUjNaZQCRBF9jo+Pq
-         zz5CLuZJnvJeAHcYGMRFQkm3gABXRKJbmh51YQ9nk9Urb6AkvDvhDQf70pM178blvs7d
-         XrzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUtXPPP5I8wAWivDBfmNRIiGVMcmBEbqPrFZICvlmqRlEfhlxk9luEEODdbV4QT75HhTFq+h8l/VeWdSWrfH6W/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1uMski6K9lGb4cL8tN9VRMTj0JCe6qJ4uig71KQhzKUP3o+lM
-	438eVJtqOizhiZFtqgBqvWmkSOmRZxKvix8mvwYXvuRMq6/CKQJVZ5YT5MRA0LLKVqUAzn8NQfS
-	uYbn/PAmWFFvf6S8mYLG8yk90Be4=
-X-Gm-Gg: ASbGnctFJiG8zz0XGDJpKiRNw7YMTb9/pRhZJw2OFwuYoInRrxQ5HWhBEc5NNbCTMAO
-	TcJASaFG9QNm1WHCRZqT9RoD4qb8JoaXznI86gSFFxFQ270GjD9a/UBSA/dpAR5HD3PX1gcB9Ul
-	w9UX4WydAIjVrHE4K4EzCBL532OdjT
-X-Google-Smtp-Source: AGHT+IGLStgu8AXC9q/i8f9nQHUBuaSfxwvSq8Eg4fLl4TJeqHMutcRrjl7FjFaKlKFT+6nEI2m4IxYOG5h5nun2Xvk=
-X-Received: by 2002:a5d:6d0d:0:b0:385:f1f2:13ee with SMTP id
- ffacd0b85a97d-38dc935f47dmr3503009f8f.46.1738980300974; Fri, 07 Feb 2025
- 18:05:00 -0800 (PST)
+	d=linux.alibaba.com; s=default;
+	t=1738980318; h=Message-ID:Date:MIME-Version:Subject:From:To:Content-Type;
+	bh=PnO79n/yAvE5EfQyNJ74YN4HFwQURsznW0Z0JEn8xXo=;
+	b=oBVds19g68E7cEJ8FPxiAcHclWns8IcjT4f+uTe2kW3hYZMOj8F9Kan6ayMSKzzZT4ZLHbSRLY5YsZzcrZn8cdAZLiBXWWumjCShTT28wc+s8zQU1i2+dfermCWIYtGSAcQbPkFrie9YU9EHZGvHUbVbhEE2PDMVS2V/+TpZBb8=
+Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WP-xQ4J_1738980312 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 08 Feb 2025 10:05:14 +0800
+Message-ID: <63720413-be3d-4ae3-aec7-3c62662116a9@linux.alibaba.com>
+Date: Sat, 8 Feb 2025 10:05:11 +0800
 MIME-Version: 1.0
-References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-24-memxor@gmail.com>
-In-Reply-To: <20250206105435.2159977-24-memxor@gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 7 Feb 2025 18:04:49 -0800
-X-Gm-Features: AWEUYZlLTRyf_ClCJ_SG_e1Sm6AP8DlaHhKMYR5f6FACR-Jnh5gK8pkaAR7oKxc
-Message-ID: <CAADnVQK8+-nkvDnBq=pVkadPX9zASdTSEDn6bUe7hqgs=Bm_iQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 23/26] bpf: Handle allocation failure in acquire_lock_state
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, Barret Rhoden <brho@google.com>, 
-	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Kernel Team <kernel-team@meta.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 0/3] ACPI: APEI: handle synchronous errors in task
+ work
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: yazen.ghannam@amd.com, mark.rutland@arm.com, catalin.marinas@arm.com,
+ mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
+ bp@alien8.de, rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
+ tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
+ james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
+ will@kernel.org, jarkko@kernel.org
+Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
+ ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
+ baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+ robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+ zhuo.song@linux.alibaba.com
+References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
+ <8775a7d1-b4c5-467b-942c-3041e2994735@linux.alibaba.com>
+In-Reply-To: <8775a7d1-b4c5-467b-942c-3041e2994735@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_180503_039321_298D33C9 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20250207_180524_335031_7D30038C 
+X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 6, 2025 at 2:55=E2=80=AFAM Kumar Kartikeya Dwivedi <memxor@gmai=
-l.com> wrote:
->
-> The acquire_lock_state function needs to handle possible NULL values
-> returned by acquire_reference_state, and return -ENOMEM.
->
-> Fixes: 769b0f1c8214 ("bpf: Refactor {acquire,release}_reference_state")
-> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> ---
->  kernel/bpf/verifier.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 9971c03adfd5..d6999d085c7d 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -1501,6 +1501,8 @@ static int acquire_lock_state(struct bpf_verifier_e=
-nv *env, int insn_idx, enum r
->         struct bpf_reference_state *s;
->
->         s =3D acquire_reference_state(env, insn_idx);
-> +       if (!s)
-> +               return -ENOMEM;
 
-I'll grab this fix into bpf tree.
-Next time just send it separately, so the fix is not lost
-in the patch bomb.
+
+在 2025/1/22 13:36, Shuai Xue 写道:
+> Hi, Rafael,
+> 
+> Gentle ping.
+> 
+> Thanks.
+> 
+> Best Regards,
+> Shuai
+> 
+> 在 2025/1/7 16:17, Shuai Xue 写道:
+>> changes singce v17:
+>> - rebase to Linux 6.13-rc7 with no functional changes
+>> - add reviewed-by tag for patch 1-3 from Jane Chu
+>> - add reviewed-by tag for patch 3 from Yazen
+>>
+>> changes singce v16:
+>> - add reviewed-by tag for patch 1 and patch 2 from Yazen
+>> - rewrite warning message for force kill (per Yazen)
+>> - warn with dev_err in ghes (per Jarkko)
+>> - add return value -ENXIO in memory_failure comments  (per Yazen)
+>> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
+>>
+>> changes singce v15:
+>> - add HW_ERR and GHES_PFX prefix per Yazen
+>>
+>> changes since v14:
+>> - add reviewed-by tags from Jarkko and Jonathan
+>> - remove local variable and use twcb->pfn
+>>
+
+Hi, all,
+
+Gentle ping.
+
+Thanks.
+Shuai
+
 
