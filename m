@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4427FC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E629C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=; b=TA44z61JqX5MJkEIDNsIFMFLOc
-	x3/Q3rf4rg+FOmW81OzlXM4+zKb2mSp66kHlhpZn0iHsN6DfLwzQ5Q6CTv1/lHBaDKswKa22MEFrU
-	0vyYd2251QzIeV3H0H0RhPbmjOCZ/8rZcN+TJitQ7zrzuOCiL7dzLC5wz6SCRhumq8lB+Msi4FZhu
-	SRMJFfKbo8k+p04wRGvKnCpJdC/kgE1cwJcTpBz95PbMpYwxzc6aM33TUHV6JmNAxBEQojFITRu90
-	gikDMh5OGdu2/2fjFcxU4Xh7fjs6IAeqwfML9fxIca4Ss+cf6RIMXmfu71d6R91Rc1sEgNKKgbAE6
-	7G1ThbnA==;
+	bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=; b=24dR784TEhGWJ01CgFcRiSQxlt
+	PcOi0gRtazxCFEOAWRmyyux9zJeayOPdvmdrmCPvhG+qLbf3gQ9WpWvunOyvXDiTQzx72vtCdd2y8
+	2RlRcvJXgHbs3WEVRefMwqa+LbliczDEOsT5JmzYLsL1s8PxtqUDi6a2jYEf9sLyGKOrAt9oH/rew
+	p/pixYo/U0x/+RsdY8y56w19lUzqC6CwgAQO1q6NTKLpXmbNgsPofjcQyGXy40f+4h/iyLEZZSA2Q
+	c1TH7WUC9JGHxMug7pqRbGyaVkuuKk7i+X4GCOvaIklSK8c33MS2a2CTlfUe8VddQD1VKgDD1K1vS
+	Rn+sp99g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaKP-0000000BszJ-30uP;
-	Sat, 08 Feb 2025 02:12:17 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tgaLl-0000000BtBZ-1Ruu;
+	Sat, 08 Feb 2025 02:13:41 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tga9x-0000000BrNv-27bb
+	id 1tgaDO-0000000Bs9y-4BIL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 02:01:31 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38dd14c99c3so251036f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:01:29 -0800 (PST)
+	Sat, 08 Feb 2025 02:05:04 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38dcc6bfbccso609880f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:05:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738980088; x=1739584888; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1738980301; x=1739585101; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=;
-        b=dcn7V+6qqnDGNB0NgSLd6z8KmXdgxlnnY77AbD1z48HhKpJCnJjabRSxt3/zl+wyBA
-         MmWbMg9v8iVGHQqrBU4DDKj1ZZ095ihCQbsvJYAm/n3vd3QZoNUdrXoTq6OBgCtSSl44
-         wr8l7Sdp2Jf+OLJmM3DpTZ/Gh6+my6kb+IFukWPS3Fa2xntD+K7RWL3PxhPRixfOk/Bt
-         JjJEYxQrmZXKGmSeYGIjADWPAITdOd92lZGPWhYUHvm8ypD0bWhkXrfo5z9TCtwDCiim
-         qS45KT2yu0HzNm9EBqch5lvccnWaXBfszfAtEFyFuMf8O9xkXumQAIUD0yx8sGDYAjdD
-         11rQ==
+        bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=;
+        b=XazkQTpRzW+7kXxzWJJLkwLUKFUw04LOe1MShl+teHb6WC58x8uC5Lb9UIEWzVx96O
+         KP8YvRoBJFvxxsT0bXeFANwiZXyhWgLBam18eEiu+s8P7ZCYiLPN1FqOVk8rp0MMTwIa
+         HHjJmCIJMoDszoq7BZhsJUenuB+D85eD0w6wk0Vm3TwAiixgW7uDlnbdGBl1kpLaif5U
+         n4gdg0l5K967x2ANjlQ1P4YI/iI5I6TjXCR4ph22WqVTGARIoXl3HuNQioRe9ET77mQ8
+         tBc9O+oRG3XG/dfBX73iPpwR199YR9Zu9dJIxuVb6bA8C1rMFxNa/ay3DaBUPIx0vs/Z
+         bC+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738980088; x=1739584888;
+        d=1e100.net; s=20230601; t=1738980301; x=1739585101;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=;
-        b=ouXWQSfk5IBUwQ70aHYmLL9qDmNo0bVj0rqOwWrVH5bP1nysHuOQ6+VguLxRAtuql+
-         0ubWEQaCHl/xAYhVOYygst4HZ40YMsN8clVoJZEi/q5EULZd2sCynlvYnOcRAVkaj4Q9
-         q4o+7WtQXcStBzOvrNFI/f6lKZ48u3TMv/bphz6mzRQpQZWL236RE8uq0J80XVt8MUsM
-         cBCHu2NQZtTuMIe+TPA0VDExQuT/cXOQDWA8CL+ItMEXD+Knj0G9KyJZeIsVqDWV28HC
-         PLCldNsGxxOYMVBBdj9NOuLnFq4Rd3U+CAKJW8qRBN8YsdNrEsbEZNPP3pvdao0oBLgp
-         GM5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX8rUQRgtuyTKL39mLoKrG7ufxMub+WLd5ajHQNwNN83dE5qcZqbTvN2FBOxyIPb/BQ+R183ZW7sWGxOkEGl7Yy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe3ha3Q4/UDnLOGgNmbGi0AzHJGuJsw+70jc5aUJ6kkNYWYX+c
-	mWDq7QaYspf+Nu71dl4wb1AkE131xDjEPj0AArvUwkoxZawiNiUoD9r4TcUMZYFsxpPJlbzXWFO
-	haeEVdMLE60C/SNks9xbWVkBADB8=
-X-Gm-Gg: ASbGncv9aCym0bxQBhrgG7BUU6l+EhsJX6kiTMlp8vSaKkel3rDGt3EN7EIX9JeHt2y
-	IkTQHQriz80Q8I8T00ZVcSuXXCJchg4uAIGl+aDrni8zGrMpNaL1ZunUjNpt9VjnB7f0kj0iSai
-	nZ1I31OTENMZL6vygT5z5aFH3Mp3vW
-X-Google-Smtp-Source: AGHT+IEoZCtmd/odsNY1AueL2/BylkudMbYiLPnq+yVpZr8qNoJRC0tBlsOa6xLF9KZbqMlXnsMGY+t/Q+QTxpioknQ=
-X-Received: by 2002:a05:6000:1865:b0:38d:bf57:f371 with SMTP id
- ffacd0b85a97d-38dc9373270mr4376973f8f.48.1738980087553; Fri, 07 Feb 2025
- 18:01:27 -0800 (PST)
+        bh=tLAWLSHy0TSwl7+tgWW0CQncnxmp+W5DE/5jbJvqW4U=;
+        b=hFJp9gA+OF/ntPviZQLvIJXUV23J/cXuHNv4SkwR+de4K5BxCJybe0sljqvBjin+QU
+         WFU8uxhw29HtX/Px1hIWISY3jUJ0hgTzytG4c2cpfyvNvVs4UKxFaHbO1z0PzyP3MxFt
+         aYOHomG0/HQRYfPoRgIubANke/gRCVwAHChu4Mcdwytu8VdH0AtCDaYRbMiFxOotcIAe
+         ABR/+/UGzouhuQFZrzQdjBfMflfJ75TFMupNXoxfgIiizywps4ArUjNaZQCRBF9jo+Pq
+         zz5CLuZJnvJeAHcYGMRFQkm3gABXRKJbmh51YQ9nk9Urb6AkvDvhDQf70pM178blvs7d
+         XrzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtXPPP5I8wAWivDBfmNRIiGVMcmBEbqPrFZICvlmqRlEfhlxk9luEEODdbV4QT75HhTFq+h8l/VeWdSWrfH6W/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1uMski6K9lGb4cL8tN9VRMTj0JCe6qJ4uig71KQhzKUP3o+lM
+	438eVJtqOizhiZFtqgBqvWmkSOmRZxKvix8mvwYXvuRMq6/CKQJVZ5YT5MRA0LLKVqUAzn8NQfS
+	uYbn/PAmWFFvf6S8mYLG8yk90Be4=
+X-Gm-Gg: ASbGnctFJiG8zz0XGDJpKiRNw7YMTb9/pRhZJw2OFwuYoInRrxQ5HWhBEc5NNbCTMAO
+	TcJASaFG9QNm1WHCRZqT9RoD4qb8JoaXznI86gSFFxFQ270GjD9a/UBSA/dpAR5HD3PX1gcB9Ul
+	w9UX4WydAIjVrHE4K4EzCBL532OdjT
+X-Google-Smtp-Source: AGHT+IGLStgu8AXC9q/i8f9nQHUBuaSfxwvSq8Eg4fLl4TJeqHMutcRrjl7FjFaKlKFT+6nEI2m4IxYOG5h5nun2Xvk=
+X-Received: by 2002:a5d:6d0d:0:b0:385:f1f2:13ee with SMTP id
+ ffacd0b85a97d-38dc935f47dmr3503009f8f.46.1738980300974; Fri, 07 Feb 2025
+ 18:05:00 -0800 (PST)
 MIME-Version: 1.0
-References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-20-memxor@gmail.com>
-In-Reply-To: <20250206105435.2159977-20-memxor@gmail.com>
+References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-24-memxor@gmail.com>
+In-Reply-To: <20250206105435.2159977-24-memxor@gmail.com>
 From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 7 Feb 2025 18:01:16 -0800
-X-Gm-Features: AWEUYZnUTy2itNVn48BldfC4LoMr601PCDOaBo1fZL0B5Yg1x-9oEAhlPjMvVFU
-Message-ID: <CAADnVQLNovQYGy6_zGDi75vmNHfZ-hKz4G=gWF4Bis8b6iTYew@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 19/26] bpf: Convert hashtab.c to rqspinlock
+Date: Fri, 7 Feb 2025 18:04:49 -0800
+X-Gm-Features: AWEUYZlLTRyf_ClCJ_SG_e1Sm6AP8DlaHhKMYR5f6FACR-Jnh5gK8pkaAR7oKxc
+Message-ID: <CAADnVQK8+-nkvDnBq=pVkadPX9zASdTSEDn6bUe7hqgs=Bm_iQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 23/26] bpf: Handle allocation failure in acquire_lock_state
 To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
 	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
@@ -84,8 +84,8 @@ Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_180129_576436_CE0EECCE 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250207_180503_039321_298D33C9 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +103,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Feb 6, 2025 at 2:55=E2=80=AFAM Kumar Kartikeya Dwivedi <memxor@gmai=
 l.com> wrote:
 >
-> Convert hashtab.c from raw_spinlock to rqspinlock, and drop the hashed
-> per-cpu counter crud from the code base which is no longer necessary.
+> The acquire_lock_state function needs to handle possible NULL values
+> returned by acquire_reference_state, and return -ENOMEM.
 >
+> Fixes: 769b0f1c8214 ("bpf: Refactor {acquire,release}_reference_state")
 > Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 > ---
->  kernel/bpf/hashtab.c | 102 ++++++++++++++-----------------------------
->  1 file changed, 32 insertions(+), 70 deletions(-)
+>  kernel/bpf/verifier.c | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
-> index 4a9eeb7aef85..9b394e147967 100644
-> --- a/kernel/bpf/hashtab.c
-> +++ b/kernel/bpf/hashtab.c
-> @@ -16,6 +16,7 @@
->  #include "bpf_lru_list.h"
->  #include "map_in_map.h"
->  #include <linux/bpf_mem_alloc.h>
-> +#include <asm/rqspinlock.h>
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 9971c03adfd5..d6999d085c7d 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -1501,6 +1501,8 @@ static int acquire_lock_state(struct bpf_verifier_e=
+nv *env, int insn_idx, enum r
+>         struct bpf_reference_state *s;
 >
->  #define HTAB_CREATE_FLAG_MASK                                          \
->         (BPF_F_NO_PREALLOC | BPF_F_NO_COMMON_LRU | BPF_F_NUMA_NODE |    \
-> @@ -78,7 +79,7 @@
->   */
->  struct bucket {
->         struct hlist_nulls_head head;
-> -       raw_spinlock_t raw_lock;
-> +       rqspinlock_t raw_lock;
+>         s =3D acquire_reference_state(env, insn_idx);
+> +       if (!s)
+> +               return -ENOMEM;
 
-Pls add known syzbot reports as 'Closes:' to commit log.
+I'll grab this fix into bpf tree.
+Next time just send it separately, so the fix is not lost
+in the patch bomb.
 
