@@ -4,91 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568B0C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 08:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC99C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 09:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DdV0CpD28PU9+NJG4gRe2c2s9k+Um9Re0nUCXPDAbKk=; b=yGDvSFKujTA5ZNjTcWcjwhLbBy
-	8j9xWUOrBQ9XADNOQD1HvlmeSUh7NtryEp63C3N0+raIzaYkt3+c/LapmUTab8mB4O9fHH/ueDYDV
-	mCQpGNHxEHiQQVa7vu75twkMCF5pbdGUxdNC3tKsebjdKVLWFZO1WUUlw6oYqvjPtmEqhXWJ5x7wn
-	qsrg8OPAgaQZkKUwtMv8kJjMHPu0nWpcc2Yd7SCY+/ig0Pkr8214EN59iy/egIySb4FpWg0z/H0uX
-	oj21iw8I1RSR7Y4EbbgYBT5QDKgINz0SpZx9F0i7BLOt/oReqSy8vX566NcH7ri7K7FnKv5T46YLm
-	c+W4GreA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1swU+DWD4iLb9nDrOqt1FAkZP8c6uZvZhajtiD3NSro=; b=U9mwjfxn1k12GIqWbOKa9yPdAD
+	ulFhHJZ7uJoYVVfLHw3O89o3hXkrcD8pEZ4e/v2ukM1U7OVpkLW+hZfcl9aiSfRLcPe57rVRRhgQ4
+	0Df1sAAjnODq3tF6SeJqwIERTs5TCGB1N0P7YOF2EFzORtfwI9LUEhX6a2d9yqO2cZGIfNgJb/uT1
+	qkz4b+CaSRLY6WhFGx0Lsb6Ef9w+wx4Q+l6YFdy0xH9rxLZmJUrGUB2abIhvS13y6L0pRtFLtJcKO
+	LaFYtjjy+8h2CQKBwkIHogvR0JVmFUoxpP9XDkfgjVe1TkAM2AQTAW/yiHdRUZfc4+AeE2AlJ+5Pz
+	y3pQkPeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tggQm-0000000CVBx-1TKL;
-	Sat, 08 Feb 2025 08:43:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tggle-0000000CYOr-3uqs;
+	Sat, 08 Feb 2025 09:04:50 +0000
+Received: from mail-bn8nam12on20604.outbound.protection.outlook.com ([2a01:111:f403:2418::604] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tggPN-0000000CUrk-3k4z;
-	Sat, 08 Feb 2025 08:41:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE6635C06B6;
-	Sat,  8 Feb 2025 08:41:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F32C4CED6;
-	Sat,  8 Feb 2025 08:41:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739004108;
-	bh=E5gL8dRYvMRUB4RhOkfU03fhf9gt76TJAgi4Xl3jmPc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kREtqi2fggdaHb5LdxuUlbR8DBCUpVZQneZJk5djPdcuD+zlfrwy3Afe7zNEJkUwF
-	 ye9iA/JXQY7uM39/BkEOyuNNl7kCmFofLB6/wn6/edGIcq1WdQ288cMsymsQxm7kb+
-	 93CgoBcP7Hc2cGSaJm0AtBwEdpM0WeYSJrDhd/f7fz3J8WZJHeUn08YMbyOCVrTbSH
-	 LcisQvIvzKkLvkq+PrRq1rJdfYPnyfJ20e74GmlHoSlat/YjuOlllltnOzHb/Dyjlk
-	 fm3BQpq17SSse+gB8/aFVhCbARUcCRdCOequOBW1EwRZ8L2VCtatJigrLrZnp23Ks+
-	 NNu8GFJ88NvUw==
-Date: Sat, 8 Feb 2025 10:41:27 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Baoquan He <bhe@redhat.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
-	changyuanl@google.com
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-Message-ID: <Z6cYt8QryoUfI0wc@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206162939.a1f86fb835f1eeb7ed73ff1c@linux-foundation.org>
- <CA+CK2bD6204AKWGOgzLMiMsnVZ=tk+DGc+VWgi3RVt2byaLJJA@mail.gmail.com>
- <Z6a1kxR2GlQoepgI@MiWiFi-R3L-srv>
+	id 1tggkF-0000000CXpp-233r
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Feb 2025 09:03:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NMaK6UPI/SnzN7hZEyp3WG4moltG0MIjL+Nin0vcgsKgl+nTfHXHDfKkNPhE2mDMBr/YdhSbb6YlK9z54xh0uAGLmHkeLNFqiCFy90pnJLLoJFtx/6lwewFh1xdO1Wu90Xs1s8vhoDm8W7wzE4Qs/jtqIjkPcRE3FFsGGmWBKsx9iOfC6uN5DlsPs5ya363gBmkfzSKByfaK/h+q/7dqecxBXP7CgRAwDB1awLMpY9xY/YScy4Zg2dJgr46Z7r8eK66hv2vuRNRnA9ysvJjKUW8p91Zq+a7YEf80YULFIugyq4bV8IIS6Xp+/OnJRV5fJGRUHwsqUL6ODEohK1vLiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1swU+DWD4iLb9nDrOqt1FAkZP8c6uZvZhajtiD3NSro=;
+ b=gsDjmD5bXA9vDoAW84Yc8mLQIqLn1vAQvS8V8ddK9Qxqhhdw2PK90a4QQLovZ0+LYdfEQ1qHdCe5WV09J9dW5NTlANmPOJqyk8w9JKvtGUKeoN9BSGjIFvJfrAntbg9R1WUTg5PhgaMi+eiuCf/eF/zpPkKD/eT30kLVr/S/ezd4AvR0TnlOkg7wqj88fdRj3QpP86iHPNk7/Rc8kDPwFzysEH+SJFY4sZIUuqNC7e3jDqemdlkrp2RFUG35V4JtnNRAlIFzutI/H8luDy+CA+JkxvZSe30JffKsiZA2PiEl9EvQcsmGUUQytNzavpjoEwWQj8tXKlFZghWrvbSx0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1swU+DWD4iLb9nDrOqt1FAkZP8c6uZvZhajtiD3NSro=;
+ b=kAzKuQCwaAlGLax/Am0vXHKBHaMV3POP9oYQVM0YrkYq8L6e7ILWPJjYzWDxADazI6f2KFAfEgHqQDcZXcQKPmHhYAYB1rzA75+zeqGQiCtzuida+yZ4KiW4Icohh6YvjasJTlIaa3d4Kk8GLLJpVrTIxQVNdvxOCAnthp+ZgypDSsUNkPksoHhza4S84xOVRN9qapUOp6FyCpOYIE+Sxm7xx25VHwx7q+fkBN6m35jw97bzdImN0VQegSNOZMxyrDH1A1JbJU/GtlOt4+lfE9ah+X7UwFBmQIYo4A8+kYk/D2WlcD5p50OcTpQxJiRGnFdNBa71fcA41NgxBLwnvQ==
+Received: from DS7PR05CA0006.namprd05.prod.outlook.com (2603:10b6:5:3b9::11)
+ by BL3PR12MB6618.namprd12.prod.outlook.com (2603:10b6:208:38d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.25; Sat, 8 Feb
+ 2025 09:03:15 +0000
+Received: from DS3PEPF000099D5.namprd04.prod.outlook.com
+ (2603:10b6:5:3b9:cafe::b5) by DS7PR05CA0006.outlook.office365.com
+ (2603:10b6:5:3b9::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.8 via Frontend Transport; Sat, 8
+ Feb 2025 09:03:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF000099D5.mail.protection.outlook.com (10.167.17.6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.14 via Frontend Transport; Sat, 8 Feb 2025 09:03:15 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sat, 8 Feb 2025
+ 01:03:07 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sat, 8 Feb
+ 2025 01:03:07 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Sat, 8 Feb 2025 01:03:06 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <tglx@linutronix.de>,
+	<maz@kernel.org>
+CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
+	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
+	<patches@lists.linux.dev>
+Subject: [PATCH v1 00/13] iommu: Add MSI mapping support with nested SMMU
+Date: Sat, 8 Feb 2025 01:02:33 -0800
+Message-ID: <cover.1739005085.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z6a1kxR2GlQoepgI@MiWiFi-R3L-srv>
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099D5:EE_|BL3PR12MB6618:EE_
+X-MS-Office365-Filtering-Correlation-Id: a35cb5dd-a2b1-4a7c-eab6-08dd481f6c55
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|36860700013|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LOvW1DLwVunXaSs/AvVIL49a/HAPxWhsMlhIK6At6GJn3Ae9MqvXq2ctJVVZ?=
+ =?us-ascii?Q?R29p9e737EG2s0ylKmjJr0nGPkWtU+3u0+gf1bQ8uC7hvn356ULSIs7unCtD?=
+ =?us-ascii?Q?0dF58MNWFvX2EPtBjRAxIp6tdrHduV4WhrvSKnYGtsoQCOFwyQepLVBIE+Q6?=
+ =?us-ascii?Q?OH0HjlPXn3e1JW7UzOTc6U6X+TBWuJZa5RNdt21EV1E7sPojSyzofme/V+v0?=
+ =?us-ascii?Q?gkZge4/2pHRDrWAL3LfQENlJL9hsEC7rmOmRTSTyfMmjD77pWzETUg90239L?=
+ =?us-ascii?Q?DuZsViAkx/msBEcwqq8oEfgNwXv8etAuP20p1Dr8aQVjRGPnlq6HsNkQ+bir?=
+ =?us-ascii?Q?mnqMoRBsYwRTRmVx+nhW63gWL2ZG4INhXo45hAi/wow5VawLFrGiJonVdxBP?=
+ =?us-ascii?Q?8ys8Qt6KAAlMa0VxRQCh2u7dExt3MrrCBlrXi8YpMjc35og2H4/POyPVHh6G?=
+ =?us-ascii?Q?AgCHjUiPGjDB4hQSXV3TCArYsQgNFsqTNyOsuf4X5KGP+Ay+01iFsnbTPBid?=
+ =?us-ascii?Q?bPHpkFvZT9ifWsmAs86CQWLQIi2txrBvntezKgyEs3VTxFGjN5+Gx6mHMqmG?=
+ =?us-ascii?Q?PHHp9y1E4AWmuoD+HRkJW5irywNhAjyqEJ4HJ5GueVIM1FLGpKor4hG46gYC?=
+ =?us-ascii?Q?uFZTEbkY6aZ6KurFO0LaH0pBgtaTE/ECv/ipDi3qBFDYC7oLU6gzxIJe1+gf?=
+ =?us-ascii?Q?rJuz5uA7m6ryajYH9sMnpKUexDxFD/Mx1b8f90IoTIzCWhV/HpDAp6+1SsLS?=
+ =?us-ascii?Q?faqmWnXzd2xdwpWb5W/7aM4ioml0V6jHjdVA/9c4UCU5cLFICXiXg+3t5lb5?=
+ =?us-ascii?Q?FKf1mshqL85WDXqzPJf2HQji5/oGBN2nb8JRtGQmiHEejxX4T2iP6IG88WaF?=
+ =?us-ascii?Q?6pge37DwlYDi+QFKOEbgBhkW6xvcBOQ7XRn0HMSb/69GszJlp9lg6hLJ+Jn5?=
+ =?us-ascii?Q?BS3/DG8SrOQpAUWSxwPzQkQWaNJ6ytH+nJlHgds5kIYStn0TFCAkjR8sa5z6?=
+ =?us-ascii?Q?uMgABmpIiGBvsTp5TsevODeOHbKrD1zkmhqQvLUUivNnspP2K496FCeVYMnE?=
+ =?us-ascii?Q?1MUEOysV0ntRc7JFGP8ZnzuK4Ii30CbOn/YIbsYAc+ZzxRIbxo4qPCi8N3Te?=
+ =?us-ascii?Q?lx/S5umgdxsAfH4IMa/fMDkoC4MaK/eRpjJAj9jZBqh5l+JneqmCNqsmVey5?=
+ =?us-ascii?Q?eQ01cTkQXg8Y6yA3znE+J7SajELZ8Qfq+sbrkqzl7AzzFngsuSm5FElteGPk?=
+ =?us-ascii?Q?YyWpn3h9F2Mrqj6F3xGntmbUk3fjtYmyRN514UVFlfzIAvj5OB/R9uQj1gxA?=
+ =?us-ascii?Q?oPDIO8CIOwPCH5xL2GE42HPIPBE4h0+nDWJpFUTK0UJAI7tYx4nYrWIQvsy4?=
+ =?us-ascii?Q?/qGrErpi96htoa0GePurgzin8E4RjSEm9/jSwVe4sUQ4yYQgxrUEiUNFolM1?=
+ =?us-ascii?Q?nnbnJROmxF9MRqM4BF6p+TBvaJPRgRHq6wy7wa2KL7VoVsUtXPzylwgkVlku?=
+ =?us-ascii?Q?ecnXlHsiaZohdlR5pfrnAxqRJFv7wUDPH5Nk?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(36860700013)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Feb 2025 09:03:15.4296
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a35cb5dd-a2b1-4a7c-eab6-08dd481f6c55
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6618
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_004150_019863_9746E841 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20250208_010323_611983_A7543642 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +152,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Baoquan,
+[ Background ]
+On ARM GIC systems and others, the target address of the MSI is translated
+by the IOMMU. For GIC, the MSI address page is called "ITS" page. When the
+IOMMU is disabled, the MSI address is programmed to the physical location
+of the GIC ITS page (e.g. 0x20200000). When the IOMMU is enabled, the ITS
+page is behind the IOMMU, so the MSI address is programmed to an allocated
+IO virtual address (a.k.a IOVA), e.g. 0xFFFF0000, which must be mapped to
+the physical ITS page: IOVA (0xFFFF0000) ===> PA (0x20200000).
+When a 2-stage translation is enabled, IOVA will be still used to program
+the MSI address, though the mappings will be in two stages:
+  IOVA (0xFFFF0000) ===> IPA (e.g. 0x80900000) ===> PA (0x20200000)
+(IPA stands for Intermediate Physical Address).
 
-On Sat, Feb 08, 2025 at 09:38:27AM +0800, Baoquan He wrote:
-> On 02/06/25 at 08:28pm, Pasha Tatashin wrote:
-> > On Thu, Feb 6, 2025 at 7:29 PM Andrew Morton <akpm@linux-foundation.org> wrote:
-> > >
-> > > On Thu,  6 Feb 2025 15:27:40 +0200 Mike Rapoport <rppt@kernel.org> wrote:
-> > >
-> > > > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
-> > > > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
-> > > > just to make things simpler instead of ftrace we decided to preserve
-> > > > "reserve_mem" regions.
-> > > >
-> > > > The patches are also available in git:
-> > > > https://git.kernel.org/rppt/h/kho/v4
-> > > >
-> > > >
-> > > > Kexec today considers itself purely a boot loader: When we enter the new
-> > > > kernel, any state the previous kernel left behind is irrelevant and the
-> > > > new kernel reinitializes the system.
-> > >
-> > > I tossed this into mm.git for some testing and exposure.
-> > >
-> > > What merge path are you anticipating?
-> > >
-> > > Review activity seems pretty thin thus far?
-> > 
-> > KHO is going to be discussed at the upcoming lsfmm, we are also
-> > planning to send v5 of this patch series (discussed with Mike
-> > Rapoport) in a couple of weeks. It will include enhancements needed
-> > for the hypervisor live update scenario:
-> 
-> So is this V4 still a RFC if v5 will be sent by plan? Should we hold the
-> reviewing until v5? Or this series is a infrustructure building, v5 will
-> add more details as you listed as below. I am a little confused.
+If the device that generates MSI is attached to an IOMMU_DOMAIN_DMA, the
+IOVA is dynamically allocated from the top of the IOVA space. If attached
+to an IOMMU_DOMAIN_UNMANAGED (e.g. a VFIO passthrough device), the IOVA is
+fixed to an MSI window reported by the IOMMU driver via IOMMU_RESV_SW_MSI,
+which is hardwired to MSI_IOVA_BASE (IOVA==0x8000000) for ARM IOMMUs.
 
-v4 adds the very basic support for kexec handover in the simplest form we
-could think of. There were discussions on Linux MM Alignment and Hypervisor
-live update meetings and there people agreed about MVP for KHO that v4
-essentially implements.
+So far, this IOMMU_RESV_SW_MSI works well as kernel is entirely in charge
+of the IOMMU translation (1-stage translation), since the IOVA for the ITS
+page is fixed and known by kernel. However, with virtual machine enabling
+a nested IOMMU translation (2-stage), a guest kernel directly controls the
+stage-1 translation with an IOMMU_DOMAIN_DMA, mapping a vITS page (at an
+IPA 0x80900000) onto its own IOVA space (e.g. 0xEEEE0000). Then, the host
+kernel can't know that guest-level IOVA to program the MSI address.
 
-v5 will add more details on top of v4 and I'm not sure there's a consensus
-about some of them among the people involved in KHO.
- 
-> > 1. Allow nodes to be added to the KHO tree at any time
-> > 2. Remove "activate" (I will also send a live update framework that
-> > provides the activate functionality).
-> > 3. Allow serialization during shutdown.
-> > 4. Decouple KHO from kexec_file_load(), as kexec_file_load() should
-> > not be used during live update blackout time.
-> > 5. Enable multithreaded serialization by using hash-table as an
-> > intermediate step before conversion to FDT.
-> 
+There have been two approaches to solve this problem:
+1. Create an identity mapping in the stage-1. VMM could insert a few RMRs
+   (Reserved Memory Regions) in guest's IORT. Then the guest kernel would
+   fetch these RMR entries from the IORT and create an IOMMU_RESV_DIRECT
+   region per iommu group for a direct mapping. Eventually, the mappings
+   would look like: IOVA (0x8000000) === IPA (0x8000000) ===> 0x20200000
+   This requires an IOMMUFD ioctl for kernel and VMM to agree on the IPA.
+2. Forward the guest-level MSI IOVA captured by VMM to the host-level GIC
+   driver, to program the correct MSI IOVA. Forward the VMM-defined vITS
+   page location (IPA) to the kernel for the stage-2 mapping. Eventually:
+   IOVA (0xFFFF0000) ===> IPA (0x80900000) ===> PA (0x20200000)
+   This requires a VFIO ioctl (for IOVA) and an IOMMUFD ioctl (for IPA).
 
+Worth mentioning that when Eric Auger was working on the same topic with
+the VFIO iommu uAPI, he had the approach (2) first, and then switched to
+the approach (1), suggested by Jean-Philippe for reduction of complexity.
+
+The approach (1) basically feels like the existing VFIO passthrough that
+has a 1-stage mapping for the unmanaged domain, yet only by shifting the
+MSI mapping from stage 1 (guest-has-no-iommu case) to stage 2 (guest-has-
+iommu case). So, it could reuse the existing IOMMU_RESV_SW_MSI piece, by
+sharing the same idea of "VMM leaving everything to the kernel".
+
+The approach (2) is an ideal solution, yet it requires additional effort
+for kernel to be aware of the 1-stage gIOVA(s) and 2-stage IPAs for vITS
+page(s), which demands VMM to closely cooperate.
+ * It also brings some complicated use cases to the table where the host
+   or/and guest system(s) has/have multiple ITS pages.
+
+[ Execution ]
+Though these two approaches feel very different on the surface, they can
+share some underlying common infrastructure. Currently, only one pair of
+sw_msi functions (prepare/compose) are provided by dma-iommu for irqchip
+drivers to directly use. There could be different versions of functions
+from different domain owners: for existing VFIO passthrough cases and in-
+kernel DMA domain cases, reuse the existing dma-iommu's version of sw_msi
+functions; for nested translation use cases, there can be another version
+of sw_msi functions to handle mapping and msi_msg(s) differently.
+
+As a part-1 supporting the approach (1), i.e. the RMR solution:
+ - Get rid of the duplication in the "compose" function
+ - Introduce a function pointer for the previously "prepare" function
+ - Allow different domain owners to set their own "sw_msi" implementations
+ - Implement an iommufd_sw_msi function to additionally support a nested
+   translation use case using the approach (1)
+ - Add a pair of IOMMUFD options for a SW_MSI window for kernel and VMM to
+   agree on (for approach 1)
+
+[ Future Plan ]
+Part-2 and beyond will continue the effort of supporting the approach (2)
+for a complete vITS-to-pITS mapping:
+ 1) Map the phsical ITS page (potentially via IOMMUFD_CMD_IOAS_MAP_MSI)
+ 2) Convey the IOVAs per-irq (potentially via VFIO_IRQ_SET_ACTION_PREPARE)
+    Note that the set_option uAPI in this series might not fit since this
+    requires it is an array of MSI IOVAs.)
+
+---
+
+This is a joint effort that includes Jason's rework in irq/iommu/iommufd
+base level and my additional patches on top of that for new uAPIs.
+
+This series is on github:
+https://github.com/nicolinc/iommufd/commits/iommufd_msi_p1-v1
+Pairing QEMU branch for testing (approach 1):
+https://github.com/nicolinc/qemu/commits/wip/for_iommufd_msi_p1-v1-rmr
+(Note: QEMU virt command no longer requires iommmufd object v.s. RFCv2)
+
+Changelog
+v1
+ * Rebase on v6.14-rc1 and iommufd_attach_handle-v1 series
+   https://lore.kernel.org/all/cover.1738645017.git.nicolinc@nvidia.com/
+ * Correct typos
+ * Replace set_bit with __set_bit
+ * Use a common helper to get iommufd_handle
+ * Add kdoc for iommu_msi_iova/iommu_msi_page_shift
+ * Rename msi_msg_set_msi_addr() to msi_msg_set_addr()
+ * Update selftest for a better coverage for the new options
+ * Change IOMMU_OPTION_SW_MSI_START/SIZE to be per-idev and properly
+   check against device's reserved region list
+RFCv2
+ https://lore.kernel.org/kvm/cover.1736550979.git.nicolinc@nvidia.com/
+ * Rebase on v6.13-rc6
+ * Drop all the irq/pci patches and rework the compose function instead
+ * Add a new sw_msi op to iommu_domain for a per type implementation and
+   let iommufd core has its own implementation to support both approaches
+ * Add RMR-solution (approach 1) support since it is straightforward and
+   have been used in some out-of-tree projects widely
+RFCv1
+ https://lore.kernel.org/kvm/cover.1731130093.git.nicolinc@nvidia.com/
+
+Thanks!
+Nicolin
+
+Jason Gunthorpe (5):
+  genirq/msi: Store the IOMMU IOVA directly in msi_desc instead of
+    iommu_cookie
+  genirq/msi: Rename iommu_dma_compose_msi_msg() to msi_msg_set_addr()
+  iommu: Make iommu_dma_prepare_msi() into a generic operation
+  irqchip: Have CONFIG_IRQ_MSI_IOMMU be selected by the irqchips that
+    need it
+  iommufd: Implement sw_msi support natively
+
+Nicolin Chen (8):
+  iommu: Turn fault_data to iommufd private pointer
+  iommu: Turn iova_cookie to dma-iommu private pointer
+  iommufd/device: Move sw_msi_start from igroup to idev
+  iommufd: Pass in idev to iopt_table_enforce_dev_resv_regions
+  iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE ioctls
+  iommufd/selftest: Add MOCK_FLAGS_DEVICE_NO_ATTACH
+  iommufd/selftest: Add a testing reserved region
+  iommufd/selftest: Add coverage for IOMMU_OPTION_SW_MSI_START/SIZE
+
+ drivers/iommu/Kconfig                         |   1 -
+ drivers/irqchip/Kconfig                       |   4 +
+ kernel/irq/Kconfig                            |   1 +
+ drivers/iommu/iommufd/iommufd_private.h       |  29 ++-
+ drivers/iommu/iommufd/iommufd_test.h          |   4 +
+ include/linux/iommu.h                         |  58 ++++--
+ include/linux/msi.h                           |  47 +++--
+ include/uapi/linux/iommufd.h                  |  20 +-
+ drivers/iommu/dma-iommu.c                     |  63 ++----
+ drivers/iommu/iommu.c                         |  29 +++
+ drivers/iommu/iommufd/device.c                | 196 ++++++++++++++----
+ drivers/iommu/iommufd/fault.c                 |   2 +-
+ drivers/iommu/iommufd/hw_pagetable.c          |   5 +-
+ drivers/iommu/iommufd/io_pagetable.c          |  18 +-
+ drivers/iommu/iommufd/ioas.c                  |  97 +++++++++
+ drivers/iommu/iommufd/main.c                  |  13 ++
+ drivers/iommu/iommufd/selftest.c              |  41 +++-
+ drivers/irqchip/irq-gic-v2m.c                 |   5 +-
+ drivers/irqchip/irq-gic-v3-its.c              |  13 +-
+ drivers/irqchip/irq-gic-v3-mbi.c              |  12 +-
+ drivers/irqchip/irq-ls-scfg-msi.c             |   5 +-
+ tools/testing/selftests/iommu/iommufd.c       |  97 +++++++++
+ .../selftests/iommu/iommufd_fail_nth.c        |  21 ++
+ 23 files changed, 608 insertions(+), 173 deletions(-)
+
+
+base-commit: 2b5bc8c9425fd87e094a08f72498536133da80e1
 -- 
-Sincerely yours,
-Mike.
+2.43.0
+
 
