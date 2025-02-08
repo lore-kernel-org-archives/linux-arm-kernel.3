@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A783CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 16:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC13DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 16:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzbNCAl5IRteTAQurBibz5Bt51mhHt96a2+cUjWoDiU=; b=3W4a2bWPh7wd7oNMTvdtCPMlO2
-	QH9mHUC6hoO0niBPBPv3M9V2b3aHFkOUxFFb1ZxqkavaOpkFRUmExYgn1ybK/BnVuw7mJTObpbhO5
-	bu7iwE1gdRZig1Ux4KAjU5D8N10ZLu6KEKtyDd8jo0/1vP64aLAXP7xGPAqtoBcdPDzQANMMhJY8A
-	4NmapQKnPjFAinUca8GcsELzi6oWE0cp9f8hQKpxmmfAYz0HZDjORzSlRoNUNPi4JvoK9lbVWdhkJ
-	3gTFFMEwwicqV2l3kuXuGpOpmKWQEgp8iGIT2de5aKz4Aa8JuR5H7YDuqs3baK53iuFjieeEu6pOn
-	in5VlXkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zGOd74MDNP1qQjh1StNz017zyC7tg4pj4AvUqb5yuXo=; b=SZ7hFlmZac/N3UT9UOHT+1nj+0
+	ihROwIkoTzAVXgKFPtNsXzXJHINBBzhOuAuGOBEesGUdMaqZN7hLSl3im2Nb8c/waG89gubUfe41m
+	9vVRHYOhARuxhiwg97Fm7KIZM9yDdJQ4BA/JOO2BeesHFjpYDU1Ts8u8wLXKHXPwUj46x/eAU6YkY
+	kam7VIP8/qNLbtbH5Pd9GHDMcInXB0JPcQER3gVaqfGMqpbeXCT8OFxEOmqTiP/dCBD6vfh13yjYX
+	pp81pFRNV7wrH3FOhn6oUyV0Z5teiHGCmzAymebbP9IXx/EkcacaC5DeJZ3eBGSwlJQrnkhgCKZW1
+	isIRSgYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgnso-0000000DEek-3zOP;
-	Sat, 08 Feb 2025 16:40:42 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tgo6J-0000000DGFF-0q3u;
+	Sat, 08 Feb 2025 16:54:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgnrP-0000000DEUX-3UoM
+	id 1tgo4t-0000000DG19-0igc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 16:39:17 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5440d5b30a8so3612338e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 08:39:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739032754; x=1739637554; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bzbNCAl5IRteTAQurBibz5Bt51mhHt96a2+cUjWoDiU=;
-        b=SIrMjmq+xx7Wtyg5dev8vPH1okIwbHBeLlfzzbgg3HIdr/Q5z6ac/8Ku0/AG65ozyD
-         9/Qeh9VdHFRLDGWV3BUMMhAi8hxu7VFMKvV2OzY97VVSeuQIK1ouXLe5vbOjipeVHBLp
-         OJwxB3mEfYX5Xcqp43kzyYjLnxwPvIsW7UeNbAiA863RFnsQq1JXEsTjuKI/LDnwsF24
-         /8FcTcaD+t7SdrJdIiCL+6WD4J/jIfXbkRsW3IgDHJeaSyvmUs6r5WjBBvi2LcTVn2v8
-         8OiRuuZIQc4UbdCBNtxq6E+1Lfz40f14rwb4ODr3M0w5UJzaI3g/4+sjvwTGTfncsHTG
-         KllA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739032754; x=1739637554;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bzbNCAl5IRteTAQurBibz5Bt51mhHt96a2+cUjWoDiU=;
-        b=iGh05jHiU0bWZXCccecG0H18Rcnspa0aIO4yEZfw0cSUiOMz0ISy7jOAILpUTW5QkJ
-         0o0pGQVcjIZue4UNhe3dNhm4k6V86Jx6Ut+Png5aE4nRsitaoYLy0Y8CyV6vFCMqYHAG
-         iMqaEhqBxqYo4BVy8rl3UHjcu63KOotmixnCOd08gDk9FA0Jf2VdyOmOWDKIQLwvwQ7N
-         xcFoqYaa6i8MuFC2/JDngilOsv6qCqiLaqjG3D5bfspcwqI2/BJ0fJSmHqb+A9rJG7xi
-         b3zNAW25pGI7ZeNSeN+ke6cCXVu+cY/mwfJn1vESdi8OKyAie9ZkDgLf980fUx+SHady
-         NP9g==
-X-Forwarded-Encrypted: i=1; AJvYcCWGb1P+AS2LLVHgH/Cr+9BQrejraC+aU7Q09xMGhJ+tAx3tOE+3x6K5JT+3iZVDBWa6IqrQKuXhuhmBC9GElIzf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd1efgtobkrM7eEAbCR1TY4CpwWP3V1OmsmOZxIpiIULbX3v5z
-	CppZyF7RslLADnEXYR8Fy/5M1qkFV3MLNsqXEedphoNLDL0ZU0cDm8afd5ONtbQ2D50n6bhoahi
-	0/U/nkcjan70B4nlDqPUXr8LVJMT/V1f5FpSCqQ==
-X-Gm-Gg: ASbGnctcmRM9G7KFs9RHf2xU5h45nAil7p8t0Jg/+kURVeeecxa9JN/RIHR5PSaDgVE
-	6WseGd/ATk7QAPdHFb348r80C4j/GHcJaUHO2GdL9VwTDFnWVimFJ/HIAFlIcg5MTR5oSukMQ4A
-	==
-X-Google-Smtp-Source: AGHT+IGvFt/lUkJMn2aRQEvESWo9Z5oF0kyb7TRY8Q8nKrFZ5W9AeQ7/IOmXGcmYebYfPo1D+0khmxqI7+T7H0ISs7U=
-X-Received: by 2002:a05:6512:2316:b0:542:2190:9d99 with SMTP id
- 2adb3069b0e04-54414aa9b2cmr2867257e87.6.1739032753575; Sat, 08 Feb 2025
- 08:39:13 -0800 (PST)
+	Sat, 08 Feb 2025 16:53:12 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 518EUTsD026967;
+	Sat, 8 Feb 2025 16:52:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=zGOd74MDNP1qQjh1StNz01
+	7zyC7tg4pj4AvUqb5yuXo=; b=ToZMv6YxGavlkKqyMYKymPJtb61YPNJuBiIELa
+	F8KxGdgtDqUF4yUwWqMdBaAh7S6Y9qr+dURC2QpOwXYUfqB2P4XqtBcKgIvMzb5q
+	9TZ3rGqvZXrgYwfiWzYBvXx+G10XsWcTYS0ztl/SbLRGUvwuLnewKSAz6L5IT2Pd
+	+61YjmKOa0sMGc42Agd3X/Xr39cgFZdBCtTDOdvhsxkA1/sJgocucpmqzm/4btxs
+	agsgRIRaLnwFpczIb1Mec9Az1ucs5lZNzTHIWhiHqjk1Ok/upfjCJELpXNKVLfwJ
+	TROREVeofq9x9mrZDWeslq5QyYvi4OXgTpDx4coAaqUqF2QQ==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0e1gwtb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 08 Feb 2025 16:52:53 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 518Gqqpa012818
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 8 Feb 2025 16:52:52 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Sat, 8 Feb 2025 08:52:47 -0800
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v13 0/2] media: qcom: camss: Add sc7280 support
+Date: Sat, 8 Feb 2025 22:22:30 +0530
+Message-ID: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250205155948.81385-1-apatel@ventanamicro.com>
- <20250205155948.81385-5-apatel@ventanamicro.com> <87r04an95m.ffs@tglx>
-In-Reply-To: <87r04an95m.ffs@tglx>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Sat, 8 Feb 2025 22:09:02 +0530
-X-Gm-Features: AWEUYZmtJ_BNHW9YQuvOs8JRCDD3omWxa9DvXZBLIHAyvsMvY1csghzsdyTnHOs
-Message-ID: <CAK9=C2X0Occ4jmeQ+Vp7EZA0WyTVQBaG1-95GNd_hK7PUTdrhg@mail.gmail.com>
-Subject: Re: [PATCH v4 04/11] genirq: Introduce common irq_force_complete_move()
- implementation
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: XF6rwmNiTqN1NlwAuZZmjPlCV06fLOo5
+X-Proofpoint-GUID: XF6rwmNiTqN1NlwAuZZmjPlCV06fLOo5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-08_06,2025-02-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
+ suspectscore=0 lowpriorityscore=0 mlxlogscore=999 impostorscore=0
+ priorityscore=1501 adultscore=0 malwarescore=0 clxscore=1015 spamscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502080142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_083915_867782_483C7AC5 
-X-CRM114-Status: GOOD (  48.58  )
+X-CRM114-CacheID: sfid-20250208_085311_336629_C473B1A7 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,377 +100,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 7, 2025 at 1:22=E2=80=AFAM Thomas Gleixner <tglx@linutronix.de>=
- wrote:
->
-> On Wed, Feb 05 2025 at 21:29, Anup Patel wrote:
-> > The GENERIC_PENDING_IRQ requires an arch specific implementation
-> > of irq_force_complete_move(). At the moment, only x86 implements
-> > this but for RISC-V the irq_force_complete_move() is only needed
-> > when RISC-V IMSIC driver is in use and not needed otherwise.
-> >
-> > To address the above, introduce common weak implementation of
-> > the irq_force_complete_move() which lets irqchip do the actual
-> > irq_force_complete_move().
-> >
-> > +void __weak irq_force_complete_move(struct irq_desc *desc)
-> > +{
-> > +     struct irq_data *d =3D irq_desc_get_irq_data(desc);
-> > +     struct irq_chip *chip =3D irq_data_get_irq_chip(d);
-> > +
-> > +     if (chip && chip->irq_force_complete_move)
-> > +             chip->irq_force_complete_move(d);
-> > +}
->
-> I seriously doubt that works as intended.
+SC7280 is a Qualcomm SoC. This series adds support to bring up the CSIPHY,
+CSID, VFE/RDI interfaces in SC7280.
 
-Ahh, yes. This function needs to consider hierarchical domains.
+SC7280 provides
+- 3 x VFE, 3 RDI per VFE
+- 2 x VFE Lite, 4 RDI per VFE
+- 3 x CSID
+- 2 x CSID Lite
+- 5 x CSI PHY
 
->
-> In patch 9 you implement this as callback for the imsic_irq_base_chip,
-> but that's not the top level chip in the hierarchy. The top level chip
-> is the PCI/MSI device domain chip, which obviously does not have that
-> callback set.
->
-> Something like uncompiled below should work. That avoids the weak
-> function and handles x86 in exactly the same way.
+We have tested this on qcs6490-rb3gen2-vision-mezzanine board having IMX577
+sensor.
 
-Okay, I will try the below code and include it in the next revision.
+Used following tools for the sanity check of these changes.
 
-Thanks,
-Anup
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml
+qcom/qcs6490-rb3gen2-vision-mezzanine.dtb
+- make DT_CHECKER_FLAGS=-m W=1
+DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml dt_binding_check
+- make -j32 W=1
+- ./scripts/checkpatch.pl
+ 
+Changes in V13:
+- Updated commit text for [PATCH v12 2/2] - Dmitry
+- Updated Copyright to add 2025 for [PATCH v12 2/2] - Jie
+- Link to v12:
+  https://lore.kernel.org/linux-arm-msm/20250207090422.1609260-1-quic_vikramsa@quicinc.com/
 
->
-> Thanks,
->
->         tglx
-> ---
-> --- a/arch/x86/kernel/apic/vector.c
-> +++ b/arch/x86/kernel/apic/vector.c
-> @@ -888,8 +888,85 @@ static int apic_set_affinity(struct irq_
->         return err ? err : IRQ_SET_MASK_OK;
->  }
->
-> +/*
-> + * Called from fixup_irqs() with @desc->lock held and interrupts disable=
-d.
-> + */
-> +static void apic_force_complete_move(struct irq_data *irqd)
-> +{
-> +       unsigned int cpu =3D smp_processor_id();
-> +       struct apic_chip_data *apicd;
-> +       unsigned int vector;
-> +
-> +       guard(raw_spinlock)(&vector_lock);
-> +       apicd =3D apic_chip_data(irqd);
-> +       if (!apicd)
-> +               return;
-> +
-> +       /*
-> +        * If prev_vector is empty or the descriptor is neither currently
-> +        * nor previously on the outgoing CPU no action required.
-> +        */
-> +       vector =3D apicd->prev_vector;
-> +       if (!vector || (apicd->cpu !=3D cpu && apicd->prev_cpu !=3D cpu))
-> +               return;
-> +
-> +       /*
-> +        * This is tricky. If the cleanup of the old vector has not been
-> +        * done yet, then the following setaffinity call will fail with
-> +        * -EBUSY. This can leave the interrupt in a stale state.
-> +        *
-> +        * All CPUs are stuck in stop machine with interrupts disabled so
-> +        * calling __irq_complete_move() would be completely pointless.
-> +        *
-> +        * 1) The interrupt is in move_in_progress state. That means that=
- we
-> +        *    have not seen an interrupt since the io_apic was reprogramm=
-ed to
-> +        *    the new vector.
-> +        *
-> +        * 2) The interrupt has fired on the new vector, but the cleanup =
-IPIs
-> +        *    have not been processed yet.
-> +        */
-> +       if (apicd->move_in_progress) {
-> +               /*
-> +                * In theory there is a race:
-> +                *
-> +                * set_ioapic(new_vector) <-- Interrupt is raised before =
-update
-> +                *                            is effective, i.e. it's rai=
-sed on
-> +                *                            the old vector.
-> +                *
-> +                * So if the target cpu cannot handle that interrupt befo=
-re
-> +                * the old vector is cleaned up, we get a spurious interr=
-upt
-> +                * and in the worst case the ioapic irq line becomes stal=
-e.
-> +                *
-> +                * But in case of cpu hotplug this should be a non issue
-> +                * because if the affinity update happens right before al=
-l
-> +                * cpus rendezvous in stop machine, there is no way that =
-the
-> +                * interrupt can be blocked on the target cpu because all=
- cpus
-> +                * loops first with interrupts enabled in stop machine, s=
-o the
-> +                * old vector is not yet cleaned up when the interrupt fi=
-res.
-> +                *
-> +                * So the only way to run into this issue is if the deliv=
-ery
-> +                * of the interrupt on the apic/system bus would be delay=
-ed
-> +                * beyond the point where the target cpu disables interru=
-pts
-> +                * in stop machine. I doubt that it can happen, but at le=
-ast
-> +                * there is a theoretical chance. Virtualization might be
-> +                * able to expose this, but AFAICT the IOAPIC emulation i=
-s not
-> +                * as stupid as the real hardware.
-> +                *
-> +                * Anyway, there is nothing we can do about that at this =
-point
-> +                * w/o refactoring the whole fixup_irq() business complet=
-ely.
-> +                * We print at least the irq number and the old vector nu=
-mber,
-> +                * so we have the necessary information when a problem in=
- that
-> +                * area arises.
-> +                */
-> +               pr_warn("IRQ fixup: irq %d move in progress, old vector %=
-d\n",
-> +                       irqd->irq, vector);
-> +       }
-> +       free_moved_vector(apicd);
-> +}
-> +
->  #else
-> -# define apic_set_affinity     NULL
-> +# define apic_set_affinity             NULL
-> +# define apic_force_complete_move      NULL
->  #endif
->
->  static int apic_retrigger_irq(struct irq_data *irqd)
-> @@ -923,11 +1000,12 @@ static void x86_vector_msi_compose_msg(s
->  }
->
->  static struct irq_chip lapic_controller =3D {
-> -       .name                   =3D "APIC",
-> -       .irq_ack                =3D apic_ack_edge,
-> -       .irq_set_affinity       =3D apic_set_affinity,
-> -       .irq_compose_msi_msg    =3D x86_vector_msi_compose_msg,
-> -       .irq_retrigger          =3D apic_retrigger_irq,
-> +       .name                           =3D "APIC",
-> +       .irq_ack                        =3D apic_ack_edge,
-> +       .irq_set_affinity               =3D apic_set_affinity,
-> +       .irq_compose_msi_msg            =3D x86_vector_msi_compose_msg,
-> +       .irq_force_complete_move        =3D apic_force_complete_move,
-> +       .irq_retrigger                  =3D apic_retrigger_irq,
->  };
->
->  #ifdef CONFIG_SMP
-> @@ -1068,99 +1146,6 @@ void irq_complete_move(struct irq_cfg *c
->                 __vector_schedule_cleanup(apicd);
->  }
->
-> -/*
-> - * Called from fixup_irqs() with @desc->lock held and interrupts disable=
-d.
-> - */
-> -void irq_force_complete_move(struct irq_desc *desc)
-> -{
-> -       unsigned int cpu =3D smp_processor_id();
-> -       struct apic_chip_data *apicd;
-> -       struct irq_data *irqd;
-> -       unsigned int vector;
-> -
-> -       /*
-> -        * The function is called for all descriptors regardless of which
-> -        * irqdomain they belong to. For example if an IRQ is provided by
-> -        * an irq_chip as part of a GPIO driver, the chip data for that
-> -        * descriptor is specific to the irq_chip in question.
-> -        *
-> -        * Check first that the chip_data is what we expect
-> -        * (apic_chip_data) before touching it any further.
-> -        */
-> -       irqd =3D irq_domain_get_irq_data(x86_vector_domain,
-> -                                      irq_desc_get_irq(desc));
-> -       if (!irqd)
-> -               return;
-> -
-> -       raw_spin_lock(&vector_lock);
-> -       apicd =3D apic_chip_data(irqd);
-> -       if (!apicd)
-> -               goto unlock;
-> -
-> -       /*
-> -        * If prev_vector is empty or the descriptor is neither currently
-> -        * nor previously on the outgoing CPU no action required.
-> -        */
-> -       vector =3D apicd->prev_vector;
-> -       if (!vector || (apicd->cpu !=3D cpu && apicd->prev_cpu !=3D cpu))
-> -               goto unlock;
-> -
-> -       /*
-> -        * This is tricky. If the cleanup of the old vector has not been
-> -        * done yet, then the following setaffinity call will fail with
-> -        * -EBUSY. This can leave the interrupt in a stale state.
-> -        *
-> -        * All CPUs are stuck in stop machine with interrupts disabled so
-> -        * calling __irq_complete_move() would be completely pointless.
-> -        *
-> -        * 1) The interrupt is in move_in_progress state. That means that=
- we
-> -        *    have not seen an interrupt since the io_apic was reprogramm=
-ed to
-> -        *    the new vector.
-> -        *
-> -        * 2) The interrupt has fired on the new vector, but the cleanup =
-IPIs
-> -        *    have not been processed yet.
-> -        */
-> -       if (apicd->move_in_progress) {
-> -               /*
-> -                * In theory there is a race:
-> -                *
-> -                * set_ioapic(new_vector) <-- Interrupt is raised before =
-update
-> -                *                            is effective, i.e. it's rai=
-sed on
-> -                *                            the old vector.
-> -                *
-> -                * So if the target cpu cannot handle that interrupt befo=
-re
-> -                * the old vector is cleaned up, we get a spurious interr=
-upt
-> -                * and in the worst case the ioapic irq line becomes stal=
-e.
-> -                *
-> -                * But in case of cpu hotplug this should be a non issue
-> -                * because if the affinity update happens right before al=
-l
-> -                * cpus rendezvous in stop machine, there is no way that =
-the
-> -                * interrupt can be blocked on the target cpu because all=
- cpus
-> -                * loops first with interrupts enabled in stop machine, s=
-o the
-> -                * old vector is not yet cleaned up when the interrupt fi=
-res.
-> -                *
-> -                * So the only way to run into this issue is if the deliv=
-ery
-> -                * of the interrupt on the apic/system bus would be delay=
-ed
-> -                * beyond the point where the target cpu disables interru=
-pts
-> -                * in stop machine. I doubt that it can happen, but at le=
-ast
-> -                * there is a theoretical chance. Virtualization might be
-> -                * able to expose this, but AFAICT the IOAPIC emulation i=
-s not
-> -                * as stupid as the real hardware.
-> -                *
-> -                * Anyway, there is nothing we can do about that at this =
-point
-> -                * w/o refactoring the whole fixup_irq() business complet=
-ely.
-> -                * We print at least the irq number and the old vector nu=
-mber,
-> -                * so we have the necessary information when a problem in=
- that
-> -                * area arises.
-> -                */
-> -               pr_warn("IRQ fixup: irq %d move in progress, old vector %=
-d\n",
-> -                       irqd->irq, vector);
-> -       }
-> -       free_moved_vector(apicd);
-> -unlock:
-> -       raw_spin_unlock(&vector_lock);
-> -}
-> -
->  #ifdef CONFIG_HOTPLUG_CPU
->  /*
->   * Note, this is not accurate accounting, but at least good enough to
-> --- a/include/linux/irq.h
-> +++ b/include/linux/irq.h
-> @@ -486,6 +486,7 @@ static inline irq_hw_number_t irqd_to_hw
->   * @ipi_send_mask:     send an IPI to destination cpus in cpumask
->   * @irq_nmi_setup:     function called from core code before enabling an=
- NMI
->   * @irq_nmi_teardown:  function called from core code after disabling an=
- NMI
-> + * @irq_force_complete_move:   optional function to force complete pendi=
-ng irq move
->   * @flags:             chip specific flags
->   */
->  struct irq_chip {
-> @@ -537,6 +538,8 @@ struct irq_chip {
->         int             (*irq_nmi_setup)(struct irq_data *data);
->         void            (*irq_nmi_teardown)(struct irq_data *data);
->
-> +       void            (*irq_force_complete_move)(struct irq_data *data)=
-;
-> +
->         unsigned long   flags;
->  };
->
-> @@ -619,11 +622,9 @@ static inline void irq_move_irq(struct i
->                 __irq_move_irq(data);
->  }
->  void irq_move_masked_irq(struct irq_data *data);
-> -void irq_force_complete_move(struct irq_desc *desc);
->  #else
->  static inline void irq_move_irq(struct irq_data *data) { }
->  static inline void irq_move_masked_irq(struct irq_data *data) { }
-> -static inline void irq_force_complete_move(struct irq_desc *desc) { }
->  #endif
->
->  extern int no_irq_affinity;
-> --- a/kernel/irq/internals.h
-> +++ b/kernel/irq/internals.h
-> @@ -442,6 +442,7 @@ static inline struct cpumask *irq_desc_g
->         return desc->pending_mask;
->  }
->  bool irq_fixup_move_pending(struct irq_desc *desc, bool force_clear);
-> +void irq_force_complete_move(struct irq_desc *desc);
->  #else /* CONFIG_GENERIC_PENDING_IRQ */
->  static inline bool irq_can_move_pcntxt(struct irq_data *data)
->  {
-> @@ -467,6 +468,7 @@ static inline bool irq_fixup_move_pendin
->  {
->         return false;
->  }
-> +static inline void irq_force_complete_move(struct irq_desc *desc) { }
->  #endif /* !CONFIG_GENERIC_PENDING_IRQ */
->
->  #if !defined(CONFIG_IRQ_DOMAIN) || !defined(CONFIG_IRQ_DOMAIN_HIERARCHY)
-> --- a/kernel/irq/migration.c
-> +++ b/kernel/irq/migration.c
-> @@ -35,6 +35,16 @@ bool irq_fixup_move_pending(struct irq_d
->         return true;
->  }
->
-> +void irq_force_complete_move(struct irq_desc *desc)
-> +{
-> +       for (struct irq_data *d =3D irq_desc_get_irq_data(desc); d; d =3D=
- d->parent_data) {
-> +               if (d->chip && d->chip->irq_force_complete_move) {
-> +                       d->chip->irq_force_complete_move(d);
-> +                       return;
-> +               }
-> +       }
-> +}
-> +
->  void irq_move_masked_irq(struct irq_data *idata)
->  {
->         struct irq_desc *desc =3D irq_data_to_desc(idata);
+Changes in V12:
+- droped mclk-pins{} and put the properties directly under the
+  cam2-default-state and cam2-suspend-state node - Konrad.
+- Link to v11:
+  https://lore.kernel.org/linux-arm-msm/20250121125010.1853269-1-quic_vikramsa@quicinc.com/
+
+Changes in V11:
+- Moved [PATCH v10 1/4] and [PATCH v10 2/4] as a separate series.
+- Marked dependency on
+  https://lore.kernel.org/linux-arm-msm/20250121120901.1841142-1-quic_vikramsa@quicinc.com/
+- Sorted the header files alphabetically in dtso.
+- Removed invalid property for sensor.
+- Removed rst-pin from default and suspend states of pinctrl. We have verified
+  that for imx412 sensor there are no SET_SYSTEM_SLEEP_PM_OPS added.
+  So removing rst-pin does not make any difference in power management. 
+- Link to v10: https://lore.kernel.org/linux-arm-msm/20241217140656.965235-1-quic_vikramsa@quicinc.com/
+
+Changes in V10:
+- Updated cover letter to add link for v8 under changes in v9.
+- No change in the patches w.r.t V9
+- Link to v9: https://lore.kernel.org/linux-arm-msm/20241217133955.946426-1-quic_vikramsa@quicinc.com/
+
+Changes in V9:
+- Removed GCC_CAMERA_AHB_CLK as its always enabled.
+- Added GCC_CAMERA_SF_AXI_CLK.
+- Renamed gcc_cam_hf_axi to gcc_axi_hf.
+- V8 had 5 patches and V9 have 4 patches.
+- First 3 patches of V8 are already promoted to linux-next
+i.e  
+  media: dt-bindings: Add qcom,sc7280-camss
+  media: qcom: camss: Sort camss version enums and compatible strings
+  media: qcom: camss: Add support for camss driver on sc7280
+- 2 new patches are added to handle new comments from Konrad on
+  "Patch v8 4/5 arm64: dts: qcom: sc7280: Add support for camss" 
+  1 of the 2 new patches make changes in yaml and other one is making
+  change in camss driver to handle new comments in dtsi.
+- for "Patch v8 4/5 arm64: dts: qcom: sc7280: Add support for camss" I got
+  comments from Konrad to make changes for clock names so I had to make
+  respective changes in "bindings/media/qcom,sc7280-camss.yaml". As dtsi
+  changes are not merged yet, so there is no issues with backward
+  compatibility and I am assuming this should be acceptable.
+- Link to v8: https://lore.kernel.org/linux-arm-msm/20241206191900.2545069-1-quic_vikramsa@quicinc.com/
+  
+Changes in V8:
+- Changed node name from camss to isp.
+- Added QCOM_ICC_TAG_ACTIVE_ONLY and QCOM_ICC_TAG_ALWAYS tags for
+  interconnects. 
+- Added blank lines when required.
+- Modified power-domain-names from horizontal to vertical list.
+- Sorted pinctrl nodes based on gpio index.
+- Link to v7: https://lore.kernel.org/linux-arm-msm/20241204100003.300123-1-quic_vikramsa@quicinc.com/
+
+Changes in V7:
+- Changed unit address for camss in documention and dts.
+- Added avdd-supply and dvdd-supply for sensor.
+- Changed reg/clocks/interrupts name for vfe_lite and csid_lite.
+- Link to v6: https://lore.kernel.org/linux-arm-msm/20241127100421.3447601-1-quic_vikramsa@quicinc.com/
+
+Changes in V6:
+- Changed order of properties in Documentation [PATCH 1/5].
+- Updated description for ports in Documentaion [PATCH 1/5].
+- Moved regulators from csid to csiphy [PATCH 3/5].
+- Link to v5: https://lore.kernel.org/linux-arm-msm/20241112173032.2740119-1-quic_vikramsa@quicinc.com/ 
+
+Changes in V5:
+- Updated Commit text for [PATCH v5 1/6].
+- Moved reg after compatible string.
+- Renamed csi'x' clocks to vfe'x'_csid
+- Removed [PATCH v4 4/6] and raised a seprate series for this one.
+- Moved gpio states to mezzanine dtso.
+- Added more clock levels to address TPG related issues.
+- Renamed power-domains-names -> power-domain-names. 
+- Link to v4: https://lore.kernel.org/linux-arm-msm/20241030105347.2117034-1-quic_vikramsa@quicinc.com/ 
+
+Changes in V4:
+- V3 had 8 patches and V4 is reduced to 6.
+- Removed [Patch v3 2/8] as binding change is not required for dtso.
+- Removed [Patch v3 3/8] as the fix is already taken care in latest
+  kernel tip. 
+- Updated alignment for dtsi and dt-bindings.
+- Adding qcs6490-rb3gen2-vision-mezzanine as overlay. 
+- Link to v3: https://lore.kernel.org/linux-arm-msm/20241011140932.1744124-1-quic_vikramsa@quicinc.com/
+
+Changes in V3:
+- Added missed subject line for cover letter of V2.
+- Updated Alignment, indentation and properties order.
+- edit commit text for [PATCH 02/10] and [PATCH 03/10].
+- Refactor camss_link_entities.
+- Removed camcc enablement changes as it already done.
+- Link to v2: https://lore.kernel.org/linux-arm-msm/20240904-camss_on_sc7280_rb3gen2_vision_v2_patches-v1-0-b18ddcd7d9df@quicinc.com/
+
+Changes in V2:
+- Improved indentation/formatting.
+- Removed _src clocks and misleading code comments.
+- Added name fields for power domains and csid register offset in DTSI.
+- Dropped minItems field from YAML file.
+- Listed changes in alphabetical order.
+- Updated description and commit text to reflect changes
+- Changed the compatible string from imx412 to imx577.
+- Added board-specific enablement changes in the newly created vision
+  board DTSI file.
+- Fixed bug encountered during testing.
+- Moved logically independent changes to a new/seprate patch.
+- Removed cci0 as no sensor is on this port and MCLK2, which was a
+  copy-paste error from the RB5 board reference.
+- Added power rails, referencing the RB5 board.
+- Discarded Patch 5/6 completely (not required).
+- Removed unused enums.
+- Link to v1: https://lore.kernel.org/linux-arm-msm/20240629-camss_first_post_linux_next-v1-0-bc798edabc3a@quicinc.com/
+
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+
+Vikram Sharma (2):
+  arm64: dts: qcom: sc7280: Add support for camss
+  arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision
+    mezzanine
+
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../qcs6490-rb3gen2-vision-mezzanine.dtso     |  89 +++++++++
+ arch/arm64/boot/dts/qcom/sc7280.dtsi          | 178 ++++++++++++++++++
+ 3 files changed, 271 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+
+-- 
+2.25.1
+
 
