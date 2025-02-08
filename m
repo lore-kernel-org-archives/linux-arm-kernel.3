@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F2CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 22:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D323C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 22:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=; b=OairHyFOThlD09svGtPAy+VUrw
-	+WTudDPRIz6Hhx7piLwU16BPxysfAYQTl5YymmtE3Vfwbty35mx/ILKV3chSjnzTTFl81dxlPD5bY
-	DIRZgBBek1oVivbTdsvCLkSwDqwo29LDwOZLWnmjKEM1ZkCAHcunR2wG3rlwrXHoOyp9w5bvsFmrR
-	VRyBzE/QxRCwQbqg5hKNcaioYRuQcPA3ko1PLFicy5llQSdM7pZhrOolRUQd7fReqbA5t8JzCdnyr
-	yIWeMXu8wN5grU9O7jiLi6sacDSl8+T4hKh+xY8/EgG5zuskVV2AUzExUETOWa/2bm8Nq0UPCqVkh
-	6lbE+e/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HtHV6GYiZiXoheP2pg52NqMdS62PbfoLAsBzjhraaF4=; b=bmcXSR0KZFYHhWbMs7JrEGC3ZL
+	TcTm3J3kNaILpJGBk+CEqaUdQDnf4Plv6fMgTqqNclExM7W4EYRYNMu7TcGz+7hmRoeP0daMF+XUk
+	MAS56ZnJ4Eoha0keAa1N8M6Mhf6vbvPqWPXY7mFKKnawME286d3c9O9uOJWpjpz2aZDGaGvkXwh5T
+	iN2jhdivHmcC8SznIeYSeDPDjHKd2hc7xitOHIMVYKtXnbC8wrDmD/o6XD7NKD1/kBzgv4RARg9s1
+	c6dWTVoIiZ1RQp2karrCIVrVZnxhzT5SH2l2RSK1gqHa7qcRjC7na8UpmkPAqg49QWLIGaa6BNBk9
+	i7gTXvOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgt9D-0000000DdgG-26Qa;
-	Sat, 08 Feb 2025 22:17:59 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tgtSp-0000000Df99-2TMg;
+	Sat, 08 Feb 2025 22:38:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgt7o-0000000DdY5-2yl8
+	id 1tgtRR-0000000Df2o-1N1M
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 22:16:34 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54412a7d75cso2842686e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 14:16:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739052991; x=1739657791; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=;
-        b=ToguMYmrt2+3EavOwZ3HbsVamqKrfKpR5gAwYDZ9A5IipRYNENOIzZd4LiWjBjMgmP
-         brv2Q7pzjZZTOoLa6yL4TKWAN09ZU2qUQLsQFKWfP2X4Zewx161dDKlhgjqXTfsZ9R62
-         3kopPn2dO/F9VJ19k3mq+XF7HUI8xR50eSPuqnLsMb+CypMxDlxHD2sCCnkjlTAawZ2o
-         vauvPBdiRp++W46jXKJooErnei1q+a9Xw+HIVaTvUybg6SmiM5agvoNXiPCocfcN0a5k
-         mmaPAFDHLzLoI9pDKnGg/zB9U2Pb9+pqonVY7Jji3EoKlnbDqsqS5+yPEsRfqnKqa1Ig
-         MA4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739052991; x=1739657791;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=;
-        b=VSYu0RBa2+rl+w3VuFHfIvP6wgfHhxEqjxucRFeSRozZvdA0z7oLBWa7P7sJeNvrLB
-         jxgDgKXc65cMcq031l4v34n45ScSKlmIM0Ro8kzOPfGomcWyfEQ7KclCcbswbBZ8LKtK
-         z2/kEoqgN3XZh6z87JMMIsQ5/hRJEJ6+3rwOpQOy+UAo+16gE0rf8NYNlyjcP9P/7YyQ
-         Gk9JrCKUY659LlVhTo++KJd0oi9GJ76ioRaq7y996h41FHS5048swxKhKKz829EQ99CH
-         61t0Tb/yMz/cOi/5D2jXw7STmVjyz8IYrhLN6M1UvIFOz6aYmOK46fxVaoB5HhVjOGAy
-         V93w==
-X-Forwarded-Encrypted: i=1; AJvYcCWub0Cya2uzTyiPv8IUKTp60nLyT20MqH+nbfxpSn5aeS2AIwoZeN1D5pfVBisDNph72niRjEV4od3EK/DZFBQr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8tVomv4KXZh/nvfopafgCbg81+39Et7hjHA+nEyOW+orbrEo0
-	oABGGLLd8wH6EyVgrkwXwLWfa9DGqQ1kA02Kxc0N9zt0w5SOfeg7csikOJOUoHw=
-X-Gm-Gg: ASbGncvepgB+0L1M13qCF3pSdGY6Ptecxcct4ICMaMDD5MvxpXBJTwCvdzAR67nXssZ
-	92zJApciLBRTRQ2+5B8eKSGoDeL4GmS4vHyTwudwIz7mdMppNaU5Hi8eG2K8/O/5BlkxL6MaWc0
-	rY1NPRJz+YCyu7FXh7AcCj5avXrguDObqffhywmijDBz0JCvTuRsDpWxx97bwDPys24PudymRP5
-	8nago/MeEYPI8hgxNpBx4xhnO/ux0SvI9LtOODk8VcgbtU/dNLhToYvZyCQhV5Fj3kArmBSOryA
-	oHklJZVOFJI+rm9VAVtOlQua+7YGV07bnPhrw1vLCna3dDgRAeXHg5Xg7xEWChNYXmfMx3c=
-X-Google-Smtp-Source: AGHT+IGS/3Gpk50OVCNMUL7zf9y31rF1kOuu6KzsJaL8XToP36wzYhmmlK+erLwhB/gqSa6n86EVCg==
-X-Received: by 2002:a05:6512:108d:b0:53e:362e:ed0 with SMTP id 2adb3069b0e04-54414ae6284mr2410130e87.44.1739052990560;
-        Sat, 08 Feb 2025 14:16:30 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-544106041afsm830599e87.239.2025.02.08.14.16.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 14:16:29 -0800 (PST)
-Date: Sun, 9 Feb 2025 00:16:27 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Vikram Sharma <quic_vikramsa@quicinc.com>
-Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org, 
-	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl, 
-	cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@linaro.org>
+	Sat, 08 Feb 2025 22:36:50 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 518LiDZg012759;
+	Sat, 8 Feb 2025 22:36:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HtHV6GYiZiXoheP2pg52NqMdS62PbfoLAsBzjhraaF4=; b=H+7qsoAVDTw05zHP
+	Kd9DSKP2SIeGIyZ78KRrFE3c7+ueKaakV5eFlUW6QxI+O+/fM8Cr+xseyeR9oVPW
+	rME8G/eDO23UswXGTnGAM1M9vwMIkxyqfFpqEU1In7WekU4fjumW+dkJY+lp08kH
+	Badu1nDI8TjM8tzxIqTKIsUpR0fCVeSMlayv3SCB+Q8kYu7MtJ0PI7tTCPV0jOuT
+	n4uTNx+Cj+1A9DNk/EJHF+dDC4S3fadjXqRc+fEwP7SjkpOUpvEYeSRG8CgNy8rV
+	y0C7GPHqImHbw9Sx2nvYcUy//iyQU5DwxVzLOvVQTshHkHeI5VgLndncvqbolG0c
+	k7SVJg==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0gus7vv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 08 Feb 2025 22:36:40 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 518Mad71028838
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 8 Feb 2025 22:36:39 GMT
+Received: from [10.216.46.231] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sat, 8 Feb 2025
+ 14:36:32 -0800
+Message-ID: <d72a1f19-d1b1-4993-bafa-a97ad6ce4bca@quicinc.com>
+Date: Sun, 9 Feb 2025 04:06:21 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v13 1/2] arm64: dts: qcom: sc7280: Add support for camss
-Message-ID: <4ah6z6lsgxgpjdiuyrkkcebpwrqrfpmumklga24immz5mvmgp3@z7bplsu3q6yl>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Konrad Dybcio
+	<konrad.dybcio@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@linaro.org>
 References: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
  <20250208165232.2371889-2-quic_vikramsa@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250208165232.2371889-2-quic_vikramsa@quicinc.com>
+ <4ah6z6lsgxgpjdiuyrkkcebpwrqrfpmumklga24immz5mvmgp3@z7bplsu3q6yl>
+Content-Language: en-US
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+In-Reply-To: <4ah6z6lsgxgpjdiuyrkkcebpwrqrfpmumklga24immz5mvmgp3@z7bplsu3q6yl>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: _HEHIkyZ8KswzEJamX-xHHnkjhHXVX97
+X-Proofpoint-GUID: _HEHIkyZ8KswzEJamX-xHHnkjhHXVX97
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-08_10,2025-02-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 malwarescore=0 lowpriorityscore=0 phishscore=0
+ clxscore=1011 adultscore=0 bulkscore=0 mlxscore=0 spamscore=0
+ mlxlogscore=914 priorityscore=1501 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2501170000 definitions=main-2502080194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_141632_756428_4E30CCEA 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250208_143649_472897_5FA004E2 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,24 +109,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 08, 2025 at 10:22:31PM +0530, Vikram Sharma wrote:
-> Add changes to support the camera subsystem on the SC7280.
-> 
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
 
-It was impossible to get these tags in this way. I'm not sure what
-happened, but please review them and drop incorrect tags.
+On 2/9/2025 3:46 AM, Dmitry Baryshkov wrote:
+> On Sat, Feb 08, 2025 at 10:22:31PM +0530, Vikram Sharma wrote:
+>> Add changes to support the camera subsystem on the SC7280.
+>>
+>> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+>> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+>> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> It was impossible to get these tags in this way. I'm not sure what
+> happened, but please review them and drop incorrect tags.
+Hi Dmitry,
 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/sc7280.dtsi | 178 +++++++++++++++++++++++++++
->  1 file changed, 178 insertions(+)
+Thanks for Pointing this out.
+I got RB from Konrad on v10 of this series for this patch.
+"
 
--- 
-With best wishes
-Dmitry
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+
+"
+To post v13 I fetched v12 using 'b4 shazam' and other one got added own 
+its own.
+Will fix this and post again.
+>
+>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/sc7280.dtsi | 178 +++++++++++++++++++++++++++
+>>   1 file changed, 178 insertions(+)
+
+Best Regards,
+Vikram
+
 
