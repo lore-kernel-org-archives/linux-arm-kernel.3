@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B741C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 10:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BEC2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 10:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AJ/UCwHAeb5tbc5Bg9IiNtxLf51uZ4AvQVnOe571y1U=; b=slJbK8reMxqAv6PBJ5lroaXUfj
-	+fcU8hyA9gA2Kp+GaimckfCKxqRLJ+AADn/iQW9x6lEi19cOua7KdVxA3a0ORaJs0yemef1DCC4w5
-	Pe86tTpqVbBHMAVY5CXPbhib27WV304Y/Fi4IrFACIOqUq+EJIPe5lTA6E9AsY0a/Yh9t2/sI7xWT
-	9zxopN2ByRudpfDfEsf/BQEhogC+oBiLezBMOqJht3NCzdESxq1+FKRoJj4JlXpnx/xLv5+MlAECF
-	As6tNL/Sk50HDTZIfosxulIjVnln9/GFmbFffeD6AWHiFA4819lYLXk0OBvOXHJYY9V8APo6OSmDA
-	ead7Z1FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHlCTa++JQNY5yLxRtdf8QoMcBzRNGTE2Vwy5/XMOCY=; b=YEpXR/3WVyk/Im+9nf0SG1vSmw
+	X3Ez7e3pMxjP2HwjMOEXpcvSbV5bomfwrc/7NralQRnKyb+wSvfGbiJjBNRGmcw6yQKinE2YRmI7b
+	vi9GB7zGnuyABKQWS4U8NqxBYxm2YxXyYg+zozSUT84Z27e8iX5DytMWTVfzFFC7ySnr2wMoIRfPN
+	rztFWjhmWYZzyPuHkbJ6eOfrh5rhWnO6U+1VAabphRq1lKA2BxX8XsEftqdGBOaGB09mMAb/IuFYk
+	54OylMql1xvPIoGi6CvGxUQPPSdSFM9WhG2OK0JGMVoMTOLAxtdkwlVO0aOlQ5pjO04RTj4S7SsY2
+	tpuN7vbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tghi9-0000000ChXa-1F2O;
-	Sat, 08 Feb 2025 10:05:17 +0000
-Received: from ssh247.corpemail.net ([210.51.61.247])
+	id 1tghsK-0000000Ciom-32Fc;
+	Sat, 08 Feb 2025 10:15:48 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tghgj-0000000ChJo-2gVe
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 10:03:51 +0000
-Received: from ssh247.corpemail.net
-        by ssh247.corpemail.net ((D)) with ASMTP (SSL) id GEM00027;
-        Sat, 08 Feb 2025 18:03:27 +0800
-Received: from jtjnmail201607.home.langchao.com (10.100.2.7) by
- jtjnmail201621.home.langchao.com (10.100.2.21) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Sat, 8 Feb 2025 18:03:26 +0800
-Received: from locahost.localdomain (10.94.15.112) by
- jtjnmail201607.home.langchao.com (10.100.2.7) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Sat, 8 Feb 2025 18:03:26 +0800
-From: Charles Han <hanchunchao@inspur.com>
-To: <laurent.pinchart@ideasonboard.com>, <tomi.valkeinen@ideasonboard.com>,
-	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<michal.simek@amd.com>, <vishal.sagar@amd.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Charles Han <hanchunchao@inspur.com>
-Subject: [PATCH] drm: xlnx: zynqmp_dpsub: Add NULL check in zynqmp_audio_init
-Date: Sat, 8 Feb 2025 18:03:22 +0800
-Message-ID: <20250208100323.11625-1-hanchunchao@inspur.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tghqw-0000000Cido-2x2y;
+	Sat, 08 Feb 2025 10:14:24 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e455bf1f4d3so2212911276.2;
+        Sat, 08 Feb 2025 02:14:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739009661; x=1739614461; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lHlCTa++JQNY5yLxRtdf8QoMcBzRNGTE2Vwy5/XMOCY=;
+        b=Pgrf+n1bmsd2uMxhS2rPbU+lsT2JewYYX915q3BCtxcj49QKZ+jm+upO60Yk3HYsR6
+         crqkd3Nc3K6cyBrgoaaazv0cg6+yMTqyW7RLneNH7yM9579v/eV+6J5skmWslfnoR609
+         uxgWJ8mKZuFbS/YnlTq0IqEtyzXcK6lxJGSLxXqfctzKZYSpHuXaxuGmdfN3Q1M5nHin
+         F6DwKqNUzUUiTbh/tQpoSPiH0wsZSlgBmJ1iz52LS5P4rw1/WrftEgcHPQH3lRqrJRfa
+         QBIZk7AetFW+ad/opcLEvukqaR+lEcAlNl4MEW2xwmEC8cB0bVfHp3e5ozNuEPdyOLHQ
+         1kvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739009661; x=1739614461;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lHlCTa++JQNY5yLxRtdf8QoMcBzRNGTE2Vwy5/XMOCY=;
+        b=FJcYnj8YlRzkWYjZzxbh2a3M3XOMkG0Ty4rGWMZjYC1UMIO/l41CYKF+F2CjF7hcpw
+         FSXsntnkX45H64YjKZNbtzevltwtDkbafj/RD/VZ6Iv/FTkdZb4VSZCRB8tjvx+h1hhW
+         GbDfuBP06EWWez5fateSApZvJS4JwddIKyoopuCKRGlPCakFIFjI6LCTyMvurJQUe80z
+         WpGQmk716TzvTSsxI1wCASM9vb7yFo0S+b3dPho32RgVXuVdogZmhAYjvXySs9exuan1
+         vnCoTIslVlA0yL1/5jSf5XwXl8s0YhVVWEjpUe5iJMZxGkWX8tgwk574rYgGldGLie3U
+         4GmA==
+X-Forwarded-Encrypted: i=1; AJvYcCUsmytyAyHZZFmQhPgTksIN6OGvbZZxUrnKzl5QYS4PTBGtsS30sAKbBkMK8rIIuh2WQhwC23CbzfzsBpHH1loc@lists.infradead.org, AJvYcCWB5zIL+NHdxWUiL/Sq6bvTTDgdDAtCyMpN/dIV7RbPgi83SQfHsNg8xo7XP991QyaKn55Mepk6Kh0mnbdlNlU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0042vgRuGdVdrBd5IhZIuoesfkj3CGsCLbvAiFW4DTb2lqAAy
+	q8YDz6ji974epe4Wt3MYLhuYmzLu+ykYsQE3D995ZyBcyw9xQRyKnOhkz2bETMdJb1vrvK/4FPz
+	cxGcZ/73irgIrfD8WmGGZNTio4o4=
+X-Gm-Gg: ASbGnctvk7q0t4nmafFQ/5xilUe+caSznDk74wb0kA0w3Cvvt/qFOM8OiosXpmE/r2f
+	LWY9gOh6w0g3tyN/AdA2o52YbLUs0VvM2qeMshstTQuvIjXDkyg9Gd5uwRq22OI1KncyHbzg=
+X-Google-Smtp-Source: AGHT+IGJTnv0Jv1zGgHunoHT2gol4/G0RMD4RSz3LklZiU8Fl/L4w4+Hl+f6eU1srrJYqwe1I2fUwS7Kk/Ykj0OnFyM=
+X-Received: by 2002:a05:6902:188d:b0:e5b:1858:9f34 with SMTP id
+ 3f1490d57ef6-e5b4619f369mr5462498276.16.1739009661634; Sat, 08 Feb 2025
+ 02:14:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.94.15.112]
-X-ClientProxiedBy: Jtjnmail201618.home.langchao.com (10.100.2.18) To
- jtjnmail201607.home.langchao.com (10.100.2.7)
-tUid: 202520818032700b0aa2241bd3ab51cd75d7331f83a16
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
+References: <20250208092732.3136629-1-dqfext@gmail.com> <Z6ckCZpOo1_rvmh6@shell.armlinux.org.uk>
+ <CALW65jYG3vv9aCY_HDU4Wyij1kqfiOVOsZ3YnvioUf4AgSbnaw@mail.gmail.com> <Z6cp-TCckCNReUPd@shell.armlinux.org.uk>
+In-Reply-To: <Z6cp-TCckCNReUPd@shell.armlinux.org.uk>
+From: Qingfang Deng <dqfext@gmail.com>
+Date: Sat, 8 Feb 2025 18:14:07 +0800
+X-Gm-Features: AWEUYZmoA4XiGxbkn50VzS3TXo8SJfjOy3CnNZmFpsB8QTfYUzOVzyDXS0kfqNU
+Message-ID: <CALW65jY1kzcJT6sxvko5GMC3P4odon=ZvKn+ZfufAZR9jqb1Hg@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: ethernet: mediatek: add ethtool EEE callbacks
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_020350_038601_A037D8DF 
-X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-CacheID: sfid-20250208_021422_742745_60E78C01 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,39 +100,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kasprintf() can return a NULL pointer on failure,but this
-returned value in zynqmp_audio_init() is not checked.
-Add NULL check in zynqmp_audio_init(), to handle kernel NULL
-pointer dereference error.
+On Sat, Feb 8, 2025 at 5:55=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> Doesn't it need a bit more code to configure the MAC?
 
-Fixes: 3ec5c1579305 ("drm: xlnx: zynqmp_dpsub: Add DP audio support")
-Signed-off-by: Charles Han <hanchunchao@inspur.com>
----
- drivers/gpu/drm/xlnx/zynqmp_dp_audio.c | 4 ++++
- 1 file changed, 4 insertions(+)
+I think you're right. The MT7622 reference manual does not mention the
+EEE configuration register so I assumed it would be automatically
+enabled.
+I just checked the mtk_eth_soc.h and found two unused defs
+"MAC_MSR_EEE1G" and "MAC_MSR_EEE100M". I will use those to enable EEE.
 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-index fa5f0ace6084..f07ff4eb3a6d 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-@@ -323,12 +323,16 @@ int zynqmp_audio_init(struct zynqmp_dpsub *dpsub)
- 
- 	audio->dai_name = devm_kasprintf(dev, GFP_KERNEL,
- 					 "%s-dai", dev_name(dev));
-+	if (!audio->dai_name)
-+		return -ENOMEM;
- 
- 	for (unsigned int i = 0; i < ZYNQMP_NUM_PCMS; ++i) {
- 		audio->link_names[i] = devm_kasprintf(dev, GFP_KERNEL,
- 						      "%s-dp-%u", dev_name(dev), i);
- 		audio->pcm_names[i] = devm_kasprintf(dev, GFP_KERNEL,
- 						     "%s-pcm-%u", dev_name(dev), i);
-+		if (!audio->link_names[i] || !audio->pcm_names[i])
-+			return -ENOMEM;
- 	}
- 
- 	audio->base = devm_platform_ioremap_resource_byname(pdev, "aud");
--- 
-2.43.0
-
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
