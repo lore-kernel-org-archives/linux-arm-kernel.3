@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B1AC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FACAC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnO79n/yAvE5EfQyNJ74YN4HFwQURsznW0Z0JEn8xXo=; b=H1PCn0m6q6aYCUuVRsxKsaVGSX
-	QpojnVpTFZjp1YywTk65+V8x8LrryqIY1HbHLX8gXb9dIeMwtAaGIEmN2YAKFpURZtMBdSL5w4plA
-	o+hJ5JKWbqAZDnH8GYeBifwZFxwTLrpcUFf1Ul4pxVK1cF/A0pOXJaWSjzA0LeoVK2YEKzS3DMbg3
-	U2d0aIcmq0cfnq+/5LBuudrfTjLW5XYU0YAFoFOyI1wyk8AnRm0MrsFZdqwe5yGqJHAyRhFHfmX+0
-	u5BC70QYLzKJFAGGt6SFn69Y0gItHcwJVen40itCXMywtFgpIyEwlGoy863Fg9mWgG9bZgBjJS3mI
-	hb22EpLg==;
+	bh=P5/SN3DCvwYBNYU4/IONaZxto7bXDguxKcJOD+fv9VM=; b=aZC6iZ2nrJtnKPW7d8/GfZaLIN
+	BmXxu1ynSeF5lXT/nWp1VKlVCy9dzvnMd+PgNmcCXoxEzmY5IrO2Sk8hphdGF0/htrOLaj6zk+JGG
+	2/I6HFNDyOYy/eKWlSu6TFjdPOXkMbLEXkMBAHBQEC4mt4PkFHa95A147EGa08UAHU8bpGKWCQuAs
+	b3KRPlyIrAe7RaAvWLZB98Im7Mj73UTTmSL94FbnlH1pbSi0Y5io06tW0qWjdv2ykTY/qiNFYfrhz
+	PIYgSSu6538LdHag8/PIOG6nRV47YwXsgNKa5WBGC8niX5GzPHm/SYz0DGiKIdkEvDZixLS4fiiMa
+	KcuWn7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaN7-0000000BtPN-46eu;
-	Sat, 08 Feb 2025 02:15:06 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1tgaOU-0000000BtcT-3BO8;
+	Sat, 08 Feb 2025 02:16:30 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaDj-0000000BsD4-2EM0
+	id 1tgaMg-0000000BtKf-0LHn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 02:05:26 +0000
+	Sat, 08 Feb 2025 02:14:39 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c051acc02fso498585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:14:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1738980318; h=Message-ID:Date:MIME-Version:Subject:From:To:Content-Type;
-	bh=PnO79n/yAvE5EfQyNJ74YN4HFwQURsznW0Z0JEn8xXo=;
-	b=oBVds19g68E7cEJ8FPxiAcHclWns8IcjT4f+uTe2kW3hYZMOj8F9Kan6ayMSKzzZT4ZLHbSRLY5YsZzcrZn8cdAZLiBXWWumjCShTT28wc+s8zQU1i2+dfermCWIYtGSAcQbPkFrie9YU9EHZGvHUbVbhEE2PDMVS2V/+TpZBb8=
-Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WP-xQ4J_1738980312 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 08 Feb 2025 10:05:14 +0800
-Message-ID: <63720413-be3d-4ae3-aec7-3c62662116a9@linux.alibaba.com>
-Date: Sat, 8 Feb 2025 10:05:11 +0800
+        d=gmail.com; s=20230601; t=1738980876; x=1739585676; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=P5/SN3DCvwYBNYU4/IONaZxto7bXDguxKcJOD+fv9VM=;
+        b=AL9+pyo9qLP1S/VIie2SVGiIUMrZMS4XCz4knfBH9G4zdKu9jOsCxKa6DbVDDCq7cV
+         rc31lWiXAX6bSqjHlmiUdRA0sMImyqOMl8oJtuP+rvQSIYxg/GJ3Im4zf3J4O54aOOkF
+         uZzJwiZPnurFceMQ8Kd6zACCXVJeHrdV/oSwMVHcEq84hcgSczY7xTngOvETbtlHvZpT
+         Q7AUe7+hkLW230rH1ftKj4Hh/xsnoHrv6Hu2Jall1DJEAVftsgVX/MnaRRfDxCXtju01
+         MpLoQbG9BOxaG3EaryoXcqJUIMIXoL+Va4wxWSvdKCNS4C9VX7T5TRnAT9D+/r/NVyHR
+         w8Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738980876; x=1739585676;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=P5/SN3DCvwYBNYU4/IONaZxto7bXDguxKcJOD+fv9VM=;
+        b=AWbNjvGOdkvxhVGw6M7ydG7RRPqgsnfwKx5lFdg3/9YWEP2XtJV9Rw4uAzE+6Gm66j
+         vBDOSqc+GNyex9y5JJczooDkS5bElvKc33PB3a65k1TvLBWurCMghhO0kgZqZeoaL9Lm
+         KeXABHN9BE/06nq41e1NEi+bCFoK0y3EqtdLYaz8qfajYAxdS28vFnwDq9eeIQ2Zk6kI
+         cQKH/wdm4tb+iz/Oez//oIsLTYwohUYx/SJ5ZbjRpZeu8v/3/5cqBvFWkibH5osxn4Sq
+         pMtLtlChvKbZNA7RYCIQYhVCgerr2grMQdDISTtREjD4+PtGq4A8kFclgv2B4nuTZ6WR
+         nYOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU8+cdbanbn+LoYi0EipZMPf+2wZ/tZ33KLJMBeADKtSsFnYGRKQejTv3qXkNxFl4KUwma3YoqxLnAIx+s9nadR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPKAGcp7kpJKuAV6XWsIwDDJU2eK6nTv4Wf7lC/z2ZWuFYPmT0
+	H6rwiFex1JQ0O3bnCSQ/7kVVBjJsSznTId5m6R936vkYqFI94axV
+X-Gm-Gg: ASbGncsRj1ePXYbW1Icead3cOKO/1Vivqc+SukWfh+ycjdzUR+4UhCJz1BM1YTJ6ai6
+	EqJTISvex+HaHtejXazLc6u1e6MBpFdDmh95RPdg5g8rYl22sltquMQb+tS+hx4sMeDO9VHh0xL
+	uCGAWH+0/qMpsGwX4xf5huJBVw3F5XU3Mtu41Xs8NU03P+2R5ASou30uQG1oQi2GhHFchPNkoJf
+	ZAy1Df4264Tsqwi5caRQYg/TlLkgIl+I2PpxMA3fjc8TAQ6aZ0Ym3FrVtZ04uc9DiMizmWGweBz
+	2mDTaWQzfcyK4P//FlrcVfZr+BW9xnUWdZoKeag9dMNltVLSx7Og3oei5ddBJMk86Dc=
+X-Google-Smtp-Source: AGHT+IHaHLnQCpbgV9vtfeCu+dFr6ymQXG7wzjMf9uGoP8yh8kD6+ACPqZoUxJqmQwOKBWPlDIRBWg==
+X-Received: by 2002:ad4:576b:0:b0:6d9:2fe3:bf0c with SMTP id 6a1803df08f44-6e4455e878bmr24319206d6.4.1738980876519;
+        Fri, 07 Feb 2025 18:14:36 -0800 (PST)
+Received: from [192.168.1.201] (pool-108-28-192-105.washdc.fios.verizon.net. [108.28.192.105])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e45074741fsm4078006d6.15.2025.02.07.18.14.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Feb 2025 18:14:35 -0800 (PST)
+Message-ID: <8349c217-f0ef-3629-6a70-f35d36636635@gmail.com>
+Date: Fri, 7 Feb 2025 21:14:32 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 0/3] ACPI: APEI: handle synchronous errors in task
- work
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-To: yazen.ghannam@amd.com, mark.rutland@arm.com, catalin.marinas@arm.com,
- mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
- bp@alien8.de, rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
- tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
- james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
- will@kernel.org, jarkko@kernel.org
-Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
- ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
- baolin.wang@linux.alibaba.com, tglx@linutronix.de,
- dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
- robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
- zhuo.song@linux.alibaba.com
-References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
- <8775a7d1-b4c5-467b-942c-3041e2994735@linux.alibaba.com>
-In-Reply-To: <8775a7d1-b4c5-467b-942c-3041e2994735@linux.alibaba.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH net-next 00/13] Introduce an ethernet port representation
+Content-Language: en-US
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=c3=b6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=c3=ban?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=c3=b2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>
+References: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
+From: Sean Anderson <seanga2@gmail.com>
+In-Reply-To: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_180524_335031_7D30038C 
-X-CRM114-Status: UNSURE (   5.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250207_181438_127252_F8585DE3 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +117,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
-
-在 2025/1/22 13:36, Shuai Xue 写道:
-> Hi, Rafael,
+On 2/7/25 17:36, Maxime Chevallier wrote:
+> Hello everyone,
 > 
-> Gentle ping.
+> This series follows the 2 RFC that were sent a few weeks ago :
+> RFC V2: https://lore.kernel.org/netdev/20250122174252.82730-1-maxime.chevallier@bootlin.com/
+> RFC V1: https://lore.kernel.org/netdev/20241220201506.2791940-1-maxime.chevallier@bootlin.com/
 > 
-> Thanks.
+> The goal of this series is to introduce an internal way of representing
+> the "outputs" of ethernet devices, for now only focusing on PHYs.
 > 
-> Best Regards,
-> Shuai
+> This allows laying the groundwork for multi-port devices support (both 1
+> PHY 2 ports, or more exotic setups with 2 PHYs in parallel, or MII
+> multiplexers).
 > 
-> 在 2025/1/7 16:17, Shuai Xue 写道:
->> changes singce v17:
->> - rebase to Linux 6.13-rc7 with no functional changes
->> - add reviewed-by tag for patch 1-3 from Jane Chu
->> - add reviewed-by tag for patch 3 from Yazen
->>
->> changes singce v16:
->> - add reviewed-by tag for patch 1 and patch 2 from Yazen
->> - rewrite warning message for force kill (per Yazen)
->> - warn with dev_err in ghes (per Jarkko)
->> - add return value -ENXIO in memory_failure comments  (per Yazen)
->> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
->>
->> changes singce v15:
->> - add HW_ERR and GHES_PFX prefix per Yazen
->>
->> changes since v14:
->> - add reviewed-by tags from Jarkko and Jonathan
->> - remove local variable and use twcb->pfn
->>
+> Compared to the RFCs, this series tries to properly support SFP,
+> especially PHY-driven SFPs through special phy_ports named "serdes"
+> ports. They have the particularity of outputing a generic interface,
+> that feeds into another component (usually, an SFP cage and therefore an
+> SFP module).
+> 
+> This allows getting a fairly generic PHY-driven SFP support (MAC-driven
+> SFP is handled by phylink).
+> 
+> This series doesn't address PHY-less interfaces (bare MAC devices, MACs
+> with embedded PHYs not driven by phylink, or MAC connected to optical
+> SFPs) to stay within the 15 patches limit, nor does it include the uAPI
+> part that exposes these ports to userspace.
+> 
+> I've kept the cover short, much more details can be found in the RFC
+> covers.
+> 
+> Thanks everyone,
+> 
+> Maxime
 
-Hi, all,
+Forgive me for my ignorance, but why have a new ethtool interface instead of
+extending ethtool_link_settings.port? It's a rather ancient interface, but it
+seems to be tackling the exact same problem as you are trying to address. Older
+NICs used to have several physical connectors (e.g. BNC, MII, twisted-pair) but
+only one could be used at once. This seems directly analogous to a PHY that
+supports multiple "port"s but not all at once. In fact, the only missing
+connector type seems to be PORT_BACKPLANE.
 
-Gentle ping.
+I can think of a few reasons why you wouldn't use PORT_*:
 
-Thanks.
-Shuai
+- It describes the NIC and not the PHY, and perhaps there is too much impedance
+   mismatch?
+- There is too much legacy in userspace (or in the kernel) to use that API in
+   this way?
+- You need more flexibility?
 
+At the very least, I think some discussion in one of the commits would be
+warranted. Perhaps there was some on the RFC that I missed?
+
+--Sean
 
