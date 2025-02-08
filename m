@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B667EC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 09:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEDAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 09:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6z2YuJvuFYLB1q3qrklBHPoovjtO0uF04fHOBairAc8=; b=MprXViEnU1o3TkwyKMaO2AV6fg
-	gjzaJ6KZ9CjPugB0VsPLppDrfq6wDMyBbufQflhQQu1s3OWttQ3epODtzM/+BLflcoa7uIegYcLvB
-	qxHEZgSZjLa0k2buhUJSP2IA/5y4/Q6WnDLqXJT6EY90PjLyc7k4gLxQ7TTn2xyCaKc5knQ2xfVzJ
-	9t8koWWm3YZC7QxRbD2TAxbvRaOLcBlRsmRrm2Ca4Iw46oFNd3X4Nxn0pcGu7tjc0SVplZ7rBM07V
-	haECgudb79qvLZtG4FfiTg7qnhz75RxSshGlwgojq55/CrtwNyrahwAn/dA//Jy+zOcez26FL1Yd5
-	3ZqyaxIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UcF1EdGZJtNd4krhVz+tbWa2L82gSrZFZiutz4oIqDU=; b=nVriENGRl3jmT8ZTee30guhTcn
+	TWCaSjSqaqUJ4eHd+M5qbGYLPE4JV16dIrpJ0G0mQIU9inKxyFUKf8lOIpuyjtqTqzpNM00PQlKci
+	DODP8qtM0ExnQMIMyBbIcAWCPMRcpe1OwSTKE3T/ABaTr0sFFv+TSH7TqQXowAt4LS24DbmNG4Two
+	XHSEH2wHJ11eTSKrHd9tVArqmU//dZkFzpknpmdeoKSrgPezoPmqMQcPovU1iLSMwrXBZiI+oKV9W
+	I7iGkIFH51XWRjip/rqusV8mqJAVFPRbrbK/X6eelDKFE6UlVtwenwdBiTWMQYEmC1NQkIS4P9fpn
+	MVdSD3zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tghZu-0000000CgRJ-3tYA;
-	Sat, 08 Feb 2025 09:56:46 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tghcZ-0000000Cgov-3xJc;
+	Sat, 08 Feb 2025 09:59:31 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tghYW-0000000CgFs-1ruH;
-	Sat, 08 Feb 2025 09:55:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6z2YuJvuFYLB1q3qrklBHPoovjtO0uF04fHOBairAc8=; b=SAQT4A7+Yf2xm56Y7XL9ySSHBb
-	W5q8Ek+Po1V7nlNjnPQgQZBqildLpjUNFrF+75RYTQ7QF/ea++oIeEHlfGKphNOO6r3fKUqgVUlQQ
-	sU6+mQnrvQaMsdCEH+NH5OoXM9vW0KqyUMZ4AGs+IGobVB3F5x1uhLlj6woKrPDTMSIGjjvIL314M
-	NYlB4UrB9mZt5xYGSKAyT8sefDzEaM18xc5sv/7yuy9K/25IOd28RVF0XdlV08Qrm1jyI/o1vXmrY
-	+RfoOLyafUkYZUSj5OwRt3uc6CYoXYca4EDVvASn942f9DUA6htoqdsmv8ox2YuTNHuKJTGkLz0lE
-	UVlVIjMA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47998)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tghYK-0000JR-2D;
-	Sat, 08 Feb 2025 09:55:08 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tghYH-0005NI-2t;
-	Sat, 08 Feb 2025 09:55:05 +0000
-Date: Sat, 8 Feb 2025 09:55:05 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next] net: ethernet: mediatek: add ethtool EEE
- callbacks
-Message-ID: <Z6cp-TCckCNReUPd@shell.armlinux.org.uk>
-References: <20250208092732.3136629-1-dqfext@gmail.com>
- <Z6ckCZpOo1_rvmh6@shell.armlinux.org.uk>
- <CALW65jYG3vv9aCY_HDU4Wyij1kqfiOVOsZ3YnvioUf4AgSbnaw@mail.gmail.com>
+	id 1tghbA-0000000Cgdx-2x0J
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Feb 2025 09:58:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 5ED213FB5D;
+	Sat,  8 Feb 2025 09:57:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1739008679; bh=Da5PceD4nSNuB1c7slA9pli6PCIvqpP7MItx3meXMT4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=FX7FzS64oOVPoNnOVFB1wLz/NNDiVn3OnhUKSyiWURYyh8TxPQ18nRdzlJQQmyU+B
+	 O4L6XRU0OWuNPXV5H4BymyPNXe+KWZKF3Zc+JylhFgHiCqwlzdDcy917Nr8x9X6WM6
+	 Uv1HUtzJ1CnIz3u//H0qdAmSya/MxGuQhSH3pzCYZ7MTJfqdODd2zW9yLE6Wpq5CF5
+	 Z817GuJlmx1NfzEJFtkDXLx/IK3Xjf2sAjZi1yur42q1Cn0npxSvkWRPp96ZYadzuV
+	 hkD99gVstKN8mIu2wZKI98kAWKSfTh7ik/n3NnyYAoIC2kEEgtcf2n3i7FpKIGKzKH
+	 WAV8YKPwrRKPA==
+Message-ID: <cf367a36-88fb-4999-a5ab-d34c4ded718e@marcan.st>
+Date: Sat, 8 Feb 2025 18:57:57 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALW65jYG3vv9aCY_HDU4Wyij1kqfiOVOsZ3YnvioUf4AgSbnaw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: arm: apple: Add myself as maintainer
+To: Janne Grunau <j@jannau.net>, Arnd Bergmann <arnd@arndb.de>,
+ Sven Peter <sven@svenpeter.dev>
+Cc: soc@lists.linux.dev, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250208-maint-soc-apple-v1-1-a7f7337baec0@jannau.net>
+Content-Language: en-US
+From: Hector Martin <marcan@marcan.st>
+In-Reply-To: <20250208-maint-soc-apple-v1-1-a7f7337baec0@jannau.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_015520_488612_15E67C22 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20250208_015805_101044_003AE232 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,20 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 08, 2025 at 05:48:46PM +0800, Qingfang Deng wrote:
-> On Sat, Feb 8, 2025 at 5:29 PM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > On Sat, Feb 08, 2025 at 05:27:32PM +0800, Qingfang Deng wrote:
-> > > Allow users to adjust the EEE settings of an attached PHY.
-> >
-> > Why do you need to do this? Does the MAC support EEE?
+On 2025/02/08 18:22, Janne Grunau wrote:
+> Sven and I have agreed to share the maintainership for the ARM/APPLE
+> platform after Marcan's step down. I'm handling the downstream Asahi
+> Linux tree since April 2024 and worked on or wrote several drivers for
+> the platform.
 > 
-> Yes, the MAC supports EEE.
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
+>  MAINTAINERS | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index f2594c2300f9b054a6d57ce069120df0bb451d88..9987cbc4d14b2d2be43f259688c7791ecfd10423 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2210,6 +2210,7 @@ F:	sound/soc/codecs/ssm3515.c
+>  
+>  ARM/APPLE MACHINE SUPPORT
+>  M:	Sven Peter <sven@svenpeter.dev>
+> +M:	Janne Grunau <j@jannau.net>
+>  R:	Alyssa Rosenzweig <alyssa@rosenzweig.io>
+>  L:	asahi@lists.linux.dev
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> 
+> ---
+> base-commit: 7635a78a95dc3bff39e9c49b34108f81a9bb62db
+> change-id: 20250208-maint-soc-apple-8d2498e75509
+> 
+> Best regards,
 
-Doesn't it need a bit more code to configure the MAC?
+Acked-by: Hector Martin <marcan@marcan.st>
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Janne's proactive leadership on the maintenance of the downstream tree
+has been invaluable, especially as life got in my way last year and I
+couldn't do it myself.
+
+Thank you.
+
+- Hector
+
 
