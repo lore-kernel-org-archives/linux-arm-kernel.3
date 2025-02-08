@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B901C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE47C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5yaZnhLbJDYzxUuUS1CTmE6SRmYxieOewJarS/4KATs=; b=Quo4Y3Ilo61koUvYRxrKUXSGE6
-	x00D3vnHyzCXHZOn3C+WK1MURdB3TQPXiy5qeomqs28trus54wfjQedt7F2VeCZ8cptVYLY2sH+kQ
-	conEr0io0rXZXJXEaJYFNN7GoI7cS5kTGnEcK35tQifO74Tw0Bffss4VWwWmwHjKIrWcVyYpAl56A
-	637bPb5C+APvbbbvREhgTyca986K43maqbpqszbsvstrr/R1LlgQPQnSffeOPHZyktIucvDE+UyD6
-	Cl1CifHBB9SQC0ojRldddWqRTQCJ0PLtWkfum5zAJyqtVbqqxMWimla0amKPstjRskbNgyjKVmKOt
-	BNCnErQw==;
+	bh=LK3jemsDqV0sI5vp6vEaRz8iaDF3x6LJJQtbIKnsO3Q=; b=H28LThqmsiEuO3xVkl0lIohcr5
+	wHrOGEeaahJfnmw0tHLSXzxqAl1RHlP/sPANFVWcUSV2QsQ2lZpOl4QLpcX94ONNs7mP0WS/L+JCw
+	6vkJ0648i2Exxncg3hHnP+uuoLQoPoUQtz1RKeASNDJMPXJkpEaGXeW2KaPGsvA0hoHSg15Ay0Qff
+	SIcH1coIS2aCErWbxJ6lBQimxFfOS1815se8qlCa4qGlntMWtKqocQygOoYT9La1qApSWC4OfvCWW
+	Fx9Xtomp1niOhTR6VeQOtRzhbjFgV+J5C5BH+ufpfCpLykNhET6hKMb9Ol/MRVjoWskWSbyyR3fFH
+	2zxqSDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsFo-0000000DZ1X-3cRH;
-	Sat, 08 Feb 2025 21:20:44 +0000
+	id 1tgsHB-0000000DZ9q-2Drd;
+	Sat, 08 Feb 2025 21:22:09 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsBo-0000000DYU8-0MJJ
+	id 1tgsBo-0000000DYUb-3D9p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 21:16:38 +0000
+	Sat, 08 Feb 2025 21:16:39 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 7843541B55;
-	Sat,  8 Feb 2025 21:16:32 +0000 (UTC)
+	by a.peacevolution.org (Postfix) with ESMTPA id C55B741B58;
+	Sat,  8 Feb 2025 21:16:34 +0000 (UTC)
 From: Aren Moynihan <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
@@ -52,28 +52,26 @@ Cc: Aren Moynihan <aren@peacevolution.org>,
 	linux-sunxi@lists.linux.dev,
 	Ondrej Jirman <megi@xff.cz>,
 	Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 1/8] dt-bindings: iio: light: stk33xx: add vdd and leda regulators
-Date: Sat,  8 Feb 2025 16:13:19 -0500
-Message-ID: <20250208211325.992280-3-aren@peacevolution.org>
+	phone-devel@vger.kernel.org
+Subject: [PATCH v5 2/8] iio: light: stk3310: handle all remove logic with devm callbacks
+Date: Sat,  8 Feb 2025 16:13:20 -0500
+Message-ID: <20250208211325.992280-4-aren@peacevolution.org>
 In-Reply-To: <20250208211325.992280-2-aren@peacevolution.org>
 References: <20250208211325.992280-2-aren@peacevolution.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++++++
+X-Spamd-Bar: +++++
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1739049393;
+	s=dkim; t=1739049396;
 	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=5yaZnhLbJDYzxUuUS1CTmE6SRmYxieOewJarS/4KATs=;
-	b=dm6Vvw24T+EkZZZWOvulzhEhaUCWTi/vG6PFpZtwIaR1X4siFgN8khNXjmV8mZWhekoRPS
-	hCcH+G1iWplrqCbloeF69NmZP+j1E3djNOrUkLuUoukTamlWGh3mqYgoy9D65xgQ+1fCVq
-	R4pZ9ZRmXfKNxANvP7qtAqgLPdI8wIE=
+	bh=LK3jemsDqV0sI5vp6vEaRz8iaDF3x6LJJQtbIKnsO3Q=;
+	b=SxsuCYALuYawrH+McBMsT9cPn+MWX7JE7zYcQN7LbqqBevblVT10OP4u1jBlCGiNMaU54X
+	MccDuTCMTMEnQsPfrOJ0jRblxrOE3L7HO0M3ZPAgrj7iV4zxJkigHUilMLW/MvnbwKYG/I
+	hFrsW+IpFGNR6FKBkNOTK/3lyNJBG1g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_131636_192735_1E626E48 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250208_131638_230535_DA26AD6F 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +86,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stk3310 and stk3311 are typically connected to power supplies for the
-chip (vdd) and the infrared LED (leda). Add properties so we can power
-these up / down appropriately.
+Using devm callbacks helps to make the ordering of probe / remove
+operations easier to reason about and removes some duplicate code
+between the probe error path and driver remove.
 
 Signed-off-by: Aren Moynihan <aren@peacevolution.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
 
 Notes:
-    Changes in v2:
-     - add leda-supply
-     - add supplies to examples
+    Changes in v4:
+     - also replace mutex_init with devm_mutex_init
+    
+    Added in v3
 
- Documentation/devicetree/bindings/iio/light/stk33xx.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/iio/light/stk3310.c | 40 +++++++++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 17 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-index e4341fdced98c..96ee8ec16463d 100644
---- a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-+++ b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
-@@ -34,6 +34,8 @@ properties:
-   interrupts:
-     maxItems: 1
+diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
+index b81cc44db43c3..73ea36fa3acec 100644
+--- a/drivers/iio/light/stk3310.c
++++ b/drivers/iio/light/stk3310.c
+@@ -481,6 +481,17 @@ static int stk3310_set_state(struct stk3310_data *data, u8 state)
+ 	return ret;
+ }
  
-+  vdd-supply: true
-+  leda-supply: true
-   proximity-near-level: true
++static void stk3310_set_state_disable(void *private)
++{
++	int ret;
++	struct stk3310_data *data = private;
++	struct device *dev = &data->client->dev;
++
++	ret = stk3310_set_state(data, STK3310_STATE_STANDBY);
++	if (ret)
++		dev_err(dev, "failed to set state to standby: %d\n", ret);
++}
++
+ static int stk3310_init(struct iio_dev *indio_dev)
+ {
+ 	int ret;
+@@ -488,6 +499,7 @@ static int stk3310_init(struct iio_dev *indio_dev)
+ 	u8 state;
+ 	struct stk3310_data *data = iio_priv(indio_dev);
+ 	struct i2c_client *client = data->client;
++	struct device *dev = &client->dev;
  
- required:
-@@ -57,6 +59,8 @@ examples:
-                 proximity-near-level = <25>;
-                 interrupt-parent = <&gpio1>;
-                 interrupts = <5 IRQ_TYPE_LEVEL_LOW>;
-+                vdd-supply = <&vdd_regulator>;
-+                leda-supply = <&led_regulator>;
-         };
-     };
- ...
+ 	ret = regmap_read(data->regmap, STK3310_REG_ID, &chipid);
+ 	if (ret < 0)
+@@ -504,6 +516,10 @@ static int stk3310_init(struct iio_dev *indio_dev)
+ 		return ret;
+ 	}
+ 
++	ret = devm_add_action_or_reset(dev, stk3310_set_state_disable, data);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register cleanup function\n");
++
+ 	/* Enable PS interrupts */
+ 	ret = regmap_field_write(data->reg_int_ps, STK3310_PSINT_EN);
+ 	if (ret < 0)
+@@ -607,6 +623,7 @@ static int stk3310_probe(struct i2c_client *client)
+ 	int ret;
+ 	struct iio_dev *indio_dev;
+ 	struct stk3310_data *data;
++	struct device *dev = &client->dev;
+ 
+ 	indio_dev = devm_iio_device_alloc(&client->dev, sizeof(*data));
+ 	if (!indio_dev) {
+@@ -621,7 +638,9 @@ static int stk3310_probe(struct i2c_client *client)
+ 	device_property_read_u32(&client->dev, "proximity-near-level",
+ 				 &data->ps_near_level);
+ 
+-	mutex_init(&data->lock);
++	ret = devm_mutex_init(dev, &data->lock);
++	if (ret)
++		return ret;
+ 
+ 	ret = stk3310_regmap_init(data);
+ 	if (ret < 0)
+@@ -647,29 +666,17 @@ static int stk3310_probe(struct i2c_client *client)
+ 		if (ret < 0) {
+ 			dev_err(&client->dev, "request irq %d failed\n",
+ 				client->irq);
+-			goto err_standby;
++			return ret;
+ 		}
+ 	}
+ 
+-	ret = iio_device_register(indio_dev);
++	ret = devm_iio_device_register(dev, indio_dev);
+ 	if (ret < 0) {
+ 		dev_err(&client->dev, "device_register failed\n");
+-		goto err_standby;
++		return ret;
+ 	}
+ 
+ 	return 0;
+-
+-err_standby:
+-	stk3310_set_state(data, STK3310_STATE_STANDBY);
+-	return ret;
+-}
+-
+-static void stk3310_remove(struct i2c_client *client)
+-{
+-	struct iio_dev *indio_dev = i2c_get_clientdata(client);
+-
+-	iio_device_unregister(indio_dev);
+-	stk3310_set_state(iio_priv(indio_dev), STK3310_STATE_STANDBY);
+ }
+ 
+ static int stk3310_suspend(struct device *dev)
+@@ -733,7 +740,6 @@ static struct i2c_driver stk3310_driver = {
+ 		.acpi_match_table = stk3310_acpi_id,
+ 	},
+ 	.probe =        stk3310_probe,
+-	.remove =           stk3310_remove,
+ 	.id_table =         stk3310_i2c_id,
+ };
+ 
 -- 
 2.48.1
 
