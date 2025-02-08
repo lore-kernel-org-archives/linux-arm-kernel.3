@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65264C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42466C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6BlN6EJ3tr8v9Bkl3osVeEnBo4ZKpH0ucFgYQMPJag=; b=Ply/V2YYOfbm+MOHgoTDZxWnRi
-	F4aWd4tY1CEUyNTAlM2PudtkbWCUCPjgy9hIdTbDlECOqZeNjoXlLyFzfa5d2yNF8uyJ8BI7CGJA6
-	X+gSwDyNlOoHcMXpDjiNLdWYDxRRoSK1UvmEeAaHn/5lk5At6PBGN9erXAnitu04uJI0SWitq02Pv
-	onqZuZZlJfJ4Vte3tENKTbdWf5hI13dt0AmcoRKmLyLoisuwmYNif5SqulsAZ1wISWvNBIe5K3g90
-	DrUakWYqylPBaqBeAGfIOgwcqPSBoSMW1oEjhAGzUrC5rsV0M3g+a76YBV5lt67FuaZuqJt8xCdUj
-	p2hU2M6Q==;
+	bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=; b=FXxvcRTn8DrbCAHIUaQEe7YvxC
+	ld/au8gSBcHyQQYEB4aAY8uYO10CsPQcC3A64WBwqkFpWX/YBnWv5tigUh4Zcf0LLWQdpVo1/sO7E
+	36COSwXtwPWTlxMNCwpllOw7wyf31kKIi0tFS6HdaaFJivTyLbXwmdkxvOc9huwZGX6V61WR4jW5l
+	99I0ynCqJNUnZM9p2Q9jmhKvoBQjMc4ksHF/hYxkg+vU4n9N66F4vtWrZL1pD65MGrMjF7CXvv3kY
+	U3TYw93lfPjDKgpvXD18nGBVIxC3+w9bPYI727DTWku8r7ia8Ml5YTOqc3mzWss7U8YLt5dl7sFpe
+	TR5dnb3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsPL-0000000Da8C-3AVT;
-	Sat, 08 Feb 2025 21:30:35 +0000
-Received: from a.peacevolution.org ([206.189.193.133])
+	id 1tgsR8-0000000DaNO-1e8Y;
+	Sat, 08 Feb 2025 21:32:26 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsC2-0000000DYZh-1Rod
+	id 1tgsPj-0000000DaBo-0k5P
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 21:16:51 +0000
-Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 68D9841B6E;
-	Sat,  8 Feb 2025 21:16:48 +0000 (UTC)
-From: Aren Moynihan <aren@peacevolution.org>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Aren Moynihan <aren@peacevolution.org>,
-	Kaustabh Chakraborty <kauschluss@disroot.org>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <trabarni@gmail.com>,
-	Julien Stephan <jstephan@baylibre.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Ondrej Jirman <megi@xff.cz>,
-	Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org
-Subject: [PATCH v5 8/8] arm64: dts: allwinner: pinephone: add power supplies to stk3311
-Date: Sat,  8 Feb 2025 16:13:26 -0500
-Message-ID: <20250208211325.992280-10-aren@peacevolution.org>
-In-Reply-To: <20250208211325.992280-2-aren@peacevolution.org>
-References: <20250208211325.992280-2-aren@peacevolution.org>
+	Sat, 08 Feb 2025 21:31:00 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso21226085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 13:30:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739050257; x=1739655057; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=;
+        b=aIa2LRGeoA1U5xWrff6+kuHQMbcbTN8Ka5TDUoO8wQYqFvaQrddUkXQD1eDbpMnTwy
+         TcyAKrBz7ulxVPmWMVcXkzjkamfQqJerhLwY3R00YkfnH65cFNG+KbdnwgR4NC28xQgR
+         Itqvke/FPPe2oKf3ZxfTGT2yDNJePpk+D0+9AsXZeQjmLT0x+DvaOtcI20I4Rdv2rGki
+         gMyEQkR2JxC1Oqklj9uFyfxged+qhKE3FaFp4AIT30x5XJL8UunW7ACPouQRGSTekb84
+         jzDAZDHaZPaDC+pgQI1wjQTqlz8WWBw0U7H44/oKMQjusMKPCSQw41F8zdnTABoIEBU7
+         3PqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739050257; x=1739655057;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=;
+        b=eBV6OIHKtP4vRh4fBjRT1DADgK7Je3G0N4CcHfnWhIxikS5otjJ4hCdgCQMhSmNFyH
+         +MEhRiLmQECS/bqndvHHqcLWb6DDwm1ypC1DfPDjNf5UFB2Yfgh8CXw6+SOfPNZPsvFC
+         uLXsU9+L7AKlif1TzdTDc8ubznrLOhdzuFbRZky61OiwS/e+hhv395Up/Du5p2R0L/6r
+         AHCaNGo7VCRSD1CqsLQg8UH8XAJ5rHJYOMRtjKQ0TszAt4jEuZmg3CjER531kKqxZFjp
+         8SAEw71rADKPDdeuoywxkyx4fV1Vzezb8w0u/bAVcFBahSkGqbWVhBANBsgQPdvZm/oA
+         Ojhg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHvTmX9Zp4UNO4LYyxjMNA6kAbomaCfuQ6ik+oB7BPx/ZP8U+YcD1cyTm97/S5jgVuxyx3m7kJgKeXJA4b/9YY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyEzg4N7RIW3f79VZLu1mJdsuIhvq2xcyPOtYZGdxCw5Hdvzhb
+	pjuA4JTWffR4BJrOqgFvfjFTqqbounvQLiWgPchrqwU5+JKNIDKOvUnz7nPGJ5vmAPTvOPDCx4j
+	3zwpEGZ+9jushgrH6TinCM0xLSlo=
+X-Gm-Gg: ASbGncusm8edanTLXVzF3MW7/4WH7XcLo0BSRnEYAOaWGpi2dvI/YQkafKwXvT90Lve
+	Kt+bIK6xVg/mqVNpcdlZrfpmFaCXa6rYp1FKbRQm9XJlDh7EHVbhBYNDIeBHnERl4Ux96wBPwL1
+	M/fZDb9zbo6vMxcbigf1QtGjPWpunk
+X-Google-Smtp-Source: AGHT+IEP0vhMZghv54Q+6Voz3luuHMi0bOzgdsxcCEz++Zjhl9x/NdVS4KE4GKQfNkGM7Bwk01RIJ1lfPbZtfTdWZPQ=
+X-Received: by 2002:a5d:6d04:0:b0:38d:d9b3:5916 with SMTP id
+ ffacd0b85a97d-38dd9b359ddmr121320f8f.1.1739050257177; Sat, 08 Feb 2025
+ 13:30:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1739049409;
-	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
-	bh=I6BlN6EJ3tr8v9Bkl3osVeEnBo4ZKpH0ucFgYQMPJag=;
-	b=dg7Nqf7Akrsc0TvG+ztOY/9QZ6wccJ6QE7qJRpYGOMcGJPPS7Y5JaoJMf1fAuFpSteeaOq
-	arynTZbN1Idv+KM0sP0slzwJwemq+0i0I8mj/ZCqgWVIAiJlki7KXnv4sFhtrK3t0+ZnzP
-	WUh6z1s7yRZN4jbah+9X5ULbSKhNR/Q=
+References: <cover.1738888641.git.yepeilin@google.com> <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
+In-Reply-To: <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Sat, 8 Feb 2025 13:30:46 -0800
+X-Gm-Features: AWEUYZkrJWmpVXeIIF_fMq9Qy1erCPKH-mY9gn4_cLquOtiI9oiPRGGrxOURbaQ
+Message-ID: <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
+ store-release instructions
+To: Peilin Ye <yepeilin@google.com>
+Cc: bpf <bpf@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_131650_454389_8350ADA6 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250208_133059_238977_27C4F7E0 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +109,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
+On Thu, Feb 6, 2025 at 6:06=E2=80=AFPM Peilin Ye <yepeilin@google.com> wrot=
+e:
+>
+> Introduce BPF instructions with load-acquire and store-release
+> semantics, as discussed in [1].  The following new flags are defined:
+>
+>   BPF_ATOMIC_LOAD         0x10
+>   BPF_ATOMIC_STORE        0x20
+>   BPF_ATOMIC_TYPE(imm)    ((imm) & 0xf0)
+>
+>   BPF_RELAXED        0x0
+>   BPF_ACQUIRE        0x1
+>   BPF_RELEASE        0x2
+>   BPF_ACQ_REL        0x3
+>   BPF_SEQ_CST        0x4
 
-This allows the driver to properly handle powering this device, and
-disable power during suspend.
+I still don't like this.
 
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
-Signed-off-by: Aren Moynihan <aren@peacevolution.org>
----
+Earlier you said:
 
-Notes:
-    Changes in v2:
-     - add leda-supply
+> If yes, I think we either:
+>
+>  (a) add more flags to imm<4-7>: maybe LOAD_SEQ_CST (0x3) and
+>      STORE_SEQ_CST (0x6); need to skip OR (0x4) and AND (0x5) used by
+>      RMW atomics
+>  (b) specify memorder in imm<0-3>
+>
+> I chose (b) for fewer "What would be a good numerical value so that RMW
+> atomics won't need to use it in imm<4-7>?" questions to answer.
+>
+> If we're having dedicated fields for memorder, I think it's better to
+> define all possible values once and for all, just so that e.g. 0x2 will
+> always mean RELEASE in a memorder field.  Initially I defined all six of
+> them [2], then Yonghong suggested dropping CONSUME [3].
 
- arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+I don't think we should be defining "all possible values",
+since these are the values that llvm and C model supports,
+but do we have any plans to support anything bug ld_acq/st_rel ?
+I haven't heard anything.
+What even the meaning of BPF_ATOMIC_LOAD | BPF_ACQ_REL ?
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-index a2ceb08a91950..d70fbc06b8d23 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
-@@ -278,6 +278,8 @@ light-sensor@48 {
- 		reg = <0x48>;
- 		interrupt-parent = <&pio>;
- 		interrupts = <1 0 IRQ_TYPE_EDGE_FALLING>; /* PB0 */
-+		vdd-supply = <&reg_ldo_io0>;
-+		leda-supply = <&reg_dldo1>;
- 	};
- 
- 	/* Accelerometer/gyroscope */
--- 
-2.48.1
+What does the verifier suppose to do? reject for now? and then what?
+Map to what insn?
 
+These values might imply that bpf infra is supposed to map all the values
+to cpu instructions, but that's not what we're doing here.
+We're only dealing with two specific instructions.
+We're not defining a memory model for all future new instructions.
+
+pw-bot: cr
 
