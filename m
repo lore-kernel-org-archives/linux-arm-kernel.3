@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFC9C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A701C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhpGst6hKXGQbjeWSW8bS9c9yfKTvuFhr/lnJ3XcFNU=; b=uqlgBbZwOL2uQX52LVvczY1XcQ
-	1z8tP1ef7w/kxLEsqysQVurzSD7Texe3OsiGBPo4AgN1NZBevzLGpVyoOK3hXh4Pr5dKQGml2rvKM
-	3ZiEdc2hFQYszcYKIsyksBNxSrd79CKByWSYv+1N2QXPY01eSb9Zm0eYK/2nlqKFwIk4dZUnrIGx3
-	SBLSuP0JfPkKUn2zlVM1NxLLhgJ8u0uc/tlQXyv+wUzZUhuoNb+7vjpavUHhzKX1+prsLkiGJMWJM
-	LQ2A06rjCO3ESyrljCCxaD68GPlQesAOe5Kn2CkHKtZXmHIusJv+lwFzKGPxbNRFem+Q+7wbmfHKt
-	dzaBi0uw==;
+	bh=2CAH1dcXEz2+VFXon/oNdlFEefOj5kJXA/0Z8pEycdA=; b=2ev9ZHNPXJbPpXB5KDitdXOp5i
+	mQ60RS6uyValfwWWjjam+na3LUcLJFr2pCgvQJ01VPXX0s1jPnYISqi1nO7HUq0F76Jc2dmp0zAEl
+	EJ+3MVuDita0WTqerzVfmUk3vPUR0jlVG96DTU9oPODSsjJwlTrndFOGFCgdxHtWQy6OKcLvGOGyl
+	a2ogBM24R0sYi2sEqj7Md9XMp5JuUR0TYbRmnZX53sH3RbF2+P8LlTQ4FUAZrjE4jlue7BZE2eKJD
+	MeyhMa+cgJ4MgHInh7NgJ+8KZEROwbhYBQmmFmYmhFEeoViHsmdVhM30DI9o1GPLTCVGWajWqVQO6
+	Vl34HOqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tga9X-0000000BrH7-01CP;
-	Sat, 08 Feb 2025 02:01:03 +0000
-Received: from mail-m32106.qiye.163.com ([220.197.32.106])
+	id 1tgaAs-0000000Brdz-47eN;
+	Sat, 08 Feb 2025 02:02:26 +0000
+Received: from mail-aws120186.qiye.163.com ([54.178.120.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tga6k-0000000Bqvw-45br;
+	id 1tga6l-0000000Bqw1-1UJL;
 	Sat, 08 Feb 2025 01:58:13 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id a75a6bd3;
-	Sat, 8 Feb 2025 09:58:03 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id a75a6bde;
+	Sat, 8 Feb 2025 09:58:05 +0800 (GMT+08:00)
 From: Elaine Zhang <zhangqing@rock-chips.com>
 To: jonas@kwiboo.se,
 	kever.yang@rock-chips.com,
@@ -42,28 +42,28 @@ Cc: linux-rockchip@lists.infradead.org,
 	huangtao@rock-chips.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 1/2] ARM: dts: rockchip: assigned-clock-parents to SCLK_HDMI_PHY for DCLK_VOP
-Date: Sat,  8 Feb 2025 09:57:56 +0800
-Message-Id: <20250208015757.27594-2-zhangqing@rock-chips.com>
+Subject: [PATCH v3 2/2] arm64: dts: rockchip: Increase VOP clk rate on RK3328
+Date: Sat,  8 Feb 2025 09:57:57 +0800
+Message-Id: <20250208015757.27594-3-zhangqing@rock-chips.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250208015757.27594-1-zhangqing@rock-chips.com>
 References: <20250208015757.27594-1-zhangqing@rock-chips.com>
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhkeHlZNGBhPSx4YQkMYTk1WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkxNHVZDQ05DGRkaHRlPHx9WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a94e3473a5a03a3kunma75a6bd3
+X-HM-Tid: 0a94e347403c03a3kunma75a6bde
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NT46FTo*MDIKOAMzLRc1GTod
-	SzAwCh5VSlVKTEhDQkxCQ0NOS0tCVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUpLTUk3Bg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PCI6Qgw5KjIQQwNOFxUSGS06
+	ODVPCklVSlVKTEhDQkxCQ0NNSUxOVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUpOT0o3Bg++
 DKIM-Signature: a=rsa-sha256;
-	b=HxJU5kXPCmv20Zdv+c8H/IC0fdfKgi92QMqlC2TdyZAlFH9g3d7PgHqURZfRkhf66olBJJLN8xVdT4qWNQKSzpjKGPPfg+Gf/J5fSvIb9p6Z9zZMhECQlCfRQk6Cftp2P1qma1vDjRy3cTdHgcqc3l6gu1y+x5GqseDTRVzrwWE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=AhpGst6hKXGQbjeWSW8bS9c9yfKTvuFhr/lnJ3XcFNU=;
+	b=XBoyJNpfysrNkHeYlKIJtZfd3lX2RtFrsvjTR6b+hw5/uS9bB9Jwi8i3bedCDBc4vKJcGq5FcYV/MEiY/YZhz+x/2Em3VwmzDgwCGJFIgwiXUj59qOvZiR6JoKbSa3zzhWacFBGCokE6cH/l96f1pXaZtTSgUIuapdkDBXLC564=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=2CAH1dcXEz2+VFXon/oNdlFEefOj5kJXA/0Z8pEycdA=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_175811_371603_9C48517D 
-X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-CacheID: sfid-20250207_175811_605455_8A251EA1 
+X-CRM114-Status: UNSURE (   6.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,29 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If dclk_vop use CLK_SET_RATE_PARENT and CLK_SET_RATE_NO_REPARENT
-we should assign clk parent in DT to make it extra clear
-that hdmiphy should be used as dclk_vop parent.
+The VOP on RK3328 needs to run at a higher rate in order to produce
+a proper 3840x2160 signal.
+Change to use 300MHz for VIO clk and 400MHz for VOP clk.
 
-Fixes: 1d34b9757523 ("clk: rockchip: Set parent rate for DCLK_VOP clock on RK3228")
+Fixes: 0f2ddb128fa2 ("arm64: dts: rockchip: Increase VOP clk rate on RK3328")
+
 Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 ---
- arch/arm/boot/dts/rockchip/rk322x.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3328.dtsi | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk322x.dtsi b/arch/arm/boot/dts/rockchip/rk322x.dtsi
-index 96421355c274..2eb3c6611e59 100644
---- a/arch/arm/boot/dts/rockchip/rk322x.dtsi
-+++ b/arch/arm/boot/dts/rockchip/rk322x.dtsi
-@@ -667,6 +667,8 @@
- 		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
- 		clocks = <&cru ACLK_VOP>, <&cru DCLK_VOP>, <&cru HCLK_VOP>;
- 		clock-names = "aclk_vop", "dclk_vop", "hclk_vop";
-+		assigned-clocks = <&cru DCLK_VOP>;
-+		assigned-clock-parents = <&cru SCLK_HDMI_PHY>;
- 		resets = <&cru SRST_VOP_A>, <&cru SRST_VOP_H>, <&cru SRST_VOP_D>;
- 		reset-names = "axi", "ahb", "dclk";
- 		iommus = <&vop_mmu>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+index 7d992c3c01ce..0c905f411e92 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+@@ -842,7 +842,8 @@
+ 			<&cru ACLK_BUS_PRE>, <&cru HCLK_BUS_PRE>,
+ 			<&cru PCLK_BUS_PRE>, <&cru ACLK_PERI_PRE>,
+ 			<&cru HCLK_PERI>, <&cru PCLK_PERI>,
+-			<&cru SCLK_RTC32K>;
++			<&cru SCLK_RTC32K>, <&cru ACLK_VIO_PRE>,
++			<&cru ACLK_VOP_PRE>;
+ 		assigned-clock-parents =
+ 			<&cru HDMIPHY>, <&cru PLL_APLL>,
+ 			<&cru PLL_GPLL>, <&xin24m>,
+@@ -852,8 +853,8 @@
+ 			<0>, <24000000>,
+ 			<24000000>, <24000000>,
+ 			<15000000>, <15000000>,
+-			<300000000>, <100000000>,
+-			<400000000>, <100000000>,
++			<100000000>, <100000000>,
++			<100000000>, <100000000>,
+ 			<50000000>, <100000000>,
+ 			<100000000>, <100000000>,
+ 			<50000000>, <50000000>,
+@@ -863,7 +864,8 @@
+ 			<150000000>, <75000000>,
+ 			<75000000>, <150000000>,
+ 			<75000000>, <75000000>,
+-			<32768>;
++			<32768>, <300000000>,
++			<400000000>;
+ 	};
+ 
+ 	usb2phy_grf: syscon@ff450000 {
 -- 
 2.17.1
 
