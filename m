@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D92C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 15:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8A2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 15:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vdb5FUabYThp9Nm36YDzO29cq3GiE4U/1JarJhVu8E=; b=tpGmS76zFWwJWM5BmdbF0TL82i
-	sjZmCUsZv5MNMSZVhKxs+NKu49ePcDKfvItb0+eexqqlRB9v4oFsMwiHpjV/f6lngH5d/YYfxNdq0
-	hkSXgn5Tgzw305o7rptgwd6N+jboUzX3LIDC6Pu2lbJKB39Z8cUzzA0eU/7m+3QI5LNwhgFMIJV+F
-	kYwRsxwumYLy5n2uGDsRATtKBWqRiuvwGJugbVw27sqay5jzPpST83MPD1v96TSXVuOLCyb+fTQel
-	vEVgmTuCadyU7EXog8bMKq28VdT8jcgRJvkhRTjLgdiH15IbuaXQgoEa34fe+3/uX7LGYdrCTQ+X7
-	WHCmmWMg==;
+	bh=GnBNswVvF1rm1FTqTDrBY4cirAEfozgNtXQwgkr4HSs=; b=bo0IJK2n5laVfOtEkS9UJZaib+
+	KFrSDjp0xGKaJkWo4r8kXyVEFeidhd5vbPCf5E329JbcrcxqfgBNSrq7VUSoi0+zs0uc4aEsNuqhL
+	N9CZWtxTrV8xJYdzGOqOm6dlJFPAwS9yPJcMGLaOnaxAsH1PradpWyoyjZ96MxeABhpFY1+uFNYGh
+	BtBRStL8h+pbOxvRG6tJnRskeKV0Pr+EDeMv6VTVgS/gTzhIng4AkiXONSfJSs+KhiJqHE0yfGCzs
+	X+Fa3J614dRLJpX6ySiRXIlymwEa1jrtqQE4Mvq3hd1kO3KdouyfJLWOe0ggUgwIJOFYGyGYP6V+D
+	vn37yGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgmNO-0000000D6s7-33JJ;
-	Sat, 08 Feb 2025 15:04:10 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tgmZz-0000000D7eC-0plr;
+	Sat, 08 Feb 2025 15:17:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgmKe-0000000D6XW-1WKU
+	id 1tgmYZ-0000000D7ZQ-46Za
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 15:01:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739026881; x=1770562881;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=oE+gp+Gkz95T/V3xgiAIKokUUM1ToOZwtq4ssSOD7/I=;
-  b=CPCief5wLiHXSe3VY4XzhvQvOa0TO6zayeSGHwZixmsP8lcInSAbt+7R
-   RR1TvhTx7ylQBVtiGnEHYJu6ENq+zoIao5MfFVjPfDmKHjmdz0Y10linD
-   DQ+86h1OpIzSgFJ5yMWB6B+FH1cmnohXsWmDamHxTsa9CHoEZO7AIFASO
-   a5lExYT2ELOZbWsDNCMBVVAdqkJ40at+tNr9xK/fowF+SZ+w4ZR9Ed0KK
-   3Vwaqv2BXVVyj3UH6EXlwUhUKEdbG8aEwYF1yzMVCuOFG2RhwGJJPXCoP
-   W8ERtyXpOdCI6svIFyle9O4MJ8XNkVXj6+kG43BGJHmD9MWKPo7UASOA1
-   g==;
-X-CSE-ConnectionGUID: 1o28kN1SR3K083J6+AgqTg==
-X-CSE-MsgGUID: g0fDmfjoQXulKXg4w9IjEQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11339"; a="43420843"
-X-IronPort-AV: E=Sophos;i="6.13,270,1732608000"; 
-   d="scan'208";a="43420843"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2025 07:01:17 -0800
-X-CSE-ConnectionGUID: ygCPJfQNTd2FTQwdEqLvbw==
-X-CSE-MsgGUID: htZzMBuzSS+sXX7/Kz/DBg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="116726461"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 08 Feb 2025 07:01:09 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tgmKQ-001099-1a;
-	Sat, 08 Feb 2025 15:01:06 +0000
-Date: Sat, 8 Feb 2025 23:00:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Frank Li <Frank.Li@nxp.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <helgaas@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Niklas Cassel <cassel@kernel.org>,
-	dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v14 07/15] PCI: endpoint: pci-ep-msi: Add MSI
- address/data pair mutable check
-Message-ID: <202502082242.pOq1hB1d-lkp@intel.com>
-References: <20250207-ep-msi-v14-7-9671b136f2b8@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250207-ep-msi-v14-7-9671b136f2b8@nxp.com>
+	Sat, 08 Feb 2025 15:15:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5772CA40C6F;
+	Sat,  8 Feb 2025 15:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A329FC4CED6;
+	Sat,  8 Feb 2025 15:15:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739027742;
+	bh=wdP0504YlRUWUyWOccPQNOpnfwbi8oiLivi7ml3EBiM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ABIwaQ5QuavP8mEch/mGlEm85IFJMqXyX7l1XLiJKhpPzQgT6BHnRHCK86wNS9zaN
+	 /g0QJL6ej9eqBJL8MzpUgwXselHObzDaqeXpWUMcQy3vpyj9jxivMQT7c3jhEv3WNu
+	 +RFo6S87RDj98ZW7wYWixhq37ydtF6bAIUuY5ov6F6EF2fqYe749rJuAsvVzPawyxj
+	 hINRwmoDduB5G5WY635Xi1He4kBTMWttxx8JJk/+KB9ZXxIc+SqYdUlzfgauZxNj0o
+	 GPWRw7xOVGvMTYmnDfOiT8gmCGAbMjL8a5IF5lYvnib9dK0dULHKALvWGRJnIUu7e4
+	 rpNUBSR7XDWWA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tgmYV-001zCr-WE;
+	Sat, 08 Feb 2025 15:15:40 +0000
+Date: Sat, 08 Feb 2025 15:15:39 +0000
+Message-ID: <86a5awtqlg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Alexander Potapenko <glider@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 0/3] KVM: arm64: Assorted vgic fixes for 6.14
+In-Reply-To: <Z6ZV-JHDSSLKEah-@linux.dev>
+References: <20250206152100.1107909-1-maz@kernel.org>
+	<Z6ZLC1v5KU-zzbQR@linux.dev>
+	<86ed09tyl2.wl-maz@kernel.org>
+	<Z6ZV-JHDSSLKEah-@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, glider@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_070120_443429_97BC9404 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250208_071544_157195_5B02CCE5 
+X-CRM114-Status: GOOD (  50.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,101 +91,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Fri, 07 Feb 2025 18:50:32 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+>=20
+> On Fri, Feb 07, 2025 at 06:10:49PM +0000, Marc Zyngier wrote:
+> > On Fri, 07 Feb 2025 18:03:55 +0000,
+> > Oliver Upton <oliver.upton@linux.dev> wrote:
+> > >=20
+> > > On Thu, Feb 06, 2025 at 03:20:57PM +0000, Marc Zyngier wrote:
+> > > > Alexander, while fuzzing KVM/arm64, found an annoying set of proble=
+ms,
+> > > > all stemming from the fact that the vgic can be destroyed in parall=
+el
+> > > > with the rest of the guest still being live.
+> > > >=20
+> > > > Yes, this is annoying.
+> > > >=20
+> > > > Fixing this is not going to happen overnight (though I have some
+> > > > ideas), but we can make what we have today a bit more robust.
+> > > >=20
+> > > > This is what patch #2 is doing. Patch #1 is just removing a loud
+> > > > WARN_ON() that serves little purpose, and patch #3 fixes the actual
+> > > > bug that Alex reported.
+> > > >=20
+> > > > Hopefully, none of that is controversial...
+> > >=20
+> > > I'm a bit grumbly about slapping bandaids on the problem, but given t=
+he
+> > > fact that glider reported all of this a while ago and we still haven't
+> > > fixed it is enough to justify these patches. So:
+> >=20
+> > Yeah, same here. I'm starting to think that we need to either prevent
+> > the vgic from being asynchronously destroyed, or start refcounting all
+> > IRQs just like LPIs. Which is very annoying since we don't have a
+> > global namespace for SGIs and PPIs.
+> >=20
+> > But maybe simply refcounting the vgic itself would be enough.
+> > Thoughts?
+>=20
+> So would we refcount on the owning structure for a particular IRQ? i.e.
+> private IRQs are counted against the owning vCPU and SPIs against the
+> distributor?
+>=20
+> Adding a vgic_put_vcpu_irq() could help disambiguate private IRQs too.
 
-kernel test robot noticed the following build errors:
+Having slept (yay!) on it, I don't think this is enough.
 
-[auto build test ERROR on 00f3246adeeacbda0bd0b303604e46eb59c32e6e]
+The observation is that a lot of the issues we have are triggered by
+the private interrupt array being allocated on demand on VGIC
+creation. We had way fewer problems when the private interrupts were
+directly part of struct vcpu, which really was hiding the basic
+problem.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/platform-msi-Add-msi_remove_device_irq_domain-in-platform_device_msi_free_irqs_all/20250208-034445
-base:   00f3246adeeacbda0bd0b303604e46eb59c32e6e
-patch link:    https://lore.kernel.org/r/20250207-ep-msi-v14-7-9671b136f2b8%40nxp.com
-patch subject: [PATCH v14 07/15] PCI: endpoint: pci-ep-msi: Add MSI address/data pair mutable check
-config: i386-buildonly-randconfig-003-20250208 (https://download.01.org/0day-ci/archive/20250208/202502082242.pOq1hB1d-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250208/202502082242.pOq1hB1d-lkp@intel.com/reproduce)
+We have an annoying discrepancy between knowing that a GIC is present
+(VM-wide state) and the interrupts for a vcpu being allocated (vcpu
+state). This is what Alexander's fuzzing is all about (create a vcpu,
+init it, and while this is happening, create/destroy a vgic).
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502082242.pOq1hB1d-lkp@intel.com/
+So it isn't just destruction, but also creation that is problematic,
+and I'm not sure that refcounting is the correct solution anymore.
 
-All errors (new ones prefixed by >>):
+Now, for the issue that this series is trying to fix, I came up with
+an alternative approach, based on the above epiphany. We currently
+allocate private interrupts in two locations:
 
-   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
->> drivers/pci/endpoint/pci-ep-msi.c:49:14: error: implicit declaration of function 'irq_domain_is_msi_immutable'; did you mean 'irq_domain_is_msi_device'? [-Werror=implicit-function-declaration]
-      49 |         if (!irq_domain_is_msi_immutable(dom)) {
-         |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |              irq_domain_is_msi_device
-   drivers/pci/endpoint/pci-ep-msi.c:61:15: error: implicit declaration of function 'platform_device_msi_init_and_alloc_irqs' [-Werror=implicit-function-declaration]
-      61 |         ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
-         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_free_doorbell':
-   drivers/pci/endpoint/pci-ep-msi.c:83:9: error: implicit declaration of function 'platform_device_msi_free_irqs_all' [-Werror=implicit-function-declaration]
-      83 |         platform_device_msi_free_irqs_all(&epf->dev);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
+- at vcpu creation time *if* a vgic has already been created
+
+- from vgic_init(), which is itself called on:
+
+  - KVM_DEV_ARM_VGIC_CTRL_INIT for the modern stuff,
+
+  - or lazily for anything old and specific to GICv2 (huh).
+
+Crucially, there is a gaping window between the creation of a vgic
+*after* a vcpu has been created, and its initialisation. Anything that
+checks for irqchip_in_kernel() during that interval may assume that
+private interrupts are allocated, because this is what it used to be.
+Waiting for vgic_init() to mop-up the "early" vcpus is what creates
+the issue.
+
+Given that, the solution is obvious: hoist the early vcpu mop-up from
+vgic_init() into kvm_vgic_create(). This guarantees that any vcpu
+observing irqchip_in_kernel() being true will also see its private
+interrupts.
+
+The patch below fixes it for me (tested with kvmtool, qemu, and Alex's
+tickling reproducer).
+
+Thoughts?
+
+	M.
+
+=46rom c150c2300d5b8918909ad46a769aae864a58025f Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Sat, 8 Feb 2025 14:58:43 +0000
+Subject: [PATCH] KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to
+ kvm_create_vgic()
+
+If userspace creates vcpus, then a vgic, we end-up in a situation
+where irqchip_in_kernel() will return true, but no private interrupt
+has been allocated for these vcpus. This situation will continue
+until userspace initialises the vgic, at which point we fix the
+early vcpus. Should a vcpu run or be initialised in the interval,
+bad things may happen.
+
+An obvious solution is to move this fix-up phase to the point where
+the vgic is created. This ensures that from that point onwards,
+all vcpus have their private interrupts, as new vcpus will directly
+allocate them.
+
+With that, we have the invariant that when irqchip_in_kernel() is
+true, all vcpus have their private interrupts.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/vgic/vgic-init.c | 74 ++++++++++++++++-----------------
+ 1 file changed, 37 insertions(+), 37 deletions(-)
+
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-ini=
+t.c
+index c7a82bd0c276d..1f33e71c2a731 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -34,9 +34,9 @@
+  *
+  * CPU Interface:
+  *
+- * - kvm_vgic_vcpu_init(): initialization of static data that
+- *   doesn't depend on any sizing information or emulation type. No
+- *   allocation is allowed there.
++ * - kvm_vgic_vcpu_init(): initialization of static data that doesn't depe=
+nd
++ *   on any sizing information. Private interrupts are allocated if not
++ *   already allocated at vgic-creation time.
+  */
+=20
+ /* EARLY INIT */
+@@ -58,6 +58,8 @@ void kvm_vgic_early_init(struct kvm *kvm)
+=20
+ /* CREATION */
+=20
++static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 ty=
+pe);
++
+ /**
+  * kvm_vgic_create: triggered by the instantiation of the VGIC device by
+  * user space, either through the legacy KVM_CREATE_IRQCHIP ioctl (v2 only)
+@@ -112,6 +114,22 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 		goto out_unlock;
+ 	}
+=20
++	kvm_for_each_vcpu(i, vcpu, kvm) {
++		ret =3D vgic_allocate_private_irqs_locked(vcpu, type);
++		if (ret)
++			break;
++	}
++
++	if (ret) {
++		kvm_for_each_vcpu(i, vcpu, kvm) {
++			struct vgic_cpu *vgic_cpu =3D &vcpu->arch.vgic_cpu;
++			kfree(vgic_cpu->private_irqs);
++			vgic_cpu->private_irqs =3D NULL;
++		}
++
++		goto out_unlock;
++	}
++
+ 	kvm->arch.vgic.in_kernel =3D true;
+ 	kvm->arch.vgic.vgic_model =3D type;
+=20
+@@ -201,7 +219,7 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
+ 	return ret;
+ }
+=20
+-static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu)
++static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 ty=
+pe)
+ {
+ 	struct vgic_cpu *vgic_cpu =3D &vcpu->arch.vgic_cpu;
+ 	int i;
+@@ -239,17 +257,28 @@ static int vgic_allocate_private_irqs_locked(struct k=
+vm_vcpu *vcpu)
+ 			/* PPIs */
+ 			irq->config =3D VGIC_CONFIG_LEVEL;
+ 		}
++
++		switch (type) {
++		case KVM_DEV_TYPE_ARM_VGIC_V3:
++			irq->group =3D 1;
++			irq->mpidr =3D kvm_vcpu_get_mpidr_aff(vcpu);
++			break;
++		case KVM_DEV_TYPE_ARM_VGIC_V2:
++			irq->group =3D 0;
++			irq->targets =3D BIT(vcpu->vcpu_id);
++			break;
++		}
+ 	}
+=20
+ 	return 0;
+ }
+=20
+-static int vgic_allocate_private_irqs(struct kvm_vcpu *vcpu)
++static int vgic_allocate_private_irqs(struct kvm_vcpu *vcpu, u32 type)
+ {
+ 	int ret;
+=20
+ 	mutex_lock(&vcpu->kvm->arch.config_lock);
+-	ret =3D vgic_allocate_private_irqs_locked(vcpu);
++	ret =3D vgic_allocate_private_irqs_locked(vcpu, type);
+ 	mutex_unlock(&vcpu->kvm->arch.config_lock);
+=20
+ 	return ret;
+@@ -279,7 +308,7 @@ int kvm_vgic_vcpu_init(struct kvm_vcpu *vcpu)
+ 	if (!irqchip_in_kernel(vcpu->kvm))
+ 		return 0;
+=20
+-	ret =3D vgic_allocate_private_irqs(vcpu);
++	ret =3D vgic_allocate_private_irqs(vcpu, dist->vgic_model);
+ 	if (ret)
+ 		return ret;
+=20
+@@ -316,7 +345,7 @@ int vgic_init(struct kvm *kvm)
+ {
+ 	struct vgic_dist *dist =3D &kvm->arch.vgic;
+ 	struct kvm_vcpu *vcpu;
+-	int ret =3D 0, i;
++	int ret =3D 0;
+ 	unsigned long idx;
+=20
+ 	lockdep_assert_held(&kvm->arch.config_lock);
+@@ -336,35 +365,6 @@ int vgic_init(struct kvm *kvm)
+ 	if (ret)
+ 		goto out;
+=20
+-	/* Initialize groups on CPUs created before the VGIC type was known */
+-	kvm_for_each_vcpu(idx, vcpu, kvm) {
+-		ret =3D vgic_allocate_private_irqs_locked(vcpu);
+-		if (ret)
+-			goto out;
+-
+-		for (i =3D 0; i < VGIC_NR_PRIVATE_IRQS; i++) {
+-			struct vgic_irq *irq =3D vgic_get_vcpu_irq(vcpu, i);
+-
+-			switch (dist->vgic_model) {
+-			case KVM_DEV_TYPE_ARM_VGIC_V3:
+-				irq->group =3D 1;
+-				irq->mpidr =3D kvm_vcpu_get_mpidr_aff(vcpu);
+-				break;
+-			case KVM_DEV_TYPE_ARM_VGIC_V2:
+-				irq->group =3D 0;
+-				irq->targets =3D 1U << idx;
+-				break;
+-			default:
+-				ret =3D -EINVAL;
+-			}
+-
+-			vgic_put_irq(kvm, irq);
+-
+-			if (ret)
+-				goto out;
+-		}
+-	}
+-
+ 	/*
+ 	 * If we have GICv4.1 enabled, unconditionally request enable the
+ 	 * v4 support so that we get HW-accelerated vSGIs. Otherwise, only
+--=20
+2.39.2
 
 
-vim +49 drivers/pci/endpoint/pci-ep-msi.c
-
-    26	
-    27	int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
-    28	{
-    29		struct pci_epc *epc = epf->epc;
-    30		struct device *dev = &epf->dev;
-    31		struct irq_domain *dom;
-    32		void *msg;
-    33		u32 rid;
-    34		int ret;
-    35		int i;
-    36	
-    37		rid = PCI_EPF_DEVID(epf->func_no, epf->vfunc_no);
-    38		dom = of_msi_map_get_device_domain(epc->dev.parent, rid, DOMAIN_BUS_PLATFORM_MSI);
-    39		if (!dom) {
-    40			dev_err(dev, "Can't find msi domain\n");
-    41			return -EINVAL;
-    42		}
-    43	
-    44		dev_set_msi_domain(dev, dom);
-    45	
-    46		if (!irq_domain_is_msi_parent(dom))
-    47			return -EINVAL;
-    48	
-  > 49		if (!irq_domain_is_msi_immutable(dom)) {
-    50			dev_err(dev, "Can't support mutable address/data pair MSI controller\n");
-    51			return -EINVAL;
-    52		}
-    53	
-    54		msg = kcalloc(num_db, sizeof(struct pci_epf_doorbell_msg), GFP_KERNEL);
-    55		if (!msg)
-    56			return -ENOMEM;
-    57	
-    58		epf->num_db = num_db;
-    59		epf->db_msg = msg;
-    60	
-    61		ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
-    62		if (ret) {
-    63			/*
-    64			 * The pcie_ep DT node has to specify 'msi-parent' for EP
-    65			 * doorbell support to work. Right now only GIC ITS is
-    66			 * supported. If you have GIC ITS and reached this print,
-    67			 * perhaps you are missing 'msi-map' in DT.
-    68			 */
-    69			dev_err(dev, "Failed to allocate MSI\n");
-    70			kfree(msg);
-    71			return -ENOMEM;
-    72		}
-    73	
-    74		for (i = 0; i < num_db; i++)
-    75			epf->db_msg[i].virq = msi_get_virq(dev, i);
-    76	
-    77		return ret;
-    78	}
-    79	EXPORT_SYMBOL_GPL(pci_epf_alloc_doorbell);
-    80	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=20
+Without deviation from the norm, progress is not possible.
 
