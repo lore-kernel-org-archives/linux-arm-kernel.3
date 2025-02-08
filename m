@@ -4,75 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFFBC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 19:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3EFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 19:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:Cc:To:
+	From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ce8ziv9NEZVw/ogWyF4YRzNRLf9hhIsAQWae2SYgPsI=; b=ahMyAsk6VeTFofL/3kQLlsx4Fs
-	oe2laQX1PVgA3rePKKOavtuAn5UXRKmO+KscNM40di+wMeEK4UtK3RhFA8i27OWQ6MCRSZGP4tmz/
-	re5QPfWAcGvEO5xj+tmTL+ksfsdRhYMvuJgAxjlf4reLhz518zRNNafl1/5gRTpWuiOjq+8sH5XgL
-	OgKnyGuF1NB/49jEl5PdRYGkGYmvEj2NDLUbA+Fjiv8tQi09kLnL5zbqw+SBqNHsW1lJQFKNszkOU
-	Eg6dkbjXPFEVQLYbyx8iibQNS9p2XptlU0AZfN4xFMCPgLA4h5Nwlt7SM/AEpzUOltw9gZ2FK+i+s
-	tKLKrd3Q==;
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=9lEsYqWgRDt529xNjU4hFu5Vyvfjt/7+jIaEl8raibQ=; b=h0S3VIcrqmjH3Y3qxmYidP1GmH
+	Nxo7rNv9knHVmqBXzLqMvmt69Wck0oGEE4bLHc/Y33tTk/eK+YwGXrJHHFXEP6lKWrgBCFzTzfL77
+	Y90FCr+1WCwj8gFjD0PtIe9DeqEqUU9E96+KJtu5G2b9nVtG+F9eMVXlKrJu5aA9C77eO1iHfrA+9
+	FGOI4+rnLjolgczwJoYeu2k2/tiOW2s/KpVswmcDgl8zwbDhBufFOPhF57ExPifn9uDVLVkGCQ40V
+	+WzY4j6Ub59UZkY86Fe9hjuLwDD6OYweYwVWFVcQTdOOzIEsZQn536+kqC34Gucw5eFkmzYd6OCkM
+	WGYeQq8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgq5N-0000000DPOx-2zXF;
-	Sat, 08 Feb 2025 19:01:49 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tgqMw-0000000DQXk-4Bs7;
+	Sat, 08 Feb 2025 19:19:59 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgq3z-0000000DPHi-1fLJ;
-	Sat, 08 Feb 2025 19:00:25 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id D2ADB25D01;
-	Sat,  8 Feb 2025 20:00:16 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 55FrgB_ujl9K; Sat,  8 Feb 2025 20:00:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739041215; bh=alWLYF/9OcbBa/I1+7yBqk1Z5iaf+prVR/oyQI0H9G4=;
-	h=From:Date:Subject:To:Cc;
-	b=DOC4jBhf/haJGplx2K8eiCjySQ5qbgEtpmkQ3ImmkbEXeHtImVv7v4Q3fGLF0mGE7
-	 7L/OdfBlNBQCIssAqszLDs+H4f+GEskwUBTuThpvWz4DJLpyk7I13rv35duIoF0HIj
-	 /ouUMNy8JwCqopdtjG2jKBi+M1Fz2V4bgJc+EjHZjbLHKZwwqgVa8OK2pNlc6PYcRI
-	 bdf8ePyZCdfuXsUrTZK+3FShLaP30618vZcaABPPC4Wj/AXXguL7RKve5Pv6ZLbikK
-	 xhalBciwDPH2s3/BZF79OXtG5DhHBeu/ojLzG2MQiAuJxWsx6zjhIDh4f/1dvtDzSL
-	 biy7RX9N2lDew==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 09 Feb 2025 00:29:30 +0530
-Subject: [PATCH] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and SSC_REFCLKSEL
- masks in refclk
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
-X-B4-Tracking: v=1; b=H4sIAJGpp2cC/x3MQQ5AMBBA0avIrE1SjVKuIhboYCJKOiFE3F1j+
- Rb/PyAUmATq5IFAJwtvPiJLExjmzk+E7KJBK22UVhbpuv0mBg/pXXC4drIIllRRUVkz5L2FmO6
- BRr7+bdO+7wekWIFpZgAAAA==
-X-Change-ID: 20250208-exynos5-usbdrd-masks-7e9e6985c4b8
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Vivek Gautam <gautam.vivek@samsung.com>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739041209; l=2085;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=alWLYF/9OcbBa/I1+7yBqk1Z5iaf+prVR/oyQI0H9G4=;
- b=u7SS0kBpPe4GLUkdpGBcrXSlzjYQ5lTUc9poNrKPxjumtkDDCLanuInoWrIfZdaYIYKdJwsQ8
- spQArA691vLAEsK3NzHrFjhY0s2A0LvAotGppdNelchuuQ1ZOtDXhue
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+	id 1tgqLZ-0000000DQJu-1A6l
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Feb 2025 19:18:34 +0000
+DKIM-Signature: a=rsa-sha256; b=ANSDsMOku8tw4g3MhMNF7FVdF3xhxkcHzQN3UFBNBrGG54WSwwN8GTJWXEYpax351OoQ6SE9z6xLEM+Hb10hi8eTdReoBIZU/KotcT1RZnbDXQP+hBvo745b9pdge7GDyFiT0ITRrOaCcIPBdM5bGYKErUQP/qLDhzn4HNmj5VHv58avhsS7DDYh//W1jJCyzSaGHoRGsNcfHSIyHG4SHIee8QKEVhNl0XQAOLt9hvxm2q7HiNcwBMds/fUmWT8i2zsmi0qs0ffg1agl+ho63RHMhdPBWeN30J7XqkmmJinM4s5vo5ZwyXtfkIFUCOnpw8Al2TYbBK+eSItVOlOnfg==; s=purelymail2; d=purelymail.com; v=1; bh=OhQ+fXCXOE67/Bljde/YBk2XhUW9Cvw2pDZsUUCWyfk=; h=Feedback-ID:Received:Date:From:To:Subject;
+Feedback-ID: 68229:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1785052960;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sat, 08 Feb 2025 19:18:16 +0000 (UTC)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 08 Feb 2025 19:18:14 +0000
+Message-Id: <D7NB1L54MHGG.MHALKBC8531M@mentallysanemainliners.org>
+From: "Umer Uddin" <umer.uddin@mentallysanemainliners.org>
+To: <wachiturroxd150@gmail.com>
+Cc: <alim.akhtar@samsung.com>, <krzk@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH v1 9/9] arm64: dts: exynos990: define all PERIC USI
+ nodes
+X-Mailer: aerc 0.20.0
+In-Reply-To: <20250205222223.613-10-wachiturroxd150@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_110023_847769_566112A1 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20250208_111833_411477_F5561528 
+X-CRM114-Status: UNSURE (   4.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,58 +65,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
-PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
-inverted when applied to the register values. Fix it.
+Hi Denzeel, thank you for your patches.
 
-Cc: stable@vger.kernel.org
-Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
-Patch picked up from:
-https://lore.kernel.org/all/20250204-exynos7870-usbphy-v1-1-f30a9857efeb@disroot.org/
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+> +                     samsung,mode =3D <USI_V2_UART>;
+[...]
+> +                     samsung,mode =3D <USI_V2_I2C>;
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index c421b495eb0fe4396d76f8c9d7c198ad7cd08869..4a108fdab118c0edd76bd88dc9dbf6a498e064b3 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -488,9 +488,9 @@ exynos5_usbdrd_pipe3_set_refclk(struct phy_usb_instance *inst)
- 	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
- 
- 	/* FSEL settings corresponding to reference clock */
--	reg &= ~PHYCLKRST_FSEL_PIPE_MASK |
--		PHYCLKRST_MPLL_MULTIPLIER_MASK |
--		PHYCLKRST_SSC_REFCLKSEL_MASK;
-+	reg &= ~(PHYCLKRST_FSEL_PIPE_MASK |
-+		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
-+		 PHYCLKRST_SSC_REFCLKSEL_MASK);
- 	switch (phy_drd->extrefclk) {
- 	case EXYNOS5_FSEL_50MHZ:
- 		reg |= (PHYCLKRST_MPLL_MULTIPLIER_50M_REF |
-@@ -532,9 +532,9 @@ exynos5_usbdrd_utmi_set_refclk(struct phy_usb_instance *inst)
- 	reg &= ~PHYCLKRST_REFCLKSEL_MASK;
- 	reg |=	PHYCLKRST_REFCLKSEL_EXT_REFCLK;
- 
--	reg &= ~PHYCLKRST_FSEL_UTMI_MASK |
--		PHYCLKRST_MPLL_MULTIPLIER_MASK |
--		PHYCLKRST_SSC_REFCLKSEL_MASK;
-+	reg &= ~(PHYCLKRST_FSEL_UTMI_MASK |
-+		 PHYCLKRST_MPLL_MULTIPLIER_MASK |
-+		 PHYCLKRST_SSC_REFCLKSEL_MASK);
- 	reg |= PHYCLKRST_FSEL(phy_drd->extrefclk);
- 
- 	return reg;
+Although these definitions are valid, there are two issues. these will
+never compile as you have forgotten to include the header file
+"dt-bindings/soc/samsung,exynos-usi.h". Also USI_V2* definitions are
+deprecated and you shoulud use USI_MODE* definitions instead.
 
----
-base-commit: df4b2bbff898227db0c14264ac7edd634e79f755
-change-id: 20250208-exynos5-usbdrd-masks-7e9e6985c4b8
+> +                             fifo-depth =3D <256>
 
-Best regards,
--- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+You are missing a semi-colon. (This applies for nodes spi_8, spi_9 and
+spi_10).
 
+Please rectify these errors.
+
+Regards, Umer
 
