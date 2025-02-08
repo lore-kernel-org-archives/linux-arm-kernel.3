@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E975C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 22:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F2CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 22:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=; b=OO3GRU66hJU6hrYMet1nPegqJZ
-	OcC1FyoV5oTKsunXp2XXfh/zBEBZLyIb6WDO7EbcWiPPBAZuYmXADBqwUBP39ZENwAqNyrcr7CJrd
-	PRxShHlcAVSz4M354ewHNxEErkWiIp7aMx2cMbgFBE2AC8dhfP8NTJ92e84Xb2QHNQHwqZR6lJVZ2
-	EtrbbzJ1ouiO8PjWlgGK/QzdG3CXXtdsV3CYh+u6s6Zqfv5tgpZobNYYvRYPkaI4zOT4dJ5t+1cjj
-	uIenlTQdLdaL43Sj06h4urcbp7FRY+ncDjegAt0ay4w/Xbz//CX4YoiRAWD8HyD7x1+frui1SrarW
-	f2ypCAZQ==;
+	bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=; b=OairHyFOThlD09svGtPAy+VUrw
+	+WTudDPRIz6Hhx7piLwU16BPxysfAYQTl5YymmtE3Vfwbty35mx/ILKV3chSjnzTTFl81dxlPD5bY
+	DIRZgBBek1oVivbTdsvCLkSwDqwo29LDwOZLWnmjKEM1ZkCAHcunR2wG3rlwrXHoOyp9w5bvsFmrR
+	VRyBzE/QxRCwQbqg5hKNcaioYRuQcPA3ko1PLFicy5llQSdM7pZhrOolRUQd7fReqbA5t8JzCdnyr
+	yIWeMXu8wN5grU9O7jiLi6sacDSl8+T4hKh+xY8/EgG5zuskVV2AUzExUETOWa/2bm8Nq0UPCqVkh
+	6lbE+e/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgt2M-0000000DdBe-1Woo;
-	Sat, 08 Feb 2025 22:10:54 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tgt9D-0000000DdgG-26Qa;
+	Sat, 08 Feb 2025 22:17:59 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgt0x-0000000Dcwq-2e8E
+	id 1tgt7o-0000000DdY5-2yl8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 22:09:28 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-543e47e93a3so3532561e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 14:09:27 -0800 (PST)
+	Sat, 08 Feb 2025 22:16:34 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54412a7d75cso2842686e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 14:16:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739052566; x=1739657366; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739052991; x=1739657791; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=;
-        b=IOWmxKuXLDxS/Ybl2bTWBCiT26Dc7SIHLI2kA+MIYK52EmrqCrUD8xTNttpDz3VrGR
-         mv70QiWAkPHdmNuNMgxU4jLI39hBvf6f1sj88aQnpqC16h1C/2Kf3kMv0kz97dJ4lsxd
-         nDEdmYvZvd2pWtEXamoLLjmCHnSZzafKs3o/vjNA2ZNYLeh11Bk0vrdAxlgQEVWtp65p
-         NZkLsK3NJVLmOFEiUpmyz7AUb3C7uhIMCEKAQTIMf+pu020VO2ALQyY3Hxqc6IfD+gdi
-         27lBkebNRJDUfSWzCjC+a+yttsWMNmL8vkkwRcFWWOEDLyDGNdl1P1RWQ7DBWdc+UQtY
-         zcAA==
+        bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=;
+        b=ToguMYmrt2+3EavOwZ3HbsVamqKrfKpR5gAwYDZ9A5IipRYNENOIzZd4LiWjBjMgmP
+         brv2Q7pzjZZTOoLa6yL4TKWAN09ZU2qUQLsQFKWfP2X4Zewx161dDKlhgjqXTfsZ9R62
+         3kopPn2dO/F9VJ19k3mq+XF7HUI8xR50eSPuqnLsMb+CypMxDlxHD2sCCnkjlTAawZ2o
+         vauvPBdiRp++W46jXKJooErnei1q+a9Xw+HIVaTvUybg6SmiM5agvoNXiPCocfcN0a5k
+         mmaPAFDHLzLoI9pDKnGg/zB9U2Pb9+pqonVY7Jji3EoKlnbDqsqS5+yPEsRfqnKqa1Ig
+         MA4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739052566; x=1739657366;
+        d=1e100.net; s=20230601; t=1739052991; x=1739657791;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=;
-        b=fhTqBLJ3v1XJIfcPwSsc+KSp7y+xty2a8tqvmGPVdWVWd2KVqQeTTEiTSNTArTcUuJ
-         AFnCVgn7AY3whEV9k23s2pBKzYixglsFqHBQNvGHdDlVyY5XQZ64Y3T9vKJhgikBeZK5
-         D7E6yAXUU3InOTEH2BzI7SyeZV3Kpxm/ALTTKUUQZJu/fAPsEwmSZkqPrzVq7jlNvfJt
-         HvRuHyWrbuN4eOoAhrPBNC7JQw+DoECwAAr+kuElSr+tuM4V0R/XTrbpiccN8Iu+DuXS
-         YX43wAqA/Q3ZzQnY4yyfO2+1VAKXwp6nO1Nr0qH4jLx9EplliYRIJtVCKdHu4P/ddS+t
-         9F/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW/FOk4SPLL6abYnHUi0cXITf1WYiCz7XSEtY56y2y8hrQ+PjkRblWqjud7PrXTjOSBVHb+02AzEVhUJLsqJxcG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGt2mOKq8dUZtwWaAxqzYsVJOiGSrxy+kc+vTwUT9g6iNYHcFF
-	IOJf98V+cAPiPVMbgRHHw3jIVedr0UWS6qor3u04Th6TWxkkADw0pexeKCojbX0=
-X-Gm-Gg: ASbGncv5zd4dmBSQFQ1D1Je5MIIBJCCnnXoq79q1Qoq+bihROJppH2KNdTVxIaLuFzl
-	Fr27lqHfI7pvcd6aWw+P+4fcSnrsNWJN+MPhOAYh1a4s0884SJNugApOQ2rP/MR/dsnHITyBsUY
-	JT1HJEef/+3KZdd0OfZPbz9J1JQoHCnQKecCd0DZnBURwK9XVj/wU4TU03iEerZLprpgnijilFK
-	jTGPa+4A3qNQhxwCGNDWgJ/jBwIjD3+YohMVN4byzUgfl4V6jnVZGtL8dVcmwk13CWsXTr8HPM2
-	osHfMo+cQ/Yr6SGtm1G8ikzW7ykkVCAxOGqIMSvmnrlLWXO+Hslk2EP46O6MWdlzQRiAkz8=
-X-Google-Smtp-Source: AGHT+IGUH3UmhIKInMLmECf90pr5INGbeBJEBwOwexzDKJYYzBRhSekRFOt84/bINUn54xlSrNAvSw==
-X-Received: by 2002:a05:6512:1247:b0:543:f1a0:9e82 with SMTP id 2adb3069b0e04-54414a96211mr2604148e87.6.1739052565570;
-        Sat, 08 Feb 2025 14:09:25 -0800 (PST)
+        bh=Y758qolide2lClu/KzTF1R1Skq7/E6pKo00NOQS2OEQ=;
+        b=VSYu0RBa2+rl+w3VuFHfIvP6wgfHhxEqjxucRFeSRozZvdA0z7oLBWa7P7sJeNvrLB
+         jxgDgKXc65cMcq031l4v34n45ScSKlmIM0Ro8kzOPfGomcWyfEQ7KclCcbswbBZ8LKtK
+         z2/kEoqgN3XZh6z87JMMIsQ5/hRJEJ6+3rwOpQOy+UAo+16gE0rf8NYNlyjcP9P/7YyQ
+         Gk9JrCKUY659LlVhTo++KJd0oi9GJ76ioRaq7y996h41FHS5048swxKhKKz829EQ99CH
+         61t0Tb/yMz/cOi/5D2jXw7STmVjyz8IYrhLN6M1UvIFOz6aYmOK46fxVaoB5HhVjOGAy
+         V93w==
+X-Forwarded-Encrypted: i=1; AJvYcCWub0Cya2uzTyiPv8IUKTp60nLyT20MqH+nbfxpSn5aeS2AIwoZeN1D5pfVBisDNph72niRjEV4od3EK/DZFBQr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8tVomv4KXZh/nvfopafgCbg81+39Et7hjHA+nEyOW+orbrEo0
+	oABGGLLd8wH6EyVgrkwXwLWfa9DGqQ1kA02Kxc0N9zt0w5SOfeg7csikOJOUoHw=
+X-Gm-Gg: ASbGncvepgB+0L1M13qCF3pSdGY6Ptecxcct4ICMaMDD5MvxpXBJTwCvdzAR67nXssZ
+	92zJApciLBRTRQ2+5B8eKSGoDeL4GmS4vHyTwudwIz7mdMppNaU5Hi8eG2K8/O/5BlkxL6MaWc0
+	rY1NPRJz+YCyu7FXh7AcCj5avXrguDObqffhywmijDBz0JCvTuRsDpWxx97bwDPys24PudymRP5
+	8nago/MeEYPI8hgxNpBx4xhnO/ux0SvI9LtOODk8VcgbtU/dNLhToYvZyCQhV5Fj3kArmBSOryA
+	oHklJZVOFJI+rm9VAVtOlQua+7YGV07bnPhrw1vLCna3dDgRAeXHg5Xg7xEWChNYXmfMx3c=
+X-Google-Smtp-Source: AGHT+IGS/3Gpk50OVCNMUL7zf9y31rF1kOuu6KzsJaL8XToP36wzYhmmlK+erLwhB/gqSa6n86EVCg==
+X-Received: by 2002:a05:6512:108d:b0:53e:362e:ed0 with SMTP id 2adb3069b0e04-54414ae6284mr2410130e87.44.1739052990560;
+        Sat, 08 Feb 2025 14:16:30 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441053ed99sm830251e87.3.2025.02.08.14.09.23
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-544106041afsm830599e87.239.2025.02.08.14.16.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 14:09:24 -0800 (PST)
-Date: Sun, 9 Feb 2025 00:09:21 +0200
+        Sat, 08 Feb 2025 14:16:29 -0800 (PST)
+Date: Sun, 9 Feb 2025 00:16:27 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Vikram Sharma <quic_vikramsa@quicinc.com>
 Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org, 
@@ -76,19 +76,18 @@ Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org,
 	cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>
-Subject: Re: [PATCH v13 2/2] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Message-ID: <mn5zxr72jn3qbn6uiqnzg6qf4s4bydjvmvqqxhd4wvrrmtf3ii@hoau7ge4wfk3>
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@linaro.org>
+Subject: Re: [PATCH v13 1/2] arm64: dts: qcom: sc7280: Add support for camss
+Message-ID: <4ah6z6lsgxgpjdiuyrkkcebpwrqrfpmumklga24immz5mvmgp3@z7bplsu3q6yl>
 References: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
- <20250208165232.2371889-3-quic_vikramsa@quicinc.com>
+ <20250208165232.2371889-2-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250208165232.2371889-3-quic_vikramsa@quicinc.com>
+In-Reply-To: <20250208165232.2371889-2-quic_vikramsa@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_140927_692702_9468E710 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250208_141632_756428_4E30CCEA 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 08, 2025 at 10:22:32PM +0530, Vikram Sharma wrote:
-> The Vision Mezzanine for the rb3gen2 ships with an imx577 camera sensor.
-
-Qualcomm RB3 Gen 2
-
-> Enable the IMX577 on the vision mezzanine.
+On Sat, Feb 08, 2025 at 10:22:31PM +0530, Vikram Sharma wrote:
+> Add changes to support the camera subsystem on the SC7280.
 > 
-> An example media-ctl pipeline for the imx577 is:
-> 
-> media-ctl --reset
-> media-ctl -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> 
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-> 
-> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
+> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
 > Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
 > Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+
+It was impossible to get these tags in this way. I'm not sure what
+happened, but please review them and drop incorrect tags.
+
 > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 > ---
->  arch/arm64/boot/dts/qcom/Makefile             |  4 +
->  .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 89 +++++++++++++++++++
->  2 files changed, 93 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> 
+>  arch/arm64/boot/dts/qcom/sc7280.dtsi | 178 +++++++++++++++++++++++++++
+>  1 file changed, 178 insertions(+)
 
 -- 
 With best wishes
