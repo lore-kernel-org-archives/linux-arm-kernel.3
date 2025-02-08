@@ -4,97 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42466C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 21:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E975C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 22:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=; b=FXxvcRTn8DrbCAHIUaQEe7YvxC
-	ld/au8gSBcHyQQYEB4aAY8uYO10CsPQcC3A64WBwqkFpWX/YBnWv5tigUh4Zcf0LLWQdpVo1/sO7E
-	36COSwXtwPWTlxMNCwpllOw7wyf31kKIi0tFS6HdaaFJivTyLbXwmdkxvOc9huwZGX6V61WR4jW5l
-	99I0ynCqJNUnZM9p2Q9jmhKvoBQjMc4ksHF/hYxkg+vU4n9N66F4vtWrZL1pD65MGrMjF7CXvv3kY
-	U3TYw93lfPjDKgpvXD18nGBVIxC3+w9bPYI727DTWku8r7ia8Ml5YTOqc3mzWss7U8YLt5dl7sFpe
-	TR5dnb3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=; b=OO3GRU66hJU6hrYMet1nPegqJZ
+	OcC1FyoV5oTKsunXp2XXfh/zBEBZLyIb6WDO7EbcWiPPBAZuYmXADBqwUBP39ZENwAqNyrcr7CJrd
+	PRxShHlcAVSz4M354ewHNxEErkWiIp7aMx2cMbgFBE2AC8dhfP8NTJ92e84Xb2QHNQHwqZR6lJVZ2
+	EtrbbzJ1ouiO8PjWlgGK/QzdG3CXXtdsV3CYh+u6s6Zqfv5tgpZobNYYvRYPkaI4zOT4dJ5t+1cjj
+	uIenlTQdLdaL43Sj06h4urcbp7FRY+ncDjegAt0ay4w/Xbz//CX4YoiRAWD8HyD7x1+frui1SrarW
+	f2ypCAZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsR8-0000000DaNO-1e8Y;
-	Sat, 08 Feb 2025 21:32:26 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tgt2M-0000000DdBe-1Woo;
+	Sat, 08 Feb 2025 22:10:54 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgsPj-0000000DaBo-0k5P
+	id 1tgt0x-0000000Dcwq-2e8E
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 21:31:00 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso21226085e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 13:30:58 -0800 (PST)
+	Sat, 08 Feb 2025 22:09:28 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-543e47e93a3so3532561e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 14:09:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739050257; x=1739655057; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=;
-        b=aIa2LRGeoA1U5xWrff6+kuHQMbcbTN8Ka5TDUoO8wQYqFvaQrddUkXQD1eDbpMnTwy
-         TcyAKrBz7ulxVPmWMVcXkzjkamfQqJerhLwY3R00YkfnH65cFNG+KbdnwgR4NC28xQgR
-         Itqvke/FPPe2oKf3ZxfTGT2yDNJePpk+D0+9AsXZeQjmLT0x+DvaOtcI20I4Rdv2rGki
-         gMyEQkR2JxC1Oqklj9uFyfxged+qhKE3FaFp4AIT30x5XJL8UunW7ACPouQRGSTekb84
-         jzDAZDHaZPaDC+pgQI1wjQTqlz8WWBw0U7H44/oKMQjusMKPCSQw41F8zdnTABoIEBU7
-         3PqA==
+        d=linaro.org; s=google; t=1739052566; x=1739657366; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=;
+        b=IOWmxKuXLDxS/Ybl2bTWBCiT26Dc7SIHLI2kA+MIYK52EmrqCrUD8xTNttpDz3VrGR
+         mv70QiWAkPHdmNuNMgxU4jLI39hBvf6f1sj88aQnpqC16h1C/2Kf3kMv0kz97dJ4lsxd
+         nDEdmYvZvd2pWtEXamoLLjmCHnSZzafKs3o/vjNA2ZNYLeh11Bk0vrdAxlgQEVWtp65p
+         NZkLsK3NJVLmOFEiUpmyz7AUb3C7uhIMCEKAQTIMf+pu020VO2ALQyY3Hxqc6IfD+gdi
+         27lBkebNRJDUfSWzCjC+a+yttsWMNmL8vkkwRcFWWOEDLyDGNdl1P1RWQ7DBWdc+UQtY
+         zcAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739050257; x=1739655057;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MeLogvOTrg3hgl5TU48qPOFJSwSkerHCTCM95+nKuv0=;
-        b=eBV6OIHKtP4vRh4fBjRT1DADgK7Je3G0N4CcHfnWhIxikS5otjJ4hCdgCQMhSmNFyH
-         +MEhRiLmQECS/bqndvHHqcLWb6DDwm1ypC1DfPDjNf5UFB2Yfgh8CXw6+SOfPNZPsvFC
-         uLXsU9+L7AKlif1TzdTDc8ubznrLOhdzuFbRZky61OiwS/e+hhv395Up/Du5p2R0L/6r
-         AHCaNGo7VCRSD1CqsLQg8UH8XAJ5rHJYOMRtjKQ0TszAt4jEuZmg3CjER531kKqxZFjp
-         8SAEw71rADKPDdeuoywxkyx4fV1Vzezb8w0u/bAVcFBahSkGqbWVhBANBsgQPdvZm/oA
-         Ojhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHvTmX9Zp4UNO4LYyxjMNA6kAbomaCfuQ6ik+oB7BPx/ZP8U+YcD1cyTm97/S5jgVuxyx3m7kJgKeXJA4b/9YY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyEzg4N7RIW3f79VZLu1mJdsuIhvq2xcyPOtYZGdxCw5Hdvzhb
-	pjuA4JTWffR4BJrOqgFvfjFTqqbounvQLiWgPchrqwU5+JKNIDKOvUnz7nPGJ5vmAPTvOPDCx4j
-	3zwpEGZ+9jushgrH6TinCM0xLSlo=
-X-Gm-Gg: ASbGncusm8edanTLXVzF3MW7/4WH7XcLo0BSRnEYAOaWGpi2dvI/YQkafKwXvT90Lve
-	Kt+bIK6xVg/mqVNpcdlZrfpmFaCXa6rYp1FKbRQm9XJlDh7EHVbhBYNDIeBHnERl4Ux96wBPwL1
-	M/fZDb9zbo6vMxcbigf1QtGjPWpunk
-X-Google-Smtp-Source: AGHT+IEP0vhMZghv54Q+6Voz3luuHMi0bOzgdsxcCEz++Zjhl9x/NdVS4KE4GKQfNkGM7Bwk01RIJ1lfPbZtfTdWZPQ=
-X-Received: by 2002:a5d:6d04:0:b0:38d:d9b3:5916 with SMTP id
- ffacd0b85a97d-38dd9b359ddmr121320f8f.1.1739050257177; Sat, 08 Feb 2025
- 13:30:57 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739052566; x=1739657366;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qTHcKUL0A9GikZYj1YTvr/EhlWV7sWgF6MMVtB1N/9Q=;
+        b=fhTqBLJ3v1XJIfcPwSsc+KSp7y+xty2a8tqvmGPVdWVWd2KVqQeTTEiTSNTArTcUuJ
+         AFnCVgn7AY3whEV9k23s2pBKzYixglsFqHBQNvGHdDlVyY5XQZ64Y3T9vKJhgikBeZK5
+         D7E6yAXUU3InOTEH2BzI7SyeZV3Kpxm/ALTTKUUQZJu/fAPsEwmSZkqPrzVq7jlNvfJt
+         HvRuHyWrbuN4eOoAhrPBNC7JQw+DoECwAAr+kuElSr+tuM4V0R/XTrbpiccN8Iu+DuXS
+         YX43wAqA/Q3ZzQnY4yyfO2+1VAKXwp6nO1Nr0qH4jLx9EplliYRIJtVCKdHu4P/ddS+t
+         9F/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW/FOk4SPLL6abYnHUi0cXITf1WYiCz7XSEtY56y2y8hrQ+PjkRblWqjud7PrXTjOSBVHb+02AzEVhUJLsqJxcG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGt2mOKq8dUZtwWaAxqzYsVJOiGSrxy+kc+vTwUT9g6iNYHcFF
+	IOJf98V+cAPiPVMbgRHHw3jIVedr0UWS6qor3u04Th6TWxkkADw0pexeKCojbX0=
+X-Gm-Gg: ASbGncv5zd4dmBSQFQ1D1Je5MIIBJCCnnXoq79q1Qoq+bihROJppH2KNdTVxIaLuFzl
+	Fr27lqHfI7pvcd6aWw+P+4fcSnrsNWJN+MPhOAYh1a4s0884SJNugApOQ2rP/MR/dsnHITyBsUY
+	JT1HJEef/+3KZdd0OfZPbz9J1JQoHCnQKecCd0DZnBURwK9XVj/wU4TU03iEerZLprpgnijilFK
+	jTGPa+4A3qNQhxwCGNDWgJ/jBwIjD3+YohMVN4byzUgfl4V6jnVZGtL8dVcmwk13CWsXTr8HPM2
+	osHfMo+cQ/Yr6SGtm1G8ikzW7ykkVCAxOGqIMSvmnrlLWXO+Hslk2EP46O6MWdlzQRiAkz8=
+X-Google-Smtp-Source: AGHT+IGUH3UmhIKInMLmECf90pr5INGbeBJEBwOwexzDKJYYzBRhSekRFOt84/bINUn54xlSrNAvSw==
+X-Received: by 2002:a05:6512:1247:b0:543:f1a0:9e82 with SMTP id 2adb3069b0e04-54414a96211mr2604148e87.6.1739052565570;
+        Sat, 08 Feb 2025 14:09:25 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5441053ed99sm830251e87.3.2025.02.08.14.09.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Feb 2025 14:09:24 -0800 (PST)
+Date: Sun, 9 Feb 2025 00:09:21 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org, 
+	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl, 
+	cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Konrad Dybcio <konrad.dybcio@linaro.org>
+Subject: Re: [PATCH v13 2/2] arm64: dts: qcom:
+ qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
+Message-ID: <mn5zxr72jn3qbn6uiqnzg6qf4s4bydjvmvqqxhd4wvrrmtf3ii@hoau7ge4wfk3>
+References: <20250208165232.2371889-1-quic_vikramsa@quicinc.com>
+ <20250208165232.2371889-3-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
-References: <cover.1738888641.git.yepeilin@google.com> <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
-In-Reply-To: <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Sat, 8 Feb 2025 13:30:46 -0800
-X-Gm-Features: AWEUYZkrJWmpVXeIIF_fMq9Qy1erCPKH-mY9gn4_cLquOtiI9oiPRGGrxOURbaQ
-Message-ID: <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
- store-release instructions
-To: Peilin Ye <yepeilin@google.com>
-Cc: bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
-	David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
-	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250208165232.2371889-3-quic_vikramsa@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_133059_238977_27C4F7E0 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20250208_140927_692702_9468E710 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,54 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 6, 2025 at 6:06=E2=80=AFPM Peilin Ye <yepeilin@google.com> wrot=
-e:
->
-> Introduce BPF instructions with load-acquire and store-release
-> semantics, as discussed in [1].  The following new flags are defined:
->
->   BPF_ATOMIC_LOAD         0x10
->   BPF_ATOMIC_STORE        0x20
->   BPF_ATOMIC_TYPE(imm)    ((imm) & 0xf0)
->
->   BPF_RELAXED        0x0
->   BPF_ACQUIRE        0x1
->   BPF_RELEASE        0x2
->   BPF_ACQ_REL        0x3
->   BPF_SEQ_CST        0x4
+On Sat, Feb 08, 2025 at 10:22:32PM +0530, Vikram Sharma wrote:
+> The Vision Mezzanine for the rb3gen2 ships with an imx577 camera sensor.
 
-I still don't like this.
+Qualcomm RB3 Gen 2
 
-Earlier you said:
+> Enable the IMX577 on the vision mezzanine.
+> 
+> An example media-ctl pipeline for the imx577 is:
+> 
+> media-ctl --reset
+> media-ctl -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
+> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+> 
+> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+> 
+> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
+> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>  arch/arm64/boot/dts/qcom/Makefile             |  4 +
+>  .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 89 +++++++++++++++++++
+>  2 files changed, 93 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+> 
 
-> If yes, I think we either:
->
->  (a) add more flags to imm<4-7>: maybe LOAD_SEQ_CST (0x3) and
->      STORE_SEQ_CST (0x6); need to skip OR (0x4) and AND (0x5) used by
->      RMW atomics
->  (b) specify memorder in imm<0-3>
->
-> I chose (b) for fewer "What would be a good numerical value so that RMW
-> atomics won't need to use it in imm<4-7>?" questions to answer.
->
-> If we're having dedicated fields for memorder, I think it's better to
-> define all possible values once and for all, just so that e.g. 0x2 will
-> always mean RELEASE in a memorder field.  Initially I defined all six of
-> them [2], then Yonghong suggested dropping CONSUME [3].
-
-I don't think we should be defining "all possible values",
-since these are the values that llvm and C model supports,
-but do we have any plans to support anything bug ld_acq/st_rel ?
-I haven't heard anything.
-What even the meaning of BPF_ATOMIC_LOAD | BPF_ACQ_REL ?
-
-What does the verifier suppose to do? reject for now? and then what?
-Map to what insn?
-
-These values might imply that bpf infra is supposed to map all the values
-to cpu instructions, but that's not what we're doing here.
-We're only dealing with two specific instructions.
-We're not defining a memory model for all future new instructions.
-
-pw-bot: cr
+-- 
+With best wishes
+Dmitry
 
