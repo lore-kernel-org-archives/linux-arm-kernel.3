@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331A5C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4427FC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 02:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJ0ITpSot12bWRIgUxfFL1nJMNuEe3fyU4TCb+rHvco=; b=3NOtQ7Xt/yQyYSPn49y4EBq+Ru
-	6+GuBZexRBhmyM4MxhqyD7Y4/CbvAXwTBkZzyEp+ka9UcZF2Zuty3HbO/YumlQbXWEO9CpGA7Mtn9
-	eLGVO7fN4Uib3dzqZ5jvPg1PwYHPvRXjtRuslvX0BCfUC0kRayFs9i1t+9YSl7GlTB+ZbKSZix6NC
-	03iEAzp/KIa0xFaxKeEclgMQrldVBK6EXEZvwBKrXqgXGdVz6X4rUvxsqt4wdnFQZ4gU/0EbL8lvF
-	yBqHiR30LP3LypFoCXqrNuEWCrpuxKy/YS7CMk/VPl6o/q4gjrgN3JJDTjvxdAFrW7HfwHf1gLyT+
-	5tbtsBfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=; b=TA44z61JqX5MJkEIDNsIFMFLOc
+	x3/Q3rf4rg+FOmW81OzlXM4+zKb2mSp66kHlhpZn0iHsN6DfLwzQ5Q6CTv1/lHBaDKswKa22MEFrU
+	0vyYd2251QzIeV3H0H0RhPbmjOCZ/8rZcN+TJitQ7zrzuOCiL7dzLC5wz6SCRhumq8lB+Msi4FZhu
+	SRMJFfKbo8k+p04wRGvKnCpJdC/kgE1cwJcTpBz95PbMpYwxzc6aM33TUHV6JmNAxBEQojFITRu90
+	gikDMh5OGdu2/2fjFcxU4Xh7fjs6IAeqwfML9fxIca4Ss+cf6RIMXmfu71d6R91Rc1sEgNKKgbAE6
+	7G1ThbnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgaJ3-0000000BspH-00lB;
-	Sat, 08 Feb 2025 02:10:53 +0000
-Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
+	id 1tgaKP-0000000BszJ-30uP;
+	Sat, 08 Feb 2025 02:12:17 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tga9v-0000000BrNF-1RHs
+	id 1tga9x-0000000BrNv-27bb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Feb 2025 02:01:29 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3d14c647935so7313585ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:01:27 -0800 (PST)
+	Sat, 08 Feb 2025 02:01:31 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38dd14c99c3so251036f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Feb 2025 18:01:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738980087; x=1739584887; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJ0ITpSot12bWRIgUxfFL1nJMNuEe3fyU4TCb+rHvco=;
-        b=1HpiEG0SNSzlJoz2c4t+p4U1/lnyzxro4+7/jVJu6Cx3kODYuQEn3ZOZfwBdVXKtgl
-         DeBLr3SpsyOQA5PkVjZzw23iZLSufoVheaeub3PiBiDlK66bcNKJAtbSXkMinWa+9SAi
-         PCG/jZbkLDUyRMdqCdBXmuVwEl8jO8Vxd1LKsABF8fdAbnaLT3KFG7ZW55cIqHFnq2Fr
-         0e4MYMug/QpvuH07hzVGsxz5b6U4GpNLEMLg2iNkFMyLxWI57aUrTR9SfE1KnUPZKdYX
-         JRpdr0VEQoYCR0d+CF+LUJpWpDvaAenmkf0pKjH2HkYx9c1XXkuNUNMCX9ZOV+KOJyqY
-         2NJQ==
+        d=gmail.com; s=20230601; t=1738980088; x=1739584888; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=;
+        b=dcn7V+6qqnDGNB0NgSLd6z8KmXdgxlnnY77AbD1z48HhKpJCnJjabRSxt3/zl+wyBA
+         MmWbMg9v8iVGHQqrBU4DDKj1ZZ095ihCQbsvJYAm/n3vd3QZoNUdrXoTq6OBgCtSSl44
+         wr8l7Sdp2Jf+OLJmM3DpTZ/Gh6+my6kb+IFukWPS3Fa2xntD+K7RWL3PxhPRixfOk/Bt
+         JjJEYxQrmZXKGmSeYGIjADWPAITdOd92lZGPWhYUHvm8ypD0bWhkXrfo5z9TCtwDCiim
+         qS45KT2yu0HzNm9EBqch5lvccnWaXBfszfAtEFyFuMf8O9xkXumQAIUD0yx8sGDYAjdD
+         11rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738980087; x=1739584887;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJ0ITpSot12bWRIgUxfFL1nJMNuEe3fyU4TCb+rHvco=;
-        b=O/Nnm68UaZx1ryTuqxonj8rS/fdXAjBRf0XcRuFZdAAFiJMJMJE5hIdw06/VWtmR/S
-         Whce9QDG8JzuA7XWDZjlaZIs36r+HqVhErn66xq1VKFrQaeaFhEUJ4OEt52i92o62ZHd
-         sk4I8p/x7RgeEgwGW1zzve9NKkaq8jViDKUsc/KAvOqnwlEsntRPYwCLIoO6jaXd6bvn
-         uWmmwmkJGL9RodhaqKw7c4h/YieNvgr4fN/XyQskdXcRDzSirpoXHI0tlOpOiPZze2tk
-         1wIT0t+2wqYeR6AFhLHFsSBfwlWmUzLQKTudhrYZ8fzG++IRR8RcEYJSQlQzRBp+nMi7
-         8j0w==
-X-Forwarded-Encrypted: i=1; AJvYcCU4G8fuRSrdyknhCK5WaEanO1qKmBFUsYi9HaGmz3JKHfgl5yzP8lE/1abajNDDuTEVN/X5He6NheIb4wGbIy5R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAaamoKH+PNQ0fS1tx3nVw/QHN93TPfZonIo68hyfZ/0dxNwTy
-	EwLeLT5C9s6+NFB+7wUT1xKK+Y0oamPy2PwAJzicg2G6LsBUGzi2BfS8TBgPVgN2ubVagTm5plo
-	fRm0kEEXvZw2G1PgnJOqjAQ==
-X-Google-Smtp-Source: AGHT+IHGzAbpz5Gck/2Rf7WgkWKxzSWHxb28Hylkb71d1eO6uNKmPJkkI+3L+zJwZvOSJQqcK2g9jZxrFbjtaCAz6g==
-X-Received: from ilbeh24.prod.google.com ([2002:a05:6e02:4c18:b0:3d0:499b:8e3d])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:20c9:b0:3cf:cdb8:78fb with SMTP id e9e14a558f8ab-3d13df0fb5fmr49647775ab.16.1738980086868;
- Fri, 07 Feb 2025 18:01:26 -0800 (PST)
-Date: Sat,  8 Feb 2025 02:01:11 +0000
-In-Reply-To: <20250208020111.2068239-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20250208020111.2068239-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.48.1.502.g6dc24dfdaf-goog
-Message-ID: <20250208020111.2068239-5-coltonlewis@google.com>
-Subject: [RFC PATCH v2 4/4] KVM: arm64: Make guests see only counters they can access
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
+        d=1e100.net; s=20230601; t=1738980088; x=1739584888;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iGIrEua9iQ8bHgGdDw3wNHVLDjJrs0blGd4Py+scUxE=;
+        b=ouXWQSfk5IBUwQ70aHYmLL9qDmNo0bVj0rqOwWrVH5bP1nysHuOQ6+VguLxRAtuql+
+         0ubWEQaCHl/xAYhVOYygst4HZ40YMsN8clVoJZEi/q5EULZd2sCynlvYnOcRAVkaj4Q9
+         q4o+7WtQXcStBzOvrNFI/f6lKZ48u3TMv/bphz6mzRQpQZWL236RE8uq0J80XVt8MUsM
+         cBCHu2NQZtTuMIe+TPA0VDExQuT/cXOQDWA8CL+ItMEXD+Knj0G9KyJZeIsVqDWV28HC
+         PLCldNsGxxOYMVBBdj9NOuLnFq4Rd3U+CAKJW8qRBN8YsdNrEsbEZNPP3pvdao0oBLgp
+         GM5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX8rUQRgtuyTKL39mLoKrG7ufxMub+WLd5ajHQNwNN83dE5qcZqbTvN2FBOxyIPb/BQ+R183ZW7sWGxOkEGl7Yy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe3ha3Q4/UDnLOGgNmbGi0AzHJGuJsw+70jc5aUJ6kkNYWYX+c
+	mWDq7QaYspf+Nu71dl4wb1AkE131xDjEPj0AArvUwkoxZawiNiUoD9r4TcUMZYFsxpPJlbzXWFO
+	haeEVdMLE60C/SNks9xbWVkBADB8=
+X-Gm-Gg: ASbGncv9aCym0bxQBhrgG7BUU6l+EhsJX6kiTMlp8vSaKkel3rDGt3EN7EIX9JeHt2y
+	IkTQHQriz80Q8I8T00ZVcSuXXCJchg4uAIGl+aDrni8zGrMpNaL1ZunUjNpt9VjnB7f0kj0iSai
+	nZ1I31OTENMZL6vygT5z5aFH3Mp3vW
+X-Google-Smtp-Source: AGHT+IEoZCtmd/odsNY1AueL2/BylkudMbYiLPnq+yVpZr8qNoJRC0tBlsOa6xLF9KZbqMlXnsMGY+t/Q+QTxpioknQ=
+X-Received: by 2002:a05:6000:1865:b0:38d:bf57:f371 with SMTP id
+ ffacd0b85a97d-38dc9373270mr4376973f8f.48.1738980087553; Fri, 07 Feb 2025
+ 18:01:27 -0800 (PST)
+MIME-Version: 1.0
+References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-20-memxor@gmail.com>
+In-Reply-To: <20250206105435.2159977-20-memxor@gmail.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 7 Feb 2025 18:01:16 -0800
+X-Gm-Features: AWEUYZnUTy2itNVn48BldfC4LoMr601PCDOaBo1fZL0B5Yg1x-9oEAhlPjMvVFU
+Message-ID: <CAADnVQLNovQYGy6_zGDi75vmNHfZ-hKz4G=gWF4Bis8b6iTYew@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 19/26] bpf: Convert hashtab.c to rqspinlock
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, Barret Rhoden <brho@google.com>, 
+	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Kernel Team <kernel-team@meta.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_180127_393372_5E2A3AED 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20250207_180129_576436_CE0EECCE 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,68 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM architecture specifies that when MDCR_EL2.HPMN is set, EL1 and
-EL0, which includes KVM guests, should read that value for PMCR.N.
+On Thu, Feb 6, 2025 at 2:55=E2=80=AFAM Kumar Kartikeya Dwivedi <memxor@gmai=
+l.com> wrote:
+>
+> Convert hashtab.c from raw_spinlock to rqspinlock, and drop the hashed
+> per-cpu counter crud from the code base which is no longer necessary.
+>
+> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> ---
+>  kernel/bpf/hashtab.c | 102 ++++++++++++++-----------------------------
+>  1 file changed, 32 insertions(+), 70 deletions(-)
+>
+> diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
+> index 4a9eeb7aef85..9b394e147967 100644
+> --- a/kernel/bpf/hashtab.c
+> +++ b/kernel/bpf/hashtab.c
+> @@ -16,6 +16,7 @@
+>  #include "bpf_lru_list.h"
+>  #include "map_in_map.h"
+>  #include <linux/bpf_mem_alloc.h>
+> +#include <asm/rqspinlock.h>
+>
+>  #define HTAB_CREATE_FLAG_MASK                                          \
+>         (BPF_F_NO_PREALLOC | BPF_F_NO_COMMON_LRU | BPF_F_NUMA_NODE |    \
+> @@ -78,7 +79,7 @@
+>   */
+>  struct bucket {
+>         struct hlist_nulls_head head;
+> -       raw_spinlock_t raw_lock;
+> +       rqspinlock_t raw_lock;
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- arch/arm64/kvm/debug.c                                  | 3 +--
- arch/arm64/kvm/pmu-emul.c                               | 8 +++++++-
- tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 2 +-
- 3 files changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 0e4c805e7e89..7c04db00bf6c 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -36,8 +36,7 @@ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
- 	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
- 	 * to disable guest access to the profiling and trace buffers
- 	 */
--	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
--					 *host_data_ptr(nr_event_counters));
-+	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, read_mdcr());
- 	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
- 				MDCR_EL2_TPMS |
- 				MDCR_EL2_TTRF |
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 6c5950b9ceac..052ce8c721fe 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -993,12 +993,18 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
- u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
- {
- 	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
-+	u8 limit;
-+
-+	if (arm_pmu->partitioned)
-+		limit = arm_pmu->hpmn - 1;
-+	else
-+		limit = ARMV8_PMU_MAX_GENERAL_COUNTERS;
- 
- 	/*
- 	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
- 	 * Ignore those and return only the general-purpose counters.
- 	 */
--	return bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
-+	return bitmap_weight(arm_pmu->cntr_mask, limit);
- }
- 
- static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index f16b3b27e32e..b5bc18b7528d 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -609,7 +609,7 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
-  */
- static void run_error_test(uint64_t pmcr_n)
- {
--	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
-+	pr_debug("Error test with pmcr_n %lu (larger than the host allows)\n", pmcr_n);
- 
- 	test_create_vpmu_vm_with_pmcr_n(pmcr_n, true);
- 	destroy_vpmu_vm();
--- 
-2.48.1.502.g6dc24dfdaf-goog
-
+Pls add known syzbot reports as 'Closes:' to commit log.
 
