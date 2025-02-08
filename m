@@ -4,120 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82EBEC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 13:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703ACC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Feb 2025 14:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngMN4AfYaipZpH7nNPiOSYeIhrr4AomcMNkVmcAm/w8=; b=tzoBqlb/ruFE2wNGB5itOEORi0
-	4rcZItB522mS/VVMUQUaBeb1xIdYlENvon4gXmxmwSIgPPsNDQjYX5lYW6NqBxr5R07MaX8rwwF2E
-	/LbrmU4ff5zcibO3PwCVgci0hGFEDDyGf4sbAoeXGFd0LIXCa7XmOJf/9M/Fc0GV/NGXS2mlr+J44
-	Q9STHRui1Hcp7vaM52kvUbIlF4my1yi4yMZxiB8bCvFC7nIVrZ+JmmZUsg4hwxlv0DB4gSUbFpP3M
-	DImBpAKL0B3DWeJRvnL+P7w2b+Wt4FVbWVOuOKaSpVrmLX4ELGRcKN2nfzDfuCgMAogUQSLolmCyc
-	xLrjITSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5TUzZkuxppHlOlikF/k2u1aPSnKPl3TptyrFs4GqVBc=; b=mRg3FSG5N/ED8csD1+STtUngDQ
+	2+XSMFT4Lb3sOmNctVXOldV5ui+Rlbbpaftgyl17UAMdlMdyKi8qPnwjbo/CD9/PiDMIiBSX83uJU
+	vCzlLqJsWwSnbmRjnP0jdXmJvtfddOThSzzEAc5Lhq5a7+t51RU1EVFOrwZ6tMTMryHuOlFIqWav5
+	OXrYSAP5nw1uLABr2S6o0Vs6ElADSOd1NiJ8v4reYkIJdT6IN4aqEFoYDn2wWUIhWe9CbTPnNLqmf
+	wyOFB4xqZDoEnMMSGei8cXhC1xhVjWCtrOFORVzAHgA3cP9V0UhykXW/rxBwI40LAn+UkNXUllKv5
+	GVKA9+HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgl7n-0000000D1GS-0JrQ;
-	Sat, 08 Feb 2025 13:43:59 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1tglgM-0000000D3Sn-1JFv;
+	Sat, 08 Feb 2025 14:19:42 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgl6P-0000000D19L-0338;
-	Sat, 08 Feb 2025 13:42:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1739022138; x=1739626938; i=wahrenst@gmx.net;
-	bh=ngMN4AfYaipZpH7nNPiOSYeIhrr4AomcMNkVmcAm/w8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ts+0NV/wBmL5QHLH3+9mQVm2rik2AXodnayQNhYUmhMb89ZeVB8LWQcwRZbbC4AZ
-	 C65wrfBlS80jYGBD/uG0ir75MDI/cqmCustTjdKhBX6NJNC2/0nl6rQN+cVJWr/dN
-	 /qdBVYX1URnv5hJYors7O1kOQo89VglFL+8RTtImzvwv33Xi1PP2NIuaaFhjcw6Xe
-	 W7hyZJoiT9VHc36efMdBnHzW3/AJs7AlHcu4i4IYIP8zFumJF6qIyt8CdfsnWjxm9
-	 hJ7A0XYJ6LR3Eg/mQRkhSM8DQj2a1OI0ww9M5xUiXb5QU/zJLWtugQnSxvVOErzQt
-	 hJuferDzxdtQrQAOFg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MXp9Y-1tuzeI2DYS-00L6yO; Sat, 08
- Feb 2025 14:42:18 +0100
-Message-ID: <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
-Date: Sat, 8 Feb 2025 14:42:15 +0100
+	id 1tglex-0000000D3MM-0V2Q
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Feb 2025 14:18:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739024295; x=1770560295;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=VPpd2YYWjZluEJs9Qvp1Y2nnNlnf0rQUcWOQWnGi/4E=;
+  b=jmE2MHdf9Laah0e4DgWy79OudiMQwtvVpQ/1F2vT5mhVHlRHOwfVyKiL
+   WMChEHND8Yn3bKC2vmuPWoHtMhBEU5UlVEq1RS6CMtqWshFRnvRalJvYw
+   WerCc1G/kuu+BElhPVO1W6I+poKvUXE5zOIQcb4n8gcAte3oQC/za7wjc
+   LJvcvjqi+NFT1/+4ruTarNcd7Em/ypCH1JDq1e3QgE8UFd6VGJldXovyx
+   5Sllcv9OuhIObtdRIAAYyDjhbIcdlAvB7XCqdipY+P08Rpr4/AvkjYLI4
+   Sp7k62A5SsBV5PV51WJFkiAVnICltdq1sZfAlTPA1W3oXRRRyoLXFx9QZ
+   g==;
+X-CSE-ConnectionGUID: IEoPnp3EQo+LgNKzTjG47w==
+X-CSE-MsgGUID: 9OOyyE3TTeuEpgBd63r4NA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11339"; a="51044188"
+X-IronPort-AV: E=Sophos;i="6.13,270,1732608000"; 
+   d="scan'208";a="51044188"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2025 06:18:10 -0800
+X-CSE-ConnectionGUID: 5SCY/wYtTf2L5TycPuB0vA==
+X-CSE-MsgGUID: 0P956+EpRVirLOVEYoefGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,270,1732608000"; 
+   d="scan'208";a="116788686"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 08 Feb 2025 06:18:03 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tglei-00103D-12;
+	Sat, 08 Feb 2025 14:18:00 +0000
+Date: Sat, 8 Feb 2025 22:17:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Frank Li <Frank.Li@nxp.com>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <helgaas@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Niklas Cassel <cassel@kernel.org>,
+	dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH v14 06/15] PCI: endpoint: Add RC-to-EP doorbell support
+ using platform MSI controller
+Message-ID: <202502082204.6PRR3cfG-lkp@intel.com>
+References: <20250207-ep-msi-v14-6-9671b136f2b8@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 11/11] arm64: defconfig: Enable OF_OVERLAY option
-To: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
- <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:MqewR4qhxQkLVlA/5AQd8FA2Y6QAAPMgpTkmIvKSeA6cgOvvxNi
- IwPq/45hXyYwz0U19B9/ZViLl+kDRwuUyp/jZ5+oMkX5hQh4sgUIiu9/9JpPa65SQx566H6
- 22SPhcJScjhWewRBZrGaj1nto68z8S2LWk0HLMta3zZA0nXgrRT48zsbbp2CvpiMu0lF8xx
- K4Fjpli2GbeAMgx79RrmQ==
-UI-OutboundReport: notjunk:1;M01:P0:1K/4gpxF1gA=;i/nVL/nCb8vzm9lfLz1l+L8C0V9
- Bj+A5yOpr5js2Zs2Hqcsw0M7tlmhSCn0cV6xjboP1kjOOqjHtH0n3+8ux3NHcWhghu82MqBB0
- u+WgfslQrpAdsjdgCsS5A6F3M18zxhMQ38kuBRcfh3v2e9wCatAMSzBisyFFW5TSSiOb+ZRHQ
- /C4xmKr6ljKpa9JMOlw+PqXACZ7o6Owug1m0GUIQYOYP0VLFnvTZZ9bUIqqAWLXwyHLpHtMTA
- JVAbqaqhFv62JSxnZJJzoqpfPEjq8njZcYwZbdV5OA4gyEy9tpWuu5qDC1Di7ZlFcuzVSJ5hw
- h1+ao3+1MUdiTt7pxrP5CW6bf7F91taRzf5EqnqANBr/xA9e+OGU1SQqBOQyEnsX560bo3cpF
- MEhqdwJ3sasCpO7pmcFrmxxAgPWPm4C8Tw1hjx5pyxSzVokEWmAlqCm7MkHn6HrwHHvVYdCmv
- xmEh/yzO/3I65k3SOIwuoWQ93aVlMWtplH1l50riqjJs9C9EAIo5axYnGwhS14872iaLWw6f/
- maILJrVu8lXg2Z+BXWfUvMJF7F4+nPX66OWa5F7ira3HGZ391V/KMXj6CCkRLKIo4gSvApohW
- RHB2hVrb6qGoF2EqFYsa66za8hbuY65Yu6RJ9MiJh4hNV7RncgiRWacmrLgUDrgdmDlAix93j
- kzXFQKMg48v+czo9/iYoiofie78kUot9XyJ00cuV2dald+ylr8wov+5MDCM5iuXrUwYp2eDRT
- osrZxXD2/8b37enyvrt0G20VKiFpKUTD9B8W73iVSZagQO6ch15sCC4iVGGbUKzyNNgB9rBu0
- n8mTMHPU5buYnAcCbpW8VvPlVtslSDgwBSrxlI8UR0t1mYEM7X/FygYFlo8xrCiYtmpBAcSUt
- PM3zOEu1sk3g4RK9V4Eox2HEsiekXeFO7jJ8AwUfJaY8yU4/P0ej9u2WZvJ88vT/2HD7x7rxb
- 0OuZGpnIFN1Od/ZktIa/dinx8EtpNmG7e5XWWeaKEguh5Yl5TalHWXUbqfuBpwBP4mh22MMfi
- nsiSjCR4rTPtzbXKvnJG4n4Mtqn/q1Me3d7OAViXBUueIW1ZO2Y0zzeuHjpG3ntpC0Mi4dgbY
- CPGlLGfLG5DFAB+wtqRzSVZ5rt2YJQjn4j8JVwVlrOFSRMdbOXFk3AfkdokySP5g0D+eXiBpN
- g05YnMq0JhtH6E86wGwcXulmjNr3EkK9tZ1HqzTVRHiY0p+dp328uKg1i97GSIWy+kkb0PK4Z
- psuIo5YQJBadmEtZgU0upiVQ1Vb/JArDjSUIoznRQCBbTcmyZU3hlT5Wxpfx5AAFStRrChPF2
- s5L9sNLpqFQ0dhgM6iBcMcEDJBbqNWX4QQqycq+jkntfo1pXUS3P4f9nJLr7+Ur0D/0w3XrYA
- Dj4uThhpc/+6Q5YdMPySWpUFdL15CnueOOeM2oLhUuAc7vNProVYehtJSuNbIsBQogeZeiM1b
- bwHAxNQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250207-ep-msi-v14-6-9671b136f2b8@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_054233_356511_3BD974D9 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250208_061815_238134_7B23A791 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,33 +108,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+Hi Frank,
 
-Am 07.02.25 um 22:31 schrieb Andrea della Porta:
-> The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
-> option. Enable that option in defconfig in order to produce a kernel
-> usable on RaspberryPi5 avoiding to enable it separately.
->
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
-> This patch is *OPTIONAL* since I'm not sure if OF_OVERLAY is a desirable
-> feature to have enabled by default. It would be advisable to have it inc=
-luded
-> so that 'make defconfig' can produce a kernel config that will work out
-> of the box on Rpi5, otherwise OF_OVERLAY has to be enabled separately.
-I think this isn't a good approach to convince the arm64 maintainer.
-This change is not really optional for the Raspberry Pi 5 and possible
-users/testers/CI rely on a working default configuration.
+kernel test robot noticed the following build errors:
 
-So my first suggestion would be to provide a scripts/bloat-o-meter
-output (before/after). Based on this the maintainer can better decided.
+[auto build test ERROR on 00f3246adeeacbda0bd0b303604e46eb59c32e6e]
 
-In case this change is still rejected, we still have the option of
-something like this [1]
+url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/platform-msi-Add-msi_remove_device_irq_domain-in-platform_device_msi_free_irqs_all/20250208-034445
+base:   00f3246adeeacbda0bd0b303604e46eb59c32e6e
+patch link:    https://lore.kernel.org/r/20250207-ep-msi-v14-6-9671b136f2b8%40nxp.com
+patch subject: [PATCH v14 06/15] PCI: endpoint: Add RC-to-EP doorbell support using platform MSI controller
+config: i386-buildonly-randconfig-003-20250208 (https://download.01.org/0day-ci/archive/20250208/202502082204.6PRR3cfG-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250208/202502082204.6PRR3cfG-lkp@intel.com/reproduce)
 
-Best regards
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502082204.6PRR3cfG-lkp@intel.com/
 
-[1] -
-https://patchwork.kernel.org/project/linux-kbuild/patch/20200203184820.443=
-3-3-nsaenzjulienne@suse.de/
+All errors (new ones prefixed by >>):
+
+   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_alloc_doorbell':
+>> drivers/pci/endpoint/pci-ep-msi.c:53:15: error: implicit declaration of function 'platform_device_msi_init_and_alloc_irqs' [-Werror=implicit-function-declaration]
+      53 |         ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
+         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/endpoint/pci-ep-msi.c: In function 'pci_epf_free_doorbell':
+>> drivers/pci/endpoint/pci-ep-msi.c:75:9: error: implicit declaration of function 'platform_device_msi_free_irqs_all' [-Werror=implicit-function-declaration]
+      75 |         platform_device_msi_free_irqs_all(&epf->dev);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +/platform_device_msi_init_and_alloc_irqs +53 drivers/pci/endpoint/pci-ep-msi.c
+
+    26	
+    27	int pci_epf_alloc_doorbell(struct pci_epf *epf, u16 num_db)
+    28	{
+    29		struct pci_epc *epc = epf->epc;
+    30		struct device *dev = &epf->dev;
+    31		struct irq_domain *dom;
+    32		void *msg;
+    33		u32 rid;
+    34		int ret;
+    35		int i;
+    36	
+    37		rid = PCI_EPF_DEVID(epf->func_no, epf->vfunc_no);
+    38		dom = of_msi_map_get_device_domain(epc->dev.parent, rid, DOMAIN_BUS_PLATFORM_MSI);
+    39		if (!dom) {
+    40			dev_err(dev, "Can't find msi domain\n");
+    41			return -EINVAL;
+    42		}
+    43	
+    44		dev_set_msi_domain(dev, dom);
+    45	
+    46		msg = kcalloc(num_db, sizeof(struct pci_epf_doorbell_msg), GFP_KERNEL);
+    47		if (!msg)
+    48			return -ENOMEM;
+    49	
+    50		epf->num_db = num_db;
+    51		epf->db_msg = msg;
+    52	
+  > 53		ret = platform_device_msi_init_and_alloc_irqs(&epf->dev, num_db, pci_epf_write_msi_msg);
+    54		if (ret) {
+    55			/*
+    56			 * The pcie_ep DT node has to specify 'msi-parent' for EP
+    57			 * doorbell support to work. Right now only GIC ITS is
+    58			 * supported. If you have GIC ITS and reached this print,
+    59			 * perhaps you are missing 'msi-map' in DT.
+    60			 */
+    61			dev_err(dev, "Failed to allocate MSI\n");
+    62			kfree(msg);
+    63			return -ENOMEM;
+    64		}
+    65	
+    66		for (i = 0; i < num_db; i++)
+    67			epf->db_msg[i].virq = msi_get_virq(dev, i);
+    68	
+    69		return ret;
+    70	}
+    71	EXPORT_SYMBOL_GPL(pci_epf_alloc_doorbell);
+    72	
+    73	void pci_epf_free_doorbell(struct pci_epf *epf)
+    74	{
+  > 75		platform_device_msi_free_irqs_all(&epf->dev);
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
