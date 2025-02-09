@@ -4,129 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB88DC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 20:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E59C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 21:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oghnAEk0DekdIuNXpUcmiaKGzRkxJESET/WrRSCbuTk=; b=VOxqGYxCPDcrg5PkaMXA/luwJP
-	eO9rQc5CB5PzWhTP3oMVQqiDlVcwdR+9HP6ZKZwtCK7mIwi4R7orCz1p7yP5wiv1KnbbjtaSvXkkF
-	8j2y9Bwy6YjAa3Dnmm/utQv7mkfrVgs+UuDyt60x8TmCZRECN8tHPPANwTkbEdzac6y0REHIiOTcY
-	E7duYyOFJg6uuKixzFe1rayQvg0ypjEdjpTv+v0UWH73dtRZaqNCR0o29of9swy3Dsu5kd6eXf5JX
-	DKPrDE9/hXSQc3sIObs1CMs4QCLGkAytCIxNIlOp9oYC32ma4rvVbSMsLS4jZzCdQUZOqcB5rIsOM
-	FOinvcDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gb2iab43R14TaHi2LhilVsAfQHLjbSucuUohgG/g22s=; b=kj+m9RtdUjxYbVrnMhjAlXsQ1I
+	YPJfX/Jr1ET1WSweUKQpMeYb1sFB9fGcArgofnVZA92JIinCSHfhVc3QOmEh6YxcNF1WOO3vGNz5X
+	8zBOuWK17DsA13qBTdizrWOQp+aL63JzAlcihSjcvVtNQlZ1og7/0l0tTSxBqbVrhiaCWvI8OIOAE
+	TdrIKIwLul2HUS2KkVFC/+rCCVSXsOUazKjXKhn2IKtQeRbEqjpjgzzIlLHdGIgBg7xaEKEeSnwig
+	bm4IhnVKsKnu5fSACu80h9gtVfoQKGwmj6zX1EHaOfAOasjN0ae6sKhnz3mKHwE3G8u52oP9zDm9I
+	y9phWRxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thEHs-0000000FY99-10oE;
-	Sun, 09 Feb 2025 20:52:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thEb9-0000000Fa47-3BWG;
+	Sun, 09 Feb 2025 21:12:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thEGT-0000000FXmU-0LPg;
-	Sun, 09 Feb 2025 20:50:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0CF45C4D87;
-	Sun,  9 Feb 2025 20:50:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5816CC4CEDD;
-	Sun,  9 Feb 2025 20:50:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739134252;
-	bh=nYh6HS/8YhYPUbpFj0lcvwBp+jEeNeVWldCm/vWJV6w=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=FRoXnfewBrxuCbbhALBsvsNs+tIGI2i7J1Yhkl23PaokLqsGphsoDBqlba8Dc21C9
-	 8z+X9lYQr8N10vRumpkokgJaKIyyD4Y6dgG9PDoauwTe9EvTNynnTuhQZDOc/DdD0Q
-	 Xnisd7BQ2zmWehNaO+m7sLwGT60EQR/Rfej6w3NAmvDTd5TNKs7iryubycPlRLpKd8
-	 PzfZZSIwftUllTLMsa0Z217TjJ5RgbkujfegcHLXKzAKKpNLdPniFnl8OHk98t+ezY
-	 OBE9iLm7eewcAJeVMC6RI+S1HCeqlmqBm7ztBZ4VecgFLEK8QmUI5Z/tau+pzi+7eT
-	 7NpranzMzhUVg==
-Message-ID: <aa4ec16a-b35f-41b0-92f7-40b3eb64124a@kernel.org>
-Date: Sun, 9 Feb 2025 21:50:37 +0100
+	id 1thEZl-0000000FZxc-3Ovm;
+	Sun, 09 Feb 2025 21:10:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Gb2iab43R14TaHi2LhilVsAfQHLjbSucuUohgG/g22s=; b=17ofavTrJlDkSA0wepYh6WqHEx
+	Gki+F+NfSeySibY9PcEYt/HYGQquBsCOewjIUBGnFlq2fpG0nG4B6K/3JZ9pPZGSTYYRotrV0Lb7y
+	bEBYjCp1BLSm4TvIrvpN4iiW+V7LB4NgO7dCVOe74BUBLeezfgwxfkaAco2Vo130qptNV34zLQRan
+	mq4m5D7H/W1eqJlAu0fQBru4RWt3gRej2HFK9VE2gQFnO9LwUbd6apgBcJZLQW7Yy2Q15CX2L2n2F
+	LPZicvxnaiaYb24nddgLbacbwjZ4ESAEeKMN547AI7wTn/uwdnCEnoxiaKnhNqUl1HfZTKNOadi6j
+	nvIZ8sEQ==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thEZk-00027w-Eh; Sun, 09 Feb 2025 22:10:48 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alexey Charkov <alchark@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Alexey Charkov <alchark@gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: ASoC: rockchip: Add compatible for RK3588 SPDIF
+Date: Sun, 09 Feb 2025 22:10:47 +0100
+Message-ID: <4315116.iIbC2pHGDl@diego>
+In-Reply-To: <20250120-rk3588-spdif-v1-1-1415f5871dc7@gmail.com>
+References: <20250120-rk3588-spdif-v1-0-1415f5871dc7@gmail.com>
+ <20250120-rk3588-spdif-v1-1-1415f5871dc7@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 14/14] Documentation: KHO: Add memblock bindings
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
- Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
- <luto@kernel.org>, Anthony Yznaga <anthony.yznaga@oracle.com>,
- Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Eric Biederman
- <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>,
- James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>,
- Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>,
- Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
- Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tom Lendacky <thomas.lendacky@amd.com>, Usama Arif
- <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, x86@kernel.org
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-15-rppt@kernel.org>
- <45df0d7a-622a-4268-9683-c5c6067483c3@kernel.org>
- <Z6jFZII5b-j7hzkj@kernel.org>
- <a3cca0ed-64ca-4921-bb4c-27c0e06b78c6@kernel.org>
- <Z6kTCvex3DGhB-3C@kernel.org>
- <18529b1f-dc79-4c85-a485-a0a2cdd48670@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <18529b1f-dc79-4c85-a485-a0a2cdd48670@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_125053_228902_2F641103 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20250209_131049_856851_427F9FBD 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,61 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2025 21:49, Krzysztof Kozlowski wrote:
->>>>  
->>>> These are not devicetree binding for communicating data from firmware to
->>>> the kernel. These bindings are specific to KHO which is perfectly
->>>> reflected by the subject.
->>>
->>> No, it is not. None of the bindings use above subject prefix.
->>>
->>>>
->>>> Just a brief reminder from v2 discussion:
->>>> (https://lore.kernel.org/linux-mm/20231222193607.15474-1-graf@amazon.com/)
->>>>
->>>> "For quick reference: KHO is a new mechanism this patch set introduces 
->>>> which allows Linux to pass arbitrary memory and metadata between kernels 
->>>> on kexec. I'm reusing FDTs to implement the hand over protocol, as 
->>>> Linux-to-Linux boot communication holds very similar properties to 
->>>> firmware-to-Linux boot communication. So this binding is not about 
->>>> hardware; it's about preserving Linux subsystem state across kexec.
->>>
->>> does not matter. You added file to ABI documentation so you must follow
->>> that ABI documentation rules. One rule is proper subject prefix.
->>  
->> No, it does not. It's a different ABI.
->>
->> FDT is a _data structure_ that provides cross platform unified, versioned,
->> introspectable data format.
->>
->> Documentation/devicetree/bindings standardizes it's use for describing
->> hardware, but KHO uses FDT _data structure_ to describe state of the kernel
->> components that will be reused by the kexec'ed kernel.
->>
->> KHO is a different namespace from Open Firmware Device Tree, with different
->> requirements and different stakeholders. Putting descriptions of KHO data
->> formats in Documentation/kho rather than in
->> Documentation/devicetree/bindings was not done to evade review of Open
->> Firmware Device Tree maintainers, but rather to emphasize that KHO FDT _is
->> not_ Open Firmware Device Tree.
+Hi Mark,
+
+Am Montag, 20. Januar 2025, 10:01:27 MEZ schrieb Alexey Charkov:
+> Add a compatible string for SPDIF on RK3588, which is similar to the
+> one on RK3568.
+> 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+
+as the binding is more in the driver-realm, is this patch still
+somewhere on your radar?
+
+Thanks a lot
+Heiko
+
+> ---
+>  Documentation/devicetree/bindings/sound/rockchip-spdif.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml b/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
+> index c3c989ef2a2c81eba73fae3d1ee4bfd18a8e5d29..32dea7392e8d49fc6402a64fc9f7115a47a8b8ad 100644
+> --- a/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
+> +++ b/Documentation/devicetree/bindings/sound/rockchip-spdif.yaml
+> @@ -31,6 +31,10 @@ properties:
+>                - rockchip,rk3288-spdif
+>                - rockchip,rk3308-spdif
+>            - const: rockchip,rk3066-spdif
+> +      - items:
+> +          - enum:
+> +              - rockchip,rk3588-spdif
+> +          - const: rockchip,rk3568-spdif
+>  
+>    reg:
+>      maxItems: 1
 > 
 > 
-> Ah, neat, that would almost solve the problem but you wrote:
-> 
-> +$id: http://devicetree.org/schemas/memblock/reserve_mem.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> 
-> so no, this does not work like that. You use devicetree here namespace
-> and ignore its rules.
 
 
-... and that obviously is barely parseable, so maybe one more try:
-"You use here devicetree namespace but ignore its rules."
 
-> 
-> You cannot pretend this is not devicetree if you put it into devicetree
-> schemas.
 
-Best regards,
-Krzysztof
 
