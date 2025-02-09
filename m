@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F5CC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D71EC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBB3S5wHXxRHCBrokp09Qrr+MLiAbdRehT2NEZubiMI=; b=lQeaMn7OFPhcDHOA9fmFkv2aZ2
-	zDcfPZRoomgA8B3cLggoceWQd8khtPmFnhMcH07wmOUneHsgW+z/PnJ/OPlQ4+08x2uxARtkb1dNG
-	kX9LPUMzWZ/WTKtg2BHSIt6u08edNA7LfSZVMpUT9jcBlilLOBGeO2vUkPciQMPnnXNrJdb8Y7E50
-	Fd6oBkHt9E3T/6LLHw+0l3eeREiakxK4UYll1bVQ0FsqokI8bWqir/MQxHxnDE120OKMfNE8qFccE
-	SiG61gClNzPIVYH/O2V4jffN+CGGXsHamptN1tuJ85K835svMuf6BX0JEg7vU7VWCJ5rfxvGC0mR9
-	qFhpIeJA==;
+	bh=t66wtfl5BdVxlhDOQRkeh55EG+hhfZY+YFaDqLZ38qY=; b=Z1fQfAz44tf1QQIPHI/qIUO5Z4
+	NXBtTWwIUsyqWP80FbMyBrl/j/kcN4gI6gPCuelzeitM4HKOlHbC2bL0b/fk9ujj/wkRbjdiYZpQ4
+	+W+3UJiFw6U8CMsEioO7ws7NuXs4clKPKdgb8KcnnEH+BY86lfi+fdJ0+Bbzc1UF+M45QLx+B0Arp
+	nhF/HTi6RIlnys9Chb8HbMXB7fAyIGbDpHkEA1sCa+BUt2WTaDqyzYCjd0TpUX1ZWlW3E73+n/pDP
+	6HazWPX5zs+lp8zq8Qqvpac+/PyExPhR2WkXkK2/i+XFvQzNIoSveTaqpV0cst1SKJ53hC3ryntOM
+	KMS0FBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th6AG-0000000EoM8-28RT;
-	Sun, 09 Feb 2025 12:11:56 +0000
+	id 1th6Bd-0000000Eoh9-0jnM;
+	Sun, 09 Feb 2025 12:13:21 +0000
 Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th677-0000000EnKb-1Cp6
+	id 1th679-0000000EnLC-2C9U
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 12:08:43 +0000
-Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E14551140172;
-	Sun,  9 Feb 2025 07:08:37 -0500 (EST)
+	Sun, 09 Feb 2025 12:08:44 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id DE88A1140173;
+	Sun,  9 Feb 2025 07:08:42 -0500 (EST)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Sun, 09 Feb 2025 07:08:37 -0500
+  by phl-compute-11.internal (MEProxy); Sun, 09 Feb 2025 07:08:42 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
 	 h=cc:cc:content-transfer-encoding:content-type:content-type
 	:date:date:from:from:in-reply-to:in-reply-to:message-id
 	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1739102917; x=1739189317; bh=MBB3S5wHXxRHCBrokp09Qrr+MLiAbdRe
-	hT2NEZubiMI=; b=XW84n3hIu20hl+UK1TLx1wXFkIg/L5wV+Of67RULxRywLNS4
-	2rwVnPXY/u7cAL7zR6V4VcDpEE7ySDKJns1y6Id9yi5waEdrzNvJVJgcd7E8DUQB
-	6vQ27w4wzB/7LUNh3RQ18OqJW1cfPK4lIDyU8HQdGyz8SGmTzzPHCqMqJ5UQEKCg
-	Ru+P80VP59Q3K5Akle2XaPBNfAJUxUwm+Rmojv5AD6Ft4d5Jo+SWCLrRxLoGn8w/
-	25ZDScye8zrRUci5nuwRvST0vaXOPTXksfJ4ZHsylG2fxBbvlCynqK0O6wsjNqrA
-	hv5EIJM6sRGaGzmT03XRRdiXV5p7knNAtVxvgQ==
+	 t=1739102922; x=1739189322; bh=t66wtfl5BdVxlhDOQRkeh55EG+hhfZY+
+	YFaDqLZ38qY=; b=cKq0OklADd320mrGYbrvbgdIRJbZOCX1f+BJ/Pa7PtycBv5j
+	U7A7QteIm7cu/DWHc0RltyP5Lt+hIVGp6G3kyaHCHDvL6vEgu7iG1jwc7TabEr57
+	/howWmU1mFIY9oOwW7t0xrs76RPfo5NYEBzrUfXs99jIgxNsm3KSVVp1gtgSRzo5
+	T/wp9/BjFjNom3hLyPM2sb2+6CuMxNFmJIIdvmJgIgBCEAR5wE1Hy02yffDFRgyA
+	FrdjNNKB+M4lCL7fHrGM/1rxV1m5ShLN33frPiMkoOo+e6QgsMO8P8oUlw+4HJZc
+	rRePB+VpExaKlsXSZ4wf7xkGLIOU2yRUVFfDzw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739102917; x=
-	1739189317; bh=MBB3S5wHXxRHCBrokp09Qrr+MLiAbdRehT2NEZubiMI=; b=x
-	vZCve8EvEp4Zg/GU73iM/aub0xMs6HlBPo3bfctDLzzlljwpAIc0xKmJQn9UE+Z2
-	53xUiENGO8vTJqMkmVKTPBuOQijFdwwGH97PvIJrfE7Gmfl9Bgg0u53LamjvNyWr
-	mT9d/q+8TZq58UKjfkTXxSnRPvlQDUsr7bQwOxPTwThBS2d3Kl78HNpLxjeJXkIE
-	+urn+vrY6bStdWjI2YFPGgSyMeEQNsg7/p941W+yK1NckTvhd3BuR6pM45btxm8l
-	S/s5Hv3HIEajQQr2xDdCRT0BJdFpVUgPqU3kA1hVXWxQT6jG+jY3H/QwinmoHOp6
-	mu5wurANFzKdsTXGhhq6Q==
-X-ME-Sender: <xms:xZqoZ0_iRyP_Df5kbtNm1AyWMnYER6GdRft7SzmShhSQBa0_QT6z9g>
-    <xme:xZqoZ8txuAXqzBhHUryWjPciJhsBFUiujid49SIU9fVjnYjeTbDTzJ8F5kwot62od
-    onn6FdkXspZ2UdEqcY>
-X-ME-Received: <xmr:xZqoZ6AtSQ4lNDMAoMM4-ZVbp4-SRYnBJOkLOS8mLIdzpU4F9h26krwXlr2mYrdwa_VTMB-8ULT85nvd6EfToVry6qoOIJULI022LVjat7b9rjLltNS8fGPB5WsQNm8>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739102922; x=
+	1739189322; bh=t66wtfl5BdVxlhDOQRkeh55EG+hhfZY+YFaDqLZ38qY=; b=O
+	DUNTx7l8X13IumI8lSdINOCPbem0joek59s4jGE6SjyEnVfwLsKWWdS3pjTipsaI
+	AJ60oEykEVedDEa8VVW5dmKoeZdW3H/3VeDujVGKBVkdYCojh3PqaYUIg/xcz/XL
+	rzfUghK41PFGnswUYUXMZFhCcmdugLAnYa7qvK6+p4Mc8MFtpEf2QTj0Amkj3kyO
+	g7kw8xuA8HAmKtV7meQnomcrU7gQ7h4D23DrCkJUBcHaFuAkN+8JPftt0Hipn8rv
+	VqExpxhv3s3nAyVNk/B02nuhgGi4s0j9FjT6EPN5/cI0ly5y8qdQwq7m1lyJQBOZ
+	H29aMYi/P8EaPWSjBV1Og==
+X-ME-Sender: <xms:ypqoZzWRbnk6-WhLu4YsXw0OudS4UW4JknQypZmuLEElPMlPkEDHug>
+    <xme:ypqoZ7mNWyXlEn4boU_3qNB01LKann9aGR4TRz4FHSTa-rOV6DnFzj_mrgJeLtBWF
+    XS4VbvFGi2llugDo5w>
+X-ME-Received: <xmr:ypqoZ_blOzWYcr-nUBSm81kmL7mXj5hTbu1_Icj_mXTNhU8pVfIc8F2yTQkcf5HPFwudPCbCbHVxv6_qbG9OtiajyUX8r17Fk6Q7zaSPeoYwTkZhasyz-HOg3jrfG34>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefhedtlecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
     hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtgfesthekredtredt
     jeenucfhrhhomhepufhvvghnucfrvghtvghruceoshhvvghnsehsvhgvnhhpvghtvghrrd
-    guvghvqeenucggtffrrghtthgvrhhnpeefvdeiffefhfeifefggefhleduueejueekjeev
-    hfffudegudduveeutdevtddtheenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuve
-    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshhvvghnsehs
-    vhgvnhhpvghtvghrrdguvghvpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtph
-    houhhtpdhrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhrtghpthhtohep
-    rghlhihsshgrsehrohhsvghniiifvghighdrihhopdhrtghpthhtoheprhhosghhsehkvg
-    hrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdp
-    rhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprg
-    hsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgr
-    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
-    hopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthho
-    pehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:xZqoZ0eZieiVL89duZxVltyKClKxzCCVJ5g48sYA663cVWFBz3od5Q>
-    <xmx:xZqoZ5PRA74y-u6P9idJgxReTxur3yRsc6SS6rOKCFjcXcZwENmGqQ>
-    <xmx:xZqoZ-npVISHnlszE7nmi5z7uXt7T25eKBWbjw4KK-SJvOUMEfHEpw>
-    <xmx:xZqoZ7t_uMWrtD_MqsOyrx4dFhJpdX0aiINNC4LQcN11Q-VGxeIbWw>
-    <xmx:xZqoZ-lIjd-7qNL3CF2yorurH_Lnv5zTv8mI3J6gCsPbRY7XFsPwkS0P>
+    guvghvqeenucggtffrrghtthgvrhhnpeegieehffethffhffefhfehkeevleevieetfeeg
+    keehhfeifffgheehieejheeihfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghrtghp
+    thhtohepuddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrghrtggrnhesmh
+    grrhgtrghnrdhsthdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhi
+    ohdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
+    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhf
+    rhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
+    khgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:ypqoZ-VZxxJCNMpSzEB3t1Zsif-WLxOyAlo7QQfytsNfZaGceujrBw>
+    <xmx:ypqoZ9nIBMuzK5XIr4Xy9dQcgOATPqkxTm9vXMf28PBHr0atmXlh1A>
+    <xmx:ypqoZ7cWb5TWFLNT6irWwDktU05eG-XggJs9S8E5MDOBtcUamD7PKg>
+    <xmx:ypqoZ3GnBhe8qCgwhuPKgiRRkb8Ohp7IzlN3Hgv5OxdY94TBG8IyyA>
+    <xmx:ypqoZw9m38tSndC9wJWCZhX_kCJNCgppOMu1ItNz_hNKWJps-eIHfTGb>
 Feedback-ID: i51094778:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 9 Feb 2025 07:08:35 -0500 (EST)
+ 9 Feb 2025 07:08:40 -0500 (EST)
 From: Sven Peter <sven@svenpeter.dev>
 To: Hector Martin <marcan@marcan.st>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
@@ -96,19 +96,20 @@ To: Hector Martin <marcan@marcan.st>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>
-Subject: Re: [PATCH RESEND 0/9] Add Apple A7-A11, T2 SoC cpufreq nodes
-Date: Sun,  9 Feb 2025 13:08:22 +0100
-Message-Id: <173910236337.99422.7886961627376438816.b4-ty@svenpeter.dev>
+Cc: Sven Peter <sven@svenpeter.dev>,
+	Aun-Ali Zaidi <admin@kodeit.net>
+Subject: Re: [PATCH v3 RESEND 0/2] Device Tree for Apple T2 (T8012) SoC devices
+Date: Sun,  9 Feb 2025 13:08:24 +0100
+Message-Id: <173910236336.99422.4456794656376955896.b4-ty@svenpeter.dev>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20250203124747.41541-1-towinchenmi@gmail.com>
-References: <20250203124747.41541-1-towinchenmi@gmail.com>
+In-Reply-To: <20250203114417.16453-1-towinchenmi@gmail.com>
+References: <20250203114417.16453-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_040842_130363_54873A52 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20250209_040843_640399_A54F6E3C 
+X-CRM114-Status: UNSURE (   8.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,37 +126,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 03 Feb 2025 20:43:39 +0800, Nick Chan wrote:
-> This series adds performance-controller and operating-points-v2 cpufreq
-> nodes for Apple A7-A11, T2 SoCs.
+On Mon, 03 Feb 2025 19:42:51 +0800, Nick Chan wrote:
+> This series adds device trees for the Apple T2 Security Chip found on
+> some Intel Macs released after 2017. This SoC is based on Apple A10
+> (T8010) SoC and, for many hardware blocks, can share the A10 compatibles.
 > 
-> Dependencies:
-> 
-> - arm64: dts: apple: Split s8000/s8003 SoC DTS files
-> https://lore.kernel.org/asahi/20250203113949.14760-1-towinchenmi@gmail.com/T
+> Changes since v2:
+> - Drop PMGR nodes, moved to PMGR nodes for A7-A11, T2 SoC series.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/9] arm64: dts: apple: s5l8960x: Add cpufreq nodes
-      commit: 9e908d5f24dfdd0e21379d879bc104cb0b5e958c
-[2/9] arm64: dts: apple: t7000: Add cpufreq nodes
-      commit: e97323994f4ae23df8d0dfe750953b8561da3610
-[3/9] arm64: dts: apple: t7001: Add cpufreq nodes
-      commit: 1b57d5bc62d002e293e3424f59a626e453ba999d
-[4/9] arm64: dts: apple: Add cpufreq nodes for S8000/S8003
-      commit: 1fd51c73039a0076c8b23c25d6106f73701c21d7
-[5/9] arm64: dts: apple: s8001: Add cpufreq nodes
-      commit: b0dfdf02f76b61e0c8a7d1158ccc07d9c741901f
-[6/9] arm64: dts: apple: t8010: Add cpufreq nodes
-      commit: 029e1d609a20941fb4424da985073a2734ab2cc9
-[7/9] arm64: dts: apple: t8011: Add cpufreq nodes
-      commit: 1174a4690b1dc1f37bd5039269b312b2bb496e39
-[8/9] arm64: dts: apple: t8012: Add cpufreq nodes
-      commit: 870240153fb4d1ef280a222d5341d9acda206dd6
-[9/9] arm64: dts: apple: t8015: Add cpufreq nodes
-      commit: ca96d759d8d24d90b1726c2cc7c568ff4728bb42
+[1/2] dt-bindings: arm: apple: Add T2 devices
+      commit: 007c9b75f7e34d83d5a5230a0fb376730d9dce96
+[2/2] arm64: dts: apple: Add T2 devices
+      commit: 4efbcb623e9bc5c1430b3fbc3dfdd4fe0945c64e
 
 Best regards,
 -- 
