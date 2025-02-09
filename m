@@ -4,161 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89002C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 18:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCC8C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 18:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDwjT4ULXGqJr98wR7tt3ay7EjO8FGkvowpJmrFY/Kk=; b=oNkFK0ExnBG5e4Hx7/8Y3GZkjz
-	3CT42qbFoXOWR7rx01RwXUMCAqmP1+Vj0oN2UaVfL+VQkS9zm8Ul/fI64+ATmGhXzsmU6Uk4tD1HC
-	IRxClx8l8JEiZqgfp8NDsso2wCo+u12eS2MhPbdoZWvx+CDn5GI9QjCIGsovQ1UWHdXBBidDfGAJD
-	dlWBfpD3SJB7uDoJItJgXinQ/TpRhng7o82hvH/j1YLzN6jy14NqbEaN9xCDHMlpB0luS9NK24eOa
-	kSf53Af5hbqfm+MdzUxfx471Bq1lycj94A6uT+8Fi4tLe8iK3A2EIAV4gPm+XJNa2Mpoqi6xbMlfy
-	5Qe9kAqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=++ZfHUQ0MCm0RP3ofnBUH+oOmt7UhXpK/206QQBmZmM=; b=yx/Ngd2gflhb6jx5Pi3cQPFpdY
+	dU3csQjj6dePS3gggy4eECPAcmGbwVAElreHFPDdGNB8aVY7p87O1Oo2LlNd5r+97RveUuLWh6L2r
+	hqJnqNVEmpVsGEIq6sk5238emgyq1hqw+wD878Ns8To4ur4HzL7b/TDAnnuUkWAhZcGeIASnVsgvm
+	rb1n9kkq3IMeIiJ6rKH/6pokLzUW8RQSgPs9b6nNO7JlG8qG0C/i11brPJKFMkMVFMOHYfVIwDqzl
+	YXbJWaEq+RCeoM+PBnMzYEJ6MP2TD1RIXsWvzRpO7F0aYvldDtk4KCN4/Hbpd2wm6SVQ9cPQ4u8Rj
+	2ufUETgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thBod-0000000FJsa-3Pgo;
-	Sun, 09 Feb 2025 18:13:59 +0000
-Received: from mail-dm6nam11on2060a.outbound.protection.outlook.com ([2a01:111:f403:2415::60a] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1thC7e-0000000FLTP-0qzr;
+	Sun, 09 Feb 2025 18:33:38 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thBk2-0000000FJL2-1Dot
+	id 1thC6G-0000000FLF7-1BQI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 18:09:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gSvj+QHyo7TePlpkUM4IzY4O53oF17a4GDsIGRLLfA1ixyIqqfrIHzvljYv2rWcA5g33tnJht9AMrGRqM6M2yMiS0qChAVH8dFnIcdabPoXl2KpZk79f42+h5R5diHUHN65hz4akqk0nraBgaXcPhshernkNS4WbcVsDZQ7Scm2VjWhvFMTq+kOOTpLUqzjASuxIvOJyjG1DwhGpcXip98DQloAUpZlKNmeZu+3cGDDugOWJQ7ryXVfcRWRQzGqXMRYIj9UNQf7MCNmoDfmHEbZrLn0UZcM1Kblht5XFP3sOsEFttFEZnWNimueVZAYdnlobFAexkcefhInYc625mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aDwjT4ULXGqJr98wR7tt3ay7EjO8FGkvowpJmrFY/Kk=;
- b=i0rv4LZM31C+PXLt5sc3lSxYvry8Snm9SI8HCWE4gBjY7GOO0vACGjDJBKjpFF2nfztDAVBPkgCfH9jWxJPr45TSpUIdMs/llJBKgdpAP5RoY+V9GK+eEJIzHDOfiHLDadlPTAOhmL9B8cjASC6o/aMicfAwbzDycBe2QOfVZJ5OzqiRVkj8gnNKh41Rc520DPsa3xP7zRe5FM5ir4j3JWmiSkcJqN9shodhGEoz7d3FkWtHscy5zokAxIcuXjzM8u3Mme74ImrU+tYCb12+zlA/hcowpW1o4+Tn1NJe8MFkOTrcoP98Q1R+X0L5/4hH148677nooKLBn7jVeE7g7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aDwjT4ULXGqJr98wR7tt3ay7EjO8FGkvowpJmrFY/Kk=;
- b=U69LezBjeyC1UNUHjP6PYLR314xai5GQty1zr0sQe+IZ2/+QuX+WpP1OSI1hZ6LLIgFGw5bGwNr7FTzlqLirZ0qZk/KMioLNO2vRW5lZvh9YKKDfbH4pO0ylt1JWu1ZFllahmoMgM95h5FOSa+7OFWnviiKx3QJUBB3UkreKl5WyelHlc++nq2TLMJBQPWipUnI1w8EKKDgJrf300MYcvtW1N/xOD8Qtr1XG7wRBe7Nxd0CUrC8jHVtBVNYcue7Jgo3hLy2HXe/EoDqypBwb0P65wYqCV1vQwbL9m1N4I0ON2uzJNRkU8VL+qz7ml94bw2z3BaZBrDHvenD9/SLdqg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA0PR12MB9047.namprd12.prod.outlook.com (2603:10b6:208:402::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Sun, 9 Feb
- 2025 18:09:07 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.015; Sun, 9 Feb 2025
- 18:09:07 +0000
-Date: Sun, 9 Feb 2025 14:09:05 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Eric Auger <eric.auger@redhat.com>, will@kernel.org,
-	robin.murphy@arm.com, kevin.tian@intel.com, tglx@linutronix.de,
-	maz@kernel.org, alex.williamson@redhat.com, joro@8bytes.org,
-	shuah@kernel.org, reinette.chatre@intel.com, yebin10@huawei.com,
-	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
-	bhelgaas@google.com, anna-maria@linutronix.de, yury.norov@gmail.com,
-	nipun.gupta@amd.com, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com
-Subject: Re: [PATCH RFCv2 09/13] iommufd: Add IOMMU_OPTION_SW_MSI_START/SIZE
- ioctls
-Message-ID: <20250209180905.GI3660748@nvidia.com>
-References: <cover.1736550979.git.nicolinc@nvidia.com>
- <d3cb1694e07be0e214dc44dcb2cb74f014606560.1736550979.git.nicolinc@nvidia.com>
- <0521187e-c511-4ab1-9ffa-be2be8eacd04@redhat.com>
- <20250129145800.GG5556@nvidia.com>
- <Z6WLXTiYVzuN368E@Asurada-Nvidia>
- <20250207143020.GR2960738@nvidia.com>
- <20250207152801.GV2960738@nvidia.com>
- <Z6ZYJAjYTKGqEbxB@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6ZYJAjYTKGqEbxB@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0851.namprd03.prod.outlook.com
- (2603:10b6:408:13d::16) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Sun, 09 Feb 2025 18:32:13 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ab744d5e567so714049666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 10:32:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739125930; x=1739730730; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=++ZfHUQ0MCm0RP3ofnBUH+oOmt7UhXpK/206QQBmZmM=;
+        b=bPkvn+BOhB5XP9Iq5vYpo+kFHIT1XA6pk9b7PP473E2tl7FFVy2tIEOVbbx5u4BYMK
+         anunnBuDutk72ohrr7+WWxvmZUitrKQiRcUT7Qb+fRKCEoLq78c3ZiQZmdriWzBRV1Vd
+         w2zvJvYatH48NQ0XdqbKRSvywFwOD5/MgiZVYDBazWiUlwbEe6AA5aotvHVFIklN/Jni
+         27nmpzpUTQzl9KK/h3kyMyV3m+17xqywZ82W+dEX8CP8Xd0wOxf0GixkBDOMIvAO+OUk
+         SzJZjeGiOyMTRUpBxbNSAmngIuxmhPNAEvhAPbh7KFGIwFXpBbHNmGqYD3R/kPM8+zK+
+         vTWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739125930; x=1739730730;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=++ZfHUQ0MCm0RP3ofnBUH+oOmt7UhXpK/206QQBmZmM=;
+        b=rEsjiLMXSTV6N9MfDfAnhcJM4og90Q4rCC+PILVhTD1VJ9iHSHpTeQGERl4iAaNFpp
+         F8Gks/o8CU5SlipmdpYuoDKE/aMf+Dz/DvA2AYmiRQstFM71nG90CN3DWrkp5Osq+AHK
+         tqPnPptOOtUk29ooGoWAOTqF49QPDz6Qz/SMCZvgx96sSqEwTtcm4/4YHkKY7gjr2UkX
+         xUTKwyvIoTHReLngcYrGd3buz56R3c6pdAHbAWXazRRNkKi+verZvCwqNudo0sDc+9iM
+         4ryKcboFSkPjdMJiQ3tKuaXzWo1i29zW7yKkXkKzCK2xyC4fYrS4hTcm14wTLG78+yBG
+         Uu4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWDFt7WHegdPGYO2oyE2shweDs05c0c8Pky/xbdSTXvConJ374xX6z7UCh7zm6qRsfJyxC9KjDG2TEabSbtAfdH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTjjE0Icf9PAMpmg/CHgkrxYn8wsMfvb1A3xZWijHcv9UGRGs4
+	PyrGihxUhhMNp392BaPp+SalZ+oV6G+zuA6jROxeQoWpN5b3qpjU
+X-Gm-Gg: ASbGnctNXziDXrDWlvuG1CrhYboT2kx9flnzkaP64PbEiG2yOJ5wrJtB9oY4wthKh0w
+	nCkKf1CQLgKXz/2j1OKmX5TpW123vN8jH/6kDaXc3LtGCgx24l+nAsGsz1RTIGcrHjLYVVe6Xl4
+	bayKT23TdZxsEfuKUNQ+ISlwrP9vgIya/qHXnBJuo2M5JgtO43q5seD8khsrU7BJI0v1QmVaYdG
+	kWsJyj66GqUrALDdyNSsCW/p7ViEXlNcudtSmof5qMUTqtSnn7BFlLmqbIi9KXglO9Z9ZXorrlY
+	j4wMX1NXl8cvrnKlE42CZ5LQ8JLgws4J6mzxBBCoUERZC9aomSNsVL+jMMLXy5LC1JLPDDxdNU/
+	Lmg==
+X-Google-Smtp-Source: AGHT+IF25eWQ1V7Er7ceH3ux4Wlw0217IKgZ/NViSm8RTCNQK2c1ekJ42OKIsci8kDQYLk4K5IBrmw==
+X-Received: by 2002:a17:907:1c0f:b0:aa6:938a:3c40 with SMTP id a640c23a62f3a-ab76e9dad88mr1610005266b.24.1739125929258;
+        Sun, 09 Feb 2025 10:32:09 -0800 (PST)
+Received: from localhost.localdomain (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7c4da47f5sm33658666b.70.2025.02.09.10.32.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Feb 2025 10:32:08 -0800 (PST)
+From: Philippe Simons <simons.philippe@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Philippe Simons <simons.philippe@gmail.com>
+Subject: [PATCH] clk: sunxi-ng: h616: Reparent GPU clock during frequency changes
+Date: Sun,  9 Feb 2025 19:31:42 +0100
+Message-ID: <20250209183142.97671-1-simons.philippe@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PR12MB9047:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4c78d0f-7b60-4110-c7e9-08dd4934d81f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lGFgpBl0xo+tRDrnT44SL+kHSOH3h/s7in/utbQF20WAz9OB6gxlAxGBVhKU?=
- =?us-ascii?Q?Yma5/BnUG0/6nu3f+2Er38Hyks0BkJj2BWZSMu5NnByBY2ChE3sYWTuoT8qV?=
- =?us-ascii?Q?kV6Nzyz9fqRHj+3k1x9T/S7TKDbOGpqZP5hrlaOxqFE2hGPXvC/dzivBmgIl?=
- =?us-ascii?Q?sN5FPllmXgFRyqM8K10I9JwfgiHz+I/Bspt2lRcVv8qsDvHrtHjn2sswTgVC?=
- =?us-ascii?Q?e87AXZ8UPgzCiNkRxXHOBzEhMix0R057VuFK3CHqSoXcjvGSITCeyurQpPZT?=
- =?us-ascii?Q?mrfGqwleQtojBrVV6QbM4TguyCuF5DfUBN7PDYmeCPL6lN0X7C2tWmBPIMhw?=
- =?us-ascii?Q?YZudDl8nowGwAHPp7l4FSPz0UzlCJqCpRuoMYYb3b3hEDlXuHi7aPEcXn5oN?=
- =?us-ascii?Q?dIxn2mJr26nsvQg4t/llIx0F9bhBCREABMtx5n+g+dZM6QhPOxpTMFtpaf1s?=
- =?us-ascii?Q?qaALFDMKLtcbjxtFIU2jQBzrG2zlYVydRu/f2QHLWnDNtPNsUukYWNnvFp2h?=
- =?us-ascii?Q?xX8ZK8UPwM+2VgT1/sJbWLhSR6HiZT9w/MPWdDedAyWXxLGSRKbY1Rtlk8Ec?=
- =?us-ascii?Q?UEYl9a9xNAEjJqrFFXLzWBszZsdhO96TLPobmGx0066WlpAj9ogwck20xnug?=
- =?us-ascii?Q?/7HR4MOyDmxpMHEEnzBvb0Q7B5QPEUtaTUVWPf6mlmXPMQX5euG7MxcRBm83?=
- =?us-ascii?Q?1F6eM3FtyoQmkHKdTmxb064cbY3DtvUJJMw17Tg61LmZxix1jLeCWsAu4zmf?=
- =?us-ascii?Q?wW3sXkfARU86xFLm+BvAT6drN66z0a4XE7hsKvb25pqiAwbMJqWoXSzx/1gI?=
- =?us-ascii?Q?k1Gp/8I0RM7hbw0pm6iHJTjFDXFAjRmZEsHmR+Qn37o+nSP9i8XmETnZxcAi?=
- =?us-ascii?Q?FZLBICath1K2z+IhaWn6mFS+oXtNhVrcVkpGxkbvnWmvskdXpV5NU6J4OiEd?=
- =?us-ascii?Q?KsJa8wAsyJb0n3iPgUr0CNRLdqEOWgIiDpgDhJuqYqvHNwAMZ4HA9jngCuj7?=
- =?us-ascii?Q?yz3SKA7MLP6T8YmA6/cVNEYqyw1OdnAl1rVbZ5xVDtFuUHmxRwK5WbrbNIP9?=
- =?us-ascii?Q?2mNIjgmPEvGS/gnPCFvoh+PKJ9LbNkHeNT/bGrJ+ARiBXYiOLS4VugDqYDr0?=
- =?us-ascii?Q?LIkOu3Ndjg/Mar+O20DplXQEPp8aW2LYsSAgjFSWI8lE0YJPUsfBHf6oOZ0k?=
- =?us-ascii?Q?N+VRbnCPdVzX2Vgo3jnmK8u4zWF5JPca1SyWLjXOtucgWrkW1508xK6c3OyM?=
- =?us-ascii?Q?qxj7fgSQ+gx1DIoXC6TuGJ0YQu+Uv13d21igM/u6rPEbutEID//NkJl3+XaW?=
- =?us-ascii?Q?O4ylgdVYiZIkYW/Bo1POgCR6WLDhQKzwM4Dm2yGiQtfkgUqx/p6VeNAnS5yj?=
- =?us-ascii?Q?z33rB5v7/B+/6bR5+CGUgvg7m9Kq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nRQLEmDYrTt9ZvlIFx3OiGJPC27WOlnZVbcjeYZ7GqGikF6Hl/HZjmjqxCmy?=
- =?us-ascii?Q?ho2Km+L6S15PnRy6BQmhhafQ/iSs9fNEMtHL4lsQSR78X1Q7+m6Thxjzb6cb?=
- =?us-ascii?Q?4B/qbvtN9eWvRWyxWzDiFk5GJpvtKYLcb/AB7CfBx95Uly7Nf+flRbF8JPMi?=
- =?us-ascii?Q?NS+7CKI38SdOHJk+qcWcgbg0iEAsBxgeR9oRwjnqI64L3sccKq82JMRP9LA1?=
- =?us-ascii?Q?IwFdmVIj0OOfANaL894F1QPtOPFN7lwDRamyQdy0UkPztf5880IMLxd/aIxq?=
- =?us-ascii?Q?3vVc+H3/pTzWW2Z3GrKzycSZ2shyLLbZdh37xgC48f5d61CLD+GYV2h36Wg7?=
- =?us-ascii?Q?5tgtj8nGRJefkVswPWjXkuuIPQsF49SFGhyzaZchC1Ix0l21RBn60OG3n96R?=
- =?us-ascii?Q?U28Z6lnPcXxgxUi0Mqy2XaiX4anh6178mOAOlZUaaEv+05hZHUGuX+Vjexk/?=
- =?us-ascii?Q?jc50VvFXXz/1x7uvQYm/ddJlnaWgqieMfb+pE7f4rnZ87n64nvv8vyLXfTsW?=
- =?us-ascii?Q?mBAmq/w1QyXpMoolM4uFTr2Yu2VMdnQCckXowWOsetelpw2uS5E5v/InJv8/?=
- =?us-ascii?Q?KMwQHPT6ZexvGCaiqUvxsKE52kf53wqUJmOEV8fRSVO+07UMdn8exsBm7lI+?=
- =?us-ascii?Q?KMN9cK4jLx+E84A4grujPJpTSHa9cSS1PFHN+vdBTwx/6AbB2PDcHU887uxC?=
- =?us-ascii?Q?I1rvDg21OWYtOttjCUzSJ7W/Lp4pzsFjBWh2aTlO1xEKhNydSTOyFzJgFAoQ?=
- =?us-ascii?Q?+mA/By0GdshvpbR0TeB6YMwMEljv3neIm3QIzUmSlcivVDDHA793F4xyG4Kh?=
- =?us-ascii?Q?rhaA2DnMu0L+zHbpw+k6Rdra5QpByEHSYfdAtMAIXsQmQMOzYcXy7fm0CKZd?=
- =?us-ascii?Q?QMm39NUzlyKDPxpS3XaoHhKmgbOGGhLNxZpDr2jp0V0b2pgPZ8xvODpBPKaY?=
- =?us-ascii?Q?+bwsBaQJakNC85skABTFJA2t/T0GuPIj9LpIW28Ddh7OxFDUHFsNKlo4RBco?=
- =?us-ascii?Q?GaFsluO9Fp1eDBa+mOFYzERUS/a+gHsn0+1BMI+anfsp6epmVlJtJNErPMPU?=
- =?us-ascii?Q?HSjFu4H1V6RYfiIUFyQ5DQYffS/Bg3skmE9WespwdReKJEjj/WhNhtroAKgG?=
- =?us-ascii?Q?YOxmkuDL1bZqrawa6gVqonXrxKDZ+SZcSJMKCGLb/uh3wNL543C91jlEnPjU?=
- =?us-ascii?Q?2+agSmPn9Zcv2+EFmeDqE/vPkctB0zLVPBUPhrUUkphnuKbVHygwKgd6WDLQ?=
- =?us-ascii?Q?3gtH2PDa+srgD9W3mYyA9msgkjwnBrGNze7nhY+MQuPsq8IHTr2IenjVzryd?=
- =?us-ascii?Q?yY/gDbejwHngKKjgGBZ+Vf5Sh95FiC+MIhtq0Yn+Gnn95f84WPLyXjH2Ygeu?=
- =?us-ascii?Q?6qcnYzZCp1VXSTQyTQ3XVJj/osSz3yISrE4dRsWBY8LqewaW3abhPis6hfoS?=
- =?us-ascii?Q?O0mJ2+a0LX1VmqtASSbHIKFGIBfrA3FOZkakWGIQV0KDuu6wztbd6+9GYx9b?=
- =?us-ascii?Q?mfv13Qjce38XJmSzDMiDXYeg4bdsfXDQzWrv7x7Nky7rpGjK84n+wJ2xJOEy?=
- =?us-ascii?Q?dJCqOgwwTKmq7qAKhWo=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4c78d0f-7b60-4110-c7e9-08dd4934d81f
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2025 18:09:07.1330
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: crdjbK+baQ8S9AKTtPgIwa+UfekPcGx79lN6KtB568uVMGo/2p+x7c9f3UFez3B5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB9047
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_100914_348661_13F69AAA 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250209_103212_338761_CA5F6DED 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,36 +102,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 10:59:48AM -0800, Nicolin Chen wrote:
-> On Fri, Feb 07, 2025 at 11:28:01AM -0400, Jason Gunthorpe wrote:
-> > On Fri, Feb 07, 2025 at 10:30:20AM -0400, Jason Gunthorpe wrote:
-> > > On Thu, Feb 06, 2025 at 08:26:05PM -0800, Nicolin Chen wrote:
-> > > > Yea, I found iopt_reserve_iova() is actually missed entirely...
-> > > > 
-> > > > While fixing this, I see a way to turn the OPTIONs back to per-
-> > > > idev, if you still prefer them to be per-idev(?). Then, we can
-> > > > check a given input in the set_option() against the device's
-> > > > reserved region list from the driver, prior to device attaching
-> > > > to any HWPT.
-> > > 
-> > > I didn't have a strong opinion, if the idev works without complexity
-> > > then I'd stick with that on the basis of narrower scope is usually
-> > > better.
+Re-parent the GPU clock during frequency changes of the PLL.
+Also it asks to disable and then re-enable the PLL lock bit,
+after the factor changes have been applied.
 
-On reflection I don't think a per-idev is going to work very
-well.. Part of the design was to keep track of a bitmap of already
-mapped pages in the single hpwt that unions all of the devices. If it
-is per-device then that basic thing doesn't work and it becomes much
-more complicated
+Add clock notifiers for the PLL and the GPU mux clock, using the existing
+notifier callbacks, and tell them to use mux 1 (the GPU_CLK1 source),
+and bit 29 (the LOCK_ENABLE) bit. The existing code already follows the
+correct algorithms.
 
-> I could imagine. The caller initiating a SET_OPTION call in VMM
-> will have to know what vITS page for what device. So, this info
-> has to go through the KVM/IRQ module to get processed and then
-> forwarded to the caller (vSMMU module at this moment)..
+Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+---
+ drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 33 +++++++++++++++++++++++++-
+ 1 file changed, 32 insertions(+), 1 deletion(-)
 
-Ultimately, as we saw in the other conversation, the qemu command line
-will need to describe the GIC(s) and all their ITS pages directly,
-somehow.
+diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+index 190816c35..e88eefa24 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
++++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+@@ -328,10 +328,12 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0", gpu0_parents, 0x670,
+ 				       24, 1,	/* mux */
+ 				       BIT(31),	/* gate */
+ 				       CLK_SET_RATE_PARENT);
++
++#define SUN50I_H616_GPU_CLK1_REG        0x674
+ static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
+ 					0, 2,	/* M */
+ 					BIT(31),/* gate */
+-					0);
++					CLK_IS_CRITICAL);
+ 
+ static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
+ 		      0x67c, BIT(0), 0);
+@@ -1120,6 +1122,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb = {
+ 	.lock		= BIT(28),
+ };
+ 
++static struct ccu_mux_nb sun50i_h616_gpu_nb = {
++	.common		= &gpu0_clk.common,
++	.cm		= &gpu0_clk.mux,
++	.delay_us	= 1, /* manual doesn't really say */
++	.bypass_index	= 1, /* GPU_CLK1 */
++};
++
++static struct ccu_pll_nb sun50i_h616_pll_gpu_nb = {
++	.common		= &pll_gpu_clk.common,
++	.enable		= BIT(29),	/* LOCK_ENABLE */
++	.lock		= BIT(28),
++};
++
+ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+ {
+ 	void __iomem *reg;
+@@ -1170,6 +1185,15 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+ 	val |= BIT(0);
+ 	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
+ 
++	/*
++	 * Set the input-divider for the gpu1 clock to 3.
++	 * Also enable gpu1 clock.
++	 */
++	val = readl(reg + SUN50I_H616_GPU_CLK1_REG);
++	val |= BIT(31);
++	val |= BIT(1);
++	writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
++
+ 	/*
+ 	 * First clock parent (osc32K) is unusable for CEC. But since there
+ 	 * is no good way to force parent switch (both run with same frequency),
+@@ -1190,6 +1214,13 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+ 	/* Re-lock the CPU PLL after any rate changes */
+ 	ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
+ 
++	/* Reparent GPU during GPU PLL rate changes */
++	ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
++				  &sun50i_h616_gpu_nb);
++
++	/* Re-lock the GPU PLL after any rate changes */
++	ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
++
+ 	return 0;
+ }
+ 
+-- 
+2.47.1
 
-Jason
 
