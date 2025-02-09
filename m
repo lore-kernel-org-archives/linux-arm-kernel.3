@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3862C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 16:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF44C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 18:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EUD+QP7MhaJ4SMVnh2IoAoVpTVnIg5r8oG8yAPzDEhg=; b=KFjZA3H5nPotKNA3zv8WKpRT6C
-	8QdYERIeP8tiQAUMFUBwViNymXYVYXKmTfyVm23ZXxiENjGDG9yv4d8FRloGQtP3TK3LzJores/RT
-	tCYDrJVaFsVOKCgztL7JE75QKP3CXpMxsXLLN4r2Ow3ByhAEigMEt4FoGtaRShog6XYQ9ezyScM8a
-	G+JwQ2EC2Ttzlg97hFzrWgLcSIimrS5WV087gRfAfadoXJvfXsUuMZR3WdkEedAvrjSexMST3btFo
-	0CE2zu9eFilSgbZur0WXEE6+66N8+VQzpX0l3pVi45pEMykP2CJ2Kqtfs1gvc5JEzMNqvce0BdVt2
-	xdxhlFAA==;
+	bh=nm11C/vSYVh8GDGZHfUDlNWNTOIXtOIJnLqiD9TfA30=; b=nDLQv1/7RqZu4wpCHXr9MdlQUG
+	3uDolQvxH14eRMj3nhLuvUsebxAtZmnSsRQByDUJ+6GrXOe8drPPvhBnrvb5yJIuGPrFrTRcjno1g
+	C3b2glCme9UHcPh0ksuRCXMwwj5uezlwzUp/YbUNZTmWplALGQ1vvtFHWk8sNVXAAOvroof/+W8vy
+	KT6r0pKD+0QCed1SxQzKWA5LA/LQ1VWViQCLormma5qk4T24l13jvfjfwuIbDJzbI24pRiEoaRX5f
+	W4B2/M5ke1Gx1AbQ66EDTmgbqpEXJ/vOmpW7KyHcqfGSXBydpjGlmqF66fPzimQTfxSlNFq4ziRRq
+	lr8a6Bpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thAcB-0000000FD7X-1sH2;
-	Sun, 09 Feb 2025 16:57:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thBjC-0000000FJFX-3fT4;
+	Sun, 09 Feb 2025 18:08:22 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thAam-0000000FCzx-0UcO
+	id 1thBho-0000000FIzR-0edX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 16:55:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5493C5C4C05;
-	Sun,  9 Feb 2025 16:54:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A4BDEC4CEDD;
-	Sun,  9 Feb 2025 16:55:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739120134;
-	bh=eCOLbrEQl6Q8PofZ6oAAOmyrOHt5RHJBqFDV24Mwud4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=XlhaW5VF2PwlDSvZJ6i+sR2DyJNLUZmqnuRy+1uj+6ySalY7gy7Oh8fLXv4n6Fhe/
-	 MNrQwkhRpgHN1Zq1py9SCtr84RTKIHr1J0orNQGwSmEODWY32kRWq5L/EBQ2A3uq1V
-	 0pVo9DgyBCoEIV4rSfTGkVlpk2CiGJG1zfI6Md/kur4OZBNQTjq9AxwT+hL/oBD+cM
-	 MpQ7Xtsk9yUzmKp5OYGrt1TIiOdnyg0HMJQGrwxf4NKIjSFbGmZGwL8TFV5PXo78ot
-	 FGmbF9QvGoO/ErNMdgLeO+7FKZssWhNb8BSo7fd8Xhj7m442mVaVc24Q3p3VAiYgk6
-	 Ys2SYIxhFRzgQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85D86C0219B;
-	Sun,  9 Feb 2025 16:55:34 +0000 (UTC)
-From: =?utf-8?q?J=2E_Neusch=C3=A4fer_via_B4_Relay?= <devnull+j.ne.posteo.net@kernel.org>
-Date: Sun, 09 Feb 2025 17:55:28 +0100
-Subject: [PATCH RESEND] scripts/make_fit: Print DT name before libfdt
- errors
+	Sun, 09 Feb 2025 18:06:57 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4YrbJ70hSXz9sT9;
+	Sun,  9 Feb 2025 19:06:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1739124407;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=nm11C/vSYVh8GDGZHfUDlNWNTOIXtOIJnLqiD9TfA30=;
+	b=LT0YSKEO3djex7KccBfSv4i9sBZRBCpbZulGIXRWB//eIALQSvu+jXYJ6t2nLYxtU9LY+o
+	QlY+HYZeIaSqKAFWhyUJ3H/tMDyNcCyHqnemZPgd0z1Jn58J3qmDPJ2/5Pglfdxa0Ajz1h
+	ryy8X3XZizY4oZ46SqLaVMiDvPPNMF1TRLD1aLHmvAu3SUFeQ/EeXYu9ktjSlGj4BMVXFg
+	kSEjHVmNedOHGzMLFmc+tkHM12bzDNMyS+E7g5dx3qscuvTyqnZGScVcziTZTH45u+xaNO
+	EkPqJydcaZEO6r7kIYcCJ+wddtVYY3WfZYp41keoDf51YReFZAulGynXuUWDgw==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1739124405;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=nm11C/vSYVh8GDGZHfUDlNWNTOIXtOIJnLqiD9TfA30=;
+	b=CbxD3MUmPHTnrpZ3WCNsog2yv5L1Bl4V7TcfZ58C5Xz5KqPU9pRuXwJVhGI2x4qbtCgt88
+	B3aPlZJ9kmlrGGnWiWpoUU+dRM9EO00ihmsQgx0Rt1TX/+49tGw8B7LRFFnG/NsfZR+9I2
+	yk0Woz80IsOhjv/VX1qkUhgepFo1cVGL6w4li76kihQeFpV7sWLn/YJsiXZEtHMkgOZ6tA
+	iGF88JsoG6K+7NiwD3OEYq7wWwi7lWIloy0KgsO3fTCKejkWYVFaEN3zm8T1lMay0BpjRy
+	B1rpKEZFhs3a+JM7nDxdfO+wjJyPXe2hvG9iUvO/aD6Cx5xeyy5FsOG51dp4hQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/3] ARM: dts: renesas: Add boot phase tags marking to Renesas R-Car Gen2
+Date: Sun,  9 Feb 2025 19:05:04 +0100
+Message-ID: <20250209180616.160253-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250209-makefit-v1-1-bfe6151e8f0a@posteo.net>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739120133; l=2504;
- i=j.ne@posteo.net; s=20240329; h=from:subject:message-id;
- bh=qNYHUnAZnyBHAWNkYsjAlxvZcMVlVw3UbvcsQUL+fy8=;
- b=wes9wYfXwUGeWcaAUCu5kNs9CIRC4rXfWm7xTK2sserLOYrdIsz035w6eRJCAu9HPXjuGFcPu
- XXRyQ0UxUh3B2Gh1qwiZRLDA2mTnDEc830lGFG9jdndtFQphIiX7FgJ
-X-Developer-Key: i=j.ne@posteo.net; a=ed25519;
- pk=NIe0bK42wNaX/C4bi6ezm7NJK0IQE+8MKBm7igFMIS4=
-X-Endpoint-Received: by B4 Relay for j.ne@posteo.net/20240329 with
- auth_id=156
-X-Original-From: =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+X-MBO-RS-ID: 8782ec19eb1986f3ac3
+X-MBO-RS-META: eipw4xkzyxtdpo8sx8gou768iuz3unnu
+X-Rspamd-Queue-Id: 4YrbJ70hSXz9sT9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_085536_246364_D8E4FCCD 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250209_100656_479231_AFE1904B 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,71 +88,444 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: j.ne@posteo.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "J. Neuschäfer" <j.ne@posteo.net>
+bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
+to describe various node usage during boot phases with DT. Add bootph-all for
+all nodes that are used in the bootloader on Renesas R-Car SoC.
 
-This makes it easier to pinpoint where the error happened. For example:
+All SoC require CPG clock and its input clock, RST Reset, PFC pin control and
+PRR ID register access during all stages of the boot process, those are marked
+using bootph-all property, and so is the SoC bus node which contains these IP.
 
-  FIT     arch/powerpc/boot/image.fit
-Error processing arch/powerpc/boot/dts/microwatt.dtb:
-Traceback (most recent call last):
-  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 335, in <module>
-    sys.exit(run_make_fit())
-             ^^^^^^^^^^^^^^
-  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 309, in run_make_fit
-    out_data, count, size = build_fit(args)
-                            ^^^^^^^^^^^^^^^
-  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 286, in build_fit
-    raise e
-  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 283, in build_fit
-    (model, compat, files) = process_dtb(fname, args)
-                             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 231, in process_dtb
-    model = fdt.getprop(0, 'model').as_str()
-            ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/libfdt.py", line 448, in getprop
-    pdata = check_err_null(fdt_getprop(self._fdt, nodeoffset, prop_name),
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/libfdt.py", line 153, in check_err_null
-    raise FdtException(val)
-libfdt.FdtException: pylibfdt error -1: FDT_ERR_NOTFOUND
+Each board console UART is also marked as bootph-all to make it available in
+all stages of the boot process.
 
-Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
-The example is from a different series which I will release soon, which
-enables FIT on powerpc.
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
 ---
- scripts/make_fit.py | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/renesas/r8a7790-lager.dts   | 1 +
+ arch/arm/boot/dts/renesas/r8a7790-stout.dts   | 1 +
+ arch/arm/boot/dts/renesas/r8a7790.dtsi        | 7 +++++++
+ arch/arm/boot/dts/renesas/r8a7791-koelsch.dts | 1 +
+ arch/arm/boot/dts/renesas/r8a7791-porter.dts  | 1 +
+ arch/arm/boot/dts/renesas/r8a7791.dtsi        | 7 +++++++
+ arch/arm/boot/dts/renesas/r8a7792-blanche.dts | 1 +
+ arch/arm/boot/dts/renesas/r8a7792-wheat.dts   | 1 +
+ arch/arm/boot/dts/renesas/r8a7792.dtsi        | 6 ++++++
+ arch/arm/boot/dts/renesas/r8a7793-gose.dts    | 1 +
+ arch/arm/boot/dts/renesas/r8a7793.dtsi        | 7 +++++++
+ arch/arm/boot/dts/renesas/r8a7794-alt.dts     | 1 +
+ arch/arm/boot/dts/renesas/r8a7794-silk.dts    | 1 +
+ arch/arm/boot/dts/renesas/r8a7794.dtsi        | 7 +++++++
+ 14 files changed, 43 insertions(+)
 
-diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-index 4a1bb2f55861adfce07959528e175260bc503593..1683e5ec6e6754dff3383dfec89df78b9c2fa896 100755
---- a/scripts/make_fit.py
-+++ b/scripts/make_fit.py
-@@ -279,7 +279,11 @@ def build_fit(args):
-         if os.path.splitext(fname)[1] != '.dtb':
-             continue
+diff --git a/arch/arm/boot/dts/renesas/r8a7790-lager.dts b/arch/arm/boot/dts/renesas/r8a7790-lager.dts
+index 3bce5876a9d81..4f002aa7fbafc 100644
+--- a/arch/arm/boot/dts/renesas/r8a7790-lager.dts
++++ b/arch/arm/boot/dts/renesas/r8a7790-lager.dts
+@@ -754,6 +754,7 @@ partition@440000 {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
  
--        (model, compat, files) = process_dtb(fname, args)
-+        try:
-+            (model, compat, files) = process_dtb(fname, args)
-+        except Exception as e:
-+            sys.stderr.write(f"Error processing {fname}:\n")
-+            raise e
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7790-stout.dts b/arch/arm/boot/dts/renesas/r8a7790-stout.dts
+index d7c0a9574ce83..b1e20579e0710 100644
+--- a/arch/arm/boot/dts/renesas/r8a7790-stout.dts
++++ b/arch/arm/boot/dts/renesas/r8a7790-stout.dts
+@@ -268,6 +268,7 @@ partition@100000 {
+ &scifa0 {
+ 	pinctrl-0 = <&scifa0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
  
-         for fn in files:
-             if fn not in fdts:
-
----
-base-commit: 4bbf9020becbfd8fc2c3da790855b7042fad455b
-change-id: 20241224-makefit-31f789b9ee4f
-
-Best regards,
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7790.dtsi b/arch/arm/boot/dts/renesas/r8a7790.dtsi
+index f746f0b9e686b..4f97c09dbc9fe 100644
+--- a/arch/arm/boot/dts/renesas/r8a7790.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7790.dtsi
+@@ -227,6 +227,7 @@ extal_clk: extal {
+ 		#clock-cells = <0>;
+ 		/* This value must be overridden by the board. */
+ 		clock-frequency = <0>;
++		bootph-all;
+ 	};
+ 
+ 	/* External PCIe clock - can be overridden by the board */
+@@ -265,6 +266,7 @@ scif_clk: scif {
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&gic>;
++		bootph-all;
+ 
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -374,6 +376,7 @@ gpio5: gpio@e6055000 {
+ 		pfc: pinctrl@e6060000 {
+ 			compatible = "renesas,pfc-r8a7790";
+ 			reg = <0 0xe6060000 0 0x250>;
++			bootph-all;
+ 		};
+ 
+ 		tpu: pwm@e60f0000 {
+@@ -395,6 +398,7 @@ cpg: clock-controller@e6150000 {
+ 			#clock-cells = <2>;
+ 			#power-domain-cells = <0>;
+ 			#reset-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		apmu@e6151000 {
+@@ -412,6 +416,7 @@ apmu@e6152000 {
+ 		rst: reset-controller@e6160000 {
+ 			compatible = "renesas,r8a7790-rst";
+ 			reg = <0 0xe6160000 0 0x0100>;
++			bootph-all;
+ 		};
+ 
+ 		sysc: system-controller@e6180000 {
+@@ -1948,6 +1953,7 @@ lvds1_out: endpoint {
+ 		prr: chipid@ff000044 {
+ 			compatible = "renesas,prr";
+ 			reg = <0 0xff000044 0 4>;
++			bootph-all;
+ 		};
+ 
+ 		cmt0: timer@ffca0000 {
+@@ -2018,5 +2024,6 @@ usb_extal_clk: usb_extal {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <48000000>;
++		bootph-all;
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts b/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
+index e4e1d9c98c617..e9f90fa44d551 100644
+--- a/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
++++ b/arch/arm/boot/dts/renesas/r8a7791-koelsch.dts
+@@ -679,6 +679,7 @@ &sata0 {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7791-porter.dts b/arch/arm/boot/dts/renesas/r8a7791-porter.dts
+index 08381498350aa..f518eadd8b9cd 100644
+--- a/arch/arm/boot/dts/renesas/r8a7791-porter.dts
++++ b/arch/arm/boot/dts/renesas/r8a7791-porter.dts
+@@ -312,6 +312,7 @@ audio_clk_pins: audio_clk {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7791.dtsi b/arch/arm/boot/dts/renesas/r8a7791.dtsi
+index e57567adff558..5023b41c28b36 100644
+--- a/arch/arm/boot/dts/renesas/r8a7791.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7791.dtsi
+@@ -125,6 +125,7 @@ extal_clk: extal {
+ 		#clock-cells = <0>;
+ 		/* This value must be overridden by the board. */
+ 		clock-frequency = <0>;
++		bootph-all;
+ 	};
+ 
+ 	/* External PCIe clock - can be overridden by the board */
+@@ -152,6 +153,7 @@ scif_clk: scif {
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&gic>;
++		bootph-all;
+ 
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -291,6 +293,7 @@ gpio7: gpio@e6055800 {
+ 		pfc: pinctrl@e6060000 {
+ 			compatible = "renesas,pfc-r8a7791";
+ 			reg = <0 0xe6060000 0 0x250>;
++			bootph-all;
+ 		};
+ 
+ 		tpu: pwm@e60f0000 {
+@@ -312,6 +315,7 @@ cpg: clock-controller@e6150000 {
+ 			#clock-cells = <2>;
+ 			#power-domain-cells = <0>;
+ 			#reset-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		apmu@e6152000 {
+@@ -323,6 +327,7 @@ apmu@e6152000 {
+ 		rst: reset-controller@e6160000 {
+ 			compatible = "renesas,r8a7791-rst";
+ 			reg = <0 0xe6160000 0 0x0100>;
++			bootph-all;
+ 		};
+ 
+ 		sysc: system-controller@e6180000 {
+@@ -1875,6 +1880,7 @@ lvds0_out: endpoint {
+ 		prr: chipid@ff000044 {
+ 			compatible = "renesas,prr";
+ 			reg = <0 0xff000044 0 4>;
++			bootph-all;
+ 		};
+ 
+ 		cmt0: timer@ffca0000 {
+@@ -1945,5 +1951,6 @@ usb_extal_clk: usb_extal {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <48000000>;
++		bootph-all;
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7792-blanche.dts b/arch/arm/boot/dts/renesas/r8a7792-blanche.dts
+index a3986076d8e3e..23ec0f8a66510 100644
+--- a/arch/arm/boot/dts/renesas/r8a7792-blanche.dts
++++ b/arch/arm/boot/dts/renesas/r8a7792-blanche.dts
+@@ -301,6 +301,7 @@ &rwdt {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7792-wheat.dts b/arch/arm/boot/dts/renesas/r8a7792-wheat.dts
+index bfc780f7e396b..93bd81723c8fb 100644
+--- a/arch/arm/boot/dts/renesas/r8a7792-wheat.dts
++++ b/arch/arm/boot/dts/renesas/r8a7792-wheat.dts
+@@ -183,6 +183,7 @@ &rwdt {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7792.dtsi b/arch/arm/boot/dts/renesas/r8a7792.dtsi
+index 08cbe6c13cee4..7513afc1c9585 100644
+--- a/arch/arm/boot/dts/renesas/r8a7792.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7792.dtsi
+@@ -82,6 +82,7 @@ extal_clk: extal {
+ 		#clock-cells = <0>;
+ 		/* This value must be overridden by the board. */
+ 		clock-frequency = <0>;
++		bootph-all;
+ 	};
+ 
+ 	lbsc: bus {
+@@ -109,6 +110,7 @@ scif_clk: scif {
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&gic>;
++		bootph-all;
+ 
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -308,6 +310,7 @@ gpio11: gpio@e6055600 {
+ 		pfc: pinctrl@e6060000 {
+ 			compatible = "renesas,pfc-r8a7792";
+ 			reg = <0 0xe6060000 0 0x144>;
++			bootph-all;
+ 		};
+ 
+ 		cpg: clock-controller@e6150000 {
+@@ -318,6 +321,7 @@ cpg: clock-controller@e6150000 {
+ 			#clock-cells = <2>;
+ 			#power-domain-cells = <0>;
+ 			#reset-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		apmu@e6152000 {
+@@ -329,6 +333,7 @@ apmu@e6152000 {
+ 		rst: reset-controller@e6160000 {
+ 			compatible = "renesas,r8a7792-rst";
+ 			reg = <0 0xe6160000 0 0x0100>;
++			bootph-all;
+ 		};
+ 
+ 		sysc: system-controller@e6180000 {
+@@ -947,6 +952,7 @@ du_out_rgb1: endpoint {
+ 		prr: chipid@ff000044 {
+ 			compatible = "renesas,prr";
+ 			reg = <0 0xff000044 0 4>;
++			bootph-all;
+ 		};
+ 
+ 		cmt0: timer@ffca0000 {
+diff --git a/arch/arm/boot/dts/renesas/r8a7793-gose.dts b/arch/arm/boot/dts/renesas/r8a7793-gose.dts
+index 2c05d7c2b3776..45b267ec26794 100644
+--- a/arch/arm/boot/dts/renesas/r8a7793-gose.dts
++++ b/arch/arm/boot/dts/renesas/r8a7793-gose.dts
+@@ -642,6 +642,7 @@ &rwdt {
+ &scif0 {
+ 	pinctrl-0 = <&scif0_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7793.dtsi b/arch/arm/boot/dts/renesas/r8a7793.dtsi
+index e48e43cc6b03d..fc6d3bcca2961 100644
+--- a/arch/arm/boot/dts/renesas/r8a7793.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7793.dtsi
+@@ -117,6 +117,7 @@ extal_clk: extal {
+ 		#clock-cells = <0>;
+ 		/* This value must be overridden by the board. */
+ 		clock-frequency = <0>;
++		bootph-all;
+ 	};
+ 
+ 	pmu {
+@@ -137,6 +138,7 @@ scif_clk: scif {
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&gic>;
++		bootph-all;
+ 
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -276,6 +278,7 @@ gpio7: gpio@e6055800 {
+ 		pfc: pinctrl@e6060000 {
+ 			compatible = "renesas,pfc-r8a7793";
+ 			reg = <0 0xe6060000 0 0x250>;
++			bootph-all;
+ 		};
+ 
+ 		/* Special CPG clocks */
+@@ -287,6 +290,7 @@ cpg: clock-controller@e6150000 {
+ 			#clock-cells = <2>;
+ 			#power-domain-cells = <0>;
+ 			#reset-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		apmu@e6152000 {
+@@ -298,6 +302,7 @@ apmu@e6152000 {
+ 		rst: reset-controller@e6160000 {
+ 			compatible = "renesas,r8a7793-rst";
+ 			reg = <0 0xe6160000 0 0x0100>;
++			bootph-all;
+ 		};
+ 
+ 		sysc: system-controller@e6180000 {
+@@ -1454,6 +1459,7 @@ lvds0_out: endpoint {
+ 		prr: chipid@ff000044 {
+ 			compatible = "renesas,prr";
+ 			reg = <0 0xff000044 0 4>;
++			bootph-all;
+ 		};
+ 
+ 		cmt0: timer@ffca0000 {
+@@ -1524,5 +1530,6 @@ usb_extal_clk: usb_extal {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <48000000>;
++		bootph-all;
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7794-alt.dts b/arch/arm/boot/dts/renesas/r8a7794-alt.dts
+index f70e26aa83a0a..3f06a7f67d62a 100644
+--- a/arch/arm/boot/dts/renesas/r8a7794-alt.dts
++++ b/arch/arm/boot/dts/renesas/r8a7794-alt.dts
+@@ -479,6 +479,7 @@ vin0ep: endpoint {
+ &scif2 {
+ 	pinctrl-0 = <&scif2_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7794-silk.dts b/arch/arm/boot/dts/renesas/r8a7794-silk.dts
+index 2a0819311a3c4..3428256057680 100644
+--- a/arch/arm/boot/dts/renesas/r8a7794-silk.dts
++++ b/arch/arm/boot/dts/renesas/r8a7794-silk.dts
+@@ -394,6 +394,7 @@ audio_clk_pins: audio_clk {
+ &scif2 {
+ 	pinctrl-0 = <&scif2_pins>;
+ 	pinctrl-names = "default";
++	bootph-all;
+ 
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/renesas/r8a7794.dtsi b/arch/arm/boot/dts/renesas/r8a7794.dtsi
+index bc16c896c0f9b..92010d09f6c40 100644
+--- a/arch/arm/boot/dts/renesas/r8a7794.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7794.dtsi
+@@ -99,6 +99,7 @@ extal_clk: extal {
+ 		#clock-cells = <0>;
+ 		/* This value must be overridden by the board. */
+ 		clock-frequency = <0>;
++		bootph-all;
+ 	};
+ 
+ 	pmu {
+@@ -119,6 +120,7 @@ scif_clk: scif {
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&gic>;
++		bootph-all;
+ 
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -243,6 +245,7 @@ gpio6: gpio@e6055400 {
+ 		pfc: pinctrl@e6060000 {
+ 			compatible = "renesas,pfc-r8a7794";
+ 			reg = <0 0xe6060000 0 0x11c>;
++			bootph-all;
+ 		};
+ 
+ 		cpg: clock-controller@e6150000 {
+@@ -253,6 +256,7 @@ cpg: clock-controller@e6150000 {
+ 			#clock-cells = <2>;
+ 			#power-domain-cells = <0>;
+ 			#reset-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		apmu@e6151000 {
+@@ -264,6 +268,7 @@ apmu@e6151000 {
+ 		rst: reset-controller@e6160000 {
+ 			compatible = "renesas,r8a7794-rst";
+ 			reg = <0 0xe6160000 0 0x0100>;
++			bootph-all;
+ 		};
+ 
+ 		sysc: system-controller@e6180000 {
+@@ -1440,6 +1445,7 @@ du_out_rgb1: endpoint {
+ 		prr: chipid@ff000044 {
+ 			compatible = "renesas,prr";
+ 			reg = <0 0xff000044 0 4>;
++			bootph-all;
+ 		};
+ 
+ 		cmt0: timer@ffca0000 {
+@@ -1491,5 +1497,6 @@ usb_extal_clk: usb_extal {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <48000000>;
++		bootph-all;
+ 	};
+ };
 -- 
-J. Neuschäfer <j.ne@posteo.net>
-
+2.47.2
 
 
