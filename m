@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC30DC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 11:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1FEC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 11:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jv+cLmILsq6/Q63wf4VLe/fU0JLiD7L+ZSaxXE2WQYo=; b=CE8eTylxjWy4HTvX4XPiSBQPtA
-	9pG3i7fpBYEu4Jsgs36vUdb6k/L8EjTxB9Nx0uozzE6/jSj4hDcJjihpP5dJPfmfmoENL184lg1hm
-	RB94xDvdNdFcOB+IFGK0ZKauZ7IgN64cE20a0K9oMypz4qHQD6S7VILqtgVCoxchYAFdEaqurszC9
-	RFxWOxcK2IMDZqzGMeRyRhiJL4DJ26J5t7J3lpzrfPbjdfb5dxq+cVG7s0fo6/YVgQq0uPBKScpaz
-	P4jw643Qm/CI+bJofE3yePJXsxX18QIf5Pq0/Te7l2R4d9daKsVI1scz9i0qWnIKlugypjASMQubK
-	8NsibIcQ==;
+	bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=; b=zvcMgI0BfKYJZVR3xw9OGYYF31
+	XPSoXt9r69bCHpBr+alh0YoQZgf0A0n/RV0+4iOA1d+582NAzVUDW4xkL5STKjS66Us4Ad61RDsQf
+	ERdCg+qLnVV9xGtqYE8T56OXtDkXBmw4up5uXbxj+zDukuNtPGVH2Ts3qsruD9FwGk2W58Tw86O5V
+	P8Si8gW/Db4hNFWXBGgSc/93j6lGkfz7U+CDGCh/SYKg1Qmd8KR2zwh53OUlt8DmguoFL/cEhg7i9
+	sRVEpTN7mufdVgKaJNXzQW9QjMT9B6Zaw1PFbWEpJt/LTt1fCxbtwqFRIJ87EsdSRCJeI0l+ORMW6
+	FgPlFtXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5GD-0000000EhcC-1RYr;
-	Sun, 09 Feb 2025 11:14:01 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1th5HZ-0000000EhzX-1NEF;
+	Sun, 09 Feb 2025 11:15:25 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5D4-0000000EgXC-2LAI;
-	Sun, 09 Feb 2025 11:10:47 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5dcea56d6e2so6290579a12.1;
-        Sun, 09 Feb 2025 03:10:46 -0800 (PST)
+	id 1th5D5-0000000EgXL-26Ss;
+	Sun, 09 Feb 2025 11:10:48 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa67ac42819so542778566b.0;
+        Sun, 09 Feb 2025 03:10:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739099445; x=1739704245; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739099446; x=1739704246; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Jv+cLmILsq6/Q63wf4VLe/fU0JLiD7L+ZSaxXE2WQYo=;
-        b=UV3FLH6m8p2UzHJeA93/rHZvIfFQBWG3+m/7LsNRiw1cPFdfKdpRIS1xO5uML9qmdw
-         pi7Yn4OuvJh+h0kWKH+msQ+B0vy06LR/H9bO1LqVwzGqYGWGNWkV0ixanamRYkmm7eK2
-         Zx44XvnLyDPNHwNhZMq+pphY5lP15HXAVHqAuxOs3csgA1BZpuSYvhTfkuojw8eNt9HV
-         sG6emoldfMIa/DZAFtzdIYfbw5akc6vh7sFf022PLPId3gx1FOMzJmNKqvKz2vmSjJdi
-         7xuQsKZ3oTnvZnkInjP0YTtBze97VIRYJT+V50/cDnPi3eQvc/ghzZ8moll5dPrWlb50
-         wmLw==
+        bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=;
+        b=nJTofOMnDmXE7GRT2vfrQZQIDQAiS27p++QgRWkOdgaa6PVLgj4TZpBx062vWdDhJI
+         FrPagwcS69G4rmlieLS8Tr3J+WODuyFk/Kzlw4lznQnsJ+kzDIlY1JmKy0ZGmBZrLG9d
+         mpJBj9HI7x4wunh4tgOZnJNwBTBuu+8aBXkT0zCzW9Jq+UG2mbxbHVulMww0YkFZWXSs
+         jy0NmKc42hPI3bX2HlcLlU8fYAo75gqAmfQujCv+UPMl9U7Mf0HgXhX9S2oxhCLqvZaH
+         YYdtNrXfNnJ/FsJCNAVnmWIlpsSByedqZM/LJ25UAJ7u00DER4Iybizd2r5BqXogtsBa
+         NHYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739099445; x=1739704245;
+        d=1e100.net; s=20230601; t=1739099446; x=1739704246;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Jv+cLmILsq6/Q63wf4VLe/fU0JLiD7L+ZSaxXE2WQYo=;
-        b=nB7JFmwxS3pTRaBBDxa6NFlBFxR0H3iGkrs+ieCTQjB+j4SMe9QZuvqSFzWA+TfU71
-         KzgKr5eXQRCrfIsTi+4HLHLF0a6JEkw2XquoVQzaZT++L5S1WdYRUbONA5a4Z31B8LdB
-         RjV0qrbagnz4rYs5+sXBtxRlwE+R3YBkmAS7z3JEPi678q5T7O1LxQD/AI2ew3N9PXzJ
-         Uju/f+N03WBZzw8tKjKKp/F1vVNFIJCrEWLup4xeipVIDquYUhJy2mEKoQ1O9kCHzcNC
-         rsVlVEkjtc5XEV4iXea/dL3X6PPAjaW6LepByULD3LXS9DAqwLA//rGEvTr6mkCgsDdi
-         BEzA==
-X-Forwarded-Encrypted: i=1; AJvYcCUa0DQk6hIAv0OgYWKwqQ2rfg/rzcJNCifhNBHJTHWy/V3lifw8dlhXKJecKbL7HAmAvN9F7WGL6J6KhjGqHE/C@lists.infradead.org, AJvYcCVXaTEJCSNTsNAmi02ulNtQupzLXaXWhKAp7iOfRjwzc0jdbcyYiiWB3oFDwc/0/PhFC+agdLFElaY7kwGxBXA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0fMJc9gNfIoRWMuN1W6yyqdNd8TgTRCIvA12o1DjUHICc0PiH
-	Y9udAc1MGZ+xNjihfbfmHTc9qWp2jztx7JbOAz4ZL4KI9GpGlWPG
-X-Gm-Gg: ASbGncv7DoS4dMgtVramNaNK2DueArO4uklALBuMdI59DffR506OR1kuRe2eGgWKBjh
-	D95RP9AHkpK94vpmFwoGehtX5Ly+eWv2Ufr/dLvXfNgxsN87P4dVoATiqI7k6s2L/8mlY+HpuRT
-	aiy2+k0VEKBR7vfX7BjhCG7Gql0Ng+rSFn0Y8h7TEQg6VDXhrSoPb1Syai8CcCFrBbo3gg4Bo21
-	QHB4/qHRVJhGDf994Xn5PFswyUP3we8ySOoQgtP2THZ5vVgtWT33bbS3sae6Hqk/zE8W+MqomS4
-	0udErif1TFPi28havoiHsw3dcutBuGr7QHFkfDMGFEEMkaKVCK0kdp4pQ+dVVSzEsvm6xfAaNhn
-	mAhWwFR+lU3haS5zSxUyVIK2Ny+Z5pLDA
-X-Google-Smtp-Source: AGHT+IFXYULiROmtF4EyTfGufju+UjViGw3XLxQmSmt9lA2TpOAIjz2H8Xb5sfx3OKtKl9zdly0ehQ==
-X-Received: by 2002:a17:906:3586:b0:ab7:97ca:e8f6 with SMTP id a640c23a62f3a-ab797caed01mr570807566b.54.1739099443030;
-        Sun, 09 Feb 2025 03:10:43 -0800 (PST)
+        bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=;
+        b=ZXTpRjld0CdHvHEPT2sMz5AeBaVrZCG/c2KJSQna0hz6VhsVEu8NWlLxmEGMKcltRV
+         5UZGjD+zzBWFTT1sv0SDzPC8YFXxjG7kaOB9BfwzxHBvWZwZX1d+X83iIYG1oMMH/n0R
+         sm6ObxdWQudJKIYUAgKAl1Oc2dcoqBB5IVOpcN5ZnoaGbV947+wpP8amxqa3z3Mfyrk5
+         aA9WEQmH3ptEWEm3WDxNh3WPcsnFnhs67sG/kOXJ2ac1EuqB77xfelFaUBu5UBuMnNxo
+         QbiGlAQ4Q8lBPN6MX7Lr23mRzRQeXZS5wcUJxL6klT+/aYek2Ea4QPZrDcffFBEAGyrI
+         R1gg==
+X-Forwarded-Encrypted: i=1; AJvYcCVuZmNk7+kIitdGYmI1z/XrjwiLEBJRJxoU+nj+Q5ZFVcGmIMIW44hx7pAjZHi2okdvreIl3qRIRxZvGuXx7J2T@lists.infradead.org, AJvYcCXt8XYgYbCOl11ca5vLx7YrJ7QxZNTwqnNw44w1b2UX7e8jGJN2J+GibjpYhVsyavrHEe72BJi42DQA+7qpfy0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZuw/8wJRE5hLFTuXOgIztdbSsteAUdFM15kWKFd+dkVxun6V7
+	y1rm3BR5QBVp/8XGpsaqZWSp/CckgGjGL6vRe6lvU5jlf/chvJz3
+X-Gm-Gg: ASbGncuwh9WneZISDYPdKel5fyuHQ7cX1MHsNT3oDSak0fz9bnlNdewZdFfX5mhTThJ
+	2/vZbrg95KYKO44QGcKFvs5vfiM5WWqjXOrbrGYwZVMN9Mx1TJ3UQbLagtdybkHbFkaXdyDhyAZ
+	CfgyDeYeX5buRDbz/cFM7KuHNMyVQAruzSzA0Zebtd4owExQgyj2Vn285LY2VoEjwpN5B+7XlUg
+	P/gtFskk2RYNXA73UNo7ixhvRsdubC01nsFAjMFGVowguTambMpLqMyzb3+a1hCdndNxNLe71ET
+	I8z6vNQ7t4BYZYK1zgwoIRtPl7t3e74M6yl+PG9rgOR7cvTYYWR16JnO/0MbB3ZtN7ObOa9OX5S
+	TQX7obtaduYoQ+g7M+F//zKLwrgOANBCl
+X-Google-Smtp-Source: AGHT+IGgn06hMTlVvi9pNiIOCGf289zNj88FfDXoxW/6B8WNNLYcdoNWmCMQN1J0/mTfbfKOoidTdg==
+X-Received: by 2002:a17:906:4fd6:b0:aab:d7ef:d44 with SMTP id a640c23a62f3a-ab789aecd06mr902224966b.24.1739099445427;
+        Sun, 09 Feb 2025 03:10:45 -0800 (PST)
 Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab79afc7452sm357516366b.163.2025.02.09.03.10.40
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab79afc7452sm357516366b.163.2025.02.09.03.10.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Feb 2025 03:10:42 -0800 (PST)
+        Sun, 09 Feb 2025 03:10:44 -0800 (PST)
 From: Eric Woudstra <ericwouds@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -99,17 +99,17 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH v6 net-next 01/14] netfilter: nf_flow_table_offload: Add nf_flow_encap_push() for xmit direct
-Date: Sun,  9 Feb 2025 12:10:21 +0100
-Message-ID: <20250209111034.241571-2-ericwouds@gmail.com>
+Subject: [PATCH v6 net-next 02/14] netfilter: flow: remove hw_outdev, out.hw_ifindex and out.hw_ifidx
+Date: Sun,  9 Feb 2025 12:10:22 +0100
+Message-ID: <20250209111034.241571-3-ericwouds@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250209111034.241571-1-ericwouds@gmail.com>
 References: <20250209111034.241571-1-ericwouds@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_031046_619008_E5965E79 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20250209_031047_538296_497BA192 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +124,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Loosely based on wenxu's patches:
-
-"nf_flow_table_offload: offload the vlan/PPPoE encap in the flowtable".
-
-Fixed double vlan and pppoe packets, almost entirely rewriting the patch.
-
-After this patch, it is possible to transmit packets in the fastpath with
-outgoing encaps, without using vlan- and/or pppoe-devices.
-
-This makes it possible to use more different kinds of network setups.
-For example, when bridge tagging is used to egress vlan tagged
-packets using the forward fastpath. Another example is passing 802.1q
-tagged packets through a bridge using the bridge fastpath.
-
-This also makes the software fastpath process more similar to the
-hardware offloaded fastpath process, where encaps are also pushed.
-
-After applying this patch, always info->outdev = info->hw_outdev,
-so the netfilter code can be further cleaned up by removing:
+Now always info->outdev == info->hw_outdev, so the netfilter code can be
+further cleaned up by removing:
  * hw_outdev from struct nft_forward_info
  * out.hw_ifindex from struct nf_flow_route
  * out.hw_ifidx from struct flow_offload_tuple
@@ -150,174 +133,86 @@ so the netfilter code can be further cleaned up by removing:
 Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
 Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
 ---
- net/netfilter/nf_flow_table_ip.c | 96 +++++++++++++++++++++++++++++++-
- net/netfilter/nft_flow_offload.c |  6 +-
- 2 files changed, 96 insertions(+), 6 deletions(-)
+ include/net/netfilter/nf_flow_table.h | 2 --
+ net/netfilter/nf_flow_table_core.c    | 1 -
+ net/netfilter/nf_flow_table_offload.c | 2 +-
+ net/netfilter/nft_flow_offload.c      | 4 ----
+ 4 files changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
-index 97c6eb8847a0..b9292eb40907 100644
---- a/net/netfilter/nf_flow_table_ip.c
-+++ b/net/netfilter/nf_flow_table_ip.c
-@@ -306,6 +306,92 @@ static bool nf_flow_skb_encap_protocol(struct sk_buff *skb, __be16 proto,
- 	return false;
- }
- 
-+static int nf_flow_vlan_inner_push(struct sk_buff *skb, __be16 proto, u16 id)
-+{
-+	struct vlan_hdr *vhdr;
-+
-+	if (skb_cow_head(skb, VLAN_HLEN))
-+		return -1;
-+
-+	__skb_push(skb, VLAN_HLEN);
-+	skb_reset_network_header(skb);
-+
-+	vhdr = (struct vlan_hdr *)(skb->data);
-+	vhdr->h_vlan_TCI = htons(id);
-+	vhdr->h_vlan_encapsulated_proto = skb->protocol;
-+	skb->protocol = proto;
-+
-+	return 0;
-+}
-+
-+static int nf_flow_ppoe_push(struct sk_buff *skb, u16 id)
-+{
-+	struct ppp_hdr {
-+		struct pppoe_hdr hdr;
-+		__be16 proto;
-+	} *ph;
-+	int data_len = skb->len + 2;
-+	__be16 proto;
-+
-+	if (skb_cow_head(skb, PPPOE_SES_HLEN))
-+		return -1;
-+
-+	if (skb->protocol == htons(ETH_P_IP))
-+		proto = htons(PPP_IP);
-+	else if (skb->protocol == htons(ETH_P_IPV6))
-+		proto = htons(PPP_IPV6);
-+	else
-+		return -1;
-+
-+	__skb_push(skb, PPPOE_SES_HLEN);
-+	skb_reset_network_header(skb);
-+
-+	ph = (struct ppp_hdr *)(skb->data);
-+	ph->hdr.ver  = 1;
-+	ph->hdr.type = 1;
-+	ph->hdr.code = 0;
-+	ph->hdr.sid  = htons(id);
-+	ph->hdr.length = htons(data_len);
-+	ph->proto = proto;
-+	skb->protocol = htons(ETH_P_PPP_SES);
-+
-+	return 0;
-+}
-+
-+static int nf_flow_encap_push(struct sk_buff *skb,
-+			      struct flow_offload_tuple_rhash *tuplehash,
-+			      unsigned short *type)
-+{
-+	int i = 0, ret = 0;
-+
-+	if (!tuplehash->tuple.encap_num)
-+		return 0;
-+
-+	if (tuplehash->tuple.encap[i].proto == htons(ETH_P_8021Q) ||
-+	    tuplehash->tuple.encap[i].proto == htons(ETH_P_8021AD)) {
-+		__vlan_hwaccel_put_tag(skb, tuplehash->tuple.encap[i].proto,
-+				       tuplehash->tuple.encap[i].id);
-+		i++;
-+		if (i >= tuplehash->tuple.encap_num)
-+			return 0;
-+	}
-+
-+	switch (tuplehash->tuple.encap[i].proto) {
-+	case htons(ETH_P_8021Q):
-+		*type = ETH_P_8021Q;
-+		ret = nf_flow_vlan_inner_push(skb,
-+					      tuplehash->tuple.encap[i].proto,
-+					      tuplehash->tuple.encap[i].id);
-+		break;
-+	case htons(ETH_P_PPP_SES):
-+		*type = ETH_P_PPP_SES;
-+		ret = nf_flow_ppoe_push(skb,
-+					tuplehash->tuple.encap[i].id);
-+		break;
-+	}
-+	return ret;
-+}
-+
- static void nf_flow_encap_pop(struct sk_buff *skb,
- 			      struct flow_offload_tuple_rhash *tuplehash)
- {
-@@ -335,6 +421,7 @@ static void nf_flow_encap_pop(struct sk_buff *skb,
- 
- static unsigned int nf_flow_queue_xmit(struct net *net, struct sk_buff *skb,
- 				       const struct flow_offload_tuple_rhash *tuplehash,
-+				       struct flow_offload_tuple_rhash *other_tuplehash,
- 				       unsigned short type)
- {
- 	struct net_device *outdev;
-@@ -343,6 +430,9 @@ static unsigned int nf_flow_queue_xmit(struct net *net, struct sk_buff *skb,
- 	if (!outdev)
- 		return NF_DROP;
- 
-+	if (nf_flow_encap_push(skb, other_tuplehash, &type) < 0)
-+		return NF_DROP;
-+
- 	skb->dev = outdev;
- 	dev_hard_header(skb, skb->dev, type, tuplehash->tuple.out.h_dest,
- 			tuplehash->tuple.out.h_source, skb->len);
-@@ -464,7 +554,8 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff *skb,
- 		ret = NF_STOLEN;
+diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
+index d711642e78b5..4ab32fb61865 100644
+--- a/include/net/netfilter/nf_flow_table.h
++++ b/include/net/netfilter/nf_flow_table.h
+@@ -145,7 +145,6 @@ struct flow_offload_tuple {
+ 		};
+ 		struct {
+ 			u32		ifidx;
+-			u32		hw_ifidx;
+ 			u8		h_source[ETH_ALEN];
+ 			u8		h_dest[ETH_ALEN];
+ 		} out;
+@@ -211,7 +210,6 @@ struct nf_flow_route {
+ 		} in;
+ 		struct {
+ 			u32			ifindex;
+-			u32			hw_ifindex;
+ 			u8			h_source[ETH_ALEN];
+ 			u8			h_dest[ETH_ALEN];
+ 		} out;
+diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
+index 9d8361526f82..1e5d3735c028 100644
+--- a/net/netfilter/nf_flow_table_core.c
++++ b/net/netfilter/nf_flow_table_core.c
+@@ -127,7 +127,6 @@ static int flow_offload_fill_route(struct flow_offload *flow,
+ 		memcpy(flow_tuple->out.h_source, route->tuple[dir].out.h_source,
+ 		       ETH_ALEN);
+ 		flow_tuple->out.ifidx = route->tuple[dir].out.ifindex;
+-		flow_tuple->out.hw_ifidx = route->tuple[dir].out.hw_ifindex;
+ 		dst_release(dst);
  		break;
+ 	case FLOW_OFFLOAD_XMIT_XFRM:
+diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+index e06bc36f49fe..d8f7bfd60ac6 100644
+--- a/net/netfilter/nf_flow_table_offload.c
++++ b/net/netfilter/nf_flow_table_offload.c
+@@ -555,7 +555,7 @@ static void flow_offload_redirect(struct net *net,
+ 	switch (this_tuple->xmit_type) {
  	case FLOW_OFFLOAD_XMIT_DIRECT:
--		ret = nf_flow_queue_xmit(state->net, skb, tuplehash, ETH_P_IP);
-+		ret = nf_flow_queue_xmit(state->net, skb, tuplehash,
-+					 &flow->tuplehash[!dir], ETH_P_IP);
- 		if (ret == NF_DROP)
- 			flow_offload_teardown(flow);
+ 		this_tuple = &flow->tuplehash[dir].tuple;
+-		ifindex = this_tuple->out.hw_ifidx;
++		ifindex = this_tuple->out.ifidx;
  		break;
-@@ -761,7 +852,8 @@ nf_flow_offload_ipv6_hook(void *priv, struct sk_buff *skb,
- 		ret = NF_STOLEN;
- 		break;
- 	case FLOW_OFFLOAD_XMIT_DIRECT:
--		ret = nf_flow_queue_xmit(state->net, skb, tuplehash, ETH_P_IPV6);
-+		ret = nf_flow_queue_xmit(state->net, skb, tuplehash,
-+					 &flow->tuplehash[!dir], ETH_P_IPV6);
- 		if (ret == NF_DROP)
- 			flow_offload_teardown(flow);
- 		break;
+ 	case FLOW_OFFLOAD_XMIT_NEIGH:
+ 		other_tuple = &flow->tuplehash[!dir].tuple;
 diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index 46a6d280b09c..b4baee519e18 100644
+index b4baee519e18..5ef2f4ba7ab8 100644
 --- a/net/netfilter/nft_flow_offload.c
 +++ b/net/netfilter/nft_flow_offload.c
-@@ -124,13 +124,12 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
- 				info->indev = NULL;
- 				break;
- 			}
--			if (!info->outdev)
--				info->outdev = path->dev;
- 			info->encap[info->num_encaps].id = path->encap.id;
- 			info->encap[info->num_encaps].proto = path->encap.proto;
- 			info->num_encaps++;
- 			if (path->type == DEV_PATH_PPPOE)
- 				memcpy(info->h_dest, path->encap.h_dest, ETH_ALEN);
-+			info->xmit_type = FLOW_OFFLOAD_XMIT_DIRECT;
- 			break;
- 		case DEV_PATH_BRIDGE:
- 			if (is_zero_ether_addr(info->h_source))
-@@ -158,8 +157,7 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
- 			break;
- 		}
+@@ -80,7 +80,6 @@ static int nft_dev_fill_forward_path(const struct nf_flow_route *route,
+ struct nft_forward_info {
+ 	const struct net_device *indev;
+ 	const struct net_device *outdev;
+-	const struct net_device *hw_outdev;
+ 	struct id {
+ 		__u16	id;
+ 		__be16	proto;
+@@ -159,8 +158,6 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
  	}
--	if (!info->outdev)
--		info->outdev = info->indev;
-+	info->outdev = info->indev;
+ 	info->outdev = info->indev;
  
- 	info->hw_outdev = info->indev;
- 
+-	info->hw_outdev = info->indev;
+-
+ 	if (nf_flowtable_hw_offload(flowtable) &&
+ 	    nft_is_valid_ether_device(info->indev))
+ 		info->xmit_type = FLOW_OFFLOAD_XMIT_DIRECT;
+@@ -212,7 +209,6 @@ static void nft_dev_forward_path(struct nf_flow_route *route,
+ 		memcpy(route->tuple[dir].out.h_source, info.h_source, ETH_ALEN);
+ 		memcpy(route->tuple[dir].out.h_dest, info.h_dest, ETH_ALEN);
+ 		route->tuple[dir].out.ifindex = info.outdev->ifindex;
+-		route->tuple[dir].out.hw_ifindex = info.hw_outdev->ifindex;
+ 		route->tuple[dir].xmit_type = info.xmit_type;
+ 	}
+ }
 -- 
 2.47.1
 
