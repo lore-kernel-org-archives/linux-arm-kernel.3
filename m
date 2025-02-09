@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9808C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAED5C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0a0XeLVwc+8gt4CWlvRNYzlpZgVZAhYK/YrFTGewRVg=; b=Lr7VCAABo0sPYM/1s9UZedK6TW
-	nIgLo9pgedUVcPB0JE2ONU10KIdDJAy6zmCfAQcw/Dn9DuNdwzbwN6mpdqSrQeOrj2ngRc2Mz80sb
-	QCPf19VkNzZMkPPXU442tjXi886J3LkEH0twHBo9ux8S9ye6CT0lukOSy6z7Wr9vONpZ3+9/SaMPh
-	owMZvkeUIQayn/pXz20ojson8QDCm53tmFbR1hljlZ9dHQJKDengqn+s31HIgTSJt234PPyQawoGI
-	0A/u+0J9462Cg4j7wPbdk+lPcmGVAQ5lPguCD0gYc8+03m15PFl7ayrOof2WjmBhI6MVRotxbbm4p
-	wGUQ9x7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qN6BsUHEH5FXjdXnOtlQJLcbGf6yABUBwTpgya5QN0U=; b=xqKrrrDtyNv2kIAUfhyebUGCS8
+	mpx9arO4EDpe5f4qIT7cXrWUqk6FvjDcsprX+PsfNGQ4+S6bx31GUMOs1mo2AbCGRu5DNlPO/b2h9
+	Hhs6y7UFx+GAEuuP19ARwLA7b/LkES+vaDXff+KxXp3jrQ1fJq+K2PiQxkVJxlhwCK5eGGsCzDj3k
+	1voS6BhEl2BFIGR9oo9sT0JNI8dJ9wADuEKcip48m6T126W3IgcwvK4FwHwPb/arrUOi5HW7yYDNq
+	W4gPyg/3vaoHL/v6KOL/jK6NDMXwhNKihe9woURCmbi7Gfzk45zRM3vqVEZCOFbejRt/GMk4NtzX8
+	ieoFcrMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th67X-0000000EnPn-1xet;
-	Sun, 09 Feb 2025 12:09:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1th68u-0000000EnuU-3Lvp;
+	Sun, 09 Feb 2025 12:10:32 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th668-0000000EnCU-3pDl;
-	Sun, 09 Feb 2025 12:07:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C9A25A40254;
-	Sun,  9 Feb 2025 12:05:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A959EC4CEDD;
-	Sun,  9 Feb 2025 12:07:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739102859;
-	bh=mrQhDEUAy9bpBI7w32R9V55ZsjnRFLW0WmEVeb+BEVA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PXUPYhJyPMN1QBehL4R85/FZdnTscVQylL76tGS8317rddXUB6kVfhb5XXWT3F177
-	 b3bY0TxIHpsXwOcXH8d21UsAXu0b1aZvSmAmf8ShGFeP7heWKT+6lgM5lXnC8sjJ/3
-	 rSeqzs27+UwRuD+rquEAZYoHUL/7HYD+9cLz4RQ4xF+y9ECohD85N9dHujBUdLNuxE
-	 fnTYniz8UIfIq03ex1/fPHXV2gL6U99/DO/ZiuR2PKuvcjEeDFE64xJ8s1D9YTGzKz
-	 HYu9E8djCwJU9y1k9FClbDV2EXzjp+vYjBgVV2LUclmfbhIiAmbIqfS3/sRy/WtVs6
-	 zk0GfTbI6BTuA==
-Date: Sun, 9 Feb 2025 13:07:36 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	id 1th677-0000000EnKc-2Rrj
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Feb 2025 12:08:43 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 3011E1380224;
+	Sun,  9 Feb 2025 07:08:40 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Sun, 09 Feb 2025 07:08:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1739102920; x=1739189320; bh=qN6BsUHEH5FXjdXnOtlQJLcbGf6yABUB
+	wTpgya5QN0U=; b=X+y37JrO/KiFdedlXjjDPw1e2l6OVIOW/MFHXttS/7JEob1u
+	Ms5WjkvZxNUA32Dz6uPKdrXW2X/NnnZPdSM1D4l8JLXbcefPG8v6dDNRj6MXyHVz
+	1pSpSC/lnu+vwdKT2lkYC+J1f/c1CgSDBn6R3eFgo80E1kpGV+jYl5M+LLWu3/9k
+	EuuuFyHI/t5XjCfOmUIFshADFikE3LDmXghGNP47vF2wLNRZpDFoeFRxjUund/EL
+	/+DjIcbxlqN/lacmZG0s6+H7XhDXuBIRzOS2GBtwwDlNb5lnZELaZ1kLVK0J3kDE
+	tQ7dGjeqg4NHyiv8I39z/YQWZQ6/piE+20sgUA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739102920; x=
+	1739189320; bh=qN6BsUHEH5FXjdXnOtlQJLcbGf6yABUBwTpgya5QN0U=; b=z
+	PCreYWsddEqgj9/oUMakQn2Bet86Qa3onvqihysaGQ7gVVU3p3cA1WhuMZzC0Egi
+	Jsb7b2lxiGDfI3U6LvlvTJndzowicfbjENzjG8rrmPsFe+pRI/cglyU3QDKtb+bk
+	YbL4eYaIesbkf8ceLexeiTxRewkOELMnbxUZnTJWcOfWdaKu0S8/5AXhqBsIj0Rm
+	WiuWO0S1RVV+TZkuMHBr+vg6GxZb6NlmhfjOBzRSNjjt/8+o6qSaKFzXCVdMGlU7
+	yknIk6v9e7ns3uTk0s2IgkoZ0meqjPaAon+dCbki+JLpR0oU0+RUYvQPXt4W/I3B
+	VyrVhd7H/fElHpCSA9few==
+X-ME-Sender: <xms:x5qoZ6aemBIE8AsURUf1TNBb4zDm1kU6kktCxNB3SMRjXnJo9fj0uQ>
+    <xme:x5qoZ9bMgoZSdPRQnZ1NTmsmvqNK21hoClXPHNkMRoZXqgjw-E5GdzcDVoFA7YiQV
+    rLCHYyqHkBtsiojKdQ>
+X-ME-Received: <xmr:x5qoZ0_TYSr_In0WGmSP3cYWY3FHqBzGIFRL8AE8YAaaGkuSZ73Nfksd364CQOfYbKqm0QSWA6xEBpyfCoT8FtipkOpzGt3yqZ3apwQ8Jw1RUXfzdyc4n0pcH9laJv0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefhedtlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtgfesthekredtredt
+    jeenucfhrhhomhepufhvvghnucfrvghtvghruceoshhvvghnsehsvhgvnhhpvghtvghrrd
+    guvghvqeenucggtffrrghtthgvrhhnpeegieehffethffhffefhfehkeevleevieetfeeg
+    keehhfeifffgheehieejheeihfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghrtghp
+    thhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrghrtggrnhesmh
+    grrhgtrghnrdhsthdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhi
+    ohdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
+    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhf
+    rhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
+    khgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:x5qoZ8peN4MWOfpf4qdAll3NLeLiXG95AFuvEXlr669FtdE6lHHRag>
+    <xmx:x5qoZ1qcOGjsmIW_xeeu__G44kzKlNDz6XG1kw0j_DxEOHsFByqg_Q>
+    <xmx:x5qoZ6QKcuw0YzrLjFFgCSIeOLP41tXYzAyQ8u9o6-rp3iXk2JM__g>
+    <xmx:x5qoZ1px65uIynOfZgWzxrYtGWFwiqNaJlXihd9ApAsBRG9dPLo6YQ>
+    <xmx:yJqoZ2QO8H3QGCwH8MnwUVxZYA6q7cjjoFUUZQGgvcGvjiX6hBBq-oe4>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 9 Feb 2025 07:08:38 -0500 (EST)
+From: Sven Peter <sven@svenpeter.dev>
+To: Hector Martin <marcan@marcan.st>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com, Christian Marangi <ansuelsmth@gmail.com>
-Subject: Re: [PATCH net-next v2 00/15] Introduce flowtable hw offloading in
- airoha_eth driver
-Message-ID: <Z6iaiHVft8B-mAb4@lore-desk>
-References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Nick Chan <towinchenmi@gmail.com>
+Cc: Sven Peter <sven@svenpeter.dev>
+Subject: Re: [PATCH v2 RESEND] arm64: dts: apple: Split s8000/s8003 SoC DTS files
+Date: Sun,  9 Feb 2025 13:08:23 +0100
+Message-Id: <173910236336.99422.11777393599765500005.b4-ty@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250203113949.14760-1-towinchenmi@gmail.com>
+References: <20250203113949.14760-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jJ2SWV1szSy2UBu3"
-Content-Disposition: inline
-In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_040741_077471_8B4BCDE6 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250209_040842_130146_1F5717B5 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,109 +125,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---jJ2SWV1szSy2UBu3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Mon, 03 Feb 2025 19:38:31 +0800, Nick Chan wrote:
+> Despite what the code comments said, the DTS files were not split properly.
+> Since these two SoCs are now known to have minor differences like in
+> latencies for cpufreq state transistions, split the DTS files now.
+> 
+> 
 
-> Introduce netfilter flowtable integration in airoha_eth driver to
-> offload 5-tuple flower rules learned by the PPE module if the user
-> accelerates them using a nft configuration similar to the one reported
-> below:
->=20
-> table inet filter {
-> 	flowtable ft {
-> 		hook ingress priority filter
-> 		devices =3D { lan1, lan2, lan3, lan4, eth1 }
-> 		flags offload;
-> 	}
-> 	chain forward {
-> 		type filter hook forward priority filter; policy accept;
-> 		meta l4proto { tcp, udp } flow add @ft
-> 	}
-> }
->=20
-> Packet Processor Engine (PPE) module available on EN7581 SoC populates
-> the PPE table with 5-tuples flower rules learned from traffic forwarded
-> between the GDM ports connected to the Packet Switch Engine (PSE) module.
-> airoha_eth driver configures and collects data from the PPE module via a
-> Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
-> Move airoha_eth driver in a dedicated folder
-> (drivers/net/ethernet/airoha).
+Applied, thanks!
 
-Please ignore this series, I spotted a couple of issues. I will post v3 soo=
-n.
+[1/1] arm64: dts: apple: Split s8000/s8003 SoC DTS files
+      commit: ef7980d4b2745031318bec172814e2c6260a4288
 
-Regards,
-Lorenzo
-
->=20
-> ---
-> Changes in v2:
-> - Add airoha-npu document binding
-> - Enable Rx SPTAG on MT7530 dsa switch for EN7581 SoC.
-> - Fix warnings in airoha_npu_run_firmware()
-> - Fix sparse warnings
-> - Link to v1: https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-=
-offload-v1-0-d362cfa97b01@kernel.org
->=20
-> ---
-> Lorenzo Bianconi (15):
->       net: airoha: Move airoha_eth driver in a dedicated folder
->       net: airoha: Move definitions in airoha_eth.h
->       net: airoha: Move reg/write utility routines in airoha_eth.h
->       net: airoha: Move register definitions in airoha_regs.h
->       net: airoha: Move DSA tag in DMA descriptor
->       net: dsa: mt7530: Enable Rx sptag for EN7581 SoC
->       net: airoha: Enable support for multiple net_devices
->       net: airoha: Move REG_GDM_FWD_CFG() initialization in airoha_dev_in=
-it()
->       net: airoha: Rename airoha_set_gdm_port_fwd_cfg() in airoha_set_vip=
-_for_gdm_port()
->       dt-bindings: arm: airoha: Add the NPU node for EN7581 SoC
->       dt-bindings: net: airoha: Add airoha,npu phandle property
->       net: airoha: Introduce PPE initialization via NPU
->       net: airoha: Introduce flowtable offload support
->       net: airoha: Add loopback support for GDM2
->       net: airoha: Introduce PPE debugfs support
->=20
->  .../devicetree/bindings/arm/airoha,en7581-npu.yaml |   71 ++
->  .../devicetree/bindings/net/airoha,en7581-eth.yaml |   10 +
->  drivers/net/dsa/mt7530.c                           |    5 +
->  drivers/net/dsa/mt7530.h                           |    4 +
->  drivers/net/ethernet/Kconfig                       |    2 +
->  drivers/net/ethernet/Makefile                      |    1 +
->  drivers/net/ethernet/airoha/Kconfig                |   23 +
->  drivers/net/ethernet/airoha/Makefile               |    9 +
->  .../net/ethernet/{mediatek =3D> airoha}/airoha_eth.c | 1261 +++++-------=
---------
->  drivers/net/ethernet/airoha/airoha_eth.h           |  626 ++++++++++
->  drivers/net/ethernet/airoha/airoha_npu.c           |  501 ++++++++
->  drivers/net/ethernet/airoha/airoha_ppe.c           |  823 +++++++++++++
->  drivers/net/ethernet/airoha/airoha_ppe_debugfs.c   |  175 +++
->  drivers/net/ethernet/airoha/airoha_regs.h          |  793 ++++++++++++
->  drivers/net/ethernet/mediatek/Kconfig              |    8 -
->  drivers/net/ethernet/mediatek/Makefile             |    1 -
->  16 files changed, 3310 insertions(+), 1003 deletions(-)
-> ---
-> base-commit: 26db4dbb747813b5946aff31485873f071a10332
-> change-id: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-
---jJ2SWV1szSy2UBu3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6iaiAAKCRA6cBh0uS2t
-rN4LAQDAr1GunH8bnfpjyai7bUPg8oqhBHj/K2KEpB2QdnUciAD/QS/hHVoQ1hGf
-SDi+CTuc9POv4dc6J0FYmcxb9/Vu5AA=
-=wIQ6
------END PGP SIGNATURE-----
-
---jJ2SWV1szSy2UBu3--
+Best regards,
+-- 
+Sven Peter <sven@svenpeter.dev>
 
