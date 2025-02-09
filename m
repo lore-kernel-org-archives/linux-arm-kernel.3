@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687D0C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 22:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4F4C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 22:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=369dAJGZKeB0JOjSvrMu1FUQdCgqdozrza7riiyrYK0=; b=nzMH5Fh60aAOWlruP393P+iYZ3
-	MK65duzDTDsC7F91ERSWyo0NvmYhTA0TbKW6o5rqY0znBHuaDX0nE6MAWZKyUYYnSycUtG+PKkydG
-	2d3GzWfyIGVGcxApD7iowZRms4LDkPShHSXULab8c22zG4tgbfyGjuhKPfTfq13QlEj9QJKlxJCVr
-	U+BVML3HNfb2ksHAtl0IHlHhHFnIDwsShMlI4kY84RuknLYOlwRAs4qKofcI7xkS8rR8xNWfh71Lx
-	4dvRzvugwicwgMDsTWtv1enSllBR7worbLKXtUYUFRgwd/isa8QDLv8xLDKBDYuicmJDDUZFKQZzQ
-	3pkpBBeA==;
+	bh=FSD/9wBjujVG0Uf1/rsF26GO0rnc/+iTaIpHwa0fJV8=; b=ocej7cJr5JyGq4IRnjNq9BRjry
+	8l1yK9hXd41XaPWzY0pINvAoGoN9x+jmxlgH3GrSyyOvvALzOlpIJyKWeNTJqlQboRlLSiCviVqg7
+	MUlPQMVTEyf5TyOm2IBNBFCoub7zZsvYdxkqm+jzjs467Y39nVJ3HaeDsLYAywOpIr0/1CUQ4GF6Y
+	XfWU+WI3ybScW4nL6bESxtI87eGoIaNC8xrxmZKGGgf0T4buLTFuU9SgLYTE4Q+epjBeWnFkX9FpI
+	57bORJxEyeD/5ctggSXGEGNiYvoQx0wL/zWERWVlsHlLvUbhoCBqWY4BNDh2ajTWUMk3Lv6pE+Lrt
+	P73IyXyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thFfu-0000000FgnK-1bEQ;
-	Sun, 09 Feb 2025 22:21:14 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1thFhH-0000000Fh0h-2Q56;
+	Sun, 09 Feb 2025 22:22:39 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thFSN-0000000Feid-0SRY;
-	Sun, 09 Feb 2025 22:07:16 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38dcf8009f0so1010701f8f.2;
-        Sun, 09 Feb 2025 14:07:14 -0800 (PST)
+	id 1thFSO-0000000Fej1-11H0;
+	Sun, 09 Feb 2025 22:07:17 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436345cc17bso25227125e9.0;
+        Sun, 09 Feb 2025 14:07:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739138833; x=1739743633; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739138834; x=1739743634; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=369dAJGZKeB0JOjSvrMu1FUQdCgqdozrza7riiyrYK0=;
-        b=hGCVv1Y4uUnlr/ge7mD7v8hEcCim3hSaBsmRVGM3U7JsntOF4f5aT8QBjZen+z7Q8I
-         /5jWNiEUeVZ+9WuWgd7veH+TEFd1kLzQeM17sSfEuxQBckwSMTljX7IVxezSZUboPJHc
-         MrtFBSGGxy2QFE3LLHQSlVpSQPFGMvNM/6sYjmDIAHQ1PFjQeLCuf1wMaeNqJPbKEobM
-         xdvkKzWGrr8kHh39qLlQnq6PvYgRUrokOoW4xHydmn7+1C+iwElPxxy4A/gByDs8ueED
-         G6EsnGu4iQM9f2c64NJOGdY9XVKiaQSidQcjBPn5omWKtSbZG4kSOkv/NrxCsnAYnSpU
-         RVQA==
+        bh=FSD/9wBjujVG0Uf1/rsF26GO0rnc/+iTaIpHwa0fJV8=;
+        b=MnnVBmBdMnXKL06xcfIB0qzVnOy4vj5spB482jP6mj0SD/C2BOfyMX1NDDD8VtVVZ7
+         725XWsBAZDWPw77gSClDW/OqpBUIxP0y39+xvU1mzESDmzpu2bbBc7CexSYoTw1BG6K0
+         FnOD91nc4I3BPKI1bwtZ7idbOAm8dIUsig7N/drKOZK3Ti/6f5/JEmWwCDP5ETQpE1LV
+         5h3TBQFuj0dw4h61NyMCZ/NYyygHScODgO3unqD9Pbm+TYnMwh8pxj6XpSlJAfQgCZXq
+         ar3V1dSoDV5niNydHVDgDYoytFb/yD+3Th5F5+y/QYo1UkTK1jdFWw+jfcO5R2bG/ob8
+         SUbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739138833; x=1739743633;
+        d=1e100.net; s=20230601; t=1739138834; x=1739743634;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=369dAJGZKeB0JOjSvrMu1FUQdCgqdozrza7riiyrYK0=;
-        b=AMBGfOfzlP4L5SvQVvgIgDjmD77j0mKueU4OLXFccoE2fECMpxJNBjq9puxjX37ZBw
-         XPiINUH2g7sWa5143VoP0nS/YboE+Y1yv0Wa76L3p6YryaKkwcsJ3GtflyndWQUKczP4
-         NtSHL9fibzzA9PUL9MMJt4DUFnKvGt59pYdLahP6lqYkPHbNE+v2EfPDkUKyVF9buSQl
-         WpI161EGpXDzxwanIod7jWXxlLZ1Fc96ZtMiVKhHzdwPn3N/YVLAy7Szu4ollqCZNog9
-         L9PefG5zD6Q5H48onwI2p+7W86LAii6kTcAzhOqLajCrKh7VS8YVy2K19grj4NS5gKY7
-         GSIw==
-X-Forwarded-Encrypted: i=1; AJvYcCVcVdbIp0A5v6NmgoInOFKScNe80Znc8suHGxuyKizGbauzQB0LUAm0zUxXWsBUzXokdQqcJgJKFBTXXEE=@lists.infradead.org, AJvYcCWKjNZ8ynzAYXPBVJVoJRlI1iuy5FKfGc4WYu8tbaJSTg3HYbGb/tl3svohikcqpxouRX6Vt4QgLfQFaawHQ3TW@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKdjDxNCGxr6S0k3sXMp+3VUpjK9ed1xh+tDkJgPixrD/o/0zs
-	iGXLpUWncc50CIN9PWQdBYCAPj0b9nRbLL13OkYQOmwT969jnx9xWoiaymDG
-X-Gm-Gg: ASbGncv43A/xhGvkpZHJCyUKDhFNRAWx4/nsNt7MtFpB/DpMQdWJvRg8h6n4AdE767f
-	ui1xHof8Vu2+n7RN0+RP3BoLmuuLHHhU49AEucQXJIYjPHLqJWSVMavRCL7ybM3eVly1ugjIghx
-	vxLJyLep8SMtaAkJMrDAQzaTxd14LwTxXABmgpZrE2PdQIzeP0gIOmrmvIQE5BvM6ZW1gC94nAH
-	aTEko+0gf5U2Ph+vkfLONGAPNFq3Msv7nqawC3wKH1gKbST90UbdbO5F9Bo8SRafWZYtPshTbV1
-	vTu0yp8O5NXyM32lp+4mQK4pddD4
-X-Google-Smtp-Source: AGHT+IGQNeDm9SkXrpQUSzcKpyxZS28meHGL8UbkTV9jZIpjqhrqbWvmN7mXz5mtgw2H/4aI14AXXQ==
-X-Received: by 2002:a05:6000:4028:b0:38d:d767:364 with SMTP id ffacd0b85a97d-38dd7670e6fmr3783272f8f.13.1739138833224;
-        Sun, 09 Feb 2025 14:07:13 -0800 (PST)
+        bh=FSD/9wBjujVG0Uf1/rsF26GO0rnc/+iTaIpHwa0fJV8=;
+        b=AjGmvkUe721dnMYXSkpKPDutMZ+PYCmtL6jFg+/QEwZHdhJPaDk5I2Um1ldcxl0W7I
+         thC6J2P74dM9nIbYw4h+r/XiyJy2G8xSHbxpQSZ0mA3d2Km81XOzZJ2IaZZP6Irv+uu+
+         KUdNeTp3L2PgrFq1i5OZ2j674p97iIvUy/0B2ZGFCQejvQKry3Qq+fWn1PR6K16ZnTCs
+         ckTqLw5flrCeziIGVsahj/Jmvds1LdVEAiimbyiY8wmqU/i85s7dEZ6t6VGQo+sC43qj
+         4/8kgZasdZE0S1Aslird2mJS8GCXXDsReaaxnpVJ5VRaqDrRQAe1j/bmE7C7TM40EncU
+         dBFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUiAjVO3FMACzpQ+9eb0NKO4DzlcJp8TS3bkofwyZ/Q3u+Wl1FYGD/1p7hWT45TrIBCwL/NcJ+ImCq4Xa6Utm5d@lists.infradead.org, AJvYcCVQFbxVZ4jGhJQ5ddsex+pf7F/X4wnzQ91fAIqQZCUkzek4mDKC2u8a5aitr9xPAOXvCh4pMSaB1Pwm6kI=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxhb19iEQe5HYnLmujeXC0Pig2ScNwMYgCy8h63G3/Yj2lZyeVE
+	rvhVsg+A0QFYWJtK0FzjmxQpAMr7zPubZerjJEcABzzUrGd6Vrvu
+X-Gm-Gg: ASbGncsg7er9JkfVBW5W5pLLJp+x8CcB4ZBocuE9pyqOf3TEybqNJsXTKt2U3AZ6oJ8
+	5ZnLnTbmpgeAL5uITQ34IWUJ5eZi4VZFCGMw9ruZM/6V2P1yZLsvB4yuh3hULF2yGGysfURft8m
+	pedIz5g0iAUpglAAfTBrEFq6Tv6DjyY+MuzE+Oe2TjBMaivZy1aqlJW2naFnzoKm169AqpFGqgv
+	cKILuRz4yz2Rlgcmv2mK3K3IEc9Ss3d/QFhZhQLWyXNbQCVOGgga4XKrxMqmgxfMY2/gk6hMK7e
+	aqrhSYSR6syFD26/9im1k60V1rVx
+X-Google-Smtp-Source: AGHT+IEemx6QBODy8RjpsuHiiuRss/UBX12yPNG3tLMU0rDbQWy2PzuGa/GWF5u1qU2RXyctSTvcSg==
+X-Received: by 2002:a05:6000:402c:b0:38d:d9b3:5926 with SMTP id ffacd0b85a97d-38dd9b359f3mr1828331f8f.5.1739138834402;
+        Sun, 09 Feb 2025 14:07:14 -0800 (PST)
 Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbf2ed900sm10386544f8f.53.2025.02.09.14.07.12
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbf2ed900sm10386544f8f.53.2025.02.09.14.07.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Feb 2025 14:07:12 -0800 (PST)
+        Sun, 09 Feb 2025 14:07:13 -0800 (PST)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: soc@lists.linux.dev
 Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@outlook.com>,
-	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Haylen Chu <heylenay@outlook.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Sebastian Reichel <sre@kernel.org>,
 	Arnd Bergmann <arnd@arndb.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Lee Jones <lee@kernel.org>
-Subject: [PATCH 09/10] power: reset: cv18xx: New driver
-Date: Sun,  9 Feb 2025 23:06:34 +0100
-Message-ID: <20250209220646.1090868-10-alexander.sverdlin@gmail.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH 10/10] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+Date: Sun,  9 Feb 2025 23:06:35 +0100
+Message-ID: <20250209220646.1090868-11-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_140715_151498_AF4C8DF2 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20250209_140716_278901_2EF076C4 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,161 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new driver to support cold and warm reset on Cvitek CV18xx and Sophgo
-SG2000 SoCs.
+Enable ARCH_SOPHGO, pinctrl (built-in, required to boot), ADC as module.
+This defconfig is able to boot from SD card on Milk-V Duo Module 01 EVB.
 
-Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
- MAINTAINERS                        |  1 +
- drivers/power/reset/Kconfig        | 12 ++++
- drivers/power/reset/Makefile       |  1 +
- drivers/power/reset/cv18xx-reset.c | 89 ++++++++++++++++++++++++++++++
- 4 files changed, 103 insertions(+)
- create mode 100644 drivers/power/reset/cv18xx-reset.c
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e4f5d8f68581..b7fec02f7673 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22147,6 +22147,7 @@ M:	Chen Wang <unicorn_wang@outlook.com>
- M:	Inochi Amaoto <inochiama@outlook.com>
- T:	git https://github.com/sophgo/linux.git
- S:	Maintained
-+F:	drivers/power/reset/cv18xx-reset.c
- N:	sophgo
- K:	sophgo
- 
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index 60bf0ca64cf3..d41ed3c2a30d 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -75,6 +75,18 @@ config POWER_RESET_BRCMSTB
- 	  Say Y here if you have a Broadcom STB board and you wish
- 	  to have restart support.
- 
-+config POWER_RESET_CV18XX
-+	bool "Cvitek CV18XX/Sophgo SG2000 reset driver"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	depends on MFD_SYSCON
-+	default ARCH_SOPHGO
-+	help
-+	  This driver provides restart support for Cvitek CV18xx and
-+	  Sophgo SG2000 SoCs.
-+
-+	  Say Y here if you have a Cvitek CV18xx or Sophgo SG2000 SoC and
-+	  you wish to have restart support.
-+
- config POWER_RESET_EP93XX
- 	bool "Cirrus EP93XX reset driver" if COMPILE_TEST
- 	depends on MFD_SYSCON
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index 10782d32e1da..ce24e74e0477 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -7,6 +7,7 @@ obj-$(CONFIG_POWER_RESET_ATC260X) += atc260x-poweroff.o
- obj-$(CONFIG_POWER_RESET_AXXIA) += axxia-reset.o
- obj-$(CONFIG_POWER_RESET_BRCMKONA) += brcm-kona-reset.o
- obj-$(CONFIG_POWER_RESET_BRCMSTB) += brcmstb-reboot.o
-+obj-$(CONFIG_POWER_RESET_CV18XX) += cv18xx-reset.o
- obj-$(CONFIG_POWER_RESET_EP93XX) += ep93xx-restart.o
- obj-$(CONFIG_POWER_RESET_GEMINI_POWEROFF) += gemini-poweroff.o
- obj-$(CONFIG_POWER_RESET_GPIO) += gpio-poweroff.o
-diff --git a/drivers/power/reset/cv18xx-reset.c b/drivers/power/reset/cv18xx-reset.c
-new file mode 100644
-index 000000000000..bc1797e7d3f5
---- /dev/null
-+++ b/drivers/power/reset/cv18xx-reset.c
-@@ -0,0 +1,89 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/notifier.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/reboot.h>
-+#include <linux/regmap.h>
-+#include <linux/mfd/syscon.h>
-+
-+/* RTCSYS_CTRL registers */
-+#define RTC_CTRL_UNLOCKKEY		0x04
-+#define RTC_CTRL0			0x08
-+#define  REQ_PWR_CYC			BIT(3)
-+#define  REQ_WARM_RST			BIT(4)
-+
-+/* RTCSYS_CORE registers */
-+#define RTC_EN_PWR_CYC_REQ		0xC8
-+#define RTC_EN_WARM_RST_REQ		0xCC
-+
-+static struct regmap *rtcsys_ctrl_regs;
-+static struct regmap *rtcsys_core_regs;
-+
-+static int cv18xx_restart_handler(struct sys_off_data *data)
-+{
-+	u32 reg_en = RTC_EN_WARM_RST_REQ;
-+	u32 request = 0xFFFF0800;
-+
-+	if (data->mode == REBOOT_COLD) {
-+		reg_en = RTC_EN_PWR_CYC_REQ;
-+		request |= REQ_PWR_CYC;
-+	} else {
-+		request |= REQ_WARM_RST;
-+	}
-+
-+	/* Enable reset request */
-+	regmap_write(rtcsys_core_regs, reg_en, 1);
-+	/* Enable CTRL0 register access */
-+	regmap_write(rtcsys_ctrl_regs, RTC_CTRL_UNLOCKKEY, 0xAB18);
-+	/* Request reset */
-+	regmap_write(rtcsys_ctrl_regs, RTC_CTRL0, request);
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static int cv18xx_reset_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	int ret;
-+
-+	if (!np)
-+		return -ENODEV;
-+
-+	rtcsys_ctrl_regs = syscon_regmap_lookup_by_phandle(np, "sophgo,rtcsys-ctrl");
-+	if (IS_ERR(rtcsys_ctrl_regs))
-+		return dev_err_probe(dev, PTR_ERR(rtcsys_ctrl_regs),
-+				     "sophgo,rtcsys-ctrl lookup failed\n");
-+
-+	rtcsys_core_regs = syscon_regmap_lookup_by_phandle(np, "sophgo,rtcsys-core");
-+	if (IS_ERR(rtcsys_core_regs))
-+		return dev_err_probe(dev, PTR_ERR(rtcsys_core_regs),
-+				     "sophgo,rtcsys-core lookup failed\n");
-+
-+	ret = devm_register_restart_handler(&pdev->dev, cv18xx_restart_handler, NULL);
-+	if (ret)
-+		dev_err(&pdev->dev, "Cannot register restart handler (%pe)\n", ERR_PTR(ret));
-+	return ret;
-+}
-+
-+static const struct of_device_id cv18xx_reset_of_match[] = {
-+	{ .compatible = "sophgo,cv1800-reset" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(platform, cv18xx_reset_of_match);
-+
-+static struct platform_driver cv18xx_reset_driver = {
-+	.probe = cv18xx_reset_probe,
-+	.driver = {
-+		.name = "cv18xx-reset",
-+		.of_match_table = cv18xx_reset_of_match,
-+	},
-+};
-+module_platform_driver(cv18xx_reset_driver);
-+
-+MODULE_AUTHOR("Alexander Sverdlin <alexander.sverdlin@gmail.com>");
-+MODULE_DESCRIPTION("Cvitek CV18xx/Sophgo SG2000 Reset Driver");
-+MODULE_ALIAS("platform:cv18xx-reset");
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..56e2c833f745 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -66,6 +66,7 @@ CONFIG_ARCH_RENESAS=y
+ CONFIG_ARCH_ROCKCHIP=y
+ CONFIG_ARCH_SEATTLE=y
+ CONFIG_ARCH_INTEL_SOCFPGA=y
++CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_STM32=y
+ CONFIG_ARCH_SYNQUACER=y
+ CONFIG_ARCH_TEGRA=y
+@@ -650,6 +651,7 @@ CONFIG_PINCTRL_SM8450_LPASS_LPI=m
+ CONFIG_PINCTRL_SC8280XP_LPASS_LPI=m
+ CONFIG_PINCTRL_SM8550_LPASS_LPI=m
+ CONFIG_PINCTRL_SM8650_LPASS_LPI=m
++CONFIG_PINCTRL_SOPHGO_SG2000=y
+ CONFIG_GPIO_ALTERA=m
+ CONFIG_GPIO_DAVINCI=y
+ CONFIG_GPIO_DWAPB=y
+@@ -1517,6 +1519,7 @@ CONFIG_QCOM_SPMI_VADC=m
+ CONFIG_QCOM_SPMI_ADC5=m
+ CONFIG_ROCKCHIP_SARADC=m
+ CONFIG_RZG2L_ADC=m
++CONFIG_SOPHGO_CV1800B_ADC=m
+ CONFIG_TI_ADS1015=m
+ CONFIG_TI_AM335X_ADC=m
+ CONFIG_IIO_CROS_EC_SENSORS_CORE=m
 -- 
 2.48.1
 
