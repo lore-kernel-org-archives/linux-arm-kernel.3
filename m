@@ -4,62 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018AFC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 21:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85649C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 22:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYAwdX72PHmdy4J6udOJ/5daIBDy5Wdsh0FcYAuEvbM=; b=HIYkgfBaVMd97KiPaD3YvI5rtA
-	01dvqsY7yZTxQR9BG0i9pAagKW/4TCc0SEiT1QkZdXR0WixoTK6elV3WilgYrn5KmnsF2+7qTMfvF
-	enuWy8I2AXc37fiMcDlDLDpTc86mg0X1J6i5LqwzgEg8Vd1Ft8KJn+sKvFWlL8sBfwNQWG/UbqSCz
-	m6hysPRkkqDUyP+rSx6oqvKDsMtijKaeiATgHMID9mm+BAqjIRz8y4TkgdTzJQ7lYWJPnVHdKCXJ4
-	gAM9RK1xvyQJ7DbmvOloPHTAJ6Ci+/ebbBVEPAbPJracaqXfbUsdM5Db2BR039OYax/q0zzteU1Hq
-	MOhDAHQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0SStEyTofDPhfx4JhlqbX9qCANFPRgD9nwadZXdsKAw=; b=oT2S68JATVl2zum82FwH43arCv
+	2Wt4Lp0+jr89dxY7dA277kwmHFY5fEwIb4eX8am7pfAee9yQ1peNJdCTZ/CQd8M5a4fTw65fF8zmH
+	gr32QgQlxiZxQ8CgtlP2+gFwBpaOT+Y6GJe85hk6CN/JFpabllGFZwFXkaGHbxEISJi62YO2j/Ip3
+	4/SwFsiRguc0/JnS+1m2uhr7FP4XDykME5fEM8cEC76zBsX+HTagisYJKjqG2kV9s5ZVMu3JNulza
+	19NAgnOK2p9Jela77VnFXsWnSVOaIQiC8Rz7TZkDinrI0EacMmpMV/cjTQDjZOxwX3yGD8QnVy8uC
+	tAiWDDCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thEif-0000000Fb8L-2rkq;
-	Sun, 09 Feb 2025 21:20:01 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1thFTe-0000000Fevg-3ym3;
+	Sun, 09 Feb 2025 22:08:34 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thEhG-0000000Fatt-2WOO;
-	Sun, 09 Feb 2025 21:18:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=oYAwdX72PHmdy4J6udOJ/5daIBDy5Wdsh0FcYAuEvbM=; b=dHDOw7t6wStxmGXkfKq3k6bh6b
-	5EvY9TAb5c+yoX/0bLBOJbGkqm2Ynd/a8Saxi/z0Xxa2PJc1IeuvPKXeTuZ/71sDdEwhzL/NvLYCN
-	dsPGhQFPuk58HJDljQtuZR0LoVI6LKTeHv1a6LWSWBL785AaoSPCJBenGTDQueredU0Jr6I9M5Q4k
-	OjJ9f9T1/jQDei5SafJjtfBY6VOv4pC3/glnr294BCLAKG53SxUX2+N2k1U4iYiqjCqo6rlgsU+qY
-	O9Edo3WV3m62UZyS1WqbWQJTae41eDIMZx3Q3gI/mBSF+UnCJH1YkQY6w4/nYOrxOBFw5IKMFL7DE
-	lDkbqcpw==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1thEhD-0002GS-1G; Sun, 09 Feb 2025 22:18:31 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: vkoul@kernel.org, kishon@kernel.org
-Cc: cristian.ciocaltea@collabora.com, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, quentin.schulz@cherry.de
-Subject: Re: [PATCH 0/2] phy: phy-rockchip-samsung-hdptx: don't use of-alias
-Date: Sun, 09 Feb 2025 22:18:30 +0100
-Message-ID: <3969871.5fSG56mABF@diego>
-In-Reply-To: <20241206103401.1780416-1-heiko@sntech.de>
-References: <20241206103401.1780416-1-heiko@sntech.de>
+	id 1thFSE-0000000Feet-3evq;
+	Sun, 09 Feb 2025 22:07:08 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38dd14c99c3so851598f8f.3;
+        Sun, 09 Feb 2025 14:07:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739138825; x=1739743625; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0SStEyTofDPhfx4JhlqbX9qCANFPRgD9nwadZXdsKAw=;
+        b=JipztD6hP2mAPjl5RFKco+Cgw566JlsIWeerII9zR4k62Ippj2OkUQhgs5xT4NfBwo
+         GHcaqC0lRQcjn+k8ozamlvo3z7MaKeFHeELz8xBGV9cQwdPSHguFjDUz2K+S7ilVG+Cm
+         KvWxmLC9KRt32UHB8ekQiJ6S+OAINfZYW4rHjzDCewFS4+I+ki2ZfEV8cxG0FDHxWeQI
+         cYRGdBPyon7e89kCjnH0z+SWLPX/fbwoSjj+/mga8EbFptRUdjnnRIjU9qdYzG8hBjgI
+         KURbduleDbn57M+861i8P4obvS/RPlN6iZ8se5CVUzQMOCtElCuL4x5F50RQ/N56xcX6
+         NYNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739138825; x=1739743625;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0SStEyTofDPhfx4JhlqbX9qCANFPRgD9nwadZXdsKAw=;
+        b=ejS10h+fXIesOwRVRc9f+WDaYaqsO12EKNdbBOEoLhwUJqWFf+lnryHCZ4ewRNOLcS
+         AWKULAGqyEVgzUUBbHf0WT+lhpfaRepmcS5LB/Tmq1ThbkuP5A+qk2Xos0JemzJPUIUm
+         BXbwMi6y3yJsbYsaRAwLh/wv0ilkTjBnNN9VGPWIzXc3nrE2MlM4oLvWo2FyWVzV7/P6
+         AfIZgeLeI8a63tcJQXx3Hg8A8yquuJMcP8uS2Sa5xQhNHc3T4xTFkVLEnKw2kZ9v+pFm
+         +7mcVTKn2EAQFo1atno+16eCtTRCoxYCPkCrao7TFNd+JoL0Je4gwytiQjuwpeBPqvCI
+         UYBA==
+X-Forwarded-Encrypted: i=1; AJvYcCVCUJsCS4mKA12bdXyZnSRuH9jgr65wTyD38EQTwcXT3Dkalf7LkiPOIdyJvYsoe+Ro3BWipPjiafUTTgc=@lists.infradead.org, AJvYcCVuQ8pJjfSFuYMfI0g0hwcraQlf1NjxQnkGpUqo1fujJz/TIZGX5O4vf7nvjxYQudWrE0JVoK6aabwBxycA4pIK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz+oIQTNCAFAAkWNabfg06WjgSGqv5Rg6kYwIIbeSUdYIwm5Vs
+	0dIzjQLaARecVs7B8YqXWp08+29bQ4UXBfKrwZ2uKMbxCnVd6khq
+X-Gm-Gg: ASbGncug6P/SuyDuRrxTQN/KPn++iRO68FhdrsKz8QwpAyQwsb/7jbAJErqXAMnPinB
+	Xg1S+rEfmoKkjMwX+1oQK3L3skNt7JFXrMsER2rAmbBInEOyz1gbstXdsC8EHbQl4zz1PdBIfxG
+	GmKAkxxOYFUOxo3IRhA0zZsVogcjpslYqkxPQ53ATIPXQK4RI77WDwJrkTGAIFoK2mOto7urMUb
+	Cfo/XkKVswrC69h6vWvyjUR3Y9wOEX3LYWEPd3jEjq14Mo0+G1BhPMcVMZktS+R9tPqLFNiTZLs
+	E9IqVuPzdSPZ4CNLZEB7d9vuFlHr
+X-Google-Smtp-Source: AGHT+IGaYGcJZM+92Cv8nPvpHOwYc6gunMtsp2ldN4nyyr8ek9G+l/o+4jLNm5KeXzDP/LDAiB9c+A==
+X-Received: by 2002:a5d:5f88:0:b0:38d:dffc:c133 with SMTP id ffacd0b85a97d-38ddffcc58cmr305497f8f.44.1739138824394;
+        Sun, 09 Feb 2025 14:07:04 -0800 (PST)
+Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbf2ed900sm10386544f8f.53.2025.02.09.14.07.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Feb 2025 14:07:03 -0800 (PST)
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: soc@lists.linux.dev
+Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sebastian Reichel <sre@kernel.org>,
+	devicetree@vger.kernel.org,
+	Haylen Chu <heylenay@outlook.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
+Date: Sun,  9 Feb 2025 23:06:25 +0100
+Message-ID: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_131834_662411_13E28C2F 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250209_140706_914482_1B7B3437 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +111,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi phy-maintainers,
+This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
+arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
+been chosen because the upstream toolchain can be utilized.
 
-Am Freitag, 6. Dezember 2024, 11:33:59 MEZ schrieb Heiko Stuebner:
-> One nice comment addition and removal of of_alias usage for core
-> device functionality.
-> 
-> Heiko Stuebner (2):
->   phy: phy-rockchip-samsung-hdptx: annotate regmap register-callback
->   phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine
->     phy-id
+Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
+peripherals with an addition of ARM64 core. Therefore it would be
+beneficial not to copy-paste the peripherals' device-tree, but rather split
+the most suitable riscv DT into ARCH-specific and peripherals parts and
+just include the latter on the arm64 side.
 
-any thoughts on these 2 patches?
+This series adds the device-tree for Milk-V Duo Module 01 EVB, which
+in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
+SG2000 SoC inside (separate .dtsi).
 
-Thanks a lot
-Heiko
+This series has been tested with Sophgo-provided U-Boot binary [2]: it
+boots from SD card, pinctrl, serial, GPIO drivers are functional (same
+as for RiscV-based CV18xx SoCs).
+New reset driver is provided as an alternative to the ATF PSCI handler,
+which Sophgo only provides in binary form.
 
+Partial SoC documentation is available [3].
+
+This series lacks the support of:
+- USB
+- Audio
+- Ethernet
+- WiFi
+- Bluetooth
+- eMMC
+- Video
+
+It would probably make sense that the whole series would go into SOC tree,
+even though technically nothing prevents the reboot/reset driver to come
+in PM/reset tree. If everything would come together, `reboot` command would
+work out of the box.
+
+[1] https://milkv.io/docs/duo/getting-started/duo-module-01
+[2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+[3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+
+Alexander Sverdlin (10):
+  arm64: Add SOPHGO SOC family Kconfig support
+  riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
+  arm64: dts: sophgo: Add initial SG2000 SoC device tree
+  arm64: dts: sophgo: Add Duo Module 01
+  arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+  dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
+    compatible
+  dt-bindings: reset: sophgo: Add CV18xx reset controller
+  riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
+  power: reset: cv18xx: New driver
+  arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   4 +
+ .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
+ MAINTAINERS                                   |   1 +
+ arch/arm64/Kconfig.platforms                  |  12 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/sophgo/Makefile           |   2 +
+ arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
+ .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
+ .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
+ arch/arm64/configs/defconfig                  |   3 +
+ arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
+ arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
+ drivers/power/reset/Kconfig                   |  12 +
+ drivers/power/reset/Makefile                  |   1 +
+ drivers/power/reset/cv18xx-reset.c            |  89 +++++
+ 16 files changed, 689 insertions(+), 303 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+ create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+ create mode 100644 drivers/power/reset/cv18xx-reset.c
+
+-- 
+2.48.1
 
 
