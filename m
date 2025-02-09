@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30740C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 04:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8ABC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 04:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoqQmmMLZnhmH7e8y5iCPOfAA2UjM+1/YD5gOA06f3E=; b=4LBw486Oroj6LHyWXiBYHkj83L
-	K0BKkzmxtk28BOv0CRHJSgL9Vpgqz5bzKPQs0+ip32eA6dlQ6wOrWLo1GRLWRc4VHRo1ahC4i8ftm
-	OJe5lFyIUeTxIDMh7d1t2eTmcMu7hpmTsJcqiQZwvL2bQXUWRl7UWtQM1zIUZ39xJmuvK2pzW/T7X
-	O0VtOATFt0hyJFjqTc2pHfPknk/DlR22WWdu2CGgAFwtDCIuCxbaGsS5Z6u60i1sH7FshORw4uKa5
-	y3ntnyO1nMX+tgIgJVmTLJQug5CUjFENid06NhQLJ7r383cXuji3j3g0k/M8vzSx1inhbGRXzp+69
-	xQtR3pFA==;
+	bh=2uqH0LlhZdZ1/ZJgerOy14gnMEDsVqG8t0Fz3f/FUy8=; b=b83DQE/nQDG2fEovCTUrOwKlww
+	210yeGWiRicAm9OudVLyCXMdiLjPVdnECAdjX7BymgyveIVUxlyJ6/CZG+px8VE/piYVAPj3bgN9C
+	5wZ8HoV7IXzG5QFOhtzIka9oSJaddSoaojfIhAx9nk1u/W3c0F9wA4zi+AVR+q9lRmXIGRK/Yy6q3
+	0ZPlPVcVjnww2pl8yq6t/qw1Nix4gPW6Y+TQv8rxaOq1ezwnQoU0dgN9xBpGuyCavli4towXgVC82
+	bQ7OSOER1T1nmfIBZnvjn7W14S2bezWu+z5UHneNTSTOVUpZRURM383HRRjsvXUEcFWSsF2UMAVX5
+	/Q+XdP3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgyyb-0000000E4tE-436X;
-	Sun, 09 Feb 2025 04:31:26 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tgyzx-0000000E504-3Joe;
+	Sun, 09 Feb 2025 04:32:49 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgym8-0000000E2eS-2CpQ
+	id 1tgymG-0000000E2hG-3ock
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 04:18:33 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21f5268cf50so26802235ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 20:18:32 -0800 (PST)
+	Sun, 09 Feb 2025 04:18:42 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2fa1a3c88c5so3873385a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 20:18:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739074712; x=1739679512; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1739074720; x=1739679520; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RoqQmmMLZnhmH7e8y5iCPOfAA2UjM+1/YD5gOA06f3E=;
-        b=GbtDVINbpEfX8FglJJetZ8ZfLA/+Sf8zkwhN8rL4+Za8TsXPOsM3IPokkgpKAWGuL8
-         U6OAiEVDGia0Wr5GA6yxGdVaOZbtbLVa8yu5k/wa3yuvOgJ/WXXC3JM8Mp4BayhCCOlj
-         yoZ21NXDFPsuHqE+/6X4tcUOkSUw9bNq/TM2r/wwGHZg9u7wkWM0XjGuejKoLn+UKe3J
-         uH+E5clDWfqS5KgFrFJE3oHj1xz2KGzM00VA6SLrYvQWTJavKOjA3isrhoPTHIJuWcQc
-         ijjIaHZJ/95PFFBE/keBI3zYaWTpE03B/lDd/0KJ+k/Ipeu1I6lCvfGcXIVYCwacdHjN
-         oNoQ==
+        bh=2uqH0LlhZdZ1/ZJgerOy14gnMEDsVqG8t0Fz3f/FUy8=;
+        b=TOi2f7YvdDCI1YjIVnHfKIIF8HkLUwjeIIZnsYt1FpeMDq8GS8dYcnqKnRrIxxllmv
+         RV2RecWq4oSy5K+GfVEBYzmlw5t2YUzxVbU6XVk2e9zghV2XPoMr9WGwuBYdabjJ7p80
+         Ww+phkPZCVkPhxdJoOE+/JqMKb1t70Kk9KIdZymLjV/WotyoLAaYiL01a9smS6DEn5zy
+         qn6StW9LEDnkurjITnRdEMxJhC3CieCsW/a6F3rxGiCwO0TdWStFBS55ihQU1X1C2E9Q
+         mIS/y7NvaXCRXhLPPfJlKDnbiDMMKrIrI7MALnXC6nteANOJRbIkc9EenfLs4/KDjsmC
+         VQ8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739074712; x=1739679512;
+        d=1e100.net; s=20230601; t=1739074720; x=1739679520;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RoqQmmMLZnhmH7e8y5iCPOfAA2UjM+1/YD5gOA06f3E=;
-        b=g3+Pi5umQ4X3bKVabCSAY6oitig9OQEZyomI0decjgxoq+NpJ0Me2aS+jNYpIcaRPe
-         VwAyK4gTrTsrHUJXu6l/No1KxM18FTfF6mJQpfny2BLyMN6pEa2bkUg6rOEIkKvk+pe5
-         ruaD6UfcZ8MW3cV8GNHG4MZT2ichDRD9TtNMzl0V8gww/S2dwid/TvyE75JScnvSgTYv
-         D2UGu+OGbJsme6tDx3/LBao7uI8VfKnFwAc2RMhpTlEn0g6go3NB5iaZsyHil15Y2YOE
-         hsHEI37Ih3RCJCI71mycSBTjq58dY5Su6242EXy6XP59KIV2tbVLNxctdppo8bRE7ba3
-         7q0A==
-X-Forwarded-Encrypted: i=1; AJvYcCVsaEIQ5CZaKWKMGihNRsuE77nret+RuSIEaZF3r0XGRstGPWYTRn6mi8JcB4XvOk5+r4C7EH9J3vTpFNYlACWP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyklSsGAEwZDbEXb52SPMzOe+Gy/gADluxYzj78LkjYr93NFx4
-	C6M+XukbXJAUzFX01ZFIV50/Ajty4NX+wphYJ5IgzqEkajRWw6kIrKyKhqv4lOg=
-X-Gm-Gg: ASbGncvnt6joBvCnT1KeOkZP/a5SRLIndaqMdtdy5+mvzV91L5TcVGxHEt0kIb//Sem
-	tM04EDW3MSHL7uGlUizl8xDMXu64YDiKBbyJiT3oz+XQyYpQ5CUkHWrrMFI869tEXH+oubfafIN
-	+2+eOZu0X7shrVsPPDMmNEZGXppB//AihJw52kxO/hLKBXdARGKe+14Cm6ifroJN8Dvt5/SM4As
-	9ko4WEm7tES1UDUrSQ6Akt0bvWbnf2aZJjpv2M7/IVkWttW8RX3rWuZoJY4oOuFFu3CzzqmNxzY
-	eHXLs99X/3zwEGFor7l4isDRX3HvBzt+1pcJ72rVYaQMAgvRCkbYRJg=
-X-Google-Smtp-Source: AGHT+IGE4yR6cgBkkvQcZ0IHX6BsNq+H8UInEThSWisvqbLPPoF9w9oT5fD4cZTzd5CMtWIib7XuTw==
-X-Received: by 2002:a05:6300:6f82:b0:1ee:1910:803f with SMTP id adf61e73a8af0-1ee191082f5mr4625773637.42.1739074711624;
-        Sat, 08 Feb 2025 20:18:31 -0800 (PST)
+        bh=2uqH0LlhZdZ1/ZJgerOy14gnMEDsVqG8t0Fz3f/FUy8=;
+        b=g+gc72xKnFQcWmWHwqGHPhbul+mRslQyIjoDhMzGvOhYg1iIRdkzaQniLseppP6Y6l
+         i0osYwqaZpB79JelbSxPhIL4ZWvZHeDNszHpo8o/UxrWwc+uIpRANOc+zW2j5Up2/ubs
+         /xvWP6EWDESYG4MosqFVe8SYiXukLttp2kdK6ASTJIspCPrTKw7KEEMpUefl0pyeSE6G
+         Q2GKbfazTf6Fwt+uKn0DdJczOkou2Myb051xU1QgIRPV9kHFO7RERVss73wKE489Lt+0
+         vtTnIwE655JMZQh0pWBcAguNkfatqdCfoDzglAr2VTX0VHTG8OjnQq3A9BwrX0/iptth
+         lMgw==
+X-Forwarded-Encrypted: i=1; AJvYcCWe7XavAzDlFbw2a+XHWnIEhA28Juqjce2dehE847lkPsWd3Pfy1QDOfFENWwafpWUFUNsg3rJnWt1dPEpJmn3h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxin+HLrs8N0ePzLZ5yIX0N01FfcO2+aC4SVYC3w5FbR0N4sUlc
+	VVKDEBp+rkk+PCUmwnnG36neChh12UhMlC3O+TdGdVJTgmU5P5KfjULmlZE91ko=
+X-Gm-Gg: ASbGnctH4KJ035B1pcqTz+OsyHyheZeJYM8s02YCaq57NrqUVf8g/mSym1ifxizQhhS
+	f18zahs5Ofk1exWux5OT73mNe3rsYxQMXNhaQ0/0TD+8U9riiez3atwaJamMpmDnw7gk1HpCbms
+	VVNqVU1OBvel1iVBOo7jfUCJ1qEuJIEKqNi0VK223P2Z4CE8vP6wLmdElUv6bBzIo+r4MUC0MSu
+	8Auc5hlzx27YnkfGPJbV2SJdSKsgTf9R8XB3k4N6lULP2aJigjOJV0rNVjVrIK3EX26vuXUx+uv
+	9zunG8ABW5bdK2hKKySU2kAxck5TMfwagfhSu2W+IdtvAWkAEYsGJxM=
+X-Google-Smtp-Source: AGHT+IHUzy54yYs2fS4vJemZHOHOIs8APlSMaPpVV2klzUoQAT+FU5F1TyPBFlToppvPWeQiJJcXfw==
+X-Received: by 2002:a05:6a00:949a:b0:730:75b1:720a with SMTP id d2e1a72fcca58-73075b1752dmr5977536b3a.23.1739074719968;
+        Sat, 08 Feb 2025 20:18:39 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73073eba116sm1898410b3a.124.2025.02.08.20.18.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73073eba116sm1898410b3a.124.2025.02.08.20.18.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 20:18:31 -0800 (PST)
+        Sat, 08 Feb 2025 20:18:39 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -93,17 +93,17 @@ Cc: hpa@zytor.com,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v5 09/11] irqchip/riscv-imsic: Implement irq_force_complete_move() for IMSIC
-Date: Sun,  9 Feb 2025 09:46:53 +0530
-Message-ID: <20250209041655.331470-10-apatel@ventanamicro.com>
+Subject: [PATCH v5 10/11] irqchip/riscv-imsic: Replace hwirq with irq in the IMSIC vector
+Date: Sun,  9 Feb 2025 09:46:54 +0530
+Message-ID: <20250209041655.331470-11-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250209041655.331470-1-apatel@ventanamicro.com>
 References: <20250209041655.331470-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_201832_604540_5D960EC8 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250208_201840_950938_8B236B15 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,106 +118,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement irq_force_complete_move() for IMSIC driver so that in-flight
-vector movements on a CPU can be cleaned-up when the CPU goes down.
+Currently, the imsic_handle_irq() uses generic_handle_domain_irq() to
+handle the irq which internally has an extra step of resolving hwirq
+using domain. This extra step can be avoided by replacing hwirq with
+irq in the IMSIC vector and directly calling generic_handle_irq().
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/irq-riscv-imsic-platform.c | 32 ++++++++++++++++++++++
- drivers/irqchip/irq-riscv-imsic-state.c    | 17 ++++++++++++
- drivers/irqchip/irq-riscv-imsic-state.h    |  1 +
- 3 files changed, 50 insertions(+)
+ drivers/irqchip/irq-riscv-imsic-early.c    | 6 ++----
+ drivers/irqchip/irq-riscv-imsic-platform.c | 2 +-
+ drivers/irqchip/irq-riscv-imsic-state.c    | 8 ++++----
+ drivers/irqchip/irq-riscv-imsic-state.h    | 4 ++--
+ 4 files changed, 9 insertions(+), 11 deletions(-)
 
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index b5def6268936..d2e8ed70d396 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -73,7 +73,7 @@ static int __init imsic_ipi_domain_init(void) { return 0; }
+ static void imsic_handle_irq(struct irq_desc *desc)
+ {
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+-	int err, cpu = smp_processor_id();
++	int cpu = smp_processor_id();
+ 	struct imsic_vector *vec;
+ 	unsigned long local_id;
+ 
+@@ -103,9 +103,7 @@ static void imsic_handle_irq(struct irq_desc *desc)
+ 			continue;
+ 		}
+ 
+-		err = generic_handle_domain_irq(imsic->base_domain, vec->hwirq);
+-		if (unlikely(err))
+-			pr_warn_ratelimited("hwirq 0x%x mapping not found\n", vec->hwirq);
++		generic_handle_irq(vec->irq);
+ 	}
+ 
+ 	chained_irq_exit(chip, desc);
 diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 9a5e7b4541f6..b9e3f9030bdf 100644
+index b9e3f9030bdf..6bf5d63f614e 100644
 --- a/drivers/irqchip/irq-riscv-imsic-platform.c
 +++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -129,6 +129,37 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+@@ -111,7 +111,7 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 		return -EBUSY;
  
- 	return IRQ_SET_MASK_OK_DONE;
- }
-+
-+static void imsic_irq_force_complete_move(struct irq_data *d)
-+{
-+	struct imsic_vector *mvec, *vec = irq_data_get_irq_chip_data(d);
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (WARN_ON(!vec))
-+		return;
-+
-+	/* Do nothing if there is no in-flight move */
-+	mvec = imsic_vector_get_move(vec);
-+	if (!mvec)
-+		return;
-+
-+	/* Do nothing if the old IMSIC vector does not belong to current CPU */
-+	if (mvec->cpu != cpu)
-+		return;
-+
-+	/*
-+	 * The best we can do is force cleanup the old IMSIC vector.
-+	 *
-+	 * The challenges over here are same as x86 vector domain so
-+	 * refer to the comments in irq_force_complete_move() function
-+	 * implemented at arch/x86/kernel/apic/vector.c.
-+	 */
-+
-+	/* Force cleanup in-flight move */
-+	pr_info("IRQ fixup: irq %d move in progress, old vector cpu %d local_id %d\n",
-+		d->irq, mvec->cpu, mvec->local_id);
-+	imsic_vector_force_move_cleanup(vec);
-+}
- #endif
+ 	/* Get a new vector on the desired set of CPUs */
+-	new_vec = imsic_vector_alloc(old_vec->hwirq, mask_val);
++	new_vec = imsic_vector_alloc(old_vec->irq, mask_val);
+ 	if (!new_vec)
+ 		return -ENOSPC;
  
- static struct irq_chip imsic_irq_base_chip = {
-@@ -137,6 +168,7 @@ static struct irq_chip imsic_irq_base_chip = {
- 	.irq_unmask		= imsic_irq_unmask,
- #ifdef CONFIG_SMP
- 	.irq_set_affinity	= imsic_irq_set_affinity,
-+	.irq_force_complete_move = imsic_irq_force_complete_move,
- #endif
- 	.irq_retrigger		= imsic_irq_retrigger,
- 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
 diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index 96e994443fc7..5ec2b6bdffb2 100644
+index 5ec2b6bdffb2..d0148e48ab05 100644
 --- a/drivers/irqchip/irq-riscv-imsic-state.c
 +++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -311,6 +311,23 @@ void imsic_vector_unmask(struct imsic_vector *vec)
- 	raw_spin_unlock(&lpriv->lock);
+@@ -422,7 +422,7 @@ struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int l
+ 	return &lpriv->vectors[local_id];
  }
  
-+void imsic_vector_force_move_cleanup(struct imsic_vector *vec)
-+{
-+	struct imsic_local_priv *lpriv;
-+	struct imsic_vector *mvec;
-+	unsigned long flags;
-+
-+	lpriv = per_cpu_ptr(imsic->lpriv, vec->cpu);
-+	raw_spin_lock_irqsave(&lpriv->lock, flags);
-+
-+	mvec = READ_ONCE(vec->move_prev);
-+	WRITE_ONCE(vec->move_prev, NULL);
-+	if (mvec)
-+		imsic_vector_free(mvec);
-+
-+	raw_spin_unlock_irqrestore(&lpriv->lock, flags);
-+}
-+
- static bool imsic_vector_move_update(struct imsic_local_priv *lpriv,
- 				     struct imsic_vector *vec, bool is_old_vec,
- 				     bool new_enable, struct imsic_vector *move_vec)
+-struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask)
++struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask)
+ {
+ 	struct imsic_vector *vec = NULL;
+ 	struct imsic_local_priv *lpriv;
+@@ -438,7 +438,7 @@ struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask
+ 
+ 	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
+ 	vec = &lpriv->vectors[local_id];
+-	vec->hwirq = hwirq;
++	vec->irq = irq;
+ 	vec->enable = false;
+ 	vec->move_next = NULL;
+ 	vec->move_prev = NULL;
+@@ -451,7 +451,7 @@ void imsic_vector_free(struct imsic_vector *vec)
+ 	unsigned long flags;
+ 
+ 	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
+-	vec->hwirq = UINT_MAX;
++	vec->irq = 0;
+ 	irq_matrix_free(imsic->matrix, vec->cpu, vec->local_id, false);
+ 	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
+ }
+@@ -510,7 +510,7 @@ static int __init imsic_local_init(void)
+ 			vec = &lpriv->vectors[i];
+ 			vec->cpu = cpu;
+ 			vec->local_id = i;
+-			vec->hwirq = UINT_MAX;
++			vec->irq = 0;
+ 		}
+ 	}
+ 
 diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index f02842b84ed5..19dea0c77738 100644
+index 19dea0c77738..3202ffa4e849 100644
 --- a/drivers/irqchip/irq-riscv-imsic-state.h
 +++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -91,6 +91,7 @@ static inline struct imsic_vector *imsic_vector_get_move(struct imsic_vector *ve
- 	return READ_ONCE(vec->move_prev);
- }
- 
-+void imsic_vector_force_move_cleanup(struct imsic_vector *vec);
- void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_vec);
+@@ -20,7 +20,7 @@ struct imsic_vector {
+ 	unsigned int				cpu;
+ 	unsigned int				local_id;
+ 	/* Details saved by driver in the vector */
+-	unsigned int				hwirq;
++	unsigned int				irq;
+ 	/* Details accessed using local lock held */
+ 	bool					enable;
+ 	struct imsic_vector			*move_next;
+@@ -96,7 +96,7 @@ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_ve
  
  struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int local_id);
+ 
+-struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask);
++struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask);
+ void imsic_vector_free(struct imsic_vector *vector);
+ 
+ void imsic_vector_debug_show(struct seq_file *m, struct imsic_vector *vec, int ind);
 -- 
 2.43.0
 
