@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E524EC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 13:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A853C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 13:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l7NV8sXzgMI8IiuMNnV9mCbxvCRPR55gss5T0aZ31pg=; b=Iye7w6DCYnBRaSIbWe0Jh9KS0M
-	B025Y5tgWgGvQb5aFILpCDveCEn3kjnwlSWHXH5NcnHTw9boMVdcxvJwCXV+oGQ07Voc6kBK6Q6fS
-	ABYTMvDcWLM74vNu+487odb6Hp82dxWq5W7fsIBSi9pa0Q83JlJOnwK+T7mtc8EtgZPSE1BBcFojk
-	FUTNQ5ou1CxVHbIwHKX/cHWhgWfZYUD56a7eAjrgGJRFcQ0hpmbch5A+lXwCNf6ZOhpdperR+zsCM
-	and/7suD/Twcwb2FotYQ+b3vDEthu1mr8lGF75Kz4qGr4Cj8TNXflWczElnrczBMTxQJwaizkifOG
-	wlCDIt3g==;
+	bh=PF0zmXy3dsiUkXl30IYIMBmC20fNuat6h4RHVl7ROG0=; b=zF7HfnWzeuvCOSeVzKiSzFs8qI
+	fqLBbM/VVZZnTrYkSIro0YoVCK2IYsHbvFca8ywGbWwPSAgrM0mCIQjQqZyx7KqySZRz4O3JSnq/H
+	6MpzCS6xaB+N6p0c2hFIwbnBQ+z34uENQUAGfrl1waBPNjS12knMvaAJ2T0FIP+4vWYcUGhh7HKy4
+	UNiROMcqXeMNNvZe+WOl+CNcEtO8JB3XhagWyZmHMzZNP6H3CZfd1Ubx8/jEmzYWUKEEhH3vjQGHw
+	ZDHL76Mfyie/83+e/0tOY1wgmcGqayzxawhyqnoB1a2XTzpc60ixn+B6PC22SX2I+H/6miVA/8pvt
+	Ho3NlsfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th7Gf-0000000EvrL-1gPQ;
-	Sun, 09 Feb 2025 13:22:37 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1th7ob-0000000EyGR-3geC;
+	Sun, 09 Feb 2025 13:57:41 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th7FG-0000000Evkh-32Bz
+	id 1th7nC-0000000Ey8f-3x8r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 13:21:12 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5de594e2555so2641290a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 05:21:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739107269; x=1739712069; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=l7NV8sXzgMI8IiuMNnV9mCbxvCRPR55gss5T0aZ31pg=;
-        b=kQci1v8Xklgf5G2eW6SU8xUCVucwCpUvpnuZj0FG92cqzrnCwZ+LAiNbr137amd+bg
-         lm9xsn91oFSvzxohqbYrLnK6MEiNWOKIHOOTH1QpYHcBd6K4IdXeE9gsEC6dU6AuED3r
-         23w1Y+abcb4BYfJTOdD7TiBPqqCqM9U9YdJgMSaQIzHb37lFME+ZwoNmDFmnbx+9otrB
-         mmijxDVEt+F12Sq/u0I/uYN0NCMSx4WdxeGihwYHseuzX+DKF6APfJg6dV/8zA7z1BpL
-         euVcq79m0GwzHbLgIWfVf//DcFdFrw0qRCM/ZVFfgpu/ZBJ3ERU018mKC3bQwYIxbUpG
-         tM/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739107269; x=1739712069;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=l7NV8sXzgMI8IiuMNnV9mCbxvCRPR55gss5T0aZ31pg=;
-        b=UkX+htJJaD1LUK0sW/E3vpohkNVJymiwDpXCpMnfLP0k9A7iZC+ZJVT6fR8F96nW57
-         IJ9HbqIq8kResCb6NEEqn6DsDhGvLT9oWzylnrovz2mYkzSrJdAmEcHGK5llyf53/zVp
-         NEP5oxhCW141UC9uKLtQFhZ1bCc2IYf2q5HnzxNrxJIazTLuTMr6KaUmTmzfsT4civpr
-         xuecZqaa44jb654SDXrOtsEBtdhpq7TnaV939JiWBAmO2oLkoj4wAdu9+MvaFxN1oErD
-         OAn5UGrwGumixOjFJfmGlClnafyymsk2eUJnJ26GIpf40NaZRXn53+15u5LSMWvl0oCX
-         ILtg==
-X-Forwarded-Encrypted: i=1; AJvYcCVspDlPhz53oKi+zs+P0slhiFGzeR1xHgn/76JALlsDYMo3LpwJ+2RvOcR+EAorBdzedgfJqM1zQ/Kkuamj932i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB4n4ri0+7S7YofRQGpGYqyZTdSgQ3jbdKvVfuqOI9KQf7B8y6
-	HZjfLmLGwjx1W+EGIWj3qzjvhgYoWsJARELY9WjDrLsLLF9gJ9S1W8vkqA==
-X-Gm-Gg: ASbGncspaalv+55DSHfNSW+FevsCn87vp3nlm2k87UswR+fanNOMSIbGL6cjoTC5fX/
-	zlkgLZhvpDAVXsC+OMsoI1zBvl7fbZqIPklaljcykL29aB/Lk57TaPbXPlRsf0L5k7EEC+yjvcm
-	58dtTv+aK9l6xDxi1zQW39bu32vg8fQHwf8bsvThd/Ygl5F7bnxKq5U6Xb7HNMWslTOcUGIFxmX
-	EzbmFdcvbirH6+PSXFD+DYGia8WCXzY4Q7BQHu5N4ZsUJ4Puo3qgPH5h9lIULnHlsMGd5g6sWlk
-	Asl0uAZTnjIsBoEUXVUVB/RdFo7XrwAvoWma3L35gefLPT+JJJHsdItFRQ/eWJWGubY=
-X-Google-Smtp-Source: AGHT+IGn4ErmuvGqWloJLF1fKuGFZd8eO8I4Vl1HGNdEz/7OGHTM6kX8N+mPpDAXrCHFzIN4ErCSgQ==
-X-Received: by 2002:a17:907:3f1e:b0:ab7:95b0:e3c4 with SMTP id a640c23a62f3a-ab795b0e451mr720361166b.35.1739107268414;
-        Sun, 09 Feb 2025 05:21:08 -0800 (PST)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab773339e82sm675894366b.143.2025.02.09.05.21.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Feb 2025 05:21:07 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Sam Protsenko <semen.protsenko@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Sun, 09 Feb 2025 13:56:17 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 63E4F11400B6;
+	Sun,  9 Feb 2025 08:56:13 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Sun, 09 Feb 2025 08:56:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1739109373; x=1739195773; bh=PF0zmXy3ds
+	iUkXl30IYIMBmC20fNuat6h4RHVl7ROG0=; b=eoC2qDdwexfyxAs6+9ftAdv/W8
+	FL87lIimEU/HBvzhldA/s3D3Hj0fEiPG6nOsDPyYs8fabTt1b5Dp7pOgCJBVEqP4
+	2ZasOlH/dh+Tt/uyKWBZ3EECWvzMxpVur6dC+EHYUKRiImzcNfzk/QY18oOLIuLt
+	9G6y7yQzZv5JXzA2hNcCJdBMBh8q4R641f6CzVzeTxSZYpKnojg17M2AGAqEbvye
+	K7B89OXYiNFEn3E5AqAL/xut4INKya8obavxJfKuUTs54MxX9qRReFDC0Ibwzt5U
+	U3KvkP03Ws+WenQ3BOzxXhj6G8N6AsC7692EFcqcjp4nEoXiAszKsw8BcrCw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1739109373; x=1739195773; bh=PF0zmXy3dsiUkXl30IYIMBmC20fNuat6h4R
+	HVl7ROG0=; b=emqaK/vfJVEo85KdkD2UzY+1FFVjmSR6DmKKWhvoa4dARksbpFP
+	tY4m74qg1lWQK3k6Kaw3cBcGZzMuGIHHUFFXvi4aMreCpJBCXBURIlRk6U7wI3i8
+	zboi8vAOYvUIVH84aGytFd8EEf4Q6OeXv3YQUkQpBQrKsoUcn2raK9hW0wV8NKL5
+	1rXUhSrl8Abbnz+B1yM1vjrxghkUHjj0eiN0Eg4kirnLIum8gczj35l3fVj3cd7G
+	gTCobXer/AoonDPEPtpPP37lRQB+bQcWDyXh/fZ32UKsc6aEgJm23yjWWp5NzI2s
+	LceKgoo0fP/0VLQrjWNmk9gDAYKvatPDBbA==
+X-ME-Sender: <xms:_bOoZ16-m764wDY1i7jULBZaU9_jRz_YfEkTLdMJB2TCQBeO9ejyqw>
+    <xme:_bOoZy6e9l99EUmKD5CZlxM5YixRVi5y1Q6YK197iC2jWx53QFGayVpTMgz2OZXOO
+    kR_94OJsYsuj4OgZPI>
+X-ME-Received: <xmr:_bOoZ8cF5xtWPTdBwoNV_5Ulq-d970Rd0TVLVBPs1YTMCUscI7tACHrmfmt2pF0i_WZX482hkMJjKbjuZtu7HA5OggTJy_rQ6_211zv4p4DUKxvgKBCw4TQJxyADF30>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefheefudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvve
+    fufffkofgggfestdekredtredttdenucfhrhhomhepufhvvghnucfrvghtvghruceoshhv
+    vghnsehsvhgvnhhpvghtvghrrdguvghvqeenucggtffrrghtthgvrhhnpeduieeihfegte
+    fgkedtieffkefhjeegieekffdtgffhgeevgeekgeejteeuffdvieenucffohhmrghinhep
+    ghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrg
+    hilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggprhgtphhtthho
+    peehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehsohgtsehlihhsthhsrdhlih
+    hnuhigrdguvghvpdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhr
+    tghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhope
+    hlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhr
+    ghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdroh
+    hrgh
+X-ME-Proxy: <xmx:_bOoZ-Kr5Zp_wUBIy5Gq3D9hdMmpMyt2Xy3j-OaqIayNGcVFUDmBbQ>
+    <xmx:_bOoZ5L_0vgannOO-XYbntStyjpHIU6l21lHuS4CtE7bsktEL3ja5A>
+    <xmx:_bOoZ3yZ8jp9_A3xYmwssrtjATunkaRcbWRu_ZbJ_muw80ZQOFl8YA>
+    <xmx:_bOoZ1JTHoix4UnSxbSoE5nSANSQu-UHV8D5B4v3TUtFMwLZSg8F5g>
+    <xmx:_bOoZ3j3pETG60HsZ1PV1ESlGILEPfaGuw2LZ_-qxRihO4Gs6XcOtlJ_>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 9 Feb 2025 08:56:12 -0500 (EST)
+From: Sven Peter <sven@svenpeter.dev>
+To: soc@lists.linux.dev
+Cc: Sven Peter <sven@svenpeter.dev>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: exynos: update all samsung,mode constants
-Date: Sun,  9 Feb 2025 15:20:43 +0200
-Message-ID: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+Subject: [GIT PULL] Apple SoC DT updates for v6.15
+Date: Sun,  9 Feb 2025 14:55:58 +0100
+Message-Id: <20250209135558.8243-1-sven@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_052110_768834_37641142 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250209_055615_700616_8AA6CA49 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,355 +109,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update all samsung,mode property values to account for renaming USI_V2
-constants to USI_MODE in the bindings.
+Hi,
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
-Patch picked from [1] and rebased on linux-next
+Please merge these DT changes for v6.15.
 
-[1] https://lore.kernel.org/all/20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com/
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi     | 14 +++---
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi  | 48 +++++++++----------
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |  2 +-
- .../dts/exynos/google/gs101-pixel-common.dtsi |  4 +-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  2 +-
- 5 files changed, 35 insertions(+), 35 deletions(-)
+This batch adds device trees for Apple T2 SoCs used in pre-M1 x86 machines
+as a co-processor and also adds cpufreq and PMGR nodes to a bunch of pre-M1
+Apple iDevice SoC device trees.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index f1c8b4613..cb55015c8 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -651,7 +651,7 @@ usi_uart: usi@138200c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138200c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -677,7 +677,7 @@ usi_hsi2c_0: usi@138a00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138a00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1020>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -706,7 +706,7 @@ usi_hsi2c_1: usi@138b00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138b00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1030>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -735,7 +735,7 @@ usi_hsi2c_2: usi@138c00c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x138c00c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1040>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -764,7 +764,7 @@ usi_spi_0: usi@139400c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x139400c0 0x20>;
- 			samsung,sysreg = <&sysreg_peri 0x1050>;
--			samsung,mode = <USI_V2_SPI>;
-+			samsung,mode = <USI_MODE_SPI>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -796,7 +796,7 @@ usi_cmgp0: usi@11d000c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x11d000c0 0x20>;
- 			samsung,sysreg = <&sysreg_cmgp 0x2000>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -855,7 +855,7 @@ usi_cmgp1: usi@11d200c0 {
- 			compatible = "samsung,exynos850-usi";
- 			reg = <0x11d200c0 0x20>;
- 			samsung,sysreg = <&sysreg_cmgp 0x2010>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-index b36292a7d..66628cb32 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-@@ -442,7 +442,7 @@ usi_0: usi@103000c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103000c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -505,7 +505,7 @@ usi_i2c_0: usi@103100c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103100c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1004>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -534,7 +534,7 @@ usi_1: usi@103200c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103200c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1008>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -597,7 +597,7 @@ usi_i2c_1: usi@103300c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103300c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x100c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -626,7 +626,7 @@ usi_2: usi@103400c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103400c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -689,7 +689,7 @@ usi_i2c_2: usi@103500c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103500c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1014>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -718,7 +718,7 @@ usi_3: usi@103600c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103600c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1018>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -781,7 +781,7 @@ usi_i2c_3: usi@103700c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103700c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x101c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -810,7 +810,7 @@ usi_4: usi@103800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -873,7 +873,7 @@ usi_i2c_4: usi@103900c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103900c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1024>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -902,7 +902,7 @@ usi_5: usi@103a00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103a00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1028>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -965,7 +965,7 @@ usi_i2c_5: usi@103b00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x103b00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x102c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -994,7 +994,7 @@ usi_6: usi@109000c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109000c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1057,7 +1057,7 @@ usi_i2c_6: usi@109100c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109100c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1004>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1086,7 +1086,7 @@ usi_7: usi@109200c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109200c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1008>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1149,7 +1149,7 @@ usi_i2c_7: usi@109300c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109300c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x100c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1178,7 +1178,7 @@ usi_8: usi@109400c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109400c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1010>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1241,7 +1241,7 @@ usi_i2c_8: usi@109500c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109500c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1014>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1270,7 +1270,7 @@ usi_9: usi@109600c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109600c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1018>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1333,7 +1333,7 @@ usi_i2c_9: usi@109700c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109700c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x101c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1362,7 +1362,7 @@ usi_10: usi@109800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1425,7 +1425,7 @@ usi_i2c_10: usi@109900c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109900c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1024>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1454,7 +1454,7 @@ usi_11: usi@109a00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109a00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x1028>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-@@ -1515,7 +1515,7 @@ usi_i2c_11: usi@109b00c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x109b00c0 0x20>;
- 			samsung,sysreg = <&syscon_peric1 0x102c>;
--			samsung,mode = <USI_V2_I2C>;
-+			samsung,mode = <USI_MODE_I2C>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index eb446cdc4..00bd18fa7 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -306,7 +306,7 @@ usi_0: usi@108800c0 {
- 				     "samsung,exynos850-usi";
- 			reg = <0x108800c0 0x20>;
- 			samsung,sysreg = <&syscon_peric0 0x1000>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			ranges;
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index b25230495..d6ddcc13f 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -279,12 +279,12 @@ &usi_uart {
- };
- 
- &usi8 {
--	samsung,mode = <USI_V2_I2C>;
-+	samsung,mode = <USI_MODE_I2C>;
- 	status = "okay";
- };
- 
- &usi12 {
--	samsung,mode = <USI_V2_I2C>;
-+	samsung,mode = <USI_MODE_I2C>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 813f96089..daa50eaa2 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -825,7 +825,7 @@ usi_uart: usi@10a000c0 {
- 				 <&cmu_peric0 CLK_GOUT_PERIC0_PERIC0_TOP1_IPCLK_0>;
- 			clock-names = "pclk", "ipclk";
- 			samsung,sysreg = <&sysreg_peric0 0x1020>;
--			samsung,mode = <USI_V2_UART>;
-+			samsung,mode = <USI_MODE_UART>;
- 			status = "disabled";
- 
- 			serial_0: serial@10a00000 {
--- 
-2.43.0
 
+Best,
+
+
+Sven
+
+
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  https://github.com/AsahiLinux/linux.git tags/asahi-soc-dt-6.15
+
+for you to fetch changes up to ca96d759d8d24d90b1726c2cc7c568ff4728bb42:
+
+  arm64: dts: apple: t8015: Add cpufreq nodes (2025-02-09 11:50:13 +0000)
+
+----------------------------------------------------------------
+Apple SoC DT updates for 6.15:
+
+- Added device trees for Apple T2 SoCs
+- Added cpufreq and PMGR compatibles and nodes for Apple A7-A11 and T2
+  SoCs
+
+----------------------------------------------------------------
+Nick Chan (23):
+      arm64: dts: apple: Split s8000/s8003 SoC DTS files
+      dt-bindings: arm: apple: Add T2 devices
+      arm64: dts: apple: Add T2 devices
+      dt-bindings: arm: apple: apple,pmgr: Add A7-A11, T2 compatibles
+      dt-bindings: arm: apple: apple,pmgr-pwrstate: Add A7-A11, T2 compatibles
+      arm64: dts: apple: s5l8960x: Add PMGR node
+      arm64: dts: apple: t7000: Add PMGR node
+      arm64: dts: apple: t7001: Add PMGR node
+      arm64: dts: apple: s800-0-3: Add PMGR nodes
+      arm64: dts: apple: s8001: Add PMGR nodes
+      arm64: dts: apple: t8010: Add PMGR nodes
+      arm64: dts: apple: t8011: Add PMGR nodes
+      arm64: dts: apple: t8012: Add PMGR nodes
+      arm64: dts: apple: t8015: Add PMGR nodes
+      arm64: dts: apple: s5l8960x: Add cpufreq nodes
+      arm64: dts: apple: t7000: Add cpufreq nodes
+      arm64: dts: apple: t7001: Add cpufreq nodes
+      arm64: dts: apple: Add cpufreq nodes for S8000/S8003
+      arm64: dts: apple: s8001: Add cpufreq nodes
+      arm64: dts: apple: t8010: Add cpufreq nodes
+      arm64: dts: apple: t8011: Add cpufreq nodes
+      arm64: dts: apple: t8012: Add cpufreq nodes
+      arm64: dts: apple: t8015: Add cpufreq nodes
+
+ Documentation/devicetree/bindings/arm/apple.yaml   |  41 +
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |   5 +
+ .../bindings/power/apple,pmgr-pwrstate.yaml        |   5 +
+ arch/arm64/boot/dts/apple/Makefile                 |  16 +
+ arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi         |   5 +
+ arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi       |   5 +
+ arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi      |   5 +
+ arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi        |  45 +
+ arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi       | 610 ++++++++++++++
+ arch/arm64/boot/dts/apple/s5l8960x.dtsi            |  23 +
+ arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi        |  45 +
+ arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi       | 757 +++++++++++++++++
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi            | 172 ++++
+ arch/arm64/boot/dts/apple/s8000.dtsi               | 162 +---
+ arch/arm64/boot/dts/apple/s8001-common.dtsi        |   1 +
+ arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi     |  26 +
+ arch/arm64/boot/dts/apple/s8001-j98a.dts           |   1 +
+ arch/arm64/boot/dts/apple/s8001-j99a.dts           |   1 +
+ arch/arm64/boot/dts/apple/s8001-pmgr.dtsi          | 822 ++++++++++++++++++
+ arch/arm64/boot/dts/apple/s8001.dtsi               |  81 ++
+ arch/arm64/boot/dts/apple/s8003.dtsi               |  63 +-
+ arch/arm64/boot/dts/apple/s800x-6s.dtsi            |   4 +
+ arch/arm64/boot/dts/apple/s800x-ipad5.dtsi         |   4 +
+ arch/arm64/boot/dts/apple/s800x-se.dtsi            |   4 +
+ arch/arm64/boot/dts/apple/t7000-6.dtsi             |   8 +
+ arch/arm64/boot/dts/apple/t7000-j42d.dts           |   5 +
+ arch/arm64/boot/dts/apple/t7000-mini4.dtsi         |   8 +
+ arch/arm64/boot/dts/apple/t7000-n102.dts           |   4 +
+ arch/arm64/boot/dts/apple/t7000-pmgr.dtsi          | 641 ++++++++++++++
+ arch/arm64/boot/dts/apple/t7000.dtsi               |  60 ++
+ arch/arm64/boot/dts/apple/t7001-air2.dtsi          |   1 +
+ arch/arm64/boot/dts/apple/t7001-pmgr.dtsi          | 650 ++++++++++++++
+ arch/arm64/boot/dts/apple/t7001.dtsi               |  65 ++
+ arch/arm64/boot/dts/apple/t8010-7.dtsi             |  12 +
+ arch/arm64/boot/dts/apple/t8010-ipad6.dtsi         |  12 +
+ arch/arm64/boot/dts/apple/t8010-n112.dts           |   4 +
+ arch/arm64/boot/dts/apple/t8010-pmgr.dtsi          | 772 +++++++++++++++++
+ arch/arm64/boot/dts/apple/t8010.dtsi               | 108 +++
+ arch/arm64/boot/dts/apple/t8011-common.dtsi        |   1 +
+ arch/arm64/boot/dts/apple/t8011-pmgr.dtsi          | 806 ++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8011-pro2.dtsi          |   8 +
+ arch/arm64/boot/dts/apple/t8011.dtsi               | 101 +++
+ arch/arm64/boot/dts/apple/t8012-j132.dts           |  14 +
+ arch/arm64/boot/dts/apple/t8012-j137.dts           |  14 +
+ arch/arm64/boot/dts/apple/t8012-j140a.dts          |  14 +
+ arch/arm64/boot/dts/apple/t8012-j140k.dts          |  14 +
+ arch/arm64/boot/dts/apple/t8012-j152f.dts          |  15 +
+ arch/arm64/boot/dts/apple/t8012-j160.dts           |  14 +
+ arch/arm64/boot/dts/apple/t8012-j174.dts           |  14 +
+ arch/arm64/boot/dts/apple/t8012-j185.dts           |  14 +
+ arch/arm64/boot/dts/apple/t8012-j185f.dts          |  14 +
+ arch/arm64/boot/dts/apple/t8012-j213.dts           |  15 +
+ arch/arm64/boot/dts/apple/t8012-j214k.dts          |  15 +
+ arch/arm64/boot/dts/apple/t8012-j215.dts           |  15 +
+ arch/arm64/boot/dts/apple/t8012-j223.dts           |  15 +
+ arch/arm64/boot/dts/apple/t8012-j230k.dts          |  14 +
+ arch/arm64/boot/dts/apple/t8012-j680.dts           |  15 +
+ arch/arm64/boot/dts/apple/t8012-j780.dts           |  15 +
+ arch/arm64/boot/dts/apple/t8012-jxxx.dtsi          |  44 +
+ arch/arm64/boot/dts/apple/t8012-pmgr.dtsi          | 837 ++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8012-touchbar.dtsi      |  20 +
+ arch/arm64/boot/dts/apple/t8012.dtsi               | 281 +++++++
+ arch/arm64/boot/dts/apple/t8015-common.dtsi        |   1 +
+ arch/arm64/boot/dts/apple/t8015-pmgr.dtsi          | 931 +++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8015.dtsi               | 144 ++++
+ 65 files changed, 8531 insertions(+), 127 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s800-0-3.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/s8001-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t7001-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8010-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8011-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j132.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j137.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140a.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j152f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j160.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j174.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j213.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j214k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j215.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j223.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j230k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j680.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j780.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-jxxx.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-pmgr.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-touchbar.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
 
