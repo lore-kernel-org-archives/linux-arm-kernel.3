@@ -4,67 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6CEC021A3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCA4C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJWJa5ZeCVr3ROeteBLhsE6vTZOh7QYqG2qEbuSP9/I=; b=ZAzbLlGMunKIm23j/+aKqlxVQL
-	tNCjHkecQJJYFXBB564Zg0tjclCnCZmFqbe+Kg9mMnv5wEzEOhbw65Rw6C2uMSRM47zMO1GsAJ8Fj
-	b8wmwrjVflF/keRHTGL2eogfsHM3VVHmqh7iEZ/6lmzXzDb9fHz3xqCDUjFQcwHKz3rSGQ9wW27JK
-	dviUC8wOqsaixSsd4lGx7wA0ap1Z3GYbl7NN5rlyo6yBQlEL3Nwvl+pWFPFUNftl+JEj/ASH6FvhE
-	Nm1P9zewu1pstH6T46ieEn1EDxRKwylMgHI3biVGAaPiUchajt0SMlGPnJ0FbYWgMqMQn0JEyjCOr
-	WsC+L8Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wea7b3/6KxPyJ8w3sB9xSdUtZBJ/VStaOad+Adh4tTc=; b=biOUXDL+aPBeVOe/0dEZjJ5cda
+	mbY2vLJLETUneqUYdDvaoZOOG/YFQDlqwtLdYZHH77QLY1zFqOrZ7ahY4d9gtpTC/cT+VmJzWCIjA
+	NXiwkxXK9Mz1HhtGybFprtQg4qXuqB6hhvZuvfM6FVlb7wGalLuoL/J6dLSYkHNWV+/q8EqMWZjvB
+	BZ+VMr7CfQvCtzYtkHDTLcVXytrtWBm5oHrLjQDSqpWBazSePqorO7dNa0AYQQbZ7AmKv2HEOHRBr
+	pyR2EqRwBwr7gQotwSASQVqHiGOns50HEcG55F/L+DG4rBekpYTVr4ra0iTtkAWk7YQKVVa9O+9ou
+	+KLkER4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th6cp-0000000Esqn-1xFW;
-	Sun, 09 Feb 2025 12:41:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1th6eC-0000000EtMA-0VCt;
+	Sun, 09 Feb 2025 12:42:52 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th6Ph-0000000EqbL-3YHr
+	id 1th6Zt-0000000EsRS-2gbF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 12:27:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1D634A401F7;
-	Sun,  9 Feb 2025 12:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93228C4CEE2;
-	Sun,  9 Feb 2025 12:27:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739104072;
-	bh=BSXNirLH3zvz2GV0XOlsh3+a7jUDmmAsutL9GmheFYA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NmvmaZbKGIDIztWxHMvUpjMTRqPZK8Rj6b3Q/rMF2jsOQv0Sqg9brnJQlKuA8KUXb
-	 4ZOlnI2mj4b8+3W67c8dWEL5W5u4rJ2J1C2ZQ1CeA8cF0t+rUuf9voc9T1MItrRKd2
-	 e4Skd25IfhS9nnzUwPCaBfhqBSnnqSrfr2GT8Y+LREV7JvOQlLU+NN41NeRn63keP1
-	 IvtS0BLQl6WTFuysOT82FbzCXJ7COBLNJDiV5Q42tnhJSWZMn6VI0I+xZ+F/eFFjHe
-	 ViySV4XWVUQpAtu5eD863ujlD5MnB9cnds6SrgHbjfatCbMTYp6Oi86K/NBMfSnufO
-	 4tonCTVZYSaAA==
-Date: Sun, 9 Feb 2025 13:27:49 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: T Pratham <t-pratham@ti.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-crypto@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Praneeth Bajjuri <praneeth@ti.com>, Kamlesh Gurudasani <kamlesh@ti.com>, 
-	Manorit Chawdhry <m-chawdhry@ti.com>
-Subject: Re: [PATCH RFC 1/3] dt-bindings: crypto: Add binding for TI DTHE V2
- driver
-Message-ID: <20250209-sincere-honored-vole-dda3c7@krzk-bin>
-References: <20250206-dthe-v2-aes-v1-0-1e86cf683928@ti.com>
- <20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com>
+	Sun, 09 Feb 2025 12:38:26 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38dc6d9b292so1206381f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 04:38:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739104703; x=1739709503; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Wea7b3/6KxPyJ8w3sB9xSdUtZBJ/VStaOad+Adh4tTc=;
+        b=N/F6GDLz8T/lgbuIKJipMuP7wT8/lgfJXXSFTvyq5gGOObbG5SaF38dfP3SwThV4wp
+         8nFX3KHiNIz+viwUpz3nU937s4GOLhF1lwhJGqnzmKNuelB+rXJd/eDg5/BzBV1SS9uD
+         43VJh7KSdGeMsfRPb0r4NMq/UiubwC01F90rjVZfq8iOyCHPJGOk/8FAcMYYfu0sFDZn
+         2whdehJqpg2zKF9/I52l4gVxEf2X89JGRCr5qe9iM/SDBcorEY9OaW7msRkD1hKE6N0h
+         7DMHgzAZ6D1GkZd++bssuxfUJOnXFhvxiAn9JH6FNh6cokCwLHU5JVJaqGM7Kk4DMte+
+         UP7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739104703; x=1739709503;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wea7b3/6KxPyJ8w3sB9xSdUtZBJ/VStaOad+Adh4tTc=;
+        b=u7VP5Af79VA2Y7r1KqAaroi+2YBw/WECOu3nbTGz6HGbvfZyzjkJd+gF4YawKfnA5+
+         E1DsHA95hxD/VJFFRXFAD/OaWkNdK8R9bGXyIlE+2s5FnayXvlOdkgTla/xhChkmFxKG
+         629svx25k6u6D0CgcSSBQJwBOomNgW58HwOr0nQ8n6BM6tSnYGk/CVlKCNxtQdE+F498
+         mtGbIcRFow/NXDEIM5gHJR7G7pKgTuhFS0VvA0IRhpSgZ3wUwaEQs5yTtkyLOtqm7p2e
+         RAI/olN6/zKE+IL+blw3LzOEVIeIsQbez87nB/MMErFa3zUaiv5ZeHQnYXQaAjrYDJpA
+         OxmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWvOL0CcPZk4bp/O44afX5ccFCG2IXb/9zMxAzHedrJ4Nc1WX4qctcsWI9t3ej4pbsMQZx8lL22quW0eRf9Ikm5@lists.infradead.org
+X-Gm-Message-State: AOJu0YybpkC3T2RWAY00EGkBfLjE1fN3fDFcGUMQw8gsx14RiJmrfGx0
+	fHHr50UHrH44ln/kAmK1kS6SEgBSWOyc4mHDxanhNN07wuzlr8S0reBcAMEfi18=
+X-Gm-Gg: ASbGncuYPXtXBf9s0WATfuaGhfHdG9ZQ3zFTIqQuuuRT2bfZrhJ42RIPJdCa9SXiswT
+	jtLhH2OyGWk9uMC+klgy+PjicnGoMgZIKKpeoYfW8moLTsNR0b7hoC/UhuYxY+h39A2iB8VMLTx
+	dfLZEBusUzMr8HsRwaSdiTEFCik/hyRxslKLVXlakz3w0mSc/AG9rhyp9Yr5hqQim1WTD041tQk
+	ekCvTLIz3VSO/3UAtCfVLEjU8gulnJYCh+irK0L/hL8+3XNvJ4sH6Ayr5RvMv91mGElJ22j2BLy
+	8SuzyGkEojYlBv9sD6c+tJXlIEr2JJlfI1c95ivNbryuf/A0JWWHoN4=
+X-Google-Smtp-Source: AGHT+IHAn5dBvK+eaCAM1hEAPTzgaHWbJSRPVCMLhYu3o81y2gOi4Jhi71LuCjv1/0szAK/gcgf8sA==
+X-Received: by 2002:a05:6000:1865:b0:38c:5d42:1529 with SMTP id ffacd0b85a97d-38dc9491b8emr6932878f8f.36.1739104703361;
+        Sun, 09 Feb 2025 04:38:23 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4390d933523sm151223495e9.1.2025.02.09.04.38.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 09 Feb 2025 04:38:22 -0800 (PST)
+Message-ID: <15a1cb62-9d02-400a-9760-d741440c1b81@linaro.org>
+Date: Sun, 9 Feb 2025 13:38:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250206-dthe-v2-aes-v1-1-1e86cf683928@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: timer: exynos4210-mct: Add
+ samsung,exynos990-mct compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20250104-cmu-nodes-v1-0-ae8af253bc25@mentallysanemainliners.org>
+ <20250104-cmu-nodes-v1-1-ae8af253bc25@mentallysanemainliners.org>
+ <076daca7-55e0-40d4-8ea5-93254ecd19b8@linaro.org>
+ <9142e874-cefb-404b-8932-3e712b2d8bf0@kernel.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <9142e874-cefb-404b-8932-3e712b2d8bf0@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_042754_015516_3E291CEB 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250209_043825_689947_B9B26355 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 02:44:30PM +0530, T Pratham wrote:
-> Add new DT binding for Texas Instruments DTHE V2 crypto driver.
-
-This was never tested so only limited review.
-
-Subject and commit msg: Bindings are for hardware, not driver. Rephrase
-to accurately describe the hardware.
-
-
+On 09/02/2025 12:14, Krzysztof Kozlowski wrote:
+> On 08/01/2025 17:40, Daniel Lezcano wrote:
+>> On 04/01/2025 21:54, Igor Belwon wrote:
+>>> Add a dedicated compatible for the MCT of the Exynos 990 SoC.
+>>> The design for the timer is reused from previous SoCs.
+>>>
+>>> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+>>> ---
+>>
+>> Applied patch 1/2
+>>
 > 
-> DTHE V2 is introduced as a part of TI AM62L SoC and can currently be
-> only found in it.
+> Hi Daniel,
 > 
-> Signed-off-by: T Pratham <t-pratham@ti.com>
-> ---
-> PS: Please note that the dmas option in dt-bindings is subject to change in
-> future as dma driver is not finalized yet. Any updated changes will be
-> sent in the next version of the patch.
-> 
->  .../devicetree/bindings/crypto/ti,dthev2.yaml      | 50 ++++++++++++++++++++++
->  MAINTAINERS                                        |  6 +++
->  2 files changed, 56 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml b/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..9c871fe191ae0a3341d047d4565ec1e1bf1f21ef
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/crypto/ti,dthev2.yaml
+> Did this really happen? You replied month ago, but linux-next still does
+> not have this patch and now we got new warnings on next:
 
-Filename matching compatible.
+Hi Krzysztof,
 
-> @@ -0,0 +1,50 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/crypto/ti,dthev2.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: K3 SoC DTHE V2 crypto module
-> +
-> +maintainers:
-> +  - T Pratham <t-pratham@ti.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ti,dthe-v2
-
-NAK, SoC-based compatible instead.
+thanks for pointing this out. Actually I forgot to push the branch :/
 
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  dmas:
-> +    items:
-> +      - description: 'AES Engine RX DMA Channel'
-> +      - description: 'AES Engine TX DMA Channel'
-> +      - description: 'SHA Engine TX DMA Channel'
-> +
-> +  dma-names:
-> +    items:
-> +      - const: rx
-> +      - const: tx1
-> +      - const: tx2
-> +
-> +
 
-Drop stray blank line
 
-> +required:
-> +  - compatible
-> +  - reg
-> +  - dmas
-> +  - dma-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-Drop stray blank line
-
-> +    crypto: crypto@40800000 {
-
-Drop label
-
-> +		compatible = "ti,dthe-v2";
-> +		reg = <0x00 0x40800000 0x00 0x10000>;
-> +
-> +		dmas = <&main_bcdma 0 0xc701 0>, <&main_bcdma 0 0x4700 0>, <&main_bcdma 0 0xc700 0>;
-
-Wrap according to coding style.
-
-Best regards,
-Krzysztof
-
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
