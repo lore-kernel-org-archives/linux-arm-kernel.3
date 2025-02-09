@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A853C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 13:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3106DC02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 14:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PF0zmXy3dsiUkXl30IYIMBmC20fNuat6h4RHVl7ROG0=; b=zF7HfnWzeuvCOSeVzKiSzFs8qI
-	fqLBbM/VVZZnTrYkSIro0YoVCK2IYsHbvFca8ywGbWwPSAgrM0mCIQjQqZyx7KqySZRz4O3JSnq/H
-	6MpzCS6xaB+N6p0c2hFIwbnBQ+z34uENQUAGfrl1waBPNjS12knMvaAJ2T0FIP+4vWYcUGhh7HKy4
-	UNiROMcqXeMNNvZe+WOl+CNcEtO8JB3XhagWyZmHMzZNP6H3CZfd1Ubx8/jEmzYWUKEEhH3vjQGHw
-	ZDHL76Mfyie/83+e/0tOY1wgmcGqayzxawhyqnoB1a2XTzpc60ixn+B6PC22SX2I+H/6miVA/8pvt
-	Ho3NlsfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rTJLpEas8F0AQw6YymLULrSMVw347jl8X+/BBYINuCg=; b=m+XSwn/bHWqjUu3pGYPo4ffNj7
+	3Xohginp1zCroxIwchw4PpFGT5uBJDeaGp+bIKJE5savMxJUj2Nrw1WSWsqOuoA7xsPT/fbofhOBM
+	mFGDsRI26kD9NOHaf83XC47v9TvDzgAHkhAIL8ay33/QQzdKKVZAknXyhDx7tfv6Zt2lkvcYd7CVb
+	VSBM+0V9HCMnqKxeHV4EHknKTYlFCFyI91v8tHxzsZZFXrmNSNd1W9XGCfRPoTjoFP8RhousJ+BeZ
+	sle/5osqz++jUjqf3ahj6F1uDaOVJNUq3Zj5PyeDidlMNUcShJCV2G3KO39NDzh3YAT5pVM3KPtqo
+	v2nd8GAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th7ob-0000000EyGR-3geC;
-	Sun, 09 Feb 2025 13:57:41 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1th8cd-0000000F2Zx-1gJ8;
+	Sun, 09 Feb 2025 14:49:23 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th7nC-0000000Ey8f-3x8r
+	id 1th8bF-0000000F2Tr-0lTo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 13:56:17 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 63E4F11400B6;
-	Sun,  9 Feb 2025 08:56:13 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Sun, 09 Feb 2025 08:56:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm1; t=1739109373; x=1739195773; bh=PF0zmXy3ds
-	iUkXl30IYIMBmC20fNuat6h4RHVl7ROG0=; b=eoC2qDdwexfyxAs6+9ftAdv/W8
-	FL87lIimEU/HBvzhldA/s3D3Hj0fEiPG6nOsDPyYs8fabTt1b5Dp7pOgCJBVEqP4
-	2ZasOlH/dh+Tt/uyKWBZ3EECWvzMxpVur6dC+EHYUKRiImzcNfzk/QY18oOLIuLt
-	9G6y7yQzZv5JXzA2hNcCJdBMBh8q4R641f6CzVzeTxSZYpKnojg17M2AGAqEbvye
-	K7B89OXYiNFEn3E5AqAL/xut4INKya8obavxJfKuUTs54MxX9qRReFDC0Ibwzt5U
-	U3KvkP03Ws+WenQ3BOzxXhj6G8N6AsC7692EFcqcjp4nEoXiAszKsw8BcrCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1739109373; x=1739195773; bh=PF0zmXy3dsiUkXl30IYIMBmC20fNuat6h4R
-	HVl7ROG0=; b=emqaK/vfJVEo85KdkD2UzY+1FFVjmSR6DmKKWhvoa4dARksbpFP
-	tY4m74qg1lWQK3k6Kaw3cBcGZzMuGIHHUFFXvi4aMreCpJBCXBURIlRk6U7wI3i8
-	zboi8vAOYvUIVH84aGytFd8EEf4Q6OeXv3YQUkQpBQrKsoUcn2raK9hW0wV8NKL5
-	1rXUhSrl8Abbnz+B1yM1vjrxghkUHjj0eiN0Eg4kirnLIum8gczj35l3fVj3cd7G
-	gTCobXer/AoonDPEPtpPP37lRQB+bQcWDyXh/fZ32UKsc6aEgJm23yjWWp5NzI2s
-	LceKgoo0fP/0VLQrjWNmk9gDAYKvatPDBbA==
-X-ME-Sender: <xms:_bOoZ16-m764wDY1i7jULBZaU9_jRz_YfEkTLdMJB2TCQBeO9ejyqw>
-    <xme:_bOoZy6e9l99EUmKD5CZlxM5YixRVi5y1Q6YK197iC2jWx53QFGayVpTMgz2OZXOO
-    kR_94OJsYsuj4OgZPI>
-X-ME-Received: <xmr:_bOoZ8cF5xtWPTdBwoNV_5Ulq-d970Rd0TVLVBPs1YTMCUscI7tACHrmfmt2pF0i_WZX482hkMJjKbjuZtu7HA5OggTJy_rQ6_211zv4p4DUKxvgKBCw4TQJxyADF30>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefheefudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvve
-    fufffkofgggfestdekredtredttdenucfhrhhomhepufhvvghnucfrvghtvghruceoshhv
-    vghnsehsvhgvnhhpvghtvghrrdguvghvqeenucggtffrrghtthgvrhhnpeduieeihfegte
-    fgkedtieffkefhjeegieekffdtgffhgeevgeekgeejteeuffdvieenucffohhmrghinhep
-    ghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrg
-    hilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggprhgtphhtthho
-    peehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehsohgtsehlihhsthhsrdhlih
-    hnuhigrdguvghvpdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhr
-    tghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhope
-    hlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhr
-    ghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdroh
-    hrgh
-X-ME-Proxy: <xmx:_bOoZ-Kr5Zp_wUBIy5Gq3D9hdMmpMyt2Xy3j-OaqIayNGcVFUDmBbQ>
-    <xmx:_bOoZ5L_0vgannOO-XYbntStyjpHIU6l21lHuS4CtE7bsktEL3ja5A>
-    <xmx:_bOoZ3yZ8jp9_A3xYmwssrtjATunkaRcbWRu_ZbJ_muw80ZQOFl8YA>
-    <xmx:_bOoZ1JTHoix4UnSxbSoE5nSANSQu-UHV8D5B4v3TUtFMwLZSg8F5g>
-    <xmx:_bOoZ3j3pETG60HsZ1PV1ESlGILEPfaGuw2LZ_-qxRihO4Gs6XcOtlJ_>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 9 Feb 2025 08:56:12 -0500 (EST)
-From: Sven Peter <sven@svenpeter.dev>
-To: soc@lists.linux.dev
-Cc: Sven Peter <sven@svenpeter.dev>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC DT updates for v6.15
-Date: Sun,  9 Feb 2025 14:55:58 +0100
-Message-Id: <20250209135558.8243-1-sven@svenpeter.dev>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	Sun, 09 Feb 2025 14:47:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739112477; x=1770648477;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mfm0fzgHcJqEKVxh9uCNABxYv9pkHhFHRmLF/klPJB0=;
+  b=buoXYLemEb6bZNXyoF1r6Bi6mQ4esg3d5Uxtow4K8XS7csPJJuRE2LLp
+   VZ2xAkt995jAyN4H5vMXG25sltRyBg4Xc4s+uKhMJN5VEQjNRGIvMeYDU
+   Mf1pat0wrCsIs+5JR9nlvqGj5yE00RyKhw0bjdmkhtSAG0Grs2i2c4rCF
+   ZGBVUbnptraRFmPJZo/vVzdW4cDaYMBiw7eDqcAQQIHQVhIZ68Fi5akGD
+   Tbgn55VXQwyhMYGZHi+8RdiWwoFEaGzifOItM15jYqEeY8aqq7KPiEXW4
+   iatzuUBs+ZGswYwALdxwKEi9mTiLuwCpjTXYh/OH5uAaJhdLWj8IiRbYs
+   g==;
+X-CSE-ConnectionGUID: t9lQnRc3RZOUhzGG/35PwQ==
+X-CSE-MsgGUID: EGjy6AfLSWOmAA8MiTQvXA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="39814475"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="39814475"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2025 06:47:53 -0800
+X-CSE-ConnectionGUID: aiO4+LsNRneHiuvh2xmPZQ==
+X-CSE-MsgGUID: olmz5DBrQCayHBuyQLFg9w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="116039181"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2025 06:47:48 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1th8b2-00000009qVD-1xjG;
+	Sun, 09 Feb 2025 16:47:44 +0200
+Date: Sun, 9 Feb 2025 16:47:44 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Aren Moynihan <aren@peacevolution.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Kaustabh Chakraborty <kauschluss@disroot.org>,
+	=?iso-8859-1?B?QmFybmFi4XMgQ3rpbeFu?= <trabarni@gmail.com>,
+	Julien Stephan <jstephan@baylibre.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, Ondrej Jirman <megi@xff.cz>,
+	Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v5 6/8] iio: light: stk3310: use dev_err_probe where
+ possible
+Message-ID: <Z6jAEEU2dqn_FJVp@smile.fi.intel.com>
+References: <20250208211325.992280-2-aren@peacevolution.org>
+ <20250208211325.992280-8-aren@peacevolution.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250208211325.992280-8-aren@peacevolution.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_055615_700616_8AA6CA49 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250209_064757_296233_1B240C23 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,162 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sat, Feb 08, 2025 at 04:13:24PM -0500, Aren Moynihan wrote:
+> Using dev_err_probe instead of dev_err and return makes the errors
 
-Please merge these DT changes for v6.15.
+Use dev_err_probe()
+dev_err()
 
-This batch adds device trees for Apple T2 SoCs used in pre-M1 x86 machines
-as a co-processor and also adds cpufreq and PMGR nodes to a bunch of pre-M1
-Apple iDevice SoC device trees.
+> easier to understand by including the error name, and saves a little
+> code.
+
+I believe this patch will make more sense before switching to local 'dev'
+variable. Then the previous one will have an additional justification as
+the "struct device *dev = ...;" lines in some cases will be added already
+by this patch.
+
+...
+
+>  	indio_dev = devm_iio_device_alloc(dev, sizeof(*data));
+> -	if (!indio_dev) {
+> -		dev_err(&client->dev, "iio allocation failed!\n");
+> -		return -ENOMEM;
+> -	}
+> +	if (!indio_dev)
+> +		return dev_err_probe(dev, -ENOMEM, "iio allocation failed!\n");
+
+We don't issue the messages for -ENOMEM.
+
+If it's in the current code, add a new patch to drop this message and return an
+error code directly.
+
+...
+
+> +	if (ret < 0)
+
+Perhaps, while at it, drop these ' < 0' parts where they are not hinting about
+anything.
+
+> +		return dev_err_probe(dev, ret, "device_register failed\n");
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Best,
-
-
-Sven
-
-
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
-
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  https://github.com/AsahiLinux/linux.git tags/asahi-soc-dt-6.15
-
-for you to fetch changes up to ca96d759d8d24d90b1726c2cc7c568ff4728bb42:
-
-  arm64: dts: apple: t8015: Add cpufreq nodes (2025-02-09 11:50:13 +0000)
-
-----------------------------------------------------------------
-Apple SoC DT updates for 6.15:
-
-- Added device trees for Apple T2 SoCs
-- Added cpufreq and PMGR compatibles and nodes for Apple A7-A11 and T2
-  SoCs
-
-----------------------------------------------------------------
-Nick Chan (23):
-      arm64: dts: apple: Split s8000/s8003 SoC DTS files
-      dt-bindings: arm: apple: Add T2 devices
-      arm64: dts: apple: Add T2 devices
-      dt-bindings: arm: apple: apple,pmgr: Add A7-A11, T2 compatibles
-      dt-bindings: arm: apple: apple,pmgr-pwrstate: Add A7-A11, T2 compatibles
-      arm64: dts: apple: s5l8960x: Add PMGR node
-      arm64: dts: apple: t7000: Add PMGR node
-      arm64: dts: apple: t7001: Add PMGR node
-      arm64: dts: apple: s800-0-3: Add PMGR nodes
-      arm64: dts: apple: s8001: Add PMGR nodes
-      arm64: dts: apple: t8010: Add PMGR nodes
-      arm64: dts: apple: t8011: Add PMGR nodes
-      arm64: dts: apple: t8012: Add PMGR nodes
-      arm64: dts: apple: t8015: Add PMGR nodes
-      arm64: dts: apple: s5l8960x: Add cpufreq nodes
-      arm64: dts: apple: t7000: Add cpufreq nodes
-      arm64: dts: apple: t7001: Add cpufreq nodes
-      arm64: dts: apple: Add cpufreq nodes for S8000/S8003
-      arm64: dts: apple: s8001: Add cpufreq nodes
-      arm64: dts: apple: t8010: Add cpufreq nodes
-      arm64: dts: apple: t8011: Add cpufreq nodes
-      arm64: dts: apple: t8012: Add cpufreq nodes
-      arm64: dts: apple: t8015: Add cpufreq nodes
-
- Documentation/devicetree/bindings/arm/apple.yaml   |  41 +
- .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |   5 +
- .../bindings/power/apple,pmgr-pwrstate.yaml        |   5 +
- arch/arm64/boot/dts/apple/Makefile                 |  16 +
- arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi         |   5 +
- arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi       |   5 +
- arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi      |   5 +
- arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi        |  45 +
- arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi       | 610 ++++++++++++++
- arch/arm64/boot/dts/apple/s5l8960x.dtsi            |  23 +
- arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi        |  45 +
- arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi       | 757 +++++++++++++++++
- arch/arm64/boot/dts/apple/s800-0-3.dtsi            | 172 ++++
- arch/arm64/boot/dts/apple/s8000.dtsi               | 162 +---
- arch/arm64/boot/dts/apple/s8001-common.dtsi        |   1 +
- arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi     |  26 +
- arch/arm64/boot/dts/apple/s8001-j98a.dts           |   1 +
- arch/arm64/boot/dts/apple/s8001-j99a.dts           |   1 +
- arch/arm64/boot/dts/apple/s8001-pmgr.dtsi          | 822 ++++++++++++++++++
- arch/arm64/boot/dts/apple/s8001.dtsi               |  81 ++
- arch/arm64/boot/dts/apple/s8003.dtsi               |  63 +-
- arch/arm64/boot/dts/apple/s800x-6s.dtsi            |   4 +
- arch/arm64/boot/dts/apple/s800x-ipad5.dtsi         |   4 +
- arch/arm64/boot/dts/apple/s800x-se.dtsi            |   4 +
- arch/arm64/boot/dts/apple/t7000-6.dtsi             |   8 +
- arch/arm64/boot/dts/apple/t7000-j42d.dts           |   5 +
- arch/arm64/boot/dts/apple/t7000-mini4.dtsi         |   8 +
- arch/arm64/boot/dts/apple/t7000-n102.dts           |   4 +
- arch/arm64/boot/dts/apple/t7000-pmgr.dtsi          | 641 ++++++++++++++
- arch/arm64/boot/dts/apple/t7000.dtsi               |  60 ++
- arch/arm64/boot/dts/apple/t7001-air2.dtsi          |   1 +
- arch/arm64/boot/dts/apple/t7001-pmgr.dtsi          | 650 ++++++++++++++
- arch/arm64/boot/dts/apple/t7001.dtsi               |  65 ++
- arch/arm64/boot/dts/apple/t8010-7.dtsi             |  12 +
- arch/arm64/boot/dts/apple/t8010-ipad6.dtsi         |  12 +
- arch/arm64/boot/dts/apple/t8010-n112.dts           |   4 +
- arch/arm64/boot/dts/apple/t8010-pmgr.dtsi          | 772 +++++++++++++++++
- arch/arm64/boot/dts/apple/t8010.dtsi               | 108 +++
- arch/arm64/boot/dts/apple/t8011-common.dtsi        |   1 +
- arch/arm64/boot/dts/apple/t8011-pmgr.dtsi          | 806 ++++++++++++++++++
- arch/arm64/boot/dts/apple/t8011-pro2.dtsi          |   8 +
- arch/arm64/boot/dts/apple/t8011.dtsi               | 101 +++
- arch/arm64/boot/dts/apple/t8012-j132.dts           |  14 +
- arch/arm64/boot/dts/apple/t8012-j137.dts           |  14 +
- arch/arm64/boot/dts/apple/t8012-j140a.dts          |  14 +
- arch/arm64/boot/dts/apple/t8012-j140k.dts          |  14 +
- arch/arm64/boot/dts/apple/t8012-j152f.dts          |  15 +
- arch/arm64/boot/dts/apple/t8012-j160.dts           |  14 +
- arch/arm64/boot/dts/apple/t8012-j174.dts           |  14 +
- arch/arm64/boot/dts/apple/t8012-j185.dts           |  14 +
- arch/arm64/boot/dts/apple/t8012-j185f.dts          |  14 +
- arch/arm64/boot/dts/apple/t8012-j213.dts           |  15 +
- arch/arm64/boot/dts/apple/t8012-j214k.dts          |  15 +
- arch/arm64/boot/dts/apple/t8012-j215.dts           |  15 +
- arch/arm64/boot/dts/apple/t8012-j223.dts           |  15 +
- arch/arm64/boot/dts/apple/t8012-j230k.dts          |  14 +
- arch/arm64/boot/dts/apple/t8012-j680.dts           |  15 +
- arch/arm64/boot/dts/apple/t8012-j780.dts           |  15 +
- arch/arm64/boot/dts/apple/t8012-jxxx.dtsi          |  44 +
- arch/arm64/boot/dts/apple/t8012-pmgr.dtsi          | 837 ++++++++++++++++++
- arch/arm64/boot/dts/apple/t8012-touchbar.dtsi      |  20 +
- arch/arm64/boot/dts/apple/t8012.dtsi               | 281 +++++++
- arch/arm64/boot/dts/apple/t8015-common.dtsi        |   1 +
- arch/arm64/boot/dts/apple/t8015-pmgr.dtsi          | 931 +++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8015.dtsi               | 144 ++++
- 65 files changed, 8531 insertions(+), 127 deletions(-)
- create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-opp.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s5l8965x-opp.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s800-0-3.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/s8001-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t7001-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8010-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8011-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j132.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j137.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j140a.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j140k.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j152f.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j160.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j174.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j185.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j185f.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j213.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j214k.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j215.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j223.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j230k.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j680.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-j780.dts
- create mode 100644 arch/arm64/boot/dts/apple/t8012-jxxx.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8012-pmgr.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8012-touchbar.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8012.dtsi
- create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
 
