@@ -4,88 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F2CC02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 11:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DA1C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 11:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czsr8ut4E1IjeGJZsPHODj7dteAs5/QBRXMGMfAcAZA=; b=o/xTjuzlnvF7ckMiRBDfFoZ762
-	n62I332h99Brg27RgiMIIfVVRaw+LgwTsJI9MktghNVNyADxzNCD246S1Axm7Kouh6weDBpFgMEfQ
-	EcT2KwF+5a+MW5cdQnnSisbhVGp9xmyaUfZ6qvXno8yvjz1P1C1bF2yPPCluECkEIL/sprIupyOg1
-	xY5+I+GyQCADgZT4Rf1f3YhUchmPklHRzsUbxWUSDv8seOav+hJ2PO966JAu5q7lRaxvD6N+4Cera
-	ggTrECFusdpUCkruc3MckrsP6IhlNGUw5nS7PsNZ2ITs0TAAdN9gsnTL5MF23hU8vvxh/iXzqHuin
-	u3pEsYUw==;
+	bh=bdsl4bpELxCRtMtIc9HvcO+dwLaPIuN+jYg6XNor2QI=; b=gMfy73JVUu3Rp0vqAqXGkVOml/
+	ZvNFN4h/YOyD1iRFmNhWMaYfwm1Hc3Sloy6wlovMyMd+2xDb7g3OFeE3O1y8fUvh1OqX2J+LYnwa5
+	p0p48xNoWkONPbpb0vVLcGIOmEt+sEbxBzz3b77CGzyUTMAxsWBovsTKHNe3QBZ1TCxQvEPQ4SxP8
+	3KjegKIEKBqvXSMMuhuRsf1aFyR5um1nInkIWYmSAf0k3qhkQkhHlKp474hvaRzkaPKH0JxakBUUF
+	U/FxunrwSQHd/R0zFTB+YdiohPEmceItZ3daDb4bAMuJVO2kzjex6g97BCqwY70YmnIi3DthWMhsk
+	8wpPHiVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5ev-0000000El67-2KaN;
-	Sun, 09 Feb 2025 11:39:33 +0000
-Received: from mail-ej1-f50.google.com ([209.85.218.50])
+	id 1th5wk-0000000EmIT-30ub;
+	Sun, 09 Feb 2025 11:57:58 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5Og-0000000EjCO-48u0
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 11:22:48 +0000
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ab7863f9be4so346403766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 03:22:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739100165; x=1739704965;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=czsr8ut4E1IjeGJZsPHODj7dteAs5/QBRXMGMfAcAZA=;
-        b=DT8F1lunelc3qXg8CXx9PbmxVnVuK1m+B6BS/4kcBf82a8efS5RExodM9ocuRMqXOd
-         LytrsNtqinv5BXzZT0u33u3GE6DJ7Ofs3I20LTkA7H4yj/5cK0dvfh9QinWzBhHOdPcP
-         aWNnG2MPvdGRyRqCQzFh7lw0GHdUug6g98xZFTJTIwpvhD61mkvGyOd5EvZa6DS3P4uM
-         RmsR6w7qptKJvG1tdaK9mGSRcIvGOUGhYjlj5lzWtSaOXZDcRmwMma7faboakEUPArWS
-         xPXMpzDlKzflNHUoUyffajKCZbN3t9hhmAJbMZ+epMRX/zyjof0fC/420uUPGBTjFVl7
-         JFCA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2VM3VaBc9wZ0kTiVeBAC9PKJbSxT0bA+fD9FIPCNTpI06zZUg25t9tgmn316p8OTtzxazyEECillqQKO14O8y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+eu+gDvjgyNugKspgIxv66p+Ho002oHiq48AUsv6qaAF4BmFY
-	Nl9ATxhZ4CeXl55AaH33lSkWdD7BtTuFQ3cqzQ1AULK15CAR3+yOOeJMELHulK8=
-X-Gm-Gg: ASbGncsWucbv7J4Wt2YaV9cRTyUdnwvYy3Iwm9q0qsZMhTzOu/gSbTj5g9p0LogiY8n
-	LCxIDdCwUhcoVnjIFqn8aKOq3WYTDwMPbp22RSPXlJCtAYDkS6D8ab2l+dj5f0XClZotcczc8o5
-	7BiWxevdk6KEJ9dsyzOotJQkVjED0BlveFHJfDR3Nof5l5yfVBsR1BfsupQZS8/WKcZpPSJnRMV
-	kU/A5feBy3jiD2TRKNU6x3OqWxBowoK0YPWsQbzLJRwqAk5q2PIDjWHGIe5mynXbpf+M2qxCk+p
-	lriQznvTz2xu7Re0XMqZ9EihOnVcenES6hwliH485cl1wA==
-X-Google-Smtp-Source: AGHT+IGzFvRdwFOrGwXCKd+UN+ncIyjM9BUEiBCCiBEfjag/2Kqz2NAfsriQN5oJrYX+/yuS6NR1CQ==
-X-Received: by 2002:a17:907:3f1e:b0:ab7:7e14:684d with SMTP id a640c23a62f3a-ab789aa8727mr1151767566b.13.1739100165034;
-        Sun, 09 Feb 2025 03:22:45 -0800 (PST)
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com. [209.85.208.53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab772fd67c2sm653535166b.77.2025.02.09.03.22.44
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Feb 2025 03:22:44 -0800 (PST)
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5de4c7720bcso3178615a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 03:22:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVSW7ur3gSre4070J9t0tWT60JuXvecpDfP7JNYQ/L+EqiZPcI+NVfVAt3EeuXw4FvYtUngyjNSdd+nFbUFVF87@lists.infradead.org
-X-Received: by 2002:a05:6402:5252:b0:5db:f423:19b9 with SMTP id
- 4fb4d7f45d1cf-5de450236admr7763979a12.16.1739100164505; Sun, 09 Feb 2025
- 03:22:44 -0800 (PST)
+	id 1th5vM-0000000EmAR-3HzR;
+	Sun, 09 Feb 2025 11:56:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B139BA401C9;
+	Sun,  9 Feb 2025 11:54:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BBB8C4CEDD;
+	Sun,  9 Feb 2025 11:56:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739102191;
+	bh=Lz2w10qZ/7qf0GBvDV0ucsndxbEDejIrSm5OdLohrlc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FDUUplSm71iSeiNoCP8kgKWfH/FV7hnL/Pb6Ql0ehJB7KzeA4JJiYvqfe+AbgZyRO
+	 p1NSbOUnNhOyiI81Qel+HotJUgFLt99w4fXpRJv+Fr4PO1AKn5ZdwfXVGWg5IIh/eS
+	 jVUXvVzqiQdO1T/qSpllafTpUzMny3do/xNGzlFwlBsDOthdimAXo6YI8f48wODIdL
+	 UgGufOquMx/cMto6ke6VChFxg1TQhJXUsdGPoW+iyxblOcl3HoGZkw2Cao6YYpE5/A
+	 0oppnFn6xYT4HbhZ3HVjkmb1wqK3zBtlAzcbSBrxVVb8DHKghT7nXEaBVm/5kC829x
+	 fVAfOPTKwQVgw==
+Message-ID: <922691a1-10d0-4ff1-a174-a456235e6487@kernel.org>
+Date: Sun, 9 Feb 2025 12:56:19 +0100
 MIME-Version: 1.0
-References: <20250203115156.28174-1-towinchenmi@gmail.com>
-In-Reply-To: <20250203115156.28174-1-towinchenmi@gmail.com>
-From: Neal Gompa <neal@gompa.dev>
-Date: Sun, 9 Feb 2025 06:22:08 -0500
-X-Gmail-Original-Message-ID: <CAEg-Je8cB==_+fNi0hc-mPqkEd-w82tWay_2Wu76hV10LV4X2g@mail.gmail.com>
-X-Gm-Features: AWEUYZks2Pe6z_gT4XPe5iRvZlGve_lJKCtY1woYJMW8gNu9Xz8tZDlJPRfovXQ
-Message-ID: <CAEg-Je8cB==_+fNi0hc-mPqkEd-w82tWay_2Wu76hV10LV4X2g@mail.gmail.com>
-Subject: Re: [PATCH v5 RESEND 0/3] Apple DWI backlight driver
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Lee Jones <lee@kernel.org>, 
-	Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Helge Deller <deller@gmx.de>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org, Janne Grunau <j@jannau.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/5] dt-bindings: gpu: Add protected heap name to Mali
+ Valhall CSF binding
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Florent Tomasin <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T . J . Mercier" <tjmercier@google.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Yong Wu <yong.wu@mediatek.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ nd@arm.com, Akash Goel <akash.goel@arm.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+ <36b57dcf20860398ba83985e1c5b6f6958d08ba7.1738228114.git.florent.tomasin@arm.com>
+ <7234f25c-a2aa-4834-931b-aeeb7a49dfa7@kernel.org>
+ <4b9deab1-e330-4c93-8260-75276c2bc9ff@arm.com>
+ <c0aad911-ecc4-4b04-a453-6da226f76ed2@kernel.org>
+ <5e0e2fbb22c2ffb0c5281727cd95d70f5f5ba696.camel@ndufresne.ca>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <5e0e2fbb22c2ffb0c5281727cd95d70f5f5ba696.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_032247_030143_53E8DFD0 
-X-CRM114-Status: GOOD (  23.98  )
+X-CRM114-CacheID: sfid-20250209_035632_955843_ED7A0908 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,89 +140,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 3, 2025 at 6:52=E2=80=AFAM Nick Chan <towinchenmi@gmail.com> wr=
-ote:
->
-> Apple SoCs come with a 2-wire interface named DWI. On some iPhones, iPads
-> and iPod touches the backlight controller is connected via this interface=
-.
-> This series adds a backlight driver for backlight controllers connected
-> this way.
->
-> Changes since v4:
-> - Change type to BACKLIGHT_PLATFORM since the driver does not directly
-> interface with the backlight controller. The actual backlight controller
-> can be directly controlled via i2c and is not the same on all hardware
-> that supports the dwi interface.
-> - Rename file to apple_dwi_bl.c to better match config option.
-> - Rename driver to apple-dwi-bl to better match config option
-> - Indicate that the backlight scales linearly
->
-> v4: https://lore.kernel.org/asahi/20241211113512.19009-1-towinchenmi@gmai=
-l.com/T
->
-> Changes since v3:
-> - $ref to common.yaml in bindings
-> - (and then additionalProperties is changed to unevaluatedProperties)
-> - Use hex everywhere in bindings example
-> - Use sizeof(*dwi_bl) instead of the type of the struct when doing
-> devm_kzalloc()
-> - Use devm_platform_get_and_ioremap_resource() in driver
-> - Fix sorting in drivers/video/backlight/Makefile
-> - In drivers/video/backlight/Kconfig, move config to right after
-> BACKLIGHT_APPLE
-> - Explain this driver being completely different from apple_bl
->
-> v3: https://lore.kernel.org/asahi/20241209075908.140014-1-towinchenmi@gma=
-il.com/T
->
-> Changes since v2:
-> - Add missing includes in driver
-> - Fix file path in MAINTAINERS
->
-> v2: https://lore.kernel.org/asahi/20241207130433.30351-1-towinchenmi@gmai=
-l.com/T
->
-> Changes since v1:
-> - Fixed dt-bindings $id.
-> - Make power-domains an optional property in dt-bindings.
-> - Added missing error checking after devm_ioremap_resource() in
-> dwi_bl_probe().
->
-> v1: https://lore.kernel.org/asahi/20241206172735.4310-1-towinchenmi@gmail=
-.com/T
->
-> Nick Chan
->
-> ---
-> Nick Chan (3):
->   dt-bindings: leds: backlight: apple,dwi-bl: Add Apple DWI backlight
->   backlight: apple_dwi_bl: Add Apple DWI backlight driver
->   MAINTAINERS: Add entries for Apple DWI backlight controller
->
->  .../bindings/leds/backlight/apple,dwi-bl.yaml |  57 ++++++++
->  MAINTAINERS                                   |   2 +
->  drivers/video/backlight/Kconfig               |  12 ++
->  drivers/video/backlight/Makefile              |   1 +
->  drivers/video/backlight/apple_dwi_bl.c        | 123 ++++++++++++++++++
->  5 files changed, 195 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/leds/backlight/appl=
-e,dwi-bl.yaml
->  create mode 100644 drivers/video/backlight/apple_dwi_bl.c
->
->
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> --
-> 2.48.1
->
->
-
-This series looks good to me.
-
-Reviewed-by: Neal Gompa <neal@gompa.dev>
+On 06/02/2025 22:21, Nicolas Dufresne wrote:
+> Le mercredi 05 février 2025 à 10:13 +0100, Krzysztof Kozlowski a écrit :
+>> On 03/02/2025 16:31, Florent Tomasin wrote:
+>>> Hi Krzysztof
+>>>
+>>> On 30/01/2025 13:25, Krzysztof Kozlowski wrote:
+>>>> On 30/01/2025 14:08, Florent Tomasin wrote:
+>>>>> Allow mali-valhall-csf driver to retrieve a protected
+>>>>> heap at probe time by passing the name of the heap
+>>>>> as attribute to the device tree GPU node.
+>>>>
+>>>> Please wrap commit message according to Linux coding style / submission
+>>>> process (neither too early nor over the limit):
+>>>> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+>>> Apologies, I think I made quite few other mistakes in the style of the
+>>> patches I sent. I will work on improving this aspect, appreciated
+>>>
+>>>> Why this cannot be passed by phandle, just like all reserved regions?
+>>>>
+>>>> From where do you take these protected heaps? Firmware? This would
+>>>> explain why no relation is here (no probe ordering, no device links,
+>>>> nothing connecting separate devices).
+>>>
+>>> The protected heap is generaly obtained from a firmware (TEE) and could
+>>> sometimes be a carved-out memory with restricted access.
+>>
+>> Which is a reserved memory, isn't it?
+>>
+>>>
+>>> The Panthor CSF kernel driver does not own or manage the protected heap
+>>> and is instead a consumer of it (assuming the heap is made available by
+>>> the system integrator).
+>>>
+>>> I initially used a phandle, but then I realised it would introduce a new
+>>> API to share the heap across kernel driver. In addition I found this
+>>> patch series:
+>>> -
+>>> https://lore.kernel.org/lkml/20230911023038.30649-1-yong.wu@mediatek.com/#t
+>>>
+>>> which introduces a DMA Heap API to the rest of the kernel to find a
+>>> heap by name:
+>>> - dma_heap_find()
+>>>
+>>> I then decided to follow that approach to help isolate the heap
+>>> management from the GPU driver code. In the Panthor driver, if the
+>>> heap is not found at probe time, the driver will defer the probe until
+>>> the exporter made it available.
+>>
+>>
+>> I don't talk here really about the driver but even above mediatek
+>> patchset uses reserved memory bindings.
+>>
+>> You explained some things about driver yet you did not answer the
+>> question. This looks like reserved memory. If it does not, bring
+>> arguments why this binding cannot be a reserved memory, why hardware is
+>> not a carve out memory.
+> 
+> I think the point is that from the Mali GPU view, the memory does not need to be
+> within the range the Linux Kernel actually see, even though current integration
 
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+Do I get it right:
+Memory can be outside of kernel address range but you put it to the
+bindings as reserved memory? If yes, then I still do not understand why
+DT should keep that information. Basically, you can choose whatever
+memory is there, because it anyway won't interfere with Linux, right?
+Linux does not have any reasonable way to access it.
+
+It might interfere with firmware or other processors, but then it's the
+job of firmware which has discoverable interfaces for this.
+
+The binding says it is about protected heap name, but it explains
+nothing what is that protected heap. You pass it to some firmware as
+string? Does not look like, rather looks like Linux thingy, but this
+again is neither explained in commit msg nor actually correct: Linux
+thingies do not belong to DT.
+
+> have that. From Mali GPU driver stand point (or codec drivers and what's not),
+> the memory range is not useful to allocate protected/restricted memory. On top
+> of which, its not reserved specifically for the Mali GPU.
+> 
+> What's your practical suggestion here ? Introduce dma_heap_find_by_region() ?
+
+I did not comment about driver and I do not judge how you access
+whatever you need to access. This is discussion purely about binding
+thus about hardware.
+
+
+Best regards,
+Krzysztof
 
