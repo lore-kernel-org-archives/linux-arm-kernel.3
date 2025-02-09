@@ -4,128 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DA1C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 11:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9808C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 12:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdsl4bpELxCRtMtIc9HvcO+dwLaPIuN+jYg6XNor2QI=; b=gMfy73JVUu3Rp0vqAqXGkVOml/
-	ZvNFN4h/YOyD1iRFmNhWMaYfwm1Hc3Sloy6wlovMyMd+2xDb7g3OFeE3O1y8fUvh1OqX2J+LYnwa5
-	p0p48xNoWkONPbpb0vVLcGIOmEt+sEbxBzz3b77CGzyUTMAxsWBovsTKHNe3QBZ1TCxQvEPQ4SxP8
-	3KjegKIEKBqvXSMMuhuRsf1aFyR5um1nInkIWYmSAf0k3qhkQkhHlKp474hvaRzkaPKH0JxakBUUF
-	U/FxunrwSQHd/R0zFTB+YdiohPEmceItZ3daDb4bAMuJVO2kzjex6g97BCqwY70YmnIi3DthWMhsk
-	8wpPHiVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0a0XeLVwc+8gt4CWlvRNYzlpZgVZAhYK/YrFTGewRVg=; b=Lr7VCAABo0sPYM/1s9UZedK6TW
+	nIgLo9pgedUVcPB0JE2ONU10KIdDJAy6zmCfAQcw/Dn9DuNdwzbwN6mpdqSrQeOrj2ngRc2Mz80sb
+	QCPf19VkNzZMkPPXU442tjXi886J3LkEH0twHBo9ux8S9ye6CT0lukOSy6z7Wr9vONpZ3+9/SaMPh
+	owMZvkeUIQayn/pXz20ojson8QDCm53tmFbR1hljlZ9dHQJKDengqn+s31HIgTSJt234PPyQawoGI
+	0A/u+0J9462Cg4j7wPbdk+lPcmGVAQ5lPguCD0gYc8+03m15PFl7ayrOof2WjmBhI6MVRotxbbm4p
+	wGUQ9x7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5wk-0000000EmIT-30ub;
-	Sun, 09 Feb 2025 11:57:58 +0000
+	id 1th67X-0000000EnPn-1xet;
+	Sun, 09 Feb 2025 12:09:07 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th5vM-0000000EmAR-3HzR;
-	Sun, 09 Feb 2025 11:56:34 +0000
+	id 1th668-0000000EnCU-3pDl;
+	Sun, 09 Feb 2025 12:07:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B139BA401C9;
-	Sun,  9 Feb 2025 11:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BBB8C4CEDD;
-	Sun,  9 Feb 2025 11:56:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C9A25A40254;
+	Sun,  9 Feb 2025 12:05:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A959EC4CEDD;
+	Sun,  9 Feb 2025 12:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739102191;
-	bh=Lz2w10qZ/7qf0GBvDV0ucsndxbEDejIrSm5OdLohrlc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FDUUplSm71iSeiNoCP8kgKWfH/FV7hnL/Pb6Ql0ehJB7KzeA4JJiYvqfe+AbgZyRO
-	 p1NSbOUnNhOyiI81Qel+HotJUgFLt99w4fXpRJv+Fr4PO1AKn5ZdwfXVGWg5IIh/eS
-	 jVUXvVzqiQdO1T/qSpllafTpUzMny3do/xNGzlFwlBsDOthdimAXo6YI8f48wODIdL
-	 UgGufOquMx/cMto6ke6VChFxg1TQhJXUsdGPoW+iyxblOcl3HoGZkw2Cao6YYpE5/A
-	 0oppnFn6xYT4HbhZ3HVjkmb1wqK3zBtlAzcbSBrxVVb8DHKghT7nXEaBVm/5kC829x
-	 fVAfOPTKwQVgw==
-Message-ID: <922691a1-10d0-4ff1-a174-a456235e6487@kernel.org>
-Date: Sun, 9 Feb 2025 12:56:19 +0100
+	s=k20201202; t=1739102859;
+	bh=mrQhDEUAy9bpBI7w32R9V55ZsjnRFLW0WmEVeb+BEVA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PXUPYhJyPMN1QBehL4R85/FZdnTscVQylL76tGS8317rddXUB6kVfhb5XXWT3F177
+	 b3bY0TxIHpsXwOcXH8d21UsAXu0b1aZvSmAmf8ShGFeP7heWKT+6lgM5lXnC8sjJ/3
+	 rSeqzs27+UwRuD+rquEAZYoHUL/7HYD+9cLz4RQ4xF+y9ECohD85N9dHujBUdLNuxE
+	 fnTYniz8UIfIq03ex1/fPHXV2gL6U99/DO/ZiuR2PKuvcjEeDFE64xJ8s1D9YTGzKz
+	 HYu9E8djCwJU9y1k9FClbDV2EXzjp+vYjBgVV2LUclmfbhIiAmbIqfS3/sRy/WtVs6
+	 zk0GfTbI6BTuA==
+Date: Sun, 9 Feb 2025 13:07:36 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com, Christian Marangi <ansuelsmth@gmail.com>
+Subject: Re: [PATCH net-next v2 00/15] Introduce flowtable hw offloading in
+ airoha_eth driver
+Message-ID: <Z6iaiHVft8B-mAb4@lore-desk>
+References: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/5] dt-bindings: gpu: Add protected heap name to Mali
- Valhall CSF binding
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Florent Tomasin <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
- "T . J . Mercier" <tjmercier@google.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Yong Wu <yong.wu@mediatek.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- nd@arm.com, Akash Goel <akash.goel@arm.com>
-References: <cover.1738228114.git.florent.tomasin@arm.com>
- <36b57dcf20860398ba83985e1c5b6f6958d08ba7.1738228114.git.florent.tomasin@arm.com>
- <7234f25c-a2aa-4834-931b-aeeb7a49dfa7@kernel.org>
- <4b9deab1-e330-4c93-8260-75276c2bc9ff@arm.com>
- <c0aad911-ecc4-4b04-a453-6da226f76ed2@kernel.org>
- <5e0e2fbb22c2ffb0c5281727cd95d70f5f5ba696.camel@ndufresne.ca>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <5e0e2fbb22c2ffb0c5281727cd95d70f5f5ba696.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jJ2SWV1szSy2UBu3"
+Content-Disposition: inline
+In-Reply-To: <20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_035632_955843_ED7A0908 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20250209_040741_077471_8B4BCDE6 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,94 +87,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 22:21, Nicolas Dufresne wrote:
-> Le mercredi 05 février 2025 à 10:13 +0100, Krzysztof Kozlowski a écrit :
->> On 03/02/2025 16:31, Florent Tomasin wrote:
->>> Hi Krzysztof
->>>
->>> On 30/01/2025 13:25, Krzysztof Kozlowski wrote:
->>>> On 30/01/2025 14:08, Florent Tomasin wrote:
->>>>> Allow mali-valhall-csf driver to retrieve a protected
->>>>> heap at probe time by passing the name of the heap
->>>>> as attribute to the device tree GPU node.
->>>>
->>>> Please wrap commit message according to Linux coding style / submission
->>>> process (neither too early nor over the limit):
->>>> https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
->>> Apologies, I think I made quite few other mistakes in the style of the
->>> patches I sent. I will work on improving this aspect, appreciated
->>>
->>>> Why this cannot be passed by phandle, just like all reserved regions?
->>>>
->>>> From where do you take these protected heaps? Firmware? This would
->>>> explain why no relation is here (no probe ordering, no device links,
->>>> nothing connecting separate devices).
->>>
->>> The protected heap is generaly obtained from a firmware (TEE) and could
->>> sometimes be a carved-out memory with restricted access.
->>
->> Which is a reserved memory, isn't it?
->>
->>>
->>> The Panthor CSF kernel driver does not own or manage the protected heap
->>> and is instead a consumer of it (assuming the heap is made available by
->>> the system integrator).
->>>
->>> I initially used a phandle, but then I realised it would introduce a new
->>> API to share the heap across kernel driver. In addition I found this
->>> patch series:
->>> -
->>> https://lore.kernel.org/lkml/20230911023038.30649-1-yong.wu@mediatek.com/#t
->>>
->>> which introduces a DMA Heap API to the rest of the kernel to find a
->>> heap by name:
->>> - dma_heap_find()
->>>
->>> I then decided to follow that approach to help isolate the heap
->>> management from the GPU driver code. In the Panthor driver, if the
->>> heap is not found at probe time, the driver will defer the probe until
->>> the exporter made it available.
->>
->>
->> I don't talk here really about the driver but even above mediatek
->> patchset uses reserved memory bindings.
->>
->> You explained some things about driver yet you did not answer the
->> question. This looks like reserved memory. If it does not, bring
->> arguments why this binding cannot be a reserved memory, why hardware is
->> not a carve out memory.
-> 
-> I think the point is that from the Mali GPU view, the memory does not need to be
-> within the range the Linux Kernel actually see, even though current integration
 
+--jJ2SWV1szSy2UBu3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Do I get it right:
-Memory can be outside of kernel address range but you put it to the
-bindings as reserved memory? If yes, then I still do not understand why
-DT should keep that information. Basically, you can choose whatever
-memory is there, because it anyway won't interfere with Linux, right?
-Linux does not have any reasonable way to access it.
+> Introduce netfilter flowtable integration in airoha_eth driver to
+> offload 5-tuple flower rules learned by the PPE module if the user
+> accelerates them using a nft configuration similar to the one reported
+> below:
+>=20
+> table inet filter {
+> 	flowtable ft {
+> 		hook ingress priority filter
+> 		devices =3D { lan1, lan2, lan3, lan4, eth1 }
+> 		flags offload;
+> 	}
+> 	chain forward {
+> 		type filter hook forward priority filter; policy accept;
+> 		meta l4proto { tcp, udp } flow add @ft
+> 	}
+> }
+>=20
+> Packet Processor Engine (PPE) module available on EN7581 SoC populates
+> the PPE table with 5-tuples flower rules learned from traffic forwarded
+> between the GDM ports connected to the Packet Switch Engine (PSE) module.
+> airoha_eth driver configures and collects data from the PPE module via a
+> Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
+> Move airoha_eth driver in a dedicated folder
+> (drivers/net/ethernet/airoha).
 
-It might interfere with firmware or other processors, but then it's the
-job of firmware which has discoverable interfaces for this.
+Please ignore this series, I spotted a couple of issues. I will post v3 soo=
+n.
 
-The binding says it is about protected heap name, but it explains
-nothing what is that protected heap. You pass it to some firmware as
-string? Does not look like, rather looks like Linux thingy, but this
-again is neither explained in commit msg nor actually correct: Linux
-thingies do not belong to DT.
+Regards,
+Lorenzo
 
-> have that. From Mali GPU driver stand point (or codec drivers and what's not),
-> the memory range is not useful to allocate protected/restricted memory. On top
-> of which, its not reserved specifically for the Mali GPU.
-> 
-> What's your practical suggestion here ? Introduce dma_heap_find_by_region() ?
+>=20
+> ---
+> Changes in v2:
+> - Add airoha-npu document binding
+> - Enable Rx SPTAG on MT7530 dsa switch for EN7581 SoC.
+> - Fix warnings in airoha_npu_run_firmware()
+> - Fix sparse warnings
+> - Link to v1: https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-=
+offload-v1-0-d362cfa97b01@kernel.org
+>=20
+> ---
+> Lorenzo Bianconi (15):
+>       net: airoha: Move airoha_eth driver in a dedicated folder
+>       net: airoha: Move definitions in airoha_eth.h
+>       net: airoha: Move reg/write utility routines in airoha_eth.h
+>       net: airoha: Move register definitions in airoha_regs.h
+>       net: airoha: Move DSA tag in DMA descriptor
+>       net: dsa: mt7530: Enable Rx sptag for EN7581 SoC
+>       net: airoha: Enable support for multiple net_devices
+>       net: airoha: Move REG_GDM_FWD_CFG() initialization in airoha_dev_in=
+it()
+>       net: airoha: Rename airoha_set_gdm_port_fwd_cfg() in airoha_set_vip=
+_for_gdm_port()
+>       dt-bindings: arm: airoha: Add the NPU node for EN7581 SoC
+>       dt-bindings: net: airoha: Add airoha,npu phandle property
+>       net: airoha: Introduce PPE initialization via NPU
+>       net: airoha: Introduce flowtable offload support
+>       net: airoha: Add loopback support for GDM2
+>       net: airoha: Introduce PPE debugfs support
+>=20
+>  .../devicetree/bindings/arm/airoha,en7581-npu.yaml |   71 ++
+>  .../devicetree/bindings/net/airoha,en7581-eth.yaml |   10 +
+>  drivers/net/dsa/mt7530.c                           |    5 +
+>  drivers/net/dsa/mt7530.h                           |    4 +
+>  drivers/net/ethernet/Kconfig                       |    2 +
+>  drivers/net/ethernet/Makefile                      |    1 +
+>  drivers/net/ethernet/airoha/Kconfig                |   23 +
+>  drivers/net/ethernet/airoha/Makefile               |    9 +
+>  .../net/ethernet/{mediatek =3D> airoha}/airoha_eth.c | 1261 +++++-------=
+--------
+>  drivers/net/ethernet/airoha/airoha_eth.h           |  626 ++++++++++
+>  drivers/net/ethernet/airoha/airoha_npu.c           |  501 ++++++++
+>  drivers/net/ethernet/airoha/airoha_ppe.c           |  823 +++++++++++++
+>  drivers/net/ethernet/airoha/airoha_ppe_debugfs.c   |  175 +++
+>  drivers/net/ethernet/airoha/airoha_regs.h          |  793 ++++++++++++
+>  drivers/net/ethernet/mediatek/Kconfig              |    8 -
+>  drivers/net/ethernet/mediatek/Makefile             |    1 -
+>  16 files changed, 3310 insertions(+), 1003 deletions(-)
+> ---
+> base-commit: 26db4dbb747813b5946aff31485873f071a10332
+> change-id: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
-I did not comment about driver and I do not judge how you access
-whatever you need to access. This is discussion purely about binding
-thus about hardware.
+--jJ2SWV1szSy2UBu3
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
-Krzysztof
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6iaiAAKCRA6cBh0uS2t
+rN4LAQDAr1GunH8bnfpjyai7bUPg8oqhBHj/K2KEpB2QdnUciAD/QS/hHVoQ1hGf
+SDi+CTuc9POv4dc6J0FYmcxb9/Vu5AA=
+=wIQ6
+-----END PGP SIGNATURE-----
+
+--jJ2SWV1szSy2UBu3--
 
