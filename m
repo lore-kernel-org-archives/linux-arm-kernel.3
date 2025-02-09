@@ -4,98 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB91C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 01:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A824C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 01:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1QNyMKSJ0hbPU3JV/DSlubSfGXUIpdwEbIrWUYwGH8=; b=vg1aufwtWKylgAWuiyIsXHszld
-	Q3WK63WfYs7lQfcnzAywV3EHr3XO/4jSDRWX2aCgR8HcVDeFgtdWe68qP5ea5r0L/0GjMoIgsgQRM
-	3Aig4+0sXhS5JnW+kfo/v5PLvGWxktw8GTURT5+TbCelQWQl1G4gUFlmVs72wd3zI29QbtrAfvCIR
-	ab3L9sf5UL+tX4II+pQ3gWtrtMbpF4tgppz7sCwo9ma/hetSaoboP4viRcuAfKpv5ud8ZTcmukqH5
-	i+q6n5b5nytRPbwZHZ0qxrCwQkoNv45kWRGgS/N+2RFMlRS+z9eeMiAAw6QJtR9VTKjjf5oYAy3oV
-	bI4bpdAQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mpE4zKyAH8svDQr1EVUQPc0P7SOzCqW4Zan7hwoFlao=; b=nA7Yc8wgNdfb/yl2m8uzXCDGJp
+	LK5FBMpNo0ajXQ/6Krqkx6QMcndvvwRPtRTJJZBlrp1HH3GOraT/dXLU10XPgR4Bmnfbqfj6q+UXg
+	IOK/2gdhZO7faEPAY7fkJVV2+Am6LfiTQfuG80egSjTTH6z1Rg2bIzilUjR5+zRc8dJ6CnUoJ5llo
+	pQoX+4tsMWWnB6UIJc+kQVG3ys+2HKR/EuC5uwZCPY93CcghD54Ik8LbbvidB5A43uOQ3woB/rToo
+	Ug+NdwNAPBviSTWEKJHqMONGmSbSpNdiKoEe0QAtT3B9frp67uvdTN+boHH+IW3I/o/45N6DSojPG
+	vVjJGnwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgvhs-0000000Dopm-2af8;
-	Sun, 09 Feb 2025 01:01:56 +0000
-Received: from mail-vs1-xe31.google.com ([2607:f8b0:4864:20::e31])
+	id 1tgwBU-0000000Dr19-1Src;
+	Sun, 09 Feb 2025 01:32:32 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgvgS-0000000Doe2-1WVn;
-	Sun, 09 Feb 2025 01:00:29 +0000
-Received: by mail-vs1-xe31.google.com with SMTP id ada2fe7eead31-4ba7787f128so791416137.1;
-        Sat, 08 Feb 2025 17:00:27 -0800 (PST)
+	id 1tgwA4-0000000Dqiq-06WN;
+	Sun, 09 Feb 2025 01:31:05 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-46df3fc7176so30159441cf.2;
+        Sat, 08 Feb 2025 17:31:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739062827; x=1739667627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c1QNyMKSJ0hbPU3JV/DSlubSfGXUIpdwEbIrWUYwGH8=;
-        b=GubFv8cJvEfoIhCDSdhhC1FMR2bTCFMRd6TT2kGlIcr/96rVt3HiI/fZCLwuJBRhjT
-         bfOdfTetkDOZ4fUprsp2orEpY+ylMhoG/1MLvIkC3WZyze/1xbq4uPMFdi/CTFt+D6Tj
-         3bP455bsxpAqDYaqad9ACpOjAv0uUaEgyHxOL5YzwotidJXzJ+JBg0RsHwvBF67tk4PA
-         5fEN4QncBoytGBSFZ12u1lbqMo4CiEPimCKnHZuAh+YmdYCC6SpufhWVhIpWOr1cuZhL
-         lASvzSfa9rIPF1q3ZgMCrDFfFIowllsHHGNlL1RRWT9Tfh2vzvmn9x81Lk6SJw2TKk+U
-         5q2w==
+        d=gmail.com; s=20230601; t=1739064662; x=1739669462; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mpE4zKyAH8svDQr1EVUQPc0P7SOzCqW4Zan7hwoFlao=;
+        b=kOGhVYXsDaXWszB0gcJQdm8wfb7wBOKxb3+fKf18Ksjv3fuYNTaw/z72T5hgGm9eUF
+         SX0mRxREsyVpx+zFXHUU9AXCq2NeP9FQnhV2Fx9mKnyZZST/WdE/18TJR62j9LHNQWwL
+         g2n/84XQSUBH6XpmZ/daK/ulfNmHcRP3vDKbQ8hZd70D3hwdskV4ejmi7ncwDt2Wiv8a
+         HMkE6WksgQip9r77drEqwhKs54U0zYNOTbOcHm0lCt8ju193YU00rrHyyJmfpQ8MaYkH
+         oUpWeKtBBdSWnx10N0mpfQe7Edajjegmk5P/yWpFumtWrR45vg3G/IYc2t7Ih+sZovJb
+         XDcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739062827; x=1739667627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c1QNyMKSJ0hbPU3JV/DSlubSfGXUIpdwEbIrWUYwGH8=;
-        b=nK7f/hgbDpvDR3JiK0HN1TF2RYElEB98nZvk2n3qnDCntLdMwb9Jmep8hl/q0sQqkR
-         8UhexlYB55K7VG5rUT/TjqRzZqzYX8XzMlUWETU3z2wwRecDiWgVdJ+Rr0Enzu9AQ+KQ
-         ZeM9bHzKAgvIoPVVyzWgoBcJWq53H6MJ0jnvM8ifBnc7ZJ1cgFwhrKCo7MCyv8uY9tu8
-         Gu0YlE8ShkJ2nlBnxuWXHU7OP6gR6Ds76h7vmWi9abtNQ2Maexd4DSN9/tfWOFBK3fO5
-         jyU1Bx1anEEpsmG9OYHdydiAm7PPxqjp4jVRZSVcy0N5dBYyRGO+T2AIDO5pV/f+VMl6
-         SVRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUo2EYqIGJcRY+0EWjJhPANh/nA6nVYTe9b6mO5NbhffXxiv9wMkd9cZo+VZkJLFq/9foaCUpBll9VFXtqRSSkLDw==@lists.infradead.org, AJvYcCWJ0r2d7YCaEmIyUivn7FCLUbL4fEzOTebv/Q8e05s+whPdppmayj0jXuRXhJJrWAii0QGKsQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3K+DLBgR/BYODc1Q5OysuBcq2e/UVDDpltYuSl9zeNoxbBOfU
-	FHltmiwE09EGyhSwS0I4vpGqygBS02ZlHIgqyAA7O4BUQe9nn0LcTWfDFfwARs5xWo9T1tFVFxq
-	gVfEpsYhtYJivzWaPcGF9752FVyU=
-X-Gm-Gg: ASbGnctw3gd3Se1cRGZZPc2NwrdoWUj6U0OyJAGxv8grQetn81Rgt7rf6IsaPuW8L6u
-	xCOt4un6I8AOfG18ZoDGIL81hkfwhX+uoXpLyR4DwVTszFUuzKxm41Ns9SFPY7QL1KQSfJkMnlb
-	lPtPeExKsarHhekYbN1G/fuO/4RjET4A==
-X-Google-Smtp-Source: AGHT+IFLWFnU1Qw8fGqOUkm2sS5SvMcAKUH0QtXlpgwftaLaCUSnrvhOVYmXAaAgSRLNlyGtO1hm5jHRnEYHFNzWo88=
-X-Received: by 2002:a05:6102:1627:b0:4b6:1a4e:9ed7 with SMTP id
- ada2fe7eead31-4ba85d86d4fmr5498626137.5.1739062827035; Sat, 08 Feb 2025
- 17:00:27 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739064662; x=1739669462;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mpE4zKyAH8svDQr1EVUQPc0P7SOzCqW4Zan7hwoFlao=;
+        b=W+EV5nagKq8f8YapHNGf8yu07kjy7+MSYLyJ3cgsl2dGRJWUkDHYd7k2ED5pPaqQX5
+         1I0wY/TPraIKYvYBBYI4LSWrcJTBlCeB47PQVzL+rp1NunqCaaL551pmkUzZORf6p6pD
+         syaiTWOur7LiM3wuw64d0taSe4s99a7UykdHsijt7J4C33tt4rqYjO/rTvdD/6BtE8ik
+         diOGJzFrjSj5rbN6A9VOzFGWV4t1I0upYnrLmc9bn6LqvR3QjTZYGT+iHJgCtbMigWPV
+         Q15gkA2T7U5i7XYwV3EGUM9T2mSpZZfCu8s0kLslC4PIx92yjGakDde5aRTHB5WF1SkG
+         hgeA==
+X-Forwarded-Encrypted: i=1; AJvYcCW91cChPy7Oo4q6lOMwOfgmYU1DJu4tSVMUyvN5eAafQJqzBdZjmhJ5kCKQ++LQ9Q+Zbf3ALhoAVHIYEq0=@lists.infradead.org, AJvYcCXEOQV252xyWCAZtAdIVkZ7YvFgHsqwsM7ZvMLkCucq2SBRcaCmL7YVcoY8RMRRSzyuOQzUcx69o6NF1cAefm+T@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHeCNR1baI231V4d3s5m7F/O94BKah2kNLn03J+9A7M8rzJ4OJ
+	GMc7E3g21N/BccF4Vm6UM1+Mvxt6wfd16nkH2VFiiyQg/zY49szi
+X-Gm-Gg: ASbGncsCgRaQ6NKR/P5lMBnMoBiAMMqlvc1cVVBD7OgWW1tYyOgK6tl3adUO0yglTZZ
+	brvk3lCseGjfLZn6H/xG0dqEU9gS0O6hr1OJOMUvdCoVKQT6LLnXF44eE9CmMyj65oAP5zJl1Sq
+	Ytb4xZSMcmPUTXsyi7S2g9WFCqY1SF2j3+jUyvJy5QofZaK30yxNVtTv20KlFJNXXc71Wklehjz
+	Dcr0y6OTXNVO3vHPk0LeQiJfKeX8K4UvF0Sdf3z7bCNNn3LHyGOx5jPy0hRzvjv+NU=
+X-Google-Smtp-Source: AGHT+IErNG966adydDNeNbSis7LGgBN1C8RNiREv5yWv/KkleMlno0XmKLtdyzMfyEP6jLn7m+bHdQ==
+X-Received: by 2002:ac8:7dc2:0:b0:467:4f9a:6511 with SMTP id d75a77b69052e-47167a348c6mr149530651cf.30.1739064661848;
+        Sat, 08 Feb 2025 17:31:01 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4714928d886sm31368431cf.18.2025.02.08.17.30.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Feb 2025 17:31:00 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@bootlin.com>,
+	Simon Horman <horms@kernel.org>,
+	Furong Xu <0x1207@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v4 0/3] riscv: sophgo: Add ethernet support for SG2044
+Date: Sun,  9 Feb 2025 09:30:49 +0800
+Message-ID: <20250209013054.816580-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20250206132754.2596694-1-rppt@kernel.org> <CAM_iQpU9DDg2Oi33_dfPqVpd9j_2O+WD7ovo__f48BA9DztwXQ@mail.gmail.com>
- <CA+CK2bBrO+khpX+U3F+d8wCb3GutVD=3HtU-94gHQJSoenQcKw@mail.gmail.com>
-In-Reply-To: <CA+CK2bBrO+khpX+U3F+d8wCb3GutVD=3HtU-94gHQJSoenQcKw@mail.gmail.com>
-From: Cong Wang <xiyou.wangcong@gmail.com>
-Date: Sat, 8 Feb 2025 17:00:15 -0800
-X-Gm-Features: AWEUYZkp7_4rFtvLgYaHqSNG2VFYTpgh1ezDSM27S0gX2m2SV5kBvj6jdSbSZAc
-Message-ID: <CAM_iQpW4--H6wqcx-=O5_PhEOkdrZN52qUhRRZO9xwpMxxLPaw@mail.gmail.com>
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org, 
-	Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Andy Lutomirski <luto@kernel.org>, Anthony Yznaga <anthony.yznaga@oracle.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Borislav Petkov <bp@alien8.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Woodhouse <dwmw2@infradead.org>, Eric Biederman <ebiederm@xmission.com>, 
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, 
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_170028_603942_D4F30366 
-X-CRM114-Status: GOOD (  45.57  )
+X-CRM114-CacheID: sfid-20250208_173104_070253_F16E1879 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,113 +128,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 8, 2025 at 4:14=E2=80=AFPM Pasha Tatashin <pasha.tatashin@solee=
-n.com> wrote:
->
-> On Sat, Feb 8, 2025 at 6:39=E2=80=AFPM Cong Wang <xiyou.wangcong@gmail.co=
-m> wrote:
-> >
-> > Hi Mike,
-> >
-> > On Thu, Feb 6, 2025 at 5:28=E2=80=AFAM Mike Rapoport <rppt@kernel.org> =
-wrote:
-> > >
-> > > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > >
-> > > Hi,
-> > >
-> > > This a next version of Alex's "kexec: Allow preservation of ftrace bu=
-ffers"
-> > > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.=
-com),
-> > > just to make things simpler instead of ftrace we decided to preserve
-> > > "reserve_mem" regions.
-> > >
-> > > The patches are also available in git:
-> > > https://git.kernel.org/rppt/h/kho/v4
-> > >
-> > >
-> > > Kexec today considers itself purely a boot loader: When we enter the =
-new
-> > > kernel, any state the previous kernel left behind is irrelevant and t=
-he
-> > > new kernel reinitializes the system.
-> > >
-> > > However, there are use cases where this mode of operation is not what=
- we
-> > > actually want. In virtualization hosts for example, we want to use ke=
-xec
-> > > to update the host kernel while virtual machine memory stays untouche=
-d.
-> > > When we add device assignment to the mix, we also need to ensure that
-> > > IOMMU and VFIO states are untouched. If we add PCIe peer to peer DMA,=
- we
-> > > need to do the same for the PCI subsystem. If we want to kexec while =
-an
-> > > SEV-SNP enabled virtual machine is running, we need to preserve the V=
-M
-> > > context pages and physical memory. See "pkernfs: Persisting guest mem=
-ory
-> > > and kernel/device state safely across kexec" Linux Plumbers
-> > > Conference 2023 presentation for details:
-> > >
-> > >   https://lpc.events/event/17/contributions/1485/
-> > >
-> > > To start us on the journey to support all the use cases above, this p=
-atch
-> > > implements basic infrastructure to allow hand over of kernel state ac=
-ross
-> > > kexec (Kexec HandOver, aka KHO). As a really simple example target, w=
-e use
-> > > memblock's reserve_mem.
-> > > With this patch set applied, memory that was reserved using "reserve_=
-mem"
-> > > command line options remains intact after kexec and it is guaranteed =
-to
-> > > reside at the same physical address.
-> >
-> > Nice work!
-> >
-> > One concern there is that using memblock to reserve memory as crashkern=
-el=3D
-> > is not flexible. I worked on kdump years ago and one of the biggest pai=
-ns
-> > of kdump is how much memory should be reserved with crashkernel=3D. And
-> > it is still a pain today.
-> >
-> > If we reserve more, that would mean more waste for the 1st kernel. If w=
-e
-> > reserve less, that would induce more OOM for the 2nd kernel.
-> >
-> > I'd suggest considering using CMA, where the "reserved" memory can be
-> > still reusable for other purposes, just that pages can be migrated out =
-of this
-> > reserved region on demand, that is, when loading a kexec kernel. Of cou=
-rse,
-> > we need to make sure they are not reused by what you want to preserve h=
-ere,
-> > e.g., IOMMU. So you might need additional work to make it work, but sti=
-ll I
-> > believe this is the right direction.
->
-> This is exactly what scratch memory is used for. Unlike crashkernel=3D,
-> the entire scratch area is available to user applications as CMA, as
-> we know that no kernel-reserved memory will come from that area. This
-> doesn't work for crashkernel=3D, because in some cases, the user pages
-> might also need to be preserved in the crash dump. However, if user
-> pages are going to be discarded from the crash dump (as is done 99% of
-> the time), then it is better to also make it use CMA or ZONE_MOVABLE
-> and use only the memory occupied by the crash kernel and do not waste
-> any memory at all. We have an internal patch at Google that does this,
-> and I think it would be a good improvement for the upstream kernel to
-> carry as well.
+The ethernet controller of SG2044 is Synopsys DesignWare IP with
+custom clock. Add glue layer for it.
 
-Good to know CMA is already used, I could not tell from the cover letter.
+Changed from v3:
+- https://lore.kernel.org/netdev/20241223005843.483805-1-inochiama@gmail.com/
+1. rebase for 6.14.rc1
+2. remove the dependency requirement as it was already merged
+   into master.
 
-The case that user-space pages need to be preserved is for scenarios like
-RDMA which pins user-space pages for DMA transfer. Since the goal here
-is also to preserve hardware states like RDMA's I guess the same concern
-remains.
+Changed from RFC:
+- https://lore.kernel.org/netdev/20241101014327.513732-1-inochiama@gmail.com/
+1. patch 1: apply Krzysztof' tag
 
-Thanks!
+Changed from v2:
+- https://lore.kernel.org/netdev/20241025011000.244350-1-inochiama@gmail.com/
+1. patch 1: merge the first and the second bindings patch to show the all
+            compatible change.
+2. patch 2: use of_device_compatible_match helper function to perform check.
+2. patch 3: remove unused include and sort the left.
+3. patch 3: fix wrong variable usage in sophgo_dwmac_fix_mac_speed
+4. patch 3: drop unused variable in the patch.
+
+Changed from v1:
+- https://lore.kernel.org/netdev/20241021103617.653386-1-inochiama@gmail.com/
+1. patch 2: remove sophgo,syscon as this mac delay is resolved.
+2. patch 2: apply all the properties unconditionally.
+3. patch 4: remove sophgo,syscon code as this mac delay is resolved.
+4. patch 4: use the helper function to compute rgmii clock.
+5. patch 4: use remove instead of remove_new for the platform driver.
+
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Sophgo SG2044 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+  net: stmmac: Add glue layer for Sophgo SG2044 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 124 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 105 +++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |  17 ++-
+ 6 files changed, 257 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+
+--
+2.48.1
+
 
