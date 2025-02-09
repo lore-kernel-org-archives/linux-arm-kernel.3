@@ -4,109 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72154C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 16:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3862C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 16:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3fug6T46PBi/hvPg4928s6Dv07wn68XsJib3CQ58xE=; b=n8P0ZO+J94bUCYpLczfvVwEpiQ
-	EMHcR9xgikMt9f2GMo40muO3w8jjQgWOStccMv7s30R0wP/YK+xdR94U/o0r+6udgbJ3Y6wbR9i+D
-	0p2OaP9TkYcW91wRwCbgC1+6BVMXBKgJ6413G9JDoHDiV+j1mczD9XTTuEsFLYzg/7bNGTs4SUvW0
-	bVqy1ZlJy9WAcazzCnQHb11stGFW7ZalhzbkMLccy+4q34/AsCajULeJtO4LbOfpfE/nSqX4BoTPK
-	oOq1jEqN84a57vS3uC5yj6mdxuZzzlY2e3fiBzhNsHpnMAPPjQ9enZ/opEJFc3uTiH7JvtVvq0ngO
-	d7yk7aPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EUD+QP7MhaJ4SMVnh2IoAoVpTVnIg5r8oG8yAPzDEhg=; b=KFjZA3H5nPotKNA3zv8WKpRT6C
+	8QdYERIeP8tiQAUMFUBwViNymXYVYXKmTfyVm23ZXxiENjGDG9yv4d8FRloGQtP3TK3LzJores/RT
+	tCYDrJVaFsVOKCgztL7JE75QKP3CXpMxsXLLN4r2Ow3ByhAEigMEt4FoGtaRShog6XYQ9ezyScM8a
+	G+JwQ2EC2Ttzlg97hFzrWgLcSIimrS5WV087gRfAfadoXJvfXsUuMZR3WdkEedAvrjSexMST3btFo
+	0CE2zu9eFilSgbZur0WXEE6+66N8+VQzpX0l3pVi45pEMykP2CJ2Kqtfs1gvc5JEzMNqvce0BdVt2
+	xdxhlFAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thAEN-0000000FBfF-0xQh;
-	Sun, 09 Feb 2025 16:32:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thAcB-0000000FD7X-1sH2;
+	Sun, 09 Feb 2025 16:57:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thACy-0000000FBY0-3YRn
+	id 1thAam-0000000FCzx-0UcO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 16:31:02 +0000
+	Sun, 09 Feb 2025 16:55:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 41236A406C8;
-	Sun,  9 Feb 2025 16:29:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31867C4CEDD;
-	Sun,  9 Feb 2025 16:30:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5493C5C4C05;
+	Sun,  9 Feb 2025 16:54:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A4BDEC4CEDD;
+	Sun,  9 Feb 2025 16:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739118659;
-	bh=YC2rqriZkGtxsnGNrpo+w727E3fLutw8c/kxR9sE+wQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X5moKQaiRuetTiE4ErahlW7gUbWdnZPi+/o8JdW/xW702jdtnTTCXoqRx49VYBycP
-	 j51yMJc6SUgq2tzClDIAGk1pKH/ptmylVNwNvPN392bEcCwUBemSbJ6fdChMkzIo1a
-	 IHoGsCF6LXs3369iZsAZDLLMXjsXpaCniu+3APo/1JCJO2O1o69m9DwOIyuOmky9HA
-	 p/jBHOxO8EocD7bzmVyuKnws+rx1ydv2Bo6klxwY6wwxsVlDk/ATrczKE1ntXYaYZA
-	 x5D20FtUtYvXqli0uBetUC7oZItt0B/wRtTDFm3NcsV1GdMnSb02bXZqrqHOf7FpgC
-	 HQgGUj3eVtAZA==
-Message-ID: <12c1fb05-6cf5-4fb3-9db8-730bc7f6cfc7@kernel.org>
-Date: Sun, 9 Feb 2025 17:30:52 +0100
+	s=k20201202; t=1739120134;
+	bh=eCOLbrEQl6Q8PofZ6oAAOmyrOHt5RHJBqFDV24Mwud4=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=XlhaW5VF2PwlDSvZJ6i+sR2DyJNLUZmqnuRy+1uj+6ySalY7gy7Oh8fLXv4n6Fhe/
+	 MNrQwkhRpgHN1Zq1py9SCtr84RTKIHr1J0orNQGwSmEODWY32kRWq5L/EBQ2A3uq1V
+	 0pVo9DgyBCoEIV4rSfTGkVlpk2CiGJG1zfI6Md/kur4OZBNQTjq9AxwT+hL/oBD+cM
+	 MpQ7Xtsk9yUzmKp5OYGrt1TIiOdnyg0HMJQGrwxf4NKIjSFbGmZGwL8TFV5PXo78ot
+	 FGmbF9QvGoO/ErNMdgLeO+7FKZssWhNb8BSo7fd8Xhj7m442mVaVc24Q3p3VAiYgk6
+	 Ys2SYIxhFRzgQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85D86C0219B;
+	Sun,  9 Feb 2025 16:55:34 +0000 (UTC)
+From: =?utf-8?q?J=2E_Neusch=C3=A4fer_via_B4_Relay?= <devnull+j.ne.posteo.net@kernel.org>
+Date: Sun, 09 Feb 2025 17:55:28 +0100
+Subject: [PATCH RESEND] scripts/make_fit: Print DT name before libfdt
+ errors
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/3] dt-bindings: mmc: brcm,sdhci-brcmstb: Add sdio
- sharing support
-To: Kamal Dasu <kamal.dasu@broadcom.com>, ulf.hansson@linaro.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- adrian.hunter@intel.com, linux-mmc@vger.kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, wsa+renesas@sang-engineering.com
-Cc: f.fainelli@gmail.com, bcm-kernel-feedback-list@broadcom.com,
- Kamal Dasu <kdasu@broadcom.com>
-References: <20250206220940.10553-1-kamal.dasu@broadcom.com>
- <20250206220940.10553-3-kamal.dasu@broadcom.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250206220940.10553-3-kamal.dasu@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250209-makefit-v1-1-bfe6151e8f0a@posteo.net>
+To: Simon Glass <sjg@chromium.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739120133; l=2504;
+ i=j.ne@posteo.net; s=20240329; h=from:subject:message-id;
+ bh=qNYHUnAZnyBHAWNkYsjAlxvZcMVlVw3UbvcsQUL+fy8=;
+ b=wes9wYfXwUGeWcaAUCu5kNs9CIRC4rXfWm7xTK2sserLOYrdIsz035w6eRJCAu9HPXjuGFcPu
+ XXRyQ0UxUh3B2Gh1qwiZRLDA2mTnDEc830lGFG9jdndtFQphIiX7FgJ
+X-Developer-Key: i=j.ne@posteo.net; a=ed25519;
+ pk=NIe0bK42wNaX/C4bi6ezm7NJK0IQE+8MKBm7igFMIS4=
+X-Endpoint-Received: by B4 Relay for j.ne@posteo.net/20240329 with
+ auth_id=156
+X-Original-From: =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_083101_018487_A64C4E0C 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20250209_085536_246364_D8E4FCCD 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,63 +83,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: j.ne@posteo.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 23:09, Kamal Dasu wrote:
-> From: Kamal Dasu <kdasu@broadcom.com>
-> 
-> Introduce emmc flash sharing support using hardware semaphore
-> and SDIO share register to synchronize between TZOS and linux.
-> 
-> Signed-off-by: Kamal Dasu <kdasu@broadcom.com>
+From: "J. Neuschäfer" <j.ne@posteo.net>
 
-It's RFC, so I assume you do not expect review and then you can skip
-this and obviously it is also NAK for the patch (so maintainers won't
-take it).
+This makes it easier to pinpoint where the error happened. For example:
 
-However if you actually expect review, then:
+  FIT     arch/powerpc/boot/image.fit
+Error processing arch/powerpc/boot/dts/microwatt.dtb:
+Traceback (most recent call last):
+  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 335, in <module>
+    sys.exit(run_make_fit())
+             ^^^^^^^^^^^^^^
+  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 309, in run_make_fit
+    out_data, count, size = build_fit(args)
+                            ^^^^^^^^^^^^^^^
+  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 286, in build_fit
+    raise e
+  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 283, in build_fit
+    (model, compat, files) = process_dtb(fname, args)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jn/dev/linux/linux-git/build-mpc83xx/../scripts/make_fit.py", line 231, in process_dtb
+    model = fdt.getprop(0, 'model').as_str()
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/libfdt.py", line 448, in getprop
+    pdata = check_err_null(fdt_getprop(self._fdt, nodeoffset, prop_name),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/libfdt.py", line 153, in check_err_null
+    raise FdtException(val)
+libfdt.FdtException: pylibfdt error -1: FDT_ERR_NOTFOUND
 
+Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+---
+The example is from a different series which I will release soon, which
+enables FIT on powerpc.
+---
+ scripts/make_fit.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-> ---
->  .../bindings/mmc/brcm,sdhci-brcmstb.yaml         | 16 +++++++++++++---
->  1 file changed, 13 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
-> index eee6be7a7867..b0ee39aeccb1 100644
-> --- a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
-> @@ -27,15 +27,23 @@ properties:
->            - const: brcm,sdhci-brcmstb
->  
->    reg:
-> -    maxItems: 2
-> +    minItems: 2
+diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+index 4a1bb2f55861adfce07959528e175260bc503593..1683e5ec6e6754dff3383dfec89df78b9c2fa896 100755
+--- a/scripts/make_fit.py
++++ b/scripts/make_fit.py
+@@ -279,7 +279,11 @@ def build_fit(args):
+         if os.path.splitext(fname)[1] != '.dtb':
+             continue
+ 
+-        (model, compat, files) = process_dtb(fname, args)
++        try:
++            (model, compat, files) = process_dtb(fname, args)
++        except Exception as e:
++            sys.stderr.write(f"Error processing {fname}:\n")
++            raise e
+ 
+         for fn in files:
+             if fn not in fdts:
 
-1. Missing constraint
-2. Please follow DTS coding style
-3. and finally this needs to be tested, so:
-
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
+---
+base-commit: 4bbf9020becbfd8fc2c3da790855b7042fad455b
+change-id: 20241224-makefit-31f789b9ee4f
 
 Best regards,
-Krzysztof
+-- 
+J. Neuschäfer <j.ne@posteo.net>
+
+
 
