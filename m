@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2B9C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 01:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7B4C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 01:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qd0y+cEEGSMDbTU6v7Sk4WhfgrAmRd2NDHVF935DK4=; b=U4c/7GTuMAwnLh97Fc//b5LjX9
-	vi4t4gY2KQO3NMlYzxl/xRSn4F/3hvVtUhUSBsaXq6s+3fZyOcjBgeexPOdmW2tdjk7hceLpkIbYP
-	tzgz9wEukF3xvDEiT6Rjwcjpqi6bLJjVLq9QiUivkDiOsDZBrEVao0Kko9swyUULwExgWylCNBEGQ
-	lLUK5Q4o9rQvwXJ45AmfhF7hZF4WP561eA/AmOvoA3APhNiAsZMskpartNZEe5s9LCD2nAMursgB7
-	ef2tqQoTGHbhOrUVJbz1E08OFDiTWj57ZPXb2uzyxfuOz4jcXc/tlX0joj0Onl9WkWqDV7kjHC2hp
-	Gi3d/ZYw==;
+	bh=o2ve7pWmW52cNolGBUj1k5b8k438vWl+LtHxZL+klkM=; b=ZG1YhcDcmpPYDUnfjD9brysJzz
+	iv2YfeL1mPCWmbODGDtvf2kgj+lUF2kBR80R5Dpz/lQmgzbn5qZlWn9CZbJLwsf8BMUKRy9djLI8X
+	JG7ixxYXIqG9AU7mbSGok/s4pkuYDlCQ+gjxxWqfXdVOkDA3PuhlfPt8GEuNZ+0ypEINUxfSzyFgX
+	r4G968YcEsnRzeitgKx+aiEdnODxlcAvRV8e8V3F7Tc3SmfDBEd35bbJs6Bwf1q/aCYRfLsB8JB6r
+	z3H+AN0QhJK034tcE8/23GVlAg8L7LoTU/iHiBwgDctLuqE2zn1mQSxCJsGt25kkyqadqnxFHZeT9
+	q5k9Es9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgwED-0000000DrNt-3hPn;
-	Sun, 09 Feb 2025 01:35:21 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1tgwFb-0000000Drc1-0RBz;
+	Sun, 09 Feb 2025 01:36:47 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgwAA-0000000DqkJ-28IC;
-	Sun, 09 Feb 2025 01:31:11 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6dd01781b56so39609706d6.0;
-        Sat, 08 Feb 2025 17:31:10 -0800 (PST)
+	id 1tgwAD-0000000Dql2-3CKY;
+	Sun, 09 Feb 2025 01:31:14 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6e451fdcae2so8508456d6.1;
+        Sat, 08 Feb 2025 17:31:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739064669; x=1739669469; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739064672; x=1739669472; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8qd0y+cEEGSMDbTU6v7Sk4WhfgrAmRd2NDHVF935DK4=;
-        b=EgTTviw+XqnSzfPuT2vsb7GQ50xQuIlGIUHsvJ/aFVyUK6eGq3/U3CGKntSIR3Spro
-         gTqyndu/HbPrUCRrWb4uV2nzF0q0nl/jm1ztsXp7nL2MaJMQjUuvw6nPAh6S8J42fNMB
-         AeGpOzuA9XOmPOxBkbg3aWRmwd2fEbkJ0OLNpMG3Lxf5fHBw456otB5Qr7IZhLqN6U7b
-         gJKrQLoW1wQI4bASetKCgBteULDIiHL40GCmpM5bkArp1soD1/tkPGlR/RmHDRmLQn/Y
-         ZjB0soALbeQvUQwg5mgVDW294eObRIUtDkL+1CAMjIaqffkMqD8Lt9rXu5beQG1F7eTc
-         j1ow==
+        bh=o2ve7pWmW52cNolGBUj1k5b8k438vWl+LtHxZL+klkM=;
+        b=VXZaHr8Ts/cGKbnkvDk2dYpghxtgEHpMAgIbGTPbFBd5RI24qy2YFbzIqMN1Rlee7W
+         oE0P4usB4EaHOCtWyhvr1bCtNmbl4+tCQQJlA5PqYrCN/je8pe0JThWDu3m/l4Px6iQm
+         3GehdLbb3o0Q14XK/51Z5tTedxzyY/U3+KZnlZcy9txjCc351b/7kneHlN7ehQNTygCc
+         nVDbdeDwxddARBN12hHnMEx550iVuBxno0FFnndCPaPyvr5sgHhTuXnUzYuiygWXkO5a
+         +mMvWWUnPQkTcxF0UIPkqV82wooyAYaZi4ggExjgbUfaqcmeqmKWxVGwvgZ7KFbC5jRn
+         fE/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739064669; x=1739669469;
+        d=1e100.net; s=20230601; t=1739064672; x=1739669472;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8qd0y+cEEGSMDbTU6v7Sk4WhfgrAmRd2NDHVF935DK4=;
-        b=pCLuYA/92NJfC1YFKP8sgopW2g/PlRxUEWTwvFHJTm6tbH5LokiNTeQOBt+o9xzAVM
-         Xy+CZ3C/SVFyN3Kn4HVz8jFbsbfviyPk+GB1EZAU7IeVRPnlI9eG3CWX6/zxN5a3DFiq
-         2+XLpRVVG79yN2ElQutfBPqc8K/uQtd019FN0uzQ2nWwCD7IQSRbNpMVMUtlmzonX5eY
-         dpWjsEi9MXKguB9Y7X6cLXSl1JhUx+M+KSYgTA7ouNUC1Sp08TeC4wuGkKKh/Qs9/TVN
-         c5IEb8qQB9gyDTBEyt1vO6dn7XJ0HqgcMY+Q5gC4JbwF/qRw76eEWHlfl0AWgExiAZwY
-         VHTg==
-X-Forwarded-Encrypted: i=1; AJvYcCUbRVSCGcCDbqygnl7N1igy/K75Gpqk0OEa+qjf/qp25VaTo7eKyWp28vLY4hg88avGP4PiTlTiUvWqxlV9d+0V@lists.infradead.org, AJvYcCXRFKI7q85Gp9hqfXXavlxl7opNMpMVn2x9q5zVf9JIAntdVOCvTYy0hFBRfflBerm2tkTwbocuV7BB9w4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0IGdyNxtFxQmv3XqcBfxcUWqCf8zxRho0fcDeF1bSmqPZzJpz
-	A9AKC7SO+tv/x/+aAy+JTuMckgC8kJZUbs/xspMMOlF2mW8YmAgd
-X-Gm-Gg: ASbGncv/5ASDFapBY0AlyP9UNGA/X3algVhcRsiRCPR5COqUq6W1Z/fxN43VAHn4N25
-	5nWQaAllZl8WMyzQ3IZE8PQK8cZ8fZsNrrMaVjp90wTWsAB58eo66W4yiQJUGF5/Rd6jRf+L27d
-	kwsFgQd61BUQEiRvnuADkdHDSoTvXLR5k6hOZlgqmkYBwANDuPZ6a0GgDe1pvjnZI2lbf2eZpgm
-	ZhE/cXfbE66qttyWlW9oEZLnQSFg14apwXGvFozKTknfLLaGJJKG80+BN0wHMan3wk=
-X-Google-Smtp-Source: AGHT+IH5+7+WkkExgAKmn9GKbPwQMm+ZPXl5sXT9N8Ac3xNoPPbBjTifXy61nquwVLVZDKiyddYDZA==
-X-Received: by 2002:a05:6214:1bcc:b0:6d4:27fd:a99d with SMTP id 6a1803df08f44-6e44564bad9mr147118886d6.19.1739064669217;
-        Sat, 08 Feb 2025 17:31:09 -0800 (PST)
+        bh=o2ve7pWmW52cNolGBUj1k5b8k438vWl+LtHxZL+klkM=;
+        b=HRWVC/RD83nxym4TJ6in7FAy/Gstp6hsxB9WVJOXGLbZUMQFOlE6sID2q0GarkskpJ
+         APhjk8ZXVnA12Q+DkhlmIk7ElJHWO6LOzfkIY2xeFFW7JM6gHR4+cwHcbmglKrFa1jYa
+         HOErEiiLryyaqCDYwaGRuNEF3k1mP5cOh3u94SBj4Ii0GC6/XOhOeZ58DSbarZaAEC7+
+         /LuYtlHPBKTnYF39pXMavP4cjEBki9hLs31H3Eu73iJDMnivVx38OFGPTfn7HB8DrI7U
+         +XHUT3zSeC6ZiW4CNmJ6y2lltYhUCncpeCbGwUKWyqvgzWQTfuihV9yHW3OwxWJMhqEw
+         wtGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWV2NuSsNk82EukX3dtVd+TL6o3vxR6dXOtDouTRE/9nqO47fslJSurZaZ4dM06gu471unm6enK5YSo/GyE+xwn@lists.infradead.org, AJvYcCWz/L+vhCaJuvB+mQxSjqzLLNYaHKH/qeLJygI+lznfHTmI8hTBoe26X35auhnhqM5RP9TW6Mjoz5RSSww=@lists.infradead.org
+X-Gm-Message-State: AOJu0YynnQPfP4w95NBjLFnVqazrucAdYMBNv8LyXRFVMd++Y3f1ukSG
+	Eg2zj9lahpc1YdGEBTpObIUgGS9Vk72XjBrzrrnrHANfD9o0tVEl
+X-Gm-Gg: ASbGncs2oZfiuP7YJVaCiDtc8tA2VtdVv9MoWIy8F/grX1jEqhnQuKEtgVl2TMnqe9E
+	HrJ7QxEa6EQSX4ktA6cdDzxgCuGljsDHaMVt6zYlpaTw210Riz+fynrjk7wPjc0FGnSxHbMyrr5
+	OTpmCxpFiFmtIuNcsMgjzLL7Zm1dkOkqrgKIQhzUdy2OjcHetLI/2u7aOa5c9JjqLP/7PiyNtpm
+	tQ84yswSaPlP9Icf3Nywidt5ZESdXBbSCmGsc0klfBslrKb/621uVX8drIyjMtKXgo=
+X-Google-Smtp-Source: AGHT+IH4RYvaOVhxM0aCfboV6ydutVw4SeKpHDLzHqRnIgIz/PxNnEbbVWL71o0oWyQQE8ZOCSrC/g==
+X-Received: by 2002:a05:6214:5098:b0:6d8:e5f4:b977 with SMTP id 6a1803df08f44-6e4455d6e05mr122062686d6.5.1739064672491;
+        Sat, 08 Feb 2025 17:31:12 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e43ba36d5csm31699576d6.26.2025.02.08.17.31.08
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e4556d153asm7861916d6.13.2025.02.08.17.31.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 17:31:08 -0800 (PST)
+        Sat, 08 Feb 2025 17:31:12 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -106,17 +106,17 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v4 2/3] net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
-Date: Sun,  9 Feb 2025 09:30:51 +0800
-Message-ID: <20250209013054.816580-3-inochiama@gmail.com>
+Subject: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Date: Sun,  9 Feb 2025 09:30:52 +0800
+Message-ID: <20250209013054.816580-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250209013054.816580-1-inochiama@gmail.com>
 References: <20250209013054.816580-1-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_173110_548239_D9F36065 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250208_173113_805050_02BB5F39 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,49 +131,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "snps,dwmac-5.30a" compatible string for 5.30a version that can avoid
-to define some platform data in the glue layer.
+Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../ethernet/stmicro/stmmac/stmmac_platform.c   | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 105 ++++++++++++++++++
+ 3 files changed, 117 insertions(+)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index d0e61aa1a495..8dc3bd6946c6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -405,6 +405,17 @@ static int stmmac_of_get_mac_mode(struct device_node *np)
- 	return -ENODEV;
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index 4cc85a36a1ab..b6ff51e1ebce 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -181,6 +181,17 @@ config DWMAC_SOCFPGA
+ 	  for the stmmac device driver. This driver is used for
+ 	  arria5 and cyclone5 FPGA SoCs.
  
-+/* Compatible string array for all gmac4 devices */
-+static const char * const stmmac_gmac4_compats[] = {
-+	"snps,dwmac-4.00",
-+	"snps,dwmac-4.10a",
-+	"snps,dwmac-4.20a",
-+	"snps,dwmac-5.10a",
-+	"snps,dwmac-5.20",
-+	"snps,dwmac-5.30a",
-+	NULL
++config DWMAC_SOPHGO
++	tristate "Sophgo dwmac support"
++	depends on OF && (ARCH_SOPHGO || COMPILE_TEST)
++	default m if ARCH_SOPHGO
++	help
++	  Support for ethernet controllers on Sophgo RISC-V SoCs
++
++	  This selects the Sophgo SoC specific glue layer support
++	  for the stmmac device driver. This driver is used for the
++	  ethernet controllers on various Sophgo SoCs.
++
+ config DWMAC_STARFIVE
+ 	tristate "StarFive dwmac support"
+ 	depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index b26f0e79c2b3..594883fb4164 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -24,6 +24,7 @@ obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
+ obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
+ obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
+ obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
++obj-$(CONFIG_DWMAC_SOPHGO)	+= dwmac-sophgo.o
+ obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
+ obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
+ obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+new file mode 100644
+index 000000000000..a4997cc0294a
+--- /dev/null
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+@@ -0,0 +1,105 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Sophgo DWMAC platform driver
++ *
++ * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++#include <linux/bits.h>
++#include <linux/mod_devicetable.h>
++#include <linux/phy.h>
++#include <linux/platform_device.h>
++
++#include "stmmac_platform.h"
++
++struct sophgo_dwmac {
++	struct device *dev;
++	struct clk *clk_tx;
 +};
 +
- /**
-  * stmmac_probe_config_dt - parse device-tree driver parameters
-  * @pdev: platform_device structure
-@@ -538,11 +549,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 		plat->pmt = 1;
- 	}
- 
--	if (of_device_is_compatible(np, "snps,dwmac-4.00") ||
--	    of_device_is_compatible(np, "snps,dwmac-4.10a") ||
--	    of_device_is_compatible(np, "snps,dwmac-4.20a") ||
--	    of_device_is_compatible(np, "snps,dwmac-5.10a") ||
--	    of_device_is_compatible(np, "snps,dwmac-5.20")) {
-+	if (of_device_compatible_match(np, stmmac_gmac4_compats)) {
- 		plat->has_gmac4 = 1;
- 		plat->has_gmac = 0;
- 		plat->pmt = 1;
++static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
++{
++	struct sophgo_dwmac *dwmac = priv;
++	long rate;
++	int ret;
++
++	rate = rgmii_clock(speed);
++	if (rate < 0) {
++		dev_err(dwmac->dev, "invalid speed %u\n", speed);
++		return;
++	}
++
++	ret = clk_set_rate(dwmac->clk_tx, rate);
++	if (ret)
++		dev_err(dwmac->dev, "failed to set tx rate %lu: %pe\n",
++			rate, ERR_PTR(ret));
++}
++
++static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
++				    struct plat_stmmacenet_data *plat_dat,
++				    struct stmmac_resources *stmmac_res)
++{
++	struct sophgo_dwmac *dwmac;
++
++	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
++	if (!dwmac)
++		return -ENOMEM;
++
++	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
++	if (IS_ERR(dwmac->clk_tx))
++		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
++				     "failed to get tx clock\n");
++
++	dwmac->dev = &pdev->dev;
++	plat_dat->bsp_priv = dwmac;
++	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
++	plat_dat->multicast_filter_bins = 0;
++	plat_dat->unicast_filter_entries = 1;
++
++	return 0;
++}
++
++static int sophgo_dwmac_probe(struct platform_device *pdev)
++{
++	struct plat_stmmacenet_data *plat_dat;
++	struct stmmac_resources stmmac_res;
++	int ret;
++
++	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to get resources\n");
++
++	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
++	if (IS_ERR(plat_dat))
++		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
++				     "dt configuration failed\n");
++
++	ret = sophgo_sg2044_dwmac_init(pdev, plat_dat, &stmmac_res);
++	if (ret)
++		return ret;
++
++	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
++}
++
++static const struct of_device_id sophgo_dwmac_match[] = {
++	{ .compatible = "sophgo,sg2044-dwmac" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, sophgo_dwmac_match);
++
++static struct platform_driver sophgo_dwmac_driver = {
++	.probe  = sophgo_dwmac_probe,
++	.remove = stmmac_pltfr_remove,
++	.driver = {
++		.name = "sophgo-dwmac",
++		.pm = &stmmac_pltfr_pm_ops,
++		.of_match_table = sophgo_dwmac_match,
++	},
++};
++module_platform_driver(sophgo_dwmac_driver);
++
++MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
++MODULE_DESCRIPTION("Sophgo DWMAC platform driver");
++MODULE_LICENSE("GPL");
 -- 
 2.48.1
 
