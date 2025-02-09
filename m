@@ -4,113 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3726C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 02:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D872C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 03:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPYRBH8N0cFSlMms6AVV4eSsR5UK0yhiANnm0hFSLXo=; b=Q427zRrTXRgwdHkLbyG98xiQ7+
-	FQqJl+51zmkNZJk83k3QokLvKVNa1tcnW3kLXPVAn9rrDuKn/yiRW9GKIcWeaGdh2b9F+iiAD/2Fq
-	8JkKYJcXPNrjkZbzeH15BC1z9U79NbNPnylqxVA5ok0KdzahbG/uLR1rSCUuJP2ZPE/iNhD2CqESK
-	nPMU71Gss1W8nARfWAflciuNwWfkRNkATnmK0eCbuO3CnObB02XLQkvG2yUDS/SJNe+SeLTSG2R4A
-	5VVtHHjLv5goHHzV30wzJebD46XwDY1/NtE2LsLXqg8ZRQmitB6UuI9RTlLEjWA2NgOZl5EqSqcdo
-	kcJbZ6VQ==;
+	bh=j31g1VoN7O4XuCmDiX3R+x/Ync3MiakZ5YN14frwoaw=; b=m9BRx9+wLDrO4BzctsPeaE81aB
+	vihZK73AHHLWzHfnTGxkE2YGH4RqQUarxByxR4bW639dQUdjB/F9Im90KUrjgbgI8/kpNAlKqa95R
+	aHCU8Up6zoHTxJ7izP4eceCmrJHrzCVGitFHCMy3veNZhuyOnt19RMu9XbZcyR9Gx1pfPj5aY+v6s
+	YxZffhg1hYheyH8Q+XS1XxA/mJcERXOC/530hrsqQJ5hu9oZUIwmJ+XkT2I+vwuRjIPVPUwueoPe/
+	64x4wQ4TolGNW5C9YAfvchFUG0EhfAVTEcAf8RJFrJPO61TMn9v0YNBC2S4WbCfE7gJ0PrqoV9AXx
+	DY6vadkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgwy9-0000000DuXG-3xRb;
-	Sun, 09 Feb 2025 02:22:49 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tgxhX-0000000Dx7Y-2eR8;
+	Sun, 09 Feb 2025 03:09:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgwwl-0000000DuR0-3sEm
+	id 1tgxg7-0000000Dwyq-3K2Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 02:21:25 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2163affd184so96825ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Feb 2025 18:21:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739067682; x=1739672482; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aPYRBH8N0cFSlMms6AVV4eSsR5UK0yhiANnm0hFSLXo=;
-        b=iiX1lgcJ3VNV+OLM9wp+c1rO3NNaxx6Ii+Ch5ruo/sNZxFHhTD+XK1kP8W7dmOG3Mh
-         9c9LWB5YKYJgr1tEXkTMdzarx1tgIVoISk/AIG3sJoLazLffeh6Kkb8QMQfY24Ghurin
-         zNi3scHpCc9E3D5MDBbQNMFk0geXN/PIWFBg9sN5IRpdYKyZBYD+2YR3waGi2nZE4CZ/
-         A0FV2oN5VITGpPuWT3pzI5D0J5MmcZDKwn6hyfKDNIZc9Gn+VZTELcxF5VSZjyNFvXzn
-         IPn/78CZRXupYRutPN1ErQ3EES/t0v1zITyzww9k3T/R/oG6LXs+6PEDAUyKvH1rbGlC
-         vLFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739067682; x=1739672482;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aPYRBH8N0cFSlMms6AVV4eSsR5UK0yhiANnm0hFSLXo=;
-        b=HaRGrhl5BpPo0w70npFMa9wd0NNl+8vnUOG9sX63sAz9rdkIRO5Hxdbb/iMMMqpvbk
-         0Iq3kJhHGW+vsin7w3Ko0ddpfG7O/u68xxFBDvFXVrvvGaZrttBa98Gbz7UL0s9P50jb
-         BY6zYb93xR5uTM6Tu2ih5IpXV92jO4bvghgPgJgkxRI7YL/Zn7qU1Y7FQ9ajwk/ruCQj
-         NkSivg0H9yAL4+9yObKjBiK4NK53ApAqCwNw9o6u7sJWtq7KXeSlyVzJD/qPm76MAlRc
-         45R3cZQVNdb9Vre/RSOmgWMFNPNoQ7qBNHOnXjexG7YE+Ktfiv9my4MLzhFGwOthxNva
-         eTmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwkiy4MFpXBxU0cOubXXq7nE0/K2AMsYC8nLZrp6S/yt62r/p0Eu1cNPeY8oBEwUmcqUsCTK3FZQ9T0Iqih/ao@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdW76TQGOewbxR7MckaEIDOZEdnmSLgNXPtMRkAEVylf6YpT6P
-	nOBcNe9Y+uqu9puamHWtBoh4Cem6/vhYzjKb4dCIikgOuGT87lpWyrc6B418Cw==
-X-Gm-Gg: ASbGncu9kAaG+pD6UiIaB6fz0/u7bo2gumiIZKO6gQRYvHIhwdRgGL92urXKtoosoBM
-	T9zKJDnKRTb4WxP/z5wQvojnseLnRtISqbEnolnDABQPfTvWFMwIdtbKoHHbUIN5+ZG5y0mE50f
-	RuuLyQ5DEIgJjvH6TVXloUhg14noVTdKf3aws6jsdhuoSsxkRG0jVKr2c5iWd6nLwKdoKt4NLcj
-	no2nlY5uV6OjoMzI4eWjFGBqWLTbDHamzSHaqs71wuJUpmW7jb3oRgSY7rlh6nBnisxGREnqZqS
-	cnN7WjHYP/jBcJ2wo6P292Q4aRvqyUWIh8jrW0e4QeoYQSBzsEMSUw==
-X-Google-Smtp-Source: AGHT+IEowLr0ODuJvhhRX0k3wQ9ChkhKhAElhUwga2QcQJLk+imc7mKSniosyKtNBmFd0SxXKu92Ag==
-X-Received: by 2002:a17:903:144b:b0:21f:3e29:9cd4 with SMTP id d9443c01a7336-21f69e53acdmr2101805ad.20.1739067681888;
-        Sat, 08 Feb 2025 18:21:21 -0800 (PST)
-Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048c15baesm5148861b3a.121.2025.02.08.18.21.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 18:21:21 -0800 (PST)
-Date: Sun, 9 Feb 2025 02:21:16 +0000
-From: Peilin Ye <yepeilin@google.com>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	David Vernet <void@manifault.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
+	Sun, 09 Feb 2025 03:08:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739070494;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j31g1VoN7O4XuCmDiX3R+x/Ync3MiakZ5YN14frwoaw=;
+	b=AYv6noQO8jAZ4JAxcYIjX9TbwGDzUHg4SLFhgZx1wCzjktDLoxe+GIFRQ1K4n0Ql39o4fd
+	TMWy+C9+ssZPanATfaM4XoawgeGV/3++l1ybaZ1DN11pHhnSKKEdkx7xWw7hrD4ro63o/b
+	F/jOFWt1iwYMhuX4dxVYJiUEmnidv3M=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-527--0UWXAPWP4aY9sz5uQfGng-1; Sat,
+ 08 Feb 2025 22:08:10 -0500
+X-MC-Unique: -0UWXAPWP4aY9sz5uQfGng-1
+X-Mimecast-MFC-AGG-ID: -0UWXAPWP4aY9sz5uQfGng
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CC58C1800360;
+	Sun,  9 Feb 2025 03:08:03 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.28])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 48D321800265;
+	Sun,  9 Feb 2025 03:08:00 +0000 (UTC)
+Date: Sun, 9 Feb 2025 11:07:53 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>, Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Yingchi Long <longyingchi24s@ict.ac.cn>,
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
-	Neel Natu <neelnatu@google.com>,
-	Benjamin Segall <bsegall@google.com>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
- store-release instructions
-Message-ID: <Z6gRHDLfA7cjnlSn@google.com>
-References: <cover.1738888641.git.yepeilin@google.com>
- <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
- <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	changyuanl@google.com
+Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
+Message-ID: <Z6gcCTBTceixz7yq@MiWiFi-R3L-srv>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206162939.a1f86fb835f1eeb7ed73ff1c@linux-foundation.org>
+ <CA+CK2bD6204AKWGOgzLMiMsnVZ=tk+DGc+VWgi3RVt2byaLJJA@mail.gmail.com>
+ <Z6a1kxR2GlQoepgI@MiWiFi-R3L-srv>
+ <CA+CK2bDgP2DfsfVAhQhFhBiNJFUS1n17oX9KgC1JFXAk76j01Q@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+CK2bDgP2DfsfVAhQhFhBiNJFUS1n17oX9KgC1JFXAk76j01Q@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_182123_984686_B6614F8E 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20250208_190815_977469_C3C5FDBB 
+X-CRM114-Status: GOOD (  36.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +116,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexei,
+On 02/08/25 at 07:23pm, Pasha Tatashin wrote:
+> On Fri, Feb 7, 2025 at 8:38 PM Baoquan He <bhe@redhat.com> wrote:
+> >
+> > On 02/06/25 at 08:28pm, Pasha Tatashin wrote:
+> > > On Thu, Feb 6, 2025 at 7:29 PM Andrew Morton <akpm@linux-foundation.org> wrote:
+> > > >
+> > > > On Thu,  6 Feb 2025 15:27:40 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+> > > >
+> > > > > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
+> > > > > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
+> > > > > just to make things simpler instead of ftrace we decided to preserve
+> > > > > "reserve_mem" regions.
+> > > > >
+> > > > > The patches are also available in git:
+> > > > > https://git.kernel.org/rppt/h/kho/v4
+> > > > >
+> > > > >
+> > > > > Kexec today considers itself purely a boot loader: When we enter the new
+> > > > > kernel, any state the previous kernel left behind is irrelevant and the
+> > > > > new kernel reinitializes the system.
+> > > >
+> > > > I tossed this into mm.git for some testing and exposure.
+> > > >
+> > > > What merge path are you anticipating?
+> > > >
+> > > > Review activity seems pretty thin thus far?
+> > >
+> > > KHO is going to be discussed at the upcoming lsfmm, we are also
+> > > planning to send v5 of this patch series (discussed with Mike
+> > > Rapoport) in a couple of weeks. It will include enhancements needed
+> > > for the hypervisor live update scenario:
+> >
+> > So is this V4 still a RFC if v5 will be sent by plan? Should we hold the
+> > reviewing until v5? Or this series is a infrustructure building, v5 will
+> > add more details as you listed as below. I am a little confused.
+> 
+> We will modify the existing patches and send as v5 because some
+> interfaces are going to be changed*.
+> 
+> Otherwise, v5 will make KHO a lot more flexible as it will allow to
+> use the tree all the time while the system is running instead of only
+> once during the activation phase.
+> 
+> * Changing interfaces  is optional, but decision whether to change
+> will be discussed at Hypervisor Live Update on Feb 10th:
+> https://lore.kernel.org/all/26a4b7ca-93a6-30e2-923b-f551ced03d62@google.com/
 
-On Sat, Feb 08, 2025 at 01:30:46PM -0800, Alexei Starovoitov wrote:
-> > Introduce BPF instructions with load-acquire and store-release
-> > semantics, as discussed in [1].  The following new flags are defined:
-> >
-> >   BPF_ATOMIC_LOAD         0x10
-> >   BPF_ATOMIC_STORE        0x20
-> >   BPF_ATOMIC_TYPE(imm)    ((imm) & 0xf0)
-> >
-> >   BPF_RELAXED        0x0
-> >   BPF_ACQUIRE        0x1
-> >   BPF_RELEASE        0x2
-> >   BPF_ACQ_REL        0x3
-> >   BPF_SEQ_CST        0x4
-> 
-> I still don't like this.
-> 
-> Earlier you said:
-> 
-> > If yes, I think we either:
-> >
-> >  (a) add more flags to imm<4-7>: maybe LOAD_SEQ_CST (0x3) and
-> >      STORE_SEQ_CST (0x6); need to skip OR (0x4) and AND (0x5) used by
-> >      RMW atomics
-> >  (b) specify memorder in imm<0-3>
-> >
-> > I chose (b) for fewer "What would be a good numerical value so that RMW
-> > atomics won't need to use it in imm<4-7>?" questions to answer.
-> >
-> > If we're having dedicated fields for memorder, I think it's better to
-> > define all possible values once and for all, just so that e.g. 0x2 will
-> > always mean RELEASE in a memorder field.  Initially I defined all six of
-> > them [2], then Yonghong suggested dropping CONSUME [3].
-> 
-> I don't think we should be defining "all possible values",
-> since these are the values that llvm and C model supports,
-> but do we have any plans to support anything bug ld_acq/st_rel ?
-> I haven't heard anything.
-> What even the meaning of BPF_ATOMIC_LOAD | BPF_ACQ_REL ?
-> 
-> What does the verifier suppose to do? reject for now? and then what?
-> Map to what insn?
-> 
-> These values might imply that bpf infra is supposed to map all the values
-> to cpu instructions, but that's not what we're doing here.
-> We're only dealing with two specific instructions.
-> We're not defining a memory model for all future new instructions.
 
-Got it!  In v3, I'll change it back to:
+Ah, this is what I would like to know about the difference between v4
+and v5. Thanks for the information, and looking forward to seeing the v5
+update.
 
-  #define BPF_LOAD_ACQ   0x10
-  #define BPF_STORE_REL  0x20
-
-Thanks,
-Peilin Ye
+> 
+> >
+> > >
+> > > 1. Allow nodes to be added to the KHO tree at any time
+> > > 2. Remove "activate" (I will also send a live update framework that
+> > > provides the activate functionality).
+> > > 3. Allow serialization during shutdown.
+> > > 4. Decouple KHO from kexec_file_load(), as kexec_file_load() should
+> > > not be used during live update blackout time.
+> > > 5. Enable multithreaded serialization by using hash-table as an
+> > > intermediate step before conversion to FDT.
+> >
+> 
 
 
