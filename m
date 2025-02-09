@@ -4,85 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86555C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 15:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72154C02199
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 16:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PssKll4JEoMlKe6UK2jH07Ppq8XsuPzXadX333xk3Wo=; b=zgzkW/49gte7uhH8IV7VvJZK++
-	BfO0rDE1X/h5K1Eun54Eov3kDY4JkNB/kcsjxtARM4Rh8TpC03MmwOo3inaYOU/OhQZl7vybGRcFD
-	JA1zkpyhy2G7tU87wBtuowVO/2zfqnBzNZEfGEA27lohUWeg2GfKaxD1yPrT/yTQqf8UGvUrkAyu1
-	nvK6si/mSI2b3tvoEFqbBoXW7df9a8IquLJVLlkstpCIzv0lpAuno9dN6mineCV9mlNplY+ewUPCw
-	RmKv5qH5VFocObK+mdhUMNZnQwqri3uwdApVaxXLZWW8FCGRjU1XamDU/oXHV3ZzR/TdJXhVZMQWY
-	eGliCP+w==;
+	bh=T3fug6T46PBi/hvPg4928s6Dv07wn68XsJib3CQ58xE=; b=n8P0ZO+J94bUCYpLczfvVwEpiQ
+	EMHcR9xgikMt9f2GMo40muO3w8jjQgWOStccMv7s30R0wP/YK+xdR94U/o0r+6udgbJ3Y6wbR9i+D
+	0p2OaP9TkYcW91wRwCbgC1+6BVMXBKgJ6413G9JDoHDiV+j1mczD9XTTuEsFLYzg/7bNGTs4SUvW0
+	bVqy1ZlJy9WAcazzCnQHb11stGFW7ZalhzbkMLccy+4q34/AsCajULeJtO4LbOfpfE/nSqX4BoTPK
+	oOq1jEqN84a57vS3uC5yj6mdxuZzzlY2e3fiBzhNsHpnMAPPjQ9enZ/opEJFc3uTiH7JvtVvq0ngO
+	d7yk7aPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th9aT-0000000F7jt-2vgv;
-	Sun, 09 Feb 2025 15:51:13 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1thAEN-0000000FBfF-0xQh;
+	Sun, 09 Feb 2025 16:32:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th9Z5-0000000F7Zf-36oR
+	id 1thACy-0000000FBY0-3YRn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Feb 2025 15:49:48 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-2b863fdc25aso271250fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Feb 2025 07:49:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739116187; x=1739720987; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PssKll4JEoMlKe6UK2jH07Ppq8XsuPzXadX333xk3Wo=;
-        b=GUJKH7iHMNc2nH7SPoAA0mVD62wxFu2E1vkDEtbPp6N5YGuzhW4P0NVkdFXFeMBAXR
-         rP7DTHf1kCNpYYMep7FzEs+UdM+WykxIdjdvjLt5wKNGr3tApOy5P07EjuGZCFbIunRZ
-         wqcJ3TyjHsce/jamAJ+cE1jZKLsrBHaVgMI/CKluca9YluoPv75gsRYUq0ZbgOtlj1CF
-         8YRZtXCGFawrQ0R2DOuJLCZOXt7dcB0OFeJngO5Xu6ii7dCWAmvUuXwUYx4mx26SyKGM
-         ipL9rpYzVyUVbrZt11fj9tJ5DuyeEEuq2n1hklCJOhioSpk85uMqazYin1tShXSJ5sFg
-         SVqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739116187; x=1739720987;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PssKll4JEoMlKe6UK2jH07Ppq8XsuPzXadX333xk3Wo=;
-        b=eVI6ydlA4kqXBv+zhIHfCcyZFdlNtoZoP5Hxzbc8yfDHAKWQC+/o4TzRSisCnUyCAZ
-         GK9naaEnfOJJPpA+6rdtUY6y+M2AUdRl6BjCtpMgg96EfjDyfMLKT0kbvvmhz1rLlZ+T
-         E8RsDWrneOwUyWIoAKL/mnRER5DpPlBt81IWQ9H+DsaAjaa4pgcwLM80xShcZr4p0jAg
-         GmIYq6T0p4cRBLBkS0+CA+pJCLFhza+5svqwPKjaj6JjK6NvJYdwQIwA6vWUmyrcH7E8
-         KI+6IRk//ItK/5P5rRN5CkSXKrl1CSlDJWwSb0XQk7ADhm1WKoY58sz5Z8WDGRo06Aja
-         bnrA==
-X-Forwarded-Encrypted: i=1; AJvYcCW4IzouAffnBg6fpa+2KEQt6HsLCRlZifs+IAkXGOk7mNyQM3mZYMUNO0bEkx3GUReqRIbhU542bJEjSA9/X5jz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxicDbptcfCC/LJAGbZFzd3ll6EKwIMwkTYE7TrVrgyXt/qvlsD
-	ptisRKp+/1/jrpKBZR1wpr6BfU8CozIl/2WwTXhwufg48s32r+Bsrun3kVjVocA/4hrxtD9C/kd
-	pvZ2+/AwbnR8kX+2t7iEC0jnyXnBIJ/awoBjTulp28WbYcgdSex4=
-X-Gm-Gg: ASbGncsN2O/WRVtT+t6j3K/eKLVPPGo35fU9G3qGEQaz6niaFCCRVmJoSTnFNJbAS3E
-	jojOk3N1inaBf6Wz74LR1TLim+xG3NL7S9IkCfbR5brbhdcVuX/1L53oSyGafjILRJPEp+RKc
-X-Google-Smtp-Source: AGHT+IEJx4GAJCZ1ff4k2hzF9hSjRKWNrgbRsTFnQrR3DUT9d8D8jCv4lfl/PeBdwYbUEL9kQpD9Eg5C5R06EpPRzxc=
-X-Received: by 2002:a05:6870:c0b:b0:29e:3132:5897 with SMTP id
- 586e51a60fabf-2b83eba9bf7mr6061588fac.5.1739116186662; Sun, 09 Feb 2025
- 07:49:46 -0800 (PST)
+	Sun, 09 Feb 2025 16:31:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 41236A406C8;
+	Sun,  9 Feb 2025 16:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31867C4CEDD;
+	Sun,  9 Feb 2025 16:30:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739118659;
+	bh=YC2rqriZkGtxsnGNrpo+w727E3fLutw8c/kxR9sE+wQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=X5moKQaiRuetTiE4ErahlW7gUbWdnZPi+/o8JdW/xW702jdtnTTCXoqRx49VYBycP
+	 j51yMJc6SUgq2tzClDIAGk1pKH/ptmylVNwNvPN392bEcCwUBemSbJ6fdChMkzIo1a
+	 IHoGsCF6LXs3369iZsAZDLLMXjsXpaCniu+3APo/1JCJO2O1o69m9DwOIyuOmky9HA
+	 p/jBHOxO8EocD7bzmVyuKnws+rx1ydv2Bo6klxwY6wwxsVlDk/ATrczKE1ntXYaYZA
+	 x5D20FtUtYvXqli0uBetUC7oZItt0B/wRtTDFm3NcsV1GdMnSb02bXZqrqHOf7FpgC
+	 HQgGUj3eVtAZA==
+Message-ID: <12c1fb05-6cf5-4fb3-9db8-730bc7f6cfc7@kernel.org>
+Date: Sun, 9 Feb 2025 17:30:52 +0100
 MIME-Version: 1.0
-References: <20250206-gs101-renppt-dts-v1-0-cdfe993fb3c5@linaro.org> <20250206-gs101-renppt-dts-v1-3-cdfe993fb3c5@linaro.org>
-In-Reply-To: <20250206-gs101-renppt-dts-v1-3-cdfe993fb3c5@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Sun, 9 Feb 2025 15:49:35 +0000
-X-Gm-Features: AWEUYZlsv4LiCm_NFbOvnGh5QJf88D0c8PjjEovMiCg0gV1Nlhp4jo0ANNrcy54
-Message-ID: <CADrjBPrO4o0X45roprKvRsdQ3wRKvRMsk_Ry8z9j6FmzPatG=A@mail.gmail.com>
-Subject: Re: [PATCH 3/3] arm64: dts: exynos: gs101: add reboot-mode support (SYSIP_DAT0)
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/3] dt-bindings: mmc: brcm,sdhci-brcmstb: Add sdio
+ sharing support
+To: Kamal Dasu <kamal.dasu@broadcom.com>, ulf.hansson@linaro.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ adrian.hunter@intel.com, linux-mmc@vger.kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wsa+renesas@sang-engineering.com
+Cc: f.fainelli@gmail.com, bcm-kernel-feedback-list@broadcom.com,
+ Kamal Dasu <kdasu@broadcom.com>
+References: <20250206220940.10553-1-kamal.dasu@broadcom.com>
+ <20250206220940.10553-3-kamal.dasu@broadcom.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250206220940.10553-3-kamal.dasu@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_074947_784645_19309353 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250209_083101_018487_A64C4E0C 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +121,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Feb 2025 at 13:08, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> syscon-reboot-mode can be used to indicate the reboot mode for the
-> bootloader.
->
-> While not sufficient for all boot modes, the boot loader does use
-> SYSIP_DAT0 (PMU + 0x0810) to determine some of the actions it should
-> take. This change helps it deciding what to do in those cases.
->
-> For complete support, we'll also have to write the boot mode to an
-> NVMEM storage location, but we have no upstream driver for that yet.
-> Nevertheless, this patch is a step towards full support for the boot
-> mode.
->
-> Note1: Android also uses 'shutdown,thermal' and
-> shutdown,thermal,battery', but that can not be described in DT as ','
-> is used to denote vendor prefixes. I've left them out from here for
-> that reason.
->
-> Note2: downstream / bootloader recognizes one more mode: 'dm-verity
-> device corrupted' with value 0x50, but we can not describe that in DT
-> using a property name due to the space, so it's been left out from here
-> as well. This string appears to come from drivers/md/dm-verity-target.c
-> and should probably be changed there in a follow-up patch, so that it
-> can be used in reboot-mode nodes like this one here.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
+On 06/02/2025 23:09, Kamal Dasu wrote:
+> From: Kamal Dasu <kdasu@broadcom.com>
+> 
+> Introduce emmc flash sharing support using hardware semaphore
+> and SDIO share register to synchronize between TZOS and linux.
+> 
+> Signed-off-by: Kamal Dasu <kdasu@broadcom.com>
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+It's RFC, so I assume you do not expect review and then you can skip
+this and obviously it is also NAK for the patch (so maintainers won't
+take it).
+
+However if you actually expect review, then:
+
+
+> ---
+>  .../bindings/mmc/brcm,sdhci-brcmstb.yaml         | 16 +++++++++++++---
+>  1 file changed, 13 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+> index eee6be7a7867..b0ee39aeccb1 100644
+> --- a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+> @@ -27,15 +27,23 @@ properties:
+>            - const: brcm,sdhci-brcmstb
+>  
+>    reg:
+> -    maxItems: 2
+> +    minItems: 2
+
+1. Missing constraint
+2. Please follow DTS coding style
+3. and finally this needs to be tested, so:
+
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
+
+Best regards,
+Krzysztof
 
