@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04469C02199
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 10:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C403DC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Feb 2025 10:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2lNdwdhXHqdiRtSdbKOiuD6gH9UyQEuj4koMfqlz6g=; b=LkRsKhrCmkjKIAd+nA2YrmPsTs
-	iOzLqKNEeklcsjiW/tzhNP+dD+WeEao2+aljDuEXzAlVpHPt0KDANFCCrBfAxQPDv9u2d5rC03Gnh
-	a9wkIt3E8Qo4FigqbfeSHxWSWbb5do+Dbcq8+rXw860RX6YYv0AHAZ8G3cSnvjUZ/GMde5LuZfm68
-	bLfCOeWwfykFJ2gW6O1YY2loMN6hwAx2QSSBRe26ixLoGmDISUrKHOdQ5JbD+RsocRAC3SJqznDae
-	wIWmzQpH5n9qJsLKg6+ixOyIVaQQqbUIpL51P79zNVWbnK9phpfu7aZsCD4+spTb8tDb3ypYnMvZA
-	4coOnfug==;
+	bh=X95RD6jZCKNviTGLPAHuj8WN/eT0jZcmmhwM9dT/s3I=; b=JoqORkYHWUnF1GpnAyzkSGxvlj
+	0bFKE9pah34Ub9Liqyh1QMeSgVFzYQS2m7OgDyo8DvnS0qC5vs9h1W02tMd8cfLeKVGKDJ/MqYdKX
+	BwDf8lZCo3aPwA1NFGkWtPE3swBjmAUjIneTQ32dVow8tUrlLFypQjelJCtTEIYuB3ekekDn/k896
+	ua3mHc9sxqi17fwQZCgtM9qTgPhZxdttSBhsEKvHdMsnoGpwN9vayuxEqqLhZA9CrKNL5bjtQWWTj
+	4QBSW6YLeoB9ddMKhezZpCR2IUbiAFtmbcuJ5uBUGOKFpgSfDpw8kFUTbU8n7yVxnpIALIUKUSSXr
+	hg8deDXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1th4jg-0000000EXXT-29R4;
-	Sun, 09 Feb 2025 10:40:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1th4tP-0000000EaFp-0Kjr;
+	Sun, 09 Feb 2025 10:50:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1th4iG-0000000EX4s-2y8s;
-	Sun, 09 Feb 2025 10:38:58 +0000
+	id 1th4rz-0000000EZnQ-1xAp;
+	Sun, 09 Feb 2025 10:49:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C6B85C575C;
-	Sun,  9 Feb 2025 10:38:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7973BC4CEDD;
-	Sun,  9 Feb 2025 10:38:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C4680A401D8;
+	Sun,  9 Feb 2025 10:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 064F0C4CEDD;
+	Sun,  9 Feb 2025 10:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739097535;
-	bh=9nFwagNxCfn0j52uHcSSNAhPNFRHroONyYXsrNVJahI=;
+	s=k20201202; t=1739098138;
+	bh=uqL5zVdRPB1QjFkWwpyO7GjIZbFeu2/+LfR1RcHkL/w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e0l8jxZwRnj6FN5X+Zi4CNSdeS98Z610zj9MbxG1WkmXcbrodAatfXuGDO7pc8iMO
-	 JUKsC+JTn43AnT1hvYhXKteip7hBHI1rN+4yBOsNfPIkHxr9QIJw80IMRxWQ44whUB
-	 z5POpknvfD+L0LtegF9LPOlegv3wXvO6zCwCQbkLllpNBxTgiv4RC9CJv2VR4y90gE
-	 CA95KwA84hGYr+0Q2inTeFdFHyDUrgp/bdQMLGwsDmGkS8poP8NflN8hQ0l7dNSmwC
-	 7ppSZF04BbR5YbcCj6qZvwMx2dd2pJmlrKdrD1pJWVDwGVkdDenZsLychX7S0jzG7I
-	 tSG8bP1yfetvQ==
-Message-ID: <b1e59928-b2f4-47d4-87b8-424234c52f8d@kernel.org>
-Date: Sun, 9 Feb 2025 11:38:37 +0100
+	b=BUaDJwkIRNhNcp3Rgmz/KSZHu6Dv0AYDyGw7lYoUaewIYd+TnfZy5aLok9QcjqGEn
+	 j6l93dUoujBso53rV4n0IC5YcUoJbY6i8yY2zn6nh7XD6s12q2IJhdTbL1n3FooEYE
+	 gdBfHWGKTzGJROcQI2RAPF8Gb5yX/jVeZXQlOquKW/cVCRobJ3HrkuNQOMgq9NdaPk
+	 XQxol1Ny6V1FAA9KLhWYPR/Y1zi1GOuFLjKwKX4r64AzecztzU8yaTp9FJR05xuVVV
+	 rLt/cXjDtgV6TDpOWRJ6AB4IUrwAdbQ+Pp0svOE7L4ldUovXfPGM0KIS00PXE+p3Fn
+	 m+mjJP7NY0esg==
+Message-ID: <bdae5678-ff79-4c04-8d77-c6bdfe613c68@kernel.org>
+Date: Sun, 9 Feb 2025 11:48:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/14] arm64: Add KHO support
-To: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Alexander Graf <graf@amazon.com>,
- Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
- <luto@kernel.org>, Anthony Yznaga <anthony.yznaga@oracle.com>,
- Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Eric Biederman
- <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>,
- James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>,
- Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>,
- Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
- Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tom Lendacky <thomas.lendacky@amd.com>, Usama Arif
- <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, x86@kernel.org
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-11-rppt@kernel.org>
+Subject: Re: [v2,2/2] dt-bindings: memory-controllers: Add MediaTek DRAM
+ controller interface
+To: Crystal Guo <crystal.guo@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250206121629.12186-1-crystal.guo@mediatek.com>
+ <20250206121629.12186-3-crystal.guo@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250206132754.2596694-11-rppt@kernel.org>
+In-Reply-To: <20250206121629.12186-3-crystal.guo@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_023856_873174_DCD38CFF 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250209_024859_659372_6DB1FEB3 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,58 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 14:27, Mike Rapoport wrote:
-> From: Alexander Graf <graf@amazon.com>
+On 06/02/2025 13:16, Crystal Guo wrote:
+> A MediaTek DRAM controller interface to provide the current DDR data rate.
+
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+
+
 > 
-> We now have all bits in place to support KHO kexecs. This patch adds
-
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
-> awareness of KHO in the kexec file as well as boot path for arm64 and
-> adds the respective kconfig option to the architecture so that it can
-> use KHO successfully.
-> 
-> Signed-off-by: Alexander Graf <graf@amazon.com>
-> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
 > ---
+>  .../mediatek,common-dramc.yaml                | 129 ------------------
 
+Why is there removal here if you add? Commit msg explains nothing here.
 
-...
+Why this patch was sent twice?
 
-> +#ifdef CONFIG_KEXEC_HANDOVER
-> +	dt = image->kho.dt.buffer;
-> +	dt_mem = image->kho.dt.mem;
-> +	dt_len = image->kho.dt.bufsz;
-> +
-> +	scratch_mem = image->kho.scratch.mem;
-> +	scratch_len = image->kho.scratch.bufsz;
-> +#endif
-> +
-> +	if (!dt)
-> +		goto out;
-> +
-> +	pr_debug("Adding kho metadata to DT");
-> +
-> +	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-dt",
+Please use standard email subjects, so with the PATCH keyword in the
+title. `git format-patch -vX` helps here to create proper versioned
+patches. Another useful tool is b4. Skipping the PATCH keyword makes
+filtering of emails more difficult thus making the review process less
+convenient.
 
-Where is the ABI documentation for this?
-
-> +				       dt_mem, dt_len);
-> +	if (ret)
-> +		goto out;
-> +
-> +	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-scratch",
-
-Same question.
-
-> +				       scratch_mem, scratch_len);
-> +	if (ret)
-> +		goto out;
-> +
 Best regards,
 Krzysztof
 
