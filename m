@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271F1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91C4C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4rCkVHh/Iwk/+3hJuNqrNMRtzjPUC7H5J66dt2WuGJM=; b=G4p+FSPD+k08uZbatuJDaciiHV
-	X69yxXvUkDj5Dp9f3wt2byYKllt0pr89DP1QmwSJgvcUKsvBrWIFhY1aKPmBmekFsrl4hmAkH17Af
-	TqkF8iRtxMy873ZNCJjQsGMx0s6CQhq2Cdkz6iqOSvfuEb5iUGErsFxgP682VLkQopvlio2iO88IB
-	io44meTdHx0LrphsDfx4BGDxnyJyQnK8pWiIyJAGJf7o5NxJM0bdg2u4Wo/2YrkUNjdSccNumgzFr
-	eYQuG96VrlbpVVtkD6o6+IJ4N6KeltAXHCjsogiWZhPzvESBky40gRpXmcgd9Ibxy3o7GhNFzc3HK
-	BTwp6U4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=013foi5X/BmKOy34Oh7COlZ1yi7o4IdG/96zL5C8KGQ=; b=LAnjUJjugDznVNwI1wsAjrjJHb
+	oIEyKt7naNbN549bvogD8kg+5ViTtYRzKNfdYtMFsLB3QOwW/mbNhOh4VUls07ufkqxv8uZxnACLD
+	tuz/hdaaKJngdPhAS6k8rmoBnvK/gs+aPA4d1kE89bHV44fa0gyLp3zVfW6/or3+a6ldN/yiAjWCv
+	cKYXXtkPdJ5J+JdmxqxmUEtE9QHPvA1W7RqnTn9e8gnB1SXsmibee0uyc0+qCqIjuS4C5XFJHG42e
+	GRbofyRGb3mJEwyDHa1oMKi03/pnCKskeFG7O7aZYE+oF4wnWmmpLtHb70QbNFxbK02cET4NZV+k3
+	y4/USdTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRTx-0000000H73n-30kA;
-	Mon, 10 Feb 2025 10:57:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1thRVK-0000000H7Pf-1DN8;
+	Mon, 10 Feb 2025 10:59:06 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRCs-0000000H3Lk-3dfq;
-	Mon, 10 Feb 2025 10:40:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4rCkVHh/Iwk/+3hJuNqrNMRtzjPUC7H5J66dt2WuGJM=; b=jck3ldfNHMAgjETkttyJMYsUMu
-	E92vnw4Nx9pcPnO+WowumsHz237a35FAZMEiVak6550rssebJjnqeCuuZDOV/Uyn6s1cVbSgKUgp7
-	ybgzfla0elZWKa+7Glsv9X+ZzbYRWytLjot1Ix4UWV8POEqNZdonZPWY/qBwFYsL05nrp/auDTB3u
-	6ZrN1i4CEQfjO7MeNy5V3zNMvwaCU5cLjqSvsO+at5fqr6RCmh/VfTzNwI+uh/RezmMN1wIsW9vEj
-	aVKYGrOwPu1YeH0Mnvdb6VWFWE9+SXRwMz1carNAMuhLkk0yoQf7O0bPcUPO++TKQKKmEIRnc7mvY
-	g60nfHBg==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1thRCb-0000xs-VF; Mon, 10 Feb 2025 11:39:46 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Junhao Xie <bigfoot@classfun.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/3] Add support for Ariaboard Photonicat RK3568
-Date: Mon, 10 Feb 2025 11:39:33 +0100
-Message-ID: <173918381711.1055685.16665650203421102883.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250114001411.1848529-1-bigfoot@classfun.cn>
-References: <20250114001411.1848529-1-bigfoot@classfun.cn>
+	id 1thRDh-0000000H3Vh-2GmL;
+	Mon, 10 Feb 2025 10:40:54 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9ephh012591;
+	Mon, 10 Feb 2025 11:40:31 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=013foi5X/BmKOy34Oh7COl
+	Z1yi7o4IdG/96zL5C8KGQ=; b=5tbsMe9961Urpjp7ew3gfM2vAbInvhgoqHnxY6
+	RURES+8kRO/+4Cwn2zkAeyeo5GVOssn2sfqvtZ13sskE/dvtgNL9yIgvc875fsDk
+	YsVb22vPaFe0m2ciuMXlR2Y/s9AY61DepEL2l3Vy3rAehXekrcYOoBkjZq+b9h5Y
+	LQK5jIue4FxRPbAKa9j4b9nwbyrsfYUPxI4ku4PxLVCzrqmVUw4pDEA4+OsSB1NR
+	cL+ELlOnelNVL6UUKBje/h49DtiYzxPCNeQSS/mRiF3FlSSb5StRsFaEAg/8QNMB
+	PSNYGa6dM0fuSSOcYVvh5i94jgkjLRCxZX/8Y4sBbkJCDwnw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0wswvcq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 11:40:30 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8EB2C40058;
+	Mon, 10 Feb 2025 11:39:33 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 92A8B2FD8A0;
+	Mon, 10 Feb 2025 11:35:22 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
+ 2025 11:35:22 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <vkoul@kernel.org>, <kishon@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+CC: <arnd@arndb.de>, <fabrice.gasnier@foss.st.com>,
+        <linux-phy@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 RESEND] phy: stm32: Fix constant-value overflow assertion
+Date: Mon, 10 Feb 2025 11:35:15 +0100
+Message-ID: <20250210103515.2598377-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_05,2025-02-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_024002_905561_5392B1EB 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250210_024053_871048_ED7F4FC4 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +89,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Rework the workaround as the lookup tables always fits into the bitfield,
+and the default values are defined by the hardware and cannot be 0: 
 
-On Tue, 14 Jan 2025 08:14:08 +0800, Junhao Xie wrote:
-> Add dts for Ariaboard Photonicat RK3568.
-> 
-> This series bring support for:
-> * Debug UART
-> * SDIO QCA9377 WiFi and Bluetooth
-> * M.2 E-Key PCIe WiFi and Bluetooth
-> * M.2 B-Key USB Modem WWAN
-> * Ethernet WAN Port
-> * MicroSD Card slot
-> * eMMC
-> * HDMI Output
-> * Mali GPU
-> * USB Type-A
-> 
-> [...]
+Guard against false positive with a WARN_ON check to make the compiler
+happy: The offset range is pre-checked against the sorted imp_lookup_table
+values and overflow should not happen and would be caught by a warning and
+return in error.
 
-Applied, thanks!
+Also guard against a true positive found during the max_vswing lookup, as a
+max vswing value can be 802000 or 803000 microvolt depending on the current
+impedance. Therefore set the default impedence index.
 
-[1/3] dt-bindings: vendor-prefixes: Add prefix for Ariaboard
-      commit: 8d9863487e58434d22dbacb10ad2f9dde326a25c
-[2/3] dt-bindings: arm: rockchip: Add Ariaboard Photonicat RK3568
-      commit: a81c10aee108d805259dac50c0ac509681c559e8
-[3/3] arm64: dts: rockchip: add dts for Ariaboard Photonicat RK3568
-      commit: 3834e1009c108a8a834a7e4625dfa805fcb1f71d
+Fixes: 2de679ecd724 ("phy: stm32: work around constant-value overflow assertion")
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+v2: Change title and Fixes tag
+---
+ drivers/phy/st/phy-stm32-combophy.c | 38 ++++++++++++++---------------
+ 1 file changed, 18 insertions(+), 20 deletions(-)
 
-As seen by the reply from Rob's bot, there were some minor issues, that
-I fixed myself:
-
-- dropped clock-names from bluetooth node
-- dropped reset-gpios from rfkill node
-- dropped phy-supply from pcie-phy
-  with vcc3v3_pcie marked as being supplied by vcc3v3_pi6c, all supplies
-  should still be enabled nevertheless
-
-Best regards,
+diff --git a/drivers/phy/st/phy-stm32-combophy.c b/drivers/phy/st/phy-stm32-combophy.c
+index 49e9fa90a681..607b4d607eb5 100644
+--- a/drivers/phy/st/phy-stm32-combophy.c
++++ b/drivers/phy/st/phy-stm32-combophy.c
+@@ -111,6 +111,7 @@ static const struct clk_impedance imp_lookup[] = {
+ 	{ 4204000, { 511000, 609000, 706000, 802000 } },
+ 	{ 3999000, { 571000, 648000, 726000, 803000 } }
+ };
++#define DEFAULT_IMP_INDEX 3 /* Default impedance is 50 Ohm */
+ 
+ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ {
+@@ -119,10 +120,9 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 	u8 imp_of, vswing_of;
+ 	u32 max_imp = imp_lookup[0].microohm;
+ 	u32 min_imp = imp_lookup[imp_size - 1].microohm;
+-	u32 max_vswing = imp_lookup[imp_size - 1].vswing[vswing_size - 1];
++	u32 max_vswing;
+ 	u32 min_vswing = imp_lookup[0].vswing[0];
+ 	u32 val;
+-	u32 regval;
+ 
+ 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-micro-ohms", &val)) {
+ 		if (val < min_imp || val > max_imp) {
+@@ -130,45 +130,43 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 			return -EINVAL;
+ 		}
+ 
+-		regval = 0;
+-		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++) {
+-			if (imp_lookup[imp_of].microohm <= val) {
+-				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of);
++		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++)
++			if (imp_lookup[imp_of].microohm <= val)
+ 				break;
+-			}
+-		}
++
++		if (WARN_ON(imp_of == ARRAY_SIZE(imp_lookup)))
++			return -EINVAL;
+ 
+ 		dev_dbg(combophy->dev, "Set %u micro-ohms output impedance\n",
+ 			imp_lookup[imp_of].microohm);
+ 
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_OHM,
+-				   regval);
+-	} else {
+-		regmap_read(combophy->regmap, SYSCFG_PCIEPRGCR, &val);
+-		imp_of = FIELD_GET(STM32MP25_PCIEPRG_IMPCTRL_OHM, val);
+-	}
++				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of));
++	} else
++		imp_of = DEFAULT_IMP_INDEX;
+ 
+ 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-vswing-microvolt", &val)) {
++		max_vswing = imp_lookup[imp_of].vswing[vswing_size - 1];
++
+ 		if (val < min_vswing || val > max_vswing) {
+ 			dev_err(combophy->dev, "Invalid value %u for output vswing\n", val);
+ 			return -EINVAL;
+ 		}
+ 
+-		regval = 0;
+-		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++) {
+-			if (imp_lookup[imp_of].vswing[vswing_of] >= val) {
+-				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of);
++		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++)
++			if (imp_lookup[imp_of].vswing[vswing_of] >= val)
+ 				break;
+-			}
+-		}
++
++		if (WARN_ON(vswing_of == ARRAY_SIZE(imp_lookup[imp_of].vswing)))
++			return -EINVAL;
+ 
+ 		dev_dbg(combophy->dev, "Set %u microvolt swing\n",
+ 			 imp_lookup[imp_of].vswing[vswing_of]);
+ 
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_VSWING,
+-				   regval);
++				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of));
+ 	}
+ 
+ 	return 0;
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.34.1
+
 
