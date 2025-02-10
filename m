@@ -4,126 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F27C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E11FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnWR6MMimA0+7S1woLC2NAPMzoNjou1mGSUtnETLWXs=; b=XhqdtAF4/r729dh8TPkdtb/gzE
-	sqQ/IPXZoWUr1OWuixbaOgSlNswysMb6pqgXsdxh6FOOt8qXcQk7bxeeUctsjRJUutcg1bSWaBWGY
-	t1Nk5AlViU7YuyC7ztmck3pHAkDjiBTe4vCJMIMQLmKfF9UUBG34g4SXHVm1HuM+8n5TmSiQeW2ok
-	jlpeMX+MFwkJpOQ+sWsvV5nP/EzhhM5QRzdvU5zTALv7n+Bc76tJQIKf9WHj/wEWuUbPurJvN+GHB
-	PS4GrlRa2kDeND1jqmSWg+xHqMHqb1ZOMlTY76u9TO0bTMfUXvhuu1Frf8Wa8e+nWrPbH4ZTZazdg
-	EO4OJgAA==;
+	bh=zaWnnKyJIOHBv+eThB5SKr0Iq+tvF8zs5UcT5Ed7lZM=; b=S0C6uwFV1H0EZcwmFmso2kqz0g
+	6sfPqKN4BpyS9J7osoCR3ErXwugyFUgj+XUUixMemg10zAWBT+AEDjGKmFOLzgqbrN4k+s/oXQIMW
+	NeiL7p4LK4fpljR55+iwiTBKIse7dMvr0cLeFUHAlqiEGqqx3KYzDUFi8QlAp6vPjEIpyqHVlTJHu
+	GPqk1yaon3Yrge/E7N7+z3v3c+1zRGHMevDowzPYiYYIO92g212deeM1su0reofTkn+IjhwPcU14r
+	352o/dOw3LHgUvnCmcnuUnp+elEk1Lfwn+zn7tp/OWq0wC/3C5FfDSkrf+yj0cxawhTsWINu82xZR
+	Fbib5WZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYO-000000016QK-44Uf;
-	Mon, 10 Feb 2025 19:34:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thZYU-000000016Ux-2DlO;
+	Mon, 10 Feb 2025 19:34:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXWF-00000000iEP-1ENv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 17:24:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=pnWR6MMimA0+7S1woLC2NAPMzoNjou1mGSUtnETLWXs=; b=X3A87bqCg0CzEz+u4fqnezVk83
-	9s4LBb8oN4ofCbDe0KxPWyXBwzUXd4S9JS3FBJzpzLywecOdKaFvTVUSibYrqoy9R0I4MeOlnl6/M
-	FVL8HLsSJNbyfVVF/M6luovKVnyDQ5YX2W8mX6tfyOIXCgQkuxokQahPgvMojd/nS9T88dZ4df4nX
-	o59vjRqt2rviC2vkRUTfK2y3goaPIRiasjFLdHywaIcxeC9cL8jiNaaveRlYYmuYywGsRTVpKJime
-	POWluyzIwhAkKTKJAN4Vy1irOzgmldqviIgWnxKW1xTpKt+ntRxQk1g20hjwluV53m9t/95m61WME
-	XuTagABw==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXWC-00000000B9K-0atM
+	id 1thYjI-00000000yry-3peI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:24:26 +0000
+	Mon, 10 Feb 2025 18:42:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1EAA7A41C22;
-	Mon, 10 Feb 2025 17:22:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73C94C4CEE5;
-	Mon, 10 Feb 2025 17:24:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C829B5C5DBC;
+	Mon, 10 Feb 2025 18:41:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BDE8C4CEE7;
+	Mon, 10 Feb 2025 18:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739208260;
-	bh=oPZeU9iXrO3F1aIMkZmK/g/ewNsvCQf1LbpxIcT5iJw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=byX3S2qdl2XDlFGykncdx5SaCiWIsESEVghx/wlYJWwCqZEXxLvD7XoYwS4gId2rg
-	 YCZZ+1IMHux/zNjdxRcowrkgVAE4ykvldNd8A8OU5MYRGskLTGNrrF9M2ZAHa2DGl9
-	 BmUHITenV/6ze3tTxNoPzhjd0uYVetrJvtBtI/Q0OEu1BckQEgBNvGQSIQnbdwRP/m
-	 MwfDu/SR5+X/hSjrVa76LFUiGNxIliccwIcKlDisci12fJ/01c6oFWNdZcesN71q0z
-	 5HQAc+yHTgf2FIWrvlVqKCRmutGxYdAPasgUUASU8AbwIQnSwIB8PwgvRByceDhkBm
-	 7uGO4/aUNLdZg==
-Message-ID: <d657fa70-af35-415d-b0e7-3aaf2fd05276@kernel.org>
-Date: Mon, 10 Feb 2025 18:24:15 +0100
+	s=k20201202; t=1739212920;
+	bh=9WGEF6A0ADnv6z6hchcc2hNLlsWnoeEm6HgulDZDTAw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TNIuKE4xSKZxikrwD88Pi2o/BV7XaNFYWnnTjcRQh+lRp/OwalMEGGIfJyDBM4wUC
+	 oiudFlhlaCAjeqf16bkFPzHfHh9MLg7k/x5f16YD2IV6Mo9VlbBZkPN+uhRuDgiPmS
+	 nfrLvEfym67pneVwXA3G3RlIjdx55JL42iOwH36Qp7YxmGAzEcmGBFSuQjuPk4SnEK
+	 /f6c5MHQGNuFs16qkhg3DhSjHEpP7HYm6Z7aWziAFqeCh/hj4L5d9884z/LHPmCEDD
+	 qgSP8LDGC/C75o/YNUSVBguFEJZ08gmw+SCavrX71r2GHb/oTsjpoRX50tjGNtV1U6
+	 iQl4vZCwaSGkw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thYjG-002g2I-BF;
+	Mon, 10 Feb 2025 18:41:58 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 05/18] KVM: arm64: Don't treat HCRX_EL2 as a FGT register
+Date: Mon, 10 Feb 2025 18:41:36 +0000
+Message-Id: <20250210184150.2145093-6-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
+References: <20250210184150.2145093-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] media: platform: chips-media: wave5: Rename Kconfig
- parameter
-To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
- hverkuil@xs4all.nl, sebastian.fricke@collabora.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-imx@nxp.com,
- linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
- lafley.kim@chipsnmedia.com
-References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
- <20250210090725.4580-2-nas.chung@chipsnmedia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250210090725.4580-2-nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_172424_557815_1E67A3CE 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_104201_008556_33AB6A17 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,30 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 10:07, Nas Chung wrote:
-> The existing Kconfig parameter VIDEO_WAVE_VPU is ambiguous,
-> as it does not clearly indicate that it is specific to the Wave5 IP.
-> 
-> Rename VIDEO_WAVE_VPU to VIDEO_WAVE5_VPU to make it explicit
-> that the parameter is specific to the Wave5 IP.
-> 
-> No functional changes, only the parameter name is updated.
+Treating HCRX_EL2 as yet another FGT register seems excessive, and
+gets in a way of further improvements. It is actually simpler to
+just be explicit about the masking, so just to that.
 
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-That's unnecessary churn. Old name was fine. Kconfig does not match
-hardware 1-to-1 but represents only the driver name (or not even that...).
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index f838a45665f26..25a7ff5012ed6 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -261,12 +261,9 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
+ 	if (cpus_have_final_cap(ARM64_HAS_HCX)) {
+ 		u64 hcrx = vcpu->arch.hcrx_el2;
+ 		if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
+-			u64 clr = 0, set = 0;
+-
+-			compute_clr_set(vcpu, HCRX_EL2, clr, set);
+-
+-			hcrx |= set;
+-			hcrx &= ~clr;
++			u64 val = __vcpu_sys_reg(vcpu, HCRX_EL2);
++			hcrx |= val & __HCRX_EL2_MASK;
++			hcrx &= ~(~val & __HCRX_EL2_nMASK);
+ 		}
+ 
+ 		write_sysreg_s(hcrx, SYS_HCRX_EL2);
+-- 
+2.39.2
 
-If you solve any particular problem, then explain it. Otherwise this is
-just unnecessarily affecting users and backports.
-
-> 
-> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-> ---
->  arch/arm64/configs/defconfig                      | 2 +-
-
-That's a SoC patch, don't mix up subsystems.
-
-
-Best regards,
-Krzysztof
 
