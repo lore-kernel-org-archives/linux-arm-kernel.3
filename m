@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4241BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E39BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DlxjZGXanDXKYhqFjk9v56yUdRPX52NKfpEf5gaJfFM=; b=oBcj0R/fdkf518TgSTLf/Vqxpf
-	hcfE9Jagc9UDbJDMdI/x2Ze7DLw+yNVWDZ/mArqPaM1tzShDY9A+7Y/wksIGFbMOsomsBKPlkXD4V
-	d42BN3a92ex6MoqoZvoi2ssM9MqmX6RTq3F7n8afMhWNzYb4QlXZzaE4oVQDfO0q8fIeK04gPzlbu
-	Qe9nGa/ySgQn9S4sz4619pBnrNT2SKx25iUSAdKWiJ9kf6QTgAWRte4pc5HUshT/+whXfXSC2w39d
-	pLfwUsYTwCCpGUU6+iNx8vORONSI29uee18tgDBDOeOBA2GwxNPrQyL5TdrOFESqPm7pvGW+7fo3l
-	Cvn5omTw==;
+	bh=yZb6mUuL2RIdfpHlRYetMESCRDxt1EtIQQVhl92SvAQ=; b=mQE0VQe034w3T3QR9yJipdnkTh
+	MTxhqO/U6CvXtEdqEcNTQxDZTJp0PMR3wZetu04ZkaSXBTGbt/ecliI59kW4eK3IBwfUQ3otTRTTW
+	yVHihsfcp2pDy3co/p4Ygi/MlBvGb0ad4bYyD/0s8CI/lL3PxE/bu3GWD7rKr/E6iHri44GP/WnOh
+	UC9XDeXg6/17Waqld0EPV/ZREaGrpHGw+fWCU1kBcifAsu8mccwk4J8oQFEwG7iukRwhpYlX/BHOo
+	2dFdgb2Noi0X2p2hNJwAeDn9djZ32EkaZpmIkd3ImnYRto8sMoWA5d6ejnWEGG7dpAwjZ/o2EpKxO
+	E/YwlEww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thROV-0000000H5UY-2ULe;
-	Mon, 10 Feb 2025 10:52:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1thRPs-0000000H5tO-1XAt;
+	Mon, 10 Feb 2025 10:53:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRCA-0000000H2jj-33I0;
-	Mon, 10 Feb 2025 10:39:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DlxjZGXanDXKYhqFjk9v56yUdRPX52NKfpEf5gaJfFM=; b=cqSOlErmRjo6dfA7xMOFeKkTuw
-	yj4z1UUBURPdHcBahaCr08QjLIyTN2nv9vFXbX1n1EYdiSVtyzFh8v0ZirBkX6n4mO6ULVpZcuNrw
-	+UEWuc7My2dGnlIwzJP7YMC1WWHl0g8/q3+RqsaIiCqS9gvn+MHARLwrhOr3bNJoLk3Q1pfgDiFHN
-	TCvlmXeBbjJkslgSlcMydggqkwK8A75v1h446Y2VVWOY0AACHowqTXw6G0i/UkCP7308lWJEuMPnZ
-	7fAUwivaLa/gEqGJHiP1Bu8uH3CUA9e+RYQCG0LrLfsOJN+IwlIGw6dlRLhb0Sz+JWRNmZ9LPi7j3
-	Ge2ErPDQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48976 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1thRA4-0006RG-2q;
-	Mon, 10 Feb 2025 10:37:08 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1thR9l-003vXC-9F; Mon, 10 Feb 2025 10:36:49 +0000
-In-Reply-To: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
-References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1thRCd-0000000H3Hp-1hZW;
+	Mon, 10 Feb 2025 10:39:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yZb6mUuL2RIdfpHlRYetMESCRDxt1EtIQQVhl92SvAQ=; b=tTegOwHYE0U+gQ5X64JfI1SeVf
+	iBg44ZiMpobXICvY+OLRBRnyFlJy956Fg80QK7snXjT8+mffp2S5z8t3UaAiTgFb+zdGh2cFaPtPY
+	idP9Vsaf+OASKlSrsvH3+b3HaHO+l7wfxJWrmu0oyGYtogFxzEv117S/K9+I+ZySOALw2ctNTTccI
+	5YOoy2zHOtaamD9TwpzhyfQfub268yJxLQxRtJMqy4ofmPtxl3Z5Jol+qCHhuWRkLtIif7scV/HCx
+	GYGaHXJxyuJuJtx3V39SZeYvDiNQjYOdZ6ppz6at0gY0Zia1R4wwuhuuWGf4E9a8i7BijZ4j6kFG0
+	mrekDPUA==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thRCb-0000xs-CV; Mon, 10 Feb 2025 11:39:45 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>
-Subject: [PATCH net-next v3 2/3] net: dsa: allow use of phylink managed EEE
- support
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: switch Rock 5C to PMIC-based TSHUT reset
+Date: Mon, 10 Feb 2025 11:39:32 +0100
+Message-ID: <173918381709.1055685.13812643367447361492.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250204-rock-5c-tshut-v1-1-33301e4eef64@gmail.com>
+References: <20250204-rock-5c-tshut-v1-1-33301e4eef64@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1thR9l-003vXC-9F@rmk-PC.armlinux.org.uk>
-Date: Mon, 10 Feb 2025 10:36:49 +0000
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_023918_758648_75349866 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20250210_023947_441033_8BF9031D 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to allow DSA drivers to use phylink managed EEE, we need to
-change the behaviour of the DSA's .set_eee() ethtool method.
-Implementation of the DSA .set_mac_eee() method becomes optional with
-phylink managed EEE as it is only used to validate the EEE parameters
-supplied from userspace. The rest of the EEE state management should
-be left to phylink.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- net/dsa/user.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+On Tue, 04 Feb 2025 13:02:28 +0400, Alexey Charkov wrote:
+> Radxa Rock 5C supports both CRU-based (default) and PMIC-based reset
+> upon thermal runaway conditions. The former resets the SoC by internally
+> poking the CRU from TSADC, while the latter power-cycles the whole board
+> by pulling the PMIC reset line low in case of uncontrolled overheating.
+> 
+> Switch to a PMIC-based reset, as the more 'thorough' of the two.
+> 
+> [...]
 
-diff --git a/net/dsa/user.c b/net/dsa/user.c
-index 291ab1b4acc4..2296a4ead020 100644
---- a/net/dsa/user.c
-+++ b/net/dsa/user.c
-@@ -1243,16 +1243,25 @@ static int dsa_user_set_eee(struct net_device *dev, struct ethtool_keee *e)
- 	if (!ds->ops->support_eee || !ds->ops->support_eee(ds, dp->index))
- 		return -EOPNOTSUPP;
- 
--	/* Port's PHY and MAC both need to be EEE capable */
--	if (!dev->phydev)
--		return -ENODEV;
-+	/* If the port is using phylink managed EEE, then an unimplemented
-+	 * set_mac_eee() is permissible.
-+	 */
-+	if (!phylink_mac_implements_lpi(ds->phylink_mac_ops)) {
-+		/* Port's PHY and MAC both need to be EEE capable */
-+		if (!dev->phydev)
-+			return -ENODEV;
- 
--	if (!ds->ops->set_mac_eee)
--		return -EOPNOTSUPP;
-+		if (!ds->ops->set_mac_eee)
-+			return -EOPNOTSUPP;
- 
--	ret = ds->ops->set_mac_eee(ds, dp->index, e);
--	if (ret)
--		return ret;
-+		ret = ds->ops->set_mac_eee(ds, dp->index, e);
-+		if (ret)
-+			return ret;
-+	} else if (ds->ops->set_mac_eee) {
-+		ret = ds->ops->set_mac_eee(ds, dp->index, e);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	return phylink_ethtool_set_eee(dp->pl, e);
- }
+Applied, thanks!
+
+[1/1] arm64: dts: rockchip: switch Rock 5C to PMIC-based TSHUT reset
+      commit: b2e537749524f09ae34e9e11a5f020eccc8aff22
+
+Best regards,
 -- 
-2.30.2
-
+Heiko Stuebner <heiko@sntech.de>
 
