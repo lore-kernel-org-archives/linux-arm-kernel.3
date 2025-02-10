@@ -4,68 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A59C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F29C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZR/U7aoKXyMToJmd6a+gi9jp0U5/yih3/l97CmMQipU=; b=TwfDdM6PnJo3ruJIlnRwogbBTx
-	XPD1zo1dfioW1hyDMyJS0dK97sBVabWBOKGaDZzRVH9hUUHfmUSnqSvdKbYHjdpYSqOMSIccON2D0
-	yfq/XhoVUqy+OKknEoOiPqyeuzNdWaexpuBk25n2SwVz0dJoqk5MNkPgQwKqunigGpD7tPcnwop/0
-	R4kcHZ0OnmgYaWaFvl2VGf9+kFC5NKGkISXfMk/Y8FNCMqU6XzFLMnJARVc+dFIuO05yv8Z7kPkUp
-	nCK8r/rKfqlkFn36RgVqGyitSGTQdx1QFdqFNWxGg0zZ4RPCYMAOXr59jERJSnHTPSK+opwJlo0Su
-	JLXP2toQ==;
+	bh=yPXFuQLXP5o9LljXT9gOjIOd3ugazJJUoGLuNZmQnCM=; b=NL5t302hZt0b/zCNKcqMZwcq1/
+	yJvxBMtNob/iidRp2UYFwH+UtVSZP32Pk3LUnDABgcCh9xLPzBt4cJvdC6yjtd0Ahvlm8/J8CBF+c
+	UQnECKaLvxgOKA8n6/i6BrPcCLdUoTbrNY88fI394dLEVMqcULHvxGQ+9Hv+vyo1QV9Ms3t6prYiV
+	KR9VGk0UCDHd5QoaDwT5dA93FJNythWTz+101ozIXuVRWJ0nSI+Siz6DC8HimEccpXU5/2B+iEq5y
+	aQCFloehGOHsJTxkvZzBORLN6c+N1Uj02Fy+xiYU0z9ZQrp+4dNv0dO6qM/OIf6DqN9TuXthFD5PG
+	VemRYg1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSEL-0000000HHcb-02Ft;
-	Mon, 10 Feb 2025 11:45:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thS2T-0000000HEUh-0CPZ
+	id 1thSHF-0000000HIhW-1O5P;
+	Mon, 10 Feb 2025 11:48:37 +0000
+Received: from mail-bn8nam04on20610.outbound.protection.outlook.com ([2a01:111:f403:2408::610] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thS5h-0000000HFdw-3WdD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:33:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95BD41007;
-	Mon, 10 Feb 2025 03:33:38 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DC243F5A1;
-	Mon, 10 Feb 2025 03:33:09 -0800 (PST)
-Date: Mon, 10 Feb 2025 11:33:07 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 04/22] arm64: entry: Rework
- arm64_preempt_schedule_irq()
-Message-ID: <Z6nj81GG_dLOzozI@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <20241206101744.4161990-5-ruanjinjie@huawei.com>
+	Mon, 10 Feb 2025 11:36:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pit0fpz0PlWb0kL9qmwGCFIHDopUWeshTjU/C6Op9sg1A/Xa1QAeMZIDNLIIvc+ZRad85rTqLwsDyZH0SBzhysCBQkX3aYHE3AZnC5ZTwdchFOu0lW+yvgvpB24gQp9FR7SpOXuFOvXC/9WPjgXx949cANReOBNYyge6mvsByeFOMxlhdEVbFFWvCDjJP1RTfksJiJ9jBZ+VbIsgmcMi39q5L9vKp6Eq3J5HCnv9jh832bGoHnrpWhegK1YYnn/icm2tpASxysdBuK4zQlRAavrNtM6tsmw3qG9wOPUet+HRaQaM3k4M7gBSuxhv61aV0DRWH9+MSwvK3f7sbJC+zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yPXFuQLXP5o9LljXT9gOjIOd3ugazJJUoGLuNZmQnCM=;
+ b=O8mgz5okogDE992s+Lj+JOA9vfksr7k0/HdFIiRnI6ZeW9KeZX59YDBc6DAh5oWqWf7QciRI5/yHBUZGcAFNXGtvzNG5Vr/f/gY5JVEAoG0JIA6hYtU3H0W8Lh1EorZuATmteUeRQbhPX8ajQ21VnD7OCDaLEVLNn73ySGAO4+c5cTLqtak64XEQ1mAz+YES9fy2YFxmd1eikZBnxGMvMoFp5W3YxIt4l0kKaxJFNgiaBRlg6gvWNql7dDH4qqJqvjS3xxsG/wsjRkDbWhUtH5h8Zo+VgkLHkTOUznMlIntIU/Q75p7pz0qQEy+ygQxa9uUR7ZVyGx0n54Ru37Y4Yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yPXFuQLXP5o9LljXT9gOjIOd3ugazJJUoGLuNZmQnCM=;
+ b=UQLcDVm9X4GnLC+lOEtqgjpko3GVMOZNOXK75FAxje+lrJV4n3E8UNNYMIBFSu5rlpILJatktpulgD8WogtTgH8+CLgyAcLMsHrsSiQXs7nLwepbdVKVT564UUFf3Z98r3uzVaZ+RrjQSlkx2Y2x0m2mSVO2hEX3h5bty8idxDA=
+Received: from BY3PR10CA0026.namprd10.prod.outlook.com (2603:10b6:a03:255::31)
+ by MW4PR12MB7120.namprd12.prod.outlook.com (2603:10b6:303:222::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
+ 2025 11:36:35 +0000
+Received: from SJ1PEPF000023D4.namprd21.prod.outlook.com
+ (2603:10b6:a03:255:cafe::d2) by BY3PR10CA0026.outlook.office365.com
+ (2603:10b6:a03:255::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.25 via Frontend Transport; Mon,
+ 10 Feb 2025 11:36:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ1PEPF000023D4.mail.protection.outlook.com (10.167.244.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8466.0 via Frontend Transport; Mon, 10 Feb 2025 11:36:35 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
+ 2025 05:36:34 -0600
+Received: from xsjssw-mmedia4.xilinx.com (10.180.168.240) by
+ SATLEXMB04.amd.com (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39
+ via Frontend Transport; Mon, 10 Feb 2025 05:36:34 -0600
+From: Rohit Visavalia <rohit.visavalia@amd.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <michal.simek@amd.com>,
+	<vishal.sagar@amd.com>
+CC: <javier.carrasco.cruz@gmail.com>, <geert+renesas@glider.be>,
+	<u.kleine-koenig@baylibre.com>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Rohit Visavalia" <rohit.visavalia@amd.com>
+Subject: [PATCH v3 2/2] clk: xilinx: vcu: Update vcu init/reset sequence
+Date: Mon, 10 Feb 2025 03:36:14 -0800
+Message-ID: <20250210113614.4149050-3-rohit.visavalia@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250210113614.4149050-1-rohit.visavalia@amd.com>
+References: <20250210113614.4149050-1-rohit.visavalia@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206101744.4161990-5-ruanjinjie@huawei.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: rohit.visavalia@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D4:EE_|MW4PR12MB7120:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4b6c366a-7d34-4e37-a438-08dd49c72ce3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EAA36S9r7af2BKe2nruqq++bOeF02M+JU9jLAOu1WAjo2ohn+taVuqUSJ9kG?=
+ =?us-ascii?Q?Yd+zzCVHgGw+60Es6LN2x7pBd3tcPSjI5k1zoYunNGxANhW5VYs47pSLjiCN?=
+ =?us-ascii?Q?FfFrc7v1f6l0oK3Z/6wE1yaYq8/CMiy7+StlH4jidG1MIS47I8aV4SZNT6Ro?=
+ =?us-ascii?Q?Vd7RqmsZTbtBUoVacOmX23LgtW2uTwv8HhmGUwdzljfTMRPRPbQ37XDX3V4y?=
+ =?us-ascii?Q?4VQdi3WjBFVEQj0oxmIs57GAFkPnMc/G5n4PKFWDfeEbXzmGAANs2mKuw/h2?=
+ =?us-ascii?Q?1BvfMWMSMVBgZoiCw2TS+veGqXysfUl4z0u2i3p1cBQ1HYq0Y5IjQqrxMcxA?=
+ =?us-ascii?Q?RPT2ur3D41fJB1GtBY3p6cntTbccykHMHAdPMdYd6nfVcSg9Q/DoWMOwZYAZ?=
+ =?us-ascii?Q?LPlMHiglAM5kGP6yhTI0eEL7N/w5rBfOp5OQOytIX+l7jNQvTXYjKGOuNBU6?=
+ =?us-ascii?Q?IXaHWqJ8pO/1NglxEfd4E2Ek1Zz1YBCRZQ7xR9t2Ja0hCfhl1HIZ5+7B4p4c?=
+ =?us-ascii?Q?BiHomS74yDmE7i9xWvCeZxk4pjMB/aixa0WUrRX4FZkeVM4Q4azPB9jvLG/k?=
+ =?us-ascii?Q?3BoyK8xIG6zJHyI+zhuQCl7B0CFHQNjE1OFm5iUSu7Fg0ziWIuVFgzfiPVGW?=
+ =?us-ascii?Q?iEkGVjHgb9UFaMnSc35wxGP7fA7SzADgQVaCc9cl+kMYahmHSWmrr/C0q1eh?=
+ =?us-ascii?Q?RzFy8O8fBBzGl6DnJvQlEzysAu+4YwhrTvKvBT0ALxbLefHe8dOGDz4iGfQx?=
+ =?us-ascii?Q?hyGFXrPsuQSuYUaffoM2qbnd9SY7C6Qdcv1M8ql7aUHJ1+X6qa2aOxZ5tIT6?=
+ =?us-ascii?Q?ak71yiaJsskJr1ncvcRImuiZck7YcvxcUxgL2HMY3UOhCVfgHM94apELkFR/?=
+ =?us-ascii?Q?NGKTsZchxkz2lxPA37h1DvHRAIDkeoRTgHDGV7PKrctga3fR3aoLdm4pJh54?=
+ =?us-ascii?Q?FPjjJYnGTXcYBDcI4ULmJnv1EwvXJv638Enm2vD4CgY4V4YjesxGAu+g8Q+K?=
+ =?us-ascii?Q?Kv8ho4XwsE4BmtIq76cwlrvMnRPvNqT3d5rWm3J3gEltK6Rys8xZsiS5Du6s?=
+ =?us-ascii?Q?beRUoDFMOqRMjnDlHc7BlgolIg7fr6UGGCaN/Qg3srLXQCWtrIUklfG/bEO2?=
+ =?us-ascii?Q?AEFPJFBHmQGJ7whW7DwJtva7mfdUG2ckdDlBL1NgdzzEg9zjXueZ13ji25jp?=
+ =?us-ascii?Q?ynhqo6J6xeCLOLbYK8AAaTgHvNeANcPPzMr9n3jQlVYCvrHSYk39+VGIJg1G?=
+ =?us-ascii?Q?mA4XVlStkxs2lDwdmceHIBR90n1unsjttOy27yLTvm/LrYiHf9XHrZdKtyE+?=
+ =?us-ascii?Q?eYqJ5LybaMwBI33W+RJoKf5ZZMgEETiXhqJERNycABQk1SjP0OR1SYt9/Kwe?=
+ =?us-ascii?Q?p/S86UxpzIfL2pGLo3romhyGit/6NfkYuDrmCWagoa4UEV24KvaerY7c3lGw?=
+ =?us-ascii?Q?Tyt5IFu8rfrlUWr3k6ip8Btx71sydZXbq5UZqJv0L1oMdwK2VO2RSpym9IDX?=
+ =?us-ascii?Q?F8UUqmVQaj4cQ48=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 11:36:35.5351
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b6c366a-7d34-4e37-a438-08dd49c72ce3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D4.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_033321_177062_2F48327F 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20250210_033641_879282_C8AE6344 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +148,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:17:26PM +0800, Jinjie Ruan wrote:
-> The generic entry do preempt_schedule_irq() by checking if need_resched()
-> satisfied, but arm64 has some of its own additional checks such as
-> GIC priority masking.
-> 
-> In preparation for moving arm64 over to the generic entry code, rework
-> arm64_preempt_schedule_irq() to check whether it need resched in a check
-> function called arm64_need_resched().
+Updated vcu init/reset sequence as per design changes.
+If VCU reset GPIO is available then do assert and de-assert it before
+enabling/disabling gasket isolation.
+This GPIO is added because gasket isolation will be removed during startup
+that requires access to SLCR register space. Post startup, the ownership of
+the register interface lies with logiCORE IP.
 
-I think what this is saying is that the generic entry code has the form:
+Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
+---
+ drivers/clk/xilinx/xlnx_vcu.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-| raw_irqentry_exit_cond_resched()
-| {
-| 	if (!preempt_count()) {
-| 		...
-| 		if (need_resched())
-| 			preempt_schedule_irq();
-| 	}
-| }
+diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
+index 88b3fd8250c2..1ded67bee06c 100644
+--- a/drivers/clk/xilinx/xlnx_vcu.c
++++ b/drivers/clk/xilinx/xlnx_vcu.c
+@@ -11,6 +11,7 @@
+ #include <linux/clk-provider.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/io.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/mfd/syscon/xlnx-vcu.h>
+@@ -51,6 +52,7 @@
+  * @dev: Platform device
+  * @pll_ref: pll ref clock source
+  * @aclk: axi clock source
++ * @reset_gpio: vcu reset gpio
+  * @logicore_reg_ba: logicore reg base address
+  * @vcu_slcr_ba: vcu_slcr Register base address
+  * @pll: handle for the VCU PLL
+@@ -61,6 +63,7 @@ struct xvcu_device {
+ 	struct device *dev;
+ 	struct clk *pll_ref;
+ 	struct clk *aclk;
++	struct gpio_desc *reset_gpio;
+ 	struct regmap *logicore_reg_ba;
+ 	void __iomem *vcu_slcr_ba;
+ 	struct clk_hw *pll;
+@@ -676,6 +679,24 @@ static int xvcu_probe(struct platform_device *pdev)
+ 	 * Bit 0 : Gasket isolation
+ 	 * Bit 1 : put VCU out of reset
+ 	 */
++	xvcu->reset_gpio = devm_gpiod_get_optional(&pdev->dev, "reset",
++						   GPIOD_OUT_LOW);
++	if (IS_ERR(xvcu->reset_gpio)) {
++		ret = PTR_ERR(xvcu->reset_gpio);
++		dev_err_probe(&pdev->dev, ret, "failed to get reset gpio for vcu.\n");
++		goto error_get_gpio;
++	}
++
++	if (xvcu->reset_gpio) {
++		gpiod_set_value(xvcu->reset_gpio, 0);
++		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
++		usleep_range(60, 120);
++		gpiod_set_value(xvcu->reset_gpio, 1);
++		usleep_range(60, 120);
++	} else {
++		dev_dbg(&pdev->dev, "No reset gpio info found in dts for VCU. This may result in incorrect functionality if VCU isolation is removed after initialization in designs where the VCU reset is driven by gpio.\n");
++	}
++
+ 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, VCU_GASKET_VALUE);
+ 
+ 	ret = xvcu_register_clock_provider(xvcu);
+@@ -690,6 +711,7 @@ static int xvcu_probe(struct platform_device *pdev)
+ 
+ error_clk_provider:
+ 	xvcu_unregister_clock_provider(xvcu);
++error_get_gpio:
+ 	clk_disable_unprepare(xvcu->aclk);
+ 	return ret;
+ }
+@@ -711,6 +733,13 @@ static void xvcu_remove(struct platform_device *pdev)
+ 	xvcu_unregister_clock_provider(xvcu);
+ 
+ 	/* Add the Gasket isolation and put the VCU in reset. */
++	if (xvcu->reset_gpio) {
++		gpiod_set_value(xvcu->reset_gpio, 0);
++		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
++		usleep_range(60, 120);
++		gpiod_set_value(xvcu->reset_gpio, 1);
++		usleep_range(60, 120);
++	}
+ 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, 0);
+ 
+ 	clk_disable_unprepare(xvcu->aclk);
+-- 
+2.25.1
 
-... but it's not obvious why it's better to have and
-arm64_need_resched() rather than a arm64_preempt_schedule_irq().
-
-Having some idea of the change you intend to make to the generic code
-would be helpful, and/or that generic change should be made earlier as a
-preparatory patch.
-
-Mark.
-
-> No functional changes.
-> 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/kernel/entry-common.c | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 7a588515ee07..da68c089b74b 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -83,10 +83,10 @@ DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->  #define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
->  #endif
->  
-> -static void __sched arm64_preempt_schedule_irq(void)
-> +static inline bool arm64_need_resched(void)
->  {
->  	if (!need_irq_preemption())
-> -		return;
-> +		return false;
->  
->  	/*
->  	 * Note: thread_info::preempt_count includes both thread_info::count
-> @@ -94,7 +94,7 @@ static void __sched arm64_preempt_schedule_irq(void)
->  	 * preempt_count().
->  	 */
->  	if (READ_ONCE(current_thread_info()->preempt_count) != 0)
-> -		return;
-> +		return false;
->  
->  	/*
->  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
-> @@ -103,7 +103,7 @@ static void __sched arm64_preempt_schedule_irq(void)
->  	 * DAIF we must have handled an NMI, so skip preemption.
->  	 */
->  	if (system_uses_irq_prio_masking() && read_sysreg(daif))
-> -		return;
-> +		return false;
->  
->  	/*
->  	 * Preempting a task from an IRQ means we leave copies of PSTATE
-> @@ -113,8 +113,10 @@ static void __sched arm64_preempt_schedule_irq(void)
->  	 * Only allow a task to be preempted once cpufeatures have been
->  	 * enabled.
->  	 */
-> -	if (system_capabilities_finalized())
-> -		preempt_schedule_irq();
-> +	if (!system_capabilities_finalized())
-> +		return false;
-> +
-> +	return true;
->  }
->  
->  /*
-> @@ -139,7 +141,8 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
->  			return;
->  		}
->  
-> -		arm64_preempt_schedule_irq();
-> +		if (arm64_need_resched())
-> +			preempt_schedule_irq();
->  
->  		trace_hardirqs_on();
->  	} else {
-> -- 
-> 2.34.1
-> 
 
