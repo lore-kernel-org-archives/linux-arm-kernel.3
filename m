@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 384C7C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7ABC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHaDIsqj34B8usesjY16LwOg4JnnE1Cbsm7V9RJsdE4=; b=qSvY7cVBJPfIJHYmGZiwFAYD81
-	qOnYDKYGFv5D+xzpEB0Zs4RvJ+r8m+Jyn/r+laOOVpDCTAr0gE7Oi11QD4h7yDDAU9vSlQrtDdtRz
-	/SI1bmVWUnCHr1gp6l5/XGccuZ/3v6bpZy4dkoSRm5YdxbZYkjCamHpDksuy/3PCSvBezh2+BQ0v/
-	Wyd7bpo0KpYaAwgfuqtP6biu2osuPawWGkUsdNuiGcVSb015+dtrWX6yCPe8sd+V2pM58y6AXwl2K
-	ZlXrpRd5/Qc4XJaBYQH3qdsiND+MkQu7BMT+nGo5FqK8nP6EFnMvkqI18UtQfGD/fQxlMXA/0YULX
-	rBTpdCtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hmf+iGwtFnWAiFSUFfwBJhOvfTtCm11UEdLbp3WauH0=; b=HGtjnnOvYBWHwbGeUN9eatZniQ
+	veHvcz96F/qt1XpBA7T29us7haJubi+FmWhRacJsPurpAjPiRjJsE3K7xoukaIBp3CKpIYflWLmQa
+	3HcQjud2sHPcuYAsTx0j7PKAeylH7vvG41ZgY2/5fID4mHz3JD3Dg0IDAauv1aKBjmX/v5D2sn8Ie
+	l9qkwOEvEaS7ya0V2HyLQomurtIMTfoAH8617+d1fbHfyhr7ogqJY+99mdinMOAk2cSn0zHwhD30p
+	YFuiEUXrQfM3UlKmO4bEnK413xMZJp7LaEgdYrFjfgcs3JOKxETGJQrhGMkDjnLbBL3FDymlhy9KH
+	8mB5adXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYQd-00000000u1T-2HpD;
-	Mon, 10 Feb 2025 18:22:43 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1thYS0-00000000uN7-0xu8;
+	Mon, 10 Feb 2025 18:24:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYLk-00000000suN-01Cb
+	id 1thYLw-00000000sy6-01Bh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 18:17:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hmf+iGwtFnWAiFSUFfwBJhOvfTtCm11UEdLbp3WauH0=; b=XFfDliKTNKeW+FX1tD9f/kmedI
+	7XQuAb6NDYI5toZqa7omOH5UaBFG+E/PkEWaxbOGnxvpah7DxpssBqMWkDHdynaN+9sS32qiP7g97
+	/p44Wk1MpIhO1ZJkBr3ZhHhHEKBQIswxzoela1jnPs7wQ4CyT9xk7zF3pT4rhWe9D0zsXjnOfu0JB
+	I2QNEnRIdD4tcBUfLmyQRiaPoOqvF0pDd6fhjZM3LodcESLhljPVYFPWj4mPT1ceGLIrQ0DzCa7Y4
+	BDPHTJmWI/XMYVyQ56UgDNwyG3GM1WEslDGnbN8mMuyKvilD+Kie+DY0PfcT6CKe61ri2Dsf3Lsyu
+	ouzAoRJQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thYLt-00000000CVw-0ZUY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:17:41 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5de849a0b6cso2299000a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:17:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739211458; x=1739816258; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qHaDIsqj34B8usesjY16LwOg4JnnE1Cbsm7V9RJsdE4=;
-        b=kKN/YAFlsATaCK/XuP5QdlbZmRkNwUU2oCEQS9+6bYcNTyJcBJjBE7LSxFpLBkCa8W
-         9UiMM09diGep3gZ3T9WQLhoSB6WmB2ei0OhhHSG9kSHXYyus3qKmnZdlw8Qv6EwCTBi2
-         M2/qEZnM48nDGNbtnqMn1QcjDsl5plk7/KU9q2CD/9htyVPGoLbDr2XK6lmZNBD+hobj
-         rnPrXeoYtcmbiLN6U8erksS0Yt5hdgckgc1xkOmNqxWI2bNYw3ij5V3WCdGc83vgA6A7
-         NFy5oCpxrrBCxeiNfICtMIylHEy7ss9r4KcsESsj/A6f2Z5h/AKVEK/K2oEEjr7Q9LxJ
-         +y1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739211458; x=1739816258;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qHaDIsqj34B8usesjY16LwOg4JnnE1Cbsm7V9RJsdE4=;
-        b=Z+RRTTlaV6aNK9tCdfR8ChOPi3r7KWWAsvytMdfUjz/fzdp/B3t7+NKsEHaDgk7ZOd
-         6JdMj/Mz1SKEJY7IGt8/KbPw6ojCAOBt+QmqvR+WUmnPgNumDSqC9s2J9ZBFyl2wJNT2
-         5RZs8LcimMt81d13BEM2Z0kJYm7t7KaUubu9MCJ0dYM9ACjAm/s2wjoc1z5zD8QUbDQD
-         9BcQAsLCmocceJNLZSxxD532V4pEukDhuKdfZx5/dsHulI1AwBTHzpIC1qo9NTYr9arV
-         4JgqTUky446WBTMSlKHdmtYClyiz2sVaUYQxKdcCaNCdfDPprZQ6UbB6M+SHM3Ud5h7q
-         IZhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVFAa5fiBiO+EIhwOE0jCYQrQzpGRLCDayTPobVZCPF3dfYj7KEOTq8Eso2LSzrbbZMmv3Rnb/RhBerATgBh9aU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBA7wVn0hkbKvBvl7q9KaE276sqwCn0tTksoVUNQEjqMA7hTuJ
-	WKFHyRpQ+hikKhL1LMUpWnJDGweToqERG9mOr4BOVjHpW4kFSmZ4HzDQiMa1aRQRj3+0jSjA6p/
-	d
-X-Gm-Gg: ASbGnct/fKQhKGsvHLxktjgU+D6BnseMNdFcHKwx1nyOM1lyzrcgwtWQfyhMsZdURQi
-	GmYMXK5Awec7oebWubkZRcBAQQmYlZELOuv1xV6Kg9+32cHZZ1HAfJ3N2u7XfAPhQmKkkm37gDE
-	XNQdB0yMAOPV0isXYXDcdbNaOE4F+900N1hNE7vDcKmkjI/75IU/AFIGZELuI8tstzrQAhinTof
-	J1MC4zax4u2HnBqmk6JT7HqK2y812ml7jVHlMBCcRYkhr973KxeAl6bxowvjPiYw5qCQ4dwG0ES
-	aMymp26TrxdEW1Lu88VcvCcX
-X-Google-Smtp-Source: AGHT+IE17precGVn60p0mKS1K0f7v1etGQpp1R/N00rlHb4aVUugfxbIzoj2Q7spw41fxBN5V9dokA==
-X-Received: by 2002:a05:6402:5290:b0:5d9:a62:32b with SMTP id 4fb4d7f45d1cf-5de4503ff1emr15027701a12.7.1739211458355;
-        Mon, 10 Feb 2025 10:17:38 -0800 (PST)
-Received: from [192.168.0.14] ([79.115.63.124])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de4690311csm7037457a12.60.2025.02.10.10.17.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 10:17:37 -0800 (PST)
-Message-ID: <88c69965-ed8b-4895-ac99-11a6cddd1a42@linaro.org>
-Date: Mon, 10 Feb 2025 18:17:34 +0000
+	Mon, 10 Feb 2025 18:17:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 406E6A41EF6;
+	Mon, 10 Feb 2025 18:15:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02401C4CEE6;
+	Mon, 10 Feb 2025 18:17:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739211462;
+	bh=WiOKGuitaydzhswX/7JM6O1nTPijJq8eyPlKsuXqT/0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SYC5e8jAmnFQbgWzl7VBI9YMtbd7So6JvOfGkmZR4rPjBqZ4L77d44l+d00zp2aPK
+	 vdY2EDi971nV/mQePhMvYhghFcmArOCv3gVcP2lJiAK0FN3KPcy2bhUNSh+b8pbgMK
+	 jD+oZXJW6CRk1yRxk36qHlpWWwKFwyXuQ5iEPykue89vmpXr2X9MqFOqc2O0gBdD6a
+	 oCyBLJXpsqq0u00imJlBSuR+8Y6VTLMeycXL1n0SI8dszQCypYTkKHx4OGpFwOmEiT
+	 jYACq03l9RxT9tsx6qROQ4SbUcgSmnx8ymMVJUb1kGv2HGgKdi5gmL/d1Y97vRoS9w
+	 3uMgSSMariMfg==
+Date: Mon, 10 Feb 2025 19:17:39 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+Message-ID: <20250210-proficient-millipede-of-recreation-91da6c@houat>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
+ <20250207-ingenious-daffodil-dugong-51be57@houat>
+ <ucttjaf3trkgtpvhnsj7xfsybhnoi4qqow5ucwghlggivbagy7@gngjhbtu73lb>
+ <20250210-bold-steel-collie-cecbad@houat>
+ <CAA8EJppyDiAeH8bm-rdCUsGoyVOrp=4AvrYLJ-=5BTLtmnP11g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/4] arm64: exynos: gs101: add ACPM related nodes
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Jassi Brar <jassisinghbrar@gmail.com>,
- daniel.lezcano@linaro.org, devicetree@vger.kernel.org,
- Alim Akhtar <alim.akhtar@samsung.com>, peter.griffin@linaro.org,
- vincent.guittot@linaro.org, Conor Dooley <conor+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, willmcvicker@google.com,
- linux-samsung-soc@vger.kernel.org, andre.draszik@linaro.org,
- Catalin Marinas <catalin.marinas@arm.com>, ulf.hansson@linaro.org,
- Will Deacon <will@kernel.org>, arnd@arndb.de, kernel-team@android.com
-References: <20250207-gs101-acpm-dt-v4-0-230ba8663a2d@linaro.org>
- <173920411592.476427.15574016492470186426.robh@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <173920411592.476427.15574016492470186426.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ctkvotoob64tevup"
+Content-Disposition: inline
+In-Reply-To: <CAA8EJppyDiAeH8bm-rdCUsGoyVOrp=4AvrYLJ-=5BTLtmnP11g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_101740_055752_B758C0C5 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_181749_438492_202095EC 
+X-CRM114-Status: GOOD (  45.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +88,136 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--ctkvotoob64tevup
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+MIME-Version: 1.0
 
-On 2/10/25 4:22 PM, Rob Herring (Arm) wrote:
+On Mon, Feb 10, 2025 at 04:23:44PM +0200, Dmitry Baryshkov wrote:
+> On Mon, 10 Feb 2025 at 14:31, Maxime Ripard <mripard@kernel.org> wrote:
+> >
+> > On Fri, Feb 07, 2025 at 09:54:06PM +0200, Dmitry Baryshkov wrote:
+> > > On Fri, Feb 07, 2025 at 12:47:51PM +0100, Maxime Ripard wrote:
+> > > > Hi,
+> > > >
+> > > > On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote:
+> > > > > DRM bridges are currently considered as a fixed element of a DRM =
+card, and
+> > > > > thus their lifetime is assumed to extend for as long as the card
+> > > > > exists. New use cases, such as hot-pluggable hardware with video =
+bridges,
+> > > > > require DRM bridges to be added and removed to a DRM card without=
+ tearing
+> > > > > the card down. This is possible for connectors already (used by D=
+P MST), so
+> > > > > add this possibility to DRM bridges as well.
+> > > > >
+> > > > > Implementation is based on drm_connector_init() as far as it make=
+s sense,
+> > > > > and differs when it doesn't. A difference is that bridges are not=
+ exposed
+> > > > > to userspace, hence struct drm_bridge does not embed a struct
+> > > > > drm_mode_object which would provide the refcount. Instead we add =
+to struct
+> > > > > drm_bridge a refcount field (we don't need other struct drm_mode_=
+object
+> > > > > fields here) and instead of using the drm_mode_object_*() functio=
+ns we
+> > > > > reimplement from those functions the few lines that drm_bridge ne=
+eds for
+> > > > > refcounting.
+> > > > >
+> > > > > Also add a new devm_drm_bridge_alloc() macro to allocate a new re=
+fcounted
+> > > > > bridge.
+> > > > >
+> > > > > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > > >
+> > > > So, a couple of general comments:
+> > > >
+> > > > - I've said it a couple of times already, but I really think you're
+> > > >   making it harder than necessary for you here. This (and only this=
+!)
+> > > >   should be the very first series you should be pushing. The rest c=
+an
+> > > >   only ever work if that work goes through, and it's already hard e=
+nough
+> > > >   as it is. So, split that patch into a series of its own, get that
+> > > >   merged, and then we will be able to deal with panels conversion a=
+nd
+> > > >   whatever. That's even more true with panels since there's ongoing=
+ work
+> > > >   that will make it easier for you too. So the best thing here is
+> > > >   probably to wait.
+> > >
+> > > Luca and I had a quick chat on this during FOSDEM. I really think that
+> > > panel (part of the) series can go in first as it fixes a very well kn=
+own
+> > > bug _and_ allows a pretty good cleanup to a whole set of drivers.
+> >
+> > I don't necessarily disagree on principle, but if you state that it can
+> > get first, and fixes a known problem (which one?), then it should be a
+> > separate, standalone, series.
+>=20
+> A problem of panel bridges having the wrong lifetime because of devm_
+> attachment to a wrong device and so either being kept for too long or
+> being destroyed too early.
 
-cut
+Yeah, and panels too. Which isn't solved there.
 
->> Bindings for google,gs101-acpm-ipc are proposed at:
->> Link: https://lore.kernel.org/linux-samsung-soc/20250207-gs101-acpm-v7-0-ffd7b2fb15ae@linaro.org/T/#mb557ee342de628b1a8e462d4fb7c3ac6eb8be4e4
+> > Ever-expanding features are bad for both the reviewers and the
+> > contributors, even more so when the discussion happens off-list.
+> >
+> > > With all those panel / bridge wrappers gone we should be able to see a
+> > > clearer picture of what individual drivers are doing. In other words,
+> > > which memory and which code actually hosts and uses internal
+> > > 'next_bridge' reference.
+> > >
+> > > > - This patch really needs to be split into several patches, somethi=
+ng
+> > > >   along the lines of:
+> > > >
+> > > >   + Creating devm_drm_bridge_alloc()
+> > > >   + Adding refcounting
+> > > >   + Taking the references in all the needed places
+> > > >   + Converting a bunch of drivers
+> > >
+> > > The last two parts seem troublematic to me, but, I must admit, I didn=
+'t
+> > > spend so much time reviewing all drm_bridge usage patterns.
+> >
+> > Why? the third one is already done by that patch, the fourth can
+> > relatively easily be done using coccinelle.
+>=20
+> I have doubts about cocci. It doesn't have a way to know, what is the
+> lifetime of the references to the reference-holding memory. Maybe I'm
+> missing a point there.
 
-cut
+It doesn't matter? Cocci doesn't (have to) understand the code, it
+generates a patch for you. It's up to the author to make a correct
+patch.
 
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250207-gs101-acpm-dt-v4-0-230ba8663a2d@linaro.org:
-> 
-> arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb: /firmware/power-management: failed to match any schema with compatible: ['google,gs101-acpm-ipc']
+Maxime
 
-Thanks for the report. The bindings are proposed at the link above.
+--ctkvotoob64tevup
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Cheers,
-ta
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6pCwwAKCRAnX84Zoj2+
+ds3DAYCmyuWWTQzL+uHFZsj4ooH84JF7ylfCHkygjk4bJCQXQisORfKKbJfiPywk
+z2E+5o0BgLSZ3mrnwgjna4TApCO5ujytoxWxMXYaZK8XX1nkPOV0t4H3yXXgLltd
+APIGGfkStg==
+=nbSx
+-----END PGP SIGNATURE-----
+
+--ctkvotoob64tevup--
 
