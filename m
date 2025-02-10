@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C262C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350C7C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OloAmN9kMp+YFMRW3e1TPUdz81sQDzo26AuRS+JXMas=; b=3RwQG49GtRO+0Pc4QxZHqwXqUi
-	a9UAOmBS2qZeur6JyTqJEX9EKhJ+M1qOfZJw0ESp3+Ie/yvas3Xyf0yngOlUkhp2YDaTAqEE4wlxL
-	AaqdUUofmAZLMjTnHvNf96lnVlCU6lvQ9coT0vk0M6v5ttCbreV6ju7prdlzAqcLG9p/m7bcazD7r
-	dEYBpf8o2gob7izngpNqbpOyE/dRoAZymkf6V8gryHL2zybiJjinMbiGS0IGJCgkD5pbvEJqhlSKF
-	sCcbNLTY40X79sFnIj/gzdSyJvFj+zZ79ocmOUATIJs6UMykFWftQYImOeRbKa5d28yPulr6lVMlA
-	8DB4ljnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NRoM2szL7cF2Ic73zz0JcBdMhso4TYzTlao72+EEzIQ=; b=FHSWo79LSsk+do
+	5UGRC9VO9s59erSBcmdzTjWtkGnR+gVQ1EtFb6kwpz1om8ygVUFdUO1IyaJN4w4sFjfGV9O35Uqak
+	F3wsvIJ92tnL+83jdr7akk7hLJHsexpp+gnYH0QxGefag6+R+Cpkm6ke/593HhPCAvKTJ+MIex+EO
+	w9BvwWqzNBoO/Uni/IGbSaxeoKW77QQ595k7mFulaCkHHiA/Mme8ZJyF04MpRFrjjQf7v6qREobsv
+	GWwJyJ88oMHT+W88CVMKsy1qLeWeEIAI8ALVH8cl8066dkals7SWiovGZxSE/WDbF43V50dz3Eiox
+	ZY5Q+CFWr0mDAGxb4Y2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYfm-00000000xE8-1zk1;
-	Mon, 10 Feb 2025 18:38:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thYfk-00000000xDC-3nz2;
+	Mon, 10 Feb 2025 18:38:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYOG-00000000tX9-3xyT
+	id 1thXE0-00000000eCU-2oQz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:20:18 +0000
+	Mon, 10 Feb 2025 17:05:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 79474A41F3D;
-	Mon, 10 Feb 2025 18:18:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427D2C4CED1;
-	Mon, 10 Feb 2025 18:20:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7577A5C5CBB;
+	Mon, 10 Feb 2025 17:04:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034E7C4CED1;
+	Mon, 10 Feb 2025 17:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739211615;
-	bh=W3QAGc5LW3FYdLUn7iW7HNDDQXI4yVqVYSST3W+bEUg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HHaCjUeyImHZ6oNFBg92Mgwpw1VlhwyRXcVk5+i5KnHOxhoj+D8FKbbxReonNCz6b
-	 ESPMZaTfyYTtSVgGDUFPbObpAvagpxDhS9xjOCWiYpdR15N3XTKvNRj+0A3biZWbC1
-	 +U12EMiYZjVXVOnbYqujQXyHuGM5PwzkQnlpYz2x7eBwMU5RtcqPQCzKVQ3SPbqzxz
-	 25X1KqKBieCA12R+tMkcoPE8VtVuZrOCafycAwIgJTuLizifrdxJ+g6UsUec5MbY/0
-	 dGAGnTPgdlKFe3IDrbHdAwdktxM7x7mT3cCOn4E2xjHBPywSfLZZla8/OebUknXsxb
-	 7WoMtL0BHqRQw==
-Date: Mon, 10 Feb 2025 18:20:09 +0000
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
-	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
-	tabba@google.com, wilco.dijkstra@arm.com
-Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
-Message-ID: <20250210182009.GB7926@willie-the-truck>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
- <20250206141102.954688-9-mark.rutland@arm.com>
- <20250210165325.GI7568@willie-the-truck>
- <Z6o1t7ys2qVaZ-7n@J2N7QTR9R3>
+	s=k20201202; t=1739207135;
+	bh=NEbx/CDxR9KoD5+myzoQp6lO8YzT0ofxfAwpwvh9OsU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pd0zC++FaKl1x8EGccbixjkR0n3kt2RzYLWmQZJPOQg4n/JH+xOyD48u2sz5R4Gtd
+	 GHRhFFDp6zcdyzK0RrvLowrBM0aJVGjgbDstilqQLrc5O3cxDyzdKaPH4l2OjH8QW0
+	 PBbYPNJgqK4hOueWTXbr+wylrTQF5OcC5tB58QcXPMEfmD3yU0sGnbyqyJ9uxMKH1C
+	 +JmIJHobHJXb1Rqm5HFRbiEbbhanFmJU0ODqAalYsvPkIPqM8otPrRDFSs1KRODuRO
+	 vMM59/ya+1xLZ8AaZiJiCwAJcNzohmGhWX0svegDIIe0FYDW8jsDFvXRWAX3KQHcV7
+	 IQCybfanUWSig==
+Message-ID: <a199849a-ca36-439d-8246-7addd9a78833@kernel.org>
+Date: Mon, 10 Feb 2025 18:05:31 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6o1t7ys2qVaZ-7n@J2N7QTR9R3>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/16] dt-bindings: clock: at91: Split up per SoC
+ partially
+To: Alexander Dahl <ada@thorsis.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+References: <20250210164506.495747-1-ada@thorsis.com>
+ <20250210164506.495747-2-ada@thorsis.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250210164506.495747-2-ada@thorsis.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_102017_124955_012B922F 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250210_090536_798243_E8C30012 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +114,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 05:21:59PM +0000, Mark Rutland wrote:
-> On Mon, Feb 10, 2025 at 04:53:27PM +0000, Will Deacon wrote:
-> > On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
-> > > +static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	u64 zcr_el1, zcr_el2;
-> > > +
-> > > +	if (!guest_owns_fp_regs())
-> > > +		return;
-> > > +
-> > > +	if (vcpu_has_sve(vcpu)) {
-> > > +		zcr_el1 = read_sysreg_el1(SYS_ZCR);
-> > > +		__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr_el1;
-> > > +
-> > > +		/*
-> > > +		 * The guest's state is always saved using the guest's max VL.
-> > > +		 * Ensure that the host has the guest's max VL active such that
-> > > +		 * the host can save the guest's state lazily, but don't
-> > > +		 * artificially restrict the host to the guest's max VL.
-> > > +		 */
-> > > +		if (has_vhe()) {
-> > > +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-> > > +			write_sysreg_el2(zcr_el2, SYS_ZCR);
-> > > +		} else {
-> > > +			zcr_el2 = sve_vq_from_vl(kvm_host_sve_max_vl) - 1;
-> > > +			write_sysreg_el2(zcr_el2, SYS_ZCR);
-> > > +
-> > > +			zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
-> > > +			write_sysreg_el1(zcr_el1, SYS_ZCR);
-> > 
-> > Do we need an ISB before this to make sure that the CPTR traps have been
-> > deactivated properly?
+On 10/02/2025 17:44, Alexander Dahl wrote:
+> Before adding even more new indexes creating more holes in the
+> clk at91 drivers pmc_data->chws arrays, split this up.
 > 
-> Sorry, I had meant to add a comment here that this relies upon a
-> subtlety that avoids the need for the ISB.
+> This is a partial split up only for SoCs affected by upcoming changes
+> and by that PMC_MAIN + x hack, others could follow by the same scheme.
+> 
+> Binding splitup was proposed for several reasons:
+> 
+> 1) keep the driver code simple, readable, and efficient
+> 2) avoid accidental array index duplication
+> 3) avoid memory waste by creating more and more unused array members.
+> 
+> Old values are kept to not break dts, and to maintain dt ABI.
+> 
+> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
+> Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> ---
+> 
+> Notes:
+>     v2:
+>     - new patch, not present in v1
+> 
+>  .../dt-bindings/clock/microchip,sam9x60-pmc.h | 19 +++++++++++
+>  .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 25 +++++++++++++++
+>  .../clock/microchip,sama7d65-pmc.h            | 32 +++++++++++++++++++
+>  .../dt-bindings/clock/microchip,sama7g5-pmc.h | 24 ++++++++++++++
+>  4 files changed, 100 insertions(+)
+>  create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
+>  create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
+>  create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
+>  create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> 
+> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> new file mode 100644
+> index 0000000000000..e01e867e8c4da
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sam9x60 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
+> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
+> +
+> +#include <dt-bindings/clock/at91.h>
+> +
+> +/* old from before bindings splitup */
+> +#define SAM9X60_PMC_MCK		PMC_MCK		/* 1 */
+> +#define SAM9X60_PMC_UTMI	PMC_UTMI	/* 2 */
+> +#define SAM9X60_PMC_MAIN	PMC_MAIN	/* 3 */
+> +
+> +#define SAM9X60_PMC_PLLACK	PMC_PLLACK	/* 7 */
 
-Ah yes, it really all hinges on guest_owns_fp_regs() and so I think a
-comment would be helpful, thanks.
+IIUC, you want to have bindings per SoC, so why not adding proper
+constants here instead of including entire old binding header? The
+binding header should be entirely abandoned later.
 
-Just on this, though:
 
-> When the guest owns the FP regs here, we know:
-> 
-> * If the guest doesn't have SVE, then we're not poking anything, and so
->   no ISB is necessary.
-> 
-> * If the guest has SVE, then either:
-> 
->   - The guest owned the FP regs when it was entered.
-> 
->   - The guest *didn't* own the FP regs when it was entered, but acquired
->     ownership via a trap which executed kvm_hyp_handle_fpsimd().
-> 
->   ... and in either case, *after* disabling the traps there's been an
->   ERET to the guest and an exception back to hyp, either of which
->   provides the necessary context synchronization such that the traps are
->   disabled here.
-
-What about the case where we find that there's an interrupt pending on
-return to the guest? In that case, I think we elide the ERET and go back
-to the host (see the check of isr_el1 in hyp/entry.S).
-
-Will
+Best regards,
+Krzysztof
 
