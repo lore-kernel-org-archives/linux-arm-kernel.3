@@ -4,67 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FE1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87445C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B79H1R61oCw4NxuugBEJsuBD9DKQfMNqY967OoXnNoM=; b=YPkuLexYnRtljnwZN0dC8PKtRj
-	fEgKdivALDrCjHj3LSeyZct/ryNQCrHjbDq4G3yoSpd4Cirb8RHPjzo/fi+IlXtj6oLMx1ygdI7Ge
-	oD2bGphOx6QzYmIbf0XuHlKeOYLj3n7mXaf/0gqTbW6MrfwpQ2Y/AzIS5pvbLXkL+MbnHTTYzYPNH
-	cHZqn86uIJeVU/Wpq6FCbp5uii8uj8na6TaM7NvTQwEI0MZAf9KSBs35R9o1bQBCfb9oLyWrOfAc2
-	1QR9Xbn5g4PLE6rvuSK+U5EmBmvADet3lyCq+a0ThRzp4x+lplGB6tYdxlNpyUGWCu9hGuEI6VZts
-	lp8rQ5mA==;
+	bh=fRJNqy9Mq74l6OnNZnHNw9hDctgOuhOP9IcZDbUOztY=; b=xDSSJ5geajMFI8IL/ENvQD5O8U
+	Rq/VTr96Jb2oKV/VbKW9dz3hCtvnCYFCJu71557xOkGKmYkqYflYnaWyq15uOZrME8/t59AvlAsxb
+	jYl0G2iJe3J12WcbAxcPmq5VMazFvqYv751lh1dkM2M3pKOycx/Hh4xDpXjo00PAe/ou0unaxriZ8
+	FQzK0KhXcVniHQ5LeNMq1x94HMf38kkXvb3xzUxA/19wHRRAIXTHfi0wcORfKNpgyUCK+AXrhTMo+
+	MPZE40YsaN2TZ6+6GTkdOHiLs9Apak55tZckgRSnfvnhJbzOfM0YYLH6yUqmQ6cVvk4j0NrfWFP6o
+	x0LznRvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPbX-0000000Gjv9-2x19;
-	Mon, 10 Feb 2025 08:57:23 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1thPct-0000000Gk6l-3v3C;
+	Mon, 10 Feb 2025 08:58:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPUM-0000000GiAR-1njH;
-	Mon, 10 Feb 2025 08:49:59 +0000
+	id 1thPUU-0000000GiBc-1Myc;
+	Mon, 10 Feb 2025 08:50:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 325E75C433A;
+	Mon, 10 Feb 2025 08:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C667C4CEE6;
+	Mon, 10 Feb 2025 08:50:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739177405;
+	bh=8hjj0EAONyY4sxgZ8zHmz/2RP75tn/S8NEUojDDmNVY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RpYRz5JbC0s6hXobe2Igrwipeh3oa4c8G4Z78uEz+xg6DobpDi0WowBgpcicLplQe
+	 97BmLEoOztUzHRnejaBSxEDBZH9DKsTfl4M8X/DaFYeOvrv/Hcj3bc2aeceQO7PpXt
+	 4IWNVdOaEfssHtrvgPNSfxq7OT4UWgDtpum8IMKFTKqxrN7uIglul72dRo4eIO08PJ
+	 fgLDqsEeeyvhQ6/Y71KUs7D6CNGic/+IY4fND0vJPg/F+Qz4y1DRSKLZ7PynUm1eS1
+	 lsVfVpNR/lXz9TQoHkiqVGG14wXBZDwLbkLq3/VIpDxZKoC1uMuGylr4SiVajoWUWu
+	 DjcKQ290qWFRg==
+Message-ID: <703db762-93f4-45f6-a97b-5aea59620a03@kernel.org>
+Date: Mon, 10 Feb 2025 09:49:58 +0100
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1739177396;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B79H1R61oCw4NxuugBEJsuBD9DKQfMNqY967OoXnNoM=;
-	b=apK48Z2KD7nszxtxErgLqwgEi+u7UGYAoEYij+0rfYm+e3gpvfskVtACBWuzwTEYgckVeP
-	Hn6m11CA+hcvNMHyvvlc2MeTDy0jzR/5/iIFarkW+eykEh2dsU8TgfMRyv076BXg53AgD1
-	44A1biG4oOdkXtjXs1XfhGXmM4UYxGh50LW7KlPXZBj/tWGPspbo8kWRCstNx5PGBOleiU
-	9jycWpdbzzHVa+mRGPMJgYBMk6r7HGMr9Gue8KJtnL80/kFLjy4yfA1DmUk4pxzR0b46O1
-	oMN1Ox0PSoj99ylwOVQsPWo4APzCXbnztldvtOLMoKxsyL8C4aDEBQ8XnAJSYA==
-Date: Mon, 10 Feb 2025 09:49:56 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jagan
- Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, Michael Riesch
- <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Quentin
- Schulz <quentin.schulz@cherry.de>, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v5 3/4] arm64: dts: rockchip: add overlay tests for Rock
- 5B PCIe overlays
-In-Reply-To: <20250207-pre-ict-jaguar-v5-3-a70819ea0692@cherry.de>
-References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
- <20250207-pre-ict-jaguar-v5-3-a70819ea0692@cherry.de>
-Message-ID: <adbb6ac05bd21ab7be9bec664587469b@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/10] dt-bindings: reset: sophgo: Add CV18xx reset
+ controller
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org,
+ Sebastian Reichel <sre@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-8-alexander.sverdlin@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250209220646.1090868-8-alexander.sverdlin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_004958_756522_CCFCE51A 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20250210_005006_460513_33D0277D 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +123,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-07 16:20, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
+On 09/02/2025 23:06, Alexander Sverdlin wrote:
+> Add DT bindings for CV18xx reset controller. The power/reboot driver is
+> going to use only 4 bits from two different MMIO regions which can be
+> potentially used by other subsystems/drivers, therefore the resources
+> are not being claimed directly by the device/driver, but via syscons
+> instead.
 > 
-> According to commit 40658534756f ("arm64: dts: rockchip: Add rock5b
-> overlays for PCIe endpoint mode"), Rock 5B can operate in PCIe endpoint
-> mode. For that to work, the rk3588-rock-5b-pcie-ep.dtbo overlay needs 
-> to
-> be applied on Rock 5B base Device Tree. If that Rock 5B is connected to
-> another Rock 5B, the latter needs to apply the
-> rk3588-rock-5b-pcie-srns.dtbo overlay.
-> 
-> In order to make sure the overlays are still valid in the future, let's
-> add a validation test by applying the overlays on top of the main base
-> at build time.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Reviewed-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 > ---
->  arch/arm64/boot/dts/rockchip/Makefile | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  .../bindings/reset/sophgo,cv1800-reset.yaml   | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
-> b/arch/arm64/boot/dts/rockchip/Makefile
-> index
-> 02f98abe1df10f44f2ac27ea5f6c6e6c6334724e..8f93e0c4d6032d0ca2d93f44384c027e53aa5efb
-> 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -196,3 +196,11 @@ rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=
-> rk3568-wolfvision-pf5.dtb \
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
->  rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
->  	rk3588-edgeble-neu6a-wifi.dtbo
+> diff --git a/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml b/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+> new file mode 100644
+> index 000000000000..4f058f99df5f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+> @@ -0,0 +1,38 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/sophgo,cv1800-reset.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtb
-> +rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
-> +	rk3588-rock-5b-pcie-ep.dtbo
+> +title: Cvitek CV18xx/Sophgo SG2000 Reset Controller
 > +
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
-> +rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
-> +	rk3588-rock-5b-pcie-srns.dtbo
+> +maintainers:
+> +  - Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800-reset
+> +
 
-Looking good to me, thanks for the patch!  The employed approach was
-already discussed and commented in detail in the v4 of this series, [*]
-so please feel free to include:
+Missing reset cells.
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> +  sophgo,rtcsys-ctrl:
+> +    description: phandle of the "RTCSYS_CTRL" syscon block
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +  sophgo,rtcsys-core:
+> +    description: phandle of the "RTCSYS_CORE" syscon block
+> +    $ref: /schemas/types.yaml#/definitions/phandle
 
-[*] 
-https://lore.kernel.org/linux-rockchip/a3b98e3d3a2571ee75e59418bb3b6960@manjaro.org/T/#u
+This does not look right - entirely fake device. And your DTS next patch
+proves it.
+
+> +
+> +required:
+> +  - compatible
+> +  - sophgo,rtcsys-ctrl
+> +  - sophgo,rtcsys-core
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc-reset {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +        compatible = "sophgo,cv1800-reset";
+> +        sophgo,rtcsys-ctrl = <&rtcsys_ctrl>;
+> +        sophgo,rtcsys-core = <&rtcsys_core>;
+> +    };
+> +...
+
+
+Best regards,
+Krzysztof
 
