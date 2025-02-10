@@ -4,109 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01489C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5CBC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/dmRjNaxR4bUKICdciJ3/O6i60HJ+RLAK+qtyiADvw=; b=uKih9cZsgnDKJXtKkpRZAC7CmH
-	Is/YsShEUtEpVpJXqY5bAwTE4y5FKmqFYdC140ZbIdCh3mjkkcb8ZLNv3oQmIXl33fuapAvJSw2AH
-	hiq5RaSXy7JP0GTxw6wYczWXaDBmmRovQgdrtOohkPjyFVdmxHPtw1GZnEUZ9Dlghdx6AYeL9sdT1
-	TZe4QQNqKEL5aIizcM29BQY8Dt2qS02nBfvGfdmGSJ5czNaudJnpDhTBNIF7UndF1T9FqhHOGWps7
-	JYs3cXPpKEIobQ0RNZa970Kiw1oSGryItqwVdfEeEUwHZp6yn6jNLMt3+6Ki6eTVhVQhGtO6Wd137
-	uBGlbnqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6rOFERb/WUcwHAPgOqfbPvEbK6BDqRYsWDjnPghhni4=; b=vvolC4u9d7U84wAEcNzCsUg8T1
+	F37J9gLCy45J8J8HBJU7pf6mk5bk5jtqC+0NH+VNtyVQJdpfWreXkVa8lcrCubhzLbrh1L886UzvX
+	QChu6tvftp5jMcU1Hdkka6oM/XuMe3CNr8i03tHEZOx7a5W05bPhMNxfNR5TL9g68C4kRLJslur+X
+	YSQaydzsXzYvpoVOLnppWerWVNT/wDROjqdd+OemWjt8aImU5WUwClNwS66wt4ACDSiHc0u+hhcDM
+	s2GbzPo5k9rLx30imPVNuqNmZe0WtS4K9YcPnADNiKYNc+ZmJOXhxaiBI9li5qqXhXokRHdbrV6y6
+	GCj6iWpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXuu-00000000nH5-2xJo;
-	Mon, 10 Feb 2025 17:49:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thXxA-00000000nx9-44X7;
+	Mon, 10 Feb 2025 17:52:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXm6-00000000lO3-1reC
+	id 1thXva-00000000nXq-425S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:40:51 +0000
+	Mon, 10 Feb 2025 17:50:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10C95A41C6A;
-	Mon, 10 Feb 2025 17:39:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5156DC4CED1;
-	Mon, 10 Feb 2025 17:40:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9AA57A41D2F;
+	Mon, 10 Feb 2025 17:48:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9981C4CED1;
+	Mon, 10 Feb 2025 17:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739209249;
-	bh=ydEKPUtT2Hh+NWUt2uwX2rQW8L4szP3hzQemITBPgnE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hnxHUAAe67Yj8Cbt08VyRO3ucIdqST5NAitoqMEySOrUNaRLobnabZEmWZkM30dUx
-	 1fFY2ND/RmOy97XnKvlEE6UaRV2CmI3jY9aA6P1eMzP3b+Mzne+iVj/3iyc35EKxlG
-	 UrjeVO472XDha7ED74e8tnTH+QOkArxzPoXGJNl5XLJEQK62qJB2U23FH6iqmvSE1s
-	 QY04pDZrripwXNqhras+OxrASODwRHaN0Iv6zQzwth7B3m555+JY0PfLWKn4cXVLHe
-	 BaoZ/lKqmFUtXv1c0KIBvfcUi/PRd6exINKR98G9l9uaOxWOrswCiKufaL9Fk7Htgq
-	 6VmwaWyzHl+uw==
-Message-ID: <7373c956-216a-43a6-939c-4a9be5564c57@kernel.org>
-Date: Mon, 10 Feb 2025 18:40:44 +0100
+	s=k20201202; t=1739209837;
+	bh=W5Xfglk5c7yZ3/lTqN6BaQyihdI2aZ1RG4De4M2GtaA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=pGRWPoWyAjBhhaa7+63szsFWen6WueXliLYM+/TcuovrQ6/TOmUe9IsDJLwVSCHsP
+	 FHaCyFsIjIvfjm+/0nRbvBtD1IKO91+UxjXamni4KKQVrqnBzo7kttW27KQRgwTYNM
+	 e1rKz5ex2RfziMKew8QBYguOXDIArob3iX04qeHH2lYhcbTnwmHWTBEtkdCzkf4/Ji
+	 hY3qVrJPNJbkng0KOqcD9B0Naj4LG50iRKnjGQikJ7rWLsxDXNQLMAKKl3B8WS0JIi
+	 +kkQ4nrVfqFfDw8Zx2jbvc4orNlmfQlr9/KVg17iY5rKQo2l0+smG5kgJzxKmTy2Es
+	 0tujbSSXwg3Gw==
+From: Mark Brown <broonie@kernel.org>
+Date: Mon, 10 Feb 2025 17:49:33 +0000
+Subject: [PATCH] arm64: Add missing registrations of SF8MMx hwcaps
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
-To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
- hverkuil@xs4all.nl, sebastian.fricke@collabora.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-imx@nxp.com,
- linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
- lafley.kim@chipsnmedia.com
-References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
- <20250210090725.4580-5-nas.chung@chipsnmedia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250210090725.4580-5-nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250210-arm64-fix-2024-dpisa-v1-1-d77f43c7b253@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACw8qmcC/x2MywqAIBBFfyVm3YCaGvYr0UJyqln0QCEC6d8bW
+ p7LuadCocxUYGgqZLq58HkI6LaBeYvHSshJGIwyThnVY8y7t7jwgzJZTBeXiL5z0QWvvQozyPX
+ KJMafHaf3/QBW3TXmZgAAAA==
+X-Change-ID: 20250207-arm64-fix-2024-dpisa-635a5961609c
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1539; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=W5Xfglk5c7yZ3/lTqN6BaQyihdI2aZ1RG4De4M2GtaA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnqjxr1YVPIfyfzPmejX6wYEOpJwjzzzmpfL/8zXHX
+ NgvdSvCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ6o8awAKCRAk1otyXVSH0OGtB/
+ 4/PDjh3t+kWCG4dZxEqJW8vUoDm5RRs0T12DF0lmSr/EBSeo9EO9SHNJjpQRwOK+Ug4dM50NGmZf8o
+ kkKsog9JBOBfAMqgQ/zjzvt4lhgtH6PFc6JHrfbbTKAUxgk1wyl/ZhGs20l0oMTeTYnkP/UKsNL8Id
+ ubtg0e4jts8QNB0hcg0dM+RFzqdmIml9WZiRvx4Rk6qWrTsDWzlxTwNyNKW18e34oS6bzi5a4hGShB
+ hOXl9NxMpxQAg9tRK5DhKk6sXo5tQrS7N/wpBymqpw8Cy1IlFt7r1jUJSVyyXppv5hZ7nHlDGAkpEb
+ aZJhGUvY3vVzqxRx4JCIi+DNyLVW3i
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_094050_633840_ADAABDA3 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250210_095039_064103_36470879 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,184 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 10:07, Nas Chung wrote:
-> +
-> +	dev->debugfs = debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
-> +	if (IS_ERR_OR_NULL(dev->debugfs))
-> +		dev->debugfs = debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR, NULL);
-> +
-> +	pm_runtime_enable(&pdev->dev);
-> +
-> +	if (dev->res->codec_types & WAVE6_IS_DEC) {
-> +		ret = wave6_vpu_dec_register_device(dev);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "wave6_vpu_dec_register_device fail: %d\n", ret);
-> +			goto err_temp_vbuf_free;
-> +		}
-> +	}
-> +	if (dev->res->codec_types & WAVE6_IS_ENC) {
-> +		ret = wave6_vpu_enc_register_device(dev);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "wave6_vpu_enc_register_device fail: %d\n", ret);
-> +			goto err_dec_unreg;
-> +		}
-> +	}
-> +
-> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
-> +		wave6_vpu_activate(dev);
-> +		ret = pm_runtime_resume_and_get(dev->dev);
-> +		if (ret)
-> +			goto err_enc_unreg;
-> +	}
-> +
-> +	dev_dbg(&pdev->dev, "Added wave6 driver with caps %s %s\n",
-> +		dev->res->codec_types & WAVE6_IS_ENC ? "'ENCODE'" : "",
-> +		dev->res->codec_types & WAVE6_IS_DEC ? "'DECODE'" : "");
-> +
-> +	return 0;
-> +
-> +err_enc_unreg:
-> +	if (dev->res->codec_types & WAVE6_IS_ENC)
-> +		wave6_vpu_enc_unregister_device(dev);
-> +err_dec_unreg:
-> +	if (dev->res->codec_types & WAVE6_IS_DEC)
-> +		wave6_vpu_dec_unregister_device(dev);
-> +err_temp_vbuf_free:
-> +	wave6_free_dma(&dev->temp_vbuf);
-> +err_kfifo_free:
-> +	kfifo_free(&dev->irq_status);
-> +err_m2m_dev_release:
-> +	wave6_vpu_release_m2m_dev(dev);
-> +err_v4l2_unregister:
-> +	v4l2_device_unregister(&dev->v4l2_dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static void wave6_vpu_remove(struct platform_device *pdev)
-> +{
-> +	struct vpu_device *dev = dev_get_drvdata(&pdev->dev);
-> +
-> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
-> +		if (!pm_runtime_suspended(&pdev->dev))
-> +			pm_runtime_put_sync(&pdev->dev);
-> +	}
-> +	pm_runtime_disable(&pdev->dev);
-> +
-> +	wave6_vpu_enc_unregister_device(dev);
-> +	wave6_vpu_dec_unregister_device(dev);
-> +	wave6_free_dma(&dev->temp_vbuf);
-> +	kfifo_free(&dev->irq_status);
-> +	wave6_vpu_release_m2m_dev(dev);
-> +	v4l2_device_unregister(&dev->v4l2_dev);
-> +}
-> +
-> +#ifdef CONFIG_PM
-> +static int wave6_vpu_runtime_suspend(struct device *dev)
-> +{
-> +	struct vpu_device *vpu_dev = dev_get_drvdata(dev);
-> +
-> +	if (!vpu_dev)
-> +		return -ENODEV;
-> +
-> +	dprintk(dev, "runtime suspend\n");
+Commit 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to
+userspace") added definitions for HWCAP_F8MM8 and HWCAP_F8MM4 but did
+not include the crucial registration in arm64_elf_hwcaps.  Add it.
 
-Drop
+Fixes: 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to userspace")
+Reported-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kernel/cpufeature.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> +	if (vpu_dev->ctrl && vpu_dev->active)
-> +		wave6_vpu_ctrl_put_sync(vpu_dev->ctrl, &vpu_dev->entity);
-> +	if (vpu_dev->num_clks)
-> +		clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev->clks);
-> +
-> +	return 0;
-> +}
-> +
-> +static int wave6_vpu_runtime_resume(struct device *dev)
-> +{
-> +	struct vpu_device *vpu_dev = dev_get_drvdata(dev);
-> +	int ret = 0;
-> +
-> +	if (!vpu_dev)
-> +		return -ENODEV;
-> +
-> +	dprintk(dev, "runtime resume\n");
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index f0910f20fbf8c18fbeb63bcee18abf13371b1d5e..2cde1e6e309a1b840e0e8dc3a5a55f07f0aadd82 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3190,6 +3190,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_F8FMA),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP4),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP2),
++	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM8, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM8),
++	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM4),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E4M3, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E4M3),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E5M2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E5M2),
+ #ifdef CONFIG_ARM64_POE
 
-Drop
-
-> +	if (vpu_dev->num_clks) {
-> +		ret = clk_bulk_prepare_enable(vpu_dev->num_clks, vpu_dev->clks);
-> +		if (ret) {
-> +			dev_err(dev, "failed to enable clocks: %d\n", ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	if (vpu_dev->ctrl && vpu_dev->active) {
-> +		ret = wave6_vpu_ctrl_resume_and_get(vpu_dev->ctrl, &vpu_dev->entity);
-> +		if (ret && vpu_dev->num_clks)
-> +			clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev->clks);
-> +	} else {
-> +		wave6_vpu_check_state(vpu_dev);
-> +	}
-> +
-> +	return ret;
-> +}
-> +#endif
-> +
-> +#ifdef CONFIG_PM_SLEEP
-> +static int wave6_vpu_suspend(struct device *dev)
-> +{
-> +	int ret;
-> +
-> +	dprintk(dev, "suspend\n");
-
-Drop. Don't re-implement existing tracing.
-
-> +	wave6_vpu_pause(dev, 0);
-> +
-> +	ret = pm_runtime_force_suspend(dev);
-> +	if (ret)
-> +		wave6_vpu_pause(dev, 1);
-> +
-> +	return ret;
-> +}
-> +
-> +static int wave6_vpu_resume(struct device *dev)
-> +{
-> +	int ret;
-> +
-> +	dprintk(dev, "resume\n");
-
-Drop, useless.
-
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	wave6_vpu_pause(dev, 1);
-> +	return 0;
-> +}
-> +#endif
-> +static const struct dev_pm_ops wave6_vpu_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(wave6_vpu_runtime_suspend, wave6_vpu_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(wave6_vpu_suspend, wave6_vpu_resume)
-> +};
-> +
-> +static const struct of_device_id wave6_dt_ids[] = {
-> +	{ .compatible = "nxp,imx95-wave633c", .data = &wave633c_data },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, wave6_dt_ids);
-> +
-> +static struct platform_driver wave6_vpu_driver = {
-> +	.driver = {
-> +		.name = VPU_PLATFORM_DEVICE_NAME,
-> +		.of_match_table = of_match_ptr(wave6_dt_ids),
-
-
-Drop of_match_ptr, you have here warnings.
-
+---
+base-commit: 21fed7c223e20e694b91dbf25936d922a50c8b19
+change-id: 20250207-arm64-fix-2024-dpisa-635a5961609c
 
 Best regards,
-Krzysztof
+-- 
+Mark Brown <broonie@kernel.org>
+
 
