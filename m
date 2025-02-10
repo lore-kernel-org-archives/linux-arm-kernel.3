@@ -4,117 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605DBC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87814C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=; b=QMexZ2GuKBJhqfqXRws/RrU6Nn
-	RLHfcY3BXnJJiSEUa8Qqb7a8NzE/thi0ili+z3p0IFtjK7oLtG6w5UMHPZa4b7VfnehtRvDxFWQQJ
-	ai9GhaifPkRdaifLoD57KRUg0F6JyZCJ+ID/584BtADlBwovdlvYoclxRAOv+se64GZnFosil9g9D
-	4adQjopTF9crzpjaAd94K2NtKv9CixW24+okERy8Z7GUBz+/pZnQdenQbaDzs8ZDwIdE+nBNBYuzg
-	QO7G3KdHcmQ0wFVrleYe1AdWiSYUcp0QfUE7epdt3rF7EFskBr2VebDlYI3O4BU8r8tFk7j9zzKkN
-	ls0Ed9Tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P1ss1v0bvkD5l9H6qgtHX7kFY/vS319qh4txvfoWsq4=; b=Cp6d3fqNaeiIpt6NeU9UwEdolS
+	clQJax50MqbV7/KFOHwfvIpfl/2e6LnZztR92g6nyRkFuT6ttlas5vTBdRj/dVS5O7WsrE4pjRaTX
+	I0sJLcCctPSbayfLq/VWQF140nT/2d055z7kYWJdi4HiK9wTCt0ugfq3qZ76YZRuUhr4pf+lUGOvH
+	6H+FRTyR7Z0P2YvT2N0bjgARsUaw5mZkVlrE4bipyDZmlwHCT06ftDUHEn8my/vJpl/fIX6CLElEh
+	L8qKfphFEdvUqcqqdJvADv/4BBEx/BeGpV8ltFY2yuwmdPYeAjBjRDeMyiyLgaU3TsBszBr7k8uDM
+	EyrCojDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYMV-00000000t81-3nAY;
-	Mon, 10 Feb 2025 18:18:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1thYNs-00000000tRv-2ktp;
+	Mon, 10 Feb 2025 18:19:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYK1-00000000sWw-108M
+	id 1thYKq-00000000shH-3YDb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:15:54 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9R4LO005019
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:15:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=; b=k98TtJxG9YSJjlkz
-	AZn4RsntfJ37bbMCwWkkY6LGBUw+WXm0i23q95qFfFBG9wSOxFzQ7aQaN1vLHXTc
-	t16eCKLZcEd9Ng3RlWoINgr4B+0iu3EmsBXovO5HGRPRM76udX/swr8InhRYzYM3
-	qYnKXvuvldCKB8tuL6lCSgs8yqklbLHdBFPdtyKW5TZ/JrfZ6Cvx6b/hZLoZWaqj
-	ICqGUL4Edn/+pVeq0nvdeyfFlAsFa/bqwea3trGlIlbuFTFh7zu29JDM3BpyONdB
-	XWT0mlS5euFx8RvxLJY01O72MUSsjzb8cnXLoduwp9bOvuTzJ/SmaPj1SOjKnXuj
-	EXff7Q==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0dyn7a3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:15:52 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6e249d117b7so5191076d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:15:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739211351; x=1739816151;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=;
-        b=YsRw7ZhUihlxeEYDwxT75srgfAHRWhZ8Be5FNMksj+o4n9nwD/nsA7w7Ua84Wvafp6
-         ZiGR/6l5LO41CyvraQQUNgtDMg/d2ufGYUa2ZV43z8oXnS86s0ZQj5k6vS3WYw8GWOZC
-         7f5lSEdePFcWx9UT+4b/Ro4YDe28FwswjBlTgIjUFz+qb25CBDu2oLBQ8O7m9fBi4pYm
-         0cq2FG5qR7p+/O7IxwMQ482dlKFhj3q8QKUsWyxUOac8bz0RTQCpL54b5dJVTttNfYbd
-         ABR4Ex8C8CMuQr7KbgugYcCOMmAUZHehq7fL8IqG8DkN7CbM7nENVoq6fs4zkLh88ode
-         ohiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ+RGIYd8VqhIpk+A/lNrsfZPCeygYLEN6pSNt7hF6mFbTtMXKnv4AueB4WT+OmvGXqDz9zP2Ev7QzztzsyYZh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+r6/rCX5uXS9TQD6DpvxTP4Fc0woh5X0/yBjQ+fxitB1YrHUj
-	v2R7Ck2Gu6M48HLyP/1tlyCm0rBpupSaB05Dt+SLTkQJ8wsdn8XEuk0hEB0rIiPuqQLW/9pOn42
-	g6fo7fm9trmnbRKiaqHMbjh3vkLiY2CC9JPYnFxi1/P36xAPCjScNBo+ThCKLZlaJID43noXCQQ
-	==
-X-Gm-Gg: ASbGncs8JIjnhznEbmjTsGz3g4lanVz6t3Dp8MinMkBMJB4CIopKMPgKLWtkOuSAkeV
-	ULOc2e4o2uZmwilMgjLU38aqGEF3b7+c1Pyy5lMGuI2D9aJbJhIe7S0W81zroG6Lu4ga/OATwlg
-	qhFSb75EIu/Cq5kUXP/HegQgrw4TRiTqugCzo3cO1tbuM4DRMqzwR+zlr3pJhYwNre5/CcDSmzm
-	l6af46C488AQ1l8AeCAovRP8O/NmvUyD/qbo9rYrql7j/aoxYXyDowWRxzYo0WBWZNmkVuZwVwy
-	fKldG9AG6oXdpVEZfzzZJSN4mdD90QhEpu7A+MElFbVO8eYOLkStwKBR0SA=
-X-Received: by 2002:ac8:5fcc:0:b0:467:672a:abac with SMTP id d75a77b69052e-471679dc26amr71995281cf.4.1739211351348;
-        Mon, 10 Feb 2025 10:15:51 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF+wRXNnWRPbq293evDdIvEhGqEHzq1kYbvdr3w/KyUUAyfZrYq8rC1dDpVfln5xyQdRsb5ew==
-X-Received: by 2002:ac8:5fcc:0:b0:467:672a:abac with SMTP id d75a77b69052e-471679dc26amr71994941cf.4.1739211350986;
-        Mon, 10 Feb 2025 10:15:50 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf9f6c77esm8235727a12.69.2025.02.10.10.15.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 10:15:50 -0800 (PST)
-Message-ID: <0a1735a3-b57e-4a98-a3c8-46e92b5cdf0f@oss.qualcomm.com>
-Date: Mon, 10 Feb 2025 19:15:46 +0100
+	Mon, 10 Feb 2025 18:16:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 666F2A41EF6;
+	Mon, 10 Feb 2025 18:14:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23C1FC4CEE6;
+	Mon, 10 Feb 2025 18:16:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739211403;
+	bh=P1ss1v0bvkD5l9H6qgtHX7kFY/vS319qh4txvfoWsq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nU59BCnvDkLk479ynMymoJdH9LGPPQspXrC9ge1Bqw5MC+ab9QddYvZz0MsQ6EH3g
+	 215Adk2n3B75BaYdQNBv8cAoNL+jFR77sl8JGjbz1PvZLlKeA1FERlRiBWEpzVB/Ou
+	 wt2yoOga77GA2y6TIH9MPaiwpW0Jmo0FdCZpUCB57ExqVHqMSGfsbkOK9K65Nu/3T4
+	 tBhmZLlvzoCYi0LlsXm5L86NGYCGcwbaLzbathKuqAM78nNkzgSXjDxs7Hl66xwjuB
+	 LvSdau0a9cqdIi+WrqnOH6FI9Zk1bPXKeA7GsUSj+tLSY0hvS5u6d6wAySJNd/hdQ7
+	 QlUYiB3+MArbQ==
+Date: Mon, 10 Feb 2025 19:16:40 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+Message-ID: <20250210-spirited-premium-rabbit-34e1cc@houat>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
+ <20250207-ingenious-daffodil-dugong-51be57@houat>
+ <ucttjaf3trkgtpvhnsj7xfsybhnoi4qqow5ucwghlggivbagy7@gngjhbtu73lb>
+ <20250210-bold-steel-collie-cecbad@houat>
+ <CAA8EJppyDiAeH8bm-rdCUsGoyVOrp=4AvrYLJ-=5BTLtmnP11g@mail.gmail.com>
+ <20250210181203.36798a31@booty>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 4/6] clk: qcom: Add NSS clock Controller driver for
- IPQ9574
-To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
-        mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
-        richardcochran@gmail.com, geert+renesas@glider.be,
-        dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
-        biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, ebiggers@google.com,
-        ardb@kernel.org, ross.burton@arm.com, quic_anusha@quicinc.com,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Cc: quic_srichara@quicinc.com, quic_varada@quicinc.com
-References: <20250207073926.2735129-1-quic_mmanikan@quicinc.com>
- <20250207073926.2735129-5-quic_mmanikan@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250207073926.2735129-5-quic_mmanikan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: Ku6SJMmR4WvllCQqBBxbN4D5hS2qejmy
-X-Proofpoint-GUID: Ku6SJMmR4WvllCQqBBxbN4D5hS2qejmy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_10,2025-02-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 mlxlogscore=758
- mlxscore=0 priorityscore=1501 spamscore=0 adultscore=0 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502100148
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="rffgj3g2dkwuwd4j"
+Content-Disposition: inline
+In-Reply-To: <20250210181203.36798a31@booty>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_101553_286216_482F3420 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250210_101645_016425_A875177D 
+X-CRM114-Status: GOOD (  43.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +74,112 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7.02.2025 8:39 AM, Manikanta Mylavarapu wrote:
-> From: Devi Priya <quic_devipriy@quicinc.com>
-> 
-> Add Networking Sub System Clock Controller (NSSCC) driver for ipq9574 based
-> devices.
-> 
-> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
-> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-> ---
 
-Thanks for getting this buttoned up all the way
+--rffgj3g2dkwuwd4j
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+MIME-Version: 1.0
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+On Mon, Feb 10, 2025 at 06:12:03PM +0100, Luca Ceresoli wrote:
+> Hello Maxime, Dmitry,
+>=20
+> On Mon, 10 Feb 2025 16:23:44 +0200
+> Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
+>=20
+> > On Mon, 10 Feb 2025 at 14:31, Maxime Ripard <mripard@kernel.org>
+> > wrote:
+> > >
+> > > On Fri, Feb 07, 2025 at 09:54:06PM +0200, Dmitry Baryshkov wrote: =20
+> > > > On Fri, Feb 07, 2025 at 12:47:51PM +0100, Maxime Ripard wrote: =20
+> > > > > Hi,
+> > > > >
+> > > > > On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote: =
+=20
+> > > > > > DRM bridges are currently considered as a fixed element of a
+> > > > > > DRM card, and thus their lifetime is assumed to extend for as
+> > > > > > long as the card exists. New use cases, such as hot-pluggable
+> > > > > > hardware with video bridges, require DRM bridges to be added
+> > > > > > and removed to a DRM card without tearing the card down. This
+> > > > > > is possible for connectors already (used by DP MST), so add
+> > > > > > this possibility to DRM bridges as well.
+> > > > > >
+> > > > > > Implementation is based on drm_connector_init() as far as it
+> > > > > > makes sense, and differs when it doesn't. A difference is
+> > > > > > that bridges are not exposed to userspace, hence struct
+> > > > > > drm_bridge does not embed a struct drm_mode_object which
+> > > > > > would provide the refcount. Instead we add to struct
+> > > > > > drm_bridge a refcount field (we don't need other struct
+> > > > > > drm_mode_object fields here) and instead of using the
+> > > > > > drm_mode_object_*() functions we reimplement from those
+> > > > > > functions the few lines that drm_bridge needs for refcounting.
+> > > > > >
+> > > > > > Also add a new devm_drm_bridge_alloc() macro to allocate a
+> > > > > > new refcounted bridge.
+> > > > > >
+> > > > > > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com> =20
+> > > > >
+> > > > > So, a couple of general comments:
+> > > > >
+> > > > > - I've said it a couple of times already, but I really think
+> > > > > you're making it harder than necessary for you here. This (and
+> > > > > only this!) should be the very first series you should be
+> > > > > pushing. The rest can only ever work if that work goes through,
+> > > > > and it's already hard enough as it is. So, split that patch
+> > > > > into a series of its own, get that merged, and then we will be
+> > > > > able to deal with panels conversion and whatever. That's even
+> > > > > more true with panels since there's ongoing work that will make
+> > > > > it easier for you too. So the best thing here is probably to
+> > > > > wait. =20
+>=20
+> The idea you proposed was to handle the issues current panel bridge
+> code adds to the hotplug work by adding a .destroy callback and some
+> more devm magic. I explored the idea but even after some clarifications
+> from you it still didn't appear clearly doable and correct to me. And
+> even in the case it were perfectly correct and doable, it is based on
+> adding more complexity and "magic" on top of a topic that is already
+> hard to understand: panel_bridge lifetime.
 
-Konrad
+Not really, no. I told you several time that you shouldn't deal with
+panels yet.
+
+> So I opted for the other way: rework panel_bridge code so its lifetime
+> is clear and as one would expect (panel_bridge lifetime =3D=3D panel
+> lifetime).
+>=20
+> Possibly more work for me, but now it's done and it's in these patches
+> so why waiting?
+
+No, it's not done. You have the same issue with panels than you are
+trying to fix with bridges: it's allocated through devm so they'll get
+destroyed too soon. The panel_bridge might work fine now, but the panel
+won't.
+
+So it's more work, more scope-creep, and more discussions. For example,
+I'm really not convinced on moving the drm_panel code under bridge.
+
+Splitting it up will allow you to at least merge the parts that are
+somewhat agreed upon. But do however you want :)
+
+Maxime
+
+--rffgj3g2dkwuwd4j
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6pChAAKCRAnX84Zoj2+
+dpqyAX9yyUCN76HmBvf3yU/Fwr0oPMOIzqBP07NsD/+k2jjVzrgSQM4ai90MiX0b
+lSvbIdkBgPRVzIb7rhd6y4Pi4tuJ69NyDfsvuORTdgT42FpLlM3GPs3pujt/R1o9
+AnFVC6dF0w==
+=Xy4e
+-----END PGP SIGNATURE-----
+
+--rffgj3g2dkwuwd4j--
 
