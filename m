@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678C7C021A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845F2C021A8
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,150 +12,81 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KSceIq+QW6QfAQSxFrhFP3CSjeVr/8tSdt+enYDxg60=; b=3R0EIHOKz5neh1VghmMnSUyXEh
-	cgSyA/48XIv4QY82BviT9WSexhSJDyPOWbBsKB1SM53Q3+aAE1Gg15T4Z+j9W1LGo/7Bj7gCp5yIN
-	WKcATrsIJjOMXerBk0BsMQOgy+BvJBqFLLEUl/BQvm+g31V4LkSHxyJZ+5Pft5xYZ22ZTRO+R3TCR
-	1y5tqlOQkO+4ZZX9Gder1lsuWjY9Msug8EOod0k5uVCkWM++aIK15m36DfEgYf/54vdq0jGcRdQQR
-	oTu+S+dgk/5WL4NhMy8qTmxK+MPEvwckLg9MePDIhwC+aTtrjt+f9iZZdcHTSIg8DB8BoEqLJEjnK
-	q7D4Db/g==;
+	bh=UoGMo/HHW2Y54VChclcWwxxOAn5atOd7SZsczZJpUIU=; b=cvmw1O5Iwjgiej8hRNad3c3MVe
+	ALH4YcHlk85SUMIaIRob9rB1AdMzo/5DBLIsfDAtCbf4F/5fHi3J3A7ooCbhTnhMdEsfeDfGzVIkQ
+	32c5PDWKLkNZ/dphWTs9NGyl6RYtvuZ72JhXbXLVFsSwoMQVlG9Pczv/Y2c55w1SsdZs4CnaVNN45
+	83lvgwrbbprlB11WB4J5YvEV/wl040Jnj8QDV+7/uKOxrcQeNTIu/ePFZ9xne9440dqX48t3zFNn0
+	Oxwbr1DX/vyscR7xhOec9Bj65I8QMX/AVBnMhtrn6nEeUEusxoq+iJZKrcv/MBMGVxF+0S0fQ6hD7
+	UD7P0xFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYk-0000000175H-2quy;
-	Mon, 10 Feb 2025 19:35:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1thZYN-000000016Pp-0wfi;
+	Mon, 10 Feb 2025 19:34:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYmU-00000000zt6-2WUa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:45:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739213117;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KSceIq+QW6QfAQSxFrhFP3CSjeVr/8tSdt+enYDxg60=;
-	b=GIicaY4fEgQAVuiLFF09d3plltxHn4mu0K4Jk6i6JSG271yiSe3BzNIeIAY7x63fOBUBOJ
-	yM9ELgy2I8wPwrWi5FtQepXRnhVj8Isi4QBC9Qag7Tia3cEpAzZfWFHO8B+mGWvbRA5b+p
-	tUcejPhG8hUMxEIGvzcmmZ/4Aj2lUYM=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-189-5V4CHdg5NuO68zNip-X8aw-1; Mon, 10 Feb 2025 13:45:14 -0500
-X-MC-Unique: 5V4CHdg5NuO68zNip-X8aw-1
-X-Mimecast-MFC-AGG-ID: 5V4CHdg5NuO68zNip-X8aw
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43933bdcce0so15740535e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:45:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739213113; x=1739817913;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=KSceIq+QW6QfAQSxFrhFP3CSjeVr/8tSdt+enYDxg60=;
-        b=Ku2wkWbn0DvMM6GgiPflzbZUIJNwRf7HJGWXrgRqDeF1ud2/6U47mRa/1QJEga2ZQC
-         cCYDOafY9gqX0Ibkguv1ovzw8sv6un90575/7zxjJimKVfW0sb92ViB0stPZz/CDqhKk
-         SQoYOFCNka1xuie144y+juSjHNG+xMUnskgJXG0wrJ7XssOJU6J9XbMttsD59Pxkg4OE
-         OREQpIGylrCM+WUQvFzXAmT6DNs2tkeA+BomFjyOYDB7R6ElGFs44AR45xNeBKAVWeXM
-         yfdq9O7HXj2U4MmzYrhRNAXhNK7U4/2xx58M8PAtXRB/1XCR4XeDXfujsduvKY9YH8GM
-         Flww==
-X-Forwarded-Encrypted: i=1; AJvYcCWC91S3UhTHWWk689Jg9B7720BRUuJMLcxfuLPKbahKVEbR5oZOYnOgpbkmhc3o99djIrorU6T6bF0uBCfleVC7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhSHBn8dBhg8+PZaMqtrk/yrRJTjnLWmhfgNWmaL3SKVYw0a4p
-	qg2sNn12gjBRk5ldfk9NfDT/kGw5y/W5sdYfH22Ph0gtjI+u1PdnmYqs7BoqfXvCL6QzjzNvZ6J
-	zvGM1v5wvLuSy1VlEZifm+rSJrOegIibsxJ0LLN4KiiQ6gz3lTez4Zq8GyTg5iKI/pSCwaNYw
-X-Gm-Gg: ASbGncvqoZVyyUVeec/vWJQ1fYvZekEHQ0f9mcYBMyq4PXayjfJWnC8bQWiJdS2YVWO
-	prgSU7eWc8IWbiNYFQKSgiBzl/adArnaVLR/hdGbYYdCTw6ahAl7L4k2qHliRwFO3ndq55sJpvx
-	jxydif10GDE+5ExdddHqfV2t7wgS9B/n7Zv7UCKhWn85PYHofrZJ1TWeIMg97iKRBbCg44UBDWb
-	cq3YfPt5vrXva5I8/ISWesSosmn9LBEpiZktBDiS5T3Wd/f0mSrSsVCoOOBuq93WOvaWpklWd8s
-	ZDTk+v02k3f/hv8UT9X+V1epxOXaL8YnWQpxVE8CEL9qUzdXha7ZuM9wnjEd1XXGLJx8PwgxuGV
-	o4cLN2GqqgGwn+r5ogZwht7MzMLl3q+E+
-X-Received: by 2002:a05:600c:4f89:b0:439:4b9e:45fc with SMTP id 5b1f17b1804b1-4394b9e4883mr19868505e9.4.1739213113271;
-        Mon, 10 Feb 2025 10:45:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG1DW8uYaNIQGndHHpAaZ/R379l1WaaDggkqsZF2ysLByrh9c9rDZgcYBCPGohQqt0EwrYjTg==
-X-Received: by 2002:a05:600c:4f89:b0:439:4b9e:45fc with SMTP id 5b1f17b1804b1-4394b9e4883mr19868135e9.4.1739213112852;
-        Mon, 10 Feb 2025 10:45:12 -0800 (PST)
-Received: from ?IPV6:2003:cb:c734:b800:12c4:65cd:348a:aee6? (p200300cbc734b80012c465cd348aaee6.dip0.t-ipconnect.de. [2003:cb:c734:b800:12c4:65cd:348a:aee6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391dc9ffd8sm151856745e9.10.2025.02.10.10.45.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 10:45:11 -0800 (PST)
-Message-ID: <afff4368-9401-4943-b802-1b15bdcf5aaa@redhat.com>
-Date: Mon, 10 Feb 2025 19:45:09 +0100
+	id 1thXK1-00000000fhF-0GEU;
+	Mon, 10 Feb 2025 17:11:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739207507;
+	bh=o0hGxA0NOgQ5LtRO7padQZ5PIO0xxvCaBJv4H++US4A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U+lU5Sm45JrbHGoZwGrg/5xCMw5y1ivPS6w6aZR6ogdC4Fd+WzQ/qvj4uul5GLk/K
+	 UrD+fz2LIpWcHhY3JBEcmswsDicSpCl3+gkogv+g5s0h1UWJsbr6piR4kJF9aRolxx
+	 bsANi9gVGx4V2kYsHFczZA2yjAzsohiHfjT8mZKpHZYyEzBKWg2tuWijcu8HMzLChn
+	 kSU723Z9VnD1iVyUaz8FI0F1ZWZYoGso/CSO1+3fd3B1U/FtbfcIuZHVUJiGWIBYD3
+	 w1c/96oALLNwtlQ75uU8k4QYjt3FdWEbgQ6ue3hXYFCRiKP4iw1sLVxq3zS9x1EwHx
+	 J0ZUxcDiaU/DA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C50CC17E0239;
+	Mon, 10 Feb 2025 18:11:45 +0100 (CET)
+Message-ID: <a5d6d63b-ae37-4cd6-94f7-50647c8b0a21@collabora.com>
+Date: Mon, 10 Feb 2025 18:11:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 16/20] huge_memory: Add vmf_insert_folio_pmd()
-To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
- dan.j.williams@intel.com, linux-mm@kvack.org
-Cc: Alison Schofield <alison.schofield@intel.com>, lina@asahilina.net,
- zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
- vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
- bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
- will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
- dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
- djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
- david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
- loongarch@lists.linux.dev
-References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
- <9f10e88441f3cb26eff6be0c9ef5997844c8c24e.1738709036.git-series.apopple@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <9f10e88441f3cb26eff6be0c9ef5997844c8c24e.1738709036.git-series.apopple@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fskvv3DPjzfOriYORtLuwQAmOKHPboKzyHUhP9v1gFc_1739213113
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v5 29/34] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
+ <20250113145232.227674-30-angelogioacchino.delregno@collabora.com>
+ <8a4ba3fb6d953f1106d3a766208c4b86da1cfcb8.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
+In-Reply-To: <8a4ba3fb6d953f1106d3a766208c4b86da1cfcb8.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104518_709946_8CA7EB0E 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250210_091149_457918_98DC2252 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,41 +101,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04.02.25 23:48, Alistair Popple wrote:
-> Currently DAX folio/page reference counts are managed differently to normal
-> pages. To allow these to be managed the same as normal pages introduce
-> vmf_insert_folio_pmd. This will map the entire PMD-sized folio and take
-> references as it would for a normally mapped page.
+Il 10/02/25 03:18, CK Hu (胡俊光) ha scritto:
+> Hi, Angelo:
 > 
-> This is distinct from the current mechanism, vmf_insert_pfn_pmd, which
-> simply inserts a special devmap PMD entry into the page table without
-> holding a reference to the page for the mapping.
+> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> In preparation for adding a new driver for the HDMI TX v2 IP,
+>> split out the functions that will be common between the already
+>> present mtk_hdmi (v1) driver and the new one.
+>>
+>> Since the probe flow for both drivers is 90% similar, add a common
+>> probe function that will be called from each driver's .probe()
+>> callback, avoiding lots of code duplication.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/Kconfig           |  11 +-
+>>   drivers/gpu/drm/mediatek/Makefile          |   1 +
+>>   drivers/gpu/drm/mediatek/mtk_hdmi.c        | 553 +--------------------
+>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 426 ++++++++++++++++
+>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 188 +++++++
+>>   5 files changed, 648 insertions(+), 531 deletions(-)
+>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>>   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/Kconfig b/drivers/gpu/drm/mediatek/Kconfig
+>> index e47debd60619..994b48b82d44 100644
+>> --- a/drivers/gpu/drm/mediatek/Kconfig
+>> +++ b/drivers/gpu/drm/mediatek/Kconfig
+>> @@ -30,9 +30,18 @@ config DRM_MEDIATEK_DP
+>>          help
+>>            DRM/KMS Display Port driver for MediaTek SoCs.
+>>
+>> +config DRM_MEDIATEK_HDMI_COMMON
+>> +       tristate
+>> +       depends on DRM_MEDIATEK
+>> +       select DRM_DISPLAY_HDMI_HELPER
+>> +       select DRM_DISPLAY_HELPER
+>> +       select SND_SOC_HDMI_CODEC if SND_SOC
+>> +       help
+>> +         MediaTek SoC HDMI common library
+>> +
+>>   config DRM_MEDIATEK_HDMI
+>>          tristate "DRM HDMI Support for Mediatek SoCs"
+>>          depends on DRM_MEDIATEK
+>> -       select SND_SOC_HDMI_CODEC if SND_SOC
+>> +       select DRM_MEDIATEK_HDMI_COMMON
+>>          help
+>>            DRM/KMS HDMI driver for Mediatek SoCs
+>> diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
+>> index 43afd0a26d14..78cf2d4fc85f 100644
+>> --- a/drivers/gpu/drm/mediatek/Makefile
+>> +++ b/drivers/gpu/drm/mediatek/Makefile
+>> @@ -21,6 +21,7 @@ mediatek-drm-y := mtk_crtc.o \
+>>
+>>   obj-$(CONFIG_DRM_MEDIATEK) += mediatek-drm.o
+>>
+>> +obj-$(CONFIG_DRM_MEDIATEK_HDMI_COMMON) += mtk_hdmi_common.o
 > 
-> It is not currently useful to implement a more generic vmf_insert_folio()
-> which selects the correct behaviour based on folio_order(). This is because
-> PTE faults require only a subpage of the folio to be PTE mapped rather than
-> the entire folio. It would be possible to add this context somewhere but
-> callers already need to handle PTE faults and PMD faults separately so a
-> more generic function is not useful.
+> It's not necessary to create CONFIG_DRM_MEDIATEK_HDMI_COMMON to build mtk_hdmi_common.o.
 > 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-
-Nit: patch subject ;)
-
+> obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi_common.o
+> obj-$(CONFIG_DRM_MEDIATEK_HDMI_V2) += mtk_hdmi_common.o
 > 
-> ---
+
+What you proposed would work - but it's not feasible: this is duplication, and
+duplication is bad. That's why CONFIG_DRM_MEDIATEK_HDMI_COMMON was created.
+
+I will not change that, sorry.
+
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_cec.o
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi.o
+>>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi_ddc.o
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> index 138c6283c038..7940c9b598c1 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+
+..snip..
+
+>> -
+>>   static int mtk_hdmi_probe(struct platform_device *pdev)
+>>   {
+>>          struct mtk_hdmi *hdmi;
+>> -       struct device *dev = &pdev->dev;
+>> -       const int num_clocks = MTK_HDMI_CLK_COUNT;
+>> -       int ret;
+>> -
+>> -       hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
+>> -       if (!hdmi)
+>> -               return -ENOMEM;
+>>
+>> -       hdmi->dev = dev;
+>> -       hdmi->conf = of_device_get_match_data(dev);
+>> +       hdmi = mtk_hdmi_common_probe(pdev);
+>> +       if (IS_ERR(hdmi))
+>> +               return PTR_ERR(hdmi);
+>>
+>> -       hdmi->clk = devm_kcalloc(dev, num_clocks, sizeof(*hdmi->clk), GFP_KERNEL);
+>> -       if (!hdmi->clk)
+>> -               return -ENOMEM;
+>> -
+>> -       ret = mtk_hdmi_dt_parse_pdata(hdmi, pdev, mtk_hdmi_clk_names, num_clocks);
+>> -       if (ret)
+>> -               return ret;
+>> -
+>> -       hdmi->phy = devm_phy_get(dev, "hdmi");
+>> -       if (IS_ERR(hdmi->phy))
+>> -               return dev_err_probe(dev, PTR_ERR(hdmi->phy),
+>> -                                    "Failed to get HDMI PHY\n");
+>> -
+>> -       mutex_init(&hdmi->update_plugged_status_lock);
+>> -       platform_set_drvdata(pdev, hdmi);
+>> -
+>> -       ret = mtk_hdmi_register_audio_driver(dev);
+>> -       if (ret)
+>> -               return dev_err_probe(dev, ret,
+>> -                                    "Failed to register audio driver\n");
+>> -
+>> -       hdmi->bridge.funcs = &mtk_hdmi_bridge_funcs;
+>> -       hdmi->bridge.of_node = pdev->dev.of_node;
+>> -       hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
+>> -                        | DRM_BRIDGE_OP_HPD;
+>> -       hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+>> -       hdmi->bridge.vendor = "MediaTek";
+>> -       hdmi->bridge.product = "On-Chip HDMI";
+>> -
+>> -       ret = devm_drm_bridge_add(dev, &hdmi->bridge);
+>> -       if (ret)
+>> -               return dev_err_probe(dev, ret, "Failed to add bridge\n");
+>> +       if (!hdmi->cec_dev)
+>> +               return dev_err_probe(hdmi->dev, -ENODEV, "CEC is required by HDMIv1\n");
+>>
+>> -       ret = mtk_hdmi_clk_enable_audio(hdmi);
+>> -       if (ret)
+>> -               return dev_err_probe(dev, ret,
+>> -                                    "Failed to enable audio clocks\n");
 > 
-> Changes for v7:
+> Originally, print error message for mtk_hdmi_clk_enable_audio() here.
+> In this patch, it does not print error message here.
+> If this modification is necessary, separate this to another patch.
 > 
->   - Fix bad pgtable handling for PPC64 (Thanks Dan and Dave)
 
-Is it? ;) insert_pfn_pmd() still doesn't consume a "pgtable_t *"
+I'll separate that to a different patch. Ok.
 
-But maybe I am missing something ...
+>> -
+>> -       return 0;
+>> +       return mtk_hdmi_clk_enable_audio(hdmi);
+>>   }
+>>
+>>   static void mtk_hdmi_remove(struct platform_device *pdev)
 
--- 
-Cheers,
+..snip..
 
-David / dhildenb
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>> new file mode 100644
+>> index 000000000000..7dc7ba46f44d
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+
+..snip..
+
+>> +
+>> +static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi, struct platform_device *pdev,
+>> +                                  const char * const *clk_names, size_t num_clocks)
+>> +{
+>> +       struct device *dev = &pdev->dev;
+>> +       struct device_node *np = dev->of_node;
+>> +       struct device_node *remote, *i2c_np;
+>> +       int ret;
+>> +
+>> +       ret = mtk_hdmi_get_all_clk(hdmi, np, clk_names, num_clocks);
+>> +       if (ret)
+>> +               return dev_err_probe(dev, ret, "Failed to get clocks\n");
+>> +
+>> +       hdmi->regs = device_node_to_regmap(dev->of_node);
+>> +       if (IS_ERR(hdmi->regs))
+>> +               return PTR_ERR(hdmi->regs);
+>> +
+>> +       remote = of_graph_get_remote_node(np, 1, 0);
+>> +       if (!remote)
+>> +               return -EINVAL;
+>> +
+>> +       if (!of_device_is_compatible(remote, "hdmi-connector")) {
+>> +               hdmi->next_bridge = of_drm_find_bridge(remote);
+>> +               if (!hdmi->next_bridge) {
+>> +                       dev_err(dev, "Waiting for external bridge\n");
+>> +                       of_node_put(remote);
+>> +                       return -EPROBE_DEFER;
+>> +               }
+>> +       }
+>> +
+>> +       i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
+>> +       of_node_put(remote);
+>> +       if (!i2c_np)
+>> +               return dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
+>> +
+>> +       hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
+>> +       of_node_put(i2c_np);
+>> +       if (!hdmi->ddc_adpt)
+>> +               return dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
+>> +
+>> +       ret = mtk_hdmi_get_cec_dev(hdmi, dev, np);
+>> +       if (ret == -ENOTSUPP)
+>> +               dev_info(dev, "CEC support unavailable: node not found\n");
+> 
+> CEC is used only in v1 driver. So separate CEC related modification to another patch.
+> 
+
+Ok.
+
+>> +       else if (ret)
+>> +               return ret;
+>> +
+>> +       return 0;
+>> +}
+>> +
+
+..snip..
+
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.h b/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+>> new file mode 100644
+>> index 000000000000..d3de8afff40f
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+>> @@ -0,0 +1,188 @@
+
+..snip..
+
+>> +struct mtk_hdmi_ver_conf {
+>> +       const struct drm_bridge_funcs *bridge_funcs;
+>> +       const struct hdmi_codec_ops *codec_ops;
+>> +       const char * const *mtk_hdmi_clock_names;
+>> +       int num_clocks;
+>> +};
+> 
+> This patch create something new for new hdmi driver.
+> And this patch also separate common function to common file.
+> I would like to separate these to two patches.
+> One for creating something new for new hdmi driver.
+> Another one for separating common function to common file.
+> 
+
+That makes sense, will do.
+
+Regards,
+Angelo
+
+> Regards,
+> CK
+> 
+>> +
+>> +struct mtk_hdmi_conf {
+>> +       const struct mtk_hdmi_ver_conf *ver_conf;
+>> +       bool tz_disabled;
+>> +       bool cea_modes_only;
+>> +       unsigned long max_mode_clock;
+>> +};
+>> +
+>> +struct mtk_hdmi {
+>> +       struct drm_bridge bridge;
+>> +       struct drm_bridge *next_bridge;
+>> +       struct drm_connector *curr_conn;/* current connector (only valid when 'enabled') */
+>> +       struct device *dev;
+>> +       const struct mtk_hdmi_conf *conf;
+>> +       struct phy *phy;
+>> +       struct device *cec_dev;
+>> +       struct i2c_adapter *ddc_adpt;
+>> +       struct clk **clk;
+>> +       struct drm_display_mode mode;
+>> +       bool dvi_mode;
+>> +       struct regmap *sys_regmap;
+>> +       unsigned int sys_offset;
+>> +       struct regmap *regs;
+>> +       struct platform_device *audio_pdev;
+>> +       struct hdmi_audio_param aud_param;
+>> +       bool audio_enable;
+>> +       bool powered;
+>> +       bool enabled;
+>> +       hdmi_codec_plugged_cb plugged_cb;
+>> +       struct device *codec_dev;
+>> +       struct mutex update_plugged_status_lock;
+>> +};
+>> +
+>> +static inline struct mtk_hdmi *hdmi_ctx_from_bridge(struct drm_bridge *b)
+>> +{
+>> +       return container_of(b, struct mtk_hdmi, bridge);
+>> +}
+>> +
+>> +
+>> +int mtk_hdmi_audio_get_eld(struct device *dev, void *data, uint8_t *buf, size_t len);
+>> +void mtk_hdmi_audio_set_plugged_cb(struct mtk_hdmi *hdmi, hdmi_codec_plugged_cb fn,
+>> +                                  struct device *codec_dev);
+>> +int mtk_hdmi_audio_params(struct mtk_hdmi *hdmi, struct hdmi_codec_daifmt *daifmt,
+>> +                         struct hdmi_codec_params *params);
+>> +void mtk_hdmi_get_ncts(unsigned int sample_rate, unsigned int clock,
+>> +                      unsigned int *n, unsigned int *cts);
+>> +bool mtk_hdmi_bridge_mode_fixup(struct drm_bridge *bridge,
+>> +                               const struct drm_display_mode *mode,
+>> +                               struct drm_display_mode *adjusted_mode);
+>> +void mtk_hdmi_bridge_mode_set(struct drm_bridge *bridge,
+>> +                             const struct drm_display_mode *mode,
+>> +                             const struct drm_display_mode *adjusted_mode);
+>> +struct mtk_hdmi *mtk_hdmi_common_probe(struct platform_device *pdev);
+>> +#endif /* _MTK_HDMI_COMMON_H */
+>> --
+>> 2.47.0
+>>
+> 
+
 
 
