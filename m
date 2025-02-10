@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6837FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096A8C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FVUBiaoeWeksMfqaUXNGg5STI1bae+8Yqz5cnicePdE=; b=rDy9ZYXsaGm2oQtFd8EK4URp4y
-	pRhV0LstzGKYxBNeEwfIpaJO/V09kJIGh1sCwiFK+xEych7+LA0wYnR4ivfQtdlxdnFat6zTH9Rxv
-	rI/K69lv2Ph8Pl23LKpKRgGsZIoZoZ2wIEedfJ4e6DsIHKfXff0B/Qf18RL/TiXehkgyX0DXKbTL3
-	UvD4NhC2mMJ1PSa/s8GSNYY4yMRvFrEZnm0MiRHl79ErXfARApI36k+v/Wn9G7iXYvzBmJh6EBiyz
-	0GHbgk7kU4CShV8uj7OLFv98LbJSGJ88El3vf7OgP5MjAXN11vE6BE3CuVjZ8tQtXbqEv+3BMM0Ei
-	qYIWkdjQ==;
+	bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=; b=Kk4Q59KdPnxiyUIPYIflo0dyGu
+	ToRdwD4Ej9o7IU5Ro+o0VgFaKvarRk3GTMgRISrsRnTcAzDHhbDONnoNYlGWqIdNZfl0viGxWyrjU
+	591+OzGjRI1oGHPj2Gn/nOGNObvxLOdvNxK7B7GSAcnj64BFOgT2AdvXuI6lXWYx3ojrQYRwqDCaD
+	kgB3jEC6aWySvbDYifyOiB9NAYvrxXkr8P+eT4I7qCzoWTMmwBX/37v6ffY3jGE1iLHiCLwDQQmRO
+	M78vbWJYYTDWjMyKH+/2sNFXumA46nlsnJOJAwVGC51q7Z8Z6Pl9A7ctPr8NyyzIm753IRnlh80Op
+	keWC+ZLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVwa-00000000MRE-38iG;
-	Mon, 10 Feb 2025 15:43:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1thW3Q-00000000NT8-3TFl;
+	Mon, 10 Feb 2025 15:50:36 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVsJ-00000000LWq-1r3R
+	id 1thW21-00000000NCv-2CVX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 15:39:08 +0000
-Date: Mon, 10 Feb 2025 16:39:02 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1739201945;
+	Mon, 10 Feb 2025 15:49:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1739202549; x=1770738549;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=;
+  b=GvZU2H/uufcsKveCzgDgNtiH3wMruz6vLu7dsMwNymEjVOFVQK8vCxyQ
+   FEJW30gwgVxcxyRntF6wo7MK7sBTwYdcdLHcjDOtxtQ19ibU5BCZU1V2y
+   8gbW8qu7luPVQZwoUj7DhlxG9v2L9UbfK2WLpVmJBLpcS+qYnPPRWENGy
+   fhf+cVh0m+uWXSC+jYpudSND0EjzqGlXwUKQQdNfUe07zrrnAFogaFTr3
+   yguFr7+7rNo5KYMnvJLK+wS1QeNRnjHXGIls3YKPhMlD7EDUaBcZPmMRI
+   ZeH0Kq8jUvic8zdnU118YcZqg8i90905xzskLJ4Yvyx/jTEo5FLSkH5Zy
+   A==;
+X-CSE-ConnectionGUID: H1xBE4XyRwqDrcXHSdTukA==
+X-CSE-MsgGUID: THM2mKF7RlequMHpcGeCOg==
+X-IronPort-AV: E=Sophos;i="6.13,274,1732575600"; 
+   d="scan'208";a="41723421"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 10 Feb 2025 16:49:02 +0100
+X-CheckPoint: {67AA1FEE-1B-B8541F8F-E50F9B0E}
+X-MAIL-CPID: 3596EAA376F14855D334F1E93CC1918F_2
+X-Control-Analysis: str=0001.0A00636F.67AA1FF1.0017,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40786160ABD;
+	Mon, 10 Feb 2025 16:48:57 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1739202538;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FVUBiaoeWeksMfqaUXNGg5STI1bae+8Yqz5cnicePdE=;
-	b=qPV+niytIhYOhSM7bRzAb3GXPXTNY9jj6pj718SCdZX+U5XVSAcgRr1JLZodYs/9TFUSQt
-	jTYU6SV2RiLnrzyV2jZDlWgwA+0bquQFo03QwdnTXBDhwoYoe980wGtHj4QxOr06RT4DSt
-	8ddXsI2fpEn0ubX+eaF5UTWuqud2TYsdIroRau2Wndbgs7his95TPoNyABloBlr/7Xw/8B
-	bDKfEPenzMJSWoeKq9+icGVHgTD7Rkxg33pUjFZJJ/YkgFjPMFLrW73YmrnhMNCOtBBhkp
-	QAgElWCt1siSQL7Evu4w9YM3as5CrBCeEYAFvv9c01I61W2gqIxxSA/IPmg7IQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1739201945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FVUBiaoeWeksMfqaUXNGg5STI1bae+8Yqz5cnicePdE=;
-	b=JC0Ek3bSh7t7IktBNjUPgmVDll0jqwdgwkJ2nqdgT6WYgw2HTZbpzp2lOtqAK28AbE3d/0
-	9HFPIP14YS4FHwAQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Ben Segall <bsegall@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/9] arm: Rely on generic printing of preemption model.
-Message-ID: <20250210153902.06VTSS6d@linutronix.de>
-References: <20250203141632.440554-1-bigeasy@linutronix.de>
- <20250203141632.440554-4-bigeasy@linutronix.de>
- <20250210120429.iFfBClW1@linutronix.de>
- <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
+	bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=;
+	b=W6jP25cUKKQKO4dVA5Xu2nJmNQ5pXA8eVc1xaW2ifgRB1N51ZD9eXM8rz2bf4oOObaxU/m
+	D4U2/6Z98BNU5DLVe272MVsorHmmyJ775GgfWtTKHieZRiyqqBi7L63YIDYQgGIj1wJxHl
+	VX9HVC+/TdJqd8VRg+euR4jMk5F3ARbUtGWsu3QN5L3Zw+pUtKBk1nqpR/cnxHDmhkCNkb
+	3l3AsF+bJ93WMY1QFPTEMTYppCIZPfJvEtbkm0ygDUPuaL4sIchVLSy9HQnefyIrdz6ugh
+	DhaQ4/8oxxEGk+Vn/EJWvX1xINnXJ0Z1bz5xGWITg2p5t/3uK+jzigYck/1uxw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller references
+Date: Mon, 10 Feb 2025 16:48:56 +0100
+Message-ID: <2222299.irdbgypaU6@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com> <8037692.EvYhyI6sBW@steina-w> <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_073907_639178_6A04D6DD 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250210_074910_048322_624617CF 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +93,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-10 15:16:11 [+0000], Russell King (Oracle) wrote:
-> On Mon, Feb 10, 2025 at 01:04:29PM +0100, Sebastian Andrzej Siewior wrote:
-> > On 2025-02-03 15:16:26 [+0100], To linux-kernel@vger.kernel.org wrote:
-> > > __die() invokes later __show_regs() -> show_regs_print_info() which
-> > > prints the current preemption model.
-> > > Remove it from the initial line.
-> > > 
-> > > Cc: Russell King <linux@armlinux.org.uk>
-> > > Cc: linux-arm-kernel@lists.infradead.org
-> > > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > 
-> > Is it okay, to route this via the sched tree?
-> 
-> Sorry, its not obvious where show_regs_print_info() prints this.
-> dump_stack_print_info() itself doesn't directly. print_worker_info()
-> doesn't. print_stop_info() doesn't. Not sure whether print_scx_info()
-> does.
-> 
-> Maybe showing example output would help?
+Am Montag, 10. Februar 2025, 03:36:48 CET schrieb Peng Fan:
+> ********************
+> Achtung externe E-Mail: =D6ffnen Sie Anh=E4nge und Links nur, wenn Sie wi=
+ssen, dass diese aus einer sicheren Quelle stammen und sicher sind. Leiten =
+Sie die E-Mail im Zweifelsfall zur Pr=FCfung an den IT-Helpdesk weiter.
+> Attention external email: Open attachments and links only if you know tha=
+t they are from a secure source and are safe. In doubt forward the email to=
+ the IT-Helpdesk to check it.
+> ********************
+>=20
+> > Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-
+> > controller references
+> >=20
+> > Hi Peng,
+> >=20
+> > Am Freitag, 7. Februar 2025, 13:02:13 CET schrieb Peng Fan:
+> > > On Fri, Feb 07, 2025 at 09:36:09AM +0100, Alexander Stein wrote:
+> > > >Mark ocotp as a access-controller and add references on peripherals
+> > > >which can be disabled (fused).
+> > >
+> > > I am not sure whether gpcv2 changes should be included in this
+> > > patchset or not. Just add access-controller for fused IP will not wor=
+k.
+> >=20
+> > Well, I was able to successfully boot a i.MX8M Nano DualLite.
+> >=20
+> > > i.MX8M BLK-CTRL/GPC will hang if the related power domain is still
+> > > touched by kernel. The pgc can't power up/down because clock is
+> > gated.
+> >=20
+> > Well, with GPU node disabled, no one should enable the power domain.
+> > But to be on the safe side I would also add access-controllers to the
+> > corresponding power domains as well.
+> >=20
+> > > This comment also apply to i.MX8MM/P.
+> >=20
+> > Sure. Do you have any information what is actually disabled by those
+> > fused?
+> > It seems it's the IP and their power domains. Anything else?
+>=20
+> In NXP downstream there is a patch for  drivers/pmdomain/imx/imx8m-blk-ct=
+rl.c
+>=20
+> soc: imx8m-blk-ctrl: Support fused modules
+>    =20
+>     For fused module, its pgc can't power up/down and clock is gated.
+>     Because imx8m-blk-ctrl driver will pm_runtime_get_sync/pm_runtime_put
+>     all power domains during suspend/resume. So we have to remove the
+>     pgc and clock of fused module from blk-ctrl DTS node.
+>     Update the driver to support such case.
+>=20
+> But this patch also needs U-Boot to update device tree nodes,
+> I recalled that U-Boot will remove gpc nodes, but not update blk-ctrl nod=
+es.
 
-Patch 2/9 adds this. [ https://lore.kernel.org/all/20250203141632.440554-3-bigeasy@linutronix.de/ ]
+Does it work, if we add the access-controller as well for pgc_gpu3d
+on imx8mp? There is nothing in blk-ctrl AFAICS. But for VPU there is.
+Which clock needs to be removed there in case g1 is disabled?
 
-This this applied, die("test") on ARM ends as:
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-[    1.595106] Kernel panic - not syncing: test
-[    1.596044] CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W          6.14.0-rc2-00009-gb80a798df08c-dirty #13 PREEMPT 
-[    1.596768] Tainted: [W]=WARN
-[    1.596946] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
-[    1.597407] Call trace: 
-[    1.598183]  unwind_backtrace from show_stack+0x10/0x14
-[    1.599231]  show_stack from dump_stack_lvl+0x50/0x64
-[    1.599492]  dump_stack_lvl from panic+0x114/0x358
-[    1.599824]  panic from kernel_init+0x64/0x74
-[    1.600048]  kernel_init from ret_from_fork+0x14/0x38
-[    1.600349] Exception stack(0xdf829fb0 to 0xdf829ff8)
-[    1.600730] 9fa0:                                     00000000 00000000 00000000 00000000
-[    1.601102] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.601447] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-[    1.603163] ---[ end Kernel panic - not syncing: test ]---
 
-Sebastian
 
