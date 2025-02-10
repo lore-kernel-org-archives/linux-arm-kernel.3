@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0E1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D73C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mzwXH8QbzSf11HwOS0XSMdUPB1KhZbQyxtCgVUY5z2k=; b=UU0cZ8B9CXwzkT1ZxRDOYvoMvh
-	dHAhRetGmCEyABzqJQg8ahulE76tSb4wAR39vgBgt1plygtXdCLbgR9cr8azlEdHgZ0SQmAbCPL5L
-	WjA1dz4Wbv1QJVurzxnh2v50emKf5DAQL7UI/sJM3V/GYU/F7vQrhrVBfgK97SOSlvR5Rlzhow9Ao
-	u/+9jEzMAhBOAIPZTmSzqZsf0Wji9P+568qxNdPa0phVWosA0NYM7Wc6vNotsnbAl47NLaKmZmrH3
-	PSLrhEEVHiS/dZQLPwvEncwXgjuzfjuXH3L1SPZL8VAPW5O03PC+T/jbiBfm1IiUxi3PyhJFKQS1I
-	qKzzxzEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gG953z7ueTT2isakPmNv5Oysa5f49gi+YI1anmP4//M=; b=2dYRaAzpu08Y4jICSrBSE7nsSq
+	FJNhF41SLrDcQgZakyIWPNd+pBnJFXi5ByV6BCnBcY79ZVaAAdT0Z5HI+mXGa/lzXMkgwxGFsygiD
+	nd67QvP09ClXirRfQ9betk74FJ3BGZUhl5s7V8ebRu5RJG59b8xhp3XUn8LO6ZnvFu3Oa+SsHWUwq
+	YAoj71QwZuvVsR8LR91/7LxdeFfmy+5nOYwDGGkwU081WOE7pa3lF+j5MxaC97QGme59oMgdq+MGK
+	+LQ+0KM5WC4xSuRsMFVeK+H633bowy0HuYbgj9YoOrB0i8Q0Va9pXLGdQIUE1oN2AwYPLDJzkluvY
+	lWN1NpEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thU0i-0000000Hatv-07ms;
-	Mon, 10 Feb 2025 13:39:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thU25-000000000B7-05sO;
+	Mon, 10 Feb 2025 13:41:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTkh-0000000HWsj-2YRZ;
-	Mon, 10 Feb 2025 13:23:09 +0000
+	id 1thTlP-0000000HX4F-2W6r
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 13:23:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 21D965C1D24;
-	Mon, 10 Feb 2025 13:22:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CD1EC4CED1;
-	Mon, 10 Feb 2025 13:23:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739193786;
-	bh=oWx4BAP0EIg5C3iG442czeJGEBApEjEuVZ9EtETXvmg=;
-	h=Subject:To:Cc:From:Date:From;
-	b=BU+BhwneE0E6i/EgwS7HzVSFhkzBfYyYjICBsTDVgmUmynDgnLBvQYusT/zc1RSSW
-	 n3kddiI7bPvlrH4bUDKAetCz30NT0LPPy14286G1GTQ40d0GdFbBl2rifkSChoVFQq
-	 +gMpNHAgvy31JNrq4AgowvBeKfTWzudcXanUEUfs=
-Subject: Patch "drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()" has been added to the 5.4-stable tree
-To: andy.yan@rock-chips.com,dri-devel@lists.freedesktop.org,gregkh@linuxfoundation.org,groeck@chromium.org,heiko@sntech.de,hjc@rock-chips.com,linux-arm-kernel@lists.infradead.org,linux-rockchip@lists.infradead.org,tzimmermann@suse.de,zyw@rock-chips.com
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 10 Feb 2025 14:22:46 +0100
-Message-ID: <2025021046-opal-phoniness-65b3@gregkh>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 59FA65C569D;
+	Mon, 10 Feb 2025 13:23:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CCA0C4CED1;
+	Mon, 10 Feb 2025 13:23:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739193830;
+	bh=Y3VnAjPcpvtraPLxFVav8kpsZk6gHNCgxWi8l3iTFmE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=INz2PkzdF3dydAUsheI8aeft2xxJ+B7mQw9D0MLNqlf0zXGx26unNWV7PP+NQfzjG
+	 2L2sRIfK2BKLo86SxJmXSi8yNkzko2BHHIuYYeLg9EGE/McmwSXKPsMqg9n+VYhf2k
+	 Cg18HM8JVLu+SXg+7Umx7NTSLOx9TXuZ7UDzlV/TXQfVg9BclrzEWT9eve+FG4AG1p
+	 jo5cHjxM30wtfrvjRQiTf1oquOI8VmHjDp3+U8QNpFBCxY850z8g001ehO7nW1eIO6
+	 DX9FEsHVa5RFEoXF3/P+DCDvqJFM7THfv1lTEoAuj9v+LfNWff+kkc568hsbiHhemr
+	 bWalo2X5W3TdQ==
+Date: Mon, 10 Feb 2025 13:23:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Subject: Re: [PATCH for-6.14 v4 0/2] Add more devm_ functions to fix PM
+ imbalance in spi/atmel-quadspi.c
+Message-ID: <e0087d48-c8d2-45c5-ab28-78879a07eb22@sirena.org.uk>
+References: <20250210111008.248929-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JSVsPF+JhA2IRy98"
+Content-Disposition: inline
+In-Reply-To: <20250210111008.248929-1-csokas.bence@prolan.hu>
+X-Cookie: A beer delayed is a beer denied.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_052307_748019_9B78DD7D 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250210_052351_680958_F6B7FA70 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,102 +69,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Len Brown <len.brown@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-pm@vger.kernel.org, Alexander Dahl <ada@thorsis.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, Pavel Machek <pavel@ucw.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Varshini Rajendran <varshini.rajendran@microchip.com>, Danilo Krummrich <dakr@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-This is a note to let you know that I've just added the patch titled
+--JSVsPF+JhA2IRy98
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-    drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
+On Mon, Feb 10, 2025 at 12:10:05PM +0100, Bence Cs=F3k=E1s wrote:
 
-to the 5.4-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+> Bence Cs=F3k=E1s (2):
+>   pm: runtime: Add new devm functions
+>   spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
 
-The filename of the patch is:
-     drm-rockchip-cdn-dp-use-drm_connector_helper_hpd_irq_event.patch
-and it can be found in the queue-5.4 subdirectory.
+Since you've not copied me on the PM patch I'm not sure what the story
+is with getting that merged.  I'd not expect new APIs to be merged as
+part of a fix, but perhaps the APIs are small enough?
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+--JSVsPF+JhA2IRy98
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-From 666e1960464140cc4bc9203c203097e70b54c95a Mon Sep 17 00:00:00 2001
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Date: Tue, 5 Nov 2024 14:38:16 +0100
-Subject: drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmep/eAACgkQJNaLcl1U
+h9C+PAf7BUluKVL8LhJBrCwdsziAE82+ORU8+jWviBfZfMhtV4lOsA5LDeq9L3rZ
+D4vzWJunEcCFBqVQRYRFUtQTN0BvpqG2ELaEgZzKkkaP9J7PY7aFuNu1YBMwVYhk
+BhkjzKr8RDcpkwaPLY2telDFB0Zb7N1/bzln1Q4QGWFl/f+xBj6W8k/7nQeGXmWb
+hxbsesr6VLxSI8DwKJXZCYQYh1vtd1N8b01WYXfwA8yEJTlQzT+6Qw74F9T3ZbbG
+OE0W8Ukd3VQHi+Z4XYdWrJM+CHqeApw34hR/whxnw9lhWUyVGX6q6CZJKKC01kRu
+1Xi51tdbGeQW10KUD13OJKo83xOTDA==
+=85Yu
+-----END PGP SIGNATURE-----
 
-From: Thomas Zimmermann <tzimmermann@suse.de>
-
-commit 666e1960464140cc4bc9203c203097e70b54c95a upstream.
-
-The code for detecting and updating the connector status in
-cdn_dp_pd_event_work() has a number of problems.
-
-- It does not aquire the locks to call the detect helper and update
-the connector status. These are struct drm_mode_config.connection_mutex
-and struct drm_mode_config.mutex.
-
-- It does not use drm_helper_probe_detect(), which helps with the
-details of locking and detection.
-
-- It uses the connector's status field to determine a change to
-the connector status. The epoch_counter field is the correct one. The
-field signals a change even if the connector status' value did not
-change.
-
-Replace the code with a call to drm_connector_helper_hpd_irq_event(),
-which fixes all these problems.
-
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
-Cc: Chris Zhong <zyw@rock-chips.com>
-Cc: Guenter Roeck <groeck@chromium.org>
-Cc: Sandy Huang <hjc@rock-chips.com>
-Cc: "Heiko Stübner" <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: <stable@vger.kernel.org> # v4.11+
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c |    9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
-
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -917,9 +917,6 @@ static void cdn_dp_pd_event_work(struct
- {
- 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
- 						event_work);
--	struct drm_connector *connector = &dp->connector;
--	enum drm_connector_status old_status;
--
- 	int ret;
- 
- 	mutex_lock(&dp->lock);
-@@ -981,11 +978,7 @@ static void cdn_dp_pd_event_work(struct
- 
- out:
- 	mutex_unlock(&dp->lock);
--
--	old_status = connector->status;
--	connector->status = connector->funcs->detect(connector, false);
--	if (old_status != connector->status)
--		drm_kms_helper_hotplug_event(dp->drm_dev);
-+	drm_connector_helper_hpd_irq_event(&dp->connector);
- }
- 
- static int cdn_dp_pd_event(struct notifier_block *nb,
-
-
-Patches currently in stable-queue which might be from tzimmermann@suse.de are
-
-queue-5.4/drm-rockchip-cdn-dp-use-drm_connector_helper_hpd_irq_event.patch
-queue-5.4/m68k-vga-fix-i-o-defines.patch
+--JSVsPF+JhA2IRy98--
 
