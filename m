@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DE6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F730C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtTBVwp4J9apExhc56rvDYwcShHHaMo1N7lDCxauzzY=; b=d/3BVpgMYv2jApvlRGc5v7cxFU
-	UOs7I4TFQFhjr88aOGTNnFwToN7pp28WYgBVz53YB+bpDaifI0PfBjEGKPfsrx3e9JhqL4dB+k3Ct
-	919fo+umEwe9sPxGA2YxjzHxMHHW91krKuqhYuQzK3IDwHl+gfgxPCqt9neipRnuRcMOGWL6r/DZf
-	lsrchRKxKC82JhGp7YtNONcsvLTuwzbvBVs5Bu2jMnS/UGIjF8Uxc6TtD1t7W0XhwX87mqHs4S0d+
-	7LDBnu7T/4kZ/aAtYG80A1YBBvYJCxGrLzv9YA7ayt1r3RNoRV2T4v2d7ZbarFbYCNPn2Vr/fRvw9
-	yoSt3beQ==;
+	bh=Gmrlu3nc02d+jWxj8+i6q0M+l8i8yQBkmFLjW9PKKPQ=; b=albjUaTBrJNK5t87VPA04wX2Z8
+	X1ExqRoDZSW+D/PzgQhiwvZFqn5p373quDoracv1w8NH9XuNkhntCA7b5ChfFMCmbTDYcB3I++xJO
+	QOLC++O6Mns5GJeFTrC3A+7NZRYzB/YV662wFN+saYhb7bVKZFLY3jPBk1NekB68NxXbfTbaS81b7
+	UMZdHz/DPdruPoJSSoWTzIVOcXE6hrl1jkUGcFp1dds9n2fxUD9YLFXf84XDPXi+QBFuaDnewAX0/
+	ArestLSFBZpYv+VJcUQ//ld+xX9TQapLnv29g2C2drn0t2i54d9O6AZpmBvNIPaUSOQYJgsuCGc/l
+	Rr5+9xPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRr8-0000000HCCJ-3K0C;
-	Mon, 10 Feb 2025 11:21:38 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1thRsV-0000000HCM3-1x4o;
+	Mon, 10 Feb 2025 11:23:03 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRXf-0000000H7lu-1VQz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:01:32 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-545097ff67cso1121950e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 03:01:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739185289; x=1739790089; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GtTBVwp4J9apExhc56rvDYwcShHHaMo1N7lDCxauzzY=;
-        b=v+g+mjWSenueBQgyn5ouB1GwAHzuwzUchm4uWMsOhZqH6MU7z5woS3ixCUiMTiO5Zr
-         a26OOIS0CH1VocwUJNnSh3HdY9fqZ/DarUImoIYXdeD2uofojgpxpGyZp+3nWO2iK4cF
-         nOg2zL097JgMcy9aOpM0R0rZWE0Q7fsHAT/K2aQt4pCWwZqRAAtnTTWOVb7zuGxUae1v
-         HUXVuyf7R0gOXBHWVIDl3RtKZg6QDZFu4rhRmFZ15BSM0FnGHldImsHxHmH/dZKoI+ND
-         fz5VOEBzylMUM03n+LV36j7ctnUBGxEM4BIzoHTkCoDv7D5uQo5OV4DwmYhg8H9TEYyL
-         1r4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739185289; x=1739790089;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GtTBVwp4J9apExhc56rvDYwcShHHaMo1N7lDCxauzzY=;
-        b=kQYLxSOf2ppQSHenMrmQ6gEOJiMYgRvimO5xA7rp1NzhJaL6kDYhbJiS9J7A7MilqB
-         APQOu01GVrYLTmafm5auLKEq+29NzG/EQh64PIYAS4+/IhMWwaeuCd5hJIYSAVdsNh+9
-         ETw8Zxd0x0KXLA9/inofX0lbhLFU1GClrGFI03FSMfReLLaqtIuBa8iIFxjzVhehP/Tg
-         Kp1kKVK/8UYtXahtwetcXSdx+fhPrLjugV9FqUARyfRxqKxLLc93Nho6Id5pCVpduwE2
-         zzT592xtZJjmanx54J21UsDtGYp7fuMuvt680PgCSsppU9TnxqB0qgeYXFXDyKWJY3Ks
-         77rg==
-X-Forwarded-Encrypted: i=1; AJvYcCVnX/QC9JdbdQYETZLdTchp+C3gcwt5hn96MFu5d4dqy8qgwod4+zESZMACC4z1c9e3hSxp7WGlU07YvfQMR7bU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJz1Ps1PJGHmaHYs+wFhvLpzl15JVeC+eWhiKrl30CZ3yg5mY6
-	o1ZT/OuJUqkiQGKzUVisuFwNuW84e2HJe3H85RX/LsqUnMgMrsCv2eUUJ5hspkw=
-X-Gm-Gg: ASbGncvw4M6YlrDe9g8gFDwyWaFdwr8gMYTzngjieVyHdWqtN/SRMUNV2dlHiPf5DZw
-	iiS2F/bAeFSlsxtiE+8L9+opJHulHIEq9bDwSDMOIpG2vNmdQ8no08Vc1sxEFZ2Et/CEJpGNlap
-	Zz++awbBjuRqHqLix0ASlms+8GADDLlaLeLG/cTW9MDFImJHy9Sxt1+7Spv0Y5IVmdexz+aqXRo
-	tn2EeYLSxpc02WApSpQzvTO5q+Gtxyln3szVCIKNX3U8/wA82AEe4hxtIzGN55EfTxlzVgktlr7
-	g57RlwFOIPf1JPr+UlfdWnidqKdlfHai1TtQkbo6we/aJIrczpc30/CjfGxd1xNGJIKp7X8=
-X-Google-Smtp-Source: AGHT+IESGWlTJg2cuv8Kgo6v/dDQZjg10SE7StQf8S4vcvj1tAiGKln4CJ/xT6Y54Ae/tQTmSnk31g==
-X-Received: by 2002:a05:6512:4022:b0:545:ae6:d740 with SMTP id 2adb3069b0e04-5450ae6d79amr1090753e87.41.1739185289056;
-        Mon, 10 Feb 2025 03:01:29 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5450c0823acsm321386e87.118.2025.02.10.03.01.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 03:01:28 -0800 (PST)
-Date: Mon, 10 Feb 2025 13:01:27 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Pratyush Brahma <quic_pbrahma@quicinc.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
- gfx_smmu
-Message-ID: <464vbzwgv44fn4iw5vj5yzpstzhcsb7rzuedf4fwl23hmdhews@d4q33ro6hxq3>
-References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
- <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+	id 1thRYH-0000000H7xI-2VSo;
+	Mon, 10 Feb 2025 11:02:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E7C643158;
+	Mon, 10 Feb 2025 11:02:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739185326;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Gmrlu3nc02d+jWxj8+i6q0M+l8i8yQBkmFLjW9PKKPQ=;
+	b=N73WP17z6Ic2ftM721SqQ5LZBUU2XcrnIDnXt45t7Qsp64VKrWg5vBZdI/F7GnGLZaZgmy
+	zePYcj8MDBlTyj9rSSTq9T/dbWeNFZ8HtdZnAHFA7OKAh9lFWDtdO7EoYdRXk/r5sPHcEN
+	nIWeKshIl1699eaP//L+A8w9+XJBwQftxS9VpUCYtM6vRZTzxke6VsgyhU5iNaIFL16pkQ
+	tvhMOBf8jNpYxUlNnMXltyOOk5X3l2zpBT+Amhm9Gyk0QtXNi2Lad2wfqQu+RHsDoXTbv1
+	15Zf21A1IPMf5vptTCTxiN1Z+J7OOpQynMvh7/qvev4nJ570AswZ7z2LZ2PIew==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Jisheng Zhang <jszhang@kernel.org>,
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+ Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Date: Mon, 10 Feb 2025 12:01:56 +0100
+Message-ID: <2379380.ElGaqSPkdT@fw-rgant>
+In-Reply-To: <20250209013054.816580-4-inochiama@gmail.com>
+References: <20250209013054.816580-1-inochiama@gmail.com>
+ <20250209013054.816580-4-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+Content-Type: multipart/signed; boundary="nextPart4980893.GXAFRqVoOG";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefjeeklecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesr
+ hgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_030131_403512_660047FC 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250210_030210_095777_83A099EA 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,77 +98,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 11:17:02AM +0530, Pratyush Brahma wrote:
-> Add the device node for gfx smmu that is required for gpu
-> specific address translations.
-> 
-> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> index 4a057f7c0d9fae0ebd1b3cf3468746b382bc886b..7a8211bec139375b5aab939f123d88fca7aceff2 100644
-> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> @@ -2674,6 +2674,45 @@ gpucc: clock-controller@3d90000 {
->  			#power-domain-cells = <1>;
->  		};
->  
-> +		adreno_smmu: iommu@3da0000 {
-> +			compatible = "qcom,qcs8300-smmu-500", "qcom,adreno-smmu",
-> +				     "qcom,smmu-500", "arm,mmu-500";
-> +			reg = <0x0 0x3da0000 0x0 0x20000>;
-> +			#iommu-cells = <2>;
-> +			#global-interrupts = <2>;
+--nextPart4980893.GXAFRqVoOG
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+Date: Mon, 10 Feb 2025 12:01:56 +0100
+Message-ID: <2379380.ElGaqSPkdT@fw-rgant>
+In-Reply-To: <20250209013054.816580-4-inochiama@gmail.com>
+MIME-Version: 1.0
+
+Hello Inochi,
+
+On dimanche 9 f=C3=A9vrier 2025 02:30:52 heure normale d=E2=80=99Europe cen=
+trale Inochi=20
+Amaoto wrote:
+> Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
+=2E..
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> @@ -0,0 +1,105 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Sophgo DWMAC platform driver
+> + *
+> + * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
+> + */
 > +
-> +			interrupts = <GIC_SPI 672 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 678 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 679 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 680 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 681 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 682 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 683 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 684 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 685 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 686 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH>;
+> +#include <linux/bits.h>
+
+It doesn't look like this include is used, could you please remove it?
+
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/phy.h>
+> +#include <linux/platform_device.h>
 > +
-> +			clocks = <&gpucc GPU_CC_CX_GMU_CLK>,
-> +				 <&gpucc GPU_CC_HUB_CX_INT_CLK>,
-> +				 <&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
-> +				 <&gcc GCC_GPU_MEMNOC_GFX_CLK>,
-> +				 <&gcc GCC_GPU_SNOC_DVM_GFX_CLK>,
-> +				 <&gpucc GPU_CC_AHB_CLK>,
-> +				 <&gpucc GPU_CC_HUB_AON_CLK>;
+> +#include "stmmac_platform.h"
 > +
-> +			 clock-names = "gcc_gpu_memnoc_gfx_clk",
-
-Stray whitespace after the Tab symbol
-
-> +				       "gcc_gpu_snoc_dvm_gfx_clk",
-> +				       "gpu_cc_ahb_clk",
-> +				       "gpu_cc_hlos1_vote_gpu_smmu_clk",
-> +				       "gpu_cc_cx_gmu_clk",
-> +				       "gpu_cc_hub_cx_int_clk",
-> +				       "gpu_cc_hub_aon_clk";
-
-clocks and clock-names do not match.
-
-> +			power-domains = <&gpucc GPU_CC_CX_GDSC>;
-> +			dma-coherent;
-> +		};
+> +struct sophgo_dwmac {
+> +	struct device *dev;
+> +	struct clk *clk_tx;
+> +};
 > +
->  		pmu@9091000 {
->  			compatible = "qcom,qcs8300-llcc-bwmon", "qcom,sc7280-llcc-bwmon";
->  			reg = <0x0 0x9091000 0x0 0x1000>;
-> 
-> -- 
-> 2.34.1
-> 
+> +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed,
+> unsigned int mode) +{
+> +	struct sophgo_dwmac *dwmac =3D priv;
+> +	long rate;
+> +	int ret;
+> +
+> +	rate =3D rgmii_clock(speed);
+> +	if (rate < 0) {
+> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
+> +		return;
+> +	}
+> +
+> +	ret =3D clk_set_rate(dwmac->clk_tx, rate);
+> +	if (ret)
+> +		dev_err(dwmac->dev, "failed to set tx rate %lu: %pe\n",
 
--- 
-With best wishes
-Dmitry
+nit: shouldn't this be "%ld"?
+
+> +			rate, ERR_PTR(ret));
+> +}
+> +
+> +static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
+> +				    struct plat_stmmacenet_data *plat_dat,
+> +				    struct stmmac_resources *stmmac_res)
+> +{
+> +	struct sophgo_dwmac *dwmac;
+> +
+> +	dwmac =3D devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+> +	if (!dwmac)
+> +		return -ENOMEM;
+> +
+> +	dwmac->clk_tx =3D devm_clk_get_enabled(&pdev->dev, "tx");
+> +	if (IS_ERR(dwmac->clk_tx))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+> +				     "failed to get tx clock\n");
+> +
+> +	dwmac->dev =3D &pdev->dev;
+> +	plat_dat->bsp_priv =3D dwmac;
+> +	plat_dat->flags |=3D STMMAC_FLAG_SPH_DISABLE;
+> +	plat_dat->fix_mac_speed =3D sophgo_dwmac_fix_mac_speed;
+> +	plat_dat->multicast_filter_bins =3D 0;
+> +	plat_dat->unicast_filter_entries =3D 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sophgo_dwmac_probe(struct platform_device *pdev)
+> +{
+> +	struct plat_stmmacenet_data *plat_dat;
+> +	struct stmmac_resources stmmac_res;
+
+nit: I think adding "struct device *dev =3D &pdev->dev;" here would
+be better than repeating "&pdev->dev" later on.
+
+> +	int ret;
+> +
+> +	ret =3D stmmac_get_platform_resources(pdev, &stmmac_res);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "failed to get resources\n");
+
+This error message is a bit too vague, maybe replace it with "failed to get=
+=20
+platform resources"?
+
+> +
+> +	plat_dat =3D devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> +	if (IS_ERR(plat_dat))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
+> +				     "dt configuration failed\n");
+
+This error message is a bit misleading IMO, I would replace it with
+something like "failed to parse device-tree parameters".
+
+> +
+> +	ret =3D sophgo_sg2044_dwmac_init(pdev, plat_dat, &stmmac_res);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+> +}
+> +
+> +static const struct of_device_id sophgo_dwmac_match[] =3D {
+> +	{ .compatible =3D "sophgo,sg2044-dwmac" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sophgo_dwmac_match);
+> +
+> +static struct platform_driver sophgo_dwmac_driver =3D {
+> +	.probe  =3D sophgo_dwmac_probe,
+> +	.remove =3D stmmac_pltfr_remove,
+> +	.driver =3D {
+> +		.name =3D "sophgo-dwmac",
+> +		.pm =3D &stmmac_pltfr_pm_ops,
+> +		.of_match_table =3D sophgo_dwmac_match,
+> +	},
+> +};
+> +module_platform_driver(sophgo_dwmac_driver);
+> +
+> +MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
+> +MODULE_DESCRIPTION("Sophgo DWMAC platform driver");
+> +MODULE_LICENSE("GPL");
+
+Thanks,
+
+=2D-=20
+Romain Gantois, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+--nextPart4980893.GXAFRqVoOG
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmep3KQACgkQ3R9U/FLj
+284HFg/+MKQUhhxOK5sTw8hghie4GbpkSvYhWBC7tuehA03Yc5WCIwmWrOG5wf1+
+xz9SLOp7IGs6gDtwXnC57LgTzaRuXEXtc1ZiWgjsnj/xnFGcNV5WGGtCGiRApP+L
+D3zxA/D+F7dTaFeGxmxk8T0aEd1sMHER4StQbPMxw3troHOBnVbNxbwXAgsxyTug
+8JcGrzp9i5q6Mdir9hfPywTwObPLzEormthGiAF/qo9GkB2X1nM7Fo6gk3laKCk6
+ukzNymMUp/XTAE3xRzpNG3qSH8G08YF7b5HqXXVXb7iV1EMnW63bP9t9XK32mS8z
+J04i/CHgFF1CTepv7/a0ZqQlvq5JhgPVUDnS/NFEnZ0Wb1k6g2+jlt02Hgl7lLUQ
+iCVbL3aFWaSuo9LL8EQfuQaqZS60v0a5ZIyZq1AtMh0KKT5xnIdmBA54bpIWq57y
+LvxHSHTNASAJgS8uBeJSH1s/2MrBU85LAFLjy07nvYEpk0dtN3Uoa9Vtxm2C3iet
+g4EFwNy7Uq9ok1c0GPX3cWhW6dQ+L77Hz/5m1jHhU4vnDCsrDjv/14b4mJ6CqvfF
+8NL56IidEjAVzBx18wh0rZMkZzZtoylqMa7rcPS7Nmt4l4WVK86wDA4DJAAG5CXU
+TXHuFqKW1rDwokkhRUYgHPBLuiYbjWTFQhGYA+weLW/8n4AecbE=
+=7ZQB
+-----END PGP SIGNATURE-----
+
+--nextPart4980893.GXAFRqVoOG--
+
+
+
 
