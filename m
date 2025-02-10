@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB93C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B58C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtKdGCmuQba4xz4Q1ol+VDvF7rgjIz28hjlDE8JNUn4=; b=KRtX2+Qkhq9LyO42Tg24iFTPBW
-	cBHY3XdMSOuZDZhm4SuEwzvQwKcRULMU3rofc0vhdYsv340jxXXEwCxMp/UJH6g7Lqg0AJdD0zrX1
-	Lm6gTnTTZKmpaUpfqkO4idHm49yVPMR22xbsaUJu7rBk7tP25s7GzQ4mMvUoo8dkLGpTzTyxFRMjY
-	ze4G4TSX/zJETDFjK/EinRZUg9N6cQFK0OylMLcaD5ohttajrrYgRTpwm+2S5QQbY38ps4oUS9isa
-	cLltfXgytY1GvcxTArJ3NKpUDICVCV6wdhdTf1nC1cCgfNuCEZvW9jAu4Sl8rZhvfZnLdmxUfs3FL
-	FMNzTJog==;
+	bh=K4hcd5p1OATgqYTmoPCcHRGQ0r0fkeJOwBq+RIFNkL8=; b=y30KQhZSr7WDaJ63yDssHDwOWE
+	Dt1v+waDfPDMvHCYp8dLfWSCThAO+QgaGhbxbGPdKXoZvlI7VzXk1fY8o7csvvY/C4xYJzFaLcJYE
+	Lehhw3kO17+ZtDPbDVsNsjo4WpxHtGisiLYV8m+8FlSnVh3bJoVJ7s4PQT5fifOPC2Cpmkf7mLuZT
+	bJGwL4WopMh5x0kw4knuD482DK8Sk0SoQkm+BhedMAc+TU1G44mVzBzQHcqEA1akEUY9k6bGuCv+3
+	uP0hYJ+9t+aTpJc4cnvt2i05iBQjdUqCsAYPM7OEmZ7xb0gVpfkivCSJcQI1f/b4gmHaAqGdLCJau
+	HtJphZeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWkv-00000000XYK-1s9S;
-	Mon, 10 Feb 2025 16:35:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thWmI-00000000Xmj-0GFr;
+	Mon, 10 Feb 2025 16:36:58 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWjW-00000000XIa-0WMH
+	id 1thWk2-00000000XPr-0Ddf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:34:07 +0000
+	Mon, 10 Feb 2025 16:34:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA0275C2750;
-	Mon, 10 Feb 2025 16:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB4BC4CED1;
-	Mon, 10 Feb 2025 16:34:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AB0B5A41A87;
+	Mon, 10 Feb 2025 16:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81655C4CEDF;
+	Mon, 10 Feb 2025 16:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739205245;
-	bh=ypPI17tsQZJ+km5A1XxVr29qienQSziXYMYp0ksACRE=;
+	s=k20201202; t=1739205276;
+	bh=TlIWjQGJKlEBYE9A3vQa414cBX1UvKjrazPd6Ba6uv4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UbOAsLYbiPDE6IFDnojp9BT7SnzxEB0k4y8Gx/Svk6KcuRA1k7MSlL6OqBePE5pZh
-	 ySqQaoBi0SE09abNaCF1a7/fiigSXGwH25hFaURTqp2GbnNFdEbln50QVCbf3m+upp
-	 2NbxQSXcrc2i6tlRX/HG6iB8yAiZbWImA7PF/5Rbq+Q54UR+5EWm7XXYkYnt8ojPep
-	 jrnnpDqf0zbexT37ShYnK4LId2LeH9Pe+UyditJy5p+X+uy58+Ojt6ZCwV47QjdYu1
-	 ytnMly3T/kptepApjA0OYMFUCgahrWZUvQskboDowaB+TGCb94BBp7Ft6XWD5hMXC0
-	 RNs7Yji3cEKDA==
-Date: Mon, 10 Feb 2025 16:33:59 +0000
-From: Lee Jones <lee@kernel.org>
-To: Artur Weber <aweber.kernel@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v3 4/7] mfd: bcm590xx: Add compatible for BCM59054
-Message-ID: <20250210163359.GA1868108@google.com>
-References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
- <20250131-bcm59054-v3-4-bbac52a84787@gmail.com>
- <20250207084852.GC7593@google.com>
- <bc9df0fe-ff2b-439b-a434-b6b88ee8e25c@gmail.com>
+	b=HsZEiMhYOaUB4/c+LRVfXW8h1xWWk929xFW7Vqyq7hrl+8CI75VtkgQtRsmP9+8++
+	 bKGKUpQKMxxErAIT4vKvgYMPXXG9GmxZ9Rh7yeAYdFHrwIEftdOhm/W/xutFpjiiLH
+	 C9yLrsmcNFXtWJA7mD4mlG3PZL0lKPlrDXdzl2I1+nKlUH4ONGw0rK8RO54wVM2JSd
+	 Cz6YUJxZC13lvt2QGLSLVVIuH4np1El0WLeAVzIGPHsDkzjMwVpQ0NRQ0ce1+eaUR9
+	 ffwDbn9s5e1CUldv8IKxTvRy/15huhkC/q7D246M61WZxEu8b9DX4xgy0DiqCjiqbv
+	 TvrxwogMAPDEw==
+Date: Mon, 10 Feb 2025 16:34:31 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
+	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
+	tabba@google.com, wilco.dijkstra@arm.com
+Subject: Re: [PATCH v2 5/8] KVM: arm64: Refactor CPTR trap deactivation
+Message-ID: <20250210163429.GF7568@willie-the-truck>
+References: <20250206141102.954688-1-mark.rutland@arm.com>
+ <20250206141102.954688-6-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <bc9df0fe-ff2b-439b-a434-b6b88ee8e25c@gmail.com>
+In-Reply-To: <20250206141102.954688-6-mark.rutland@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_083406_202210_575FB44B 
-X-CRM114-Status: GOOD (  27.47  )
+X-CRM114-CacheID: sfid-20250210_083438_214341_B3A524DC 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Feb 2025, Artur Weber wrote:
-
-> On 7.02.2025 09:48, Lee Jones wrote:
-> > On Fri, 31 Jan 2025, Artur Weber wrote:
-> > 
-> > > The BCM59056 supported by the bcm590xx driver is similar to the
-> > > BCM59054 MFD. Add a compatible for it in the driver, in preparation
-> > > for extending support of this chip in the bcm590xx regulator driver.
-> > > 
-> > > Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
-> > > ---
-> > > Changes in v3:
-> > > - Fix compilation warning about device_type pointer cast type
-> > > - Name the device types enum and use it as the type in the MFD struct
-> > > ---
-> > >   drivers/mfd/bcm590xx.c       | 6 +++++-
-> > >   include/linux/mfd/bcm590xx.h | 7 +++++++
-> > >   2 files changed, 12 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
-> > > index 8b56786d85d0182acf91da203b5f943556c08422..23036157480e0116301bfa93932c92f5a80010ea 100644
-> > > --- a/drivers/mfd/bcm590xx.c
-> > > +++ b/drivers/mfd/bcm590xx.c
-> > > @@ -50,6 +50,9 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
-> > >   	bcm590xx->dev = &i2c_pri->dev;
-> > >   	bcm590xx->i2c_pri = i2c_pri;
-> > > +	bcm590xx->device_type = \
-> > > +			  (uintptr_t) of_device_get_match_data(bcm590xx->dev);
-> > 
-> > Why are you dividing pointers with each other?
+On Thu, Feb 06, 2025 at 02:10:59PM +0000, Mark Rutland wrote:
+> For historical reasons, the VHE and nVHE/hVHE implementations of
+> __activate_cptr_traps() pair with a common implementation of
+> __kvm_reset_cptr_el2(), which ideally would be named
+> __deactivate_cptr_traps().
 > 
-> That's not division, it's a line continuation (note the space before
+> Rename __kvm_reset_cptr_el2() to __deactivate_cptr_traps(), and split it
+> into separate VHE and nVHE/hVHE variants so that each can be paired with
+> its corresponding implementation of __activate_cptr_traps().
+> 
+> At the same time, fold kvm_write_cptr_el2() into its callers. This
+> makes it clear in-context whether a write is made to the CPACR_EL1
+> encoding or the CPTR_EL2 encoding, and removes the possibility of
+> confusion as to whether kvm_write_cptr_el2() reformats the sysreg fields
+> as cpacr_clear_set() does.
+> 
+> In the nVHE/hVHE implementation of __activate_cptr_traps(), placing the
+> sysreg writes within the if-else blocks requires that the call to
+> __activate_traps_fpsimd32() is moved earlier, but as this was always
+> called before writing to CPTR_EL2/CPACR_EL1, this should not result in a
+> functional change.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
 
-The space is irrelevant in C.
+[...]
 
-> "\") - had to insert it for the line to fit in 80 characters. Though
-> admittedly, there's probably a better way to do this than to force it
-> with "\"...
+> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> index 7a2d189176249..5d79f63a4f861 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+> @@ -39,6 +39,9 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+>  {
+>  	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+>  
+> +	if (!guest_owns_fp_regs())
+> +		__activate_traps_fpsimd32(vcpu);
+> +
+>  	if (has_hvhe()) {
+>  		val |= CPACR_EL1_TTA;
+>  
+> @@ -47,6 +50,8 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+>  			if (vcpu_has_sve(vcpu))
+>  				val |= CPACR_EL1_ZEN;
+>  		}
+> +
+> +		write_sysreg(val, cpacr_el1);
+>  	} else {
+>  		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
+>  
+> @@ -61,12 +66,34 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+>  
+>  		if (!guest_owns_fp_regs())
+>  			val |= CPTR_EL2_TFP;
+> +
+> +		write_sysreg(val, cptr_el2);
+>  	}
+> +}
+>  
+> -	if (!guest_owns_fp_regs())
+> -		__activate_traps_fpsimd32(vcpu);
+> +static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
 
-You do not need to escape the line break in C-functions.
+nit: You could lose the local if you used vcpu_has_sve(vcpu) instead.
 
-> I will clean this up in the next version.
+However, given that this gets removed _anyway_ when we eagerly switch
+ZCR later on:
 
-You can use up to 100-chars these days, so you don't need the break at
-all.  However, if you insist on keeping to the old 80-char rule, you can
-just omit the escape char.
+Acked-by: Will Deacon <will@kernel.org>
 
--- 
-Lee Jones [李琼斯]
+Will
 
