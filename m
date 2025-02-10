@@ -4,194 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C98AC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB96C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=02NwbrV5TuiFUi09yAqlqCT/IIaJiiuf7J6gjxrVWAo=; b=lW+DmYi3tEAwr+XwibpM5LY76J
-	0cDTMONDG/znd8tjxLFUJ4rYUE+Oc2xYvBCESZoNLU38Yw6SDXmhZPTn+Hf/DchLWgUn/ETqhrd5A
-	4Pi7JnqXmYVQUUfSbJ9FOE+rKunJD4hwYJrfUHK7ddFnSA4is5GRdSlYbvtaV8CLLjT2rkiSt+o/S
-	vAe6EwINlC9W2EoK/wE5RYwD+VK5dIRKdr2CWPEEttvcO1RbsncRqi6v11zX+iAzjG3JtK8mXCW55
-	X47psA7e5SmYhLPpEYWoQcilHXhiU9qoqyU+xlE4NXNZMESaVTAuBI5txQtfmjZryF1TgWAJd4Uhe
-	kZL/RiIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BjxGcZGgbTw2rXhcQe0xTXiOGkjk4V+jo19rYFPocYg=; b=xVQakYZy0u1ScvIM6iEVdW1J8+
+	WAGAJa7/RFXEMvbc6ulN7PGWxnQsQizMwrxx98/wLDx4O7KBggoB0Ogw6A/V58QdEwsbVxCOYHipZ
+	S0ajEkRtXoMvFOaaI7JfyEzVZvku2NGTRdU4Ij7PIG6ypLNhP0N+nNzK43NbByEn2KqCPL5NQ1emW
+	lm6Oy/lIkC/C8D0SrrlQyNNfr+5p1MN3PGc8QpO9DJF3jCP/3Ee7p5r/Tn6umgKSlrK2/fI1/hSOw
+	Tf7LivCnGurSw+SCdtFaI9ZLkEFMlaXUKEeU8jXRMQgOlyp9wrGNEwXvCklWocoLDoCzG1c/CxVE7
+	RcPyjTrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZZ1-000000017kg-3JmC;
-	Mon, 10 Feb 2025 19:35:27 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1thZZ4-000000017pt-18Dx;
+	Mon, 10 Feb 2025 19:35:30 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZGp-000000013wt-3TFW
+	id 1thZLN-000000014QU-1FJa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 19:16:41 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AHMWox031930;
-	Mon, 10 Feb 2025 19:16:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=02NwbrV5TuiFUi09yA
-	qlqCT/IIaJiiuf7J6gjxrVWAo=; b=C9FWTslaP5fXdua2tCxIWZCkzdA8pnzWeT
-	zwck2HdZC1YiAPxc8qeDtAwPRPM8WW6HqFK4gxARIwO+N8LHTdc9tqW+juoGWS+I
-	ppzG3EavjH/UVLzvfkVM2UXcNttLOT6TBg+3u0l2Cc3fOW7ebneU01EZ8uenGS2Y
-	fmalVJUgF3sGOnvD72EFDbrVFa5FENiOS1n2paJDdZ4kGfTUA/5Pr7Xsb3HVvZUf
-	6FIEmjK9xWriR64ILipEAp+JeAb7V+fXjbcKmx+zlQyPm9yEo9bwq0/MF0q+VWI8
-	7gzvptJJUp82k2+JxnfzWHSzllG4pKM9En2NCQPCyIEESrj+0tCw==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44p0tn3qck-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 10 Feb 2025 19:16:15 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51AJ2C03026980;
-	Mon, 10 Feb 2025 19:16:14 GMT
-Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2177.outbound.protection.outlook.com [104.47.57.177])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 44nwq7tpm4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 10 Feb 2025 19:16:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BNZg3SdJVYhYbRJ0Djfe4g5TQmlRGGEssiIa+CjikWUmlsqvQHDe3VHTV6xgRC/EYzxV85Mr2h2RBzuKQbOz0L0DGKwAOMiWPe2jj/WIByl4PDqfIMOP3Q8hoxBBYDnNG9ygbtI6mut3kxz/iSv/1fOP9JvYbx/OeAJo1R38G/vpPZE7HcVYKYGoNhf0MvIaXaCi0aYPcHsPUv3bgUQqqTLxMH/2nPcvt++ZD0t0bArywUvGu63OGkhGCjNMnwwg+z7OOxOj7lNpc64c4jhf/wN8vf2yPADTzyskgbgPPYAD500SgjQd1tSq8Ha9sBqdTMzLVlqgYp0NGR1Y4kjWtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=02NwbrV5TuiFUi09yAqlqCT/IIaJiiuf7J6gjxrVWAo=;
- b=oE17MXY/SkncgUO7ChZcJMmogp17gWghM3ALu5uSvQ9yIwKx+MHWdM9S81Q/TFBkjeJ3/609HjDK9fGJ6ci2bLO0d2HDiEsK/0LsoRsROI+MHWk3OK83gq0rzN7Wan3z3XLQvjZUFwmsIitHoeV3FdbUN2Eyc+uqbM+N9S3SjR4lSdIB18w63/nPr4OkSUHlxnYoQqnCgwEHk8CpQC2KxoaoIj1AkrYJBmqa0gbwQ7wtjdM5WSm+4oDupQxpZwc7IyRmwHLPU+GWK7f6yxlVkCRCsQghFguZMnXTc1aCWY7nBwCHbUSk38amRNiMRVjmKHlVedYPKNx950h6mOW+XA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=02NwbrV5TuiFUi09yAqlqCT/IIaJiiuf7J6gjxrVWAo=;
- b=qDac+hcF7sk+DQzmbKgXKZUoGYSOY8Hj9taxuOkEdnRiHM4FqYR+bRpVUKJIOki77h3hBDZUyx+T1FQ+dheqhvU4f6WjYBxeE3VKGzMaur1qsEjFqqx5Pt/J9UVQNr+ArkRVqP3fYxs0QsAZHb+Dctzg4O5iwatsIeiWLhrq7L4=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by SA1PR10MB7588.namprd10.prod.outlook.com (2603:10b6:806:376::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.12; Mon, 10 Feb
- 2025 19:16:11 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e%6]) with mapi id 15.20.8422.010; Mon, 10 Feb 2025
- 19:16:11 +0000
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250210094918.GF10324@noisy.programming.kicks-ass.net>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Linus Torvalds
- <torvalds@linux-foundation.org>,
-        Will Deacon <will@kernel.org>, Waiman
- Long <llong@redhat.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Andrii
- Nakryiko <andrii@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Martin KaFai Lau <martin.lau@kernel.org>,
-        Eduard Zingerman
- <eddyz87@gmail.com>,
-        "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo
- <tj@kernel.org>,
-        Barret Rhoden <brho@google.com>, Josh Don
- <joshdon@google.com>,
-        Dohyun Kim <dohyunkim@google.com>,
-        linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-In-reply-to: <20250210094918.GF10324@noisy.programming.kicks-ass.net>
-Date: Mon, 10 Feb 2025 11:16:10 -0800
-Message-ID: <87pljp391h.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0168.namprd04.prod.outlook.com
- (2603:10b6:303:85::23) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	Mon, 10 Feb 2025 19:21:22 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AJLHLM3555492
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 10 Feb 2025 13:21:17 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739215277;
+	bh=BjxGcZGgbTw2rXhcQe0xTXiOGkjk4V+jo19rYFPocYg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fK/bOSqdgtbZ3xpHBZ7QtmC4Hozhkq35qg2Ge8lNqu8OcCdOVEIiB6JRHWyNrlp6c
+	 XJ9fxLsNC064KGyobSOJX9gzZ3x0qdB8EPXSrOOdABQzptWNmzlocVmHWom26jRpT5
+	 P33d1fkR4CCOp2hYFCNZLD8GIMbC5MjSnrjd/yHM=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJLHVk024020;
+	Mon, 10 Feb 2025 13:21:17 -0600
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
+ Feb 2025 13:21:16 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 10 Feb 2025 13:21:16 -0600
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJLGCu057473;
+	Mon, 10 Feb 2025 13:21:17 -0600
+Message-ID: <205926b9-6698-4e57-bf96-a7c75e474652@ti.com>
+Date: Mon, 10 Feb 2025 13:21:16 -0600
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|SA1PR10MB7588:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6747eb80-fa78-44f9-1222-08dd4a076139
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hzxxWp7GAjyWCiWuEI5IghfyAYg5gXjk5p9ujWT/HAOnGuAq/OIQ1cvDDwI6?=
- =?us-ascii?Q?e7aL/IVBkvQ+6LLYhW47jJhDmPOVGZpPI9LVxYpr7Xfb2/PP8ZC4PuN0S4qA?=
- =?us-ascii?Q?eBVxVv6zYI7b4lV+K33d6hgY5WQq8mDwh5ZZfVjVUd5FEj4c2elxTm23TxEW?=
- =?us-ascii?Q?PvB5NDSgvhLhMtEGsIHirxuD74CaKip5iaTYQzx5F9CKJ0MT5OeVyJ3TtMO7?=
- =?us-ascii?Q?gE4SUrztTuopHP65DjFVI2ysMK1E9pZ0KoM4yQmBT1jCHhleEy1oQe6IwNvq?=
- =?us-ascii?Q?MmouI7r85gf6YeF1mPX7rNryK/qaiRBCCbgQltg9MSuou7+IWnnCY8nvByqa?=
- =?us-ascii?Q?IB94S/IWK+2Y46GxTbA+ew4KZcc5rlq0NGT5J+SUCOGggrXITlwJuwpNYsMV?=
- =?us-ascii?Q?R6QjZE6hofnRt6ezXenqeSPa6LAvrvmGhbkZZts3JJnqfcUdxk6uT7Isrv+4?=
- =?us-ascii?Q?vnw+kYWhdydWz3fswzfsjBE7/cTOWJiNIIctMJsApnnYXq3tq9ekFkN5vAzl?=
- =?us-ascii?Q?u1dJRpLVXg7iu+qUc7XUBCAEXXLml8wBSmZ+WNSQ82O9h7OeKjmlBzMCy9ug?=
- =?us-ascii?Q?G3RwxU9QZmsjyZJARVlxlF/Zm/E99HdAOik+bQaJ+8pTEpNkqMZj8K1q2SKY?=
- =?us-ascii?Q?fo9xL8gL1HLb5RIDGC58A2OyktRNEJUaR70vjy2L1GwT+GZrW0cKZjFMGquc?=
- =?us-ascii?Q?ejJhpOPHYICcJBdUy9NTXS83tbsta7Trs11anLGtq24HmfW1Tvv7gn+/e7wh?=
- =?us-ascii?Q?0gBDX0oM75Fe+jir3PrkCJ4H3oLV8mJNGft2uq0XjS7KDpl/qiSo130CYnHo?=
- =?us-ascii?Q?Br26mEGX7unvvESwOWjkaet2sASHqW+nPVNiqMQOkzR2Y4ZJyquYINMW4Qj4?=
- =?us-ascii?Q?32MZT5NbaaWmasmVlG7R5eUoCy3mv4QAtQizN0Wri0NEpcsH9b9CLjxz4UyP?=
- =?us-ascii?Q?gu9f0SPNf5dMMfc1BuGFDsSa6LnXk0EVR78DD3puAzlSnK7NFYu5MwCYnBjf?=
- =?us-ascii?Q?ZXVbL6WVCqHQuTtXIJh6SAoDxr/yWrceBcdHsYuqKT8AswhasNAcyI4LXQOW?=
- =?us-ascii?Q?UCbOBDRf2BzBrLSA+dp9qcBUtTFiPPvAutfkG6c7F0WyIe7Oxf33ZdN7DmOU?=
- =?us-ascii?Q?j0DNtqC6DS9HQmbkQhkxKp2fwlND+48euduwnb6/0CEgbRz+F/8K5ZoBE9gJ?=
- =?us-ascii?Q?LNPikYffHhoKTbiqfJKi/BqUBSdI/77V92ww/7A1iTNkQl4DDghRSVm1PBC9?=
- =?us-ascii?Q?JpSUIhMbhs0Z1rUl0wTXye7CpOlicud8NdVmmGwm0Vf0Ai2lY6gWYmUp6VyF?=
- =?us-ascii?Q?Iki4bc8QPaz6a8Kxshw435Rsw3MV5yOe7mpXHnUS/Ahu6TLandQvUcMs4kBd?=
- =?us-ascii?Q?KibuTxyMuU6xhk9cWbiGkVSksegqGPigKHG/3rDN+9lC+pDj0g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gjgv/5hI0RnZxliB8epM5aZ2nfiZ4inwfM9q/+4JNQhXDkW4E7pe8uJkR7SK?=
- =?us-ascii?Q?EWbelDcTxYKeGYMQiOO7/qY40BVaNaKWzGAiKL1glnRZayZAaCGAy3XVReL2?=
- =?us-ascii?Q?MmUEuwFd/6eCmycz0wfx9QTDJ89/zGGIm5Exe+MCR6/aiFWP3SLX81ZBZev+?=
- =?us-ascii?Q?h6qWIQyk156WVzi+ayKR249CBsz+HjI1xNwBan1LAT5eiRWI7X2ElHO2nmPJ?=
- =?us-ascii?Q?5+jngO3NfNtXxA6cTP3+P/ufKEqyOfn+8z67SZ3uHNz9hCnYuG9IaEfJIMuy?=
- =?us-ascii?Q?cPnm7fpoBSeI6TZFvqH/L/HGlK3ShLyaetR23otGYxaYObR6SM0S2RuJVlYu?=
- =?us-ascii?Q?WcffINbwag1X4HIr5j9CUQazYESMbw1OGdVxYf7IuGWKgfLrOsbVh+LuSMBA?=
- =?us-ascii?Q?QcFabxe0Ueef5+wEJwoC3169ZTMcdrCsJmi+kRePOEcIUzcntjbWdzOZ2QEl?=
- =?us-ascii?Q?s3wIBlLt1LDuRQVR59V7ANTBLEpb1YeXStSCMysPmbDJYrgWRDcRn/XhzNP8?=
- =?us-ascii?Q?yNu4oZX7nX2DSCoLaDen6vzXwExtiJHUfAH7E1QgT+UGPmOrbkrYQYu9wwe+?=
- =?us-ascii?Q?vLNLk6mONJaeQVfZog90YEgRgDGETaAB59nlktxgZEniXBTQH3vEyzAdcCBJ?=
- =?us-ascii?Q?TKSRrpHQ/XD0UGeaPQSgZi178O2CMzNTsPwnN6kWeqqtXWzGw8Yh27JeBr4o?=
- =?us-ascii?Q?H9Iww6iPPUwIgIGbmlF3ZZ/ldIPp54nD7LQ35UzwFRJ7g1PHNQCK75G4OvZK?=
- =?us-ascii?Q?6ZLgFUlKJrqglUagZVCJDxe5xQod1voJe1osMiA4wR0uYlKsDo+0/ctswvYF?=
- =?us-ascii?Q?XRxAivLgCybkU+zvM5JH5pop/RBV630f6IoPPMusRwSL2+f5/yKd6CzRbmhm?=
- =?us-ascii?Q?Widv8vYzO0qXxZ0rkW07f7SNPKcANxZ2ACvs0RTwnJ99c2swA2in1HHg0gll?=
- =?us-ascii?Q?XbfZwg9cyJKKcGetRXtD3VQQUSpjPmjAiTWvK3id2OgZ5V48AVay6bjuvVBi?=
- =?us-ascii?Q?AOXmo7IclR+JfOYiJNGm+OtSwVNmuL0t0dom+/hYEbKvJk1xSd5MvwEDc0O8?=
- =?us-ascii?Q?QHtVIxDcWzEP9T8Zmk6kgVJWeBUOtocsZ/Zrs5V9lvO35Fv8SH7LCKGYipea?=
- =?us-ascii?Q?GnwHhFc/n5sKkTecUmkUezfguX/h1bDR39/fWOn7YE1U4QST1VpaDGogEoID?=
- =?us-ascii?Q?P3J2GG9BUHaXg/Qjms2cX1V4VJVBreTGQjWeXEfW193gOIRQBJLmr0WiJIff?=
- =?us-ascii?Q?pOrTYwUMjc0jHTs35uljCm7q/gGAoWe7R8tAO7zybdw0lmXLnCIV13qCWow8?=
- =?us-ascii?Q?q6n0Z4ksEOD0O4Wwbz+PB3CHJoEz9jYW/SYZ5FsL4fYwMg5Y5ixnAUAY7wxp?=
- =?us-ascii?Q?YkOQmYGxYnV0Ko2Wr3RIrr2EA1FZg6lth+gexE+zNWQse27GQunqi+4nWf1x?=
- =?us-ascii?Q?tAkjWTqfLktiftyuToFTcqykTjrK++Vig3k0oA1plq3AjukR+Vtz3PvCTwq7?=
- =?us-ascii?Q?YmVtIrVEVwXCDUNHQlS41zXj3daNUy/8BXO5t40nvGPA0U7Y/D5mJNcmAga5?=
- =?us-ascii?Q?HTm1siuHJl79+7L2r9O6NhNf6wx4Sax/EMZ1f7ERsuc5HWo9ZfpHVvJ5kKBd?=
- =?us-ascii?Q?dA=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: LXFTlljncWd8ms80tVuj99tA200iR2Scx+Ib66R2XykqI7BpiYjFk9x+EW5V957IfFWbrxnB48l06JiqoQwxiE47tNhFJOMKArswLZmwhruhGvqjfa68oBD5i0V+0m/nDW/v4xPNTpQ0bJ/FmVz8ihKVtmYVKCzc7skM3tYMMzYJxbUsjAj2Pj0XKbjpu1Q5MUceOdRSxPVXgr5N23APsIq92Tw432cs45RJsJKtb0Rm88PFvIh7uO3g7FUydbjhkTYkkPjZKp1b1mjQYaz5cjaGyO07JBGjOAsx/EkV1ZCu2hWa8F/Ec9WK5rZOuX/lM5Fg2OyqcHmRDWyqBeZ22ZGb+38fz/r60CFxXS4etZAQcIn49YQXdvOKrPPMCeYE8LZfpEtoFQOlKCNbGP3BWc5syG17iVoSKcKTTHxFeudLi+N3SaWXSQEBgEwu6LRRTXkRJQYxmS93O9AaoXzk3ys7Ls0kBOZdBqCuj/vw9k1IDg+OrnsDaMI90Nlsws66CqZ3P3vs4/daBVjETIpxcIOkCkQW2PKwbhcpLbJdIetnwFx9vNFxo9AXsSct/anBqUL+1yrYvuRiSimYtY9OX7YNexxPGoDIM3aWN7/VOP4=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6747eb80-fa78-44f9-1222-08dd4a076139
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 19:16:11.4072
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FOo5yVrI1JplbnpWAav4PEGgEvylMG8hox1TZmgYbYd7zu/+DtyQSaNJBHwrzhRCe0vlUlhX8pEW5M5mYC+Wn5awAhl+lB00FVwSDAsrTjw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7588
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_10,2025-02-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 malwarescore=0
- adultscore=0 mlxscore=0 phishscore=0 suspectscore=0 spamscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2501170000 definitions=main-2502100155
-X-Proofpoint-GUID: HjuqSUf-fhGpNNATvrR08MdbyS8kT99J
-X-Proofpoint-ORIG-GUID: HjuqSUf-fhGpNNATvrR08MdbyS8kT99J
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/9] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
+ remote processors
+To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla
+	<hnagalla@ti.com>
+References: <20250206235200.3128163-1-jm@ti.com>
+ <20250206235200.3128163-7-jm@ti.com>
+ <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_111639_979047_852F89A6 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250210_112121_430232_9BE7BD72 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,22 +92,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-Peter Zijlstra <peterz@infradead.org> writes:
-
-> On Thu, Feb 06, 2025 at 02:54:08AM -0800, Kumar Kartikeya Dwivedi wrote:
->> Changelog:
->> ----------
->> v1 -> v2
->> v1: https://lore.kernel.org/bpf/20250107140004.2732830-1-memxor@gmail.com
+On 2/7/25 10:58 AM, Andrew Davis wrote:
+> On 2/6/25 5:51 PM, Judith Mendez wrote:
+>> From: Devarsh Thakkar <devarsht@ti.com>
 >>
->>  * Address nits from Waiman and Peter
->>  * Fix arm64 WFE bug pointed out by Peter.
->
-> What's the state of that smp_cond_relaxed_timeout() patch-set?
+>> For each remote proc, reserve memory for IPC and bind the mailbox
+>> assignments. Two memory regions are reserved for each remote processor.
+>> The first region of 1MB of memory is used for Vring shared buffers
+>> and the second region is used as external memory to the remote processor
+>> for the resource table and for tracebuffer allocations.
+>>
+>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>> Changes since v3:
+>> - Add SRAM child node for am62p MCU R5 core 0
+>> ---
+>>   .../dts/ti/k3-am62p-j722s-common-mcu.dtsi     | 13 +++++
+>>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 50 ++++++++++++++++---
+>>   2 files changed, 57 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi 
+>> b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+>> index b33aff0d65c9d..0be3463bc21c5 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+>> @@ -6,6 +6,18 @@
+>>    */
+>>   &cbass_mcu {
+>> +    mcu_ram: sram@79100000 {
+>> +        compatible = "mmio-sram";
+>> +        reg = <0x00 0x79100000 0x00 0x80000>;
+>> +        ranges = <0x00 0x00 0x79100000 0x80000>;
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +
+>> +        mcu_sram1@0 {
+> 
+> What does this node do for us? Seems you reserve the whole SRAM
+> area from the start, but shouldn't the phandle in mcu_r5fss0_core0
+> point to this node? Or better it would use the normal SRAM API
+> to request an allocation from this region.
+> 
+> Since this is still not resolved, and you don't mention it in
+> the commit message, might be good to drop this SRAM part of this
+> patch and deal with this in a later series.
 
-Just waiting for review comments: https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com/
 
---
-ankur
+Ok, since we do not have a better way to do this for now, will drop the
+SRAM node.
+
+Will respin the series one more time. Anyways I forgot to include
+another patch so will add that for v5.
+
+Thanks,
+Judith
+
+
+
+> 
+> Andrew
+> 
+>> +            reg = <0x0 0x80000>;
+>> +        };
+>> +    };
+>> +
+>>       mcu_pmx0: pinctrl@4084000 {
+>>           compatible = "pinctrl-single";
+>>           reg = <0x00 0x04084000 0x00 0x88>;
+>> @@ -213,6 +225,7 @@ mcu_r5fss0_core0: r5f@79000000 {
+>>               ti,atcm-enable = <0>;
+>>               ti,btcm-enable = <1>;
+>>               ti,loczrama = <0>;
+>> +            sram = <&mcu_ram>;
+>>           };
+>>       };
+>>   };
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts 
+>> b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> index ad71d2f27f538..9609727d042d3 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> @@ -48,6 +48,30 @@ reserved-memory {
+>>           #size-cells = <2>;
+>>           ranges;
+>> +        mcu_r5fss0_core0_dma_memory_region: 
+>> mcu-r5fss-dma-memory-region@9b800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        mcu_r5fss0_core0_memory_region: 
+>> mcu-r5fss-memory-region@9b900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c900000 0x00 0x1e00000>;
+>> +            no-map;
+>> +        };
+>> +
+>>           secure_tfa_ddr: tfa@9e780000 {
+>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>               no-map;
+>> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
+>>               reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+>>               no-map;
+>>           };
+>> -
+>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>> -            compatible = "shared-dma-pool";
+>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>> -            no-map;
+>> -        };
+>>       };
+>>       vmain_pd: regulator-0 {
+>> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>>       };
+>>   };
+>> +&wkup_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&wkup_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>> +            <&wkup_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>> +&mcu_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&mcu_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>> +            <&mcu_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>>   &main_uart0 {
+>>       pinctrl-names = "default";
+>>       pinctrl-0 = <&main_uart0_pins_default>;
+
 
