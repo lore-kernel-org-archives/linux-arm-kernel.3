@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD937C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C13C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frAoU9FSbapFrq+HpklqCcJQ3Ks77Q8uuZdWNADgS9o=; b=u0ODgW/SAnEm9AFP9h/4iRnQ8V
-	mHuN4k58IJXz8aHa4SnY/cpRhPtwS1uJyncWnR+7ZGA4kvmy16rXSGdDGVkDgJIP8iJXhm+rZD5hb
-	rxnks8Rbi+MiAmr2yk0a+m1d2FzNvhGYwsDaNEzLxo0MEDRtIe6i6gDfFpukHmHKidf04c6R1v43a
-	WJGsVRIEdL5crz9XXtX/+1VBMk37dc0bvW21o6xBV0xYd2TR1hpRWDyeuVGximGTRNmXQYAEseEyf
-	8Xpqpy4UHZA3G92fLzegqrIqG1umeaOsDQG/j6GOH+aXAWiEXRLmxYAeaYgEodkOGtoTkEvwzMMr6
-	lmlcXGYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=; b=ZBnSBDghdE0NO5MNlHhY4RfZoJ
+	ShzzEX6FFC7XrlLk4St5oW1aYo6SX7KNPxdY4vXxJnQ3i5O6YBoQSo+KZ6+f6PPuQ8GBhvky2UAR9
+	CxE+8lqP1ToVjssTtWm87fZSI6Ramu1kcahOYGeKKdHnM7d/anvfn2jJVrgLJlfM+N49reORohQt5
+	t+etPWXuh4DZ0JyJWnDANWOZLco2NKXB+LHQmQ6qrqC6FXx/MD8ItN0w6bMO53nQPlRHpt1bzSllw
+	Q2wwVrmVsuRpPkiR//dRegyLSMG49zSND3SIwDRGk8L+DkAvnYDVEiGCx1r+FUuhi4Fjjx/EwV9MB
+	J9ktlpfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTMr-0000000HTUO-3Num;
-	Mon, 10 Feb 2025 12:58:29 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1thTOD-0000000HTcw-21yR;
+	Mon, 10 Feb 2025 12:59:53 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTGg-0000000HSId-0dZM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 12:52:07 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ab7483b9bf7so641363466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 04:52:05 -0800 (PST)
+	id 1thTHR-0000000HSV7-1A0o;
+	Mon, 10 Feb 2025 12:52:55 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21f4500a5c3so81634495ad.3;
+        Mon, 10 Feb 2025 04:52:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739191924; x=1739796724; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=frAoU9FSbapFrq+HpklqCcJQ3Ks77Q8uuZdWNADgS9o=;
-        b=eNXGe0Tp2chAm1GwLYOeuS6wFeJqamxyCxkYL65Qx0kNn1iV2THsoqigny1D1Rv+JM
-         g2w8X57bo0TSTYr1XdIYCfYaOMG18rcMZifVuBnmStyzh8VIBdW0kfR2/FW5DLg8R0VK
-         k5ocE6EEVHxTOgrrnNmCp44k9lwmcwdYCQa137KjRlqhQoo8if+EJs+IFIikAqMv3Adb
-         v/n/LNZVMgM8ouxErAlUk1Q+c6c/BNhHoxP5+pWbULzU6Ja8kkq2FSZ7oNU0i7njkvL9
-         591AZfWxtpCYr3+KcubOmvmLQYZ6gGNvD0Seezi/PIl+71Ehd3gdwdiGuAt6FfkGs3hZ
-         L9yQ==
+        d=gmail.com; s=20230601; t=1739191972; x=1739796772; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=;
+        b=PWtFl8G01Po5j7H7niogHhcOxGOiGq/YMW/4bQW5e6jMa5oymIR3N+pMcamtTG3YM1
+         z83ZOTtVnfagmp6vREn7GaCjt2YK4RFTn3uuDWnSN9KHTmPTOeRndqt/BIiOVTI2hn1u
+         uYEbWaICwgQszByrTHG3+WCUydsmBLa59vanox9WAeazhbnD1vOiYEWLB4YawGreghXH
+         r1UZTsplu18Ud8f6G7mG38eGoqdTpSCHJRbQmbY8NnmS2LbsgfX6gQo06PbNoc1M2Tlx
+         jy1EJgm+q0f3iB7a0OXn5PDAck/JW9tSxl406oDo8JwEAF9kBhXXINGl4JEU7jDe1i5/
+         HIhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739191924; x=1739796724;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=frAoU9FSbapFrq+HpklqCcJQ3Ks77Q8uuZdWNADgS9o=;
-        b=BdeUIg+DkGs8evl9s5Dn8oNXlduuV5b7xZdfSK220XihpiHzynP7gltMEdE+2xBoLJ
-         1UlvX8NBSiYnbA6QSzpwdkZdwNekY+9TGy5oHMfP+OlsYHsMF1iDhftvXpGgOYgO0yOy
-         njSYaYVrnrOR73QL5+K6syQrddMSfDWFgWasB3eeqTMIxTM/dklNy9OTRR3Dvsjzlc0T
-         +7NTa+Ds3HpCXHKyREBGskxAV6mbNL4OA6f/0B5Ue5jg9/OW8+Bm3cA4NtYhY/ZO3/vx
-         EY6P34pdycAxO5/V333lDgYeSbeW0NwohAZaIlpy5j5niE3XuqW9I0qdMjOu/fnVOVt5
-         VnEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUuICh/SQ+Z9cYgaYnG+Dl+IM8RxEqp0G10MX/epvR6LHp52ejRmBs6gc6n511uuwEVANUDLA3Zak0UG7dCnoHM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPpUv8g6eY6n76JytovfMOStsQUAz6MsjLy0zAD3PS8F0cnSlN
-	yQTaflIMpSBl6XX++NCL0N8FHflg/c1cX3mjSP7fXtff0ghxHP5jDRvSpVEcUMM=
-X-Gm-Gg: ASbGncscOkqhlGLtJ/sM7fhiN2WHAKoRj+v6sBHD1t0pA0+BkdTucy/VHuBl4sBOE7c
-	UAa0ACg8rpoj54fFHfRoQ8Yir7ayER31tx0xq5O0OOHO1/mLOgjGpyrlpdlqMh5Z9QR443pEnMq
-	wViULmWHo8XhltV26CyMb1SdHQqiPt/Tnnvl6pVAtcTXz9UA7oqftIARdOOlEj49XFaLIzifrb1
-	hlVkappz84yoM+DTX+oZ/EjT2+LzH/Zo25fZadD6kpEC6/V1Q7L0rN4EcSdVMTfnE9EjQ7dZj/R
-	QKsgXwoAJJrgzUzffGGmZ0WU/rD7gGx9F6vts00kVXc5jBg4xRuYz/Rq66fVtMeeGwMKTG80gnE
-	=
-X-Google-Smtp-Source: AGHT+IHlPw1KLXMN75TVclRX8S/qE4XVwnFHG0ZCFXVtVKAbnSQdsY2Nvm1erECM0CzNh8K85VHXjg==
-X-Received: by 2002:a17:906:4fd6:b0:aab:d7ef:d44 with SMTP id a640c23a62f3a-ab789aecd06mr1234271566b.24.1739191924470;
-        Mon, 10 Feb 2025 04:52:04 -0800 (PST)
-Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7ceae3a3bsm85819266b.129.2025.02.10.04.52.04
+        d=1e100.net; s=20230601; t=1739191972; x=1739796772;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=;
+        b=qjASM3n9+iaViSuVvTul1ezDWhJEJTSld9o89zgLy43acRTcB6MysoTiOHsY/4nBdW
+         2SHm/hNlfbEDAun54zGZZtYgFrIBJasTq3NYPxuVbYtuZkiw7MVCzLDkFwC/JHuEeE6K
+         HFwCTPeL4X/KPebCuWj5NZU2RiD2cw+jkzUvsWh0zOoYkYA1ReaLVKHaEiAJV9x5E7dC
+         YhmZCbQbV+fkpPIrpixuKPXV0aSmh46ovCoN4VTghfOP+VxW/mCHTPFEdgHJw891fzO7
+         r1d+Ad8wL3aTNjEHhQ6k4U3q1llGx52UUjIFFSKUtZ3vVV9Xtf7KWEi+6lgdJVay+BDC
+         g8mg==
+X-Forwarded-Encrypted: i=1; AJvYcCVPkJzhafvM7y374lpB525HzzWq2PZ0cYkG9JVB8wX5nIdkojFvT3FS9kY0BLMKOTxbgLHO5GQkUCmDEuxfMmE=@lists.infradead.org, AJvYcCXnd9rDUVwi6G2m7VfwcUAb4IXYVIiUhRkVLHgbmOr2EnTek5Onrml90d6sCFwrsv2hugr14GObDu73mneDT2Js@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxl7NNenGxA+QcBwvTAu+G+MCl3RZphn45CoQ22JILrKMe+Dbgx
+	nammimQCuSxUVf7ki+OqTtypW8IA3mP6WI68z/U3e4KMSqaiYIPy
+X-Gm-Gg: ASbGncsnBVzVDS/8HCE18dmOxcxAtY5AlVp8DVZE2AJWc5u7LPqEgReQusdeher8yPM
+	B8NOre1cQpRyTYH5hP/LdeZ74wZZPVaeTkqzv9J+Ab+sAjYfeH8iyLdh2HmpFuCZfpG5W1gfC0M
+	ACUzd5IdYiKgk+XMSEnN8e9a22oVVz2jF1JWM6szPoPTecmlcA08y9pTKN5mnALPNgeP8B02CuM
+	G+W53X+d+TL+nak4uM+woe7ZH4SWl6Hv/jAJTeAuObiEFLE7MHGe5a4w3uNC/tUvjV4WxNYAj7A
+	agKPaHpq
+X-Google-Smtp-Source: AGHT+IFY/eAAJFcD4vitGkVHUca2pVMuKjtQU6WUb3jtGtjhnnqqn/1iKAiFbhnjbTQxyI8lnuDV3w==
+X-Received: by 2002:a05:6a21:8cc2:b0:1e1:a9dd:5a58 with SMTP id adf61e73a8af0-1ee03b129eemr26979741637.30.1739191972089;
+        Mon, 10 Feb 2025 04:52:52 -0800 (PST)
+Received: from gmail.com ([116.237.135.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-730851fa25bsm2641825b3a.180.2025.02.10.04.52.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 04:52:04 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Mon, 10 Feb 2025 12:52:04 +0000
-Subject: [PATCH v2 3/3] arm64: dts: exynos: gs101: add reboot-mode support
- (SYSIP_DAT0)
+        Mon, 10 Feb 2025 04:52:51 -0800 (PST)
+From: Qingfang Deng <dqfext@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next v2] net: ethernet: mediatek: add EEE support
+Date: Mon, 10 Feb 2025 20:52:45 +0800
+Message-ID: <20250210125246.1950142-1-dqfext@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250210-gs101-renppt-dts-v2-3-fb33fda6fc4b@linaro.org>
-References: <20250210-gs101-renppt-dts-v2-0-fb33fda6fc4b@linaro.org>
-In-Reply-To: <20250210-gs101-renppt-dts-v2-0-fb33fda6fc4b@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_045206_196840_99C8FCF6 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250210_045253_326475_292B7A92 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +104,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-syscon-reboot-mode can be used to indicate the reboot mode for the
-bootloader.
+Add EEE support to MediaTek SoC Ethernet. The register fields are
+similar to the ones in MT7531, except that the LPI threshold is in
+milliseconds.
 
-While not sufficient for all boot modes, the boot loader does use
-SYSIP_DAT0 (PMU + 0x0810) to determine some of the actions it should
-take. This change helps it deciding what to do in those cases.
-
-For complete support, we'll also have to write the boot mode to an
-NVMEM storage location, but we have no upstream driver for that yet.
-Nevertheless, this patch is a step towards full support for the boot
-mode.
-
-Note1: Android also uses 'shutdown,thermal' and
-shutdown,thermal,battery', but that can not be described in DT as ','
-is used to denote vendor prefixes. I've left them out from here for
-that reason.
-
-Note2: downstream / bootloader recognizes one more mode: 'dm-verity
-device corrupted' with value 0x50, but we can not describe that in DT
-using a property name due to the space, so it's been left out from here
-as well. This string appears to come from drivers/md/dm-verity-target.c
-and should probably be changed there in a follow-up patch, so that it
-can be used in reboot-mode nodes like this one here.
-
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
+Signed-off-by: Qingfang Deng <dqfext@gmail.com>
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 64 +++++++++++++++++++++
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h | 11 ++++
+ 2 files changed, 75 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 86741994bb7c..d60e6a8e8723 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1411,6 +1411,19 @@ reboot: syscon-reboot {
- 				mask = <0x2>; /* SWRESET_SYSTEM */
- 				value = <0x2>; /* reset value */
- 			};
-+
-+			reboot-mode {
-+				compatible = "syscon-reboot-mode";
-+				offset = <0x0810>; /* EXYNOS_PMU_SYSIP_DAT0 */
-+				mode-bootloader = <0xfc>;
-+				mode-charge = <0x0a>;
-+				mode-fastboot = <0xfa>;
-+				mode-reboot-ab-update = <0x52>;
-+				mode-recovery = <0xff>;
-+				mode-rescue = <0xf9>;
-+				mode-shutdown-thermal = <0x51>;
-+				mode-shutdown-thermal-battery = <0x51>;
-+			};
- 		};
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 53485142938c..943636d822b5 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -786,6 +786,7 @@ static void mtk_mac_link_up(struct phylink_config *config,
  
- 		pinctrl_gpio_alive: pinctrl@174d0000 {
-
+ 	mcr = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
+ 	mcr &= ~(MAC_MCR_SPEED_100 | MAC_MCR_SPEED_1000 |
++		 MAC_MCR_EEE100M | MAC_MCR_EEE1G |
+ 		 MAC_MCR_FORCE_DPX | MAC_MCR_FORCE_TX_FC |
+ 		 MAC_MCR_FORCE_RX_FC);
+ 
+@@ -811,6 +812,18 @@ static void mtk_mac_link_up(struct phylink_config *config,
+ 	if (rx_pause)
+ 		mcr |= MAC_MCR_FORCE_RX_FC;
+ 
++	if (mode == MLO_AN_PHY && phy && phy_init_eee(phy, false) >= 0) {
++		switch (speed) {
++		case SPEED_2500:
++		case SPEED_1000:
++			mcr |= MAC_MCR_EEE1G;
++			break;
++		case SPEED_100:
++			mcr |= MAC_MCR_EEE100M;
++			break;
++		}
++	}
++
+ 	mcr |= MAC_MCR_TX_EN | MAC_MCR_RX_EN | MAC_MCR_FORCE_LINK;
+ 	mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
+ }
+@@ -4474,6 +4487,55 @@ static int mtk_set_pauseparam(struct net_device *dev, struct ethtool_pauseparam
+ 	return phylink_ethtool_set_pauseparam(mac->phylink, pause);
+ }
+ 
++static int mtk_get_eee(struct net_device *dev, struct ethtool_keee *eee)
++{
++	struct mtk_mac *mac = netdev_priv(dev);
++	u32 reg;
++	int ret;
++
++	ret = phylink_ethtool_get_eee(mac->phylink, eee);
++	if (ret)
++		return ret;
++
++	reg = mtk_r32(mac->hw, MTK_MAC_EEECR(mac->id));
++	eee->tx_lpi_enabled = !(reg & MAC_EEE_LPI_MODE);
++	eee->tx_lpi_timer = FIELD_GET(MAC_EEE_LPI_TXIDLE_THD, reg) * 1000;
++
++	return 0;
++}
++
++static int mtk_set_eee(struct net_device *dev, struct ethtool_keee *eee)
++{
++	struct mtk_mac *mac = netdev_priv(dev);
++	u32 txidle_thd_ms, reg;
++	int ret;
++
++	/* Tx idle timer in ms */
++	txidle_thd_ms = DIV_ROUND_UP(eee->tx_lpi_timer, 1000);
++	if (!FIELD_FIT(MAC_EEE_LPI_TXIDLE_THD, txidle_thd_ms))
++		return -EINVAL;
++
++	reg = FIELD_PREP(MAC_EEE_LPI_TXIDLE_THD, txidle_thd_ms);
++
++	/* PHY Wake-up time, this field does not have a reset value, so use the
++	 * reset value from MT7531 (36us for 100BaseT and 17us for 1000BaseT).
++	 */
++	reg |= FIELD_PREP(MAC_EEE_WAKEUP_TIME_1000, 17) |
++	       FIELD_PREP(MAC_EEE_WAKEUP_TIME_100, 36);
++
++	if (!eee->tx_lpi_enabled)
++		/* Force LPI Mode without a delay */
++		reg |= MAC_EEE_LPI_MODE;
++
++	ret = phylink_ethtool_set_eee(mac->phylink, eee);
++	if (ret)
++		return ret;
++
++	mtk_w32(mac->hw, reg, MTK_MAC_EEECR(mac->id));
++
++	return 0;
++}
++
+ static u16 mtk_select_queue(struct net_device *dev, struct sk_buff *skb,
+ 			    struct net_device *sb_dev)
+ {
+@@ -4506,6 +4568,8 @@ static const struct ethtool_ops mtk_ethtool_ops = {
+ 	.set_pauseparam		= mtk_set_pauseparam,
+ 	.get_rxnfc		= mtk_get_rxnfc,
+ 	.set_rxnfc		= mtk_set_rxnfc,
++	.get_eee		= mtk_get_eee,
++	.set_eee		= mtk_set_eee,
+ };
+ 
+ static const struct net_device_ops mtk_netdev_ops = {
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+index 0d5225f1d3ee..90a377ab4359 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+@@ -453,6 +453,8 @@
+ #define MAC_MCR_RX_FIFO_CLR_DIS	BIT(12)
+ #define MAC_MCR_BACKOFF_EN	BIT(9)
+ #define MAC_MCR_BACKPR_EN	BIT(8)
++#define MAC_MCR_EEE1G		BIT(7)
++#define MAC_MCR_EEE100M		BIT(6)
+ #define MAC_MCR_FORCE_RX_FC	BIT(5)
+ #define MAC_MCR_FORCE_TX_FC	BIT(4)
+ #define MAC_MCR_SPEED_1000	BIT(3)
+@@ -461,6 +463,15 @@
+ #define MAC_MCR_FORCE_LINK	BIT(0)
+ #define MAC_MCR_FORCE_LINK_DOWN	(MAC_MCR_FORCE_MODE)
+ 
++/* Mac EEE control registers */
++#define MTK_MAC_EEECR(x)		(0x10104 + (x * 0x100))
++#define MAC_EEE_WAKEUP_TIME_1000	GENMASK(31, 24)
++#define MAC_EEE_WAKEUP_TIME_100		GENMASK(23, 16)
++#define MAC_EEE_LPI_TXIDLE_THD		GENMASK(15, 8)
++#define MAC_EEE_CKG_TXIDLE		BIT(3)
++#define MAC_EEE_CKG_RXLPI		BIT(2)
++#define MAC_EEE_LPI_MODE		BIT(0)
++
+ /* Mac status registers */
+ #define MTK_MAC_MSR(x)		(0x10108 + (x * 0x100))
+ #define MAC_MSR_EEE1G		BIT(7)
 -- 
-2.48.1.502.g6dc24dfdaf-goog
+2.43.0
 
 
