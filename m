@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43473C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B222C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JspbVZYc32w5Lu7PGO8xMJ9+vlbt2L+dMS5wyVWDOIM=; b=JF2SLZnfR5GVX1egVw//1srQ0k
-	5jujyOozakzBsAr4MthL/ifALuKukMcU3kDxEMSnuv1m+ZJIwwIESJKq4p8c72wDdAooZyxbbbcxU
-	HKVJypgjYhAevnIntULUyUzifteMHG99X0Qnf2WpZYet6F8OC2aBoJF08NWe1QWDE3ag1dUxaxfwB
-	Qpe0Xh2I9jOZTDlrmleyYQKEokQBaPqtDBJTXPEdRyYLF8vBR5gF13W8vHttKDR9jUS8WYSEr4KsY
-	XyuQcdquLaS/Hd1A7OUOcHtb+gyR/vDT1qy1riWJw8egYIfir35ytO7nZWythf+b7CBEtN1waeCIq
-	nt5O7ZDQ==;
+	bh=Csdi8n6yF0exFBFNZzRyKvad72rgIjHHmUgvSYicT+g=; b=nXz9tL1MVFxix+tGt3KW8K/KXl
+	kmHZybXt1TODenJ7Q/VB3bXC9E/vRa7v4IBZSWm1oJlm4bl+dXXpf0rKYrHXwJkZVpvdq5ucOBhYG
+	ANH3T86ilJ1K7/nwbgMjel65HeJq9x+1ByOHemArLXGttV6rYtxm5fGsxdbX0xls4TYQ+mYTaOKR2
+	ztpYFIqbY4LZ8dTr+Ko6xknXTFLPUVAs6EwTFSShrC7qjdTm0po72Gr5j1dvzr7gBesLx0pR76Bfb
+	JOpidu49P8ObIdoI4hJ8O5N3yZOYDq52Yw+TyP/buvcGPQKO+jtFmkYzyD615B3RxWFrhd5X9s6wc
+	S0NK44Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPW5-0000000Gioj-1eP3;
-	Mon, 10 Feb 2025 08:51:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thPXR-0000000GjFi-380h;
+	Mon, 10 Feb 2025 08:53:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPSk-0000000GhqZ-0xFd;
-	Mon, 10 Feb 2025 08:48:19 +0000
+	id 1thPTF-0000000GhwT-1MNh;
+	Mon, 10 Feb 2025 08:48:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6F9EA40D37;
-	Mon, 10 Feb 2025 08:46:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB22C4CED1;
-	Mon, 10 Feb 2025 08:48:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 33D045C26F4;
+	Mon, 10 Feb 2025 08:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16897C4CED1;
+	Mon, 10 Feb 2025 08:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739177297;
-	bh=i0ttGvEwil0vzis5X71aBv736uXOFYt6QJcn+KqlV8c=;
+	s=k20201202; t=1739177328;
+	bh=Csdi8n6yF0exFBFNZzRyKvad72rgIjHHmUgvSYicT+g=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nysupTaMLyx7NNehDY6vp8S+dU5YWr2DGa6Z+m8GJTnoCRcFIJRCLGu/qCJ3r5HDT
-	 INuUJORktnGDwBf59US8IMNocdpoXgZGJQ7G8vOV/lb8SLbFHAa9p0DigfkCva46Ax
-	 HnAJnhfWtQx9YrxS55230n/EDn8Hhmvas5ppjvLRm7nNWzm9WfcBNJiwnt2Gx6Xnqq
-	 YVKodcJE+2fT0HGLIGfyCggZnXi9OiyvJYjpY80zKXiYG+UqKBk7bhP8JVQdIGbP6L
-	 QMrYQQ2Oi8TR3o2ROE6VcN6hy77DI7gETDFVXy8SpRts0E49JUZfLDmlp5maBDSKsL
-	 F2WX4pon3AUuQ==
-Message-ID: <feda5fbe-db91-4e3c-b3df-903cbd437007@kernel.org>
-Date: Mon, 10 Feb 2025 09:48:11 +0100
+	b=K2SDVJWL3iDIFLTdOXx05V3eh9pHZgqVaq2RSS2NfbnR+Ed0sjDCCOYIOQxsBIb/k
+	 Lc00YDkG2O1MMl3XtumOK/xcrASMskuEv/szomCEQ5q/xzG9TWnL4/NU/E5x+qiEDu
+	 ncFrMn2x/ZwNvLb7gL95N05dQYpST3q6yydtpUdXRCU8dcx6NGF/mdFzRP0hYCUmUy
+	 LITWkjoWODIzI9ZZ/soIgeW/DtibbGDOhclBXyKqQpJV/73I+Oce/IpZKF0XWle9YJ
+	 z+xhuCDCCdYkLXsgpTpeBR8RcNH31GiSCtgLeBmEGWjo+zK9l78GX4mqkImHc4reJz
+	 riU3eb9sOU3UA==
+Message-ID: <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
+Date: Mon, 10 Feb 2025 09:48:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/10] arm64: dts: sophgo: Add Duo Module 01 Evaluation
- Board
+Subject: Re: [PATCH 06/10] dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys
+ core and ctrl compatible
 To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
 Cc: Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Haylen Chu <heylenay@outlook.com>,
- linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
+ Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org,
+ Sebastian Reichel <sre@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <20250209220646.1090868-6-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250209220646.1090868-6-alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_004818_396536_C1C6E441 
-X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-CacheID: sfid-20250210_004849_458576_E52FF7DD 
+X-CRM114-Status: UNSURE (   4.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,31 +125,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/02/2025 23:06, Alexander Sverdlin wrote:
-> diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
-> new file mode 100644
-> index 000000000000..fcabaf0babf4
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000_milkv_duo_module_01_evb.dtb
-> diff --git a/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
-> new file mode 100644
-> index 000000000000..f3533892453d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include "sg2000_milkv_duo_module_01.dtsi"
-> +
-> +/ {
-> +	model = "Milk-V Duo Module 01 Evaluation Board";
+> These syscon blocks will be used for CV18xx reset driver.
 
-Missing compatible.
 
+No, implement proper reset block instead of abusing syscon.
 
 Best regards,
 Krzysztof
