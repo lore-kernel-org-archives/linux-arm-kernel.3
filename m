@@ -4,90 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83097C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605DBC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/96u3NNUqcuJXiA7GkTj1P26oKp/ehSs1cHwi+YUpQ=; b=puLCCYDoV7oGLMNdZrBbjtpuAs
-	Ltr1Q3AgSk29Q03gOCSY2hV7+/tAAuaGlO4npIFJrfIo3G4GXaTcCc8tQMTl3GKBoxAgXTKzlY5c4
-	TpDiaEucm2XVpxGJaikiNmyLy3Dg2YdBIlg+gneI18tOCNixc5ZdGFPn9F60w++0k8KOQnkqs61zp
-	ZwcfLLH7BIDvFtglggqWz6ltceenqltVsB9F69EKXme7WGw1gzvogABs+nFZ6jzP39UDHe/rGJ5uX
-	w2+YfZPPfx8c0JRvzfJBjGW0rG4Sx2NTVqiLg01iflgDOb0EP6phVNLpUWvztHjnWetnMoxkvqt9x
-	rkisapDA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=; b=QMexZ2GuKBJhqfqXRws/RrU6Nn
+	RLHfcY3BXnJJiSEUa8Qqb7a8NzE/thi0ili+z3p0IFtjK7oLtG6w5UMHPZa4b7VfnehtRvDxFWQQJ
+	ai9GhaifPkRdaifLoD57KRUg0F6JyZCJ+ID/584BtADlBwovdlvYoclxRAOv+se64GZnFosil9g9D
+	4adQjopTF9crzpjaAd94K2NtKv9CixW24+okERy8Z7GUBz+/pZnQdenQbaDzs8ZDwIdE+nBNBYuzg
+	QO7G3KdHcmQ0wFVrleYe1AdWiSYUcp0QfUE7epdt3rF7EFskBr2VebDlYI3O4BU8r8tFk7j9zzKkN
+	ls0Ed9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYL8-00000000slc-1ATC;
-	Mon, 10 Feb 2025 18:17:02 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1thYMV-00000000t81-3nAY;
+	Mon, 10 Feb 2025 18:18:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYJj-00000000sT8-2ULI
+	id 1thYK1-00000000sWw-108M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:15:36 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3d146357fb2so2825ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:15:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739211334; x=1739816134; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F/96u3NNUqcuJXiA7GkTj1P26oKp/ehSs1cHwi+YUpQ=;
-        b=W8TxgXiy+mU818wluEWba4TCc4Qcv8ZAOQ1YpLRz6nXzf1m7khezwPVqlWlqKjxIoR
-         TQrwv38Ygs7fFI7/a4jE1/g5EXjMoYevQvtpd0S/Gk5CdDSrqtgvkeelppox5WHTyIR0
-         PChiaA5EzzSBprAngZnxsqVvWwO+0TvVPJFhvDiVkg/JxdKwfV6PaAD/hxOrQ0nLFADB
-         OTikEPkuk/eROgaqB1npCQunzwlPZpo2+wz19jEtYwUmkrRisngpyjL/2M0eWFmuJWng
-         64lHU1AmIKZph7K2yX0yvXWMVieQzpWbWXNIsiupk7MqsxeKk7NBd3Hp6qMH2RMqhNXS
-         tmHw==
+	Mon, 10 Feb 2025 18:15:54 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9R4LO005019
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:15:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=; b=k98TtJxG9YSJjlkz
+	AZn4RsntfJ37bbMCwWkkY6LGBUw+WXm0i23q95qFfFBG9wSOxFzQ7aQaN1vLHXTc
+	t16eCKLZcEd9Ng3RlWoINgr4B+0iu3EmsBXovO5HGRPRM76udX/swr8InhRYzYM3
+	qYnKXvuvldCKB8tuL6lCSgs8yqklbLHdBFPdtyKW5TZ/JrfZ6Cvx6b/hZLoZWaqj
+	ICqGUL4Edn/+pVeq0nvdeyfFlAsFa/bqwea3trGlIlbuFTFh7zu29JDM3BpyONdB
+	XWT0mlS5euFx8RvxLJY01O72MUSsjzb8cnXLoduwp9bOvuTzJ/SmaPj1SOjKnXuj
+	EXff7Q==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0dyn7a3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:15:52 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6e249d117b7so5191076d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:15:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739211334; x=1739816134;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F/96u3NNUqcuJXiA7GkTj1P26oKp/ehSs1cHwi+YUpQ=;
-        b=xJsFUG20yXx9XPRsPxqfImA+1onFmiBwVlIKW6kjO19X0Rj7tQHemnAvsxb/+4twO1
-         0Qyg1c305hzn7xc9LHVXUME/Gx1lFB9PRcVjmBlL2MgSTAiDhQvvn9ywz/Pb71ahw+CY
-         I1U/FEYpt47m+YIWhQIp5moDva4o8BP62CuVVICyM0Ws34SskWIy7lQ1BxhEM7zNLH/e
-         M02ZDVPs87hAahhEnz9yDCwtBL3RtOjn71qwDAMnEhCK46Q1bA5v2bkNymcTnv4mG1gv
-         0FFoQbNChMADu11P+PoXU9aCMFckAzifdqY1/T/hQl7xjzQ1r7uXlFwqoSGPqpfZXcdC
-         E9vg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxV0ugDRB22SD4rAlHtXwg8kspEAQHSA3KF5ei1akUpFiJyvYLfAC4KSU+9xrQ0DUelEqTwNrpnnPtCUZT+p02@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxuvn3wBMRjx57fJfE77aj87lPFAeH1ywOuJPA6jK0tcNkqgfFM
-	JMnFf2GEzNqwUGZYUUL8WMK3JKoGJHLexxHKjsD6+5hozQrAKAg+6MKDl8wVoYc087MBweBzP6U
-	y1uEw82+jVo+HjQlTOqxWUVwJt1ll9vslIzG0
-X-Gm-Gg: ASbGncs2alNplKxZkY8Il9jf4We7uoVT+K0cCJK7SIQy87mqx6K+pyFEVpLHukEcrkm
-	SwohffeJMMLYKhnKhTsvWnwBu+fIO96xMN+NHjEqF3WTAFchLammX9gaB1WMJp+cHpUh1sNGm0a
-	Me3zlWcu4d4yF4O5Nc7H8ozrcz
-X-Google-Smtp-Source: AGHT+IFqTvA0kT0d8/s2/LY0/DyAghSw5k4WybfSH3hPb2dd+fkXBPi3nvvKEIQesGbSUsmWCmzVLcTwx/r2AwSYTGI=
-X-Received: by 2002:a05:6e02:12ea:b0:3a7:dcc1:9936 with SMTP id
- e9e14a558f8ab-3d14f0f576amr7064045ab.23.1739211333209; Mon, 10 Feb 2025
- 10:15:33 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739211351; x=1739816151;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zCHZNtni/CSZJ0FFRkrYJ71iWbDqICIFGe1C4Jypxx0=;
+        b=YsRw7ZhUihlxeEYDwxT75srgfAHRWhZ8Be5FNMksj+o4n9nwD/nsA7w7Ua84Wvafp6
+         ZiGR/6l5LO41CyvraQQUNgtDMg/d2ufGYUa2ZV43z8oXnS86s0ZQj5k6vS3WYw8GWOZC
+         7f5lSEdePFcWx9UT+4b/Ro4YDe28FwswjBlTgIjUFz+qb25CBDu2oLBQ8O7m9fBi4pYm
+         0cq2FG5qR7p+/O7IxwMQ482dlKFhj3q8QKUsWyxUOac8bz0RTQCpL54b5dJVTttNfYbd
+         ABR4Ex8C8CMuQr7KbgugYcCOMmAUZHehq7fL8IqG8DkN7CbM7nENVoq6fs4zkLh88ode
+         ohiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ+RGIYd8VqhIpk+A/lNrsfZPCeygYLEN6pSNt7hF6mFbTtMXKnv4AueB4WT+OmvGXqDz9zP2Ev7QzztzsyYZh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+r6/rCX5uXS9TQD6DpvxTP4Fc0woh5X0/yBjQ+fxitB1YrHUj
+	v2R7Ck2Gu6M48HLyP/1tlyCm0rBpupSaB05Dt+SLTkQJ8wsdn8XEuk0hEB0rIiPuqQLW/9pOn42
+	g6fo7fm9trmnbRKiaqHMbjh3vkLiY2CC9JPYnFxi1/P36xAPCjScNBo+ThCKLZlaJID43noXCQQ
+	==
+X-Gm-Gg: ASbGncs8JIjnhznEbmjTsGz3g4lanVz6t3Dp8MinMkBMJB4CIopKMPgKLWtkOuSAkeV
+	ULOc2e4o2uZmwilMgjLU38aqGEF3b7+c1Pyy5lMGuI2D9aJbJhIe7S0W81zroG6Lu4ga/OATwlg
+	qhFSb75EIu/Cq5kUXP/HegQgrw4TRiTqugCzo3cO1tbuM4DRMqzwR+zlr3pJhYwNre5/CcDSmzm
+	l6af46C488AQ1l8AeCAovRP8O/NmvUyD/qbo9rYrql7j/aoxYXyDowWRxzYo0WBWZNmkVuZwVwy
+	fKldG9AG6oXdpVEZfzzZJSN4mdD90QhEpu7A+MElFbVO8eYOLkStwKBR0SA=
+X-Received: by 2002:ac8:5fcc:0:b0:467:672a:abac with SMTP id d75a77b69052e-471679dc26amr71995281cf.4.1739211351348;
+        Mon, 10 Feb 2025 10:15:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF+wRXNnWRPbq293evDdIvEhGqEHzq1kYbvdr3w/KyUUAyfZrYq8rC1dDpVfln5xyQdRsb5ew==
+X-Received: by 2002:ac8:5fcc:0:b0:467:672a:abac with SMTP id d75a77b69052e-471679dc26amr71994941cf.4.1739211350986;
+        Mon, 10 Feb 2025 10:15:50 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf9f6c77esm8235727a12.69.2025.02.10.10.15.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 10:15:50 -0800 (PST)
+Message-ID: <0a1735a3-b57e-4a98-a3c8-46e92b5cdf0f@oss.qualcomm.com>
+Date: Mon, 10 Feb 2025 19:15:46 +0100
 MIME-Version: 1.0
-References: <20250113194345.1537821-1-irogers@google.com>
-In-Reply-To: <20250113194345.1537821-1-irogers@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 10 Feb 2025 10:15:22 -0800
-X-Gm-Features: AWEUYZn7d4ZEktR9aWJ_xgpCMfHw12KnOcZgrjIapk5zbV_Lb74ntXY_p46rN_Y
-Message-ID: <CAP-5=fVoQRhd-8jyXfjc2dCuwt7_o1sU208aADT1FriwCNa9qw@mail.gmail.com>
-Subject: Re: [PATCH v1] perf sample: Make user_regs and intr_regs optional
-To: Tavian Barnes <tavianator@tavianator.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Charlie Jenkins <charlie@rivosinc.com>, Andi Kleen <ak@linux.intel.com>, 
-	Veronika Molnarova <vmolnaro@redhat.com>, Michael Petlan <mpetlan@redhat.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	coresight@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 4/6] clk: qcom: Add NSS clock Controller driver for
+ IPQ9574
+To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
+        mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
+        richardcochran@gmail.com, geert+renesas@glider.be,
+        dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
+        biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, ebiggers@google.com,
+        ardb@kernel.org, ross.burton@arm.com, quic_anusha@quicinc.com,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Cc: quic_srichara@quicinc.com, quic_varada@quicinc.com
+References: <20250207073926.2735129-1-quic_mmanikan@quicinc.com>
+ <20250207073926.2735129-5-quic_mmanikan@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250207073926.2735129-5-quic_mmanikan@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: Ku6SJMmR4WvllCQqBBxbN4D5hS2qejmy
+X-Proofpoint-GUID: Ku6SJMmR4WvllCQqBBxbN4D5hS2qejmy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_10,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ clxscore=1015 lowpriorityscore=0 impostorscore=0 mlxlogscore=758
+ mlxscore=0 priorityscore=1501 spamscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502100148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_101535_628259_DE4D2EC4 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250210_101553_286216_482F3420 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,31 +129,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:43=E2=80=AFAM Ian Rogers <irogers@google.com> wr=
-ote:
->
-> The struct dump_regs contains 512 bytes of cache_regs, meaning the two
-> values in perf_sample contribute 1088 bytes of its total 1384 bytes
-> size. Initializing this much memory has a cost reported by Tavian
-> Barnes <tavianator@tavianator.com> as about 2.5% when running `perf
-> script --itrace=3Di0`:
-> https://lore.kernel.org/lkml/d841b97b3ad2ca8bcab07e4293375fb7c32dfce7.173=
-6618095.git.tavianator@tavianator.com/
->
-> Adrian Hunter <adrian.hunter@intel.com> replied that the zero
-> initialization was necessary and couldn't simply be removed.
->
-> This patch aims to strike a middle ground of still zeroing the
-> perf_sample, but removing 79% of its size by make user_regs and
-> intr_regs optional pointers to zalloc-ed memory. To support the
-> allocation accessors are created for user_regs and intr_regs. To
-> support correct cleanup perf_sample__init and perf_sample__exit
-> functions are created and added throughout the code base.
+On 7.02.2025 8:39 AM, Manikanta Mylavarapu wrote:
+> From: Devi Priya <quic_devipriy@quicinc.com>
+> 
+> Add Networking Sub System Clock Controller (NSSCC) driver for ipq9574 based
+> devices.
+> 
+> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
+> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+> ---
 
-Ping. Given the memory savings and performance wins it would be nice
-to see this land. Andi Kleen commented on doing a reimplementation,
-which is fine but out-of-scope of what I'm doing here.
+Thanks for getting this buttoned up all the way
 
-Thanks,
-Ian
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+
+Konrad
 
