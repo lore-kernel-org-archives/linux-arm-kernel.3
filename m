@@ -4,82 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F001C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAC1C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1H+Ir3hzjFy5kvh3ZHOggs0A8zRpB/qKteU8q68oXLw=; b=nB3vRuHVxMQbniaKNDv0EteiCu
-	NLT/6e2dPlJHCu237vavthoFF6Bm3aKV/vXieYnClv1DMHZBZwzX62QbFNpzobmXRR78WyV8LT0pv
-	rxFYQXRAlBEiRCDmd/zyw0ihZ+Y0mdZD8FE3BbbOUsiNVAhgg1smF8OfVqsasrPGIOpq2GeoSkjpl
-	sZfuug+nuv/BPtS0no9HmgFHYhqKcVOOTGF1LMtvoitXlm0ZH6N3Mki0U50rAW9FCJrqjGeidBNoS
-	TE9JINw6TxZNo/wA46qjiz7nFBl/SaQW9BfilDtnUJf5VysmbRHrZSPBxpWGZ/hJyEN5ZcVDCAM8A
-	A4UZrxrA==;
+	bh=hgguTSFnjwWEUxBDa2C5Pf4WCfOFI/5UFo5VErVUJi0=; b=k1noRXgG7hvtIJkzzQv+yyJHle
+	9rlMoPneOYudez7ldjEbK1XMuEcoOo93K1bmNSttJ3tYbbrj89kqUhvtu8/cKQR5nbzmhGvqPzYDC
+	JbJMo50k0qsgDdwnxjySB4l1X7VUzO3EyHqTbOHIDcWO5JEXhHJhu0NmSqEgpa2Z44MSCk0p363r2
+	gaylkb7IYTq7rEj88lilCisyr18u1K7qWGylsuxalZFT4QBkLV+N0SOfIuNuh9J4M9YGzarWvrIWD
+	47CHKxtDS4CSYIjbMW810nXJislKHt1z8Zt9b9YOhD1ZN5AQhKeRA69nh8XRuQuYx6VxVnqsDLYII
+	B5Mr9eig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPno-0000000Gm3A-2D2W;
-	Mon, 10 Feb 2025 09:10:04 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1thPpB-0000000GmJC-1kO3;
+	Mon, 10 Feb 2025 09:11:29 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPa3-0000000Gjgy-2XSG
+	id 1thPdE-0000000GkCK-3GLz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 08:55:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3F07B42CCD;
-	Mon, 10 Feb 2025 08:55:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739177746;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1H+Ir3hzjFy5kvh3ZHOggs0A8zRpB/qKteU8q68oXLw=;
-	b=o95JPqWvhZ/aFf3L1LdM6mNc5/6sUr8ZjPYQyKCtXkRxeXZI6mG6PsAn2U/P17fRwv3lY8
-	fmFVMAz0Xc3xwF2gIrqvokXwtRnKsM4DaXs1UtadUYGahgI1LiQJ2zDI3iUqClbV8yMGDs
-	APXlmCSmYxom/m5suGnd/DSXEKCxEtbSHCEymobtQ+/4HpUQTL7xs1Q5NrYcLcmp65NFxV
-	47U6Bkk2fjsRh9if58lr4DHo7gJVwsTrMSZQziMuB16BY/dcWADU7RmHSCtdZuJ6fWAox3
-	c41sUjfgH1SJ8gj1uIZyC33e+AxKBUZ3t1JWCpZIPfABB0zPVW4ggqm2u2oeqg==
-Date: Mon, 10 Feb 2025 09:55:42 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Sean Anderson <seanga2@gmail.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next 00/13] Introduce an ethernet port
- representation
-Message-ID: <20250210095542.721bf967@fedora-1.home>
-In-Reply-To: <8349c217-f0ef-3629-6a70-f35d36636635@gmail.com>
-References: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
-	<8349c217-f0ef-3629-6a70-f35d36636635@gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 10 Feb 2025 08:59:10 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38dd006a4e1so1829546f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 00:59:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739177947; x=1739782747; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hgguTSFnjwWEUxBDa2C5Pf4WCfOFI/5UFo5VErVUJi0=;
+        b=DpVmZeaYnF2UXs3ZRTSdvg7g17UryHlgFNTgyORcFkQ9rXwePckg5VM4j46FegKNHz
+         NxdzFIbc4Q8Ka+Ymv15fTOGoRTI9T5MAS6kqxI+nUPQTBCFfUVvq1lKQI/izwCGxoYbA
+         GmKshnJ1K9qFtCwPeQd6rmCKnKbQIEA65rOFQslQwlUNuQvgYvVeBKZUpWvJJmEM+6n+
+         PYPASAP9vqQ/2oCLr8WaLzyy6YsBzEaBvYXualMyQxuAnGE7XbseBmM965u/oudGm8/x
+         PUvh+hFVEBpcrZ7fy0qoy3n/Av1eNFsaBh+KWZaEw3z/SuvEsxO3ZIMnx3Sy6mFSThAY
+         chFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739177947; x=1739782747;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hgguTSFnjwWEUxBDa2C5Pf4WCfOFI/5UFo5VErVUJi0=;
+        b=QnPCtXvFfymSz1rlkxGEXXSY08+s5IROiAbzb2D8J7cxBoUzYkoY51puqKEj/uoPoX
+         epfFV0sIh8awNe/M7v0pLFEFVVnTi2Zz9hQTl8c8MeWkW02H4b4fCCYU00N97wCpNQld
+         zFtqMKX2ZyH5/X53GFuCxPAAxKHfUHjDnxaYYjUndkPogsvzZuUOtRYwvqRQgIPRh30u
+         eXBGaE8weAvSZrxRnjb4gCn7JAMnGojsY1R+3ek9KJTAyhkU+/3zlYCmS+1ZYVE9klod
+         j5Y5UjK9GcLiuAIygq9IU6JdxinuHJcxWl0GM3R0moAnwPnTp5sgiIVbJA29VoFRXXVO
+         9J8A==
+X-Forwarded-Encrypted: i=1; AJvYcCUE2s0IF+rcKjK+Cb+GgAswtWGTar3G20pBWSM16AFHroP7+u+N428fwuk7ME3ZxPsen2fxHfBq4LmTGV/DJlIG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzNGt6kgA49XDthstuUNcsuGMaL5wgMtO3dxQZg/VhEw2xLn+r
+	6JpvRKu2VhnAdx8UPTSpmZq9Ba/Zr2VktiM7oo1Hk32gErw/R9Z2HXTOIissiNk=
+X-Gm-Gg: ASbGncsaRiVoCmpATPfrm9uJ2ZF68nSGIZL/d+4FfoRfEaklLa7dyQEWZPswx7Ov2r3
+	IraENu62llNKVGEVq2l5DPfMWBhrNqGKHy7RguAas015uO3B82Km/uoHHywULML/mYxsSgQ9Tmv
+	b5GNvt1/O3XLxG4M1wtsQaNcAfua38tCEYeQHZZxFPhKwaUev+6ov1HJMdKDSjGDLcjRyeRf81o
+	IVlnRHH5M8enpGxcRSrQ6HVigOg8SSoAU1efjFi1as0C8LKMPWh3D2mpCZhW7ltPgg6sgCs0P3l
+	yh+Of3kolklzsbbMkG15rT45
+X-Google-Smtp-Source: AGHT+IHW35O2w+OVAfjf6xNzfb+RSzDit7DIG4eCcKdu75kyP3tGrbONMFt1iHptvel8q6LbiT3P3Q==
+X-Received: by 2002:a5d:6d8d:0:b0:38d:dac3:482f with SMTP id ffacd0b85a97d-38ddac34a13mr3776794f8f.20.1739177946954;
+        Mon, 10 Feb 2025 00:59:06 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd4d826c6sm6159674f8f.69.2025.02.10.00.59.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 00:59:06 -0800 (PST)
+Message-ID: <503b7ec9-e0b1-4351-aa34-3089b2055eb9@linaro.org>
+Date: Mon, 10 Feb 2025 08:59:04 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefjeeifecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedugfelledvtdffvdekudeijeduueevvdevffehudehvdeuudetheekheeigfetheenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdquddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtohepshgvrghnghgrvdesghhmrghilhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvt
- hguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/3] firmware: add Exynos ACPM protocol driver
+To: Markus Elfring <Markus.Elfring@web.de>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ Alim Akhtar <alim.akhtar@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-team@android.com,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Arnd Bergmann <arnd@arndb.de>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Will McVicker <willmcvicker@google.com>
+References: <20250207-gs101-acpm-v7-2-ffd7b2fb15ae@linaro.org>
+ <e1fffd3b-d3dd-4f46-b7b6-1f03f934dd30@web.de>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <e1fffd3b-d3dd-4f46-b7b6-1f03f934dd30@web.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_005551_931604_D52C8CAF 
-X-CRM114-Status: GOOD (  36.14  )
+X-CRM114-CacheID: sfid-20250210_005908_825220_604E2C8F 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,124 +109,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
 
-On Fri, 7 Feb 2025 21:14:32 -0500
-Sean Anderson <seanga2@gmail.com> wrote:
 
-> Hi Maxime,
+On 2/8/25 3:31 PM, Markus Elfring wrote:
+> …
+>> +++ b/drivers/firmware/samsung/exynos-acpm.c
+>> @@ -0,0 +1,771 @@
+> …
+>> +static int acpm_dequeue_by_polling(struct acpm_chan *achan,
+>> +				   const struct acpm_xfer *xfer)
+>> +{
+> …
+>> +	do {
+>> +		mutex_lock(&achan->rx_lock);
+>> +		ret = acpm_get_rx(achan, xfer);
+>> +		mutex_unlock(&achan->rx_lock);
+> …
 > 
-> On 2/7/25 17:36, Maxime Chevallier wrote:
-> > Hello everyone,
-> > 
-> > This series follows the 2 RFC that were sent a few weeks ago :
-> > RFC V2: https://lore.kernel.org/netdev/20250122174252.82730-1-maxime.chevallier@bootlin.com/
-> > RFC V1: https://lore.kernel.org/netdev/20241220201506.2791940-1-maxime.chevallier@bootlin.com/
-> > 
-> > The goal of this series is to introduce an internal way of representing
-> > the "outputs" of ethernet devices, for now only focusing on PHYs.
-> > 
-> > This allows laying the groundwork for multi-port devices support (both 1
-> > PHY 2 ports, or more exotic setups with 2 PHYs in parallel, or MII
-> > multiplexers).
-> > 
-> > Compared to the RFCs, this series tries to properly support SFP,
-> > especially PHY-driven SFPs through special phy_ports named "serdes"
-> > ports. They have the particularity of outputing a generic interface,
-> > that feeds into another component (usually, an SFP cage and therefore an
-> > SFP module).
-> > 
-> > This allows getting a fairly generic PHY-driven SFP support (MAC-driven
-> > SFP is handled by phylink).
-> > 
-> > This series doesn't address PHY-less interfaces (bare MAC devices, MACs
-> > with embedded PHYs not driven by phylink, or MAC connected to optical
-> > SFPs) to stay within the 15 patches limit, nor does it include the uAPI
-> > part that exposes these ports to userspace.
-> > 
-> > I've kept the cover short, much more details can be found in the RFC
-> > covers.
-> > 
-> > Thanks everyone,
-> > 
-> > Maxime  
-> 
-> Forgive me for my ignorance, but why have a new ethtool interface instead of
-> extending ethtool_link_settings.port? It's a rather ancient interface, but it
-> seems to be tackling the exact same problem as you are trying to address. Older
-> NICs used to have several physical connectors (e.g. BNC, MII, twisted-pair) but
-> only one could be used at once. This seems directly analogous to a PHY that
-> supports multiple "port"s but not all at once. In fact, the only missing
-> connector type seems to be PORT_BACKPLANE.
-> 
-> I can think of a few reasons why you wouldn't use PORT_*:
-> 
-> - It describes the NIC and not the PHY, and perhaps there is too much impedance
->    mismatch?
-> - There is too much legacy in userspace (or in the kernel) to use that API in
->    this way?
-> - You need more flexibility?
+> Under which circumstances would you become interested to apply a statement
+> like “guard(mutex)(&achan->rx_lock);”?
+> https://elixir.bootlin.com/linux/v6.13.1/source/include/linux/mutex.h#L201
 
-So there are multiple reasons that make the PORT_* field limited :
+I'll replace the open-coded mutex handling with cleanup.h guard(mutex)
+and scoped_guard(mutex, ...), thanks.
 
- - We can't gracefully handle multi-port PHYs for complex scenarios
-where we could say "I'm currently using the Copper port, but does the
-Fiber port has link ?"
-
- - As you mention in your first argument, what I'd like to try to do is
-come-up with a "generic" representation of outgoing NIC interfaces. The
-final use-cases I'd like to cover are multi-port NICs, allowing
-userspace to control which physical interfaces are available, and which
-t use. Looking at the hardware, this can be implemented in multiple
-ways :
-
-           ___ Copper
-          /
- MAC - PHY
-          \__ SFP
-
-Here, a single PHY has 2 media-side interfaces, and we'd like to select
-the one to use. That's fairly common now, there are quite a number of
-PHYs that support this : mv33x3310, VSC8552, mv88x2222 only to name a
-few. But there are other, more uncommon topologies that exist :
-
-                           ____ SGMII PHY -- Copper
-                          /
- MAC - SGMII/1000BaseX MUX
-                          \____ SFP
-
-Here, we also have 2 media-side ports, but they are driver through
-different entities : The Copper port sits behind a single-port PHY,
-that is itself behind a *MII MUX, that's also connected to an SFP. Here
-the port selection is done at the MUX level
-
-Finally, I've been working on supporting devices whith another topology
-(actually, what started this whole work) :
-
-            ___ PHY
-           /
- MAC --MUX |
-           \__ PHY
-
-Here both PHYs are on the same *MII bus, with some physical,
-gpio-driven MUX, and we have 2 PORT_TP on the same NIC. That design is
-used for link redundancy, if one PHY loses the link, we switch to the
-other one (that hopefully has link).
-
-All these cases have different drivers involved in the MUX'ing (phy
-driver itself, intermediate MUX in-between...), so the end-goal would
-be to expose to userspace info about the media interfaces themselves.
-
-This phy_port object would be what we expose to userspace. One missing
-step in this series is adding control on the ports (netlink API,
-enabling/disabling logic for ports) but that far exceeds the 15 patches
-limitation :)
-
-Sorry if all of that was blurry, I did make so good of a job linking to
-all previous discussions on the topic, I'll address that for the next
-round.
-
-Thanks,
-
-Maxime
+Cheers,
+ta
 
