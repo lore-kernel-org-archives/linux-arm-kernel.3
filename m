@@ -4,121 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C91C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BCAC021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hUbHvJc96V/cck7neSAdutap4ydIBlL7Lt+WobzOv4=; b=ilwlQP6dEe0oSe/WFAb73j9nfM
-	ucJsRTPI3TX0M2MN6vwIR6SGheRxy2xmC85OgrvnWxZEiBEbyVe8BOote1Pn9HLt2SEOCdBK1LaTZ
-	6M7jwchCzrACiyc4A1Bb71VdzQ7x7rUWUwOeles4i4aVa+5w9g+d/i48Wt/vsTI832eVmR7SaXYeh
-	oPMGxgWsAwG98ZH2VWVAjZK6x5l8ERAlyhE6hCwrR7EP6XyM0liusSQcgx2cr2wPtsRS8RAsmpGM4
-	L0mnZ+A9DlfUcNYjjKjGJgSD1fzPuX6hvMEBow+DhNFXnaBU1u5fEXWhsh5asD+RAUt7xpfnFY31R
-	jkgpax3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gScTzSF5SmDK0ItX+9bERNg9WxTsYpnT5wGwYZDdZ9I=; b=t+GVWXPaHoZPiaIsbjN7p1yEdd
+	yrFSDYr3ZebJQ30Znyel+CqeAub1ZrZZuAfc7Mv9qoWdbyL4wrvYvTLp1XlBkR99Lz5NA1tH4QsBz
+	pJQn6NYaguvZtDa2m1BVjlXj8pE8usZ7HnM/DsFt5zEryPCA+Q7lU508TibmSuMP+p0o2sF9B2Q7l
+	aGogWQbJ0EuIPZqlPhQNMbbRlGEwrb4uzO2v49vkyf8vByY9ulRuoXOOC3Ias9r57OKYalaOQwrkG
+	EZw6BQn9pPmk784j1BWcs9iSVsuqeWlgzMV5IOGna5sJYJyWtHZADVAy0GVbYZ7fsFK2Mnl9D5U1e
+	4kUnVWWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdXP-00000001taH-2jNc;
-	Mon, 10 Feb 2025 23:50:03 +0000
+	id 1thdd2-00000001u4s-1qUd;
+	Mon, 10 Feb 2025 23:55:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdW2-00000001tUW-0m3Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 23:48:38 +0000
+	id 1thcKe-00000001fNg-05so;
+	Mon, 10 Feb 2025 22:32:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4hUbHvJc96V/cck7neSAdutap4ydIBlL7Lt+WobzOv4=; b=R2OGwzzMKeroppZeaNvKLqK1uh
-	yF1x5Olt7ylkM/9nINuibucEZpcDD5FQJIG44mxz6Bd+KgP6ek0TXF5hu3siMK6b6j1i02jic2mw0
-	oe17CwkuL1ihGiAgcKgRwdTG9B2RcMXzRdvm9plxs7fPI7Ulhv2AE8a0hYFRHM0+tb3hI8yat3RvA
-	/5DJ+/IPRFjls0p2sW2PH+kJyUhA4QaGpdPL7w9WIH6McruisPUdr46OOqEH3iThezxURbkq2XhW7
-	8mJwOG6xaomLk6VbfSfmuvK+W8fCpqM0YdSSMIuO1/weJmgdq5CGODpYWYpnMxPI4pOWfBhkXxKNG
-	ViUh3huw==;
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=gScTzSF5SmDK0ItX+9bERNg9WxTsYpnT5wGwYZDdZ9I=; b=I+KJTZ72axCzrHqTNn4iHtTi+k
+	nbuQAVbHt2lmbsB0EMD2ivKUCsamWQLJkdAhtZjvoDklpT0X16YkXWtkF03L1l1lKWtyUoyx5JyKK
+	JZ/KNCbcy656nJLkYxbfcryOHZs2fyqt7tEgYVT+J59vvcN9AkC9DZCnIMayCj7pRkOl5PDWPlnCE
+	XOK9G7xIpE5PCDXnx+iUaY4k3oQXe5iRWLDEMB7eR2K4LVoefkn4JvOnYgNDQojhJttoUsqORcSht
+	aFNjVo6BK55DhCZQMYG8TwUOmh2uWncmyXiXhAnqlhMADE464yuylTnp9rDkin9Z/d+nMj7Cpn6qX
+	Kg75SZig==;
+Received: from gloria.sntech.de ([185.11.138.130])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdVy-00000000NIK-1tG0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 23:48:36 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e5b4d615362so2964419276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 15:48:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739231311; x=1739836111; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4hUbHvJc96V/cck7neSAdutap4ydIBlL7Lt+WobzOv4=;
-        b=YvSNl7MUiAOF0Q3ODgsNBRp1cwRRvT8RJcv+kZE7BS5qv0rU0k2UmbUDk/SbErQz5q
-         ouFfhH8aDo8xqGTL9XYpz1S38Zl6UhSyVPBlBzgCfxKkgLANfDv+hL+ugr5RaRJXPVlI
-         MoIc/zPglRTSI7+zRxpQUP376bLCGBuBhfu2ocJ99xWMPpzS+z3YwdJGlFdVlseGPOqj
-         pge4coWrIlu2pj+vl8H+secfZx+B8+d6bmOcNfBftXAvGLkjk+Xtm0u0oqq28BPCovev
-         siG3yJv6ULM0c8j2m1aBYbf6G5pOZCHI2fqDNTQLCbF26WKtABjwUq8MBTTF8/GkOmCn
-         cE+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739231311; x=1739836111;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4hUbHvJc96V/cck7neSAdutap4ydIBlL7Lt+WobzOv4=;
-        b=JXMaW7C6cyyeNr68GnuEjNtOIkuJwuCc66G0XYvW4kd6rsHOg1j+D7AKNm1XLhyBvi
-         Y+LVC+C4XuV7d0VBrq7l4uACTmUNvbVp5ON5Ywf0eP3RoW/rWCIEIC/qOAk9HLQcuIrc
-         W3Bi3ED8xOlnAvARnVyADojQLEP8Aa1QMy+cZ5HDssUObffLviNqZHajLaU9hIfgXMCD
-         /o/lhFRq4sNsZdGHF9WeW/K5lIbAAIE0H/mwE+qu5L3tjaxoOJVEb+8JETzQxbUdzAm5
-         zJXCh/jlaLq83FuDtaG2mnA6Jfsee9XWyXljTixXluevIBcMuyfpBrdXo8OIWtlQpu0H
-         FsBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVz+n+blcJpTlN5RX0y5ZRbyExyOytZubndKRtZ0cY6J8+AsKJUdHb3OJPdiAs1tAKySR17f+CAWqqyYRGKwMku@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlP3KdpKFgAZK6AfVEZ/40dwmcbikOHJw5F4fIRKlWysd9P8/Y
-	hU1qaJhImK6mSjp4m0iQ/Y3qwFoqh7x5CxSAS6YVpAVTxFNzQoxv3g/7PAQYVpQ=
-X-Gm-Gg: ASbGncvA1ektC4QQ/BBvaiZRd9v8TCR8i0nxaw38bgXtqFgkr1c5zflpJjh7rIsjTJy
-	PD46R2c6q8WwsJVEKl9pTP+FlKBkjRSRJs1CCsYmS/puZU/Pin7bMaUMk4xc6dDIT1KCUih49+2
-	CS1IgFoUhPSMlRdwrD8ATyoGjDvUdJZyXpqJe57YjENpP2gsYhwbpEruKR/N6MqT142CYFIlB50
-	PPsU25rhihJjl6gAZ63fSXKpwUME3HbtOqAHglvn4C3J6ky3l7wwE0JmzHiT0X9p90X87Vzy6vW
-	wP4=
-X-Google-Smtp-Source: AGHT+IESD4xAhKpt/pl94F/2JTELVhfRZrr4MEz5jFM5hVpih0Ce3o8BYnuqyUwCOqcd7JcBXZF8hA==
-X-Received: by 2002:a05:6902:1b03:b0:e5b:44f2:e2c2 with SMTP id 3f1490d57ef6-e5b461c59e5mr12913135276.25.1739231310645;
-        Mon, 10 Feb 2025 15:48:30 -0800 (PST)
-Received: from ghost ([50.146.0.9])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e5b3a45dd7esm2895010276.39.2025.02.10.15.48.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 15:48:29 -0800 (PST)
-Date: Mon, 10 Feb 2025 15:48:28 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>,
-	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/7] perf syscalltble: Remove syscall_table.h
-Message-ID: <Z6qQTL7k8VmAM_nD@ghost>
-References: <20250210165108.95894-1-irogers@google.com>
- <20250210165108.95894-2-irogers@google.com>
+	id 1thcKa-00000000K5k-2GTN;
+	Mon, 10 Feb 2025 22:32:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gScTzSF5SmDK0ItX+9bERNg9WxTsYpnT5wGwYZDdZ9I=; b=jVJznroLLXwS8UOrupccZJB2qf
+	I/0LaWZxs6cLc7Kq98/Tjiwa7wOp3fA83fF5CaEUrPu0JfMgT9MnqGnGy9ELf7W0T1bJLwFT947dQ
+	afkAXNPRg0XFX7fd723sV5o45i9UiUwA0UFtOTEpi/VrcRemR/tFsoCSVxgpoutYFw+WAhpgqmw7a
+	v70K7hWD9b8vR0cGGxlKq3ms/Mx6Vx+USZyPH7fT3u4Su8924fO43e8Jg4MpAQZftVSFq66acwcL3
+	Dac+q5Nr/fg0YEVB0EMRbio4L1WPlbvyBmYqLD9J3DOTZ39PEFUOTbtvPKiLTEDb03EiQyUO9HzgK
+	d19LYBVA==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thcKZ-0008Cw-CH; Mon, 10 Feb 2025 23:32:43 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: srinivas.kandagatla@linaro.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	detlev.casanova@collabora.com,
+	sebastian.reichel@collabora.com,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v2 3/6] dt-bindings: nvmem: rockchip,otp: add missing limits for clock-names
+Date: Mon, 10 Feb 2025 23:32:09 +0100
+Message-ID: <20250210223219.1193346-4-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250210223219.1193346-1-heiko@sntech.de>
+References: <20250210223219.1193346-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250210165108.95894-2-irogers@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_234834_759068_5A01A13D 
-X-CRM114-Status: GOOD (  24.50  )
+X-CRM114-CacheID: sfid-20250210_223245_058190_56DB1BF0 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,247 +96,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 08:51:02AM -0800, Ian Rogers wrote:
-> The definition of "static const char *const syscalltbl[] = {" is done
-> in a generated syscalls_32.h or syscalls_64.h that is architecture
-> dependent. In order to include the appropriate file a syscall_table.h
-> is found via the perf include path and it includes the syscalls_32.h
-> or syscalls_64.h as appropriate.
-> 
-> To support having multiple syscall tables, one for 32-bit and one for
-> 64-bit, or for different architectures, an include path cannot be
-> used. Remove syscall_table.h because of this and inline what it does
-> into syscalltbl.c.
-> 
-> For architectures without a syscall_table.h this will cause a failure
-> to include either syscalls_32.h or syscalls_64.h rather than a failure
-> to include syscall_table.h. For architectures that only included one
-> or other, the behavior matches BITS_PER_LONG as previously done on
-> architectures supporting both syscalls_32.h and syscalls_64.h.
+The clocks property correctly declares minItems and maxItems for its
+variants, but clock-names does not. Both properties are always used
+together, so should declare the same limits.
 
-This is a great way of doing this, thank you.
+Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+diff --git a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+index a44d44b32809..3201ff8f9334 100644
+--- a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
++++ b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+@@ -62,6 +62,8 @@ allOf:
+       properties:
+         clocks:
+           maxItems: 3
++        clock-names:
++          maxItems: 3
+         resets:
+           maxItems: 1
+         reset-names:
+@@ -78,6 +80,8 @@ allOf:
+       properties:
+         clocks:
+           minItems: 4
++        clock-names:
++          minItems: 4
+         resets:
+           minItems: 3
+         reset-names:
+-- 
+2.47.2
 
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> Reviewed-by: Howard Chu <howardchu95@gmail.com>
-> ---
->  tools/perf/arch/alpha/include/syscall_table.h     | 2 --
->  tools/perf/arch/arc/include/syscall_table.h       | 2 --
->  tools/perf/arch/arm/include/syscall_table.h       | 2 --
->  tools/perf/arch/arm64/include/syscall_table.h     | 8 --------
->  tools/perf/arch/csky/include/syscall_table.h      | 2 --
->  tools/perf/arch/loongarch/include/syscall_table.h | 2 --
->  tools/perf/arch/mips/include/syscall_table.h      | 2 --
->  tools/perf/arch/parisc/include/syscall_table.h    | 8 --------
->  tools/perf/arch/powerpc/include/syscall_table.h   | 8 --------
->  tools/perf/arch/riscv/include/syscall_table.h     | 8 --------
->  tools/perf/arch/s390/include/syscall_table.h      | 2 --
->  tools/perf/arch/sh/include/syscall_table.h        | 2 --
->  tools/perf/arch/sparc/include/syscall_table.h     | 8 --------
->  tools/perf/arch/x86/include/syscall_table.h       | 8 --------
->  tools/perf/arch/xtensa/include/syscall_table.h    | 2 --
->  tools/perf/util/syscalltbl.c                      | 8 +++++++-
->  16 files changed, 7 insertions(+), 67 deletions(-)
->  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
-> 
-> diff --git a/tools/perf/arch/alpha/include/syscall_table.h b/tools/perf/arch/alpha/include/syscall_table.h
-> deleted file mode 100644
-> index b53e31c15805..000000000000
-> --- a/tools/perf/arch/alpha/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_64.h>
-> diff --git a/tools/perf/arch/arc/include/syscall_table.h b/tools/perf/arch/arc/include/syscall_table.h
-> deleted file mode 100644
-> index 4c942821662d..000000000000
-> --- a/tools/perf/arch/arc/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_32.h>
-> diff --git a/tools/perf/arch/arm/include/syscall_table.h b/tools/perf/arch/arm/include/syscall_table.h
-> deleted file mode 100644
-> index 4c942821662d..000000000000
-> --- a/tools/perf/arch/arm/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_32.h>
-> diff --git a/tools/perf/arch/arm64/include/syscall_table.h b/tools/perf/arch/arm64/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/arm64/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/csky/include/syscall_table.h b/tools/perf/arch/csky/include/syscall_table.h
-> deleted file mode 100644
-> index 4c942821662d..000000000000
-> --- a/tools/perf/arch/csky/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_32.h>
-> diff --git a/tools/perf/arch/loongarch/include/syscall_table.h b/tools/perf/arch/loongarch/include/syscall_table.h
-> deleted file mode 100644
-> index 9d0646d3455c..000000000000
-> --- a/tools/perf/arch/loongarch/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscall_table_64.h>
-> diff --git a/tools/perf/arch/mips/include/syscall_table.h b/tools/perf/arch/mips/include/syscall_table.h
-> deleted file mode 100644
-> index b53e31c15805..000000000000
-> --- a/tools/perf/arch/mips/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_64.h>
-> diff --git a/tools/perf/arch/parisc/include/syscall_table.h b/tools/perf/arch/parisc/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/parisc/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/powerpc/include/syscall_table.h b/tools/perf/arch/powerpc/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/powerpc/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/riscv/include/syscall_table.h b/tools/perf/arch/riscv/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/riscv/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/s390/include/syscall_table.h b/tools/perf/arch/s390/include/syscall_table.h
-> deleted file mode 100644
-> index b53e31c15805..000000000000
-> --- a/tools/perf/arch/s390/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_64.h>
-> diff --git a/tools/perf/arch/sh/include/syscall_table.h b/tools/perf/arch/sh/include/syscall_table.h
-> deleted file mode 100644
-> index 4c942821662d..000000000000
-> --- a/tools/perf/arch/sh/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_32.h>
-> diff --git a/tools/perf/arch/sparc/include/syscall_table.h b/tools/perf/arch/sparc/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/sparc/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/x86/include/syscall_table.h b/tools/perf/arch/x86/include/syscall_table.h
-> deleted file mode 100644
-> index 7ff51b783000..000000000000
-> --- a/tools/perf/arch/x86/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/bitsperlong.h>
-> -
-> -#if __BITS_PER_LONG == 64
-> -#include <asm/syscalls_64.h>
-> -#else
-> -#include <asm/syscalls_32.h>
-> -#endif
-> diff --git a/tools/perf/arch/xtensa/include/syscall_table.h b/tools/perf/arch/xtensa/include/syscall_table.h
-> deleted file mode 100644
-> index 4c942821662d..000000000000
-> --- a/tools/perf/arch/xtensa/include/syscall_table.h
-> +++ /dev/null
-> @@ -1,2 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#include <asm/syscalls_32.h>
-> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-> index 928aca4cd6e9..2f76241494c8 100644
-> --- a/tools/perf/util/syscalltbl.c
-> +++ b/tools/perf/util/syscalltbl.c
-> @@ -7,13 +7,19 @@
->  
->  #include "syscalltbl.h"
->  #include <stdlib.h>
-> +#include <asm/bitsperlong.h>
->  #include <linux/compiler.h>
->  #include <linux/zalloc.h>
->  
->  #include <string.h>
->  #include "string2.h"
->  
-> -#include <syscall_table.h>
-> +#if __BITS_PER_LONG == 64
-> +  #include <asm/syscalls_64.h>
-> +#else
-> +  #include <asm/syscalls_32.h>
-> +#endif
-> +
->  const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
->  static const char *const *syscalltbl_native = syscalltbl;
->  
-> -- 
-> 2.48.1.502.g6dc24dfdaf-goog
-> 
 
