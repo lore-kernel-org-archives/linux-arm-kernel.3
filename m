@@ -4,75 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869C5C021A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD995C021AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZaNLq2FmqcQKi0McRhQ/9VYyoNjn4s/cgYMampIyNI=; b=jEMDpOZ0KSwBCs/tW5kdlLxwyT
-	kd3TvNoGkqGp4WH2GIC2U8W1tm/j/KaxSVBE+Vg8MTqsoxvPnfA/msIMwv1hlD0jFx/DMZ1X71DZg
-	qxGwR9yXOhxx/Ue/0imQVrpdBotQ4kk4+/ew/qPPs5LjwAqp2hmuKPxv1O+578Mpf3fmW7TFQX2Rt
-	BenAsdLxxMcgnEYCcIW9utu2iyhdXfiIUG+tbWGcRw8fwwPwMSf7/26a7J/02d/1aGZ+xYH1MKzal
-	MWbfiqY3SDS2i8zMsTBWMeLPK/8v++xCsrkbwwymamQY1YfT6lufOpmaLRV4uEHaHTlzAnnumnouX
-	QbX9SyYQ==;
+	bh=wzsV/nHxroBNjLXhWoD5i0vnw07P5+Zp+zulUeyeNIU=; b=uw6LDFBEJrDTQkNjoMmzl0gFSp
+	rCC7aYcymntoaJhzyrcL+ltUYKP0wXR1ZX73v6dmDCxybT1xT1MvFQkKawhoEDRZ+7lx7D7qvZ4f6
+	ZwXfFu0ShnNF7WZMKCpdcTHEUFZ+3S0FR/WUBfWKIbKI+am13vHpfwZUlqY5somlevW8B0iN8kwep
+	A8jZtltmFIccH7i5LP9sfvEf1GRlFgjFR5IT0iwuFg3v6xS1zkHpSo0o0vzz+MiMaRs2/3jSl2xl6
+	t5ID5WdgVj8y0wG0x/RO+ewOy5rY0bZxFS8VuOx7P6r5w7palx0VAiZ48SU9SDRDRk4v8zmbsFYuP
+	yZeud46Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYf-000000016qp-0M7q;
-	Mon, 10 Feb 2025 19:35:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thZYr-000000017Ll-3fBp;
+	Mon, 10 Feb 2025 19:35:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYjM-00000000ywk-1C6Y
+	id 1thZ2G-000000011sH-1fcT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:42:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6E94A41FF8;
-	Mon, 10 Feb 2025 18:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEC15C4CEE4;
-	Mon, 10 Feb 2025 18:42:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739212923;
-	bh=z7iBEbHjuVZsXkMILKTE3VIgBtdRVfUQrmyYRKq8OeU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hMH02W6PgTqygi6inCP4IVAWjz/OCPv2xQ9xIKaPZpL/f9FBRTvWDsh8OmL6Jl4cS
-	 OFG6ZD6e1k9GKQkF917fpBAOU2zt5GqJ7Ka0Uax/0D9tSkaARTOA5GgNFnSTn2/zEb
-	 vhHFmhwh3kZIS+2sOqIQkAFg1xMJuU4wiDIjJ0+jRYe2cJ7saKO6UHTY5GpIG4//YZ
-	 I8gpArUji228Xn4y8ruubPB0pnqlJu1bp6TcVNOVwXDgiVwcJ1I9Z1GRAHc5UomdEw
-	 tMIditfcOAJJeSESZmSp4esbUWAw5NZk24S/EhWNXliJrKlI3cwzsBhsqgaILc0Ni4
-	 AYznwn0OB2ViQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1thYjJ-002g2I-2n;
-	Mon, 10 Feb 2025 18:42:01 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 16/18] KVM: arm64: Switch to table-driven FGU configuration
-Date: Mon, 10 Feb 2025 18:41:47 +0000
-Message-Id: <20250210184150.2145093-17-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
-References: <20250210184150.2145093-1-maz@kernel.org>
+	Mon, 10 Feb 2025 19:01:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739214095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=wzsV/nHxroBNjLXhWoD5i0vnw07P5+Zp+zulUeyeNIU=;
+	b=VNWBZnfAwgoQEgt6BFmUNqHbRj0yj0isYfI9idsQAc4g2saSGKzbTufjzJ5UCvSp43LPny
+	xCBrbYhp9BdQ2LErltzGjNn2bkI57u8nRo7uVSbpZT60he4dDEmXt/IcWy7eegn5M2MPx7
+	AniSCi3NTkhsL1Wh+FgmTwbpn8q2EOc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-379-5byECeXmOJGzevjV7_vRKw-1; Mon, 10 Feb 2025 14:01:33 -0500
+X-MC-Unique: 5byECeXmOJGzevjV7_vRKw-1
+X-Mimecast-MFC-AGG-ID: 5byECeXmOJGzevjV7_vRKw
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43935e09897so15435565e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 11:01:33 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739214092; x=1739818892;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wzsV/nHxroBNjLXhWoD5i0vnw07P5+Zp+zulUeyeNIU=;
+        b=AxGwsQYhMEDk+wwruKNtHv8Gk0vYZpDgHdfU7+e8lGOXF9P3HYRHVjnqvTSi0SVR74
+         J+teuy8OoyGl5ztUbDJQWLEFGf/unUuNvAGSpdjrvWULCu3L5Vny5+lxmz9QAlGUBZCF
+         9W/+7GB4LYbxKJlVrtYkii2n3R+sI52evRB5rMbQxgtO48VrCBQnElfQmCiXzCE+J5U4
+         2AkfB6Kg3PIJ/p+jLEq6adwFZdI3VBmXbBscS1+nrLxVqjJQGpiH+b6E27CitSfuc9rG
+         c+Bk14N519/UT3zlPUomlEFb3spB5RYqdHZSacMzSWNXO0/HJ23u/jK7pLpqCkLHjZxi
+         0+7A==
+X-Forwarded-Encrypted: i=1; AJvYcCWuVCGMGdZ3jEt8oz/+APro+odJTGavNvebWKCtYcy1N+KVq/nMPGNsjeLCqZEvNv2mACJj+2cG0bndtncMImxP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGi6S6oMdheRwGgFVatgzaUX0Jrfqf+S8lTZWQIs69PnEnlTYn
+	HafHgWzGEcNST+IUfz9b2CuAOM++YHH1KjTma90lsS4X9lTNDLL0BTY4935Dp/sE761qlIrFUNV
+	aRNUj3UWCAIJLKt4Eb+1mNcQbnziwTLjHvdySVVx0vM1tWnp0rh2NdSC43upFNEcGAgHLCAkv
+X-Gm-Gg: ASbGncu5jE6Qqi+sV94VnF4LMuuoWxNmPrMpZbsHzmgN21fhmObfuer4+mxZsZiActf
+	tSG+Vhv2qe3/vGO6wNdTjM9AvCGsOZvZxiwqewQA/tOuz35Y0L17Cmgtq0BOtY+2Mjbc991TI0e
+	BEMbYKNQS54XgYP4iR5piUKUHhmElky+aIjHfyFw7vHCkDVxoR0llLEv1XK5yaz6KsIoDu2Dv4M
+	nTz/OCPf6GkbMDWYtf8MX4LobMTJbJeIpRoO7SH624UE5fqEb6ScXVjREeAs1K70smhSm+8qruW
+	OPA/iab1Q1vGbJiMVcHbXC3a6aFCRrCSdNzqwoKUF9iOAoPdiY/aBpqvJvpXZQZpHa9n3YxSXq1
+	fcICwSknHZ6wSQRGuLT5tpE4Yk2gjMYq4
+X-Received: by 2002:a05:600c:190e:b0:438:a240:c55 with SMTP id 5b1f17b1804b1-4392497d5a2mr101320465e9.1.1739214092221;
+        Mon, 10 Feb 2025 11:01:32 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEqWvelv/EcWxqIdqqM8VMOUSW6z55PUGBNaBVsQSNr8P/MbW0xQgBUZTOgnOd6dY4d3UNnxA==
+X-Received: by 2002:a05:600c:190e:b0:438:a240:c55 with SMTP id 5b1f17b1804b1-4392497d5a2mr101319385e9.1.1739214091737;
+        Mon, 10 Feb 2025 11:01:31 -0800 (PST)
+Received: from ?IPV6:2003:cb:c734:b800:12c4:65cd:348a:aee6? (p200300cbc734b80012c465cd348aaee6.dip0.t-ipconnect.de. [2003:cb:c734:b800:12c4:65cd:348a:aee6])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc17e278bsm12112233f8f.48.2025.02.10.11.01.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 11:01:30 -0800 (PST)
+Message-ID: <6a6773ae-a21a-437c-be6f-d8e53267e534@redhat.com>
+Date: Mon, 10 Feb 2025 20:01:28 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 19/20] fs/dax: Properly refcount fs dax pages
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
+ dan.j.williams@intel.com, linux-mm@kvack.org
+Cc: Alison Schofield <alison.schofield@intel.com>, lina@asahilina.net,
+ zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+ vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+ bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
+ will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
+ djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ loongarch@lists.linux.dev
+References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
+ <b5c33b201b9dc0131d8bb33b31661645c68bf398.1738709036.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <b5c33b201b9dc0131d8bb33b31661645c68bf398.1738709036.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QeCJj0SpVRp8crUliR60v3SO6ezyfyZq4BbnbnE6bno_1739214092
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104204_465160_7D2F67EC 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250210_110136_514740_521D6E08 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,704 +170,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Defining the FGU behaviour is extremely tedious. It relies on matching
-each set of bits from FGT registers with am architectural feature, and
-adding them to the FGU list if the corresponding feature isn't advertised
-to the guest.
 
-It is however relatively easy to dump most of that information from
-the architecture JSON description, and use that to control the FGU bits.
+>   
+> -static inline unsigned long dax_page_share_put(struct page *page)
+> +static inline unsigned long dax_folio_put(struct folio *folio)
+>   {
+> -	WARN_ON_ONCE(!page->share);
+> -	return --page->share;
+> +	unsigned long ref;
+> +
+> +	if (!dax_folio_is_shared(folio))
+> +		ref = 0;
+> +	else
+> +		ref = --folio->share;
+> +
+> +	WARN_ON_ONCE(ref < 0);
+> +	if (!ref) {
+> +		folio->mapping = NULL;
+> +		if (folio_order(folio)) {
 
-Let's introduce a new set of tables descripbing the mapping between
-FGT bits and features. Most of the time, this is only a lookup in
-an idreg field, with a few more complex exceptions.
 
-While this is obviously many more lines in a new file, this is
-mostly generated, and is pretty easy to maintain.
+I'd have made this easier to read by doing
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h |   2 +
- arch/arm64/kvm/Makefile           |   2 +-
- arch/arm64/kvm/config.c           | 559 ++++++++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c         |  73 +---
- 4 files changed, 566 insertions(+), 70 deletions(-)
- create mode 100644 arch/arm64/kvm/config.c
+if (ref)
+	return ref;
+folio->mapping = NULL;
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7220382aeb9dc..f9975b5f8907a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1576,4 +1576,6 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
- #define kvm_has_s1poe(k)				\
- 	(kvm_has_feat((k), ID_AA64MMFR3_EL1, S1POE, IMP))
- 
-+void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
-+
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 3cf7adb2b5038..f05713e125077 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -14,7 +14,7 @@ CFLAGS_sys_regs.o += -Wno-override-init
- CFLAGS_handle_exit.o += -Wno-override-init
- 
- kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
--	 inject_fault.o va_layout.o handle_exit.o \
-+	 inject_fault.o va_layout.o handle_exit.o config.o \
- 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
- 	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
- 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-new file mode 100644
-index 0000000000000..0a68555068f11
---- /dev/null
-+++ b/arch/arm64/kvm/config.c
-@@ -0,0 +1,559 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 Google LLC
-+ * Author: Marc Zyngier <maz@kernel.org>
-+ */
-+
-+#include <linux/kvm_host.h>
-+#include <asm/sysreg.h>
-+
-+struct reg_bits_to_feat_map {
-+	u64		bits;
-+
-+#define	NEVER_FGU	BIT(0)	/* Can trap, but never UNDEF */
-+#define	CALL_FUNC	BIT(1)	/* Needs to evaluate tons of crap */
-+	unsigned long	flags;
-+
-+	union {
-+		struct {
-+			u8	regidx;
-+			u8	shift;
-+			u8	width;
-+			bool	sign;
-+			s8	lo_lim;
-+		};
-+		bool	(*match)(struct kvm *);
-+	};
-+};
-+
-+#define __NEEDS_FEAT_3(m, f, id, fld, lim)		\
-+	{						\
-+		.bits	= (m),				\
-+		.flags = (f),				\
-+		.regidx	= IDREG_IDX(SYS_ ## id),	\
-+		.shift	= id ##_## fld ## _SHIFT,	\
-+		.width	= id ##_## fld ## _WIDTH,	\
-+		.sign	= id ##_## fld ## _SIGNED,	\
-+		.lo_lim	= id ##_## fld ##_## lim	\
-+	}
-+
-+#define __NEEDS_FEAT_1(m, f, fun)			\
-+	{						\
-+		.bits	= (m),				\
-+		.flags = (f) | CALL_FUNC,		\
-+		.match = (fun),				\
-+	}
-+
-+#define NEEDS_FEAT_FLAG(m, f, ...)			\
-+	CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, __VA_ARGS__)
-+
-+#define NEEDS_FEAT(m, ...)	NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
-+
-+#define FEAT_SPE		ID_AA64DFR0_EL1, PMSVer, IMP
-+#define FEAT_SPE_FnE		ID_AA64DFR0_EL1, PMSVer, V1P2
-+#define FEAT_BRBE		ID_AA64DFR0_EL1, BRBE, IMP
-+#define FEAT_TRC_SR		ID_AA64DFR0_EL1, TraceVer, IMP
-+#define FEAT_PMUv3		ID_AA64DFR0_EL1, PMUVer, IMP
-+#define FEAT_TRBE		ID_AA64DFR0_EL1, TraceBuffer, IMP
-+#define FEAT_DoubleLock		ID_AA64DFR0_EL1, DoubleLock, IMP
-+#define FEAT_TRF		ID_AA64DFR0_EL1, TraceFilt, IMP
-+#define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
-+#define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
-+#define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
-+#define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
-+#define FEAT_S1PIE		ID_AA64MMFR3_EL1, S1PIE, IMP
-+#define FEAT_THE		ID_AA64PFR1_EL1, THE, IMP
-+#define FEAT_SME		ID_AA64PFR1_EL1, SME, IMP
-+#define FEAT_GCS		ID_AA64PFR1_EL1, GCS, IMP
-+#define FEAT_LS64_ACCDATA	ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA
-+#define FEAT_RAS		ID_AA64PFR0_EL1, RAS, IMP
-+#define FEAT_GICv3		ID_AA64PFR0_EL1, GIC, IMP
-+#define FEAT_LOR		ID_AA64MMFR1_EL1, LO, IMP
-+#define FEAT_SPEv1p5		ID_AA64DFR0_EL1, PMSVer, V1P5
-+#define FEAT_ATS1A		ID_AA64ISAR2_EL1, ATS1A, IMP
-+#define FEAT_SPECRES2		ID_AA64ISAR1_EL1, SPECRES, COSP_RCTX
-+#define FEAT_SPECRES		ID_AA64ISAR1_EL1, SPECRES, IMP
-+#define FEAT_TLBIRANGE		ID_AA64ISAR0_EL1, TLB, RANGE
-+#define FEAT_TLBIOS		ID_AA64ISAR0_EL1, TLB, OS
-+#define FEAT_PAN2		ID_AA64MMFR1_EL1, PAN, PAN2
-+#define FEAT_DPB2		ID_AA64ISAR1_EL1, DPB, DPB2
-+#define FEAT_AMUv1		ID_AA64PFR0_EL1, AMU, IMP
-+
-+static bool feat_rasv1p1(struct kvm *kvm)
-+{
-+	return (kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, V1P1) ||
-+		(kvm_has_feat_enum(kvm, ID_AA64PFR0_EL1, RAS, IMP) &&
-+		 kvm_has_feat(kvm, ID_AA64PFR1_EL1, RAS_frac, RASv1p1)));
-+}
-+
-+static bool feat_csv2_2_csv2_1p2(struct kvm *kvm)
-+{
-+	return (kvm_has_feat(kvm,  ID_AA64PFR0_EL1, CSV2, CSV2_2) ||
-+		(kvm_has_feat(kvm, ID_AA64PFR1_EL1, CSV2_frac, CSV2_1p2) &&
-+		 kvm_has_feat_enum(kvm,  ID_AA64PFR0_EL1, CSV2, IMP)));
-+}
-+
-+static bool feat_pauth(struct kvm *kvm)
-+{
-+	return kvm_has_pauth(kvm, PAuth);
-+}
-+
-+static struct reg_bits_to_feat_map hfgrtr_feat_map[] = {
-+	NEEDS_FEAT(HFGxTR_EL2_nAMAIR2_EL1	|
-+		   HFGxTR_EL2_nMAIR2_EL1,
-+		   FEAT_AIE),
-+	NEEDS_FEAT(HFGxTR_EL2_nS2POR_EL1, FEAT_S2POE),
-+	NEEDS_FEAT(HFGxTR_EL2_nPOR_EL1		|
-+		   HFGxTR_EL2_nPOR_EL0,
-+		   FEAT_S1POE),
-+	NEEDS_FEAT(HFGxTR_EL2_nPIR_EL1		|
-+		   HFGxTR_EL2_nPIRE0_EL1,
-+		   FEAT_S1PIE),
-+	NEEDS_FEAT(HFGxTR_EL2_nRCWMASK_EL1, FEAT_THE),
-+	NEEDS_FEAT(HFGxTR_EL2_nTPIDR2_EL0	|
-+		   HFGxTR_EL2_nSMPRI_EL1,
-+		   FEAT_SME),
-+	NEEDS_FEAT(HFGxTR_EL2_nGCS_EL1		|
-+		   HFGxTR_EL2_nGCS_EL0,
-+		   FEAT_GCS),
-+	NEEDS_FEAT(HFGxTR_EL2_nACCDATA_EL1, FEAT_LS64_ACCDATA),
-+	NEEDS_FEAT(HFGxTR_EL2_ERXADDR_EL1	|
-+		   HFGxTR_EL2_ERXMISCn_EL1	|
-+		   HFGxTR_EL2_ERXSTATUS_EL1	|
-+		   HFGxTR_EL2_ERXCTLR_EL1	|
-+		   HFGxTR_EL2_ERXFR_EL1		|
-+		   HFGxTR_EL2_ERRSELR_EL1	|
-+		   HFGxTR_EL2_ERRIDR_EL1,
-+		   FEAT_RAS),
-+	NEEDS_FEAT(HFGxTR_EL2_ERXPFGCDN_EL1|
-+		   HFGxTR_EL2_ERXPFGCTL_EL1|
-+		   HFGxTR_EL2_ERXPFGF_EL1,
-+		   feat_rasv1p1),
-+	NEEDS_FEAT(HFGxTR_EL2_ICC_IGRPENn_EL1, FEAT_GICv3),
-+	NEEDS_FEAT(HFGxTR_EL2_SCXTNUM_EL0	|
-+		   HFGxTR_EL2_SCXTNUM_EL1,
-+		   feat_csv2_2_csv2_1p2),
-+	NEEDS_FEAT(HFGxTR_EL2_LORSA_EL1		|
-+		   HFGxTR_EL2_LORN_EL1		|
-+		   HFGxTR_EL2_LORID_EL1		|
-+		   HFGxTR_EL2_LOREA_EL1		|
-+		   HFGxTR_EL2_LORC_EL1,
-+		   FEAT_LOR),
-+	NEEDS_FEAT(HFGxTR_EL2_APIBKey		|
-+		   HFGxTR_EL2_APIAKey		|
-+		   HFGxTR_EL2_APGAKey		|
-+		   HFGxTR_EL2_APDBKey		|
-+		   HFGxTR_EL2_APDAKey,
-+		   feat_pauth),
-+	NEEDS_FEAT(HFGxTR_EL2_VBAR_EL1		|
-+		   HFGxTR_EL2_TTBR1_EL1		|
-+		   HFGxTR_EL2_TTBR0_EL1		|
-+		   HFGxTR_EL2_TPIDR_EL0		|
-+		   HFGxTR_EL2_TPIDRRO_EL0	|
-+		   HFGxTR_EL2_TPIDR_EL1		|
-+		   HFGxTR_EL2_TCR_EL1		|
-+		   HFGxTR_EL2_SCTLR_EL1		|
-+		   HFGxTR_EL2_REVIDR_EL1	|
-+		   HFGxTR_EL2_PAR_EL1		|
-+		   HFGxTR_EL2_MPIDR_EL1		|
-+		   HFGxTR_EL2_MIDR_EL1		|
-+		   HFGxTR_EL2_MAIR_EL1		|
-+		   HFGxTR_EL2_ISR_EL1		|
-+		   HFGxTR_EL2_FAR_EL1		|
-+		   HFGxTR_EL2_ESR_EL1		|
-+		   HFGxTR_EL2_DCZID_EL0		|
-+		   HFGxTR_EL2_CTR_EL0		|
-+		   HFGxTR_EL2_CSSELR_EL1	|
-+		   HFGxTR_EL2_CPACR_EL1		|
-+		   HFGxTR_EL2_CONTEXTIDR_EL1	|
-+		   HFGxTR_EL2_CLIDR_EL1		|
-+		   HFGxTR_EL2_CCSIDR_EL1	|
-+		   HFGxTR_EL2_AMAIR_EL1		|
-+		   HFGxTR_EL2_AIDR_EL1		|
-+		   HFGxTR_EL2_AFSR1_EL1		|
-+		   HFGxTR_EL2_AFSR0_EL1,
-+		   FEAT_AA64EL1),
-+};
-+
-+static struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
-+	NEEDS_FEAT(HFGxTR_EL2_nAMAIR2_EL1	|
-+		   HFGxTR_EL2_nMAIR2_EL1,
-+		   FEAT_AIE),
-+	NEEDS_FEAT(HFGxTR_EL2_nS2POR_EL1, FEAT_S2POE),
-+	NEEDS_FEAT(HFGxTR_EL2_nPOR_EL1		|
-+		   HFGxTR_EL2_nPOR_EL0,
-+		   FEAT_S1POE),
-+	NEEDS_FEAT(HFGxTR_EL2_nPIR_EL1		|
-+		   HFGxTR_EL2_nPIRE0_EL1,
-+		   FEAT_S1PIE),
-+	NEEDS_FEAT(HFGxTR_EL2_nRCWMASK_EL1, FEAT_THE),
-+	NEEDS_FEAT(HFGxTR_EL2_nTPIDR2_EL0	|
-+		   HFGxTR_EL2_nSMPRI_EL1,
-+		   FEAT_SME),
-+	NEEDS_FEAT(HFGxTR_EL2_nGCS_EL1		|
-+		   HFGxTR_EL2_nGCS_EL0,
-+		   FEAT_GCS),
-+	NEEDS_FEAT(HFGxTR_EL2_nACCDATA_EL1, FEAT_LS64_ACCDATA),
-+	NEEDS_FEAT(HFGxTR_EL2_ERXADDR_EL1	|
-+		   HFGxTR_EL2_ERXMISCn_EL1	|
-+		   HFGxTR_EL2_ERXSTATUS_EL1	|
-+		   HFGxTR_EL2_ERXCTLR_EL1	|
-+		   HFGxTR_EL2_ERRSELR_EL1,
-+		   FEAT_RAS),
-+	NEEDS_FEAT(HFGxTR_EL2_ERXPFGCDN_EL1	|
-+		   HFGxTR_EL2_ERXPFGCTL_EL1,
-+		   feat_rasv1p1),
-+	NEEDS_FEAT(HFGxTR_EL2_ICC_IGRPENn_EL1, FEAT_GICv3),
-+	NEEDS_FEAT(HFGxTR_EL2_SCXTNUM_EL0	|
-+		   HFGxTR_EL2_SCXTNUM_EL1,
-+		   feat_csv2_2_csv2_1p2),
-+	NEEDS_FEAT(HFGxTR_EL2_LORSA_EL1		|
-+		   HFGxTR_EL2_LORN_EL1		|
-+		   HFGxTR_EL2_LOREA_EL1		|
-+		   HFGxTR_EL2_LORC_EL1,
-+		   FEAT_LOR),
-+	NEEDS_FEAT(HFGxTR_EL2_APIBKey		|
-+		   HFGxTR_EL2_APIAKey		|
-+		   HFGxTR_EL2_APGAKey		|
-+		   HFGxTR_EL2_APDBKey		|
-+		   HFGxTR_EL2_APDAKey,
-+		   feat_pauth),
-+	NEEDS_FEAT(HFGxTR_EL2_VBAR_EL1		|
-+		   HFGxTR_EL2_TTBR1_EL1		|
-+		   HFGxTR_EL2_TTBR0_EL1		|
-+		   HFGxTR_EL2_TPIDR_EL0		|
-+		   HFGxTR_EL2_TPIDRRO_EL0	|
-+		   HFGxTR_EL2_TPIDR_EL1		|
-+		   HFGxTR_EL2_TCR_EL1		|
-+		   HFGxTR_EL2_SCTLR_EL1		|
-+		   HFGxTR_EL2_PAR_EL1		|
-+		   HFGxTR_EL2_MAIR_EL1		|
-+		   HFGxTR_EL2_FAR_EL1		|
-+		   HFGxTR_EL2_ESR_EL1		|
-+		   HFGxTR_EL2_CSSELR_EL1	|
-+		   HFGxTR_EL2_CPACR_EL1		|
-+		   HFGxTR_EL2_CONTEXTIDR_EL1	|
-+		   HFGxTR_EL2_AMAIR_EL1		|
-+		   HFGxTR_EL2_AFSR1_EL1		|
-+		   HFGxTR_EL2_AFSR0_EL1,
-+		   FEAT_AA64EL1),
-+};
-+
-+static struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
-+	NEEDS_FEAT(HDFGRTR_EL2_PMBIDR_EL1	|
-+		   HDFGRTR_EL2_PMSLATFR_EL1	|
-+		   HDFGRTR_EL2_PMSIRR_EL1	|
-+		   HDFGRTR_EL2_PMSIDR_EL1	|
-+		   HDFGRTR_EL2_PMSICR_EL1	|
-+		   HDFGRTR_EL2_PMSFCR_EL1	|
-+		   HDFGRTR_EL2_PMSEVFR_EL1	|
-+		   HDFGRTR_EL2_PMSCR_EL1	|
-+		   HDFGRTR_EL2_PMBSR_EL1	|
-+		   HDFGRTR_EL2_PMBPTR_EL1	|
-+		   HDFGRTR_EL2_PMBLIMITR_EL1,
-+		   FEAT_SPE),
-+	NEEDS_FEAT(HDFGRTR_EL2_nPMSNEVFR_EL1, FEAT_SPE_FnE),
-+	NEEDS_FEAT(HDFGRTR_EL2_nBRBDATA		|
-+		   HDFGRTR_EL2_nBRBCTL		|
-+		   HDFGRTR_EL2_nBRBIDR,
-+		   FEAT_BRBE),
-+	NEEDS_FEAT(HDFGRTR_EL2_TRCVICTLR	|
-+		   HDFGRTR_EL2_TRCSTATR		|
-+		   HDFGRTR_EL2_TRCSSCSRn	|
-+		   HDFGRTR_EL2_TRCSEQSTR	|
-+		   HDFGRTR_EL2_TRCPRGCTLR	|
-+		   HDFGRTR_EL2_TRCOSLSR		|
-+		   HDFGRTR_EL2_TRCIMSPECn	|
-+		   HDFGRTR_EL2_TRCID		|
-+		   HDFGRTR_EL2_TRCCNTVRn	|
-+		   HDFGRTR_EL2_TRCCLAIM		|
-+		   HDFGRTR_EL2_TRCAUXCTLR	|
-+		   HDFGRTR_EL2_TRCAUTHSTATUS	|
-+		   HDFGRTR_EL2_TRC,
-+		   FEAT_TRC_SR),
-+	NEEDS_FEAT(HDFGRTR_EL2_PMCEIDn_EL0	|
-+		   HDFGRTR_EL2_PMUSERENR_EL0	|
-+		   HDFGRTR_EL2_PMMIR_EL1	|
-+		   HDFGRTR_EL2_PMSELR_EL0	|
-+		   HDFGRTR_EL2_PMOVS		|
-+		   HDFGRTR_EL2_PMINTEN		|
-+		   HDFGRTR_EL2_PMCNTEN		|
-+		   HDFGRTR_EL2_PMCCNTR_EL0	|
-+		   HDFGRTR_EL2_PMCCFILTR_EL0	|
-+		   HDFGRTR_EL2_PMEVTYPERn_EL0	|
-+		   HDFGRTR_EL2_PMEVCNTRn_EL0,
-+		   FEAT_PMUv3),
-+	NEEDS_FEAT(HDFGRTR_EL2_TRBTRG_EL1	|
-+		   HDFGRTR_EL2_TRBSR_EL1	|
-+		   HDFGRTR_EL2_TRBPTR_EL1	|
-+		   HDFGRTR_EL2_TRBMAR_EL1	|
-+		   HDFGRTR_EL2_TRBLIMITR_EL1	|
-+		   HDFGRTR_EL2_TRBIDR_EL1	|
-+		   HDFGRTR_EL2_TRBBASER_EL1,
-+		   FEAT_TRBE),
-+	NEEDS_FEAT_FLAG(HDFGRTR_EL2_OSDLR_EL1, NEVER_FGU,
-+			FEAT_DoubleLock),
-+	NEEDS_FEAT(HDFGRTR_EL2_OSECCR_EL1	|
-+		   HDFGRTR_EL2_OSLSR_EL1	|
-+		   HDFGRTR_EL2_DBGPRCR_EL1	|
-+		   HDFGRTR_EL2_DBGAUTHSTATUS_EL1|
-+		   HDFGRTR_EL2_DBGCLAIM		|
-+		   HDFGRTR_EL2_MDSCR_EL1	|
-+		   HDFGRTR_EL2_DBGWVRn_EL1	|
-+		   HDFGRTR_EL2_DBGWCRn_EL1	|
-+		   HDFGRTR_EL2_DBGBVRn_EL1	|
-+		   HDFGRTR_EL2_DBGBCRn_EL1,
-+		   FEAT_AA64EL1)
-+};
-+
-+static struct reg_bits_to_feat_map hdfgwtr_feat_map[] = {
-+	NEEDS_FEAT(HDFGWTR_EL2_PMSLATFR_EL1	|
-+		   HDFGWTR_EL2_PMSIRR_EL1	|
-+		   HDFGWTR_EL2_PMSICR_EL1	|
-+		   HDFGWTR_EL2_PMSFCR_EL1	|
-+		   HDFGWTR_EL2_PMSEVFR_EL1	|
-+		   HDFGWTR_EL2_PMSCR_EL1	|
-+		   HDFGWTR_EL2_PMBSR_EL1	|
-+		   HDFGWTR_EL2_PMBPTR_EL1	|
-+		   HDFGWTR_EL2_PMBLIMITR_EL1,
-+		   FEAT_SPE),
-+	NEEDS_FEAT(HDFGWTR_EL2_nPMSNEVFR_EL1, FEAT_SPE_FnE),
-+	NEEDS_FEAT(HDFGWTR_EL2_nBRBDATA		|
-+		   HDFGWTR_EL2_nBRBCTL,
-+		   FEAT_BRBE),
-+	NEEDS_FEAT(HDFGWTR_EL2_TRCVICTLR	|
-+		   HDFGWTR_EL2_TRCSSCSRn	|
-+		   HDFGWTR_EL2_TRCSEQSTR	|
-+		   HDFGWTR_EL2_TRCPRGCTLR	|
-+		   HDFGWTR_EL2_TRCOSLAR		|
-+		   HDFGWTR_EL2_TRCIMSPECn	|
-+		   HDFGWTR_EL2_TRCCNTVRn	|
-+		   HDFGWTR_EL2_TRCCLAIM		|
-+		   HDFGWTR_EL2_TRCAUXCTLR	|
-+		   HDFGWTR_EL2_TRC,
-+		   FEAT_TRC_SR),
-+	NEEDS_FEAT(HDFGWTR_EL2_PMUSERENR_EL0	|
-+		   HDFGWTR_EL2_PMCR_EL0		|
-+		   HDFGWTR_EL2_PMSWINC_EL0	|
-+		   HDFGWTR_EL2_PMSELR_EL0	|
-+		   HDFGWTR_EL2_PMOVS		|
-+		   HDFGWTR_EL2_PMINTEN		|
-+		   HDFGWTR_EL2_PMCNTEN		|
-+		   HDFGWTR_EL2_PMCCNTR_EL0	|
-+		   HDFGWTR_EL2_PMCCFILTR_EL0	|
-+		   HDFGWTR_EL2_PMEVTYPERn_EL0	|
-+		   HDFGWTR_EL2_PMEVCNTRn_EL0,
-+		   FEAT_PMUv3),
-+	NEEDS_FEAT(HDFGWTR_EL2_TRBTRG_EL1	|
-+		   HDFGWTR_EL2_TRBSR_EL1	|
-+		   HDFGWTR_EL2_TRBPTR_EL1	|
-+		   HDFGWTR_EL2_TRBMAR_EL1	|
-+		   HDFGWTR_EL2_TRBLIMITR_EL1	|
-+		   HDFGWTR_EL2_TRBBASER_EL1,
-+		   FEAT_TRBE),
-+	NEEDS_FEAT_FLAG(HDFGWTR_EL2_OSDLR_EL1,
-+			NEVER_FGU, FEAT_DoubleLock),
-+	NEEDS_FEAT(HDFGWTR_EL2_OSECCR_EL1	|
-+		   HDFGWTR_EL2_OSLAR_EL1	|
-+		   HDFGWTR_EL2_DBGPRCR_EL1	|
-+		   HDFGWTR_EL2_DBGCLAIM		|
-+		   HDFGWTR_EL2_MDSCR_EL1	|
-+		   HDFGWTR_EL2_DBGWVRn_EL1	|
-+		   HDFGWTR_EL2_DBGWCRn_EL1	|
-+		   HDFGWTR_EL2_DBGBVRn_EL1	|
-+		   HDFGWTR_EL2_DBGBCRn_EL1,
-+		   FEAT_AA64EL1),
-+	NEEDS_FEAT(HDFGWTR_EL2_TRFCR_EL1, FEAT_TRF),
-+};
-+
-+
-+static struct reg_bits_to_feat_map hfgitr_feat_map[] = {
-+	NEEDS_FEAT(HFGITR_EL2_PSBCSYNC, FEAT_SPEv1p5),
-+	NEEDS_FEAT(HFGITR_EL2_ATS1E1A, FEAT_ATS1A),
-+	NEEDS_FEAT(HFGITR_EL2_COSPRCTX, FEAT_SPECRES2),
-+	NEEDS_FEAT(HFGITR_EL2_nGCSEPP		|
-+		   HFGITR_EL2_nGCSSTR_EL1	|
-+		   HFGITR_EL2_nGCSPUSHM_EL1,
-+		   FEAT_GCS),
-+	NEEDS_FEAT(HFGITR_EL2_nBRBIALL		|
-+		   HFGITR_EL2_nBRBINJ,
-+		   FEAT_BRBE),
-+	NEEDS_FEAT(HFGITR_EL2_CPPRCTX		|
-+		   HFGITR_EL2_DVPRCTX		|
-+		   HFGITR_EL2_CFPRCTX,
-+		   FEAT_SPECRES),
-+	NEEDS_FEAT(HFGITR_EL2_TLBIRVAALE1	|
-+		   HFGITR_EL2_TLBIRVALE1	|
-+		   HFGITR_EL2_TLBIRVAAE1	|
-+		   HFGITR_EL2_TLBIRVAE1		|
-+		   HFGITR_EL2_TLBIRVAALE1IS	|
-+		   HFGITR_EL2_TLBIRVALE1IS	|
-+		   HFGITR_EL2_TLBIRVAAE1IS	|
-+		   HFGITR_EL2_TLBIRVAE1IS	|
-+		   HFGITR_EL2_TLBIRVAALE1OS	|
-+		   HFGITR_EL2_TLBIRVALE1OS	|
-+		   HFGITR_EL2_TLBIRVAAE1OS	|
-+		   HFGITR_EL2_TLBIRVAE1OS,
-+		   FEAT_TLBIRANGE),
-+	NEEDS_FEAT(HFGITR_EL2_TLBIVAALE1OS	|
-+		   HFGITR_EL2_TLBIVALE1OS	|
-+		   HFGITR_EL2_TLBIVAAE1OS	|
-+		   HFGITR_EL2_TLBIASIDE1OS	|
-+		   HFGITR_EL2_TLBIVAE1OS	|
-+		   HFGITR_EL2_TLBIVMALLE1OS,
-+		   FEAT_TLBIOS),
-+	NEEDS_FEAT(HFGITR_EL2_ATS1E1WP		|
-+		   HFGITR_EL2_ATS1E1RP,
-+		   FEAT_PAN2),
-+	NEEDS_FEAT(HFGITR_EL2_DCCVADP, FEAT_DPB2),
-+	NEEDS_FEAT(HFGITR_EL2_DCCVAC		|
-+		   HFGITR_EL2_SVC_EL1		|
-+		   HFGITR_EL2_SVC_EL0		|
-+		   HFGITR_EL2_ERET		|
-+		   HFGITR_EL2_TLBIVAALE1	|
-+		   HFGITR_EL2_TLBIVALE1		|
-+		   HFGITR_EL2_TLBIVAAE1		|
-+		   HFGITR_EL2_TLBIASIDE1	|
-+		   HFGITR_EL2_TLBIVAE1		|
-+		   HFGITR_EL2_TLBIVMALLE1	|
-+		   HFGITR_EL2_TLBIVAALE1IS	|
-+		   HFGITR_EL2_TLBIVALE1IS	|
-+		   HFGITR_EL2_TLBIVAAE1IS	|
-+		   HFGITR_EL2_TLBIASIDE1IS	|
-+		   HFGITR_EL2_TLBIVAE1IS	|
-+		   HFGITR_EL2_TLBIVMALLE1IS	|
-+		   HFGITR_EL2_ATS1E0W		|
-+		   HFGITR_EL2_ATS1E0R		|
-+		   HFGITR_EL2_ATS1E1W		|
-+		   HFGITR_EL2_ATS1E1R		|
-+		   HFGITR_EL2_DCZVA		|
-+		   HFGITR_EL2_DCCIVAC		|
-+		   HFGITR_EL2_DCCVAP		|
-+		   HFGITR_EL2_DCCVAU		|
-+		   HFGITR_EL2_DCCISW		|
-+		   HFGITR_EL2_DCCSW		|
-+		   HFGITR_EL2_DCISW		|
-+		   HFGITR_EL2_DCIVAC		|
-+		   HFGITR_EL2_ICIVAU		|
-+		   HFGITR_EL2_ICIALLU		|
-+		   HFGITR_EL2_ICIALLUIS,
-+		   FEAT_AA64EL1),
-+};
-+
-+static struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
-+	NEEDS_FEAT(HAFGRTR_EL2_AMEVTYPER115_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER114_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER113_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER112_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER111_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER110_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER19_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER18_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER17_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER16_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER15_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER14_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER13_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER12_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER11_EL0	|
-+		   HAFGRTR_EL2_AMEVTYPER10_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR115_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR114_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR113_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR112_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR111_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR110_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR19_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR18_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR17_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR16_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR15_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR14_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR13_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR12_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR11_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR10_EL0	|
-+		   HAFGRTR_EL2_AMCNTEN1		|
-+		   HAFGRTR_EL2_AMCNTEN0		|
-+		   HAFGRTR_EL2_AMEVCNTR03_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR02_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR01_EL0	|
-+		   HAFGRTR_EL2_AMEVCNTR00_EL0,
-+		   FEAT_AMUv1),
-+};
-+
-+static bool idreg_feat_match(struct kvm *kvm, struct reg_bits_to_feat_map *map)
-+{
-+	u64 regval = kvm->arch.id_regs[map->regidx];
-+	u64 regfld = (regval >> map->shift) & GENMASK(map->width - 1, 0);
-+
-+	if (map->sign) {
-+		s64 sfld = sign_extend64(regfld, map->width - 1);
-+		s64 slim = sign_extend64(map->lo_lim, map->width - 1);
-+		return sfld >= slim;
-+	} else {
-+		return regfld >= map->lo_lim;
-+	}
-+}
-+
-+static u64 __compute_unsupported_bits(struct kvm *kvm,
-+				      struct reg_bits_to_feat_map *map,
-+				      int map_size, unsigned long filter_out)
-+{
-+	u64 val = 0;
-+
-+	for (int i = 0; i < map_size; i++) {
-+		bool match;
-+
-+		if (map[i].flags & filter_out)
-+			continue;
-+
-+		if (map[i].flags & CALL_FUNC)
-+			match = map[i].match(kvm);
-+		else
-+			match = idreg_feat_match(kvm, &map[i]);
-+
-+		if (!match)
-+			val |= map[i].bits;
-+	}
-+
-+	return val;
-+}
-+
-+void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
-+{
-+	u64 val = 0;
-+
-+	switch (fgt) {
-+	case HFGxTR_GROUP:
-+		val |= __compute_unsupported_bits(kvm, hfgrtr_feat_map,
-+						  ARRAY_SIZE(hfgrtr_feat_map),
-+						  NEVER_FGU);
-+		val |= __compute_unsupported_bits(kvm, hfgwtr_feat_map,
-+						  ARRAY_SIZE(hfgwtr_feat_map),
-+						  NEVER_FGU);
-+		break;
-+	case HFGITR_GROUP:
-+		val |= __compute_unsupported_bits(kvm, hfgitr_feat_map,
-+						  ARRAY_SIZE(hfgitr_feat_map),
-+						  NEVER_FGU);
-+		break;
-+	case HDFGRTR_GROUP:
-+		val |= __compute_unsupported_bits(kvm, hdfgrtr_feat_map,
-+						  ARRAY_SIZE(hdfgrtr_feat_map),
-+						  NEVER_FGU);
-+		val |= __compute_unsupported_bits(kvm, hdfgwtr_feat_map,
-+						  ARRAY_SIZE(hdfgwtr_feat_map),
-+						  NEVER_FGU);
-+		break;
-+	case HAFGRTR_GROUP:
-+		val |= __compute_unsupported_bits(kvm, hafgrtr_feat_map,
-+						  ARRAY_SIZE(hafgrtr_feat_map),
-+						  NEVER_FGU);
-+		break;
-+	default:
-+		BUG();
-+	}
-+
-+	kvm->arch.fgu[fgt] = val;
-+}
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 2ecd0d51a2dae..d3990ceaa59c2 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -4994,75 +4994,10 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
- 		goto out;
- 
--	kvm->arch.fgu[HFGxTR_GROUP] = (HFGxTR_EL2_nAMAIR2_EL1		|
--				       HFGxTR_EL2_nMAIR2_EL1		|
--				       HFGxTR_EL2_nS2POR_EL1		|
--				       HFGxTR_EL2_nSMPRI_EL1_MASK	|
--				       HFGxTR_EL2_nTPIDR2_EL0_MASK);
--
--	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA))
--		kvm->arch.fgu[HFGxTR_GROUP] |= HFGxTR_EL2_nACCDATA_EL1;
--
--	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
--		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1OS|
--						HFGITR_EL2_TLBIRVALE1OS	|
--						HFGITR_EL2_TLBIRVAAE1OS	|
--						HFGITR_EL2_TLBIRVAE1OS	|
--						HFGITR_EL2_TLBIVAALE1OS	|
--						HFGITR_EL2_TLBIVALE1OS	|
--						HFGITR_EL2_TLBIVAAE1OS	|
--						HFGITR_EL2_TLBIASIDE1OS	|
--						HFGITR_EL2_TLBIVAE1OS	|
--						HFGITR_EL2_TLBIVMALLE1OS);
--
--	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, RANGE))
--		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1	|
--						HFGITR_EL2_TLBIRVALE1	|
--						HFGITR_EL2_TLBIRVAAE1	|
--						HFGITR_EL2_TLBIRVAE1	|
--						HFGITR_EL2_TLBIRVAALE1IS|
--						HFGITR_EL2_TLBIRVALE1IS	|
--						HFGITR_EL2_TLBIRVAAE1IS	|
--						HFGITR_EL2_TLBIRVAE1IS	|
--						HFGITR_EL2_TLBIRVAALE1OS|
--						HFGITR_EL2_TLBIRVALE1OS	|
--						HFGITR_EL2_TLBIRVAAE1OS	|
--						HFGITR_EL2_TLBIRVAE1OS);
--
--	if (!kvm_has_feat(kvm, ID_AA64ISAR2_EL1, ATS1A, IMP))
--		kvm->arch.fgu[HFGITR_GROUP] |= HFGITR_EL2_ATS1E1A;
--
--	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, PAN, PAN2))
--		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_ATS1E1RP |
--						HFGITR_EL2_ATS1E1WP);
--
--	if (!kvm_has_s1pie(kvm))
--		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPIRE0_EL1 |
--						HFGxTR_EL2_nPIR_EL1);
--
--	if (!kvm_has_s1poe(kvm))
--		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nPOR_EL1 |
--						HFGxTR_EL2_nPOR_EL0);
--
--	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, IMP))
--		kvm->arch.fgu[HAFGRTR_GROUP] |= ~(HAFGRTR_EL2_RES0 |
--						  HAFGRTR_EL2_RES1);
--
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, BRBE, IMP)) {
--		kvm->arch.fgu[HDFGRTR_GROUP] |= (HDFGRTR_EL2_nBRBDATA  |
--						 HDFGRTR_EL2_nBRBCTL   |
--						 HDFGRTR_EL2_nBRBIDR);
--		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_nBRBINJ |
--						HFGITR_EL2_nBRBIALL);
--	}
--
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, GCS, IMP)) {
--		kvm->arch.fgu[HFGxTR_GROUP] |= (HFGxTR_EL2_nGCS_EL0 |
--						HFGxTR_EL2_nGCS_EL1);
--		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_nGCSPUSHM_EL1 |
--						HFGITR_EL2_nGCSSTR_EL1 |
--						HFGITR_EL2_nGCSEPP);
--	}
-+	compute_fgu(kvm, HFGxTR_GROUP);
-+	compute_fgu(kvm, HFGITR_GROUP);
-+	compute_fgu(kvm, HDFGRTR_GROUP);
-+	compute_fgu(kvm, HAFGRTR_GROUP);
- 
- 	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
- out:
+order = folio_order(folio)
+if (!order)
+	return 0;
+
+pgmap = page_pgmap(&folio->page);
+for (i = 0; i < (1UL << order); i++) {
+	// loop body see below
+}
+return 0;
+
+
+In the context of similar split users and related discussions in the 
+future with memdescs -- see 89a41a0263293856678189981e5407375261c4ff -- 
+I would further do within the loop (avoiding messing with page-> 
+completely):
+
+...
+	struct page *page = folio_page(folio, i);
+	/* Careful: see __split_huge_page_tail() */
+	struct folio *new_folio = (struct folio *)page;
+
+	ClearPageHead(page);
+	clear_compound_head(page);
+
+	new_folio->mapping = NULL;	
+	/*
+	 * Reset pgmap which was over-written by
+	 * prep_compound_page().
+	 */
+	new_folio->pgmap = pgmap;
+	new_folio->share = 0;
+	WARN_ON_ONCE(folio_ref_count(new_folio));
+...
+
+
+I scanned over the other stuff in here, but I'm not an expert on the 
+pfn_t etc thingies.
+
 -- 
-2.39.2
+Cheers,
+
+David / dhildenb
 
 
