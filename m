@@ -4,60 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2F4C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F27C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6V9XdmICxp4Hexya/nQkhPgoydXLp1nIO5M4c0d4YnY=; b=UEThpT8KT0l+8CcgvRZGqJmIxn
-	vAOZ3luUNVMNo+JfNxOtl9oRD+Sa4ehYOyMZqhUcCOefE/H+cefB2oO3XTC9htP7KPiCnO//67vtu
-	UdmnhvF6kFtiEn8b1jk4ctcUZ74FNCAzp28P4R8oZzfBIg1yRFI3uu5GbTAyKGZE+WcZYvF+gRkDG
-	DkX2LP1HEqw5/pI4UpW4k/juObumPzZStb+OM5ciVEIpCPXsDow+CCXCSfeyV2sz3JgnpbPmIWYJG
-	SSdMxJhgNBiPNbCsiztzOghpLvt6xVtd/D1CQevMzTglqqYbuwOoYPT8abvuVJVFr0aq/HaldXg7S
-	ybtbgQsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pnWR6MMimA0+7S1woLC2NAPMzoNjou1mGSUtnETLWXs=; b=XhqdtAF4/r729dh8TPkdtb/gzE
+	sqQ/IPXZoWUr1OWuixbaOgSlNswysMb6pqgXsdxh6FOOt8qXcQk7bxeeUctsjRJUutcg1bSWaBWGY
+	t1Nk5AlViU7YuyC7ztmck3pHAkDjiBTe4vCJMIMQLmKfF9UUBG34g4SXHVm1HuM+8n5TmSiQeW2ok
+	jlpeMX+MFwkJpOQ+sWsvV5nP/EzhhM5QRzdvU5zTALv7n+Bc76tJQIKf9WHj/wEWuUbPurJvN+GHB
+	PS4GrlRa2kDeND1jqmSWg+xHqMHqb1ZOMlTY76u9TO0bTMfUXvhuu1Frf8Wa8e+nWrPbH4ZTZazdg
+	EO4OJgAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYfw-00000000xRv-3BgI;
-	Mon, 10 Feb 2025 18:38:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thZYO-000000016QK-44Uf;
+	Mon, 10 Feb 2025 19:34:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYbp-00000000wDc-1E4T
+	id 1thXWF-00000000iEP-1ENv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 17:24:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pnWR6MMimA0+7S1woLC2NAPMzoNjou1mGSUtnETLWXs=; b=X3A87bqCg0CzEz+u4fqnezVk83
+	9s4LBb8oN4ofCbDe0KxPWyXBwzUXd4S9JS3FBJzpzLywecOdKaFvTVUSibYrqoy9R0I4MeOlnl6/M
+	FVL8HLsSJNbyfVVF/M6luovKVnyDQ5YX2W8mX6tfyOIXCgQkuxokQahPgvMojd/nS9T88dZ4df4nX
+	o59vjRqt2rviC2vkRUTfK2y3goaPIRiasjFLdHywaIcxeC9cL8jiNaaveRlYYmuYywGsRTVpKJime
+	POWluyzIwhAkKTKJAN4Vy1irOzgmldqviIgWnxKW1xTpKt+ntRxQk1g20hjwluV53m9t/95m61WME
+	XuTagABw==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thXWC-00000000B9K-0atM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:34:19 +0000
+	Mon, 10 Feb 2025 17:24:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DC8A75C55BF;
-	Mon, 10 Feb 2025 18:33:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E6DC4CED1;
-	Mon, 10 Feb 2025 18:34:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1EAA7A41C22;
+	Mon, 10 Feb 2025 17:22:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73C94C4CEE5;
+	Mon, 10 Feb 2025 17:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739212456;
-	bh=ktJrQgrd5tNbtyj+LrP9zGWCOfkEzbfTm6w/svlvBbM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o5Wk+kBV1aZJtbf3H7CfmLvS51rq9NiYwCuz4IDx8h1ik9VzGoglngQaCFpN6OLJA
-	 skaqSgw/OGOXMym8t5hnoX1PkEt8RUDx8j/okhPpwGqisL2hEMFLsDmJB3TC+jwVJi
-	 ef1TeaYrPbDnyDDRg8tKmv//f4XDEy5i7n91v+CbnePoWvNIr3tnJ44+GKOXpTU22i
-	 G8/m1x3AXaDb8KwR9S8+xLkAQ3Cgw0iw2ZPSAA89UycoX5S/+DKF+e1XsBhJ0E1zGE
-	 NjQzLVAOn5wRf9LVcv8lWSgejbM7F2BRm0zlvJkM59yAjBeokQLuHIakhVk4bDEeRa
-	 3UwFxcrReNcTw==
-Date: Mon, 10 Feb 2025 19:34:13 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every
- panel
-Message-ID: <20250210-amusing-bobcat-of-pluck-0d4c09@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com>
+	s=k20201202; t=1739208260;
+	bh=oPZeU9iXrO3F1aIMkZmK/g/ewNsvCQf1LbpxIcT5iJw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=byX3S2qdl2XDlFGykncdx5SaCiWIsESEVghx/wlYJWwCqZEXxLvD7XoYwS4gId2rg
+	 YCZZ+1IMHux/zNjdxRcowrkgVAE4ykvldNd8A8OU5MYRGskLTGNrrF9M2ZAHa2DGl9
+	 BmUHITenV/6ze3tTxNoPzhjd0uYVetrJvtBtI/Q0OEu1BckQEgBNvGQSIQnbdwRP/m
+	 MwfDu/SR5+X/hSjrVa76LFUiGNxIliccwIcKlDisci12fJ/01c6oFWNdZcesN71q0z
+	 5HQAc+yHTgf2FIWrvlVqKCRmutGxYdAPasgUUASU8AbwIQnSwIB8PwgvRByceDhkBm
+	 7uGO4/aUNLdZg==
+Message-ID: <d657fa70-af35-415d-b0e7-3aaf2fd05276@kernel.org>
+Date: Mon, 10 Feb 2025 18:24:15 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="fcofu4bb2ss3srog"
-Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] media: platform: chips-media: wave5: Rename Kconfig
+ parameter
+To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
+ hverkuil@xs4all.nl, sebastian.fricke@collabora.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+ linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
+ lafley.kim@chipsnmedia.com
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-2-nas.chung@chipsnmedia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250210090725.4580-2-nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_103417_416788_65686E86 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20250210_172424_557815_1E67A3CE 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,121 +135,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/02/2025 10:07, Nas Chung wrote:
+> The existing Kconfig parameter VIDEO_WAVE_VPU is ambiguous,
+> as it does not clearly indicate that it is specific to the Wave5 IP.
+> 
+> Rename VIDEO_WAVE_VPU to VIDEO_WAVE5_VPU to make it explicit
+> that the parameter is specific to the Wave5 IP.
+> 
+> No functional changes, only the parameter name is updated.
 
---fcofu4bb2ss3srog
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every
- panel
-MIME-Version: 1.0
 
-On Thu, Feb 06, 2025 at 07:14:23PM +0100, Luca Ceresoli wrote:
-> Adding a panel does currently not add a panel_bridge wrapping it. Usually
-> the panel_bridge creation happens when some other driver (e.g. the previo=
-us
-> bridge or the encoder) calls *_of_get_bridge() and the following element =
-in
-> the pipeline is a panel.
->=20
-> This has some drawbacks:
->=20
->  * the panel_bridge is not created in the context of the driver of the
->    underlying physical device (the panel driver), but of some other driver
->  * that "other driver" is not aware of whether the returned drm_bridge
->    pointer is a panel_bridge created on the fly, a pre-existing
->    panel_bridge or a non-panel bridge
->  * removal of a panel_bridge requires calling drm_panel_bridge_remove(),
->    but the "other driver" doesn't know whether this is needed because it
->    doesn't know whether it has created a panel_bridge or not
->=20
-> So far this approach has been working because devm and drmm ensure the
-> panel bridge would be dealloacted at some later point. However with the
-> upcoming implementation of dynamic bridge lifetime this will get more
-> complicated.
->=20
-> Correct removal of a panel_bridge might possibly be obtained by adding mo=
-re
-> devm/drmm technology to have it freed correctly at all times. However this
-> would add more complexity and not help making lifetime more understandabl=
-e.
->=20
-> Use a different approach instead: always create a panel_bridge with a
-> drm_panel, thus matching the lifetime of the drm_panel and the panel_brid=
-ge
-> wrapping it. This makes lifetime much more straightforward to understand
-> and to further develop on.
->=20
-> With the panel_bridge always created, the functions to get a bridge
-> [devm_drm_of_get_bridge() and drmm_of_get_bridge()] become simpler because
-> the bridge they are looking for exists already (if it can exist at all). =
-In
-> turn, this is implemented based on a variant of
-> drm_of_find_panel_or_bridge() that only looks for panels:
-> of_drm_find_bridge_by_endpoint(). In the future
-> drm_of_find_panel_or_bridge() can be progressively removed because there
-> will never be a panel not exposing a bridge.
->=20
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->=20
+That's unnecessary churn. Old name was fine. Kconfig does not match
+hardware 1-to-1 but represents only the driver name (or not even that...).
+
+If you solve any particular problem, then explain it. Otherwise this is
+just unnecessarily affecting users and backports.
+
+> 
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
 > ---
->=20
-> This patch was added in v6.
-> ---
->  drivers/gpu/drm/bridge/panel.c | 74 +++++++++++++++++++++++++++++++++---=
-------
->  include/drm/drm_panel.h        |  8 +++++
->  2 files changed, 66 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/pane=
-l.c
-> index 58570ff6952ca313b3def084262c9bb3772272ef..6995de605e7317dd1eb153afd=
-475746ced764712 100644
-> --- a/drivers/gpu/drm/bridge/panel.c
-> +++ b/drivers/gpu/drm/bridge/panel.c
-> @@ -69,6 +69,9 @@ EXPORT_SYMBOL(drm_panel_init);
->   */
->  void drm_panel_add(struct drm_panel *panel)
->  {
-> +	panel->bridge =3D drm_panel_bridge_add(panel);
-> +	WARN_ON(!panel->bridge);
-> +
->  	mutex_lock(&panel_lock);
->  	list_add_tail(&panel->list, &panel_list);
->  	mutex_unlock(&panel_lock);
-> @@ -86,6 +89,9 @@ void drm_panel_remove(struct drm_panel *panel)
->  	mutex_lock(&panel_lock);
->  	list_del_init(&panel->list);
->  	mutex_unlock(&panel_lock);
-> +
-> +	drm_panel_bridge_remove(panel->bridge);
-> +	panel->bridge =3D NULL;
->  }
->  EXPORT_SYMBOL(drm_panel_remove);
+>  arch/arm64/configs/defconfig                      | 2 +-
 
-Given that drm_panel_add and drm_panel_remove are typically called at
-probe/remove, it's pretty much equivalent to using devm. Both of these
-solutions aren't safe, and the drm_panel lifetime is still broken.
+That's a SoC patch, don't mix up subsystems.
 
-I'd rather work on a solution that actually fixes those lifetime issues.
 
-Maxime
-
---fcofu4bb2ss3srog
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6pGpQAKCRAnX84Zoj2+
-dupmAX0QCqXAlwjOigazwjLqLppxgT//Mch4tKS4d4c1SuZ5OCPF+108O+yXaidt
-tq6KGDwBf1aBzn4NygKkr+X8NMETD8f58JqWfuEBykbqP2ZhQvQgM/RII/JgW0QQ
-gJXXs7dFkQ==
-=CCam
------END PGP SIGNATURE-----
-
---fcofu4bb2ss3srog--
+Best regards,
+Krzysztof
 
