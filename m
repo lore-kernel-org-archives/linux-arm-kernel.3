@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B4DC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA96DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PVeB7xF2M8hKCvAKuhk8vj/WTr+meD/UB7mpplN6FUY=; b=27/x7US+l+LCH7d1SQT0yiYDV9
-	noM23BAp6aoXm9tMYMOIqixB59ziUty2JYB6TiWuYTI6UAfLQG8wWZhzRlkFbZbqZJf0lUyDGY0uY
-	nOotjCLj0+Tz1QRW+RRuviy8EX//wa4whVV4veBtjKWe9dLJJoyu7IJ8pVZR1NHLYRn7NDaDv6P0H
-	bVAOZXhnDjgeAL7auzH10OXL/74KH9biq/b8dUWRn+lqjTiVyX+glIO26zc+2bM++wb+N5uibTzxj
-	lvtrQRTqO09LeYUuy3zBna6HwlyCVw49VYjhx2B+9bTy9hiju8UnM86Jwkp1D+3XA3P24YQrXLIg+
-	uthV4KhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cdqhCB4hXabwkdtEITMDy97ItQnEBoqzYanBuxH4qII=; b=jVURucPh1YhZqRqenA4dzcT41l
+	pUmQGXeu5lQogkoOIxjxQPVDKhugPPduA4RQlXCUg+IRzqXtkwQAgocL6E2PPTlAwT2zDTCsaTFOh
+	9Hq41s8fpvRdup6/9cfaaWaOOKXVcFkWnRbdIfMuS9amuvQRbrkIGgPVADYp46hpaGpA66ztC0aPM
+	ApTUHg9UlZIpvxinaqmItIfcWprig2brj8wk0C22sRJ68g5At7TU9Uy2pGxVrpjILIbv7VhW77wIh
+	ZKIC5XEwPBJ0Ymr+jm8DWxz4C11BITSKzxmgj6X/siN8dvA3XAvmmrw+FtCJU7bsfqNqGLZa/s02/
+	BOjeP/lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYfn-00000000xFV-13YB;
+	id 1thYfn-00000000xG1-3awF;
 	Mon, 10 Feb 2025 18:38:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYQF-00000000tvU-3404
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:22:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4875FA41EF2;
-	Mon, 10 Feb 2025 18:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07A8BC4CED1;
-	Mon, 10 Feb 2025 18:22:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739211738;
-	bh=kW4WlH1HkjqvMNtVdOaqv6Bu3HBYq9GrG/aLmkyGeCg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=be1eT55i+UR6ruMjbhjaLYShzWBV7ozYReKlgdefdv/FGyh77+ltMi3kDsqbo/sVF
-	 eHRVRXaqBUzsfLgIzgOEeKSp6hKXCEOrVSin5J1mkd58bPYgwxnnU+qKyP4sPeMqIf
-	 tVBEhX6NQHBU8JD/H0/rIZJaX2T6mhwDPsz43JOINFl1GVXwNWJGH9zcJFAQZRC20C
-	 qnVOrHalrHMtHpuxYxkC6VZ9o7zMhOGGeYftsHslUmYk5whiorSveKLY1PZC/FOPA+
-	 h0OGLPdtge3ogo82C6Ksqvc6KrUWpWrKHm7mdekN5jTU8J5DPSdCCb5CZwBVoAkPaY
-	 aVJ7wRqrkyRgg==
-Date: Mon, 10 Feb 2025 19:22:15 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 10/26] drm/bridge: add devm_drm_of_get_bridge_by_node()
-Message-ID: <20250210-vague-fluorescent-toad-c7d1ce@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-10-9d6f2c9c3058@bootlin.com>
+	id 1thYRI-00000000u8G-3mhf;
+	Mon, 10 Feb 2025 18:23:26 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="a3gp6fts62sykw5k"
-Content-Disposition: inline
-In-Reply-To: <20250206-hotplug-drm-bridge-v6-10-9d6f2c9c3058@bootlin.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1739211802;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cdqhCB4hXabwkdtEITMDy97ItQnEBoqzYanBuxH4qII=;
+	b=KzB7fxZt+phnih+KMdT/jFC0YLXuIQhPmG8vJjua9rAgZ1NtFI3C6JlbR0BRirFJqzAsT4
+	rtG60hlkMhJ8vZm8pKh8/jDC/mpnoXRWHhwljYZiMl2hfXqLSTeFp4mA7GKsdaqbbCMaSG
+	Uoj9iwRa4i1mpLsUOVCEOYiWG72c636UWOx8q2wn3V8bgu3YXH5MgAX/3Ikd3vaayFBKlI
+	vHKGEZFkcohZ0P7gxQpOvSFxrAanDqYd/obwH1nFeVNfhlIU7pJLXXKKc0k5NtibPaCO70
+	Qyww5e6cL+5dU6zAw40kcCmvZyxeXAS8nCMCibjlabJcaQsS4tMswhYMX47KXg==
+Date: Mon, 10 Feb 2025 19:23:22 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Jagan Teki
+ <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>, Michael Riesch
+ <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/4] arm64: dts: rockchip: add overlay test for
+ WolfVision PF5
+In-Reply-To: <9615521e-8a2a-44d7-99ea-5571f5de1e57@cherry.de>
+References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
+ <20250207-pre-ict-jaguar-v5-1-a70819ea0692@cherry.de>
+ <ef9133d217bc35f611ef390da8042510@manjaro.org>
+ <9615521e-8a2a-44d7-99ea-5571f5de1e57@cherry.de>
+Message-ID: <3cadb698a9bf7a898c91c0d851233ac1@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_102219_898952_CBECA77C 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20250210_102325_237472_834FCB13 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,101 +77,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Quentin,
 
---a3gp6fts62sykw5k
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 10/26] drm/bridge: add devm_drm_of_get_bridge_by_node()
-MIME-Version: 1.0
+On 2025-02-10 18:56, Quentin Schulz wrote:
+> On 2/10/25 9:46 AM, Dragan Simic wrote:
+>> On 2025-02-07 16:19, Quentin Schulz wrote:
+>>> From: Quentin Schulz <quentin.schulz@cherry.de>
+>>> 
+>>> The WolfVision PF5 can have a PF5 Visualizer display and PF5 IO 
+>>> Expander
+>>> board connected to it. Therefore, let's generate an overlay test so 
+>>> the
+>>> application of the two overlays are validated against the base DTB.
+>>> 
+>>> Suggested-by: Michael Riesch <michael.riesch@wolfvision.net>
+>>> Reviewed-by: Michael Riesch <michael.riesch@wolfvision.net>
+>>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+>>> 
+>>> ---
+>>>  arch/arm64/boot/dts/rockchip/Makefile | 22 ++++++++++++++++++++++
+>>>  1 file changed, 22 insertions(+)
+>>> 
+>>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
+>>> b/arch/arm64/boot/dts/rockchip/Makefile
+>>> index
+>>> def1222c1907eb16b23cff6d540174a4e897abc9..534e70a649eeada7f9b6f12596b83f5c47b184b4
+>>> 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>>> @@ -170,3 +170,25 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s- 
+>>> orangepi-5.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
+>>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
+>>> +
+>>> +# Overlay application tests
+>>> +#
+>>> +# A .dtbo must have its own
+>>> +#
+>>> +#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <overlay>.dtbo
+>>> +#
+>>> +# entry, and at least one overlay application test - ideally 
+>>> reflecting how it
+>>> +# will be used in real life -:
+>> 
+>> Hmm, what's "-:" actually doing in the line right above?  I mean,
+>> it's a minor nitpick, so might be worth addressing only if there
+>> will be the v6...  Also, "test - ideally" might be replaced by
+>> "test, ideally", because splicing sentences together using em/en
+>> dashes is generally frowned upon. :)
+> 
+> That was supposed to be an em-dash yes.
 
-On Thu, Feb 06, 2025 at 07:14:25PM +0100, Luca Ceresoli wrote:
-> devm_drm_of_get_bridge(), which is based on graph links, is the recommend=
-ed
-> function to get a pointer to the following bridge.
->=20
-> This is valid even for panels, for which the recommended device tree
-> description is via graph links and not (or not only) panel subnodes of a
-> panel controller (e.g. "dsi@1234" controller node with a "panel@0"
-> subnode).
->=20
-> However there are drivers supporting the panel subnode description in
-> addition to the graph links. For those drivers add a _by_node variant that
-> takes the node of the target node.
->=20
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->=20
-> ---
->=20
-> This patch was added in v6.
-> ---
->  drivers/gpu/drm/drm_bridge.c | 30 ++++++++++++++++++++++++++++++
->  include/drm/drm_bridge.h     |  8 ++++++++
->  2 files changed, 38 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 2aa17fbe538b86066c4e68f0d0e8046e9ca9b965..b0834b8644284e5f7751cec81=
-724af849b4180e7 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -1407,6 +1407,36 @@ struct drm_bridge *devm_drm_of_get_bridge(struct d=
-evice *dev,
->  }
->  EXPORT_SYMBOL(devm_drm_of_get_bridge);
-> =20
-> +/**
-> + * devm_drm_of_get_bridge_by_node - Return bridge for a given OF node
-> + * @dev: device to tie the bridge lifetime to
-> + * @bridge_node: device node of the remote bridge
-> + *
-> + * Given a bridge DT node, returns the associated bridge if any. This
-> + * should be used in addition to devm_drm_of_get_bridge() when the regul=
-ar
-> + * graph link search is not enough, e.g. for drivers that need to support
-> + * panels described only as subnodes.
-> + *
-> + * RETURNS:
-> + * A pointer to the bridge if successful, or an error pointer otherwise.
-> + */
-> +struct drm_bridge *devm_drm_of_get_bridge_by_node(struct device *dev,
-> +						  struct device_node *bridge_node)
-> +{
-> +	struct drm_bridge *bridge;
-> +	int ret;
-> +
-> +	if (!bridge_node)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	bridge =3D of_drm_find_bridge(bridge_node);
-> +	if (!bridge)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	return bridge;
-> +}
-> +EXPORT_SYMBOL(devm_drm_of_get_bridge_by_node);
-> +
+I see.  To explain it a bit further, here's how hyphens, en and em
+dashes should look like when an unproportional font is used:
 
-A bridge is a KMS-facing structure, there's no reason to tie it to the
-lifetime of the device.
+- When it comes to hyphens, it's a somewhat-limited option.
+- Using en dashes -- as visible here -- is a bit more involved.
+- If you use em dashes---like here---it gets borderline ugly.
 
-Maxime
+> , and at least one overlay application test (ideally reflecting how it
+> will be used in real life):
+> 
+> Would that work? I don't like the : following "ideally reflecting how
+> it will be used in real life" as it applies to "overlay application
+> test" and not the end of the sentence.
 
---a3gp6fts62sykw5k
-Content-Type: application/pgp-signature; name="signature.asc"
+It works, although I'd suggest that a comma is added after "ideally".
+Technically, it would be better not to use parentheses here, but it's
+still fine.  Though, here's another option for the wording:
 
------BEGIN PGP SIGNATURE-----
+   , and at least one overlay application test that represents
+   the overlay's intended real-life use:
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6pD1wAKCRAnX84Zoj2+
-duqYAYCyFN95MaOSOiHSy48n6f+H3RwjknEahucK0hxM//iGFFhtWemOcArKOv5O
-ruChdWsBgMttvepbPSgqHfhHAKiGVSo2oYhJYPPZWeYyVlDWHVRi49u6PZWnEoWZ
-iHl0s6SF1A==
-=82V5
------END PGP SIGNATURE-----
+>>> +#
+>>> +#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <name of overlay application 
+>>> test>.dtb
+>>> +#  <name of overlay application test>-dtbs := <base>.dtb
+>>> <overlay-1>.dtbo [<overlay-2>.dtbo ...]
+>> 
+>> As another minor nitpick, I'd suggest that
+>> 
+>>      "<name of overlay application test>.dtb"
+>> 
+>> is replaced with
+>> 
+>>      "<name-of-overlay-application-test>.dtb"
+> 
+> OK.
 
---a3gp6fts62sykw5k--
+Thanks.
 
