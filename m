@@ -4,157 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B48C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D13EC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=; b=tMpKt+MCipaPG+/pnwcRPgVJug
-	PR0WV6S4PegngVCpAJYtbO7qh5JdoyxmvQpnDthhIOcRs+tqfOTY4u5euSUrJLsHlvZvUIyO+SLzk
-	6S7ii5JR8hPvW74ctd4C60fjE5zxzroi7qZAIhrV5GlYxUODbg+BqAyBY2bDH96VtgPApX6M/RMIN
-	6IrkLNPIQwpmA0rt9hkdamxKm6bHA05aD5n3tw5NnILOf/xuNTQdyHwMzBu+P0uvFjpEpQNSR59By
-	fEZZLBLPPiZSaHWoqgq5S9tebthqkDtEU3k8m+sc+R33CBky14mU9zErFI8OYq63UMZ/Fz8bU2Zdl
-	4ipS+rqQ==;
+	bh=IR1STzBHWflyOdMHe8euRfwJ+fzKwFGSyoXduLUKaJw=; b=e034PWQDYKOfbYWJdXgXtsWL+a
+	HHzUpcr0dorHfnC/veml91Yy6Hq1FypFVVRzSB164oYYsZkhdkmxLlST+zD3tjOJtvHtC5QRYbJd3
+	qwV5nHX2iF9lBlakya2V+f09RJyR+JcCBEH04aZyAs5C/OpUscdf7wxmIK8/qkP/f1Po1t9yJ7cxW
+	7/iGBAfz7hs7iuyUmEWm+XlUB/F9f7qvvvcIQXrQ/jOnyLpIvlofOA0QMXZ3NoVNkW/hV21ZRphhV
+	A52tOOw7T+36McNoEkIDCXX/AmFgwssx4ps1pw2psYRrsJin7WfdackEoIn3vHAfr036HCyADspBj
+	jwTiN+VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTiu-0000000HWLQ-43PD;
-	Mon, 10 Feb 2025 13:21:16 +0000
-Received: from mail-dbaeur03on20605.outbound.protection.outlook.com ([2a01:111:f403:260d::605] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1thTkI-0000000HWju-2vye;
+	Mon, 10 Feb 2025 13:22:42 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTh4-0000000HW2O-1dzn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 13:19:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zTIOGc9NN+o1vzTVfltrBOjDZHxZCj9JAGsLV7yp/3/LiXY8d/C/3kHKbYQe8V9aIpCcTpv1Cual3r+Y88DYgrEfgkTs3DdEIhMLkkEk1BcGOH9zJCOHfBotEXqnv2gT/elQm2Khs5fvPV35xVuxTBfPNZu2Xfrfz6kjdEBkLB1OzXd0NBPrFpd+vyo08x6tTH6g7gfsFfFSfPViTh4+tKTqTpq/1gCNhRJk7c5ELMUCf/o25ZWORdPT72ZuuOhe50p4ySgm2DdIuZ4f7kyY4AeRV4Asj5hlqq+1jELfseI79iDEgxN8+DUu92B/E74U9KFkD/uj5DOp8OuWckvzTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=;
- b=oUVQAON5/YSGpgiB933lnVZY2gDbuyeyPI/KHA60kxtJmtinMT5mJqLbcb1l8/qyV3YXpeejD+dqJiwBCw8mmAiVcZjR6VwyLpqXk7HZk8K+yM7at0LVBom+uWlbPwCXAQYzr2eGUSqASmfX0etVRSb7sUHcotQVcg5pakwg79L1ovHivKGCOEkirOwfLfgGWAA1IeS6xEK4t3JSrG7uKvoJ/zvfYVqbiW1cvCV84ZE+o+lCk3IS6Rnsby8ODx2HzL6F3c3tbQIQ97LfUK5fI/P0B3DGsf6oV5BwTcjldFqzIDeBsVMxQUb0APvMUrMOoe50h1gR6XPo2dtlkdvD6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=;
- b=BQe9R57Pgh6n//PI1GTpznmWEQrX0o4TXPNKs4YH4mj/Xs+KmpbZl1fc+0fJD4+CezvzM7umRRUYNaEee73/EoEHHGTrXbsTXuO/8OvCHTkLYI2CezRB6rt++uh3jeYlQ9erJOm6gK7p3nBaId8UX1f6GmdY9N/0gcCgesPRCT4WbbPM02KitINRYZ0fzsnwRHaGF/iQt+jCyRnRxmUKok3UcNUY3TFAo6DYfBW2F7QNCu0mRQcN2OMZ7T9hsO1sSy52nchja4IQTOdEGjCzvGcBpf2LrRpRcGC3BJozFksfDVaoyMRXLWnT/96jLTxE4lVg1Hhe0RN3C/t000yytA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8700.eurprd04.prod.outlook.com (2603:10a6:20b:43f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
- 2025 13:19:14 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 13:19:14 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Cristian Marussi <cristian.marussi@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Sudeep Holla <sudeep.holla@arm.com>, Saravana Kannan
-	<saravanak@google.com>, Linus Walleij <linus.walleij@linaro.org>, Aisheng
- Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, Shawn Guo
-	<shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
- machine_blocklist
-Thread-Topic: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
- machine_blocklist
-Thread-Index: AQHbawr1A1AsDxfmd0qSLN9sYWQ9t7M6SOaAgAZYiNA=
-Date: Mon, 10 Feb 2025 13:19:14 +0000
-Message-ID: <PAXPR04MB8459A3750512708D2972687388F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
- <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com> <Z6Slq4KjS_RJ3ItB@pluto>
-In-Reply-To: <Z6Slq4KjS_RJ3ItB@pluto>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8700:EE_
-x-ms-office365-filtering-correlation-id: ca665c1a-a349-4e55-35c5-08dd49d583f9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?aKaQfu/vt/JWgY0O502TqU6GUiOE/81jPCEewngwTqkyAzwVsKGAXJPd2Q0q?=
- =?us-ascii?Q?G450tsSYKZ83wt18TLV+C4dDifH2zLgze0okEXf68d4OkzR/L+beLo/THud4?=
- =?us-ascii?Q?G7QSmyEymmS2pR6dQQrtSSZkypDgpRboEZR4uhSCZ9Amds9k7bW4rgDzgQTR?=
- =?us-ascii?Q?/NvRu8LOjoD1nxIBeWWicmuxcji+m+rOqdQQqFUgycf1/V66FJiw7VFMmw0c?=
- =?us-ascii?Q?buEpudF7SbFqQAiatdbAXFhnq5FwbIzBbqvId+uaJd9HhjV6p1OyNNUf0r/d?=
- =?us-ascii?Q?KKvb3nvmQb+bUxY1VSDyvGST5kBbFod9MiFZGb6QRECYF3wNoXBl5uCVV/y/?=
- =?us-ascii?Q?1QXHL27KQxeYdBf6K1KhePV+4cr+SWJjflzEgwIxDJOfkmgjnbZXpqxzQJUX?=
- =?us-ascii?Q?0w8JxeHgX8LUdLPibG1cCnN0pU9Z7ZjQRlsXJKPeKJTbkVnLFh5wEVWLGCqj?=
- =?us-ascii?Q?BS/uq6cE25jsOfVQPvVwcuZm4f569ddncEjAsfsawHzYfve82V1w+mkLOmCi?=
- =?us-ascii?Q?SAfjzSS7z37BLsZGoNL8093Ws6f3dKuoBslPEqYoTpwk/thuHc+NsAXZ46gS?=
- =?us-ascii?Q?8c+bL5exxhjLC1Gyvh+NKuqzy7NVPJU9El3wUtrCuj1vFJJj9hYr517Hwtkf?=
- =?us-ascii?Q?oxu57q0SzcsBYx+M+N7GBdb7dTbak4/jEaf52hqXwWJk4kt1dU9J3wQgRO/a?=
- =?us-ascii?Q?lApMUD092CkfEaZ5MWVM1+HRtb+ZBFuG7vhHMQrnVdd09QzzHojXkGRtcd36?=
- =?us-ascii?Q?Wsax96TEN1lYTcWiEXmhp3wXNec8DKGlECYCN0oqOkXEjaCu9YoLs75TbLT/?=
- =?us-ascii?Q?8lFWW+cOTvFeCDJ8C77JloRWZF3jKGBF3ZNv4Iigzt4WrNz5uFIznqZq8hVo?=
- =?us-ascii?Q?K5Jka57X+JhCrJIFYIhvuNGlRATq7k7puVANWlfCEHKlTFMzBL6PvSD+vpxU?=
- =?us-ascii?Q?8dVfAsDDyAcBnH84g1ifjBFBRYK2fp8uienxrOMCmx4XpsQel8t5nvqL+A7v?=
- =?us-ascii?Q?yE4l1Bhja8EGOe9MjnVn8HfwpTaikVJggw/bQOBIM6y+eTctZ5pJhR1pewUN?=
- =?us-ascii?Q?y5q3WNwrapEK3AGDGdt5l9gVhBkcHv8DsEDAqS975lHbYQIckZLxyNkFLTOz?=
- =?us-ascii?Q?A4UGxp0LoUqP0FST68zGPOIa5epAm1U/N4AKiCREC4s0glevDaJiISLWNqM4?=
- =?us-ascii?Q?QdJrqzXb0q1Aa836Y9EWv9RlbxhqNbAJEPCZ9XcpddXqRY79ENS2rk5qhXez?=
- =?us-ascii?Q?NiCRVtgECRvyJSG0J2uFa6CcAyQ7t1Zk7dHW/izMCpdhfZcwNUwRWv+cCrO2?=
- =?us-ascii?Q?1AK3Qkq4UrkyZQXw44fnPOgExGtDkxiHkLxfLjzaIC8uTamwAcnAhSlds1qm?=
- =?us-ascii?Q?oCDyOGbvRSNjyK+/08rxJf6zyvF6N1BuqFj/GYHrsh7E8vEuIw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Dp6QSJVhIOAd56ZVWIJidkOYaNCLaH0AImUnQYaeiMpyNNdl70Q2JAfE378j?=
- =?us-ascii?Q?mfwjpP9At+scDzanjGwjQCGBCdeesMwJ6yekA5ReT36fS816xjQXhUjrRosu?=
- =?us-ascii?Q?geeQtsIYQUIftgu0qNcjIADu7w1WD+nj7C7JOTr0RzkE1wDOp+25iEXL0Ljr?=
- =?us-ascii?Q?zWLP1gRf8He7unWTg3ZYNUBRLU6qRkpOdhWw2ZDbHD6Wh5t9KymCSlZZLI9f?=
- =?us-ascii?Q?CXOXI5txfaoG8nm+qoOZQEFTfr16woApbrCgy7lDrcMPZIKX0IC+rcnEeQpA?=
- =?us-ascii?Q?76e3+TGxhm1EmIz69ojzTSCx9vECqO5Wq6cgpklfkxdCeCofEM6A0NWj7HKe?=
- =?us-ascii?Q?CnY8SiFUfDe5nB8iT9ws4j+v3waJ/mt8RcVrNuhRI2NbK44osOK8CxdLH4bO?=
- =?us-ascii?Q?Z0bzBnSmGzEMRY9PhXPlTkPt7dKpu/YqqRWv6eVSCT81b/I7b/CA0OyGHD/L?=
- =?us-ascii?Q?xc/GDI+q//eUfAtVEqs1vfWY6XMPeCqYp+e+Kz7jSULQ6o7LYTKV1TTEb3fU?=
- =?us-ascii?Q?3joBkAYEoZqZC5N9bBwEfCvbIcu02V3Ri5Tly6n77fa/wNrCkqGOtzSBlsqG?=
- =?us-ascii?Q?cnuzui/lGzftc1dYja4W6Fnfr44/qXuU9W/IGUWaCzP0nAS2LUJb2CksTf2J?=
- =?us-ascii?Q?ROJ5ahXzBqJ+TjSVNxLBR9o+iGgvkq8toHZoUv6cbQ/+kGqJaXnDpaaurdTB?=
- =?us-ascii?Q?AHlk8pRfxzf93cTTzx4jPyiVM4r5THzAhoEaZ1uNAXqSHUbT+/uLm8/Hsika?=
- =?us-ascii?Q?1WisAht72fi5Yerqc2FzqxkayIlJtJHwz3h0QBnXuvXRmNR4ElJrB8PJCM5Y?=
- =?us-ascii?Q?BVEUIuBoLys5FtruqN4hXCgXrssUu7zHVYoHCN7zk5BnaeB/1pG/+GVJXpJQ?=
- =?us-ascii?Q?uzF8Dp3chY5SlYjKL+ddRORhR1TiI0wkdfOmTy/NxIZFF1CbLe1sFcbMsbeO?=
- =?us-ascii?Q?NRghGLE9M6hLgo2Z3azZtwG1uzCYdf3pacfq+y8lQK8+hc5EqmnsMFUHZZNp?=
- =?us-ascii?Q?t9dcbeZShXIM8PX7baT6gC3iMiRW7wRr5MYT0qbox0qaJ67jMhRZtu1vOUQa?=
- =?us-ascii?Q?cCEPkzxLikOLR1qK7moMQ8kuyinGrKFeohMn7AFErwS0hv4ZqwlrvAz4tz+9?=
- =?us-ascii?Q?oRzk3uAvzAa56b2BfoVbGCCA60X3QtqUgZgomWAn6/Ah+EdiBnJkdpEIJ3N1?=
- =?us-ascii?Q?65zPhELG02nlkhJ2MVtNn88TjZQW/9Y6DCi6TDkHwzlV+BEJ4rMB/4/ND6qi?=
- =?us-ascii?Q?9DBFoXTKhSwoWNMGwspKqp0ytBjSOEzKQlr5A6gvepojG55xdi7XSUPozEqT?=
- =?us-ascii?Q?AARxwphgwFrRuU1iMhEB50E4asKyOTJ96A/OtxdSapjFI12rduiMdgNv3S7e?=
- =?us-ascii?Q?PvQG20J1HY2N8z2Zv6kCJJZ+RF5vjVEJkGuSSz+s6/XLqTri4C1YV2RuGmAp?=
- =?us-ascii?Q?Koa/X0JUGU4CHEXqaRnjA4pr29SMjqijIOTZutnaebaxIkLjCiRS3vdukKrL?=
- =?us-ascii?Q?H2RmgfkJoAn+LMVVayqoU+oIGhqM0UQCa8TM1IokbUqNUGzgvA/wCtJrPmY8?=
- =?us-ascii?Q?2IPQTmNVZ0CWezerewI=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1thTie-0000000HWGa-1fVk;
+	Mon, 10 Feb 2025 13:21:01 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-436284cdbe0so6420625e9.3;
+        Mon, 10 Feb 2025 05:20:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739193658; x=1739798458; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=IR1STzBHWflyOdMHe8euRfwJ+fzKwFGSyoXduLUKaJw=;
+        b=bVwaaKadkWJqnR6tUeSXqaEtj4AheiaBvmPO3TWLXQV98ijA0BJk6S9yRGtCDeffVy
+         inuNyXsodHcUNi7JO0t+8tu/4bOPt4hcdN7LGVs+oia0rcSD1SE5zX2kQSHBvmsWYi5p
+         m27KND+f3LyObpdPfTUfLj077ExAVRhuqIGxys5JGYiLLqK+vEJb5UHWU5NCqRQDLa1O
+         4/l6nl/hhm5TVK0hQuv1am04yOyy1sb1RXah2nsNO+HcLlMXIgXlYj96zcWglAoOUi/E
+         mrKJCHkF/B7837eKh/LRwQbutmecRa9bJhnw94vmShxJA6M8KboH5L5cki1PFmRdkSH7
+         uwgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739193658; x=1739798458;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IR1STzBHWflyOdMHe8euRfwJ+fzKwFGSyoXduLUKaJw=;
+        b=JhQIC55R/kfrjK1PtRPOusZuJgt5LSG4ikd08Nz4J31+vNxxKIgkfwiLLDSr82wivW
+         rSjOvKoRt07Bu9f7m2LnAg0wNheoD4aKHckkIk4OqQZmTLnYXZfNxoTJapVYXBcWS5KV
+         X181iQvzpnUkbQapoU9RjYDQJ7ZxcCLzYM7ZHgYgSzZXtw0JmA9FmtT8SHPzbZZRihzj
+         CphJyxtv/y9eKHYOzawEN7kc4HP6X1aZ1a0fxR3Mb44M3ptTamjpCatLRG0eQvt+Za5c
+         eK3lmbsPx51PFgBcvYLTB+5fiP7+A3ATJRh7rQwTQ5k9t+c9Grm9ye2HgFG/t23NHwkJ
+         wv6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVezNthZGQMB63CaNVwohgyAUoQYLHKleBxPlFLLv/a+WBCCsZmVczOOTpX0ko5w9RWbtCb1DeyGTNUUZZi7Hyc@lists.infradead.org, AJvYcCWWHNQADqEos0sB2RPqSffYzpsUsZuzA9RhQu/De2wfPtsWdQkJunrGQ/DIQOU6ZHfsRd6XYzjeftZEG7zVnoU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya1PdGa5RI0PV1iKW8sFqfvWfrdfWdGBAQiYBd13T0rfdO2MJ4
+	Mcv88GccjPfYlwHlLByoOcaXN8nQycCLa3rhg1skRR76Lfs9wAPO
+X-Gm-Gg: ASbGnctJ3K72iaxpAUiOFEm3NEk1GuVBHDn8nTxDFCxLYcwYZQbr8+O01utdY2wQrGs
+	aGBDY4VjV1AHvvoflreuER7YXNuHBZ+KikqFv3OGlJkVNIWoKw/CE2y0l+OoXFQfyvFWQ2rlK3k
+	kckhqiVmU+SiQzsFdRcthRn8HRIdSFEmkZIAjvt12lomv3uVxLqNemB0JLUz9mfg3cXzUDWFzjB
+	WQI2NbttVCeGUpvmCUORjn6dy9LOOiF8quS/CCV8gNl26YKT+hlFbAFxT0ssM80GedJqbU1zJI8
+	cmA=
+X-Google-Smtp-Source: AGHT+IHKAnx4OMOJyxd+FsV4Q2cMCuFMhriiOBiD/pKtcrVChJIsEdo0ysTRISiCt7SIXZmiHfdEkg==
+X-Received: by 2002:a05:600c:444a:b0:439:4b67:555f with SMTP id 5b1f17b1804b1-4394b67585fmr4261405e9.6.1739193658476;
+        Mon, 10 Feb 2025 05:20:58 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd4764880sm6684638f8f.25.2025.02.10.05.20.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 05:20:57 -0800 (PST)
+Date: Mon, 10 Feb 2025 15:20:54 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net-next v3 1/3] net: phylink: provide
+ phylink_mac_implements_lpi()
+Message-ID: <20250210132054.oaqb5mboh6qiixfv@skbuf>
+References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
+ <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca665c1a-a349-4e55-35c5-08dd49d583f9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 13:19:14.6893
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: By7jbfjNvGwb/SqQnc/JHNtIV8GoNECao5oQdL4IEbYSSOHL+JiTmoVGPZAwYx5nz1trslIuAdHLuRp9NWePFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8700
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_051922_594294_64EF86A3 
-X-CRM114-Status: GOOD (  40.44  )
+X-CRM114-CacheID: sfid-20250210_052100_440402_F62431AB 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,188 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian, Sudeep,=20
+On Mon, Feb 10, 2025 at 10:36:44AM +0000, Russell King (Oracle) wrote:
+> diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+> index 898b00451bbf..0de78673172d 100644
+> --- a/include/linux/phylink.h
+> +++ b/include/linux/phylink.h
+> @@ -737,6 +737,18 @@ static inline int phylink_get_link_timer_ns(phy_interface_t interface)
+>  	}
+>  }
+>  
+> +/**
+> + * phylink_mac_implements_lpi() - determine if MAC implements LPI ops
+> + * @ops: phylink_mac_ops structure
+> + *
+> + * Returns true if the phylink MAC operations structure indicates that the
+> + * LPI operations have been implemented, false otherwise.
 
-> Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add
-> machine_allowlist and machine_blocklist
->=20
-> On Mon, Jan 20, 2025 at 03:13:30PM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> >
->=20
-> Hi,
->=20
-> > There are two cases:
-> > pinctrl-scmi.c and pinctrl-imx-scmi.c, both use
-> SCMI_PROTOCOL_PINCTRL.
-> > If both drivers are built in, and the scmi device with name "pinctrl-
-> imx"
-> > is created earlier, and the fwnode device points to the scmi device,
-> > non-i.MX platforms will never have the pinctrl supplier ready.
-> >
->=20
-> The pinctrl-imx case is an unfortunate exception because you have a
-> custom Vendor SCMI driver using a STANDARD protocol: this was never
-> meant to be an allowed normal practice: the idea of SCMI Vendor
-> extensions is to allow Vendors to write their own Vendor protocols
-> (>0x80) and their own SCMI drivers on top of their custom vendor
-> protocols.
->=20
-> This list-based generalization seems to me dangerous because allows
-> the spreading of such bad practice of loading custom Vendor drivers on
-> top of standard protocols using the same protocol to do the same thing
-> in a slightly different manner, with all the rfelated issues of
-> fragmentation
->=20
-> ...also I feel it could lead to an umaintainable mess of tables of
-> compatibles....what happens if I write a 3rd pinctrl-cristian driver on
-> top of it...both the new allowlist and the general pinctrl blocklist will
-> need to be updated.
->=20
-> The issue as we know is the interaction with devlink given that all of
-> these same-protocol devices are created with the same device_node,
-> since there is only one of them per-protocol in the DT....
->=20
-> ...not sure what Sudeep thinks..just my opinion...
->=20
-> > Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
-> > With both drivers built in, two scmi devices will be created, and both
-> > drivers will be probed. On A's patform, feature Y probe may fail, vice
-> > verus.
-> >
->=20
-> That's definitely an issue much worse than fw_devlink above....we
-> indeed take care to pick the right vendor-protocol at runtime BUT no
-> check is peformed against the SCMI drivers so you could end up picking
-> up a completely unrelated protocol operations...damn...
->=20
-> I think this is more esily solvable though....by adding a Vendor tag in
-> the device_table (like the protocols do) you could skip device creation
-> based on a mismatching Vendor, instead of using compatibles that are
-> doomed to grow indefinitely as a list....
->=20
-> So at this point you would have an optional Vendor and an optional
-> flags (as mentioned in the other thread) in the device_table...
->=20
-> I wonder if we can use the same logic for the above pinctrl case,
-> without using compatibles ?
-> I have not really thougth this through properly....
->=20
-> In general, most of these issues are somehow Vendor-dependent, so I
-> was also wondering if it was not the case to frame all of this in some
-> sort of general vendor-quirks framework that could be used also when
-> there are evident and NOT fixable issues on deployed FW SCMI server,
-> so that we will have to flex a bit the kernel tolerance to cope with
-> existing deployed HW that cannot be fixed fw-wise....
+This is something that I only noticed for v3 because I wanted to leave a
+review tag, so I first checked the status in patchwork, but there it says:
 
-I just have a prototype and tested on i.MX95. =20
+include/linux/phylink.h:749: warning: No description found for return value of 'phylink_mac_implements_lpi'
 
-How do you think?
+I am aware of this conversation from November where you raised the point
+about tooling being able to accept the syntax without the colon as well:
+https://lore.kernel.org/netdev/87v7wjffo6.fsf@trenco.lwn.net/
 
-Extend scmi_device_id with flags, allowed_ids, blocked_ids.
-The ids are SCMI vendor/subvendor, so need to use compatible
-anymore.
+but it looks like it didn't go anywhere, with Jon still preferring the
+strict syntax for now, and no follow-up that I can see. So, the current
+conventions are not these, and you haven't specifically said anywhere
+that you are deliberately ignoring them.
 
-/* The scmi device does not have fwnode handle */                          =
-                        =20
-#define SCMI_DEVICE_NO_FWNODE   BIT(0)                                     =
-                        =20
-                                                                           =
-                        =20
-struct scmi_device_vendor_id                                               =
-                        =20
-{                                                                          =
-                        =20
-        const char *vendor_id;                                             =
-                        =20
-        const char *sub_vendor_id;                                         =
-                        =20
-};                                                                         =
-                        =20
-                                                                           =
-                        =20
-struct scmi_device_id {                                                    =
-                        =20
-        u8 protocol_id;                                                    =
-                        =20
-        const char *name;                                                  =
-                        =20
-        u32 flags;                                                         =
-                        =20
-        /* Optional */                                                     =
-                        =20
-        struct scmi_device_vendor_id *blocked_ids;                         =
-                        =20
-        struct scmi_device_vendor_id *allowed_ids;                         =
-                        =20
-};
+In the end it's not something for me to decide, but I thought maybe I'm
+speeding things up a little bit by opening up the discussion now, rather
+than wait for a maintainer to look at it.
 
-In scmi_create_device, check block and allowed.
-
-struct scmi_device *scmi_device_create(struct device_node *np,
--                                      struct device *parent, int protocol,
-+                                      struct device *parent,
-+                                      struct scmi_revision_info *revision,
-+                                      int protocol,
-                                       const char *name, u32 flags)
- {
-        struct list_head *phead;
-@@ -476,8 +494,16 @@ struct scmi_device *scmi_device_create(struct device_n=
-ode *np,
-=20
-        /* Walk the list of requested devices for protocol and create them =
-*/
-        list_for_each_entry(rdev, phead, node) {
-+               struct scmi_device_vendor_id *allowed_ids =3D rdev->id_tabl=
-e->allowed_ids;
-+               struct scmi_device_vendor_id *blocked_ids =3D rdev->id_tabl=
-e->blocked_ids;
-                struct scmi_device *sdev;
-=20
-+               if (blocked_ids && __scmi_device_vendor_id_match(revision, =
-blocked_ids))
-+                       continue;
-+
-+               if (allowed_ids && !__scmi_device_vendor_id_match(revision,=
- allowed_ids))
-+                       continue;
-+
-                sdev =3D __scmi_device_create(np, parent,
-                                            rdev->id_table->protocol_id,
-                                            rdev->id_table->name,
-
-In for cpufreq, use below to set device node.
-+static int
-+__scmi_device_set_node(struct scmi_device *scmi_dev, struct device_node *n=
-p,
-+                      int protocol, const char *name, u32 flags)
-+{
-+       if (flags & SCMI_DEVICE_NO_FWNODE) {
-+               scmi_dev->dev.of_node =3D np;
-+               return 0;
-+       }
-+
-+       device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
-+
-+       return 0;
-+}
-
-Are these looks good? I could post the patchset later to see whether Sudeep
-has any more comments on the current patchset or the new proposal.
-
-BTW: I also pushed patch to
-https://github.com/MrVan/linux.git  branch: b4/scmi-fwdevlink-v2
-and=20
-Following Dan's suggestion to merge patch 2-4.
-
-Thanks,
-Peng.
-
->=20
-> ...BUT I thought about this even less thoroughly :P...so it could be just=
- a
-> bad idea of mine...
->=20
-> Thanks,
-> Cristian
+> + */
+> +static inline bool phylink_mac_implements_lpi(const struct phylink_mac_ops *ops)
+> +{
+> +	return ops && ops->mac_disable_tx_lpi && ops->mac_enable_tx_lpi;
+> +}
+> +
+>  void phylink_mii_c22_pcs_decode_state(struct phylink_link_state *state,
+>  				      unsigned int neg_mode, u16 bmsr, u16 lpa);
+>  void phylink_mii_c22_pcs_get_state(struct mdio_device *pcs,
 
