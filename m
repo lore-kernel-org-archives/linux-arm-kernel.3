@@ -4,215 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A16C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64A9C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ZcSaVaj16xGK/LA06vk09gLZjza4D0hDG62fv8NAA4=; b=cvghiwBXSjw2C80XSrq3j96cyk
-	NEYldMUAqMdcO1bPOBigaMDnlTqrd3TXtNL0Zr/c5lgorcjaxE8At4qmnaoxs80uRMZixFiZ/Spiz
-	lRNzGW8unhGBA3eeobs9X5RVDGUauSKcxp+Z5ZnNtQcHa9TQI1h6QXTLqKWdDtOCX9OIn0vB65C2Y
-	DlezyRRG2pUV1Ta8syJ5RVk0Sc2Nxi4B2gieYrFxFtnBPeIzOKd4XM9e0vnkpSAcSnhxj3l5O5wjb
-	TdoRH41bOIY0+0wYbIzrg30XvLhHPvbOhtkd3alGxtvK1fkHoYgdA++siK23jmrGLWMAbFKUw1FzF
-	bQUA4ENA==;
+	bh=ZOcYg4xLzinXROvIPIR5xsQLZpAtozt5q5hAITBaMhs=; b=qzExnU98rwJYQakOeMufJVH3kZ
+	5WLGCBOqC6OV/RtcX+Xn+LaZAzcCF4hIouIvYnJFBCRRQrGIHSEEoBImJWTHHax+PrbYrqODOcGzU
+	7oDNh3XMqwbhWo5C8orJRZpkVuedxD9jbXztQiJWDT+4HammOAyJ/aqxDOmUgXWMlsTb4kYKXr4Wo
+	0CglcV/EwtlStS/US2PAtB0WBhdk1mhvaPe3D0hmfAV4ui4yW1VrGFP2qzgMpvNL/qbOBEf/D1M82
+	n/3NoiHa+i6Kls+lrdVO+ZVk/klPdn48Swv6jBUMRcFUThoDFEBMgkCg8w1x4hn9IdTKovB98CXps
+	sTP+3RNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thOJF-0000000GX3z-2KHB;
-	Mon, 10 Feb 2025 07:34:25 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1thOO4-0000000GXZE-39lM;
+	Mon, 10 Feb 2025 07:39:24 +0000
+Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thOHr-0000000GWwl-2Nef;
-	Mon, 10 Feb 2025 07:33:00 +0000
-X-UUID: 3e8738dee78111ef9048ed6ed365623b-20250210
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=3ZcSaVaj16xGK/LA06vk09gLZjza4D0hDG62fv8NAA4=;
-	b=VskqlkvVawtzG1qkm4IGZNfzhFZzG3jQymHmuLRhl+lCbso3QStp4r8s2V/4F0o8W6+7yxqgasLrqRGn30sAg8wvf2PQDpxmjb0OKYLv0CasBJ/MbQMB5VNNIoa92qg3dRb704tFRgydrBMlZiV+c1d+IBGM+kwcNxWIqr+WJus=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:2db8fffa-0b41-4c49-991e-1c2968b4b46e,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:344f577f-427a-4311-9df4-bfaeeacd8532,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 3e8738dee78111ef9048ed6ed365623b-20250210
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1420569899; Mon, 10 Feb 2025 00:32:55 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Mon, 10 Feb 2025 15:32:52 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Mon, 10 Feb 2025 15:32:52 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jgPueqv41ZoJz7b0iwELNDTewGksLkPrCA9ufr4nB+AtJFe9vBZsi/1bl2CoWNxZnV8JIyvpI2F7BoLW9CHoTMHo5XRTOp0s5AyVxYxN/JVJ56KsH04LShCTWOJXRj5gtH8Vukzo0qBN3HgLRX5tvqvYZz1x5p0ScaoxlX/OyccOqbxVPHa1R0xyCupIx6+TrqhQm9/Dd9zWWGBsIkRSm+ip89nar7tRgQmR4SmePPYwbLDqBtM5iNXtOyMSviZ+lIO/kt4vMg0NgNLnex6kAb9xhpzvwZQI5K+9j2P9tczbsx1ZZbPXAPOIxe7Ya6eMiOc4k33wNl4B1Op6eJ+3Dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ZcSaVaj16xGK/LA06vk09gLZjza4D0hDG62fv8NAA4=;
- b=lCUL7PsCmnhDS5q/OeYLxuwgZuI0VP9YHTWiR8Sv1xrX52SmbJbeDiiKI/Gs93BWnBKSUT32kLhh+vzxUeFMKK7WMPoFFkL7R/8ZiJ+BR4nAkfL10lSzukrl8uwIoo5u+0zFgM2jH63A2xO2WjuxaegpLr8eJYONzPOrRs1QNWU64ovkpoG6ChK+MMqyLc8tqSJR+lccNKiAaUF4tOcYkHXvK8KugslruZiFDlguY/G3Nkf2guys923WXdZFxYF3C7WipgmFiBNFPDhAEM4/3KyK+sgbXG2sbThqSxsfSNHZKLrvqzdHlerufNDmyoXYDXFi2Lh4LJZP/r6Ka8CrGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ZcSaVaj16xGK/LA06vk09gLZjza4D0hDG62fv8NAA4=;
- b=HcxjTOugOhEcyIhZsMZWRhkPMUUAObUG2CZpb/LhYAy6z162e6Hg5mLDUyfh6E04F/Fo4/8LFMzrEcjo1nDhNJHHKnsDSeWsgaozPNoK2nEg3DlQfJDvnw1njGAgK9sBcozJcCIj368zSGFUdaeHGnoJUbgzYWdwVIiSuETTeNM=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by KL1PR03MB8195.apcprd03.prod.outlook.com (2603:1096:820:111::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.15; Mon, 10 Feb
- 2025 07:32:50 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 07:32:49 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
-	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
-	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
-	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
-	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
-	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	=?utf-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, =?utf-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?=
-	<TommyYL.Chen@mediatek.com>, =?utf-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?=
-	<Ives.Chenjh@mediatek.com>, "airlied@gmail.com" <airlied@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?=
-	<Jason-JH.Lin@mediatek.com>, "junzhi.zhao@mediatek.com"
-	<junzhi.zhao@mediatek.com>
-Subject: Re: [PATCH v5 07/34] dt-bindings: display: mediatek: Add binding for
- HDMIv2 DDC
-Thread-Topic: [PATCH v5 07/34] dt-bindings: display: mediatek: Add binding for
- HDMIv2 DDC
-Thread-Index: AQHbZcrvQTgXNtzUrkOtKKNLxAYFYrNAUGKA
-Date: Mon, 10 Feb 2025 07:32:49 +0000
-Message-ID: <d99bd876b0deda66ea12705c7db0b846a2ad214b.camel@mediatek.com>
-References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
-	 <20250113145232.227674-8-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250113145232.227674-8-angelogioacchino.delregno@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|KL1PR03MB8195:EE_
-x-ms-office365-filtering-correlation-id: 565fb436-89ef-4d34-7bcb-08dd49a51f2e
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?bVA5bXd4R2MzU3M3UVBIVmJVK0xVbExXRk5lb1FURmFmUFE1VlJRS3VFQ2xr?=
- =?utf-8?B?ODk1Z0RkeDZTdlI3UVQ1djZwTk5WM21wYndSM0p4aVpuKzJSSXVNeVJzM1pS?=
- =?utf-8?B?WG9nY002d21rMnVZWnZPZEovNUJVWjJ3Ny9lM3F6VEFIYTk3UDU0bzMrcFlI?=
- =?utf-8?B?aGVLNi9tWnZBRU5kRlZIbWRDZVJ3cUJFdXM2ZW9RK0pXNUI3TEJuSjczL1Qx?=
- =?utf-8?B?cDVMeUlTSzUwVEZxaHFYdWdPVHgvZlg2dURKcWtmeUtrYjRsSjNLV3Zlb2Fq?=
- =?utf-8?B?b2hDQ0hqZHRWTDVBYUNSejNrSVlESFMrMUQ4QUIvRHg5Y2VTTU9OQ1FMbjI1?=
- =?utf-8?B?K3ROdGNzV3JOeTFlOUJ2Rjl6Zm8vRGNVUzV6VlhDM1BQVkVyS3hFTDRjZXpX?=
- =?utf-8?B?YlZPcFV5SFlmUHBYZjcrQmZJUXJZYjZLaGJKanFxSktPcTRxY0FVL0dMRFdT?=
- =?utf-8?B?K1IvS0NvOUY1WVZpMVREY2o3b0F3UmFWUERSWkJMQ0hGSzBYWUhvVzVqSUV4?=
- =?utf-8?B?VnEzWkVQSHpFOHV5RE1hb0JweWZrNXlRQmNGc3pnaFhLUHhucGVIOGJyb1RU?=
- =?utf-8?B?bldvMXpBZ0tEV3VCdlV4d0orZGdLT3JleGZhNjM2RWt6QitPd0o5TVJmWlR3?=
- =?utf-8?B?V0tXNEJiQkZ0ZjJTVmdLNjdnZFNNSUVJcFhlRkhYdjZnQnFjZHpYb3F5cENy?=
- =?utf-8?B?bk5vSHhnV2czdTZrQndBU2R4SFVsbnRFRWZKQ0NsUWJ5KzdFcHNpQTRSN2o4?=
- =?utf-8?B?L004YzdPYXZ5NFhUYUkwRk5USnFIeGRXS1I3TFpyUmdIMzlScTBQQmhndTZH?=
- =?utf-8?B?aGJEUU1vWnBhcjlmbytMYlo3Q0tTTkE3Rmd6Wm8rZjRuMVdCUVk3SERWdUN5?=
- =?utf-8?B?V29CQnJaUkdxMzJ3ZXk3WW1tTHRCVGJGZS9tc212SXlsSFRrdUZQRGt6V0pq?=
- =?utf-8?B?MkxNUG90emZEZ2sxdCtxb29zUnFPNFVURzhjSU5hOXUyRCtzaFArMENIWndj?=
- =?utf-8?B?M1BVd2JXNFNsaWtZL0VPdTlBYjBrOHYxMXpzVnhBVmhKTGFDU0FiRTIrb0tq?=
- =?utf-8?B?MGltK05uWHhHYlU2NE9XTXVaZHAvOWhJbFdpYWFGaTUwOFR2M0RaWmVjb2pI?=
- =?utf-8?B?Q3pXSGJjeG9IZjBIMGVaNHJTY1B0Y3ZZLzVmczdyOXk2Tno3SmppVE5lTGVy?=
- =?utf-8?B?bU5Vc2psTmdEZ21SUFBWcXBZMVZRS3ExWjlBZFEzRWpITUthSC9aU08rWTd0?=
- =?utf-8?B?VTFmR09GZW5sR3BsV3FpN3FUNGhMblBleSs1aXg1OUIrUVJDRjBWbmM1Tnhv?=
- =?utf-8?B?MFlEZzBtOTBwVlRsOVhFTVMzZC9BdHVrM051NXpCek5Ta0ZkTjZQczB2WmYr?=
- =?utf-8?B?YUUzT0ozRk9YSGNNMTduaDZnMDlSNzJFWEkvY3VoUTZrRGwxdzlDQkYvM21Z?=
- =?utf-8?B?aktTRFMyako4UDR3aldoMld2T3loQmtwT3lndzZLaHpOZXVubS9RTituSEpK?=
- =?utf-8?B?N3NTWmVwek9rbERSZDlrR1lYS3hXY0ZLSy9JcEhoaTExYlNoM3VFbGs0R29L?=
- =?utf-8?B?VlVGRG40dFA5bGhKczJzSzQzWDFMZVEwaGNzTXdmTEphSEVqNzM1MEcycVNo?=
- =?utf-8?B?S21Fck1lK2xST3Z0OHB2U0loTklUK0tXT3BXeko0UHd5clBBWnhUcEZIV3A0?=
- =?utf-8?B?MmZ0R3VlTTBoanJ3TU4yem9mQm13REMxVkMzeHJqMXJTcDlFTXRnQ21OSHA3?=
- =?utf-8?B?c1NvT3dOckNrK0kxTVhTbU1ETi9DQVdSdlRzL0QyWXhjSWhFOGJyN0JPSWVu?=
- =?utf-8?B?aDFtcC9lSTVhb200MHkwN251a3VqVkp1OGM3NmFBU29BL0lrckFZQTNDWEZP?=
- =?utf-8?B?djcyV3JVZUxpeW5US09HOEliREtQdWJEa0lTUWNRQU5XMEE9PQ==?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dkdIRU8yakFDczRtTXNyeDlMV0Vvc2NKQmZoMmYwSlI2YlY1S0RmUndQeklK?=
- =?utf-8?B?R3lEa2FxTjRYSmpRK2ZMbG5oZ0VIYjQwR1VjWmYxT1B6ZDhYWVN0dUZyU2c2?=
- =?utf-8?B?VHpGWEpuZnhad0VPUEQrQXpYUkhWUFZja01yYTA2SldRY1F0K2ZJeGNEU1ly?=
- =?utf-8?B?dzJQRVU3emF4WXNjQU55cEJSblpOc0hEWnJ6cTNrM25Xbk00dHBvYk5DaEJH?=
- =?utf-8?B?TDRLQ2UrYkVNUlZMWHlUVEJoNitCeGVFelBtdTZsNzlmd3NvOURacDhoemds?=
- =?utf-8?B?N3VnVUVHdmcyUTBBcVdMdSt6OXV4bjFIWkpkc01aWFQ0NXovd3hIeUJRZW1N?=
- =?utf-8?B?UFRPcS8yRCtOazZHdEpWZVF6bmlNVjVLU1lxRnJlRFR2U0F0UW90RVA2Wk14?=
- =?utf-8?B?a2VQT1V6aloweERpT0hoeFR3c09qNTRLeUZ5QWRWczVJSXdxbXRFRStWajQ3?=
- =?utf-8?B?TUtxZitIVm5veHJtYm9mUkx5Vnd3cW1tRnJyV0VSNDR4YmxZeEtxMVA2aUU2?=
- =?utf-8?B?Rk5vWXFUTURoSkwxQjBvaE95MTZJR2VmQVgzaFVKR1NDckdGdnRYcnh2cEEz?=
- =?utf-8?B?eEtqdmdyS1g4K0RScXoxaGppYWM5K0luNUZ1d0w4Si9CVEdXYitsbS81TGtU?=
- =?utf-8?B?NEZFQzJ3bU9sbnFadEZJYkdtWXNTTVR3S2lYYVNkbGlNRUd1Vmc2dVNNSzVi?=
- =?utf-8?B?aWdXdS9uNk9QcEt4anFRZmkzdGJYTVN1c1VpUWhMR0NPZDJ4U3lHZWRvSndU?=
- =?utf-8?B?U1pCdmJmRWgxU28ra3BvVE56NXVqRWlLQlhaWUdjRjhVYm5MeFU0K1pHa0lP?=
- =?utf-8?B?R2ZpZEd6bjBBcmxtOEFpSURNR20vSlFsYkVNakZWTXZVU010V3F2R0hqTHBN?=
- =?utf-8?B?MGw3Q1FLV2N3V1crRDVQbnFCRHg5WWxnclhZdHROR3NKblpmZnVKNTBiTVFL?=
- =?utf-8?B?SVF0cDJlaGI0UjJZQ1V1YlBHL1ZhRER4RzlZUWxTRTJ1QUVrSk1NU3lyZDk0?=
- =?utf-8?B?QzJuaEZPb282eTJyTUFBaWNMYkNkQUJBNUZlT0lKd2lYeWNoWlc0M0RjR1dq?=
- =?utf-8?B?YXg2ajRBaXFXN1JuRXVJcjdybE0zSno0ZUQ4dW1DTjFsUVNDNnR0TUJKR2tO?=
- =?utf-8?B?dTlTd2JvRys2R0pVTDROYk9DVzRheTZlRzMxS24xWFpwaDFwNFVZTTkweVR3?=
- =?utf-8?B?YWhrcEdxQ0w5ZFBjZnlZNWlxbVExcFF1QTdMY1R4OEtSSWRmaXFTanMrNjlT?=
- =?utf-8?B?MHk4dVo1b3ZvQkNPRk1hdWlIaHk5SmNOZEMxSERyZUp3YlFydnZJWTRRKzNK?=
- =?utf-8?B?NE9CRE9kM1IyQWtFaGpaSEVmbU1nVXhPZzVFS2ZYM3ZYMmwvVHdqK0pMaXZU?=
- =?utf-8?B?bTk0ak96WEZOTzZjbWZoSk53cU1ZWVJiYUxKUlFUTXhrQWdVcVEzc2l1NWE3?=
- =?utf-8?B?eDZLSjBZamgyZUtVTUNwK0pYbUZMNXZRamVKeEZLL1pFcG1SS0l4cHJRK3hR?=
- =?utf-8?B?WDU0bUxnSnZQSDUwZHlVSmJZWklpNjFQTWRWZjUwaHpUTzZ6TmtPem51Mzc4?=
- =?utf-8?B?dHdLOEFuYnhPRDVqOXFWYUJBZ011U2I1MmFXangxbmtQK0h4YlhadDRrOUZX?=
- =?utf-8?B?K0RhQWZxRVZ4dFc4cVZqUzUvSWFlOWp1cVp2Z1BCbm56cEdnZGx4RXhGNCtB?=
- =?utf-8?B?STloajJCNW5FU05CRXo0N2Exay9RM0RkbFVvcDRpNWk4UkswR2d6MGVERmlr?=
- =?utf-8?B?YnI2UXZnRzdhRzlQKzB6VVJCQVV6MWxLSnBpVkt5bVJKYVJ3MDRaQWFCaDVr?=
- =?utf-8?B?ZDhJeFJMY0MvNTlua3lFOGFwYUZZZ050WUlFNVNwT2tCakIrK2dHYXlMekh6?=
- =?utf-8?B?UHl5SmgxRGZOSmtkQS9KWVN6eTZDQ21nU0ZDMDlLdGZ3TVh0M2NsOVNLSTRO?=
- =?utf-8?B?MloxVUwxODRJc29FWVE0QzFLYWw1NSt3YktEa05NQ0JVU2hKRlU5anN5b2xT?=
- =?utf-8?B?VHhnRmRRQmk1RldFdStZQVFvR3lWU0ZJT1dVcjhRaG9sbjZFZ3VCTlVYeTk0?=
- =?utf-8?B?NzMwV3NibUszbGgvT3MrcjZyRytnT1Y3UHloRXRYTXkrQWJtanYxVXBtYk91?=
- =?utf-8?Q?/C2pV0UeXPVYwM1VP0XU0XKqm?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <E63599832BF95E488D6BE8FBDD83B531@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1thOMg-0000000GXOX-1EjB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 07:37:59 +0000
+Date: Sun, 9 Feb 2025 23:37:45 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739173074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZOcYg4xLzinXROvIPIR5xsQLZpAtozt5q5hAITBaMhs=;
+	b=vE+uFLICHjimFS+ICMuI/HAxyfSAu4mZ77bZ828qh8f1L3qfRfmo59IMZeBXvGqrssiFNy
+	fCDND8KVpd50CISMkA7uHWCg7qYodaAjGO7IKKFCD9XIxPUn6IH9CRdkFsXbLsLOLX8lhP
+	OfDwEiCmz/G8voMwdIN56pm3FuFnd8I=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v2 4/4] KVM: arm64: Make guests see only counters
+ they can access
+Message-ID: <Z6msyUG0HWM2EImQ@linux.dev>
+References: <20250208020111.2068239-1-coltonlewis@google.com>
+ <20250208020111.2068239-5-coltonlewis@google.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 565fb436-89ef-4d34-7bcb-08dd49a51f2e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 07:32:49.7738
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: SHJ4ptG/08d0JCCscikImwW4f83PNOGrJOdgKsLtGuLhinkTz298szGJj4uQK0UH04IjXebtcEP1zIbQJKGyZw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8195
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250208020111.2068239-5-coltonlewis@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_233259_610210_CA174B8C 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250209_233758_685876_8835FC4A 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,49 +78,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksIEFuZ2VsbzoNCg0KT24gTW9uLCAyMDI1LTAxLTEzIGF0IDE1OjUyICswMTAwLCBBbmdlbG9H
-aW9hY2NoaW5vIERlbCBSZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8g
-bm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZp
-ZWQgdGhlIHNlbmRlciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBBZGQgYSBiaW5kaW5nIGZv
-ciB0aGUgRGlzcGxheSBEYXRhIENoYW5uZWwgKEREQykgSVAgaW4gTWVkaWFUZWsNCj4gU29DcyB3
-aXRoIHZlcnNpb24gMiBIRE1JIFRYIElQLg0KPiANCj4gUmV2aWV3ZWQtYnk6IFJvYiBIZXJyaW5n
-IChBcm0pIDxyb2JoQGtlcm5lbC5vcmc+DQo+IFNpZ25lZC1vZmYtYnk6IEFuZ2Vsb0dpb2FjY2hp
-bm8gRGVsIFJlZ25vIDxhbmdlbG9naW9hY2NoaW5vLmRlbHJlZ25vQGNvbGxhYm9yYS5jb20+DQo+
-IC0tLQ0KPiAgLi4uL21lZGlhdGVrL21lZGlhdGVrLG10ODE5NS1oZG1pLWRkYy55YW1sICAgIHwg
-NDEgKysrKysrKysrKysrKysrKysrKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDQxIGluc2VydGlvbnMo
-KykNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTUtaGRtaS1kZGMueWFtbA0KPiANCj4g
-ZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L21l
-ZGlhdGVrL21lZGlhdGVrLG10ODE5NS1oZG1pLWRkYy55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZp
-Y2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssbXQ4MTk1LWhkbWktZGRj
-LnlhbWwNCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQNCj4gaW5kZXggMDAwMDAwMDAwMDAwLi5kODVl
-OGVkMmZmYTcNCj4gLS0tIC9kZXYvbnVsbA0KPiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRy
-ZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTUtaGRtaS1kZGMueWFt
-bA0KPiBAQCAtMCwwICsxLDQxIEBADQo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BM
-LTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkNCj4gKyVZQU1MIDEuMg0KPiArLS0tDQo+ICskaWQ6
-IGh0dHBzOi8vdXJsZGVmZW5zZS5jb20vdjMvX19odHRwOi8vZGV2aWNldHJlZS5vcmcvc2NoZW1h
-cy9kaXNwbGF5L21lZGlhdGVrL21lZGlhdGVrLG10ODE5NS1oZG1pLWRkYy55YW1sKl9fO0l3ISFD
-VFJOS0E5d01nMEFSYnchbUZDYkp0eUl1TzVzUVNYSWlGRGlBMWxkdlQ0WEVzSDFFZ29wU3NJWVhK
-S2tnWTRpX0xHZktJeTZUWldjMmlsdXN4NEFnS2NrWXNpRnFYSjF1UWdlblFac1k5dGkkDQo+ICsk
-c2NoZW1hOiBodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cDovL2RldmljZXRyZWUub3Jn
-L21ldGEtc2NoZW1hcy9jb3JlLnlhbWwqX187SXchIUNUUk5LQTl3TWcwQVJidyFtRkNiSnR5SXVP
-NXNRU1hJaUZEaUExbGR2VDRYRXNIMUVnb3BTc0lZWEpLa2dZNGlfTEdmS0l5NlRaV2MyaWx1c3g0
-QWdLY2tZc2lGcVhKMXVRZ2VuZURNS1R4YyQNCj4gKw0KPiArdGl0bGU6IE1lZGlhVGVrIEhETUkg
-RGlzcGxheSBEYXRhIENoYW5uZWwgKEREQykgdjINCg0KdGl0bGU6IE1lZGlhVGVrIEhETUkgTVQ4
-MTk1IHNlcmllcyBIRE1JIERpc3BsYXkgRGF0YSBDaGFubmVsIChEREMpDQoNCldpdGggdGhpcyBt
-b2RpZmljYXRpb24sDQoNClJldmlld2VkLWJ5OiBDSyBIdSA8Y2suaHVAbWVkaWF0ZWsuY29tPg0K
-DQo+ICsNCj4gK21haW50YWluZXJzOg0KPiArICAtIEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25v
-IDxhbmdlbG9naW9hY2NoaW5vLmRlbHJlZ25vQGNvbGxhYm9yYS5jb20+DQo+ICsgIC0gQ0sgSHUg
-PGNrLmh1QG1lZGlhdGVrLmNvbT4NCj4gKw0KPiArcHJvcGVydGllczoNCj4gKyAgY29tcGF0aWJs
-ZToNCj4gKyAgICBvbmVPZjoNCj4gKyAgICAgIC0gY29uc3Q6IG1lZGlhdGVrLG10ODE5NS1oZG1p
-LWRkYw0KPiArICAgICAgLSBpdGVtczoNCj4gKyAgICAgICAgICAtIGNvbnN0OiBtZWRpYXRlayxt
-dDgxODgtaGRtaS1kZGMNCj4gKyAgICAgICAgICAtIGNvbnN0OiBtZWRpYXRlayxtdDgxOTUtaGRt
-aS1kZGMNCj4gKw0KPiArICBjbG9ja3M6DQo+ICsgICAgbWF4SXRlbXM6IDENCj4gKw0KPiArICBw
-b3dlci1kb21haW5zOg0KPiArICAgIG1heEl0ZW1zOiAxDQo+ICsNCj4gK3JlcXVpcmVkOg0KPiAr
-ICAtIGNvbXBhdGlibGUNCj4gKyAgLSBjbG9ja3MNCj4gKw0KPiArYWRkaXRpb25hbFByb3BlcnRp
-ZXM6IGZhbHNlDQo+ICsNCj4gK2V4YW1wbGVzOg0KPiArICAtIHwNCj4gKyAgICBoZG1pIHsNCj4g
-KyAgICAgICAgaGRtaV9kZGM6IGkyYyB7DQo+ICsgICAgICAgICAgICBjb21wYXRpYmxlID0gIm1l
-ZGlhdGVrLG10ODE5NS1oZG1pLWRkYyI7DQo+ICsgICAgICAgICAgICBjbG9ja3MgPSA8JmNsazI2
-bT47DQo+ICsgICAgICAgIH07DQo+ICsgICAgfTsNCj4gKy4uLg0KPiAtLQ0KPiAyLjQ3LjANCj4g
-DQoNCg==
+On Sat, Feb 08, 2025 at 02:01:11AM +0000, Colton Lewis wrote:
+> The ARM architecture specifies that when MDCR_EL2.HPMN is set, EL1 and
+> EL0, which includes KVM guests, should read that value for PMCR.N.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm64/kvm/debug.c                                  | 3 +--
+>  arch/arm64/kvm/pmu-emul.c                               | 8 +++++++-
+>  tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 2 +-
+>  3 files changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> index 0e4c805e7e89..7c04db00bf6c 100644
+> --- a/arch/arm64/kvm/debug.c
+> +++ b/arch/arm64/kvm/debug.c
+> @@ -36,8 +36,7 @@ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+>  	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+>  	 * to disable guest access to the profiling and trace buffers
+>  	 */
+> -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+> -					 *host_data_ptr(nr_event_counters));
+> +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, read_mdcr());
+
+Please avoid unnecessary accesses to MDCR_EL2 at all costs. This is a
+guaranteed trap to EL2 with nested virt.
+
+>  	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+>  				MDCR_EL2_TPMS |
+>  				MDCR_EL2_TTRF |
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index 6c5950b9ceac..052ce8c721fe 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -993,12 +993,18 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
+>  u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+>  {
+>  	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
+> +	u8 limit;
+> +
+> +	if (arm_pmu->partitioned)
+> +		limit = arm_pmu->hpmn - 1;
+> +	else
+> +		limit = ARMV8_PMU_MAX_GENERAL_COUNTERS;
+>  
+>  	/*
+>  	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
+>  	 * Ignore those and return only the general-purpose counters.
+>  	 */
+> -	return bitmap_weight(arm_pmu->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS);
+> +	return bitmap_weight(arm_pmu->cntr_mask, limit);
+>  }
+
+This isn't necessary and is likely to regress the existing behavior.
+
+When the architecture says the lower ELs should see PMCR_EL0.N have the
+same value as MDCR_EL2.HPMN, what it really means is direct reads from
+hardware will return the value.
+
+So my expectation would be that a VM using the partitioned PMU
+implementation would never reach any of the *emulated* PMU handlers, as
+we would've disabled the associated traps.
+
+The partitioned PMU will not replace the emulated vPMU implementation in
+KVM, so it'd be good to refactor what we have today to make room for
+your work. I think that'd be along the lines of:
+
+ - Shared code for event filter enforcement and handling of the vPMU
+   overflow IRQ.
+
+ - Emulated PMU implementation that provides trap handlers for all PMUv3
+   registers and backs into host perf
+
+ - Partitioned PMU implementation that doesn't rely on traps and instead
+   saves / restores a portion of the PMU that contains the guest
+   context.
+
+These should be done in separate files, i.e. I do not want to see a
+bunch of inline handling to cope with emulated v. partitioned PMUs.
+
+>  static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
+> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> index f16b3b27e32e..b5bc18b7528d 100644
+> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> @@ -609,7 +609,7 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
+>   */
+>  static void run_error_test(uint64_t pmcr_n)
+>  {
+> -	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
+> +	pr_debug("Error test with pmcr_n %lu (larger than the host allows)\n", pmcr_n);
+
+NBD for an RFC, but in the future please do selftests changes in a
+separate patch.
+
+-- 
+Thanks,
+Oliver
 
