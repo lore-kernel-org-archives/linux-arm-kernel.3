@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D17C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EB0C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XoQhdCXzJJK84UhtnwaHsIVgOGk63I3rM3cL84zg0xM=; b=KTuUjtTqI9UyB/xv8DqpHsWbWV
-	YBn+dwAt+bWaAooj7IFBC6ep+pK7sv8/+nQC+V7VXCedUslS9599DkQKeON4aQ8nhIejLsnQJTqDo
-	vBrJllJXD1QcxsJL2Tj7xxNB28nsbLKyuTMD+y4Hutf6OFgM1XuFB8iVLTuGcCAVX/wV/cKaPFI/G
-	GqA+R/jL6uv9cK5NyT696BJB8H18QZ5tWDVGkeTVOvEIFaC2Z5d4BoUDG7gWo2VVxytlaasDdLgyR
-	nzlGJxIpPJXF4pNzzHy6Nn45HgY7XJbRbPBCZGPCMOjKtApGOaZvDs1jrB/3mA03mA4trYDKpSIhU
-	QLyKrObg==;
+	bh=06Yc9+Cgz9LzEFz/Fk9v8JOVzK/5hR31BTHWbDyfCS4=; b=CZVlOBkHv4sVUqDgDjbmyCiyYt
+	GD4MReJuz+FfXtoca51hMsUmmZUhJtmAlNnbxLN0wbVvtuOX8HpDGgnyC2qwAJNJ/UUEq+/40QI3j
+	UDqBebykhUXY4+gGiCT3D06U3Okbrqh3VzwwPJpxtFQjNI4kK3//qO54+3s1YdVjFTvfnPemvZjyt
+	dCZ0bt8F1Lb/4e5/2KDoSNGx2cNQb7Lx+C11XS8qUe6YUB+SwLh3wiCbwU6yJSRKJSIDaBBTG6m3Y
+	VdPLNhXmaR2Wk+VcnvaxJK+3lP/alYbA2vBMXCAIeK0dUFH+VVfjge2UIf+ngSZCN3J9IIMKdutiZ
+	gNK9dt1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVlc-00000000KKY-0aTR;
-	Mon, 10 Feb 2025 15:32:12 +0000
+	id 1thVmy-00000000Ke6-3Q2d;
+	Mon, 10 Feb 2025 15:33:36 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVeS-00000000IO3-33vR
+	id 1thVeT-00000000IOA-2Gda
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 15:24:50 +0000
+	Mon, 10 Feb 2025 15:24:51 +0000
 Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AF0pQB016535;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AF0p8t016526;
 	Mon, 10 Feb 2025 16:24:41 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	XoQhdCXzJJK84UhtnwaHsIVgOGk63I3rM3cL84zg0xM=; b=b/QHcb4SNPOLF2Ga
-	HJZfNPiLKyi51CVpD3thOvk5w+8ljmzbfwow+Kcgrojr80qdz1rCBRlKlmDDOqFF
-	vfZzeQZuw5xILu3roC093qyPN9rCxxu4Jw1uF82hmyenHOpJLh6x1GU7XUyh3Wl9
-	spmMXai5QyrMcimUUjDO8vz43WoOgwKlp+krbLEnLJS6xcE2E+tphrJ7k9+TX/Tf
-	HUwH+2jDg0oqrLL1wafCxirV0yVoyE+vgXOAGBqu7yKACkJcNfGqNwEVXjhV6Qlr
-	DZc/GtYuy2UQAYFrXPvdYv1Z/QtvqLYqOxcWKKPvwA/1eIbYB6ZkiEXvrRP8OiZP
-	tyhZaQ==
+	06Yc9+Cgz9LzEFz/Fk9v8JOVzK/5hR31BTHWbDyfCS4=; b=mCDRgYoodg/tXMAp
+	lGLIlk3abaNo+EnafnZMPORmAuU87r10ISTL3P95bzv6CLDGf0QDo1oKtUV8OzjY
+	GJTU13UVZtET6lXe+Fz6rQmbbh21cdj7dzSFDVqdtrQaeQLp6x2YZeIb0h0dc6/O
+	QzPtc5hhcEYIgsO/ymCgBSyrnpA/Igt095YT3JFBTB7wNFcj6XRjXsGO8fJzK7OM
+	4FZFMW21UMwzvFCTO8/uroW16rMu5v2RTN1cvydackMrk/8pbWTxZQ35/ZW+zsXr
+	DYHHiFb/EdeJTcqSWF1IoJYAVZm1sfnHsKGAjWlhkWHbyBuTry807YLg/kJVvwYP
+	GH+bOw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0rhy5sq-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0rhy5sn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 10 Feb 2025 16:24:41 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8401A40060;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9365640063;
 	Mon, 10 Feb 2025 16:23:25 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2F7FD2954DF;
-	Mon, 10 Feb 2025 16:21:41 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F1EC82957B8;
+	Mon, 10 Feb 2025 16:21:43 +0100 (CET)
 Received: from localhost (10.48.87.120) by SHFDAG1NODE3.st.com (10.75.129.71)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
- 2025 16:21:40 +0100
+ 2025 16:21:43 +0100
 From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Mon, 10 Feb 2025 16:21:00 +0100
-Subject: [PATCH 06/10] arm64: dts: st: add stm32mp235f-dk board support
+Date: Mon, 10 Feb 2025 16:21:04 +0100
+Subject: [PATCH 10/10] arm64: dts: st: add stm32mp215f-dk board support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250210-b4-stm32mp2_new_dts-v1-6-e8ef1e666c5e@foss.st.com>
+Message-ID: <20250210-b4-stm32mp2_new_dts-v1-10-e8ef1e666c5e@foss.st.com>
 References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
 In-Reply-To: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-10_08,2025-02-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_072449_089667_6E2603AB 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20250210_072449_884603_2279893F 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add STM32MP235F Discovery Kit board support. It embeds a STM32MP235FAK
-SoC, with 4GB of LPDDR4, 2*USB typeA, 1*USB3 typeC, 1*ETH, wifi/BT
-combo, DSI HDMI, LVDS connector ...
+Add STM32MP215F Discovery Kit board support. It embeds a STM32MP235FAN SoC,
+with 2GB of LPDDR4, 1*USB2 peripheral bus powered typeC, 1*ETH, wifi/BT
+combo, LCD 18bit connector, CSI camera connector, ...
 
 Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 ---
- arch/arm64/boot/dts/st/Makefile           |   1 +
- arch/arm64/boot/dts/st/stm32mp235f-dk.dts | 115 ++++++++++++++++++++++++++++++
- 2 files changed, 116 insertions(+)
+ arch/arm64/boot/dts/st/Makefile           |  1 +
+ arch/arm64/boot/dts/st/stm32mp215f-dk.dts | 49 +++++++++++++++++++++++++++++++
+ 2 files changed, 50 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/st/Makefile b/arch/arm64/boot/dts/st/Makefile
-index 0cc12f2b1dfeea6510793ea26f599f767df77749..06364152206997863d0991c25589de73c63494fb 100644
+index 06364152206997863d0991c25589de73c63494fb..63908113ae36ba19378ac1fedc0309ef46555f17 100644
 --- a/arch/arm64/boot/dts/st/Makefile
 +++ b/arch/arm64/boot/dts/st/Makefile
-@@ -1,4 +1,5 @@
+@@ -1,5 +1,6 @@
  # SPDX-License-Identifier: GPL-2.0-only
  dtb-$(CONFIG_ARCH_STM32) += \
-+	stm32mp235f-dk.dtb \
++	stm32mp215f-dk.dtb \
+ 	stm32mp235f-dk.dtb \
  	stm32mp257f-dk.dtb \
  	stm32mp257f-ev1.dtb
-diff --git a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
+diff --git a/arch/arm64/boot/dts/st/stm32mp215f-dk.dts b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
 new file mode 100644
-index 0000000000000000000000000000000000000000..08e330d310749506c5b0e7a1fb2f80dfa134400a
+index 0000000000000000000000000000000000000000..7bdaeaa5ab0fbe99a7e39b623d5e7a0e469d3e50
 --- /dev/null
-+++ b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-@@ -0,0 +1,115 @@
++++ b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
+@@ -0,0 +1,49 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
 +/*
 + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
@@ -133,17 +134,12 @@ index 0000000000000000000000000000000000000000..08e330d310749506c5b0e7a1fb2f80df
 +
 +/dts-v1/;
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include "stm32mp235.dtsi"
-+#include "stm32mp23xf.dtsi"
-+#include "stm32mp25-pinctrl.dtsi"
-+#include "stm32mp25xxak-pinctrl.dtsi"
++#include "stm32mp215.dtsi"
++#include "stm32mp21xf.dtsi"
 +
 +/ {
-+	model = "STMicroelectronics STM32MP235F-DK Discovery Board";
-+	compatible = "st,stm32mp235f-dk", "st,stm32mp235";
++	model = "STMicroelectronics STM32MP215F-DK Discovery Board";
++	compatible = "st,stm32mp215f-dk", "st,stm32mp215";
 +
 +	aliases {
 +		serial0 = &usart2;
@@ -153,39 +149,9 @@ index 0000000000000000000000000000000000000000..08e330d310749506c5b0e7a1fb2f80df
 +		stdout-path = "serial0:115200n8";
 +	};
 +
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-user-1 {
-+			label = "User-1";
-+			linux,code = <BTN_1>;
-+			gpios = <&gpioc 5 GPIO_ACTIVE_HIGH>;
-+			status = "okay";
-+		};
-+
-+		button-user-2 {
-+			label = "User-2";
-+			linux,code = <BTN_2>;
-+			gpios = <&gpioc 11 GPIO_ACTIVE_HIGH>;
-+			status = "okay";
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-blue {
-+			function = LED_FUNCTION_HEARTBEAT;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpioh 7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			default-state = "off";
-+		};
-+	};
-+
 +	memory@80000000 {
 +		device_type = "memory";
-+		reg = <0x0 0x80000000 0x1 0x0>;
++		reg = <0x0 0x80000000 0x0 0x80000000>;
 +	};
 +
 +	reserved-memory {
@@ -206,38 +172,7 @@ index 0000000000000000000000000000000000000000..08e330d310749506c5b0e7a1fb2f80df
 +	status = "okay";
 +};
 +
-+&scmi_regu {
-+	scmi_vddio1: regulator@0 {
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+	scmi_vdd_sdcard: regulator@23 {
-+		reg = <VOLTD_SCMI_STPMIC2_LDO7>;
-+		regulator-name = "vdd_sdcard";
-+	};
-+};
-+
-+&sdmmc1 {
-+	pinctrl-names = "default", "opendrain", "sleep";
-+	pinctrl-0 = <&sdmmc1_b4_pins_a>;
-+	pinctrl-1 = <&sdmmc1_b4_od_pins_a>;
-+	pinctrl-2 = <&sdmmc1_b4_sleep_pins_a>;
-+	cd-gpios = <&gpiod 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+	disable-wp;
-+	st,neg-edge;
-+	bus-width = <4>;
-+	vmmc-supply = <&scmi_vdd_sdcard>;
-+	vqmmc-supply = <&scmi_vddio1>;
-+	status = "okay";
-+};
-+
 +&usart2 {
-+	pinctrl-names = "default", "idle", "sleep";
-+	pinctrl-0 = <&usart2_pins_a>;
-+	pinctrl-1 = <&usart2_idle_pins_a>;
-+	pinctrl-2 = <&usart2_sleep_pins_a>;
-+	/delete-property/dmas;
-+	/delete-property/dma-names;
 +	status = "okay";
 +};
 
