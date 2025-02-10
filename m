@@ -4,81 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096A8C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365C8C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=; b=Kk4Q59KdPnxiyUIPYIflo0dyGu
-	ToRdwD4Ej9o7IU5Ro+o0VgFaKvarRk3GTMgRISrsRnTcAzDHhbDONnoNYlGWqIdNZfl0viGxWyrjU
-	591+OzGjRI1oGHPj2Gn/nOGNObvxLOdvNxK7B7GSAcnj64BFOgT2AdvXuI6lXWYx3ojrQYRwqDCaD
-	kgB3jEC6aWySvbDYifyOiB9NAYvrxXkr8P+eT4I7qCzoWTMmwBX/37v6ffY3jGE1iLHiCLwDQQmRO
-	M78vbWJYYTDWjMyKH+/2sNFXumA46nlsnJOJAwVGC51q7Z8Z6Pl9A7ctPr8NyyzIm753IRnlh80Op
-	keWC+ZLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XD0KIaPZUowHnH+rhCFRqX97yTDIYw3TwTQ1B3wDB2g=; b=0Bya67VCnD5NX2w3U3XoKIKWQn
+	khJstmbWlX0NW0m8/NL4vZJz1/rVQ4Hku4UhDNg4Rqp/UWibFGzNNC8pp2AsX+0Ai2i904LRt/lvA
+	c3Ib1rsITlVRyuRsvqruGJIUF27I5IpPw00PFroOGn4Zs/8Hp5Ot6zwJOLkY+gdbkF71bWScF7vtQ
+	S1TtuCMdhez1CCSDV5BUw3vJGsv/uk8OjFxrK5BVgscSvQdTgyfRBPoioHyxvn9OX2ARiAD+TP2GO
+	1qrnI8i/e36Wbxzl86Xc8ZDdmwf5xnLLhXvgNuQ7LOP4rQaQ5idfd8IEtVpM2hauJwxFfQt0rHraO
+	ujNwz/Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thW3Q-00000000NT8-3TFl;
-	Mon, 10 Feb 2025 15:50:36 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1thW4n-00000000Nhu-20k6;
+	Mon, 10 Feb 2025 15:52:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thW21-00000000NCv-2CVX
+	id 1thW2q-00000000NHB-3Wtp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 15:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1739202549; x=1770738549;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=;
-  b=GvZU2H/uufcsKveCzgDgNtiH3wMruz6vLu7dsMwNymEjVOFVQK8vCxyQ
-   FEJW30gwgVxcxyRntF6wo7MK7sBTwYdcdLHcjDOtxtQ19ibU5BCZU1V2y
-   8gbW8qu7luPVQZwoUj7DhlxG9v2L9UbfK2WLpVmJBLpcS+qYnPPRWENGy
-   fhf+cVh0m+uWXSC+jYpudSND0EjzqGlXwUKQQdNfUe07zrrnAFogaFTr3
-   yguFr7+7rNo5KYMnvJLK+wS1QeNRnjHXGIls3YKPhMlD7EDUaBcZPmMRI
-   ZeH0Kq8jUvic8zdnU118YcZqg8i90905xzskLJ4Yvyx/jTEo5FLSkH5Zy
-   A==;
-X-CSE-ConnectionGUID: H1xBE4XyRwqDrcXHSdTukA==
-X-CSE-MsgGUID: THM2mKF7RlequMHpcGeCOg==
-X-IronPort-AV: E=Sophos;i="6.13,274,1732575600"; 
-   d="scan'208";a="41723421"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Feb 2025 16:49:02 +0100
-X-CheckPoint: {67AA1FEE-1B-B8541F8F-E50F9B0E}
-X-MAIL-CPID: 3596EAA376F14855D334F1E93CC1918F_2
-X-Control-Analysis: str=0001.0A00636F.67AA1FF1.0017,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40786160ABD;
-	Mon, 10 Feb 2025 16:48:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1739202538;
+	Mon, 10 Feb 2025 15:50:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739202598;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pVDvbwIvnOZ4humPqCqO2awtBoUSnhumXMCo453Cge4=;
-	b=W6jP25cUKKQKO4dVA5Xu2nJmNQ5pXA8eVc1xaW2ifgRB1N51ZD9eXM8rz2bf4oOObaxU/m
-	D4U2/6Z98BNU5DLVe272MVsorHmmyJ775GgfWtTKHieZRiyqqBi7L63YIDYQgGIj1wJxHl
-	VX9HVC+/TdJqd8VRg+euR4jMk5F3ARbUtGWsu3QN5L3Zw+pUtKBk1nqpR/cnxHDmhkCNkb
-	3l3AsF+bJ93WMY1QFPTEMTYppCIZPfJvEtbkm0ygDUPuaL4sIchVLSy9HQnefyIrdz6ugh
-	DhaQ4/8oxxEGk+Vn/EJWvX1xINnXJ0Z1bz5xGWITg2p5t/3uK+jzigYck/1uxw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller references
-Date: Mon, 10 Feb 2025 16:48:56 +0100
-Message-ID: <2222299.irdbgypaU6@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com> <8037692.EvYhyI6sBW@steina-w> <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XD0KIaPZUowHnH+rhCFRqX97yTDIYw3TwTQ1B3wDB2g=;
+	b=CtoRWvlFMWWc7whG5PaDPWblajSP38tosZyh0XVZ72Qkzwsf55sC6ETw9wZIj2O/T+tAj+
+	1exy7WWvds/P98Se9223YHEzjVX9qoTfOmwtR6vsD366LuSz3zvk6Nv3/SkPpRhdKwmiQz
+	C45qU0WYXFVvifhwR1EbuMoCIx2uxmI=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-266-93biuIG2Pta0IrvVBuwshg-1; Mon, 10 Feb 2025 10:49:57 -0500
+X-MC-Unique: 93biuIG2Pta0IrvVBuwshg-1
+X-Mimecast-MFC-AGG-ID: 93biuIG2Pta0IrvVBuwshg
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-439385b08d1so13309185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 07:49:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739202596; x=1739807396;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XD0KIaPZUowHnH+rhCFRqX97yTDIYw3TwTQ1B3wDB2g=;
+        b=C22Wcg2OqUYbaOWEFYsTUAc8xxCiquETgKPfz1RC+UVOqaSUWXynzIK1oYoqDZ2/uR
+         97hwQhTGx5idc6xyapXQXgFZYccOqL6yyEZjzVJB6H6ohaV8ErlbuWwsiNbldriV93kh
+         TxvhEWjH90azaN4htm8PHqD4xZWidpDnxzOK94DoPgBFQM+EF881JgI0RD47d/7oDjbt
+         tkFboEjZHp72AtSEirrJOUAfGfbd76bQh5pu5zE8C88fnOUA7KgmgMZQ3EJF6wCzjkm2
+         xCGeqsf6OS4nRW3VQ7JoRY3xsrvY2SAX2ZRArt5VLN/QMXGQh59b6Z244Mfc4xEeMSGQ
+         VnlA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmCmNU9ySmiYDHh4PgJ17fmgKcedC1Sho8IA0FfGGD3dk8RyWbPOLsHzWwjpctBIt7i+09HjDcMYpFFskvvhfo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/1mMy70Wrv9o25W8xmLmZPudu8Gh3gHTJ0IDsz+UDRP3KI2F4
+	MaoQ9UYzciQdxfTu7vCUyxJKRNaiievg/q2oIn0REqIYxEBmq6Ks3WwkFfZbFATQR//LyUiYfvC
+	Anw9sSME6Srcr7Vu1PiWXUShjAegR3yL8pIzmXlFeBN3ckJlgDeZekKwxV6oPzHHTsdpKuSBF
+X-Gm-Gg: ASbGnct7jJbRfcVXy1P+WN04wpQKyFE2owfaoy1IpPjOEo8fwgi2+FSutIEUpqKV3Wz
+	6whORr7hv6iCbVOPu7JN5k0TJWrhmpuS4Q1PAgVpn/6GfpmL9/OZy8oj0tq9lqj11S+2lMtS3kC
+	odOPnb46IWwRcu+tOcBWePVMG5CD+B1NYYC2QC8n6ZKhYsIG7ku0H+/DE11iiaPOGuqIMjtEwvY
+	HhreE38Bwnaarkmd/wY/+xvT38V+DrGd37eFOsaN388qoMoIAircDI+LvDhuvA/dkOLXoHaml2v
+	cnaDxhDufYr+rjN6szlyLHqhMr0O2emlyuYnAP2sM9jmCTSTtqywCs8G+rtNmSd5m4U=
+X-Received: by 2002:a05:600c:1e25:b0:436:17e4:ad4c with SMTP id 5b1f17b1804b1-43924972ce9mr110358845e9.6.1739202595722;
+        Mon, 10 Feb 2025 07:49:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEOvLjTF4S/WYvn3O6o65yj9aqhnQ/dCaqnHrrF3Js86fWc5irhrJ2sZiow1ffrtpyp0aYWnQ==
+X-Received: by 2002:a05:600c:1e25:b0:436:17e4:ad4c with SMTP id 5b1f17b1804b1-43924972ce9mr110358615e9.6.1739202595321;
+        Mon, 10 Feb 2025 07:49:55 -0800 (PST)
+Received: from rh.fritz.box (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391da96502sm153559395e9.1.2025.02.10.07.49.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 07:49:55 -0800 (PST)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: Cornelia Huck <cohuck@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] KVM: arm64: writable MIDR/REVIDR
+Date: Mon, 10 Feb 2025 16:49:49 +0100
+Message-ID: <20250210154953.27002-1-sebott@redhat.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QG3TAGRmsYr0EDkXrcYJvfzT7wYswuPgO7t0LYPuM3c_1739202596
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_074910_048322_624617CF 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20250210_075000_956898_09AC38B0 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +116,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 10. Februar 2025, 03:36:48 CET schrieb Peng Fan:
-> ********************
-> Achtung externe E-Mail: =D6ffnen Sie Anh=E4nge und Links nur, wenn Sie wi=
-ssen, dass diese aus einer sicheren Quelle stammen und sicher sind. Leiten =
-Sie die E-Mail im Zweifelsfall zur Pr=FCfung an den IT-Helpdesk weiter.
-> Attention external email: Open attachments and links only if you know tha=
-t they are from a secure source and are safe. In doubt forward the email to=
- the IT-Helpdesk to check it.
-> ********************
->=20
-> > Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-
-> > controller references
-> >=20
-> > Hi Peng,
-> >=20
-> > Am Freitag, 7. Februar 2025, 13:02:13 CET schrieb Peng Fan:
-> > > On Fri, Feb 07, 2025 at 09:36:09AM +0100, Alexander Stein wrote:
-> > > >Mark ocotp as a access-controller and add references on peripherals
-> > > >which can be disabled (fused).
-> > >
-> > > I am not sure whether gpcv2 changes should be included in this
-> > > patchset or not. Just add access-controller for fused IP will not wor=
-k.
-> >=20
-> > Well, I was able to successfully boot a i.MX8M Nano DualLite.
-> >=20
-> > > i.MX8M BLK-CTRL/GPC will hang if the related power domain is still
-> > > touched by kernel. The pgc can't power up/down because clock is
-> > gated.
-> >=20
-> > Well, with GPU node disabled, no one should enable the power domain.
-> > But to be on the safe side I would also add access-controllers to the
-> > corresponding power domains as well.
-> >=20
-> > > This comment also apply to i.MX8MM/P.
-> >=20
-> > Sure. Do you have any information what is actually disabled by those
-> > fused?
-> > It seems it's the IP and their power domains. Anything else?
->=20
-> In NXP downstream there is a patch for  drivers/pmdomain/imx/imx8m-blk-ct=
-rl.c
->=20
-> soc: imx8m-blk-ctrl: Support fused modules
->    =20
->     For fused module, its pgc can't power up/down and clock is gated.
->     Because imx8m-blk-ctrl driver will pm_runtime_get_sync/pm_runtime_put
->     all power domains during suspend/resume. So we have to remove the
->     pgc and clock of fused module from blk-ctrl DTS node.
->     Update the driver to support such case.
->=20
-> But this patch also needs U-Boot to update device tree nodes,
-> I recalled that U-Boot will remove gpc nodes, but not update blk-ctrl nod=
-es.
+Based on prior discussion [1] this series allows VMMs to change
+MIDR/REVIDR to enable migration between machines that differ in
+these registers. Since these are used for errata handling the
+errata management series [2] is a prerequisite for this one.
 
-Does it work, if we add the access-controller as well for pgc_gpu3d
-on imx8mp? There is nothing in blk-ctrl AFAICS. But for VPU there is.
-Which clock needs to be removed there in case g1 is disabled?
+Note that guest access to MIDR_EL1 is not trapped.
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+[1] https://lore.kernel.org/kvmarm/20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com/T/#mb855bc51714095a164a7b26bb8bead1606e4b753
+[2] https://lore.kernel.org/kvmarm/20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com/T/
 
+Sebastian Ott (4):
+  KVM: arm64: Allow userspace to change MIDR_EL1
+  KVM: arm64: Allow userspace to change REVIDR_EL1
+  KVM: arm64: Allow userspace to change AIDR_EL1
+  KVM: arm64: trap guest access for REVIDR_EL1 and AIDR_EL1
+
+ arch/arm64/include/asm/kvm_host.h |   9 ++
+ arch/arm64/kvm/sys_regs.c         | 134 +++++++++++-------------------
+ 2 files changed, 56 insertions(+), 87 deletions(-)
+
+-- 
+2.42.0
 
 
