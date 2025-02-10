@@ -4,177 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 011FEC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A03AC021A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMbwJQcncNRuCF5ruUNedHuUdsNoWdFxyhybKtyBlfI=; b=17vj779x2Cl3tMshgQPBPHIzSH
-	yMhNFaRKHVED6NSazaEN32nB8EU0asDf1ONXR9lWUbu0M/tL7lrPApkgAIJK7sHVHAn5MRieRkSzi
-	Azv17yaajSPD8aBo3Q8mEoyqTWU1GvNbTwwCqnHH0WBRsLCbs63SkdQl+yqfO4pWPV/7Uged29WC+
-	2YXG8haL6lM/xoav9jW/H/ytAvsTAkYsAhetIIGUc4ax1w1Y3m+uYI45MrdvIoIJlttK8a0l90O7F
-	em2yutfLnWdM5CCHotN9PGnMZe0pRUl1i55VI3i9mh112mryrGSmUIpqHtZmrU4iQ69e0b8Y4BKyv
-	nX4Yvr/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5M65OR2CUPTzpfz/kJc0TAeBXpCEXueqBGE3svKlDww=; b=HjZGvv1RBRAOQ1HIuhtXChDINu
+	xfjxXnYoJUVxFD7VT7/0DvuvcvyKiMzhe/o/Qfq58DWi1nIrZDpE3Uo6Gz4d8bycsU0Y3cS2IXtEQ
+	7VGkyS3P5rJ4CPf41XCyGvS8vf8jTGuy4TpsO4pxdabXzjNJolu5yfuZr0h7pKX8nhcyEj3o8p8y9
+	nP8xbO57GZVCs+mBuy2M36PHZwwX7ATf3V2vJlB8jWbGUGclAlMA2gJZIv7NTVk3t4mn9h7nv81Lt
+	a7TUp9k4Jj9iCgbXzyP1+7zPaFtxXhnaCmyzCuGhmSN+LxKL9vUan1LCmZRT5M3PLBGNsuyB0nOln
+	jzzb+URQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZZ0-000000017ir-3p7U;
-	Mon, 10 Feb 2025 19:35:26 +0000
-Received: from mail-mw2nam12on2060e.outbound.protection.outlook.com ([2a01:111:f403:200a::60e] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1thZZ2-000000017mZ-3Ejm;
+	Mon, 10 Feb 2025 19:35:28 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZG3-000000013mq-02KC;
-	Mon, 10 Feb 2025 19:15:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p9SZgmo++jdpzjx4YdWycwWNwG/to1WwNzQKny7UrQMFizDoo5YyTfpBNTLx1akweTdNIOeeBjGMEueeBDu5Ad0QbDF3XroVlq7paNa22E0v/APYNHRcjBrtW+huspv858ZDPi/pZ6VQpoymSBL7i+ZDBzE2ceIDmxM0aqGNNzKIUt/maPNSDUW1szqij9/JxO/TrUN1qi4z5oviOKCBc4RKpp7zzW9gRiK0bRWSN9SPbnHAa5wwZkQpyJLo3mtQmCk9g/NXdm/alxKEM69p1aLuX3Qi4sjTNAnQzulih1vmCtySx/oHP3+DgZOZizwThoXiJIRU7noI8NRHV8wi4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dMbwJQcncNRuCF5ruUNedHuUdsNoWdFxyhybKtyBlfI=;
- b=yVXsvoOB3Trh2WyYnd+NrrY8DSWEwgtjLBKs9RcgcjsxPQsHoo5z7fkuF2SPeyJpAyY6gYktKR88dWpUOQm8KyLWa2G6msf3U9FZz2z/bmtCZcD8W8MsljITx2EhUvKNU0cDK+WKlYVA6eUZkTyyMoCu51qe/4Hztm2jaSqwFRRbtg0S0eh5MvYQpiFzi0gDuacWCtuNiT2e3zXytifqn4t1QUSxrtIbzEH+mMals3ck0Eguf5CftC/9TCVbOc6QkOyrkfe73OHupgjqTf3X72itvj0xy/MXBqGc2gSOteR9GtznrKQ1519OKLnTDF9XHStIJfX0eBfNP6EUI8kAaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dMbwJQcncNRuCF5ruUNedHuUdsNoWdFxyhybKtyBlfI=;
- b=Pm9fmdlkUpaFAGey2B3Zd8GR2DOz1clEoFpMlDVABFqzJ5mVCgvSYX+fKgTyZDiuLJzxPfoDnXXtgk1FDrsuH4h9YP6rClCvp4BQdcV10bIVzsaFv8Eco3cXuL3mlPoLQi+8i37LHnvUyU684UdZ3CaUQpbM8snv6OHWbyvY4pn2mFutEDD98MyCgYCJHquz6rz41bLvY/qPMRJj7f79IdGs8jJry226YS5uuOXGhLFvrbacW0NIbkpfaJWydyBOqwj2X9iSflv5PbyTCsxkgfm4H5tKdSxxAY5CBJSH2N39WS7fUeQD3/6NUtMlXAlnSB1ykr4isTIA2yvlc+hylA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB5596.namprd12.prod.outlook.com (2603:10b6:510:136::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.12; Mon, 10 Feb
- 2025 19:15:40 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 19:15:40 +0000
-Date: Mon, 10 Feb 2025 15:15:39 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 14/14] Documentation: KHO: Add memblock bindings
-Message-ID: <20250210191539.GA3765641@nvidia.com>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-15-rppt@kernel.org>
- <45df0d7a-622a-4268-9683-c5c6067483c3@kernel.org>
- <Z6jFZII5b-j7hzkj@kernel.org>
- <a3cca0ed-64ca-4921-bb4c-27c0e06b78c6@kernel.org>
- <Z6kTCvex3DGhB-3C@kernel.org>
- <18529b1f-dc79-4c85-a485-a0a2cdd48670@kernel.org>
- <aa4ec16a-b35f-41b0-92f7-40b3eb64124a@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aa4ec16a-b35f-41b0-92f7-40b3eb64124a@kernel.org>
-X-ClientProxiedBy: BLAPR03CA0053.namprd03.prod.outlook.com
- (2603:10b6:208:32d::28) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1thZGz-000000013xH-3Bid
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 19:16:51 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AJGcgt3554860
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 10 Feb 2025 13:16:38 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739214998;
+	bh=5M65OR2CUPTzpfz/kJc0TAeBXpCEXueqBGE3svKlDww=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=pc4o1/OnHsBIMWi/QbzuOhhBGRDrEiimfJA6LcnLTewpfFWlH7LLvTRAoVaHVsJq/
+	 b68WhZCTAd+u4TIECMQAV3SY59kpG9D18nvMwzcgifaJUpotlBbRWNOFgBKPU++49b
+	 y4IvVoM8wcLcBmWcZuWBFIu0k51U8ZCUbbo2hP1Q=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJGcKF021306;
+	Mon, 10 Feb 2025 13:16:38 -0600
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
+ Feb 2025 13:16:37 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 10 Feb 2025 13:16:38 -0600
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJGcSx052839;
+	Mon, 10 Feb 2025 13:16:38 -0600
+Message-ID: <1bf8445f-b411-450c-aa37-9eb23f639bae@ti.com>
+Date: Mon, 10 Feb 2025 13:16:38 -0600
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB5596:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2263249e-fb3d-4cb3-1c48-08dd4a074eba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Hc+34+Ix4wh6GTli800yD7GbE70kCxVmrPj5AbE6VYIhEFEz6ZVJsupcE2wK?=
- =?us-ascii?Q?X03N/cZqspU2Zt1lXrqKgzJRZaXfA3OKptdD4auyRBge8PQGwFJ7PsDqKGxy?=
- =?us-ascii?Q?vo8Wj4KcrF5pTm35RfQc70wSJlaOO99BATOR8BVJDCyBBpuNsBaKPWG3Q3Fr?=
- =?us-ascii?Q?XNV++enbx/67PBzNw0fgKZJ4h4YNhjhxvNSBKd5bvxFgGlrIv6CnVFwlyp0b?=
- =?us-ascii?Q?gMyitaeYoyzw0w+CG6p7MDd2FShvNkFpXdm7jZxCCh/LnZ0uFwuZBXUwF3cf?=
- =?us-ascii?Q?YDE811kC7b8/8q4axLqIfcPSj1QfqVKatnqbww2xwXKKOHhWG8GNlPbe8OI0?=
- =?us-ascii?Q?ynWv61OLLPd2TR7DqfOLEu9eaLKlvR9tkCphS6L+THUxpblL+mhF/eGT9j1y?=
- =?us-ascii?Q?SsmmInxuSSkQ/UuLnEPMD2pdLvnvR6/5N7ZfgjdaNrR0k9eOwjZJPQWhcNIG?=
- =?us-ascii?Q?o+zLbjxsXgSX9IS877M/hPIWZ8kK/AzFgpbdQSIUY/2v2AE1i3bn2TV2HjA2?=
- =?us-ascii?Q?ZPOQVhNW9qVIIptx6WQL7natY//CLP0UoJFSuxWOg3nqFjIaage+Mt2hWT54?=
- =?us-ascii?Q?e2UzJYOktCbJ/poJFQyOZiGVhW6Wuk7NleiDQ89wwMmOVGoZeTbPmLtKzrBE?=
- =?us-ascii?Q?sTigDkD/aLclGKYJgXZdQcXefpU8f87+UBqfEe3v8oK5XwNkb9bvvtiShCi9?=
- =?us-ascii?Q?2T/sd4FVO/L3dKSZ+8jK94Zb8Hmu8sntUfGDiJ03IJsD5iMNamVDdAsqefoW?=
- =?us-ascii?Q?sLHgSwisScZjh5H0oz+gXeybWWpQbG4cLK/iQO04UcVHEYe83zl7VqkuvR7R?=
- =?us-ascii?Q?xcGQ1EuleXRtHSzdsl0lD7ljAJ9i5Qub2P7V7IPtEWN7NczjYzoBQ4Qw/Lus?=
- =?us-ascii?Q?zdoI1JL2AhDAw1sF6OoRA4QPTG7fpPwS4q58ywHC+l0F+38rgyDzN9LtdB7i?=
- =?us-ascii?Q?1LLg9fYsyM5RJMhL+FrkOe4JqmqNujK+Uh8KtQermNjyItOAf2vcH37GXqnk?=
- =?us-ascii?Q?wJ8iA0oQvnxKSZNolxDQEfR+gHgRVGVX6YH8jXQfiGqtjJ9dArdguZEBSCVW?=
- =?us-ascii?Q?hCEJG3MmZa65+EupGK/+wd6Td/NxEqRP9QsktRubfJgw5VAOfjMgT0DZaHz6?=
- =?us-ascii?Q?5ZmQS4zQGvTaGDyrZpbXHhQDY2DpR57NcYfYnggH8VrPXLhipVnCFQIrEJbb?=
- =?us-ascii?Q?1V/8fmFQAEtmEt2Z+Dhcrhv6GHU/8I/23polaYWCAzfkKarY3l5GIZoY6Xhc?=
- =?us-ascii?Q?XWKfeepfiy99Ey/zM+Vpb2TYej816+Gcb11HHjgHYR3OVWzr0h4YkBQUUlfe?=
- =?us-ascii?Q?UDzi65fin8iAjzTbb6xRRtEVCOK+9z44nmFp1wLEcTSCqTNmKH355xwZEdjN?=
- =?us-ascii?Q?htuqeFqhzkt1YIjZpmzuTWI/xjfy?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GtrlpOGxZuWDAIUZrcqxcsxqfO9l/w+xUosIGRQ9CWZhEl4c+2aZc00XY+pr?=
- =?us-ascii?Q?Pc9oxWnvUpwstII1biX34AzSVXD8Q5eWllvDRr49ok9OM99v+G8KnaQWrpIi?=
- =?us-ascii?Q?iJyNwoB1+VJlbzd59PwG9lez0FCZRfsgo6jB7kxl1uHvQg1R9srCbny8w4+y?=
- =?us-ascii?Q?+eTs6GyK6ogDjTxxYu2SUcb8P4l5pZa/i8+EpalqS037hMc913cTa61p+6AV?=
- =?us-ascii?Q?AdLVm+Y9orLm8gfOvFDI5urPcJhO/2fpggkII5aZTUXgrOWTvCKFMQlKM53p?=
- =?us-ascii?Q?kMxjgxndZqec3A99ZVfnnJe4CTN+fV0jQ7n+TQ9/6NSsRcQYKk3Edp6ho0ke?=
- =?us-ascii?Q?C8I9eYar6FC7/Oh+W1UBrgh9BT816EGQF0CopmRMuY+0iyeOqHlEdWEOQ6Cu?=
- =?us-ascii?Q?SqPesbqWdR4Ijxnxpyd1XHwW9/ssi5OPudFaDPrGgET+U+5Sij9EZ3Nyzyev?=
- =?us-ascii?Q?b8MLtPc12Ai1uddjk+XbMrLRdoKTEMW4kxryBML8LDHhwT0xV7PR85+JyL6N?=
- =?us-ascii?Q?ja+EfU5BILKWuquRWw9m0KzcS4QDIFX5bSbHyXc0Abvu7kL52SJcvbYE0DI+?=
- =?us-ascii?Q?mQWsaNB0nw5I4I0FIo5qYmbjql53XdDqufMnuImPURW37ObBq/cbOtnPEHmx?=
- =?us-ascii?Q?MrP/2w9GYPW2CmNoNSa+YeNMzcBi77QilHtRSu2BVr8p513VF7OKIaiE+WYK?=
- =?us-ascii?Q?1fkR3esSJqml0SV81/bVLRpH0OR9sz0H+8yUvChHmlx3sGfKEOThzbO5Laa2?=
- =?us-ascii?Q?gcRePBtgZLNPf8qJ785Z4aWfvTmUPf2RkRisRn/8+ci6rjYJFwrZlGGw5kX7?=
- =?us-ascii?Q?gLZdP/EYUvbf1VjYJU8bu/rYA0R48H9fz8v3ydCM4963ZhKqcj62ALONbPjv?=
- =?us-ascii?Q?+HT9cKwyWIyq6Wo2z2TQFJPVysJ36Uld8kbvRd/NmogTy1ZIOBPALxOorco4?=
- =?us-ascii?Q?fEkOPMcDN5xpi/f8W02VPJe5YLTmA3GaGkbuOhopNeATTxAAEqR5t1esF3j3?=
- =?us-ascii?Q?JvEiVdKkbkqlCcKZ2lxpYEyqXL5m0IcrvJHt3miO3ZShXzNcJy+jcmrtQPhV?=
- =?us-ascii?Q?331shrsbnjpLivb9HCzB1rnWSngjsdaN1tt0hM+TMUxQB5U5Oxv8P8BrrQA5?=
- =?us-ascii?Q?QQ9jDr3KrwLArQOGYRO2sfyt5KSeN8S2x5ZZATZXIXP44S9H1L+6tPMkXshx?=
- =?us-ascii?Q?xVCwqo6hWVrfdJCv5LbwYdj+0G7/fksQre5vu1OxoWbj18TYQE95sb4iumJY?=
- =?us-ascii?Q?7gE0CT9sJAKa9+GGz15Ef9ccCVpoLwvbYjRPOHULoud/v94CfEjggPZndlWo?=
- =?us-ascii?Q?pwQRLcsn17I359wE7Ta3lHdiCsPxGaQ4QLVqzgoTyMVVq9HK52mhWSme6CZr?=
- =?us-ascii?Q?aqA0aor242T1yAph1w6BrhH0HTnnm7Piknu2gHXnxpDYaSVMhGAXd7IFelHN?=
- =?us-ascii?Q?ldtWwiJ/LNSh4cChLt3/pROBOZTkHlUePmtDZZOAwondDGpYaKj5swjDGrbu?=
- =?us-ascii?Q?w0SYLgomTN8Ma2w03QRugGJ1O2ih2CUp94PKgJhpV/tF2sq7FvB0+d4+r9wm?=
- =?us-ascii?Q?HSRJo8+/1jeSs9rrCcotX+1p050E2ixtpptXPAK7?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2263249e-fb3d-4cb3-1c48-08dd4a074eba
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 19:15:40.6409
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UQm2K2IEk/rj7FZKjTVNOfNevkbckGDcsTPGKm/1aVrhpIURrRWOwDfGh8D2Ubb3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5596
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/9] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+To: Andrew Davis <afd@ti.com>, <devicetree@vger.kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Hari Nagalla <hnagalla@ti.com>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+References: <20250206235200.3128163-1-jm@ti.com>
+ <20250206235200.3128163-6-jm@ti.com>
+ <9572caa4-fc17-4531-be68-8466753b70bc@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <9572caa4-fc17-4531-be68-8466753b70bc@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_111551_042440_7EEC59DE 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250210_111649_979541_6F6C28EF 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,24 +91,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 09, 2025 at 09:50:37PM +0100, Krzysztof Kozlowski wrote:
-> > Ah, neat, that would almost solve the problem but you wrote:
-> > 
-> > +$id: http://devicetree.org/schemas/memblock/reserve_mem.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > 
-> > so no, this does not work like that. You use devicetree here namespace
-> > and ignore its rules.
+Hi Andrew,
+
+On 2/7/25 9:56 AM, Andrew Davis wrote:
+> On 2/6/25 5:51 PM, Judith Mendez wrote:
+>> From: Devarsh Thakkar <devarsht@ti.com>
+>>
+>> For each remote proc, reserve memory for IPC and bind the mailbox
+>> assignments. Two memory regions are reserved for each remote processor.
+>> The first region of 1MB of memory is used for Vring shared buffers
+>> and the second region is used as external memory to the remote processor
+>> for the resource table and for tracebuffer allocations.
+>>
+>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>> Changes since v3:
+>> - No change
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 90 +++++++++++++++++++++++--
+>>   1 file changed, 84 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
+>> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> index a6f0d87a50d8a..eaffbab093cc1 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> @@ -49,6 +49,42 @@ linux,cma {
+>>               linux,cma-default;
+>>           };
+>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x99800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        c7x_0_memory_region: c7x-memory@99900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c900000 0x00 0x1e00000>;
+>> +            no-map;
+>> +        };
+>> +
+>>           secure_tfa_ddr: tfa@9e780000 {
+>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>               alignment = <0x1000>;
+>> @@ -60,12 +96,6 @@ secure_ddr: optee@9e800000 {
+>>               alignment = <0x1000>;
+>>               no-map;
+>>           };
+>> -
+>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>> -            compatible = "shared-dma-pool";
+>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>> -            no-map;
+>> -        };
+>>       };
+>>       opp-table {
+>> @@ -737,3 +767,51 @@ dpi1_out: endpoint {
+>>           };
+>>       };
+>>   };
+>> +
+>> +&mailbox0_cluster0 {
 > 
-> ... and that obviously is barely parseable, so maybe one more try:
-> "You use here devicetree namespace but ignore its rules."
+> Odd, these mailboxes should have been disabled by default as
+> they are incomplete without this extra board-level info below.
+> 
+> I'll have to fix that later. For now, could you add
+> status = "okay"; here. That way they are already here and
+> I don't have to modify this DT file later (which could
+> cause a conflict if I do it this cycle).
 
-It makes sense to me, there should be zero cross-over of the two
-specs, KHO should be completely self defined and stand alone.
+Sure will do.
 
-There is some documentation missing, I think. This yaml describes one
-node type, but the entire overall structure of the fdt does not seem
-to have documentation?
+~ Judith
 
-Jason
+> 
+> Andrew
+> 
+>> +    mbox_r5_0: mbox-r5-0 {
+>> +        ti,mbox-rx = <0 0 0>;
+>> +        ti,mbox-tx = <1 0 0>;
+>> +    };
+>> +};
+>> +
+>> +&mailbox0_cluster1 {
+>> +    mbox_c7x_0: mbox-c7x-0 {
+>> +        ti,mbox-rx = <0 0 0>;
+>> +        ti,mbox-tx = <1 0 0>;
+>> +    };
+>> +};
+>> +
+>> +&mailbox0_cluster2 {
+>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>> +        ti,mbox-rx = <0 0 0>;
+>> +        ti,mbox-tx = <1 0 0>;
+>> +    };
+>> +};
+>> +
+>> +&wkup_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&wkup_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>> +            <&wkup_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>> +&mcu_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&mcu_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>> +            <&mcu_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>> +&c7x_0 {
+>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+>> +    memory-region = <&c7x_0_dma_memory_region>,
+>> +            <&c7x_0_memory_region>;
+>> +    status = "okay";
+>> +};
+
 
