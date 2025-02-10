@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833CDC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD12C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmFBSooAPgBICRFFl1zRjjMwEJvHUrGlnGItfZxGH5g=; b=cgw3iK5Li3dJfkmqq2fc47WjJg
-	zzfd5ZwVpYY0k7gmI4pVcZ4ZBmR6bKC5FpEWPSI/Qu9yF5GUfVX9TC+kR3E/3es9fO7cjPkpafny7
-	DXR52wVis7CKI/qpfaTjvpogiC8IQiO7ECywyhpI21J0j8KCgRrIvxes22KEwBCa+OsmOAFY6pvU2
-	HORPICztflyX1gBEBBO1MwWhQxy8VsP5cPKTm5YnF9CtNJHjiPf2eNVl5od/HhKNjUhqvm38a+hNP
-	P49d4v3dULfWTtUunOW4p9Psz0zLZEEhfbFjwxax6K0lF7ZwjWJqsGwae4qB0YwWybHtmw4WBcy1D
-	ov5RxCog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+xeBEnkoP/+TuTHHZLeAJEoTX94SaEPrUOWoK3bZLW0=; b=eFrIiqiE4PYglY5CsHwsWlkxCM
+	mUXS0s5JmDUOMaqUBrfH7z9uoHeOz8+00XnBl3ebN6OfNpqykWDktezs3rjovXV/0rTwj9fwoADFu
+	jC2RB2/BK23ZNFYcYwgu/jYfDe4a23qoO43IRg1DWnlfzFcq8Q9y0l5yE+vO7V/J/f+j2/aWEHvtY
+	Er5qqs052KiUTf3o4X4ZfpkxbEChrl+t3WgToVrNwt8ao1qtwazz//51THoP+SK0dEKUUXCau31JZ
+	6uiAHkSlrxKdoCtZssFT58RwC5Q4dUTOxYoIAml6FzsclyU2bevH+R1+WZ5UtwB2vMjFATXotNFIE
+	7PUO8i2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTlf-0000000HX7P-3D1A;
-	Mon, 10 Feb 2025 13:24:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thTn1-0000000HXPy-3jjh;
+	Mon, 10 Feb 2025 13:25:31 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTii-0000000HWHA-2xAF;
-	Mon, 10 Feb 2025 13:21:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5F1075C566F;
-	Mon, 10 Feb 2025 13:20:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E68AC4CED1;
-	Mon, 10 Feb 2025 13:21:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739193663;
-	bh=lbvK+R1S0to4+sFyhCiUUSM/9FdVL8vJT6v3dpUi7Tw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j4AESBWgPJM5RvSJTGIHU0D2oc2AIw6rs1zeVJykHsy5YANen2b1FheVdgalp7tNv
-	 6qZvfth7GK8vEabaQRhJM83TGlkw2klGjo3wm0NKdjRxyo5WTzDSKAQ2bwGgabUOX1
-	 tTC+I6tyWiqEnc3SaAoyLwOt7x5HAaBl879+fk1IwRmsz0qsz1jTeNNr2We3xkRtnr
-	 kpYw2VFkiB+e3EB0T9wRS4HEpQkkWbeL/hrizEDfFeLOl3PuXe6RR30yThrHvvGZBv
-	 R6KEpvmiyTUQYjyedx8LNofbDxbZCG2B0mqh09dE1kQ+PAJKvjZOmI9r5Rr7gIgqAb
-	 02RLkMRZ5kwfw==
-Date: Mon, 10 Feb 2025 13:20:58 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexey Charkov <alchark@gmail.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: ASoC: rockchip: Add compatible for
- RK3588 SPDIF
-Message-ID: <56d128d7-c4bd-48de-b823-0b88147220e1@sirena.org.uk>
-References: <20250120-rk3588-spdif-v1-0-1415f5871dc7@gmail.com>
- <20250120-rk3588-spdif-v1-1-1415f5871dc7@gmail.com>
- <4315116.iIbC2pHGDl@diego>
+	id 1thTij-0000000HWGu-0zeu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 13:21:07 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ACoxU2015234;
+	Mon, 10 Feb 2025 14:20:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=+xeBEnkoP/+TuTHHZLeAJE
+	oTX94SaEPrUOWoK3bZLW0=; b=iKpA90971GDP/8qLSl1xzvWQGqb+qVeQJecFT4
+	vNlL2FkVb5VPQe62QgbWLnxSxLlL5fGAuPqQS4I19diqsn8az+gZXkLcAfJna+0/
+	a8y/RRqH2h1ucDEvbx6vnz5HcxqdCBjTLEKqzKkWcyzYp8usCVo2zpU0WFbF0fM2
+	mOBbhY/j7v/q810jTr/eyPRU0g1WHOmtdiMRVojlEagc3p8wZTSswbRpFjmqdNp7
+	tvo/uUlKfwHFVWANSeANXwiX3bh728Ka0/Rq498QJuWgloxMYtiPLblwpHhM7U4o
+	mIPSrhqlroo56NuzU8vELHx2+yllKDUB3CsgFP4iV3prScvg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0qrxh3t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 14:20:52 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 578BA4002D;
+	Mon, 10 Feb 2025 14:19:31 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2DE4125B239;
+	Mon, 10 Feb 2025 14:18:32 +0100 (CET)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
+ 2025 14:18:31 +0100
+From: <patrice.chotard@foss.st.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
+Subject: [PATCH v3 0/8] Add STM32MP25 SPI NOR support
+Date: Mon, 10 Feb 2025 14:18:18 +0100
+Message-ID: <20250210131826.220318-1-patrice.chotard@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eAhunf2YJnuAvrBB"
-Content-Disposition: inline
-In-Reply-To: <4315116.iIbC2pHGDl@diego>
-X-Cookie: A beer delayed is a beer denied.
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_07,2025-02-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_052104_788118_95B6AD1E 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250210_052105_783488_8046A86B 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Patrice Chotard <patrice.chotard@foss.st.com>
 
---eAhunf2YJnuAvrBB
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics,
+for that it adds support for:
+  - Octo Memory Manager driver.
+  - Octo SPI driver.
+  - yaml schema for Octo Memory Manager and Octo SPI drivers.
 
-On Sun, Feb 09, 2025 at 10:10:47PM +0100, Heiko St=FCbner wrote:
-> Am Montag, 20. Januar 2025, 10:01:27 MEZ schrieb Alexey Charkov:
-> > Add a compatible string for SPDIF on RK3588, which is similar to the
-> > one on RK3568.
+The device tree files adds Octo Memory Manager and associated Octo SPI instances
+in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1 board.
 
-> as the binding is more in the driver-realm, is this patch still
-> somewhere on your radar?
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Please don't send content free pings and please allow a reasonable time
-for review.  People get busy, go on holiday, attend conferences and so=20
-on so unless there is some reason for urgency (like critical bug fixes)
-please allow at least a couple of weeks for review.  If there have been
-review comments then people may be waiting for those to be addressed.
+Changes in v3:
+  - Squash defconfig patches 8 and 9.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Rename st,stm32-omm.yaml to st,stm32mp25-omm.yaml.
+  - Update STM32 OSPI controller bindings.
+  - Reorder DT properties in .dtsi and .dts files.
+  - Replace devm_reset_control_get_optional() by devm_reset_control_get_optional_exclusive() in stm32_omm.c.
+  - Reintroduce region-memory-names management in stm32_omm.c.
+  - Rename stm32_ospi_tx_poll() to stm32_ospi_poll() in spi-stm32-ospi.c.
+  - Set SPI_CONTROLLER_HALF_DUPLEX in controller flags in spi-stm32-ospi.c.
 
-Sending content free pings adds to the mail volume (if they are seen at
-all) which is often the problem and since they can't be reviewed
-directly if something has gone wrong you'll have to resend the patches
-anyway, so sending again is generally a better approach though there are
-some other maintainers who like them - if in doubt look at how patches
-for the subsystem are normally handled.
+Changes in v2:
+  - Move STM32 Octo Memory Manager controller driver and bindings from
+    misc to memory-controllers.
+  - Update STM32 OSPI controller bindings.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Update STM32 Octo Memory Manager driver to match bindings update.
+  - Update DT to match bindings update.
 
---eAhunf2YJnuAvrBB
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmep/TkACgkQJNaLcl1U
-h9AzqAf/T2ZOQi4K9XfreabaTdPLm81THw5/XTKa/58i7z3jL11ZII9/Ysaw3CiW
-YnuvbkR4j45WfM2AeD5BDn16fc9h+DDbNAqYefOwFO/tr98gejqkWblnx/rFpF9D
-fNI/hH0hv+8unMp08sB+jdTjf48MtQHASTCqR0+MO15cT1pdgIvsz/ylNbkXo/c5
-xrcpltcyDN/xa3QFa0WCIVcDQCRRUAdHuZt1dICCy7dRD7Jac+4PclQEYxMblt24
-GkCkLXIUE80m/HlOcLqS2lJAELD/hV/aGFCLeo3PCaxKovKT8vj/6JKdhPvweZik
-OOKsJg5hIinmNvYGZELSgMat3B6BbA==
-=h/Aj
------END PGP SIGNATURE-----
+Patrice Chotard (8):
+  dt-bindings: spi: Add STM32 OSPI controller
+  spi: stm32: Add OSPI driver
+  dt-bindings: memory-controllers: Add STM32 Octo Memory Manager
+    controller
+  memory: Add STM32 Octo Memory Manager driver
+  arm64: dts: st: Add OMM node on stm32mp251
+  arm64: dts: st: Add ospi port1 pinctrl entries in
+    stm32mp25-pinctrl.dtsi
+  arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
+  arm64: defconfig: Enable STM32 Octo Memory Manager and OcstoSPI driver
 
---eAhunf2YJnuAvrBB--
+ .../memory-controllers/st,stm32mp25-omm.yaml  |  201 ++++
+ .../bindings/spi/st,stm32mp25-ospi.yaml       |  105 ++
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |   51 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |   48 +
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   32 +
+ arch/arm64/configs/defconfig                  |    2 +
+ drivers/memory/Kconfig                        |   17 +
+ drivers/memory/Makefile                       |    1 +
+ drivers/memory/stm32_omm.c                    |  520 ++++++++
+ drivers/spi/Kconfig                           |   10 +
+ drivers/spi/Makefile                          |    1 +
+ drivers/spi/spi-stm32-ospi.c                  | 1065 +++++++++++++++++
+ 12 files changed, 2053 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+ create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+ create mode 100644 drivers/memory/stm32_omm.c
+ create mode 100644 drivers/spi/spi-stm32-ospi.c
+
+-- 
+2.25.1
+
 
