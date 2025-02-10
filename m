@@ -4,80 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB96C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2C2C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjxGcZGgbTw2rXhcQe0xTXiOGkjk4V+jo19rYFPocYg=; b=xVQakYZy0u1ScvIM6iEVdW1J8+
-	WAGAJa7/RFXEMvbc6ulN7PGWxnQsQizMwrxx98/wLDx4O7KBggoB0Ogw6A/V58QdEwsbVxCOYHipZ
-	S0ajEkRtXoMvFOaaI7JfyEzVZvku2NGTRdU4Ij7PIG6ypLNhP0N+nNzK43NbByEn2KqCPL5NQ1emW
-	lm6Oy/lIkC/C8D0SrrlQyNNfr+5p1MN3PGc8QpO9DJF3jCP/3Ee7p5r/Tn6umgKSlrK2/fI1/hSOw
-	Tf7LivCnGurSw+SCdtFaI9ZLkEFMlaXUKEeU8jXRMQgOlyp9wrGNEwXvCklWocoLDoCzG1c/CxVE7
-	RcPyjTrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7DA1nm2RSi+K3443lyk8ckKn53u3KeA04sfmMWAGwjg=; b=CDsDg7kZEtXV8VXnlzgqBOtNI9
+	Zvby+7b6ld/N3uSqqn0+zFNcfi06FvDbyoXmoSOx1qeHduoOM5sZjLkSh3MWEK+AWEKIm6VQ6HpRF
+	fvHKkiVmlcPRtuCFP9wgoc1VZxT5SLhVTdvDn8UKgQb7FJPVELxvzyVezrouGOMpKxt5W/l7iimkP
+	b2p0c6mTv+QdOs0SFM56/sWlujpzH99eVJdHzEpKOw64IeyzCfXMrmlW8znvS1X41dKs17cyklbO+
+	4xRlsZTwF+HUnlXxHiKqhTf98Tld/sqYytu3TYhBezShXj7AOSFI9fJlagtzwgWp5z6tVSr2FdS5R
+	Hvow/nNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZZ4-000000017pt-18Dx;
-	Mon, 10 Feb 2025 19:35:30 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1thZZ7-000000017zD-49B7;
+	Mon, 10 Feb 2025 19:35:33 +0000
+Received: from mail-bn8nam12on2062c.outbound.protection.outlook.com ([2a01:111:f403:2418::62c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZLN-000000014QU-1FJa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 19:21:22 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AJLHLM3555492
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 10 Feb 2025 13:21:17 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739215277;
-	bh=BjxGcZGgbTw2rXhcQe0xTXiOGkjk4V+jo19rYFPocYg=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=fK/bOSqdgtbZ3xpHBZ7QtmC4Hozhkq35qg2Ge8lNqu8OcCdOVEIiB6JRHWyNrlp6c
-	 XJ9fxLsNC064KGyobSOJX9gzZ3x0qdB8EPXSrOOdABQzptWNmzlocVmHWom26jRpT5
-	 P33d1fkR4CCOp2hYFCNZLD8GIMbC5MjSnrjd/yHM=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJLHVk024020;
-	Mon, 10 Feb 2025 13:21:17 -0600
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
- Feb 2025 13:21:16 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 10 Feb 2025 13:21:16 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AJLGCu057473;
-	Mon, 10 Feb 2025 13:21:17 -0600
-Message-ID: <205926b9-6698-4e57-bf96-a7c75e474652@ti.com>
-Date: Mon, 10 Feb 2025 13:21:16 -0600
+	id 1thZQQ-000000015C6-3JKp;
+	Mon, 10 Feb 2025 19:26:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o/CDq7ncaocvQ6jgZhTAMaf2tAJ+ebkfIoWSAksfe8Q7x4ob9X0zMO8ssH21kkRbvYft61bpGJkt8jv62ucFeYCfpGJGrosDRMs1IdpzOZOfKYvS7eTJAQZ4N1jul+vHbWrtthXeieWUz1/3AxOcw8inagEusgTn+60M77evBLX51dWieRDktYp3Mht/llvMxrkk/rtACJJ3CTPTVR9wN72SRm0RDyWyagfyFlmCgscPL1XOUwg/AVWc4tnZlcWmsjOsuIsdaXWDYRiE4NQvO/VmMSGLlrCsxGykxNkb3LYo25WHvTp5yVL7le+hODn4RMaI4jD9JXQLKi7rZMZPKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7DA1nm2RSi+K3443lyk8ckKn53u3KeA04sfmMWAGwjg=;
+ b=gewPBVDJrdURuAB/J8iEK6tZl26ucAJqqWl2LWeE6CIIQsFqm7G+vbxiAz/8u1UIKr7F6ItU5XAzWH2refqLmCD2Zk1bjviq02255JfjtoaU+lXbaU5lXRtQlwdcXOm98ytNzdPVGatiMdvwDH2LjsrRd0J2g+xtFOcj32ppAY6KEtJnlTK+DaW71lXtPsvNNmmowGVPdqRRSRffkT36QBhtHWZGi3AaLahk3+87U2wFCpVP6CTF0dxLvHWTz2tsgaOX0TXm/Vvo2szUtU7JDo840WGS/YJ+UNNHSkumUayTakXzfbC3Eo1cNhUas8ORH5JF21dLNXgFf0YyWbHBaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7DA1nm2RSi+K3443lyk8ckKn53u3KeA04sfmMWAGwjg=;
+ b=BNM/LAcmGonFGdh+fV75ledvrhqFcj0nVH0+Xc0TF6wLIyiTWWkw2v9EKUwqtT1cFVYN3qrtr/B0y+qFLWFWwxsn2fIkitenk7nKhbjgahIYdXbQfZdyGG/tqkEeyL3adcWZp0FRaYeDX0jE76ofF0KZmh96Wr484xJc0HRVG9SypMLo19WAmc/nh93PVaDWiv1AFc34U6L9bEYxyvJ651ZV9kz1QthhCT49oXeSXVRk2i4qnfULxCyTlevRqZYhslJghjL22lSspjLAe8Whf9j74kQflW61E+JsX7o4mUkcdnbOK2Kb98GoVd/V4U+aXyd4oQj3rP+yKzFSWoJBGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SN7PR12MB7956.namprd12.prod.outlook.com (2603:10b6:806:328::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.16; Mon, 10 Feb
+ 2025 19:26:27 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
+ 19:26:27 +0000
+Date: Mon, 10 Feb 2025 15:26:26 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 09/14] kexec: Add documentation for KHO
+Message-ID: <20250210192626.GB3765641@nvidia.com>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-10-rppt@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206132754.2596694-10-rppt@kernel.org>
+X-ClientProxiedBy: MN2PR22CA0017.namprd22.prod.outlook.com
+ (2603:10b6:208:238::22) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/9] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
- remote processors
-To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250206235200.3128163-1-jm@ti.com>
- <20250206235200.3128163-7-jm@ti.com>
- <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SN7PR12MB7956:EE_
+X-MS-Office365-Filtering-Correlation-Id: 709255b4-f9f3-41c5-4da5-08dd4a08d084
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DsGDbbfxyq77Scy24L5yPF0ZotPFw3uWZGqNQGaB+wX+5ATm4MzseRaaTzCr?=
+ =?us-ascii?Q?QFwXcg6kzvcdhUTHMcKQtKm3QihY1e4SFULD4W31wmnKctmlK7tVTqE7ny5w?=
+ =?us-ascii?Q?lZgpTTspMNfi5vrIyzjpQc2q/GcThhYu6fOOEM7RoToJP7mZQLgstl9ONTP4?=
+ =?us-ascii?Q?Pru43vfxI2AeRYGw9GZ8mMoVcfYLAPcQyrLxP7XYLFBWx1ateJt3RQxdUNYh?=
+ =?us-ascii?Q?BDCULegUrsiQRraLQ9YEa8/vRofh9/WeBg5TwDPaF7mCs3NWqkKf79wTK/Sm?=
+ =?us-ascii?Q?guGZ9YF7W0qQPGldh00sppB9XEHeJmtW5Jg7fKW6nNqYETE9b/HY+WEK+3Y/?=
+ =?us-ascii?Q?z8iuLmngbuWlhTQE8lni66z0O3pL1KBlGxYpG4W1vmCXEe8vAyfM9WLWn6H4?=
+ =?us-ascii?Q?bOw0wO24okHejw6WzRuWXJqKmfl9HmAD7o8PQO8HSLZIM7vfKCXbjMZtnOSd?=
+ =?us-ascii?Q?UWJfLZTtWP4NyqCNg4PUZ+julGeAh0EnYHea09UL86L2ybVGGkPisolEqZqn?=
+ =?us-ascii?Q?PL9beVJONdlH8AkQGf5LcTL2eH0G1Ya6rAh56Wn+LCMgeLdsdkGQTfRty0ts?=
+ =?us-ascii?Q?4K4d1ospOCowovkM7valtgex8CUTBOoOfrCW18B5NwJHb0OHKkfbpL3pc9An?=
+ =?us-ascii?Q?/Orq0aNVMontxyfuNrF0sMikZgLb5bHDELRA+b/fGZjvI9hfaUIku493MnWt?=
+ =?us-ascii?Q?TGY+dYNZNrKkGOI9p59SfWhY8p25TjyOALzShbDg3y6uddhDoTdSpQ2AlSXo?=
+ =?us-ascii?Q?H56dwqxrIySHJ61N7fkU1wc6ylrvREgNHFjmVRKiHqddQLxRba1nsdlita+6?=
+ =?us-ascii?Q?HOavYd1koijtGWKs+uIg5fIvnE9X+v5GOA3bdjaxOjsWVLbC+elKIW3u6KA1?=
+ =?us-ascii?Q?5XF+mdHwFSomHNzcZRX2EH7EcC57lWuo65qb/sGtHKHh3CO/TqfxQN6p1Q0i?=
+ =?us-ascii?Q?Q0oJ5TGGYNXfAEW8PZvJ9f0n+t8tXzbTZaEu/lcSr8RwRq2t8NGRq0SK2Eyf?=
+ =?us-ascii?Q?K6JLyBjG/3yrzrpeltJmN4OkSIujNObE4EbMBy2V2VVOgBcYREf3m3ZuJWkf?=
+ =?us-ascii?Q?YQWVjhzqn4CLU5Ad6/szD5m6eyRcxP4JR9hYMgbNdsBYgm73R5RDZKf6tf4l?=
+ =?us-ascii?Q?wCnm+CPXFUg+4s2hNxZnr/4IGaB82/LFp4p46gIjcZ6dT9EmeSM4nKawiCvk?=
+ =?us-ascii?Q?X74z3+mzfdGAQQ/6wwUb0RNMkYs6XYayuLH5rghVPSU8w2lkfA9kq2wUEy4p?=
+ =?us-ascii?Q?ZLJowXMMwSqaxJR8Xsrh4bzy5Uy0p0GtQ1yWnZMBaCWhCzo6wJFsmj8l1yy+?=
+ =?us-ascii?Q?cT8hj8GgigRRCTQZuflFfnfzEzcuW9mEQM7Iptda1++zGWQZwqRyrQWbmGt8?=
+ =?us-ascii?Q?eikPx2WntKz3J+w4YMY57MF2VYfc?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oPtwZ6wrc4jVb3V9n8bx/0kBfTQp87xPxr0jJZePg4694CdfKqtQ/WM8FZdx?=
+ =?us-ascii?Q?6qM543zxoJAUjx1pdqwpcOj8uRvmzzZ4cbLekMUMENe6nY1BkzXveIHQomF7?=
+ =?us-ascii?Q?kq0D2A7axJeOEKC+4moLzv3ttB3M+e3lpsqT0TTZkJExbCqy9gMu/fqvdnif?=
+ =?us-ascii?Q?FDhEF7vhtX1nfeVKCv1VETmfj5wUg/l8cXpICa115137giRLxtvJjNMqXR+G?=
+ =?us-ascii?Q?A2IPw2NShjqju79ThK/L8xJE8+zLqp8CBEJ9BH64MaKeko5PhU2ccBigEEJ5?=
+ =?us-ascii?Q?ZMK/ydmMwcGRHHJ/C2A6aRAIICptHVr8WvbzsDfULvb0LwmGarqK1wDKBPCB?=
+ =?us-ascii?Q?sh1Brr6Ev+2tYHI+SpEz5DBz9XY+qMB/WHehPo4Ws7MyQfuljdkOhYjQOnmj?=
+ =?us-ascii?Q?WOXyrZK0Me3oH74W5ijRyFlwPP0nvNDHRYVHQD8Nk+Pl+wi4u4B6n5s0eyp4?=
+ =?us-ascii?Q?5C1Y8nit3rHbnZP9orL46NhhYYPP3rLjFL8vUcbDzvhiQ07K0I84n1FBoLOb?=
+ =?us-ascii?Q?1L1Yr+wgkaiHysIpn9UuIUDCnx0xnhe+5T/BWdBzg7XjUvY10rW0NKCXMSSh?=
+ =?us-ascii?Q?IYBfDCwjXnFHjb7O3shO19rzAILExjMNC6tPuvqT/6ZPIYx7WIvLFBJWCRie?=
+ =?us-ascii?Q?yeUedA3lZSq94CMMrsT7+ud95kMuGa52cFyLmOJGjEDQnzkSRCXhjNR36cIO?=
+ =?us-ascii?Q?TVsBbQMNrI5eeriC4+mvD3kUJi9KSC7317V4sFL85KXrwMcRgS06JKQKHlJJ?=
+ =?us-ascii?Q?1ht1X6KNjZUO00d9AmQTkoiuqJhaqq33jxCtyPUSK2BbcJGoYUGZa/rnexr9?=
+ =?us-ascii?Q?k1G9gVHAYchGfyT8dIbNsZvmKgYgZDDlCRRVSzvQlz8kjYBaP8J8IQGqh3pu?=
+ =?us-ascii?Q?ktthefzPfNMRX40CNWxcJGLnCayQysWCRtAIdNruEUv1TWgeimABNBTZLOzi?=
+ =?us-ascii?Q?M8dvUi6GW6WZ86PM/v3lST3YbQaPkqXY9/ZVv0H7IgNuFmFboBetZUGXk54E?=
+ =?us-ascii?Q?+c4I83EUqBE5PILxcsR8ar6ZXEeUbA/DBsdhVDQcHDHuVot35jp90/I/IieD?=
+ =?us-ascii?Q?F/d3Q7Fr5rSaTOulk4kBonF3cxO0ds0urhJS20omQlknoz2Vuq9GqBAiHb3m?=
+ =?us-ascii?Q?PF7uUCQyZIGA3UAm9ZkrNJUULH3nMQ7hYtfDiHi06kNVRuXck8XDB44MWDxW?=
+ =?us-ascii?Q?06tNd3baWUi0FGjdMh4QvoaZn7dHGBAeGe28c4gIySTAXZdZOgJCDYjO2cxm?=
+ =?us-ascii?Q?spKUwGRp8cdqKURDlJowZxIezSOivPHB62yV4Oxp9WhDwStKVqESxO2AN0su?=
+ =?us-ascii?Q?bS2hkBDCiw8vdGk8EULCVr3PgVBoamta624ixtzsn9mZUzKyPgWoknncj6hS?=
+ =?us-ascii?Q?uvZbHp4vRcEf7UCpV9TORziOiIkzxxK2HXwtgm4KGbgjjvP5whaBsVbfUEzp?=
+ =?us-ascii?Q?MnvWPr65vMxT2KI53yeebh8u7hprDCmIclpEa3RxDKv3DXVeeH1xusVT6LA/?=
+ =?us-ascii?Q?qFa5niaHRlXvd+Z2jHJQBfLwF84wk2+B6dcCrUPu1yIWKqmiFapzjJ9HbDA1?=
+ =?us-ascii?Q?a/MnjCxUrcCw+Qop9cZZ0zipdqryu69/rxWnTBJ3?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 709255b4-f9f3-41c5-4da5-08dd4a08d084
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 19:26:27.7480
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SgI2pveGfdgkowg/9qUPzIh5/ZENlH0d6OrtNuw3SabP31WqdlIX46FePHmQRVyQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_112121_430232_9BE7BD72 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250210_112634_831744_59BE638A 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,159 +183,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Thu, Feb 06, 2025 at 03:27:49PM +0200, Mike Rapoport wrote:
 
-On 2/7/25 10:58 AM, Andrew Davis wrote:
-> On 2/6/25 5:51 PM, Judith Mendez wrote:
->> From: Devarsh Thakkar <devarsht@ti.com>
->>
->> For each remote proc, reserve memory for IPC and bind the mailbox
->> assignments. Two memory regions are reserved for each remote processor.
->> The first region of 1MB of memory is used for Vring shared buffers
->> and the second region is used as external memory to the remote processor
->> for the resource table and for tracebuffer allocations.
->>
->> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->> Changes since v3:
->> - Add SRAM child node for am62p MCU R5 core 0
->> ---
->>   .../dts/ti/k3-am62p-j722s-common-mcu.dtsi     | 13 +++++
->>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 50 ++++++++++++++++---
->>   2 files changed, 57 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi 
->> b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
->> index b33aff0d65c9d..0be3463bc21c5 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
->> @@ -6,6 +6,18 @@
->>    */
->>   &cbass_mcu {
->> +    mcu_ram: sram@79100000 {
->> +        compatible = "mmio-sram";
->> +        reg = <0x00 0x79100000 0x00 0x80000>;
->> +        ranges = <0x00 0x00 0x79100000 0x80000>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +
->> +        mcu_sram1@0 {
-> 
-> What does this node do for us? Seems you reserve the whole SRAM
-> area from the start, but shouldn't the phandle in mcu_r5fss0_core0
-> point to this node? Or better it would use the normal SRAM API
-> to request an allocation from this region.
-> 
-> Since this is still not resolved, and you don't mention it in
-> the commit message, might be good to drop this SRAM part of this
-> patch and deal with this in a later series.
+> +KHO introduces a new concept to its device tree: ``mem`` properties. A
+> +``mem`` property can be inside any subnode in the device tree. 
 
+I do not think this is a good idea.
 
-Ok, since we do not have a better way to do this for now, will drop the
-SRAM node.
+It should be core infrastructure, totally unrelated to any per-device
+fdt nodes, to carry the memory map.
 
-Will respin the series one more time. Anyways I forgot to include
-another patch so will add that for v5.
+IOW a full DT that looks something more like:
 
-Thanks,
-Judith
+/dts-v1/;
 
+/ {
+  compatible = "linux-kho,v1";
+  allocated-memory {
+        <>
+  };
 
+  ftracebuffer {
+  	       compatible = "linux-kho,ftracem,v1";
+	       ftrace-buffer-phys = <..>;
+	       ftrace-buffer-len = <..>;
+	       ..etc..
+  };
+};
 
-> 
-> Andrew
-> 
->> +            reg = <0x0 0x80000>;
->> +        };
->> +    };
->> +
->>       mcu_pmx0: pinctrl@4084000 {
->>           compatible = "pinctrl-single";
->>           reg = <0x00 0x04084000 0x00 0x88>;
->> @@ -213,6 +225,7 @@ mcu_r5fss0_core0: r5f@79000000 {
->>               ti,atcm-enable = <0>;
->>               ti,btcm-enable = <1>;
->>               ti,loczrama = <0>;
->> +            sram = <&mcu_ram>;
->>           };
->>       };
->>   };
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts 
->> b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
->> index ad71d2f27f538..9609727d042d3 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
->> @@ -48,6 +48,30 @@ reserved-memory {
->>           #size-cells = <2>;
->>           ranges;
->> +        mcu_r5fss0_core0_dma_memory_region: 
->> mcu-r5fss-dma-memory-region@9b800000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9b800000 0x00 0x100000>;
->> +            no-map;
->> +        };
->> +
->> +        mcu_r5fss0_core0_memory_region: 
->> mcu-r5fss-memory-region@9b900000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
->> +            no-map;
->> +        };
->> +
->> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9c800000 0x00 0x100000>;
->> +            no-map;
->> +        };
->> +
->> +        wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x00 0x9c900000 0x00 0x1e00000>;
->> +            no-map;
->> +        };
->> +
->>           secure_tfa_ddr: tfa@9e780000 {
->>               reg = <0x00 0x9e780000 0x00 0x80000>;
->>               no-map;
->> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
->>               reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
->>               no-map;
->>           };
->> -
->> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->> -            compatible = "shared-dma-pool";
->> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
->> -            no-map;
->> -        };
->>       };
->>       vmain_pd: regulator-0 {
->> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
->>       };
->>   };
->> +&wkup_r5fss0 {
->> +    status = "okay";
->> +};
->> +
->> +&wkup_r5fss0_core0 {
->> +    mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
->> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->> +            <&wkup_r5fss0_core0_memory_region>;
->> +};
->> +
->> +&mcu_r5fss0 {
->> +    status = "okay";
->> +};
->> +
->> +&mcu_r5fss0_core0 {
->> +    mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
->> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->> +            <&mcu_r5fss0_core0_memory_region>;
->> +};
->> +
->>   &main_uart0 {
->>       pinctrl-names = "default";
->>       pinctrl-0 = <&main_uart0_pins_default>;
+Where allocated_memory will remove all memory from the buddy allocator
+very early on in an efficient way. that process should not be walking
+the fdt to find mem nodes.
 
+> +After boot, drivers can call the kho subsystem to transfer ownership of memory
+> +that was reserved via a ``mem`` property to themselves to continue using memory
+> +from the previous execution.
+
+And this transfer should be done by phys that the node itself
+describes.
+
+Ie if ftrace has a single high order folio to store it's ftrace buffer
+then I would expect code like:
+
+allocate ftrace:
+  buffer = folio_alloc(..);
+
+activate callback:
+   kho_preserve_folio(buffer)
+   fdt...("ftrace-buffer-phys", virt_to_phys(buffer))
+
+restore callback:
+   buffer_phys = fdt..("ftrace-buffer-phys")
+   buffer = kho_restore_folio(buffer_phys)
+   [..]
+
+destroy ftrace:
+   folio_put(buffer);
+
+And kho will take care to restore the struct folio, put back the
+order, etc, etc.
+
+Similar for slab.
+
+I think this sort of memory-based operation should be the very basic
+core building primitive here.
+
+So the allocated-memory node should preserve information about KHO'd
+folios, their order and so on.
+
+It doesn't matter what part of the FDT owns those folios, all the core
+kernel should do is keep track of them and at some point check that
+all preserved folios have been claimed.
+
+> +We guarantee that we always have such regions through the scratch regions: On
+> +first boot KHO allocates several physically contiguous memory regions. Since
+> +after kexec these regions will be used by early memory allocations, there is a
+> +scratch region per NUMA node plus a scratch region to satisfy allocations
+> +requests that do not require particilar NUMA node assignment.
+
+This plan sounds great, way better than the pmem approaches/etc.
+
+> +To enable user space based kexec file loader, the kernel needs to be able to
+> +provide the device tree that describes the previous kernel's state before
+> +performing the actual kexec. The process of generating that device tree is
+> +called serialization. When the device tree is generated, some properties
+> +of the system may become immutable because they are already written down
+> +in the device tree. That state is called the KHO active phase.
+
+This should have a whole state diagram as we've talked a few
+times. There is alot more to worry about here than just 'activate'.
+
+Jason
 
