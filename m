@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83321C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83472C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQ7wsV90ZTZbBq8whAYKYY3CfgfedQ5rrh/FaK6/OBI=; b=3huo6JjE4pBawAT0AAzeLyrMwe
-	aFVvYcpo8pkYaIry+67HWsw5yWhscsoaIFucRiFWhMAr1g3w5bACHTJKQjXOLkKHKAqw5wCj5oHNy
-	/XzSCmKK+GqAA9nFd6TVyyZWdMEzYuUvQ3UtB7QlHVwZ5wSHmVf6UTTiESkQn0vtAafZsyeAC+GpS
-	qqUeKIVd5/YIkbzqNjOZvQGDKizMdKLRlTfajTyA4grQxl4Srq+g6E7BW2SX2alKIECpo7oPcUsvk
-	QydqWLE0E8Ch4fuahOXLtNL9PIPcziJYxymDNH6rnInlvpyrdgwc88E5HCi71Bc5fFXv7fInLZMVN
-	2xaIIeUQ==;
+	bh=iMSmHPU88YDOwPSpB5j+WYq7IwFLmL60+7nFTkoWpv8=; b=UsIPaP2c1cABv3NL4BoLpukOFb
+	8Ho1EuL881NV2ILKczp63XP8RWDQu9djZuF2A7zUBsM21gXya19jXlfmCinm8AJrld6vf9T+NZn+k
+	lwm2WTGZ6CJXwlddWgWgTZzqZgmH5fpm8aJ0CuGCBp8YPx7l1z+yYMCDqTycZtBKGtt2WzsmQAHKa
+	CksxHFJteTSYzAR3SUXj8GFRWrX4IxRyUtQHxqJAnrVsCiYMdrMQMMp+YYEjERbtR39x1LEKcKVEU
+	9b+mGWhflXpOjeL7QIiiTzHh3A6iEkhwbiHTdaNwKhmJ10d1maFe/meZfiJXYyJfr69p+wMSjvrwP
+	243nPG3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWJs-00000000RB3-44Bz;
-	Mon, 10 Feb 2025 16:07:36 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1thWLF-00000000RSm-2VrC;
+	Mon, 10 Feb 2025 16:09:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWD3-00000000Pfr-2VaD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:00:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1739203233; x=1770739233;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=eQ7wsV90ZTZbBq8whAYKYY3CfgfedQ5rrh/FaK6/OBI=;
-  b=e8VbRvn7HVAHKYpCJ2B1KpOgxr4wm41V1kRTJ3gQYG5qbAZt8PHcIRMo
-   twH6xcbrH7Tlo3qKmq39fm2XRB3B+D9Gpl44BkqwZmB8aDKZd+1Vt2qiq
-   v1X9xHAEemlFI0GNPYAS1PBPQZPF0aHc62m+6C/68SaMrYuVy+h7zJ2ES
-   HCAss2KVfve5KpSFmBBiaZ4wo+95XxOmnlaxokqhqmJAM+N/kxumxM1W7
-   HqSOtZjl8GAfjTaj7axr1hk11E/jyIYcdGWxa6CLqL82e70D71TqbVhJa
-   shqlSPS9u1vaQBAszINtAiJiwCOOgaPotlH49ByVWxAlVZ2jnKvX2YEP7
-   A==;
-X-CSE-ConnectionGUID: wUPPNZwMTgKS+CfX2ikgcg==
-X-CSE-MsgGUID: ksmEptQWQkaRFisJ/Nm68Q==
-X-IronPort-AV: E=Sophos;i="6.13,274,1732575600"; 
-   d="scan'208";a="41723666"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Feb 2025 17:00:31 +0100
-X-CheckPoint: {67AA229F-B-EBA888C4-C1AC8B84}
-X-MAIL-CPID: E8F7D8D262BF096E5F9B3401FCF79116_0
-X-Control-Analysis: str=0001.0A006368.67AA229F.00BA,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6467616737F;
-	Mon, 10 Feb 2025 17:00:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1739203226;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eQ7wsV90ZTZbBq8whAYKYY3CfgfedQ5rrh/FaK6/OBI=;
-	b=jPnJdWRYowhIESTjwwMIX2UEWcpNhtWais5YdLTfi9Xcq6++VxN0lYB9H99XfDYqxOQ8hj
-	UWCM30w6gFMBA+abvKrlYNFBXZWFUmeDvqzxZdggIJ7DT1Bra9iT0IsDFrPA1doyYTS2Cv
-	J1e3+XuTZyAQ/cFs1jC1YYreikkooBgAbxM5sn9YLnzMHZ8FuqmADw76cTnHSaQ2NCFnji
-	KUl9eDtlmyPmRvLyWs6aA6Hw1I9TLR9Ev6xt+CV2Ps4F7AnN1TdiH6y309Jstd98R2QjQA
-	IMUHIF17oiFoerGdXADXNr5iyHwZN2C0XAC/5sI+HFjKopTBQqo8grdDKWPPfA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 3/3] clk: imx: clk-fracn-gppll: Support dynamic rates
-Date: Mon, 10 Feb 2025 17:00:11 +0100
-Message-Id: <20250210160012.783446-3-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250210160012.783446-1-alexander.stein@ew.tq-group.com>
-References: <20250210160012.783446-1-alexander.stein@ew.tq-group.com>
+	id 1thWGa-00000000QNf-2z30;
+	Mon, 10 Feb 2025 16:04:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF3375C5A95;
+	Mon, 10 Feb 2025 16:03:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 492DEC4CEE5;
+	Mon, 10 Feb 2025 16:04:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739203451;
+	bh=MmLzTVOIrpo7J0HmbhxBdjKvlFVJINa0c786cp4K2is=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IMZF+ghuSiCCJz57Q5USpgV4CW3vxkE+nfMG1knu6gzbU8ZVVARB0CrktiwrIk67E
+	 Hp+1zFYkDBupPWkLP2fek6SjxBtdd8uZX3bsyrNGaGd3VDsFNAQzMV0B8Bw7PLqno7
+	 J8yGHYrFy3lE1q9NnvTqoTJ6L6/fNTihHlNov7BXlXsi3mInlQtMMtxsIsIU8E/YP2
+	 6fuhEdcGiIM2KpifkoHYPYf7AyXzUlFejV237V6OD7muNrezl//ORBJCZM9V0Z2cGP
+	 fe78vxqe0+Y6PyqE84mgPUSfNDFYrpSDzRGZFIFOrU6co1irCDDPsKdgFbxPQ6BLzB
+	 vldIL+nl53Ugw==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5de4c7720bcso5034094a12.0;
+        Mon, 10 Feb 2025 08:04:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU73aOjIrKOrTr8FH+snA6xDDLSlf6tfAKyZ8rzM20eidHLtx6wh8qRSDteR7RUDSAR6uJ0kg==@lists.infradead.org, AJvYcCWOh8QrSp7em/Q//sGN+zN1E8L4Ywkaz6RTRuUEXNp9pB8PXt3xVSgHAu1reBGAvRvu7JQ1/DKM2ygaLkdyxWbgIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywjw/PY1gqF5U6hFp/KfpCiL6VOnuGawElbGyYvQg2mQ/D72sCz
+	GIKXSQNYScZOpAVyglisvofcQa8eU5NV6Ofr8QB8AoshdBi4js95rRguNpOI5p5u88qpoXQN2HC
+	ebgL5zdE8F3aJDgAHQrmZFtr/FQ==
+X-Google-Smtp-Source: AGHT+IFRZNJEmIDWeGq7jBDTWhH6Y05jOZW3+7OggCVpp9D3eKLI+N0SQhYn4TTzkQ07b3SjWfpk0D6PnrkmWhtaNlQ=
+X-Received: by 2002:a05:6402:4308:b0:5de:5cea:869e with SMTP id
+ 4fb4d7f45d1cf-5de5cea8b38mr8326232a12.32.1739203449824; Mon, 10 Feb 2025
+ 08:04:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250206132754.2596694-1-rppt@kernel.org> <20250206132754.2596694-14-rppt@kernel.org>
+In-Reply-To: <20250206132754.2596694-14-rppt@kernel.org>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Mon, 10 Feb 2025 10:03:58 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLBf1Vv6K5mK6x9JRqegvScSNFpAEE2iJOkJ4JuBTLsCw@mail.gmail.com>
+X-Gm-Features: AWEUYZkqxkn1PB0pgkw5chjo9LRqD9SA0TtsGYB7u__vI-ErDb4_rUvPql-Dcx4
+Message-ID: <CAL_JsqLBf1Vv6K5mK6x9JRqegvScSNFpAEE2iJOkJ4JuBTLsCw@mail.gmail.com>
+Subject: Re: [PATCH v4 13/14] memblock: Add KHO support for reserve_mem
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
+	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
+	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
+	Saravana Kannan <saravanak@google.com>, 
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_080033_947994_19F2BDFC 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20250210_080412_847298_246F4B7B 
+X-CRM114-Status: GOOD (  36.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,288 +97,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The fracn gppll PLL so far only supports rates from a rate table passed
-during initialization. Calculating PLL settings dynamically helps audio
-applications to get their desired rates, so support for this is added
-in this patch.
+On Thu, Feb 6, 2025 at 7:30=E2=80=AFAM Mike Rapoport <rppt@kernel.org> wrot=
+e:
+>
+> From: Alexander Graf <graf@amazon.com>
+>
+> Linux has recently gained support for "reserve_mem": A mechanism to
+> allocate a region of memory early enough in boot that we can cross our
+> fingers and hope it stays at the same location during most boots, so we
+> can store for example ftrace buffers into it.
+>
+> Thanks to KASLR, we can never be really sure that "reserve_mem"
+> allocations are static across kexec. Let's teach it KHO awareness so
+> that it serializes its reservations on kexec exit and deserializes them
+> again on boot, preserving the exact same mapping across kexec.
+>
+> This is an example user for KHO in the KHO patch set to ensure we have
+> at least one (not very controversial) user in the tree before extending
+> KHO's use to more subsystems.
+>
+> Signed-off-by: Alexander Graf <graf@amazon.com>
+> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  mm/memblock.c | 131 ++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 131 insertions(+)
+>
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index 84df96efca62..fdb08b60efc1 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -16,6 +16,9 @@
+>  #include <linux/kmemleak.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/memblock.h>
+> +#include <linux/kexec_handover.h>
+> +#include <linux/kexec.h>
+> +#include <linux/libfdt.h>
+>
+>  #include <asm/sections.h>
+>  #include <linux/io.h>
+> @@ -2423,6 +2426,70 @@ int reserve_mem_find_by_name(const char *name, phy=
+s_addr_t *start, phys_addr_t *
+>  }
+>  EXPORT_SYMBOL_GPL(reserve_mem_find_by_name);
+>
+> +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t =
+size,
+> +                                         phys_addr_t align)
+> +{
+> +       const void *fdt =3D kho_get_fdt();
+> +       const char *path =3D "/reserve_mem";
+> +       int node, child, err;
+> +
+> +       if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER))
+> +               return false;
+> +
+> +       if (!fdt)
+> +               return false;
+> +
+> +       node =3D fdt_path_offset(fdt, "/reserve_mem");
+> +       if (node < 0)
+> +               return false;
+> +
+> +       err =3D fdt_node_check_compatible(fdt, node, "reserve_mem-v1");
+> +       if (err) {
+> +               pr_warn("Node '%s' has unknown compatible", path);
+> +               return false;
+> +       }
+> +
+> +       fdt_for_each_subnode(child, fdt, node) {
+> +               const struct kho_mem *mem;
+> +               const char *child_name;
+> +               int len;
+> +
+> +               /* Search for old kernel's reserved_mem with the same nam=
+e */
+> +               child_name =3D fdt_get_name(fdt, child, NULL);
+> +               if (strcmp(name, child_name))
+> +                       continue;
+> +
+> +               err =3D fdt_node_check_compatible(fdt, child, "reserve_me=
+m_map-v1");
 
-The strategy to get to the PLL setting for a rate is:
+It really seems you all are trying to have things both ways. It's not
+Devicetree, just the FDT file format, but then here you use
+"compatible" which *is* Devicetree. At best, it's all just confusing
+for folks. At worst, you're just picking and choosing what you want to
+use.
 
-- The rate table is searched for suitable rates, so for standard rates the
-  same settings are used as without this patch
-- Then try to only adjust mfn, on fractional PLLs only, which specifies
-  the fractional part of the PLL. This setting can be changed without
-  glitches on the output and is therefore preferred
-- As a last resort the best settings are calculated dynamically
+I'm not saying don't use "compatible" just for the sake of looking
+less like DT, but perhaps your versioning should be done differently.
+You are reading the 'mem' property straight into a struct. Maybe the
+struct should have a version. Or the size of the struct is the version
+much like the userspace ABI is handled for structs.
 
-Implementation is inspired by commit b09c68dc57c9d ("clk: imx: pll14xx:
-Support dynamic rates")
+> +               if (err) {
+> +                       pr_warn("Node '%s/%s' has unknown compatible", pa=
+th, name);
+> +                       continue;
+> +               }
+> +
+> +               mem =3D fdt_getprop(fdt, child, "mem", &len);
+> +               if (!mem || len !=3D sizeof(*mem))
+> +                       continue;
+> +
+> +               if (mem->addr & (align - 1)) {
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-This is the first time I'm touching PLL code, I might be missing things
-or not being aware of important aspects when it comes to PLL.
-Thus this is a RFC
+It's stated somewhere in this that the FDT data is LE, but here you
+are assuming the FDT is the same endianness as the CPU not that it's
+LE. Arm64 can do BE. PowerPC does both. I'm not sure if kexec from one
+endianness to another is possible. I would guess in theory it is and
+in practice it's broken already (because kexec is always an
+afterthought). Either you need to guarantee that native endianness
+will never be an issue for any arch or you need to make the endianness
+fixed.
 
- drivers/clk/imx/clk-fracn-gppll.c | 203 ++++++++++++++++++++++++++----
- 1 file changed, 181 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
-index a7d57fbe93196..68c5b4a95efbe 100644
---- a/drivers/clk/imx/clk-fracn-gppll.c
-+++ b/drivers/clk/imx/clk-fracn-gppll.c
-@@ -25,6 +25,12 @@
- 
- #define PLL_NUMERATOR		0x40
- #define PLL_MFN_MASK		GENMASK(31, 2)
-+#define PLL_MFI_MIN		0x2
-+#define PLL_MFI_MAX		0x1ff
-+#define PLL_MFN_MIN		0x0
-+#define PLL_MFN_MAX		0x3fffffff
-+#define PLL_MFD_MIN		0x1
-+#define PLL_MFD_MAX		0x3fffffff
- 
- #define PLL_DENOMINATOR		0x50
- #define PLL_MFD_MASK		GENMASK(29, 0)
-@@ -134,21 +140,6 @@ imx_get_pll_settings(struct clk_fracn_gppll *pll, unsigned long rate)
- 	return NULL;
- }
- 
--static long clk_fracn_gppll_round_rate(struct clk_hw *hw, unsigned long rate,
--				       unsigned long *prate)
--{
--	struct clk_fracn_gppll *pll = to_clk_fracn_gppll(hw);
--	const struct imx_fracn_gppll_rate_table *rate_table = pll->rate_table;
--	int i;
--
--	/* Assuming rate_table is in descending order */
--	for (i = 0; i < pll->rate_count; i++)
--		if (rate >= rate_table[i].rate)
--			return rate_table[i].rate;
--
--	/* return minimum supported value */
--	return rate_table[pll->rate_count - 1].rate;
--}
- 
- static long clk_fracn_gppll_calc_rate(struct clk_fracn_gppll *pll, u32 mfn,
- 				      u32 mfd, u32 mfi, u32 rdiv, u32 odiv,
-@@ -202,6 +193,174 @@ static long clk_fracn_gppll_calc_rate(struct clk_fracn_gppll *pll, u32 mfn,
- 	return (unsigned long)fvco;
- }
- 
-+static u32 clk_fracn_gppll_calc_mfi(int rdiv, unsigned long fvco,
-+				    unsigned long fref)
-+{
-+	u32 mfi;
-+
-+	/* fvco = fref / rdiv * mfi */
-+	mfi = DIV_ROUND_CLOSEST(fvco * rdiv, fref);
-+	return clamp_t(u32, mfi, PLL_MFI_MIN, PLL_MFI_MAX);
-+}
-+
-+static long clk_fracn_gppll_calc_mfn(int mfd, int mfi, int odiv, int rdiv,
-+				     unsigned long rate, unsigned long prate)
-+{
-+	unsigned long tmp;
-+	long mfn;
-+
-+	/* calc mfn = ((rate * odiv * rdiv / prate) - mfi) * mfd */
-+	tmp = rate * odiv * rdiv - (mfi * prate);
-+	mfn = DIV_ROUND_CLOSEST(tmp * mfd, prate);
-+	return clamp_t(long, mfn, PLL_MFN_MIN, PLL_MFN_MAX);
-+}
-+
-+static void clk_fracn_gppll_calc_settings(struct clk_fracn_gppll *pll, unsigned long rate,
-+					  unsigned long prate, struct imx_fracn_gppll_rate_table *t)
-+{
-+	u32 pll_denominator, pll_numerator, pll_div;
-+	u32 mfi, mfn, mfd, rdiv, odiv;
-+	long fout, rate_min, rate_max, dist, best = LONG_MAX;
-+	const struct imx_fracn_gppll_rate_table *tt;
-+
-+	/*
-+	 * PLL constrains:
-+	 *
-+	 * a) 1 <= MFN <= 0x3fffffff (fractional only)
-+	 * b) 1 <= MFD <= 0x3fffffff (fractional only)
-+	 * c) 2 <= MFI <= 0x1ff
-+	 * d) 1 <= RDIV <= 7
-+	 * e) 2 <= ODIV <= 255
-+	 * f) -2 <= MFN/MFD <= 2
-+	 * g) 20MHz <= (Fref / rdiv) <= 40MHz
-+	 * h) 2.5GHz <= Fvco <= 5Ghz
-+	 *
-+	 * Fvco = (Fref / rdiv) * (MFI + MFN / MFD)
-+	 * Fout = Fvco / odiv
-+	 */
-+
-+	/* First try if we can get the desired rate from one of the static entries */
-+	tt = imx_get_pll_settings(pll, rate);
-+	if (tt) {
-+		pr_debug("%s: in=%ld, want=%ld, Using PLL setting from table\n",
-+			 clk_hw_get_name(&pll->hw), prate, rate);
-+		t->rate = tt->rate;
-+		t->mfi = tt->mfi;
-+		t->mfn = tt->mfn;
-+		t->mfd = tt->mfd;
-+		t->rdiv = tt->rdiv;
-+		t->odiv = tt->odiv;
-+		return;
-+	}
-+
-+	/* glitch free MFN adjustment only for fractional PLL */
-+	if (pll->flags & CLK_FRACN_GPPLL_FRACN) {
-+		pll_numerator = readl_relaxed(pll->base + PLL_NUMERATOR);
-+
-+		pll_denominator = readl_relaxed(pll->base + PLL_DENOMINATOR);
-+		mfd = FIELD_GET(PLL_MFD_MASK, pll_denominator);
-+
-+		pll_div = readl_relaxed(pll->base + PLL_DIV);
-+		mfi = FIELD_GET(PLL_MFI_MASK, pll_div);
-+		rdiv = FIELD_GET(PLL_RDIV_MASK, pll_div);
-+		odiv = FIELD_GET(PLL_ODIV_MASK, pll_div);
-+
-+		/* Then see if we can get the desired rate by only adjusting MFN (glitch free) */
-+		rate_min = clk_fracn_gppll_calc_rate(pll, PLL_MFN_MIN, mfd, mfi, rdiv, odiv, prate);
-+		rate_max = clk_fracn_gppll_calc_rate(pll, PLL_MFN_MAX, mfd, mfi, rdiv, odiv, prate);
-+
-+		if (rate >= rate_min && rate <= rate_max) {
-+			mfn = clk_fracn_gppll_calc_mfn(mfd, mfi, odiv, rdiv, rate, prate);
-+			pr_debug("%s: in=%ld, want=%ld Only adjust mfn %ld -> %d\n",
-+				 clk_hw_get_name(&pll->hw), prate, rate,
-+				 FIELD_GET(PLL_MFN_MASK, pll_numerator), mfn);
-+			fout = clk_fracn_gppll_calc_rate(pll, mfn, mfd, mfi, rdiv, odiv, prate);
-+			t->rate = (unsigned int)fout;
-+			t->mfi = mfi;
-+			t->mfn = mfn;
-+			t->mfd = mfd;
-+			t->rdiv = rdiv;
-+			t->odiv = odiv;
-+			return;
-+		}
-+	}
-+
-+	/* Finally calculate best values */
-+	for (rdiv = 1; rdiv <= 7; rdiv++) {
-+		if ((prate / rdiv) < 20000000)
-+			continue;
-+		if ((prate / rdiv) > 40000000)
-+			continue;
-+
-+		for (odiv = 2; odiv <= 255; odiv++) {
-+			mfi = clk_fracn_gppll_calc_mfi(rdiv, rate * odiv, prate);
-+			mfd = 1;
-+			mfn = 0;
-+
-+			/* Try integer PLL part only first */
-+			fout = clk_fracn_gppll_calc_rate(pll, mfn, mfd, mfi, rdiv, odiv, prate);
-+			if (fout * odiv < 2500000000UL)
-+				continue;
-+			if (fout * odiv > 5000000000UL)
-+				continue;
-+
-+			if (pll->flags & CLK_FRACN_GPPLL_FRACN) {
-+				if (!dist) {
-+					/* Disable fractional part upon exact match */
-+					mfd = 1;
-+					mfn = 0;
-+				} else {
-+					mfd = 100;
-+					mfd = clamp(mfd, PLL_MFD_MIN, PLL_MFN_MAX);
-+
-+					mfn = clk_fracn_gppll_calc_mfn(mfd, mfi, odiv, rdiv, rate, prate);
-+					if ((mfn / mfd) > 2)
-+						continue;
-+
-+					fout = clk_fracn_gppll_calc_rate(pll, mfn, mfd, mfi, rdiv, odiv, prate);
-+					if (fout * odiv < 2500000000)
-+						continue;
-+					if (fout * odiv > 5000000000)
-+						continue;
-+				}
-+			} else {
-+				mfd = 0;
-+				mfn = 0;
-+			}
-+
-+			/* best match */
-+			dist = abs((long)rate - (long)fout);
-+			if (dist < best) {
-+				best = dist;
-+				t->rate = (unsigned int)fout;
-+				t->mfi = mfi;
-+				t->mfn = mfn;
-+				t->mfd = mfd;
-+				t->rdiv = rdiv;
-+				t->odiv = odiv;
-+
-+				if (!dist)
-+					goto found;
-+			}
-+		}
-+	}
-+found:
-+	pr_debug("%s: in=%lu, want=%lu got=%u (mfi=%u mfn=%u mfd=%u rdiv=%u odiv=%u)\n",
-+		 clk_hw_get_name(&pll->hw), prate, rate, t->rate, t->mfi, t->mfn, t->mfd,
-+		 t->rdiv, t->odiv);
-+}
-+
-+static long clk_fracn_gppll_round_rate(struct clk_hw *hw, unsigned long rate,
-+				       unsigned long *prate)
-+{
-+	struct clk_fracn_gppll *pll = to_clk_fracn_gppll(hw);
-+	struct imx_fracn_gppll_rate_table t;
-+
-+	clk_fracn_gppll_calc_settings(pll, rate, *prate, &t);
-+
-+	return t.rate;
-+}
-+
- static unsigned long clk_fracn_gppll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
- {
- 	struct clk_fracn_gppll *pll = to_clk_fracn_gppll(hw);
-@@ -242,11 +401,11 @@ static int clk_fracn_gppll_set_rate(struct clk_hw *hw, unsigned long drate,
- 				    unsigned long prate)
- {
- 	struct clk_fracn_gppll *pll = to_clk_fracn_gppll(hw);
--	const struct imx_fracn_gppll_rate_table *rate;
-+	struct imx_fracn_gppll_rate_table rate;
- 	u32 tmp, pll_div, ana_mfn;
- 	int ret;
- 
--	rate = imx_get_pll_settings(pll, drate);
-+	clk_fracn_gppll_calc_settings(pll, drate, prate, &rate);
- 
- 	/* Hardware control select disable. PLL is control by register */
- 	tmp = readl_relaxed(pll->base + PLL_CTRL);
-@@ -266,13 +425,13 @@ static int clk_fracn_gppll_set_rate(struct clk_hw *hw, unsigned long drate,
- 	tmp &= ~CLKMUX_BYPASS;
- 	writel_relaxed(tmp, pll->base + PLL_CTRL);
- 
--	pll_div = FIELD_PREP(PLL_RDIV_MASK, rate->rdiv) | rate->odiv |
--		FIELD_PREP(PLL_MFI_MASK, rate->mfi);
-+	pll_div = FIELD_PREP(PLL_RDIV_MASK, rate.rdiv) | rate.odiv |
-+		FIELD_PREP(PLL_MFI_MASK, rate.mfi);
- 	writel_relaxed(pll_div, pll->base + PLL_DIV);
- 	readl(pll->base + PLL_DIV);
- 	if (pll->flags & CLK_FRACN_GPPLL_FRACN) {
--		writel_relaxed(rate->mfd, pll->base + PLL_DENOMINATOR);
--		writel_relaxed(FIELD_PREP(PLL_MFN_MASK, rate->mfn), pll->base + PLL_NUMERATOR);
-+		writel_relaxed(rate.mfd, pll->base + PLL_DENOMINATOR);
-+		writel_relaxed(FIELD_PREP(PLL_MFN_MASK, rate.mfn), pll->base + PLL_NUMERATOR);
- 		readl(pll->base + PLL_NUMERATOR);
- 	}
- 
-@@ -296,7 +455,7 @@ static int clk_fracn_gppll_set_rate(struct clk_hw *hw, unsigned long drate,
- 	ana_mfn = readl_relaxed(pll->base + PLL_STATUS);
- 	ana_mfn = FIELD_GET(PLL_MFN_MASK, ana_mfn);
- 
--	WARN(ana_mfn != rate->mfn, "ana_mfn != rate->mfn\n");
-+	WARN(ana_mfn != rate.mfn, "ana_mfn != rate->mfn\n");
- 
- 	return 0;
- }
--- 
-2.34.1
-
+Rob
 
