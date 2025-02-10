@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57A9C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35A7C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=; b=I/cBRPWU8MTlso2uBK04u7TVzH
-	TZoLzLyAZSZFuR8Wm/JNYAXHi31w8VRaKYTvgxX2ILxa/4GSehZv1zMXlqMu+92+5JX1kwhHJOQ5K
-	ilL3L7VU97sYu87eH1erFo0DWt8HgRYxfho2+I2LVmrmO5T1vtCbcS315gc/kkZaG96MqCAfTrUh7
-	YlNUQX1RWvRpWq+6wKZCvqPyp+LnS3kaGwdh7eEN6hwNJ0g5L3/AvpuGdBbf/u9T74sWBzaWM6mf8
-	oxX+sthnn7aZyrO2p2DsHcq/xFkQ4LEreVfhXMtM3FCZ2bsJ5o2jJOmZwKLLYIF+RLLiB+am84rKN
-	uTfAce/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YJ5yRhEXoyr3qFo0UosrAK3gyLR08Z9zFBUtrpqidkc=; b=aW+VSI+jdiH+DL
+	+nP+8uGDzV2NGskBkr+avgV292019jUsJOneKNV+P55O3TJjpxYl6FbbyHxG9qby407ruc4AyY8TQ
+	54hg58Y8cRfSDuzac2elFJXEiz7lXiUFE3lBfjUsVgGKgwa7N7aEPZLW8tduHAT2zFiSsB/tf9a/t
+	GA0SPobEN4KCkd8flI1/25F4x97fU7U7rEXnQON3C+gfysaw7kkfvuJIiLb3kDKvsdIVhBPHTd9+5
+	7SjIOECoKBRizgi8QVyq4esGdTrTajKyWxpc3gf8ULp6+klJnsq7hPTH8wh2Tll80aoequn3cbwkS
+	ANFMNOP+Wm8B+29BgHeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZeG-00000001AdZ-3X8z;
-	Mon, 10 Feb 2025 19:40:53 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1thZfD-00000001BJf-3NuY;
+	Mon, 10 Feb 2025 19:41:51 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYYq-00000000vnl-3lTZ
+	id 1thZdm-00000001AO5-22R2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:31:14 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-ab7917fc0c2so580360166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:31:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739212271; x=1739817071; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=;
-        b=2rxD7qrJVPuXH9NbnzCJxUrg6w6UA1C5ECJbjWO0f87xAp715qDbIpLTt7UegsE7XG
-         7BcEMjo6uRDmf5WW8p5ogYlqLT4ZjdPG6uIWzLgSoxjR2NTp+Agwex9q6IxKaqM7yH9w
-         Om5l+DgqvGy0stDXlu6BESWyGAvcWSSaEm5eYjAoWiqKfx4K77s+mgSZ1FAiJmrYoIfo
-         nLnnVHUkF8n6dMOiYVCyz2ejSdDJtNG40QnkPuVnnRdyyAUghOWGRZYGPiefQmbfzTK5
-         fQUpP+LBFPhDyO/0SenVwVH/VoycpglXgkDPFIvFuhIXZ2q64DeyTrN3jVnXxHLnDs4u
-         cSNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739212271; x=1739817071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=;
-        b=S0hHWBZ/02MukiBa6Ip8PGJ/Y7OcalJZNb9NNuGOoj7+icIxNWFMP8wMVHeIcutahb
-         mKxA29iNsujQO6m1ee60zwp8X2yuc8zoMHRGdah0wWkzgd6c2saBsU3xYgms/yja+VwF
-         J0ncB3Q5oQIkD568gSPUkN0Slc9jlaKQusJYlpoy9gOVnWgBpWhjizvd9T54EwQRWtS6
-         lcLYhgE9su704K+dIDu2YIBz0xPRBSAkBeNklPFdWpTdGL03xoL9AHK7gPiK63gV5wc2
-         d2vB46Z5VkejA5/lvhN8jaUuQmSqSxB6j9PY1FidVzFpM6EZHhk7FZ2poPlV4yqj08ky
-         KR5g==
-X-Forwarded-Encrypted: i=1; AJvYcCXqSrvLzKvH4tLwTgjbDOzZ3CHhmpAZ1S17TT9vtfrSE3GiuXFTx2OJwAFJvmfcmOTScNwhb2CDQcxAnmoZPSH4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE3KdgBgiZFE+eJz78i9kNy068b8GDtMmooxfTijNtnpk55ReY
-	pmrU9jmmqCPoAzTc7oFXEFonm3GPMYodl5VY7lqK24XMk3YpAFK99x1UfxUgBJo=
-X-Gm-Gg: ASbGncsZq69iT6AbrTRUZ27bjG59zjmEIzFnm9NR9UtCMLSNfkP/g3P8MAN9uZHqc3r
-	51QTaQCPYCYt5QdNN+uCSjnB11keDSLz/J3s6foZ+Yq7Vpvxwyv0FZNY3ZqfK+B7u7IADd6e3IT
-	hAl6cP69SAWDqOxjzdMU1tqQsR75+8j09lPjU5Qi3lV7SNi4XtzmcrbqPM0NQrVDqKAFrDitPH5
-	YNyOX9oVwt9gOc5N+xRQgHA1TLyPoS2dhpz6B5tUH2rkN90xrdk35xfWVLhBCkpDGn1lNJ+VBUg
-	YX9JKR9aGT4a+gkI3zgNJGKp4igR64/1j+2TQZCTi+r81GihFBmI7jiGLw==
-X-Google-Smtp-Source: AGHT+IGxnUYjEIEFumIffoV7za36A5epYh//QQ89hdBeu7W4Q3SvvoIDdRj/qSFbZjMv9ioyPcD/UQ==
-X-Received: by 2002:a17:906:9c8d:b0:ab7:c1f:2b63 with SMTP id a640c23a62f3a-ab789bca7e5mr1713691266b.27.1739212271071;
-        Mon, 10 Feb 2025 10:31:11 -0800 (PST)
-Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7aab8d8fasm487594166b.58.2025.02.10.10.31.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 10:31:10 -0800 (PST)
-Date: Mon, 10 Feb 2025 19:31:08 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Duje =?utf-8?Q?Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
-Cc: =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
-	linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] pwm: pxa: Use #pwm-cells = <3>
-Message-ID: <lzlzq4fh3762kyezzr7eqnbkgsu6nbvzgi7yqzwy5tbsrb4tg2@gdpjz3cqrqq6>
-References: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
+	Mon, 10 Feb 2025 19:40:24 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1739216416;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=YJ5yRhEXoyr3qFo0UosrAK3gyLR08Z9zFBUtrpqidkc=;
+	b=FObrw5BQoektcwRD88CI4sswFGdzZKPAOG391abd55vqBDZJxnnDee2bVCWPpYaLHUDBks
+	UAllmQ2NXPaYPQwNMIumDDSrVLmdTqCZVqKwhn3rzuJUgCU6cyuIj7LIP7weEmBvft2DG7
+	VWXoxkQX32srM4IWjHs0QEtTxOwIskiJpUhgsDTya2xriGAcmIJMsbXk8IPJjTZGI0h8Uz
+	K2qbj91EoW+cxbnK2zRxWFJ8isAbwb1JIMiF6jFOBX2jo94xbT2sLy49Tmh3i2+g/zLpUk
+	Zc9CA5IAYO+uGA+O343unSKe6xHW3HPJnQ0Vi1I42UaWchB0U61Njcj5Ib8H2g==
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Subject: [PATCH 0/5] iommu: apple-dart: Support locked DARTs
+Date: Mon, 10 Feb 2025 14:39:52 -0500
+Message-Id: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cuu5yijfy6peiu4x"
-Content-Disposition: inline
-In-Reply-To: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAhWqmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDI0MD3Zz85OzUFN2UxKIS3RTz1ORUA9M0Q8tECyWgjoKi1LTMCrBp0bG
+ 1tQCmRutuXQAAAA==
+X-Change-ID: 20250210-locked-dart-d7ece05f19a8
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1202; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=4m41YzXmjKupOvgxXvACISwj81PDpF3Wa8u8owr0LLQ=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnqlYRCsvA2TKU35TcwcTeHEjZDfJWZAbzoZMTu
+ mDScW8XTe6JAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6pWEQAKCRD+/lBaCvVY
+ DZvkD/wNBKHL8Sj5ae3cTzcgtwP45qQujSUaDxn1qQgJsm5YqbVs7R3C4ieWiZE/eTMaGUvBG41
+ zCGYUAPMHoknvwcZYAVH1Fz5i2VNgzjebqbKM6YP6ahwftq5IyApgx8kJ9xoY3L5mrqmcFmTe4R
+ dhpKffn9nKce2cxh/pM5hnGom9PsLY0xytF41tMWMooEt4o+CCgW0HVtgCSLgy7Oj8zlJIfGJQj
+ 1IJyc6o2GgnfWAdk8SMurRfy4onuacWbrgmaw+9QRHZxQaVGpISjXR5QnmPROPvpq+Ig6xwBLti
+ Aitm1g6tj1uLHNZfTvuGuj0GUFww4EwVYsjl9NI4y1MzABqxPWVn9qE/aI5SkYB16AXdpmBuVhv
+ Dca0fBpPxEq7DY71fdbKkRXlzNj5YxrMxjDhK29FImvPZpBpH/I/4xGGHhqpSaxQSu3pH2xlUj+
+ 076kKmBWzOGCQkFY+HASbdZMUpI5e9mzPGL899jQ4pjjBVsNutF3GHeQtIztEKTuL4XivNjLLxW
+ 2Auqlc9wa/fmhHHbHLVsZtTyrkF1uvU0ZdxF32JBjWNK2NjuMjyRDVRR5fkR+cmhxs9MzwF4LnI
+ PjZQt3YVlM4vznT39QoOx9iunn84/ib5QoA3GsR5YKyDPM/gluIu2wLVIbbGYnLL/qE4951esln
+ UmyvEHb6RWXN3Zg==
+X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
+ fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_103112_946194_E60F4F50 
-X-CRM114-Status: GOOD (  25.78  )
+X-CRM114-CacheID: sfid-20250210_114022_989897_A4CF3BCD 
+X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,69 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Some DARTs on Apple SoCs are "locked" at boot time, meaning we cannot
+write most of their configuration registers. Currently, we refuse to
+probe locked DARTs and do not include any in the upstream device trees.
+However, the DARTs used for the display controller are locked, so we
+need to handle locked DARTs as a prerequisite for a KMS driver.
 
---cuu5yijfy6peiu4x
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 0/3] pwm: pxa: Use #pwm-cells = <3>
-MIME-Version: 1.0
+This series teaches the iommu/apple-dart driver about locked DARTs,
+preparing for a future upstream display driver. It has been extensively
+tested downstream with our work-in-progress display driver.
 
-On Thu, Feb 06, 2025 at 01:06:24PM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> Hello,
->=20
-> this series' goal is to soften the special device-tree binding of
-> marvel,pxa-pwm devices. This is the only binding that doesn't pass the
-> line index as first parameter.
->=20
-> Here the #pwm-cells value is bumped from 1 to 3, keeping compatibility
-> with the old binding.
->=20
-> The motivation for this was that Herv=C3=A9 sent a patch introducing pwm
-> nexus nodes which don't work nicely with the marvel,pxa-pwm
-> particularities.
->=20
-> Changes since (implicit) v1, available at
-> https://lore.kernel.org/linux-pwm/cover.1738777221.git.u.kleine-koenig@ba=
-ylibre.com:
->=20
->  - Use #pwm-cells =3D <3> also in the binding example (*sigh*), pointed
->    out by Rob
->  - Add review, ack and test tags by Herv=C3=A9 Codina, Conor Dooley, Duje
->    Mihanovi=C4=87 and Daniel Mack. Thanks!
->=20
-> I intend to take the first patch via my pwm tree. Assuming the pxa and
-> device tree maintainers and bots are happy now: Dear pxa maintainers,
-> please tell if I should take the whole series via pwm, or if you want to
-> take patches #2 and #3. If the latter: Do you want to delay application
-> or should I provide an immutable branch for patch #1?
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+---
+Alyssa Rosenzweig (5):
+      iommu/dart: Track if the DART is locked
+      iommu/dart: Skip reset for locked DARTs
+      iommu/dart: Set DMA domain for locked DARTs
+      iommu/dart: Reject identity domain for locked DARTs
+      iommu/dart: Assert !locked when configuring
 
-I applied patch #1 to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-now.
+ drivers/iommu/apple-dart.c | 47 +++++++++++++++++++++++++++++++---------------
+ 1 file changed, 32 insertions(+), 15 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250210-locked-dart-d7ece05f19a8
 
-I don't know yet what should happen to the two other patches, but maybe
-it's a good idea to wait a bit anyhow to have 3 cells working for the
-pxa driver for a kernel release or two before we switch it.
+Best regards,
+-- 
+Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Best regards
-Uwe
-
---cuu5yijfy6peiu4x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeqReoACgkQj4D7WH0S
-/k4VkQf6AzUwWcUMhatT49kzLrH9Ik8W0qT2EHQhxjiTKiZvylgEcKffpbQkdE63
-S3rsHNK2V+sauwfreQSx3KA4YW95TWhVfjGOS/aij1mL4Plse94GOCEhw8zLCzsc
-HJi4SKa3A6BPsuRYLuIqdNcgKh0HYEXibFojcux7CKSAyfS9mk9K3WsEuCpw3MVV
-6Moq80l2BVV82SKZ9xR9iANgDIxji9xFJpMRTNcK673fnq8++TFwevwzB1u/iMf9
-MitOOVkNj5+X/oYZwDZAneQLABUE/qDeYzWEtU6P/2KuT3RiTmP0rGAPcHlzZwIb
-GkiTBJZ6Xu07fhBuP9ceT5liCF7+NA==
-=GLjj
------END PGP SIGNATURE-----
-
---cuu5yijfy6peiu4x--
 
