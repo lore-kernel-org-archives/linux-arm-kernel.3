@@ -4,113 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A49C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEC4C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wl/1DFtCVA8JUg3JrvOVSDvXuYWKhgnuN/JPe0OCyKE=; b=N+3OmUGupoi87rDX+cZ3UiLEiF
-	UQTfZPZiME1jvXTqjZiQ8w4sIj7j9kuGxEWpQeUe/CgVNYCgE+4dH/I1KMGEItan9FdDk1GRtwx9k
-	orm5M/fZ03AbAECx5h9m2a8Tb4QJtpJM8xZAtfzlD9dlVv45Qivd+0m0pGU0/IZEVBXJIHbnPuQQ+
-	+tWC4ohWlCBAOOvgYlLX6AAXTf2cq4UTZGgIH1Chl/ev0G+e00sBVX931aQRckV1UVjCu9bNwPRCX
-	I2Dj0DRBJDWtzgxtHbX4Hg/U6Wu1PSrd/y31TYsmDVdF9JY2NNhCAwIHdm0dJbS0pmMT9bFXtr7f7
-	0pxwYTkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QbO77N+c51B/E1M3CewNGUvGCki0Wz9YboStrv8pIA8=; b=ne35YlNgj1azMzZmfDRYF0mDbm
+	dr3RLXEaLDU4yNFprXedpJ8iX9Xs+m6KecPSF9HOWdmLsJz87RIPh2UFdt4P+NkJTuLvIh9rzh/kV
+	0sbydbmAfK1xCzjjvx/bySQkWL0E2EfJomHEI4ytppmAQZoKo28Riqb659aH1UhATZITMUBBC33yt
+	SyoMLMXGI5h7sGCOfz2ADSIi81342p0neYq+a2EHqkCOpqYVs91Bz2dPOnlKc0ySZ7W784o6KVFyM
+	00PXLn8xg8Swhb7LpSSpD5JUzJm8AhWAI4N6/IDK1tMRdWLyHtIpbDT2ZxwjWz3emODsJq8n1kOpe
+	iCoeWCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbzL-00000001bUD-3GC2;
-	Mon, 10 Feb 2025 22:10:48 +0000
+	id 1thbzN-00000001bUS-10wK;
+	Mon, 10 Feb 2025 22:10:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thare-00000001QRy-0hSw
+	id 1thaso-00000001QZ7-2pFO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 20:58:46 +0000
+	Mon, 10 Feb 2025 20:59:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Wl/1DFtCVA8JUg3JrvOVSDvXuYWKhgnuN/JPe0OCyKE=; b=F3/q+DDHi9INeM+siW3NvYKHhu
-	xgkZawcO5o3lfANZpL6eQRifpMTOeEEzqPidchM53jZNLYJpaSpDlsAvzT8/mTODv9e8viQT8wulH
-	uZO4GAHc+9LkmQEi0YEXLwPN3MdPOqlsWgtAVZfEcPgQQw7870X0XUMQ+0LB0e5PlKPXL697X/ZtC
-	OWxMv5jVy73BlA8FjjUue9RYL+7TcaMkTM3jbj/6uT/9eaPBdyWZ/K8tD8KoJaYAuCZoMvkOnAdw3
-	0olSwRgxZgVvfYy3CGo9QPKp5YjF//TfOWg4xZr2aBkiDZNr6W91nWF3Ebm2nMVdYGciOh1AuLc04
-	XzIhwSIg==;
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=QbO77N+c51B/E1M3CewNGUvGCki0Wz9YboStrv8pIA8=; b=ef3AquswSQQ71KgIm2DW3wBMzJ
+	yIns9jK4xAdBbLGJDCrL/BK2uD9SGUGoKB3JXnqdeRm3qvtwVhooLCdlrETyFtuU8VPS0IYzpybbW
+	IjOIn3wXlPeKbRgs+fbXb/eZZNAO5JsOelHPkuTD1KLPL7QLHxIR3gGXMnRkIPbuxG6J+bR5wmKiw
+	HBtCUVO5SJJ4FV/xXFforwPHEqzNwjaIDswMbnn/WFAnSbkKEkrsI15m+efrddV7rXFwnaxi4wi8m
+	HjnACa3j1IVAOF8oCm1s3x7JoooTUkd7WI6HAwRhQKg4UGx4ezDR9L6RJWq2EnBEkWUOJFzvxzakm
+	hW1Zw0IA==;
+Received: from mail-am6eur05on20620.outbound.protection.outlook.com ([2a01:111:f403:2612::620] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thara-00000000GDf-42Bm
+	id 1thasl-00000000GHp-1ABJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 20:58:44 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4718b128eafso6680841cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 12:58:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen-com.20230601.gappssmtp.com; s=20230601; t=1739221118; x=1739825918; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wl/1DFtCVA8JUg3JrvOVSDvXuYWKhgnuN/JPe0OCyKE=;
-        b=a3LACJo6zc02gFP/8v2wgcnIHrOlkTSMxlsB+AisYfXlbe/LNc0p29gS0hMRMW1UmV
-         uqgvE7D3gIKMsD4AiP4UxZqSFCa97kVH4NG25w0/6I+1NUD+6V1ednv+WM+UIfLzmQfx
-         b5CnywVvgZM6gcZPcdfVZ2xJSFOXjiXBTusuA5X4Q/pVh4M2xbD/f3FAaZZMu1tTYItF
-         h95QWKbPx1d/n3s8CHUSb5pu4AB5MWSg6yLvElzQL+xN3WHaqhS2hUpueEvTBTdDVanO
-         WFs5s0LttU96nzu4I696pVVCHBiIZm889aG0cq/ywHy+PFZB5q0ssGKDLLyHzxNsjvkq
-         wP+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739221118; x=1739825918;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wl/1DFtCVA8JUg3JrvOVSDvXuYWKhgnuN/JPe0OCyKE=;
-        b=u3RjaaqZIsnanoZo3R2ZaIVjGIM04RGuP55RFxifVXpR8SjtO7srFvJnR/NVmFD8F6
-         OT402NRcsb5bHPz7MVhv/6yIaHWwYoTqqTlztp9Lr0xDnm7MTIYwvUPM7JwFGahPiriz
-         tvLtc+8390Zr9cydLHndMVOyO8fbPRvcehXn9cwhGHFuZqKfWJIj7eXTZkWBxAp01YVT
-         a9Th9bLJGGAToO7nR4/JU9tfnq8GnR/z7NFnb3J006Sopsl+TTpFC9VivubxlZZo9DL6
-         86C8Mk/TQaQPbW8Ojm68psM9RGXh+Phs+rNlRBS6bUuafQ8fPtIxCv82g76XwAxXypC2
-         FkRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXvifG6wDmmUeq2FFRv1N0YIDFIOs5A2B+uCpWbjhvEFVwJQpfS3ZhvB+XinEAF2mkXgN3jUmMFWtJmjYBD6qOY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHKIpD5t2uCj640PpUrYmPMbG26UevSLgYjhbQ/s+VVZ1p2ooA
-	QL5dans3IX+GZ2a2tVHeci/VgdPjSbEN94+jIpUxDBF2xatVnzISK8RtL8Eg53uq2+XobKGYdK0
-	Sbn0H2g9nOkdfZZDlljIrdrl11PW/rRU45NqcRQ==
-X-Gm-Gg: ASbGnctpNpGIVbS99TfG77YAviEAYQGU7W4fo4q8R2vLUg/KhRhO6lPr4lq9md7wSUO
-	x+eeqQAC9iDOcDKXkX1qBXrSrUjiDQCbfPA1M0HkY8BDJY9+Z9lx4b9RbJSTKQic/mFCp9Q==
-X-Google-Smtp-Source: AGHT+IETHCKadrtvKNJ7fIHLak3uf8ALu7tDsyEEqgrBMvB7GxxInEvWUg2pBVKBZMO1RROtaHb319Yhs3eTr5CpbD4=
-X-Received: by 2002:a05:622a:1a05:b0:46c:86d8:fc5 with SMTP id
- d75a77b69052e-471679cb76emr238937621cf.5.1739221117601; Mon, 10 Feb 2025
- 12:58:37 -0800 (PST)
+	Mon, 10 Feb 2025 20:59:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v7c4r+5UcEk3YKQ1CETjpFp8nT2NLs4bf/ArfsbNyzpF0dFbB5xu2AnDRb/aYnaXICgmYgYDQUHuCGVlIsxP6pV56SPrGCQLzEXw3o+JV28R0aqquwIQ7xkiCh0dZ3hHVFM/5fdC7f/5B6ETWWnRCnec3hwoNogL7vJ3QZFVtqHnjdnOIXiMW4MP6w/sPGwf4rYvH5UoFJu8x85rj9jmcRvwO0XLskMtupZIQpesfqoJnP7cAwXtWGc3mvq7d5sEU5Ju3JJYS/xOqBPyEdZL5O9fyBpCFrxFeJjXfOsa+vBkgfxDmHapZqiQ3OnDHDhj/4JdEcpQGQHWs/xrAcJ1ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QbO77N+c51B/E1M3CewNGUvGCki0Wz9YboStrv8pIA8=;
+ b=O+DsOCeykusGuanAxTODMyKlbBbuCbmlDAyaWFT4xXkGk/r/qbCwkb0l5pIsI+c4/pMFBpP1SMalkrS6U1eQ7qIeS1ZqHcTdZq/ljJQivcbM/2K+MYjlzFo7OvvUcX7FJ31Svc//d7Byt0r+bldAoJ8ygFhWX5IKgxTdEPBb8VpIBql4rjgv/MY717dvvrGe/sD99lx73F54T5eFM0aWDhf4Ow9POjS1fnAnE/d5y/lj3n6M+nU9XgYabDwlCqqYuRuxZKGqyrMFHvPgubtSOuNWGB5MNwHDgJFLvQ/NK6wa4P+bTNxM1ht5nfSI5qFycVhYr51iYsS+OWy0vmXqcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QbO77N+c51B/E1M3CewNGUvGCki0Wz9YboStrv8pIA8=;
+ b=HA1s93rWaNoezeuoq64cHxUoYP6nqiKvs1vgLMXi5IczCn5gv3mSb86pxajPxNshTvxPqXqIoIxTjYOMkl61dweDtB15p/A38cml7MRdYr0epWHhgvb8Tgm1fHmRx/lAOVwvoKDAJtcesZS77R8c2H1QhmO/8epRygcjwXv53vDyMIqjvoJ35Z4IFgEqmB+1ZFwvCILN1O3UHRUKFW/IPrbJCHC622V3bil5GAY2v4Am3we3mr37EvYvET/FnBaZKz1YwOGSKeNg1oJQLHPlsZA2dOHrbBSKE20/60pDypZlYzBzMowIbmCS9rZOENTjuY/cz+8Bs5NsPq09zVdb2w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DBAPR04MB7462.eurprd04.prod.outlook.com (2603:10a6:10:1a0::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Mon, 10 Feb
+ 2025 20:59:46 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Mon, 10 Feb 2025
+ 20:59:46 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 00/12] media: imx8: add camera support
+Date: Mon, 10 Feb 2025 15:59:19 -0500
+Message-Id: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKdoqmcC/1XMywrCMBCF4VeRWRuZmaStdeV7iEhMU5tFLyYSK
+ qXvblqE0uU58H8TBOudDXA5TOBtdMH1XRryeADT6O5lhavSBkbOkEiJ83scHka31mthSNdZocp
+ KooJUDN7Wbly12z3txoVP778rHml5/46knRNJoJBUKmT9zDHX124cTqZvYVEibyVjti85lYUkL
+ W1Vc6HUVs7z/AMC7hEs3gAAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>, 
+ Purism Kernel Team <kernel@puri.sm>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-media@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>, 
+ "Guoniu.zhou" <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739221181; l=4188;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=CONQa124VmskpdCa2A4REE9scW3t5oyP7zDtr6jO7O8=;
+ b=rDo1dkAzaQC9AFSnoRLwIj/WXHw2zPmjxnRlm48E85XyToaK6u3jm/QzioXNaaIWi30AHCle4
+ motCWZI/BnfBya+PmjrbLOJ/5MrGfD/T4Iqik1gNJjJsPsBx/yUNoOa
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: BY3PR03CA0009.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250206132754.2596694-1-rppt@kernel.org> <20250206132754.2596694-6-rppt@kernel.org>
- <20250210202220.GC3765641@nvidia.com>
-In-Reply-To: <20250210202220.GC3765641@nvidia.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Mon, 10 Feb 2025 15:58:00 -0500
-X-Gm-Features: AWEUYZnfXstpOnVhbWRWzg5zc_KYEQnAl1ReknkHBBoTgx3FQhtVYh2voma8nHI
-Message-ID: <CA+CK2bBBX+HgD0HLj-AyTScM59F2wXq11BEPgejPMHoEwqj+_Q@mail.gmail.com>
-Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation helpers
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org, 
-	Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Andy Lutomirski <luto@kernel.org>, Anthony Yznaga <anthony.yznaga@oracle.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Borislav Petkov <bp@alien8.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	David Woodhouse <dwmw2@infradead.org>, Eric Biederman <ebiederm@xmission.com>, 
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, 
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBAPR04MB7462:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39f383dd-a1c1-4c8c-86b2-08dd4a15d9ea
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|7053199007|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1Y3bFIwRDJ0VTlrblBYM2tqVGh2bXlaK2ExejdHd3JNRDdNQ3duczRTcUhE?=
+ =?utf-8?B?NndDY1I0ODZNTEZUZG54aGRMaUs2N0lGblY0VFNOZlAyeHRsWVZBZUs5TGpM?=
+ =?utf-8?B?UFpVWHBoaWJvSzJrazNNOVBwUGFyeDArWGtIc1lwZE90NC8rNDlOYnR2YVlm?=
+ =?utf-8?B?L291dkRkeDZxZVA1K0RoejZ0ZTdIWjR0T2E1cnJvcFdNMW9ITWJPUjlSVDU4?=
+ =?utf-8?B?U3pNVCtGTkZPQmVyNFhGTVdwZy9XUktpVUZucHpMSE1JVTZ0M3ppSUxHSTNV?=
+ =?utf-8?B?YmUxMlUxRy96UklSMXZZbVJZTUo1SEpJNGZ2WmoxVVhIRTd6eWI2dHJXUlRK?=
+ =?utf-8?B?QjA2WEVtc2lTUHRCbDlGNHFIRU1HamJBdTVxSkhya2dqU2ZHdFhKbnRLMTBj?=
+ =?utf-8?B?bEl1K09pUHBmVGNyeG9GT2ZWVzRPWi93ekpPa2gvZGVoVEpBNkdzOEJVMXBQ?=
+ =?utf-8?B?TkhvcXBIc1FDVGM1dVhjbzNUSDJ2SlBONStkbFNxNzJSelZDM1NGcGRDSW1U?=
+ =?utf-8?B?VlFtZ1R5MHlMNU1zbVVaak5SZjV1aUF0TW1sQXJwUXMzYUlZbzJ4QVJka1cz?=
+ =?utf-8?B?MEo5Mk1MbXlxWHo4djR3MzhENmV4a3V0RnlVSWNsTnY2MGYxT1gxUmNmK2R3?=
+ =?utf-8?B?UlpJUmlJak5aUTZmQS9oYkZaeFY3STh3Z0ZObUpDRjV1dm5PanlJcHN0RzQr?=
+ =?utf-8?B?RWVIQnh6YXRZbnlJdzhFMVF6Y2lna1ZSYVVud2prb1FISkMzdkgwbkYvN3pi?=
+ =?utf-8?B?WUNNN2JLSEwwN0dFN3A5U0kwcnZRRENEd0k2VmNRcUZPZVZHNlZqWW0vTjly?=
+ =?utf-8?B?dkViNHMrRXR0L1RGSVRkaW9hUWhCL0g4RUNhdVltVTdyV0Z6OXZhME1aWFhQ?=
+ =?utf-8?B?UGpvcGFaNFJpSGQyaFhYZGVCNFVTd3pHVTZycDRFcWxnK1JucEZqS0R3NVYv?=
+ =?utf-8?B?cFNtTXRkYXNsSzFlc3Z3MGJEYVVRL3lWNi9NVDJPdTl4VFFSZTQxamNicTdZ?=
+ =?utf-8?B?c2U3SW1wMHF5SEx5Q0hmUHlIOXNJeXN0RzJMT0owTndYbVQvcitQQlRyVFhW?=
+ =?utf-8?B?SFhpMCttMFpJeFdOTUwrR1R3My9qSlVoMjZwNUZzWGduZTQxUk5jeHAwSEU0?=
+ =?utf-8?B?TmtnTVIzWUpEdFc5dk40dndpWlRLcnFUOXBEKzZGaDBkdEJjVjlub3d3MktC?=
+ =?utf-8?B?V0JqQVFsdGFMbWVNTGxWVzJsdGJkUmh6SGpDQjE3dmt1MlJnWjQ1TWJmVnlH?=
+ =?utf-8?B?YWFDZlhjcnM2SU1mOWEzOGplVExGa3hMSG93T1h4Zkx6bHErWXkrU3N0M3pS?=
+ =?utf-8?B?eUQ0WUx3bXpYWmMvU0ZlL0JYcVJGUE1IbUNmOXNPdEx2WXVMVkNnVmUzbmpj?=
+ =?utf-8?B?Zm5kZ2FJK0YzQU9SL0t3WTRuY0VTdXorOHZmM3IvSkZtMkxnWlk1MTV1dUs4?=
+ =?utf-8?B?NUQ4bTQwZTlldHoxZlRRdWI1RWk4THREdmxCdlFXYW9oSktVbDZTMmdEOUUv?=
+ =?utf-8?B?SVBIQkhCLzhkb1Zxa0dTeS8vaTljbnNtR0JSdTl4aGJYTTV0ZExGVmVOcHdV?=
+ =?utf-8?B?bHBUY1Z2ME03WEJoWEIwQkZCRWZXazhJUzF4U0JJakg1L3N6R2ppTzVtdWY4?=
+ =?utf-8?B?ZFFLajNFeTh0MlBGVGlobDE3OWRRV0dEaGx2L1JMekZxdGd2MXRjSXJtcGhj?=
+ =?utf-8?B?aVN6VE4yT2IxdUovTjVoRk5ub2EyYnZaOGJ2eDNnSWJNS21SYkIyaVJ6VW9Z?=
+ =?utf-8?B?em5NOWt6OGk4VnhubXI0aDU3aVlqbGlJT0pEWHc2aTRtYkg5ZGFEY05mNGJW?=
+ =?utf-8?B?U3o4c3hCSTRleGo0SVhlb01oUTRUNVpLUElrYU13ektvVk1uVDl2dmEwOCtW?=
+ =?utf-8?B?Z0NTRlZWOTlwYlhOTHJYaCtpcWFXS3c1ZHR1UFVEdVZNTTl3U0RhWDk5bFk1?=
+ =?utf-8?B?Skk3RHpFRVN4a2hYZlQvREFMN2lZeThMSElZdGtEdThCaldGWFVFeXN3VlUz?=
+ =?utf-8?B?U0Myc2x6c2p3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(7053199007)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UTJKYVpLU3l5ZUJObllLYUE2TExFK1JsZ1gxV2gxVXQ5TFVuNHpRRjIzbnU3?=
+ =?utf-8?B?MldTVVIwQWo3NjdOd3pCdHhkbGwwcXJ3dGxMSXNOeWdSYTlSN0RIR0VsdG94?=
+ =?utf-8?B?dm5md2EvbkpTd1MwZnhWTlRiYUNjQ0g3TFZqeHJvVEUzOG5qSzZ3dHdIc2Zq?=
+ =?utf-8?B?ZzJ4ajQ4SUE1ZWJjdVlzQ3RNT2NQNFV0aWlJdHMxc1NUYkZsbmo2NjJhYVRZ?=
+ =?utf-8?B?K0EvRXFRM2luSFB1ekNRVVF6N0RyMnBpM2htRHNLbWpuM3pqZWZjSUV4ejBn?=
+ =?utf-8?B?ZW1XQWhKT3JENHd3MFU1S0JSY0hSdDFQQ0pqMnZSUFJVeTZZQUVGYWdTSXdi?=
+ =?utf-8?B?dW41NjdYVjNLQWdNZU1wTnJ0U3kwSnRrNHN2aThBY1cxQVRCclk4NFlJOUls?=
+ =?utf-8?B?ZmxlSENiNlRFZ1RLNG9YRmc4SmpWcUR4Z2dldjg2TmxXNVVRWVp2empqNlpB?=
+ =?utf-8?B?TlIycHJRZG1SVlFROVVJTEZ0RFVFM3gxZTBNYlpIQ2FEUzlxQUV5aU5EUzNF?=
+ =?utf-8?B?aDZ4enljanFQbi8zZnZPYjdxQnpRTExYZkhETExoQVN2Mzkva0k4TWdudUhu?=
+ =?utf-8?B?K1FIcUFiS2t1L1lYYkx3WXBkdk92VEtTWXB5Y3ljRUdLaERBUlVVUUwwSjFB?=
+ =?utf-8?B?NmlOdCtQMkRGaFBZQ0hPQjZnSnhKR2llSzFwM25CTzZ0WitBR2Z5WEladmho?=
+ =?utf-8?B?VUJjczhLelJFUm5oZEcycG5aUG9Bd3dGVnFXYUlSb0plbU8rK0hubUdGbUEv?=
+ =?utf-8?B?U0plYTVpVXZMbnBhMDV3MEN0aDFlRE92VVBTbWdMZ25vWDczTXlUTEpGR3pS?=
+ =?utf-8?B?TTkyRHlGT3g4d3JKOE83MlNxQ1B5TFB4ejRoMGxkZ0VycDZBcG5vVkdWc2NB?=
+ =?utf-8?B?aHVtbDlmZkxhZDJPS2dEbTlTbkVUMHMvVmhFUmNrQklCVFZKbTVNa01IR0wy?=
+ =?utf-8?B?UkozQWt1N3EvQUx5bk5HVGI5N01PcmxmWWQ3U2gwOHJJZWYyem9kb3hUSnR4?=
+ =?utf-8?B?Uy85Yy9OUUVsa0pBVXhXckFOemdkaEhhNEtNK291M0xmblYzcUcyYy9ab3Q4?=
+ =?utf-8?B?OWlWMmtLS015SVdVUDhNZkk5MFNZSFdMWXdQNmRZK1NlbXZFVFJuazhxRTVM?=
+ =?utf-8?B?c2F5Ykd6TWlYd0ZFc0JoUlJocFEwWW53ZUV1STUrTi92N0l6bXErUlNBUjA5?=
+ =?utf-8?B?UW8rT1NtL2hrKytFU0tkWFAyNWF2a0F5OEVQRDFHclNQVVdIam95eW95WDl5?=
+ =?utf-8?B?NDAwQXRSRXV2bWQ2U3VKSEFFdkJsUkdUb2t0azhRV2ZxbDBTYVVERDRrcnFa?=
+ =?utf-8?B?Z1dVS2swdXFpbDZhV1A5ektWa3JjdlRiY3FOMm1Ia2pYRTF5WXk0K1FWWklZ?=
+ =?utf-8?B?SHJseDBLc0Zkd1F1cWg5NStzRlRqUzdmLzFxbmFkcllRcEJ4YU9Xbm9wNzMy?=
+ =?utf-8?B?T2lwczlQUEQ2d0FiVVNscUErK0o1Y2RSand0UGcrc2pwZSs5dTFodkt1N2d1?=
+ =?utf-8?B?Q0V2VkRDWktMWitWVWtrVElGaHpwS0h0MXo1Z25xWU4rK2VGNndFRENrSExH?=
+ =?utf-8?B?UTZoaEltYUZqQXNNMitPc2dkSmRsdzdBSlRUQUx0cGhpU1ZCRFdYeHkyN3pQ?=
+ =?utf-8?B?UUpxeDFtVUtjdjBYMVVKV1diaTJEdktKYUd0RmVNeEZvSVFyRjZkMURCcEdW?=
+ =?utf-8?B?SHNRZ2l6UHRmVTFZa2l4YU1QWnZFY2l4bUtJMzZhMkN5RGtYZHJ5QXRzU3Jw?=
+ =?utf-8?B?MDRsRndVMHNXYUxYV0lXYnRISXhsdGU4M2dHWnVtNFpOTWtjekVPbW5GdUtm?=
+ =?utf-8?B?WGZ5ZGx5NHRGRzI2R0lKWWs0QVdUZlBOdmtFVCtGd1U5U1hwOWZ0aTgwNnlB?=
+ =?utf-8?B?VjJSd2poSSt5SWtZeUJwWXFFUWlqelpseHhEUThSbkRBeFJRWkhrR0U4MHd1?=
+ =?utf-8?B?SkJtV1dDWjJ5K2c2YVRhUUpZNGNLaFZ2LzlndDVVbldWWFpib3BSLythbWZh?=
+ =?utf-8?B?Y1ZsanU2WEN0cmtlOWJ6R0J0dEdOT1FZbUdpbFFUOEE4V2xIQjFPU2V6Z0Fj?=
+ =?utf-8?B?VHMvTVZLVFdwZ0VzRFQycmZSQ1FtU1RjZ004UkV1aCtYRVA5a1JJVGFrdUlu?=
+ =?utf-8?Q?3XkI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39f383dd-a1c1-4c8c-86b2-08dd4a15d9ea
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 20:59:46.8775
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UnZ4LPi2Y89ywJMJj67siqFKpqOR+es1/EGMewpWwJZoBA21zK63F5TzANowk9gDaSVwWEnsMmu7/z4sUp+kUQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7462
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_205843_313775_C27842A0 
-X-CRM114-Status: GOOD (  44.72  )
+X-CRM114-CacheID: sfid-20250210_205955_549432_F18E0AE8 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,138 +210,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 3:22=E2=80=AFPM Jason Gunthorpe <jgg@nvidia.com> wr=
-ote:
->
-> On Thu, Feb 06, 2025 at 03:27:45PM +0200, Mike Rapoport wrote:
-> > diff --git a/Documentation/ABI/testing/sysfs-kernel-kho b/Documentation=
-/ABI/testing/sysfs-kernel-kho
-> > new file mode 100644
-> > index 000000000000..f13b252bc303
-> > --- /dev/null
-> > +++ b/Documentation/ABI/testing/sysfs-kernel-kho
-> > @@ -0,0 +1,53 @@
-> > +What:                /sys/kernel/kho/active
-> > +Date:                December 2023
-> > +Contact:     Alexander Graf <graf@amazon.com>
-> > +Description:
-> > +             Kexec HandOver (KHO) allows Linux to transition the state=
- of
-> > +             compatible drivers into the next kexec'ed kernel. To do s=
-o,
-> > +             device drivers will serialize their current state into a =
-DT.
-> > +             While the state is serialized, they are unable to perform
-> > +             any modifications to state that was serialized, such as
-> > +             handed over memory allocations.
-> > +
-> > +             When this file contains "1", the system is in the transit=
-ion
-> > +             state. When contains "0", it is not. To switch between th=
-e
-> > +             two states, echo the respective number into this file.
->
-> I don't think this is a great interface for the actual state machine..
+Add SCU reset driver for i.MX8QM/i.MX8QXP.
+Update binding doc.
+Update driver for imx8qxp and imx8qm.
+Add dts files for it.
 
-In our next proposal we are going to remove this "activate" phase.
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Dong Aisheng <aisheng.dong@nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rui Miguel Silva <rmfrfs@gmail.com>
+To: Martin Kepplinger <martink@posteo.de>
+To: Purism Kernel Team <kernel@puri.sm>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-media@vger.kernel.org
+Cc: Robert Chiras <robert.chiras@nxp.com>
+Cc: "Guoniu.zhou" <guoniu.zhou@nxp.com>
 
->
-> > +What:                /sys/kernel/kho/dt_max
-> > +Date:                December 2023
-> > +Contact:     Alexander Graf <graf@amazon.com>
-> > +Description:
-> > +             KHO needs to allocate a buffer for the DT that gets
-> > +             generated before it knows the final size. By default, it
-> > +             will allocate 10 MiB for it. You can write to this file
-> > +             to modify the size of that allocation.
->
-> Seems gross, why can't it use a non-contiguous page list to generate
-> the FDT? :\
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-We will consider some of these ideas in the future version. I like the
-idea of using preserved memory to carry sparse KHO tree: i.e FDT over
-sparse memory, maybe use the anchor page to describe how it should be
-vmapped into a virtually contiguous tree in the next kernel?
+Changes in v3:
+- Remove phy driver parts.
+- csr is dedicate for mipi csi2, so add it as second register space. csr is
+mixed with PHY and link control with csi2.
+- Link to v2: https://lore.kernel.org/r/20250205-8qxp_camera-v2-0-731a3edf2744@nxp.com
 
->
-> See below for a suggestion..
->
-> > +static int kho_serialize(void)
-> > +{
-> > +     void *fdt =3D NULL;
-> > +     int err =3D -ENOMEM;
-> > +
-> > +     fdt =3D kvmalloc(kho_out.dt_max, GFP_KERNEL);
-> > +     if (!fdt)
-> > +             goto out;
-> > +
-> > +     if (fdt_create(fdt, kho_out.dt_max)) {
-> > +             err =3D -EINVAL;
-> > +             goto out;
-> > +     }
-> > +
-> > +     err =3D fdt_finish_reservemap(fdt);
-> > +     if (err)
-> > +             goto out;
-> > +
-> > +     err =3D fdt_begin_node(fdt, "");
-> > +     if (err)
-> > +             goto out;
-> > +
-> > +     err =3D fdt_property_string(fdt, "compatible", "kho-v1");
-> > +     if (err)
-> > +             goto out;
-> > +
-> > +     /* Loop through all kho dump functions */
-> > +     err =3D blocking_notifier_call_chain(&kho_out.chain_head, KEXEC_K=
-HO_DUMP, fdt);
-> > +     err =3D notifier_to_errno(err);
->
-> I don't see this really working long term. I think we'd like each
-> component to be able to serialize at its own pace under userspace
-> control.
->
-> This design requires that the whole thing be wrapped in a notifier
-> callback just so we can make use of the fdt APIs.
->
-> It seems like a poor fit me.
->
-> IMHO if you want to keep using FDT I suggest that each serializing
-> component (ie driver, ftrace whatever) allocate its own FDT fragment
-> from scratch and the main KHO one just link to the memories that holds
-> those fragements.
->
-> Ie the driver experience would be more like
->
->  kho =3D kho_start_storage("my_compatible_string,v1", some_kind_of_instan=
-ce_key);
->
->  fdt...(kho->fdt..)
->
->  kho_finish_storage(kho);
->
-> Where this ends up creating a stand alone FDT fragment:
->
-> /dts-v1/;
-> / {
->   compatible =3D "linux-kho,my_compatible_string,v1";
->   instance =3D some_kind_of_instance_key;
->   key-value-1 =3D <..>;
->   key-value-1 =3D <..>;
-> };
->
-> And then kho_finish_storage() would remember the phys/length until the
-> kexec fdt is produced as the very last step.
->
-> This way we could do things like fdbox an iommufd and create the above
-> FDT fragment completely seperately from any notifier chain and,
-> crucially, disconnected from the fdt_create() for the kexec payload.
->
-> Further, if you split things like this (it will waste some small
-> amount of memory) you can probably get to a point where no single FDT
-> is more than 4k. That looks like it would simplify/robustify alot of
-> stuff?
->
-> Jason
->
+Changes in v2:
+- move scu reset binding doc to top scu doc.
+- isi use seperate binding doc for imx8qxp and imx8qm.
+- phy and csi2, compatible string 8qm fallback to qxp
+- remove internal review tags
+- Link to v1: https://lore.kernel.org/r/20250131-8qxp_camera-v1-0-319402ab606a@nxp.com
+
+---
+Frank Li (9):
+      dt-bindings: firmware: imx: add property reset-controller
+      reset: imx: Add SCU reset driver for i.MX8QXP and i.MX8QM
+      media: dt-bindings: Add binding doc for i.MX8QXP and i.MX8QM ISI
+      media: nxp: imx8-isi: Allow num_sources to be greater than num_sink
+      media: imx8mq-mipi-csi2: Add support for i.MX8QXP
+      arm64: dts: imx8: add capture controller for i.MX8's img subsystem
+      arm64: dts: imx8qm: add 24MHz clock-xtal24m
+      arm64: dts: imx8q: add linux,cma node for imx8qm-mek and imx8qxp-mek
+      arm64: dts: imx8q: add camera ov5640 support for imx8qm-mek and imx8qxp-mek
+
+Guoniu.zhou (1):
+      media: imx8mq-mipi-csi2: Add imx8mq_plat_data for different compatible strings
+
+Robert Chiras (2):
+      media: imx8-isi: Add support for i.MX8QM and i.MX8QXP
+      media: dt-bindings: nxp,imx8mq-mipi-csi2: Add i.MX8QM(QXP) compatible strings
+
+ .../devicetree/bindings/firmware/fsl,scu.yaml      |  12 +
+ .../devicetree/bindings/media/fsl,imx8qm-isi.yaml  | 117 +++++++
+ .../devicetree/bindings/media/fsl,imx8qxp-isi.yaml | 103 ++++++
+ .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       |  38 ++-
+ MAINTAINERS                                        |   1 +
+ arch/arm64/boot/dts/freescale/Makefile             |  12 +
+ arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     | 376 +++++++++++++++++++++
+ .../boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso |  90 +++++
+ .../boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso |  90 +++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts       |  60 ++++
+ arch/arm64/boot/dts/freescale/imx8qm-ss-img.dtsi   |  45 +++
+ arch/arm64/boot/dts/freescale/imx8qm.dtsi          |  12 +
+ .../boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso |  89 +++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      |  44 +++
+ arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  60 ++++
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi         |   5 +
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  47 +++
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |   2 +
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      |   8 +-
+ drivers/media/platform/nxp/imx8mq-mipi-csi2.c      | 179 +++++++++-
+ drivers/reset/Kconfig                              |   7 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-imx-scu.c                      | 101 ++++++
+ 23 files changed, 1477 insertions(+), 22 deletions(-)
+---
+base-commit: ce37eebeae8fa9e6c53f7f1ccd182ad5f27d66cd
+change-id: 20250114-8qxp_camera-c1af5749d304
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
+
 
