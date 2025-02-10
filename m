@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0A8C0219E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5713FC0219D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=; b=M4L7jPZKD9CsufN5dV56M1O307
-	fxOOrATtCoSp66qq5W790bPBUjRvjN5MVnQBApFbqdCkR7O1DxFoe0vt+gAzm8/VEtriFEfVWdtkD
-	6qOrdA+FNZw5Q5SYFgFyKePdc2Bup7oAIC1tsLprtXNxVQGv5+RkfSiGUNeukNVFWF7TKOKsOF3mY
-	VpbRKykETHwIITTrafM59jOSHNTcXM2p1RhHVQvOLjXhhgtx76N4QuWhsENetxgI6kbq3H2GR5WOy
-	iJq6s7CdKbPaC7KFmz3qKuA9JreODOF+pEIAKgxNXDnPOR0UO6FWTGxMRkTaBPn8sw/6VifyqAkoJ
-	rHoqhV7A==;
+	bh=FdcuE+XVAQi0cf93QeLg5wMVqVBGS6qDBW6BTiGSU3E=; b=PRVYG6uMWKsJGqCrWq6/o7Eqww
+	X7PNq7dEG/utMLAJn1mEyNJvJpKUshAMpjV3JcZNUCe1OsdMRnDBS4YOA8BqodIpEEcd0x20TqWTw
+	ELgbNLreuTABz40QXG6/Z8hsdIe/wgIslUyWnNVGstnF0QoKSfZE5VrZW2gcIYR5KjrtilRMOVmgJ
+	znOVFFOfSIwNx4hrs/CZorBpC3hh0B77EP6KGfkER0Z5BFxnkSgNwyW/FcsX931nQkh9tJUVX3Rip
+	j1Slw0l2B+NTA9l2mHvqGrWnnsaHTgIXLOQylI6dFBflfmPskj22vt8IHKHCrd2NhCvUwNZDedJh+
+	UtwRTNqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSjF-0000000HMs0-0H6k;
+	id 1thSjF-0000000HMsk-2TAm;
 	Mon, 10 Feb 2025 12:17:33 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSGi-0000000HIZN-1ciR;
-	Mon, 10 Feb 2025 11:48:05 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab7a6758b7fso311605166b.3;
-        Mon, 10 Feb 2025 03:48:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739188083; x=1739792883; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=;
-        b=cHs44EUD+l5ppDbqnUH4huSqUkovCpcNu88Aym2fvI9R3y0iKzF8rkwwd2MrZ5LcAw
-         4GfpkwlfkVIvVT4H9X7EOeLA6wRE/JKs+w2+oHLJciIartLi1rsXXikjHzO5w/n5Mp/j
-         evHVv5Crw7+KGbNF9GiQfFr2fk/KHJwLEewbMAEJg7a8v9u5YDmXvO7gvyLYudF9k9xh
-         rhepPPQuSxakLNQgRdwUMkfs5BUts0korBH7tA7VagIcB9TxnawuL7sZRydioT5PnIFI
-         PZ7SSi6x/kyOwL5d1cU9KBc8peO1aY5tuEGNTtX507uib1GmVOKp4AX7wgQZIArfI/j+
-         xDSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739188083; x=1739792883;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=;
-        b=I7yWvCh6StAYUSmJYYePxKDrO9av6wsokenoNBezl6CwToDxJnr/36qLiv3xnZT7Kv
-         idiR9vT3DBOoxocPQ5AZmeVrqHUxgBgCuyzBKdjVcv+swDDEatxqjlNO4J9j8bRnCTe7
-         vNt/G7PDPWQ9jnmy21NrJ8uJnl03d7eURnzeV1KMDbLAU6/hRk2JXbEAgQsu46fRWrFH
-         nVJudf5bEQl/Ha7DUEVxCp/b3HR3ky+KVHUPHyUnNgnJt/dr4EvJXQau6E2FRXjYUzuM
-         IJWid2nargYcq9733/EnHZXYec+6N0dg7FEjam0cEpOAk/B+2MTf9OkGwM+lMseNNtM7
-         ji3w==
-X-Forwarded-Encrypted: i=1; AJvYcCULptQVZ+cmt7lsZJBOQc4XOs1V2mGRO9Pimee/YxKmZ2Z0+dAiEbV7FR16vSBqHzstKlxrCMxxCgTSnx36AcDo@lists.infradead.org, AJvYcCWxFRmJm4Wd7cIoOnzFSmgdPPpOnitzpFHj+s2TPQW+gjq113IksPgvWwue5/ahR4l00FQb+NlBXzTi5lQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj7dXTiKfksVmddWe8HzNCQijyrck3PRy2YGdN7oUVPwNgEMYP
-	vBUBYIqDaxlYm46ZtpNSCIojgeTMy5hn+vgXROsYFVBOCTXEa6Kf
-X-Gm-Gg: ASbGncv3Qh8xijdIlLWXgLPsOQbhQ+i8B9cJAZXwxboVpcswXolbn0DOP11hVO86dOW
-	pOtnHTEeGsEme/gNjRppNI5DRuV2ArIo1zoD5zIXNBooMjlyQxOr+IXZ/8575fyfwM8UEeCAqOb
-	f4iaU76uTbRGVkOKeufO08ay4z0N4M1qDDvr3uIiYZgbrBmBjSSXhHqscRzV0iDUq003alcIRPG
-	TIsj68pkFpFYfI9T90EWGbebZGpXLHpJyjmQ6jI3cpPYuLgnp1Fr+s/bK+lp7brfJ4CwDzm0YYb
-	k9JGw0mDls9Hjh+eaND/ZaHYVsF8NPJh
-X-Google-Smtp-Source: AGHT+IGY3dILn6ts/Eq3QIZU6ECVgNuSbLxMNRT8V0H+TQxvFHnWdoPp+ST/buUvAjzzmdL3OQMGTA==
-X-Received: by 2002:a17:907:9719:b0:aae:8841:2bba with SMTP id a640c23a62f3a-ab789b84353mr1350942666b.22.1739188082366;
-        Mon, 10 Feb 2025 03:48:02 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7bc28c58csm252975066b.135.2025.02.10.03.48.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 03:48:01 -0800 (PST)
-Message-ID: <e17ef70f7536bd1bf0b4d0f7258f91cffac76a20.camel@gmail.com>
-Subject: Re: [PATCH 08/10] riscv/arm64: dts: cv18xx: Add sysctl and reset
- nodes
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, 	linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, 	devicetree@vger.kernel.org, Haylen Chu
- <heylenay@outlook.com>, 	linux-arm-kernel@lists.infradead.org, Sebastian
- Reichel <sre@kernel.org>,  Arnd Bergmann	 <arnd@arndb.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring	 <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Lee
- Jones <lee@kernel.org>
-Date: Mon, 10 Feb 2025 12:47:59 +0100
-In-Reply-To: <h73zitljaig7nrccd3f23i655imswv54tf667dhq3dord7rxsr@unqncqlorvc6>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-	 <20250209220646.1090868-9-alexander.sverdlin@gmail.com>
-	 <h73zitljaig7nrccd3f23i655imswv54tf667dhq3dord7rxsr@unqncqlorvc6>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thSHh-0000000HInZ-2qCw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 11:49:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D1B41424;
+	Mon, 10 Feb 2025 03:49:22 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C4A63F5A1;
+	Mon, 10 Feb 2025 03:48:53 -0800 (PST)
+Date: Mon, 10 Feb 2025 11:48:51 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
+	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
+	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
+	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
+	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
+	akpm@linux-foundation.org, samitolvanen@google.com,
+	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
+	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
+	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
+	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
+	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
+	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
+	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
+	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
+	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH -next v5 06/22] arm64: entry: Expand the
+ need_irq_preemption() macro ahead
+Message-ID: <Z6nno7db_6iOYkT2@J2N7QTR9R3>
+References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
+ <20241206101744.4161990-7-ruanjinjie@huawei.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241206101744.4161990-7-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_034804_427447_91EC5EFF 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20250210_034905_801128_B7A2FD36 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +80,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for quick feedback Inochi!
+On Fri, Dec 06, 2024 at 06:17:28PM +0800, Jinjie Ruan wrote:
+> The generic entry has the same logic as need_irq_preemption()
+> macro and use a helper function to check other resched condition.
+> 
+> In preparation for moving arm64 over to the generic entry code,
+> check and expand need_irq_preemption() ahead and extract arm64 resched
+> check code to a helper function.
 
-On Mon, 2025-02-10 at 13:13 +0800, Inochi Amaoto wrote:
-> On Sun, Feb 09, 2025 at 11:06:33PM +0100, Alexander Sverdlin wrote:
-> > Add reset controller node and required sysctl nodes.
-> >=20
-> > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> > ---
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 16 +++++++++++++=
-+++
-> > =C2=A0 1 file changed, 16 insertions(+)
-> >=20
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv=
-/boot/dts/sophgo/cv18xx-periph.dtsi
-> > index 53834b0658b2..d793b6db4ed1 100644
-> > --- a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> > @@ -309,5 +309,21 @@ dmac: dma-controller@4330000 {
-> > =C2=A0=C2=A0			snps,data-width =3D <4>;
-> > =C2=A0=C2=A0			status =3D "disabled";
-> > =C2=A0=C2=A0		};
-> > +
->=20
-> > +		rtcsys_ctrl: syscon@5025000 {
-> > +			compatible =3D "sophgo,cv1800-rtcsys-ctrl", "syscon";
-> > +			reg =3D <0x05025000 0x1000>;
-> > +		};
-> > +
-> > +		rtcsys_core: syscon@5026000 {
-> > +			compatible =3D "sophgo,cv1800-rtcsys-core", "syscon";
-> > +			reg =3D <0x05026000 0x1000>;
-> > +		};
-> > +
-> > +		soc-reset {
-> > +			compatible =3D "sophgo,cv1800-reset";
-> > +			sophgo,rtcsys-ctrl =3D <&rtcsys_ctrl>;
-> > +			sophgo,rtcsys-core =3D <&rtcsys_core>;
-> > +		};
->=20
-> I think these node is not suitable for riscv. It should use SBI SRST
-> extension to restart.
+I think this is just saying that the goal is to align the structure of
+the code with raw_irqentry_exit_cond_resched() from the generic entry
+code.
 
-Independent from the particular form, or its correctness, this is still HW
-description, right? It would be a "policy" for the kernel configuration, if
-the particular build would rely on the FW or a kernel driver to reboot.
+It'd be a bit clearer to say that, and to do this *before* moving the
+call into __exit_to_kernel_mode().
 
-In other words, the HW block remains in place, no matter if it's controlled
-by a kernel module or a FW. What the point in hiding it from the RiscV part
-of DT, keeping on ARM64 side only?
+Mark.
 
---=20
-Alexander Sverdlin.
-
+> 
+> No functional changes.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/include/asm/preempt.h |  1 +
+>  arch/arm64/kernel/entry-common.c | 28 +++++++++++++++++-----------
+>  2 files changed, 18 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> index 0159b625cc7f..d0f93385bd85 100644
+> --- a/arch/arm64/include/asm/preempt.h
+> +++ b/arch/arm64/include/asm/preempt.h
+> @@ -85,6 +85,7 @@ static inline bool should_resched(int preempt_offset)
+>  void preempt_schedule(void);
+>  void preempt_schedule_notrace(void);
+>  
+> +void raw_irqentry_exit_cond_resched(void);
+>  #ifdef CONFIG_PREEMPT_DYNAMIC
+>  
+>  DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index efd1a990d138..80b47ca02db2 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -77,17 +77,10 @@ static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
+>  
+>  #ifdef CONFIG_PREEMPT_DYNAMIC
+>  DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+> -#define need_irq_preemption() \
+> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+> -#else
+> -#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
+>  #endif
+>  
+>  static inline bool arm64_need_resched(void)
+>  {
+> -	if (!need_irq_preemption())
+> -		return false;
+> -
+>  	/*
+>  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
+>  	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
+> @@ -111,6 +104,22 @@ static inline bool arm64_need_resched(void)
+>  	return true;
+>  }
+>  
+> +void raw_irqentry_exit_cond_resched(void)
+> +{
+> +#ifdef CONFIG_PREEMPT_DYNAMIC
+> +	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+> +		return;
+> +#else
+> +	if (!IS_ENABLED(CONFIG_PREEMPTION))
+> +		return;
+> +#endif
+> +
+> +	if (!preempt_count()) {
+> +		if (need_resched() && arm64_need_resched())
+> +			preempt_schedule_irq();
+> +	}
+> +}
+> +
+>  /*
+>   * Handle IRQ/context state management when exiting to kernel mode.
+>   * After this function returns it is not safe to call regular kernel code,
+> @@ -133,10 +142,7 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
+>  			return;
+>  		}
+>  
+> -		if (!preempt_count() && need_resched()) {
+> -			if (arm64_need_resched())
+> -				preempt_schedule_irq();
+> -		}
+> +		raw_irqentry_exit_cond_resched();
+>  
+>  		trace_hardirqs_on();
+>  	} else {
+> -- 
+> 2.34.1
+> 
 
