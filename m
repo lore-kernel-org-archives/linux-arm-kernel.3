@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F9AC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39209C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wsOhJNavEVEuHUNn8/mtc0ydZ43wJ+QIoNT3mULk4c=; b=ARIePuK58CKAVCgk+Tt1ynzMqq
-	EDUBtZZhvzjKLQbk2tUv/ohEajVcq8eYy9Fic01UflS1/rGPyKOXY4Il3tddsJoU10n+WVn+1XFUv
-	RQItV4oc3ccH7AcFId8qvjjVcsT1P4up+CBgJGb4RjNg6emysMRcQp7ShH79hjVHJTdvVC9k+R/gs
-	pw3WdE6XPdjt5Xfuipv280fCqHupjJWbd6BBqoHJO98JunV1Db9ut9LiDYjyT5VZ5wi+7LWKwAo+D
-	AgmXw9jh4nHbDI4fHvodkw77+Af3GBb2dOpgsjfR70Ytm2nRVPGywsfK+qj42SwBfEe8uAOVVNKXz
-	0kkXEJiw==;
+	bh=5VAiCu9wsbnHuDb91xBNptjwUNAtJkr4ewb+2CdrpF8=; b=zkV4mTpjC8dC+bxpT4cJ+Oz8Xq
+	idldL6FdmJsj8Z4xzGQySXwgrcSLcie23Wvuuvll95v0yvRYYknCMYqSqxiqVPMKypo3Vbs92Gnow
+	Ba9dcbrQz9qFtujTM/OeqFg9B37T/OO+gyQy0ohzWXq30BG5fZa+p7kFpq9uPqYGC4Z1jLHtx8iuH
+	zRIWeF9JjM9Tdhc5L5iR36JZ/p0wK8YWqqO8um1RYVm1ue5YnlbrnemcT8u6YvlV+Zo12AEdOlCL4
+	NDCDiu7rSisMyR26a9SmVOufFoLlvXbrp4qhZsCuc/ef+Gbb9NSfK44WdglVspP7IOQ8EC3Nibcdx
+	+2vll29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXTS-00000000hYB-0bZo;
-	Mon, 10 Feb 2025 17:21:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1thXUo-00000000hvC-3FsR;
+	Mon, 10 Feb 2025 17:22:58 +0000
+Received: from gimli.kloenk.de ([49.12.72.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXCE-00000000dXr-3p2M
+	id 1thXCu-00000000dn1-48rn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:03:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+wsOhJNavEVEuHUNn8/mtc0ydZ43wJ+QIoNT3mULk4c=; b=XbKdGlGWuizr2h7RV/h79Av8MM
-	aR4qmyE1fVtaYDu3Bj8krer6Rd/NSQ6Qxp1vHqtgtl3tQMVmT1HrLhpChYVg3y06xd5h0+dqSAV09
-	TQsGsGt2GiLTnVZFY0zGdBVVJJJT7v+jSGkXmShySJOLtYDFonVQcat/Mw0woyvOYw9qmxnXSbF3L
-	Wth9UukiCC/6b35SraYEhitr2oWwLyKRcoiOwbtCwxMpOvUybau89/GWfDHEtP4Cnzz8kXdEEt01l
-	KjY6ZB5mcGf/SbolVWl7unte/pptLl/xUde8eifncaUtAz4FvegzywhAB1K1g61mrFKs72HVKRtyV
-	ZZy5BWIw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45040)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1thXBn-0007bE-0v;
-	Mon, 10 Feb 2025 17:03:19 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1thXBh-0007ej-0r;
-	Mon, 10 Feb 2025 17:03:13 +0000
-Date: Mon, 10 Feb 2025 17:03:13 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ezra Buehler <ezra@easyb.ch>
-Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25)
- during compaction
-Message-ID: <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
-References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
+	Mon, 10 Feb 2025 17:04:30 +0000
+From: Fiona Behrens <me@kloenk.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kloenk.dev; s=mail;
+	t=1739207064; bh=5VAiCu9wsbnHuDb91xBNptjwUNAtJkr4ewb+2CdrpF8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=jdYuO2hGhDTcdQKHK8/9grPS1mwoWTu786nKEmDrhgHW2Di0MGIN6zOrh4/TDYSVg
+	 7R+wdKMiV1irQ86ZcXvZpluCO0bxtkZDkrXPLRTrIGp0wdgmh8Ni3eTW90+/ugLc5s
+	 5EwprOknit5+ZtGbGdOKPegpDsQxwh8VkrJ2B1j0=
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,  Jonathan Corbet
+ <corbet@lwn.net>,  Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Alex Gaynor <alex.gaynor@gmail.com>,  Nathan
+ Chancellor <nathan@kernel.org>,  Nicolas Schier <nicolas@fjasle.eu>,
+  linux-kbuild@vger.kernel.org,  linux-doc@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
+  Boqun Feng <boqun.feng@gmail.com>,  Gary Guo <gary@garyguo.net>,
+  =?utf-8?Q?Bj=C3=B6rn?=
+ Roy Baron <bjorn3_gh@protonmail.com>,  Benno Lossin
+ <benno.lossin@proton.me>,  Andreas Hindborg <a.hindborg@kernel.org>,
+  Alice Ryhl <aliceryhl@google.com>,  Trevor Gross <tmgross@umich.edu>,
+  Danilo Krummrich <dakr@kernel.org>,  rust-for-linux@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  patches@lists.linux.dev
+Subject: Re: [PATCH] kbuild: rust: add rustc-min-version support function
+In-Reply-To: <20250210164245.282886-1-ojeda@kernel.org> (Miguel Ojeda's
+	message of "Mon, 10 Feb 2025 17:42:45 +0100")
+References: <20250210164245.282886-1-ojeda@kernel.org>
+Date: Mon, 10 Feb 2025 18:04:22 +0100
+Message-ID: <87y0ydafzd.fsf@kloenk.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_090346_942895_6080C539 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250210_090429_166619_6AD93C1D 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +71,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Matthew Wilcox <willy@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>, David Hildenbrand <david@redhat.com>, open list <linux-kernel@vger.kernel.org>, Muchun Song <muchun.song@linux.dev>, Hugh Dickins <hughd@google.com>, Qi Zheng <zhengqi.arch@bytedance.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
-> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
-> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
-> dereference resulting in a kernel panic. The culprit seems to be commit
-> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
-> Reverting the commit apparently fixes the issue.
+Miguel Ojeda <ojeda@kernel.org> writes:
 
-The blamed commit is buggy:
+> Introduce `rustc-min-version` support function that mimics
+> `{gcc,clang}-min-version` ones, following commit 88b61e3bff93
+> ("Makefile.compiler: replace cc-ifversion with compiler-specific macros").
+>
+> In addition, use it in the first use case we have in the kernel (which
+> was done independently to minimize the changes needed for the fix).
+>
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-arch/arm/include/asm/tlbflush.h:
-#define update_mmu_cache(vma, addr, ptep) \
-        update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+Reviewed-by: Fiona Behrens <me@Kloenk.dev>
 
-So vmf can be NULL. This didn't used to matter before this commit,
-because vmf was not used by ARM's update_mmu_cache_range(). However,
-the commit introduced a dereference of it, which now causes a NULL
-point dereference.
-
-Not sure what the correct solution is, but at a guess, both:
-
-	if (ptl != vmf->ptl)
-
-need to become:
-
-	if (!vmf || ptl != vmf->ptl)
-
-but I haven't checked wha tthe locking context actually is here
-(I've been out of MM stuff too long to know this off the top of my
-head.)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
