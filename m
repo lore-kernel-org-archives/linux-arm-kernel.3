@@ -4,51 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC781C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47230C021AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Heg+fFBF1BHNs1b1bNcS4CF0PB8U1xUCnnqp14WcMs=; b=HVK2D0uV3VL0jLLq2ZxV7SAdF6
-	PS2JLPoNyVdr3R63QM6kjzMTBWeAeCohWVgxZ1wf+AOjHEdBasVkXKqIN25SVD+LbKJRhG3s9GjLw
-	PorOSQx2sWuiDx4xE9dxd2azKSCCCxjkmT8Sjq06rTy3nbd3XV9OIUdoh/qMRf9oy2r8ADQAvSauJ
-	cOuCtTmpko2vc4tarjhwLOufogLlCU6yg8COQyjKWY+kmvPZxBF0wRIdNdBsJe5HoCLEiv9XEn6Kj
-	GTSbm+Vfi0VTERwn6pDMUWoWpgrdSOJVziCKNP5c+lNKS2LSE5PXYNHfYJ2Onen2dM9GR+5f1sKD0
-	3wMh+vhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zOFwz3OREC0yr094Ofm95cL0ydxBVV5CQMqDeFtevUg=; b=u+KfpvV+N/akTAHmzEfZj5fX7M
+	Ypxw7uQT8qtSzSwu73wPz3IloFJtY466CDVAv+MUWkK2eig6IZ4+2DXXHzHsVM6q3sc2bNxTIIniW
+	PJD2LdsnuVdf0m2V+eqbDLwCXZff5G7ZnccixlsdXBSo97nrvPdiR6zRcsN7OJfaQUyQ+dk1gRj+P
+	bVOuC7X0rvzpXrThmGSH8rNDoZmNXUyNdvCHIao7657GEwJ6hIUzFo0/f8FFkWvYTJdshvYJyY1AN
+	pB8kB+8lhNJUzu4EO+3gZ/t+iNi0FJPK5l8E1O32378feEprKn5SkLThwkWvjVTh+jkPud3qLOYMh
+	XyP0whQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYR-000000016Rs-2mIn;
-	Mon, 10 Feb 2025 19:34:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYie-00000000ydH-34ml
+	id 1thZYd-000000016o3-3PDn;
+	Mon, 10 Feb 2025 19:35:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thYjL-00000000yvO-1AMI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:41:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1DD31477;
-	Mon, 10 Feb 2025 10:41:38 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E83BD3F58B;
-	Mon, 10 Feb 2025 10:41:15 -0800 (PST)
-Date: Mon, 10 Feb 2025 18:41:09 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: Add missing registrations of SF8MMx hwcaps
-Message-ID: <Z6pHPKXXnQ1whg57@J2N7QTR9R3>
-References: <20250210-arm64-fix-2024-dpisa-v1-1-d77f43c7b253@kernel.org>
+	Mon, 10 Feb 2025 18:42:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2571C5C5E0D;
+	Mon, 10 Feb 2025 18:41:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E852C4CED1;
+	Mon, 10 Feb 2025 18:42:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739212922;
+	bh=VSyPFnhCYOtTO8DIctfyzOrtKdn/+D3yosLZiPowUhI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QXHyzZ49TycI4lbYjM7DLwmiL/Eh/bLzs2lPM5UYo07Szi7RSJQWZ45GTdoAEFn67
+	 6KLXe1bAoZbkHcFopEghP6nhhXMiwSZeLdxdBf9pSH7J+b3jCN9r9DqZkT/onBXnu5
+	 tOIVLPORXNiht0bfH0A3B9Qu1TjV7nut8Sn4ZDNCgy5d5rbOkuPzTHNEEoKE/Duzv4
+	 bA2H+0Y3i4gPOwlFGy1Zl6bl48SDQnKqOizw0YpzByVbl1+/9t7QqqCEDD4Ycxjmxn
+	 iCF4AMQbwjM7q+GPxrr8hnENjtd+4tUP5+9LTOTzqWku3ReOwTYr2ffwp8ghq9a+Zl
+	 T4bqNcB+dTR+A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thYjI-002g2I-IP;
+	Mon, 10 Feb 2025 18:42:00 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 14/18] KVM: arm64: Use KVM-specific HCRX_EL2 RES0 mask
+Date: Mon, 10 Feb 2025 18:41:45 +0000
+Message-Id: <20250210184150.2145093-15-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
+References: <20250210184150.2145093-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250210-arm64-fix-2024-dpisa-v1-1-d77f43c7b253@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104120_864780_108841F7 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250210_104203_419075_14F7E77A 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,84 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 05:49:33PM +0000, Mark Brown wrote:
-> Commit 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to
-> userspace") added definitions for HWCAP_F8MM8 and HWCAP_F8MM4 but did
-> not include the crucial registration in arm64_elf_hwcaps.  Add it.
+We do not have a computed table for HCRX_EL2, so statically define
+the bits we know about. A warning will fire if the architecture
+grows bits that are not handled yet.
 
-Looking again, it looks like KERNEL_HWCAP_FPRCVT also isn't wired up?
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_arm.h | 18 ++++++++++++++----
+ arch/arm64/kvm/emulate-nested.c  |  5 +++++
+ arch/arm64/kvm/nested.c          |  4 ++--
+ 3 files changed, 21 insertions(+), 6 deletions(-)
 
-I did a quick check for suspects in that commit with:
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index af87afae6ca3d..67b381e4c1e14 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -323,10 +323,20 @@
+ #define HFGRTR_EL2_RES0		HFGxTR_EL2_RES0
+ #define HFGWTR_EL2_RES0		(HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
+ 
+-/* Polarity masks for HCRX_EL2 */
+-#define __HCRX_EL2_RES0         HCRX_EL2_RES0
+-#define __HCRX_EL2_MASK		(BIT(6))
+-#define __HCRX_EL2_nMASK	~(__HCRX_EL2_RES0 | __HCRX_EL2_MASK)
++/*
++ * Polarity masks for HCRX_EL2, limited to the bits that we know about
++ * at this point in time. It doesn't mean that we actually *handle*
++ * them, but that at least those that are not advertised to a guest
++ * will be RES0 for that guest.
++ */
++#define __HCRX_EL2_MASK		(BIT_ULL(6))
++#define __HCRX_EL2_nMASK	(GENMASK_ULL(24, 14) | \
++				 GENMASK_ULL(11, 7)  | \
++				 GENMASK_ULL(5, 0))
++#define __HCRX_EL2_RES0		~(__HCRX_EL2_nMASK | __HCRX_EL2_MASK)
++#define __HCRX_EL2_RES1		~(__HCRX_EL2_nMASK | \
++				  __HCRX_EL2_MASK  | \
++				  __HCRX_EL2_RES0)
+ 
+ /* Hyp Prefetch Fault Address Register (HPFAR/HDFAR) */
+ #define HPFAR_MASK	(~UL(0xf))
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 4f468759268c0..f6c7331c21ca4 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2149,6 +2149,7 @@ int __init populate_nv_trap_config(void)
+ 	BUILD_BUG_ON(__NR_CGT_GROUP_IDS__ > BIT(TC_CGT_BITS));
+ 	BUILD_BUG_ON(__NR_FGT_GROUP_IDS__ > BIT(TC_FGT_BITS));
+ 	BUILD_BUG_ON(__NR_FG_FILTER_IDS__ > BIT(TC_FGF_BITS));
++	BUILD_BUG_ON(__HCRX_EL2_MASK & __HCRX_EL2_nMASK);
+ 
+ 	for (int i = 0; i < ARRAY_SIZE(encoding_to_cgt); i++) {
+ 		const struct encoding_to_trap_config *cgt = &encoding_to_cgt[i];
+@@ -2174,6 +2175,10 @@ int __init populate_nv_trap_config(void)
+ 		}
+ 	}
+ 
++	if (__HCRX_EL2_RES0 != HCRX_EL2_RES0)
++		kvm_info("Sanitised HCR_EL2_RES0 = %016llx, expecting %016llx\n",
++			 __HCRX_EL2_RES0, HCRX_EL2_RES0);
++
+ 	kvm_info("nv: %ld coarse grained trap handlers\n",
+ 		 ARRAY_SIZE(encoding_to_cgt));
+ 
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 63fe1595f318d..48b8a700de457 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1039,8 +1039,8 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 	set_sysreg_masks(kvm, HCR_EL2, res0, res1);
+ 
+ 	/* HCRX_EL2 */
+-	res0 = HCRX_EL2_RES0;
+-	res1 = HCRX_EL2_RES1;
++	res0 = __HCRX_EL2_RES0;
++	res1 = __HCRX_EL2_RES1;
+ 	if (!kvm_has_feat(kvm, ID_AA64ISAR3_EL1, PACM, TRIVIAL_IMP))
+ 		res0 |= HCRX_EL2_PACMEn;
+ 	if (!kvm_has_feat(kvm, ID_AA64PFR2_EL1, FPMR, IMP))
+-- 
+2.39.2
 
-| [mark@lakrids:~/src/linux]% git show 819935464cb2 | grep '^+\s' | grep -o 'KERNEL_HWCAP_[A-Z0-9_]\+' | sort | uniq -c | sort -n
-|       1 KERNEL_HWCAP_F8MM4
-|       1 KERNEL_HWCAP_F8MM8
-|       1 KERNEL_HWCAP_FPRCVT
-|       1 KERNEL_HWCAP_SME_SF8MM4
-|       1 KERNEL_HWCAP_SME_SF8MM8
-|       2 KERNEL_HWCAP_CMPBR
-|       2 KERNEL_HWCAP_SME2P2
-|       2 KERNEL_HWCAP_SME_AES
-|       2 KERNEL_HWCAP_SME_SBITPERM
-|       2 KERNEL_HWCAP_SME_SFEXPA
-|       2 KERNEL_HWCAP_SME_SMOP4
-|       2 KERNEL_HWCAP_SME_STMOP
-|       2 KERNEL_HWCAP_SVE2P2
-|       2 KERNEL_HWCAP_SVE_AES2
-|       2 KERNEL_HWCAP_SVE_BFSCALE
-|       2 KERNEL_HWCAP_SVE_ELTPERM
-|       2 KERNEL_HWCAP_SVE_F16MM
-
-... and while KERNEL_HWCAP_SME_SF8MM4 and KERNEL_HWCAP_SME_SF8MM8 are
-gone now, KERNEL_HWCAP_FPRCVT is still around AFAICT.
-
-Checking against a tree based on v6.14-rc1, it superficially looks like
-we're not missing any other KERNEL_HWCAP_* bits per a coarse search,
-which shows three missing entries in cpufeature.c:
-
-| [mark@lakrids:~/src/linux]% git grep -oh 'KERNEL_HWCAP_[A-Z0-9_]\+' -- arch/arm64/include/asm/hwcap.h | wc -l              
-| 112
-| [mark@lakrids:~/src/linux]% git grep -oh 'KERNEL_HWCAP_[A-Z0-9_]\+' -- arch/arm64/include/asm/hwcap.h | sort | uniq | wc -l
-| 112
-| [mark@lakrids:~/src/linux]% git grep -oh 'KERNEL_HWCAP_[A-Z0-9_]\+' -- arch/arm64/kernel/cpuinfo.c | sort | uniq | wc -l
-| 112
-| [mark@lakrids:~/src/linux]% git grep -oh 'KERNEL_HWCAP_[A-Z0-9_]\+' -- arch/arm64/kernel/cpufeature.c | sort | uniq | wc -l
-| 109
-
-... but maybe that misses something, and I haven't checked
-COMPAT_HWCAP(*) or COMPAT_HWCAP2(*).
-
-Could you please go check if there's anything else missing more generally?
-
-Mark.
-
-> Fixes: 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to userspace")
-> Reported-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kernel/cpufeature.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index f0910f20fbf8c18fbeb63bcee18abf13371b1d5e..2cde1e6e309a1b840e0e8dc3a5a55f07f0aadd82 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -3190,6 +3190,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
->  	HWCAP_CAP(ID_AA64FPFR0_EL1, F8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_F8FMA),
->  	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP4),
->  	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP2),
-> +	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM8, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM8),
-> +	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM4),
->  	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E4M3, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E4M3),
->  	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E5M2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E5M2),
->  #ifdef CONFIG_ARM64_POE
-> 
-> ---
-> base-commit: 21fed7c223e20e694b91dbf25936d922a50c8b19
-> change-id: 20250207-arm64-fix-2024-dpisa-635a5961609c
-> 
-> Best regards,
-> -- 
-> Mark Brown <broonie@kernel.org>
-> 
 
