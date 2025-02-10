@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E199AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA15C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nH3pvSNUkRlhL4+G+UMDC3b1XyL6w6N3TYBSbml6HW4=; b=sxaOgUhZHBigJD6e5KDn1E6kPW
-	zL/1ltQ460stbMdb2KRmR5v9zLDQA4jHmt28NX/alrfcTm3VRcc8rGua6m5zBRtlJQB53Io6VicVz
-	GPrNP0GVZ9LNQXG+VJ7a4YusUxugGRu8hNXlMWYACZmE3k1a8A3Q6b/yMSvcfvm15KY5lWEopzcFj
-	2orD8pVF8hmWFa/fsChK0OeKYtzCkOLZ+tCGQQ+SmMcLXp4YJmH+Wkn/hH/OiWSAZhYnFPgwi/l4H
-	oTTza9p34oUbpYupP9HzpJalbkfB6xdmwRknv/ToPaaOD750ZiVGfx2Ynqa110DbQD+HX3yjAsyl8
-	cDcI4Pkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c715KVqgADIZH45tdWxO0q72wg5Cnc0LhXeMGI+0lgM=; b=Dk0+avn81UukwCzOIIECnNEl78
+	OPrbZLhGAjUBtwQEG8o9UMyxJ3475+uc9bBxN76l4tHuZH3buiF/GPb+d/9W5jaTM8RWHpyKZoRi+
+	+L3azPxzZ4xNiQnnSlu0CBPZKkgXOefS0xql7V7sX3VTGBmLZnIA0MLqVltuh0RB5r2I87nXeNZcy
+	5bSl4B0uZtArYBcTZstAt3V6JiQD2TmKvu7xmqTLixM2G0aDqeyn7BnsisUeeVYO68X29gYjtbaX0
+	Hx/VQL8cG5vu6WGjBWBtHYdvGQIqXFaQTisV6ChjI8fGsk/d3fQsEVuMOd/vDT3D0l0fgpg67cGaO
+	ccmwG2rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRWh-0000000H7dj-0wd6;
-	Mon, 10 Feb 2025 11:00:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thRY3-0000000H7tG-0M3y;
+	Mon, 10 Feb 2025 11:01:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRM7-0000000H52d-34x1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 10:49:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nH3pvSNUkRlhL4+G+UMDC3b1XyL6w6N3TYBSbml6HW4=; b=mC4fAAucdktIJs1dcferucyMCq
-	iUodFybqvGDFlBZzy1zrhMimjKL7I0TbxG2cd8C08ej2aLQ+93uVGBNzJDRzVxPSbAwx7u9Ajj/nJ
-	ZjhAhHc2iZ6jdS3v+LTGwoUx+zA/cr6kSl7uJygXyMDcnvWjjQ8F1lplnLyfwApXuNnp0l3iaWPJq
-	/qKbdmAqaGV+O3vhvDBFvMbLtNyEO5KrtOH077D/qCozXqswghktIN9PdUNJKsiIRKxxz4yp2tk2N
-	LN6xOwsTYMhHKwNE5WckDEVNbQcAmvBv+5cd6cJJl7DAHn1L5mcbVLqpkjVk9t8y78FR08cKAw8dN
-	jcINHt5A==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRM4-000000007Pm-2dgV;
-	Mon, 10 Feb 2025 10:49:32 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2B580300318; Mon, 10 Feb 2025 11:49:31 +0100 (CET)
-Date: Mon, 10 Feb 2025 11:49:31 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-Message-ID: <20250210104931.GE31462@noisy.programming.kicks-ass.net>
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250210093840.GE10324@noisy.programming.kicks-ass.net>
+	id 1thRP1-0000000H5ej-0Q4y;
+	Mon, 10 Feb 2025 10:52:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739184752;
+	bh=+ERl9kEBufIqPZbxt5b8EpdlICT5V6kGi6RjzSJytjM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BPoRnHoqhxjCaf9kNNWoiz5gLry2Y+uXoaNX6kMI0uYEe6bkaBubpcjlZueMgkfEP
+	 dRP/gXRa0smDDUBpyJjD06d7IT5w7LRBu0LiqGlO3hk2OHhZ8rI4RHsS4yodBdMVrE
+	 ks48gmZmh2QADXrXQZ3O/99poFv0qS1Atg69vQJxN/JyXXB6AsGAe0Emxmg9fiKv++
+	 nS/hS4KdEQnhixYpkJKyIsgEjlDC5LHCrC7QbUP13A2RXdkAD20CNQdosFxjpJzQa6
+	 VBq/JxpRSddJ8FGPfO+xkM5NZHnkyDhhZeOd8A1lRSE2Ss8C+KqzWX0D0wcjwhFe2D
+	 fFsu2gZV2gPmg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7E7A17E0EA4;
+	Mon, 10 Feb 2025 11:52:31 +0100 (CET)
+Message-ID: <30580863-0110-4375-8e99-3265a608d4d1@collabora.com>
+Date: Mon, 10 Feb 2025 11:52:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250210093840.GE10324@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] arm64: dts: mediatek: mt8370: Enable gpu support
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250207-mt8370-enable-gpu-v3-0-75e9b902f9c1@collabora.com>
+ <20250207-mt8370-enable-gpu-v3-3-75e9b902f9c1@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250207-mt8370-enable-gpu-v3-3-75e9b902f9c1@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250210_025235_298576_164CAB52 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,89 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 10:38:41AM +0100, Peter Zijlstra wrote:
-> On Thu, Feb 06, 2025 at 02:54:08AM -0800, Kumar Kartikeya Dwivedi wrote:
+Il 07/02/25 16:18, Louis-Alexis Eyraud ha scritto:
+> Add a new gpu node in mt8370.dtsi to enable support for the
+> ARM Mali G57 MC2 GPU (Valhall-JM) found on the MT8370 SoC, using the
+> Panfrost driver.
 > 
+> On a Mediatek Genio 510 EVK board, the panfrost driver probed with the
+> following message:
+> ```
+> panfrost 13000000.gpu: clock rate = 390000000
+> panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
+> panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
+>     80000400
+> panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
+>     Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+> panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
+> [drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
+> ```
 > 
-> > Deadlock Detection
-> > ~~~~~~~~~~~~~~~~~~
-> > We handle two cases of deadlocks: AA deadlocks (attempts to acquire the
-> > same lock again), and ABBA deadlocks (attempts to acquire two locks in
-> > the opposite order from two distinct threads). Variants of ABBA
-> > deadlocks may be encountered with more than two locks being held in the
-> > incorrect order. These are not diagnosed explicitly, as they reduce to
-> > ABBA deadlocks.
-> > 
-> > Deadlock detection is triggered immediately when beginning the waiting
-> > loop of a lock slow path.
-> > 
-> > While timeouts ensure that any waiting loops in the locking slow path
-> > terminate and return to the caller, it can be excessively long in some
-> > situations. While the default timeout is short (0.5s), a stall for this
-> > duration inside the kernel can set off alerts for latency-critical
-> > services with strict SLOs.  Ideally, the kernel should recover from an
-> > undesired state of the lock as soon as possible.
-> > 
-> > A multi-step strategy is used to recover the kernel from waiting loops
-> > in the locking algorithm which may fail to terminate in a bounded amount
-> > of time.
-> > 
-> >  * Each CPU maintains a table of held locks. Entries are inserted and
-> >    removed upon entry into lock, and exit from unlock, respectively.
-> >  * Deadlock detection for AA locks is thus simple: we have an AA
-> >    deadlock if we find a held lock entry for the lock we’re attempting
-> >    to acquire on the same CPU.
-> >  * During deadlock detection for ABBA, we search through the tables of
-> >    all other CPUs to find situations where we are holding a lock the
-> >    remote CPU is attempting to acquire, and they are holding a lock we
-> >    are attempting to acquire. Upon encountering such a condition, we
-> >    report an ABBA deadlock.
-> >  * We divide the duration between entry time point into the waiting loop
-> >    and the timeout time point into intervals of 1 ms, and perform
-> >    deadlock detection until timeout happens. Upon entry into the slow
-> >    path, and then completion of each 1 ms interval, we perform detection
-> >    of both AA and ABBA deadlocks. In the event that deadlock detection
-> >    yields a positive result, the recovery happens sooner than the
-> >    timeout.  Otherwise, it happens as a last resort upon completion of
-> >    the timeout.
-> > 
-> > Timeouts
-> > ~~~~~~~~
-> > Timeouts act as final line of defense against stalls for waiting loops.
-> > The ‘ktime_get_mono_fast_ns’ function is used to poll for the current
-> > time, and it is compared to the timestamp indicating the end time in the
-> > waiter loop. Each waiting loop is instrumented to check an extra
-> > condition using a macro. Internally, the macro implementation amortizes
-> > the checking of the timeout to avoid sampling the clock in every
-> > iteration.  Precisely, the timeout checks are invoked every 64k
-> > iterations.
-> > 
-> > Recovery
-> > ~~~~~~~~
-> 
-> I'm probably bad at reading, but I failed to find anything that
-> explained how you recover from a deadlock.
-> 
-> Do you force unload the BPF program?
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Even the simple AB-BA case,
-
-  CPU0		CPU1
-  lock-A	lock-B
-  lock-B	lock-A <-
-
-just having a random lock op return -ETIMO doesn't actually solve
-anything. Suppose CPU1's lock-A will time out; it will have to unwind
-and release lock-B before CPU0 can make progress.
-
-Worse, if CPU1 isn't quick enough to unwind and release B, then CPU0's
-lock-B will also time out.
-
-At which point they'll both try again and you're stuck in the same
-place, no?
-
-Given you *have* to unwind to make progress; why not move the entire
-thing to a wound-wait style lock? Then you also get rid of the whole
-timeout mess.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
