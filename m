@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35A7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CBEC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YJ5yRhEXoyr3qFo0UosrAK3gyLR08Z9zFBUtrpqidkc=; b=aW+VSI+jdiH+DL
-	+nP+8uGDzV2NGskBkr+avgV292019jUsJOneKNV+P55O3TJjpxYl6FbbyHxG9qby407ruc4AyY8TQ
-	54hg58Y8cRfSDuzac2elFJXEiz7lXiUFE3lBfjUsVgGKgwa7N7aEPZLW8tduHAT2zFiSsB/tf9a/t
-	GA0SPobEN4KCkd8flI1/25F4x97fU7U7rEXnQON3C+gfysaw7kkfvuJIiLb3kDKvsdIVhBPHTd9+5
-	7SjIOECoKBRizgi8QVyq4esGdTrTajKyWxpc3gf8ULp6+klJnsq7hPTH8wh2Tll80aoequn3cbwkS
-	ANFMNOP+Wm8B+29BgHeA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SPT9rgj0rLpckhACaCzlKgGeeCb7MV3HiAZFcPnjPCo=; b=4RghyUgpio3JFy5c5xlvC+8eQQ
+	1yHLt/nT1ree7QNkGd01X5H74GZAT6OO7CJAVqS0N6LyszHHea/VmmeRan228F6RcrSzgKrWliY+j
+	uZajReDDiYF3j98fUdjXq5ijLHH4m6pGRZfxOXB7+yXPTkUmAiTwU0bTIFefEKcD3HZ4Df3k76De0
+	ywqz/CuqZhVLisEvDwBGsGIqZwQlzzFBvdietFrOsx5EAGLWF+N0RiL9x4P921BLZqIefbFyXIU51
+	WyXmEBMg2kAkgcTThyGZC2hxvUUseBVevMwyxqqsqBsNrvYgIS6oMqiEh01/cWEltrUUoG32Ok9lP
+	ZDM0mN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZfD-00000001BJf-3NuY;
-	Mon, 10 Feb 2025 19:41:51 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1thZgb-00000001Bnu-2Ds8;
+	Mon, 10 Feb 2025 19:43:17 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZdm-00000001AO5-22R2
+	id 1thZdn-00000001API-1dSo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 19:40:24 +0000
+	Mon, 10 Feb 2025 19:40:25 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739216416;
+	s=key1; t=1739216421;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=YJ5yRhEXoyr3qFo0UosrAK3gyLR08Z9zFBUtrpqidkc=;
-	b=FObrw5BQoektcwRD88CI4sswFGdzZKPAOG391abd55vqBDZJxnnDee2bVCWPpYaLHUDBks
-	UAllmQ2NXPaYPQwNMIumDDSrVLmdTqCZVqKwhn3rzuJUgCU6cyuIj7LIP7weEmBvft2DG7
-	VWXoxkQX32srM4IWjHs0QEtTxOwIskiJpUhgsDTya2xriGAcmIJMsbXk8IPJjTZGI0h8Uz
-	K2qbj91EoW+cxbnK2zRxWFJ8isAbwb1JIMiF6jFOBX2jo94xbT2sLy49Tmh3i2+g/zLpUk
-	Zc9CA5IAYO+uGA+O343unSKe6xHW3HPJnQ0Vi1I42UaWchB0U61Njcj5Ib8H2g==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SPT9rgj0rLpckhACaCzlKgGeeCb7MV3HiAZFcPnjPCo=;
+	b=tllRQVac7aKjW2rAIx9zhjYgi3keo7pIMJVAyv9DPj9OLvDEc2qwDn/EGjJy7Cp68AeeVG
+	meyL9UWkzu0Tl6WW1e8ETEYsIeY6gmt+aBvfwfjak5T1P2UPcZl/fkj+HoXdoo4eSK0aet
+	kirFTxP+VoV8bo18i7Tg17IgrNpSenV4ODzdY2iNO3iwvvAFNjwCjqzVNuFri9pDQIqS+R
+	UyZHSTm5//LLl7MAR7rtGyfvjDpRZ1tSlMrXPSN6gzU0VLrBU9VeqDDiDElEZja/Q8M1Lu
+	/Q19d3lYFID7XJBT5atjBpYL6cJ07UUV6xcX16JP+Bvec4EMlIONvOCGvHj6qQ==
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 0/5] iommu: apple-dart: Support locked DARTs
-Date: Mon, 10 Feb 2025 14:39:52 -0500
-Message-Id: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
+Date: Mon, 10 Feb 2025 14:39:53 -0500
+Subject: [PATCH 1/5] iommu/dart: Track if the DART is locked
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAhWqmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDI0MD3Zz85OzUFN2UxKIS3RTz1ORUA9M0Q8tECyWgjoKi1LTMCrBp0bG
- 1tQCmRutuXQAAAA==
-X-Change-ID: 20250210-locked-dart-d7ece05f19a8
+Message-Id: <20250210-locked-dart-v1-1-5d97fe247f35@rosenzweig.io>
+References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
+In-Reply-To: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
 To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
  Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
  Robin Murphy <robin.murphy@arm.com>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1202; i=alyssa@rosenzweig.io;
- h=from:subject:message-id; bh=4m41YzXmjKupOvgxXvACISwj81PDpF3Wa8u8owr0LLQ=;
- b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnqlYRCsvA2TKU35TcwcTeHEjZDfJWZAbzoZMTu
- mDScW8XTe6JAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6pWEQAKCRD+/lBaCvVY
- DZvkD/wNBKHL8Sj5ae3cTzcgtwP45qQujSUaDxn1qQgJsm5YqbVs7R3C4ieWiZE/eTMaGUvBG41
- zCGYUAPMHoknvwcZYAVH1Fz5i2VNgzjebqbKM6YP6ahwftq5IyApgx8kJ9xoY3L5mrqmcFmTe4R
- dhpKffn9nKce2cxh/pM5hnGom9PsLY0xytF41tMWMooEt4o+CCgW0HVtgCSLgy7Oj8zlJIfGJQj
- 1IJyc6o2GgnfWAdk8SMurRfy4onuacWbrgmaw+9QRHZxQaVGpISjXR5QnmPROPvpq+Ig6xwBLti
- Aitm1g6tj1uLHNZfTvuGuj0GUFww4EwVYsjl9NI4y1MzABqxPWVn9qE/aI5SkYB16AXdpmBuVhv
- Dca0fBpPxEq7DY71fdbKkRXlzNj5YxrMxjDhK29FImvPZpBpH/I/4xGGHhqpSaxQSu3pH2xlUj+
- 076kKmBWzOGCQkFY+HASbdZMUpI5e9mzPGL899jQ4pjjBVsNutF3GHeQtIztEKTuL4XivNjLLxW
- 2Auqlc9wa/fmhHHbHLVsZtTyrkF1uvU0ZdxF32JBjWNK2NjuMjyRDVRR5fkR+cmhxs9MzwF4LnI
- PjZQt3YVlM4vznT39QoOx9iunn84/ib5QoA3GsR5YKyDPM/gluIu2wLVIbbGYnLL/qE4951esln
- UmyvEHb6RWXN3Zg==
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2311; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=DPdvKhQ3kbgTp3Fn2VyCCGlV/g2DDrlKViyHLbfPM1o=;
+ b=kA0DAAgB/v5QWgr1WA0ByyZiAGeqVhmhMAEDsg2LrpEFYFtHpvoi59s/jPPOHIcYInI9JT71g
+ IkCMwQAAQgAHRYhBENe4JuwrwDQHar2OP7+UFoK9VgNBQJnqlYZAAoJEP7+UFoK9VgNwJMQAKJm
+ FqkCYR0CPS075sM8jAaNwH61RG7jWysqRhdrd9RWnY90Ni9DTozTZTBpYHGqjlvU39F0nC70WPU
+ LfTQcqV8PiymZ30FpxyPpRynmJwrw6FjDhQNI3xJy9KLEjy0GqoNwwjYVFUdftXoPetPjGo2bv/
+ L0mY2vXCS0aPvoPOA9Y2iJOEjpAiHlC+XYAkZaDzbsDTIiXHPj3NzLEi3y/d13fxWw4YGX1uHHd
+ 0mYyd0ymPgb8An9pwmL2Q75NgVJdPRYKdY/ZhlMbUfd6h/EYRleKkZNW13Lpk2M8Nnxdc852dPD
+ 0HJdmn0h1UpRjuIkY32hA6gzmFXj77jpcOsqRkEmVDS5nCvrGv3aL5J3vxUjqbeXoENGeSOtZQT
+ vx5xVm0J+ueuwPZRqZxK0yUkP3sqU8Nvwa5znSSOzDVAwQ4aLqpYHXYrChHbn6MVWYd8yC7vR6j
+ xZbVGQqU4FUiDHJEr+HMvyOb9TlvSFuWuFtXBnH49YNxFtDqNT8eZZA/4ADIDMUGWBlIbkp/1kl
+ trouAk/ftwx9TuM5CxccxVng79ULPOfbfOPMonaWkjf9TAEU6pq0SFh/lI1Vd6iRLVyuJBh9BXQ
+ 1VrnET6L1lVXVO7CW0CSiYLWFIcGylH4C4fcDLgL5AZqTApbaK7pkdVmrUrzfdOAmgPYxAnDiJd
+ KwjO5
 X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
  fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_114022_989897_A4CF3BCD 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_114023_580358_D23F9EE0 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some DARTs on Apple SoCs are "locked" at boot time, meaning we cannot
-write most of their configuration registers. Currently, we refuse to
-probe locked DARTs and do not include any in the upstream device trees.
-However, the DARTs used for the display controller are locked, so we
-need to handle locked DARTs as a prerequisite for a KMS driver.
-
-This series teaches the iommu/apple-dart driver about locked DARTs,
-preparing for a future upstream display driver. It has been extensively
-tested downstream with our work-in-progress display driver.
+Some DARTs are locked at boot-time. That means they are already
+configured and we cannot change their configuration, which requires
+special handling. Locked DARTs are identified in the configuration
+register. Check this bit when probing and save the result so we can
+handle accordingly.
 
 Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 ---
-Alyssa Rosenzweig (5):
-      iommu/dart: Track if the DART is locked
-      iommu/dart: Skip reset for locked DARTs
-      iommu/dart: Set DMA domain for locked DARTs
-      iommu/dart: Reject identity domain for locked DARTs
-      iommu/dart: Assert !locked when configuring
+ drivers/iommu/apple-dart.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
- drivers/iommu/apple-dart.c | 47 +++++++++++++++++++++++++++++++---------------
- 1 file changed, 32 insertions(+), 15 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250210-locked-dart-d7ece05f19a8
+diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+index 95ba3caeb40177901086076416874b9905a1f40a..460cf96bc8001e051916f356d5d175b35e36c608 100644
+--- a/drivers/iommu/apple-dart.c
++++ b/drivers/iommu/apple-dart.c
+@@ -197,6 +197,7 @@ struct apple_dart_hw {
+  * @lock: lock for hardware operations involving this dart
+  * @pgsize: pagesize supported by this DART
+  * @supports_bypass: indicates if this DART supports bypass mode
++ * @locked: indicates if this DART is locked
+  * @sid2group: maps stream ids to iommu_groups
+  * @iommu: iommu core device
+  */
+@@ -217,6 +218,7 @@ struct apple_dart {
+ 	u32 pgsize;
+ 	u32 num_streams;
+ 	u32 supports_bypass : 1;
++	u32 locked : 1;
+ 
+ 	struct iommu_group *sid2group[DART_MAX_STREAMS];
+ 	struct iommu_device iommu;
+@@ -1076,6 +1078,11 @@ static irqreturn_t apple_dart_t8110_irq(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
+ 
++static bool apple_dart_is_locked(struct apple_dart *dart)
++{
++	return !!(readl(dart->regs + dart->hw->lock) & dart->hw->lock_bit);
++}
++
+ static int apple_dart_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -1143,6 +1150,7 @@ static int apple_dart_probe(struct platform_device *pdev)
+ 		goto err_clk_disable;
+ 	}
+ 
++	dart->locked = apple_dart_is_locked(dart);
+ 	ret = apple_dart_hw_reset(dart);
+ 	if (ret)
+ 		goto err_clk_disable;
+@@ -1165,9 +1173,9 @@ static int apple_dart_probe(struct platform_device *pdev)
+ 
+ 	dev_info(
+ 		&pdev->dev,
+-		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d] initialized\n",
++		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d, locked: %d] initialized\n",
+ 		dart->pgsize, dart->num_streams, dart->supports_bypass,
+-		dart->pgsize > PAGE_SIZE);
++		dart->pgsize > PAGE_SIZE, dart->locked);
+ 	return 0;
+ 
+ err_sysfs_remove:
 
-Best regards,
 -- 
-Alyssa Rosenzweig <alyssa@rosenzweig.io>
+2.48.1
 
 
