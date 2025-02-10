@@ -4,193 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6719DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E20C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aXlWlZewiLaBruZr8+A/vMMhf5kv4eeyowMHx4L+WnI=; b=nHoD9h9PILz8S+NQn14vZ5l2z1
-	e3m0AiPXrL43IzspKtbimQdI3wZ0I3oMjBXeO0KYGv/M59bD01mrhziwFksDQmGx0XNLiG2IQx39c
-	wEgS10IR54rhjx/+gZw3m6/M1E1b/DMLG/Xh4V4w6JVYqZLyT7obIX6bXNe2ubNI/QSbt9u6DVe9i
-	cBMRefq/hqWmg+XiKpd5NOsZgfGz7lbugss8pEUIpXgeuwbwvKd8F/AgiDKvGZBwrIiMACOLfGbrm
-	OiG6veGgk+47PRI9mZlT636+QHpdiSnjA38E6ccnRh4Jgwh8Q1E4/7ET7VO8YgRN5QlOa/oClMbal
-	moDGS2nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YO7ewETJb5sG2NP2BZ8Dt0gF3yg5dRK/kZXaV2fV63I=; b=Ei0b+pN+sJS20dkFtEHdNVNOYl
+	F2u0ikqSzAKTUc42/BeRxuLHDVGkarTCrKfybU900V77qx0/Z2vYhYgDLpgjMU/UXyawNo8FiVv0l
+	ZBLkp941K2q2hcnJBn6HM0fLvSMbJ/PkGKPDcSq7Zz+AgEZ1Cmc2JLKTb4Qq7f62e0wqcKXKIRtWo
+	0QvCsNK4IZfV3fDULFoW2QW7FOCNjefakSowhworkfh+Q6ITFm1mT1t+Z06babAoiHMdov8G1M4HI
+	pqSzquu4v0KNTaU1Ixlx6njMzjFq7BOpXbGqVoLO2+P8dj8YcqbWxKvX7Zc7dVEXLtgm8cLzAyyKq
+	zwoZEibw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thY1H-00000000oky-1npz;
-	Mon, 10 Feb 2025 17:56:31 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1thY36-00000000pCA-0Toz;
+	Mon, 10 Feb 2025 17:58:24 +0000
+Received: from mail-vi1eur05on2061c.outbound.protection.outlook.com ([2a01:111:f403:2613::61c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXzs-00000000oRy-1kMz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:55:05 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 519NICn9007889;
-	Mon, 10 Feb 2025 09:54:47 -0800
-Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2042.outbound.protection.outlook.com [104.47.66.42])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44pw2r2crv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 09:54:47 -0800 (PST)
+	id 1thY1f-00000000otz-1gcD;
+	Mon, 10 Feb 2025 17:56:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j2u/W74QDQRhGYrP6gVra4xsVFYJ4Zy2EtutZLwADcPuMGKPCVKYG5bBbTSQX34/nE+QT7YWeqX9VvHCDQRtwonQxFbeYtBa/ohBkrGpqyjsqTPu1TBuwLdJsjzMAUjairVpbUdIDhBdpMzuBgBERwgEdiy2Nfnm/+sjTHAR9Z1vN6q9jaxNZ889v/9zP0hc5bglTayl2k0RFjtfRQHR58T9SVV+cdqvPaTXItnDeQPeG3GMW0B1IcVsSJ0UefISFa1LjzOt/CU/+iAUnPpyEmI4wocyGZaqcBl87Al834L8tQ5Kf3Z7pTCfnhD7CXyxCY94whhgDk/mi6XJhWzZ8w==
+ b=Ks61WpRhlGM2qd8MT5sZzXh32PtWVT9j8DGYXw7mD0kqJuZxS2y36yqhHeyzgjVAepMCsL82zWRHbEDYa+8rVvUrrnQY2X94gu27m1C+Rl1VpOd3qOSw9f1OfP2IDE+ldNsx1paGGGsALXa+1J/0JkLEj9C0va4bnoGkWI7G0Vy+5U21RaoRY1WatWJ2hxB0hc0EKyropMHCpYiDlVqwyItDQITiGZl+E+cACFS9TnYrLRild5xk1Xn2n0QK7XfJF8g4bYr9wIyNcfI1n0PROtwt+d8nQAmC0yRh59cXay2ir0OH4zbM20Iqb8d9KZNARYAyKPwPbH5x+4gMzjVzGw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FSYSgmX3fU4LGU4sZNnfRkhBL7zlV+/ywl30N1qmMfQ=;
- b=Df6p4BnrOcQt3dPNmZ9TFYP1NFKmsK7pjv+oK0coNufhKiz47y9eo5p+u+UURbl89RGeB5JyT3Rx3Wt7MqGb7tHX8SbprM0f+nilzH98ZS/oi/HNP7qVaIo5ULcvjEja6zfcarV3ssaxgWIB6IA8W5kzAb98ZD2Salz6YT94FxOdyFg2NUHZ+uYEoB/yNfptKxt8hw4OHucnxEoAJCc4Mz+iaIrackhd3paEg9dN4xlkmJCkq6oPrFhbrtB7DuyDiXWoVEGVaBKycayZSt90eoKvAxdeAfnniGgeOZ1h0m2cwqyqD0v8EUJO2fAfgic0UiuhOAz03U0CBcPs7EhhcQ==
+ bh=YO7ewETJb5sG2NP2BZ8Dt0gF3yg5dRK/kZXaV2fV63I=;
+ b=JDOi/FYEpxPKcAr1YjGp5SJGbFKBWCodp0s7BQVEUJFM4ujAN2PIt38ZtKpeFswXlLpU1VH7RzWMWaZ5brSxvinVLSAQ9R/gxgzNyK+EvH5vtmkDezRWIFA8IX9ow9Etmu/GxYYtn3498e+pJB2woNbQjvtVig8xjSrH5OiYmy6UlimKSPiWhahr2o6XVjinNldBrLpSmXGyw6BLAlcCsYnVuBmq98jlCIC+4dKhNzXGvts+wjOknvc49gpCBoj250AocFMjVa+30XQhXkEfgkPwT29SQ6cilH3165C/SIvF9XSGCsFFysqkVjyN+A0npE/4j2dSFNyuvXRn86nTvQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
- dkim=pass header.d=marvell.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FSYSgmX3fU4LGU4sZNnfRkhBL7zlV+/ywl30N1qmMfQ=;
- b=LMVzhSKeTk0Gn/XMQtBmAzozGfEKoC8C1c6bYFxoWNbSvygrSMhwRnOxiEDn0mW8SdMh3EARGJ/bRuVKZD62f9YIQt37HWMrHCCo75vvIQTtci0D7PWJrlWEdvCQ9uh1CLP+Ds1aOf62I17nUuMyZq11K0lkS/lk21pzdgUK/PU=
-Received: from CO1PR18MB4682.namprd18.prod.outlook.com (2603:10b6:303:e5::12)
- by SJ0PR18MB5088.namprd18.prod.outlook.com (2603:10b6:a03:437::9) with
+ bh=YO7ewETJb5sG2NP2BZ8Dt0gF3yg5dRK/kZXaV2fV63I=;
+ b=TlCgLPUVc74U2YHWiSgkSAms/2U/XCWQG9YMxFwoiOmZtpwBNo763RL11I9uDf4JAV2Y1sMNu1voH77thES/bXEh03MjCg8e+yXNpj/iBO2mL0owx6UoHqF2at+KgUhEscUuUTGG1L73dZJ/3sY12VQXnXi8zZQI9gS2ovabqe0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by DU4PR04MB11029.eurprd04.prod.outlook.com (2603:10a6:10:590::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
- 2025 17:54:44 +0000
-Received: from CO1PR18MB4682.namprd18.prod.outlook.com
- ([fe80::ca55:457f:38a6:5ee]) by CO1PR18MB4682.namprd18.prod.outlook.com
- ([fe80::ca55:457f:38a6:5ee%7]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 17:54:44 +0000
-From: Wilson Ding <dingwei@marvell.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: "cassel@kernel.org" <cassel@kernel.org>,
-        Bjorn Helgaas
-	<helgaas@kernel.org>,
-        "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-        "thomas.petazzoni@bootlin.com" <thomas.petazzoni@bootlin.com>,
-        "kw@linux.com"
-	<kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
-        "bhelgaas@google.com"
-	<bhelgaas@google.com>,
-        "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        Sanghoon Lee <salee@marvell.com>
-Subject: Re: [PATCH 1/1] PCI: armada8k: Add link-down handle
-Thread-Topic: [PATCH 1/1] PCI: armada8k: Add link-down handle
-Thread-Index: AQHbe+TdhFpf+VtWCUaTz/qc3I6GNA==
-Date: Mon, 10 Feb 2025 17:54:43 +0000
-Message-ID: <CO1PR18MB46826E60C5512A113B5F8938A7F22@CO1PR18MB4682.namprd18.prod.outlook.com>
-References: <20241112213255.GA1861331@bhelgaas>
- <AD287CCE-9FFE-49BC-B9CA-B5CED4F05AF1@linaro.org>
- <BY3PR18MB46737FB5FDBD75CF31B505B8A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <BY3PR18MB4673207A36B2CD7C3B75EBA0A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <20250207175759.jzmoox5mke3rachy@thinkpad>
- <BY3PR18MB46738F5857319F9637FA5050A7F12@BY3PR18MB4673.namprd18.prod.outlook.com>
- <20250208103618.2binrjgry7ghoavc@thinkpad>
-In-Reply-To: <20250208103618.2binrjgry7ghoavc@thinkpad>
-Accept-Language: en-US
+ 2025 17:56:49 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8422.012; Mon, 10 Feb 2025
+ 17:56:49 +0000
+Message-ID: <9615521e-8a2a-44d7-99ea-5571f5de1e57@cherry.de>
+Date: Mon, 10 Feb 2025 18:56:47 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/4] arm64: dts: rockchip: add overlay test for
+ WolfVision PF5
+To: Dragan Simic <dsimic@manjaro.org>, Quentin Schulz <foss+kernel@0leil.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jagan Teki <jagan@edgeble.ai>, Niklas Cassel <cassel@kernel.org>,
+ Michael Riesch <michael.riesch@wolfvision.net>,
+ Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
+ <20250207-pre-ict-jaguar-v5-1-a70819ea0692@cherry.de>
+ <ef9133d217bc35f611ef390da8042510@manjaro.org>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR18MB4682:EE_|SJ0PR18MB5088:EE_
-x-ms-office365-filtering-correlation-id: 3d01d8fc-cee2-4852-1a9b-08dd49fc003a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NTFlQVdOSU0rS1pmWkVDVE1LaGY3QkpsbmgrU0lqZDB4WG00WGxVY1dWazlY?=
- =?utf-8?B?Tm5pcGZJY0VpQmczZHNOV2RMK2dpbXlGTHVWOE9Fd2sxa0gyeEN4YVRQOURC?=
- =?utf-8?B?VzlDSStQSXJPdVRFK0dpTkM4dmVCQXF5eFFZMVk4dHNnRTRwWHlyOVRQdkY4?=
- =?utf-8?B?L2dDNlNDUmp0L2c5d1owN1dZV281NWNvdnlEVVQxMm1WU3NTb0NFZkxTemE1?=
- =?utf-8?B?RWFrWHk5TkhiWnFvZzRBR3RXT1NzcjRDTExWSk1LM2haSDdCMW1yOXBGLytp?=
- =?utf-8?B?eVRJVlc3YmVLZkVadThGTWlDTjRYbFh3TnBzR0JxMFFRL1VRTjBzanUxNm16?=
- =?utf-8?B?MVBvV0hjdzU3UmVIWWwwVnBNalN3VW5nRHNxTk43TmxDVXkwUFNHTE56dkph?=
- =?utf-8?B?NVEwSzFKTVVCUWh1dUsxSGdsNWhvQVpjT3ZDU3l2MDdjWjVzSk84QnZMT2p0?=
- =?utf-8?B?RlN3aFM4Z3FRTFJlRkxrS0ExUUIvd3UvTldrSkNGckwvMDdKOFBDSWFKRHhw?=
- =?utf-8?B?RWRuR1NUdUVkQmRSaEVhc1krOUVJbUJKVWNnNjBBcXhBbXU5MGE0dGJSQkEv?=
- =?utf-8?B?ZG95Q3RndzRrWjkvSU91TWMvbHEreCtRYm5KS3FSb0sxR3BDZXJ5OGJiem9V?=
- =?utf-8?B?dVNuS0hIMVdpdFdqRTlxMzFjOHBpSG9TblUzcDh3MnpFUitFcjBRNW1rTXo4?=
- =?utf-8?B?Q3d0YUYwR1EvQmNhaEo3azRBOFJKVTRBajlDaVFGc2tqSUV5bzN0aVNmeDYw?=
- =?utf-8?B?Q2Y5SG1Ia0tZVW4rc3RjQWdETCtvWGtSM3pjM3Z1NUs3QWo2R09NMDFVemJR?=
- =?utf-8?B?Y3B6QWlpSFVYT0RQd3FJQnFLbzdjWUllei92MkxxMlhZSXJaZGM5TFhrRnBR?=
- =?utf-8?B?WDV1OWlSdUFsczlveVc4Z3MyYzBFM2hFbURFMTl5ZktWOE9DcS84NVhCNHdm?=
- =?utf-8?B?SUpqUkNZeEtVVVdqZnN0VkxuQUFwZXYwclpJMmFZcjlpanZmbFY0N0hQZTRP?=
- =?utf-8?B?S0VwQnA1amNDTTlWSGY1UWl4V3BLampZbDd2UEFRWjBNaEw0Q01kVnVxa28z?=
- =?utf-8?B?N01qamFLYldyaGI3VXJJNlUvUUdTcXdVQ1ZxTE5lbm9wUy9TL2hBZW4xUXU1?=
- =?utf-8?B?ZldvaktqZmkybVJqdEZtM0ZBOCtYWlNxSTZmM05rcTZDdkhsdTduRUIrSnYr?=
- =?utf-8?B?Mlp6c2VoY3krc0lxTHhKdGwwMnQzRis4dWh2djdvVjMveTQ0OFJwWTdjUXJi?=
- =?utf-8?B?Z01JYmtvVVUwR3FXazArQnhQNXFjR0NkMm1PQis5cHBWWTRrejl1UG9nTGF1?=
- =?utf-8?B?a3I1Qkw3STNhd0RhRUkzY081eGtnZEpDKzlYUVFpNFRoSnBRWURYdW43M1Jy?=
- =?utf-8?B?WWVLTmt1dFFpclpkSVRtMGlLck9CRlVIdWhPd0M1WjBzeEwvN3JKanRYbG54?=
- =?utf-8?B?QnppZ3J3aTl6bGQrekdPakhGR2Q1WmVZOGw3ekFmbERTWFk1aTcyT0hSeWRs?=
- =?utf-8?B?bUpadGQxMDFhUWRJdjJiczZheDJpMWpNSUp4QlY3blg1KzZNdDNwdmZHdUV1?=
- =?utf-8?B?ancvVzNtM0V6UzVQZk13T3ZCSUdMZUgwb2o0MERrZFI2R3lyRHlFWldZRjFT?=
- =?utf-8?B?QVIzS1gyWnBUcW96d3VFaU9zTzJGVG9jVmtEMlZzUU91NVdiT3BZMHdnc2Ew?=
- =?utf-8?B?STlMVHZaSVY4Z003dTVMOURydWlEUGtDako1MkNCT0RLRy9xUmc1N1cvTDFF?=
- =?utf-8?B?dXdwS1ova3dRbDNuMDh5aHNnL0pGU3F6M3NCa2hoZWl2RXpUNGVrdzVTb2Fh?=
- =?utf-8?B?OFl1NUdQNEhsVUZISTdWcGt4RzQ5RXc4QWdhaVpwNGhCZ0FPcExuYnh1c3Zk?=
- =?utf-8?B?TnMrWUtjdm9QWmZiQnpCMk1WM2ZmOHhWNzh3RmVsOXdoL1E9PQ==?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR18MB4682.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NWZFSVFIMjlXK0lNUVVWY1RTYlcrRy8vZ1BKQnVXdTZQZzlzcGpxMWRVVUJL?=
- =?utf-8?B?NVprZkVpWWJYTHF6WFk2WkpYOFJaeG5KeW1kdXNGUGtna3hJM1lyMmUxOGt4?=
- =?utf-8?B?R2IvZUNENU1yVjEvQkhFRk1FRUl1N0VGRHViVkg5dTBYTVY4SVJJeUNOSXd1?=
- =?utf-8?B?RDhhVTNjZGdMRnZqTVRMQ1V4SjZEUGo1SnNsenNIaEI3aWM1Ky95NjJPTmJr?=
- =?utf-8?B?WEl2cVVmemRBK28vSk5lWEM5M1dLRzNySmtpdDZhSDMrSS94SW1mb01ZeWFs?=
- =?utf-8?B?eUVYdm4zdXFmNWpUYjFOQXpkK0RBcGRyMUxBUnBXRmF1Y1UrOGpwSFdPL3p6?=
- =?utf-8?B?cHNUNUhOWU95NDZYQVVCaVhJa0c0RVVzWnRNWW80YTZzbzA0dzYwWXhjcXJj?=
- =?utf-8?B?WnBCTS9sYW9FT1d3bUZDTEoyb3BzMUVJL2NSc2s0VDVxOTR2cFl6NW83RHox?=
- =?utf-8?B?TEdNeGdSN0ZZR0E3Q3VVYkxidjhUMXh3Z29vdWFhdGlDS3lMM0tBNTI1SnZy?=
- =?utf-8?B?aC91Y3E1cGpTU2o2aVBNaXZVQkI0ZERpRnVxSzlrL04xSU8rNW4ycDFsTXRL?=
- =?utf-8?B?aGV5RnRCeWdOVWM2WFZVa1ptS1Y0bFNwaXdVZnJ0WEpWQ2t6TEwzMXdab1Uy?=
- =?utf-8?B?WnlMbjY3VTFKM0lLK3owNWU1dzIzdU5LY3JxVUhHU3Jud0NVd2tHbko2QitZ?=
- =?utf-8?B?Y3FUSlc1WTRva3Awai9ia2h3TTU2aUhsN1dkQXBiVnE0Z1pzcTVqSmtkampy?=
- =?utf-8?B?QTlkYnlIaGFOSWtWcXhZdCtERm1UaWlnQWE5OHdNNlBjb3BPSk5DTE5HRWxH?=
- =?utf-8?B?UnduNCtLUjRPazkwdmZjTW9xZUdrWllGRmtFWE5TOWE3Q1k5UGwzakxJenk5?=
- =?utf-8?B?MlZRNTc2NEkyZzBybWRCbjg5ZHFOQVJxK3E5cE1BRVRpeFpNQmp4a3I0V0tM?=
- =?utf-8?B?eTZIY0tnNlhWd1M1Sm5WbytYSGUyek9SNldubW1RaG5FQ0dLWmJyK3pQa1dt?=
- =?utf-8?B?bWw1T1NNSkVWdFJjZXBlR1FyZ20wSFVNMWxoL3dTeklNS3RFc2Zia1ZhYWhk?=
- =?utf-8?B?NXpmdkU3ZlZSUVdsSkQ3bVB5cDZkTlBJMFB5TEM3N0doODRXS1NEVTBpOHo0?=
- =?utf-8?B?K2cwTnFINCtCeEsxSyt5NUVpTm9STlk4WHR5V1J3OWJmRjltRCtPNDZWSm96?=
- =?utf-8?B?Ym10aXJKekkraERnRjdxdHQzSnlrRlIwekQzRDBjRmRsRXFqOUFITGhFSkJQ?=
- =?utf-8?B?TENSN0RZUkV5TVNrKzU3OTRtRmlSYnJwS2xYK3BJREQwY1hqbTBGQkJxTFhl?=
- =?utf-8?B?bm9peVlMNE1lQXh3QU40U2dnSDFMeElCRDJpK2E2b1FKMDRXbWZjSmRpN1RT?=
- =?utf-8?B?WVhucUdBSHlaWlV4ZEIySk9KYm9IYm4yNHB1NENzMnl0RFJDYjVFdEY3M1Fl?=
- =?utf-8?B?MHJvY0FiazNhNHNabWhSRGs1U1JQcWZkd3BNU0V2ZnJLcytONjdBb1dqZ0R6?=
- =?utf-8?B?NDEvalJ1RERBUXBCSDVBVG9sSWF6QWtVbmpJTjRRRlZWRUtsOTVkU1pGWCtN?=
- =?utf-8?B?aVI3NXYvUHZORzJnUWZWUG8wRUdxTjBhY1pENFMzY0lQeHJSQUgyWEdMb1ZZ?=
- =?utf-8?B?emFPTTF5Mk1tNnd0MXJDVlZoOE1DUm44TksvNVk3Q2tCa0hnUGlGOGFuRUIv?=
- =?utf-8?B?bExIdGNsVHdhc0JobnNEb1RXWVZ2MHl0bkZQSG0rSU5PSDd2ZkVsMmM1Q3Jy?=
- =?utf-8?B?NTFTTzM0SGFLaGJPQ0tZblYxQnFNdDlueDZkL0RNLzV4VUZieldDeHFsd0t3?=
- =?utf-8?B?NU0waUNhVEJQY2Q0S3duYUIzZUpVS2E0a3VjZVF2L0FaN3VJYjFwNS8zZXJK?=
- =?utf-8?B?aStMejkvRytIOTdTaFVsNVRKRW9XSmp6eS84a3Nqd0txUEZvazJEUGxWc2FS?=
- =?utf-8?B?YkhpRnQvMXl6VFpCU2ZoTDA1cTluRzRPeVExM3Y2aSt4WWJybkZ6eUdubFZj?=
- =?utf-8?B?M1M0dzNYNjBYWkhodS9TVittcVZuSUs1WlFFNGtEWm55RHJmc2t4OS9zVVNT?=
- =?utf-8?B?OUxWcWphcGFPdk1yWmdFOU8vZGZUQzZNRUVCdDhpUFltcnRqT1cwU0E4M1JF?=
- =?utf-8?Q?1n6X0vLQknT/A2I999iBRMsOg?=
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <ef9133d217bc35f611ef390da8042510@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR04CA0114.eurprd04.prod.outlook.com
+ (2603:10a6:803:64::49) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-X-OriginatorOrg: marvell.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DU4PR04MB11029:EE_
+X-MS-Office365-Filtering-Correlation-Id: 175daaf2-7d48-4b72-b4cf-08dd49fc4ac5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|10070799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjcyemlITHVMWDZsbGtZWkxrdDY5T3BvK2tINk9nMXkwRHZXWU12UUdDUVFG?=
+ =?utf-8?B?K1RqS1pic3R0dTh0WUdiR1pqb3BrZHJ2MUwxOWQwTDNzelVFMDNBRHJPOW5B?=
+ =?utf-8?B?RnNldHYvaGR2TG0rVDBUZ0RDNEJKd3FPL1c3VTVEU2VicWFNVXpHZ0FzcWx4?=
+ =?utf-8?B?Sk9iRGR1ZUo2czRBL1N1UTRqK1R5aGhTelVpaFYwbFpjRTl2U0MrMEZ1Qi8w?=
+ =?utf-8?B?TnF5dDVmbng2Wk5LVCtBdnIvY2hvK3Z4N2xsNm9WT2F1UlVvZGZZNytIamtH?=
+ =?utf-8?B?eFRVRDRPeU1MY2RLbWJrOVFaWTlZNHpzdUxiNWpTRlFmRzNzTDNLb3FrMUtR?=
+ =?utf-8?B?cGNzcnI1WVJOQkxnMlhmRUtKZVR0YjBYNzBrV1VQWXZyYURlVHIxR2dhQWlF?=
+ =?utf-8?B?L2YxMHBtbWgxcGNlOTlZMGRXclVna2lzVjJDYUVBc1duUXdjYU9zazJaQmIz?=
+ =?utf-8?B?Mm43R2dpRGlCRGtuWVhic0NGUldENmtUMUovd0l0N0hQaGdtS3JzZGlOeUJm?=
+ =?utf-8?B?akxJbjZ2WFZvakpwUWN0VlU3MHVQWFp1Y3hOczBmZFZ0RGRid1dRZHBIZ2hu?=
+ =?utf-8?B?Z2ZjRS91OTZLNXg3bXV5bDRPRzV5SnNiZ2FHVE5aRTNWRFo3OHplaG5nbmlv?=
+ =?utf-8?B?bnRPNjVBQ2h2aWRxMEVJQ3IySmtGa1hDeG4yMUs4Uk1PYXR3UFBZM01MSEFl?=
+ =?utf-8?B?NzkxRUJ1R0c1TnE5WE4vQlpVUUVjT3UxYkNkN1hmOXJyTTlvdFh5WUkrNS9U?=
+ =?utf-8?B?N0J1d0xCMUZvU2MzbzBGUlFNcTNJRDhnRzFWYlUvcXZoYzJHRXg3Rlh5OWhH?=
+ =?utf-8?B?akVoa1oxTlFQRWp6YnNpRHQ5N2h4K3NOQ1dmYUtIVXNmN0lwZnFyOGZxRWdE?=
+ =?utf-8?B?NHJ4Qlhia21aL0tvL205MU5SR2FWQkFwQWxpM1Y2eERkVDUrQmpiYTNUblZt?=
+ =?utf-8?B?L3pGQU1pUi94d2dxUTJOdUJpY2QwaVJFcVVKZFpOanhMYXhhUHJtR3dPMjhP?=
+ =?utf-8?B?YXJldUVWaFllMG9xNGtFb3RJY0RqeUcwcnRjeW5oVUppYXBuOWoyVm01MS9n?=
+ =?utf-8?B?NDlKNmIzcFM1L2Yyb1dKWTl6S2R0MjMrczFqa0VFcVY2bHp4cDB0R1pPUlNQ?=
+ =?utf-8?B?ZzVzV25CK0dWdjdlR1J0VjBSbW9qcjVBNXgvR2VSRUQ4b3kyWC84YTlPckhP?=
+ =?utf-8?B?SllTeDNMeitVUzFocDdIVVNTdllLRGF5S3dTL1M1bVhkcTZMU1IveHZKakp2?=
+ =?utf-8?B?NEh3djZhMk8yQUhOeVZxTzR0YUN5dUZPeUZGSUt1NFJjYm1JeVFIWE1kTnRW?=
+ =?utf-8?B?djA3N0tkSzUzTCtBNCtrUDhwK0x6d1F3dEFla3VHSEQxZURDVTd6OVEvTlhF?=
+ =?utf-8?B?bUhQWHlCcVJ3alRxWVdCb2pHZ3J0a3U0ZHMwdG8vY2xhVFJobStLK0hsTHc2?=
+ =?utf-8?B?MUI0WlVKNE52c1BZMmJHRGdBV2huWHJnclFjdEhTTW9BM2RkSE1oVFVUcHR3?=
+ =?utf-8?B?ak5JK1hkT0M1MmVYNjYxL1c1NjU3SWVhSjZGQkU4OGdndVlzZHpadGRKbm9T?=
+ =?utf-8?B?TDI0QnNCWXo4a2VjZGdmdXB4S2lqS21sb3JtKzIvc2FhV1lIOSs3MTdiUTgy?=
+ =?utf-8?B?ZHlTSWRrVFNjMHRxMTZoQ2JwZ2FoNnl6azFRR09GbnRTVk1GZFJNZWVSM1Bu?=
+ =?utf-8?B?U00wODNyc1VNL3NPMlRURHFIT1JpYVFXOS9BYmN3YWQyRVoxWTZGcHMzOUlz?=
+ =?utf-8?B?d1F1aVpMY3M5dHFNR3dsYzNvRktqV2VGOU5QMWhId3JEaWtWQ0llcy8zaW5w?=
+ =?utf-8?B?MlM2b0tPTWd2YzRKMXV2MU5BWkJGOGRCM0xoVnpma0FYOVozeVB0QVVMZzBM?=
+ =?utf-8?Q?szDeXjmD6YT6D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(10070799003)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VXdFVERlVWtDRHZnTUxCYnlRYk1WSzRNTFduaUtQUHhFdDFQK2ZsbnBkSHUr?=
+ =?utf-8?B?VW52K0NEYUtYRzM3bFh2bzlHenlGcWVlQm1BdXNsSXhuRHhxekQvSWdxMTlm?=
+ =?utf-8?B?ZjdVeW4ra091Vk9RWmFRcEJOQ2dVMER5MTNoQmxGZWFFSVVCMDMxelNlajJU?=
+ =?utf-8?B?U1ErUjNVN3pWUDlTbUg0dXFnMFRiRTd1VjA4dkNlclNyMzg2aVhyMXpiZ0Ix?=
+ =?utf-8?B?TUMvQytsTUt3RlM3TUdjQ284Uy95SnZiNjRucVpmUktMVkFINVlYSUxPZURH?=
+ =?utf-8?B?YmpQdWQ4aHR1YTdSYUt2bjN0d2tqbEd4dFpOa1hYc1JSMWdXRlBBdnFGVEtI?=
+ =?utf-8?B?dWU2ZE5BOWo2anFjdUU1QlExang1NHplaWdDWmhzb0NPMmViSW9aM05Pd0JL?=
+ =?utf-8?B?bGh5N08zRzVPVlhFQ1Y5Vms5T25oQ216THZ6anp6cWFOazh6YkNDYXI5M0VO?=
+ =?utf-8?B?ZmtiU0ZUYkRVdktycjlEWk5xRTIzaFRHSGoyRDRwRExQb1JQUXhzckNJdXFr?=
+ =?utf-8?B?Y1lxeDFCVk54djZ1aHBTN0J6ZnpJSkFuL2FzYlVxcWphTkxEaTFic3N4NHdZ?=
+ =?utf-8?B?NDlHK0FhRkxuRW1FR3lzWTdQS1hsT1RzN3JFdU1mS0RuUXNJMHZDRXN5eVA3?=
+ =?utf-8?B?aWZKNC95TjRTUjhlazEyMmdSMmd2R1A4Wk5tbTJtL2ppbk1WSkNEc1FFUW01?=
+ =?utf-8?B?ZnozSkhVV25Pa3pSbVAwQXlUZ1c1RUkybnhNV0t1UFFOQUZpZ3UvZW9YMVp4?=
+ =?utf-8?B?c1pnRjlFOVBUK2k0QXBLTGlVdUdnNW8zYXZya0dQYUdRNStsMmZnRjRMZXYz?=
+ =?utf-8?B?dWtUUThYTlRLN1NONDlOUXJiYXpJdEZ3UkIvNVVqWTUrOVV4cS9PeG5scTRs?=
+ =?utf-8?B?YTdHc0R0ZXoxM2RhR1ZnTzFtbWJiRXhHY0lQRnQrT0ZuV1Y5SXZlVUZmZHVt?=
+ =?utf-8?B?YlBUb1M1UFZWYjQ3eERTalRhVjg2NDhmcXczL2FVcHgrNWVieHg5cXZ1MU9Y?=
+ =?utf-8?B?eStqWmkwR2xOOHdzb0JTdHc2cnBCWXJQWUNZOGt3c09hTEU5YlV3Rno5UUNR?=
+ =?utf-8?B?V05Cc1p6REhoc0lrS2swSTVZU2NJaUpNVytlU1lYT3BPM1QvbnNJZ0t0NUlw?=
+ =?utf-8?B?MHZtUm1oTUFHdy9vUHpudE93UVYzZzNxVkNYWjNpTlg1Y3doaHQwbWMySWYx?=
+ =?utf-8?B?ZC81eW04MnRTR3RqSlJ5Lzlyei9kQnR3WnBmZDhjZHNYZ1l1b0ZOc1U3OS9I?=
+ =?utf-8?B?QVY1MVBsbGg1YmNWRVFrVHpQUGlVWkEyZ3daU2pMVmFrNzZsejh6cWowOVVV?=
+ =?utf-8?B?NFVVRkFTU0hKREJqVjFiZTZTRFA4aitJYm01ZGdyM3Nvb1FZMFBrU2F6SUdq?=
+ =?utf-8?B?VldUWjBFS3ExY3RJeTczVGx2N1E3eUg2OVV2REdGTTV1NlVDSXV1ejRJcStt?=
+ =?utf-8?B?UkF2K3c4Ym1JMk0zRzQxZ29oZWZ5ZE14Q0s0ZGxGNVR6a29RQi9nc044MkVP?=
+ =?utf-8?B?azRaN0FOdVl6NlZFNXczK2VUTHZZYitEOGxrUGI5ZmF5M3JlM0Y1WjdmSU1X?=
+ =?utf-8?B?YkRxMVREU3Ztb21GUmloNHBnUy8xZGRIcVpnaHFES2RLb0R5L2d1VkptbWYr?=
+ =?utf-8?B?OTZia0E3R3FLc21UYnZoY0ZaMGVyeEhEbmQ1Z0ozODI0QjN3ajdKTU9MalBh?=
+ =?utf-8?B?R3NvTEh0aFdheTY3RUNiWmJaY1lKd1dpMVVzOC9HOFhSRWxxZVB1dHoxTjdj?=
+ =?utf-8?B?L0F5QzdpaGMzL1RMTXhoV2RDdWVHeVdaZVpOWkpiNXNVV1Bhd25kNUhBTENq?=
+ =?utf-8?B?WmVpNHBML3ptbWRrQWVETEhpU3FjTFlmMlhYV0ZJeEdiSUxJdTJhdEZucSt0?=
+ =?utf-8?B?SW54amU2QVhJdDE2VHAxMGE3eHc4eHBvRElubmZXeHRCTWRIQXhNWUdtQldi?=
+ =?utf-8?B?bTI4OWRoK01aVUgxTUgvU1QvTENEUm9IS3cwaUpycHhFRm9kZm1HRXhIdi8r?=
+ =?utf-8?B?VzNzUytBQmIyK1NSVmQvZHBCc0xZV05TVE9GajBROU9zcWVSZnBmNkY1QlJB?=
+ =?utf-8?B?eGFDWWZDWDNxNEFNQ21nYkd5OVlUUGxDOWt0Qm9mWkZVVjh0V2lPTVM1V0Vl?=
+ =?utf-8?B?Z1E0bDNtNHVtMFh5RWxaY2lLZkZzQWxqaE13TGVvdmNmdG1OSElIaGc1Z254?=
+ =?utf-8?Q?1bYJiBAgC4vHHGwDS6uj8xk=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 175daaf2-7d48-4b72-b4cf-08dd49fc4ac5
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR18MB4682.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d01d8fc-cee2-4852-1a9b-08dd49fc003a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 17:54:44.0760
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 17:56:49.2746
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: D+E2Y5XvSIU4wIQLrVzWXh0tVwouqXTBYuR6OJa8diSoBSEtVE4RBalK9/khrXzlFa6HdeKRJslTelemkgD0Cw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR18MB5088
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: tAEVOhUImhMAEMhuTI5_LVlYLzTcFX_W
-X-Proofpoint-ORIG-GUID: tAEVOhUImhMAEMhuTI5_LVlYLzTcFX_W
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_09,2025-02-10_01,2024-11-22_01
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1Qq/xDn63gq8ZrTlzUPkEawKaK2+i8metVi3F0OC3TtB0qoVCzeHMBFA1pz+zwV4jpdRZm/gGY7Dsa02R4u7zGSCjwco+43pCsPK/4ur+C0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_095504_463990_511C99C7 
-X-CRM114-Status: GOOD (  38.79  )
+X-CRM114-CacheID: sfid-20250210_095655_581641_7F042CC0 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,231 +182,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dragan,
 
+On 2/10/25 9:46 AM, Dragan Simic wrote:
+> Hello Quentin,
+> 
+> Please see a few comments below.
+> 
+> On 2025-02-07 16:19, Quentin Schulz wrote:
+>> From: Quentin Schulz <quentin.schulz@cherry.de>
+>>
+>> The WolfVision PF5 can have a PF5 Visualizer display and PF5 IO Expander
+>> board connected to it. Therefore, let's generate an overlay test so the
+>> application of the two overlays are validated against the base DTB.
+>>
+>> Suggested-by: Michael Riesch <michael.riesch@wolfvision.net>
+>> Reviewed-by: Michael Riesch <michael.riesch@wolfvision.net>
+>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+>>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/Makefile | 22 ++++++++++++++++++++++
+>>  1 file changed, 22 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
+>> b/arch/arm64/boot/dts/rockchip/Makefile
+>> index
+>> def1222c1907eb16b23cff6d540174a4e897abc9..534e70a649eeada7f9b6f12596b83f5c47b184b4
+>> 100644
+>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>> @@ -170,3 +170,25 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s- 
+>> orangepi-5.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
+>> +
+>> +# Overlay application tests
+>> +#
+>> +# A .dtbo must have its own
+>> +#
+>> +#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <overlay>.dtbo
+>> +#
+>> +# entry, and at least one overlay application test - ideally 
+>> reflecting how it
+>> +# will be used in real life -:
+> 
+> Hmm, what's "-:" actually doing in the line right above?  I mean,
+> it's a minor nitpick, so might be worth addressing only if there
+> will be the v6...  Also, "test - ideally" might be replaced by
+> "test, ideally", because splicing sentences together using em/en
+> dashes is generally frowned upon. :)
+> 
 
-> -----Original Message-----
-> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Sent: Saturday, February 8, 2025 2:36 AM
-> To: Wilson Ding <dingwei@marvell.com>
-> Cc: cassel@kernel.org; Bjorn Helgaas <helgaas@kernel.org>;
-> lpieralisi@kernel.org; thomas.petazzoni@bootlin.com; kw@linux.com;
-> robh@kernel.org; bhelgaas@google.com; linux-pci@vger.kernel.org; linux-
-> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Sanghoon Lee
-> <salee@marvell.com>
-> Subject: Re: [EXTERNAL] Re: [PATCH 1/1] PCI: armada8k: Add link-down
-> handle
->=20
-> On Fri, Feb 07, 2025 at 06:=E2=80=8A46:=E2=80=8A22PM +0000, Wilson Ding w=
-rote: > > > > -----
-> Original Message----- > > From: Manivannan Sadhasivam
-> <manivannan.=E2=80=8Asadhasivam@=E2=80=8Alinaro.=E2=80=8Aorg> > > Sent: F=
-riday, February 7, 2025
-> 9:=E2=80=8A58 AM >=20
-> On Fri, Feb 07, 2025 at 06:46:22PM +0000, Wilson Ding wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > > Sent: Friday, February 7, 2025 9:58 AM
-> > > To: Wilson Ding <dingwei@marvell.com>; cassel@kernel.org
-> > > Cc: Bjorn Helgaas <helgaas@kernel.org>; lpieralisi@kernel.org;
-> > > thomas.petazzoni@bootlin.com; kw@linux.com; robh@kernel.org;
-> > > bhelgaas@google.com; linux-pci@vger.kernel.org; linux-arm-
-> > > kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Sanghoon
-> > > Lee <salee@marvell.com>
-> > > Subject: [EXTERNAL] Re: [PATCH 1/1] PCI: armada8k: Add link-down
-> > > handle
-> > >
-> > > + Niklas (who was interested in link down handling) On Sat, Feb 01,
-> > > + 2025 at 11:=E2=80=8A05:=E2=80=8A56PM +0000, Wilson Ding wrote: > > =
-On November 13,
-> 2024 3:
-> > > + 02:=E2=80=8A55 AM GMT+05:=E2=80=8A30, Bjorn Helgaas > > <mailto:=E2=
-=80=8Ahelgaas@=E2=80=8Akernel.=E2=80=8A
-> > > + org>
-> > > + wrote: > >
-> > >
-> > > + Niklas (who was interested in link down handling)
-> > >
-> > > On Sat, Feb 01, 2025 at 11:05:56PM +0000, Wilson Ding wrote:
-> > > > > On November 13, 2024 3:02:55 AM GMT+05:30, Bjorn Helgaas
-> > > > > <mailto:helgaas@kernel.org> wrote:
-> > > > > >In subject:
-> > > > > >
-> > > > > >  PCI: armada8k: Add link-down handling
-> > > > > >
-> > > > > >On Mon, Nov 11, 2024 at 10:48:13PM -0800, Jenishkumar
-> > > > > >Maheshbhai
-> > > > > Patel wrote:
-> > > > > >> In PCIE ISR routine caused by RST_LINK_DOWN we schedule work
-> > > > > >> to handle the link-down procedure.
-> > > > > >> Link-down procedure will:
-> > > > > >> 1. Remove PCIe bus
-> > > > > >> 2. Reset the MAC
-> > > > > >> 3. Reconfigure link back up
-> > > > > >> 4. Rescan PCIe bus
-> > > > > >
-> > > > > >s/PCIE/PCIe/
-> > > > > >
-> > > > > >Rewrap to fill 75 columns.
-> > > > > >
-> > > > > >I assume this basically removes a Root Port (and the hierarchy
-> > > > > >below
-> > > > > >it) if the link goes down, and then resets the MAC and tries to
-> > > > > >bring up the link and enumerate the hierarchy again.
-> > > > > >
-> > > > > >No other drivers do this, so why does armada8k need it?  Is
-> > > > > >this to work around some unreliable link?
-> > > > >
-> > > > > Certainly Qcom IPs have this same feature and I was also looking
-> > > > > to implement it. But the link down should not be handled by this
-> > > > > in the
-> > > controller driver.
-> > > > >
-> > > > > Instead, it should be tied to bus reset in the core and the
-> > > > > reset should be done through a callback implemented in the
-> > > > > controller drivers. This way, the reset cannot happen in the
-> > > > > back of PCI core and client
-> > > drivers.
-> > > > >
-> > > > > That said, the Link down IRQ received by this driver should also
-> > > > > be propagated back to the PCI core and the core should then call
-> > > > > the callback to reset the bus that I mentioned above.
-> > > > >
-> > > >
-> > > > It's more than a work-around for the unreliable link. A few
-> > > > customers may have such application - independent power supply to
-> > > > the device with dedicated reset GPIO to #PRST. In this way, the
-> > > > power cycle and warm reset of RC and EP won't have impact on each
-> > > > other. However, it may lead into the PCI driver not aware of the
-> > > > link down when an unexpected
-> > > power down or reset occurs on the device.
-> > > > We cannot assume the link will be recovered soon. The worse thing
-> > > > is the driver may continue access to the device, which may hang the=
- bus.
-> > > > Since the device is no longer present on the bus, it's better to
-> > > > remove it. Besides, in order to bring up the link, the only way is
-> > > > to reset the MAC, which starts over the state machine of LTSSM.
-> > > >
-> > > > Well, we also noticed that there is no other driver that did this.
-> > > > I agree it is not necessary if the power cycle or warm reset of
-> > > > the device is done gracefully. The user can remove the device
-> > > > prior to the power cycle/reset.  And do the rescan after the link
-> > > > is recovered. However,
-> > > the unexpected power down is still possible.
-> > > > Please enlighten me if there is any better approach to handle such
-> > > > unexpected link down.
-> > > >
-> > >
-> > > There is no issue in retraining the link. My concern is that, the
-> > > retrain should not happen autonomously in the controller driver. PCI
-> > > core should be made informed of it. More below.
-> > >
-> >
-> > Do you mean
-> > - pass the link down/up events to PCI core
-> > - remove the device or hierarchy by PCI core upon link down
-> > - initiate the link retraining in PCI core by calling the platform
-> > retrain callbacks
-> > - rescan the bus once link is recovered
-> >
->=20
-> Yeah. This is what I came up with quickly:
->=20
-> ```
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c index
-> b6536ed599c3..561eeb464220 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -706,6 +706,33 @@ void pci_free_host_bridge(struct pci_host_bridge
-> *bridge)  }  EXPORT_SYMBOL(pci_free_host_bridge);
->=20
-> +void pci_host_bridge_handle_link_down(struct pci_host_bridge *bridge) {
-> +       struct pci_bus *bus =3D bridge->bus;
-> +       struct pci_dev *child, *tmp;
-> +       int ret;
-> +
-> +       pci_lock_rescan_remove();
-> +
-> +       /* Knock the devices off bus since we cannot access them */
-> +       list_for_each_entry_safe(child, tmp, &bus->devices, bus_list)
-> +               pci_stop_and_remove_bus_device(child);
-> +
-> +       /* Now retrain the link in a controller specific way to bring it =
-back */
-> +       if (bus->ops->retrain_link) {
-> +               ret =3D bus->ops->retrain_link(bus);
-> +               if (ret) {
-> +                       dev_err(&bridge->dev, "Failed to retrain the link=
-!\n");
-> +                       pci_unlock_rescan_remove();
-> +                       return;
-> +               }
-> +       }
-> +
-> +       pci_rescan_bus(bus);
-> +       pci_unlock_rescan_remove();
-> +}
-> +EXPORT_SYMBOL(pci_host_bridge_handle_link_down);
-> +
->  /* Indexed by PCI_X_SSTATUS_FREQ (secondary bus mode and frequency) */
-> static const unsigned char pcix_bus_speed[] =3D {
->         PCI_SPEED_UNKNOWN,              /* 0 */
-> diff --git a/include/linux/pci.h b/include/linux/pci.h index
-> 47b31ad724fa..1c6f18a51bdd 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -637,6 +637,7 @@ struct pci_host_bridge *pci_alloc_host_bridge(size_t
-> priv);  struct pci_host_bridge *devm_pci_alloc_host_bridge(struct device =
-*dev,
->                                                    size_t priv);  void pc=
-i_free_host_bridge(struct
-> pci_host_bridge *bridge);
-> +void pci_host_bridge_handle_link_down(struct pci_host_bridge *bridge);
->  struct pci_host_bridge *pci_find_host_bridge(struct pci_bus *bus);
->=20
->  void pci_set_host_bridge_release(struct pci_host_bridge *bridge, @@ -804=
-,6
-> +805,7 @@ struct pci_ops {
->         void __iomem *(*map_bus)(struct pci_bus *bus, unsigned int devfn,=
- int
-> where);
->         int (*read)(struct pci_bus *bus, unsigned int devfn, int where, i=
-nt size, u32
-> *val);
->         int (*write)(struct pci_bus *bus, unsigned int devfn, int where, =
-int size,
-> u32 val);
-> +       int (*retrain_link)(struct pci_bus *bus);
->  };
->=20
->  /*
-> ```
->=20
-> Your controller driver has to call pci_host_bridge_handle_link_down() dur=
-ing
-> the link down event (make it threaded if not done already). Then you shou=
-ld
-> also populate the pci_ops::retrain_link() callback with the function that
-> retrains the broken link. Finally, the bus will be rescanned to enumerate=
- the
-> devices.
->=20
-> I do have plans to plug this retrain callback to one of the bus_reset() f=
-unctions
-> in the future so that we can bring the link back while doing bus level re=
-set
-> (uncorrectable AERs and such). But this will do the job for now.
->=20
-> I will send a series on Monday with Qcom driver as a reference.
->=20
-> - Mani
->=20
+That was supposed to be an em-dash yes.
 
-Sounds great. Looking forward to your patches. Thanks a lot!
+, and at least one overlay application test (ideally reflecting how it 
+will be used in real life):
 
-> --
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
+Would that work? I don't like the : following "ideally reflecting how it 
+will be used in real life" as it applies to "overlay application test" 
+and not the end of the sentence.
+
+>> +#
+>> +#  dtb-$(CONFIG_ARCH_ROCKCHIP) += <name of overlay application test>.dtb
+>> +#  <name of overlay application test>-dtbs := <base>.dtb
+>> <overlay-1>.dtbo [<overlay-2>.dtbo ...]
+> 
+> As another minor nitpick, I'd suggest that
+> 
+>      "<name of overlay application test>.dtb"
+> 
+> is replaced with
+> 
+>      "<name-of-overlay-application-test>.dtb"
+> 
+
+OK.
+
+Cheers,
+Quentin
 
