@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA284C021AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7BFC021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVV5fItADhSdmSptdzySm7drerIykRqZzWFXa7Bk090=; b=4fQ0vijCIDQU9OK+lgtuMwfTCl
-	iLUm+iwReJD+4f7rmNJawSiUXU11jCp4hs9C+4ViijbYJtXst0N4UVu1PFVFkISFw1ZrUx17sHc8r
-	phA0aGoRxs37RtASVzpnGdWL4Jw4rxK7CT4GhMvxCeM6+uFAEH/PXbQyDfqKO3p78XCHWuI70vnwB
-	EiH7UVx+Qm6AJEDE+5SBaIxesdJoz7alUQspxdTNDEa+JxqITABTwxk8ooz4TFTmUvx251U8l+Uwd
-	ME6xV7VDzttJ3aoAVCMQNzLd1VTllTwMQ+SAjZfbZF9yOsi5UrpeaspQWgk675ig657l0yGr+gqrq
-	c60mFIFg==;
+	bh=f87nlZVEzgjO19B1BV0yen9Sdb/bQrUoVpDE+DzExuc=; b=oB3MSdHIzqULdAsUrCCFd78qG/
+	KOfFf8wXZv9dBMnTsypRJ+WppO7rNH+Oaa4CwoSb65/XzlwAhpBtt3sebd9Dp2/VLun8QuYUaOVtB
+	7nRdU25rYqiTUky247eLdYh06fB79XE0hGHMdiZhhQOCl5Cc0bX6j7wkkQrVj6lBQElt/pRR3Xufi
+	tF6iJv0qj/LiDOszfGfse3kHfPnN1Fha1ItAeE+5tBMxybdXL1geyXggBYUo3J40mUFVCZQBn+YxF
+	IRuOtwNt5GSTZsYbN+03VHBdv7L2GLz6sIt2Nq26LlecsC3QUadN5p6V7WxXZmQcLfun0fhTEknoR
+	kilUnSHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSjN-0000000HN3A-1u40;
-	Mon, 10 Feb 2025 12:17:41 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thScU-0000000HM4D-30dQ;
-	Mon, 10 Feb 2025 12:10:36 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab7d583d2afso14422966b.0;
-        Mon, 10 Feb 2025 04:10:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739189433; x=1739794233; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iVV5fItADhSdmSptdzySm7drerIykRqZzWFXa7Bk090=;
-        b=JslCpju5VTOdb6WoRJ+M11DnSNOEbbkxC96LXi/VH/NrVqfh3g60wjEyTU3jN/Bx9x
-         y/pASPtdpkibDUQjwSuF63dDAAUkRinqvVxfCmWXTSeBStJRE2LZSRsyc9CHg/BEC0y1
-         vIY7hykWsQ8d5LbnGKNL62ol8/P3INz2VMZEUe5IMHkceOdMwMspelPAm9N2z1cmJHFj
-         ly/+HbJ+5XpBu4nJW8AAKS25GhAHgcMIQrzfqncwXijRzBV3/9jtv8haF+5cQK0B+PBL
-         on70ooLk0MGrP6kfFaTqjc53x6f1/aH6FaH/ElRJrUFN4uLHZBgtGGIbtyeo/V/VuAmv
-         cQAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739189433; x=1739794233;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iVV5fItADhSdmSptdzySm7drerIykRqZzWFXa7Bk090=;
-        b=JNZsb60SHlVLdEes3jsH2eNyXcquIqxIAM6qBksFWbE/a3gv3m1RKbS5uK4Q8apMUe
-         9ULc1ujdc4G+x381+NayAyMnolv5dEt+uKW236BNMIAx96xbmtHAhgFUCJ35QyrGL2ZZ
-         l2ejLp1dFEnvbeqz18ZFneIT2wTlzAwD9DyzhnGL4pzgJTIAavKqc8gcXYxOUZGnipEx
-         Gr2FxOqEsfCJuIZccUE89foolJOuJ1Ws1f4ErQj6xfBYszp7Vb9NU8id6nufDvmadfhA
-         4VbQmI66R6kW/Jlejag8d5F69AHlMooIOg39EfAHjGAPBlKvYzr8Rr62jltG7RNHT0VR
-         wO7w==
-X-Forwarded-Encrypted: i=1; AJvYcCW4jOMsIvCbmAyaNKVLXZ0C5OaA1qxQMo+blNwhiPbNp+KRgOWmBbAIMiGdX3dy6jWuPQKZvyQpCRhJbig=@lists.infradead.org, AJvYcCX8y1tLgT9fFn2HVocH+Kg8PhCI0Ei3lIEQ0HF/rcm4wbo8dnK+r0jnof5imrJKtupWX/0ZprJbmtegEuIMR1HA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLZ1ku93RGXpRnnrxzktaW+jx7cC/78J0asynyEIQhnFCgqYDZ
-	1IHNEcg7k7LJ7YYA2GdGiCDXRa3BCyBm5CSKHwdKS6rBYRCk/G0J
-X-Gm-Gg: ASbGnctMEPUh6UFvcv1ybOydA2rfxg4Tc0Zx72EUi7VHZp/MrmIkkfmQqTQHYmBEcgQ
-	8GutOpgdNR+fROKWDtPg7Vgb3m1bbdAf6Y+N1UwRfN542DBodfmsgMOz/HnX3V4ulURTlmQySbx
-	x20mI0BSRouUlF63R5oXM7VQoCjQ26EjpuJkuqpsYmHvlh3TiGpZ30ns+ymTN1oo6zAcYQcoexO
-	b6bzddtmj9O8ApjJCVCx3dTR9eLzjeLOoVWAUSqESWQKTw69g+WD+Vg5eaAKkk0SoDSuzYYd2hr
-	dXuXYs2M+3QHWfX9pPI23/cykH+TAcdR
-X-Google-Smtp-Source: AGHT+IG0r7IUI08jzz62jmBNjDxyMCWdSH4iEcWJL4NhmxdTXJTTGmJz9BnjUWRrDIT9Op9nqTWxqw==
-X-Received: by 2002:a17:907:740e:b0:ab7:c41b:a25a with SMTP id a640c23a62f3a-ab7c41ba2e1mr201449966b.6.1739189432773;
-        Mon, 10 Feb 2025 04:10:32 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7b12d5f49sm364727266b.73.2025.02.10.04.10.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 04:10:32 -0800 (PST)
-Message-ID: <783a005a5e81796d572558ec083ff08b5adb34df.camel@gmail.com>
-Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>, Yixun Lan <dlan@gentoo.org>
-Cc: soc@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
-	 <inochiama@outlook.com>, Lee Jones <lee@kernel.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Sebastian
- Reichel <sre@kernel.org>, 	devicetree@vger.kernel.org, Haylen Chu
- <heylenay@outlook.com>, 	linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, 	linux-pm@vger.kernel.org
-Date: Mon, 10 Feb 2025 13:10:30 +0100
-In-Reply-To: <eoeyutuu4mrpsu7snkk5ll6kmm4344qsgbnncss6gerlcvvea7@usuf5v7w5ffp>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-	 <eoeyutuu4mrpsu7snkk5ll6kmm4344qsgbnncss6gerlcvvea7@usuf5v7w5ffp>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 
+	id 1thSjP-0000000HN6t-0jks;
+	Mon, 10 Feb 2025 12:17:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thSfT-0000000HMIi-1xlb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 12:13:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A07012FC;
+	Mon, 10 Feb 2025 04:13:58 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 430773F5A1;
+	Mon, 10 Feb 2025 04:13:35 -0800 (PST)
+Date: Mon, 10 Feb 2025 12:13:32 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Paul Benoit <paul@os.amperecomputing.com>
+Cc: linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] firmware: smccc: Support optional Arm SMC SOC_ID name
+Message-ID: <Z6ntbLvjjtcW92_Z@bogus>
+References: <20241114030452.10149-1-paul@os.amperecomputing.com>
+ <20241218001338.6247-1-paul@os.amperecomputing.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241218001338.6247-1-paul@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_041034_757365_1919CBD5 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250210_041339_597644_2EE5BE43 
+X-CRM114-Status: GOOD (  33.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +66,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for quick feedback Inochi!
+Mostly minor coding style comments from me, otherwise LGTM.
 
-On Mon, 2025-02-10 at 13:33 +0800, Inochi Amaoto wrote:
-> > It would probably make sense that the whole series would go into SOC tr=
-ee,
-> > even though technically nothing prevents the reboot/reset driver to com=
-e
-> > in PM/reset tree. If everything would come together, `reboot` command w=
-ould
-> > work out of the box.
-> >=20
-> > [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> > [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> > [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v=
-1.01/sg2000_trm_en.pdf
-> >=20
->=20
-> This reboot implentment across the RTC and 8051 domain, which is
-> still a big problem to be upstreamed. This should be designed=20
+On Tue, Dec 17, 2024 at 04:13:38PM -0800, Paul Benoit wrote:
 
-Could you please elaborate on the "big problem"?
-Does the binary-distributed ATF perform some other type of reset in WARM ca=
-se?
-(COLD is just mirorred based on TRM).
+Split the commit into multiple paragraphs, it looks too crowded 😄.
 
-> carefully and needs further discussion. Adding these two syscon
-> compatiable may be not a good idea and cause some problem. I invite
-> Yixun to this talk and he may give some useful suggestions.
->=20
-> At last, I prefer this goes to an separate patch series, and
-> implement with rtc device.
+> Issue Number 1.6 of the Arm SMC Calling Convention introduces an
+> optional SOC_ID name string.
 
-Sure, I can split the reboot story from the series...
+> If available, point the 'machine' field of
 
---=20
-Alexander Sverdlin.
+      ^^^^ I prefer implemented instead of available.
 
+> the SoC Device Attributes at this string so that it will appear under
+> /sys/bus/soc/devices/soc0/machine.
+
+Break into new paragraph here.
+
+> On Arm SMC compliant SoCs, this will
+> allow things like 'lscpu' to eventually get a SoC provider model name
+> from there rather than each tool/utility needing to get a possibly
+> inconsistent, obsolete, or incorrect model/machine name from its own
+> hardcoded model/machine name table.
+>
+> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+> 
+> v2->v3: Add conditionalization to exclude SOC_ID Name from 32-bit builds.
+> v1->v2: Address code review identified issues.
+> 
+>  drivers/firmware/smccc/soc_id.c | 79 +++++++++++++++++++++++++++++++++
+>  include/linux/arm-smccc.h       | 37 +++++++++++++++
+>  2 files changed, 116 insertions(+)
+> 
+> diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
+> index 1990263fbba0..3b50ff5d2cbd 100644
+> --- a/drivers/firmware/smccc/soc_id.c
+> +++ b/drivers/firmware/smccc/soc_id.c
+> @@ -32,6 +32,12 @@
+>  static struct soc_device *soc_dev;
+>  static struct soc_device_attribute *soc_dev_attr;
+>  
+> +static char __init *smccc_soc_name_init(void);
+> +
+
+Not really needed if you move you code before smccc_soc_init()
+
+> +#ifdef CONFIG_ARM64
+> +static char __ro_after_init smccc_soc_id_name[136] = "";
+
+Move all in one block under #ifdef, details below.
+
+> +#endif
+> +
+>  static int __init smccc_soc_init(void)
+>  {
+>  	int soc_id_rev, soc_id_version;
+> @@ -72,6 +78,7 @@ static int __init smccc_soc_init(void)
+>  	soc_dev_attr->soc_id = soc_id_str;
+>  	soc_dev_attr->revision = soc_id_rev_str;
+>  	soc_dev_attr->family = soc_id_jep106_id_str;
+> +	soc_dev_attr->machine = smccc_soc_name_init();
+>  
+>  	soc_dev = soc_device_register(soc_dev_attr);
+>  	if (IS_ERR(soc_dev)) {
+> @@ -93,3 +100,75 @@ static void __exit smccc_soc_exit(void)
+>  	kfree(soc_dev_attr);
+>  }
+>  module_exit(smccc_soc_exit);
+
+Generally it good to have module_{init,exit} at the end of the file.
+Move you additions above these.
+
+> +
+> +
+> +#ifdef CONFIG_ARM64
+> +static inline void str_fragment_from_reg(char *dst, unsigned long reg)
+> +{
+> +	dst[0] = (reg >> 0)  & 0xff;
+> +	dst[1] = (reg >> 8)  & 0xff;
+> +	dst[2] = (reg >> 16) & 0xff;
+> +	dst[3] = (reg >> 24) & 0xff;
+> +	dst[4] = (reg >> 32) & 0xff;
+> +	dst[5] = (reg >> 40) & 0xff;
+> +	dst[6] = (reg >> 48) & 0xff;
+> +	dst[7] = (reg >> 56) & 0xff;
+> +}
+> +#endif
+> +
+> +static char __init *smccc_soc_name_init(void)
+> +{
+> +#ifdef CONFIG_ARM64
+> +	struct arm_smccc_1_2_regs args;
+> +	struct arm_smccc_1_2_regs res;
+> +	size_t len;
+> +
+> +	/*
+> +	 * Issue Number 1.6 of the Arm SMC Calling Convention
+> +	 * specification introduces an optional "name" string
+> +	 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
+> +	 * available.
+> +	 */
+> +	args.a0 = ARM_SMCCC_ARCH_SOC_ID;
+> +	args.a1 = 2;    /* SOC_ID name */
+> +	arm_smccc_1_2_invoke(&args, &res);
+> +	if ((u32)res.a0 == 0) {
+> +		const unsigned int regsize = sizeof(res.a1);
+> +
+> +		/*
+> +		 * Copy res.a1..res.a17 to the smccc_soc_id_name string
+> +		 * 8 bytes at a time.  As per Issue 1.6 of the Arm SMC
+> +		 * Calling Convention, the string will be NUL terminated
+> +		 * and padded, from the end of the string to the end of the
+> +		 * 136 byte buffer, with NULs.
+> +		 */
+> +		str_fragment_from_reg(smccc_soc_id_name + 0*regsize, res.a1);
+> +		str_fragment_from_reg(smccc_soc_id_name + 1*regsize, res.a2);
+> +		str_fragment_from_reg(smccc_soc_id_name + 2*regsize, res.a3);
+> +		str_fragment_from_reg(smccc_soc_id_name + 3*regsize, res.a4);
+> +		str_fragment_from_reg(smccc_soc_id_name + 4*regsize, res.a5);
+> +		str_fragment_from_reg(smccc_soc_id_name + 5*regsize, res.a6);
+> +		str_fragment_from_reg(smccc_soc_id_name + 6*regsize, res.a7);
+> +		str_fragment_from_reg(smccc_soc_id_name + 7*regsize, res.a8);
+> +		str_fragment_from_reg(smccc_soc_id_name + 8*regsize, res.a9);
+> +		str_fragment_from_reg(smccc_soc_id_name + 9*regsize, res.a10);
+> +		str_fragment_from_reg(smccc_soc_id_name + 10*regsize, res.a11);
+> +		str_fragment_from_reg(smccc_soc_id_name + 11*regsize, res.a12);
+> +		str_fragment_from_reg(smccc_soc_id_name + 12*regsize, res.a13);
+> +		str_fragment_from_reg(smccc_soc_id_name + 13*regsize, res.a14);
+> +		str_fragment_from_reg(smccc_soc_id_name + 14*regsize, res.a15);
+> +		str_fragment_from_reg(smccc_soc_id_name + 15*regsize, res.a16);
+> +		str_fragment_from_reg(smccc_soc_id_name + 16*regsize, res.a17);
+> +
+> +		len = strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name));
+> +		if (len) {
+> +			if (len == sizeof(smccc_soc_id_name))
+> +				pr_warn(FW_BUG "Ignoring improperly formatted Name\n");
+> +			else
+> +				return smccc_soc_id_name;
+> +		}
+> +	}
+> +#endif
+> +
+> +	return NULL;
+> +}
+
+Can we improve readability with
+
+#ifdef CONFIG_ARM64
+
+static char __ro_after_init smccc_soc_id_name[136] = "";
+
+<both str_fragment_from_reg and smccc_soc_name_init here>
+
+#else
+static char __init *smccc_soc_name_init(void)
+{
+	return NULL;
+}
+
+#endif
+
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 67f6fdf2e7cd..9d444e5862fe 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -607,6 +607,12 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+>  			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
+>  	} while (0)
+>  
+> +#define __fail_smccc_1_2(___res)					\
+> +	do {								\
+> +		if (___res)						\
+> +			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
+> +	} while (0)
+> +
+>  /*
+>   * arm_smccc_1_1_invoke() - make an SMCCC v1.1 compliant call
+>   *
+> @@ -639,5 +645,36 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+>  		method;							\
+>  	})
+>  
+> +/*
+> + * arm_smccc_1_2_invoke() - make an SMCCC v1.2 compliant call
+> + *
+> + * @args: SMC args are in the a0..a17 fields of the arm_smcc_1_2_regs structure
+> + * @res: result values from registers 0 to 17
+> + *
+> + * This macro will make either an HVC call or an SMC call depending on the
+> + * current SMCCC conduit. If no valid conduit is available then -1
+> + * (SMCCC_RET_NOT_SUPPORTED) is returned in @res.a0 (if supplied).
+> + *
+> + * The return value also provides the conduit that was used.
+> + */
+> +#define arm_smccc_1_2_invoke(args, res) ({				\
+> +		struct arm_smccc_1_2_regs *__args = args;		\
+
+I think we can move this macro and the above under CONFIG_ARM64 as
+arm_smccc_1_2_regs is defined only for ARM64 for now. Otherwise one
+could use this macro and get undefined compiler errors for the structure.
+
+-- 
+Regards,
+Sudeep
 
