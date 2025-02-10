@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA44C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3467BC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFmOuNmFg/co7IfSvcapwoSxOFkKZHm/FZsnx4OG/Gk=; b=0LBzFfVkhGP1o2XOThiA6qGiyq
-	Z07YgPucAWD9HYxdmqwRC/7AQj4hS8pX4vjG4sSuxYlMl4zyN6pzWLAQu4RLdqsKhBzg7Cn8/9VXj
-	6K837/CeOsCI9Vu6VyVZLFQpaKXgq4ITB0RBKytat0Q8n/9zDVsGFBnhe0OgS7oyDYgLFUY5NhMX9
-	abRsNY9Ew/KFs7sxothKWloqJtkPgMFxU/5XHGMTxP7NZccc924eaYzmAdA4X6gjDxBsByO2epfYu
-	R/qEi9THDWCq4/fVZ+0QUf+3pURU6Q1WF5Z1MhE4Iyo8Zzxnh32pif2sqLw7HehNPrlBVsBrTXKWV
-	vzs7VDvg==;
+	bh=MZVwgaLKMaFCvrc2TPPaR2R1MyL0cPReWIbORuF/9kI=; b=n9o0YCKnVfuKqvV4uX7KQ7u4cS
+	TvQIcqPsegxD+ZSzVnFCMmf1VGahIZ+iZAoIf5AYGRBZZLCGeFbVIBzPG0duYH0o465U+zxJa0vlq
+	DX0Qq3/Y3ddxxixWHbKqmJMfS0Az8Fbkx70PjX7tcE2A5eC1GMiZxEmXqoihguFVXhuCjAiwNkP77
+	825XGzsXoRk3pqylqFsKOtf7FSD7Vbz+JL9t/lqZYjUY90PFjyyVIt2r2G/uLtdDqiFyYCAl+8ctn
+	To4B6I241raQkzfSnDTfENz/5f1ECQjd107JoEIA5w7sKtgPmaLezrPlrVScMrqg3gzzsnsB1XlN0
+	pYJtysSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thd9y-00000001pxF-1182;
-	Mon, 10 Feb 2025 23:25:50 +0000
+	id 1thd9z-00000001py4-1cat;
+	Mon, 10 Feb 2025 23:25:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thatV-00000001Qfk-2OSw
+	id 1thato-00000001Qjy-0X8K
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 21:00:41 +0000
+	Mon, 10 Feb 2025 21:01:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=MFmOuNmFg/co7IfSvcapwoSxOFkKZHm/FZsnx4OG/Gk=; b=pwdAlpw1uVK5hBUh0GDdQCC/t6
-	HlR5r5CE2P99bBeVAURBRb3hA1SnXAAQ2nhFPDr44/8nsPMqPu3Z1Xz1OM/HCHXVpU01ycsheJvu0
-	4Y15KRHMS9t2LtqXebGt8LmFRgrBgH8oE8LbLOtqdacIbQxIyu+O9xNSxbkouNLDhj5703xSw7vl/
-	9YtgTbDlFBnvvgCQ7c9j+BEYWZhYw/Ddlqt7CE6m/QaQJQI2xf/m6XEuewKCn/6j5PTkY+QO8VdVz
-	809gVAOehP6Hc8jCOXYH4vUNB7avNIXUHX3lkY2iC4k3UoDGkA0OUvhByMjROeuEKv5ICIp0HJIy1
-	IL0Hm6ig==;
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	bh=MZVwgaLKMaFCvrc2TPPaR2R1MyL0cPReWIbORuF/9kI=; b=mWTtuMfMev1jCwvyR2pMcdEfU/
+	IFc+mGFC/DS/j7SxSuX/SmMhqZcCqaffIXQiw0fC16BHHuHv9aPzwbwGjp/YKtWwQnNdHTVMrHGSt
+	cUJygDndjhRNH2OR7nKLtLMoCit90pdWCmcxrZ3ilIFfVAW7xpzPHPTRZhaKVzrRZ8qbmIU0csKEZ
+	pwt6SfLKGZB95xg5NarqA2ohV6U97WNSHwFu3LFqpP8aUPuSKLo7SVU7xq0A7zGcxicK/B4Ikc3ER
+	8P0oQpCgOx7DL+GyabGukEQ741uFtVBfTAkiUtlEkbJLy2y3rjDn0yBMiJHw21dKR0MUE/F7RKiHt
+	ap+MgePg==;
+Received: from mail-db5eur02on20613.outbound.protection.outlook.com ([2a01:111:f403:2608::613] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thatM-00000000GSU-48Rt
+	id 1thatj-00000000GWP-496I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 21:00:40 +0000
+	Mon, 10 Feb 2025 21:00:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bPtDnOIlKc6z6jrHxjJ1GDtOQ241jblgebcF+5QRhrULjQZw20KxtWs92wfh648GWVS1OfYcvBqBJxWShNgaDeQXAECjyvx6w+inDG5fkBc8P4h080rTH+3oVAaptDOmKK9ncQ64YkUsTQyZXb9W+MvH4rSIk2mT5Zsskum6OxU3QIoP2Xhtl1PnykL9d0mE7VrjfTf0hJb1zgqIPFVwnw5e6gwOBW/EADXqS+5BMsjuIF9Gvp+SeWCiWp12ErBt1Oq3kMwSsSp4ed9hBPplxAU0UDlO1J2Kx0zpIoJdvxVO8W9d8cAPPsgAcyKcAfZd2jJdp5knGC4xHdkbWUcMiw==
+ b=lwfMmqD0yN8UkqrHi4+HfuPDcua1xY/EJQbMwibUnLQCACqfRf6EdlXUMtou8GvB9DSC/YGXw7eoLsfgEHLGNwonufbTDQ3hJTbWK/z78biLeGLstezV2E0blx086fvSz/oiLv6Cm6CC5mVO+H5Zpr/DQjpoOHVB2+gzQfDHwns6bW8m214yCn8m4H5IupVNQcwJ3KkB2hHJ0fdQBCsHsMNVEXo4aBpp+6QSackb3cR44ez0mX6bZheGkeNKi8z+4up6qsZMd8jebKkAV/adZ7Rs9NeEzNhgN1BzZsT7FvwoEwBqGlZZeygFBOcl4KyYCgmhtrXqplKOYKl6N9T0Yw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MFmOuNmFg/co7IfSvcapwoSxOFkKZHm/FZsnx4OG/Gk=;
- b=gnsEzEC56PNl+3YBK021ahXGCfbxSofc2DWZhKyDFKzU30butRortNMW3pUjywmRmxl1T/lRvsFdoEjSpBbpoMCWkhchKaI3c2MOvCwAeFIZSSNp2kEQ2NT7puZGU4UqqCY4xqMzAgXu4Egb7JirwHo6cU8pNekA3N1Do8YrtY85q6ZTFzBSsD/W340wDO20KPe4E2U/OIZT+uIBUH9qJpSIdXIStjS4xy9aS+Wv63do+NAMAya5LbPGfypUgW2FAJUmIIzmSQVOmvInB5AhELAj/OZUozBeBxaWNfSu6iWHOz/IlzhT6dFePD4cRQDDdtoNvMM8g9HG7Caeml9HtQ==
+ bh=MZVwgaLKMaFCvrc2TPPaR2R1MyL0cPReWIbORuF/9kI=;
+ b=BeLqCWwxSYK5a1R3/BjN6FTpePneYmPeKtrEvv6UOUyKzvY4sl4loODoTh3jg1geBCT0k3dYyeJFKRx1KenBQFi2RP3k0xLBL5OmOKeJ7ksUIO1/qSFk+VY/36DCWlYW0JkcA1yPUzCr1Mh068WChF5TpdFP0vvB+gzJbRQhyLCjpPyrOG1G4mP1k2NMVOEdwdRCTomRxwdLKmLg9Xy8CKc7rJubKdPoKcpBquyYhUReLZfssRNqXjErsn6Bx2Smmq8TxuVq+X2x1a2k4DT9QhiZEgpOqYz2HsD30K5ZMBYYp3f7mB9HqGWhMihIjykgkQmlg9o/aK6ssvVoS2t2xA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MFmOuNmFg/co7IfSvcapwoSxOFkKZHm/FZsnx4OG/Gk=;
- b=iHYiETtb/4Wg2rwp5YNQVlmYuPugJIUFtWF+9lTQ6XYHSRp296eSp8OUjqJ4NnCjj/GDkMQzr8hsVPhqt97rNrJ3QFW6rvRj9BczVeNyhRvniC2O+B6Pn7CIkfTDaKriJaqoP6mgrdRf3Hipv0ym9WdkX0EQK6zv95o511ff3qdU5czIv9M0Mg2S3H6TLLR+FyVdbkSsCcz3GqLHCWTMk3IFLwKUloOyiozprNIyvTqIvXKDykNAWKaW7YX/+gG39Dqw0a9a/ZEH0xncMZssEoBg6WK1zgNCRCcKx84g9dSHGkWrq0DDibzZIKv/4v13wZk+CNYRlQ6gpvpHoZcOjA==
+ bh=MZVwgaLKMaFCvrc2TPPaR2R1MyL0cPReWIbORuF/9kI=;
+ b=etiAeGdAhEiLLAggr2gz33tCpZeg8SIU+r+n0tn5+VS4EFSvLvUsy2eoXnSmT94WyRzTVWScaPNnOPXMm9e8gePhYT9jzTr/Lh3FRCkJ2HZEQ5YPrMvVePmUyVpMTuXCwojsSNjbh7sFhkPwFEU715rr+j9R1Wlko3k68UBElPiDM1vQKyf7VzZEy31kpoX/GY5HF1RRUwlV21ndFzwMmZpNvfoLmafOjqEhsY1CG5d+hvB3Z/4ldqYCX8wlMW4UGAbLRoATb0cOck+AdlBfisE5L3J0v++9zTX+hZiPeRwRfwHvMtJgdGrKFHqzl1ActNisQMdxn3iyCA6v7bFc5A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA2PR04MB10238.eurprd04.prod.outlook.com (2603:10a6:102:404::21) with
+ by DB9PR04MB9474.eurprd04.prod.outlook.com (2603:10a6:10:368::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
- 2025 21:00:29 +0000
+ 2025 21:00:51 +0000
 Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
  ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
  ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Mon, 10 Feb 2025
- 21:00:29 +0000
+ 21:00:51 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 10 Feb 2025 15:59:27 -0500
-Subject: [PATCH v3 08/12] media: imx8mq-mipi-csi2: Add support for i.MX8QXP
+Date: Mon, 10 Feb 2025 15:59:31 -0500
+Subject: [PATCH v3 12/12] arm64: dts: imx8q: add camera ov5640 support for
+ imx8qm-mek and imx8qxp-mek
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250210-8qxp_camera-v3-8-324f5105accc@nxp.com>
+Message-Id: <20250210-8qxp_camera-v3-12-324f5105accc@nxp.com>
 References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
 In-Reply-To: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -90,11 +91,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-media@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>, 
  "Guoniu.zhou" <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739221181; l=5801;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739221181; l=12190;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=uTgcHGZix1ytJE8Xu8g9iMI/55rj7h1+bMQRsryN1e4=;
- b=rmTil36f57oTzJx98CogdIznKiCEP0fGPXAjtqSusSe3Nx+CWEShXFAFDdx58Ao9dcFUiLtYG
- X04SqfkGMSdATGmOMQ53/Qk4byzG9LwIeNowPDx3WecA+OmoyxvZaFC
+ bh=SSl7prdsYwX33Yieqclv3UcCzkCJtLi0NvOduCOyH6k=;
+ b=KgSdalDag7UVXDyIzphhbWgTRrc8hmfUd8swGJNBtwgQ0T7xamFR3tWSl3X55uQy5Q0gp3XNA
+ Pgaa+dk277IAIH6assj1lRsaCqY58SJmckxWTOcFDfvZsq3bdeUR/za
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: BY3PR03CA0009.namprd03.prod.outlook.com
@@ -102,98 +103,98 @@ X-ClientProxiedBy: BY3PR03CA0009.namprd03.prod.outlook.com
  (2603:10a6:102:240::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA2PR04MB10238:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71323f07-913e-436e-83ae-08dd4a15f318
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9474:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e617b60-dfbd-4de0-29d9-08dd4a16004a
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TDU0dVIvd3k3WjhXOWo5alRWdUVJSURiYTdKaWtMUFQzMUVRQnQvNnEwS2hD?=
- =?utf-8?B?UmUrNFpZb3ZKUWk0V0llTXFQaFlCaVJVN3ZZSnlCZEpTWlZTeG1MM0pmcksz?=
- =?utf-8?B?NHJLQkVrazRHdUhqN2JaN3B0Z3VUMHVKdjNSK0dXSjJPVGd1MW51RUw2R1BI?=
- =?utf-8?B?WlEvUHBEbGkxZktuWTFYVGIyWC9GbFN4N3JkZkZVUlFTSEpZNFdQZzh5QlhJ?=
- =?utf-8?B?TS9wSlhSaFdKZ2lzY2NwL0dMeC8xb09hR2pRV3F2R0pVaFJuc2prdjRENkxa?=
- =?utf-8?B?ZDJyUm1RcWRPZXpVOWYvNGo1MVRuelA3K25OQWpvM1VDWkFpZ1NjUEhXbVZm?=
- =?utf-8?B?Ky9GeElsMUxwelBwa0RqSTZaWDV2elN4SU5GbnA4cm4xc0VyNW04ckpSZUtQ?=
- =?utf-8?B?NWhVQUJ3VERyR1BUVDRnSTVLa1ozWWVaUFpTNzlPTU9idzV3Vk5LSkZBTi9C?=
- =?utf-8?B?N05RNkVtYS9Ibi9MK1VhZ0hHNGprSXZ6OEkxZzFXZFI0aDFyUnNXcm9RTEU0?=
- =?utf-8?B?ZjV5U1ROa20xR1NzYXJSYkozZStGS2RqbnNSL3VZVVdGVWVxT0REQUdBU3cy?=
- =?utf-8?B?d2JReVdCcFkvLzg0bVBQcVB0RHJMaUtPYU0wZ0Z4TDNwbXJSWE5vQ3IrS3BX?=
- =?utf-8?B?VXVWeVBkcjZHSEpSRWhBNFJLRHVsVlA2cW9PRUNxR3ZvZi9CWE9zcCtvL1la?=
- =?utf-8?B?Um1heStLK2lHdjRWSWpMR3VtZXVyNTN2VStGMng4ZjhkVzlEYlFkSVZ6VlA5?=
- =?utf-8?B?V2E0SUZoUVVqZDNaek5LZGo4cC85UVRub01zRXhvT2JLYWJyQzdZalpUenpw?=
- =?utf-8?B?NWIybXdGMU5zRUJ0RTF0b2ZJUGJjOUtRUnVWMEluTTNHdXJpNHRiTm41VlFj?=
- =?utf-8?B?QjRyTktCbWRkQUxkVG1GYjFidU1GT205TUY0ZEpNUEp5T3IvQmo5UTk0T0ZF?=
- =?utf-8?B?eFhPN0YwUzdzN01HbTRZV2RLZGtKWmh1UmxIMDlZOVJZMENzVmp4V2JocUZN?=
- =?utf-8?B?cmE0VVUxT3IzQ29IMTU3OVBWbm0yaFE5QzlLaEo5YVBIbkNlbWl2VE83elFm?=
- =?utf-8?B?b3hGL1hhLzdSK05WTEUrY2EyaXBkZmo2Q0d6K0FPRENPODV2Y0gzSE5YQzRt?=
- =?utf-8?B?OC9vVlV6OGFDeGU2Yk9BTW4wYWZaSEkvUno1dG5iQis0Ry9iZ0VLV3BCK2xq?=
- =?utf-8?B?WXNBa25UMlBNZC9PSnEwbnRmNGRib1o3UFZUdzBYTFp6THp3bjhTUWF0TGpV?=
- =?utf-8?B?eittdU8xN2RWVnNKSUFEM3NSQmNBbnkwUXV0OVBCQm00bUZLWC80SWJmZ0NH?=
- =?utf-8?B?dVJldldxcGJ2Qis4WDc3VkZseDlFemdsTnZKTnNpeWFieFVuY0dlYVZZejNG?=
- =?utf-8?B?WFI3T29sQW84UXZRMTYzZGVVM1dSa3hjUi84cGFpbzdISHVaem1PM3duaElL?=
- =?utf-8?B?c1lwZU55Uk5td0YzUWFiVld4VEZ0SmtyeWZWSGp2eURVRDJHYWZuMHBKTWNP?=
- =?utf-8?B?Vm1CS1hmenRZOGhCK1o1QmVHaUtpeWZPdFhuRVV2MmJmelVtNVNaTTZrYWlS?=
- =?utf-8?B?OUhCOGhHKzFoWUhMcE1wTXV5SkVjdTRaakxWcTdtbCs0bUpkYndsbk1zVEph?=
- =?utf-8?B?SHp2dVlzWWg0dVhxdWF5T1BnVS9WVjVRR0ljSms0K0FvL2ZyTFBLbTdmb3Fl?=
- =?utf-8?B?T09Zc2FzSlphODBZTHRyeXlheGp1YW5tWjRTajE2Ykh4VE52a2JqNVg1M1pm?=
- =?utf-8?B?bldTUlBzcGtDWkdkME9JRlVrenJVcGprMEFUTGN0YTY1MkViZWlSdFFqU2lO?=
- =?utf-8?B?V2dLemdjT2IyaDE2anBKTFFDbDRSbVpEbzZhQldXUExYNWpyaXFRd09seFlF?=
- =?utf-8?B?dk9qdWRJMkVPblVQL2dIdE5yYnNLeTlNY1lvb1NVckhJUU42MnQ4VFBYM0E3?=
- =?utf-8?B?bUhZSmV5OURnUlFHV1hXWEIvYm5mTi9DamY2SUpxVFhHdTNNZU5NQjFrc3Bm?=
- =?utf-8?B?bERmeG9KK3lRPT0=?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RkpWMzRHNXlEK0NEelg2YjJjS055VHpxcEtQc0tPUVRqQmFyTk1LUFBpVC8y?=
+ =?utf-8?B?d2VMLzY0SFFBeGNuSzZ5TU5UVHZPMzJxT3NGV210cUZBbFAzaWE1NjNrTGd2?=
+ =?utf-8?B?RTkzK2RXMUFVUTIxRStuVTg2RGVsQXdmK1prOGFXR3p0dko1VDl4MDVPdG5h?=
+ =?utf-8?B?K3BaWkdSYnE2WDE3emdISGYzQnRNMlQ3czEyeXhhTTJhNXFuN0lscHFTQ3lN?=
+ =?utf-8?B?VVcwL0t1L2ZEcEIvYnZZVzhzYllLVjlKekFub2l5cUgvTG51THgyZVVORnJM?=
+ =?utf-8?B?Ull3V2w1TWtYaElHZDA2bnlRNzA0RXFSR2F5K2FBRXg0WnNrNGdKM0x2ayts?=
+ =?utf-8?B?Smc3ZzZ5MkNzb29YNDkrbmpoZkdWTVZjdnhMUHNIUFU2aGlPSnJpUStIRW5Z?=
+ =?utf-8?B?SnpGNzZmMXJKZTVVcGdCdnhRMHZWbWl1U1dsQTJDSHBxYllJbzFoKytwQnZY?=
+ =?utf-8?B?QWRaZFJ5OGJpSU54MWNtbmtHZENydHg5MmRNVHNzUmVFaW9CUG1MMnJCZkQv?=
+ =?utf-8?B?Zk9NZWtZL3REVkNXRG5Scld2Wlh4a3VTZ0xwdlhMWGpmdnRjd25MeEsvUVBw?=
+ =?utf-8?B?dk9zY25uUjNjZlNkL0t4VE9RUVFOZ0NTRUNBYkM0b0plVEJrdFBhSm5FN0M3?=
+ =?utf-8?B?VkdyRWFzYUJHYTNINXp1UkNnajd5RWlqWGlsdXBKVjNPVGpUOVgvajUvMXlr?=
+ =?utf-8?B?WlNRZVFKRDdTZHo3Q0QwL0pKWDM0K21wVCtTSXdhaGZDcmVSamU4bnZkTzRG?=
+ =?utf-8?B?QmpjYlBhNjJwNjR5ZURzMUE5eGdzSEJKOWxWRGJOellYOHFNd3JLUjFiTStO?=
+ =?utf-8?B?TXkvV1JpTE5iS0hvcEtBTThQMkJTS2xpQlBEV01Ed2tKT2FlenhlQWV5QzM5?=
+ =?utf-8?B?eld1THYvSlEzMS9sZDRZQWRyRXRPUlBtR0I4UDNiYlI5YlQ2T2VjYktrZHhN?=
+ =?utf-8?B?Z3dLOWNkVFR4SkFoSWwwZitiYkd0RnN3amJPbmN5Ly8veDE5OFA5VTFLWUhn?=
+ =?utf-8?B?Zld1UFYyTjczeWRUMkovYmN5WXBOeThVZHF5d21EdnhCdTNEbEpHbGdJbFpI?=
+ =?utf-8?B?SG9QalpJTUw2cGxEcVJMcDdOOHpMeWp4WUtYTkxyajd6cVlnOTlmYkt0ZEhy?=
+ =?utf-8?B?eUFZK1M1R29zYTAvTmhLKzVIU1ZsQzlFcmJXbWFaNVI2b2J5VVUwZC9xOVZz?=
+ =?utf-8?B?bmwxMndzQzdna0lVMFYrR2krRWhzNUJqQXYyaXU0L1dUWlNCOTJDTHhyMUg5?=
+ =?utf-8?B?R1g3c0h3bWlxcGltbUM4WFlkcHZlbHo2YjZnNDAvZ29JUnZEYjMxd21NZUZJ?=
+ =?utf-8?B?Y0M0S2wxM28zV01ZYjVLWUV3L1BEQnRCVGl2ZHNaaXh0V1BBVUJOMzlmMHlX?=
+ =?utf-8?B?Tkt6Y2hkMnl0RmtrU3RYaGIxQmo3Qnc0bkRkY2hoWS9DcndWaXJZdmlOUloz?=
+ =?utf-8?B?L01KOU04ZjN6NHVzNllKbFR6dkRKbmZ6c214NGNnQ0NxRUQwTlorN3RoNEh0?=
+ =?utf-8?B?K1duN0lVOXdocENFWkt4L2EzM2h0VTZSdGg1dFpRYWVZelpkV3ZKYmZIL25T?=
+ =?utf-8?B?NjNISGZUSjZSSnpiVk1zbEVqbDBBMElTRGlTZis0M3QvZ092ZHVUTjNSclls?=
+ =?utf-8?B?d2xWSTZ0UlZXL2ZReWoyN3dSM1ZsSlRnejJoQzM3MWVGblppNHp1ekUyK2N1?=
+ =?utf-8?B?N1J1UGlQQ3lPbHNjTUdkMEdvUkc1OHhrdkk0bGFaT1BFVzdqZ0V2RS9aZjhl?=
+ =?utf-8?B?cWhLRzl3RGpOdlQyNGlNOG4vMU1tdTJzMUdMODJtM3VBSGJpUlJLdjFvVkdy?=
+ =?utf-8?B?c1MzRHpmNytIVDdkZnlwRHlVQWV0RDk4b1hGSWNaMkU1S25LMjZZSzBpZUFi?=
+ =?utf-8?B?cHFVYkdtc3ZYeWhQSU9CekZPd3RDZHVvblFla3lIU2svTXJVVWwzQzU1ZWFo?=
+ =?utf-8?B?b1JObWo4NWh0dGpTanNmYTV2YXd3YlBzcXRyY3Zpdng1T3cvTFhVc2t2YXZG?=
+ =?utf-8?B?cEZyS1lmSTJBPT0=?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmZNekM1blFNOGd1T2ZWSGJaUThLVE1MbVhka2UxNmFMNjB0ck9VbXN6NnZG?=
- =?utf-8?B?ZU1vcUFUaE1DUEl2UzRBRlZtT09xRTl3dk9jOXZnZWQzNlhYME5sMnlMRkpP?=
- =?utf-8?B?MzNsZ0dXRGRQTmREcnNRcnVDRmRUeVVtRlZlaDdRWStPZFNxSkZlTVZSaVZD?=
- =?utf-8?B?U2RmNTdYTGl2UVU3VXBMTmNoRjM0KzVEUlNaRlQrajFUcXBlcnlJOWdNTGlY?=
- =?utf-8?B?OC8xbmR5c012TmRKNXhSSEk2RGh2Y3ZOTmo3a1k4Z1BEblFaYzcxVjk5cUFW?=
- =?utf-8?B?ZVdCeHl3YXg5Zk9WMWNuWFU1VEw3U2ZKeEE5UW9iMU5GMU9mZU9BcTF3WmhE?=
- =?utf-8?B?NlBGM3JoQzVyeGRkMG9KS1ViMzZZK293ODNBUmhaMXhjbDRhaWJUOTZhd3Rh?=
- =?utf-8?B?RzFWMU1FbEVRVzdhektDdGZLeGV4RnJGd2Y0MWI0TC9MZXp6YXZDdHRVZGcr?=
- =?utf-8?B?T0E5dXFBQjVQbHY4Q2c1WFNWVzAwVHU1UGJsMUIyQ25OY2lmL3F3dHVYbFgv?=
- =?utf-8?B?YVNDYmJUTUdyRHRrS0M5OUFCelpncFZWV0thaXE4MHBFSXowWEVCbDNDQ3Nt?=
- =?utf-8?B?OTRodDFvWC8wSnNGdnd4NVYwbjFDZGF5RUpxRWVucitPWURBK2g1TTVWZ1VY?=
- =?utf-8?B?ZTV4Nk9qLyt2NnRFSXpxMmFSY05Md0xWbWVBY3ltTFlUT0FNdmUrSlo1Vjln?=
- =?utf-8?B?Y2c3VGJ3MDlvdDBmZHgyZ1VjUmRCTGJjdXE1NkplRWltSXFEdEl0bHhseEh4?=
- =?utf-8?B?TXhad1hJb1RGd2Y5ai9HaTkwVkpkZ3E4N09FMElLa1ZGWlJhRzJNWHRadVRG?=
- =?utf-8?B?ZEkvMVZqV2xSVkJaMlIwUTExS2p4U2EzOEozckdoTnd0SXd2cEdDdHJZSmVR?=
- =?utf-8?B?TjVNcVlOaU5EMmRTQnBBdkZSZlAzRExMUWg3MU9CM0tQcmozYmlhS2ZSODIw?=
- =?utf-8?B?T0RPS25pVjVoYm1iN1RvY1BZN0NvMUloZjU3Z3F2REFEQlI2WXVmWU56OUdi?=
- =?utf-8?B?NFV3L01PdzdIWnNERlNDcHpnOHpJNTBENDJTSWorbTU0blA2cEVLaFE0S3d5?=
- =?utf-8?B?alJhTGpIV2wyRXJwYTQ5eFNkc0Y5aW1VN2hLR0crSEJNbkFOdmJRQkh5a3E4?=
- =?utf-8?B?dU5JUXRJbnZCWUQ3R2xjOU55dTVnQk8rakdwTGtHNm1rKzN2SEUzcW1ScVZJ?=
- =?utf-8?B?OWNobnpCM091bTJMQmxiQUdHR1R4cDZUYkttb09zK0Y2NWJQUitZOFRJNXRZ?=
- =?utf-8?B?S3hFTlJsYkZuYnpTaXJRdEZjZ0xXUzM3YkdWbmNqMGM4OXQ0L0VJb1dUa2pp?=
- =?utf-8?B?RzhlQitlSFM3cnF6eGVIRTNKalVUY1ZyY3BicDE4VnpBdjR6dDJ0dFg4dW5C?=
- =?utf-8?B?bjRsNXRiT1ljTnVjQ0t5Z3A5VDEwcE1YeG56MGp3OXdvZzlteG5ndW9zUUhL?=
- =?utf-8?B?SmRtem1VMDBCS0lCclcxRmtZTEc1TUtKR2VJaWlvRzVaRm5yL0p1R1RwQlNt?=
- =?utf-8?B?TGdQZDZ6Ny9tU0hyWTIwOG5TNzZKL2UxWTNBelpreUl3ZkRtTTlwWFlpWDJk?=
- =?utf-8?B?bmxqNUU0ZlpHeElqaW03RlJndzVqWENJajU2VFhRbWhTQm1ZaFBudXBKWmtn?=
- =?utf-8?B?dE1pUGltT3dhN1VCNXVOc25qSXA4Q21vTXlkSEdwVGxHLzR6bDl2OGxxcU1L?=
- =?utf-8?B?NnVjTmVkN1NNd1FOV2xNZGpCK3lWbVBqby94SXlqRUJIbTJTREtGR0xuOFpu?=
- =?utf-8?B?S3l5RWZlWkNZb3dKZVlRR1lQUnRtUUFsOTdVeUZBTHZSdFRQeFVHNHlYdGhD?=
- =?utf-8?B?U0J2ckpPTXFzdDkzWkE2UVM5azhmRmh5eTkxK0pGcVg2THAweHlLdHZLSERC?=
- =?utf-8?B?by9mZFE1NlNEclBTQ2daR0R1Qk9rOGFKdlVoMTZNVHBtR0NIRjc2QTRYUE9S?=
- =?utf-8?B?Zm9vejF0d0xqNVZKc1lTM0wydWdEN1loeUNoM1VIMnJLNGszNEFweE5YTHor?=
- =?utf-8?B?bWdMazkxM2JHbnNTU1ZqZGQxaElBdGUxQlcyQ3VlMUVuczNmU0o2K2NWdCtS?=
- =?utf-8?B?VGVxVWJydGF2N3pTaXoxRDJqZFpiNHZCd2tJY1lqd1JCOW1nWmR0aVc2OG8w?=
- =?utf-8?Q?Gd1g=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q0ZEbmdnVWEweVpMMzg3MUJleUtkVERKb2tTLzhmNXJRdHN2VkRhQ0ZSQk40?=
+ =?utf-8?B?bEFRaW5PWHdEU2Q0Q3pkMWhHWlFSZFFYV1FXcVRaYXoyV1kwYUlrVTFwdzJ1?=
+ =?utf-8?B?dFYrcjZZdGhzY2JsbFBQQjJZRjdrRGJ0YS9GSXVrcXJvQUpSVWhPeG9vVlNw?=
+ =?utf-8?B?dkgrZ0pBMnVRS3Z0OHQ5T3JXeGszQVIzb3NnVzhxRXlDQ0xYZDZSZXZQLzBu?=
+ =?utf-8?B?VE5KcEROVFJmL2tGUmVZRTB1cFFGNjlYajlJSVRxWGdiTGVuZTJZUTEvdWQ2?=
+ =?utf-8?B?V2IreFJPKy9NSVlVellLOHpIUjhhNWQrZWZId2NrZ25MOE5XNGJiRTM5eDE2?=
+ =?utf-8?B?NG1wd1lEbFNtMm9JVWlQS3h1dnVNTzBiU3NtMnJYVEFURnVybWdmNHlSVFZN?=
+ =?utf-8?B?UGVnUG4vVWh6bm55QlhiZXNPRFc1TTJOMXkrU3cvaUxFU2RKQmE3V3JuNHky?=
+ =?utf-8?B?eVhNdHVPNVVybGl5dUk1TUdWaDNFOGVmTjNQbG1lZ2JzM3RVbTlPc2hQckpK?=
+ =?utf-8?B?RnhXNUIrODgwZU5JY1Vhb2NoT2ZZVjBVNldNWUZ0ZGdJWnFEWFl6Vk9ZNXE0?=
+ =?utf-8?B?V2JvSDVjcUtIOFpxSUdTbmV1Sm83KzVjbmw5SkllbFpQb2k1NVM0L3c3ZTkz?=
+ =?utf-8?B?cFZiaW1FaHpmSXFSL3lFdzhHMEhzUnVQQUhkKzJhay9aTm5FK0d4dzZieEdo?=
+ =?utf-8?B?UHRSU1BFS3g4N21FUVF0MWlkTEpvdzBZMXJ5dG1YdnNEZXVCci9WaEtqSTR4?=
+ =?utf-8?B?UkU3akVVazRmU1FNYjY2SGlJcWtzSE0wb1Vybkx3RGczYzFqWjBaVitYdmc5?=
+ =?utf-8?B?VGxjTHBZTzZpYjl3d0NCNC93T0FjdlBWVFdSYkpQQWxJa3NVRytaNUF1OEEy?=
+ =?utf-8?B?MTFiRDFaNHo4WVpyN1ZVNXJKTC92YW00MGNkeVE5cUg1bVN1djRLQjd0Znlj?=
+ =?utf-8?B?RkJPMVJPdXk3S0lRNG1IS09QOUMzMHN3a2pjc2xVN0c5aDZaaFBhTnlyQWQv?=
+ =?utf-8?B?QmZvRjg2bitPc0RKVWpQUnhZSTc5RXBIQjNPN3EzNk8vVXRNelluYjNhbWhq?=
+ =?utf-8?B?ZGptTUwwWStmQmhlTjcrR2dnbHQ0V213bnloa3ZGUWFXSHZEM3p3QnJqVGRU?=
+ =?utf-8?B?dktyWFJSM0dLR0VxZWJrTHFkdGZvOEtnTldRVnhEM0IxdzRLeEZ4ek9rM1Mw?=
+ =?utf-8?B?SHh6V0V2eWlDVW9ad3ZtU290TlhqU0hXT2dlaTltaDdjeDVFODhRenUxL0o4?=
+ =?utf-8?B?L1o2dU1IQU40KzJtZmN6RjlGVWprMHJMVU1mVE9udEZCWkk4aE9YbFNsWTQv?=
+ =?utf-8?B?VUFWOUh4UkV5dzlmU3JOd1hLc3VsWkJxVU1KSEFTc1pPQlhrZ3B1d25NUW9j?=
+ =?utf-8?B?T29BbzFvanBrbUh2bXcvRUVqRjU3ZHBBYkJkNDRhY1BFZjA5RlRFOWFnVXNQ?=
+ =?utf-8?B?dFpGeVVBWjB1bzY5OGE4NUVkS3VqRU5Rd2pxV29hOVFyVEkyWkhFTHBUN3h3?=
+ =?utf-8?B?VEZOaWQzZjk4aXNibzVSdXNUSHJ3QVNJZ1R4YmlEY3dUckNBRHRNWCtkTjUw?=
+ =?utf-8?B?ZnZWa210aWd2cFZXMCs1b2o0NUtBQys3RFh0Zm5uaWI1N01TVmFlbWtCSm1N?=
+ =?utf-8?B?cENkb3dCb0RoYjlNem4yeTNaR0paRTNIWGMvSVo2NGh1eERjY0UySmhiMXJL?=
+ =?utf-8?B?Wi9yWENkbUJCV0tPeUJuWGxQM1lrY0NxN2x2cE8vWTRzY1g1U2k0RUpnaU4z?=
+ =?utf-8?B?WS80MW0vd1ZSL0c0VFlMa0F6UWJvOGgyT0wwM1JiNVVDOHR1Q0NvRjl3bDVU?=
+ =?utf-8?B?YWlqMTFBV2szRjJpdTVmVm9KWFFBODdyS1Nzbm1ZSUxFb0FicmFnZEtsOFJa?=
+ =?utf-8?B?em9XOHVQVFpVcDBqNkl5UjFzSFk0Y0YxWFhTVXRyY3MzcDBSMDRHOWpleVdn?=
+ =?utf-8?B?RHRhbzZ2aTdFSTF4YVNOMmpZcE9tMjNaOXcvRWduOU8rQWplSTNZd2R2eUNW?=
+ =?utf-8?B?VHBQZGE5RmhlVFArNEhoSXVOSkNjYWwvU2Z2cHY5dUc3SEM1dGFrcEZ6ek4z?=
+ =?utf-8?B?MS9ub3hvbm9ISnZtOXBHWVYwcS9LS2NYeFpRZ1RHY3dhVG1QNmpBRHJPVFpF?=
+ =?utf-8?Q?h6AI=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71323f07-913e-436e-83ae-08dd4a15f318
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e617b60-dfbd-4de0-29d9-08dd4a16004a
 X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 21:00:29.0676
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 21:00:51.2259
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oJVswVeExyCpkANa2IshoboOoORV+0z0FbYYRmDb3NTE6oH65z3x+nhCJfSICtXcCzjs7sm2p0ExwPhbNfPrPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10238
+X-MS-Exchange-CrossTenant-UserPrincipalName: db+Ia/OIMSZN396Pe4QDo4afmeKiIc/jSAuKe2mAP05vxVL3l6GFvDOuca3M9eow2xU0+cD2+J7RfkDBKp8oNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9474
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_210038_578036_A7B64401 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250210_210056_737793_E3304B9B 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,182 +209,479 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for i.MX8QXP, which has a dedicated control and status register
-(csr) space. Enable obtaining the second register space and initializing
-PHY and link settings accordingly.
-
-Add reset delay for i.MX8QXP. It needs a delay after toggle reset.
+Add ov5640 overlay file for imx8qm-mek and imx8qxp-mek board. Camera can
+connect different CSI port. So use dts overlay file to handle these
+difference connect options.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
 change from v2 to v3
-- use dedicate csr reg to control phy and link settings.
+- remove phy nodes
 
-Change from v1 to v2
-- change 8QM go 8QXP, 8QM will failback to 8QXP to keep consisense with
-phy drivers
+change from v1 to v2
+- none
 ---
- drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 119 ++++++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile             | 12 +++
+ .../boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso | 90 ++++++++++++++++++++++
+ .../boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso | 90 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts       | 51 ++++++++++++
+ .../boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso | 89 +++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 36 +++++++++
+ 6 files changed, 368 insertions(+)
 
-diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-index b5eae56d92f49..788dabe5a0870 100644
---- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-+++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-@@ -89,6 +89,8 @@ struct imx8mq_plat_data {
- 	const char *name;
- 	int (*enable)(struct csi_state *state, u32 hs_settle);
- 	void (*disable)(struct csi_state *state);
-+	bool use_reg_csr: 1;
-+	int reset_delay;
- };
- 
- /*
-@@ -169,6 +171,101 @@ static const struct imx8mq_plat_data imx8mq_data = {
- 	.enable = imx8mq_gpr_enable,
- };
- 
-+/* -----------------------------------------------------------------------------
-+ * i.MX8QXP
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 839432153cc7a..d1cbc08eb3f4d 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -261,12 +261,24 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-eval-v1.2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb
++
++imx8qm-mek-ov5640-csi0-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo
++dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi0.dtb
++imx8qm-mek-ov5640-csi1-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi1.dtbo
++dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi1.dtb
++imx8qm-mek-ov5640-dual-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo imx8qm-mek-ov5640-csi1.dtbo
++dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-dual.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-ai_ml.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-aster.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-eval-v3.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-iris.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-iris-v2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek.dtb
++
++imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
++dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
+new file mode 100644
+index 0000000000000..cfd599db997b9
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
+@@ -0,0 +1,90 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2025 NXP
 + */
 +
-+#define CSI2SS_PL_CLK_INTERVAL_US		10000
-+#define CSI2SS_PL_CLK_TIMEOUT_US		100000
++/dts-v1/;
++/plugin/;
 +
-+#define CSI2SS_PLM_CTRL				0x0
-+#define CSI2SS_PLM_CTRL_PL_CLK_RUN		BIT(31)
-+#define CSI2SS_PLM_CTRL_VSYNC_OVERRIDE		BIT(9)
-+#define CSI2SS_PLM_CTRL_HSYNC_OVERRIDE		BIT(10)
-+#define CSI2SS_PLM_CTRL_VALID_OVERRIDE		BIT(11)
-+#define CSI2SS_PLM_CTRL_POLARITY_MASK		BIT(12)
-+#define CSI2SS_PLM_CTRL_ENABLE_PL		BIT(0)
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/media/video-interfaces.h>
 +
-+#define CSI2SS_PHY_CTRL				0x4
-+#define CSI2SS_PHY_CTRL_PD			BIT(22)
-+#define CSI2SS_PHY_CTRL_RTERM_SEL		BIT(21)
-+#define CSI2SS_PLM_CTRL_POLARITY		BIT(12)
-+#define CSI2SS_PHY_CTRL_RX_HS_SETTLE_MASK	GENMASK(9, 4)
-+#define CSI2SS_PHY_CTRL_CONT_CLK_MODE		BIT(3)
-+#define CSI2SS_PHY_CTRL_DDRCLK_EN		BIT(2)
-+#define CSI2SS_PHY_CTRL_AUTO_PD_EN		BIT(1)
-+#define CSI2SS_PHY_CTRL_RX_ENABLE		BIT(0)
++&i2c_mipi_csi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	clock-frequency = <100000>;
++	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
++	pinctrl-names = "default";
++	status = "okay";
 +
-+#define CSI2SS_DATA_TYPE			0x38
-+#define CSI2SS_DATA_TYPE_MASK			GENMASK(23, 0)
++	ov5640_mipi_0: camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++		clocks = <&xtal24m>;
++		clock-names = "xclk";
++		pinctrl-0 = <&pinctrl_mipi_csi0>;
++		pinctrl-names = "default";
++		powerdown-gpios = <&lsio_gpio1 28 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&lsio_gpio1 27 GPIO_ACTIVE_LOW>;
++		AVDD-supply = <&reg_2v8>;
++		DVDD-supply = <&reg_1v5>;
++		DOVDD-supply = <&reg_1v8>;
++		status = "okay";
 +
-+#define CSI2SS_CTRL_CLK_RESET			0x44
-+#define CSI2SS_CTRL_CLK_RESET_EN		BIT(0)
-+
-+static int imx8qxp_gpr_enable(struct csi_state *state, u32 hs_settle)
-+{
-+	int ret;
-+	u32 val;
-+
-+	/* clear format */
-+	regmap_clear_bits(state->phy_gpr, CSI2SS_DATA_TYPE, CSI2SS_DATA_TYPE_MASK);
-+
-+	/* clear polarity */
-+	regmap_clear_bits(state->phy_gpr, CSI2SS_PLM_CTRL,
-+			  CSI2SS_PLM_CTRL_VSYNC_OVERRIDE |
-+			  CSI2SS_PLM_CTRL_HSYNC_OVERRIDE |
-+			  CSI2SS_PLM_CTRL_VALID_OVERRIDE |
-+			  CSI2SS_PLM_CTRL_POLARITY_MASK);
-+
-+	regmap_update_bits(state->phy_gpr, CSI2SS_PHY_CTRL, CSI2SS_PHY_CTRL_RX_HS_SETTLE_MASK,
-+			   FIELD_PREP(CSI2SS_PHY_CTRL_RX_HS_SETTLE_MASK, hs_settle));
-+
-+	regmap_set_bits(state->phy_gpr, CSI2SS_PHY_CTRL,
-+			CSI2SS_PHY_CTRL_RX_ENABLE | CSI2SS_PHY_CTRL_DDRCLK_EN |
-+			CSI2SS_PHY_CTRL_CONT_CLK_MODE | CSI2SS_PHY_CTRL_PD |
-+			CSI2SS_PHY_CTRL_RTERM_SEL | CSI2SS_PHY_CTRL_AUTO_PD_EN);
-+
-+	ret = regmap_read_poll_timeout(state->phy_gpr, CSI2SS_PLM_CTRL,
-+				       val, !(val & CSI2SS_PLM_CTRL_PL_CLK_RUN),
-+				       CSI2SS_PL_CLK_INTERVAL_US,
-+				       CSI2SS_PL_CLK_TIMEOUT_US);
-+
-+	if (ret) {
-+		dev_err(state->dev, "Timeout waiting for Pixel-Link clock");
-+		return ret;
-+	}
-+
-+	/* Enable Pixel link Master*/
-+	regmap_set_bits(state->phy_gpr, CSI2SS_PLM_CTRL,
-+			CSI2SS_PLM_CTRL_ENABLE_PL | CSI2SS_PLM_CTRL_VALID_OVERRIDE);
-+
-+	/* PHY Enable */
-+	regmap_clear_bits(state->phy_gpr, CSI2SS_PHY_CTRL,
-+			  CSI2SS_PHY_CTRL_PD | CSI2SS_PLM_CTRL_POLARITY);
-+
-+	/* Release Reset */
-+	regmap_set_bits(state->phy_gpr, CSI2SS_CTRL_CLK_RESET, CSI2SS_CTRL_CLK_RESET_EN);
-+
-+	return ret;
-+}
-+
-+static void imx8qxp_gpr_disable(struct csi_state *state)
-+{
-+	/* Disable Pixel Link */
-+	regmap_write(state->phy_gpr, CSI2SS_PLM_CTRL, 0x0);
-+
-+	/* Disable  PHY */
-+	regmap_write(state->phy_gpr, CSI2SS_PHY_CTRL, 0x0);
-+};
-+
-+static const struct imx8mq_plat_data imx8qxp_data = {
-+	.name = "i.MX8QXP",
-+	.enable = imx8qxp_gpr_enable,
-+	.disable = imx8qxp_gpr_disable,
-+	.use_reg_csr = 1,
-+	.reset_delay = 10000,
-+};
-+
- static const struct csi2_pix_format imx8mq_mipi_csi_formats[] = {
- 	/* RAW (Bayer and greyscale) formats. */
- 	{
-@@ -273,6 +370,8 @@ static int imx8mq_mipi_csi_sw_reset(struct csi_state *state)
- 		return ret;
- 	}
- 
-+	fsleep(state->pdata->reset_delay);
-+
- 	return 0;
- }
- 
-@@ -860,6 +959,25 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
- 		return PTR_ERR(state->rst);
- 	}
- 
-+	if (state->pdata->use_reg_csr) {
-+		const struct regmap_config regmap_config = {
-+			.reg_bits = 32,
-+			.val_bits = 32,
-+			.reg_stride = 4,
++		port {
++			ov5640_mipi_0_ep: endpoint {
++				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++				data-lanes = <1 2>;
++				remote-endpoint = <&mipi_csi0_in>;
++			};
 +		};
-+		void __iomem *base;
++	};
++};
 +
-+		base = devm_platform_ioremap_resource(to_platform_device(dev), 1);
-+		if (IS_ERR(base))
-+			return dev_err_probe(dev, IS_ERR(base), "missed csr register\n");
++&irqsteer_csi0 {
++	status = "okay";
++};
 +
-+		state->phy_gpr = devm_regmap_init_mmio(dev, base, &regmap_config);
-+		if (IS_ERR(state->phy_gpr))
-+			return dev_err_probe(dev, PTR_ERR(state->phy_gpr),
-+					     "Fail to init mmio regmap\n");
-+		return 0;
-+	}
++&isi {
++	status = "okay";
 +
- 	ret = of_property_read_u32_array(np, "fsl,mipi-phy-gpr", out_val,
- 					 ARRAY_SIZE(out_val));
- 	if (ret) {
-@@ -979,6 +1097,7 @@ static void imx8mq_mipi_csi_remove(struct platform_device *pdev)
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@2 {
++			reg = <2>;
++
++			isi_in_2: endpoint {
++				remote-endpoint = <&mipi_csi0_out>;
++			};
++		};
++	};
++};
++
++&mipi_csi_0 {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			mipi_csi0_in: endpoint {
++				data-lanes = <1 2>;
++				remote-endpoint = <&ov5640_mipi_0_ep>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			mipi_csi0_out: endpoint {
++				remote-endpoint = <&isi_in_2>;
++			};
++		};
++	};
++};
++
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
+new file mode 100644
+index 0000000000000..199a79e98d88b
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
+@@ -0,0 +1,90 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2025 NXP
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/media/video-interfaces.h>
++
++&i2c_mipi_csi1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	clock-frequency = <100000>;
++	pinctrl-0 = <&pinctrl_i2c_mipi_csi1>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	ov5640_mipi_1: camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++		clocks = <&xtal24m>;
++		clock-names = "xclk";
++		pinctrl-0 = <&pinctrl_mipi_csi1>;
++		pinctrl-names = "default";
++		powerdown-gpios = <&lsio_gpio1 31 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&lsio_gpio1 30 GPIO_ACTIVE_LOW>;
++		AVDD-supply = <&reg_2v8>;
++		DVDD-supply = <&reg_1v5>;
++		DOVDD-supply = <&reg_1v8>;
++		status = "okay";
++
++		port {
++			ov5640_mipi_1_ep: endpoint {
++				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++				data-lanes = <1 2>;
++				remote-endpoint = <&mipi_csi1_in>;
++			};
++		};
++	};
++};
++
++&irqsteer_csi1 {
++	status = "okay";
++};
++
++&isi {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@3 {
++			reg = <3>;
++
++			isi_in_3: endpoint {
++				remote-endpoint = <&mipi_csi1_out>;
++			};
++		};
++	};
++};
++
++&mipi_csi_1 {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			mipi_csi1_in: endpoint {
++				data-lanes = <1 2>;
++				remote-endpoint = <&ov5640_mipi_1_ep>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			mipi_csi1_out: endpoint {
++				remote-endpoint = <&isi_in_3>;
++			};
++		};
++	};
++};
++
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+index 61ef00f4259e1..3a6e25e08c26a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+@@ -155,6 +155,27 @@ usb3_data_ss: endpoint {
+ 		};
+ 	};
  
- static const struct of_device_id imx8mq_mipi_csi_of_match[] = {
- 	{ .compatible = "fsl,imx8mq-mipi-csi2", .data = &imx8mq_data },
-+	{ .compatible = "fsl,imx8qxp-mipi-csi2", .data = &imx8qxp_data },
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, imx8mq_mipi_csi_of_match);
++	reg_1v5: regulator-1v5 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v5";
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++	};
++
++	reg_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
++
++	reg_2v8: regulator-2v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "2v8";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++	};
++
+ 	reg_usdhc2_vmmc: usdhc2-vmmc {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "SD1_SPWR";
+@@ -727,6 +748,20 @@ IMX8QM_SCU_GPIO0_03_LSIO_GPIO0_IO31			0x0600004c
+ 		>;
+ 	};
+ 
++	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
++		fsl,pins = <
++			IMX8QM_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
++			IMX8QM_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
++		>;
++	};
++
++	pinctrl_i2c_mipi_csi1: i2c-mipi-csi1grp {
++		fsl,pins = <
++			IMX8QM_MIPI_CSI1_I2C0_SCL_MIPI_CSI1_I2C0_SCL		0xc2000020
++			IMX8QM_MIPI_CSI1_I2C0_SDA_MIPI_CSI1_I2C0_SDA		0xc2000020
++		>;
++	};
++
+ 	pinctrl_i2c0: i2c0grp {
+ 		fsl,pins = <
+ 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0x06000021
+@@ -905,6 +940,22 @@ IMX8QM_LVDS1_I2C1_SDA_LVDS1_I2C1_SDA	0xc600004c
+ 		>;
+ 	};
+ 
++	pinctrl_mipi_csi0: mipi-csi0grp {
++		fsl,pins = <
++			IMX8QM_MIPI_CSI0_GPIO0_00_LSIO_GPIO1_IO27		0xC0000041
++			IMX8QM_MIPI_CSI0_GPIO0_01_LSIO_GPIO1_IO28		0xC0000041
++			IMX8QM_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
++		>;
++	};
++
++	pinctrl_mipi_csi1: mipi-csi1grp {
++		fsl,pins = <
++			IMX8QM_MIPI_CSI1_GPIO0_00_LSIO_GPIO1_IO30		0xC0000041
++			IMX8QM_MIPI_CSI1_GPIO0_01_LSIO_GPIO1_IO31		0xC0000041
++			IMX8QM_MIPI_CSI1_MCLK_OUT_MIPI_CSI1_ACM_MCLK_OUT	0xC0000041
++		>;
++	};
++
+ 	pinctrl_pciea: pcieagrp {
+ 		fsl,pins = <
+ 			IMX8QM_PCIE_CTRL0_WAKE_B_LSIO_GPIO4_IO28		0x04000021
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
+new file mode 100644
+index 0000000000000..0546a2dc2a543
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
+@@ -0,0 +1,89 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2024 NXP
++ */
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/media/video-interfaces.h>
++
++&i2c_mipi_csi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	clock-frequency = <100000>;
++	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	ov5640_mipi: camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++		clocks = <&xtal24m>;
++		clock-names = "xclk";
++		pinctrl-0 = <&pinctrl_mipi_csi0>;
++		pinctrl-names = "default";
++		powerdown-gpios = <&lsio_gpio3 7 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&lsio_gpio3 8 GPIO_ACTIVE_LOW>;
++		AVDD-supply = <&reg_2v8>;
++		DVDD-supply = <&reg_1v5>;
++		DOVDD-supply = <&reg_1v8>;
++		status = "okay";
++
++		port {
++			ov5640_mipi_ep: endpoint {
++				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
++				data-lanes = <1 2>;
++				remote-endpoint = <&mipi_csi0_in>;
++			};
++		};
++	};
++};
++
++&irqsteer_csi0 {
++	status = "okay";
++};
++
++&isi {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@2 {
++			reg = <2>;
++
++			isi_in_2: endpoint {
++				remote-endpoint = <&mipi_csi0_out>;
++			};
++		};
++	};
++};
++
++&mipi_csi_0 {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			mipi_csi0_in: endpoint {
++				data-lanes = <1 2>;
++				remote-endpoint = <&ov5640_mipi_ep>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			mipi_csi0_out: endpoint {
++				remote-endpoint = <&isi_in_2>;
++			};
++		};
++	};
++};
++
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+index 89c6516c5ba90..a356c491375cb 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+@@ -90,6 +90,27 @@ usb3_data_ss: endpoint {
+ 		};
+ 	};
+ 
++	reg_1v5: regulator-1v5 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v5";
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++	};
++
++	reg_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
++
++	reg_2v8: regulator-2v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "2v8";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++	};
++
+ 	reg_pcieb: regulator-pcie {
+ 		compatible = "regulator-fixed";
+ 		regulator-max-microvolt = <3300000>;
+@@ -749,6 +770,13 @@ IMX8QXP_FLEXCAN1_RX_ADMA_FLEXCAN1_RX			0x21
+ 		>;
+ 	};
+ 
++	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
++		fsl,pins = <
++			IMX8QXP_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
++			IMX8QXP_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
++		>;
++	};
++
+ 	pinctrl_ioexp_rst: ioexprstgrp {
+ 		fsl,pins = <
+ 			IMX8QXP_SPI2_SDO_LSIO_GPIO1_IO01			0x06000021
+@@ -789,6 +817,14 @@ IMX8QXP_FLEXCAN2_RX_ADMA_UART3_RX       0x06000020
+ 		>;
+ 	};
+ 
++	pinctrl_mipi_csi0: mipi-csi0grp {
++		fsl,pins = <
++			IMX8QXP_MIPI_CSI0_GPIO0_01_LSIO_GPIO3_IO07		0xC0000041
++			IMX8QXP_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08		0xC0000041
++			IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
++		>;
++	};
++
+ 	pinctrl_pcieb: pcieagrp {
+ 		fsl,pins = <
+ 			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
 
 -- 
 2.34.1
