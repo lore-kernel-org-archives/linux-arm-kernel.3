@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F61C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB50C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9dbquxn5VzKhLr0LYm2OZPAvPpNcjKXO0Zc2fRrfvL4=; b=Si6NPsf1KmEZNFDOCh8knVoBTb
-	ld3yewqOky1LtpFXkm7oevUkxvfsbMEiSWqlGz8+MNFTPQC2ckCNz+57F/tVbLiiylQMZK3LpMFo/
-	0jeJpaltc5ZfYbMFcHfTeMOT8xVPC+H/EWyRTASbzRebFuohEsKCpVcYJDY1F7LHcmIbFNRFikfBB
-	oP3qS78gSWtcV3xWbvnxSigaE2e1vZ/pCr4e2JwlIlzg2CIASINznWQSZClUsf4IixZQS9AXB7sRQ
-	CZ+4yR9T5H30kwzC83xXwhEKpODNY36nrPTF1Yy8Rd34M/Zu1uXvPfoKJGihW5h1EhnhiNp9teYT3
-	vSV8HWww==;
+	bh=he2gukp9Ijs5lH2UJ4ZL02Mw6U3kiJzlvUOst957xeo=; b=ldRKb7ROvmbp+8sIPxW9BaSl44
+	Enr3g4g8gafi/fMPZbE69f7OtfdadLVb+hHU5c3bzScUJDuzrBc0c5rw2Uhrrw29dyFJVM/X20smc
+	GyPjdFgvAesKQwWgy1u2ODBcc3RtgiQ60WfDS9haMwULo7w87eJQDlz2XkjlZzu0N9exNOkueCJPL
+	P8SKTtXlhCHwFT2jRMQV4Ga9qs/yZVel3W14hUIWxY0E2mwvaP7dkKsIKBvR0Z7F/GcDDwHw5MNQk
+	UnAjhsKTo72/19J21xmMe4CRXteIpQfFalXeO1NWjDdrNnB14ZJwv/6Ioun+YUnMCPkah8NbJ1XBB
+	CCtaSNKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thS3Q-0000000HEks-0Rg7;
-	Mon, 10 Feb 2025 11:34:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRih-0000000HAXC-413q
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:12:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 426D71BC0;
-	Mon, 10 Feb 2025 03:13:17 -0800 (PST)
-Received: from [10.57.81.206] (unknown [10.57.81.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51623F5A1;
-	Mon, 10 Feb 2025 03:12:52 -0800 (PST)
-Message-ID: <a5d66063-c3a0-46fc-ab88-21ae2448c9f0@arm.com>
-Date: Mon, 10 Feb 2025 11:12:51 +0000
+	id 1thS4m-0000000HF5Q-387u;
+	Mon, 10 Feb 2025 11:35:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thRlD-0000000HB6c-2Ytv;
+	Mon, 10 Feb 2025 11:15:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739186129;
+	bh=yghw6cquksN8zPqbgLipZY4BM8xR8DkXkhGUySC4WRA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ESmPJunGKo+yuyT+lTgsSKQkXws5Oh5vtwZRmhalZJPGz9I7fqqA1b5qZVgeScorm
+	 7fiHrJE9BW5p5by+M6fn++6G8oZZp16w+p+0puAsBVg0drC36ANH0wqBpmez62KFz7
+	 U/2nXk7Bg7CokDrDbVCEGM9y1xZsPTIrn4rGMvVKsyY/RN5V/eRJjdoO4sF5ybqdzg
+	 vV9FGtZz+Co5iGC1twH5yDOfNG3gsXGQbIwjW0UUAnQOjQfGR/7Mg/JdUhfQSZT6zq
+	 P5kFUrMn3pteKxxx7JLw0nZPSPCdNyBhww+p+UUE0vQaNSi76MZXeSP7LDMP0778/m
+	 gn1No4pdI4JfQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9548817E014F;
+	Mon, 10 Feb 2025 12:15:28 +0100 (CET)
+Message-ID: <98caee8a-b78e-4dcb-96d9-37fd4f279e68@collabora.com>
+Date: Mon, 10 Feb 2025 12:15:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 16/16] arm64/mm: Defer barriers when updating kernel
- mappings
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-17-ryan.roberts@arm.com>
- <9bc5527e-16f4-45cc-aced-55b1ace6c143@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <9bc5527e-16f4-45cc-aced-55b1ace6c143@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v5 23/34] drm/mediatek: mtk_hdmi: Move output init to
+ mtk_hdmi_register_audio_driver()
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
+ <20250113145232.227674-24-angelogioacchino.delregno@collabora.com>
+ <1d5a94f3b974d4617a58f2d9dfc54d5dc889f18a.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <1d5a94f3b974d4617a58f2d9dfc54d5dc889f18a.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_031256_097798_84AD9DC2 
-X-CRM114-Status: GOOD (  30.95  )
+X-CRM114-CacheID: sfid-20250210_031531_957250_F115E402 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,220 +101,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 08:03, Anshuman Khandual wrote:
+Il 07/02/25 06:46, CK Hu (胡俊光) ha scritto:
+> Hi, Angelo:
 > 
-> 
-> On 2/5/25 20:39, Ryan Roberts wrote:
->> Because the kernel can't tolerate page faults for kernel mappings, when
->> setting a valid, kernel space pte (or pmd/pud/p4d/pgd), it emits a
->> dsb(ishst) to ensure that the store to the pgtable is observed by the
->> table walker immediately. Additionally it emits an isb() to ensure that
->> any already speculatively determined invalid mapping fault gets
->> canceled.> 
->> We can improve the performance of vmalloc operations by batching these
->> barriers until the end of a set up entry updates. The newly added
->> arch_update_kernel_mappings_begin() / arch_update_kernel_mappings_end()
->> provide the required hooks.
+> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
 >>
->> vmalloc improves by up to 30% as a result.
 >>
->> Two new TIF_ flags are created; TIF_KMAP_UPDATE_ACTIVE tells us if we
->> are in the batch mode and can therefore defer any barriers until the end
->> of the batch. TIF_KMAP_UPDATE_PENDING tells us if barriers are queued to
->> be emited at the end of the batch.
-> 
-> Why cannot this be achieved with a single TIF_KMAP_UPDATE_ACTIVE which is
-> set in __begin(), cleared in __end() and saved across a __switch_to().
-
-So unconditionally emit the barriers in _end(), and emit them in __switch_to()
-if TIF_KMAP_UPDATE_ACTIVE is set?
-
-I guess if calling _begin() then you are definitely going to be setting at least
-1 PTE. So you can definitely emit the barriers unconditionally. I was trying to
-protect against the case where you get pre-empted (potentially multiple times)
-while in the loop. The TIF_KMAP_UPDATE_PENDING flag ensures you only emit the
-barriers when you definitely need to. Without it, you would have to emit on
-every pre-emption even if no more PTEs got set.
-
-But I suspect this is a premature optimization. Probably it will never occur. So
-I'll simplify as you suggest.
-
-Thanks,
-Ryan
-
-> 
+>> In preparation for moving the common bits of this driver, merge the
+>> contents of mtk_hdmi_output_init in mtk_hdmi_register_audio_driver
+>> function to aggregate all of the initial audio setup together in
+>> the same function and to make it clear that all of the setup that
+>> is performed in mtk_hdmi_output_init is specifically related only
+>> to audio and not video.
 >>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> While at it, also remove the "%s driver bound to HDMI" debugging
+>> print disguised as informative.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 >> ---
->>  arch/arm64/include/asm/pgtable.h     | 65 +++++++++++++++++++---------
->>  arch/arm64/include/asm/thread_info.h |  2 +
->>  arch/arm64/kernel/process.c          | 20 +++++++--
->>  3 files changed, 63 insertions(+), 24 deletions(-)
+>>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 28 ++++++++--------------------
+>>   1 file changed, 8 insertions(+), 20 deletions(-)
 >>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index ff358d983583..1ee9b9588502 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -39,6 +39,41 @@
->>  #include <linux/mm_types.h>
->>  #include <linux/sched.h>
->>  #include <linux/page_table_check.h>
->> +#include <linux/pgtable_modmask.h>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> index e2393f7558f9..4345c91e92e7 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> @@ -1025,20 +1025,6 @@ static int mtk_hdmi_setup_vendor_specific_infoframe(struct mtk_hdmi *hdmi,
+>>          return 0;
+>>   }
+>>
+>> -static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
+>> -{
+>> -       struct hdmi_audio_param *aud_param = &hdmi->aud_param;
+>> -
+>> -       aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+>> -       aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+>> -       aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
+>> -       aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
+>> -       aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
+>> -       aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
+>> -
+>> -       return 0;
+>> -}
+>> -
+>>   static void mtk_hdmi_audio_enable(struct mtk_hdmi *hdmi)
+>>   {
+>>          mtk_hdmi_hw_send_aud_packet(hdmi, true);
+>> @@ -1616,6 +1602,7 @@ static void mtk_hdmi_unregister_audio_driver(void *data)
+>>   static int mtk_hdmi_register_audio_driver(struct device *dev)
+>>   {
+>>          struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+>> +       struct hdmi_audio_param *aud_param = &hdmi->aud_param;
+>>          struct hdmi_codec_pdata codec_data = {
+>>                  .ops = &mtk_hdmi_audio_codec_ops,
+>>                  .max_i2s_channels = 2,
+>> @@ -1625,6 +1612,13 @@ static int mtk_hdmi_register_audio_driver(struct device *dev)
+>>          };
+>>          int ret;
+>>
+>> +       aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+>> +       aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+>> +       aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
+>> +       aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
+>> +       aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
+>> +       aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
 >> +
->> +static inline void emit_pte_barriers(void)
->> +{
->> +	dsb(ishst);
->> +	isb();
->> +}
+>>          hdmi->audio_pdev = platform_device_register_data(dev,
+>>                                                           HDMI_CODEC_DRV_NAME,
+>>                                                           PLATFORM_DEVID_AUTO,
+>> @@ -1638,7 +1632,6 @@ static int mtk_hdmi_register_audio_driver(struct device *dev)
+>>          if (ret)
+>>                  return ret;
+>>
+>> -       DRM_INFO("%s driver bound to HDMI\n", HDMI_CODEC_DRV_NAME);
 > 
-> There are many sequence of these two barriers in this particular header,
-> hence probably a good idea to factor this out into a common helper.
-> >> +
->> +static inline void queue_pte_barriers(void)
->> +{
->> +	if (test_thread_flag(TIF_KMAP_UPDATE_ACTIVE)) {
->> +		if (!test_thread_flag(TIF_KMAP_UPDATE_PENDING))
->> +			set_thread_flag(TIF_KMAP_UPDATE_PENDING);
->> +	} else
->> +		emit_pte_barriers();
->> +}
->> +
->> +#define arch_update_kernel_mappings_begin arch_update_kernel_mappings_begin
->> +static inline void arch_update_kernel_mappings_begin(unsigned long start,
->> +						     unsigned long end)
->> +{
->> +	set_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
->> +}
->> +
->> +#define arch_update_kernel_mappings_end arch_update_kernel_mappings_end
->> +static inline void arch_update_kernel_mappings_end(unsigned long start,
->> +						   unsigned long end,
->> +						   pgtbl_mod_mask mask)
->> +{
->> +	if (test_thread_flag(TIF_KMAP_UPDATE_PENDING))
->> +		emit_pte_barriers();
->> +
->> +	clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
->> +	clear_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
->> +}
->>  
->>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->> @@ -323,10 +358,8 @@ static inline void __set_pte_complete(pte_t pte)
->>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
->>  	 * or update_mmu_cache() have the necessary barriers.
->>  	 */
->> -	if (pte_valid_not_user(pte)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pte_valid_not_user(pte))
->> +		queue_pte_barriers();
->>  }
->>  
->>  static inline void __set_pte(pte_t *ptep, pte_t pte)
->> @@ -791,10 +824,8 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
->>  
->>  	WRITE_ONCE(*pmdp, pmd);
->>  
->> -	if (pmd_valid_not_user(pmd)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pmd_valid_not_user(pmd))
->> +		queue_pte_barriers();
->>  }
->>  
->>  static inline void pmd_clear(pmd_t *pmdp)
->> @@ -869,10 +900,8 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
->>  
->>  	WRITE_ONCE(*pudp, pud);
->>  
->> -	if (pud_valid_not_user(pud)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pud_valid_not_user(pud))
->> +		queue_pte_barriers();
->>  }
->>  
->>  static inline void pud_clear(pud_t *pudp)
->> @@ -960,10 +989,8 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
->>  
->>  	WRITE_ONCE(*p4dp, p4d);
->>  
->> -	if (p4d_valid_not_user(p4d)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (p4d_valid_not_user(p4d))
->> +		queue_pte_barriers();
->>  }
->>  
->>  static inline void p4d_clear(p4d_t *p4dp)
->> @@ -1098,10 +1125,8 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
->>  
->>  	WRITE_ONCE(*pgdp, pgd);
->>  
->> -	if (pgd_valid_not_user(pgd)) {
->> -		dsb(ishst);
->> -		isb();
->> -	}
->> +	if (pgd_valid_not_user(pgd))
->> +		queue_pte_barriers();
->>  }
->>  
->>  static inline void pgd_clear(pgd_t *pgdp)
->> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
->> index 1114c1c3300a..382d2121261e 100644
->> --- a/arch/arm64/include/asm/thread_info.h
->> +++ b/arch/arm64/include/asm/thread_info.h
->> @@ -82,6 +82,8 @@ void arch_setup_new_exec(void);
->>  #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
->>  #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
->>  #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
->> +#define TIF_KMAP_UPDATE_ACTIVE	31	/* kernel map update in progress */
->> +#define TIF_KMAP_UPDATE_PENDING	32	/* kernel map updated with deferred barriers */
->>  
->>  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
->>  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
->> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
->> index 42faebb7b712..1367ec6407d1 100644
->> --- a/arch/arm64/kernel/process.c
->> +++ b/arch/arm64/kernel/process.c
->> @@ -680,10 +680,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
->>  	gcs_thread_switch(next);
->>  
->>  	/*
->> -	 * Complete any pending TLB or cache maintenance on this CPU in case
->> -	 * the thread migrates to a different CPU.
->> -	 * This full barrier is also required by the membarrier system
->> -	 * call.
->> +	 * Complete any pending TLB or cache maintenance on this CPU in case the
->> +	 * thread migrates to a different CPU. This full barrier is also
->> +	 * required by the membarrier system call. Additionally it is required
->> +	 * for TIF_KMAP_UPDATE_PENDING, see below.
->>  	 */
->>  	dsb(ish);
->>  
->> @@ -696,6 +696,18 @@ struct task_struct *__switch_to(struct task_struct *prev,
->>  	/* avoid expensive SCTLR_EL1 accesses if no change */
->>  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
->>  		update_sctlr_el1(next->thread.sctlr_user);
->> +	else if (unlikely(test_thread_flag(TIF_KMAP_UPDATE_PENDING))) {
->> +		/*
->> +		 * In unlikely event that a kernel map update is on-going when
->> +		 * preemption occurs, we must emit_pte_barriers() if pending.
->> +		 * emit_pte_barriers() consists of "dsb(ishst); isb();". The dsb
->> +		 * is already handled above. The isb() is handled if
->> +		 * update_sctlr_el1() was called. So only need to emit isb()
->> +		 * here if it wasn't called.
->> +		 */
->> +		isb();
->> +		clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
->> +	}
->>  
->>  	/* the actual thread switch */
->>  	last = cpu_switch_to(prev, next);
+> This modification is not related to the title. If necessary, separate this to another patch.
+> But I don't know why remove this. Could you explain more?
+> 
+
+It's a cleanup... if every driver in the kernel said "bound to" or "registered",
+the kernel log would be extremely long and unreadable... so that's why this print
+was removed.
+
+I can separate this to a different patch if you want, even though that'd be
+overkill, imo.
+
+Cheers,
+Angelo
+
+> Regards,
+> CK
+> 
+>>          return 0;
+>>   }
+>>
+>> @@ -1667,11 +1660,6 @@ static int mtk_hdmi_probe(struct platform_device *pdev)
+>>          mutex_init(&hdmi->update_plugged_status_lock);
+>>          platform_set_drvdata(pdev, hdmi);
+>>
+>> -       ret = mtk_hdmi_output_init(hdmi);
+>> -       if (ret)
+>> -               return dev_err_probe(dev, ret,
+>> -                                    "Failed to initialize hdmi output\n");
+>> -
+>>          ret = mtk_hdmi_register_audio_driver(dev);
+>>          if (ret)
+>>                  return dev_err_probe(dev, ret,
+>> --
+>> 2.47.0
+>>
+> 
 
 
