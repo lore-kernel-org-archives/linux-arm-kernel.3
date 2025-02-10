@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3441AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA1AC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lda57PQrvabV7TRnU6VjJDmDMF10QGZVMZAT4AjoPmg=; b=vyZtisaq9xpc6TSyaneAV6Tttk
-	5mdlDdGvoflcTk1ZiFjXNcbb1R6wfJ4e8otpsxbxRfGstMcL9TbBQWToEAUiutAx14Abu5uMk26pF
-	/YWBiT2HUULLTHmCB5p9sJUStJt3rd7JrNKrX2IzTfghQARqSZeXXLIxW+vcCstlu5zXh+WDGENls
-	/MMrFv9FOYhnhkr0ywPAximQLZ2SBGGvO/ohvtareZ9tHzTBoPAXQGt/luK1UTAzJNmn+DTgzP1GX
-	lvBHw45P3uBdTlFpcvtQ0XzAkG0CYPTIg9SJcoSKR4ppMcqwxhDbBOmvBsa7Dq0IwrPvoY7My+vVn
-	AawuvFwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tw4BfBkwY6f1HptDNeIvDAsYszDKfqvDXkBqqINUxlM=; b=kYXzitZc57n5gU2XDcu3SCrPHc
+	gl1PfYnDkMZIDcmzHM3/LKAcu3RHz6PkKHi0g0TpZzkJOSVDpOOlW7jGibwQ/E3oZ0Ob8WEZwk/+I
+	M/hq8wtSKzBGA8m42H5sqGAeFr8u+vv+68c8LR6F80KgCc8R/P+VPUNJBERQGLm4TLbWjbePBoMNg
+	iUQvbKAs+w4YnacYj3qY2d8iKlZMRA3ck3b2PEgYb/1hMviJpXTtqeYF4GIVRVoBhtQR4u3AbwJN7
+	sVu8ZHTg/W641m0jsyRlpppqZd8v/Q+hHdyf/6E/AeBZw97oJn+MaI+L9bq3HqayhaPIM+Hhkw+jG
+	CM6OjX5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQY2-0000000Gty8-0cj1;
-	Mon, 10 Feb 2025 09:57:50 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1thQZN-0000000GuAe-3HkB;
+	Mon, 10 Feb 2025 09:59:13 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQWP-0000000Gtj7-38ui
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 09:56:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lda57PQrvabV7TRnU6VjJDmDMF10QGZVMZAT4AjoPmg=; b=kFGMe+BGbho/98khdsaOK+1haQ
-	aDKn1Q73vWV+mCxc73fbgI4pIK2ksy++4trCtS6msTI3rq9EhmVJ90UUtUkic8c+GFkK3jpxVULkm
-	/xelkbA4A4SPebWm3p4UKr0hfPtdES2uV8grGuugejHBkQtu0WyocjRCVPl6cOG4/vGmSfyw0DsU1
-	zZsrVCmsYG4Y7L2PUhSVTS5MLUs64L8cal4QUR3zE2JkiK3RlXVSseIi27TibAUDeuXmjGQ++9pzq
-	CchN03CoaftrmZdZqVjfY9yHlms+ejn7IJTDwIrOkVQ2FvmKD5SQ+iw344+KfNttNJXEgE3cyVC65
-	gnTFSmEA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQWN-0000000FTvf-2hEk;
-	Mon, 10 Feb 2025 09:56:07 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3D42F300318; Mon, 10 Feb 2025 10:56:07 +0100 (CET)
-Date: Mon, 10 Feb 2025 10:56:07 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Barret Rhoden <brho@google.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 07/26] rqspinlock: Add support for timeouts
-Message-ID: <20250210095607.GH10324@noisy.programming.kicks-ass.net>
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250206105435.2159977-8-memxor@gmail.com>
+	id 1thQWt-0000000GtpM-30nf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 09:56:40 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 45ED0A0ACA;
+	Mon, 10 Feb 2025 10:56:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=tw4BfBkwY6f1HptDNeIv
+	DAsYszDKfqvDXkBqqINUxlM=; b=hRAudKGelQQFHre0UjsRkMQGqidGMWp8U0gp
+	ngrD0r6MPpPADTnuB10DYMqgqavqQMlMTbYdbc0q3KLL8kFDWZ3tz7auFC6Si0U9
+	NtUHUtr5IXnDWt3iGPh0Q07bPRjTxk+nQlB30wtoSrweqqgWy7Tp35d8XBBjlxO5
+	UamZs+9nYsFnDL1CVZ2Q8RMwwyD37QPnFD3gf/sjieDHd0oJMUNhcJhtFBHK/y5L
+	0cawL1vyTTN4y+rJxI3fEcKz0xNs5Tbxr865hD/FLl0uketDEqs6a81AxotE7Zaf
+	aRkNHd0tLUCms3lLpoR5X1Uunop25oC1hsTxEV45NjP4mbDsWg6nuubivZYaAdQj
+	Qfxt84Ihj2wpIzF042vYRzzmxvDidwbGG0uxjiferJU/tj0Ef6/UwcdVC3Za3afk
+	2T8ScnvMhpdLHsGF5llRGertsUgdCCIxjHRwssAYh/xSKUQxXtnXIU/lXKe0nIRx
+	oxALyHmIguq0oPR90lHHiH+VJkCyIE2sebDArG2jEuS7rjeLzqcAbR0q+po9ChiH
+	tl/ypUcxVktdZmpqLiQe3KIxjI5FoDV5UOyIxeMpbSm/LIg3/Dq9a1S4TzF18V+p
+	BWLDIqlb5sxXnir4On5OA/IEdFwIAveMe1wBtP25RXZLm8woup2dlLjowWGblF/C
+	tunTwj0=
+Message-ID: <4c8a847d-b506-4235-9941-06e0d403cb62@prolan.hu>
+Date: Mon, 10 Feb 2025 10:56:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206105435.2159977-8-memxor@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] counter: microchip-tcb-capture: Add capture
+ extensions for registers RA-RC
+To: <Dharma.B@microchip.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <kamel.bouhara@bootlin.com>, <wbg@kernel.org>
+References: <20250205104957.95236-1-csokas.bence@prolan.hu>
+ <20250205104957.95236-3-csokas.bence@prolan.hu>
+ <37bf1294-a9c4-4a6b-9e5a-b8bc54ed87e9@microchip.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <37bf1294-a9c4-4a6b-9e5a-b8bc54ed87e9@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.254.253.18]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485261776A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250210_015639_916304_DA2C2F55 
+X-CRM114-Status: UNSURE (   4.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 02:54:15AM -0800, Kumar Kartikeya Dwivedi wrote:
-> @@ -68,6 +71,44 @@
->  
->  #include "mcs_spinlock.h"
->  
-> +struct rqspinlock_timeout {
-> +	u64 timeout_end;
-> +	u64 duration;
-> +	u16 spin;
-> +};
-> +
-> +static noinline int check_timeout(struct rqspinlock_timeout *ts)
-> +{
-> +	u64 time = ktime_get_mono_fast_ns();
+Hi,
 
-This is only sane if you have a TSC clocksource. If you ever manage to
-hit the HPET fallback, you're *really* sad.
+On 2025. 02. 07. 9:19, Dharma.B@microchip.com wrote:
+> The registers RA/B/C are 32 bit registers, hence use of u64 is unnecessary.
 
-> +
-> +	if (!ts->timeout_end) {
-> +		ts->timeout_end = time + ts->duration;
-> +		return 0;
-> +	}
-> +
-> +	if (time > ts->timeout_end)
-> +		return -ETIMEDOUT;
-> +
-> +	return 0;
-> +}
-> +
-> +#define RES_CHECK_TIMEOUT(ts, ret)                    \
-> +	({                                            \
-> +		if (!(ts).spin++)                     \
-> +			(ret) = check_timeout(&(ts)); \
-> +		(ret);                                \
-> +	})
+Correct, but the definition of COUNTER_COMP_ARRAY_CAPTURE 
+(include/linux/counter.h:623) is:
+
+	#define COUNTER_COMP_ARRAY_CAPTURE(_read, _write, _array) \
+		COUNTER_COMP_COUNT_ARRAY_U64("capture", _read, _write, _array)
+
+> The regmap_read() returns an error code, which is currently ignored. If
+> regmap_read() fails, cnt remains uninitialized, potentially returning
+> garbage data.
+
+Will fix.
+
+Thanks,
+Bence
+
 
