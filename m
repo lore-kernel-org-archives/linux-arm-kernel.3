@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D5AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8548EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrNQJraXZVjilPFdNhBPtBLSm+xWnPeDyMXrb2bQCls=; b=IlRet36uC9b+1fh0eEH7kKyRbY
-	HiDacQ4rWjG01/aMrL4/ri9RiIraiAp/kspZgpSJtvYWhjqJQGZK0L4F06T9nS1Ed1wBnC5moan+x
-	Jy+1jteTxdTugWpUDwe46TucPLoc4fZb9XiReq0+SpEn5yadKpH0Ux2oXSmZTUSvWxaA4kcSCOemN
-	7sYUPGFrgvXCstKAdHEupqhnxpmAQ3LnBOR1t+4Ky8IE1+PyAio4Jos3BCBN+nL667SfD1DP9a3bj
-	2ad39AQ5pKrSWsKEBrtl4Y7xqfEEISzohqq//mERZbX/RHYPU6GeGJoUdcfJQiAK0S0mxdifSX4nT
-	PK0DfD8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=; b=EA+JVPT/oui29Axkh/k/ZYT6Dh
+	Mnd9YuIGbFj5QFT1Y9Ey1Obrkgj+PbcaJzyZVi3dBJ+ogH0Aszhnmu7L/ZjjSDMlc9FWauobnT+Oi
+	bKAOHt2wRL7INkBrwc+LfwfMOKmhWTSlGYFDwLwquOr9jmCq0UEZobsLAa4m8spwMdf+6XMsb3nGv
+	tuu6ZmSv+EItkGiK8owJ+4dmMnfLy301hhcBv4uEV7Mok21spD0maLbGGk80EkthgQwLXOTOs37TE
+	jG+z6dJKuS1pLJoR/x06qWRFf9kLADGhJ6ygL5XmyME1Z92j2k2rhIPQCOyMzwSJ9D1t81IBkkXIO
+	LwM1RUoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQqG-0000000GxYp-1NX0;
-	Mon, 10 Feb 2025 10:16:40 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1thQrc-0000000Gxus-08nh;
+	Mon, 10 Feb 2025 10:18:04 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQhQ-0000000Gw0N-3EZy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:07:34 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9esgn022216;
-	Mon, 10 Feb 2025 11:07:16 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	KrNQJraXZVjilPFdNhBPtBLSm+xWnPeDyMXrb2bQCls=; b=Rp9EA02hn4j6/zpf
-	9WS8gwiAvBc0R7ipgIptAfQyN02mO4Mw5Ll8jIAuhu3B4UVda1tW2VSZVOS8Srmd
-	rOLx0G8ukSY/k98zd1YrQn3FkjRV+Ih3fWyjqoclFZzz7pmqj+QZNgVd/BH8mwwI
-	PsCghMr5T+r/8EeBqw9I9+txbubOAZzObCz1koLomFf5ZxjYGGFBnXboTwzOnfS1
-	POSSuGMf4MYWxJUDbD5kbAhpSYRu3ZBtupaMrj+qItsRrTt1UmVpuCJe5/tjETgj
-	G3RRiy6buyBL3CRbwWQSQMD57qpFTpUnWoUkdSt/KITAncS6rQAri3DfxrEqWNfp
-	HKqNSA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0rhwv3v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 11:07:16 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AC6B84004D;
-	Mon, 10 Feb 2025 11:06:16 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C587A2BEFA0;
-	Mon, 10 Feb 2025 11:05:02 +0100 (CET)
-Received: from localhost (10.252.6.236) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
- 2025 11:05:02 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 10 Feb 2025 11:04:31 +0100
-Subject: [PATCH 2/2] dt-bindings: media: st,stmipid02: correct
- lane-polarities maxItems
+	id 1thQj4-0000000GwLb-1mub;
+	Mon, 10 Feb 2025 10:09:15 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5de7519e5a7so1144254a12.2;
+        Mon, 10 Feb 2025 02:09:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739182152; x=1739786952; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=;
+        b=LElqI0OCCrI6U3Hvz/Xx3T1YR2PJDjyxAmpxq0E0hdOnkpmXz+4DR6FmJ9EsmGaNSA
+         3zXP5npZYICRYBrYDrXakhCse+LmlijGPcf01fICe+YqWPtwAhQkyfjDhlWHb6vG+Bj1
+         pc224A50FhGA8UbVajAu5E3XR80QUUyQkXhTpGUHxJYbB9a3H3Jm70nvC+p+V7Try8YY
+         /Xko8ni+UqPTOozjmqSe65Ep/XQOwA+f6qJdQC2aP4/3MWkECcVvD5IzqAchzy3oM5m3
+         HbE2QxGhiXzB+Coe8BWokseOfE/3n7FeVfhsyA5cnj5xi2d5IlGlgF73kqx2YA3l62On
+         n5xQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739182152; x=1739786952;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=;
+        b=FYuzUr/SINF5lLuS/X9HsLtU1bd+3fnjk3YmjjG95ct2RsxU3UEmBHPFKoATgmq3Ql
+         iaPqsS59/im5YHUH/gKAIxPaeFUsVAp0zc5YX0wuQBfYky6FLsZTT9+stB5Wm79cSwC1
+         xbJjZCZAnCSw34GFQWMR7L1JeEG80XIaItbUvRCualUq0IPB11EtSJQHBq2kgGpfgp8G
+         asLYgr1hrtEP8mbeFi9jSv7JQzo6r+Lc+RYH56idHPhSA6/zsNy4HaNcQr9kC6XbcLGV
+         pshDOqDPbpk99blo+BxjPaO6YYJdq7Oqo49qCwb5vIbi3cDVdGVwevuA327gEHL01lhy
+         03mw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNhi44FB0UthzsDEuZzTubgS/CDD6NITvKeJhjLkwGrgFJkzwRgb+Z8LACGwYLW1sqDqMX8TlzPk5u@lists.infradead.org, AJvYcCXY6UdVHo9oRwRtxC2IHY0Ql9jlADYVsjdPKYcdqGsKP573T5/n9Q6KKmlnGqY2VrU02mgTRT24qjygtT0B2lBq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHrVdiXTe5iM343jpdN48dLPisfgH8WYe84aPqc6mBzh+ON9sg
+	vmYAIxXCMyWnuVx/SxHMK6GLUu7lXMnTwS4QfysKsSlYEZ/l6Juqd2q+S6l9VHvUMbv7yBdoVm/
+	4fWJdsI7Sjd/Lpd2hPTdXfJdkdHc=
+X-Gm-Gg: ASbGncut4RzJVkUxgZLnbjPRavvLTT2lCrSKb9PMJK1G1Vv06zh/pcZNglrJfBGVZpk
+	Yhy6CLiJQvHy/G2/y0RguMc0ql4c12XmZ2nCdirRrFHP8aZvXoal7xg93APzK7HZBz467RINk
+X-Google-Smtp-Source: AGHT+IH05m3EGDv37NgCHa7r72kurcQ8bsVSV4tB6ZTwaZHVAXVKJd9j8KrWy0sZ6Kd7oDJwTcHKTTZ7neMq4xpHZUE=
+X-Received: by 2002:a05:6402:42ce:b0:5dc:73fc:2693 with SMTP id
+ 4fb4d7f45d1cf-5de45023654mr16526726a12.18.1739182152139; Mon, 10 Feb 2025
+ 02:09:12 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250210-6-14-stm32-media-fixes-v1-2-c64ebe9af8bb@foss.st.com>
-References: <20250210-6-14-stm32-media-fixes-v1-0-c64ebe9af8bb@foss.st.com>
-In-Reply-To: <20250210-6-14-stm32-media-fixes-v1-0-c64ebe9af8bb@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-        Sylvain Petinot
-	<sylvain.petinot@foss.st.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Marek Vasut <marex@denx.de>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-media@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>,
-        <stable@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.252.6.236]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_05,2025-02-10_01,2024-11-22_01
+References: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
+In-Reply-To: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Mon, 10 Feb 2025 15:38:57 +0530
+X-Gm-Features: AWEUYZl-ymjB7hMb8tRQlI4jusE7F1xxvFV_L9geMxys9qNgTR3hdyKQc5pas2k
+Message-ID: <CANAwSgQAfwq2tmqB=+896YGhFFa1hJ18W-cAes2o2bseJiLUsQ@mail.gmail.com>
+Subject: Re: [PATCH] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and
+ SSC_REFCLKSEL masks in refclk
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Vivek Gautam <gautam.vivek@samsung.com>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_020733_103109_F70DA538 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250210_020914_461241_E45467B6 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +96,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MIPID02 can use up to 2 data lanes which leads to having a maximum
-item number of 3 for the lane-polarities since this also contains the
-clock lane.
+Hi Kaustabh,
 
-CC: stable@vger.kernel.org
-Fixes: c2741cbe7f8a ("dt-bindings: media: st,stmipid02: Convert the text bindings to YAML")
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- Documentation/devicetree/bindings/media/i2c/st,st-mipid02.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Sun, 9 Feb 2025 at 00:30, Kaustabh Chakraborty
+<kauschluss@disroot.org> wrote:
+>
+> In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
+> PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
+> inverted when applied to the register values. Fix it.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/Documentation/devicetree/bindings/media/i2c/st,st-mipid02.yaml b/Documentation/devicetree/bindings/media/i2c/st,st-mipid02.yaml
-index b68141264c0e9fe0e530ce3b06fa3434fa712b38..4d40e75b4e1efff673647dff7bf984c89abca4cf 100644
---- a/Documentation/devicetree/bindings/media/i2c/st,st-mipid02.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/st,st-mipid02.yaml
-@@ -71,7 +71,7 @@ properties:
-                 description:
-                   Any lane can be inverted or not.
-                 minItems: 1
--                maxItems: 2
-+                maxItems: 3
- 
-             required:
-               - data-lanes
+Reviewed-by: Anand Moon <linux.amoon@gmail.com>
 
--- 
-2.34.1
+Thanks
 
+-Anand
 
