@@ -4,132 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423B4C021A2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7553CC021A3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q78q5T2m6cH6jXqwgObFO3fxc5aHnrk/hPPsnQExP6A=; b=QGuaz0F/yFCII56NDlPIx7FETI
-	ajS24VCH3xwteRWZIzfqv7rIrIiKw0jBoOWaShUgtb4CeVxJg5oE8gYPpC0U2FcyF3N8YHIznfFp+
-	VwOECW/tUu+75Do2+gnUENiQ3ugWu7TUxV09cnwQ7q4Vul8c6Kt+HktaDwRPSnfntBTuK3FWLVBJk
-	PtkQsVvLB7VncIvAkb/eXq8LsDCVXzrCca1Y1iImJFbXPcreAlpDXODKzGmkjuUEWlJUjCN/f459N
-	1YbdU3A3sUvpaWOSxb2+9v4utHUNG+wptB6dgpGKECIroELT8pkOxSmmIkQsVPUFlZTuaWAEABOVK
-	okv1rJDQ==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hszv0Y6BUS2JmvDMwRGECJJhOfJ116XI2rmQEpwlaoc=; b=iMsEm90N1yP2rDr+kE3TWUeOty
+	DQIt0KxwnImeKBhq6D5k/+PZpPqXty6Z28InIAFbEB+Fy7dOOqb+sQjNc+SWcJVfTdcv4/aE6HWLP
+	eV2qlvMBcjM6Hjz3yBMgXsRVq72yubbNbdcekqCA8Yg6nYHDD7oP9OimAGzRL31Lkw9bVFCLPh88R
+	qdGBCZVdHSb21egp385mH3AXWFMbtcdXPpsCY9l1sf5Us9uDw9w2MuV7ACABE754TVrkqTukuDnAJ
+	+csTNehbHUobCHY/sv0VXEit795pX4uVBFFT2DpqZ0VE98qO1y6XqZUqUaEatyUIIghj/6BoQ17VX
+	w2LvgMUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZZB-0000000185p-0NTO;
-	Mon, 10 Feb 2025 19:35:37 +0000
+	id 1thZZ8-0000000181W-49n9;
+	Mon, 10 Feb 2025 19:35:34 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZRd-000000015T1-3xP1;
-	Mon, 10 Feb 2025 19:27:51 +0000
+	id 1thZQc-000000015GM-2Ypg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 19:26:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA6285C4238;
-	Mon, 10 Feb 2025 19:27:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0932FC4CED1;
-	Mon, 10 Feb 2025 19:27:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739215669;
-	bh=I1srf/if4T44Admu2U0Lb/obhkkyKynLmn43hK8odaA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XC1jqVmkTGXmdNARhxDcMByE1sgwEe68PAo4peSTft+yvG7h4Kco6Q9zSctHzO9J8
-	 100+RSXWikuUDVSfPzKdubwp1QYXRxshu/dBN5whVXUebi2LEQkwQaiCwRp5sgtfOn
-	 jc3jK2BmDk7t+loX1C3f6iWdC1qYyqdSlzpH42+cfmy6oUBcC6VtB8rbEkXtnAZod1
-	 99xAqdSE9oODQ4gDYnZ6n+TyHOD7Y14ovzd0nSDD2co+AnQcOy4gxvgaK9sYO9p/nZ
-	 qjan9tk6vFmDrlZOwAtrurbpKmvEVNw2PT/eFWEeuBGN77dDjk4KI/Tgp6DoWOHIfJ
-	 w+O6GKmac9E+g==
-Message-ID: <2fe7a404-be2c-4ac8-8980-2b3d07a74bca@kernel.org>
-Date: Mon, 10 Feb 2025 20:27:34 +0100
+	by dfw.source.kernel.org (Postfix) with ESMTP id 80FB05C4238;
+	Mon, 10 Feb 2025 19:26:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3E1CC4CEE4;
+	Mon, 10 Feb 2025 19:26:44 +0000 (UTC)
+Date: Mon, 10 Feb 2025 14:26:47 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, linux-s390@vger.kernel.org
+Subject: [PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc at
+ boot for arm64
+Message-ID: <20250210142647.083ff456@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 14/14] Documentation: KHO: Add memblock bindings
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
- Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Anthony Yznaga
- <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>,
- Ashish Kalra <ashish.kalra@amd.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Eric Biederman
- <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>,
- James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>,
- Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>,
- Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
- Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tom Lendacky <thomas.lendacky@amd.com>, Usama Arif
- <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, x86@kernel.org
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-15-rppt@kernel.org>
- <45df0d7a-622a-4268-9683-c5c6067483c3@kernel.org>
- <Z6jFZII5b-j7hzkj@kernel.org>
- <a3cca0ed-64ca-4921-bb4c-27c0e06b78c6@kernel.org>
- <Z6kTCvex3DGhB-3C@kernel.org>
- <18529b1f-dc79-4c85-a485-a0a2cdd48670@kernel.org>
- <aa4ec16a-b35f-41b0-92f7-40b3eb64124a@kernel.org>
- <20250210191539.GA3765641@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250210191539.GA3765641@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_112750_075080_A3A95E01 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250210_112646_747941_AB20900F 
+X-CRM114-Status: GOOD (  31.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,31 +64,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 20:15, Jason Gunthorpe wrote:
-> On Sun, Feb 09, 2025 at 09:50:37PM +0100, Krzysztof Kozlowski wrote:
->>> Ah, neat, that would almost solve the problem but you wrote:
->>>
->>> +$id: http://devicetree.org/schemas/memblock/reserve_mem.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>
->>> so no, this does not work like that. You use devicetree here namespace
->>> and ignore its rules.
->>
->> ... and that obviously is barely parseable, so maybe one more try:
->> "You use here devicetree namespace but ignore its rules."
-> 
-> It makes sense to me, there should be zero cross-over of the two
-> specs, KHO should be completely self defined and stand alone.
-> 
-> There is some documentation missing, I think. This yaml describes one
-> node type, but the entire overall structure of the fdt does not seem
-> to have documentation?
+From: Steven Rostedt <rostedt@goodmis.org>
 
-A lot of ABI is missing there and undocumented like: node name (which
-for every standard DT would be a NAK), few properties. This binding
-describes only subset while skipping all the rest and effectively
-introducing implied/undocumented ABI.
+The mcount_loc section holds the addresses of the functions that get
+patched by ftrace when enabling function callbacks. It can contain tens of
+thousands of entries. These addresses must be sorted. If they are not
+sorted at compile time, they are sorted at boot. Sorting at boot does take
+some time and does have a small impact on boot performance.
 
-Best regards,
-Krzysztof
+x86 and arm32 have the addresses in the mcount_loc section of the ELF
+file. But for arm64, the section just contains zeros. The .rela.dyn
+Elf_Rela section holds the addresses and they get patched at boot during
+the relocation phase.
+
+In order to sort these addresses, the Elf_Rela needs to be updated instead
+of the location in the binary that holds the mcount_loc section. Have the
+sorttable code, allocate an array to hold the functions, load the
+addresses from the Elf_Rela entries, sort them, then put them back in
+order into the Elf_rela entries so that they will be sorted at boot up
+without having to sort them during boot up.
+
+Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+---
+
+Can I get a "Tested-by" and a Reviewed-by or Acked-by from one of the ARM64
+maintainers? I have some code that I want to add on top of this that will
+remove the weak functions from the mcount_loc section.
+
+For the s390 folks. I cross compiled a s390 and looked at the mcount_loc
+section, and I have no idea how to implement this for that. I wrote a elf
+parser to dump sections based symbols:
+
+  https://rostedt.org/code/dump_elf_sym.c
+
+And ran it on the s390 vmlinux:
+
+ $ ./dump_elf_sym vmlinux __start_mcount_loc __stop_mcount_loc
+ 1801620: .. .. .. .. .. .. .. ..   00 00 00 00 00 11 70 20  ......... .....p 
+ 1801630: 00 00 00 00 00 11 70 90   00 00 00 00 00 11 70 a0  ......p.. .....p.
+ 1801640: 00 00 00 00 00 11 71 10   00 00 00 00 00 11 71 20  ......q.. .....q 
+ 1801650: 00 00 00 00 00 11 71 90   00 00 00 00 01 7c 70 00  ......q.. ....|p.
+ 1801660: 00 00 00 00 01 7c 70 20   00 00 00 00 01 7c 70 40  .....|p . ....|p@
+ 1801670: 00 00 00 00 01 7c 70 60   00 00 00 00 01 7c 70 70  .....|p`. ....|pp
+ 1801680: 00 00 00 00 01 7c 70 98   00 00 00 00 01 7c 70 c0  .....|p.. ....|p.
+ 1801690: 00 00 00 00 01 7c 70 d0   00 00 00 00 01 7c 71 68  .....|p.. ....|qh
+[..]
+
+It looks like addresses in that section where ARM64 only has zeros. I
+couldn't find a .rel or .rela section either.
+
+I guess there's some other table that these addresses are dependent upon?
+
+
+ arch/arm64/Kconfig  |   1 +
+ scripts/sorttable.c | 181 +++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 179 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fcdd0ed3eca8..3c6c9dcd96aa 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -217,6 +217,7 @@ config ARM64
+ 		if DYNAMIC_FTRACE_WITH_ARGS
+ 	select HAVE_SAMPLE_FTRACE_DIRECT
+ 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
++	select HAVE_BUILDTIME_MCOUNT_SORT
+ 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+ 	select HAVE_GUP_FAST
+ 	select HAVE_FTRACE_GRAPH_FUNC
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index 9f41575afd7a..f75be83916a8 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -28,6 +28,7 @@
+ #include <fcntl.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <stdbool.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <errno.h>
+@@ -79,10 +80,16 @@ typedef union {
+ 	Elf64_Sym	e64;
+ } Elf_Sym;
+ 
++typedef union {
++	Elf32_Rela	e32;
++	Elf64_Rela	e64;
++} Elf_Rela;
++
+ static uint32_t (*r)(const uint32_t *);
+ static uint16_t (*r2)(const uint16_t *);
+ static uint64_t (*r8)(const uint64_t *);
+ static void (*w)(uint32_t, uint32_t *);
++static void (*w8)(uint64_t, uint64_t *);
+ typedef void (*table_sort_t)(char *, int);
+ 
+ static struct elf_funcs {
+@@ -102,6 +109,10 @@ static struct elf_funcs {
+ 	uint32_t (*sym_name)(Elf_Sym *sym);
+ 	uint64_t (*sym_value)(Elf_Sym *sym);
+ 	uint16_t (*sym_shndx)(Elf_Sym *sym);
++	uint64_t (*rela_offset)(Elf_Rela *rela);
++	uint64_t (*rela_info)(Elf_Rela *rela);
++	uint64_t (*rela_addend)(Elf_Rela *rela);
++	void (*rela_write_addend)(Elf_Rela *rela, uint64_t val);
+ } e;
+ 
+ static uint64_t ehdr64_shoff(Elf_Ehdr *ehdr)
+@@ -262,6 +273,41 @@ SYM_ADDR(value)
+ SYM_WORD(name)
+ SYM_HALF(shndx)
+ 
++#define RELA_ADDR(fn_name)				\
++static uint64_t rela64_##fn_name(Elf_Rela *rela)	\
++{							\
++	return r8((uint64_t *)&rela->e64.r_##fn_name);	\
++}							\
++							\
++static uint64_t rela32_##fn_name(Elf_Rela *rela)	\
++{							\
++	return r((uint32_t *)&rela->e32.r_##fn_name);	\
++}							\
++							\
++static uint64_t rela_##fn_name(Elf_Rela *rela)		\
++{							\
++	return e.rela_##fn_name(rela);			\
++}
++
++RELA_ADDR(offset)
++RELA_ADDR(info)
++RELA_ADDR(addend)
++
++static void rela64_write_addend(Elf_Rela *rela, uint64_t val)
++{
++	w8(val, (uint64_t *)&rela->e64.r_addend);
++}
++
++static void rela32_write_addend(Elf_Rela *rela, uint64_t val)
++{
++	w(val, (uint32_t *)&rela->e32.r_addend);
++}
++
++static void rela_write_addend(Elf_Rela *rela, uint64_t val)
++{
++	e.rela_write_addend(rela, val);
++}
++
+ /*
+  * Get the whole file as a programming convenience in order to avoid
+  * malloc+lseek+read+free of many pieces.  If successful, then mmap
+@@ -341,6 +387,16 @@ static void wle(uint32_t val, uint32_t *x)
+ 	put_unaligned_le32(val, x);
+ }
+ 
++static void w8be(uint64_t val, uint64_t *x)
++{
++	put_unaligned_be64(val, x);
++}
++
++static void w8le(uint64_t val, uint64_t *x)
++{
++	put_unaligned_le64(val, x);
++}
++
+ /*
+  * Move reserved section indices SHN_LORESERVE..SHN_HIRESERVE out of
+  * the way to -256..-1, to avoid conflicting with real section
+@@ -398,13 +454,12 @@ static inline void *get_index(void *start, int entsize, int index)
+ static int extable_ent_size;
+ static int long_size;
+ 
++#define ERRSTR_MAXSZ	256
+ 
+ #ifdef UNWINDER_ORC_ENABLED
+ /* ORC unwinder only support X86_64 */
+ #include <asm/orc_types.h>
+ 
+-#define ERRSTR_MAXSZ	256
+-
+ static char g_err[ERRSTR_MAXSZ];
+ static int *g_orc_ip_table;
+ static struct orc_entry *g_orc_table;
+@@ -500,6 +555,11 @@ static void *sort_orctable(void *arg)
+ 
+ #ifdef MCOUNT_SORT_ENABLED
+ static pthread_t mcount_sort_thread;
++static bool sort_reloc;
++
++static long rela_type;
++
++static char m_err[ERRSTR_MAXSZ];
+ 
+ struct elf_mcount_loc {
+ 	Elf_Ehdr *ehdr;
+@@ -508,6 +568,103 @@ struct elf_mcount_loc {
+ 	uint64_t stop_mcount_loc;
+ };
+ 
++/* Sort the relocations not the address itself */
++static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
++{
++	Elf_Shdr *shdr_start;
++	Elf_Rela *rel;
++	unsigned int shnum;
++	unsigned int count;
++	int shentsize;
++	void *vals;
++	void *ptr;
++
++	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
++	shentsize = ehdr_shentsize(ehdr);
++
++	vals = malloc(long_size * size);
++	if (!vals) {
++		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
++		pthread_exit(m_err);
++		return NULL;
++	}
++
++	ptr = vals;
++
++	shnum = ehdr_shnum(ehdr);
++	if (shnum == SHN_UNDEF)
++		shnum = shdr_size(shdr_start);
++
++	for (int i = 0; i < shnum; i++) {
++		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
++		void *end;
++
++		if (shdr_type(shdr) != SHT_RELA)
++			continue;
++
++		rel = (void *)ehdr + shdr_offset(shdr);
++		end = (void *)rel + shdr_size(shdr);
++
++		for (; (void *)rel < end; rel = (void *)rel + shdr_entsize(shdr)) {
++			uint64_t offset = rela_offset(rel);
++
++			if (offset >= start_loc && offset < start_loc + size) {
++				if (ptr + long_size > vals + size) {
++					free(vals);
++					snprintf(m_err, ERRSTR_MAXSZ,
++						 "Too many relocations");
++					pthread_exit(m_err);
++					return NULL;
++				}
++
++				/* Make sure this has the correct type */
++				if (rela_info(rel) != rela_type) {
++					free(vals);
++					snprintf(m_err, ERRSTR_MAXSZ,
++						"rela has type %lx but expected %lx\n",
++						(long)rela_info(rel), rela_type);
++					pthread_exit(m_err);
++					return NULL;
++				}
++
++				if (long_size == 4)
++					*(uint32_t *)ptr = rela_addend(rel);
++				else
++					*(uint64_t *)ptr = rela_addend(rel);
++				ptr += long_size;
++			}
++		}
++	}
++	count = ptr - vals;
++	qsort(vals, count / long_size, long_size, compare_extable);
++
++	ptr = vals;
++	for (int i = 0; i < shnum; i++) {
++		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
++		void *end;
++
++		if (shdr_type(shdr) != SHT_RELA)
++			continue;
++
++		rel = (void *)ehdr + shdr_offset(shdr);
++		end = (void *)rel + shdr_size(shdr);
++
++		for (; (void *)rel < end; rel = (void *)rel + shdr_entsize(shdr)) {
++			uint64_t offset = rela_offset(rel);
++
++			if (offset >= start_loc && offset < start_loc + size) {
++				if (long_size == 4)
++					rela_write_addend(rel, *(uint32_t *)ptr);
++				else
++					rela_write_addend(rel, *(uint64_t *)ptr);
++				ptr += long_size;
++			}
++		}
++	}
++	free(vals);
++	return NULL;
++}
++
+ /* Sort the addresses stored between __start_mcount_loc to __stop_mcount_loc in vmlinux */
+ static void *sort_mcount_loc(void *arg)
+ {
+@@ -517,6 +674,9 @@ static void *sort_mcount_loc(void *arg)
+ 	uint64_t count = emloc->stop_mcount_loc - emloc->start_mcount_loc;
+ 	unsigned char *start_loc = (void *)emloc->ehdr + offset;
+ 
++	if (sort_reloc)
++		return sort_relocs(emloc->ehdr, emloc->start_mcount_loc, count);
++
+ 	qsort(start_loc, count/long_size, long_size, compare_extable);
+ 	return NULL;
+ }
+@@ -866,12 +1026,14 @@ static int do_file(char const *const fname, void *addr)
+ 		r2	= r2le;
+ 		r8	= r8le;
+ 		w	= wle;
++		w8	= w8le;
+ 		break;
+ 	case ELFDATA2MSB:
+ 		r	= rbe;
+ 		r2	= r2be;
+ 		r8	= r8be;
+ 		w	= wbe;
++		w8	= w8be;
+ 		break;
+ 	default:
+ 		fprintf(stderr, "unrecognized ELF data encoding %d: %s\n",
+@@ -887,8 +1049,13 @@ static int do_file(char const *const fname, void *addr)
+ 	}
+ 
+ 	switch (r2(&ehdr->e32.e_machine)) {
+-	case EM_386:
+ 	case EM_AARCH64:
++#ifdef MCOUNT_SORT_ENABLED
++		sort_reloc = true;
++		rela_type = 0x403;
++#endif
++		/* fallthrough */
++	case EM_386:
+ 	case EM_LOONGARCH:
+ 	case EM_RISCV:
+ 	case EM_S390:
+@@ -932,6 +1099,10 @@ static int do_file(char const *const fname, void *addr)
+ 			.sym_name		= sym32_name,
+ 			.sym_value		= sym32_value,
+ 			.sym_shndx		= sym32_shndx,
++			.rela_offset		= rela32_offset,
++			.rela_info		= rela32_info,
++			.rela_addend		= rela32_addend,
++			.rela_write_addend	= rela32_write_addend,
+ 		};
+ 
+ 		e = efuncs;
+@@ -965,6 +1136,10 @@ static int do_file(char const *const fname, void *addr)
+ 			.sym_name		= sym64_name,
+ 			.sym_value		= sym64_value,
+ 			.sym_shndx		= sym64_shndx,
++			.rela_offset		= rela64_offset,
++			.rela_info		= rela64_info,
++			.rela_addend		= rela64_addend,
++			.rela_write_addend	= rela64_write_addend,
+ 		};
+ 
+ 		e = efuncs;
+-- 
+2.47.2
+
 
