@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84B3C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F85C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T5qFZ/fdam81H3QSgIAXLfc5ZRIkN5R7MNYzd5LYyts=; b=JbBgmz4dSyWK7hwf3lhLZQ1X+e
-	rEv9VEd6DP3S8oI1qRfb1oMy3obIqFDssUSN/w90ZypUXc7xENU2Nf2I9Lg9sCWqKXVqHvubgIeUm
-	2hqywU4OHT78iBlGQDEzhTv6TZq9n1NPQRR61lntw6GGUYYBL+5MAKdrTp4m2DhJ0cda8jCRydt7X
-	OT3nugS1BweuDS8zZl5L99AaZGLQixjvrBpZI6bOr1OJ+fiZsFZjD/sdlp47PHyqLj80q0BK+35lO
-	9HCY4FdXkaWzZ0cK8vLyWJi0rKha9bqU8kHyRHx+K82xjHqyrioZdKDFBqjOl8MqiGcLFgWx+MoSb
-	O2DFW0tA==;
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z34HUMIhzyaBlycKqhDV99x6wJM5d6YY7KL/669ZsG8=; b=Dokatgx96+iGHemGQ+dGwXt7mB
+	zrJnV/iy7HKjWnqhiDm4Sc9vV183R8jYdF9Esc4Zvj9UBYye2M+1ErhdfySAUUUJJbZDQupgHVUQT
+	mKglgxVX8D6v2x7xCmPXzXBe6BRJbbnjfdEWq4NCoZsiy3mPvLEhDymWb8ELdIYa72ervGn6ljRZQ
+	z9xy71SSOrQIDV8TMapbkF7Yo5c5OcHqP91w5J76hsDbePU4JF5bjfaIBKWdzoDALtYbPctTD59uZ
+	J33h0Eo+yRNA+z7LPs+gKqT5Thf0PUTPPxG4rvALtjaeaQS86FW0FW2iy8zOwPkAmCQdgxI7fR6Sv
+	+gmosM4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRc9-0000000H92F-0AjG;
-	Mon, 10 Feb 2025 11:06:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thRdV-0000000H9Mz-2rjr;
+	Mon, 10 Feb 2025 11:07:33 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRPU-0000000H5pI-01M6
+	id 1thRPV-0000000H5q6-3YL8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:53:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBBC85C0384;
-	Mon, 10 Feb 2025 10:52:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8F2C4CEE4;
-	Mon, 10 Feb 2025 10:53:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739184783;
-	bh=vgTPE3xe46V2x7gdz7fa9olKRfCjrvhdK4blayLK5PY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KchrQEqezA5QGPzloKV80L0+UL1QJMyW4sL20PSTV76V6wiRstbZWePRB7YIY5/uF
-	 +qIPiIl8/vSX85V29qAENTivUog4zhF42Hu5Yrl4OZJgULiDtZha1EsNhMBHu+l6Uy
-	 gfO4odDj1CCezpxwX7bbrLfaSze/ObInfM9VycbSPwViSEg6cQuQDQ2pcdtoQ4VXav
-	 uuEos/JwhlkTrYHq2OFv7wLF6p3UMZqqz32UD2QRIXUVrnjUYw8gnb3rI6d63XoFYP
-	 BTIU2DCGGUQGyNTvz39LUCN0DHJXBeUBEv8dTvBzjoL1MBhAqSmW7I7gDBymvaUQ84
-	 fhBSCI7nV2bcg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1thRPQ-002Vh5-Rp;
-	Mon, 10 Feb 2025 10:53:01 +0000
-Date: Mon, 10 Feb 2025 10:53:00 +0000
-Message-ID: <865xlit6k3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>,
+	Mon, 10 Feb 2025 10:53:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Z34HUMIhzyaBlycKqhDV99x6wJM5d6YY7KL/669ZsG8=; b=NN0+SOSYZV+oT+iWN1rq4IgRz5
+	fazaCYica3uF+0pW/+dZNAaU2scIF0g4lJlxOKB8vIwH71MOlPDZo7/Y8zJ8qqgfGSvLJxgaxAcBJ
+	0p0aGb7qhP8Bdfek/dMbk3NlJOjgE723jH5klp7J+SdPOIVLfZupQNuQ6lwk5MVDxCyL4cKJIN3GP
+	FNlsN4Nrpl9Ryr0ti93eJyBkZoERA7kmpG3roqprXUOLY6cmnrt4QkH0NNqz46hAVXyteN+uTFEpA
+	LheIa35smPdvZKrTi6w6us5L/dhfYV2NSFRPnW5n9QmiebzcgeInN/E9PQbEDKnfc3j/B2VZZzedT
+	O+PmBN6w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33268)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1thRPP-0006Uy-24;
+	Mon, 10 Feb 2025 10:52:59 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1thRPM-0007R3-1h;
+	Mon, 10 Feb 2025 10:52:56 +0000
+Date: Mon, 10 Feb 2025 10:52:56 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	eauger@redhat.com,
-	eric.auger@redhat.com,
-	fweimer@redhat.com,
-	jeremy.linton@arm.com,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com,
-	stable@vger.kernel.org,
-	tabba@google.com,
-	wilco.dijkstra@arm.com
-Subject: Re: [PATCH v2 1/8] KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
-In-Reply-To: <Z6YI6IvG_N4txgz7@J2N7QTR9R3>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
-	<20250206141102.954688-2-mark.rutland@arm.com>
-	<20250207122748.GA4839@willie-the-truck>
-	<Z6YI6IvG_N4txgz7@J2N7QTR9R3>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/8] net: phylink,xpcs,stmmac: support PCS EEE
+ configuration
+Message-ID: <Z6naiPpxfxGr1Ic6@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_025304_129329_75DB2B48 
-X-CRM114-Status: GOOD (  33.21  )
+X-CRM114-CacheID: sfid-20250210_025305_890386_BB179260 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Feb 2025 13:21:44 +0000,
-Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> On Fri, Feb 07, 2025 at 12:27:51PM +0000, Will Deacon wrote:
-> > On Thu, Feb 06, 2025 at 02:10:55PM +0000, Mark Rutland wrote:
-> > > There are several problems with the way hyp code lazily saves the host's
-> > > FPSIMD/SVE state, including:
-> > > 
-> > > * Host SVE being discarded unexpectedly due to inconsistent
-> > >   configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
-> > >   result in QEMU crashes where SVE is used by memmove(), as reported by
-> > >   Eric Auger:
-> > > 
-> > >   https://issues.redhat.com/browse/RHEL-68997
-> > > 
-> > > * Host SVE state is discarded *after* modification by ptrace, which was an
-> > >   unintentional ptrace ABI change introduced with lazy discarding of SVE state.
-> > > 
-> > > * The host FPMR value can be discarded when running a non-protected VM,
-> > >   where FPMR support is not exposed to a VM, and that VM uses
-> > >   FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
-> > >   before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
-> > >   value in memory.
-> > 
-> > How hard would it be to write tests for these three scenarios? If we
-> > had something to exercise the relevant paths then...
-> >
-> > > ... and so this eager save+flush probably needs to be backported to ALL
-> > > stable trees.
-> > 
-> > ... this backporting might be a little easier to be sure about?
-> 
-> For the first case I have a quick and dirty test, which I've pushed to
-> my arm64/kvm/fpsimd-tests branch in my kernel.org repo:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
->   git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
-> 
-> For the last case it should be possible to do something similar, but I
-> hadn't had the time to dig in to the KVM selftests infrastructure and
-> figure out how to confiugre the guest appropriately.
-> 
-> For the ptrace case, the same symptoms can be provoked outside of KVM
-> (and I'm currently working to fix that). From my PoV the important thing
-> is that this fix happens to remove KVM from the set of cases the other
-> fixes need to care about.
-> 
-> FWIW I was assuming that I'd be handling the upstream backports, and I'd
-> be testing with the test above and some additional assertions hacked
-> into the kernel for testing.
+Hi,
 
-I agree that having the tests around would be great, if only to catch
-potential repressions.
+This series adds support for phylink managed EEE at the PCS level,
+allowing xpcs_config_eee() to be removed. Sadly, we still end up with
+a XPCS specific function to configure the clock multiplier.
 
-However, I really don't want to gate the fixes on these tests. So
-unless someone shouts, I intend to take this series in very shortly.
-We can always merge the tests as a subsequent improvement.
-
-Thanks,
-
-	M.
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 --
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c |  2 +
+ drivers/net/pcs/pcs-xpcs.c                        | 89 +++++++++++++++--------
+ drivers/net/pcs/pcs-xpcs.h                        |  1 +
+ drivers/net/phy/phylink.c                         | 25 ++++++-
+ include/linux/pcs/pcs-xpcs.h                      |  3 +-
+ include/linux/phylink.h                           | 22 ++++++
+ 7 files changed, 107 insertions(+), 42 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
