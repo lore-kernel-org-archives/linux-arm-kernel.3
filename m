@@ -4,117 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA39EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B48C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M0MPt0ycdUSMONDSu9mYoplPstvbsn9ikTgZv5+baQE=; b=JP9hSbYQmP/9WozpmWeMJ4AIl2
-	6MC+lXqRATK8pLOv0lTXdvCavgz7ijw4B6GBvAD7ZeL9wgFIK8fgOuIrW3jhTY4UJwPV6aq7aLhgF
-	1GTqsNAKfP1FVFEC87Xnz+FGJuThhD+w04+IDQ/klcfYp0UKLQRabIApdtetqL6Fvfa7WfEki593b
-	mXZk/EoDa56Vq5NfRNZWzDBr2BsXtnocZ6S6dj33Z7R89v8dQnSYAIwxoW3BOF51G6IcEOEh6NS3t
-	Z447GkmiUeR7CY1Ijo4LKJgiEOce4TdfCFKjSa2ViT9bpIaOyiHhFysGSqgyurpNfQgT1+Z8xewxO
-	whoUSKXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=; b=tMpKt+MCipaPG+/pnwcRPgVJug
+	PR0WV6S4PegngVCpAJYtbO7qh5JdoyxmvQpnDthhIOcRs+tqfOTY4u5euSUrJLsHlvZvUIyO+SLzk
+	6S7ii5JR8hPvW74ctd4C60fjE5zxzroi7qZAIhrV5GlYxUODbg+BqAyBY2bDH96VtgPApX6M/RMIN
+	6IrkLNPIQwpmA0rt9hkdamxKm6bHA05aD5n3tw5NnILOf/xuNTQdyHwMzBu+P0uvFjpEpQNSR59By
+	fEZZLBLPPiZSaHWoqgq5S9tebthqkDtEU3k8m+sc+R33CBky14mU9zErFI8OYq63UMZ/Fz8bU2Zdl
+	4ipS+rqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thThY-0000000HW6P-1OC4;
-	Mon, 10 Feb 2025 13:19:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1thTiu-0000000HWLQ-43PD;
+	Mon, 10 Feb 2025 13:21:16 +0000
+Received: from mail-dbaeur03on20605.outbound.protection.outlook.com ([2a01:111:f403:260d::605] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTg9-0000000HVtX-0G3N
+	id 1thTh4-0000000HW2O-1dzn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 13:18:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739193503;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M0MPt0ycdUSMONDSu9mYoplPstvbsn9ikTgZv5+baQE=;
-	b=d36xJsQ0JUi/P0/a/SDU/rFcGPtLRODuhNR2yRT8vtx1/N9k475HT0eJfGBol1GCcnqhRs
-	UsMPlOk1772pkrU7AIBjdwuMEtw2vHu4xYJTLYQMBEIurUepnK96/Zvdx2VA4jt6dzvYqB
-	mRxcpemXjDSHwO5hFUmJpqVssv2FoP8=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-93-CKVNFejKPa26eESVSGXlgg-1; Mon, 10 Feb 2025 08:18:21 -0500
-X-MC-Unique: CKVNFejKPa26eESVSGXlgg-1
-X-Mimecast-MFC-AGG-ID: CKVNFejKPa26eESVSGXlgg
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-43942e82719so7234635e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 05:18:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739193500; x=1739798300;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M0MPt0ycdUSMONDSu9mYoplPstvbsn9ikTgZv5+baQE=;
-        b=cwcOaBhi5/t2tMc7WNjOOg4d/V8pADgouX732brziuH3diOTTzOSSECf43gEoJuqcK
-         atbHR7VsZlCiTWtxzS2vnyfdA0O3m+3wGrl2RMmfrNDpulin5qmbihvH5fXI08drJW7Q
-         yBsp0brr4lbvVlKgpNwvZC/5zPAB+ZoYNZ0pDNzKbMqbRLv7zpsEU/DTlN9CLNEihrRU
-         W4HmujWPE5a/dgJUMSDGv+uz9vOLTuKW1FHA/Spxppy08qVtNfnz1YTjoty0CDMGF/xP
-         wXhlQ42lmuQmZiLipuEKRWzv6puANGJpik+sJfiCHx1WFvsBwzHLDoslbKBET85s8+fF
-         ej+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVV4ufT2XIysWk/vx7Gv24pSPQ5GvATemSHsS0kWOFPjeafGo5Ixc6HHvZASpxMFL500255q9GA9wIW+bBjPzjy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzvl8ODVlYiFY8ld88yJ3Ul8hBFWEkVFOTHG1h/W30tzjRYLVDb
-	csn0WM3EZhfxoB39B7SPgLnYRJ+dCoQlg/2EygtxoPEK/6PENRLCrb+Tb7/Z9jvv4f6yJ/OvzBy
-	JKHihZMsWOkSU0rupXFhS2JHgCmaQuHaKrnwnvAUX85FP6uCQgczeFC5KWPEJLo49DZNnWF/2
-X-Gm-Gg: ASbGncuDrKmWz/C5J+OCY3lvfFy7yR9s7xj5h2u9QuG4FOUItWyi4OgXdbc/+jZb3s9
-	1qfi+fOu2BzRSTxqCVmPkiaPiYxRl2Aiys0JCAOqOFTfbAq+V3igNYrKwhE2FMjYnvnrtU5OWCt
-	I7e3Ef9vrKKwsxzAi3f1cyGAMOg9yllbBowVEEyFh/YgrEGKoVy5nD6adPAO+ESEEegpI6zbdax
-	f3v2WAs8RK2SWiZg5QtmAPy5cYmKJanp/OvYtkAZ6Oo1lpgR1Mqk92Y837yGVaLI1/Etf+Now/I
-	UuIcvMK0VsVXaSRKGh5QaDfKyMMX+Yx4vx4SDRzj/IJQmzI=
-X-Received: by 2002:a05:600c:3c84:b0:435:32e:8270 with SMTP id 5b1f17b1804b1-43924991e0cmr110864715e9.14.1739193500532;
-        Mon, 10 Feb 2025 05:18:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFoG9yP3/H9MVEK+qppHO2dXkw+Mes+rTTzfBqf9J7j6+TGHkenAflO96Xy+SJtMO0c9pi0Dg==
-X-Received: by 2002:a05:600c:3c84:b0:435:32e:8270 with SMTP id 5b1f17b1804b1-43924991e0cmr110864445e9.14.1739193500176;
-        Mon, 10 Feb 2025 05:18:20 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439492affe2sm13118155e9.28.2025.02.10.05.18.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 05:18:19 -0800 (PST)
-Message-ID: <16086d70-2371-47ab-8980-ffbf40971bcb@redhat.com>
-Date: Mon, 10 Feb 2025 14:18:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer
- expired
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- kvmarm <kvmarm@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
- christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org,
- catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com,
- yuzenghui@huawei.com, darren@os.amperecomputing.com,
- vishnu@os.amperecomputing.com
-References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
- <867c89tc4q.wl-maz@kernel.org>
- <c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
- <865xntt2kv.wl-maz@kernel.org>
- <8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
- <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
- <86y10osr19.wl-maz@kernel.org>
- <4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
- <2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
- <152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
- <86h661wje4.wl-maz@kernel.org>
- <4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
- <86cygpwfy0.wl-maz@kernel.org>
- <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
- <86frkptzr6.wl-maz@kernel.org>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <86frkptzr6.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Ul6JTuP3qKEgL0QpQC7CJtLqUqZta6GJ2p5fJTN72bc_1739193501
-X-Mimecast-Originator: redhat.com
+	Mon, 10 Feb 2025 13:19:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zTIOGc9NN+o1vzTVfltrBOjDZHxZCj9JAGsLV7yp/3/LiXY8d/C/3kHKbYQe8V9aIpCcTpv1Cual3r+Y88DYgrEfgkTs3DdEIhMLkkEk1BcGOH9zJCOHfBotEXqnv2gT/elQm2Khs5fvPV35xVuxTBfPNZu2Xfrfz6kjdEBkLB1OzXd0NBPrFpd+vyo08x6tTH6g7gfsFfFSfPViTh4+tKTqTpq/1gCNhRJk7c5ELMUCf/o25ZWORdPT72ZuuOhe50p4ySgm2DdIuZ4f7kyY4AeRV4Asj5hlqq+1jELfseI79iDEgxN8+DUu92B/E74U9KFkD/uj5DOp8OuWckvzTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=;
+ b=oUVQAON5/YSGpgiB933lnVZY2gDbuyeyPI/KHA60kxtJmtinMT5mJqLbcb1l8/qyV3YXpeejD+dqJiwBCw8mmAiVcZjR6VwyLpqXk7HZk8K+yM7at0LVBom+uWlbPwCXAQYzr2eGUSqASmfX0etVRSb7sUHcotQVcg5pakwg79L1ovHivKGCOEkirOwfLfgGWAA1IeS6xEK4t3JSrG7uKvoJ/zvfYVqbiW1cvCV84ZE+o+lCk3IS6Rnsby8ODx2HzL6F3c3tbQIQ97LfUK5fI/P0B3DGsf6oV5BwTcjldFqzIDeBsVMxQUb0APvMUrMOoe50h1gR6XPo2dtlkdvD6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xiu/0Hfm9iMziAj3gQU+Q51eEJp4Q2/pAljplbQUWks=;
+ b=BQe9R57Pgh6n//PI1GTpznmWEQrX0o4TXPNKs4YH4mj/Xs+KmpbZl1fc+0fJD4+CezvzM7umRRUYNaEee73/EoEHHGTrXbsTXuO/8OvCHTkLYI2CezRB6rt++uh3jeYlQ9erJOm6gK7p3nBaId8UX1f6GmdY9N/0gcCgesPRCT4WbbPM02KitINRYZ0fzsnwRHaGF/iQt+jCyRnRxmUKok3UcNUY3TFAo6DYfBW2F7QNCu0mRQcN2OMZ7T9hsO1sSy52nchja4IQTOdEGjCzvGcBpf2LrRpRcGC3BJozFksfDVaoyMRXLWnT/96jLTxE4lVg1Hhe0RN3C/t000yytA==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8700.eurprd04.prod.outlook.com (2603:10a6:20b:43f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
+ 2025 13:19:14 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
+ 13:19:14 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>, "Peng Fan (OSS)"
+	<peng.fan@oss.nxp.com>
+CC: Sudeep Holla <sudeep.holla@arm.com>, Saravana Kannan
+	<saravanak@google.com>, Linus Walleij <linus.walleij@linaro.org>, Aisheng
+ Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, Shawn Guo
+	<shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
+ machine_blocklist
+Thread-Topic: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
+ machine_blocklist
+Thread-Index: AQHbawr1A1AsDxfmd0qSLN9sYWQ9t7M6SOaAgAZYiNA=
+Date: Mon, 10 Feb 2025 13:19:14 +0000
+Message-ID: <PAXPR04MB8459A3750512708D2972687388F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+ <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com> <Z6Slq4KjS_RJ3ItB@pluto>
+In-Reply-To: <Z6Slq4KjS_RJ3ItB@pluto>
+Accept-Language: en-US
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8700:EE_
+x-ms-office365-filtering-correlation-id: ca665c1a-a349-4e55-35c5-08dd49d583f9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?aKaQfu/vt/JWgY0O502TqU6GUiOE/81jPCEewngwTqkyAzwVsKGAXJPd2Q0q?=
+ =?us-ascii?Q?G450tsSYKZ83wt18TLV+C4dDifH2zLgze0okEXf68d4OkzR/L+beLo/THud4?=
+ =?us-ascii?Q?G7QSmyEymmS2pR6dQQrtSSZkypDgpRboEZR4uhSCZ9Amds9k7bW4rgDzgQTR?=
+ =?us-ascii?Q?/NvRu8LOjoD1nxIBeWWicmuxcji+m+rOqdQQqFUgycf1/V66FJiw7VFMmw0c?=
+ =?us-ascii?Q?buEpudF7SbFqQAiatdbAXFhnq5FwbIzBbqvId+uaJd9HhjV6p1OyNNUf0r/d?=
+ =?us-ascii?Q?KKvb3nvmQb+bUxY1VSDyvGST5kBbFod9MiFZGb6QRECYF3wNoXBl5uCVV/y/?=
+ =?us-ascii?Q?1QXHL27KQxeYdBf6K1KhePV+4cr+SWJjflzEgwIxDJOfkmgjnbZXpqxzQJUX?=
+ =?us-ascii?Q?0w8JxeHgX8LUdLPibG1cCnN0pU9Z7ZjQRlsXJKPeKJTbkVnLFh5wEVWLGCqj?=
+ =?us-ascii?Q?BS/uq6cE25jsOfVQPvVwcuZm4f569ddncEjAsfsawHzYfve82V1w+mkLOmCi?=
+ =?us-ascii?Q?SAfjzSS7z37BLsZGoNL8093Ws6f3dKuoBslPEqYoTpwk/thuHc+NsAXZ46gS?=
+ =?us-ascii?Q?8c+bL5exxhjLC1Gyvh+NKuqzy7NVPJU9El3wUtrCuj1vFJJj9hYr517Hwtkf?=
+ =?us-ascii?Q?oxu57q0SzcsBYx+M+N7GBdb7dTbak4/jEaf52hqXwWJk4kt1dU9J3wQgRO/a?=
+ =?us-ascii?Q?lApMUD092CkfEaZ5MWVM1+HRtb+ZBFuG7vhHMQrnVdd09QzzHojXkGRtcd36?=
+ =?us-ascii?Q?Wsax96TEN1lYTcWiEXmhp3wXNec8DKGlECYCN0oqOkXEjaCu9YoLs75TbLT/?=
+ =?us-ascii?Q?8lFWW+cOTvFeCDJ8C77JloRWZF3jKGBF3ZNv4Iigzt4WrNz5uFIznqZq8hVo?=
+ =?us-ascii?Q?K5Jka57X+JhCrJIFYIhvuNGlRATq7k7puVANWlfCEHKlTFMzBL6PvSD+vpxU?=
+ =?us-ascii?Q?8dVfAsDDyAcBnH84g1ifjBFBRYK2fp8uienxrOMCmx4XpsQel8t5nvqL+A7v?=
+ =?us-ascii?Q?yE4l1Bhja8EGOe9MjnVn8HfwpTaikVJggw/bQOBIM6y+eTctZ5pJhR1pewUN?=
+ =?us-ascii?Q?y5q3WNwrapEK3AGDGdt5l9gVhBkcHv8DsEDAqS975lHbYQIckZLxyNkFLTOz?=
+ =?us-ascii?Q?A4UGxp0LoUqP0FST68zGPOIa5epAm1U/N4AKiCREC4s0glevDaJiISLWNqM4?=
+ =?us-ascii?Q?QdJrqzXb0q1Aa836Y9EWv9RlbxhqNbAJEPCZ9XcpddXqRY79ENS2rk5qhXez?=
+ =?us-ascii?Q?NiCRVtgECRvyJSG0J2uFa6CcAyQ7t1Zk7dHW/izMCpdhfZcwNUwRWv+cCrO2?=
+ =?us-ascii?Q?1AK3Qkq4UrkyZQXw44fnPOgExGtDkxiHkLxfLjzaIC8uTamwAcnAhSlds1qm?=
+ =?us-ascii?Q?oCDyOGbvRSNjyK+/08rxJf6zyvF6N1BuqFj/GYHrsh7E8vEuIw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Dp6QSJVhIOAd56ZVWIJidkOYaNCLaH0AImUnQYaeiMpyNNdl70Q2JAfE378j?=
+ =?us-ascii?Q?mfwjpP9At+scDzanjGwjQCGBCdeesMwJ6yekA5ReT36fS816xjQXhUjrRosu?=
+ =?us-ascii?Q?geeQtsIYQUIftgu0qNcjIADu7w1WD+nj7C7JOTr0RzkE1wDOp+25iEXL0Ljr?=
+ =?us-ascii?Q?zWLP1gRf8He7unWTg3ZYNUBRLU6qRkpOdhWw2ZDbHD6Wh5t9KymCSlZZLI9f?=
+ =?us-ascii?Q?CXOXI5txfaoG8nm+qoOZQEFTfr16woApbrCgy7lDrcMPZIKX0IC+rcnEeQpA?=
+ =?us-ascii?Q?76e3+TGxhm1EmIz69ojzTSCx9vECqO5Wq6cgpklfkxdCeCofEM6A0NWj7HKe?=
+ =?us-ascii?Q?CnY8SiFUfDe5nB8iT9ws4j+v3waJ/mt8RcVrNuhRI2NbK44osOK8CxdLH4bO?=
+ =?us-ascii?Q?Z0bzBnSmGzEMRY9PhXPlTkPt7dKpu/YqqRWv6eVSCT81b/I7b/CA0OyGHD/L?=
+ =?us-ascii?Q?xc/GDI+q//eUfAtVEqs1vfWY6XMPeCqYp+e+Kz7jSULQ6o7LYTKV1TTEb3fU?=
+ =?us-ascii?Q?3joBkAYEoZqZC5N9bBwEfCvbIcu02V3Ri5Tly6n77fa/wNrCkqGOtzSBlsqG?=
+ =?us-ascii?Q?cnuzui/lGzftc1dYja4W6Fnfr44/qXuU9W/IGUWaCzP0nAS2LUJb2CksTf2J?=
+ =?us-ascii?Q?ROJ5ahXzBqJ+TjSVNxLBR9o+iGgvkq8toHZoUv6cbQ/+kGqJaXnDpaaurdTB?=
+ =?us-ascii?Q?AHlk8pRfxzf93cTTzx4jPyiVM4r5THzAhoEaZ1uNAXqSHUbT+/uLm8/Hsika?=
+ =?us-ascii?Q?1WisAht72fi5Yerqc2FzqxkayIlJtJHwz3h0QBnXuvXRmNR4ElJrB8PJCM5Y?=
+ =?us-ascii?Q?BVEUIuBoLys5FtruqN4hXCgXrssUu7zHVYoHCN7zk5BnaeB/1pG/+GVJXpJQ?=
+ =?us-ascii?Q?uzF8Dp3chY5SlYjKL+ddRORhR1TiI0wkdfOmTy/NxIZFF1CbLe1sFcbMsbeO?=
+ =?us-ascii?Q?NRghGLE9M6hLgo2Z3azZtwG1uzCYdf3pacfq+y8lQK8+hc5EqmnsMFUHZZNp?=
+ =?us-ascii?Q?t9dcbeZShXIM8PX7baT6gC3iMiRW7wRr5MYT0qbox0qaJ67jMhRZtu1vOUQa?=
+ =?us-ascii?Q?cCEPkzxLikOLR1qK7moMQ8kuyinGrKFeohMn7AFErwS0hv4ZqwlrvAz4tz+9?=
+ =?us-ascii?Q?oRzk3uAvzAa56b2BfoVbGCCA60X3QtqUgZgomWAn6/Ah+EdiBnJkdpEIJ3N1?=
+ =?us-ascii?Q?65zPhELG02nlkhJ2MVtNn88TjZQW/9Y6DCi6TDkHwzlV+BEJ4rMB/4/ND6qi?=
+ =?us-ascii?Q?9DBFoXTKhSwoWNMGwspKqp0ytBjSOEzKQlr5A6gvepojG55xdi7XSUPozEqT?=
+ =?us-ascii?Q?AARxwphgwFrRuU1iMhEB50E4asKyOTJ96A/OtxdSapjFI12rduiMdgNv3S7e?=
+ =?us-ascii?Q?PvQG20J1HY2N8z2Zv6kCJJZ+RF5vjVEJkGuSSz+s6/XLqTri4C1YV2RuGmAp?=
+ =?us-ascii?Q?Koa/X0JUGU4CHEXqaRnjA4pr29SMjqijIOTZutnaebaxIkLjCiRS3vdukKrL?=
+ =?us-ascii?Q?H2RmgfkJoAn+LMVVayqoU+oIGhqM0UQCa8TM1IokbUqNUGzgvA/wCtJrPmY8?=
+ =?us-ascii?Q?2IPQTmNVZ0CWezerewI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca665c1a-a349-4e55-35c5-08dd49d583f9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 13:19:14.6893
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: By7jbfjNvGwb/SqQnc/JHNtIV8GoNECao5oQdL4IEbYSSOHL+JiTmoVGPZAwYx5nz1trslIuAdHLuRp9NWePFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8700
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_051825_178027_A037FFCB 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20250210_051922_594294_64EF86A3 
+X-CRM114-Status: GOOD (  40.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,85 +169,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi Cristian, Sudeep,=20
 
-On 2/7/25 6:45 PM, Marc Zyngier wrote:
-> On Thu, 16 Jan 2025 17:52:10 +0000,
-> Eric Auger <eauger@redhat.com> wrote:
->>
->> Hi Marc,
->>
->> On 1/14/25 4:52 PM, Marc Zyngier wrote:
->>> On Tue, 14 Jan 2025 14:57:43 +0000,
->>> Eric Auger <eauger@redhat.com> wrote:
->>>>
->>>> Hi Marc,
->>>>
->>>> On 1/14/25 3:38 PM, Marc Zyngier wrote:
->>>>> Hi Eric,
->>>>>
->>>>> On Tue, 14 Jan 2025 13:12:21 +0000,
->>>>> Eric Auger <eauger@redhat.com> wrote:
->>>>>>
->>>>>> I also confirm that using a mailine edk2 fixed the issues I faced
->>>>>> previously (fed/rhel L1 guest not booting).
->>>>>>
->>>>>> I used Marc's nv-next branch and qemu rebase.
->>>>>
->>>>> When did you sample this branch? It is almost daily rebased at the
->>>>> moment, given that we keep piling up things in kvmarm/next.
->>>> 5 days ago.
->>>
->>> OK, so probably before I reapplied everything on top of kvmarm/next.
->>> Not necessarily a bad thing, just slightly older. The core NV code
->>> isn't rapidly changing anymore, with the exception of the recursive
->>> nesting stuff that I am currently rewriting.
->>>
->>>>
->>>> If you want me to test a specific branch, please let me know, esp. in
->>>> the context of latest series including
->>>>
->>>> [PATCH v2 00/17] KVM: arm64: Add NV GICv3 support
->>>
->>> That'd be the current nv-next then, which has all the series currently
->>> on the list, and a few more.
->>>
->>>>>
->>>>>> With a rhel L1 guest I can now boot buildroot, debian and rhel guest as
->>>>>> L2 (feat mainline edk2). For rhel, I tested different kinds of page size
->>>>>> combinations for L1/L2 (4k and 64kB) and it worked.
->>>>>>
->>>>>> I tested on AmpereOne and Grace-Hopper systems
->>>>>
->>>>> Thanks for the confirmation. I haven't had a chance to try QEMU yet,
->>>>> but I expect that save/restore will not work. Something to look into,
->>>> I have not tested this yet.I will give it a try.
->>>
->>> Thanks, that'd be super helpful.
->>
->> I confirm the migration fails when putting some registers on the dest
->> side. I will further investigate.
-> 
-> I found at least one issue that could fail the migration. Before the
-> VM starts running, we limit the feature set to the subset we actually
-> support with NV.
-> 
-> By doing this, we also change the value of IDreg fields that are not
-> writable, because they describe features that we don't support.
-> Obviously, that fails on restore.
-At first sight the registers we fail to put are
-- ID_AA64PFR0_EL1
-- ID_AA64DFR0_EL1
-- ID_AA64MMFR1_EL1
+> Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add
+> machine_allowlist and machine_blocklist
+>=20
+> On Mon, Jan 20, 2025 at 03:13:30PM +0800, Peng Fan (OSS) wrote:
+> > From: Peng Fan <peng.fan@nxp.com>
+> >
+>=20
+> Hi,
+>=20
+> > There are two cases:
+> > pinctrl-scmi.c and pinctrl-imx-scmi.c, both use
+> SCMI_PROTOCOL_PINCTRL.
+> > If both drivers are built in, and the scmi device with name "pinctrl-
+> imx"
+> > is created earlier, and the fwnode device points to the scmi device,
+> > non-i.MX platforms will never have the pinctrl supplier ready.
+> >
+>=20
+> The pinctrl-imx case is an unfortunate exception because you have a
+> custom Vendor SCMI driver using a STANDARD protocol: this was never
+> meant to be an allowed normal practice: the idea of SCMI Vendor
+> extensions is to allow Vendors to write their own Vendor protocols
+> (>0x80) and their own SCMI drivers on top of their custom vendor
+> protocols.
+>=20
+> This list-based generalization seems to me dangerous because allows
+> the spreading of such bad practice of loading custom Vendor drivers on
+> top of standard protocols using the same protocol to do the same thing
+> in a slightly different manner, with all the rfelated issues of
+> fragmentation
+>=20
+> ...also I feel it could lead to an umaintainable mess of tables of
+> compatibles....what happens if I write a 3rd pinctrl-cristian driver on
+> top of it...both the new allowlist and the general pinctrl blocklist will
+> need to be updated.
+>=20
+> The issue as we know is the interaction with devlink given that all of
+> these same-protocol devices are created with the same device_node,
+> since there is only one of them per-protocol in the DT....
+>=20
+> ...not sure what Sudeep thinks..just my opinion...
+>=20
+> > Vendor A use 0x80 for feature X, Vendor B use 0x80 for feature Y.
+> > With both drivers built in, two scmi devices will be created, and both
+> > drivers will be probed. On A's patform, feature Y probe may fail, vice
+> > verus.
+> >
+>=20
+> That's definitely an issue much worse than fw_devlink above....we
+> indeed take care to pick the right vendor-protocol at runtime BUT no
+> check is peformed against the SCMI drivers so you could end up picking
+> up a completely unrelated protocol operations...damn...
+>=20
+> I think this is more esily solvable though....by adding a Vendor tag in
+> the device_table (like the protocols do) you could skip device creation
+> based on a mismatching Vendor, instead of using compatibles that are
+> doomed to grow indefinitely as a list....
+>=20
+> So at this point you would have an optional Vendor and an optional
+> flags (as mentioned in the other thread) in the device_table...
+>=20
+> I wonder if we can use the same logic for the above pinctrl case,
+> without using compatibles ?
+> I have not really thougth this through properly....
+>=20
+> In general, most of these issues are somehow Vendor-dependent, so I
+> was also wondering if it was not the case to frame all of this in some
+> sort of general vendor-quirks framework that could be used also when
+> there are evident and NOT fixable issues on deployed FW SCMI server,
+> so that we will have to flex a bit the kernel tolerance to cope with
+> existing deployed HW that cannot be fixed fw-wise....
 
-I will add some traces in the kernel to figure out which fields cause issues
+I just have a prototype and tested on i.MX95. =20
 
-Eric
+How do you think?
 
-> 
-> I need to have a think...
-> 
-> 	M.
-> 
+Extend scmi_device_id with flags, allowed_ids, blocked_ids.
+The ids are SCMI vendor/subvendor, so need to use compatible
+anymore.
 
+/* The scmi device does not have fwnode handle */                          =
+                        =20
+#define SCMI_DEVICE_NO_FWNODE   BIT(0)                                     =
+                        =20
+                                                                           =
+                        =20
+struct scmi_device_vendor_id                                               =
+                        =20
+{                                                                          =
+                        =20
+        const char *vendor_id;                                             =
+                        =20
+        const char *sub_vendor_id;                                         =
+                        =20
+};                                                                         =
+                        =20
+                                                                           =
+                        =20
+struct scmi_device_id {                                                    =
+                        =20
+        u8 protocol_id;                                                    =
+                        =20
+        const char *name;                                                  =
+                        =20
+        u32 flags;                                                         =
+                        =20
+        /* Optional */                                                     =
+                        =20
+        struct scmi_device_vendor_id *blocked_ids;                         =
+                        =20
+        struct scmi_device_vendor_id *allowed_ids;                         =
+                        =20
+};
+
+In scmi_create_device, check block and allowed.
+
+struct scmi_device *scmi_device_create(struct device_node *np,
+-                                      struct device *parent, int protocol,
++                                      struct device *parent,
++                                      struct scmi_revision_info *revision,
++                                      int protocol,
+                                       const char *name, u32 flags)
+ {
+        struct list_head *phead;
+@@ -476,8 +494,16 @@ struct scmi_device *scmi_device_create(struct device_n=
+ode *np,
+=20
+        /* Walk the list of requested devices for protocol and create them =
+*/
+        list_for_each_entry(rdev, phead, node) {
++               struct scmi_device_vendor_id *allowed_ids =3D rdev->id_tabl=
+e->allowed_ids;
++               struct scmi_device_vendor_id *blocked_ids =3D rdev->id_tabl=
+e->blocked_ids;
+                struct scmi_device *sdev;
+=20
++               if (blocked_ids && __scmi_device_vendor_id_match(revision, =
+blocked_ids))
++                       continue;
++
++               if (allowed_ids && !__scmi_device_vendor_id_match(revision,=
+ allowed_ids))
++                       continue;
++
+                sdev =3D __scmi_device_create(np, parent,
+                                            rdev->id_table->protocol_id,
+                                            rdev->id_table->name,
+
+In for cpufreq, use below to set device node.
++static int
++__scmi_device_set_node(struct scmi_device *scmi_dev, struct device_node *n=
+p,
++                      int protocol, const char *name, u32 flags)
++{
++       if (flags & SCMI_DEVICE_NO_FWNODE) {
++               scmi_dev->dev.of_node =3D np;
++               return 0;
++       }
++
++       device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
++
++       return 0;
++}
+
+Are these looks good? I could post the patchset later to see whether Sudeep
+has any more comments on the current patchset or the new proposal.
+
+BTW: I also pushed patch to
+https://github.com/MrVan/linux.git  branch: b4/scmi-fwdevlink-v2
+and=20
+Following Dan's suggestion to merge patch 2-4.
+
+Thanks,
+Peng.
+
+>=20
+> ...BUT I thought about this even less thoroughly :P...so it could be just=
+ a
+> bad idea of mine...
+>=20
+> Thanks,
+> Cristian
 
