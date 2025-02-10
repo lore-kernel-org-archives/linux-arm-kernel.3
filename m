@@ -4,105 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350C7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFA5C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 18:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NRoM2szL7cF2Ic73zz0JcBdMhso4TYzTlao72+EEzIQ=; b=FHSWo79LSsk+do
-	5UGRC9VO9s59erSBcmdzTjWtkGnR+gVQ1EtFb6kwpz1om8ygVUFdUO1IyaJN4w4sFjfGV9O35Uqak
-	F3wsvIJ92tnL+83jdr7akk7hLJHsexpp+gnYH0QxGefag6+R+Cpkm6ke/593HhPCAvKTJ+MIex+EO
-	w9BvwWqzNBoO/Uni/IGbSaxeoKW77QQ595k7mFulaCkHHiA/Mme8ZJyF04MpRFrjjQf7v6qREobsv
-	GWwJyJ88oMHT+W88CVMKsy1qLeWeEIAI8ALVH8cl8066dkals7SWiovGZxSE/WDbF43V50dz3Eiox
-	ZY5Q+CFWr0mDAGxb4Y2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B7hH0YIMetgk89Mc/p2t6ycOF8BT5TouaRT/5posNTE=; b=aLyCAQV5pPtEs0j1q0bOcBznza
+	8fMQwOH9mDxvfcGX7KCFMZAtbxbppjQLxtZQC3oQwbgr3kmuS1rHpzZv68ZSOitZqDe+LK9mgx+zI
+	7HR8SWIlUqZTf79v03lAPyKfWltOcxmOWrUYApyfDmCEpnkMNhVjCKI1AZXDk29GBwx6yISx8krH+
+	QtYzmzF4qvkfcYtmxsKZQPX++8mEdYFunU5abii2DyZAPvY1j7Oklq6oc6s3I0r0hzd51oGcVQq1o
+	c3kEQKTcQDwIMYrp5UuU0oHxvSgwbH5QNv5yWOlssUGDf/wnvV5xd7KLenZ6/F26mwJT2QqavwLIU
+	PxPZs7WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYfk-00000000xDC-3nz2;
-	Mon, 10 Feb 2025 18:38:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thYfl-00000000xDu-3ark;
+	Mon, 10 Feb 2025 18:38:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXE0-00000000eCU-2oQz
+	id 1thYM9-00000000t1X-2y4t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:05:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7577A5C5CBB;
-	Mon, 10 Feb 2025 17:04:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034E7C4CED1;
-	Mon, 10 Feb 2025 17:05:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739207135;
-	bh=NEbx/CDxR9KoD5+myzoQp6lO8YzT0ofxfAwpwvh9OsU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pd0zC++FaKl1x8EGccbixjkR0n3kt2RzYLWmQZJPOQg4n/JH+xOyD48u2sz5R4Gtd
-	 GHRhFFDp6zcdyzK0RrvLowrBM0aJVGjgbDstilqQLrc5O3cxDyzdKaPH4l2OjH8QW0
-	 PBbYPNJgqK4hOueWTXbr+wylrTQF5OcC5tB58QcXPMEfmD3yU0sGnbyqyJ9uxMKH1C
-	 +JmIJHobHJXb1Rqm5HFRbiEbbhanFmJU0ODqAalYsvPkIPqM8otPrRDFSs1KRODuRO
-	 vMM59/ya+1xLZ8AaZiJiCwAJcNzohmGhWX0svegDIIe0FYDW8jsDFvXRWAX3KQHcV7
-	 IQCybfanUWSig==
-Message-ID: <a199849a-ca36-439d-8246-7addd9a78833@kernel.org>
-Date: Mon, 10 Feb 2025 18:05:31 +0100
+	Mon, 10 Feb 2025 18:18:07 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AFKPbs010521
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:18:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B7hH0YIMetgk89Mc/p2t6ycOF8BT5TouaRT/5posNTE=; b=csph2HZMhsirrzl4
+	T303c8Kj9wX3eqW3ayV9n+Moh8D0+ZH/4Pm5VXsxjBzAEsuxt+wGJ6LtmkvQ0NW/
+	oYg5OwMfheB4W4nnuiuvyfl94VNUigU0UAqycfsDbVe+lyvcxq9XJzduR3rl0EXg
+	n6a/qZoPBqKqkw9bJESlqvQDyd9i/hz8C7ROqQ6w1D3JCZqQ2Z7ihRepBkcuHqNy
+	At2zzPpygI7S5rRwdQm/INwpUeBsC1SSSKoqsPTr9rNIFQV77XgRocLKxKq8NjjD
+	2h5jFWF/hr6FhJczYYpnNPnaYgN5RY7wdGSXQJmLC7EANr/PybDVsympdx2dacx8
+	OeCd6A==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44qcs59v2v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 18:18:04 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4718adef552so2611331cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:18:04 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739211484; x=1739816284;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=B7hH0YIMetgk89Mc/p2t6ycOF8BT5TouaRT/5posNTE=;
+        b=RRXQcS8kQU9IFgHDwHR8nIG0jEpTPKU8oIVFlbqHo/UDXOrnwRVRFmX3LObJ0b8Y2Q
+         pILXp4jtKnSBS4nziO0+mUjrHuYhRKkgKNO0pwhJHpMEQeqftj2A54DshqOwnml6SXDj
+         DXBp+QsiP5Lj+XLgNEVTN+v14uLuSe7a/YZtYLbAXrYWYZX02V97g3GgLn7Jf44xCYFN
+         UiEt1y4MNrkui6YtgklMMLOIvdBTSeRLt9iJoxY2rkHLgS5ZiP3dWtiTAKr/KomZSWA8
+         IO49+JT/yokCOt507w9911E1iOMOyZkq+mTiFXNG3h6mGBrXGK5Itv09rnVcUvsvUUM2
+         z6rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXQRHlS7TcZRakLZ4r+zRhU0ZuXyyol+7+5KEfPZ57ZK7yMrHZjNcmw+f/oyFJjV6jaFsX3rcdwzmp7GiHRxGWj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCYRJXlFE2K/LS6dkIq/F3cfK0h9PMJIt+whaWdn7lCqpm/g/P
+	z5AZCYoB/tV0XBBq6vMVW0K+E467k8Vd1KagMeTxvRN3GbYrjHk3Q3G2eIUJ67xw6nGucw1Dudg
+	ho0zixRZF0e/Wclq+fEUbKugMlqGBK+Ii+dV7YPrSz4EgRykQ/Ey8nVlqgr45Mg+XpHpAoZ47Rw
+	==
+X-Gm-Gg: ASbGncsTU7DkY91+rriUVqHNkwkhMRtzKkLvNMgNFZ2DHDs8kUGQ5Z/TPjECxIkobWb
+	IZDDbyCrXODGsqGBmDoYgVAuBgdYypzsrn2zWH9Fl7s2x97iWdMw3ojk/6ZmGuC1THK+qD96Hkw
+	a37S/NGgp93TJT3rJTEBftS2zGad9lddWmvQt7aS9I8ZJo67dB6Ng9ZKPw2n5cjr1O0JgaCaBHX
+	DLG+xDpxJS2FBNqx9Rgm7Ppd/BqJvdcBnUGuoAmG2ZKTTu4Kozu02liOpVSquBTJpTAwBvetfK2
+	t0s0XUtEIQEwwiOkzmeu9c+SLyWJT/zoRYJnZju8gtSSPGSyduzVfF/UIas=
+X-Received: by 2002:ac8:590e:0:b0:471:a14c:6847 with SMTP id d75a77b69052e-471a14c8663mr1571221cf.5.1739211483904;
+        Mon, 10 Feb 2025 10:18:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGAXNmuIboEgfBo9SyYi4AwkYGvwLe1amQ3mO7hi9Y7qYBpldJid3eLK1F44rXVgl2m4+M4pA==
+X-Received: by 2002:ac8:590e:0:b0:471:a14c:6847 with SMTP id d75a77b69052e-471a14c8663mr1570831cf.5.1739211483535;
+        Mon, 10 Feb 2025 10:18:03 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de44e4bc17sm7129357a12.70.2025.02.10.10.17.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 10:18:03 -0800 (PST)
+Message-ID: <ee166cf3-4486-4172-a510-bafa1624ab79@oss.qualcomm.com>
+Date: Mon, 10 Feb 2025 19:17:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/16] dt-bindings: clock: at91: Split up per SoC
- partially
-To: Alexander Dahl <ada@thorsis.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-References: <20250210164506.495747-1-ada@thorsis.com>
- <20250210164506.495747-2-ada@thorsis.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v9 5/6] arm64: dts: qcom: ipq9574: Add nsscc node
+To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
+        mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
+        richardcochran@gmail.com, geert+renesas@glider.be,
+        dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
+        biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, ebiggers@google.com,
+        ardb@kernel.org, ross.burton@arm.com, quic_anusha@quicinc.com,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Cc: quic_srichara@quicinc.com, quic_varada@quicinc.com
+References: <20250207073926.2735129-1-quic_mmanikan@quicinc.com>
+ <20250207073926.2735129-6-quic_mmanikan@quicinc.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250210164506.495747-2-ada@thorsis.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250207073926.2735129-6-quic_mmanikan@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: cDZzvnot12W61VVO7CDnNYpzFwbxrqNL
+X-Proofpoint-GUID: cDZzvnot12W61VVO7CDnNYpzFwbxrqNL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_10,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
+ mlxlogscore=923 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 clxscore=1015 mlxscore=0 priorityscore=1501 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
+ definitions=main-2502100149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_090536_798243_E8C30012 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20250210_101805_865670_9A7A254C 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,72 +125,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 17:44, Alexander Dahl wrote:
-> Before adding even more new indexes creating more holes in the
-> clk at91 drivers pmc_data->chws arrays, split this up.
+On 7.02.2025 8:39 AM, Manikanta Mylavarapu wrote:
+> From: Devi Priya <quic_devipriy@quicinc.com>
 > 
-> This is a partial split up only for SoCs affected by upcoming changes
-> and by that PMC_MAIN + x hack, others could follow by the same scheme.
+> Add a node for the nss clock controller found on ipq9574 based devices.
 > 
-> Binding splitup was proposed for several reasons:
-> 
-> 1) keep the driver code simple, readable, and efficient
-> 2) avoid accidental array index duplication
-> 3) avoid memory waste by creating more and more unused array members.
-> 
-> Old values are kept to not break dts, and to maintain dt ABI.
-> 
-> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
-> Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
+> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
 > ---
+> Changes in V9:
+> 	- Rebased on linux-next tip.
 > 
-> Notes:
->     v2:
->     - new patch, not present in v1
+>  arch/arm64/boot/dts/qcom/ipq9574.dtsi | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
 > 
->  .../dt-bindings/clock/microchip,sam9x60-pmc.h | 19 +++++++++++
->  .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 25 +++++++++++++++
->  .../clock/microchip,sama7d65-pmc.h            | 32 +++++++++++++++++++
->  .../dt-bindings/clock/microchip,sama7g5-pmc.h | 24 ++++++++++++++
->  4 files changed, 100 insertions(+)
->  create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
->  create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
->  create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
->  create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
-> 
-> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-> new file mode 100644
-> index 0000000000000..e01e867e8c4da
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * The constants defined in this header are being used in dts and in
-> + * at91 sam9x60 clock driver.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
-> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
-> +
-> +#include <dt-bindings/clock/at91.h>
-> +
-> +/* old from before bindings splitup */
-> +#define SAM9X60_PMC_MCK		PMC_MCK		/* 1 */
-> +#define SAM9X60_PMC_UTMI	PMC_UTMI	/* 2 */
-> +#define SAM9X60_PMC_MAIN	PMC_MAIN	/* 3 */
-> +
-> +#define SAM9X60_PMC_PLLACK	PMC_PLLACK	/* 7 */
+> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+> index 942290028972..29008b156a7e 100644
+> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+> @@ -1193,6 +1193,25 @@ pcie0: pci@28000000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		nsscc: clock-controller@39b00000 {
+> +			compatible = "qcom,ipq9574-nsscc";
+> +			reg = <0x39b00000 0x80000>;
+> +			clocks = <&xo_board_clk>,
+> +				 <&cmn_pll NSS_1200MHZ_CLK>,
+> +				 <&cmn_pll PPE_353MHZ_CLK>,
+> +				 <&gcc GPLL0_OUT_AUX>,
+> +				 <0>,
+> +				 <0>,
+> +				 <0>,
+> +				 <0>,
+> +				 <0>,
+> +				 <0>,
+> +				 <&gcc GCC_NSSCC_CLK>;
 
-IIUC, you want to have bindings per SoC, so why not adding proper
-constants here instead of including entire old binding header? The
-binding header should be entirely abandoned later.
+This last clock doesn't seem to be used in the driver - is that by design?
 
-
-Best regards,
-Krzysztof
+Konrad
 
