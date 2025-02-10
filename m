@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E465AC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F41DDC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6DNkDzYRsREfj0sp5nnwVNuG1cgUjook0PsY/o2nTvA=; b=GLltLDi4Q/2zCZ
-	RQw5chrP88Tw9PwzKu3nnLpYBTPcmFCpTUQpFOHqL8pUnZU5vdXlQxOqdEdat4farvoAjiA6XBxX9
-	AFEF5slC1R5ZKALoU57rnAWDN4WhyfMGE1mxw5oeEdBCx8MafotJG51lyQ9EgcWqcT4IIkM7iCZ+2
-	92/D3G6FYpTO0lP448uD2pG1Eh+ekv5957Ziq9ZlWHKdVaMlyI1W/0N5hHJiieWvme7y/MehnPbmr
-	0ZI4Sguo4CuH0fKrVOa+rcwCjLKPX/VG8/X2WFo5gwNANV3PrE284oe0v+iHOQJmqCqbRk8LBZcsM
-	H0KcR4mD3tf0LfAaytFA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OqtKWO6AWVGnj5GrWtWZfjcLIo8DHwLNh5Y4FdEE6Zw=; b=wPUXU3+g2T7juX
+	NlR0rlNuqsQi+gNs0+oIJLiFCH0SGxkbIEV9hNADDJo9n3AiFCshkBFVJk5GP0UfUtC+DSKx8tWRt
+	p+wzw0tYJmUulVCEvBafePuGptbhilnEfy0WeueIlsnfRujFdGVp+nly552NNvS5YaBBFwzckKWIl
+	D/Vrreipybk4TNk6fSZQHmR5GjD2bOfQIc+YQV+80JpBnvPF8zHAawyPwF+F8gkT9uIbCUDr5si6w
+	GNYSQfwEz7naTd+ZmMS3k7IpxXKO4MNvimo8vYSRX/suB6KUDxAv77bukUX9hYkVh6AlY9NTz2wwM
+	0H2y/AafuLAT8hVAeGog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWym-00000000aXk-2k48;
-	Mon, 10 Feb 2025 16:49:52 +0000
+	id 1thX1X-00000000bN9-2Svt;
+	Mon, 10 Feb 2025 16:52:43 +0000
 Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWuN-00000000ZLg-2yaV
+	id 1thWuW-00000000ZNn-1F3X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:45:22 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4FBEB148026A;
-	Mon, 10 Feb 2025 17:45:12 +0100 (CET)
+	Mon, 10 Feb 2025 16:45:29 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 299D21480324;
+	Mon, 10 Feb 2025 17:45:26 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1739205914;
+	t=1739205926;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6DNkDzYRsREfj0sp5nnwVNuG1cgUjook0PsY/o2nTvA=;
-	b=QDFswwxh5yq/Q2nfGYfaK501Bz0ERwVgeUuuFwMvuAaafD/kufwnfQS1M1waMGWLfEsY7A
-	sFJaOQbB+axlAp2u/9cA3KB6Vq7nhqk+f6VibzjS7T2pFh0dhS3MUmg8Bdm8fvDE6eKgfs
-	xEBaL2rd9jha90gVWGof01FEMJtA/EtEvx/nxLnLjRyVLqpeVJb6EO2c5EPCnLwX143msc
-	BroLSCG1RjjUAJ3WQxENrIn8Vu77RN8B53afl/PMkzjwl+MNWfbeVS2ooQp8UqRhsc1PIp
-	lFJJDSK/StYMm25dNmqcQ2AO3vvOPtgUM53rbVbZECl4LwrsuGZ5uo5IGXp0Bg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OqtKWO6AWVGnj5GrWtWZfjcLIo8DHwLNh5Y4FdEE6Zw=;
+	b=aYhSLJju9x0r4+ZKC6v3MTwAn/eiBiChJzvvAzJSozMeJH4miikvk2OUYNafeQwrAF/Hjk
+	43VZWBgaIACuN4hDPSyuWqYQ/RLY95tezGixTu15l2lNwqKsINQaPElD00itYvCicq3KLa
+	tDvpV5WJbus1ZAQO/RE893ZtO8gBLTHfEc7QSjYz6RTpNn6GeheqTkV/0n6Z77cRfMM6HB
+	ixCPZX1/d5Y76zSPwYwGOefxBlqMPLohNa24MZ+3BTXSlJo7FVmEDoQaSgQa5j8GwoBchn
+	cfq3Duohzgqh+2RrCP5nmK62Z2q065vMIrxqBfa7nT7Q5JPWdS5f8Uh4d7FpQg==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: [PATCH v2 00/16] Microchip OTPC driver on SAM9X60 exposing UIDxR as additional nvmem device
-Date: Mon, 10 Feb 2025 17:44:50 +0100
-Message-Id: <20250210164506.495747-1-ada@thorsis.com>
+Subject: [PATCH v2 03/16] clk: at91: Use new PMC bindings
+Date: Mon, 10 Feb 2025 17:44:53 +0100
+Message-Id: <20250210164506.495747-4-ada@thorsis.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250210164506.495747-1-ada@thorsis.com>
+References: <20250210164506.495747-1-ada@thorsis.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_084520_375487_ADE3B893 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20250210_084528_666756_447F0D08 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,126 +66,496 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Ryan Wanner <ryan.wanner@microchip.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Wanner <Ryan.Wanner@microchip.com>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, Varshini Rajendran <varshini.rajendran@microchip.com>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hei hei,
+The bindings were split up per SoC before adding new array members for
+missing clocks.
 
-on a custom sam9x60 based board we want to access a unique ID of the
-SoC.  Microchip sam-ba has a command 'readuniqueid' which returns the
-content of the OTPC Product UID x Register in that case.
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+---
 
-(On different boards with a SAMA5D2 sam-ba and we use the Serial Number
-x Register for that purpose.  In the linux kernel those are exposed
-through the atmel soc driver.  Those registers are not present in the
-SAM9X60 series, but only for SAMA5D2/SAMA5D4 AFAIK.)
+Notes:
+    v2:
+    - new patch, not present in v1
 
-There is a driver for the OTPC of the SAMA7G5 and after comparing
-register layouts it seems that one is almost identical to the one used
-by SAM9X60.  Currently that driver has no support for the UIDx
-registers, but I suppose it would be the right place to implement it,
-because the registers are within the OTPC register address offsets.
+ drivers/clk/at91/sam9x60.c  | 14 ++++++-------
+ drivers/clk/at91/sam9x7.c   | 22 +++++++++----------
+ drivers/clk/at91/sama7d65.c | 42 ++++++++++++++++++-------------------
+ drivers/clk/at91/sama7g5.c  | 28 ++++++++++++-------------
+ 4 files changed, 52 insertions(+), 54 deletions(-)
 
-When developing and testing it became clear the OTPC needs explicit
-enabling of certain clocks in the otpc driver.  So the patch series
-starts with some rework of clock bindings and clock drivers, along with
-referencing that in SoC dtsi files.
-
-After two patches with some unrelated fixups for the otpc driver, there
-are more patches dealing with sam9x60 support for the driver and the
-necessary clock enablement.
-
-The last patch adds an additional nvmem device for the UIDx registers,
-fullfilling the initial goal of mine.
-
-I tested the series only on SAM9X60, not on SAMA7G5 or the other SoCs
-affected, because I only have sam9x60 hardware for testing.  If someone
-could test on SAM9X7, SAMA7G5, and SAMA7D65, that would be highly
-appreciated.
-
-Last question: Should the UID be added to the device entropy pool with
-add_device_randomness() as done in the SAMA5D2 sfr driver?
-
-For detailed patch changelog see each patch, general changelog below.
-
-Greets
-Alex
-
-(series based on v6.14-rc2)
-
-v2:
-- Removed patch adding bad OPTC conditions warnings on probe
-- Removed patch adding more register definitions (the one register
-  definition required was moved to the last patch adding the nvmem for
-  UID registers)
-- Added multiple new patches handling the dt-bindings issues
-- Extend the possibility to enable the main rc oscillator to all at91
-  SoCs with an OTPC
-- Added patches to reference and enable the OTPC peripheral clock on all
-  capable SoCs
-- Reordered patches
-- Reworded commit messages
-- Squashed patches with dts changes for sam9x60
-- Fixed bot warnings
-
-v1:
-- Link: https://lore.kernel.org/all/20240821105943.230281-1-ada@thorsis.com/T/#u
-
-(I sent an RFC patch on this topic earlier this year, you'll find the
-link below as a reference to the discussion.  The patch itself was
-trivial and not meant for applying as is anyways, so I decided to not
-write a full changelog from RFC to v1.)
-
-RFC:
-- Link: https://lore.kernel.org/all/20240412140802.1571935-1-ada@thorsis.com/T/#u
-
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-clk@vger.kernel.org
-
-Alexander Dahl (16):
-  dt-bindings: clock: at91: Split up per SoC partially
-  ARM: dts: microchip: Use new PMC bindings
-  clk: at91: Use new PMC bindings
-  dt-bindings: clock: at91: Allow referencing main rc oscillator in DT
-  clk: at91: Allow enabling main_rc_osc through DT
-  clk: at91: Add peripheral id for OTPC
-  dt-bindings: nvmem: microchip-otpc: Add compatible for SAM9X60
-  dt-bindings: nvmem: microchip-otpc: Add required clocks
-  nvmem: microchip-otpc: Avoid reading a write-only register
-  nvmem: microchip-otpc: Fix swapped 'sleep' and 'timeout' parameters
-  nvmem: microchip-otpc: Add SAM9X60 support
-  ARM: dts: microchip: sama7g5: Add OTPC clocks
-  ARM: dts: microchip: sam9x60: Add OTPC node
-  ARM: dts: microchip: sam9x60_curiosity: Enable OTP Controller
-  nvmem: microchip-otpc: Enable necessary clocks
-  nvmem: microchip-otpc: Expose UID registers as 2nd nvmem device
-
- .../nvmem/microchip,sama7g5-otpc.yaml         | 32 ++++++++++-
- .../dts/microchip/at91-sam9x60_curiosity.dts  |  4 ++
- arch/arm/boot/dts/microchip/sam9x60.dtsi      | 25 ++++++---
- arch/arm/boot/dts/microchip/sam9x7.dtsi       | 11 ++--
- arch/arm/boot/dts/microchip/sama7d65.dtsi     |  5 +-
- arch/arm/boot/dts/microchip/sama7g5.dtsi      | 25 +++++----
- drivers/clk/at91/sam9x60.c                    | 16 +++---
- drivers/clk/at91/sam9x7.c                     | 24 +++++----
- drivers/clk/at91/sama7d65.c                   | 44 +++++++--------
- drivers/clk/at91/sama7g5.c                    | 30 ++++++-----
- drivers/nvmem/microchip-otpc.c                | 54 ++++++++++++++++---
- .../dt-bindings/clock/microchip,sam9x60-pmc.h | 22 ++++++++
- .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 28 ++++++++++
- .../clock/microchip,sama7d65-pmc.h            | 35 ++++++++++++
- .../dt-bindings/clock/microchip,sama7g5-pmc.h | 27 ++++++++++
- 15 files changed, 296 insertions(+), 86 deletions(-)
- create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
- create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
- create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
- create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
-
-
-base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
+diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
+index db6db9e2073eb..11fe2d05fa9bb 100644
+--- a/drivers/clk/at91/sam9x60.c
++++ b/drivers/clk/at91/sam9x60.c
+@@ -3,7 +3,7 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
+ 
+-#include <dt-bindings/clock/at91.h>
++#include <dt-bindings/clock/microchip,sam9x60-pmc.h>
+ 
+ #include "pmc.h"
+ 
+@@ -214,7 +214,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
+ 		return;
+ 
+-	sam9x60_pmc = pmc_data_allocate(PMC_PLLACK + 1,
++	sam9x60_pmc = pmc_data_allocate(SAM9X60_PMC_PLLACK + 1,
+ 					nck(sam9x60_systemck),
+ 					nck(sam9x60_periphck),
+ 					nck(sam9x60_gck), 8);
+@@ -237,10 +237,10 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x60_pmc->chws[PMC_MAIN] = hw;
++	sam9x60_pmc->chws[SAM9X60_PMC_MAIN] = hw;
+ 
+ 	hw = sam9x60_clk_register_frac_pll(regmap, &pmc_pll_lock, "pllack_fracck",
+-					   "mainck", sam9x60_pmc->chws[PMC_MAIN],
++					   "mainck", sam9x60_pmc->chws[SAM9X60_PMC_MAIN],
+ 					   0, &plla_characteristics,
+ 					   &pll_frac_layout,
+ 					   /*
+@@ -263,7 +263,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x60_pmc->chws[PMC_PLLACK] = hw;
++	sam9x60_pmc->chws[SAM9X60_PMC_PLLACK] = hw;
+ 
+ 	hw = sam9x60_clk_register_frac_pll(regmap, &pmc_pll_lock, "upllck_fracck",
+ 					   "main_osc", main_osc_hw, 1,
+@@ -281,7 +281,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x60_pmc->chws[PMC_UTMI] = hw;
++	sam9x60_pmc->chws[SAM9X60_PMC_UTMI] = hw;
+ 
+ 	parent_names[0] = md_slck_name;
+ 	parent_names[1] = "mainck";
+@@ -299,7 +299,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x60_pmc->chws[PMC_MCK] = hw;
++	sam9x60_pmc->chws[SAM9X60_PMC_MCK] = hw;
+ 
+ 	parent_names[0] = "pllack_divck";
+ 	parent_names[1] = "upllck_divck";
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index cbb8b220f16bc..c3c12e0523c4b 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -12,7 +12,7 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
+ 
+-#include <dt-bindings/clock/at91.h>
++#include <dt-bindings/clock/microchip,sam9x7-pmc.h>
+ 
+ #include "pmc.h"
+ 
+@@ -220,7 +220,7 @@ static const struct {
+ 			.t = PLL_TYPE_DIV,
+ 			/* This feeds CPU. It should not be disabled */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+-			.eid = PMC_PLLACK,
++			.eid = SAM9X7_PMC_PLLACK,
+ 			.c = &plla_characteristics,
+ 		},
+ 	},
+@@ -242,7 +242,7 @@ static const struct {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_UTMI,
++			.eid = SAM9X7_PMC_UTMI,
+ 			.c = &upll_characteristics,
+ 		},
+ 	},
+@@ -264,7 +264,7 @@ static const struct {
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+ 			.c = &audiopll_characteristics,
+-			.eid = PMC_AUDIOPMCPLL,
++			.eid = SAM9X7_PMC_AUDIOPMCPLL,
+ 			.t = PLL_TYPE_DIV,
+ 		},
+ 
+@@ -275,7 +275,7 @@ static const struct {
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+ 			.c = &audiopll_characteristics,
+-			.eid = PMC_AUDIOIOPLL,
++			.eid = SAM9X7_PMC_AUDIOIOPLL,
+ 			.t = PLL_TYPE_DIV,
+ 		},
+ 	},
+@@ -297,7 +297,7 @@ static const struct {
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+ 			.c = &lvdspll_characteristics,
+-			.eid = PMC_LVDSPLL,
++			.eid = SAM9X7_PMC_LVDSPLL,
+ 			.t = PLL_TYPE_DIV,
+ 		},
+ 	},
+@@ -313,7 +313,7 @@ static const struct {
+ 			 */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+ 			.c = &plladiv2_characteristics,
+-			.eid = PMC_PLLADIV2,
++			.eid = SAM9X7_PMC_PLLADIV2,
+ 			.t = PLL_TYPE_DIV,
+ 		},
+ 	},
+@@ -741,7 +741,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
+ 		return;
+ 
+-	sam9x7_pmc = pmc_data_allocate(PMC_LVDSPLL + 1,
++	sam9x7_pmc = pmc_data_allocate(SAM9X7_PMC_LVDSPLL + 1,
+ 				       nck(sam9x7_systemck),
+ 				       nck(sam9x7_periphck),
+ 				       nck(sam9x7_gck), 8);
+@@ -770,7 +770,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x7_pmc->chws[PMC_MAIN] = hw;
++	sam9x7_pmc->chws[SAM9X7_PMC_MAIN] = hw;
+ 
+ 	for (i = 0; i < PLL_ID_MAX; i++) {
+ 		for (j = 0; j < 3; j++) {
+@@ -782,7 +782,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 			switch (sam9x7_plls[i][j].t) {
+ 			case PLL_TYPE_FRAC:
+ 				if (!strcmp(sam9x7_plls[i][j].p, "mainck"))
+-					parent_hw = sam9x7_pmc->chws[PMC_MAIN];
++					parent_hw = sam9x7_pmc->chws[SAM9X7_PMC_MAIN];
+ 				else if (!strcmp(sam9x7_plls[i][j].p, "main_osc"))
+ 					parent_hw = main_osc_hw;
+ 				else
+@@ -838,7 +838,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sam9x7_pmc->chws[PMC_MCK] = hw;
++	sam9x7_pmc->chws[SAM9X7_PMC_MCK] = hw;
+ 
+ 	parent_names[0] = "plla_divpmcck";
+ 	parent_names[1] = "upll_divpmcck";
+diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+index a5d40df8b2f27..024c5abee25ff 100644
+--- a/drivers/clk/at91/sama7d65.c
++++ b/drivers/clk/at91/sama7d65.c
+@@ -11,7 +11,7 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
+ 
+-#include <dt-bindings/clock/at91.h>
++#include <dt-bindings/clock/microchip,sama7d65-pmc.h>
+ 
+ #include "pmc.h"
+ 
+@@ -19,8 +19,6 @@ static DEFINE_SPINLOCK(pmc_pll_lock);
+ static DEFINE_SPINLOCK(pmc_mck0_lock);
+ static DEFINE_SPINLOCK(pmc_mckX_lock);
+ 
+-#define PMC_INDEX_MAX	25
+-
+ /*
+  * PLL clocks identifiers
+  * @PLL_ID_CPU:		CPU PLL identifier
+@@ -221,7 +219,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			/* This feeds CPU. It should not be disabled. */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_PARENT,
+-			.eid = PMC_CPUPLL,
++			.eid = SAMA7D65_PMC_CPUPLL,
+ 			/*
+ 			 * Safe div=15 should be safe even for switching b/w 1GHz and
+ 			 * 90MHz (frac pll might go up to 1.2GHz).
+@@ -256,7 +254,7 @@ static struct sama7d65_pll {
+ 			 * Therefore it should not be disabled.
+ 			 */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+-			.eid = PMC_SYSPLL,
++			.eid = SAMA7D65_PMC_SYSPLL,
+ 		},
+ 	},
+ 
+@@ -324,7 +322,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_BAUDPLL,
++			.eid = SAMA7D65_PMC_BAUDPLL,
+ 		},
+ 	},
+ 
+@@ -346,7 +344,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_AUDIOPMCPLL,
++			.eid = SAMA7D65_PMC_AUDIOPMCPLL,
+ 		},
+ 
+ 		[PLL_COMPID_DIV1] = {
+@@ -357,7 +355,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_AUDIOIOPLL,
++			.eid = SAMA7D65_PMC_AUDIOIOPLL,
+ 		},
+ 	},
+ 
+@@ -379,7 +377,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_ETHPLL,
++			.eid = SAMA7D65_PMC_ETHPLL,
+ 		},
+ 	},
+ 
+@@ -401,7 +399,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_LVDSPLL,
++			.eid = SAMA7D65_PMC_LVDSPLL,
+ 		},
+ 	},
+ 
+@@ -423,7 +421,7 @@ static struct sama7d65_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_UTMI,
++			.eid = SAMA7D65_PMC_UTMI,
+ 		},
+ 	},
+ };
+@@ -466,7 +464,7 @@ static struct {
+ 	  .ep_mux_table = { 5, },
+ 	  .ep_count = 1,
+ 	  .ep_chg_id = INT_MIN,
+-	  .eid = PMC_MCK1,
++	  .eid = SAMA7D65_PMC_MCK1,
+ 	  .c = 1, },
+ 
+ 	{ .n = "mck2",
+@@ -483,7 +481,7 @@ static struct {
+ 	  .ep_mux_table = { 5, 6, },
+ 	  .ep_count = 2,
+ 	  .ep_chg_id = INT_MIN,
+-	  .eid = PMC_MCK3,
++	  .eid = SAMA7D65_PMC_MCK3,
+ 	  .c = 1, },
+ 
+ 	{ .n = "mck4",
+@@ -500,7 +498,7 @@ static struct {
+ 	  .ep_mux_table = { 5, },
+ 	  .ep_count = 1,
+ 	  .ep_chg_id = INT_MIN,
+-	  .eid = PMC_MCK5,
++	  .eid = SAMA7D65_PMC_MCK5,
+ 	  .c = 1, },
+ 
+ 	{ .n = "mck6",
+@@ -1116,7 +1114,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
+ 		return;
+ 
+-	sama7d65_pmc = pmc_data_allocate(PMC_INDEX_MAX,
++	sama7d65_pmc = pmc_data_allocate(SAMA7D65_PMC_INDEX_MAX,
+ 					 nck(sama7d65_systemck),
+ 					 nck(sama7d65_periphck),
+ 					 nck(sama7d65_gck), 8);
+@@ -1149,7 +1147,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sama7d65_pmc->chws[PMC_MAIN] = hw;
++	sama7d65_pmc->chws[SAMA7D65_PMC_MAIN] = hw;
+ 
+ 	for (i = 0; i < PLL_ID_MAX; i++) {
+ 		for (j = 0; j < PLL_COMPID_MAX; j++) {
+@@ -1162,7 +1160,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 			case PLL_TYPE_FRAC:
+ 				switch (sama7d65_plls[i][j].p) {
+ 				case SAMA7D65_PLL_PARENT_MAINCK:
+-					parent_hw = sama7d65_pmc->chws[PMC_MAIN];
++					parent_hw = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+ 					break;
+ 				case SAMA7D65_PLL_PARENT_MAIN_XTAL:
+ 					parent_hw = main_xtal_hw;
+@@ -1211,12 +1209,12 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sama7d65_pmc->chws[PMC_MCK] = hw;
++	sama7d65_pmc->chws[SAMA7D65_PMC_MCK0] = hw;
+ 	sama7d65_mckx[PCK_PARENT_HW_MCK0].hw = hw;
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
++	parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+ 	for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7d65_mckx); i++) {
+ 		u8 num_parents = 3 + sama7d65_mckx[i].ep_count;
+ 		struct clk_hw *tmp_parent_hws[8];
+@@ -1265,7 +1263,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
++	parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+ 	parent_hws[3] = sama7d65_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
+ 	parent_hws[4] = sama7d65_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
+ 	parent_hws[5] = sama7d65_plls[PLL_ID_GPU][PLL_COMPID_DIV0].hw;
+@@ -1316,8 +1314,8 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
+-	parent_hws[3] = sama7d65_pmc->chws[PMC_MCK1];
++	parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
++	parent_hws[3] = sama7d65_pmc->chws[SAMA7D65_PMC_MCK1];
+ 	for (i = 0; i < ARRAY_SIZE(sama7d65_gck); i++) {
+ 		u8 num_parents = 4 + sama7d65_gck[i].pp_count;
+ 		struct clk_hw *tmp_parent_hws[8];
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index 8385badc1c706..7dfeec8f2232b 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -12,7 +12,7 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
+ 
+-#include <dt-bindings/clock/at91.h>
++#include <dt-bindings/clock/microchip,sama7g5-pmc.h>
+ 
+ #include "pmc.h"
+ 
+@@ -181,7 +181,7 @@ static struct sama7g5_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			/* This feeds CPU. It should not be disabled. */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_PARENT,
+-			.eid = PMC_CPUPLL,
++			.eid = SAMA7G5_PMC_CPUPLL,
+ 			/*
+ 			 * Safe div=15 should be safe even for switching b/w 1GHz and
+ 			 * 90MHz (frac pll might go up to 1.2GHz).
+@@ -216,7 +216,7 @@ static struct sama7g5_pll {
+ 			 * Therefore it should not be disabled.
+ 			 */
+ 			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+-			.eid = PMC_SYSPLL,
++			.eid = SAMA7G5_PMC_SYSPLL,
+ 		},
+ 	},
+ 
+@@ -304,7 +304,7 @@ static struct sama7g5_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_AUDIOPMCPLL,
++			.eid = SAMA7G5_PMC_AUDIOPMCPLL,
+ 		},
+ 
+ 		[PLL_COMPID_DIV1] = {
+@@ -315,7 +315,7 @@ static struct sama7g5_pll {
+ 			.t = PLL_TYPE_DIV,
+ 			.f = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
+ 			     CLK_SET_RATE_PARENT,
+-			.eid = PMC_AUDIOIOPLL,
++			.eid = SAMA7G5_PMC_AUDIOIOPLL,
+ 		},
+ 	},
+ 
+@@ -379,7 +379,7 @@ static struct {
+ 	  .ep_mux_table = { 5, },
+ 	  .ep_count = 1,
+ 	  .ep_chg_id = INT_MIN,
+-	  .eid = PMC_MCK1,
++	  .eid = SAMA7G5_PMC_MCK1,
+ 	  .c = 1, },
+ 
+ 	{ .n = "mck2",
+@@ -995,7 +995,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
+ 		return;
+ 
+-	sama7g5_pmc = pmc_data_allocate(PMC_MCK1 + 1,
++	sama7g5_pmc = pmc_data_allocate(SAMA7G5_PMC_MCK1 + 1,
+ 					nck(sama7g5_systemck),
+ 					nck(sama7g5_periphck),
+ 					nck(sama7g5_gck), 8);
+@@ -1028,7 +1028,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sama7g5_pmc->chws[PMC_MAIN] = hw;
++	sama7g5_pmc->chws[SAMA7G5_PMC_MAIN] = hw;
+ 
+ 	for (i = 0; i < PLL_ID_MAX; i++) {
+ 		for (j = 0; j < PLL_COMPID_MAX; j++) {
+@@ -1041,7 +1041,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 			case PLL_TYPE_FRAC:
+ 				switch (sama7g5_plls[i][j].p) {
+ 				case SAMA7G5_PLL_PARENT_MAINCK:
+-					parent_hw = sama7g5_pmc->chws[PMC_MAIN];
++					parent_hw = sama7g5_pmc->chws[SAMA7G5_PMC_MAIN];
+ 					break;
+ 				case SAMA7G5_PLL_PARENT_MAIN_XTAL:
+ 					parent_hw = main_xtal_hw;
+@@ -1090,11 +1090,11 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sama7g5_mckx[PCK_PARENT_HW_MCK0].hw = sama7g5_pmc->chws[PMC_MCK] = hw;
++	sama7g5_mckx[PCK_PARENT_HW_MCK0].hw = sama7g5_pmc->chws[SAMA7G5_PMC_MCK0] = hw;
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
++	parent_hws[2] = sama7g5_pmc->chws[SAMA7G5_PMC_MAIN];
+ 	for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7g5_mckx); i++) {
+ 		u8 num_parents = 3 + sama7g5_mckx[i].ep_count;
+ 		struct clk_hw *tmp_parent_hws[8];
+@@ -1136,11 +1136,11 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	sama7g5_pmc->chws[PMC_UTMI] = hw;
++	sama7g5_pmc->chws[SAMA7G5_PMC_UTMI] = hw;
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
++	parent_hws[2] = sama7g5_pmc->chws[SAMA7G5_PMC_MAIN];
+ 	parent_hws[3] = sama7g5_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
+ 	parent_hws[4] = sama7g5_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
+ 	parent_hws[5] = sama7g5_plls[PLL_ID_IMG][PLL_COMPID_DIV0].hw;
+@@ -1190,7 +1190,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 	parent_hws[0] = md_slck_hw;
+ 	parent_hws[1] = td_slck_hw;
+-	parent_hws[2] = sama7g5_pmc->chws[PMC_MAIN];
++	parent_hws[2] = sama7g5_pmc->chws[SAMA7G5_PMC_MAIN];
+ 	for (i = 0; i < ARRAY_SIZE(sama7g5_gck); i++) {
+ 		u8 num_parents = 3 + sama7g5_gck[i].pp_count;
+ 		struct clk_hw *tmp_parent_hws[8];
 -- 
 2.39.5
 
