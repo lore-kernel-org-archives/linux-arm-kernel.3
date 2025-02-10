@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FEEC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8719C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEXUShHNRenNyRTEL2PwMfqNH0qq/WGIeVNVkj/epB8=; b=ZFhqmbHMBYz9CZipgxs8WHYaap
-	BbWe2HySLVIEkRH+4O1KNIDum2OySSyiP4Rg73lzwEACUaOPN3osgsl+bPozLbqamK02orbHxpBmi
-	rMowJ47jMdl7buiKrIl9pYThAN6OxQfoLS+V7pzHpI3eKBdStMybP8q63QROwo6pnC5vZD8miMSkj
-	RPllDWuvgjeCvTa+W9CC2QF+jaFzS2npQrrZ8iNQUuO9jLF+9RkiHcr/JiIxCOrObROOrQ+JOTzT5
-	9h/nXKZ2rrBpnKnSjjd2Lk3X/XcmdPjSlCHiZIMsBh3BFn6uf7hUtdZVaAQ3Pirgs84ooyEEgxO14
-	DPyf6xCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NzOtRn06dmJeLMt6lIohnur0KCLnTsq8EA/pFJWvUPc=; b=kVzeyIyK91Z3Da
+	WSXiVaUkuuVz1875QmVgqL0vVBdr27JuJhGbHHpyL0VHGoVAYPbqwRbBWorlyWFb++USAnWrw+G2N
+	pwHYw0mdgtJNydA6SekuEgghDdDCPO+/qMSj1+n0OhIYjVLcJHW166rU1vwyFqhtnXLThP8c+hVNS
+	qfqvcqWTKDwtBxrxwTtH+9CXPrNuzoUOc/c9Jz6l8oJDH/jpOCXjUHduNKzeIVUxOfj+dGpz/BPf9
+	X0lMBtpciFy2wG3ZEMb5V6LFVeEaxPxnZaD9vn/GW6KSmFHKlpNgOU0rPlwkNQcrjMXok3Xp8NE4p
+	NiNb7Tgh1CnJ4/6p4WdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thd6k-00000001pQX-1JnM;
-	Mon, 10 Feb 2025 23:22:30 +0000
+	id 1thd87-00000001pjX-3wU0;
+	Mon, 10 Feb 2025 23:23:55 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thckL-00000001lcX-3R0g
+	id 1thcsk-00000001n4h-1IBM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 22:59:21 +0000
+	Mon, 10 Feb 2025 23:08:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=JEXUShHNRenNyRTEL2PwMfqNH0qq/WGIeVNVkj/epB8=; b=ApBB+JNbqfBqawQID+v/Qfozai
-	U4dYJbsQEh4W1omwDv5H5or33nx2v5KpA7prmyAh7DmMgs2CxrLAfH+qcadvfWYfTmu9i0WYnPICj
-	ff28UzMgFmUQWQVX3KKVELpefHDcfNOq5iTBclUuEqrsFfVNAhoZ/C+lHKYib2CFJGB1OsYdYtlpk
-	z6kGLdxu8H0ESJ2/OMIACiF2dPhMRaLc7kH8p8SffI252nqR8x/RdpuYmqoVpgMOHb1fqJKEOVafb
-	R3vDu+tEFIQ3QWHoOU7LWM20oWmNwgFZzSU7CyBpfeEQqwur9zSh4rNLsmdp1oAlVyF9Qgq9NuuC3
-	o3EJVzqw==;
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:References;
+	bh=NzOtRn06dmJeLMt6lIohnur0KCLnTsq8EA/pFJWvUPc=; b=pkwSACI/74bHuSZWB+QgnE9xAd
+	u23H2EHQIszmdiKfPWiXbhb83KO1j7T1rZnF8B7xbsdQmYzUG5KtiYqpwlX+eEEnq1sMZZtW+AsFz
+	IoKm5b6SdIVdH9Qs7Euu/2SpUtrthaWEfzNFzRiBa0K0nMnQlDqgTBIuN5vc7v0aLrBagvVRYYUNX
+	AnJbz9cQ3p8u17B6GlYdYRTre7exS1+CdGNexncBqqknHQoO0HlKn1tPgi89hNDVv3/FsnKhsjV58
+	H+zbebNC5MbSOmHI2FyrRFDP8v298qPbsxAjHfpjC2BdSKOvySdRqW3p1J9Y0UZjQEpLB5Cp4OoKw
+	Q+KcO82g==;
+Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thckH-00000000Lga-3FMo
+	id 1thcsg-00000000M1Q-3Juz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 22:59:20 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AMxEhs3582864
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 10 Feb 2025 16:59:14 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739228354;
-	bh=JEXUShHNRenNyRTEL2PwMfqNH0qq/WGIeVNVkj/epB8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Hu5BmcL6uVX6yTdS8dbLvJBtXt+QODW9pTyD4ZE7+Cx+1m3iERba9xwjMLES2+dcg
-	 Us/nEzHo1/QYkn4Kx/DXwh4wuxVQ2mRSoSM2l0UtMeiabYePAqSDqYgD/jLy+NUb0H
-	 1mSJhRT7FW1vnVzRjiH4s9Nw3wGz/8c1BFuVVS2s=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51AMxExg030370
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 10 Feb 2025 16:59:14 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
- Feb 2025 16:59:13 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 10 Feb 2025 16:59:13 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AMxDBO029713;
-	Mon, 10 Feb 2025 16:59:13 -0600
-Message-ID: <aacaa1fa-1be3-4b84-8764-bcfb63d4c8d8@ti.com>
-Date: Mon, 10 Feb 2025 16:59:13 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/10] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250210221530.1234009-1-jm@ti.com>
- <20250210221530.1234009-6-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250210221530.1234009-6-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Mon, 10 Feb 2025 23:08:00 +0000
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3d14950ac9fso69431985ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 15:07:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739228875; x=1739833675; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NzOtRn06dmJeLMt6lIohnur0KCLnTsq8EA/pFJWvUPc=;
+        b=k1QlHPB3fpp862l2CxA2BuGOG9z1OuCPM1XtJFHVwJquRJ8awG6AvZw2KsnWtplWve
+         2bd3mpcTNRQAneUG1TiTIwiZA9pADcEcY5yoDrQ7VUTiMnwNCGDd/esYW+6Vl1F9K5Ki
+         zgIvq3BSd3tc+wUBc6TZdnzxrmhwHdztKuXDGHn8GFVKQamwbdoT/E2HRAo4pocpx62d
+         WcH5tx94SxjpTJqwNmMa7eMpU4KGGmmzGWM5cStmSqC+lyt+V/q/9THzY42Z1JxQFdhM
+         pxttm1vqYJj/Vp3N3DEh0fd2LtnbsXqjrAQZczDyjhbgyKJYm9HmJkrNAdwTw7/QnemY
+         NLYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739228875; x=1739833675;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NzOtRn06dmJeLMt6lIohnur0KCLnTsq8EA/pFJWvUPc=;
+        b=cww1pYKMp3SID30lOPfdRHDp3uJuvuJglCeNUbEWw3jnQDP3y3K0dGQdHxw/YTlHgU
+         6vBkCImHrFxnB3joBfyYG3tjeZyNfIirPkqCI1RSdRfn8E554jg2XFjJiNgVHIM8FQaW
+         Lq65502kBueV7qMM0mWl2HICqcU+zi3i87G30KYy/KUriWC1NWwXcBCI0PkJLzv0ezpX
+         Qj9smocFY4PVoKCfvun4r5v/vTMfls+g0IQQb8x/uN2RmK+3l/T6lwCVLYQl6Rlq+Bj5
+         2QXf4nQecjqARRPWQrRoS29tcXTcXZ3VQCGbUoFXGnr60/dxqK9DDIRQDgvo1PeEYzWa
+         SaVA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQOPnHFqB2Abw+kpKwleWg5qvCmVSxTdsxiIErLeKk0jg+Fo6cUQ8CIpZT2JdJCH4i3uTFuw9O33o6J87NCOYY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAwq6xnrFBKOze0chVHgdYV8XNy8L6SDmVQ1ZjgKlQV0mA3ONF
+	stfO/irz0PEjEqUJ+ihkEtMsOJkjFJEziE2xl5toEQDtgmnzH5vIFczYdjJQZJpdNSJZX+Pz9d9
+	g6lSXArMZvhGToD/H/9YQmA==
+X-Google-Smtp-Source: AGHT+IEYUiomyuN/bGInuZpdaF2fRRM/BetqkFJjxK+LoWD1u4DPDFiIADjLJWFWyB1MEsSvhotxG42I2ZAf1MOJBQ==
+X-Received: from ilbbn13.prod.google.com ([2002:a05:6e02:338d:b0:3d0:23fd:8ce4])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6e02:481c:b0:3cf:b626:66c2 with SMTP id e9e14a558f8ab-3d13df546c4mr121244895ab.19.1739228875706;
+ Mon, 10 Feb 2025 15:07:55 -0800 (PST)
+Date: Mon, 10 Feb 2025 23:07:54 +0000
+In-Reply-To: <Z6mp4NeklzORJg5y@linux.dev> (message from Oliver Upton on Sun, 9
+ Feb 2025 23:25:20 -0800)
+Mime-Version: 1.0
+Message-ID: <gsntfrkl1jqt.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [RFC PATCH v2 2/4] perf: arm_pmuv3: Introduce module param to
+ partition the PMU
+From: Colton Lewis <coltonlewis@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
+	will@kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, mark.rutland@arm.com, pbonzini@redhat.com, 
+	shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_225918_265994_B40986B5 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250210_230758_975554_7333D79B 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,146 +108,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/10/25 4:15 PM, Judith Mendez wrote:
-> From: Devarsh Thakkar <devarsht@ti.com>
-> 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
-> 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
+Hi Oliver, thanks for the review.
 
-Acked-by: Andrew Davis <afd@ti.com>
+Oliver Upton <oliver.upton@linux.dev> writes:
 
-> Changes since v4:
-> - Add "status = okay" for mailbox nodes at the board level, disabling of
->    mailbox nodes in voltage domain .dtsi files will come in a separate
->    series
-> ---
->   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 +++++++++++++++++++++++--
->   1 file changed, 90 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index a6f0d87a50d8a..ac67c51caa211 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -49,6 +49,42 @@ linux,cma {
->   			linux,cma-default;
->   		};
->   
-> +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		c7x_0_memory_region: c7x-memory@99900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x99900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -60,12 +96,6 @@ secure_ddr: optee@9e800000 {
->   			alignment = <0x1000>;
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	opp-table {
-> @@ -737,3 +767,57 @@ dpi1_out: endpoint {
->   		};
->   	};
->   };
-> +
-> +&mailbox0_cluster0 {
-> +	status = "okay";
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster1 {
-> +	status = "okay";
-> +
-> +	mbox_c7x_0: mbox-c7x-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster2 {
-> +	status = "okay";
-> +
-> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&c7x_0 {
-> +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
-> +	memory-region = <&c7x_0_dma_memory_region>,
-> +			<&c7x_0_memory_region>;
-> +	status = "okay";
-> +};
+> Hi Colton,
+
+> On Sat, Feb 08, 2025 at 02:01:09AM +0000, Colton Lewis wrote:
+>> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
+>> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
+>> allowed, EL0 while counters HPMN..N are only accessible by EL2.
+
+>> Introduce a module parameter in the PMUv3 driver to set this
+>> register. The name reserved_host_counters reflects the intent to
+>> reserve some counters for the host so the guest may eventually be
+>> allowed direct access to a subset of PMU functionality for increased
+>> performance.
+
+>> Track HPMN and whether the pmu is partitioned in struct arm_pmu
+>> because KVM will need to know that to handle guests correctly.
+
+>> While FEAT_HPMN0 does allow HPMN to be set to 0, this patch
+>> specifically disallows that case because it's not useful given the
+>> intention to allow guests access to their own counters.
+
+> Quite the contrary.
+
+> FEAT_HPMN0 is useful if userspace wants to provide a vPMU that has a
+> fixed cycle counter w/o event counters. Certain OSes refuse to boot
+> without it...
+
+Cool. I'll make sure writing 0 is allowed if we have FEAT_HPMN0.
+
+>> static inline u32 read_mdcr(void)
+>> {
+>> 	return read_sysreg(HDCR);
+>> }
+
+>> static inline void write_mdcr(u32 val)
+>> {
+>> 	write_sysreg(val, HDCR);
+>> }
+
+
+> Hmm... While this fixes the 32bit compilation issues, it opens a new can
+> of worms.
+
+> VHE is a 64bit only feature, so you're *guaranteed* that these accessors
+> will undef (running at EL1).
+
+True. I mentioned in the cover letter they aren't intended to actually
+run in the PMU driver because I guard for VHE there.
+
+>> +static void armv8pmu_partition(u8 hpmn)
+>> +{
+>> +	u64 mdcr = armv8pmu_mdcr_read();
+>> +
+>> +	mdcr &= ~ARMV8_PMU_MDCR_HPMN;
+>> +	mdcr |= FIELD_PREP(ARMV8_PMU_MDCR_HPMN, hpmn);
+>> +	/* Prevent guest counters counting at EL2 */
+>> +	mdcr |= ARMV8_PMU_MDCR_HPMD;
+>> +
+>> +	armv8pmu_mdcr_write(mdcr);
+>> +}
+>> +
+
+> After giving this a read, I don't think the host PMU driver should care
+> about MDCR_EL2 at all. The only time that 'guest' events are loaded into
+> the PMU is between vcpu_load() / vcpu_put(), at which point *KVM* has
+> reconfigured MDCR_EL2.
+
+> I'm not sure if there's much involvement with the host PMU driver beyond
+> it pinky-swearing to only use the specified counters. KVM is what
+> actually will program HPMN.
+
+> That'd alleviate the PMU driver from having VHE awareness or caring
+> about MDCR_EL2.
+
+That does seem like a cleaner solution. I can lift that handling into
+KVM code, but I will still need the variables I introduced in struct
+arm_pmu to be populated so the driver knows what counters to use.
+
+Without looking, I'm concerned there might be an initilization ordering
+issue with that where KVM will get the value for HPMN first because it's
+initialized first but then can't store them somewhere accessible to the
+driver because the driver hasn't been initialized yet. Then the driver
+is initialized and used without knowing HPMN and is now using counters
+we wanted the guest to have.
+
+There is probably an easy way around this, but I'll need to do some
+digging.
 
