@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA01C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0A8C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/6e2O83xXO73NCOPTb5tKbtGqAAMzCLcAq/J1uQu/Lg=; b=ckrkFpkdtrwVQzQmy2SQF5TzfF
-	lxCRxOpQmDwhSuKiIscZfzj7CXP24qKnkiouj8Bg3jiR++ofAvTLbik2guJxOFfD/f+mRmg39MwQS
-	H4d+mY9OzQwqOXXNGKp65C8ty9jzZN8KhVf76dQ7gXDRLZjJRWqwawwXe7VqkyQ0yTTCmsIFGq8e0
-	E/F68kaUTRDmc39CEAKgRAJcEdFTvRAaqntev6BMTG5Nc5JzBkOgXDkbm+5mMkWEb0q/WIvVEb0vq
-	Fhz79dUSzP1KdG+wMDB+ljE9mcZC6ZwbJKHsqIw1WEvpQECzH8sRoFwTdoMeU99OT8FqgrCRz5PiY
-	ovFoGt/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=; b=M4L7jPZKD9CsufN5dV56M1O307
+	fxOOrATtCoSp66qq5W790bPBUjRvjN5MVnQBApFbqdCkR7O1DxFoe0vt+gAzm8/VEtriFEfVWdtkD
+	6qOrdA+FNZw5Q5SYFgFyKePdc2Bup7oAIC1tsLprtXNxVQGv5+RkfSiGUNeukNVFWF7TKOKsOF3mY
+	VpbRKykETHwIITTrafM59jOSHNTcXM2p1RhHVQvOLjXhhgtx76N4QuWhsENetxgI6kbq3H2GR5WOy
+	iJq6s7CdKbPaC7KFmz3qKuA9JreODOF+pEIAKgxNXDnPOR0UO6FWTGxMRkTaBPn8sw/6VifyqAkoJ
+	rHoqhV7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSO3-0000000HJzi-0cFa;
-	Mon, 10 Feb 2025 11:55:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1thSjF-0000000HMs0-0H6k;
+	Mon, 10 Feb 2025 12:17:33 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSDF-0000000HHPq-3rZA;
-	Mon, 10 Feb 2025 11:44:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739187868;
-	bh=Uxj3j902irE5mB9g0HpLqhRIezxhsErLRfVa7qx/A3o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ddRQ6ASLVKzePQskZvnHHKet3LeoRiI2+q2NjrE8c6D6+nzRQB0x2uIVfqxhUM/J2
-	 hE0hVlY9PPJKqUK8ya8V4kuFX+LOR6TCTOUtK5n9+0IVFyJ3fjbFaT/tnnjCMZmznO
-	 gFi2OvQLC5NrOVzqbAS8d2VlQ0lpk5OkqWyy9cxnfT0QTYAY46tlloVVcBtdP8C9F5
-	 pPYF9roVpg4d5z1Qlf3jUz6ilDpHDgwvYJuoESaIgW0T4lDA2VahEDl0HAzKDfPGGM
-	 XrKkEiK7TfHH1396pTvSKspQUtomvny/JobjSjrIDS+YpW5tU+FPR8oE5lC0lsCg4R
-	 Lxj3l8YBJz+mw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A35617E0CA2;
-	Mon, 10 Feb 2025 12:44:27 +0100 (CET)
-Message-ID: <59f611c5-1dcf-4667-bb34-c7f57b341f49@collabora.com>
-Date: Mon, 10 Feb 2025 12:44:26 +0100
+	id 1thSGi-0000000HIZN-1ciR;
+	Mon, 10 Feb 2025 11:48:05 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab7a6758b7fso311605166b.3;
+        Mon, 10 Feb 2025 03:48:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739188083; x=1739792883; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=;
+        b=cHs44EUD+l5ppDbqnUH4huSqUkovCpcNu88Aym2fvI9R3y0iKzF8rkwwd2MrZ5LcAw
+         4GfpkwlfkVIvVT4H9X7EOeLA6wRE/JKs+w2+oHLJciIartLi1rsXXikjHzO5w/n5Mp/j
+         evHVv5Crw7+KGbNF9GiQfFr2fk/KHJwLEewbMAEJg7a8v9u5YDmXvO7gvyLYudF9k9xh
+         rhepPPQuSxakLNQgRdwUMkfs5BUts0korBH7tA7VagIcB9TxnawuL7sZRydioT5PnIFI
+         PZ7SSi6x/kyOwL5d1cU9KBc8peO1aY5tuEGNTtX507uib1GmVOKp4AX7wgQZIArfI/j+
+         xDSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739188083; x=1739792883;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HVl3EUiEdR+2nH8WWZkP4Nhw+7rNyWyQ5wQqq3ShzRs=;
+        b=I7yWvCh6StAYUSmJYYePxKDrO9av6wsokenoNBezl6CwToDxJnr/36qLiv3xnZT7Kv
+         idiR9vT3DBOoxocPQ5AZmeVrqHUxgBgCuyzBKdjVcv+swDDEatxqjlNO4J9j8bRnCTe7
+         vNt/G7PDPWQ9jnmy21NrJ8uJnl03d7eURnzeV1KMDbLAU6/hRk2JXbEAgQsu46fRWrFH
+         nVJudf5bEQl/Ha7DUEVxCp/b3HR3ky+KVHUPHyUnNgnJt/dr4EvJXQau6E2FRXjYUzuM
+         IJWid2nargYcq9733/EnHZXYec+6N0dg7FEjam0cEpOAk/B+2MTf9OkGwM+lMseNNtM7
+         ji3w==
+X-Forwarded-Encrypted: i=1; AJvYcCULptQVZ+cmt7lsZJBOQc4XOs1V2mGRO9Pimee/YxKmZ2Z0+dAiEbV7FR16vSBqHzstKlxrCMxxCgTSnx36AcDo@lists.infradead.org, AJvYcCWxFRmJm4Wd7cIoOnzFSmgdPPpOnitzpFHj+s2TPQW+gjq113IksPgvWwue5/ahR4l00FQb+NlBXzTi5lQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj7dXTiKfksVmddWe8HzNCQijyrck3PRy2YGdN7oUVPwNgEMYP
+	vBUBYIqDaxlYm46ZtpNSCIojgeTMy5hn+vgXROsYFVBOCTXEa6Kf
+X-Gm-Gg: ASbGncv3Qh8xijdIlLWXgLPsOQbhQ+i8B9cJAZXwxboVpcswXolbn0DOP11hVO86dOW
+	pOtnHTEeGsEme/gNjRppNI5DRuV2ArIo1zoD5zIXNBooMjlyQxOr+IXZ/8575fyfwM8UEeCAqOb
+	f4iaU76uTbRGVkOKeufO08ay4z0N4M1qDDvr3uIiYZgbrBmBjSSXhHqscRzV0iDUq003alcIRPG
+	TIsj68pkFpFYfI9T90EWGbebZGpXLHpJyjmQ6jI3cpPYuLgnp1Fr+s/bK+lp7brfJ4CwDzm0YYb
+	k9JGw0mDls9Hjh+eaND/ZaHYVsF8NPJh
+X-Google-Smtp-Source: AGHT+IGY3dILn6ts/Eq3QIZU6ECVgNuSbLxMNRT8V0H+TQxvFHnWdoPp+ST/buUvAjzzmdL3OQMGTA==
+X-Received: by 2002:a17:907:9719:b0:aae:8841:2bba with SMTP id a640c23a62f3a-ab789b84353mr1350942666b.22.1739188082366;
+        Mon, 10 Feb 2025 03:48:02 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7bc28c58csm252975066b.135.2025.02.10.03.48.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 03:48:01 -0800 (PST)
+Message-ID: <e17ef70f7536bd1bf0b4d0f7258f91cffac76a20.camel@gmail.com>
+Subject: Re: [PATCH 08/10] riscv/arm64: dts: cv18xx: Add sysctl and reset
+ nodes
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@outlook.com>, 	linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 	devicetree@vger.kernel.org, Haylen Chu
+ <heylenay@outlook.com>, 	linux-arm-kernel@lists.infradead.org, Sebastian
+ Reichel <sre@kernel.org>,  Arnd Bergmann	 <arnd@arndb.de>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring	 <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>
+Date: Mon, 10 Feb 2025 12:47:59 +0100
+In-Reply-To: <h73zitljaig7nrccd3f23i655imswv54tf667dhq3dord7rxsr@unqncqlorvc6>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+	 <20250209220646.1090868-9-alexander.sverdlin@gmail.com>
+	 <h73zitljaig7nrccd3f23i655imswv54tf667dhq3dord7rxsr@unqncqlorvc6>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 21/34] drm/mediatek: mtk_hdmi: Move CEC device parsing
- in new function
-To: Alexandre Mergnat <amergnat@baylibre.com>, chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com,
- jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
- ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
- jason-jh.lin@mediatek.com
-References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
- <20250113145232.227674-22-angelogioacchino.delregno@collabora.com>
- <18fd9544-f9ef-4f58-9a8a-026737c26b94@baylibre.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <18fd9544-f9ef-4f58-9a8a-026737c26b94@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_034430_108356_A8976111 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20250210_034804_427447_91EC5EFF 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,178 +106,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/02/25 15:45, Alexandre Mergnat ha scritto:
-> 
-> 
-> On 13/01/2025 15:52, AngeloGioacchino Del Regno wrote:
->> Move the CEC device parsing logic to a new function called
->> mtk_hdmi_get_cec_dev(), and move the parsing action to the end
->> of mtk_hdmi_dt_parse_pdata(), allowing to remove gotos in this
->> function, reducing code size and improving readability.
-> 
-> Why CEC device parsing logic isn't done mtk_cec.c driver ? Then add 
-> "mtk_cec_get_dev" function to mtk_cec.c too. Finally, call this new function in 
-> mtk_hdmi_probe after mtk_hdmi_dt_parse_pdata().
-> 
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 84 ++++++++++++++---------------
->>   1 file changed, 40 insertions(+), 44 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/ 
->> mtk_hdmi.c
->> index 48c37294dcbb..eb285ec394a3 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> @@ -1367,24 +1367,16 @@ static const struct drm_bridge_funcs 
->> mtk_hdmi_bridge_funcs = {
->>       .edid_read = mtk_hdmi_bridge_edid_read,
->>   };
->> -static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->> -                   struct platform_device *pdev)
->> +static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hdmi, struct device *dev, 
->> struct device_node *np)
->>   {
->> -    struct device *dev = &pdev->dev;
->> -    struct device_node *np = dev->of_node;
->> -    struct device_node *remote, *i2c_np;
->>       struct platform_device *cec_pdev;
->> -    struct regmap *regmap;
->> +    struct device_node *cec_np;
->>       int ret;
->> -    ret = mtk_hdmi_get_all_clk(hdmi, np);
->> -    if (ret)
->> -        return dev_err_probe(dev, ret, "Failed to get clocks\n");
->> -
->>       /* The CEC module handles HDMI hotplug detection */
->>       cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
-> 
-> If it's done in mtk_cec.c, the hardcoded compatible string method will be replaced 
-> by of_match_table (mtk_cec_of_ids), which is scalable and consistent.
-> 
+Thanks for quick feedback Inochi!
 
-That's true, yes, but the CEC driver is not supposed to be in drivers/drm/mediatek
-in the first place - that should be partially refactored and moved to where the CEC
-drivers belong: drivers/media/cec/platform/mediatek/
+On Mon, 2025-02-10 at 13:13 +0800, Inochi Amaoto wrote:
+> On Sun, Feb 09, 2025 at 11:06:33PM +0100, Alexander Sverdlin wrote:
+> > Add reset controller node and required sysctl nodes.
+> >=20
+> > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> > ---
+> > =C2=A0 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 16 +++++++++++++=
++++
+> > =C2=A0 1 file changed, 16 insertions(+)
+> >=20
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv=
+/boot/dts/sophgo/cv18xx-periph.dtsi
+> > index 53834b0658b2..d793b6db4ed1 100644
+> > --- a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > @@ -309,5 +309,21 @@ dmac: dma-controller@4330000 {
+> > =C2=A0=C2=A0			snps,data-width =3D <4>;
+> > =C2=A0=C2=A0			status =3D "disabled";
+> > =C2=A0=C2=A0		};
+> > +
+>=20
+> > +		rtcsys_ctrl: syscon@5025000 {
+> > +			compatible =3D "sophgo,cv1800-rtcsys-ctrl", "syscon";
+> > +			reg =3D <0x05025000 0x1000>;
+> > +		};
+> > +
+> > +		rtcsys_core: syscon@5026000 {
+> > +			compatible =3D "sophgo,cv1800-rtcsys-core", "syscon";
+> > +			reg =3D <0x05026000 0x1000>;
+> > +		};
+> > +
+> > +		soc-reset {
+> > +			compatible =3D "sophgo,cv1800-reset";
+> > +			sophgo,rtcsys-ctrl =3D <&rtcsys_ctrl>;
+> > +			sophgo,rtcsys-core =3D <&rtcsys_core>;
+> > +		};
+>=20
+> I think these node is not suitable for riscv. It should use SBI SRST
+> extension to restart.
 
-This is something that is currently in the process of making here, as the CEC v2
-driver will be added there, and the CECv1 driver will be moved along side of the
-new one, making things finally correct.
+Independent from the particular form, or its correctness, this is still HW
+description, right? It would be a "policy" for the kernel configuration, if
+the particular build would rely on the FW or a kernel driver to reboot.
 
-Of course, this code will be retained to keep retrocompatibility with older device
-trees, and if I move it to mtk_cec, I will have to move it back here after the
-CEC driver is moved to the correct location.
+In other words, the HW block remains in place, no matter if it's controlled
+by a kernel module or a FW. What the point in hiding it from the RiscV part
+of DT, keeping on ARM64 side only?
 
-For the reasons explained above, I disagree about moving this code to the CEC
-driver.
-
-Cheers,
-Angelo
-
->>       if (!cec_np)
->> -        return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
->> +        return dev_err_probe(dev, -ENOTSUPP, "Failed to find CEC node\n");
->>       cec_pdev = of_find_device_by_node(cec_np);
->>       if (!cec_pdev) {
->> @@ -1393,65 +1385,69 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->>           return -EPROBE_DEFER;
->>       }
->>       of_node_put(cec_np);
->> -    hdmi->cec_dev = &cec_pdev->dev;
->>       /*
->>        * The mediatek,syscon-hdmi property contains a phandle link to the
->>        * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
->>        * registers it contains.
->>        */
->> -    regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
->> -    ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1,
->> -                     &hdmi->sys_offset);
->> -    if (IS_ERR(regmap))
->> -        ret = PTR_ERR(regmap);
->> -    if (ret) {
->> -        dev_err_probe(dev, ret,
->> -                  "Failed to get system configuration registers\n");
->> -        goto put_device;
->> -    }
->> -    hdmi->sys_regmap = regmap;
->> +    hdmi->sys_regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
->> +    if (IS_ERR(hdmi->sys_regmap))
->> +        return PTR_ERR(hdmi->sys_regmap);
->> +
->> +    ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1, &hdmi- 
->> >sys_offset);
->> +    if (ret)
->> +        return dev_err_probe(dev, ret,
->> +                     "Failed to get system configuration registers\n");
->> +
->> +    hdmi->cec_dev = &cec_pdev->dev;
->> +    return 0;
->> +}
->> +
->> +static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
->> +                   struct platform_device *pdev)
->> +{
->> +    struct device *dev = &pdev->dev;
->> +    struct device_node *np = dev->of_node;
->> +    struct device_node *remote, *i2c_np;
->> +    int ret;
->> +
->> +    ret = mtk_hdmi_get_all_clk(hdmi, np);
->> +    if (ret)
->> +        return dev_err_probe(dev, ret, "Failed to get clocks\n");
->>       hdmi->regs = device_node_to_regmap(dev->of_node);
->> -    if (IS_ERR(hdmi->regs)) {
->> -        ret = PTR_ERR(hdmi->regs);
->> -        goto put_device;
->> -    }
->> +    if (IS_ERR(hdmi->regs))
->> +        return PTR_ERR(hdmi->regs);
->>       remote = of_graph_get_remote_node(np, 1, 0);
->> -    if (!remote) {
->> -        ret = -EINVAL;
->> -        goto put_device;
->> -    }
->> +    if (!remote)
->> +        return -EINVAL;
->>       if (!of_device_is_compatible(remote, "hdmi-connector")) {
->>           hdmi->next_bridge = of_drm_find_bridge(remote);
->>           if (!hdmi->next_bridge) {
->>               dev_err(dev, "Waiting for external bridge\n");
->>               of_node_put(remote);
->> -            ret = -EPROBE_DEFER;
->> -            goto put_device;
->> +            return -EPROBE_DEFER;
->>           }
->>       }
->>       i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
->>       of_node_put(remote);
->> -    if (!i2c_np) {
->> -        ret = dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
->> -        goto put_device;
->> -    }
->> +    if (!i2c_np)
->> +        return dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
->>       hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
->>       of_node_put(i2c_np);
->> -    if (!hdmi->ddc_adpt) {
->> -        ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by 
->> node\n");
->> -        goto put_device;
->> -    }
->> +    if (!hdmi->ddc_adpt)
->> +        return dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by 
->> node\n");
->> +
->> +    ret = mtk_hdmi_get_cec_dev(hdmi, dev, np);
->> +    if (ret)
->> +        return ret;
->>       return 0;
->> -put_device:
->> -    put_device(hdmi->cec_dev);
->> -    return ret;
->>   }
->>   /*
-> 
+--=20
+Alexander Sverdlin.
 
 
