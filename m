@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DAFC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C783C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9i0AGLd99zO9PPisviE6AdnYOR4wb3NHpW6/eGahu5k=; b=Rauh1DxidFggBz4gdskWOLlHO7
-	QnX+S2g0dviQk5xmTcHig4EDgv4Q7KavVc6Z1RfMdrT4ukZT6ZZ5NcGe1rw2vg7QQMlpIhYjBCy7X
-	VQL9J7ldZJ6yZOi3c+8ZrL8pfrQfOUWLnsEaEwXBvuld2SZ1AOsg7ojCaZvfzqWeOo/K/kMu8GEqE
-	D4fKorjplAUFwckwKnSujHWdqsw/gROTYovpqQWwtNYU1hMzI1tU+lefkulFJTpThKUD5f7WILm39
-	bqQ/rbFASKbxCRVVgauWbg/uhfpNFHOQu8Gh6XpOQr8J6cRdArSJiBkb7ziF40sD2FNnWgphi4jP3
-	NAFbxmXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iWu6lxVdt4DkLo8TsXZLVD2K1CQXEitCDCNfEX4Lczg=; b=iQCwLd5JhXfk7RF2aec2hNLtZb
+	ZxLCpsqOs15ZZFCz3NL1hvk9e8hZbKANQCY/t96fclXf/fJP+ALxSf7mNV4xexkqV0vzhvEcLpzwO
+	8nxpxP0nkp7s5xaFbG73i+YyFDuY4+J5/myl/7bxvf18QHTdDgVU1IPZaFtmlYP4CzW+zCrGsWAPM
+	vCxh3xWavHO92HWuwPo8/EheFyb8BtvW0gIsQgqo9BqNTwyyA3mQqeDHqlXhckCtbbkpG9SY5Hhh9
+	P2UaltuMZqz+yWqP95be7mbsaOgvwI17MixjeFWjC9oZdcoFc6oxASnPFDP0BfxFDEZznAV8s+tD0
+	hdhalQvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQuL-0000000Gz55-0xW2;
-	Mon, 10 Feb 2025 10:20:53 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1thQvh-0000000GzPC-429L;
+	Mon, 10 Feb 2025 10:22:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQrL-0000000Gxr0-0Axk
+	id 1thQrw-0000000Gy1J-2y75
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:17:48 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21f4500a5c3so78167885ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 02:17:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739182666; x=1739787466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9i0AGLd99zO9PPisviE6AdnYOR4wb3NHpW6/eGahu5k=;
-        b=oCivMkn3DqRFObozQEkKPgqpQEbpCgwytFskHV7MBRy4YbPs58GSqmBxX986IpA3XZ
-         6K7OoUpXXwpCCFL+sgr21uPWOJc5Wdk+4bu5wGu1AzoMpTcC/jYZyRmigCeNWDRKo8o2
-         t7zKAJquRoylBbcc1SMKH/yiaaXDCDej8+tYr2Tmi3oe6uuH3/nfw2iVBr3tfv6NcKmo
-         mNBnc1WciBaoW0mCLvSwD2z0NbkPyyT01fV0chSzZfFlz8Djuv5n6/fxeN5cLwdVGlGs
-         phJzdYTyFrIyR3cBIfMRy7b0B8GbT8BTrlz0cUDGRNJZ2EaNlKPimga1xsQmJkTn7OOF
-         8yJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739182666; x=1739787466;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9i0AGLd99zO9PPisviE6AdnYOR4wb3NHpW6/eGahu5k=;
-        b=BdkDFXUDwcEgeicHQqIw9icyNliVNN8wSoL165sQ0TuYz8C/a3DHiQlUC09yGxbC9K
-         49vYThP2twrdHj63f3nD61evKvPsU23LQO9Nu5KOeTzbPmTlCym3dQjw+WtQNbBrx247
-         2vNjDhlQTegnGtPK05CC63herGzzMXKrOo6HSglHM7pk4TKbhEQHmt8hC22lBqPfiwaI
-         +mJdAjZRvCyoqNEhqp8UnNK2GpvPrm8m3ebaPtNJ6S83ruDSWF/yoDp+7fyCVCcmckxJ
-         7wS5XMH49lnaT5gzNDgMEOHWyxHNTu+mbYIL3HhyEPWNvGiu4MY6e/KKbht9/BsnRYPv
-         8RXw==
-X-Gm-Message-State: AOJu0Yy6SZb5milJQ9AEkYfCE7D5DrRNOWgPGwcgsKpiGeCP31QVi5by
-	Qlu3iuYDBFhumQVIRxVlfo6G6IibSlYo8H4IdUUq2WgoNStXvH4dk9W+n3JXlf8=
-X-Gm-Gg: ASbGncvG6CY8OvzXQq+amKobtu/5HeBeBbmgwshQG6tfrmQ+/87Cdjzt+oNL7iCtXtb
-	4a31fwdibvIIaBORpvokfBeLNKTJZ3gL9SUD3b1EFxaEQafr4p5wWmiaSyk/N5Q3S4CtdXGgF8/
-	oD7laxMjiU/br5A6+jLcO+mHhiQmba2XRevnsJcnXQc7GcNq/ovQ2YHSgoZxOqc5QtrrYysHJE+
-	faxkX5HjzZMqbK7/ocop8oVGf1UPC4xel2qFuYgwrOqc+D0HWbV/mMVi+ckwSOj9sQvZvG62nJJ
-	JZ0Kzdwsz3/U+7vxJQ==
-X-Google-Smtp-Source: AGHT+IGNZ1LdwSLrAygAeyU2l4PUTGtgEddlFC4BdeZIasrbNWW51em0a2J4IYoXDABwR1ybMH65yA==
-X-Received: by 2002:a05:6a21:9985:b0:1eb:7da4:305e with SMTP id adf61e73a8af0-1ee03b70cbcmr19829114637.39.1739182665838;
-        Mon, 10 Feb 2025 02:17:45 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7308540cb30sm2399099b3a.115.2025.02.10.02.17.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 02:17:45 -0800 (PST)
-Date: Mon, 10 Feb 2025 15:47:43 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 17/18] firmware: arm_ffa: Add support for handling
- framework notifications
-Message-ID: <20250210101743.aqbhqqkdbvka2i46@vireshk-i7>
-References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
- <20250131-ffa_updates-v2-17-544ba4e35387@arm.com>
+	Mon, 10 Feb 2025 10:18:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8B88A5C48CC;
+	Mon, 10 Feb 2025 10:17:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C56D2C4CEE6;
+	Mon, 10 Feb 2025 10:18:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739182703;
+	bh=p8iRm7Gznn3ekKIRR91V/psR21ij9bK+0II7DymWAjA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PX0+CSSljZXtmDbUPsW3q/1UEAZkcJHQHMj/eR0Q8uSPrNmrv7jqsd3H+YWo1xOM/
+	 HjMrHdx6LlY4VekopfJmqAvseecf+sebvVrDYeBP2E4GKMMrmkGAF7v22e90DTf2Ge
+	 mjxsRdCf7qv3lINGQIUrTR/CKUR1x2WI5IgNnSnIRO7tiHp3FFc+3cqvsj/9hsWnKh
+	 QUvK4DWNq98U6G9Jmn/ZLIwMSS34I6YncKIZUQdrGDo3GiokB90neYSGG7qvgPEeX+
+	 u8zr8PFfVeA+4pAnIe0oPCCKpjgmBbYQ3zyMgD9kNY5qkMBCxcJD7jQPVUsrPO+vlG
+	 qr78nANSqX06Q==
+Received: from mchehab by mail.kernel.org with local (Exim 4.98)
+	(envelope-from <mchehab+huawei@kernel.org>)
+	id 1thQrt-00000006Ci9-3Zgs;
+	Mon, 10 Feb 2025 11:18:21 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Chao Yu <mchehab+huawei@kernel.org>,
+	Jaegeuk Kim <mchehab+huawei@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Mike Leach <mike.leach@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tony Luck <tony.luck@intel.com>,
+	bpf@vger.kernel.org,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-hardening@vger.kernel.org,
+	linux-wireless@vger.kernel.org
+Subject: [PATCH 00/27] Improve ABI documentation generation
+Date: Mon, 10 Feb 2025 11:17:49 +0100
+Message-ID: <cover.1739182025.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131-ffa_updates-v2-17-544ba4e35387@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_021747_092888_C99E4BC7 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250210_021824_844069_FD1960C4 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +89,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31-01-25, 11:24, Sudeep Holla wrote:
-> +static void handle_fwk_notif_callbacks(u32 bitmap)
-> +{
-> +	void *buf;
-> +	uuid_t uuid;
-> +	int notify_id = 0, target;
-> +	struct ffa_indirect_msg_hdr *msg;
-> +	struct notifier_cb_info *cb_info = NULL;
-> +
-> +	/* Only one framework notification defined and supported for now */
-> +	if (!(bitmap & FRAMEWORK_NOTIFY_RX_BUFFER_FULL))
-> +		return;
-> +
-> +	mutex_lock(&drv_info->rx_lock);
-> +
-> +	msg = drv_info->rx_buffer;
-> +	buf = kmalloc(msg->size, GFP_KERNEL);
-> +	if (!buf) {
-> +		mutex_unlock(&drv_info->rx_lock);
-> +		return;
-> +	}
-> +	memcpy(buf, (void *)msg + msg->offset, msg->size);
+Hi Jon/Greg,
 
-Can use kmemdup() here instead.
+This series replace get_abi.pl with a Python version.
+
+I originally started it due to some issues I noticed when searching for
+ABI symbols. While I could just go ahead and fix the already existing
+script, I noticed that the script maintainance didn't have much care over
+all those years, probably because it is easier to find Python programmers
+those days.
+
+Also, the code is complex and was not using modules or classes and
+were using lots of global variables.
+
+So, I decided to rewrite it in Python. I started with a manual conversion
+for each function. Yet, to avoid future maintainership issues, I opted to
+divide the main code on three classes, each on a sepaparate file.
+
+Just like the original RFC, I opted to keep the Sphinx kernel-abi module
+on three different phases:
+
+- call get_abi.py as an exec file;
+- import AbiParser on a minimal integration scenario;
+- cleanup the code to avoid needing to parse line numbers from the text.
+
+This way, if something goes wrong, it would be easier to just revert any
+offending patches, It also provides a better rationale about what each
+logical change is doing.
+
+The initial patches on this series do some preparation work and
+cleans some ABI symbol bugs that lack ":" delimiter.
+
+I opted to place on this series the Sphinx and Python version updates.
+
+I still have ~10 patches here with additional cleanups, from the original
+series I sent as RFC but let's get the main changes merged first.
+
+Mauro Carvalho Chehab (27):
+  docs: sphinx: remove kernellog.py file
+  docs: sphinx/kernel_abi: adjust coding style
+  docs: admin-guide: abi: add SPDX tags to ABI files
+  ABI: sysfs-class-rfkill: fix kernelversion tags
+  ABI: sysfs-bus-coresight-*: fix kernelversion tags
+  ABI: sysfs-driver-dma-idxd: fix date tags
+  ABI: sysfs-fs-f2fs: fix date tags
+  ABI: sysfs-power: fix a what tag
+  scripts/documentation-file-ref-check: don't check perl/python scripts
+  scripts/get_abi.py: add a Python tool to generate ReST output
+  scripts/get_abi.py: add support for symbol search
+  docs: use get_abi.py for ABI generation
+  scripts/lib/abi/abi_parser.py: optimize parse_abi() function
+  scripts/lib/abi/abi_parser.py: use an interactor for ReST output
+  docs: sphinx/kernel_abi: use AbiParser directly
+  docs: sphinx/kernel_abi: reduce buffer usage for ABI messages
+  docs: sphinx/kernel_abi: properly split lines
+  scripts/get_abi.pl: Add filtering capabilities to rest output
+  scripts/get_abi.pl: add support to parse ABI README file
+  docs: sphinx/kernel_abi: parse ABI files only once
+  docs: admin-guide/abi: split files from symbols
+  docs: sphinx/automarkup: add cross-references for ABI
+  docs: sphinx/kernel_abi: avoid warnings during Sphinx module init
+  scripts/lib/abi/abi_parser.py: Rename title name for ABI files
+  scripts/lib/abi/abi_parser.py: make it backward-compatible with Python
+    3.6
+  scripts/get_abi.py: add support for undefined ABIs
+  scripts/get_abi.pl: drop now obsoleted script
+
+ Documentation/ABI/removed/sysfs-class-rfkill  |    2 +-
+ Documentation/ABI/stable/sysfs-class-rfkill   |   12 +-
+ .../ABI/stable/sysfs-driver-dma-idxd          |    4 +-
+ .../testing/sysfs-bus-coresight-devices-cti   |   78 +-
+ .../testing/sysfs-bus-coresight-devices-tpdm  |   52 +-
+ Documentation/ABI/testing/sysfs-fs-f2fs       |    4 +-
+ Documentation/ABI/testing/sysfs-power         |    2 +-
+ .../admin-guide/abi-obsolete-files.rst        |    7 +
+ Documentation/admin-guide/abi-obsolete.rst    |    6 +-
+ Documentation/admin-guide/abi-readme-file.rst |    6 +
+ .../admin-guide/abi-removed-files.rst         |    7 +
+ Documentation/admin-guide/abi-removed.rst     |    6 +-
+ .../admin-guide/abi-stable-files.rst          |    7 +
+ Documentation/admin-guide/abi-stable.rst      |    6 +-
+ .../admin-guide/abi-testing-files.rst         |    7 +
+ Documentation/admin-guide/abi-testing.rst     |    6 +-
+ Documentation/admin-guide/abi.rst             |   17 +
+ Documentation/sphinx/automarkup.py            |   47 +
+ Documentation/sphinx/kernel_abi.py            |  162 ++-
+ Documentation/sphinx/kerneldoc.py             |   14 +-
+ Documentation/sphinx/kernellog.py             |   22 -
+ Documentation/sphinx/kfigure.py               |   81 +-
+ scripts/documentation-file-ref-check          |    2 +-
+ scripts/get_abi.pl                            | 1103 -----------------
+ scripts/get_abi.py                            |  214 ++++
+ scripts/lib/abi/abi_parser.py                 |  628 ++++++++++
+ scripts/lib/abi/abi_regex.py                  |  234 ++++
+ scripts/lib/abi/helpers.py                    |   38 +
+ scripts/lib/abi/system_symbols.py             |  378 ++++++
+ 29 files changed, 1830 insertions(+), 1322 deletions(-)
+ create mode 100644 Documentation/admin-guide/abi-obsolete-files.rst
+ create mode 100644 Documentation/admin-guide/abi-readme-file.rst
+ create mode 100644 Documentation/admin-guide/abi-removed-files.rst
+ create mode 100644 Documentation/admin-guide/abi-stable-files.rst
+ create mode 100644 Documentation/admin-guide/abi-testing-files.rst
+ delete mode 100644 Documentation/sphinx/kernellog.py
+ delete mode 100755 scripts/get_abi.pl
+ create mode 100755 scripts/get_abi.py
+ create mode 100644 scripts/lib/abi/abi_parser.py
+ create mode 100644 scripts/lib/abi/abi_regex.py
+ create mode 100644 scripts/lib/abi/helpers.py
+ create mode 100644 scripts/lib/abi/system_symbols.py
 
 -- 
-viresh
+2.48.1
+
+
 
