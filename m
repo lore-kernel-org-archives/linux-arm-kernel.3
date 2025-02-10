@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73FFC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB79C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfzQ5j3Az1khfj3FbkX1MzKZtunVnwwxcMzt3ZFG9Lo=; b=JCHJwLzGKLre6D1ucmTPKm7+Ls
-	W5rAQYLWZXdhIVk/vv6E56JLE0Wa2gFRcJsT8Lj70bLrpUTN988R9mQn8rU9MCYlBhfbu67XGSmq6
-	AQ+UdH80hzIpQBnFa9kRRRWAS9lDPW4RuosRQp1Tbs9Ftz6z4EptbPLzxGl91uORlstR4oG0QftZr
-	zhxIixkoZ5ibClID/FT/m1ymViX9cZSrW8dZJScQ1ZiAmbCbWglC4+9tVD5yob1nRI+FY9TTEQnhS
-	oTJSK97/FUWDebcL8e2t2SBztuGOGvjr8Q7SEVAXmxrSOMUtQv9GDG0McDmgQHyN12uSos938M0KJ
-	hDUf6QoA==;
+	bh=yP6r3UJtoGCclHljYp5u8/qkuJ+EScxz0286YJyWmFo=; b=pmSH5d0hWKQWYUUwoNUsXY0/uP
+	P4ZKjHZ6GWXh3XznPzHUyaymV/GBIkFdK2S/tArODiUQ/gBiluChQideXLRElDFqefcDo1sX0G+Fk
+	tqt3urvLb/AFwUyLaGA2QvZ+hatUdy5CvzWOo8f2nTkcwghJopbXebyaDwGEGdULzD/ksUf2AOvIx
+	JZRjAmkOalK9CM5Y6t7D2bYhKsSIPRQ+BdezvGlGOYMaA4KIIIdjmQSqlr+/2sruJ/2/WTFn1r2tv
+	rpSiwCyeGqJZlyztE1b8M4llzBhuFw3GJ3PKBzuVS1n4fjJUrG3bcdS79q1jqA2U/HobEMhb6PP0F
+	RBcmUEpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYV-000000016VY-0tvb;
-	Mon, 10 Feb 2025 19:34:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thZYX-000000016bU-3iy6;
+	Mon, 10 Feb 2025 19:34:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYjI-00000000ys2-474P
+	id 1thYjJ-00000000yt4-3bBI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:42:02 +0000
+	Mon, 10 Feb 2025 18:42:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBB0B5C5DEF;
-	Mon, 10 Feb 2025 18:41:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30CC7C4CED1;
-	Mon, 10 Feb 2025 18:42:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BB1945C5DF0;
+	Mon, 10 Feb 2025 18:41:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12052C4CED1;
+	Mon, 10 Feb 2025 18:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739212920;
-	bh=z2VwTfiENkktUVTXFlhIZAHJiX/ofVLHsrUMaO3gVxI=;
+	s=k20201202; t=1739212921;
+	bh=JoVlWRgVnY+j9LNB7Hewwr7ScankrSkCZVdzMJAowdw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B5WogMuQeMLGaJpB+xm5Mi43YKsfx0LWDbfyV3lXz8gTQxdVU+G00AVPAwnSmwlS/
-	 NPe3Ouxeu9FlHJ2WAZdR1u2/j+I1iT53ZQ/1vcrdz5vkrR0pSC5ZnO6KdZoFExWJDf
-	 xCVN83OtAYlE28prgURRTdSZuBDK1KA3c1p6H9jIPGpLunGTCgz6nhLaL3gkunZrWB
-	 z9Be2BWrYomdrmA03Al1JberyWr61ABLE6VEbbPWfQZlh2hG6H47p5KuWSU6z00usa
-	 LLS4DUzzOHArE5/Jhk5szIZFRh+APv4JGaBG9Ch8B+WjawfDA15vWDISLrco0XEhMF
-	 VXo5SrVR1afEA==
+	b=FRVtVYcDoe5z4kQ62EbJ8KMf2Y5SiHgvBE9s48t3SWrALqE+az43AjJC5fmKN8tti
+	 PmHNR3cTocCL6/Vrbcr9ZySjDpYvpJCAArz5IOhZseDUNrNzp9qU8voR4sh3tecark
+	 vFHfffifTejg4BWnV/Qnaz4jkBnHFqgBiDUyV6BsWQypYjkTtVffq457C0C1RzIQyv
+	 zCAhCM8VGvROW8dOaJ+j923/l7i80Yl7PRy444kj9aT3bNNxw76tf2RYMtg9dSv0Cl
+	 ISO5IWSreYByFox7tHjvZ3y7wrE6AuA3TNr2YiYl9XkMIxBrfWhIG6W36CcTSAjSQN
+	 2xuw/QVQvInrA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1thYjG-002g2I-3f;
-	Mon, 10 Feb 2025 18:41:58 +0000
+	id 1thYjH-002g2I-2D;
+	Mon, 10 Feb 2025 18:41:59 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 04/18] KVM: arm64: Restrict ACCDATA_EL1 undef to FEAT_ST64_ACCDATA being disabled
-Date: Mon, 10 Feb 2025 18:41:35 +0000
-Message-Id: <20250210184150.2145093-5-maz@kernel.org>
+Subject: [PATCH 08/18] KVM: arm64: Add description of FGT bits leading to EC!=0x18
+Date: Mon, 10 Feb 2025 18:41:39 +0000
+Message-Id: <20250210184150.2145093-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
 References: <20250210184150.2145093-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104201_065938_B8680A29 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250210_104201_999556_99A44576 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +87,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently unconditionally make ACCDATA_EL1 accesses UNDEF.
+The current FTP tables are only concerned with the bits generating
+ESR_ELx.EC==0x18. However, we want an exhaustive view of what KVM
+really knows about.
 
-As we are about to support it, restrict the UNDEF behaviour to cases
-where FEAT_ST64_ACCDATA is not exposed to the guest.
+So let's add another small table that provides that extra information.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/emulate-nested.c | 32 ++++++++++++++++++++++++++------
+ 1 file changed, 26 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 82430c1e1dd02..18721c773475d 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -4997,10 +4997,12 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	kvm->arch.fgu[HFGxTR_GROUP] = (HFGxTR_EL2_nAMAIR2_EL1		|
- 				       HFGxTR_EL2_nMAIR2_EL1		|
- 				       HFGxTR_EL2_nS2POR_EL1		|
--				       HFGxTR_EL2_nACCDATA_EL1		|
- 				       HFGxTR_EL2_nSMPRI_EL1_MASK	|
- 				       HFGxTR_EL2_nTPIDR2_EL0_MASK);
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index bbfe89c37a86e..4f468759268c0 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -1279,16 +1279,21 @@ enum fg_filter_id {
+ 	__NR_FG_FILTER_IDS__
+ };
  
-+	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA))
-+		kvm->arch.fgu[HFGxTR_GROUP] |= HFGxTR_EL2_nACCDATA_EL1;
+-#define SR_FGF(sr, g, b, p, f)					\
+-	{							\
+-		.encoding	= sr,				\
+-		.end		= sr,				\
+-		.tc		= {				\
++#define __FGT(g, b, p, f)					\
++		{						\
+ 			.fgt = g ## _GROUP,			\
+ 			.bit = g ## _EL2_ ## b ## _SHIFT,	\
+ 			.pol = p,				\
+ 			.fgf = f,				\
+-		},						\
++		}
 +
- 	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
- 		kvm->arch.fgu[HFGITR_GROUP] |= (HFGITR_EL2_TLBIRVAALE1OS|
- 						HFGITR_EL2_TLBIRVALE1OS	|
++#define FGT(g, b, p)		__FGT(g, b, p, __NO_FGF__)
++
++#define SR_FGF(sr, g, b, p, f)					\
++	{							\
++		.encoding	= sr,				\
++		.end		= sr,				\
++		.tc		= __FGT(g, b, p, f),		\
+ 		.line = __LINE__,				\
+ 	}
+ 
+@@ -1989,6 +1994,14 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
+ 	SR_FGT(SYS_AMEVCNTR0_EL0(0),	HAFGRTR, AMEVCNTR00_EL0, 1),
+ };
+ 
++/* Additional FGTs that do not fire with ESR_EL2.EC==0x18 */
++static const union trap_config non_0x18_fgt[] __initconst = {
++	FGT(HFGITR, nGCSSTR_EL1, 0),
++	FGT(HFGITR, SVC_EL1, 1),
++	FGT(HFGITR, SVC_EL0, 1),
++	FGT(HFGITR, ERET, 1),
++};
++
+ static union trap_config get_trap_config(u32 sysreg)
+ {
+ 	return (union trap_config) {
+@@ -2199,6 +2212,13 @@ int __init populate_nv_trap_config(void)
+ 		}
+ 	}
+ 
++	for (int i = 0; i < ARRAY_SIZE(non_0x18_fgt); i++) {
++		if (!aggregate_fgt(non_0x18_fgt[i])) {
++			ret = -EINVAL;
++			kvm_err("non_0x18_fgt[%d] is reserved\n", i);
++		}
++	}
++
+ 	ret = check_all_fgt_masks(ret);
+ 
+ 	kvm_info("nv: %ld fine grained trap handlers\n",
 -- 
 2.39.2
 
