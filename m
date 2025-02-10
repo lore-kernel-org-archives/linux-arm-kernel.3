@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71BCEC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3AF2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uTfDseMhE7P/JxrfAJslgn0JAUhQDiqXHdFqSni5NFg=; b=gdW1bOqUxdOeEt4YmtW77I9xWq
-	LcoQKH1n2NpQKEQXiapx/mMHmiZ4ZeF36hXK2u/6pMC7bbM7RgEpeXXkLL4e3a4n0DO57N9/YelwI
-	FafWpBPGg0vFxtNhgH/kcZvDf06f1cOEIgeGc+NCX2EFcvVlnzX6vA+AyzklcC6b+ppE6d4lrerN8
-	WjKgaUCM90CblA0QBYOn0xmgq6kV+m3tfumxAWu3cXtTiB31+SMFGA+2R+CTUV92brLBJKxx1VOK3
-	VhQP6ZfaA+y1+OHpo0n2ErKuMTM1pM3D76y1eVGBTc+6SAkFAsabCrOFggf8Lfm3hqnL25dJ0v3Uy
-	Uv+JC3+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2zJoI4zUhnQFWnhkAmCA/G6I5XpawwTFf8gjoo1QOYE=; b=bIiJa0XwueU+OH
+	mugpw1FUjAL9ULsxKs1656on2O1ctI0rnMq9vl60mS935fS2QcqWlnbdBecn4qvSxtJxdFXIxbl4X
+	hy97LTX+kMshcOjPi9f5U/gc2vP4X+flfNHzlc9lIvSlewB5kDwbxbpUVFuPjlbHSOp8DfNMieVZd
+	aL50zlJ5YtZGj6tBaVWnFQCW6hzA3iCcfpBiwKdngSWf0wEbuPmTmab4W/JymtPp3/cKWUz0VIW2f
+	fyC/7v6/6v0FNVf9eh8gsoae46SsO5655iDuRkUmzY/vl+VpKHItODYOWv5IGXEe4aZ6DuvI9ak9r
+	Gm/crtMlVduSRsvaaMZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRzK-0000000HDlU-0ker;
-	Mon, 10 Feb 2025 11:30:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thReU-0000000H9gP-1YiE
+	id 1thS0h-0000000HDyW-0pzK;
+	Mon, 10 Feb 2025 11:31:31 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thRg9-0000000HA2E-0NzJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:08:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62CDA1BC0;
-	Mon, 10 Feb 2025 03:08:55 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5D913F5A1;
-	Mon, 10 Feb 2025 03:08:26 -0800 (PST)
-Date: Mon, 10 Feb 2025 11:08:24 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 02/22] arm64: entry: Refactor the entry and exit
- for exceptions from EL1
-Message-ID: <Z6neKBGCcVmPBBQH@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <20241206101744.4161990-3-ruanjinjie@huawei.com>
+	Mon, 10 Feb 2025 11:10:19 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 14CD1A0748;
+	Mon, 10 Feb 2025 12:10:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=2zJoI4zUhnQFWnhkAmCA/G6I5XpawwTFf8gjoo1QOYE=; b=
+	QI/aT7t/diqN7H9jybwNT2W3yN4oxmBwNbPh3vYnTLj2R4D0FHQx7ZOM3MfV6/Um
+	j6YP8qzSxoahWnlYZjXhj+h8e8ksVUcMNA1d5Lt3l2L59YvtI7jkw6wn263c7rsx
+	pxLtzpY4cXg/tHXgVPJf1O3+vlMDrnqHgssw6R9yArCCs4tZ1b4mIt+9AFujgxuZ
+	/Aq9fbv4Jt62FS4SLsAjhOv9pKkdVx0lcBF3kh4GthEmt42T1FcrNoKRIbKUdvjn
+	Ikm8yGUNAOCwuBlYIHPeWeXwPBRmy5e6Uu+lM3jNUpT5RUlk0mMXpLspSPXvsqKN
+	c91NjQpWs/qfGMedAkszrLOcDIikTJFSUa5neFsaE4PzPMx8cvWhHxptbvVQdlTW
+	RAaT764DEC6mvLy/d7rocaJXC85bq358RxQq75GiRKAggoxka0ZVK9+qxevEd+sA
+	wyPSII0IWnYl7RRe7JJz4P6HUJg5zN6QJaRzFBuTe1VzE5PaW4W7DPfd0bIoJm/g
+	9dw67GwjmHmOMNAMs3GK+Q+FB9ZVPtl4VAga4DbKpDcZS6pFcgBb+Qlwg8B1/D36
+	qCGs8Ma0sAWAiDEMdtKHTQcIYNybvtlwhgLTIFJ2xo6Ak4u4K/7Z14Rqp7rRJ89b
+	x86IZF7S2iFUyug1ZreAZYfr3gusurix7bsUCBM+NMM=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, "Varshini
+ Rajendran" <varshini.rajendran@microchip.com>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Mark Brown <broonie@kernel.org>,
+	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH for-6.14 v4 0/2] Add more devm_ functions to fix PM imbalance in spi/atmel-quadspi.c
+Date: Mon, 10 Feb 2025 12:10:05 +0100
+Message-ID: <20250210111008.248929-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206101744.4161990-3-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1739185812;VERSION=7985;MC=1898231991;ID=637647;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD9485261776A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_030834_512113_866F42FA 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20250210_031017_599853_3DDC530A 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,425 +77,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Len Brown <len.brown@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Alexander Dahl <ada@thorsis.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Pavel Machek <pavel@ucw.cz>, Danilo Krummrich <dakr@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:17:24PM +0800, Jinjie Ruan wrote:
-> The generic entry code uses irqentry_state_t to track lockdep and RCU
-> state across exception entry and return. For historical reasons, arm64
-> embeds similar fields within its pt_regs structure.
-> 
-> In preparation for moving arm64 over to the generic entry code, pull
-> these fields out of arm64's pt_regs, and use a separate structure,
-> matching the style of the generic entry code.
-> 
-> No functional changes.
-> 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/ptrace.h  |   4 -
->  arch/arm64/kernel/entry-common.c | 136 +++++++++++++++++++------------
->  2 files changed, 85 insertions(+), 55 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index bcfa96880377..e90dfc9982aa 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -169,10 +169,6 @@ struct pt_regs {
->  
->  	u64 sdei_ttbr1;
->  	struct frame_record_meta stackframe;
-> -
-> -	/* Only valid for some EL1 exceptions. */
-> -	u64 lockdep_hardirqs;
-> -	u64 exit_rcu;
->  };
->  
->  /* For correct stack alignment, pt_regs has to be a multiple of 16 bytes. */
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index c547e70428d3..1687627b2ecf 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -28,6 +28,13 @@
->  #include <asm/sysreg.h>
->  #include <asm/system_misc.h>
->  
-> +typedef struct irqentry_state {
-> +	union {
-> +		bool	exit_rcu;
-> +		bool	lockdep;
-> +	};
-> +} irqentry_state_t;
+The probe() function of the atmel-quadspi driver got quite convoluted,
+especially since the addition of SAMA7G5 support, that was forward-ported
+from an older vendor kernel. During the port, a bug was introduced, where
+the PM get() and put() calls were imbalanced. To alleivate this - and
+similar problems in the future - an effort was made to migrate as many
+functions as possible, to their devm_ managed counterparts. The few
+functions, which did not yet have a devm_ variant, are added in patch 1 of
+this series. Patch 2 then uses these APIs to fix the probe() function.
 
-I think we should add an arm64_ prefix here, to avoid the possiblity of
-build errors if we somehow get this and the common definition included
-at the same time.
+Change in v4:
+* the DMA cleanup was split out and will be submitted separately for 6.15
 
-That'll require some simple changes when we switch over, but it should
-be relatively obvious and simple.
+Links to previous versions:
+pre-series:
+https://lore.kernel.org/linux-kernel/20250114222851.1023194-1-csokas.bence@prolan.hu/
+v1:
+https://lore.kernel.org/linux-kernel/20250115160244.1102881-1-csokas.bence@prolan.hu/
+v2:
+https://lore.kernel.org/linux-kernel/20250124085221.766303-8-csokas.bence@prolan.hu/
+v3:
+https://lore.kernel.org/linux-kernel/20250207124802.165408-1-csokas.bence@prolan.hu/
 
-Otherwise, the structural changes look good to me.
+Bence Csókás (2):
+  pm: runtime: Add new devm functions
+  spi: atmel-quadspi: Fix unbalanced pm_runtime by using devm_ API
 
-Mark.
+ drivers/base/power/runtime.c | 36 ++++++++++++++++++++++++++++++++++++
+ drivers/spi/atmel-quadspi.c  | 18 +++++-------------
+ include/linux/pm_runtime.h   |  4 ++++
+ 3 files changed, 45 insertions(+), 13 deletions(-)
 
-> +
->  /*
->   * Handle IRQ/context state management when entering from kernel mode.
->   * Before this function is called it is not safe to call regular kernel code,
-> @@ -36,29 +43,36 @@
->   * This is intended to match the logic in irqentry_enter(), handling the kernel
->   * mode transitions only.
->   */
-> -static __always_inline void __enter_from_kernel_mode(struct pt_regs *regs)
-> +static __always_inline irqentry_state_t __enter_from_kernel_mode(struct pt_regs *regs)
->  {
-> -	regs->exit_rcu = false;
-> +	irqentry_state_t state = {
-> +		.exit_rcu = false,
-> +	};
->  
->  	if (!IS_ENABLED(CONFIG_TINY_RCU) && is_idle_task(current)) {
->  		lockdep_hardirqs_off(CALLER_ADDR0);
->  		ct_irq_enter();
->  		trace_hardirqs_off_finish();
->  
-> -		regs->exit_rcu = true;
-> -		return;
-> +		state.exit_rcu = true;
-> +		return state;
->  	}
->  
->  	lockdep_hardirqs_off(CALLER_ADDR0);
->  	rcu_irq_enter_check_tick();
->  	trace_hardirqs_off_finish();
-> +
-> +	return state;
->  }
->  
-> -static void noinstr enter_from_kernel_mode(struct pt_regs *regs)
-> +static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
->  {
-> -	__enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = __enter_from_kernel_mode(regs);
-> +
->  	mte_check_tfsr_entry();
->  	mte_disable_tco_entry(current);
-> +
-> +	return state;
->  }
->  
->  /*
-> @@ -69,12 +83,13 @@ static void noinstr enter_from_kernel_mode(struct pt_regs *regs)
->   * This is intended to match the logic in irqentry_exit(), handling the kernel
->   * mode transitions only, and with preemption handled elsewhere.
->   */
-> -static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs)
-> +static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
-> +						  irqentry_state_t state)
->  {
->  	lockdep_assert_irqs_disabled();
->  
->  	if (!regs_irqs_disabled(regs)) {
-> -		if (regs->exit_rcu) {
-> +		if (state.exit_rcu) {
->  			trace_hardirqs_on_prepare();
->  			lockdep_hardirqs_on_prepare();
->  			ct_irq_exit();
-> @@ -84,15 +99,16 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs)
->  
->  		trace_hardirqs_on();
->  	} else {
-> -		if (regs->exit_rcu)
-> +		if (state.exit_rcu)
->  			ct_irq_exit();
->  	}
->  }
->  
-> -static void noinstr exit_to_kernel_mode(struct pt_regs *regs)
-> +static void noinstr exit_to_kernel_mode(struct pt_regs *regs,
-> +					irqentry_state_t state)
->  {
->  	mte_check_tfsr_exit();
-> -	__exit_to_kernel_mode(regs);
-> +	__exit_to_kernel_mode(regs, state);
->  }
->  
->  /*
-> @@ -190,9 +206,11 @@ asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
->   * mode. Before this function is called it is not safe to call regular kernel
->   * code, instrumentable code, or any code which may trigger an exception.
->   */
-> -static void noinstr arm64_enter_nmi(struct pt_regs *regs)
-> +static noinstr irqentry_state_t arm64_enter_nmi(struct pt_regs *regs)
->  {
-> -	regs->lockdep_hardirqs = lockdep_hardirqs_enabled();
-> +	irqentry_state_t state;
-> +
-> +	state.lockdep = lockdep_hardirqs_enabled();
->  
->  	__nmi_enter();
->  	lockdep_hardirqs_off(CALLER_ADDR0);
-> @@ -201,6 +219,8 @@ static void noinstr arm64_enter_nmi(struct pt_regs *regs)
->  
->  	trace_hardirqs_off_finish();
->  	ftrace_nmi_enter();
-> +
-> +	return state;
->  }
->  
->  /*
-> @@ -208,19 +228,18 @@ static void noinstr arm64_enter_nmi(struct pt_regs *regs)
->   * mode. After this function returns it is not safe to call regular kernel
->   * code, instrumentable code, or any code which may trigger an exception.
->   */
-> -static void noinstr arm64_exit_nmi(struct pt_regs *regs)
-> +static void noinstr arm64_exit_nmi(struct pt_regs *regs,
-> +				   irqentry_state_t state)
->  {
-> -	bool restore = regs->lockdep_hardirqs;
-> -
->  	ftrace_nmi_exit();
-> -	if (restore) {
-> +	if (state.lockdep) {
->  		trace_hardirqs_on_prepare();
->  		lockdep_hardirqs_on_prepare();
->  	}
->  
->  	ct_nmi_exit();
->  	lockdep_hardirq_exit();
-> -	if (restore)
-> +	if (state.lockdep)
->  		lockdep_hardirqs_on(CALLER_ADDR0);
->  	__nmi_exit();
->  }
-> @@ -230,14 +249,18 @@ static void noinstr arm64_exit_nmi(struct pt_regs *regs)
->   * kernel mode. Before this function is called it is not safe to call regular
->   * kernel code, instrumentable code, or any code which may trigger an exception.
->   */
-> -static void noinstr arm64_enter_el1_dbg(struct pt_regs *regs)
-> +static noinstr irqentry_state_t arm64_enter_el1_dbg(struct pt_regs *regs)
->  {
-> -	regs->lockdep_hardirqs = lockdep_hardirqs_enabled();
-> +	irqentry_state_t state;
-> +
-> +	state.lockdep = lockdep_hardirqs_enabled();
->  
->  	lockdep_hardirqs_off(CALLER_ADDR0);
->  	ct_nmi_enter();
->  
->  	trace_hardirqs_off_finish();
-> +
-> +	return state;
->  }
->  
->  /*
-> @@ -245,17 +268,16 @@ static void noinstr arm64_enter_el1_dbg(struct pt_regs *regs)
->   * kernel mode. After this function returns it is not safe to call regular
->   * kernel code, instrumentable code, or any code which may trigger an exception.
->   */
-> -static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs)
-> +static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
-> +				       irqentry_state_t state)
->  {
-> -	bool restore = regs->lockdep_hardirqs;
-> -
-> -	if (restore) {
-> +	if (state.lockdep) {
->  		trace_hardirqs_on_prepare();
->  		lockdep_hardirqs_on_prepare();
->  	}
->  
->  	ct_nmi_exit();
-> -	if (restore)
-> +	if (state.lockdep)
->  		lockdep_hardirqs_on(CALLER_ADDR0);
->  }
->  
-> @@ -426,78 +448,86 @@ UNHANDLED(el1t, 64, error)
->  static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	irqentry_state_t state;
->  
-> -	enter_from_kernel_mode(regs);
-> +	state = enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_mem_abort(far, esr, regs);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	irqentry_state_t state;
->  
-> -	enter_from_kernel_mode(regs);
-> +	state = enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_sp_pc_abort(far, esr, regs);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
-> +
->  	local_daif_inherit(regs);
->  	do_el1_undef(regs, esr);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
-> +
->  	local_daif_inherit(regs);
->  	do_el1_bti(regs, esr);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
-> +
->  	local_daif_inherit(regs);
->  	do_el1_gcs(regs, esr);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
-> +
->  	local_daif_inherit(regs);
->  	do_el1_mops(regs, esr);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> +	irqentry_state_t state;
->  
-> -	arm64_enter_el1_dbg(regs);
-> +	state = arm64_enter_el1_dbg(regs);
->  	if (!cortex_a76_erratum_1463225_debug_handler(regs))
->  		do_debug_exception(far, esr, regs);
-> -	arm64_exit_el1_dbg(regs);
-> +	arm64_exit_el1_dbg(regs, state);
->  }
->  
->  static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
-> +
->  	local_daif_inherit(regs);
->  	do_el1_fpac(regs, esr);
->  	local_daif_mask();
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  
->  asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
-> @@ -546,15 +576,16 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->  static __always_inline void __el1_pnmi(struct pt_regs *regs,
->  				       void (*handler)(struct pt_regs *))
->  {
-> -	arm64_enter_nmi(regs);
-> +	irqentry_state_t state = arm64_enter_nmi(regs);
-> +
->  	do_interrupt_handler(regs, handler);
-> -	arm64_exit_nmi(regs);
-> +	arm64_exit_nmi(regs, state);
->  }
->  
->  static __always_inline void __el1_irq(struct pt_regs *regs,
->  				      void (*handler)(struct pt_regs *))
->  {
-> -	enter_from_kernel_mode(regs);
-> +	irqentry_state_t state = enter_from_kernel_mode(regs);
->  
->  	irq_enter_rcu();
->  	do_interrupt_handler(regs, handler);
-> @@ -562,7 +593,7 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->  
->  	arm64_preempt_schedule_irq();
->  
-> -	exit_to_kernel_mode(regs);
-> +	exit_to_kernel_mode(regs, state);
->  }
->  static void noinstr el1_interrupt(struct pt_regs *regs,
->  				  void (*handler)(struct pt_regs *))
-> @@ -588,11 +619,12 @@ asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
->  asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
->  {
->  	unsigned long esr = read_sysreg(esr_el1);
-> +	irqentry_state_t state;
->  
->  	local_daif_restore(DAIF_ERRCTX);
-> -	arm64_enter_nmi(regs);
-> +	state = arm64_enter_nmi(regs);
->  	do_serror(regs, esr);
-> -	arm64_exit_nmi(regs);
-> +	arm64_exit_nmi(regs, state);
->  }
->  
->  static void noinstr el0_da(struct pt_regs *regs, unsigned long esr)
-> @@ -855,12 +887,13 @@ asmlinkage void noinstr el0t_64_fiq_handler(struct pt_regs *regs)
->  static void noinstr __el0_error_handler_common(struct pt_regs *regs)
->  {
->  	unsigned long esr = read_sysreg(esr_el1);
-> +	irqentry_state_t state;
->  
->  	enter_from_user_mode(regs);
->  	local_daif_restore(DAIF_ERRCTX);
-> -	arm64_enter_nmi(regs);
-> +	state = arm64_enter_nmi(regs);
->  	do_serror(regs, esr);
-> -	arm64_exit_nmi(regs);
-> +	arm64_exit_nmi(regs, state);
->  	local_daif_restore(DAIF_PROCCTX);
->  	exit_to_user_mode(regs);
->  }
-> @@ -968,6 +1001,7 @@ asmlinkage void noinstr __noreturn handle_bad_stack(struct pt_regs *regs)
->  asmlinkage noinstr unsigned long
->  __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
->  {
-> +	irqentry_state_t state;
->  	unsigned long ret;
->  
->  	/*
-> @@ -992,9 +1026,9 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
->  	else if (cpu_has_pan())
->  		set_pstate_pan(0);
->  
-> -	arm64_enter_nmi(regs);
-> +	state = arm64_enter_nmi(regs);
->  	ret = do_sdei_event(regs, arg);
-> -	arm64_exit_nmi(regs);
-> +	arm64_exit_nmi(regs, state);
->  
->  	return ret;
->  }
-> -- 
-> 2.34.1
-> 
+
+base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
+-- 
+2.48.1
+
+
 
