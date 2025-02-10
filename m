@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7DAC021A1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C682FC0219E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HA223N7bzpD0iurwVL/uuRnSBdx4Qsn+l1XE/28dqsc=; b=qyaWEopMz52Yewz62liJlR3Ujj
-	tu8ejuyBBmG0LpKZ5F+RUS0Fqbr8bph3oMMwRA9qdRWD/ScrEuFCXxqPYpYisdMrWjUY+HK+EFl2K
-	IPpqPHsDLDkxCLsRPrzpE9WAoTjh9wL6avRS3/1xU/qY1ZapMomPikCznxvHsYNhC10k0bWBiHRXp
-	quTeFaW8xFxSLkevfvUmrTpAadjYRhlK4lFgyklFMHnwYGOZdJPW7LpqyE/ghkaSedg+KHCZbKdmr
-	qrez+IEM4gyxAouhnhEv00sLH+Emk6bY08iupq2ZWR6HHsL70155RXetfDrEkvYAunS5lQO+UkEOY
-	mbtJMwgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GQHzHaGuLex597rtUln9xcTUWwbbjj2n6s255mKdpQU=; b=vUCIKFjHKjddqIQwAdaKMZSjzo
+	M+cqNt4qoRixgbN9Lr5sWsqBtX8zeSKcQIvlfnC92q+5ztZPYI2/e+LuNEAdREsEoQS0vNOT0F0Vi
+	vxl1f3YHLrSOISOf5KvF59GmtHy70ilM9LA52s15zCDsvBSfR+Cq9WfWr6i7D0XWuIBxny9qANX2/
+	qKdn6M+oYtZsq25qhd/gJm/XifAAGgoq5iBXPpB7zNNHz2TyockXUiT+MivVNjgpYxhnA1xVU68B/
+	eihd7ZpE9DlpIrkjs3qIgRvnAoEFsyJI2/LU2ot6Bcl6vHsOxR4aOBWOhwQRYuw5tLbERA/ho4SLh
+	U1c+G2tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZeB-00000001AWs-0D1R;
-	Mon, 10 Feb 2025 19:40:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1thZeA-00000001AWb-2CeB;
+	Mon, 10 Feb 2025 19:40:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYUh-00000000uyu-36fh
+	id 1thYRn-00000000uIN-0mln
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 18:23:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GQHzHaGuLex597rtUln9xcTUWwbbjj2n6s255mKdpQU=; b=KRlMlOfnd3kEENAOiE9a3HrMEe
+	rZ9rgX0PkThPUQt9w1IAYc7wWhnUxX9wUPcYUExFgf0qW/rejGkE2hfM49Lj7NiR2uSgHh1wRGebO
+	8NC71M3fOnit0mIkaICeQP9emlsMZrL1JC1/APa5W3kRSqWvjH05ATFTmiYxJXuoMsfUDA4BhcLfc
+	4eU+w8YQ6C8ZxEpeNq6Goqb6sKPVCxWW40RbQR+KOU3/6gTIb3/+syn+QMQ0VGKSsuSFNVubMOl70
+	IfdsAl4cAEGiWaTtvGS0pfaWgWRqXgF8Kao+FIxv9XfCODkwdkdKJHKBD4gLjvujPksLgBCPWaF6Y
+	wxFhqqOg==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thYRk-00000000Cc5-0LyU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:26:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739212014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HA223N7bzpD0iurwVL/uuRnSBdx4Qsn+l1XE/28dqsc=;
-	b=Soi4BvTD82qUyR+7Z/FGrwHIwMXgzPvXLcKXKsQh5kJ6+9DvDHFUtNxfZOzAnVwoe6xgGy
-	CTso+Nb9EMP/jTudN1G+WEOsHsfgxHm9aUJ/YJmQYY0Z6IU5/IzuqykqOh9YC3UPVHNJsj
-	tyX222ugvK4epdHhG+N3AvqVoVjNLDo=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-241-ZWABsTBjP2OxWQHVrmVxbg-1; Mon, 10 Feb 2025 13:26:53 -0500
-X-MC-Unique: ZWABsTBjP2OxWQHVrmVxbg-1
-X-Mimecast-MFC-AGG-ID: ZWABsTBjP2OxWQHVrmVxbg
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4394c0a58e7so2946775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:26:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739212012; x=1739816812;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HA223N7bzpD0iurwVL/uuRnSBdx4Qsn+l1XE/28dqsc=;
-        b=FMHN0I7u91YSMEWZvpIJHgFxL7hDQyd1pF2ZnhHvxH9f/B5edQxpUiWZ/hFqiL/phs
-         PspB6GpDao2p92nE9D47IPZkNXE/QL5HibXZddSXMOvBDBPAL/EwMIeeTdFihNJkABy9
-         3NjFZYuBwdFyMNInTAfGttJyFCsPZk13sTFSxuSQnek6oiVSmZuPY23VM7Q59rCNorho
-         e9DAH5nA0A0ucFkHb6ZBCAVzWti40wuUR6U6I7n0FL7TsGMpccbQp4yZcHLTf9Z4IQy5
-         xj3T2Gp6D/SGWb16RamSXk30Wgzwa227Ack6I4q4Gb9N101dxOLBr2wszyRi7pcB0kAp
-         4Z7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUNj599bnel2r1gthpM0nogaTiokbuyUnUK5b+k++s0HDW6tm56LGTNIqsLvJiDuJQNqGW3SPrsjVj+BYoA9VnF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyaEbC3ZFTq1SJT+E3kZuuekHB+pUjjmhwz9hXMEXCTASBuZsk
-	LInujTl1Z5lNrLmBplK/KPYg7Ohu6UWo66NihGAO879oj8EtrwPFYeIK/WwZihwfuYcHzkdfp2v
-	DualSacxkYgfjgtyQFgF1RYd4fZTA5EB4ahiSiA+FYje90f3AX8nWm7h2hfuwGHNuymdNq1eb
-X-Gm-Gg: ASbGncs65oYDC/lYkDyo+80uLiduTxbRa6RQ+e6pFsGi1JQtUKvN4XGiR6DtAbL9qOi
-	aALHksMVTKpNUuZUQnkupK/8+SlxkzbtL/QnW05qDydE9f7fTvBEpSppI/CnplGcvmD4aAFR1p8
-	KvHskCrvMlCU3EzoZVGG4PakH4RGvv59rwzY4iSInZG1Wflvyi09kBacej96AnHleGyWd0gB+04
-	CP1cV4f41Q7vwoVjYRM9f0h6cIiZctAXxmh/EiNmO0gJp4elRakUA99Q6bv/7ZrsqInMEb8oDg7
-	x6DI42zNkX5o93lu/+Y0MkXbQm/0K8Pgg4JvmGoaUrSSRlc=
-X-Received: by 2002:a05:600c:5026:b0:434:e9ee:c2d with SMTP id 5b1f17b1804b1-439249c6eeamr102512875e9.26.1739212012021;
-        Mon, 10 Feb 2025 10:26:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFdXSicXWsQFBmaEUffk1qaLUEnTABUYO99W2RiA4VYZWZefOzltKbNAoDI4virz7wvcWBw1g==
-X-Received: by 2002:a05:600c:5026:b0:434:e9ee:c2d with SMTP id 5b1f17b1804b1-439249c6eeamr102512675e9.26.1739212011660;
-        Mon, 10 Feb 2025 10:26:51 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd1093bb2sm8205458f8f.40.2025.02.10.10.26.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 10:26:50 -0800 (PST)
-Message-ID: <8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-Date: Mon, 10 Feb 2025 19:26:48 +0100
+	Mon, 10 Feb 2025 18:23:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2BC3AA41F64;
+	Mon, 10 Feb 2025 18:22:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF350C4CEEB;
+	Mon, 10 Feb 2025 18:23:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739211830;
+	bh=oYaoNIca/prrl6BbAu9QFMCD9Wkhq7BkULEeqssB7Bs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D2evZvDm6o+cP6BrTglQP35ObWhuCuDK/FcZISz+0R5Kf3YzsV9ZAsdZek9eua8k2
+	 2PI3jfczob2R0shNArMq12gB+zCqAjNLgBEzHZ1xyFT0g00Q1AWp32mKKeAihEVspG
+	 c5iI09SYNlvyLtCZjQdkPMKlu2/jEqr+SZc+JkVt/ESIyIUmZRj/hS8a4E0qm16dpH
+	 MjhhFZNZp/ZOawzjKiEFvhP9vnD0rQG94ni4b+ou9Nu2X7M6kNZanCQ1VIjxEgPgG9
+	 GlmDfmt4VT3wRLIyHI51b4Ml7/jZ+WaMFdEw/l2R8kTWOSSKkjFxt3sr9UP+Zd0T0S
+	 1fXHpKEEkW8kg==
+Date: Mon, 10 Feb 2025 19:23:47 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v6 11/26] drm/bridge: samsung-dsim: use
+ devm_drm_of_get_bridge[_by_node] to find the out_bridge
+Message-ID: <20250210-bronze-copperhead-of-faith-12d0a9@houat>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-11-9d6f2c9c3058@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer
- expired
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
-Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- kvmarm <kvmarm@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, christoffer.dall@arm.com,
- suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com,
- coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com,
- darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
- <86y10osr19.wl-maz@kernel.org>
- <4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
- <2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
- <152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
- <86h661wje4.wl-maz@kernel.org>
- <4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
- <86cygpwfy0.wl-maz@kernel.org>
- <b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
- <86frkptzr6.wl-maz@kernel.org> <Z6ZMdv8jJUvYwQzT@linux.dev>
- <86bjvdtxb5.wl-maz@kernel.org>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <86bjvdtxb5.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5htMRtylf0Z542U-qZDX_MOGxwFb9FGVrwuf_5acdwI_1739212012
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="etdpmgzxb265ivsl"
+Content-Disposition: inline
+In-Reply-To: <20250206-hotplug-drm-bridge-v6-11-9d6f2c9c3058@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_102655_858374_1DCD93E5 
-X-CRM114-Status: GOOD (  26.88  )
+X-CRM114-CacheID: sfid-20250210_182352_437163_E8268AC7 
+X-CRM114-Status: GOOD (  31.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,66 +84,111 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-On 2/7/25 7:38 PM, Marc Zyngier wrote:
-> On Fri, 07 Feb 2025 18:09:58 +0000,
-> Oliver Upton <oliver.upton@linux.dev> wrote:
->>
->> Hey,
->>
->> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
->>> I found at least one issue that could fail the migration. Before the
->>> VM starts running, we limit the feature set to the subset we actually
->>> support with NV.
->>>
->>> By doing this, we also change the value of IDreg fields that are not
->>> writable, because they describe features that we don't support.
->>> Obviously, that fails on restore.
->>>
->>> I need to have a think...
->>
->> We spoke about this a while ago (and I forgot til now), but I was
->> wondering if we could use vCPU feature flags to describe NV, including
->> the selection between FEAT_E2H0 and FEAT_VHE.
->>
->> I think this might match userspace expectations a bit more closely where
->> the state of the ID registers after init gives the actual feature set
->> supported by the VM.
-> 
-> I'm not sure that's enough. Let me give you an example:
-> 
-> My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-> reason, we don't allow this field to be written to, even out of NV
-> context. This is odd, because for an EL1 VM, this field means nothing
-> at all.
-So the curprit fields for me look like
+--etdpmgzxb265ivsl
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 11/26] drm/bridge: samsung-dsim: use
+ devm_drm_of_get_bridge[_by_node] to find the out_bridge
+MIME-Version: 1.0
 
-- ID_AA64MMFR1_EL1.XNX
-- ID_AA64DFR0_EL1.DoubleLock
-- ID_AA64PFR0_EL1.RAS
+On Thu, Feb 06, 2025 at 07:14:26PM +0100, Luca Ceresoli wrote:
+> In order to support panels described either via graph links or via a
+> subnode (e.g. "panel@0"), this driver uses low-level deprecated functions
+> to find the next bridge. The resulting logic is complex and duplicates co=
+de
+> already present in the DRM bridge core. Switch to the new APIs in DRM
+> bridge core that allow to do the same in a much cleaner way.
+>=20
+> Note there are two slight changes in the new logic intended to improve the
+> final result:
+>=20
+>  * the old code looks for a subnode with any name except "port" or "ports=
+",
+>    while the new code uses the node passed as a parameter
+>=20
+>  * the old code looks for a subnode first and falls back to a graph link,
+>    while the new code uses the reverse order because graph links are the
+>    recommended device tree representation now
+>=20
+> The first change makes the code more robust by avoiding the risk of using
+> an unrelated node which is not describing a panel and not names "port" or
+> "ports".
+>=20
+> The second change is not expected to expose regressions because, in the
+> cases where both a subnode and a graph link are used to describe a panel,
+> the graph link should point to the subnode itself, such as in
+> arch/arm64/boot/dts/qcom/sdm850-lenovo-yoga-c630.dts
+>=20
+> As a further cleanup, use a temporary variable to assign dsi->out_bridge
+> only on success. This avoids the risk of leaving a non-NULL value in
+> dsi->out_bridge when samsung_dsim_host_attach() fails.
+>=20
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>=20
+> ---
+>=20
+> This patch was added in v6.
+> ---
+>  drivers/gpu/drm/bridge/samsung-dsim.c | 55 ++++++-----------------------=
+------
+>  1 file changed, 9 insertions(+), 46 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/brid=
+ge/samsung-dsim.c
+> index f8b4fb8357659018ec0db65374ee5d05330639ae..bbd0a4f5a3f52b61bf48f10d6=
+e8ca741bffa5e46 100644
+> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+> @@ -1704,55 +1704,16 @@ static int samsung_dsim_host_attach(struct mipi_d=
+si_host *host,
+>  	const struct samsung_dsim_plat_data *pdata =3D dsi->plat_data;
+>  	struct device *dev =3D dsi->dev;
+>  	struct device_node *np =3D dev->of_node;
+> -	struct device_node *remote;
+> -	struct drm_panel *panel;
+> +	struct drm_bridge *out_bridge;
+>  	int ret;
+> =20
+> -	/*
+> -	 * Devices can also be child nodes when we also control that device
+> -	 * through the upstream device (ie, MIPI-DCS for a MIPI-DSI device).
+> -	 *
+> -	 * Lookup for a child node of the given parent that isn't either port
+> -	 * or ports.
+> -	 */
+> -	for_each_available_child_of_node(np, remote) {
+> -		if (of_node_name_eq(remote, "port") ||
+> -		    of_node_name_eq(remote, "ports"))
+> -			continue;
+> +	out_bridge =3D devm_drm_of_get_bridge(dev, np, 1, 0);
+> +	if (IS_ERR(out_bridge) && PTR_ERR(out_bridge) !=3D -EPROBE_DEFER)
+> +		out_bridge =3D devm_drm_of_get_bridge_by_node(dev, device->dev.of_node=
+);
+> =20
 
-This is still based on your nv-next branch from Jan 9
-https://github.com/eauger/linux/tree/nv_next_jan9_2025
+For the same reason I mentioned earlier, this is inherently unsafe if
+the bridge device goes away but the DRM device doesn't.
 
-Eric
-> 
-> However, we don't yet support FEAT_XNX with NV (it requires some extra
-> surgery in the S2 walker, in the S2 shadowing code and in AT).
-> 
-> How would you manage this field if you had a vcpu flag saying E2H0 or
-> not? I don't think it helps, at least not in that particular case. It
-> may help for some things, but not all.
-> 
-> It feels that we need to define the field limit (and what is writable
-> or not) based on the NV/!NV support, and maybe E2H0/VHE as well.
-> 
-> This is getting complicated...
-> 
-> 	M.
-> 
+Maxime
 
+--etdpmgzxb265ivsl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6pEMwAKCRAnX84Zoj2+
+doYqAX0ZaluJTI4PSfPTqVMOAG5TZK+XUyRofxt6QFR9rI9Q4sU0nkYYSkhQYgjF
+pn8pQS0BgNQjNe0c2Ynpkp6HpXjapBAAkIo35EtMoD45WFYl09nft0+VjWBNwrN4
+vaCFaeigwA==
+=lqhs
+-----END PGP SIGNATURE-----
+
+--etdpmgzxb265ivsl--
 
