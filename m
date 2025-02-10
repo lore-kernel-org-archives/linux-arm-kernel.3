@@ -4,89 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC33AC021A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3268EC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44y8j+AwXW+Xy0HJDEfrJNBigjIXgkSJ5/Vx3gjsh+s=; b=RscP5rg/d8CVawfwWb1uACE1O5
-	Et+8MD/9zkt9NJUsqQQ0puYlm4GZEUqMWPI6TOJ0fdkHdb0DoTaujKaLD0rHqDlVJOP7Yhy+OAF09
-	bzwnwbxkWTc54OrX58mT8sqJ3gykDrqrUp0Py+mOe4pTGQfUcYgyi4nMGVIuR8dmI+XVCeZTzfziY
-	gqdPye82eAy45dBefc1MzhuShi1DUPEpAjUExLUD6rPC4EpgalZoLaAPY2Swzlx4e6MiVfebBVvib
-	sBpfo9ghhBo3Y+Ij82egSuN2iGDMbZLcYTtyXvTWLimff51MY/h31pGBbOoXeOzzeyD6Yv6n9sKDx
-	TZkp2RNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=is7kyDmhG8OE9uK7LRQsTFEmY3Sd07kK1SIk131CIOU=; b=uI8xS/gOG83L8rdTYj79OEouIs
+	O9WyAZfYTh90Dd3nOBPAFvOAQ56U/P/ik5eztTqW9zwsqLzFjm7rffCUDqg5htNDxXXaE09Rz/Siq
+	Hx9aGp6PrRddhCmNMCrQYuvcHOgrF60i5B49vJVG71zEWKBs+/L3qHqis2M0Wo8tfWp2vT5IVCTub
+	IjtYD1/is3Xvow35TR/owcAyJgu/O2NN/0zoTQXo687qnAYJnUaGzTOHycEidxtW+dEV4+F9+l5Ps
+	jthr9I7ViKBRqG9KDGzQmtBQzR/aDig9ifvDDs97UNNyaFM6nogwBIu51tlGwzHfuMBomCVNIGS/Z
+	UucUe3kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSjG-0000000HMt0-0QZF;
-	Mon, 10 Feb 2025 12:17:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1thSjD-0000000HMrn-26d2;
+	Mon, 10 Feb 2025 12:17:31 +0000
+Received: from mail-dm6nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:2417::627] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSJQ-0000000HJD0-1QSR;
-	Mon, 10 Feb 2025 11:50:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739188250;
-	bh=+WeROGh0IxRi9ENLiNY69RRv2egDN0g2bYDLctyHo44=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HEz9H+6QOsA296TDuoufEDidTU7hVQ6bZYMICdFoHQ/oorkC4Tv0eaj0Ukyn4tHVO
-	 8vnoitsAR4mJmDb1TNiBo51HH8eevn+Jq5Rz6Vs5iXCKrC4j+jIhyrOjrbtVsfzEXw
-	 ZArZ/75YuNonfRn3AZyxa/pNCregDZHtgDI5UZ7Yaw37odh+wZbVEbS7VqEX0iOYeh
-	 fDkXjbc2lwrjBnM/ErdRjwcXF4u6OpNIl9EXqWaxrmSIyHtlWL3pTEEF4RT2nrY38W
-	 LbWutO0VmtLnvJfyqmCkNEYdhqg3Gm5JPQOAhbo5qt+dWt/LeMewFSGJYOqv0L9MOw
-	 WhBU6GAdaW0Lw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 74CA117E0239;
-	Mon, 10 Feb 2025 12:50:49 +0100 (CET)
-Message-ID: <b85aeb50-1cfc-4f26-a488-f01564108d61@collabora.com>
-Date: Mon, 10 Feb 2025 12:50:49 +0100
+	id 1thS5b-0000000HFYS-2AGN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 11:36:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cpVgSgGAtwk+IgMzFH02P2iAncwa+mDTv6BxtLJxHZqKTz9auZbqG4SIcYsIxG9TGLpYA2Sso590yFJ246vAO8b5dCTpn+lCINSqrUy8c15FFNi6OdWNPQeoPjCmH4HUk5c8sWmQR4jWQ7A9N1wjJYX/rcqlgqv9oFVGSQwx4h3ybEjt2ZOCl2bYm5/qgHi+hthoh4MWekjGRUj3F8W4eXXFFgjn8HEHwigQKRZoGpXazwdJSheLThQlUogc+ZMELkbnOYa3Dpy1+PlHOtheZpQqBeXdmvIvZhfPRrtTN7ncVy4I1zwZVxsUpYDESYf1HHHIlncjZ1WRrNlx2AuE/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=is7kyDmhG8OE9uK7LRQsTFEmY3Sd07kK1SIk131CIOU=;
+ b=b9aADNlKv3L7naIItY1KR+xCjtT5oHHUXC8BP9kjkmnXJeePuKCz3L44vndEIMkQffxStSXwERJOq7J1CfarYY1asxhx3BAVVyKi1BoFAqOICD1T5CeG//3mpqgDfjN1cRTTrdZvM1DAPKeIDyCFyn2TWuLFMUZZPaWEC9UvG6EqTAQBTCuvyjldfccqGIrywTHaMqu3VXtrskEAanAftCdjhmwVIl+Y6DCRrxT63mry6RTnQR8Jx+8tl/evqqQ6kWhKW+yx2oL9rRHICOm+d6KutKcdE3GFYwvNDG197FRljhy7BbELER+F4s7gLSO2P+bNmuNmoxdsUts+ZRXv+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=is7kyDmhG8OE9uK7LRQsTFEmY3Sd07kK1SIk131CIOU=;
+ b=BP2fWeUyOQPJKZLbpCRjzqj4gufJTjx9+OzyGqeeicJ2MUD1SuYfoWGsguNTcwFUjqjlRXjZTdreQSc4WgY5wi3e3ID24X8EqgPNKyTl5QCd+qSprL2Eo1R8rmbgUxVjt8p0lgniRNt4IJfAyfyIQHfcN0Zl0+PVNUIzKa8oCjo=
+Received: from PH8PR07CA0030.namprd07.prod.outlook.com (2603:10b6:510:2cf::16)
+ by MN0PR12MB5763.namprd12.prod.outlook.com (2603:10b6:208:376::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
+ 2025 11:36:28 +0000
+Received: from SJ1PEPF000023D5.namprd21.prod.outlook.com
+ (2603:10b6:510:2cf:cafe::55) by PH8PR07CA0030.outlook.office365.com
+ (2603:10b6:510:2cf::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8398.31 via Frontend Transport; Mon,
+ 10 Feb 2025 11:36:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ1PEPF000023D5.mail.protection.outlook.com (10.167.244.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8466.0 via Frontend Transport; Mon, 10 Feb 2025 11:36:27 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
+ 2025 05:36:26 -0600
+Received: from xsjssw-mmedia4.xilinx.com (10.180.168.240) by
+ SATLEXMB04.amd.com (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39
+ via Frontend Transport; Mon, 10 Feb 2025 05:36:25 -0600
+From: Rohit Visavalia <rohit.visavalia@amd.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <michal.simek@amd.com>,
+	<vishal.sagar@amd.com>
+CC: <javier.carrasco.cruz@gmail.com>, <geert+renesas@glider.be>,
+	<u.kleine-koenig@baylibre.com>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Rohit Visavalia" <rohit.visavalia@amd.com>
+Subject: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace fix
+Date: Mon, 10 Feb 2025 03:36:12 -0800
+Message-ID: <20250210113614.4149050-1-rohit.visavalia@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/34] drm/mediatek: mtk_hdmi_ddc: Switch to register
- as module_platform_driver
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
- =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
- <20250113145232.227674-11-angelogioacchino.delregno@collabora.com>
- <424656ad6c9fbd1c32a62d7ed7b35eb322e94720.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <424656ad6c9fbd1c32a62d7ed7b35eb322e94720.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: rohit.visavalia@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D5:EE_|MN0PR12MB5763:EE_
+X-MS-Office365-Filtering-Correlation-Id: 528ff55e-dab1-4274-8106-08dd49c72812
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?epWFZFKbutPxmGElsz35O+v16MR/xUJ1m+uq6mrW9onXz1ZX6JlkCbOapn1P?=
+ =?us-ascii?Q?DbV42Ussx9OXyHgBg8Ssv91HEpqaqoxyWedKKpqMThR3yRVAEuRmTyu4YkyD?=
+ =?us-ascii?Q?L5uvMIRNY1OqQOCxbcGXab31aoU11CrF5QD4QtDEgFtnx3vEwHtXl44mCs2X?=
+ =?us-ascii?Q?7iJbOuvPsRveOqaAgPkUjEXOB34CZRI7aHeVLzMFN4qlEeRAjJF7aNJVAlCp?=
+ =?us-ascii?Q?5tvfUfRE2I6SQ+oIpDOD42HYDslaft6am1k/+EAeJRWSNh5si1T9SQU5W0PP?=
+ =?us-ascii?Q?Vv5OQsJBQNqn5+0yus+NnRBKM+lEq1TFyNoa8X78LS06S6o3WDoS+8zUjpDC?=
+ =?us-ascii?Q?5LG6hZ6eyej+p/Fi9jX3KSmEuIyxZpYHIjrPhzGk6QIcoBgFJzo3DAySI5aZ?=
+ =?us-ascii?Q?tnO+Z4zMPTQnbTEBZucRgocYkJXdp0mghyHYcHoWWmdjshPiV4tb9C6vGkdX?=
+ =?us-ascii?Q?OpqAI+LC6VQ8kHFupl2NlD7I5jNjHP/Jt3k4+z4lKvmCDsZo3AXmhH32Go1P?=
+ =?us-ascii?Q?QRBL8qJjC38BXh10pRsdy4JXPizA/NnuyCFa9Z0TxYm1sYlDqFVpQdIYbyOf?=
+ =?us-ascii?Q?GVn225yuvczKeiYQS0CfTJEVWGfreIru7LBKwI8LZEg5mXSqjitOCT0hdAF1?=
+ =?us-ascii?Q?8is/jw7SNNvIkNMjkEmIykG+ml/uanIbjHk3Erjy0SXLhB4ya/9R2a7yk3ie?=
+ =?us-ascii?Q?9JfAKelhRLunu4WsYhC6N3KSdF8EKegKZ3e12RuqG/VzB+Vg8+siDGXHLQBk?=
+ =?us-ascii?Q?C4fgvJkBMCFT6NszNMjq9td8pw56HvSawL2qEN/GlydjrAO+7qfo9U9xFRLj?=
+ =?us-ascii?Q?ygWGYuYgjHCUyldLq9FBZHb9nHQyEf0WihxA/gwTeXr4wIAA+ZF8oU5YWR5H?=
+ =?us-ascii?Q?gjDG7y8L7lofR83jeU8J+FL4016x+9/NPfYgfSaZ4y1E2GQaxWUw9ge4O6xk?=
+ =?us-ascii?Q?vbCd8VvtM4jxDDPIEhHJjz0XdnhMYExozmoWib4zYinHdbkYeNPcX0od84J0?=
+ =?us-ascii?Q?gCDkhpP311ezMzWxb0Eotc4JGQLpeyVObx54OQeME7sgbrZDyxM5XOo6YXve?=
+ =?us-ascii?Q?pYpHYL8cfQIioKsOKB7RylxsdA1smgdN/07Pph56J+zq3Bb3VXKwhGloctRx?=
+ =?us-ascii?Q?KhDiIouLpGdI2HCSxpPgFUFVCh77xgiLgx0GR5OQ/L0pw/sy+n/estdpIUKA?=
+ =?us-ascii?Q?5dnrL8Lrm/KUnQ3AARWYVyl2I+qNtmH34cWx0zzqPveldRSbm7Tci1LTZvA1?=
+ =?us-ascii?Q?smI/kgWvLtryfE5jKBlSEi7dsDBnRVeiT5z2Ph5L5fCxyWU/vx68L3cAjKii?=
+ =?us-ascii?Q?EWhFbHIFcTuSTjcMfA+MEuZb3feAS3x/zz6l8tLHVHdff8uWtFPSGF5qdoJO?=
+ =?us-ascii?Q?OoVctCPkg6QdxX7fftdBxt8412zk3jDVIYDpgrAqJQEiHgWh0FgqpDLzVFlV?=
+ =?us-ascii?Q?iag8vHWi+fYpPS++3VRDsDTGejQIqYrQM7czgTtMvJ7mtAioW3uN0doSPBDI?=
+ =?us-ascii?Q?31HOWsAIj/pD2pM=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 11:36:27.4536
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 528ff55e-dab1-4274-8106-08dd49c72812
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D5.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5763
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_035052_537464_CED05AC6 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20250210_033635_562908_FAE263B6 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,124 +147,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 10/02/25 08:01, CK Hu (胡俊光) ha scritto:
-> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> In preparation for splitting out the common bits from the HDMI
->> driver, change the mtk_cec driver from being registered from the
->> HDMI driver itself to be a module_platform_driver of its own.
-> 
-> "change the mtk_hdmi_ddc driver"
-> 
-> I think ddc is not the common part, so the reason is not splitting out the common bits.
-> 
+This patch series updates VCU init/reset sequence and does a driver fix.
+patch1 fixes call trace related to pll_post clk.
+Patch2 adds optional reset-gpio support.
 
-Thanks, I didn't notice this typo!
+---
+Changes in v3:
+  - Removed patch https://lore.kernel.org/linux-clk/20250102170359.761670-3-rohit.visavalia@amd.com
+    as it is not required with latest xilinx clk driver.
+  - Link to v2: https://lore.kernel.org/linux-clk/20250102170359.761670-1-rohit.visavalia@amd.com/
 
-Regards,
-Angelo
+Changes in v2:
+  - Changed patches sequence to have patches with "Fixes" as preceding in order
+  - Used dev_err_probe()
+  - Moved warning to dev_dbg() and updated print with more detail
+  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-1-rohit.visavalia@amd.com
 
->>
->> With this change, there are no more users of the mtk_hdmi.h header
->> so, while at it, also remove it.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/Makefile       |  6 ++----
->>   drivers/gpu/drm/mediatek/mtk_hdmi.c     |  2 --
->>   drivers/gpu/drm/mediatek/mtk_hdmi.h     | 13 -------------
->>   drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c |  2 +-
->>   4 files changed, 3 insertions(+), 20 deletions(-)
->>   delete mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi.h
->>
->> diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
->> index bdd3a062f797..43afd0a26d14 100644
->> --- a/drivers/gpu/drm/mediatek/Makefile
->> +++ b/drivers/gpu/drm/mediatek/Makefile
->> @@ -21,10 +21,8 @@ mediatek-drm-y := mtk_crtc.o \
->>
->>   obj-$(CONFIG_DRM_MEDIATEK) += mediatek-drm.o
->>
->> -mediatek-drm-hdmi-objs := mtk_hdmi.o \
->> -                         mtk_hdmi_ddc.o
->> -
->>   obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_cec.o
->> -obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mediatek-drm-hdmi.o
->> +obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi.o
->> +obj-$(CONFIG_DRM_MEDIATEK_HDMI) += mtk_hdmi_ddc.o
-> 
-> It's not necessary to separate ddc to an independent module.
-> 
-> Regards,
-> CK
-> 
->>
->>   obj-$(CONFIG_DRM_MEDIATEK_DP) += mtk_dp.o
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> index da725182f0db..e648fb5714e7 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> @@ -31,7 +31,6 @@
->>   #include <drm/drm_probe_helper.h>
->>
->>   #include "mtk_cec.h"
->> -#include "mtk_hdmi.h"
->>   #include "mtk_hdmi_regs.h"
->>
->>   #define NCTS_BYTES     7
->> @@ -1804,7 +1803,6 @@ static struct platform_driver mtk_hdmi_driver = {
->>   };
->>
->>   static struct platform_driver * const mtk_hdmi_drivers[] = {
->> -       &mtk_hdmi_ddc_driver,
->>          &mtk_hdmi_driver,
->>   };
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.h b/drivers/gpu/drm/mediatek/mtk_hdmi.h
->> deleted file mode 100644
->> index e40bc4651995..000000000000
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.h
->> +++ /dev/null
->> @@ -1,13 +0,0 @@
->> -/* SPDX-License-Identifier: GPL-2.0-only */
->> -/*
->> - * Copyright (c) 2014 MediaTek Inc.
->> - * Author: Jie Qiu <jie.qiu@mediatek.com>
->> - */
->> -#ifndef _MTK_HDMI_CTRL_H
->> -#define _MTK_HDMI_CTRL_H
->> -
->> -struct platform_driver;
->> -
->> -extern struct platform_driver mtk_hdmi_ddc_driver;
->> -
->> -#endif /* _MTK_HDMI_CTRL_H */
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c b/drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c
->> index 07db68067844..6358e1af69b4 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c
->> @@ -20,7 +20,6 @@
->>   #include <linux/of_platform.h>
->>
->>   #include "mtk_drm_drv.h"
->> -#include "mtk_hdmi.h"
->>
->>   #define SIF1_CLOK              (288)
->>   #define DDC_DDCMCTL0           (0x0)
->> @@ -337,6 +336,7 @@ struct platform_driver mtk_hdmi_ddc_driver = {
->>                  .of_match_table = mtk_hdmi_ddc_match,
->>          },
->>   };
->> +module_platform_driver(mtk_hdmi_ddc_driver);
->>
->>   MODULE_AUTHOR("Jie Qiu <jie.qiu@mediatek.com>");
->>   MODULE_DESCRIPTION("MediaTek HDMI DDC Driver");
->> --
->> 2.47.0
->>
-> 
+Rohit Visavalia (2):
+  clk: xilinx: vcu: unregister pll_post only if registered correctly
+  clk: xilinx: vcu: Update vcu init/reset sequence
 
+ drivers/clk/xilinx/xlnx_vcu.c | 33 +++++++++++++++++++++++++++++++--
+ 1 file changed, 31 insertions(+), 2 deletions(-)
+
+-- 
+2.25.1
 
 
