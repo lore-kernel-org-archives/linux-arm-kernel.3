@@ -4,110 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3161C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1249C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oPEmmvKcbsxQYgGfgg7ABHKgpAuXetRaESe4n2oEWE=; b=SovzFknv8wDARCqnLPpQ7cOMeL
-	8eSHxgIojwGz2L6xTVd43QKRYb86vpyMGKNQSdU8N+/ojxtii6rfEA/QzkrASEY4V2NzaoHmSvxLJ
-	L0AzC7Hs4Mwh3j9/plmU11RxGgvRHv7Fgyq1v+7KttpaooQnnnUffiNB/tl+qO2UP+vHf/LbFI5Pq
-	Ak+iFU8uVf3S5V/Elq87512Zqj8qgwBDZwEh898TbB7ddYJI1HHVyp2c8oAF7GBO1oTkMS/gnVywS
-	3AzJLMaoCjWmCq8JCrcCl3lhc0dFW9s6cTj/N81d+WldMoQMH+I6MoQupQpL/Uv6yNz1ARW57ZArl
-	62oM7swg==;
+	bh=yvrIWGbdAifvUXhLfTRzn0xK7IHZXqoJJXO0S3kdaFw=; b=d5b7ZH9q1cvpIZjLnXsG76mTFO
+	WBZcb3e5ngQp8PZGCBlx10dERANnghPJVO8UIVRtQSXJ9KBKcBxPvoLDOmw4d7DN1tCzcRMWAY5nX
+	zr8owRYEFsnai22h/FAViwQlzxNKoEKILyA6m6sFTiKNxvo2PQxREHz3YNO3G7WgLEjmGvuFgHxL4
+	IuW2Z9W7iVIOxuIpQcfvrYTULny1otEGDdjZ83/O3C5u8IoY28kdxFoBbKEbsFmgALBAp5jvj+qCx
+	FMNrDZeX7NYceG/249GqGxZPNd55rLKYygVItJEJWo7mG8jDcnp07Bn4O0WJG4uvF/9wKLsLUGcNn
+	2oL8W3xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSLK-0000000HJUN-11sz;
-	Mon, 10 Feb 2025 11:52:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thSMg-0000000HJhg-0pUE;
+	Mon, 10 Feb 2025 11:54:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSAn-0000000HGw5-2cpB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:41:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A44E5C49B0;
-	Mon, 10 Feb 2025 11:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52F34C4CED1;
-	Mon, 10 Feb 2025 11:41:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739187716;
-	bh=Lis5FT6NMT38CbNQPOuKvs8FJ5MnAh47jLG4RAe9Mfc=;
+	id 1thSCK-0000000HHE0-0xxw;
+	Mon, 10 Feb 2025 11:43:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739187810;
+	bh=tycYPKLg38RvdhS16xCjIBsLq91Al6Z9Y/oCR8632u8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aweTzWdydLGggARMi7Q6l9vy+bX0TZybZD3mFlqWBA/o2p+SfP1O6em8fbcZJRxf6
-	 wzIG9m7Ft2tiByN2kFBiAN8Zhbb+Mijm4YXdRPlihk10oyalnrmC2eNgG4nVVO+Y9G
-	 Vtmy2oZhcetNjLYsalH/Dltto1YSUFEGMq5H1H+dgjYfq7gCrfQp9R7P2QV1a/Fn3t
-	 ISejEhEEb5N3CzGGY+csZznWb0N2QUf+qK/j4vN15O1tYFfjRycu7gdu1u9WmJAvbw
-	 pgH+Fhk7BMZLHs5mk3I76n9bSuMIWKASr8AuRXFiYp3RYi71oAa9V0xcochacZwZlZ
-	 5Lpb5EFSimiww==
-Message-ID: <990bb621-5056-4460-82db-9805699d8a8d@kernel.org>
-Date: Mon, 10 Feb 2025 12:41:49 +0100
+	b=oJpamBIHuqr2lATsB2etB4kCzp90Y+I5bwWiqGPCEEWBmKStjWRpJ+UjXYo5pb/78
+	 UcqmscYvy0CTTo526+PavoEmea5E5a5mhdPzxBQkKDnh4ZLaWVHipRTYXqPETTfk90
+	 aWAq3dmeNuQxn8as3m/h1eQcFF4yz/8ArwY4IGAhsXoaT29EGca39sSooGuPc2cB+f
+	 Uy2nTS9Jllxxm3tG3QaGkMbDcmjanyV8mX+aTpDP9tcsBQMd6bLWnrMxBi/jZtld8S
+	 CuFPSwlA5Nxtl2oYj9/l+czapoAY9TA4WLEgcRCT/S910IdnW6tmQEXlL60iRLpEcb
+	 n4Fchmar65ODA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4023F17E0B59;
+	Mon, 10 Feb 2025 12:43:29 +0100 (CET)
+Message-ID: <dabbf4a7-1856-458a-b88d-2a16bc80bff0@collabora.com>
+Date: Mon, 10 Feb 2025 12:43:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
- gfx_smmu
-To: Pratyush Brahma <quic_pbrahma@quicinc.com>
-Cc: andersson@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
- iommu@lists.linux.dev, joro@8bytes.org, konradybcio@kernel.org,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, robin.murphy@arm.com, will@kernel.org
-References: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
- <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
+Subject: Re: [PATCH v5 25/34] drm/mediatek: mtk_hdmi: Remove ifdef for
+ CONFIG_PM_SLEEP
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
+ <20250113145232.227674-26-angelogioacchino.delregno@collabora.com>
+ <a9c0027b1d02365389624c5cb9b42b5bf39dac85.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <a9c0027b1d02365389624c5cb9b42b5bf39dac85.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_034157_751093_BAC399FE 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_034332_426249_05DBCA8F 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +101,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 05:58, Pratyush Brahma wrote:
-> Hi
+Il 07/02/25 07:10, CK Hu (胡俊光) ha scritto:
+> Hi, Angelo:
 > 
-> Can someone kindly review this patch?
+> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> Since the SIMPLE_DEV_PM_OPS macro and the pm pointer are anyway
+>> defined when CONFIG_PM_SLEEP is not set, remove the ifdef for it
+>> and indicate that the mtk_hdmi_{remove,suspend} functions may be
+>> unused (as they are, in case PM support is not built-in).
+>>
+>> While at it, to improve readability, also compress the
+>> SIMPLE_DEV_PM_OPS declaration as it even fits in less
+>> than 80 columns.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 10 ++++------
+>>   1 file changed, 4 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> index 0ec3bfe528f8..f6b463aaba47 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> @@ -1692,8 +1692,7 @@ static void mtk_hdmi_remove(struct platform_device *pdev)
+>>          mtk_hdmi_clk_disable_audio(hdmi);
+>>   }
+>>
+>> -#ifdef CONFIG_PM_SLEEP
+>> -static int mtk_hdmi_suspend(struct device *dev)
+>> +static __maybe_unused int mtk_hdmi_suspend(struct device *dev)
+> 
+> I see many driver use CONFIG_PM_SLEEP,
+> and SIMPLE_DEV_PM_OPS() is defined to support suspend/resume function is not exist when CONFIG_PM_SLEEP is not defined,
+> so there is no strong purpose to apply this patch.
 > 
 
-After 7 days? Community is not working for you to make such demands.
-Observe standard waiting time. Or better: Please relax, and help out by
-reviewing other patches on the mailing lists in order to relieve the
-burden of maintainers and move your patches higher up the list.
+This allows to improve the compile time coverage and at the same, this will not
+increase the binary size of this driver, because the compiler (or, all of the
+linkers associated to the compilers that can be used to build the kernel, anyway!)
+will drop the two functions when CONFIG_PM_SLEEP is *not* defined.
 
+Also:
+  * This ifdef is redundant, as it's already handled by SIMPLE_DEV_PM_OPS
+  * Removing ugly ifdeffery increases human readability while also slightly
+    reducing the number of lines
 
-Best regards,
-Krzysztof
+Regards,
+Angelo
+
+> Regards,
+> CK
+> 
+>>   {
+>>          struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+>>
+>> @@ -1702,7 +1701,7 @@ static int mtk_hdmi_suspend(struct device *dev)
+>>          return 0;
+>>   }
+>>
+>> -static int mtk_hdmi_resume(struct device *dev)
+>> +static __maybe_unused int mtk_hdmi_resume(struct device *dev)
+>>   {
+>>          struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+>>          int ret = 0;
+>> @@ -1715,9 +1714,8 @@ static int mtk_hdmi_resume(struct device *dev)
+>>
+>>          return 0;
+>>   }
+>> -#endif
+>> -static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops,
+>> -                        mtk_hdmi_suspend, mtk_hdmi_resume);
+>> +
+>> +static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_resume);
+>>
+>>   static const struct mtk_hdmi_conf mtk_hdmi_conf_mt2701 = {
+>>          .tz_disabled = true,
+>> --
+>> 2.47.0
+>>
+> 
+
 
