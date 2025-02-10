@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D410C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D9BC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAnhm0Wz21UltR5SqeUz3yaC93tOi3ncUGw0CiSukn8=; b=XTfHXR01JIVgr/1J8YIoj9xQf+
-	N9qRU3Nz1faBWrGWmg4dNSBjKPghFSpKgW+gIQp9FLEmS6CLOcKgK7wIWa2VD7FYmSD0i6PuSRVtx
-	5JJgJ6lZFSeUMdxNfgndj6iEglfYrcjCkhNUEblcR0Bndo2yIliEKkbgm8jZ1Ncinol3RTrys2ny2
-	owuawhcsst5X9XSaKxIWDlaCpTM/7uiq0wKD4/mefD1eoyUdUOk/nfehYCgYsWPidYfv9KKvpBkAM
-	5IWHYKoXbZ0JdIBgV0tjdTixLQO9hADu4glCGo1OBEZ3BUs0iaqV5+Yspa/S+60bDVhbmqO+jZjlo
-	mF5JSdRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WHL3dN12cZfiqrpQ91ncKM7YasTAZTmSy6+gYCoByzs=; b=Zo5vhsMNV1Sl2s868S8s3tDarh
+	uKpBkgi9QVbfXzBajsQ5Z1n+U7mKb3eelRqTGv7LVLvF7z2oG7Pd9wUpKxsa/XXoLErERPldYy3z3
+	XbAQkKLifO7PxeTZ/EgjIL50Cn+KVfG4fyrYL5UZfB0SAPijzseLvADB4XCXbLCXefCJohfoW/HAa
+	CQye9Wrw7cqdePnE6zH6W587GUOmu73TYPs0OncGh+6WOEMX06OPeTafGOEe1ZcBQvdNYI2rt7lLT
+	Bo31H/yzWuqH5xvFIlDyYZUUe4Dg61yuxE1d0+4mY4ufAuxUIK+qb1dV7ZDquj7B+CW+OkfTUUKdP
+	dRBs6aEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUkN-000000007hR-2LxJ;
-	Mon, 10 Feb 2025 14:26:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUhd-000000007BX-3pZ0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:24:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 320551477;
-	Mon, 10 Feb 2025 06:24:20 -0800 (PST)
-Received: from [10.57.95.206] (unknown [10.57.95.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D55AD3F5A1;
-	Mon, 10 Feb 2025 06:23:53 -0800 (PST)
-Message-ID: <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
-Date: Mon, 10 Feb 2025 15:23:52 +0100
+	id 1thUlk-000000007sz-0vMM;
+	Mon, 10 Feb 2025 14:28:16 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thUk2-000000007c9-1LrM;
+	Mon, 10 Feb 2025 14:26:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WHL3dN12cZfiqrpQ91ncKM7YasTAZTmSy6+gYCoByzs=; b=fd0fglPztCXBx8mpibEUk4hjrb
+	U/mdf7XKKn380K0TMQLav6Nif2k/ZPUOWfkkBHhpS8EgBMXoPsmFnO7oaSEXrGLbNnakGndmL0Ilf
+	ljmLgU+AxBphLAYtBDDDu9vIB5HJJHYNSUZZXAONu26tK553VeO32vjtJiMSGwklDhZ9+OdZlbWRP
+	GapFrAroqfysPv00Hz1II24f8MuGhEYueF+d3DazlcQEjfqjguciZ639hdI8fal/dQu95ETYTYQFt
+	YPeidu3lAImAMobwYlDxgUPoCVf8OwZhJALFqZajuQOM1IqEvIq7inpV2M81pSOfp/OJNZXn4mjTu
+	pcYniMWw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58998)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1thUju-000794-1B;
+	Mon, 10 Feb 2025 14:26:22 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1thUjr-0007ZG-0z;
+	Mon, 10 Feb 2025 14:26:19 +0000
+Date: Mon, 10 Feb 2025 14:26:19 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net-next v3 1/3] net: phylink: provide
+ phylink_mac_implements_lpi()
+Message-ID: <Z6oMi8rTeuwHHDt8@shell.armlinux.org.uk>
+References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
+ <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
+ <20250210132054.oaqb5mboh6qiixfv@skbuf>
+ <Z6oHxrtBHAvaMqd3@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
-To: Kees Cook <kees@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
- <202502061422.517A57F8@keescook>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <202502061422.517A57F8@keescook>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6oHxrtBHAvaMqd3@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_062402_043666_2440FC29 
-X-CRM114-Status: GOOD (  40.09  )
+X-CRM114-CacheID: sfid-20250210_062630_362237_2D5E551C 
+X-CRM114-Status: GOOD (  28.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,151 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2025 23:41, Kees Cook wrote:
-> On Mon, Feb 03, 2025 at 10:18:24AM +0000, Kevin Brodsky wrote:
->> This is a proposal to leverage protection keys (pkeys) to harden
->> critical kernel data, by making it mostly read-only. The series includes
->> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
->> as well as a page table hardening feature based on that framework
->> (kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
->> concept, but they are designed to be compatible with any architecture
->> implementing pkeys.
-> Does QEMU support POE? The only mention I could find is here:
-> https://mail.gnu.org/archive/html/qemu-arm/2024-03/msg00486.html
-> where the answer is, "no and it looks difficult". :P
+On Mon, Feb 10, 2025 at 02:05:58PM +0000, Russell King (Oracle) wrote:
+> On Mon, Feb 10, 2025 at 03:20:54PM +0200, Vladimir Oltean wrote:
+> > On Mon, Feb 10, 2025 at 10:36:44AM +0000, Russell King (Oracle) wrote:
+> > > diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+> > > index 898b00451bbf..0de78673172d 100644
+> > > --- a/include/linux/phylink.h
+> > > +++ b/include/linux/phylink.h
+> > > @@ -737,6 +737,18 @@ static inline int phylink_get_link_timer_ns(phy_interface_t interface)
+> > >  	}
+> > >  }
+> > >  
+> > > +/**
+> > > + * phylink_mac_implements_lpi() - determine if MAC implements LPI ops
+> > > + * @ops: phylink_mac_ops structure
+> > > + *
+> > > + * Returns true if the phylink MAC operations structure indicates that the
+> > > + * LPI operations have been implemented, false otherwise.
+> > 
+> > This is something that I only noticed for v3 because I wanted to leave a
+> > review tag, so I first checked the status in patchwork, but there it says:
+> > 
+> > include/linux/phylink.h:749: warning: No description found for return value of 'phylink_mac_implements_lpi'
+> > 
+> > I am aware of this conversation from November where you raised the point
+> > about tooling being able to accept the syntax without the colon as well:
+> > https://lore.kernel.org/netdev/87v7wjffo6.fsf@trenco.lwn.net/
+> > 
+> > but it looks like it didn't go anywhere, with Jon still preferring the
+> > strict syntax for now, and no follow-up that I can see. So, the current
+> > conventions are not these, and you haven't specifically said anywhere
+> > that you are deliberately ignoring them.
+> 
+> It was explained in this email as part of that thread:
+> 
+> https://lore.kernel.org/netdev/ZzjHH-L-ylLe0YhU@shell.armlinux.org.uk/
+> 
+> The reason is that it goes against natural grammar. The only time that
+> "Returns:" would make sense in grammar is when listing with e.g. a
+> bulleted list, where the part before the colon doesn't have to be a
+> complete sentence.
+> 
+> This is why it's going to be an uphill battle - grammatically it is
+> wrong, and thus it doesn't flow when thinking about documenting the
+> return value.
+> 
+> If we want to go to a bulleted list, then it will be natural to add
+> the colon.
+> 
+> I'm not going to explain to this level of detail in every email, and
+> because of the grammatical nature of this, it's going to be very
+> difficult to use a form that goes against proper grammar.
 
-Unfortunately it looks like the answer hasn't changed since last year. I
-am testing this series on an Arm Fast Models platform (FVP) [1], which
-does support POE. I've included instructions to get you started at the end.
+Also note that it follows the style already present in that file
+with one exception (which is one of the few cases I remembered to use
+the new format.)
 
->> # Threat model
->>
->> The proposed scheme aims at mitigating data-only attacks (e.g.
->> use-after-free/cross-cache attacks). In other words, it is assumed that
->> control flow is not corrupted, and that the attacker does not achieve
->> arbitrary code execution. Nothing prevents the pkey register from being
->> set to its most permissive state - the assumption is that the register
->> is only modified on legitimate code paths.
-> Do you have any tests that could be added to drivers/misc/lkdtm that
-> explicitly exercise the protection? That is where many hardware security
-> features get tested. (i.e. a successful test will generally trigger a
-> BUG_ON or similar.)
-
-I could certainly add some tests there, but I wonder if such crash tests
-provide much benefit compared to the KUnit tests (that rely on
-copy_to_kernel_nofault()) in patch 15? Not crashing the kernel does mean
-that many of those tests can be run in a row :)
-
->> The arm64 implementation should be considered a proof of concept only.
->> The enablement of POE for in-kernel use is incomplete; in particular
->> POR_EL1 (pkey register) should be reset on exception entry and restored
->> on exception return.
-> As in, make sure the loaded pkey isn't leaked into an exception handler?
-
-I wouldn't say "leaking" is the issue here, but yes conceptually
-exception handlers should run with a fixed pkey configuration, not that
-of the interrupted context. As Dave Hansen pointed out [2], what is even
-more important is to context-switch the pkey register. A thread may be
-interrupted and scheduled out while executing at a higher kpkeys level;
-we want to ensure that this thread resumes execution at the same kpkeys
-level, and that in the meantime we return to the standard level.
-
->> # Open questions
->>
->> A few aspects in this RFC that are debatable and/or worth discussing:
->>
->> - There is currently no restriction on how kpkeys levels map to pkeys
->>   permissions. A typical approach is to allocate one pkey per level and
->>   make it writable at that level only. As the number of levels
->>   increases, we may however run out of pkeys, especially on arm64 (just
->>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->>   use the same pkey for the data associated to multiple levels.
->>
->>   Another potential concern is that a given piece of code may require
->>   write access to multiple privileged pkeys. This could be addressed by
->>   introducing a notion of hierarchy in trust levels, where Tn is able to
->>   write to memory owned by Tm if n >= m, for instance.
->>
->> - kpkeys_set_level() and kpkeys_restore_pkey_reg() are not symmetric:
->>   the former takes a kpkeys level and returns a pkey register value, to
->>   be consumed by the latter. It would be more intuitive to manipulate
->>   kpkeys levels only. However this assumes that there is a 1:1 mapping
->>   between kpkeys levels and pkey register values, while in principle
->>   the mapping is 1:n (certain pkeys may be used outside the kpkeys
->>   framework).
-> Is the "levels" nature of this related to how POE behaves? It sounds
-> like there can only be 1 pkey active at a time (a role), rather than
-> each pkey representing access to a specific set of pages (a key in a
-> keyring), where many pkeys could be active at the same time. Am I
-> understanding that correctly?
-
-Only one key is used (besides the default key) in this initial RFC.
-However, the idea behind the level abstraction is indeed that (RW)
-access to multiple keys may be required at the same time. In the
-follow-up RFC protecting credentials, this is illustrated by the
-"unrestricted" level that grants RW access to all keys. I believe this
-approach is the most flexible, in that any permission mapping can be
-defined for each level.
-
->> Any comment or feedback will be highly appreciated, be it on the
->> high-level approach or implementation choices!
-> As hinted earlier with my QEMU question... what's the best way I can I
-> test this myself? :)
-
-As mentioned above I tested this series on Arm FVP. By far the easiest
-way to run some custom kernel/rootfs on FVP is to use the Shrinkwrap
-tool [3]. First install it following the quick start guide [4] (I would
-recommend using the Docker backend if possible). Then build the firmware
-stack using:
-
-$ shrinkwrap build -o arch/v9.0.yaml ns-edk2.yaml
-
-To make things easy, the runtime configuration can be stored in a file.
-Create ~/.shrinkwrap/config/poe.yaml with the following contents:
-
-----8<----
-
-%YAML 1.2
----
-layers:
-  - arch/v9.0.yaml
-
-run:
-  rtvars:
-    CMDLINE:
-      type: string
-      # nr_cpus=1 can be added to speed up the boot
-      value: console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda rw
-  params:
-    -C cluster0.has_permission_overlay_s1: 1
-    -C cluster1.has_permission_overlay_s1: 1
-
-----8<----
-
-Finally start FVP using:
-
-$ shrinkwrap run -o poe.yaml ns-edk2.yaml -r
-KERNEL=<out>/arch/arm64/boot/Image -r ROOTFS=<rootfs.img>
-
-(Use Ctrl-] to terminate the model if needed.)
-
-<rootfs.img> is a file containing the root filesystem (in raw format,
-e.g. ext4). The kernel itself is built as usual (defconfig works just
-fine), just make sure to select CONFIG_KPKEYS_HARDENED_PGTABLES to
-enable the feature. You can also select
-CONFIG_KPKEYS_HARDENED_PGTABLES_TEST to run the tests in patch 15.
-
-> Thanks for working on this! Data-only attacks have been on the rise for
-> a while now, and I'm excited to see some viable mitigations appearing.
-> Yay!
-
-Thank you for your interest and support, very appreciated!
-
-- Kevin
-[1]
-https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/Arm%20Architecture%20FVPs
-[2]
-https://lore.kernel.org/linux-hardening/dcc1800c-cf0a-4d88-bc88-982f0709b382@intel.com/
-[3] https://shrinkwrap.docs.arm.com/
-[4] https://shrinkwrap.docs.arm.com/en/latest/userguide/quickstart.html
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
