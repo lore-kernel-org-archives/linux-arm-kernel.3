@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F73C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25CDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCNlscT97V9uOIoODPoJkucU+X2AI35SBhIpZ9hJ5mY=; b=NBnAOKIOYGp1lFRyO5Bx8zeEfb
-	2Jvdi0P+6NxB0f7Vy+RdFP+KeLON14zpwjMoLEEoDE4oMQyJ07KKuZgKio3UAqUZtyCzwIW3OHuHA
-	dx4LHZyRxuQ3sk5Ypgg2urHUKtEQPFRURK02Y8kBJDYyKIIKeIs5IpB1QjluaxcdUS+G8r88qASsV
-	E7Oe1HS39yFChncWA4qF8cgWPQCn/bGrRpiqsDTiaAu6x0Z3J9cH3meMKqzm91ElupkBYYLOn/N65
-	yfAy+Cv0d2YqoYW+MESi+MQeLLKpvkBTbBtXUx4k9f878wboGCWNCQWvRdUfIJ8VqCnrlsbZ0khT5
-	ZQ3074fA==;
+	bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=; b=W91ge/wnZpQep07maQGaArc6DG
+	XRPNfiM/n69mYEZ/VmA8gnCDpwJHIuL0wYHQWZpiI2p0YIoX1HmgjpWqxiFJL3FeKOnBcBQnmKXJR
+	GhjoOOf/hGSJ5RGztgzmBeSG6eaEO8xtZQSSFCi5fGkMoc1vreRR7f9aWH/87B08AOGy4A1GRhwoU
+	skfIyQRGwUTR0oiTkwP7WtPyCbaTFAJLiERFOFu00ocPd++rsDv4B6v9Whq0dZE632ptgJI4Xzb/Q
+	HJGrPX3qIXNc99vMWIfDR98aBkbylQ1vMv0sMVQYrH07zMt3D/KfDoR5cKpIJgUtdwETxKj4Wo/H2
+	vwW9lwnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQCX-0000000GqMI-16M6;
-	Mon, 10 Feb 2025 09:35:37 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1thQDt-0000000Gqdg-3sAO;
+	Mon, 10 Feb 2025 09:37:01 +0000
+Received: from mail-lj1-f179.google.com ([209.85.208.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQ8S-0000000GpKQ-2SZa
+	id 1thQ8V-0000000GpLs-1ZeW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 09:31:25 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30795988ebeso41022691fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 01:31:24 -0800 (PST)
+	Mon, 10 Feb 2025 09:31:28 +0000
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30227c56b11so44492111fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 01:31:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739179883; x=1739784683; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739179885; x=1739784685; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=LCNlscT97V9uOIoODPoJkucU+X2AI35SBhIpZ9hJ5mY=;
-        b=Lvtw9hE1HoOKbMU4oOXAYRYRHLNqvNQpofolqVd1DLUeiObuaw3VxvIcJwv7R7i/DQ
-         FMrwZ5aTSRrpRrrkv29KEt7Ueu6yxpIALZ/7EG8WPvrwh7muM5gTnl+qZbuFqZm0kXmn
-         6T2ajwCg6P77VXVWGXqIMj+oijJV1CC1+FTPvYJjsqvq2gMV8imxt5ZDDP8gxB1tkaUt
-         Nn+FiE+kzzAU82VfgrNqVWfU9R5UvOeFVstlKIzpq0xhxIMU3Q0MHbrqZ9A1SaAREuVj
-         fqMjYEWi1FaGglZ832cpSQRyv83w0dKFNQ8lNVBdAulL6XwfXEIHPEz0rxa1Zzz6uN8x
-         Sa/Q==
+        bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=;
+        b=wGOWE7OMb1QBPlwYACWcZDKVoSwaSTLMFgvG9WcPtNCH1YvllKZLwkLmbvmlnSbAdU
+         Rb5wyUnbArLdWcMxgNSMo4oeAerLF8rPJYZSuEpKZdJu/MQDQQRWqrHshew+2saIleuy
+         EjELFCQxhv3nJPi07pM/UFZLlXx25mYqhUaevvNJU0IDLsXt2Fd7olQN1KFcq67ofomp
+         A2nXjZ1OtJPmpIlHBDinLRWVVMehFxFXLnZ07YWWzLBShEIl4YAcNc6hmI8z3djLTy+y
+         sQRUJRlNBrrTxmLQEZNHFkBI10FGtad9/JJ9io+KBxWd5O4DjtZ6gMuSkauhXAW+QjDA
+         Q95w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739179883; x=1739784683;
+        d=1e100.net; s=20230601; t=1739179885; x=1739784685;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LCNlscT97V9uOIoODPoJkucU+X2AI35SBhIpZ9hJ5mY=;
-        b=bI7nOGucmudWANq4/jGpL5xo0JHRh11ivWqXAcAGlMPPMGESqQu4CmaLJLIt78h9Lo
-         lcbxICR+OHYkfXNu1K3Il9DMErutQIIc1Cc35HsCCtTugthY/3Om9+bB+3yz3mnMwa6j
-         RcXMM974Vj+mELrDOgwiDHMJccZB3xJxpdzR0IlfCpgKdcVodRAZO1xMHEZkthBDjFLb
-         I1Ann7c6X4GnvDK+vBo2Wh2sB30GQuczpI5p+40tmIGmSVydULQIJj2DrDf4w43bL9Gc
-         FKIKLJ4FLH1LOPN0ZHi/R/es79b6Tw+2Ru+FTqXTCAxUxMWQzlaVoP+0H47+DJxF26xe
-         DZIQ==
-X-Gm-Message-State: AOJu0YyuW0M5tYaznqexbNawH74qArghPpiM0asuxK725wPVjw2Vc1pN
-	WwtAe5V4/ejjvDITOXsJekVK0QgEWFPpAvMKPbtXo1gD2a8Okes21c+Xiw66CWc=
-X-Gm-Gg: ASbGnctsYZ7lOrtD3c3HMcbQMhSXlVhBNXZ2DS6XZM3UdC1/JiVdXYb8Akn5Ma+qOxp
-	4fuJUZbWRtbzSDWxbgopT4RWSfW4e4NyA4K6kHHD1I9VDckNYpUGHgpKQqMZ5SjZs7/HMmy+tU/
-	IcQ2cXIu5fZbEL2v+LkIj7G4eapRgqCz7D+jRUM71FnqVMYLvDCLUuf9kFTMQ2RJy0sz3uVNbxo
-	d/LsPfxeXWk6J7CkS4tdaxu+wnRwvHrLixGtO4JhuV9xyIJWzOAoQ+AJx1lZIUHAzVaiYakUH9V
-	Ff8DDelKIjx/8KRzvy0Nzwohww==
-X-Google-Smtp-Source: AGHT+IF0ul+u2dEeOp3LqnjYMyturrxBFsVvJjJz6HlDQToqwwLAAyyKMNFXqRlaK4DudcIvgifQSg==
-X-Received: by 2002:a2e:3502:0:b0:308:e54d:6195 with SMTP id 38308e7fff4ca-308e54d63b4mr16025771fa.24.1739179882786;
-        Mon, 10 Feb 2025 01:31:22 -0800 (PST)
+        bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=;
+        b=GaqU4tPb6aUiHO6Vjgph2aafw7lTLEEo/vlDlEdpW4+GnOK84IBg17qmxPg0FHKrbu
+         YtggnrxEC7cbs7fD3Ptvq9UJsvZFg9r0dte3ybBX9qFFMrycsbvvoSOfqIcwzPWmMfMr
+         MLoH1x7sahQxxDCWigQEahFZ6u3VLE6gBR7iyPdg+UeeGVZcPwjWDVB1/Fa2QlBb6iY9
+         Wr4w2rzVK7+jw8JFp79k3w8AQ/NTnDwqEWkOLiHbbPH8Zhm5KeZ3BTrlLozdf3aLAcAp
+         x7Poq/4v8SJShRgGxhewdXb1NLk7/RiRzPdoJcqKXYAp++A8msGeNOCO0PmQFDXf3PCj
+         bicQ==
+X-Gm-Message-State: AOJu0YynJldFkIRN//Z5tujJ5ar7sdWwDVEHkI5tnxod/J7DJJXED4g8
+	b9G9GPQduuYsIlSzGLT22U+7jDeTi3VfTZkHGUx5pkyR5z8OAuOj/IwalNNt1Jk=
+X-Gm-Gg: ASbGncu3lF9rdShDy4I3YBTvyKi9rZoM+v7G08Buth0kWokbBFAX4ZfRPb0w/3Hfp3v
+	QRy63ZwP2wDrqdU8Zp1AgCi3XKISQ3tZT0ugS59xH5tmMh85vqphQa+2yYvXXobnnN4FxP9LGOi
+	aPz5XHhS8MBQTN1c/4qEka4Kpl3TmkfpeFjDrezWDWaHmC1Y6kNhzuUQ5kkScGFRMD/lq9LNNPx
+	oxHMuIoJz4JJ9Wcjr85fuIKIKmhjo7kP7ubMCZ3hLrI/dKU310cW/7DwUCdI1UOBBuF2N+YV8aU
+	xzVE+tfMd52Y/5Zk6cEmy6JqVQ==
+X-Google-Smtp-Source: AGHT+IFtvwueQ7c+e3PaLKf98HVOX1kUVt+8R0wzkEbCYyYeWULHWatmu5uSjWQeTxr/KOcvLpBuRA==
+X-Received: by 2002:a2e:be89:0:b0:302:3356:7c55 with SMTP id 38308e7fff4ca-307e58002e2mr35606591fa.10.1739179885076;
+        Mon, 10 Feb 2025 01:31:25 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307e09a1df7sm11645321fa.23.2025.02.10.01.31.20
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307e09a1df7sm11645321fa.23.2025.02.10.01.31.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 01:31:22 -0800 (PST)
+        Mon, 10 Feb 2025 01:31:24 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 10 Feb 2025 10:31:16 +0100
-Subject: [PATCH 2/3] ARM: dts: ixp4xx: Fix up PCI on WG302
+Date: Mon, 10 Feb 2025 10:31:17 +0100
+Subject: [PATCH 3/3] ARM: dts: ixp4xx: Add Netgear WG302 v1 GPIOs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250210-ixp4xx-dts-v1-2-6b752d745e04@linaro.org>
+Message-Id: <20250210-ixp4xx-dts-v1-3-6b752d745e04@linaro.org>
 References: <20250210-ixp4xx-dts-v1-0-6b752d745e04@linaro.org>
 In-Reply-To: <20250210-ixp4xx-dts-v1-0-6b752d745e04@linaro.org>
 To: Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
@@ -83,8 +83,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_013124_631507_7048135A 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250210_013127_425980_2B739657 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Looking at the board file for WG302 v2 was not a good idea
-because the GPIO IRQ for slot 2 differs, and v1 uses GPIO
-10 instead of GPIO 9. Fix it up.
+This adds GPIO LED indicators, the reset GPIO RESET
+button on the Netgear WG302 v1 to the device tree.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ .../dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts | 30 ++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
 diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
-index 19d56e9aec9d89ce0ad109fbc6bb6e26327997f9..af7b6a976d3dd61f3c6846c73b8788437dea20e3 100644
+index af7b6a976d3dd61f3c6846c73b8788437dea20e3..a351a97d257ead984a3ee05a8a0e50714ad7fb43 100644
 --- a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
 +++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
-@@ -57,7 +57,7 @@ pci@c0000000 {
- 			status = "okay";
+@@ -8,6 +8,7 @@
  
- 			/*
--			 * Taken from WG302 v2 PCI boardfile (wg302v2-pci.c)
-+			 * Taken from WG302 v1 PCI boardfile (wg302v1-pci.c)
- 			 * We have slots (IDSEL) 1 and 2 with one assigned IRQ
- 			 * each handling all IRQs.
- 			 */
-@@ -70,10 +70,10 @@ pci@c0000000 {
- 			<0x0800 0 0 3 &gpio0 8 IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 1 is irq 8 */
- 			<0x0800 0 0 4 &gpio0 8 IRQ_TYPE_LEVEL_LOW>, /* INT D on slot 1 is irq 8 */
- 			/* IDSEL 2 */
--			<0x1000 0 0 1 &gpio0 9 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 2 is irq 9 */
--			<0x1000 0 0 2 &gpio0 9 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 2 is irq 9 */
--			<0x1000 0 0 3 &gpio0 9 IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 2 is irq 9 */
--			<0x1000 0 0 4 &gpio0 9 IRQ_TYPE_LEVEL_LOW>; /* INT D on slot 2 is irq 9 */
-+			<0x1000 0 0 1 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 2 is irq 10 */
-+			<0x1000 0 0 2 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 2 is irq 10 */
-+			<0x1000 0 0 3 &gpio0 10 IRQ_TYPE_LEVEL_LOW>, /* INT C on slot 2 is irq 10 */
-+			<0x1000 0 0 4 &gpio0 10 IRQ_TYPE_LEVEL_LOW>; /* INT D on slot 2 is irq 10 */
- 		};
+ #include "intel-ixp42x.dtsi"
+ #include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
  
- 		ethernet@c8009000 {
+ / {
+ 	model = "Netgear WG302 v1";
+@@ -32,6 +33,35 @@ aliases {
+ 		serial0 = &uart1;
+ 	};
+ 
++	leds {
++		compatible = "gpio-leds";
++		test_led: led-test {
++			color = <LED_COLOR_ID_AMBER>;
++			function = "test";
++			gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++		wlan_led: led-wlan {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_WLAN;
++			gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++			linux,default-trigger = "phy0tx";
++		};
++	};
++
++	gpio_keys {
++		/* RESET is on GPIO13 which can't fire interrupts */
++		compatible = "gpio-keys-polled";
++		poll-interval = <100>;
++
++		button-reset {
++			linux,code = <KEY_RESTART>;
++			label = "reset";
++			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
++		};
++	};
++
+ 	soc {
+ 		bus@c4000000 {
+ 			flash@0,0 {
 
 -- 
 2.48.1
