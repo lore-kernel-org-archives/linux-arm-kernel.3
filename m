@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84059C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AECC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fbev8gX6zQhqBnk6ZosZ+K90Ne5Pg66SYqcXnm0oea4=; b=0ftp5W4oyG/ReJ1pIOvOyNGsxa
-	1hxapoIslPj5STanTBtPQM4lRVdYfJJSQPEYsyBCx43F0onmFk7TGoTflCz2H8fhrXLmH86jgdZnV
-	wcvol+uBHWom1pRtdlMKfArEJrXhCrqukFFWNKVfwv0NUxXzJ4PrLmgSDSMHfD/MIbWYFFh01t3EA
-	X/JGcWI71cOiE3Om6zYZxrRsfmPVnGZGQloOktoRDgDAHcXBWEbuc7vYJwzi+MBkmKzZcG9P+S+QE
-	KYBsFBmHoiMJuhfD45KR+nNOguSjmCQtXxRfqaRgO2NFFQmHO1ICIeiWwbRYs69CbmhQ9mDXahfY6
-	siBLe+4Q==;
+	bh=zacIe0rmew4F5eav76d+y3OPAP2guaa7VF0HBR4OV3c=; b=U/+npNYyvgSVPUAk9xPwBeU3us
+	mgY2vhLkHEjYighfQkvVT8iho3zp282yTIMIfZDC/tuJV5Hiegam0FOexPZW4BJfpwG23HWQNbtIt
+	+rgijeFleK61sBLIaVyBa9lDuvHCYh5dvDDwzP+oxfI5l3h85CTjQcO9yVJ0n1W+cRE5jKHS7i1ZK
+	AMWWWC0Z8md4orT5SXb/AuyS4cJNXDpilP0spfAFTDF35sou5Wh2sgP0lgsGfaDXXGrfLYBF6lZYq
+	yvLMj/3MiQ9LeEDsLsHGDfUQWdaLcyxyZsBOqqBwefXqldvnaWKp26kpBPC8AhSHlZpLRQN+Ls5w7
+	icTDu1ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRHh-0000000H4Dl-3ucG;
-	Mon, 10 Feb 2025 10:45:01 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1thRJ3-0000000H4QG-2SZq;
+	Mon, 10 Feb 2025 10:46:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thR9Q-0000000H2UP-1vkv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 10:36:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Fbev8gX6zQhqBnk6ZosZ+K90Ne5Pg66SYqcXnm0oea4=; b=dWbXPj0rff9aRR6VmRTPN1tRik
-	L79Fdxnnj4Ka8iHhRIx2cVdVUJ0cD6WRlEfeb5/PWFh8q9TewxHDD83iYAuF8VRrex9klbkymLnJS
-	9gSUtjC86kFTQfEtBPaNCbI5lCe+UO6e9rAJ3tvFx+5uBYzTq3ugytzzmQvia+qTufeYkxmhrMsiv
-	91O+7xYd0PzfBoJx40Igse7KVgucBMrMx4R4QwyyGdijb7ssLaNva4SaIEYUe9FyqthMMJjndY/gN
-	ZhsJqpOOLXFBXsf/L3EQqSxDNc0OSUPT3cJ9KzPMzUQi46wzPRlOILE6ZGA9BCmH06Z3Zopx+oh3p
-	vQbAySMw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1thR9O-0000000Fcuf-1MQ4;
-	Mon, 10 Feb 2025 10:36:26 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id BC89B300318; Mon, 10 Feb 2025 11:36:25 +0100 (CET)
-Date: Mon, 10 Feb 2025 11:36:25 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH bpf-next v2 11/26] rqspinlock: Add deadlock detection and
- recovery
-Message-ID: <20250210103625.GK10324@noisy.programming.kicks-ass.net>
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250206105435.2159977-12-memxor@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206105435.2159977-12-memxor@gmail.com>
+	id 1thRA5-0000000H2hK-0Djc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 10:37:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75448A40FF1;
+	Mon, 10 Feb 2025 10:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B843CC4CED1;
+	Mon, 10 Feb 2025 10:37:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739183827;
+	bh=pG6Tqs286wmBxiyIrD2niNQiQm0sXRVyX326LKA8yac=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AGKkoYP5igiaE1J04wDcluloHolkVn+i1DkGIKSRHw/WVHn06EeyuUTTHQFlcTgQy
+	 Zm2jZaJJp3/Sb2nPukzabStV9ktJQBSShcHgxRdx/pYdCh0OoQKxX8S1EZDFMbianH
+	 nMD0yc6gSeonoa+toHfJEHl62XweOaUvAr89dVAMd9oED8Z9kWvVB3nY/lP0GRChw5
+	 uHKRifwfQbB6Odot3TmdJfSssXjOOSSgB+srR7MWDP04Ss3fKsVhqgWJdKcNjLO9v3
+	 w4MqcV9Oo0HWrsMpLTPvN4MFS9bR1TLSpwvj6TVOnldmhDwp5/ZH1dzSxqsLs+6UlH
+	 hJ4EWFlMHmTvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thRA1-002VDH-6q;
+	Mon, 10 Feb 2025 10:37:05 +0000
+Date: Mon, 10 Feb 2025 10:37:03 +0000
+Message-ID: <867c5yt7ao.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: kernel test robot <lkp@intel.com>,
+	llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm <kvmarm@lists.linux.dev>,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: [kvmarm:fixes 18/18] arch/arm64/kvm/hyp/nvhe/mem_protect.c:1086:9: warning: variable 'ret' is uninitialized when used here
+In-Reply-To: <Z6nKYtyJO2bNycJw@google.com>
+References: <202502100911.8c9DbtKD-lkp@intel.com>
+	<868qqetasm.wl-maz@kernel.org>
+	<Z6nKYtyJO2bNycJw@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, lkp@intel.com, llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250210_023709_216824_B31AB207 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +89,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 02:54:19AM -0800, Kumar Kartikeya Dwivedi wrote:
-> +	/*
-> +	 * Find the CPU holding the lock that we want to acquire. If there is a
-> +	 * deadlock scenario, we will read a stable set on the remote CPU and
-> +	 * find the target. This would be a constant time operation instead of
-> +	 * O(NR_CPUS) if we could determine the owning CPU from a lock value, but
-> +	 * that requires increasing the size of the lock word.
-> +	 */
+On Mon, 10 Feb 2025 09:44:02 +0000,
+Quentin Perret <qperret@google.com> wrote:
+> 
+> On Monday 10 Feb 2025 at 09:21:29 (+0000), Marc Zyngier wrote:
+> > On Mon, 10 Feb 2025 01:39:04 +0000,
+> > kernel test robot <lkp@intel.com> wrote:
+> > > 
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git fixes
+> > > head:   eabc7aaef7a553b64bf6e631ce04526af6c8d104
+> > > commit: eabc7aaef7a553b64bf6e631ce04526af6c8d104 [18/18] KVM: arm64: Simplify np-guest hypercalls
+> > > config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20250210/202502100911.8c9DbtKD-lkp@intel.com/config)
+> > > compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+> > > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250210/202502100911.8c9DbtKD-lkp@intel.com/reproduce)
+> > > 
+> > > If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> > > the same patch/commit), kindly add following tags
+> > > | Reported-by: kernel test robot <lkp@intel.com>
+> > > | Closes: https://lore.kernel.org/oe-kbuild-all/202502100911.8c9DbtKD-lkp@intel.com/
+> > > 
+> > > All warnings (new ones prefixed by >>):
+> > > 
+> > > >> arch/arm64/kvm/hyp/nvhe/mem_protect.c:1086:9: warning: variable 'ret' is uninitialized when used here [-Wuninitialized]
+> > >     1086 |         return ret;
+> > >          |                ^~~
+> > >    arch/arm64/kvm/hyp/nvhe/mem_protect.c:1076:9: note: initialize the variable 'ret' to silence this warning
+> > >     1076 |         int ret;
+> > >          |                ^
+> > >          |                 = 0
+> > >    1 warning generated.
+> > 
+> > Nice catch. I wish the compiler would warn for these by default...
+> 
+> So do I...
+> 
+> > Quentin, are you happy with the following patch that I can stash on
+> > top of the current set of fixes?
+> 
+> Absolutely, thanks for the patch and sorry the mess!
+> 
+>     Reviewed-by: Quentin Perret <qperret@google.com>
 
-Is increasing the size of rqspinlock_t really a problem? For the kernel
-as a whole there's very little code that really relies on spinlock_t
-being u32 (lockref is an example that does care).
+Now queued and pushed out.
 
-And it seems to me this thing might benefit somewhat significantly from
-adding this little extra bit.
+LKP people: please fix the mailing address you are using, as it
+changed over two years ago, and you're still using the old one.
 
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
