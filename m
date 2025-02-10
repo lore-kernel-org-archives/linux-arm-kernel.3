@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8548EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3780FC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=; b=EA+JVPT/oui29Axkh/k/ZYT6Dh
-	Mnd9YuIGbFj5QFT1Y9Ey1Obrkgj+PbcaJzyZVi3dBJ+ogH0Aszhnmu7L/ZjjSDMlc9FWauobnT+Oi
-	bKAOHt2wRL7INkBrwc+LfwfMOKmhWTSlGYFDwLwquOr9jmCq0UEZobsLAa4m8spwMdf+6XMsb3nGv
-	tuu6ZmSv+EItkGiK8owJ+4dmMnfLy301hhcBv4uEV7Mok21spD0maLbGGk80EkthgQwLXOTOs37TE
-	jG+z6dJKuS1pLJoR/x06qWRFf9kLADGhJ6ygL5XmyME1Z92j2k2rhIPQCOyMzwSJ9D1t81IBkkXIO
-	LwM1RUoQ==;
+	bh=hhiCR0AgFIOeF4HS1CGKAOPDrkDo1F+m8u6AqUimqbQ=; b=luBqjTy7bk61sa6cfbv7W5LyMc
+	XZS2z9mwZGmWnbEosU4MZQpCr1tdJnWu2qY5FzvuH8EVk9ka1H5EqO8gmhiUAnKRsaSSQVCqsW1ym
+	SdhjSmM6z/7taIWmcg/th4q/JvpenqTtei8oz8NIJbb7x3OZi8cIRT8Iif0AhoLPqIB1GgkvhXzKD
+	+qdfumMNFRQyu4Dg81mH/TWlCPogfHSylypWMYP3S7oRg21+/3rfnSTHGZqfndqcCY0ABQXahMGkm
+	jAyGonjy02qKoIVbkkjc9LLE0ruSPaXa2DCSmq4eQuZQqHBk0BB37/LNUI1M02y6r4prrHvEyc/1s
+	z6j1MeQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQrc-0000000Gxus-08nh;
-	Mon, 10 Feb 2025 10:18:04 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1thQsz-0000000Gygi-2YQr;
+	Mon, 10 Feb 2025 10:19:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQj4-0000000GwLb-1mub;
-	Mon, 10 Feb 2025 10:09:15 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5de7519e5a7so1144254a12.2;
-        Mon, 10 Feb 2025 02:09:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739182152; x=1739786952; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=;
-        b=LElqI0OCCrI6U3Hvz/Xx3T1YR2PJDjyxAmpxq0E0hdOnkpmXz+4DR6FmJ9EsmGaNSA
-         3zXP5npZYICRYBrYDrXakhCse+LmlijGPcf01fICe+YqWPtwAhQkyfjDhlWHb6vG+Bj1
-         pc224A50FhGA8UbVajAu5E3XR80QUUyQkXhTpGUHxJYbB9a3H3Jm70nvC+p+V7Try8YY
-         /Xko8ni+UqPTOozjmqSe65Ep/XQOwA+f6qJdQC2aP4/3MWkECcVvD5IzqAchzy3oM5m3
-         HbE2QxGhiXzB+Coe8BWokseOfE/3n7FeVfhsyA5cnj5xi2d5IlGlgF73kqx2YA3l62On
-         n5xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739182152; x=1739786952;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5dzyKtWqZnepXYQlMsqs3T0zFLasKzwLYo+Yn/dRQyU=;
-        b=FYuzUr/SINF5lLuS/X9HsLtU1bd+3fnjk3YmjjG95ct2RsxU3UEmBHPFKoATgmq3Ql
-         iaPqsS59/im5YHUH/gKAIxPaeFUsVAp0zc5YX0wuQBfYky6FLsZTT9+stB5Wm79cSwC1
-         xbJjZCZAnCSw34GFQWMR7L1JeEG80XIaItbUvRCualUq0IPB11EtSJQHBq2kgGpfgp8G
-         asLYgr1hrtEP8mbeFi9jSv7JQzo6r+Lc+RYH56idHPhSA6/zsNy4HaNcQr9kC6XbcLGV
-         pshDOqDPbpk99blo+BxjPaO6YYJdq7Oqo49qCwb5vIbi3cDVdGVwevuA327gEHL01lhy
-         03mw==
-X-Forwarded-Encrypted: i=1; AJvYcCVNhi44FB0UthzsDEuZzTubgS/CDD6NITvKeJhjLkwGrgFJkzwRgb+Z8LACGwYLW1sqDqMX8TlzPk5u@lists.infradead.org, AJvYcCXY6UdVHo9oRwRtxC2IHY0Ql9jlADYVsjdPKYcdqGsKP573T5/n9Q6KKmlnGqY2VrU02mgTRT24qjygtT0B2lBq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHrVdiXTe5iM343jpdN48dLPisfgH8WYe84aPqc6mBzh+ON9sg
-	vmYAIxXCMyWnuVx/SxHMK6GLUu7lXMnTwS4QfysKsSlYEZ/l6Juqd2q+S6l9VHvUMbv7yBdoVm/
-	4fWJdsI7Sjd/Lpd2hPTdXfJdkdHc=
-X-Gm-Gg: ASbGncut4RzJVkUxgZLnbjPRavvLTT2lCrSKb9PMJK1G1Vv06zh/pcZNglrJfBGVZpk
-	Yhy6CLiJQvHy/G2/y0RguMc0ql4c12XmZ2nCdirRrFHP8aZvXoal7xg93APzK7HZBz467RINk
-X-Google-Smtp-Source: AGHT+IH05m3EGDv37NgCHa7r72kurcQ8bsVSV4tB6ZTwaZHVAXVKJd9j8KrWy0sZ6Kd7oDJwTcHKTTZ7neMq4xpHZUE=
-X-Received: by 2002:a05:6402:42ce:b0:5dc:73fc:2693 with SMTP id
- 4fb4d7f45d1cf-5de45023654mr16526726a12.18.1739182152139; Mon, 10 Feb 2025
- 02:09:12 -0800 (PST)
+	id 1thQr6-0000000Gxn9-3Z9N
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 10:17:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hhiCR0AgFIOeF4HS1CGKAOPDrkDo1F+m8u6AqUimqbQ=; b=uIlOErQUY2LA378P/b/PjPuCU6
+	eBtpaJwVQemWIrRTzDEZa2HvMYuGsObheoeeoV/VTHEvLinm9P8vrqY2kdzlYKZ0QLuL0fMaknLTp
+	YsIUtz50FTonOihHSFcLSSrrS7emKN9ATUu1G1g6mJMk3OEY/268GHKDwqxru2cgTt2blqIQdSbHE
+	2sJL9+f7qXT9jEQr1tIeN95XMKhBEapQiUAdVo/HU5tqwrFNGhwlsrNMnZPSm+ksf1wakZ69nV96j
+	1iRIFZmmC52W5dW8stnEHgMXq4Bw2uR9iKPilcWVLryWA6gb+shYWcQSYxb6HC8zHHaFaCJJyB81G
+	lWHTLsKg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1thQr5-0000000FWDr-05HJ;
+	Mon, 10 Feb 2025 10:17:31 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 9079E300318; Mon, 10 Feb 2025 11:17:30 +0100 (CET)
+Date: Mon, 10 Feb 2025 11:17:30 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Barret Rhoden <brho@google.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
+Subject: Re: [PATCH bpf-next v2 09/26] rqspinlock: Protect waiters in queue
+ from stalls
+Message-ID: <20250210101730.GI10324@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com>
+ <20250206105435.2159977-10-memxor@gmail.com>
 MIME-Version: 1.0
-References: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
-In-Reply-To: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 10 Feb 2025 15:38:57 +0530
-X-Gm-Features: AWEUYZl-ymjB7hMb8tRQlI4jusE7F1xxvFV_L9geMxys9qNgTR3hdyKQc5pas2k
-Message-ID: <CANAwSgQAfwq2tmqB=+896YGhFFa1hJ18W-cAes2o2bseJiLUsQ@mail.gmail.com>
-Subject: Re: [PATCH] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and
- SSC_REFCLKSEL masks in refclk
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Vivek Gautam <gautam.vivek@samsung.com>, linux-phy@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_020914_461241_E45467B6 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206105435.2159977-10-memxor@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,23 +81,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kaustabh,
+On Thu, Feb 06, 2025 at 02:54:17AM -0800, Kumar Kartikeya Dwivedi wrote:
+> Implement the wait queue cleanup algorithm for rqspinlock. There are
+> three forms of waiters in the original queued spin lock algorithm. The
+> first is the waiter which acquires the pending bit and spins on the lock
+> word without forming a wait queue. The second is the head waiter that is
+> the first waiter heading the wait queue. The third form is of all the
+> non-head waiters queued behind the head, waiting to be signalled through
+> their MCS node to overtake the responsibility of the head.
+> 
+> In this commit, we are concerned with the second and third kind. First,
+> we augment the waiting loop of the head of the wait queue with a
+> timeout. When this timeout happens, all waiters part of the wait queue
+> will abort their lock acquisition attempts. 
 
-On Sun, 9 Feb 2025 at 00:30, Kaustabh Chakraborty
-<kauschluss@disroot.org> wrote:
->
-> In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
-> PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
-> inverted when applied to the register values. Fix it.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Why? Why terminate the whole wait-queue?
 
-Reviewed-by: Anand Moon <linux.amoon@gmail.com>
-
-Thanks
-
--Anand
+I *think* I understand, but it would be good to spell out. Also, in the
+comment.
 
