@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D9BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B28C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHL3dN12cZfiqrpQ91ncKM7YasTAZTmSy6+gYCoByzs=; b=Zo5vhsMNV1Sl2s868S8s3tDarh
-	uKpBkgi9QVbfXzBajsQ5Z1n+U7mKb3eelRqTGv7LVLvF7z2oG7Pd9wUpKxsa/XXoLErERPldYy3z3
-	XbAQkKLifO7PxeTZ/EgjIL50Cn+KVfG4fyrYL5UZfB0SAPijzseLvADB4XCXbLCXefCJohfoW/HAa
-	CQye9Wrw7cqdePnE6zH6W587GUOmu73TYPs0OncGh+6WOEMX06OPeTafGOEe1ZcBQvdNYI2rt7lLT
-	Bo31H/yzWuqH5xvFIlDyYZUUe4Dg61yuxE1d0+4mY4ufAuxUIK+qb1dV7ZDquj7B+CW+OkfTUUKdP
-	dRBs6aEg==;
+	bh=VgraRHso95F81B4DXSSaBLV0feh+tpXbSVAWbEyzHv4=; b=OVIQAHa3l5Hm3U6pIOLN/BkDcF
+	zrNH6doC2I4Q0Hhm2g5+MkrRSsCGgII5akvqZWkCZhbfemS47SyShYFAFPfyz16uZYIm6xE0dQIjH
+	cPJ6Am16R1EBVCuH3NvdTeZ69H2FAEGAQVQomOCaHaGjlv8vVLm0WgijLhrKp/Ja3phxu8u6OHT8G
+	E0t3xLkwbiK+9JeKxo3NHN2NgMuS+awjn+97ysvLApsSMrIR1sQJZ8XmQTcqZKNhEUtM7cmdQLsle
+	DRXaMdNJ/3WI1NZAatdSkBRN8CQPn0SHZkXsbNNaTb2it1yHiT8t6RCmONjgFlXgF1wT+HWCPuuqy
+	jEtmkaAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUlk-000000007sz-0vMM;
-	Mon, 10 Feb 2025 14:28:16 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1thUn6-000000008BK-3CoY;
+	Mon, 10 Feb 2025 14:29:40 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUk2-000000007c9-1LrM;
-	Mon, 10 Feb 2025 14:26:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WHL3dN12cZfiqrpQ91ncKM7YasTAZTmSy6+gYCoByzs=; b=fd0fglPztCXBx8mpibEUk4hjrb
-	U/mdf7XKKn380K0TMQLav6Nif2k/ZPUOWfkkBHhpS8EgBMXoPsmFnO7oaSEXrGLbNnakGndmL0Ilf
-	ljmLgU+AxBphLAYtBDDDu9vIB5HJJHYNSUZZXAONu26tK553VeO32vjtJiMSGwklDhZ9+OdZlbWRP
-	GapFrAroqfysPv00Hz1II24f8MuGhEYueF+d3DazlcQEjfqjguciZ639hdI8fal/dQu95ETYTYQFt
-	YPeidu3lAImAMobwYlDxgUPoCVf8OwZhJALFqZajuQOM1IqEvIq7inpV2M81pSOfp/OJNZXn4mjTu
-	pcYniMWw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58998)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1thUju-000794-1B;
-	Mon, 10 Feb 2025 14:26:22 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1thUjr-0007ZG-0z;
-	Mon, 10 Feb 2025 14:26:19 +0000
-Date: Mon, 10 Feb 2025 14:26:19 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 1/3] net: phylink: provide
- phylink_mac_implements_lpi()
-Message-ID: <Z6oMi8rTeuwHHDt8@shell.armlinux.org.uk>
-References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
- <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
- <20250210132054.oaqb5mboh6qiixfv@skbuf>
- <Z6oHxrtBHAvaMqd3@shell.armlinux.org.uk>
+	id 1thUkS-000000007ii-0Fn8;
+	Mon, 10 Feb 2025 14:26:57 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-439350f1a0bso10979585e9.0;
+        Mon, 10 Feb 2025 06:26:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739197614; x=1739802414; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=VgraRHso95F81B4DXSSaBLV0feh+tpXbSVAWbEyzHv4=;
+        b=I+Sm/CE4J3XzeV/53sZaKGk6fa8xcc/tqpwCmz+4mni1+0QLnTxnBT4J/n48UWw7SG
+         enNKgYSMv2Ga0rShUQ/8wycWADJNPkp+se4/YvLOdAvICmhOK/rfVZdPeasrhaoZx5v2
+         PgUhd+giIcbkycTaGoIWNG4xAVLaFwxKW03bD661iPndjeuQM5VOQk1QJhka3f/WKZVs
+         Nyme/UM3ibQLUJS9S+t9JCA00wn0t3IPvxWctqJyED8l4+Aia0JbtKHkGTFQjH+/f3Xb
+         ZrgKvrKoWCcaGEc/LfKktLfdTu9P6VfhT+nFosMEUKiGc3M9ZaujMvShoYSUev+xHkhD
+         hAqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739197614; x=1739802414;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VgraRHso95F81B4DXSSaBLV0feh+tpXbSVAWbEyzHv4=;
+        b=D2khYyly1inB7W3KX/FEmUmzxGXvNTV/SJwDVTGTNPNVmII/jx0PVQbckR+MQ0dTxW
+         O6oNyhjEGWIOQGYTD88x/Yz/T0vaVJq71EP1ObgsajO0gwQUR1wB6ez1JrBywm5quVb5
+         yWZKx4BSNcbABkWmdq/520BXjx+OYU9siGBR1f7afZsWmf+2IFSZmtS9h02X9wipMWdt
+         +cAayzawoF6XsQ0iwQ3MhmNH/BvRovzsVeyCGt/VlAgRQc0f+EogDhR6OC4F5RX2Z/R8
+         oAm6/lkfR4Kj+ZXeMCe4JcSq5jBXFlaA1377XTdGjkwkaUadeaMPt8Z93pnF2bFZEY6H
+         bmsg==
+X-Forwarded-Encrypted: i=1; AJvYcCU6zFG1OobImiWmHfa5AJ8MiOswkdaeBUUdiAZ4ajeQ1O95hCv80/eg+VVy6FHsL3pNEfuwqitIVBcTTEk=@lists.infradead.org, AJvYcCVcgCap/1zyplyWejAy4ITgEL9Na9WyzvkUsa++4liemGbPr1llBS9/v/d/4ztz5RoTiaeddNzbGoHROh+VXtRZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0YwjQ4NYtUXuvaotgI0Pf/HKM5ZSBMoyZOryKbxcV8r/oIxM1
+	htaoymvIInn8q8OYja8VcZVKzeAEtafV6A7sKUwgWzDoxo6MUNvu
+X-Gm-Gg: ASbGncuuyzEtcKMcGSB32eqvQDRml0eTCDPcXHxAYAgAvm5eUGjexOwyMoOxBzAKRfU
+	r7O3w1bbxWHXl5Jw1lvxlVn479wsEKwzsHrpJmPVF58LXmOXA8WVnJdEdHmkagiUDMuL/6T6Rvm
+	bN6aVze3UiZiJSGt0JIoCEtEgvn16OzkpkuY96VwuMN+x7XPX7FkyQqaRquuUDB1/DE1JKfUWt2
+	wnr3ZhE4YyOMq4TmM2YbD20J/P+mqUfgGEdxMilCbtoejXrFycx5fxfCfxZAEeui7iIuTLbSLoJ
+	7vDBa77t2XTrd90Nxm5hxn8ejWSlxrBV
+X-Google-Smtp-Source: AGHT+IEYNgbdZHkRJU1UDHCBy9QezY1XmzJ1vuM2419I++2sRPB2lMGddbBAfie6JehAjN/mVPK+vg==
+X-Received: by 2002:a05:600c:5351:b0:439:3159:c33d with SMTP id 5b1f17b1804b1-4393159c5abmr70934525e9.13.1739197614251;
+        Mon, 10 Feb 2025 06:26:54 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4393f202721sm49032005e9.21.2025.02.10.06.26.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 06:26:53 -0800 (PST)
+Message-ID: <4d171a4fdf7ce9bfbe6352b36d6b6791584f86c4.camel@gmail.com>
+Subject: Re: [PATCH 02/10] riscv: dts: sophgo: cv18xx: Split into CPU core
+ and peripheral parts
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, soc@lists.linux.dev
+Cc: Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 10 Feb 2025 15:26:52 +0100
+In-Reply-To: <dda5297c-fdf3-494f-854f-71a5000729e5@kernel.org>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+	 <20250209220646.1090868-3-alexander.sverdlin@gmail.com>
+	 <dda5297c-fdf3-494f-854f-71a5000729e5@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6oHxrtBHAvaMqd3@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_062630_362237_2D5E551C 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20250210_062656_101776_0719E282 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 02:05:58PM +0000, Russell King (Oracle) wrote:
-> On Mon, Feb 10, 2025 at 03:20:54PM +0200, Vladimir Oltean wrote:
-> > On Mon, Feb 10, 2025 at 10:36:44AM +0000, Russell King (Oracle) wrote:
-> > > diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-> > > index 898b00451bbf..0de78673172d 100644
-> > > --- a/include/linux/phylink.h
-> > > +++ b/include/linux/phylink.h
-> > > @@ -737,6 +737,18 @@ static inline int phylink_get_link_timer_ns(phy_interface_t interface)
-> > >  	}
-> > >  }
-> > >  
-> > > +/**
-> > > + * phylink_mac_implements_lpi() - determine if MAC implements LPI ops
-> > > + * @ops: phylink_mac_ops structure
-> > > + *
-> > > + * Returns true if the phylink MAC operations structure indicates that the
-> > > + * LPI operations have been implemented, false otherwise.
-> > 
-> > This is something that I only noticed for v3 because I wanted to leave a
-> > review tag, so I first checked the status in patchwork, but there it says:
-> > 
-> > include/linux/phylink.h:749: warning: No description found for return value of 'phylink_mac_implements_lpi'
-> > 
-> > I am aware of this conversation from November where you raised the point
-> > about tooling being able to accept the syntax without the colon as well:
-> > https://lore.kernel.org/netdev/87v7wjffo6.fsf@trenco.lwn.net/
-> > 
-> > but it looks like it didn't go anywhere, with Jon still preferring the
-> > strict syntax for now, and no follow-up that I can see. So, the current
-> > conventions are not these, and you haven't specifically said anywhere
-> > that you are deliberately ignoring them.
-> 
-> It was explained in this email as part of that thread:
-> 
-> https://lore.kernel.org/netdev/ZzjHH-L-ylLe0YhU@shell.armlinux.org.uk/
-> 
-> The reason is that it goes against natural grammar. The only time that
-> "Returns:" would make sense in grammar is when listing with e.g. a
-> bulleted list, where the part before the colon doesn't have to be a
-> complete sentence.
-> 
-> This is why it's going to be an uphill battle - grammatically it is
-> wrong, and thus it doesn't flow when thinking about documenting the
-> return value.
-> 
-> If we want to go to a bulleted list, then it will be natural to add
-> the colon.
-> 
-> I'm not going to explain to this level of detail in every email, and
-> because of the grammatical nature of this, it's going to be very
-> difficult to use a form that goes against proper grammar.
+Hi Krzysztof!
 
-Also note that it follows the style already present in that file
-with one exception (which is one of the few cases I remembered to use
-the new format.)
+On Mon, 2025-02-10 at 09:43 +0100, Krzysztof Kozlowski wrote:
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv=
+/boot/dts/sophgo/cv18xx-periph.dtsi
+> > new file mode 100644
+> > index 000000000000..53834b0658b2
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > @@ -0,0 +1,313 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+> > + */
+> > +
+> > +#include <dt-bindings/clock/sophgo,cv1800.h>
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/interrupt-controller/irq.h>
+> > +
+> > +/ {
+> > +	osc: oscillator {
+> > +		compatible =3D "fixed-clock";
+>=20
+> I really doubt that external oscillator is a peripheral. This is either
+> part of board or the SoC.
+>=20
+>=20
+> > +		clock-output-names =3D "osc_25m";
+> > +		#clock-cells =3D <0>;
+> > +	};
+> > +
+> > +	soc {
+> > +		compatible =3D "simple-bus";
+> > +		#address-cells =3D <1>;
+> > +		#size-cells =3D <1>;
+>=20
+> No, override by phandle/label instead of duplicating SoC.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Is this one critical? Otherwise I struggle in v2 to both keep
+SOC_PERIPHERAL_IRQ() in [a new] cv18xx-cpu.dtsi and reference &soc
+from cv18xx-cpu.dtsi. It's kind of circular-dependency.
+
+--=20
+Alexander Sverdlin.
+
 
