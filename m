@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94582C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0ACC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DG+imX9dr2ubf4YMc+TLFIKjF4sj7MoO1QzVZ11a5Es=; b=Iq1b5cIPTLu/biaPUK417a+tWr
-	UOhhqBCL5p6TS14g4w4LK9mJWzusZMbmMiTE1YuFJ1oyIZFyaHryDsaIDmgajhab69ddbbvbfjFCo
-	1VJr1DoMSlfLog/JZctnow746malj+g7H++p6mohS/oN1MxVpMGq2IDLbMyhUApIx80RmFWszTgLu
-	s9sgQ+eq7qodHx2HAlVLSr6IntPT8jqttsn3X0J5vxIMnHvcJaLfcQQiyRUq1Mj/uxIF2Av385fz5
-	HX2DAlVKm0R0zwuGLmHwG71sm0TnuLqUeu3Hww43Q2oRFWY/Jxpy0/LHNea2PEqfLP3e3QXcKJUoJ
-	rSDEGWRg==;
+	bh=K3MtQ5idC4oHoXTcpqKWeJSzAGrhCwaVTOUqmUG9xiY=; b=SdsNTWbzAxAl0oKya9CzH7XS8r
+	hmPVolZiAI2S1gPU6qybhqDKMQOae7KG0CdJXqoum7aiMgJY6qO5HwxICOr0vXeNQgO8QSf6V/n4b
+	jSBQtdXYgLyyibVBQ1MQUpSpoPu5GQm0qjUw4Bk+VEQpjCPqeF6SI61j5GHdBc95jUNZWWVvpMPZ/
+	xHL95ErgAVDpWuafPOthaMckrCEeK6qi+hk4wE6YbH0UZfGrXSAwQMhDgYAJAftLjM+GfOUbWo2Q6
+	Zw86rqgLzstwf9gxPX6AJ0QgtizAyJjluN1pjQoZHlyEBTM1iqsXqqM10D4oSIKd7sXpV4ALTijKz
+	GQS0Em/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thT1y-0000000HQIU-256Y;
-	Mon, 10 Feb 2025 12:36:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSvi-0000000HP1m-2Dq4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 12:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2C461BA8;
-	Mon, 10 Feb 2025 04:30:47 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A03C3F5A1;
-	Mon, 10 Feb 2025 04:30:19 -0800 (PST)
-Date: Mon, 10 Feb 2025 12:30:16 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 00/22] arm64: entry: Convert to generic entry
-Message-ID: <Z6nxWM8cnhd32yfW@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <c34ebe3f-b78a-1a17-0c6a-48d3874f8be9@huawei.com>
+	id 1thT3Z-0000000HQdp-2y7W;
+	Mon, 10 Feb 2025 12:38:33 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thT2B-0000000HQNI-1lxy;
+	Mon, 10 Feb 2025 12:37:08 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-434f398a171so3928975e9.2;
+        Mon, 10 Feb 2025 04:37:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739191025; x=1739795825; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=K3MtQ5idC4oHoXTcpqKWeJSzAGrhCwaVTOUqmUG9xiY=;
+        b=VtoVS4cO7naNzv5ghM2dlDD0Uv4a8qWduD+IFRfu3RlvhZIi6en3dtPJT0CYczwCjI
+         86xKbbRcTz9FW8rvhsoLwgC4RKo4xLaq0rgUeJMCj41MDX6sXHYfANzCOjjVJg3QbeFb
+         KWxu7BohGSz/hWiSXeA9Nxe1f1/nBqj32X/XbgoJBuI5GPXAZlXPd4qjP8PfgAGZpKLd
+         BYoazhCoWJrZ5DIkJhHTFz2CuM5aIryyyFULb96SVE/J82ZFHmuQuDo+a1n8xo4DJ/Aj
+         gLfbv2Azf2+f/jglb95hSHJtPcPuObe+rkJ0ZV/X6Vak9E9x5qeSwCf6VcD8iL7WHPLX
+         M4MQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739191025; x=1739795825;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K3MtQ5idC4oHoXTcpqKWeJSzAGrhCwaVTOUqmUG9xiY=;
+        b=M4Lf2mnswvROFMR75nzOKZAqv/OBVu+9jbQwGEG4DP6g0xcEw/WC+UPlMSPGyYvgyh
+         VsXLz0DLp3thGWcVijYrH3ePTp3EDujasWoZIK3Ix8LF+djRl52Bz/ixSA44FMn0idzA
+         UyDdnCAfKIAxp6cUv3vUoA+0HrGGrtqHYa8zKjQ2WOBqRqfAAS2CBqB8cxGT9JM58Ga9
+         p0VQ/Sfp0Dan9HCJC+e8BXwueNmNyzm8o7zNOv8/OmBBsoeqa/szKmfVa4Q/BQTur6xS
+         liZrzZD/I/3uwTeO/4HZ/X43jGJjS2uPFcPWnFpjVsJCdsHlVFsJ59ksnedazZR13lXp
+         xM9w==
+X-Forwarded-Encrypted: i=1; AJvYcCW5lcNtHcWoct9SAmISdxmsvTodn34Qh05sWN9ENAyWWUeJ14ZEDCSHLPFiXcGiTflDlZxy/ZMD0pLgApRCtgQ=@lists.infradead.org, AJvYcCXuOMKucdDm+AU2B1/sMsVIp60sX49te3rE5IyW9mPvyo3p0c+K5axTdvCwcmlO0nEQhFIKwgQevqHnQyL3HhDA@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa4xDYXGFuHKf83hPGI8JPEGVz4cVof4qG1ghzwPa2CjTuoKS9
+	SdOyRns8DItSwWlpz9a6SdjnpYY4A4oGfhqxhqivnjCj8QJbTHPG
+X-Gm-Gg: ASbGnctVOAYu1YulYd+jn7QblBHz+ZGRJgJ27R7R7PiN8zE7gvdS8jd9csc0IwUMtew
+	LXq/FfCSvA8nW4Wi5s0iE2Asz22N7bMfcwoY5W/qHIsKY+EaepY8g438uu1z+BzQJc/avRNr7rE
+	AxRJBOBs7aS5BGo8LUpX6M6BeVZcvGrP0lOlzPAX/hH1a34n0a/MBI5CYcAf7uyrNvpXUef6l4T
+	4d2EN0f7R3AMo3WvCXW3f6+KsnHyMkz2pREjk288/AuLvFVSZmWBFI20mRCqtm+4Y5c2EEZX0Fo
+	ETk=
+X-Google-Smtp-Source: AGHT+IFp/qrMqpF0QewcGTK19D8rZ6WhmzABzEYZiO2aWnKT/+1DEN2GE0Y0xC2bvfjR6EFR1vJt5w==
+X-Received: by 2002:a05:600c:3b24:b0:434:a0fd:95d0 with SMTP id 5b1f17b1804b1-439249af823mr44302995e9.4.1739191025313;
+        Mon, 10 Feb 2025 04:37:05 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd34f2af5sm7073731f8f.78.2025.02.10.04.37.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 04:37:04 -0800 (PST)
+Date: Mon, 10 Feb 2025 14:37:01 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net-next v2 2/3] net: dsa: allow use of phylink managed
+ EEE support
+Message-ID: <20250210123701.7gdt56l5m6t5c6ge@skbuf>
+References: <Z6YF4o0ED0KLqYS9@shell.armlinux.org.uk>
+ <E1tgO70-003ilF-1x@rmk-PC.armlinux.org.uk>
+ <20250207151959.jab2c36oejmdhf3k@skbuf>
+ <Z6Yn2jTVmbEmhPf9@shell.armlinux.org.uk>
+ <20250207213823.2uofelxulqxpdtka@skbuf>
+ <Z6aIGzHWdzF5Rlci@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c34ebe3f-b78a-1a17-0c6a-48d3874f8be9@huawei.com>
+In-Reply-To: <Z6aIGzHWdzF5Rlci@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_043026_625163_86A4DCC5 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20250210_043707_460717_C40AE3AA 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +112,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 08, 2025 at 09:15:08AM +0800, Jinjie Ruan wrote:
-> On 2024/12/6 18:17, Jinjie Ruan wrote:
-> > Currently, x86, Riscv, Loongarch use the generic entry. Convert arm64
-> > to use the generic entry infrastructure from kernel/entry/*. The generic
-> > entry makes maintainers' work easier and codes more elegant, which aslo
-> > removed a lot of duplicate code.
-> > 
-> > The main steps are as follows:
-> > - Make arm64 easier to use irqentry_enter/exit().
-> > - Make arm64 closer to the PREEMPT_DYNAMIC code of generic entry.
-> > - Split generic entry into generic irq entry and generic syscall to
-> >   make the single patch more concentrated in switching to one thing.
-> > - Switch to generic irq entry.
-> > - Make arm64 closer to the generic syscall code.
-> > - Switch to generic entry completely.
-> > 
-> > Changes in v5:
-> > - Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
-> > - Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
-> > - Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
-> > - Update "irqentry_state_t ret/irq_state" to "state"
-> >   to keep it consistently.
-> > - Use generic irq entry header for PREEMPT_DYNAMIC after split
-> >   the generic entry.
-> > - Also refactor the ARM64 syscall code.
-> > - Introduce arch_ptrace_report_syscall_entry/exit(), instead of
-> >   arch_pre/post_report_syscall_entry/exit() to simplify code.
-> > - Make the syscall patches clear separation.
-> > - Update the commit message.
-> 
-> Gentle Ping.
+On Fri, Feb 07, 2025 at 10:24:27PM +0000, Russell King (Oracle) wrote:
+> You may have noticed that I'm no longer putting as much effort into
+> cover messages - and this is precisely why. I honestly don't see
+> that there's any point in spending much time on cover messages anymore.
 
-I've left soem comments.
+I have things to do and places to be, and I'm sure you do too, so
+I won't drag this out more than I need to. I'll just give you one
+self-contained example of what bothers me, from this very thread.
+I'm not even expecting you to change all of a sudden, I know it's hard
+and takes time and a deeper understanding of what is happening.
 
-As I mentioned previously, I'd very much prefer that we do the syscall
-entry logic changes *later* (i.e. as a follow-up patch series), after
-we've got the irq/exception entry logic sorted.
+First of all, if "I tend not to read cover messages" isn't sarcastic
+when you've make it pretty obvious so many times that this is important
+to you, then I don't know what sarcasm is. So, your message starts off
+from the very beginning by not acknowledging the way in which your
+reaction is perceived.
 
-I reckon we've got just enough time to get the irq/exception entry
-changes ready this cycle, with another round or two of review. So can we
-please put the syscall bits aside for now? ... that and run all the
-tests you mention in patch 22 on the irq/exception entry changes alone.
+Then, your message goes off to justify your reaction by essentially
+reiterating what you've publicly said elsewhere about not being noticed,
+making things sew with no Singer sewing machines required, and what not.
+Apart from the fact that you seem to build certain expectations of others'
+reactions in your mind and behave bizarrely when they react differently
+to how you expect (or not at all), my personal problem is that you've
+responded to a complaint which was really hard for me to verbalize by
+talking about you, again. Everything I've said in the previous email,
+about you expecting more respect and attention than you are willing to
+give, still stands.
 
-Mark.
+You are an important and valued member of the community, but you don't
+have to be so hard on people when they don't rise to your expectations.
+Your inflexibility makes it difficult at least for me to find a place
+around you.
 
