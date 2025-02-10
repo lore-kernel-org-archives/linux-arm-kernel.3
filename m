@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235F5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579A5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Csho2nHTJojR4kG1I27uhgWuIKghIgeeXA2mkBpOoks=; b=uCLMZBiA++PaPkVvEM6vfGKM3c
-	+a7pY92hi58W19EdnC1CW0BxO7mFiyfK2Ip7RvtVFE2EexTHYNyBw6IkMI+eyy/pLDqK6NhrrIC/W
-	3chpeJ2biVimHbVFo/VIYQEZYT9p32dD7BIyGhjOkbxkh60o8dtUYVXcGX1H6rw7bss2i4rpgFI3j
-	L6lY/4YdY0XYSjw2eGO9czRGtxYTKi8Vv86n2LPaeExN2JyVdZ+MFl1Uv3ZU0qgW6ZYU1YHp675e3
-	t+z+9PRpWlU7BBoxQxOwYg7PZqyPRpsE/CIqR6BR5oJUa+kTq7Lz4vYLEjpcLlCR7/MZ7xkh+UF7y
-	6tuAqKdA==;
+	bh=aZNdFppSlq0cDLZO+YTLuS4/G5kJ54IvtSQ5XE5HyYA=; b=dwGoADqkrzoXJgrJQrLyycYnPG
+	nmldWSEgQEEqT3H/aYjA91ggno15gEU3jG9kEcHKXTpft+cXO9YA0QvUuLqNpuNiEh0JfoTHk9I0G
+	+bcrXDJdzoXdVXBBMxvFkPc/Tf2v78D/JiPUU+W5clp5cvfrKwFGIBSi1wcvtpy0vN1LZPPfMEL0k
+	dxe261V08WM3WwMxHZpK2/BUXDNengGO/Ji/lfDO4sJdcvfwOjTQRL6YPvRGXftgjgJBQwRzwWB9y
+	iN7iPejtic69RmOWlkCOomnIB+vC5socwtICpRgGUhH6lFxfngWBpwY8LtXCjDiNraPjTX/NXTFxu
+	W1BJpThg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQFG-0000000Gqtv-2lPg;
-	Mon, 10 Feb 2025 09:38:26 +0000
+	id 1thQGw-0000000Gr9K-1Iun;
+	Mon, 10 Feb 2025 09:40:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQ8Y-0000000GpNR-43nD
+	id 1thQFY-0000000Gqvw-35jG
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 09:31:30 +0000
+	Mon, 10 Feb 2025 09:38:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Csho2nHTJojR4kG1I27uhgWuIKghIgeeXA2mkBpOoks=; b=Lj6juPHdtwNkVoknQTMeTyGjbu
-	ESHY2wLJ/UG7qaJrJI1BNxOOU3YcTaJkDbs7PsZpK6Q0TMFnGr6Bf8zIGMDCPYxeYMYejSgboF2lc
-	xTArcGjyj21uefzndwThQM3TUxqVT9PECXaZcsu7uhVzU74aBVdGvt3afMR88sZexWiq+0Ka2MYPi
-	SQl46T8AvehS2MoevhlPLsiqPU/sFgJ//oneCsEjkJfrvZyVMTyp8St6+GDOvqpv5uaNn8XnK8om1
-	jnljKIpjGo9sAxVyoX/V0WJvJnsndn2PYoj5eslhh+872qTWAxgH+xryS1HN6v6aB/CItLPrY8YrC
-	fEy10S6w==;
+	bh=aZNdFppSlq0cDLZO+YTLuS4/G5kJ54IvtSQ5XE5HyYA=; b=IKNsHnYk54bczXBjOiiK9KSuXo
+	AQCUEK5sXuRJHiCBU9ZDN3bT7ZDR+dwAYsH/ce5Wn008Y4hP5JZdWqZm18pUsmWDYomEWD1qJ5yJ5
+	vr7krXy/ofteyNpbO4iNynYF8zi5JMMSg3opptUM63fvNrYK1MpNQBPEhZRHbisGumtLLFqMCmO9f
+	OQAbwUTRRjXNaBrigqDwf0A7Xavhq2ReqjiGLIKFfUw4rfcN3bayXUgt4W8lfzcieKymyGAlwLoXT
+	8xTaupf92LzLGIudZ9imJzPV3NTtim5ESHKPdltnK/mrOpVex8nepOSmuXAEafCkzVUjXHroBWtUT
+	YrgrW/5g==;
 Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQ8W-000000006lL-1e85;
-	Mon, 10 Feb 2025 09:31:28 +0000
+	id 1thQFV-000000006oP-46d0;
+	Mon, 10 Feb 2025 09:38:42 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id EE9B43003E1; Mon, 10 Feb 2025 10:31:27 +0100 (CET)
-Date: Mon, 10 Feb 2025 10:31:27 +0100
+	id 2424B300318; Mon, 10 Feb 2025 10:38:41 +0100 (CET)
+Date: Mon, 10 Feb 2025 10:38:40 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -59,7 +59,7 @@ Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
 Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-Message-ID: <20250210093127.GD10324@noisy.programming.kicks-ass.net>
+Message-ID: <20250210093840.GE10324@noisy.programming.kicks-ass.net>
 References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
@@ -82,18 +82,65 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, Feb 06, 2025 at 02:54:08AM -0800, Kumar Kartikeya Dwivedi wrote:
 
-> Additionally, eBPF programs attached to different parts of the kernel
-> can introduce new control flow into the kernel, which increases the
-> likelihood of deadlocks in code not written to handle reentrancy. There
-> have been multiple syzbot reports surfacing deadlocks in internal kernel
-> code due to the diverse ways in which eBPF programs can be attached to
-> different parts of the kernel.  By switching the BPF subsystem’s lock
-> usage to rqspinlock, all of these issues can be mitigated at runtime.
 
-Only if the called stuff is using this new lock. IIRC we've had a number
-of cases where eBPF was used to tie together 'normal' kernel functions
-in a way that wasn't sound. You can't help there.
+> Deadlock Detection
+> ~~~~~~~~~~~~~~~~~~
+> We handle two cases of deadlocks: AA deadlocks (attempts to acquire the
+> same lock again), and ABBA deadlocks (attempts to acquire two locks in
+> the opposite order from two distinct threads). Variants of ABBA
+> deadlocks may be encountered with more than two locks being held in the
+> incorrect order. These are not diagnosed explicitly, as they reduce to
+> ABBA deadlocks.
+> 
+> Deadlock detection is triggered immediately when beginning the waiting
+> loop of a lock slow path.
+> 
+> While timeouts ensure that any waiting loops in the locking slow path
+> terminate and return to the caller, it can be excessively long in some
+> situations. While the default timeout is short (0.5s), a stall for this
+> duration inside the kernel can set off alerts for latency-critical
+> services with strict SLOs.  Ideally, the kernel should recover from an
+> undesired state of the lock as soon as possible.
+> 
+> A multi-step strategy is used to recover the kernel from waiting loops
+> in the locking algorithm which may fail to terminate in a bounded amount
+> of time.
+> 
+>  * Each CPU maintains a table of held locks. Entries are inserted and
+>    removed upon entry into lock, and exit from unlock, respectively.
+>  * Deadlock detection for AA locks is thus simple: we have an AA
+>    deadlock if we find a held lock entry for the lock we’re attempting
+>    to acquire on the same CPU.
+>  * During deadlock detection for ABBA, we search through the tables of
+>    all other CPUs to find situations where we are holding a lock the
+>    remote CPU is attempting to acquire, and they are holding a lock we
+>    are attempting to acquire. Upon encountering such a condition, we
+>    report an ABBA deadlock.
+>  * We divide the duration between entry time point into the waiting loop
+>    and the timeout time point into intervals of 1 ms, and perform
+>    deadlock detection until timeout happens. Upon entry into the slow
+>    path, and then completion of each 1 ms interval, we perform detection
+>    of both AA and ABBA deadlocks. In the event that deadlock detection
+>    yields a positive result, the recovery happens sooner than the
+>    timeout.  Otherwise, it happens as a last resort upon completion of
+>    the timeout.
+> 
+> Timeouts
+> ~~~~~~~~
+> Timeouts act as final line of defense against stalls for waiting loops.
+> The ‘ktime_get_mono_fast_ns’ function is used to poll for the current
+> time, and it is compared to the timestamp indicating the end time in the
+> waiter loop. Each waiting loop is instrumented to check an extra
+> condition using a macro. Internally, the macro implementation amortizes
+> the checking of the timeout to avoid sampling the clock in every
+> iteration.  Precisely, the timeout checks are invoked every 64k
+> iterations.
+> 
+> Recovery
+> ~~~~~~~~
 
-As an example, eBPF calling strncpy_from_user(), which ends up in fault
-injection and badness happens -- this has been since fixed, but still.
+I'm probably bad at reading, but I failed to find anything that
+explained how you recover from a deadlock.
+
+Do you force unload the BPF program?
 
