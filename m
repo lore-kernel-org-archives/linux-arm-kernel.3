@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC21C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBE9C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLdsU1KFS3tVYEAjIFsi6WKlfhYjmE4PjmptYahFlqM=; b=A/2CAdlzaqGoAdIAzAj2DbE+ee
-	mwle7T2HP6Fp0ML5bdrNEvFaOK534J1sm1kd/5nF2whWVfEIZ+8o8VVry+olnkD2PZbf2qbXLZSLk
-	67jL6j9oWZdDQc1tJ/SHFz/+RkBehK9G7ZCOdEuRfq3KaJ3g4+33HtJpUatW1FJ9a2nYkicQh382A
-	XYKafEQ5VEwQ7QJ9NpQikZVMfIIbyBgYPs1O89jbr1EUmHT05v193svaGNOPfzT+jDuroWCgzSQjL
-	47p45GtN2V35ZV7vQ6VsW2YX0Top/XYhjj62eheEs9ru+TCl/nLO8Q/23bZGx1oc/fWk540raxRfM
-	FvY8jO0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ozhv3Vnu4lRs9Pkbjl4o5rRMNwS9TWIXe5qbazgH48Y=; b=1OsVQ61lJn4DOaHP6+wYXYXsuS
+	GU3FLfTmra8uGP6noJCjo8lEiHll+09AIPYyDP1kKt333YWeTHoIbsj26mJ3zfhoqG5C6px16fheg
+	QgX3DHo5Etn8dry3z6df6WyNijosIDzPqcoTTVwRppK6xYDbVa4wOLOuKtIHl1a08l9tUJGxWqhXy
+	zoTEGutmGysPNuYb0Ij06j5Ly59C6jvNgua2Jz2doWBqlAl2cM6CZwsvqlnzBHNfjg9Mn5jSOuZUX
+	rqTk/qNxVOd+3swN911K0Tqm07GQvaWVqpo3ag651MLEnZqSP1FafKmv1g0mNB0YBNt87DqLMk+x/
+	dWLV/9Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thc9k-00000001dZ6-2yhJ;
-	Mon, 10 Feb 2025 22:21:32 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1thcB8-00000001dll-1PiN;
+	Mon, 10 Feb 2025 22:22:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbyl-00000001bNV-1JYq;
-	Mon, 10 Feb 2025 22:10:12 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38dd93ace00so1136207f8f.1;
-        Mon, 10 Feb 2025 14:10:10 -0800 (PST)
+	id 1thc2z-00000001cEo-39Xz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 22:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Ozhv3Vnu4lRs9Pkbjl4o5rRMNwS9TWIXe5qbazgH48Y=; b=NQQbSo5JcWTaGu4dqCyUb+KRo1
+	H+ec0dDXpRfeo0HZgLtwFRpBgnmrlq2Dwev9ep8MQJVLzYLeVmUrKLpTLsWx+J+XV3G1O3TYcMgTI
+	f5Sf8rd64MizLeQCuyU+aDx//1Gp2SwY35naG0xDmZ5ICKkFmJ7iOx/gbq6TyJfXw7L5atxPRlcQr
+	qNNhg8gwjMFTFN5HAnJGJMoMYIECZJ/+W9qCYrOtmYTm+ZR5mJxoYMSOjY8gT1nyr9r/0lMGEg4a0
+	rpWsrSEeGFpus9DhBWXQjHyxlPtfAcA3yhzdezu5dkMBUjI02gyGGjvWjtnoGABYToxlv6NinpBZ7
+	vHNFdMig==;
+Received: from mail-wm1-x362.google.com ([2a00:1450:4864:20::362])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thc2v-00000000JR4-3tMZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 22:14:32 +0000
+Received: by mail-wm1-x362.google.com with SMTP id 5b1f17b1804b1-4394036c0efso10904295e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 14:14:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739225410; x=1739830210; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rLdsU1KFS3tVYEAjIFsi6WKlfhYjmE4PjmptYahFlqM=;
-        b=KwgFL+/FGfOM4ahLfhDzRCiLPIgc2qQ6vc0KeTArrKppaxA5icyfoBIBtfDl+c+xSZ
-         PuB1aG3W99px/3+D+VGGF7bMgN07MoVzkjd2Z8o0vl25DXXrQLEkFe1FZutuGixc+1Ah
-         Yn5R2E7dcKimkwIrPOJ7iW+zv9S8NFV9xd6k7xtsk3n9xT/X/g/Z9bw644IoUDwjiluX
-         4Sp8aDKb00O1fhlgfC0c9JhcrxBn7hLOnMleCmFdemGvlS6CrrHPThG6WI2l2bgWG7cQ
-         AZ+QCcKt4bh1eJ2cnY7Pfio5gkp/5E06C7tZZ1LVVWTGpHltc6/NqD4LxfCPcMV2gq+L
-         OrXg==
+        d=patrick-wildt-de.20230601.gappssmtp.com; s=20230601; t=1739225666; x=1739830466; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ozhv3Vnu4lRs9Pkbjl4o5rRMNwS9TWIXe5qbazgH48Y=;
+        b=OK1pBOpFbu30VUjjsE3rY9yrXHx2UDdyFBCRM/rblV/AUOtbp9ibJewfcE2SB6U3Eu
+         5z7IE007kMRza91eyLuMvCM/+BbZqXknR2Y3fGtRMYRlzwSuRfqlVeGIjKNIuJpE0k9S
+         na6wSEguOze4R6KImLcTCbvK9ScFTi6wTUErXFSIPnoW9vS7fx74oUDAtm8oPvmxF2wd
+         cg2/opDYg/o46W8A/Ha9WP3e2AqaNfws2qAnPbQlxGMJEitn/wBTJTGA26e6z7b4xARO
+         8lioH/4fuGAiG2qaDWNv4WA57SAUmkgVA1256nAKZcbnnxSoEZRhLtDoYxcKEf0oBZez
+         4Jjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739225410; x=1739830210;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rLdsU1KFS3tVYEAjIFsi6WKlfhYjmE4PjmptYahFlqM=;
-        b=IhvL8HB+y8lg5eO2HNnBT5vw8uku8etR623lO4l+Jp6BN6syeGV1eDXa7EqIqe90L+
-         ZBW0C2FFheNx7jNo/iUuXsZ9EtzB/oMzWuVBjjy436sqGQzqVje1edzTpajc5pY2EO6k
-         m81ZWF1FcC1cbNI9fqY7O3ymudSlRNz9QzQyG3w8yGB/9lmfD0EZYbpZWdgA/jGC2dOh
-         zg61HZQzIvWYGAH0EP4C/Hxf3WNreHsqHSHpexImeDDZQrinsytBqJ9/ynCrKnyhZRKs
-         YvB8LWcKeyHyuTPmD+V081WpcjxObcktR3S3SJjIKTd/AOEcxfGhIjIoESdTGM6dt93Z
-         aeVw==
-X-Forwarded-Encrypted: i=1; AJvYcCX/tzvcmNODyOM2aA0MiNlh2ZVZxxsu+dpEcbsrguyLfn5MWggHAFt721OQeeg9J7s6suiuo1RWCse4k3kr3itb@lists.infradead.org, AJvYcCXtKBgb5PE73ZCCasgWfKw0Co2l0fBhkGDnrV609wsLmj9W/eVodzxchcM6pkzOBeqVwUeOt+ojAJIOreE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWqxjr3OJ5R5Jadu5Y6s5FCXcXJOoJ0c9YZRA7suI5IcDcg+9F
-	C8jf40lIf9NK1eMp3ncqqzWbHJvB0Am2VUXyeVdukCP0Z2egIIp6
-X-Gm-Gg: ASbGncvMjpOqGAKk8k9DK+N3cRJ3y0ZmYK6FTD2GJI4+SqAhdLGZG1fUImrftff6phb
-	5koMf/yJstJMnsc2gQcN+Q4gwmRW7mqr1LDnO9louo/3ZiASj0xsdIzKRwSaBafSyg3vjWaPwMH
-	LIe7g5HPIMfvFjITsPJ/TPcTwpQjyMoQjIrIF+wwFB2KDXvI1dgBEwhHcpF8N9znWaM17+NW8+C
-	Wj1f7UV01CbI5n3L1UMXownSWWahYXObBdM4QVcZLwMPYkD9oT8AZpBEAvxwIQHc2iy/H6uePNH
-	KEs8ne5lj0SJbjroeIf2pXcwEDc2
-X-Google-Smtp-Source: AGHT+IFfMKN2DVPrE11x3bqwtEzG+jwRwo/EFICUaXgsePAhWGKTTHB2d0A9/IHfN0+E/tAfD1+HjQ==
-X-Received: by 2002:a05:6000:188f:b0:385:dc45:ea26 with SMTP id ffacd0b85a97d-38dc8daf01bmr8379732f8f.12.1739225409620;
-        Mon, 10 Feb 2025 14:10:09 -0800 (PST)
-Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde1dfaesm13443450f8f.90.2025.02.10.14.10.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 14:10:09 -0800 (PST)
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: soc@lists.linux.dev
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	linux-riscv@lists.infradead.org,
-	Haylen Chu <heylenay@outlook.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v2 7/7] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-Date: Mon, 10 Feb 2025 23:09:47 +0100
-Message-ID: <20250210220951.1248533-8-alexander.sverdlin@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
-References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+        d=1e100.net; s=20230601; t=1739225666; x=1739830466;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ozhv3Vnu4lRs9Pkbjl4o5rRMNwS9TWIXe5qbazgH48Y=;
+        b=FICKx83/RgUGQBj0gZT0W9Cu1drXsh0XvgkK+eZUzOxe/G0Mi1p9SCAL2WZRSIjvwl
+         M15O312tEZYO+CkroiBGHXdpiUGDWR9NdIg5RG1PC4VuHaeT7niqwSpRr4xXU9kJO4Hr
+         CkhcmARoBwi6Tc+EpPJdE/8WFwhtsRdqj+j8RGZPiVZBPwLCvYrutPqfj58OlYdYbyuP
+         kK/voBatchL7TJbzIWrVRF6K27js1zjn7iBjGG5R60uiC7n4hm5jFlSmTVyYqex+2L/Y
+         rlsZXqwxNr8+Spe7adRwDx2MYKrUzIFI3lLdNpHyaTwZc+AcUqnhWWnupyW9TH3PAkq6
+         l5dw==
+X-Forwarded-Encrypted: i=1; AJvYcCUPsKb83rRYSu0zGw7M4apOEe3eiZECCO0xZ8mzjAM7OcGakwPCWRp4ujKk1qsql9TQbfp563YYxQ+K377xZFvQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/x3BiySBYIv+gNkP9jW//Pu6IwT7hd+lgoiUi6/RcsY/5s0dK
+	vdK0KTuilF99ITwiOHIdns6WBwN08DeC/Af7FEXFbDmvvXeItplfzKpLiIVNV94nFvzH5Xyj1hN
+	wy+62wKsYAevRCQGQ3sTroZeV2KsTG27t
+X-Gm-Gg: ASbGncu5Hvj76kQ7lLJPbRksTDGl13opgWKtS+jJOOffkKRcDHAH9oZd5sVkfL56uwB
+	qamf03dT/KjSx0C6eMCprB7nwuFOyZ0RYEc1su1WMQwOA7eYLUGYlUjlfi8ayUOUsKho6M0tkCB
+	UxKK6CtNg7FS9xoufTgAybeE651gxm5/5B68qfrmKejBN0Hzgv5J2TxtIB4YEx+h++uru0hZnjh
+	+qHyGlN+zqg0CP305C+w3On03BxQ5wA1o1ajDTuEq8pKyHmtzd8beDOWDWYUtnSAHimMWUZjg2m
+	D1vroyf3wbTGVLvborxZIaJbKt9LqKYd
+X-Google-Smtp-Source: AGHT+IEtVEvJBTL7NTyIlWVziNX5ymcX1eXzKuEmInRMi/mZ4WjeAQ95vMBKEwBIFHdMmikZVxvQOGgC0ZpM
+X-Received: by 2002:a05:600c:8706:b0:439:350a:ab52 with SMTP id 5b1f17b1804b1-439350aacbemr93761305e9.30.1739225666202;
+        Mon, 10 Feb 2025 14:14:26 -0800 (PST)
+Received: from windev.fritz.box (pc19f8e2d.dip0.t-ipconnect.de. [193.159.142.45])
+        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-4391dfd4ef0sm9443255e9.37.2025.02.10.14.14.25
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 10 Feb 2025 14:14:26 -0800 (PST)
+X-Relaying-Domain: blueri.se
+Date: Mon, 10 Feb 2025 23:14:23 +0100
+From: Patrick Wildt <patrick@blueri.se>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add MNT Reform 2
+Message-ID: <Z6p6Pw34JsEa06Gc@windev.fritz.box>
+References: <Z5toOecuMiBXM6aF@windev.fritz.box>
+ <Z5tobRnjXmr4dl7j@windev.fritz.box>
+ <cd6edfed-08a8-44de-9bfb-5199fd2813fd@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cd6edfed-08a8-44de-9bfb-5199fd2813fd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_141011_354260_E7C091C6 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_221430_349746_88BFBD9A 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,56 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable ARCH_SOPHGO, pinctrl (built-in, required to boot), ADC as module.
-This defconfig is able to boot from SD card on Milk-V Duo Module 01
-evalboard.
+On Thu, Jan 30, 2025 at 01:05:45PM +0100, Krzysztof Kozlowski wrote:
+> On 30/01/2025 12:54, Patrick Wildt wrote:
+> > +		rk806_dvs1_slp: rk806_dvs1_slp {
+> 
+> No underscores in node names. Missing suffix also suggests this fails
+> tests, so standard disclaimer:
+> 
+> It does not look like you tested the DTS against bindings. Please run
+> `make dtbs_check W=1` (see
+> Documentation/devicetree/bindings/writing-schema.rst or
+> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+> for instructions).
+> Maybe you need to update your dtschema and yamllint. Don't rely on
+> distro packages for dtschema and be sure you are using the latest
+> released dtschema.
 
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
----
-Changelog:
-v2:
-- moved CLK_SOPHGO_CV1800 from Kconfig.platforms here;
+Hi Krzysztof,
 
- arch/arm64/configs/defconfig | 6 ++++++
- 1 file changed, 6 insertions(+)
+You were right, I did not know about that; thanks for bringing that to
+my attention!  I've prepared a v2 that I'll send out now which does seem
+to be happy with the schema, and hope fix those issues plus a few more.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cb7da4415599..865625ccf2c3 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -66,6 +66,7 @@ CONFIG_ARCH_RENESAS=y
- CONFIG_ARCH_ROCKCHIP=y
- CONFIG_ARCH_SEATTLE=y
- CONFIG_ARCH_INTEL_SOCFPGA=y
-+CONFIG_ARCH_SOPHGO=y
- CONFIG_ARCH_STM32=y
- CONFIG_ARCH_SYNQUACER=y
- CONFIG_ARCH_TEGRA=y
-@@ -650,6 +651,7 @@ CONFIG_PINCTRL_SM8450_LPASS_LPI=m
- CONFIG_PINCTRL_SC8280XP_LPASS_LPI=m
- CONFIG_PINCTRL_SM8550_LPASS_LPI=m
- CONFIG_PINCTRL_SM8650_LPASS_LPI=m
-+CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_GPIO_ALTERA=m
- CONFIG_GPIO_DAVINCI=y
- CONFIG_GPIO_DWAPB=y
-@@ -1398,6 +1400,7 @@ CONFIG_QCOM_HFPLL=y
- CONFIG_CLK_GFM_LPASS_SM8250=m
- CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
-+CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_QCOM=y
- CONFIG_TEGRA186_TIMER=y
-@@ -1517,6 +1520,7 @@ CONFIG_QCOM_SPMI_VADC=m
- CONFIG_QCOM_SPMI_ADC5=m
- CONFIG_ROCKCHIP_SARADC=m
- CONFIG_RZG2L_ADC=m
-+CONFIG_SOPHGO_CV1800B_ADC=m
- CONFIG_TI_ADS1015=m
- CONFIG_TI_AM335X_ADC=m
- CONFIG_IIO_CROS_EC_SENSORS_CORE=m
--- 
-2.48.1
+Please let me know if there's anything else that I might have missed.
 
+Thanks,
+Patrick
 
