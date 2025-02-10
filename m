@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25CDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235F5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=; b=W91ge/wnZpQep07maQGaArc6DG
-	XRPNfiM/n69mYEZ/VmA8gnCDpwJHIuL0wYHQWZpiI2p0YIoX1HmgjpWqxiFJL3FeKOnBcBQnmKXJR
-	GhjoOOf/hGSJ5RGztgzmBeSG6eaEO8xtZQSSFCi5fGkMoc1vreRR7f9aWH/87B08AOGy4A1GRhwoU
-	skfIyQRGwUTR0oiTkwP7WtPyCbaTFAJLiERFOFu00ocPd++rsDv4B6v9Whq0dZE632ptgJI4Xzb/Q
-	HJGrPX3qIXNc99vMWIfDR98aBkbylQ1vMv0sMVQYrH07zMt3D/KfDoR5cKpIJgUtdwETxKj4Wo/H2
-	vwW9lwnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Csho2nHTJojR4kG1I27uhgWuIKghIgeeXA2mkBpOoks=; b=uCLMZBiA++PaPkVvEM6vfGKM3c
+	+a7pY92hi58W19EdnC1CW0BxO7mFiyfK2Ip7RvtVFE2EexTHYNyBw6IkMI+eyy/pLDqK6NhrrIC/W
+	3chpeJ2biVimHbVFo/VIYQEZYT9p32dD7BIyGhjOkbxkh60o8dtUYVXcGX1H6rw7bss2i4rpgFI3j
+	L6lY/4YdY0XYSjw2eGO9czRGtxYTKi8Vv86n2LPaeExN2JyVdZ+MFl1Uv3ZU0qgW6ZYU1YHp675e3
+	t+z+9PRpWlU7BBoxQxOwYg7PZqyPRpsE/CIqR6BR5oJUa+kTq7Lz4vYLEjpcLlCR7/MZ7xkh+UF7y
+	6tuAqKdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQDt-0000000Gqdg-3sAO;
-	Mon, 10 Feb 2025 09:37:01 +0000
-Received: from mail-lj1-f179.google.com ([209.85.208.179])
+	id 1thQFG-0000000Gqtv-2lPg;
+	Mon, 10 Feb 2025 09:38:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQ8V-0000000GpLs-1ZeW
-	for linux-arm-kernel@lists.infradead.org;
+	id 1thQ8Y-0000000GpNR-43nD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 09:31:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Csho2nHTJojR4kG1I27uhgWuIKghIgeeXA2mkBpOoks=; b=Lj6juPHdtwNkVoknQTMeTyGjbu
+	ESHY2wLJ/UG7qaJrJI1BNxOOU3YcTaJkDbs7PsZpK6Q0TMFnGr6Bf8zIGMDCPYxeYMYejSgboF2lc
+	xTArcGjyj21uefzndwThQM3TUxqVT9PECXaZcsu7uhVzU74aBVdGvt3afMR88sZexWiq+0Ka2MYPi
+	SQl46T8AvehS2MoevhlPLsiqPU/sFgJ//oneCsEjkJfrvZyVMTyp8St6+GDOvqpv5uaNn8XnK8om1
+	jnljKIpjGo9sAxVyoX/V0WJvJnsndn2PYoj5eslhh+872qTWAxgH+xryS1HN6v6aB/CItLPrY8YrC
+	fEy10S6w==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1thQ8W-000000006lL-1e85;
 	Mon, 10 Feb 2025 09:31:28 +0000
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30227c56b11so44492111fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 01:31:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739179885; x=1739784685; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=;
-        b=wGOWE7OMb1QBPlwYACWcZDKVoSwaSTLMFgvG9WcPtNCH1YvllKZLwkLmbvmlnSbAdU
-         Rb5wyUnbArLdWcMxgNSMo4oeAerLF8rPJYZSuEpKZdJu/MQDQQRWqrHshew+2saIleuy
-         EjELFCQxhv3nJPi07pM/UFZLlXx25mYqhUaevvNJU0IDLsXt2Fd7olQN1KFcq67ofomp
-         A2nXjZ1OtJPmpIlHBDinLRWVVMehFxFXLnZ07YWWzLBShEIl4YAcNc6hmI8z3djLTy+y
-         sQRUJRlNBrrTxmLQEZNHFkBI10FGtad9/JJ9io+KBxWd5O4DjtZ6gMuSkauhXAW+QjDA
-         Q95w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739179885; x=1739784685;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ucIIiCS0ueGRQyU8ONCC0RQdQE11PYRCusiobKkbAOI=;
-        b=GaqU4tPb6aUiHO6Vjgph2aafw7lTLEEo/vlDlEdpW4+GnOK84IBg17qmxPg0FHKrbu
-         YtggnrxEC7cbs7fD3Ptvq9UJsvZFg9r0dte3ybBX9qFFMrycsbvvoSOfqIcwzPWmMfMr
-         MLoH1x7sahQxxDCWigQEahFZ6u3VLE6gBR7iyPdg+UeeGVZcPwjWDVB1/Fa2QlBb6iY9
-         Wr4w2rzVK7+jw8JFp79k3w8AQ/NTnDwqEWkOLiHbbPH8Zhm5KeZ3BTrlLozdf3aLAcAp
-         x7Poq/4v8SJShRgGxhewdXb1NLk7/RiRzPdoJcqKXYAp++A8msGeNOCO0PmQFDXf3PCj
-         bicQ==
-X-Gm-Message-State: AOJu0YynJldFkIRN//Z5tujJ5ar7sdWwDVEHkI5tnxod/J7DJJXED4g8
-	b9G9GPQduuYsIlSzGLT22U+7jDeTi3VfTZkHGUx5pkyR5z8OAuOj/IwalNNt1Jk=
-X-Gm-Gg: ASbGncu3lF9rdShDy4I3YBTvyKi9rZoM+v7G08Buth0kWokbBFAX4ZfRPb0w/3Hfp3v
-	QRy63ZwP2wDrqdU8Zp1AgCi3XKISQ3tZT0ugS59xH5tmMh85vqphQa+2yYvXXobnnN4FxP9LGOi
-	aPz5XHhS8MBQTN1c/4qEka4Kpl3TmkfpeFjDrezWDWaHmC1Y6kNhzuUQ5kkScGFRMD/lq9LNNPx
-	oxHMuIoJz4JJ9Wcjr85fuIKIKmhjo7kP7ubMCZ3hLrI/dKU310cW/7DwUCdI1UOBBuF2N+YV8aU
-	xzVE+tfMd52Y/5Zk6cEmy6JqVQ==
-X-Google-Smtp-Source: AGHT+IFtvwueQ7c+e3PaLKf98HVOX1kUVt+8R0wzkEbCYyYeWULHWatmu5uSjWQeTxr/KOcvLpBuRA==
-X-Received: by 2002:a2e:be89:0:b0:302:3356:7c55 with SMTP id 38308e7fff4ca-307e58002e2mr35606591fa.10.1739179885076;
-        Mon, 10 Feb 2025 01:31:25 -0800 (PST)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307e09a1df7sm11645321fa.23.2025.02.10.01.31.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 01:31:24 -0800 (PST)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 10 Feb 2025 10:31:17 +0100
-Subject: [PATCH 3/3] ARM: dts: ixp4xx: Add Netgear WG302 v1 GPIOs
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EE9B43003E1; Mon, 10 Feb 2025 10:31:27 +0100 (CET)
+Date: Mon, 10 Feb 2025 10:31:27 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
+Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
+Message-ID: <20250210093127.GD10324@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250210-ixp4xx-dts-v1-3-6b752d745e04@linaro.org>
-References: <20250210-ixp4xx-dts-v1-0-6b752d745e04@linaro.org>
-In-Reply-To: <20250210-ixp4xx-dts-v1-0-6b752d745e04@linaro.org>
-To: Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_013127_425980_2B739657 
-X-CRM114-Status: GOOD (  12.66  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250206105435.2159977-1-memxor@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,64 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds GPIO LED indicators, the reset GPIO RESET
-button on the Netgear WG302 v1 to the device tree.
+On Thu, Feb 06, 2025 at 02:54:08AM -0800, Kumar Kartikeya Dwivedi wrote:
 
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- .../dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts | 30 ++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+> Additionally, eBPF programs attached to different parts of the kernel
+> can introduce new control flow into the kernel, which increases the
+> likelihood of deadlocks in code not written to handle reentrancy. There
+> have been multiple syzbot reports surfacing deadlocks in internal kernel
+> code due to the diverse ways in which eBPF programs can be attached to
+> different parts of the kernel.  By switching the BPF subsystem’s lock
+> usage to rqspinlock, all of these issues can be mitigated at runtime.
 
-diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
-index af7b6a976d3dd61f3c6846c73b8788437dea20e3..a351a97d257ead984a3ee05a8a0e50714ad7fb43 100644
---- a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
-+++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-netgear-wg302v1.dts
-@@ -8,6 +8,7 @@
- 
- #include "intel-ixp42x.dtsi"
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
- 
- / {
- 	model = "Netgear WG302 v1";
-@@ -32,6 +33,35 @@ aliases {
- 		serial0 = &uart1;
- 	};
- 
-+	leds {
-+		compatible = "gpio-leds";
-+		test_led: led-test {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = "test";
-+			gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+		wlan_led: led-wlan {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_WLAN;
-+			gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+			linux,default-trigger = "phy0tx";
-+		};
-+	};
-+
-+	gpio_keys {
-+		/* RESET is on GPIO13 which can't fire interrupts */
-+		compatible = "gpio-keys-polled";
-+		poll-interval = <100>;
-+
-+		button-reset {
-+			linux,code = <KEY_RESTART>;
-+			label = "reset";
-+			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
- 	soc {
- 		bus@c4000000 {
- 			flash@0,0 {
+Only if the called stuff is using this new lock. IIRC we've had a number
+of cases where eBPF was used to tie together 'normal' kernel functions
+in a way that wasn't sound. You can't help there.
 
--- 
-2.48.1
-
+As an example, eBPF calling strncpy_from_user(), which ends up in fault
+injection and badness happens -- this has been since fixed, but still.
 
