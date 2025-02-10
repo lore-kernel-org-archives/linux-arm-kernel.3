@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A316C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17ACC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B6ggq/pyh8BruG6Tby5lwo74ycAmxn0aHxBaO86kD1g=; b=DvUyPxya6mQ63JdBMhC2Xz1PxL
-	3lQoiiMgRuyGZRGpOH6BOoZEpmlRbdI+kWxGegnXL37bSJYdo2zp+gOWmbx80m1srppLGC6Y54ZF7
-	CcL49TS+Dfq3YD7MUlgqps8wrFUWfF6M+yl0eujglIgQg7kSMs/oFkQ6TMzdicslpmXYRb9ttqQD5
-	tDBDobv0QrXxzm7UFDsa8+nfTc08y555mVfOlUHCjM9kBNA5ialyQrc/+hnFuv9FFFLCnOk0RSBl/
-	3DhJ2kG4TdO1HwdZprKyYeLU+stbPzlUm8frBjnL37u4uZBS+7Yi+b9xSUBAMWMKyUwWPmgTbOEWo
-	kVi15VIw==;
+	bh=2CMQYZkizRaDcYFMW5NJlLqAOY1oiPpLao1gkzCKgKE=; b=lHQkc2AkR0pCA3csGae69itB1i
+	dqdp0ZxRO2S7KvInRO03rU9/Z4HbPZhBZTO2ZB/Q5qO6iKk4+fCO2b6j7dczy0afJNxyQjcYakQ/n
+	YJceYGfCdemzYsjBwLE3mS3ERbGzntznADQ2KkJ6aIUOY/BlAS38Pb/gE3cD7tPylAIZ/aYD8+q/V
+	tMHbyz300ibIOKr/4uiAzxxW+dCriaDSTiZfJ94JKzXrFSpVm5oVfZkw1+eNxnPepIlxQq+6Jt+Ym
+	abiNoT9241za1pCKDGYscHL2hIUL9i2ER45q0tNBYxbKlm2uhgwZsN0TEwsDeOej+Q7MIU7ubQQQP
+	qcESBfoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thU7X-0000000015I-3HDt;
-	Mon, 10 Feb 2025 13:46:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thU8v-000000001Qj-07s6;
+	Mon, 10 Feb 2025 13:48:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTvR-0000000HZQR-1mCL;
-	Mon, 10 Feb 2025 13:34:14 +0000
+	id 1thU00-0000000HalQ-14hB;
+	Mon, 10 Feb 2025 13:38:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 166F2A41520;
-	Mon, 10 Feb 2025 13:32:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57F3C4CEDF;
-	Mon, 10 Feb 2025 13:34:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 255905C47AE;
+	Mon, 10 Feb 2025 13:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099F6C4CED1;
+	Mon, 10 Feb 2025 13:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739194452;
-	bh=4DlgjSFn0QMI0/1fBAnmN1oPlM4e+NJXY8IGyYSczYg=;
+	s=korg; t=1739194735;
+	bh=iGBBT7vCWFuCFiwwJZtwaDq6RhcZKCgnlQPmXhmSpbc=;
 	h=Subject:To:Cc:From:Date:From;
-	b=hkqM0yZCcGvDRgZm0ohqlfG9AUa7eo59gb8+yadmRgZVRT5iED/tr074szp6NrWYO
-	 wtR6v97EOFghQuzFFG174UgVkatNWrYUMzm3eqFbt6KLPljqGKNVRmYCV7luCoUnBV
-	 aHEtkJFH6w76nZ81TA6PH9htajFvW1kcvEnR+tI0=
-Subject: Patch "drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()" has been added to the 6.13-stable tree
+	b=D4aG5tn8Gj6XbQmxeHfXi5MBGOqR+Pa5tVcIrXGayOWkbP7nSzp2mGUghmqdHYuqy
+	 grHEZhwjoJwlyZoWTRkY+xmoxD83pCqz7bFkhZf4e4ZK4PRmJ6VMk2jIXIKoUyH+/n
+	 1OVnaloXj1qh0Ay69/Mq+nlFtiNl8oPRCv6ci1sY=
+Subject: Patch "drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()" has been added to the 6.12-stable tree
 To: andy.yan@rock-chips.com,dri-devel@lists.freedesktop.org,gregkh@linuxfoundation.org,groeck@chromium.org,heiko@sntech.de,hjc@rock-chips.com,linux-arm-kernel@lists.infradead.org,linux-rockchip@lists.infradead.org,tzimmermann@suse.de,zyw@rock-chips.com
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Mon, 10 Feb 2025 14:31:47 +0100
-Message-ID: <2025021047-brick-cupid-ef03@gregkh>
+Date: Mon, 10 Feb 2025 14:32:50 +0100
+Message-ID: <2025021050-deviancy-skylight-35aa@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_053413_592898_2CABB354 
+X-CRM114-CacheID: sfid-20250210_053856_388603_E477F3EB 
 X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,12 +71,12 @@ This is a note to let you know that I've just added the patch titled
 
     drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
 
-to the 6.13-stable tree which can be found at:
+to the 6.12-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      drm-rockchip-cdn-dp-use-drm_connector_helper_hpd_irq_event.patch
-and it can be found in the queue-6.13 subdirectory.
+and it can be found in the queue-6.12 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -159,9 +159,8 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 Patches currently in stable-queue which might be from tzimmermann@suse.de are
 
-queue-6.13/drm-rockchip-cdn-dp-use-drm_connector_helper_hpd_irq_event.patch
-queue-6.13/drm-client-handle-tiled-displays-better.patch
-queue-6.13/drm-modeset-handle-tiled-displays-in-pan_display_atomic.patch
-queue-6.13/drm-ast-astdp-fix-timeout-for-enabling-video-signal.patch
-queue-6.13/m68k-vga-fix-i-o-defines.patch
+queue-6.12/drm-rockchip-cdn-dp-use-drm_connector_helper_hpd_irq_event.patch
+queue-6.12/drm-client-handle-tiled-displays-better.patch
+queue-6.12/drm-modeset-handle-tiled-displays-in-pan_display_atomic.patch
+queue-6.12/m68k-vga-fix-i-o-defines.patch
 
