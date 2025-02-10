@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C240AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5F3C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nfqPS2lhPU1dzZEUGrsJGI43zV+HOtW8Mmns6MUEHpM=; b=p6UKZZKQ9MnZM+ZctcvtPYAqDa
-	mfwYBhZPkhQyVc/q1hKOHxMHkLVadW9YJSg3ow+690Pe1WzI+4IENdgsWZ2sDCsogacA5P9MON0g4
-	mAggCFvjLFZ8TnEjYAFk2ez06CUCwsiF4Rl7SEM1p+JsczkK7pTfgrvBpWQqhuLmoX1NCm2B5HzE1
-	XRzJ2tVM0G0HnMZIcOt9I5WhUN+vANv1wFM2MBDJyq/Lz0U6sbK83lwW/km68dg9U+6qbEN2JXXCZ
-	68ASSlB1KsYkTvgWQkr70+WKqyZZjSqek3/x44GkQrBVzqETWMW8bPDrEt0oA349TvdxDaIHFO98L
-	skVq4s+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=twuopEHjY+l/yM+eHpsnx9D+l0sU+uPOGYaQvqwJ34Y=; b=F+A1kbsPUWtxChj7QN4jkmMajM
+	1J1Z0xfN0ci7sAdP02DsGD/ZyJaXKPFPks+ycRpckqszHbp818xEx/df6JY9JAlCQuL/vowUIl+ec
+	bPQrlNc0jUqNXiOz4KtoymS8XfXP366+7zUfgcSoNZzfQlZ203ShZBBxwE1V23vadfwHgPsnpoD7K
+	50eTD2WyCBZAXTFs4YUfg8F2wDlo1H8X3SxqR2+nrd81Es6bx3152DYyqa897xa/3tGMO9BnDt8FZ
+	oBdnIrM7WGyI2ZXy9cq9WWeGanQCrGir99CWDil86e8VRpwehJRvEGaFbIYoXDiq0z23PWvCXl9RD
+	7G4C0TvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWqY-00000000YSh-1j4q;
-	Mon, 10 Feb 2025 16:41:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thWrw-00000000YoR-0CI2;
+	Mon, 10 Feb 2025 16:42:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWnf-00000000Y1M-0mPs
+	id 1thWoW-00000000YAS-1pcx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:38:24 +0000
+	Mon, 10 Feb 2025 16:39:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5F882A41AB4;
-	Mon, 10 Feb 2025 16:36:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF6EC4CEDF;
-	Mon, 10 Feb 2025 16:38:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1DC21A41AB1;
+	Mon, 10 Feb 2025 16:37:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7612C4CED1;
+	Mon, 10 Feb 2025 16:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739205501;
-	bh=BrlyBYOHdwmEYDayFxtlpA2iHNc6mrkE85rK5gs1YDc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=j5rBXBskdQQ38yxaaxqxcwOdrQ2n2Dl6Zq0oIrI3k4mWojL9/cCGlYVeEp5XEJOS7
-	 jPngsYrLr1GuSsaEL/WxEmMAUXLp1GtbV4VPsi7DAmD9g1x0jAQpgG1VtrK1O+ED9/
-	 7JOvaJJSZhi7B8TbX4SUrdvRZ6ARbeFOmTUkaD5QYU+xk1QUL/uh6sORIBnS8SUk67
-	 ult7oNQFW7EQubwCCSO4IbkaZyRPoXApc9QXXUHZit8/w5bgyDLRbH0b2qmTpxWOJa
-	 q8F1/Xa/7x2y8pISaNDSMlW4ZbsFGAgWSzraNt6ZRni6ttjiNkg+lN9WnEGUnAzxdx
-	 io3Bh9dt7+mBQ==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
-	Boqun Feng <boqun.feng@gmail.com>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@lists.linux.dev,
-	stable@vger.kernel.org,
-	Matthew Maurer <mmaurer@google.com>,
-	Ralf Jung <post@ralfj.de>,
-	Jubilee Young <workingjubilee@gmail.com>
-Subject: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat target
-Date: Mon, 10 Feb 2025 17:37:32 +0100
-Message-ID: <20250210163732.281786-1-ojeda@kernel.org>
+	s=k20201202; t=1739205555;
+	bh=zBjbBU1Nue8L7MN3bQCSRhEpfSUoOdHKNZD8vOvv7L0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XLQLTDiTeiHzk/qyhW9ivMiUSlqCTySZkOICCKSaWhRhk/kmmGWXg8JFTEs7d4Aju
+	 WS7M3zfk5YmMIOPWa7jCMKa4K44ebuPyoxbcK70ZkEiOvfLilhcBXHX1WKqREYtjRw
+	 G0OqQFOR+ouCc1jNrTczi5saa1gCw8NQXbHUsx6B6HBJbCDLBAjXxSizcn4zS8UZ/J
+	 tyxI0/JGpmWnqB32MCnZMVKARC8YbTYrZcW7DwLXN+xMgz1ctehtFnm1weEytQXx9X
+	 zGH8ucM9JCon5V8l/1ShaXqychsPmyJGFeWA5G/6Y118mZztlaof3XZQAKFiD7e5GS
+	 oqVStBWrvK0CA==
+Date: Mon, 10 Feb 2025 16:39:09 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
+	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
+	tabba@google.com, wilco.dijkstra@arm.com
+Subject: Re: [PATCH v2 7/8] KVM: arm64: Mark some header functions as inline
+Message-ID: <20250210163909.GH7568@willie-the-truck>
+References: <20250206141102.954688-1-mark.rutland@arm.com>
+ <20250206141102.954688-8-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206141102.954688-8-mark.rutland@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_083823_353911_E7BE20D3 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250210_083916_614219_790DBF85 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Starting with Rust 1.85.0 (to be released 2025-02-20), `rustc` warns
-[1] about disabling neon in the aarch64 hardfloat target:
+On Thu, Feb 06, 2025 at 02:11:01PM +0000, Mark Rutland wrote:
+> The shared hyp switch header has a number of static functions which
+> might not be used by all files that include the header, and when unused
+> they will provoke compiler warnings, e.g.
+> 
+> | In file included from arch/arm64/kvm/hyp/nvhe/hyp-main.c:8:
+> | ./arch/arm64/kvm/hyp/include/hyp/switch.h:703:13: warning: 'kvm_hyp_handle_dabt_low' defined but not used [-Wunused-function]
+> |   703 | static bool kvm_hyp_handle_dabt_low(struct kvm_vcpu *vcpu, u64 *exit_code)
+> |       |             ^~~~~~~~~~~~~~~~~~~~~~~
+> | ./arch/arm64/kvm/hyp/include/hyp/switch.h:682:13: warning: 'kvm_hyp_handle_cp15_32' defined but not used [-Wunused-function]
+> |   682 | static bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
+> |       |             ^~~~~~~~~~~~~~~~~~~~~~
+> | ./arch/arm64/kvm/hyp/include/hyp/switch.h:662:13: warning: 'kvm_hyp_handle_sysreg' defined but not used [-Wunused-function]
+> |   662 | static bool kvm_hyp_handle_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code)
+> |       |             ^~~~~~~~~~~~~~~~~~~~~
+> | ./arch/arm64/kvm/hyp/include/hyp/switch.h:458:13: warning: 'kvm_hyp_handle_fpsimd' defined but not used [-Wunused-function]
+> |   458 | static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
+> |       |             ^~~~~~~~~~~~~~~~~~~~~
+> | ./arch/arm64/kvm/hyp/include/hyp/switch.h:329:13: warning: 'kvm_hyp_handle_mops' defined but not used [-Wunused-function]
+> |   329 | static bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
+> |       |             ^~~~~~~~~~~~~~~~~~~
+> 
+> Mark these functions as 'inline' to suppress this warning. This
+> shouldn't result in any functional change.
+> 
+> At the same time, avoid the use of __alias() in the header and alias
+> kvm_hyp_handle_iabt_low() and kvm_hyp_handle_watchpt_low() to
+> kvm_hyp_handle_memory_fault() using CPP, matching the style in the rest
+> of the kernel. For consistency, kvm_hyp_handle_memory_fault() is also
+> marked as 'inline'.
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 19 +++++++++----------
+>  1 file changed, 9 insertions(+), 10 deletions(-)
 
-    warning: target feature `neon` cannot be toggled with
-             `-Ctarget-feature`: unsound on hard-float targets
-             because it changes float ABI
-      |
-      = note: this was previously accepted by the compiler but
-              is being phased out; it will become a hard error
-              in a future release!
-      = note: for more information, see issue #116344
-              <https://github.com/rust-lang/rust/issues/116344>
+Acked-by: Will Deacon <will@kernel.org>
 
-Thus, instead, use the softfloat target instead.
-
-While trying it out, I found that the kernel sanitizers were not enabled
-for that built-in target [2]. Upstream Rust agreed to backport
-the enablement for the current beta so that it is ready for
-the 1.85.0 release [3] -- thanks!
-
-However, that still means that before Rust 1.85.0, we cannot switch
-since sanitizers could be in use. Thus conditionally do so.
-
-Cc: <stable@vger.kernel.org> # Needed in 6.12.y and 6.13.y only (Rust is pinned in older LTSs).
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Matthew Maurer <mmaurer@google.com>
-Cc: Alice Ryhl <aliceryhl@google.com>
-Cc: Ralf Jung <post@ralfj.de>
-Cc: Jubilee Young <workingjubilee@gmail.com>
-Link: https://github.com/rust-lang/rust/pull/133417 [1]
-Link: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/arm64.20neon.20.60-Ctarget-feature.60.20warning/near/495358442 [2]
-Link: https://github.com/rust-lang/rust/pull/135905 [3]
-Link: https://github.com/rust-lang/rust/issues/116344
-Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
----
-Matthew: if you could please give this a go and confirm that it is fine
-for Android (with sanitizers enabled, for 1.84.1 and 1.85.0), then a
-Tested-by tag would be great. Thanks!
-
-I would like to get this one into -rc3 if possible so that by the time
-the compiler releases we are already clean.
-
-I am sending another patch to introduce `rustc-min-version` and use it
-here, but I am doing so after this one rather than before so that this
-fix can be as simple as possible.
-
- arch/arm64/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 358c68565bfd..2b25d671365f 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -48,7 +48,11 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
- KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
- KBUILD_AFLAGS	+= $(compat_vdso)
-
-+ifeq ($(call test-ge, $(CONFIG_RUSTC_VERSION), 108500),y)
-+KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
-+else
- KBUILD_RUSTFLAGS += --target=aarch64-unknown-none -Ctarget-feature="-neon"
-+endif
-
- KBUILD_CFLAGS	+= $(call cc-option,-mabi=lp64)
- KBUILD_AFLAGS	+= $(call cc-option,-mabi=lp64)
-
-base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
---
-2.48.1
+Will
 
