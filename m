@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378F4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC46C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9do5zv6WIomCOMNIvZNZA7b88Z82prAKLGB7Owb+yw=; b=Ez5mDT9esVlecAen5ZK2iGS/k7
-	aS3MZiHCTLBfjBk7JPf7ull0a+i1Fty782seJ9Rqa35inmRz69O6w0JnIroZR//QbD3v3bKQcvo2F
-	GEfSVrhO5Fa8VpmMXLtt27JChQVgs09Z24k8choBIKcYA/wSM/10aTo46jmOnblrakvKGHes4xUHe
-	lLAvHqaXFlprLOaKqfmcVOLL96+AiMkKDoyJDaWapL8r+mQHrgZo1C2eiYVc96Uu+DJwM3ewvCgtF
-	HgJgMEzhu/Y8bGpJCXWGY+4AUUIaVR3w3I/+CwCVLQPFj0nW4ZIqtMRoxU/UBOmas3wsZYmag1ZxY
-	1MPT994w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hwD1lIdtcJvdTFhSGkZrNjpxJv3lx+G0x/gy4Oqkqlg=; b=hB2N9Vjx6teLUBvlr3O+HaS0Yz
+	Y01jDrxmW1gZDPuXHZHD5wFw9s8Gctx1/NLcBFFAXh8jV7RtXv7HJn91egveEYdRkt93JkrrtSiCp
+	/Y2ImW2ROBVMiemvopW+kBqNvJQPFhBshY9lHDjg8r9D+DNU4I/SvezsHTkhuq8O+d97dzHji8U7n
+	upMEI30kdSAg4yv4wZ0iDmdNdXB0dNYX/rn//Eo5p4xttkcA40pXBZyovFyj/ymV7Xmv6WN3EnmpO
+	QUt8SBD444jAu+70GlVQs2rSU9eX7ba+FLEaeXd+SYICATBzpfBwuUohe6qFNfx7ZTHdykd5dpXZt
+	/qnuvjqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thO43-0000000GUwV-0Pc8;
-	Mon, 10 Feb 2025 07:18:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thNwy-0000000GU42-2KBY
+	id 1thOC4-0000000GVtK-18Wc;
+	Mon, 10 Feb 2025 07:27:00 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thOAf-0000000GVj1-0qNO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 07:11:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4217A1BA8;
-	Sun,  9 Feb 2025 23:11:43 -0800 (PST)
-Received: from [10.163.35.99] (unknown [10.163.35.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3504B3F58B;
-	Sun,  9 Feb 2025 23:11:12 -0800 (PST)
-Message-ID: <7e184caf-2447-48d4-8d7c-1b63deb0f418@arm.com>
-Date: Mon, 10 Feb 2025 12:41:13 +0530
+	Mon, 10 Feb 2025 07:25:35 +0000
+Date: Sun, 9 Feb 2025 23:25:20 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739172327;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hwD1lIdtcJvdTFhSGkZrNjpxJv3lx+G0x/gy4Oqkqlg=;
+	b=kXBzap/gTr4HWJcRXQDm7DOBGfeTNHMzoNaXlGUNiV7By6TX5/ld3/RKw3r36+uzamfZRI
+	9kgaxEmEWNycuEOd4PYpqoSR5TDvsEOojoBeDhe2bivBUMSPju67z9EPUaf4pn2VbQBK1g
+	p83LqS1ZQhg3kef6BQ6B20f6CBvi5hs=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v2 2/4] perf: arm_pmuv3: Introduce module param to
+ partition the PMU
+Message-ID: <Z6mp4NeklzORJg5y@linux.dev>
+References: <20250208020111.2068239-1-coltonlewis@google.com>
+ <20250208020111.2068239-3-coltonlewis@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 14/16] mm/vmalloc: Batch arch_sync_kernel_mappings()
- more efficiently
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-15-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250205151003.88959-15-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250208020111.2068239-3-coltonlewis@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_231124_686169_CB0FB72E 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250209_232534_010596_571E1624 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,176 +78,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/5/25 20:39, Ryan Roberts wrote:
-> When page_shift is greater than PAGE_SIZE, __vmap_pages_range_noflush()
-> will call vmap_range_noflush() for each individual huge page. But
-> vmap_range_noflush() would previously call arch_sync_kernel_mappings()
-> directly so this would end up being called for every huge page.
-> 
-> We can do better than this; refactor the call into the outer
-> __vmap_pages_range_noflush() so that it is only called once for the
-> entire batch operation.
+Hi Colton,
 
-This makes sense.
-
+On Sat, Feb 08, 2025 at 02:01:09AM +0000, Colton Lewis wrote:
+> For PMUv3, the register MDCR_EL2.HPMN partitiones the PMU counters
+> into two ranges where counters 0..HPMN-1 are accessible by EL1 and, if
+> allowed, EL0 while counters HPMN..N are only accessible by EL2.
 > 
-> This will benefit performance for arm64 which is about to opt-in to
-> using the hook.
+> Introduce a module parameter in the PMUv3 driver to set this
+> register. The name reserved_host_counters reflects the intent to
+> reserve some counters for the host so the guest may eventually be
+> allowed direct access to a subset of PMU functionality for increased
+> performance.
 > 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  mm/vmalloc.c | 60 ++++++++++++++++++++++++++--------------------------
->  1 file changed, 30 insertions(+), 30 deletions(-)
+> Track HPMN and whether the pmu is partitioned in struct arm_pmu
+> because KVM will need to know that to handle guests correctly.
 > 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 68950b1824d0..50fd44439875 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -285,40 +285,38 @@ static int vmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->  
->  static int vmap_range_noflush(unsigned long addr, unsigned long end,
->  			phys_addr_t phys_addr, pgprot_t prot,
-> -			unsigned int max_page_shift)
-> +			unsigned int max_page_shift, pgtbl_mod_mask *mask)
->  {
->  	pgd_t *pgd;
-> -	unsigned long start;
->  	unsigned long next;
->  	int err;
-> -	pgtbl_mod_mask mask = 0;
->  
->  	might_sleep();
->  	BUG_ON(addr >= end);
->  
-> -	start = addr;
->  	pgd = pgd_offset_k(addr);
->  	do {
->  		next = pgd_addr_end(addr, end);
->  		err = vmap_p4d_range(pgd, addr, next, phys_addr, prot,
-> -					max_page_shift, &mask);
-> +					max_page_shift, mask);
->  		if (err)
->  			break;
->  	} while (pgd++, phys_addr += (next - addr), addr = next, addr != end);
->  
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(start, end);
-> -
->  	return err;
->  }
+> While FEAT_HPMN0 does allow HPMN to be set to 0, this patch
+> specifically disallows that case because it's not useful given the
+> intention to allow guests access to their own counters.
 
-arch_sync_kernel_mappings() gets dropped here and moved to existing
-vmap_range_noflush() callers instead.
+Quite the contrary.
 
->  
->  int vmap_page_range(unsigned long addr, unsigned long end,
->  		    phys_addr_t phys_addr, pgprot_t prot)
->  {
-> +	pgtbl_mod_mask mask = 0;
->  	int err;
->  
->  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
-> -				 ioremap_max_page_shift);
-> +				 ioremap_max_page_shift, &mask);
-> +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> +		arch_sync_kernel_mappings(addr, end);
+FEAT_HPMN0 is useful if userspace wants to provide a vPMU that has a
+fixed cycle counter w/o event counters. Certain OSes refuse to boot
+without it...
+
+> static inline u32 read_mdcr(void)
+> {
+> 	return read_sysreg(HDCR);
+> }
+> 
+> static inline void write_mdcr(u32 val)
+> {
+> 	write_sysreg(val, HDCR);
+> }
+> 
+
+Hmm... While this fixes the 32bit compilation issues, it opens a new can
+of worms.
+
+VHE is a 64bit only feature, so you're *guaranteed* that these accessors
+will undef (running at EL1).
+
+> +static void armv8pmu_partition(u8 hpmn)
+> +{
+> +	u64 mdcr = armv8pmu_mdcr_read();
+> +
+> +	mdcr &= ~ARMV8_PMU_MDCR_HPMN;
+> +	mdcr |= FIELD_PREP(ARMV8_PMU_MDCR_HPMN, hpmn);
+> +	/* Prevent guest counters counting at EL2 */
+> +	mdcr |= ARMV8_PMU_MDCR_HPMD;
+> +
+> +	armv8pmu_mdcr_write(mdcr);
+> +}
 > +
 
-arch_sync_kernel_mappings() gets moved here.
+After giving this a read, I don't think the host PMU driver should care
+about MDCR_EL2 at all. The only time that 'guest' events are loaded into
+the PMU is between vcpu_load() / vcpu_put(), at which point *KVM* has
+reconfigured MDCR_EL2.
 
->  	flush_cache_vmap(addr, end);
->  	if (!err)
->  		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
-> @@ -587,29 +585,24 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
->  }
->  
->  static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
-> -		pgprot_t prot, struct page **pages)
-> +		pgprot_t prot, struct page **pages, pgtbl_mod_mask *mask)
->  {
-> -	unsigned long start = addr;
->  	pgd_t *pgd;
->  	unsigned long next;
->  	int err = 0;
->  	int nr = 0;
-> -	pgtbl_mod_mask mask = 0;
->  
->  	BUG_ON(addr >= end);
->  	pgd = pgd_offset_k(addr);
->  	do {
->  		next = pgd_addr_end(addr, end);
->  		if (pgd_bad(*pgd))
-> -			mask |= PGTBL_PGD_MODIFIED;
-> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
-> +			*mask |= PGTBL_PGD_MODIFIED;
-> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, mask);
->  		if (err)
->  			break;
->  	} while (pgd++, addr = next, addr != end);
->  
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(start, end);
-> -
->  	return err;
->  }
->  
-> @@ -626,26 +619,33 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  		pgprot_t prot, struct page **pages, unsigned int page_shift)
->  {
->  	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
-> +	unsigned long start = addr;
-> +	pgtbl_mod_mask mask = 0;
-> +	int err = 0;
->  
->  	WARN_ON(page_shift < PAGE_SHIFT);
->  
->  	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
-> -			page_shift == PAGE_SHIFT)
-> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
-> -
-> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-> -		int err;
-> -
-> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-> -					page_to_phys(pages[i]), prot,
-> -					page_shift);
-> -		if (err)
-> -			return err;
-> +			page_shift == PAGE_SHIFT) {
-> +		err = vmap_small_pages_range_noflush(addr, end, prot, pages,
-> +						&mask);
+I'm not sure if there's much involvement with the host PMU driver beyond
+it pinky-swearing to only use the specified counters. KVM is what
+actually will program HPMN.
 
-Unlike earlier don't return here until arch_sync_kernel_mappings()
-gets covered later.
+That'd alleviate the PMU driver from having VHE awareness or caring
+about MDCR_EL2.
 
-> +	} else {
-> +		for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-> +			err = vmap_range_noflush(addr,
-> +						addr + (1UL << page_shift),
-> +						page_to_phys(pages[i]), prot,
-> +						page_shift, &mask);
-> +			if (err)
-> +				break;
->  
-> -		addr += 1UL << page_shift;
-> +			addr += 1UL << page_shift;
-> +		}
->  	}
->  
-> -	return 0;
-> +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> +		arch_sync_kernel_mappings(start, end);
-
-arch_sync_kernel_mappings() gets moved here after getting dropped
-from both vmap_range_noflush() and vmap_small_pages_range_noflush().
-
-> +
-> +	return err;
->  }
->  
->  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-
-LGTM, and this can stand on its own as well.
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+-- 
+Thanks,
+Oliver
 
