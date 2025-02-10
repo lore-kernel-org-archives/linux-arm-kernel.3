@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2E8C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B64C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+U+cJ54sadwbAEEQ1XMnFeXEpukGhrX3NXgbMiqSEdc=; b=ABqMcukKHo8KeEX76OKOQ+45uQ
-	W/mRFsAOCmtj7lLU/+PQ7w2Y8ONB9hBwC1xGsY+Htks/4B1nNwTPZrXV3yd8D/a2EiucyT7nOdhwy
-	pw/C0TKrvwIz6BJZEyEFpcwDaMfelt+mvSvaRgpXIR7kziAqYRxmUWr1PFT88cHwpmjFwuMGSSFFl
-	1fNbjipnCDGtnOTNGxoblpINbjUD0w2Hn07ysK1/wPeq8V6vDi+++8jNkuBu5Dq3mhnoWuNZOz3W1
-	BPLTbL+sx/ztYQRxHLF8WrfXVhR+iWvw9joEv7OTArRDKjYQEWQDzlWeqMnVk0//ilIuxYe184o/N
-	ThNXj22A==;
+	bh=2yxORkU0BwHhsffL3ulJIkwpSZLMqKG329zUxbYPPkQ=; b=zPpRRMgziqbHL4xYCiMUV3w4dG
+	Wg9cNjGRYe2PqXM+Y4VbwD95acmFtGEDkWDLsQxKNZUHQDTmTgrlnFmqsSeRvSkVYITMNq4+42kVB
+	aoMCYeJ0PkPJGli0aNSYh6I5YfLnptrXCDjM2S1DPYyyQiNhmB+EJXnoMNzjZ9rDOE9w+EoQHHhnz
+	XrQuFOZvWn7Nt6nhGO88ViSUHdMSxoaB/tnKU/N6CaV1cWcSz1lu3v5ZPZo89GK7NDLbTfVx3XI2N
+	UI7tgsLfWHl/Q7C+nv8Ovj21XgXI0ILeAnXHm/XUZtvPd9DAmHMXSzYrGz0h0MyfKwfPv3EcuYwz+
+	Z08S7ktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUXL-000000005ay-21Ci;
-	Mon, 10 Feb 2025 14:13:23 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1thUcA-000000006Fy-05JB;
+	Mon, 10 Feb 2025 14:18:22 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUVv-000000005Ji-0IiU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:11:57 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f833af7a09so6047743a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 06:11:54 -0800 (PST)
+	id 1thUak-0000000065r-3LZD;
+	Mon, 10 Feb 2025 14:16:55 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4362bae4d7dso29238125e9.1;
+        Mon, 10 Feb 2025 06:16:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1739196714; x=1739801514; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+U+cJ54sadwbAEEQ1XMnFeXEpukGhrX3NXgbMiqSEdc=;
-        b=faQdOe9VFq6AnbmBoAHHHphU+ICfXJAimgeWeZhHp5WdPppci1evYgA+5ZA3urRA2d
-         /PpfLS+wg5Ao2pMjWv6sWvd1WBL5z8p+cIPfLvfa+cIbZ+1gT9LlvAQKJ0su0xY5BsEo
-         Q2HoAJMpNSsWMXTfr8e/zLJtIF+BT2x9j/t/dsojjD9guQbDMxJFClxGKuRGgdg50ClM
-         ewu31YeJCCtn3ewE4CECbQPM9THMrcniWugRcRzN6+f3K2YTKbWyEcHkukBMhzZQJwCV
-         yHwga2coWOta8mHaaRwtPFCPzpudQHjR9cRIfJe168Nc27g0Ec/1qZVCqboklb1Tlwzd
-         ADzQ==
+        d=gmail.com; s=20230601; t=1739197013; x=1739801813; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2yxORkU0BwHhsffL3ulJIkwpSZLMqKG329zUxbYPPkQ=;
+        b=ZnOhr9EAkfIpu1ZExH88HzWDkGD8URrP2UH6PNDOQsgHKUHfdwKYcz6QNhPa/QWMjf
+         OtpqovchW8BV34nuR0s+zt6w9FyAbYJ13s2l7uu3SnGbun8Qm3tawFLgJ+V2W6bKJ2gC
+         bPEo1LMmgwmrGbtYeBGkwgxXRTrMKQOD3wfX4sb06+oPw384g9XzsF2VV0ro8F/mkwct
+         k6XYMEC1pwccbpg+qc5t29lAUfaICfehTIcYt1lLsKM0DIC8Cgaxsj6OIXpr3PRYbHTo
+         h0Wr3EpLrXHyBxdquHlRXSxUQgXzWVbvFOYlIWl8cxCKALPl4jbBgM+Y3IFUpEXee9SG
+         U5yA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739196714; x=1739801514;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+U+cJ54sadwbAEEQ1XMnFeXEpukGhrX3NXgbMiqSEdc=;
-        b=jfLQoymcE3eRgxVhAZK1ydXEh2jN/J86RRtSzO3L/cLr3rAsX8FP0Pu74LdGyliSkl
-         yvox87wkAW8sla7gPK7NRS5TdOG1ogUeZxEjnPgfBL18wOwPkLA5ygetP70Z9oFWoKJG
-         AXDzSXWA7+3S4VqvCPIrtr/jR4e9e/UphGo/fcjV+/GUdEn4BCXlB8x9RyUqQV3umI6q
-         MWCkHOEsdvl4xWwJz6yQ0bMlC+UWJj2J/tYxYqjhNoCgRkz8c4MfsQ13ld9NRcu2hHU9
-         QahHWdhalWoispbBGIA1QLswgYiLPhwJmaEbFhIc+fsMsipOr/ebMuRD/pmzCVjeshoA
-         DevQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQs/oFsU1glTcrjYZ7h1V4MO8aLPPV0qewSRa/Mzy0DEuTVYKJEhkh7mMsZR3zgPoQAgQa62KQGagO1FdK6Pqa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeRUYc0SoqlFJ18zBhljRZ408bLUXylpT87WUdAYG/O/3PH3js
-	BaigcF782jYD9mzDCLUoojq49ZReOC2mvaEALayV2iX2Mtx2SkxgFF1IhrpAktUdjggWTgsrNIL
-	SuKseuQZIBwfgc34As/wMpkzNVqTdm8U21WkuMQ==
-X-Gm-Gg: ASbGncs1A6HcJauTKvtbVrPFBhN7SmnAcN7zEIvMZOdxF2zHXqXohH/vAsqy4qCjAcG
-	/8SO5umqtdlkIk038OQLWNCb6pS+Pgrm4BBKZQuknCdTbuElOdDctNdXz9saE4nYOG4B6SFU=
-X-Google-Smtp-Source: AGHT+IF1+dEqoORyKXu66dB2Rg8beCQhSwmnjjgQuD2ZBI10xzxpJ4Y1Rzbu+lgFq2AzogQw2HBplK2cVN2+wBMuIPk=
-X-Received: by 2002:a17:90b:368c:b0:2ee:ee77:227c with SMTP id
- 98e67ed59e1d1-2fa23f55e0cmr18756882a91.3.1739196714411; Mon, 10 Feb 2025
- 06:11:54 -0800 (PST)
-MIME-Version: 1.0
-References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de> <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de>
-In-Reply-To: <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de>
-From: Jagan Teki <jagan@edgeble.ai>
-Date: Mon, 10 Feb 2025 19:41:43 +0530
-X-Gm-Features: AWEUYZk9JtE8zrOo2lYnBOq7Su2RsFQcHGdiZcrSSTPxmQcqmii1TNFikv1yH9o
-Message-ID: <CA+VMnFyom=2BmJ_nt-At6hTQP0v+Auaw-DkCVbT9mjndMmLKtQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/4] arm64: dts: rockchip: add overlay test for Edgeble NCM6A
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
-	Michael Riesch <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>, 
-	Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Quentin Schulz <quentin.schulz@cherry.de>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1739197013; x=1739801813;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2yxORkU0BwHhsffL3ulJIkwpSZLMqKG329zUxbYPPkQ=;
+        b=KUbQOa5iRm+EVCXQExVHOIGWuKA8/oo6mOaJaAYOkG4wJK1HTZs6cWQeBhyHUtAgud
+         QU7/pG6gmEhYHlNK9PxB13C3WMqn9Z2zW0FtxoV+eag8X7+U8PuAMdG6T/KrhIVl/Y0T
+         yo5nwU0Yv+t3DhMP3Ru1eYKoLkPoeMYartVKIAkIDwqlIQMzStlYJRE08K9flx8tRPfh
+         hTYSGOoej4uLI5jhHJFqimMYNZEpByqqzHnSy2vbxFr+/8kk0RYSDt/5g/Lwh3+Apuch
+         wuv0wMa2P6e8f+T5g4sOQ5zfL7JC8hmYb6jJqIptXT+K7WDg5YjGw5qpHUZnp7uPSDLM
+         I8Og==
+X-Forwarded-Encrypted: i=1; AJvYcCVxgllVapiSqYlKwT2kUEHP8XA5lPBg6x7JT41+xxzD+mJoPKIn2a4Ke36wkD/Ldc6qrMbBAD/X8RkqaYJUKIDT@lists.infradead.org, AJvYcCXqX24UJtfXXWC+ULHjNY/4VgfZHgznWwehOxJ8Bhv9YYq8MwICSDGNNWz8Z4G+CPlg2xlz02MY57PsQoY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuZR5SVGMqVNvt1tXp4bTJivo13QclWBfRjhd4B5Ts3IzfL84T
+	fSiAsio6WODEVALkR2oOZdZqDw+GjA6zuuiEPCTyB9KaudqWA33Q
+X-Gm-Gg: ASbGncvHBXphvHHGtNLE2ipTkj2wTK3eZxADlWk3aatvZ1x0QONXZh+1fnNsWurbMKL
+	6XnroX2JrAu691uE98e7WbkJJ4xB6vy12J/ogjHDjrCsFDJk4hCZYToSiAyH+VBYq97X3u7uQE6
+	aSc4e7APZ4dVya9WlQxrqRevu6PB/FqPVtnFJrUc7utO32RucVjMNiPvnZ3mNlq5Yl+v0PZkN4B
+	x7fvyjasaVXMX2lKfXYAz5iOmFSFWx02/tD2pu8YbaIKSiVycPBKtnio0TCipBLgW4aQCeK8zOk
+	GgIhoGJJvDmqe5hrDwAywv3wd9NNl8O6
+X-Google-Smtp-Source: AGHT+IHNOu5fBQbgxx/H3Ub0lE217C3Rg7B6vLrKoEEdX+bR5RhSjkNikHnqhQxwOe47XQ6szqa9EA==
+X-Received: by 2002:a05:600c:1913:b0:434:faa9:5266 with SMTP id 5b1f17b1804b1-43924991f73mr111581495e9.13.1739197012751;
+        Mon, 10 Feb 2025 06:16:52 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390db110dfsm186220095e9.36.2025.02.10.06.16.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 06:16:52 -0800 (PST)
+Message-ID: <5e08940e72d4669eac3d4090fec84c8a1ecb17c3.camel@gmail.com>
+Subject: Re: [PATCH 03/10] arm64: dts: sophgo: Add initial SG2000 SoC device
+ tree
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@outlook.com>, 	linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Haylen Chu	 <heylenay@outlook.com>,
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann	 <arnd@arndb.de>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>
+Date: Mon, 10 Feb 2025 15:16:50 +0100
+In-Reply-To: <g7gruyv5rczuqybblnxy7myh2rakk2dmldy3ks247evjb6k3zj@ffkzilxgp3gy>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+	 <20250209220646.1090868-4-alexander.sverdlin@gmail.com>
+	 <g7gruyv5rczuqybblnxy7myh2rakk2dmldy3ks247evjb6k3zj@ffkzilxgp3gy>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_061155_297437_69CA434D 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250210_061654_851354_137D92CD 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Feb 2025 at 20:50, Quentin Schulz <foss+kernel@0leil.net> wrote:
->
-> From: Quentin Schulz <quentin.schulz@cherry.de>
->
-> The Edgeble NCM6A can have WiFi modules connected and this is handled
-> via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble
-> NCM6A WiFi6 Overlay")).
->
-> In order to make sure the overlay is still valid in the future, let's
-> add a validation test by applying the overlay on top of the main base
-> at build time.
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 534e70a649eeada7f9b6f12596b83f5c47b184b4..02f98abe1df10f44f2ac27ea5f6c6e6c6334724e 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -192,3 +192,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
->  rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
->         rk3568-wolfvision-pf5-display-vz.dtbo \
->         rk3568-wolfvision-pf5-io-expander.dtbo
-> +
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
-> +rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
-> +       rk3588-edgeble-neu6a-wifi.dtbo
+Hi Inochi,
 
-Please add neu6b-io as well, wifi dtbo is similar for it as well.
+On Mon, 2025-02-10 at 13:05 +0800, Inochi Amaoto wrote:
+> > Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
+> >=20
+> > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+>=20
+> Can you add a riscv version of the this file too? This also applies
+> to patch 4 and 5
 
-Thanks,
-Jagan.
+this would require binary Sophgo RiscV toolchain, which was the whole
+point of my ARM64 BSP. So, while I could add RiscV counterparts, they
+would be completely untested.
+
+On the macro level that how I see the current state of upstream affairs:
+
+RiscV:
+There are necessary upstream packages available required to boot, but
+there is no upstream toolchain to build them.
+
+ARM64:
+There is an upstream toolchain, but the published U-Boot is being
+linked with ATF binaries -- I was planning to come up with pure
+U-Boot BSP for this, without binary blobs.
+
+--=20
+Alexander Sverdlin.
+
 
