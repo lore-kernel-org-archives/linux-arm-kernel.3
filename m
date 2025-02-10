@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9379C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72439C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Prm+CQDluxaTSFpL/Dfdca60ckN7fzKC5qleb/U1w98=; b=H/ZoT6aM4I0Rlt4bbrVgqXNMbu
-	b4NeBMJCM0tCsgg6QkYey3leiJo5kYdlKUUavobnXa8E7F5b26PwLuT3u9L3z1qwjeYjkZR5SjLZF
-	0v/cfD5SVqXe1hm8FoRtAvzRBIVwERMSp7Q+dJcKgKHxVRqY7z/qlTeIqEr0znMWkQFcjzE7x8NR3
-	shJyXcKOCiRgaARqrnNhs3vqwVLnGy4UpxYADAlDSJtda531GhCwY27FvWav05nHF5e92Hg95ip1v
-	X7IALyha4lzwWG5xRZGjaVOMyxvycKXxjU2i76A/xsBmRRVL0LpMVVuiuSH5hsFB6RptEbjbtkckJ
-	coo8nu4A==;
+	bh=DxapaJhXMHi1dkamuCkDcE4Mfsv6fMSJ0gziQn4ozoY=; b=VjklhVLBds9gZFNdtgfBkQqvYf
+	1g0MujNaELyFDIerk07MEpzAjDJqHAl34p7iwSm7oRm8VbBkFmKu3rqUesW5vczKlwn/TpXLtL8iF
+	eRoQxI4kd1Shsv9sDsSTG8kNybwKGqCv+U9az4WVXnm3sI8F9aIAKTfNLW570iKPrM7wsnEGbh6zR
+	a/vEZOZeaggSBigJszLAg2mV82NJ1duN02Usyg7b2RUnnCgyl3VJGh8ONL2J8tADxPBmIb0BcWj1i
+	mlEu8Vzr/bCHff4hzHP1//PxHiUK1F5qKnm3PED0S9PkKTz7h+39VT9WxWS1/pAznOY6efw+1Ztar
+	E2cTX9SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSjL-0000000HN0W-3NCA;
+	id 1thSjL-0000000HMzg-0d95;
 	Mon, 10 Feb 2025 12:17:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSXf-0000000HLHF-3u3k
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thSXV-0000000HLFR-0yK0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 12:05:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 408A21BC0;
-	Mon, 10 Feb 2025 04:05:57 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D44E13F5A1;
-	Mon, 10 Feb 2025 04:05:28 -0800 (PST)
-Date: Mon, 10 Feb 2025 12:05:26 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 10/22] entry: Add
- arch_irqentry_exit_need_resched() for arm64
-Message-ID: <Z6nrhhtTKQpScUd0@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <20241206101744.4161990-11-ruanjinjie@huawei.com>
+	Mon, 10 Feb 2025 12:05:26 +0000
+Date: Mon, 10 Feb 2025 13:05:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1739189123;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DxapaJhXMHi1dkamuCkDcE4Mfsv6fMSJ0gziQn4ozoY=;
+	b=yEagp+lj2TIOwbHUOA0f1F+2J7YuakUp9/683voOGACDtw5iab8Hxq30Z3lr8Ey5xJ+KVN
+	YfY94NlB7UIsJPauWBo0YCLLg85EfKgKDa0GPgsLErZ/vZpN32kqRyAVo8CUPHOkttEXSG
+	bEspGEXqx06jsskW4WRmLwZY/X2xr/eVB29h9ubx6cIh7qr0tyjcfXkgfClZhIyoQaBSKo
+	vRnBee3pfKmXG9GsEJdnQKIfrWWveU0CZSLGYtCusOgDA4xG27xLV31BAf0i+ophSGGUns
+	B2Yqp1CZ5IP7umiaDeol1opT88F3keAsUddHJfpddRuh7raExBrOhVI8JtPmgA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1739189123;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DxapaJhXMHi1dkamuCkDcE4Mfsv6fMSJ0gziQn4ozoY=;
+	b=FcGSnRX7Qd+JKTQZTRBam/OwH+Xede4wWJLiVQmU4YICNlc4o/NxAPgGbqcjkWOnjJpTS9
+	bH9aLXxMNl3sC0AA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Ben Segall <bsegall@google.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/9] arm64: Rely on generic printing of preemption
+ model.
+Message-ID: <20250210120522.VvikzMr_@linutronix.de>
+References: <20250203141632.440554-1-bigeasy@linutronix.de>
+ <20250203141632.440554-5-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241206101744.4161990-11-ruanjinjie@huawei.com>
+In-Reply-To: <20250203141632.440554-5-bigeasy@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_040536_021951_25A5D3EE 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250210_040525_415708_8338C70D 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,64 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:17:32PM +0800, Jinjie Ruan wrote:
-> ARM64 requires an additional check whether to reschedule on return
-> from interrupt.
+On 2025-02-03 15:16:27 [+0100], To linux-kernel@vger.kernel.org wrote:
+> __die() invokes later show_regs() -> show_regs_print_info() which prints
+> the current preemption model.
+> Remove it from the initial line.
 > 
-> Add arch_irqentry_exit_need_resched() as the default NOP
-> implementation and hook it up into the need_resched() condition in
-> raw_irqentry_exit_cond_resched().
-> 
-> This allows ARM64 to implement the architecture specific version for
-> switching over to the generic entry code.
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Please fold this into the earlier changes in this area mad over patches
-6 to 8.
+Is it okay, to route this via the sched tree?
 
-> 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  kernel/entry/common.c | 16 +++++++++++++++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
-> 
-> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> index b82032777310..4aa9656fa1b4 100644
-> --- a/kernel/entry/common.c
-> +++ b/kernel/entry/common.c
-> @@ -142,6 +142,20 @@ noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
->  	return ret;
->  }
->  
-> +/**
-> + * arch_irqentry_exit_need_resched - Architecture specific need resched function
-> + *
-> + * Invoked from raw_irqentry_exit_cond_resched() to check if need resched.
-> + * Defaults return true.
-> + *
-> + * The main purpose is to permit arch to skip preempt a task from an IRQ.
-> + */
-> +static inline bool arch_irqentry_exit_need_resched(void);
-> +
-> +#ifndef arch_irqentry_exit_need_resched
-> +static inline bool arch_irqentry_exit_need_resched(void) { return true; }
-> +#endif
-> +
->  void raw_irqentry_exit_cond_resched(void)
->  {
->  	if (!preempt_count()) {
-> @@ -149,7 +163,7 @@ void raw_irqentry_exit_cond_resched(void)
->  		rcu_irq_exit_check_preempt();
->  		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
->  			WARN_ON_ONCE(!on_thread_stack());
-> -		if (need_resched())
-> +		if (need_resched() && arch_irqentry_exit_need_resched())
->  			preempt_schedule_irq();
->  	}
->  }
-> -- 
-> 2.34.1
-> 
+Sebastian
 
