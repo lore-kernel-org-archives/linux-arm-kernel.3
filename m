@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32267C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E424C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4C/YxiI7oB9Rj2RJeg+M3GrgBg330xIFVOg0LB4aq0=; b=4ppip26wrnS6GCK7ef9Uhj2DFZ
-	sFElSOWv0A1T0et24X6Pbkjr54K2qK+DEVPYvve+94U/HWhwAknOLneeDc6HKLRI8cOCJojsR1BXg
-	gHo6maB/PDd9swQRw5P7Tmxn1Mmcq5Z7dA6e9iM4HsnGFA1GYSMdBHdwK+yf2M98m2VfSLBGQSxD8
-	SZAVJdtfaxVCmUB95kbaGqNjkSKzM4RZwtHZ/xRaqGvU4K/CBxy3thYltMZWAdaex/yjQrJA5YIKa
-	Cjy1387cGOo6AEcwD66atJuFn0MbGsVHLl9a4PU2U+FORUcJ+hC0mf1O3eXgksVC+Xt0ZfmWPcKuZ
-	9Z5bTenA==;
+	bh=qDMJjCqZ/aFVApe15tYIJ4bIehn01MV7+TcmlbZlq+Q=; b=rGlneVJZ7l0BPodaVrAu95npkn
+	If5xZUkVJgDl54vy5ZogA/gbfOuOJBGgCXLC6ARJybp34P4p+rqoFLLVU7tG3bTqT7AuCfGbqoXP5
+	zxaH29D4jFxOBX8BCyfBhPBbM9ODYDLpaJpXoiYVmKjMZEHnEvVN9fx7NaAb5rhgacYBP++7UDGq4
+	HIUieMGXe4V1OuF2nTccGKykpJO0M23JxjpGNdbbhoj8h85/THp1psUAMWTbNRu/AAwtUR6iaac9K
+	Pm6yWZQJKfuEeSqeFb+IQj830ylrFtDvG5If43H+QLzqle4k3kmYkTnM1MDAzoiT7FGTo6CbEWP0D
+	nYslWRbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWdz-00000000W4l-0z0T;
-	Mon, 10 Feb 2025 16:28:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thWfM-00000000WO9-1ur4;
+	Mon, 10 Feb 2025 16:29:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWYY-00000000Uqd-2eXQ;
-	Mon, 10 Feb 2025 16:22:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 567F8A41970;
-	Mon, 10 Feb 2025 16:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FC0C4CEE6;
-	Mon, 10 Feb 2025 16:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739204565;
-	bh=5pue0C/bvY7Bi4z8DCyV8fK5Y7JUy3U4ZkaQjuaNTCw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Q7kOpbmSvyikwdl0vxdtsvwh3aPlVJKtOKvBumplA6jZU96aNqOf/2VNQRZsxcpFi
-	 ivVRzLV+1fHR4GZ6yjJTQ9kSmhPHXHVPO7pEtbVEHdRPfwKNARwrG6CSzsdYEIipY5
-	 Z/Usfk1EIFx408e+8pO5fTi91IkqEvYYgHCDLz77yy4G6Ut0EW5i3F0gM6CRbHbxby
-	 Wtk8O7BufKk1n7g2d4WH37bPsPndpQtwmJU+Zpq9WIIFVIILD45ePkIrLB90FQrFQH
-	 qas1Frr4pWnbkvcyyzMEQ53fNsEJjoCo0tQaluzkHzxGOw2xym+NxbGUl0YIXkaWFO
-	 t1AdRCYX4NpsQ==
-Date: Mon, 10 Feb 2025 10:22:44 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1thWcu-00000000VpL-1nRc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 16:27:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qDMJjCqZ/aFVApe15tYIJ4bIehn01MV7+TcmlbZlq+Q=; b=KHpd0st00sXgIk5WQxaRD3PvIq
+	NmQRNFN4gKRGhvM2ZswwRvR8EY4O3sKMmdFbIyDhLR3obsXQsWt2annXPCSZ8A3EXoqarpy5JWCh3
+	ZKY5bPInmuAQCN7ptDBsyytcla8pl1uShiwSGAAm9c9jMmrCUVWUxwGL49m3c5OEcRyXqc+TGrGpX
+	gmr05OQBjHBsOatVqA91435FyrPtj3GP6+dbd1GM53QNYesVqHq6lIQDnJ3gEJ5PF4gt/La5IzGjU
+	uJC30xUG3Ws07gXKNPbFMACQDPFhGIfHPvQRwSCx64KFNiNkh7VOtHufm33v206AU0Tmzbl3tqlJt
+	iX6GaSXQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53332)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1thWcd-0007UO-2b;
+	Mon, 10 Feb 2025 16:26:59 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1thWca-0007dV-0y;
+	Mon, 10 Feb 2025 16:26:56 +0000
+Date: Mon, 10 Feb 2025 16:26:56 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Ben Segall <bsegall@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/9] arm: Rely on generic printing of preemption model.
+Message-ID: <Z6oo0MExaEy5J55_@shell.armlinux.org.uk>
+References: <20250203141632.440554-1-bigeasy@linutronix.de>
+ <20250203141632.440554-4-bigeasy@linutronix.de>
+ <20250210120429.iFfBClW1@linutronix.de>
+ <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
+ <20250210153902.06VTSS6d@linutronix.de>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
- linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Haylen Chu <heylenay@outlook.com>, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, soc@lists.linux.dev, 
- Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@outlook.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Lee Jones <lee@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-In-Reply-To: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-Message-Id: <173920412075.477254.10964125366963859194.robh@kernel.org>
-Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210153902.06VTSS6d@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_082246_797905_21D258E7 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20250210_082716_464821_68BB6CC4 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,121 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 09 Feb 2025 23:06:25 +0100, Alexander Sverdlin wrote:
-> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> been chosen because the upstream toolchain can be utilized.
+On Mon, Feb 10, 2025 at 04:39:02PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2025-02-10 15:16:11 [+0000], Russell King (Oracle) wrote:
+> > On Mon, Feb 10, 2025 at 01:04:29PM +0100, Sebastian Andrzej Siewior wrote:
+> > > On 2025-02-03 15:16:26 [+0100], To linux-kernel@vger.kernel.org wrote:
+> > > > __die() invokes later __show_regs() -> show_regs_print_info() which
+> > > > prints the current preemption model.
+> > > > Remove it from the initial line.
+> > > > 
+> > > > Cc: Russell King <linux@armlinux.org.uk>
+> > > > Cc: linux-arm-kernel@lists.infradead.org
+> > > > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > > 
+> > > Is it okay, to route this via the sched tree?
+> > 
+> > Sorry, its not obvious where show_regs_print_info() prints this.
+> > dump_stack_print_info() itself doesn't directly. print_worker_info()
+> > doesn't. print_stop_info() doesn't. Not sure whether print_scx_info()
+> > does.
+> > 
+> > Maybe showing example output would help?
 > 
-> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-> peripherals with an addition of ARM64 core. Therefore it would be
-> beneficial not to copy-paste the peripherals' device-tree, but rather split
-> the most suitable riscv DT into ARCH-specific and peripherals parts and
-> just include the latter on the arm64 side.
+> Patch 2/9 adds this. [ https://lore.kernel.org/all/20250203141632.440554-3-bigeasy@linutronix.de/ ]
+
+That explains it - patch 2 is only sent to a very restricted subset
+and not even to mailing lists that would be relevant in the absence
+of a direct Cc. Ditto patch 1. All I received were patches 3 and 4.
+
+In patch 1:
+
++	static char buf[128];
+...
++		seq_buf_init(&s, buf, 128);
+
+Why not sizeof(buf) ?
+
+For patch 2:
+
+"Use
+pr_warn() instead of printk() to pass a loglevel. This makes it part of
+generic WARN/ BUG traces.
+"
+
+How about cases which use dump_stack_lvl() to dump the output at a more
+severe level than warning? Should the message be printed at a less
+severe level than the other messages?
+
+> This this applied, die("test") on ARM ends as:
 > 
-> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-> SG2000 SoC inside (separate .dtsi).
-> 
-> This series has been tested with Sophgo-provided U-Boot binary [2]: it
-> boots from SD card, pinctrl, serial, GPIO drivers are functional (same
-> as for RiscV-based CV18xx SoCs).
-> New reset driver is provided as an alternative to the ATF PSCI handler,
-> which Sophgo only provides in binary form.
-> 
-> Partial SoC documentation is available [3].
-> 
-> This series lacks the support of:
-> - USB
-> - Audio
-> - Ethernet
-> - WiFi
-> - Bluetooth
-> - eMMC
-> - Video
-> 
-> It would probably make sense that the whole series would go into SOC tree,
-> even though technically nothing prevents the reboot/reset driver to come
-> in PM/reset tree. If everything would come together, `reboot` command would
-> work out of the box.
-> 
-> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> 
-> Alexander Sverdlin (10):
->   arm64: Add SOPHGO SOC family Kconfig support
->   riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
->   arm64: dts: sophgo: Add initial SG2000 SoC device tree
->   arm64: dts: sophgo: Add Duo Module 01
->   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
->   dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
->     compatible
->   dt-bindings: reset: sophgo: Add CV18xx reset controller
->   riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
->   power: reset: cv18xx: New driver
->   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-> 
->  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
->  .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
->  MAINTAINERS                                   |   1 +
->  arch/arm64/Kconfig.platforms                  |  12 +
->  arch/arm64/boot/dts/Makefile                  |   1 +
->  arch/arm64/boot/dts/sophgo/Makefile           |   2 +
->  arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
->  .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
->  .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
->  arch/arm64/configs/defconfig                  |   3 +
->  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
->  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
->  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
->  drivers/power/reset/Kconfig                   |  12 +
->  drivers/power/reset/Makefile                  |   1 +
->  drivers/power/reset/cv18xx-reset.c            |  89 +++++
->  16 files changed, 689 insertions(+), 303 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
->  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
->  create mode 100644 drivers/power/reset/cv18xx-reset.c
-> 
-> --
-> 2.48.1
-> 
-> 
-> 
+> [    1.595106] Kernel panic - not syncing: test
+> [    1.596044] CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W 6.14.0-rc2-00009-gb80a798df08c-dirty #13 PREEMPT
+> [    1.596768] Tainted: [W]=WARN
+> [    1.596946] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
 
+Hmm. I've no idea what you're testing, what you've quoted makes zero
+sense to me.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+First...
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+void die(const char *str, struct pt_regs *regs, int err)
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+is the die function prototype, so it takes a bit more than what you've
+indicated.
 
-  pip3 install dtschema --upgrade
+Second, "Kernel panic" suggests that panic() has been called. However,
+this only happens when die() is called (or more specifically
+oops_end()) from either interrupt context (in which case we get
+"Kernel panic - Fatal exception in interrupt") or if panic_on_oops
+is set ("Kernel panic - Fatal exception").
 
+I don't see a path which would result in
+"Kernel panic - not syncing: test" to be printed from this path.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/sophgo/' for 20250209220646.1090868-1-alexander.sverdlin@gmail.com:
+Since __die() does not call dump_stack(), we're not going to call
+dump_stack_print_info() from __die(), so I don't think it's appropriate
+to remove this information.
 
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: /: failed to match any schema with compatible: ['sophgo,sg2000']
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: soc: soc-reset: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a dependency of 'cache-size'
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a required property
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: Unevaluated properties are not allowed ('cache-level', 'cache-size' were unexpected)
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-
-
-
-
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
