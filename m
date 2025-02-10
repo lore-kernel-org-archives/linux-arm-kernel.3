@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E424C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB93C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDMJjCqZ/aFVApe15tYIJ4bIehn01MV7+TcmlbZlq+Q=; b=rGlneVJZ7l0BPodaVrAu95npkn
-	If5xZUkVJgDl54vy5ZogA/gbfOuOJBGgCXLC6ARJybp34P4p+rqoFLLVU7tG3bTqT7AuCfGbqoXP5
-	zxaH29D4jFxOBX8BCyfBhPBbM9ODYDLpaJpXoiYVmKjMZEHnEvVN9fx7NaAb5rhgacYBP++7UDGq4
-	HIUieMGXe4V1OuF2nTccGKykpJO0M23JxjpGNdbbhoj8h85/THp1psUAMWTbNRu/AAwtUR6iaac9K
-	Pm6yWZQJKfuEeSqeFb+IQj830ylrFtDvG5If43H+QLzqle4k3kmYkTnM1MDAzoiT7FGTo6CbEWP0D
-	nYslWRbw==;
+	bh=wtKdGCmuQba4xz4Q1ol+VDvF7rgjIz28hjlDE8JNUn4=; b=KRtX2+Qkhq9LyO42Tg24iFTPBW
+	cBHY3XdMSOuZDZhm4SuEwzvQwKcRULMU3rofc0vhdYsv340jxXXEwCxMp/UJH6g7Lqg0AJdD0zrX1
+	Lm6gTnTTZKmpaUpfqkO4idHm49yVPMR22xbsaUJu7rBk7tP25s7GzQ4mMvUoo8dkLGpTzTyxFRMjY
+	ze4G4TSX/zJETDFjK/EinRZUg9N6cQFK0OylMLcaD5ohttajrrYgRTpwm+2S5QQbY38ps4oUS9isa
+	cLltfXgytY1GvcxTArJ3NKpUDICVCV6wdhdTf1nC1cCgfNuCEZvW9jAu4Sl8rZhvfZnLdmxUfs3FL
+	FMNzTJog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWfM-00000000WO9-1ur4;
-	Mon, 10 Feb 2025 16:29:48 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1thWkv-00000000XYK-1s9S;
+	Mon, 10 Feb 2025 16:35:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWcu-00000000VpL-1nRc
+	id 1thWjW-00000000XIa-0WMH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:27:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qDMJjCqZ/aFVApe15tYIJ4bIehn01MV7+TcmlbZlq+Q=; b=KHpd0st00sXgIk5WQxaRD3PvIq
-	NmQRNFN4gKRGhvM2ZswwRvR8EY4O3sKMmdFbIyDhLR3obsXQsWt2annXPCSZ8A3EXoqarpy5JWCh3
-	ZKY5bPInmuAQCN7ptDBsyytcla8pl1uShiwSGAAm9c9jMmrCUVWUxwGL49m3c5OEcRyXqc+TGrGpX
-	gmr05OQBjHBsOatVqA91435FyrPtj3GP6+dbd1GM53QNYesVqHq6lIQDnJ3gEJ5PF4gt/La5IzGjU
-	uJC30xUG3Ws07gXKNPbFMACQDPFhGIfHPvQRwSCx64KFNiNkh7VOtHufm33v206AU0Tmzbl3tqlJt
-	iX6GaSXQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53332)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1thWcd-0007UO-2b;
-	Mon, 10 Feb 2025 16:26:59 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1thWca-0007dV-0y;
-	Mon, 10 Feb 2025 16:26:56 +0000
-Date: Mon, 10 Feb 2025 16:26:56 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Ben Segall <bsegall@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/9] arm: Rely on generic printing of preemption model.
-Message-ID: <Z6oo0MExaEy5J55_@shell.armlinux.org.uk>
-References: <20250203141632.440554-1-bigeasy@linutronix.de>
- <20250203141632.440554-4-bigeasy@linutronix.de>
- <20250210120429.iFfBClW1@linutronix.de>
- <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
- <20250210153902.06VTSS6d@linutronix.de>
+	Mon, 10 Feb 2025 16:34:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA0275C2750;
+	Mon, 10 Feb 2025 16:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB4BC4CED1;
+	Mon, 10 Feb 2025 16:34:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739205245;
+	bh=ypPI17tsQZJ+km5A1XxVr29qienQSziXYMYp0ksACRE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UbOAsLYbiPDE6IFDnojp9BT7SnzxEB0k4y8Gx/Svk6KcuRA1k7MSlL6OqBePE5pZh
+	 ySqQaoBi0SE09abNaCF1a7/fiigSXGwH25hFaURTqp2GbnNFdEbln50QVCbf3m+upp
+	 2NbxQSXcrc2i6tlRX/HG6iB8yAiZbWImA7PF/5Rbq+Q54UR+5EWm7XXYkYnt8ojPep
+	 jrnnpDqf0zbexT37ShYnK4LId2LeH9Pe+UyditJy5p+X+uy58+Ojt6ZCwV47QjdYu1
+	 ytnMly3T/kptepApjA0OYMFUCgahrWZUvQskboDowaB+TGCb94BBp7Ft6XWD5hMXC0
+	 RNs7Yji3cEKDA==
+Date: Mon, 10 Feb 2025 16:33:59 +0000
+From: Lee Jones <lee@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH v3 4/7] mfd: bcm590xx: Add compatible for BCM59054
+Message-ID: <20250210163359.GA1868108@google.com>
+References: <20250131-bcm59054-v3-0-bbac52a84787@gmail.com>
+ <20250131-bcm59054-v3-4-bbac52a84787@gmail.com>
+ <20250207084852.GC7593@google.com>
+ <bc9df0fe-ff2b-439b-a434-b6b88ee8e25c@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250210153902.06VTSS6d@linutronix.de>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bc9df0fe-ff2b-439b-a434-b6b88ee8e25c@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_082716_464821_68BB6CC4 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20250210_083406_202210_575FB44B 
+X-CRM114-Status: GOOD (  27.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,83 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 04:39:02PM +0100, Sebastian Andrzej Siewior wrote:
-> On 2025-02-10 15:16:11 [+0000], Russell King (Oracle) wrote:
-> > On Mon, Feb 10, 2025 at 01:04:29PM +0100, Sebastian Andrzej Siewior wrote:
-> > > On 2025-02-03 15:16:26 [+0100], To linux-kernel@vger.kernel.org wrote:
-> > > > __die() invokes later __show_regs() -> show_regs_print_info() which
-> > > > prints the current preemption model.
-> > > > Remove it from the initial line.
-> > > > 
-> > > > Cc: Russell King <linux@armlinux.org.uk>
-> > > > Cc: linux-arm-kernel@lists.infradead.org
-> > > > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+On Fri, 07 Feb 2025, Artur Weber wrote:
+
+> On 7.02.2025 09:48, Lee Jones wrote:
+> > On Fri, 31 Jan 2025, Artur Weber wrote:
+> > 
+> > > The BCM59056 supported by the bcm590xx driver is similar to the
+> > > BCM59054 MFD. Add a compatible for it in the driver, in preparation
+> > > for extending support of this chip in the bcm590xx regulator driver.
 > > > 
-> > > Is it okay, to route this via the sched tree?
+> > > Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+> > > ---
+> > > Changes in v3:
+> > > - Fix compilation warning about device_type pointer cast type
+> > > - Name the device types enum and use it as the type in the MFD struct
+> > > ---
+> > >   drivers/mfd/bcm590xx.c       | 6 +++++-
+> > >   include/linux/mfd/bcm590xx.h | 7 +++++++
+> > >   2 files changed, 12 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
+> > > index 8b56786d85d0182acf91da203b5f943556c08422..23036157480e0116301bfa93932c92f5a80010ea 100644
+> > > --- a/drivers/mfd/bcm590xx.c
+> > > +++ b/drivers/mfd/bcm590xx.c
+> > > @@ -50,6 +50,9 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
+> > >   	bcm590xx->dev = &i2c_pri->dev;
+> > >   	bcm590xx->i2c_pri = i2c_pri;
+> > > +	bcm590xx->device_type = \
+> > > +			  (uintptr_t) of_device_get_match_data(bcm590xx->dev);
 > > 
-> > Sorry, its not obvious where show_regs_print_info() prints this.
-> > dump_stack_print_info() itself doesn't directly. print_worker_info()
-> > doesn't. print_stop_info() doesn't. Not sure whether print_scx_info()
-> > does.
-> > 
-> > Maybe showing example output would help?
+> > Why are you dividing pointers with each other?
 > 
-> Patch 2/9 adds this. [ https://lore.kernel.org/all/20250203141632.440554-3-bigeasy@linutronix.de/ ]
+> That's not division, it's a line continuation (note the space before
 
-That explains it - patch 2 is only sent to a very restricted subset
-and not even to mailing lists that would be relevant in the absence
-of a direct Cc. Ditto patch 1. All I received were patches 3 and 4.
+The space is irrelevant in C.
 
-In patch 1:
+> "\") - had to insert it for the line to fit in 80 characters. Though
+> admittedly, there's probably a better way to do this than to force it
+> with "\"...
 
-+	static char buf[128];
-...
-+		seq_buf_init(&s, buf, 128);
+You do not need to escape the line break in C-functions.
 
-Why not sizeof(buf) ?
+> I will clean this up in the next version.
 
-For patch 2:
-
-"Use
-pr_warn() instead of printk() to pass a loglevel. This makes it part of
-generic WARN/ BUG traces.
-"
-
-How about cases which use dump_stack_lvl() to dump the output at a more
-severe level than warning? Should the message be printed at a less
-severe level than the other messages?
-
-> This this applied, die("test") on ARM ends as:
-> 
-> [    1.595106] Kernel panic - not syncing: test
-> [    1.596044] CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Tainted: G        W 6.14.0-rc2-00009-gb80a798df08c-dirty #13 PREEMPT
-> [    1.596768] Tainted: [W]=WARN
-> [    1.596946] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
-
-Hmm. I've no idea what you're testing, what you've quoted makes zero
-sense to me.
-
-First...
-
-void die(const char *str, struct pt_regs *regs, int err)
-
-is the die function prototype, so it takes a bit more than what you've
-indicated.
-
-Second, "Kernel panic" suggests that panic() has been called. However,
-this only happens when die() is called (or more specifically
-oops_end()) from either interrupt context (in which case we get
-"Kernel panic - Fatal exception in interrupt") or if panic_on_oops
-is set ("Kernel panic - Fatal exception").
-
-I don't see a path which would result in
-"Kernel panic - not syncing: test" to be printed from this path.
-
-Since __die() does not call dump_stack(), we're not going to call
-dump_stack_print_info() from __die(), so I don't think it's appropriate
-to remove this information.
+You can use up to 100-chars these days, so you don't need the break at
+all.  However, if you insist on keeping to the old 80-char rule, you can
+just omit the escape char.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Lee Jones [李琼斯]
 
