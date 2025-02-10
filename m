@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957EAC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0305EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9/EsN/95mOk5GgUZajh0Z2EPjpc3hcsNGRkohiWLNY=; b=kcQHazSFM/h5sWp5UuWrC4wFmm
-	CjrMGolwW3VJ0VmL/ucHfI2J+mCROUZi8AYHClgpAhThf6BIiB9pCv9xcozELmyDXV3NJgTm5ykDb
-	2TfgVdkimoY0eTIaSnZy1ACEy+pvM4N/FAs1uvn7WFZYV0aLClLc58fXPKpbLR5FQgpBQiR/f19xl
-	S/bwlUkJEBDBCtOI49AfrKTkWpDAximr0hc1iaBsxwg5L/cf/68/8HVnJWhZ9bcnMV6mbTyKpuU8G
-	F86KgDYDBl4yeTIv4AZLvzKTZ9OVKpCytdLLVdGtoH0M0cU1S3YFNdEAcRrKtmiE/c/mlrv1/x6DS
-	XcnJYi8A==;
+	bh=lokzVSCjnI+/HGYEwJEY6r1YE8wfZpR1yRXJ/Lux6Vw=; b=gTuiZV8G3Nvyl/iyAFHahQYTK6
+	8sEdXxUOrs2cZ6F3V3km0834BiEmPpFm6yWROrIBzf5+Ag5u+htEFU5Rvqd5VQ+WtwBccNiJnLHmF
+	kFOHb6A5nakrRxMdFyO9nf5oA5146L/6u85WUX0lXUH98Z87RKVbWKI10W10tLA2XiRm74kiMagnI
+	kzpxwLOyTzKzgj2cPjmejZU/V+6w9Y7pz/G0aClP0Q7TkLPkqOv5+C108bXMbH9X/FU7G1d3iZPWf
+	m3hOWMAnyKc+xftttOAuBjuM8b1ZTC+PF186XHvJSQ3/U+pY0rIo8Y2CgjQy4oHpAMR75Sd+90FVF
+	yZSYu4Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUxv-00000000AeZ-11xj;
-	Mon, 10 Feb 2025 14:40:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thUzH-00000000AmY-3zi4;
+	Mon, 10 Feb 2025 14:42:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUsb-000000009JB-0rUa
+	id 1thUsi-000000009PB-2jST
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:35:23 +0000
+	Mon, 10 Feb 2025 14:35:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C99ADA417F1;
-	Mon, 10 Feb 2025 14:33:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51660C4CEDF;
-	Mon, 10 Feb 2025 14:35:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F5F55C4B47;
+	Mon, 10 Feb 2025 14:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8A72C4CEE7;
+	Mon, 10 Feb 2025 14:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739198120;
-	bh=vpa9hQ/El4h+MKRpCG/R3weC/8RAuXffKub+TTbKj5o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=AyiFDHn3p8xazpYaThMd9DbNUsLO28eSLGVOyphoegC1uVrt7fS9sDQEv9C98NX9c
-	 gYMW62OSE1L+NHEqkiqWESNgpxkusZxvO49MkG9KOWXjLP2NFH/awwd7sZpOhy0Tb0
-	 oFkSJ3gCoGHdgBLD5/DJpCv7EpZ+ASL1YcD6H6TA5cZ00AAgxb+0pHkQdnfpfxu/kN
-	 9goJ7FaSDi1Bhl0G3+TNCduVuUuy5Kw4Lx5XS4Cnxt2jMGZUNM6uPeLLGyR479rUo7
-	 4EZSotFmuA1tNdw1jc9Cb6ylhWvUIFtZs50G1dF+IEpZJJipu6fwybNw6zKGsXEE1b
-	 PUJHPPX1kWhBg==
+	s=k20201202; t=1739198127;
+	bh=YOnLsQVFLMH2bFUH18nK2RMlrkj9YbYtO1geEZmMl4Y=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=C2Fsb1tvvXRR3kJMMeaWrn2+i2Yby3dftAZyFsBmQ79eEk/mph2/3yo61l1MrcQfL
+	 hA8JlslLwXOMqyMYlC3HKWHLl7IDfKlzsHgbmCtWDiVxBSFPUt4iKSGQgRuutGisuy
+	 GGDBhjmbk5WsGCBARlZDja+rBNlRP7bEWSseAZHa+TohVCR8cdiGAf21VJf025VZHV
+	 Qz+S6jJYotb/FeSbMBpyATEJ2o+0INTMj9h8zOEgr4C0PUi7+weAkF7Hd3OS3+4e27
+	 1wdDwKcz3I+Ly0Qg15Imii/gq0FC+RpS8sC8NfLJ/xneoVLMmByzW6woZexM8Vtr10
+	 Cu3s5F0tLGWKw==
 From: Vinod Koul <vkoul@kernel.org>
-To: Ludovic Desroches <ludovic.desroches@microchip.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Andrei Simion <andrei.simion@microchip.com>, 
- Charan Pedumuru <charan.pedumuru@microchip.com>
-Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Durai Manickam KR <durai.manickamkr@microchip.com>
-In-Reply-To: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
-References: <20250203-test-v4-1-a9ec3eded1c7@microchip.com>
-Subject: Re: [PATCH v4] dt-bindings: dma: convert atmel-dma.txt to YAML
-Message-Id: <173919811594.71959.2580959368736151197.b4-ty@kernel.org>
-Date: Mon, 10 Feb 2025 20:05:15 +0530
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+ Michal Simek <michal.simek@amd.com>, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250114191021.854080-1-krzysztof.kozlowski@linaro.org>
+References: <20250114191021.854080-1-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 1/2] dmaengine: Use str_enable_disable-like helpers
+Message-Id: <173919812243.71959.2545724653806590968.b4-ty@kernel.org>
+Date: Mon, 10 Feb 2025 20:05:22 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_063521_313280_EF86FACD 
-X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-CacheID: sfid-20250210_063528_763853_60A90607 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,20 +84,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 03 Feb 2025 11:48:09 +0530, Charan Pedumuru wrote:
-> Add a description, required properties, appropriate compatibles and
-> missing properties like clocks and clock-names which are not defined in
-> the text binding for all the SoCs that are supported by microchip.
-> Update the text binding name `atmel-dma.txt` to
-> `atmel,at91sam9g45-dma.yaml` for the files which reference to
-> `atmel-dma.txt`. Drop Tudor name from maintainers.
+On Tue, 14 Jan 2025 20:10:20 +0100, Krzysztof Kozlowski wrote:
+> Replace ternary (condition ? "enable" : "disable") syntax with helpers
+> from string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dt-bindings: dma: convert atmel-dma.txt to YAML
-      commit: a54ec770396ce2b6e786acde22f4ebed8d1e9555
+[1/2] dmaengine: Use str_enable_disable-like helpers
+      commit: 8e63891831f3904047d7ad8078ff52dd454b6975
+[2/2] dmaengine: pxa: Enable compile test
+      commit: 9fc2f03e85952ee52558ab844473a8284d924a56
 
 Best regards,
 -- 
