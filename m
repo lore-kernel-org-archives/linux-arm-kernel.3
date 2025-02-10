@@ -4,172 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0321C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 20:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC926C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 20:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHRdcWu3WNk6Z6PzVuBiOw5K+7VsYOZxGWJfpBeWD34=; b=B/14gOftg0Hq7sb3C+68ywb6MG
-	zAls7Jhj9zXjhbs96zuGlTRQ5REaEDXE/E2g7NgVWqyOEUbiDwlkmBsdMW0bwJffuR2o45Z2lmN0m
-	JoO71ropb0eHBsBzKpYbexurHjexe7TEAI3upDZt5QQmgt6RqNDZDZmLh7deS107hKZl92klG0h8v
-	40MN/D8QEh69riWTOeb5udThUbfIuidLQZhnVSYzS6gJd9I84pNTsD6CdAdeGFSM3biHKYIX8q47l
-	Fow3tWoLJREDmUr+mnkYkCdelpw69O340AiZAUYva4RmmYE5lzE0O/DX8rEK0UyejnrtHuqM0aOWX
-	39DV3GKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xaDZZ3S+Vjprvw3VoZJyJ+LtDoigFQjXYIj4Wx2Yy4Y=; b=WKs6QxJkH98NkhlHJsJ6Hpp+Ty
+	lhupJ5oqc5KTE6cPizrM2iQGyTZs1qU56CfLj9aqKhLYGuLpEocx4pyYjkds2oui/TXQMxOlGIrUV
+	FHZCDziM7J4nLhEPUG4cwTAYRlBPWNaZN9cu5QSZVLpv8M8XdiyjiX6Q8L3J9Fto6K31cjZFZq623
+	vNUjXisAsQfK/W646faX8CDag2l3Zh33/DOkCnP7bqfCMX2Yr3O/rzaLJ5Rho8CouDK/tkHWjgAOm
+	DC/NqElx2fOQvW/appmwMYdOSNta/AiPlVTRg22bpCVQmYv8OY0wHIzxUJr53Q2Dh5KUNGja208OW
+	UWmb4mhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaL3-00000001Iyd-0tp1;
-	Mon, 10 Feb 2025 20:25:05 +0000
-Received: from mail-sn1nam02on20627.outbound.protection.outlook.com ([2a01:111:f403:2406::627] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1thand-00000001Pia-1I6U;
+	Mon, 10 Feb 2025 20:54:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaIV-00000001Iby-3X8z;
-	Mon, 10 Feb 2025 20:22:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NiUIulpr+wmef47MmkC+1lnLbA1GehyrPvHQNltqTsy5fai5l0MhEU8bFBPfKEaqofe0lc4lvcQvrnJLmI8ZGhEdznr1RGJNDuTlFG8LS/yNd9JfRIPcSzDqDYHYHoTPVcAgXZsO+lcjKTDGu1O/Kaa/bj6hfX9je1wx4Mouf5NDX6He4dPVVnc1wHCJh6tKkWuO4k2l/wUJzBsgFkASZznkE6+ryyH2HDJ12Ri7Xrxnx49tdZBNbYn7vWSAFlumPmKx4nUC8yulxgHKxDv+xhMN+4NtahcS+SioF/jDbm/XiDLR3KUx3M+CMdNmPjo72mtnIIbNNPV25jq2SUtJhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DHRdcWu3WNk6Z6PzVuBiOw5K+7VsYOZxGWJfpBeWD34=;
- b=K8+iaMpTolilkejj1+bFYQ7WcMM+he9bT/u2eZssdS8wqXWfeMkpMKtOLPKq/bhC2JX4gQD+YmaMtOuDqZQhZ4aeKYKL5hhQRuemw95p6d+ZLz9CAqIeiqtqxrVc9PX25ix+LL365PrRvNBVkbfGPgVVXgNdEeS6yytHBoVIlNxE735IQtnSL0EgljMBwghb6sK1W9yc0IQqcW5RlmJS3Ijv8GoeezdxVsVAgqp+tUeAma7JNn4/hJWNbYJRo+8yVBdPV9pLxDHG5piEHBE2KkX5+38mbdriYqUVK7ozptyABOD3b5lcq/M8FjFndVNZpWBCIet1RJvX+gU39LumHw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DHRdcWu3WNk6Z6PzVuBiOw5K+7VsYOZxGWJfpBeWD34=;
- b=qywwQHiElTi1pBakmpT8ptrcA+GFD9agq9qZA75ooT70D+Z3htpx9eON6Bbnget0eMke77H9Aof6TFY/B6i+/5Q27UJV6zIEGNbiu8lc7wViG4OeAZr5+vhI4RF3ersotLqLUV0/YleHsTplzhRDvANKgywfVdu2Az0N4Z60uCbnR1yc3B1La+WkKK9Jz7eQ2NOGTnNHgRwxFDsxXZpE+2SI4UE7WZGy5i5h4nWkof3+frSJ83FKrPOFRYFVvL7Cn1bzlgVgzXkePlTrXZXfP9Si64XZEIji6TfnHaq4vnmo74B/E0uABRNGFGmQxeT6kzFoSSxRm+0ALzGI+l9L7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SN7PR12MB7369.namprd12.prod.outlook.com (2603:10b6:806:298::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Mon, 10 Feb
- 2025 20:22:22 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 20:22:22 +0000
-Date: Mon, 10 Feb 2025 16:22:20 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
- helpers
-Message-ID: <20250210202220.GC3765641@nvidia.com>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-6-rppt@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-6-rppt@kernel.org>
-X-ClientProxiedBy: MN2PR04CA0023.namprd04.prod.outlook.com
- (2603:10b6:208:d4::36) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1thakt-00000001PRj-1V5p;
+	Mon, 10 Feb 2025 20:51:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xaDZZ3S+Vjprvw3VoZJyJ+LtDoigFQjXYIj4Wx2Yy4Y=; b=Jx6XVD4Iy8N4+52uTGGQEdzQB+
+	jLTKpT0ic6HxdRNDBMXPCGtemNlLXz54+kQ5DICSiPGlrYiqGoMfsKv+2VFP2QDqbuoLCnUgd34eQ
+	uXz0y4zoWyZVafixPtFggYYn5ZvZFTKzE/x6H2pgUuhH0lNGAJagfP+gWXPbjoihpSA1eKweCguGO
+	dsNtaNoDoMi0xblxemtfWhGcH7gEoaNpSPnOMFweCd1AmXST3tK21+sUmUBLNMvqoXby9Vhck/MGT
+	9IPx/dZEFWjTmOZaoPoY5G7P3UExlbjn1IsWbzkwSzOrJAwUJy0sGRB7i4OWas2jG7umJjVe458yX
+	jLs83qsw==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thakp-00000000Fyf-3oAI;
+	Mon, 10 Feb 2025 20:51:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xaDZZ3S+Vjprvw3VoZJyJ+LtDoigFQjXYIj4Wx2Yy4Y=; b=xqaIEgokoVRUiW1SZglA7fZNJd
+	YHo+F/BTbdqXrteNgfOVhLwG5ZyZZ4uvy3F9flDomG1YFoMS+nXlsr5r3rdIb2xLtUr7zG3HXOHdr
+	m28tKOzjDdsd1mqw89YK3nwVUJoc/9DA4RLp2/iM9ouYBfcg/Bms3FNoXpnDvFkidOjpPIs48Mv1h
+	4TL+7uUUxaTbR2W7kd+c9EoEOKVyVMCR0urLn0+HMqpMvgY2/LAheqI8AHzwX41t9NZ60WWSSACjm
+	p/U2C1eS/+NLSQbtB3zDlsFq4COEnSBXDhlWt2FktvtvB8EKqMkPWKh5Lj4ZPcHW9hP4nkawsVnxw
+	oklbeRUQ==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thakm-0007Ka-1a; Mon, 10 Feb 2025 21:51:40 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jonas@kwiboo.se
+Subject: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3576-PC binding
+Date: Mon, 10 Feb 2025 21:51:25 +0100
+Message-ID: <20250210205126.1173631-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250210205126.1173631-1-heiko@sntech.de>
+References: <20250210205126.1173631-1-heiko@sntech.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SN7PR12MB7369:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8b22b2cb-0e6c-4087-eef7-08dd4a109fd1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mWkI4ow5Ys1B7MIrU3kjS8Hhk5jaeJ3uoQm6eI7CduPWg34PHQ+VNd35vnYR?=
- =?us-ascii?Q?Rtef6osVfmNy34u9jIgoRpWiHs5HV96wOdaIxvefO+h2rKwJ6emkVfv5ZF2K?=
- =?us-ascii?Q?R+bceXDR0yjx5N4HdGwpBNH88FNl0+4Eci0ERh5K6GDYiIQeVQgL29WSxXQT?=
- =?us-ascii?Q?lG+ZK782IdsZP875byPJFie+xjHNUVQSr/4Ve6IlbYjGv4eZoLnujNhObf5v?=
- =?us-ascii?Q?UP0aDDYUZUsV8op1WdWj+xy86KapM5fk01HZPulej9v5gWOJkLozqU1y3UEl?=
- =?us-ascii?Q?vDCij0FUqZibZIlki5EgeZ2K/SB8QznH10lRoo7LBxqzR2e8ool6sgJnvu8L?=
- =?us-ascii?Q?vh0w61DA9LaH7o2oQYuDbrMfw5WUrNCXILl1X1aiGUnkPg4iUXtVIPo4Smwl?=
- =?us-ascii?Q?QdIrTXr4bW4neNxKoXirHC87FbQBTmsWtt4Pk8b6hGwYQ1I5b8wj+BC7FaL2?=
- =?us-ascii?Q?jlEPKFmviO02//jydWh64hJs05dFVj2gMTIzxKLUUEDbvJLJ780dULLPLALc?=
- =?us-ascii?Q?9hWVy5UKtWMFrtXAxqCwTlAaQwDRM/rWMrlaMpH1I4izGAhs4ztcCaeX6Xc/?=
- =?us-ascii?Q?6Sj0AGzFhCHQQs2zKSWKITalrlCC0tj7Kn3IeLw+HKCzXWgOW7H7d+t0clNK?=
- =?us-ascii?Q?GFqyk50XJE9RN527mY7VN5eXSuLR2LLKQ1l8ViqgAZw9HAcwqA54ydWkAmu0?=
- =?us-ascii?Q?sRol+17TfXFBP1vjUA4Ia9CYWeNL2OR81HpGgy40C7N57HgtBmAGgAU6LOiJ?=
- =?us-ascii?Q?Hc/gr6BB5DOSFx4s4OJuiKs5rUIJKkCb8O70TefW81bHxU652GeU2D9nQB5T?=
- =?us-ascii?Q?cza6VHIj/4XZjWQG1um3/Gj70KMhwX4+C50IOXcfJtqKMbn82zHEfDEXvzgs?=
- =?us-ascii?Q?fI4vLwNbkGIPlGBnuupQUGx77h+3lK5fLH3A/0NTpnmSi84SMUng6cb/44pS?=
- =?us-ascii?Q?IcPAcUzphrZbLAFk5b7r2hlp7LWglemSUk2cObr/6D73WDJuP7kq8oblVlRs?=
- =?us-ascii?Q?0FavpO0kHs4V+1DhH5rNBJ67kX6kVP4v6HIj+4ZGSICz2IMJOw2lapVMUQFd?=
- =?us-ascii?Q?oGYKDPUzXvNb4liuzfEQDKwcC7YFCNEjBmEC8HUI6oa9J/z7UtyaUwJcxBGu?=
- =?us-ascii?Q?tsPx2T0CVtwWSpk02Y750bkshX385rAaEfElKeUlpU4xcW5GrVn9oAecIxIX?=
- =?us-ascii?Q?WIHaW4gQYKuuZ+wmAu5ye5HtiszZuo0HwK3qhr08njnYkxh2CkIqWedYyUjj?=
- =?us-ascii?Q?g3U6xZBKz4fA+4gwkhyFBym6lXvJV+F3GO4wCUsC/nLIv6M4qGUUNRo7g+/1?=
- =?us-ascii?Q?JNMjD8p9Za+x83ofQCt3KJET5N26PVSanHdkVvG2IZFw/dhLQTsIfrF4vRzD?=
- =?us-ascii?Q?WjQlixrP8Jk344ot5v+ZPyraWYuf?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JNAuC70dFAE4ILLk/E3AgINbex0wlZMcE6BrEx3ncyJV0oAlVIRGL56DXQqJ?=
- =?us-ascii?Q?IeUK+7fganFs85wSZ/oDta+cfNXBAtpH9WKoLDp2QzSXI3q+TekljM7H/j36?=
- =?us-ascii?Q?O1sr438AbrF7gqe1MpR3qZd3/3N9pbQ9DVd+jttEVbl+dgR5eBGcWTk0IAp+?=
- =?us-ascii?Q?kSG9nK1/wDVhRot24CdxMsV6fPsSKmR7x3VrOXIT8l+ARn1thDKZwExGSENI?=
- =?us-ascii?Q?2AJ46AI/kPw/I107nQG7rTCwk5X9iWaLb2cphaG5k4+MPu/4/a5dtUJtGXif?=
- =?us-ascii?Q?oxAIYVCDn4f+0jSTTUWOs3TMpvvWutoG7A6FW6Wa7Bfc+EJHDyWKAv4NJx7d?=
- =?us-ascii?Q?5LZySFCOe8iCtnETsaQltSq1C8wD11HKmzzmxGVZ8H204Kk72Qng+SbBUW2o?=
- =?us-ascii?Q?B2uDQOfJiAG6PbnK7lO9rwUsR/01v3nykXPyQgFvARzUmch83AymLe7SA21U?=
- =?us-ascii?Q?7EdT9orC/gLTPDt5tmLTR4R3xKd84juzR20xt7oyrlaWfw3tbDT15Lm4cSZM?=
- =?us-ascii?Q?YVgsu8P6Jh47d+m//Rt6Fv36pc6fxnlKZzRb8H5++v4aMewYGfkuuEF0AW5p?=
- =?us-ascii?Q?llc5/HWRGy+FkyaoerIopUDxfjmJjXcia8G2LLBlJcCvj6/+TqX17nVf1k7Q?=
- =?us-ascii?Q?2O2884RxnZLN/3m/RIUv/9Ku18tRrTKywru4f7snAOOxy34APRsERziYwo9s?=
- =?us-ascii?Q?ZRHmpSwgtnpDfD2g0101UKiH7uOLKBy4xOIm4Wxhk9kjkgcSRrp1ec3V1sfr?=
- =?us-ascii?Q?vTq0qgyUmJ5+NCfkpufqaFI+7WMJmnwSixxYSZotBRbJdCc992569xTjIrtZ?=
- =?us-ascii?Q?Qjo91p+Pq1hmTeUk8+y751iATFs9iWrTKPbq0SdZ4QPbf6MZeSuJE49RQ5rj?=
- =?us-ascii?Q?9H/OPudOexi2cXEeIg+jy2fOmG+9qKI6Y2HZxUc5xrruKTQx39dZMu6Qk5Kg?=
- =?us-ascii?Q?HrTlkaBiY/tUeON2YXOwwhYo3hUijiVsLWqsr77hnaJY5qrXDJO61iZK373X?=
- =?us-ascii?Q?67gpdJZLrfq9mkPmHVLeAymZ6yVNSThdQ7rF+9IWNK/vQpWpXBRE6K0QCVdm?=
- =?us-ascii?Q?Yz6TDjCgQic1ry4q4GWNkYvLyUXAqHmmU56zA7vwzH2QSb0ISxIVRhAR93Bs?=
- =?us-ascii?Q?YCiTW1q6xflrneg5Cpug++OFfcqm5l/zQvu7IZjWz7Kzgt9wlYj4IuEX/ju/?=
- =?us-ascii?Q?8PydABT/bS9ozdC/Iy/e+S6SYcah+xvxQyxas3qcsDJ//HKdhRX3uEmjdVqo?=
- =?us-ascii?Q?Wwl+5uRX5sk4pBqHt6TxtRpE4TjTB3Iddu767QGLufIPEQ6KC24KxBwpmqH0?=
- =?us-ascii?Q?zY4fZvuA3s6qcds/rxpl+hS7AS39I0GReBVN9MGXfrgQdHtZaWWuYcQg73cW?=
- =?us-ascii?Q?6iXP7pyILqlJCqWMWo8Hlridctc+fhfrepZrV4LuDd7RE5dgwau2DQCsk9hz?=
- =?us-ascii?Q?fCRO5EdjmFBfyZGRcedkje0JOBs4t4wHuUAw12Y1bFXLgcGVgxgjkxx5T6xu?=
- =?us-ascii?Q?F18ZQy4p2d6YRpHWVtJorfS7ZM2GYeZfAbkPIpTaBjCG9qBpfJCNnn6wAXNC?=
- =?us-ascii?Q?/a65uGiIO+z/XJr8weSxo6oybM1twmTynwrKMH1P?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8b22b2cb-0e6c-4087-eef7-08dd4a109fd1
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 20:22:22.0896
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Fv0qdJaOTjsZnfC9VNiYFZiasTQnoeKfK72XxraWjUNB4uk1ib6V9ID49rnEP3/q
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7369
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_122227_892973_7C7B8E00 
-X-CRM114-Status: GOOD (  32.88  )
+X-CRM114-CacheID: sfid-20250210_205144_144159_C4CC13D7 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,118 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:27:45PM +0200, Mike Rapoport wrote:
-> diff --git a/Documentation/ABI/testing/sysfs-kernel-kho b/Documentation/ABI/testing/sysfs-kernel-kho
-> new file mode 100644
-> index 000000000000..f13b252bc303
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-kernel-kho
-> @@ -0,0 +1,53 @@
-> +What:		/sys/kernel/kho/active
-> +Date:		December 2023
-> +Contact:	Alexander Graf <graf@amazon.com>
-> +Description:
-> +		Kexec HandOver (KHO) allows Linux to transition the state of
-> +		compatible drivers into the next kexec'ed kernel. To do so,
-> +		device drivers will serialize their current state into a DT.
-> +		While the state is serialized, they are unable to perform
-> +		any modifications to state that was serialized, such as
-> +		handed over memory allocations.
-> +
-> +		When this file contains "1", the system is in the transition
-> +		state. When contains "0", it is not. To switch between the
-> +		two states, echo the respective number into this file.
+Add devicetree binding for the ROC-RK3576-PC SBC.
 
-I don't think this is a great interface for the actual state machine..
+The board is based on the RK3576 SoC (4*Cortex-A72 + 4*Cortex-A53).
 
-> +What:		/sys/kernel/kho/dt_max
-> +Date:		December 2023
-> +Contact:	Alexander Graf <graf@amazon.com>
-> +Description:
-> +		KHO needs to allocate a buffer for the DT that gets
-> +		generated before it knows the final size. By default, it
-> +		will allocate 10 MiB for it. You can write to this file
-> +		to modify the size of that allocation.
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Seems gross, why can't it use a non-contiguous page list to generate
-the FDT? :\
-
-See below for a suggestion..
-
-> +static int kho_serialize(void)
-> +{
-> +	void *fdt = NULL;
-> +	int err = -ENOMEM;
-> +
-> +	fdt = kvmalloc(kho_out.dt_max, GFP_KERNEL);
-> +	if (!fdt)
-> +		goto out;
-> +
-> +	if (fdt_create(fdt, kho_out.dt_max)) {
-> +		err = -EINVAL;
-> +		goto out;
-> +	}
-> +
-> +	err = fdt_finish_reservemap(fdt);
-> +	if (err)
-> +		goto out;
-> +
-> +	err = fdt_begin_node(fdt, "");
-> +	if (err)
-> +		goto out;
-> +
-> +	err = fdt_property_string(fdt, "compatible", "kho-v1");
-> +	if (err)
-> +		goto out;
-> +
-> +	/* Loop through all kho dump functions */
-> +	err = blocking_notifier_call_chain(&kho_out.chain_head, KEXEC_KHO_DUMP, fdt);
-> +	err = notifier_to_errno(err);
-
-I don't see this really working long term. I think we'd like each
-component to be able to serialize at its own pace under userspace
-control.
-
-This design requires that the whole thing be wrapped in a notifier
-callback just so we can make use of the fdt APIs.
-
-It seems like a poor fit me.
-
-IMHO if you want to keep using FDT I suggest that each serializing
-component (ie driver, ftrace whatever) allocate its own FDT fragment
-from scratch and the main KHO one just link to the memories that holds
-those fragements.
-
-Ie the driver experience would be more like
-
- kho = kho_start_storage("my_compatible_string,v1", some_kind_of_instance_key);
-
- fdt...(kho->fdt..)
-
- kho_finish_storage(kho);
-
-Where this ends up creating a stand alone FDT fragment:
-
-/dts-v1/;
-/ {
-  compatible = "linux-kho,my_compatible_string,v1";
-  instance = some_kind_of_instance_key;
-  key-value-1 = <..>;
-  key-value-1 = <..>;
-};
-
-And then kho_finish_storage() would remember the phys/length until the
-kexec fdt is produced as the very last step.
-
-This way we could do things like fdbox an iommufd and create the above
-FDT fragment completely seperately from any notifier chain and,
-crucially, disconnected from the fdt_create() for the kexec payload.
-
-Further, if you split things like this (it will waste some small
-amount of memory) you can probably get to a point where no single FDT
-is more than 4k. That looks like it would simplify/robustify alot of
-stuff?
-
-Jason
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 522a6f0450ea..0f4ca08d9ae9 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -236,6 +236,11 @@ properties:
+               - firefly,roc-rk3399-pc-plus
+           - const: rockchip,rk3399
+ 
++      - description: Firefly ROC-RK3576-PC
++        items:
++          - const: firefly,roc-rk3576-pc
++          - const: rockchip,rk3576
++
+       - description: Firefly Station M2
+         items:
+           - const: firefly,rk3566-roc-pc
+-- 
+2.47.2
 
 
