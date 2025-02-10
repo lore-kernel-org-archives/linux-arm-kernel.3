@@ -4,113 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA3EC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 03:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B14C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 05:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:CC:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyxopfq01qIFG3pHou1VqDKtq+2Cvr5wueyIRGqt7Nw=; b=0B1yjVL68GaKLN5yH7AHT0lqR+
-	z9whsfHWZNjYI2wG/l8HniA5Gp/0ymmUsC8gunz5nkyhjbCrsOUE044DhgGgZEt0lW7pojsS7OCFT
-	WKsHBd0um/wWHseJs2rPGFA7fMa+S+svIvNKBo4e1Puol5MUDiZK2VeBWCkEoRtNv/XMj+fnT6BSL
-	bWUFvk2bc3RdDPvoHs8pS2rQu3DtYDVY28n/f79+Xh+dbrmo/e9QB1QfkgqMEAmTUgyOX7UOJwKpJ
-	vB+GfJ1KhDLd5R1qT9xrfYyxlo5pVrN9x9w/Uy051rkmh3IA2feFB6BqCIcr67RIWJcohtxR1aKnt
-	SZsAveEQ==;
+	bh=yVOD3v3Y0g5LF/Im4pbOfEYj3LcSGcmxUrJET2J/F/4=; b=MmKWx2gBI/jxv7HyFx+HzixJBw
+	NgH4Pa8Vh6zycpdqzd5um0G0eJ/4zvzau+lIL3KJTmELXrvH2wITCAt2jUtC5Fwoy4rovckT/4q/U
+	YI8Oi5XAaj0wo7Sxd6ckU+zF7IAgFXtsleNdDAjr6tD13LKR4ezr+kXbjZyu7yXj7Stz/WsmKi4V4
+	kMfLCB2fppq18RrafBCKvuXRg/vFVFWs7Mla/omyeWJfrKaB/rn0O5GK0mstaABEkfdJhKVa2vLj7
+	pxanbeM+vEUfZ5VJo86l67mTlNWD5kabFoqJvtEDIBURV4bd1Ky/UhDNwSRBooN2qbNS50uEfiSw1
+	yztskkHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thKCU-0000000G366-46DM;
-	Mon, 10 Feb 2025 03:11:10 +0000
+	id 1thLuT-0000000GDe6-0mv7;
+	Mon, 10 Feb 2025 05:00:41 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thKB6-0000000G2wk-0Hu7
+	id 1thLt4-0000000GDWw-3ZNB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 03:09:45 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 519KIPgQ009545;
-	Mon, 10 Feb 2025 03:09:34 GMT
+	Mon, 10 Feb 2025 04:59:16 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 519MUw9E014239;
+	Mon, 10 Feb 2025 04:59:06 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	pyxopfq01qIFG3pHou1VqDKtq+2Cvr5wueyIRGqt7Nw=; b=XINvUSvzgJINdMlV
-	8MUc1ugbYkxE+OkqobWw7X0IY806Ad3nvtCe0i8+bPU3s3HnX2x0pMmftUZRRE87
-	oEQJQAsIBJzJzwyirzGeXa2hVQe0Lf3hSmv+tTVjFLzFbaI8qRKRYJN9A2ghyNdC
-	rtpGHS1oLm+Y1UVahpR9DRxf9ysdYxDrN0/uLhlUt8TKQxPPGQmnuWdJByZz9e4B
-	8I1iBD+u1RkMxFOOrbxD9jhqsU8kp4jMsjUm4E6WVH56U8ptCywcWhUh+53zS9LT
-	MctaJhefa3fNWzcr2O3d4MIvWQgwX5PSxumJ4SH8TuXm8N3RihtxBjQGkQyeq8zq
-	+ajfww==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0f72x6f-1
+	yVOD3v3Y0g5LF/Im4pbOfEYj3LcSGcmxUrJET2J/F/4=; b=eSpH/wKC2FyLBjfE
+	NsK0qLxuUccCudgQouHqdY8GhessNlA8Zb0EwGA08k9GMRnpOqZzMpvyXBluAuaC
+	XK1u4aaL5Gx+H8ey3o4y+O6X1P0et5/fq/c+44w7BnMkEDIVIp5B96+C0MGG9Tq+
+	+76XM1segOVGDxC+cAlBzsNwRVuef4zO6IT0GtyEW1tQfz/3ZvNaA6Bj+FjBWUYz
+	zgzmvsbc7BgCAUIveNEeW3WMkl/X9sZl+J69JswZh72UInj1a+SdIEXKLO+FWEeP
+	q/BK69d/mpu1JIi0eBvnoF7XRRjm6k49/fv11qZz4ylcLIPCVbmZJ64wS4NOIfzA
+	/4kylw==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0g8u3kp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 03:09:34 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51A39XJv013735
+	Mon, 10 Feb 2025 04:59:05 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51A4x5t6010009
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 03:09:33 GMT
-Received: from [10.253.11.86] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 10 Feb 2025 04:59:05 GMT
+Received: from [10.219.57.57] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 9 Feb 2025
- 19:09:23 -0800
-Message-ID: <46423f11-9642-4239-af5d-3eb3b548b98c@quicinc.com>
-Date: Mon, 10 Feb 2025 11:09:03 +0800
+ 20:59:01 -0800
+Message-ID: <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
+Date: Mon, 10 Feb 2025 10:28:52 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
- <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
- <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
- <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
+To: <quic_pbrahma@quicinc.com>
+CC: <andersson@kernel.org>, <conor+dt@kernel.org>,
+        <devicetree@vger.kernel.org>, <iommu@lists.linux.dev>,
+        <joro@8bytes.org>, <konradybcio@kernel.org>, <krzk+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <robh@kernel.org>, <robin.murphy@arm.com>, <will@kernel.org>
+References: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
 Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
+From: Pratyush Brahma <quic_pbrahma@quicinc.com>
+In-Reply-To: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 9UFZc4nDbCM3vzlrXRaDfvajb5-5fsgx
-X-Proofpoint-ORIG-GUID: 9UFZc4nDbCM3vzlrXRaDfvajb5-5fsgx
+X-Proofpoint-GUID: 5gzjTQFf_GJj_MveMIDpprdBFE0l1iGm
+X-Proofpoint-ORIG-GUID: 5gzjTQFf_GJj_MveMIDpprdBFE0l1iGm
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_02,2025-02-07_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0
- impostorscore=0 mlxlogscore=999 clxscore=1015 bulkscore=0 adultscore=0
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502100023
+ definitions=2025-02-10_02,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 malwarescore=0
+ adultscore=0 lowpriorityscore=0 phishscore=0 mlxscore=0 suspectscore=0
+ bulkscore=0 priorityscore=1501 spamscore=0 impostorscore=0 mlxlogscore=727
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
+ definitions=main-2502100039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_190944_117203_A8957AD3 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20250209_205914_921670_1A696B40 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,98 +104,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi
 
-
-On 2025-01-27 18:49, Konrad Dybcio wrote:
-> On 22.01.2025 10:48 AM, Krzysztof Kozlowski wrote:
->> On 22/01/2025 09:56, Yijie Yang wrote:
->>>
->>>
->>> On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
->>>> On 21/01/2025 08:54, Yijie Yang wrote:
->>>>> The Qualcomm board always chooses the MAC to provide the delay instead of
->>>>> the PHY, which is completely opposite to the suggestion of the Linux
->>>>> kernel.
->>>>
->>>>
->>>> How does the Linux kernel suggest it?
->>>>
->>>>> The usage of phy-mode in legacy DTS was also incorrect. Change the
->>>>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
->>>>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
->>>>> the definition.
->>>>> To address the ABI compatibility issue between the kernel and DTS caused by
->>>>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
->>>>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
->>>>> phy-mode.
->>>>>
->>>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>>>> ---
->>>>>    .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
->>>>>    1 file changed, 13 insertions(+), 5 deletions(-)
->>>>>
->>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
->>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->>>>>    static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
->>>>>    {
->>>>>    	struct device *dev = &ethqos->pdev->dev;
->>>>> -	int phase_shift;
->>>>> +	int phase_shift = 0;
->>>>>    	int loopback;
->>>>>    
->>>>>    	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
->>>>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
->>>>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
->>>>> -		phase_shift = 0;
->>>>> -	else
->>>>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
->>>>>    		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
->>>>>    
->>>>>    	/* Disable loopback mode */
->>>>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>>    	if (ret)
->>>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>>>> +
->>>>> +	root = of_find_node_by_path("/");
->>>>> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
->>>>
->>>>
->>>> First, just check if machine is compatible, don't open code it.
->>>>
->>>> Second, drivers should really, really not rely on the machine. I don't
->>>> think how this resolves ABI break for other users at all.
->>>
->>> As detailed in the commit description, some boards mistakenly use the
->>> 'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and
->>
->> That's a kind of an ABI now, assuming it worked fine.
-> 
-> I'm inclined to think it's better to drop compatibility given we're talking
-> about rather obscure boards here.
-> 
-> $ rg 'mode.*=.*"rgmii"' arch/arm64/boot/dts/qcom -l
-> 
-> arch/arm64/boot/dts/qcom/sa8155p-adp.dts
-> arch/arm64/boot/dts/qcom/qcs404-evb-4000.dts
-> 
-> QCS404 seems to have zero interest from anyone (and has been considered
-> for removal upstream..).
-> 
-> The ADP doesn't see much traction either, last time around someone found
-> a boot breaking issue months after it was committed.
-
-But what about the out-of-tree boards that Andrew mentioned? We need to 
-ensure we don't break them, right?
-
-> 
-> Konrad
+Can someone kindly review this patch?
 
 -- 
-Best Regards,
-Yijie
+Thanks and Regards
+Pratyush Brahma
 
 
