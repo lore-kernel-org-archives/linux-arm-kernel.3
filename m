@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEABC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32267C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kkdYUObDFXs55OTobITIFrNCSL4wC5QGhUNmOKBDa8A=; b=4dE0RqWF7v4dnBZiVE3NTvcnn/
-	/p94sX9NOo5wGeSSi+pAF7/X7O+0HWXcKd4kwvPgnkkaYY+AUiwBBKu83duQCTLFms8M6BJrBzkcL
-	ylZHFNSNnSkfe8HHvA8hjMalWYfrpTy5WKXHC7RJtcJjquLHKGFzDpyN236+Y74eKIcRGOskFUj8/
-	qjSc4X80bM2yxTPFN1lzNPJ4IR8w3IfpQVMhzJJ+cHawWMpy9fOgOOljIzZp9kCx1czgzpY7/K/J0
-	9ytloDBt5BVkxhf5ovzgv9zajLG4vE9RWJdeeoP+Nl39fdJ67Ph0W/C4TaUFRy1Sjow7ycRabNFpw
-	HDVut8fA==;
+	bh=s4C/YxiI7oB9Rj2RJeg+M3GrgBg330xIFVOg0LB4aq0=; b=4ppip26wrnS6GCK7ef9Uhj2DFZ
+	sFElSOWv0A1T0et24X6Pbkjr54K2qK+DEVPYvve+94U/HWhwAknOLneeDc6HKLRI8cOCJojsR1BXg
+	gHo6maB/PDd9swQRw5P7Tmxn1Mmcq5Z7dA6e9iM4HsnGFA1GYSMdBHdwK+yf2M98m2VfSLBGQSxD8
+	SZAVJdtfaxVCmUB95kbaGqNjkSKzM4RZwtHZ/xRaqGvU4K/CBxy3thYltMZWAdaex/yjQrJA5YIKa
+	Cjy1387cGOo6AEcwD66atJuFn0MbGsVHLl9a4PU2U+FORUcJ+hC0mf1O3eXgksVC+Xt0ZfmWPcKuZ
+	9Z5bTenA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWcc-00000000Vlx-2b0f;
-	Mon, 10 Feb 2025 16:26:58 +0000
+	id 1thWdz-00000000W4l-0z0T;
+	Mon, 10 Feb 2025 16:28:23 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWYV-00000000Upi-3apk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:22:45 +0000
+	id 1thWYY-00000000Uqd-2eXQ;
+	Mon, 10 Feb 2025 16:22:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96B7CA4197B;
-	Mon, 10 Feb 2025 16:20:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9480BC4CEE9;
-	Mon, 10 Feb 2025 16:22:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 567F8A41970;
+	Mon, 10 Feb 2025 16:21:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FC0C4CEE6;
+	Mon, 10 Feb 2025 16:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739204562;
-	bh=Y1OOCtRvUNohjRycrQGn3/19JARUQT+ztyHsw66KdYU=;
+	s=k20201202; t=1739204565;
+	bh=5pue0C/bvY7Bi4z8DCyV8fK5Y7JUy3U4ZkaQjuaNTCw=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=MT53VQ63spjltB3IjE28c+jp5XYU5yyjmOq/2XWN6kNxuPSrycJdosq4l9xGt+pyS
-	 RaKJQlQeXnS3rHYyk+pua3uZDvHLcTAz3D2WE7TNnx7JgdgeCTBvEDDDkLpSHnA8XE
-	 BvASKbClyz5cwfK0Z+/5LngpaN1cinqMpYDzcstAyhMs4Z7DVRL4zHLHKKUC5LkLpX
-	 TTRv5M3yf/9f6lvxldzHUAMzIElRa6fW9LzKJ0gl5KcFKrub05ooecGZZqzBTo/umv
-	 ofRzkBszwaDsKzAAA/hTp6pIsmAfGru6kNcFd8tbrBsVvJ0w98dpy4o7rU+dgGP67N
-	 wnNaayei6oANg==
-Date: Mon, 10 Feb 2025 10:22:41 -0600
+	b=Q7kOpbmSvyikwdl0vxdtsvwh3aPlVJKtOKvBumplA6jZU96aNqOf/2VNQRZsxcpFi
+	 ivVRzLV+1fHR4GZ6yjJTQ9kSmhPHXHVPO7pEtbVEHdRPfwKNARwrG6CSzsdYEIipY5
+	 Z/Usfk1EIFx408e+8pO5fTi91IkqEvYYgHCDLz77yy4G6Ut0EW5i3F0gM6CRbHbxby
+	 Wtk8O7BufKk1n7g2d4WH37bPsPndpQtwmJU+Zpq9WIIFVIILD45ePkIrLB90FQrFQH
+	 qas1Frr4pWnbkvcyyzMEQ53fNsEJjoCo0tQaluzkHzxGOw2xym+NxbGUl0YIXkaWFO
+	 t1AdRCYX4NpsQ==
+Date: Mon, 10 Feb 2025 10:22:44 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Conor Dooley <conor+dt@kernel.org>, 
- linux-samsung-soc@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
-Message-Id: <173920411901.476943.11749535762195189252.robh@kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: exynos: update all samsung,mode
- constants
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+ linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Haylen Chu <heylenay@outlook.com>, linux-pm@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, soc@lists.linux.dev, 
+ Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@outlook.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Lee Jones <lee@kernel.org>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+Message-Id: <173920412075.477254.10964125366963859194.robh@kernel.org>
+Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_082244_020154_C41748E9 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250210_082246_797905_21D258E7 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +80,89 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 09 Feb 2025 15:20:43 +0200, Ivaylo Ivanov wrote:
-> Update all samsung,mode property values to account for renaming USI_V2
-> constants to USI_MODE in the bindings.
+On Sun, 09 Feb 2025 23:06:25 +0100, Alexander Sverdlin wrote:
+> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
+> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
+> been chosen because the upstream toolchain can be utilized.
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
-> Patch picked from [1] and rebased on linux-next
+> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
+> peripherals with an addition of ARM64 core. Therefore it would be
+> beneficial not to copy-paste the peripherals' device-tree, but rather split
+> the most suitable riscv DT into ARCH-specific and peripherals parts and
+> just include the latter on the arm64 side.
 > 
-> [1] https://lore.kernel.org/all/20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com/
-> ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi     | 14 +++---
->  arch/arm64/boot/dts/exynos/exynosautov9.dtsi  | 48 +++++++++----------
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  2 +-
->  .../dts/exynos/google/gs101-pixel-common.dtsi |  4 +-
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  2 +-
->  5 files changed, 35 insertions(+), 35 deletions(-)
+> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
+> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
+> SG2000 SoC inside (separate .dtsi).
+> 
+> This series has been tested with Sophgo-provided U-Boot binary [2]: it
+> boots from SD card, pinctrl, serial, GPIO drivers are functional (same
+> as for RiscV-based CV18xx SoCs).
+> New reset driver is provided as an alternative to the ATF PSCI handler,
+> which Sophgo only provides in binary form.
+> 
+> Partial SoC documentation is available [3].
+> 
+> This series lacks the support of:
+> - USB
+> - Audio
+> - Ethernet
+> - WiFi
+> - Bluetooth
+> - eMMC
+> - Video
+> 
+> It would probably make sense that the whole series would go into SOC tree,
+> even though technically nothing prevents the reboot/reset driver to come
+> in PM/reset tree. If everything would come together, `reboot` command would
+> work out of the box.
+> 
+> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
+> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+> 
+> Alexander Sverdlin (10):
+>   arm64: Add SOPHGO SOC family Kconfig support
+>   riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
+>   arm64: dts: sophgo: Add initial SG2000 SoC device tree
+>   arm64: dts: sophgo: Add Duo Module 01
+>   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+>   dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
+>     compatible
+>   dt-bindings: reset: sophgo: Add CV18xx reset controller
+>   riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
+>   power: reset: cv18xx: New driver
+>   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+> 
+>  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
+>  .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
+>  MAINTAINERS                                   |   1 +
+>  arch/arm64/Kconfig.platforms                  |  12 +
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/sophgo/Makefile           |   2 +
+>  arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
+>  .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
+>  .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
+>  arch/arm64/configs/defconfig                  |   3 +
+>  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
+>  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
+>  drivers/power/reset/Kconfig                   |  12 +
+>  drivers/power/reset/Makefile                  |   1 +
+>  drivers/power/reset/cv18xx-reset.c            |  89 +++++
+>  16 files changed, 689 insertions(+), 303 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+>  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+>  create mode 100644 drivers/power/reset/cv18xx-reset.c
+> 
+> --
+> 2.48.1
+> 
+> 
 > 
 
 
@@ -111,49 +180,17 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/sophgo/' for 20250209220646.1090868-1-alexander.sverdlin@gmail.com:
 
-Error: arch/arm64/boot/dts/exynos/exynos850.dtsi:654.20-21 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos850-e850-96.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynos850-e850-96.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos850-e850-96.dtb] Error 2
-Error: arch/arm64/boot/dts/exynos/exynosautov920.dtsi:309.20-21 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynosautov920-sadk.dtb] Error 2
-Error: arch/arm64/boot/dts/exynos/exynosautov9.dtsi:445.20-21 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynosautov9-sadk.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynosautov9-sadk.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynosautov9-sadk.dtb] Error 2
-Error: arch/arm64/boot/dts/exynos/google/gs101.dtsi:828.20-21 syntax error
-FATAL ERROR: Unable to parse input tree
-make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb] Error 1
-make[3]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos/google] Error 2
-make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
-make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/google/gs101-oriole.dtb] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
-make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
-make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
-make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: /: failed to match any schema with compatible: ['sophgo,sg2000']
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: soc: soc-reset: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a dependency of 'cache-size'
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a required property
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: Unevaluated properties are not allowed ('cache-level', 'cache-size' were unexpected)
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
 
 
 
