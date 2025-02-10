@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A80C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E465AC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p59kS6BgnDtLm2RBmPDFSxO8EjcssSjUIbakAXnj8oY=; b=3D40VdIvy7QSOy
-	mDKo82cu/OCZxGwhEIeoWI4cIOAC89WuLsBLFaJ8qb6WgIF7Cy2bzxIxwq1Fx8f/04nHPJ1ZdIdB8
-	vjqKdVeCi6Vgbbg2mEbMQackpjGG1CpDXnp3BXIEt+wntfGJZT2zRZ8Try9RsJu6zMDNBnfHJmtDd
-	J7Mm7dOf18K5BUIW54D2f3lTee1w3Js54i/OcYXnRGXcUxK9LMtGRh4lZt3pJnkDaBh/AA4uGY1eS
-	UL9bWiGn+RHJpBUUGUek5kBBUfdVDsMgAgRcJ019e7r8Z8Krf6jffIKHROBCcyn7Rlucztbcloetl
-	cVHZi7Ruy1yzUf/LUw9A==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6DNkDzYRsREfj0sp5nnwVNuG1cgUjook0PsY/o2nTvA=; b=GLltLDi4Q/2zCZ
+	RQw5chrP88Tw9PwzKu3nnLpYBTPcmFCpTUQpFOHqL8pUnZU5vdXlQxOqdEdat4farvoAjiA6XBxX9
+	AFEF5slC1R5ZKALoU57rnAWDN4WhyfMGE1mxw5oeEdBCx8MafotJG51lyQ9EgcWqcT4IIkM7iCZ+2
+	92/D3G6FYpTO0lP448uD2pG1Eh+ekv5957Ziq9ZlWHKdVaMlyI1W/0N5hHJiieWvme7y/MehnPbmr
+	0ZI4Sguo4CuH0fKrVOa+rcwCjLKPX/VG8/X2WFo5gwNANV3PrE284oe0v+iHOQJmqCqbRk8LBZcsM
+	H0KcR4mD3tf0LfAaytFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWxP-00000000aEm-423c;
-	Mon, 10 Feb 2025 16:48:27 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1thWym-00000000aXk-2k48;
+	Mon, 10 Feb 2025 16:49:52 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWuO-00000000ZLs-0hCf
+	id 1thWuN-00000000ZLg-2yaV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:45:21 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 85B061480320;
-	Mon, 10 Feb 2025 17:45:15 +0100 (CET)
+	Mon, 10 Feb 2025 16:45:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4FBEB148026A;
+	Mon, 10 Feb 2025 17:45:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1739205916;
+	t=1739205914;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p59kS6BgnDtLm2RBmPDFSxO8EjcssSjUIbakAXnj8oY=;
-	b=M8zTLMLoc4D5DvNZU+oxhDSzqwcZ+Rt1xIPKEzcXnqo+rkk0uPE079v4tFKly210tV3/iD
-	H33MAdHt0yc5PO9pF0N6qDHZ82Fy1EoUtc87ymhVhb4dtGmvG649uGqQW1G2e8bcOnZGhc
-	a9zvbvC5/9vDCF97BkAW0vWqpKKFdd6OxcoCQkGL/Zh8nhvr47YG33SwgSJJCaK3ElsvMU
-	qRljw57U1Av6tyHo2+/lHE0nFu6xUsQl8DKJ4eD8QT+gkXpd+zlAha/sHrBvDOUE1HzhkY
-	T49pgK+ics1ztVZfA5AiMIosXyBk0NIkI5nv/DOE+JPuk5ce67lSpdd+ZzOyzw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6DNkDzYRsREfj0sp5nnwVNuG1cgUjook0PsY/o2nTvA=;
+	b=QDFswwxh5yq/Q2nfGYfaK501Bz0ERwVgeUuuFwMvuAaafD/kufwnfQS1M1waMGWLfEsY7A
+	sFJaOQbB+axlAp2u/9cA3KB6Vq7nhqk+f6VibzjS7T2pFh0dhS3MUmg8Bdm8fvDE6eKgfs
+	xEBaL2rd9jha90gVWGof01FEMJtA/EtEvx/nxLnLjRyVLqpeVJb6EO2c5EPCnLwX143msc
+	BroLSCG1RjjUAJ3WQxENrIn8Vu77RN8B53afl/PMkzjwl+MNWfbeVS2ooQp8UqRhsc1PIp
+	lFJJDSK/StYMm25dNmqcQ2AO3vvOPtgUM53rbVbZECl4LwrsuGZ5uo5IGXp0Bg==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: [PATCH v2 01/16] dt-bindings: clock: at91: Split up per SoC partially
-Date: Mon, 10 Feb 2025 17:44:51 +0100
-Message-Id: <20250210164506.495747-2-ada@thorsis.com>
+Subject: [PATCH v2 00/16] Microchip OTPC driver on SAM9X60 exposing UIDxR as additional nvmem device
+Date: Mon, 10 Feb 2025 17:44:50 +0100
+Message-Id: <20250210164506.495747-1-ada@thorsis.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250210164506.495747-1-ada@thorsis.com>
-References: <20250210164506.495747-1-ada@thorsis.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_084520_522475_E7D8AD33 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250210_084520_375487_ADE3B893 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,166 +63,126 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Ryan Wanner <ryan.wanner@microchip.com>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before adding even more new indexes creating more holes in the
-clk at91 drivers pmc_data->chws arrays, split this up.
+Hei hei,
 
-This is a partial split up only for SoCs affected by upcoming changes
-and by that PMC_MAIN + x hack, others could follow by the same scheme.
+on a custom sam9x60 based board we want to access a unique ID of the
+SoC.  Microchip sam-ba has a command 'readuniqueid' which returns the
+content of the OTPC Product UID x Register in that case.
 
-Binding splitup was proposed for several reasons:
+(On different boards with a SAMA5D2 sam-ba and we use the Serial Number
+x Register for that purpose.  In the linux kernel those are exposed
+through the atmel soc driver.  Those registers are not present in the
+SAM9X60 series, but only for SAMA5D2/SAMA5D4 AFAIK.)
 
-1) keep the driver code simple, readable, and efficient
-2) avoid accidental array index duplication
-3) avoid memory waste by creating more and more unused array members.
+There is a driver for the OTPC of the SAMA7G5 and after comparing
+register layouts it seems that one is almost identical to the one used
+by SAM9X60.  Currently that driver has no support for the UIDx
+registers, but I suppose it would be the right place to implement it,
+because the registers are within the OTPC register address offsets.
 
-Old values are kept to not break dts, and to maintain dt ABI.
+When developing and testing it became clear the OTPC needs explicit
+enabling of certain clocks in the otpc driver.  So the patch series
+starts with some rework of clock bindings and clock drivers, along with
+referencing that in SoC dtsi files.
 
-Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
-Signed-off-by: Alexander Dahl <ada@thorsis.com>
----
+After two patches with some unrelated fixups for the otpc driver, there
+are more patches dealing with sam9x60 support for the driver and the
+necessary clock enablement.
 
-Notes:
-    v2:
-    - new patch, not present in v1
+The last patch adds an additional nvmem device for the UIDx registers,
+fullfilling the initial goal of mine.
 
- .../dt-bindings/clock/microchip,sam9x60-pmc.h | 19 +++++++++++
- .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 25 +++++++++++++++
- .../clock/microchip,sama7d65-pmc.h            | 32 +++++++++++++++++++
- .../dt-bindings/clock/microchip,sama7g5-pmc.h | 24 ++++++++++++++
- 4 files changed, 100 insertions(+)
+I tested the series only on SAM9X60, not on SAMA7G5 or the other SoCs
+affected, because I only have sam9x60 hardware for testing.  If someone
+could test on SAM9X7, SAMA7G5, and SAMA7D65, that would be highly
+appreciated.
+
+Last question: Should the UID be added to the device entropy pool with
+add_device_randomness() as done in the SAMA5D2 sfr driver?
+
+For detailed patch changelog see each patch, general changelog below.
+
+Greets
+Alex
+
+(series based on v6.14-rc2)
+
+v2:
+- Removed patch adding bad OPTC conditions warnings on probe
+- Removed patch adding more register definitions (the one register
+  definition required was moved to the last patch adding the nvmem for
+  UID registers)
+- Added multiple new patches handling the dt-bindings issues
+- Extend the possibility to enable the main rc oscillator to all at91
+  SoCs with an OTPC
+- Added patches to reference and enable the OTPC peripheral clock on all
+  capable SoCs
+- Reordered patches
+- Reworded commit messages
+- Squashed patches with dts changes for sam9x60
+- Fixed bot warnings
+
+v1:
+- Link: https://lore.kernel.org/all/20240821105943.230281-1-ada@thorsis.com/T/#u
+
+(I sent an RFC patch on this topic earlier this year, you'll find the
+link below as a reference to the discussion.  The patch itself was
+trivial and not meant for applying as is anyways, so I decided to not
+write a full changelog from RFC to v1.)
+
+RFC:
+- Link: https://lore.kernel.org/all/20240412140802.1571935-1-ada@thorsis.com/T/#u
+
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+
+Alexander Dahl (16):
+  dt-bindings: clock: at91: Split up per SoC partially
+  ARM: dts: microchip: Use new PMC bindings
+  clk: at91: Use new PMC bindings
+  dt-bindings: clock: at91: Allow referencing main rc oscillator in DT
+  clk: at91: Allow enabling main_rc_osc through DT
+  clk: at91: Add peripheral id for OTPC
+  dt-bindings: nvmem: microchip-otpc: Add compatible for SAM9X60
+  dt-bindings: nvmem: microchip-otpc: Add required clocks
+  nvmem: microchip-otpc: Avoid reading a write-only register
+  nvmem: microchip-otpc: Fix swapped 'sleep' and 'timeout' parameters
+  nvmem: microchip-otpc: Add SAM9X60 support
+  ARM: dts: microchip: sama7g5: Add OTPC clocks
+  ARM: dts: microchip: sam9x60: Add OTPC node
+  ARM: dts: microchip: sam9x60_curiosity: Enable OTP Controller
+  nvmem: microchip-otpc: Enable necessary clocks
+  nvmem: microchip-otpc: Expose UID registers as 2nd nvmem device
+
+ .../nvmem/microchip,sama7g5-otpc.yaml         | 32 ++++++++++-
+ .../dts/microchip/at91-sam9x60_curiosity.dts  |  4 ++
+ arch/arm/boot/dts/microchip/sam9x60.dtsi      | 25 ++++++---
+ arch/arm/boot/dts/microchip/sam9x7.dtsi       | 11 ++--
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     |  5 +-
+ arch/arm/boot/dts/microchip/sama7g5.dtsi      | 25 +++++----
+ drivers/clk/at91/sam9x60.c                    | 16 +++---
+ drivers/clk/at91/sam9x7.c                     | 24 +++++----
+ drivers/clk/at91/sama7d65.c                   | 44 +++++++--------
+ drivers/clk/at91/sama7g5.c                    | 30 ++++++-----
+ drivers/nvmem/microchip-otpc.c                | 54 ++++++++++++++++---
+ .../dt-bindings/clock/microchip,sam9x60-pmc.h | 22 ++++++++
+ .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 28 ++++++++++
+ .../clock/microchip,sama7d65-pmc.h            | 35 ++++++++++++
+ .../dt-bindings/clock/microchip,sama7g5-pmc.h | 27 ++++++++++
+ 15 files changed, 296 insertions(+), 86 deletions(-)
  create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
  create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
  create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
  create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
 
-diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-new file mode 100644
-index 0000000000000..e01e867e8c4da
---- /dev/null
-+++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * The constants defined in this header are being used in dts and in
-+ * at91 sam9x60 clock driver.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
-+#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
-+
-+#include <dt-bindings/clock/at91.h>
-+
-+/* old from before bindings splitup */
-+#define SAM9X60_PMC_MCK		PMC_MCK		/* 1 */
-+#define SAM9X60_PMC_UTMI	PMC_UTMI	/* 2 */
-+#define SAM9X60_PMC_MAIN	PMC_MAIN	/* 3 */
-+
-+#define SAM9X60_PMC_PLLACK	PMC_PLLACK	/* 7 */
-+
-+#endif
-diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
-new file mode 100644
-index 0000000000000..2df1ff97a5b18
---- /dev/null
-+++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * The constants defined in this header are being used in dts and in
-+ * at91 sam9x7 clock driver.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X7_PMC_H
-+#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X7_PMC_H
-+
-+#include <dt-bindings/clock/at91.h>
-+
-+/* old from before bindings splitup */
-+#define SAM9X7_PMC_MCK		PMC_MCK		/* 1 */
-+#define SAM9X7_PMC_UTMI		PMC_UTMI	/* 2 */
-+#define SAM9X7_PMC_MAIN		PMC_MAIN	/* 3 */
-+
-+#define SAM9X7_PMC_PLLACK	PMC_PLLACK	/* 7 */
-+
-+#define SAM9X7_PMC_AUDIOPMCPLL	PMC_AUDIOPMCPLL	/* 9 */
-+#define SAM9X7_PMC_AUDIOIOPLL	PMC_AUDIOIOPLL	/* 10 */
-+
-+#define SAM9X7_PMC_PLLADIV2	PMC_PLLADIV2	/* 14 */
-+#define SAM9X7_PMC_LVDSPLL	PMC_LVDSPLL	/* 15 */
-+
-+#endif
-diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
-new file mode 100644
-index 0000000000000..f5be643be9b36
---- /dev/null
-+++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * The constants defined in this header are being used in dts and in
-+ * at91 sama7d65 clock driver.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7D65_PMC_H
-+#define _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7D65_PMC_H
-+
-+#include <dt-bindings/clock/at91.h>
-+
-+/* old from before bindings splitup */
-+#define SAMA7D65_PMC_MCK0		PMC_MCK		/* 1 */
-+#define SAMA7D65_PMC_UTMI		PMC_UTMI	/* 2 */
-+#define SAMA7D65_PMC_MAIN		PMC_MAIN	/* 3 */
-+#define SAMA7D65_PMC_CPUPLL		PMC_CPUPLL	/* 4 */
-+#define SAMA7D65_PMC_SYSPLL		PMC_SYSPLL	/* 5 */
-+
-+#define SAMA7D65_PMC_BAUDPLL		PMC_BAUDPLL	/* 8 */
-+#define SAMA7D65_PMC_AUDIOPMCPLL	PMC_AUDIOPMCPLL	/* 9 */
-+#define SAMA7D65_PMC_AUDIOIOPLL		PMC_AUDIOIOPLL	/* 10 */
-+#define SAMA7D65_PMC_ETHPLL		PMC_ETHPLL	/* 11 */
-+
-+#define SAMA7D65_PMC_MCK1		PMC_MCK1	/* 13 */
-+
-+#define SAMA7D65_PMC_LVDSPLL		PMC_LVDSPLL	/* 15 */
-+#define SAMA7D65_PMC_MCK3		PMC_MCK3	/* 16 */
-+#define SAMA7D65_PMC_MCK5		PMC_MCK5	/* 17 */
-+
-+#define SAMA7D65_PMC_INDEX_MAX		25
-+
-+#endif
-diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
-new file mode 100644
-index 0000000000000..ad69ccdf9dc78
---- /dev/null
-+++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * The constants defined in this header are being used in dts and in
-+ * at91 sama7g5 clock driver.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7G5_PMC_H
-+#define _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7G5_PMC_H
-+
-+#include <dt-bindings/clock/at91.h>
-+
-+/* old from before bindings splitup */
-+#define SAMA7G5_PMC_MCK0	PMC_MCK		/* 1 */
-+#define SAMA7G5_PMC_UTMI	PMC_UTMI	/* 2 */
-+#define SAMA7G5_PMC_MAIN	PMC_MAIN	/* 3 */
-+#define SAMA7G5_PMC_CPUPLL	PMC_CPUPLL	/* 4 */
-+#define SAMA7G5_PMC_SYSPLL	PMC_SYSPLL	/* 5 */
-+
-+#define SAMA7G5_PMC_AUDIOPMCPLL	PMC_AUDIOPMCPLL	/* 9 */
-+#define SAMA7G5_PMC_AUDIOIOPLL	PMC_AUDIOIOPLL	/* 10 */
-+
-+#define SAMA7G5_PMC_MCK1	PMC_MCK1	/* 13 */
-+
-+#endif
+
+base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
 -- 
 2.39.5
 
