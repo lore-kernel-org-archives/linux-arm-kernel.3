@@ -4,68 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A2BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3161C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9H1rC9k4lkppNYazNCN879GU1pPKlH/YsZFjfac2do=; b=szLaCZq3inzq3VvGyQfD0tgjma
-	00IOA+MH0gPvOxpidk4J24lPdSq3Pm0Po6K+bhY9z0FVU0o5JIud1cRGML2+v1lkIJnjDYfeb6ltn
-	K4Q1ux7wVEbz7CY6ro4+7BtOhxz7uBRwuIl1Pb8l1Sokr4ykh8F4QfPpY1aKEPMSDZhE01f96js+Y
-	5jI4QEnrgYibbD8NubKADEyIPbNI9JYbwUY2zp8eZ6ojX0JnCGMnfimpiYxToIDfWViMoNtNWhxni
-	dtcVrXXOsTI29Wy2mfZfsw8Vzp6ntMa2EO9Q2z5J8e1ejXsO00KQ0I6vYK9nnqpVFzFQlIgnFhFGq
-	dVYeXJSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8oPEmmvKcbsxQYgGfgg7ABHKgpAuXetRaESe4n2oEWE=; b=SovzFknv8wDARCqnLPpQ7cOMeL
+	8eSHxgIojwGz2L6xTVd43QKRYb86vpyMGKNQSdU8N+/ojxtii6rfEA/QzkrASEY4V2NzaoHmSvxLJ
+	L0AzC7Hs4Mwh3j9/plmU11RxGgvRHv7Fgyq1v+7KttpaooQnnnUffiNB/tl+qO2UP+vHf/LbFI5Pq
+	Ak+iFU8uVf3S5V/Elq87512Zqj8qgwBDZwEh898TbB7ddYJI1HHVyp2c8oAF7GBO1oTkMS/gnVywS
+	3AzJLMaoCjWmCq8JCrcCl3lhc0dFW9s6cTj/N81d+WldMoQMH+I6MoQupQpL/Uv6yNz1ARW57ZArl
+	62oM7swg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSJy-0000000HJKZ-2aWT;
-	Mon, 10 Feb 2025 11:51:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thS98-0000000HGZp-3eVt
+	id 1thSLK-0000000HJUN-11sz;
+	Mon, 10 Feb 2025 11:52:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thSAn-0000000HGw5-2cpB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:40:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5354F1424;
-	Mon, 10 Feb 2025 03:40:34 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2C3A3F5A1;
-	Mon, 10 Feb 2025 03:40:05 -0800 (PST)
-Date: Mon, 10 Feb 2025 11:40:03 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 05/22] arm64: entry: Use preempt_count() and
- need_resched() helper
-Message-ID: <Z6nlkyxAZEtY_M7T@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <20241206101744.4161990-6-ruanjinjie@huawei.com>
+	Mon, 10 Feb 2025 11:41:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A44E5C49B0;
+	Mon, 10 Feb 2025 11:41:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52F34C4CED1;
+	Mon, 10 Feb 2025 11:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739187716;
+	bh=Lis5FT6NMT38CbNQPOuKvs8FJ5MnAh47jLG4RAe9Mfc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aweTzWdydLGggARMi7Q6l9vy+bX0TZybZD3mFlqWBA/o2p+SfP1O6em8fbcZJRxf6
+	 wzIG9m7Ft2tiByN2kFBiAN8Zhbb+Mijm4YXdRPlihk10oyalnrmC2eNgG4nVVO+Y9G
+	 Vtmy2oZhcetNjLYsalH/Dltto1YSUFEGMq5H1H+dgjYfq7gCrfQp9R7P2QV1a/Fn3t
+	 ISejEhEEb5N3CzGGY+csZznWb0N2QUf+qK/j4vN15O1tYFfjRycu7gdu1u9WmJAvbw
+	 pgH+Fhk7BMZLHs5mk3I76n9bSuMIWKASr8AuRXFiYp3RYi71oAa9V0xcochacZwZlZ
+	 5Lpb5EFSimiww==
+Message-ID: <990bb621-5056-4460-82db-9805699d8a8d@kernel.org>
+Date: Mon, 10 Feb 2025 12:41:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206101744.4161990-6-ruanjinjie@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
+To: Pratyush Brahma <quic_pbrahma@quicinc.com>
+Cc: andersson@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ iommu@lists.linux.dev, joro@8bytes.org, konradybcio@kernel.org,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, robin.murphy@arm.com, will@kernel.org
+References: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+ <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_034015_002453_DA8A8E28 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20250210_034157_751093_BAC399FE 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,70 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:17:27PM +0800, Jinjie Ruan wrote:
-> The generic entry code uses preempt_count() and need_resched() helpers to
-> check if it is time to resched. Currently, arm64 use its own check logic,
-> that is "READ_ONCE(current_thread_info()->preempt_count == 0", which is
-> equivalent to "preempt_count() == 0 && need_resched()".
-
-Hmm. The existing code relies upon preempt_fold_need_resched() to work
-correctly. If we want to move from:
-
-	READ_ONCE(current_thread_info()->preempt_count) == 0
-
-... to:
-
-	!preempt_count() && need_resched()
-
-... then that change should be made *before* we change the preemption
-logic to preempt non-IRQ exceptions in patch 3. Otherwise, that logic is
-consuming stale data most of the time.
-
-Mark.
-
-> In preparation for moving arm64 over to the generic entry code, use
-> these helpers to replace arm64's own code and move it ahead.
+On 10/02/2025 05:58, Pratyush Brahma wrote:
+> Hi
 > 
-> No functional changes.
+> Can someone kindly review this patch?
 > 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/kernel/entry-common.c | 14 ++++----------
->  1 file changed, 4 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index da68c089b74b..efd1a990d138 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -88,14 +88,6 @@ static inline bool arm64_need_resched(void)
->  	if (!need_irq_preemption())
->  		return false;
->  
-> -	/*
-> -	 * Note: thread_info::preempt_count includes both thread_info::count
-> -	 * and thread_info::need_resched, and is not equivalent to
-> -	 * preempt_count().
-> -	 */
-> -	if (READ_ONCE(current_thread_info()->preempt_count) != 0)
-> -		return false;
-> -
->  	/*
->  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
->  	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-> @@ -141,8 +133,10 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
->  			return;
->  		}
->  
-> -		if (arm64_need_resched())
-> -			preempt_schedule_irq();
-> +		if (!preempt_count() && need_resched()) {
-> +			if (arm64_need_resched())
-> +				preempt_schedule_irq();
-> +		}
->  
->  		trace_hardirqs_on();
->  	} else {
-> -- 
-> 2.34.1
-> 
+
+After 7 days? Community is not working for you to make such demands.
+Observe standard waiting time. Or better: Please relax, and help out by
+reviewing other patches on the mailing lists in order to relieve the
+burden of maintainers and move your patches higher up the list.
+
+
+Best regards,
+Krzysztof
 
