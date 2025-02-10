@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D231BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A50CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ed3HwmGDccuaWYbTyHyaVTzv4wASH1XGS6TfCk4H9oo=; b=HpxauNwtdmVpHrWi13z0Zlhz6q
-	iVB3AF9mtH2SCTBp4ysv7HgEcIDrWV7AEn5d1+YP+vzvGO2CQmVP4cHxDFkh9lJ+fv3ZfqDBUQqdI
-	0va6CWq63dLwD9FWO8lm48zjifRhmAS4fQ2Vh2hy56gWBWkjYPrIt0oOPf9AV2DZqIYMU7bwHdPad
-	6dgxCHJd4tIx9zYWJTY8LDJykUfHU89lNgzWHIw/W+XoLPfRPPB/hQ0c7IpJ9FGJWNc/l0LV+lNvb
-	fLm5FKzHdF9qsREagL+KTBpnA066bLMgsh23ibbKutjcUTGMpux+c/JYBe0dcBaMxWysf3X67aRAj
-	9GNI61NA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rPlsVId33txdBBranLBlQ1L7Lpylf6kTxcaJ3s9zHV8=; b=QCDyN4Dv9DQb1Y731RYhJqIHrV
+	Fxr1zDuFKfjZveYM5tKDt/gYY9cUNV1LNLn7GYXOh68Y7oY+Yaa4a27o8sgQjcc4Iq0GH7dDiLFzG
+	WfRYFTjk8X4647CT9Vp9yhd4L4W3c4sI5t5gzQ6d3cFH7+So5v2J87w/VQ2zywYnkPk8puwhbdZ12
+	5AQ38pE+toagrLJ49xaIwGfcWVHxe+medg9+MPHNuNRhIxiC8XLzd1yqg0Ay0Pd5tTee5t6Na55dh
+	lm2F5hMl1QS6Zmamlm613m2WYPTl5LRb1J2/bfQPsA3Q1PNcIMEVO8103Y6/mhaq+c2kVg9PHKX1O
+	ox73dTcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRKQ-0000000H4bK-1TQ1;
-	Mon, 10 Feb 2025 10:47:50 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1thRLn-0000000H4vO-06Dy;
+	Mon, 10 Feb 2025 10:49:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRA9-0000000H2iy-3pVL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:37:15 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fa40c0bab2so3663021a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 02:37:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739183833; x=1739788633; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Ed3HwmGDccuaWYbTyHyaVTzv4wASH1XGS6TfCk4H9oo=;
-        b=zprpdYwHZVOTG2TOGZFIhauVuQxigyUlT03G4VXqgr+lk1r1Od6p7eA5c3va21Uxv+
-         whUZeOQGJr7gkOzT0Ksmgrq0ULIWQ6aqXY1+9a9VTcBvtzfA29KY+KHgIDHsDHKuUMYx
-         iw8tAyrgUYbK6hfgV0YSOk172vMqZ3Y/8eXJphJIbzAPaMYyfIdZgluqTkEL4OF0wFtC
-         yw3IO48mpil8aliGxdffZYEiyZbXgpqHktczDG3Nrq4s9bY6E361vnRpBC23agkqMGX/
-         O/wa1qHtBBWJBALnMmaYuCUFMS3FmVH3TIlq8SctcFGjmjzMYfyqqBZTJJ/50beOn5Bm
-         a6rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739183833; x=1739788633;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ed3HwmGDccuaWYbTyHyaVTzv4wASH1XGS6TfCk4H9oo=;
-        b=CkNesRbGOoWgMgEvweGKE0l452J2KhPn17aUhMj5JO6jQveYj37so2U0lQzxcuROx7
-         7jYLB/gp0rJ6mPlU6WqsnDLPhV0yemLkGY5cvhX76AtTUxeiTfRQedzozjEE0PdMri+C
-         Om/XR8K5WxSa2HFQX9MF29dwZyhLcommYO0zT+XeSgO/UWPEVwDIAg5yrWNwNLD/KP9N
-         gaiRVQ8dCDGDvca99GKdnQ9ImUoSM4jMWSiT7lZpyj1miaYUBLF3ZaT6yE2axXOdal1C
-         bUIFwMQoaxjzNNFn4RfFDomHC4G71J/q1hfR01riIrdgfgR3qoFjpO888uKf+wOiKCM/
-         veig==
-X-Forwarded-Encrypted: i=1; AJvYcCW3Q0XtBKHDQKMbr1ZLhXYtq8Eo0WNlW7Mb5RsoVvuetGEJZ7r0fCNNI2lfpD+G3QQ33H6BmUHHwQtQ0yYpMeIu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUaNx7mLH7i30s7YG3Q0vqR6W6sZYo7N4r4o6n/42VAbEbgnio
-	OaUv6JZuKDnxLL11hAqWtBLviVLZoOvK86OFX4h3pGAX9YVEe/6Vi3x25cW8nPWSeu/xuv8pxpU
-	=
-X-Gm-Gg: ASbGnctv8bqeZCX+g+IRpqGaIteCAEFOuGNyEseHsqVqTzCsu7eQY/EXMYvhLsYbyx5
-	ovv5kzCfWUcxWpt88ChrZ7Jg78p4vZxUL5lkVoYBfsc7fo/4Uh9mf8NLn8vD5PXBQeZd9xnRuFg
-	ccjd8wGgY+S9dlhwyGI8f+dgU5rxA55XSpSQLe0bf0WsiDCs2urhU45jqqL6P0iaLM3aWL/HPBK
-	7i9u3zgx3xqw/eBnY5+x7vKJiFtvYOczkis6XLCCoZHnVf1q6XMdB3kfxRHzlgXMcIpMTU5qoNA
-	CUZFWRo+LvNlJMu4qz2ihFvZDrvP
-X-Google-Smtp-Source: AGHT+IH+EZSozw+jru34fUmFnJ9GiwELwA5qvlNGOOzM35DgohR3W+M4Z4wp+SiWS/lt6+tMpE0BSw==
-X-Received: by 2002:a17:90b:364d:b0:2ee:c4f2:a76d with SMTP id 98e67ed59e1d1-2fa24274bd2mr18771623a91.21.1739183832952;
-        Mon, 10 Feb 2025 02:37:12 -0800 (PST)
-Received: from thinkpad ([220.158.156.173])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa099f4dadsm8179079a91.10.2025.02.10.02.37.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 02:37:12 -0800 (PST)
-Date: Mon, 10 Feb 2025 16:07:07 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bo Sun <Bo.Sun.CN@windriver.com>
-Cc: Kexin.Hao@windriver.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Vidya Sagar <vidyas@nvidia.com>
-Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
- PCI_PROBE_ONLY is enabled
-Message-ID: <20250210103707.c5ubeaowk7xwt6p5@thinkpad>
-References: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
+	id 1thRAH-0000000H2lb-3Rzl;
+	Mon, 10 Feb 2025 10:37:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rPlsVId33txdBBranLBlQ1L7Lpylf6kTxcaJ3s9zHV8=; b=ukjnz8SYZHHdBdIZziI8MlP9sP
+	ic8omwR9g94e9tTntfnTQiwIODxtyR+6linoGhmPZy+bw9LCPvPF+q1wjGS438JXMm9ZsiB/1HvSx
+	YsV0GSMKWMSPu05VhUo6X8mYw5G2ds82XDU1shsr9JrtRSYNTMEK14DLm2w3DeRAfS9bb8fhf10Ut
+	UVOItsMFE3E9SdNymd4IEnib2xYOnzKrn1Mqs302s8B3h88sMsr3ybUowzoiAlDqVvJRvDfI8JuHf
+	F5taXt8NdGnQC+CL/bbp62jbFf8Zt3sWGlHN43SNol4NeRbFmx6uY9J0GzSw/0W1HowZuU2jA4JWZ
+	gCF/gGQA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36674 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1thRAA-0006RY-0A;
+	Mon, 10 Feb 2025 10:37:14 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1thR9q-003vXI-Cp; Mon, 10 Feb 2025 10:36:54 +0000
+In-Reply-To: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
+References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>
+Subject: [PATCH net-next v3 3/3] net: dsa: mt7530: convert to phylink managed
+ EEE
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1thR9q-003vXI-Cp@rmk-PC.armlinux.org.uk>
+Date: Mon, 10 Feb 2025 10:36:54 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_023713_954099_C70D643F 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20250210_023722_139248_865EEC35 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +92,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 04:24:14PM +0800, Bo Sun wrote:
-> On our Marvell OCTEON CN96XX board, we observed the following panic on
-> the latest kernel:
-> Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
-> Mem abort info:
->   ESR = 0x0000000096000005
->   EC = 0x25: DABT (current EL), IL = 32 bits
->   SET = 0, FnV = 0
->   EA = 0, S1PTW = 0
->   FSC = 0x05: level 1 translation fault
-> Data abort info:
->   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
->   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [0000000000000080] user address but active_mm is swapper
-> Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-> Modules linked in:
-> CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
-> Hardware name: Marvell OcteonTX CN96XX board (DT)
-> pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> pc : of_pci_add_properties+0x278/0x4c8
-> lr : of_pci_add_properties+0x258/0x4c8
-> sp : ffff8000822ef9b0
-> x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
-> x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
-> x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
-> x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
-> x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
-> x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
-> x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
-> x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
-> x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
-> x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
-> Call trace:
->  of_pci_add_properties+0x278/0x4c8 (P)
->  of_pci_make_dev_node+0xe0/0x158
->  pci_bus_add_device+0x158/0x210
->  pci_bus_add_devices+0x40/0x98
->  pci_host_probe+0x94/0x118
->  pci_host_common_probe+0x120/0x1a0
->  platform_probe+0x70/0xf0
->  really_probe+0xb4/0x2a8
->  __driver_probe_device+0x80/0x140
->  driver_probe_device+0x48/0x170
->  __driver_attach+0x9c/0x1b0
->  bus_for_each_dev+0x7c/0xe8
->  driver_attach+0x2c/0x40
->  bus_add_driver+0xec/0x218
->  driver_register+0x68/0x138
->  __platform_driver_register+0x2c/0x40
->  gen_pci_driver_init+0x24/0x38
->  do_one_initcall+0x4c/0x278
->  kernel_init_freeable+0x1f4/0x3d0
->  kernel_init+0x28/0x1f0
->  ret_from_fork+0x10/0x20
-> Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
-> 
-> This regression was introduced by commit 7246a4520b4b ("PCI: Use
-> preserve_config in place of pci_flags"). On our board, the 002:00:07.0
-> bridge is misconfigured by the bootloader. Both its secondary and
-> subordinate bus numbers are initialized to 0, while its fixed secondary
-> bus number is set to 8.
+Convert mt7530 to use phylink managed EEE. When enabling EEE, we set
+both PMCR_FORCE_EEE1G and PMCR_FORCE_EEE100 irrespective of the speed,
+and clear them both when disabling.
 
-What do you mean by 'fixed secondary bus number'?
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/dsa/mt7530.c | 68 +++++++++++++++++++++++++++-------------
+ 1 file changed, 47 insertions(+), 21 deletions(-)
 
-> However, bus number 8 is also assigned to another
-> bridge (0002:00:0f.0). Although this is a bootloader issue, before the
-> change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
-> set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
-> bus number for these bridges were reassigned, avoiding any conflicts.
-> 
-
-Isn't the opposite? PCI_REASSIGN_ALL_BUS was only added if the PCI_PROBE_ONLY
-flag was not set:
-
-	/* Do not reassign resources if probe only */
-	if (!pci_has_flag(PCI_PROBE_ONLY))
-		pci_add_flags(PCI_REASSIGN_ALL_BUS);
-
-
-> After the change introduced in commit 7246a4520b4b, the bus numbers
-> assigned by the bootloader are reused by all other bridges, except
-> the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
-> 002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
-> bootloader. However, since a pci_bus has already been allocated for
-> bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
-> 002:00:07.0.
-
-How come 0002:00:0f.0 is enumerated before 0002:00:07.0 in a depth first manner?
-
-> This results in a pci bridge device without a pci_bus
-> attached (pdev->subordinate == NULL). Consequently, accessing
-> pdev->subordinate in of_pci_prop_bus_range() leads to a NULL pointer
-> dereference.
-> 
-
-Looks like it is a bug to let a bridge proceed without 'pdev->subordinate'
-assigned.
-
-- Mani
-
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 1c83af805209..9fd44e55d519 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2957,28 +2957,61 @@ static void mt753x_phylink_mac_link_up(struct phylink_config *config,
+ 			mcr |= PMCR_FORCE_RX_FC_EN;
+ 	}
+ 
+-	if (mode == MLO_AN_PHY && phydev && phy_init_eee(phydev, false) >= 0) {
+-		switch (speed) {
+-		case SPEED_1000:
+-		case SPEED_2500:
+-			mcr |= PMCR_FORCE_EEE1G;
+-			break;
+-		case SPEED_100:
+-			mcr |= PMCR_FORCE_EEE100;
+-			break;
+-		}
+-	}
+-
+ 	mt7530_set(priv, MT753X_PMCR_P(dp->index), mcr);
+ }
+ 
++static void mt753x_phylink_mac_disable_tx_lpi(struct phylink_config *config)
++{
++	struct dsa_port *dp = dsa_phylink_to_port(config);
++	struct mt7530_priv *priv = dp->ds->priv;
++
++	mt7530_clear(priv, MT753X_PMCR_P(dp->index),
++		     PMCR_FORCE_EEE1G | PMCR_FORCE_EEE100);
++}
++
++static int mt753x_phylink_mac_enable_tx_lpi(struct phylink_config *config,
++					    u32 timer, bool tx_clock_stop)
++{
++	struct dsa_port *dp = dsa_phylink_to_port(config);
++	struct mt7530_priv *priv = dp->ds->priv;
++	u32 val;
++
++	/* If the timer is zero, then set LPI_MODE_EN, which allows the
++	 * system to enter LPI mode immediately rather than waiting for
++	 * the LPI threshold.
++	 */
++	if (!timer)
++		val = LPI_MODE_EN;
++	else if (FIELD_FIT(LPI_THRESH_MASK, timer))
++		val = FIELD_PREP(LPI_THRESH_MASK, timer);
++	else
++		val = LPI_THRESH_MASK;
++
++	mt7530_rmw(priv, MT753X_PMEEECR_P(dp->index),
++		   LPI_THRESH_MASK | LPI_MODE_EN, val);
++
++	mt7530_set(priv, MT753X_PMCR_P(dp->index),
++		   PMCR_FORCE_EEE1G | PMCR_FORCE_EEE100);
++
++	return 0;
++}
++
+ static void mt753x_phylink_get_caps(struct dsa_switch *ds, int port,
+ 				    struct phylink_config *config)
+ {
+ 	struct mt7530_priv *priv = ds->priv;
++	u32 eeecr;
+ 
+ 	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE;
+ 
++	config->lpi_capabilities = MAC_100FD | MAC_1000FD | MAC_2500FD;
++
++	eeecr = mt7530_read(priv, MT753X_PMEEECR_P(port));
++	/* tx_lpi_timer should be in microseconds. The time units for
++	 * LPI threshold are unspecified.
++	 */
++	config->lpi_timer_default = FIELD_GET(LPI_THRESH_MASK, eeecr);
++
+ 	priv->info->mac_port_get_caps(ds, port, config);
+ }
+ 
+@@ -3088,18 +3121,9 @@ mt753x_setup(struct dsa_switch *ds)
+ static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
+ 			      struct ethtool_keee *e)
+ {
+-	struct mt7530_priv *priv = ds->priv;
+-	u32 set, mask = LPI_THRESH_MASK | LPI_MODE_EN;
+-
+ 	if (e->tx_lpi_timer > 0xFFF)
+ 		return -EINVAL;
+ 
+-	set = LPI_THRESH_SET(e->tx_lpi_timer);
+-	if (!e->tx_lpi_enabled)
+-		/* Force LPI Mode without a delay */
+-		set |= LPI_MODE_EN;
+-	mt7530_rmw(priv, MT753X_PMEEECR_P(port), mask, set);
+-
+ 	return 0;
+ }
+ 
+@@ -3238,6 +3262,8 @@ static const struct phylink_mac_ops mt753x_phylink_mac_ops = {
+ 	.mac_config	= mt753x_phylink_mac_config,
+ 	.mac_link_down	= mt753x_phylink_mac_link_down,
+ 	.mac_link_up	= mt753x_phylink_mac_link_up,
++	.mac_disable_tx_lpi = mt753x_phylink_mac_disable_tx_lpi,
++	.mac_enable_tx_lpi = mt753x_phylink_mac_enable_tx_lpi,
+ };
+ 
+ const struct mt753x_info mt753x_table[] = {
 -- 
-மணிவண்ணன் சதாசிவம்
+2.30.2
+
 
