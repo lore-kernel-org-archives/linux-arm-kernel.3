@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB79C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4F6C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yP6r3UJtoGCclHljYp5u8/qkuJ+EScxz0286YJyWmFo=; b=pmSH5d0hWKQWYUUwoNUsXY0/uP
-	P4ZKjHZ6GWXh3XznPzHUyaymV/GBIkFdK2S/tArODiUQ/gBiluChQideXLRElDFqefcDo1sX0G+Fk
-	tqt3urvLb/AFwUyLaGA2QvZ+hatUdy5CvzWOo8f2nTkcwghJopbXebyaDwGEGdULzD/ksUf2AOvIx
-	JZRjAmkOalK9CM5Y6t7D2bYhKsSIPRQ+BdezvGlGOYMaA4KIIIdjmQSqlr+/2sruJ/2/WTFn1r2tv
-	rpSiwCyeGqJZlyztE1b8M4llzBhuFw3GJ3PKBzuVS1n4fjJUrG3bcdS79q1jqA2U/HobEMhb6PP0F
-	RBcmUEpw==;
+	bh=LgF1EKuv1bzMeFR5uZEXttfnUQqeQzCSv26191gE+LY=; b=4xqXQw+ibxFl1UMEdmxKPLMxB+
+	vw7rJYS3tbDv2Y1CwBm+TdS+vQpvGE6AKVX4LgbYR2sgH1ombATCzE494wqu1qJcuQiImrRCoefAF
+	t1OFGEZ1hwinPifuZSzF4m8It8db+2KQcdwl4+EF/YWiE+rlmyHFzIkxoCdjYUTdbM0sbdQrQ/Plw
+	b3sm+DoUPHS8HwizXxTMDErKia8eP3H/iehaOVGL3fM/XU2TtbmAA44kQb9DevcysKfyspW6Pwy6n
+	zqRazcJaei/9U5KMwqykqoItMDR7JRV7SYUh3P8jGKtoWmlBMVmBmp4sj0MDrmugZ7ZQCXEzg3X6h
+	VnPUqxxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYX-000000016bU-3iy6;
+	id 1thZYX-000000016ZT-0lxD;
 	Mon, 10 Feb 2025 19:34:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYjJ-00000000yt4-3bBI
+	id 1thYjJ-00000000ysw-350B
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Feb 2025 18:42:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BB1945C5DF0;
-	Mon, 10 Feb 2025 18:41:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12052C4CED1;
-	Mon, 10 Feb 2025 18:42:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 709ADA41FF0;
+	Mon, 10 Feb 2025 18:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA684C4CEE7;
+	Mon, 10 Feb 2025 18:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739212921;
-	bh=JoVlWRgVnY+j9LNB7Hewwr7ScankrSkCZVdzMJAowdw=;
+	s=k20201202; t=1739212920;
+	bh=6C8aCRS04x5u5T3h7cL8zL2oGz5G0K3xDOgLrqXvewo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FRVtVYcDoe5z4kQ62EbJ8KMf2Y5SiHgvBE9s48t3SWrALqE+az43AjJC5fmKN8tti
-	 PmHNR3cTocCL6/Vrbcr9ZySjDpYvpJCAArz5IOhZseDUNrNzp9qU8voR4sh3tecark
-	 vFHfffifTejg4BWnV/Qnaz4jkBnHFqgBiDUyV6BsWQypYjkTtVffq457C0C1RzIQyv
-	 zCAhCM8VGvROW8dOaJ+j923/l7i80Yl7PRy444kj9aT3bNNxw76tf2RYMtg9dSv0Cl
-	 ISO5IWSreYByFox7tHjvZ3y7wrE6AuA3TNr2YiYl9XkMIxBrfWhIG6W36CcTSAjSQN
-	 2xuw/QVQvInrA==
+	b=ZZbs283wsWh1NKwAFkAt8h2nEndX8ibQKL9Nf/X8abK4SBMbw2R+79SGRHYJI1JHM
+	 vTnUvigFDjajRD+ebEgb6OgF9L7K9n9h/Ixreneessg2P9qAQcDbzQw4PHh+hyHECl
+	 cFsuEuStlFM2WKQIdjacwgQ37N2Uy01F+BaacygLRfj2EIJB6t7mvDVdQyzWePayeT
+	 TEt/2XwKxHS3USag3Wua9MkrPMwF70T/KYFbhd7kFk6p0PYc3Ey68FmMUmc93nO0Tw
+	 pRMQiwf113Y9Ar4budGNjZmmUhjFjekg6TNm0ISbzu8vrGvE81UZ2eAyjaM1CdmWIo
+	 d3PsXKKWD9MDA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1thYjH-002g2I-2D;
-	Mon, 10 Feb 2025 18:41:59 +0000
+	id 1thYjG-002g2I-QT;
+	Mon, 10 Feb 2025 18:41:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 08/18] KVM: arm64: Add description of FGT bits leading to EC!=0x18
-Date: Mon, 10 Feb 2025 18:41:39 +0000
-Message-Id: <20250210184150.2145093-9-maz@kernel.org>
+Subject: [PATCH 07/18] KVM: arm64: Compute FGT masks from KVM's own FGT tables
+Date: Mon, 10 Feb 2025 18:41:38 +0000
+Message-Id: <20250210184150.2145093-8-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
 References: <20250210184150.2145093-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104201_999556_99A44576 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250210_104201_930603_BC8F5353 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +87,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current FTP tables are only concerned with the bits generating
-ESR_ELx.EC==0x18. However, we want an exhaustive view of what KVM
-really knows about.
+In the process of decoupling KVM's view of the FGT bits from the
+wider architectural state, use KVM's own FGT tables to build
+a synthitic view of what is actually known.
 
-So let's add another small table that provides that extra information.
+This allows for some checking along the way.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/emulate-nested.c | 32 ++++++++++++++++++++++++++------
- 1 file changed, 26 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/kvm_arm.h  |   4 ++
+ arch/arm64/include/asm/kvm_host.h |  14 ++++
+ arch/arm64/kvm/emulate-nested.c   | 102 ++++++++++++++++++++++++++++++
+ 3 files changed, 120 insertions(+)
 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index bbfe89c37a86e..4f468759268c0 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -1279,16 +1279,21 @@ enum fg_filter_id {
- 	__NR_FG_FILTER_IDS__
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 8d94a6c0ed5c4..e424085f2aaca 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -359,6 +359,10 @@
+ #define __HAFGRTR_EL2_MASK	(GENMASK(49, 17) | GENMASK(4, 0))
+ #define __HAFGRTR_EL2_nMASK	~(__HAFGRTR_EL2_RES0 | __HAFGRTR_EL2_MASK)
+ 
++/* Because the sysreg file mixes R and W... */
++#define HFGRTR_EL2_RES0		HFGxTR_EL2_RES0
++#define HFGWTR_EL2_RES0		(HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
++
+ /* Similar definitions for HCRX_EL2 */
+ #define __HCRX_EL2_RES0         HCRX_EL2_RES0
+ #define __HCRX_EL2_MASK		(BIT(6))
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7cfa024de4e34..4e67d4064f409 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -569,6 +569,20 @@ struct kvm_sysreg_masks {
+ 	} mask[NR_SYS_REGS - __SANITISED_REG_START__];
  };
  
--#define SR_FGF(sr, g, b, p, f)					\
--	{							\
--		.encoding	= sr,				\
--		.end		= sr,				\
--		.tc		= {				\
-+#define __FGT(g, b, p, f)					\
-+		{						\
- 			.fgt = g ## _GROUP,			\
- 			.bit = g ## _EL2_ ## b ## _SHIFT,	\
- 			.pol = p,				\
- 			.fgf = f,				\
--		},						\
-+		}
-+
-+#define FGT(g, b, p)		__FGT(g, b, p, __NO_FGF__)
-+
-+#define SR_FGF(sr, g, b, p, f)					\
-+	{							\
-+		.encoding	= sr,				\
-+		.end		= sr,				\
-+		.tc		= __FGT(g, b, p, f),		\
- 		.line = __LINE__,				\
- 	}
- 
-@@ -1989,6 +1994,14 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
- 	SR_FGT(SYS_AMEVCNTR0_EL0(0),	HAFGRTR, AMEVCNTR00_EL0, 1),
- };
- 
-+/* Additional FGTs that do not fire with ESR_EL2.EC==0x18 */
-+static const union trap_config non_0x18_fgt[] __initconst = {
-+	FGT(HFGITR, nGCSSTR_EL1, 0),
-+	FGT(HFGITR, SVC_EL1, 1),
-+	FGT(HFGITR, SVC_EL0, 1),
-+	FGT(HFGITR, ERET, 1),
++struct fgt_masks {
++	const char	*str;
++	u64		mask;
++	u64		nmask;
++	u64		res0;
 +};
 +
- static union trap_config get_trap_config(u32 sysreg)
- {
- 	return (union trap_config) {
-@@ -2199,6 +2212,13 @@ int __init populate_nv_trap_config(void)
- 		}
- 	}
++extern struct fgt_masks hfgrtr_masks;
++extern struct fgt_masks hfgwtr_masks;
++extern struct fgt_masks hfgitr_masks;
++extern struct fgt_masks hdfgrtr_masks;
++extern struct fgt_masks hdfgwtr_masks;
++extern struct fgt_masks hafgrtr_masks;
++
+ struct kvm_cpu_context {
+ 	struct user_pt_regs regs;	/* sp = sp_el0 */
  
-+	for (int i = 0; i < ARRAY_SIZE(non_0x18_fgt); i++) {
-+		if (!aggregate_fgt(non_0x18_fgt[i])) {
-+			ret = -EINVAL;
-+			kvm_err("non_0x18_fgt[%d] is reserved\n", i);
-+		}
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 607d37bab70b4..bbfe89c37a86e 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2033,6 +2033,101 @@ static u32 encoding_next(u32 encoding)
+ 	return sys_reg(op0 + 1, 0, 0, 0, 0);
+ }
+ 
++#define FGT_MASKS(__n, __m)						\
++	struct fgt_masks __n = { .str = #__m, .res0 = __m, }
++
++FGT_MASKS(hfgrtr_masks, HFGRTR_EL2_RES0);
++FGT_MASKS(hfgwtr_masks, HFGWTR_EL2_RES0);
++FGT_MASKS(hfgitr_masks, HFGITR_EL2_RES0);
++FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2_RES0);
++FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2_RES0);
++FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2_RES0);
++
++static __init bool aggregate_fgt(union trap_config tc)
++{
++	struct fgt_masks *rmasks, *wmasks;
++
++	switch (tc.fgt) {
++	case HFGxTR_GROUP:
++		rmasks = &hfgrtr_masks;
++		wmasks = &hfgwtr_masks;
++		break;
++	case HDFGRTR_GROUP:
++		rmasks = &hdfgrtr_masks;
++		wmasks = &hdfgwtr_masks;
++		break;
++	case HAFGRTR_GROUP:
++		rmasks = &hafgrtr_masks;
++		wmasks = NULL;
++		break;
++	case HFGITR_GROUP:
++		rmasks = &hfgitr_masks;
++		wmasks = NULL;
++		break;
 +	}
 +
- 	ret = check_all_fgt_masks(ret);
++	/*
++	 * A bit can be reserved in either the R or W register, but
++	 * not both.
++	 */
++	if ((BIT(tc.bit) & rmasks->res0) &&
++	    (!wmasks || (BIT(tc.bit) & wmasks->res0)))
++		return false;
++
++	if (tc.pol)
++		rmasks->mask |= BIT(tc.bit) & ~rmasks->res0;
++	else
++		rmasks->nmask |= BIT(tc.bit) & ~rmasks->res0;
++
++	if (wmasks) {
++		if (tc.pol)
++			wmasks->mask |= BIT(tc.bit) & ~wmasks->res0;
++		else
++			wmasks->nmask |= BIT(tc.bit) & ~wmasks->res0;
++	}
++
++	return true;
++}
++
++static __init int check_fgt_masks(struct fgt_masks *masks)
++{
++	unsigned long duplicate = masks->mask & masks->nmask;
++	u64 res0 = masks->res0;
++	int ret = 0;
++
++	if (duplicate) {
++		int i;
++
++		for_each_set_bit(i, &duplicate, 64) {
++			kvm_err("%s[%d] bit has both polarities\n",
++				masks->str, i);
++		}
++
++		ret = -EINVAL;
++	}
++
++	masks->res0 = ~(masks->mask | masks->nmask);
++	if (masks->res0 != res0)
++		kvm_info("Implicit %s = %016llx, expecting %016llx\n",
++			 masks->str, masks->res0, res0);
++
++	return ret;
++}
++
++static __init int check_all_fgt_masks(int ret)
++{
++	int err = 0;
++
++	err |= check_fgt_masks(&hfgrtr_masks);
++	err |= check_fgt_masks(&hfgwtr_masks);
++	err |= check_fgt_masks(&hfgitr_masks);
++	err |= check_fgt_masks(&hdfgrtr_masks);
++	err |= check_fgt_masks(&hdfgwtr_masks);
++	err |= check_fgt_masks(&hafgrtr_masks);
++
++	return ret ?: err;
++}
++
+ int __init populate_nv_trap_config(void)
+ {
+ 	int ret = 0;
+@@ -2097,8 +2192,15 @@ int __init populate_nv_trap_config(void)
+ 			ret = xa_err(prev);
+ 			print_nv_trap_error(fgt, "Failed FGT insertion", ret);
+ 		}
++
++		if (!aggregate_fgt(tc)) {
++			ret = -EINVAL;
++			print_nv_trap_error(fgt, "FGT bit is reserved", ret);
++		}
+ 	}
  
++	ret = check_all_fgt_masks(ret);
++
  	kvm_info("nv: %ld fine grained trap handlers\n",
+ 		 ARRAY_SIZE(encoding_to_fgt));
+ 
 -- 
 2.39.2
 
