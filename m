@@ -4,90 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3206C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 05:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BCFC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 05:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GniGuM78BIcAr7ts8pXvWJNfUZLhduP49+7UQWf5Z0E=; b=p6udGboFgdNfhLZDP3e2loSOkS
-	wLGxBEIpZMLAvKL+cghRklfe8flA8ZMkcOpnKbgGuSdfSNFSiQNP6szlQjG8Uvou8+eJ6NKL9YXVV
-	EUfNJ0kNT2RyhlsD417UE1JR5N5WyOznvq3PiLk1JF0+iYq2HRffSNptgSjNJdmnAPNNwi0KhZzRn
-	aPvmbCao+diLRZjFsp/Y5rfd2pxityIBUUK+JKM/mwUzz9K96ZkZdZEsQYIzSwKp/gIMPy91hR6Ps
-	5IJ3yK9qeaVkb9xkyPAvMvn4I/UJ6x/9XDvKpuEupjE4Pc3WHojhLYaQ/4W/+CJcnmU0hEQy2Im7q
-	BfbCY8+w==;
+	bh=7IFkxoJIPpueHk3Dd4/FzbaVjVFKjq20JwLnPRuIaMk=; b=1o/wpSXaGhOvyV3zpkYvjRC8J+
+	QRe2g9v3gKX5DqnDpG7hDvMgcUjBhqdXYo4zfVWj9hkNUSslMrSvPF7+w51Ju18MPQOg9tUzjFSMI
+	2VB5hTxvb6M4F7Vd3V79GOfRguMnUjDOmZqSHa2EqM/m/2vVHByTu6D1CDK3VVX6mmIZh+mh1DSFm
+	g92ajTfYRlZyc++cMJCl4ntYJrXgejTQ+EC3Una9g56ljXjKkDavhtMXK+9G8a59KA6YY3JmnGivb
+	y/qirtrsD5Bw40JcECYFZajVin8pSj0g2k4KL8fxsBV+yQsfvGMt/fvdnaf276lybOt1sX4PSeNQX
+	SW+VQd/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thM9x-0000000GFJl-0ZDU;
-	Mon, 10 Feb 2025 05:16:41 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1thMJV-0000000GGco-16AO;
+	Mon, 10 Feb 2025 05:26:33 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thM8W-0000000GF8x-2gfk;
-	Mon, 10 Feb 2025 05:15:14 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6dd0d09215aso30684766d6.2;
-        Sun, 09 Feb 2025 21:15:12 -0800 (PST)
+	id 1thMI6-0000000GGSE-00of;
+	Mon, 10 Feb 2025 05:25:07 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-471963ae31bso4719781cf.3;
+        Sun, 09 Feb 2025 21:25:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739164511; x=1739769311; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739165105; x=1739769905; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GniGuM78BIcAr7ts8pXvWJNfUZLhduP49+7UQWf5Z0E=;
-        b=Nu3NuyuMYi0Y6gJ6YqQrPZSssRydVywfPUuBkmRkq30UA56wMsUg90Fh+/LJmBA4+m
-         tgHPdiJLXsuJiYN+zrCnRg01VLzPIEJvRFQqNv5FDM2fvLszH++Y3ojeCt0kwcaBPJKT
-         GTF5Sj/M8rHW4+DyO7a7HyKNtuEvTwG3eSpcdHUJ1wfqcEBSWPYpgpHU4wH0U+MfKbl/
-         1A5xekliOmiyyJT8SvHlp9UEo6w3PlpmuTp7sEqaEQmN51UrvcT/lupCa4twdeXYE4CM
-         921uMoi6ffNPtkGK04R4K+BMYyGVLpT9p0fd2PnQWJfHIgRk12PABPHeNZwLQ2XB0F0B
-         xPwA==
+        bh=7IFkxoJIPpueHk3Dd4/FzbaVjVFKjq20JwLnPRuIaMk=;
+        b=PwyWr8BkS+v8mv0jEPbm64+4koUMjJ8620B66Dtddoo/CbmWJ8tSFarrgvdaZYFk9f
+         7+Xzb5KsgWYB3TIMDJXxxga7Mui9Un8oW0IMVdIF7PMJWefcFDD4aaxikeYPnq0QdHMp
+         fWSlf2C8d9DLZxiYVO6ZP/5eqBpCbtzX2Ky41lajrbpf0mdXwGVpTEPgKbr7l6+j0QA1
+         dqYuuPsL/R5a3Fw4wwJ2siR3B6fHingYk7CMNwbOvYCdYhpV7ujy7iOBYFlTJ96ExAZi
+         ozGUwFeSddCNfh0q8mCH52bUfM7leKfIkJrbQuNd1CsicYt7axcPXbRfKmCGIdI7ZYZj
+         yBCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739164511; x=1739769311;
+        d=1e100.net; s=20230601; t=1739165105; x=1739769905;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GniGuM78BIcAr7ts8pXvWJNfUZLhduP49+7UQWf5Z0E=;
-        b=Q4qu2D9B/PYPJk1uDMH5tiD9cKpHz7KMW5BoCvjwppOtYJaHYYKrGTjy55ynvlamd3
-         lDdJnxBJ6bqoMt/cgFHlzQVN6JSlthJcAup+M1LfVmwJavReyZ7p7a/4bMskemzB9ITI
-         fVzZTfDsGGWAr7jra/gOUsr6UBTxOXWpvznhfZMdEKSV28Fa0O/zeZcDUSAdxUF3fsxQ
-         D7McKjo+28jfdziK7CALv5XcIsdXtBMnKK/7Ry2FZpafJty/j1Zs7MvsXW6Meu9uznYE
-         rb1dlmSZ2Hbu/SJ9gn+DX/Vh/Z2K9AoC/9TtpGapz1959WU1rRjWTDM9ztUUH+HZ8hWG
-         75nw==
-X-Forwarded-Encrypted: i=1; AJvYcCWptBOeSsnlCWgtQiy/TDD1pi6CpOmK0CpbXK3ySk+XzGm5ElfoYdr22hjlU44Z+hTDI7sHZlqyS4L+KbeBdv5t@lists.infradead.org, AJvYcCX49/5UOdMrRrvrCuMIXhTn7wlkhuJOoVLNCEwQhaXCdgEaiGM+pZD3wBtKLJ08IQ9UTdS7zeVpBUNBr5Q=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0ogfJd1vM8GFXOaOGw51l1YNpLaDyiD6BU8ZMgoT9ZvMkW8y1
-	OyNxnpOHK1IBOKzGfWxIJo0YajcAvB+NjADbOh32scSAmHX2NNhiNjKBuQ==
-X-Gm-Gg: ASbGnct5Jc8RpPz6ehxW0mzxOuKXzyZ1sd4vp5N1VkVwP1YwWSrHG6N18AE+w4HUJya
-	JlLYIgRzRTpskcbtsojVwzABDW3flsmXvkWDs6Cxf+OEnVToMMUTbzjvemHZjJOCzNtwZz1ptVM
-	gjkIscGXcYqOzGw1JItatGZCxnPbAcKNOV+YMqpz8Fdo0DyPKxRoCtxk6ld4AKXrKdCW8iCCHUD
-	ZHT8x//ojXfDHPDyNshGBZI4UOiLl3JFlEYFtoYn1mUxF/X6TfUbo1lGELbA/+0Auk=
-X-Google-Smtp-Source: AGHT+IH28KSGQngpOC4sMgaBVZJQsS3ItIqPoUQbHrVhyVBUOfjf9q5guk+CZKNPKJ4L2waMIxeNTQ==
-X-Received: by 2002:ad4:5caf:0:b0:6da:dc79:a3cd with SMTP id 6a1803df08f44-6e4453fdde1mr194721716d6.0.1739164511260;
-        Sun, 09 Feb 2025 21:15:11 -0800 (PST)
+        bh=7IFkxoJIPpueHk3Dd4/FzbaVjVFKjq20JwLnPRuIaMk=;
+        b=oYy849ArWic99q7QNL2jxKELB29kNERq4o7om4dbkiC8pSvawCC5BP7jnmeUaurvoB
+         BOilMuFX7lvLHKm4GR/QBg5X/kokNjffY7JnsOkYGTwvisDhHbuEkDX3QomMvpDt5ZrZ
+         qlC3LxKDFq/DQ4afshlUlUroaWfWLrJagG+Q8xxda0DdU9K8UQV7TdomJTtGto/SZqA2
+         umFFn/39u1XJvmLE/r4LAtBdSwcHvq4efGz/JHQz6L6r3LbCmzWLaSJZoFuGRUazcmIp
+         UOU/6R9NZwH9A2MX2ppYpfaQtDK3hFxEKBCoiFnCF32dDzHlDlCjIIB9jcOdGfX7GUZo
+         d6Nw==
+X-Forwarded-Encrypted: i=1; AJvYcCWYLfgdOj7kikwyqxrw9Tx+m6OXYmDm+KJhORX9svReXkCHODTtCWzthZgsn1xiK9RxrHr5PJg7tRqqppCYaBIS@lists.infradead.org, AJvYcCXkZwEGaXVp+rO/B74byW9lQo/LNOy5Pllsp9HIl6Y0+faf4HIa1UbYlOFI3r9pHwP9ZnXIDXlD+ElVG6U=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+DA2RRoPWPA4DHNjA61GW9bHNnIASZ1xUpiDxuIWkXUpxpZvW
+	6zsKlNaWan6SBaP/AZYAdYIrjk0uyxqYuAr5OK5g6QyDHdo4akNV
+X-Gm-Gg: ASbGnct6QHHR9hW9MWu0rzGy0tQZX113ViX5lPieeAR+vURvGnUwGuNbAe9KmSAw8PS
+	C9LAPvjQ1vn+4x468r9FS5DRAnXpLOjTfSXjltKMe0tc0ObokGH/TRTo2qIImS79Mm6Z63fdGb2
+	IZqRJsaembhxxXJ+O9h0vJZLPdz6HwkCAqf2FL4Dubq7H4PIVdL0hMTLL9X9X3/gL7DjwmMii/2
+	pz88h7gF9hyIV1rJgcYgf5j6qTZ6Bpchz+BfrC280DxipGXd9EK0fWHS7VcAGNOMMo=
+X-Google-Smtp-Source: AGHT+IF88Qj5BXZRsD6619e0PbX62Rvx+7INc9jZTGKOkrlP86k5mF3+32TaSxZSLUN+bTkY1+lKGg==
+X-Received: by 2002:a05:6214:2467:b0:6e4:2d90:37ed with SMTP id 6a1803df08f44-6e445620d64mr155154756d6.18.1739165104418;
+        Sun, 09 Feb 2025 21:25:04 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e460380644sm8468166d6.120.2025.02.09.21.15.10
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e44f1c96f6sm26774386d6.61.2025.02.09.21.25.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Feb 2025 21:15:10 -0800 (PST)
-Date: Mon, 10 Feb 2025 13:15:05 +0800
+        Sun, 09 Feb 2025 21:25:04 -0800 (PST)
+Date: Mon, 10 Feb 2025 13:24:58 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Chen Wang <unicorn_wang@outlook.com>, soc@lists.linux.dev, 
-	Inochi Amaoto <inochiama@outlook.com>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org, 
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
 	Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
-Message-ID: <xfvvie67ncfy5vnmk2lcjatvpmyneponc7ex4nv7otiiolruij@ejpqdomocv7z>
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH 02/10] riscv: dts: sophgo: cv18xx: Split into CPU core
+ and peripheral parts
+Message-ID: <bdwht3hjui3sjy54sgv7e2uzsd6l7625bcx7vvk6wq372wgvdu@v2snqaox57hx>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <BMXPR01MB244050BA1841F4416FF0484CFEF22@BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM>
+ <20250209220646.1090868-3-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BMXPR01MB244050BA1841F4416FF0484CFEF22@BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <20250209220646.1090868-3-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_211512_692121_47E9339B 
-X-CRM114-Status: GOOD (  31.52  )
+X-CRM114-CacheID: sfid-20250209_212506_054278_4FAFD1C8 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,98 +100,429 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 08:02:12AM +0800, Chen Wang wrote:
+On Sun, Feb 09, 2025 at 11:06:27PM +0100, Alexander Sverdlin wrote:
+> Make the peripheral device tree re-usable on ARM64 platform by splitting it
+> into CPU-core specific and peripheral parts.
 > 
-> On 2025/2/10 6:06, Alexander Sverdlin wrote:
-> > This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> > arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> > been chosen because the upstream toolchain can be utilized.
-> > 
-> > Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-> > peripherals with an addition of ARM64 core. Therefore it would be
-> > beneficial not to copy-paste the peripherals' device-tree, but rather split
-> > the most suitable riscv DT into ARCH-specific and peripherals parts and
-> > just include the latter on the arm64 side.
-> > 
-> > This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-> > in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-> > SG2000 SoC inside (separate .dtsi).
-> > 
-> > This series has been tested with Sophgo-provided U-Boot binary [2]: it
-> > boots from SD card, pinctrl, serial, GPIO drivers are functional (same
-> > as for RiscV-based CV18xx SoCs).
-> > New reset driver is provided as an alternative to the ATF PSCI handler,
-> > which Sophgo only provides in binary form.
+> Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
+> into "plic" interrupt-controller numbering.
 > 
-> I just see Inochi posted a patchset about cv18xx reset driver [1]. FYI.
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> ---
+>  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
+>  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 313 ++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +----------------
+>  3 files changed, 317 insertions(+), 303 deletions(-)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
 > 
-> Maybe you and Inochi need to communicate with each other and synchronize the
-> related work in this regard.
-> 
-> Link: https://lore.kernel.org/linux-riscv/20250209122936.2338821-1-inochiama@gmail.com/
-> [1]
-> 
+> diff --git a/arch/riscv/boot/dts/sophgo/cv181x.dtsi b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+> index 5fd14dd1b14f..bbdb30653e9a 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+> @@ -11,7 +11,7 @@ soc {
+>  		emmc: mmc@4300000 {
+>  			compatible = "sophgo,cv1800b-dwcmshc";
+>  			reg = <0x4300000 0x1000>;
+> -			interrupts = <34 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupts = <SOC_PERIPHERAL_IRQ(18) IRQ_TYPE_LEVEL_HIGH>;
+>  			clocks = <&clk CLK_AXI4_EMMC>,
+>  				 <&clk CLK_EMMC>;
+>  			clock-names = "core", "bus";
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> new file mode 100644
+> index 000000000000..53834b0658b2
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> @@ -0,0 +1,313 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+> + */
+> +
 
-It is a power restart device, not the reset controller, I suggests you change
-the device name.
+Split the cpu into a separate file and hold the cv18xx.dtsi to
+hold the peripheral. Also define the SOC_PERIPHERAL_IRQ in the
+cpu file, so you can get less change.
 
-> > 
-> > Partial SoC documentation is available [3].
-> > 
-> > This series lacks the support of:
-> > - USB
-> > - Audio
-> > - Ethernet
-> > - WiFi
-> > - Bluetooth
-> > - eMMC
-> > - Video
-> > 
-> > It would probably make sense that the whole series would go into SOC tree,
-> > even though technically nothing prevents the reboot/reset driver to come
-> > in PM/reset tree. If everything would come together, `reboot` command would
-> > work out of the box.
-> > 
-> > [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> > [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> > [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> > 
-> > Alexander Sverdlin (10):
-> >    arm64: Add SOPHGO SOC family Kconfig support
-> >    riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
-> >    arm64: dts: sophgo: Add initial SG2000 SoC device tree
-> >    arm64: dts: sophgo: Add Duo Module 01
-> >    arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
-> >    dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
-> >      compatible
-> >    dt-bindings: reset: sophgo: Add CV18xx reset controller
-> >    riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
-> >    power: reset: cv18xx: New driver
-> >    arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-> > 
-> >   .../devicetree/bindings/mfd/syscon.yaml       |   4 +
-> >   .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
-> >   MAINTAINERS                                   |   1 +
-> >   arch/arm64/Kconfig.platforms                  |  12 +
-> >   arch/arm64/boot/dts/Makefile                  |   1 +
-> >   arch/arm64/boot/dts/sophgo/Makefile           |   2 +
-> >   arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
-> >   .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
-> >   .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
-> >   arch/arm64/configs/defconfig                  |   3 +
-> >   arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
-> >   arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
-> >   arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
-> >   drivers/power/reset/Kconfig                   |  12 +
-> >   drivers/power/reset/Makefile                  |   1 +
-> >   drivers/power/reset/cv18xx-reset.c            |  89 +++++
-> >   16 files changed, 689 insertions(+), 303 deletions(-)
-> >   create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
-> >   create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
-> >   create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> >   create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
-> >   create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
-> >   create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> >   create mode 100644 drivers/power/reset/cv18xx-reset.c
-> > 
+> +#include <dt-bindings/clock/sophgo,cv1800.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	osc: oscillator {
+> +		compatible = "fixed-clock";
+> +		clock-output-names = "osc_25m";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+
+You also needs ranges here.
+
+> +
+> +		clk: clock-controller@3002000 {
+> +			reg = <0x03002000 0x1000>;
+> +			clocks = <&osc>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+
+[...]
+
+> +		dmac: dma-controller@4330000 {
+> +			compatible = "snps,axi-dma-1.01a";
+> +			reg = <0x04330000 0x1000>;
+> +			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+> +			clock-names = "core-clk", "cfgr-clk";
+> +			#dma-cells = <1>;
+> +			dma-channels = <8>;
+> +			snps,block-size = <1024 1024 1024 1024
+> +					   1024 1024 1024 1024>;
+> +			snps,priority = <0 1 2 3 4 5 6 7>;
+> +			snps,dma-masters = <2>;
+> +			snps,data-width = <4>;
+> +			status = "disabled";
+> +		};
+> +	};
+> +};
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> index c18822ec849f..57a01b71aa67 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -4,9 +4,9 @@
+>   * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+>   */
+>  
+> -#include <dt-bindings/clock/sophgo,cv1800.h>
+> -#include <dt-bindings/gpio/gpio.h>
+> -#include <dt-bindings/interrupt-controller/irq.h>
+> +#define SOC_PERIPHERAL_IRQ(nr)		((nr) + 16)
+> +
+> +#include "cv18xx-periph.dtsi"
+>  
+>  / {
+>  	#address-cells = <1>;
+> @@ -41,310 +41,11 @@ cpu0_intc: interrupt-controller {
+>  		};
+>  	};
+>  
+> -	osc: oscillator {
+> -		compatible = "fixed-clock";
+> -		clock-output-names = "osc_25m";
+> -		#clock-cells = <0>;
+> -	};
+> -
+>  	soc {
+> -		compatible = "simple-bus";
+>  		interrupt-parent = <&plic>;
+> -		#address-cells = <1>;
+> -		#size-cells = <1>;
+
+>  		dma-noncoherent;
+
+Move this into new cpu file.
+
+>  		ranges;
+>  
+> -		clk: clock-controller@3002000 {
+> -			reg = <0x03002000 0x1000>;
+> -			clocks = <&osc>;
+> -			#clock-cells = <1>;
+> -		};
+> -
+> -		gpio0: gpio@3020000 {
+> -			compatible = "snps,dw-apb-gpio";
+> -			reg = <0x3020000 0x1000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -
+> -			porta: gpio-controller@0 {
+> -				compatible = "snps,dw-apb-gpio-port";
+> -				gpio-controller;
+> -				#gpio-cells = <2>;
+> -				ngpios = <32>;
+> -				reg = <0>;
+> -				interrupt-controller;
+> -				#interrupt-cells = <2>;
+> -				interrupts = <60 IRQ_TYPE_LEVEL_HIGH>;
+> -			};
+> -		};
+> -
+> -		gpio1: gpio@3021000 {
+> -			compatible = "snps,dw-apb-gpio";
+> -			reg = <0x3021000 0x1000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -
+> -			portb: gpio-controller@0 {
+> -				compatible = "snps,dw-apb-gpio-port";
+> -				gpio-controller;
+> -				#gpio-cells = <2>;
+> -				ngpios = <32>;
+> -				reg = <0>;
+> -				interrupt-controller;
+> -				#interrupt-cells = <2>;
+> -				interrupts = <61 IRQ_TYPE_LEVEL_HIGH>;
+> -			};
+> -		};
+> -
+> -		gpio2: gpio@3022000 {
+> -			compatible = "snps,dw-apb-gpio";
+> -			reg = <0x3022000 0x1000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -
+> -			portc: gpio-controller@0 {
+> -				compatible = "snps,dw-apb-gpio-port";
+> -				gpio-controller;
+> -				#gpio-cells = <2>;
+> -				ngpios = <32>;
+> -				reg = <0>;
+> -				interrupt-controller;
+> -				#interrupt-cells = <2>;
+> -				interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
+> -			};
+> -		};
+> -
+> -		gpio3: gpio@3023000 {
+> -			compatible = "snps,dw-apb-gpio";
+> -			reg = <0x3023000 0x1000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -
+> -			portd: gpio-controller@0 {
+> -				compatible = "snps,dw-apb-gpio-port";
+> -				gpio-controller;
+> -				#gpio-cells = <2>;
+> -				ngpios = <32>;
+> -				reg = <0>;
+> -				interrupt-controller;
+> -				#interrupt-cells = <2>;
+> -				interrupts = <63 IRQ_TYPE_LEVEL_HIGH>;
+> -			};
+> -		};
+> -
+> -		saradc: adc@30f0000 {
+> -			compatible = "sophgo,cv1800b-saradc";
+> -			reg = <0x030f0000 0x1000>;
+> -			clocks = <&clk CLK_SARADC>;
+> -			interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			status = "disabled";
+> -
+> -			channel@0 {
+> -				reg = <0>;
+> -			};
+> -
+> -			channel@1 {
+> -				reg = <1>;
+> -			};
+> -
+> -			channel@2 {
+> -				reg = <2>;
+> -			};
+> -		};
+> -
+> -		i2c0: i2c@4000000 {
+> -			compatible = "snps,designware-i2c";
+> -			reg = <0x04000000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C0>;
+> -			clock-names = "ref", "pclk";
+> -			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		i2c1: i2c@4010000 {
+> -			compatible = "snps,designware-i2c";
+> -			reg = <0x04010000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C1>;
+> -			clock-names = "ref", "pclk";
+> -			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		i2c2: i2c@4020000 {
+> -			compatible = "snps,designware-i2c";
+> -			reg = <0x04020000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C2>;
+> -			clock-names = "ref", "pclk";
+> -			interrupts = <51 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		i2c3: i2c@4030000 {
+> -			compatible = "snps,designware-i2c";
+> -			reg = <0x04030000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C3>;
+> -			clock-names = "ref", "pclk";
+> -			interrupts = <52 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		i2c4: i2c@4040000 {
+> -			compatible = "snps,designware-i2c";
+> -			reg = <0x04040000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C4>;
+> -			clock-names = "ref", "pclk";
+> -			interrupts = <53 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		uart0: serial@4140000 {
+> -			compatible = "snps,dw-apb-uart";
+> -			reg = <0x04140000 0x100>;
+> -			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_UART0>, <&clk CLK_APB_UART0>;
+> -			clock-names = "baudclk", "apb_pclk";
+> -			reg-shift = <2>;
+> -			reg-io-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+> -		uart1: serial@4150000 {
+> -			compatible = "snps,dw-apb-uart";
+> -			reg = <0x04150000 0x100>;
+> -			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_UART1>, <&clk CLK_APB_UART1>;
+> -			clock-names = "baudclk", "apb_pclk";
+> -			reg-shift = <2>;
+> -			reg-io-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+> -		uart2: serial@4160000 {
+> -			compatible = "snps,dw-apb-uart";
+> -			reg = <0x04160000 0x100>;
+> -			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_UART2>, <&clk CLK_APB_UART2>;
+> -			clock-names = "baudclk", "apb_pclk";
+> -			reg-shift = <2>;
+> -			reg-io-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+> -		uart3: serial@4170000 {
+> -			compatible = "snps,dw-apb-uart";
+> -			reg = <0x04170000 0x100>;
+> -			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_UART3>, <&clk CLK_APB_UART3>;
+> -			clock-names = "baudclk", "apb_pclk";
+> -			reg-shift = <2>;
+> -			reg-io-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+> -		spi0: spi@4180000 {
+> -			compatible = "snps,dw-apb-ssi";
+> -			reg = <0x04180000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI0>;
+> -			clock-names = "ssi_clk", "pclk";
+> -			interrupts = <54 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		spi1: spi@4190000 {
+> -			compatible = "snps,dw-apb-ssi";
+> -			reg = <0x04190000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI1>;
+> -			clock-names = "ssi_clk", "pclk";
+> -			interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		spi2: spi@41a0000 {
+> -			compatible = "snps,dw-apb-ssi";
+> -			reg = <0x041a0000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI2>;
+> -			clock-names = "ssi_clk", "pclk";
+> -			interrupts = <56 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		spi3: spi@41b0000 {
+> -			compatible = "snps,dw-apb-ssi";
+> -			reg = <0x041b0000 0x10000>;
+> -			#address-cells = <1>;
+> -			#size-cells = <0>;
+> -			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI3>;
+> -			clock-names = "ssi_clk", "pclk";
+> -			interrupts = <57 IRQ_TYPE_LEVEL_HIGH>;
+> -			status = "disabled";
+> -		};
+> -
+> -		uart4: serial@41c0000 {
+> -			compatible = "snps,dw-apb-uart";
+> -			reg = <0x041c0000 0x100>;
+> -			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_UART4>, <&clk CLK_APB_UART4>;
+> -			clock-names = "baudclk", "apb_pclk";
+> -			reg-shift = <2>;
+> -			reg-io-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+> -		sdhci0: mmc@4310000 {
+> -			compatible = "sophgo,cv1800b-dwcmshc";
+> -			reg = <0x4310000 0x1000>;
+> -			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_AXI4_SD0>,
+> -				 <&clk CLK_SD0>;
+> -			clock-names = "core", "bus";
+> -			status = "disabled";
+> -		};
+> -
+> -		sdhci1: mmc@4320000 {
+> -			compatible = "sophgo,cv1800b-dwcmshc";
+> -			reg = <0x4320000 0x1000>;
+> -			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_AXI4_SD1>,
+> -				 <&clk CLK_SD1>;
+> -			clock-names = "core", "bus";
+> -			status = "disabled";
+> -		};
+> -
+> -		dmac: dma-controller@4330000 {
+> -			compatible = "snps,axi-dma-1.01a";
+> -			reg = <0x04330000 0x1000>;
+> -			interrupts = <29 IRQ_TYPE_LEVEL_HIGH>;
+> -			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+> -			clock-names = "core-clk", "cfgr-clk";
+> -			#dma-cells = <1>;
+> -			dma-channels = <8>;
+> -			snps,block-size = <1024 1024 1024 1024
+> -					   1024 1024 1024 1024>;
+> -			snps,priority = <0 1 2 3 4 5 6 7>;
+> -			snps,dma-masters = <2>;
+> -			snps,data-width = <4>;
+> -			status = "disabled";
+> -		};
+> -
+>  		plic: interrupt-controller@70000000 {
+>  			reg = <0x70000000 0x4000000>;
+>  			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> -- 
+> 2.48.1
+> 
 
