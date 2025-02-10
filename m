@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9782C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57A9C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlbv0FSFlLbSmcwi0qSd9c4OoNOyoJGUgwl16y4Fj8k=; b=49/RbGHbdyehztXXCrDl4vPPYO
-	ssBZ0B+ZxfgNXxmzlOXsqAc9IOdi5irYSNc1G9/Ws/wUjKmw3y8N+RvJ/C++w5mod8RkUg69+rYLB
-	EeAcH0G7YVWwXQKmUAz4scAZzy76yhkTeuW06hCkLSLKJedLtxlr3e3EBCpXx++FmfzD0/6QnomwN
-	3ttcFEH+ll2zq+oxmR0S5BUMVbkLaYHGDzoHdNEfKqoGniWodl3qNfog5QwVq/NLv8EqepUbKN0T8
-	xZ/gVIRAYNuC2KyxhM58yNsn8kuOa9hD8rPw+lqFPOsSZ9EoXNPnKObonYOJzVDz6HHtm6fdLxxuI
-	8JT7wPLw==;
+	bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=; b=I/cBRPWU8MTlso2uBK04u7TVzH
+	TZoLzLyAZSZFuR8Wm/JNYAXHi31w8VRaKYTvgxX2ILxa/4GSehZv1zMXlqMu+92+5JX1kwhHJOQ5K
+	ilL3L7VU97sYu87eH1erFo0DWt8HgRYxfho2+I2LVmrmO5T1vtCbcS315gc/kkZaG96MqCAfTrUh7
+	YlNUQX1RWvRpWq+6wKZCvqPyp+LnS3kaGwdh7eEN6hwNJ0g5L3/AvpuGdBbf/u9T74sWBzaWM6mf8
+	oxX+sthnn7aZyrO2p2DsHcq/xFkQ4LEreVfhXMtM3FCZ2bsJ5o2jJOmZwKLLYIF+RLLiB+am84rKN
+	uTfAce/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZeG-00000001AcJ-0G30;
-	Mon, 10 Feb 2025 19:40:52 +0000
-Received: from ms.lwn.net ([45.79.88.28])
+	id 1thZeG-00000001AdZ-3X8z;
+	Mon, 10 Feb 2025 19:40:53 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYYR-00000000vhW-3SEq
+	id 1thYYq-00000000vnl-3lTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:30:49 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 0D1D5411A1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1739212247; bh=vlbv0FSFlLbSmcwi0qSd9c4OoNOyoJGUgwl16y4Fj8k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=PxFnHkEKSZrBYbzFpew/UljRdQUkTOX+qKIpKomAZlWSWpxide9l4c2bxkwdMwNWF
-	 sWHrza4QeD17HbEJ1GVDgKEHsQ4J5fGszAooe0rUMV8SpHN2AnJh5s+msApTtSueTq
-	 kldvsJD8z29V82iGnnNsIvc0IpF/n5AUf1V7EwE15mOEBZuS5tkWNvoYAelEzc0LtF
-	 9A/zQoFU1JnwlyetVPR6L3frzztdtk0XDVlSCAuejySkEp8NEq0ylr0UsJ5g1a1OZE
-	 Vo03pIkLZ7JlMiGrr1nPdfsokPnHNxFSVgl0KcZB06VxFdKHkJg6ydIZAOvztgFrBm
-	 SzjyXR5yVqF2g==
-Received: from localhost (unknown [IPv6:2601:280:5e00:625::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 0D1D5411A1;
-	Mon, 10 Feb 2025 18:30:46 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Linux Doc Mailing
- List <linux-doc@vger.kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Mauro Carvalho Chehab
- <mchehab+huawei@kernel.org>, linux-kernel@vger.kernel.org, "Guilherme G.
- Piccoli" <gpiccoli@igalia.com>, Chao Yu <mchehab+huawei@kernel.org>,
- Jaegeuk Kim <mchehab+huawei@kernel.org>, James Clark
- <james.clark@linaro.org>, Johannes Berg <johannes@sipsolutions.net>, Mike
- Leach <mike.leach@linaro.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Tony Luck <tony.luck@intel.com>, bpf@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
- linux-wireless@vger.kernel.org
-Subject: Re: [PATCH 00/27] Improve ABI documentation generation
-In-Reply-To: <cover.1739182025.git.mchehab+huawei@kernel.org>
-References: <cover.1739182025.git.mchehab+huawei@kernel.org>
-Date: Mon, 10 Feb 2025 11:30:46 -0700
-Message-ID: <87h651zm7d.fsf@trenco.lwn.net>
+	Mon, 10 Feb 2025 18:31:14 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-ab7917fc0c2so580360166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:31:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739212271; x=1739817071; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=;
+        b=2rxD7qrJVPuXH9NbnzCJxUrg6w6UA1C5ECJbjWO0f87xAp715qDbIpLTt7UegsE7XG
+         7BcEMjo6uRDmf5WW8p5ogYlqLT4ZjdPG6uIWzLgSoxjR2NTp+Agwex9q6IxKaqM7yH9w
+         Om5l+DgqvGy0stDXlu6BESWyGAvcWSSaEm5eYjAoWiqKfx4K77s+mgSZ1FAiJmrYoIfo
+         nLnnVHUkF8n6dMOiYVCyz2ejSdDJtNG40QnkPuVnnRdyyAUghOWGRZYGPiefQmbfzTK5
+         fQUpP+LBFPhDyO/0SenVwVH/VoycpglXgkDPFIvFuhIXZ2q64DeyTrN3jVnXxHLnDs4u
+         cSNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739212271; x=1739817071;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WRoVYFJvOYyL8xWCdpgS4WvSxBvenJHq66eRRrS+VXM=;
+        b=S0hHWBZ/02MukiBa6Ip8PGJ/Y7OcalJZNb9NNuGOoj7+icIxNWFMP8wMVHeIcutahb
+         mKxA29iNsujQO6m1ee60zwp8X2yuc8zoMHRGdah0wWkzgd6c2saBsU3xYgms/yja+VwF
+         J0ncB3Q5oQIkD568gSPUkN0Slc9jlaKQusJYlpoy9gOVnWgBpWhjizvd9T54EwQRWtS6
+         lcLYhgE9su704K+dIDu2YIBz0xPRBSAkBeNklPFdWpTdGL03xoL9AHK7gPiK63gV5wc2
+         d2vB46Z5VkejA5/lvhN8jaUuQmSqSxB6j9PY1FidVzFpM6EZHhk7FZ2poPlV4yqj08ky
+         KR5g==
+X-Forwarded-Encrypted: i=1; AJvYcCXqSrvLzKvH4tLwTgjbDOzZ3CHhmpAZ1S17TT9vtfrSE3GiuXFTx2OJwAFJvmfcmOTScNwhb2CDQcxAnmoZPSH4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE3KdgBgiZFE+eJz78i9kNy068b8GDtMmooxfTijNtnpk55ReY
+	pmrU9jmmqCPoAzTc7oFXEFonm3GPMYodl5VY7lqK24XMk3YpAFK99x1UfxUgBJo=
+X-Gm-Gg: ASbGncsZq69iT6AbrTRUZ27bjG59zjmEIzFnm9NR9UtCMLSNfkP/g3P8MAN9uZHqc3r
+	51QTaQCPYCYt5QdNN+uCSjnB11keDSLz/J3s6foZ+Yq7Vpvxwyv0FZNY3ZqfK+B7u7IADd6e3IT
+	hAl6cP69SAWDqOxjzdMU1tqQsR75+8j09lPjU5Qi3lV7SNi4XtzmcrbqPM0NQrVDqKAFrDitPH5
+	YNyOX9oVwt9gOc5N+xRQgHA1TLyPoS2dhpz6B5tUH2rkN90xrdk35xfWVLhBCkpDGn1lNJ+VBUg
+	YX9JKR9aGT4a+gkI3zgNJGKp4igR64/1j+2TQZCTi+r81GihFBmI7jiGLw==
+X-Google-Smtp-Source: AGHT+IGxnUYjEIEFumIffoV7za36A5epYh//QQ89hdBeu7W4Q3SvvoIDdRj/qSFbZjMv9ioyPcD/UQ==
+X-Received: by 2002:a17:906:9c8d:b0:ab7:c1f:2b63 with SMTP id a640c23a62f3a-ab789bca7e5mr1713691266b.27.1739212271071;
+        Mon, 10 Feb 2025 10:31:11 -0800 (PST)
+Received: from localhost (p200300f65f018b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f01:8b04::1b9])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7aab8d8fasm487594166b.58.2025.02.10.10.31.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 10:31:10 -0800 (PST)
+Date: Mon, 10 Feb 2025 19:31:08 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Duje =?utf-8?Q?Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+Cc: =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, 
+	linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] pwm: pxa: Use #pwm-cells = <3>
+Message-ID: <lzlzq4fh3762kyezzr7eqnbkgsu6nbvzgi7yqzwy5tbsrb4tg2@gdpjz3cqrqq6>
+References: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cuu5yijfy6peiu4x"
+Content-Disposition: inline
+In-Reply-To: <cover.1738842938.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_103047_870382_96AD7B99 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20250210_103112_946194_E60F4F50 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +100,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
 
-> Hi Jon/Greg,
->
-> This series replace get_abi.pl with a Python version.
->
-> I originally started it due to some issues I noticed when searching for
-> ABI symbols. While I could just go ahead and fix the already existing
-> script, I noticed that the script maintainance didn't have much care over
-> all those years, probably because it is easier to find Python programmers
-> those days.
->
-> Also, the code is complex and was not using modules or classes and
-> were using lots of global variables.
->
-> So, I decided to rewrite it in Python. I started with a manual conversion
-> for each function. Yet, to avoid future maintainership issues, I opted to
-> divide the main code on three classes, each on a sepaparate file.
->
-> Just like the original RFC, I opted to keep the Sphinx kernel-abi module
-> on three different phases:
->
-> - call get_abi.py as an exec file;
-> - import AbiParser on a minimal integration scenario;
-> - cleanup the code to avoid needing to parse line numbers from the text.
->
-> This way, if something goes wrong, it would be easier to just revert any
-> offending patches, It also provides a better rationale about what each
-> logical change is doing.
->
-> The initial patches on this series do some preparation work and
-> cleans some ABI symbol bugs that lack ":" delimiter.
->
-> I opted to place on this series the Sphinx and Python version updates.
->
-> I still have ~10 patches here with additional cleanups, from the original
-> series I sent as RFC but let's get the main changes merged first.
+--cuu5yijfy6peiu4x
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/3] pwm: pxa: Use #pwm-cells = <3>
+MIME-Version: 1.0
 
-OK, I have applied this set - it seems to work for me, though it does
-lead to some changes in the organization of
-Documentation/admin-guide/abi.html in the output.
+On Thu, Feb 06, 2025 at 01:06:24PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>=20
+> this series' goal is to soften the special device-tree binding of
+> marvel,pxa-pwm devices. This is the only binding that doesn't pass the
+> line index as first parameter.
+>=20
+> Here the #pwm-cells value is bumped from 1 to 3, keeping compatibility
+> with the old binding.
+>=20
+> The motivation for this was that Herv=C3=A9 sent a patch introducing pwm
+> nexus nodes which don't work nicely with the marvel,pxa-pwm
+> particularities.
+>=20
+> Changes since (implicit) v1, available at
+> https://lore.kernel.org/linux-pwm/cover.1738777221.git.u.kleine-koenig@ba=
+ylibre.com:
+>=20
+>  - Use #pwm-cells =3D <3> also in the binding example (*sigh*), pointed
+>    out by Rob
+>  - Add review, ack and test tags by Herv=C3=A9 Codina, Conor Dooley, Duje
+>    Mihanovi=C4=87 and Daniel Mack. Thanks!
+>=20
+> I intend to take the first patch via my pwm tree. Assuming the pxa and
+> device tree maintainers and bots are happy now: Dear pxa maintainers,
+> please tell if I should take the whole series via pwm, or if you want to
+> take patches #2 and #3. If the latter: Do you want to delay application
+> or should I provide an immutable branch for patch #1?
 
-It would be nice if, eventually, we could put the README link up at the
-top rather than under "ABI file", or even just include its contents
-there directly.
+I applied patch #1 to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+now.
 
-Anyway, let's see how this goes :)
+I don't know yet what should happen to the two other patches, but maybe
+it's a good idea to wait a bit anyhow to have 3 cells working for the
+pxa driver for a kernel release or two before we switch it.
 
-Thanks,
+Best regards
+Uwe
 
-jon
+--cuu5yijfy6peiu4x
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeqReoACgkQj4D7WH0S
+/k4VkQf6AzUwWcUMhatT49kzLrH9Ik8W0qT2EHQhxjiTKiZvylgEcKffpbQkdE63
+S3rsHNK2V+sauwfreQSx3KA4YW95TWhVfjGOS/aij1mL4Plse94GOCEhw8zLCzsc
+HJi4SKa3A6BPsuRYLuIqdNcgKh0HYEXibFojcux7CKSAyfS9mk9K3WsEuCpw3MVV
+6Moq80l2BVV82SKZ9xR9iANgDIxji9xFJpMRTNcK673fnq8++TFwevwzB1u/iMf9
+MitOOVkNj5+X/oYZwDZAneQLABUE/qDeYzWEtU6P/2KuT3RiTmP0rGAPcHlzZwIb
+GkiTBJZ6Xu07fhBuP9ceT5liCF7+NA==
+=GLjj
+-----END PGP SIGNATURE-----
+
+--cuu5yijfy6peiu4x--
 
