@@ -4,83 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0D7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749ECC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q4Sl4j7z0914oZOToKd009OuMMVWZTH/qa7XeAPVimQ=; b=2V2aVbXhiI6+7Yd7GVY/GAEeqp
-	cKcm0Eb6EaV2arFil452ITuQw9VvWzVA+fTX1U7plvonfFP9PLYlecOqzrxM7MydXxN9dry2pYAIW
-	Ji6gq4r5blcKhavDSKGMPst/USkYv1nDUd8XZyF7c8Itr0iSqm/t8PdMYZKWHpSafQzNIqgKHrvSj
-	Ih16hINJXVNj91h1JBae+DnyU7SnC2v9r0vZdaIuXSDRTi1CIqgQgjqmRTXvTnGd6FxeYyL+CNZ4q
-	OKvrXq+JAUFLGvxCL0N+wd9tVOjufiddY8RhJv7sg0wnksaGZRWpCgUFTgUdU/bhQkyJTV2sT8Gtf
-	MppsSZbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kzD9w/10Tg/Dbaxqt0ZLJaS8jBU14ki/gg5wLfoid+o=; b=RX26UP9u8I5p9pRn1PQ8CRLID9
+	B9H5b/KhFBPE6DbWvaO9kwLZFGsXkzRb3Th2v3hA4gChdAbPoAOiD7MH6BcLrKOMq4L8xl8hbzl03
+	YxnL+8SRxLqcDXGx89wGc/eO2hArpaMuwgIlA6CG1iq++2lVcejMg7m7Qo7aXtbzCIsI48oDVOQcB
+	WkOh9xQkNFK+0N1W/J5MQ7zUpPS99TeTDZJ2QYl8ggKM7yt7LP9nYnJlH/f9L1qu+Xm1Zmw1x6NPG
+	VtHErDdNqvH9f43Brgli1cHjFejZ1IW1tUMehmE8n6/q83+pe7wAdc0Kzdf+RwvfB36laExrFAjJ9
+	bi8HrF6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thcvn-00000001nc1-3hJF;
-	Mon, 10 Feb 2025 23:11:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thcxB-00000001o1W-0NE7;
+	Mon, 10 Feb 2025 23:12:37 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thcWy-00000001iXO-2xvv;
-	Mon, 10 Feb 2025 22:45:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=q4Sl4j7z0914oZOToKd009OuMMVWZTH/qa7XeAPVimQ=; b=Cy7De8FFtPJMswIG7j45sUa8mJ
-	WThE/UbyuDzDlZwzydn9f9p3QEqQL1PksQve+u4i12G1z3rxR8zJ2ZQFf9Ee1BSHInQaAE4ssB7Y2
-	jBKmE3pkzeCgi3mrdI7XQ38lGi0LbXbcC3WWmsdWLn1n9RJIwOo/DIxucBX2zKqR86bD0fPJBZgG0
-	jFY1R/xRDFEynsFjp/6eUhDGHBFLva1Xw3xgk8vx6L5uXnLUQNtHHnUTjvmKzwx5LlIRqre6Jg7nb
-	hSbvw+wzHIR+wPFHK7KFBR+VGabIi+bRz7hXOhiCeErUCXo8znDypc59fdcQozzYPe+gB8sdRLYUI
-	8jkV65mg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thcWs-00000000L4O-11WX;
-	Mon, 10 Feb 2025 22:45:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=q4Sl4j7z0914oZOToKd009OuMMVWZTH/qa7XeAPVimQ=; b=Cr23s9depxi0kBcC4raALGKcHz
-	sq9N1ty8NzSvYSLJQrG5nxm7l1Pv9TDBaP3vs/zegJ56U4C4uRdTvlJjEQIXJgXTltEt53S2tkXJY
-	uo/Qc8vjNao2vJcT3Ba2lCR1r55gvrlXESqXQHXR1KbjfgPRYgYE2c+vSzRuCQv8jXz4LntSqmwfL
-	mgYrEBCkEpBQe3CTkjEN4lE+JiP+CIXX0dmdOw3xUMMjvDwNhgPxsm6LxXgLMsUbZJL3xx7iDzOWu
-	qkkJUSvTPQfQrxlvsAqsng9r2o9AKyUrfTnCxjWhXTCfvQefIRsE7+zDW9HtERNfTIvBBPrzOUI9I
-	KLMd6x5w==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1thcWr-0008Re-CF; Mon, 10 Feb 2025 23:45:25 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: srinivas.kandagatla@linaro.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	detlev.casanova@collabora.com,
-	sebastian.reichel@collabora.com
-Subject: [PATCH RESEND v2 6/6] arm64: dts: rockchip: add rk3576 otp node
-Date: Mon, 10 Feb 2025 23:45:10 +0100
-Message-ID: <20250210224510.1194963-7-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250210224510.1194963-1-heiko@sntech.de>
-References: <20250210224510.1194963-1-heiko@sntech.de>
+	id 1thccY-00000001jZf-1ry2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 22:51:19 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21f8c280472so21005ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 14:51:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739227877; x=1739832677; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kzD9w/10Tg/Dbaxqt0ZLJaS8jBU14ki/gg5wLfoid+o=;
+        b=dbGbQBxhnhtQTni4JHeQlZr9kgP6aKBdYYeX2iXXrbIIw8X4ea5ar2cLhMf9B4ajv4
+         U0WH64ye/cNQzHay//+MXO1FNXkX63b0ypc1jX3je9ewMndTLyaHyRiVtIvcsrCEzYLr
+         z42bJDb/+Y1zEhGEF91dtQRl4Z4+EB6sPtZvSBCJSh94kds0e8HnSA4HYZXq/kUCbXf1
+         E6uY2u6R30Cew9KCGZORBrPydMSyjTDQImsCnf3B+WUo2n6uyJfNCFApe7HMFl+aADNI
+         yvlcg5DQ2IJweJjn1CCOWMZKo/UUgmlqU2MzpJDOgYBq7jyisaetYZmSR5Mw+968Rsd/
+         iUaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739227877; x=1739832677;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kzD9w/10Tg/Dbaxqt0ZLJaS8jBU14ki/gg5wLfoid+o=;
+        b=cEphKpar4GYAH58Qpn+QIUvLlVjunlW35D9EmqX4mraIO6+01WUXwOnjKxJ+Q/F6M3
+         +/c/nDfiSA6BNFCdy8lNdnhCJCwG8N1dN1clujJQgMDrn/dao1LEmTrQ4EBktMtP3x4+
+         70zRei004jXNi7hlOkel+trLAv+0oh4EzZzZemvyr6CyTMCA5EgPR8xJMuIoedngAZ+0
+         A7k9t3rcz2tPd1H5YaYhg9R8K4OIQJaONhHszzvjxd46YcsVTFXB6ZS7cVHBBo6NDzqe
+         Bvxx59KHhytXhvxmPkkf2bJKkJnr1sddm8m2ML2cZ6Zlhpt/mX0QwHUXDuEZotP/8Zhe
+         JcFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWi4Fz3sD/BVdBlmNXJV8x+Ke37N+CHrL12fq+QqfECrOla9yeymByYshTk9EuxvQs9oaAMY+A12I1qKBohqKZI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwM9/7olUM2AFwYg4lVRpsqEIbXGs03h2M9Wa3rMPL6HeEvhUK+
+	bKVtDkXnEd0A0vjDZO43bZs/oyPgbMyk4mu/6PXhfdkt/pTzDIbV+z/XJ6ndzw==
+X-Gm-Gg: ASbGncsF6tlvOgC7BCGQEGBuJK6OuWIfNhqhfKXI7oPv1fhSN/Fck8HJHhuAnee56bM
+	k6kCdQFKpKYlBNuYVnyF1eL4P2SFPNOtoykCofX3sETIb/9uMjjdtWTTnXV2pHhIBtoYnorRUhN
+	XH2Sp0iiMNbyiXC17P6ygbDMTFzH8pIkkkqEh5yXhFSmx8mB2iLPK2lCn+9z1gFr56ShC9oyflf
+	ynkD9H9g3Pnqo0awu1p7YkRx78HfS4u/1BRFK5J9tXpQj96+PnCousOB3Wbar0LcO1YV2K35hnJ
+	0LPJjmMsHOPTDsQPbhvfIW5trOZ1TmP+YxhjDdzyD3KXo5bO+xcwMQ==
+X-Google-Smtp-Source: AGHT+IF3MLc1SEMp/5ggqyCFt3vZ33zwtCZnr32F33srmpgWaKSJcp4xjwvbrjeQxnAK8XCWIX7FIA==
+X-Received: by 2002:a17:902:ce08:b0:212:26e:1b46 with SMTP id d9443c01a7336-21fbb511b0bmr260955ad.23.1739227876395;
+        Mon, 10 Feb 2025 14:51:16 -0800 (PST)
+Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f368d8ccbsm84732645ad.255.2025.02.10.14.51.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 14:51:15 -0800 (PST)
+Date: Mon, 10 Feb 2025 22:51:11 +0000
+From: Peilin Ye <yepeilin@google.com>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	David Vernet <void@manifault.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Yingchi Long <longyingchi24s@ict.ac.cn>,
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
+	Neel Natu <neelnatu@google.com>,
+	Benjamin Segall <bsegall@google.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
+ store-release instructions
+Message-ID: <Z6qC303CzfUMN8nV@google.com>
+References: <cover.1738888641.git.yepeilin@google.com>
+ <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
+ <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
+ <Z6gRHDLfA7cjnlSn@google.com>
+ <CAADnVQLkHA9LGv99k2TZOJEGUU=dw=q6nVurJ=aoh0v6cFS6zQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAADnVQLkHA9LGv99k2TZOJEGUU=dw=q6nVurJ=aoh0v6cFS6zQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_224528_198028_F90F0A6D 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250210_145118_486321_502724B2 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,65 +127,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the otp node to the rk3576 soc devicetree including the
-individual fields we know about.
+Hi Alexei,
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 39 ++++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+On Sat, Feb 08, 2025 at 07:46:54PM -0800, Alexei Starovoitov wrote:
+> > Got it!  In v3, I'll change it back to:
+> >
+> >   #define BPF_LOAD_ACQ   0x10
+> >   #define BPF_STORE_REL  0x20
+> 
+> why not 1 and 2 ?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 4dde954043ef..29b47799849a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1260,6 +1260,45 @@ sdhci: mmc@2a330000 {
- 			status = "disabled";
- 		};
- 
-+		otp: otp@2a580000 {
-+			compatible = "rockchip,rk3576-otp";
-+			reg = <0x0 0x2a580000 0x0 0x400>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			clocks = <&cru CLK_OTPC_NS>, <&cru PCLK_OTPC_NS>,
-+				 <&cru CLK_OTP_PHY_G>;
-+			clock-names = "otp", "apb_pclk", "phy";
-+			resets = <&cru SRST_OTPC_NS>, <&cru SRST_P_OTPC_NS>;
-+			reset-names = "otp", "apb";
-+
-+			/* Data cells */
-+			cpu_code: cpu-code@2 {
-+				reg = <0x02 0x2>;
-+			};
-+			otp_cpu_version: cpu-version@5 {
-+				reg = <0x05 0x1>;
-+				bits = <3 3>;
-+			};
-+			otp_id: id@a {
-+				reg = <0x0a 0x10>;
-+			};
-+			cpub_leakage: cpub-leakage@1e {
-+				reg = <0x1e 0x1>;
-+			};
-+			cpul_leakage: cpul-leakage@1f {
-+				reg = <0x1f 0x1>;
-+			};
-+			npu_leakage: npu-leakage@20 {
-+				reg = <0x20 0x1>;
-+			};
-+			gpu_leakage: gpu-leakage@21 {
-+				reg = <0x21 0x1>;
-+			};
-+			log_leakage: log-leakage@22 {
-+				reg = <0x22 0x1>;
-+			};
-+		};
-+
- 		gic: interrupt-controller@2a701000 {
- 			compatible = "arm,gic-400";
- 			reg = <0x0 0x2a701000 0 0x10000>,
--- 
-2.47.2
+I just realized that we can't do 1 and 2 because BPF_ADD | BPF_FETCH
+also equals 1.
+
+> All other bits are reserved and the verifier will make sure they're zero
+
+IOW, we can't tell if imm<4-7> is reserved or BPF_ADD (0x00).  What
+would you suggest?  Maybe:
+
+  #define BPF_ATOMIC_LD_ST 0x10
+
+  #define BPF_LOAD_ACQ      0x1
+  #define BPF_STORE_REL     0x2
+
+?
+
+> , so when/if we need to extend it then it wouldn't matter whether
+> lower 4 bits are reserved or other bits.
+> Say, we decide to support cmpwait_relaxed as a new insn.
+> It can take the value 3 and arm64 JIT will map it to ldxr+wfe+...
+> 
+> Then with this new load_acq and cmpwait_relaxed we can efficiently
+> implement both smp_cond_load_relaxed and smp_cond_load_acquire.
+
+Thanks,
+Peilin Ye
 
 
