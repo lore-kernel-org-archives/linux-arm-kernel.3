@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C7AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6BDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nWk1tmUv6R6ofIovz55Q8Qebo6k6REo/VNEY88i+dbU=; b=ZNAyWJoUourorROmRsJeP35zOP
-	pRdTwzFNeg5yFY3JoCnoj9sa/UBaKpiY9RaSE/k455QcMRyHxTrU2yFePdKdkugBYofrGP8gJWgwU
-	LzAadFehRf8s+KZd74oOZ+CQinmpL/1N+3pmpvf2skbS39NI0j8DnSQSb/YHBHVJZLbh1aCIRODkY
-	sYatRUcw+Pz7oKm3V2X0ZmRq6rx+6koRUee5kJk1HYYMyt83bdBya2bTpHLAzbcuP2Al6qm6mgdXH
-	VXAya/9yC0vt7lryqPdl1ayNGf9B5x/U+9u7Hk/18AszmgTZX6j6r7RQ257DI7CTlGTjGaHYsDRON
-	e63nhGEA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFprhQeNmmCYEp+8aOLRLch/0cM3jigib4motf9TPiA=; b=4ORxH/YvAfkXFHTZvKldzDfIco
+	mramENG0ULqU9oAfalOcgrrMB79ze77Gk704h3sYattqa6nImrSvQ7SxZXsnaq5jWYxGicZFH16ev
+	8LA4H4WJekoHFwxRV6uNz6njdQ7IaCwEfB7Q00evTP8PrhN3kdPgSTMc2Sg3LwGN7lgIjjE0fjFN2
+	7lV5th0tCV8XNHUo4izNwoc9NhqWLc8uFQvviRG8La1MWNKVYqp+MdbelyE/icZrNvRSHaaq5hOAK
+	woGYgaJ3FXJjtnm5K1XTsqxcmtpe7zCsfkcixvJ1C+Z3PunrMMDxYX/nvnaAj5Z2zy/zBAgrExceQ
+	0+z8JGtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thS7V-0000000HGJM-12qz;
-	Mon, 10 Feb 2025 11:38:33 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1thS8s-0000000HGW3-3kta;
+	Mon, 10 Feb 2025 11:39:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRq6-0000000HC1z-2eH3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:20:35 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43944181e68so8225195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 03:20:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739186433; x=1739791233; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nWk1tmUv6R6ofIovz55Q8Qebo6k6REo/VNEY88i+dbU=;
-        b=TG+kK7CDYAP7GKHJrHuLidqc2NS1XTMQ/TQh0rpToptOMffGWNPQH+9pOq6ioJLBlI
-         zEw59BdLk7OJpGBkxEO4hnIW+tfnGWxplKLTQ8y0mFWqPBXSIz0uAVWbtXTCUKQbY7PK
-         BxX5vjsqhk6qqs2IHWFTC4q8eS8tWeHvYaGMW1AXB2EHZ2W0diOxT9/Xfq6F9xm93zFZ
-         t5fpBQ532FKF2I9YuZImXNlL/XIRfzVmxpVciniwky6XChtpcR8LZ076irnbBDCo6Z5v
-         m5R4ss46zfNk5jUwnJT2oefuBva2KlwqP73yJfTiZ4zDBgNnsZ+SJzXVTQfSvlXOejCh
-         R5sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739186433; x=1739791233;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nWk1tmUv6R6ofIovz55Q8Qebo6k6REo/VNEY88i+dbU=;
-        b=Hjp0yhB0kq9Dbr0quPxP4vUNm5RgXUgyvmUv5JCPxaMK3l4ME86+Dz0E1zieyCc7+i
-         CzO+7mfTzRtKhoA9lwssjPm0dcrPiXwF7oJUECW8bBkuryVm4KuHRD5VKjbgWYpEudgo
-         iulFQjt6L77rt2xv+ASSGKhqoKcFGzdDBEo8quvSZR8Z6hKjucg1ERtl7Nz9aIKGTaKE
-         nQxibTBWBCl9R2TM7A31zdTpaigMLqcNIuYhDzi5Abgeu9Mi2bedaDEPzkQt3OALt7nz
-         MsLPfkeiplrrDRkYycp3EPvgs1WL9DUZGH0hr7aWQFD1H8j27oHswZUSXZt3XwhLJyKI
-         Rz0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV5eNB9JOKKPIzF/wAufLo5GKP4ZVDLBPvJyQkm65dpQt4M7PXsCKj6Nh2Y7FbXEVIhkFr3kGG0lD+wfI1Ge/W4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvPev6+s9FI+Znko8veXi71XjUQ8txHmtq4Xic4THWJzqqPTOn
-	4Pp0Ndi/7ejUvMLjat3lfuEjrws3QEzN2JIZLCJIH1zr1H/OhkV3
-X-Gm-Gg: ASbGncujNpP/FhXnnFoCy+Y/3EgZp+cMSFAZ7ZdOX65zPqb/MRofQB7pRrka6YNlQq9
-	OuD/4Ir6GjyCUhG4XAwgC3Un2z8oJC0M4tLhvhC1EeZhxtLxBxLp/g+Iem5WS4sDcWCmrNATe4N
-	TkpU6JcxN3nq4an1/mZ5QqQ74/04s0Isp291yx983OJOehp7F2b0vcq5G0lPF/G2LK71YqS0qMd
-	36pSTbFSMtj1b7ynOTPCz9svnYJr0LK/iiRLZEsF0pa+A9hLKm/oYrRpQsQo/sISdp2DS8Lh+xt
-	yBHTkdIEiDms
-X-Google-Smtp-Source: AGHT+IGbRwLLu9tR/y2eBa/u7toSv7se05o3znHII8V/vw85Z3xbe+EWFjbGzJGpwzoJnEMDsZOF7A==
-X-Received: by 2002:a05:600c:3503:b0:434:f817:4492 with SMTP id 5b1f17b1804b1-439249cddf9mr124532365e9.31.1739186432404;
-        Mon, 10 Feb 2025 03:20:32 -0800 (PST)
-Received: from void.void ([141.226.169.178])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd1af07sm12174656f8f.15.2025.02.10.03.20.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 03:20:32 -0800 (PST)
-From: Andrew Kreimer <algonell@gmail.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Andrew Kreimer <algonell@gmail.com>
-Subject: [PATCH] iommu/exynos: Fix typos
-Date: Mon, 10 Feb 2025 13:20:04 +0200
-Message-ID: <20250210112027.29791-1-algonell@gmail.com>
-X-Mailer: git-send-email 2.48.1.268.g9520f7d998
+	id 1thRsZ-0000000HCNj-3xZi;
+	Mon, 10 Feb 2025 11:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739186586;
+	bh=2TfBb8YkHBjUcd2qbTj06jtJqA74ipyI1dLzWmzyRp4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eQ4nxJESKZB4J0JFkg5Nk8KYNqeTOzP+Sf8VljtKSgz/vbFYNKynyDTvsGRDBIe/K
+	 NH0EcNQ8rHXCiiHdMgXvClbJABoqnKs+kaTOg2raVeJI/NbsXC7V/OHMk4LMWpTjdr
+	 /IqGJgFtoXI5JyzztBVldciULs31BkopnpoJR0vT6klju0S1HxyasgIYuLIAusPwvm
+	 tBIfg0GkaJQwf453X/lQxlHqGu2gqV4Y+ohZ6Ec23Vig626spJpLuLFLG6QyRrTnI6
+	 o5BQJCZr/Jky0L5WT8E1vc5U0aRGGIPVGpZT9ZOhGQTLUiIP4IFUNOQ0C+CcwbOn1d
+	 ZNfkne9lGJwnQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF3F417E09F6;
+	Mon, 10 Feb 2025 12:23:04 +0100 (CET)
+Message-ID: <2fd97b1e-6546-4f43-bc60-15a812e66467@collabora.com>
+Date: Mon, 10 Feb 2025 12:23:04 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 27/34] drm/mediatek: mtk_hdmi: Cleanup function
+ mtk_hdmi_resume()
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
+ =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20250113145232.227674-1-angelogioacchino.delregno@collabora.com>
+ <20250113145232.227674-28-angelogioacchino.delregno@collabora.com>
+ <f25eaced46e18a54896f20ae1c42ed6894da5e18.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <f25eaced46e18a54896f20ae1c42ed6894da5e18.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_032034_671700_385AA15A 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250210_032308_172919_40F7230C 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are some typos in comments/messages:
- - modyfying -> modifying
- - Unabled -> Unable
+Il 07/02/25 07:04, CK Hu (胡俊光) ha scritto:
+> Hi, Angelo:
+> 
+> On Mon, 2025-01-13 at 15:52 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> Remove the error print in case of mtk_hdmi_clk_enable_audio()
+>> failures: since the APIs will already print on their own, having
+>> one in there is redundant.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 +--------
+>>   1 file changed, 1 insertion(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> index 40eea5c125d2..c5431f160fe4 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+>> @@ -1703,15 +1703,8 @@ static __maybe_unused int mtk_hdmi_suspend(struct device *dev)
+>>   static __maybe_unused int mtk_hdmi_resume(struct device *dev)
+>>   {
+>>          struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+>> -       int ret = 0;
+>>
+>> -       ret = mtk_hdmi_clk_enable_audio(hdmi);
+> 
+> I do not find where to print the error message, could you provide where would print the error message?
+> 
 
-Fix them via codespell.
+It's handled in drivers/base/power/main.c - upon failure, a pm_dev_err() will be
+executed, printing an error message stating that this (or any other) driver has
+failed resuming.
 
-Signed-off-by: Andrew Kreimer <algonell@gmail.com>
----
- drivers/iommu/exynos-iommu.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Cheers,
+Angelo
 
-diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-index c666ecab955d..69e23e017d9e 100644
---- a/drivers/iommu/exynos-iommu.c
-+++ b/drivers/iommu/exynos-iommu.c
-@@ -249,7 +249,7 @@ struct exynos_iommu_domain {
- 	struct list_head clients; /* list of sysmmu_drvdata.domain_node */
- 	sysmmu_pte_t *pgtable;	/* lv1 page table, 16KB */
- 	short *lv2entcnt;	/* free lv2 entry counter for each section */
--	spinlock_t lock;	/* lock for modyfying list of clients */
-+	spinlock_t lock;	/* lock for modifying list of clients */
- 	spinlock_t pgtablelock;	/* lock for modifying page table @ pgtable */
- 	struct iommu_domain domain; /* generic domain data structure */
- };
-@@ -292,7 +292,7 @@ struct sysmmu_drvdata {
- 	struct clk *aclk;		/* SYSMMU's aclk clock */
- 	struct clk *pclk;		/* SYSMMU's pclk clock */
- 	struct clk *clk_master;		/* master's device clock */
--	spinlock_t lock;		/* lock for modyfying state */
-+	spinlock_t lock;		/* lock for modifying state */
- 	bool active;			/* current status */
- 	struct exynos_iommu_domain *domain; /* domain we belong to */
- 	struct list_head domain_node;	/* node for domain clients list */
-@@ -746,7 +746,7 @@ static int exynos_sysmmu_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(dev, irq, exynos_sysmmu_irq, 0,
- 				dev_name(dev), data);
- 	if (ret) {
--		dev_err(dev, "Unabled to register handler of irq %d\n", irq);
-+		dev_err(dev, "Unable to register handler of irq %d\n", irq);
- 		return ret;
- 	}
- 
--- 
-2.48.1.268.g9520f7d998
+> Regards,
+> CK
+> 
+>> -       if (ret) {
+>> -               dev_err(dev, "hdmi resume failed!\n");
+>> -               return ret;
+>> -       }
+>> -
+>> -       return 0;
+>> +       return mtk_hdmi_clk_enable_audio(hdmi);
+>>   }
+>>
+>>   static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_resume);
+>> --
+>> 2.47.0
+>>
+> 
 
 
