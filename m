@@ -4,92 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C13C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB0CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=; b=ZBnSBDghdE0NO5MNlHhY4RfZoJ
-	ShzzEX6FFC7XrlLk4St5oW1aYo6SX7KNPxdY4vXxJnQ3i5O6YBoQSo+KZ6+f6PPuQ8GBhvky2UAR9
-	CxE+8lqP1ToVjssTtWm87fZSI6Ramu1kcahOYGeKKdHnM7d/anvfn2jJVrgLJlfM+N49reORohQt5
-	t+etPWXuh4DZ0JyJWnDANWOZLco2NKXB+LHQmQ6qrqC6FXx/MD8ItN0w6bMO53nQPlRHpt1bzSllw
-	Q2wwVrmVsuRpPkiR//dRegyLSMG49zSND3SIwDRGk8L+DkAvnYDVEiGCx1r+FUuhi4Fjjx/EwV9MB
-	J9ktlpfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=; b=04C5l/i0AC7Wu2um4MAv+PNgdG
+	irI1XiuGOY3FDs+EU4dFszjZGR7hmxtw07q7FW6QuTP+Wi17Q3tcNcXTNgESCrLvDMpnnTAK6R4gr
+	1nDERhWRa//lAiBtGdRucDRhrzJQphrW5gm1FqIBha7QYQGMC8wdV1sGrV6/uZRn1P6qk1eljD1j5
+	JkbaiSF1pWLMIN62fZdPYqv8JStJJo1CunqQzX4XNr7rNWEwpd/lB9/Yaef1WtyxeHOnidWnk/OGG
+	AIpbjsQbRok2bMBT30AhsJzM4PKlT5ESC2s2TPnJm3Er4L+JYCSwUDkiAbn+QN628qp6b0vSg7Gfj
+	g795OYdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTOD-0000000HTcw-21yR;
-	Mon, 10 Feb 2025 12:59:53 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1thTPa-0000000HTxm-3GoJ;
+	Mon, 10 Feb 2025 13:01:18 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTHR-0000000HSV7-1A0o;
-	Mon, 10 Feb 2025 12:52:55 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21f4500a5c3so81634495ad.3;
-        Mon, 10 Feb 2025 04:52:52 -0800 (PST)
+	id 1thTIZ-0000000HSoM-0Wbl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 12:54:04 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5dcdb56c9d3so6994720a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 04:54:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739191972; x=1739796772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=;
-        b=PWtFl8G01Po5j7H7niogHhcOxGOiGq/YMW/4bQW5e6jMa5oymIR3N+pMcamtTG3YM1
-         z83ZOTtVnfagmp6vREn7GaCjt2YK4RFTn3uuDWnSN9KHTmPTOeRndqt/BIiOVTI2hn1u
-         uYEbWaICwgQszByrTHG3+WCUydsmBLa59vanox9WAeazhbnD1vOiYEWLB4YawGreghXH
-         r1UZTsplu18Ud8f6G7mG38eGoqdTpSCHJRbQmbY8NnmS2LbsgfX6gQo06PbNoc1M2Tlx
-         jy1EJgm+q0f3iB7a0OXn5PDAck/JW9tSxl406oDo8JwEAF9kBhXXINGl4JEU7jDe1i5/
-         HIhg==
+        d=suse.com; s=google; t=1739192041; x=1739796841; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=;
+        b=WsfQURASKT0pZzqBF+pTurrxFRjnUN+6OaNtRDxGWsfOl8POhDrAp9YfwYq1pDR9q0
+         eKMzTVYrTH7ykBxe5P/xZjCVLDa6WYmp6TywL2ZNQtSAjRYdD0skPiZTji3enjTR8auE
+         SXUfYa4e9sKeR2VHsRu4nV9IstluIE8+NWmamDZgT5kilvWGHFOD75fWfWcu3wE6Y+yQ
+         sVB/GK0+NddTqvtSHlxu+8yCGdFkIO8niuE66h0Cto2JdeKCIsIX0E3T7rGdrUe72cOj
+         srfjH/8AwFXrwtPYigdl3eOwELJ+lyHOB1cSpCSsdN8mer6emgMRIqN1Qbux6gi/0irx
+         weIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739191972; x=1739796772;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3mTGFzTWHveCEIuDfSBcwTGP4FJ6Gf4w5lufq1wRrVY=;
-        b=qjASM3n9+iaViSuVvTul1ezDWhJEJTSld9o89zgLy43acRTcB6MysoTiOHsY/4nBdW
-         2SHm/hNlfbEDAun54zGZZtYgFrIBJasTq3NYPxuVbYtuZkiw7MVCzLDkFwC/JHuEeE6K
-         HFwCTPeL4X/KPebCuWj5NZU2RiD2cw+jkzUvsWh0zOoYkYA1ReaLVKHaEiAJV9x5E7dC
-         YhmZCbQbV+fkpPIrpixuKPXV0aSmh46ovCoN4VTghfOP+VxW/mCHTPFEdgHJw891fzO7
-         r1d+Ad8wL3aTNjEHhQ6k4U3q1llGx52UUjIFFSKUtZ3vVV9Xtf7KWEi+6lgdJVay+BDC
-         g8mg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPkJzhafvM7y374lpB525HzzWq2PZ0cYkG9JVB8wX5nIdkojFvT3FS9kY0BLMKOTxbgLHO5GQkUCmDEuxfMmE=@lists.infradead.org, AJvYcCXnd9rDUVwi6G2m7VfwcUAb4IXYVIiUhRkVLHgbmOr2EnTek5Onrml90d6sCFwrsv2hugr14GObDu73mneDT2Js@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxl7NNenGxA+QcBwvTAu+G+MCl3RZphn45CoQ22JILrKMe+Dbgx
-	nammimQCuSxUVf7ki+OqTtypW8IA3mP6WI68z/U3e4KMSqaiYIPy
-X-Gm-Gg: ASbGncsnBVzVDS/8HCE18dmOxcxAtY5AlVp8DVZE2AJWc5u7LPqEgReQusdeher8yPM
-	B8NOre1cQpRyTYH5hP/LdeZ74wZZPVaeTkqzv9J+Ab+sAjYfeH8iyLdh2HmpFuCZfpG5W1gfC0M
-	ACUzd5IdYiKgk+XMSEnN8e9a22oVVz2jF1JWM6szPoPTecmlcA08y9pTKN5mnALPNgeP8B02CuM
-	G+W53X+d+TL+nak4uM+woe7ZH4SWl6Hv/jAJTeAuObiEFLE7MHGe5a4w3uNC/tUvjV4WxNYAj7A
-	agKPaHpq
-X-Google-Smtp-Source: AGHT+IFY/eAAJFcD4vitGkVHUca2pVMuKjtQU6WUb3jtGtjhnnqqn/1iKAiFbhnjbTQxyI8lnuDV3w==
-X-Received: by 2002:a05:6a21:8cc2:b0:1e1:a9dd:5a58 with SMTP id adf61e73a8af0-1ee03b129eemr26979741637.30.1739191972089;
-        Mon, 10 Feb 2025 04:52:52 -0800 (PST)
-Received: from gmail.com ([116.237.135.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-730851fa25bsm2641825b3a.180.2025.02.10.04.52.48
+        d=1e100.net; s=20230601; t=1739192041; x=1739796841;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=;
+        b=ZhYJ3vUTZD1wgsoWuDQFfCGnn7WiVxnDJwWOQ6jtYunylGC2f1mDP6bTxkBBJfCaHv
+         sdA5DC6sHcWZpdb/EQ3SrQTQL+fzUg7y/j7LAFe0dRwZ1BQjrcEF8e+zec2dEzVeh+On
+         WqfPC586o1MjAyAoGZYu3raZVHfYXjAK+zAoKT5vhaNgThWRa/UyHvJrWDPc7319rkW8
+         LHT9hYVf7BQtyGi+NombXJRqRIMQASyiL2UhG3ht7fE+266Jc66K70D7I+m/iqK47iPE
+         pssFNTA7G2unxaaITCusXvjLyCS+EwflGjzbK2I894qIPgcSMXP1IFGZ1q7R+7HXhbvg
+         trww==
+X-Forwarded-Encrypted: i=1; AJvYcCWD8lreCIo37qDWE7iTALL/3apZ9bshLQhlDRFUAeyoMXaXcUPR3R1OEZx5/SocNvAeXgOgd3RyGylRBtb1anCd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwK0v+mPoj+plscPiSOEltprX0wBvmbpNHljST6JQcI3XNdDXyd
+	M5LUMOOdRKSi8ZpDApWa9mf3wdb4J8DG3gfWqWNZKBMDxtovrVpgVtqLhyM9NpWM0Tb6GHv4fAv
+	z0ytduA==
+X-Gm-Gg: ASbGncvtwUKn/ki4kertraiJlkzgdYguz2vS5qhfaDCmvWzKwrlFlHMiVDsgU6GA2Rg
+	dhvd0uwqxkPkqMlgRoWZdG+QrWqsk3HIcIzZTgS//vL+jPcwK8vdzz7PhyGtL4AAZuhvALgFWYc
+	dky3Z/7D6oo3kNyFtxeWjwAmGOqAv6pdQSlwyXoWAzjiO+tfYmuuTrY8aHGGGIkj+UktzBiZ7Zv
+	tqy3JxUG4nwziv2IZA+NoIRMokzA+k6OHThxVoETdXIDMPc2I7ZMwIOm47u5fTfRTf3HsK+HQhX
+	k1LFx2w+sx1TfGlZQZz7dcv9mAFj09cln+W8dLq/6l9dY0Q4oj5gYI6IXxs=
+X-Google-Smtp-Source: AGHT+IExaOon2TXZW9Vep+azLuX3PC+zXsCFuFLx/CO8qnQeXU427WnR0bcNBj8GMhFUwVXVl5oCDw==
+X-Received: by 2002:a05:6402:5290:b0:5dc:6e27:e6e8 with SMTP id 4fb4d7f45d1cf-5de450706fcmr34849448a12.24.1739192040759;
+        Mon, 10 Feb 2025 04:54:00 -0800 (PST)
+Received: from localhost (host-79-41-239-37.retail.telecomitalia.it. [79.41.239.37])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de5a2fc79esm4970729a12.10.2025.02.10.04.53.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 04:52:51 -0800 (PST)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v2] net: ethernet: mediatek: add EEE support
-Date: Mon, 10 Feb 2025 20:52:45 +0800
-Message-ID: <20250210125246.1950142-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Mon, 10 Feb 2025 04:54:00 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 10 Feb 2025 13:55:00 +0100
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v7 11/11] arm64: defconfig: Enable OF_OVERLAY option
+Message-ID: <Z6n3JLOn-PrSt3Pa@apocalypse>
+References: <cover.1738963156.git.andrea.porta@suse.com>
+ <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
+ <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_045253_326475_292B7A92 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250210_045403_164821_17700D5C 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,142 +125,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add EEE support to MediaTek SoC Ethernet. The register fields are
-similar to the ones in MT7531, except that the LPI threshold is in
-milliseconds.
+Hi Stefan,
 
-Signed-off-by: Qingfang Deng <dqfext@gmail.com>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 64 +++++++++++++++++++++
- drivers/net/ethernet/mediatek/mtk_eth_soc.h | 11 ++++
- 2 files changed, 75 insertions(+)
+On 14:42 Sat 08 Feb     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> Am 07.02.25 um 22:31 schrieb Andrea della Porta:
+> > The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
+> > option. Enable that option in defconfig in order to produce a kernel
+> > usable on RaspberryPi5 avoiding to enable it separately.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> > This patch is *OPTIONAL* since I'm not sure if OF_OVERLAY is a desirable
+> > feature to have enabled by default. It would be advisable to have it included
+> > so that 'make defconfig' can produce a kernel config that will work out
+> > of the box on Rpi5, otherwise OF_OVERLAY has to be enabled separately.
+> I think this isn't a good approach to convince the arm64 maintainer.
+> This change is not really optional for the Raspberry Pi 5 and possible
+> users/testers/CI rely on a working default configuration.
+> 
+> So my first suggestion would be to provide a scripts/bloat-o-meter
+> output (before/after). Based on this the maintainer can better decided.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 53485142938c..943636d822b5 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -786,6 +786,7 @@ static void mtk_mac_link_up(struct phylink_config *config,
- 
- 	mcr = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
- 	mcr &= ~(MAC_MCR_SPEED_100 | MAC_MCR_SPEED_1000 |
-+		 MAC_MCR_EEE100M | MAC_MCR_EEE1G |
- 		 MAC_MCR_FORCE_DPX | MAC_MCR_FORCE_TX_FC |
- 		 MAC_MCR_FORCE_RX_FC);
- 
-@@ -811,6 +812,18 @@ static void mtk_mac_link_up(struct phylink_config *config,
- 	if (rx_pause)
- 		mcr |= MAC_MCR_FORCE_RX_FC;
- 
-+	if (mode == MLO_AN_PHY && phy && phy_init_eee(phy, false) >= 0) {
-+		switch (speed) {
-+		case SPEED_2500:
-+		case SPEED_1000:
-+			mcr |= MAC_MCR_EEE1G;
-+			break;
-+		case SPEED_100:
-+			mcr |= MAC_MCR_EEE100M;
-+			break;
-+		}
-+	}
-+
- 	mcr |= MAC_MCR_TX_EN | MAC_MCR_RX_EN | MAC_MCR_FORCE_LINK;
- 	mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
- }
-@@ -4474,6 +4487,55 @@ static int mtk_set_pauseparam(struct net_device *dev, struct ethtool_pauseparam
- 	return phylink_ethtool_set_pauseparam(mac->phylink, pause);
- }
- 
-+static int mtk_get_eee(struct net_device *dev, struct ethtool_keee *eee)
-+{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+	u32 reg;
-+	int ret;
-+
-+	ret = phylink_ethtool_get_eee(mac->phylink, eee);
-+	if (ret)
-+		return ret;
-+
-+	reg = mtk_r32(mac->hw, MTK_MAC_EEECR(mac->id));
-+	eee->tx_lpi_enabled = !(reg & MAC_EEE_LPI_MODE);
-+	eee->tx_lpi_timer = FIELD_GET(MAC_EEE_LPI_TXIDLE_THD, reg) * 1000;
-+
-+	return 0;
-+}
-+
-+static int mtk_set_eee(struct net_device *dev, struct ethtool_keee *eee)
-+{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+	u32 txidle_thd_ms, reg;
-+	int ret;
-+
-+	/* Tx idle timer in ms */
-+	txidle_thd_ms = DIV_ROUND_UP(eee->tx_lpi_timer, 1000);
-+	if (!FIELD_FIT(MAC_EEE_LPI_TXIDLE_THD, txidle_thd_ms))
-+		return -EINVAL;
-+
-+	reg = FIELD_PREP(MAC_EEE_LPI_TXIDLE_THD, txidle_thd_ms);
-+
-+	/* PHY Wake-up time, this field does not have a reset value, so use the
-+	 * reset value from MT7531 (36us for 100BaseT and 17us for 1000BaseT).
-+	 */
-+	reg |= FIELD_PREP(MAC_EEE_WAKEUP_TIME_1000, 17) |
-+	       FIELD_PREP(MAC_EEE_WAKEUP_TIME_100, 36);
-+
-+	if (!eee->tx_lpi_enabled)
-+		/* Force LPI Mode without a delay */
-+		reg |= MAC_EEE_LPI_MODE;
-+
-+	ret = phylink_ethtool_set_eee(mac->phylink, eee);
-+	if (ret)
-+		return ret;
-+
-+	mtk_w32(mac->hw, reg, MTK_MAC_EEECR(mac->id));
-+
-+	return 0;
-+}
-+
- static u16 mtk_select_queue(struct net_device *dev, struct sk_buff *skb,
- 			    struct net_device *sb_dev)
- {
-@@ -4506,6 +4568,8 @@ static const struct ethtool_ops mtk_ethtool_ops = {
- 	.set_pauseparam		= mtk_set_pauseparam,
- 	.get_rxnfc		= mtk_get_rxnfc,
- 	.set_rxnfc		= mtk_set_rxnfc,
-+	.get_eee		= mtk_get_eee,
-+	.set_eee		= mtk_set_eee,
- };
- 
- static const struct net_device_ops mtk_netdev_ops = {
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 0d5225f1d3ee..90a377ab4359 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -453,6 +453,8 @@
- #define MAC_MCR_RX_FIFO_CLR_DIS	BIT(12)
- #define MAC_MCR_BACKOFF_EN	BIT(9)
- #define MAC_MCR_BACKPR_EN	BIT(8)
-+#define MAC_MCR_EEE1G		BIT(7)
-+#define MAC_MCR_EEE100M		BIT(6)
- #define MAC_MCR_FORCE_RX_FC	BIT(5)
- #define MAC_MCR_FORCE_TX_FC	BIT(4)
- #define MAC_MCR_SPEED_1000	BIT(3)
-@@ -461,6 +463,15 @@
- #define MAC_MCR_FORCE_LINK	BIT(0)
- #define MAC_MCR_FORCE_LINK_DOWN	(MAC_MCR_FORCE_MODE)
- 
-+/* Mac EEE control registers */
-+#define MTK_MAC_EEECR(x)		(0x10104 + (x * 0x100))
-+#define MAC_EEE_WAKEUP_TIME_1000	GENMASK(31, 24)
-+#define MAC_EEE_WAKEUP_TIME_100		GENMASK(23, 16)
-+#define MAC_EEE_LPI_TXIDLE_THD		GENMASK(15, 8)
-+#define MAC_EEE_CKG_TXIDLE		BIT(3)
-+#define MAC_EEE_CKG_RXLPI		BIT(2)
-+#define MAC_EEE_LPI_MODE		BIT(0)
-+
- /* Mac status registers */
- #define MTK_MAC_MSR(x)		(0x10108 + (x * 0x100))
- #define MAC_MSR_EEE1G		BIT(7)
--- 
-2.43.0
+I agree with you. IIUC what you are proposing, the following metrics should
+help to decide. The defconfig kernel with CONFIG_OF_OVERLAY=y added (wrt to
+the defconfig one without that set) has:
 
+- same uncompressed kernel image size (due to ELF section alignment I guess)
+
+- ~7Kb bigger Image.gz
+
+- 3 new modules (all related to RP1, i.e.: clk-rp1, pinctrl-rp1 and rp1-pci)
+
+- 27 added symbols, of which 5 exported
+ 
+hoping this is enough to gather a rough idea of the impact.
+
+> 
+> In case this change is still rejected, we still have the option of
+> something like this [1]
+
+I'm ready to go down this way should the previous numbers not be convincing
+enough.
+
+Many thanks,
+Andrea
+
+> 
+> Best regards
+> 
+> [1] -
+> https://patchwork.kernel.org/project/linux-kbuild/patch/20200203184820.4433-3-nsaenzjulienne@suse.de/
 
