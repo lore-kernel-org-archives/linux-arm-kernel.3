@@ -4,159 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31B4C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 02:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA3EC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 03:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mscInv4M5PCxbQkmwPflaBACtxpA4G81v/YLb2vUYCw=; b=dzLwl9Oy58e1wA5EQDKxbeoAZo
-	0pU5j79AKj1JlZ2+15Srf8IQRokv6iQgHvbyg6uzSsx8PTSr3mE4jGE6M7SS5XclIWS0LRAtAEr67
-	NizRtOGaoboo0ocrcPwkqviyWqd8hsJZNe/7b/xVg6eQo7RplJLfEr1tHCAw2Lu3lDnjWUL9rFIQo
-	9T/qCz+/5uwj1XA/i12aE42eqq2/0wGaxSGIdUVfzhYe6sjSZk0Z4/5kvt892tmXJTbRy1HODgIbj
-	W75FBoM8uDgv6Q8V7K4TziB5d2SMisL8PW01+IqPT6j+ygr7Xm5mJeK/iL2V1gCC0K3VvWcXwcxKY
-	3kOymkZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pyxopfq01qIFG3pHou1VqDKtq+2Cvr5wueyIRGqt7Nw=; b=0B1yjVL68GaKLN5yH7AHT0lqR+
+	z9whsfHWZNjYI2wG/l8HniA5Gp/0ymmUsC8gunz5nkyhjbCrsOUE044DhgGgZEt0lW7pojsS7OCFT
+	WKsHBd0um/wWHseJs2rPGFA7fMa+S+svIvNKBo4e1Puol5MUDiZK2VeBWCkEoRtNv/XMj+fnT6BSL
+	bWUFvk2bc3RdDPvoHs8pS2rQu3DtYDVY28n/f79+Xh+dbrmo/e9QB1QfkgqMEAmTUgyOX7UOJwKpJ
+	vB+GfJ1KhDLd5R1qT9xrfYyxlo5pVrN9x9w/Uy051rkmh3IA2feFB6BqCIcr67RIWJcohtxR1aKnt
+	SZsAveEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thJgm-0000000G0Cx-2tTH;
-	Mon, 10 Feb 2025 02:38:24 +0000
-Received: from mail-am6eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2612::62f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1thKCU-0000000G366-46DM;
+	Mon, 10 Feb 2025 03:11:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thJfO-0000000G04m-0CqW
+	id 1thKB6-0000000G2wk-0Hu7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 02:36:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sxvXWXNZmIFNtpvJiVLnaq8WbYf44EZk9ci2QQX0o+I5IYvOWkUGaf1fCk2ETG6/JZ/XPjdMMCFd3Fn8AgqDzag4QZ0eU5GotWNSADUBNOworkUfLjmaphE+Asf3xUrNoO6in3bJkHsD+B0I2ri9CzbSGXIDnBjwhfORt3lRoV/GDD4NSodzC9vzhYZuv9trHCRWXXzqUWKrURR1YlNkcU45U74J4mXWoT+cRcMA3+t1HhbkxL4fWsJcYcXyLY2tJMl5odPB6/xggSAh/LNqfkL+tqPuecnM2GTgIHN3uzUfb7ykgsbJ95aoc90Ut0rFKCTAEHy9EIhx0b++W52j8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mscInv4M5PCxbQkmwPflaBACtxpA4G81v/YLb2vUYCw=;
- b=dfiR0ZeMo1HBIfvlbPk7Qhr2PwmdSuej8MOzUzd0B3B2j3vhOCdlFl7Tn7UC44YjfzqLDS1gJV2dFI4WlpOCP9jmp1fqSTmj3+XaVdrjZDRjU1O5ZFhSwexGMfAO25MifIst+mETW6iVUQ3WEO3eBAoJWSyyd+XT3xzO16r2XA6TM1CyMsYrYTqSeEx6QhG5FJA0ANWug34BWqZfEgEUjZVqCgb3cXF5vRWc9VlXpdkavQrDva67Q3e42oV5X9R2OhUfU5+LB+e0sl6xOXX0QvTnOWzsJGeDgDU+Ccy5uqMqidlUe0X0UKV9yPwmwsWSJCMOMlmazovtLzKiBr1ddw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mscInv4M5PCxbQkmwPflaBACtxpA4G81v/YLb2vUYCw=;
- b=A4NFpcefYFrKQzkf2kurSei2IQwiOCIgQFBIORKCy2CnxnvaCzM6kEqw8FjUcldB4EPHk/CuIGI8sUSXnVw5wB2hMGD15FnzD1LpE4hA9JR/uW0WkCQl8Kfc56QXdKXpbIhALbGvFPHw+7LCvnoIdyPEDCu603SmsyVXMB1/IWSLCMXaLfeNJ0Ah0vkamMV74xLDjsgg4qxk2T/OCBUbPzeAYZK8jpvvfhETrYWxZU5IKBnEbqKCvuweSnyT2YPQoZsli1i23ZtcYsSVdkP/LW0m3CtMVhnd5M8bnGk5FIl++LX/eAGGYQpF2ZIkpp5OhUTOqnLg9aqg0IkbSUfgVA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
- 2025 02:36:48 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 02:36:48 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas
- Kandagatla <srinivas.kandagatla@linaro.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller
- references
-Thread-Topic: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller
- references
-Thread-Index: AQHbeTucaaMq+IrsykGrfuo2Bh1yRLM7vceAgAAJ2ICABA68EA==
-Date: Mon, 10 Feb 2025 02:36:48 +0000
-Message-ID: <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com>
- <20250207083616.1442887-5-alexander.stein@ew.tq-group.com>
- <20250207120213.GD14860@localhost.localdomain> <8037692.EvYhyI6sBW@steina-w>
-In-Reply-To: <8037692.EvYhyI6sBW@steina-w>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VE1PR04MB7216:EE_
-x-ms-office365-filtering-correlation-id: cf25e2ce-bc09-4318-b60b-08dd497bc497
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?wafQdc+zZ6rQLH6Y33BwfWpv9GVSUzpNicgVW/tY7McnHDV4G51N84Fr1v?=
- =?iso-8859-1?Q?zLNMBElir/hPSEJuqXnNBeJGYI7FgnnXn+jpdgC9SGQ81CZ1wfhUrjXMmF?=
- =?iso-8859-1?Q?LuwFz9eg/SFuZyFRlBT8wRfjwQt2DDeye+6ynDcjgSJ7u8Ey4kX6/wjMyM?=
- =?iso-8859-1?Q?9603f7m2CBtdG0v7q8som/S/C+g4825pVXCdBk+6uGH7BlVgKjuAknjr4R?=
- =?iso-8859-1?Q?FeQKEMX6VzVSwgGpwBu3rXFZS6cUpccVcyR/5UHzHWe5/7BfFzgVm1PEES?=
- =?iso-8859-1?Q?2najPwuLUYJW73/HyrKTFActT6NU81e2dwInDw8W2phsUOmfcwyU9EblHp?=
- =?iso-8859-1?Q?02kkphZErzrr2RYuQ2gmN4+BG5ru6rGqBh4cQfSyGmJWBEOCHOIrmgn+uF?=
- =?iso-8859-1?Q?bShCxipdrcu5p4u1SXMA1N5O+RczOzfYQjETdFmMtiTzZBCWEC5/JwaURQ?=
- =?iso-8859-1?Q?Vh+KafSxquqWGpD6MRxY+p7oFNK99GBZo3tdckPlFUb8qBICDAmPVLputP?=
- =?iso-8859-1?Q?T4Pgp4wkmefIiIpQ4ZJ5sW1QrOrCoSs0Syl/+RgcyyGtLtKtmbe92etsFy?=
- =?iso-8859-1?Q?0kHVgmr9LOjxoqkIfz+BHhlK6lwBIG7E/EqyDJ313/vxn2CiD8YGtToK1n?=
- =?iso-8859-1?Q?4q97vKduGJZzIqkWJdt5CWYK4EZZoJwi9xoFMsVh+FY8Pp+CnsPKYQMB/o?=
- =?iso-8859-1?Q?H4H5y9RN+P4xpUEKrTzhZ4WKrqfOYKo17/vhEhBz6ZXeBCu0w7i7TI3MFI?=
- =?iso-8859-1?Q?D4P3om25kNe1obi6oQchsiVnmWV6sKNsBbadq+qGzVvmqkIgqdhgb+jj3E?=
- =?iso-8859-1?Q?r5N6s7p2+qSVT2KAyBn6EXVQTkDqeuIqjCs2h+1jtcAWPjqVJvwfVPGVk/?=
- =?iso-8859-1?Q?rPwI8qGHLSxPzbNo4kmgwpQDFWf7fhYHpCp2BQ1gY9tA2OESLi60UwHimp?=
- =?iso-8859-1?Q?IFJty6rV/UABGOIsBrBvuTiUfxaDBAb2Eems8JPtgD8ywvro8SRfgSxks4?=
- =?iso-8859-1?Q?YAs9bauwQoWyDFNYgxSYz0KIaTtSkkvw0c41txZAMjOwqMCtbzkYoAny6a?=
- =?iso-8859-1?Q?OV00sf1+rCfBCeJELL8cpVkRDGHPfo2VN32lO7bfFbNLpVK2SJyQ3xOYgz?=
- =?iso-8859-1?Q?SWJyxnYpD9Gi/DfRt3yrDDEN7N3wLB9g2P4afIHMouJoKcefi0DaDdouYe?=
- =?iso-8859-1?Q?FCPzyqEroPMAHHuMMJQ7JeLYzctvhjVRMj4vMo8VssVDBGjqPR/zczyjQy?=
- =?iso-8859-1?Q?bbQqvJYdqs/z4gPNGdkdgabwt3zi8k8TLgt/19KpAERuPT+AdUCBv5QQCu?=
- =?iso-8859-1?Q?lzwYI6VdM545uAC8hen9WoSECs0+cQ/CwFtnk46lTGzkzeeKbIEEEiz3Jt?=
- =?iso-8859-1?Q?TdtNlFjQM9sDZnd1ODDu9X9F7mT1ledMgbjuFsdAtjHtoD/bWvO5PcFnP3?=
- =?iso-8859-1?Q?/dLbXIjrFvZLiNR9?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?+Frv8oWNdQ3bynUUlPOMm8hmVcTb29LJgUkMcdNpYkPCKlRaYGW6/vDjFG?=
- =?iso-8859-1?Q?ad3ekRNL4Aoq/0EKYB0ET1w/hD85RlaSLoLsfi0prXBm5u/5i0XF2bLuth?=
- =?iso-8859-1?Q?CMXuuMFMTMBST7jqMs1+g6Mqblj3qWDAZxfJFdiuC9jqRmY/Ib2X0W20Qc?=
- =?iso-8859-1?Q?lo16r4JnoovlWRgZGCvS3XOhKsk7Jzyy2t+Nyy7QS8OXrOSnCn4M0LLCb7?=
- =?iso-8859-1?Q?II+68sy9fCEKKeOpM8U9p5/DSBH8e46imBkXcBIhb3Wq36orjDv1wLTCEC?=
- =?iso-8859-1?Q?b5337401vnujsBBulAyQ0BnOw19ggRteFW5ACy8ze/Tjq/nET5Aj7i4/2X?=
- =?iso-8859-1?Q?VRre3DgkM817wTOjcyXElyadDwiD+CtL6UxEfiDIa6znvqyVIbgo4hnrI+?=
- =?iso-8859-1?Q?sGJ5+qn2TawuxhkoN7UCMtg2eXdN0anySm59z+oKzKRHy17ovyY/BfUX4O?=
- =?iso-8859-1?Q?ywUw7J7CW+plKB9SQ2F9YAfbK8EpTu52DI/GkY/uBp37qfqYvJ4gdEbQ7T?=
- =?iso-8859-1?Q?5iDef2pw/QDOsZe0Fj4T929wocxk773GqNwYseAR81zphtha8/CEgJjY2e?=
- =?iso-8859-1?Q?mJvX3147eFjh8FizCZWtzaymqj601VuAfhMvfazb/dFLVD+iMBt+YpPyUM?=
- =?iso-8859-1?Q?dyRdHCpfVOZqYQVXk79+Q4CrrmopRxuN3ph9k0lJOyM0Q7V8tb6514xNHm?=
- =?iso-8859-1?Q?ewA/TCq9A1qTqdn0pGvQmKEEunsSKeDw/480HX2L7fDF6djp5WIJ+Q3vWG?=
- =?iso-8859-1?Q?DENyz6QnoOVYClwcpI9CEmjQLdHZiBfa1WDl9G+8F/ACSSmyP4mzhasIPO?=
- =?iso-8859-1?Q?akPte4DgzcQLhopCtCvtEzVcdLQcIIQYvI0oABzQB/YOuHFV+OxU9FoYYz?=
- =?iso-8859-1?Q?9ZCpHrK77MY7byxcXVrne5tR+BYqTmaV8fD6m3nzJzickp7Ik93yWXj3Zw?=
- =?iso-8859-1?Q?tHDYTRPz/oupFCNMEP7q4c3qwGJBzTenQeC6RITdBcYbq54Z+YS9MBTH07?=
- =?iso-8859-1?Q?xfdTssDg1OCRFK2vwuJ7mqON3cJwJKVHyuBieaXe9R2Vq1qVnqdrCK0Zm8?=
- =?iso-8859-1?Q?lmvRjN6aAdmOq5Xdt15mx1RtmeK0wvqMRZFQJsHGnsom516pzbPYKEjyYj?=
- =?iso-8859-1?Q?BLaMc9PNceVle2eVj4PY0DXLprWUxNg/LeHnJQcezJnZxwYvfu2MSaL7Dx?=
- =?iso-8859-1?Q?BY5h7W8aS//ZRPn2CyN/CgRIRMOTCnHuiiLkeG72hefEsotAm3lYUCtlTf?=
- =?iso-8859-1?Q?yo33kEFAZblyUJEmMRdVLkfL1H5fEVNeTSc8K+iui+cos6p50YbcllekIV?=
- =?iso-8859-1?Q?Qv7HIHHjUqTW3LH5j5FSc1sGYxWdeh0dtbrJLTNjv+C+AP+f11ls988Qfg?=
- =?iso-8859-1?Q?F+qjKcXh/v21DSOyXfvgBzKH+AXamBihYclqbpGFGOsPH2ippZhfYuMfBA?=
- =?iso-8859-1?Q?46ypg7aWaBnwoLHa6RQwkl6XJuJ/s3rtPeJOruP+sruyroUwe7ZrCAuDxy?=
- =?iso-8859-1?Q?XciIjMTWOom5w0E7GvefiAxGiL1KplInhjDQtYerzf2Ry99Lb1o7lLqIhV?=
- =?iso-8859-1?Q?oIzIDuT9jVahBU4b7mG2KAB2ngchFczG1KQ56EInhQ3nR0h1WyiBi1thia?=
- =?iso-8859-1?Q?Xfbw52Ronh/mU=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 10 Feb 2025 03:09:45 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 519KIPgQ009545;
+	Mon, 10 Feb 2025 03:09:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pyxopfq01qIFG3pHou1VqDKtq+2Cvr5wueyIRGqt7Nw=; b=XINvUSvzgJINdMlV
+	8MUc1ugbYkxE+OkqobWw7X0IY806Ad3nvtCe0i8+bPU3s3HnX2x0pMmftUZRRE87
+	oEQJQAsIBJzJzwyirzGeXa2hVQe0Lf3hSmv+tTVjFLzFbaI8qRKRYJN9A2ghyNdC
+	rtpGHS1oLm+Y1UVahpR9DRxf9ysdYxDrN0/uLhlUt8TKQxPPGQmnuWdJByZz9e4B
+	8I1iBD+u1RkMxFOOrbxD9jhqsU8kp4jMsjUm4E6WVH56U8ptCywcWhUh+53zS9LT
+	MctaJhefa3fNWzcr2O3d4MIvWQgwX5PSxumJ4SH8TuXm8N3RihtxBjQGkQyeq8zq
+	+ajfww==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0f72x6f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 03:09:34 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51A39XJv013735
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 03:09:33 GMT
+Received: from [10.253.11.86] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 9 Feb 2025
+ 19:09:23 -0800
+Message-ID: <46423f11-9642-4239-af5d-3eb3b548b98c@quicinc.com>
+Date: Mon, 10 Feb 2025 11:09:03 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf25e2ce-bc09-4318-b60b-08dd497bc497
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 02:36:48.3953
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7CJJ/vzzq2YRPzkmfF3oxxWL/gTfm1lzZzfpyFE+s8naO3h8AA3fqucKtPQkgU5nzHtfMXN8ZR8R3uuLR05RcQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7216
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
+ configured with rgmii-id
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
+ <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
+ <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
+ <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
+ <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
+ <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 9UFZc4nDbCM3vzlrXRaDfvajb5-5fsgx
+X-Proofpoint-ORIG-GUID: 9UFZc4nDbCM3vzlrXRaDfvajb5-5fsgx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_02,2025-02-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0
+ impostorscore=0 mlxlogscore=999 clxscore=1015 bulkscore=0 adultscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502100023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_183658_113919_74D40A03 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20250209_190944_117203_A8957AD3 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,69 +125,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-
-> controller references
->=20
-> Hi Peng,
->=20
-> Am Freitag, 7. Februar 2025, 13:02:13 CET schrieb Peng Fan:
-> > On Fri, Feb 07, 2025 at 09:36:09AM +0100, Alexander Stein wrote:
-> > >Mark ocotp as a access-controller and add references on peripherals
-> > >which can be disabled (fused).
-> >
-> > I am not sure whether gpcv2 changes should be included in this
-> > patchset or not. Just add access-controller for fused IP will not work.
->=20
-> Well, I was able to successfully boot a i.MX8M Nano DualLite.
->=20
-> > i.MX8M BLK-CTRL/GPC will hang if the related power domain is still
-> > touched by kernel. The pgc can't power up/down because clock is
-> gated.
->=20
-> Well, with GPU node disabled, no one should enable the power domain.
-> But to be on the safe side I would also add access-controllers to the
-> corresponding power domains as well.
->=20
-> > This comment also apply to i.MX8MM/P.
->=20
-> Sure. Do you have any information what is actually disabled by those
-> fused?
-> It seems it's the IP and their power domains. Anything else?
 
-In NXP downstream there is a patch for  drivers/pmdomain/imx/imx8m-blk-ctrl=
-.c
 
-soc: imx8m-blk-ctrl: Support fused modules
-   =20
-    For fused module, its pgc can't power up/down and clock is gated.
-    Because imx8m-blk-ctrl driver will pm_runtime_get_sync/pm_runtime_put
-    all power domains during suspend/resume. So we have to remove the
-    pgc and clock of fused module from blk-ctrl DTS node.
-    Update the driver to support such case.
+On 2025-01-27 18:49, Konrad Dybcio wrote:
+> On 22.01.2025 10:48 AM, Krzysztof Kozlowski wrote:
+>> On 22/01/2025 09:56, Yijie Yang wrote:
+>>>
+>>>
+>>> On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
+>>>> On 21/01/2025 08:54, Yijie Yang wrote:
+>>>>> The Qualcomm board always chooses the MAC to provide the delay instead of
+>>>>> the PHY, which is completely opposite to the suggestion of the Linux
+>>>>> kernel.
+>>>>
+>>>>
+>>>> How does the Linux kernel suggest it?
+>>>>
+>>>>> The usage of phy-mode in legacy DTS was also incorrect. Change the
+>>>>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
+>>>>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
+>>>>> the definition.
+>>>>> To address the ABI compatibility issue between the kernel and DTS caused by
+>>>>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
+>>>>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
+>>>>> phy-mode.
+>>>>>
+>>>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>>>>> ---
+>>>>>    .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
+>>>>>    1 file changed, 13 insertions(+), 5 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
+>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+>>>>>    static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
+>>>>>    {
+>>>>>    	struct device *dev = &ethqos->pdev->dev;
+>>>>> -	int phase_shift;
+>>>>> +	int phase_shift = 0;
+>>>>>    	int loopback;
+>>>>>    
+>>>>>    	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
+>>>>> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
+>>>>> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+>>>>> -		phase_shift = 0;
+>>>>> -	else
+>>>>> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
+>>>>>    		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
+>>>>>    
+>>>>>    	/* Disable loopback mode */
+>>>>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>>    	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>>>>>    	if (ret)
+>>>>>    		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+>>>>> +
+>>>>> +	root = of_find_node_by_path("/");
+>>>>> +	if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
+>>>>
+>>>>
+>>>> First, just check if machine is compatible, don't open code it.
+>>>>
+>>>> Second, drivers should really, really not rely on the machine. I don't
+>>>> think how this resolves ABI break for other users at all.
+>>>
+>>> As detailed in the commit description, some boards mistakenly use the
+>>> 'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and
+>>
+>> That's a kind of an ABI now, assuming it worked fine.
+> 
+> I'm inclined to think it's better to drop compatibility given we're talking
+> about rather obscure boards here.
+> 
+> $ rg 'mode.*=.*"rgmii"' arch/arm64/boot/dts/qcom -l
+> 
+> arch/arm64/boot/dts/qcom/sa8155p-adp.dts
+> arch/arm64/boot/dts/qcom/qcs404-evb-4000.dts
+> 
+> QCS404 seems to have zero interest from anyone (and has been considered
+> for removal upstream..).
+> 
+> The ADP doesn't see much traction either, last time around someone found
+> a boot breaking issue months after it was committed.
 
-But this patch also needs U-Boot to update device tree nodes,
-I recalled that U-Boot will remove gpc nodes, but not update blk-ctrl nodes=
-.
+But what about the out-of-tree boards that Andrew mentioned? We need to 
+ensure we don't break them, right?
 
-Regards,
-Peng.
->=20
-> Best regards,
-> Alexander
-> --
-> TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld,
-> Germany Amtsgericht M=FCnchen, HRB 105018
-> Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-> https://eur01.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2F
-> www.tq-
-> group.com%2F&data=3D05%7C02%7Cpeng.fan%40nxp.com%7Ca7392a7
-> a9a7d480f69c108dd477447bc%7C686ea1d3bc2b4c6fa92cd99c5c301
-> 635%7C0%7C0%7C638745286928288330%7CUnknown%7CTWFpbGZ
-> sb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW
-> 4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DF
-> R%2BeuYsheLUO8UY6sB%2FGFpTo2911r9tQDl%2BZFqnDqcY%3D&res
-> erved=3D0
->=20
->=20
+> 
+> Konrad
+
+-- 
+Best Regards,
+Yijie
 
 
