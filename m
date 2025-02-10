@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFEDC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD00AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULq9gPHU4JVwWvQ4q7jrILRElpTKAx8dvg5JLTC+p0Y=; b=AvepWNl7hUv1po587Pdz6RjmXF
-	4AcQDtr6b0sMY5IRzMstNy0q6tjOQyUsLx9VksyMkP4hUcaEvRrUFLxwV3ZrLTDLFuMvU0ri4xI9r
-	ee40OOuMJTzJImiPBr3j3evOHWsmaK3wamngpdwjnpvGqBE/V6b46W3+InA1ONY+oLS8AgwaDV+PX
-	+IfcNPCw1Zd4FcV7nk7tgXpmcBn0UyTZOzlxe0fQ9F1Pde6AtDXoFBWwBVvBBCOCeOngqsQuLtL02
-	M6UXrJFzXDgbWTCm6OSdQlzYO5d6JLweJqVvwkGK8Nl3QiMyweZdo08euliUJFNRpUSGPEKo2SkKp
-	y9UbbfYA==;
+	bh=j/9ANVdvTEGG2VxIbW8MWrSvXSzl+e5xA7G9ommjJC8=; b=IXUdCLhhoUY6l5EI8lVw5mBz1v
+	OikTPy7oZj2kIzZ1mIMxEHRy2F8N2aq1G4IBuKgR4zzldYHHOW2QaQOhlse8oo9oYq638+PQnuAlI
+	MkbwBsb5EtPt3gJNzEcwylK1s+agh6YB5kcyqtjHg6ty4sk7SyNGhknA1G7g9vMiXBsHjNYP+iHxj
+	nr2THYPV3qhtnDvp1eOrDockjYcG98A75ZjA83+mpiTCDzCEpx9/K3NGF69dQQYA09NS8K/aKM1yF
+	L7uGY3yUQTgyjQuDlyhhydmY2QoQB6ntgcH6mBU6BGu5DufvTJTDOoN6MVWrKQsCabAOPeNMpY9tY
+	0xSv748g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXiX-00000000kph-2Ihq;
-	Mon, 10 Feb 2025 17:37:09 +0000
+	id 1thXju-00000000l3I-2IdF;
+	Mon, 10 Feb 2025 17:38:34 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXSq-00000000hLB-07kT;
-	Mon, 10 Feb 2025 17:20:57 +0000
+	id 1thXT1-00000000hP7-0FeI;
+	Mon, 10 Feb 2025 17:21:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D13405C5D2C;
-	Mon, 10 Feb 2025 17:20:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51DB8C4CEE5;
-	Mon, 10 Feb 2025 17:20:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EA3CE5C5D34;
+	Mon, 10 Feb 2025 17:20:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF717C4CEE5;
+	Mon, 10 Feb 2025 17:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739208055;
-	bh=V26EiT5mL/pxNNUMLsG/dGA25oNWdXvljO6PAFlqOjI=;
+	s=k20201202; t=1739208066;
+	bh=RMFU5GP39FFSVcqZoZvFhdL1KLNkmqLG2J7nHXa6xMY=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=nUTANN9W7dquWHQ/NP4187pKGh7HLk821eT5gKGwwbIpaeD8JRt1d7NTIDDBB4jbU
-	 EuTmFxJm2/Hv6xCYqmj0wuUF6tnjUCtLER8thOgjk/z8d3Z3/kKLM9c4iur7P5vbbv
-	 asgf8Cl8844O9zQWCxWUP5PqRey2ATWDXa9WW1/d+XFILBXYShpkc9pyDFHH/fVXpD
-	 ScUu67Ot5I1IWNN1irYeRB05C+FIUSKCZv1fDzrJoU/mXUw7U0Tof4s8SbFIkOw1yD
-	 N5roBSClFT6sbqx3myU/szPU37hRIO9tU/p/TI2KQS9HCs+7kEsSrwgdtHdvwOLoYN
-	 L1DRnF8VEUzGg==
+	b=tH6XojV9s+UfBiBEnH9I7otR7gB4HdR0bp9RO9MTROrdGlsjDOhzpDlB/mPw+WBY/
+	 rvRqDLS3sMxirNQsjLfrM9bsHqgY9gnl2MaovP8VmGiTP/7tt6iijTcacL3qaKZgiX
+	 6aGhstltDRzXSpk4pO9t+t2ZvloPN16d9h9zvi/B3uGuK/JFNwtN9Zvvb0q3nEiAnm
+	 uMD7ikemWxQyAre448kmWWsZHAJA//fcHpjMQMzoecg/PWFpfwAKoyrykgGdEBaCCW
+	 lAm+r+H8Msu/YLK0YkuUFgs8I8P6TZi2jiijLhO/SVMXXyhePLdkWwNVvSqDeCOYnS
+	 GrShqsgHmWTpQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Vivek Gautam <gautam.vivek@samsung.com>, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
-References: <20250209-exynos5-usbdrd-masks-v1-1-4f7f83f323d7@disroot.org>
-Subject: Re: [PATCH] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and
- SSC_REFCLKSEL masks in refclk
-Message-Id: <173920805196.103688.17713863876397258769.b4-ty@kernel.org>
-Date: Mon, 10 Feb 2025 22:50:51 +0530
+To: kishon@kernel.org, Heiko Stuebner <heiko@sntech.de>
+Cc: cristian.ciocaltea@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, quentin.schulz@cherry.de
+In-Reply-To: <20241206103401.1780416-1-heiko@sntech.de>
+References: <20241206103401.1780416-1-heiko@sntech.de>
+Subject: Re: [PATCH 0/2] phy: phy-rockchip-samsung-hdptx: don't use
+ of-alias
+Message-Id: <173920806342.103786.14726518410674851410.b4-ty@kernel.org>
+Date: Mon, 10 Feb 2025 22:51:03 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_092056_115025_081B665F 
-X-CRM114-Status: UNSURE (   5.27  )
+X-CRM114-CacheID: sfid-20250210_092107_154210_60B8A8DB 
+X-CRM114-Status: UNSURE (   4.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,17 +75,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 09 Feb 2025 00:29:30 +0530, Kaustabh Chakraborty wrote:
-> In exynos5_usbdrd_{pipe3,utmi}_set_refclk(), the masks
-> PHYCLKRST_MPLL_MULTIPLIER_MASK and PHYCLKRST_SSC_REFCLKSEL_MASK are not
-> inverted when applied to the register values. Fix it.
+On Fri, 06 Dec 2024 11:33:59 +0100, Heiko Stuebner wrote:
+> One nice comment addition and removal of of_alias usage for core
+> device functionality.
 > 
+> Heiko Stuebner (2):
+>   phy: phy-rockchip-samsung-hdptx: annotate regmap register-callback
+>   phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine
+>     phy-id
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and SSC_REFCLKSEL masks in refclk
-      commit: e2158c953c973adb49383ddea2504faf08d375b7
+[1/2] phy: phy-rockchip-samsung-hdptx: annotate regmap register-callback
+      commit: c8f7d65cac565cacf0420acf8b54c855dd7b4484
+[2/2] phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine phy-id
+      commit: f08d1c08563846f9be79a4859e912c8795d690fd
 
 Best regards,
 -- 
