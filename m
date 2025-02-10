@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DBBC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43473C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 08:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=icR85UG5+k3AiSMewx1zYwNtNdLcypp7FuQ+w5vMm70=; b=vJ4WXQouX0mWf2jJXGU0MO9WKl
-	5vocLjgK8szyZuiPgQqoEpdC0MxS+3Zz0+EkZL0c+jM/uU+V3EClXc82A5K+4A6zKRZFfq1bWdXzF
-	wbK71RTH4rADECgr5lLl8dKbYs2QHwMCuiDld6UlAvLGycSgAfrkbupybBzr5t5y2KBl66o4e/JLu
-	GbvNQzQRRGWf3rYLn+bofV1YXMmN2s9VENr02zG9T0QJgUh42466hBZ6VIsiihrGFIRIwgTwXmkV3
-	SRMBpEx2dmevpPq2D850ZUochURGH7Am1CkuySsBTzBu/cneUgmpusrEm3Fuf3nIjPFhXGoa16DFg
-	xiE9NM3g==;
+	bh=JspbVZYc32w5Lu7PGO8xMJ9+vlbt2L+dMS5wyVWDOIM=; b=JF2SLZnfR5GVX1egVw//1srQ0k
+	5jujyOozakzBsAr4MthL/ifALuKukMcU3kDxEMSnuv1m+ZJIwwIESJKq4p8c72wDdAooZyxbbbcxU
+	HKVJypgjYhAevnIntULUyUzifteMHG99X0Qnf2WpZYet6F8OC2aBoJF08NWe1QWDE3ag1dUxaxfwB
+	Qpe0Xh2I9jOZTDlrmleyYQKEokQBaPqtDBJTXPEdRyYLF8vBR5gF13W8vHttKDR9jUS8WYSEr4KsY
+	XyuQcdquLaS/Hd1A7OUOcHtb+gyR/vDT1qy1riWJw8egYIfir35ytO7nZWythf+b7CBEtN1waeCIq
+	nt5O7ZDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPUh-0000000GiG2-2VRX;
-	Mon, 10 Feb 2025 08:50:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thPW5-0000000Gioj-1eP3;
+	Mon, 10 Feb 2025 08:51:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPSH-0000000Ghj5-3dvo;
-	Mon, 10 Feb 2025 08:47:51 +0000
+	id 1thPSk-0000000GhqZ-0xFd;
+	Mon, 10 Feb 2025 08:48:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B23F75C4127;
-	Mon, 10 Feb 2025 08:47:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD4B7C4CEE6;
-	Mon, 10 Feb 2025 08:47:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6F9EA40D37;
+	Mon, 10 Feb 2025 08:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB22C4CED1;
+	Mon, 10 Feb 2025 08:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739177269;
-	bh=ZBZbHxRNMFgiveHG6Wn0QOXKe+t8dMzFAG+F2iXy3H0=;
+	s=k20201202; t=1739177297;
+	bh=i0ttGvEwil0vzis5X71aBv736uXOFYt6QJcn+KqlV8c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KqLnAMmERvOXl2wDd7PeHnHKlwitor9Gtz31+wfCN2pEzy68V72TsxVnXiBk13V/u
-	 JNKizEiyDsAEGAfwOJSbzRXNuRWg6b6qhAq8/751AZW0rAV6gBysUOQ9zVkCbK9a4e
-	 JR2wC7EcZsq41YFgPJYuLybN2fUyDs+H2LuExtbeQaxqBBHFWyyv46VnlFGAhbNXwN
-	 vSun3RLv8zfFKychWWRLcV+5qYkbHgPxs/RMhyU8z4+Te2n7tepLhRV2aqD1xWmdpR
-	 DThpUYtDHpATo7yvDJiZSqwyAHZEhOyW9GDNoDh6A802A/DelsJyPx1mQU+S1j3EV2
-	 LHzYW4XCImmAQ==
-Message-ID: <2a996249-5a53-4483-956c-a5880c880a19@kernel.org>
-Date: Mon, 10 Feb 2025 09:47:42 +0100
+	b=nysupTaMLyx7NNehDY6vp8S+dU5YWr2DGa6Z+m8GJTnoCRcFIJRCLGu/qCJ3r5HDT
+	 INuUJORktnGDwBf59US8IMNocdpoXgZGJQ7G8vOV/lb8SLbFHAa9p0DigfkCva46Ax
+	 HnAJnhfWtQx9YrxS55230n/EDn8Hhmvas5ppjvLRm7nNWzm9WfcBNJiwnt2Gx6Xnqq
+	 YVKodcJE+2fT0HGLIGfyCggZnXi9OiyvJYjpY80zKXiYG+UqKBk7bhP8JVQdIGbP6L
+	 QMrYQQ2Oi8TR3o2ROE6VcN6hy77DI7gETDFVXy8SpRts0E49JUZfLDmlp5maBDSKsL
+	 F2WX4pon3AUuQ==
+Message-ID: <feda5fbe-db91-4e3c-b3df-903cbd437007@kernel.org>
+Date: Mon, 10 Feb 2025 09:48:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/10] arm64: dts: sophgo: Add Duo Module 01
+Subject: Re: [PATCH 05/10] arm64: dts: sophgo: Add Duo Module 01 Evaluation
+ Board
 To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
 Cc: Chen Wang <unicorn_wang@outlook.com>,
  Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org,
@@ -54,7 +55,7 @@ Cc: Chen Wang <unicorn_wang@outlook.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <20250209220646.1090868-5-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-6-alexander.sverdlin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250209220646.1090868-5-alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-6-alexander.sverdlin@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_004749_999589_EE5A60C0 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250210_004818_396536_C1C6E441 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,50 +123,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/02/2025 23:06, Alexander Sverdlin wrote:
-> The Duo Module 01 is a compact module with integrated SG2000,
-> WI-FI6/BTDM5.4, and eMMC.
-> Add only support for UART and SDHCI.
-> 
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
->  .../sophgo/sg2000_milkv_duo_module_01.dtsi    | 84 +++++++++++++++++++
->  1 file changed, 84 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
+> diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
 > new file mode 100644
-> index 000000000000..7edcc4d03cc4
+> index 000000000000..fcabaf0babf4
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
-
-Underscores are almost never used in DTS file names. Don't grow this
-pattern.
-
-> @@ -0,0 +1,84 @@
+> +++ b/arch/arm64/boot/dts/sophgo/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_SOPHGO) += sg2000_milkv_duo_module_01_evb.dtb
+> diff --git a/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
+> new file mode 100644
+> index 000000000000..f3533892453d
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
+> @@ -0,0 +1,30 @@
 > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 > +
-> +#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
-> +#include "sg2000.dtsi"
+> +/dts-v1/;
+> +
+> +#include "sg2000_milkv_duo_module_01.dtsi"
 > +
 > +/ {
-> +	model = "Milk-V Duo Module 01";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +		serial1 = &uart1;
-> +		serial2 = &uart2;
-> +		serial3 = &uart3;
-> +		serial4 = &uart4;
-> +	};
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
-> +&emmc {
+> +	model = "Milk-V Duo Module 01 Evaluation Board";
 
-Keep ordering according to DTS coding style.
+Missing compatible.
 
 
 Best regards,
