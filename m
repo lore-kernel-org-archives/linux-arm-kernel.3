@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB04CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4520C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CXlu5F/nzx95ppJRU4wR0AFKAT7/lyZB4t2YyL6z/8Q=; b=UlhrSXzgHfXktcyXa64j1kr2RL
-	S6E4VXrUgX4+N26TWTXJu4mnHfjZg+ZeqfllV9yxo1M4F9oImKrJHrTYOTRUPjpSk+SL0UDbuHxNM
-	8eDqIrrDEr8g7TBpZV60bYZKGFA6Qtzpn8E+BNM6oa78BmPegc902J6z40EixdabyldZN3MosYwyR
-	GqDMd6kEEL8anuCskPZg26NXUD3JhTT2odiUPY39OGHQaIAES7ntGz+LAs/NCkVO5BcwYOmkrtdkj
-	gZ+Cp+NOqxahGhgS+aYv2b24RvkzX/riWT4SzxLqhQicwcTLMGCYYTuqXZIU6JQWGNFcWkGWVHzn6
-	HzyVcipA==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SxVVW6a/lQSsUjWI/xpP2rf8YwOhJRusQGd2Ltf1NSo=; b=FEIyqwHwgoRC1snKilGjRBd4Kk
+	ijODRtYAAr8U/6fO0wMKo/slCpbSrvgFh4gxbeQTOlJIIS9BCdGHD4X7k/bz4p2lN5zYOdhJpO9cL
+	ZKdPQ+3t4q0MmvO7ytdbvkfTj/xXd6DKMna3vczkAdp+fj2oTImP8f9rx6V/jXIAwOnQrU4ts2IEx
+	3l9PS9QEK5mianW/UXSCmfbaPH10Kj9Nq787Ku1by5VrvbonS1PgcPw0cLQ3eqS+fcbmqoC6sz2el
+	J/pAA2AkwmQlZe8DvaOpj3EoTnLAu4G2y2TVZEsq2MZo5HRrSy8WMUydU63jkEY7iCqmM2s+77qFK
+	1TTShfsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWug-00000000ZQY-2Lue;
-	Mon, 10 Feb 2025 16:45:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thWw3-00000000Zp9-1GZi;
+	Mon, 10 Feb 2025 16:47:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWs9-00000000Yrn-2XnH
+	id 1thWtM-00000000Z7R-1Q9F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:43:03 +0000
+	Mon, 10 Feb 2025 16:44:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 55BBA5C5BDB;
-	Mon, 10 Feb 2025 16:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C473DC4CEDF;
-	Mon, 10 Feb 2025 16:42:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1E2265C5BBC;
+	Mon, 10 Feb 2025 16:43:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6BDC4CED1;
+	Mon, 10 Feb 2025 16:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739205780;
-	bh=mPMQ/r2tER76Ym5c2/i5WaN/wRM3LmL3waxtdryUaBY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=k6CRwpAPipNwWpQaCTXwPnOf+2w1rmiKX2u5l+E1Q1r5ljg/P/XjX6IS0mX4MhujU
-	 5TqJcCFPlfx7GwKz7qhusSce6nnF3jpC9D0EEkZKzMuE+k/Ngn40ywJwpfQjVyGgQF
-	 rh5y75r08I3w8BHA+QZwVUrEeJgbF6aLnK6rA73lflq0uRD4QLx2pVn+WQzQwXHvYb
-	 c2cLn37NpyS3GcWcpXzexsjK+hL1eXOCVkGjPqBjr8j+3v9cxciV4A6ZmkS45HoEnI
-	 hLGd9teilbBneYgcfDlngYP9it6EX+6bY3EkvCWptfgv2mpfeJKk/xW0VB4kTjTPRy
-	 I5F/AWrtmlEow==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	linux-kbuild@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
-	Boqun Feng <boqun.feng@gmail.com>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@lists.linux.dev
-Subject: [PATCH] kbuild: rust: add rustc-min-version support function
-Date: Mon, 10 Feb 2025 17:42:45 +0100
-Message-ID: <20250210164245.282886-1-ojeda@kernel.org>
+	s=k20201202; t=1739205855;
+	bh=pJIYPWJ+5c+OJAajVySyzvOkJYxLdGI/XLkulyWGlJA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Sap1xWyb/Xua4wOkYzVszhdi1qatQ6+kI68L3yl8aizC4TP6ZfceuQNPR4xa3UP4a
+	 GcGTPc4GzCih4oxnvKRM/JRcfJuxnwVJIPoBOP1pO4+IDJnyNmdLDruSE2QX9xhwvX
+	 EhUrumg/0Jp5TOiR5H4oAa8Nh6yapeQllKnvCKasdsEqs/3JdNOjgUxdnbJMtu2bKj
+	 uu5e23d5Ub57GKgZKwkPFpklHe4zyCPoxx37+rrOX/YBbmpHvx75c8jQAkjW+Mm5Ih
+	 f6h4+4B0fGSmfE1IbxIjpBOqxH9dXNOp9s5TIWkHXgqzUov/To0QI/h/YJy73ztR71
+	 aOcRpvV+6+PbA==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, ukleinek@kernel.org, alexandre.torgue@foss.st.com, 
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ wbg@kernel.org, jic23@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ olivier.moysan@foss.st.com
+In-Reply-To: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
+References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
+Subject: Re: (subset) [PATCH v3 0/8] Add STM32MP25 timers support: MFD,
+ PWM, IIO and counter drivers
+Message-Id: <173920585199.1896384.5521926980550161552.b4-ty@kernel.org>
+Date: Mon, 10 Feb 2025 16:44:11 +0000
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_084301_826712_2A4DDD24 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250210_084416_427047_F70F89FE 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce `rustc-min-version` support function that mimics
-`{gcc,clang}-min-version` ones, following commit 88b61e3bff93
-("Makefile.compiler: replace cc-ifversion with compiler-specific macros").
+On Fri, 10 Jan 2025 10:19:14 +0100, Fabrice Gasnier wrote:
+> This series adds STM32MP25 support on MFD PWM, IIO, counter timer drivers.
+> This new timer variant is managed by using a new DT compatible string.
+> It comes with a slightly updated register set, some new features and new
+> interconnect signals inside the SoC. There is also a new instance (TIM20).
+> Same feature list as on STM32MP1x is supported currently, except for PWM
+> capture (not enabled, by DT).
+> The device tree files add all instances in stm32mp251 dtsi. PWM, counter
+> and trigger examples are provided for stm32mp257f-ev1 board.
+> 
+> [...]
 
-In addition, use it in the first use case we have in the kernel (which
-was done independently to minimize the changes needed for the fix).
+Applied, thanks!
 
-Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
----
-This is based on top of the fix so that the fix remains as simple as
-possible:
+[1/8] dt-bindings: mfd: stm32-timers: add support for stm32mp25
+      commit: 4c1d04d013e3e5073a7e78e57cba82c3cd81d586
+[2/8] mfd: stm32-timers: add support for stm32mp25
+      commit: 3c81d423568ad28540a7dab4ca8ea66ded9b352f
 
-    https://lore.kernel.org/rust-for-linux/20250210163732.281786-1-ojeda@kernel.org/
-
- Documentation/kbuild/makefiles.rst | 14 ++++++++++++++
- arch/arm64/Makefile                |  2 +-
- scripts/Makefile.compiler          |  4 ++++
- 3 files changed, 19 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/kbuild/makefiles.rst b/Documentation/kbuild/makefiles.rst
-index d36519f194dc..2608aa32c762 100644
---- a/Documentation/kbuild/makefiles.rst
-+++ b/Documentation/kbuild/makefiles.rst
-@@ -670,6 +670,20 @@ cc-cross-prefix
-             endif
-     endif
-
-+$(RUSTC) support functions
-+--------------------------
-+
-+rustc-min-version
-+  rustc-min-version tests if the value of $(CONFIG_RUSTC_VERSION) is greater
-+  than or equal to the provided value and evaluates to y if so.
-+
-+  Example::
-+
-+    rustflags-$(call rustc-min-version, 108500) := -Cfoo
-+
-+  In this example, rustflags-y will be assigned the value -Cfoo if
-+  $(CONFIG_RUSTC_VERSION) is >= 1.85.0.
-+
- $(LD) support functions
- -----------------------
-
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 2b25d671365f..1d5dfcd1c13e 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -48,7 +48,7 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
- KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
- KBUILD_AFLAGS	+= $(compat_vdso)
-
--ifeq ($(call test-ge, $(CONFIG_RUSTC_VERSION), 108500),y)
-+ifeq ($(call rustc-min-version, 108500),y)
- KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
- else
- KBUILD_RUSTFLAGS += --target=aarch64-unknown-none -Ctarget-feature="-neon"
-diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-index 8c1029687e2e..8956587b8547 100644
---- a/scripts/Makefile.compiler
-+++ b/scripts/Makefile.compiler
-@@ -67,6 +67,10 @@ gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
- # Usage: cflags-$(call clang-min-version, 110000) += -foo
- clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
-
-+# rustc-min-version
-+# Usage: rustc-$(call rustc-min-version, 108500) += -Cfoo
-+rustc-min-version = $(call test-ge, $(CONFIG_RUSTC_VERSION), $1)
-+
- # ld-option
- # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
- ld-option = $(call try-run, $(LD) $(KBUILD_LDFLAGS) $(1) -v,$(1),$(2),$(3))
 --
-2.48.1
+Lee Jones [李琼斯]
+
 
