@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54EBFC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8708CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ly/sN0aibA+R/Cz7dT+WZJPr+Z7H+87V9kJVvlIRUL4=; b=SN6pz32yzo2gjhCahHWaAHtgyx
-	Rbvropu2j4Jre8HRhdUOV3jXV90D1vS1DRbmyUZCC+NkLd9qooNbLN91aAkVEx0LGzGUhsIXMovvi
-	pKMkCQ4za7XZRcSg58XXVu4n4gyl+j6Y43QczU8tOOVBMLoofAdCfKWM7aGj/ZtaVDEzbXcW/GoxY
-	T+DfTbPrj9hKQfQKoS0zyGPJJBQLkLkUcqK+9q7l0YRRJCw1beS7ZfZyunW+iy+J666f8HUm9xLsY
-	Su1EpfC44tpui4w/z+uSWga+bb9RVahihVtzTfkjrpS9bZYZL77lZUueR5a0GLF8fEu0FQRWpj68U
-	tbjb2yZA==;
+	bh=GLBZiQvoRWMve47ekFMA9aPN96SiIqRBTIRflJ/8Sbk=; b=X4CPlf/2rX89NaN9RTM9PccKL5
+	EO7SasOpD78Vx0LJiFoazIc9xgh6toaV2R6lvoeFXVBBKF+NdeejtdObg5OW1PJz4zxkCmrbdx8j0
+	w6ZqJPwsrZClxqCO5flqHPsQXaRcpB6YFl7YFgaHh6KvTw6UjCHGD0Cu/27y+lNl35saEc/lsWqOM
+	hzL4gkMBviWD915WbQG2Pr4PtJjkKip/5cwoemDm40Zty8fzPL03C+6vZgozXD8oPP7B6Zc06syJt
+	hkvN/FcTwQ+LT2xuL3vlCi8F3FOeK8JQ0o8A4aINTBSpM6fGyEZMPZLbskVZKiJEDxwXkFzBt24zu
+	BVNhg5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYn-000000017Cy-3jqK;
-	Mon, 10 Feb 2025 19:35:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYxm-000000011Ni-1wIy
+	id 1thZYp-000000017GC-16B9;
+	Mon, 10 Feb 2025 19:35:15 +0000
+Received: from out-184.mta1.migadu.com ([2001:41d0:203:375::b8])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thYyb-000000011TD-1cpu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:56:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E80021477;
-	Mon, 10 Feb 2025 10:57:18 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE53E3F6A8;
-	Mon, 10 Feb 2025 10:56:54 -0800 (PST)
-Date: Mon, 10 Feb 2025 18:56:51 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
-	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
-	tabba@google.com, wilco.dijkstra@arm.com
-Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
-Message-ID: <Z6pL81_yi98o2vtS@J2N7QTR9R3>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
- <20250206141102.954688-9-mark.rutland@arm.com>
- <20250210165325.GI7568@willie-the-truck>
- <Z6o1t7ys2qVaZ-7n@J2N7QTR9R3>
- <20250210182009.GB7926@willie-the-truck>
+	Mon, 10 Feb 2025 18:57:51 +0000
+Date: Mon, 10 Feb 2025 10:57:40 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739213866;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GLBZiQvoRWMve47ekFMA9aPN96SiIqRBTIRflJ/8Sbk=;
+	b=gJJoxMAyjiATeKiLm/wKcBUg9+9nnXnXljH2/X8Xst7RlqsrqjY/v0Bkpn8cFxhnY4ayJw
+	fDm+JdfSdjKMLgutx9xwcHqG7PDcjzHbe4380kJfDubp5RUMlraLLLPRCeL2ofzsp1DuFH
+	LqsgsjppM/2hcYe5j83a9DVUp/dF5D8=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"cohuck@redhat.com" <cohuck@redhat.com>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"sebott@redhat.com" <sebott@redhat.com>,
+	yuzenghui <yuzenghui@huawei.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	jiangkunkun <jiangkunkun@huawei.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Anthony Jebson <anthony.jebson@huawei.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Linuxarm <linuxarm@huawei.com>
+Subject: Re: [PATCH v6 3/4] KVM: arm64: Report all the KVM/arm64-specific
+ hypercalls
+Message-ID: <Z6pMJIbcuPR4AXtE@linux.dev>
+References: <20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com>
+ <20250205132222.55816-4-shameerali.kolothum.thodi@huawei.com>
+ <Z6ZPDml0JKuSjLIO@linux.dev>
+ <Z6ZPyKK7HLHTtxYu@linux.dev>
+ <a9a696009f8e47e0bac9e2d9289ebb0d@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250210182009.GB7926@willie-the-truck>
+In-Reply-To: <a9a696009f8e47e0bac9e2d9289ebb0d@huawei.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_105658_584707_934E867A 
-X-CRM114-Status: GOOD (  29.12  )
+X-CRM114-CacheID: sfid-20250210_105749_638499_B9E768C8 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,88 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 06:20:09PM +0000, Will Deacon wrote:
-> On Mon, Feb 10, 2025 at 05:21:59PM +0000, Mark Rutland wrote:
-> > On Mon, Feb 10, 2025 at 04:53:27PM +0000, Will Deacon wrote:
-> > > On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
-> > > > +static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
-> > > > +{
-> > > > +	u64 zcr_el1, zcr_el2;
-> > > > +
-> > > > +	if (!guest_owns_fp_regs())
-> > > > +		return;
-> > > > +
-> > > > +	if (vcpu_has_sve(vcpu)) {
-> > > > +		zcr_el1 = read_sysreg_el1(SYS_ZCR);
-> > > > +		__vcpu_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu)) = zcr_el1;
-> > > > +
-> > > > +		/*
-> > > > +		 * The guest's state is always saved using the guest's max VL.
-> > > > +		 * Ensure that the host has the guest's max VL active such that
-> > > > +		 * the host can save the guest's state lazily, but don't
-> > > > +		 * artificially restrict the host to the guest's max VL.
-> > > > +		 */
-> > > > +		if (has_vhe()) {
-> > > > +			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-> > > > +			write_sysreg_el2(zcr_el2, SYS_ZCR);
-> > > > +		} else {
-> > > > +			zcr_el2 = sve_vq_from_vl(kvm_host_sve_max_vl) - 1;
-> > > > +			write_sysreg_el2(zcr_el2, SYS_ZCR);
-> > > > +
-> > > > +			zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
-> > > > +			write_sysreg_el1(zcr_el1, SYS_ZCR);
-> > > 
-> > > Do we need an ISB before this to make sure that the CPTR traps have been
-> > > deactivated properly?
+> > > This isn't right, vendor_hyp_bmap is very much load bearing. We have a
+> > > documented UAPI that allows userspace to control the hypercalls exposed
+> > > to the guest.
+> > >
+> > > The idea being a user wants kernel rollback safety and doesn't expose
+> > > hypercalls that could potentially be revoked.
+> > >
+> > > https://docs.kernel.org/virt/kvm/arm/fw-pseudo-registers.html#bitmap-
+> > feature-firmware-registers
 > > 
-> > Sorry, I had meant to add a comment here that this relies upon a
-> > subtlety that avoids the need for the ISB.
+> > To add:
+> > 
+> > KVM cannot advertise the DISCOVER_IMPL* stuff unconditionally, since the
+> > expectation is that userspace implements these hypercalls. These bits
+> > may need to be writable from userspace but have a reset value of 0.
+> > 
 > 
-> Ah yes, it really all hinges on guest_owns_fp_regs() and so I think a
-> comment would be helpful, thanks.
+> Ok. So IIUC, vendor_hyp_bmap actually holds the information which Vendor Hyp
+> services  are available to the user space and can be get/set using GET/SET _ONE_REG
+> interfaces.
+
+Right.
+
+> Currently this bitmap is a 64 bit one and if we have to have a one to one mapping
+> between these bitmap and the hypercall function numbers, then that requires
+> some changes.
 > 
-> Just on this, though:
+> Because function numbers 2-63 are now reserved for pKVM and the new ones
+> introduced in this series take 64 & 65.
 > 
-> > When the guest owns the FP regs here, we know:
-> > 
-> > * If the guest doesn't have SVE, then we're not poking anything, and so
-> >   no ISB is necessary.
-> > 
-> > * If the guest has SVE, then either:
-> > 
-> >   - The guest owned the FP regs when it was entered.
-> > 
-> >   - The guest *didn't* own the FP regs when it was entered, but acquired
-> >     ownership via a trap which executed kvm_hyp_handle_fpsimd().
-> > 
-> >   ... and in either case, *after* disabling the traps there's been an
-> >   ERET to the guest and an exception back to hyp, either of which
-> >   provides the necessary context synchronization such that the traps are
-> >   disabled here.
+> May be we can have KVM_REG_ARM_VENDOR_HYP_BMAP_2  which represents
+> 64-127?
 > 
-> What about the case where we find that there's an interrupt pending on
-> return to the guest? In that case, I think we elide the ERET and go back
-> to the host (see the check of isr_el1 in hyp/entry.S).
+> Or can we take the next available bits(2 & 3) for KVM_REG_ARM_VENDOR_HYP_BMAP
+> and then map it to the function number appropriately (64 & 65) when
+> ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID is handled?
+> 
+> Thoughts?
 
-Ah; I had missed that, and evidently I had not looked at the entry code.
+Adding a second register seems reasonable so we can preserve the mapping
+of bit position / hypercall #.
 
-Given that, I think the options are:
-
-(a) Add an ISB after disabling the traps, before returning to the guest.
-
-(b) Add an ISB in fpsimd_lazy_switch_to_host() above.
-
-(c) Add an ISB in that sequence in hyp/entry.S, just before the ret, to
-    ensure that __guest_enter() always provides a context
-    synchronization event even when it doesn't enter the guest,
-    regardless of ARM64_HAS_RAS_EXTN.
-
-I think (c) is probably the nicest, since that avoids the need for
-redundant barriers in the common case, and those short-circuited exits
-are hopefully rare.
-
-Obviously that would mean adding comments in both __guest_enter() and
-fpsimd_lazy_switch_to_host().
-
-Mark.
+-- 
+Thanks,
+Oliver
 
