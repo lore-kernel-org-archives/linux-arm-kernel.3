@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56A8C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9810C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxBuIA2SMluFtGw6F7ALYXVb8bF3URt7yXLRwSGV4d0=; b=IQaq7pCdtvjCx3sXub7I54FxPq
-	Rita8COpAy1HxbxYA58uzKWWH9TFEcgcDXE5jYKZuDAAmq5Cz+u8jgt6sM98l0KapeJ9AW4vArov0
-	15wF+4aKdk8dtOCQpuVaK9zx8g6KXdoOAmcGaInWVfIo6cwUt7lW1VJJgOHDNqqH+Ngbr/xz4O+SV
-	JehUH8mINnwDcgN5nKVjckpyf77LzcdwX8Z2tUbuDEjaWCLK7jt+YGEG+vUTzcQk1XtqdEwSWjScI
-	ijwGolx/Bl9zC1alEp6Ro/913Toezs8rKbVTRqBRkhjTAyGoF7jgStUDeyxj1GuQHMaTH2IacjJjd
-	nzDqCYLQ==;
+	bh=0P+kJb99bZEzLV+4t1Mu0R7kycwLZW8VUl4cnZ8WeDo=; b=EX8JYfXVrvx1RucPE1SZ6eeJE7
+	0shKkqZ96aNyvbNjzmOL+spOiirrdf+6BZCT90MJ8oIwMeRf1qr4f+aSAYPDk86w9PEg2W0u2qfDu
+	iOftbXSMBGiYT4hm+N91V9gnFH47SmxWoq2vy3qJ7WKeXM+nPghzewb4PlHWkJ+33n256sMiaWh/k
+	+nST5KcHASSTORu9W/1QI/5bT+ypS/XmTr90Cm021eRzJk7yfdK+Rmiz/w1fIv/3f2axsaifob+zR
+	G41lx9ZuZoxAmINcTYp6lhriGWFnGhIlQVlhSYl/qL18EFyY7N6PKOdrJXv5o5H/QXeq7bX1DreJ6
+	t87AAXVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXs9-00000000mZG-3PVK;
-	Mon, 10 Feb 2025 17:47:05 +0000
+	id 1thXtX-00000000myK-0H7v;
+	Mon, 10 Feb 2025 17:48:31 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXcW-00000000jcO-0G6p
+	id 1thXjC-00000000kx9-32QK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 17:30:57 +0000
+	Mon, 10 Feb 2025 17:37:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6911FA41CFE;
-	Mon, 10 Feb 2025 17:29:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40BE5C4CEEA;
-	Mon, 10 Feb 2025 17:30:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 59348A409A4;
+	Mon, 10 Feb 2025 17:36:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96D65C4CEE5;
+	Mon, 10 Feb 2025 17:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739208654;
-	bh=cuhpdyhkkWVMn0TdJKFTzm8ueRhCszb9PftEfM9AL+o=;
+	s=k20201202; t=1739209069;
+	bh=ZHvhVHZPAWcr/LsvWZUEqNdGcfT0gR+ANC+5K9rR1hw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KSSv4Bu9EESCqtNJkzLgnsE/b8nZ1V/E++ghduKr9A12nTGS9JC3E5ilCNbvNRYgx
-	 00tdswa8ojn/eL36nUTG3wOv3xYgReyqZ+uOs3j4pOXtvgdQlyCr1CO8pUGq0RtZ4+
-	 AYnChKjgQ0AAu+Ba2F/rfZAwcBKRkpEe+TcmlCbsBwDP6jo5WiTS3U5ew9LedWhaxO
-	 xeZOkJpo65uxVyIfIyOT56U25dE3EvAdwarfH5l8WeeUtp/6CC0IDVuAEpI6dFHIOt
-	 iyArW99WbbHKP0Lu7jFh4ZbI0bBagwVBAO9gycmPlU/PS1nybTEpLr8r+vFrq5XW64
-	 itWEaSxPpidrg==
-Message-ID: <cb7937f5-2045-4903-825c-71ed70097efb@kernel.org>
-Date: Mon, 10 Feb 2025 18:30:49 +0100
+	b=Yz/w29BXqKtKuah7/Gjos0WKIWqiAHV0yuukQ3iqe/FkH3SLtH13QEYx0BUdfeTLx
+	 AkWBxH4zU1e6bLVmNB7A+ST4n7GncznRM5KVNMypj3gLlJGhamKLBDparWy96+AV9n
+	 ksYpIDyPxqfMCQN++J2Jumi0QXM8IswMEE/uj9g7Y3yxKlaM7mIuzW3LNJKKUnrFM3
+	 aV0lmCgGtQkkeztUYrvJLGvLVZJzrlJV3B5faPw0IOp4x6Qx3TjTYiBZ0LivWFWMD3
+	 Y8KYjnDwQ7k3ZTCgqI023P8pIJTIypqWgeKCDqI1Hkgao+/IcjIlGRePG6VroooPRV
+	 u4RQEQLZuCM7g==
+Message-ID: <2c3b9e21-06fc-4108-80d7-c4e2c4ceb2fa@kernel.org>
+Date: Mon, 10 Feb 2025 18:37:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec device
+Subject: Re: [PATCH 7/8] media: chips-media: wave6: Add Wave6 control driver
 To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
  hverkuil@xs4all.nl, sebastian.fricke@collabora.com, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org
@@ -55,7 +55,7 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
  lafley.kim@chipsnmedia.com
 References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
- <20250210090725.4580-4-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-8-nas.chung@chipsnmedia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250210090725.4580-4-nas.chung@chipsnmedia.com>
+In-Reply-To: <20250210090725.4580-8-nas.chung@chipsnmedia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_093056_231686_B672E6FE 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20250210_093750_887021_6632612D 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,299 +122,291 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/02/2025 10:07, Nas Chung wrote:
-> Add documents for the Wave6 video codec on NXP i.MX SoCs.
-> 
-> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-> ---
->  .../bindings/media/nxp,wave633c.yaml          | 202 ++++++++++++++++++
->  MAINTAINERS                                   |   8 +
->  2 files changed, 210 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/nxp,wave633c.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/nxp,wave633c.yaml b/Documentation/devicetree/bindings/media/nxp,wave633c.yaml
-> new file mode 100644
-> index 000000000000..99c3008314c5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/nxp,wave633c.yaml
-
-Filename matching compatible.
-
-> @@ -0,0 +1,202 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/nxp,wave633c.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Chips&Media Wave6 Series multi-standard codec IP on NXP i.MX SoCs.
+> +int wave6_vpu_ctrl_resume_and_get(struct device *dev, struct wave6_vpu_entity *entity)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
+> +	bool boot;
+> +	int ret;
 > +
-> +maintainers:
-> +  - Nas Chung <nas.chung@chipsnmedia.com>
-> +  - Jackson Lee <jackson.lee@chipsnmedia.com>
+> +	if (!ctrl)
+> +		return -EINVAL;
 > +
-> +description:
-> +  The Chips&Media Wave6 codec IP is a multi-standard video encoder/decoder.
-> +  On NXP i.MX SoCs, Wave6 codec IP functionality is split between the VPU control device
-> +  (vpu-ctrl) and the VPU device (vpu). The VPU control device manages shared resources
-> +  such as firmware access and power domains, while the VPU device provides encoding
-> +  and decoding capabilities. The VPU devie cannot operate independently
-
-Typo
-
-> +  without the VPU control device.
+> +	if (!entity || !entity->dev || !entity->read_reg || !entity->write_reg)
+> +		return -EINVAL;
 > +
+> +	mutex_lock(&ctrl->ctrl_lock);
+> +
+> +	ret = pm_runtime_resume_and_get(ctrl->dev);
+> +	if (ret) {
+> +		dev_err(dev, "pm runtime resume fail, ret = %d\n", ret);
+> +		mutex_unlock(&ctrl->ctrl_lock);
+> +		return ret;
+> +	}
+> +
+> +	entity->booted = false;
+> +
+> +	if (ctrl->current_entity)
+> +		boot = false;
+> +	else
+> +		boot = list_empty(&ctrl->entities) ? true : false;
+> +
+> +	list_add_tail(&entity->list, &ctrl->entities);
+> +	if (boot)
+> +		ret = wave6_vpu_ctrl_try_boot(ctrl, entity);
+> +
+> +	if (ctrl->state == WAVE6_VPU_STATE_ON)
+> +		wave6_vpu_ctrl_on_boot(entity);
+> +
+> +	if (ret)
+> +		pm_runtime_put_sync(ctrl->dev);
+> +
+> +	mutex_unlock(&ctrl->ctrl_lock);
+> +
+> +	return ret;
+> +}
 
-Please wrap code according to the preferred limit expressed in Kernel
-coding style (checkpatch is not a coding style description, but only a
-tool).  Bindings use strict rule here.
+Drop entire function.
 
+> +EXPORT_SYMBOL_GPL(wave6_vpu_ctrl_resume_and_get);
 
-
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - nxp,imx95-wave633c-ctrl
-> +          - nxp,imx95-wave633c
-
-I don't understand why you duplicated compatibles. You split this for
-driver? That's a no. There are no two hardwares.
-
-These compatibles are anyway weird - why imx95 is in chipmedia product?
-Is this part of a SoC?
+Drop.
 
 > +
-> +  reg:
-> +    maxItems: 1
+> +void wave6_vpu_ctrl_put_sync(struct device *dev, struct wave6_vpu_entity *entity)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
 > +
-> +  interrupts:
-> +    maxItems: 1
+> +	if (!ctrl)
+> +		return;
 > +
-> +  clocks:
-> +    items:
-> +      - description: VPU clock
-> +      - description: VPU associated block clock
+> +	if (entity == ctrl->current_entity)
+> +		wave6_vpu_ctrl_wait_done(dev);
 > +
-> +  clock-names:
-> +    items:
-> +      - const: vpu
-> +      - const: vpublk_wave
+> +	mutex_lock(&ctrl->ctrl_lock);
 > +
-> +  power-domains:
-> +    minItems: 1
-> +    items:
-> +      - description: Main VPU power domain
-> +      - description: Performance power domain
+> +	if (!wave6_vpu_ctrl_find_entity(ctrl, entity))
+> +		goto exit;
 > +
-> +  power-domain-names:
-> +    items:
-> +      - const: vpumix
-> +      - const: vpuperf
+> +	list_del_init(&entity->list);
+> +	if (list_empty(&ctrl->entities)) {
+> +		if (!entity->read_reg(entity->dev, W6_VPU_VCPU_CUR_PC))
+> +			wave6_vpu_ctrl_set_state(ctrl, WAVE6_VPU_STATE_OFF);
+> +		else
+> +			wave6_vpu_ctrl_sleep(ctrl, entity);
+> +	}
 > +
-> +  cnm,ctrl:
+> +	if (!pm_runtime_suspended(ctrl->dev))
+> +		pm_runtime_put_sync(ctrl->dev);
+> +exit:
+> +	mutex_unlock(&ctrl->ctrl_lock);
+> +}
+> +EXPORT_SYMBOL_GPL(wave6_vpu_ctrl_put_sync);
 
-What is this prefix about? Is this nxp or something else?
+Drop entire function. Dead code.
 
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: phandle of the VPU control device node. Required for VPU operation.
+... or you arranged your patches really incorrectly, but this I can't
+really judge.
 
-Explain - required for what. Operation is too generic.
-
-If this is phandle to second device, then it's proof your split is
-really wrong.
 
 > +
-> +  boot:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: phandle of the boot memory region node for the VPU control device.
+> +int wave6_vpu_ctrl_wait_done(struct device *dev)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	if (!ctrl)
+> +		return -EINVAL;
+> +
+> +	if (ctrl->state == WAVE6_VPU_STATE_OFF)
+> +		return -EINVAL;
+> +
+> +	if (ctrl->state == WAVE6_VPU_STATE_ON)
+> +		return 0;
+> +
+> +	ret = wave6_wait_event_freezable_timeout(ctrl->load_fw_wq,
+> +						 wave6_vpu_ctrl_get_state(dev) ==
+> +						 WAVE6_VPU_STATE_ON,
+> +						 msecs_to_jiffies(W6_BOOT_WAIT_TIMEOUT));
+> +	if (ret == -ERESTARTSYS || !ret) {
+> +		dev_err(ctrl->dev, "fail to wait vcpu boot done,ret %d\n", ret);
+> +		mutex_lock(&ctrl->ctrl_lock);
+> +		wave6_vpu_ctrl_set_state(ctrl, WAVE6_VPU_STATE_OFF);
+> +		mutex_unlock(&ctrl->ctrl_lock);
+> +		return -EINVAL;
+> +	}
+> +
+> +	mutex_lock(&ctrl->ctrl_lock);
+> +	wave6_vpu_ctrl_boot_done(ctrl, 0);
+> +	mutex_unlock(&ctrl->ctrl_lock);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(wave6_vpu_ctrl_wait_done);
 
-No clue what is this... if memory region then use existing bindings.
+There is no user of this outside. Drop.
 
-Anyway, wrap your code correctly.
 
 > +
-> +  sram:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: phandle of the SRAM memory region node for the VPU control device.
+> +int wave6_vpu_ctrl_get_state(struct device *dev)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
 > +
-> +  '#cooling-cells':
-> +    const: 2
+> +	if (!ctrl)
+> +		return -EINVAL;
 > +
-> +  support-follower:
-> +    type: boolean
-> +    description: Indicates whether the VPU domain power always on.
+> +	return ctrl->state;
+> +}
+> +EXPORT_SYMBOL_GPL(wave6_vpu_ctrl_get_state);
 
-You cannot add new common properties in random way. Missing vendor
-prefix but more important: does not look at all as hardware property but
-OS policy.
+There is no user of this outside. Drop.
 
-> +
-> +patternProperties:
-> +  "^vpu-ctrl@[0-9a-f]+$":
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        items:
-> +          - enum:
-> +              - nxp,imx95-wave633c-ctrl
-
-Really, what? How nxp,imx95-wave633c-ctrl node can have a child with
-nxp,imx95-wave633c-ctrl compatible?
-
-NAK.
-
-
-> +      reg: true
-> +      clocks: true
-> +      clock-names: true
-> +      power-domains:
-> +        items:
-> +          - description: Main VPU power domain
-> +          - description: Performance power domain
-> +      power-domain-names:
-> +        items:
-> +          - const: vpumix
-> +          - const: vpuperf
-> +      sram: true
-> +      boot: true
-> +      '#cooling-cells': true
-> +      support-follower: true
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - clocks
-> +      - clock-names
-> +      - power-domains
-> +      - power-domain-names
-> +      - sram
-> +      - boot
-> +
-> +    additionalProperties: false
-> +
-> +  "^vpu@[0-9a-f]+$":
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        items:
-> +          - enum:
-> +              - nxp,imx95-wave633c
-> +      reg: true
-> +      interrupts: true
-> +      clocks: true
-> +      clock-names: true
-> +      power-domains:
-> +        maxItems: 1
-> +        description: Main VPU power domain
-> +      cnm,ctrl: true
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - interrupts
-> +      - clocks
-> +      - clock-names
-> +      - power-domains
-> +      - cnm,ctrl
-
-All this is just incorrect.
+Whatever export stays, must be used by a following patch. You *must* add
+the kerneldoc for it.
 
 > +
-> +    additionalProperties: false
+> +static void wave6_vpu_ctrl_init_reserved_boot_region(struct vpu_ctrl *ctrl)
+> +{
+> +	if (ctrl->boot_mem.size < WAVE6_CODE_BUF_SIZE) {
+> +		dev_warn(ctrl->dev, "boot memory size (%zu) is too small\n", ctrl->boot_mem.size);
+> +		ctrl->boot_mem.phys_addr = 0;
+> +		ctrl->boot_mem.size = 0;
+> +		memset(&ctrl->boot_mem, 0, sizeof(ctrl->boot_mem));
+> +		return;
+> +	}
 > +
-> +additionalProperties: false
+> +	ctrl->boot_mem.vaddr = devm_memremap(ctrl->dev,
+> +					     ctrl->boot_mem.phys_addr,
+> +					     ctrl->boot_mem.size,
+> +					     MEMREMAP_WC);
+> +	if (!ctrl->boot_mem.vaddr) {
+> +		memset(&ctrl->boot_mem, 0, sizeof(ctrl->boot_mem));
+> +		return;
+> +	}
 > +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> +	ctrl->boot_mem.dma_addr = dma_map_resource(ctrl->dev,
+> +						   ctrl->boot_mem.phys_addr,
+> +						   ctrl->boot_mem.size,
+> +						   DMA_BIDIRECTIONAL,
+> +						   0);
+> +	if (!ctrl->boot_mem.dma_addr) {
+> +		memset(&ctrl->boot_mem, 0, sizeof(ctrl->boot_mem));
+> +		return;
+> +	}
 > +
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      vpuctrl: vpu-ctrl@4c4c0000 {
-> +        compatible = "nxp,imx95-wave633c-ctrl";
-> +        reg = <0x0 0x4c4c0000 0x0 0x10000>;
-> +        clocks = <&scmi_clk 115>,
-> +            <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        clock-names = "vpu", "vpublk_wave";
-> +        power-domains = <&scmi_devpd 21>, <&scmi_perf 10>;
-> +        power-domain-names = "vpumix", "vpuperf";
-> +        #cooling-cells = <2>;
-> +        boot = <&vpu_boot>;
-> +        sram = <&sram1>;
-> +      };
-> +
-> +      vpu0: vpu@4c480000 {
+> +	dev_info(ctrl->dev, "boot phys_addr: %pad, dma_addr: %pad, size: 0x%zx\n",
+> +		 &ctrl->boot_mem.phys_addr,
+> +		 &ctrl->boot_mem.dma_addr,
+> +		 ctrl->boot_mem.size);
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+No, drop. Reasoning further.
 
+> +}
+...
 
-> +        compatible = "nxp,imx95-wave633c";
-> +        reg = <0x0 0x4c480000 0x0 0x10000>;
-> +        interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&scmi_clk 115>,
-> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        clock-names = "vpu", "vpublk_wave";
-> +        power-domains = <&scmi_devpd 21>;
-> +        cnm,ctrl = <&vpuctrl>;
-> +      };
 > +
-> +      vpu1: vpu@4c490000 {
-> +        compatible = "nxp,imx95-wave633c";
-
-Drop all duplicated examples.
-
-
-> +        reg = <0x0 0x4c490000 0x0 0x10000>;
-> +        interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&scmi_clk 115>,
-> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        clock-names = "vpu", "vpublk_wave";
-> +        power-domains = <&scmi_devpd 21>;
-> +        cnm,ctrl = <&vpuctrl>;
-> +      };
+> +	ctrl->num_clks = ret;
 > +
-> +      vpu2: vpu@4c4a0000 {
-> +        compatible = "nxp,imx95-wave633c";
-> +        reg = <0x0 0x4c4a0000 0x0 0x10000>;
-> +        interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&scmi_clk 115>,
-> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        clock-names = "vpu", "vpublk_wave";
-> +        power-domains = <&scmi_devpd 21>;
-> +        cnm,ctrl = <&vpuctrl>;
-> +      };
+> +	np = of_parse_phandle(pdev->dev.of_node, "boot", 0);
+> +	if (np) {
+> +		struct resource mem;
 > +
-> +      vpu3: vpu@4c4b0000 {
-> +        compatible = "nxp,imx95-wave633c";
-> +        reg = <0x0 0x4c4b0000 0x0 0x10000>;
-> +        interrupts = <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&scmi_clk 115>,
-> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        clock-names = "vpu", "vpublk_wave";
-> +        power-domains = <&scmi_devpd 21>;
-> +        cnm,ctrl = <&vpuctrl>;
-> +      };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 896a307fa065..5ff5b1f1ced2 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25462,6 +25462,14 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/media/cnm,wave521c.yaml
->  F:	drivers/media/platform/chips-media/wave5/
->  
-> +WAVE6 VPU CODEC DRIVER
-> +M:	Nas Chung <nas.chung@chipsnmedia.com>
-> +M:	Jackson Lee <jackson.lee@chipsnmedia.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/nxp,wave633c.yaml
-> +F:	drivers/media/platform/chips-media/wave6/
+> +		ret = of_address_to_resource(np, 0, &mem);
+> +		of_node_put(np);
+> +		if (!ret) {
+> +			ctrl->boot_mem.phys_addr = mem.start;
+> +			ctrl->boot_mem.size = resource_size(&mem);
+> +			wave6_vpu_ctrl_init_reserved_boot_region(ctrl);
+> +		} else {
+> +			dev_warn(&pdev->dev, "boot resource is not available.\n");
+> +		}
+> +	}
+> +
+> +	ctrl->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
+> +	if (ctrl->sram_pool) {
+> +		ctrl->sram_buf.size = ctrl->res->sram_size;
+> +		ctrl->sram_buf.vaddr = gen_pool_dma_alloc(ctrl->sram_pool,
+> +							  ctrl->sram_buf.size,
+> +							  &ctrl->sram_buf.phys_addr);
+> +		if (!ctrl->sram_buf.vaddr)
+> +			ctrl->sram_buf.size = 0;
+> +		else
+> +			ctrl->sram_buf.dma_addr = dma_map_resource(&pdev->dev,
+> +								   ctrl->sram_buf.phys_addr,
+> +								   ctrl->sram_buf.size,
+> +								   DMA_BIDIRECTIONAL,
+> +								   0);
+> +
+> +		dev_info(&pdev->dev, "sram 0x%pad, 0x%pad, size 0x%lx\n",
+> +			 &ctrl->sram_buf.phys_addr, &ctrl->sram_buf.dma_addr, ctrl->sram_buf.size);
 
-There is no such file/directory.
+You are not supposed to print addresses. This look like fixed hardware
+mappings, so probably harmless but dma_addr not. Drop entire dev_info,
+this is really discouraged practice.
+
+
+> +	}
+> +
+> +	if (of_find_property(pdev->dev.of_node, "support-follower", NULL))
+> +		ctrl->support_follower = true;
+> +
+> +	wave6_cooling_init(ctrl);
+> +
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void wave6_vpu_ctrl_remove(struct platform_device *pdev)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(&pdev->dev);
+> +
+> +	pm_runtime_disable(&pdev->dev);
+> +
+> +	wave6_vpu_ctrl_clear_buffers(ctrl);
+> +	wave6_cooling_remove(ctrl);
+> +	if (ctrl->sram_pool && ctrl->sram_buf.vaddr) {
+> +		dma_unmap_resource(&pdev->dev,
+> +				   ctrl->sram_buf.dma_addr,
+> +				   ctrl->sram_buf.size,
+> +				   DMA_BIDIRECTIONAL,
+> +				   0);
+> +		gen_pool_free(ctrl->sram_pool,
+> +			      (unsigned long)ctrl->sram_buf.vaddr,
+> +			      ctrl->sram_buf.size);
+> +	}
+> +	if (ctrl->boot_mem.dma_addr)
+> +		dma_unmap_resource(&pdev->dev,
+> +				   ctrl->boot_mem.dma_addr,
+> +				   ctrl->boot_mem.size,
+> +				   DMA_BIDIRECTIONAL,
+> +				   0);
+> +	mutex_destroy(&ctrl->ctrl_lock);
+> +}
+> +
+> +#ifdef CONFIG_PM
+> +static int wave6_vpu_ctrl_runtime_suspend(struct device *dev)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(ctrl->num_clks, ctrl->clks);
+> +	return 0;
+> +}
+> +
+> +static int wave6_vpu_ctrl_runtime_resume(struct device *dev)
+> +{
+> +	struct vpu_ctrl *ctrl = dev_get_drvdata(dev);
+> +
+> +	return clk_bulk_prepare_enable(ctrl->num_clks, ctrl->clks);
+> +}
+> +#endif
+> +
+> +#ifdef CONFIG_PM_SLEEP
+> +static int wave6_vpu_ctrl_suspend(struct device *dev)
+> +{
+> +	return 0;
+
+Why do you need empty callbacks?
 
 Best regards,
 Krzysztof
