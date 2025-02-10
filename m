@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F57C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D410C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ae3lwIG1bNMfgLcb9UOChi6PzxvbhnZHhBNXR+QOsdw=; b=DJk3aMLB1rNyQBUNt2xTQ1XRNd
-	ajlSeChacOMn669roPcwcOtejQuXTa+17+GiF4TrpDT73jcQb06qq6PfZy/CsNYJYhZpcP2nlnkdP
-	dRe889InLrFNj9404pe7a01dQ5fqiUAeH/a9u1uKqhhMDhFMC6VYwUzz+mCkAsUwPhh0Pn/HTFmfL
-	bS9sf/wrOG8JQwOWtq5TYhexj0Eq6EAZaEOjpBLhs1sLPElNqYH/6kOmDXlMOyvoDdc7113AUJzHz
-	oYjZkNPb7kzTb8gP2VcqkoHanvtZtkk3dlAkIeJIXVS7qkEjn5WO+WlzUTQHfuR9vf/2jog0WU+tX
-	YRZMQjXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CAnhm0Wz21UltR5SqeUz3yaC93tOi3ncUGw0CiSukn8=; b=XTfHXR01JIVgr/1J8YIoj9xQf+
+	N9qRU3Nz1faBWrGWmg4dNSBjKPghFSpKgW+gIQp9FLEmS6CLOcKgK7wIWa2VD7FYmSD0i6PuSRVtx
+	5JJgJ6lZFSeUMdxNfgndj6iEglfYrcjCkhNUEblcR0Bndo2yIliEKkbgm8jZ1Ncinol3RTrys2ny2
+	owuawhcsst5X9XSaKxIWDlaCpTM/7uiq0wKD4/mefD1eoyUdUOk/nfehYCgYsWPidYfv9KKvpBkAM
+	5IWHYKoXbZ0JdIBgV0tjdTixLQO9hADu4glCGo1OBEZ3BUs0iaqV5+Yspa/S+60bDVhbmqO+jZjlo
+	mF5JSdRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUiz-000000007Sd-3u4M;
-	Mon, 10 Feb 2025 14:25:25 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUha-000000007B8-3v9e
+	id 1thUkN-000000007hR-2LxJ;
+	Mon, 10 Feb 2025 14:26:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thUhd-000000007BX-3pZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:24:00 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6f77b9e0a34so32162367b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 06:23:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739197436; x=1739802236; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ae3lwIG1bNMfgLcb9UOChi6PzxvbhnZHhBNXR+QOsdw=;
-        b=BDFRNF9v/3MUOk4OAERyht2gucw2UXIrhM6D6lLyKqUnz9/cuWHcy2lNptEX4pd6I1
-         iod3OB9BUEa8RXuVyTDrI0hOUCAyJe32sT7t6TwUD+9KFtUcpm1azsPuTMZtbwA2q5Rv
-         +q8jxScMySRgTb/kLOVf47kH1LUV+o5eMG41OiaE9i0FoNcLsf/1skA+759sFK/n8lke
-         Q9T6pIKZdAjkcLtVi06R5zAwJjh1gGpUTaGAu6V2eWO4cxF3UnPV9Y5oe/npPenvAn21
-         Mh1aH4i4y4g2pF+ggeCmTHr/laYOykaCGtvxyNy/ZA31sJt5gyyQOKGn2bj+Zp1y8JTL
-         xScQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739197436; x=1739802236;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ae3lwIG1bNMfgLcb9UOChi6PzxvbhnZHhBNXR+QOsdw=;
-        b=jll/TSoSPchf3fj1ELnDfCgk32r1QD4GS9OUBDOfrAiHaQklMTSlgLdVyUdiPSoHA0
-         2V/qRv6xhU5WXgg/A0FeHaeEoG9pn7RFOszNpJkzs6XYdz+rhWO1IdI0Fs0F/d/lfP7S
-         p/ZqNLFw8QWc2W9QDDF+xdu1Yw37gXjUFm6opFI9zd3EJqqPNZTTq2b5Lz7OHcRZOMkP
-         75MmJSpfhAscwga7YWScpqZmqcOP3gzc7zqNdW/uHGItWD1g+6LiEF3/RBw8mpSsNAjp
-         sWDTNGygwwbueogZTfJOSBbVJb9Dv/IuxuLvyzdwGEjliHLug1KPZr+Ric9HAoGqtaNw
-         TwBA==
-X-Forwarded-Encrypted: i=1; AJvYcCWi/isOhzexkobhn5w9qdBbOWKBesJt6C6PwAygri18BIcSRDfezFRZMp+quv70DIU9PLhC3z60Xr55YHwpoh/F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6FjeeNldWxkH5s18r/+39bxyM6dd/6Zzck8G9H4X0eLbFFu08
-	9uv+nU+uc17UbIucJIJQ3jutgHqhoNMueTRSCS9TAqslM2BSDPuD3ypY5vWHznWLHMsz1peWcxg
-	YdXsNwmajSauEYrpkziSgPY7jIPSqWrODrtOOUg==
-X-Gm-Gg: ASbGncusJeR7aSbvdpPHQOop7HIKPsZCiAWzoFvJRnbetndPVVUhf3dAK6Snp3dPk/i
-	fNtZ4MpUcnCdQ5+Zk9Rr01JwN8O7+lO76sBUPsPYQuPZyVwTQ20SJNd2Hhs1fDtm+HnWoGvxVEq
-	/pg/nUKmQAY1w=
-X-Google-Smtp-Source: AGHT+IE0g27FEGOeRAZwGb7S3MgR4LXpDdhrkSZoSOq5U1jJjfFXRfvfAEBsqb9Cm3IID24zNyOYw0dpb/wBuLQLVBA=
-X-Received: by 2002:a05:690c:4513:b0:6f7:598d:34a3 with SMTP id
- 00721157ae682-6f9b2349b17mr123277977b3.0.1739197436560; Mon, 10 Feb 2025
- 06:23:56 -0800 (PST)
+	Mon, 10 Feb 2025 14:24:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 320551477;
+	Mon, 10 Feb 2025 06:24:20 -0800 (PST)
+Received: from [10.57.95.206] (unknown [10.57.95.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D55AD3F5A1;
+	Mon, 10 Feb 2025 06:23:53 -0800 (PST)
+Message-ID: <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
+Date: Mon, 10 Feb 2025 15:23:52 +0100
 MIME-Version: 1.0
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
- <20250207-ingenious-daffodil-dugong-51be57@houat> <ucttjaf3trkgtpvhnsj7xfsybhnoi4qqow5ucwghlggivbagy7@gngjhbtu73lb>
- <20250210-bold-steel-collie-cecbad@houat>
-In-Reply-To: <20250210-bold-steel-collie-cecbad@houat>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 10 Feb 2025 16:23:44 +0200
-X-Gm-Features: AWEUYZl00UgPkDK5peSLElXsBxEbhr7D2kNasc0K5iG6VfIY6yez4cOHp2_9LzA
-Message-ID: <CAA8EJppyDiAeH8bm-rdCUsGoyVOrp=4AvrYLJ-=5BTLtmnP11g@mail.gmail.com>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM bridges
-To: Maxime Ripard <mripard@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
+To: Kees Cook <kees@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
+ <202502061422.517A57F8@keescook>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <202502061422.517A57F8@keescook>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_062358_972941_7379711A 
-X-CRM114-Status: GOOD (  43.77  )
+X-CRM114-CacheID: sfid-20250210_062402_043666_2440FC29 
+X-CRM114-Status: GOOD (  40.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +73,154 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Feb 2025 at 14:31, Maxime Ripard <mripard@kernel.org> wrote:
->
-> On Fri, Feb 07, 2025 at 09:54:06PM +0200, Dmitry Baryshkov wrote:
-> > On Fri, Feb 07, 2025 at 12:47:51PM +0100, Maxime Ripard wrote:
-> > > Hi,
-> > >
-> > > On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote:
-> > > > DRM bridges are currently considered as a fixed element of a DRM card, and
-> > > > thus their lifetime is assumed to extend for as long as the card
-> > > > exists. New use cases, such as hot-pluggable hardware with video bridges,
-> > > > require DRM bridges to be added and removed to a DRM card without tearing
-> > > > the card down. This is possible for connectors already (used by DP MST), so
-> > > > add this possibility to DRM bridges as well.
-> > > >
-> > > > Implementation is based on drm_connector_init() as far as it makes sense,
-> > > > and differs when it doesn't. A difference is that bridges are not exposed
-> > > > to userspace, hence struct drm_bridge does not embed a struct
-> > > > drm_mode_object which would provide the refcount. Instead we add to struct
-> > > > drm_bridge a refcount field (we don't need other struct drm_mode_object
-> > > > fields here) and instead of using the drm_mode_object_*() functions we
-> > > > reimplement from those functions the few lines that drm_bridge needs for
-> > > > refcounting.
-> > > >
-> > > > Also add a new devm_drm_bridge_alloc() macro to allocate a new refcounted
-> > > > bridge.
-> > > >
-> > > > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> > >
-> > > So, a couple of general comments:
-> > >
-> > > - I've said it a couple of times already, but I really think you're
-> > >   making it harder than necessary for you here. This (and only this!)
-> > >   should be the very first series you should be pushing. The rest can
-> > >   only ever work if that work goes through, and it's already hard enough
-> > >   as it is. So, split that patch into a series of its own, get that
-> > >   merged, and then we will be able to deal with panels conversion and
-> > >   whatever. That's even more true with panels since there's ongoing work
-> > >   that will make it easier for you too. So the best thing here is
-> > >   probably to wait.
-> >
-> > Luca and I had a quick chat on this during FOSDEM. I really think that
-> > panel (part of the) series can go in first as it fixes a very well known
-> > bug _and_ allows a pretty good cleanup to a whole set of drivers.
->
-> I don't necessarily disagree on principle, but if you state that it can
-> get first, and fixes a known problem (which one?), then it should be a
-> separate, standalone, series.
+On 06/02/2025 23:41, Kees Cook wrote:
+> On Mon, Feb 03, 2025 at 10:18:24AM +0000, Kevin Brodsky wrote:
+>> This is a proposal to leverage protection keys (pkeys) to harden
+>> critical kernel data, by making it mostly read-only. The series includes
+>> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+>> as well as a page table hardening feature based on that framework
+>> (kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
+>> concept, but they are designed to be compatible with any architecture
+>> implementing pkeys.
+> Does QEMU support POE? The only mention I could find is here:
+> https://mail.gnu.org/archive/html/qemu-arm/2024-03/msg00486.html
+> where the answer is, "no and it looks difficult". :P
 
-A problem of panel bridges having the wrong lifetime because of devm_
-attachment to a wrong device and so either being kept for too long or
-being destroyed too early.
+Unfortunately it looks like the answer hasn't changed since last year. I
+am testing this series on an Arm Fast Models platform (FVP) [1], which
+does support POE. I've included instructions to get you started at the end.
 
->
-> Ever-expanding features are bad for both the reviewers and the
-> contributors, even more so when the discussion happens off-list.
->
-> > With all those panel / bridge wrappers gone we should be able to see a
-> > clearer picture of what individual drivers are doing. In other words,
-> > which memory and which code actually hosts and uses internal
-> > 'next_bridge' reference.
-> >
-> > > - This patch really needs to be split into several patches, something
-> > >   along the lines of:
-> > >
-> > >   + Creating devm_drm_bridge_alloc()
-> > >   + Adding refcounting
-> > >   + Taking the references in all the needed places
-> > >   + Converting a bunch of drivers
-> >
-> > The last two parts seem troublematic to me, but, I must admit, I didn't
-> > spend so much time reviewing all drm_bridge usage patterns.
->
-> Why? the third one is already done by that patch, the fourth can
-> relatively easily be done using coccinelle.
+>> # Threat model
+>>
+>> The proposed scheme aims at mitigating data-only attacks (e.g.
+>> use-after-free/cross-cache attacks). In other words, it is assumed that
+>> control flow is not corrupted, and that the attacker does not achieve
+>> arbitrary code execution. Nothing prevents the pkey register from being
+>> set to its most permissive state - the assumption is that the register
+>> is only modified on legitimate code paths.
+> Do you have any tests that could be added to drivers/misc/lkdtm that
+> explicitly exercise the protection? That is where many hardware security
+> features get tested. (i.e. a successful test will generally trigger a
+> BUG_ON or similar.)
 
-I have doubts about cocci. It doesn't have a way to know, what is the
-lifetime of the references to the reference-holding memory. Maybe I'm
-missing a point there.
+I could certainly add some tests there, but I wonder if such crash tests
+provide much benefit compared to the KUnit tests (that rely on
+copy_to_kernel_nofault()) in patch 15? Not crashing the kernel does mean
+that many of those tests can be run in a row :)
 
--- 
-With best wishes
-Dmitry
+>> The arm64 implementation should be considered a proof of concept only.
+>> The enablement of POE for in-kernel use is incomplete; in particular
+>> POR_EL1 (pkey register) should be reset on exception entry and restored
+>> on exception return.
+> As in, make sure the loaded pkey isn't leaked into an exception handler?
+
+I wouldn't say "leaking" is the issue here, but yes conceptually
+exception handlers should run with a fixed pkey configuration, not that
+of the interrupted context. As Dave Hansen pointed out [2], what is even
+more important is to context-switch the pkey register. A thread may be
+interrupted and scheduled out while executing at a higher kpkeys level;
+we want to ensure that this thread resumes execution at the same kpkeys
+level, and that in the meantime we return to the standard level.
+
+>> # Open questions
+>>
+>> A few aspects in this RFC that are debatable and/or worth discussing:
+>>
+>> - There is currently no restriction on how kpkeys levels map to pkeys
+>>   permissions. A typical approach is to allocate one pkey per level and
+>>   make it writable at that level only. As the number of levels
+>>   increases, we may however run out of pkeys, especially on arm64 (just
+>>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+>>   use the same pkey for the data associated to multiple levels.
+>>
+>>   Another potential concern is that a given piece of code may require
+>>   write access to multiple privileged pkeys. This could be addressed by
+>>   introducing a notion of hierarchy in trust levels, where Tn is able to
+>>   write to memory owned by Tm if n >= m, for instance.
+>>
+>> - kpkeys_set_level() and kpkeys_restore_pkey_reg() are not symmetric:
+>>   the former takes a kpkeys level and returns a pkey register value, to
+>>   be consumed by the latter. It would be more intuitive to manipulate
+>>   kpkeys levels only. However this assumes that there is a 1:1 mapping
+>>   between kpkeys levels and pkey register values, while in principle
+>>   the mapping is 1:n (certain pkeys may be used outside the kpkeys
+>>   framework).
+> Is the "levels" nature of this related to how POE behaves? It sounds
+> like there can only be 1 pkey active at a time (a role), rather than
+> each pkey representing access to a specific set of pages (a key in a
+> keyring), where many pkeys could be active at the same time. Am I
+> understanding that correctly?
+
+Only one key is used (besides the default key) in this initial RFC.
+However, the idea behind the level abstraction is indeed that (RW)
+access to multiple keys may be required at the same time. In the
+follow-up RFC protecting credentials, this is illustrated by the
+"unrestricted" level that grants RW access to all keys. I believe this
+approach is the most flexible, in that any permission mapping can be
+defined for each level.
+
+>> Any comment or feedback will be highly appreciated, be it on the
+>> high-level approach or implementation choices!
+> As hinted earlier with my QEMU question... what's the best way I can I
+> test this myself? :)
+
+As mentioned above I tested this series on Arm FVP. By far the easiest
+way to run some custom kernel/rootfs on FVP is to use the Shrinkwrap
+tool [3]. First install it following the quick start guide [4] (I would
+recommend using the Docker backend if possible). Then build the firmware
+stack using:
+
+$ shrinkwrap build -o arch/v9.0.yaml ns-edk2.yaml
+
+To make things easy, the runtime configuration can be stored in a file.
+Create ~/.shrinkwrap/config/poe.yaml with the following contents:
+
+----8<----
+
+%YAML 1.2
+---
+layers:
+  - arch/v9.0.yaml
+
+run:
+  rtvars:
+    CMDLINE:
+      type: string
+      # nr_cpus=1 can be added to speed up the boot
+      value: console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda rw
+  params:
+    -C cluster0.has_permission_overlay_s1: 1
+    -C cluster1.has_permission_overlay_s1: 1
+
+----8<----
+
+Finally start FVP using:
+
+$ shrinkwrap run -o poe.yaml ns-edk2.yaml -r
+KERNEL=<out>/arch/arm64/boot/Image -r ROOTFS=<rootfs.img>
+
+(Use Ctrl-] to terminate the model if needed.)
+
+<rootfs.img> is a file containing the root filesystem (in raw format,
+e.g. ext4). The kernel itself is built as usual (defconfig works just
+fine), just make sure to select CONFIG_KPKEYS_HARDENED_PGTABLES to
+enable the feature. You can also select
+CONFIG_KPKEYS_HARDENED_PGTABLES_TEST to run the tests in patch 15.
+
+> Thanks for working on this! Data-only attacks have been on the rise for
+> a while now, and I'm excited to see some viable mitigations appearing.
+> Yay!
+
+Thank you for your interest and support, very appreciated!
+
+- Kevin
+[1]
+https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/Arm%20Architecture%20FVPs
+[2]
+https://lore.kernel.org/linux-hardening/dcc1800c-cf0a-4d88-bc88-982f0709b382@intel.com/
+[3] https://shrinkwrap.docs.arm.com/
+[4] https://shrinkwrap.docs.arm.com/en/latest/userguide/quickstart.html
 
