@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8E5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3122DC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lzHw714PzF5qAtLwyye/sMwRzBfQHNnYhqs6NaSr+rg=; b=zlPlUY7yyHeQ0ULHbGL0+xIjai
-	g2sHL/mKlmRxhC9BwufgsRTfJvGs6fxdCnkKqDJWw+eRQbTTleT4r4YBiYRp4EzMBfxfyfDmw3O3c
-	wSyDqXXnUT52d8SdPerXAmmnGE//yIGoElbwFJWRHrKiPSvKG4KJxtN6y8qcO0/tkk16Hgex2cHNI
-	xdMDO159N4AqZRxdf8YT5U3WS1TmXgSChyng7qG6F0WIJwokdyKw286jhuAOsCmgU4BekGKWOwio6
-	/ryIgmgzimjDJuZgmILKlRzLWqOcX4RVcUV1yOBYdJtMwraeP53kqdDNADfKwFSKcxdNrngE8H7Mj
-	WEGt9Ozg==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DX94Y1DLftOcH76cc/D2dTQlv3D9/SsCUAFkAr8Sem8=; b=FsISxrOk5AnhrukyMgZn96CT/4
+	pU3gnfHrR7Xk+orlX4FhgkHc08IoJisr2RFlZARY4aQuUWuHsMW+c6xp0iWoI3O3EKHS2+fhGjWe/
+	wT91E242PS5u6ohXjHd4rQyAYY8yLEBAfWOW0Ud1RtUdRhcgEB8x7SigbkIgS6xOYHpZjqrotlUWw
+	PWCEufliRMr4eiChZb1UkrHDAHtFearr0iLDEn7k5a57+gmreHdJY/WzlmIplVWl4FaqBXW1MaGys
+	3G9RU5iw1H0xfPnYD8zXOS2CpShRLfIduvq6ZoAwIbm4zuNUN76wAx+2rdSBUE4ghPjpVE8cHEHEX
+	9b/qGw7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSBb-0000000HH4U-2LIw;
-	Mon, 10 Feb 2025 11:42:47 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1thSCy-0000000HHMh-1Qn6;
+	Mon, 10 Feb 2025 11:44:12 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thS0N-0000000HDty-2p8v
+	id 1thS0z-0000000HE70-1FNw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 11:31:14 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38dd011ff8bso2133072f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 03:31:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739187069; x=1739791869; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lzHw714PzF5qAtLwyye/sMwRzBfQHNnYhqs6NaSr+rg=;
-        b=eHJgI8ors+1zZbmNwlYT9TgNXDaSXfVi5XSyGIZgPvJSdX41WcMlbPFnsQ19Tb2aMc
-         QOUfZXOy6Un616tpR3n5PXvGFdtQsYxgAiBuCpN42/3gT2XQRF1evOaXIHt/KVxJ3f8e
-         W+eqAH17yKptqaujYmLHtGN9ZeC7axnnkh2Y+qnv2l4CzkdWcs86k/nu3yj7VQlWw6k8
-         EIsiElVKk9Rfw3sNTBEl1cOKlfkrNHITwccbH+WU0nlf6dbfFv9Ry/D4DprhRs9KdmDu
-         m9Cmn4nUjbvXKqbRouSckCMOlfzA2F6VUEZDI8avAq4pWionZo+8fcBNEKQfdSC1Gtl+
-         DxEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739187069; x=1739791869;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lzHw714PzF5qAtLwyye/sMwRzBfQHNnYhqs6NaSr+rg=;
-        b=sQvEB7YSpfvhVGaJ/+dOA6n9HjsXt8fq/AowMe/5KTMJZFF/Xgvms68LCxx62Cm3R7
-         NvLQxvprfJAKMubKr+fVqsm3A3R5CXCq4tQ1bS/XEDz87i7+XQDplesT7c0IzZpzfYk4
-         NbNKdMCBDN6Rh0Ag/ktgaLwS0CmT4H9IpRqJWhvOLzPuoo+J11bdPOdAWeH/zT28HnBd
-         5NXAtO/bP6Mfgh7/Q4xtO4HMAHrp8kwwZj5dUqkf1GAu5WvFMOyR8djpJ/ixl+zFltsC
-         BTtbHjk01x4ihNdKibEnNnEwUC4KhQxyshSXLq8Rix4JjXEZz4V+MLnkL7N5LOILIDgW
-         H+Cw==
-X-Gm-Message-State: AOJu0YzWJGhFCEqwhSKA2OzH2fMXAbn/SKjZMOgBy/szHyPWolbgLc5D
-	uWbk+NE2DUraIFDiiFWfp9EtXB4ICnjyz7/N67jUKwKQIfRPmBj9rOsUozTuSXrmP7ay0PkiyxJ
-	lhVc=
-X-Gm-Gg: ASbGncuj7mAhSx8ZJHncKEZa8Y+4xWutZtL2nmq51sTBH3OR+pJ+5cwarX8+y/fNsOI
-	x95o+eYNQvPjsyPkBrChMUDQ4/0Aia7P6+A1QJiyLCO//7XEGap0du1RqTRYPTNtl0G3zP4nbQB
-	NOLhDjj6azaDtIxRUZvHORKhJKqcajJxn4f28Ja10T8megw6B+Gb3thoSPRSGkx6kyAa6/0/+y7
-	6fBvAsj31CKukekhAcoW6NGmI57s8DMDnlv8XpxaBhtAoKH5PLDvrEFoSoX74fHx7gSH/k2jQSi
-	zd7xCsYMWIzfoWys
-X-Google-Smtp-Source: AGHT+IHKcL4ZL3Lp7yWuGRAHIS1vVg/lf60vesFvPUVhRkXB5Nb1+tzm4zRQXrtnLLUgCVs9ciXSrA==
-X-Received: by 2002:a05:6000:1a8a:b0:38d:dfdc:52b6 with SMTP id ffacd0b85a97d-38ddfdc5416mr2178948f8f.37.1739187069584;
-        Mon, 10 Feb 2025 03:31:09 -0800 (PST)
-Received: from pop-os.. ([209.198.129.174])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dc672b55bsm10302764f8f.79.2025.02.10.03.31.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 03:31:09 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-To: linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org
-Cc: James Clark <james.clark@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm: coresight: Finish removal of Coresight support in arch/arm/kernel
-Date: Mon, 10 Feb 2025 11:29:26 +0000
-Message-Id: <20250210112927.623872-1-james.clark@linaro.org>
-X-Mailer: git-send-email 2.34.1
+	Mon, 10 Feb 2025 11:31:50 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A75xOs010163;
+	Mon, 10 Feb 2025 11:31:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DX94Y1DLftOcH76cc/D2dTQlv3D9/SsCUAFkAr8Sem8=; b=I1nw7tqiz/kFxhle
+	Holws7trVi6BbmPtbdZWtxDXO1BYTSZYNzA6vQX6lyPfjqpMGFS8TaxpIqaPB9pS
+	r+F6220WPsqkv5A6PeAfjP8HaEjV16ol5TChfvLQXyuW9+0lbtncAgLwNes/Y8Yl
+	L+LHCj5IoMnNPgMCNJza9rwcrPQ7MuwvlvruR13buTflMezkp90Bs1C4xEnHSsCs
+	rn8dFMFO72BhMpf2fae4LYcQJ13YrcGnq4kGhOK70rxKYJxIgMUnml7Z2vCX/npH
+	UBC0vUf0AyyGf935f+62qdKw6m+pbQLXZ59TWMeiIAHc0kP8wXSRHfUKf6j5+u4O
+	4C9b7A==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44qcs58sem-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 11:31:40 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51ABVdQB028977
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 11:31:39 GMT
+Received: from [10.216.18.35] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 10 Feb
+ 2025 03:31:35 -0800
+Message-ID: <6ddda82b-d90c-4f16-a1e5-1a63fca7aba2@quicinc.com>
+Date: Mon, 10 Feb 2025 17:01:26 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg
+ Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com>
+ <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+ <464vbzwgv44fn4iw5vj5yzpstzhcsb7rzuedf4fwl23hmdhews@d4q33ro6hxq3>
+Content-Language: en-US
+From: Pratyush Brahma <quic_pbrahma@quicinc.com>
+In-Reply-To: <464vbzwgv44fn4iw5vj5yzpstzhcsb7rzuedf4fwl23hmdhews@d4q33ro6hxq3>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 1FNwXa16gvd1MBf64JJ-2x1HySUAS9rq
+X-Proofpoint-GUID: 1FNwXa16gvd1MBf64JJ-2x1HySUAS9rq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_06,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
+ mlxlogscore=946 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 clxscore=1015 mlxscore=0 priorityscore=1501 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
+ definitions=main-2502100097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_033111_716821_DB0FBAD0 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250210_033149_467945_BAE2E286 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,183 +111,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 184901a06a36 ("ARM: removing support for etb/etm in
-"arch/arm/kernel/"") removed asm/hardware/coresight.h which is included
-by this file. Therefore this is dead code so delete it.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- arch/arm/include/asm/cti.h | 160 -------------------------------------
- 1 file changed, 160 deletions(-)
- delete mode 100644 arch/arm/include/asm/cti.h
+On 2/10/2025 4:31 PM, Dmitry Baryshkov wrote:
+> On Mon, Feb 03, 2025 at 11:17:02AM +0530, Pratyush Brahma wrote:
+>> Add the device node for gfx smmu that is required for gpu
+>> specific address translations.
+>>
+>> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
+>>   1 file changed, 39 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> index 4a057f7c0d9fae0ebd1b3cf3468746b382bc886b..7a8211bec139375b5aab939f123d88fca7aceff2 100644
+>> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> @@ -2674,6 +2674,45 @@ gpucc: clock-controller@3d90000 {
+>>   			#power-domain-cells = <1>;
+>>   		};
+>>   
+>> +		adreno_smmu: iommu@3da0000 {
+>> +			compatible = "qcom,qcs8300-smmu-500", "qcom,adreno-smmu",
+>> +				     "qcom,smmu-500", "arm,mmu-500";
+>> +			reg = <0x0 0x3da0000 0x0 0x20000>;
+>> +			#iommu-cells = <2>;
+>> +			#global-interrupts = <2>;
+>> +
+>> +			interrupts = <GIC_SPI 672 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 678 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 679 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 680 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 681 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 682 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 683 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 684 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 685 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 686 IRQ_TYPE_LEVEL_HIGH>,
+>> +				     <GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH>;
+>> +
+>> +			clocks = <&gpucc GPU_CC_CX_GMU_CLK>,
+>> +				 <&gpucc GPU_CC_HUB_CX_INT_CLK>,
+>> +				 <&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
+>> +				 <&gcc GCC_GPU_MEMNOC_GFX_CLK>,
+>> +				 <&gcc GCC_GPU_SNOC_DVM_GFX_CLK>,
+>> +				 <&gpucc GPU_CC_AHB_CLK>,
+>> +				 <&gpucc GPU_CC_HUB_AON_CLK>;
+>> +
+>> +			 clock-names = "gcc_gpu_memnoc_gfx_clk",
+> Stray whitespace after the Tab symbol
+>
+>> +				       "gcc_gpu_snoc_dvm_gfx_clk",
+>> +				       "gpu_cc_ahb_clk",
+>> +				       "gpu_cc_hlos1_vote_gpu_smmu_clk",
+>> +				       "gpu_cc_cx_gmu_clk",
+>> +				       "gpu_cc_hub_cx_int_clk",
+>> +				       "gpu_cc_hub_aon_clk";
+> clocks and clock-names do not match.
+>
+>> +			power-domains = <&gpucc GPU_CC_CX_GDSC>;
+>> +			dma-coherent;
+>> +		};
+>> +
+>>   		pmu@9091000 {
+>>   			compatible = "qcom,qcs8300-llcc-bwmon", "qcom,sc7280-llcc-bwmon";
+>>   			reg = <0x0 0x9091000 0x0 0x1000>;
+>>
+>> -- 
+>> 2.34.1
+>>
+Thanks for checking. Will address these in next version.
 
-diff --git a/arch/arm/include/asm/cti.h b/arch/arm/include/asm/cti.h
-deleted file mode 100644
-index f8500e5d6ea8..000000000000
---- a/arch/arm/include/asm/cti.h
-+++ /dev/null
-@@ -1,160 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __ASMARM_CTI_H
--#define __ASMARM_CTI_H
--
--#include	<asm/io.h>
--#include	<asm/hardware/coresight.h>
--
--/* The registers' definition is from section 3.2 of
-- * Embedded Cross Trigger Revision: r0p0
-- */
--#define		CTICONTROL		0x000
--#define		CTISTATUS		0x004
--#define		CTILOCK			0x008
--#define		CTIPROTECTION		0x00C
--#define		CTIINTACK		0x010
--#define		CTIAPPSET		0x014
--#define		CTIAPPCLEAR		0x018
--#define		CTIAPPPULSE		0x01c
--#define		CTIINEN			0x020
--#define		CTIOUTEN		0x0A0
--#define		CTITRIGINSTATUS		0x130
--#define		CTITRIGOUTSTATUS	0x134
--#define		CTICHINSTATUS		0x138
--#define		CTICHOUTSTATUS		0x13c
--#define		CTIPERIPHID0		0xFE0
--#define		CTIPERIPHID1		0xFE4
--#define		CTIPERIPHID2		0xFE8
--#define		CTIPERIPHID3		0xFEC
--#define		CTIPCELLID0		0xFF0
--#define		CTIPCELLID1		0xFF4
--#define		CTIPCELLID2		0xFF8
--#define		CTIPCELLID3		0xFFC
--
--/* The below are from section 3.6.4 of
-- * CoreSight v1.0 Architecture Specification
-- */
--#define		LOCKACCESS		0xFB0
--#define		LOCKSTATUS		0xFB4
--
--/**
-- * struct cti - cross trigger interface struct
-- * @base: mapped virtual address for the cti base
-- * @irq: irq number for the cti
-- * @trig_out_for_irq: triger out number which will cause
-- *	the @irq happen
-- *
-- * cti struct used to operate cti registers.
-- */
--struct cti {
--	void __iomem *base;
--	int irq;
--	int trig_out_for_irq;
--};
--
--/**
-- * cti_init - initialize the cti instance
-- * @cti: cti instance
-- * @base: mapped virtual address for the cti base
-- * @irq: irq number for the cti
-- * @trig_out: triger out number which will cause
-- *	the @irq happen
-- *
-- * called by machine code to pass the board dependent
-- * @base, @irq and @trig_out to cti.
-- */
--static inline void cti_init(struct cti *cti,
--	void __iomem *base, int irq, int trig_out)
--{
--	cti->base = base;
--	cti->irq  = irq;
--	cti->trig_out_for_irq = trig_out;
--}
--
--/**
-- * cti_map_trigger - use the @chan to map @trig_in to @trig_out
-- * @cti: cti instance
-- * @trig_in: trigger in number
-- * @trig_out: trigger out number
-- * @channel: channel number
-- *
-- * This function maps one trigger in of @trig_in to one trigger
-- * out of @trig_out using the channel @chan.
-- */
--static inline void cti_map_trigger(struct cti *cti,
--	int trig_in, int trig_out, int chan)
--{
--	void __iomem *base = cti->base;
--	unsigned long val;
--
--	val = __raw_readl(base + CTIINEN + trig_in * 4);
--	val |= BIT(chan);
--	__raw_writel(val, base + CTIINEN + trig_in * 4);
--
--	val = __raw_readl(base + CTIOUTEN + trig_out * 4);
--	val |= BIT(chan);
--	__raw_writel(val, base + CTIOUTEN + trig_out * 4);
--}
--
--/**
-- * cti_enable - enable the cti module
-- * @cti: cti instance
-- *
-- * enable the cti module
-- */
--static inline void cti_enable(struct cti *cti)
--{
--	__raw_writel(0x1, cti->base + CTICONTROL);
--}
--
--/**
-- * cti_disable - disable the cti module
-- * @cti: cti instance
-- *
-- * enable the cti module
-- */
--static inline void cti_disable(struct cti *cti)
--{
--	__raw_writel(0, cti->base + CTICONTROL);
--}
--
--/**
-- * cti_irq_ack - clear the cti irq
-- * @cti: cti instance
-- *
-- * clear the cti irq
-- */
--static inline void cti_irq_ack(struct cti *cti)
--{
--	void __iomem *base = cti->base;
--	unsigned long val;
--
--	val = __raw_readl(base + CTIINTACK);
--	val |= BIT(cti->trig_out_for_irq);
--	__raw_writel(val, base + CTIINTACK);
--}
--
--/**
-- * cti_unlock - unlock cti module
-- * @cti: cti instance
-- *
-- * unlock the cti module, or else any writes to the cti
-- * module is not allowed.
-- */
--static inline void cti_unlock(struct cti *cti)
--{
--	__raw_writel(CS_LAR_KEY, cti->base + LOCKACCESS);
--}
--
--/**
-- * cti_lock - lock cti module
-- * @cti: cti instance
-- *
-- * lock the cti module, so any writes to the cti
-- * module will be not allowed.
-- */
--static inline void cti_lock(struct cti *cti)
--{
--	__raw_writel(~CS_LAR_KEY, cti->base + LOCKACCESS);
--}
--#endif
 -- 
-2.34.1
+Thanks and Regards
+Pratyush Brahma
 
 
