@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91C4C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E199AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=013foi5X/BmKOy34Oh7COlZ1yi7o4IdG/96zL5C8KGQ=; b=LAnjUJjugDznVNwI1wsAjrjJHb
-	oIEyKt7naNbN549bvogD8kg+5ViTtYRzKNfdYtMFsLB3QOwW/mbNhOh4VUls07ufkqxv8uZxnACLD
-	tuz/hdaaKJngdPhAS6k8rmoBnvK/gs+aPA4d1kE89bHV44fa0gyLp3zVfW6/or3+a6ldN/yiAjWCv
-	cKYXXtkPdJ5J+JdmxqxmUEtE9QHPvA1W7RqnTn9e8gnB1SXsmibee0uyc0+qCqIjuS4C5XFJHG42e
-	GRbofyRGb3mJEwyDHa1oMKi03/pnCKskeFG7O7aZYE+oF4wnWmmpLtHb70QbNFxbK02cET4NZV+k3
-	y4/USdTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nH3pvSNUkRlhL4+G+UMDC3b1XyL6w6N3TYBSbml6HW4=; b=sxaOgUhZHBigJD6e5KDn1E6kPW
+	zL/1ltQ460stbMdb2KRmR5v9zLDQA4jHmt28NX/alrfcTm3VRcc8rGua6m5zBRtlJQB53Io6VicVz
+	GPrNP0GVZ9LNQXG+VJ7a4YusUxugGRu8hNXlMWYACZmE3k1a8A3Q6b/yMSvcfvm15KY5lWEopzcFj
+	2orD8pVF8hmWFa/fsChK0OeKYtzCkOLZ+tCGQQ+SmMcLXp4YJmH+Wkn/hH/OiWSAZhYnFPgwi/l4H
+	oTTza9p34oUbpYupP9HzpJalbkfB6xdmwRknv/ToPaaOD750ZiVGfx2Ynqa110DbQD+HX3yjAsyl8
+	cDcI4Pkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRVK-0000000H7Pf-1DN8;
-	Mon, 10 Feb 2025 10:59:06 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1thRWh-0000000H7dj-0wd6;
+	Mon, 10 Feb 2025 11:00:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRDh-0000000H3Vh-2GmL;
-	Mon, 10 Feb 2025 10:40:54 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9ephh012591;
-	Mon, 10 Feb 2025 11:40:31 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=013foi5X/BmKOy34Oh7COl
-	Z1yi7o4IdG/96zL5C8KGQ=; b=5tbsMe9961Urpjp7ew3gfM2vAbInvhgoqHnxY6
-	RURES+8kRO/+4Cwn2zkAeyeo5GVOssn2sfqvtZ13sskE/dvtgNL9yIgvc875fsDk
-	YsVb22vPaFe0m2ciuMXlR2Y/s9AY61DepEL2l3Vy3rAehXekrcYOoBkjZq+b9h5Y
-	LQK5jIue4FxRPbAKa9j4b9nwbyrsfYUPxI4ku4PxLVCzrqmVUw4pDEA4+OsSB1NR
-	cL+ELlOnelNVL6UUKBje/h49DtiYzxPCNeQSS/mRiF3FlSSb5StRsFaEAg/8QNMB
-	PSNYGa6dM0fuSSOcYVvh5i94jgkjLRCxZX/8Y4sBbkJCDwnw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44p0wswvcq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 11:40:30 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8EB2C40058;
-	Mon, 10 Feb 2025 11:39:33 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 92A8B2FD8A0;
-	Mon, 10 Feb 2025 11:35:22 +0100 (CET)
-Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Feb
- 2025 11:35:22 +0100
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <vkoul@kernel.org>, <kishon@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
-CC: <arnd@arndb.de>, <fabrice.gasnier@foss.st.com>,
-        <linux-phy@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 RESEND] phy: stm32: Fix constant-value overflow assertion
-Date: Mon, 10 Feb 2025 11:35:15 +0100
-Message-ID: <20250210103515.2598377-1-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
+	id 1thRM7-0000000H52d-34x1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 10:49:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=nH3pvSNUkRlhL4+G+UMDC3b1XyL6w6N3TYBSbml6HW4=; b=mC4fAAucdktIJs1dcferucyMCq
+	iUodFybqvGDFlBZzy1zrhMimjKL7I0TbxG2cd8C08ej2aLQ+93uVGBNzJDRzVxPSbAwx7u9Ajj/nJ
+	ZjhAhHc2iZ6jdS3v+LTGwoUx+zA/cr6kSl7uJygXyMDcnvWjjQ8F1lplnLyfwApXuNnp0l3iaWPJq
+	/qKbdmAqaGV+O3vhvDBFvMbLtNyEO5KrtOH077D/qCozXqswghktIN9PdUNJKsiIRKxxz4yp2tk2N
+	LN6xOwsTYMhHKwNE5WckDEVNbQcAmvBv+5cd6cJJl7DAHn1L5mcbVLqpkjVk9t8y78FR08cKAw8dN
+	jcINHt5A==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1thRM4-000000007Pm-2dgV;
+	Mon, 10 Feb 2025 10:49:32 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 2B580300318; Mon, 10 Feb 2025 11:49:31 +0100 (CET)
+Date: Mon, 10 Feb 2025 11:49:31 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
+Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
+Message-ID: <20250210104931.GE31462@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com>
+ <20250210093840.GE10324@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_05,2025-02-10_01,2024-11-22_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_024053_871048_ED7F4FC4 
-X-CRM114-Status: GOOD (  15.36  )
+In-Reply-To: <20250210093840.GE10324@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,113 +81,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework the workaround as the lookup tables always fits into the bitfield,
-and the default values are defined by the hardware and cannot be 0: 
+On Mon, Feb 10, 2025 at 10:38:41AM +0100, Peter Zijlstra wrote:
+> On Thu, Feb 06, 2025 at 02:54:08AM -0800, Kumar Kartikeya Dwivedi wrote:
+> 
+> 
+> > Deadlock Detection
+> > ~~~~~~~~~~~~~~~~~~
+> > We handle two cases of deadlocks: AA deadlocks (attempts to acquire the
+> > same lock again), and ABBA deadlocks (attempts to acquire two locks in
+> > the opposite order from two distinct threads). Variants of ABBA
+> > deadlocks may be encountered with more than two locks being held in the
+> > incorrect order. These are not diagnosed explicitly, as they reduce to
+> > ABBA deadlocks.
+> > 
+> > Deadlock detection is triggered immediately when beginning the waiting
+> > loop of a lock slow path.
+> > 
+> > While timeouts ensure that any waiting loops in the locking slow path
+> > terminate and return to the caller, it can be excessively long in some
+> > situations. While the default timeout is short (0.5s), a stall for this
+> > duration inside the kernel can set off alerts for latency-critical
+> > services with strict SLOs.  Ideally, the kernel should recover from an
+> > undesired state of the lock as soon as possible.
+> > 
+> > A multi-step strategy is used to recover the kernel from waiting loops
+> > in the locking algorithm which may fail to terminate in a bounded amount
+> > of time.
+> > 
+> >  * Each CPU maintains a table of held locks. Entries are inserted and
+> >    removed upon entry into lock, and exit from unlock, respectively.
+> >  * Deadlock detection for AA locks is thus simple: we have an AA
+> >    deadlock if we find a held lock entry for the lock we’re attempting
+> >    to acquire on the same CPU.
+> >  * During deadlock detection for ABBA, we search through the tables of
+> >    all other CPUs to find situations where we are holding a lock the
+> >    remote CPU is attempting to acquire, and they are holding a lock we
+> >    are attempting to acquire. Upon encountering such a condition, we
+> >    report an ABBA deadlock.
+> >  * We divide the duration between entry time point into the waiting loop
+> >    and the timeout time point into intervals of 1 ms, and perform
+> >    deadlock detection until timeout happens. Upon entry into the slow
+> >    path, and then completion of each 1 ms interval, we perform detection
+> >    of both AA and ABBA deadlocks. In the event that deadlock detection
+> >    yields a positive result, the recovery happens sooner than the
+> >    timeout.  Otherwise, it happens as a last resort upon completion of
+> >    the timeout.
+> > 
+> > Timeouts
+> > ~~~~~~~~
+> > Timeouts act as final line of defense against stalls for waiting loops.
+> > The ‘ktime_get_mono_fast_ns’ function is used to poll for the current
+> > time, and it is compared to the timestamp indicating the end time in the
+> > waiter loop. Each waiting loop is instrumented to check an extra
+> > condition using a macro. Internally, the macro implementation amortizes
+> > the checking of the timeout to avoid sampling the clock in every
+> > iteration.  Precisely, the timeout checks are invoked every 64k
+> > iterations.
+> > 
+> > Recovery
+> > ~~~~~~~~
+> 
+> I'm probably bad at reading, but I failed to find anything that
+> explained how you recover from a deadlock.
+> 
+> Do you force unload the BPF program?
 
-Guard against false positive with a WARN_ON check to make the compiler
-happy: The offset range is pre-checked against the sorted imp_lookup_table
-values and overflow should not happen and would be caught by a warning and
-return in error.
+Even the simple AB-BA case,
 
-Also guard against a true positive found during the max_vswing lookup, as a
-max vswing value can be 802000 or 803000 microvolt depending on the current
-impedance. Therefore set the default impedence index.
+  CPU0		CPU1
+  lock-A	lock-B
+  lock-B	lock-A <-
 
-Fixes: 2de679ecd724 ("phy: stm32: work around constant-value overflow assertion")
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
----
-v2: Change title and Fixes tag
----
- drivers/phy/st/phy-stm32-combophy.c | 38 ++++++++++++++---------------
- 1 file changed, 18 insertions(+), 20 deletions(-)
+just having a random lock op return -ETIMO doesn't actually solve
+anything. Suppose CPU1's lock-A will time out; it will have to unwind
+and release lock-B before CPU0 can make progress.
 
-diff --git a/drivers/phy/st/phy-stm32-combophy.c b/drivers/phy/st/phy-stm32-combophy.c
-index 49e9fa90a681..607b4d607eb5 100644
---- a/drivers/phy/st/phy-stm32-combophy.c
-+++ b/drivers/phy/st/phy-stm32-combophy.c
-@@ -111,6 +111,7 @@ static const struct clk_impedance imp_lookup[] = {
- 	{ 4204000, { 511000, 609000, 706000, 802000 } },
- 	{ 3999000, { 571000, 648000, 726000, 803000 } }
- };
-+#define DEFAULT_IMP_INDEX 3 /* Default impedance is 50 Ohm */
- 
- static int stm32_impedance_tune(struct stm32_combophy *combophy)
- {
-@@ -119,10 +120,9 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
- 	u8 imp_of, vswing_of;
- 	u32 max_imp = imp_lookup[0].microohm;
- 	u32 min_imp = imp_lookup[imp_size - 1].microohm;
--	u32 max_vswing = imp_lookup[imp_size - 1].vswing[vswing_size - 1];
-+	u32 max_vswing;
- 	u32 min_vswing = imp_lookup[0].vswing[0];
- 	u32 val;
--	u32 regval;
- 
- 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-micro-ohms", &val)) {
- 		if (val < min_imp || val > max_imp) {
-@@ -130,45 +130,43 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
- 			return -EINVAL;
- 		}
- 
--		regval = 0;
--		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++) {
--			if (imp_lookup[imp_of].microohm <= val) {
--				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of);
-+		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++)
-+			if (imp_lookup[imp_of].microohm <= val)
- 				break;
--			}
--		}
-+
-+		if (WARN_ON(imp_of == ARRAY_SIZE(imp_lookup)))
-+			return -EINVAL;
- 
- 		dev_dbg(combophy->dev, "Set %u micro-ohms output impedance\n",
- 			imp_lookup[imp_of].microohm);
- 
- 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
- 				   STM32MP25_PCIEPRG_IMPCTRL_OHM,
--				   regval);
--	} else {
--		regmap_read(combophy->regmap, SYSCFG_PCIEPRGCR, &val);
--		imp_of = FIELD_GET(STM32MP25_PCIEPRG_IMPCTRL_OHM, val);
--	}
-+				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of));
-+	} else
-+		imp_of = DEFAULT_IMP_INDEX;
- 
- 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-vswing-microvolt", &val)) {
-+		max_vswing = imp_lookup[imp_of].vswing[vswing_size - 1];
-+
- 		if (val < min_vswing || val > max_vswing) {
- 			dev_err(combophy->dev, "Invalid value %u for output vswing\n", val);
- 			return -EINVAL;
- 		}
- 
--		regval = 0;
--		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++) {
--			if (imp_lookup[imp_of].vswing[vswing_of] >= val) {
--				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of);
-+		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++)
-+			if (imp_lookup[imp_of].vswing[vswing_of] >= val)
- 				break;
--			}
--		}
-+
-+		if (WARN_ON(vswing_of == ARRAY_SIZE(imp_lookup[imp_of].vswing)))
-+			return -EINVAL;
- 
- 		dev_dbg(combophy->dev, "Set %u microvolt swing\n",
- 			 imp_lookup[imp_of].vswing[vswing_of]);
- 
- 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
- 				   STM32MP25_PCIEPRG_IMPCTRL_VSWING,
--				   regval);
-+				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of));
- 	}
- 
- 	return 0;
--- 
-2.34.1
+Worse, if CPU1 isn't quick enough to unwind and release B, then CPU0's
+lock-B will also time out.
+
+At which point they'll both try again and you're stuck in the same
+place, no?
+
+Given you *have* to unwind to make progress; why not move the entire
+thing to a wound-wait style lock? Then you also get rid of the whole
+timeout mess.
 
 
