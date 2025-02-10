@@ -4,89 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9F8C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575CAC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5md5y4kHWywDKqwaR/ocaNjWZAyfwfKfaOG+9xgz6mE=; b=krjKaWnk9Y7F2ZfONCr8lxku4B
-	lH0VhuhS8+nFfwfpxTdmOsVDE/LAsPbwY2fqSw40cqWgcD/3M0NrfQHtoEnJDsbSl0z0VfgnO/aqS
-	XPRmhL3V4bHnXjN4z6iD2B7nskPHL7eW8K6qC0RNShry5wyM7ymfJjZzO34c7qHunjuK/MiEyL0Kp
-	dKBKnuJBX30rbUg9nlQhQohCB1IN/9GTcDcRU2fa2lgREjHRI1cXzNwSR/7bYAafKAfnlaGxiwb4q
-	vdVq0xTDg1R9pYfBKhEa1TkbFiXzADoxRutBFniawQ8hJMxmJiFmATmLY04CHFvPXtodCv++vvz+7
-	6OKhCveQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o27vhqMiLWKDW4qJOW+aOQrNQ3XU6wZip0Q876PHg3Y=; b=b06abmz7T9SJdV
+	vGrSoKnxanb+qbL5zTk0QkkOfgIedkNBFUlHi73pNwEBsyU50/1PXKr2TWffZv9t7speZWDi87FTH
+	CMwFQFeBVLrobjR5s7B24f331I2oNWChgYwcAdVyxNZUy6lewrIyUVxnd0TlImOZpQ0yu7uhyCjVa
+	Mdmekth52x2PXIAF+Cbg9ZtW95sria6VsKtzjRN6q9PsatulW87TJlL0bh5U4XTP+d86NtpoBDpm6
+	8DNMLVe1dDJ3Yg2V8LC+JEDG1tx9BZacCvY2KB84gDOxugzAc9cOELzdhbKau6wp4Vh0d9f3Hg6Yy
+	iBr/zim8En2V6v5EbF7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXPL-00000000gnz-0N1d;
-	Mon, 10 Feb 2025 17:17:19 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1thXQh-00000000gz0-32LB;
+	Mon, 10 Feb 2025 17:18:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thX0A-00000000avF-2weg
+	id 1thX8a-00000000clk-05RB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:51:19 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f9ac4488b7so35490957b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 08:51:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739206277; x=1739811077; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5md5y4kHWywDKqwaR/ocaNjWZAyfwfKfaOG+9xgz6mE=;
-        b=WG2O409yvzo+zUd2Pf3swKviN6pAFMziz2abWY9Tuvwi13sf2nHjpqQGdXBGEaQcHS
-         XSFTTI2q92Ex0NJFcBVjr0WpUaZvaD3LSdh7NOT/IiTZ5LUiUgILwXyL5DRG4Bk4xMTz
-         Z61qQ46CBEwWsa5gCjwb5sNTx6iW6qVAj+rJt3yC9SDwYZx9xsf6el+luuHUPqm3i7VW
-         LSnoRAuJxcC2tgUh/Q+V4QZ8lQM85rW6u9UJT+3fjRtqzHQi45BxYbFul+N3vvzPAb+u
-         JZl2yLToL8BG3Fu1JRanfxfKdohojg22+xz+wT7pcZbzCe9yVcdbs6CFoIcLV9b5isJW
-         471g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739206277; x=1739811077;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5md5y4kHWywDKqwaR/ocaNjWZAyfwfKfaOG+9xgz6mE=;
-        b=tITucQsxmQee+TuNC1O0NZKkNkry+kRjpRLlbVt4RBnG/xlxZr+0+cAexUNKZragKs
-         loVuQDJhRYEqbAaRm0ZxSlCGdUFc0tRFrTu5D6rHMNd7eoOEjyaXolarSKmaB/irMNFD
-         9MXYt3IBp1vhO/2ukJxfuYrzJEEBTJfE+1LSE15EJYbQpm3rvfkMtqE+EB1xfXUbJ7Uw
-         hv48zhbAhfU+HGpyheumhNvZpW+EzH6AOJ0MhSokMaUb5SPMwurnKolEU5/kGlvpnHLZ
-         zW7nmbR67YQrfQl9x0OXaAVKobyuYriEe6s+h1web99xZ4amwmIu8/9aBGmpohH96orV
-         Ap6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCURg3S0oYCZnkUUkZ4DMDJc7tX9xZuQzc15ZKPedejrPRGLURxW+mRmHwLeI/TLaZGEkdIb4NU4oRP0l7axha1y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC2wWEHBoRbS8merj+829VAeUp8ra2UFNdk2vnVjGUQhLY+jwg
-	2frRe5jdMm5SeuDJUm3//y4eYeOwya1xxThG/Uf6Bs75/8VvWKJKcE59sOQLKVvboBlKMwvagEI
-	Zny+GDA==
-X-Google-Smtp-Source: AGHT+IEctidZZGy2xrMOAka52OzT6VEqV73LuA8n5euEih3QgASystKFMe/Dy+uuqdyMVNSNzQD4j97QzRuA
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:c64e:af58:30d4:168d])
- (user=irogers job=sendgmr) by 2002:a05:690c:2f12:b0:6f9:a023:5e17 with SMTP
- id 00721157ae682-6f9b29e7837mr1238577b3.5.1739206277309; Mon, 10 Feb 2025
- 08:51:17 -0800 (PST)
-Date: Mon, 10 Feb 2025 08:51:03 -0800
-In-Reply-To: <20250210165108.95894-1-irogers@google.com>
-Message-Id: <20250210165108.95894-3-irogers@google.com>
-Mime-Version: 1.0
-References: <20250210165108.95894-1-irogers@google.com>
-X-Mailer: git-send-email 2.48.1.502.g6dc24dfdaf-goog
-Subject: [PATCH v2 2/7] perf trace: Reorganize syscalls
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 10 Feb 2025 17:00:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 95F7FA41BC7;
+	Mon, 10 Feb 2025 16:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20DE8C4CED1;
+	Mon, 10 Feb 2025 16:59:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739206798;
+	bh=fJ3762nN1Ro4tFMjkPwsYwajO6phHXF3iN1YsXMP1Ic=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QAxTDVel86Rlrvab36jbQUZ/oZKpO8MZ+io/Trf4+Z7Zjf9hROXIgO0h4cXSr/dHO
+	 3FD5YhIklNlXa3MlhfnlXf0zUat2MThnClW2zdgZ9drIDC/aqAxCumc9SoFo9MyXBT
+	 7L7Gs2QisirHpLzAIWm1YmHnFWFxBvecHHqIR+uyDHBxdFNcz4j4g9hy8xi5FVxcY+
+	 ZufsDKVkbT5Og3/57Zmx2abSDV/vEI/vHecKrAWZDTmxkqgljJsNy6Q0j+Cl+w+DYb
+	 vhixaFvuvunpejSxAbbkb9f4jhzl/fRrFNV9YKGoaArzoez7Ag9OfhtZbUJY/LaOYo
+	 NXfoRAeY1wJ4w==
+Message-ID: <8e9562c8-5c01-4b5c-b2b0-4dad3d16e7a8@kernel.org>
+Date: Mon, 10 Feb 2025 17:59:52 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 08/16] dt-bindings: nvmem: microchip-otpc: Add required
+ clocks
+To: Alexander Dahl <ada@thorsis.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+References: <20250210164506.495747-1-ada@thorsis.com>
+ <20250210164506.495747-9-ada@thorsis.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250210164506.495747-9-ada@thorsis.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_085118_773591_E0D23FE8 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250210_090000_216070_38F983B4 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,386 +114,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Identify struct syscall information in the syscalls table by a machine
-type and syscall number, not just system call number. Having the
-machine type means that 32-bit system calls can be differentiated from
-64-bit ones on a machine capable of both. Having a table for all
-machine types and all system call numbers would be too large, so
-maintain a sorted array of system calls as they are encountered.
+On 10/02/2025 17:44, Alexander Dahl wrote:
+> The OTPC requires both the peripheral clock through PMC and the main RC
+> oscillator.  Seemed to work without explicitly enabling those clocks on
+> sama7g5 before, but did not on sam9x60.
+> 
+> Older datasheets were not clear and explicit about this, but recent are,
+> e.g. SAMA7G5 series datasheet (DS60001765B),
+> section 30.4.1 Power Management:
+> 
+>> The OTPC is clocked through the Power Management Controller (PMC).
+>> The user must power on the main RC oscillator and enable the
+>> peripheral clock of the OTPC prior to reading or writing the OTP
+>> memory.
+> 
+> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+> Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> ---
+> 
+> Notes:
+>     v2:
+>     - new patch, not present in v1
+> 
+>  .../nvmem/microchip,sama7g5-otpc.yaml         | 28 +++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> index 9a7aaf64eef32..1fa40610888f3 100644
+> --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> @@ -29,6 +29,16 @@ properties:
+>    reg:
+>      maxItems: 1
+>  
+> +  clocks:
+> +    items:
+> +      - description: main rc oscillator
+> +      - description: otpc peripheral clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: main_rc_osc
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Reviewed-by: Howard Chu <howardchu95@gmail.com>
----
- tools/perf/builtin-trace.c | 178 +++++++++++++++++++++++++------------
- 1 file changed, 119 insertions(+), 59 deletions(-)
+osc
 
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 06356217adeb..916a51df236b 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -66,6 +66,7 @@
- #include "rb_resort.h"
- #include "../perf.h"
- #include "trace_augment.h"
-+#include "dwarf-regs.h"
- 
- #include <errno.h>
- #include <inttypes.h>
-@@ -86,6 +87,7 @@
- 
- #include <linux/ctype.h>
- #include <perf/mmap.h>
-+#include <tools/libc_compat.h>
- 
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
-@@ -143,7 +145,10 @@ struct trace {
- 	struct perf_tool	tool;
- 	struct syscalltbl	*sctbl;
- 	struct {
-+		/** Sorted sycall numbers used by the trace. */
- 		struct syscall  *table;
-+		/** Size of table. */
-+		size_t		table_size;
- 		struct {
- 			struct evsel *sys_enter,
- 				*sys_exit,
-@@ -1445,22 +1450,37 @@ static const struct syscall_fmt *syscall_fmt__find_by_alias(const char *alias)
- 	return __syscall_fmt__find_by_alias(syscall_fmts, nmemb, alias);
- }
- 
--/*
-- * is_exit: is this "exit" or "exit_group"?
-- * is_open: is this "open" or "openat"? To associate the fd returned in sys_exit with the pathname in sys_enter.
-- * args_size: sum of the sizes of the syscall arguments, anything after that is augmented stuff: pathname for openat, etc.
-- * nonexistent: Just a hole in the syscall table, syscall id not allocated
-+/**
-+ * struct syscall
-  */
- struct syscall {
-+	/** @e_machine: The ELF machine associated with the entry. */
-+	int e_machine;
-+	/** @id: id value from the tracepoint, the system call number. */
-+	int id;
- 	struct tep_event    *tp_format;
- 	int		    nr_args;
-+	/**
-+	 * @args_size: sum of the sizes of the syscall arguments, anything
-+	 * after that is augmented stuff: pathname for openat, etc.
-+	 */
-+
- 	int		    args_size;
- 	struct {
- 		struct bpf_program *sys_enter,
- 				   *sys_exit;
- 	}		    bpf_prog;
-+	/** @is_exit: is this "exit" or "exit_group"? */
- 	bool		    is_exit;
-+	/**
-+	 * @is_open: is this "open" or "openat"? To associate the fd returned in
-+	 * sys_exit with the pathname in sys_enter.
-+	 */
- 	bool		    is_open;
-+	/**
-+	 * @nonexistent: Name lookup failed. Just a hole in the syscall table,
-+	 * syscall id not allocated.
-+	 */
- 	bool		    nonexistent;
- 	bool		    use_btf;
- 	struct tep_format_field *args;
-@@ -2066,22 +2086,21 @@ static int syscall__set_arg_fmts(struct syscall *sc)
- 	return 0;
- }
- 
--static int trace__read_syscall_info(struct trace *trace, int id)
-+static int syscall__read_info(struct syscall *sc, struct trace *trace)
- {
- 	char tp_name[128];
--	struct syscall *sc;
--	const char *name = syscalltbl__name(trace->sctbl, id);
-+	const char *name;
- 	int err;
- 
--	if (trace->syscalls.table == NULL) {
--		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
--		if (trace->syscalls.table == NULL)
--			return -ENOMEM;
--	}
--	sc = trace->syscalls.table + id;
- 	if (sc->nonexistent)
- 		return -EEXIST;
- 
-+	if (sc->name) {
-+		/* Info already read. */
-+		return 0;
-+	}
-+
-+	name = syscalltbl__name(trace->sctbl, sc->id);
- 	if (name == NULL) {
- 		sc->nonexistent = true;
- 		return -EEXIST;
-@@ -2104,15 +2123,16 @@ static int trace__read_syscall_info(struct trace *trace, int id)
- 	 */
- 	if (IS_ERR(sc->tp_format)) {
- 		sc->nonexistent = true;
--		return PTR_ERR(sc->tp_format);
-+		err = PTR_ERR(sc->tp_format);
-+		sc->tp_format = NULL;
-+		return err;
- 	}
- 
- 	/*
- 	 * The tracepoint format contains __syscall_nr field, so it's one more
- 	 * than the actual number of syscall arguments.
- 	 */
--	if (syscall__alloc_arg_fmts(sc, IS_ERR(sc->tp_format) ?
--					RAW_SYSCALL_ARGS_NUM : sc->tp_format->format.nr_fields - 1))
-+	if (syscall__alloc_arg_fmts(sc, sc->tp_format->format.nr_fields - 1))
- 		return -ENOMEM;
- 
- 	sc->args = sc->tp_format->format.fields;
-@@ -2401,13 +2421,67 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
- 	return printed;
- }
- 
-+static void syscall__init(struct syscall *sc, int e_machine, int id)
-+{
-+	memset(sc, 0, sizeof(*sc));
-+	sc->e_machine = e_machine;
-+	sc->id = id;
-+}
-+
-+static void syscall__exit(struct syscall *sc)
-+{
-+	if (!sc)
-+		return;
-+
-+	zfree(&sc->arg_fmt);
-+}
-+
-+static int syscall__cmp(const void *va, const void *vb)
-+{
-+	const struct syscall *a = va, *b = vb;
-+
-+	if (a->e_machine != b->e_machine)
-+		return a->e_machine - b->e_machine;
-+
-+	return a->id - b->id;
-+}
-+
-+static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, int id)
-+{
-+	struct syscall key = {
-+		.e_machine = e_machine,
-+		.id = id,
-+	};
-+	struct syscall *sc, *tmp;
-+
-+	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+		     sizeof(struct syscall), syscall__cmp);
-+	if (sc)
-+		return sc;
-+
-+	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
-+			   sizeof(struct syscall));
-+	if (!tmp)
-+		return NULL;
-+
-+	trace->syscalls.table = tmp;
-+	sc = &trace->syscalls.table[trace->syscalls.table_size++];
-+	syscall__init(sc, e_machine, id);
-+	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
-+	      syscall__cmp);
-+	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-+		     sizeof(struct syscall), syscall__cmp);
-+	return sc;
-+}
-+
- typedef int (*tracepoint_handler)(struct trace *trace, struct evsel *evsel,
- 				  union perf_event *event,
- 				  struct perf_sample *sample);
- 
--static struct syscall *trace__syscall_info(struct trace *trace,
--					   struct evsel *evsel, int id)
-+static struct syscall *trace__syscall_info(struct trace *trace, struct evsel *evsel,
-+					   int e_machine, int id)
- {
-+	struct syscall *sc;
- 	int err = 0;
- 
- 	if (id < 0) {
-@@ -2432,28 +2506,20 @@ static struct syscall *trace__syscall_info(struct trace *trace,
- 
- 	err = -EINVAL;
- 
--	if (id > trace->sctbl->syscalls.max_id) {
--		goto out_cant_read;
--	}
--
--	if ((trace->syscalls.table == NULL || trace->syscalls.table[id].name == NULL) &&
--	    (err = trace__read_syscall_info(trace, id)) != 0)
--		goto out_cant_read;
-+	sc = trace__find_syscall(trace, e_machine, id);
-+	if (sc)
-+		err = syscall__read_info(sc, trace);
- 
--	if (trace->syscalls.table && trace->syscalls.table[id].nonexistent)
--		goto out_cant_read;
--
--	return &trace->syscalls.table[id];
--
--out_cant_read:
--	if (verbose > 0) {
-+	if (err && verbose > 0) {
- 		char sbuf[STRERR_BUFSIZE];
--		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err, str_error_r(-err, sbuf, sizeof(sbuf)));
--		if (id <= trace->sctbl->syscalls.max_id && trace->syscalls.table[id].name != NULL)
--			fprintf(trace->output, "(%s)", trace->syscalls.table[id].name);
-+
-+		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err,
-+			str_error_r(-err, sbuf, sizeof(sbuf)));
-+		if (sc && sc->name)
-+			fprintf(trace->output, "(%s)", sc->name);
- 		fputs(" information\n", trace->output);
- 	}
--	return NULL;
-+	return err ? NULL : sc;
- }
- 
- struct syscall_stats {
-@@ -2600,14 +2666,6 @@ static void *syscall__augmented_args(struct syscall *sc, struct perf_sample *sam
- 	return NULL;
- }
- 
--static void syscall__exit(struct syscall *sc)
--{
--	if (!sc)
--		return;
--
--	zfree(&sc->arg_fmt);
--}
--
- static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 			    union perf_event *event __maybe_unused,
- 			    struct perf_sample *sample)
-@@ -2619,7 +2677,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
- 	int augmented_args_size = 0;
- 	void *augmented_args = NULL;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -2693,7 +2751,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
- 	struct thread_trace *ttrace;
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	char msg[1024];
- 	void *args, *augmented_args = NULL;
- 	int augmented_args_size;
-@@ -2768,7 +2826,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
- 	struct thread *thread;
- 	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
- 	int alignment = trace->args_alignment;
--	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 	struct thread_trace *ttrace;
- 
- 	if (sc == NULL)
-@@ -3121,7 +3179,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
- 
- 	if (evsel == trace->syscalls.events.bpf_output) {
- 		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
--		struct syscall *sc = trace__syscall_info(trace, evsel, id);
-+		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
- 
- 		if (sc) {
- 			fprintf(trace->output, "%s(", sc->name);
-@@ -3626,7 +3684,7 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
- 
- static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 
- 	if (sc == NULL)
- 		return;
-@@ -3637,20 +3695,20 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- 
- static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
- {
--	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
- 	return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
- }
- 
- static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
- {
- 	struct tep_format_field *field;
--	struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 	const struct btf_type *bt;
- 	char *struct_offset, *tmp, name[32];
- 	bool can_augment = false;
-@@ -3748,7 +3806,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- try_to_find_pair:
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int id = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *pair = trace__syscall_info(trace, NULL, id);
-+		struct syscall *pair = trace__syscall_info(trace, NULL, EM_HOST, id);
- 		struct bpf_program *pair_prog;
- 		bool is_candidate = false;
- 
-@@ -3898,7 +3956,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 	 */
- 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
- 		int key = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *sc = trace__syscall_info(trace, NULL, key);
-+		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
- 		struct bpf_program *pair_prog;
- 		int prog_fd;
- 
-@@ -4663,7 +4721,11 @@ static size_t thread__dump_stats(struct thread_trace *ttrace,
- 			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
- 			avg /= NSEC_PER_MSEC;
- 
--			sc = &trace->syscalls.table[syscall_stats_entry->syscall];
-+			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST,
-+						 syscall_stats_entry->syscall);
-+			if (!sc)
-+				continue;
-+
- 			printed += fprintf(fp, "   %-15s", sc->name);
- 			printed += fprintf(fp, " %8" PRIu64 " %6" PRIu64 " %9.3f %9.3f %9.3f",
- 					   n, stats->nr_failures, syscall_stats_entry->msecs, min, avg);
-@@ -5071,12 +5133,10 @@ static int trace__config(const char *var, const char *value, void *arg)
- 
- static void trace__exit(struct trace *trace)
- {
--	int i;
--
- 	strlist__delete(trace->ev_qualifier);
- 	zfree(&trace->ev_qualifier_ids.entries);
- 	if (trace->syscalls.table) {
--		for (i = 0; i <= trace->sctbl->syscalls.max_id; i++)
-+		for (size_t i = 0; i < trace->syscalls.table_size; i++)
- 			syscall__exit(&trace->syscalls.table[i]);
- 		zfree(&trace->syscalls.table);
- 	}
--- 
-2.48.1.502.g6dc24dfdaf-goog
+> +      - const: otpc_clk
 
+otpc or bus or whatever logically this is
+
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -37,6 +47,8 @@ unevaluatedProperties: false
+>  
+>  examples:
+>    - |
+> +    #include <dt-bindings/clock/at91.h>
+> +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
+>      #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
+>  
+>      otpc: efuse@e8c00000 {
+> @@ -44,10 +56,26 @@ examples:
+>          reg = <0xe8c00000 0xec>;
+>          #address-cells = <1>;
+>          #size-cells = <1>;
+> +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
+> +        clock-names = "main_rc_osc", "otpc_clk";
+>  
+>          temperature_calib: calib@1 {
+>              reg = <OTP_PKT(1) 76>;
+>          };
+>      };
+>  
+> +  - |
+> +    #include <dt-bindings/clock/at91.h>
+> +    #include <dt-bindings/clock/microchip,sam9x60-pmc.h>
+> +    #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
+> +
+> +    efuse@eff00000 {
+> +        compatible = "microchip,sam9x60-otpc", "syscon";
+> +        reg = <0xeff00000 0xec>;
+
+No need for new example with difference in what exactly? Even compatible
+was not added here...
+
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 46>;
+> +        clock-names = "main_rc_osc", "otpc_clk";
+> +    };
+> +
+>  ...
+
+
+Best regards,
+Krzysztof
 
