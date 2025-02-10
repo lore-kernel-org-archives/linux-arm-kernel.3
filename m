@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A325C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2C2C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djFDshgbyGMU1i7PlwDCn0alUMpGrVv8KNT4gCMhJK8=; b=Ev5jRn6LJLtCp3Hm4lnbtkZ8rS
-	zKl3r534rYQI6/YmFx+EOiN8bCIRNs4nxZAUUHjyJr3kE5BNpQULSh1+klvfELVc31wcWG86k0V/j
-	Mlf/Fjf43/9mi5coVbWSKYjP1hzB+6RANMkh7bEByYt/mBOQSnL+1DFeysx04Q3GYoSERiAWPXYef
-	MCwifDV/8eXD2tqMp3CvFGAZUaC+JkC4wDUi8srtvH+qajq6NYjLVx89TVWmim4R1ifSguqt2Kgff
-	cqU8+MWSE7FOgKSBO7lq4ctpxX9uI6241fZyXpKkKN59ksqiE0dmAdBWDkjEql0tQXYQ/w5wqf/T0
-	7IlVrvVg==;
+	bh=Xukk9OGvcwqm9MooCxrwEuAs8AQ3wHFuGuGVVdhagAs=; b=TDVeg0SwhW0Fx/Qh7t8lsc5o9M
+	ASNZQlGj9GRvnwhum3nKmdGxLpBW+O5nmHaHoAXrqL7ZadSa/dlOGzVnQNQQxr4HjXLw3BGXpfnih
+	CvtIHErkRr1/nBHCu2MLLW5cSdb/sCtQu57NVDZfsXQ1bo4a9yVl0WlF5ZiGq0eS9BL3HXesmaDtM
+	dlK5yWoVvdv32RXkoqSQo8wvwA+WuotyWjGLbgJwZfpXgNbPVbbQb8TmiGLio+UMoqwF6eGlcg9tT
+	PypHIR5Gz+lrQazPy3RyTRyNJU0cX6GE53DSiN5iepaOz+L/JEZJikSv1w4hZHmsqyWMNOPYXtQdE
+	Ts+aJ56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUtp-000000009lb-1QeN;
-	Mon, 10 Feb 2025 14:36:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thUvB-00000000A9F-46r1;
+	Mon, 10 Feb 2025 14:38:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUsO-0000000099W-2sQp
+	id 1thUsS-000000009CH-1U7D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:35:09 +0000
+	Mon, 10 Feb 2025 14:35:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 007FBA416EE;
-	Mon, 10 Feb 2025 14:33:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4BA3C4CED1;
-	Mon, 10 Feb 2025 14:35:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 35E335C54AF;
+	Mon, 10 Feb 2025 14:34:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 074B0C4CED1;
+	Mon, 10 Feb 2025 14:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739198107;
-	bh=Co8afiWugpJkabF78b8GJNpLEF4rbBHfjLyesRenPLw=;
+	s=k20201202; t=1739198111;
+	bh=4MQF+duV3Z6GyqMReLLQ/7muGG1r298coZ8wUK0yw+o=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Q2ByZBVI5UElkc96ZQaupz7Ackk97ET2SNOfhgtjjW7KILMyaMP/shtmN7600tLKA
-	 mXYiC5YTOStx0adGhRsqeHVouxAql6NZJwLkx+jF03TcQNHiFRIqOgsuAzTxMRXSDy
-	 vyaRQ4CzQUoAgQgbJvsWbS+Gq9/UbrtOJHq3tuht3e/pq+H538VDlqFqIleLA/2LqV
-	 VklIpdIYYZDV+ETmBOcL7qo5hgYl8y1S0MA0WcoD5q6Ze1SUXw51iaqLe48IerwxV+
-	 FjGakSc3xITmst8XsUV6aMp+mfY3FgNzHYmuRG4b19TcPN1TIx0el022T399usnuAO
-	 ScNx3ym0OXt7A==
+	b=s3MYC9rSDnFSp7lkxZJlHWDHcSbdcADd94W13WlhfeHkOjSmAkOAptF0CneJIDnG3
+	 MvSIf6oWqquQcXqmf92AxfO1Ds8MNPE8V9lgQTMx6K52GX3q2ZbiN2Tq3Nfwgjulh3
+	 9ma1c5gd6uKvPlVxdIdu5DHeFryGi4cp39GWNw3cgsm6ltJ0IHCqsEtl3DZTebiCO9
+	 G3PNZ3/JxZFISL2/vvuvXB9A9wUEQRhKcKx4bdw+J7VVdviC7q75MRRS4EjM4SMET6
+	 soBI2DwLdZBL9u/C7lUMsgXiKIvz4MQDOry3NnVGv41laXoGRsIbSpSojTACHYvp4j
+	 7zZQvslkOXJlQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Paul Cercueil <paul@crapouillou.net>, dmaengine@vger.kernel.org, 
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>, 
+ Frank Li <Frank.Li@nxp.com>, Paul Cercueil <paul@crapouillou.net>, 
+ Randy Dunlap <rdunlap@infradead.org>, dmaengine@vger.kernel.org, 
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, 
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Fabio Estevam <festevam@gmail.com>
-In-Reply-To: <20241008173351.2246796-1-andriy.shevchenko@linux.intel.com>
-References: <20241008173351.2246796-1-andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v2 0/4] dmaengine: dma_request_chan*() amendments
-Message-Id: <173919810428.71959.10040102676409346998.b4-ty@kernel.org>
-Date: Mon, 10 Feb 2025 20:05:04 +0530
+In-Reply-To: <20250205145757.889247-1-andriy.shevchenko@linux.intel.com>
+References: <20250205145757.889247-1-andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v3 0/4] dmaengine: dma_request_chan*() amendments
+Message-Id: <173919810764.71959.6637536991455894544.b4-ty@kernel.org>
+Date: Mon, 10 Feb 2025 20:05:07 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_063508_800331_A21E102B 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20250210_063512_452451_3E03EA47 
+X-CRM114-Status: UNSURE (   8.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,13 +80,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 08 Oct 2024 20:27:43 +0300, Andy Shevchenko wrote:
+On Wed, 05 Feb 2025 16:57:08 +0200, Andy Shevchenko wrote:
 > Reduce the scope of the use of some rarely used DMA request channel APIs
 > in order to make the step of their removal or making static in the
 > future. No functional changes intended.
 > 
-> In v2:
-> - updated the commit messages (Frank)
+> In v3:
+> - rebased on top of v6.14-rc1
 > 
 > [...]
 
