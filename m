@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A4CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 21:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C67C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 21:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dbuzniSTALeu5gATpSt+l72PnszdVbrP0zWbVMW3ko=; b=SKssfLFQXmbHGHRz5JCnx1dRfh
-	YpvxbngXljK9Xot99T3cosNmMQejrLMTCeigv/+6L7da+IlL0kwixdO/jDAlcY6jP7gVgBhva7tJS
-	CO3cVRt4hQMvFnp559WEH7rrPVdFHiCdS1kkG87ftr49TVANFNqMhDK1o6xvyWcO108O1pfwSQPy0
-	wQasbVGxFBNyS4geYGbn3YtRmnu7D4QyT/IpdZhBw4AHa3xMHtEU8KL5IgbtGc66zQP/RwmW1nE5A
-	rPGC4PV6iOSsI8CeeDVzkQRcs1TYPGXss+XRhrmmPAfc78wF8Duc+8BfuGBf92Qil2jgRKT/35c7t
-	opldkVEg==;
+	bh=m557/Jpvp5pp4+T1xIHiZmJOAkIv767CgIPPPqCBZEw=; b=i0QN8a+w9cU2kS+D6kn6AP5Iq7
+	KDKTCcC06MEFRCNCP5r4/QahTMTaXyhcOgPRqNWmjas/iD/3MC8WSa2aa039NqLZGjwVtl8xcZ3Gm
+	QNlAAbFzb2x8pFAV/EUH7K1jrRoXu3rAz9DMLfmxFSEU4GdoAEf66sZyA7vNEjWBVUgmIdm8wtnU9
+	BicJ8zWJDoDCRfwafWhU84rFz6UypaW8VHFNDpwJFTls4DafRmFtRyXEO2tEWRtxLDevbgqyzapGg
+	wJy0entsIa63ELcWflnGrNHX/rIM27Pk35PeV03RDT+Wd1i55FAzrUt2uEQGM2bKL6gGsuT/QQ4qo
+	Nnfnrf2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbVP-00000001WRs-3MoO;
-	Mon, 10 Feb 2025 21:39:51 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1thbWR-00000001Wpq-26s2;
+	Mon, 10 Feb 2025 21:40:55 +0000
+Received: from mail-wr1-f43.google.com ([209.85.221.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thb6a-00000001SUf-1TOJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 21:14:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1739222052; x=1770758052;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Q6EhuaD18bf95yOzyUc9NiJbUcTYlA0vWWENLIJPl9s=;
-  b=p7kKmRWNj2B9hxl/pUkJ3FmaMFKaPQkPOYM2V4T9Xrf75lpRPlgoXgFW
-   LlOsAz4eUv7hKhGLrdvyT/St+9gMAIeP0R2Ihd83gMWpCofqA9mZcHVjT
-   PyCU/zy+TAGPMNJw60JvzWyBSxqsCDhI61Mbq5Udj5mA79hoSQSaYdaDd
-   KlvANYxStT6Xvn40IYY3wlK7XkwVuOk6YaW/ekOJzpj/WjupsvCRJuMzA
-   Bt283W+z48ioucamtOr7BZBVu953NEbLG9XnWZdCSSAYP7V5307HL5xB3
-   goHqseJIEajbFn1FfqWqQMBp0TkbOr10wdzorZ+hXoSxWzLB4z7OXA5Fc
-   w==;
-X-CSE-ConnectionGUID: AYqW9AG9RbOJ2Xf8Pt97Yw==
-X-CSE-MsgGUID: TtqIL6VfTqq+6rCYBPi7Ew==
-X-IronPort-AV: E=Sophos;i="6.13,275,1732604400"; 
-   d="scan'208";a="205027991"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Feb 2025 14:14:07 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 10 Feb 2025 14:13:47 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 10 Feb 2025 14:13:47 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<p.zabel@pengutronix.de>
-CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
- Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 13/15] power: reset: at91-sama5d2_shdwc: Add sama7d65 PMC
-Date: Mon, 10 Feb 2025 14:13:13 -0700
-Message-ID: <e3bde200e4b8efe69656f1ecc9e8e7c5c6f631a5.1739221064.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1739221064.git.Ryan.Wanner@microchip.com>
-References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
+	id 1thaQj-00000001M1a-3U7R;
+	Mon, 10 Feb 2025 20:30:59 +0000
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-38dc5764fc0so3522935f8f.3;
+        Mon, 10 Feb 2025 12:30:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739219456; x=1739824256; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=m557/Jpvp5pp4+T1xIHiZmJOAkIv767CgIPPPqCBZEw=;
+        b=JJIlPxsm4VaD5AucE52idAQzYAz7j9iJDD99SU9YmJ77X6Jlxi9CzbpreV2K9OTvWi
+         90KL9mVXt0XCyjDTnDL3Es8CyjcNDzFpfJbOpcLiq1QlOf4hZlEDGCV0+YJ5m9exzYrc
+         vGJi+Rt5R8MRA1scUulRM7+yuxax99RVEmuMtreq/0aeHG1uCacqSf5y3+3KgiOf4MHf
+         B/lsPzcPYnluGYJptRWu1vp853h9+G79YEqVKioKYuhxuKAX1+CFjt0FRQIerv91mfxn
+         VpevnkjtVwvwbMiu3tAeCXCg6orbOPbpnGt7oooDcKaoKth6swyobuv6+BlkJij99zQr
+         xpbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739219456; x=1739824256;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=m557/Jpvp5pp4+T1xIHiZmJOAkIv767CgIPPPqCBZEw=;
+        b=IBQ8VEoBIat33rTwiWeCgN+cztCnWigUuvzADvR5j2sCP4jirNuPuXSZtDQ8IDaT6P
+         N1+K/MY4Mpx1PziDS1e5NTpqHqR+/L/YISz5nmm49ve9XHRsCY3/SL0BuVsigmGeyWUl
+         E6lIWyt71uFWHWmVJkfmky2EBSVkZAql5KA+ZfBVK+dwFsRruipBhVjE238wSgH+lRfD
+         B89xQUXI6JC+HgasA5UYlqGcIu+M6FMqxxOCTWsATPC/7HzboK4UqsTYSyKogXa3sFc2
+         yw30tka+ytdxvmO/uhlBNhIYgDxnR83v9r+aDDEvjvMc0i0SbRdLQEjOEg6SDkkGoPLo
+         nAkw==
+X-Forwarded-Encrypted: i=1; AJvYcCUj320HIYAD5Z2j/I9LXYotjdlU16Ty0xA0Ftwz0idyTc/QgIoszuypZy6XmKScmJA7THvj9kRlAPrgJrQ=@lists.infradead.org, AJvYcCWdB/9XaY5oRx4K5sAmHb0stEx3EYkkSCNNZREj9U6Tcs6MVO1qhj75FwhQJT5IyaFam3ElPEPVZ8TlzO1AbIol@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm8Onr1ggJehVmki8qSUTZasi+tv1hDvx7FEZ+x7B3hMG0Uu6V
+	xiAx8u8alkVk3o/z6zqNLoEr82Ir/E2OU4cpXim54ry+8j6s644a
+X-Gm-Gg: ASbGncu0DXbbUNJtyiHMK+EfPmFJZ152ZZ/Yk2tGm5zzorkNBYg04YY2XoATmWgA935
+	h5xj8DG4UmXFJpWmJ4gUDq8LysR6b1ofujU/UhQaKcOHZzyQ9gzC1u2VZn/0ZlyOJIYOFmFMCcZ
+	VL6oGPboayraHLLpvJXC4iKeoSKJgZHZ/hJ8eSLMiZqK8gWqrawkOIX7/2lNB5m7yFmu1vBO8oQ
+	PTlpigjQjSlwV3mxWr38SCpATezv7TrLOOqMhGo1Y2u25a3bUgIg0Nys7EpINOacrfTNgqayHZ/
+	pXiK6LEIuLgk22vIZzmA37+vGXx0PUo2
+X-Google-Smtp-Source: AGHT+IFvurPoS9MTaLS3PpCWAsYOJF7NzTYw7+2Z56lUplq4lRolzdbvYN3eBpQHiYgZPARX6B6e0g==
+X-Received: by 2002:a5d:64eb:0:b0:386:32ca:aa12 with SMTP id ffacd0b85a97d-38dc93745famr11388110f8f.49.1739219455327;
+        Mon, 10 Feb 2025 12:30:55 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd9c48173sm5389541f8f.37.2025.02.10.12.30.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 12:30:54 -0800 (PST)
+Message-ID: <e76da2aff03e9c788bc322d84d83b0e6c28f44b0.camel@gmail.com>
+Subject: Re: [PATCH 06/10] dt-bindings: mfd: syscon: Add Cvitek CV18xx
+ rtcsys core and ctrl compatible
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@outlook.com>, 	linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 	devicetree@vger.kernel.org, Haylen Chu
+ <heylenay@outlook.com>, 	linux-arm-kernel@lists.infradead.org, Sebastian
+ Reichel <sre@kernel.org>,  Arnd Bergmann	 <arnd@arndb.de>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring	 <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>
+Date: Mon, 10 Feb 2025 21:30:51 +0100
+In-Reply-To: <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+	 <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
+	 <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_131412_448331_85FC3448 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_123057_866088_679EB25F 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +106,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
+Hi Krzysztof!
 
-Add sama7d65-pmc compatible string to the list of valid PMC IDs.
+On Mon, 2025-02-10 at 09:48 +0100, Krzysztof Kozlowski wrote:
+> On 09/02/2025 23:06, Alexander Sverdlin wrote:
+> > These syscon blocks will be used for CV18xx reset driver.
+>=20
+>=20
+> No, implement proper reset block instead of abusing syscon.
 
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- drivers/power/reset/at91-sama5d2_shdwc.c | 1 +
- 1 file changed, 1 insertion(+)
+I don't think it's an abuse... You need to look into the corresponding TRM =
+[1].
 
-diff --git a/drivers/power/reset/at91-sama5d2_shdwc.c b/drivers/power/reset/at91-sama5d2_shdwc.c
-index edb0df86aff45..0cb7fe9f25a07 100644
---- a/drivers/power/reset/at91-sama5d2_shdwc.c
-+++ b/drivers/power/reset/at91-sama5d2_shdwc.c
-@@ -326,6 +326,7 @@ static const struct of_device_id at91_pmc_ids[] = {
- 	{ .compatible = "atmel,sama5d2-pmc" },
- 	{ .compatible = "microchip,sam9x60-pmc" },
- 	{ .compatible = "microchip,sama7g5-pmc" },
-+	{ .compatible = "microchip,sama7d65-pmc" },
- 	{ /* Sentinel. */ }
- };
- 
--- 
-2.43.0
+4 bits I need to tweak (and one magic number into unlock register) are rand=
+omly
+placed at random memory adresses and otherwise adjacent bits have random
+unrelated functions from random unrelated subsystems.
+If it's not syscon, I don't know what it is.
+
+It has a reset HW block, as you and Inochi have correctly pointed out, for =
+other
+purposes, for resetting the SoC IP blocks. The overall SoC reset is complet=
+e
+mamba jamba.
+
+I was thinking now about a syscon driver, which will register_restart_handl=
+er()...
+
+Inochi, do you have more insights into it? You've mentioned RTC and 8051...
+Looking into TRM I don't get it, why a thing blessed to do all the housekee=
+ping
+(and called "System Controller" in imx8, for instance) happen to have RTC_ =
+prefix...
+Would RTC subsystem maintainer be happy with a monster driver which has tie=
+s
+to all other subsystems?
+
+[1] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01=
+/sg2000_trm_en.pdf
+("rtc_ctrl_unlockkey", "rtc_ctrl0", "RTC_EN_WARM_RST_REQ", "RTC_EN_PWR_CYC_=
+REQ").
+
+--=20
+Alexander Sverdlin.
 
 
