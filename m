@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC92C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5D1C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 16:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVJvinD0QL5g9SspPGmS4+uBdkVCqOTFq0Qn0uvgTUg=; b=ZigXV/GcuEdV2SN2d8dpdLwNXF
-	Vd7bO+ZQ//JK25C3C0ZsT+tluF0hSrzpuOGSMb2rZQO4R+mHLBYG8sndBCDTpHNiYUZTETff8trsE
-	a5ipLu4ir344bK0e06hI3/Fh6KIrnu7ARqNhzH6/hMV+A6AsUsiwTzx0OgPTGfTMCZKt3OKTrAbbl
-	qgawkIJ0zq4VNGG+IK2Z5pfWhEosywXjLIffKB43Qoxi3jtNVk4PM09O+tqaz1y3erv2ph2Zpey5i
-	vlFo5ymMTEB/kmHMLZnGB1Jkb23hYZ070aqL6cz3Us3Sk7BQy+qFDw+ZBFXVeMWFQcT8rs375tZBw
-	oTfjI8nw==;
+	bh=AE5S9gBq4Fakb/zvRTy/2pwsWAQrTHdHgaF2+2efniY=; b=oyVeB8ontFmfqnq07YHPSZtwG3
+	AGVh/d/Dc7UH19aF3qX1wiGcALxoJZdMQU3duLTxS9pJMcTmpgtJOpAsucYhZ0dUs2SZ77DZ432Oa
+	T9f6nghmMfjtReVmpYWw8b4v9eOIziBEf/e/SShzrtB+KlqldsY5E5Zy9LsYm3CANsWzDh5iW/3Hx
+	8zDlfQgqi/pJl5R3C8gdv4Xvm/oYn7aEE6Mh7Q+BAncPoinNrkraHje+aApWaGMXTebrIfnrhGw+e
+	6psNAyuEfQ7L2M39imNWdUTzaxfaI0g57TwK2D7UhP+51vzMtyQ/1g1pZspklnQLhTutd3APKOygN
+	u71JLQrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWEO-00000000Puj-20cx;
-	Mon, 10 Feb 2025 16:01:56 +0000
+	id 1thWFl-00000000QEN-17oy;
+	Mon, 10 Feb 2025 16:03:21 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thW9J-00000000Ofr-1e1G
+	id 1thW9O-00000000Ohc-3hvx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 15:56:42 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AFBxae010299;
-	Mon, 10 Feb 2025 15:56:32 GMT
+	Mon, 10 Feb 2025 15:56:48 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51A9VgaX018694;
+	Mon, 10 Feb 2025 15:56:38 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZVJvinD0QL5g9SspPGmS4+uBdkVCqOTFq0Qn0uvgTUg=; b=U5pAHY819BsySQyg
-	knXiALaWJwsAZ7E+ru/HLcUE8ykJNoegbt1merYvRS2ZhX7ZSR79Nx9Jgkl1lr4r
-	luW2AB1qq66Utw9rZ9+fxbZ29ZW1wFneGZ/Kqp+naOZS5HOPqxDC+dYgaD4WROrS
-	G1pkwIlAVpZoDSs4btS3mJVCZ/kf/a1oZ38jSZNzwp5zkyQB7UB4EVRWVDHDPWK9
-	2/z5ZmYJ4Dm2T9eU2ubfOM7v5NaSOkI+YJ8I16oucbE4pKE9sa84sBgI+kzX0kl0
-	PEmZFpWUUgrr8CpxenmiKNdj6uvJg+qtcbh1MiXm5+iW+jLuQC7sc1B79RNE3u7Q
-	6dfttA==
+	AE5S9gBq4Fakb/zvRTy/2pwsWAQrTHdHgaF2+2efniY=; b=LIY34T7H1TBV0yDU
+	g5uaS+QJgF5XZ/JJ8LVo17xC2re2ocsApniUT/6Zg7RBIJFxGa0SGbSlaJ9x4wOK
+	t4E+qDIGJyD8aJYfZ5OnTgGwkEwbEKfDl13U/7SEPIefTghTE/V/5YWi8dTYt7xW
+	43a5Dpq3+I5iyYHHXuisk43H41xVExJuVY4mI587IyJGsNP9cVzFCP3/gV/mk9w7
+	LrAF0yJgMS2hQ/1mf8APQhaI8r9PGxCIdQJyffvE1B3JWx802AORayuKspWdlWjv
+	Ceg2/bJdWeg1gd2Re3mUYnAi2r10evgB+uFCe2dvtYzDcLPscR84omKoAM6OWXWr
+	agM2qA==
 Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44qcs59e8s-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0escuwy-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 15:56:32 +0000 (GMT)
+	Mon, 10 Feb 2025 15:56:38 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51AFuVIB025657
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51AFub5I025784
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Feb 2025 15:56:31 GMT
+	Mon, 10 Feb 2025 15:56:37 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 10 Feb 2025 07:56:25 -0800
+ 15.2.1544.9; Mon, 10 Feb 2025 07:56:31 -0800
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -61,10 +61,12 @@ To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <will@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 1/2] media: dt-bindings: Add qcom,sa8775p-camss
-Date: Mon, 10 Feb 2025 21:26:04 +0530
-Message-ID: <20250210155605.575367-2-quic_vikramsa@quicinc.com>
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        "Suresh
+ Vankadara" <quic_svankada@quicinc.com>
+Subject: [PATCH v1 2/2] arm64: dts: qcom: sa8775p: Add support for camss
+Date: Mon, 10 Feb 2025 21:26:05 +0530
+Message-ID: <20250210155605.575367-3-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
 References: <20250210155605.575367-1-quic_vikramsa@quicinc.com>
@@ -76,19 +78,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: pVI2PiM32VPK4feJx0p4c5blXYJ1MTEu
-X-Proofpoint-GUID: pVI2PiM32VPK4feJx0p4c5blXYJ1MTEu
+X-Proofpoint-GUID: tKyoLeHNgXZ1teCO-a49uQ-0IGObVi5i
+X-Proofpoint-ORIG-GUID: tKyoLeHNgXZ1teCO-a49uQ-0IGObVi5i
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-10_08,2025-02-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
- mlxlogscore=999 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- adultscore=0 clxscore=1015 mlxscore=0 priorityscore=1501 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2501170000
- definitions=main-2502100131
+ definitions=2025-02-10_09,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1015
+ suspectscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
+ priorityscore=1501 mlxscore=0 adultscore=0 spamscore=0 mlxlogscore=850
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502100132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_075641_555640_5090FA7C 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250210_075647_051817_7FC6CCB6 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,372 +105,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings for qcom,sa8775p-camss to support the camera subsystem
-on SA8775P platform.
+Add changes to support the camera subsystem on the SA8775P.
 
+Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 ---
- .../bindings/media/qcom,sa8775p-camss.yaml    | 351 ++++++++++++++++++
- 1 file changed, 351 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/qcom,sa8775p-camss.yaml
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi | 187 ++++++++++++++++++++++++++
+ 1 file changed, 187 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/qcom,sa8775p-camss.yaml b/Documentation/devicetree/bindings/media/qcom,sa8775p-camss.yaml
-new file mode 100644
-index 000000000000..083e1193c474
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/qcom,sa8775p-camss.yaml
-@@ -0,0 +1,351 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/qcom,sa8775p-camss.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
+index 3394ae2d1300..83640fef05d2 100644
+--- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
++++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
+@@ -7,6 +7,7 @@
+ #include <dt-bindings/interconnect/qcom,icc.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/qcom,rpmh.h>
++#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
+ #include <dt-bindings/clock/qcom,sa8775p-dispcc.h>
+ #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
+ #include <dt-bindings/clock/qcom,sa8775p-gpucc.h>
+@@ -3796,6 +3797,192 @@ videocc: clock-controller@abf0000 {
+ 			#power-domain-cells = <1>;
+ 		};
+ 
++		camss: isp@ac7a000 {
++			compatible = "qcom,sa8775p-camss";
 +
-+title: Qualcomm SA8775P CAMSS ISP
++			reg = <0x0 0xac7a000 0x0 0x0f01>,
++			      <0x0 0xac7c000 0x0 0x0f01>,
++			      <0x0 0xac84000 0x0 0x0f01>,
++			      <0x0 0xac88000 0x0 0x0f01>,
++			      <0x0 0xac8c000 0x0 0x0f01>,
++			      <0x0 0xac90000 0x0 0x0f01>,
++			      <0x0 0xac94000 0x0 0x0f01>,
++			      <0x0 0xac78000 0x0 0x1000>,
++			      <0x0 0xac9c000 0x0 0x2000>,
++			      <0x0 0xac9e000 0x0 0x2000>,
++			      <0x0 0xaca0000 0x0 0x2000>,
++			      <0x0 0xaca2000 0x0 0x2000>,
++			      <0x0 0xacac000 0x0 0x0400>,
++			      <0x0 0xacad000 0x0 0x0400>,
++			      <0x0 0xacae000 0x0 0x0400>,
++			      <0x0 0xac4d000 0x0 0xd000>,
++			      <0x0 0xac5a000 0x0 0xd000>,
++			      <0x0 0xac85000 0x0 0x0d00>,
++			      <0x0 0xac89000 0x0 0x0d00>,
++			      <0x0 0xac8d000 0x0 0x0d00>,
++			      <0x0 0xac91000 0x0 0x0d00>,
++			      <0x0 0xac95000 0x0 0x0d00>;
++			reg-names = "csid0",
++				    "csid1",
++				    "csid_lite0",
++				    "csid_lite1",
++				    "csid_lite2",
++				    "csid_lite3",
++				    "csid_lite4",
++				    "csid_wrapper",
++				    "csiphy0",
++				    "csiphy1",
++				    "csiphy2",
++				    "csiphy3",
++				    "tpg0",
++				    "tpg1",
++				    "tpg2",
++				    "vfe0",
++				    "vfe1",
++				    "vfe_lite0",
++				    "vfe_lite1",
++				    "vfe_lite2",
++				    "vfe_lite3",
++				    "vfe_lite4";
 +
-+maintainers:
-+  - Vikram Sharma <quic_vikramsa@quicinc.com>
++			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
++				 <&camcc CAM_CC_CSID_CLK>,
++				 <&camcc CAM_CC_CSIPHY0_CLK>,
++				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY1_CLK>,
++				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY2_CLK>,
++				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY3_CLK>,
++				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
++				 <&gcc   GCC_CAMERA_HF_AXI_CLK>,
++				 <&gcc   GCC_CAMERA_SF_AXI_CLK>,
++				 <&camcc CAM_CC_ICP_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_0_CLK>,
++				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_1_CLK>,
++				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
++			clock-names = "camnoc_axi",
++				      "core_ahb",
++				      "cpas_ahb",
++				      "cpas_fast_ahb_clk",
++				      "cpas_ife_lite",
++				      "cpas_vfe0",
++				      "cpas_vfe1",
++				      "csid",
++				      "csiphy0",
++				      "csiphy0_timer",
++				      "csiphy1",
++				      "csiphy1_timer",
++				      "csiphy2",
++				      "csiphy2_timer",
++				      "csiphy3",
++				      "csiphy3_timer",
++				      "csiphy_rx",
++				      "gcc_axi_hf",
++				      "gcc_axi_sf",
++				      "icp_ahb",
++				      "vfe0",
++				      "vfe0_fast_ahb",
++				      "vfe1",
++				      "vfe1_fast_ahb",
++				      "vfe_lite",
++				      "vfe_lite_ahb",
++				      "vfe_lite_cphy_rx",
++				      "vfe_lite_csid";
 +
-+description:
-+  The CAMSS IP is a CSI decoder and ISP present on Qualcomm platforms.
++			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "csid0",
++					  "csid1",
++					  "csid-lite0",
++					  "csid-lite1",
++					  "csid-lite2",
++					  "csid-lite3",
++					  "csid-lite4",
++					  "csiphy0",
++					  "csiphy1",
++					  "csiphy2",
++					  "csiphy3",
++					  "tpg0",
++					  "tpg1",
++					  "tpg2",
++					  "vfe0",
++					  "vfe1",
++					  "vfe-lite0",
++					  "vfe-lite1",
++					  "vfe-lite2",
++					  "vfe-lite3",
++					  "vfe-lite4";
 +
-+properties:
-+  compatible:
-+    const: qcom,sa8775p-camss
++			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
++					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
++					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
++					<&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ACTIVE_ONLY
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ACTIVE_ONLY>;
++			interconnect-names = "ahb",
++					     "hf_0",
++					     "sf_0";
 +
-+  reg:
-+    maxItems: 22
++			iommus = <&apps_smmu 0x3400 0x20>;
 +
-+  reg-names:
-+    items:
-+      - const: csid0
-+      - const: csid1
-+      - const: csid_lite0
-+      - const: csid_lite1
-+      - const: csid_lite2
-+      - const: csid_lite3
-+      - const: csid_lite4
-+      - const: csid_wrapper
-+      - const: csiphy0
-+      - const: csiphy1
-+      - const: csiphy2
-+      - const: csiphy3
-+      - const: tpg0
-+      - const: tpg1
-+      - const: tpg2
-+      - const: vfe0
-+      - const: vfe1
-+      - const: vfe_lite0
-+      - const: vfe_lite1
-+      - const: vfe_lite2
-+      - const: vfe_lite3
-+      - const: vfe_lite4
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
++			power-domain-names = "top";
 +
-+  clocks:
-+    maxItems: 28
++			status = "disabled";
 +
-+  clock-names:
-+    items:
-+      - const: camnoc_axi
-+      - const: core_ahb
-+      - const: cpas_ahb
-+      - const: cpas_fast_ahb_clk
-+      - const: cpas_ife_lite
-+      - const: cpas_vfe0
-+      - const: cpas_vfe1
-+      - const: csid
-+      - const: csiphy0
-+      - const: csiphy0_timer
-+      - const: csiphy1
-+      - const: csiphy1_timer
-+      - const: csiphy2
-+      - const: csiphy2_timer
-+      - const: csiphy3
-+      - const: csiphy3_timer
-+      - const: csiphy_rx
-+      - const: gcc_axi_hf
-+      - const: gcc_axi_sf
-+      - const: icp_ahb
-+      - const: vfe0
-+      - const: vfe0_fast_ahb
-+      - const: vfe1
-+      - const: vfe1_fast_ahb
-+      - const: vfe_lite
-+      - const: vfe_lite_ahb
-+      - const: vfe_lite_cphy_rx
-+      - const: vfe_lite_csid
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				port@0 {
++					reg = <0>;
++				};
 +
-+  interrupts:
-+    maxItems: 21
++				port@1 {
++					reg = <1>;
++				};
 +
-+  interrupt-names:
-+    items:
-+      - const: csid0
-+      - const: csid1
-+      - const: csid-lite0
-+      - const: csid-lite1
-+      - const: csid-lite2
-+      - const: csid-lite3
-+      - const: csid-lite4
-+      - const: csiphy0
-+      - const: csiphy1
-+      - const: csiphy2
-+      - const: csiphy3
-+      - const: tpg0
-+      - const: tpg1
-+      - const: tpg2
-+      - const: vfe0
-+      - const: vfe1
-+      - const: vfe-lite0
-+      - const: vfe-lite1
-+      - const: vfe-lite2
-+      - const: vfe-lite3
-+      - const: vfe-lite4
++				port@2 {
++					reg = <2>;
++				};
 +
-+  interconnects:
-+    maxItems: 3
++				port@3 {
++					reg = <3>;
++				};
++			};
++		};
 +
-+  interconnect-names:
-+    items:
-+      - const: ahb
-+      - const: hf_0
-+      - const: sf_0
-+
-+  iommus:
-+    maxItems: 1
-+
-+  power-domains:
-+    items:
-+      - description: Titan GDSC - Titan ISP Block, Global Distributed Switch Controller.
-+
-+  power-domain-names:
-+    items:
-+      - const: top
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    description:
-+      CSI input ports.
-+
-+    patternProperties:
-+      "^port@[0-3]+$":
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description:
-+          Input port for receiving CSI data on CSIPHY 0-3.
-+
-+        properties:
-+          endpoint:
-+            $ref: video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              data-lanes:
-+                minItems: 1
-+                maxItems: 4
-+
-+            required:
-+              - data-lanes
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - interconnects
-+  - interconnect-names
-+  - iommus
-+  - power-domains
-+  - power-domain-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/qcom,sa8775p-camcc.h>
-+    #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
-+    #include <dt-bindings/interconnect/qcom,sa8775p-rpmh.h>
-+    #include <dt-bindings/interconnect/qcom,icc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/power/qcom-rpmpd.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        isp@ac7a000 {
-+            compatible = "qcom,sa8775p-camss";
-+
-+            reg = <0x0 0xac7a000 0x0 0x0f01>,
-+                  <0x0 0xac7c000 0x0 0x0f01>,
-+                  <0x0 0xac84000 0x0 0x0f01>,
-+                  <0x0 0xac88000 0x0 0x0f01>,
-+                  <0x0 0xac8c000 0x0 0x0f01>,
-+                  <0x0 0xac90000 0x0 0x0f01>,
-+                  <0x0 0xac94000 0x0 0x0f01>,
-+                  <0x0 0xac78000 0x0 0x1000>,
-+                  <0x0 0xac9c000 0x0 0x2000>,
-+                  <0x0 0xac9e000 0x0 0x2000>,
-+                  <0x0 0xaca0000 0x0 0x2000>,
-+                  <0x0 0xaca2000 0x0 0x2000>,
-+                  <0x0 0xacac000 0x0 0x0400>,
-+                  <0x0 0xacad000 0x0 0x0400>,
-+                  <0x0 0xacae000 0x0 0x0400>,
-+                  <0x0 0xac4d000 0x0 0xd000>,
-+                  <0x0 0xac5a000 0x0 0xd000>,
-+                  <0x0 0xac85000 0x0 0x0d00>,
-+                  <0x0 0xac89000 0x0 0x0d00>,
-+                  <0x0 0xac8d000 0x0 0x0d00>,
-+                  <0x0 0xac91000 0x0 0x0d00>,
-+                  <0x0 0xac95000 0x0 0x0d00>;
-+            reg-names = "csid0",
-+                        "csid1",
-+                        "csid_lite0",
-+                        "csid_lite1",
-+                        "csid_lite2",
-+                        "csid_lite3",
-+                        "csid_lite4",
-+                        "csid_wrapper",
-+                        "csiphy0",
-+                        "csiphy1",
-+                        "csiphy2",
-+                        "csiphy3",
-+                        "tpg0",
-+                        "tpg1",
-+                        "tpg2",
-+                        "vfe0",
-+                        "vfe1",
-+                        "vfe_lite0",
-+                        "vfe_lite1",
-+                        "vfe_lite2",
-+                        "vfe_lite3",
-+                        "vfe_lite4";
-+
-+            clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+                     <&camcc CAM_CC_CORE_AHB_CLK>,
-+                     <&camcc CAM_CC_CPAS_AHB_CLK>,
-+                     <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
-+                     <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
-+                     <&camcc CAM_CC_CPAS_IFE_0_CLK>,
-+                     <&camcc CAM_CC_CPAS_IFE_1_CLK>,
-+                     <&camcc CAM_CC_CSID_CLK>,
-+                     <&camcc CAM_CC_CSIPHY0_CLK>,
-+                     <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+                     <&camcc CAM_CC_CSIPHY1_CLK>,
-+                     <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+                     <&camcc CAM_CC_CSIPHY2_CLK>,
-+                     <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+                     <&camcc CAM_CC_CSIPHY3_CLK>,
-+                     <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-+                     <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-+                     <&gcc   GCC_CAMERA_HF_AXI_CLK>,
-+                     <&gcc   GCC_CAMERA_SF_AXI_CLK>,
-+                     <&camcc CAM_CC_ICP_AHB_CLK>,
-+                     <&camcc CAM_CC_IFE_0_CLK>,
-+                     <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
-+                     <&camcc CAM_CC_IFE_1_CLK>,
-+                     <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
-+                     <&camcc CAM_CC_IFE_LITE_CLK>,
-+                     <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
-+                     <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
-+                     <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
-+            clock-names = "camnoc_axi",
-+                          "core_ahb",
-+                          "cpas_ahb",
-+                          "cpas_fast_ahb_clk",
-+                          "cpas_ife_lite",
-+                          "cpas_vfe0",
-+                          "cpas_vfe1",
-+                          "csid",
-+                          "csiphy0",
-+                          "csiphy0_timer",
-+                          "csiphy1",
-+                          "csiphy1_timer",
-+                          "csiphy2",
-+                          "csiphy2_timer",
-+                          "csiphy3",
-+                          "csiphy3_timer",
-+                          "csiphy_rx",
-+                          "gcc_axi_hf",
-+                          "gcc_axi_sf",
-+                          "icp_ahb",
-+                          "vfe0",
-+                          "vfe0_fast_ahb",
-+                          "vfe1",
-+                          "vfe1_fast_ahb",
-+                          "vfe_lite",
-+                          "vfe_lite_ahb",
-+                          "vfe_lite_cphy_rx",
-+                          "vfe_lite_csid";
-+
-+            interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
-+                         <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
-+            interrupt-names = "csid0",
-+                              "csid1",
-+                              "csid-lite0",
-+                              "csid-lite1",
-+                              "csid-lite2",
-+                              "csid-lite3",
-+                              "csid-lite4",
-+                              "csiphy0",
-+                              "csiphy1",
-+                              "csiphy2",
-+                              "csiphy3",
-+                              "tpg0",
-+                              "tpg1",
-+                              "tpg2",
-+                              "vfe0",
-+                              "vfe1",
-+                              "vfe-lite0",
-+                              "vfe-lite1",
-+                              "vfe-lite2",
-+                              "vfe-lite3",
-+                              "vfe-lite4";
-+
-+            interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+                             &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-+                            <&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-+                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+                            <&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ACTIVE_ONLY
-+                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ACTIVE_ONLY>;
-+            interconnect-names = "ahb",
-+                                 "hf_0",
-+                                 "sf_0";
-+
-+            iommus = <&apps_smmu 0x3400 0x20>;
-+
-+            power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-+            power-domain-names = "top";
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+            };
-+        };
-+    };
+ 		camcc: clock-controller@ade0000 {
+ 			compatible = "qcom,sa8775p-camcc";
+ 			reg = <0x0 0x0ade0000 0x0 0x20000>;
 -- 
 2.25.1
 
