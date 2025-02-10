@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9379DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B4DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95fC/C95p1+hJwvVm5h6wvO5Q4omEjar82baF+zynPs=; b=kwWykLuWEUAsfVtX3oHyMNBDdb
-	dH6RWvBZRoz3TGuKW0hAwPFDct1LuM3QT133/BhcJjdBgq5/B+Wu/mrWK8PKU9t8WTtdiMj2qixeT
-	YdaGlE2O93tHe1Z2r1kzpSQDhb0RKYejkXXHxzBlDbsA4KcN9eLW38vrPCzPizGEKxCk3PRg+Ev4p
-	nlsFcSIVxvyNFltbxlrhqiRHyY28+fEQ1h3kN03CT/RYIGxnrufQ70YuWdXnIEirQSjh8X7KB0UMk
-	1rQdpaa0anf9gBHd2YQrjImM1qvsFDpbkuhPOZ5dhgFvCLaS+VQD+aSdB+skMLmOrj02vQ3YUyDy0
-	tLzC034w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YcfQoattcfAtqhYK+I0xVSz5YvJgMhhlIZULFz+ZEuM=; b=DSzFJS99iUV3kP/rvTsObcO2pW
+	H1xZPMRVCkb0PTBhrgznxTUYD1MkzxnlOsM6Lj50k5GS6mdJcDBdjqPxapmAy10BCZf3H3OogIJ3d
+	k40wUBI19ZmWh4akght21Qs9WDgIadug4CdWVEb+peyPr9OaF2xq+Yw9Gs8b9k1TdQH4KLJmwgT+8
+	+WWoJRgjASkLwFkKL/DXlkIhACKVd7eyoSVzb5LBmO7ErpN1bQWp5hzP80771aH9GJG7esMCaj2GU
+	7yFMJRt+jyS1shWIPYW5USjA2Q/VYDYOu04hRwn4cYGe8G1F4U1EJ9qAsSlA0kHSUlMPrevjgh3Zj
+	I/wLUBYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZnn-00000001E5a-1kma;
-	Mon, 10 Feb 2025 19:50:43 +0000
-Received: from mail-ej1-f48.google.com ([209.85.218.48])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZmN-00000001DgN-13xk
+	id 1thZr7-00000001EtT-1Dsb;
+	Mon, 10 Feb 2025 19:54:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thZpf-00000001EXm-210y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 19:49:16 +0000
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-ab7c07e8b9bso239996266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 11:49:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739216953; x=1739821753;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=95fC/C95p1+hJwvVm5h6wvO5Q4omEjar82baF+zynPs=;
-        b=Aws6TqXJeGjuWgAr5sCem/itpYqJckbU6CqRfLE+GgjU5W0DjQ2qhdegpqSlhmc9tR
-         sjliKz6aUvgdmQJWCijcsZqe1NyYwthVpSaHH9O38cmtAsL18MIET4dVmAJLfH/c+pvZ
-         yvUe94AkGtwajd69QM85Ha2EngrrLDVCxucYexF34W5AOw+JqHc17kedEf3kkw4CuvVE
-         FGcWxSf5xd7rrlBD/RVwOte4oTAOyZ4Mc+XOb8E9ILKv1iiARN6F0llDAd5Tb6ND9afH
-         wrZeMao5dijeNGavC9wjmk7y7MrG5OROk1IZ43nitqzlqymM5L5iCpfeieTuT5xooraB
-         Fz6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVk3AI1v+p18uRYZ7lYY/EZgG1dGdjwa5oRk9eEdW944XxKrhfJP21NAfEuqvAYl4Xb0fjKlgM/b/wALkxPL1+P@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRKzh2C2xnm4De5NaKbs+lkyWBqYLE+UO4K2W9eJYT3PqXi2mh
-	p3e431/rHAoBPsmQvitzY6Rje/W5a7NOm93fmqAzQClfE9h3evoSVtdOljN5ZFI=
-X-Gm-Gg: ASbGnct2fxFJd+PeDfhwsiD2OqRJWMC+6IeaDNq9oko35QynPmjVJDCNkGh2WgNsjeQ
-	DZA7wfp93hsRh594SlpOVJYhEmk1Oo+vYc36D8cf2BAQKRRyB9cCenKvZ+6/G8moy86Wn7xPNK1
-	PMPJI8ueX68i/mzqjwQ+ljNkARxsGAbXQs2E9TOGbctF0PLJ7c+NbIGXgRGOZt70zPRfC8q+t9p
-	UWhO5HZRU6rtACfmw1d0PSVl+qSIznCs2KW/1CX7jGeepFx8lb1a53px3ft2B1gU3VVk2GwRMaf
-	gfgt85rSNflkqz10iakhBUV7LDUoZna20C3MPAkL3Ok2iA==
-X-Google-Smtp-Source: AGHT+IGC6TzQw5hLLI5xdeG4JgkLzWAGdpgM2G5mZ5w952Fx0X2p67D4bzGFpCMzGcd2KSgS8k7o1g==
-X-Received: by 2002:a17:907:86a1:b0:ab7:b0e4:aa93 with SMTP id a640c23a62f3a-ab7b0e4b16amr739977866b.13.1739216952394;
-        Mon, 10 Feb 2025 11:49:12 -0800 (PST)
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com. [209.85.208.48])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7d72ae04fsm56679466b.46.2025.02.10.11.49.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Feb 2025 11:49:11 -0800 (PST)
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-5de77a5d2a2so2777992a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 11:49:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW5bTpoaWNg8D4QPrX24Os524ZGOtJCGEL43BwqoYM8IfbkCb96b02qErpdSgkgX7c+ITM/VDgq1r/2ikI43wGP@lists.infradead.org
-X-Received: by 2002:a05:6402:2106:b0:5dc:a44d:36bd with SMTP id
- 4fb4d7f45d1cf-5de4500274cmr13498767a12.8.1739216951504; Mon, 10 Feb 2025
- 11:49:11 -0800 (PST)
+	Mon, 10 Feb 2025 19:52:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C86591477;
+	Mon, 10 Feb 2025 11:52:57 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EA34C3F58B;
+	Mon, 10 Feb 2025 11:52:32 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	eric.auger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: [PATCH v3 0/8] KVM: arm64: FPSIMD/SVE/SME fixes
+Date: Mon, 10 Feb 2025 19:52:18 +0000
+Message-Id: <20250210195226.1215254-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
-In-Reply-To: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
-From: Neal Gompa <neal@gompa.dev>
-Date: Mon, 10 Feb 2025 14:48:35 -0500
-X-Gmail-Original-Message-ID: <CAEg-Je9BskhHuehHLES=5WNPk2jjd=38207XsfEmFDMiF=b0bA@mail.gmail.com>
-X-Gm-Features: AWEUYZnvFQWMfElhV3JVfcrxv5vOkguawqzwZra2J81VWXgm4X-CWu02f7-pmbw
-Message-ID: <CAEg-Je9BskhHuehHLES=5WNPk2jjd=38207XsfEmFDMiF=b0bA@mail.gmail.com>
-Subject: Re: [PATCH 0/5] iommu: apple-dart: Support locked DARTs
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, Joerg Roedel <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_114915_291500_04672B49 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250210_115239_603539_4C9A6D1F 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +72,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 2:44=E2=80=AFPM Alyssa Rosenzweig <alyssa@rosenzwei=
-g.io> wrote:
->
-> Some DARTs on Apple SoCs are "locked" at boot time, meaning we cannot
-> write most of their configuration registers. Currently, we refuse to
-> probe locked DARTs and do not include any in the upstream device trees.
-> However, the DARTs used for the display controller are locked, so we
-> need to handle locked DARTs as a prerequisite for a KMS driver.
->
-> This series teaches the iommu/apple-dart driver about locked DARTs,
-> preparing for a future upstream display driver. It has been extensively
-> tested downstream with our work-in-progress display driver.
->
-> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> ---
-> Alyssa Rosenzweig (5):
->       iommu/dart: Track if the DART is locked
->       iommu/dart: Skip reset for locked DARTs
->       iommu/dart: Set DMA domain for locked DARTs
->       iommu/dart: Reject identity domain for locked DARTs
->       iommu/dart: Assert !locked when configuring
->
->  drivers/iommu/apple-dart.c | 47 +++++++++++++++++++++++++++++++---------=
-------
->  1 file changed, 32 insertions(+), 15 deletions(-)
-> ---
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> change-id: 20250210-locked-dart-d7ece05f19a8
->
-> Best regards,
-> --
-> Alyssa Rosenzweig <alyssa@rosenzweig.io>
->
->
+These patches fix some issues with the way KVM manages FPSIMD/SVE/SME
+state. The series supersedes my earlier attempt at fixing the host SVE
+state corruption issue:
 
-Series LGTM, having looked over this many times as part of kernel
-maintenance for Fedora Asahi Remix.
+  https://lore.kernel.org/linux-arm-kernel/20250121100026.3974971-1-mark.rutland@arm.com/
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
+Patch 1 addresses the host SVE state corruption issue by always saving
+and unbinding the host state when loading a vCPU, as discussed on the
+earlier patch:
 
+  https://lore.kernel.org/linux-arm-kernel/Z4--YuG5SWrP_pW7@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86plkful48.wl-maz@kernel.org/
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+Patches 2 to 4 remove code made redundant by patch 1. These probably
+warrant backporting along with patch 1 as there is some historical
+brokenness in the code they remove.
+
+Patches 5 to 7 are preparatory refactoring for patch 8, and are not
+intended to have any functional impact.
+
+Patch 8 addresses some mismanagement of ZCR_EL{1,2} which can result in
+the host VMM unexpectedly receiving a SIGKILL. To fix this, we eagerly
+switch ZCR_EL{1,2} at guest<->host transitions, as discussed on another
+series:
+
+  https://lore.kernel.org/linux-arm-kernel/Z4pAMaEYvdLpmbg2@J2N7QTR9R3/
+  https://lore.kernel.org/linux-arm-kernel/86o6zzukwr.wl-maz@kernel.org/
+  https://lore.kernel.org/linux-arm-kernel/Z5Dc-WMu2azhTuMn@J2N7QTR9R3/
+
+The end result is that KVM loses ~100 lines of code, and becomes a bit
+simpler to reason about.
+
+I've pushed these patches to the arm64-kvm-fpsimd-fixes-20250210 tag on my
+kernel.org repo:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
+  git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
+
+The (unstable) arm64/kvm/fpsimd-fixes branch in that repo contains the
+fixes plus additional debug patches I've used for testing. I've given
+this some basic testing on a virtual platform, booting a host and a
+guest with and without constraining the guest's max SVE VL, with:
+
+* kvm_arm.mode=vhe
+* kvm_arm.mode=nvhe
+* kvm_arm.mode=protected (IIUC this will default to hVHE)
+
+Since v1 [1]:
+* Address some additional compiler warnings in patch 7
+* Use ZCR_EL1 alias in VHE code
+* Fold in Tested-by and Reviewed-by tags
+* Fix typos
+
+Since v2 [2]:
+* Ensure context synchronization in patch 8
+* Fold in Tested-by and Reviewed-by tags
+* Fix typos
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250204152100.705610-1-mark.rutland@arm.com/
+[2] https://lore.kernel.org/linux-arm-kernel/20250206141102.954688-1-mark.rutland@arm.com/
+
+Mark.
+
+Mark Rutland (8):
+  KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+  KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+  KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+  KVM: arm64: Refactor CPTR trap deactivation
+  KVM: arm64: Refactor exit handlers
+  KVM: arm64: Mark some header functions as inline
+  KVM: arm64: Eagerly switch ZCR_EL{1,2}
+
+ arch/arm64/include/asm/kvm_emulate.h    |  42 --------
+ arch/arm64/include/asm/kvm_host.h       |  22 +---
+ arch/arm64/kernel/fpsimd.c              |  25 -----
+ arch/arm64/kvm/arm.c                    |   8 --
+ arch/arm64/kvm/fpsimd.c                 | 100 ++----------------
+ arch/arm64/kvm/hyp/entry.S              |   5 +
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 133 +++++++++++++++++-------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  15 ++-
+ arch/arm64/kvm/hyp/nvhe/switch.c        |  91 ++++++++--------
+ arch/arm64/kvm/hyp/vhe/switch.c         |  33 +++---
+ 10 files changed, 187 insertions(+), 287 deletions(-)
+
+-- 
+2.30.2
+
 
