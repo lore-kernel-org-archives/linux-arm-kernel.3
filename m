@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F76C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02546C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 11:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYHYMMQNyPankXBbRMqXeOpq9/s7Dc9NDhL2nVI10Tc=; b=yhygz2aML5RBPFniwoczn0xTj0
-	w9yUwBCDDnaB/7OsnPh8Kr0rdJocmTRaaoYRjthMMmgD/l1fdahy6mlJOfGLXr/gyCs8MATDJ0cpi
-	t93VEXiu/qSeFZXBHb6FpXtivIxAPH33FB/+66vaNzp4+//m2wyJPizXdwQTsGM2qF2aoBVdrP2Od
-	dwuyJ2e5seCmN7QwfJ08FiCvKJ9gCt2cNmm4ahS/9fgZkj61kAgkAECR6LJa+BtnVThMr3MsQZgo5
-	4PUhq1AjbG9EY6JOQURUNrU3LsB1damDGTKM4bi+opsqvFZRBbZY9K0fMGbYXBDnoulJtqndU6Fkr
-	KL4gqdhg==;
+	bh=701lOTwvBQqrihNU39WbbYRFpPnSdZwDaGPQJEns54E=; b=N5CFwzabnmUlEoV/BI+90skdy/
+	1rzZTYnhcKehlePdOwjDmpYuthkuJitl+6M9efQsTEBPT63hVTgYtPYQp8cmUt9PanraICFNZN35s
+	l5tpVch5Uu3TDpvJURw3l8jOaDAMWxq6FO3XBWk3aN28C9nVnUG1sfY40EbY+ngSGvgtEoCvdsG92
+	hEW08CHTaamdlZcUhhRlJZP9fsNfgbeqExEnp6kPrpPBRiMqDrloxCzXZ2ipYVnynW+NS80X9bn3K
+	BJeehEoPrajDANgTRtIvVhI4nmUgtWCrwgdhW+46fDyA/ft67psLaSpe3uv6QnURhxaj08UHf/zsH
+	vK+QgwCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRoQ-0000000HBjx-11Zt;
-	Mon, 10 Feb 2025 11:18:50 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1thRpn-0000000HBxL-12wj;
+	Mon, 10 Feb 2025 11:20:15 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRR2-0000000H6GT-18kZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:54:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IYHYMMQNyPankXBbRMqXeOpq9/s7Dc9NDhL2nVI10Tc=; b=QP//V3t18OO0hFgu+zzzoHQOkZ
-	kOJSfDPLML7lHNFcjzf7zWpDNgGZBWYzKACMuQE5fCBK7m4sQamOecnzjT5yuYZm9rohYBAOxGGPs
-	33rUny1NaW6Smkd3+wJ/wGu3wWXXetgN855Cl0uLnzNqg3v7XYuJALkg2ccqYpngXRVWViY2l9OHi
-	G1sZmjaBUoeI1zbG7spCvBzsRF2Czxhqr00T5m416n3fM8f0jVEZ/1ebpQUj9jGhAbVaTAo/eaG3y
-	Ai0MPfhvc8OhWzYE129eQizMaoqW5KIYf5+sA4VjijdRmcehweX+zPtYVoQdEE7CvNkeNyTvNFOrF
-	gdbDSBCA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47894 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1thRQx-0006X5-15;
-	Mon, 10 Feb 2025 10:54:35 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1thRQd-003w7a-MM; Mon, 10 Feb 2025 10:54:15 +0000
-In-Reply-To: <Z6naiPpxfxGr1Ic6@shell.armlinux.org.uk>
-References: <Z6naiPpxfxGr1Ic6@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 8/8] net: xpcs: group EEE code together
+	id 1thRT1-0000000H6qU-2v8k;
+	Mon, 10 Feb 2025 10:56:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739185002;
+	bh=ktC9CGjjL2cK7vFGI+t8o65NobGAFD0a2MtqEaxpWTI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VDIALnGMNk86NrAPmfAd//FQLk4s/j7kOe0F0n8rU1AgHnkN+pGf2mMHWtgI2EcLT
+	 EJuZCOQfrFUko7tDluFAUWNZ+QgrJ/t0yExuxM+74rynDfLRqcsFoJf23rVUQQlB26
+	 TwrHNQxxJdHe5gcN+8SsrU7j5IVjGvzgu0TvvCtCwx10WGhQV2WC7X0RBjUwt7mmkW
+	 QrW+7OO7oAR6TbKLfDGGroGrKflj6HdDOmsDI+WDwqsvxJ1lSRlNEGgINxLDJtrdcn
+	 mCX83JTYosnDUGW4HNpIM4CQupfp2bHWXNP6A/mSxhGuCW0yfzBc9iUhPsm14DKUiH
+	 wxQwbGJSDiGDg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9E57917E0EA4;
+	Mon, 10 Feb 2025 11:56:41 +0100 (CET)
+Message-ID: <b56a7597-fa39-4e02-b601-db05bfa48472@collabora.com>
+Date: Mon, 10 Feb 2025 11:56:40 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1thRQd-003w7a-MM@rmk-PC.armlinux.org.uk>
-Date: Mon, 10 Feb 2025 10:54:15 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw variants
+ of bpi-r4
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250207135501.30741-1-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250207135501.30741-1-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_025440_320652_F92F8EAB 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250210_025643_881031_A3782F01 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move xpcs_config_eee() with the other EEE-related functions.
+Il 07/02/25 14:54, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> Sinovoip has released other variants of Bananapi-R4 board.
+> The known changes affecting only the LAN SFP+ slot which is replaced
+> by a 2.5G phy with optional PoE.
+> 
+> As the SFP-Ports are not upstreamed yet this patch simply renames the
+> current board dts to dtsi, creating new dts for the board including
+> the new dtsi and move i2c-mux channel for sfp lan to board dts.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/pcs/pcs-xpcs.c | 58 +++++++++++++++++++-------------------
- 1 file changed, 29 insertions(+), 29 deletions(-)
+I understand what's going on, and I agree, but this change alone doesn't make a lot
+of sense, does it?
 
-diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-index cae6e8377191..ee0c1a27f06c 100644
---- a/drivers/net/pcs/pcs-xpcs.c
-+++ b/drivers/net/pcs/pcs-xpcs.c
-@@ -602,35 +602,6 @@ static void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces)
- 		__set_bit(compat->interface, interfaces);
- }
- 
--static int xpcs_config_eee(struct dw_xpcs *xpcs, bool enable)
--{
--	u16 mask, val;
--	int ret;
--
--	mask = DW_VR_MII_EEE_LTX_EN | DW_VR_MII_EEE_LRX_EN |
--	       DW_VR_MII_EEE_TX_QUIET_EN | DW_VR_MII_EEE_RX_QUIET_EN |
--	       DW_VR_MII_EEE_TX_EN_CTRL | DW_VR_MII_EEE_RX_EN_CTRL |
--	       DW_VR_MII_EEE_MULT_FACT_100NS;
--
--	if (enable)
--		val = DW_VR_MII_EEE_LTX_EN | DW_VR_MII_EEE_LRX_EN |
--		      DW_VR_MII_EEE_TX_QUIET_EN | DW_VR_MII_EEE_RX_QUIET_EN |
--		      DW_VR_MII_EEE_TX_EN_CTRL | DW_VR_MII_EEE_RX_EN_CTRL |
--		      FIELD_PREP(DW_VR_MII_EEE_MULT_FACT_100NS,
--				 xpcs->eee_mult_fact);
--	else
--		val = 0;
--
--	ret = xpcs_modify(xpcs, MDIO_MMD_VEND2, DW_VR_MII_EEE_MCTRL0, mask,
--			  val);
--	if (ret < 0)
--		return ret;
--
--	return xpcs_modify(xpcs, MDIO_MMD_VEND2, DW_VR_MII_EEE_MCTRL1,
--			   DW_VR_MII_EEE_TRN_LPI,
--			   enable ? DW_VR_MII_EEE_TRN_LPI : 0);
--}
--
- static void xpcs_pre_config(struct phylink_pcs *pcs, phy_interface_t interface)
- {
- 	struct dw_xpcs *xpcs = phylink_pcs_to_xpcs(pcs);
-@@ -1192,6 +1163,35 @@ static void xpcs_an_restart(struct phylink_pcs *pcs)
- 		    BMCR_ANRESTART);
- }
- 
-+static int xpcs_config_eee(struct dw_xpcs *xpcs, bool enable)
-+{
-+	u16 mask, val;
-+	int ret;
-+
-+	mask = DW_VR_MII_EEE_LTX_EN | DW_VR_MII_EEE_LRX_EN |
-+	       DW_VR_MII_EEE_TX_QUIET_EN | DW_VR_MII_EEE_RX_QUIET_EN |
-+	       DW_VR_MII_EEE_TX_EN_CTRL | DW_VR_MII_EEE_RX_EN_CTRL |
-+	       DW_VR_MII_EEE_MULT_FACT_100NS;
-+
-+	if (enable)
-+		val = DW_VR_MII_EEE_LTX_EN | DW_VR_MII_EEE_LRX_EN |
-+		      DW_VR_MII_EEE_TX_QUIET_EN | DW_VR_MII_EEE_RX_QUIET_EN |
-+		      DW_VR_MII_EEE_TX_EN_CTRL | DW_VR_MII_EEE_RX_EN_CTRL |
-+		      FIELD_PREP(DW_VR_MII_EEE_MULT_FACT_100NS,
-+				 xpcs->eee_mult_fact);
-+	else
-+		val = 0;
-+
-+	ret = xpcs_modify(xpcs, MDIO_MMD_VEND2, DW_VR_MII_EEE_MCTRL0, mask,
-+			  val);
-+	if (ret < 0)
-+		return ret;
-+
-+	return xpcs_modify(xpcs, MDIO_MMD_VEND2, DW_VR_MII_EEE_MCTRL1,
-+			   DW_VR_MII_EEE_TRN_LPI,
-+			   enable ? DW_VR_MII_EEE_TRN_LPI : 0);
-+}
-+
- static void xpcs_disable_eee(struct phylink_pcs *pcs)
- {
- 	struct dw_xpcs *xpcs = phylink_pcs_to_xpcs(pcs);
--- 
-2.30.2
+If I were to see a commit that moves everything in a dtsi, and justifies that by
+adding two dts for the two variants, though, things would be different.... :-)
 
+Cheers,
+Angelo
+
+> ---
+>   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 404 +-----------------
+>   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 403 +++++++++++++++++
+>   2 files changed, 407 insertions(+), 400 deletions(-)
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+> 
 
