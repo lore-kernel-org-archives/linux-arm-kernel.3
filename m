@@ -4,57 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9516FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6719DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 17:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AJq/DbnAu7CYKu8ZlgeZYkydXunGRVZL6/T78Qy7bPY=; b=jnEZ59P3G/ZDpe
-	grrTDmdEVBRCn+bL6tUGZA1jj98JthisE3gaP860GiYW7VFigrTgRzlSv/ASoFzWTy2qo1txS/xf5
-	dZSPaEEUhoQDlWfl9UAvLtadNHqpTxJWkqB+zd41Sm0/Dp3L0toO5/KmSUJAFAVarSO0APQsIMN8w
-	4F9nZbUPeDK+tPJSDQaBVudQa4DiVJlUEwlopnQG71JFQMKcKI/HaCKpCW3CaIWcJSSn5E7P09GwV
-	RjcYr9Ke0yvVWj7VmT68/7NBfCMeonQo2r8T7pkr9VC2s4I+pfeDcQkN92c2vp8LQSOlqErvbfe24
-	6cnbqsXUDPT4Sh8Pcoow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aXlWlZewiLaBruZr8+A/vMMhf5kv4eeyowMHx4L+WnI=; b=nHoD9h9PILz8S+NQn14vZ5l2z1
+	e3m0AiPXrL43IzspKtbimQdI3wZ0I3oMjBXeO0KYGv/M59bD01mrhziwFksDQmGx0XNLiG2IQx39c
+	wEgS10IR54rhjx/+gZw3m6/M1E1b/DMLG/Xh4V4w6JVYqZLyT7obIX6bXNe2ubNI/QSbt9u6DVe9i
+	cBMRefq/hqWmg+XiKpd5NOsZgfGz7lbugss8pEUIpXgeuwbwvKd8F/AgiDKvGZBwrIiMACOLfGbrm
+	OiG6veGgk+47PRI9mZlT636+QHpdiSnjA38E6ccnRh4Jgwh8Q1E4/7ET7VO8YgRN5QlOa/oClMbal
+	moDGS2nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thY0X-00000000oZG-380w;
-	Mon, 10 Feb 2025 17:55:45 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1thY1H-00000000oky-1npz;
+	Mon, 10 Feb 2025 17:56:31 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWuO-00000000ZLw-2uFA
+	id 1thXzs-00000000oRy-1kMz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 16:45:22 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4C841480321;
-	Mon, 10 Feb 2025 17:45:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1739205917;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AJq/DbnAu7CYKu8ZlgeZYkydXunGRVZL6/T78Qy7bPY=;
-	b=FXzt1v/NGV9VVrv9XiPdMs5VuLSW6s8lDJixS5p1hVswr91HxKVEiUWtOEKMyH1PdeIE8q
-	3wz2izQofSjcTYsbz6vDxuX/3b4ZPN1ZnuQ8JxIdx1LcRrhbgfCWZz38DNMR+FJpSzJXh/
-	5ZUltJvfrripaYoax872kJg1REvx34vyETQu7VGp5BjlY7uU2JI8YOQjrOff+IeTLyrYuH
-	7SEOZ/8SZl4LOO45U3b3afSdMpz+8LWj/QXHOzNxfrD8Z0rVIWrfpjUqwlc4kpn0S8m+FF
-	JrJyZ9A37UEoTg7E1Oi+siFAVlnoy4XBMrXTzs5VW+krBrr/ll7ktQW9MyxB8A==
-From: Alexander Dahl <ada@thorsis.com>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: [PATCH v2 02/16] ARM: dts: microchip: Use new PMC bindings
-Date: Mon, 10 Feb 2025 17:44:52 +0100
-Message-Id: <20250210164506.495747-3-ada@thorsis.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250210164506.495747-1-ada@thorsis.com>
-References: <20250210164506.495747-1-ada@thorsis.com>
+	Mon, 10 Feb 2025 17:55:05 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 519NICn9007889;
+	Mon, 10 Feb 2025 09:54:47 -0800
+Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2042.outbound.protection.outlook.com [104.47.66.42])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44pw2r2crv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Feb 2025 09:54:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j2u/W74QDQRhGYrP6gVra4xsVFYJ4Zy2EtutZLwADcPuMGKPCVKYG5bBbTSQX34/nE+QT7YWeqX9VvHCDQRtwonQxFbeYtBa/ohBkrGpqyjsqTPu1TBuwLdJsjzMAUjairVpbUdIDhBdpMzuBgBERwgEdiy2Nfnm/+sjTHAR9Z1vN6q9jaxNZ889v/9zP0hc5bglTayl2k0RFjtfRQHR58T9SVV+cdqvPaTXItnDeQPeG3GMW0B1IcVsSJ0UefISFa1LjzOt/CU/+iAUnPpyEmI4wocyGZaqcBl87Al834L8tQ5Kf3Z7pTCfnhD7CXyxCY94whhgDk/mi6XJhWzZ8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FSYSgmX3fU4LGU4sZNnfRkhBL7zlV+/ywl30N1qmMfQ=;
+ b=Df6p4BnrOcQt3dPNmZ9TFYP1NFKmsK7pjv+oK0coNufhKiz47y9eo5p+u+UURbl89RGeB5JyT3Rx3Wt7MqGb7tHX8SbprM0f+nilzH98ZS/oi/HNP7qVaIo5ULcvjEja6zfcarV3ssaxgWIB6IA8W5kzAb98ZD2Salz6YT94FxOdyFg2NUHZ+uYEoB/yNfptKxt8hw4OHucnxEoAJCc4Mz+iaIrackhd3paEg9dN4xlkmJCkq6oPrFhbrtB7DuyDiXWoVEGVaBKycayZSt90eoKvAxdeAfnniGgeOZ1h0m2cwqyqD0v8EUJO2fAfgic0UiuhOAz03U0CBcPs7EhhcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FSYSgmX3fU4LGU4sZNnfRkhBL7zlV+/ywl30N1qmMfQ=;
+ b=LMVzhSKeTk0Gn/XMQtBmAzozGfEKoC8C1c6bYFxoWNbSvygrSMhwRnOxiEDn0mW8SdMh3EARGJ/bRuVKZD62f9YIQt37HWMrHCCo75vvIQTtci0D7PWJrlWEdvCQ9uh1CLP+Ds1aOf62I17nUuMyZq11K0lkS/lk21pzdgUK/PU=
+Received: from CO1PR18MB4682.namprd18.prod.outlook.com (2603:10b6:303:e5::12)
+ by SJ0PR18MB5088.namprd18.prod.outlook.com (2603:10b6:a03:437::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
+ 2025 17:54:44 +0000
+Received: from CO1PR18MB4682.namprd18.prod.outlook.com
+ ([fe80::ca55:457f:38a6:5ee]) by CO1PR18MB4682.namprd18.prod.outlook.com
+ ([fe80::ca55:457f:38a6:5ee%7]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
+ 17:54:44 +0000
+From: Wilson Ding <dingwei@marvell.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: "cassel@kernel.org" <cassel@kernel.org>,
+        Bjorn Helgaas
+	<helgaas@kernel.org>,
+        "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+        "thomas.petazzoni@bootlin.com" <thomas.petazzoni@bootlin.com>,
+        "kw@linux.com"
+	<kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+        "bhelgaas@google.com"
+	<bhelgaas@google.com>,
+        "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        Sanghoon Lee <salee@marvell.com>
+Subject: Re: [PATCH 1/1] PCI: armada8k: Add link-down handle
+Thread-Topic: [PATCH 1/1] PCI: armada8k: Add link-down handle
+Thread-Index: AQHbe+TdhFpf+VtWCUaTz/qc3I6GNA==
+Date: Mon, 10 Feb 2025 17:54:43 +0000
+Message-ID: <CO1PR18MB46826E60C5512A113B5F8938A7F22@CO1PR18MB4682.namprd18.prod.outlook.com>
+References: <20241112213255.GA1861331@bhelgaas>
+ <AD287CCE-9FFE-49BC-B9CA-B5CED4F05AF1@linaro.org>
+ <BY3PR18MB46737FB5FDBD75CF31B505B8A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <BY3PR18MB4673207A36B2CD7C3B75EBA0A7EB2@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <20250207175759.jzmoox5mke3rachy@thinkpad>
+ <BY3PR18MB46738F5857319F9637FA5050A7F12@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <20250208103618.2binrjgry7ghoavc@thinkpad>
+In-Reply-To: <20250208103618.2binrjgry7ghoavc@thinkpad>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR18MB4682:EE_|SJ0PR18MB5088:EE_
+x-ms-office365-filtering-correlation-id: 3d01d8fc-cee2-4852-1a9b-08dd49fc003a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?NTFlQVdOSU0rS1pmWkVDVE1LaGY3QkpsbmgrU0lqZDB4WG00WGxVY1dWazlY?=
+ =?utf-8?B?Tm5pcGZJY0VpQmczZHNOV2RMK2dpbXlGTHVWOE9Fd2sxa0gyeEN4YVRQOURC?=
+ =?utf-8?B?VzlDSStQSXJPdVRFK0dpTkM4dmVCQXF5eFFZMVk4dHNnRTRwWHlyOVRQdkY4?=
+ =?utf-8?B?L2dDNlNDUmp0L2c5d1owN1dZV281NWNvdnlEVVQxMm1WU3NTb0NFZkxTemE1?=
+ =?utf-8?B?RWFrWHk5TkhiWnFvZzRBR3RXT1NzcjRDTExWSk1LM2haSDdCMW1yOXBGLytp?=
+ =?utf-8?B?eVRJVlc3YmVLZkVadThGTWlDTjRYbFh3TnBzR0JxMFFRL1VRTjBzanUxNm16?=
+ =?utf-8?B?MVBvV0hjdzU3UmVIWWwwVnBNalN3VW5nRHNxTk43TmxDVXkwUFNHTE56dkph?=
+ =?utf-8?B?NVEwSzFKTVVCUWh1dUsxSGdsNWhvQVpjT3ZDU3l2MDdjWjVzSk84QnZMT2p0?=
+ =?utf-8?B?RlN3aFM4Z3FRTFJlRkxrS0ExUUIvd3UvTldrSkNGckwvMDdKOFBDSWFKRHhw?=
+ =?utf-8?B?RWRuR1NUdUVkQmRSaEVhc1krOUVJbUJKVWNnNjBBcXhBbXU5MGE0dGJSQkEv?=
+ =?utf-8?B?ZG95Q3RndzRrWjkvSU91TWMvbHEreCtRYm5KS3FSb0sxR3BDZXJ5OGJiem9V?=
+ =?utf-8?B?dVNuS0hIMVdpdFdqRTlxMzFjOHBpSG9TblUzcDh3MnpFUitFcjBRNW1rTXo4?=
+ =?utf-8?B?Q3d0YUYwR1EvQmNhaEo3azRBOFJKVTRBajlDaVFGc2tqSUV5bzN0aVNmeDYw?=
+ =?utf-8?B?Q2Y5SG1Ia0tZVW4rc3RjQWdETCtvWGtSM3pjM3Z1NUs3QWo2R09NMDFVemJR?=
+ =?utf-8?B?Y3B6QWlpSFVYT0RQd3FJQnFLbzdjWUllei92MkxxMlhZSXJaZGM5TFhrRnBR?=
+ =?utf-8?B?WDV1OWlSdUFsczlveVc4Z3MyYzBFM2hFbURFMTl5ZktWOE9DcS84NVhCNHdm?=
+ =?utf-8?B?SUpqUkNZeEtVVVdqZnN0VkxuQUFwZXYwclpJMmFZcjlpanZmbFY0N0hQZTRP?=
+ =?utf-8?B?S0VwQnA1amNDTTlWSGY1UWl4V3BLampZbDd2UEFRWjBNaEw0Q01kVnVxa28z?=
+ =?utf-8?B?N01qamFLYldyaGI3VXJJNlUvUUdTcXdVQ1ZxTE5lbm9wUy9TL2hBZW4xUXU1?=
+ =?utf-8?B?ZldvaktqZmkybVJqdEZtM0ZBOCtYWlNxSTZmM05rcTZDdkhsdTduRUIrSnYr?=
+ =?utf-8?B?Mlp6c2VoY3krc0lxTHhKdGwwMnQzRis4dWh2djdvVjMveTQ0OFJwWTdjUXJi?=
+ =?utf-8?B?Z01JYmtvVVUwR3FXazArQnhQNXFjR0NkMm1PQis5cHBWWTRrejl1UG9nTGF1?=
+ =?utf-8?B?a3I1Qkw3STNhd0RhRUkzY081eGtnZEpDKzlYUVFpNFRoSnBRWURYdW43M1Jy?=
+ =?utf-8?B?WWVLTmt1dFFpclpkSVRtMGlLck9CRlVIdWhPd0M1WjBzeEwvN3JKanRYbG54?=
+ =?utf-8?B?QnppZ3J3aTl6bGQrekdPakhGR2Q1WmVZOGw3ekFmbERTWFk1aTcyT0hSeWRs?=
+ =?utf-8?B?bUpadGQxMDFhUWRJdjJiczZheDJpMWpNSUp4QlY3blg1KzZNdDNwdmZHdUV1?=
+ =?utf-8?B?ancvVzNtM0V6UzVQZk13T3ZCSUdMZUgwb2o0MERrZFI2R3lyRHlFWldZRjFT?=
+ =?utf-8?B?QVIzS1gyWnBUcW96d3VFaU9zTzJGVG9jVmtEMlZzUU91NVdiT3BZMHdnc2Ew?=
+ =?utf-8?B?STlMVHZaSVY4Z003dTVMOURydWlEUGtDako1MkNCT0RLRy9xUmc1N1cvTDFF?=
+ =?utf-8?B?dXdwS1ova3dRbDNuMDh5aHNnL0pGU3F6M3NCa2hoZWl2RXpUNGVrdzVTb2Fh?=
+ =?utf-8?B?OFl1NUdQNEhsVUZISTdWcGt4RzQ5RXc4QWdhaVpwNGhCZ0FPcExuYnh1c3Zk?=
+ =?utf-8?B?TnMrWUtjdm9QWmZiQnpCMk1WM2ZmOHhWNzh3RmVsOXdoL1E9PQ==?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR18MB4682.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NWZFSVFIMjlXK0lNUVVWY1RTYlcrRy8vZ1BKQnVXdTZQZzlzcGpxMWRVVUJL?=
+ =?utf-8?B?NVprZkVpWWJYTHF6WFk2WkpYOFJaeG5KeW1kdXNGUGtna3hJM1lyMmUxOGt4?=
+ =?utf-8?B?R2IvZUNENU1yVjEvQkhFRk1FRUl1N0VGRHViVkg5dTBYTVY4SVJJeUNOSXd1?=
+ =?utf-8?B?RDhhVTNjZGdMRnZqTVRMQ1V4SjZEUGo1SnNsenNIaEI3aWM1Ky95NjJPTmJr?=
+ =?utf-8?B?WEl2cVVmemRBK28vSk5lWEM5M1dLRzNySmtpdDZhSDMrSS94SW1mb01ZeWFs?=
+ =?utf-8?B?eUVYdm4zdXFmNWpUYjFOQXpkK0RBcGRyMUxBUnBXRmF1Y1UrOGpwSFdPL3p6?=
+ =?utf-8?B?cHNUNUhOWU95NDZYQVVCaVhJa0c0RVVzWnRNWW80YTZzbzA0dzYwWXhjcXJj?=
+ =?utf-8?B?WnBCTS9sYW9FT1d3bUZDTEoyb3BzMUVJL2NSc2s0VDVxOTR2cFl6NW83RHox?=
+ =?utf-8?B?TEdNeGdSN0ZZR0E3Q3VVYkxidjhUMXh3Z29vdWFhdGlDS3lMM0tBNTI1SnZy?=
+ =?utf-8?B?aC91Y3E1cGpTU2o2aVBNaXZVQkI0ZERpRnVxSzlrL04xSU8rNW4ycDFsTXRL?=
+ =?utf-8?B?aGV5RnRCeWdOVWM2WFZVa1ptS1Y0bFNwaXdVZnJ0WEpWQ2t6TEwzMXdab1Uy?=
+ =?utf-8?B?WnlMbjY3VTFKM0lLK3owNWU1dzIzdU5LY3JxVUhHU3Jud0NVd2tHbko2QitZ?=
+ =?utf-8?B?Y3FUSlc1WTRva3Awai9ia2h3TTU2aUhsN1dkQXBiVnE0Z1pzcTVqSmtkampy?=
+ =?utf-8?B?QTlkYnlIaGFOSWtWcXhZdCtERm1UaWlnQWE5OHdNNlBjb3BPSk5DTE5HRWxH?=
+ =?utf-8?B?UnduNCtLUjRPazkwdmZjTW9xZUdrWllGRmtFWE5TOWE3Q1k5UGwzakxJenk5?=
+ =?utf-8?B?MlZRNTc2NEkyZzBybWRCbjg5ZHFOQVJxK3E5cE1BRVRpeFpNQmp4a3I0V0tM?=
+ =?utf-8?B?eTZIY0tnNlhWd1M1Sm5WbytYSGUyek9SNldubW1RaG5FQ0dLWmJyK3pQa1dt?=
+ =?utf-8?B?bWw1T1NNSkVWdFJjZXBlR1FyZ20wSFVNMWxoL3dTeklNS3RFc2Zia1ZhYWhk?=
+ =?utf-8?B?NXpmdkU3ZlZSUVdsSkQ3bVB5cDZkTlBJMFB5TEM3N0doODRXS1NEVTBpOHo0?=
+ =?utf-8?B?K2cwTnFINCtCeEsxSyt5NUVpTm9STlk4WHR5V1J3OWJmRjltRCtPNDZWSm96?=
+ =?utf-8?B?Ym10aXJKekkraERnRjdxdHQzSnlrRlIwekQzRDBjRmRsRXFqOUFITGhFSkJQ?=
+ =?utf-8?B?TENSN0RZUkV5TVNrKzU3OTRtRmlSYnJwS2xYK3BJREQwY1hqbTBGQkJxTFhl?=
+ =?utf-8?B?bm9peVlMNE1lQXh3QU40U2dnSDFMeElCRDJpK2E2b1FKMDRXbWZjSmRpN1RT?=
+ =?utf-8?B?WVhucUdBSHlaWlV4ZEIySk9KYm9IYm4yNHB1NENzMnl0RFJDYjVFdEY3M1Fl?=
+ =?utf-8?B?MHJvY0FiazNhNHNabWhSRGs1U1JQcWZkd3BNU0V2ZnJLcytONjdBb1dqZ0R6?=
+ =?utf-8?B?NDEvalJ1RERBUXBCSDVBVG9sSWF6QWtVbmpJTjRRRlZWRUtsOTVkU1pGWCtN?=
+ =?utf-8?B?aVI3NXYvUHZORzJnUWZWUG8wRUdxTjBhY1pENFMzY0lQeHJSQUgyWEdMb1ZZ?=
+ =?utf-8?B?emFPTTF5Mk1tNnd0MXJDVlZoOE1DUm44TksvNVk3Q2tCa0hnUGlGOGFuRUIv?=
+ =?utf-8?B?bExIdGNsVHdhc0JobnNEb1RXWVZ2MHl0bkZQSG0rSU5PSDd2ZkVsMmM1Q3Jy?=
+ =?utf-8?B?NTFTTzM0SGFLaGJPQ0tZblYxQnFNdDlueDZkL0RNLzV4VUZieldDeHFsd0t3?=
+ =?utf-8?B?NU0waUNhVEJQY2Q0S3duYUIzZUpVS2E0a3VjZVF2L0FaN3VJYjFwNS8zZXJK?=
+ =?utf-8?B?aStMejkvRytIOTdTaFVsNVRKRW9XSmp6eS84a3Nqd0txUEZvazJEUGxWc2FS?=
+ =?utf-8?B?YkhpRnQvMXl6VFpCU2ZoTDA1cTluRzRPeVExM3Y2aSt4WWJybkZ6eUdubFZj?=
+ =?utf-8?B?M1M0dzNYNjBYWkhodS9TVittcVZuSUs1WlFFNGtEWm55RHJmc2t4OS9zVVNT?=
+ =?utf-8?B?OUxWcWphcGFPdk1yWmdFOU8vZGZUQzZNRUVCdDhpUFltcnRqT1cwU0E4M1JF?=
+ =?utf-8?Q?1n6X0vLQknT/A2I999iBRMsOg?=
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR18MB4682.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d01d8fc-cee2-4852-1a9b-08dd49fc003a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2025 17:54:44.0760
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: D+E2Y5XvSIU4wIQLrVzWXh0tVwouqXTBYuR6OJa8diSoBSEtVE4RBalK9/khrXzlFa6HdeKRJslTelemkgD0Cw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR18MB5088
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: tAEVOhUImhMAEMhuTI5_LVlYLzTcFX_W
+X-Proofpoint-ORIG-GUID: tAEVOhUImhMAEMhuTI5_LVlYLzTcFX_W
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-10_09,2025-02-10_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_084521_081321_C53A2BCE 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250210_095504_463990_511C99C7 
+X-CRM114-Status: GOOD (  38.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,276 +202,234 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bindings were split up per SoC before adding new members for
-missing clocks.
 
-Signed-off-by: Alexander Dahl <ada@thorsis.com>
----
 
-Notes:
-    v2:
-    - new patch, not present in v1
+> -----Original Message-----
+> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Sent: Saturday, February 8, 2025 2:36 AM
+> To: Wilson Ding <dingwei@marvell.com>
+> Cc: cassel@kernel.org; Bjorn Helgaas <helgaas@kernel.org>;
+> lpieralisi@kernel.org; thomas.petazzoni@bootlin.com; kw@linux.com;
+> robh@kernel.org; bhelgaas@google.com; linux-pci@vger.kernel.org; linux-
+> arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Sanghoon Lee
+> <salee@marvell.com>
+> Subject: Re: [EXTERNAL] Re: [PATCH 1/1] PCI: armada8k: Add link-down
+> handle
+>=20
+> On Fri, Feb 07, 2025 at 06:=E2=80=8A46:=E2=80=8A22PM +0000, Wilson Ding w=
+rote: > > > > -----
+> Original Message----- > > From: Manivannan Sadhasivam
+> <manivannan.=E2=80=8Asadhasivam@=E2=80=8Alinaro.=E2=80=8Aorg> > > Sent: F=
+riday, February 7, 2025
+> 9:=E2=80=8A58 AM >=20
+> On Fri, Feb 07, 2025 at 06:46:22PM +0000, Wilson Ding wrote:
+> >
+> >
+> > > -----Original Message-----
+> > > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > > Sent: Friday, February 7, 2025 9:58 AM
+> > > To: Wilson Ding <dingwei@marvell.com>; cassel@kernel.org
+> > > Cc: Bjorn Helgaas <helgaas@kernel.org>; lpieralisi@kernel.org;
+> > > thomas.petazzoni@bootlin.com; kw@linux.com; robh@kernel.org;
+> > > bhelgaas@google.com; linux-pci@vger.kernel.org; linux-arm-
+> > > kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Sanghoon
+> > > Lee <salee@marvell.com>
+> > > Subject: [EXTERNAL] Re: [PATCH 1/1] PCI: armada8k: Add link-down
+> > > handle
+> > >
+> > > + Niklas (who was interested in link down handling) On Sat, Feb 01,
+> > > + 2025 at 11:=E2=80=8A05:=E2=80=8A56PM +0000, Wilson Ding wrote: > > =
+On November 13,
+> 2024 3:
+> > > + 02:=E2=80=8A55 AM GMT+05:=E2=80=8A30, Bjorn Helgaas > > <mailto:=E2=
+=80=8Ahelgaas@=E2=80=8Akernel.=E2=80=8A
+> > > + org>
+> > > + wrote: > >
+> > >
+> > > + Niklas (who was interested in link down handling)
+> > >
+> > > On Sat, Feb 01, 2025 at 11:05:56PM +0000, Wilson Ding wrote:
+> > > > > On November 13, 2024 3:02:55 AM GMT+05:30, Bjorn Helgaas
+> > > > > <mailto:helgaas@kernel.org> wrote:
+> > > > > >In subject:
+> > > > > >
+> > > > > >  PCI: armada8k: Add link-down handling
+> > > > > >
+> > > > > >On Mon, Nov 11, 2024 at 10:48:13PM -0800, Jenishkumar
+> > > > > >Maheshbhai
+> > > > > Patel wrote:
+> > > > > >> In PCIE ISR routine caused by RST_LINK_DOWN we schedule work
+> > > > > >> to handle the link-down procedure.
+> > > > > >> Link-down procedure will:
+> > > > > >> 1. Remove PCIe bus
+> > > > > >> 2. Reset the MAC
+> > > > > >> 3. Reconfigure link back up
+> > > > > >> 4. Rescan PCIe bus
+> > > > > >
+> > > > > >s/PCIE/PCIe/
+> > > > > >
+> > > > > >Rewrap to fill 75 columns.
+> > > > > >
+> > > > > >I assume this basically removes a Root Port (and the hierarchy
+> > > > > >below
+> > > > > >it) if the link goes down, and then resets the MAC and tries to
+> > > > > >bring up the link and enumerate the hierarchy again.
+> > > > > >
+> > > > > >No other drivers do this, so why does armada8k need it?  Is
+> > > > > >this to work around some unreliable link?
+> > > > >
+> > > > > Certainly Qcom IPs have this same feature and I was also looking
+> > > > > to implement it. But the link down should not be handled by this
+> > > > > in the
+> > > controller driver.
+> > > > >
+> > > > > Instead, it should be tied to bus reset in the core and the
+> > > > > reset should be done through a callback implemented in the
+> > > > > controller drivers. This way, the reset cannot happen in the
+> > > > > back of PCI core and client
+> > > drivers.
+> > > > >
+> > > > > That said, the Link down IRQ received by this driver should also
+> > > > > be propagated back to the PCI core and the core should then call
+> > > > > the callback to reset the bus that I mentioned above.
+> > > > >
+> > > >
+> > > > It's more than a work-around for the unreliable link. A few
+> > > > customers may have such application - independent power supply to
+> > > > the device with dedicated reset GPIO to #PRST. In this way, the
+> > > > power cycle and warm reset of RC and EP won't have impact on each
+> > > > other. However, it may lead into the PCI driver not aware of the
+> > > > link down when an unexpected
+> > > power down or reset occurs on the device.
+> > > > We cannot assume the link will be recovered soon. The worse thing
+> > > > is the driver may continue access to the device, which may hang the=
+ bus.
+> > > > Since the device is no longer present on the bus, it's better to
+> > > > remove it. Besides, in order to bring up the link, the only way is
+> > > > to reset the MAC, which starts over the state machine of LTSSM.
+> > > >
+> > > > Well, we also noticed that there is no other driver that did this.
+> > > > I agree it is not necessary if the power cycle or warm reset of
+> > > > the device is done gracefully. The user can remove the device
+> > > > prior to the power cycle/reset.  And do the rescan after the link
+> > > > is recovered. However,
+> > > the unexpected power down is still possible.
+> > > > Please enlighten me if there is any better approach to handle such
+> > > > unexpected link down.
+> > > >
+> > >
+> > > There is no issue in retraining the link. My concern is that, the
+> > > retrain should not happen autonomously in the controller driver. PCI
+> > > core should be made informed of it. More below.
+> > >
+> >
+> > Do you mean
+> > - pass the link down/up events to PCI core
+> > - remove the device or hierarchy by PCI core upon link down
+> > - initiate the link retraining in PCI core by calling the platform
+> > retrain callbacks
+> > - rescan the bus once link is recovered
+> >
+>=20
+> Yeah. This is what I came up with quickly:
+>=20
+> ```
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c index
+> b6536ed599c3..561eeb464220 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -706,6 +706,33 @@ void pci_free_host_bridge(struct pci_host_bridge
+> *bridge)  }  EXPORT_SYMBOL(pci_free_host_bridge);
+>=20
+> +void pci_host_bridge_handle_link_down(struct pci_host_bridge *bridge) {
+> +       struct pci_bus *bus =3D bridge->bus;
+> +       struct pci_dev *child, *tmp;
+> +       int ret;
+> +
+> +       pci_lock_rescan_remove();
+> +
+> +       /* Knock the devices off bus since we cannot access them */
+> +       list_for_each_entry_safe(child, tmp, &bus->devices, bus_list)
+> +               pci_stop_and_remove_bus_device(child);
+> +
+> +       /* Now retrain the link in a controller specific way to bring it =
+back */
+> +       if (bus->ops->retrain_link) {
+> +               ret =3D bus->ops->retrain_link(bus);
+> +               if (ret) {
+> +                       dev_err(&bridge->dev, "Failed to retrain the link=
+!\n");
+> +                       pci_unlock_rescan_remove();
+> +                       return;
+> +               }
+> +       }
+> +
+> +       pci_rescan_bus(bus);
+> +       pci_unlock_rescan_remove();
+> +}
+> +EXPORT_SYMBOL(pci_host_bridge_handle_link_down);
+> +
+>  /* Indexed by PCI_X_SSTATUS_FREQ (secondary bus mode and frequency) */
+> static const unsigned char pcix_bus_speed[] =3D {
+>         PCI_SPEED_UNKNOWN,              /* 0 */
+> diff --git a/include/linux/pci.h b/include/linux/pci.h index
+> 47b31ad724fa..1c6f18a51bdd 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -637,6 +637,7 @@ struct pci_host_bridge *pci_alloc_host_bridge(size_t
+> priv);  struct pci_host_bridge *devm_pci_alloc_host_bridge(struct device =
+*dev,
+>                                                    size_t priv);  void pc=
+i_free_host_bridge(struct
+> pci_host_bridge *bridge);
+> +void pci_host_bridge_handle_link_down(struct pci_host_bridge *bridge);
+>  struct pci_host_bridge *pci_find_host_bridge(struct pci_bus *bus);
+>=20
+>  void pci_set_host_bridge_release(struct pci_host_bridge *bridge, @@ -804=
+,6
+> +805,7 @@ struct pci_ops {
+>         void __iomem *(*map_bus)(struct pci_bus *bus, unsigned int devfn,=
+ int
+> where);
+>         int (*read)(struct pci_bus *bus, unsigned int devfn, int where, i=
+nt size, u32
+> *val);
+>         int (*write)(struct pci_bus *bus, unsigned int devfn, int where, =
+int size,
+> u32 val);
+> +       int (*retrain_link)(struct pci_bus *bus);
+>  };
+>=20
+>  /*
+> ```
+>=20
+> Your controller driver has to call pci_host_bridge_handle_link_down() dur=
+ing
+> the link down event (make it threaded if not done already). Then you shou=
+ld
+> also populate the pci_ops::retrain_link() callback with the function that
+> retrains the broken link. Finally, the bus will be rescanned to enumerate=
+ the
+> devices.
+>=20
+> I do have plans to plug this retrain callback to one of the bus_reset() f=
+unctions
+> in the future so that we can bring the link back while doing bus level re=
+set
+> (uncorrectable AERs and such). But this will do the job for now.
+>=20
+> I will send a series on Monday with Qcom driver as a reference.
+>=20
+> - Mani
+>=20
 
- arch/arm/boot/dts/microchip/sam9x60.dtsi  | 15 ++++++++-------
- arch/arm/boot/dts/microchip/sam9x7.dtsi   | 11 ++++++-----
- arch/arm/boot/dts/microchip/sama7d65.dtsi |  5 +++--
- arch/arm/boot/dts/microchip/sama7g5.dtsi  | 23 ++++++++++++-----------
- 4 files changed, 29 insertions(+), 25 deletions(-)
+Sounds great. Looking forward to your patches. Thanks a lot!
 
-diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-index b8b2c1ddf3f1e..1724b79967a17 100644
---- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-@@ -12,6 +12,7 @@
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/clock/at91.h>
-+#include <dt-bindings/clock/microchip,sam9x60-pmc.h>
- #include <dt-bindings/mfd/at91-usart.h>
- #include <dt-bindings/mfd/atmel-flexcom.h>
- 
-@@ -81,9 +82,9 @@ usb0: gadget@500000 {
- 			reg = <0x00500000 0x100000
- 				0xf803c000 0x400>;
- 			interrupts = <23 IRQ_TYPE_LEVEL_HIGH 2>;
--			clocks = <&pmc PMC_TYPE_PERIPHERAL 23>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+			clocks = <&pmc PMC_TYPE_PERIPHERAL 23>, <&pmc PMC_TYPE_CORE SAM9X60_PMC_UTMI>;
- 			clock-names = "pclk", "hclk";
--			assigned-clocks = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+			assigned-clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_UTMI>;
- 			assigned-clock-rates = <480000000>;
- 			status = "disabled";
- 		};
-@@ -101,9 +102,9 @@ usb2: ehci@700000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00700000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
--			clocks = <&pmc PMC_TYPE_CORE PMC_UTMI>, <&pmc PMC_TYPE_PERIPHERAL 22>;
-+			clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_UTMI>, <&pmc PMC_TYPE_PERIPHERAL 22>;
- 			clock-names = "usb_clk", "ehci_clk";
--			assigned-clocks = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+			assigned-clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_UTMI>;
- 			assigned-clock-rates = <480000000>;
- 			status = "disabled";
- 		};
-@@ -121,7 +122,7 @@ ebi: ebi@10000000 {
- 				  0x3 0x0 0x40000000 0x10000000
- 				  0x4 0x0 0x50000000 0x10000000
- 				  0x5 0x0 0x60000000 0x10000000>;
--			clocks = <&pmc PMC_TYPE_CORE PMC_MCK>;
-+			clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MCK>;
- 			status = "disabled";
- 
- 			nand_controller: nand-controller {
-@@ -1063,7 +1064,7 @@ hlcdc: hlcdc@f8038000 {
- 				clocks = <&pmc PMC_TYPE_PERIPHERAL 25>, <&pmc PMC_TYPE_GCK 25>, <&clk32k 1>;
- 				clock-names = "periph_clk","sys_clk", "slow_clk";
- 				assigned-clocks = <&pmc PMC_TYPE_GCK 25>;
--				assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_MCK>;
-+				assigned-clock-parents = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MCK>;
- 				status = "disabled";
- 
- 				hlcdc-display-controller {
-@@ -1369,7 +1370,7 @@ pit: timer@fffffe40 {
- 				compatible = "atmel,at91sam9260-pit";
- 				reg = <0xfffffe40 0x10>;
- 				interrupts = <1 IRQ_TYPE_LEVEL_HIGH 7>;
--				clocks = <&pmc PMC_TYPE_CORE PMC_MCK>;
-+				clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MCK>;
- 			};
- 
- 			clk32k: clock-controller@fffffe50 {
-diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-index b217a908f5253..458cfb81f8bcf 100644
---- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-@@ -8,6 +8,7 @@
-  */
- 
- #include <dt-bindings/clock/at91.h>
-+#include <dt-bindings/clock/microchip,sam9x7-pmc.h>
- #include <dt-bindings/dma/at91.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -477,9 +478,9 @@ can0: can@f8000000 {
- 			interrupt-names = "int0", "int1";
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 29>, <&pmc PMC_TYPE_GCK 29>;
- 			clock-names = "hclk", "cclk";
--			assigned-clocks = <&pmc PMC_TYPE_CORE PMC_UTMI>, <&pmc PMC_TYPE_GCK 29>;
-+			assigned-clocks = <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>, <&pmc PMC_TYPE_GCK 29>;
- 			assigned-clock-rates = <480000000>, <40000000>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>, <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>;
- 			bosch,mram-cfg = <0x3400 0 0 64 0 0 32 32>;
- 			status = "disabled";
- 		};
-@@ -493,9 +494,9 @@ can1: can@f8004000 {
- 			interrupt-names = "int0", "int1";
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 30>, <&pmc PMC_TYPE_GCK 30>;
- 			clock-names = "hclk", "cclk";
--			assigned-clocks = <&pmc PMC_TYPE_CORE PMC_UTMI>, <&pmc PMC_TYPE_GCK 30>;
-+			assigned-clocks = <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>, <&pmc PMC_TYPE_GCK 30>;
- 			assigned-clock-rates = <480000000>, <40000000>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>, <&pmc PMC_TYPE_CORE SAM9X7_PMC_UTMI>;
- 			bosch,mram-cfg = <0x7800 0 0 64 0 0 32 32>;
- 			status = "disabled";
- 		};
-@@ -1100,7 +1101,7 @@ pmecc: ecc-engine@ffffe000 {
- 		mpddrc: mpddrc@ffffe800 {
- 			compatible = "microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc";
- 			reg = <0xffffe800 0x200>;
--			clocks = <&pmc PMC_TYPE_SYSTEM 2>, <&pmc PMC_TYPE_CORE PMC_MCK>;
-+			clocks = <&pmc PMC_TYPE_SYSTEM 2>, <&pmc PMC_TYPE_CORE SAM9X7_PMC_MCK>;
- 			clock-names = "ddrck", "mpddr";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index 854b30d15dcd4..111a6a6ef0e00 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -9,6 +9,7 @@
-  */
- 
- #include <dt-bindings/clock/at91.h>
-+#include <dt-bindings/clock/microchip,sama7d65-pmc.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-@@ -29,7 +30,7 @@ cpu0: cpu@0 {
- 			compatible = "arm,cortex-a7";
- 			reg = <0x0>;
- 			device_type = "cpu";
--			clocks = <&pmc PMC_TYPE_CORE PMC_CPUPLL>;
-+			clocks = <&pmc PMC_TYPE_CORE SAMA7D65_PMC_CPUPLL>;
- 			clock-names = "cpu";
- 		};
- 	};
-@@ -91,7 +92,7 @@ sdmmc1: mmc@e1208000 {
- 			clock-names = "hclock", "multclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 76>;
- 			assigned-clock-rates = <200000000>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_MCK1>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7D65_PMC_MCK1>;
- 			status = "disabled";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-index 17bcdcf0cf4a0..f68c2eb8edd54 100644
---- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-@@ -13,6 +13,7 @@
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/at91.h>
-+#include <dt-bindings/clock/microchip,sama7g5-pmc.h>
- #include <dt-bindings/dma/at91.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/mfd/at91-usart.h>
-@@ -34,7 +35,7 @@ cpu0: cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a7";
- 			reg = <0x0>;
--			clocks = <&pmc PMC_TYPE_CORE PMC_CPUPLL>;
-+			clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_CPUPLL>;
- 			clock-names = "cpu";
- 			operating-points-v2 = <&cpu_opp_table>;
- 			#cooling-cells = <2>; /* min followed by max */
-@@ -189,7 +190,7 @@ ebi: ebi@40000000 {
- 				  0x1 0x0 0x48000000 0x8000000
- 				  0x2 0x0 0x50000000 0x8000000
- 				  0x3 0x0 0x58000000 0x8000000>;
--			clocks = <&pmc PMC_TYPE_CORE PMC_MCK1>;
-+			clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MCK1>;
- 			status = "disabled";
- 
- 			nand_controller: nand-controller {
-@@ -372,7 +373,7 @@ can0: can@e0828000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 61>, <&pmc PMC_TYPE_GCK 61>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 61>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0x3400 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -388,7 +389,7 @@ can1: can@e082c000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 62>, <&pmc PMC_TYPE_GCK 62>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 62>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0x7800 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -404,7 +405,7 @@ can2: can@e0830000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 63>, <&pmc PMC_TYPE_GCK 63>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 63>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0xbc00 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -420,7 +421,7 @@ can3: can@e0834000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 64>, <&pmc PMC_TYPE_GCK 64>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 64>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0x0 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -436,7 +437,7 @@ can4: can@e0838000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 65>, <&pmc PMC_TYPE_GCK 65>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 65>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0x4400 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -452,7 +453,7 @@ can5: can@e083c000 {
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 66>, <&pmc PMC_TYPE_GCK 66>;
- 			clock-names = "hclk", "cclk";
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 66>;
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clock-rates = <40000000>;
- 			bosch,mram-cfg = <0x8800 0 0 64 0 0 32 32>;
- 			status = "disabled";
-@@ -483,7 +484,7 @@ sdmmc0: mmc@e1204000 {
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 80>, <&pmc PMC_TYPE_GCK 80>;
- 			clock-names = "hclock", "multclk";
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 80>;
- 			assigned-clock-rates = <200000000>;
- 			microchip,sdcal-inverted;
-@@ -496,7 +497,7 @@ sdmmc1: mmc@e1208000 {
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 81>, <&pmc PMC_TYPE_GCK 81>;
- 			clock-names = "hclock", "multclk";
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 81>;
- 			assigned-clock-rates = <200000000>;
- 			microchip,sdcal-inverted;
-@@ -509,7 +510,7 @@ sdmmc2: mmc@e120c000 {
- 			interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 82>, <&pmc PMC_TYPE_GCK 82>;
- 			clock-names = "hclock", "multclk";
--			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_SYSPLL>;
-+			assigned-clock-parents = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_SYSPLL>;
- 			assigned-clocks = <&pmc PMC_TYPE_GCK 82>;
- 			assigned-clock-rates = <200000000>;
- 			microchip,sdcal-inverted;
--- 
-2.39.5
-
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
