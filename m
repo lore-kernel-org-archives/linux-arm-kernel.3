@@ -4,55 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A27C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E17C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dP/iMg2svxFqaqOxK00PdWfLJaWa0dBc5p3e41nBYBk=; b=h6I5UGyluRclPNbhXNxvLSXp5s
-	Sj8kLCxB8ZHXQ5xbsMxdlBzfKp9ExPwrFX7CR2kowXAXAZhkrZckqA39jSG0mOqH76Myv9WBpDhJw
-	zxfSLwiwq8NIMwehoXCq4H1iplFlyi0fZ8zT+Rd/ZKLyWElnwo3JIFQi5y43THO/jADVNziYP/i9t
-	PFQHyAJL57lWPEF289E9h3Ld9Rozgd1urtepLXUFFNJzGRNb9bxoDOpYuPhPQJaVJJQI//KYCblEh
-	pAfGnect0CklpXPm+KpUFJkQRv0TVixcNlJA54SjcWQDk+QvUKjS6grlBUWVC1jgcEwTDzEZLaO93
-	67zIIjuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sv4b5NVpXzCHisqEvUyRD23v7ufs1KnFG/uyf9a3DXQ=; b=DwziAkT0B9LR9+oI366aMLMXDL
+	d7o1rVzjabqJ8ouz5BJFffN2rn29cHa60au4WHbiuE4FTaAbdT8lRBOKHHvFkdBCOWzEw7OpLS4fV
+	tNZThGWPd7XrJD2szKITznKFeNR7wEQUKsuVtWywAlUaQAaQ+MLhO2mNdw1/DBgBXCQPcKDom/SH5
+	Xga+Xt+kqqt/7YL/VR+wwcmlxzBPZaaT82s/ZJKqSszoOruW8EtZeVxULVM+49C3Uf26AOiVrpPbk
+	j+HgGzXQ1/jTh41/L6mW1y8Rq5ldKnXVpSU/JR39n0RcZxyUyhKj+ZkCyGOz4B1BJmVY508ZUfkyo
+	lq/pet4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thR8A-0000000H251-0e1g;
-	Mon, 10 Feb 2025 10:35:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thR6k-0000000H1o9-1fq2
+	id 1thR9W-0000000H2WX-3g3v;
+	Mon, 10 Feb 2025 10:36:34 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thR7Y-0000000H1xG-0zN6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 10:33:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 39BB41BA8;
-	Mon, 10 Feb 2025 02:34:01 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38B313F58B;
-	Mon, 10 Feb 2025 02:33:38 -0800 (PST)
-Message-ID: <7947d674-90d7-4968-b00e-84444be9fdfc@arm.com>
-Date: Mon, 10 Feb 2025 10:33:36 +0000
+	Mon, 10 Feb 2025 10:34:33 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AAY5Vj3393387
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 10 Feb 2025 04:34:05 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739183645;
+	bh=Sv4b5NVpXzCHisqEvUyRD23v7ufs1KnFG/uyf9a3DXQ=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=GSNf8YbICAVn6Q7vYZf75yUMJUN30n/Bg5jSBe7QxwkC7iAEXRdlWc3vrZJof7fJb
+	 KOnHdYSvj/8Mu0STRRKCqaAG5mww9bV/gnSyMLlq1LlnbCEVoJ9jZmobn04YOkajhy
+	 XIgyvTNzyesiH30noEWvZmzURP/gFHmsLm/a6TFs=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51AAY5PF074085
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 10 Feb 2025 04:34:05 -0600
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
+ Feb 2025 04:34:04 -0600
+Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 10 Feb 2025 04:34:04 -0600
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AAY4hp109014;
+	Mon, 10 Feb 2025 04:34:04 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 51AAY4BV021838;
+	Mon, 10 Feb 2025 04:34:04 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <u.kleine-koenig@baylibre.com>, <krzysztof.kozlowski@linaro.org>,
+        <dan.carpenter@linaro.org>, <m-malladi@ti.com>,
+        <schnelle@linux.ibm.com>, <glaroque@baylibre.com>,
+        <rdunlap@infradead.org>, <diogo.ivo@siemens.com>,
+        <jan.kiszka@siemens.com>, <john.fastabend@gmail.com>,
+        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+        <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+Subject: [PATCH net-next v2 2/3] net: ti: icssg-prueth: introduce and use prueth_swdata struct for SWDATA
+Date: Mon, 10 Feb 2025 16:03:51 +0530
+Message-ID: <20250210103352.541052-3-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250210103352.541052-1-m-malladi@ti.com>
+References: <20250210103352.541052-1-m-malladi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/27] ABI: sysfs-bus-coresight-*: fix kernelversion tags
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, James Clark <james.clark@linaro.org>,
- Mike Leach <mike.leach@linaro.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1739182025.git.mchehab+huawei@kernel.org>
- <72c3a6583c2ffca23ae9ee1c0b6dc98618ae0775.1739182025.git.mchehab+huawei@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <72c3a6583c2ffca23ae9ee1c0b6dc98618ae0775.1739182025.git.mchehab+huawei@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_023342_539878_2B6892EF 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250210_023432_358135_9177F9FC 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,536 +97,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 10:17, Mauro Carvalho Chehab wrote:
-> Some kernelversion tags are missing colons. Add them to comply with
-> ABI description and produce right results when converted to html/pdf.
-> 
-> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> ---
->   .../testing/sysfs-bus-coresight-devices-cti   | 78 +++++++++----------
->   .../testing/sysfs-bus-coresight-devices-tpdm  | 52 ++++++-------
->   2 files changed, 65 insertions(+), 65 deletions(-)
+From: Roger Quadros <rogerq@kernel.org>
 
+We have different cases for SWDATA (skb, page, cmd, etc)
+so it is better to have a dedicated data structure for that.
+We can embed the type field inside the struct and use it
+to interpret the data in completion handlers.
 
-Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Increase SWDATA size to 48 so we have some room to add
+more data if required.
 
+Signed-off-by: Roger Quadros <rogerq@kernel.org>
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+v1: https://lore.kernel.org/all/20250122124951.3072410-1-m-malladi@ti.com/
 
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> index bf2869c413e7..a97b70f588da 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> @@ -1,241 +1,241 @@
->   What:		/sys/bus/coresight/devices/<cti-name>/enable
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Enable/Disable the CTI hardware.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/powered
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Indicate if the CTI hardware is powered.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/ctmid
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Display the associated CTM ID
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/nr_trigger_cons
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Number of devices connected to triggers on this CTI
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/triggers<N>/name
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Name of connected device <N>
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/triggers<N>/in_signals
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Input trigger signals from connected device <N>
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/triggers<N>/in_types
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Functional types for the input trigger signals
->   		from connected device <N>
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/triggers<N>/out_signals
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Output trigger signals to connected device <N>
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/triggers<N>/out_types
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Functional types for the output trigger signals
->   		to connected device <N>
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/inout_sel
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Select the index for inen and outen registers.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/inen
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Read or write the CTIINEN register selected by inout_sel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/outen
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Read or write the CTIOUTEN register selected by inout_sel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/gate
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Read or write CTIGATE register.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/asicctl
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Read or write ASICCTL register.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/intack
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Write the INTACK register.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/appset
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Set CTIAPPSET register to activate channel. Read back to
->   		determine current value of register.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/appclear
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Write APPCLEAR register to deactivate channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/apppulse
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Write APPPULSE to pulse a channel active for one clock
->   		cycle.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/chinstatus
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Read current status of channel inputs.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/choutstatus
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) read current status of channel outputs.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/triginstatus
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) read current status of input trigger signals
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/regs/trigoutstatus
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) read current status of output trigger signals.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trigin_attach
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Attach a CTI input trigger to a CTM channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trigin_detach
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Detach a CTI input trigger from a CTM channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trigout_attach
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Attach a CTI output trigger to a CTM channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trigout_detach
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Detach a CTI output trigger from a CTM channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_gate_enable
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Enable CTIGATE for single channel (Write) or list enabled
->   		channels through the gate (R).
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_gate_disable
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Disable CTIGATE for single channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_set
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Activate a single channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_clear
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Deactivate a single channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_pulse
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Pulse a single channel - activate for a single clock cycle.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trigout_filtered
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) List of output triggers filtered across all connections.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/trig_filter_enable
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Enable or disable trigger output signal filtering.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_inuse
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) show channels with at least one attached trigger signal.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_free
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) show channels with no attached trigger signals.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_xtrigs_sel
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(RW) Write channel number to select a channel to view, read to
->   		see selected channel number.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_xtrigs_in
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Read to see input triggers connected to selected view
->   		channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_xtrigs_out
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Read) Read to see output triggers connected to selected view
->   		channel.
->   
->   What:		/sys/bus/coresight/devices/<cti-name>/channels/chan_xtrigs_reset
->   Date:		March 2020
-> -KernelVersion	5.7
-> +KernelVersion:	5.7
->   Contact:	Mike Leach or Mathieu Poirier
->   Description:	(Write) Clear all channel / trigger programming.
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> index bf710ea6e0ef..53cb454b60d0 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> @@ -1,6 +1,6 @@
->   What:		/sys/bus/coresight/devices/<tpdm-name>/integration_test
->   Date:		January 2023
-> -KernelVersion	6.2
-> +KernelVersion:	6.2
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(Write) Run integration test for tpdm. Integration test
-> @@ -14,7 +14,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/reset_dataset
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(Write) Reset the dataset of the tpdm.
-> @@ -24,7 +24,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_trig_type
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the trigger type of the DSB for tpdm.
-> @@ -35,7 +35,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_trig_ts
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the trigger timestamp of the DSB for tpdm.
-> @@ -46,7 +46,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_mode
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the programming mode of the DSB for tpdm.
-> @@ -60,7 +60,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_edge/ctrl_idx
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the index number of the edge detection for the DSB
-> @@ -69,7 +69,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_edge/ctrl_val
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		Write a data to control the edge detection corresponding to
-> @@ -85,7 +85,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_edge/ctrl_mask
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		Write a data to mask the edge detection corresponding to the index
-> @@ -97,21 +97,21 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_edge/edcr[0:15]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		Read a set of the edge control value of the DSB in TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_edge/edcmr[0:7]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		Read a set of the edge control mask of the DSB in TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_trig_patt/xpr[0:7]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the value of the trigger pattern for the DSB
-> @@ -119,7 +119,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_trig_patt/xpmr[0:7]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the mask of the trigger pattern for the DSB
-> @@ -127,21 +127,21 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/tpr[0:7]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the value of the pattern for the DSB subunit TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/tpmr[0:7]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the mask of the pattern for the DSB subunit TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/enable_ts
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(Write) Set the pattern timestamp of DSB tpdm. Read
-> @@ -153,7 +153,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/set_type
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(Write) Set the pattern type of DSB tpdm. Read
-> @@ -165,7 +165,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_msr/msr[0:31]
->   Date:		March 2023
-> -KernelVersion	6.7
-> +KernelVersion:	6.7
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the MSR(mux select register) for the DSB subunit
-> @@ -173,7 +173,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_mode
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:	(Write) Set the data collection mode of CMB tpdm. Continuous
->   		change creates CMB data set elements on every CMBCLK edge.
-> @@ -187,7 +187,7 @@ Description:	(Write) Set the data collection mode of CMB tpdm. Continuous
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_trig_patt/xpr[0:1]
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the value of the trigger pattern for the CMB
-> @@ -195,7 +195,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_trig_patt/xpmr[0:1]
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the mask of the trigger pattern for the CMB
-> @@ -203,21 +203,21 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/tpr[0:1]
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the value of the pattern for the CMB subunit TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/dsb_patt/tpmr[0:1]
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the mask of the pattern for the CMB subunit TPDM.
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_patt/enable_ts
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(Write) Set the pattern timestamp of CMB tpdm. Read
-> @@ -229,7 +229,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_trig_ts
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the trigger timestamp of the CMB for tpdm.
-> @@ -240,7 +240,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_ts_all
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Read or write the status of timestamp upon all interface.
-> @@ -252,7 +252,7 @@ Description:
->   
->   What:		/sys/bus/coresight/devices/<tpdm-name>/cmb_msr/msr[0:31]
->   Date:		January 2024
-> -KernelVersion	6.9
-> +KernelVersion:	6.9
->   Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
->   Description:
->   		(RW) Set/Get the MSR(mux select register) for the CMB subunit
+Changes since v1 (v2-v1): None
+
+ drivers/net/ethernet/ti/icssg/icssg_common.c  | 47 ++++++++++++-------
+ drivers/net/ethernet/ti/icssg/icssg_config.h  |  2 +-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  6 +++
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h  | 18 +++++++
+ .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  4 +-
+ 5 files changed, 58 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index c3c1e2bf461e..a124c5773551 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -136,12 +136,12 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+ 	struct net_device *ndev = emac->ndev;
+ 	struct cppi5_host_desc_t *desc_tx;
+ 	struct netdev_queue *netif_txq;
++	struct prueth_swdata *swdata;
+ 	struct prueth_tx_chn *tx_chn;
+ 	unsigned int total_bytes = 0;
+ 	struct sk_buff *skb;
+ 	dma_addr_t desc_dma;
+ 	int res, num_tx = 0;
+-	void **swdata;
+ 
+ 	tx_chn = &emac->tx_chns[chn];
+ 
+@@ -163,12 +163,18 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+ 		swdata = cppi5_hdesc_get_swdata(desc_tx);
+ 
+ 		/* was this command's TX complete? */
+-		if (emac->is_sr1 && *(swdata) == emac->cmd_data) {
++		if (emac->is_sr1 && (void *)(swdata) == emac->cmd_data) {
+ 			prueth_xmit_free(tx_chn, desc_tx);
+ 			continue;
+ 		}
+ 
+-		skb = *(swdata);
++		if (swdata->type != PRUETH_SWDATA_SKB) {
++			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
++			budget++;
++			continue;
++		}
++
++		skb = swdata->data.skb;
+ 		prueth_xmit_free(tx_chn, desc_tx);
+ 
+ 		ndev = skb->dev;
+@@ -472,9 +478,9 @@ int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+ {
+ 	struct net_device *ndev = emac->ndev;
+ 	struct cppi5_host_desc_t *desc_rx;
++	struct prueth_swdata *swdata;
+ 	dma_addr_t desc_dma;
+ 	dma_addr_t buf_dma;
+-	void **swdata;
+ 
+ 	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
+ 	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
+@@ -490,7 +496,8 @@ int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+ 	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
+ 
+ 	swdata = cppi5_hdesc_get_swdata(desc_rx);
+-	*swdata = page;
++	swdata->type = PRUETH_SWDATA_PAGE;
++	swdata->data.page = page;
+ 
+ 	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
+ 					desc_rx, desc_dma);
+@@ -539,11 +546,11 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+ 	u32 buf_dma_len, pkt_len, port_id = 0;
+ 	struct net_device *ndev = emac->ndev;
+ 	struct cppi5_host_desc_t *desc_rx;
++	struct prueth_swdata *swdata;
+ 	dma_addr_t desc_dma, buf_dma;
+ 	struct page *page, *new_page;
+ 	struct page_pool *pool;
+ 	struct sk_buff *skb;
+-	void **swdata;
+ 	u32 *psdata;
+ 	void *pa;
+ 	int ret;
+@@ -561,7 +568,11 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+ 
+ 	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+ 	swdata = cppi5_hdesc_get_swdata(desc_rx);
+-	page = *swdata;
++	if (swdata->type != PRUETH_SWDATA_PAGE) {
++		netdev_err(ndev, "rx_pkt: invalid swdata->type %d\n", swdata->type);
++		return 0;
++	}
++	page = swdata->data.page;
+ 
+ 	page_pool_dma_sync_for_cpu(pool, page, 0, PAGE_SIZE);
+ 	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+@@ -627,16 +638,18 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_rx_chn *rx_chn = data;
+ 	struct cppi5_host_desc_t *desc_rx;
++	struct prueth_swdata *swdata;
+ 	struct page_pool *pool;
+ 	struct page *page;
+-	void **swdata;
+ 
+ 	pool = rx_chn->pg_pool;
+ 
+ 	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+ 	swdata = cppi5_hdesc_get_swdata(desc_rx);
+-	page = *swdata;
+-	page_pool_recycle_direct(pool, page);
++	if (swdata->type == PRUETH_SWDATA_PAGE) {
++		page = swdata->data.page;
++		page_pool_recycle_direct(pool, page);
++	}
+ 	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+ }
+ 
+@@ -673,13 +686,13 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
+ 	struct netdev_queue *netif_txq;
++	struct prueth_swdata *swdata;
+ 	struct prueth_tx_chn *tx_chn;
+ 	dma_addr_t desc_dma, buf_dma;
+ 	u32 pkt_len, dst_tag_id;
+ 	int i, ret = 0, q_idx;
+ 	bool in_tx_ts = 0;
+ 	int tx_ts_cookie;
+-	void **swdata;
+ 	u32 *epib;
+ 
+ 	pkt_len = skb_headlen(skb);
+@@ -741,7 +754,8 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+ 	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
+ 	cppi5_hdesc_attach_buf(first_desc, buf_dma, pkt_len, buf_dma, pkt_len);
+ 	swdata = cppi5_hdesc_get_swdata(first_desc);
+-	*swdata = skb;
++	swdata->type = PRUETH_SWDATA_SKB;
++	swdata->data.skb = skb;
+ 
+ 	/* Handle the case where skb is fragmented in pages */
+ 	cur_desc = first_desc;
+@@ -844,15 +858,16 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_tx_chn *tx_chn = data;
+ 	struct cppi5_host_desc_t *desc_tx;
++	struct prueth_swdata *swdata;
+ 	struct sk_buff *skb;
+-	void **swdata;
+ 
+ 	desc_tx = k3_cppi_desc_pool_dma2virt(tx_chn->desc_pool, desc_dma);
+ 	swdata = cppi5_hdesc_get_swdata(desc_tx);
+-	skb = *(swdata);
++	if (swdata->type == PRUETH_SWDATA_SKB) {
++		skb = swdata->data.skb;
++		dev_kfree_skb_any(skb);
++	}
+ 	prueth_xmit_free(tx_chn, desc_tx);
+-
+-	dev_kfree_skb_any(skb);
+ }
+ 
+ irqreturn_t prueth_rx_irq(int irq, void *dev_id)
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+index c884e9fa099e..eab84e11d80e 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_config.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+@@ -20,7 +20,7 @@ struct icssg_flow_cfg {
+ 
+ #define PRUETH_PKT_TYPE_CMD	0x10
+ #define PRUETH_NAV_PS_DATA_SIZE	16	/* Protocol specific data size */
+-#define PRUETH_NAV_SW_DATA_SIZE	16	/* SW related data size */
++#define PRUETH_NAV_SW_DATA_SIZE	48	/* SW related data size */
+ #define PRUETH_MAX_TX_DESC	512
+ #define PRUETH_MAX_RX_DESC	512
+ #define PRUETH_MAX_RX_FLOWS	1	/* excluding default flow */
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 00ed97860547..e5e4efe485f6 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -1522,6 +1522,12 @@ static int prueth_probe(struct platform_device *pdev)
+ 
+ 	np = dev->of_node;
+ 
++	if (sizeof(struct prueth_swdata) > PRUETH_NAV_SW_DATA_SIZE) {
++		dev_err(dev, "insufficient SW_DATA size: %d vs %ld\n",
++			PRUETH_NAV_SW_DATA_SIZE, sizeof(struct prueth_swdata));
++		return -ENOMEM;
++	}
++
+ 	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
+ 	if (!prueth)
+ 		return -ENOMEM;
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index c7b906de18af..2c8585255b7c 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -136,6 +136,24 @@ struct prueth_rx_chn {
+ 	struct page_pool *pg_pool;
+ };
+ 
++enum prueth_swdata_type {
++	PRUETH_SWDATA_INVALID = 0,
++	PRUETH_SWDATA_SKB,
++	PRUETH_SWDATA_PAGE,
++	PRUETH_SWDATA_CMD,
++};
++
++union prueth_data {
++	struct sk_buff *skb;
++	struct page *page;
++	u32 cmd;
++};
++
++struct prueth_swdata {
++	union prueth_data data;
++	enum prueth_swdata_type type;
++};
++
+ /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
+  * and lower three are lower priority channels or threads.
+  */
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+index aeeb8a50376b..7bbe0808b3ec 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+@@ -275,10 +275,10 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+ 	struct net_device *ndev = emac->ndev;
+ 	struct cppi5_host_desc_t *desc_rx;
+ 	struct page *page, *new_page;
++	struct prueth_swdata *swdata;
+ 	dma_addr_t desc_dma, buf_dma;
+ 	u32 buf_dma_len, pkt_len;
+ 	struct sk_buff *skb;
+-	void **swdata;
+ 	void *pa;
+ 	int ret;
+ 
+@@ -301,7 +301,7 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+ 	}
+ 
+ 	swdata = cppi5_hdesc_get_swdata(desc_rx);
+-	page = *swdata;
++	page = swdata->data.page;
+ 	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+ 	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+ 
+-- 
+2.43.0
 
 
