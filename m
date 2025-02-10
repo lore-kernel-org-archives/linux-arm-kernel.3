@@ -4,197 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31F7C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F598C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 22:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yB7a+axCJWrVm2CuKydyvWjA9Cn3Zs68tIlrHpWnAVo=; b=XIj2T6Oy2EyKfO4j/CH3TGRBJQ
-	jTbevj+TPbOKuKYmQIA7d2NKCv/Wbx4sUVqHCtBbGfHpF9hpnn56KtOJ9Hip3vDwa73yj54Rknj+/
-	oanMC9ytpj8rFpVfioY5VHUVGLLsTpymTMp+dAIK35Ucl6Q8VodM0t0qz/qWptx3KjujefTjNQBQe
-	o6+ydfY6gvej7ROc2zWAdc0SOzwEDyXbNhFImEWozxiVUxzOPXGn2uFrzut9cyvh2FLKYwyK8DOpT
-	TWnbqn9jg4Ee4dNGfCtMtwmABsdORTeQ3LIkb/Ys+ow8F+s8cp3szxOn6qn32cRRVQBJVAcVKPeOe
-	PRv4YWOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ycacqOivXCpuiiDgsNxx0+xAkMZRAd46lqRqXyDUmhE=; b=0DbN4RlNRvEAwBXqR+lD5brFoh
+	knxi+GNmvCTzbI/Aye33ZkKGMZJ3DcicRfipGnXqlQel8CuhAXaEnwfaDMPtLbE3aozJAXzYu4GLA
+	jyxpKMcQyLA8wmAIL4ZrUKDPBRrPBtR2U36+c+suthSqxMFqvLd8Z43R20orgfA7IbWdwEd2CG9Sj
+	JCltGmZ0hAW0F80XK49KzBxlnO0fD4yrNVRrm7mRXfn/heUzgBGUOOn01q6/VsAGG6oX553sY0rJ3
+	7OE9kGQyX1OXrHp68rEoVvTU01pNSKCW6Xk9GOjeV0GtTzzqwNnqqNyhPFvAeIufNsYs0K66QjSkA
+	bwng4qNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbzO-00000001bVj-2W2v;
-	Mon, 10 Feb 2025 22:10:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thc1R-00000001bwe-0fRr;
+	Mon, 10 Feb 2025 22:12:57 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1that4-00000001QbD-40NC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 21:00:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=yB7a+axCJWrVm2CuKydyvWjA9Cn3Zs68tIlrHpWnAVo=; b=eeQ9EaTDU2635d4cm2KG3tdp8v
-	OIEocWBD5T7Y4r+ZdHLbBAqFOXvUer1aabzF3ImtBW8QLnEGOthyvNXBzSN/JlkmrVvpDrYJqn3Y1
-	uiXM5EiQZfcZWs/d5aPrunXHgFFuNaa/gW0Rm/6cSLUMcGFHEKEYCOo/V2ti25hORTYVeDO2iCKcj
-	rXebWsAp5A3vPl0f1M7v94uoTWEt1ZsgxIcf1n4ofiEJimFiw5/BqZz3N5vL50dA2iHSQit1uqoqV
-	3o1B9vLuMHqwbSOW1ZuWFmZXsUpBifNdny+1H6cW8NFj+3CQShZbH3H2nQMTXjV+yGUSNmqqWJzrF
-	dAYQTjDQ==;
-Received: from mail-am6eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2612::611] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1that0-00000000GLN-3fJH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 21:00:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rGikZvz/CD0bsAOwSVM0kzev883+hEU2r2Px/lusPsLOU70/zQeFhgeJXsWZAXl4SwpG+rVxB6YsiXzCHP3UDdTIrJafylYShRnkK8d/Dr1Re/S3hBEqKdjb1SrHKQMeNhY1Je4Iz05AAlHIWe+8ykHxd23S3OpEFmEGE7qrim651vSNojLABMej6ihwAs3zDCl2sxiDu4jRNtbWspXZjyPcfV9ckLAW6Ab5BK/hQYA8AqlunjL4+Q6b9C8gXfd+WMB1sLBoXZwhHuovz9e6acBTw9OVR81KHv3otDQAwJdaS7dmB226zEV5oVCc2CAdTyrqvnBSByrEhm43gXiq6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yB7a+axCJWrVm2CuKydyvWjA9Cn3Zs68tIlrHpWnAVo=;
- b=TwTbuSWXsGRNK9o24AHgvpxOMI+D7LAJD3Gx7XGa2cZHo8ome4/gvL5PEd8t5bIecqKIblaWe4D5R0TmggNPCJpv16kyRyxNwhZ2uiPLhzGdhrnLRmu1UnXG0qMVRuhPfMaUrH6AyA6hIxn7I8h2CRZ1XZXfJSTfGWiHUKL44QCBMrIKw0B8DekMeshdnYIoFQUJIO6VOvTKdqL9RULXedUFP03FZ3i0wnTlzDg6ouW20SrBiH9XnfhwmoeK6JBafsCy22UFBK30SCiDJW51IZg1c5Pd7oxUn+eKYuVte8UAPTKwXHK2n4HiQ3r3R60HusxpeQJI65QQhynzGilcqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yB7a+axCJWrVm2CuKydyvWjA9Cn3Zs68tIlrHpWnAVo=;
- b=H0jQNppMSzjr+1MaubAuBPun3vfwXkdra7CLRS6FMJ91+A9BR0Jx28HJS2yPMdu5wx7cdzXT0xD+XELXXHsNJKby+9wYX00W0UPoLXld8kMX0uf7gY22B7ylehq1cnCz58AX6fo+C2RCdLg6wo91Jqb2yFK5uK/mCYndsH3G82BLUcJhk48lOnAYu/f8wP6dHqQPHNbe+wz44VhJFeFhdjt95D0bqYJOQuA2uXgmSfNJZE3tYxJxMQQYcpjL+eKJGDlXl3cLhJ95Fyl9xmAmi+Xi4rTJUAPdxfvBfHlZpMb6bOKvd/N50M3BN92Ox9OCuaNch+Io0lU0YahTbQ2Jnw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBAPR04MB7462.eurprd04.prod.outlook.com (2603:10a6:10:1a0::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Mon, 10 Feb
- 2025 21:00:08 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Mon, 10 Feb 2025
- 21:00:08 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 10 Feb 2025 15:59:23 -0500
-Subject: [PATCH v3 04/12] media: nxp: imx8-isi: Allow num_sources to be
- greater than num_sink
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250210-8qxp_camera-v3-4-324f5105accc@nxp.com>
-References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
-In-Reply-To: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>, 
- Purism Kernel Team <kernel@puri.sm>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-media@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>, 
- "Guoniu.zhou" <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739221181; l=2071;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=Ip5M/e71q+Ga2McCkdT3MDC241p4b75hE0vPlSEpQ1I=;
- b=rbAxdMs1Bj1tn5HYKw8GUPdn+YbiwOvl59t7ywy0NM05A6APLhiPeAXLstINFe94ve+IUe7Kr
- /J/JOUBqpAgAUfFZkWLfa+g3wTQnjg4PpV1M7x8UIjryW7O/anzn5q+
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY3PR03CA0009.namprd03.prod.outlook.com
- (2603:10b6:a03:39a::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1thbye-00000001bKC-3xpV;
+	Mon, 10 Feb 2025 22:10:06 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43946b5920cso8754435e9.1;
+        Mon, 10 Feb 2025 14:10:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739225403; x=1739830203; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ycacqOivXCpuiiDgsNxx0+xAkMZRAd46lqRqXyDUmhE=;
+        b=Rva1bTU1o+dNypvT0LcWtTxoUPFLR9IvS0DPdG/tIzoPM40fYTA5+TcW7e3diChgE7
+         GkaQKmhgA9pjk+UBDRLj9gqA7qjtaEQy0iX/aLZdvR7l/Sbf2zB9SgWdUzBUJXce0FZS
+         fdbFazcY38wuO5GPdRYKaEcOwXTag0d9C9I9Pem7ZLM1zvZqfqAbwPYKJDyBSyDQTC1b
+         Q6mi2z5ixkixAns4jYrhfyrfK6yMpDkbsKXq5S9q+/hBDXzGvtZ5/Nv0UrxsCW+fkLoA
+         te7AQgenejqHX3+TprWoM+mT+nuSJG6TJSAYn3fnvPK3x5y20btPYftTkU2BAjQ+qHSj
+         urJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739225403; x=1739830203;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ycacqOivXCpuiiDgsNxx0+xAkMZRAd46lqRqXyDUmhE=;
+        b=xPuZbdJ8xOlfm/4KgqZgkRSdw4aM0KwIEHnUb8y3csANRhgZQCkece/tGHn8EpKDAf
+         Z/q/M3vUOzjf9W6ELkh+vRSAvXWQRZMqmGl/MU5WwONzMG7CKkxudArDIAkI+R4u5bDT
+         jlpout7Wg1YfSBnWYDI81zdozj2xwIqopHn/uDKqm+lWtns94t3j/2lvRtrPxtTfylme
+         WnGbeAEdpHTSXbNO64yD9rerrRV6RRHe1QwJ4OT3e1FybGhJauWjkCLgBxbvQT6/0kLV
+         yj2ZL5TZ03htB7eOPoXUEMjd04CRPYCS9hLC05OYhSkr6ruDy+z87ZPbJxJz2kNbWzAA
+         vfMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUC6HlZ7bdFLx3q7bjLxh7XA/TXOkInxXGCQ6XWB+8Y1bFmpGSQavpF3zNlKMNX0zZcUibLOPYHWx6lV2k=@lists.infradead.org, AJvYcCX0uGMIObGStnTni3H00iWxRY/q/CIBp/yCDA207Tz/OFv5HwSyIRgihD1Oc4BRG1xY9xa/xurkUOts1jiELzkE@lists.infradead.org
+X-Gm-Message-State: AOJu0YweHO4V2S5v8sHoW+QcJNH+YTIYcmUeui4Gque5YdBxYsVx5Aw6
+	B/0tgomF0O+7x5s+ppv9T2cJsr/DxUHKcd8fsiNnM7XQSR/oUkQl
+X-Gm-Gg: ASbGncv4HimOFoE0ThcyBiDnqJVrYmAfFo3RWDoABqMoc8GIEQIHg9UKvVRFZRLEh9N
+	O8Pq8NtX+7daROlDPrcQrTbUifCkCHeimNuURQfW+/JZEcm2prmdX7yS3Wzg/1+4HQAlu+YszdK
+	5vQHY4jXABtpLwVm2qu5aySJRHg0CaNqnDd1Y735ERnLmrXBIXloHNg1lESJERbr3+TgDCqpd3L
+	DqBeib9XcuoMYfHEG/z4gYQ6mrk0Zh4WntQfpnTOSQZfkWjVEH62eif3qNhmCZV7RBOsZ8aspc4
+	FEh8oce6kE1XGSnScO6SBODHF9Hw
+X-Google-Smtp-Source: AGHT+IF0vxhyYmoHMueP8NN7Qu1KBzOLRXRa5VzXyW6nA9poUPt4CKv2oJx28349+0Ii2IhZoSFc5Q==
+X-Received: by 2002:a05:600c:1911:b0:439:34d3:63c0 with SMTP id 5b1f17b1804b1-43934d365ebmr99807915e9.16.1739225402816;
+        Mon, 10 Feb 2025 14:10:02 -0800 (PST)
+Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde1dfaesm13443450f8f.90.2025.02.10.14.10.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 14:10:02 -0800 (PST)
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: soc@lists.linux.dev
+Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Haylen Chu <heylenay@outlook.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>
+Subject: [PATCH v2 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific part into SoCs' .dtsi files
+Date: Mon, 10 Feb 2025 23:09:41 +0100
+Message-ID: <20250210220951.1248533-2-alexander.sverdlin@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBAPR04MB7462:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4933386a-5479-4244-9ca5-08dd4a15e69e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RTYyVVYzcGY2bkY5dVU0VFRUSDBUTFNHbHNqY2NYRzFjUWZzdlkrTGNhc2xx?=
- =?utf-8?B?MjQ3cXpXa29lK1NpMkdiSXBDMHp4WXZWbkVLKys2Qm05T0RHRmE2ZkFnK3lp?=
- =?utf-8?B?MWJRNC9OWWdXcit0SFRjd2hJd0dnRG53bGtPZER0Nk1iU0VNc1NIWjF6Z2VW?=
- =?utf-8?B?WXQwV0JmbFpsUDU5cXVsbzFTeUtud3RMZkttbXhXaHNmZ3ZjVEhsVWJFZk1Q?=
- =?utf-8?B?WFZ2TFhUZytaYXBuZis5NnZTUU5mbktJYUFoU21CRUdzQ0c3NW96cTd6Nlhi?=
- =?utf-8?B?cHFXOU5yUWpxaFBmNGFSOUVVK0ZSaTJZSU1qQjVDR01hUkg1aC80Nyt1ZFQr?=
- =?utf-8?B?WnJPOTVNdHF0bDY4dW45cTlNeGdFRVVJanhpVHphWmw1VzI2clczUllYejl3?=
- =?utf-8?B?NnhhcFNwbVFwQThPTmhhdHE0c3Q5eDgyK3NBb1JPRnQxVGpxckdIYVZjTDV0?=
- =?utf-8?B?QTFubURhKzVSazFMeTcwby8wQWc5Sjd6KzQ3M2hrYk0vdWZYM1Npa0t1ZTY1?=
- =?utf-8?B?Si84NGxvMTY0N0tDY0lDdFd1WHF0c3NvSHZJMDYxdlp0QVViT1B3NnBuQ0JZ?=
- =?utf-8?B?MXNKd2ZxTm9IQytmdEVoUlMyL3AzdUhIdk5QdkFIdDU0S1FoN1E5RlZUSzVD?=
- =?utf-8?B?Y0VPUDF3bnYxQlA3UXlmejc2S0FUWHYxZUNnWTBabEs4R1dTeFlRSkVGa3Nz?=
- =?utf-8?B?bFdVR0VheVFVdkc2cHVnZGtMcWxiUDNaTkt5RWx0eXk4TkRQRXk0bHBOc29v?=
- =?utf-8?B?Rit5eUhFV1NDNmNSTlJCNmZ6MHVDci9laTZYU0g5eEZQZWNvN3Rvbkh4T0lw?=
- =?utf-8?B?RmJpclYzRERkL2ZWSUZRQkpNMFBGSVJTam1vS3R6eHYyWW1qNDRxZWxvWTFt?=
- =?utf-8?B?NVpOYTlWZVZMellCeGZxaWZyeWN3dENiRGRseld1Y0lrK3FwaEFneHNBcjNm?=
- =?utf-8?B?Vk5zcndxY0lMbTNrckk0L050SWJWZWgyNlNMaS94dGVOS2pCWHBOSmEreWpK?=
- =?utf-8?B?UXI3NURIK3VXaHZySzVEcm9yT3lpN1dVOEhrU1ZGUzV3QnRNNkFxejE2N0Vk?=
- =?utf-8?B?ZkU5UDJUVTN6UEJhUUkzTWhPZXI3REg2emF0NGxwUGpBTE90YXRXTlRMelIz?=
- =?utf-8?B?YTh1MVFuV0YwTmFNQVU5S3JiZklzcHpjUUpOSXNKeFNPSUNpVVprd1pwTEpH?=
- =?utf-8?B?MnorTGJHMm4rc1cybDQxNmpuUlBhc3dxS0t6YkRMbkxzWU9IMlZnK2ZEa0N5?=
- =?utf-8?B?Q3FPRTMrOWs2RFd0UUEzb0s2Y3FZN1FBSUR0N1pvQ1Q0aC8wbzlHWVFXdGRh?=
- =?utf-8?B?cGJRK014YmVDTmlPWXJUenNCVVQ4QzRaMmVvYlRROUNJOVh4aUNXbUpHaU9I?=
- =?utf-8?B?cHA5aVF2MnliZ0xodVdzRzdZU0RFbnVaL21abW5IWm5YQk56Lzd3Qlkvenox?=
- =?utf-8?B?eU9GeUNGei9GOFJ3MmswQ2pkWDRCbGdpNGFoTXpobDZWNnR0UjlNako3ZkNU?=
- =?utf-8?B?TVJsR2g5N3k2ekk4Z2l6WU9HdFdUUjBOVzJZS0h4em15V1ExNnE5SUw5dHZY?=
- =?utf-8?B?TGdlV3pUdXdaQ3NBaHAyRnp6VXlqNmp1OFZ6U3pGdzYvMEtvRHcvZjIyelNo?=
- =?utf-8?B?ZkdrdHNiQ05vSmFneURHTHQxUWVFWTJ4Zy9nNW9pVHowMzJnN0pHZUFxcGla?=
- =?utf-8?B?OW4ycWdZQTdRZEoxRW5zKy91VS9EWDdyREExSnNVakhIMWk0QkJPUk1XN2JS?=
- =?utf-8?B?Y25oczV5UTVvNXZoWmlob0xOc1hPbklPczBFeEFPNTUwaThtQWlmN1YzbHd1?=
- =?utf-8?B?d3JOWis0MTYyTE5WSWZwSEJaSWNPZkp4T0tjR2wySFVLVmJDc2dRbjVRQmRV?=
- =?utf-8?B?THVJQTV6eHpZUHg0N3l5ck16UUVIYjlPaVJIVUtFUXFLbGxmQUdlYjc1bkE2?=
- =?utf-8?B?OEpVbGRuV0hFSnpuTmxUYnRNdGpKQTA5R25oNFlRKzhBM1F1Qnlib0RUUDFD?=
- =?utf-8?B?N3NCMnVwRHl3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OGVJK084YkdkR295N3FxTjM2SlJZRVNLUGdjc3lZdTJraGxNa2h2VWI3ZVNT?=
- =?utf-8?B?anRtVXNyMnFDVC9BSmVJUHhWNXJEdXNVRHFlOUM0STBYWGFWd0xnYVNBTzcz?=
- =?utf-8?B?QTBwY3I4bnI3YnlnK085K1ZmMnRzbC9MNzg1ZEJtcnFSNHRGVHZFcWF5dE9B?=
- =?utf-8?B?TjNSUDNpQ1NXUVNwM2s4Rmp2K2M1TVpESStSYmdYRHoxaTlDcGlYNDZtRDFa?=
- =?utf-8?B?bE5KZU14NW1DeGtvL3d3SytXSzE5V0cwZy9QUkQ1Q0dOUm5MV3BLeVNobSto?=
- =?utf-8?B?bFA1VC9xcXI2WmVGR3cwbk96b1gxa0NxRnErMzIvSEkvT1NscDJYemRlOWdR?=
- =?utf-8?B?WE10YzVNR2g1dEw5MjVpTWNTcjNRdC90RlEvTFQ3V3NyQkRtb09kYkVJRk9W?=
- =?utf-8?B?VkJHWGFPOGtVTVZYMm9ZUldxTkc4WWRPRHpQZXlQdkhmd2djL3k1eElRaXhJ?=
- =?utf-8?B?MFh2WnVxQVJoWUUyODM3N1p4WFFGSERoK2F3RGFPbm9mZTh5Y1JRMWJ4ZjYx?=
- =?utf-8?B?RmZHNGRXRWpycW5ZZGdQdWVuWEVEdzZyN29zN29ObDNzSVpza09jOGYyNWx2?=
- =?utf-8?B?cWR0MHJTTVg4T2NwWlRmNEIvdlZPa2Q5YkVtMmUzNTI3dE9md2t1eVFoV2Nm?=
- =?utf-8?B?VjBpbzRaMnlaak5RMUZLU2d0N0Zqcml2V3FrYU1KVkplSnk0RUlVdmt4ODJU?=
- =?utf-8?B?OEdzTCt2bW5rVFNKZVB1bHNZS1VSTWczLytZaFU4dk1hTGZ4NzBkK0I2UmpZ?=
- =?utf-8?B?NGVyODcrVEV5MW1CbkVCc0Q3dmFHM3BlNXlQVGVXRzhwUS9WQWRaSkpnUWpF?=
- =?utf-8?B?SnRiaVFjeVpSclNnS1ZPcnVIckc4U2ZZYTZESk5iTFFGSVRMMVIzUWd5VjVt?=
- =?utf-8?B?YkhQOWI1c0J1Tkk1N1JCM1pVVDhraWlvdHRxK3d2MXAxa3VTa2UzZGxjUk9I?=
- =?utf-8?B?NUlVVE5uVEJmQXhNSDVnUU5UcGExZDBvNG5hUXF5Q1lsbTQ5Y1pUdE8wM1ky?=
- =?utf-8?B?VWlGM1pScHhUK3JJVHJGSnAxZHZ5b1ZTdWpOR2RiSEFYcTFuWmdIb21qTFhr?=
- =?utf-8?B?WWlmaFFjeWxQZ1R4ZUpSMUhOTU1CcjdLWTY0dXBLb0JablBrSkcvaldGYzN1?=
- =?utf-8?B?S3dTdGp1MGlZSU0yZ0h0SGNpR0J6bUNOelljNnZrRUxVdEMrSUtLbXcydE9k?=
- =?utf-8?B?VUdWUUFldERqZGpwVEh1MDFoeXdzMmZUYS9TVUNnM1JyanIxZmFoTHNHaEp1?=
- =?utf-8?B?QVhCUGJXUjJUVlRSdmVZRkVyNVNXNGV4MHlqTnlTWlhHSmVCeGFTYmViZ3JS?=
- =?utf-8?B?ZE54Q0lqZHRPOXd2cmd3Mlk2ekFaNkVFK0RkOGIyb3d3L1p5d0QvNjV6ZFRj?=
- =?utf-8?B?MmozYWp4dFhXdGhXMDhkWE1YUlRVcmw1N3VYRHQyeXEvNWU4SE1JaHlvNlc2?=
- =?utf-8?B?aGhUWW5UQmxqUDVHN3VrM0RnaUpSR1ZYWEtkUmJGNWtqYWtwdjF3UVh1TWF2?=
- =?utf-8?B?ZkxkMHh2U01ITGtHM20wYm9XY0xyT3haazZuMzA2Tnd6UVo3S01xRmc0STlk?=
- =?utf-8?B?eW85SDA1eFAvcUlZM0pSZG85RGFVNGlrMkN0dHpybzR1TnFPYisvbDdDa09D?=
- =?utf-8?B?TkYvTE9QeTE5d1VwQjB2MVNDWVlUaUExU1pNeEdlSkFReVZwTlIxN01pK2pR?=
- =?utf-8?B?UEtYeGJjYkhTaWJtM29meGJ4L1R4QjArQ3A5aTBPbFo3amVVTjQ4L2VNNkNU?=
- =?utf-8?B?MngreW5GYmtxZE9GVXRKeEdrY2c5RWFTNHlrNzVIWjFia3R3dTU5WVR5VFRy?=
- =?utf-8?B?NTBsNnh0cDg0T1RpRTB3SUlCSXFta3VHby9icGxrOUxVbW5IeW9ER0NMRUU4?=
- =?utf-8?B?Y0RHa1JuanZYbkJ0bmNORTVmZ3NWdlVERitraVh0RnlIWmRQNkRPK0NZNGdS?=
- =?utf-8?B?bEVEUzlLbzNnU2Zyd3E0Qk1Kc01yNk9PcUVlc3NwelI1a0tCaHFoTmNPeWI3?=
- =?utf-8?B?ZzZEbC9BNGtTRGpvckpESnVzUGozY0JvRlVTTmZyUmdqMm1FNTRYczN4anZx?=
- =?utf-8?B?SDIyZkxOMVlWeDZyOC9tUFpsZER1YW5qcnpuWDluSHo5Lyt2VHJoaVpJSjds?=
- =?utf-8?Q?nhWbHmlazM5OKRyGKqBy5Te/6?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4933386a-5479-4244-9ca5-08dd4a15e69e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 21:00:08.1479
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sxnVAfgT/tyeXWtzF/xwZ9tKclNTZ56syLvqCb2AAZkjqVEHerSDvjFQG8fouoG2FCx49OFoq/giSwsIIZ+WOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7462
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_210011_236219_AAE9432C 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250210_141004_987856_EC75AA56 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -209,59 +110,641 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow num_sources (drvdata: num_channels) to be greater than num_sink
-(drvdata: num_ports + 1).
+Make the peripheral device tree re-usable on ARM64 platform by moving CPU
+core and interrupt controllers' parts into the respective per-SoC .dtsi
+files.
 
-ISI support stream multiplexing, such as differentiates multiple cameras
-from a single 2-lane MIPI input, or duplicates input stream into multiple
-outputs. So num_channels may be greater than num_ports at some platform.
+Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
+into "plic" interrupt-controller numbering.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Have a nice refactoring side-effect that "plic" and "clint" "compatible"
+property is not specified outside of the corresponding device itself.
+
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
-change from v1 to v3
-- none
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Changelog:
+v2:
+- instead of carving out peripherals' part, carve out ARCH-specifics (CPU
+core, interrupt controllers) and spread them among 3 SoC .dtsi files which
+included cv18xx.dtsi;
+- define a label for the "soc" node and use it in the newly introduced DTs;
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-index 93a55c97cd173..ba5b2d3617a23 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-@@ -188,11 +188,11 @@ static int mxc_isi_crossbar_init_state(struct v4l2_subdev *sd,
- 	 * Create a 1:1 mapping between pixel link inputs and outputs to
- 	 * pipelines by default.
- 	 */
--	routes = kcalloc(xbar->num_sources, sizeof(*routes), GFP_KERNEL);
-+	routes = kcalloc(xbar->num_sinks - 1, sizeof(*routes), GFP_KERNEL);
- 	if (!routes)
- 		return -ENOMEM;
- 
--	for (i = 0; i < xbar->num_sources; ++i) {
-+	for (i = 0; i < xbar->num_sinks - 1; ++i) {
- 		struct v4l2_subdev_route *route = &routes[i];
- 
- 		route->sink_pad = i;
-@@ -200,7 +200,7 @@ static int mxc_isi_crossbar_init_state(struct v4l2_subdev *sd,
- 		route->flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE;
- 	}
- 
--	routing.num_routes = xbar->num_sources;
-+	routing.num_routes = xbar->num_sinks - 1;
- 	routing.routes = routes;
- 
- 	ret = __mxc_isi_crossbar_set_routing(sd, state, &routing);
-@@ -453,7 +453,7 @@ int mxc_isi_crossbar_init(struct mxc_isi_dev *isi)
- 	 * the memory input.
- 	 */
- 	xbar->num_sinks = isi->pdata->num_ports + 1;
--	xbar->num_sources = isi->pdata->num_ports;
-+	xbar->num_sources = isi->pdata->num_channels;
- 	num_pads = xbar->num_sinks + xbar->num_sources;
- 
- 	xbar->pads = kcalloc(num_pads, sizeof(*xbar->pads), GFP_KERNEL);
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi    | 64 ++++++++++++---
+ arch/riscv/boot/dts/sophgo/cv1812h.dtsi    | 64 ++++++++++++---
+ arch/riscv/boot/dts/sophgo/cv181x.dtsi     |  2 +-
+ arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 ++++++++++++++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi     | 91 ++++++----------------
+ arch/riscv/boot/dts/sophgo/sg2002.dtsi     | 64 ++++++++++++---
+ 6 files changed, 240 insertions(+), 102 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
 
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+index aa1f5df100f0..eef2884b36f9 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+ #include "cv18xx.dtsi"
+ 
+@@ -14,22 +16,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x4000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,cv1800b-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,cv1800b-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+index 8a1b95c5116b..54f7e229bcd8 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/pinctrl/pinctrl-cv1812h.h>
+ #include "cv18xx.dtsi"
+@@ -16,22 +18,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x10000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,cv1812h-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,cv1812h-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
+diff --git a/arch/riscv/boot/dts/sophgo/cv181x.dtsi b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+index 5fd14dd1b14f..bbdb30653e9a 100644
+--- a/arch/riscv/boot/dts/sophgo/cv181x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+@@ -11,7 +11,7 @@ soc {
+ 		emmc: mmc@4300000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4300000 0x1000>;
+-			interrupts = <34 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(18) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_EMMC>,
+ 				 <&clk CLK_EMMC>;
+ 			clock-names = "core", "bus";
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+new file mode 100644
+index 000000000000..a68d61131efb
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
++/ {
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++	};
++};
++
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
++
++	plic: interrupt-controller@70000000 {
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index c18822ec849f..62c1464a0490 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -12,47 +12,16 @@ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+ 
+-	cpus: cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		timebase-frequency = <25000000>;
+-
+-		cpu0: cpu@0 {
+-			compatible = "thead,c906", "riscv";
+-			device_type = "cpu";
+-			reg = <0>;
+-			d-cache-block-size = <64>;
+-			d-cache-sets = <512>;
+-			d-cache-size = <65536>;
+-			i-cache-block-size = <64>;
+-			i-cache-sets = <128>;
+-			i-cache-size = <32768>;
+-			mmu-type = "riscv,sv39";
+-			riscv,isa = "rv64imafdc";
+-			riscv,isa-base = "rv64i";
+-			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
+-
+-			cpu0_intc: interrupt-controller {
+-				compatible = "riscv,cpu-intc";
+-				interrupt-controller;
+-				#interrupt-cells = <1>;
+-			};
+-		};
+-	};
+-
+ 	osc: oscillator {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "osc_25m";
+ 		#clock-cells = <0>;
+ 	};
+ 
+-	soc {
++	soc: soc {
+ 		compatible = "simple-bus";
+-		interrupt-parent = <&plic>;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		dma-noncoherent;
+ 		ranges;
+ 
+ 		clk: clock-controller@3002000 {
+@@ -75,7 +44,7 @@ porta: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <60 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(44) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -93,7 +62,7 @@ portb: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <61 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(45) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -111,7 +80,7 @@ portc: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(46) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -129,7 +98,7 @@ portd: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <63 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(47) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -137,7 +106,7 @@ saradc: adc@30f0000 {
+ 			compatible = "sophgo,cv1800b-saradc";
+ 			reg = <0x030f0000 0x1000>;
+ 			clocks = <&clk CLK_SARADC>;
+-			interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(84) IRQ_TYPE_LEVEL_HIGH>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -162,7 +131,7 @@ i2c0: i2c@4000000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C0>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(33) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -173,7 +142,7 @@ i2c1: i2c@4010000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C1>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(34) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -184,7 +153,7 @@ i2c2: i2c@4020000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C2>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <51 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(35) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -195,7 +164,7 @@ i2c3: i2c@4030000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C3>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <52 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(36) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -206,14 +175,14 @@ i2c4: i2c@4040000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C4>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <53 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(37) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+ 		uart0: serial@4140000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04140000 0x100>;
+-			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(28) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART0>, <&clk CLK_APB_UART0>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -224,7 +193,7 @@ uart0: serial@4140000 {
+ 		uart1: serial@4150000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04150000 0x100>;
+-			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(29) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART1>, <&clk CLK_APB_UART1>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -235,7 +204,7 @@ uart1: serial@4150000 {
+ 		uart2: serial@4160000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04160000 0x100>;
+-			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(30) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART2>, <&clk CLK_APB_UART2>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -246,7 +215,7 @@ uart2: serial@4160000 {
+ 		uart3: serial@4170000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04170000 0x100>;
+-			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(31) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART3>, <&clk CLK_APB_UART3>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -261,7 +230,7 @@ spi0: spi@4180000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI0>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <54 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(38) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -272,7 +241,7 @@ spi1: spi@4190000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI1>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(39) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -283,7 +252,7 @@ spi2: spi@41a0000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI2>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <56 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(40) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -294,14 +263,14 @@ spi3: spi@41b0000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI3>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <57 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(41) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+ 		uart4: serial@41c0000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x041c0000 0x100>;
+-			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(32) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART4>, <&clk CLK_APB_UART4>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -312,7 +281,7 @@ uart4: serial@41c0000 {
+ 		sdhci0: mmc@4310000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4310000 0x1000>;
+-			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(20) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_SD0>,
+ 				 <&clk CLK_SD0>;
+ 			clock-names = "core", "bus";
+@@ -322,7 +291,7 @@ sdhci0: mmc@4310000 {
+ 		sdhci1: mmc@4320000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4320000 0x1000>;
+-			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(22) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_SD1>,
+ 				 <&clk CLK_SD1>;
+ 			clock-names = "core", "bus";
+@@ -332,7 +301,7 @@ sdhci1: mmc@4320000 {
+ 		dmac: dma-controller@4330000 {
+ 			compatible = "snps,axi-dma-1.01a";
+ 			reg = <0x04330000 0x1000>;
+-			interrupts = <29 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+ 			clock-names = "core-clk", "cfgr-clk";
+ 			#dma-cells = <1>;
+@@ -344,19 +313,5 @@ dmac: dma-controller@4330000 {
+ 			snps,data-width = <4>;
+ 			status = "disabled";
+ 		};
+-
+-		plic: interrupt-controller@70000000 {
+-			reg = <0x70000000 0x4000000>;
+-			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+-			interrupt-controller;
+-			#address-cells = <0>;
+-			#interrupt-cells = <2>;
+-			riscv,ndev = <101>;
+-		};
+-
+-		clint: timer@74000000 {
+-			reg = <0x74000000 0x10000>;
+-			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+-		};
+ 	};
+ };
+diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+index 7f79de33163c..732d0e72cf13 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2002.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/pinctrl/pinctrl-sg2002.h>
+ #include "cv18xx.dtsi"
+@@ -16,22 +18,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x10000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,sg2002-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,sg2002-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,sg2002-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,sg2002-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
 -- 
-2.34.1
+2.48.1
 
 
