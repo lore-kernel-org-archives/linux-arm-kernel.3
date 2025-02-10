@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F212DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437FDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 07:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p5t/qSQA2d3FSDSz3haQsw9RGnnePVfNejM9bi/AJzI=; b=gDjiqJsIsTcrqnCF6jKU8FB6T+
-	4vSXxH4K+6PfjYukyYFzYkRyUNoY4zHsKaOO7N4W46gio9jjB6M5CuWTqAnEOJM+E5boG9oT2ZS3t
-	PcPHF5lZX/CbaGMLonJi5jlNZXCqwo6ErAO9kZR65j1qsyx8EHLWCGGJMqsSzsfy+HyL013PuiUrF
-	G5OCbTmGNQTiVQrZQy3Tt648/MmcKBGggl132xwakDCEDE+4IBw+glANghjlsfo+VZL3uZmZueDRu
-	uqXZR3wnmCMA8ciYYuMC4b8+8guk4LpNZFlQK3cwNIxr4ZJFKDUTW5dZouiTTxY3rLQcPccvQwLGR
-	pacr/jZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFZwg4gssek4E0qCtKZlJ+QXDkOGPKA0iRXi0wCZsLA=; b=s2lfAjm8b+MAJO21lAjZQ+g6NU
+	w0k34agBGlPgI0qo++4myrKGYza/Zsq9HpCNjOAiJEJNGrDLpXNv6UEtiLSPfnJ1TXTBVzVdp1YzO
+	7CoQRi4J3bZcjQmZ2YYzxA2dzI+edKIfWwysWJKASiielat5QUOORY9/ViSQBT8hzvjCgLd497OiK
+	RAvHKAsjiGL42CEU2+kCgNpSFNL4QcBulo256lOyGD6f+9v4tZ+EUE/V/5I6fEzH64gyGdOlNs8Di
+	T//AeGwOQzGAYiaIdazOUpiFf8lTaRnYplGm185fx9H2ynlrpysERDZDymeSLbXRyBcHt4x89UhjG
+	5NTy0p/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thOVn-0000000GZ0f-3tfz;
-	Mon, 10 Feb 2025 07:47:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thOUP-0000000GYo7-1YJ6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 07:45:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A2761BA8;
-	Sun,  9 Feb 2025 23:46:17 -0800 (PST)
-Received: from [10.163.35.99] (unknown [10.163.35.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EF743F58B;
-	Sun,  9 Feb 2025 23:45:50 -0800 (PST)
-Message-ID: <43c256b6-7e44-41bb-b0c5-866fd4faab5c@arm.com>
-Date: Mon, 10 Feb 2025 13:15:50 +0530
+	id 1thOX9-0000000GZAU-2J2v;
+	Mon, 10 Feb 2025 07:48:47 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thOVG-0000000GYvn-0Bgy;
+	Mon, 10 Feb 2025 07:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739173610; x=1770709610;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=57FsZbFOLUMSsYGliPSMD+RfYyI9b+xhfGwhfTv6VoU=;
+  b=PQwp/R6UroCeY8NZiOekM1PXj15Vxu4CCW5ee0lVYBt9pdX4nCu9T1K3
+   94ZRR0P4+i/BEWwrH6BPRz3w5wrSlRh9GnTKueVyDGGHkP2tD2Foz0hDv
+   w6dxjnyhCKPdvzFXxiy2At6nlDumcDE0nu3DAqnBbRzcnIjAlQMjka2Vd
+   jExTAmznYMDALK+2lSejvg8sao1mvft/1IWNelW8CpGhTdT8aEo3vre5x
+   r/gsk7piafpBNVKYONLP+t1aID4jmbfrI0BmDpqdxiciz9lUddog+9J4b
+   z1/DipEQtQSyIiQa3fgkCuMVrS3niVvrwEFUba8bNt0fV8G3q6HcNDbgI
+   g==;
+X-CSE-ConnectionGUID: bKErg7W9SPWPhxOne734Sw==
+X-CSE-MsgGUID: 7nax8ZWtT5mZTzPhqfrg3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11340"; a="39868190"
+X-IronPort-AV: E=Sophos;i="6.13,274,1732608000"; 
+   d="scan'208";a="39868190"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2025 23:46:46 -0800
+X-CSE-ConnectionGUID: 168nfPuIRfeGYDg3PECo0w==
+X-CSE-MsgGUID: cljx2HRWQAuLmpH7eaD5VA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="112994147"
+Received: from mev-dev.igk.intel.com ([10.237.112.144])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2025 23:46:42 -0800
+Date: Mon, 10 Feb 2025 08:43:07 +0100
+From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+To: Eric Woudstra <ericwouds@gmail.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 net-next] net: ethernet: mtk_ppe_offload: Allow QinQ
+Message-ID: <Z6muC7WshGlaY9Ft@mev-dev.igk.intel.com>
+References: <20250209110936.241487-1-ericwouds@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 15/16] mm: Generalize arch_sync_kernel_mappings()
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-16-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250205151003.88959-16-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250209110936.241487-1-ericwouds@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250209_234557_506052_E32E91D8 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20250209_234650_126413_07ADBBE8 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,283 +92,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/5/25 20:39, Ryan Roberts wrote:
-> arch_sync_kernel_mappings() is an optional hook for arches to allow them
-> to synchonize certain levels of the kernel pgtables after modification.
-> But arm64 could benefit from a hook similar to this, paired with a call
-> prior to starting the batch of modifications.
+On Sun, Feb 09, 2025 at 12:09:36PM +0100, Eric Woudstra wrote:
+> mtk_foe_entry_set_vlan() in mtk_ppe.c already seems to support
+> double vlan tagging, but mtk_flow_offload_replace() in
+> mtk_ppe_offload.c only allows for 1 vlan tag, optionally in
+> combination with pppoe and dsa tags.
 > 
-> So let's introduce arch_update_kernel_mappings_begin() and
-> arch_update_kernel_mappings_end(). Both have a default implementation
-> which can be overridden by the arch code. The default for the former is
-> a nop, and the default for the latter is to call
-> arch_sync_kernel_mappings(), so the latter replaces previous
-> arch_sync_kernel_mappings() callsites. So by default, the resulting
-> behaviour is unchanged.
+> This patch adds QinQ support to mtk_flow_offload_replace().
 > 
-> To avoid include hell, the pgtbl_mod_mask type and it's associated
-> macros are moved to their own header.
+> Only PPPoE-in-Q (as before) and Q-in-Q are allowed. A combination
+> of PPPoE and Q-in-Q is not allowed.
 > 
-> In a future patch, arm64 will opt-in to overriding both functions.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
 > ---
->  include/linux/pgtable.h         | 24 +----------------
->  include/linux/pgtable_modmask.h | 32 ++++++++++++++++++++++
->  include/linux/vmalloc.h         | 47 +++++++++++++++++++++++++++++++++
->  mm/memory.c                     |  5 ++--
->  mm/vmalloc.c                    | 15 ++++++-----
->  5 files changed, 92 insertions(+), 31 deletions(-)
->  create mode 100644 include/linux/pgtable_modmask.h
 > 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 94d267d02372..7f70786a73b3 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -4,6 +4,7 @@
+> Changes in v3:
+> - Removed unnecessary second check for ETH_P_8021Q.
+> 
+> Changes in v2:
+> - Unchanged, only RFC to PATCH.
+> 
+> Tested on the BPI-R3(mini), on non-dsa-ports and dsa-ports.
+> 
+>  .../net/ethernet/mediatek/mtk_ppe_offload.c   | 22 +++++++++----------
+>  1 file changed, 11 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> index f20bb390df3a..c855fb799ce1 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> @@ -34,8 +34,10 @@ struct mtk_flow_data {
+>  	u16 vlan_in;
 >  
->  #include <linux/pfn.h>
->  #include <asm/pgtable.h>
-> +#include <linux/pgtable_modmask.h>
->  
->  #define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
->  #define PUD_ORDER	(PUD_SHIFT - PAGE_SHIFT)
-> @@ -1786,29 +1787,6 @@ static inline bool arch_has_pfn_modify_check(void)
->  # define PAGE_KERNEL_EXEC PAGE_KERNEL
->  #endif
->  
-> -/*
-> - * Page Table Modification bits for pgtbl_mod_mask.
-> - *
-> - * These are used by the p?d_alloc_track*() set of functions an in the generic
-> - * vmalloc/ioremap code to track at which page-table levels entries have been
-> - * modified. Based on that the code can better decide when vmalloc and ioremap
-> - * mapping changes need to be synchronized to other page-tables in the system.
-> - */
-> -#define		__PGTBL_PGD_MODIFIED	0
-> -#define		__PGTBL_P4D_MODIFIED	1
-> -#define		__PGTBL_PUD_MODIFIED	2
-> -#define		__PGTBL_PMD_MODIFIED	3
-> -#define		__PGTBL_PTE_MODIFIED	4
-> -
-> -#define		PGTBL_PGD_MODIFIED	BIT(__PGTBL_PGD_MODIFIED)
-> -#define		PGTBL_P4D_MODIFIED	BIT(__PGTBL_P4D_MODIFIED)
-> -#define		PGTBL_PUD_MODIFIED	BIT(__PGTBL_PUD_MODIFIED)
-> -#define		PGTBL_PMD_MODIFIED	BIT(__PGTBL_PMD_MODIFIED)
-> -#define		PGTBL_PTE_MODIFIED	BIT(__PGTBL_PTE_MODIFIED)
-> -
-> -/* Page-Table Modification Mask */
-> -typedef unsigned int pgtbl_mod_mask;
-> -
->  #endif /* !__ASSEMBLY__ */
->  
->  #if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
-> diff --git a/include/linux/pgtable_modmask.h b/include/linux/pgtable_modmask.h
-> new file mode 100644
-> index 000000000000..5a21b1bb8df3
-> --- /dev/null
-> +++ b/include/linux/pgtable_modmask.h
-> @@ -0,0 +1,32 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _LINUX_PGTABLE_MODMASK_H
-> +#define _LINUX_PGTABLE_MODMASK_H
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +/*
-> + * Page Table Modification bits for pgtbl_mod_mask.
-> + *
-> + * These are used by the p?d_alloc_track*() set of functions an in the generic
-> + * vmalloc/ioremap code to track at which page-table levels entries have been
-> + * modified. Based on that the code can better decide when vmalloc and ioremap
-> + * mapping changes need to be synchronized to other page-tables in the system.
-> + */
-> +#define		__PGTBL_PGD_MODIFIED	0
-> +#define		__PGTBL_P4D_MODIFIED	1
-> +#define		__PGTBL_PUD_MODIFIED	2
-> +#define		__PGTBL_PMD_MODIFIED	3
-> +#define		__PGTBL_PTE_MODIFIED	4
-> +
-> +#define		PGTBL_PGD_MODIFIED	BIT(__PGTBL_PGD_MODIFIED)
-> +#define		PGTBL_P4D_MODIFIED	BIT(__PGTBL_P4D_MODIFIED)
-> +#define		PGTBL_PUD_MODIFIED	BIT(__PGTBL_PUD_MODIFIED)
-> +#define		PGTBL_PMD_MODIFIED	BIT(__PGTBL_PMD_MODIFIED)
-> +#define		PGTBL_PTE_MODIFIED	BIT(__PGTBL_PTE_MODIFIED)
-> +
-> +/* Page-Table Modification Mask */
-> +typedef unsigned int pgtbl_mod_mask;
-> +
-> +#endif /* !__ASSEMBLY__ */
-> +
-> +#endif /* _LINUX_PGTABLE_MODMASK_H */
-> diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-> index 16dd4cba64f2..cb5d8f1965a1 100644
-> --- a/include/linux/vmalloc.h
-> +++ b/include/linux/vmalloc.h
-> @@ -11,6 +11,7 @@
->  #include <asm/page.h>		/* pgprot_t */
->  #include <linux/rbtree.h>
->  #include <linux/overflow.h>
-> +#include <linux/pgtable_modmask.h>
->  
->  #include <asm/vmalloc.h>
->  
-> @@ -213,6 +214,26 @@ extern int remap_vmalloc_range(struct vm_area_struct *vma, void *addr,
->  int vmap_pages_range(unsigned long addr, unsigned long end, pgprot_t prot,
->  		     struct page **pages, unsigned int page_shift);
->  
-> +#ifndef arch_update_kernel_mappings_begin
-> +/**
-> + * arch_update_kernel_mappings_begin - A batch of kernel pgtable mappings are
-> + * about to be updated.
-> + * @start: Virtual address of start of range to be updated.
-> + * @end: Virtual address of end of range to be updated.
-> + *
-> + * An optional hook to allow architecture code to prepare for a batch of kernel
-> + * pgtable mapping updates. An architecture may use this to enter a lazy mode
-> + * where some operations can be deferred until the end of the batch.
-> + *
-> + * Context: Called in task context and may be preemptible.
-> + */
-> +static inline void arch_update_kernel_mappings_begin(unsigned long start,
-> +						     unsigned long end)
-> +{
-> +}
-> +#endif
-> +
-> +#ifndef arch_update_kernel_mappings_end
->  /*
->   * Architectures can set this mask to a combination of PGTBL_P?D_MODIFIED values
->   * and let generic vmalloc and ioremap code know when arch_sync_kernel_mappings()
-> @@ -229,6 +250,32 @@ int vmap_pages_range(unsigned long addr, unsigned long end, pgprot_t prot,
->   */
->  void arch_sync_kernel_mappings(unsigned long start, unsigned long end);
->  
-> +/**
-> + * arch_update_kernel_mappings_end - A batch of kernel pgtable mappings have
-> + * been updated.
-> + * @start: Virtual address of start of range that was updated.
-> + * @end: Virtual address of end of range that was updated.
-> + *
-> + * An optional hook to inform architecture code that a batch update is complete.
-> + * This balances a previous call to arch_update_kernel_mappings_begin().
-> + *
-> + * An architecture may override this for any purpose, such as exiting a lazy
-> + * mode previously entered with arch_update_kernel_mappings_begin() or syncing
-> + * kernel mappings to a secondary pgtable. The default implementation calls an
-> + * arch-provided arch_sync_kernel_mappings() if any arch-defined pgtable level
-> + * was updated.
-> + *
-> + * Context: Called in task context and may be preemptible.
-> + */
-> +static inline void arch_update_kernel_mappings_end(unsigned long start,
-> +						   unsigned long end,
-> +						   pgtbl_mod_mask mask)
-> +{
-> +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> +		arch_sync_kernel_mappings(start, end);
-> +}
-
-One arch call back calling yet another arch call back sounds bit odd. Also
-should not ARCH_PAGE_TABLE_SYNC_MASK be checked both for __begin and __end
-callbacks in case a platform subscribes into this framework. Instead the
-following changes sound more reasonable, but will also require some more
-updates for the current platforms using arch_sync_kernel_mappings().
-
-if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-	arch_update_kernel_mappings_begin()
-
-if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-	arch_update_kernel_mappings_end()
-
-Basically when any platform defines ARCH_PAGE_TABLE_SYNC_MASK and subscribes
-this framework, it will also provide arch_update_kernel_mappings_begin/end()
-callbacks as required.
-
-> +#endif
-> +
->  /*
->   *	Lowlevel-APIs (not for driver use!)
->   */
-> diff --git a/mm/memory.c b/mm/memory.c
-> index a15f7dd500ea..f80930bc19f6 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -3035,6 +3035,8 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
->  	if (WARN_ON(addr >= end))
->  		return -EINVAL;
->  
-> +	arch_update_kernel_mappings_begin(start, end);
-> +
->  	pgd = pgd_offset(mm, addr);
->  	do {
->  		next = pgd_addr_end(addr, end);
-> @@ -3055,8 +3057,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
+>  	struct {
+> -		u16 id;
+> -		__be16 proto;
+> +		struct {
+> +			u16 id;
+> +			__be16 proto;
+> +		} vlans[2];
+>  		u8 num;
+>  	} vlan;
+>  	struct {
+> @@ -349,18 +351,19 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+>  		case FLOW_ACTION_CSUM:
 >  			break;
->  	} while (pgd++, addr = next, addr != end);
+>  		case FLOW_ACTION_VLAN_PUSH:
+> -			if (data.vlan.num == 1 ||
+> +			if (data.vlan.num + data.pppoe.num == 2 ||
+>  			    act->vlan.proto != htons(ETH_P_8021Q))
+>  				return -EOPNOTSUPP;
 >  
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(start, start + size);
-> +	arch_update_kernel_mappings_end(start, end, mask);
+> -			data.vlan.id = act->vlan.vid;
+> -			data.vlan.proto = act->vlan.proto;
+> +			data.vlan.vlans[data.vlan.num].id = act->vlan.vid;
+> +			data.vlan.vlans[data.vlan.num].proto = act->vlan.proto;
+>  			data.vlan.num++;
+>  			break;
+>  		case FLOW_ACTION_VLAN_POP:
+>  			break;
+>  		case FLOW_ACTION_PPPOE_PUSH:
+> -			if (data.pppoe.num == 1)
+> +			if (data.pppoe.num == 1 ||
+> +			    data.vlan.num == 2)
+>  				return -EOPNOTSUPP;
 >  
->  	return err;
->  }
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 50fd44439875..c5c51d86ef78 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -312,10 +312,10 @@ int vmap_page_range(unsigned long addr, unsigned long end,
->  	pgtbl_mod_mask mask = 0;
->  	int err;
+>  			data.pppoe.sid = act->pppoe.sid;
+> @@ -450,12 +453,9 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+>  	if (offload_type == MTK_PPE_PKT_TYPE_BRIDGE)
+>  		foe.bridge.vlan = data.vlan_in;
 >  
-> +	arch_update_kernel_mappings_begin(addr, end);
->  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
->  				 ioremap_max_page_shift, &mask);
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(addr, end);
-> +	arch_update_kernel_mappings_end(addr, end, mask);
+> -	if (data.vlan.num == 1) {
+> -		if (data.vlan.proto != htons(ETH_P_8021Q))
+> -			return -EOPNOTSUPP;
+> +	for (i = 0; i < data.vlan.num; i++)
+> +		mtk_foe_entry_set_vlan(eth, &foe, data.vlan.vlans[i].id);
 >  
->  	flush_cache_vmap(addr, end);
->  	if (!err)
-> @@ -463,6 +463,9 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->  	pgtbl_mod_mask mask = 0;
+> -		mtk_foe_entry_set_vlan(eth, &foe, data.vlan.id);
+> -	}
+>  	if (data.pppoe.num == 1)
+>  		mtk_foe_entry_set_pppoe(eth, &foe, data.pppoe.sid);
+
+Thanks for addressing comments.
+
+Reviewed-by: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+
 >  
->  	BUG_ON(addr >= end);
-> +
-> +	arch_update_kernel_mappings_begin(start, end);
-> +
->  	pgd = pgd_offset_k(addr);
->  	do {
->  		next = pgd_addr_end(addr, end);
-> @@ -473,8 +476,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->  		vunmap_p4d_range(pgd, addr, next, &mask);
->  	} while (pgd++, addr = next, addr != end);
->  
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(start, end);
-> +	arch_update_kernel_mappings_end(start, end, mask);
->  }
->  
->  void vunmap_range_noflush(unsigned long start, unsigned long end)
-> @@ -625,6 +627,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  
->  	WARN_ON(page_shift < PAGE_SHIFT);
->  
-> +	arch_update_kernel_mappings_begin(start, end);
-> +
->  	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
->  			page_shift == PAGE_SHIFT) {
->  		err = vmap_small_pages_range_noflush(addr, end, prot, pages,
-> @@ -642,8 +646,7 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  		}
->  	}
->  
-> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> -		arch_sync_kernel_mappings(start, end);
-> +	arch_update_kernel_mappings_end(start, end, mask);
->  
->  	return err;
->  }
+> -- 
+> 2.47.1
 
