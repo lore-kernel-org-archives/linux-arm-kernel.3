@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D86EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 21:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9452CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 21:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYy8fjkDA7iBj98dXF/92fNIUiQwOXz7sUb4p7sUfrQ=; b=WGY+CNGtRNzZsoUKDRV0KMCcpF
-	nBa/0CZJ5+nOBYe+oh6oP5mKKz+o0+y08v0wfu1Yw4OW1SgMZEJDHGymL2ghXbhYMyoBtAJk0xqPn
-	EiNaDjL1uVEzV3aZiu1eYoD9xiTOaKDfVFqgTlREtTFN9O6BSMLgKJXHpRc6gAlIOH/BehRQTcD9a
-	c9kX8h4a4b22ei6h+5oWxJbg+7/1JuTUKix0Oq5r8WKmc4u6nZLbVGaD5WWzhYz8Qn4oTpqNc/4I/
-	LeiT7CqhVhbBiVPgnLDaOm4ugTHUsrq36y+QOc55HWIfUNqaM89jTwakbIZRBjJQN0t9tQMlFkNZA
-	7iVuG26g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4oiYd0WO1dyBDehb+76+lvXFrBgYYtMGun3ipOfIIKU=; b=iFpxok1VVGWxS6+Dgg//ZYwQM8
+	IkeGrnGspOfe5SNmYSyvfTOjQQyTLDGYPXAyrMWpWbdsE0GqZnsQKk0a38OuC2o+PzX25d8VH+BNP
+	ZAmK+rL+OlEKxDwwxL1FO8ZBvS02qDUoEhi78mbAyTpZUtJ97LQTgbiW/V+Q9Q4DSK/iMGvnXvEn3
+	TVwblTZzAORl2Bu4vKT41T+K9HHmSFkgK7/swA+0LNgJsnW1vqS3ASzfqlPAvLl7y2CoKWVMumMM/
+	P6OBHhXpu1jzPFWqZnakdq+2pAu075iGj4Tzs8zX3udqdypQJX/vjRTMI2Np8hQLraIN7tX1pAtEf
+	ipHuCvjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbWN-00000001Wme-3cFq;
-	Mon, 10 Feb 2025 21:40:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thbWo-00000001XF4-19yp;
+	Mon, 10 Feb 2025 21:41:18 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNT-00000001KZj-1wZh
+	id 1thb6b-00000001SVB-07v8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 20:27:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 383745C5C42;
-	Mon, 10 Feb 2025 20:26:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76950C2BCF6;
-	Mon, 10 Feb 2025 20:27:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739219254;
-	bh=cL+PKhmX30jHbo2cscQxptMC1LXNOM5ta/EiQGb3AxA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jhVMwDcM9/SfG7eKGrJ0NOuLx75OH78xOzvUpR+PFUGHM8v+dPoeQuEDegreBWCEC
-	 ytY3qgn2rLt5QA4dVE1Xiu9e32yq7huQ4DFtL7olXxN6buNmlGeo1bfH5XsSR3+Pww
-	 MGbEkDiwKDUIxyT6VwJz5/wjAmC8r6dpHDx1afCb7BDarebp36qgepsjiO+D9xnfR0
-	 LJsk1JF2OmG52TgcGkTeN7HcTM2vardQlhBSpFVDy9YMgGsSk/DJYW2pbE+bGsjAWO
-	 4ymoWJ3ctbLei7RMhAsVu/lFtCSzoDkXgDhSdNbRINaHNVt0MtEy2Y8dtf3YsCCVu1
-	 c5NTpup6CIKBQ==
-Date: Mon, 10 Feb 2025 21:27:28 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel@vger.kernel.org, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- James Clark <james.clark@linaro.org>, Johannes Berg
- <johannes@sipsolutions.net>, Mike Leach <mike.leach@linaro.org>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Tony Luck <tony.luck@intel.com>,
- bpf@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-hardening@vger.kernel.org,
- linux-wireless@vger.kernel.org
-Subject: Re: [PATCH 00/27] Improve ABI documentation generation
-Message-ID: <20250210212728.64667005@foz.lan>
-In-Reply-To: <87h651zm7d.fsf@trenco.lwn.net>
-References: <cover.1739182025.git.mchehab+huawei@kernel.org>
-	<87h651zm7d.fsf@trenco.lwn.net>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 10 Feb 2025 21:14:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1739222052; x=1770758052;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=p8EM3OYRWcrCb8EXs2uauOw4xPx+f4SxoXq7GIVo4uI=;
+  b=GfOtBYz0Fh83r5VAk1m+k+XC+zfWyTZmFYN4U/t9UrX9n3EFjuFO20DL
+   mCbfhMZZ/PF9fbFZf22Jvjfo1nRob+coe1aya+guBxYTxsR6AO5a0daob
+   vnvFu6jLoYIU+zUU4VGkmoaY03s9FrC+Gkr2vnaulUOxRUD1pVN4BZn2s
+   MwxTrlnaxNw4ywf5jAuVK5xyvBxPfbYHnJlfjC6h0vNKvl3ceDXhBoc8a
+   4fFo+w7v0viHQz9vJwfFuWqnRo0dSA1qzM5tsJvgrXitsB+VXbySDSNTX
+   cPGOhHW2uuTnGf8FYcVeNwjoQCVz9v0zdVbpf2r+OaUkBiGdoyBijQnpE
+   Q==;
+X-CSE-ConnectionGUID: AYqW9AG9RbOJ2Xf8Pt97Yw==
+X-CSE-MsgGUID: GO8bNwHTQJWiQJPTzuOfGg==
+X-IronPort-AV: E=Sophos;i="6.13,275,1732604400"; 
+   d="scan'208";a="205027993"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Feb 2025 14:14:07 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 10 Feb 2025 14:13:47 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Mon, 10 Feb 2025 14:13:47 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<p.zabel@pengutronix.de>
+CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 14/15] ARM: dts: microchip: sama7d65: Add Reset and Shutdown and PM support
+Date: Mon, 10 Feb 2025 14:13:14 -0700
+Message-ID: <d8578cb635ff5b01e42132bd40a12b31c8638800.1739221064.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1739221064.git.Ryan.Wanner@microchip.com>
+References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_122735_595004_B3331C81 
-X-CRM114-Status: GOOD (  33.77  )
+X-CRM114-CacheID: sfid-20250210_131413_133928_E1D9CB48 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,127 +90,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em Mon, 10 Feb 2025 11:30:46 -0700
-Jonathan Corbet <corbet@lwn.net> escreveu:
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-> Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
->=20
-> > Hi Jon/Greg,
-> >
-> > This series replace get_abi.pl with a Python version.
-> >
-> > I originally started it due to some issues I noticed when searching for
-> > ABI symbols. While I could just go ahead and fix the already existing
-> > script, I noticed that the script maintainance didn't have much care ov=
-er
-> > all those years, probably because it is easier to find Python programme=
-rs
-> > those days.
-> >
-> > Also, the code is complex and was not using modules or classes and
-> > were using lots of global variables.
-> >
-> > So, I decided to rewrite it in Python. I started with a manual conversi=
-on
-> > for each function. Yet, to avoid future maintainership issues, I opted =
-to
-> > divide the main code on three classes, each on a sepaparate file.
-> >
-> > Just like the original RFC, I opted to keep the Sphinx kernel-abi module
-> > on three different phases:
-> >
-> > - call get_abi.py as an exec file;
-> > - import AbiParser on a minimal integration scenario;
-> > - cleanup the code to avoid needing to parse line numbers from the text.
-> >
-> > This way, if something goes wrong, it would be easier to just revert any
-> > offending patches, It also provides a better rationale about what each
-> > logical change is doing.
-> >
-> > The initial patches on this series do some preparation work and
-> > cleans some ABI symbol bugs that lack ":" delimiter.
-> >
-> > I opted to place on this series the Sphinx and Python version updates.
-> >
-> > I still have ~10 patches here with additional cleanups, from the origin=
-al
-> > series I sent as RFC but let's get the main changes merged first. =20
->=20
-> OK, I have applied this set - it seems to work for me, though it does
-> lead to some changes in the organization of
-> Documentation/admin-guide/abi.html in the output.
+Add support for reset controller, wake up alarm timers, and shutdown
+controller.
 
-Yes. I moved the files part to separate files, as IMHO this would
-make easier for people to navigate.
-=20
-> It would be nice if, eventually, we could put the README link up at the
-> top rather than under "ABI file",
+Add SRAM, SFR, secumod, UDDRC, and DDR3phy to enable support for low power modes.
 
-Moving its position is not hard: all we need to do is to change abi.rst
-file. See the enclosed patch.
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 77 +++++++++++++++++++++++
+ 1 file changed, 77 insertions(+)
 
-> or even just include its contents
-> there directly.
-
-
->=20
-> Anyway, let's see how this goes :)
->=20
-> Thanks,
->=20
-> jon
-
-Thanks,
-Mauro
-
-=46rom e1b864d1d333d94430420d1d6fc15ea7d8a99b4b Mon Sep 17 00:00:00 2001
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Date: Mon, 10 Feb 2025 21:24:06 +0100
-Subject: [PATCH] docs: ABI: move README contents to the top
-
-The ABI documentation looks a little bit better if it starts
-with the contents of the README is placed at the beginning.
-
-Suggested-by: Jonathan Corbet <corbet@lwn.net>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-
-diff --git a/Documentation/admin-guide/abi-readme-file.rst b/Documentation/=
-admin-guide/abi-readme-file.rst
-deleted file mode 100644
-index 6172e4ccbda2..000000000000
---- a/Documentation/admin-guide/abi-readme-file.rst
-+++ /dev/null
-@@ -1,6 +0,0 @@
--.. SPDX-License-Identifier: GPL-2.0
--
--ABI README
--=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
--
--.. kernel-abi:: README
-diff --git a/Documentation/admin-guide/abi.rst b/Documentation/admin-guide/=
-abi.rst
-index 15a2dcb1388c..2067336353ae 100644
---- a/Documentation/admin-guide/abi.rst
-+++ b/Documentation/admin-guide/abi.rst
-@@ -4,6 +4,11 @@
- Linux ABI description
- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-=20
-+ABI README
-+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index 854b30d15dcd4..1d40235bdab0a 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -46,12 +46,42 @@ slow_xtal: clock-slowxtal {
+ 		};
+ 	};
+ 
++	ns_sram: sram@100000 {
++		compatible = "mmio-sram";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		reg = <0x100000 0x20000>;
++		ranges;
++	};
 +
-+.. kernel-abi:: README
+ 	soc {
+ 		compatible = "simple-bus";
+ 		ranges;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+ 
++		securam: sram@e0000800 {
++			compatible = "microchip,sama7d65-securam", "atmel,sama5d2-securam", "mmio-sram";
++			reg = <0xe0000800 0x4000>;
++			clocks = <&pmc PMC_TYPE_PERIPHERAL 17>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0xe0000800 0x4000>;
++			no-memory-wc;
++		};
 +
- ABI symbols
- -----------
-=20
-@@ -21,7 +26,6 @@ ABI files
- .. toctree::
-    :maxdepth: 2
-=20
--   abi-readme-file
-    abi-stable-files
-    abi-testing-files
-    abi-obsolete-files
++		secumod: secumod@e0004000 {
++			compatible = "microchip,sama7d65-secumod", "atmel,sama5d2-secumod", "syscon";
++			reg = <0xe0004000 0x4000>;
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		sfrbu: sfr@e0008000 {
++			compatible ="microchip,sama7d65-sfrbu", "atmel,sama5d2-sfrbu", "syscon";
++			reg = <0xe0008000 0x20>;
++		};
++
+ 		pioa: pinctrl@e0014000 {
+ 			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
+ 			reg = <0xe0014000 0x800>;
+@@ -76,6 +106,31 @@ pmc: clock-controller@e0018000 {
+ 			clock-names = "td_slck", "md_slck", "main_xtal";
+ 		};
+ 
++		reset_controller: reset-controller@e001d100 {
++			compatible = "microchip,sama7d65-rstc", "microchip,sama7g5-rstc";
++			reg = <0xe001d100 0xc>, <0xe001d1e4 0x4>;
++			#reset-cells = <1>;
++			clocks = <&clk32k 0>;
++		};
++
++		shdwc: poweroff@e001d200 {
++			compatible = "microchip,sama7d65-shdwc", "microchip,sama7g5-shdwc", "syscon";
++			reg = <0xe001d200 0x20>;
++			clocks = <&clk32k 0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			atmel,wakeup-rtc-timer;
++			atmel,wakeup-rtt-timer;
++			status = "disabled";
++		};
++
++		rtt: rtc@e001d300 {
++			compatible = "microchip,sama7d65-rtt", "atmel,at91sam9260-rtt";
++			reg = <0xe001d300 0x30>;
++			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk32k 0>;
++		};
++
+ 		clk32k: clock-controller@e001d500 {
+ 			compatible = "microchip,sama7d65-sckc", "microchip,sam9x60-sckc";
+ 			reg = <0xe001d500 0x4>;
+@@ -83,6 +138,18 @@ clk32k: clock-controller@e001d500 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		gpbr: gpbr@e001d700 {
++			compatible = "microchip,sama7d65-gpbr", "syscon";
++			reg = <0xe001d700 0x48>;
++		};
++
++		rtc: rtc@e001d800 {
++			compatible = "microchip,sama7d65-rtc", "microchip,sam9x60-rtc";
++			reg = <0xe001d800 0x30>;
++			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk32k 1>;
++		};
++
+ 		sdmmc1: mmc@e1208000 {
+ 			compatible = "microchip,sama7d65-sdhci", "microchip,sam9x60-sdhci";
+ 			reg = <0xe1208000 0x400>;
+@@ -132,6 +199,16 @@ uart6: serial@200 {
+ 			};
+ 		};
+ 
++		uddrc: uddrc@e3800000 {
++			compatible = "microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc";
++			reg = <0xe3800000 0x4000>;
++		};
++
++		ddr3phy: ddr3phy@e3804000 {
++			compatible = "microchip,sama7d65-ddr3phy", "microchip,sama7g5-ddr3phy";
++			reg = <0xe3804000 0x1000>;
++		};
++
+ 		gic: interrupt-controller@e8c11000 {
+ 			compatible = "arm,cortex-a7-gic";
+ 			reg = <0xe8c11000 0x1000>,
+-- 
+2.43.0
 
 
