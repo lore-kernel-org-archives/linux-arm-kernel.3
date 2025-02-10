@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC9FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87345C021A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 23:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doE1/qNnRikB0SABL/yznX/rSmIE/5ibRJLzOCtWfuc=; b=1zH73+HUbAoF+KYC32ttd8M8gk
-	qw4PWmfCLl2wdaRYswso6aEpMqKqTovvif225AvIxo2Qd0REsm4CfR8bqmmld0rRhv7Q+5rQMr5IA
-	XXsnGUfniwtxrrcQX4WDQcxwWCJXrSuCdWDJJkhMnVmLQjbOHZ/QjsoLYLFOdJJ8J8Q5gDzSunLvr
-	l7ag09qTH3CNVJ6wajyBuTTk1E+689X0YdMbj3SVsWIjXu423TEvvfBf6t+0JGbfWtvXh2EGRDJSu
-	Afhs6tROCy3GPgyrQDbijxyzXV/V2yf7UcD5/8wXeRtH7Nwj2Sd8wHGz+IyXVvqVjZY9HkMCfep/q
-	t9o+lDBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=13HhyQSKe9R/ysYBmBYlN/OC3FOpvN6dJIQ+dDqvrXY=; b=oGHfLx2eWmggLcVy+gACAlJPc0
+	WYqSaTVJuiQzHvrcs27PDnzXd2etewxIQg9mBJB6NXiBho/fSYmrgcAbOpZFB6HkDIFTtM0r1SGTB
+	U5JHitqQQGXxFx6sxT9hOXToLdowPZ1GMMmtcrecqaL3v1V5x1UTK2EdMIFVa8pGFsQzrLgyha++v
+	rYshy6IGkMmmGRsGk/bH7vlcuELQY5vJq6w+Gz7GkhdVeCVsKxnfqK6fU2YqSkL/zFFwhaOMGf2LY
+	x3wgQzLU5P+37HVql+EYk7fF8lkD1ywVq+f6oFbl/32Sc/UkYZYVeEgs9yvF8LsMGDp9K72aB0twM
+	/dlZ7eww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdOV-00000001sbA-195P;
+	id 1thdOV-00000001sc0-3LdF;
 	Mon, 10 Feb 2025 23:40:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-wm1-x363.google.com ([2a00:1450:4864:20::363])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thc4G-00000001cV0-0jRF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 22:15:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=doE1/qNnRikB0SABL/yznX/rSmIE/5ibRJLzOCtWfuc=; b=eveshumozY5IcjGWZuNQxxUWMm
-	++v9YBQ8QRvXG+6LcDxyoIyEI/5gjknYgSesRCQIFTd/2V8qHdK76Nmu94eY2TRnkNoC214+kQ4va
-	k2otoWMnAOPRRy8nVl33bjEjhRE0+U/t36E4/IokNRYQSMYlbWdd1St/ZBbeJv2ZwogJiX4bo3pAK
-	wwovHRBhBgBmIhGocdiHe7392zYOJ/rrN1C522g97t8ewsmrRtW37BzG6LdAXRQQbFJsgCdDuoGZk
-	odF1TBQgribJjfVySFA1o2OqqEy025DmG757ZpbuGRmrzlkpjyvGsit0lYkx8MAARgDgQ5NcT0m7b
-	uDLm9cZg==;
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thc45-00000000JUM-3TlR
+	id 1thc4Y-00000001cXF-1t4K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 22:15:51 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51AMFVUL3488420
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 10 Feb 2025 16:15:31 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739225731;
-	bh=doE1/qNnRikB0SABL/yznX/rSmIE/5ibRJLzOCtWfuc=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=pS81faDXQL4SsD4x2a1A/RVbHpJAvtWK67uxUud3RDjyNYTaqBpcAeZbBUiS4rTsW
-	 hZ8MfE0o27XmPd4QgL8TlF4yHO1e7gw8y1sHY/5P9+i2wzkm8DMkcJt9tsFZrW86AZ
-	 1lpSDEF6amU2IXmcRVtKrO2D/CD/s+aU73jaFqyI=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51AMFVKR016603
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 10 Feb 2025 16:15:31 -0600
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 10
- Feb 2025 16:15:30 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 10 Feb 2025 16:15:30 -0600
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51AMFUZ9112628;
-	Mon, 10 Feb 2025 16:15:30 -0600
-From: Judith Mendez <jm@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Andrew Davis
-	<afd@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>, Judith Mendez <jm@ti.com>
-Subject: [PATCH v5 07/10] arm64: dts: ti: k3-am62x-sk-common: Enable IPC with remote processors
-Date: Mon, 10 Feb 2025 16:15:27 -0600
-Message-ID: <20250210221530.1234009-8-jm@ti.com>
-X-Mailer: git-send-email 2.48.0
-In-Reply-To: <20250210221530.1234009-1-jm@ti.com>
-References: <20250210221530.1234009-1-jm@ti.com>
+	Mon, 10 Feb 2025 22:16:11 +0000
+Received: by mail-wm1-x363.google.com with SMTP id 5b1f17b1804b1-43934d6b155so14088735e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 14:16:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=patrick-wildt-de.20230601.gappssmtp.com; s=20230601; t=1739225769; x=1739830569; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=13HhyQSKe9R/ysYBmBYlN/OC3FOpvN6dJIQ+dDqvrXY=;
+        b=gvTD7XoA6iSbDukOAPeAMTdHzyGeyZsqrWwNDpTZQwXjeHbijCe8ia+T0cwFFVfxHn
+         lOiQ3Q5z4AbqsT+Kzw6/lyXFLyh/WYOywubJehlZ1lixAaTJfMM/CuxH/c7okEVsMmOa
+         z1R6pJ2lsy9FLHJcQcMoT48xS81FxlslM2dHpy1qatujQuseejjAhrucCueH92gJnpx0
+         mrdP2Ms0Ds+y/48fd3VnwxLD70yrD3dq1R6gYjNWUw3Lwqa7ipC767VkhXXNvNA9OHSj
+         pyxEmy7Bhp+/KSzYJ3WnRr5Y2iOOJY/bexr6sxXullSAMLE4UKBZTvOLvfkHQMLQ575Q
+         4f9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739225769; x=1739830569;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=13HhyQSKe9R/ysYBmBYlN/OC3FOpvN6dJIQ+dDqvrXY=;
+        b=jwtXpWvN9gdx5gGnR0pvelWye5Vmemq4MK1tEybL1rGLbss/OEwqYfM6C7NIuLjVVh
+         prEQiZRrICYssM34+s2VMMFf4cawVBfhsOavFfFGWE0WUM4T3MUNaY5G9s8sh4vHcKyH
+         k0ecBWxVNsYC0QixtJaApRjNV0yw+1K8ifHOQdj3LbtIc68g2GK80FckSPomlGISu6Ac
+         YhGGQPh5SsR79ksM+NEoumhR1StMLhoXMhvpmr6p/geCK9gIFVa3R5Qwhh31dUbVzq5O
+         DtkX3zdqG54AfQA7QQMSK1AXZ8UJUFMnTkrHnap/y+gppXHEvWsVLO747c03at8qKoHb
+         iKBQ==
+X-Gm-Message-State: AOJu0YxkakAfwKB/aVothFMaUUEa3pj5/mf+773TB5wBe06/CUq1kCH8
+	9sMEaRTU5ofAAgwZ3ZuPAEIRVD144dgXEZWZhdSVP7Bv11vmRmK7qfa79+7c3B26C3lbKlo5QR2
+	oiIiHusfZfYofZzh6Bzu178Ky4l/VgVpB
+X-Gm-Gg: ASbGnctgPcye80MC8LKnEqW7OT/Gu1lbcCLTmu77V6TzpPNq93L5/MD6Dq7alQUVu/o
+	sovJ2HORIzGQoiYm5xCJ9eg8t54ouY4UjBOER/zZ9r4EbL4u8gsR/mv/8PilO0/etQm1EXVoi2P
+	BoioCpqXJBNdkPGurEf/fQ4TwtmGCY4PsCUdd0NHpakW/b4kRzgr135bImjMxr+1aurix/gLH+i
+	ANAIqiPL/idN9D1pFmeeWhfwkiEWTIfm0kQHRvLTK0+cbxgHWkBhyb9HGqyzVI1CJmF8hCDk/5L
+	5lLH32SQcT+8fpWIuTLzoOo6itQQ9Yhi
+X-Google-Smtp-Source: AGHT+IGIpesWPH995t5ObgCbest3RPXsMCOOqvkk8OX3wG7izUgYYfXIQA1gziN/MFCY0sX5NzInpnZxX2s1
+X-Received: by 2002:a05:600c:2d0c:b0:435:edb0:5d27 with SMTP id 5b1f17b1804b1-4394cebd10emr8852015e9.9.1739225768451;
+        Mon, 10 Feb 2025 14:16:08 -0800 (PST)
+Received: from windev.fritz.box (pc19f8e2d.dip0.t-ipconnect.de. [193.159.142.45])
+        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-439324eedf7sm5407785e9.40.2025.02.10.14.16.07
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 10 Feb 2025 14:16:08 -0800 (PST)
+X-Relaying-Domain: blueri.se
+Date: Mon, 10 Feb 2025 23:16:05 +0100
+From: Patrick Wildt <patrick@blueri.se>
+To: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add MNT Reform 2 (RCORE)
+Message-ID: <Z6p6pdoLwvXYxkCK@windev.fritz.box>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_221548_781464_430DBFC7 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250210_141610_485398_9D37063E 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,97 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hari Nagalla <hnagalla@ti.com>
+Document board compatible bindings.
 
-For each remote proc, reserve memory for IPC and bind the mailbox
-assignments. Two memory regions are reserved for each remote processor.
-The first region of 1MB of memory is used for Vring shared buffers
-and the second region is used as external memory to the remote processor
-for the resource table and for tracebuffer allocations.
-
-Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-Signed-off-by: Judith Mendez <jm@ti.com>
+Signed-off-by: Patrick Wildt <patrick@blueri.se>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Changes since v4:
-- Add "status = okay" for mailbox nodes at the board level, disabling of
-  mailbox nodes in voltage domain .dtsi files will come in a separate
-  series
----
- .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 34 ++++++++++++++++---
- 1 file changed, 29 insertions(+), 5 deletions(-)
+Changes for v2:
+- No changes, apart from Acked-by
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index 2f129e8cd5b9f..17791663abc65 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -68,6 +68,18 @@ mcu_m4fss_memory_region: m4f-memory@9cc00000 {
- 			no-map;
- 		};
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 522a6f0450ea..bc995db8cbfe 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -710,6 +710,11 @@ properties:
+           - const: mqmaker,miqi
+           - const: rockchip,rk3288
  
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9da00000 0x00 0x100000>;
-+			no-map;
-+		};
++      - description: MNT Reform2 (RCORE)
++        items:
++          - const: mntre,reform2-rcore
++          - const: rockchip,rk3588
 +
-+		wkup_r5fss0_core0_memory_region: r5f-memory@9db00000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9db00000 0x00 0xc00000>;
-+			no-map;
-+		};
-+
- 		secure_tfa_ddr: tfa@9e780000 {
- 			reg = <0x00 0x9e780000 0x00 0x80000>;
- 			alignment = <0x1000>;
-@@ -80,11 +92,6 @@ secure_ddr: optee@9e800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9db00000 0x00 0xc00000>;
--			no-map;
--		};
- 	};
- 
- 	leds {
-@@ -474,10 +481,17 @@ cpsw3g_phy0: ethernet-phy@0 {
- };
- 
- &mailbox0_cluster0 {
-+	status = "okay";
-+
- 	mbox_m4_0: mbox-m4-0 {
- 		ti,mbox-rx = <0 0 0>;
- 		ti,mbox-tx = <1 0 0>;
- 	};
-+
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <2 0 0>;
-+		ti,mbox-tx = <3 0 0>;
-+	};
- };
- 
- &mcu_m4fss {
-@@ -487,6 +501,16 @@ &mcu_m4fss {
- 	status = "okay";
- };
- 
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
-+
- &usbss0 {
- 	bootph-all;
- 	status = "okay";
+       - description: Neardi LBA3368
+         items:
+           - const: neardi,lba3368
 -- 
-2.48.0
+2.48.1
 
 
