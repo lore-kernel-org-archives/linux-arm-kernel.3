@@ -4,113 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB0CC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17347C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 13:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=; b=04C5l/i0AC7Wu2um4MAv+PNgdG
-	irI1XiuGOY3FDs+EU4dFszjZGR7hmxtw07q7FW6QuTP+Wi17Q3tcNcXTNgESCrLvDMpnnTAK6R4gr
-	1nDERhWRa//lAiBtGdRucDRhrzJQphrW5gm1FqIBha7QYQGMC8wdV1sGrV6/uZRn1P6qk1eljD1j5
-	JkbaiSF1pWLMIN62fZdPYqv8JStJJo1CunqQzX4XNr7rNWEwpd/lB9/Yaef1WtyxeHOnidWnk/OGG
-	AIpbjsQbRok2bMBT30AhsJzM4PKlT5ESC2s2TPnJm3Er4L+JYCSwUDkiAbn+QN628qp6b0vSg7Gfj
-	g795OYdg==;
+	bh=YyG5VuAJC2LtIBfs2QjnYJLPl/fi/spmTvP/iTxiZdo=; b=26ERhTzHhMLHUAErDB25LxNdyd
+	nVEv7sk/FeJIFIGDEnkivWSKun0+WnTtzQHCnPvWB+kZ9WldKo1Heunjla06JqoOAOSmx49LKMlmf
+	8cYa6/FzRg7p9b98pdtr69LuicVSYOtp+F9F+bNPJNnpwG94BZ3zC0YDKvaiBLLk09GYwHkpyF8v+
+	7s51Rrqp//flFB/1mKRFR/AFtKNw4JtEhxwxj7v30evCerwMUxMn2zVUJzfgbkfn7dlCmkwYVGUPm
+	YvlbK9EOtcx1DW5Vj8NeSEmXfsQQdli//f5EGNBRUWtu73DpF+wArBr06JRAKY7sSg5oM+4t5TMKP
+	nfNxK95A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTPa-0000000HTxm-3GoJ;
-	Mon, 10 Feb 2025 13:01:18 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1thTVP-0000000HUlv-3usP;
+	Mon, 10 Feb 2025 13:07:19 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thTIZ-0000000HSoM-0Wbl
+	id 1thTU0-0000000HUX0-1wTS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 12:54:04 +0000
-Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5dcdb56c9d3so6994720a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 04:54:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1739192041; x=1739796841; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=;
-        b=WsfQURASKT0pZzqBF+pTurrxFRjnUN+6OaNtRDxGWsfOl8POhDrAp9YfwYq1pDR9q0
-         eKMzTVYrTH7ykBxe5P/xZjCVLDa6WYmp6TywL2ZNQtSAjRYdD0skPiZTji3enjTR8auE
-         SXUfYa4e9sKeR2VHsRu4nV9IstluIE8+NWmamDZgT5kilvWGHFOD75fWfWcu3wE6Y+yQ
-         sVB/GK0+NddTqvtSHlxu+8yCGdFkIO8niuE66h0Cto2JdeKCIsIX0E3T7rGdrUe72cOj
-         srfjH/8AwFXrwtPYigdl3eOwELJ+lyHOB1cSpCSsdN8mer6emgMRIqN1Qbux6gi/0irx
-         weIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739192041; x=1739796841;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rf85jElMNnrDZvKC7vVh5MfFio59DRgJHRcTUJEvgGI=;
-        b=ZhYJ3vUTZD1wgsoWuDQFfCGnn7WiVxnDJwWOQ6jtYunylGC2f1mDP6bTxkBBJfCaHv
-         sdA5DC6sHcWZpdb/EQ3SrQTQL+fzUg7y/j7LAFe0dRwZ1BQjrcEF8e+zec2dEzVeh+On
-         WqfPC586o1MjAyAoGZYu3raZVHfYXjAK+zAoKT5vhaNgThWRa/UyHvJrWDPc7319rkW8
-         LHT9hYVf7BQtyGi+NombXJRqRIMQASyiL2UhG3ht7fE+266Jc66K70D7I+m/iqK47iPE
-         pssFNTA7G2unxaaITCusXvjLyCS+EwflGjzbK2I894qIPgcSMXP1IFGZ1q7R+7HXhbvg
-         trww==
-X-Forwarded-Encrypted: i=1; AJvYcCWD8lreCIo37qDWE7iTALL/3apZ9bshLQhlDRFUAeyoMXaXcUPR3R1OEZx5/SocNvAeXgOgd3RyGylRBtb1anCd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwK0v+mPoj+plscPiSOEltprX0wBvmbpNHljST6JQcI3XNdDXyd
-	M5LUMOOdRKSi8ZpDApWa9mf3wdb4J8DG3gfWqWNZKBMDxtovrVpgVtqLhyM9NpWM0Tb6GHv4fAv
-	z0ytduA==
-X-Gm-Gg: ASbGncvtwUKn/ki4kertraiJlkzgdYguz2vS5qhfaDCmvWzKwrlFlHMiVDsgU6GA2Rg
-	dhvd0uwqxkPkqMlgRoWZdG+QrWqsk3HIcIzZTgS//vL+jPcwK8vdzz7PhyGtL4AAZuhvALgFWYc
-	dky3Z/7D6oo3kNyFtxeWjwAmGOqAv6pdQSlwyXoWAzjiO+tfYmuuTrY8aHGGGIkj+UktzBiZ7Zv
-	tqy3JxUG4nwziv2IZA+NoIRMokzA+k6OHThxVoETdXIDMPc2I7ZMwIOm47u5fTfRTf3HsK+HQhX
-	k1LFx2w+sx1TfGlZQZz7dcv9mAFj09cln+W8dLq/6l9dY0Q4oj5gYI6IXxs=
-X-Google-Smtp-Source: AGHT+IExaOon2TXZW9Vep+azLuX3PC+zXsCFuFLx/CO8qnQeXU427WnR0bcNBj8GMhFUwVXVl5oCDw==
-X-Received: by 2002:a05:6402:5290:b0:5dc:6e27:e6e8 with SMTP id 4fb4d7f45d1cf-5de450706fcmr34849448a12.24.1739192040759;
-        Mon, 10 Feb 2025 04:54:00 -0800 (PST)
-Received: from localhost (host-79-41-239-37.retail.telecomitalia.it. [79.41.239.37])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de5a2fc79esm4970729a12.10.2025.02.10.04.53.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 04:54:00 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Mon, 10 Feb 2025 13:55:00 +0100
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 11/11] arm64: defconfig: Enable OF_OVERLAY option
-Message-ID: <Z6n3JLOn-PrSt3Pa@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <49da5d0cf961fef23a1622253825443eb51d660d.1738963156.git.andrea.porta@suse.com>
- <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
+	Mon, 10 Feb 2025 13:05:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1739192740; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VTPHMNWIdF9izM25KwJlvIebvcLRaFsQn5BUthOTsPWIsSOiWbW6KBWsaa/mJqmIAuB2wyyOITIOTn98FvrN9Zlz21DEHUCpPgzh9o8w9xa0tUgDYqRBWR+b5we5OjGnELrBqhpcgXGntzsqxBUwxlvCi2mqx6Gd4uOMu5+d5QM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1739192740; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=YyG5VuAJC2LtIBfs2QjnYJLPl/fi/spmTvP/iTxiZdo=; 
+	b=HKH6RISGA/V5GRfeVa62j0BmBIVpmSOq03dE0AaAJ88B2tXVe9TPFozI5vl53dY/mYplll9C+YYDKiFGGaHJmF+LemQN6YvaVIwGn+e0S8t0nzuJb9lYi7TfSzQ00Kf4TRGjLsfRAHsMNLRu9DuuISGOaqwwsa3uivNpi2wsqcU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739192740;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=YyG5VuAJC2LtIBfs2QjnYJLPl/fi/spmTvP/iTxiZdo=;
+	b=Ooe0Gh4eFXUvpc7IbN8CBJup5yR3IwZgsgZB6toYkBYVSK2hSMqs8rLf5WjwoOzk
+	9dLi4xcVt2uIrriiuDKXbYitItkpYJ8ueSxa+8ai7x/HWq/oCvAqRawzjPK7ky2Nne6
+	Yml+4EJVC4TWXxK7lNddgP82VMzIzntHExrz1/4o=
+Received: by mx.zohomail.com with SMTPS id 1739192736915734.7741264034747;
+	Mon, 10 Feb 2025 05:05:36 -0800 (PST)
+Date: Mon, 10 Feb 2025 14:05:27 +0100
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@xs4all.nl, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+	linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
+	lafley.kim@chipsnmedia.com
+Subject: Re: [PATCH 0/8] Add support for Wave6 video codec driver
+Message-ID: <20250210130527.7wm5an4sfxzca7ra@basti-TUXEDO-Book-XA1510>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Disposition: inline
-In-Reply-To: <ab88fe2a-4f59-47d1-855b-517d98773f3c@gmx.net>
+In-Reply-To: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_045403_164821_17700D5C 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20250210_050552_574827_E1AAA2D1 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,56 +81,296 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Hey Nas,
 
-On 14:42 Sat 08 Feb     , Stefan Wahren wrote:
-> Hi Andrea,
-> 
-> Am 07.02.25 um 22:31 schrieb Andrea della Porta:
-> > The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
-> > option. Enable that option in defconfig in order to produce a kernel
-> > usable on RaspberryPi5 avoiding to enable it separately.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> > This patch is *OPTIONAL* since I'm not sure if OF_OVERLAY is a desirable
-> > feature to have enabled by default. It would be advisable to have it included
-> > so that 'make defconfig' can produce a kernel config that will work out
-> > of the box on Rpi5, otherwise OF_OVERLAY has to be enabled separately.
-> I think this isn't a good approach to convince the arm64 maintainer.
-> This change is not really optional for the Raspberry Pi 5 and possible
-> users/testers/CI rely on a working default configuration.
-> 
-> So my first suggestion would be to provide a scripts/bloat-o-meter
-> output (before/after). Based on this the maintainer can better decided.
+On 10.02.2025 18:07, Nas Chung wrote:
+>This patch series introduces support for the Chips&Media Wave6 video
+>codec IP, a completely different hardware architecture compared to Wave5.
+>
+>The wave6 driver is a M2M stateful encoder/decoder driver.
+>It supports various video formats, including H.264 and H.265,
+>for both encoding and decoding.
 
-I agree with you. IIUC what you are proposing, the following metrics should
-help to decide. The defconfig kernel with CONFIG_OF_OVERLAY=y added (wrt to
-the defconfig one without that set) has:
+Sounds like the hardware supports more formats.
+What are the other video formats?
 
-- same uncompressed kernel image size (due to ELF section alignment I guess)
+Regards,
+Sebastian
 
-- ~7Kb bigger Image.gz
-
-- 3 new modules (all related to RP1, i.e.: clk-rp1, pinctrl-rp1 and rp1-pci)
-
-- 27 added symbols, of which 5 exported
- 
-hoping this is enough to gather a rough idea of the impact.
-
-> 
-> In case this change is still rejected, we still have the option of
-> something like this [1]
-
-I'm ready to go down this way should the previous numbers not be convincing
-enough.
-
-Many thanks,
-Andrea
-
-> 
-> Best regards
-> 
-> [1] -
-> https://patchwork.kernel.org/project/linux-kbuild/patch/20200203184820.4433-3-nsaenzjulienne@suse.de/
+>
+>On NXP i.MX SoCs, the Wave6 IP functionality is split between two devices:
+>VPU Control Device, Manages shared resources such as firmware access and
+>power domains.
+>VPU Device, Provides encoding and decoding capabilities.
+>The VPU device cannot operate independently without the VPU control device.
+>
+>This driver has been tested with GStreamer on:
+>- NXP i.MX95 board
+>- pre-silicon FPGA environment
+>
+>Test results for decoder fluster:
+>- JVT-AVC_V1, Ran 77/135 tests successfully              in 35.929 secs
+>- JVT-FR-EXT, Ran 25/69 tests successfully               in 17.717 secs
+>- JCT-VC-HEVC_V1, Ran 132/147 tests successfully         in 81.568 secs
+>- All failures are due to unsupported hardware features:
+>-- 10bit, Resolutions higher than 4K, FMO, MBAFF
+>-- Extended profile, Field encoding and High422 sreams.
+>
+>Test results for v4l2-compliance:
+>v4l2-compliance 1.29.0-5326, 64 bits, 64-bit time_t
+>v4l2-compliance SHA: 77f5df419204 2025-02-07 08:59:59
+>
+>Compliance test for wave6-dec device /dev/video0:
+>
+>Driver Info:
+>        Driver name      : wave6-dec
+>        Card type        : wave6-dec
+>        Bus info         : platform:wave6-dec
+>        Driver version   : 6.9.2
+>        Capabilities     : 0x84204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>                Device Capabilities
+>        Device Caps      : 0x04204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>        Detected Stateful Decoder
+>
+>Required ioctls:
+>        test VIDIOC_QUERYCAP: OK
+>        test invalid ioctls: OK
+>
+>Allow for multiple opens:
+>        test second /dev/video0 open: OK
+>        test VIDIOC_QUERYCAP: OK
+>        test VIDIOC_G/S_PRIORITY: OK
+>        test for unlimited opens: OK
+>
+>Debug ioctls:
+>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>
+>Input ioctls:
+>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>
+>Output ioctls:
+>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>
+>Input/Output configuration ioctls:
+>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>
+>Control ioctls:
+>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>        test VIDIOC_QUERYCTRL: OK
+>        test VIDIOC_G/S_CTRL: OK
+>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>                fail: ../utils/v4l2-compliance/v4l2-test-controls.cpp(1180): !have_source_change || !have_eos
+>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>        Standard Controls: 7 Private Controls: 1
+>
+>Format ioctls:
+>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>        test VIDIOC_G_FBUF: OK (Not Supported)
+>        test VIDIOC_G_FMT: OK
+>        test VIDIOC_TRY_FMT: OK
+>        test VIDIOC_S_FMT: OK
+>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>        test Cropping: OK
+>        test Composing: OK
+>        test Scaling: OK (Not Supported)
+>
+>Codec ioctls:
+>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>        test VIDIOC_(TRY_)DECODER_CMD: OK
+>
+>Buffer ioctls:
+>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>        test CREATE_BUFS maximum buffers: OK
+>        test VIDIOC_REMOVE_BUFS: OK
+>        test VIDIOC_EXPBUF: OK
+>        test Requests: OK (Not Supported)
+>        test blocking wait: OK
+>
+>Total for wave6-dec device /dev/video0: 48, Succeeded: 47, Failed: 1, Warnings: 0
+>
+>v4l2-compliance 1.29.0-5326, 64 bits, 64-bit time_t
+>v4l2-compliance SHA: 77f5df419204 2025-02-07 08:59:59
+>
+>Compliance test for wave6-enc device /dev/video1:
+>
+>Driver Info:
+>        Driver name      : wave6-enc
+>        Card type        : wave6-enc
+>        Bus info         : platform:wave6-enc
+>        Driver version   : 6.9.2
+>        Capabilities     : 0x84204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>                Device Capabilities
+>        Device Caps      : 0x04204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>        Detected Stateful Encoder
+>
+>Required ioctls:
+>        test VIDIOC_QUERYCAP: OK
+>        test invalid ioctls: OK
+>
+>Allow for multiple opens:
+>        test second /dev/video1 open: OK
+>        test VIDIOC_QUERYCAP: OK
+>        test VIDIOC_G/S_PRIORITY: OK
+>        test for unlimited opens: OK
+>
+>Debug ioctls:
+>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>
+>Input ioctls:
+>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>
+>Output ioctls:
+>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>
+>Input/Output configuration ioctls:
+>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>
+>Control ioctls:
+>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>        test VIDIOC_QUERYCTRL: OK
+>        test VIDIOC_G/S_CTRL: OK
+>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>                fail: ../utils/v4l2-compliance/v4l2-test-controls.cpp(1169): node->codec_mask & STATEFUL_ENCODER
+>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>        Standard Controls: 53 Private Controls: 0
+>
+>Format ioctls:
+>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>        test VIDIOC_G/S_PARM: OK
+>        test VIDIOC_G_FBUF: OK (Not Supported)
+>        test VIDIOC_G_FMT: OK
+>        test VIDIOC_TRY_FMT: OK
+>        test VIDIOC_S_FMT: OK
+>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>        test Cropping: OK
+>        test Composing: OK (Not Supported)
+>        test Scaling: OK (Not Supported)
+>
+>Codec ioctls:
+>        test VIDIOC_(TRY_)ENCODER_CMD: OK
+>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>
+>Buffer ioctls:
+>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>        test CREATE_BUFS maximum buffers: OK
+>        test VIDIOC_REMOVE_BUFS: OK
+>        test VIDIOC_EXPBUF: OK
+>        test Requests: OK (Not Supported)
+>        test blocking wait: OK
+>
+>Total for wave6-enc device /dev/video1: 48, Succeeded: 47, Failed: 1, Warnings: 0
+>
+>Nas Chung (8):
+>  media: platform: chips-media: wave5: Rename Kconfig parameter
+>  media: v4l2-common: Add YUV24 format info
+>  dt-bindings: media: nxp: Add Wave6 video codec device
+>  media: chips-media: wave6: Add Wave6 codec driver
+>  media: chips-media: wave6: Add v4l2 m2m driver
+>  media: chips-media: wave6: Add Wave6 vpu interface
+>  media: chips-media: wave6: Add Wave6 control driver
+>  media: chips-media: wave6: Improve debugging capabilities
+>
+> .../bindings/media/nxp,wave633c.yaml          |  202 ++
+> MAINTAINERS                                   |    8 +
+> arch/arm64/configs/defconfig                  |    2 +-
+> drivers/media/platform/chips-media/Kconfig    |    1 +
+> drivers/media/platform/chips-media/Makefile   |    1 +
+> .../media/platform/chips-media/wave5/Kconfig  |    6 +-
+> .../media/platform/chips-media/wave5/Makefile |    2 +-
+> .../media/platform/chips-media/wave6/Kconfig  |   26 +
+> .../media/platform/chips-media/wave6/Makefile |   17 +
+> .../platform/chips-media/wave6/wave6-hw.c     | 3113 +++++++++++++++++
+> .../platform/chips-media/wave6/wave6-hw.h     |   69 +
+> .../chips-media/wave6/wave6-regdefine.h       |  675 ++++
+> .../platform/chips-media/wave6/wave6-trace.h  |  336 ++
+> .../platform/chips-media/wave6/wave6-vdi.c    |   52 +
+> .../platform/chips-media/wave6/wave6-vdi.h    |   59 +
+> .../chips-media/wave6/wave6-vpu-ctrl.c        | 1020 ++++++
+> .../chips-media/wave6/wave6-vpu-ctrl.h        |   38 +
+> .../chips-media/wave6/wave6-vpu-dbg.c         |  230 ++
+> .../chips-media/wave6/wave6-vpu-dbg.h         |   22 +
+> .../chips-media/wave6/wave6-vpu-dec.c         | 1883 ++++++++++
+> .../chips-media/wave6/wave6-vpu-enc.c         | 2698 ++++++++++++++
+> .../chips-media/wave6/wave6-vpu-v4l2.c        |  381 ++
+> .../platform/chips-media/wave6/wave6-vpu.c    |  487 +++
+> .../platform/chips-media/wave6/wave6-vpu.h    |  106 +
+> .../platform/chips-media/wave6/wave6-vpuapi.c | 1001 ++++++
+> .../platform/chips-media/wave6/wave6-vpuapi.h |  993 ++++++
+> .../chips-media/wave6/wave6-vpuconfig.h       |   80 +
+> .../chips-media/wave6/wave6-vpuerror.h        |  262 ++
+> drivers/media/v4l2-core/v4l2-common.c         |    1 +
+> 29 files changed, 13766 insertions(+), 5 deletions(-)
+> create mode 100644 Documentation/devicetree/bindings/media/nxp,wave633c.yaml
+> create mode 100644 drivers/media/platform/chips-media/wave6/Kconfig
+> create mode 100644 drivers/media/platform/chips-media/wave6/Makefile
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-regdefine.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-trace.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vdi.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vdi.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-ctrl.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-ctrl.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dec.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-enc.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-v4l2.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuapi.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuapi.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuerror.h
+>
+>-- 
+>2.31.1
+>
 
