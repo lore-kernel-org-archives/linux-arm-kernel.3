@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0491FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFEEC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 14:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dT45r2esRlDWia0NH1UEwjf1tiLELvsu6iIB4dwZeDU=; b=MQCk4nWS45sxIRFWd66WNAd3Nr
-	+i6IBgHIBJeaqF7qItflBMlE10f/lYitx+Iu5nZubsoe1b2uZH/RPTQCiTurzgWsQbc5rpINTnr33
-	dyOTL/crIDTustcz2O6ZhnNF5TgQq+IsVTd7Ys/kh+n0y+rPDLFf3XtpXYbvRVYc7JYS4ksycVUkj
-	IVqbev/9mG3evO1mZbr637K1X+LhYmp7jF0A0mI9tIcY0aKiYuGgNXPPmG1rZP2UiWCSznmeVUXZl
-	IlPbzFgT9gfObqISipzepEhmfmCAjQdpTQn2ponp+BlOIDj8I2Cn+vvmOOU+rNJa8nLc/Z7v3k2ex
-	1IcsIGfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IoB0EWW2RDZaUJiqYLd1EGoHFiBhYJK8r8MHAwgkWuw=; b=0oJOBMGgv8W4UkDhWVpZnWcmam
+	ueTj2mI3jCF/6QIV7AjaUdrmOrq2+2Is48q+yna0c9qH0QCXqPiXZUbk+BNNiNwjToUzkZ2XcSrQJ
+	6poZxSwItKejY1vtzjdDbTmt5s1ER0vyy068ognvHqiL9Pe9zNyVbDGEr70ph2ZGZJDAtXE1+LGtN
+	p8AihXvuUJtj5YlQX5mvXboC9k8cHliBxFxfpao6CEw7xuINO5sChWUrARAf3Ab2+oXHtaZuTEzUG
+	5lRiOX1VfL4vsJEmoZ96MQF7ZnhGmyD3M5eH7tIWrM/M1y9w0WD51CPHiVlfZQahA/jQdLnsf/zp/
+	A3rL+6Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thURR-000000004LX-0f4S;
-	Mon, 10 Feb 2025 14:07:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thUPw-00000000415-3PJG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 14:05:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78C0D1477;
-	Mon, 10 Feb 2025 06:06:03 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54FD13F5A1;
-	Mon, 10 Feb 2025 06:05:40 -0800 (PST)
-Date: Mon, 10 Feb 2025 14:05:36 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Philippe Simons <simons.philippe@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
- linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi
- SoC support), linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi
- SoC support), linux-kernel@vger.kernel.org (open list)
-Subject: Re: [PATCH] clk: sunxi-ng: h616: Reparent GPU clock during
- frequency changes
-Message-ID: <20250210140536.08c33a56@donnerap.manchester.arm.com>
-In-Reply-To: <20250209183142.97671-1-simons.philippe@gmail.com>
-References: <20250209183142.97671-1-simons.philippe@gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1thUSn-000000004e6-3C68;
+	Mon, 10 Feb 2025 14:08:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thUQQ-00000000490-1x4r;
+	Mon, 10 Feb 2025 14:06:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IoB0EWW2RDZaUJiqYLd1EGoHFiBhYJK8r8MHAwgkWuw=; b=V+TIswjDzP474U55wenzHJBHaU
+	I7bVlVRKEZYOxz4+ozjuh0ic6srYPKzMs2BpF4V9QaKdFqmRCQ0syBWBHi389hqnAzl3QzvGGuxrN
+	Y6N4HhmQj/iits0ndz6xaGAXkoGpbXMHGS6O89ZM2uqIH1Hq81y2604BLxmLE28s2s0bDB5J3P+Yh
+	/nNxjmzIQ5dYHc+e2oK6M8oWSme8N4S1ab6YHPCjibgdQNZrxYOZbDQrL4G4XV8+OjijAKa/WjLLI
+	nVpNrQuIn8ULwKuv4BRe23J+3e572a9G63H6PAa3Xm2ptrDVEkNsneaKSBxe6IPLja+c6DyAQZe5a
+	eE0iPPIg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57222)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1thUQE-00075e-35;
+	Mon, 10 Feb 2025 14:06:03 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1thUQA-0007Y7-0X;
+	Mon, 10 Feb 2025 14:05:58 +0000
+Date: Mon, 10 Feb 2025 14:05:58 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net-next v3 1/3] net: phylink: provide
+ phylink_mac_implements_lpi()
+Message-ID: <Z6oHxrtBHAvaMqd3@shell.armlinux.org.uk>
+References: <Z6nWujbjxlkzK_3P@shell.armlinux.org.uk>
+ <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
+ <20250210132054.oaqb5mboh6qiixfv@skbuf>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210132054.oaqb5mboh6qiixfv@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_060544_943462_9CD20813 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20250210_060614_502509_CC1D15BD 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,121 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun,  9 Feb 2025 19:31:42 +0100
-Philippe Simons <simons.philippe@gmail.com> wrote:
-
-Hi Philippe,
-
-thanks for bringing this patch together!
-
-You should mention here *why* you want this patch, the motivation seems to
-be missing, but would be crucial - and preventing a sure crash should make
-this a no-brainer.
-
-Maybe start with: The H616 manual does not state that the GPU PLL supports
-dynamic frequency configuration, so we must take extra care when changing
-the frequency. Currently any attempt to do device DVFS on the GPU lead ...
-
-Then mention that the manual describes the algorithm for changing the PLL
-frequency, which the CPU PLL notifier code already support, so we reuse
-that.
-
-> Re-parent the GPU clock during frequency changes of the PLL.
-> Also it asks to disable and then re-enable the PLL lock bit,
-> after the factor changes have been applied.
+On Mon, Feb 10, 2025 at 03:20:54PM +0200, Vladimir Oltean wrote:
+> On Mon, Feb 10, 2025 at 10:36:44AM +0000, Russell King (Oracle) wrote:
+> > diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+> > index 898b00451bbf..0de78673172d 100644
+> > --- a/include/linux/phylink.h
+> > +++ b/include/linux/phylink.h
+> > @@ -737,6 +737,18 @@ static inline int phylink_get_link_timer_ns(phy_interface_t interface)
+> >  	}
+> >  }
+> >  
+> > +/**
+> > + * phylink_mac_implements_lpi() - determine if MAC implements LPI ops
+> > + * @ops: phylink_mac_ops structure
+> > + *
+> > + * Returns true if the phylink MAC operations structure indicates that the
+> > + * LPI operations have been implemented, false otherwise.
 > 
-> Add clock notifiers for the PLL and the GPU mux clock, using the existing
-> notifier callbacks, and tell them to use mux 1 (the GPU_CLK1 source),
-> and bit 29 (the LOCK_ENABLE) bit. The existing code already follows the
-> correct algorithms.
+> This is something that I only noticed for v3 because I wanted to leave a
+> review tag, so I first checked the status in patchwork, but there it says:
 > 
-> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> ---
->  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 33 +++++++++++++++++++++++++-
->  1 file changed, 32 insertions(+), 1 deletion(-)
+> include/linux/phylink.h:749: warning: No description found for return value of 'phylink_mac_implements_lpi'
 > 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> index 190816c35..e88eefa24 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> @@ -328,10 +328,12 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0", gpu0_parents, 0x670,
->  				       24, 1,	/* mux */
->  				       BIT(31),	/* gate */
->  				       CLK_SET_RATE_PARENT);
-> +
-> +#define SUN50I_H616_GPU_CLK1_REG        0x674
->  static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
->  					0, 2,	/* M */
->  					BIT(31),/* gate */
-> -					0);
-> +					CLK_IS_CRITICAL);
+> I am aware of this conversation from November where you raised the point
+> about tooling being able to accept the syntax without the colon as well:
+> https://lore.kernel.org/netdev/87v7wjffo6.fsf@trenco.lwn.net/
+> 
+> but it looks like it didn't go anywhere, with Jon still preferring the
+> strict syntax for now, and no follow-up that I can see. So, the current
+> conventions are not these, and you haven't specifically said anywhere
+> that you are deliberately ignoring them.
 
-The addition of CLK_IS_CRITICAL deserves a comment, something about that
-this clock is needed as a temporary fallback clock for the PLL frequency
-changes or so.
+It was explained in this email as part of that thread:
 
->  static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
->  		      0x67c, BIT(0), 0);
-> @@ -1120,6 +1122,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb = {
->  	.lock		= BIT(28),
->  };
->  
-> +static struct ccu_mux_nb sun50i_h616_gpu_nb = {
-> +	.common		= &gpu0_clk.common,
-> +	.cm		= &gpu0_clk.mux,
-> +	.delay_us	= 1, /* manual doesn't really say */
-> +	.bypass_index	= 1, /* GPU_CLK1 */
-> +};
-> +
-> +static struct ccu_pll_nb sun50i_h616_pll_gpu_nb = {
-> +	.common		= &pll_gpu_clk.common,
-> +	.enable		= BIT(29),	/* LOCK_ENABLE */
-> +	.lock		= BIT(28),
-> +};
-> +
->  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  {
->  	void __iomem *reg;
-> @@ -1170,6 +1185,15 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  	val |= BIT(0);
->  	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
->  
-> +	/*
-> +	 * Set the input-divider for the gpu1 clock to 3.
-> +	 * Also enable gpu1 clock.
-> +	 */
-> +	val = readl(reg + SUN50I_H616_GPU_CLK1_REG);
-> +	val |= BIT(31);
+https://lore.kernel.org/netdev/ZzjHH-L-ylLe0YhU@shell.armlinux.org.uk/
 
-Do we need this if the clock is marked as critical now?
+The reason is that it goes against natural grammar. The only time that
+"Returns:" would make sense in grammar is when listing with e.g. a
+bulleted list, where the part before the colon doesn't have to be a
+complete sentence.
 
-> +	val |= BIT(1);
+This is why it's going to be an uphill battle - grammatically it is
+wrong, and thus it doesn't flow when thinking about documenting the
+return value.
 
-You probably want to clear the lowest 2 bits first, then set bit 1,
-otherwise you end up with either 2 or 3, depending on what bit 0 was
-before.
+If we want to go to a bulleted list, then it will be natural to add
+the colon.
 
-Cheers,
-Andre
+I'm not going to explain to this level of detail in every email, and
+because of the grammatical nature of this, it's going to be very
+difficult to use a form that goes against proper grammar.
 
-> +	writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
-> +
->  	/*
->  	 * First clock parent (osc32K) is unusable for CEC. But since there
->  	 * is no good way to force parent switch (both run with same frequency),
-> @@ -1190,6 +1214,13 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  	/* Re-lock the CPU PLL after any rate changes */
->  	ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
->  
-> +	/* Reparent GPU during GPU PLL rate changes */
-> +	ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
-> +				  &sun50i_h616_gpu_nb);
-> +
-> +	/* Re-lock the GPU PLL after any rate changes */
-> +	ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
-> +
->  	return 0;
->  }
->  
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
