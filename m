@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E04DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6493FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 15:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ge7e4daqj3rc2Cti9GJ90KErDXMeTsvoJh1lEpBu6Ew=; b=TJDk8aJxGxrPYyQZbeHJw5FLO+
-	XGFatVwqaamE9FFiB4+vRqwwHAUae0Bcw6xmHq0Oy4uenFBQTzYIhATDkPBmTak4we/D3I6CrRiuc
-	kP2qoAne6qKucJjTp2cSOxXbjZz4PON3FJg+KwOC4X1Dr/z9PlEeai+NQURHOyUBOtg10pwnqx/OJ
-	ranwqptwEZOZdKCMiOptLAZAazS/ZfZjGpzPuVbS0f4ROoBlSrixejc/VzKhvOhFr6q8r/VtmMmLK
-	YdGq1fu35UCvkh7aKxI8MtVys9cfxwZLdNjGL61pmZ4TOWtgw1cJ4VhCWHAxo2951NgrppsTkg35a
-	TwEDlCQQ==;
+	bh=24qpgPKCLX23k1AKR52IOhRUFCOiLCPIqtuu4KporW4=; b=nX86LPT7GH6/Wf6Ag4ZUdhN3qT
+	2BXXW4gDdttHoLWXu7TeIhhXCAKzluTJa/UR0esHiqfeRyC6PVBWG6D+AAWg6C6Z85eNOb61HPVmW
+	IblDR70mF3TC/TiLmj6ETsuCwLBMvlsxrLe6c6Losb+4Bsr5nbNk1DtYKA0Fhms0mY9ZF4EmicFX2
+	cwl52eJW3MpOozveU1BHsHqElgXmCjhBNH/g71NfyUY7pKOf7noS+7mV6gs3mgX7QvfGhEcYM5i23
+	j7JIojbKfekeyPn/IpP/ed+4pndgWUU9s67QH4nljt7PGPSb+yvsl0GfvJM+H3OJvrUPtMSb3J8Ql
+	FJTgllrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVNZ-00000000FLN-1L7F;
-	Mon, 10 Feb 2025 15:07:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thVXv-00000000HEe-0KKn;
+	Mon, 10 Feb 2025 15:18:03 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thVM9-00000000F9T-3DmJ
+	id 1thVWW-00000000Gyb-0Jua
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 15:05:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 93B995C589D;
-	Mon, 10 Feb 2025 15:05:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66CEFC4CED1;
-	Mon, 10 Feb 2025 15:05:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739199952;
-	bh=P/ctmUMjn+LOgAtQLjjXfPgljir4CfZIfvWihq/RQb4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XKVbmOEI+9xMj+B/ZBdUanCUsJXeJ+tf3xSjizF7XHiidiI0oCjKLm1rvsiVJfmks
-	 Y+6YTMM7M0nndvs4nmZXPvP4HUWANgBQkZNsObDuJRCfbenFYz8Q//TKwEnMDzZK/u
-	 2H3xt80ZZq//MaB+IQAEY1QziAYcQHDKFz4Ee9Y/D4zUll2Uoy9RRiom8xNjJxRu7D
-	 eU5jyozckEhcyirSm81+Hqxlofaj1+qKdZUIc5iELmVgvi+hTb31STOnmu2m4cH4Ng
-	 C9n2T00pSwv+yycAYqQIrwLjASQbVHKThshzOtyZt7uYt/dyskcF/CQdS2pgiXFjB/
-	 z+lg2fAIgYl1A==
-Date: Mon, 10 Feb 2025 15:05:47 +0000
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
-	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
-	tabba@google.com, wilco.dijkstra@arm.com
-Subject: Re: [PATCH v2 1/8] KVM: arm64: Unconditionally save+flush host
- FPSIMD/SVE/SME state
-Message-ID: <20250210150546.GB7568@willie-the-truck>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
- <20250206141102.954688-2-mark.rutland@arm.com>
- <20250207122748.GA4839@willie-the-truck>
- <Z6YI6IvG_N4txgz7@J2N7QTR9R3>
+	Mon, 10 Feb 2025 15:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=24qpgPKCLX23k1AKR52IOhRUFCOiLCPIqtuu4KporW4=; b=VFZf6KvB5ssMyfWM08F+vvn2PN
+	iCje30a75JbS+LvoP+qqOZfyDpTeylYr7cMt+TtDr1SvKcV2YmJS+Qqw3QVOP1NgEqv35cwuGlL/m
+	AGyugs113kfS5OtwK9Eqb3rI89bGRweuDFyIm6CdFbJ5h9ipX2MY8BMGq44xgPlO8BZ78KoyOveeL
+	+5d2bmF9sFYM4Ezxu+bNhNunN5LvttxOeLD280YBi3nmqESnveq4gMsCilfzxh2QmJPAY7Al1Jn4Z
+	gNGsaFmOVIIjcmBgkdCh8f5I658IlbV5vB2lOT7q5sw0LZaLnisrnT9iMw/KjRwaedwPYakP9QI8N
+	jDRtw+AA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51130)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1thVWB-0007Hf-1n;
+	Mon, 10 Feb 2025 15:16:15 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1thVW7-0007bH-1a;
+	Mon, 10 Feb 2025 15:16:11 +0000
+Date: Mon, 10 Feb 2025 15:16:11 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Ben Segall <bsegall@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/9] arm: Rely on generic printing of preemption model.
+Message-ID: <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
+References: <20250203141632.440554-1-bigeasy@linutronix.de>
+ <20250203141632.440554-4-bigeasy@linutronix.de>
+ <20250210120429.iFfBClW1@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z6YI6IvG_N4txgz7@J2N7QTR9R3>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250210120429.iFfBClW1@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_070553_890295_7AF1ABCB 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20250210_071636_116483_CD055C14 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,62 +90,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 01:21:44PM +0000, Mark Rutland wrote:
-> On Fri, Feb 07, 2025 at 12:27:51PM +0000, Will Deacon wrote:
-> > On Thu, Feb 06, 2025 at 02:10:55PM +0000, Mark Rutland wrote:
-> > > There are several problems with the way hyp code lazily saves the host's
-> > > FPSIMD/SVE state, including:
-> > > 
-> > > * Host SVE being discarded unexpectedly due to inconsistent
-> > >   configuration of TIF_SVE and CPACR_ELx.ZEN. This has been seen to
-> > >   result in QEMU crashes where SVE is used by memmove(), as reported by
-> > >   Eric Auger:
-> > > 
-> > >   https://issues.redhat.com/browse/RHEL-68997
-> > > 
-> > > * Host SVE state is discarded *after* modification by ptrace, which was an
-> > >   unintentional ptrace ABI change introduced with lazy discarding of SVE state.
-> > > 
-> > > * The host FPMR value can be discarded when running a non-protected VM,
-> > >   where FPMR support is not exposed to a VM, and that VM uses
-> > >   FPSIMD/SVE. In these cases the hyp code does not save the host's FPMR
-> > >   before unbinding the host's FPSIMD/SVE/SME state, leaving a stale
-> > >   value in memory.
+On Mon, Feb 10, 2025 at 01:04:29PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2025-02-03 15:16:26 [+0100], To linux-kernel@vger.kernel.org wrote:
+> > __die() invokes later __show_regs() -> show_regs_print_info() which
+> > prints the current preemption model.
+> > Remove it from the initial line.
 > > 
-> > How hard would it be to write tests for these three scenarios? If we
-> > had something to exercise the relevant paths then...
-> >
-> > > ... and so this eager save+flush probably needs to be backported to ALL
-> > > stable trees.
-> > 
-> > ... this backporting might be a little easier to be sure about?
+> > Cc: Russell King <linux@armlinux.org.uk>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 > 
-> For the first case I have a quick and dirty test, which I've pushed to
-> my arm64/kvm/fpsimd-tests branch in my kernel.org repo:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/
->   git://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
-> 
-> For the last case it should be possible to do something similar, but I
-> hadn't had the time to dig in to the KVM selftests infrastructure and
-> figure out how to confiugre the guest appropriately.
-> 
-> For the ptrace case, the same symptoms can be provoked outside of KVM
-> (and I'm currently working to fix that). From my PoV the important thing
-> is that this fix happens to remove KVM from the set of cases the other
-> fixes need to care about.
-> 
-> FWIW I was assuming that I'd be handling the upstream backports, and I'd
-> be testing with the test above and some additional assertions hacked
-> into the kernel for testing.
+> Is it okay, to route this via the sched tree?
 
-The backporting for Android will probably diverge slightly from upstream,
-so if I'm able to run your tests as well then it would really handy.
-Thanks for sharing the stuff you currently have.
+Sorry, its not obvious where show_regs_print_info() prints this.
+dump_stack_print_info() itself doesn't directly. print_worker_info()
+doesn't. print_stop_info() doesn't. Not sure whether print_scx_info()
+does.
 
-The patch looks fine:
+Maybe showing example output would help?
 
-Acked-by: Will Deacon <will@kernel.org>
-
-Will
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
