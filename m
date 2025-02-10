@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A039C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0199C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 12:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37WgxJYXXUKu8OSkaqwuSzs5//XNf2JPdK8BzMTi/wc=; b=PD/m8w7au+mK7FevbDBVoFdLER
-	FbhyjzmdvQ3OrDivYv7t+TY4sLOivFL4ADW5OaMEeCC2iQkGOJ0gEUJ/1tYs63IuvVgntq38P+vEG
-	ivFzurzJwaVP7LAIOWIuKaDkzhARIINKf0QKczDbpkZuK+ucou539k+EcW/bVfM8QCLuSH8Qa11MK
-	A4fBxl7JOAbSYjjv3Dt98u5sDtFd4eWUIk1PCUoAD3B5DrcSkhbEQHI1PkuyG/H4KYPgpphGSClMB
-	zKljMfGdFkcIFUS/nBVDOkpybjRAoLAuAnXEzgcQ/q2exm7s7E90YwSkaIA/eXk6aGJR4rRqSHz04
-	VEKVDt8Q==;
+	bh=zY41R75BtToe8Yp09lMS5d4lVXKY/PmgZc/Js0T22zQ=; b=d+NT7FQ28pJMi2/53pKSrfB6Jh
+	1fa+r0SJKDGy18eabmqnk4HnIWUkVgoO0vVObYc+hyQIJiUbY7Ap6hcEOJ/iQUZR46OF1F5AagKa/
+	vSXbVcKJEaR/Aza3i+tY64xtpa7uaqCxN+XFQMt2PYHbohQx9m0vH0SR2ZOhwMipb/b9AteBC4GBy
+	h557X2WQy2EpE1lkBjdVBSYsdcfhWQOPKPXgdSjF10LAOXEc9PQsEewoQ/b/TNu+VwL6gxgWo2NQf
+	ncyJH5G8JvWcfrucjBjF1TROk1PuReDiafvC77SBk3o9Qxz4eaF67YhuKF1BiqcwM5pGzaerpYihh
+	Kp7mWqTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSrQ-0000000HOUt-3JaZ;
-	Mon, 10 Feb 2025 12:26:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thSq2-0000000HONw-0c5c
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 12:24:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 458241BA8;
-	Mon, 10 Feb 2025 04:24:55 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C70A93F5A1;
-	Mon, 10 Feb 2025 04:24:26 -0800 (PST)
-Date: Mon, 10 Feb 2025 12:24:21 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, oleg@redhat.com,
-	sstabellini@kernel.org, tglx@linutronix.de, peterz@infradead.org,
-	luto@kernel.org, mingo@redhat.com, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
-	vschneid@redhat.com, kees@kernel.org, wad@chromium.org,
-	akpm@linux-foundation.org, samitolvanen@google.com,
-	masahiroy@kernel.org, hca@linux.ibm.com, aliceryhl@google.com,
-	rppt@kernel.org, xur@google.com, paulmck@kernel.org, arnd@arndb.de,
-	mbenes@suse.cz, puranjay@kernel.org, pcc@google.com,
-	ardb@kernel.org, sudeep.holla@arm.com, guohanjun@huawei.com,
-	rafael@kernel.org, liuwei09@cestc.cn, dwmw@amazon.co.uk,
-	Jonathan.Cameron@huawei.com, liaochang1@huawei.com,
-	kristina.martsenko@arm.com, ptosi@google.com, broonie@kernel.org,
-	thiago.bauermann@linaro.org, kevin.brodsky@arm.com,
-	joey.gouly@arm.com, liuyuntao12@huawei.com, leobras@redhat.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org
-Subject: Re: [PATCH -next v5 11/22] arm64: entry: Switch to generic IRQ entry
-Message-ID: <Z6nv9SLi0za8tE69@J2N7QTR9R3>
-References: <20241206101744.4161990-1-ruanjinjie@huawei.com>
- <20241206101744.4161990-12-ruanjinjie@huawei.com>
+	id 1thSwN-0000000HPCE-1CZ0;
+	Mon, 10 Feb 2025 12:31:07 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thSuy-0000000HOts-0Hl0;
+	Mon, 10 Feb 2025 12:29:41 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c05f3dde21so106045885a.2;
+        Mon, 10 Feb 2025 04:29:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739190578; x=1739795378; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zY41R75BtToe8Yp09lMS5d4lVXKY/PmgZc/Js0T22zQ=;
+        b=Gp/UWLlN1E7U7bb45wwh5F/KGw95uufamQeaZJh080SnCxgw8mHfVmN0RjazANP6um
+         sW4LVVoN5uH1U2lRjMfbSIHuYUMPT5lH1YuNNr1THyyJEArQr07xX/7Ger8/WCPTmOF7
+         5jBVbqd4husSjsquNJNwh2cpezF/iNcekbLJyzSDb1ohC1qAZDi5NPro2wPG46CWnPnz
+         ohMJUxlxW04Hyl1xYSBdNFixUPYQHBzcJC3LMqD15UitmpBkCyKwgPr0ASOIHL+m+v5w
+         9aNXFeteCfhdo2DTjgOQAkW72CcUvHXHblVhsYGk3iEMvgBc/hz6fsuhZsCJjF69ztt3
+         fCbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739190578; x=1739795378;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zY41R75BtToe8Yp09lMS5d4lVXKY/PmgZc/Js0T22zQ=;
+        b=sx2S0bxHYOwQ9FzSHzXNGQClwaj2rJJj3NQo58M6P4dyojDJmBFW2BmDHDPedE5X6F
+         T7RF3HR1DiR7A/1VhIchHA7/4xxX4j+8B+d6EVs1H00xeDtvyvElIWXtB/jXuo3BUzv5
+         DAkMxvK47/BRVsP40D5UL2GFJDBhWHfWrreV1TZyGF4gbCyO26RJ/2ErMEBxC3hJUaIk
+         Y2GqsHocD7+EG50Tw0eT/wEkw3ZH1354EwmJjRVeuSeEWGMi/RTmlb9zzArvtHek1GcM
+         Kcigr+Yup7pC2NH+UoLErpBTu6I12Ksuww+8RPf6RYGTJnyEOP3srSydQ8q/vK4ibSOd
+         UqHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgAjG1rZJPIOVZzzWbiNL1NlWV0vQdaPIQ3XbAE9jUGrKbF3cjYl7xHlnoi2ssI9dQITXcFsFnVV+1e1MElZrw@lists.infradead.org, AJvYcCXR0OsVKezcbJX/ZONawOHwQ9IbX5UIuylrvBrGRVbfrWHiAEi2okDyHHOMYLpUe1jzWYPFL/Vhpu3uzAQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhDbQkZg7C4RDsw5LfpSOHRjPFroMFydiC11WdZzdRK3GBXeEd
+	Uwk3fj6xXsc6NNjz97aI5IlYJzEmKOOJT0UBTn5oHuTpJXfolCGx
+X-Gm-Gg: ASbGnctxV37StJz/gUD5IXlgz+31UNpro2FrXWY+V8SaRBKhxAsyhfxZG6SzRgG7d6B
+	FgqsCvJ0J8rQdvwsIyh9eKge8FyD1P0QOXJHjiZgbneFupatedADG1DWoIEMT0rCjOsqIbMlB2I
+	nKAmKpQzV9TksWAsXYEXZosxA48bodqlcchgfDR6pMJf/nnrsR0LrWfp+H5HawVGgJtMBU18H5Z
+	/l6evWmsld2/eWsFYcP/RrRMoXFwFkM7i3XFewdNrXU1o5xQ1PGcD/35XtmrvwuZA8=
+X-Google-Smtp-Source: AGHT+IHxp1/RlBBU1ek47PdaAYXfy4dhK7yLqQmOezqp2bSrFyZup9k7QBohFKb20v0D2hY4RciUgA==
+X-Received: by 2002:a05:620a:319d:b0:7a9:c129:5da7 with SMTP id af79cd13be357-7c047c355c8mr1853489885a.29.1739190577686;
+        Mon, 10 Feb 2025 04:29:37 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c05dffd3bbsm137289185a.45.2025.02.10.04.29.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 04:29:37 -0800 (PST)
+Date: Mon, 10 Feb 2025 20:29:31 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, Haylen Chu <heylenay@outlook.com>, 
+	linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
+Subject: Re: [PATCH 08/10] riscv/arm64: dts: cv18xx: Add sysctl and reset
+ nodes
+Message-ID: <mcixunylnco2obzrvqn4emaq3vey2zvkdggybymrm276bcgrsi@ck3nta7w576s>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-9-alexander.sverdlin@gmail.com>
+ <h73zitljaig7nrccd3f23i655imswv54tf667dhq3dord7rxsr@unqncqlorvc6>
+ <e17ef70f7536bd1bf0b4d0f7258f91cffac76a20.camel@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20241206101744.4161990-12-ruanjinjie@huawei.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e17ef70f7536bd1bf0b4d0f7258f91cffac76a20.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_042434_268657_BB216FDC 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20250210_042940_105995_E9AC313B 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,87 +106,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:17:33PM +0800, Jinjie Ruan wrote:
-> Currently, x86, Riscv, Loongarch use the generic entry. Convert arm64
-> to use the generic entry infrastructure from kernel/entry/*.
-> The generic entry makes maintainers' work easier and codes
-> more elegant.
+On Mon, Feb 10, 2025 at 12:47:59PM +0100, Alexander Sverdlin wrote:
+> Thanks for quick feedback Inochi!
 > 
-> Switch arm64 to generic IRQ entry first, which removed duplicate 100+
-> LOC, and it will switch to generic entry completely later. Switch to
-> generic entry in two steps according to Mark's suggestion will make
-> it easier to review.
+> On Mon, 2025-02-10 at 13:13 +0800, Inochi Amaoto wrote:
+> > On Sun, Feb 09, 2025 at 11:06:33PM +0100, Alexander Sverdlin wrote:
+> > > Add reset controller node and required sysctl nodes.
+> > > 
+> > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> > > ---
+> > >   arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 16 ++++++++++++++++
+> > >   1 file changed, 16 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > > index 53834b0658b2..d793b6db4ed1 100644
+> > > --- a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+> > > @@ -309,5 +309,21 @@ dmac: dma-controller@4330000 {
+> > >   			snps,data-width = <4>;
+> > >   			status = "disabled";
+> > >   		};
+> > > +
+> > 
+> > > +		rtcsys_ctrl: syscon@5025000 {
+> > > +			compatible = "sophgo,cv1800-rtcsys-ctrl", "syscon";
+> > > +			reg = <0x05025000 0x1000>;
+> > > +		};
+> > > +
+> > > +		rtcsys_core: syscon@5026000 {
+> > > +			compatible = "sophgo,cv1800-rtcsys-core", "syscon";
+> > > +			reg = <0x05026000 0x1000>;
+> > > +		};
+> > > +
+> > > +		soc-reset {
+> > > +			compatible = "sophgo,cv1800-reset";
+> > > +			sophgo,rtcsys-ctrl = <&rtcsys_ctrl>;
+> > > +			sophgo,rtcsys-core = <&rtcsys_core>;
+> > > +		};
+> > 
+> > I think these node is not suitable for riscv. It should use SBI SRST
+> > extension to restart.
 > 
-> The changes are below:
->  - Remove *enter_from/exit_to_kernel_mode(), and wrap with generic
->    irqentry_enter/exit(). Also remove *enter_from/exit_to_user_mode(),
->    and wrap with generic enter_from/exit_to_user_mode() because they
->    are exactly the same so far.
+> Independent from the particular form, or its correctness, this is still HW
+> description, right? It would be a "policy" for the kernel configuration, if
+> the particular build would rely on the FW or a kernel driver to reboot.
 > 
->  - Remove arm64_enter/exit_nmi() and use generic irqentry_nmi_enter/exit()
->    because they're exactly the same, so the temporary arm64 version
->    irqentry_state can also be removed.
+> In other words, the HW block remains in place, no matter if it's controlled
+> by a kernel module or a FW. What the point in hiding it from the RiscV part
+> of DT, keeping on ARM64 side only?
 > 
->  - Remove PREEMPT_DYNAMIC code, as generic entry do the same thing
->    if arm64 implement arch_irqentry_exit_need_resched().
-> 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/Kconfig                    |   1 +
->  arch/arm64/include/asm/entry-common.h |  64 ++++++
->  arch/arm64/include/asm/preempt.h      |   6 -
->  arch/arm64/kernel/entry-common.c      | 307 ++++++--------------------
->  arch/arm64/kernel/signal.c            |   3 +-
->  5 files changed, 129 insertions(+), 252 deletions(-)
->  create mode 100644 arch/arm64/include/asm/entry-common.h
 
-Superficially this looks nice, but to be clear I have *not* looked at
-this in great detail; minor comments below.
+Yeah, I have make a mistake, the device is needed. SBI need these
+device definition to handle some power event.
 
-[...]
-
-> +static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
-> +						  unsigned long ti_work)
-> +{
-> +	local_daif_mask();
-> +}
-> +
-> +#define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
-
-I'm a little worried that this may be fragile having been hidden in the
-common code, as it's not clear exactly when this will occur during the
-return sequence, and the ordering requirements could easily be broken by
-refactoring there.
-
-I suspect we'll want to pull this later in the arm64 exit sequence so
-that we can have it explicit in entry-common.c.
-
-[...]
-
-> index 14ac6fdb872b..84b6628647c7 100644
-> --- a/arch/arm64/kernel/signal.c
-> +++ b/arch/arm64/kernel/signal.c
-> @@ -9,6 +9,7 @@
->  #include <linux/cache.h>
->  #include <linux/compat.h>
->  #include <linux/errno.h>
-> +#include <linux/irq-entry-common.h>
->  #include <linux/kernel.h>
->  #include <linux/signal.h>
->  #include <linux/freezer.h>
-> @@ -1603,7 +1604,7 @@ static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
->   * the kernel can handle, and then we build all the user-level signal handling
->   * stack-frames in one go after that.
->   */
-> -void do_signal(struct pt_regs *regs)
-> +void arch_do_signal_or_restart(struct pt_regs *regs)
->  {
->  	unsigned long continue_addr = 0, restart_addr = 0;
->  	int retval = 0;
-
-Is the expected semantic the same here, or is those more than just a
-name change?
-
-Mark.
+Regards,
+Inochi
 
