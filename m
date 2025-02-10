@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640B4C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418FEC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 10:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8lSY8NO4A3szmC1L5/5rT11RHjhDBjjWSNP2NRw8Aw=; b=Gv8dIK2WIYXz0fpRZw8iXAll0m
-	r0OpJiOBgaGAyvUtHxUsCa0DjpD6s2wxyQo9WX0/u+q0CkXFX9nr7MfcrTQ2p5JXQojwaqEyM1mPR
-	sBEd0fxWr1cG/naRxYsQOrQ672pZj3lcIIEK3KHxyQIdhkTcpBa/JAXeAUtsQOe6KdKDkJ3Px0o6D
-	mBSE9+8sGeloz+F9Tno8AU0zE5y/X9J9OuNKT+3k7HfAwUAHFtVDQv43xrYip87NlrYVg1ERzYYM1
-	8N9TIfqqY3H5rZg9DR4u77GjR2tlueATPbgeo7A62Kz9b2mKzrKvEDo4lasCkWkq9RvM8Ez3op8M5
-	LbuTcwQQ==;
+	bh=O0wPUHmZjIrRfM0ZgTZXmcA69jfXxoml1nbssdgLHCs=; b=44j7iWfGgjYNzy8iUmWo2cF5Px
+	CZ88suVjwveUJk/5eosajzw+kg4Z/RP0bChIYqsgtiYtmL5bW4y0slZ2qmGz8J6hxch8sET4ySTu8
+	p4SCl0OvoAAZ50y9phWwXmXQaW/XFjU1IeyTTUM1sBch1R+K8CkbHuQlns+V0cCpnLZHW91N69G21
+	aCylusl+6hpS9nY5kPkaTdd0tnei5T5xWgGpmkjIzT3THzMr5iDFhdV5vigrd+jLbi5x06KvLnlEz
+	gU8teIXSVtZa3NfOM+Ib7tnypWEWscsZA7SJ0mUMlTStcqHQFRlPNl00PcZoqiXJ30AsiBCINrj1G
+	D5DSDaFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQgh-0000000Gvp5-2eWT;
-	Mon, 10 Feb 2025 10:06:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thQi4-0000000GwAl-2dhj;
+	Mon, 10 Feb 2025 10:08:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQcm-0000000Guk3-1p6I;
-	Mon, 10 Feb 2025 10:02:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09BE85C4936;
-	Mon, 10 Feb 2025 10:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2935C4CEE5;
-	Mon, 10 Feb 2025 10:02:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739181763;
-	bh=kAPX7U4HOemMCHpMi6ojF51w0Vel5PxxbwLGLMG+LsQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rQqs/zShPLbbCKZnUDqiVh2YXCC0g9uohS3xzZhnklcHYZmsZ/MGIB+l48sn6e+px
-	 2ItQqbq126z1vWIqCeSbyOI1/tlUZAy95wa9m1tgoXERtu4Y7fYqp+kX7kJ40Dqbxh
-	 SwbViyJpA8pl1kFoHBDpiaDiDyNYyvysSnd3ZjJDLY1Vs1CnToSH9AUDkZxVCibRFU
-	 Dcgn3utMB1Ule6/49RTN+SPnOcJZYvgZZ9hyJlg4hiHggC4Ou5zLw/eXOyU/+Yqiyv
-	 BeczPbox/kscg1ojhF05q1fwj+4Dgi9W1ncBWhfXzpUe+DNJspl2QGhdEUtBNLiURZ
-	 bMQ0vE3afSXHw==
-Date: Mon, 10 Feb 2025 11:02:39 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	derek.foreman@collabora.com, detlev.casanova@collabora.com, daniel@fooishbar.org, 
-	robh@kernel.org, sebastian.reichel@collabora.com, 
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v13 10/13] dt-bindings: display: vop2: describe
- constraint SoC by SoC
-Message-ID: <20250210-poised-free-pronghorn-4b7fa9@krzk-bin>
-References: <20250206064457.11396-1-andyshrk@163.com>
- <20250206064457.11396-11-andyshrk@163.com>
+	id 1thQdL-0000000Guuo-2oYW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Feb 2025 10:03:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=O0wPUHmZjIrRfM0ZgTZXmcA69jfXxoml1nbssdgLHCs=; b=K8XBpdDuiRODbexqwMX9pNYznz
+	hULWHzlk8AlRFXXw69F0usCa6fxq5n35WcWIqmBvZnvD8nnXC0pbvcTrsVkoM6Fb5tJZnV47Jt8EL
+	AIjtl0i2cK43NSQJmJC46mDcY5SjkrPcudRVuN5oYaccBKRxEnGYAf9BEQq4VnuiCBD/Io8uiwz6e
+	QCL1xbjt0O3zyEzGuInfSU6OMcPrbjEMkwl5x6Ob9WPCuw9YsjVpLIdIIEhYbheILuDu9jeqa6MoL
+	BX7P4JyGddLA1BHyBEjQTE/Cpzskv75SfF2rkb5gyHcu8fMqyew4h3vTyNn7CVBYxjy0wqpSJMfS2
+	Noyh+HEw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1thQdI-0000000FUSp-23kB;
+	Mon, 10 Feb 2025 10:03:16 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 173AA3002E5; Mon, 10 Feb 2025 11:03:16 +0100 (CET)
+Date: Mon, 10 Feb 2025 11:03:16 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
+Subject: Re: [PATCH bpf-next v2 17/26] rqspinlock: Hardcode cond_acquire
+ loops to asm-generic implementation
+Message-ID: <20250210100316.GD31462@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com>
+ <20250206105435.2159977-18-memxor@gmail.com>
+ <20250210095324.GG10324@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206064457.11396-11-andyshrk@163.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_020244_516589_5EE6DC27 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250210095324.GG10324@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 02:44:38PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On Mon, Feb 10, 2025 at 10:53:25AM +0100, Peter Zijlstra wrote:
+> On Thu, Feb 06, 2025 at 02:54:25AM -0800, Kumar Kartikeya Dwivedi wrote:
+> > Currently, for rqspinlock usage, the implementation of
+> > smp_cond_load_acquire (and thus, atomic_cond_read_acquire) are
+> > susceptible to stalls on arm64, because they do not guarantee that the
+> > conditional expression will be repeatedly invoked if the address being
+> > loaded from is not written to by other CPUs. When support for
+> > event-streams is absent (which unblocks stuck WFE-based loops every
+> > ~100us), we may end up being stuck forever.
+> > 
+> > This causes a problem for us, as we need to repeatedly invoke the
+> > RES_CHECK_TIMEOUT in the spin loop to break out when the timeout
+> > expires.
+> > 
+> > Hardcode the implementation to the asm-generic version in rqspinlock.c
+> > until support for smp_cond_load_acquire_timewait [0] lands upstream.
+> > 
 > 
-> As more SoCs variants are introduced, each SoC brings its own
-> unique set of constraints, describe this constraints SoC by
-> SoC will make things easier.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
+> *sigh*.. this patch should go *before* patch 8. As is that's still
+> horribly broken and I was WTF-ing because your 0/n changelog said you
+> fixed it.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
-
+And since you're doing local copies of things, why not take a lobal copy
+of the smp_cond_load_acquire_timewait() thing?
 
