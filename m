@@ -4,75 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D576BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EAE3C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 19:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PXSGuhluzRmrNc0eoZM8nIQoQiHfEhzppYUkB33QFg=; b=Xhd779jQ4rqiHoD85yRyvowf3S
-	hCtRDo3qF8BGNr8Gklg/DzkzbxmH/5fyufbGZursSv2LPb2Cf7kQJQMU7yxXULb1lXETb5VTg8ahQ
-	jdwrI+syI+M++CkJAEzcFkW78S2jooS3DjP94iv8DIkTx+APrMp5+7bLaCpxQtso+W3glIj7A1Eff
-	E0xC36mGw7mSFibTsyWY1DcTFhEk0slD9y5vveYSM9Ga/6iktvRBdTG1TvQerohRQ32tyNd6eTyNx
-	bp8gdAtv2a9p+YzjsgeUGzCvpECQWtJRR2FIlufMSUz3xBU+8IwSV0XX/JpVflQrcVVC64YVghRvB
-	1y2OP1kA==;
+	bh=HyPCciy90tVW6T2lcHcuWFhDLKyw85xuvM/qhIPk9VI=; b=RYf1fRPGCrtHMw8NJPSb4Ufvk6
+	FNhbKLjvE59cZcZvn9gcTdj2t3nXfq4rpjN4EL0NHoY7bhQMPkKPmNeBz9bkgNTsQBBwuzv1Y4NEf
+	wQkhDEKN+jCAnuRfwh1wzyNz5PiRF2VKw6AtVDTjL7QUqoZFBssj9MAGOMNnLg61kgc3OBjad73of
+	1CTgKJ1X6uihEJx/KDHVsTSdvVVFYkrlKSworqAxVc9Hp3R0ySmE0XhgsJVOuyb064AMo3iW/HTqf
+	GUX05aMQ9viTtDfXWkQo/mY2aiwdUBOYe7KolFX2XiMV9g208F1khSXbctFds2tXMGyDI1pmdIJ06
+	jCmvoMgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thZYg-000000016ty-1ZBk;
-	Mon, 10 Feb 2025 19:35:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thZYj-0000000171e-1uKN;
+	Mon, 10 Feb 2025 19:35:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thYjO-00000000ywk-2tyI
+	id 1thYki-00000000zLP-1qUT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 18:42:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D9CB2A41FFA;
-	Mon, 10 Feb 2025 18:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B7BC4CEE6;
-	Mon, 10 Feb 2025 18:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739212926;
-	bh=volfTHFNOUDlzYAIkzWujx1nzQax0BMAiYwM2LbEiLs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K2EoOz/DIkavTjFZ/yq/TsOdf7CWtYylYp1MlSLdcgVHsaIyj87GwT/hXYhl0czV3
-	 yRvm9wTIBjxL4OJ11a3se8ThWGvywKAclQVCWKT6S0D+DdciyeLorSmFfxzILjl5wh
-	 jQ1pi6KMkApt1ep/cvDNaLgplP9bhZZHTO/TzSRypdHvoEhuGL8w9CkOGNgUZfy4h/
-	 vde1yqhE/rWjxW3WJbsWkMTyz4G7Yvgs7NWwm5WZ8oQr6Zs6zAOTeKN2C99mHH1oG+
-	 sx9UFrtUw1ZNZo/cEw3xFiOr64F+2b/wM9IzacLQn4m6KtukWrub75cckLI/VsUo0M
-	 uk/wqH9/Upe7w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1thYjM-002g2I-81;
-	Mon, 10 Feb 2025 18:42:04 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 18/18] KVM: arm64: Use FGT feature maps to drive RES0 bits
-Date: Mon, 10 Feb 2025 18:41:49 +0000
-Message-Id: <20250210184150.2145093-19-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250210184150.2145093-1-maz@kernel.org>
-References: <20250210184150.2145093-1-maz@kernel.org>
+	Mon, 10 Feb 2025 18:43:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739213007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=HyPCciy90tVW6T2lcHcuWFhDLKyw85xuvM/qhIPk9VI=;
+	b=igTIMuiwl3wIhJ5uWJe2j1RMDWe9DzrhjQoKHAoRBL9S7BBJpFNFeIAIdaNdA/3Ppz/lZG
+	o5xqR9KwQrckVNZIoXYA9IVWY4jPWd+T2WB9r2CadcQ9FouzMTXEYf6pn/Y6wxceMeJcjN
+	R6V1darc5zFpzVgMNdCJey1UgnxVFNI=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-478-RZgs_O5ZOKCqPwGqejr2cA-1; Mon, 10 Feb 2025 13:43:26 -0500
+X-MC-Unique: RZgs_O5ZOKCqPwGqejr2cA-1
+X-Mimecast-MFC-AGG-ID: RZgs_O5ZOKCqPwGqejr2cA
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4392fc6bd21so9566055e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 10:43:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739213005; x=1739817805;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HyPCciy90tVW6T2lcHcuWFhDLKyw85xuvM/qhIPk9VI=;
+        b=rKglSTI9e7s7yMrWfC5tDgBSJ9zw/Rm97WQlkINpaOvbYdTrYxV5HlIcI9+VzunOGZ
+         J/dFjGp3x3ZU3hqYuOiSsA8T6rrghaEIZs/WFrSez4KiD+znTp66oPbYUqT41OeaKNFX
+         nYaKOfV/JzeBawLGI+GbIR6tiA6CqAvwpa/Ul4MvqM6SwnxexhKtn6McTCEl1rNqwU0y
+         m3G4gCsjOs4MFnKnp57E1vK5DIxOinDgkcr8ZfR734MIeo2rQQzTgwO/sPisQFk3P626
+         kLnDU+O3YSAebPq5qr3g3IZ40pYB0KZdcXpcjem/K0dq5xK+2bRC0qCu8vi6HOpRWNPL
+         Zt9A==
+X-Forwarded-Encrypted: i=1; AJvYcCWYq/w8Xsz98zJRKv4dXpnjzZflfIFdZFTUL4b7QxPdrZ6hTsFat+3F9IHKk97LYxXRhrr0Dy8GnLRkBgr1rPVs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTRcV3hxEE43EOGMfdZNfNmQkheE0hD4mPkpv2tCuAFZtZFgJW
+	aJ1LNXkqtHpdiwdVcPR1optMCuiHWECLpNpEqudMIJDm+vBj2uTKXL57xd38ZtfJafyumi5RXTi
+	6xCURvztkYEiqI4F6bdiNWGpn8NtTFhHTyhIFwjv54JMbXGewBvlAb+gMjFeTNx/LFdtUdiWl
+X-Gm-Gg: ASbGnctTgK1/vKcMxmPpXGZN8FEBn0SX5LdOlfp69GtAr3vOeOt+ozQRMPM+vPsZFeT
+	sMl6iP4Udo2hwsc31tBI6lR4ZibEtfhj9wdsTOIyo3pPCr65LNl93Y9QNdIGVGyziFu2WWMgoQq
+	bhhwIbUtZwUaU50KmBt89Jz44mB8Du3q/eNucQphSpSr/Y6GS4ZNf+664XwSd7q/FKdlZnGWE/g
+	eO1eM/X91IYORF+2ZkjFfx3IKz/8ao1xpzJluJdp6Wshb0X0fjw1xks+2DspmT21soNgnD2IMLA
+	/xuUfkGSZK73Zxuvw/8hlqyItra9lmVC+JqXh9uwe3Yye247NOvrAoDvOBOV7bm7FmoiyFqrxuJ
+	rk5a7V+gIyzBg8PmOd0BdFtN34dGxpP9A
+X-Received: by 2002:a05:600c:1c25:b0:439:41dd:c066 with SMTP id 5b1f17b1804b1-43941ddc1f0mr58352295e9.31.1739213005121;
+        Mon, 10 Feb 2025 10:43:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGzpaPXHrmO8a6oz7FN6p5yKvrmK4zLskiJi4ioSu4niVqT7krVP8gCmrI1SDPa3yDqdwKozQ==
+X-Received: by 2002:a05:600c:1c25:b0:439:41dd:c066 with SMTP id 5b1f17b1804b1-43941ddc1f0mr58351885e9.31.1739213004744;
+        Mon, 10 Feb 2025 10:43:24 -0800 (PST)
+Received: from ?IPV6:2003:cb:c734:b800:12c4:65cd:348a:aee6? (p200300cbc734b80012c465cd348aaee6.dip0.t-ipconnect.de. [2003:cb:c734:b800:12c4:65cd:348a:aee6])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde1dfaesm13124217f8f.90.2025.02.10.10.43.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Feb 2025 10:43:23 -0800 (PST)
+Message-ID: <ff5af15f-8f9b-4ddf-88d2-5bab52449399@redhat.com>
+Date: Mon, 10 Feb 2025 19:43:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 15/20] huge_memory: Add vmf_insert_folio_pud()
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
+ dan.j.williams@intel.com, linux-mm@kvack.org
+Cc: Alison Schofield <alison.schofield@intel.com>, lina@asahilina.net,
+ zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+ vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+ bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
+ will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
+ djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ loongarch@lists.linux.dev
+References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
+ <ef0f8d6a6fd340531613c351c99c98fd6f94ad93.1738709036.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <ef0f8d6a6fd340531613c351c99c98fd6f94ad93.1738709036.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: XhhtjRDe1LLZgJTElhhYGGOmfSyI9xC7Q2oK_X_I3vM_1739213005
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_104206_869706_BEAA2713 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250210_104328_557282_BDE13A71 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,213 +170,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Another benefit of mapping bits to features is that it becomes trivial
-to define which bits should be handled as RES0.
+On 04.02.25 23:48, Alistair Popple wrote:
+> Currently DAX folio/page reference counts are managed differently to
+> normal pages. To allow these to be managed the same as normal pages
+> introduce vmf_insert_folio_pud. This will map the entire PUD-sized folio
+> and take references as it would for a normally mapped page.
+> 
+> This is distinct from the current mechanism, vmf_insert_pfn_pud, which
+> simply inserts a special devmap PUD entry into the page table without
+> holding a reference to the page for the mapping.
+> 
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+> 
 
-Let's apply this principle to the guest's view of the FGT registers.
+Nit: patch subject should start with "mm/huge_memory:"
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h |   1 +
- arch/arm64/kvm/config.c           |  26 +++++++
- arch/arm64/kvm/nested.c           | 125 +++---------------------------
- 3 files changed, 37 insertions(+), 115 deletions(-)
+Acked-by: David Hildenbrand <david@redhat.com>
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index b537adc5c5557..663b16750fdb6 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1577,6 +1577,7 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
- 	(kvm_has_feat((k), ID_AA64MMFR3_EL1, S1POE, IMP))
- 
- void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
-+u64 get_reg_disabled_bits(struct kvm *kvm, enum vcpu_sysreg reg);
- void check_feature_map(void);
- 
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index c9dff71006bf4..5034947eee349 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -586,3 +586,29 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
- 
- 	kvm->arch.fgu[fgt] = val;
- }
-+
-+u64 get_reg_disabled_bits(struct kvm *kvm, enum vcpu_sysreg reg)
-+{
-+	switch (reg) {
-+	case HFGRTR_EL2:
-+		return  __compute_unsupported_bits(kvm, hfgrtr_feat_map,
-+						   ARRAY_SIZE(hfgrtr_feat_map), 0);
-+	case HFGWTR_EL2:
-+		return  __compute_unsupported_bits(kvm, hfgwtr_feat_map,
-+						   ARRAY_SIZE(hfgwtr_feat_map), 0);
-+	case HFGITR_EL2:
-+		return  __compute_unsupported_bits(kvm, hfgitr_feat_map,
-+						   ARRAY_SIZE(hfgitr_feat_map), 0);
-+	case HDFGRTR_EL2:
-+		return  __compute_unsupported_bits(kvm, hdfgrtr_feat_map,
-+						   ARRAY_SIZE(hdfgrtr_feat_map), 0);
-+	case HDFGWTR_EL2:
-+		return  __compute_unsupported_bits(kvm, hdfgwtr_feat_map,
-+						   ARRAY_SIZE(hdfgwtr_feat_map), 0);
-+	case HAFGRTR_EL2:
-+		return  __compute_unsupported_bits(kvm, hafgrtr_feat_map,
-+						   ARRAY_SIZE(hafgrtr_feat_map), 0);
-+	default:
-+		return 0;
-+	}
-+}
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 48b8a700de457..b9132b39e146d 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1081,133 +1081,28 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	set_sysreg_masks(kvm, HCRX_EL2, res0, res1);
- 
- 	/* HFG[RW]TR_EL2 */
--	res0 = res1 = 0;
--	if (!(kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
--	      kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
--		res0 |= (HFGxTR_EL2_APDAKey | HFGxTR_EL2_APDBKey |
--			 HFGxTR_EL2_APGAKey | HFGxTR_EL2_APIAKey |
--			 HFGxTR_EL2_APIBKey);
--	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
--		res0 |= (HFGxTR_EL2_LORC_EL1 | HFGxTR_EL2_LOREA_EL1 |
--			 HFGxTR_EL2_LORID_EL1 | HFGxTR_EL2_LORN_EL1 |
--			 HFGxTR_EL2_LORSA_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, CSV2, CSV2_2) &&
--	    !kvm_has_feat(kvm, ID_AA64PFR1_EL1, CSV2_frac, CSV2_1p2))
--		res0 |= (HFGxTR_EL2_SCXTNUM_EL1 | HFGxTR_EL2_SCXTNUM_EL0);
--	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, GIC, IMP))
--		res0 |= HFGxTR_EL2_ICC_IGRPENn_EL1;
--	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP))
--		res0 |= (HFGxTR_EL2_ERRIDR_EL1 | HFGxTR_EL2_ERRSELR_EL1 |
--			 HFGxTR_EL2_ERXFR_EL1 | HFGxTR_EL2_ERXCTLR_EL1 |
--			 HFGxTR_EL2_ERXSTATUS_EL1 | HFGxTR_EL2_ERXMISCn_EL1 |
--			 HFGxTR_EL2_ERXPFGF_EL1 | HFGxTR_EL2_ERXPFGCTL_EL1 |
--			 HFGxTR_EL2_ERXPFGCDN_EL1 | HFGxTR_EL2_ERXADDR_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA))
--		res0 |= HFGxTR_EL2_nACCDATA_EL1;
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, GCS, IMP))
--		res0 |= (HFGxTR_EL2_nGCS_EL0 | HFGxTR_EL2_nGCS_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, SME, IMP))
--		res0 |= (HFGxTR_EL2_nSMPRI_EL1 | HFGxTR_EL2_nTPIDR2_EL0);
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, THE, IMP))
--		res0 |= HFGxTR_EL2_nRCWMASK_EL1;
--	if (!kvm_has_s1pie(kvm))
--		res0 |= (HFGxTR_EL2_nPIRE0_EL1 | HFGxTR_EL2_nPIR_EL1);
--	if (!kvm_has_s1poe(kvm))
--		res0 |= (HFGxTR_EL2_nPOR_EL0 | HFGxTR_EL2_nPOR_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
--		res0 |= HFGxTR_EL2_nS2POR_EL1;
--	if (!kvm_has_feat(kvm, ID_AA64MMFR3_EL1, AIE, IMP))
--		res0 |= (HFGxTR_EL2_nMAIR2_EL1 | HFGxTR_EL2_nAMAIR2_EL1);
-+	res1 = 0;
-+	res0 = get_reg_disabled_bits(kvm, HFGRTR_EL2);
- 	set_sysreg_masks(kvm, HFGRTR_EL2, res0 | hfgrtr_masks.res0, res1);
-+	res0 = get_reg_disabled_bits(kvm, HFGWTR_EL2);
- 	set_sysreg_masks(kvm, HFGWTR_EL2, res0 | hfgwtr_masks.res0, res1);
- 
- 	/* HDFG[RW]TR_EL2 */
--	res0 = res1 = 0;
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DoubleLock, IMP))
--		res0 |= HDFGRTR_EL2_OSDLR_EL1;
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP))
--		res0 |= (HDFGRTR_EL2_PMEVCNTRn_EL0 | HDFGRTR_EL2_PMEVTYPERn_EL0 |
--			 HDFGRTR_EL2_PMCCFILTR_EL0 | HDFGRTR_EL2_PMCCNTR_EL0 |
--			 HDFGRTR_EL2_PMCNTEN | HDFGRTR_EL2_PMINTEN |
--			 HDFGRTR_EL2_PMOVS | HDFGRTR_EL2_PMSELR_EL0 |
--			 HDFGRTR_EL2_PMMIR_EL1 | HDFGRTR_EL2_PMUSERENR_EL0 |
--			 HDFGRTR_EL2_PMCEIDn_EL0);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, IMP))
--		res0 |= (HDFGRTR_EL2_PMBLIMITR_EL1 | HDFGRTR_EL2_PMBPTR_EL1 |
--			 HDFGRTR_EL2_PMBSR_EL1 | HDFGRTR_EL2_PMSCR_EL1 |
--			 HDFGRTR_EL2_PMSEVFR_EL1 | HDFGRTR_EL2_PMSFCR_EL1 |
--			 HDFGRTR_EL2_PMSICR_EL1 | HDFGRTR_EL2_PMSIDR_EL1 |
--			 HDFGRTR_EL2_PMSIRR_EL1 | HDFGRTR_EL2_PMSLATFR_EL1 |
--			 HDFGRTR_EL2_PMBIDR_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceVer, IMP))
--		res0 |= (HDFGRTR_EL2_TRC | HDFGRTR_EL2_TRCAUTHSTATUS |
--			 HDFGRTR_EL2_TRCAUXCTLR | HDFGRTR_EL2_TRCCLAIM |
--			 HDFGRTR_EL2_TRCCNTVRn | HDFGRTR_EL2_TRCID |
--			 HDFGRTR_EL2_TRCIMSPECn | HDFGRTR_EL2_TRCOSLSR |
--			 HDFGRTR_EL2_TRCPRGCTLR | HDFGRTR_EL2_TRCSEQSTR |
--			 HDFGRTR_EL2_TRCSSCSRn | HDFGRTR_EL2_TRCSTATR |
--			 HDFGRTR_EL2_TRCVICTLR);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
--		res0 |= (HDFGRTR_EL2_TRBBASER_EL1 | HDFGRTR_EL2_TRBIDR_EL1 |
--			 HDFGRTR_EL2_TRBLIMITR_EL1 | HDFGRTR_EL2_TRBMAR_EL1 |
--			 HDFGRTR_EL2_TRBPTR_EL1 | HDFGRTR_EL2_TRBSR_EL1 |
--			 HDFGRTR_EL2_TRBTRG_EL1);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, BRBE, IMP))
--		res0 |= (HDFGRTR_EL2_nBRBIDR | HDFGRTR_EL2_nBRBCTL |
--			 HDFGRTR_EL2_nBRBDATA);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P2))
--		res0 |= HDFGRTR_EL2_nPMSNEVFR_EL1;
-+	res1 = 0;
-+	res0 = get_reg_disabled_bits(kvm, HDFGRTR_EL2);
- 	set_sysreg_masks(kvm, HDFGRTR_EL2, res0 | hdfgrtr_masks.res0, res1);
--
--	/* Reuse the bits from the read-side and add the write-specific stuff */
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP))
--		res0 |= (HDFGWTR_EL2_PMCR_EL0 | HDFGWTR_EL2_PMSWINC_EL0);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceVer, IMP))
--		res0 |= HDFGWTR_EL2_TRCOSLAR;
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceFilt, IMP))
--		res0 |= HDFGWTR_EL2_TRFCR_EL1;
-+	res0 = get_reg_disabled_bits(kvm, HDFGWTR_EL2);
- 	set_sysreg_masks(kvm, HFGWTR_EL2, res0 | hdfgwtr_masks.res0, res1);
- 
- 	/* HFGITR_EL2 */
--	res0 = hfgitr_masks.res0;
- 	res1 = HFGITR_EL2_RES1;
--	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, DPB, DPB2))
--		res0 |= HFGITR_EL2_DCCVADP;
--	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, PAN, PAN2))
--		res0 |= (HFGITR_EL2_ATS1E1RP | HFGITR_EL2_ATS1E1WP);
--	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
--		res0 |= (HFGITR_EL2_TLBIRVAALE1OS | HFGITR_EL2_TLBIRVALE1OS |
--			 HFGITR_EL2_TLBIRVAAE1OS | HFGITR_EL2_TLBIRVAE1OS |
--			 HFGITR_EL2_TLBIVAALE1OS | HFGITR_EL2_TLBIVALE1OS |
--			 HFGITR_EL2_TLBIVAAE1OS | HFGITR_EL2_TLBIASIDE1OS |
--			 HFGITR_EL2_TLBIVAE1OS | HFGITR_EL2_TLBIVMALLE1OS);
--	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, RANGE))
--		res0 |= (HFGITR_EL2_TLBIRVAALE1 | HFGITR_EL2_TLBIRVALE1 |
--			 HFGITR_EL2_TLBIRVAAE1 | HFGITR_EL2_TLBIRVAE1 |
--			 HFGITR_EL2_TLBIRVAALE1IS | HFGITR_EL2_TLBIRVALE1IS |
--			 HFGITR_EL2_TLBIRVAAE1IS | HFGITR_EL2_TLBIRVAE1IS |
--			 HFGITR_EL2_TLBIRVAALE1OS | HFGITR_EL2_TLBIRVALE1OS |
--			 HFGITR_EL2_TLBIRVAAE1OS | HFGITR_EL2_TLBIRVAE1OS);
--	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, SPECRES, IMP))
--		res0 |= (HFGITR_EL2_CFPRCTX | HFGITR_EL2_DVPRCTX |
--			 HFGITR_EL2_CPPRCTX);
--	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, BRBE, IMP))
--		res0 |= (HFGITR_EL2_nBRBINJ | HFGITR_EL2_nBRBIALL);
--	if (!kvm_has_feat(kvm, ID_AA64PFR1_EL1, GCS, IMP))
--		res0 |= (HFGITR_EL2_nGCSPUSHM_EL1 | HFGITR_EL2_nGCSSTR_EL1 |
--			 HFGITR_EL2_nGCSEPP);
--	if (!kvm_has_feat(kvm, ID_AA64ISAR1_EL1, SPECRES, COSP_RCTX))
--		res0 |= HFGITR_EL2_COSPRCTX;
--	if (!kvm_has_feat(kvm, ID_AA64ISAR2_EL1, ATS1A, IMP))
--		res0 |= HFGITR_EL2_ATS1E1A;
--	set_sysreg_masks(kvm, HFGITR_EL2, res0, res1);
-+	res0 = get_reg_disabled_bits(kvm, HFGITR_EL2);
-+	set_sysreg_masks(kvm, HFGITR_EL2, res0 | hfgitr_masks.res0, res1);
- 
- 	/* HAFGRTR_EL2 - not a lot to see here */
--	res0 = hafgrtr_masks.res0;
- 	res1 = HAFGRTR_EL2_RES1;
--	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, AMU, V1P1))
--		res0 |= ~(res0 | res1);
--	set_sysreg_masks(kvm, HAFGRTR_EL2, res0, res1);
-+	res0 = get_reg_disabled_bits(kvm, HAFGRTR_EL2);
-+	set_sysreg_masks(kvm, HAFGRTR_EL2, res0 | hafgrtr_masks.res0, res1);
- 
- 	/* TCR2_EL2 */
- 	res0 = TCR2_EL2_RES0;
 -- 
-2.39.2
+Cheers,
+
+David / dhildenb
 
 
