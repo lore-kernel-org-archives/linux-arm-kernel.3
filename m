@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2847FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F5FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 09:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSLcEZITRPL62T9rigCQskjKO0Hvwus0+e1uc/TnvEg=; b=zzmI+91UZALFk2ApD9ssgbyTmd
-	sPMm2TZGwPHTZNmph3KiP7tU8lOl52qcKhmDbm/8EsJzgTLhfYctNlCVdFAqeG6x81/93qi22o1NJ
-	uIJHgPRG61IcuUZXc43SZyaMxrkfB2nENFqeZYkny109Y7aOnP97UpfpCCbjTLCNGY5rhbJM8PJJt
-	a0kOzDWQ1E2gIw/cKmFQPcZb+TuVpQmGJBhpxXsSHmBxNgU0hbJ1lmy4m6blT4EQ0gqx+EGX8fjK9
-	Owjd5xIAhzRd9q6Q1yF7UVitD06TSliK4HQnHLsTGatWGmVSTtseFXt3ey5im61YLQ1gUsF9i7pWz
-	Cpk05Kjg==;
+	bh=qrp2D4IaNIONEJ6iZskrP9z0mXL+Y+o7srm3cMYw2qQ=; b=YA+ZqUpRxYvb5/gRAbK2TSPtIf
+	ADmKPPE19i1F0ZGJN6HpFWlRw1KNZOavME6rlHScemyGQ1+U/86obrq9P4QVgUOTpRSVA/yEOwW2J
+	mWEE9k/lxsIQvlF0LBeAT1WAp5rivIyjo7aDp2cVrd5Ao5LORzHAW1IVWYlcTz9dTHKf5b9HdXPbn
+	ltSVPDC2BFigpxeOg3D9/8mwxqTioW7kzZ03aatdMnqgoh6LKtqI91c4hzc8bb4HTQy33DSN6lTSB
+	xmM7x5TLdpErmmiSx+vtiErsv/fi7sBTAmTImCFsCh3LYxSd0lyOsNcbTNM+QKR42juSMoTCuGsIT
+	uoxPIuxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thQ05-0000000GnsX-0l7y;
-	Mon, 10 Feb 2025 09:22:45 +0000
-Received: from mx1.sberdevices.ru ([37.18.73.165])
+	id 1thQ1S-0000000GoEH-3nB5;
+	Mon, 10 Feb 2025 09:24:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPsg-0000000Gmqk-0Q8i;
-	Mon, 10 Feb 2025 09:15:08 +0000
-Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id CB08B10000C;
-	Mon, 10 Feb 2025 12:14:56 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru CB08B10000C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1739178896;
-	bh=DSLcEZITRPL62T9rigCQskjKO0Hvwus0+e1uc/TnvEg=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=ut+ANQFZiByN3Lz+Olhyd4425H90AilO40Ck3WYciKkESk6DoMbCeTRjrFnKQ1QJD
-	 f1yzw6qb65rP44IF+ltAiS460YWv8r6jgfwgKZ0ODUq/xPwOemUpWZHOdIrjPYvqQx
-	 Qii4zaTC/12leKEAsVVe/vhqeDJeaitjQRu+prfxkDCvnLc6lx8rJteTPKKnqqr45z
-	 bfAlJzla9QmZI5za1mR5a5IrmhX+a+UErDgJSMbS30mb25aqv0Y2Y7DIDzCHgQysub
-	 0jf343yxfh71zA2SZJdb0AoLa8at7ImyGnfW54q0ir8AzWfMNDzrCn8+Df9cg3Mu5Q
-	 31Zxvjrm5cCXg==
-Received: from smtp.sberdevices.ru (p-exch-cas-a-m1.sberdevices.ru [172.24.201.216])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Mon, 10 Feb 2025 12:14:56 +0300 (MSK)
-From: Alexey Romanov <avromanov@salutedevices.com>
-To: <herbert@gondor.apana.org.au>
-CC: <avromanov@salutedevices.com>, <clabbe@baylibre.com>,
-	<conor+dt@kernel.org>, <davem@davemloft.net>, <devicetree@vger.kernel.org>,
-	<jbrunet@baylibre.com>, <kernel@salutedevices.com>, <khilman@baylibre.com>,
-	<krzk+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-crypto@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<martin.blumenstingl@googlemail.com>, <neil.armstrong@linaro.org>,
-	<robh+dt@kernel.org>, <vadim.fedorenko@linux.dev>
-Subject: [PATCH v11 00/22] Support more Amlogic SoC families in crypto driver
-Date: Mon, 10 Feb 2025 12:13:13 +0300
-Message-ID: <20250210091313.15190-1-avromanov@salutedevices.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
-References: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.28.160.235]
-X-ClientProxiedBy: p-i-exch-a-m2.sberdevices.ru (172.24.196.120) To
- p-exch-cas-a-m1.sberdevices.ru (172.24.201.216)
-X-KSMG-Rule-ID: 1
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 190896 [Feb 10 2025]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: avromanov@salutedevices.com
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 50 0.3.50 df4aeb250ed63fd3baa80a493fa6caee5dd9e10f, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;salutedevices.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:7.1.1,5.0.1, FromAlignment: s
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/02/10 05:33:00 #27152708
-X-KSMG-AntiVirus-Status: Clean, skipped
+	id 1thPyv-0000000GnkV-1QOd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 09:21:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 36A695C0099;
+	Mon, 10 Feb 2025 09:20:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 890AAC4CED1;
+	Mon, 10 Feb 2025 09:21:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739179292;
+	bh=vBG2TnCFp07FXDNxi+pNodmf7UR3oHXHYl3Z5N+P8q4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S8pLXoFaEcX/xnssNk5tIf4vioqZJx+XLNBGcu5HVwDsLTG+4+lf83MbnLNUvJwDl
+	 2H6+7girgSa3KVdfRS+756qt4748hnYytjRlGV7H2R8Gj3sK0iL9V7gz82H4nkZz9K
+	 GZeQXGT5qbM0ZQRZXH0n0hMViLhv+Z1FBBbilNjEQIdq1dOrF30IPjZQCiSCQ0D4ym
+	 C2NO3Yksq0sGYNb+zS4g0ZSZqBkV/6W21GFmg70/DyqJKvbxenpIYg4Qansb0fbGTW
+	 n3tQ+IrSVyQDsHmYzK+DkqqoWp54MBII1nR9Fg3RlL0Xs67mx6n3vP1v0apysJ6ykF
+	 Fqb2dlHUVDFgA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thPyr-002TTI-Qu;
+	Mon, 10 Feb 2025 09:21:30 +0000
+Date: Mon, 10 Feb 2025 09:21:29 +0000
+Message-ID: <868qqetasm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>, kernel test robot <lkp@intel.com>
+Cc: llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.cs.columbia.edu,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: [kvmarm:fixes 18/18] arch/arm64/kvm/hyp/nvhe/mem_protect.c:1086:9: warning: variable 'ret' is uninitialized when used here
+In-Reply-To: <202502100911.8c9DbtKD-lkp@intel.com>
+References: <202502100911.8c9DbtKD-lkp@intel.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, lkp@intel.com, llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, oliver.upton@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_011506_647631_486586A3 
-X-CRM114-Status: UNSURE (   5.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_012133_467103_8BFC72AF 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,6 +87,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello guys!
-Gently reminder.
+On Mon, 10 Feb 2025 01:39:04 +0000,
+kernel test robot <lkp@intel.com> wrote:
+>=20
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git=
+ fixes
+> head:   eabc7aaef7a553b64bf6e631ce04526af6c8d104
+> commit: eabc7aaef7a553b64bf6e631ce04526af6c8d104 [18/18] KVM: arm64: Simp=
+lify np-guest hypercalls
+> config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20250=
+210/202502100911.8c9DbtKD-lkp@intel.com/config)
+> compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b=
+5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
+ve/20250210/202502100911.8c9DbtKD-lkp@intel.com/reproduce)
+>=20
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202502100911.8c9DbtKD-lkp=
+@intel.com/
+>=20
+> All warnings (new ones prefixed by >>):
+>=20
+> >> arch/arm64/kvm/hyp/nvhe/mem_protect.c:1086:9: warning: variable 'ret' =
+is uninitialized when used here [-Wuninitialized]
+>     1086 |         return ret;
+>          |                ^~~
+>    arch/arm64/kvm/hyp/nvhe/mem_protect.c:1076:9: note: initialize the var=
+iable 'ret' to silence this warning
+>     1076 |         int ret;
+>          |                ^
+>          |                 =3D 0
+>    1 warning generated.
+
+Nice catch. I wish the compiler would warn for these by default...
+
+Quentin, are you happy with the following patch that I can stash on
+top of the current set of fixes?
+
+	M.
+
+=46rom 5da62486aeda7d7d11107db8ed4e6421e3a2a364 Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Mon, 10 Feb 2025 09:17:58 +0000
+Subject: [PATCH] KVM: arm64: Fix __pkvm_host_mkyoung_guest() return value
+
+Don't use an uninitialised stack variable, and just return 0
+on the non-error path.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202502100911.8c9DbtKD-lkp@int=
+el.com/
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvh=
+e/mem_protect.c
+index 4c2f6a6a2efe1..19c3c631708ce 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1073,7 +1073,6 @@ int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hy=
+p_vcpu *vcpu)
+ {
+ 	struct pkvm_hyp_vm *vm =3D pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+ 	u64 ipa =3D hyp_pfn_to_phys(gfn);
+-	int ret;
+=20
+ 	if (pkvm_hyp_vm_is_protected(vm))
+ 		return -EPERM;
+@@ -1083,5 +1082,5 @@ int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hy=
+p_vcpu *vcpu)
+ 	kvm_pgtable_stage2_mkyoung(&vm->pgt, ipa, 0);
+ 	guest_unlock_component(vm);
+=20
+-	return ret;
++	return 0;
+ }
+--=20
+2.39.2
+
+
+--=20
+Without deviation from the norm, progress is not possible.
 
