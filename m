@@ -4,179 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF55C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 20:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B88C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Feb 2025 20:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FSMv/AUmGjO7ZpqwKLvZ3IVZCAI77rVL9ViLIjDkgE=; b=fHbK00hDnnY+ckMVxtobtPNOVq
-	967TSvAWdMRYhgrMPIRhuT0qfllRIxJYXuwf3EcXfrD0XhfrXopgET97ANWHH2D3QY0UEdTZ/h/rX
-	LkqP5NfgoOAhPXB6beoa35qNpoFM0oFNFdr6lovBzFlT/E+EsvySa4gho82VhDd0Rh2vPkh3BKDWY
-	cO28x/QkMsHJi0o5QlQaevVd3ygce46Ulo8nZZ/dpR5YwHsznvla8DzP7PSMf6z5wf72Bj3pYcQlL
-	9IysLweenjUDVrUlktagoByF22UVsJeVFBzOK71izUZhkA5xKCXXNaaPoUr5OuK//21E36kygY1kH
-	ueyxgaBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t4sLNT213axJxn+dDv5vnFAweh0CD8D88x6yQTKzvk0=; b=2TK66BF3MZ5cqDRXZUYLIWpHV8
+	NnZuiIQpUtDjV9XNwLzugiLWYQDQa53gAH6TVlDfNI0CY9Pdzp8CrSQWpnaZ2OF6Pu72YkIxR0ml9
+	8h1iYGbk7la/9/84U/CbcafHQazANyuZamHxx0T3olptCRf8HbApLgHfvvctr8pKyOfZmzOfOi9TR
+	/5f5wqxllXWiHJXLyL1wfwzXudzM8AflAyEaFxKnw683ykbIbiCaERv8Ya/bGyUe3txQf3+atXu4h
+	oQtdMfN454BQoWQJ36dWmo/WCPPqXL3L33a7MeOrNDmRM80YEl39RlWauRkHrDOhAwA93Qxgd9QC8
+	bbNbhAuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaII-00000001Ia6-1sez;
-	Mon, 10 Feb 2025 20:22:14 +0000
-Received: from mail-dm6nam12on20626.outbound.protection.outlook.com ([2a01:111:f403:2417::626] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1thaJg-00000001ImZ-0dx4;
+	Mon, 10 Feb 2025 20:23:40 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaGs-00000001IIG-20Nq;
-	Mon, 10 Feb 2025 20:20:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uk2K8R206cbtQLGQfhNxmoeKzMxc2YOJjvCcObLh4iqafOs9gi5hmJDGPbeVeQZwWWL00GAPt8pIjM3q0mXAxPLBZ1ucW8w6/Ce4wkT6sYYJNJ0NV+8lhc+gqJsOZ4wpU1kEMGqFjBpj9tvjcq2WBPT7Vmn5kpkQUJrZ9UpiFTHDtVK4xFKGuNrBgGM79k+REr6GZt6292EqdfTJ1Y7kGlyeELjFnB/9r6cEkfZHGq0CgrB9AFjZfmOh9rW52ksbdxjap8taGytArNqvrBd8FP81lM6ZYD6N4S8W7OkfZtmC4GiJbj/kbBswhytzkXX3rkvaTe5BN5B8F3aD92w/cA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5FSMv/AUmGjO7ZpqwKLvZ3IVZCAI77rVL9ViLIjDkgE=;
- b=CQdTz85WWqfmr4iNgiY5DXiP3AhIopKnDe+elWN4OGAaWX6qdMeO3gJb3xRTNO4rPnG+Qf6DipIM1H4wT4bqgMfgQ0UrMiWWrMW+FAFrhw1L59U6Bj3ILsbGeYpzcXbhduCUdBBDKeQzUDeka2Uwicpml+HrHY+LC9UsStjF0oY0N9hhqgxBaslnchedFLAon4cOTpEHV69LYLgOrfchG3pzMRp1kyuPI8e0MXTSdvaVKvTwasaFc4X2M19xYA5HP1okUfcvNHZW+gMuu8Z+n2/fubYAtOavuye4r1AXh/Y+cDCvZd8/Y2htgMVlgSNUedpxQu4dYBSy8ei1DudWyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5FSMv/AUmGjO7ZpqwKLvZ3IVZCAI77rVL9ViLIjDkgE=;
- b=YjSA00S/+ahBgctjhVDeO/fmo7e9X6Rvl37q33XYLdL9fdhto1xj/fSBD7ISIn0d3+9LKFBjyu+wKtfN6sPlfeVWuMueVSma8/YXycfWEcy5j5CbbR2SfQYguiaiUMqKDjN9m+296VWnGTpYhyoSPFCW2vxYRmhZ3ZOusWFMY0wYBFK8lc2oq03teoxGRV5txFwc9RJbzQu0BVt+WKL2OmiRFG90y1FJFQD7Yx6Jxsznr24WUJe4Zlts6+1WyZRjl04JA5Zp7SdsqHJkCMnMjN4GM0Lri89X6sEPrbeCITWm7FoL8z8gB6PyIAs6w3aq8Y3lHuC0noREYB4wICiPQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by LV8PR12MB9183.namprd12.prod.outlook.com (2603:10b6:408:193::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Mon, 10 Feb
- 2025 20:20:41 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8422.015; Mon, 10 Feb 2025
- 20:20:41 +0000
-Date: Mon, 10 Feb 2025 16:20:40 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 14/14] Documentation: KHO: Add memblock bindings
-Message-ID: <20250210202040.GB3754072@nvidia.com>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-15-rppt@kernel.org>
- <45df0d7a-622a-4268-9683-c5c6067483c3@kernel.org>
- <Z6jFZII5b-j7hzkj@kernel.org>
- <a3cca0ed-64ca-4921-bb4c-27c0e06b78c6@kernel.org>
- <Z6kTCvex3DGhB-3C@kernel.org>
- <18529b1f-dc79-4c85-a485-a0a2cdd48670@kernel.org>
- <aa4ec16a-b35f-41b0-92f7-40b3eb64124a@kernel.org>
- <20250210191539.GA3765641@nvidia.com>
- <2fe7a404-be2c-4ac8-8980-2b3d07a74bca@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2fe7a404-be2c-4ac8-8980-2b3d07a74bca@kernel.org>
-X-ClientProxiedBy: BN9PR03CA0532.namprd03.prod.outlook.com
- (2603:10b6:408:131::27) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1thaI1-00000001IWe-0eOn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Feb 2025 20:21:58 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5de64873d18so3953941a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 12:21:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739218915; x=1739823715; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t4sLNT213axJxn+dDv5vnFAweh0CD8D88x6yQTKzvk0=;
+        b=gZ+4CQ2GA0n4RkaaGWSq+IPAd5LW8pxS8Pvv0rayeuAcO8Bc2zPOU1tOhS5K5L4CNm
+         TcbyIlL4xYtw4yzyIV1oACghg/69v5O65Aj21NbakjxaIUoGG181L4lmQzdecUXL4d5r
+         yF7KcE0JaMC8pOirEGXaXe9czunXU0qz3d005zsx3gqJelB3qA4t/2OsbQQAb4doGduh
+         SWY75VHhkXWm5COsY5aCc+1J5RCzu3wKs0XzuRlKevTmmgfiD0NqewQHNU8Unf4kzBg0
+         LGfRoSDRN5Ax5MG4S/x+FWGxdQIQ48U6UkfgNpFq+jyD0C3o14agRatL8xi/rTcZ2+Wq
+         aL0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739218915; x=1739823715;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t4sLNT213axJxn+dDv5vnFAweh0CD8D88x6yQTKzvk0=;
+        b=Vpl2h8EqJQQXRyzGM1uYcYs+S2A7v7ZmwwScy8/GoTGYRdwKJmtrQ4CZ3chnfewQIO
+         g9yFjvfaBsYXImbYB+mDIwwCCo+Zb18qbdoq3fSeo93KbAxjOoJLqQo+98oPNGc9+awG
+         fvAKPxLMnHI92/ccX4t8hpHpVAAtm4dbVCC+IpLET+dJDjOBR8kdZoBnJc+5MJvHYIsA
+         qb81sn0QJ3aQPmGk1UBncNcwHxP35NXU5P/BKZfMItt+cybL7J6q0ykINAUj3ByOGDgq
+         1VDFRNE+xS+nJUjGNfWan7LOsUIkNkSfJa6ztquix25jakOO7XReTJPf3jnJy/cgcy7r
+         yWxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWMoKklJIa2sTdqJmDntsVFJ5gWrPJB2uUnmyej0fUrYOxmx4qNLxPi92NQGQEa4r/bsoasTMdKlToI5Jf+j6gd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0H9VQKa+yC+p2b3DK7JURXwpwo8pZrbdtp8iepCr4AgkvU/6N
+	DTWuKoynTOdfbJaET1tiGhoyr9i9AGFjb6YmguODbiVXAWzJjuJGRaOlOlBMRKCfa864Mo+jP99
+	xiSVPix1OmIAv98eOLquOGX+AGGA=
+X-Gm-Gg: ASbGncv3GuCAzJbTvADmfHzXybZE980vMG0COP3AmTBEUwrrlx10SrJ2ztj2DvkqHIS
+	/NKly2PMD6rMRANVPV+PBkQaPp5ps695dCyj7LfdQofdqx9yaiSGiC+CVut4d34LN8OFdEU/w
+X-Google-Smtp-Source: AGHT+IEl6YEdiMsV1siZuJFhvx+GV4aMBPQlTUgyzGO6T4MZCuQCTLQqmVBt/VwazPwINTGGAJT/LjEuNEnQVRVAyjo=
+X-Received: by 2002:a05:6402:1ccd:b0:5dc:cf9b:b034 with SMTP id
+ 4fb4d7f45d1cf-5de45027e45mr18280024a12.14.1739218914664; Mon, 10 Feb 2025
+ 12:21:54 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV8PR12MB9183:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94796401-89bd-4112-b838-08dd4a1063bb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B9LGuDv3r0Ka+5qNGRZYcjQkoqvEOACsU2D7rJvUFtmsq8Klw89/A5QeduPM?=
- =?us-ascii?Q?UeMfz9pdTVRuUn+M4BQpXH4cziiMe9ogs4u/YCJDFALsG5JpQt0QZjZRArsy?=
- =?us-ascii?Q?FIK0CCPtEAzNw7x+069jMQEqYtlpfcxdRmbXM5ZiLGoRsUr4Aysjwd5h4BC0?=
- =?us-ascii?Q?y1AOaoZdQm8enCkbe3osTVcpO5Mnfy6d4EowbjBi3rLZ/SG8nua2p76kHXWP?=
- =?us-ascii?Q?d5Wdw0vtCWnSsNnn1Uk00vqMexVrdQHlWIPGivAIiXxcUEcH30PjQ20gUAVD?=
- =?us-ascii?Q?LvzHj3bZmt0YkCnNA0NRj0bp66NEWKnm+Rpo8VJRaYQmsUBeTcZpDKMBrcxJ?=
- =?us-ascii?Q?fdrHAW/DDUMLVd1CXWGZLWWmmQ33AupyDgjcAVrCm2sNwpymKxfGBWQv3Svl?=
- =?us-ascii?Q?UNTtRMaewCt87pduXIHrl9/HkzFIjlcIMHNZByTGxV5kvetaxBm4FBwXNYLb?=
- =?us-ascii?Q?Hc9ZYpcgw+MAkaieYTyfWzIiQmMQoB/fVqmpHd25TWNy9NNGh/aRr6ME6OWs?=
- =?us-ascii?Q?iyqV76oILAmqYqzoFbCVNLkn3xnCSaTJKv0cbQ+uZl+j/GaBeq9mSVcCVkJG?=
- =?us-ascii?Q?ZW47cDUYHFjkpYcUgAQ6e/OYYhvDxWrzHMG9XpKWxdUnh1YDXoralVxdnfUx?=
- =?us-ascii?Q?R4rlZ5Y3ODLv6lxVUwOpBeESSOGqqu8EchjC328KVM+TjezFB57o4IDX58DI?=
- =?us-ascii?Q?Es6QMvFYHFr44ixiYDnzahNtxCf9eafw1PtozomrEcFLu7qlaaV7XfDcPVLX?=
- =?us-ascii?Q?kSyHG49Npk8AdYH+J5qleuTZVQybmqGfB4/7xxnhWCz3EWvHTd8wJkeM1n4Z?=
- =?us-ascii?Q?QMBy/kHpmMogPVvknBUBAGiO9lRElKR9PSFtXBhHiAcBqY9a1kzSzzXxAFb8?=
- =?us-ascii?Q?VYA+AUeS7U0USH6eW69usLAy3wtgSbDXwQj/93wa0VKzoN7I8BZ/N0OY1jPT?=
- =?us-ascii?Q?COO24lHYzt6yxfHd7RXvOJ5/T6iugnizU+XWeVGIg6g/IIH3CxmDZk3rgCmw?=
- =?us-ascii?Q?JEzuVTKpq2GujO2sQgkgn8f/CsvS1JZqbJUJ2usmXwVdr2U2H6ns6iDpJRzx?=
- =?us-ascii?Q?ne8M1UHcly4cJFMhRd3jt2LfBnJr1AcC+tLKe5AJVQ8nDTah76c03OZihCAE?=
- =?us-ascii?Q?xGlfWA2+YylZELTP1QvlW0KnPhrrX1Ph5pqmy++1RPnDJYimNTyLLX+wUxKR?=
- =?us-ascii?Q?qko7JKeizXkkC5OSfr5v4LJZo8KDqtc9H7gh/vR2Dos2GNEP4LPnwQMYNTnC?=
- =?us-ascii?Q?Pd1vuYmUDbTdbKM6x+NzEcFqoFC+Fcn0UWTj8oqUsN2a61RyYUj4/BtBXyZe?=
- =?us-ascii?Q?skPCN9+bfkZMgXZS7liZlpfQnzDJw3mTALXxBe2wtlA070xtiyWeJ7FTDO5x?=
- =?us-ascii?Q?0xBNhsnGGGjrs3j3p7sk6L3dW4Zo?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?16Mr7aqEo/5ScYcKvBTBEz0OHIvU9myhMBd+RveEETUb1JWmEJkRTaEc83Ub?=
- =?us-ascii?Q?KkKffb+UnLA3UopxOsxdDNU7ZbhE1HOpzA183PHQ8LjqhbTobQcpICUeC+Yn?=
- =?us-ascii?Q?ksqNYAg6L5sf5HeIBxJfbAVoXJ9VmCvRwt7k+tHwRNkMvYijhth5xssLtPJn?=
- =?us-ascii?Q?BjYDL+xmzy3vim2T1EtJS3kch5VHij7SBrmvLORLQawgJ809mcpY2wB5LWit?=
- =?us-ascii?Q?C8MtEqWBuNUYEsSogbR1Bw5Iw2Bcug/p4P5JgsF0gWrCuSnkueAGFKsqZEew?=
- =?us-ascii?Q?+HbHtfjAoCLq1ayynHV3JA/jJQsfLOoTSiFTFgeQkQEN4V8T92qFLIFuhdV/?=
- =?us-ascii?Q?Og/SokmqciArW6FxWwnGxh9HAzKawx7soTPNI+JeH1RdqTdm26L8+tPMouNI?=
- =?us-ascii?Q?HVyTMQphsKafCElyOMk/i8l5Uw4H2hN4N5txsrh3zmh5aulZphE9mH+6G1lf?=
- =?us-ascii?Q?W8ygKdtBzclQeQjiWUHQsnNToLl4BeHXzs4w0BE8ZYlhArZkz6GLgaqKeYjf?=
- =?us-ascii?Q?7/BzZH0iBo/2qlf1i/KB8K/72fiG3BbKIPSdd/pw4zWP2rvbo2zdXCYijO9h?=
- =?us-ascii?Q?9mPx+lWSfyfzQC6RU+v805d9gYXLVAXzyGfLylV0/DVI1LoASXKZvdKrh5n9?=
- =?us-ascii?Q?UUYaMnR8A125+Y3iWJajFw0TZF5DuMqqfOte5PHoHTCrriUZNa141diGIik0?=
- =?us-ascii?Q?3ji95rTYtzJU0QuueiORn31rX0D8MdQWDXOQnrlH94P2rLoZNFRUEe6rXsC+?=
- =?us-ascii?Q?NlVqvjKf2Wu+iPT4lFGxoYK7V8AWELMeW9S8gGcKBRTkJ4TOIV5dGtZWIl/o?=
- =?us-ascii?Q?JXYfSI9Um3/zf0VTl4AtH/4fQMWHxhr17nPAt2+az0LtSXApovL2N37Q4t5D?=
- =?us-ascii?Q?rQctQRzCQttMGlUQ5BwIhXeHoLTmz/+hgVWmrY4oj/hu691dpIYXflCsRHY5?=
- =?us-ascii?Q?VmgyogcjxzrGk0A1STQXW/FEyBcLAHEgSMiRKwKiIDusiu+4OcTkyWzMkr7t?=
- =?us-ascii?Q?qh4KmW18vbMf3kDNIiQEITcmGg2Clb+UYdAmcNFApF2jIgPlPy8Vhu16Iqog?=
- =?us-ascii?Q?VgXy2ND+8bi1NNTe+r+oHVsyPBPFlLOBtFz/pzCyibGyhJi99pdfTvQt4h9i?=
- =?us-ascii?Q?1ngjJy4x7i2h4giVF+Nl4NxBKzesNoat6jlMQ7Jg6u3A4be4W9kgJVLVhY3/?=
- =?us-ascii?Q?Mx5HySEIykDkQdTIlCIXmWi5Nf4oFSjsr98eKQ6M5+y8KCjQ7RQOaHPOuwJ9?=
- =?us-ascii?Q?oY4nOl2iy9Bby8GFkeUoagd41o2f9iqZCNdkaFfs6GiGKnJ2x1IWr5UIlOQP?=
- =?us-ascii?Q?mf3lrq6W7tUNC8Qwn3Ly7qL4DzG3ZV89GvBX/whFs4ljO9RNFBpuAWgtazk1?=
- =?us-ascii?Q?XyqtbfQKYbY11Lc18FRuK+QBaDvM8oVb7p0i19e1pTv5a5pAxVp4gUgAuxzX?=
- =?us-ascii?Q?rB1+fx5i1KzwmDTx/NVoFULrI3Iuoj+wZPPMJiutW4q2ENPy8P/r6wRfsgwb?=
- =?us-ascii?Q?XYzK8pFdy3j1kSDzotqsE0MZszcowvocdhtmmybxsOehuutNw+ZllkmgLWso?=
- =?us-ascii?Q?TVZxJ+ad/239fNCtF50=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94796401-89bd-4112-b838-08dd4a1063bb
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2025 20:20:41.1770
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3W3EkXwi6WX3q+zrG0mlwKYDVbZUjYC8iIckGavzBGEyyEMW84CClgAHh/VqJIN9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9183
+References: <20250209183142.97671-1-simons.philippe@gmail.com> <20250210140536.08c33a56@donnerap.manchester.arm.com>
+In-Reply-To: <20250210140536.08c33a56@donnerap.manchester.arm.com>
+From: Philippe Simons <simons.philippe@gmail.com>
+Date: Mon, 10 Feb 2025 21:21:43 +0100
+X-Gm-Features: AWEUYZnldiVDFzt0NbkyDKPipNGBHw1BkJcirqj-jzPHbdnyqlosJKOqWcw-jHs
+Message-ID: <CADomA4-BuTtGva+MhcfZzeidsHr9pe6sibFYz97b-5of+0ucRw@mail.gmail.com>
+Subject: Re: [PATCH] clk: sunxi-ng: h616: Reparent GPU clock during frequency changes
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, 
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_122046_516161_5AD87A60 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20250210_122157_196942_7D5807E6 
+X-CRM114-Status: GOOD (  35.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,35 +97,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 08:27:34PM +0100, Krzysztof Kozlowski wrote:
-> On 10/02/2025 20:15, Jason Gunthorpe wrote:
-> > On Sun, Feb 09, 2025 at 09:50:37PM +0100, Krzysztof Kozlowski wrote:
-> >>> Ah, neat, that would almost solve the problem but you wrote:
-> >>>
-> >>> +$id: http://devicetree.org/schemas/memblock/reserve_mem.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>>
-> >>> so no, this does not work like that. You use devicetree here namespace
-> >>> and ignore its rules.
-> >>
-> >> ... and that obviously is barely parseable, so maybe one more try:
-> >> "You use here devicetree namespace but ignore its rules."
-> > 
-> > It makes sense to me, there should be zero cross-over of the two
-> > specs, KHO should be completely self defined and stand alone.
-> > 
-> > There is some documentation missing, I think. This yaml describes one
-> > node type, but the entire overall structure of the fdt does not seem
-> > to have documentation?
-> 
-> A lot of ABI is missing there and undocumented like: node name (which
-> for every standard DT would be a NAK), few properties. This binding
-> describes only subset while skipping all the rest and effectively
-> introducing implied/undocumented ABI.
-
-I agree, I think it can be easily adressed - the docs should have a
-sample of the overal DT from the root node and yaml for each of the
-blocks, laying out the purpose very much like the open dt spec..
-
-Jason
+On Mon, Feb 10, 2025 at 3:05=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> On Sun,  9 Feb 2025 19:31:42 +0100
+> Philippe Simons <simons.philippe@gmail.com> wrote:
+>
+> Hi Philippe,
+>
+> thanks for bringing this patch together!
+>
+> You should mention here *why* you want this patch, the motivation seems t=
+o
+> be missing, but would be crucial - and preventing a sure crash should mak=
+e
+> this a no-brainer.
+>
+> Maybe start with: The H616 manual does not state that the GPU PLL support=
+s
+> dynamic frequency configuration, so we must take extra care when changing
+> the frequency. Currently any attempt to do device DVFS on the GPU lead ..=
+.
+>
+> Then mention that the manual describes the algorithm for changing the PLL
+> frequency, which the CPU PLL notifier code already support, so we reuse
+> that.
+>
+> > Re-parent the GPU clock during frequency changes of the PLL.
+> > Also it asks to disable and then re-enable the PLL lock bit,
+> > after the factor changes have been applied.
+> >
+> > Add clock notifiers for the PLL and the GPU mux clock, using the existi=
+ng
+> > notifier callbacks, and tell them to use mux 1 (the GPU_CLK1 source),
+> > and bit 29 (the LOCK_ENABLE) bit. The existing code already follows the
+> > correct algorithms.
+> >
+> > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+> > ---
+> >  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 33 +++++++++++++++++++++++++-
+> >  1 file changed, 32 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi=
+-ng/ccu-sun50i-h616.c
+> > index 190816c35..e88eefa24 100644
+> > --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
+> > @@ -328,10 +328,12 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0"=
+, gpu0_parents, 0x670,
+> >                                      24, 1,   /* mux */
+> >                                      BIT(31), /* gate */
+> >                                      CLK_SET_RATE_PARENT);
+> > +
+> > +#define SUN50I_H616_GPU_CLK1_REG        0x674
+> >  static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674=
+,
+> >                                       0, 2,   /* M */
+> >                                       BIT(31),/* gate */
+> > -                                     0);
+> > +                                     CLK_IS_CRITICAL);
+>
+> The addition of CLK_IS_CRITICAL deserves a comment, something about that
+> this clock is needed as a temporary fallback clock for the PLL frequency
+> changes or so.
+>
+> >  static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
+> >                     0x67c, BIT(0), 0);
+> > @@ -1120,6 +1122,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb =
+=3D {
+> >       .lock           =3D BIT(28),
+> >  };
+> >
+> > +static struct ccu_mux_nb sun50i_h616_gpu_nb =3D {
+> > +     .common         =3D &gpu0_clk.common,
+> > +     .cm             =3D &gpu0_clk.mux,
+> > +     .delay_us       =3D 1, /* manual doesn't really say */
+> > +     .bypass_index   =3D 1, /* GPU_CLK1 */
+> > +};
+> > +
+> > +static struct ccu_pll_nb sun50i_h616_pll_gpu_nb =3D {
+> > +     .common         =3D &pll_gpu_clk.common,
+> > +     .enable         =3D BIT(29),      /* LOCK_ENABLE */
+> > +     .lock           =3D BIT(28),
+> > +};
+> > +
+> >  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
+> >  {
+> >       void __iomem *reg;
+> > @@ -1170,6 +1185,15 @@ static int sun50i_h616_ccu_probe(struct platform=
+_device *pdev)
+> >       val |=3D BIT(0);
+> >       writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
+> >
+> > +     /*
+> > +      * Set the input-divider for the gpu1 clock to 3.
+> > +      * Also enable gpu1 clock.
+> > +      */
+> > +     val =3D readl(reg + SUN50I_H616_GPU_CLK1_REG);
+> > +     val |=3D BIT(31);
+>
+> Do we need this if the clock is marked as critical now?
+I'll test that.
+>
+> > +     val |=3D BIT(1);
+>
+> You probably want to clear the lowest 2 bits first, then set bit 1,
+> otherwise you end up with either 2 or 3, depending on what bit 0 was
+> before.
+Good catch, I'll address that in V2.
+>
+> Cheers,
+> Andre
+>
+> > +     writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
+> > +
+> >       /*
+> >        * First clock parent (osc32K) is unusable for CEC. But since the=
+re
+> >        * is no good way to force parent switch (both run with same freq=
+uency),
+> > @@ -1190,6 +1214,13 @@ static int sun50i_h616_ccu_probe(struct platform=
+_device *pdev)
+> >       /* Re-lock the CPU PLL after any rate changes */
+> >       ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
+> >
+> > +     /* Reparent GPU during GPU PLL rate changes */
+> > +     ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
+> > +                               &sun50i_h616_gpu_nb);
+> > +
+> > +     /* Re-lock the GPU PLL after any rate changes */
+> > +     ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
+> > +
+> >       return 0;
+> >  }
+> >
+>
+Thanks for the review,
+Philippe
 
