@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A93C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963D3C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGS99IR6r+vXb195phTJWqUilac9XLQ8gIYYmxhuvCY=; b=1uH7dxOnYb0KUFpnYi52lZV4B9
-	OYt60yGcdd6F22zUaoN0E1ICVYmqsBDok/vtPx31KxKGISkXOMl5WcNrsLCUAaDUVpblt2unvRLO/
-	F8sisS9exlkvyUU8z3gCxV/qspRpedBm3vGZ4pII3fUH09EdW4n7WC+K3QJDIkBRa4MCEoChB7pW+
-	sblL9djWL4rsRQM9scvwvxqFyre+42CSfLOJeOXAZO9nFHpIImSrEaiQgj1wUvsVfmdWFxMRUqFQa
-	jgA4NyE7YOTkz27HTPJU6b5p3Y5S0T4U+VYK6smtWgmjcEKMPgm2VHYLE7TTjMDsldFVwTvryzF/P
-	f9t5aCRw==;
+	bh=U3cEbMgdG/cSxsTwGIcw+aHcYtjO45AnThYLCWBr9Ns=; b=24ZlD/Zz/gEBJ7msgcHh2jiup3
+	O1nPBdNM0VgqdVw8dXyRO1hHCtXEMz48GgHgGs9nLkam3m8hMQGUrt/can36HVPmmnLnGcMDUBDY8
+	gXrFu3/T9a2RG5NpQXIKhD2lD6G/80NtbocZ9yAzQ27wVki3kIHuCNSty+zqNi0JuFT/0vp+Umfbh
+	jdQdFOk/Gymy9UYls10Wj0szPqhzoeR+/roiSgky1p36piOeCMIluWaPeb7Ac2QPJ1cGKdHC9+nbV
+	oWlf2ew1qbRQ+ivrEvt+1LKV06vZ9FQS0wFL2Shz22sKV2eApm+C1F4kPMwEd1V7xgv9/dilkFUql
+	wGsimiwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thr7T-00000004605-0Iph;
-	Tue, 11 Feb 2025 14:20:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1thr8r-000000046CE-1guO;
+	Tue, 11 Feb 2025 14:21:37 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thr1v-000000044sm-2ByR;
-	Tue, 11 Feb 2025 14:14:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739283266;
-	bh=r8GSQt4Fmtk2nUUtsyC/9rHcXIOOOzg63rG69cNIuyg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=laCkDPdTknse85VhAVNJGiJax/fYG8P+5oXXFk/i2BLlJUdp/VjazgWQlXPg4gX58
-	 KnvtkuiXZaLTbMa4T9+YGkrvIi2YQ5FuLFRX7MIJsgg4FFiTh9mejtBJYXo97QPUdE
-	 YqDPYTb6IIaz09HuftSoc5Q+gaIJscJI+kmLDGbiK5ayzTn1f3mljYFT4SnQYwu0UQ
-	 7VIwC0FdZZB8hIviV1SeETqUdvhvVG43PiyMtbVHznMlLqpgmLQxr1slFzcKLhn7yg
-	 DytAyLij5vj0ILhHQXmYl5XIQgFbldJ8Zzt1aQYBRC71WJXhgkCE/afpKq4JocZp7r
-	 x8qTMi8figsQA==
-Received: from yukiji.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0A64117E14D5;
-	Tue, 11 Feb 2025 15:14:24 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 11 Feb 2025 15:13:10 +0100
-Subject: [PATCH v4 3/3] arm64: dts: mediatek: mt8370: Enable gpu support
+	id 1thr4s-000000045Yx-0kiE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 14:17:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 905ED442DD;
+	Tue, 11 Feb 2025 14:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739283448;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U3cEbMgdG/cSxsTwGIcw+aHcYtjO45AnThYLCWBr9Ns=;
+	b=XoZpnJdO7lsGL2P7mxYF0Ti8Rm8DTDdofRUkWH2Us/cNi+tQS5ZzA+7McFDisNb5hzLthn
+	wqnDYt2Qknn18l8DHvezjeshVUY3CXY67Ih3TCJ/GJz059KBTHEZzsDkiyqKikCvto87fk
+	6p+vtyeajKRhneYboAvf/wzuVe2ZR8RmoyKfIXI2mVbugt36sqnzBTP+m7UgowoJL/FGZl
+	IC8fmP58UwVuEoyBqIRinlb55pYW0ZSmeNbHYVwBJI126Hb3diE7uJOdAddzwV4v8d36vm
+	zYfp4NG8AWH2UBwM+mqmrmoj2HGe3UObW9+F7mBQJiuMKuv7gPnU99vcbzKvlg==
+Date: Tue, 11 Feb 2025 15:17:23 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Kory Maincent <kory.maincent@bootlin.com>, davem@davemloft.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
+ Gantois <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next 03/13] net: phy: Introduce PHY ports
+ representation
+Message-ID: <20250211151723.22a922b0@fedora.home>
+In-Reply-To: <0ae41811-e16b-4e64-9fc4-9cb4ea1da697@lunn.ch>
+References: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
+	<20250207223634.600218-4-maxime.chevallier@bootlin.com>
+	<20250211143209.74f84a10@kmaincent-XPS-13-7390>
+	<0ae41811-e16b-4e64-9fc4-9cb4ea1da697@lunn.ch>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-mt8370-enable-gpu-v4-3-77deb7a75c23@collabora.com>
-References: <20250211-mt8370-enable-gpu-v4-0-77deb7a75c23@collabora.com>
-In-Reply-To: <20250211-mt8370-enable-gpu-v4-0-77deb7a75c23@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739283261; l=1948;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=r8GSQt4Fmtk2nUUtsyC/9rHcXIOOOzg63rG69cNIuyg=;
- b=RVgfl0lBwwqykOnm/tB7a5QYLPJ6sXQ+7vvt2INaxPYJU0jW5tuJvYC24r5c3i3nKE+Ek1rWl
- bwgif4T/yvxDR5oWO/zeRR/Irr8/RIx77r+XCzRueqnHD/qvOk79nbZ
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeguddvvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdpr
+ hgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_061427_740146_DEC25842 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250211_061730_816875_E08748A0 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new gpu node in mt8370.dtsi to enable support for the
-ARM Mali G57 MC2 GPU (Valhall-JM) found on the MT8370 SoC, using the
-Panfrost driver.
+On Tue, 11 Feb 2025 15:04:27 +0100
+Andrew Lunn <andrew@lunn.ch> wrote:
 
-On a Mediatek Genio 510 EVK board, the panfrost driver probed with the
-following message:
-```
-panfrost 13000000.gpu: clock rate = 390000000
-panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
-   80000400
-panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
-   Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-[drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-```
+> > With net drivers having PHY managed by the firmware or DSA, there is no linux
+> > description of their PHYs.  
+> 
+> DSA should not be special, Linux is driving the PHY so it has to exist
+> as a linux device.
+> 
+> Firmware is a different case. If the firmware has decided to hide the
+> PHY, the MAC driver is using a higher level API, generally just
+> ksetting_set etc. It would be up to the MAC driver to export its PHY
+> topology and provide whatever other firmware calls are needed. We
+> should keep this in mind when designing the kAPI, but don't need to
+> actually implement it. The kAPI should not directly reference a
+> phydev/phylink instance, but an abstract object which represents a
+> PHY.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8370.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+That's fine by me for the port representation, and I'm on the same page
+here. In the end, the ways for a NIC to register its interfaces would
+be :
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8370.dtsi b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-index cf1a3759451ff899ce9e63e5a00f192fb483f6e5..7ac8b8d0349455922a73f35db607b2b27cad23d7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-@@ -59,6 +59,22 @@ &cpu_little3_cooling_map0 {
- 				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- };
- 
-+/*
-+ * Please note that overriding compatibles is a discouraged practice and is a
-+ * clear indication of nodes not being, well, compatible!
-+ *
-+ * This is a special case, where the GPU is the same as MT8188, but with one
-+ * of the cores fused out in this lower-binned SoC.
-+ */
-+&gpu {
-+	compatible = "mediatek,mt8370-mali", "arm,mali-valhall-jm";
-+
-+	power-domains = <&spm MT8188_POWER_DOMAIN_MFG2>,
-+			<&spm MT8188_POWER_DOMAIN_MFG3>;
-+
-+	power-domain-names = "core0", "core1";
-+};
-+
- &ppi_cluster0 {
- 	affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
- };
+ - phylib, as done in this series. The port is controlled by the PHY,
+the phy_port_ops are implemented in the PHY driver + phylib, we
+discover the ports based on what the PHY reports, the new port binding
+and the presence of an SFP phandle under the PHY.
 
--- 
-2.48.1
+ - phylink, and what I mean by phylink is actually SFP (phylink is the
+SFP upstream in PHY-less SFP setups, so it would create the phy_port,
+nothing more). what we cover here are MACs that are connected directly
+to an SFP cage. This is simply because phylink parses the sfp phandle,
+so it's an easy spot to make sure we create the NIC's port without
+rewriting all drivers.
 
+ - NIC drivers themselves, for drivers that don't use phylink/phylib.
+
+For now this series only has the "phy_add_port" kAPI, which only really
+covers case 1. But netdev_add_port() can clearly be implemented as well.
+
+I'm having a hard time splitting that work in digestable chunks :(
+I've focused on PHY as a reference use for ports, but the end-goal
+clearly is a generic way to expose what interfaces a netdev has, either
+through PHY, SFP or firmware.
+
+Thanks,
+
+Maxime
 
