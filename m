@@ -4,61 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1984EC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1ECC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mNRV1XLqXF4FA7V0dC+d4pFd/k0iKqQgScUbDF9pVA=; b=JyX1ygYp2ksRq/oat23+rmmijM
-	WpyOJd0+hxxHHGBqc7DrSYGqDYgthg45HVmXyCHB/eqAD5UTEZOamfohVfs0RCs6mOzv+ZFDhda9e
-	EcIDjWzDLQAF/LJd4/QcpvusaIPFHDBXhDyAdDfD0X5UX3L7nNXFJEAN6xLwgTJlqgXSYWC/E/Th8
-	O/208o+UYvEZEX+lTRt1tKByDspnmYIx0itCj+CFC+9g3hZBb7+m/EpJmnXxLOnObfC4ShAQvvpde
-	Iqcz/ucX1DpQdSYriadBObrboJxUzN2R218ZRePQOmaxdAKO6VceAC3WWUHDk7QsAscIKXmkBuLaH
-	rkXQbcwA==;
+	bh=QrHu4aCYgo0wp4fPoJuQyGnm3XJuQUZNKjqTW+n6jQI=; b=RLXdvP2u38hWy0Vsjc2WB/D9oA
+	GWi5FdKVw4rCQ4iLmMhNrTEGSudN8aBfpBDDNcKXsphRdy91vWQ2AQ6aqVQOFvHET8oaLRblIk2HA
+	yQYvxpRLp+vMQiDWDVTgPVpjGst5vxPw2G0R4MtFhPyH9UG3A0Tk3BiKIFFN+e3xsYMk0MLBWIg8j
+	xBj2KZ8876zZJtqdY9Hsa2rdq8+ypqgZy5LqndjT+UM6TGTA3YMkFNcvtU5WImgtMI3EeQ2t2PsdT
+	kfCrhpBlmRd8wmSDgFup4PjYMNBeLBVd0I/HCnyCgNbPlzlwA3JcOiTNtps2spuXLpuIbFEn3NL4Y
+	ji2wdRvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvq1-00000004zYA-0Prv;
-	Tue, 11 Feb 2025 19:22:29 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1thvrP-0000000502a-3C2k;
+	Tue, 11 Feb 2025 19:23:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvoa-00000004zIX-2snd
+	id 1thvpO-00000004zP1-10wV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:21:02 +0000
-Date: Tue, 11 Feb 2025 14:20:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739301658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8mNRV1XLqXF4FA7V0dC+d4pFd/k0iKqQgScUbDF9pVA=;
-	b=NIg+s4yJTADX9Ou20CmtLuX/odZ6Ag8iohjaieOJUj6ZkCBp3PFYrg+T2VljxOmdMHRaY7
-	6eEciAukGKMdz1PnOgkbW07M8pDAOUQjkihPCUqm8GO2/VLUgXCfv8wAg0RSBHMmH1kVDW
-	ft4zRgQCEr5BI5npQfzpyFnJAmGKqUYoCH1C9UCAwGVd3+8xU8qVEPOKK2UGN10WKogzd7
-	w5iuP37wgfaOr9FaRNcWUYblzMMiaLP8nfH5HyBktcwNa5HFjrRY26x6GjaxHD4B3Wz2gL
-	gXtyBUw0LO6jqOppiMSlbm4/yeXYv2hzARkPnFRWag6uuwQtb1nqzLvmk6LOCg==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/5] iommu/dart: Assert !locked when configuring
-Message-ID: <Z6ujFKvD7hCYzymO@blossom>
-References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
- <20250210-locked-dart-v1-5-5d97fe247f35@rosenzweig.io>
- <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Feb 2025 19:21:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1E5B85C4D09;
+	Tue, 11 Feb 2025 19:21:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DD2C4CEDD;
+	Tue, 11 Feb 2025 19:21:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739301709;
+	bh=029kYh0sxoljCJSf8XQnMO3yhFLYENu21fgjjNO4zf0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IE4TZFG8VCwqTprVR79rBXrlMEuWQojFSus87EDhrToPQka/oDW5ezwxFLFYgkFG7
+	 qypTFgYStG0DzenivTrY07/k6FYqA0DI5N6PZHBedQENPdL7F8OCP1rgwRogrU6t42
+	 sGpjLZc9Wyh0IzXokBlMJ/WXNNxWvh9oKUrxgO330taUJrh8BgBIkzPscybK/27nYY
+	 aWjfQeNOtxBhVnCDA7+2pHvsEzZpdLIIk8PtZ4VSLZMcIlbEXpF0i8OL8weLGOQAYI
+	 7mLrtIaxG2uC0iAg3uOgy9sMzVOB7nj//LYRrmLOTnU86kDaNXWLMV+KZASjI+vLM5
+	 7/RmD+PGbbV/w==
+Received: from [82.132.185.192] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thvpK-0036zW-8k;
+	Tue, 11 Feb 2025 19:21:46 +0000
+Date: Tue, 11 Feb 2025 19:20:08 +0000
+Message-ID: <87r0441e6v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Eric Auger <eauger@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+	<86cygpwfy0.wl-maz@kernel.org>
+	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+	<86frkptzr6.wl-maz@kernel.org>
+	<Z6ZMdv8jJUvYwQzT@linux.dev>
+	<86bjvdtxb5.wl-maz@kernel.org>
+	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.185.192
+X-SA-Exim-Rcpt-To: eauger@redhat.com, oliver.upton@linux.dev, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_112101_056857_1128D6D5 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250211_112150_364280_79A1164E 
+X-CRM114-Status: GOOD (  35.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +107,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Configuration is only possible and needed for non-locked DARTs and will
-> > fail for locked DARTs. We cannot try -- assert that we do not.
+On Mon, 10 Feb 2025 18:26:48 +0000,
+Eric Auger <eauger@redhat.com> wrote:
 > 
-> Except now we absolutely will - if a locked DART and its client device are
-> advertised to Linux, instead of gracefully refusing to touch it, we'll now
-> attach the client to a DMA domain, firing a barrage of multiple WARNs in the
-> process, and give it DMA ops which still cannot work. I'm not really
-> convinced this series on its own leaves us in a better position than we're
-> already in now... :/
+> Hi Marc,
+> 
+> On 2/7/25 7:38 PM, Marc Zyngier wrote:
+> > On Fri, 07 Feb 2025 18:09:58 +0000,
+> > Oliver Upton <oliver.upton@linux.dev> wrote:
+> >>
+> >> Hey,
+> >>
+> >> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
+> >>> I found at least one issue that could fail the migration. Before the
+> >>> VM starts running, we limit the feature set to the subset we actually
+> >>> support with NV.
+> >>>
+> >>> By doing this, we also change the value of IDreg fields that are not
+> >>> writable, because they describe features that we don't support.
+> >>> Obviously, that fails on restore.
+> >>>
+> >>> I need to have a think...
+> >>
+> >> We spoke about this a while ago (and I forgot til now), but I was
+> >> wondering if we could use vCPU feature flags to describe NV, including
+> >> the selection between FEAT_E2H0 and FEAT_VHE.
+> >>
+> >> I think this might match userspace expectations a bit more closely where
+> >> the state of the ID registers after init gives the actual feature set
+> >> supported by the VM.
+> > 
+> > I'm not sure that's enough. Let me give you an example:
+> > 
+> > My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
+> > reason, we don't allow this field to be written to, even out of NV
+> > context. This is odd, because for an EL1 VM, this field means nothing
+> > at all.
+> So the curprit fields for me look like
+> 
+> - ID_AA64MMFR1_EL1.XNX
+> - ID_AA64DFR0_EL1.DoubleLock
+> - ID_AA64PFR0_EL1.RAS
 
-Fair point, thanks for raising that. "Fortunately" the upstream DTs
-don't describe any locked DARTs yet.
+Right, that more or less matches what I see locally.
 
-> How hideous is the rest of what's required to actually make this usable?
+I adopted the following scheme:
 
-It isn't... pretty, and it's going to be ugly no matter how we slice it.
-Unfortunately the display controller DARTs really are locked so our
-hands are tied here.
+- On top of the existing KVM_ARM_VCPU_HAS_EL2, we have a new
+  KVM_ARM_VCPU_HAS_EL2_E2H0, which is only valid when the former is
+  also set, and force the whole VM in E2H==0 mode (that's Oliver's
+  idea above)
 
-When I originally wrote these patches I had some hideous hack in the
-shared page table code. I'm thrilled to see that Janne rewrote that code
-to be local to apple-dart.c, at least:
-https://github.com/AsahiLinux/linux/commit/d90cc3590ea460e1c574b4b7c47fdafb2794af6a
+- The NV view of the ID registers is enforced at the point where we
+  compute the limit values via the ID reg reset helper, instead of the
+  post-init repainting
 
-I'll include that patch with v2, which makes the locked DARTs actually
-usable, and restructure the series so we only probe after that commit is
-there.
+- Neither of ID_AA64MMFR1_EL1.VH or ID_AA64MMFR4_EL1.E2H0 are writable
+  at all
+
+- Only ID_AA64MMFR4_EL1.NV_frac is writable
+
+The result is fairly small, but is of course quite an ABI breakage,
+and I'm more than happy not to have merged it sooner. Maybe I should
+wait another couple of years! ;-)
+
+> This is still based on your nv-next branch from Jan 9
+> https://github.com/eauger/linux/tree/nv_next_jan9_2025
+
+Yeah, that's getting old now, specially given the nature of the bug
+fixes that have been added.
+
+I'll try to rebase everything on -rc2 with the latest fixes and the
+new ABI by the end of the week, and we will take it from there.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
