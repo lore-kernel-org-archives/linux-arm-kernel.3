@@ -4,84 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A919DC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBC4C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+brkYws55p5Q+rzQDgLlCyXMVEwqwjZLH5+5QKC2W88=; b=k5bZMAsIL8Dgg+MAD7e59zzAjk
-	WCWog9lDYm02UZH9Wn3oHvS9UXEdDJ+NLg1/fqODl+iqEZvmqdGeeKM1rEZtLytd58VMz8OWBMW4v
-	uQuNa5nt5rACKg03+4BDzJyTgQWgk3XXVnjLThnj40x88LCTp/DEftmCVJT9VX+PvVnHgaV7J7LoG
-	m6ATYV/Fwija00HU6aTG4ipZrsNm7AIWtN6zGJrIkPJVPy+8ZJOuBKvgS5y6TOnbuDZVU8CF7h1G+
-	ywfZ4nZwcYVhlcmJaxK0jyzl9BzUUk1+70SOWA/NcrJEflSvNlwBUcwkxuVR9qN8OVs2tHiI7pNGJ
-	1rgusIiw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9VEmABa4/tCnGYSVkwPO4zMHZ3XlaMi3DY0+TxumRVw=; b=RCP4z74nz2e2JBr8vNBKAYa0ba
+	iL6qIQSPi4vtLGE22JM01nmpFn4bi8+NTli6IS//rITF7XsnxfjJ+LiReXXlGC3vlY5y6qWHxz/Rg
+	qQQWCmo9T8RpiNL+wRE9wHX699bk84CAyNOGTRxbLcoAWsOQA+0d81S9gb2e/fyWEGyh4dP2Aog8q
+	RrgGnByO5TvDuRg7ZhjiH5JbHqW6X8rcuJNbg2wW37/i7Xob6y4eBRRkp5J+IzjaL8nq89TRzEZw2
+	eUGkzjqzpBXNDAylk7PG5+R0Xy1EknlCFX0Af0SEWl1oGjAJSUe4lW56e63qQ7uwOQwKamwJmEvpz
+	B0XdvIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thopM-00000003efW-0ETV;
-	Tue, 11 Feb 2025 11:53:20 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thoXG-00000003Ybt-0Yqh;
-	Tue, 11 Feb 2025 11:34:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739273676;
-	bh=SmzQjHSz8xFcC9epDhGXNLF77W+4aksKW5fg4/SNhG0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QsKJ2AuQt88vXumQ55Snl+AvT5SEAUGbF8TE6kGbGUQ934+rn9P+F7KRgjE+CTH5R
-	 2P+Vygk2L9V2X4eJOmpcCYcYHv4zeIk2f9qdE+LnZbWjc2fwKe2oLU6NPRANEAiZzh
-	 8Ebh48euHeqxLr3xrxa7wH2E096frl3KMQqCK4yG/8ABZgcFaNqiXRdJD19v6KdVdM
-	 P/n3BmlcOPhUz4xPmYH63NtETE2i+lC1vpMs4qAjmZx0NR34+y3on+gUCwXCJe9/cR
-	 LdROboxIlFwpIdeIU3EIGpZfablkZ+09eoAbfPCubJkkUCD6KctarAqvDhRGK25pc1
-	 GAuH7Va0jjwbw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 85BBD17E1558;
-	Tue, 11 Feb 2025 12:34:35 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com,
-	ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v6 11/42] dt-bindings: display: mediatek: Add binding for HDMIv2 DDC
-Date: Tue, 11 Feb 2025 12:33:38 +0100
-Message-ID: <20250211113409.1517534-12-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
-References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
+	id 1thoqk-00000003ewM-19ih;
+	Tue, 11 Feb 2025 11:54:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thoXH-00000003Ybr-22bS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 11:34:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49E731424
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 03:34:58 -0800 (PST)
+Received: from [10.57.81.93] (unknown [10.57.81.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CBE43F5A1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 03:34:36 -0800 (PST)
+Message-ID: <022c4799-bf0e-44d4-b657-d6af29a9a31d@arm.com>
+Date: Tue, 11 Feb 2025 11:34:35 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/2] arm64: support FEAT_BBM level 2 and large
+ block mapping when rodata=full
+Content-Language: en-GB
+To: linux-arm-kernel@lists.infradead.org
+References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250103011822.1257189-1-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_033438_315559_4FDEDDD5 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250211_033439_620509_ADE2F854 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +63,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a binding for the Display Data Channel (DDC) IP in MediaTek
-SoCs with version 2 HDMI TX IP.
+Hi Yang,
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../mediatek/mediatek,mt8195-hdmi-ddc.yaml    | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+Thanks for putting this together; I'm hoping to piggyback on this and use BBML2
+to reduce the cost of contpte_convert().
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
-new file mode 100644
-index 000000000000..bde4dc556d4f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
-@@ -0,0 +1,41 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek HDMI MT8195 series HDMI Display Data Channel (DDC)
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+  - CK Hu <ck.hu@mediatek.com>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: mediatek,mt8195-hdmi-ddc
-+      - items:
-+          - const: mediatek,mt8188-hdmi-ddc
-+          - const: mediatek,mt8195-hdmi-ddc
-+
-+  clocks:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    hdmi {
-+        hdmi_ddc: i2c {
-+            compatible = "mediatek,mt8195-hdmi-ddc";
-+            clocks = <&clk26m>;
-+        };
-+    };
-+...
--- 
-2.48.1
+review incoming...
+
+
+On 03/01/2025 01:17, Yang Shi wrote:
+> 
+> When rodata=full kernel linear mapping is mapped by PTE due to arm's
+> break-before-make rule.
+> 
+> This resulted in a couple of problems:
+>   - performance degradation
+>   - more TLB pressure
+>   - memory waste for kernel page table
+> 
+> There are some workarounds to mitigate the problems, for example, using
+> rodata=on, but this compromises the security measurement.
+> 
+> With FEAT_BBM level 2 support, splitting large block page table to
+> smaller ones doesn't need to make the page table entry invalid anymore.
+> This allows kernel split large block mapping on the fly.
+> 
+> Add kernel page table split support and use large block mapping by
+> default when FEAT_BBM level 2 is supported for rodata=full.  When
+> changing permissions for kernel linear mapping, the page table will be
+> split to PTE level.
+> 
+> The machine without FEAT_BBM level 2 will fallback to have kernel linear
+> mapping PTE-mapped when rodata=full.
+> 
+> With this we saw significant performance boost with some benchmarks with
+> keeping rodata=full security protection in the mean time.
+> 
+> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
+> 4K page size + 48 bit VA.
+> 
+> Function test (4K/16K/64K page size)
+>   - Kernel boot.  Kernel needs change kernel linear mapping permission at
+>     boot stage, if the patch didn't work, kernel typically didn't boot.
+>   - Module stress from stress-ng. Kernel module load change permission for
+>     module sections.
+>   - A test kernel module which allocates 80% of total memory via vmalloc(),
+>     then change the vmalloc area permission to RO, then change it back
+>     before vfree(). Then launch a VM which consumes almost all physical
+>     memory.
+
+I don't really understand how vmalloc is relevant here? vmalloc can already map
+huge pages you use vmalloc_huge() and changing the permissions of vmalloc
+mapping will only affect the ptes pertaining to that mapping; I don't see why
+that would cause permissions to be changed on the linear map or for huge pages
+in the linear map to be split?
+
+>   - VM with the patchset applied in guest kernel too.
+>   - Kernel build in VM with patched guest kernel.
+> 
+> Memory consumption
+> Before:
+> MemTotal:       258988984 kB
+> MemFree:        254821700 kB
+> 
+> After:
+> MemTotal:       259505132 kB
+> MemFree:        255410264 kB
+> 
+> Around 500MB more memory are free to use.  The larger the machine, the
+> more memory saved.
+> 
+> Performance benchmarking
+> * Memcached
+> We saw performance degradation when running Memcached benchmark with
+> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+> With this patchset we saw ops/sec is increased by around 3.5%, P99
+> latency is reduced by around 9.6%.
+> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+> MPKI is reduced by 28.5%.
+> 
+> The benchmark data is now on par with rodata=on too.
+> 
+> * Disk encryption (dm-crypt) benchmark
+> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+> encryption (by dm-crypt).
+> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>     --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>     --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>     --name=iops-test-job --eta-newline=1 --size 100G
+> 
+> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+> number of good case is around 90% more than the best number of bad case).
+> The bandwidth is increased and the avg clat is reduced proportionally.
+> 
+> * Sequential file read
+> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+> The bandwidth is increased by 150%.
+
+The performance gains definitely look worthwhile!
+
+Thanks,
+Ryan
+
+> 
+> RFC v2:
+>   * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
+>     conflict gracefully per Will Deacon
+>   * Rebased onto v6.13-rc5
+> 
+> RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-yang@os.amperecomputing.com/
+> 
+> Yang Shi (2):
+>       arm64: cpufeature: detect FEAT_BBM level 2
+>       arm64: mm: support large block mapping when rodata=full
+> 
+>  arch/arm64/include/asm/cpufeature.h |  19 ++++++++++++
+>  arch/arm64/include/asm/pgtable.h    |   7 ++++-
+>  arch/arm64/kernel/cpufeature.c      |  11 +++++++
+>  arch/arm64/mm/mmu.c                 |  32 ++++++++++++++++++--
+>  arch/arm64/mm/pageattr.c            | 173 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+>  arch/arm64/tools/cpucaps            |   1 +
+>  6 files changed, 234 insertions(+), 9 deletions(-)
+> 
+> 
 
 
