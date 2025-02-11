@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C490C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA59C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8h+tmgB6rVgdt/cCVrNadUvWy7R6X+6/AIyd+uHzCA=; b=MZyp5wvOcbYLAqnA04oZ+IY1Px
-	AiAiBIj7JJEbgc/taoZeQSqPWz7UwGgb8hUWRgLlsagRGtqlNC1e+1dRa4a93M8zz8925Fdb0pghV
-	68n36DBcghd85WXYlhgEBTJ+/pK5aPpKNOHPOUhUC4klri84MgdSVLzfXJ0w0fmUI8uIDajFr7BPB
-	cQse4VW2JMff54W6/U/M0UEQ3psOvjDDbOYlcPkfES2hkUTKr5BXTYCH8fM+7c7n7x1mYQxw6f6Hy
-	ebRDkO5ETemyxHSeyxcj8bShSF23YWaq4s8ZTJrGmSPtA876zIB5pCCrGbfI/foSgIx+t9UssAFsv
-	6VWyOmGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kpvPLOOINv/frxyxwmysjCgFErFPhWO/M9fCpiOC1SQ=; b=NGAkI1qAyHu/T1EbU6NodlI7sq
+	pknepEOOj0cScN2lAO2xFdcWTo9lNV+5IIUrcsk8gtS0t7XpR0D9gdDN8DTGdqpoKRW3TiQBBqkvf
+	vMTE0KKpHtBOR5ZhDpOw24Q1tg6ZnixR5Cj9lxrm4itf02k+XcrLmVo3yqW2wwTdWBb2uFNePwu46
+	W8fyj4IlmfMQJDRzV93aut8htQJqxiUdvlWP3i0QCLTPv6DEoKEM6OIGvK+K5iRNTilKQW4WYckxG
+	tJEjRunR781dxonBnDJUK9z/7qpiel4JYDo4mT+RjWxr/q8YMZs7X1QqdUKddqadnKyA/QZxlCe37
+	a2bXqUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqQO-00000003yZc-1DtH;
-	Tue, 11 Feb 2025 13:35:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thqRl-00000003yj7-41nv;
+	Tue, 11 Feb 2025 13:37:05 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqJx-00000003wvX-3gS6
+	id 1thqK9-00000003wyh-3NWk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 13:29:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C9D605C177A;
-	Tue, 11 Feb 2025 13:28:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C72D0C4CEDD;
-	Tue, 11 Feb 2025 13:29:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739280541;
-	bh=dqNsW3cC15v27jSPs0dEzsu7+QJx12fycZgZDdvv0Qg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Xn1brrTa8PUgjgKYSe42q6OvxHapJBaUC0V8AEU9gN1aVq/eY/Wb2zw1xQi8VzW6y
-	 P6PzOx/iI6tFYe4J3CJRP/HdDUhooB3sq4yKPQxSZEkN4cncd/4hheMqrAz+GL/Uer
-	 /V1LC6PRjuvkRdYyq76nJOaz66a8fJyTaieJPIatsRe2OgJZC97yljYGvQGUQJV9Ia
-	 tp0lTyM3cqPl9LKEdEbfvdU2i2Yz3ijAkNhnTQ8LGXakpSimRfmmhgwl/ED5Y05/Pe
-	 xxUTwsNUNpWtPQC4F/DwOy8+Q0LRwVL3gVsh3V7RGsPeYof6fnM/JNRGVIGCUuHzY8
-	 KJM7Ux7ykkrcA==
-Date: Tue, 11 Feb 2025 07:28:59 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 11 Feb 2025 13:29:14 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab7d58aa674so203127166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 05:29:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739280552; x=1739885352; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kpvPLOOINv/frxyxwmysjCgFErFPhWO/M9fCpiOC1SQ=;
+        b=l/BJnf0RdWxPF5Ym+C1/7j5plF9mX8/7rC5f9IMLXcsKQhBkq4gl1c9nAns1ljbET1
+         GGqyRWMcZ2RNOTsmy8drUedaFjDzwGr9Rp3SPvJsTNTL84XZjWFZ93/moT/8ih+DJO/R
+         amyDLaEm7p40Y17Y+NGWVeDsvPfeSExES0hE2jC5eFh3kQpkqR9VdcqjvNDQm5GILTMo
+         ehLvGWnn439m+CPKYV05gdpNjvIJ5KLDimgOhF2aCXaXmgTnj/MQHVjforg8zYpSndvY
+         +YPEjXfDiZCA7qYL8aJEI2LAPufm3E3PGIVVl7IQCkZWACpHV2dAXGBnF6rA2pXiR0fP
+         vBVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739280552; x=1739885352;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kpvPLOOINv/frxyxwmysjCgFErFPhWO/M9fCpiOC1SQ=;
+        b=tJuxB8IIUahBg4++T2C3TPsneObSFfRSAYafsGuOzV0zcEl6dc01GbQOafrTirPrpQ
+         jSyoTNaO8r495eNBodkFnMeFBrq/ws5A3vqV31JQB/Ya3pFqm4eZxnv/kFMEjEH3sDDM
+         5CbNUZFcKc0uQwnfrqhLeSk802z9ErGF3ghG4/p+YeRA0ubJVQnlPUJ4a267ZoCjrs42
+         x6yBxjTu6ZzOHkqVIw5ncQdeUJFCiMdkYDwdrydqHwOKUHFJwesyEnhiLnvjMtR4Xo7l
+         woeBSdk/MEexyvIA8nhiyrUOZwV8Tvvqpl3lQgnbTwUKyaivhBWMCNQpqf3Czr6vcXar
+         xxPA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0lVNq5IvXCfI/ye5BF6dXP1JkfpD3CFs5Fqaqd68P9EprzGrQ5dAcsW4OI/tfIM4MhiIS/2LqzWsVJn4l+W7y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxjq4EapwESCWadD9DHJrqTh5C4O6ldrVsdpIN2HvBzx9Hvy5Wp
+	hitXKzEDbymEO2RSjbo0uJAZrkz9f95h1pl8YXlPp8fyvYCuva3Pb3gJE+H6PYg=
+X-Gm-Gg: ASbGncuBoFzj+pyR+TtDnm2SvJMsEr/SorOey3F2XGYdrD7Uc8k+9o5f8gFlRc3xdeG
+	GR+3XXzvd2Ax64/y3pSd2yBdh9oXQ7Rke6262h6lR/wHPx9uN2iTSyDHqbIBhjGLHpeYZqZ4xhf
+	5JCt0wISODRTKG6kFPhJVb4UALuiIuSb0+QLiv/CWB8KzO2RwDaxvkIH9PoVr85h9ljYSUW7UyW
+	5TrW1PnXAwkMfrkHCFvDtY4pnAz+RuHVlNCRX5O9VMvoy7BNzppFplJZcThTlw8oOmnCx0n6IRB
+	aLgDDY7IHcop5EAt9RibY64k
+X-Google-Smtp-Source: AGHT+IH2uOyoJcA50C+YALBKh/r20YQ1PlbDUm5tBy6s+a85ihdbDttjIy36Ad5qWXPkClRkh/FA4Q==
+X-Received: by 2002:a17:906:4fd1:b0:ab7:6369:83fc with SMTP id a640c23a62f3a-ab789c3dcd0mr1900912066b.38.1739280552096;
+        Tue, 11 Feb 2025 05:29:12 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7832a02fcsm970546366b.94.2025.02.11.05.29.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 05:29:11 -0800 (PST)
+Message-ID: <1daff001-4769-4aeb-83a6-dafbe84fb39b@linaro.org>
+Date: Tue, 11 Feb 2025 13:29:09 +0000
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, 
- Konrad Dybcio <konradybcio@kernel.org>, iommu@lists.linux.dev, 
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Pratyush Brahma <quic_pbrahma@quicinc.com>
-In-Reply-To: <20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com>
-References: <20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com>
-Message-Id: <173928051052.2596191.5953179871612881836.robh@kernel.org>
-Subject: Re: [PATCH v5 0/2] Add support for GPU SMMU on QCS8300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org,
+ daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
+ ulf.hansson@linaro.org, arnd@arndb.de,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
+ <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
+ <D7PJTD3PSP78.27N2S94J2CNZG@cknow.org>
+ <bad87f30-0483-48c1-b263-02cc752c77e6@linaro.org>
+ <a740a0211c82aaaa55940e2f07e1d1b53c23ddd8.camel@linaro.org>
+ <e2bdc9aa-2cbb-4fcc-8c73-5fcdad6e18a7@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <e2bdc9aa-2cbb-4fcc-8c73-5fcdad6e18a7@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_052902_003279_9442796D 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20250211_052913_851897_D37F908E 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,101 +114,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 11 Feb 2025 10:15:52 +0530, Pratyush Brahma wrote:
-> Enable GPU SMMU function on QCS8300 platform. GPU SMMU is required
-> for address translation in GPU device.
-> 
-> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
-> ---
-> Changes since v4:
-> - Corrected the clocks list to be inline with clock-names
-> - Removed stray whitespaces
-> - Added r-by tag from Krzysztof on the bindings patch
-> - Link to v4: https://lore.kernel.org/r/20250203-b4-branch-gfx-smmu-v4-0-eaa7aa762f48@quicinc.com
-> 
-> Changes since v3:
-> - Modified the order of clock voting and properties as suggested by Konrad
-> - Removed dependency on clocks in commit text as change is merged in
->   linux-next before current base commit
-> 
-> Link to v3:
-> https://lore.kernel.org/all/20241227105818.28516-1-quic_pbrahma@quicinc.com/
-> 
-> Changes since v2:
-> Corrected typo in cover letter to include QCS8300
-> Link to
-> v2:https://lore.kernel.org/all/20241227104651.4531-1-quic_pbrahma@quicinc.com/
-> 
-> Changes since v1:
-> Updated bindings for gpu smmu for qcs8300 as per Dmitry's comment
-> Link to v1:
-> https://lore.kernel.org/all/20241224100521.7616-1-quic_pbrahma@quicinc.com/
-> 
-> To: Will Deacon <will@kernel.org>
-> To: Robin Murphy <robin.murphy@arm.com>
-> To: Joerg Roedel <joro@8bytes.org>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Bjorn Andersson <andersson@kernel.org>
-> To: Konrad Dybcio <konradybcio@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: iommu@lists.linux.dev
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-msm@vger.kernel.org
-> 
-> ---
-> Pratyush Brahma (2):
->       dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
->       arm64: dts: qcom: qcs8300: Add device node for  gfx_smmu
-> 
->  .../devicetree/bindings/iommu/arm,smmu.yaml        |  3 +-
->  arch/arm64/boot/dts/qcom/qcs8300.dtsi              | 39 ++++++++++++++++++++++
->  2 files changed, 41 insertions(+), 1 deletion(-)
-> ---
-> base-commit: a13f6e0f405ed0d3bcfd37c692c7d7fa3c052154
-> change-id: 20250131-b4-branch-gfx-smmu-b03261963064
-> 
-> Best regards,
-> --
-> Pratyush Brahma <quic_pbrahma@quicinc.com>
-> 
-> 
-> 
 
+On 2/11/25 12:05 PM, Krzysztof Kozlowski wrote:
+> On 11/02/2025 13:02, André Draszik wrote:
+>> Hi Tudor,
+>>
+>> On Tue, 2025-02-11 at 11:57 +0000, Tudor Ambarus wrote:
+>>> And then I shall s/MODULE_LICENSE("GPL");/MODULE_LICENSE("GPL v2");/
+>>> everywhere as "GPL" indicates [GNU Public License v2 or later].
+>>
+>> No, please don't, see Documentation/process/license-rules.rst.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Indeed, thanks, Andre'! The tag shouldn't convey the detailed license
+information, as the only decision to be made is whether the module is
+free software or not. I'll keep MODULE_LICENSE("GPL");
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+> For the rest of suggestions here I also recommend rereading docs. I
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+always a good suggestion :)
 
-  pip3 install dtschema --upgrade
+> don't get why we need to change "GPL-2.0 OR BSD-2-Clause", but maybe I
 
+I reread the docs, LICENSES/preferred/GPL-2.0 says that:
+'''
+  For 'GNU General Public License (GPL) version 2 only' use:
+    SPDX-License-Identifier: GPL-2.0
+  or
+    SPDX-License-Identifier: GPL-2.0-only
+```
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/qcom/' for 20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com:
+the two are equivalent. The downstream driver uses "GPL-2.0-only". I
+think it'd be good that everything that I derived from it to have the
+same SPDX value, for consistency reasons.
 
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:0: 'gcc_gpu_memnoc_gfx_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:1: 'gcc_gpu_snoc_dvm_gfx_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:2: 'gpu_cc_ahb_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:3: 'gpu_cc_hlos1_vote_gpu_smmu_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:4: 'gpu_cc_cx_gmu_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
-arch/arm64/boot/dts/qcom/qcs8300-ride.dtb: iommu@3da0000: clock-names:5: 'gpu_cc_hub_cx_int_clk' was expected
-	from schema $id: http://devicetree.org/schemas/iommu/arm,smmu.yaml#
+Thus I'll amend the license on the bindings file and on
+include/linux/firmware/samsung/exynos-acpm-protocol.h only.
+I'm not thrilled about a new version for such a small change, but I
+think it's worth it.
 
-
-
-
-
+Thanks,
+ta
 
