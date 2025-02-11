@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A18FC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF872C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2HO1ToWfLOBrHdxLGmqitpQWzJ6khmroR/88qsX9BY=; b=UGmz2BMbSGgbtdIpbHDFOzXY5z
-	xdYUM2k0ZJcFS0kuIDtQR2R4E1j1VkAtlPg4yH9M1b9RH/u8++aggD3i5z41n7tcZ8IGonWLXMEN+
-	2Y8SV1sfd0Kut9z+vxRRw7co4WQJfoqvsVRoeyj18keNqW2HLX5gbgMnHFO7qRumAx2HbUPZvEieT
-	1NFek7TXoEZ33VNz7NT+SgVFePoTeclxVbHEAqE2M9dtdLeCEYV1rSH2hAPi73Ck+2tQ5aNL8Wldr
-	t1tGbp+mudDgbuJuahrSA/EJ6Rd3tvXebirEMB30xRYdNKEmCFSDmFnpjp20Zx0dlYJ82H5RNLG8T
-	uUUo6YYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=orGoSo6n4n0YOyMRUSl/HRUPiNiDZ7IGMHDhm3e5E1E=; b=B487aMyhQQz6fPPU88Xe429Oba
+	lTAu91iyak2BZj+SACnVFT7bNdJrEFszDMS1rSkWfGdM/OGFc7OVloNICY6AgdIijSgcTChCKmdul
+	861Z43Dt4cm7hMNxRJK9QnQ9Ev9eUVfX27SkG6cOknrFkZScVyUmXFQO7Bezz/C6BHM0ui0YRVTKt
+	ySbJxdtb7zgLCetIpX3EN3DTWHbbEJnjQFQrOtDyr94tZogtf5QlBncXkMa16X9fBNdCfXVRgDpTU
+	ZsBPw34yDeEbSTAD1GRd9MvjufyddYQ/KOgQQShqofMreHMrXXryHnK3uAdeQn2d+Ruayrmi2Bwyq
+	qYwYu3kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuUJ-00000004laf-0p2l;
-	Tue, 11 Feb 2025 17:55:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thuUI-00000004laK-2com;
+	Tue, 11 Feb 2025 17:55:58 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thtAF-00000004WNL-0uNZ;
-	Tue, 11 Feb 2025 16:31:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 812065C4848;
-	Tue, 11 Feb 2025 16:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D06C4CEDD;
-	Tue, 11 Feb 2025 16:31:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739291469;
-	bh=oNhS/OBG05YZ+KCQ5QX2hfKKhn/P9r6dBgmu5lyTEck=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NG70fRgbr/NArbeLI4XwktHJ14RVRgAUMRyVVKt+VVJiehyoI0RrETiIRDzicTvhl
-	 7HjgRml0wM+6lKDGa6BXOM7L8qIWhOAqfaVspzZ38BqQ1Qw0xb2ZpLtNFIK+am5ueC
-	 6c2Wcuh35njecJWyK7aQ/EurXnODJK/rnDQqhNxZCHIHpv8/MV8FdigUeT8rWM/wnX
-	 lQ2Jv2RtNT51wUtYvb/iCO8JcoVQt16Axa1JF4j8SP+N8uLsH/prWoBASkF5K976Ec
-	 q5jF8l5dZbCoT9/kBQNjt3QyQ0zWviXDPHbN15b5cWVKkL78nVe6K1s2UgWufupyDP
-	 ntm5IEEZzgMng==
-Date: Tue, 11 Feb 2025 17:31:06 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next v3 13/16] net: airoha: Introduce PPE
- initialization via NPU
-Message-ID: <Z6t7SuFurbGwJjt_@lore-desk>
-References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
- <20250209-airoha-en7581-flowtable-offload-v3-13-dba60e755563@kernel.org>
- <20250211-fanatic-smoky-wren-f0dcc9@krzk-bin>
+	id 1thsuv-00000004Sef-2NX4;
+	Tue, 11 Feb 2025 16:15:22 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51BFdlL6020922;
+	Tue, 11 Feb 2025 16:15:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=orGoSo6n4n0YOyMRU
+	Sl/HRUPiNiDZ7IGMHDhm3e5E1E=; b=WEGfXe/RtDUQ9mB/y9+1XV/V3WMwvUMUV
+	zraNDtOiyZ5NwJQgUMG8+h1eYNCf/CxkN/Eupw0K8GjOnA5pmaDnYvMWslKAkkHC
+	M/Spzw2/ubTEYPouSh7MX5L+c7wrnFaDdEWnsMlzq44yyN/HyPdXRuvNP/F1ORHu
+	dZR8Eup6H71aMP91aSTomo1JrHjBcn0ojTY+sxP91rbGZQhRmPENHvQJO5f7aTjT
+	bptRRU/nkO1iswTT/o6M/4dEU9LgJiL3qiqH6S6r5HUDDoYrue/1jTDFVVVkgLCO
+	c5IQ/vjmpsLy1w5qirn5kpmwplK0SSRTNWK90vI07gIkvONx3YXhw==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44r9cu85r4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Feb 2025 16:15:11 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51BDObmO016712;
+	Tue, 11 Feb 2025 16:15:11 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pk3k41cj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Feb 2025 16:15:10 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51BGF8jC49873348
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Feb 2025 16:15:09 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CACC120049;
+	Tue, 11 Feb 2025 16:15:08 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D9CC52004B;
+	Tue, 11 Feb 2025 16:15:07 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 11 Feb 2025 16:15:07 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com.com (unknown [9.150.7.124])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id F2511600D4;
+	Wed, 12 Feb 2025 03:15:02 +1100 (AEDT)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        Christophe Leroy <christophe.leroy@csgroup.eu>
+Subject: [PATCH v13 11/11] powerpc: mm: Support page table check
+Date: Wed, 12 Feb 2025 03:14:04 +1100
+Message-ID: <20250211161404.850215-12-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250211161404.850215-1-ajd@linux.ibm.com>
+References: <20250211161404.850215-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="g2jqDdovRQTl6Nrb"
-Content-Disposition: inline
-In-Reply-To: <20250211-fanatic-smoky-wren-f0dcc9@krzk-bin>
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: oBGEa0RlBjsu6MhC2TPUaDn8eND483Vf
+X-Proofpoint-GUID: oBGEa0RlBjsu6MhC2TPUaDn8eND483Vf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-11_07,2025-02-11_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ spamscore=0 suspectscore=0 adultscore=0 impostorscore=0 phishscore=0
+ bulkscore=0 mlxlogscore=756 mlxscore=0 clxscore=1011 lowpriorityscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502110106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_083111_346964_84D1D4EF 
-X-CRM114-Status: GOOD (  30.35  )
+X-CRM114-CacheID: sfid-20250211_081521_713820_65E0615A 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,206 +109,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Rohan McLure <rmclure@linux.ibm.com>
 
---g2jqDdovRQTl6Nrb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On creation and clearing of a page table mapping, instrument such calls
+by invoking page_table_check_pte_set and page_table_check_pte_clear
+respectively. These calls serve as a sanity check against illegal
+mappings.
 
-> On Sun, Feb 09, 2025 at 01:09:06PM +0100, Lorenzo Bianconi wrote:
-> > +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
-> > +{
-> > +	struct airoha_npu_core *core =3D core_instance;
-> > +	struct airoha_npu *npu =3D core->npu;
-> > +	int c =3D core - &npu->cores[0];
-> > +	u32 val;
-> > +
-> > +	airoha_npu_rmw(npu, REG_WDT_TIMER_CTRL(c), 0, WDT_INTR_MASK);
-> > +	val =3D airoha_npu_rr(npu, REG_WDT_TIMER_CTRL(c));
-> > +	if (FIELD_GET(WDT_EN_MASK, val))
-> > +		schedule_work(&core->wdt_work);
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
-> > +
-> > +struct airoha_npu *airoha_npu_init(struct airoha_eth *eth)
-> > +{
-> > +	struct reserved_mem *rmem;
-> > +	int i, irq, err =3D -ENODEV;
-> > +	struct airoha_npu *npu;
-> > +	struct device_node *np;
-> > +
-> > +	npu =3D devm_kzalloc(eth->dev, sizeof(*npu), GFP_KERNEL);
-> > +	if (!npu)
-> > +		return ERR_PTR(-ENOMEM);
-> > +
-> > +	npu->np =3D of_parse_phandle(eth->dev->of_node, "airoha,npu", 0);
-> > +	if (!npu->np)
-> > +		return ERR_PTR(-ENODEV);
->=20
-> Why? The property is not required, so how can missing property fail the
-> probe?
+Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK for all platforms.
 
-similar to mtk_wed device, airoha_npu is not modeled as a standalone driver,
-but it is part of the airoha_eth driver. If you think it is better, I can
-rework it implementing a dedicated driver for it. What do you think?
+See also:
 
->=20
-> This is also still unnecessary ABI break without explanation/reasoning.
+riscv support in commit 3fee229a8eb9 ("riscv/mm: enable
+ARCH_SUPPORTS_PAGE_TABLE_CHECK")
+arm64 in commit 42b2547137f5 ("arm64/mm: enable
+ARCH_SUPPORTS_PAGE_TABLE_CHECK")
+x86_64 in commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
+check")
 
-At the moment if airoha_npu_init() fails (e.g. if the npu node is not prese=
-nt),
-it will not cause any failure in airoha_hw_init() (so in the core ethernet
-driver probing).
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+[ajd: rebase]
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+---
+ arch/powerpc/Kconfig                         |  1 +
+ arch/powerpc/include/asm/book3s/32/pgtable.h |  7 ++-
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 45 +++++++++++++++-----
+ arch/powerpc/include/asm/nohash/pgtable.h    |  8 +++-
+ arch/powerpc/mm/book3s64/hash_pgtable.c      |  4 ++
+ arch/powerpc/mm/book3s64/pgtable.c           | 11 +++--
+ arch/powerpc/mm/book3s64/radix_pgtable.c     |  3 ++
+ arch/powerpc/mm/pgtable.c                    |  4 ++
+ 8 files changed, 68 insertions(+), 15 deletions(-)
 
->=20
-> > +
-> > +	npu->pdev =3D of_find_device_by_node(npu->np);
-> > +	if (!npu->pdev)
-> > +		goto error_of_node_put;
->=20
-> You should also add device link and probably try_module_get. See
-> qcom,ice (patch for missing try_module_get is on the lists).
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 424f188e62d9..a990af9c17aa 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -171,6 +171,7 @@ config PPC
+ 	select ARCH_STACKWALK
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC	if PPC_BOOK3S || PPC_8xx
++	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF		if PPC64
+ 	select ARCH_USE_MEMTEST
+diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+index a2305d850fc9..ad7febf75471 100644
+--- a/arch/powerpc/include/asm/book3s/32/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+@@ -202,6 +202,7 @@ void unmap_kernel_page(unsigned long va);
+ #ifndef __ASSEMBLY__
+ #include <linux/sched.h>
+ #include <linux/threads.h>
++#include <linux/page_table_check.h>
+ 
+ /* Bits to mask out from a PGD to get to the PUD page */
+ #define PGD_MASKED_BITS		0
+@@ -315,7 +316,11 @@ static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
+ static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
+ 				       pte_t *ptep)
+ {
+-	return __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
++	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
++
++	page_table_check_pte_clear(mm, addr, old_pte);
++
++	return old_pte;
+ }
+ 
+ #define __HAVE_ARCH_PTEP_SET_WRPROTECT
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index 754d4d525f0e..da07d604c275 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -145,6 +145,8 @@
+ #define PAGE_KERNEL_ROX	__pgprot(_PAGE_BASE | _PAGE_KERNEL_ROX)
+ 
+ #ifndef __ASSEMBLY__
++#include <linux/page_table_check.h>
++
+ /*
+  * page table defines
+  */
+@@ -417,8 +419,11 @@ static inline void huge_ptep_set_wrprotect(struct mm_struct *mm,
+ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ 				       unsigned long addr, pte_t *ptep)
+ {
+-	unsigned long old = pte_update(mm, addr, ptep, ~0UL, 0, 0);
+-	return __pte(old);
++	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
++
++	page_table_check_pte_clear(mm, addr, old_pte);
++
++	return old_pte;
+ }
+ 
+ #define __HAVE_ARCH_PTEP_GET_AND_CLEAR_FULL
+@@ -427,11 +432,16 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
+ 					    pte_t *ptep, int full)
+ {
+ 	if (full && radix_enabled()) {
++		pte_t old_pte;
++
+ 		/*
+ 		 * We know that this is a full mm pte clear and
+ 		 * hence can be sure there is no parallel set_pte.
+ 		 */
+-		return radix__ptep_get_and_clear_full(mm, addr, ptep, full);
++		old_pte = radix__ptep_get_and_clear_full(mm, addr, ptep, full);
++		page_table_check_pte_clear(mm, addr, old_pte);
++
++		return old_pte;
+ 	}
+ 	return ptep_get_and_clear(mm, addr, ptep);
+ }
+@@ -1309,19 +1319,34 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
+ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ 					    unsigned long addr, pmd_t *pmdp)
+ {
+-	if (radix_enabled())
+-		return radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
+-	return hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
++	pmd_t old_pmd;
++
++	if (radix_enabled()) {
++		old_pmd = radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
++	} else {
++		old_pmd = hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
++	}
++
++	page_table_check_pmd_clear(mm, addr, old_pmd);
++
++	return old_pmd;
+ }
+ 
+ #define __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR
+ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+ 					    unsigned long addr, pud_t *pudp)
+ {
+-	if (radix_enabled())
+-		return radix__pudp_huge_get_and_clear(mm, addr, pudp);
+-	BUG();
+-	return *pudp;
++	pud_t old_pud;
++
++	if (radix_enabled()) {
++		old_pud = radix__pudp_huge_get_and_clear(mm, addr, pudp);
++	} else {
++		BUG();
++	}
++
++	page_table_check_pud_clear(mm, addr, old_pud);
++
++	return old_pud;
+ }
+ 
+ static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
+index 1c3dfe2d6cc1..36c79f39f47d 100644
+--- a/arch/powerpc/include/asm/nohash/pgtable.h
++++ b/arch/powerpc/include/asm/nohash/pgtable.h
+@@ -29,6 +29,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
+ 
+ #ifndef __ASSEMBLY__
+ 
++#include <linux/page_table_check.h>
++
+ extern int icache_44x_need_flush;
+ 
+ #ifndef pte_huge_size
+@@ -122,7 +124,11 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
+ static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
+ 				       pte_t *ptep)
+ {
+-	return __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
++	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
++
++	page_table_check_pte_clear(mm, addr, old_pte);
++
++	return old_pte;
+ }
+ #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
+ 
+diff --git a/arch/powerpc/mm/book3s64/hash_pgtable.c b/arch/powerpc/mm/book3s64/hash_pgtable.c
+index 988948d69bc1..c1c25d46dd16 100644
+--- a/arch/powerpc/mm/book3s64/hash_pgtable.c
++++ b/arch/powerpc/mm/book3s64/hash_pgtable.c
+@@ -8,6 +8,7 @@
+ #include <linux/sched.h>
+ #include <linux/mm_types.h>
+ #include <linux/mm.h>
++#include <linux/page_table_check.h>
+ #include <linux/stop_machine.h>
+ 
+ #include <asm/sections.h>
+@@ -231,6 +232,9 @@ pmd_t hash__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addres
+ 
+ 	pmd = *pmdp;
+ 	pmd_clear(pmdp);
++
++	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
++
+ 	/*
+ 	 * Wait for all pending hash_page to finish. This is needed
+ 	 * in case of subpage collapse. When we collapse normal pages
+diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
+index b4708b2cabba..3702d5bc7a5a 100644
+--- a/arch/powerpc/mm/book3s64/pgtable.c
++++ b/arch/powerpc/mm/book3s64/pgtable.c
+@@ -10,6 +10,7 @@
+ #include <linux/pkeys.h>
+ #include <linux/debugfs.h>
+ #include <linux/proc_fs.h>
++#include <linux/page_table_check.h>
+ #include <misc/cxl-base.h>
+ 
+ #include <asm/pgalloc.h>
+@@ -129,6 +130,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 	WARN_ON(!(pmd_leaf(pmd)));
+ #endif
+ 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
++	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+ 	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
+ }
+ 
+@@ -146,6 +148,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 	WARN_ON(!(pud_leaf(pud)));
+ #endif
+ 	trace_hugepage_set_pud(addr, pud_val(pud));
++	page_table_check_pud_set(mm, addr, pudp, pud);
+ 	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
+ }
+ 
+@@ -181,12 +184,14 @@ void serialize_against_pte_lookup(struct mm_struct *mm)
+ pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
+ 		     pmd_t *pmdp)
+ {
+-	unsigned long old_pmd;
++	pmd_t old_pmd;
+ 
+ 	VM_WARN_ON_ONCE(!pmd_present(*pmdp));
+-	old_pmd = pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID);
++	old_pmd = __pmd(pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID));
+ 	flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+-	return __pmd(old_pmd);
++	page_table_check_pmd_clear(vma->vm_mm, address, old_pmd);
++
++	return old_pmd;
+ }
+ 
+ pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
+diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
+index 1704381f5c3c..cc0dda11a640 100644
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c
++++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -14,6 +14,7 @@
+ #include <linux/of.h>
+ #include <linux/of_fdt.h>
+ #include <linux/mm.h>
++#include <linux/page_table_check.h>
+ #include <linux/hugetlb.h>
+ #include <linux/string_helpers.h>
+ #include <linux/memory.h>
+@@ -1454,6 +1455,8 @@ pmd_t radix__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addre
+ 	pmd = *pmdp;
+ 	pmd_clear(pmdp);
+ 
++	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
++
+ 	radix__flush_tlb_collapsed_pmd(vma->vm_mm, address);
+ 
+ 	return pmd;
+diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
+index 4cc9af7961ca..ed46151ae1d9 100644
+--- a/arch/powerpc/mm/pgtable.c
++++ b/arch/powerpc/mm/pgtable.c
+@@ -22,6 +22,7 @@
+ #include <linux/mm.h>
+ #include <linux/percpu.h>
+ #include <linux/hardirq.h>
++#include <linux/page_table_check.h>
+ #include <linux/hugetlb.h>
+ #include <asm/tlbflush.h>
+ #include <asm/tlb.h>
+@@ -206,6 +207,9 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
+ 	 * and not hw_valid ptes. Hence there is no translation cache flush
+ 	 * involved that need to be batched.
+ 	 */
++
++	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
++
+ 	for (;;) {
+ 
+ 		/*
+-- 
+2.48.1
 
-thx for the pointer, I will take a look to it.
-
->=20
-> > +
-> > +	get_device(&npu->pdev->dev);
->=20
-> Why? of_find_device_by_node() does it.
-
-ack, I will fix it.
-
->=20
-> > +
-> > +	npu->base =3D devm_platform_ioremap_resource(npu->pdev, 0);
-> > +	if (IS_ERR(npu->base))
-> > +		goto error_put_dev;
-> > +
-> > +	np =3D of_parse_phandle(npu->np, "memory-region", 0);
-> > +	if (!np)
-> > +		goto error_put_dev;
-> > +
-> > +	rmem =3D of_reserved_mem_lookup(np);
-> > +	of_node_put(np);
-> > +
-> > +	if (!rmem)
-> > +		goto error_put_dev;
-> > +
-> > +	irq =3D platform_get_irq(npu->pdev, 0);
-> > +	if (irq < 0) {
-> > +		err =3D irq;
-> > +		goto error_put_dev;
-> > +	}
-> > +
-> > +	err =3D devm_request_irq(&npu->pdev->dev, irq, airoha_npu_mbox_handle=
-r,
-> > +			       IRQF_SHARED, "airoha-npu-mbox", npu);
-> > +	if (err)
-> > +		goto error_put_dev;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++) {
-> > +		struct airoha_npu_core *core =3D &npu->cores[i];
-> > +
-> > +		spin_lock_init(&core->lock);
-> > +		core->npu =3D npu;
-> > +
-> > +		irq =3D platform_get_irq(npu->pdev, i + 1);
-> > +		if (irq < 0) {
-> > +			err =3D irq;
-> > +			goto error_put_dev;
-> > +		}
->=20
-> This is all confusing. Why are you requesting IRQs for other - the npu -
-> device? That device driver is responsible for its interrupts, not you
-> here. This breaks encapsulation. And what do you do if the other device
-> starts handling interrupts on its own? This is really unexpected to see
-> here.
-
-As pointed out above, there is no other driver for airoha_npu at the moment,
-but I am fine to implement it.
-
-Regards,
-Lorenzo
-
->=20
-> > +
-> > +		err =3D devm_request_irq(&npu->pdev->dev, irq,
-> > +				       airoha_npu_wdt_handler, IRQF_SHARED,
-> > +				       "airoha-npu-wdt", core);
-> > +		if (err)
-> > +			goto error_put_dev;
-> > +
-> > +		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
-> > +	}
-> > +
-> > +	if (dma_set_coherent_mask(&npu->pdev->dev, 0xbfffffff))
-> > +		dev_err(&npu->pdev->dev,
-> > +			"failed coherent DMA configuration\n");
-> > +
-> > +	err =3D airoha_npu_run_firmware(npu, rmem);
-> > +	if (err)
-> > +		goto error_put_dev;
-> > +
-> > +	airoha_npu_wr(npu, REG_CR_NPU_MIB(10),
-> > +		      rmem->base + NPU_EN7581_FIRMWARE_RV32_MAX_SIZE);
-> > +	airoha_npu_wr(npu, REG_CR_NPU_MIB(11), 0x40000); /* SRAM 256K */
-> > +	airoha_npu_wr(npu, REG_CR_NPU_MIB(12), 0);
-> > +	airoha_npu_wr(npu, REG_CR_NPU_MIB(21), 1);
-> > +	msleep(100);
-> > +
-> > +	/* setting booting address */
-> > +	for (i =3D 0; i < AIROHA_NPU_NUM_CORES; i++)
-> > +		airoha_npu_wr(npu, REG_CR_BOOT_BASE(i), rmem->base);
-> > +	usleep_range(1000, 2000);
-> > +
-> > +	/* enable NPU cores */
-> > +	/* do not start core3 since it is used for WiFi offloading */
-> > +	airoha_npu_wr(npu, REG_CR_BOOT_CONFIG, 0xf7);
-> > +	airoha_npu_wr(npu, REG_CR_BOOT_TRIGGER, 0x1);
-> > +	msleep(100);
-> > +
-> > +	return npu;
-> > +
-> > +error_put_dev:
-> > +	put_device(&npu->pdev->dev);
->=20
-> Missing platform_device_put()
->=20
-> > +error_of_node_put:
-> > +	of_node_put(npu->np);
-> > +
-> > +	return ERR_PTR(err);
-> > +}
-> > +
-> > +void airoha_npu_deinit(struct airoha_npu *npu)
-> > +{
-> > +	int i;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++)
-> > +		cancel_work_sync(&npu->cores[i].wdt_work);
-> > +
->=20
-> Leaking device put.
->=20
-> > +	put_device(&npu->pdev->dev);
-> > +	of_node_put(npu->np);
->=20
-> Best regards,
-> Krzysztof
->=20
-
---g2jqDdovRQTl6Nrb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6t7SgAKCRA6cBh0uS2t
-rGOSAP9ajQ5bBXTGIXJFOaDlhfq5P0lEKUu7Bq7as0Wrb/CiHwD+MjobPeqtgWPG
-gTwY8bZNqtz2FbpzlvqWNUyz/50ToAo=
-=svVA
------END PGP SIGNATURE-----
-
---g2jqDdovRQTl6Nrb--
 
