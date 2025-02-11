@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95ADCC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BCEC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Oo7Rc8SKHS0PuJvvqmpL4Zc8+WqVw/feh7QZkGSCJ6M=; b=ZivBHUSKvf+L4EfCdhzg6vKsxj
-	IN8hFAOsStI4LHUVQG57/4EQ5sQfv7FAeNVk6ZhuvpySLa7PlYORbyf1KLJjaKFHhdzlrM6Ws0lz4
-	Me27yhgu6703OsAa0SBzoBlLBfZ7HB0dzGa5s4o3Nyijmv5qzrWtK9CT7j2UdsWIi57ab+Uz/p2T+
-	4TNyW5jVz1rcpP+rrQ/uuig8NNUFhiy9VDtXYdfJ7s80KvyAZuTpID6UQz2d4PS731UzmvBSnO/z2
-	ESIwrpI9ctc7E/ZDKAwpLpfBOgCXG3ZqME0wqMe17RTZjWWfOyqKrL1FGjJXTQTHYJQ/Dx7kRs3bm
-	rgHWchHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cFv1VxMytVdzhDVCHcUlXFbWIHkW8d5aXU+QGs58moY=; b=e71cnTeA2G4DRJ
+	I+Yrm+lbPWOrqxEUa1VhNT6lS+kh5ePIJOsGeDpeNvpxcZXcQRs4ihoiNETJdnf6whbb0HmkikZss
+	eESCy8AJEEanh1K0mom1SqKlSbvZRUSxyVAnewoT13P9vgtKp7u1dso2HRPlbKGcYUtRVGgEOcqze
+	uXF0tg5XNLa2VL6Xcyeo8HEOcQ08OMCbKC++SogXNm5OOgliIArw9NVzQgj9Lp8k5tItv4iIpU92S
+	j3uZk8zkYaXcdbrXUfHcw1uhHcBQcPEhwC5eUPWXFSkxZvb6BF2oGsrN7cu7KEDzuKsbasvFq0pVs
+	hL4hnnw4JS0eSwbTafpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnPk-00000003Ktg-2nAQ;
-	Tue, 11 Feb 2025 10:22:48 +0000
-Received: from unicom145.biz-email.net ([210.51.26.145])
+	id 1thnR7-00000003LBW-1Tky;
+	Tue, 11 Feb 2025 10:24:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnO3-00000003KW0-3oYW
+	id 1thnOT-00000003KbW-3odP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 10:21:05 +0000
-Received: from unicom145.biz-email.net
-        by unicom145.biz-email.net ((D)) with ASMTP (SSL) id JEG00053;
-        Tue, 11 Feb 2025 18:20:53 +0800
-Received: from locahost.localdomain (10.94.13.218) by
- jtjnmail201601.home.langchao.com (10.100.2.1) with Microsoft SMTP Server id
- 15.1.2507.39; Tue, 11 Feb 2025 18:20:52 +0800
-From: Charles Han <hanchunchao@inspur.com>
-To: <laurent.pinchart@ideasonboard.com>, <Markus.Elfring@web.de>,
-	<tomi.valkeinen@ideasonboard.com>, <maarten.lankhorst@linux.intel.com>,
-	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <michal.simek@amd.com>, <vishal.sagar@amd.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Charles Han <hanchunchao@inspur.com>
-Subject: [PATCH V3] drm: xlnx: zynqmp_dpsub: Add NULL check in zynqmp_audio_init
-Date: Tue, 11 Feb 2025 18:20:49 +0800
-Message-ID: <20250211102049.6468-1-hanchunchao@inspur.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 11 Feb 2025 10:21:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 999F6A40185;
+	Tue, 11 Feb 2025 10:19:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF148C4CEDD;
+	Tue, 11 Feb 2025 10:21:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739269288;
+	bh=5x60nY8sN9m85bsl7snncFeqJyHzcSnNTeHckXMLF1w=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=NlER+ZpBIywV2hH4NLYcyQqtdA2ZIWMZZYQDbRwYH53hyWe3tMs1io+rHfUdOCu0c
+	 rpALDU5pNw+xGeOgXRHto4Aj/PnWVDxdSu1pyBFgyKVpMZFA+G1Zn8VMY3SLM/4d5S
+	 VNOiuqvZ8wvmTXl5O2ABqSYvS6yCLmLP4E+ySudTr4GrtQnfNP8zXcJal6I0z/Lxd4
+	 NQLHxX7HRvaJiICWvCkbJFAbuQHV+etv1HfELOGjfuG33Vjdc02QoslRC1hTJZl8XI
+	 AzMtXKzEaFFNfhHhyWRxgWDDI5vUbSEv2Vt9wEhC6SXPmGepCDOJBHclNYsO9cR3p8
+	 IjdtD+rnJ4C6Q==
+From: Lee Jones <lee@kernel.org>
+To: catalin.marinas@arm.com, will@kernel.org, lee@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ arnd@arndb.de, Robert Marko <robert.marko@sartura.hr>
+In-Reply-To: <20250131171739.1044701-2-robert.marko@sartura.hr>
+References: <20250131171739.1044701-1-robert.marko@sartura.hr>
+ <20250131171739.1044701-2-robert.marko@sartura.hr>
+Subject: Re: (subset) [PATCH v5 2/2] mfd: at91-usart: make it selectable
+ for ARCH_LAN969X
+Message-Id: <173926928672.2065569.7282528185747912475.b4-ty@kernel.org>
+Date: Tue, 11 Feb 2025 10:21:26 +0000
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.94.13.218]
-tUid: 20252111820535fc6f945271858da8867862091790480
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_022104_237707_9F2628F0 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20250211_022130_020803_E5F9CCFC 
+X-CRM114-Status: UNSURE (   5.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,42 +72,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: luka.perkov@sartura.hr, daniel.machon@microchip.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kasprintf() calls can return null pointers on failure.
-But some return values were not checked in zynqmp_audio_init().
+On Fri, 31 Jan 2025 18:14:10 +0100, Robert Marko wrote:
+> LAN969x uses the AT91 USART IP so make it selectable for ARCH_LAN969X.
+> 
+> 
 
-Add NULL check in zynqmp_audio_init(), avoid referencing null
-pointers in the subsequent code.
+Applied, thanks!
 
-Signed-off-by: Charles Han <hanchunchao@inspur.com>
----
- drivers/gpu/drm/xlnx/zynqmp_dp_audio.c | 4 ++++
- 1 file changed, 4 insertions(+)
+[2/2] mfd: at91-usart: make it selectable for ARCH_LAN969X
+      commit: d075bed61594009df64055630af2e8754fc95b78
 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-index fa5f0ace6084..f07ff4eb3a6d 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
-@@ -323,12 +323,16 @@ int zynqmp_audio_init(struct zynqmp_dpsub *dpsub)
- 
- 	audio->dai_name = devm_kasprintf(dev, GFP_KERNEL,
- 					 "%s-dai", dev_name(dev));
-+	if (!audio->dai_name)
-+		return -ENOMEM;
- 
- 	for (unsigned int i = 0; i < ZYNQMP_NUM_PCMS; ++i) {
- 		audio->link_names[i] = devm_kasprintf(dev, GFP_KERNEL,
- 						      "%s-dp-%u", dev_name(dev), i);
- 		audio->pcm_names[i] = devm_kasprintf(dev, GFP_KERNEL,
- 						     "%s-pcm-%u", dev_name(dev), i);
-+		if (!audio->link_names[i] || !audio->pcm_names[i])
-+			return -ENOMEM;
- 	}
- 
- 	audio->base = devm_platform_ioremap_resource_byname(pdev, "aud");
--- 
-2.43.0
+--
+Lee Jones [李琼斯]
 
 
