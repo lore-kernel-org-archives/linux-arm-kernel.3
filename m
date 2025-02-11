@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9BAC021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A42FC021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w7aQj+gmxFGffDooAQXG5nA8FG9a9s0roNQSu0wN58o=; b=b4dByV3fJwvbgk6tBhHXYDePT+
-	2a65dAM+6X/to3lhlX6SB6myJv61NVRn4Hm5c4PsIkalPxqPXHiojrg3W/N4UesXP2S52HL9RsZnj
-	y7d9kZYvV7ZBONBbMkXTx2dqeWyt9JW2bxJrBWCZJZTT7928vsXfnkLO36FHQ1lRtdBO7LLOWiz0y
-	YysvdT5VQCBla61Tk8bwoyEdK4CzEP0TqJ9M+wo1MhIYSthXpNt3eP3N8iaczlFx2hgOw9tzHTZ5i
-	ePv9Kiqfns7mK4vfDSfjktyMx5Uf/K7pBvada6Q3sXzYjCnORuVi7DZGWgsa987VhsgkoKTvz/j98
-	5BjumMNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PR937MKov7698ZKKXNDbmvVpccCMvHeGhDEc93munOk=; b=QOSiOzG0qCQpHeli2A8MMJtHad
+	LGGFJAHG+1tPYdYkkVbbYzHz53vyReAzzCyWzGAvCAayBTIHxJChs5gEc70/hXSgscVjd+MHwwFWH
+	fUE5CMg3u79oUGAkjWAlh9kp3/zr2BaZeBhCFq9Y3QVUs/9cFNsDF8coW80oWEF2V7R4DI4BmWPm1
+	/YHXJTFtDxqPcCFuK4ohPGiZDbHzsRhf7L90mw4vfjVdD/q73XvOZmj3ncK+lPA/0pXDHrbB6hEa/
+	q9vd+HRGUU2QsaYk1peOHVZUWhbr+HDbIJpeiPOD6gWIcL24q206W//dOgmc8V8plqbX0pRV7JZce
+	tIbv+sWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tho2f-00000003Sd7-1Ozw;
-	Tue, 11 Feb 2025 11:03:01 +0000
+	id 1tho43-00000003T4R-2e8e;
+	Tue, 11 Feb 2025 11:04:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnqt-00000003QK6-2RYl;
-	Tue, 11 Feb 2025 10:50:52 +0000
+	id 1thnuC-00000003Qtr-0Y65
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 10:54:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 78EE75C10F3;
-	Tue, 11 Feb 2025 10:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D78EC4CEE4;
-	Tue, 11 Feb 2025 10:50:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 861D95C109F;
+	Tue, 11 Feb 2025 10:53:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C53B8C4CEDD;
+	Tue, 11 Feb 2025 10:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739271050;
-	bh=013p6U9CkyzGbsFMDw5hD4LtqAl6uIDMuNEstJ38EU4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WY+6xnxVmSDxLNxTyv2FsAUgLaXUGS7FvHBvsBWLGeg6ohEEo/EnnCLl6QcwwctMZ
-	 LzuoHFo4xJZTMmWSreF8xvpn8B5Y9JRiDYcvsRyFOqD/JnE9m2Cgvg/UblMxnXaf9h
-	 qZTufFjmLAALumQ45jOmnsv2dig7BUpqT5dZmMNE/2vJMdCYH2x7BvsVS1cvMyTWJd
-	 EVtX+8+fd2g7aZ/1rTN0QqqrKH8zmcGr20Z1byhEcnM4Txr2Xi18QjQUqkLYUrMUwi
-	 p//l+oAdhcnxtNWFQ3JVEZEaUGWnthIUirtpLxYtxr2AXGzFO+sEej+nmE/bllDE4t
-	 soBfwy0okj4OQ==
-Date: Tue, 11 Feb 2025 10:50:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: soc@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org,
-	Haylen Chu <heylenay@outlook.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
-	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
-Subject: Re: [PATCH v2 0/7] arm64 support for Milk-V Duo Module 01 EVB
-Message-ID: <20250211-backwash-jester-2fdd6740000e@spud>
-References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+	s=k20201202; t=1739271254;
+	bh=gvR5Gc98h3L06ABJw2i/dOoJfPGho486AqmDRVgdMOA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HFSyAug4djM4VTvlW8FibumaKBvYyycTQ4EuBGQg8H5bkMvWCWMXnONvdHt9B5GFN
+	 frKMeJW+8w7G1xoiQ8pt8HXhKr2tYRgSTe3qyynJDGh24UhvdfCsKtQV+KR7YBi8le
+	 5diAMPikhsHrZSQl+TkZP0MHa42H5WEVw3PpoIbTSe5X1p13cJIwaSbrfMciwibS7U
+	 4Cxb4ykpw3hkE1hZKRnB1LoNd6558478BJs4sy5ONvOV8Dw5f41i2YMROyaefMkbJz
+	 rcwGCRmeMbGRN8qYD36jvOVbM4UIN4rAX0/0GWyYTtwrkJYKR7f5QREt8rlkzmpZbs
+	 8qluE4hc/fEfg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thnu7-002wLB-Uj;
+	Tue, 11 Feb 2025 10:54:12 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	eauger@redhat.com,
+	eric.auger@redhat.com,
+	fweimer@redhat.com,
+	jeremy.linton@arm.com,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	wilco.dijkstra@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH v3 0/8] KVM: arm64: FPSIMD/SVE/SME fixes
+Date: Tue, 11 Feb 2025 10:54:08 +0000
+Message-Id: <173927124349.2205649.5810375580627240253.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250210195226.1215254-1-mark.rutland@arm.com>
+References: <20250210195226.1215254-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tVnH0HVkr/l99Dz5"
-Content-Disposition: inline
-In-Reply-To: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com, fweimer@redhat.com, jeremy.linton@arm.com, oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org, tabba@google.com, wilco.dijkstra@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_025051_703291_5D033B1E 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250211_025416_215272_02C43309 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 10 Feb 2025 19:52:18 +0000, Mark Rutland wrote:
+> These patches fix some issues with the way KVM manages FPSIMD/SVE/SME
+> state. The series supersedes my earlier attempt at fixing the host SVE
+> state corruption issue:
+> 
+>   https://lore.kernel.org/linux-arm-kernel/20250121100026.3974971-1-mark.rutland@arm.com/
+> 
+> Patch 1 addresses the host SVE state corruption issue by always saving
+> and unbinding the host state when loading a vCPU, as discussed on the
+> earlier patch:
+> 
+> [...]
 
---tVnH0HVkr/l99Dz5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied to fixes, thanks!
 
-On Mon, Feb 10, 2025 at 11:09:40PM +0100, Alexander Sverdlin wrote:
-> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> been chosen because the upstream toolchain can be utilized.
+[1/8] KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+      commit: b671313b36591cab3d4cb4fe40ffdbac213635d1
+[2/8] KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+      commit: f000c2b1bcb471e35bb65cc0f0c31cb18d8677d8
+[3/8] KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+      commit: 82695cf636f155917eae61b9f86565184a683d76
+[4/8] KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+      commit: 8adb7db3c85f917ca59a76205e4be1ee82a289da
+[5/8] KVM: arm64: Refactor CPTR trap deactivation
+      commit: 1afdd3f832570aa27ae82819020bd319820337ce
+[6/8] KVM: arm64: Refactor exit handlers
+      commit: d59128af7ac954f80636548a60f1b1b41a7d067f
+[7/8] KVM: arm64: Mark some header functions as inline
+      commit: 03ce3e0db4f42252de4eeae01c5e5fa832af7585
+[8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+      commit: 9a053b84b508b32b824d4a088cf3f5091a3e7c15
 
->  .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
->  arch/arm64/Kconfig.platforms                  |  6 ++
->  arch/arm64/boot/dts/Makefile                  |  1 +
->  arch/arm64/boot/dts/sophgo/Makefile           |  2 +
+Cheers,
 
-I'd expect this to be maintained alongside the riscv support, how come
-there's no maintainers entry change here?
-
->  .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++
->  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++
->  arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 75 +++++++++++++++
->  arch/arm64/configs/defconfig                  |  5 +
->  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 64 ++++++++++---
->  arch/riscv/boot/dts/sophgo/cv1812h.dtsi       | 64 ++++++++++---
->  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |  2 +-
->  arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi    | 57 ++++++++++++
->  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 91 +++++--------------
->  arch/riscv/boot/dts/sophgo/sg2002.dtsi        | 64 ++++++++++---
->  14 files changed, 451 insertions(+), 103 deletions(-)
->  rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (80%)
->  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
 
---tVnH0HVkr/l99Dz5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6srgQAKCRB4tDGHoIJi
-0puLAQCT0dLjiS8f39e7ltuZPdGjdh8a4aC4NpEw33b3OSuNugD/Z7NyHS2OtCHX
-teoIJE271CYirlmdAMsth4TJLf2e/w4=
-=lK/q
------END PGP SIGNATURE-----
-
---tVnH0HVkr/l99Dz5--
 
