@@ -4,83 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98E8C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9822CC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRrhfUJMLcwm7jDOJxXzWOi3iNVvaHl+As0hJI1I3+s=; b=tmbghZ3sGuBOXZLn/mQgH/j/Jm
-	OFV+m2FfUVRWv6ygJFWjGPPrK/AfiRId1meweakwvqFgXfQeKOlHQB2aBlAD97D12M5EfsvoDGpnB
-	PFtMGrtaumHWH7gEMLMtQ8tjFcjhFJn6xEhJmpb13uSUeofbAS/S7de0nAJZQ04LbjWUvXFlfheQj
-	ur9CqzzjL+MNl6nKEUCqnk46zkd+Sbk9UGPE0l2i7QLjx1BDNB+nt+9YcmsP/vRW8Aq50PLG/XWYy
-	xy7pVC1bNkg1CqHVHgRPQisXtMK/a95hvqj6muV+KoTswWGrPKUG8yfMuybMzdF1WOoWO7dWBu7D3
-	SuZ4bSJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2sOvELaY1aZJTewIgm34TTNGoydZHHQrExKUpRVX1RA=; b=uS1aAXKMgpOnSEZZXEwJtwXDza
+	hXKGgVVIZrs6a0YXNN/WTwMWwXKfGFXjxiEM3Bn+YXOk/dHaoJdWaMFWEuIYQIplRAEAszSfJ+1Rs
+	IU+6kJq7a3OSJkwvT42OH4hrcOxCwK8P8I28sIWoBYEDOhcvm08hP2TVNtr5ZD8IZm3W6pasx+D7A
+	HZ0puw/Amjck4DURWN8UjBY1Z6Woomnr3VfGZMXwRCGphlD260ODMdlIjLaARfR+yaBbPtHynGa2R
+	B3GKGHShBCZo6MdcySz6/n6gXlxPFJAajO6M7f7pGeOTn1Hg8exhvCNu7ne4GLaZzk9I1u9yybJwL
+	0+GOg5gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwZ7-000000059Kz-3InT;
-	Tue, 11 Feb 2025 20:09:05 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwUE-000000058dK-2ZML
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 20:04:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739304243; x=1770840243;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+AX2bjNWcBgeVuZYMnS0XA3xsjmS3gSf31qR7edUe2k=;
-  b=PAacz2XzwxUSYFRikJ+L0udtVEXGC5TOfcRMxoRzpDQU3gG/ARKr6BOP
-   P2cszckA5ubD9jEGSos4rq61SlbLSsUxp8OAvmAm8eehaBWaqy+hkWXK/
-   F6/XilzvM4D3AjUVv1kWg8RMfoozZoy//L/c5d68s3QQUcRRAyvJ75j2T
-   rD3kcWiP22iNt0PWBcjdXzyP6IrDVEoHuReCWhplHKfkuHaqcyI23/Azj
-   yAAYs8g9J2UHR9eI9Yw7W1JdaoXAXrN9bCIaLOgmYI0f4oRsBs+mCruW2
-   7b2+00hgMUvmFBKqetysWdbBRK4im68Y4OiNQhie9ShD4ezn317VRlpwV
-   w==;
-X-CSE-ConnectionGUID: bvbw3uJ3R72j9hui8EX2rQ==
-X-CSE-MsgGUID: LxXMDPkiRheI/SkDmRthWg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="50576427"
-X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
-   d="scan'208";a="50576427"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 12:04:02 -0800
-X-CSE-ConnectionGUID: oU7pHzeYQ9GS8dLDNz4nMg==
-X-CSE-MsgGUID: 8aqitMpsRn2oSq0VGocsVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
-   d="scan'208";a="112569720"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 11 Feb 2025 12:03:57 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1thwU6-0014eB-3A;
-	Tue, 11 Feb 2025 20:03:54 +0000
-Date: Wed, 12 Feb 2025 04:03:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
-	linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v8 3/3] clk: aspeed: add AST2700 clock driver
-Message-ID: <202502120324.m723zyqS-lkp@intel.com>
-References: <20250210085004.1898895-4-ryan_chen@aspeedtech.com>
+	id 1thwZ6-000000059J7-2N4R;
+	Tue, 11 Feb 2025 20:09:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thwTR-000000058a7-1FqK;
+	Tue, 11 Feb 2025 20:03:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 284F513D5;
+	Tue, 11 Feb 2025 12:03:33 -0800 (PST)
+Received: from [10.57.35.63] (unknown [10.57.35.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC8EA3F5A1;
+	Tue, 11 Feb 2025 12:03:09 -0800 (PST)
+Message-ID: <c9f1eced-679b-491e-9014-a1ea14120081@arm.com>
+Date: Tue, 11 Feb 2025 20:03:07 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250210085004.1898895-4-ryan_chen@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: disable IOMMU when running rk3588
+ in PCIe endpoint mode
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Damien Le Moal <dlemoal@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+References: <20250207143900.2047949-2-cassel@kernel.org>
+ <7996d1ec-6ceb-4d8a-bf03-1911ac5f8f0c@arm.com> <Z6uomtzSVTOmAB8X@ryzen>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <Z6uomtzSVTOmAB8X@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_120402_699473_D39E22DE 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250211_120313_433949_CCD98B1E 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,254 +68,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On 2025-02-11 7:44 pm, Niklas Cassel wrote:
+> Hello Robin,
+> 
+> On Tue, Feb 11, 2025 at 05:49:29PM +0000, Robin Murphy wrote:
+>> On 2025-02-07 2:39 pm, Niklas Cassel wrote:
+>>> Commit da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU
+>>> on the rk3588 SoC") enabled the mmu600_pcie IOMMU, both in the normal case
+>>> (when all PCIe controllers are running in Root Complex mode) and in the
+>>> case when running the pcie3x4 PCIe controller in Endpoint mode.
+>>>
+>>> There have been no issues detected when running the PCIe controllers in
+>>> Root Complex mode. During PCI probe time, we will add a SID to the IOMMU
+>>> for each PCI device enumerated on the bus, including the root port itself.
+>>>
+>>> However, when running the pcie3x4 PCIe controller in Endpoint mode, we
+>>> will only add a single SID to the IOMMU (the SID specified in the iommus
+>>> DT property).
+>>>
+>>> The enablement of IOMMU in endpoint mode was verified on setup with two
+>>> Rock 5b:s, where the BDF of the Root Complex has BDF (00:00.0).
+>>>
+>>> A Root Complex sending a TLP to the Endpoint will have Requester ID set
+>>> to the BDF of the initiator. On the EP side, the Requester ID will then
+>>> be used as the SID. This works fine if the Root Complex has a BDF that
+>>> matches the iommus DT property, however, if the Root Complex has any other
+>>> BDF, we will see something like:
+>>> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
+>>> on the endpoint side.
+>>>
+>>> For PCIe controllers running in endpoint mode that always uses the
+>>> incoming Requester ID as the SID, the iommus DT property simply isn't
+>>> a viable solution. (Neither is iommu-map a viable solution, as there is
+>>> no enumeration done on the endpoint side.)
+>>
+>> Well, strictly the controller should own all the StreamIDs it's capable of
+>> emitting - if that's just one per possible bus number (as the iATU
+>> FUNC_NUM/FUNC_BYPASS stuff appears to suggest?) then 256 "iommus" entries
+>> isn't *entirely* unmanageable. If it were to support being arbitrary (or
+>> multiple) devices/functions, though, then we probably would want to look for
+>> a different solution, because nobody wants a 512KB DT property... :)
+> 
+> Well, FUNC_BYPASS and FUNC_NUM is in the IATU_REGION_CTRL_1_OFF_OUTBOUND_i
+> register, so it is for outbound PCI TLPs, not inbound PCI TLPs.
+> (Only inbound PCI TLPs will get sent to the IOMMU after passing the iATU).
+> 
+> There is FUNC_NUM in IATU_REGION_CTRL_1_OFF_INBOUND_i register, but it has
+> a different meaning. (An inbound PCI TLP will only get translated if the
+> FUNC_NUM matches the value in this register).
+> (This check is only performed if the "Function Number Match Enable" bit
+> of the "iATU Region Control 2 Register" is set.)
 
-kernel test robot noticed the following build warnings:
+Sigh, the "i" in iATU doesn't stand for "inbound", does it... major 
+brain fart there.
 
-[auto build test WARNING on clk/clk-next]
-[also build test WARNING on pza/reset/next linus/master v6.14-rc2 next-20250210]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> The SMMU on the rock5b, when running the PCIe controller in endpoint mode,
+> has printed the following:
+> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
+> but also:
+> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x20 ssid: 0x0
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-binding-clock-ast2700-modify-soc0-1-clock-define/20250210-165421
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-patch link:    https://lore.kernel.org/r/20250210085004.1898895-4-ryan_chen%40aspeedtech.com
-patch subject: [PATCH v8 3/3] clk: aspeed: add AST2700 clock driver
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250212/202502120324.m723zyqS-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502120324.m723zyqS-lkp@intel.com/reproduce)
+Yeah, that one pretty much settles it - we can certainly expect host 
+root ports with nonzero device numbers, so that's at least 13 bits of 
+the StreamID space to cover, which isn't going to fly.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502120324.m723zyqS-lkp@intel.com/
+> depending on which host system we had connected to it.
+> 
+> So I'm a bit worried that 256 "iommus" entries will not be enough.
+> 
+> I don't have any idea on how to solve this, but right now I don't see any
+> other option but to disable the IOMMU when running the PCIe controller in
+> endpoint mode.
 
-All warnings (new ones prefixed by >>):
+Agreed; FWIW, for the patch as it is:
 
-   In file included from drivers/clk/clk-ast2700.c:11:
-   In file included from include/linux/platform_device.h:13:
-   In file included from include/linux/device.h:32:
-   In file included from include/linux/device/driver.h:21:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/s390/include/asm/elf.h:181:
-   In file included from arch/s390/include/asm/mmu_context.h:11:
-   In file included from arch/s390/include/asm/pgalloc.h:18:
-   In file included from include/linux/mm.h:2224:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
->> drivers/clk/clk-ast2700.c:209:37: warning: unused variable 'soc0_mpll_div8' [-Wunused-const-variable]
-     209 | static const struct clk_parent_data soc0_mpll_div8[] = {
-         |                                     ^~~~~~~~~~~~~~
->> drivers/clk/clk-ast2700.c:237:37: warning: unused variable 'soc0_ahb' [-Wunused-const-variable]
-     237 | static const struct clk_parent_data soc0_ahb[] = {
-         |                                     ^~~~~~~~
->> drivers/clk/clk-ast2700.c:337:37: warning: unused variable 'uart13clk' [-Wunused-const-variable]
-     337 | static const struct clk_parent_data uart13clk[] = {
-         |                                     ^~~~~~~~~
->> drivers/clk/clk-ast2700.c:341:37: warning: unused variable 'uart14clk' [-Wunused-const-variable]
-     341 | static const struct clk_parent_data uart14clk[] = {
-         |                                     ^~~~~~~~~
->> drivers/clk/clk-ast2700.c:345:37: warning: unused variable 'uart15clk' [-Wunused-const-variable]
-     345 | static const struct clk_parent_data uart15clk[] = {
-         |                                     ^~~~~~~~~
->> drivers/clk/clk-ast2700.c:349:37: warning: unused variable 'uart16clk' [-Wunused-const-variable]
-     349 | static const struct clk_parent_data uart16clk[] = {
-         |                                     ^~~~~~~~~
->> drivers/clk/clk-ast2700.c:353:37: warning: unused variable 'soc1_ahb' [-Wunused-const-variable]
-     353 | static const struct clk_parent_data soc1_ahb[] = {
-         |                                     ^~~~~~~~
->> drivers/clk/clk-ast2700.c:369:37: warning: unused variable 'd_clk_sels' [-Wunused-const-variable]
-     369 | static const struct clk_parent_data d_clk_sels[] = {
-         |                                     ^~~~~~~~~~
-   11 warnings generated.
+Acked-by: Robin Murphy <robin.murphy@arm.com>
 
+> (We have no issues when running with the iommu enabled when running the PCIe
+> controller(s) in Root Complex mode.)
+> 
+> 
+> Kind regards,
+> Niklas
 
-vim +/soc0_mpll_div8 +209 drivers/clk/clk-ast2700.c
-
-   208	
- > 209	static const struct clk_parent_data soc0_mpll_div8[] = {
-   210		{ .fw_name = "soc0-mpll_div8", .name = "soc0-mpll_div8" },
-   211	};
-   212	
-   213	static const struct clk_parent_data mphysrc[] = {
-   214		{ .fw_name = "mphysrc", .name = "mphysrc" },
-   215	};
-   216	
-   217	static const struct clk_parent_data u2phy_refclksrc[] = {
-   218		{ .fw_name = "u2phy_refclksrc", .name = "u2phy_refclksrc" },
-   219	};
-   220	
-   221	static const struct clk_parent_data soc0_hpll[] = {
-   222		{ .fw_name = "soc0-hpll", .name = "soc0-hpll" },
-   223	};
-   224	
-   225	static const struct clk_parent_data soc0_mpll[] = {
-   226		{ .fw_name = "soc0-mpll", .name = "soc0-mpll" },
-   227	};
-   228	
-   229	static const struct clk_parent_data axi0clk[] = {
-   230		{ .fw_name = "axi0clk", .name = "axi0clk" },
-   231	};
-   232	
-   233	static const struct clk_parent_data soc0_ahbmux[] = {
-   234		{ .fw_name = "soc0-ahbmux", .name = "soc0-ahbmux" },
-   235	};
-   236	
- > 237	static const struct clk_parent_data soc0_ahb[] = {
-   238		{ .fw_name = "soc0-ahb", .name = "soc0-ahb" },
-   239	};
-   240	
-   241	static const struct clk_parent_data soc0_uartclk[] = {
-   242		{ .fw_name = "soc0-uartclk", .name = "soc0-uartclk" },
-   243	};
-   244	
-   245	static const struct clk_parent_data emmcclk[] = {
-   246		{ .fw_name = "emmcclk", .name = "emmcclk" },
-   247	};
-   248	
-   249	static const struct clk_parent_data emmcsrc_mux[] = {
-   250		{ .fw_name = "emmcsrc-mux", .name = "emmcsrc-mux" },
-   251	};
-   252	
-   253	static const struct clk_parent_data soc1_clkin[] = {
-   254		{ .fw_name = "soc1-clkin", .name = "soc1-clkin" },
-   255	};
-   256	
-   257	static const struct clk_parent_data soc1_hpll[] = {
-   258		{ .fw_name = "soc1-hpll", .name = "soc1-hpll" },
-   259	};
-   260	
-   261	static const struct clk_parent_data soc1_apll[] = {
-   262		{ .fw_name = "soc1-apll", .name = "soc1-apll" },
-   263	};
-   264	
-   265	static const struct clk_parent_data sdclk[] = {
-   266		{ .fw_name = "sdclk", .name = "sdclk" },
-   267	};
-   268	
-   269	static const struct clk_parent_data sdclk_mux[] = {
-   270		{ .fw_name = "sdclk-mux", .name = "sdclk-mux" },
-   271	};
-   272	
-   273	static const struct clk_parent_data huartxclk[] = {
-   274		{ .fw_name = "huartxclk", .name = "huartxclk" },
-   275	};
-   276	
-   277	static const struct clk_parent_data uxclk[] = {
-   278		{ .fw_name = "uxclk", .name = "uxclk" },
-   279	};
-   280	
-   281	static const struct clk_parent_data huxclk[] = {
-   282		{ .fw_name = "huxclk", .name = "huxclk" },
-   283	};
-   284	
-   285	static const struct clk_parent_data uart0clk[] = {
-   286		{ .fw_name = "uart0clk", .name = "uart0clk" },
-   287	};
-   288	
-   289	static const struct clk_parent_data uart1clk[] = {
-   290		{ .fw_name = "uart1clk", .name = "uart1clk" },
-   291	};
-   292	
-   293	static const struct clk_parent_data uart2clk[] = {
-   294		{ .fw_name = "uart2clk", .name = "uart2clk" },
-   295	};
-   296	
-   297	static const struct clk_parent_data uart3clk[] = {
-   298		{ .fw_name = "uart3clk", .name = "uart3clk" },
-   299	};
-   300	
-   301	static const struct clk_parent_data uart5clk[] = {
-   302		{ .fw_name = "uart5clk", .name = "uart5clk" },
-   303	};
-   304	
-   305	static const struct clk_parent_data uart4clk[] = {
-   306		{ .fw_name = "uart4clk", .name = "uart4clk" },
-   307	};
-   308	
-   309	static const struct clk_parent_data uart6clk[] = {
-   310		{ .fw_name = "uart6clk", .name = "uart6clk" },
-   311	};
-   312	
-   313	static const struct clk_parent_data uart7clk[] = {
-   314		{ .fw_name = "uart7clk", .name = "uart7clk" },
-   315	};
-   316	
-   317	static const struct clk_parent_data uart8clk[] = {
-   318		{ .fw_name = "uart8clk", .name = "uart8clk" },
-   319	};
-   320	
-   321	static const struct clk_parent_data uart9clk[] = {
-   322		{ .fw_name = "uart9clk", .name = "uart9clk" },
-   323	};
-   324	
-   325	static const struct clk_parent_data uart10clk[] = {
-   326		{ .fw_name = "uart10clk", .name = "uart10clk" },
-   327	};
-   328	
-   329	static const struct clk_parent_data uart11clk[] = {
-   330		{ .fw_name = "uart11clk", .name = "uart11clk" },
-   331	};
-   332	
-   333	static const struct clk_parent_data uart12clk[] = {
-   334		{ .fw_name = "uart12clk", .name = "uart12clk" },
-   335	};
-   336	
- > 337	static const struct clk_parent_data uart13clk[] = {
-   338		{ .fw_name = "uart13clk", .name = "uart13clk" },
-   339	};
-   340	
- > 341	static const struct clk_parent_data uart14clk[] = {
-   342		{ .fw_name = "uart14clk", .name = "uart14clk" },
-   343	};
-   344	
- > 345	static const struct clk_parent_data uart15clk[] = {
-   346		{ .fw_name = "uart15clk", .name = "uart15clk" },
-   347	};
-   348	
- > 349	static const struct clk_parent_data uart16clk[] = {
-   350		{ .fw_name = "uart16clk", .name = "uart16clk" },
-   351	};
-   352	
- > 353	static const struct clk_parent_data soc1_ahb[] = {
-   354		{ .fw_name = "soc1-ahb", .name = "soc1-ahb" },
-   355	};
-   356	
-   357	static const struct clk_parent_data soc1_i3c[] = {
-   358		{ .fw_name = "soc1-i3c", .name = "soc1-i3c" },
-   359	};
-   360	
-   361	static const struct clk_parent_data canclk[] = {
-   362		{ .fw_name = "canclk", .name = "canclk" },
-   363	};
-   364	
-   365	static const struct clk_parent_data rmii[] = {
-   366		{ .fw_name = "rmii", .name = "rmii" },
-   367	};
-   368	
- > 369	static const struct clk_parent_data d_clk_sels[] = {
-   370		{ .fw_name = "soc0-hpll_div2", .name = "soc0-hpll_div2" },
-   371		{ .fw_name = "soc0-mpll_div2", .name = "soc0-mpll_div2" },
-   372	};
-   373	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
