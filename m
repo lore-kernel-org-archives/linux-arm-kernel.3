@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54320C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE962C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L69y/uzAaMPM5p5myJ1q89zBjOxQLTWguXE7u71IFmc=; b=ZAjKgvPqrhKdIKUG8tqSoH8dKx
-	9omTRN3fVkaYFEbuDa4952PEN1uw62cSFrShgOCNxdmaVH5gPU1GVVSOPHCHR2BZCa8/Vbcp4QfsY
-	SLF30HEBWpwV9gCd9my0M76ekK7uN2U4B2ZtOvJs7ZSAjU0o/mBS6KOaet6pFum3FOvzDIl1iH367
-	LE0gvcIgAQEq3hfsr7g/jljZf9SbTXP6ygtkrL54VKMXaDKl4EneQNVhMMiL93dvC+x/AS8hLbr6A
-	ru/hyaQWDLmv6zLb7Jr5MqW8HKr1zT7X4XVCV0vNwSC0EaCxhbWrpJ46nbODK4MRVETRzPryUmURx
-	7YJtDXvA==;
+	bh=H5X7mNS0fzaFL/Jeh+IGtto2CR/ZZblr9gdWcO8Sg48=; b=2c+DQODeXGB/dT1udc3wr6oZyw
+	HcwXO6na4lkaZvpPlzKL+HHS/Dou5273+kFCXbP8u46G7WRxk0NSGGxT+D2szKZzNbUAcmxgqGO2M
+	4QvGKyl+cVG4OH//wgTn6tEmyM/cj6i7XNvlMyuYcKGHr10Ri9rTTnLSaz3x+Cda5gZGUTjrmVRnR
+	AjlKAEnRee7dg0GCo8VrwRK9tvXU1CNFtca5wKrNnyVfAhANPZimWcSRiuFMDxcZ4P3Dt5is5sTtD
+	dA3Q7TiJcP28wRq80q/T+NEJpHu5R8AY9poZVynqo+XCxLUakgfrfrp7olkRQ4NVON9U9GaBQw4TY
+	6SomeU5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlir-000000030YW-3geU;
-	Tue, 11 Feb 2025 08:34:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thlnm-000000031TB-3xUT;
+	Tue, 11 Feb 2025 08:39:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlgH-000000030CH-14R1;
-	Tue, 11 Feb 2025 08:31:46 +0000
+	id 1thlmM-000000031Ia-1HJu;
+	Tue, 11 Feb 2025 08:38:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA68D5C0450;
-	Tue, 11 Feb 2025 08:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A9EC4CEE4;
-	Tue, 11 Feb 2025 08:31:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C93F1A400C6;
+	Tue, 11 Feb 2025 08:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BA10C4CEDD;
+	Tue, 11 Feb 2025 08:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739262704;
-	bh=dl4uLU/iQ9rF6gTfpw7fZJVHUwDfPTBp/2QbqtbcdMU=;
+	s=k20201202; t=1739263081;
+	bh=acDJAoI2Hy9Ib3oKvNTqC5QM2P0qdH2TPw3xnelV7Aw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uW3bFcrkqwYvblTFtITmlt7YgN6TQjfuDtO7NcfQLqANFXCSeoow4sAmntrkPX7iy
-	 Kqzx2sAfCnjHst5aKcYZCH29j82/TGmS8xCwf6VIsY5pDdbq8rq5Z/kd/RC1MFVYqh
-	 3GrkNQpVhidgSRHGM3JolbQXqbQ/ETWnnZD97MrnQAyimp5UoLE4J6yl+RqeYo/Tet
-	 bZf4vDyqkRSaLS4kfDjUMqk8fjgwSBEybDGo5Ax6PiY5ssufmGoKmUtwFicoV0VQvF
-	 yjbqmU0Vd6S3Iif/zW6nFW0tlSJpjUxETSKuwmbX84fhas40cyonZArnEJLF/DfhC6
-	 0N7iwWY7Cy4CA==
-Date: Tue, 11 Feb 2025 09:31:40 +0100
+	b=ZKc2PE6UVRp+bbtAjc45TWebgPOJ3XvV+R4FKs0hwT7YQvom7Gc2tdw4AlDDH/gCK
+	 fEu9mhJNsNjcYEU4y7jH5SkbfWHqJpHzBzbj/t3Y2lzpn6aSIIZfrEdqjrm47e5O8j
+	 UqfOooY02/rHae3bIhMBz5XW/Ui1srWUPKF9mGL69E3sUO5c/LQyZKt9kpIlrBuEIv
+	 Lr2oI2qGEjajZTYdz/tsgr5RYcmZ/b5ZyK9xEDR5OTTtL7DrS2hdm1v0lfSxUwHHh2
+	 Rh6o8o3qx3VGDiIoGocinaEQlfEbAW7Z3OEfIoMhKO75UkbUVSSUqEDpKvMypA1ibz
+	 aXDVKjQIY67fA==
+Date: Tue, 11 Feb 2025 09:37:57 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	Steven Price <steven.price@arm.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: mediatek: mt8370: Enable gpu support
-Message-ID: <20250211-nice-boar-of-abracadabra-f696ec@krzk-bin>
-References: <20250207-mt8370-enable-gpu-v3-0-75e9b902f9c1@collabora.com>
- <20250207-mt8370-enable-gpu-v3-3-75e9b902f9c1@collabora.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
+	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+	Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, upstream@airoha.com
+Subject: Re: [PATCH net-next v3 11/16] dt-bindings: arm: airoha: Add the NPU
+ node for EN7581 SoC
+Message-ID: <20250211-judicious-polite-capuchin-ff8cdf@krzk-bin>
+References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
+ <20250209-airoha-en7581-flowtable-offload-v3-11-dba60e755563@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250207-mt8370-enable-gpu-v3-3-75e9b902f9c1@collabora.com>
+In-Reply-To: <20250209-airoha-en7581-flowtable-offload-v3-11-dba60e755563@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_003145_351039_B15803D6 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250211_003802_481004_ABB23A19 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 04:18:32PM +0100, Louis-Alexis Eyraud wrote:
-> Add a new gpu node in mt8370.dtsi to enable support for the
-> ARM Mali G57 MC2 GPU (Valhall-JM) found on the MT8370 SoC, using the
-> Panfrost driver.
+On Sun, Feb 09, 2025 at 01:09:04PM +0100, Lorenzo Bianconi wrote:
+> This patch adds the NPU document binding for EN7581 SoC.
+> The Airoha Network Processor Unit (NPU) provides a configuration interface
+> to implement wired and wireless hardware flow offloading programming Packet
+> Processor Engine (PPE) flow table.
 > 
-> On a Mediatek Genio 510 EVK board, the panfrost driver probed with the
-> following message:
-> ```
-> panfrost 13000000.gpu: clock rate = 390000000
-> panfrost 13000000.gpu: mali-g57 id 0x9093 major 0x0 minor 0x0 status 0x0
-> panfrost 13000000.gpu: features: 00000000,000019f7, issues: 00000003,
->    80000400
-> panfrost 13000000.gpu: Features: L2:0x08130206 Shader:0x00000000
->    Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> panfrost 13000000.gpu: shader_present=0x5 l2_present=0x1
-> [drm] Initialized panfrost 1.3.0 for 13000000.gpu on minor 0
-> ```
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  arch/arm64/boot/dts/mediatek/mt8370.dtsi | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  .../devicetree/bindings/arm/airoha,en7581-npu.yaml | 71 ++++++++++++++++++++++
+>  1 file changed, 71 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8370.dtsi b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-> index cf1a3759451ff899ce9e63e5a00f192fb483f6e5..2f27f7e7ab813b97f869297ae360f69854e966e1 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8370.dtsi
-> @@ -59,6 +59,15 @@ &cpu_little3_cooling_map0 {
->  				<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
->  };
->  
-> +&gpu {
-> +	compatible = "mediatek,mt8370-mali", "arm,mali-valhall-jm";
+> diff --git a/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a5bcfa299e7cd54f51e70f7ded113f1efcd3e8b7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
 
-It's up to platform maintainers, but IMHO this is discouraged practice.
-If you ever need to override compatible, this means the node is not
-really shared between this and base SoC (base DTSI).
+arm is for top-level nodes, this has to go to proper directory or as
+last-resort to the soc.
+
+> @@ -0,0 +1,71 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/airoha,en7581-npu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Airoha Network Processor Unit for EN7581 SoC
+> +
+> +maintainers:
+> +  - Lorenzo Bianconi <lorenzo@kernel.org>
+> +
+> +description:
+> +  The Airoha Network Processor Unit (NPU) provides a configuration interface
+> +  to implement wired and wireless hardware flow offloading programming Packet
+> +  Processor Engine (PPE) flow table.
+
+Sounds like network device, so maybe net?
+
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - airoha,en7581-npu
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 15
+
+You need to list the items.
+
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +    description:
+> +      Phandle to the node describing memory used to store NPU firmware binary.
+
+s/Phandle to the node describing//
 
 Best regards,
 Krzysztof
