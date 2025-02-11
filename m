@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED818C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99422C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcTbLEBt8Y8NL7Kz0HYgBsKXaJfzSyxWtZz03umu0us=; b=kviYjjGaKlfmp3ofwg1ArAck50
-	nvs5vMj8SOVYLR4dUv28jHNszoQ03rEjyGq+UzZma6Jn73Ai29mP/KOiPSgmHKTcajOASQP4H1jOJ
-	fn+PSEfPFY1d3cS+oAW9JFDfUIFvasU6UXFErcaPfnjjzAQmiLi1G4V3KjKT+kDeKXHZINMva846Q
-	+yxYgWEIyvkGwaH8MXvjAyRyUDL5Gy7R/PplOev3uXwSjjdBjRjhBw+Wt1ftEbBkbboNEiPsbjuXt
-	46WiBT8MiN34HWf2kziI04BwqK8xSoXf/dWMcoE+mS3Z2qfHM30/gX3ESlHZe54ANEy1RAhS+43/Q
-	vLnl5FYA==;
+	bh=ajyOyG8K6JPFk2IWC1XA9XBmELTfRS1zEbB5Vd0Gkmo=; b=pXgWYJAppYQ2NPnRVvIQiJChAx
+	GXY/2xoUxPiwTJgicXLPRChz6GsV6E/Ot1t/5dSEuOfn24sIahbA0McC5HjFM883j1ClVNs3uzrvl
+	GJjQyq0HQT7ReIEGYwtyTYr+8VR56uFzDEFU5WsXyuYUD6UOXqiogS26yPoBjMIor+fayhk84j1I/
+	pugiZ4W48awUDpQ5KtNs+STntKAeC0jFIoUxJnzI1eL9r+fmXglYGZ6vr9qD+OVm8SeTiJ1mFr0v5
+	7Apmf33jBGd0KRT18myE1HrETTtGyDf5OMlLfkPS7wU3nOJAwO5qFxpmn4BCpclJ+G0I1WMYR/3/U
+	cD5WWQuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnht-00000003ON2-2FrH;
-	Tue, 11 Feb 2025 10:41:33 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1thnjH-00000003Ooz-1PHw;
+	Tue, 11 Feb 2025 10:42:59 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thncj-00000003Mzh-0LJX
+	id 1thndH-00000003N7r-3TsE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 10:36:15 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1739270170;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CcTbLEBt8Y8NL7Kz0HYgBsKXaJfzSyxWtZz03umu0us=;
-	b=C59jdT1Rz5cXS3dKHVt50NdxmADlu7Jr7oR5TXqWBvD9eotDotwsX6qx5acCpRaKspa4Kl
-	Wu/B42fkg6rZ2ksFucijVxaK3HJiAx8WPt1czeqIvpkMHEVxT4tT4TTvxI0TclXsg9i1ux
-	E7Qhli9KsHW9z3ImUGE5HaoW7CpnLsWDZ26wvTdIBYZpLWJ6JaLGk7CpSATbMTn4/klTKC
-	5QF92Es4Sr05iaT36VoIJyKMnd3RjZTJkhnEP5yxTP7PvWqeExfP966m5A6CtNi876j6Jj
-	IHw1mwLE2EdhFGvNsj48OynBuHxVEcvTwBcYlGWZYxPdLOKEXfleySraBMVNAA==
-Content-Type: multipart/signed;
- boundary=5ee4ceb31c3782666c51f1eeeb5c1812fd7b0e7a1f16d9d041a97c2c76ff;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Tue, 11 Feb 2025 11:36:00 +0100
-Message-Id: <D7PJTD3PSP78.27N2S94J2CNZG@cknow.org>
-Cc: <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <andre.draszik@linaro.org>, <kernel-team@android.com>,
- <willmcvicker@google.com>, <peter.griffin@linaro.org>,
- <daniel.lezcano@linaro.org>, <vincent.guittot@linaro.org>,
- <ulf.hansson@linaro.org>, <arnd@arndb.de>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v8 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alim Akhtar" <alim.akhtar@samsung.com>, "Jassi Brar"
- <jassisinghbrar@gmail.com>
-References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
- <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
-In-Reply-To: <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Feb 2025 10:36:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5CC8BA4023A;
+	Tue, 11 Feb 2025 10:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17F66C4CEDD;
+	Tue, 11 Feb 2025 10:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739270206;
+	bh=1zu6tZCsh7aYgjU+gNDoFE87fQ7V3td5jRhPpf0IkJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q7PeTo+mIHLgO6J81jy2uDEEgKkM36ufdVbuMhZ/59KgG5zQ1LJh+QVcxwcwx4yvF
+	 ProIcvwKivCw/KPeE+b7gvzH73GuebXeXtowVmkFCQXj6C8iJkRaTw5idJ38nCPLHT
+	 IYkO8u/DbQLxcqWAG5mOoAZPW13xQKfoGmCVh+9gILOu8Z3E7OPhr/bXP+kpwa7Bam
+	 qRc17nfSTVIK0tiDr+OUh9FMoUQ01c0pHgAATOP12e9XPbtzJY8k5LpMPOPYqRM/wD
+	 jb5+W7GB0Yol98C8imPPwB/LeLUcvcne0J/wBA+nQgxT5Tj8ACwd7REbUpj+hmMRVd
+	 lrPp0nv59CHGg==
+Date: Tue, 11 Feb 2025 10:36:40 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
+	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
+	tabba@google.com, wilco.dijkstra@arm.com
+Subject: Re: [PATCH v3 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+Message-ID: <20250211103640.GC8653@willie-the-truck>
+References: <20250210195226.1215254-1-mark.rutland@arm.com>
+ <20250210195226.1215254-9-mark.rutland@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210195226.1215254-9-mark.rutland@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_023613_765030_B68BCB79 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250211_023647_991998_83DC6EA0 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---5ee4ceb31c3782666c51f1eeeb5c1812fd7b0e7a1f16d9d041a97c2c76ff
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Tue Feb 11, 2025 at 9:52 AM CET, Tudor Ambarus wrote:
-> Add bindings for the Samsung Exynos ACPM mailbox protocol.
->
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Mon, Feb 10, 2025 at 07:52:26PM +0000, Mark Rutland wrote:
+> In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
+> CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
+> 
+> * For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
+>   by the guest hypervisor, which may be less than or equal to that
+>   guest's maximum VL.
+> 
+>   Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
+> 
+> * For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
+>   which may be less than or greater than the guest's maximum VL.
+> 
+>   Note: in this case hyp code traps host SVE usage and lazily restores
+>   ZCR_EL2 to the host's maximum VL, which may be greater than the
+>   guest's maximum VL.
+> 
+> This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
+> If a softirq is taken during this period and the softirq handler tries
+> to use kernel-mode NEON, then the kernel will fail to save the guest's
+> FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
+> 
+> This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
+> FPSIMD/SVE state with the guest's maximum SVE VL, and
+> fpsimd_save_user_state() verifies that the live SVE VL is as expected
+> before attempting to save the register state:
+> 
+> | if (WARN_ON(sve_get_vl() != vl)) {
+> |         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+> |         return;
+> | }
+> 
+> Fix this and make this a bit easier to reason about by always eagerly
+> switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
+> happening, there's no need to trap host SVE usage, and the nVHE/nVHE
+> __deactivate_cptr_traps() logic can be simplified to enable host access
+> to all present FPSIMD/SVE/SME features.
+> 
+> In protected nVHE/hVHE modes, the host's state is always saved/restored
+> by hyp, and the guest's state is saved prior to exit to the host, so
+> from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
+> the host's ZCR_EL1 is never clobbered by hyp.
+> 
+> Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+> Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Tested-by: Mark Brown <broonie@kernel.org>
+> Cc: stable@vger.kernel.org
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Fuad Tabba <tabba@google.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
 > ---
->  .../bindings/firmware/google,gs101-acpm-ipc.yaml   | 50 ++++++++++++++++=
-++++++
->  1 file changed, 50 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/firmware/google,gs101-acpm=
--ipc.yaml b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ip=
-c.yaml
-> new file mode 100644
-> index 000000000000..982cb8d62011
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.ya=
-ml
-> @@ -0,0 +1,50 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>  arch/arm64/kvm/fpsimd.c                 | 30 -------------
+>  arch/arm64/kvm/hyp/entry.S              |  5 +++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 59 +++++++++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 13 +++---
+>  arch/arm64/kvm/hyp/nvhe/switch.c        |  6 +--
+>  arch/arm64/kvm/hyp/vhe/switch.c         |  4 ++
+>  6 files changed, 76 insertions(+), 41 deletions(-)
 
-Shouldn't this be ``(GPL-2.0-only OR BSD-2-Clause)`` ?
+Acked-by: Will Deacon <will@kernel.org>
 
-AFAIK it's the recommended form since SPDX 3.0:
-https://spdx.dev/license-list-3-0-released/
+Thanks for the quick re-spin!
 
-Cheers,
-  Diederik
-
---5ee4ceb31c3782666c51f1eeeb5c1812fd7b0e7a1f16d9d041a97c2c76ff
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ6soEwAKCRDXblvOeH7b
-bv7bAP96aaDz5VKPTEX57iUB5lisLvy1Dhsnq/V3RPglNv0N+gEAhyLe6ZIqyYQk
-/7mKqroOKZdEWb4BTUOWoix6bNhI5w0=
-=Mg55
------END PGP SIGNATURE-----
-
---5ee4ceb31c3782666c51f1eeeb5c1812fd7b0e7a1f16d9d041a97c2c76ff--
+Will
 
