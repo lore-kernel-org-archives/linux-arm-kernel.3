@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CBBC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E809CC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjpIa2XgFmm6zQMA4pXnY2mees84ECC2FENB0WxODPI=; b=YTamujr0Y/usls2lFeaCLtcMAQ
-	0rBvqt8MnMSVA/FZtaM+m5QbSOVyqnvxC93niVZZXvPlD8TAE08yYUD0AdQyShOwSvyTMRB2ax95d
-	1SVPf26b/v/nPyy9HGK+e9PilhJsXtppx2wekETPZf7ttLdKdxy0fxiP9DvBbKycmEePULO/d5KMc
-	mB/swSHr1y4UXs8NF/CJFcZBB6Caf5X84wUVueDHPtYm1R5k82IcN3bCecepSSZid+2x59+shBkc3
-	jjTmIvV8mmtDli4LOmTYrD/d/siJSfBp9aZ3jzSFoXJgPzdFdZRrnptj6ztK+W5hUnsnHcDugurFw
-	ZewRPcaQ==;
+	bh=eWp3/7u/YGZGIa4esPL/qdeKIFhCL8Y51K+5X7MdHlg=; b=dMTvnKFlv8gELXB1F+SY2c/gnq
+	hYTbwp8WpeozTJoMlnDa9DzY6abI6/UUYjxsr9VYFX6CVEaXy7nKIZ43xcmnPA+EoY/mhHYuOzQQm
+	DtBD2o5hatVx18DihWzRgpa4Yadmahbdvj86Tumh+lLleK4bNHEAjj4wm4wWkqrswryg0MX0jGYSJ
+	muChLUiUVmwTT3bA3ve9HH1AAq8bTJq+T9REaWNCArK1Hs8KdBtjO4lqJTSqUiiqPPcaefdmiCBED
+	lCVSV7K+AFo7nMqQjyptl9dlXcZAek8ZCoIwpS+oboRroZlCUZfHmrH01i1TGIrJeGZBV/ID1Gn0V
+	mYixm7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqT9-00000003ytx-2Vn1;
-	Tue, 11 Feb 2025 13:38:31 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	id 1thqUX-00000003z4w-0znB;
+	Tue, 11 Feb 2025 13:39:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqKT-00000003x48-3zvj
+	id 1thqLO-00000003xGD-17u6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 13:29:36 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1739280569;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mjpIa2XgFmm6zQMA4pXnY2mees84ECC2FENB0WxODPI=;
-	b=F76PrS/Srf+TRRk4IpALolWISlQCHaKg2b1va2BOB6rNkQcsP1j2VWNnabRLhH+dz3q0gJ
-	CXcMXeItjojp36cU3MVppUnZPhrnenfB5ABnwjugZZpa4xAaYr7Bs/mtM+bMyeUOAArSzg
-	kT0mBGGTr4yHcAPRvb7sTImS2xszkZvUCqRIe33uc8lqBh2Nxa+AaftUYu89Ez4ZSFsNR1
-	4q2Qy2Rq5po7/cY6G68tPzhOanFUwjAyqdHBamjx0VayA75QmjMBNMctRAW4AvznsidD2Q
-	OW1uRE1SbELrVvXINRCoO+wlPKP+YBQ71S0s28xgjC0Mh7nsBkVRqcFdAlSQGw==
-Content-Type: multipart/signed;
- boundary=7740a347bdd2a901409a1a992506960e6d5f504e0ca01f0028a982de32c2;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Tue, 11 Feb 2025 14:29:14 +0100
-Message-Id: <D7PNI0953LQN.2PZC72166IWZI@cknow.org>
-Cc: <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <kernel-team@android.com>, <willmcvicker@google.com>,
- <peter.griffin@linaro.org>, <daniel.lezcano@linaro.org>,
- <vincent.guittot@linaro.org>, <ulf.hansson@linaro.org>, <arnd@arndb.de>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v8 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Tudor Ambarus" <tudor.ambarus@linaro.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Jassi Brar" <jassisinghbrar@gmail.com>
-References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
- <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
- <D7PJTD3PSP78.27N2S94J2CNZG@cknow.org>
- <bad87f30-0483-48c1-b263-02cc752c77e6@linaro.org>
- <a740a0211c82aaaa55940e2f07e1d1b53c23ddd8.camel@linaro.org>
- <e2bdc9aa-2cbb-4fcc-8c73-5fcdad6e18a7@kernel.org>
-In-Reply-To: <e2bdc9aa-2cbb-4fcc-8c73-5fcdad6e18a7@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Feb 2025 13:30:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E316D5C177A;
+	Tue, 11 Feb 2025 13:29:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EB85C4CEDD;
+	Tue, 11 Feb 2025 13:30:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739280629;
+	bh=eWp3/7u/YGZGIa4esPL/qdeKIFhCL8Y51K+5X7MdHlg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n9gqu24NHccx3CJwhPeIbz+oIvdMFCOC9QlPIZv22uUw4yW754WoHr3i6ZRQ7Pb6m
+	 q50KRyWph+Zz2w6RHWGtNDzciBzuqtax11vFLj6waBLqD8yq4LVF2Zg8H3zoSuKj73
+	 ao0nLUmWKSRMLXkHzCeA5skOaDs1bGgrR8JYmMbEv4kVAvfqnfJWhznOnIhRVmvXSp
+	 1xzy0pFEEduTAyGLg6AJshCNI6viDs7iGFCqQMBziUTRAwlqe3Jsa2STefG4nl1Qor
+	 NZJy94G1QGS0EdxV04rl8su7yf3Kv5hQfsw0OPsqdN2lJ4VFwuCltqr72HYz81pNDZ
+	 HZXe21VwM2xzQ==
+Date: Tue, 11 Feb 2025 13:30:25 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Add missing registrations of SF8MMx hwcaps
+Message-ID: <1be1b5e9-9aa9-4f1c-9cdc-c4bf94f2dbc8@sirena.org.uk>
+References: <20250210-arm64-fix-2024-dpisa-v1-1-d77f43c7b253@kernel.org>
+ <Z6pHPKXXnQ1whg57@J2N7QTR9R3>
+ <dae7f7b2-f066-4adc-974b-54649ba69306@sirena.org.uk>
+ <Z6s2iMP1LbdsYX12@J2N7QTR9R3>
+ <bec2a37a-1797-41d2-a44a-a34a54a96f89@sirena.org.uk>
+ <Z6tNiIMIhN5fPSJM@J2N7QTR9R3>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FpVZgrr+qSAHu3wx"
+Content-Disposition: inline
+In-Reply-To: <Z6tNiIMIhN5fPSJM@J2N7QTR9R3>
+X-Cookie: Printed on recycled paper.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_052934_407067_BE296A9C 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_053030_347471_5E120E17 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---7740a347bdd2a901409a1a992506960e6d5f504e0ca01f0028a982de32c2
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-On Tue Feb 11, 2025 at 1:05 PM CET, Krzysztof Kozlowski wrote:
-> On 11/02/2025 13:02, Andr=C3=A9 Draszik wrote:
->> On Tue, 2025-02-11 at 11:57 +0000, Tudor Ambarus wrote:
->>> And then I shall s/MODULE_LICENSE("GPL");/MODULE_LICENSE("GPL v2");/
->>> everywhere as "GPL" indicates [GNU Public License v2 or later].
->>=20
->> No, please don't, see Documentation/process/license-rules.rst.
-> For the rest of suggestions here I also recommend rereading docs. I
-> don't get why we need to change "GPL-2.0 OR BSD-2-Clause", but maybe I
-> miss some docs. Whatever SPDX recommends is irrelevant if kernel
-> recommends for example something else, so be sure you make it aligned
-> with actual kernel preference.
+--FpVZgrr+qSAHu3wx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Unfortunately, ``Documentation/process/license-rules.rst`` and
-``LICENSES/preferred/GPL-2.0`` are not in 'sync', but I guess that's
-(potentially) a discussion for another ML.
+On Tue, Feb 11, 2025 at 01:15:52PM +0000, Mark Rutland wrote:
+> On Tue, Feb 11, 2025 at 12:58:10PM +0000, Mark Brown wrote:
 
-TL;DR: ``license-rules.rst`` says "GPL-2.0" while the license file
-allows both.
+> > Well, I was actually intending to send a separate patch given that
+> > otherwise it ends up looking like two different changelogs in the same
+> > patch and the diffs shouldn't overlap.
 
-References:
-9376ff9ba298 ("LICENSES/GPL2.0: Add GPL-2.0-only/or-later as valid identifi=
-ers")
+> It would be simpler for others if you sent a single patch that handled
+> the three hwcaps that we failed to wire up in commit 819935464cb2. That
+> way they only have one thing to track.
 
-https://lore.kernel.org/all/20180422220833.078058446@linutronix.de/
-(which mentions specifying the SPDX version, but that didn't get
-implemented)
+> I don't understand what you mean by "two different changelogs"; surely the
+> commit message is a trivial variation of the one for this v1 patch:
 
-*sigh*
+My first scan through had made it look like there was more stuff missing
+for FPRCVT but now that I go to write the change that's not actually the
+case, it's different handling of the different ID registers.
 
---7740a347bdd2a901409a1a992506960e6d5f504e0ca01f0028a982de32c2
+--FpVZgrr+qSAHu3wx
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ6tQsgAKCRDXblvOeH7b
-bkINAP4+7weuoA3/bh9F/SLY1BknW+ahnGc5zXCYKj9qsFSqnwD/cZ/OQbjuOQv2
-9Mh1NVnF7KOLhSoOL6Rt+VNblLWmiwE=
-=N8XC
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmerUPAACgkQJNaLcl1U
+h9Canwf2PMWht5FD5jL70uPgRegmvsxuqGuFL+om4rJ29M7MvxSFKsMWR3t7DEAN
+sCxfPXEz6vW4+pS1w2nadqCMnyfn6dINYQwDeolVIn6apD8lf2SlzeY+XrZT8YiH
+tJxBHYnjOz3Rk0HG8vLtp9eeIDsQ+NlUXXzr2658POQ3FLR3qI6Ekp7jzd+KEpbi
+OjgkUWf7zyvciwMwpzXmgN15fTedVixZRYNt/cwC5d286vVcBOi8M5PGzYR2Sh0i
+CevmEdOi22rMmTlR3ObkXMlp7DEK3tZ1VunkBFPn6h94i+A4ZVwPRf2vbzQNGROJ
+Q7NRWHwGCb4dDpkR2GBbcDULF8tm
+=qyk9
 -----END PGP SIGNATURE-----
 
---7740a347bdd2a901409a1a992506960e6d5f504e0ca01f0028a982de32c2--
+--FpVZgrr+qSAHu3wx--
 
