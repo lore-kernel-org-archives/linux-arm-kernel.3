@@ -4,55 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC35C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA357C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQrCLRSMre+eABFyhacUIGRx9o8uQ9GgoArYcILElQU=; b=RBqNV34Wly24rwhrJBFfBCLLNj
-	luFk7iU7fkdgnkxr7sYcs+aDqkqhAfrfhkaQT+eCKgPsJaRop3kCJHtdCSE/9Jb4Ycm2cXP/Eb+jL
-	47+nSEqSk1C6vYAf+yuZgEjobrD5U/c8FGdYk7Bqwz8Zswt/l3mFzLWGec8i53od77YwxcdBDEI12
-	xTApsfXTzPPHjqIiFkk5uELryB2iE9JWhA+AucZ/r8eudmcELTrCbuf+kHuiW3oXxAQo3drw34q8N
-	W94G/rUffF6zWbI+7umn4fy16t6KufBWYRoQp7JouxshgTCdxReRldbsMBbfRJ1Zx60xceNrMS3ld
-	2rgSNOyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tbq3zs2kxvf0eYsLKoQnr/CdG402zEjTr+umWKPqlhQ=; b=cvPsmhjPo07DKTzMah5GDnekGe
+	cpzfNRrKQYhF7ZnwlIG40iVTUrVhQMPT8vWe+39t2IppRaqVzwDswSSJdXeSVPMT2qNZOeB1n3+RF
+	oGI90L/fauYmtjVyC77E3+TAk3JTJ0AriLc4QOVz0izqi8O+/owwvW9zd2kVKTgCqbnDaEmwfBZwK
+	pQthpT568XvlcByu+mev4/5yyyhGIEzC9wocpm71zVkSBU4Tll6nHey+xqbkj7omIgIcrcrqVGi4R
+	H2Dc6CIgcaWk/8h6Rrs7MuBAbceIU0i+D6voM9dJnAKBmjiiqRzQkv7tb18Wn2/BQbjPyMVhTHNyJ
+	HbYxu/fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thq9j-00000003vM8-2kTH;
-	Tue, 11 Feb 2025 13:18:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpqa-00000003rTx-3xhA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 12:58:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D54FF1424;
-	Tue, 11 Feb 2025 04:59:01 -0800 (PST)
-Received: from [10.57.81.93] (unknown [10.57.81.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CB053F5A1;
-	Tue, 11 Feb 2025 04:58:39 -0800 (PST)
-Message-ID: <caf29133-a24f-47e4-ba38-d1f99e998d27@arm.com>
-Date: Tue, 11 Feb 2025 12:58:37 +0000
-MIME-Version: 1.0
+	id 1thqB7-00000003vX4-1Jt2;
+	Tue, 11 Feb 2025 13:19:53 +0000
+Received: from mail-db5eur02on20630.outbound.protection.outlook.com ([2a01:111:f403:2608::630] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thprY-00000003rgA-26Ay;
+	Tue, 11 Feb 2025 12:59:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TlKNjvGUbJBIJhcaLoRgo920mMULYhg789eu4tCnSQsml9Byx8yqkVhX53edtPrWjUKoDKbJ7i6OaDqSTRFG8o/fZUCnZxt01/jpd5mDtAKBibVhDC3E1/NWcswIX5yH/ZTqiFzWQJvEWanOKUa4XDQYq0g0qYGnHSH379viDL6ph+K9sZYOe2eYdOYisypx/Ytv2i2hzGjClYCPFEoukeXbTfCsi1jKuGeWLCkNoCEXxJkgXdrJ6mJLmUQUOKgHiuDSBS8fqUyjUc2/oJycu3EMRyyyWoJIgDZoNhf8bv2ykkjGY1uLJcYO76Zqu3CNqUoqJ03nD4xIx0Z3Dx/nOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tbq3zs2kxvf0eYsLKoQnr/CdG402zEjTr+umWKPqlhQ=;
+ b=DLzR5Jm/Dsdgf1gtH+RcUEKFzvXLmzt+C/ebDIRno/c56eLUCh8o6L04AJLupbSYc60jDnbZkH79oN3DKj3Z+1C0jNEJU3KiTc4JBIcPYoL8gbitngb4KvEBr2P4qIcgeqBjxmgc2mqLlfibpTkSTfPPHHYMnW45CAoEi2IeBfoaVVeVpeAmKjzwW/3T4eSKutUBm8XS9/0hOKjQNSPHuMSP2Hgw4HRoRuMMzcserxQnUAi2deM1G2O7oa1HqtcpcQdkUNo3wZLCsiMw9Hv6Oh62Ur44+wNzJL7a5W+Yac8JkMZUMwwTmD49+nVLLRp+jCpkqyQo7J9wNrDETnXIhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tbq3zs2kxvf0eYsLKoQnr/CdG402zEjTr+umWKPqlhQ=;
+ b=Q733gD2FKdgNm5x/RDamba3kXudcOht8lbds9Zro4SJa34kZGM2A7doNMTzUP6yZQDY+sgoz5mjEgB4S8ylRCXxI4ekBfTWppWyoHHIyOUYF2afObavGob0VYjaKmvrSeczsFXZLuoF0o9xy2PIlZUtiJDgjyFWzlPsAKgL6Z5M=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AM9PR04MB8537.eurprd04.prod.outlook.com (2603:10a6:20b:434::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
+ 2025 12:59:36 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
+ 12:59:36 +0000
+Message-ID: <06f1f9f4-8a79-4505-98b8-992accf1fb87@cherry.de>
+Date: Tue, 11 Feb 2025 13:59:33 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH 2/2] arm64: mm: support large block mapping when
- rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: cl@gentwo.org, scott@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
- <20250103011822.1257189-3-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250103011822.1257189-3-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v5 2/4] arm64: dts: rockchip: add overlay test for Edgeble
+ NCM6A
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Jagan Teki <jagan@edgeble.ai>, Quentin Schulz <foss+kernel@0leil.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Niklas Cassel <cassel@kernel.org>,
+ Michael Riesch <michael.riesch@wolfvision.net>,
+ Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
+ <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de>
+ <CA+VMnFyom=2BmJ_nt-At6hTQP0v+Auaw-DkCVbT9mjndMmLKtQ@mail.gmail.com>
+ <8d830c2c-6268-4c70-ae8a-47183b8cbace@cherry.de>
+ <74502f5556584ee7378c63d4971f2a66@manjaro.org>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <74502f5556584ee7378c63d4971f2a66@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR0502CA0028.eurprd05.prod.outlook.com
+ (2603:10a6:803:1::41) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AM9PR04MB8537:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9afbec75-23ac-4fcb-19f7-08dd4a9befeb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dGNUdjlGZnh2WHhNYStWRlk4bWsyYzRmUi9Od2NobVl0YUs5RkQ1b3krUllD?=
+ =?utf-8?B?MUNtR3Y2eksydWlRRGNsdUlFTHp1MmdKcmJuQi8xMVp1eXUxTkRSMVZTQVBH?=
+ =?utf-8?B?VkR3L0srNk9FL056Q3Jsd1VnZTh2MVJDK1JuN0I3SWxsK0RJUFlaODhVaXBw?=
+ =?utf-8?B?TEVySkRoUVoyS3c2Zjg5ZjFNTjhycnpveWRQb3J3dVdTSFkyMSs5RGVPZkhV?=
+ =?utf-8?B?U0dSUVowYnFkSHNWeEZ1dlY2ODJhU003RWdUaGNNSktwRk5nSUsxenJuNmZa?=
+ =?utf-8?B?LzB3RENxUjdDS1ZlT1F3a2NVZUs5RS9xcWRZNGs2OHRxdGlmVStWZCtiSTNI?=
+ =?utf-8?B?UEpuSlMvK1EwOWluNWtnZGlERHRmNUFsZFpMd25yUnNrSjhaL2JRL2R2Tm1C?=
+ =?utf-8?B?VHJPQUplK0hMOVlGRTZHYjk0RHN2dG1CTTlDb2JYTTI0VUI4T2o4blRZQ1N2?=
+ =?utf-8?B?dGUxbm0vR3cyRTdqemdaUEtzb3lXbGlOc1o1NGlRTXM3UjZXL0d3c1VYWXJs?=
+ =?utf-8?B?Ung5YTFScUJZL1pqWTl0eUdSMXN2b1QraFpONkFHT013bTNXdHBHQk84ZUJa?=
+ =?utf-8?B?TXdDcTVjOGJUTGdTWkZ2S0JsVXl5elZhcjRsQmNpM2dTeVRTOHFVZkFXcFlN?=
+ =?utf-8?B?dGxYUWJ2bUFFaG5CZG9oalBSek50YnlsTXdCL2lsaG5vdjM0ek9HZ2U5WXBG?=
+ =?utf-8?B?Rlp0SEVaM1QrTjZvbHQ0SGVWR3dic3pSR2JyRVUzOXVkd0crczJJZitpL1ZD?=
+ =?utf-8?B?NVNQRm1JdEtIQTJUMVFkUWtCVGZ2aTcvS01aSVR3Y1JSYmVKSHZ0amxLVWJQ?=
+ =?utf-8?B?OS8vQ3Qwc1NJbnNFS0UvWTlYb3cvd0RuWXIySDRvMkR0d05Ba3BMcmwyaU1C?=
+ =?utf-8?B?RmtGRDFyUVo2M3hwdzR1Z0EwYXorLzk1clQzTUY1ZU82OWRFemRGODluTW5s?=
+ =?utf-8?B?TmlSaGc2c3c3SWszcEl1WGhBaTIyNXFFcDZyYXhqRXErWFFLNHBHUnVWTHZk?=
+ =?utf-8?B?TWQ1cUhkQ2tJMnZWRkxBL3BWenQrZTNYWGxVR3NITTBSbnFhV3hTMjB5QThQ?=
+ =?utf-8?B?UFo2N1pTcTJpTlBEc2htY3RCQ1d0cDFTNnZaYnQ4eWxXM2lUb1M4bVphUWIr?=
+ =?utf-8?B?ZFN5NVdSNjBoOVR2WXFLS2NzNWt1YmU3dHF1bFBOVjdvZDcwSS9OMDFieUFs?=
+ =?utf-8?B?RlhzWThBcElPQmk0VEVzQkExV0V0TnVKRmE4bTg3SGQxdUFJdnRjL0JQaEMv?=
+ =?utf-8?B?VWlsdVdhdmUrZG5mUVUwdFczbUVGcmV1Ym00NWZmRzh2QXd0VVR3MWR5RGlm?=
+ =?utf-8?B?VVR5blJydGZERXlxZE9kQzBWbkxBTkx5QkdmdEhrRzNyMWthRFlFeGphS1V6?=
+ =?utf-8?B?VmdQRGU3QzFFcVEzQUFxL3ptMzcvZU5wY2g1NUtIMXgvNzUxSUIyQ21zc0Nm?=
+ =?utf-8?B?K1BzcVN5R3FsOUdMSDAvcW9ZVkZUZ2VCdGlwaGJjY2hvTlJCVEpOK1E5TWt6?=
+ =?utf-8?B?ZWRDTHZDUWZXRWRJQisrUll5QlJYT01ZdTUxRy9IZHJFV0E4T0dsZStaQ2s2?=
+ =?utf-8?B?b2k5ZzArNWh6QTl3U0J3TnEvblYwbUlEdjI3Szh2N25CR1BmNHo1UTZFOThr?=
+ =?utf-8?B?djllam5ISFNPZFJGeHY5aHZYYlI1R1g2YkdLeEY0OEdhOUxLL3F1SzIzdFZu?=
+ =?utf-8?B?Vks0UkdFeE5GSXZKUExPTmhhRysyZmk1NHd5SFlJWWlUTW03YW9MUVl4WkVw?=
+ =?utf-8?B?NFljZVRMNklCNU5MZUJTNWV3elpKR2plRS8yaGZXR2x2ckE3VmNTMzJWN2tm?=
+ =?utf-8?Q?a4vJnYAeg5tPW5Ne4cmLXX3HwvHHA5rwoDAwE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(10070799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VzROVWxMY2RyWlMxVk9tdHd1eGdiVzZ0Q3BSb2I0R0hBdkxocEZsd1J2eXl3?=
+ =?utf-8?B?MGV2SGNJbjJTZzg5ZFkxcFpLSHhkWjAva1dDR2l1WFgvc0NqeUxORElPTm4r?=
+ =?utf-8?B?SHBldllaakdLV1dFWVdaMDRld3JUZzlBNTFKNFB0dUFxMnFJM243S1RxTTc3?=
+ =?utf-8?B?WmJJSlAzaWlWUUJ2dFlyd1Z6UTIzNFRONmlHa0RQT1ZMVTBEdUJVZXMvOFdG?=
+ =?utf-8?B?a3UzbHhLZERwVkpIR3c1dDVONTQwbEUwSjZ4aXpabkI3S1RjMVk0NEdubU94?=
+ =?utf-8?B?cjJvS0NUUkVJM1B1MXV1YTV4Q0pMSDRXRTZBM3JLWTFHQkJEVExPOFRvK2Fv?=
+ =?utf-8?B?aUhnbzdZZm1RS3B3Nzg2NjN6WFFJaUQrQWo3Y2hiM3I2VWVxQjNTdWFxa1ZP?=
+ =?utf-8?B?dHlTZWFobDdrZ3U1SmtWbDQ5K1hLcFBMR3pJTWQ2am4xb2tmcFpRTFNQa0J3?=
+ =?utf-8?B?TUVORTNydDA5eXp2dGRzMHhlZTdvK2FOdENxTmxpUVdyVVQ2SDU1cHh5M0FK?=
+ =?utf-8?B?QXZCdC9aZ2hrQXdoallFaVhRdWNjVHNob3Joak10SnlBRWNwY0tQSUJjSndN?=
+ =?utf-8?B?empGeFZkdnF6eTFoMGRkcUNKVzdYd25yUSs3RFA4aWtZa2dlaDBsUE02RTVu?=
+ =?utf-8?B?SGdtMGhXOXhRWjBXd1FlNXpyaGdTZDRZNytvTm1wQWk5R3IrYkhZZUlxVUpk?=
+ =?utf-8?B?UXhFYnVRTnlVQnd5M3NsZDNtN2kyazV5K0kvc3RaeThvTXplVjA3MFBpVTlI?=
+ =?utf-8?B?RkI2WncyUVlFZGN5SHVEOUNRT3pvM0tnd0IxQXRKbEF5Z3VjLy8wVU9aWE1H?=
+ =?utf-8?B?TkF2cXR4dDRLVlMzSDJWSTZCVlJDaFFMdXFBNnpmQnI5Ui94dFYwTzRWWTdS?=
+ =?utf-8?B?M0hDTkxObkR3Q3FYSU5uZVh5UDdObnliM1dSSFBHQ1AyWjE3dmgxbmZUVlFZ?=
+ =?utf-8?B?NGNoK3Y5djRIMUJVd3F6TlpXcUhlWlR4amRiNlhlUHNSVjBsSXdNN29oSG84?=
+ =?utf-8?B?TmRxMXd4NEZnbDRvcVJFRmMwSW1tajNxV3ZLbFJQUXQ5N0NFTUs2L2d2blJL?=
+ =?utf-8?B?cnlOeDRNUnpSUDBKRFZDZGU1bm1CMDU0MjdoTjNnYk9BK09ZVDZuSk5MbFo1?=
+ =?utf-8?B?SmpnMGxQNUVKTVpJUkZCUkM0L2JDcG9NV1p3QWY0cXZnaWRjQ1QwWC8zV3dw?=
+ =?utf-8?B?V1JhODRXRmtoWmJ6emt6dXVjOHUrUW5DbC8vQkNId25yaU1pMTBrY0FybEN2?=
+ =?utf-8?B?MExvc01hZDRwWlFKNXUyenRyejdPd2U2dVd0NXYvdlBmREk1VmIxQ3Y3cHZU?=
+ =?utf-8?B?NEwxSDRtb2RsckJOUC9zTTM5bElQN1d3Y1p3NVVQM3BoZFNMK01Vd2JWL0M2?=
+ =?utf-8?B?WUY0enlaR01rNjN3d0xzb2FwdDRrUGFhbFJ4cUtpZ3h2QTJ2anQyWFVqR0ZO?=
+ =?utf-8?B?bEJZSFZkWHBVNG10R2NIa0xNMjBLUkR6RCtXamwzTGN4UmowL0FESVRlYVZ4?=
+ =?utf-8?B?RjBHUWkwYUdHd1lJclk5QTUzczhibnBLNHQ3cC8rTW02TG1vN3Z3NEZncmtC?=
+ =?utf-8?B?Njdkb3pGSnhvc2phZXBkMERVUms2OHN5WFo4VE1JdkVlRWhIMzBQaXREYWU1?=
+ =?utf-8?B?aHJtTzduem92eDNiak9nSVBDM1dVS3Ftdm9VTi9mLzUrb1Nva0NhWHV1U3BD?=
+ =?utf-8?B?YmtQRVR3bUs1Tk5NMVVROUpzc1MrRHpSNGJENFlzcWFLdk5tZ0dKcFJmaGVv?=
+ =?utf-8?B?NjRZTTFXcHdycGd4a0p6YTltNnRTVkN2dVh3NTlEbm1OUGhHbjJTR3VmUUlm?=
+ =?utf-8?B?ZVNiaWNYZmJpN2g3c2pGSUtIaHdTZWhvZU1TenphZ0lOam1jREpQcWdHWlRB?=
+ =?utf-8?B?cnBZdzQybVJkOFFRRThHMkxuVi9qd3FPWEN3emtTTWMvZjB5all3TnAyTlk1?=
+ =?utf-8?B?QXZGKzBRUDZYR1dFZzUraVRoOEhlSnRZK0FZWEcrZkd4K2RQK3NDM09FQk5j?=
+ =?utf-8?B?cG5TYW9rMGRmZWdZcGJ3b1NDaDZuMHAyMDVzVDFkL0VzNW1xc1NPSFNJMmow?=
+ =?utf-8?B?T2srNDdiVFpxMGZUMEs1TEk5Z282cytGYjZ3TXJZeEFBTnhIOGNldUdxYVVp?=
+ =?utf-8?B?RHFBQnltNlRwVy95Q2IzdTBaQzl0d1NwaVZtTlJKVyt0SzUrQXpvNFFMcnpM?=
+ =?utf-8?Q?Wgpd/rf7SSOeSs/4BkWJgPU=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9afbec75-23ac-4fcb-19f7-08dd4a9befeb
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 12:59:36.4029
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZVFeCwA9aIh9c+BDuxIc3Mea5BCLZlRLiz0QG5rvzGATUX8WJ8yTN39YG41jwx5cgYwe9llQcOXo+tsmlCKOdourfTNOKwViariYEeMZQN0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_045841_087032_6CAE59BE 
-X-CRM114-Status: GOOD (  57.06  )
+X-CRM114-CacheID: sfid-20250211_045940_544035_6B926D16 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,486 +185,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2025 01:17, Yang Shi wrote:
-> When rodata=full is specified, kernel linear mapping has to be mapped at
-> PTE level since large page table can't be split due to break-before-make
-> rule on ARM64.
+Hi Dragan,
+
+On 2/10/25 7:29 PM, Dragan Simic wrote:
+> Hello Quentin and Jagan,
 > 
-> This resulted in a couple of problems:
->   - performance degradation
->   - more TLB pressure
->   - memory waste for kernel page table
+> On 2025-02-10 18:57, Quentin Schulz wrote:
+>> On 2/10/25 3:11 PM, Jagan Teki wrote:
+>>> On Fri, 7 Feb 2025 at 20:50, Quentin Schulz <foss+kernel@0leil.net> 
+>>> wrote:
+>>>>
+>>>> From: Quentin Schulz <quentin.schulz@cherry.de>
+>>>>
+>>>> The Edgeble NCM6A can have WiFi modules connected and this is handled
+>>>> via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble
+>>>> NCM6A WiFi6 Overlay")).
+>>>>
+>>>> In order to make sure the overlay is still valid in the future, let's
+>>>> add a validation test by applying the overlay on top of the main base
+>>>> at build time.
+>>>>
+>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+>>>> ---
+>>>>   arch/arm64/boot/dts/rockchip/Makefile | 4 ++++
+>>>>   1 file changed, 4 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/ 
+>>>> boot/dts/rockchip/Makefile
+>>>> index 
+>>>> 534e70a649eeada7f9b6f12596b83f5c47b184b4..02f98abe1df10f44f2ac27ea5f6c6e6c6334724e 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>>>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>>>> @@ -192,3 +192,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568- 
+>>>> wolfvision-pf5-vz-2-uhd.dtb
+>>>>   rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
+>>>>          rk3568-wolfvision-pf5-display-vz.dtbo \
+>>>>          rk3568-wolfvision-pf5-io-expander.dtbo
+>>>> +
+>>>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
+>>>> +rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
+>>>> +       rk3588-edgeble-neu6a-wifi.dtbo
+>>>
+>>> Please add neu6b-io as well, wifi dtbo is similar for it as well.
+>>
+>> Similar or identical :)?
+>>
+>> Should the overlay be renamed if it applies to neu6b AND neu6a instead
+>> of implying it's only for neu6a based on the name of the overlay?
 > 
-> With FEAT_BBM level 2 support, splitting large block page table to
-> smaller ones doesn't need to make the page table entry invalid anymore.
-> This allows kernel split large block mapping on the fly.
-> 
-> Add kernel page table split support and use large block mapping by
-> default when FEAT_BBM level 2 is supported for rodata=full.  When
-> changing permissions for kernel linear mapping, the page table will be
-> split to PTE level.
-> 
-> The machine without FEAT_BBM level 2 will fallback to have kernel linear
-> mapping PTE-mapped when rodata=full.
-> 
-> With this we saw significant performance boost with some benchmarks and
-> much less memory consumption on my AmpereOne machine (192 cores, 1P) with
-> 256GB memory.
-> 
-> * Memory use after boot
-> Before:
-> MemTotal:       258988984 kB
-> MemFree:        254821700 kB
-> 
-> After:
-> MemTotal:       259505132 kB
-> MemFree:        255410264 kB
-> 
-> Around 500MB more memory are free to use.  The larger the machine, the
-> more memory saved.
-> 
-> * Memcached
-> We saw performance degradation when running Memcached benchmark with
-> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
-> With this patchset we saw ops/sec is increased by around 3.5%, P99
-> latency is reduced by around 9.6%.
-> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
-> MPKI is reduced by 28.5%.
-> 
-> The benchmark data is now on par with rodata=on too.
-> 
-> * Disk encryption (dm-crypt) benchmark
-> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
-> encryption (by dm-crypt).
-> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
->     --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
->     --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
->     --name=iops-test-job --eta-newline=1 --size 100G
-> 
-> The IOPS is increased by 90% - 150% (the variance is high, but the worst
-> number of good case is around 90% more than the best number of bad case).
-> The bandwidth is increased and the avg clat is reduced proportionally.
-> 
-> * Sequential file read
-> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
-> The bandwidth is increased by 150%.
-> 
-> Keep using PTE mapping when pagealloc debug is enabled.  It is not worth
-> the complexity.
-> 
-> Kfence can be converted to use page block mapping later.
-> 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/include/asm/pgtable.h |   7 +-
->  arch/arm64/mm/mmu.c              |  32 +++++-
->  arch/arm64/mm/pageattr.c         | 173 +++++++++++++++++++++++++++++--
->  3 files changed, 203 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 6986345b537a..2927f59ae9e2 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -749,7 +749,7 @@ static inline bool in_swapper_pgdir(void *addr)
->  	        ((unsigned long)swapper_pg_dir & PAGE_MASK);
->  }
->  
-> -static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
-> +static inline void __set_pmd_nosync(pmd_t *pmdp, pmd_t pmd)
->  {
->  #ifdef __PAGETABLE_PMD_FOLDED
->  	if (in_swapper_pgdir(pmdp)) {
-> @@ -759,6 +759,11 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
->  #endif /* __PAGETABLE_PMD_FOLDED */
->  
->  	WRITE_ONCE(*pmdp, pmd);
-> +}
-> +
-> +static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
-> +{
-> +	__set_pmd_nosync(pmdp, pmd);
+> I'm afraid it's a bit too late for renaming the .dtso file. :/
 
-I have a series at [1] which enables batching/deferring these barriers. I reckon
-it would be udeful to ultimately apply that same technique for painting the
-linear map if/when that series goes upstream. The benefit is that we wouldn't
-need to expose the _nosync helpers. But that's something to cleanup later. This
-looks fine for now.
+How is it too late? Is there some rule somewhere about renaming I missed?
 
->  
->  	if (pmd_valid(pmd)) {
->  		dsb(ishst);
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index e2739b69e11b..65b5b1ba48a7 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -620,6 +620,19 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
->  
->  #endif /* CONFIG_KFENCE */
->  
-> +static inline bool force_pte_mapping(void)
-> +{
-> +	/*
-> +	 * Can't use cpufeature API to determine whether BBM level 2
-> +	 * is supported or not since cpufeature have not been
-> +	 * finalized yet.
-> +	 */
-
-I think assuming the system has BMML2 just because the boot CPU has it is going
-to be problematic. I think you are going to continue to need to initially paint
-the linear map with ptes then later, once the system cap is finalized, repaint
-with blocks.
-
-> +	return (rodata_full && !bbmlv2_available()) ||
-> +		debug_pagealloc_enabled() ||
-> +		arm64_kfence_can_set_direct_map() ||
-> +		is_realm_world();
-> +}
-
-Previously the decision was determined by:
-
-bool can_set_direct_map(void)
-{
-	/*
-	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
-	 * map to be mapped at page granularity, so that it is possible to
-	 * protect/unprotect single pages.
-	 *
-	 * KFENCE pool requires page-granular mapping if initialized late.
-	 *
-	 * Realms need to make pages shared/protected at page granularity.
-	 */
-	return rodata_full || debug_pagealloc_enabled() ||
-		arm64_kfence_can_set_direct_map() || is_realm_world();
-}
-
-But now that you can safely split block mappings to page mappings when needed
-doesn't that cover some of these requirements? So perhaps you can do block
-mappings even when some (all?) of these things are active?
-
-
-> +
->  static void __init map_mem(pgd_t *pgdp)
->  {
->  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
-> @@ -645,9 +658,21 @@ static void __init map_mem(pgd_t *pgdp)
->  
->  	early_kfence_pool = arm64_kfence_alloc_pool();
->  
-> -	if (can_set_direct_map())
-> +	if (force_pte_mapping())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
-> +	/*
-> +	 * With FEAT_BBM level 2 we can split large block mapping without
-> +	 * making it invalid.  So kernel linear mapping can be mapped with
-> +	 * large block instead of PTE level.
-> +	 *
-> +	 * Need to break cont for CONT_MAPPINGS when changing permission,
-> +	 * and need to inspect the adjacent page table entries to make
-> +	 * them cont again later.  It sounds not worth the complexity.
-
-I'm not sure I follow the argument? As far as I can tell, you only ever split
-mappings. You never collapse. So I don't think it's too complex to check for
-CONT bits and if set, clear the CONT bit from the block? That's a safe operation
-with BBML2. It means you need to iterate over the ptes which you don't currently
-do, but you only need to check a 1 PTE in every CONT_PTES.
-
-> +	 */
-> +	if (rodata_full)
-> +		flags |= NO_CONT_MAPPINGS;
-> +
->  	/*
->  	 * Take care not to create a writable alias for the
->  	 * read-only text and rodata sections of the kernel image.
-> @@ -1342,9 +1367,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
->  
->  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
->  
-> -	if (can_set_direct_map())
-> +	if (force_pte_mapping())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
-> +	if (rodata_full)
-> +		flags |= NO_CONT_MAPPINGS;
-> +
->  	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
->  			     size, params->pgprot, __pgd_pgtable_alloc,
->  			     flags);
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 39fd1f7ff02a..ba2360ecb030 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -49,6 +49,145 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
->  	return 0;
->  }
->  
-> +static int __split_linear_mapping_pmd(pud_t *pudp,
-> +				      unsigned long vaddr, unsigned long end)
-
-nit: are the double really underscores needed?
-
-> +{
-> +	pmd_t *pmdp;
-> +	unsigned long next;
-> +
-> +	pmdp = pmd_offset(pudp, vaddr);
-> +
-> +	do {
-> +		next = pmd_addr_end(vaddr, end);
-> +
-> +		if (pmd_leaf(pmdp_get(pmdp))) {
-> +			struct page *pte_page;
-> +			unsigned long pfn = pmd_pfn(pmdp_get(pmdp));
-> +			pgprot_t prot = pmd_pgprot(pmdp_get(pmdp));
-> +			pte_t *ptep_new;
-> +			int i;
-> +
-> +			pte_page = alloc_page(GFP_KERNEL);
-> +			if (!pte_page)
-> +				return -ENOMEM;
-> +
-> +			prot = __pgprot(pgprot_val(prot) | PTE_TYPE_PAGE);
-> +			ptep_new = (pte_t *)page_address(pte_page);
-> +			for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
-> +				__set_pte_nosync(ptep_new,
-> +						 pfn_pte(pfn + i, prot));
-> +
-> +			dsb(ishst);
-> +			isb();
-> +
-> +			set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page),
-> +				__pgprot(PMD_TYPE_TABLE)));
-
-All the same comments that I made below for __split_linear_mapping_pud() apply here.
-
-> +		}
-> +	} while (pmdp++, vaddr = next, vaddr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __split_linear_mapping_pud(p4d_t *p4dp,
-> +				      unsigned long vaddr, unsigned long end)
-> +{
-> +	pud_t *pudp;
-> +	unsigned long next;
-> +	int ret;
-> +
-> +	pudp = pud_offset(p4dp, vaddr);
-> +
-> +	do {
-> +		next = pud_addr_end(vaddr, end);
-> +
-> +		if (pud_leaf(pudp_get(pudp))) {
-
-Just do the pudp_get() once and cache the result. It's implemented by
-READ_ONCE() so your 3 invocations are actually doing 3 separate loads.
-
-> +			struct page *pmd_page;
-> +			unsigned long pfn = pud_pfn(pudp_get(pudp));
-> +			pgprot_t prot = pud_pgprot(pudp_get(pudp));
-> +			pmd_t *pmdp_new;
-> +			int i;
-> +			unsigned int step;
-> +
-> +			pmd_page = alloc_page(GFP_KERNEL);
-> +			if (!pmd_page)
-> +				return -ENOMEM;
-
-Is this really how we allocate pgtable pages for kernel space? For user space we
-have quite a lot of machinery for this.
-
-> +
-> +			pmdp_new = (pmd_t *)page_address(pmd_page);
-> +			for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new) {
-> +				step = (i * PMD_SIZE) >> PAGE_SHIFT;
-
-Suggest hoisting this out of the loop, then just increment pfn by step every
-iteration.
-
-> +				__set_pmd_nosync(pmdp_new,
-> +						 pfn_pmd(pfn + step, prot));
-> +			}
-> +
-> +			dsb(ishst);
-> +			isb();
-
-I'm not convinced by the need for this isb(). The dsb ensures that the table is
-visible to the table walker; that's needed. The isb() present in set_pmd() and
-friends to remove any "cached" speculative invalid translation marker from the
-pipeline, if I understand things correctly. I don't think we need to solve that
-problem here because you weren't working on a live table. The isb() in set_pud()
-is sufficient, I think.
-
-> +
-> +			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page),
-> +				__pgprot(PUD_TYPE_TABLE)));
-> +		}
-> +
-> +		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
-> +		if (ret)
-> +			return ret;
-> +	} while (pudp++, vaddr = next, vaddr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __split_linear_mapping_p4d(pgd_t *pgdp,
-> +				      unsigned long vaddr, unsigned long end)
-> +{
-> +	p4d_t *p4dp;
-> +	unsigned long next;
-> +	int ret;
-> +
-> +	p4dp = p4d_offset(pgdp, vaddr);
-> +
-> +	do {
-> +		next = p4d_addr_end(vaddr, end);
-> +
-> +		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
-> +		if (ret)
-> +			return ret;
-
-nit: personally I would make this break. Then have single "return ret", like you
-have for __split_linear_mapping_pgd(). Then all levels follow the same template.
-
-> +	} while (p4dp++, vaddr = next, vaddr != end);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __split_linear_mapping_pgd(pgd_t *pgdp,
-> +				      unsigned long vaddr,
-> +				      unsigned long end)
-> +{> +	unsigned long next;
-> +	int ret = 0;
-> +
-> +	mmap_write_lock(&init_mm);
-
-nit: I think the locking would be more natural in split_linear_mapping().
-
-> +
-> +	do {
-> +		next = pgd_addr_end(vaddr, end);
-> +		ret = __split_linear_mapping_p4d(pgdp, vaddr, next);
-> +		if (ret)
-> +			break;
-> +	} while (pgdp++, vaddr = next, vaddr != end);
-> +
-> +	mmap_write_unlock(&init_mm);
-> +
-> +	return ret;
-> +}
-> +
-> +static int split_linear_mapping(unsigned long start, unsigned long end)
-
-As far as I can tell, you only ever split the linear mapping. You never collapse
-it. In that case, won't it just degrade to pte-mappings over time? I suspect you
-should aim to detect collapse opportunities.
-
-> +{
-> +	int ret;
-> +
-> +	if (!system_supports_bbmlv2())
-> +		return 0;
-> +
-> +	ret = __split_linear_mapping_pgd(pgd_offset_k(start), start, end);
-
-nit: personally I would put pgd_offset_k() into __split_linear_mapping_pgd() so
-that it takes the exact same form as the other levels. Or mege
-__split_linear_mapping_pgd() into split_linear_mapping().
-
-> +	flush_tlb_kernel_range(start, end);
-> +
-> +	return ret;
-> +}
-> +
->  /*
->   * This function assumes that the range is mapped with PAGE_SIZE pages.
->   */
-> @@ -80,8 +219,9 @@ static int change_memory_common(unsigned long addr, int numpages,
->  	unsigned long start = addr;
->  	unsigned long size = PAGE_SIZE * numpages;
->  	unsigned long end = start + size;
-> +	unsigned long l_start;
->  	struct vm_struct *area;
-> -	int i;
-> +	int i, ret;
->  
->  	if (!PAGE_ALIGNED(addr)) {
->  		start &= PAGE_MASK;
-> @@ -118,7 +258,12 @@ static int change_memory_common(unsigned long addr, int numpages,
->  	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->  			    pgprot_val(clear_mask) == PTE_RDONLY)) {
->  		for (i = 0; i < area->nr_pages; i++) {
-> -			__change_memory_common((u64)page_address(area->pages[i]),
-> +			l_start = (u64)page_address(area->pages[i]);
-> +			ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
-> +			if (WARN_ON_ONCE(ret))
-> +				return ret;
-> +
-> +			__change_memory_common(l_start,
->  					       PAGE_SIZE, set_mask, clear_mask);
->  		}
->  	}
-> @@ -174,6 +319,9 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
-
-set_memory_valid() actually calls __change_memory_common() directly (so it
-bypassed the split logic in change_memory_common()). Is it possible that it gets
-called for a non-split region? I guess you'll need to handle that case too?
-
-Thanks,
-Ryan
-
->  
->  int set_direct_map_invalid_noflush(struct page *page)
->  {
-> +	unsigned long l_start;
-> +	int ret;
-> +
->  	struct page_change_data data = {
->  		.set_mask = __pgprot(0),
->  		.clear_mask = __pgprot(PTE_VALID),
-> @@ -182,13 +330,21 @@ int set_direct_map_invalid_noflush(struct page *page)
->  	if (!can_set_direct_map())
->  		return 0;
->  
-> +	l_start = (unsigned long)page_address(page);
-> +	ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
-> +	if (WARN_ON_ONCE(ret))
-> +		return ret;
-> +
->  	return apply_to_page_range(&init_mm,
-> -				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +				   l_start, PAGE_SIZE, change_page_range,
-> +				   &data);
->  }
->  
->  int set_direct_map_default_noflush(struct page *page)
->  {
-> +	unsigned long l_start;
-> +	int ret;
-> +
->  	struct page_change_data data = {
->  		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
->  		.clear_mask = __pgprot(PTE_RDONLY),
-> @@ -197,9 +353,14 @@ int set_direct_map_default_noflush(struct page *page)
->  	if (!can_set_direct_map())
->  		return 0;
->  
-> +	l_start = (unsigned long)page_address(page);
-> +	ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
-> +	if (WARN_ON_ONCE(ret))
-> +		return ret;
-> +
->  	return apply_to_page_range(&init_mm,
-> -				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +				   l_start, PAGE_SIZE, change_page_range,
-> +				   &data);
->  }
->  
->  static int __set_memory_enc_dec(unsigned long addr,
-
+Cheers,
+Quentin
 
