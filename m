@@ -4,70 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC6E6C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E957CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xl5j90Xs7uiH7A2wBzjOKfnn/aE2unYLju8Zobmun0k=; b=qrorLnIIsnLMwhb/L9InR0mM2c
-	0tza3574ePJW8VT7ZgUV2Bz8NRRoJDPorMRp16qOK4o1nI9bh/7E+ZkVfxBOQBnpLTtBS78mHtyAq
-	lH9I7FizoVj+DL6gyszK88VZdnF4Su06h8GCNHC0VoBVcwPH7lVTc/m9XjrfgOMg3GwhyWRwX/kav
-	0fpmqOP/2JUqS8hkFZUw4TBp+uzbog0ivNeFN2g3VgwXagjlLv8EtxQxL8VQPPA1rVRWpXz6Xzwe+
-	leKX5AG7o+UlrMZdrj2lecaCFqjqaAGAwO+BFwlPCmP9DkwV5siYQGi1ZWxW1dJO7mW+z7mumQwXq
-	AZMXqAHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uWVDSjgS6JIISR3Ig9ZHEbq8J0PF0Iw5i8ZVq3tF3Q=; b=ck2L4ghnfO12Kp5cfZEnJt0UfL
+	9lICk3W4y70zfOMA20sxOYznBj2pOU23gl3m6Rf1cHNACQbXLdAxOQlfetQBhZ3OTwn/MtEfIpVyZ
+	kZgAlr2SlfPNS4+H+M6OJXPG76+7s0ifN+OMzAciXoGxvsq53VfirolrG3qkJYTQr00i4GN4Ol0s3
+	E4Sdv8ALX/Kzy98EsqWUEOh4cCwlC3/Snw76byoK84EVivPzVPEV9bYT3SiF0LuVBQQfq1Mhll6k0
+	XS57Y0rwUFcDZ2Abi9eA5XEWhs5nundWZEaFoSBCJpDx/YUgPKPtKlh2wfYEfruU3vV87Evd7NfT4
+	dhFwA/yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thrdG-00000004CBN-45yk;
-	Tue, 11 Feb 2025 14:53:02 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1three-00000004CLr-2pC8;
+	Tue, 11 Feb 2025 14:54:28 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thrU3-00000004AQU-39CS
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 14:43:34 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-05 (Coremail) with SMTP id zQCowAB3f6MEYqtnXm84DA--.38982S2;
-	Tue, 11 Feb 2025 22:43:17 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: linus.walleij@linaro.org,
-	brgl@bgdev.pl,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1thrWe-00000004Ayi-3m5r;
+	Tue, 11 Feb 2025 14:46:13 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab7dd005cb0so17209066b.3;
+        Tue, 11 Feb 2025 06:46:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739285171; x=1739889971; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6uWVDSjgS6JIISR3Ig9ZHEbq8J0PF0Iw5i8ZVq3tF3Q=;
+        b=gTqgiTPIMiHt31oGiC+G1CljFFZbEZODF3VilgGRB3Q+iJlwiZl40fVe36BhUC7LSr
+         X7nXVo2X1bvAXa5HbHoELcT+QQxPoc62VYDmfq+BNYCLcm18Op+7HjQ/Es8Lb305eUz/
+         ddgH7wYdRiqv14DIux5cppUtxrfQtv0t9E76Xa6/Fk2Z//vFXy/PB9FxOR4BxVCAP3x0
+         v9QVZDP4oM+4XK/jRPqRCJ+diBJnGNaUOGRNTzehP5EdQ2mDH0YLEkzTlDJNqDCTKBVf
+         e+7NlAo3p/PRSFizdhEdhhIgpKDP3UOOkJqyuKdT3TP4MRNxkR8sWumzcMNy7ohJgIWo
+         AbIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739285171; x=1739889971;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6uWVDSjgS6JIISR3Ig9ZHEbq8J0PF0Iw5i8ZVq3tF3Q=;
+        b=YpZ5S0VAXYRxhXiMMRolEhhX8lAwJXOnWsOqbRbqeG1MHXrVtp0AFBLYk/PImOmXlw
+         MxTiMswn6n4HSUmaIK95DkDXxSi256fiW0Q5PhBfO5HlqhLxOfEJ8hpEJwLjOGrKwddE
+         /Wy/toeDlTvUDChhTX+7tMvY0jVldA1htgudNOBhOnb2Em1a8FDTBS++3/MQPAMKiSoy
+         q+j61vOYOeCKsPPG4exZuyyry8QKmw4/BxwtODSeKi0UtLZ/oVB2rxik4SDkOEfgeEBD
+         RSvPu7m3vMfMyTSHHvaGE7dApPyeT+8XDTBrt0Qpm2w4deH1ZszCqfAsxHXxcYD9qNsG
+         cu3g==
+X-Forwarded-Encrypted: i=1; AJvYcCV6eZgpExVOfVovW/3PvGjoF/sUpoiAj8x7gY1AZMFzsrSPMaNjRBvaDVAQe9JHouXttR1nwgbUCKDCijgec7ly@lists.infradead.org, AJvYcCVkvwcbEggj6ozBK4T6qYwF3y0r6vA1M0vT65sXDzV/pG7dimraRk3U0UFpV0m6ygj+gtBmB1j8FteH8bRwULI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNNufYgN1GnCr+6qdkvYSFNu9EZCZar22FZTnWuoVIabeS4iEX
+	u5FzXOfGws/WfPKOxoGLfyIW+cK6warGqugGPgAbMQ6AyR04Qd7i
+X-Gm-Gg: ASbGncv39ircAuj+2OIBsyMNndnUmdNizdGdhjWCr/uDDII1gEW55W1i4+lqKiC/eXw
+	SGdD3Iw1crPwa+jcFlEEUOdnAKOOjC9DngHE7iMFjgU6DEj0goVnRMVRN+AhJa3+gxNI7yDuoUC
+	VWvhXeKgQoZhvdBhgfTJ+KNGFCL4HzIMXE1t6m0mejEhLFTgBTMR86opn//2HpU/to9+ZvvS7X0
+	d0Mi7wZu8s/H87vfyvefyEkdnW4aEeq0qPaz14IsuvJhvtQBvTp1F/tTenqSukCin83sbnWYPKg
+	X2w=
+X-Google-Smtp-Source: AGHT+IERuaTSU0FjfFqdLB/FrYmkIXox+hXTzqKNJOTUEB7oHG1m+Cn9NfYp8r8pLkOryAH3/WRqyQ==
+X-Received: by 2002:a17:907:96aa:b0:ab6:eec4:c9c2 with SMTP id a640c23a62f3a-ab7e0eeb604mr95768366b.7.1739285170925;
+        Tue, 11 Feb 2025 06:46:10 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab78e561ba0sm898239966b.137.2025.02.11.06.46.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Feb 2025 06:46:10 -0800 (PST)
+Date: Tue, 11 Feb 2025 16:46:06 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Eric Woudstra <ericwouds@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Jozsef Kadlecsik <kadlec@netfilter.org>,
+	Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>,
+	Roopa Prabhu <roopa@nvidia.com>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kuniyuki Iwashima <kuniyu@amazon.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Joe Damato <jdamato@fastly.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] gpio: stmpe: Check return value of stmpe_reg_read in stmpe_gpio_irq_sync_unlock
-Date: Tue, 11 Feb 2025 22:43:00 +0800
-Message-ID: <20250211144300.964-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v6 net-next 05/14] bridge: Add filling forward path from
+ port to port
+Message-ID: <20250211144606.ljj2rddz32p6gooe@skbuf>
+References: <20250209111034.241571-1-ericwouds@gmail.com>
+ <20250209111034.241571-6-ericwouds@gmail.com>
+ <20250211132832.aiy6ocvqppoqkd65@skbuf>
+ <9ae3548a-844e-4449-9c00-5dd79e804922@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAB3f6MEYqtnXm84DA--.38982S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFy3tF17Aw4rCF4UWF48WFg_yoW8AFyrpF
-	Wqqr98CrWDJa18ZryYyF4rZrnakay8KFW7C3s7Wrs3Wr1Fvr9rGFW8XFyaqF98trWkWw47
-	ZF1UtF95tF1kZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
-	6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
-	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y
-	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
-	WUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
-	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUb8hL5UUUU
-	U==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBg0KA2erVk4dfQAAs2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9ae3548a-844e-4449-9c00-5dd79e804922@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_064332_159296_018A2CE8 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250211_064612_938844_A6ECD824 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +120,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmpe_reg_read function can fail, but its return value is not checked
-in stmpe_gpio_irq_sync_unlock. This can lead to silent failures and
-incorrect behavior if the hardware access fails.
+On Tue, Feb 11, 2025 at 03:43:22PM +0100, Eric Woudstra wrote:
+> Thanks. I will correct both in v7.
 
-This patch adds checks for the return value of stmpe_reg_read. If the
-function fails, an error message is logged and the function returns
-early to avoid further issues.
-
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/gpio/gpio-stmpe.c | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpio/gpio-stmpe.c b/drivers/gpio/gpio-stmpe.c
-index 75a3633ceddb..9c3bd5c98ec2 100644
---- a/drivers/gpio/gpio-stmpe.c
-+++ b/drivers/gpio/gpio-stmpe.c
-@@ -191,7 +191,7 @@ static void stmpe_gpio_irq_sync_unlock(struct irq_data *d)
- 		[REG_IE][CSB] = STMPE_IDX_IEGPIOR_CSB,
- 		[REG_IE][MSB] = STMPE_IDX_IEGPIOR_MSB,
- 	};
--	int i, j;
-+	int ret, i, j;
- 
- 	/*
- 	 * STMPE1600: to be able to get IRQ from pins,
-@@ -199,8 +199,17 @@ static void stmpe_gpio_irq_sync_unlock(struct irq_data *d)
- 	 * GPSR or GPCR registers
- 	 */
- 	if (stmpe->partnum == STMPE1600) {
--		stmpe_reg_read(stmpe, stmpe->regs[STMPE_IDX_GPMR_LSB]);
--		stmpe_reg_read(stmpe, stmpe->regs[STMPE_IDX_GPMR_CSB]);
-+		ret = stmpe_reg_read(stmpe, stmpe->regs[STMPE_IDX_GPMR_LSB]);
-+		if (ret < 0) {
-+			dev_err(stmpe->dev, "Failed to read GPMR_LSB: %d\n", ret);
-+			goto err;
-+		}
-+
-+		ret = stmpe_reg_read(stmpe, stmpe->regs[STMPE_IDX_GPMR_CSB]);
-+		if (ret < 0) {
-+			dev_err(stmpe->dev, "Failed to read GPMR_CSB: %d\n", ret);
-+			goto err;
-+		}
- 	}
- 
- 	for (i = 0; i < CACHE_NR_REGS; i++) {
-@@ -222,6 +231,7 @@ static void stmpe_gpio_irq_sync_unlock(struct irq_data *d)
- 		}
- 	}
- 
-+err:
- 	mutex_unlock(&stmpe_gpio->irq_lock);
- }
- 
--- 
-2.42.0.windows.2
-
+Please wait a bit more for v7. I'm trying really hard to ask a pertinent
+question on patch 11/14, which currently I don't understand very well
+what it does and why it is needed.
 
