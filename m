@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9415C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB2AC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N9OiVq4lA3y1Ju2JdD3nDT1kWhrKFhscMSwrUVrrf7s=; b=4JCFFX+Tj8SUu4trCtLc1G24A1
-	Cu7vXRVrHQ+UdCJ5ruw1rC91CnCY6ucIlTgIajidVJhbu1vEtDgXOYg8a67r//wBUIt7iyGGHGrER
-	fGOjQT5FitcKH7yS8BxWJyIqP/6lkT77GPIW2NgxXcjPic4F/FSzJwVVB2GRf1N5yiNI7n5iyMyzc
-	42xr7p3W8M/6YLGqcGVIBA4q2Ka6z4Jll7wPYLhvnlN7D3IDqG5+eXHDvOOfIMUJDfrpgptYQJKeb
-	O87FZu5ew5AEOEYkI/QeRGIvEtWnr2etZKJnso1Pk4Qzo6CAtT4nYpbm6siTJY+ewNnJzS4ajkLNX
-	bgNSzYTQ==;
+	bh=heY5l/VR8320Cc1NcKoy0yo+oJ9lapkYqGv+gKTyQYc=; b=Ak5trnFgySp3RVrd2UWd4qmcLj
+	voBU7jlYc+tnCopB6Pgd+7LU8LGFcbPWnjiwX8ThfQzgx2bdzrtEwXJnLdL0E820uH+6mQYsC8Od1
+	QAJuNyzAw1Ci1O58wHp2+UnDoIaoTqDbKTngs03ZRiEiU2bYzWDbt3RV89rNC5qEQasrwOFr91dDn
+	lxPji+u2x4RA21ZKkNmP9vi8vqD4Luzb4D5bdZi7EPYYUh1CO2P/GaQUkx0WXmtbP0z0wFLwaeghU
+	pJXoBHnAQq9Wf8j46urdEkcxjC0Vk8u+XRmJX6vPavDtDbq4XZ0MWuLIoF0+hwxBX1W6Dw9wCCCDt
+	8nn1LvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuXk-00000004mHG-3j7L;
-	Tue, 11 Feb 2025 17:59:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thuZ7-00000004mV9-3zYl;
+	Tue, 11 Feb 2025 18:00:57 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuUj-00000004lpv-3sI0;
-	Tue, 11 Feb 2025 17:56:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9C02EA40B9B;
-	Tue, 11 Feb 2025 17:54:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5928DC4CEDD;
-	Tue, 11 Feb 2025 17:56:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739296584;
-	bh=N9OiVq4lA3y1Ju2JdD3nDT1kWhrKFhscMSwrUVrrf7s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hwdj3RK2bdWxTm2v9oFP02HODkeYrya7V5OzHTSLUNab2QJiADsQxpSkj8DLZfdeT
-	 Lyn7Wqgqu+84u4FO44yZysLQhrNO+Duk12k+9prs2N4ZGb5MMJpKqyY9eGHIuQpiW5
-	 TK4v2VR3CN38WVQzxjX6H3aPV+pTwAyNC2EqnxyX3BQa1eX3KU1WhE8f7IodQaGaDc
-	 hueuv0Bezgbe1jOAwOcEoZwmE2k4kk3IpgSIHMOj8SEuIIAw9oie200aKIzsKdnJxK
-	 xO8QtW8xJsfBcASUxu9f9emGW5I7NUemIkwwY+sHq5Tgkil748cOC6ZBMqxmNFDTMp
-	 b/jLO9dx9WoOw==
-Date: Tue, 11 Feb 2025 17:56:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: srinivas.kandagatla@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, detlev.casanova@collabora.com,
-	sebastian.reichel@collabora.com,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH RESEND v2 3/6] dt-bindings: nvmem: rockchip,otp: add
- missing limits for clock-names
-Message-ID: <20250211-brownnose-pancake-ec8010226e71@spud>
-References: <20250210224510.1194963-1-heiko@sntech.de>
- <20250210224510.1194963-4-heiko@sntech.de>
+	id 1thuV6-00000004lxw-1t3T
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 17:56:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739296608; x=1770832608;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tUfnbQLqPmzNMMTnPDZCp5d6eeH/3wvctepWEQ6MdPE=;
+  b=aOzlCt8ITgxcd2VBG9r2PYbsRbEb/OHFviBHlkazJkWdgu3bxw6IUUGx
+   pY9vk9wuhAJ1pTKPTRFEd/Mj8oqp8ZEf9A4sfg2n72oLu4U7G+0mGvSEm
+   gRP7hvB3ARrX2zY21Wj3osxfjrbJicxQwKF+lOMe9u9mY8cnWjyfXXNBS
+   BqLs/DKtea3q4IfJhEaoooHz1QVtcW7U8z8BARJxAecVEwLCUgpa0JWZ0
+   wPA1/53zq23xpYNqU1YY0UU+6zwZRzFIfg0bmII2kmeN2yTPEU9mK/26H
+   JSVxtXQ7PSeXckkcviWUFKefm97Hyez+Wv6YCTZdUj9Vh+42yWqZFn69O
+   Q==;
+X-CSE-ConnectionGUID: WOzkZOYvRjGQgKdGahbUKQ==
+X-CSE-MsgGUID: L3TijjANTP+vf8VQbveCiQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="39812843"
+X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
+   d="scan'208";a="39812843"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 09:56:48 -0800
+X-CSE-ConnectionGUID: UsqZjJAaRQq3xmGjVQ4LIw==
+X-CSE-MsgGUID: Xams3y/UT4yCGUgFrWF3dg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
+   d="scan'208";a="143430133"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 11 Feb 2025 09:56:43 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1thuUx-0014Wl-1g;
+	Tue, 11 Feb 2025 17:56:39 +0000
+Date: Wed, 12 Feb 2025 01:56:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: patrice.chotard@foss.st.com, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	christophe.kerello@foss.st.com, patrice.chotard@foss.st.com
+Subject: Re: [PATCH v3 4/8] memory: Add STM32 Octo Memory Manager driver
+Message-ID: <202502120118.27fjrRqt-lkp@intel.com>
+References: <20250210131826.220318-5-patrice.chotard@foss.st.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5lHI6jXJr/khkXOI"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250210224510.1194963-4-heiko@sntech.de>
+In-Reply-To: <20250210131826.220318-5-patrice.chotard@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_095626_032306_0BA270F4 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_095648_525770_0F7ECA79 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +100,362 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---5lHI6jXJr/khkXOI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build errors:
 
-On Mon, Feb 10, 2025 at 11:45:07PM +0100, Heiko Stuebner wrote:
-> The clocks property correctly declares minItems and maxItems for its
-> variants, but clock-names does not. Both properties are always used
-> together, so should declare the same limits.
->=20
-> Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+[auto build test ERROR on broonie-spi/for-next]
+[also build test ERROR on atorgue-stm32/stm32-next krzk-mem-ctrl/for-next linus/master v6.14-rc2 next-20250210]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+url:    https://github.com/intel-lab-lkp/linux/commits/patrice-chotard-foss-st-com/dt-bindings-spi-Add-STM32-OSPI-controller/20250210-212554
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+patch link:    https://lore.kernel.org/r/20250210131826.220318-5-patrice.chotard%40foss.st.com
+patch subject: [PATCH v3 4/8] memory: Add STM32 Octo Memory Manager driver
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250212/202502120118.27fjrRqt-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 6807164500e9920638e2ab0cdb4bf8321d24f8eb)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502120118.27fjrRqt-lkp@intel.com/reproduce)
 
---5lHI6jXJr/khkXOI
-Content-Type: application/pgp-signature; name="signature.asc"
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502120118.27fjrRqt-lkp@intel.com/
 
------BEGIN PGP SIGNATURE-----
+All error/warnings (new ones prefixed by >>):
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6uPRAAKCRB4tDGHoIJi
-0n4bAQCGaE+a3c4Ovuh/Je2FzH7HyaSdzuOzAQjfzUqy896TMQD/aS3ACMxHzh+R
-1ApLMMa2YdgCgtVGxmRBzbOAD76khgs=
-=T9CO
------END PGP SIGNATURE-----
+>> drivers/memory/stm32_omm.c:83:5: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      82 |                         dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
+         |                                          ~~~~
+         |                                          %x
+      83 |                                 res.start, res.end,
+         |                                 ^~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:83:16: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      82 |                         dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
+         |                                                 ~~~~
+         |                                                 %x
+      83 |                                 res.start, res.end,
+         |                                            ^~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:84:5: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      82 |                         dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
+         |                                                                             ~~~~
+         |                                                                             %x
+      83 |                                 res.start, res.end,
+      84 |                                 omm->mm_res->start, omm->mm_res->end);
+         |                                 ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:84:25: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      82 |                         dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
+         |                                                                                    ~~~~
+         |                                                                                    %x
+      83 |                                 res.start, res.end,
+      84 |                                 omm->mm_res->start, omm->mm_res->end);
+         |                                                     ^~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:97:6: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      96 |                                 dev_err(dev, "[0x%llx-0x%llx] overlaps [0x%llx-0x%llx]\n",
+         |                                                  ~~~~
+         |                                                  %x
+      97 |                                         res1.start, res1.end, res.start, res.end);
+         |                                         ^~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:97:18: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      96 |                                 dev_err(dev, "[0x%llx-0x%llx] overlaps [0x%llx-0x%llx]\n",
+         |                                                         ~~~~
+         |                                                         %x
+      97 |                                         res1.start, res1.end, res.start, res.end);
+         |                                                     ^~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:97:28: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      96 |                                 dev_err(dev, "[0x%llx-0x%llx] overlaps [0x%llx-0x%llx]\n",
+         |                                                                           ~~~~
+         |                                                                           %x
+      97 |                                         res1.start, res1.end, res.start, res.end);
+         |                                                               ^~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   drivers/memory/stm32_omm.c:97:39: warning: format specifies type 'unsigned long long' but the argument has type 'resource_size_t' (aka 'unsigned int') [-Wformat]
+      96 |                                 dev_err(dev, "[0x%llx-0x%llx] overlaps [0x%llx-0x%llx]\n",
+         |                                                                                  ~~~~
+         |                                                                                  %x
+      97 |                                         res1.start, res1.end, res.start, res.end);
+         |                                                                          ^~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+>> drivers/memory/stm32_omm.c:224:14: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     224 |                         req2ack = FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
+         |                                   ^
+   drivers/memory/stm32_omm.c:239:14: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     239 |                 omm->cr |= FIELD_PREP(CR_MUXENMODE_MASK, mux);
+         |                            ^
+   drivers/memory/stm32_omm.c:246:14: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     246 |                 omm->cr |= FIELD_PREP(CR_CSSEL_OVR_MASK, cssel_ovr);
+         |                            ^
+   8 warnings and 3 errors generated.
 
---5lHI6jXJr/khkXOI--
+
+vim +/FIELD_PREP +224 drivers/memory/stm32_omm.c
+
+    44	
+    45	static int stm32_omm_set_amcr(struct device *dev, bool set)
+    46	{
+    47		struct stm32_omm *omm = dev_get_drvdata(dev);
+    48		struct regmap *syscfg_regmap;
+    49		struct device_node *node;
+    50		struct resource res, res1;
+    51		resource_size_t mm_ospi2_size = 0;
+    52		static const char * const mm_name[] = { "ospi1", "ospi2" };
+    53		u32 amcr_base, amcr_mask;
+    54		int ret, i, idx;
+    55		unsigned int amcr, read_amcr;
+    56	
+    57		for (i = 0; i < omm->nb_child; i++) {
+    58			idx = of_property_match_string(dev->of_node,
+    59						       "memory-region-names",
+    60						       mm_name[i]);
+    61			if (idx < 0)
+    62				continue;
+    63	
+    64			/* res1 only used on second loop iteration */
+    65			res1.start = res.start;
+    66			res1.end = res.end;
+    67	
+    68			node = of_parse_phandle(dev->of_node, "memory-region", idx);
+    69			if (!node)
+    70				continue;
+    71	
+    72			ret = of_address_to_resource(node, 0, &res);
+    73			if (ret) {
+    74				dev_err(dev, "unable to resolve memory region\n");
+    75				return ret;
+    76			}
+    77	
+    78			/* check that memory region fits inside OMM memory map area */
+    79			if (!resource_contains(omm->mm_res, &res)) {
+    80				dev_err(dev, "%s doesn't fit inside OMM memory map area\n",
+    81					mm_name[i]);
+    82				dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
+  > 83					res.start, res.end,
+    84					omm->mm_res->start, omm->mm_res->end);
+    85	
+    86				return -EFAULT;
+    87			}
+    88	
+    89			if (i == 1) {
+    90				mm_ospi2_size = resource_size(&res);
+    91	
+    92				/* check that OMM memory region 1 doesn't overlap memory region 2 */
+    93				if (resource_overlaps(&res, &res1)) {
+    94					dev_err(dev, "OMM memory-region %s overlaps memory region %s\n",
+    95						mm_name[0], mm_name[1]);
+    96					dev_err(dev, "[0x%llx-0x%llx] overlaps [0x%llx-0x%llx]\n",
+    97						res1.start, res1.end, res.start, res.end);
+    98	
+    99					return -EFAULT;
+   100				}
+   101			}
+   102		}
+   103	
+   104		syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
+   105		if (IS_ERR(syscfg_regmap)) {
+   106			dev_err(dev, "Failed to get st,syscfg-amcr property\n");
+   107			return PTR_ERR(syscfg_regmap);
+   108		}
+   109	
+   110		ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
+   111						 &amcr_base);
+   112		if (ret)
+   113			return ret;
+   114	
+   115		ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
+   116						 &amcr_mask);
+   117		if (ret)
+   118			return ret;
+   119	
+   120		amcr = mm_ospi2_size / SZ_64M;
+   121	
+   122		if (set)
+   123			regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
+   124	
+   125		/* read AMCR and check coherency with memory-map areas defined in DT */
+   126		regmap_read(syscfg_regmap, amcr_base, &read_amcr);
+   127		read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
+   128	
+   129		if (amcr != read_amcr) {
+   130			dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
+   131			ret = -EINVAL;
+   132		}
+   133	
+   134		return ret;
+   135	}
+   136	
+   137	static int stm32_omm_enable_child_clock(struct device *dev, bool enable)
+   138	{
+   139		/* As there is only 2 children, remember first child in case of error */
+   140		struct clk *first_child_clk = NULL;
+   141		struct stm32_omm *omm = dev_get_drvdata(dev);
+   142		u8 i;
+   143		int ret;
+   144	
+   145		for (i = 0; i < omm->nb_child; i++) {
+   146			if (enable) {
+   147				ret = clk_prepare_enable(omm->child[i].clk);
+   148				if (ret) {
+   149					if (first_child_clk)
+   150						clk_disable_unprepare(first_child_clk);
+   151	
+   152					dev_err(dev, "Can not enable clock\n");
+   153					return ret;
+   154				}
+   155			} else {
+   156				clk_disable_unprepare(omm->child[i].clk);
+   157			}
+   158	
+   159			first_child_clk = omm->child[i].clk;
+   160		}
+   161	
+   162		return 0;
+   163	}
+   164	
+   165	static int stm32_omm_configure(struct device *dev)
+   166	{
+   167		struct stm32_omm *omm = dev_get_drvdata(dev);
+   168		struct reset_control *rstc;
+   169		unsigned long clk_rate, clk_rate_max = 0;
+   170		int ret;
+   171		u8 i;
+   172		u32 mux = 0;
+   173		u32 cssel_ovr = 0;
+   174		u32 req2ack = 0;
+   175	
+   176		omm->clk = devm_clk_get(dev, NULL);
+   177		if (IS_ERR(omm->clk)) {
+   178			dev_err(dev, "Failed to get OMM clock (%ld)\n",
+   179				PTR_ERR(omm->clk));
+   180	
+   181			return PTR_ERR(omm->clk);
+   182		}
+   183	
+   184		ret = pm_runtime_resume_and_get(dev);
+   185		if (ret < 0)
+   186			return ret;
+   187	
+   188		/* parse children's clock */
+   189		for (i = 0; i < omm->nb_child; i++) {
+   190			clk_rate = clk_get_rate(omm->child[i].clk);
+   191			if (!clk_rate) {
+   192				dev_err(dev, "Invalid clock rate\n");
+   193				goto err_clk_disable;
+   194			}
+   195	
+   196			if (clk_rate > clk_rate_max)
+   197				clk_rate_max = clk_rate;
+   198		}
+   199	
+   200		rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
+   201		if (IS_ERR(rstc)) {
+   202			ret = dev_err_probe(dev, PTR_ERR(rstc), "reset get failed\n");
+   203			goto err_clk_disable;
+   204		}
+   205	
+   206		reset_control_assert(rstc);
+   207		udelay(2);
+   208		reset_control_deassert(rstc);
+   209	
+   210		omm->cr = readl_relaxed(omm->io_base + OMM_CR);
+   211		/* optional */
+   212		ret = of_property_read_u32(dev->of_node, "st,omm-mux", &mux);
+   213		if (!ret) {
+   214			if (mux & CR_MUXEN) {
+   215				ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
+   216							   &req2ack);
+   217				if (!ret && !req2ack) {
+   218					req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
+   219	
+   220					if (req2ack > 256)
+   221						req2ack = 256;
+   222				}
+   223	
+ > 224				req2ack = FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
+   225	
+   226				omm->cr &= ~CR_REQ2ACK_MASK;
+   227				omm->cr |= FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
+   228	
+   229				/*
+   230				 * If the mux is enabled, the 2 OSPI clocks have to be
+   231				 * always enabled
+   232				 */
+   233				ret = stm32_omm_enable_child_clock(dev, true);
+   234				if (ret)
+   235					goto err_clk_disable;
+   236			}
+   237	
+   238			omm->cr &= ~CR_MUXENMODE_MASK;
+   239			omm->cr |= FIELD_PREP(CR_MUXENMODE_MASK, mux);
+   240		}
+   241	
+   242		/* optional */
+   243		ret = of_property_read_u32(dev->of_node, "st,omm-cssel-ovr", &cssel_ovr);
+   244		if (!ret) {
+   245			omm->cr &= ~CR_CSSEL_OVR_MASK;
+   246			omm->cr |= FIELD_PREP(CR_CSSEL_OVR_MASK, cssel_ovr);
+   247			omm->cr |= CR_CSSEL_OVR_EN;
+   248		}
+   249	
+   250		omm->restore_omm = true;
+   251		writel_relaxed(omm->cr, omm->io_base + OMM_CR);
+   252	
+   253		ret = stm32_omm_set_amcr(dev, true);
+   254	
+   255	err_clk_disable:
+   256		pm_runtime_put_sync_suspend(dev);
+   257	
+   258		return ret;
+   259	}
+   260	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
