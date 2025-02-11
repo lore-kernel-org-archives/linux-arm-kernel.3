@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA82C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93D1C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ns/V2ADUqMSxt3YHcakyh9LzE9Qcn5jobsve+9Hj5Bs=; b=xxpWdhHcGJ28Ot8WkeBIrwkYGi
-	UoAKawx4SkgAI11/+uIhEn2kPRa/RoWZICC4UelA9sMfAgqJNxQiosWl7IEYuv9YDS02tJC9gzokK
-	+m2vqcAz+P3Du0S7Ibezzs52e8e0wjUDozw6uk2OIwSHNSeSFAK/cZrjKguWQnoMgY4TuWdE4FA/S
-	szVUvauvtzLlNzJUYtPM9hQhUg5Ha0FtJEtLoWu78fBB/IjIy8vfzRUHzyGPlOE4O8CFgQsAepSsz
-	VAzhSE+ugFLvzUsBTQHJgEw3dR6RH3z0uZQPVSTR/6xmphRuEOVC2KCHz8BuPpWJZ9S3zsUTkPyOB
-	nbEjFOXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EiTpVaJGe+WMW5KG0DMZYxbw4sg/6CJWl4qYCAOe8Ck=; b=O8bWaIApQDgOz08ny6r7hTNsqn
+	Or3yqTz3mF9E4BeQlRfyQgkehB6oUXpAv6M8Bdg4MErI5EoF5n82wnTBXngVdUMFC7om89lOQvglR
+	p2/7n4HAd31My+f/fMPlO2BM5UzbCx1cpANxa3/3ftZB/l0x+6IpgfTCSCS+bu4ygB29QdOoiCldk
+	esQMQJRU0WgZ0FLtBtmEyLdAhyqgPrngp+pdNHLx+ZYLPWJttbhTdp1YZ/WdYGml6/1BmQXAC3In+
+	eP+Gmh4PkgsEOn8UvWHrv8JBtLa5EbEUjx5ym0harJhtffZryjUE3fpRavbtcu0pxrc56R3uQBjLl
+	XV5OQ/fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuNR-00000004kSR-16AB;
-	Tue, 11 Feb 2025 17:48:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thuOo-00000004kh9-3jzj;
+	Tue, 11 Feb 2025 17:50:18 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuKt-00000004k6L-3JTM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 17:46:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90236A40B20;
-	Tue, 11 Feb 2025 17:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A42C4CEDD;
-	Tue, 11 Feb 2025 17:46:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739295974;
-	bh=4bWCQgq6wE2a3T0Qy5XzYaE2anG4zZm9WC4XUKvmajU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZcrCSPmlaB/tYdBAf+u3i+Q22uPyV5tZ3MrFzjw4HdRxRADGAUIM8IcFdQxl3KlP5
-	 2v9uqMCLN3NtFrg+dFYz6tqB2r8MiyoETdn1Ibc+0mnCWUc3lAW2iDV0nZiRlLeGo9
-	 lZelCnXID3Z3YTYM5xGdpcZZT5aWLKkqfCbVNt+Hn1bu1t/miAoixrmL6aCJqdriBJ
-	 HoGFlWPR4ZiaBD1knaHIiv6KEWlIL9Ah0Tx5RGT8gvtNIbSdJdW+K0BYZp4Q5O379y
-	 g+CNBASjEwDJgUeVtLZKMZI87FVsRMFCI6zS4CeFQBCZ5+OBDjjSwKtD+JrpbLtN42
-	 qjJB2lSvxnP/w==
-Date: Tue, 11 Feb 2025 09:46:11 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Tavian Barnes <tavianator@tavianator.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>,
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Veronika Molnarova <vmolnaro@redhat.com>,
-	Michael Petlan <mpetlan@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
-Subject: Re: [PATCH v1] perf sample: Make user_regs and intr_regs optional
-Message-ID: <Z6uM48_IJa-AEzEI@google.com>
-References: <20250113194345.1537821-1-irogers@google.com>
- <CAP-5=fVoQRhd-8jyXfjc2dCuwt7_o1sU208aADT1FriwCNa9qw@mail.gmail.com>
- <Z6q7EZxAvskBE4H3@google.com>
- <CAP-5=fUTBJ_15f1WFuHjZzbWDwsAo3d90WX_hobfVWPjSOe3Vw@mail.gmail.com>
+	id 1thuNA-00000004kOg-41oX;
+	Tue, 11 Feb 2025 17:48:38 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 9557725C4B;
+	Tue, 11 Feb 2025 18:48:35 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id g3ydeW4wkoKu; Tue, 11 Feb 2025 18:48:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739296111; bh=Z8lWfXxYGhsMs8dAs2Wwm4xHfFeTOKBFHHc/bDiuT6k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jVFyeOtMDokw97k1t1QawSgEVgDg94c6AYdfNp+jiEPTBsNMz3S1wTHjXUHI19PDX
+	 TEo4SERflwLXqeKpRjqLiLoLa3Q7/i/EkKiSBaqjTwG2mAHqctBKRefvWCjfq34Lp3
+	 4KLgd6SJ01GbvFtqZrTHOU4PNqzAL7usAKoRH2lBapvnxEqT0ir7zrueYtjJUm5pvg
+	 eFwcq9UGe1Dk7K9VRRTwVaDlgTI3zLrvz2YogYczVhi11QPiGZnvoOUBKDNYgEYiqi
+	 J+3smDToYRaPYIPnrPAnm0CBvgoCzSKzsimhJyn9hLFDE4g690g4176IZgaxxxOUOk
+	 /1ynOknIAOGhg==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fUTBJ_15f1WFuHjZzbWDwsAo3d90WX_hobfVWPjSOe3Vw@mail.gmail.com>
+Date: Tue, 11 Feb 2025 17:48:31 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Vivek Gautam <gautam.vivek@samsung.com>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: Sergey Lisov <sleirsgoevy@gmail.com>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Kaustabh
+ Chakraborty <kauschluss@disroot.org>
+Subject: Re: [PATCH 4/4] phy: exynos5-usbdrd: add exynos7870 USBDRD support
+In-Reply-To: <20250204-exynos7870-usbphy-v1-4-f30a9857efeb@disroot.org>
+References: <20250204-exynos7870-usbphy-v1-0-f30a9857efeb@disroot.org>
+ <20250204-exynos7870-usbphy-v1-4-f30a9857efeb@disroot.org>
+Message-ID: <ba9aee5d125cd9bd2eea02d283877b5a@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_094615_961509_357185C2 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20250211_094837_134269_03F30F2E 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 08:43:40PM -0800, Ian Rogers wrote:
-> On Mon, Feb 10, 2025 at 6:51 PM Namhyung Kim <namhyung@kernel.org> wrote:
-> >
-> > On Mon, Feb 10, 2025 at 10:15:22AM -0800, Ian Rogers wrote:
-> > > On Mon, Jan 13, 2025 at 11:43 AM Ian Rogers <irogers@google.com> wrote:
-> > > >
-> > > > The struct dump_regs contains 512 bytes of cache_regs, meaning the two
-> > > > values in perf_sample contribute 1088 bytes of its total 1384 bytes
-> > > > size. Initializing this much memory has a cost reported by Tavian
-> > > > Barnes <tavianator@tavianator.com> as about 2.5% when running `perf
-> > > > script --itrace=i0`:
-> > > > https://lore.kernel.org/lkml/d841b97b3ad2ca8bcab07e4293375fb7c32dfce7.1736618095.git.tavianator@tavianator.com/
-> > > >
-> > > > Adrian Hunter <adrian.hunter@intel.com> replied that the zero
-> > > > initialization was necessary and couldn't simply be removed.
-> > > >
-> > > > This patch aims to strike a middle ground of still zeroing the
-> > > > perf_sample, but removing 79% of its size by make user_regs and
-> > > > intr_regs optional pointers to zalloc-ed memory. To support the
-> > > > allocation accessors are created for user_regs and intr_regs. To
-> > > > support correct cleanup perf_sample__init and perf_sample__exit
-> > > > functions are created and added throughout the code base.
-> > >
-> > > Ping. Given the memory savings and performance wins it would be nice
-> > > to see this land. Andi Kleen commented on doing a reimplementation,
-> > > which is fine but out-of-scope of what I'm doing here.
-> >
-> > Yeah, I like the core of the change.  Andi's concern is that it touches
-> > too many places.  It'd be nice if we can do that without allocating
-> > memory for regs and eliminating the perf_sample__{init,exit}.  But I'm
-> > not if it's possible.
+On 2025-02-03 20:40, Kaustabh Chakraborty wrote:
+> From: Sergey Lisov <sleirsgoevy@gmail.com>
 > 
-> Moving from no allocations to 2 possible allocations means there has
-> to be corresponding frees. Putting the frees into an __exit function
-> is the norm for this kind of cleanup. I don't see how you can move to
-> the approach presented without adding the frees and not introduce a
-> memory leak. I don't see what's actionable for me to do here.
+> Implement support for Exynos7870 USB DRD on top of the existing
+> exynos5-usbdrd driver.
+> 
+> Exynos7870 has a single USB 2.0 DRD PHY controller and no 3.0 PHYs. Thus,
+> it only supports the UTMI interface.
+> 
+> Moreover, the PMU register offset for enabling the PHY controller is
+> different for SoCs such as Exynos7870, where BIT(0) is for the 3.0 PHY and
+> BIT(1) is for the 2.0 PHY. The phy_isol function for Exynos7870 uses the
+> appropriate register offsets.
+> 
+> Signed-off-by: Sergey Lisov <sleirsgoevy@gmail.com>
+> Co-developed-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c    | 260 ++++++++++++++++++++++++++++
+>  include/linux/soc/samsung/exynos-regs-pmu.h |   2 +
+>  2 files changed, 262 insertions(+)
+> 
 
-Right, I'm inclined to merge this patch.  But I need to think a bit more
-about the Andi's approach before that.
-
-Thanks,
-Namhyung
-
+Please refrain from merging, wait for the next revision.
+Thank you.
 
