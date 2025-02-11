@@ -4,96 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85082C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 00:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C578C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 00:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=CXinvutFgPziM7RxPNDr3Edga1bpxeAp0Ov8Puttle0=; b=rqJwzIdnET+2QX
-	Q+WVczpSkLAnlcajDezXVyPQV3nl7DgfaURQNcx5YtRz+4rkfLXxkuM7bVq4GD6IG5Pvfwjrj8VwX
-	st5tAgwpQLKwkL/AoSXZRR/WqXdJveFWUsJQUpHErgW4GyHSkI5hXrLSEErkRYIp88k0iHNYF2+RT
-	eFVYweqLaIXVCrona/CAMNILFSIP3dGYNZukF7yj9tq1+jaciX0ui4XrVTkjTXg4yLDU/Bw4Aa1MC
-	CzL2ga12Twt/riKQqd1fkkdMweGCFbnd+wJnSbpTZ78rpYcYoSU1ZZ68Xys5f+LMS4x4CGY1bIDq7
-	sz4u/R5gdvjqgMiFk+xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qlUFik2Cn3+UF32BcSaPs8X9uoxvxbSY4EvgNwl3nLs=; b=h+9FG/7E5vk0hujgEE5JmE0ETr
+	S3zm2VEOqXZses0WmWChrLCktBFwaQW5beGMA+WlnMHnT2hlVxcsNFi7PdR6kYQ90VrWbKkWjSSsn
+	594+3D26ncvFGq2vdXjxrVC8QvnqYVrUDwMwHFmHa3dVrm7mXpnTEBkO6M0U3kAEFVn6oMVqWYjrO
+	hst5+4vwjTKUzH2thMib2RJ+gwe7g6HwHl7c2U6lZV8DagSf8lJXetTHY66F0D6lJmbuP7S4D2PSb
+	Dyv6PvtZJb74ga1OcS611b6bDFxWUjgPoEXbUgLhuKQbumMHokLB5NaxObsRwsoC/xPrPZ75sXJh9
+	BK1sgsJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1the61-00000001yIm-48Xt;
-	Tue, 11 Feb 2025 00:25:49 +0000
+	id 1the6q-00000001yS0-3sOh;
+	Tue, 11 Feb 2025 00:26:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thcsy-00000001n6L-2Fyy
+	id 1the3p-00000001y4B-2gvm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Feb 2025 23:08:16 +0000
+	Tue, 11 Feb 2025 00:23:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:References;
-	bh=CXinvutFgPziM7RxPNDr3Edga1bpxeAp0Ov8Puttle0=; b=phZIv9RK9spifzaYGXDn56k5v2
-	EyZjtDESh/NyXSNb/CIAPeVDwweOb9VFnMoHtrVHVDMcCgHVTCt0SMPzibqVYxK8U1GKlFA5Lb7jJ
-	8rNYMYKVXiBLyVkgLuEILXf4Iqwj57pJUbMwN41tc8KvjSqlPHtIOl97ZMZOQ40edsNYZDhPQ1zwd
-	fe0/tt09cB2Ni88cNNc7w7uoDALToogHBvQQydEJ994vQynmMtKJyuUIqqhYArRQncOPgWzQMTKQ4
-	GMD7cvbEkfzFQdaxtz8s+pO0DaRcPioZyuMZD+GmFDmbzLZoW8J/U+VFpWmdp9rSwi9ISFSjcbSJT
-	UCLJXwyg==;
-Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qlUFik2Cn3+UF32BcSaPs8X9uoxvxbSY4EvgNwl3nLs=; b=ULuG3vZJwj8wgvqAEVje2725kD
+	4/32zL6FCjz+YrCgcjqoVCN3ioGoaOShJdDdDwX+7UHGV5SOPtnK+OpbV2SY7zQdSf+oP09RTlb9D
+	/lVg7jPiF8yEVj2fJA3yFL3qeiOw4W1TY+WGq5m0vCVI6hbXKWugA+4k5gmz7ZLpTJQ+LXtT3XKTJ
+	WwJ9AWr6Pcg1xVE3ckcnci00NM2qOhGKEhhabkYv6tXaEl5CAffSsci9cGzanD07OV4GF4HIHeino
+	eE9+P+ZQhUSm/u2br/+FBw6anPyekV8+dDQgLKlgdsbZHRXJPaLHg14B4ocr5AQgI//4wJH6EagBo
+	qqK5OZvQ==;
+Received: from mail-yw1-x1141.google.com ([2607:f8b0:4864:20::1141])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thcsv-00000000M4T-2W0u
+	id 1the3m-00000000OWg-2UAX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Feb 2025 23:08:15 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3d14a235594so18733315ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 15:08:12 -0800 (PST)
+	Tue, 11 Feb 2025 00:23:32 +0000
+Received: by mail-yw1-x1141.google.com with SMTP id 00721157ae682-6f6ae4846c7so41510507b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 16:23:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739228892; x=1739833692; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739233409; x=1739838209; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=CXinvutFgPziM7RxPNDr3Edga1bpxeAp0Ov8Puttle0=;
-        b=oyd7bV8g7Vlw4DGruIXnhcC9r0rlmkB9l9UtjoKoE7ddYj3Hy/9u5PTz8CwXHOaJGS
-         updAxafu2LxsyP0x8nJKKrsL346Alq93eDfcYYNWFxm4e4/lgyh/QKHme+W+cxj+n125
-         BJT1sBugVY7Jk0JBdM7fnK5EhQGg8713iyInLcCu0SogqGr0PFzN5n2116K20kVuWLI+
-         bg6Vkrdu/4teP6lYcl9ww0St15hQbJOs7BqR81QEEU/emrlNdJMMhQIRPv2Y1x7PKWIQ
-         IxrXxbtuJKoe0Yb61l2D2vdNJp2f21MtgNjs5Ve5U9XUmDr2UMP+DxCwwAWBa3WHWM2P
-         KTKw==
+        bh=qlUFik2Cn3+UF32BcSaPs8X9uoxvxbSY4EvgNwl3nLs=;
+        b=E5yqyRNc8vO1gf4tft4khBlUYneIVWD9/pB4PATMYWrBF4wNwAMOqc0jzS6/A5Kqjt
+         Qpce8QEkwv8zGeAaLQvnEa3wBRVPBPyBXylZ10MonjIFcl7f4YwLeuGwhyn9QJ6/L4TG
+         WdLWwvTmsUy6woletBiIxHUm4WSelsr7NFZ3jncUYQ3sallWOs5Repq48CYkIMyPETYH
+         TOIscf5i1ZZi49FEHNxUhi79bR7+QRIVf8hhFuPnRXOP5qyQY2KACq4ZUdZcQUzg1J6W
+         IAYmSvov++k7cQwVFsWRqCGq1hnvTbDaQAe8tZ5nEzgnUeP8xcMxEpIBKPSB957AJxPi
+         4+Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739228892; x=1739833692;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+        d=1e100.net; s=20230601; t=1739233409; x=1739838209;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CXinvutFgPziM7RxPNDr3Edga1bpxeAp0Ov8Puttle0=;
-        b=ffTwT0WBasM2oh0Spl6e31qtWvpOjlBWavvbC5Uv2ico/Rq6v1u/hNRZHuj4R3pZ8g
-         uIyFgA+Rh+bquiEdLskbQN9R3MNkbk8/eTR1ZnPx4m4i18i4iALU9onwLaGW9D56nfWQ
-         ++94vC7GeRLAHPzPIF8CEqCbMAg0Y0QiHGkYg7hacc+zGGiWfN53dbDMW5NFK7NnHIAX
-         8rGKs7tyEuiYCJ9n0Cv1MWWYHAPuVv1DLztUCbcXycBCx5WyDNpZhu1G099uNJfpb1KV
-         5IyPMi2C0v5aQBAJ80eJQzIk6lc5MHCDAzXZk71o9HGa+qy94UXitxfgmUNpB8M+8iS7
-         MWKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUk1y0xFKUnk6lv7738UdDJpoLPMQ7r+l1Mb4auxJ5Hc/1gkfKxY8mwlhAIVnWEg97V6pe7b0htI8S7mWt8iOxd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKHfbkJD47r+k5NGJ3zmOKrYalFxi3P3QimqDy4vLX5dLWkPWC
-	8M02VMAcj33kc0sAHuVjaFt2UL/Pf6mZ1AZUm1NTuZKGGiA99wlKOFACO3pCpKMy8sZVEyYYlTE
-	vhRXYwmWsyTokkGZnsPq5XQ==
-X-Google-Smtp-Source: AGHT+IFUZhu2OwBm9Xl4P9gAhtgSkcN1rVy5kcIM68xBXK4rcWyV4/0jaNvjvAieMThFeK6tg2McyqvG5JOCTsu70Q==
-X-Received: from ilbec1.prod.google.com ([2002:a05:6e02:4701:b0:3d1:3d59:434b])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:1c01:b0:3d0:f2ca:65aa with SMTP id e9e14a558f8ab-3d16f40b648mr9951285ab.4.1739228891849;
- Mon, 10 Feb 2025 15:08:11 -0800 (PST)
-Date: Mon, 10 Feb 2025 23:08:11 +0000
-In-Reply-To: <Z6msyUG0HWM2EImQ@linux.dev> (message from Oliver Upton on Sun, 9
- Feb 2025 23:37:45 -0800)
-Mime-Version: 1.0
-Message-ID: <gsnted051jqc.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [RFC PATCH v2 4/4] KVM: arm64: Make guests see only counters they
- can access
-From: Colton Lewis <coltonlewis@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvm@vger.kernel.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, mark.rutland@arm.com, pbonzini@redhat.com, 
-	shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+        bh=qlUFik2Cn3+UF32BcSaPs8X9uoxvxbSY4EvgNwl3nLs=;
+        b=ToFsBoNYcDwwobAk59XH96GpF3wTOZnx20mI10f0uyBpz/2ahT4aYtj31DRuYLPCuT
+         b4DP4tx8ZSxscS2XIM4zlvqa+hrnYEDNJjG41lPOkrNIayILbCK130V/OmM0YbtPd17y
+         3QP61o5EfnlRHtV6nV/W2s5O9UMqABCDLyWHP1j4iwI9dzipPRUKhXN34OVHb0OmYg1K
+         O0CUk9dFIEhLozUulgaBn3Yx2jwexOTFvz5en5EhIFVpF1jf8oFcTltfgFH3BHpEQB6d
+         oN+bYCFXf/zqYoqzaHscCYHeycpdlqh/YHaNc1BFXWV5kiaSz6t7JO6Oj+QzbN/HIxON
+         l7gQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOqPvjKzkaaPtvNVR1Nd0pSgsAU7TYTtfWUv90JuxJ5ZT2MJSwuhm2hISt/MB2OQt49xKeIPnm1G9cSzldRjLT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzutBBF6HAZoR4iu64hDD+T+xDDnFRqZFo9a4lvDWzDL6BozXqj
+	ahNffZy95/uLwt9o+0ShIjWujnHW/ihxO6IOp+BdGBfnI2ECtvog2PagjO8qxS8=
+X-Gm-Gg: ASbGnctT1GTnGiEJcfLhxfv75di/WQgEZSjkk4NM7ERQYv4m3g1/OhXFsxEC1NNlkMa
+	FHWLEe5IVmi9A3OukXUnsssxae22cdR7uBTN232mL6AZkS3E4Nd5IC/hdy/kIOMZ/maB9N1ucuC
+	4fthjj+HWfRbrMxW1Ie+KSYSWyms5KkV+nqfw/3QKGD6toJnJrKlTgFpla/YS/eTD+5pPIdnYyb
+	KkrUONClkkTFRFcrzEV2jUIhhr4O2tp8hHnQI1svVsBHTkJCygN9V51jEcFe2pzknZnzCn5jEma
+	ozA=
+X-Google-Smtp-Source: AGHT+IFSyb6+nkjB0xsO1NPVunIuHs7rXC4UlzNdyRAuB/KbUs8KTwwp4ehcJv9y4ufISKopybkvhw==
+X-Received: by 2002:a05:690c:4448:b0:6ef:827b:2442 with SMTP id 00721157ae682-6f9b29dfba4mr162843667b3.35.1739233408845;
+        Mon, 10 Feb 2025 16:23:28 -0800 (PST)
+Received: from ghost ([50.146.0.9])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f99ffc0aeasm18931437b3.96.2025.02.10.16.23.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 16:23:27 -0800 (PST)
+Date: Mon, 10 Feb 2025 16:23:26 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>,
+	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 6/7] perf syscalltbl: Use lookup table containing
+ multiple architectures
+Message-ID: <Z6qYfrdGlfHj4XEL@ghost>
+References: <20250210165108.95894-1-irogers@google.com>
+ <20250210165108.95894-7-irogers@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250210165108.95894-7-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_230813_822545_7D561F73 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20250211_002330_752817_98B0B940 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,123 +136,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver, thanks for the review.
+On Mon, Feb 10, 2025 at 08:51:07AM -0800, Ian Rogers wrote:
+> Switch to use the lookup table containing all architectures rather
+> than tables matching the perf binary.
+> 
+> This fixes perf trace when executed on a 32-bit i386 binary on an
+> x86-64 machine. Note in the following the system call names of the
+> 32-bit i386 binary as seen by an x86-64 perf.
+> 
+> Before:
+> ```
+>          ? (         ): a.out/447296  ... [continued]: munmap())                                           = 0
+>      0.024 ( 0.001 ms): a.out/447296 recvfrom(ubuf: 0x2, size: 4160585708, flags: DONTROUTE|CTRUNC|TRUNC|DONTWAIT|EOR|WAITALL|FIN|SYN|CONFIRM|RST|ERRQUEUE|NOSIGNAL|WAITFORONE|BATCH|SOCK_DEVMEM|ZEROCOPY|FASTOPEN|CMSG_CLOEXEC|0x91f80000, addr: 0xe30, addr_len: 0xffce438c) = 1475198976
+>      0.042 ( 0.003 ms): a.out/447296 lgetxattr(name: "", value: 0x3, size: 34)                             = 4160344064
+>      0.054 ( 0.003 ms): a.out/447296 dup2(oldfd: -134422744, newfd: 4)                                     = -1 ENOENT (No such file or directory)
+>      0.060 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct iovec){.iov_base = (void *)0x2e646c2f6374652f,.iov_len = (__kernel_size_t)7307199665335594867,}, vlen: 557056, pos_h: 4160585708) = 3
+>      0.074 ( 0.004 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: 2)                              = 4160237568
+>      0.080 ( 0.001 ms): a.out/447296 lstat(filename: "", statbuf: 0x193f6)                                 = 0
+>      0.089 ( 0.007 ms): a.out/447296 preadv(fd: 4294967196, vec: (struct iovec){.iov_base = (void *)0x3833692f62696c2f,.iov_len = (__kernel_size_t)3276497845987585334,}, vlen: 557056, pos_h: 4160585708) = 3
+>      0.097 ( 0.002 ms): a.out/447296 close(fd: 3</proc/447296/status>)                                     = 512
+>      0.103 ( 0.002 ms): a.out/447296 lgetxattr(name: "", value: 0x1, size: 2050)                           = 4157935616
+>      0.107 ( 0.007 ms): a.out/447296 lgetxattr(pathname: "", name: "", value: 0x5, size: 2066)             = 4158078976
+>      0.116 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", value: 0x1, size: 2066)             = 4159639552
+>      0.121 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", value: 0x3, size: 2066)             = 4160184320
+>      0.129 ( 0.002 ms): a.out/447296 lgetxattr(pathname: "", name: "", value: 0x3, size: 50)               = 4160196608
+>      0.138 ( 0.001 ms): a.out/447296 lstat(filename: "")                                                   = 0
+>      0.145 ( 0.002 ms): a.out/447296 mq_timedreceive(mqdes: 4291706800, u_msg_ptr: 0xf7f9ea48, msg_len: 134616640, u_msg_prio: 0xf7fd7fec, u_abs_timeout: (struct __kernel_timespec){.tv_sec = (__kernel_time64_t)-578174027777317696,.tv_nsec = (long long int)4160349376,}) = 0
+>      0.148 ( 0.001 ms): a.out/447296 mkdirat(dfd: -134617816, pathname: " ��� ���▒���▒���", mode: IFREG|ISUID|IRUSR|IWGRP|0xf7fd0000) = 447296
+>      0.150 ( 0.001 ms): a.out/447296 process_vm_writev(pid: -134617812, lvec: (struct iovec){.iov_base = (void *)0xf7f9e9c8f7f9e4c0,.iov_len = (__kernel_size_t)4160349376,}, liovcnt: 4160588048, rvec: (struct iovec){}, riovcnt: 4160585708, flags: 4291707352) = 0
+>      0.197 ( 0.004 ms): a.out/447296 capget(header: 4160184320, dataptr: 8192)                             = 0
+>      0.202 ( 0.002 ms): a.out/447296 capget(header: 1448669184, dataptr: 4096)                             = 0
+>      0.208 ( 0.002 ms): a.out/447296 capget(header: 4160577536, dataptr: 8192)                             = 0
+>      0.220 ( 0.001 ms): a.out/447296 getxattr(pathname: "", name: "c������", value: 0xf7f77e34, size: 1)  = 0
+>      0.228 ( 0.005 ms): a.out/447296 fchmod(fd: -134729728, mode: IRUGO|IWUGO|IFREG|IFIFO|ISVTX|IXUSR|0x10000) = 0
+>      0.240 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: 0x5658e008, pos_h: 4160192052)            = 3
+>      0.250 ( 0.008 ms): a.out/447296 close(fd: 3</proc/447296/status>)                                     = 1436
+>      0.260 ( 0.018 ms): a.out/447296 stat(filename: "", statbuf: 0xffce32ac)                               = 1436
+>      0.288 (1000.213 ms): a.out/447296 readlinkat(buf: 0xffce31d4, bufsiz: 4291703244)                       = 0
+> ```
+> 
+> After:
+> ```
+>          ? (         ): a.out/442930  ... [continued]: execve())                                           = 0
+>      0.023 ( 0.002 ms): a.out/442930 brk()                                                                 = 0x57760000
+>      0.052 ( 0.003 ms): a.out/442930 access(filename: 0xf7f5af28, mode: R)                                 = -1 ENOENT (No such file or directory)
+>      0.059 ( 0.009 ms): a.out/442930 openat(dfd: CWD, filename: "/etc/ld.so.cache", flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+>      0.078 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)                                     = 0
+>      0.087 ( 0.007 ms): a.out/442930 openat(dfd: CWD, filename: "/lib/i386-linux-", flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+>      0.095 ( 0.002 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: 0xffbdbb70, count: 512)         = 512
+>      0.135 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>)                                     = 0
+>      0.148 ( 0.001 ms): a.out/442930 set_tid_address(tidptr: 0xf7f2b528)                                   = 442930 (a.out)
+>      0.150 ( 0.001 ms): a.out/442930 set_robust_list(head: 0xf7f2b52c, len: 12)                            =
+>      0.196 ( 0.004 ms): a.out/442930 mprotect(start: 0xf7f03000, len: 8192, prot: READ)                    = 0
+>      0.202 ( 0.002 ms): a.out/442930 mprotect(start: 0x5658e000, len: 4096, prot: READ)                    = 0
+>      0.207 ( 0.002 ms): a.out/442930 mprotect(start: 0xf7f63000, len: 8192, prot: READ)                    = 0
+>      0.230 ( 0.005 ms): a.out/442930 munmap(addr: 0xf7f10000, len: 103414)                                 = 0
+>      0.244 ( 0.010 ms): a.out/442930 openat(dfd: CWD, filename: 0x5658d008)                                = 3
+>      0.255 ( 0.007 ms): a.out/442930 read(fd: 3</proc/442930/status>, buf: 0xffbdb67c, count: 4096)        = 1436
+>      0.264 ( 0.018 ms): a.out/442930 write(fd: 1</dev/pts/4>, buf: , count: 1436)                          = 1436
+>      0.292 (1000.173 ms): a.out/442930 clock_nanosleep(rqtp: { .tv_sec: 17866546940376776704, .tv_nsec: 4159878336 }, rmtp: 0xffbdb59c) = 0
+>   1000.478 (         ): a.out/442930 exit_group()                                                          = ?
+> ```
+> 
 
-Oliver Upton <oliver.upton@linux.dev> writes:
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
-> On Sat, Feb 08, 2025 at 02:01:11AM +0000, Colton Lewis wrote:
->> The ARM architecture specifies that when MDCR_EL2.HPMN is set, EL1 and
->> EL0, which includes KVM guests, should read that value for PMCR.N.
-
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>   arch/arm64/kvm/debug.c                                  | 3 +--
->>   arch/arm64/kvm/pmu-emul.c                               | 8 +++++++-
->>   tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 2 +-
->>   3 files changed, 9 insertions(+), 4 deletions(-)
-
->> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
->> index 0e4c805e7e89..7c04db00bf6c 100644
->> --- a/arch/arm64/kvm/debug.c
->> +++ b/arch/arm64/kvm/debug.c
->> @@ -36,8 +36,7 @@ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu  
->> *vcpu)
->>   	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
->>   	 * to disable guest access to the profiling and trace buffers
->>   	 */
->> -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
->> -					 *host_data_ptr(nr_event_counters));
->> +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, read_mdcr());
-
-> Please avoid unnecessary accesses to MDCR_EL2 at all costs. This is a
-> guaranteed trap to EL2 with nested virt.
-
-I thought it was necessary when I wrote this, but I see it's not after
-thinking about it for a while.
-
-The intended value is accessible from vcpu->kvm->arch.arm_pmu.hpmn as
-written, but could be somewhere else after addressing your suggestion to
-lift all MDCR handling into KVM.
-
->>   	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
->>   				MDCR_EL2_TPMS |
->>   				MDCR_EL2_TTRF |
->> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
->> index 6c5950b9ceac..052ce8c721fe 100644
->> --- a/arch/arm64/kvm/pmu-emul.c
->> +++ b/arch/arm64/kvm/pmu-emul.c
->> @@ -993,12 +993,18 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int  
->> irq)
->>   u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
->>   {
->>   	struct arm_pmu *arm_pmu = kvm->arch.arm_pmu;
->> +	u8 limit;
->> +
->> +	if (arm_pmu->partitioned)
->> +		limit = arm_pmu->hpmn - 1;
->> +	else
->> +		limit = ARMV8_PMU_MAX_GENERAL_COUNTERS;
-
->>   	/*
->>   	 * The arm_pmu->cntr_mask considers the fixed counter(s) as well.
->>   	 * Ignore those and return only the general-purpose counters.
->>   	 */
->> -	return bitmap_weight(arm_pmu->cntr_mask,  
->> ARMV8_PMU_MAX_GENERAL_COUNTERS);
->> +	return bitmap_weight(arm_pmu->cntr_mask, limit);
->>   }
-
-> This isn't necessary and is likely to regress the existing behavior.
-
-> When the architecture says the lower ELs should see PMCR_EL0.N have the
-> same value as MDCR_EL2.HPMN, what it really means is direct reads from
-> hardware will return the value.
-
-> So my expectation would be that a VM using the partitioned PMU
-> implementation would never reach any of the *emulated* PMU handlers, as
-> we would've disabled the associated traps.
-
-Understood. The change was here to see be able to read PMCR_EL0.N from
-inside a VM since I haven't disabled the associated traps yet.
-
-It shouldn't be in this patch.
-
-> The partitioned PMU will not replace the emulated vPMU implementation in
-> KVM, so it'd be good to refactor what we have today to make room for
-> your work. I think that'd be along the lines of:
-
->   - Shared code for event filter enforcement and handling of the vPMU
->     overflow IRQ.
-
->   - Emulated PMU implementation that provides trap handlers for all PMUv3
->     registers and backs into host perf
-
->   - Partitioned PMU implementation that doesn't rely on traps and instead
->     saves / restores a portion of the PMU that contains the guest
->     context.
-
-> These should be done in separate files, i.e. I do not want to see a
-> bunch of inline handling to cope with emulated v. partitioned PMUs.
-
-Agreed.
-
->>   static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
->> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c  
->> b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
->> index f16b3b27e32e..b5bc18b7528d 100644
->> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
->> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
->> @@ -609,7 +609,7 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
->>    */
->>   static void run_error_test(uint64_t pmcr_n)
->>   {
->> -	pr_debug("Error test with pmcr_n %lu (larger than the host)\n",  
->> pmcr_n);
->> +	pr_debug("Error test with pmcr_n %lu (larger than the host allows)\n",  
->> pmcr_n);
-
-> NBD for an RFC, but in the future please do selftests changes in a
-> separate patch.
-
-Ok, I'll do that in the future.
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> Reviewed-by: Howard Chu <howardchu95@gmail.com>
+> ---
+>  tools/perf/util/syscalltbl.c | 89 ++++++++++++++++++++++++++----------
+>  1 file changed, 64 insertions(+), 25 deletions(-)
+> 
+> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+> index 760ac4d0869f..db0d2b81aed1 100644
+> --- a/tools/perf/util/syscalltbl.c
+> +++ b/tools/perf/util/syscalltbl.c
+> @@ -15,16 +15,39 @@
+>  #include <string.h>
+>  #include "string2.h"
+>  
+> -#if __BITS_PER_LONG == 64
+> -  #include <asm/syscalls_64.h>
+> -#else
+> -  #include <asm/syscalls_32.h>
+> -#endif
+> +#include "trace/beauty/generated/syscalltbl.c"
+>  
+> -const char *syscalltbl__name(int e_machine __maybe_unused, int id)
+> +static const struct syscalltbl *find_table(int e_machine)
+>  {
+> -	if (id >= 0 && id <= (int)ARRAY_SIZE(syscall_num_to_name))
+> -		return syscall_num_to_name[id];
+> +	static const struct syscalltbl *last_table;
+> +	static int last_table_machine = EM_NONE;
+> +
+> +	/* Tables only exist for EM_SPARC. */
+> +	if (e_machine == EM_SPARCV9)
+> +		e_machine = EM_SPARC;
+> +
+> +	if (last_table_machine == e_machine && last_table != NULL)
+> +		return last_table;
+> +
+> +	for (size_t i = 0; i < ARRAY_SIZE(syscalltbls); i++) {
+> +		const struct syscalltbl *entry = &syscalltbls[i];
+> +
+> +		if (entry->e_machine != e_machine && entry->e_machine != EM_NONE)
+> +			continue;
+> +
+> +		last_table = entry;
+> +		last_table_machine = e_machine;
+> +		return entry;
+> +	}
+> +	return NULL;
+> +}
+> +
+> +const char *syscalltbl__name(int e_machine, int id)
+> +{
+> +	const struct syscalltbl *table = find_table(e_machine);
+> +
+> +	if (table && id >= 0 && id < table->num_to_name_len)
+> +		return table->num_to_name[id];
+>  	return NULL;
+>  }
+>  
+> @@ -41,38 +64,54 @@ static int syscallcmpname(const void *vkey, const void *ventry)
+>  	return strcmp(key->name, key->tbl[*entry]);
+>  }
+>  
+> -int syscalltbl__id(int e_machine __maybe_unused, const char *name)
+> +int syscalltbl__id(int e_machine, const char *name)
+>  {
+> -	struct syscall_cmp_key key = {
+> -		.name = name,
+> -		.tbl = syscall_num_to_name,
+> -	};
+> -	const int *id = bsearch(&key, syscall_sorted_names,
+> -				ARRAY_SIZE(syscall_sorted_names),
+> -				sizeof(syscall_sorted_names[0]),
+> -				syscallcmpname);
+> +	const struct syscalltbl *table = find_table(e_machine);
+> +	struct syscall_cmp_key key;
+> +	const int *id;
+> +
+> +	if (!table)
+> +		return -1;
+> +
+> +	key.name = name;
+> +	key.tbl = table->num_to_name;
+> +	id = bsearch(&key, table->sorted_names, table->sorted_names_len,
+> +		     sizeof(table->sorted_names[0]), syscallcmpname);
+>  
+>  	return id ? *id : -1;
+>  }
+>  
+> -int syscalltbl__num_idx(int e_machine __maybe_unused)
+> +int syscalltbl__num_idx(int e_machine)
+>  {
+> -	return ARRAY_SIZE(syscall_sorted_names);
+> +	const struct syscalltbl *table = find_table(e_machine);
+> +
+> +	if (!table)
+> +		return 0;
+> +
+> +	return table->sorted_names_len;
+>  }
+>  
+> -int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
+> +int syscalltbl__id_at_idx(int e_machine, int idx)
+>  {
+> -	return syscall_sorted_names[idx];
+> +	const struct syscalltbl *table = find_table(e_machine);
+> +
+> +	if (!table)
+> +		return -1;
+> +
+> +	assert(idx >= 0 && idx < table->sorted_names_len);
+> +	return table->sorted_names[idx];
+>  }
+>  
+> -int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const char *syscall_glob, int *idx)
+> +int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_glob, int *idx)
+>  {
+> -	for (int i = *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names); ++i) {
+> -		const char *name = syscall_num_to_name[syscall_sorted_names[i]];
+> +	const struct syscalltbl *table = find_table(e_machine);
+> +
+> +	for (int i = *idx + 1; table && i < table->sorted_names_len; ++i) {
+> +		const char *name = table->num_to_name[table->sorted_names[i]];
+>  
+>  		if (strglobmatch(name, syscall_glob)) {
+>  			*idx = i;
+> -			return syscall_sorted_names[i];
+> +			return table->sorted_names[i];
+>  		}
+>  	}
+>  
+> -- 
+> 2.48.1.502.g6dc24dfdaf-goog
+> 
 
