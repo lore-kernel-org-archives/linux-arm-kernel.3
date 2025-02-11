@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD74DC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C04BC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9t86XcXi4SNcqeg9HhuGPDQvw/u2ifZSs3/7HWj1JI=; b=0lZHFxxcMtZN7iDTOvv3dHzg36
-	IRR+OesQcim+INR/3epGLvpi9HGFdZCNvhqY3Dk7fUIKzl6EcG+vm3eXXXHQZXts9YOWaGs0tPKTg
-	/kqyLS1nPDkj4OE2Wv/6d5VUcsc2P6F57gA7xybN5KiSR1qqBrYstyPZot6DYF147s/mhwIyK1sqE
-	O7qduXPP4R7HrCdbvnC4ltyYZamfa9Q+ErCeGq3eA5HrPCy6UwAnlxW0qs79TpSeFnT0CWVE4ZlUp
-	4q0OUvmV52c17QqTcUy8xqlSdC1VETd2jlnTSUw7R0g224+48gGqtuSZCKknr09/rMicNlgUbaWky
-	p3HWV0ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n3wx9zk5qHzdPMIZwl01jPTrtMsd38bzKH0sGNqE64Q=; b=2paSukzoxse9TydTsdbtjhgTiE
+	koKr6y9S/UwL9Fjk5WWJtobezdpnA/y77U/L9dD6na8jJm7jESuluz5HCo33QnuHWeJIsgyv4ZXjk
+	iHYCpyWFn22QO16dGx/TN31dShKGQ6UhECw1RdptMKjuKb3gjoFtbVbTpIC+cRdFfOWLuBIQRBbcY
+	3RpaAIHnHy7foAqLGp5GmYiJMEw9OI6dUzFehoqLWlbcctD0CmW2MugvPB/JD7mXJRSNvvD1IjZ6w
+	fKgXGWhYCOZQRhv3ntUUClZHUmrSKCk+h6/VYoJQJLJhVkjtTguvs9W7MLrWq6I1TyL7DTmhhWbS0
+	1P9BVuyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqDs-00000003vy3-1u1p;
-	Tue, 11 Feb 2025 13:22:44 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1thqFG-00000003w9K-0dyc;
+	Tue, 11 Feb 2025 13:24:10 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpsR-00000003rul-3cRl
+	id 1thpvE-00000003sOJ-1TdA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 13:00:37 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F271A6DF;
-	Tue, 11 Feb 2025 13:59:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1739278754;
-	bh=RB5D6um8BkEYPtBDD00tcZIzsKoAR5fwT/hd27yWS3s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kMkRfajT/xV1DEuNFX//a0GdnSSZYNTrxmj5D3RodMs6r6FxF09SKUY41wTddbwsJ
-	 4kO4Pr8D5PGuLOUba1+DFL+unljep86gd+mqgf/tH6tXwt56AsYU4ovD/KrhwIgfOW
-	 G3hB+wvHE6UPa+Do53mZoVqvW4ypo1YBfFaNeu6g=
-Message-ID: <78d22bdf-8a0c-4881-b648-3afe2b02d158@ideasonboard.com>
-Date: Tue, 11 Feb 2025 15:00:28 +0200
+	Tue, 11 Feb 2025 13:03:29 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21f40deb941so116737545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 05:03:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1739279007; x=1739883807; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=n3wx9zk5qHzdPMIZwl01jPTrtMsd38bzKH0sGNqE64Q=;
+        b=28ejQeJRwxCEB6A9hbDVewz/KOi3wlPAXojIjDHkJcGzTyUcxppO0wp5NnrFp1JCVp
+         xuxkbFrZjMIeXSeZSrUctERSbYQi2o9UFiRYMgmd9foO3YA9Z78aOEb93jo8yElt+6ui
+         60OZKi3rct9YOE3W4UhtuSXDuYRG0ZnGgOd27GHkdcbVXCmvi01hPJbjgMRVyhuLDong
+         GFkpwwA7So1eS2yVMJZd7ryxG44kPxWXV7CY8zkpEAx+VHr4QN39uqvm5E12qb8ZVPoU
+         VCyFsLsrnhFSuQDC7q+KqQwfHWvPR1jxFeTS9NyhRThS6RqbSdzyXcr5g/MGWV69yMbC
+         MBug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739279007; x=1739883807;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n3wx9zk5qHzdPMIZwl01jPTrtMsd38bzKH0sGNqE64Q=;
+        b=J+mn6P+Ln/p+YFtXl+8GWVLXmGNU0slld1zUNbH6Me0Ak13P3LYQT4U3uZAhW0k4Aq
+         XLeh7YVNilyVURpls2N7pFMEwjJ7cV1tAioMq87UcfnMqiclhI+nxS9KWbBjykjErq5F
+         TVLoKSMUI6ytmRbgEF4Uu5/DjNMJb8bretSRWF5ADqK3nwIVlF4OO3Eb4yVZDHGb3Gjq
+         5/6U8F3K8P2k8nEv0JpEnZ2pJFT5c3g0PgRv8DnJ0pmpxV2r3OVeMHlT8TB+N2fV2Lrn
+         ENcD6iWVRkpjt3SkoGkYmBPcn9P2YLG1BRqDM0kngR2tBmaP90KrObmbgMgzORGyirMX
+         q2wA==
+X-Forwarded-Encrypted: i=1; AJvYcCUK1DDnoij26fkOQ1ZSl5D7uismTctg+Myw4KUD8Yu5x6RF6msNPNrqhpeQEkOc9jvYl4pA5n94x2fs/9OnsLSl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiK1ro0xh7xw2VgaultKzSM+vIZKWC0c4/Rj46/BuT5t9e3+Tz
+	2M1rB/fcNZGiHKsKrO6VFovDDBgUQVeMuylt11Zvcz1Uzib8Tly4YDLDsPl3r9S04dUHBM8bP/k
+	5kW1ryhp0Y1V2LKUP1FIPH2otR0wsYPIrONgrGA==
+X-Gm-Gg: ASbGncvfQ3CyfG8hXxOldPpi/c8DGbyX06b7ez37IZkR6dr4Kn2zQ26XHky0q8gtbl9
+	djlmjCvX1MB4n3cw0jAdpA+krHAKoqBAAa42a0vToEPMYnYzD7m8mSqFj1byMY0/WhHduFFk=
+X-Google-Smtp-Source: AGHT+IEMVpkiHNiW0PFSaGrVrINKXb5sxzgwVDUOtgfEWggvvAR0CvuTqqd3P9Mx3MHb8RdrN+UeWxJU5s62w/GAwiQ=
+X-Received: by 2002:a17:902:ce90:b0:216:2477:e4d3 with SMTP id
+ d9443c01a7336-21f4e7f2c46mr294522695ad.51.1739279006869; Tue, 11 Feb 2025
+ 05:03:26 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/10] drm: xlnx: zynqmp: Fix max dma segment size
-To: Sean Anderson <sean.anderson@linux.dev>,
- Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com>
- <20250115-xilinx-formats-v2-10-160327ca652a@ideasonboard.com>
- <487916d8-da54-4932-81dd-f139870a734a@linux.dev>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <487916d8-da54-4932-81dd-f139870a734a@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
+ <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de> <CA+VMnFyom=2BmJ_nt-At6hTQP0v+Auaw-DkCVbT9mjndMmLKtQ@mail.gmail.com>
+ <8d830c2c-6268-4c70-ae8a-47183b8cbace@cherry.de>
+In-Reply-To: <8d830c2c-6268-4c70-ae8a-47183b8cbace@cherry.de>
+From: Jagan Teki <jagan@edgeble.ai>
+Date: Tue, 11 Feb 2025 18:33:14 +0530
+X-Gm-Features: AWEUYZm0htviHKGbBoFA3-kz2TrpIHA0nE9JnkvC09nlcKbz1Z6y2gei6ZbeNLI
+Message-ID: <CA+VMnFxJZPD2D3-5t+=BEo2TVWoJFuEtd1Jj-_+2oqVoXonHcg@mail.gmail.com>
+Subject: Re: [PATCH v5 2/4] arm64: dts: rockchip: add overlay test for Edgeble NCM6A
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Michael Riesch <michael.riesch@wolfvision.net>, Jonas Karlman <jonas@kwiboo.se>, 
+	Dragan Simic <dsimic@manjaro.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_050036_038894_857C1FED 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250211_050328_592213_2CB9BE8E 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Quentin,
 
-On 06/02/2025 21:48, Sean Anderson wrote:
-> Hi Tomi,
-> 
-> On 1/15/25 04:03, Tomi Valkeinen wrote:
->> Fix "mapping sg segment longer than device claims to support" warning by
->> setting the max segment size.
->>
->> Fixes: d76271d22694 ("drm: xlnx: DRM/KMS driver for Xilinx ZynqMP DisplayPort Subsystem")
->> Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
->> Tested-by: Sean Anderson <sean.anderson@linux.dev>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->> ---
->>   drivers/gpu/drm/xlnx/zynqmp_dpsub.c | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
->> index f5781939de9c..a25b22238e3d 100644
->> --- a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
->> +++ b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
->> @@ -231,6 +231,8 @@ static int zynqmp_dpsub_probe(struct platform_device *pdev)
->>   	if (ret)
->>   		return ret;
->>   
->> +	dma_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
->> +
->>   	/* Try the reserved memory. Proceed if there's none. */
->>   	of_reserved_mem_device_init(&pdev->dev);
->>   
->>
-> 
-> Can you apply this patch? I ran into this warning again today and I think this change
-> is independent from the rest of the series.
+On Mon, 10 Feb 2025 at 23:27, Quentin Schulz <quentin.schulz@cherry.de> wrote:
+>
+> Hi Jagan,
+>
+> On 2/10/25 3:11 PM, Jagan Teki wrote:
+> > On Fri, 7 Feb 2025 at 20:50, Quentin Schulz <foss+kernel@0leil.net> wrote:
+> >>
+> >> From: Quentin Schulz <quentin.schulz@cherry.de>
+> >>
+> >> The Edgeble NCM6A can have WiFi modules connected and this is handled
+> >> via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add Edgeble
+> >> NCM6A WiFi6 Overlay")).
+> >>
+> >> In order to make sure the overlay is still valid in the future, let's
+> >> add a validation test by applying the overlay on top of the main base
+> >> at build time.
+> >>
+> >> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> >> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> >> ---
+> >>   arch/arm64/boot/dts/rockchip/Makefile | 4 ++++
+> >>   1 file changed, 4 insertions(+)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> >> index 534e70a649eeada7f9b6f12596b83f5c47b184b4..02f98abe1df10f44f2ac27ea5f6c6e6c6334724e 100644
+> >> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> >> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> >> @@ -192,3 +192,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
+> >>   rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
+> >>          rk3568-wolfvision-pf5-display-vz.dtbo \
+> >>          rk3568-wolfvision-pf5-io-expander.dtbo
+> >> +
+> >> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
+> >> +rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
+> >> +       rk3588-edgeble-neu6a-wifi.dtbo
+> >
+> > Please add neu6b-io as well, wifi dtbo is similar for it as well.
+> >
+>
+> Similar or identical :)?
+>
+> Should the overlay be renamed if it applies to neu6b AND neu6a instead
+> of implying it's only for neu6a based on the name of the overlay?
 
-Yes, I'll push this.
+Similar. that overlay is applicable for neu6a-io and neu6b-io both.
 
-  Tomi
-
+Thanks,
+Jagan.
 
