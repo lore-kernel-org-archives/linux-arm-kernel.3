@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03944C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB6FC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ln01XI0tK6pmIxYPhbqHwdO4KVLsmthtDZxQafGRnoY=; b=o1Lr8qJctZ9SzbVqQrwy3+7CDZ
-	WVM1HvmkkZ3OjewRfXx1ekhSkvyiISnkS2KRJ9Q1zx/j4Be8UDN+vFexqqYMc/kIXaYVBS3GrX8eo
-	TPcFc2E+ECBEfRyJuIUK5H4poq9GLeYXAeDJwi0Gh0ZK3CzLN9arW/iDYkjO6yJUsVBsW/T7iOMcI
-	+Ps9D/Zggy1H5PLow4yYcgfgm/2ma+Y26DZRs44R46UtzbJtlmUypd/m0Q5qxfTEChku+onRf57Kb
-	A9qoqbXVySvWQHa1uQ2SI1t/sOnmJBc+pkBYm49XQmK2J4ObW+Gtuf2vqCp2I1JWsKC1pV/jXYrKM
-	NOtX06eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qhOLmYyJ5+lgD6xPbr8mNCHcKbKcYvh98b6nuOnctSQ=; b=r2P+T7nd9yyZpDy+3o0pPqIjkp
+	0rhon+oXizm5NkqEjGNfx54wXghe0gBfRlohblfK4mx2/+XkuqJlkmYu/2Kp1jQwmCo4RdCinTo9n
+	3yy2HMQgVmC9PUwTCc5xOYP52voP1wtuj5QCB69k4AetewpzvUJ14BFJnB2VzoUF4S3CRJDtOPIzD
+	gA7Q0XXsnKR+7K/M/dyu7Dmte2iLqWDas0pEbuVwHC/aQZms/uXlrkrB2UAJbllS2x2ewDKPpOPw1
+	tM1ZhWzbGr0ei1xuz0VOLN8tKqZrXmRAFsCt5863Vs0bejzmZp4eVYAu5UKxDAP6ZxrPGQd5Dk5H0
+	Ghlq6QOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thocr-00000003anu-1rt8;
-	Tue, 11 Feb 2025 11:40:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1thodM-00000003azU-2c3V;
+	Tue, 11 Feb 2025 11:40:56 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thoX3-00000003YRQ-1gOK;
-	Tue, 11 Feb 2025 11:34:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739273663;
-	bh=uaAALFJVjaAfoYWZ5VhGUqcok73clxTF6XnEep9JE7A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fXFP52s/s8wPlmVJZMXHoirtDAKRC11rItTXbqga2kzCwKBpBeSCnFboxT80q98hb
-	 wZuzWsEFA6uD/h3iZLt+IoGBZaQIov62v9AI/5ggjbxGmhdFW95IXyogNhkeR7Dls8
-	 OGiyiRBuN3OKylG1F11S5ZgLr9P3bXCdPLdZMYP/siQSoDvkm8u8Jgr/Bp/WnXZheK
-	 lE2ERN5r51S+ggZsVokwcbkLOJWBEq1EfojvRqpbUpK7nYSt2a8ox9fFD1C1KfGKZ+
-	 Bx0bdvXo/iQYrxgspKuUtLrv0bbU/EM2feDz2b7/PDXp+9W4M5hs84FLUhTyE2YCiO
-	 LfZXcdmpWEfMg==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4754F17E1249;
-	Tue, 11 Feb 2025 12:34:22 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com,
-	ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v6 02/42] drm/mediatek: mtk_dpi: Add support for Pattern Generator in debugfs
-Date: Tue, 11 Feb 2025 12:33:29 +0100
-Message-ID: <20250211113409.1517534-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
-References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
+	id 1thncK-00000003Mwl-0Iek
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 10:35:49 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51BAZeQv221764
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Feb 2025 04:35:40 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739270140;
+	bh=qhOLmYyJ5+lgD6xPbr8mNCHcKbKcYvh98b6nuOnctSQ=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=JvOb0D9fTs0O6d94ui7tOrPRJOK0FSE7ynoaWI07C7lo1WjdpfWEWi41aDsGp7SIs
+	 DmPReodOiUb/Cdb00Hfvwnplluvn45xlGioKHOjyZnf6moFP8m3tpVBgm/hp5n6BxT
+	 77+6ftuJBloq4pi8i9D6u1df+iPkMCFqy67u5IpU=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51BAZeYa003763
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Feb 2025 04:35:40 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Feb 2025 04:35:40 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Feb 2025 04:35:40 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51BAZewn123707;
+	Tue, 11 Feb 2025 04:35:40 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 51BAZdms014197;
+	Tue, 11 Feb 2025 04:35:39 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
+        <m-malladi@ti.com>, <horms@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net 2/2] net: ti: icss-iep: Fix phase offset configuration for perout signal
+Date: Tue, 11 Feb 2025 16:05:27 +0530
+Message-ID: <20250211103527.923849-3-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250211103527.923849-1-m-malladi@ti.com>
+References: <20250211103527.923849-1-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_033425_611002_6FDD828A 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20250211_023548_201436_B96C172F 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,198 +93,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This IP includes a Pattern Generator which is useful for debugging
-and testing purposes: add the relevant register and bits to the
-mtk_dpi_regs.h header, and implement support for it in mtk_dpi.
+icss_iep_perout_enable_hw() is a common function for generating
+both pps and perout signals. When enabling pps, the application needs
+to only pass enable/disable argument, whereas for perout it supports
+different flags to configure the signal.
 
-Adding this required to introduce a .debugfs_init() callback for
-the DPI bridge, which creates a "dpi_test_pattern" file in the
-directory of the appropriate connector.
+In case the app passes a valid phase offset value, the signal should
+start toggling after that phase offset, else start immediately or
+as soon as possible. ICSS_IEP_SYNC_START_REG register take number of
+clock cycles to wait before starting the signal after activation time.
+Set appropriate value to this register to support phase offset.
 
-The pattern generator can generate various internal patterns and
-this submission includes support for:
- - 256 or 1024 shades of gray in a Vertical or Horizontal Pattern
- - Vertical Color Bars
- - Frame border
- - Dot Moire
-
-This generator also supports filling the entire screen with one
-custom color, but support for that is not included in this commit.
-
-Enabling and disabling this generator can be done by sending a
-string to the dpi_test_pattern debugfs file; the pattern is
-expected to be formatted as follows:
-
-         <enable (1) or disable (0)> <pattern number>
-
-where the pattern number can be a number from 0 to 7, excluding 5.
-
-Of course 5 is excluded because that activates custom color fill
-which, again, is not supported in this commit.
-
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Fixes: c1e0230eeaab2 ("net: ti: icss-iep: Add IEP driver")
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dpi.c      | 108 ++++++++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_dpi_regs.h |   4 +
- 2 files changed, 112 insertions(+)
+ drivers/net/ethernet/ti/icssg/icss_iep.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
-index 1864eb02dbf5..fc937490feda 100644
---- a/drivers/gpu/drm/mediatek/mtk_dpi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-@@ -4,8 +4,10 @@
-  * Author: Jie Qiu <jie.qiu@mediatek.com>
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/component.h>
-+#include <linux/debugfs.h>
- #include <linux/interrupt.h>
- #include <linux/kernel.h>
- #include <linux/media-bus-format.h>
-@@ -166,6 +168,18 @@ static void mtk_dpi_mask(struct mtk_dpi *dpi, u32 offset, u32 val, u32 mask)
- 	writel(tmp, dpi->regs + offset);
- }
- 
-+static void mtk_dpi_test_pattern_en(struct mtk_dpi *dpi, u8 type, bool enable)
-+{
-+	u32 val;
-+
-+	if (enable)
-+		val = FIELD_PREP(DPI_PAT_SEL, type) | DPI_PAT_EN;
-+	else
-+		val = 0;
-+
-+	mtk_dpi_mask(dpi, DPI_PATTERN0, val, DPI_PAT_SEL | DPI_PAT_EN);
-+}
-+
- static void mtk_dpi_sw_reset(struct mtk_dpi *dpi, bool reset)
+diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+index 789516683ca9..69bb619db31a 100644
+--- a/drivers/net/ethernet/ti/icssg/icss_iep.c
++++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+@@ -407,6 +407,7 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
+ 				     struct ptp_perout_request *req, int on)
  {
- 	mtk_dpi_mask(dpi, DPI_RET, reset ? RST : 0, RST);
-@@ -767,6 +781,99 @@ mtk_dpi_bridge_mode_valid(struct drm_bridge *bridge,
- 	return MODE_OK;
- }
+ 	struct timespec64 ts;
++	u64 ns_start;
+ 	u64 ns_width;
+ 	int ret;
+ 	u64 cmp;
+@@ -416,6 +417,14 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
+ 	ts.tv_nsec = req->on.nsec;
+ 	ns_width = timespec64_to_ns(&ts);
  
-+static int mtk_dpi_debug_tp_show(struct seq_file *m, void *arg)
-+{
-+	struct mtk_dpi *dpi = m->private;
-+	bool en;
-+	u32 val;
-+
-+	if (!dpi)
-+		return -EINVAL;
-+
-+	val = readl(dpi->regs + DPI_PATTERN0);
-+	en = val & DPI_PAT_EN;
-+	val = FIELD_GET(DPI_PAT_SEL, val);
-+
-+	seq_printf(m, "DPI Test Pattern: %s\n", en ? "Enabled" : "Disabled");
-+
-+	if (en) {
-+		seq_printf(m, "Internal pattern %d: ", val);
-+		switch (val) {
-+		case 0:
-+			seq_puts(m, "256 Vertical Gray\n");
-+			break;
-+		case 1:
-+			seq_puts(m, "1024 Vertical Gray\n");
-+			break;
-+		case 2:
-+			seq_puts(m, "256 Horizontal Gray\n");
-+			break;
-+		case 3:
-+			seq_puts(m, "1024 Horizontal Gray\n");
-+			break;
-+		case 4:
-+			seq_puts(m, "Vertical Color bars\n");
-+			break;
-+		case 6:
-+			seq_puts(m, "Frame border\n");
-+			break;
-+		case 7:
-+			seq_puts(m, "Dot moire\n");
-+			break;
-+		default:
-+			seq_puts(m, "Invalid selection\n");
-+			break;
-+		}
++	if (req->flags & PTP_PEROUT_PHASE) {
++		ts.tv_sec = req->phase.sec;
++		ts.tv_nsec = req->phase.nsec;
++		ns_start = timespec64_to_ns(&ts);
++	} else {
++		ns_start = 0;
 +	}
 +
-+	return 0;
-+}
-+
-+static ssize_t mtk_dpi_debug_tp_write(struct file *file, const char __user *ubuf,
-+				      size_t len, loff_t *offp)
-+{
-+	struct seq_file *m = file->private_data;
-+	u32 en, type;
-+	char buf[6];
-+
-+	if (!m || !m->private || *offp || len > sizeof(buf) - 1)
-+		return -EINVAL;
-+
-+	memset(buf, 0, sizeof(buf));
-+	if (copy_from_user(buf, ubuf, len))
-+		return -EFAULT;
-+
-+	if (sscanf(buf, "%u %u", &en, &type) != 2)
-+		return -EINVAL;
-+
-+	if (en < 0 || en > 1 || type < 0 || type > 7)
-+		return -EINVAL;
-+
-+	mtk_dpi_test_pattern_en((struct mtk_dpi *)m->private, type, en);
-+	return len;
-+}
-+
-+static int mtk_dpi_debug_tp_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, mtk_dpi_debug_tp_show, inode->i_private);
-+}
-+
-+static const struct file_operations mtk_dpi_debug_tp_fops = {
-+	.owner = THIS_MODULE,
-+	.open = mtk_dpi_debug_tp_open,
-+	.read = seq_read,
-+	.write = mtk_dpi_debug_tp_write,
-+	.llseek = seq_lseek,
-+	.release = single_release,
-+};
-+
-+static void mtk_dpi_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
-+{
-+	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
-+
-+	debugfs_create_file("dpi_test_pattern", 0640, root, dpi, &mtk_dpi_debug_tp_fops);
-+}
-+
- static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
- 	.attach = mtk_dpi_bridge_attach,
- 	.mode_set = mtk_dpi_bridge_mode_set,
-@@ -779,6 +886,7 @@ static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
- 	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.debugfs_init = mtk_dpi_debugfs_init,
- };
+ 	if (iep->ops && iep->ops->perout_enable) {
+ 		ret = iep->ops->perout_enable(iep->clockops_data, req, on, &cmp);
+ 		if (ret)
+@@ -430,7 +439,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
+ 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
+ 				     (u32)(ns_width / iep->def_inc));
+ 			regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
+-			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG, 0);
++			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
++				     (u32)(ns_start / iep->def_inc));
+ 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
+ 			/* Enable CMP 1 */
+ 			regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
+@@ -457,6 +467,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
  
- void mtk_dpi_start(struct device *dev)
-diff --git a/drivers/gpu/drm/mediatek/mtk_dpi_regs.h b/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
-index 62bd4931b344..a0b1d18bbbf7 100644
---- a/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
-+++ b/drivers/gpu/drm/mediatek/mtk_dpi_regs.h
-@@ -235,4 +235,8 @@
- #define MATRIX_SEL_RGB_TO_JPEG		0
- #define MATRIX_SEL_RGB_TO_BT601		2
+ 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
+ 				     (u32)(ns_width / iep->def_inc));
++			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
++				     (u32)(ns_start / iep->def_inc));
+ 			/* Enable Sync in single shot mode  */
+ 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG,
+ 				     IEP_SYNC_CTRL_SYNC_N_EN(0) | IEP_SYNC_CTRL_SYNC_EN);
+@@ -489,7 +501,8 @@ static int icss_iep_perout_enable(struct icss_iep *iep,
+ 	mutex_lock(&iep->ptp_clk_mutex);
  
-+#define DPI_PATTERN0		0xf00
-+#define DPI_PAT_EN			BIT(0)
-+#define DPI_PAT_SEL			GENMASK(6, 4)
-+
- #endif /* __MTK_DPI_REGS_H */
+ 	/* Reject requests with unsupported flags */
+-	if (req->flags & ~PTP_PEROUT_DUTY_CYCLE) {
++	if (req->flags & ~(PTP_PEROUT_DUTY_CYCLE |
++			  PTP_PEROUT_PHASE)) {
+ 		ret = -EOPNOTSUPP;
+ 		goto exit;
+ 	}
+@@ -590,6 +603,7 @@ static int icss_iep_pps_enable(struct icss_iep *iep, int on)
+ 	if (on) {
+ 		ns = icss_iep_gettime(iep, NULL);
+ 		ts = ns_to_timespec64(ns);
++		rq.perout.flags = 0;
+ 		rq.perout.period.sec = 1;
+ 		rq.perout.period.nsec = 0;
+ 		rq.perout.start.sec = ts.tv_sec + 2;
 -- 
-2.48.1
+2.43.0
 
 
