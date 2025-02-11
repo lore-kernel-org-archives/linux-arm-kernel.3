@@ -4,97 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF872C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ECDC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=orGoSo6n4n0YOyMRUSl/HRUPiNiDZ7IGMHDhm3e5E1E=; b=B487aMyhQQz6fPPU88Xe429Oba
-	lTAu91iyak2BZj+SACnVFT7bNdJrEFszDMS1rSkWfGdM/OGFc7OVloNICY6AgdIijSgcTChCKmdul
-	861Z43Dt4cm7hMNxRJK9QnQ9Ev9eUVfX27SkG6cOknrFkZScVyUmXFQO7Bezz/C6BHM0ui0YRVTKt
-	ySbJxdtb7zgLCetIpX3EN3DTWHbbEJnjQFQrOtDyr94tZogtf5QlBncXkMa16X9fBNdCfXVRgDpTU
-	ZsBPw34yDeEbSTAD1GRd9MvjufyddYQ/KOgQQShqofMreHMrXXryHnK3uAdeQn2d+Ruayrmi2Bwyq
-	qYwYu3kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=; b=afxG1i0xHle6eUb3iLXnWkUxge
+	CMmDiewdSstgMZWlF6QKjDMAx4pW5gZ67G/8O8pc28sOy7C9rq8qWWRVkgGUq6iS5JA3BrfljB1HE
+	brw6m6kxEWvkokPZIc6lpssSZdeUUD6NrNMBIL7yZhdvYqa0vjD5VrdT4rnwtlGP3pbcYu/KToT4V
+	xg6Pgd5PaWDZH6yir88GReNQNafGM93y+bqeNkPalXTf4MRaJdhwFedAQescOh2xK3uxb8JcytBi1
+	YZc1d/SENPSHMojzQAQo8f0cRWQGDKAS2tM4t/5TWMzecS+l1zYVnwZQMmuZ4oBDL2CaElSxr2XKT
+	H4o18LQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuUI-00000004laK-2com;
-	Tue, 11 Feb 2025 17:55:58 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1thuUK-00000004lbS-0Xtc;
+	Tue, 11 Feb 2025 17:56:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thsuv-00000004Sef-2NX4;
-	Tue, 11 Feb 2025 16:15:22 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51BFdlL6020922;
-	Tue, 11 Feb 2025 16:15:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=orGoSo6n4n0YOyMRU
-	Sl/HRUPiNiDZ7IGMHDhm3e5E1E=; b=WEGfXe/RtDUQ9mB/y9+1XV/V3WMwvUMUV
-	zraNDtOiyZ5NwJQgUMG8+h1eYNCf/CxkN/Eupw0K8GjOnA5pmaDnYvMWslKAkkHC
-	M/Spzw2/ubTEYPouSh7MX5L+c7wrnFaDdEWnsMlzq44yyN/HyPdXRuvNP/F1ORHu
-	dZR8Eup6H71aMP91aSTomo1JrHjBcn0ojTY+sxP91rbGZQhRmPENHvQJO5f7aTjT
-	bptRRU/nkO1iswTT/o6M/4dEU9LgJiL3qiqH6S6r5HUDDoYrue/1jTDFVVVkgLCO
-	c5IQ/vjmpsLy1w5qirn5kpmwplK0SSRTNWK90vI07gIkvONx3YXhw==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44r9cu85r4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 16:15:11 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51BDObmO016712;
-	Tue, 11 Feb 2025 16:15:11 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pk3k41cj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 16:15:10 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51BGF8jC49873348
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Feb 2025 16:15:09 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CACC120049;
-	Tue, 11 Feb 2025 16:15:08 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D9CC52004B;
-	Tue, 11 Feb 2025 16:15:07 +0000 (GMT)
-Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 11 Feb 2025 16:15:07 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.150.7.124])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id F2511600D4;
-	Wed, 12 Feb 2025 03:15:02 +1100 (AEDT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
-        Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v13 11/11] powerpc: mm: Support page table check
-Date: Wed, 12 Feb 2025 03:14:04 +1100
-Message-ID: <20250211161404.850215-12-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211161404.850215-1-ajd@linux.ibm.com>
-References: <20250211161404.850215-1-ajd@linux.ibm.com>
+	id 1thtBv-00000004Wsk-0G6L;
+	Tue, 11 Feb 2025 16:32:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=; b=BoEL7wa9MjoeUYU4DN+lzVt6o+
+	pSqKWIShDC5Z/5Wy6IYpnAeP4Owf3stlMhtON7R1idfy3nH8jSYehwBCGCUbnYcatet3S0WlJgi7J
+	qsk0bd/t2cMAy/pyPq85S0MGlZe9awpysiOH6vVrRn3BjUDHj6NfMBVyLEAyZdZZrVDtpxB9PV8rq
+	PdfOu+COU+2lqRCvNS5Ir+MnFFoj6o4sno/3o9WVbXDEnnk4w2oqmY25d/NADL/PnkUhUIBVDTUjR
+	eLs4OyfsEd9KiAgDrOPgigftvZ6HojcA6YiBaYFkvnHRLRY4WjgrzQeNBZwe3WfoZ5gDtB5/FUTKY
+	qlSRJPHA==;
+Received: from mail-db8eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2614::60c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thtBr-00000000cXn-2kTg;
+	Tue, 11 Feb 2025 16:32:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AJlhJRbRxuFta+eBcAzjfY+Cobw3JhFaJo4qCgrEOfMj2bB92bcwtMLDZWPSi9AIm7QRj9kQWzZorrqqp9RiOX1eC3aoRMtPVbwWLkAJmQhHTw5C2OoaspuN0L9YBvhQMVLqfeeyr0DUKNn7OF9jSO0GoahotnCghPZrxKI7YC8W79+pok8IZLt4E9XDQU5NWUv1M4CwURD5T1PBhkts3Ktocnp2q+gakUqrFtILpiVR/XMtqrvxESD95zKfNQeu6EKhjZ5VJ50Imh5SroerZCy0FVd/jtFa5UEWba3EfPd7B+FNWe8CIbtOVuL96/QtSts4BcwS+Ssi1KuMzZ0FSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=;
+ b=pWkrQy5mwZhwTDTm6m/+nbIJUdhjnuv120otkrWxvY0YTXaDHTU40uI1JulhrQNptCqz+miCVjszhfZwZdORZk+9vPQDhVTHsyBSiip1+miRfYELN4FFsFE46k96opzodxloO/ndbAWYtBuBJdASJQxWUTQR2V1A/La56/OQVVzf++6tYUS4/tJQal8tMK/vhKZ14uFNGmYWxX4XHOWawj8FLKxCN5QUiZP5zYi16wB6emjLFMPM/SC0+YEVfo/esgW1Jw0yhf5wOyaUuGDMnuP8Z0LdfCZEJcNEZxm84BqZpfMtcNgr35HE2/r4OajpDU+2cvxRf95+WX2r1jviuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=;
+ b=h48tVuBVdjF0/gsnhFK0c3YX4KLFmSOIioek2lAGtY9gOy7iSYT52DCLXkGjDowitAsbyVvZpKT7PWke/Fn4NWBOZs6le5FZr89V1mSNCtMsJzPJhNTmcoAO/onr/6EjVzHv5D93z7ZXnGgPFa7wODLRD5lZvthvi7nDOqKcHuw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by VI0PR04MB10686.eurprd04.prod.outlook.com (2603:10a6:800:25d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
+ 2025 16:32:44 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
+ 16:32:44 +0000
+Message-ID: <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
+Date: Tue, 11 Feb 2025 17:32:42 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
+ on RK3588j
+To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Dragan Simic <dsimic@manjaro.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas <didi.debian@cknow.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kever Yang <kever.yang@rock-chips.com>
+References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
+ <20240617-rk-dts-additions-v5-7-c1f5f3267f1e@gmail.com>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20240617-rk-dts-additions-v5-7-c1f5f3267f1e@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR06CA0164.eurprd06.prod.outlook.com
+ (2603:10a6:803:c8::21) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: oBGEa0RlBjsu6MhC2TPUaDn8eND483Vf
-X-Proofpoint-GUID: oBGEa0RlBjsu6MhC2TPUaDn8eND483Vf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-11_07,2025-02-11_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 suspectscore=0 adultscore=0 impostorscore=0 phishscore=0
- bulkscore=0 mlxlogscore=756 mlxscore=0 clxscore=1011 lowpriorityscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502110106
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI0PR04MB10686:EE_
+X-MS-Office365-Filtering-Correlation-Id: f5fd91a0-a7b9-4218-3253-08dd4ab9b655
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y01FcEF0eWU0YWs0eStvQ1hma3JxVTZKY01Wd1MrN0U5V2lzRU1XanMwaWR4?=
+ =?utf-8?B?K0xSTGw0bTJYajhtZnhiVjRQU1hlVHY3blBSS0hqR0hDUGUwQTBNRnp3bFNl?=
+ =?utf-8?B?TDRmQkZHc1lSb290dHRMZXUwV3NVQ1dZdFR4aStaY3pEVExSVUVDV0swb1RY?=
+ =?utf-8?B?Q0xLMkZtL1pNcjV0SWY4L2h1OERQZVlCdjB3NGNnNktiWVVCa1pkUUd6U1Ux?=
+ =?utf-8?B?ZytzMFRGMGhuYTBHRlJvUG9yU2F3akNyVGtIbld2V2dDZ3NPaWt2MEh2VUFQ?=
+ =?utf-8?B?L3VnaWJRT1NCM1dpL3lHL2ZvaUo5RG1KSVRJczBhZTlLMEtENFFvd0JzU05q?=
+ =?utf-8?B?Y1hVTkNqR1pibExuQXpUaGhENFZOOXBXM003N21VVDcyNUQwanV2VTlqYVUz?=
+ =?utf-8?B?UTh0QkFFRUNnS0huUmVzdzhsd0EraFJyK1d0ZkRpNFhvNGFqbmhzcFo1WHcr?=
+ =?utf-8?B?VmtYdFFRTFZkeXVXTmZuUWI2VFd0bDBMSnV2QTE1NmU5aTRlMC92SlhKVzU3?=
+ =?utf-8?B?U3VxK3pFNTEvOXlIQlVGdklKc0xuWktveEUrTUVTNm5Ld1hyYnpxUE5vY1Bn?=
+ =?utf-8?B?WU5FWXpVSXM5MUxWa0FoemZzUXhZZFU1bEg2MFJ2M1RwNEJWL2RjY3g0T1po?=
+ =?utf-8?B?REQvT2gzaDFybTh2WGkvdnJCa1NDTUpkVnYwU1o1RkM2dFJXUDVTa3NURkxl?=
+ =?utf-8?B?RVZKN0dJV0lBWmhqODcyMzhKVWRScXJCc0Y0MXJKM051ODRqaFFZcWdhMDlK?=
+ =?utf-8?B?WWZaYU1sSjVhWG1SWis5dDg3bkhZRlg3bC81K08vL2RGRU4rTlQvU3hNZzRE?=
+ =?utf-8?B?YlFDNmhXNW9kU04xQzRmbTNGM1Fod2U4ZVN6Zkh6eHlKVSsrQnpweHdkbVF4?=
+ =?utf-8?B?S1hKNjlrbHMyUUZaMFRnUlFLeXdMTTR3OVRSSUxJdEQxZnUvaU13T3VYSGZZ?=
+ =?utf-8?B?aERSVnR3ZFo5R2tsUG5tMGl0RGpjQncxVTA5cWd1K09TS2xQdmNJaUZtckZ6?=
+ =?utf-8?B?RmtjVGFlWS9rS1NHdVpVWGZWWlBJNDBneDR0SmdpeXhXUk1lUjdlUzFRNUNT?=
+ =?utf-8?B?bTgwaFhOaU1SZExtZ1A1OWNTOFZxUTE2K0RXVmdVdTF2Tk1wOVJXRlZhWXpo?=
+ =?utf-8?B?VFJKTjZzUWdreVFqMGlLUk5iQXd2cGwvdENGam5CWE9YSFB4dGNtaXJGaUdi?=
+ =?utf-8?B?bUV5ZGtqb3FubzNjUFlGYkhPT3lUZmIwMDBQR280VXNETWVnUXExRURONG1Q?=
+ =?utf-8?B?N3BaWWN3QWJDenZhQ2tJUXVVdUdoR0VVZGVIYW1PbGhhMVJQVWFnWWFDOExT?=
+ =?utf-8?B?NHcrbUJidUpHVE5nK3FkRHpQVWJhdm81a1lpaHUwKytYS2pzOEZ6TDRpN2tJ?=
+ =?utf-8?B?UTRjT0o1WWoxQ0FzZXJ1eTFxTis3TERSZzFlU3dyNjRPWjkzUGphZWZWVXZ3?=
+ =?utf-8?B?YUZkNklxdXE1MCs5UDFFbGdEbkltRXlDYU1Da0ZLYWFnY1YxeDEyQmZ3OHBw?=
+ =?utf-8?B?M2RGbnc1blZockpaMkFEZ2VwTFRKL291U3daeWFiN3VPeGhudTUyWHh5dTJU?=
+ =?utf-8?B?VXkyazJnWWplWlZ6VE4rRHlCRDJrMUpkNWVpSkgwc3l4ckNOVTZheXR1OVpW?=
+ =?utf-8?B?QUM5emxJU1JjaDFMRHp0YTVHVEtZQmI5K0d1bFZ0QU8rU0hjb3hTbzAxc21y?=
+ =?utf-8?B?NjJnWmpDNUxoQzBVRGwwNk5JVEtZMmVralNlMmxTSzZMaUFKRTFzMXBwSDYr?=
+ =?utf-8?B?bXBOYnAyRk5udnp5RGd2dUtyRzF5MDRpTDNwR1Vpa2F5eUowb1VuZUxad28w?=
+ =?utf-8?B?VVRieVZBRTVUMWROUTZ5UT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDcvcUdGMHJOV1dKQmxtQThtdDFseHppMUYrNXFKS08vNFJ3a1FtdVNzV2hs?=
+ =?utf-8?B?aTV1UE1IZ3krTWQ4OE81SFU3Y1lyYzRqb09rZU0wem0wemowUmRvVFZzRXNj?=
+ =?utf-8?B?amN2eHJMdzUwaWtCdHkzaitjYlhOT1k3SFNaSkl1ZW00bUNvOGF5b0tTem5x?=
+ =?utf-8?B?dFcxRm0xUlZGa0VEdDFFRFZiM3NPUUFaVEIvUlJqMzIzc0VFZjh4S2JVbXF4?=
+ =?utf-8?B?eTF2eEZxU2U4dUZhcGNyWEIvTVBQS1g1VVkydlVYd3BWWUQ5TzFvNmRsZGRo?=
+ =?utf-8?B?aXdjTWwzNGN4QmJhSVc3K0hRem1CaDNueHE4Nk5KMEZCUkorR0hIS3ZZdjVU?=
+ =?utf-8?B?dTFCemt5eXlBZUN5anZOWit3dTJpQzNOTnhFMk9sUGoyaWdQNzZCaHhKZVNN?=
+ =?utf-8?B?NEp6YUh0c1M1NFQ0SXpoMmZ6LzV3RzF1RkVmakIxZGVLZ0gyejJSa2JMS1Qv?=
+ =?utf-8?B?b0hhZ2RUZVI4cW1jNGQ3dE9XRFNaWGVORVpFc3RJRmw1NzJUeGFGamV4SDh5?=
+ =?utf-8?B?WVh1UHl5UmNWRXpIL3lscW82cWlseUQyU0NVR0pKY2FrcGl3UnMrZDh3MEsr?=
+ =?utf-8?B?b3gvemxnSXI1VGRoVkRmOE05ZWFBOWNSaDlaVHFUQ09DYS9QWks4L3plN1pW?=
+ =?utf-8?B?SzJPdFdSZlBFVzJ1VGZUQW1NV29QRnJUcG9RR1dNZFRaVnk1MWxRczFTWmsz?=
+ =?utf-8?B?bHgxWmQ0dk1FUVI1QzU5dnpjVjkrMVZPblkxcTV5bURPYlNtNnpmRWNxQWVB?=
+ =?utf-8?B?aENSWWxnM1o5TVNLSWVVd3RNWlA4MVpPd2ZoZUFvTnkxODExcW02T1dXMmh1?=
+ =?utf-8?B?OVlvNHBCa2NDOU9lWXRnOEluYmQ4Q0ZERS9DVElrYS9COHVxQzBtYXpFcDdv?=
+ =?utf-8?B?QUNnSVBZYlVkMnVSUDNJcXd2NW92N3NQb3ZCVGJERWZsa1ZxUFZlMktNQjU3?=
+ =?utf-8?B?MStnYndua3BvS2JQdVRtRjYvOEpSSTlBZ3g1bmp2bUJ4bE1Ca3cybFJBOVpN?=
+ =?utf-8?B?NXdkTWdUWnJ2TTVraDdVTGlLaEQrM3YybEp3MExmTHZEZDVmSGMxdEdCTVZo?=
+ =?utf-8?B?WXlKdE1nYnk2WVB2dE1xNDUxNHRnVUlKNzB0bGRxRjFFYTBKbHhvVlBuUUk1?=
+ =?utf-8?B?VjBtOUo4SHRtWlVHSUZmV1k2cmZyZEZOOCsyTDRyczJLcTd6UWxYQngxNGpR?=
+ =?utf-8?B?NVg5QlFneUFvY2p4ZTRBcTd6MHJMN2NYd1J1TCs4RDAwQUVuczdxS2pSTVli?=
+ =?utf-8?B?Nk8yWGs0TDJZUkJPdXNnMy9KNjFRM0R1R2FRcFNjYkl5TE1rdDJDd0NVYm55?=
+ =?utf-8?B?TXRBbW5zd09ib0hkRDgwVEZWWWordG41UkpHa0xWVlNsa1RHencvM3hHMlBE?=
+ =?utf-8?B?aElhNUhDWWRuVzdRaTBMNEtZUk9YM2QxdXlGTW02RHQwb2hLTzBLOVRrcWZ4?=
+ =?utf-8?B?Q1I4eHdXajBuWm0zT3czeTBXNUo2d2JTOGlkSGJWcGdxb2UzbVRCdEhoM2lG?=
+ =?utf-8?B?YnhGSmQxbklPcEZ4WFFEMnhjekdnSnVqWEV4VzRWandVQ2FMMHFjOTA3ZHlI?=
+ =?utf-8?B?WkkxdWl5ZVVKMWR4VDAwNEJiOXJyR1NVajd6d293Y1ZQZSthUnNScEhRamtR?=
+ =?utf-8?B?TjVhQW9KNnBCVWt3SE5RdEZzeFU2UWZjUVhFRXl6cWJFM0VlT2hmdzhXNTdY?=
+ =?utf-8?B?S1VkMVpmTWNXT0RVbGdBUTdTZ3E2TWxsUkFyKzlKRXZ3TkhGNlpzQ2RNVWdP?=
+ =?utf-8?B?dTZmOWJ3c3lYNnA5bGdYNCtMV0hNd2VTSFdtK1lCU1dkZDBhZWhoWXA4VzlW?=
+ =?utf-8?B?QVVhL0p6clBWTnIzb1loS3BhdWZMM0RVRFhhU0RIOHl2TFhybWRyZVRuV01r?=
+ =?utf-8?B?MFBwdXBtTGJOR1plRkp0SU5sUmVDRWoyeHlESUFUMGFIMW1lVFlkcERqMEov?=
+ =?utf-8?B?eCtwVWxmeENJWGJmNVM2ZVZFTzRzc3QrM2dPVGp3MTNEVW8zTEZHd3pnMHdq?=
+ =?utf-8?B?djNvOUxaSktmOW9wb2gwZjhYMWFNZTZoWDgra2d3UjJIa21IZTdZQ05LUmdk?=
+ =?utf-8?B?T1p3RGQzcVpqY29lb0x1bjFoU2JlV3Y0aDRjaVVxNHpEajNTUTNPUkgvWFdx?=
+ =?utf-8?B?Sld1YnFwT29lWjkvME85d2NUd2dCWGVBR3YxN2ZCRjZUUjRlRUdwckJJdE4v?=
+ =?utf-8?Q?IjED2YfjuvD2X87nimmJ9HQ=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5fd91a0-a7b9-4218-3253-08dd4ab9b655
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 16:32:44.6558
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rMmxFFk72wOqgGPyXoEloGJUW5hYZ1DwSDyqRLZYURr4z0ahoA+h134X8oQopJZPpcj82bbxyFJgIwln6fClC5VWbs+hySAJlyLezf7OigY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_081521_713820_65E0615A 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20250211_163251_875738_15DE2970 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,302 +195,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+Hi all,
 
-On creation and clearing of a page table mapping, instrument such calls
-by invoking page_table_check_pte_set and page_table_check_pte_clear
-respectively. These calls serve as a sanity check against illegal
-mappings.
+On 6/17/24 8:28 PM, Alexey Charkov wrote:
+> RK3588j is the 'industrial' variant of RK3588, and it uses a different
+> set of OPPs both in terms of allowed frequencies and in terms of
+> applicable voltages at each frequency setpoint.
+> 
+> Add the OPPs that apply to RK3588j (and apparently RK3588m too) to
+> enable dynamic CPU frequency scaling.
+> 
+> OPP values are derived from Rockchip downstream sources [1] by taking
+> only those OPPs which have the highest frequency for a given voltage
+> level and dropping the rest (if they are included, the kernel complains
+> at boot time about them being inefficient)
+> 
+> [1] https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
+> 
 
-Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK for all platforms.
+Funny stuff actually. Rockchip have their own downstream cpufreq driver 
+which autodetects at runtime the SoC variant and filter out OPPs based 
+on that info. And this patch is based on those values and filters.
 
-See also:
+However, they also decided that maybe this isn't the best way to do it 
+and they decided to have an rk3588j.dtsi where they remove some of those 
+OPPs instead of just updating the mask/filter in their base dtsi 
+(rk3588s.dtsi downstream). See 
+https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
 
-riscv support in commit 3fee229a8eb9 ("riscv/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-arm64 in commit 42b2547137f5 ("arm64/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-x86_64 in commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-check")
+So...
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-[ajd: rebase]
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
----
- arch/powerpc/Kconfig                         |  1 +
- arch/powerpc/include/asm/book3s/32/pgtable.h |  7 ++-
- arch/powerpc/include/asm/book3s/64/pgtable.h | 45 +++++++++++++++-----
- arch/powerpc/include/asm/nohash/pgtable.h    |  8 +++-
- arch/powerpc/mm/book3s64/hash_pgtable.c      |  4 ++
- arch/powerpc/mm/book3s64/pgtable.c           | 11 +++--
- arch/powerpc/mm/book3s64/radix_pgtable.c     |  3 ++
- arch/powerpc/mm/pgtable.c                    |  4 ++
- 8 files changed, 68 insertions(+), 15 deletions(-)
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+>   arch/arm64/boot/dts/rockchip/rk3588j.dtsi | 108 ++++++++++++++++++++++++++++++
+>   1 file changed, 108 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+> index 0bbeee399a63..b7e69553857b 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
+> @@ -5,3 +5,111 @@
+>    */
+>   
+>   #include "rk3588-extra.dtsi"
+> +
+> +/ {
+> +	cluster0_opp_table: opp-table-cluster0 {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-1416000000 {
+> +			opp-hz = /bits/ 64 <1416000000>;
+> +			opp-microvolt = <750000 750000 950000>;
+> +			clock-latency-ns = <40000>;
+> +			opp-suspend;
+> +		};
+> +		opp-1608000000 {
+> +			opp-hz = /bits/ 64 <1608000000>;
+> +			opp-microvolt = <887500 887500 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-1704000000 {
+> +			opp-hz = /bits/ 64 <1704000000>;
+> +			opp-microvolt = <937500 937500 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
 
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 424f188e62d9..a990af9c17aa 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -171,6 +171,7 @@ config PPC
- 	select ARCH_STACKWALK
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC	if PPC_BOOK3S || PPC_8xx
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF		if PPC64
- 	select ARCH_USE_MEMTEST
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index a2305d850fc9..ad7febf75471 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -202,6 +202,7 @@ void unmap_kernel_page(unsigned long va);
- #ifndef __ASSEMBLY__
- #include <linux/sched.h>
- #include <linux/threads.h>
-+#include <linux/page_table_check.h>
- 
- /* Bits to mask out from a PGD to get to the PUD page */
- #define PGD_MASKED_BITS		0
-@@ -315,7 +316,11 @@ static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_SET_WRPROTECT
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index 754d4d525f0e..da07d604c275 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -145,6 +145,8 @@
- #define PAGE_KERNEL_ROX	__pgprot(_PAGE_BASE | _PAGE_KERNEL_ROX)
- 
- #ifndef __ASSEMBLY__
-+#include <linux/page_table_check.h>
-+
- /*
-  * page table defines
-  */
-@@ -417,8 +419,11 @@ static inline void huge_ptep_set_wrprotect(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 				       unsigned long addr, pte_t *ptep)
- {
--	unsigned long old = pte_update(mm, addr, ptep, ~0UL, 0, 0);
--	return __pte(old);
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR_FULL
-@@ -427,11 +432,16 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
- 					    pte_t *ptep, int full)
- {
- 	if (full && radix_enabled()) {
-+		pte_t old_pte;
-+
- 		/*
- 		 * We know that this is a full mm pte clear and
- 		 * hence can be sure there is no parallel set_pte.
- 		 */
--		return radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		old_pte = radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		page_table_check_pte_clear(mm, addr, old_pte);
-+
-+		return old_pte;
- 	}
- 	return ptep_get_and_clear(mm, addr, ptep);
- }
-@@ -1309,19 +1319,34 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pmd_t *pmdp)
- {
--	if (radix_enabled())
--		return radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
--	return hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	pmd_t old_pmd;
-+
-+	if (radix_enabled()) {
-+		old_pmd = radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	} else {
-+		old_pmd = hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	}
-+
-+	page_table_check_pmd_clear(mm, addr, old_pmd);
-+
-+	return old_pmd;
- }
- 
- #define __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR
- static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pud_t *pudp)
- {
--	if (radix_enabled())
--		return radix__pudp_huge_get_and_clear(mm, addr, pudp);
--	BUG();
--	return *pudp;
-+	pud_t old_pud;
-+
-+	if (radix_enabled()) {
-+		old_pud = radix__pudp_huge_get_and_clear(mm, addr, pudp);
-+	} else {
-+		BUG();
-+	}
-+
-+	page_table_check_pud_clear(mm, addr, old_pud);
-+
-+	return old_pud;
- }
- 
- static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index 1c3dfe2d6cc1..36c79f39f47d 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -29,6 +29,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
- 
- #ifndef __ASSEMBLY__
- 
-+#include <linux/page_table_check.h>
-+
- extern int icache_44x_need_flush;
- 
- #ifndef pte_huge_size
-@@ -122,7 +124,11 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
- 
-diff --git a/arch/powerpc/mm/book3s64/hash_pgtable.c b/arch/powerpc/mm/book3s64/hash_pgtable.c
-index 988948d69bc1..c1c25d46dd16 100644
---- a/arch/powerpc/mm/book3s64/hash_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/hash_pgtable.c
-@@ -8,6 +8,7 @@
- #include <linux/sched.h>
- #include <linux/mm_types.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/stop_machine.h>
- 
- #include <asm/sections.h>
-@@ -231,6 +232,9 @@ pmd_t hash__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addres
- 
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
-+
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	/*
- 	 * Wait for all pending hash_page to finish. This is needed
- 	 * in case of subpage collapse. When we collapse normal pages
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index b4708b2cabba..3702d5bc7a5a 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -10,6 +10,7 @@
- #include <linux/pkeys.h>
- #include <linux/debugfs.h>
- #include <linux/proc_fs.h>
-+#include <linux/page_table_check.h>
- #include <misc/cxl-base.h>
- 
- #include <asm/pgalloc.h>
-@@ -129,6 +130,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
- }
- 
-@@ -146,6 +148,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
-+	page_table_check_pud_set(mm, addr, pudp, pud);
- 	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
-@@ -181,12 +184,14 @@ void serialize_against_pte_lookup(struct mm_struct *mm)
- pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 		     pmd_t *pmdp)
- {
--	unsigned long old_pmd;
-+	pmd_t old_pmd;
- 
- 	VM_WARN_ON_ONCE(!pmd_present(*pmdp));
--	old_pmd = pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID);
-+	old_pmd = __pmd(pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID));
- 	flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
--	return __pmd(old_pmd);
-+	page_table_check_pmd_clear(vma->vm_mm, address, old_pmd);
-+
-+	return old_pmd;
- }
- 
- pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 1704381f5c3c..cc0dda11a640 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -14,6 +14,7 @@
- #include <linux/of.h>
- #include <linux/of_fdt.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <linux/string_helpers.h>
- #include <linux/memory.h>
-@@ -1454,6 +1455,8 @@ pmd_t radix__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addre
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
- 
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	radix__flush_tlb_collapsed_pmd(vma->vm_mm, address);
- 
- 	return pmd;
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index 4cc9af7961ca..ed46151ae1d9 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -22,6 +22,7 @@
- #include <linux/mm.h>
- #include <linux/percpu.h>
- #include <linux/hardirq.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <asm/tlbflush.h>
- #include <asm/tlb.h>
-@@ -206,6 +207,9 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	 * and not hw_valid ptes. Hence there is no translation cache flush
- 	 * involved that need to be batched.
- 	 */
-+
-+	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
-+
- 	for (;;) {
- 
- 		/*
--- 
-2.48.1
+None of those are valid according to Rockchip, we should have
 
+		opp-1296000000 {
+			opp-hz = /bits/ 64 <1296000000>;
+			opp-microvolt = <750000 750000 950000>;
+			clock-latency-ns = <40000>;
+			opp-suspend;
+		};
+
+instead?
+
+and...
+
+> +	};
+> +
+> +	cluster1_opp_table: opp-table-cluster1 {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-1416000000 {
+> +			opp-hz = /bits/ 64 <1416000000>;
+> +			opp-microvolt = <750000 750000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-1608000000 {
+> +			opp-hz = /bits/ 64 <1608000000>;
+> +			opp-microvolt = <787500 787500 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-1800000000 {
+> +			opp-hz = /bits/ 64 <1800000000>;
+> +			opp-microvolt = <875000 875000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-2016000000 {
+> +			opp-hz = /bits/ 64 <2016000000>;
+> +			opp-microvolt = <950000 950000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+
+opp-1800000000 and opp-2016000000 should be removed.
+
+and...
+
+> +	};
+> +
+> +	cluster2_opp_table: opp-table-cluster2 {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-1416000000 {
+> +			opp-hz = /bits/ 64 <1416000000>;
+> +			opp-microvolt = <750000 750000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-1608000000 {
+> +			opp-hz = /bits/ 64 <1608000000>;
+> +			opp-microvolt = <787500 787500 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-1800000000 {
+> +			opp-hz = /bits/ 64 <1800000000>;
+> +			opp-microvolt = <875000 875000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+> +		opp-2016000000 {
+> +			opp-hz = /bits/ 64 <2016000000>;
+> +			opp-microvolt = <950000 950000 950000>;
+> +			clock-latency-ns = <40000>;
+> +		};
+
+opp-1800000000 and opp-2016000000 should be removed as well.
+
+Did I misunderstand what Rockchip did here? Adding Kever in Cc at least 
+for awareness on Rockchip side :)
+
+I guess another option could be to mark those above as
+
+turbo-mode;
+
+though no clue what this would entail. From a glance at cpufreq, it 
+seems that for Rockchip since we use the default cpufreq-dt, it would 
+mark those as unusable, so essentially a no-op, so better remove them 
+entirely?
+
+Cheers,
+Quentin
 
