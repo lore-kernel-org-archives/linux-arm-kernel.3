@@ -4,73 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29830C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48785C021A8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Content-Type:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Osz1/jocrFEzgFhLEIhFRrb4kDNRJq8rHtYsDHvteoI=; b=C6uiMX+yDKyFzT7y2C0t1pdGIL
-	98s1o0Gw8OO+rym+lTC+znicglB30/fzU0Oe9nnU/yGFtg64qwg6JBfueBCNWg1I/m0A0qbn86Mfq
-	SmgU+VACcvNUGyDF5Q7uHlqJLsOZf8FHkplSQxrl8EBFrK0g8+41ERX1SKC7ChHI3/zlkkQS9Fyga
-	0jWsIE5Z8dtsftSlGet+rML5zpS+o1mjoQYVPEV2DotVuGMRe8YejwniY+9gKlBFHHSkw6qI454ZC
-	vDzznnYsbgyxPgy62qdsvqH2qbSuECz2Ikc1OrRfsbCmy7PEbqe/4t3QjZwVJ38/vB3SOJHqQmfpV
-	pGggUF9g==;
+	bh=jAgG5PbVpxfjPiUq1P9KoLaJMoVyaxTfP/N5PAh92BE=; b=f2orUB5VdM7OB9wuMFlj66r6KE
+	9S7Bk5wDpu4J8EhPuFqfsSXjh52YjRUbNxDPLiz0a+6idVJ9jqt8lhxBBT18pXzFgmP6XH+Ix+Zli
+	dxa8YTKrS0mJHnWgUV1ZnsO4eMA37Do8VsKorx0iX9PnEOx/YgidEGrQ8XeeI9m4ioG7lHSGdxUn8
+	4S8rGoqz8t0YQFiSPg6O9cYvj+zqrPySvzPL/24BeqgYUlBoBe+s705g3BCeQwb7YS4G+Vmzn/dRZ
+	GLlm7Y3PDJ1mOi0xmwJvp8J1846q0TWxtWLDCjZb2ZLUMql8EkhvqUCF4w66xEVrwMIRy/YvdYaq+
+	tRJ9k+AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thg4T-00000002HX0-3Non;
-	Tue, 11 Feb 2025 02:32:21 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1thgCj-00000002IRo-3xfG;
+	Tue, 11 Feb 2025 02:40:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thg34-00000002HMZ-0TDg;
-	Tue, 11 Feb 2025 02:30:55 +0000
-X-UUID: 3444a9fce82011ef9048ed6ed365623b-20250210
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Osz1/jocrFEzgFhLEIhFRrb4kDNRJq8rHtYsDHvteoI=;
-	b=FNLzOXu0WbQTQjobIbyftOeYx/uzzERhGi1LNLmDYnZqEx0eeDKTsxmkeFe0nWljHrREa9x27uup4RBJUQemwTO33cuG/63webiu6PQIF7sNY1IxmMgutdeenTUG9DKcHxACiWsUsmLjiqhdi7ZCIKx/d3QXHC0mDXWf2tNsoF8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:1b6c68a0-7129-49fd-ae13-eb8f0a145b5f,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:76f5249c-f55b-41e7-a712-ffbe7a973280,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
-X-UUID: 3444a9fce82011ef9048ed6ed365623b-20250210
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <bo.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 287322901; Mon, 10 Feb 2025 19:30:48 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 11 Feb 2025 10:30:45 +0800
-Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 11 Feb 2025 10:30:45 +0800
-From: Bo Ye <bo.ye@mediatek.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <dicken.ding@mediatek.com>, <hanks.chen@mediatek.com>,
-	<xiujuan.tan@mediatek.co>, Bosser Ye <bo.ye@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH] genirq: clear IRQS_PENDING in irq descriptor
-Date: Tue, 11 Feb 2025 10:30:39 +0800
-Message-ID: <20250211023040.180330-1-bo.ye@mediatek.com>
-X-Mailer: git-send-email 2.17.0
+	id 1thdrv-00000001wTZ-3Ba7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 11 Feb 2025 00:11:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Content-Type:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=jAgG5PbVpxfjPiUq1P9KoLaJMoVyaxTfP/N5PAh92BE=; b=dQbPys8qp8XI3logD5DmXw/YwX
+	wxpFyPHyekeSACVEU050nRX+yLCZ7lFCsN3zGgcBtLWQLh+L/k8lXrozXHI10ZZDLnNA+5Q3NYPdF
+	3khvxXcLbexWdJSoROJqOBmNB4gZ9K5SYPLIA4UQXZbZhoPYHhLLWbBgMRRyycyvmrYhk1U7wIxQ5
+	OBlck7rYH6odPrBdXgwfUCvA5J9M3bD1IURFuuPkWN+qDdueWBw/H5zmUbtp1vLhA6VzhqZmkB9kU
+	U7D1rdmYeCw2BUtcp1FvO1STtRD6nCA79OhOChuD6wK30CLgmRdLCusGOoAjbzBsxnh8qapHQEomp
+	/nuQQexQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thdrs-00000000O4q-1y6Q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 00:11:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739232671;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=jAgG5PbVpxfjPiUq1P9KoLaJMoVyaxTfP/N5PAh92BE=;
+	b=RiXkBx3Mcs1RlfBfocity6/XrNNI/g9Yh4CcloSK+BUcx+jzCBePmsyYT1YJ62HJmepeNM
+	ATkMHJ67FjXoo0NupO+o0Yruzs4SYxJC80YUz1K+ySItPDZ0nJsrJcbTXA77q7xKHHhuWd
+	3BT3dNpd+urTLOwVHu0j7HTIRu1ZWcw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739232671;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=jAgG5PbVpxfjPiUq1P9KoLaJMoVyaxTfP/N5PAh92BE=;
+	b=RiXkBx3Mcs1RlfBfocity6/XrNNI/g9Yh4CcloSK+BUcx+jzCBePmsyYT1YJ62HJmepeNM
+	ATkMHJ67FjXoo0NupO+o0Yruzs4SYxJC80YUz1K+ySItPDZ0nJsrJcbTXA77q7xKHHhuWd
+	3BT3dNpd+urTLOwVHu0j7HTIRu1ZWcw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-450-4NLqzznmNha3XRZVRKy4uw-1; Mon,
+ 10 Feb 2025 19:09:30 -0500
+X-MC-Unique: 4NLqzznmNha3XRZVRKy4uw-1
+X-Mimecast-MFC-AGG-ID: 4NLqzznmNha3XRZVRKy4uw
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BCD7B1956086;
+	Tue, 11 Feb 2025 00:09:25 +0000 (UTC)
+Received: from starship.lan (unknown [10.22.65.174])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6AAFB19560A3;
+	Tue, 11 Feb 2025 00:09:18 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvm-riscv@lists.infradead.org,
+	Ingo Molnar <mingo@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvmarm@lists.linux.dev,
+	Alexander Potapenko <glider@google.com>,
+	x86@kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: [PATCH 0/3] KVM: extract lock_all_vcpus/unlock_all_vcpus
+Date: Mon, 10 Feb 2025 19:09:14 -0500
+Message-Id: <20250211000917.166856-1-mlevitsk@redhat.com>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_183054_162008_24BE956E 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250211_001112_837774_E435AF9D 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +134,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bosser Ye <bo.ye@mediatek.com>
-
-In the kernel-6.6 IRQ subsystem, there is a case of IRQ retrigger:
-Due to the possibility of electrical signal glitches causing false interrupts for edge-triggered type IRQs,
-it is necessary to clear any potential false interrupts or re-triggered interrupt signals from the interrupt
-source between disabling and enabling the edge-triggered IRQ.
-
-When the module using this IRQ may disable the IRQ as needed and then If the disabled IRQ is triggered, the IRQ
-subsystem will set the istate of the corresponding IRQ descriptor to pending. After the module using this
-IRQ completes other tasks, it clears the pending state on the GIC using irq_set_irqchip_state(). However,
-the pending state in the IRQ descriptor's istate is not cleared, which leads to the module receiving the IRQ
-again after enabling it, even though the interrupt source has not triggered, because the IRQ subsystem
-retriggers the interrupt based on the pending state in the IRQ descriptor.
-
-[ 1015.093550] [T300432] ccci_fsm: CPU: 3 PID: 432 Comm: ccci_fsm Tainted: P        W  OE      6.6.30-android15-8-o-g3d1adaff8937-4k #1 4e6ae6c76d81ac612e982b5e84c39c55b332fb77
-...
-[ 1015.093609] [T300432] ccci_fsm: Call trace:
-[ 1015.093628] [T300432] ccci_fsm:  dump_backtrace+0xec/0x138
-[ 1015.093668] [T300432] ccci_fsm:  show_stack+0x18/0x28
-[ 1015.093697] [T300432] ccci_fsm:  dump_stack_lvl+0x50/0x6c
-[ 1015.093728] [T300432] ccci_fsm:  dump_stack+0x18/0x24
-[ 1015.093747] [T300432] ccci_fsm:  gic_retrigger+0x74/0x7c
-[ 1015.093764] [T300432] ccci_fsm:  check_irq_resend+0x8c/0x16c
-[ 1015.093777] [T300432] ccci_fsm:  irq_startup+0x2ec/0x360
-[ 1015.093788] [T300432] ccci_fsm:  enable_irq+0x84/0xf4
-[ 1015.093798] [T300432] ccci_fsm:  wdt_enable_irq+0x2c/0xec [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
-[ 1015.094263] [T300432] ccci_fsm:  md_cd_start+0x34c/0x510 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
-[ 1015.094707] [T300432] ccci_fsm:  ccci_md_start+0x38/0x48 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
-[ 1015.095150] [T300432] ccci_fsm:  fsm_routine_start+0x448/0x1ed8 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
-[ 1015.095593] [T300432] ccci_fsm:  fsm_main_thread+0x20c/0xa78 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
-[ 1015.096035] [T300432] ccci_fsm:  kthread+0x110/0x1b8
-[ 1015.096049] [T300432] ccci_fsm:  ret_from_fork+0x10/0x20
-...
-[ 1015.096067] [    C0] swapper/0: HWIRQ 107 handle_fasteoi_irq[714] set desc->istates to IRQS_PENDING // CPU execute IRQ's ISR
-
-Solution: the corresponding upstream patch modifies the irq_set_irqchip_state(...) in the IRQ subsystem.
-The purpose is to clear the pending state in the IRQ descriptor's istate when successfully clearing the
-corresponding IRQ on the GIC.
-
-Test: Stress tests have verified that the patch is effective and does not cause any side effects.
-
-Signed-off-by: Bosser Ye <bo.ye@mediatek.com>
----
- kernel/irq/manage.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 8a936c1ffad3..ad1cefb2e5aa 100644
---- a/kernel/irq/manage.c
-+++ b/kernel/irq/manage.c
-@@ -2893,8 +2893,11 @@ int irq_set_irqchip_state(unsigned int irq, enum irqchip_irq_state which,
- #endif
- 	} while (data);
- 
--	if (data)
-+	if (data) {
- 		err = chip->irq_set_irqchip_state(data, which, val);
-+		if (!err && which == IRQCHIP_STATE_PENDING && !val)
-+			desc->istate &= ~IRQS_PENDING;
-+	}
- 
- out_unlock:
- 	irq_put_desc_busunlock(desc, flags);
--- 
-2.17.0
+Implement Paolo's suggestion of reusing=0D
+sev_lock/unlock_vcpus_for_migration in arm and riscv code=0D
+for the purpose of taking vcpu->mutex of all vcpus of a VM.=0D
+=0D
+Because sev_lock/unlock_vcpus_for_migration already have a workaround=0D
+for lockdep max lock depth, this fixes the lockdep warnings on arm=0D
+which were the inspiration for this refactoring.=0D
+=0D
+This patch series was only compile tested on all 3 architectures.=0D
+=0D
+Best regards,=0D
+	Maxim Levitsky=0D
+=0D
+Maxim Levitsky (3):=0D
+  KVM: x86: move sev_lock/unlock_vcpus_for_migration to kvm_main.c=0D
+  KVM: arm64: switch to using kvm_lock/unlock_all_vcpus=0D
+  RISC-V: KVM: switch to kvm_lock/unlock_all_vcpus=0D
+=0D
+ arch/arm64/include/asm/kvm_host.h     |  3 --=0D
+ arch/arm64/kvm/arch_timer.c           |  8 ++--=0D
+ arch/arm64/kvm/arm.c                  | 32 -------------=0D
+ arch/arm64/kvm/vgic/vgic-init.c       | 11 +++--=0D
+ arch/arm64/kvm/vgic/vgic-its.c        | 18 +++----=0D
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 21 ++++----=0D
+ arch/riscv/kvm/aia_device.c           | 36 ++------------=0D
+ arch/x86/kvm/svm/sev.c                | 65 ++-----------------------=0D
+ include/linux/kvm_host.h              |  6 +++=0D
+ virt/kvm/kvm_main.c                   | 69 +++++++++++++++++++++++++++=0D
+ 10 files changed, 115 insertions(+), 154 deletions(-)=0D
+=0D
+-- =0D
+2.26.3=0D
+=0D
 
 
