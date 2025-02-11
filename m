@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504BDC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 22:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34463C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 22:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YC1gXlnNzbB0rlx+w5KGQ+4eRQYEG4qr6e2zWjQjR3g=; b=hyA0A0G/k9F81zkDeMU17PetHC
-	d84GzxgMhRRSBnDjR8/z9VwdkSNF2HXd/jMyNusKEcAXn+wKryCWfFJGBjurAraXQshofTtKLFFQL
-	qGh4XCfw4ZoNq9iZ9nEBVvZsbhN0nS1cgOyOpN9wu4xME6stTPovMRv50Z7wfuRD24dIgoJgPFqZh
-	n9tVGD2gLfOU+Y24fkK2EtxiuHA9FRqJRXn7kDZLmGsyJ1+vKpYXRpehxNS0pB3YlYYWiJNUq8sCE
-	Tp7ugj6lAzoMUgDljjQYp7l4OUbG54Z6exHMnhNi82gjaSFG87T8n0cUe1znymcSeTXk4bHX7Ags+
-	0JNKR/qw==;
+	bh=QnoZ+gg5YhXP63fEUN49h3jP7xjCbiTAiJYodgeoMZE=; b=rc5JmBbYndszOECOWIMCg9TWf1
+	AujD5INL4PwLs8M8YFPVtnxZhkP+/esGTKom0UEk6GXfmW+jmzRXcZ+mW1OfiELziffIUW11IiiIg
+	ux487Rb1AjeOGFEhP59VUAbgucS7TthzJAQzQM12FYcis6IWPYhpnVUY5Xg7XxEO+L0iIEZ2FLyMF
+	McwsaXaGLLVcRuvTItstAEoW5DN1gk0eFbGqQEUdHxHHkwW/FoaJn1fDXTJ9/GRN1a2LTv+og3FAD
+	t6sTF5EnVtQyigM0WbqA/Vwp3WbN82fW2yh0NqueBm0i6N1a+vgk5UHXUdz4kMPlfHFA2cabQj4bQ
+	Ih3Z/daQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thye5-00000005SZ8-31iY;
-	Tue, 11 Feb 2025 22:22:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thyfT-00000005Sqf-1v1o;
+	Tue, 11 Feb 2025 22:23:47 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thycf-00000005SHA-22gx;
-	Tue, 11 Feb 2025 22:20:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 17D83A40DDB;
-	Tue, 11 Feb 2025 22:19:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9950C4CEDD;
-	Tue, 11 Feb 2025 22:20:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739312452;
-	bh=rm/mPom9O53rzuai9/9yCCN3l8DHv5fmZsGl/Jcd/cA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qwxGUsru+22EfdRz6VurnP19Mh+6v8rbJsY6pBppKOb6FUwmeRwAVCRLQOpxFj/q/
-	 ZUwGB+6X+pcMM2K4GFoimGUA1NnewnIEIFIscilqHBPWKsB0WzClu6Psb3HCz0wskk
-	 Hu9E5UVN5RjPBUh7etb+Rxr9goc9FzeA3+3Fn9UjTPeyRG+/5y0sDlaAa5JYVKZFi7
-	 b3SBuFrNTGIlkecNVNRCoRbWsMJXNTKthFxOSy3K6HwULlUXQC191OdjYj7yxJxZa9
-	 oanPS68QwU1KHMciEW4saxbVJU5oIpUyPmoLjUaqSdpaxCsN1cgKTSYbm7V6SoKy6D
-	 IYaIWXLABMnDA==
-Date: Tue, 11 Feb 2025 16:20:50 -0600
-From: Rob Herring <robh@kernel.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	John Cox <john.cox@raspberrypi.com>,
-	Dom Cobley <dom@raspberrypi.com>,
-	review list <kernel-list@raspberrypi.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	John Cox <jc@kynesim.co.uk>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/5] media: dt-bindings: media: Add binding for the
- Raspberry Pi HEVC decoder
-Message-ID: <20250211222050.GA1285038-robh@kernel.org>
-References: <20250206-media-rpi-hevc-dec-v2-0-69353c8805b2@raspberrypi.com>
- <20250206-media-rpi-hevc-dec-v2-3-69353c8805b2@raspberrypi.com>
+	id 1thyd8-00000005SOX-10h8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 22:21:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739312482; x=1770848482;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KmQ+tXg/m4ZK8Xhj8IZwShtRHzkqTHlubFqibbJilzM=;
+  b=jWEWtsBSAySVLM6NB9X3NZVci/SuVOQMUAU3lqL9xznv7tAFLODYgzlJ
+   5AU91MRm66ymrdE51ChkxZJj4CHfzZDt5pbxdCHf3n57O5O3zIAnmhnlQ
+   vKA4cFmYym0y6BIL8muCUO7JCRt8wBcwnAVbiiwiOIHuG9Og9tCNPIWI9
+   OhR+58GChDVqt6GmlGq/dHnBm3tCK13MuAQ0Zbruc+ALAKgMbutTYS/Po
+   Mti5HahYF2jdb2lRgx4mrJbZtSKU/KT6B6FgBih9aG1D3whUzAKi2nDPo
+   jSX0Ln6qBg07AXFK2AsxhOs27K4RG6vhhbfzK6tCyjKpbi+VUK73MQg+L
+   w==;
+X-CSE-ConnectionGUID: qpnxHqRaTXyecsLn5zk3vA==
+X-CSE-MsgGUID: HyEdwliPRmu0E6gDDVBiow==
+X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="50938312"
+X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
+   d="scan'208";a="50938312"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 14:21:19 -0800
+X-CSE-ConnectionGUID: Mnc4Nd50QAuuH5O4SxIE9A==
+X-CSE-MsgGUID: 2ZhjGQPqQMavXeVcEpA1iQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="113529562"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 11 Feb 2025 14:21:12 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1thycv-0014lb-2H;
+	Tue, 11 Feb 2025 22:21:09 +0000
+Date: Wed, 12 Feb 2025 06:20:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Meghana Malladi <m-malladi@ti.com>, rogerq@kernel.org,
+	danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: oe-kbuild-all@lists.linux.dev, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, u.kleine-koenig@baylibre.com,
+	krzysztof.kozlowski@linaro.org, dan.carpenter@linaro.org,
+	m-malladi@ti.com, schnelle@linux.ibm.com, glaroque@baylibre.com,
+	rdunlap@infradead.org, diogo.ivo@siemens.com,
+	jan.kiszka@siemens.com, john.fastabend@gmail.com, hawk@kernel.org,
+	daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next v2 3/3] net: ti: icssg-prueth: Add XDP support
+Message-ID: <202502120546.Y6ri4qi6-lkp@intel.com>
+References: <20250210103352.541052-4-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206-media-rpi-hevc-dec-v2-3-69353c8805b2@raspberrypi.com>
+In-Reply-To: <20250210103352.541052-4-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_142053_667095_F0590325 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250211_142122_318353_744B2B57 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +97,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 06:02:36PM +0000, Dave Stevenson wrote:
-> Adds a binding for the HEVC decoder found on the BCM2711 / Raspberry Pi 4,
-> and BCM2712 / Raspberry Pi 5.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
->  .../bindings/media/raspberrypi,hevc-dec.yaml       | 67 ++++++++++++++++++++++
->  1 file changed, 67 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
-> new file mode 100644
-> index 000000000000..06db7004c765
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
-> @@ -0,0 +1,67 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/raspberrypi,hevc-dec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Raspberry Pi HEVC Decoder
-> +
-> +maintainers:
-> +  - John Cox <john.cox@raspberrypi.com>
-> +  - Dom Cobley <dom@raspberrypi.com>
-> +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
-> +  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
-> +
-> +description:
-> +  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
-> +  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
-> +  boards respectively.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - raspberrypi,hevc-dec
+Hi Meghana,
 
-SoC specific compatible please. If they are 'the same' then 2712 can 
-fallback to 2711.
+kernel test robot noticed the following build errors:
 
-> +
-> +  reg:
-> +    items:
-> +      - description: The HEVC main register region
-> +      - description: The Interrupt control register region
-> +
-> +  reg-names:
-> +    items:
-> +      - const: hevc
-> +      - const: intc
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: The HEVC block clock
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    video-codec@7eb10000 {
-> +        compatible = "raspberrypi,hevc-dec";
-> +        reg = <0x7eb00000 0x10000>, /* HEVC */
-> +              <0x7eb10000 0x1000>;  /* INTC */
-> +        reg-names = "hevc",
-> +                    "intc";
-> +
-> +        interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +        clocks = <&clk 0>;
-> +    };
-> +
-> +...
-> 
-> -- 
-> 2.34.1
-> 
+[auto build test ERROR on acdefab0dcbc3833b5a734ab80d792bb778517a0]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Meghana-Malladi/net-ti-icssg-prueth-Use-page_pool-API-for-RX-buffer-allocation/20250210-183805
+base:   acdefab0dcbc3833b5a734ab80d792bb778517a0
+patch link:    https://lore.kernel.org/r/20250210103352.541052-4-m-malladi%40ti.com
+patch subject: [PATCH net-next v2 3/3] net: ti: icssg-prueth: Add XDP support
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20250212/202502120546.Y6ri4qi6-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502120546.Y6ri4qi6-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502120546.Y6ri4qi6-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/net/ethernet/ti/icssg/icssg_prueth.c: In function 'prueth_create_xdp_rxqs':
+>> drivers/net/ethernet/ti/icssg/icssg_prueth.c:568:55: error: 'struct xdp_rxq_info' has no member named 'napi_id'
+     568 |         ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, rxq->napi_id);
+         |                                                       ^~
+
+
+vim +568 drivers/net/ethernet/ti/icssg/icssg_prueth.c
+
+   561	
+   562	static int prueth_create_xdp_rxqs(struct prueth_emac *emac)
+   563	{
+   564		struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
+   565		struct page_pool *pool = emac->rx_chns.pg_pool;
+   566		int ret;
+   567	
+ > 568		ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, rxq->napi_id);
+   569		if (ret)
+   570			return ret;
+   571	
+   572		ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
+   573		if (ret)
+   574			xdp_rxq_info_unreg(rxq);
+   575	
+   576		return ret;
+   577	}
+   578	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
