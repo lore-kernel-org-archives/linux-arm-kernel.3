@@ -4,102 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1CBC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783B0C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=; b=hL+x4mvUWqQktxwMcKtGwGZjqL
-	hB3tTGchjU9h9CIhOvf820/PiSEBiOk7ElvBj+iHMDkniM7lDuTp2YRu9HRDGprti6hWIFMmpwZSF
-	F2Ke6Y5doS37a4OhYf3FkcBMPwXQFJK9Onh2jWzkuD1XXfdEb0oD9QPjaUk66HtJUPdxeMprhnS8J
-	6u5d5F/rys45uyvQiBX31YGoYRTmBr/SYadUIjgvKJC+CYjon0qEQAu4rLfitPcendvAB8cjcfHlJ
-	hjttNkMDmdXJSAh7i5xxS0n85CIslFuxa7OOn6hKOEVbcEDcRmV9ckfwimZGWXfCoZKwyQdRE67Eo
-	tpUmKwbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=; b=IrJ70ocaBYYDQGgj9+JJwxyhqD
+	/9rk67XdMPxn56dTA3rKaLNPXYFMaMTCcUQ6niw7Ujjpn60nJ70kVXh9YZ0fYgWGoyT4honiQORHA
+	nKXbPByNyeFKLCx4AX6yMg2g4F7k3/OYFS7lMKwDthoXrrspiKMl+mda/9iRK04kVOEuKq/IpWBN4
+	EghUFGKbIWNDlTLooIRLuEuDYKMSA4h19c1md601+NKQq3GRqQPciL9G6VA099UGTFTMDKMhDmpFP
+	neO9wfwBQ33uVSHAnNtEs6y778Ei/icBcgpetnqG5ouAQ6KHbcRYLCrfRM+fyom9P70Mij5uiknYF
+	BGit0YTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlva-000000033EG-0zj6;
-	Tue, 11 Feb 2025 08:47:34 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1thlwy-000000033aK-3sp3;
+	Tue, 11 Feb 2025 08:49:00 +0000
+Received: from mail-koreacentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c40f::2] helo=SE2P216CU007.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlq8-000000031tN-0Odx
+	id 1thlsL-000000032Yv-1ouv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:41:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1739263316; x=1770799316;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=;
-  b=ZJaJ9h7jR9i8U3bRgBjE2F/bu1N1cuZMG54qksEbCsBFzVVH00zVgTmZ
-   fQQIQzQ6SMQpIKTuU3+0nX9wMOv8qihtHA+m4KpnLJppJvnZgmiX23jAJ
-   yDsvbULkXc+dTmozCalzk+KkAcjofJcL4YqOt0gIM+9wm1WOe4mjkOO8K
-   SC6N0yafvWxK0iOICCErWlQI5WE2OaRfXTk41GQG4C03xiBkrtzHSIVr2
-   K6yA37SJT6cstEGAFJWwNwstkiOHx3+L8KFmalMExIN72JQu0jdte8Jxa
-   XUtKbI9r9aefaa7eOvc8gQt6WIBACShTk6TCv3ZEZ2VsnFaTDW0w7FtMc
-   Q==;
-X-CSE-ConnectionGUID: ZAb/Hh4+RO2kUZc8Yp1qgQ==
-X-CSE-MsgGUID: jf7sDxqcREWATS8YJ25E8Q==
-X-IronPort-AV: E=Sophos;i="6.13,277,1732575600"; 
-   d="scan'208";a="41744845"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 11 Feb 2025 09:41:55 +0100
-X-CheckPoint: {67AB0D53-8-B8541F8F-E50F9B0E}
-X-MAIL-CPID: 05BF5E78B9110FE624A9C1CBE99E2503_2
-X-Control-Analysis: str=0001.0A006366.67AB0D53.00B7,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 99B2B169CCC;
-	Tue, 11 Feb 2025 09:41:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1739263310;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=;
-	b=oioSF1zveThtEiwKm6nQi8VaDyrGjhMrWGhuApyNoOSKXt6GohUI3DRaFlGAMwMppJV5aj
-	CrGpktuavqWZUADAYWSmLAwvtQTXiR7tkRv2YPw9M5xTGLpYd2zsUbEE7Im6pT9S0NlhH8
-	u6uVUXzch5+f5wnbQCANWv17bI94yWynzQLpKNiQKK0x7lqS9LXPn62fkbcTXCduKt5riq
-	CYfeSW+FLV68kbJ1jht/cow4AdB1gnPY0waUNvHs21O7/3Lj/mr9FHMQzxpXLL/TTzfs/R
-	8Pgxd6zpRXFjgyRgKjUgxCP2MHeeuG4H7xj/uEWhrUzmNsDzBq3lx+sPZHlFow==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] drm: bridge: imx9-parallel-disp-fmt: add i.MX91/93 parallel display bridge
-Date: Tue, 11 Feb 2025 09:41:19 +0100
-Message-Id: <20250211084119.849324-3-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250211084119.849324-1-alexander.stein@ew.tq-group.com>
-References: <20250211084119.849324-1-alexander.stein@ew.tq-group.com>
+	Tue, 11 Feb 2025 08:44:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GgcPzCJpEW7J/CMNHjFbqr7BuhN+Nk57hVHIWbIFnmzB4x4ePDUUsp9wsafYKCoAa5+0ZqMozRussYQMpSN0+sc1p99NqqtvY/T5f0SHNPzs6dVM4u1GCTL9kZzdkjPROsn3rzFdTPUCbqESaZGGStkdai8kgAa83Xtq8glefP+unXNFo49VoFjZw4gMNoPwj71/YYEMYUPRs8S89RJzww3BtGJBQOzUEl4YFVjmOwAtt9MF7XX2s5PHp5dD8avt6sWJkTlT63kftPnuh0AEyvvInn/kHi0YK97Abh/qCXu3atQyoc0DsQPbxSR0X3lpvZohmINFQ3MTvochIAaL6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=;
+ b=TMlJ4ijVs/47N7S5+wTXNelMdJifI+VjiNRZCk1GgsFfDim30jg/0wJWHIyQqzkJ92pxgZ8cnoSrW0nlIxyqXEANi1jNnpBVAdJP57bY1URRi12wCzNPvWvHH8q2pRpcrQygMzbwdYfmrqhb8ICfsN0U+33XCnJpYRcs5ew1UpUN6f9IvTJLK+Q7IsmyiLt5sE7Fddczk53+BH2tFklhzR6xjMvQROnLjqBeh/lK5TnvzvShLhpm+uLtgK2FjcKG9sjO7miAD09gaaMTviyCZPkuCzHgQCCIGX6mqusqUkazVc6nGsCu5otvie96C5/CtTHXFaUKziKCe+5MaAxURA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=;
+ b=OL3Kb8ZGgaqvSbKriCMvfaacAPODsJJxczpq9q4g9oBm0h+xVmPl08a6B5TJqQTbvKbmHpelcRzM4t+5rowpk/tSNL+u90Fx0JWLgHeOjrjXILqxL0uP4ILy8oqkjeMcnCR0wdEK4ILvmA6JV+qG2Pp7QTtex0I0sGmMrujnCqo=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SE1P216MB2041.KORP216.PROD.OUTLOOK.COM (2603:1096:101:161::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8422.19; Tue, 11 Feb 2025 08:28:50 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%4]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
+ 08:28:49 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
+Thread-Topic: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
+Thread-Index: AQHbe5s6TIh4rto0wEORrmYeUFOifbNAzpsAgAD2lwA=
+Date: Tue, 11 Feb 2025 08:28:49 +0000
+Message-ID: <SL2P216MB1246CB5966183FE8E17541D5FBFD2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-5-nas.chung@chipsnmedia.com>
+ <7373c956-216a-43a6-939c-4a9be5564c57@kernel.org>
+In-Reply-To: <7373c956-216a-43a6-939c-4a9be5564c57@kernel.org>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SE1P216MB2041:EE_
+x-ms-office365-filtering-correlation-id: 0d8596ee-4953-4899-ac7c-08dd4a761c4d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?t5LnNTHLGUnqCnzk7jVs3WKzIZ0zpYvUHkOkjXYUjLu98umggZXeCf3+A8H4?=
+ =?us-ascii?Q?kWJ5vo2aWq1K4rA+2YaH2aUqgnOzYDmwodDyXJNnip1e29RLCuFv7ieLqwrC?=
+ =?us-ascii?Q?KfyCGg9oczgQhVmam8xIymyPq2E4jKkvCuDl01amyUd/mW12ExRvYzChp0JU?=
+ =?us-ascii?Q?Klq9BucvH0kVtln92s/g0DGxK5QwM/gPk2bA6NDXEbxiKfU7Vhnl7dgzCb+O?=
+ =?us-ascii?Q?M8x3sQgdETAzghrTqZDKZNJT/AIfGZP6xQXqBq8V5KsvtOapoZZz+wgc365H?=
+ =?us-ascii?Q?kWDXlicPUh/uPf8dcCjKNrhGDCZaawbx9zRyOGTB1utA9PfXgZCLyMTwbkBk?=
+ =?us-ascii?Q?f7YujMaISoBFlQTyq3BV8Ll+oqswreLxnDG3tJWS2YXYi2uRdUINZoFKWX+v?=
+ =?us-ascii?Q?exXl9CJ+UoVn1jdefeybJcZy/qobpbc1ZCPapNeMgRgzk0Xhbc5k0YAAUQQI?=
+ =?us-ascii?Q?b44ugxGGFAq+ZmfTiuT7vbOfYp+ZIPjGkG9H7nR8s6PnHXLinTPLTNcYkmhV?=
+ =?us-ascii?Q?P6pb1f7wv09z1SljU5xdprjfwpo3FnyZ5vmG2Z7ss+XXbT3qXW/rXymbHHNK?=
+ =?us-ascii?Q?n0oxey83cUhlNhjCpvn5u3/QmJr60IJfbKGcbZ7jTiiRTmdLtQNOI9jfnFyV?=
+ =?us-ascii?Q?DUdX03vmgYbDrzpIP7upL8tOH8yMSGL/DcxQ7ztIFDMGnuqJQ2kCGCWdADPL?=
+ =?us-ascii?Q?I3T4EHwriUUNe1/qhxNin0sH3OjGA5KxBkEaQtdUiOMOgPkYJRUehkNm53Hi?=
+ =?us-ascii?Q?tk+FB05wh/N5hJlBjGSQ7UWljpQZzOfi2jNUSMAHlbt87utFcUJFprA9ZN7E?=
+ =?us-ascii?Q?ZSCQ8rVzeOCfqU/su0ZokddUir17R08v1acDWSGlxOJUO5fLa4AUA2Yt6AHG?=
+ =?us-ascii?Q?JfwObdHzrm6mlLM34mwoG+1bkK/QNw6OL1Xw+jYuPZ3Entlt5+SPVlisohYw?=
+ =?us-ascii?Q?LuejPUnV483C0nRe9NV4kupVYTZUIywEUFLTeZnFdA9ziQIdDmCjK9NQhRb2?=
+ =?us-ascii?Q?7FJ1HGLNzgCU/inafcUYaUeNxs/1s6tXXLOg8/SIOby/o+CE7TMtigBi0WGF?=
+ =?us-ascii?Q?pguiGk0Yzv99rkm+kPxE+T2HUdrXtEv5R+G/B86raKYxLF4F2v1s0F5TGLMU?=
+ =?us-ascii?Q?wSv348U2DqREJbh4+5rVdCLXf8fp0W6nFGmBcOiZJpvsEzm/KSpSOTRJb+bf?=
+ =?us-ascii?Q?M+kVQ6P+5PUQfDmCyr7zqZGA/K16dEpxjL+wTB4o/KlVKcfmY9fDpYm1jat4?=
+ =?us-ascii?Q?mBMR3qGGDWThwU9zxET7eQiN7Dybmcam076P7uR8WQYIO0M/5lFe04kOzCAM?=
+ =?us-ascii?Q?TfVI+diWiYpTQXUdWfUElxSImCxwpziZ8ttc7FsjCQvZ/3GUyyq8OyEzTR1M?=
+ =?us-ascii?Q?3KW8Lp+hzrCKFtYY1VTjIbOmKE9ixf260Eb0DMSPsnrz9i/cdz2hPolv4iPX?=
+ =?us-ascii?Q?JHDhU8kCcMlPj6DEOi0000+YGcIq/Yto?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?/9ugfNy45wyXIHuMGO+cOZTtTpWNTmlWX5ZBHdb/Bch0qcC/ezfGsitv7KaD?=
+ =?us-ascii?Q?saEvg67vx2I8CR6ubiyqgL81VJSZrmMTGjUGOvwWPCJVorr2CWuj1G78hIo6?=
+ =?us-ascii?Q?13V6uACsUiJTW5ghehlkAjbb/AqPgv56LHRFTNbwa5Jrvwil+8JwblSKiTJH?=
+ =?us-ascii?Q?2P0C5aAF+oP15KvSF0nYmug3gI750iMt4AcQyc33ahuWkiKSNvVgvP/Z1K84?=
+ =?us-ascii?Q?1uKWqIqsbvpRPXnsFTxcEOP55Niex/VHnhiu9F5Nes70vLv30tHJ5qVsPSGU?=
+ =?us-ascii?Q?DAzrIpDlh3eNgNgFjN4bpsKOGduHDictLOA/JOP3T7qSNn84g01mO4wzPo/O?=
+ =?us-ascii?Q?glkaR+ahuAAVWU17MktHz4MgAT6Qn/ZHGAzWCk555gtt8yWl499cco0Xnt9I?=
+ =?us-ascii?Q?OCuUSvyOaDDTFVFUNJ2YPcdY4TKgXgpIjmmZpm9t965R8moYThRwW/eEa3Ol?=
+ =?us-ascii?Q?fvICnMQW/zX/8U8kDUT1qUtoB+y31A3UEHnL26jtbNrxfLkUbKozoQWktqdU?=
+ =?us-ascii?Q?twfWOGVFh6Xw9HCRR9kuEjry1Gx4uXXtX/kqTuXvmlp+B4RvZ7r1m1lzoJvm?=
+ =?us-ascii?Q?OmZaxPfJv+QGhZl1wVGlHKh2+XwIylHFHO/lcJqwRcBb2XnuV0QydC96FUUZ?=
+ =?us-ascii?Q?jWoT+Zxq1Eh8W5R/9zR2gDk5r8F1Ku9mhElHrZgf+RQM5qrww8dwp4FoI25M?=
+ =?us-ascii?Q?p+CHfAzWWSBiI3yHqibPLwOiTp+a4gPPtd8xvzAXOG0exeQzwr4KHold7Cqc?=
+ =?us-ascii?Q?9O4/iKl4zYfSFf9UVL7AHjvvgpISsYfgPAOV60dGexvYuQgtrrEEdCi/01MH?=
+ =?us-ascii?Q?KyBcCFVhSOo3e6+qi6jPyvs/c3r48oF4OJAqriE8leRTH7NSDaaHshMLauzE?=
+ =?us-ascii?Q?kRMAu5RPyNgvaSODbLgSlV5Fz9CM+KQeB9bw0Tvr6UJIunow0AduHyEtaqOL?=
+ =?us-ascii?Q?/5+/ro+7yDgctocyRaw5nuPrTwMPdZihyO6lNXTY1lvxPx9a+G/RI8IAjvTq?=
+ =?us-ascii?Q?e4W2CK1P+Rg1tA0UroXhR/EmV08ftaTx8VCBgS5JjBKM1E8PWxUK1LIsWGJ9?=
+ =?us-ascii?Q?3WbFvqFwKyrBEraLspsZD3xyvi0m/NJ5b0z1x6HyJbczsoO3refAuR2eUHTT?=
+ =?us-ascii?Q?eauY/jGLUQncEnHGJbUgxJJRWv0ge62WOAsz8QrDA/ft7WZbMjgB7s19LU7E?=
+ =?us-ascii?Q?sKZq3sZScZ8IGiBlaArsLDcwQp3zJPMRWdjzgF4viY0u6e8DR4MkeWtVbVSy?=
+ =?us-ascii?Q?+MFL7WCq/edSjc4hkqRbpcRpt7aXNy5VsOccPDsNHV9DnsFBgfEC3mvJFNn2?=
+ =?us-ascii?Q?eZLYPhmFzlA+75g4rCWAPMhEKjJz1ngOrK+EkSG0t8dRV+TVqwOAJvykgq4v?=
+ =?us-ascii?Q?9HneF49EhlWaw1unDaGazVDnT78GhrdsIYWCF37Dt6Sp1+XCnRm028PaQ+Ni?=
+ =?us-ascii?Q?hjl1VicyhJQGHZ7HX0khGGRszVVbksbDEa434h4M6n2PLf5XPqou9Kpf87ow?=
+ =?us-ascii?Q?W1ycOPnjvlqMoOsd8h0lq+u6zxmpXSSdTV9zNm1be0AbofkLOktkNL3cuEBq?=
+ =?us-ascii?Q?gH0eGICLBsn+WTiq0duy1YLyOCknEY0LLX6GvFrE?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d8596ee-4953-4899-ac7c-08dd4a761c4d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2025 08:28:49.7728
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7GopREXElwoRbuPdWM3xTO84xXj/eIOJUvYf0s4Gsg3UdjOSGviMpjJdEDHeXx/cZvx7yFuO2OK8BPLb1pXay1H4mVdaJiy/ZGyaVtYaASg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB2041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_004156_430828_B0B23873 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20250211_004413_608588_88C31C09 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,271 +169,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX91/93 have a single register specifying parallel display output
-format. Add a bridge driver for setting the corresponding format.
-Currently only RGB565, RGB666 and RGB888 output is supported.
+Hi, Krzysztof.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- drivers/gpu/drm/bridge/Kconfig                |  10 +
- drivers/gpu/drm/bridge/Makefile               |   1 +
- .../gpu/drm/bridge/imx9-parallel-disp-fmt.c   | 213 ++++++++++++++++++
- 3 files changed, 224 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Tuesday, February 11, 2025 2:41 AM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; sebastian.fricke@collabora.com; robh@kernel.org;
+>krzk+dt@kernel.org; conor+dt@kernel.org
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
+>
+>On 10/02/2025 10:07, Nas Chung wrote:
+>> +
+>> +	dev->debugfs =3D debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
+>> +	if (IS_ERR_OR_NULL(dev->debugfs))
+>> +		dev->debugfs =3D debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR,
+>NULL);
+>> +
+>> +	pm_runtime_enable(&pdev->dev);
+>> +
+>> +	if (dev->res->codec_types & WAVE6_IS_DEC) {
+>> +		ret =3D wave6_vpu_dec_register_device(dev);
+>> +		if (ret) {
+>> +			dev_err(&pdev->dev, "wave6_vpu_dec_register_device
+>fail: %d\n", ret);
+>> +			goto err_temp_vbuf_free;
+>> +		}
+>> +	}
+>> +	if (dev->res->codec_types & WAVE6_IS_ENC) {
+>> +		ret =3D wave6_vpu_enc_register_device(dev);
+>> +		if (ret) {
+>> +			dev_err(&pdev->dev, "wave6_vpu_enc_register_device
+>fail: %d\n", ret);
+>> +			goto err_dec_unreg;
+>> +		}
+>> +	}
+>> +
+>> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
+>> +		wave6_vpu_activate(dev);
+>> +		ret =3D pm_runtime_resume_and_get(dev->dev);
+>> +		if (ret)
+>> +			goto err_enc_unreg;
+>> +	}
+>> +
+>> +	dev_dbg(&pdev->dev, "Added wave6 driver with caps %s %s\n",
+>> +		dev->res->codec_types & WAVE6_IS_ENC ? "'ENCODE'" : "",
+>> +		dev->res->codec_types & WAVE6_IS_DEC ? "'DECODE'" : "");
+>> +
+>> +	return 0;
+>> +
+>> +err_enc_unreg:
+>> +	if (dev->res->codec_types & WAVE6_IS_ENC)
+>> +		wave6_vpu_enc_unregister_device(dev);
+>> +err_dec_unreg:
+>> +	if (dev->res->codec_types & WAVE6_IS_DEC)
+>> +		wave6_vpu_dec_unregister_device(dev);
+>> +err_temp_vbuf_free:
+>> +	wave6_free_dma(&dev->temp_vbuf);
+>> +err_kfifo_free:
+>> +	kfifo_free(&dev->irq_status);
+>> +err_m2m_dev_release:
+>> +	wave6_vpu_release_m2m_dev(dev);
+>> +err_v4l2_unregister:
+>> +	v4l2_device_unregister(&dev->v4l2_dev);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static void wave6_vpu_remove(struct platform_device *pdev)
+>> +{
+>> +	struct vpu_device *dev =3D dev_get_drvdata(&pdev->dev);
+>> +
+>> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
+>> +		if (!pm_runtime_suspended(&pdev->dev))
+>> +			pm_runtime_put_sync(&pdev->dev);
+>> +	}
+>> +	pm_runtime_disable(&pdev->dev);
+>> +
+>> +	wave6_vpu_enc_unregister_device(dev);
+>> +	wave6_vpu_dec_unregister_device(dev);
+>> +	wave6_free_dma(&dev->temp_vbuf);
+>> +	kfifo_free(&dev->irq_status);
+>> +	wave6_vpu_release_m2m_dev(dev);
+>> +	v4l2_device_unregister(&dev->v4l2_dev);
+>> +}
+>> +
+>> +#ifdef CONFIG_PM
+>> +static int wave6_vpu_runtime_suspend(struct device *dev)
+>> +{
+>> +	struct vpu_device *vpu_dev =3D dev_get_drvdata(dev);
+>> +
+>> +	if (!vpu_dev)
+>> +		return -ENODEV;
+>> +
+>> +	dprintk(dev, "runtime suspend\n");
+>
+>Drop
+>
+>> +	if (vpu_dev->ctrl && vpu_dev->active)
+>> +		wave6_vpu_ctrl_put_sync(vpu_dev->ctrl, &vpu_dev->entity);
+>> +	if (vpu_dev->num_clks)
+>> +		clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev->clks);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int wave6_vpu_runtime_resume(struct device *dev)
+>> +{
+>> +	struct vpu_device *vpu_dev =3D dev_get_drvdata(dev);
+>> +	int ret =3D 0;
+>> +
+>> +	if (!vpu_dev)
+>> +		return -ENODEV;
+>> +
+>> +	dprintk(dev, "runtime resume\n");
+>
+>Drop
+>
+>> +	if (vpu_dev->num_clks) {
+>> +		ret =3D clk_bulk_prepare_enable(vpu_dev->num_clks, vpu_dev-
+>>clks);
+>> +		if (ret) {
+>> +			dev_err(dev, "failed to enable clocks: %d\n", ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	if (vpu_dev->ctrl && vpu_dev->active) {
+>> +		ret =3D wave6_vpu_ctrl_resume_and_get(vpu_dev->ctrl, &vpu_dev-
+>>entity);
+>> +		if (ret && vpu_dev->num_clks)
+>> +			clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev-
+>>clks);
+>> +	} else {
+>> +		wave6_vpu_check_state(vpu_dev);
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +#endif
+>> +
+>> +#ifdef CONFIG_PM_SLEEP
+>> +static int wave6_vpu_suspend(struct device *dev)
+>> +{
+>> +	int ret;
+>> +
+>> +	dprintk(dev, "suspend\n");
+>
+>Drop. Don't re-implement existing tracing.
+>
+>> +	wave6_vpu_pause(dev, 0);
+>> +
+>> +	ret =3D pm_runtime_force_suspend(dev);
+>> +	if (ret)
+>> +		wave6_vpu_pause(dev, 1);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int wave6_vpu_resume(struct device *dev)
+>> +{
+>> +	int ret;
+>> +
+>> +	dprintk(dev, "resume\n");
+>
+>Drop, useless.
 
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 6b4664d91faa8..8b69977787883 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -90,6 +90,16 @@ config DRM_FSL_LDB
- 	help
- 	  Support for i.MX8MP DPI-to-LVDS on-SoC encoder.
- 
-+config DRM_IMX9_PARALLEL_DISPLAY_FORMAT
-+	tristate "Support for i.MX93 parallel display format"
-+	depends on OF && MFD_SYSCON
-+	depends on ARCH_MXC || COMPILE_TEST
-+	select DRM_KMS_HELPER
-+	select DRM_PANEL_BRIDGE
-+	help
-+	  Support for internal parallel display format configuration
-+	  found on i.MX91 and i.MX93 processors.
-+
- config DRM_ITE_IT6263
- 	tristate "ITE IT6263 LVDS/HDMI bridge"
- 	depends on OF
-diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index 97304b429a530..ee3406fed880f 100644
---- a/drivers/gpu/drm/bridge/Makefile
-+++ b/drivers/gpu/drm/bridge/Makefile
-@@ -6,6 +6,7 @@ obj-$(CONFIG_DRM_CHRONTEL_CH7033) += chrontel-ch7033.o
- obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
- obj-$(CONFIG_DRM_DISPLAY_CONNECTOR) += display-connector.o
- obj-$(CONFIG_DRM_FSL_LDB) += fsl-ldb.o
-+obj-$(CONFIG_DRM_IMX9_PARALLEL_DISPLAY_FORMAT) += imx9-parallel-disp-fmt.o
- obj-$(CONFIG_DRM_ITE_IT6263) += ite-it6263.o
- obj-$(CONFIG_DRM_ITE_IT6505) += ite-it6505.o
- obj-$(CONFIG_DRM_LONTIUM_LT8912B) += lontium-lt8912b.o
-diff --git a/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c b/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
-new file mode 100644
-index 0000000000000..c37bdda53377c
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
-@@ -0,0 +1,213 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2022 NXP
-+ * Copyright (c) 2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Alexander Stein
-+ */
-+
-+#include <linux/media-bus-format.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_of.h>
-+#include <drm/drm_panel.h>
-+
-+#define DISPLAY_MUX_CTRL		0x60
-+#define  PARALLEL_DISP_FORMAT		GENMASK(10, 8)
-+#define  FORMAT_RGB888_TO_RGB888	FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
-+#define  FORMAT_RGB888_TO_RGB666	FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
-+#define  FORMAT_RGB565_TO_RGB565	FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
-+#define  FORMAT_RGB555_TO_RGB555	FIELD_PREP(PARALLEL_DISP_FORMAT, 3)
-+#define  FORMAT_YUV_TO_YCBCR24		FIELD_PREP(PARALLEL_DISP_FORMAT, 4)
-+#define  FORMAT_YUV_TO_YUV444		FIELD_PREP(PARALLEL_DISP_FORMAT, 5)
-+
-+struct imx9_pdf {
-+	struct device *dev;
-+	struct drm_bridge bridge;
-+	struct drm_bridge *panel_bridge;
-+	struct regmap *regmap;
-+};
-+
-+static inline struct imx9_pdf *to_imx9_pdf(struct drm_bridge *bridge)
-+{
-+	return container_of(bridge, struct imx9_pdf, bridge);
-+}
-+
-+static int imx9_pdf_attach(struct drm_bridge *bridge,
-+	enum drm_bridge_attach_flags flags)
-+{
-+	struct imx9_pdf *pdf = to_imx9_pdf(bridge);
-+
-+	return drm_bridge_attach(bridge->encoder, pdf->panel_bridge,
-+	       			 bridge, flags);
-+}
-+
-+static void imx9_pdf_atomic_enable(struct drm_bridge *bridge,
-+				   struct drm_bridge_state *old_bridge_state)
-+{
-+	struct imx9_pdf *pdf = to_imx9_pdf(bridge);
-+	struct drm_atomic_state *state = old_bridge_state->base.state;
-+	const struct drm_bridge_state *bridge_state;
-+	u32 format;
-+
-+	/* Get the bus format from the bridge state. */
-+	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+
-+	switch (bridge_state->output_bus_cfg.format) {
-+	case MEDIA_BUS_FMT_RGB565_1X16:
-+		format = FORMAT_RGB565_TO_RGB565;
-+		break;
-+	case MEDIA_BUS_FMT_RGB666_1X18:
-+		format = FORMAT_RGB888_TO_RGB666;
-+		break;
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+		format = FORMAT_RGB888_TO_RGB888;
-+		break;
-+	default:
-+		/*
-+		 * Some bridges still don't set the correct bus format.
-+		 * Just print a warning.
-+		 */
-+		dev_warn(pdf->dev,
-+			 "Unsupported bus format 0x%04x, please check output bridge driver\n",
-+			 bridge_state->output_bus_cfg.format);
-+		return;
-+	}
-+
-+	regmap_update_bits(pdf->regmap, DISPLAY_MUX_CTRL, PARALLEL_DISP_FORMAT,
-+			   format);
-+}
-+
-+#define MAX_INPUT_SEL_FORMATS 2
-+static u32 *
-+imx9_pdf_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+				   struct drm_bridge_state *bridge_state,
-+				   struct drm_crtc_state *crtc_state,
-+				   struct drm_connector_state *conn_state,
-+				   u32 output_fmt,
-+				   unsigned int *num_input_fmts)
-+{
-+	u32 *input_fmts;
-+
-+	*num_input_fmts = 0;
-+
-+	input_fmts = kcalloc(MAX_INPUT_SEL_FORMATS, sizeof(*input_fmts),
-+			     GFP_KERNEL);
-+	if (!input_fmts)
-+		return NULL;
-+
-+	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-+	input_fmts[1] = MEDIA_BUS_FMT_RGB565_1X16;
-+	*num_input_fmts = MAX_INPUT_SEL_FORMATS;
-+
-+	return input_fmts;
-+}
-+
-+#define MAX_OUTPUT_SEL_FORMATS 3
-+static u32 *
-+imx9_pdf_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
-+				    struct drm_bridge_state *bridge_state,
-+				    struct drm_crtc_state *crtc_state,
-+				    struct drm_connector_state *conn_state,
-+				    unsigned int *num_output_fmts)
-+{
-+	u32 *output_fmts;
-+
-+	*num_output_fmts = 0;
-+
-+	output_fmts = kcalloc(MAX_OUTPUT_SEL_FORMATS, sizeof(*output_fmts),
-+			     GFP_KERNEL);
-+	if (!output_fmts)
-+		return NULL;
-+
-+	output_fmts[0] = MEDIA_BUS_FMT_RGB565_1X16;
-+	output_fmts[1] = MEDIA_BUS_FMT_RGB666_1X18;
-+	output_fmts[2] = MEDIA_BUS_FMT_RGB888_1X24;
-+	*num_output_fmts = MAX_OUTPUT_SEL_FORMATS;
-+
-+	return output_fmts;
-+}
-+
-+static enum drm_mode_status
-+imx9_pdf_mode_valid(struct drm_bridge *bridge,
-+		   const struct drm_display_info *info,
-+		   const struct drm_display_mode *mode)
-+{
-+	if (mode->clock > 80000)
-+		return MODE_CLOCK_HIGH;
-+
-+	return MODE_OK;
-+}
-+
-+static const struct drm_bridge_funcs funcs = {
-+	.attach = imx9_pdf_attach,
-+	.atomic_enable = imx9_pdf_atomic_enable,
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_get_input_bus_fmts = imx9_pdf_atomic_get_input_bus_fmts,
-+	.atomic_get_output_bus_fmts = imx9_pdf_atomic_get_output_bus_fmts,
-+	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.mode_valid = imx9_pdf_mode_valid,
-+};
-+
-+static int imx9_pdf_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *remote;
-+	struct drm_panel *panel;
-+	struct imx9_pdf *pdf;
-+
-+	pdf = devm_kzalloc(dev, sizeof(*pdf), GFP_KERNEL);
-+	if (!pdf)
-+		return -ENOMEM;
-+
-+	pdf->dev = &pdev->dev;
-+	pdf->bridge.funcs = &funcs;
-+	pdf->bridge.of_node = dev->of_node;
-+	pdf->bridge.type = DRM_MODE_CONNECTOR_DPI;
-+
-+	pdf->regmap = syscon_node_to_regmap(dev->of_node->parent);
-+	if (IS_ERR(pdf->regmap))
-+		return dev_err_probe(dev, PTR_ERR(pdf->regmap),
-+				     "failed to get regmap\n");
-+
-+	remote = of_graph_get_remote_node(dev->of_node, 1, 0);
-+	panel = of_drm_find_panel(remote);
-+	of_node_put(remote);
-+	if (IS_ERR(panel))
-+		return PTR_ERR(panel);
-+
-+	pdf->panel_bridge = devm_drm_panel_bridge_add(dev, panel);
-+	if (IS_ERR(pdf->panel_bridge))
-+		return PTR_ERR(pdf->panel_bridge);
-+
-+	platform_set_drvdata(pdev, pdf);
-+
-+	devm_drm_bridge_add(dev, &pdf->bridge);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id imx9_pdf_dt_ids[] = {
-+	{ .compatible = "fsl,imx9-parallel-display-format", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, imx9_pdf_dt_ids);
-+
-+static struct platform_driver imx9_pdf_driver = {
-+	.probe		= imx9_pdf_probe,
-+	.driver		= {
-+		.name		= "imx9-parallel-display-format",
-+		.of_match_table	= imx9_pdf_dt_ids,
-+	},
-+};
-+module_platform_driver(imx9_pdf_driver);
-+
-+MODULE_AUTHOR("Alexander Stein <alexander.stein@ew.tq-group.com>");
-+MODULE_DESCRIPTION("i.MX91/i.MX93 parallel display format driver");
-+MODULE_LICENSE("GPL v2");
--- 
-2.34.1
+Okay. I will remove the redundant debug message and dprintk in v2.
 
+>
+>> +	ret =3D pm_runtime_force_resume(dev);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	wave6_vpu_pause(dev, 1);
+>> +	return 0;
+>> +}
+>> +#endif
+>> +static const struct dev_pm_ops wave6_vpu_pm_ops =3D {
+>> +	SET_RUNTIME_PM_OPS(wave6_vpu_runtime_suspend,
+>wave6_vpu_runtime_resume, NULL)
+>> +	SET_SYSTEM_SLEEP_PM_OPS(wave6_vpu_suspend, wave6_vpu_resume)
+>> +};
+>> +
+>> +static const struct of_device_id wave6_dt_ids[] =3D {
+>> +	{ .compatible =3D "nxp,imx95-wave633c", .data =3D &wave633c_data },
+>> +	{ /* sentinel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, wave6_dt_ids);
+>> +
+>> +static struct platform_driver wave6_vpu_driver =3D {
+>> +	.driver =3D {
+>> +		.name =3D VPU_PLATFORM_DEVICE_NAME,
+>> +		.of_match_table =3D of_match_ptr(wave6_dt_ids),
+>
+>
+>Drop of_match_ptr, you have here warnings.
+
+I will address this in v2.
+
+Thanks.
+Nas.
+
+>
+>
+>Best regards,
+>Krzysztof
 
