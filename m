@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CDBC021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6304CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBmMXCmBdFc/5DeKW+qCy83OgSjBlDScdd4wO/RXdXo=; b=wNXYNxbDzdqgyG0q10ouiqjmIx
-	y7Jnmn4fdbOmgjKqpIltbxOhSclQxR2cJdqMyWVtz1EWdSyXyhKmq8pkKwcTOn1EJ1m07aoUy1Bmz
-	AA8bAQwzAPieKcEe4KVqkdi9NKEAXFWygO3NPnNqw89D0qFGq52UdHhDhMXtmqq0ogEAIWi4HJl+K
-	Vg1QnH76T/4uHerYJKoHqdN8hIxyJCcuii8mid1qliPVukCZ/2+iTDgeqRMJRL3TmgFtiHkMQsq3T
-	DKRvzjCHypCCIBtZmGT9/u9QhXTloxu5sJE2zNrV4u5auvmOkash9Yo2xdaXipsUd/uEqNehdGmRc
-	YlJsvFxQ==;
+	bh=k9WySju8gNe1rIx5TXt5dUVyvNo491eZ5wqE3A6V9/w=; b=gFuCTKmsbOgt6CuRxPtp29rlqc
+	xYprLUTwSzTEnjR3gidIEOTfZ6Sq2uIUfIeBhCF0llsN9y43R0qTudpFhN4AuRcqv8W5zXewm0Ay6
+	p/LNFlpa4mfIfDbxE5YnTPxUwAfaqDy4RBjCd5C2JZdXRXWtvsKphji8cCS1XbtpnBYdcGUOJOkKE
+	0uvZTMbwl204QNAenB4WODDdXtJTLpReha30ZJ3hQiFtSlxe+Lm5NZqShwmyqh6W7vcTENreM9W5T
+	dzCXyW19oMg3YZCTvWOvrucg27VzB2VFM1oeYsJYqmD2cSngeGuPIN5SZ9/S/u+dk2vYwrsBRJhjJ
+	ppl7bdmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlSB-00000002xvO-1VdE;
-	Tue, 11 Feb 2025 08:17:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlPK-00000002xMc-15EI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Feb 2025 08:14:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PBmMXCmBdFc/5DeKW+qCy83OgSjBlDScdd4wO/RXdXo=; b=XTH6Hl4QU87nywbcXEVEPl2VqB
-	+mGSJ9gJPGn7NPUj5dYN5h4Vxub8Xlb6JBTTB9v6r2JCmbany7roKsRLfTE7oFTJl34hiy2zfsH18
-	GhPqHZ1lpmfXy1z04YKZBA4Rv5K1WjbeSN59gwn536x0/LwdXRVm53m3h4SDnxySOtx5QrT+eBLM6
-	AUhW4Y9aEz/kDmL7bKtiOUfdNuzqHvEbO4i79ixB52+Gkx/raP4x2zfswKZVXeL7VJacJTKnZoUUj
-	RdwY+ufCFj4VHtIpvKiFLFK+bOH70j7oMaJ+xiiI/F2s/Pnrxhxg7PrZMNF3LAD9sP0TqiKy9l1UE
-	gRury1cw==;
+	id 1thlUC-00000002yjO-0qxv;
+	Tue, 11 Feb 2025 08:19:16 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlPG-00000000WJr-3VjF
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thlSk-00000002y80-3Kgx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:14:12 +0000
+	Tue, 11 Feb 2025 08:17:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DEB1FA4008A;
-	Tue, 11 Feb 2025 08:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5658FC4CEDD;
-	Tue, 11 Feb 2025 08:14:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7012CA4014E;
+	Tue, 11 Feb 2025 08:16:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38DB8C4CEE6;
+	Tue, 11 Feb 2025 08:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739261649;
-	bh=unoYhASJ+/qHhx7k6LpCsLJmOJOp+s9rLvwQK25VuZM=;
+	s=k20201202; t=1739261865;
+	bh=Rhu162EIhM1z2w4T5glLEdRgvuphMT5lNfv79kXrgZk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pBS1EdqgQRE1dQVxHta3hdmqDl9duJOx1SHlKeePRtGFaKTmSYVl2oqe6xJA7ipEV
-	 Rtdxfn7Y3choQRAgPG6sqXtRlytZLMgwsIHk77CgmlWfzdZJ+qovOYTfipYs+h1Ixm
-	 Ggx7V+XAl9SeN2snHQzdPwAMvDXVjOyAyONKszdbnZtah3ZGhpk8FyCBCxrW6/wogA
-	 5ljF7Lr4Aoido7bHTHXNx1l1kQQyzDLvsaMb81koA9WrVMgqHw8UaNkiLC58gzduoS
-	 lVqVybf+vcva03QcyDKgL6ZhgAqDxdfIyW7wlLqXDWOZJAsijUZGXGIqdKUWnTccsz
-	 pQgG986/b9YsQ==
-Date: Tue, 11 Feb 2025 09:14:05 +0100
+	b=fi8qdzTNv5o5L6fULK5uB2A8iFz0rpLxfz9BzCcQbs++3URe8eKfSZyPMv0nGybMa
+	 ENrEJh94hP0C8V+77xFjgzwwam64bLelN/HEgdamZ7MmlHYUAm3O3kQcww8Pp1vF89
+	 gqBgHPMW6KrAG1RuvyYW1kI+4cLMj+KJaMVJ9vPNd1uZ4NGrI/PydQOtkzLiaNHOVz
+	 p7EgbGECVZ+jfPckA1DTVPSavkJV0ih5VQbkcRIyVdV2Cv8KVvhXrOCxHv8NGaVVfL
+	 8xd+tbRE8u9h4N1UeDwahSTZqxFm6Pc68LkMpMXcxuKvv0azhCbEsUAM6iR640mJE3
+	 X2qJ4ZNQc4nmQ==
+Date: Tue, 11 Feb 2025 09:17:42 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan.Wanner@microchip.com
-Subject: Re: [PATCH v2 02/15] dt-bindings: mfd: syscon: add
- microchip,sama7d65-sfrbu
-Message-ID: <20250211-therapeutic-futuristic-parakeet-204cae@krzk-bin>
-References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
- <4cac19e32295c708d72b9fc6ba342b5c961fb6c3.1739221064.git.Ryan.Wanner@microchip.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, linux-clk@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+ define
+Message-ID: <20250211-encouraging-free-aardwolf-0fabb1@krzk-bin>
+References: <20250210085004.1898895-1-ryan_chen@aspeedtech.com>
+ <20250210085004.1898895-2-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <4cac19e32295c708d72b9fc6ba342b5c961fb6c3.1739221064.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <20250210085004.1898895-2-ryan_chen@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_081411_238738_44379ADE 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250211_001746_893767_63CB3469 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +74,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rtc@vger.kernel.org, robh@kernel.org, conor+dt@kernel.org, alexandre.belloni@bootlin.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, lee@kernel.org, sre@kernel.org, claudiu.beznea@tuxon.dev, p.zabel@pengutronix.de, linux@armlinux.org.uk, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 02:13:02PM -0700, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On Mon, Feb 10, 2025 at 04:50:02PM +0800, Ryan Chen wrote:
+> remove soc0 clock:
+
+Why? Your commit msg must explain why. What is obvious from the diff,
+isn't it?
+
+>  SOC0_CLK_UART_DIV13
+>  SOC0_CLK_HPLL_DIV_AHB
+>  SOC0_CLK_MPLL_DIV_AHB
+> add soc0 clock:
+>  SOC0_CLK_AHBMUX
+>  SOC0_CLK_MPHYSRC
+>  SOC0_CLK_U2PHY_REFCLKSRC
+> add soc1 clock:
+>  SOC1_CLK_I3C
 > 
-> Add SAMA7D65 SFRBU compatible string to DT bindings documentation
-> 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 > ---
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  include/dt-bindings/clock/aspeed,ast2700-scu.h | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> index 51d896c88dafa..727292ffe092e 100644
-> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> @@ -91,6 +91,7 @@ select:
->            - microchip,mpfs-sysreg-scb
->            - microchip,sam9x60-sfr
->            - microchip,sama7d65-ddr3phy
-> +          - microchip,sama7d65-sfrbu
+> diff --git a/include/dt-bindings/clock/aspeed,ast2700-scu.h b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+> index 63021af3caf5..c7389530629d 100644
+> --- a/include/dt-bindings/clock/aspeed,ast2700-scu.h
+> +++ b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+> @@ -13,18 +13,17 @@
+>  #define SCU0_CLK_24M		1
+>  #define SCU0_CLK_192M		2
+>  #define SCU0_CLK_UART		3
+> -#define SCU0_CLK_UART_DIV13	3
 
-You got comment on #1 of your v1, so if you make exactly the same
-mistake in other patches then fix it there as well.
+NAK, ABI break without any explanation.
 
-Apply v1 Rob's comments to all your patches.
+>  #define SCU0_CLK_PSP		4
+>  #define SCU0_CLK_HPLL		5
+>  #define SCU0_CLK_HPLL_DIV2	6
+>  #define SCU0_CLK_HPLL_DIV4	7
+> -#define SCU0_CLK_HPLL_DIV_AHB	8
+> +#define SCU0_CLK_AHBMUX		8
+
+NAK, ABI break without any explanation.
 
 Best regards,
 Krzysztof
