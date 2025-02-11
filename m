@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293C2C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1CBC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0R9isyySuwnNx9dPUykzSU2bGVzljEuoHr9O38qK+Y=; b=sq3ohn8n59qoiiNFcVe6ltTkLJ
-	oIcwd2jAy7O6pxCV5+yWfC4Pftf8ZemjgDRrQ5HZuTzAGpw78jp/yt3jUyseZ8VybiwloVet8zkA4
-	CwE/JI0e6Dldt5tL0Z8erntgJ26stg6EjDVA6BEUFSIq+qhqlY+Jhdupi5Ds4647gLWrHTub/UF28
-	QY9EPdbtZOXsDaMYapt8tJXzQZoUTNHEfs7v4dDUPnRo/iNnlyxREFEbSN/d/iiEX3aSowPhTbJwV
-	fGnGPeber+pHmcSrNM1VeJbsiLVm8nkWrSl0T2ypbzUec5iWSaBvpkcLDeUaf+i9qaSB1LJOg6JQj
-	Q8M7lfdA==;
+	bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=; b=hL+x4mvUWqQktxwMcKtGwGZjqL
+	hB3tTGchjU9h9CIhOvf820/PiSEBiOk7ElvBj+iHMDkniM7lDuTp2YRu9HRDGprti6hWIFMmpwZSF
+	F2Ke6Y5doS37a4OhYf3FkcBMPwXQFJK9Onh2jWzkuD1XXfdEb0oD9QPjaUk66HtJUPdxeMprhnS8J
+	6u5d5F/rys45uyvQiBX31YGoYRTmBr/SYadUIjgvKJC+CYjon0qEQAu4rLfitPcendvAB8cjcfHlJ
+	hjttNkMDmdXJSAh7i5xxS0n85CIslFuxa7OOn6hKOEVbcEDcRmV9ckfwimZGWXfCoZKwyQdRE67Eo
+	tpUmKwbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlu2-000000032yU-2Ivv;
-	Tue, 11 Feb 2025 08:45:58 +0000
+	id 1thlva-000000033EG-0zj6;
+	Tue, 11 Feb 2025 08:47:34 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlq1-000000031tN-3dcn
+	id 1thlq8-000000031tN-0Odx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:41:51 +0000
+	Tue, 11 Feb 2025 08:41:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1739263309; x=1770799309;
+  t=1739263316; x=1770799316;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=C0R9isyySuwnNx9dPUykzSU2bGVzljEuoHr9O38qK+Y=;
-  b=bqPZmnrpmQxT1TCs+qBX1Gb5Z93mWt8DB07FNDXLzzp2lUrv/roDacMG
-   hPgHMcvekgdXPgEXPCgE04wTt3sw2xEdzQrBDgf09hIIkesSVHxp8aQWp
-   jiElBOwBDoxDtmndLOEqBb2949s2aY2KT77uuIbX9fvQJdn5FebqSO7xW
-   PwaPzHsfFom9CEOmOoy9T9LBi/PZnuPCkkvF0z3jaH31aTdUoVmeIeKjL
-   ovTkR9pCbaG0G1v3ktSS4otEdrFdUI6BTj/Ux7zYSEJNFJrYob9M+o+DM
-   VL2S9/WnJRWqzhSn2YHveAkBPxiSDJ0x5iaEjr1pNhUkyStMRE314IGcs
-   g==;
-X-CSE-ConnectionGUID: M68Dm3NlQhGTHv/2IRQE4g==
-X-CSE-MsgGUID: 4rMTWigRSCqlMw7RFcDnvA==
+  bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=;
+  b=ZJaJ9h7jR9i8U3bRgBjE2F/bu1N1cuZMG54qksEbCsBFzVVH00zVgTmZ
+   fQQIQzQ6SMQpIKTuU3+0nX9wMOv8qihtHA+m4KpnLJppJvnZgmiX23jAJ
+   yDsvbULkXc+dTmozCalzk+KkAcjofJcL4YqOt0gIM+9wm1WOe4mjkOO8K
+   SC6N0yafvWxK0iOICCErWlQI5WE2OaRfXTk41GQG4C03xiBkrtzHSIVr2
+   K6yA37SJT6cstEGAFJWwNwstkiOHx3+L8KFmalMExIN72JQu0jdte8Jxa
+   XUtKbI9r9aefaa7eOvc8gQt6WIBACShTk6TCv3ZEZ2VsnFaTDW0w7FtMc
+   Q==;
+X-CSE-ConnectionGUID: ZAb/Hh4+RO2kUZc8Yp1qgQ==
+X-CSE-MsgGUID: jf7sDxqcREWATS8YJ25E8Q==
 X-IronPort-AV: E=Sophos;i="6.13,277,1732575600"; 
-   d="scan'208";a="41744830"
+   d="scan'208";a="41744845"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 11 Feb 2025 09:41:48 +0100
-X-CheckPoint: {67AB0D4C-18-EBA888C4-C1AC8B84}
-X-MAIL-CPID: 3998205C48C698F448D73D29C0A891B7_0
-X-Control-Analysis: str=0001.0A006366.67AB0D4D.005E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5270A169CCC;
-	Tue, 11 Feb 2025 09:41:43 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 11 Feb 2025 09:41:55 +0100
+X-CheckPoint: {67AB0D53-8-B8541F8F-E50F9B0E}
+X-MAIL-CPID: 05BF5E78B9110FE624A9C1CBE99E2503_2
+X-Control-Analysis: str=0001.0A006366.67AB0D53.00B7,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 99B2B169CCC;
+	Tue, 11 Feb 2025 09:41:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1739263304;
+	s=dkim; t=1739263310;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C0R9isyySuwnNx9dPUykzSU2bGVzljEuoHr9O38qK+Y=;
-	b=X6Tg75h9ZAC+qaahQ5zW2LRbzAn8bhsXu6GjStruoYhsrGU4lChKSk6kAz/Vi9+S6IxIiv
-	Yz7VZvsz0DTasttE2mCd8z+C6oy5WX8owXoWJAqtOohPUMb2iE93RxB9U8SeJlOiAtgmwU
-	N3olBhd126CcFxY7JJAW+cFDWLe2rM47/2Dh4MQwW/KTYlBJb09MKXtu589IQTM5r07aiJ
-	CZVwkoNSt/cmyBz0sOESvOVf1fq1n/tqp2tNqqOlEQVW+JTZiyR3d/hDkN89EoCTLeW6mB
-	csFvFw6kkqv4WgEc2x183YiBslTmKpYK80dh+sJrpc5GQQPunuRtK9unFxGdGA==
+	bh=OhSb1tB8jCUL48/3XaVTpcvYnCAj5JE9StseCDeaZIA=;
+	b=oioSF1zveThtEiwKm6nQi8VaDyrGjhMrWGhuApyNoOSKXt6GohUI3DRaFlGAMwMppJV5aj
+	CrGpktuavqWZUADAYWSmLAwvtQTXiR7tkRv2YPw9M5xTGLpYd2zsUbEE7Im6pT9S0NlhH8
+	u6uVUXzch5+f5wnbQCANWv17bI94yWynzQLpKNiQKK0x7lqS9LXPn62fkbcTXCduKt5riq
+	CYfeSW+FLV68kbJ1jht/cow4AdB1gnPY0waUNvHs21O7/3Lj/mr9FHMQzxpXLL/TTzfs/R
+	8Pgxd6zpRXFjgyRgKjUgxCP2MHeeuG4H7xj/uEWhrUzmNsDzBq3lx+sPZHlFow==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -88,9 +88,9 @@ Cc: dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: display: bridge: ldb: Implement simple Freescale i.MX91/93 DPI bridge
-Date: Tue, 11 Feb 2025 09:41:18 +0100
-Message-Id: <20250211084119.849324-2-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/2] drm: bridge: imx9-parallel-disp-fmt: add i.MX91/93 parallel display bridge
+Date: Tue, 11 Feb 2025 09:41:19 +0100
+Message-Id: <20250211084119.849324-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250211084119.849324-1-alexander.stein@ew.tq-group.com>
 References: <20250211084119.849324-1-alexander.stein@ew.tq-group.com>
@@ -98,8 +98,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_004150_312467_794B09CB 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250211_004156_430828_B0B23873 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,100 +114,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX91/93 contains a single syscon registers which is responsible
-for configuring DPI output format. Add DT binding which represents
-this configuration as a bridge.
+i.MX91/93 have a single register specifying parallel display output
+format. Add a bridge driver for setting the corresponding format.
+Currently only RGB565, RGB666 and RGB888 output is supported.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- .../bridge/fsl,imx9-parallel-disp-fmt.yaml    | 78 +++++++++++++++++++
- 1 file changed, 78 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx9-parallel-disp-fmt.yaml
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ .../gpu/drm/bridge/imx9-parallel-disp-fmt.c   | 213 ++++++++++++++++++
+ 3 files changed, 224 insertions(+)
+ create mode 100644 drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,imx9-parallel-disp-fmt.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,imx9-parallel-disp-fmt.yaml
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index 6b4664d91faa8..8b69977787883 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -90,6 +90,16 @@ config DRM_FSL_LDB
+ 	help
+ 	  Support for i.MX8MP DPI-to-LVDS on-SoC encoder.
+ 
++config DRM_IMX9_PARALLEL_DISPLAY_FORMAT
++	tristate "Support for i.MX93 parallel display format"
++	depends on OF && MFD_SYSCON
++	depends on ARCH_MXC || COMPILE_TEST
++	select DRM_KMS_HELPER
++	select DRM_PANEL_BRIDGE
++	help
++	  Support for internal parallel display format configuration
++	  found on i.MX91 and i.MX93 processors.
++
+ config DRM_ITE_IT6263
+ 	tristate "ITE IT6263 LVDS/HDMI bridge"
+ 	depends on OF
+diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+index 97304b429a530..ee3406fed880f 100644
+--- a/drivers/gpu/drm/bridge/Makefile
++++ b/drivers/gpu/drm/bridge/Makefile
+@@ -6,6 +6,7 @@ obj-$(CONFIG_DRM_CHRONTEL_CH7033) += chrontel-ch7033.o
+ obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
+ obj-$(CONFIG_DRM_DISPLAY_CONNECTOR) += display-connector.o
+ obj-$(CONFIG_DRM_FSL_LDB) += fsl-ldb.o
++obj-$(CONFIG_DRM_IMX9_PARALLEL_DISPLAY_FORMAT) += imx9-parallel-disp-fmt.o
+ obj-$(CONFIG_DRM_ITE_IT6263) += ite-it6263.o
+ obj-$(CONFIG_DRM_ITE_IT6505) += ite-it6505.o
+ obj-$(CONFIG_DRM_LONTIUM_LT8912B) += lontium-lt8912b.o
+diff --git a/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c b/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
 new file mode 100644
-index 0000000000000..54cb73b59b1eb
+index 0000000000000..c37bdda53377c
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/bridge/fsl,imx9-parallel-disp-fmt.yaml
-@@ -0,0 +1,78 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/bridge/fsl,imx9-parallel-disp-fmt.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/gpu/drm/bridge/imx9-parallel-disp-fmt.c
+@@ -0,0 +1,213 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2022 NXP
++ * Copyright (c) 2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
++ * D-82229 Seefeld, Germany.
++ * Author: Alexander Stein
++ */
 +
-+title: Freescale i.MX91/93 DPI bridge
++#include <linux/media-bus-format.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_bridge.h>
++#include <drm/drm_of.h>
++#include <drm/drm_panel.h>
 +
-+maintainers:
-+  - Alexander Stein <alexander.stein@ew.tq-group.com>
++#define DISPLAY_MUX_CTRL		0x60
++#define  PARALLEL_DISP_FORMAT		GENMASK(10, 8)
++#define  FORMAT_RGB888_TO_RGB888	FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
++#define  FORMAT_RGB888_TO_RGB666	FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
++#define  FORMAT_RGB565_TO_RGB565	FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
++#define  FORMAT_RGB555_TO_RGB555	FIELD_PREP(PARALLEL_DISP_FORMAT, 3)
++#define  FORMAT_YUV_TO_YCBCR24		FIELD_PREP(PARALLEL_DISP_FORMAT, 4)
++#define  FORMAT_YUV_TO_YUV444		FIELD_PREP(PARALLEL_DISP_FORMAT, 5)
 +
-+description: |
-+  The i.MX91/93 mediamix contains a single register which is responsible
-+  for configuring the parallel display output format. This describes
-+  this registers as bridge within the DT.
++struct imx9_pdf {
++	struct device *dev;
++	struct drm_bridge bridge;
++	struct drm_bridge *panel_bridge;
++	struct regmap *regmap;
++};
 +
-+properties:
-+  compatible:
-+    const: fsl,imx9-parallel-display-format
++static inline struct imx9_pdf *to_imx9_pdf(struct drm_bridge *bridge)
++{
++	return container_of(bridge, struct imx9_pdf, bridge);
++}
 +
-+  reg:
-+    maxItems: 1
++static int imx9_pdf_attach(struct drm_bridge *bridge,
++	enum drm_bridge_attach_flags flags)
++{
++	struct imx9_pdf *pdf = to_imx9_pdf(bridge);
 +
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
++	return drm_bridge_attach(bridge->encoder, pdf->panel_bridge,
++	       			 bridge, flags);
++}
 +
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Video port for DPI input.
++static void imx9_pdf_atomic_enable(struct drm_bridge *bridge,
++				   struct drm_bridge_state *old_bridge_state)
++{
++	struct imx9_pdf *pdf = to_imx9_pdf(bridge);
++	struct drm_atomic_state *state = old_bridge_state->base.state;
++	const struct drm_bridge_state *bridge_state;
++	u32 format;
 +
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Video port for DPI output (panel or bridge).
++	/* Get the bus format from the bridge state. */
++	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
 +
-+    required:
-+      - port@0
-+      - port@1
++	switch (bridge_state->output_bus_cfg.format) {
++	case MEDIA_BUS_FMT_RGB565_1X16:
++		format = FORMAT_RGB565_TO_RGB565;
++		break;
++	case MEDIA_BUS_FMT_RGB666_1X18:
++		format = FORMAT_RGB888_TO_RGB666;
++		break;
++	case MEDIA_BUS_FMT_RGB888_1X24:
++		format = FORMAT_RGB888_TO_RGB888;
++		break;
++	default:
++		/*
++		 * Some bridges still don't set the correct bus format.
++		 * Just print a warning.
++		 */
++		dev_warn(pdf->dev,
++			 "Unsupported bus format 0x%04x, please check output bridge driver\n",
++			 bridge_state->output_bus_cfg.format);
++		return;
++	}
 +
-+required:
-+  - compatible
-+  - reg
-+  - ports
++	regmap_update_bits(pdf->regmap, DISPLAY_MUX_CTRL, PARALLEL_DISP_FORMAT,
++			   format);
++}
 +
-+additionalProperties: false
++#define MAX_INPUT_SEL_FORMATS 2
++static u32 *
++imx9_pdf_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
++				   struct drm_bridge_state *bridge_state,
++				   struct drm_crtc_state *crtc_state,
++				   struct drm_connector_state *conn_state,
++				   u32 output_fmt,
++				   unsigned int *num_input_fmts)
++{
++	u32 *input_fmts;
 +
-+examples:
-+  - |
-+    blk-ctrl {
-+        #address-cells = <1>;
-+        #size-cells = <1>;
++	*num_input_fmts = 0;
 +
-+        bridge@60 {
-+            compatible = "fsl,imx9-parallel-display-format";
-+            reg = <0x60 0x4>;
-+            status = "disabled";
++	input_fmts = kcalloc(MAX_INPUT_SEL_FORMATS, sizeof(*input_fmts),
++			     GFP_KERNEL);
++	if (!input_fmts)
++		return NULL;
 +
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
++	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
++	input_fmts[1] = MEDIA_BUS_FMT_RGB565_1X16;
++	*num_input_fmts = MAX_INPUT_SEL_FORMATS;
 +
-+                port@0 {
-+                    reg = <0>;
++	return input_fmts;
++}
 +
-+                    dpi_from_lcdif: endpoint {
-+                        remote-endpoint = <&lcdif_to_dpi>;
-+                    };
-+                };
++#define MAX_OUTPUT_SEL_FORMATS 3
++static u32 *
++imx9_pdf_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
++				    struct drm_bridge_state *bridge_state,
++				    struct drm_crtc_state *crtc_state,
++				    struct drm_connector_state *conn_state,
++				    unsigned int *num_output_fmts)
++{
++	u32 *output_fmts;
 +
-+                port@1 {
-+                    reg = <1>;
++	*num_output_fmts = 0;
 +
-+                    dpi_out: endpoint {
-+                    };
-+                };
-+            };
-+        };
-+    };
++	output_fmts = kcalloc(MAX_OUTPUT_SEL_FORMATS, sizeof(*output_fmts),
++			     GFP_KERNEL);
++	if (!output_fmts)
++		return NULL;
++
++	output_fmts[0] = MEDIA_BUS_FMT_RGB565_1X16;
++	output_fmts[1] = MEDIA_BUS_FMT_RGB666_1X18;
++	output_fmts[2] = MEDIA_BUS_FMT_RGB888_1X24;
++	*num_output_fmts = MAX_OUTPUT_SEL_FORMATS;
++
++	return output_fmts;
++}
++
++static enum drm_mode_status
++imx9_pdf_mode_valid(struct drm_bridge *bridge,
++		   const struct drm_display_info *info,
++		   const struct drm_display_mode *mode)
++{
++	if (mode->clock > 80000)
++		return MODE_CLOCK_HIGH;
++
++	return MODE_OK;
++}
++
++static const struct drm_bridge_funcs funcs = {
++	.attach = imx9_pdf_attach,
++	.atomic_enable = imx9_pdf_atomic_enable,
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_get_input_bus_fmts = imx9_pdf_atomic_get_input_bus_fmts,
++	.atomic_get_output_bus_fmts = imx9_pdf_atomic_get_output_bus_fmts,
++	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.mode_valid = imx9_pdf_mode_valid,
++};
++
++static int imx9_pdf_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *remote;
++	struct drm_panel *panel;
++	struct imx9_pdf *pdf;
++
++	pdf = devm_kzalloc(dev, sizeof(*pdf), GFP_KERNEL);
++	if (!pdf)
++		return -ENOMEM;
++
++	pdf->dev = &pdev->dev;
++	pdf->bridge.funcs = &funcs;
++	pdf->bridge.of_node = dev->of_node;
++	pdf->bridge.type = DRM_MODE_CONNECTOR_DPI;
++
++	pdf->regmap = syscon_node_to_regmap(dev->of_node->parent);
++	if (IS_ERR(pdf->regmap))
++		return dev_err_probe(dev, PTR_ERR(pdf->regmap),
++				     "failed to get regmap\n");
++
++	remote = of_graph_get_remote_node(dev->of_node, 1, 0);
++	panel = of_drm_find_panel(remote);
++	of_node_put(remote);
++	if (IS_ERR(panel))
++		return PTR_ERR(panel);
++
++	pdf->panel_bridge = devm_drm_panel_bridge_add(dev, panel);
++	if (IS_ERR(pdf->panel_bridge))
++		return PTR_ERR(pdf->panel_bridge);
++
++	platform_set_drvdata(pdev, pdf);
++
++	devm_drm_bridge_add(dev, &pdf->bridge);
++
++	return 0;
++}
++
++static const struct of_device_id imx9_pdf_dt_ids[] = {
++	{ .compatible = "fsl,imx9-parallel-display-format", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, imx9_pdf_dt_ids);
++
++static struct platform_driver imx9_pdf_driver = {
++	.probe		= imx9_pdf_probe,
++	.driver		= {
++		.name		= "imx9-parallel-display-format",
++		.of_match_table	= imx9_pdf_dt_ids,
++	},
++};
++module_platform_driver(imx9_pdf_driver);
++
++MODULE_AUTHOR("Alexander Stein <alexander.stein@ew.tq-group.com>");
++MODULE_DESCRIPTION("i.MX91/i.MX93 parallel display format driver");
++MODULE_LICENSE("GPL v2");
 -- 
 2.34.1
 
