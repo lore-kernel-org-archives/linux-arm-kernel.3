@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45547C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D051C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5mGdMwF5cu1aorS2vZbnAj6wLlbFO7781j7ylyHZ94=; b=IGGJKCIr+TfxgWku0tupMk2Pj7
-	uBJbGlj4VarUiBBSD3n0YUAmo9wfTcGolaVZtYkxi6eUMDfMIyqO/RilKK0NlfFihoR8Kuvl/HWbS
-	n2iptZKmtRTFlaYyIv8ob7DA4k68Rm5WMerg9BThkUXP5aAypq9pZT8yllL1kcsG69ng1od7Sxm8j
-	pN+6U9sEanD4eAV8w0WUUEGl9HzZ96qAUan5WpFlYrURi+zqaaN0TxyOrxtRRHJuHIFb8J1sH82k5
-	9BwJiNtVump2MQevflv/iRBQ1O1r0b4Wt3MMdKeHtL55rfVdBncocPdnlykyJscE4RV0LQvkuaGc9
-	0TUj1EHw==;
+	bh=PXEn705vwiu2OL+nWJtJUG3OO694UJShd3vSkxsQfl8=; b=r6zW/p8cj7KHF7sDdWJog/oc2v
+	lKUqlgVht3ljW69gvpr0WtwHrK6IMjJSeQKO2Q//zHFuUbETkJPm4Zx0AFFv3IAeokn4o5XrHdpML
+	7HL35O6Si+xt899mYxr+aVDZztUftXKW1K5ZAbd9yKBf89xzy8IwaqRWqdLX5ISFdh/DlsYQmRdep
+	38LsAcDKi5qUNO55Ng6qXjHkjA3h0Pzq4pSkZRKszChuRY/27n10Ge7zOcJU+v9J0pEF66WETo5RS
+	0VZJ2eo1aPoKrLD4E1SK68h7I4sFbqeISC+LNwrn/U5V/nXAJx+o4lJzppg9JC8IlInBnW1jIRuIn
+	9qwPlmAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqI2-00000003wWX-3fhV;
-	Tue, 11 Feb 2025 13:27:02 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1thqJQ-00000003wng-2RrK;
+	Tue, 11 Feb 2025 13:28:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpwh-00000003scJ-0BQB
+	id 1thq08-00000003tC7-05dW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 13:05:00 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21f53ad05a0so66449945ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 05:04:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739279097; x=1739883897; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I5mGdMwF5cu1aorS2vZbnAj6wLlbFO7781j7ylyHZ94=;
-        b=Dn7VsNhK8WFsNJcbV7a4fMTUgZpOKYAwg5reguLf2ajllt7L8rPk1X9YtHwqTlHwy1
-         TOz8jLgrL+ORYi5nsOn1uORIqFhEFqT3dxv7ig44RnA4RQ2G+c6ZiwU1EQbh/HefdfFp
-         57sDc1c6W0slzxIhn+dZCBG63Torwb8c5BfpVzkGaNHSFe4XdAzq+oMYM5RirLlHNkMv
-         3C2kL9ecy0RlXE6Pt0hl5itwwnjzW5GZxBcFZimZrr70bvLtGyVhXzWXtmGwei41pXe9
-         xl9zjDO7w1Sf0LbKihrjN32qhDvmSAMWZa1c8Amr8XyvWfgD6v9v2D81Tlrho1JErW36
-         mzKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739279097; x=1739883897;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I5mGdMwF5cu1aorS2vZbnAj6wLlbFO7781j7ylyHZ94=;
-        b=o7l0GKJ9GlUbk9GHqbMlF1uOB07jN90aXsyip/rPNRg51ny3ePF/bt0OMSU4NHZeQF
-         qCUeGTXMgGXk7/aU1fd6DhlAAFAEVMcOnHOHtVMPZF4oDBL0oaKeQsW0jJ3XnHwYMGKT
-         O9TOPM8EFDQhE4s/fJpWJQooxKSHoCF+/TBr3ckwLwzxIWD+xvsvdCwa4xNcbWQLZg8K
-         EZ27sS09/wDP4QnpPO55yA6/Kzg2n/RmLTzdZJyC8540r+ZIcdZT+cirWmJnDZyBMxi8
-         1UDsH+ev8tPflE1VM0nB6Il1s+S3UVSyhPKvIeSagHROnFxpCH+LcJLYnOaFUFdEVk5C
-         jhiw==
-X-Forwarded-Encrypted: i=1; AJvYcCULSHie+HI6WDa7NToxaAJUpCJFLCAWehqMgmIKMVm9xFHysk5gUDK16arSTGYzakSJRQLgpd3ABvLcoQA0sUPR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0AJ5DTapBvrGibwXXBPDk6o1ZurJdmMOIPv9JCwmctZzueGLj
-	SzYCp7LWDsXjNkdHZUS+3HRGqrW1a5r5Bq3QqM3sS0kuv7PDKsjTeluOwx21oesGj1X9/PJtQ4G
-	tyOwXSJVZiNfFS98x0D7Bqxsl8FfyXSDx
-X-Gm-Gg: ASbGnctFLDRKN+dovD0DrZNzuuJL0vKSwqv0oKWET7WEDigC+IdK3f18zVc35l6cPis
-	q5eJ7At7hfB5XBNVtkA2U1T08sBR7OTGslyqgiIDPMAhCTGE6NJIRB/zJZLGj/WzDHWmhSg==
-X-Google-Smtp-Source: AGHT+IHxrSbz+UMf0ZSE5PZbnCLY0l+6wu1dbGZuTcxLw9cyD1B/2N0NzHUPXxohK81nTZucVVt76ckOaeCaUTE/ZDI=
-X-Received: by 2002:a17:90b:2545:b0:2ee:f687:6ad5 with SMTP id
- 98e67ed59e1d1-2fa9ed5d37bmr5548858a91.2.1739279097573; Tue, 11 Feb 2025
- 05:04:57 -0800 (PST)
+	Tue, 11 Feb 2025 13:08:33 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C2D9E2B3;
+	Tue, 11 Feb 2025 14:07:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1739279233;
+	bh=tCS5mEqz1MLGLorJ57dRMcqfb8BehI8Xy+WBXcLem40=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GwsNRaELSvgupHQyX5kZM8MDUGfz/iELOECZInWzF+cAsdmZ8qO+ZChPMik0ewsgs
+	 kNPTPQ9BgrX/flZqZbHU0qOjv/cUSQEW++ZWkEHFPysrldcHV0LZHOjq6eBXyQGuN6
+	 JgRciK9L6rt19xC63NW+G4T9cVKaBeX4RRepbb1I=
+Message-ID: <b8c4dabc-c9a9-407a-94a1-4a59a67e0440@ideasonboard.com>
+Date: Tue, 11 Feb 2025 15:08:27 +0200
 MIME-Version: 1.0
-References: <20250211035737.3886974-1-shengjiu.wang@nxp.com>
-In-Reply-To: <20250211035737.3886974-1-shengjiu.wang@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 11 Feb 2025 15:06:26 +0200
-X-Gm-Features: AWEUYZkxR9jtS8NDetBx_vRl7m1cPQuJxMC1s9IXybxI-_qoyigAvbqfYgvFG70
-Message-ID: <CAEnQRZDC+mQ=QzzpBsXzt0kSSDAo-LbfRkbDLfxrbxW9Nse-+w@mail.gmail.com>
-Subject: Re: [PATCH 0/2] ASoC: imx-card: support playback or capture only
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
-	nicoleotsuka@gmail.com, lgirdwood@gmail.com, broonie@kernel.org, 
-	perex@perex.cz, tiwai@suse.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, linux-sound@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3] drm: xlnx: zynqmp_dpsub: Add NULL check in
+ zynqmp_audio_init
+To: Charles Han <hanchunchao@inspur.com>, laurent.pinchart@ideasonboard.com
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Markus.Elfring@web.de,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, michal.simek@amd.com,
+ vishal.sagar@amd.com
+References: <20250211102049.6468-1-hanchunchao@inspur.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ xsFNBE6ms0cBEACyizowecZqXfMZtnBniOieTuFdErHAUyxVgtmr0f5ZfIi9Z4l+uUN4Zdw2
+ wCEZjx3o0Z34diXBaMRJ3rAk9yB90UJAnLtb8A97Oq64DskLF81GCYB2P1i0qrG7UjpASgCA
+ Ru0lVvxsWyIwSfoYoLrazbT1wkWRs8YBkkXQFfL7Mn3ZMoGPcpfwYH9O7bV1NslbmyJzRCMO
+ eYV258gjCcwYlrkyIratlHCek4GrwV8Z9NQcjD5iLzrONjfafrWPwj6yn2RlL0mQEwt1lOvn
+ LnI7QRtB3zxA3yB+FLsT1hx0va6xCHpX3QO2gBsyHCyVafFMrg3c/7IIWkDLngJxFgz6DLiA
+ G4ld1QK/jsYqfP2GIMH1mFdjY+iagG4DqOsjip479HCWAptpNxSOCL6z3qxCU8MCz8iNOtZk
+ DYXQWVscM5qgYSn+fmMM2qN+eoWlnCGVURZZLDjg387S2E1jT/dNTOsM/IqQj+ZROUZuRcF7
+ 0RTtuU5q1HnbRNwy+23xeoSGuwmLQ2UsUk7Q5CnrjYfiPo3wHze8avK95JBoSd+WIRmV3uoO
+ rXCoYOIRlDhg9XJTrbnQ3Ot5zOa0Y9c4IpyAlut6mDtxtKXr4+8OzjSVFww7tIwadTK3wDQv
+ Bus4jxHjS6dz1g2ypT65qnHen6mUUH63lhzewqO9peAHJ0SLrQARAQABzTBUb21pIFZhbGtl
+ aW5lbiA8dG9taS52YWxrZWluZW5AaWRlYXNvbmJvYXJkLmNvbT7CwY4EEwEIADgWIQTEOAw+
+ ll79gQef86f6PaqMvJYe9QUCX/HruAIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRD6
+ PaqMvJYe9WmFD/99NGoD5lBJhlFDHMZvO+Op8vCwnIRZdTsyrtGl72rVh9xRfcSgYPZUvBuT
+ VDxE53mY9HaZyu1eGMccYRBaTLJSfCXl/g317CrMNdY0k40b9YeIX10feiRYEWoDIPQ3tMmA
+ 0nHDygzcnuPiPT68JYZ6tUOvAt7r6OX/litM+m2/E9mtp8xCoWOo/kYO4mOAIoMNvLB8vufi
+ uBB4e/AvAjtny4ScuNV5c5q8MkfNIiOyag9QCiQ/JfoAqzXRjVb4VZG72AKaElwipiKCWEcU
+ R4+Bu5Qbaxj7Cd36M/bI54OrbWWETJkVVSV1i0tghCd6HHyquTdFl7wYcz6cL1hn/6byVnD+
+ sR3BLvSBHYp8WSwv0TCuf6tLiNgHAO1hWiQ1pOoXyMEsxZlgPXT+wb4dbNVunckwqFjGxRbl
+ Rz7apFT/ZRwbazEzEzNyrBOfB55xdipG/2+SmFn0oMFqFOBEszXLQVslh64lI0CMJm2OYYe3
+ PxHqYaztyeXsx13Bfnq9+bUynAQ4uW1P5DJ3OIRZWKmbQd/Me3Fq6TU57LsvwRgE0Le9PFQs
+ dcP2071rMTpqTUteEgODJS4VDf4lXJfY91u32BJkiqM7/62Cqatcz5UWWHq5xeF03MIUTqdE
+ qHWk3RJEoWHWQRzQfcx6Fn2fDAUKhAddvoopfcjAHfpAWJ+ENc7BTQROprNHARAAx0aat8GU
+ hsusCLc4MIxOQwidecCTRc9Dz/7U2goUwhw2O5j9TPqLtp57VITmHILnvZf6q3QAho2QMQyE
+ DDvHubrdtEoqaaSKxKkFie1uhWNNvXPhwkKLYieyL9m2JdU+b88HaDnpzdyTTR4uH7wk0bBa
+ KbTSgIFDDe5lXInypewPO30TmYNkFSexnnM3n1PBCqiJXsJahE4ZQ+WnV5FbPUj8T2zXS2xk
+ 0LZ0+DwKmZ0ZDovvdEWRWrz3UzJ8DLHb7blPpGhmqj3ANXQXC7mb9qJ6J/VSl61GbxIO2Dwb
+ xPNkHk8fwnxlUBCOyBti/uD2uSTgKHNdabhVm2dgFNVuS1y3bBHbI/qjC3J7rWE0WiaHWEqy
+ UVPk8rsph4rqITsj2RiY70vEW0SKePrChvET7D8P1UPqmveBNNtSS7In+DdZ5kUqLV7rJnM9
+ /4cwy+uZUt8cuCZlcA5u8IsBCNJudxEqBG10GHg1B6h1RZIz9Q9XfiBdaqa5+CjyFs8ua01c
+ 9HmyfkuhXG2OLjfQuK+Ygd56mV3lq0aFdwbaX16DG22c6flkkBSjyWXYepFtHz9KsBS0DaZb
+ 4IkLmZwEXpZcIOQjQ71fqlpiXkXSIaQ6YMEs8WjBbpP81h7QxWIfWtp+VnwNGc6nq5IQDESH
+ mvQcsFS7d3eGVI6eyjCFdcAO8eMAEQEAAcLBXwQYAQIACQUCTqazRwIbDAAKCRD6PaqMvJYe
+ 9fA7EACS6exUedsBKmt4pT7nqXBcRsqm6YzT6DeCM8PWMTeaVGHiR4TnNFiT3otD5UpYQI7S
+ suYxoTdHrrrBzdlKe5rUWpzoZkVK6p0s9OIvGzLT0lrb0HC9iNDWT3JgpYDnk4Z2mFi6tTbq
+ xKMtpVFRA6FjviGDRsfkfoURZI51nf2RSAk/A8BEDDZ7lgJHskYoklSpwyrXhkp9FHGMaYII
+ m9EKuUTX9JPDG2FTthCBrdsgWYPdJQvM+zscq09vFMQ9Fykbx5N8z/oFEUy3ACyPqW2oyfvU
+ CH5WDpWBG0s5BALp1gBJPytIAd/pY/5ZdNoi0Cx3+Z7jaBFEyYJdWy1hGddpkgnMjyOfLI7B
+ CFrdecTZbR5upjNSDvQ7RG85SnpYJTIin+SAUazAeA2nS6gTZzumgtdw8XmVXZwdBfF+ICof
+ 92UkbYcYNbzWO/GHgsNT1WnM4sa9lwCSWH8Fw1o/3bX1VVPEsnESOfxkNdu+gAF5S6+I6n3a
+ ueeIlwJl5CpT5l8RpoZXEOVtXYn8zzOJ7oGZYINRV9Pf8qKGLf3Dft7zKBP832I3PQjeok7F
+ yjt+9S+KgSFSHP3Pa4E7lsSdWhSlHYNdG/czhoUkSCN09C0rEK93wxACx3vtxPLjXu6RptBw
+ 3dRq7n+mQChEB1am0BueV1JZaBboIL0AGlSJkm23kw==
+In-Reply-To: <20250211102049.6468-1-hanchunchao@inspur.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_050459_080380_4DA1CE1F 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250211_050832_204894_459C3F59 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,22 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 5:58=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.co=
-m> wrote:
->
-> Be similar to audio graph card, support playback or capture only
-> for imx-audio-card.
->
-> Shengjiu Wang (2):
->   ASoC: dt-bindings: imx-card: Add playback-only and capture-only
->     property
->   ASoC: imx-card: Add playback_only or capture_only support
->
->  .../devicetree/bindings/sound/imx-audio-card.yaml         | 8 ++++++++
->  sound/soc/fsl/imx-card.c                                  | 5 +++++
->  2 files changed, 13 insertions(+)
+Hi,
 
-For entire patchseries,
+On 11/02/2025 12:20, Charles Han wrote:
+> devm_kasprintf() calls can return null pointers on failure.
+> But some return values were not checked in zynqmp_audio_init().
+> 
+> Add NULL check in zynqmp_audio_init(), avoid referencing null
+> pointers in the subsequent code.
+> 
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> ---
+>   drivers/gpu/drm/xlnx/zynqmp_dp_audio.c | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
+> index fa5f0ace6084..f07ff4eb3a6d 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp_audio.c
+> @@ -323,12 +323,16 @@ int zynqmp_audio_init(struct zynqmp_dpsub *dpsub)
+>   
+>   	audio->dai_name = devm_kasprintf(dev, GFP_KERNEL,
+>   					 "%s-dai", dev_name(dev));
+> +	if (!audio->dai_name)
+> +		return -ENOMEM;
+>   
+>   	for (unsigned int i = 0; i < ZYNQMP_NUM_PCMS; ++i) {
+>   		audio->link_names[i] = devm_kasprintf(dev, GFP_KERNEL,
+>   						      "%s-dp-%u", dev_name(dev), i);
+>   		audio->pcm_names[i] = devm_kasprintf(dev, GFP_KERNEL,
+>   						     "%s-pcm-%u", dev_name(dev), i);
+> +		if (!audio->link_names[i] || !audio->pcm_names[i])
+> +			return -ENOMEM;
+>   	}
+>   
+>   	audio->base = devm_platform_ioremap_resource_byname(pdev, "aud");
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Thanks, looks good to me. I'll apply with Laurent's RB, which he gave 
+for v1.
+
+  Tomi
+
 
