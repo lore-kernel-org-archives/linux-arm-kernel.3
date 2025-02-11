@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C505DC021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3175C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dNf7ARSync5+2wSr35vosb1jPpHHIw0KLr6GEq+zDrQ=; b=lNmeBAAGcT7pkHV3G+wPcG/Hoi
-	bllyR44KZKkynj9EfIm6G8uSVo8fDDAqFmOBmLjn5IJAJHi1frYBhsqJ4kK2DINP7ZUfWKwgzNUpr
-	GBT9xJ8DILc69tx1tHJ6WnNN+hJn7ogaOQL7TYF7MholNoREYvZGrm3fcMdXCyhGW/pvSqlWGJH8y
-	pZznhShdaZvHmZCH6R+Idi61294yYxwuzWiRmx9pgw6BBkz1Hn6KUcP9hTcZc3mFJGR51TWAJ6cvD
-	9EPEnAAQprn3CKJ7/yBHqbe9rDLVs4JYyB+hSS4ckB3I7PWp7CTy+Dp6atttzVIbpeH9PKM3uWv/i
-	YicVGIwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23KGlzAt+WcwB7TgM1tqYpATLAeQI369KvzlaxAAIO0=; b=Exlf1UV9GD0p3Ot//SxAb72D8z
+	kkSm9ENin1PbfpJH/bGtfmLu8u3oh9Pr269PXvD8+P9A6zCgOobTunZR+Q2/HIHR6DGWqUiwYJGIN
+	+HjDcTE0m5DEi673ikfWxa5pgr+SmPNSOQH53D9TouHb6UeriDpLA5yAmRzt5S4w87HIuivFul9TJ
+	gX2vSN3nfmr/BFw0x/0FigKVvnvt+1qJfYVc9udNj5nYBQBxHxoyxa8Jmqs08rmwl+3AtV2PaKSOB
+	MMraKd+HYYfUAawsg9eUpQ4W5QyiFC+c21AYclsnXCqhQG7CPcWcD8JGhr5lHdZdufnfxxcChUMY0
+	X329mXAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvtP-000000050mJ-2bsw;
-	Tue, 11 Feb 2025 19:25:59 +0000
-Received: from smtp-23.smtpout.orange.fr ([80.12.242.23] helo=smtp.smtpout.orange.fr)
+	id 1thvtR-000000050ng-0irE;
+	Tue, 11 Feb 2025 19:26:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuok-00000004ogz-0BSw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:17:08 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id huoTtJ358CWdAhuoWth0R8; Tue, 11 Feb 2025 19:16:57 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1739297817;
-	bh=dNf7ARSync5+2wSr35vosb1jPpHHIw0KLr6GEq+zDrQ=;
-	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=ElHWnKLd15/IJ43QrhjbA3T+ajrzpmMJLWYwcUBlhiOio7ctyI5K2YHpA2zMHYdJG
-	 k/Bde1ML3HHwiKiDvbbwhr3X6MqTimrqG/pG5uSy8WpvpcJ2Cysm7WtBD4YP/UvHgH
-	 ZAnf3uBZtW0tzEVO+4T+jwk6iuqrpHYqF64I+UyJVyzwHUC+nN6lGWExLF50sNreux
-	 f6HsxMG5Ztiddnk8dDTtUmN5cLMrPEa93uPKf57Di+K+Lf1zIyNHv65gDNKrPP1EDY
-	 6KsYzlmbSH9Y02V3NFL8Juf4WoXLWOZG0PsTfYgQIZ60FFXF94HPxu+QBkrzpdQJ/E
-	 v81242QWjucPA==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Tue, 11 Feb 2025 19:16:57 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <a74c3202-7a64-483d-907e-9a562e9dcd03@wanadoo.fr>
-Date: Tue, 11 Feb 2025 19:16:49 +0100
+	id 1thuq6-00000004out-34Vs;
+	Tue, 11 Feb 2025 18:18:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B2CC15C41C4;
+	Tue, 11 Feb 2025 18:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2DA8C4CEDD;
+	Tue, 11 Feb 2025 18:18:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739297909;
+	bh=cE4jcsAX2FB7uvZhLWO9AMcWcOaQ1ZV8xgeqqsLhxAo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FO7tv1K6drxWVq7uoFgvOKH9m4xyJAD00rlHVuiIu/apLLCjiLCU2t0Z2ggEOEPCu
+	 rM2PBdCJsX7wTz/49XKW4//7sk6YXeF8JEwDlbxd5FK0O1tGGvxgY+DVa5IRRGlHnJ
+	 NKzJwKgcw1Hx2lyhPdbclbmVPpWcY7aNWDIJ8BaNlcPKPnXN7lRQ4EETZgevJWCCpG
+	 fABcr+pxuuSY9JyiaRnwivJ5x3MVGihPBLldfdLIzZKvL9hypU5VLNPnAbhIhGX6ZB
+	 KXh0m/92ptmm8D6NwXPnWEVt+p0WxBnF80K3Mad6OUVg3CCsANQJMBsQyhk3ztFSoL
+	 M29vTBxJN7ySA==
+Date: Tue, 11 Feb 2025 18:18:23 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: soc@lists.linux.dev, Jisheng Zhang <jszhang@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Haylen Chu <heylenay@outlook.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Sebastian Reichel <sre@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 2/7] dt-bindings: soc: sophgo: Move SoCs/boards from
+ riscv into soc, add SG2000
+Message-ID: <20250211-squishy-blip-8ac4cf64d462@spud>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+ <20250210220951.1248533-3-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] memory: Add STM32 Octo Memory Manager driver
-References: <20250210131826.220318-1-patrice.chotard@foss.st.com>
- <20250210131826.220318-5-patrice.chotard@foss.st.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: patrice.chotard@foss.st.com
-Cc: alexandre.torgue@foss.st.com, arnd@arndb.de, broonie@kernel.org,
- catalin.marinas@arm.com, christophe.kerello@foss.st.com,
- conor+dt@kernel.org, devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- p.zabel@pengutronix.de, robh@kernel.org, will@kernel.org
-In-Reply-To: <20250210131826.220318-5-patrice.chotard@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3/BNf11h93vTDDr6"
+Content-Disposition: inline
+In-Reply-To: <20250210220951.1248533-3-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_101706_628771_11FE8B45 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20250211_101830_862164_C5E9C10B 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,132 +83,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 10/02/2025 à 14:18, 
-patrice.chotard-rj0Iel/JR4NBDgjK7y7TUQ@public.gmane.org a écrit :
-> From: Patrice Chotard <patrice.chotard-rj0Iel/JR4NBDgjK7y7TUQ@public.gmane.org>
-> 
-> Octo Memory Manager driver (OMM) manages:
->    - the muxing between 2 OSPI busses and 2 output ports.
->      There are 4 possible muxing configurations:
->        - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->          output is on port 2
->        - OSPI1 and OSPI2 are multiplexed over the same output port 1
->        - swapped mode (no multiplexing), OSPI1 output is on port 2,
->          OSPI2 output is on port 1
->        - OSPI1 and OSPI2 are multiplexed over the same output port 2
->    - the split of the memory area shared between the 2 OSPI instances.
->    - chip select selection override.
->    - the time between 2 transactions in multiplexed mode.
->    - check firewall access.
 
-...
+--3/BNf11h93vTDDr6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-> new file mode 100644
-> index 000000000000..af69137bfba2
-> --- /dev/null
-> +++ b/drivers/memory/stm32_omm.c
-> @@ -0,0 +1,520 @@
-> +// SPDX-License-Identifier: GPL
+On Mon, Feb 10, 2025 at 11:09:42PM +0100, Alexander Sverdlin wrote:
+> Move sophgo.yaml from riscv into soc/sophgo so that it can be shared for
+> all SoCs containing ARM cores as well. This already applies to SG2002.
+>=20
+> Add SG2000 SoC, Milk-V Duo Module 01 and Milk-V Module 01 EVB.
+>=20
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 
-Not sure this SPDX-License-Identifier exists.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +/*
-> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
+> ---
+>  .../devicetree/bindings/{riscv =3D> soc/sophgo}/sophgo.yaml  | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>  rename Documentation/devicetree/bindings/{riscv =3D> soc/sophgo}/sophgo.=
+yaml (80%)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Docume=
+ntation/devicetree/bindings/soc/sophgo/sophgo.yaml
+> similarity index 80%
+> rename from Documentation/devicetree/bindings/riscv/sophgo.yaml
+> rename to Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
+> index a14cb10ff3f0..5d73d0ccc547 100644
+> --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
+> @@ -1,7 +1,7 @@
+>  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>  %YAML 1.2
+>  ---
+> -$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
+> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+> =20
+>  title: Sophgo SoC-based boards
+> @@ -26,6 +26,11 @@ properties:
+>            - enum:
+>                - sophgo,huashan-pi
+>            - const: sophgo,cv1812h
+> +      - items:
+> +          - enum:
+> +              - milkv,duo-module-01-evb
+> +          - const: milkv,duo-module-01
+> +          - const: sophgo,sg2000
+>        - items:
+>            - enum:
+>                - sipeed,licheerv-nano-b
+> --=20
+> 2.48.1
+>=20
 
-...
+--3/BNf11h93vTDDr6
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	pm_runtime_enable(dev);
-> +
-> +	/* check if OMM's resource access is granted */
-> +	ret = stm32_omm_check_access(dev, dev->of_node);
-> +	if (ret < 0 && ret != -EACCES)
-> +		goto err_clk_release;
+-----BEGIN PGP SIGNATURE-----
 
-Should we call, here and below, pm_runtime_disable() in the error 
-handling path, as done in the remove function?
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6uUbwAKCRB4tDGHoIJi
+0iP8AP9Mc/wlam2GgeEuieW+XaQ1w6dG0Bj4kXG2xUCIG5ayXgD/UBsEkKFcu+7I
+ozzxFKHl9x4z4ZZ2vx1qTuKO/mt7JA4=
+=SHXJ
+-----END PGP SIGNATURE-----
 
-> +
-> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
-> +		/* Ensure both OSPI instance are disabled before configuring OMM */
-> +		ret = stm32_omm_disable_child(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +
-> +		ret = stm32_omm_configure(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	} else {
-> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
-> +		/*
-> +		 * AMCR can't be set, so check if current value is coherent
-> +		 * with memory-map areas defined in DT
-> +		 */
-> +		ret = stm32_omm_set_amcr(dev, false);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	}
-> +
-> +	/* for each child, if resource access is granted and status "okay", probe it */
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
-> +			continue;
-> +
-> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
-> +		if (!vdev) {
-> +			dev_err(dev, "Failed to create Octo Memory Manager child\n");
-> +			for (j = i; j > 0; --j) {
-> +				if (omm->child[j].dev)
-> +					of_platform_device_destroy(omm->child[j].dev, NULL);
-> +			}
-> +
-> +			ret = -EINVAL;
-> +			goto err_clk_release;
-> +		}
-> +		omm->child[i].dev = &vdev->dev;
-> +	}
-> +
-> +err_clk_release:
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		clk_put(omm->child[i].clk);
-> +
-> +	return ret;
-> +}
-> +
-> +static void stm32_omm_remove(struct platform_device *pdev)
-> +{
-> +	struct stm32_omm *omm = platform_get_drvdata(pdev);
-> +	int i;
-> +
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		if (omm->child[i].dev)
-> +			of_platform_device_destroy(omm->child[i].dev, NULL);
-> +
-> +	if (omm->cr & CR_MUXEN)
-> +		stm32_omm_enable_child_clock(&pdev->dev, false);
-> +
-> +	pm_runtime_disable(&pdev->dev);
-
-Should we have:
-	for (i = 0; i < omm->nb_child; i++)
-		clk_put(omm->child[i].clk);
-as done in the error handling path of the probe?
-
-> +}
-> +
-> +static const struct of_device_id stm32_omm_of_match[] = {
-> +	{ .compatible = "st,stm32mp25-omm", },
-> +	{},
-
-Nitpick: Unneeded , after a terminator.
-
-> +};
-> +MODULE_DEVICE_TABLE(of, stm32_omm_of_match);
-
-...
-
-CJ
-
-
-
+--3/BNf11h93vTDDr6--
 
