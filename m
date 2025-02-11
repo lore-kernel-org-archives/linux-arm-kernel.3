@@ -4,95 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1ECC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F495C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrHu4aCYgo0wp4fPoJuQyGnm3XJuQUZNKjqTW+n6jQI=; b=RLXdvP2u38hWy0Vsjc2WB/D9oA
-	GWi5FdKVw4rCQ4iLmMhNrTEGSudN8aBfpBDDNcKXsphRdy91vWQ2AQ6aqVQOFvHET8oaLRblIk2HA
-	yQYvxpRLp+vMQiDWDVTgPVpjGst5vxPw2G0R4MtFhPyH9UG3A0Tk3BiKIFFN+e3xsYMk0MLBWIg8j
-	xBj2KZ8876zZJtqdY9Hsa2rdq8+ypqgZy5LqndjT+UM6TGTA3YMkFNcvtU5WImgtMI3EeQ2t2PsdT
-	kfCrhpBlmRd8wmSDgFup4PjYMNBeLBVd0I/HCnyCgNbPlzlwA3JcOiTNtps2spuXLpuIbFEn3NL4Y
-	ji2wdRvA==;
+	bh=4CMMII7gg+S8ZOua/g5opUsXHaf674ZZLjjOpdOjwqM=; b=FbLVJoVQJLkC/+AMyFCuoRgvrQ
+	t9aC/QhE1M7XmGEcL0w/mzpcuxAK56fl8kftHBEG80BezoTo33wfOW+jtMHpEVKGdNqk5O63aPfA0
+	Y3gjZh5qmBmOsH3qmklJjX9T09OLSU5EwcuyjirxiQx2U+sVUjlUfiR0jt+NNQRfpz9zODo3oWiqn
+	wotz6oCr8rArUqJBg8G2uVMkeWO7dQFnMFgKEuQDwWTvBJ2X7dCR+FJh0tmsX6Hy71Cm/vFAKXQHW
+	cOHlG7MIm8Dg00NU819rBWR7FR63X5PrNmo76Wmzf25asvkL7lXJyFYxbkks3Zy2XEruw550CxAPT
+	H/02xDMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvrP-0000000502a-3C2k;
-	Tue, 11 Feb 2025 19:23:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thvso-000000050YF-0Dle;
+	Tue, 11 Feb 2025 19:25:22 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvpO-00000004zP1-10wV
+	id 1thvpX-00000004zPS-2h0W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:21:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1E5B85C4D09;
-	Tue, 11 Feb 2025 19:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DD2C4CEDD;
-	Tue, 11 Feb 2025 19:21:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739301709;
-	bh=029kYh0sxoljCJSf8XQnMO3yhFLYENu21fgjjNO4zf0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IE4TZFG8VCwqTprVR79rBXrlMEuWQojFSus87EDhrToPQka/oDW5ezwxFLFYgkFG7
-	 qypTFgYStG0DzenivTrY07/k6FYqA0DI5N6PZHBedQENPdL7F8OCP1rgwRogrU6t42
-	 sGpjLZc9Wyh0IzXokBlMJ/WXNNxWvh9oKUrxgO330taUJrh8BgBIkzPscybK/27nYY
-	 aWjfQeNOtxBhVnCDA7+2pHvsEzZpdLIIk8PtZ4VSLZMcIlbEXpF0i8OL8weLGOQAYI
-	 7mLrtIaxG2uC0iAg3uOgy9sMzVOB7nj//LYRrmLOTnU86kDaNXWLMV+KZASjI+vLM5
-	 7/RmD+PGbbV/w==
-Received: from [82.132.185.192] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1thvpK-0036zW-8k;
-	Tue, 11 Feb 2025 19:21:46 +0000
-Date: Tue, 11 Feb 2025 19:20:08 +0000
-Message-ID: <87r0441e6v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	kvmarm <kvmarm@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-	<86frkptzr6.wl-maz@kernel.org>
-	<Z6ZMdv8jJUvYwQzT@linux.dev>
-	<86bjvdtxb5.wl-maz@kernel.org>
-	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.185.192
-X-SA-Exim-Rcpt-To: eauger@redhat.com, oliver.upton@linux.dev, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 11 Feb 2025 19:22:01 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 082C92540113;
+	Tue, 11 Feb 2025 14:21:56 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Tue, 11 Feb 2025 14:21:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1739301715; x=1739388115; bh=4CMMII7gg+
+	S8ZOua/g5opUsXHaf674ZZLjjOpdOjwqM=; b=p6Lng5ZCX20mDzQNjqo+bbgI9M
+	npPT8FklqciXwLGjqcT8Au3W5BJI/lfFBHCsx3UZ41Fkp6M5gU2f9WIZIOO4IfLz
+	eHNEABYblCeOEjtnbpydn8zc0VTyiRzm9iQ4qofAp9wVD8UAk3agXPiOwekZJrXz
+	MvT6b8fJXFN5kyiXff4fO4L/oHCGySvOGR/gddZU1pOPYxzRRSNvKtrgjJmac6Td
+	ciFEHYYJojcv/0BNV1Lzde7dicQ6r/SYjMTRI0BGvYeZ77lwA535KlomsZaNVfc2
+	TA/wK7WxQlNtSm2jKC9nklyzpSeG4seTsb7N858T0Got3o/pU/SijgS9TWmg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1739301715; x=1739388115; bh=4CMMII7gg+S8ZOua/g5opUsXHaf674ZZLjj
+	OpdOjwqM=; b=M95Iwyi6FtMUh7KPJgK56Wce/ol4WOjqun99tTLR3eZjBJ1KvCG
+	/iqKQsfU7sGOuerb6/qDJg6j88pFxwSRG+GHAQ8B0iaFyA9pxM0mq8yMgdak5C4k
+	SpQsVAx4GQ3yXT918CeeU4ozH4WjhUOoEM/1XYz/mh8sdKhF+Ns6Tibrko24g9Gj
+	KEw/7ugiEuAacIkqxI+UOgkgrRKKjYH4bWSK4bgeZpc1B+xEjxe8Bkx91gXHV/cj
+	5KVs76A9L37pziRP7TOmg0QTKfvBn/GcvxifPVkChPosFMPl4jfFYcYokxxjfn5f
+	lBvsAdaZ4DIXEs6yAo63CXTjpgXYorJnSPQ==
+X-ME-Sender: <xms:U6OrZ59UBYN-cFuUVAg1HUTC2A-KvdIGR5abqEbWIcEDnO70U8Vunw>
+    <xme:U6OrZ9v91b_sCtxu66wg1qC57Prxo9R2ELtqAbe8Si0fkcxSNUQCSBoZ_sTWfQJnV
+    mya6vod980qYXA-xkE>
+X-ME-Received: <xmr:U6OrZ3AwdNfjAI-szRwK1zvGJ4MkQaoMkDJ_lRNg9DR2R34TVispYQ0gqlJsbN0_mVmRGJylH5NuUtAxgDH8338W6syNm-8Y5hs>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegudekvdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
+    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
+    cuggftrfgrthhtvghrnhepudefhfehudetjeeutdfhvefhtdeltdfgheefkeefleegveev
+    tedtveelfffhiedtnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvg
+    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgv
+    thdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprh
+    hosghinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpthhtoheprghlhihsshgrsehr
+    ohhsvghniiifvghighdrihhopdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrd
+    guvghvpdhrtghpthhtohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopeif
+    ihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlh
+    hinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
+    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehiohhmmhhusehlihhsth
+    hsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
+    rhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:U6OrZ9erICxeLKtv6LRcbSWf_u5GLNZ9i4lTMgfqxre8ndwsGs8jTQ>
+    <xmx:U6OrZ-MYxDweROPJ9p79fDIf7AD8irrFJGtIkDHdI8ztD3q1iIzbiA>
+    <xmx:U6OrZ_kmBVpDMbmoe4CARgdr7aXORa4zf45F6JPMOeAw3CuYclXYqA>
+    <xmx:U6OrZ4vfXkODZch2zGpMRRxixhJGTtKwlqSfNW8UflKv_hk17rYx3g>
+    <xmx:U6OrZ1pwJBCZX0WeuuCRjO1xQVKskjEe_pnW_ebS2OFBRQqfVc4qhonm>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 11 Feb 2025 14:21:54 -0500 (EST)
+Date: Tue, 11 Feb 2025 20:21:52 +0100
+From: Janne Grunau <j@jannau.net>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Sven Peter <sven@svenpeter.dev>, Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] iommu/dart: Assert !locked when configuring
+Message-ID: <20250211192152.GA810942@robin.jannau.net>
+References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
+ <20250210-locked-dart-v1-5-5d97fe247f35@rosenzweig.io>
+ <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_112150_364280_79A1164E 
-X-CRM114-Status: GOOD (  35.84  )
+X-CRM114-CacheID: sfid-20250211_112200_177078_156CEE41 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,83 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Feb 2025 18:26:48 +0000,
-Eric Auger <eauger@redhat.com> wrote:
+On Tue, Feb 11, 2025 at 06:41:00PM +0000, Robin Murphy wrote:
+> On 2025-02-10 7:39 pm, Alyssa Rosenzweig wrote:
+> > Configuration is only possible and needed for non-locked DARTs and will
+> > fail for locked DARTs. We cannot try -- assert that we do not.
 > 
-> Hi Marc,
+> Except now we absolutely will - if a locked DART and its client device 
+> are advertised to Linux, instead of gracefully refusing to touch it, 
+> we'll now attach the client to a DMA domain, firing a barrage of 
+> multiple WARNs in the process, and give it DMA ops which still cannot 
+> work. I'm not really convinced this series on its own leaves us in a 
+> better position than we're already in now... :/
 > 
-> On 2/7/25 7:38 PM, Marc Zyngier wrote:
-> > On Fri, 07 Feb 2025 18:09:58 +0000,
-> > Oliver Upton <oliver.upton@linux.dev> wrote:
-> >>
-> >> Hey,
-> >>
-> >> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
-> >>> I found at least one issue that could fail the migration. Before the
-> >>> VM starts running, we limit the feature set to the subset we actually
-> >>> support with NV.
-> >>>
-> >>> By doing this, we also change the value of IDreg fields that are not
-> >>> writable, because they describe features that we don't support.
-> >>> Obviously, that fails on restore.
-> >>>
-> >>> I need to have a think...
-> >>
-> >> We spoke about this a while ago (and I forgot til now), but I was
-> >> wondering if we could use vCPU feature flags to describe NV, including
-> >> the selection between FEAT_E2H0 and FEAT_VHE.
-> >>
-> >> I think this might match userspace expectations a bit more closely where
-> >> the state of the ID registers after init gives the actual feature set
-> >> supported by the VM.
-> > 
-> > I'm not sure that's enough. Let me give you an example:
-> > 
-> > My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-> > reason, we don't allow this field to be written to, even out of NV
-> > context. This is odd, because for an EL1 VM, this field means nothing
-> > at all.
-> So the curprit fields for me look like
-> 
-> - ID_AA64MMFR1_EL1.XNX
-> - ID_AA64DFR0_EL1.DoubleLock
-> - ID_AA64PFR0_EL1.RAS
+> How hideous is the rest of what's required to actually make this usable?
 
-Right, that more or less matches what I see locally.
+The TTBR can not be changed but the preset first level table can
+modified at will. The driver keeps a shadow first label table and syncs
+that to the preset 1st level table on flush_tbl().
+It gets more complicated by the fact that the iommu for the display
+coprocessor is locked and mappings for its firmware and boot framebuffer
+are preinstalled and have to be maintained or restored on
+initialization.
+This is handled via reserved memory with translation.
 
-I adopted the following scheme:
+Downstream change to handle this is in
+https://github.com/AsahiLinux/linux/commit/d90cc3590ea460e1c574b4b7c47fdafb2794af6a
+not including the change to parse / handle reserved memory with
+translation in iommu core.
 
-- On top of the existing KVM_ARM_VCPU_HAS_EL2, we have a new
-  KVM_ARM_VCPU_HAS_EL2_E2H0, which is only valid when the former is
-  also set, and force the whole VM in E2H==0 mode (that's Oliver's
-  idea above)
-
-- The NV view of the ID registers is enforced at the point where we
-  compute the limit values via the ID reg reset helper, instead of the
-  post-init repainting
-
-- Neither of ID_AA64MMFR1_EL1.VH or ID_AA64MMFR4_EL1.E2H0 are writable
-  at all
-
-- Only ID_AA64MMFR4_EL1.NV_frac is writable
-
-The result is fairly small, but is of course quite an ABI breakage,
-and I'm more than happy not to have merged it sooner. Maybe I should
-wait another couple of years! ;-)
-
-> This is still based on your nv-next branch from Jan 9
-> https://github.com/eauger/linux/tree/nv_next_jan9_2025
-
-Yeah, that's getting old now, specially given the nature of the bug
-fixes that have been added.
-
-I'll try to rebase everything on -rc2 with the latest fixes and the
-new ABI by the end of the week, and we will take it from there.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Janne
 
