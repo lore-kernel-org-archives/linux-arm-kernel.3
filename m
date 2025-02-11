@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7FCC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD026C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Kp4Zi09nuv/kuORUiQJl1dYvW4RXdPB6gTsNvTY3CI=; b=B/xOFk5/MUEq+YGfpTyIcahSzG
-	7u5eQq6JdgvQCqc75t5fRNCyJhvyt/KP7XJPO9fWq1geMi0jbAZNp+k3PFhJJoUql7DF0LtCFHsGZ
-	NilV/l9F5uvAi4fzVMlTcF5EmoSF7WZqblIirjoszkTrfXwWUPPBCcx/O0YTXBT0g4taDjWU/ysT4
-	qxemqkXUrrtS2W6rSUqyLgig+ZPOo6lSQSpyrsGiVIENBozP3KGOfa6MFLGF/vJR2WwYROtWAHRLc
-	ec0E8u9pljUvLioUdfmBZv08PNiTkohepycjgORvYV26lsbJKheTS69XQiajJPkG/ESd4B+Nbx+2z
-	992kDsTg==;
+	bh=11ujGAdknT5EZ9kcrIEqNxDuA+j09BZBOevt1FTfUtM=; b=S0SNXmgsvS0y806s12fKUT/9FK
+	govoFN/e7chnHsFZe8twv+AH2SMVJS9kJZn9UulCx0QiD2zx+OxVbU4B/GhVXfS8zMUjFEPBabDNj
+	7KJYiQjUXvIJ6OZUVTX/jbduaIfzZs1uw+u3Njt3TPsA/5yMx8Rv/XQCLNdpk2eeVudtfdEznaQSA
+	FdzHtzf0Nku3I4L+YJOFaSUxqyq01UHOuC00/0TUzkj0ygMX1leeegN6WcVKtti2/C0xi8Xuopf+G
+	w1DgJXMEAi2/4bhYCfn2MGaes4OpC89s2hho/BxKRcG49ig+4yAkEqFloNPVRN8IoSANoM1Ka0ZSL
+	zjvt2uHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thw7v-0000000540u-3gj2;
-	Tue, 11 Feb 2025 19:40:59 +0000
+	id 1thw7w-0000000541B-1goY;
+	Tue, 11 Feb 2025 19:41:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuql-00000004p5R-2qEi
+	id 1thutL-00000004pQ9-1epR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Feb 2025 18:19:11 +0000
+	Tue, 11 Feb 2025 18:21:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2Kp4Zi09nuv/kuORUiQJl1dYvW4RXdPB6gTsNvTY3CI=; b=l9JFgqQMAay4fHOA5w9xWBgN4q
-	a5Pdwdh2lVhxalf9SMTWXwxjZi1CKgj/mMbMm6EJYg1PxFf3HQY0kSqNjCj59VvIWSU3GK9/szr5B
-	FPNRdVPEBcPOPXGgoe5CMvHb5lzUeSp5K/K34aUBWkn2qTs6Ow6ctW4zESBsqJk7Gi4JteXh9P002
-	ubAQa8vHkKGDbGyggVpx2+Ittqq6Cwufac/xnJw/hQKzfqn+UXI94l1kpfyLXEw0sOoSNn+eCiDHD
-	B0/XNeHLPHzFY/K9t1sOH7cJyxxjCy4NC6ScGvzDiWePCjv/MGj7JBQk6juOwww61E8KGACC4Gl6Z
-	lu8vY7dQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=11ujGAdknT5EZ9kcrIEqNxDuA+j09BZBOevt1FTfUtM=; b=ACyZsPf869glhGR7Kh0jcfDtjw
+	4De/PsVNG8J7inY7wdCpk1H8cOabCjZEXDa19RRwYAjlD80XCmcXefLJhLVsBokk2Vp1RcFw/5VJb
+	x86flEq3amltdXW9m5nazgdt4O4BtWAgygkeANZuJuRL1zum4z1ASxFnffm4SXRQbT0nAVKfzG33d
+	2G6EuivXhxeURk/AtPTaQz53thLmylRYmCuXDrKLnNv7+LbWDhhoqdyW2Iz0tvMsCl/qklM2I0WCh
+	407cSdELfo9v8rrxM8sNc1JGDwawOihQMs1Z4VTR8I8ARaUlRH0Mo7cE98BjtmKPqyQrcCQSm7aLZ
+	P4V7h8yA==;
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuqi-00000000flJ-3Iiq
+	id 1thutI-00000000ft4-1QKD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:19:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 486EDA40BE6;
-	Tue, 11 Feb 2025 18:17:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A9DC4CEDD;
-	Tue, 11 Feb 2025 18:19:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739297945;
-	bh=2Kp4Zi09nuv/kuORUiQJl1dYvW4RXdPB6gTsNvTY3CI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HAz0HdbEmfMot5nLBQmD75IFwZRqJATTQq+XEA3Py2vGD1Y9HmEUKepf/qOXfc9iU
-	 eJxbJceHVdPWesVXvMENGYpvvcUIC8aNi9fl4twGE7BzlXiF1B5lGnNV62HlbBvnIU
-	 O3tSBq3S4UwGgX2LrAm0FeSKAlD2+d0iCvdIhmgi85LaCLrBcvqPfaaqR7SsPU0fM+
-	 oD4XYMbVHToR4eFWAJNoepJ6nxla44PrtwOQGlbsCcYxCoSnsJ1zmHvbjWBEBpp+K7
-	 gCk/LRB1eUx/bRPAUmG0ONlMb/Om7TIg5tR3Hna7wj+fV4xtKh3xS/DAK7F/vuAixx
-	 LK2/f+gwqvqeg==
-Date: Tue, 11 Feb 2025 18:19:00 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 05/10] dt-bindings: stm32: document stm32mp235f-dk board
-Message-ID: <20250211-surviving-bunch-f4de29898d71@spud>
-References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
- <20250210-b4-stm32mp2_new_dts-v1-5-e8ef1e666c5e@foss.st.com>
+	Tue, 11 Feb 2025 18:21:50 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51BILcDH3745175
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Feb 2025 12:21:38 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739298098;
+	bh=11ujGAdknT5EZ9kcrIEqNxDuA+j09BZBOevt1FTfUtM=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=WpWGcaaWCOsPDw9vP7gVdKWIXvKCPHGqsa+YTSe2TD/c9wMGhfBAAZWLn2S/bDT6j
+	 3LBlK314DspfA420CskVNffnwrKmRJt3t88/o+FD/yG8XFNHjj6lEqBwMR2kGLYUZN
+	 Xp6ncDlzIdFpfnrrLxhcKCAApPoHJKZAnULouLAg=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51BILcPB065022
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Feb 2025 12:21:38 -0600
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Feb 2025 12:21:38 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Feb 2025 12:21:38 -0600
+Received: from localhost (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.227.220])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51BILb0X122960;
+	Tue, 11 Feb 2025 12:21:37 -0600
+From: Chintan Vankar <c-vankar@ti.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon
+	<nm@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <s-vadapalli@ti.com>,
+        <srk@ti.com>, <c-vankar@ti.com>,
+        Ravi Gunasekaran <r-gunasekaran@ti.com>
+Subject: [PATCH v4 1/2] arm64: dts: ti: k3-am62a7-sk: Add alias for CPSW3G MAC port 1
+Date: Tue, 11 Feb 2025 23:51:33 +0530
+Message-ID: <20250211182134.1500867-2-c-vankar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250211182134.1500867-1-c-vankar@ti.com>
+References: <20250211182134.1500867-1-c-vankar@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Ueo0e+SD1hPCV0MU"
-Content-Disposition: inline
-In-Reply-To: <20250210-b4-stm32mp2_new_dts-v1-5-e8ef1e666c5e@foss.st.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_181909_041102_2172B4DE 
-X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-CacheID: sfid-20250211_182148_586451_4E1E1922 
+X-CRM114-Status: UNSURE (   9.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,29 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
 
---Ueo0e+SD1hPCV0MU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add alias for CPSW3G MAC port 1 to enable kernel to fetch MAC Address
+directly from U-Boot.
 
-On Mon, Feb 10, 2025 at 04:20:59PM +0100, Amelie Delaunay wrote:
-> Add new entry for stm32mp235-dk board.
->=20
-> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+Reviewed-by: Ravi Gunasekaran <r-gunasekaran@ti.com>
+---
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Link to v3:
+https://lore.kernel.org/r/20240429101739.2770090-2-c-vankar@ti.com/
 
---Ueo0e+SD1hPCV0MU
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes from v3 to v4:
+- No changes.
 
------BEGIN PGP SIGNATURE-----
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6uUlAAKCRB4tDGHoIJi
-0nTOAQDJ4oscU2Sfp60SfXJoCMC3ARGWSbzSfjc1JO2iL40lJwEA3gV6SLlmwCn8
-9am4zS12tt9N3U9+3EGMeTGdy9mptg4=
-=MiP+
------END PGP SIGNATURE-----
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index a6f0d87a50d8..9ef727f2c444 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -22,6 +22,7 @@ aliases {
+ 		serial3 = &main_uart1;
+ 		mmc0 = &sdhci0;
+ 		mmc1 = &sdhci1;
++		ethernet0 = &cpsw_port1;
+ 	};
+ 
+ 	chosen {
+-- 
+2.34.1
 
---Ueo0e+SD1hPCV0MU--
 
