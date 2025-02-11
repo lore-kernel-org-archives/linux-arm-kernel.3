@@ -4,97 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598A4C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D022C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=; b=EP2ZzUwhEQ/gCWGfIfFJjDuaW3
-	xHueBIwNufXKyyoGO5d8cTIe7CigYE//b3F7ovrpc4ttcw/9cL/LszphMP1naoY9uZx+1RXDrolkX
-	KiyZPlVSFeF9K0aEY+34vKzL0DmBGSawwMee9Q0lyOsBAxSY7VYDXIbfFnyiFJXVXBuQs57mK0NEO
-	tkom+e77KZSVXZKT1AEa+Gz2EBZz1x3WNVdsbNviFA0pz7m+GKALDc493h0YOJ+hgVIXs1uSTYQKU
-	akH9jJFoIwlRs0Ngk0xEI+HcVm3diGdMwp5UE9F4gCNEfbfboVCb1HENRUCdZpUU79EePJRey+xoE
-	SxrBLX0A==;
+	bh=jG+Kg4b36hIqapcRxzijjOB7mGphZe8juAjsg0omT0k=; b=dGue27GterUotj9yOgDcS1UJjA
+	+uttsq9njGZ0VcjRqR8MED0H4OEI7hFcI2iEzMDdFj/uy0ZLv43fUP2fvkKM3qtJ4OIscYn+mf/3B
+	U4Dx+rQGUhJY87OcKg9sDKPZQqH8cdvmpS8UgR188+Pl1ByZzm42xeKrrKK/tx0ZgFgq9g8rHRek6
+	wY3sG6oFdqbTvPHb+n46GyZznPUZXs3b0z6MRXCT5V035TaTrnSA+SHan3dl3B5DDuMmCA9yjPRGf
+	aQZ0uZKVZbAVYcinRNdTZDnPtPtnMOo5oiWdSjPWkO2+0DC8NAulrQ6sbvi0cJVeZ9X9ThESi5rx5
+	Uay7O2tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmzk-00000003GB9-1UG8;
-	Tue, 11 Feb 2025 09:55:56 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1thnA8-00000003Hmu-2j43;
+	Tue, 11 Feb 2025 10:06:40 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlzA-000000034CV-2iAm
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:51:18 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-439554db49dso2171955e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:51:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739263875; x=1739868675; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=;
-        b=PKr7EDCFJl71V1M8GSHZAOlvXatw8jMyN5CTUSaSLpr6y9quissLPQjfDsPKHBD6uK
-         aSwL7zSJeJnxGb5moe4cC668TUj6xHDElPIVj2Vt5UdBuCoBWiCyfqCAINfqBxVsDn6I
-         gXw/rZS0/a8nnC8ciKY6anu+dxNCNga01icghflBTdvgQeBqOKNgTxdqx1sBgpcPalg4
-         RLGBRuGTMLq1vF2O8kGI75B8SGNUT7OP2Xhjvb19fb70k2y3Yjqqi6KNJ68gIEAGvg9L
-         j1vveXKNT7XsHWo7NO7XtGQjic2/3SaTN/mDSnav+FpptUr1xMkzoi2fEg0W2RY2Five
-         P6dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739263875; x=1739868675;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=;
-        b=HTIZwwtYLS/DiZ6mpprTQEJzCaZD0Hx/xe15J7QbF4fUL+IVye6VUrAP56ailT++9Q
-         Q9Uw86E6xtFcMWXMjdgr5wghIWam9A1Aqu4nlIyJJDy0oNn+qlmyU6CmRAL30hTd3gg3
-         0QzS9Q3QpI+wj/NZBIL6KYAJjpPnO1QBzuvw/peBM12a+yc4f8X8lOkW45uXN7QpzhxU
-         Y8FvxZqJOvUb55lUd0QT+fs1xHYKP62SqsjXLVokiV7Ay1mOd2GO+TqNYPkl0uHhoWhX
-         4DRxNSIzr2XbAZ2SH+NefgJJrOGLaRp5Yr/U5aK1RaiY0vvwVXgUopgcuo91ZhLPaFU6
-         YYxw==
-X-Forwarded-Encrypted: i=1; AJvYcCUHBrAj3q6ZaYwM9pIZhnP7zjcPfcq9Vi70ANfL6Jo9C9IVnoZVhPfX9EKgRI8N4Mhpp2vrzbkJx24u2Efg3ICf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhkutWCRZgLkIssRbRQ2sfecanC7WM5S1zHrWGVkFaQ6o/U/Ey
-	zzodv9AU1onDo1tB5GD2UR8NIFa6tBlrVZevQOdnvaL2gVKepRIqNB962VTjCaw=
-X-Gm-Gg: ASbGncuc7xaR2mZnSc1lUYYARH4TAnKFCav/OLdqRjGkPNl1e1zr7Kv5DJsLxQMOCy8
-	XkKeTJ3DYspYLnzdl3EmOfEtBS+7QG6WC9uc9iUT1hP2RcmEG8sV7MTXjYaUJF6nqiWMmEU45Fu
-	4/bSLN4M6YNm6TUje/2KrLpI6hROR9jF3ThSShHplcrQMUrGoVDFugy96xkM239TBv4D0WrMqzN
-	rrmFXCi9RGbJvWk3YcUC6Fd09t8EsNEPVqRVwymUgWBj8f9AvmDV949F/gR4VdsGBKwZ0ih0lhY
-	ZHLffYsY5NTN+h/bnOJLKxxU0dtG/g9aOc5AYhIxCFBQGylLR8nENIk=
-X-Google-Smtp-Source: AGHT+IFO+zzAA08bfzxBeaVgp6Y5tU1Gn5sLS7Hh+RKdG5t/UoXpSO2gVdVDv0cTsXvcW1Ndi56IrA==
-X-Received: by 2002:a05:6000:154f:b0:38b:d7d2:12f6 with SMTP id ffacd0b85a97d-38dc8d98e9amr11900744f8f.2.1739263875007;
-        Tue, 11 Feb 2025 00:51:15 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc0c5a894sm13914977f8f.95.2025.02.11.00.51.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 00:51:14 -0800 (PST)
-Message-ID: <fe0b0066-5f06-412e-b66a-f3cf6ba74e9d@linaro.org>
-Date: Tue, 11 Feb 2025 09:51:13 +0100
+	id 1thn8i-00000003HZc-3eBS;
+	Tue, 11 Feb 2025 10:05:14 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51B3G1dh030181;
+	Tue, 11 Feb 2025 10:04:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	jG+Kg4b36hIqapcRxzijjOB7mGphZe8juAjsg0omT0k=; b=nbOJkTXkkzIidNzh
+	Kmp7MAqQ2eYvZNiQ3nk83QnBysYUc8zIze/E4CsGB7XeeVipSiim5VfmNHC7ROcn
+	8rsQldPzU2KkvMC+vwrOFYtW0wLNkpEpbpLoex+829WLpgKl7FeXAof8RE6FpCIR
+	s1SVHHY6uelob2ag1qxpABhhyBBBQOp4e/Dn+NzG7jr95d1AwDm8YRCnVp5Huq/7
+	zB0QaS3Qx0dGO121eGV3682kb1fRWEAi5tMgjUByD/PAwVphIYWe2/7slI4NzvQX
+	Qw360PdOCfD5PNRiWWG4a8T1Bp9y589wmvxCWW0bY/rj0yn9DNRNSG6rKklTrNLT
+	+Xr+NA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44qxg9gxt3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Feb 2025 10:04:47 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51BA4kGs013495
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 11 Feb 2025 10:04:46 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 11 Feb
+ 2025 02:04:39 -0800
+Message-ID: <dfc6e506-bfe8-4c68-9991-13140eeab1ea@quicinc.com>
+Date: Tue, 11 Feb 2025 18:04:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 0/5] thermal/drivers/mediatek/lvts: Fixes for
- suspend and IRQ storm, and cleanups
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Alexandre Mergnat <amergnat@baylibre.com>, Balsam CHIHI <bchihi@baylibre.com>
-Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>,
- Chen-Yu Tsai <wenst@chromium.org>, =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?=
- <bero@baylibre.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- stable@vger.kernel.org
-References: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
+Subject: Re: [PATCH v4 1/8] scsi: ufs: core: Pass target_freq to
+ clk_scale_notify() vop
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+        "beanhuo@micron.com" <beanhuo@micron.com>,
+        "avri.altman@wdc.com"
+	<avri.altman@wdc.com>,
+        "quic_rampraka@quicinc.com"
+	<quic_rampraka@quicinc.com>,
+        "quic_cang@quicinc.com" <quic_cang@quicinc.com>,
+        "quic_nguyenb@quicinc.com" <quic_nguyenb@quicinc.com>,
+        "quic_nitirawa@quicinc.com" <quic_nitirawa@quicinc.com>,
+        "bvanassche@acm.org"
+	<bvanassche@acm.org>,
+        "junwoo80.lee@samsung.com" <junwoo80.lee@samsung.com>,
+        "mani@kernel.org" <mani@kernel.org>,
+        "martin.petersen@oracle.com"
+	<martin.petersen@oracle.com>
+CC: "ahalaney@redhat.com" <ahalaney@redhat.com>,
+        "ebiggers@google.com"
+	<ebiggers@google.com>,
+        "neil.armstrong@linaro.org"
+	<neil.armstrong@linaro.org>,
+        "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+        "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+        "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+        "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
+        "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>,
+        "James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+References: <20250210100212.855127-1-quic_ziqichen@quicinc.com>
+ <20250210100212.855127-2-quic_ziqichen@quicinc.com>
+ <6dc8849886ff4ac6ceca7d8e36b853b27f337cb9.camel@mediatek.com>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <6dc8849886ff4ac6ceca7d8e36b853b27f337cb9.camel@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: qD3RD_wXC4qR4Uv2ZT-5mpbsMfZAlM5U
+X-Proofpoint-GUID: qD3RD_wXC4qR4Uv2ZT-5mpbsMfZAlM5U
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-11_04,2025-02-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 adultscore=0
+ mlxscore=0 priorityscore=1501 malwarescore=0 spamscore=0 impostorscore=0
+ mlxlogscore=999 lowpriorityscore=0 phishscore=0 clxscore=1015
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502110062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_005116_696314_C6048368 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250211_020513_025416_8D088F4A 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +134,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/01/2025 14:27, Nícolas F. R. A. Prado wrote:
-> Patches 1 and 2 of this series fix the issue reported by Hsin-Te Yuan
-> [1] where MT8192-based Chromebooks are not able to suspend/resume 10
-> times in a row. Either one of those patches on its own is enough to fix
-> the issue, but I believe both are desirable, so I've included them both
-> here.
-> 
-> Patches 3-5 fix unrelated issues that I've noticed while debugging.
-> Patch 3 fixes IRQ storms when the temperature sensors drop to 20
-> Celsius. Patches 4 and 5 are cleanups to prevent future issues.
-> 
-> To test this series, I've run 'rtcwake -m mem -d 60' 10 times in a row
-> on a MT8192-Asurada-Spherion-rev3 Chromebook and checked that the wakeup
-> happened 60 seconds later (+-5 seconds). I've repeated that test on 10
-> separate runs. Not once did the chromebook wake up early with the series
-> applied.
-> 
-> I've also checked that during those runs, the LVTS interrupt didn't
-> trigger even once, while before the series it would trigger a few times
-> per run, generally during boot or resume.
-> 
-> Finally, as a sanity check I've verified that the interrupts still work
-> by lowering the thermal trip point to 45 Celsius and running 'stress -c
-> 8'. Indeed they still do, and the temperature showed by the
-> thermal_temperature ftrace event matched the expected value.
-> 
-> [1] https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
-> 
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
 
-Applied, thanks
 
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+On 2/11/2025 11:52 AM, Peter Wang (王信友) wrote:
+> On Mon, 2025-02-10 at 18:02 +0800, Ziqi Chen wrote:
+>>
+>> diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+>> index d7aca9e61684..f51d425696e7 100644
+>> --- a/include/ufs/ufshcd.h
+>> +++ b/include/ufs/ufshcd.h
+>> @@ -344,8 +344,8 @@ struct ufs_hba_variant_ops {
+>>          void    (*exit)(struct ufs_hba *);
+>>          u32     (*get_ufs_hci_version)(struct ufs_hba *);
+>>          int     (*set_dma_mask)(struct ufs_hba *);
+>> -       int     (*clk_scale_notify)(struct ufs_hba *, bool,
+>> -                                   enum ufs_notify_change_status);
+>> +       int (*clk_scale_notify)(struct ufs_hba *, bool, unsigned
+>> long,
+>> +                                                       enum
+>> ufs_notify_change_status);
+>>
+> 
+> Hi Ziqi,
+> 
+> Please keep the identation consistent.
+> 
+> Thanks.
+> Peter
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Sure, thank Peter.
+
+-Ziqi
+> 
+> 
+> 
+> 
+>>          int     (*setup_clocks)(struct ufs_hba *, bool,
+>>                                  enum ufs_notify_change_status);
+>>          int     (*hce_enable_notify)(struct ufs_hba *,
+>> --
+>> 2.34.1
+>>
+> 
+
 
