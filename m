@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 457A0C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A36AC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8c1c9c+jF/PV1jw8NDHsbVdhxY5rat61pZm6lsNJS64=; b=qDzhabWigrig915omFAohS8qxQ
-	P3y12G+aZrzKjscApItDPsDpvmTUeY4VxJohy95ohegv+EoBz/rB8IQRhFanG1lV+iuaODza9YTkF
-	ZdWVwtNZPR6SogDMALHedUhzNzhvgoRVl8yIjEikrJgxezLTs0xP5p9ie2aZQMUwqKnYfnomhz40h
-	8s/I9XmI1XirqoL8VpaWKSRawQOjPS2MMa0vRgZ22e6iS5UseRUYCKBUOCl/XzfRj5tS5ERNpTkkH
-	Jy7frwFbDIPWMOLbKcqMloKnY2XFNGXHXFm6lkExu6TkmeQylTI4zRpEXW6aUVhCFsrjIR3ZkfDPP
-	2hvBLzvg==;
+	bh=Pj4w2leCnY/nj4Xl2+RPpzvbfj+hrlWDBqoX2zhbX4Y=; b=17xsjm2cfMLKw0PaC1kqwtXd0M
+	kPvl7xqraYx/UqxVl/xMePQ7mFekVBnWzUfxm69WUwo6zv5s7FTQ5ezBVjzDGMCiiZzH6bMYj7aTY
+	xib5ilSJDWaGsOmMSwWAJLlJpO9gSbY6lskGNYHQtEeGk86FuJMir5RfmyugM7xnCfUcxYhTat9Dh
+	Io5ATsgSpVlwnvq74TBujS1t+uGauivnHEAFbgqv7UafL5ZMB5qMQC2495uNV7snqnSrrGUaG6Zh2
+	LYVqc+K2n2On2StxAWrXAuUEKIDphXXef6g0XMXcECvPEjToh6sog5IHGVv142ZLX8zLqy/+olan6
+	eYOMsARQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwZ1-000000059Bo-1tIJ;
-	Tue, 11 Feb 2025 20:08:59 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1thwZ0-000000059BA-1AJY;
+	Tue, 11 Feb 2025 20:08:58 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwLM-0000000574v-2er8
+	id 1thwLH-0000000572n-19bF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:54:54 +0000
+	Tue, 11 Feb 2025 19:54:49 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739303690;
+	s=key1; t=1739303684;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8c1c9c+jF/PV1jw8NDHsbVdhxY5rat61pZm6lsNJS64=;
-	b=eleVucTA6Y/Aq+KS/KuUhMfrZ/8vSFdBN3OlWrWdHHpBU0ghk49P3xQYdUjDxAGBU+0HrJ
-	J2abXR3zsIU58AiKOvZgYMjsLdzaOfmdYmW4SV3ELBhWfTB3p/TfBIOZ8sI13LkcX4kLBm
-	EZJWGlmrWK+vOnD/No3/g3Y2Dw6IvujzqRpUTh7M74Jd15+p6fis+55+5e0XuWNVJOd2M/
-	TviuwO3e63iiVfBXr5xPUkfifLz1M7d48S8S1Y9kHmasxFpkyuC8MHtOAzi2SdgD6iXxVk
-	0O8dt1e+2qFLlZf4G5n5hSITxwOD4lalNZqtrqGFIzrz8PxJNm2w6+e6Yw0a3w==
+	bh=Pj4w2leCnY/nj4Xl2+RPpzvbfj+hrlWDBqoX2zhbX4Y=;
+	b=WAV47Fv5coixIPh40DlrjI71Eq2UE+VFWRb6xZwNZtFAD1xQYEM1YywP237pxCdsgS93un
+	JkOD5klQGvgNks1BaiVC1Jp8vEoHQonyzzb/cOv5ziiw3zuJvfaVu3Y9bpnu/+85zmu8Yo
+	A4PxdAgNSTfQurQHGeOGPCMYg9WdZ4nvVLaQHYNk85hW41vlMf7Ok0MaKWMmyfXsfBSd43
+	t2iuJAKQp7WUI/D3MTHjzyKrCedBNMGILmWavt96sgWQd1pEWeLFc9Hj7yRWLpndDPwZjQ
+	BrZhr7rC87/XYNbFbZrS8NU17dFORc9USZYHKnNJJ+CD4pR1VqGSw4h3I6igTg==
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Date: Tue, 11 Feb 2025 14:54:31 -0500
-Subject: [PATCH 6/7] PCI: apple: Use gpiod_set_value_cansleep in probe flow
+Date: Tue, 11 Feb 2025 14:54:29 -0500
+Subject: [PATCH 4/7] PCI: apple: Move port PHY registers to their own reg
+ items
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-pcie-t6-v1-6-b60e6d2501bb@rosenzweig.io>
+Message-Id: <20250211-pcie-t6-v1-4-b60e6d2501bb@rosenzweig.io>
 References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 In-Reply-To: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -59,27 +60,28 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
  Marc Zyngier <maz@kernel.org>, Stan Skowronek <stan@corellium.com>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1317; i=alyssa@rosenzweig.io;
- h=from:subject:message-id; bh=tkJEj/YQzRh1expKxGHWwtdYnql3z/mkcCDS+zSX2Ic=;
- b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r2StvxCY5TXwIMlIs4Iw+P0DiN0ayir0EJ6
- KQ/HmRUygiJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9gAKCRD+/lBaCvVY
- DdzkD/4/L/bBMDYggvde1Eqx824QWWfDu44UG+t80LZZu/TviEIF84g+m2pAxfFuMTlnUZoDFQC
- 67aPjwjeOJKhz9cUDs8w4axQz/gXMfQB98a1yoEe5TImHVKYixY2XJBVfxNrWIjPRVSNs112AOx
- dPEVRbijgncjlJU5han4ojOiqMJNAlzaTb7qGlvXsklXYx0HEUzGmEQOl+6N6/ewJdEdUUWhUE4
- it3WQPd8VLHwEvpGdKvd5NAKkL0kS0zjsRpcF6eVIPEFMDp+lB9G+c6rdaUsBT2bGDk0QZO+n0W
- LsXI9b7GVw3YaBRjxVubuX5vyRy31oL0WUo+pIfg6mdxFo+LxElJlaZY38E+FmIyyb/hl4P0Ct/
- 9VINkr1gZs5U3O0YV5fiTRmlKSNmraf1M94W3SYIPnXJnpqwQlA+xpNuM0nj1eYXPFGdUPFmvJ1
- BWgFLJsIKL+Ryl4RBdSq19Gi1ePnHxj3u3QUzNEpf7KXKsD42TgjV0S+tuFbrJGik1NGblXa3nt
- Dg+QXvHhJsPEfmwaMul17292CtsQsAhnLB1YfgWrndsNWspwgKAYq0LnH3RRZjmtecMW6rNR4y2
- 8lvFr1vzSeknF6ePm2IputGPoX/LIrujpVmdgFOEz9yn/74FWvotzIAzEH/HVsPquELrOygZDAn
- Qjf8FoVwZwUwoVQ==
+ linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Janne Grunau <j@jannau.net>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5194; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=c4UQnZ1yNlclQoJA6wxg/GcH8AshzfypyEZtc8NzpfA=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r28yiuwKDywRkuV4aqnNe+dXu92ZsWlKTPV
+ s6mWRrrVkqJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9gAKCRD+/lBaCvVY
+ DVVnEACeJNc9vIWHJBSk0ckG+ZbgcKCacOEMIvWjDMQ6lAQFlSky2E1m1vfg8Zj6rEg0bVuW+Gm
+ MTgqZ+D5kXP81x1f1npaL7un3sQFAXo6bk2e/lY9u9bnnkrRZ4wVbReZvDX3TO0wrYSLeBku3fz
+ v3vzc5MfRe8kKPOH1Ovhhf/sC6bnPqHoW8CkeaVGNq/+hItn+A5lto1kegEmGnLc4/EInaj3ngE
+ HredW4OIJPQh6uobM3fsOIx3IGbZhrCkgZ/tG1LB5tTVfPwLv75WFP0oX4rv6CD9Li152t4uaGt
+ A395PMZ/VAPB2bqlX9w2eaPnC/NF05xReZRt0AmqzgtT1LRaH2jmWSGKm/jtxWfvKjHMWmue3rs
+ JsDCwPp5x8jLnkpDLfjYMX13xB/Ockv4Gdiq//YTIMssmM1UFgmqqzAfsPcMZUpBTH8dDqIYnoI
+ jENd9oafevAryp1zy/vOVoRpotyM1qG+DZs4qVIGqyzbhtbZtHAHN9VMYzs2uzYp3F7csVkbF9h
+ HeUklORh5bRQXwoCUW31DbdLqRV2nWYruQcK75gjPprDElzbfoIJLW1ha/dYs4btKRpU7+V72iP
+ vOdNLksJxugD40vStmwGFF8IBMxleIPnFqwwo4+F/Egb4XNlEgVNhFqgvuwPMN/+gN/KMBODfDM
+ OgnIfSHt+eKc4LA==
 X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
  fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_115452_825030_64C92A88 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250211_115447_468635_AB165CF1 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +98,134 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hector Martin <marcan@marcan.st>
 
-We're allowed to sleep here, so tell the GPIO core by using
-gpiod_set_value_cansleep instead of gpiod_set_value.
+T602x PCIe cores move these registers around. Instead of hardcoding in
+another offset, let's move them into their own reg entries. This matches
+what Apple does on macOS device trees too.
 
-Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
+Maintains backwards compatibility with old DTs by using the old offsets.
+
+Note that we open code devm_platform_ioremap_resource_byname() to avoid
+error messages on older platforms with missing resources in the pcie
+node. ("pcie-apple 590000000.pcie: invalid resource (null)" on probe)
+
+Co-developed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 ---
- drivers/pci/controller/pcie-apple.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/pci/controller/pcie-apple.c | 55 +++++++++++++++++++++++++------------
+ 1 file changed, 37 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 209535db7855fa1ee0d75290b33525dce18f560d..7f4839fb0a5b15a9ca87337f53c14a1ce08301fc 100644
+index 958cf459d4c64dffa1f993e57b7a58cfb2199b8f..806eeb911bbd4f1ae5832b34f775fa18c866670b 100644
 --- a/drivers/pci/controller/pcie-apple.c
 +++ b/drivers/pci/controller/pcie-apple.c
-@@ -553,7 +553,7 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+@@ -39,14 +39,18 @@
+ #define   CORE_RC_STAT_READY		BIT(0)
+ #define CORE_FABRIC_STAT		0x04000
+ #define   CORE_FABRIC_STAT_MASK		0x001F001F
+-#define CORE_LANE_CFG(port)		(0x84000 + 0x4000 * (port))
+-#define   CORE_LANE_CFG_REFCLK0REQ	BIT(0)
+-#define   CORE_LANE_CFG_REFCLK1REQ	BIT(1)
+-#define   CORE_LANE_CFG_REFCLK0ACK	BIT(2)
+-#define   CORE_LANE_CFG_REFCLK1ACK	BIT(3)
+-#define   CORE_LANE_CFG_REFCLKEN	(BIT(9) | BIT(10))
+-#define CORE_LANE_CTL(port)		(0x84004 + 0x4000 * (port))
+-#define   CORE_LANE_CTL_CFGACC		BIT(15)
++
++#define CORE_PHY_DEFAULT_BASE(port)	(0x84000 + 0x4000 * (port))
++
++#define PHY_LANE_CFG			0x00000
++#define   PHY_LANE_CFG_REFCLK0REQ	BIT(0)
++#define   PHY_LANE_CFG_REFCLK1REQ	BIT(1)
++#define   PHY_LANE_CFG_REFCLK0ACK	BIT(2)
++#define   PHY_LANE_CFG_REFCLK1ACK	BIT(3)
++#define   PHY_LANE_CFG_REFCLKEN		(BIT(9) | BIT(10))
++#define   PHY_LANE_CFG_REFCLKCGEN	(BIT(30) | BIT(31))
++#define PHY_LANE_CTL			0x00004
++#define   PHY_LANE_CTL_CFGACC		BIT(15)
+ 
+ #define PORT_LTSSMCTL			0x00080
+ #define   PORT_LTSSMCTL_START		BIT(0)
+@@ -145,6 +149,7 @@ struct apple_pcie_port {
+ 	struct apple_pcie	*pcie;
+ 	struct device_node	*np;
+ 	void __iomem		*base;
++	void __iomem		*phy;
+ 	struct irq_domain	*domain;
+ 	struct list_head	entry;
+ 	DECLARE_BITMAP(sid_map, MAX_RID2SID);
+@@ -473,26 +478,26 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+ 	if (res < 0)
+ 		return res;
+ 
+-	rmw_set(CORE_LANE_CTL_CFGACC, pcie->base + CORE_LANE_CTL(port->idx));
+-	rmw_set(CORE_LANE_CFG_REFCLK0REQ, pcie->base + CORE_LANE_CFG(port->idx));
++	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
++	rmw_set(PHY_LANE_CFG_REFCLK0REQ, port->phy + PHY_LANE_CFG);
+ 
+-	res = readl_relaxed_poll_timeout(pcie->base + CORE_LANE_CFG(port->idx),
+-					 stat, stat & CORE_LANE_CFG_REFCLK0ACK,
++	res = readl_relaxed_poll_timeout(port->phy + PHY_LANE_CFG,
++					 stat, stat & PHY_LANE_CFG_REFCLK0ACK,
+ 					 100, 50000);
+ 	if (res < 0)
+ 		return res;
+ 
+-	rmw_set(CORE_LANE_CFG_REFCLK1REQ, pcie->base + CORE_LANE_CFG(port->idx));
+-	res = readl_relaxed_poll_timeout(pcie->base + CORE_LANE_CFG(port->idx),
+-					 stat, stat & CORE_LANE_CFG_REFCLK1ACK,
++	rmw_set(PHY_LANE_CFG_REFCLK1REQ, port->phy + PHY_LANE_CFG);
++	res = readl_relaxed_poll_timeout(port->phy + PHY_LANE_CFG,
++					 stat, stat & PHY_LANE_CFG_REFCLK1ACK,
+ 					 100, 50000);
+ 
+ 	if (res < 0)
+ 		return res;
+ 
+-	rmw_clear(CORE_LANE_CTL_CFGACC, pcie->base + CORE_LANE_CTL(port->idx));
++	rmw_clear(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
+ 
+-	rmw_set(CORE_LANE_CFG_REFCLKEN, pcie->base + CORE_LANE_CFG(port->idx));
++	rmw_set(PHY_LANE_CFG_REFCLKEN, port->phy + PHY_LANE_CFG);
+ 	rmw_set(PORT_REFCLK_EN, port->base + PORT_REFCLK);
+ 
+ 	return 0;
+@@ -512,8 +517,10 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+ 	struct platform_device *platform = to_platform_device(pcie->dev);
+ 	struct apple_pcie_port *port;
+ 	struct gpio_desc *reset;
++	struct resource *res;
+ 	u32 stat, idx;
+ 	int ret, i;
++	char name[16];
+ 
+ 	reset = devm_fwnode_gpiod_get(pcie->dev, of_fwnode_handle(np), "reset",
+ 				      GPIOD_OUT_LOW, "PERST#");
+@@ -533,10 +540,22 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+ 	port->pcie = pcie;
+ 	port->np = np;
+ 
+-	port->base = devm_platform_ioremap_resource(platform, port->idx + 2);
++	snprintf(name, sizeof(name), "port%d", port->idx);
++	res = platform_get_resource_byname(platform, IORESOURCE_MEM, name);
++	if (res)
++		port->base = devm_ioremap_resource(&platform->dev, res);
++	else
++		port->base = devm_platform_ioremap_resource(platform, port->idx + 2);
+ 	if (IS_ERR(port->base))
+ 		return PTR_ERR(port->base);
+ 
++	snprintf(name, sizeof(name), "phy%d", port->idx);
++	res = platform_get_resource_byname(platform, IORESOURCE_MEM, name);
++	if (res)
++		port->phy = devm_ioremap_resource(&platform->dev, res);
++	else
++		port->phy = pcie->base + CORE_PHY_DEFAULT_BASE(port->idx);
++
  	rmw_set(PORT_APPCLK_EN, port->base + PORT_APPCLK);
  
  	/* Assert PERST# before setting up the clock */
--	gpiod_set_value(reset, 1);
-+	gpiod_set_value_cansleep(reset, 1);
- 
- 	ret = apple_pcie_setup_refclk(pcie, port);
- 	if (ret < 0)
-@@ -564,7 +564,7 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
- 
- 	/* Deassert PERST# */
- 	rmw_set(PORT_PERST_OFF, port->base + PORT_PERST);
--	gpiod_set_value(reset, 0);
-+	gpiod_set_value_cansleep(reset, 0);
- 
- 	/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
- 	msleep(100);
 
 -- 
 2.48.1
