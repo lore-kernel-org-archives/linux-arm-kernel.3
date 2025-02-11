@@ -4,124 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D38AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 00:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15C9C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 00:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yzGbC0ypbw1NU4jMljSKqdqWfQ9LORCBGxC9rZKevfg=; b=KB396tG0m7dX+EIYpFUOcQu1Jp
-	y5JOFTv4eQpt1+njFGOgvKI48PiLH6jVy9CrdEeqGnPDoGPfoNPqwrC3guP93e2SfroecM3O6nRQ8
-	e9zOtSoi2zNXY95UosEjwTbXakw6SuRQdRMbfX6aw39BaMla30WUp4JZDUvWw+oDXYOoWwtVMbvwT
-	/TSajpGRHbOuaOmwwTkJ44IgmWJzKRD2iAEE4iQDvM9y4w0B7/MOq23pJ9PsuOttuP3OHrO++bdnN
-	i0g110GthPGK4I614V59Ac3AJkotZb6wdhVBxUXL81miBE8K/1sOrYis3tZdBSGtdn3rUkxNo+rXK
-	VOI+tCLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1LObash4SiJzQzSayaQdpqyI0vrFPh91JJNVHX4SZoI=; b=kZyI8k6KETK1YDUJIUJfeuWdYv
+	TePu73AW1xcnOdCLdaQI7hWJCg8G+DTUQtvcWAJ9xps6LYDe/60ep3VDQ74IGRXaNd3QpBUcgmeNn
+	J0fLNzng/1c5Kdot0cogIHMR0S4jXAch7GaW19pQWPnY6wO64pKL8AxbEXyrYUJp/i7Nmn9ceCdxO
+	AXvvhiuZD9sh9B9Cwpxhq9xND7MfmBPiMJ4nNhRW2nVxMQFfdl7L6NYwYBYi6SWCPsSJcYDaESdoN
+	ip0j4ssDl04ZhOOcp+43cla4y6hYzPLlpZqUU2hwdyuWBkEp2s1438hbpF5EmHjYfmZtr9bwTiMg6
+	G2UmAkiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdwe-00000001xCj-3ivy;
-	Tue, 11 Feb 2025 00:16:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1the2i-00000001xrn-4AMv;
+	Tue, 11 Feb 2025 00:22:24 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdrt-00000001wRl-3LfK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Feb 2025 00:11:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=yzGbC0ypbw1NU4jMljSKqdqWfQ9LORCBGxC9rZKevfg=; b=AZ007Ces5YfXJcgJ3+UIVjqQv7
-	+3oA1RqH4BoTPITYj8tGuIFrG2VLBTzS1K6yNRomydOtn8u+Sp5qn8RKlr0K690JDqs7EsmiWNG7B
-	I4TCj5KqxDF8GXjQOII/0ylaXRdlCieMCRuVdDn9diuyrKs+CMCdm1emtFriIpD4+sRG7nXGhyHoD
-	ordahfGWiLJ+jQ/LxGwOj0VMiJXN+rKVQDl6hZICRx9Uj8NgmFkmsfYCcWtD4evTeQAKhmcBXB5aX
-	GsoAD7MkYN+tI9DyKdz05I5QzoceEOaRWo24b35wqD0Ko7QywsFT4Vgl9JJb2kgb4ktXwsUE6LnrI
-	JhNL5Mcg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdrq-00000000O4U-3H5T
+	id 1the0m-00000001xfZ-3HxT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 00:11:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739232669;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yzGbC0ypbw1NU4jMljSKqdqWfQ9LORCBGxC9rZKevfg=;
-	b=NoFpwBqkcQbho4wzQ16TZjEYEPuKCOKhZvElLNxOi3ZhfVT75erVOPg87SUZXNwkQdHFbH
-	6YuR4vvi0fh2O3hPe12JZj1JWYvNV16zA7vhV8iMfHWu76y+hZS50EEXhkuOyhjdxdfAUq
-	LjzKgPsaG5tkIRNeFZSHk9Z+PDpshkk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739232669;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yzGbC0ypbw1NU4jMljSKqdqWfQ9LORCBGxC9rZKevfg=;
-	b=NoFpwBqkcQbho4wzQ16TZjEYEPuKCOKhZvElLNxOi3ZhfVT75erVOPg87SUZXNwkQdHFbH
-	6YuR4vvi0fh2O3hPe12JZj1JWYvNV16zA7vhV8iMfHWu76y+hZS50EEXhkuOyhjdxdfAUq
-	LjzKgPsaG5tkIRNeFZSHk9Z+PDpshkk=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-rxU9z2ZwPoCLLQlMQjJc6g-1; Mon,
- 10 Feb 2025 19:09:48 -0500
-X-MC-Unique: rxU9z2ZwPoCLLQlMQjJc6g-1
-X-Mimecast-MFC-AGG-ID: rxU9z2ZwPoCLLQlMQjJc6g
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BECC31800983;
-	Tue, 11 Feb 2025 00:09:44 +0000 (UTC)
-Received: from starship.lan (unknown [10.22.65.174])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 006BA19560A3;
-	Tue, 11 Feb 2025 00:09:38 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvm-riscv@lists.infradead.org,
-	Ingo Molnar <mingo@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvmarm@lists.linux.dev,
-	Alexander Potapenko <glider@google.com>,
-	x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: [PATCH 3/3] RISC-V: KVM: switch to kvm_lock/unlock_all_vcpus
-Date: Mon, 10 Feb 2025 19:09:17 -0500
-Message-Id: <20250211000917.166856-4-mlevitsk@redhat.com>
-In-Reply-To: <20250211000917.166856-1-mlevitsk@redhat.com>
-References: <20250211000917.166856-1-mlevitsk@redhat.com>
+	Tue, 11 Feb 2025 00:20:25 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21f40deb941so103811505ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 16:20:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739233224; x=1739838024; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1LObash4SiJzQzSayaQdpqyI0vrFPh91JJNVHX4SZoI=;
+        b=XuRPRI9pPfoBWiIwXjGZzhBtfGP07AZktoYq1T4DQMOWBOdA3vq3NjMZ36RPYFGcxr
+         HDYRkU3wcsoWpSjW0vaAme9XRrN358l/qbv45w0gewdzlt3GCDB6JKCbcqgsU3DV70cO
+         0XyluGqqKP9QAQVLYyFEMylImGRxWWfxkpSueMt53x8DFfsfCudB5AaI6ZPXeyigKsWJ
+         HzCT8nhaajtJ6t4mgch73ENWTYQs8FO/qGtwXtXFwVqPJkrvjvCjLnQ+SAcQv4eLzm29
+         lRGjMt1bksRvyRXtVw0Oyk9OZwovhMNGH8EWxJBKww9/acg9RJHHznuSdLxBFaIX/FPp
+         e2Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739233224; x=1739838024;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1LObash4SiJzQzSayaQdpqyI0vrFPh91JJNVHX4SZoI=;
+        b=JK2hFNqXiFql9KFzsv/qVnxVPB/QGFJ1RB7qpixDaCUR1ck1wV3Atos+fgy+HzhRO/
+         tr/EdvLEJ/noCK791z0TvzXvl4fQrMdVAt/ihO37U4cpgbPaJKc9yu2YTUiI42glnmYZ
+         1t5po4JRf34Zr45FdCOuQyYJ1nkK13Ub9qe/Aj1deEQHAEfUWERB6WhTXPOG8GezynY7
+         1hBtL16HuiP5nVMm7c5ksFKgxaRyBHxC/22PsMBApdIOR2cxF3cI11ypdikyNxuTsXL/
+         tCM+Au963Mm3bfzNR0eaxvD7BMrPnvN0y2YXzUlt7IS5VF1pd1Za+vjsWF0J4NapEA3r
+         R1nw==
+X-Forwarded-Encrypted: i=1; AJvYcCXSD2IwRp5sOwncMhlOaqUx8wS5HpimbjFBfLuo1OZl3y93hUnw1oXhlkUP1cNFOfd2HPV1H+5pwWxefujF/LUM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhWpO7uRpZ/WGIlJNyqLLd+DPyvqX6Y6d9AL9JgDAQ2FXs3X2F
+	v6JUHE1O1ze7gQZmbltadAxave5WOasAG7yAs5NE3mQAb3IGM9BU
+X-Gm-Gg: ASbGncu++O20v2Tk367v5qNnD5iGtFx9fFOPZdBY2zpLw6wDcnrrkllQsEANoMnxGQq
+	DDOFgxGP7FVwPkgwYzpyeES2gDlg5P7e2na1enjCRky0bDzL43R3cpj0+mocWseSY2Cb7zU+yP6
+	30DeZULkfnfSpvBHi7GPnd0zGpB3MyoPL8xYcjPg8EfBWnqfz6R7z6VBQzlelg+y2iXeBwjW0mJ
+	AtDKd8QjN4DQzbHsaXG/2ylA5R2khTlXURtRnq42eTTiu+gg+9uFO8DhGx1vVMtpwdXHO9G5yg6
+	38VSur/iLbae
+X-Google-Smtp-Source: AGHT+IGfT4HyRk97hCaleORdR2AUGluiKet1yAikZSTi1M9AHOfW+rliwbIgZiso8b7B35AaCA7dbQ==
+X-Received: by 2002:a17:903:2451:b0:21f:6c81:f77 with SMTP id d9443c01a7336-21f6c81116cmr175450705ad.23.1739233223933;
+        Mon, 10 Feb 2025 16:20:23 -0800 (PST)
+Received: from [192.168.0.235] ([38.34.87.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c555sm85174035ad.182.2025.02.10.16.20.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 16:20:23 -0800 (PST)
+Message-ID: <6a87b140203461f9d56874b9e4a778febdcd47a6.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v2 8/9] selftests/bpf: Add selftests for
+ load-acquire and store-release instructions
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, David Vernet	
+ <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann	
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau	 <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song	
+ <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, KP
+ Singh	 <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo	
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet	
+ <corbet@lwn.net>, "Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan	
+ <puranjay@kernel.org>, Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens
+	 <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Catalin Marinas	
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Quentin Monnet	
+ <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan
+ <shuah@kernel.org>,  Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long
+ <longyingchi24s@ict.ac.cn>, Josh Don <joshdon@google.com>,  Barret Rhoden
+ <brho@google.com>, Neel Natu <neelnatu@google.com>, Benjamin Segall
+ <bsegall@google.com>, 	linux-kernel@vger.kernel.org
+Date: Mon, 10 Feb 2025 16:20:18 -0800
+In-Reply-To: <Z6a_UILNqVGBqnvY@google.com>
+References: <cover.1738888641.git.yepeilin@google.com>
+	 <3ac854ac5cc62e78fadd2a7f1af9087ec3fc7a9c.1738888641.git.yepeilin@google.com>
+	 <Z6ajasn2k559SGNN@google.com> <Z6a_UILNqVGBqnvY@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_001111_062155_CD552EEE 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250210_162024_825980_4EFFA723 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,80 +116,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-use kvm_lock/unlock_all_vcpus instead of riscv's own
-implementation.
+On Sat, 2025-02-08 at 02:20 +0000, Peilin Ye wrote:
 
-Note that this does introduce a slight functional change - now vCPUs are
-unlocked in the same order they were locked and not in the opposite order.
+[...]
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/riscv/kvm/aia_device.c | 36 +++---------------------------------
- 1 file changed, 3 insertions(+), 33 deletions(-)
+> Sorry, that wasn't very accurate - we need to make sure there are no
+> "holes" in the .addr_space.1 ELF section, e.g.:
+>=20
+>   /* 8-byte-aligned */
+>   __u8 __arena_global load_acquire8_value =3D 0x12;
+>   /* 1-byte hole, causing clang-17 to crash */
+>   __u16 __arena_global load_acquire16_value =3D 0x1234;
+>=20
+> LLVM commit f27c4903c43b ("MC: Add .data. and .rodata. prefixes to
+> MCContext section classification") fixed this issue.
 
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index 39cd26af5a69..32354e47c7d8 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -12,36 +12,6 @@
- #include <linux/kvm_host.h>
- #include <linux/uaccess.h>
- 
--static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
--{
--	struct kvm_vcpu *tmp_vcpu;
--
--	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
--		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
--		mutex_unlock(&tmp_vcpu->mutex);
--	}
--}
--
--static void unlock_all_vcpus(struct kvm *kvm)
--{
--	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
--}
--
--static bool lock_all_vcpus(struct kvm *kvm)
--{
--	struct kvm_vcpu *tmp_vcpu;
--	unsigned long c;
--
--	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
--		if (!mutex_trylock(&tmp_vcpu->mutex)) {
--			unlock_vcpus(kvm, c - 1);
--			return false;
--		}
--	}
--
--	return true;
--}
--
- static int aia_create(struct kvm_device *dev, u32 type)
- {
- 	int ret;
-@@ -52,8 +22,8 @@ static int aia_create(struct kvm_device *dev, u32 type)
- 	if (irqchip_in_kernel(kvm))
- 		return -EEXIST;
- 
--	ret = -EBUSY;
--	if (!lock_all_vcpus(kvm))
-+	ret = kvm_lock_all_vcpus(kvm);
-+	if (ret)
- 		return ret;
- 
- 	kvm_for_each_vcpu(i, vcpu, kvm) {
-@@ -65,7 +35,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
- 	kvm->arch.aia.in_kernel = true;
- 
- out_unlock:
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	return ret;
- }
- 
--- 
-2.26.3
+This is a bit strange, from commit log it looks like LLVM-17 should
+include this commit. But in any case, targeting LLVM >=3D 18 seems
+reasonable to me, the main goal is to have these tests run by CI for
+some compiler version.
+
+> - - -
+> For now, I think I should:
+>=20
+>   1. change existing #if guards to
+>      "#if defined(__TARGET_ARCH_arm64) && __clang_major__ >=3D 18"
+>=20
+>   2. additionally, guard "__arena_global" variable definitions behind
+>      "#if __clang_major >=3D 18" so that clang-17 doesn't try to compile
+>      that part (then crash)
+>=20
+> Will fix in v3.
+>=20
+> Thanks,
+> Peilin Ye
+>=20
+
 
 
