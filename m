@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13988C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D575C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c90ICJ1SsNTN/OyE3dlj/IjSCNPOfdtn3uzNjjnp3fc=; b=ylfhIs5+OxpmdnLuTaiUylPVr4
-	yAAbeQ5qp49mV1AUZcJVjFk0XhHzJWIzvB2gvMjKxkZl5265LXozI/z772ReeuchhEzzJazxTwUMp
-	sqsp68rCv8tSdYfK1uRhOYaX9i8GqhWOoQrbLTuukyQQ5eK/c4fI1s6xaFEhbqo1zCKRXzl+ItTSz
-	oyKZX1KbY/j1XiKSVofC+uI5UksHaJYmAFDPEKA0uX6nNHtXjW3VCuDG3O5PcAxtoi8/NzgQurioS
-	ezVG9ncAWqhI7hgTxpjAOvnMCgGqQWH7yLaNQG/iU1OGl378i8+xuz8ENAk1Hbp+uaXCOiZ8XvowQ
-	E0R3zDaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1AiaIP//M8WqD4dxy7fDutkXfjVTrFqsAP5JrCGoW9k=; b=zGpBw40BEEUW0q
+	XQ5YeIY5/6NZP51n9/tDCHU7nMxYTG4RMdCcjMzuaHHnR0ycx75YJ3c650IloN6Uyxq6+ApXzZ2MI
+	yjNcJFdXBBbWvw7Strk2L9sbKyeikld5uVoVzTgbXY+/0Q0iUEVIm4MVWAeL2PW1dFlfcoRVOcMct
+	HCUiwze0JOQaY6Nb7zOzcH4KyHgN3ybmj67ia4EO95Of7WMkUc1o2BAqZI/y/bmr+dnOXv/MgQZrV
+	K5wOKg3kPJl62qFz2WqSU+2M7FNj3HonhAxPCzfPcVqh6MCWHUiXHt/4ONPE29FqVBVoqJ7qvgvJR
+	YsS8ACGtip8ee5esm8bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thv6B-00000004rLY-2eis;
-	Tue, 11 Feb 2025 18:35:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thux1-00000004pwy-31ps
+	id 1thv7Y-00000004rWu-10us;
+	Tue, 11 Feb 2025 18:36:32 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thuxQ-00000004q2E-0jYI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:25:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 684A513D5;
-	Tue, 11 Feb 2025 10:26:00 -0800 (PST)
-Received: from [10.57.35.63] (unknown [10.57.35.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23A793F58B;
-	Tue, 11 Feb 2025 10:25:36 -0800 (PST)
-Message-ID: <1d6b3fe7-9376-422b-a2e6-ebaed7b6cd75@arm.com>
-Date: Tue, 11 Feb 2025 18:25:35 +0000
+	Tue, 11 Feb 2025 18:26:09 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1739298361;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1AiaIP//M8WqD4dxy7fDutkXfjVTrFqsAP5JrCGoW9k=;
+	b=l2XwgcrEvmmJ1ZWNybXTH+EtietGpZihBPDDaeJW6YKeYZ3JyEg8suYzPDWXcB4L2Z1LOb
+	s/gA+VpQli2gp7Yxt2QZksOdvOcBFjbTb2fvya4l+Vv+aQOjjr+9+k5cPtOiavou98L2Mq
+	piVTocwwAuwxjpG3Sz6/Ug/1TXVWer0WqfIogn4tt10LjoAoEenwOc8FBm6utEYEeaANBs
+	R8A+3K0JY7BTtnwgMHkdRozYirf6SFU0lAbrDKBHnbDqpDny2T1cMZnD+DUp2K9MHnvBpG
+	mOnnZiV4Mz1F6AsZrv53EGlhygBUZr5wlAuv7iblugB0OV6zWscMLi5wZ+fctA==
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Subject: [PATCH 0/3] apple-nvme: bug and perf fixes
+Date: Tue, 11 Feb 2025 13:25:56 -0500
+Message-Id: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] iommu/dart: Set DMA domain for locked DARTs
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Sven Peter
- <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
- <20250210-locked-dart-v1-3-5d97fe247f35@rosenzweig.io>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250210-locked-dart-v1-3-5d97fe247f35@rosenzweig.io>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADSWq2cC/x2LQQqAIBAAvyJ7bkG3PNhXokPYWnvIQkEC8e9Jx
+ 2FmKmROwhlmVSFxkSx37GAGBf7c4sEoe2cgTVaTMRjLxRjk5Yzk/KSdJ2vHAH14Ev+i98va2gc
+ xJRZhXAAAAA==
+X-Change-ID: 20250211-nvme-fixes-29c409c2553f
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+ Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1028; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=0gCZGHfdGU8//8Avd545jbaLhxjsJY7QoZdswjXKd9U=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq5Y3Bvk569yv+q2HP9FrS/HTrAyd5yOIbC2m8
+ F8dvl+ikM+JAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uWNwAKCRD+/lBaCvVY
+ DXtVEACHXlU9HvWPNeRFrQx56yTXHAmyS65cSe9sGDD2aZ3id4sg4mUfVrMCIADNXrniTC9ikhU
+ DPx6dGns77YE8Jbp/EGsfju+3smsarCaaBHKgqZrKZNe0ZqMa3J+3hVp70sSL2TSwlZayl0uA8U
+ joelBYnFTtsJy/0RXRFQpHXl66ipJEXnUg4EA6eb4yfrHuwNL4Ujcd1cs8kKxKdU9ZgiNIWgp2F
+ eZXHv/MViEAG6/Ev7StkmVeKq09GcK1VQ7dDGd014s8t48L2ib3OQIomsk1UP8IJOkP0KtxtzDh
+ +SEs9dmlee4rdwd076gLlLqDgdrPeA9vLyfPWKVs9ewUCM9zse6cxMYL2gCiMYEmrZBMPNPjjp0
+ 54r9mwDgaQK43Ws1ecjdivftoKBPqHcY6K7Y5dloDdQy7eIKp98dKmUbhrrfOgPloBVwY+6uySB
+ QHJhCLvzaks9Rhiw3jPV422KnJUjo3PY6kkTFjdtyqByoZfRd6J+Mrf92MAAHrQSoLlIMJa3HwV
+ RZRe1SXYDKQhb73L++J4dxU62ZsydgXJApThOaZm6UGJLHeadjT5iN8eI7LJcWuUOi6CtiaFRhU
+ D41qjUFBPzw12RGREkoKYpx41lm7a0YeNmD4bBT/k1BzK2PjCp+Q3jiB9OcBxe9bV8s2dsRalpP
+ U5mfwOU7wFHSn8Q==
+X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
+ fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_102539_806950_D790F1C3 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250211_102605_450835_D8276966 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,33 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-10 7:39 pm, Alyssa Rosenzweig wrote:
-> This is required.
+This small series fixes three unrelated issues with the Apple NVMe
+driver.
 
-Now that we can, I'd really rather do this properly and not offer an 
-identity domain in the first place when it's not available.
+* fix NVMe on firmware/machine
+* fix a power domain leak
+* fix pathological driver performance with random writes
 
-Thanks,
-Robin.
+The first two are strict bug fixes, the last is technically an
+optimization but given the measured 200x performance difference I do
+consider to be a fix ;-)
 
-> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> ---
->   drivers/iommu/apple-dart.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-> index 9c74a95eb7e819e94ab2fb47ed0d411a1eba8bf7..9c6f780dc7220096ed6bba692fa1a4bd859b0d61 100644
-> --- a/drivers/iommu/apple-dart.c
-> +++ b/drivers/iommu/apple-dart.c
-> @@ -941,6 +941,8 @@ static int apple_dart_def_domain_type(struct device *dev)
->   		return IOMMU_DOMAIN_IDENTITY;
->   	if (!cfg->stream_maps[0].dart->supports_bypass)
->   		return IOMMU_DOMAIN_DMA;
-> +	if (cfg->stream_maps[0].dart->locked)
-> +		return IOMMU_DOMAIN_DMA;
->   
->   	return 0;
->   }
-> 
+Given the early stage of mainlining for these SoCs, none of this needs
+to be backported.
+
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+---
+Hector Martin (2):
+      apple-nvme: Support coprocessors left idle
+      apple-nvme: Release power domains when probe fails
+
+Jens Axboe (1):
+      apple-nvme: defer cache flushes by a specified amount
+
+ drivers/nvme/host/apple.c | 124 +++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 107 insertions(+), 17 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250211-nvme-fixes-29c409c2553f
+
+Best regards,
+-- 
+Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
 
