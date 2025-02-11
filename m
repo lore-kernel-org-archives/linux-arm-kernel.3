@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFA0C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1423C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TihG5ulYNyC2CWb/2kxjMoSBXPZNtz4RZKnLck4fdFs=; b=vK3zRuTYJpqD63
-	m+tEWbuwYEg9NbQeRB+2CXdWwxljv+GLYJ/Pnbf32BeTk1Ayt3gZWYbhUc5rbLXpaMnAbvSUxkvvb
-	cGm1kTfn63fUxyKsa8zBjAfyImgct+5rjr5b/OSPruQpHoluHx+t2FIPQ4p3VElEqc11+A6PfbWBr
-	cUT+LEU8ci99l5N90GWWKXGuc7jOlJ0bycXS6zjca7vwK4GGBwVwDR1G28hyOM2RxNNN+MnZtU/80
-	jk6CvRrrP8WVdq5D/czR9zt2fAyDMV4jRHn9rwJUaJN6yL+hNi5UhAJAfRli6Au8JAsCGcjREXWFm
-	BbzqejMUxnZswKMidJHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qrR+2zWNpEZwV3iTqp2xAc/x4CQZ8LH6NthsoKKPaFk=; b=MH8fW8ywhtXB/RXgqTPpoet+Sk
+	adwlQyO4eThUqUKf9VqLhiA9+uvYL8ZX5LAdi/oPNETjS5cFdayRjwBkhR4fVkHrchwkNI3qMEca8
+	91etalz0WbcJJ+g4fxtccaY+CaMUAYaKexS/uJwbGCdbSMTRnTYfCbJZCexBS7Mc06PhEU20L55ET
+	GnQm8Nr8LXq5tRoJXRD4NOmCQ/xaBTL1Rl6VGz0VJ6HtWETNQAx4ajOkFiem3lEr0lnYMWkaO3Vpj
+	I7kHI15XRbgQ4YJPAuZiAbG68bbZbi/tkIWj9NoSwxV+GHXJ91tbiJzwjz1jV+H6GBCZhE/L5nxph
+	FpTADTSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwy7-00000005DIa-0ncH;
-	Tue, 11 Feb 2025 20:34:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thx0S-00000005DpJ-2d76;
+	Tue, 11 Feb 2025 20:37:20 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwwh-00000005D0n-1l48
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 20:33:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A3564A40D1C;
-	Tue, 11 Feb 2025 20:31:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87328C4CEDD;
-	Tue, 11 Feb 2025 20:33:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739306005;
-	bh=m6uW5LI+RTAP6gZ7LY7Y5BSyq7TILP8ZnWmH47ViD2g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=YTdX6qiu5L9Qs3vdGhuZHTeLKJ+uNTRPgU7exdn7QBMmY3Qpg5Pj1ddbM9Yc2QIRJ
-	 PwbclK47wvCBblffZ5zBpGhqUUioRkitHcw6goGkSoaw0sz/H9VZcARqQns8tp4KT/
-	 CCGIfMqiWN4KcwxADPpWeq9mi0/qXZx+KzkMIH/dspacbbgiKf7GurrDfexv6J73ol
-	 VOVyqq/3Z4R/lOzgm/YVjAGq7S2tjEPZ10GrQniJ6CW8y0y0eW7DSzHfgyQmZUanyy
-	 QQUiqgz6FkHptDJ8xe72SvxEWaJml+MotLbMRYLEtMre02yjeoKjmwd/7LrorrRflZ
-	 Bdy5xqiS4MTrg==
-Date: Tue, 11 Feb 2025 14:33:24 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mark Kettenis <kettenis@openbsd.org>, Marc Zyngier <maz@kernel.org>,
-	Stan Skowronek <stan@corellium.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Janne Grunau <j@jannau.net>, stable@vger.kernel.org
-Subject: Re: [PATCH 3/7] PCI: apple: Set only available ports up
-Message-ID: <20250211203324.GA54082@bhelgaas>
+	id 1thwz2-00000005DUA-20eT;
+	Tue, 11 Feb 2025 20:35:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qrR+2zWNpEZwV3iTqp2xAc/x4CQZ8LH6NthsoKKPaFk=; b=NsYHkrYTBZ9GMfCvJ5EELeLw7P
+	yeU593GVZSjLLwDBWcV5oih5VCinlpUxDjlJDmaJxoYhv1N4dzUoVdUYII7SQ23SV5Rz5jCBOLFue
+	olm2HO4Yy9vaTzPpqR6hVHFavbettwuiWa6WGE8Tm2Dm+JTUeeOQ8cQiThQNCnACXIHCS+A3fHDh/
+	nZCRrL8JoTaWu7ZucvoOeZwVPFBwko2sf3l9azgxfb2LK1YOnaXb6nS3MsjP5G0O8mo0hnwEXCem5
+	A6LAr86MHKDPnvYo/qwvF85sJFMbD/8CgXSozAug1Y88JGkK7eK4mUr60lTSdHn4kpWoiOVcCnGwT
+	3/WH0NBQ==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thwz0-0003OL-PH; Tue, 11 Feb 2025 21:35:50 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-rockchip@lists.infradead.org,
+	Dragan Simic <dsimic@manjaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Reflow Quartz64 Model A/B board dts files a bit
+Date: Tue, 11 Feb 2025 21:35:37 +0100
+Message-ID: <173930613282.1358259.15016931391448973048.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <7eea4ebdb19d5f43d24074a166e6c46bb5424d46.1739218324.git.dsimic@manjaro.org>
+References: <7eea4ebdb19d5f43d24074a166e6c46bb5424d46.1739218324.git.dsimic@manjaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211-pcie-t6-v1-3-b60e6d2501bb@rosenzweig.io>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_123327_517226_74E35659 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250211_123552_542669_4CE9CBC9 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 02:54:28PM -0500, Alyssa Rosenzweig wrote:
-> From: Janne Grunau <j@jannau.net>
+
+On Mon, 10 Feb 2025 21:17:00 +0100, Dragan Simic wrote:
+> Going over the 80-column width limit, and using all 100 columns, is intended
+> for improving code readability.  This wasn't the case in a few places in the
+> Quartz64 Model A/B board dts files, so let's reflow them a bit, to both obey
+> the 80-column limit and make them a bit more readable.
 > 
-> Fixes "interrupt-map" parsing in of_irq_parse_raw() which takes the
-> node's availability into account.
+> No intended functional changes are introduced by these changes.
 > 
-> This became apparent after disabling unused PCIe ports in the Apple
-> silicon device trees instead of disabling them.
+> [...]
 
-Is there something missing from this sentence?  "... after disabling
-unused ports instead of disabling them" doesn't sound quite complete.
+Applied, thanks!
 
-> Link: https://lore.kernel.org/asahi/20230214-apple_dts_pcie_disable_unused-v1-0-5ea0d3ddcde3@jannau.net/
-> Link: https://lore.kernel.org/asahi/1ea2107a-bb86-8c22-0bbc-82c453ab08ce@linaro.org/
-> Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
-> Cc: stable@vger.kernel.org
+[1/1] arm64: dts: rockchip: Reflow Quartz64 Model A/B board dts files a bit
+      commit: e857cdedbe1f9aedad4e307188c55ccba28a3e76
 
-Can we have a hint about what makes this "stable" material?  I can't
-tell from the commit log what the impact of this change is.
-
-Bjorn
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
