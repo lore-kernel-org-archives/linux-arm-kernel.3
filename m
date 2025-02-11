@@ -4,97 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F254C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFDE2C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7d1Icmn2h5Xxh5nmwHTuvBMLWdYe0yLTSL1YV7Y8f1c=; b=eKtYYCyoI37DFy6cYqDx0gSvRg
-	DD2Qhqi5qObXRxtOmM9I0epmk3eVaiesCdFaqjifnqcNP3D78SWYSlajCpLmy27iMaj0SknsnDPcb
-	0u4K0W0ZfnM6ZGdJyq6iQ8oDuTISoMclhFNhdyDaGLkda/uwFkwwU7LqBHXREx61QMmh3//pcKtFJ
-	7z3XjbsZmoitWGsE1pqgPAlgYvF6Gf5dOVMg5Ew6vUEoujDx/CZk8bmk/L0ISPj17dKXQqzdAyiGb
-	vtzvpu9FTqzKuk9TtlD6sjzHEohIeqiAOzitsvEQT3okbMeu14mtLvFtHl3UBACVkwhb8soUu0LI8
-	nicj3eCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wUxugKqbu7I563w8uERZm2s+iPK6Cr2Pw9g6CW9Gyvg=; b=2XmuLjw3HKnrc/6X9X6uhLO08X
+	fQXdBEJdY4RkKSNuqVtjktKEVXKmC8nDRGeFWdDALkKPlMMIS/Ph3ZonsgzO1ZhVn7GgCcYKGs9Bc
+	BSEmWgO5fq2OqccKl2kIX4765iErIOWKbZKvvYKNOlRUZMOhUjvhjMoEgcbmMmJgSkIB5VJW8i3Gw
+	IZQ09iql0KkCBOXEepdyTqu2MVIRl/oPWR7i2HIc8qi8gWnWqqTj6Sizg/f7Otxjl4QuyjH7taU+D
+	wdocDInv6u8G9qte9U8Hb+lp4SVRKRDqMQ+jZFCrQlehSM0zdbgS3rSelAZobdyTbEKw38kfpEf4Q
+	PcFRryoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpjM-00000003q75-0CFU;
-	Tue, 11 Feb 2025 12:51:12 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1thpkk-00000003qHl-34Tt;
+	Tue, 11 Feb 2025 12:52:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thoxw-00000003gEr-3CYf
+	id 1thp1D-00000003gt0-1Wxd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 12:02:13 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43934d6b155so17580075e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 04:02:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739275331; x=1739880131; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=7d1Icmn2h5Xxh5nmwHTuvBMLWdYe0yLTSL1YV7Y8f1c=;
-        b=RL33ysKNskiOwb7tdQ09Cni8wwj4SW4dUfaEm0IOeDE/07s0o88RXAcouJWWopj758
-         PaVtstYblwy8dyVkrZj7iHL7CZ1XVxJ7A5+tnsBCsERfc7eqal6ZYfzDD1dJa3sK7FJM
-         UnHqGZjvtXuKv1rALquYgy5AToSLbOsnxeDv/7tdPPTGeT/jNN9Wp7w4vAleyN2c+dof
-         iiiT1v0gUzIvmUsOLcp+tY1hsoed+1epnSChBC9lIO34et4NxbVQu5/L8rC8iOB677O6
-         N3zlgDk2L2wBh+o0Fskq8s9bxsM93sgZ2ytj9eBYBG2Gm/dw+pbiIi2Ggx9ebBd/9M3O
-         UH4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739275331; x=1739880131;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7d1Icmn2h5Xxh5nmwHTuvBMLWdYe0yLTSL1YV7Y8f1c=;
-        b=AS1yYBdrb6+EdnBveo5e07vAZktdWQfxVX1dBVEqXqxH545Btj5iQvS+jemFAS7Zix
-         T6/Qdy5MsaY70d8ryOTSFS+yWJ5OBmqIteTZdMnwioOGOydIoKyweTYqHqYYkaqUMDsE
-         IdfGZ4Z8ON5xeh71YuZ8uuWQ9R+/TsohEmEpFCATV35xL8059zzIeJfAMd6H/qYtW0hU
-         5grHbFTK/kr3ZTywbAdgJpLv4hhpFN6OH66Y6gMKaQxUEaCtwLFqhVWKDp7w3N8XzELs
-         yPgeryKje6YipblYXCCs6NmmxlcBGe9nx1mRcx1BZfa85pHaQBnQ3jHIFjqpteGmZ6m8
-         tkaw==
-X-Forwarded-Encrypted: i=1; AJvYcCVcdY7QSGftgUskkTFk6ouxnRwSG9CDxiL7X+RcCf07mvzuH8v99H4QjelDlt1MiFlqyhYK88drFCYwy3nyx/SA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW9cDco1LOaHfBnuDicl8RYc9L7cVRFecMb9Ki7SQUBo806Gxl
-	etV37DsFklHRxJ+hZjzqvdfj70D5yDewzW7E0neSLMgNOmu7YS4Ji1hbnlwc7zk=
-X-Gm-Gg: ASbGncvxfxpUyDx1bxmzjJOGXHXWWQELzu19jFXG3IruZVHnp5MrTJGoSEWZIqlB7v6
-	f67cTEEh5mpl6oG/jwmUxCC1n9yLAbwMBVPu3RVXg2sikZySPpBmlYxBXf0Jm+UX8qrNqVgPJG9
-	Wd0NvjUPTdEIniDH2ltCGsneqcmzYw87lp7GdOaUubpR4AbJda81aYcf9i79d8idt7p49Zj6mM4
-	Z/lu4dm3j1KvrBmck3hXxlL+PtJ6+DkaIMQ0yDK4vvlHu7FzPkWuBUdD7IldeDbl4+FPK68YBRL
-	sjVV1pzS4T8teg4VByA=
-X-Google-Smtp-Source: AGHT+IEpNALrmIL66un9ZFpaSjUj/Foh/XSYreR+C2qRnL/fyZnSvShvXFiOPXFezhCRGB+4CDDdQA==
-X-Received: by 2002:a7b:c7d8:0:b0:437:c453:ff19 with SMTP id 5b1f17b1804b1-4394cf0825fmr25778995e9.14.1739275330727;
-        Tue, 11 Feb 2025 04:02:10 -0800 (PST)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dcf35b15bsm11149599f8f.64.2025.02.11.04.02.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 04:02:10 -0800 (PST)
-Message-ID: <a740a0211c82aaaa55940e2f07e1d1b53c23ddd8.camel@linaro.org>
-Subject: Re: [PATCH v8 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Diederik de Haas
- <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Jassi
- Brar <jassisinghbrar@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org,
-  daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org,  arnd@arndb.de, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>
-Date: Tue, 11 Feb 2025 12:02:08 +0000
-In-Reply-To: <bad87f30-0483-48c1-b263-02cc752c77e6@linaro.org>
-References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
-	 <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
-	 <D7PJTD3PSP78.27N2S94J2CNZG@cknow.org>
-	 <bad87f30-0483-48c1-b263-02cc752c77e6@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.2-2 
+	Tue, 11 Feb 2025 12:05:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F196E5C1187;
+	Tue, 11 Feb 2025 12:04:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6DD2C4CEDD;
+	Tue, 11 Feb 2025 12:05:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739275534;
+	bh=zXBuLvVifIEN/1jvgyZRX2XKQzloxlsj50NAhEZ0k30=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BABJP/eNLNnFBjbLGYhuGuw0ud9BHMVBUqXx/kCs/5blgFoWPulAz9JxzP6WQNRNv
+	 qUc4h787QHckEWKbzs2XE0bJdHSNyCl208U0xAUKoY/28vrkE6jq2DXTvMhCp+feB0
+	 8ji8WYozCt12Pe+yjwcLFUTGwzcoPCkXDvldhBpBo4GnZNwr/EVm2gIs+89aRefIPk
+	 pqAq7DkuiV7IykOaZvK+hUi7UiI3IWnyIjoJkv7SpvvC/tWRMP/ZYx7zLhU9EJFeeV
+	 nzo7Q0Ex6wK4fEP1XFIaKgkEkEvU8N7ZUEam+yISkNm1v8y0Koo+eVFGNVdB9xRxCg
+	 fd9bA1EDtc4Ng==
+Message-ID: <e2bdc9aa-2cbb-4fcc-8c73-5fcdad6e18a7@kernel.org>
+Date: Tue, 11 Feb 2025 13:05:27 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org,
+ daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
+ ulf.hansson@linaro.org, arnd@arndb.de,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
+ <20250211-gs101-acpm-v8-1-01d01f522da6@linaro.org>
+ <D7PJTD3PSP78.27N2S94J2CNZG@cknow.org>
+ <bad87f30-0483-48c1-b263-02cc752c77e6@linaro.org>
+ <a740a0211c82aaaa55940e2f07e1d1b53c23ddd8.camel@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <a740a0211c82aaaa55940e2f07e1d1b53c23ddd8.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_040212_803757_3C431FCD 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20250211_040535_492662_2C3A537C 
+X-CRM114-Status: UNSURE (   8.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,15 +130,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+On 11/02/2025 13:02, André Draszik wrote:
+> Hi Tudor,
+> 
+> On Tue, 2025-02-11 at 11:57 +0000, Tudor Ambarus wrote:
+>> And then I shall s/MODULE_LICENSE("GPL");/MODULE_LICENSE("GPL v2");/
+>> everywhere as "GPL" indicates [GNU Public License v2 or later].
+> 
+> No, please don't, see Documentation/process/license-rules.rst.
+For the rest of suggestions here I also recommend rereading docs. I
+don't get why we need to change "GPL-2.0 OR BSD-2-Clause", but maybe I
+miss some docs. Whatever SPDX recommends is irrelevant if kernel
+recommends for example something else, so be sure you make it aligned
+with actual kernel preference.
 
-On Tue, 2025-02-11 at 11:57 +0000, Tudor Ambarus wrote:
-> And then I shall s/MODULE_LICENSE("GPL");/MODULE_LICENSE("GPL v2");/
-> everywhere as "GPL" indicates [GNU Public License v2 or later].
-
-No, please don't, see Documentation/process/license-rules.rst.
-
-Cheers,
-Andre'
-
+Best regards,
+Krzysztof
 
