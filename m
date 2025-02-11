@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9822CC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134D2C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sOvELaY1aZJTewIgm34TTNGoydZHHQrExKUpRVX1RA=; b=uS1aAXKMgpOnSEZZXEwJtwXDza
-	hXKGgVVIZrs6a0YXNN/WTwMWwXKfGFXjxiEM3Bn+YXOk/dHaoJdWaMFWEuIYQIplRAEAszSfJ+1Rs
-	IU+6kJq7a3OSJkwvT42OH4hrcOxCwK8P8I28sIWoBYEDOhcvm08hP2TVNtr5ZD8IZm3W6pasx+D7A
-	HZ0puw/Amjck4DURWN8UjBY1Z6Woomnr3VfGZMXwRCGphlD260ODMdlIjLaARfR+yaBbPtHynGa2R
-	B3GKGHShBCZo6MdcySz6/n6gXlxPFJAajO6M7f7pGeOTn1Hg8exhvCNu7ne4GLaZzk9I1u9yybJwL
-	0+GOg5gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jD+qwbnV1eEkj4QGYpx/0A3UOfeO8/TAkqA5LhTvPtk=; b=IxXyxOOLl3cbbw6p8Y47kJNcxw
+	sLFArbu1T0tCgaBIWhpXolMDWbNQsm989b+HX3IKbI2Vc80IeZPZn0GIeFrvmHBGO+C2cpRdBz1ro
+	TOk3jqZaYO37Ob4StlJ9yvJfe3Eq7RwLuqs3O7llOr63VIzDgnnYfWDQFdasg7KvraCPYdVQy8U2s
+	tIsP46G8mjE07JQpbHbfxgxHOegrJIBlttr9vXS87GnUf8KranQOzeegac2R2tHcwT9O5bMMReIqK
+	hI1mi+oaFoUQLgFwS154IyX1GDF3JrE2IapA8lDsnLJOOa0LP4eD5HyDR/JdupPkZyF08/ZCm1w/9
+	1bX6nqYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwZ6-000000059J7-2N4R;
-	Tue, 11 Feb 2025 20:09:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwTR-000000058a7-1FqK;
-	Tue, 11 Feb 2025 20:03:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 284F513D5;
-	Tue, 11 Feb 2025 12:03:33 -0800 (PST)
-Received: from [10.57.35.63] (unknown [10.57.35.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC8EA3F5A1;
-	Tue, 11 Feb 2025 12:03:09 -0800 (PST)
-Message-ID: <c9f1eced-679b-491e-9014-a1ea14120081@arm.com>
-Date: Tue, 11 Feb 2025 20:03:07 +0000
+	id 1thwds-00000005AfX-3rim;
+	Tue, 11 Feb 2025 20:14:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thwcT-00000005ASs-1U8E;
+	Tue, 11 Feb 2025 20:12:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1C079A40C61;
+	Tue, 11 Feb 2025 20:10:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 105B3C4CEDD;
+	Tue, 11 Feb 2025 20:12:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739304752;
+	bh=v/Jok9KiEPoYdLkGoT5WJHe5oUzwY5NHLVXVVA+iJRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XgY9IZVp67cVbFI4jfVr7xHVisU4vQHZuG1uZWlCrEFpbmg/2dNn4b/SuQvmUd0eq
+	 CVT/QkfAtdvp0+v1yC0NXDVvzmV4xeu1X1dDyeOxYM13irap3UlVed8o3FtqY43MUV
+	 /yoASTYArEkmeTqV/2DOvzzVgE1ytQqwU8toQtqau5UpYjKg1ZsC7npOemFAo2CXP+
+	 bHKrvp8r80hHPa+g8Hd6z41qLUigcsUjraZ6ZBD6qBRWZkSWrx3f8TyqEF2bQYdNSQ
+	 ySnRzKmC3aBxnzOtNbZMA9AeGIj9pMbZR9kqDyfnwWWYfr+78qRfb/Vs7lfYelK/Y7
+	 k1zOIv5I20AsQ==
+Date: Tue, 11 Feb 2025 14:12:30 -0600
+From: Rob Herring <robh@kernel.org>
+To: Dharma.B@microchip.com
+Cc: neil.armstrong@linaro.org, ulf.hansson@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v2] dt-bindings: mmc: mmc-slot: make compatible
+ property optional
+Message-ID: <20250211201230.GA600687-robh@kernel.org>
+References: <20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com>
+ <f6d7ffa0-6c08-45fb-9153-5e4aad1ca86a@linaro.org>
+ <003ffa44-c88a-4234-a54a-50cd1140982a@microchip.com>
+ <7180babd-302a-4f86-8770-bdd9f5c773cf@linaro.org>
+ <7de20917-3176-4e80-8ccd-9c01c037cc9a@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: disable IOMMU when running rk3588
- in PCIe endpoint mode
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Damien Le Moal <dlemoal@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-References: <20250207143900.2047949-2-cassel@kernel.org>
- <7996d1ec-6ceb-4d8a-bf03-1911ac5f8f0c@arm.com> <Z6uomtzSVTOmAB8X@ryzen>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <Z6uomtzSVTOmAB8X@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7de20917-3176-4e80-8ccd-9c01c037cc9a@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_120313_433949_CCD98B1E 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250211_121233_517890_A3A3CE70 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,87 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-11 7:44 pm, Niklas Cassel wrote:
-> Hello Robin,
+On Mon, Feb 10, 2025 at 05:28:27AM +0000, Dharma.B@microchip.com wrote:
+> On 07/02/25 2:47 pm, neil.armstrong@linaro.org wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know 
+> > the content is safe
+> > 
+> > On 07/02/2025 10:02, Dharma.B@microchip.com wrote:
+> >> On 07/02/25 2:25 pm, Neil Armstrong wrote:
+> >>> EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> >>> the content is safe
+> >>>
+> >>> On 05/02/2025 04:48, Dharma Balasubiramani wrote:
+> >>>> Remove the compatible property from the list of required properties and
+> >>>> mark it as optional.
+
+The diff tells us that. Please say why 'compatible' being required is a 
+problem and needs to not be required.
+
+> >>>>
+> >>>> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> >>>> ---
+> >>>> Changes in v2:
+> >>>> - Instead of moving the compatible string to the other binding, just
+> >>>> make it
+> >>>>     optional (remove from required list).
+> >>>> - Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-
+> >>>> dfc747a3d3fb@microchip.com
+> >>>> ---
+> >>>>    Documentation/devicetree/bindings/mmc/mmc-slot.yaml | 1 -
+> >>>>    1 file changed, 1 deletion(-)
+> >>>>
+> >>>> diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/
+> >>>> Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> >>>> index 1f0667828063..ca3d0114bfc6 100644
+> >>>> --- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> >>>> +++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> >>>> @@ -29,7 +29,6 @@ properties:
+> >>>>        maxItems: 1
+> >>>>
+> >>>>    required:
+> >>>> -  - compatible
+> >>>>      - reg
+> >>>
+> >>> If you remove it from here then it's still required in Documentation/
+> >>> devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> >>> so please add it.
+> >>
+> >> If moving the compatible to its specific binding isn't appropriate (as
+> >> per Conor),
+> >> and if removing it from the required list here doesn’t seem reasonable
+> >> to you,
+> >> then adding an unnecessary compatible string in our DTS files doesn’t
+> >> make sense to me.
+> >>
+> >> What could be the solution then?
+> > 
+> > The solution is right but you modify the meson-mx-sdio bindings, so
+> > simply add compatible in a required list for the slot node.
 > 
-> On Tue, Feb 11, 2025 at 05:49:29PM +0000, Robin Murphy wrote:
->> On 2025-02-07 2:39 pm, Niklas Cassel wrote:
->>> Commit da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU
->>> on the rk3588 SoC") enabled the mmu600_pcie IOMMU, both in the normal case
->>> (when all PCIe controllers are running in Root Complex mode) and in the
->>> case when running the pcie3x4 PCIe controller in Endpoint mode.
->>>
->>> There have been no issues detected when running the PCIe controllers in
->>> Root Complex mode. During PCI probe time, we will add a SID to the IOMMU
->>> for each PCI device enumerated on the bus, including the root port itself.
->>>
->>> However, when running the pcie3x4 PCIe controller in Endpoint mode, we
->>> will only add a single SID to the IOMMU (the SID specified in the iommus
->>> DT property).
->>>
->>> The enablement of IOMMU in endpoint mode was verified on setup with two
->>> Rock 5b:s, where the BDF of the Root Complex has BDF (00:00.0).
->>>
->>> A Root Complex sending a TLP to the Endpoint will have Requester ID set
->>> to the BDF of the initiator. On the EP side, the Requester ID will then
->>> be used as the SID. This works fine if the Root Complex has a BDF that
->>> matches the iommus DT property, however, if the Root Complex has any other
->>> BDF, we will see something like:
->>> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
->>> on the endpoint side.
->>>
->>> For PCIe controllers running in endpoint mode that always uses the
->>> incoming Requester ID as the SID, the iommus DT property simply isn't
->>> a viable solution. (Neither is iommu-map a viable solution, as there is
->>> no enumeration done on the endpoint side.)
->>
->> Well, strictly the controller should own all the StreamIDs it's capable of
->> emitting - if that's just one per possible bus number (as the iATU
->> FUNC_NUM/FUNC_BYPASS stuff appears to suggest?) then 256 "iommus" entries
->> isn't *entirely* unmanageable. If it were to support being arbitrary (or
->> multiple) devices/functions, though, then we probably would want to look for
->> a different solution, because nobody wants a 512KB DT property... :)
+> Okay, we declare compatible as optional in the generic mmc-slot binding 
+> but make it required in the meson-mx-sdio binding, which inherits from it.
 > 
-> Well, FUNC_BYPASS and FUNC_NUM is in the IATU_REGION_CTRL_1_OFF_OUTBOUND_i
-> register, so it is for outbound PCI TLPs, not inbound PCI TLPs.
-> (Only inbound PCI TLPs will get sent to the IOMMU after passing the iATU).
-> 
-> There is FUNC_NUM in IATU_REGION_CTRL_1_OFF_INBOUND_i register, but it has
-> a different meaning. (An inbound PCI TLP will only get translated if the
-> FUNC_NUM matches the value in this register).
-> (This check is only performed if the "Function Number Match Enable" bit
-> of the "iATU Region Control 2 Register" is set.)
+> So why not define the property directly in the meson-mx-sdio binding 
+> instead?
 
-Sigh, the "i" in iATU doesn't stand for "inbound", does it... major 
-brain fart there.
+Because mmc-slot.yaml is designed to be complete (hence 
+"unevaluatedProperties: false"). There's at least 2 bindings which use 
+it (with "mmc-slot" compatible). Leaving it at least prevents folks from 
+coming up with their own random compatible strings for mmc-slot.
 
-> The SMMU on the rock5b, when running the PCIe controller in endpoint mode,
-> has printed the following:
-> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
-> but also:
-> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x20 ssid: 0x0
-
-Yeah, that one pretty much settles it - we can certainly expect host 
-root ports with nonzero device numbers, so that's at least 13 bits of 
-the StreamID space to cover, which isn't going to fly.
-
-> depending on which host system we had connected to it.
-> 
-> So I'm a bit worried that 256 "iommus" entries will not be enough.
-> 
-> I don't have any idea on how to solve this, but right now I don't see any
-> other option but to disable the IOMMU when running the PCIe controller in
-> endpoint mode.
-
-Agreed; FWIW, for the patch as it is:
-
-Acked-by: Robin Murphy <robin.murphy@arm.com>
-
-> (We have no issues when running with the iommu enabled when running the PCIe
-> controller(s) in Root Complex mode.)
-> 
-> 
-> Kind regards,
-> Niklas
-
+Rob
 
