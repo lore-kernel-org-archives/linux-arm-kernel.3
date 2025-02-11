@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52660C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C62DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAfehH0pRSNM74jOU1hpoGaCaoR26ZlkzhoEyncNpPk=; b=CuwcYccMDin0UuI7Ws6zwZ1zXM
-	ePYX01QkvQSPFBmjETcLxVklCP+k/3Hn7gosPH5i9bLzWKIf/nMLdGgFjkJuZ2eZ0quM/tWWO40DT
-	qhuS0hwxPHnW3zQgv8ae7+PNhjBImBkWqagrp54TLHNoffQSbYWbr1LW4qy/UgY/QmM4VH3ZJZH88
-	hG6zu9GT/kcgim4FTlD8FenPLDPNzUOORwlfKSMAY1Vxobsyu1wd2rnHSKOMOCYGZFChLcIxDy83a
-	KJzA7K4azEr4cRYTuYN/W3ZZ75GV1YsGVMYOJb6oCa1IafGGeE4bmdiwd7k2I7QWjxKT0GHGlvlwp
-	ifhHu8Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AtiuJJ7RhchJVxtKjzxiYrGG9SfY4cQIXR419nrTqIg=; b=xuGi1XJWnQU4gp5frkTMXPDk26
+	BGhaJmaBSZl/xD9LsaI099D1gONm3S51Bv2w/3ZKEA1ijCpF0xfv4081G2VGevco7NOqfjGkG1sXK
+	H4BBwXnQ0VGl74+Z6iv6rfWCpcQOv0nYtepF36Ewk2Z7mWiFTMopD7kLyZK5O0BkjiARcqMt2NQzk
+	JDh61WwnNmDHI2s1XJr2H6D14Xz+mIKDJ0lhAEOB9fBQ/PgXY/KmkBtxcoW4apN1pH9S7XnnLTplP
+	9mcZXxIeGipBeDgqUZXo3XEyytEFQmwjztkkNOV1Ka5HUFpkanmYFc6NjzLCstnWe0v+6n2TCH2AV
+	DXz47d0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths5y-00000004Gqr-3JYx;
-	Tue, 11 Feb 2025 15:22:42 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1ths7M-00000004HCi-1kj2;
+	Tue, 11 Feb 2025 15:24:08 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths4Y-00000004GVO-2Pd6
+	id 1ths4h-00000004GVB-1WQL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 15:21:15 +0000
-Date: Tue, 11 Feb 2025 16:21:11 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1739287273;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RAfehH0pRSNM74jOU1hpoGaCaoR26ZlkzhoEyncNpPk=;
-	b=Zv4U2MhxITSl9kUmmsVJW4c7qLimnsYlmhKut/KZgg8KnpnY2nxZSpOCX5SzEn4xIVeyi5
-	BbKOZMuUnKJg2l7HBSfZfHFrsKavpg6Vm6qjop/0AiVHTwpFa/qyhgBBsnk6OdXoXd8+UI
-	FcIMyUkv8d9RVvo/fEUUklKAn+FUi0oDYjAEGNUvXeLBvxdSW0/K7gUaV5N9bvlCqoq2HL
-	D68LXsa2ITeGyFN+RupkGKCuKWTJ1ClPdEivuq4hxcQGKRvnfPUpsUt+1udKOBvZ9Rlq7K
-	ECtda2ldgr6Uves9g1Q80JVp4Vf/XDzsY6Pzf0o0BgiJyVmhvFpVkq3jtx0PhQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1739287273;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RAfehH0pRSNM74jOU1hpoGaCaoR26ZlkzhoEyncNpPk=;
-	b=yacAYOQ2pG5/O3bhi/OUOrdcRl3g0N9/LAIUyWwUai9zxXqq3tjoYPi7e9+nqF8HAo220z
-	yNmtetUKNh7IQfDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	Ben Segall <bsegall@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Mel Gorman <mgorman@suse.de>, Peter Zijlstra <peterz@infradead.org>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/9] arm: Rely on generic printing of preemption model.
-Message-ID: <20250211152111.A6HxeZLd@linutronix.de>
-References: <20250203141632.440554-1-bigeasy@linutronix.de>
- <20250203141632.440554-4-bigeasy@linutronix.de>
- <20250210120429.iFfBClW1@linutronix.de>
- <Z6oYO5uKlEJ8C8Ne@shell.armlinux.org.uk>
- <20250210153902.06VTSS6d@linutronix.de>
- <Z6oo0MExaEy5J55_@shell.armlinux.org.uk>
- <20250211145249.StI6tEZv@linutronix.de>
- <Z6tnQvIBlGnoGRN_@shell.armlinux.org.uk>
+	Tue, 11 Feb 2025 15:21:25 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 8C0B4A0ABF;
+	Tue, 11 Feb 2025 16:21:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=AtiuJJ7RhchJVxtKjzxiYrGG9SfY4cQIXR419nrTqIg=; b=
+	lLoUEC41/Q1Yakwf95qZk7+T6brQbhJBi/iCa54Z/zGCof9+RiYz5gGYPGIPJmTP
+	zI8VXLznkGrJbn6Szpo/RjLFlq/hzvjOxa1+roc5SY1nLhgyMZGgGfr6HML5Y3Ob
+	7oOZQvvceXfbXC55MquIdk1zGzq04R8ElrVmxYLnaJXXx5ligp1u9TYnA53tZDq5
+	PY3ffl4f26z3KV7HTVTVVB+2xXM417I8VY/Ortv5adZXEp/YW7zNY22NwoVD8+ik
+	lI4I1JwLeRDqpZPrvbzaqcz/EtCIkFHzphCyq4aN4n3SIeyguh+qFYOvexGHIfei
+	zQFFTQil+B+z+GLLFcpv0hyxek6u9C1ORl2AV7bIaQRbI+HuWE+KLVz8zOriZ84l
+	M6pTrnlqwJJkfZ0bhPsMULHQ8YHGb+xaLVue3r5pu+TcXDX2QDnpYYLb0oE4rNTQ
+	Laxp6bfRojJkv/E1natczdv+6lnfR7lFol2Ydr9KOPWn2y7Oy57JV/xAeMMl99xt
+	UUIhSG+h/EpEu76uqgixOpEWEsMrP+s/Z6wEOKaXLaN08Si3peqbJQHdtPWJJJ25
+	jhy99FpKtvlf1tp45tQ9MJg/Hz9cKjXOWth3cEJQlQBgc2VbjzELknivhfRD4sy6
+	uX659pCYruZJRVueJzyqZ0PdRxq8BLXHTg9WiPSRtQo=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray
+	<wbg@kernel.org>, <Dharma.B@microchip.com>
+Subject: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare, Overflow etc. events
+Date: Tue, 11 Feb 2025 16:19:11 +0100
+Message-ID: <20250211151914.313585-3-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z6tnQvIBlGnoGRN_@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1739287272;VERSION=7985;MC=2405386640;ID=762815;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94852617160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_072114_747323_B92F4C56 
-X-CRM114-Status: UNSURE (   5.20  )
+X-CRM114-CacheID: sfid-20250211_072123_852415_CB161D30 
+X-CRM114-Status: UNSURE (   7.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,16 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-11 15:05:38 [+0000], Russell King (Oracle) wrote:
-> 
-> Got it. Printed from __die() -> __show_regs() -> show_regs_print_info()
-> -> dump_stack_print_info().
-> 
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+The TCB has three R/W-able "general purpose" hardware registers:
+RA, RB and RC. The hardware is capable of:
+* sampling Counter Value Register (CV) to RA/RB on a trigger edge
+* sending an interrupt of this change
+* sending an interrupt on CV change due to trigger
+* triggering an interrupt on CV compare to RC
+* stop counting after sampling to RB
 
-Thank you.
+To enable using these features in user-space, an interrupt handler
+was added, generating the necessary counter events. On top, RA/B/C
+registers are added as Count Extensions. To aid interoperation, a
+uapi header was also added, containing the various numeral IDs of
+the Extensions, Event channels etc.
 
-> Thanks!
+Bence Csókás (2):
+  counter: microchip-tcb-capture: Add IRQ handling
+  counter: microchip-tcb-capture: Add capture extensions for registers
+    RA-RC
 
-Sebastian
+ MAINTAINERS                                   |   1 +
+ drivers/counter/microchip-tcb-capture.c       | 137 ++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     |  49 +++++++
+ 3 files changed, 187 insertions(+)
+ create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
+
+-- 
+2.48.1
+
+
 
