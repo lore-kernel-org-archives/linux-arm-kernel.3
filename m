@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE344C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A109C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/HrP1QASq5Fp3V5sUafLqNhIjAKgQypcRjFNxI3MNFc=; b=jF9SOtxe25JakY5Srkv0E9JUBB
-	OG0rX1bE/1MlNkDoxX/ZxP/Nsv1tf6H1wecYWRCt7RTDVuuZGDtHwun5q/DAt2sM/5dxNTUZbyhRP
-	DyLLb3mh0NiB+N3yvPmFsNcFYSRSXBz1SW8tnJPl9gr1DnAvAkwOTsyJK9h7Aoe3WHNFDFxAkT+kD
-	XTcJVXBaC1it0WpMf15BDB7Totoci1K3z9EVLQgE0DVbx+gs+dH5WnfS2tkqxg8YlikiUbkWrZr4P
-	Lzm3PsRodWb84SvJUIlP4f/58UwWhJBYOp8/h7HFWH3zGqa5nlZCnFU3ZBjKNBp4LPxe4sU2NRPtu
-	FZxN6L8Q==;
+	bh=0leDRVdwoOJeubU9do3QSHfmj15v/lsQAgb6QNAwj4s=; b=CJ5Ow1MBjzi6XylSAHtZwcSWeo
+	a1HRvM9Qb2KLG8Lzf01a+JPIZH3HHhjNh6PHk5MWQJhOtCPEIL827u8WP40OgkYvQkBwXab6zyBb1
+	o0B5IM0EoUvIZ06YUocpn8Eu607QZXUn2VWUsm3ucOS+0eoQe0Ttgkkh8iNvyBRzU4hDBNlpwbJoI
+	D16QMb+YeR1ZI8OnX71YKpTOJ39KG9OLoflT8MCF9L6glDjiXQc0A7/AuMkUUrRd3VYlpzbTCyn/D
+	DpPMLTec6nBmle2wFdF5SRxioWVkXgDsW8swH0xSmL2N3y8iyuailm+nMBQOIUkhK6nNX9T7NTHv9
+	iWdvoCfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnXb-00000003M97-2YGc;
-	Tue, 11 Feb 2025 10:30:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thnbh-00000003Mps-17wY;
+	Tue, 11 Feb 2025 10:35:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnWB-00000003Ly8-1dvJ
+	id 1thnaG-00000003MeT-3el5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 10:29:28 +0000
+	Tue, 11 Feb 2025 10:33:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 01885A40224;
-	Tue, 11 Feb 2025 10:27:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17ECC4CEDD;
-	Tue, 11 Feb 2025 10:29:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A4392A4024F;
+	Tue, 11 Feb 2025 10:31:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD89EC4CEE7;
+	Tue, 11 Feb 2025 10:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739269766;
-	bh=HaHabSl+wxC8yeelHmSr2+qIEdKDU6K4yefBEnZQXy8=;
+	s=k20201202; t=1739270019;
+	bh=PquzBB/oX7egHymBp+a6B/TaN2ihpzSc+j9dImCu2IQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HT7wZxHrLIu2yMUWmOIWFnrP7uTpA6e1zrfjmnBecJYeZzPHp4RnYchuY8B9yLQV3
-	 rGR3bQZPj4Ik5esTM/eyWiJlLvf8SGl4bDmT+pJ7cXrSWbXEPeJSiTprCzigx6Z/7c
-	 UpZ74U6s6A3iK+l8+3nLoG5thLel7eiamb4mdJXvfKcThJ1U+0kv1P0ARw2m9zqreS
-	 0eTHJkiiJXc0Q2SKFVfrQgAlrm12f5kCkBPu4zQVANIrrrMxxihp5ytLVAquFObbxK
-	 TAr9UUjHMjOfLuXfBbaw/K3X839Dfq67ToIN6UNCk9yC1qE6v4a3E4/uhZOvOgZpCk
-	 q0s4nehs9XTgA==
-Date: Tue, 11 Feb 2025 10:29:19 +0000
+	b=BQHS5bOKvoiVMPGh7qf8LYf4J9+tJWgM8GbiFoUwZLrDAKub6cdlgLNUzhT1kU4YN
+	 4ocP9I5pp1pMbnKBAzuFLhs1S+lXy5h+k6Bx5ohEa9P3sVaBv/WwXgklP7kfUwFpJ6
+	 duSrPvzOGEJJvwoxqI8Z9YN6vS9qjfypf1xuY55rmm/ulzPehfjDYv30KeNrEX760R
+	 PObIad9+Gsij7RfvEJ0/l4cJcjLYaRG6su/s1q1a6V1gq4Jcg+kHWRgTtVvDHYsT8q
+	 3RiAbclp1tfY2e4Y6oGlTfpaV6ZRNJq5JYu+Hb/oLGHGw69iQQgG17gSdr5eZyesWA
+	 kR4LDQQ59QSOg==
+Date: Tue, 11 Feb 2025 10:33:33 +0000
 From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
-	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
-	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
-	tabba@google.com, wilco.dijkstra@arm.com
-Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
-Message-ID: <20250211102918.GA8653@willie-the-truck>
-References: <20250206141102.954688-1-mark.rutland@arm.com>
- <20250206141102.954688-9-mark.rutland@arm.com>
- <20250210165325.GI7568@willie-the-truck>
- <Z6o1t7ys2qVaZ-7n@J2N7QTR9R3>
- <20250210182009.GB7926@willie-the-truck>
- <Z6pL81_yi98o2vtS@J2N7QTR9R3>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	patches@lists.linux.dev, stable@vger.kernel.org,
+	Matthew Maurer <mmaurer@google.com>, Ralf Jung <post@ralfj.de>,
+	Jubilee Young <workingjubilee@gmail.com>
+Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat
+ target
+Message-ID: <20250211103333.GB8653@willie-the-truck>
+References: <20250210163732.281786-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z6pL81_yi98o2vtS@J2N7QTR9R3>
+In-Reply-To: <20250210163732.281786-1-ojeda@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_022927_557643_5674CB80 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20250211_023341_042309_2A8E1062 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 06:56:51PM +0000, Mark Rutland wrote:
-> On Mon, Feb 10, 2025 at 06:20:09PM +0000, Will Deacon wrote:
-> > On Mon, Feb 10, 2025 at 05:21:59PM +0000, Mark Rutland wrote:
-> > > On Mon, Feb 10, 2025 at 04:53:27PM +0000, Will Deacon wrote:
-> > > > On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
-> > > Sorry, I had meant to add a comment here that this relies upon a
-> > > subtlety that avoids the need for the ISB.
-> > 
-> > Ah yes, it really all hinges on guest_owns_fp_regs() and so I think a
-> > comment would be helpful, thanks.
-> > 
-> > Just on this, though:
-> > 
-> > > When the guest owns the FP regs here, we know:
-> > > 
-> > > * If the guest doesn't have SVE, then we're not poking anything, and so
-> > >   no ISB is necessary.
-> > > 
-> > > * If the guest has SVE, then either:
-> > > 
-> > >   - The guest owned the FP regs when it was entered.
-> > > 
-> > >   - The guest *didn't* own the FP regs when it was entered, but acquired
-> > >     ownership via a trap which executed kvm_hyp_handle_fpsimd().
-> > > 
-> > >   ... and in either case, *after* disabling the traps there's been an
-> > >   ERET to the guest and an exception back to hyp, either of which
-> > >   provides the necessary context synchronization such that the traps are
-> > >   disabled here.
-> > 
-> > What about the case where we find that there's an interrupt pending on
-> > return to the guest? In that case, I think we elide the ERET and go back
-> > to the host (see the check of isr_el1 in hyp/entry.S).
+On Mon, Feb 10, 2025 at 05:37:32PM +0100, Miguel Ojeda wrote:
+> Starting with Rust 1.85.0 (to be released 2025-02-20), `rustc` warns
+> [1] about disabling neon in the aarch64 hardfloat target:
 > 
-> Ah; I had missed that, and evidently I had not looked at the entry code.
+>     warning: target feature `neon` cannot be toggled with
+>              `-Ctarget-feature`: unsound on hard-float targets
+>              because it changes float ABI
+>       |
+>       = note: this was previously accepted by the compiler but
+>               is being phased out; it will become a hard error
+>               in a future release!
+>       = note: for more information, see issue #116344
+>               <https://github.com/rust-lang/rust/issues/116344>
 > 
-> Given that, I think the options are:
+> Thus, instead, use the softfloat target instead.
 > 
-> (a) Add an ISB after disabling the traps, before returning to the guest.
+> While trying it out, I found that the kernel sanitizers were not enabled
+> for that built-in target [2]. Upstream Rust agreed to backport
+> the enablement for the current beta so that it is ready for
+> the 1.85.0 release [3] -- thanks!
 > 
-> (b) Add an ISB in fpsimd_lazy_switch_to_host() above.
+> However, that still means that before Rust 1.85.0, we cannot switch
+> since sanitizers could be in use. Thus conditionally do so.
 > 
-> (c) Add an ISB in that sequence in hyp/entry.S, just before the ret, to
->     ensure that __guest_enter() always provides a context
->     synchronization event even when it doesn't enter the guest,
->     regardless of ARM64_HAS_RAS_EXTN.
-> 
-> I think (c) is probably the nicest, since that avoids the need for
-> redundant barriers in the common case, and those short-circuited exits
-> are hopefully rare.
+> Cc: <stable@vger.kernel.org> # Needed in 6.12.y and 6.13.y only (Rust is pinned in older LTSs).
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Matthew Maurer <mmaurer@google.com>
+> Cc: Alice Ryhl <aliceryhl@google.com>
+> Cc: Ralf Jung <post@ralfj.de>
+> Cc: Jubilee Young <workingjubilee@gmail.com>
+> Link: https://github.com/rust-lang/rust/pull/133417 [1]
+> Link: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/arm64.20neon.20.60-Ctarget-feature.60.20warning/near/495358442 [2]
+> Link: https://github.com/rust-lang/rust/pull/135905 [3]
+> Link: https://github.com/rust-lang/rust/issues/116344
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+> ---
+> Matthew: if you could please give this a go and confirm that it is fine
+> for Android (with sanitizers enabled, for 1.84.1 and 1.85.0), then a
+> Tested-by tag would be great. Thanks!
 
-(c) sounds like the most robust thing to do and, even though the ISB
-might be expensive, we're still avoiding an ERET+IRQ.
-
-> Obviously that would mean adding comments in both __guest_enter() and
-> fpsimd_lazy_switch_to_host().
-
-Yup.
-
-Cheers,
+Patch looks fine to me, but I'll wait for Matthew to confirm that it
+works for them. I'm also fine with adding the rustc-min-version helper
+at the same time, tbh -- it's not exactly rocket science, but it would
+need an Ack from Masahiro.
 
 Will
 
