@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E399C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF5DC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulp8a8DtV9v/QZgEovMYLZ19IdqN55Jlcj+vlPw2eL0=; b=P5JeqwPZt22u/PXCK9zZ6/RBHh
-	zGtxf+iemLfw2ReTUJFoJ7Ds/JdWy2vENngcrTciperqxIZS+hrWtGwkpWzXh32n51XaB6wlH58qr
-	rmvgKhg2dqRUOyy3cGNWlNtqjPyCGanJA7PFt9UaEXikA7SmranhK5q9urZdDqabjoQ0vKYmfnp63
-	NmjLj8oxwQD7lIqZ7Xw8WuPPANdtDeHv7zxBDK1nSjqsFpVsqKxiAQjjPrimChwToOo6/hC6cMFPF
-	kpSukRwhLdTe8hv384rlr2nTBAzbL04qERR3lYAv9zru0ZjVL7QGmvw5LJwyWtgrOSOA0Pk6XWViM
-	al9bZ30Q==;
+	bh=eRC2B+UCjsmwn9vi7+5CKE6PtB28WE8Fwaga4+NHtmE=; b=dBLyA7HOuAmlsM/3qXp9NhSnAW
+	qJi/NIUhWGnYkQ17cqAz4K+hSaYMp+jCNGktYhbW/aJJjTTh87Lah9xJTE3Xlx40nIkqlcwGP45E4
+	VU3KGfQMYiho7VtBt3mwR+YlZKbRFsfFEcmiAdx5/7uwRO8zqCdzAlOQP6wjfcXjCMuAOWxPmsgZq
+	eE4B4DAQOJ9GekycH/r1m49Mn2HjRuDo/xV86glHvX8NJ/lMYFrFtVqEAYsC6xnnkTfBQls+1XS/t
+	VBdtdUHinIck7NO9TH5BmEJ/70uYBjq6ru1RneroT701BGGzYaAXv+1p9Y7weJ6C+T546Vi+S9X6a
+	4ygwtQMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpuR-00000003sG9-0ToR;
-	Tue, 11 Feb 2025 13:02:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpHs-00000003kxP-3xlU;
-	Tue, 11 Feb 2025 12:22:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 39729A402B0;
-	Tue, 11 Feb 2025 12:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE2CC4CEDD;
-	Tue, 11 Feb 2025 12:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739276567;
-	bh=4K8z8+aPyeTQjXPiAwW/jC9wdrJjdLUvKNE1gq5BkA8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mQPvXg1KkJtQWn8OkwbQBFy4BC94aSKTUgHnrO12Ryg/0uJHHEzFeSZJq0ZIyYojX
-	 vXmjhyNYsTC18XK+FTrxKfsCwD6k9nkDihstrcUbVec8YMM1PPyBQNI/fGTuDDq22m
-	 554LY6+UBma+SrHeljagbISwqvOCy1xb3ZMSN4BmN2+y+tHiDiLdyXo66qFIBMzt3A
-	 B+vlvUfGHlWfCtT8TGJ3VKLlvnDmRS4trFQRKv0pcNYZjoWR9Q1vXcnc2kbfwoiWhT
-	 WERq9sapIx+PRz57TA7CMRRE7pk/jcijNb2SfikO8OtfqK+tIgsItctxlFzGcJq2JS
-	 3efbYz6E7b5cQ==
-Date: Tue, 11 Feb 2025 13:22:42 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org, Patrick Wildt <patrick@blueri.se>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, robin.murphy@arm.com
-Subject: Re: [PATCH] arm64: dts: rockchip: adjust SMMU interrupt type
-Message-ID: <Z6tBElUDaPNgkaIf@ryzen>
-References: <Z6pxme2Chmf3d3uK@windev.fritz.box>
- <25203566.ouqheUzb2q@diego>
+	id 1thpvp-00000003sVO-0aIA;
+	Tue, 11 Feb 2025 13:04:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thpIJ-00000003l1g-1UTE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 12:23:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 729301424;
+	Tue, 11 Feb 2025 04:23:33 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8026A3F6A8;
+	Tue, 11 Feb 2025 04:23:10 -0800 (PST)
+Date: Tue, 11 Feb 2025 12:23:08 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 02/18] arm64: Add syndrome information for trapped
+ LD64B/ST64B{,V,V0}
+Message-ID: <Z6tBLIsEejdCRQKP@J2N7QTR9R3>
+References: <20250210184150.2145093-1-maz@kernel.org>
+ <20250210184150.2145093-3-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <25203566.ouqheUzb2q@diego>
+In-Reply-To: <20250210184150.2145093-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_042249_108795_6B9C2C2A 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20250211_042315_435466_6B733C37 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,92 +68,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 08:40:25AM +0100, Heiko Stübner wrote:
-> Am Montag, 10. Februar 2025, 22:37:29 MEZ schrieb Patrick Wildt:
-> > The SMMU architecture requires wired interrupts to be edge triggered,
-> > which does not align with the DT description for the RK3588.  This leads
-> > to interrupt storms, as the SMMU continues to hold the pin high and only
-> > pulls it down for a short amount when issuing an IRQ.  Update the DT
-> > description to be in line with the spec and perceived reality.
-> > 
+On Mon, Feb 10, 2025 at 06:41:33PM +0000, Marc Zyngier wrote:
+> Provide the architected EC and ISS values for all the FEAT_LS64*
+> instructions.
 > 
-> Cc'ed Niklas
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/esr.h | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
-> This should probably also get a
+> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+> index d1b1a33f9a8b0..d5c2fac21a16c 100644
+> --- a/arch/arm64/include/asm/esr.h
+> +++ b/arch/arm64/include/asm/esr.h
+> @@ -20,7 +20,8 @@
+>  #define ESR_ELx_EC_FP_ASIMD	UL(0x07)
+>  #define ESR_ELx_EC_CP10_ID	UL(0x08)	/* EL2 only */
+>  #define ESR_ELx_EC_PAC		UL(0x09)	/* EL2 and above */
+> -/* Unallocated EC: 0x0A - 0x0B */
+> +#define ESR_ELx_EC_LS64B	UL(0x0A)
+
+This EC code has been generalised recently. In the latest ARM ARM (ARM
+DDI 0487 L.a), which can be found at:
+
+  https://developer.arm.com/documentation/ddi0487/la/?lang=en
+
+... the table on page D24-7333 refers to it as:
+
+| Trapped execution of any instruction not covered by other EC values.
+
+... and the corresponding ISS description is named:
+
+| ISS encoding for an exception from any other instruction
+
+... so maybe it makes sense to call it 'ESR_ELx_EC_OTHER_INSN',
+'ESR_ELx_EC_INSN_MISC', or something of that rough shape?
+
+With that, the PSB CSYNC oddity in patch 15 makes a bit more sense,
+though the L.a release of the ARM ARM is still missing the description
+of that.
+
+Mark.
+
+> +/* Unallocated EC: 0x0B */
+>  #define ESR_ELx_EC_CP14_64	UL(0x0C)
+>  #define ESR_ELx_EC_BTI		UL(0x0D)
+>  #define ESR_ELx_EC_ILL		UL(0x0E)
+> @@ -174,6 +175,11 @@
+>  #define ESR_ELx_WFx_ISS_WFE	(UL(1) << 0)
+>  #define ESR_ELx_xVC_IMM_MASK	((UL(1) << 16) - 1)
+>  
+> +/* ISS definitions for LD64B/ST64B instructions */
+> +#define ESR_ELx_ISS_ST64BV	(0)
+> +#define ESR_ELx_ISS_ST64BV0	(1)
+> +#define ESR_ELx_ISS_LDST64B	(2)
+> +
+>  #define DISR_EL1_IDS		(UL(1) << 24)
+>  /*
+>   * DISR_EL1 and ESR_ELx share the bottom 13 bits, but the RES0 bits may mean
+> -- 
+> 2.39.2
 > 
-> Fixes: cd81d3a0695c ("arm64: dts: rockchip: add rk3588 pcie and php IOMMUs")
-
-Agreed.
-
-
-> 
-> > Signed-off-by: Patrick Wildt <patrick@blueri.se>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 16 ++++++++--------
-> >  1 file changed, 8 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > index 8cfa30837ce7..520d0814a4de 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > @@ -549,10 +549,10 @@ usb_host2_xhci: usb@fcd00000 {
-> >  	mmu600_pcie: iommu@fc900000 {
-> >  		compatible = "arm,smmu-v3";
-> >  		reg = <0x0 0xfc900000 0x0 0x200000>;
-> > -		interrupts = <GIC_SPI 369 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 371 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 367 IRQ_TYPE_LEVEL_HIGH 0>;
-> > +		interrupts = <GIC_SPI 369 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 371 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 374 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 367 IRQ_TYPE_EDGE_RISING 0>;
-> >  		interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> >  		#iommu-cells = <1>;
-> >  	};
-> > @@ -560,10 +560,10 @@ mmu600_pcie: iommu@fc900000 {
-> >  	mmu600_php: iommu@fcb00000 {
-> >  		compatible = "arm,smmu-v3";
-> >  		reg = <0x0 0xfcb00000 0x0 0x200000>;
-> > -		interrupts = <GIC_SPI 381 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 383 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH 0>,
-> > -			     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH 0>;
-> > +		interrupts = <GIC_SPI 381 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 383 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 386 IRQ_TYPE_EDGE_RISING 0>,
-> > +			     <GIC_SPI 379 IRQ_TYPE_EDGE_RISING 0>;
-> >  		interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
-> >  		#iommu-cells = <1>;
-> >  		status = "disabled";
-> > 
-
-Patrick, thank you for the patch!
-
-FWIW, they have the same bug in downstream:
-https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr4.1/arch/arm64/boot/dts/rockchip/rk3588s.dtsi#L2761-L2783
-
-However, the Rockchip PCIe Virtualization Developer Guide correctly define
-the IRQs as edge triggered:
-https://dl.radxa.com/users/dev/Rockchip_PCIe_Virtualization_Developer_Guide_CN.pdf
-
-Looking at the ARM SMMUv3 architecture specification:
-"An implementation must support one of, or optionally both of, wired
-interrupts and MSIs. Whether an implementation supports MSIs is discoverable
-from SMMU_IDR0.MSI and SMMU_S_IDR0.MSI. An implementation might support wired
-interrupt outputs that are edge-triggered. The discovery of support for wired
-interrupts is IMPLEMENTATION DEFINED."
-
-Thus:
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
-
-
-Heiko, this patch should go to 6.14.
-
-Side note: We also have another SMMU patch that should go to 6.14:
-https://lore.kernel.org/linux-rockchip/20250207143900.2047949-2-cassel@kernel.org/
-
-
-Kind regards,
-Niklas
 
