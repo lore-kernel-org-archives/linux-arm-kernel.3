@@ -4,81 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A90CC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C063C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjM6wR9lV3rjjatXl5KU7qPYxVjUzsxsOmxpjHWtsxE=; b=ZQkvhTAWfPqfapoKXiFNdjB6jt
-	iIix55WhM6F6kjPglW7KPu2YsvVBd7MhZzizf5i6jimz3IW9Xt9A9wzAMwaFXIH4leueuXd1OZzqg
-	mAhopmOP3mnaqKxiucdtD/Yw1iuWLpJ/GFDR+yiJ/GU5j/4aSAjx6vA2b1Nrw8MThWocAd3i3rXyT
-	2SHY8KMSg+S9ISxx1P5fqtiW3d0SOcmeI39qBOjgX6HOb8kQGDxLaGvT5/FNclor6LxEu9164XnUw
-	P2pgdGAn4PhSjT94hGs3Uv4C0NEG0qRgVjX8tZvfxJAqatU/0s/80pFq1Ow7NrUrkneiw8BcgorXw
-	49h1a1dQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=; b=4LQGmyGLAZaHaA
+	HEGqhQeOihqk5GllU4cWGeFoJjVF3I7oJQz0dJbE6b1won8W/7O8apQxSjj+QOMDCHjBzi5T3U88a
+	KHKNTYPITU+DuENKdwaxCvQiZ4PbvkygOEN9Kp1JrBC/Eo//1SymKrF/4fLk732lybyNLXYxD8W5/
+	WlSIMoIqsj1gzXA+lKZkA9cDckEcaP9WUDfaIhDdjaNrqBgy78Kp6/uMHpMNtGSMIlzy1SfhMcxSb
+	lO7k8HQlQ0y1Se5boOsYHZxnxJF8Xi1UoXAj9s0Y+DyRaa+DFniUPMws3Npka06C7kuf56ITHzIHu
+	gdqtQRVp3I9ntt1013mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpm7-00000003qUI-49BL;
-	Tue, 11 Feb 2025 12:54:04 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1thpnW-00000003qiE-05Sj;
+	Tue, 11 Feb 2025 12:55:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thp49-00000003hJq-21p8
+	id 1thp5F-00000003hav-14Ka
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 12:08:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6626844206;
-	Tue, 11 Feb 2025 12:08:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739275714;
+	Tue, 11 Feb 2025 12:09:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739275784;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VjM6wR9lV3rjjatXl5KU7qPYxVjUzsxsOmxpjHWtsxE=;
-	b=VtAkFhbAS3bE2SKQENlezoNTiJPUHb07Kf/zDfc78REU3jItmxKRYLPJXAWRl0MAWXM5Tz
-	1jjoLHWM7IG3BzdF0j123Sd1yOWtYhtkcMuI+UfkXSukxFEuSvm5RYxA9glWHiaqVtgW7G
-	u9GmyyhmyZbKpcJeO4FPAs04Un2a1ostkVoNzl7nH96RcHRBQsmPDhFmSwmmCh7iU8k2eH
-	9kcKRXACG7Tr/uuw+gmeobox7XiENpzstu6KHVfN6YcUCRmrf/h1cIkwqXnQLs2aAy91x6
-	7Pi6tZorp7z5MpMK+TRD+yZS4jZOOrQduOywVRol1FFn/uYHWG77M9Zx7IyViw==
-Date: Tue, 11 Feb 2025 13:08:30 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>
-Subject: Re: [PATCH net-next RFC v2 2/6] net: ethtool: Introduce
- ETHTOOL_LINK_MEDIUM_* values
-Message-ID: <20250211130830.25dbafb3@fedora.home>
-In-Reply-To: <20250123103534.1ca273af@kmaincent-XPS-13-7390>
-References: <20250122174252.82730-1-maxime.chevallier@bootlin.com>
-	<20250122174252.82730-3-maxime.chevallier@bootlin.com>
-	<20250123103534.1ca273af@kmaincent-XPS-13-7390>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=;
+	b=DcZLh0wvSQaZBhNVx8tvgidrtubtk97I/kK3wuaFYnewbVhJJKxHTi5XLA8UbXLQTVWkLW
+	iTSBQ0orQuIv+Wks6czPW7K7cniHm6DqbhtqknQAJS54Q9ocHArYYZrFQwoJR93ON0o0WR
+	ymbYikALYX0eRojyp3kQP3GhRENbN8c=
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
+ [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-675-dtPt_TsQMauOxGZaGPR-rw-1; Tue, 11 Feb 2025 07:09:42 -0500
+X-MC-Unique: dtPt_TsQMauOxGZaGPR-rw-1
+X-Mimecast-MFC-AGG-ID: dtPt_TsQMauOxGZaGPR-rw
+Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-ab78a6342d7so397215166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 04:09:42 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739275781; x=1739880581;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=;
+        b=hLyj5uDZE6nupP6kSmS4NgeKYHmEgxEKR/uBHYrhTEEmsK/t2bqTP/Hdgqukmbt1gf
+         0RtzeZeESRyPVHJRtt8LM32y3q51ECKiH++djF0BMkngd0fk5suNh5DCfu6INd0rZLWj
+         xliqKR4w9YtrEoWC1vC1reOacpiATS74bc7GppUC6BC4GYq22e5w9za7oWWlF7u7Tjxe
+         NGZxS8KT4ThdhooSOltZJ0/E5bUezntmExM3pOWiyBvIAboYkNkAgTmBhrcDBgBvMZRv
+         4RuaDXmm2nfUVhz2wc36MqMVYo9w4A6flX4pASdAnO51TY6XSgumTe+z4xIaaGxDSFlH
+         pAYg==
+X-Forwarded-Encrypted: i=1; AJvYcCVLepN/VbjEaR9HWZQLLalEdFXVXfHBxvJZ54AM5Cr7RspRNOf/w2NEitl8bJZ8KIH88WVYrdqStpSYeFXyJv4J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3d82AdWCyHjA//IqY0R52pixo6eLjvcRDRwqhYN2xSgV+8LIS
+	GxeumobWNX1Moej3c7udMd2P2e0rCBkRkAL4kWARnvMBFWWZ3iQR15MpjeHrd0uBdVtV7SZFZdZ
+	NMy18vtybc1Rh4cKfdSbS36lU24hJ4DAl8psfw94Z9HshoS3RvvlMRWeiic9HuAgUk/O6J/so
+X-Gm-Gg: ASbGncvSvnPOFZigmuHLFuureTMgnz+dvlDKL25EmamU9Bw2xHCsh1eIN/Tkc4niod7
+	q3xHL4vLNkDzgYAXDLL+CByNCPrzVT0en+GUbpO6KERo4Y+uCNnqsc6Xw3HNBYIs1GUeJ/wEx+N
+	1ICJl8zpI2Hgd0q2kp1oWzo8plpbEGSYv3oYFOZZ7mJodlh1LAKYy4wA+GyJOCx/R97gMZ2x6rf
+	rT50euLk6bcoFa7S/4SkF6QXxoiT/uJ48suWIG+oGLJBrCdhUfvW1zLx0G0gmJQ+/A7gM2Er6xN
+	HCFvavFX/NydI5fdxaJRygP/ZxcPjrZJtuX4NOg=
+X-Received: by 2002:a17:907:d507:b0:ab6:d4d0:2be9 with SMTP id a640c23a62f3a-ab7da5023bdmr283992266b.56.1739275781282;
+        Tue, 11 Feb 2025 04:09:41 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHEbs1MtVLltwibnkrnNTH+nFWZ/gMfsDyXy+1D6atnoYLXZpQt7n8m1lv8z51hnGexGBacQw==
+X-Received: by 2002:a17:907:d507:b0:ab6:d4d0:2be9 with SMTP id a640c23a62f3a-ab7da5023bdmr283987366b.56.1739275780642;
+        Tue, 11 Feb 2025 04:09:40 -0800 (PST)
+Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7e1ce7ab7sm106831966b.171.2025.02.11.04.09.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 04:09:39 -0800 (PST)
+Message-ID: <bad8e013-3d01-4fe5-8783-c6d7e0e32a74@redhat.com>
+Date: Tue, 11 Feb 2025 13:09:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdeliecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeuhfefgffgtdfhgffhvdfhhffhteeutdektefghfetveehheejjefgudeiudehudenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedviedprhgtphhtthhopehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrn
- hgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
+ compaction
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
+ <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
+ <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
+ <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
+ <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
+ <2b0bb476-5bd6-489a-9b9e-7aa20964abfa@redhat.com>
+ <4e298f68-36ff-496a-81d2-7124f792180d@bytedance.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <4e298f68-36ff-496a-81d2-7124f792180d@bytedance.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZYhacu1rAq7BRjQsTBhlLYUo9suxrWxyv-w1ZUF08qo_1739275781
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_040838_257868_1D023657 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20250211_040945_448412_45945DEB 
+X-CRM114-Status: GOOD (  38.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +157,209 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi K=C3=B6ry,
+On 11.02.25 10:43, Qi Zheng wrote:
+> 
+> 
+> On 2025/2/11 17:37, David Hildenbrand wrote:
+>> On 11.02.25 10:29, Qi Zheng wrote:
+>>>
+>>>
+>>> On 2025/2/11 17:14, David Hildenbrand wrote:
+>>>> On 11.02.25 04:45, Qi Zheng wrote:
+>>>>> Hi Russell,
+>>>>>
+>>>>> On 2025/2/11 01:03, Russell King (Oracle) wrote:
+>>>>>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
+>>>>>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
+>>>>>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
+>>>>>>> dereference resulting in a kernel panic. The culprit seems to be
+>>>>>>> commit
+>>>>>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
+>>>>>>> Reverting the commit apparently fixes the issue.
+>>>>>>
+>>>>>> The blamed commit is buggy:
+>>>>>>
+>>>>>> arch/arm/include/asm/tlbflush.h:
+>>>>>> #define update_mmu_cache(vma, addr, ptep) \
+>>>>>>             update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+>>>>>>
+>>>>>> So vmf can be NULL. This didn't used to matter before this commit,
+>>>>>> because vmf was not used by ARM's update_mmu_cache_range(). However,
+>>>>>> the commit introduced a dereference of it, which now causes a NULL
+>>>>>> point dereference.
+>>>>>>
+>>>>>> Not sure what the correct solution is, but at a guess, both:
+>>>>>>
+>>>>>>       if (ptl != vmf->ptl)
+>>>>>>
+>>>>>> need to become:
+>>>>>>
+>>>>>>       if (!vmf || ptl != vmf->ptl)
+>>>>>
+>>>>> No, we can't do that, because without using split PTE locks, we would
+>>>>> use shared mm->page_table_lock, which would create a deadlock.
+>>>>
+>>>> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
+>>>>
+>>>> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
+>>>
+>>> In this case, if two vmas map the same PTE page, then the same PTE lock
+>>> will be held repeatedly. Right?
+>>
+>> Hmm, the comment says:
+>>
+>>           /*
+>>            * This is called while another page table is mapped, so we
+>>            * must use the nested version.  This also means we need to
+>>            * open-code the spin-locking.
+>>            */
+>>
+>> "another page table" implies that it cannot be the same. But maybe that
+>> comment was also wrong?
+> 
+> I don't see make_coherent() ensuring this when traversing vma.
 
-On Thu, 23 Jan 2025 10:35:34 +0100
-Kory Maincent <kory.maincent@bootlin.com> wrote:
+Right, we could just have the same file range mapped MAP_SHARED into the 
+same page table using two VMAs ... I suspect writing a reproducer for 
+the deadlock should be easy.
 
-> On Wed, 22 Jan 2025 18:42:47 +0100
-> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
->=20
-> > In an effort to have a better representation of Ethernet ports,
-> > introduce enumeration values representing the various ethernet Mediums.
-> >=20
-> > This is part of the 802.3 naming convention, for example :
-> >=20
-> > 1000 Base T 4
-> >  |    |   | |
-> >  |    |   | \_ lanes (4)
-> >  |    |   \___ Medium (T =3D=3D Twisted Copper Pairs)
-> >  |    \_______ Baseband transmission
-> >  \____________ Speed
-> >=20
-> >  Other example :
-> >=20
-> > 10000 Base K X 4
-> >            | | \_ lanes (4)
-> >            | \___ encoding (BaseX is 8b/10b while BaseR is 66b/64b)
-> >            \_____ Medium (K is backplane ethernet)
-> >=20
-> > In the case of representing a physical port, only the medium and number
-> > of lanes should be relevant. One exception would be 1000BaseX, which is
-> > currently also used as a medium in what appears to be any of
-> > 1000BaseSX, 1000BaseFX, 1000BaseCX and 1000BaseLX. =20
->=20
->=20
->=20
-> > -	__DEFINE_LINK_MODE_PARAMS(100, T, Half),
-> > -	__DEFINE_LINK_MODE_PARAMS(100, T, Full),
-> > -	__DEFINE_LINK_MODE_PARAMS(1000, T, Half),
-> > -	__DEFINE_LINK_MODE_PARAMS(1000, T, Full),
-> > +	__DEFINE_LINK_MODE_PARAMS_LANES(10, T, 2, 4, Half, T),
-> > +	__DEFINE_LINK_MODE_PARAMS_LANES(10, T, 2, 4, Full, T),
-> > +	__DEFINE_LINK_MODE_PARAMS_LANES(100, T, 2, 4, Half, T),
-> > +	__DEFINE_LINK_MODE_PARAMS_LANES(100, T, 2, 4, Full, T), =20
->=20
->=20
-> > -	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full),
-> > -	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full),
-> > -	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full),
-> > +	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full, K),
-> > +	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full, K),
-> > +	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full, K), =20
->=20
-> The medium information is used twice.
-> Maybe we could redefine the __DEFINE_LINK_MODE_PARAMS like this to avoid
-> redundant information:
-> #define __DEFINE_LINK_MODE_PARAMS(_speed, _medium, _encoding, _lanes, _du=
-plex)
->=20
-> And something like this when the lanes are not a fix number:
-> #define __DEFINE_LINK_MODE_PARAMS_LANES_RANGE(_speed, _medium, _encoding,
-> _min_lanes, _max_lanes, _duplex)
->=20
-> Then we can remove all the __LINK_MODE_LANES_XX defines which may be
-> wrong as you have spotted in patch 1.
+I therefore propose the following changes:
+> 
+> diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
+> index 2bec87c3327d2..dddbca9a2597e 100644
+> --- a/arch/arm/mm/fault-armv.c
+> +++ b/arch/arm/mm/fault-armv.c
+> @@ -61,8 +61,41 @@ static int do_adjust_pte(struct vm_area_struct *vma,
+> unsigned long address,
+>           return ret;
+>    }
+> 
+> +#if defined(CONFIG_SPLIT_PTE_PTLOCKS)
+> +/*
+> + * If we are using split PTE locks, then we need to take the pte
+> + * lock here.  Otherwise we are using shared mm->page_table_lock
+> + * which is already locked, thus cannot take it.
+> + */
+> +static inline bool do_pte_lock(spinlock_t *ptl, pmd_t pmdval, pmd_t *pmd)
+> +{
+> +       /*
+> +        * Use nested version here to indicate that we are already
+> +        * holding one similar spinlock.
+> +        */
+> +       spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
+> +       if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
+> +               spin_unlock(ptl);
+> +               return false;
+> +       }
+> +
+> +       return true;
+> +}
+> +
+> +static inline void do_pte_unlock(spinlock_t *ptl)
+> +{
+> +       spin_unlock(ptl);
+> +}
+> +#else /* !defined(CONFIG_SPLIT_PTE_PTLOCKS) */
+> +static inline bool do_pte_lock(spinlock_t *ptl)
+> +{
+> +       return true;
+> +}
+> +static inline void do_pte_unlock(spinlock_t *ptl) {}
+> +#endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
+> +
+>    static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+> -                     unsigned long pfn, struct vm_fault *vmf)
+> +                     unsigned long pfn)
+>    {
+>           spinlock_t *ptl;
+>           pgd_t *pgd;
+> @@ -99,23 +132,14 @@ static int adjust_pte(struct vm_area_struct *vma,
+> unsigned long address,
+>           if (!pte)
+>                   return 0;
+> 
+> -       /*
+> -        * If we are using split PTE locks, then we need to take the page
+> -        * lock here.  Otherwise we are using shared mm->page_table_lock
+> -        * which is already locked, thus cannot take it.
+> -        */
+> -       if (ptl != vmf->ptl) {
+> -               spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
+> -               if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
+> -                       pte_unmap_unlock(pte, ptl);
+> -                       goto again;
+> -               }
+> +       if (!do_pte_lock(ptl, pmdval, pmd)) {
+> +               pte_unmap(pte);
+> +               goto again;
+>           }
+> 
+>           ret = do_adjust_pte(vma, address, pfn, pte);
+> 
+> -       if (ptl != vmf->ptl)
+> -               spin_unlock(ptl);
+> +       do_pte_unlock(ptl);
+>           pte_unmap(pte);
+> 
+>           return ret;
+> @@ -123,16 +147,17 @@ static int adjust_pte(struct vm_area_struct *vma,
+> unsigned long address,
+> 
+>    static void
+>    make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+> -             unsigned long addr, pte_t *ptep, unsigned long pfn,
+> -             struct vm_fault *vmf)
+> +             unsigned long addr, pte_t *ptep, unsigned long pfn)
+>    {
+>           struct mm_struct *mm = vma->vm_mm;
+>           struct vm_area_struct *mpnt;
+>           unsigned long offset;
+> +       unsigned long start;
+>           pgoff_t pgoff;
+>           int aliases = 0;
+> 
+>           pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
+> +       start = ALIGN_DOWN(addr, PMD_SIZE);
+> 
+>           /*
+>            * If we have any shared mappings that are in the same mm
+> @@ -141,6 +166,8 @@ make_coherent(struct address_space *mapping, struct
+> vm_area_struct *vma,
+>            */
+>           flush_dcache_mmap_lock(mapping);
+>           vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
+> +               unsigned long mpnt_addr;
+> +
+>                   /*
+>                    * If this VMA is not in our MM, we can ignore it.
+>                    * Note that we intentionally mask out the VMA
+> @@ -151,7 +178,14 @@ make_coherent(struct address_space *mapping, struct
+> vm_area_struct *vma,
+>                   if (!(mpnt->vm_flags & VM_MAYSHARE))
+>                           continue;
+>                   offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
+> -               aliases += adjust_pte(mpnt, mpnt->vm_start + offset,
+> pfn, vmf);
+> +               mpnt_addr = mpnt->vm_start + offset;
+> +               /*
+> +                * If mpnt_addr and addr are mapped to the same PTE page,
+> +                * also skip this vma.
+> +                */
+> +               if (mpnt_addr >= start && mpnt_addr - start < PMD_SIZE)
+> +                       continue;
 
-My apologies, I missed your review and didn't address it in the new
-iteration :(
+Hmm, but is skipping the right thing to do? Maybe you would want to 
+indicate to adjust_pte() whether it must take the PTL or not.
 
-I will give this a try, see hw this looks, so that we can separate the
-encoding info from the medium info.
+I did not study that code in detail, though ...
 
-Thanks !
+-- 
+Cheers,
 
-Maxime
-
-> Regards,
+David / dhildenb
 
 
