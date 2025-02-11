@@ -4,113 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2775C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38C2C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2uQOGBoyXx3rtameUVhVS79uBMbyjaQBMgHlme6aOE=; b=giRp9p/SCrLH3Hi34I3F2zixBQ
-	53MlKfIAMti8UIX06VHuK23ybMpuzjfXP79IUhwupVgtS/uSqhxH8NBuOIQCBGMBGqHcLbt5SAjG6
-	g/3tJF8WWyENLcKGqE115RqhzG/XMtKZaVeQ5f8z8E0eNTIq2lztutQH+1qwQjiO1P8ZgM79w0cuA
-	S9g7I0Ao+lg4BsxQ4+idpOdSHeQVBWWhoujTn3J+Qu64bPcvUWEPYhCWVWNYsSsvIvvW/+3VmdGWg
-	bI3vhnO0siICzzi7MbIiKz66R1oTURhuWEO5GRzk6yWgURifz9PUXAXWE8PDQtxF30JoLFtR5Crpx
-	tvK50yvQ==;
+	bh=eHPDAundgcYY+YEOK6ITUkjYkkUi8bL66U1XWOeqKpc=; b=Owcbk9Sm9EXvznHPDEU8hIocsC
+	EN1xN8ZiErZ0xVTIku7Xh+rAkbVjVGGEl6rrAPIqpzuiY1SFkPreVOxCV/q6jWKCTQXZzBbyPc005
+	l5tRRuzAhexsnHJDvya42i64cyPxvjYdbLqqn4uV4kIBphcZlKWPbyIkjoznlOiBJE4Z2bpbYuTmD
+	+7JuG0zudwdEaUqhPpeVb7qeq2ripPOxPW+MuZoLbP3wTdhYWhMHTxuc7SBNV20pxnW/eYNwK/eIN
+	ddZ6Ygz9gEPIJRr8na4mjFgf3GnI3ixI3KoG2NYPYjZjJfVq3T+ehhPytX3w2IShJMDjgcCNd0mMZ
+	kr0rUU5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlEr-00000002vJl-3eIu;
-	Tue, 11 Feb 2025 08:03:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thlGE-00000002vUm-1yyG;
+	Tue, 11 Feb 2025 08:04:50 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlDR-00000002uzW-0Aqe
+	id 1thlDY-00000002v00-0YWy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:01:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6E5C75C0350;
-	Tue, 11 Feb 2025 08:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC1CC4CEDD;
-	Tue, 11 Feb 2025 08:01:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739260915;
-	bh=9bEXdxYB2C9XASX0APAaNux1TnoL9FXfmnFhFF334pQ=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=sIVrXrLJMyjKOfNIUsmIqRbfYw9FsIoNLdKxCBPf2TK/lRFnL1gldbGNzqFq3GH8t
-	 r4zLsXkb2TPtTNIzYp8OIwupCNgduA5bXZNCmIUYeKBkZ9MEb2qBdPezXXsd7iILZV
-	 1lsNQKQZdT0VjM/bvZzuEAT5fPyc0Q2T12x9aUBF8vfbVrWBeW9uO6D853mmSc/LPE
-	 3w26EH0QUiI38AwcSUEctcecy7e9Bsz67E9A+f1W73vLo/19Tc97jXbNUbtopMQVX4
-	 UHYuZz/WiWxyhSfgGpp7KUFiiuNvE6PjSdL4/Db35I4DeGUYToZI/OEZaMItrFExUg
-	 PqH69oO5cH4gg==
-Message-ID: <71910842-6310-4e1f-81a1-3b218e1ee69a@kernel.org>
-Date: Tue, 11 Feb 2025 09:01:49 +0100
+	Tue, 11 Feb 2025 08:02:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1739260918; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=eHPDAundgcYY+YEOK6ITUkjYkkUi8bL66U1XWOeqKpc=;
+	b=MYqhouqSu0kHvnH55JzI78Jgm7OUCne/Qf8InXp36+ghw41EpL+MLWqeZ8NXqT3Dlme1W3jK7X3Z3Cjq0l94p0787URmTIWF0GyXCVnabBanls0CYPA+7l7SxkH8QC6U7psFAYg6LnJ8sblmnu5JWfZv9l4NcDJ9AEGibj2cSPE=
+Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WPG4n1E_1739260914 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 11 Feb 2025 16:01:54 +0800
+Message-ID: <2fedcf43-05f9-40da-a4f7-1b836f30b0df@linux.alibaba.com>
+Date: Tue, 11 Feb 2025 16:01:53 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/16] dt-bindings: clock: at91: Allow referencing main
- rc oscillator in DT
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20250210164506.495747-1-ada@thorsis.com>
- <20250210164506.495747-5-ada@thorsis.com>
- <89d51ac4-0690-42a7-b5fb-2887363e8a8b@kernel.org>
- <20250211-deprive-relocate-353ad26f46b7@thorsis.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250211-deprive-relocate-353ad26f46b7@thorsis.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 2/2] perf/dwc_pcie: fix duplicate pci_dev devices
+To: Yunhui Cui <cuiyunhui@bytedance.com>, renyu.zj@linux.alibaba.com,
+ will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org
+References: <20250208104002.60332-1-cuiyunhui@bytedance.com>
+ <20250208104002.60332-3-cuiyunhui@bytedance.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20250208104002.60332-3-cuiyunhui@bytedance.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_000157_169898_258BD582 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20250211_000204_355007_B8F1AC29 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,70 +68,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 08:26, Alexander Dahl wrote:
-> Hello Krzysztof,
-> 
-> Am Mon, Feb 10, 2025 at 06:07:10PM +0100 schrieb Krzysztof Kozlowski:
->> On 10/02/2025 17:44, Alexander Dahl wrote:
->>> The main rc oscillator will be needed for the OTPC to work properly.
->>>
->>> The new index introduced here was not used on the four affected SoC
->>> clock drivers before, but for sama5d2 only (PMC_I2S1_MUX).
->>>
->>> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
->>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
->>> ---
->>>
->>> Notes:
->>>     v2:
->>>     - new patch, not present in v1
->>>
->>>  include/dt-bindings/clock/microchip,sam9x60-pmc.h  | 3 +++
->>>  include/dt-bindings/clock/microchip,sam9x7-pmc.h   | 3 +++
->>>  include/dt-bindings/clock/microchip,sama7d65-pmc.h | 3 +++
->>>  include/dt-bindings/clock/microchip,sama7g5-pmc.h  | 3 +++
->>>  4 files changed, 12 insertions(+)
->>>
->>> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> index e01e867e8c4da..dcd3c74f75b54 100644
->>> --- a/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> @@ -16,4 +16,7 @@
->>>  
->>>  #define SAM9X60_PMC_PLLACK	PMC_PLLACK	/* 7 */
->>>  
->>> +/* new from after bindings splitup */
->>> +#define SAM9X60_PMC_MAIN_RC	6
->>
->> This is confusing me, because:
->> 1. You still have holes in IDs
-> 
-> Yes, I was told to maintain the old values for interface stability in
-> series v1 feedback.
-> 
->> 2. This should be placed in proper order by ID
-> 
-> Okay, no problem.
-> 
->> 3. Why not using 4 - the next available empty ID?
-> 
-> The MAIN_RC clock is used on four out of thirteen (?) SoC variants
-> which all used the same IDs before.  6 is the first ID which is free
-> on all of sam9x60, sam9x7, sama7g5, and sama7d65.  The last two
-> already use 4 for a different clock.
-
-So driver for this device already uses something for 4?
-
-> 
-> The whole splitup is to avoid even more and/or bigger holes, but is it
-> important where the existent holes are filled?
-> 
-> Technically if the next available empty ID should be used it would be
-> 4 for sam9x60 and sam9x7, 2 for sama7d65, and 6 for sama7g5.  I
-> thought it would be nice to use the same value instead to make
-> somewhat compatible to the old approach.
 
 
-Best regards,
-Krzysztof
+在 2025/2/8 18:40, Yunhui Cui 写道:
+> During platform_device_register, wrongly using struct device
+> pci_dev as platform_data caused a kmemdup copy of pci_dev. Worse
+> still, accessing the duplicated device leads to list corruption as its
+> mutex content (e.g., list, magic) remains the same as the original.
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>   drivers/perf/dwc_pcie_pmu.c | 20 +++++++++++++-------
+>   1 file changed, 13 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index 19fa2ba8dd67..4f6599e32bba 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -565,9 +565,7 @@ static int dwc_pcie_register_dev(struct pci_dev *pdev)
+>   	u32 sbdf;
+>   
+>   	sbdf = (pci_domain_nr(pdev->bus) << 16) | PCI_DEVID(pdev->bus->number, pdev->devfn);
+> -	plat_dev = platform_device_register_data(NULL, "dwc_pcie_pmu", sbdf,
+> -						 pdev, sizeof(*pdev));
+> -
+> +	plat_dev = platform_device_register_simple("platform_dwc_pcie", sbdf, NULL, 0);
+>   	if (IS_ERR(plat_dev))
+>   		return PTR_ERR(plat_dev);
+>   
+> @@ -616,18 +614,26 @@ static struct notifier_block dwc_pcie_pmu_nb = {
+>   
+>   static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+>   {
+> -	struct pci_dev *pdev = plat_dev->dev.platform_data;
+> +	struct pci_dev *pdev;
+>   	struct dwc_pcie_pmu *pcie_pmu;
+>   	char *name;
+>   	u32 sbdf;
+>   	u16 vsec;
+>   	int ret;
+>   
+> +	sbdf = plat_dev->id;
+> +	pdev = pci_get_domain_bus_and_slot(sbdf >> 16, PCI_BUS_NUM(sbdf & 0xffff),
+> +					   sbdf & 0xff);
+> +	if (!pdev) {
+> +		pr_err("No pdev found for the sbdf 0x%x\n", sbdf);
+> +		return -ENODEV;
+> +	}
+> +
+>   	vsec = dwc_pcie_des_cap(pdev);
+>   	if (!vsec)
+>   		return -ENODEV;
+
+pci_dev_put(pdev) should move ahead to aovid return here.
+
+>   
+> -	sbdf = plat_dev->id;
+> +	pci_dev_put(pdev);
+>   	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+>   	if (!name)
+>   		return -ENOMEM;
+> @@ -642,7 +648,7 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+>   	pcie_pmu->on_cpu = -1;
+>   	pcie_pmu->pmu = (struct pmu){
+>   		.name		= name,
+> -		.parent		= &pdev->dev,
+> +		.parent		= &plat_dev->dev,
+>   		.module		= THIS_MODULE,
+>   		.attr_groups	= dwc_pcie_attr_groups,
+>   		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+> @@ -729,7 +735,7 @@ static int dwc_pcie_pmu_offline_cpu(unsigned int cpu, struct hlist_node *cpuhp_n
+>   
+>   static struct platform_driver dwc_pcie_pmu_driver = {
+>   	.probe = dwc_pcie_pmu_probe,
+> -	.driver = {.name = "dwc_pcie_pmu",},
+> +	.driver = {.name = "platform_dwc_pcie",},
+
+Aha, it is very difficult to come up with a name that satisfies everyone. The
+original name uses the '_pmu' suffix to follow the unwritten convention of
+other PMU drivers.
+
+Personally, I think the original name is more appropriate, but I'll leave the
+decision to @Will.
+
+Thanks.
+Best Regards.
+Shuai
 
