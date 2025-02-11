@@ -4,68 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D212C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6A4C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ux51PGVpKLgsu5rDot4gbKTPI/0fh9hiFHDixCmncKE=; b=Ov07z9NrIMAUJu0GRE5RBdMsEJ
-	ca5mEeEuFyfdw5jErl5OoE8dTLOnc7OcCpBh0aUuQz2RbAvujSKPGuwJ92oZRNydIWPZV+iodlFfa
-	xazp1GTEf8Kch6qoq85E6vE2wMCzoMJ3MzqMpYGI5MqVuiSg9SafUohaYfqgdRpp1tr6NxkdiGhsV
-	dRhSfJ1nhJ37o66gN7T3p+4bNvGgq3MksWq+xG/ytFgjjacTlylXCnlT2ix7nYfGt9U3dTUNKlwM/
-	v6kaZs/kQJAz82UfqM31qQRcWcpfCCSwFb6XGkCxT1R4irOBVyQ1XWrizvPxdZMOjsQtpfI5TiINO
-	4UgrB9fg==;
+	bh=Rt/0iFar5WRl6aZpHewFb36ggb3LydDYcBs0BC+08Ys=; b=Ajc2kFfps0g9zrZ+KNkTiruptZ
+	eIAKBK3qm576bjLboQzhHlqr/lP66EpwvhCKAtWODIW3ccihJWnAqCWKQPpnFnvE7JO7fNen9Frqp
+	QW/kv6sOjn3/owwjGXDEUp8CW3rTVzO7BtlXi8OVivFrTyPzD4THVf/48MU10G5XLuWxdq/mDBmPK
+	fx9oMAmzMaBVvG8aNn2l2yhYoljzBj0iGqJgBQUqbQzLDOFqZBkhoRzv0lKI90NDKNb0N9Jm1prNd
+	6DUd2UEJ5LWExR5WGmYXmsVzH7Rrwli4M2W+XH6kY81ja1KlxeoorGo9g7+8SW6Uw3ixIYPADdco+
+	Rk52qILw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuQC-00000004kvQ-15N4;
-	Tue, 11 Feb 2025 17:51:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thuTV-00000004lQM-1zSr;
+	Tue, 11 Feb 2025 17:55:09 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuOB-00000004kbD-3qCS;
-	Tue, 11 Feb 2025 17:49:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ux51PGVpKLgsu5rDot4gbKTPI/0fh9hiFHDixCmncKE=; b=VfIdK6G+oQZWb8jG7sTDpP3P1+
-	fX+uwOH2ihorYY5fKoPuf5/o+47YhEISBdyamkzxakNUMdISH4AKe6P2cwUhNlX2A+Cfef4TDejEl
-	FEJq936ohIohKTCsgVhSp26iSAam1SXLpIPlFh/II7e4axoFSanLqZr1S0D+1jXzKs8AJ6VGGmdhT
-	1xP+EsTETZqkH/+BcLND7EypV2+I2/fOp+qCWI3od7dB9Cpxh8DVLS0541j15pD2K2g91SWnJKKmZ
-	Klt23qL7GjpW9n4puz/ASkP3jkCIKwnxTf51tEhfIm/+yZ5T/sp4wG0c+MWQKqMpr2ExjkcfCT3IF
-	0NHaHHbw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuO8-00000000evL-0mJu;
-	Tue, 11 Feb 2025 17:49:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 393EC13D5;
-	Tue, 11 Feb 2025 09:49:55 -0800 (PST)
-Received: from [10.57.35.63] (unknown [10.57.35.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 085D83F5A1;
-	Tue, 11 Feb 2025 09:49:31 -0800 (PST)
-Message-ID: <7996d1ec-6ceb-4d8a-bf03-1911ac5f8f0c@arm.com>
-Date: Tue, 11 Feb 2025 17:49:29 +0000
+	id 1thuS4-00000004lFZ-2Urt;
+	Tue, 11 Feb 2025 17:53:42 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 3FF6725400A1;
+	Tue, 11 Feb 2025 12:53:38 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Tue, 11 Feb 2025 12:53:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1739296418;
+	 x=1739382818; bh=Rt/0iFar5WRl6aZpHewFb36ggb3LydDYcBs0BC+08Ys=; b=
+	xdIFMDytym6Gl76ox2nUrc/+Rjo4HHYbnFvPzDNfmVJOT9CbDLyBqAyNfdN20VvJ
+	cgRQoXlnRZjr2VYKwkjXMlgUTPljbfnh7gMsvoEUjJsBMIDHV2ycpiRFGvSn+mil
+	WJRoThppckQb3/r9fdkuv3RUB1qUQJWR/u+7qNoLliX7o8gbH0WV88JyiLr8EwCI
+	xRHB0HrK2VgTGXyk0gkmNLjj2ZJGz7JVHmtpqFfxgJbJXF6guOsss8jWZpQINLcW
+	PBGs2Hlu+BY2FpZGBn3wt/8ZYhkMR7IGByPbF9e6AYceOoo1ZeGciKOZXIxsgMcg
+	4COTvD+U4Lft3Q6iJanI5g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739296418; x=
+	1739382818; bh=Rt/0iFar5WRl6aZpHewFb36ggb3LydDYcBs0BC+08Ys=; b=0
+	DlcNb++aMvOAm9oNraH3ejZxfReC6Y5fc46AmdRDkwW41nHo/qiXXIiPqElpcSU3
+	ncLOLV0a4ryIT2HlNb1QYW9yzWYjth1gqibyvMZ45CJB/v8EWZ9yMMYiryM2aY18
+	MOryAESqjt4NKB2WC56yFBkPay4H+V1JixCq4pJdJHOo35lzPew+aub6VXmzOBED
+	A8q2k/UfbmT1N3+eez9ZV8Wpc9ujl4wfznFJDVrVJ4X6n3DccfCHzSaj9iE2W6mr
+	rvZFlSThPkLhKse2UvhMbsBzctqVUyzuHFqqMGDbTNZrBEMXrYYIW3r35Gwlh8AL
+	CooNgkovAVGWzDnuxzE6Q==
+X-ME-Sender: <xms:n46rZ1jbUikOuSHxPTNNI2Cn7iRliRmpGRTsc3wYuJIXL8oZqFXn6w>
+    <xme:n46rZ6CQbtYAPvcFaBPAwgi143Vf5FX51PXqi39uc7VVRDo4tSUoKSfCWwJcZOZ_J
+    iJ-mByPO2v0FNoTaGw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegudeihecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpeetfeduheevuddtuefgueevffeludehheefheff
+    ueejudelvdehiedvffelffejtdenucffohhmrghinhepghhithhhuhgsrdgtohhmnecuve
+    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
+    rhhnuggsrdguvgdpnhgspghrtghpthhtohepfedupdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthht
+    ohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepphgrlhhmvg
+    hrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgv
+    lhgvhidrvgguuhdprhgtphhtthhopehhohifrghruggthhhuleehsehgmhgrihhlrdgtoh
+    hmpdhrtghpthhtohepihhrohhgvghrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohep
+    phgvthgvrhiisehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprggurhhirghnrd
+    hhuhhnthgvrhesihhnthgvlhdrtghomhdprhgtphhtthhopegrtghmvgeskhgvrhhnvghl
+    rdhorhhg
+X-ME-Proxy: <xmx:n46rZ1Gs461BZbHoB9llQOxf7KMqllCx5S0qZC49xXmC6Ekq-z9a_Q>
+    <xmx:n46rZ6SQUPRD6LEilvVLC7euKo6wczwsgWyqxzrWXi1iq-sAjHGEJg>
+    <xmx:n46rZyyytDPl5S3GDTuFiezwfj_9ZZfJ5VcUxIg-xVlUFZ0Z7MgTcA>
+    <xmx:n46rZw4BekUScJ0AeZP8wT0i2Ihr0coN7ugZeUxPwPHwDHTGC5FweQ>
+    <xmx:oo6rZ78X6Hck3eR5im0KEY5fY3R-pQAhJVlM8zz_igsWuAdMEONPZbEH>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 76E112220072; Tue, 11 Feb 2025 12:53:35 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: disable IOMMU when running rk3588
- in PCIe endpoint mode
-To: Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20250207143900.2047949-2-cassel@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250207143900.2047949-2-cassel@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Date: Tue, 11 Feb 2025 18:53:14 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ian Rogers" <irogers@google.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Howard Chu" <howardchu95@gmail.com>
+Cc: "Peter Zijlstra" <peterz@infradead.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Namhyung Kim" <namhyung@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+ "Jiri Olsa" <jolsa@kernel.org>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "Kan Liang" <kan.liang@linux.intel.com>,
+ "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
+ "James Clark" <james.clark@linaro.org>,
+ "Mike Leach" <mike.leach@linaro.org>, "Leo Yan" <leo.yan@linux.dev>,
+ guoren <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Charlie Jenkins" <charlie@rivosinc.com>,
+ "Bibo Mao" <maobibo@loongson.cn>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Jiri Slaby" <jirislaby@kernel.org>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-riscv@lists.infradead.org
+Message-Id: <0195f9a0-5198-4ee0-b4ff-ea7126dc8299@app.fastmail.com>
+In-Reply-To: <CAP-5=fUi4RYebxCGYZVHVEt0BpWVmUA6+-vDQfbai25_KJRs7A@mail.gmail.com>
+References: <20250210165108.95894-1-irogers@google.com>
+ <20250210165108.95894-6-irogers@google.com>
+ <d47c35dd-9c52-48e7-a00d-135572f11fbb@app.fastmail.com>
+ <CAP-5=fUi4RYebxCGYZVHVEt0BpWVmUA6+-vDQfbai25_KJRs7A@mail.gmail.com>
+Subject: Re: [PATCH v2 5/7] perf trace beauty: Add syscalltbl.sh generating all system
+ call tables
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_174936_678304_F8E97826 
-X-CRM114-Status: GOOD (  26.29  )
+X-CRM114-CacheID: sfid-20250211_095341_094000_A68AEADC 
+X-CRM114-Status: GOOD (  44.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +139,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-07 2:39 pm, Niklas Cassel wrote:
-> Commit da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU
-> on the rk3588 SoC") enabled the mmu600_pcie IOMMU, both in the normal case
-> (when all PCIe controllers are running in Root Complex mode) and in the
-> case when running the pcie3x4 PCIe controller in Endpoint mode.
-> 
-> There have been no issues detected when running the PCIe controllers in
-> Root Complex mode. During PCI probe time, we will add a SID to the IOMMU
-> for each PCI device enumerated on the bus, including the root port itself.
-> 
-> However, when running the pcie3x4 PCIe controller in Endpoint mode, we
-> will only add a single SID to the IOMMU (the SID specified in the iommus
-> DT property).
-> 
-> The enablement of IOMMU in endpoint mode was verified on setup with two
-> Rock 5b:s, where the BDF of the Root Complex has BDF (00:00.0).
-> 
-> A Root Complex sending a TLP to the Endpoint will have Requester ID set
-> to the BDF of the initiator. On the EP side, the Requester ID will then
-> be used as the SID. This works fine if the Root Complex has a BDF that
-> matches the iommus DT property, however, if the Root Complex has any other
-> BDF, we will see something like:
-> arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
-> on the endpoint side.
-> 
-> For PCIe controllers running in endpoint mode that always uses the
-> incoming Requester ID as the SID, the iommus DT property simply isn't
-> a viable solution. (Neither is iommu-map a viable solution, as there is
-> no enumeration done on the endpoint side.)
+On Tue, Feb 11, 2025, at 18:24, Ian Rogers wrote:
+> On Tue, Feb 11, 2025 at 12:09=E2=80=AFAM Arnd Bergmann <arnd@arndb.de>=
+ wrote:
+>> On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
+>> > "$tools_dir/perf/arch/arm64/entry/syscalls/syscall_64.tbl" "$outfil=
+e"
+>> > common,64,renameat,rlimit,memfd_secret EM_AARCH64
+>> > +cat >> "$outfile" <<EOF
+>> > +#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) ||
+>> > defined(__aarch64__)
+>>
+>> Hardcoding the set of ABIs in the middle of the script seems
+>> too fragile to me, I'm worried that these get out of sync quickly.
+>
+> I agree, again this is carrying forward a behavior and at least after
+> these changes the location is just one place. Do you have any
+> suggestions on how to do better?
 
-Well, strictly the controller should own all the StreamIDs it's capable 
-of emitting - if that's just one per possible bus number (as the iATU 
-FUNC_NUM/FUNC_BYPASS stuff appears to suggest?) then 256 "iommus" 
-entries isn't *entirely* unmanageable. If it were to support being 
-arbitrary (or multiple) devices/functions, though, then we probably 
-would want to look for a different solution, because nobody wants a 
-512KB DT property... :)
+Not sure, but I have some patches that I was planning to send
+that puts these into arch/*/kernel/Makefile.syscalls for all
+architectures in a consistent way. Ideally we'd use the same
+Makefile contents for tools/perf in order to trivially sync
+them, but I'm also happy to hear other suggestions.
 
-Thanks,
-Robin.
+Your patches are currently ahead of mine, so I don't want to
+hold you up.=20
 
-> Thus, partly revert commit da92d3dfc871 ("arm64: dts: rockchip: enable the
-> mmu600_pcie IOMMU on the rk3588 SoC") by disabling the PCI IOMMU when
-> running the pcie3x4 PCIe controller in Endpoint mode.
-> 
-> Since the PCI IOMMU is working as expected in the normal case, keep it
-> enabled when running all PCIe controllers in Root Complex mode.
-> 
-> Fixes: da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU on the rk3588 SoC")
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-> ---
->   arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi           | 1 -
->   arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso | 4 ++++
->   2 files changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> index 42b57e27ee4c..b5feefda9d2d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> @@ -215,7 +215,6 @@ pcie3x4_ep: pcie-ep@fe150000 {
->   		interrupt-names = "sys", "pmc", "msg", "legacy", "err",
->   				  "dma0", "dma1", "dma2", "dma3";
->   		max-link-speed = <3>;
-> -		iommus = <&mmu600_pcie 0x0000>;
->   		num-lanes = <4>;
->   		phys = <&pcie30phy>;
->   		phy-names = "pcie-phy";
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> index 672d748fcc67..f229cb49da68 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso
-> @@ -23,3 +23,7 @@ &pcie3x4_ep {
->   	vpcie3v3-supply = <&vcc3v3_pcie30>;
->   	status = "okay";
->   };
-> +
-> +&mmu600_pcie {
-> +	status = "disabled";
-> +};
+> Fwiw, I wonder a related problem/question that has come up primarily
+> with Arnaldo and Howard is in having a way to determine system call
+> argument types so that perf trace can pretty print them. For example,
+> if via BTF it is found an argument is a "const char*" then it is
+> assumed to be a string, but a "char *" is not as it may just be an out
+> argument. There's a source for more information in the syzkaller
+> project:
+> https://github.com/google/syzkaller/blob/master/sys/linux/sys.txt
+> Perhaps there's a way to generate this information from the Linux
+> build and feed it into perf's build. It is out-of-scope for what I'm
+> trying to do here, but I thought it worth a mention given my general
+> ignorance on wider things.
 
+Yes, this is also something I've been trying to work on. In particular
+the calling conventions for 64-bit register arguments on 32-bit
+targets need some help. My plan for this is to have a consistent
+mapping of internal (sys_foo()) function names to argument lists,
+instead of having some calls that are slightly different depending
+on the architecture or ABI.
+
+This should be in a machine-readable format so it can be parsed
+not only by perf but also any other project that needs a list
+(libc, gdb, qemu, strace, rust, ...)
+
+>> > +#if defined(ALL_SYSCALLTBL) || defined(__mips__)
+>> > +EOF
+>> > +build_tables
+>> > "$tools_dir/perf/arch/mips/entry/syscalls/syscall_n64.tbl" "$outfil=
+e"
+>> > common,64,n64 EM_MIPS
+>> > +cat >> "$outfile" <<EOF
+>> > +#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
+>>
+>> What about n32/o32? The syscall tables are completely different here.
+>
+> So perf hasn't historically supported them and no one is asking for
+> support. Generating more tables isn't the problem, but we need to have
+> some way of determining which table to use for n32/o32. I see
+> EF_MIPS_ABI_O32 and EF_MIPS_ABI_O64, so we could add support by
+> extending the lookup of the table to be both of e_machine and e_flags.
+> I'm less clear on choosing n32. That said, back in the 90s I was
+> working to port MIPS code to Itanium via binary translation. Given now
+> Itanium is obsolete, I'm not sure it is worth adding complexity for
+> the sake of MIPS. I'm happy to do what others feel is best here, but
+> my default position is just to carry what the existing behavior is
+> forward.
+
+I think the way it actually works on mips is that all syscalls are
+allowed in any task and the actual number identifies both the
+ABI and the syscall. In some variant, the same is true on arm
+(oabi/eabi) and x86-64 (64/x32), but oabi and x32 are both too
+obsolete to put much work into them.
+
+There is still some interest in mips, maybe you can poke the
+maintainers and see if someone is willing to help out since you
+have done the bulk of the work already.
+
+>> > +EOF
+>> > +build_tables "$tools_dir/perf/arch/s390/entry/syscalls/syscall.tbl"
+>> > "$outfile" common,64,renameat,rlimit,memfd_secret EM_S390
+>> > +cat >> "$outfile" <<EOF
+>> > +#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
+>>
+>> This skips the 32-bit table, though I think that one is already
+>> planned to be discontinued in the future.
+>
+> Thankfully we have awesome s390 devs on the mailing list, hopefully
+> they'll shout out if I'm doing things wrong.
+
+I also remembered that I had a patch to bring the s390 syscall.tbl
+into the same format as the others, since the behavior is currently
+a bit different for compat calls. I think there is also a chance
+that they want to discontinue 32-bit mode entirely, given that
+the last 32-bit machine was discontinued over 20 years ago, and
+support for native 32-bit kernels got removed 10 years ago
+after Debian 8 moved to 64 bit.
+
+If they are confident that there are no more remaining users that
+rely on 32-bit binaries, we could both save some work.
+
+>> > +#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_=
+64__)
+>> > +EOF
+>> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_32.t=
+bl"
+>> > "$outfile" common,32,i386 EM_386
+>> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_64.t=
+bl"
+>> > "$outfile" common,64 EM_X86_64
+>> > +cat >> "$outfile" <<EOF
+>> > +#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) ||
+>> > defined(__x86_64__)
+>>
+>> This misses the x32 table.
+>
+> Again I'm carrying forward a behavior. Would it be worth adding x32?
+
+I would probably document it in the file as an intentional
+omission, same as for arm oabi
+
+> That said there is likely other context
+> that I'm unaware of as I'm surprised x32 still exists.
+
+There are a handful of people still testing it, and some still
+using it, but I agree it completely failed to get enough
+traction to be worth maintaining.
+
+I view x32 (and the corresponding arm64 ilp32 mode that never
+made it in) mostly as an exercise in benchmark(et)ing, since
+it showed noticeably higher results in some versions of specint
+and some compiler workloads, compared to both normal 32-bit and
+64-bit modes. The time that we already wasted on maintaining
+it must have long surpassed any such benefits though, so I
+certainly don't want to waste more time on it.
+
+     Arnd
 
