@@ -4,74 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0A2C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9301C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 14:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OO2knjmuBvtucptzxUGQqaC73/LOtARP3qDbozdomLc=; b=Zqv2ef8lIgba0m2EMvlGOHT+XF
-	LeO6RCBfzyhZWPjhKjonxkhguA4v3B9H/nRIQMyZaKaFNIYfmsvwIua3nL0wvFr3L2AvBZAiit45e
-	KEl/vglA4rMeAjxwiElGeSuURknsUIvFKPH1F6v6Inn6y9CZqgsUCmdHgoJZV6rgIdM4Qf7w7daBg
-	tVH9IFfY+E/lR39bsUZmXV3GLOBmyMaHV7RrPh4jw20hPSA5eVtZjAZHPsSVvjxUBWe3J61+n8ffN
-	j/n509WAuD+zWRgThC0wiNhau4z4qtOyqdmvGq/uizppJ4rnL5WAusq1mdjYIlpxjzEqUR5tzw0+Y
-	CR4sS5Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+syQltWy2iShpV3VhhxV37TML7DelsfUgKCvN307fw=; b=4bV3FPHvKCLv6kWmt+FcmwW5Lj
+	dK50zWhjhXAdH3XRrSIUyZDbPpzRNjCXribq0Gncu3yO5Mp0nPy1DQPoZjNznQdyvxoyNzX95Xjya
+	pHKmcAC9g9PzxhjxHVtjl36RvW0T9v7w6gaBN4Bho2Z+mblFWvnCYkeK5wbjrmMQ8Z6Jy+fl0/wLu
+	DvbFTmfxwOTueL/CDBNli8jZQIzNx0PL+G09lXWyo5TYVsouU5WVcfXhodYlOLb+r7smJ1jU+ZjU5
+	uNFYoAfdFrePuwBHHesrLI07y97iW9e+AsdXxKmOpn8RP2s6lbytBwemGzK7YDZrDq75wfystzBvQ
+	YnV8CLOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thraU-00000004Bej-3DZv;
-	Tue, 11 Feb 2025 14:50:10 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1thrbt-00000004Btr-06rJ;
+	Tue, 11 Feb 2025 14:51:37 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thrR6-000000049rT-1LFp;
-	Tue, 11 Feb 2025 14:40:29 +0000
-X-UUID: 1f6c4efce88611ef82ff63e91e7eb18c-20250211
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=OO2knjmuBvtucptzxUGQqaC73/LOtARP3qDbozdomLc=;
-	b=hHU24o2HiWCChrQymAnA8751pyWaJLrF86/Yh/W1d4NjjuL1+nWgV3JtpS8xFKesh4lCx8SFilOSWbyBxRS+8Q7u897SXGBs9EKplv7WQHitTLgI9O7KGJNp/PEImh7tg2+of8mxGQ22BW9kPvNphRkVqddaVb8VzDykuG2AA/U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:c9dec2fb-c132-4b6d-9c55-4885a54b5cce,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
-	ION:release,TS:-50
-X-CID-META: VersionHash:60aa074,CLOUDID:18be6b7f-427a-4311-9df4-bfaeeacd8532,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:1,IP:nil
-	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
-	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1f6c4efce88611ef82ff63e91e7eb18c-20250211
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <zoie.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1262176835; Tue, 11 Feb 2025 07:40:22 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 11 Feb 2025 22:40:19 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 11 Feb 2025 22:40:19 +0800
-From: Zoie Lin <zoie.lin@mediatek.com>
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<teddy.chen@mediatek.com>, <joseph-cc.chang@mediatek.com>,
-	<leilk.liu@mediatek.com>, Zoie Lin <zoie.lin@mediatek.com>
-Subject: [PATCH v4 0/1] i2c: mediatek: add runtime PM operations and bus regulator control
-Date: Tue, 11 Feb 2025 22:39:37 +0800
-Message-ID: <20250211144016.488001-1-zoie.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1thrTy-00000004AQ1-1DoA;
+	Tue, 11 Feb 2025 14:43:27 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso915199266b.1;
+        Tue, 11 Feb 2025 06:43:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739285004; x=1739889804; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V+syQltWy2iShpV3VhhxV37TML7DelsfUgKCvN307fw=;
+        b=ASOV0WvqV7F7We5gcCJH5RP1Bf3K6nsGykvXj4Znt6bGmE2EVB/NHgvOulOB6Zy+ad
+         3Oak7utHPeDZG5XhfrFoUsLJAYseEvnAGY9SDKsXFoVpp3yscMK3Khsrbm61wCSuoS0n
+         q7BFLFOY1587zPEyvRnzXtEr0liGXHdSKnXlBcTCtIUrXu1bZBY5oRrYp427uHstByTr
+         25XAnv/1ERIXEetYWmObKa6z2AkysQtUFj1wCP4QSzTGqKu9AqbGvSXiHMrVbq8DQQxV
+         xXkLtHMXLdbG2mi2/Bcz2O9mkO9pNfQcVp9SNVIizFpZrv2YryFbLbwsR9eHRCrmKyEv
+         iPdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739285004; x=1739889804;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V+syQltWy2iShpV3VhhxV37TML7DelsfUgKCvN307fw=;
+        b=BpwdDPzJnP2gonkurqc4dCBBUlookvnbBshQ1JnNcK5ZNJQQj5nYdh8PP4xdZyclx+
+         vaeUylx9fZ/AgPnyu4P08MVRSLcqqx6BU4xe9sBuiP4B1jtD3btGRjAXTo02rVbFw2Sq
+         dH7KQc+iRwyvHGMZIEJ6CG+WteXkppMPDR7pR5my4NOgHUabgCbjFnOswzDyihWvYxuG
+         nGOtFbshLUsiBTacdZFak8W+m8Y5xjnVMbWLQDAXyfxcpUCgrWrdlZ5NZErsWiwed8/z
+         4qknkf3U989Hblo0HUmJxtkNVXpVFuUUQlZuvCsrp5rqg9Wwa1jH1kmM6QsYX2k4EYfe
+         5qOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUDwPBxOp6PXU/yDTVcyFmo16fn6s/59eR0XWrcgj7OUvnpL+W0H4Dq+hZ3ZRZ2+8vURkvimThf+FAygGClL2U5@lists.infradead.org, AJvYcCUgP17ermzIuBuaJ8qsel9yBZ5DFqTDJ2vjpu2pSZdI//NoNmhT6rlhRHjwoW0HCU3JM6QHH5mRTR3tSv4r2gk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhQn0UOuG3kdCZK7EJBXVkvtfBG6hN6U+Nc9OeydDmr3cBn8tf
+	ha6zaCiwfD0jcw9AwNsBd3MJzVSCfH6FH7hIi2OdJxezm/XACOLB
+X-Gm-Gg: ASbGncvMLBlqahamqDFEnvZos6tviJijHCNk+p7yMNyhOcxtA+vjnPdeFtatHvbnKGW
+	3otcNNc8/fFLMJVb8HkBX2BQ+Z/w7rN+bGyu9EVy3eaMBom1R5dHCSGVeuEzxUff2GSvdrxvqqh
+	P/Xr4Ti0BoI92hjOgkL64BjC2lQoLh/pwqk8/AGEAPbzRRBii5V0gUpRmMmS3z+p3IARucrEyDw
+	GEIJ8KkUbS39hMpZigxDpq6JuAH1qRP2XBQYJ3/m9marh65FUYGmerPStb15pgzrnMBz5JU/8WT
+	i677hfXQLLOPLbXPzTCmZzS/NzgZ6KJlIeSyNLf6IGVO+r4NOLgeQ9R4RPtOrj9BUBZZWSZz/4p
+	ezb/p4BGBQU4Is5iY+gq0lvekxzc0ou/l/Jhplh2KTKRf/avphWogiRkOBtbufJrksw==
+X-Google-Smtp-Source: AGHT+IF9jmcJFJFbEK49xdcz+FAYc5JFQf9JpzthNkFP4VwxwCFQdCkq660UzRh31VnMKEshFSn0QQ==
+X-Received: by 2002:a17:907:6e86:b0:aa6:9eac:4b8e with SMTP id a640c23a62f3a-ab789bfc7d9mr2013030966b.41.1739285004009;
+        Tue, 11 Feb 2025 06:43:24 -0800 (PST)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7c4a50e73sm394025366b.36.2025.02.11.06.43.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 06:43:23 -0800 (PST)
+Message-ID: <9ae3548a-844e-4449-9c00-5dd79e804922@gmail.com>
+Date: Tue, 11 Feb 2025 15:43:22 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 net-next 05/14] bridge: Add filling forward path from
+ port to port
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Pablo Neira Ayuso
+ <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@netfilter.org>,
+ Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>,
+ Roopa Prabhu <roopa@nvidia.com>, Nikolay Aleksandrov <razor@blackwall.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, bridge@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250209111034.241571-1-ericwouds@gmail.com>
+ <20250209111034.241571-6-ericwouds@gmail.com>
+ <20250211132832.aiy6ocvqppoqkd65@skbuf>
+Content-Language: en-US
+From: Eric Woudstra <ericwouds@gmail.com>
+In-Reply-To: <20250211132832.aiy6ocvqppoqkd65@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_064028_370427_7F41B8ED 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250211_064326_336344_356369D8 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,189 +118,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for runtime PM operations in
-the I2C driver, enabling runtime suspend and resume functionality.
 
-Although in most platforms, the bus power of i2c is always
-on, some platforms disable the i2c bus power in order to meet
-low power request.
 
-This implementation includes bus regulator control to facilitate
-proper handling of the bus power based on platform requirements.
+On 2/11/25 2:28 PM, Vladimir Oltean wrote:
+> On Sun, Feb 09, 2025 at 12:10:25PM +0100, Eric Woudstra wrote:
+>> @@ -1453,7 +1454,10 @@ void br_vlan_fill_forward_path_pvid(struct net_bridge *br,
+>>  	if (!br_opt_get(br, BROPT_VLAN_ENABLED))
+>>  		return;
+>>  
+>> -	vg = br_vlan_group(br);
+>> +	if (p)
+>> +		vg = nbp_vlan_group(p);
+>> +	else
+>> +		vg = br_vlan_group(br);
+>>  
+>>  	if (idx >= 0 &&
+>>  	    ctx->vlan[idx].proto == br->vlan_proto) {
+> 
+> I think the original usage of br_vlan_group() here was incorrect, and so
+> is the new usage of nbp_vlan_group(). They should be br_vlan_group_rcu()
+> and nbp_vlan_group_rcu().
+> 
+> The lockdep annotation is important, otherwise I get this with CONFIG_PROVE_LOCKING=y:
+> [ 1140.931869] =============================
+> [ 1140.935996] WARNING: suspicious RCU usage
+> [ 1140.940094] 6.14.0-rc1-00224-gda8926a49ba1-dirty #2666 Not tainted
+> [ 1140.946371] -----------------------------
+> [ 1140.950520] net/bridge/br_private.h:1604 suspicious rcu_dereference_protected() usage!
+> [ 1140.958622]
+> [ 1140.958622] other info that might help us debug this:
+> [ 1140.958622]
+> [ 1140.966752]
+> [ 1140.966752] rcu_scheduler_active = 2, debug_locks = 1
+> [ 1140.973435] 2 locks held by swapper/0/0:
+> [ 1140.977521]  #0: ffffd9f646c333b0 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire+0x4/0x40
+> [ 1140.986404]  #1: ffffd9f646c333b0 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire+0x4/0x48
+> [ 1140.995170]
+> [ 1140.995170] stack backtrace:
+> [ 1140.999636] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 6.14.0-rc1-00224-gda8926a49ba1-dirty #2666
+> [ 1140.999650] Hardware name: LS1028A RDB Board (DT)
+> [ 1140.999656] Call trace:
+> [ 1140.999660]  show_stack+0x24/0x38 (C)
+> [ 1140.999683]  dump_stack_lvl+0x40/0xa0
+> [ 1140.999698]  dump_stack+0x18/0x24
+> [ 1140.999711]  lockdep_rcu_suspicious+0x174/0x218
+> [ 1140.999723]  br_vlan_fill_forward_path_pvid+0x90/0x150
+> [ 1140.999735]  br_fill_forward_path+0x54/0x1b0
+> [ 1140.999751]  dev_fill_bridge_path+0x9c/0x188
+> [ 1140.999766]  nft_dev_fill_bridge_path+0x2ac/0x418
+> [ 1140.999785]  nft_flow_offload_bridge_init+0x188/0x1c8
+> [ 1140.999801]  nft_flow_offload_eval+0x18c/0x300
+> [ 1140.999816]  nft_do_chain+0x1c8/0x538
+> [ 1140.999831]  nft_do_chain_bridge+0x15c/0x210
+> [ 1140.999846]  nf_hook_slow+0x80/0x130
+> [ 1140.999862]  NF_HOOK+0xd8/0x1d0
+> [ 1140.999871]  __br_forward+0x138/0x1a0
+> [ 1140.999880]  br_forward+0xd8/0x160
+> [ 1140.999889]  br_handle_frame_finish+0x3bc/0x5a8
+> [ 1140.999900]  br_nf_pre_routing_finish+0x538/0x608
+> [ 1140.999917]  NF_HOOK+0x254/0x298
+> [ 1140.999933]  br_nf_pre_routing+0x3e8/0x428
+> [ 1140.999949]  br_handle_frame+0x264/0x490
+> [ 1140.999959]  __netif_receive_skb_core+0x13c/0x1128
+> [ 1140.999975]  __netif_receive_skb_list_core+0xd4/0x1e8
+> [ 1140.999989]  netif_receive_skb_list_internal+0x224/0x338
+> [ 1141.000000]  napi_complete_done+0xb4/0x1d8
+> [ 1141.000012]  gro_cell_poll+0x94/0xb8
+> [ 1141.000025]  __napi_poll+0x58/0x258
+> [ 1141.000040]  net_rx_action+0x1f4/0x3e0
+> [ 1141.000055]  handle_softirqs+0x184/0x458
+> [ 1141.000070]  __do_softirq+0x20/0x2c
+> [ 1141.000079]  ____do_softirq+0x1c/0x30
+> [ 1141.000095]  call_on_irq_stack+0x24/0x58
+> [ 1141.000111]  do_softirq_own_stack+0x28/0x40
+> [ 1141.000127]  __irq_exit_rcu+0xd4/0x1a0
+> [ 1141.000139]  irq_exit_rcu+0x1c/0x40
+> [ 1141.000152]  el1_interrupt+0x8c/0xc0
+> [ 1141.000170]  el1h_64_irq_handler+0x18/0x28
+> [ 1141.000186]  el1h_64_irq+0x6c/0x70
+> [ 1141.000195]  arch_local_irq_enable+0x8/0x10 (P)
+> [ 1141.000213]  cpuidle_enter+0x44/0x68
+> [ 1141.000228]  do_idle+0x1e8/0x280
+> [ 1141.000238]  cpu_startup_entry+0x40/0x50
+> [ 1141.000248]  rest_init+0x1c4/0x1d0
+> [ 1141.000260]  start_kernel+0x324/0x3e8
+> [ 1141.000272]  __primary_switched+0x88/0x98
+> [ 1141.197568] ------------[ cut here ]------------
 
-Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
----
- drivers/i2c/busses/i2c-mt65xx.c | 73 +++++++++++++++++++++++++++------
- 1 file changed, 61 insertions(+), 12 deletions(-)
-
-This series is based on linux-next, tag: next-20250210
-
-Changes in v4:
-- Removed unnecessary variable initialization.
-- Removed unnecessary brackets.
-- Corrected grammar issues in the commit message.
-- Confirmed autosuspend delay is not necessary.
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index 5bd342047d59..1979b46d75f0 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -21,6 +21,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/scatterlist.h>
- #include <linux/sched.h>
- #include <linux/slab.h>
-@@ -1245,8 +1246,8 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	int left_num = num;
- 	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
- 
--	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
--	if (ret)
-+	ret = pm_runtime_resume_and_get(i2c->dev);
-+	if (ret < 0)
- 		return ret;
- 
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
-@@ -1299,7 +1300,9 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	ret = num;
- 
- err_exit:
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	pm_runtime_mark_last_busy(i2c->dev);
-+	pm_runtime_put_sync(i2c->dev);
-+
- 	return ret;
- }
- 
-@@ -1370,6 +1373,38 @@ static int mtk_i2c_parse_dt(struct device_node *np, struct mtk_i2c *i2c)
- 	return 0;
- }
- 
-+static int mtk_i2c_runtime_suspend(struct device *dev)
-+{
-+	struct mtk_i2c *i2c = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (i2c->adap.bus_regulator)
-+		regulator_disable(i2c->adap.bus_regulator);
-+
-+	return 0;
-+}
-+
-+static int mtk_i2c_runtime_resume(struct device *dev)
-+{
-+	int ret;
-+	struct mtk_i2c *i2c = dev_get_drvdata(dev);
-+
-+	if (i2c->adap.bus_regulator) {
-+		ret = regulator_enable(i2c->adap.bus_regulator);
-+		if (ret) {
-+			dev_err(dev, "enable regulator failed!\n");
-+			return ret;
-+		}
-+	}
-+
-+	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (ret)
-+		if (i2c->adap.bus_regulator)
-+			regulator_disable(i2c->adap.bus_regulator);
-+
-+	return ret;
-+}
-+
- static int mtk_i2c_probe(struct platform_device *pdev)
- {
- 	int ret = 0;
-@@ -1472,13 +1507,18 @@ static int mtk_i2c_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 	if (ret) {
--		dev_err(&pdev->dev, "clock enable failed!\n");
- 		return ret;
- 	}
-+
-+	platform_set_drvdata(pdev, i2c);
-+
-+	ret = mtk_i2c_runtime_resume(i2c->dev);
-+	if (ret < 0)
-+		goto err_clk_bulk_unprepare;
- 	mtk_i2c_init_hw(i2c);
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	mtk_i2c_runtime_suspend(i2c->dev);
- 
- 	ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
- 			       IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
-@@ -1486,19 +1526,20 @@ static int mtk_i2c_probe(struct platform_device *pdev)
- 	if (ret < 0) {
- 		dev_err(&pdev->dev,
- 			"Request I2C IRQ %d fail\n", irq);
--		goto err_bulk_unprepare;
-+		goto err_clk_bulk_unprepare;
- 	}
-+	pm_runtime_enable(&pdev->dev);
- 
- 	i2c_set_adapdata(&i2c->adap, i2c);
- 	ret = i2c_add_adapter(&i2c->adap);
- 	if (ret)
--		goto err_bulk_unprepare;
--
--	platform_set_drvdata(pdev, i2c);
-+		goto err_pm_runtime_disable;
- 
- 	return 0;
- 
--err_bulk_unprepare:
-+err_pm_runtime_disable:
-+	pm_runtime_disable(&pdev->dev);
-+err_clk_bulk_unprepare:
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 
- 	return ret;
-@@ -1510,6 +1551,7 @@ static void mtk_i2c_remove(struct platform_device *pdev)
- 
- 	i2c_del_adapter(&i2c->adap);
- 
-+	pm_runtime_disable(&pdev->dev);
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- }
- 
-@@ -1518,6 +1560,10 @@ static int mtk_i2c_suspend_noirq(struct device *dev)
- 	struct mtk_i2c *i2c = dev_get_drvdata(dev);
- 
- 	i2c_mark_adapter_suspended(&i2c->adap);
-+
-+	if (!pm_runtime_status_suspended(dev))
-+		mtk_i2c_runtime_suspend(dev);
-+
- 	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
- 
- 	return 0;
-@@ -1536,7 +1582,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
- 
- 	mtk_i2c_init_hw(i2c);
- 
--	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-+	if (pm_runtime_status_suspended(dev))
-+		mtk_i2c_runtime_resume(dev);
- 
- 	i2c_mark_adapter_resumed(&i2c->adap);
- 
-@@ -1546,6 +1593,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
- static const struct dev_pm_ops mtk_i2c_pm = {
- 	NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
- 				  mtk_i2c_resume_noirq)
-+	SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend, mtk_i2c_runtime_resume,
-+			   NULL)
- };
- 
- static struct platform_driver mtk_i2c_driver = {
--- 
-2.45.2
+Thanks. I will correct both in v7.
 
 
