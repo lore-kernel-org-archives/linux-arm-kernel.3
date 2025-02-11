@@ -4,106 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060A3C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598A4C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vr9sqfyFIOUURX1EuDQ0UB7aKZBVOm3DmIxM7ELCYpI=; b=SuQ3sph4f1jR/y
-	5utBEgpfeTjFt7pB391U4FgSYhasC7qkVKp9plMzGtRLzhx3jPVwZSrYDjT/FmZvAbWo9PLqhH5V3
-	JGY2D+wnGBBsSQzn3GdwK027NpNnKY/ux8mJvUbCU0kNWw9i8bpWobPs5RfFwCfzgJi+5lCim8HfM
-	crvLFFGjut5xlSbAdki2HsXWvev/UifIAyv9OYNcBG39dL/Zj0bU5TjaP1NryPByo8jr9EUhoaO2K
-	gZIIAGNzReWhdqRXrOb/UzB47jrfjWBa74FJY/np5nzU0PW1pTyMi5o/nXc5v+ZIV3NCTJ0G7KjcN
-	b7e0RsoeNcIIaI7sdqyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=; b=EP2ZzUwhEQ/gCWGfIfFJjDuaW3
+	xHueBIwNufXKyyoGO5d8cTIe7CigYE//b3F7ovrpc4ttcw/9cL/LszphMP1naoY9uZx+1RXDrolkX
+	KiyZPlVSFeF9K0aEY+34vKzL0DmBGSawwMee9Q0lyOsBAxSY7VYDXIbfFnyiFJXVXBuQs57mK0NEO
+	tkom+e77KZSVXZKT1AEa+Gz2EBZz1x3WNVdsbNviFA0pz7m+GKALDc493h0YOJ+hgVIXs1uSTYQKU
+	akH9jJFoIwlRs0Ngk0xEI+HcVm3diGdMwp5UE9F4gCNEfbfboVCb1HENRUCdZpUU79EePJRey+xoE
+	SxrBLX0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmoz-00000003EW7-0fi1;
-	Tue, 11 Feb 2025 09:44:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thmzk-00000003GB9-1UG8;
+	Tue, 11 Feb 2025 09:55:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmna-00000003EHn-03yr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Feb 2025 09:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Vr9sqfyFIOUURX1EuDQ0UB7aKZBVOm3DmIxM7ELCYpI=; b=oV/CLDLt5ww5wFgNttZ3i/FMYy
-	GmXDNipZwRqCzsk9/nwCCabQ2B65Yqxtf6+HGaRQleeJXFNnwgntxEAiWlYnRl3VGetr/pltGt8cJ
-	A/2a86imZsbaoA3ZJv9tg+AGAM/uWZ6xRnkO7TxywgxF+kK2Z/qNG1Yk5/4a8XuCa2m9vo21iPOH6
-	oLgm0nytQO8JTK/+OhHp7zZ87l9p0dAX410P0WLwXM0MeImmRLeud7/MnNJxx5irLtcyRU7WYH8Qy
-	Xh/Ft1g9M2bUgykFAGGyLvyXRws440RyzBGiAorl9YGzWfJGUA9Essb+AFPs/H5c2fhYwzZwmcZAC
-	1Thk+jVw==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmnW-00000000Y1T-3MVp
+	id 1thlzA-000000034CV-2iAm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 09:43:20 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21f7f03d856so44719345ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:43:16 -0800 (PST)
+	Tue, 11 Feb 2025 08:51:18 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-439554db49dso2171955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:51:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1739266995; x=1739871795; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=linaro.org; s=google; t=1739263875; x=1739868675; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Vr9sqfyFIOUURX1EuDQ0UB7aKZBVOm3DmIxM7ELCYpI=;
-        b=ite1Y0JCNKjYwIjrU+OWMMpTbtMfQdCzIE5XKInRiIgHCnTvKGzqISvT7jT3PznFEm
-         GCDoJTBGbu3kFwCSzGMKQRzkdaErOlJSExBfiMApG6pwBTYySgIDxsLMw7d8E2hNINXH
-         xHsD/Z6cZ1E1HpthIibJUE/o9vG6+nhAgLU7qe2bGsGgkMImi34T28Z0kES9irFVsghy
-         neUzBpJ9q4hTYkzkLm7ZZLuIWS9xAdN0e7YV6xDqP6HHKh7NELgLdaDqMuU9Az7uSh8X
-         F8UKcb1kE/noMf56yiHvC91MQVmjNCC1hq+QRukXeFQSaOAxUpqmJYAa6utihXzXBiMz
-         kKQw==
+        bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=;
+        b=PKr7EDCFJl71V1M8GSHZAOlvXatw8jMyN5CTUSaSLpr6y9quissLPQjfDsPKHBD6uK
+         aSwL7zSJeJnxGb5moe4cC668TUj6xHDElPIVj2Vt5UdBuCoBWiCyfqCAINfqBxVsDn6I
+         gXw/rZS0/a8nnC8ciKY6anu+dxNCNga01icghflBTdvgQeBqOKNgTxdqx1sBgpcPalg4
+         RLGBRuGTMLq1vF2O8kGI75B8SGNUT7OP2Xhjvb19fb70k2y3Yjqqi6KNJ68gIEAGvg9L
+         j1vveXKNT7XsHWo7NO7XtGQjic2/3SaTN/mDSnav+FpptUr1xMkzoi2fEg0W2RY2Five
+         P6dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739266995; x=1739871795;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1739263875; x=1739868675;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vr9sqfyFIOUURX1EuDQ0UB7aKZBVOm3DmIxM7ELCYpI=;
-        b=DccWgQyXXe6uQ3MteSvU2AvSOn9IJJ5nOlWaqWUJZ9XIF1Nv1SUgdm8/OeeqB2sdsC
-         T2Y86FGFmAN4/gfhzeuakyEXO29tsqRypTYgiZ59mGVEp0gHKU9PLXGjURMekyfNMl+d
-         2khna5ggqGtH3jqf0wtwkbhKi9oBx3qkim4vB5SoDrW5RMk9IJo19YVxj859cefXGIf1
-         14i7EykxltwUaHEEzRqLVUDINM+4tNSEkDuUwZYsj0UbMic1y0D9IA1JW422y3JH7VMU
-         iHlkVC7rDKePDpFSkF1fm8MP5AewTY6/NFVlv0AafcV4D1zwb9IDYEGGA33dxRIUSti3
-         i+6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXMpQut9jHD2NHgjhbHLzRonQmSh0mthZ7Ia6JqnOy8opZRaSSvCgpXxLac0OeWkkP/qQ2JoF8sLCTNIPS+lJFD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPNdAw5DQqPhtcHat1To7IbfqG0wzcyMiEiRIET1tuFF9TldjH
-	8ffBxCcAUQtgSN0isUK9L++U1/t9xH6xjTR7gxhzbprWbHMM/BewVZ5vRrs4ZfI=
-X-Gm-Gg: ASbGncuoCw5Mm+sEkXnc2VDzbUfxFtN52fBSwURfMu6hmKRB9O0ccYLV12llFpQK/9z
-	bqW0+4Lnlnl0LQr5znvl2U7Dvi+dIEXG8OFnmPd+VsXe4qppYvGoLkUIk2wcAyXmqCh3DahZ4oX
-	MKwMaeuiKfSmHlhSIkd7NY3IMATY96X2c8IPRsXK/pY/FmlqqqhFxyaxX23RO0GKa/j4XtOzejk
-	xWU1HBKKAs2IY4zBc6khF9WP6wY4MsuGZuMSF2qjlAy9wgbrzVNpsPrNIsakd6HxeC59aiNw46I
-	JJ7A+S92P+b+TIqUo3/JP57eRGYpxvC7PKOri6HXZw==
-X-Google-Smtp-Source: AGHT+IFfrAytYWDrtqmvvt0vj9r6BCWYzM3f2Zy62k1Yw1acXBgtzij9wDi4ObcP0N5l9sE5XD+k0A==
-X-Received: by 2002:a17:903:22ce:b0:21f:805c:fd98 with SMTP id d9443c01a7336-21f805cfe1fmr153489455ad.21.1739266995450;
-        Tue, 11 Feb 2025 01:43:15 -0800 (PST)
-Received: from [10.84.150.121] ([203.208.167.153])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f36561397sm92761155ad.89.2025.02.11.01.43.09
+        bh=MBuVpfBGZc5QukwlLAhOoPlDs013WB9zKRqFDryvqwM=;
+        b=HTIZwwtYLS/DiZ6mpprTQEJzCaZD0Hx/xe15J7QbF4fUL+IVye6VUrAP56ailT++9Q
+         Q9Uw86E6xtFcMWXMjdgr5wghIWam9A1Aqu4nlIyJJDy0oNn+qlmyU6CmRAL30hTd3gg3
+         0QzS9Q3QpI+wj/NZBIL6KYAJjpPnO1QBzuvw/peBM12a+yc4f8X8lOkW45uXN7QpzhxU
+         Y8FvxZqJOvUb55lUd0QT+fs1xHYKP62SqsjXLVokiV7Ay1mOd2GO+TqNYPkl0uHhoWhX
+         4DRxNSIzr2XbAZ2SH+NefgJJrOGLaRp5Yr/U5aK1RaiY0vvwVXgUopgcuo91ZhLPaFU6
+         YYxw==
+X-Forwarded-Encrypted: i=1; AJvYcCUHBrAj3q6ZaYwM9pIZhnP7zjcPfcq9Vi70ANfL6Jo9C9IVnoZVhPfX9EKgRI8N4Mhpp2vrzbkJx24u2Efg3ICf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhkutWCRZgLkIssRbRQ2sfecanC7WM5S1zHrWGVkFaQ6o/U/Ey
+	zzodv9AU1onDo1tB5GD2UR8NIFa6tBlrVZevQOdnvaL2gVKepRIqNB962VTjCaw=
+X-Gm-Gg: ASbGncuc7xaR2mZnSc1lUYYARH4TAnKFCav/OLdqRjGkPNl1e1zr7Kv5DJsLxQMOCy8
+	XkKeTJ3DYspYLnzdl3EmOfEtBS+7QG6WC9uc9iUT1hP2RcmEG8sV7MTXjYaUJF6nqiWMmEU45Fu
+	4/bSLN4M6YNm6TUje/2KrLpI6hROR9jF3ThSShHplcrQMUrGoVDFugy96xkM239TBv4D0WrMqzN
+	rrmFXCi9RGbJvWk3YcUC6Fd09t8EsNEPVqRVwymUgWBj8f9AvmDV949F/gR4VdsGBKwZ0ih0lhY
+	ZHLffYsY5NTN+h/bnOJLKxxU0dtG/g9aOc5AYhIxCFBQGylLR8nENIk=
+X-Google-Smtp-Source: AGHT+IFO+zzAA08bfzxBeaVgp6Y5tU1Gn5sLS7Hh+RKdG5t/UoXpSO2gVdVDv0cTsXvcW1Ndi56IrA==
+X-Received: by 2002:a05:6000:154f:b0:38b:d7d2:12f6 with SMTP id ffacd0b85a97d-38dc8d98e9amr11900744f8f.2.1739263875007;
+        Tue, 11 Feb 2025 00:51:15 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc0c5a894sm13914977f8f.95.2025.02.11.00.51.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 01:43:15 -0800 (PST)
-Message-ID: <4e298f68-36ff-496a-81d2-7124f792180d@bytedance.com>
-Date: Tue, 11 Feb 2025 17:43:07 +0800
+        Tue, 11 Feb 2025 00:51:14 -0800 (PST)
+Message-ID: <fe0b0066-5f06-412e-b66a-f3cf6ba74e9d@linaro.org>
+Date: Tue, 11 Feb 2025 09:51:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
- compaction
+Subject: Re: [PATCH RESEND v2 0/5] thermal/drivers/mediatek/lvts: Fixes for
+ suspend and IRQ storm, and cleanups
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexandre Mergnat <amergnat@baylibre.com>, Balsam CHIHI <bchihi@baylibre.com>
+Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Hsin-Te Yuan <yuanhsinte@chromium.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?=
+ <bero@baylibre.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ stable@vger.kernel.org
+References: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
 Content-Language: en-US
-To: David Hildenbrand <david@redhat.com>
-References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
- <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
- <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
- <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
- <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
- <2b0bb476-5bd6-489a-9b9e-7aa20964abfa@redhat.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <2b0bb476-5bd6-489a-9b9e-7aa20964abfa@redhat.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250113-mt8192-lvts-filtered-suspend-fix-v2-0-07a25200c7c6@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_094319_010216_CC3DA57D 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20250211_005116_696314_C6048368 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,211 +106,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/2/11 17:37, David Hildenbrand wrote:
-> On 11.02.25 10:29, Qi Zheng wrote:
->>
->>
->> On 2025/2/11 17:14, David Hildenbrand wrote:
->>> On 11.02.25 04:45, Qi Zheng wrote:
->>>> Hi Russell,
->>>>
->>>> On 2025/2/11 01:03, Russell King (Oracle) wrote:
->>>>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
->>>>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
->>>>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
->>>>>> dereference resulting in a kernel panic. The culprit seems to be 
->>>>>> commit
->>>>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
->>>>>> Reverting the commit apparently fixes the issue.
->>>>>
->>>>> The blamed commit is buggy:
->>>>>
->>>>> arch/arm/include/asm/tlbflush.h:
->>>>> #define update_mmu_cache(vma, addr, ptep) \
->>>>>            update_mmu_cache_range(NULL, vma, addr, ptep, 1)
->>>>>
->>>>> So vmf can be NULL. This didn't used to matter before this commit,
->>>>> because vmf was not used by ARM's update_mmu_cache_range(). However,
->>>>> the commit introduced a dereference of it, which now causes a NULL
->>>>> point dereference.
->>>>>
->>>>> Not sure what the correct solution is, but at a guess, both:
->>>>>
->>>>>      if (ptl != vmf->ptl)
->>>>>
->>>>> need to become:
->>>>>
->>>>>      if (!vmf || ptl != vmf->ptl)
->>>>
->>>> No, we can't do that, because without using split PTE locks, we would
->>>> use shared mm->page_table_lock, which would create a deadlock.
->>>
->>> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
->>>
->>> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
->>
->> In this case, if two vmas map the same PTE page, then the same PTE lock
->> will be held repeatedly. Right?
+On 13/01/2025 14:27, Nícolas F. R. A. Prado wrote:
+> Patches 1 and 2 of this series fix the issue reported by Hsin-Te Yuan
+> [1] where MT8192-based Chromebooks are not able to suspend/resume 10
+> times in a row. Either one of those patches on its own is enough to fix
+> the issue, but I believe both are desirable, so I've included them both
+> here.
 > 
-> Hmm, the comment says:
+> Patches 3-5 fix unrelated issues that I've noticed while debugging.
+> Patch 3 fixes IRQ storms when the temperature sensors drop to 20
+> Celsius. Patches 4 and 5 are cleanups to prevent future issues.
 > 
->          /*
->           * This is called while another page table is mapped, so we
->           * must use the nested version.  This also means we need to
->           * open-code the spin-locking.
->           */
+> To test this series, I've run 'rtcwake -m mem -d 60' 10 times in a row
+> on a MT8192-Asurada-Spherion-rev3 Chromebook and checked that the wakeup
+> happened 60 seconds later (+-5 seconds). I've repeated that test on 10
+> separate runs. Not once did the chromebook wake up early with the series
+> applied.
 > 
-> "another page table" implies that it cannot be the same. But maybe that 
-> comment was also wrong?
-
-I don't see make_coherent() ensuring this when traversing vma. I
-therefore propose the following changes:
-
-diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
-index 2bec87c3327d2..dddbca9a2597e 100644
---- a/arch/arm/mm/fault-armv.c
-+++ b/arch/arm/mm/fault-armv.c
-@@ -61,8 +61,41 @@ static int do_adjust_pte(struct vm_area_struct *vma, 
-unsigned long address,
-         return ret;
-  }
-
-+#if defined(CONFIG_SPLIT_PTE_PTLOCKS)
-+/*
-+ * If we are using split PTE locks, then we need to take the pte
-+ * lock here.  Otherwise we are using shared mm->page_table_lock
-+ * which is already locked, thus cannot take it.
-+ */
-+static inline bool do_pte_lock(spinlock_t *ptl, pmd_t pmdval, pmd_t *pmd)
-+{
-+       /*
-+        * Use nested version here to indicate that we are already
-+        * holding one similar spinlock.
-+        */
-+       spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
-+       if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
-+               spin_unlock(ptl);
-+               return false;
-+       }
-+
-+       return true;
-+}
-+
-+static inline void do_pte_unlock(spinlock_t *ptl)
-+{
-+       spin_unlock(ptl);
-+}
-+#else /* !defined(CONFIG_SPLIT_PTE_PTLOCKS) */
-+static inline bool do_pte_lock(spinlock_t *ptl)
-+{
-+       return true;
-+}
-+static inline void do_pte_unlock(spinlock_t *ptl) {}
-+#endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
-+
-  static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
--                     unsigned long pfn, struct vm_fault *vmf)
-+                     unsigned long pfn)
-  {
-         spinlock_t *ptl;
-         pgd_t *pgd;
-@@ -99,23 +132,14 @@ static int adjust_pte(struct vm_area_struct *vma, 
-unsigned long address,
-         if (!pte)
-                 return 0;
-
--       /*
--        * If we are using split PTE locks, then we need to take the page
--        * lock here.  Otherwise we are using shared mm->page_table_lock
--        * which is already locked, thus cannot take it.
--        */
--       if (ptl != vmf->ptl) {
--               spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
--               if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
--                       pte_unmap_unlock(pte, ptl);
--                       goto again;
--               }
-+       if (!do_pte_lock(ptl, pmdval, pmd)) {
-+               pte_unmap(pte);
-+               goto again;
-         }
-
-         ret = do_adjust_pte(vma, address, pfn, pte);
-
--       if (ptl != vmf->ptl)
--               spin_unlock(ptl);
-+       do_pte_unlock(ptl);
-         pte_unmap(pte);
-
-         return ret;
-@@ -123,16 +147,17 @@ static int adjust_pte(struct vm_area_struct *vma, 
-unsigned long address,
-
-  static void
-  make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
--             unsigned long addr, pte_t *ptep, unsigned long pfn,
--             struct vm_fault *vmf)
-+             unsigned long addr, pte_t *ptep, unsigned long pfn)
-  {
-         struct mm_struct *mm = vma->vm_mm;
-         struct vm_area_struct *mpnt;
-         unsigned long offset;
-+       unsigned long start;
-         pgoff_t pgoff;
-         int aliases = 0;
-
-         pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
-+       start = ALIGN_DOWN(addr, PMD_SIZE);
-
-         /*
-          * If we have any shared mappings that are in the same mm
-@@ -141,6 +166,8 @@ make_coherent(struct address_space *mapping, struct 
-vm_area_struct *vma,
-          */
-         flush_dcache_mmap_lock(mapping);
-         vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
-+               unsigned long mpnt_addr;
-+
-                 /*
-                  * If this VMA is not in our MM, we can ignore it.
-                  * Note that we intentionally mask out the VMA
-@@ -151,7 +178,14 @@ make_coherent(struct address_space *mapping, struct 
-vm_area_struct *vma,
-                 if (!(mpnt->vm_flags & VM_MAYSHARE))
-                         continue;
-                 offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
--               aliases += adjust_pte(mpnt, mpnt->vm_start + offset, 
-pfn, vmf);
-+               mpnt_addr = mpnt->vm_start + offset;
-+               /*
-+                * If mpnt_addr and addr are mapped to the same PTE page,
-+                * also skip this vma.
-+                */
-+               if (mpnt_addr >= start && mpnt_addr - start < PMD_SIZE)
-+                       continue;
-+               aliases += adjust_pte(mpnt, mpnt_addr, pfn);
-         }
-         flush_dcache_mmap_unlock(mapping);
-         if (aliases)
-@@ -194,7 +228,7 @@ void update_mmu_cache_range(struct vm_fault *vmf, 
-struct vm_area_struct *vma,
-                 __flush_dcache_folio(mapping, folio);
-         if (mapping) {
-                 if (cache_is_vivt())
--                       make_coherent(mapping, vma, addr, ptep, pfn, vmf);
-+                       make_coherent(mapping, vma, addr, ptep, pfn);
-                 else if (vma->vm_flags & VM_EXEC)
-                         __flush_icache_all();
-         }
-
-Make sense?
-
+> I've also checked that during those runs, the LVTS interrupt didn't
+> trigger even once, while before the series it would trigger a few times
+> per run, generally during boot or resume.
 > 
+> Finally, as a sanity check I've verified that the interrupts still work
+> by lowering the thermal trip point to 45 Celsius and running 'stress -c
+> 8'. Indeed they still do, and the temperature showed by the
+> thermal_temperature ftrace event matched the expected value.
 > 
+> [1] https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
+> 
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+
+Applied, thanks
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
