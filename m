@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53959C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E426C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RV3fhgTUiFE5VWNVLFbOVq1Uvf+BwjLKdZ/zyjmf0I=; b=Ovqp0s2ey/5fnn
-	NrrhsGHhiTHuKtv0Q1Lz2WnrJbZ5x1dgnZd0AJQ67ljcHgFAKEWbQbak7PfA/MxZtH4TUxy/6yUfR
-	+g9m6pGNCWhlhAFA5exC+uqrDBMd+5VPB1SmyNMnCIqtWSj08aBEQReAA2rWs6qx1KMlzs50Ovhan
-	HP0JwDdhuiyMkHRvIFicACbwwtg7n5xXoxkxWT8xJB8+snZhBo+jTbwDaWCIG/RVaKSdupiKQUJ77
-	xtnuqzj2nR57iawmdCMzHiZr3go6k8E2dy6DyPQZt1VdV6ZJABrPgnqsJJH7qVq5wIV5LZeLR3eas
-	/olTQ+/tfqXkdXCkj4QA==;
+	List-Owner; bh=bj/uk16+Hrn66Q2o4G0o90gz6ZpVpof9duaSUY2Gbv8=; b=U22WHYXGEc/gu2
+	2nlHrCEO46ARFoxfmqdEmOntrSP+Y3/NtnZxp4dhX2UYyr4i9I3m1aFtBVWfmvZ5D6ftSXOT30ZSl
+	I1vQf78oKNghxNzDKBkOzUTX0OfFLotiDfYqvZKZbNVhE5dZKUGivyjgJBfEeZbeDK0Tqt5Ia8D71
+	wqIiPtidbLjCyOAI0mwH6FGcD2rsE3CxzaAlacivYiHBKMmjbw0ppeI+lrr0GMe9Vs/GCmpfNjk5t
+	mlFKYzCFv+rOUlzxP+PC75GOVUOnC8MS9vL+p0S5sLvu8nu/t/psxfHiVJLzZE7RR1w8zz2uBaa0e
+	aJP5JlzAFjruWNpeVW9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkGa-00000002lxS-2wCC;
-	Tue, 11 Feb 2025 07:01:08 +0000
+	id 1thkHy-00000002mNB-1VlC;
+	Tue, 11 Feb 2025 07:02:34 +0000
 Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thk8u-00000002kcx-3fTZ
+	id 1thk8v-00000002kdG-2YiM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 06:53:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1ACE5148718D;
+	Tue, 11 Feb 2025 06:53:15 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BE84C1487190;
 	Tue, 11 Feb 2025 07:53:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1739256791;
+	t=1739256792;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3RV3fhgTUiFE5VWNVLFbOVq1Uvf+BwjLKdZ/zyjmf0I=;
-	b=Q2h4rqakGU5/WcMnFYZmntvJM+pZ32O5QvbGJjNwHAGAz4B5MW0EHIinv90QUCZeOJ3z17
-	/NTCADvZN09+8K0lyXOYbnyOleS2ksX4LmZNKA9LX/1UnJ5rnmVZSNutDg2bfnU7xtyama
-	zO0osD7C+03MCT8moRGLmkwCJEGB3+AgmJzNUslC5FxbOpSoY2hbLk6qs4dCKsOWzENvUc
-	qbJtfM8cFcI3BFmI67mSrV9yH76uZZA4Fq2QXdCoyOmU1Ae4gJn7CjojLsBcAKXy+54dsm
-	e2j0y6nwrHKTilkzkirrt0YI++2ULVUIecxCwT8LUsej8w9wugaZLtTgVGMp6A==
+	bh=bj/uk16+Hrn66Q2o4G0o90gz6ZpVpof9duaSUY2Gbv8=;
+	b=YNAtyCCXg1vLyvrVQqozWuySt4vzLUl66EK6oatEYw1HPn3UGlnXwRZq3NHC/YdTU6/SHD
+	UDYa0wFe52ZKgiK1+7LIuuMlRXqjPUzHLVCjTOdQK9aSuaGlz6aa55NN21km6ljY4P79CD
+	e/UECLUtBSz+hFJXjZcs46tSut3UHgnPIRF+1mHHvm1T+CaWP7yqGZqpNQLZ7yGqAM6Btq
+	2ujDMGC3LfuwNhElwVaxGc2BB/QuGt5QZ7r6nih1UGq4CizXCn77rglommIxkdUXeqbaAN
+	+UIU8wsnRGQAjYT7BIIUJn2X0p7fGUVadrfXlhnK67pkBcvhI5cJ3kOut0L8lg==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: [PATCH v2 15/16] nvmem: microchip-otpc: Enable necessary clocks
-Date: Tue, 11 Feb 2025 07:53:03 +0100
-Message-Id: <20250211065304.5019-3-ada@thorsis.com>
+Subject: [PATCH v2 16/16] nvmem: microchip-otpc: Expose UID registers as 2nd nvmem device
+Date: Tue, 11 Feb 2025 07:53:04 +0100
+Message-Id: <20250211065304.5019-4-ada@thorsis.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250211065304.5019-1-ada@thorsis.com>
 References: <20250210164506.495747-1-ada@thorsis.com>
@@ -54,8 +54,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_225313_074817_B8A84A45 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250210_225313_809117_DF2D58B5 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,57 +71,96 @@ Cc: devicetree@vger.kernel.org, Ryan Wanner <ryan.wanner@microchip.com>, linux-k
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Without enabling the main rc clock, initializing the packet list leads
-to a read timeout on the first packet, at least on sam9x60.
+For SAM9X60 the Product UID x Register containing the Unique Product ID
+is part of the OTPC registers.  We have everything at hand here to just
+create a trivial nvmem device for those.
 
-According to SAM9X60 datasheet (DS60001579G) section "23.4 Product
-Dependencies" the clock must be enabled for reading and writing.
-
-Tested on sam9x60-curiosity board.
-
-Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
 Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
 
 Notes:
     v2:
-    - Rewrite to enable _all_ clocks defined in dts
+    - Use dev_err_probe() for error reporting (thanks Claudiu)
+    - Move required register definition over here from removed patch
 
- drivers/nvmem/microchip-otpc.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/nvmem/microchip-otpc.c | 38 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 37 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-index d39f2d57e5f5e..2c524c163b7e2 100644
+index 2c524c163b7e2..8353a117769a8 100644
 --- a/drivers/nvmem/microchip-otpc.c
 +++ b/drivers/nvmem/microchip-otpc.c
-@@ -8,6 +8,7 @@
-  */
+@@ -25,10 +25,14 @@
+ #define MCHP_OTPC_HR			(0x20)
+ #define MCHP_OTPC_HR_SIZE		GENMASK(15, 8)
+ #define MCHP_OTPC_DR			(0x24)
++#define MCHP_OTPC_UID0R			(0x60)
  
- #include <linux/bitfield.h>
-+#include <linux/clk.h>
- #include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/nvmem-provider.h>
-@@ -241,6 +242,7 @@ static struct nvmem_config mchp_nvmem_config = {
+ #define MCHP_OTPC_NAME			"mchp-otpc"
+ #define MCHP_OTPC_SIZE			(11 * 1024)
+ 
++#define MCHP_OTPC_UID_NAME		"mchp-uid"
++#define MCHP_OTPC_UID_SIZE		16
++
+ /**
+  * struct mchp_otpc - OTPC private data structure
+  * @base: base address
+@@ -230,6 +234,16 @@ static int mchp_otpc_init_packets_list(struct mchp_otpc *otpc, u32 *size)
+ 	return 0;
+ }
+ 
++static int mchp_otpc_uid_read(void *priv, unsigned int offset,
++			      void *val, size_t bytes)
++{
++	struct mchp_otpc *otpc = priv;
++
++	memcpy_fromio(val, otpc->base + MCHP_OTPC_UID0R + offset, bytes);
++
++	return 0;
++}
++
+ static struct nvmem_config mchp_nvmem_config = {
+ 	.name = MCHP_OTPC_NAME,
+ 	.type = NVMEM_TYPE_OTP,
+@@ -239,6 +253,15 @@ static struct nvmem_config mchp_nvmem_config = {
+ 	.reg_read = mchp_otpc_read,
+ };
+ 
++static struct nvmem_config mchp_otpc_uid_nvmem_config = {
++	.name = MCHP_OTPC_UID_NAME,
++	.read_only = true,
++	.word_size = 4,
++	.stride = 4,
++	.size = MCHP_OTPC_UID_SIZE,
++	.reg_read = mchp_otpc_uid_read,
++};
++
  static int mchp_otpc_probe(struct platform_device *pdev)
  {
  	struct nvmem_device *nvmem;
-+	struct clk_bulk_data *clks;
- 	struct mchp_otpc *otpc;
- 	u32 size;
- 	int ret;
-@@ -253,6 +255,11 @@ static int mchp_otpc_probe(struct platform_device *pdev)
- 	if (IS_ERR(otpc->base))
- 		return PTR_ERR(otpc->base);
+@@ -270,8 +293,21 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ 	mchp_nvmem_config.size = size;
+ 	mchp_nvmem_config.priv = otpc;
+ 	nvmem = devm_nvmem_register(&pdev->dev, &mchp_nvmem_config);
++	if (IS_ERR(nvmem)) {
++		return dev_err_probe(&pdev->dev, PTR_ERR(nvmem),
++				     "Error registering OTP as nvmem device\n");
++	}
  
-+	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
-+	if (ret < 0)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Error getting clocks!\n");
+-	return PTR_ERR_OR_ZERO(nvmem);
++	mchp_otpc_uid_nvmem_config.dev = otpc->dev;
++	mchp_otpc_uid_nvmem_config.priv = otpc;
 +
- 	otpc->dev = &pdev->dev;
- 	ret = mchp_otpc_init_packets_list(otpc, &size);
- 	if (ret)
++	nvmem = devm_nvmem_register(&pdev->dev, &mchp_otpc_uid_nvmem_config);
++	if (IS_ERR(nvmem)) {
++		return dev_err_probe(&pdev->dev, PTR_ERR(nvmem),
++				     "Error registering UIDxR as nvmem device\n");
++	}
++
++	return 0;
+ }
+ 
+ static const struct of_device_id __maybe_unused mchp_otpc_ids[] = {
 -- 
 2.39.5
 
