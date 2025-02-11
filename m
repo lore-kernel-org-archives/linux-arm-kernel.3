@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC29C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49544C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wn7f5KmIzBSGwAjAxMKL/5WhoZoIiEa6FOztIQtXGwY=; b=YPxQHTYm1v87HtTDA/dxwCG8wW
-	0AJ/0cqRRl8gdid06q0oUAT0oOZK8G3Hnjy6a6LP7Op8B7pEhUQ21qgheLnIMd+Vn2biT9t9sbbfA
-	HI/4KKZMsfx9K8aa9KlWwCGOl6Fwmyx2Kwwta6MtCLc9OkppB5Uh28EYnGHrfDTSTua3zmBMgPvBg
-	GKKl9MvJ5QtO53k9XCOQY6QpFvDAg46sLFnRqZHnvRbbw5nX5OS9jwme/vKm4QD0ycB4tciRIwh7b
-	9lnBOBXKtVY/e9D0AubyBghVikBqJ7KEHnJnZQetPNbHVRYM45Tb+lFrXXFnLHgIN7avSgtm7L5ec
-	SADtovOw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ATS9kH3JOXqCDIar73OnrkF9ilRSB+64NK3pHta400=; b=y2/ju5Epdi+It4gie5tqHDBAFP
+	TGOcAsohoiIOtMY8PgUdpIa28Nf9leKS6swCxk2R8VEdT89/e5VHDM8a7tXk4b1CEowHzBlM5AHXn
+	/aSx93GMg51hAivdgSTXaKRnT5c3upa+voSBZFge5mpbwpOwnT/3Be13mWJCNJQXuvvtd+Z46Yfxu
+	+gE5KtcZ80vumwBHejkeK7JCpP/XOoQ/lfIuxSG/5n2ZlKx2Ec9pjDodHz/k3esVZFguKfvbfpGSn
+	2mPUBTClVal05B7j+UxEOf9BQKd8SWZJVn7Ugj7nAWX9CNW6llWXxyaVHI8lg3RWR3ifMsO8lGAx0
+	THBzehsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thm84-000000036LY-0dyB;
-	Tue, 11 Feb 2025 09:00:28 +0000
+	id 1thm9S-000000036Xw-47BG;
+	Tue, 11 Feb 2025 09:01:54 +0000
 Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thm1j-000000034l3-3FHp
+	id 1thm3K-0000000358B-30BC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:53:57 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38dd14c9a66so1307524f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:53:55 -0800 (PST)
+	Tue, 11 Feb 2025 08:55:39 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38dcf8009f0so1846264f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:55:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739264034; x=1739868834; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739264133; x=1739868933; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Wn7f5KmIzBSGwAjAxMKL/5WhoZoIiEa6FOztIQtXGwY=;
-        b=WGBgKwnjf6L+8qEJ9NJ501qRU29QOv25TQRxAt4UqXSv5FszmdJ7Y+rBGgIrt6ZtJA
-         HX25CNsSLJUaJ+AHb7ujxkFXuXBmIwqbeb47M7oHPA2+Eiec1GhHmqO6w8qT783A9oyv
-         hG7/lS0ecTY/b2zjb8KTVK4dqor6ZgwsjEjTyU/jfuQxWNncO6fisUiabOlMD0YN8ACG
-         WcxpgRE4NEjOdA83yGCtwfZTvcHS2DosA+fitx9c4hFpoeJQnYAQljeh+KMlTOA4uVft
-         4VdYMzcNqm0IiuhhqyC2wV92t8+sxPFqESXH2EB5FvskPpYbHScem+bqkCpPmwgb8A1B
-         6yOQ==
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2ATS9kH3JOXqCDIar73OnrkF9ilRSB+64NK3pHta400=;
+        b=Qyysy1OxBxExacuyFGtjDxEdYNYL0Wraqodb2ogNyWspY+h7TsdxUbtRoudb4Ap/wX
+         2m0Uz3HiOllVu93Tiohc8Tm2eDzV2hPjzmibM8Xrg00IIC2+x4Gvl9+S//3L732al/Xc
+         tOCsPWzwmcKu9ztwL4bLI+ipcvxG6PkRxg8u7OtMnVXS1vhIaLKpX/HOzQJ7wF/k0N/G
+         wWFPZD3/4RMh29hp5q5WhBHCY22n8DriDm8vYgo/+NyqgdH0xPCEdufewyl00wjLeSfy
+         HsdJPimRZAFZB0GwhzEY2C5QWxD8WGe2HgrmNIiwCwdXeDGNsCG5IFdDkxsX8vmYJ9dy
+         6Eiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739264034; x=1739868834;
+        d=1e100.net; s=20230601; t=1739264133; x=1739868933;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wn7f5KmIzBSGwAjAxMKL/5WhoZoIiEa6FOztIQtXGwY=;
-        b=gcVFPDF2Wwhb3USqyOnzQZQ/xm+KYOqNPa3n4dR8drqskbKu4+dWi25NNTWpPra7xY
-         w67YrGwEvkBxyJF4hV58BfA8RBv2w8QuYJIGapCRF4tho+8vpFc2Uu48vhkXe9qYqnWg
-         UQZsQ/lFJZEW/XibGfs4nshFcCpBuzxdIvLbKvcDARzcWoQ7jzl9EJv9dmb7JGHOZ0Up
-         0fASs0bmRiIZ4Vs3E+MMTVeFhyQ/6atzlkmBkNueN9HO9AZbyT6Tnpwm8GwiIXQCeh/6
-         v18poZWDo2xbsdgsfdQCSZa4Ywzi3oHdv2F5UBgzhv4FoUAvUiwZx6wDsbKe13plELpH
-         IhPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFKgLnwAV2VdqfuY9n0EUCuca2vEO1t4jteGjwSUlSVXYwNz/B1Kh1RRs2IzKFObmaBgZeVFK1Bpu/dTptEBgh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxIZe0Rk7B8x7DwKE/p5LLmxJq1GXEX8yhZeT3j4ZaO3cwnqT9
-	dSWj4M/nBwvp+niZVxmTWckSn37LhRVpE6t8RKGqeWN1ElNcTwDQFh34JgqcMLg=
-X-Gm-Gg: ASbGncvMZwueJTWZvLJitW42Zz3o1Pr0Ozf7Yk7BG6zK5Wp0S9A/CrJcNTqcL0niabr
-	sh8G+Tz/rN1U0QS1Vy7Fdwbak6w0DmSm69bX3D2sGxOXUbLVr5P77N68dQckh3EUMCV9yVwaaLw
-	7gAasBLIesK+lmx2FznZ8lmgIikV5uooBE5XujsOcyvd8j/AiF8LjR10Q363v3PhMGarWpLMgu2
-	jkJm7g9VUEA/dKL2hErvpwmSXQ78BnX9K2ZNv+t8FcGe91kfFSICjslWBz3/Y5gBPpj3GNEb7SN
-	NKVjqNy5uye0I6sFxxX10oIDfCZ4lEJ8TGiFq74YVQQAkIe1Z4P1NG8=
-X-Google-Smtp-Source: AGHT+IHJl8az0biIroaElZQMVe7CvDinXzmDIW3C9slxWarkLuaunRbzDNQ1/xMc93YOJwVs4z36yw==
-X-Received: by 2002:a05:6000:400f:b0:385:fc70:7f6 with SMTP id ffacd0b85a97d-38dc8d985c8mr12045557f8f.7.1739264033847;
-        Tue, 11 Feb 2025 00:53:53 -0800 (PST)
+        bh=2ATS9kH3JOXqCDIar73OnrkF9ilRSB+64NK3pHta400=;
+        b=QIMralzStHLCObVUInx7k31H9+bI3l06chiOwUOjyxuZBPfaL7bDvUlm9WG242T/uc
+         zFb4Fzyd+x5/Gen72xPZrHECPYQP0LHlWE0S1uXJJs9miMyb7ML9BYw7U4vdc+vOGktF
+         oENJlfhKi8aj5mQvFvokUrDjK99QXIMeIxWb0vTojr9rFDV6iDt6SpHAiKe05nAr2/Wz
+         /AGTa9viH1j7EMdqUEBpyYm9xbtyJbhaMBIuCD9ivOrTtVeIL7ys9PHA+bxXRqAGnvii
+         kzBmeTuxeVr12zmDW9Dz+Yf/EU6lufwhTPH/GEczJL6kaQP/Hr4iedpiKTFVm4i60t/y
+         KiYg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdtm8+zP0ozATUkEab7MhPHR+JgJG6eNVTenPSc/vUQbsaOP2dIWfhklC8N4qbVv8p+9jaC2HTSNFDARuXlyRx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOUK+YqJ7arYk3gEkTf04mIbNuz2FJX//DMXTFi5RWn69FLDdF
+	CCpizzQxzfprbSsP8KLH+1Ni3u9m54cbExdQ7mbpP3OOhbnlF5O17y5PG/aGGhM=
+X-Gm-Gg: ASbGnctXlYl0RtPtRgrtCDgGsDdFZ/BJZFlDshr/zbl4DvCI7fd9KD/w7RWJIFoyrvz
+	i/YQy8eG3LfKCfmVfSArAzV/W3IC/FVjk2RqirfRkK3ncn0Xmdn23LSsmQg/WOIjdzWDIdOTFyd
+	DGQgURwLDaL5huUSHhPwcCFup25KFZokWacVynXROJQyqqDHNephQvEdB3YKoOfLGddNNnRbEYr
+	RA3uUuZqrGN57JtSi5603eYNFUm+Q1pLRpI5jJ09uhPu0NMHkRnRm9SZEFZqOaAw92C6Ncu0uJi
+	4DTWwdx5ojGnSXrjJRCQe0+xCsI3udI1daeyy3rxOi/HDrzxpbcw9Sk=
+X-Google-Smtp-Source: AGHT+IGlpUgTYtIiheMDAuizrYUdnfwTiXvy3+Z24hKU84ausw4miBggLrIYHvGUHbl0rw2KWztuoA==
+X-Received: by 2002:a05:6000:1865:b0:385:e105:d884 with SMTP id ffacd0b85a97d-38dc9371e85mr13413888f8f.46.1739264132995;
+        Tue, 11 Feb 2025 00:55:32 -0800 (PST)
 Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dcb4410e6sm11284454f8f.8.2025.02.11.00.53.52
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dd187360asm9452225f8f.43.2025.02.11.00.55.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 00:53:53 -0800 (PST)
-Message-ID: <843953fe-4c81-4176-845b-0ce9ecb0f84e@linaro.org>
-Date: Tue, 11 Feb 2025 09:53:52 +0100
+        Tue, 11 Feb 2025 00:55:32 -0800 (PST)
+Message-ID: <bdd94f9c-e751-4a16-848c-bb83cf1be569@linaro.org>
+Date: Tue, 11 Feb 2025 09:55:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Thermal support for BCM74110
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- linux-kernel@vger.kernel.org
-Cc: Markus Mayer <mmayer@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
+Subject: Re: [PATCH] dt-bindings: thermal: Correct indentation and style in
+ DTS example
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>,
  "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
  Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- "open list:BROADCOM STB AVS TMON DRIVER" <linux-pm@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-References: <20250116193842.758788-1-florian.fainelli@broadcom.com>
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev
+References: <20250107131027.246608-1-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250116193842.758788-1-florian.fainelli@broadcom.com>
+In-Reply-To: <20250107131027.246608-1-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_005355_812512_4A02DC65 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250211_005534_758248_72B421A4 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,19 +112,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2025 20:38, Florian Fainelli wrote:
-> This small patch series updates the existing brcmstb_thermal driver to
-> support the BCM74110 chip which uses a different process node requiring
-> an update to the thermal equation.
+On 07/01/2025 14:10, Krzysztof Kozlowski wrote:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
 > 
-> Florian Fainelli (2):
->    dt-bindings: thermal: Update for BCM74110
->    thermal: brcmstb_thermal: Add support for BCM74110
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
 > 
->   .../devicetree/bindings/thermal/brcm,avs-tmon.yaml    |  1 +
->   drivers/thermal/broadcom/brcmstb_thermal.c            | 11 +++++++++--
->   2 files changed, 10 insertions(+), 2 deletions(-)
-> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
 
 Applied, thanks
 
