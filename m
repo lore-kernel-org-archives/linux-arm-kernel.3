@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ECDC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293B2C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=; b=afxG1i0xHle6eUb3iLXnWkUxge
-	CMmDiewdSstgMZWlF6QKjDMAx4pW5gZ67G/8O8pc28sOy7C9rq8qWWRVkgGUq6iS5JA3BrfljB1HE
-	brw6m6kxEWvkokPZIc6lpssSZdeUUD6NrNMBIL7yZhdvYqa0vjD5VrdT4rnwtlGP3pbcYu/KToT4V
-	xg6Pgd5PaWDZH6yir88GReNQNafGM93y+bqeNkPalXTf4MRaJdhwFedAQescOh2xK3uxb8JcytBi1
-	YZc1d/SENPSHMojzQAQo8f0cRWQGDKAS2tM4t/5TWMzecS+l1zYVnwZQMmuZ4oBDL2CaElSxr2XKT
-	H4o18LQg==;
+	bh=d5oZvXXd39UbKKmo+voCHPhpKUB1k6iYY9OkvvxdUIM=; b=Oe2agltqgy0ia2Vv7TIHVV9Ojt
+	Thb05JjjkKbcBzDKcvrv66OSKBaNEiYo4++fwuRcgqdqxJikxZEnMz50qugJ33U9JxurKG3EyfuJK
+	PlFJcvOACYtCMftLUc+2gxZv19KSTy0i3FouUsXSpjE+SUjhyOV8Ivvk3USns1IyI0m2J4UqjYFwr
+	MhTQMVjDdtbO93RhAinsvw1CjJGzhK0KjQeoYhAjCZ2HIXUvnQ9KvdxsUt8B32Tc+B8bX+DScXdoB
+	NFSew3+qAuPZ5GGsJCMuCY8cBnBs5Q0ITtWQFOf5KqMW5q3rkoApFxUNMn5BgrUkYA13FWPy61Y2T
+	nf+amzsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuUK-00000004lbS-0Xtc;
-	Tue, 11 Feb 2025 17:56:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thuUL-00000004lch-0w0Q;
+	Tue, 11 Feb 2025 17:56:01 +0000
+Received: from mail-am6eur05on20622.outbound.protection.outlook.com ([2a01:111:f403:2612::622] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thtBv-00000004Wsk-0G6L;
-	Tue, 11 Feb 2025 16:32:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=; b=BoEL7wa9MjoeUYU4DN+lzVt6o+
-	pSqKWIShDC5Z/5Wy6IYpnAeP4Owf3stlMhtON7R1idfy3nH8jSYehwBCGCUbnYcatet3S0WlJgi7J
-	qsk0bd/t2cMAy/pyPq85S0MGlZe9awpysiOH6vVrRn3BjUDHj6NfMBVyLEAyZdZZrVDtpxB9PV8rq
-	PdfOu+COU+2lqRCvNS5Ir+MnFFoj6o4sno/3o9WVbXDEnnk4w2oqmY25d/NADL/PnkUhUIBVDTUjR
-	eLs4OyfsEd9KiAgDrOPgigftvZ6HojcA6YiBaYFkvnHRLRY4WjgrzQeNBZwe3WfoZ5gDtB5/FUTKY
-	qlSRJPHA==;
-Received: from mail-db8eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2614::60c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thtBr-00000000cXn-2kTg;
-	Tue, 11 Feb 2025 16:32:53 +0000
+	id 1thtDS-00000004XEi-2AEK;
+	Tue, 11 Feb 2025 16:34:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AJlhJRbRxuFta+eBcAzjfY+Cobw3JhFaJo4qCgrEOfMj2bB92bcwtMLDZWPSi9AIm7QRj9kQWzZorrqqp9RiOX1eC3aoRMtPVbwWLkAJmQhHTw5C2OoaspuN0L9YBvhQMVLqfeeyr0DUKNn7OF9jSO0GoahotnCghPZrxKI7YC8W79+pok8IZLt4E9XDQU5NWUv1M4CwURD5T1PBhkts3Ktocnp2q+gakUqrFtILpiVR/XMtqrvxESD95zKfNQeu6EKhjZ5VJ50Imh5SroerZCy0FVd/jtFa5UEWba3EfPd7B+FNWe8CIbtOVuL96/QtSts4BcwS+Ssi1KuMzZ0FSA==
+ b=pHwhPKVcoMyeMEs0KSXrq1SROBJPV19D2a2LbU9uzGqCNmycUatReEPTUA7+d8JO26baYt1x3wx5q4q1Pvn/NmWytxA28PXHHx9Mk8sz4x6q716/pTr+A/GplRrUvM8THOqThH3LWP6nZMYuXbs9V5HXnYCkg37eZ1x3jJUnO4azTaNaNuwiCra9VJ4KH1qpFDph+tIs6OuB+jtrQZNF6Pm8HnjcV1fEJdXXHZAg9DpAMK1xbhecWbWxcj+RPKTkbAvoB6jOPeCKqhPc0dAuxy6c1ioWXiLe6uE8F1gsK4KOuRlz7gR2OX6SQOkfwkdd5Z689k0UWLhjhNg5YUIV9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=;
- b=pWkrQy5mwZhwTDTm6m/+nbIJUdhjnuv120otkrWxvY0YTXaDHTU40uI1JulhrQNptCqz+miCVjszhfZwZdORZk+9vPQDhVTHsyBSiip1+miRfYELN4FFsFE46k96opzodxloO/ndbAWYtBuBJdASJQxWUTQR2V1A/La56/OQVVzf++6tYUS4/tJQal8tMK/vhKZ14uFNGmYWxX4XHOWawj8FLKxCN5QUiZP5zYi16wB6emjLFMPM/SC0+YEVfo/esgW1Jw0yhf5wOyaUuGDMnuP8Z0LdfCZEJcNEZxm84BqZpfMtcNgr35HE2/r4OajpDU+2cvxRf95+WX2r1jviuQ==
+ bh=d5oZvXXd39UbKKmo+voCHPhpKUB1k6iYY9OkvvxdUIM=;
+ b=GZKbK8lXFGAnGGQxHipylrOO8+8QhTfWERcu6Ip2FLdPl+eQTzmt5Lpkb1rVv1ZSP93D+wpFhamb7OU1hGMs5uNbmxuD1hXpsNzkUeu6KM1e7sAljOJUHjfWKRMFniMSXSd9rZaUJz7XnqM4efk44d9eKJB8RrO/UgfF/k/+eOy88jq+qBMKrrfaUIty7M4GDKm4D59oB+ExpsdFl+x4HRZIFa2X+8onMC2Gb6J0IhoBBBtS2aZwaI5ujFWjEz/4QIJLpcWXSTp5OWZJKgsdlXtZH1MjreNoOxJAekCW111m1Ar0jsrbeP1TBW4iCQbkjSz3dj2GLvjR0pLa2jh41w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
  dkim=pass header.d=cherry.de; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hSFQyrsuJwvUl30TTuZwYRXoa3kODf1M+IrOewrrdX4=;
- b=h48tVuBVdjF0/gsnhFK0c3YX4KLFmSOIioek2lAGtY9gOy7iSYT52DCLXkGjDowitAsbyVvZpKT7PWke/Fn4NWBOZs6le5FZr89V1mSNCtMsJzPJhNTmcoAO/onr/6EjVzHv5D93z7ZXnGgPFa7wODLRD5lZvthvi7nDOqKcHuw=
+ bh=d5oZvXXd39UbKKmo+voCHPhpKUB1k6iYY9OkvvxdUIM=;
+ b=JSlxScVV6HB/zBT2WhahM/QDguMRhouUaWURnHqJVqpdSR5be68hvf2mzoBxebf6neoK2rDtpn5ByAyIMWkiIxSHqQdVslV6oUd39jYYluFfaIdYi7XxyvOLcegD7LQyUrJtJcsyzf/K2bS5hjaMJeB9j7Eo1RRfwYVeeM2vmac=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=cherry.de;
 Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
  by VI0PR04MB10686.eurprd04.prod.outlook.com (2603:10a6:800:25d::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
- 2025 16:32:44 +0000
+ 2025 16:34:23 +0000
 Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
  ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
  ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
- 16:32:44 +0000
-Message-ID: <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
-Date: Tue, 11 Feb 2025 17:32:42 +0100
+ 16:34:23 +0000
+Message-ID: <9d6a7724-5380-407f-9308-1bd3e5083267@cherry.de>
+Date: Tue, 11 Feb 2025 17:34:21 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
- on RK3588j
+Subject: Re: [PATCH v5 8/8] arm64: dts: rockchip: Split GPU OPPs of RK3588 and
+ RK3588j
 To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
@@ -78,109 +64,108 @@ Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
  Dragan Simic <dsimic@manjaro.org>, Viresh Kumar <viresh.kumar@linaro.org>,
  Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas <didi.debian@cknow.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Kever Yang <kever.yang@rock-chips.com>
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
- <20240617-rk-dts-additions-v5-7-c1f5f3267f1e@gmail.com>
+ <20240617-rk-dts-additions-v5-8-c1f5f3267f1e@gmail.com>
 Content-Language: en-US
 From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20240617-rk-dts-additions-v5-7-c1f5f3267f1e@gmail.com>
+In-Reply-To: <20240617-rk-dts-additions-v5-8-c1f5f3267f1e@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR06CA0164.eurprd06.prod.outlook.com
- (2603:10a6:803:c8::21) To AS8PR04MB8897.eurprd04.prod.outlook.com
+X-ClientProxiedBy: VI1PR06CA0174.eurprd06.prod.outlook.com
+ (2603:10a6:803:c8::31) To AS8PR04MB8897.eurprd04.prod.outlook.com
  (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI0PR04MB10686:EE_
-X-MS-Office365-Filtering-Correlation-Id: f5fd91a0-a7b9-4218-3253-08dd4ab9b655
+X-MS-Office365-Filtering-Correlation-Id: d2a13c1e-d21d-4caa-3b70-08dd4ab9f12f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y01FcEF0eWU0YWs0eStvQ1hma3JxVTZKY01Wd1MrN0U5V2lzRU1XanMwaWR4?=
- =?utf-8?B?K0xSTGw0bTJYajhtZnhiVjRQU1hlVHY3blBSS0hqR0hDUGUwQTBNRnp3bFNl?=
- =?utf-8?B?TDRmQkZHc1lSb290dHRMZXUwV3NVQ1dZdFR4aStaY3pEVExSVUVDV0swb1RY?=
- =?utf-8?B?Q0xLMkZtL1pNcjV0SWY4L2h1OERQZVlCdjB3NGNnNktiWVVCa1pkUUd6U1Ux?=
- =?utf-8?B?ZytzMFRGMGhuYTBHRlJvUG9yU2F3akNyVGtIbld2V2dDZ3NPaWt2MEh2VUFQ?=
- =?utf-8?B?L3VnaWJRT1NCM1dpL3lHL2ZvaUo5RG1KSVRJczBhZTlLMEtENFFvd0JzU05q?=
- =?utf-8?B?Y1hVTkNqR1pibExuQXpUaGhENFZOOXBXM003N21VVDcyNUQwanV2VTlqYVUz?=
- =?utf-8?B?UTh0QkFFRUNnS0huUmVzdzhsd0EraFJyK1d0ZkRpNFhvNGFqbmhzcFo1WHcr?=
- =?utf-8?B?VmtYdFFRTFZkeXVXTmZuUWI2VFd0bDBMSnV2QTE1NmU5aTRlMC92SlhKVzU3?=
- =?utf-8?B?U3VxK3pFNTEvOXlIQlVGdklKc0xuWktveEUrTUVTNm5Ld1hyYnpxUE5vY1Bn?=
- =?utf-8?B?WU5FWXpVSXM5MUxWa0FoemZzUXhZZFU1bEg2MFJ2M1RwNEJWL2RjY3g0T1po?=
- =?utf-8?B?REQvT2gzaDFybTh2WGkvdnJCa1NDTUpkVnYwU1o1RkM2dFJXUDVTa3NURkxl?=
- =?utf-8?B?RVZKN0dJV0lBWmhqODcyMzhKVWRScXJCc0Y0MXJKM051ODRqaFFZcWdhMDlK?=
- =?utf-8?B?WWZaYU1sSjVhWG1SWis5dDg3bkhZRlg3bC81K08vL2RGRU4rTlQvU3hNZzRE?=
- =?utf-8?B?YlFDNmhXNW9kU04xQzRmbTNGM1Fod2U4ZVN6Zkh6eHlKVSsrQnpweHdkbVF4?=
- =?utf-8?B?S1hKNjlrbHMyUUZaMFRnUlFLeXdMTTR3OVRSSUxJdEQxZnUvaU13T3VYSGZZ?=
- =?utf-8?B?aERSVnR3ZFo5R2tsUG5tMGl0RGpjQncxVTA5cWd1K09TS2xQdmNJaUZtckZ6?=
- =?utf-8?B?RmtjVGFlWS9rS1NHdVpVWGZWWlBJNDBneDR0SmdpeXhXUk1lUjdlUzFRNUNT?=
- =?utf-8?B?bTgwaFhOaU1SZExtZ1A1OWNTOFZxUTE2K0RXVmdVdTF2Tk1wOVJXRlZhWXpo?=
- =?utf-8?B?VFJKTjZzUWdreVFqMGlLUk5iQXd2cGwvdENGam5CWE9YSFB4dGNtaXJGaUdi?=
- =?utf-8?B?bUV5ZGtqb3FubzNjUFlGYkhPT3lUZmIwMDBQR280VXNETWVnUXExRURONG1Q?=
- =?utf-8?B?N3BaWWN3QWJDenZhQ2tJUXVVdUdoR0VVZGVIYW1PbGhhMVJQVWFnWWFDOExT?=
- =?utf-8?B?NHcrbUJidUpHVE5nK3FkRHpQVWJhdm81a1lpaHUwKytYS2pzOEZ6TDRpN2tJ?=
- =?utf-8?B?UTRjT0o1WWoxQ0FzZXJ1eTFxTis3TERSZzFlU3dyNjRPWjkzUGphZWZWVXZ3?=
- =?utf-8?B?YUZkNklxdXE1MCs5UDFFbGdEbkltRXlDYU1Da0ZLYWFnY1YxeDEyQmZ3OHBw?=
- =?utf-8?B?M2RGbnc1blZockpaMkFEZ2VwTFRKL291U3daeWFiN3VPeGhudTUyWHh5dTJU?=
- =?utf-8?B?VXkyazJnWWplWlZ6VE4rRHlCRDJrMUpkNWVpSkgwc3l4ckNOVTZheXR1OVpW?=
- =?utf-8?B?QUM5emxJU1JjaDFMRHp0YTVHVEtZQmI5K0d1bFZ0QU8rU0hjb3hTbzAxc21y?=
- =?utf-8?B?NjJnWmpDNUxoQzBVRGwwNk5JVEtZMmVralNlMmxTSzZMaUFKRTFzMXBwSDYr?=
- =?utf-8?B?bXBOYnAyRk5udnp5RGd2dUtyRzF5MDRpTDNwR1Vpa2F5eUowb1VuZUxad28w?=
- =?utf-8?B?VVRieVZBRTVUMWROUTZ5UT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R1JwQUxjTFV1YU4xWkU5aHBhQ2ppOUd0Z3hqRldGYXllcVZ6VDk2VytvbUVu?=
+ =?utf-8?B?cWtvanVnS0xjeUlqT0NIQVdGRExwTHJISmdIZW1VQk8zZUE3RmhINTV0a0xB?=
+ =?utf-8?B?VEt6bHRUSEpFMk5oSzVuU1MweDM4eGtPWnlZcE9nQ0owSUtQNXN1dTNEMlF2?=
+ =?utf-8?B?bjlMWUJBN2E0SnpibHFOZTM4TmVHd2lrb0IzeDV0ZjFEblVPREpKSVhVcUl1?=
+ =?utf-8?B?QU56NEFpZUc4a1VWbWFpWElhOTUveWQ0TVVqUkpBQjMrZElqU3I0OW5tZTVp?=
+ =?utf-8?B?cWhrQ2Y4emVWdytIUDZSZFNDNVBHTHk1Uk5kMjBYMjRMZ0IxcW5uUGxZK3F4?=
+ =?utf-8?B?WFRYZGk3UTl0Sm5ORGM4cTcwYVBsaDZBcUxtaXBqN3lnVUZqbDJScllyTXJE?=
+ =?utf-8?B?YkxrcjZiVk9XcFpYSmw0U0czeDZURy9aSFZNL3c2bXpncFF2My9FWVhaamMr?=
+ =?utf-8?B?MUlDaG1ZeVBuTGRnSGNyanI0YVFpRlMxMDh3b1VGOFltZmhYWmZBQ3pvbmp1?=
+ =?utf-8?B?cU9VNndBTlRBbHRlT1pDOGZNRmNXRVZaWm5XVmljMTNGNUMyalJNdnlKSUFo?=
+ =?utf-8?B?Z2tPemNkV3lqWTZsWUhoY0xVU2VXMitsSTlHeGVVTk5xZkxDaVQ3N3RVNVNH?=
+ =?utf-8?B?Qy9JOWZ3RzJkeXZRRk15VzJMR2VYa0hDYkxrYkhLSDhEd0kvOUx3QWljUFhS?=
+ =?utf-8?B?TlVmQk56WFNVdXA1ZzVzY0hSQll4MXh1Y1BheDdJOG9EYnFlWnNzK1c0ekl2?=
+ =?utf-8?B?NENxY2FKa0t1WFg0anVjYnJLTllLbFI1K1JDcGM4RHhzK3FtUVlKMjN5Lzhi?=
+ =?utf-8?B?NXpkNHA4K3ZiMCtoS0tZYXpnU3NqUGZXZDMreG1GZ1VNakY3Z1JpSFZBM01i?=
+ =?utf-8?B?MVlNVzA1ZXpSd0I0UU0xSkJzVHJ1ZGo1bWRDbm9UV0xFL2xzV0FocXF1amJO?=
+ =?utf-8?B?TDd5UlhYaFRMQ2dWVnhSdGVJczRjNjRJdmlOK0tSYVppY2ZQUzE3enhGYXVJ?=
+ =?utf-8?B?dkpvUm5vcGZwZnZhOGtpcm5XbjJLOEpLWHJHRW1tM21pOUlkWURaSDRCRUo4?=
+ =?utf-8?B?VkttQzF0U1NnakpGV1QzTSs5ZTBPNnFQb0prNDlhWHFJMDdkeUw2Tk9UY2Rw?=
+ =?utf-8?B?SXI2c2JGbFZDanB2UTBuckVDbW1mQmF0bXpJQnl4WFBMbVJYeDRrQWtYbUlq?=
+ =?utf-8?B?cHovd3hpMHRKcjRHbmJNeWRQdnNTWE1zeVUwTWJ2WUlvcHBZMzVpc0hTaDlS?=
+ =?utf-8?B?QVRkVjh0eDJ4dDB2cE5KcWUzWEVVOS9MVXpjbU8zY3JqMi9lV3Y3NzRVTVBV?=
+ =?utf-8?B?UFJpby9UdEJ1d3FWSitZTVBUcTZCMEsrNkZ5UVY4elprVEJOZWxpSkxrM3NR?=
+ =?utf-8?B?UDQrcWZ4cFd2QmhyakxFK2hIQ3pia29uUXZ3ZlRxNGE5N0g2SXZiK09HQ1Iw?=
+ =?utf-8?B?T2hPUy9XSFJPeE5YWDNCWWtLdjZYU280WWh1T1UxZkdSbjB1UWJXWEpyQ09W?=
+ =?utf-8?B?UGUxY1lDYVJlOHVTN05xanh0V0tiNzdoL3RXQXNPSThSc2FvNy91aXd6VFpJ?=
+ =?utf-8?B?OExLdnFSd1dDV1NCLzNZWWxFWnpOQk9xMmxjVzJJbXczTU15VEJHU2Qxc2Fr?=
+ =?utf-8?B?M2IrVEwvREJvNkFFcmpRbEJZd3locUxFSTRvUjk4SzFKY28wNGxYeE5IQTBK?=
+ =?utf-8?B?VTh0NFFYN2FUOVdNMHpqS1RBRTk2c2tHYjVHOU5NTkF4UkFNdEc1RkJOYjJw?=
+ =?utf-8?B?U0pzcXJUOXQ2NTE3Y2cwMysxYnFKQ0sxclArbHJFVEtnYzloNXVUeXloZEYv?=
+ =?utf-8?B?Zmlxa0ZwVHQxRXFsSGIwdz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:nb;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDcvcUdGMHJOV1dKQmxtQThtdDFseHppMUYrNXFKS08vNFJ3a1FtdVNzV2hs?=
- =?utf-8?B?aTV1UE1IZ3krTWQ4OE81SFU3Y1lyYzRqb09rZU0wem0wemowUmRvVFZzRXNj?=
- =?utf-8?B?amN2eHJMdzUwaWtCdHkzaitjYlhOT1k3SFNaSkl1ZW00bUNvOGF5b0tTem5x?=
- =?utf-8?B?dFcxRm0xUlZGa0VEdDFFRFZiM3NPUUFaVEIvUlJqMzIzc0VFZjh4S2JVbXF4?=
- =?utf-8?B?eTF2eEZxU2U4dUZhcGNyWEIvTVBQS1g1VVkydlVYd3BWWUQ5TzFvNmRsZGRo?=
- =?utf-8?B?aXdjTWwzNGN4QmJhSVc3K0hRem1CaDNueHE4Nk5KMEZCUkorR0hIS3ZZdjVU?=
- =?utf-8?B?dTFCemt5eXlBZUN5anZOWit3dTJpQzNOTnhFMk9sUGoyaWdQNzZCaHhKZVNN?=
- =?utf-8?B?NEp6YUh0c1M1NFQ0SXpoMmZ6LzV3RzF1RkVmakIxZGVLZ0gyejJSa2JMS1Qv?=
- =?utf-8?B?b0hhZ2RUZVI4cW1jNGQ3dE9XRFNaWGVORVpFc3RJRmw1NzJUeGFGamV4SDh5?=
- =?utf-8?B?WVh1UHl5UmNWRXpIL3lscW82cWlseUQyU0NVR0pKY2FrcGl3UnMrZDh3MEsr?=
- =?utf-8?B?b3gvemxnSXI1VGRoVkRmOE05ZWFBOWNSaDlaVHFUQ09DYS9QWks4L3plN1pW?=
- =?utf-8?B?SzJPdFdSZlBFVzJ1VGZUQW1NV29QRnJUcG9RR1dNZFRaVnk1MWxRczFTWmsz?=
- =?utf-8?B?bHgxWmQ0dk1FUVI1QzU5dnpjVjkrMVZPblkxcTV5bURPYlNtNnpmRWNxQWVB?=
- =?utf-8?B?aENSWWxnM1o5TVNLSWVVd3RNWlA4MVpPd2ZoZUFvTnkxODExcW02T1dXMmh1?=
- =?utf-8?B?OVlvNHBCa2NDOU9lWXRnOEluYmQ4Q0ZERS9DVElrYS9COHVxQzBtYXpFcDdv?=
- =?utf-8?B?QUNnSVBZYlVkMnVSUDNJcXd2NW92N3NQb3ZCVGJERWZsa1ZxUFZlMktNQjU3?=
- =?utf-8?B?MStnYndua3BvS2JQdVRtRjYvOEpSSTlBZ3g1bmp2bUJ4bE1Ca3cybFJBOVpN?=
- =?utf-8?B?NXdkTWdUWnJ2TTVraDdVTGlLaEQrM3YybEp3MExmTHZEZDVmSGMxdEdCTVZo?=
- =?utf-8?B?WXlKdE1nYnk2WVB2dE1xNDUxNHRnVUlKNzB0bGRxRjFFYTBKbHhvVlBuUUk1?=
- =?utf-8?B?VjBtOUo4SHRtWlVHSUZmV1k2cmZyZEZOOCsyTDRyczJLcTd6UWxYQngxNGpR?=
- =?utf-8?B?NVg5QlFneUFvY2p4ZTRBcTd6MHJMN2NYd1J1TCs4RDAwQUVuczdxS2pSTVli?=
- =?utf-8?B?Nk8yWGs0TDJZUkJPdXNnMy9KNjFRM0R1R2FRcFNjYkl5TE1rdDJDd0NVYm55?=
- =?utf-8?B?TXRBbW5zd09ib0hkRDgwVEZWWWordG41UkpHa0xWVlNsa1RHencvM3hHMlBE?=
- =?utf-8?B?aElhNUhDWWRuVzdRaTBMNEtZUk9YM2QxdXlGTW02RHQwb2hLTzBLOVRrcWZ4?=
- =?utf-8?B?Q1I4eHdXajBuWm0zT3czeTBXNUo2d2JTOGlkSGJWcGdxb2UzbVRCdEhoM2lG?=
- =?utf-8?B?YnhGSmQxbklPcEZ4WFFEMnhjekdnSnVqWEV4VzRWandVQ2FMMHFjOTA3ZHlI?=
- =?utf-8?B?WkkxdWl5ZVVKMWR4VDAwNEJiOXJyR1NVajd6d293Y1ZQZSthUnNScEhRamtR?=
- =?utf-8?B?TjVhQW9KNnBCVWt3SE5RdEZzeFU2UWZjUVhFRXl6cWJFM0VlT2hmdzhXNTdY?=
- =?utf-8?B?S1VkMVpmTWNXT0RVbGdBUTdTZ3E2TWxsUkFyKzlKRXZ3TkhGNlpzQ2RNVWdP?=
- =?utf-8?B?dTZmOWJ3c3lYNnA5bGdYNCtMV0hNd2VTSFdtK1lCU1dkZDBhZWhoWXA4VzlW?=
- =?utf-8?B?QVVhL0p6clBWTnIzb1loS3BhdWZMM0RVRFhhU0RIOHl2TFhybWRyZVRuV01r?=
- =?utf-8?B?MFBwdXBtTGJOR1plRkp0SU5sUmVDRWoyeHlESUFUMGFIMW1lVFlkcERqMEov?=
- =?utf-8?B?eCtwVWxmeENJWGJmNVM2ZVZFTzRzc3QrM2dPVGp3MTNEVW8zTEZHd3pnMHdq?=
- =?utf-8?B?djNvOUxaSktmOW9wb2gwZjhYMWFNZTZoWDgra2d3UjJIa21IZTdZQ05LUmdk?=
- =?utf-8?B?T1p3RGQzcVpqY29lb0x1bjFoU2JlV3Y0aDRjaVVxNHpEajNTUTNPUkgvWFdx?=
- =?utf-8?B?Sld1YnFwT29lWjkvME85d2NUd2dCWGVBR3YxN2ZCRjZUUjRlRUdwckJJdE4v?=
- =?utf-8?Q?IjED2YfjuvD2X87nimmJ9HQ=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bXhWcHFsMHJuQjNCMnRnajQzQ2U1bEVRQmI0ZmxQeldSdXppS0ZCSkZpWHd6?=
+ =?utf-8?B?bzJ1TkZnd1pLZHJUM2p3NUhYNHAzZmw0aDBLdnczNGJDaS9lS3E0alN1SzlK?=
+ =?utf-8?B?ZVVBWFlPSkFobE0xTjFnTUJmb2V4azZhSlFScUNBcTFJMEZOT1lvWWQySXQz?=
+ =?utf-8?B?ZXdJZ1hiVnhZazJ3S0tRaWw4eFdYYVZGYVg4NFlQeVNTdUZUVWYzN0hrbmJI?=
+ =?utf-8?B?NXpydnZZS0k3bjE4MlpUWHBXYU56K0IwOEtiZS9jODRZRkJ0RjZuZWI4cTla?=
+ =?utf-8?B?OHF0YUlaclZ4V0U5dzVPcEFMZkRUVTFDWEtSb2RwNlFrajIxcFJkZkVyQlA3?=
+ =?utf-8?B?TG9YRkdUSHFxVE1JTkpTbTZUdHVCYnlXRUhMdzdVa1hjMXM3SGhKVG1OZ1N3?=
+ =?utf-8?B?eTZkSU9Mc1E5MmlGZkptUDViSXJRZlF1MEZvRmVIQ1NhY1FsMWY2eUNQbFAr?=
+ =?utf-8?B?MUtPbTdicUtHWm1KZXpSbXNRM3owbDE5QkIzL0NLaDdOTXZLTUFiL0l0TW5Z?=
+ =?utf-8?B?YVFDc3N4WlRlcVliTVU5aGFYV0hjZTdWMmQrNFVESkM2V204TjRhR1FVUk56?=
+ =?utf-8?B?S29zNWpzR0orcXU1Z1pXVnZPb1JlcnJJRjFlRHcrNnlud0hXV3YwY3pnZHNk?=
+ =?utf-8?B?a0VRZ3ZxNEx1cXJFL1ZzYVNqVlliMDVueEtMZWM4SEpIazdoeHBVR1dOYTdH?=
+ =?utf-8?B?d3dXejI4dFRoTGloLy8zcFl4OWJjMTlmZ2MrWWQ1TGdJRmp5ZVJGR2VsYlhu?=
+ =?utf-8?B?QkpLZ1JFMkFSbXBTTGVEQnlpMlp2cHh5d2ZLbEtqeFVFK3NPRVRmYkNFWHpD?=
+ =?utf-8?B?OXhaTDc2WVJYSFFVZTFVUEpoTjNMUXNXQkJHOWo2WGFVL3JEakJ6TjV2eUVx?=
+ =?utf-8?B?U2NHaVNKUmFDSmZXelpKWStPOGVGQnhmMi9kNkpuZ2NkcHV0S0VORm5GaUtX?=
+ =?utf-8?B?d2Z2ZWFKSDBISTlMTWQ4aGgwekpBS1o2VjQ4TWQrOFlYdHNHVU1JdFAxc2k1?=
+ =?utf-8?B?LzRqOVpvQjBEcWNkUnVhcXBnYjFNQkp0QjUxWFJLRXB6WkQwZ3JCa3lwRms3?=
+ =?utf-8?B?RzMxTkQxNXRPNmZ5eTBwYTZJRmdTeWFmSjJwdDEzWFYzZXF0TmtpUXliNnVn?=
+ =?utf-8?B?ZkZZdDI5TmwzZjdtL0VVQ2V0UjRqQ2NKOXNjcEVZdDd0WERYQlZrWi94MHox?=
+ =?utf-8?B?c2g5MzBlWXZoQm1pMjNuMzRQWG1WYVYySHplMFpUM0RQa2NiU2FZWEQramE2?=
+ =?utf-8?B?a2lsa1R1cUhJL05vWmlMejFTWmczSlhvUnptenAvTHIwbUlPcFF5dDhHZ0R3?=
+ =?utf-8?B?WGx3cHkva2txV0EvMldMTURPYnhCYVI1QmdtT1l2dFRXaWxJWkF4Y1Q0Z051?=
+ =?utf-8?B?SHlmQ3Y1QmRLTzU2VHBjNEdMRGh4NXBmdXpudHNSbGNxR09OaTh3R2dXNzJT?=
+ =?utf-8?B?VEUyL1BXRERGQzBKYkQrWitUa2JzQUZhanEyMnhMdC93amFacitKSENpSXVi?=
+ =?utf-8?B?UlM1V0M3OUZyY0ZFN0hNYkRYdnEvbFlqbTNETE4wUG81TFBXSG5haWpxYUhH?=
+ =?utf-8?B?NHpiZGhNQmNlWmdYQmxlZ1RFZWVXdU45ZkROcURyNVVna05sVFk4VDFsb29p?=
+ =?utf-8?B?bVp0ZnVHWlVPWmJKVW1SV1F6OUFGZ2xTaGtSV2VXN2xxYjZHVUhRaFNJRE5W?=
+ =?utf-8?B?OWg0Nk53c28rTkN6M0JGd0c0dDRzNExiRWtDY1FrbmJhSjNTQjJORTBoWlFN?=
+ =?utf-8?B?TjFWd0R4QlFaL3BVVGhXMHJhSE5OWjdqekI1QUpwQkc3R1RXd09NSGhuOWlV?=
+ =?utf-8?B?VFVHemNieGt1Uytaek5nVmZ6NlV6RjRpL09JNnpham5oeURsZEVJNkluM2Nh?=
+ =?utf-8?B?WlB2VmY5QmM3a3g5bjF3Q0I3RWNSWXJzclNsc0YzQmRqNVp2ektuY0pUelht?=
+ =?utf-8?B?bm5lOVo1ZDRydnhZWE15UElpL0dZNk1oQTR0NDArMnE3USsvMnk4cUkvNHBw?=
+ =?utf-8?B?VmltbVhlUmNVTldCMXRxMWdLczM1VVdXWVV0bmpJTGt2bnZReXR3U1NWNm5m?=
+ =?utf-8?B?VkJlWmlJSlpsK1B3Q0JuT0NuNnI3WEl0SFpwejZoUGdKRExMUXdBRGdDV2pJ?=
+ =?utf-8?B?UzdyNXcwclJ1R2RCZlJKMi9Xa2k2dEVJeEZZSUJ4cm1mOWoxbHhmU1JZT1g2?=
+ =?utf-8?Q?c3HRMQeEw1VnaZYaOOO8+rc=3D?=
 X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5fd91a0-a7b9-4218-3253-08dd4ab9b655
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2a13c1e-d21d-4caa-3b70-08dd4ab9f12f
 X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 16:32:44.6558
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 16:34:23.3556
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rMmxFFk72wOqgGPyXoEloGJUW5hYZ1DwSDyqRLZYURr4z0ahoA+h134X8oQopJZPpcj82bbxyFJgIwln6fClC5VWbs+hySAJlyLezf7OigY=
+X-MS-Exchange-CrossTenant-UserPrincipalName: /MvlI6h6svGlos07Vq7fkOXygHFpz3doCi8Fa4ecdbNrQzoQAu1bU18EjPcZYUw0kouZTvkjJ7hm+Zy+7zEvV0v9/v4TJ6+4SRlI/0BDF04=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_163251_875738_15DE2970 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20250211_083430_714409_D75B427B 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,153 +183,173 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi all,
 
 On 6/17/24 8:28 PM, Alexey Charkov wrote:
-> RK3588j is the 'industrial' variant of RK3588, and it uses a different
-> set of OPPs both in terms of allowed frequencies and in terms of
-> applicable voltages at each frequency setpoint.
+> RK3588j uses a different set of OPPs for its GPU, both in terms of
+> allowed frequencies and in terms of voltages.
 > 
-> Add the OPPs that apply to RK3588j (and apparently RK3588m too) to
-> enable dynamic CPU frequency scaling.
+> Move the GPU OPPs table into per-variant .dtsi files to accommodate
+> for this difference.
 > 
-> OPP values are derived from Rockchip downstream sources [1] by taking
-> only those OPPs which have the highest frequency for a given voltage
-> level and dropping the rest (if they are included, the kernel complains
-> at boot time about them being inefficient)
+> The table for RK3588j is adapted from Rockchip downstream sources [1],
+> while RK3588 one is moved verbatim into the per-variant .dtsi file.
+> The values provided for RK3588 in the downstream sources match those
+> in the original commit.
 > 
 > [1] https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
 > 
-
-Funny stuff actually. Rockchip have their own downstream cpufreq driver 
-which autodetects at runtime the SoC variant and filter out OPPs based 
-on that info. And this patch is based on those values and filters.
-
-However, they also decided that maybe this isn't the best way to do it 
-and they decided to have an rk3588j.dtsi where they remove some of those 
-OPPs instead of just updating the mask/filter in their base dtsi 
-(rk3588s.dtsi downstream). See 
-https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
-
-So...
-
+> Fixes: 6fca4edb93d3 ("arm64: dts: rockchip: Add rk3588 GPU node")
 > Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
->   arch/arm64/boot/dts/rockchip/rk3588j.dtsi | 108 ++++++++++++++++++++++++++++++
->   1 file changed, 108 insertions(+)
+>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 38 -------------------------
+>   arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi  | 41 +++++++++++++++++++++++++++
+>   arch/arm64/boot/dts/rockchip/rk3588j.dtsi     | 33 +++++++++++++++++++++
+>   3 files changed, 74 insertions(+), 38 deletions(-)
 > 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> index 758aff5e040b..3d918874aa02 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -451,46 +451,8 @@ gpu: gpu@fb000000 {
+>   			     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH 0>,
+>   			     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH 0>;
+>   		interrupt-names = "job", "mmu", "gpu";
+> -		operating-points-v2 = <&gpu_opp_table>;
+>   		power-domains = <&power RK3588_PD_GPU>;
+>   		status = "disabled";
+> -
+> -		gpu_opp_table: opp-table {
+> -			compatible = "operating-points-v2";
+> -
+> -			opp-300000000 {
+> -				opp-hz = /bits/ 64 <300000000>;
+> -				opp-microvolt = <675000 675000 850000>;
+> -			};
+> -			opp-400000000 {
+> -				opp-hz = /bits/ 64 <400000000>;
+> -				opp-microvolt = <675000 675000 850000>;
+> -			};
+> -			opp-500000000 {
+> -				opp-hz = /bits/ 64 <500000000>;
+> -				opp-microvolt = <675000 675000 850000>;
+> -			};
+> -			opp-600000000 {
+> -				opp-hz = /bits/ 64 <600000000>;
+> -				opp-microvolt = <675000 675000 850000>;
+> -			};
+> -			opp-700000000 {
+> -				opp-hz = /bits/ 64 <700000000>;
+> -				opp-microvolt = <700000 700000 850000>;
+> -			};
+> -			opp-800000000 {
+> -				opp-hz = /bits/ 64 <800000000>;
+> -				opp-microvolt = <750000 750000 850000>;
+> -			};
+> -			opp-900000000 {
+> -				opp-hz = /bits/ 64 <900000000>;
+> -				opp-microvolt = <800000 800000 850000>;
+> -			};
+> -			opp-1000000000 {
+> -				opp-hz = /bits/ 64 <1000000000>;
+> -				opp-microvolt = <850000 850000 850000>;
+> -			};
+> -		};
+>   	};
+>   
+>   	usb_host0_xhci: usb@fc000000 {
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+> index 35bbc3c2134f..0f1a77697351 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+> @@ -114,6 +114,43 @@ opp-2400000000 {
+>   			clock-latency-ns = <40000>;
+>   		};
+>   	};
+> +
+> +	gpu_opp_table: opp-table {
+> +		compatible = "operating-points-v2";
+> +
+> +		opp-300000000 {
+> +			opp-hz = /bits/ 64 <300000000>;
+> +			opp-microvolt = <675000 675000 850000>;
+> +		};
+> +		opp-400000000 {
+> +			opp-hz = /bits/ 64 <400000000>;
+> +			opp-microvolt = <675000 675000 850000>;
+> +		};
+> +		opp-500000000 {
+> +			opp-hz = /bits/ 64 <500000000>;
+> +			opp-microvolt = <675000 675000 850000>;
+> +		};
+> +		opp-600000000 {
+> +			opp-hz = /bits/ 64 <600000000>;
+> +			opp-microvolt = <675000 675000 850000>;
+> +		};
+> +		opp-700000000 {
+> +			opp-hz = /bits/ 64 <700000000>;
+> +			opp-microvolt = <700000 700000 850000>;
+> +		};
+> +		opp-800000000 {
+> +			opp-hz = /bits/ 64 <800000000>;
+> +			opp-microvolt = <750000 750000 850000>;
+> +		};
+> +		opp-900000000 {
+> +			opp-hz = /bits/ 64 <900000000>;
+> +			opp-microvolt = <800000 800000 850000>;
+> +		};
+> +		opp-1000000000 {
+> +			opp-hz = /bits/ 64 <1000000000>;
+> +			opp-microvolt = <850000 850000 850000>;
+> +		};
+> +	};
+>   };
+>   
+>   &cpu_b0 {
+> @@ -147,3 +184,7 @@ &cpu_l2 {
+>   &cpu_l3 {
+>   	operating-points-v2 = <&cluster0_opp_table>;
+>   };
+> +
+> +&gpu {
+> +	operating-points-v2 = <&gpu_opp_table>;
+> +};
 > diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
-> index 0bbeee399a63..b7e69553857b 100644
+> index b7e69553857b..bce72bac4503 100644
 > --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
 > +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
-> @@ -5,3 +5,111 @@
->    */
->   
->   #include "rk3588-extra.dtsi"
+> @@ -80,6 +80,35 @@ opp-2016000000 {
+>   			clock-latency-ns = <40000>;
+>   		};
+>   	};
 > +
-> +/ {
-> +	cluster0_opp_table: opp-table-cluster0 {
+> +	gpu_opp_table: opp-table {
 > +		compatible = "operating-points-v2";
-> +		opp-shared;
 > +
-> +		opp-1416000000 {
-> +			opp-hz = /bits/ 64 <1416000000>;
-> +			opp-microvolt = <750000 750000 950000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
+> +		opp-300000000 {
+> +			opp-hz = /bits/ 64 <300000000>;
+> +			opp-microvolt = <750000 750000 850000>;
 > +		};
-> +		opp-1608000000 {
-> +			opp-hz = /bits/ 64 <1608000000>;
-> +			opp-microvolt = <887500 887500 950000>;
-> +			clock-latency-ns = <40000>;
+> +		opp-400000000 {
+> +			opp-hz = /bits/ 64 <400000000>;
+> +			opp-microvolt = <750000 750000 850000>;
 > +		};
-> +		opp-1704000000 {
-> +			opp-hz = /bits/ 64 <1704000000>;
-> +			opp-microvolt = <937500 937500 950000>;
-> +			clock-latency-ns = <40000>;
+> +		opp-500000000 {
+> +			opp-hz = /bits/ 64 <500000000>;
+> +			opp-microvolt = <750000 750000 850000>;
 > +		};
-
-None of those are valid according to Rockchip, we should have
-
-		opp-1296000000 {
-			opp-hz = /bits/ 64 <1296000000>;
-			opp-microvolt = <750000 750000 950000>;
-			clock-latency-ns = <40000>;
-			opp-suspend;
-		};
-
-instead?
-
-and...
-
-> +	};
-> +
-> +	cluster1_opp_table: opp-table-cluster1 {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-1416000000 {
-> +			opp-hz = /bits/ 64 <1416000000>;
-> +			opp-microvolt = <750000 750000 950000>;
-> +			clock-latency-ns = <40000>;
+> +		opp-600000000 {
+> +			opp-hz = /bits/ 64 <600000000>;
+> +			opp-microvolt = <750000 750000 850000>;
 > +		};
-> +		opp-1608000000 {
-> +			opp-hz = /bits/ 64 <1608000000>;
-> +			opp-microvolt = <787500 787500 950000>;
-> +			clock-latency-ns = <40000>;
+> +		opp-700000000 {
+> +			opp-hz = /bits/ 64 <700000000>;
+> +			opp-microvolt = <750000 750000 850000>;
 > +		};
-> +		opp-1800000000 {
-> +			opp-hz = /bits/ 64 <1800000000>;
-> +			opp-microvolt = <875000 875000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-2016000000 {
-> +			opp-hz = /bits/ 64 <2016000000>;
-> +			opp-microvolt = <950000 950000 950000>;
-> +			clock-latency-ns = <40000>;
+> +		opp-850000000 {
+> +			opp-hz = /bits/ 64 <800000000>;
+> +			opp-microvolt = <787500 787500 850000>;
 > +		};
 
-opp-1800000000 and opp-2016000000 should be removed.
-
-and...
-
-> +	};
-> +
-> +	cluster2_opp_table: opp-table-cluster2 {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-1416000000 {
-> +			opp-hz = /bits/ 64 <1416000000>;
-> +			opp-microvolt = <750000 750000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-1608000000 {
-> +			opp-hz = /bits/ 64 <1608000000>;
-> +			opp-microvolt = <787500 787500 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-1800000000 {
-> +			opp-hz = /bits/ 64 <1800000000>;
-> +			opp-microvolt = <875000 875000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-2016000000 {
-> +			opp-hz = /bits/ 64 <2016000000>;
-> +			opp-microvolt = <950000 950000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-
-opp-1800000000 and opp-2016000000 should be removed as well.
-
-Did I misunderstand what Rockchip did here? Adding Kever in Cc at least 
-for awareness on Rockchip side :)
-
-I guess another option could be to mark those above as
-
-turbo-mode;
-
-though no clue what this would entail. From a glance at cpufreq, it 
-seems that for Rockchip since we use the default cpufreq-dt, it would 
-mark those as unusable, so essentially a no-op, so better remove them 
-entirely?
+Same remark as for the CPU OPPs, here Rockchip removes opp-850000000 for 
+the GPU OPPs on RK3588J.
 
 Cheers,
 Quentin
