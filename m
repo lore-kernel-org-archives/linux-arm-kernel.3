@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CA3C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 21:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1BEC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 21:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJXKo1rnLuFl+cPx44PrgMfGxNwkvUIiAKY29YBOxLs=; b=IZK6txCI3rDv25lQ14F+yNJYGV
-	wg76XFVY9I2UkzFtne/bH8qrWT8E6ePSix2k6Hr+RIXQZygHTupO13EuHEiL6Zsd8TfTMGGWrYbz+
-	ydWHCFai39ZHStpVBIBwwDN2fr3S67W4YLKkJkUoJ6GMHf3aNY5ZzGCWLSeCCxgjw2qQw/0FRrgur
-	8HZH1uy3C2JUIzU8LX8c9zV595SSRMg1ZCxC20kDO39HCq5mlOZtpOKcSVZZtSSWaUs2+uEsvxpPj
-	QGe49oNV/I6l90zn+U37qz9i4SW6wci6zJfdCq0ViqPwgncMV2vbmB+hQRdqsAKN6At+FiDaaReKb
-	pGTjSFOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DAT4Z/fR4DazPK814lmIU7uKg6/L6K8TykEp9cEL9k=; b=ulyq1/ML/VFOjOsircU1CdT+5/
+	MD+eSW62sHzm4gF7JXC0NNKrEVAp8ip3j6qj2+PXe3FILCAHQE2LyqG6rqzP817z4GhWNbeInRdp3
+	aWzQIefMGbSQZYQkS1WPYfFf1X75NK2rOya2nQYDSL7slnrZwIu5Jbbefzbxwf1gU9H9Hi/kCwrDP
+	hFz8D7N/tEI7AIo7rsDVHuTFviUgB01MfNjTAyauu4zQse0YCxSwUmRWC8sQROF9IqNgD0eypOdiv
+	7T0v6mj3sfxNTV76dRbm2oKyxRYwDFo9RcK2MJHfcrEayhLDFMLXZVukPchJsBshtEaR7Syb0N0C9
+	5tkOA1dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thxUB-00000005IEN-21D1;
-	Tue, 11 Feb 2025 21:08:03 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1thxVq-00000005Imu-0rGc;
+	Tue, 11 Feb 2025 21:09:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thxS4-00000005HlK-28gO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 21:05:53 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5de4f4b0e31so7697546a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 13:05:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739307950; x=1739912750; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FJXKo1rnLuFl+cPx44PrgMfGxNwkvUIiAKY29YBOxLs=;
-        b=gB84vRIEeCaGxpolUDVAIslea2Th3hz/rTyZbvXKi3Y69yFEdE051xYfkGWs6i3L8s
-         Ay21o3yHobrg/wHSnhUVqnBdYUXOYgPhuiNMztdrmum+G+h+qlvBQ9ljIWzGLo+IU6qD
-         nF+xRB3YW0jZFmRjS6/PHo1Lw0IBWUn9T2WwNuLQP+MNGwyiZUpNpoUU3UGbJJQON1Nu
-         iK0fka/QMUFVtkPCX+0hQnh4T58nRAzSNbXxnxdtWMzCk9nXfwwwAhV0+z3APVG9AWaD
-         FvpfKsIEf5UqFJ+tYa8DiytKbl8bTphnPoITtxc4ZsKsCimM0oFMDSteYbsPg7iawKio
-         nlVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739307950; x=1739912750;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FJXKo1rnLuFl+cPx44PrgMfGxNwkvUIiAKY29YBOxLs=;
-        b=krFyuJtRmsTaBbKm6Jlb+BK5laY7Mdp4eWCSo/SvzglKbRiG6wjorKs05U/i9ohVLs
-         Ynwim7wD4LtyahAPKG9no2Le9wG0TUN6u9gBNW4sYuXjN8pAH9VqaUmguRnyoksmMGGr
-         fgF6/ljzRkr30y2JmVGjdeGWh9JtbFX4nWZ2T3kFeFLKbXoBbfjPhDqODB76zIf8U1xy
-         SVeW1xfaA8KETFcU33IFxh+ZdZ5gk+p0HhqeW5d8vZY9v15vODKVloqYBPNL5pOkKEfo
-         UmaDlMDXKmcp/gqJ2z+r/1tJqsHyj8nQdONzPfKWi4tizkxbehrpYduc1f678Ni6jBfe
-         RDjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVLp3xuMoyq55MRvD9daQFrYQ6BAvz/f4ZPrddiMEYgEaWfCvKyWyL+Pg6p1VuM1Ue/UYg5+dNLQZIpGFdooFnE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgbQ5XwfEMaHclD/KX5RDNephA1iuZCstbXM94secxvmZOXbE5
-	ShocKS9ilPnTj4mS4Oj5Diu+kzC1mjnxORVpu/Qa1igkiyU02hPk
-X-Gm-Gg: ASbGncssagOvhtfqIBbpekq3E/W7Ac/dmdQOFHbmVuMKb4+SvxBh5oh0dqPtfq0bdEI
-	6qnYr67zewhm6W8OqHH8Wgz90tgpCWyiRGa0B1bqkXWmJY47o6IR6ykkI64xWpWahqSk6ErlvvA
-	lJkIGmAfrRqFVoQy40tmegX6RGU7pjnlzI8VBQU9eSNCHUKLwg5bxdWrvInjAIXNCQfR8B31Voc
-	nRAKulQ1LlobYNLVGfMnhYIK2i//fjEFYixIYkvbp5Q3y0+dVB9MYtYSO57uFJkIXbEsIuBjr8N
-	PSGGaiRhm9tZUL+mTxfQFyK2YgMA7EiOd+a1X0qcr7yfYxwHcf6Q2Oe16XExJpP98atU
-X-Google-Smtp-Source: AGHT+IE7TnL7jc5Iz6vTWhHrtrNij1s82deccxe7iwkiWATFIsU+z46kqSPjvpXY20QnIYGBevoc4Q==
-X-Received: by 2002:a17:907:7251:b0:ab6:d7c5:124 with SMTP id a640c23a62f3a-ab7f347db92mr40005066b.43.1739307950174;
-        Tue, 11 Feb 2025 13:05:50 -0800 (PST)
-Received: from [192.168.1.23] (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7bc28c58csm526166266b.135.2025.02.11.13.05.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 13:05:49 -0800 (PST)
-Message-ID: <7251062a-c665-4f09-ba47-6e890e2911d6@gmail.com>
-Date: Tue, 11 Feb 2025 22:05:49 +0100
+	id 1thxUO-00000005IJH-2N0v;
+	Tue, 11 Feb 2025 21:08:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2582FA40D7F;
+	Tue, 11 Feb 2025 21:06:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26979C4CEE2;
+	Tue, 11 Feb 2025 21:08:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739308095;
+	bh=bGAOKA1MkNL81iEciQ/YaP9238hsjmHj0yVs2PHuZjM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WQ+4Fr4obzotuKZeY0/kEEylnLtsOD6qn4FsTE6130dX+MJjMj/w+e8PP+Rimq72C
+	 TrSDrPoODZpQ0mWRSCDfuz5DIEnbG4cxoY5xlGdm+mXlMGfSE1wUUT/m3Jspj+9rrA
+	 G81fXqid9RUh9II6oOuWG9CkvC3Lbz3ogvPg7KAEakKMpacaZBCIQWesFL8M9BTx6U
+	 Zbzo+M49Pq+rEzRVuGgmkNbc7Ew8iY78IZleQNZb3B+N5X07Yyb4F1putZOT+qAPRP
+	 5y1Ze4HTH/9MfNe8uOxWCKn4VxNHAhJ+YFRaj67QNEb3ULeJzPFkuvAsj7C99etlv+
+	 6Sy+bxDDNG+AA==
+Date: Tue, 11 Feb 2025 15:08:14 -0600
+From: Rob Herring <robh@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Andras Szemzo <szemzo.andras@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Ripard <mripard@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 09/10] ARM: dts: sun8i: add DTSI file for V853
+Message-ID: <20250211210814.GB1172102-robh@kernel.org>
+References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+ <20250205125225.1152849-10-szemzo.andras@gmail.com>
+ <20250206161958.1ae885db@donnerap.manchester.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] ASoC: sun4i-codec: add headphone dectection for
- Anbernic RG35XX devices
-To: Ryan Walklin <ryan@testtoast.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- Chris Morgan <macromorgan@hotmail.com>
-References: <20250125070458.13822-1-ryan@testtoast.com>
-Content-Language: en-US
-From: Philippe Simons <simons.philippe@gmail.com>
-In-Reply-To: <20250125070458.13822-1-ryan@testtoast.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206161958.1ae885db@donnerap.manchester.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_130552_551526_26131072 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250211_130816_730011_34E21304 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +92,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tested on Allwinner H700 devices.
+On Thu, Feb 06, 2025 at 04:19:58PM +0000, Andre Przywara wrote:
+> On Wed,  5 Feb 2025 13:52:24 +0100
+> Andras Szemzo <szemzo.andras@gmail.com> wrote:
+> 
+> Hi,
+> 
+> > V853/V851 is a new SoC by Allwinner. Add a basic dtsi file for it.
+> > 
+> > Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> > ---
+> >  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi | 656 ++++++++++++++++++++
+> >  1 file changed, 656 insertions(+)
+> >  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> > 
+> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> > new file mode 100644
+> > index 000000000000..8b82b8783127
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> > @@ -0,0 +1,656 @@
+> > +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> > +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
+> > +
+> > +#include <dt-bindings/clock/sun6i-rtc.h>
+> > +#include <dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h>
+> > +#include <dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h>
+> > +#include <dt-bindings/clock/allwinner,sun8i-v853-ccu.h>
+> > +#include <dt-bindings/reset/allwinner,sun8i-v853-ccu.h>
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
+> > +
+> > +/ {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <1>;
+> > +
+> > +	dcxo: dcxo-clk {
+> 
+> What's people's opinion about the node name? Traditionally we call this
+> "osc24M", in all the other SoCs except D1 and A100. So is this the new
+> black?
 
-Tested-by: Philippe Simons <simons.philippe@gmail.com>
+That's documented (but not enforced) in fixed-clock.yaml now. It's 
+"clock-<freq-in-hz>".
 
-On 25/01/2025 08:00, Ryan Walklin wrote:
-> Hi All,
->
-> V2 of this patch adding support for headphone detection on the Anbernic RG35XX series. No functional changes on this revision, patches refactored to more clearly represent a single change per individual patch, remove vendor prefixing for the device tree binding, improve documentation of the DAPM widget changes and associated UCM, and small whitespace fixes.
->
-> Original message below:
->
-> This series adds the required device tree bindings to describe GPIOs for jack detection in the sun4i-codec driver, adds support for jack detection to the codec machine driver, and describes the hardware configuration in the RG35XX DTS. The existing speaker amplifier GPIO pin can then be used in concert with jack detection to enable userspace sound servers (via an ALSA UCM configuration) to disable the speaker route when headphones are connected.
->
-> Thanks to Chris Morgan for his assistance putting this series together.
->
-> Regards,
->
-> Ryan
->
-> Chris Morgan (4):
->    ASoC: dt-bindings: sun4i-a10-codec: add hp-det-gpios
->    ASoC: sun4i-codec: correct dapm widgets and controls for h616
->    ASoC: sun4i-codec: support hp-det-gpios property
->    arm64: dts: allwinner: h700: Add hp-det-gpios for Anbernic RG35XX
->
-> Ryan Walklin (1):
->    ASoC: sun4i-codec: change h616 card name
->
->   .../sound/allwinner,sun4i-a10-codec.yaml      |  6 ++
->   .../sun50i-h700-anbernic-rg35xx-2024.dts      |  5 +-
->   sound/soc/sunxi/sun4i-codec.c                 | 59 ++++++++++++++++++-
->   3 files changed, 67 insertions(+), 3 deletions(-)
->
+Rob
 
