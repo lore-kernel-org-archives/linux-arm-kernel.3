@@ -4,123 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F61AC021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C73C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZxB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=AKaX+6qvyWsNzV45VqbcxedxyW
-	ll/wQOCO33i2WH9Pq7hv4dmNCpr2uwmLlklxq8XqKH2yOotio29njNt3CqUog4Tc/V4OhD4g/CyaF
-	+Txs0fj9HD2nIG0e6MZMYWnm+/pVLIwmQa6t2pbRQ0psLcbs4M666eJT9V4aHS8i41/XGFKFWa5KC
-	HjmYB9/NEh+vo7N7Ah/dtLVtK1tiyi0ozdGyOq6wUaP4pCeDlpi9RH9lRsq1SJdnjnjtmSDiiPFrO
-	s+VxTzgjdgB3/YKdR4F2TRqu3rZ7hR3U/APNGY8lusejIGfrOG+KaEI/vsS4MXJfEzN2zOPnsE5Ay
-	u6sEB//A==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4g74ry+FUjRPAmBCJ1J0LdTlD/KUJCTLe8TcekSbbUk=; b=ZESAaP88DqCNTCl5i5k4aVfN6u
+	ZIksJsVQxbzhVFLM5+ol723cecAQDc1w3M8yrk5kdyQgoiJQ4qH+NjaqL/lHfPACC4GQXM7GqUdRW
+	UGoTNc27guZyUSZ4bzqdQG/jyc54i3ZqvDUWSK3Bfc1ZBrrl50pkelNVcEibwTky7k8chj5szlZDW
+	zEO/+b/qmfvtjx8dImtWKucPQB7hTHkLTqwHbVn4O0sv/cwAYPg/tTkTNWWOsDa+Q80ljhH96r1o0
+	2yFGSqniHizRzEvA78ATP0meWXZjb8+TewWKLF2JXLe5uqdv494xpK88p0gmkFPdJWR3vhdOfqWrI
+	RoFWo/bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thl3l-00000002tLC-0lRS;
-	Tue, 11 Feb 2025 07:51:57 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1thl59-00000002tbv-1euO;
+	Tue, 11 Feb 2025 07:53:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thl0m-00000002seq-0IWU;
-	Tue, 11 Feb 2025 07:48:53 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id B00B513802BF;
-	Tue, 11 Feb 2025 02:48:48 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 11 Feb 2025 02:48:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1739260128;
-	 x=1739346528; bh=ZxB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=
-	2/HEGcR9OGOaAwRQO6L6sMF2KbOtsNplv7MNsDt/YCxHuhPRcqAYtEiGoZgIwOfc
-	uL3sX3JSq1cawjwJkoxV3QTUgisQ3ya7PSS1ytut1LTD8PGj+BKk96+KJE65RNBW
-	Tsphgr7hCXE4tVIJ34oYnPVbiB4vjSTfc9/NOGeoGbswiwgC1a+6NHKuopy+NWom
-	W8Aye1T6NHlCILvx9Uo/L5Kan0YegyE5vRZFt0JnSxM/E7xAAFXkVMgaJLxHkNSW
-	7vSPcFaDVUCUX03VcnEb5QcRWhgQe/5RuBfnXo/EPUTyYvPI+L0q+ljabvM280SI
-	8+YYDn0Hmr5uRCF9PS3rqw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1739260128; x=1739346528; bh=Z
-	xB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=I4IxVtCnnAUwaMwdS
-	HBPGl0s8Bs7N5OvfxUUj7rmVpwUDenuSUtoWA8qW7iOVzTrXUCYnMvk85s2z0xoR
-	WwjfijsoIZ2gTZvqKVWotAOhcud1aPNGWjwV5EUeMHeY8JPZJfZ+Xl8EawFUVWba
-	L3G6vsOf9tVmmeY9c0Wm3+WHg4QEmtkIr425BlwrsmYGhpE/Bmny9s4MR27hsZYL
-	y6+mygr/MkXkIGwZMSloEQsmGVX47ObWdyppCTZAe/elBW2w3wJ2xxOqyqnb6WE1
-	pUlHrn/PNj4fbO2AgIJp64uaid65I+6U3nPUa7F1LIYYVGTHDQvsRUDBL0TAlSC2
-	PtUrg==
-X-ME-Sender: <xms:3wCrZ2JHs4IEKLoCYrrqhDKpD0sECcz6XTbclk5k5JQOCStIbUrLoA>
-    <xme:3wCrZ-KMxcrDJeRW5DKhBWQAbB8In_PeccU4ovCK8v_85BQrb0r0MSUwuSRA9sLTX
-    4SX2c5Sd_RQzhV7q7Y>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdegfecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfekledtffefhffghfetteehuefhgfetgefhtdeu
-    feduueeltefghedtjeeifffhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedu
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
-    hssegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgt
-    ohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoh
-    eprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehhohifrghr
-    uggthhhuleehsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhrohhgvghrshesghhooh
-    hglhgvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhg
-    pdhrtghpthhtoheprggurhhirghnrdhhuhhnthgvrhesihhnthgvlhdrtghomhdprhgtph
-    htthhopegrtghmvgeskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:3wCrZ2tgaKZd-r19tJFBLx1c9olIzWTs4ZaRSponWadm2LzZ8pniRQ>
-    <xmx:3wCrZ7abmJIQQGxBya7YEj5PHj7E42WKmlGvJuuqMoyGm5CmplJPQg>
-    <xmx:3wCrZ9aU6yItPSC8xJtXsBq-fJNVShJH7DJB1OOPcE4_GM_L7YKmfw>
-    <xmx:3wCrZ3A_NdBF4H9b_qRB98P-LNzrFo0iZkHCoC5kpllQIinlE4Y6uA>
-    <xmx:4ACrZwlxbCT18wcLzBJjhR0WUz3hezoGAamIPURRlc7nthRHwLvQT-fx>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 374062220072; Tue, 11 Feb 2025 02:48:47 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1thl2G-00000002t3x-43X6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 07:50:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B58485C014A;
+	Tue, 11 Feb 2025 07:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F0CC4CEDD;
+	Tue, 11 Feb 2025 07:50:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739260224;
+	bh=EF1TKhjntnzy3W5RYekoNWTXsY1QRykYaRxSzp7OJ94=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=gB87xESBUQtg3OTfLiVUbAOJY3GWxWeQYzco4QfapW38Yq6WPIM9S+znxkRFd+pdp
+	 DXZ8C2ggw04AB16w8oJ9R1whXfgcd1/CY5yT/fbGKGJWu87iYjtOZ2DjJiQMIPq9yt
+	 ayVbtwHnvufaofEV31KO7t4JQ+FdxQgLVhZUdN5WVouDw4Ws3mkwx/uOqF5k11y0ZV
+	 QKkh56aG8mowoWklhYCLD41PdT9Qpbo4W7oNqbS/HByhmFpUXEYb48tdE+bBD4GOff
+	 eEgTVoc4L6HaRqeFJsl1lmTdHhNOmCDSgMFLBcDM8VsBaVKWiB0mn3/6U0VQ2fgMO4
+	 yonNaC5271QQg==
+Message-ID: <7fa40597-ebc8-495e-885f-ff2c6b80d5e7@kernel.org>
+Date: Tue, 11 Feb 2025 08:50:17 +0100
 MIME-Version: 1.0
-Date: Tue, 11 Feb 2025 08:48:26 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ian Rogers" <irogers@google.com>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Ingo Molnar" <mingo@redhat.com>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Namhyung Kim" <namhyung@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
- "Jiri Olsa" <jolsa@kernel.org>,
- "Adrian Hunter" <adrian.hunter@intel.com>,
- "Kan Liang" <kan.liang@linux.intel.com>,
- "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
- "James Clark" <james.clark@linaro.org>,
- "Mike Leach" <mike.leach@linaro.org>, "Leo Yan" <leo.yan@linux.dev>,
- guoren <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Charlie Jenkins" <charlie@rivosinc.com>,
- "Bibo Mao" <maobibo@loongson.cn>, "Huacai Chen" <chenhuacai@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Jiri Slaby" <jirislaby@kernel.org>,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
- "Howard Chu" <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-riscv@lists.infradead.org
-Message-Id: <07c5c3ad-5a6d-4eda-95f2-ed16e7504d4c@app.fastmail.com>
-In-Reply-To: <20250210165108.95894-4-irogers@google.com>
-References: <20250210165108.95894-1-irogers@google.com>
- <20250210165108.95894-4-irogers@google.com>
-Subject: Re: [PATCH v2 3/7] perf syscalltbl: Remove struct syscalltbl
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 08/16] dt-bindings: nvmem: microchip-otpc: Add required
+ clocks
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Ryan Wanner <ryan.wanner@microchip.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+References: <20250210164506.495747-1-ada@thorsis.com>
+ <20250210164506.495747-9-ada@thorsis.com>
+ <8e9562c8-5c01-4b5c-b2b0-4dad3d16e7a8@kernel.org>
+ <20250211-primer-epic-d07bc3752569@thorsis.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250211-primer-epic-d07bc3752569@thorsis.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_234852_187398_0E766FD9 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20250210_235025_093820_7DE7619B 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,48 +125,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
-> The syscalltbl held entries of system call name and number pairs,
-> generated from a native syscalltbl at start up. As there are gaps in
-> the system call number there is a notion of index into the
-> table. Going forward we want the system call table to be identifiable
-> by a machine type, for example, i386 vs x86-64. Change the interface
-> to the syscalltbl so (1) a (currently unused machine type of EM_HOST)
-> is passed (2) the index to syscall number and system call name mapping
-> is computed at build time.
->
-> Two tables are used for this, an array of system call number to name,
-> an array of system call numbers sorted by the system call name. The
-> sorted array doesn't store strings in part to save memory and
-> relocations. The index notion is carried forward and is an index into
-> the sorted array of system call numbers, the data structures are
-> opaque (held only in syscalltbl.c), and so the number of indices for a
-> machine type is exposed as a new API.
->
-> The arrays are computed in the syscalltbl.sh script and so no start-up
-> time computation and storage is necessary.
->
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> Reviewed-by: Howard Chu <howardchu95@gmail.com>
+On 11/02/2025 08:05, Alexander Dahl wrote:
+> Hello Krzysztof,
+> 
+> Am Mon, Feb 10, 2025 at 05:59:52PM +0100 schrieb Krzysztof Kozlowski:
+>> On 10/02/2025 17:44, Alexander Dahl wrote:
+>>> The OTPC requires both the peripheral clock through PMC and the main RC
+>>> oscillator.  Seemed to work without explicitly enabling those clocks on
+>>> sama7g5 before, but did not on sam9x60.
+>>>
+>>> Older datasheets were not clear and explicit about this, but recent are,
+>>> e.g. SAMA7G5 series datasheet (DS60001765B),
+>>> section 30.4.1 Power Management:
+>>>
+>>>> The OTPC is clocked through the Power Management Controller (PMC).
+>>>> The user must power on the main RC oscillator and enable the
+>>>> peripheral clock of the OTPC prior to reading or writing the OTP
+>>>> memory.
+>>>
+>>> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+>>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
+>>> ---
+>>>
+>>> Notes:
+>>>     v2:
+>>>     - new patch, not present in v1
+>>>
+>>>  .../nvmem/microchip,sama7g5-otpc.yaml         | 28 +++++++++++++++++++
+>>>  1 file changed, 28 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+>>> index 9a7aaf64eef32..1fa40610888f3 100644
+>>> --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+>>> +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+>>> @@ -29,6 +29,16 @@ properties:
+>>>    reg:
+>>>      maxItems: 1
+>>>  
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: main rc oscillator
+>>> +      - description: otpc peripheral clock
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: main_rc_osc
+>>
+>> osc
+> 
+> On at91 SoCs main oscillator and main RC oscillator are two different
+> things, and those are different clocks in Linux as well.  This clock
+> is named "main_rc_osc" in the clock driver.  In
 
-Your changes look fine to me, but I noticed one part that may
-be wrong before and after your patch:
+It does not matter, you could have 5 oscillators. This device takes one.
+What is this clock from the point of view of device?
+
+> drivers/clk/at91/sam9x60.c this clock is added like this:
+> 
+>     hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000, 50000000);
+> 
+> The datasheet makes it explicit, it's exactly the main rc oscillator
+> clock required for the OTPC to work, no other clock.
+
+You speak about source clock but this has to be the clock here, in the
+device context.
 
 > 
-> -const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
-> -static const char *const *syscalltbl_native = syscalltbl;
-> +const char *syscalltbl__name(int e_machine __maybe_unused, int id)
-> +{
-> +	if (id >= 0 && id <= (int)ARRAY_SIZE(syscall_num_to_name))
-> +		return syscall_num_to_name[id];
-> +	return NULL;
-> +}
+> So why name this "osc" only then?  This is confusing at best.
+> 
+>>
+>>> +      - const: otpc_clk
+>>
+>> otpc or bus or whatever logically this is
+> 
+> Okay the "_clk" suffix is redundant.  Since the peripheral clock for
+> the OTPC is required here, I would go with "otpc" only then.
+> 
+>>
+>>> +
+>>>  required:
+>>>    - compatible
+>>>    - reg
+>>> @@ -37,6 +47,8 @@ unevaluatedProperties: false
+>>>  
+>>>  examples:
+>>>    - |
+>>> +    #include <dt-bindings/clock/at91.h>
+>>> +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
+>>>      #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
+>>>  
+>>>      otpc: efuse@e8c00000 {
+>>> @@ -44,10 +56,26 @@ examples:
+>>>          reg = <0xe8c00000 0xec>;
+>>>          #address-cells = <1>;
+>>>          #size-cells = <1>;
+>>> +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
+>>> +        clock-names = "main_rc_osc", "otpc_clk";
+>>>  
+>>>          temperature_calib: calib@1 {
+>>>              reg = <OTP_PKT(1) 76>;
+>>>          };
+>>>      };
+>>>  
+>>> +  - |
+>>> +    #include <dt-bindings/clock/at91.h>
+>>> +    #include <dt-bindings/clock/microchip,sam9x60-pmc.h>
+>>> +    #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
+>>> +
+>>> +    efuse@eff00000 {
+>>> +        compatible = "microchip,sam9x60-otpc", "syscon";
+>>> +        reg = <0xeff00000 0xec>;
+>>
+>> No need for new example with difference in what exactly? Even compatible
+>> was not added here...
+> 
+> Different compatible, different clocks, no sub nodes, different
+> peripheral clock id …  From a human doc readers I'd like another
 
-The syscall numbers on mips (and previously on ia64) are offset by
-a large number depending on the ABI (o32/n32/n64). I assume what
-we want here is to have the small numbers without the offset in
-syscall_num_to_name[], but that requires adding the offset during
-the lookup. Can you check if this is handled correctly?
+Clocks are the same. Their actual value does not matter.
 
-      Arnd
+
+
+Best regards,
+Krzysztof
 
