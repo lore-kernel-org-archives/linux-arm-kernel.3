@@ -4,209 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D85C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFAEC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7QgXS8TS+VSf9wXC59Mcq0LhkK8u2Z6sU+hdjDQ2gM=; b=b1P8Nlw8RpS0pGkX/ia5UIQApa
-	OahBNGFiXnUx9C25kN6sbGepmBiX+iQ1UyouG03Or3hYUc4EnD6D4t9k8zHYNtS9vXefdo79XtM6S
-	sShXmHvCx+jT5oWnXVkbaCOdbrS2cN5r2LGHCcK7rVn0ywhYsV4tdoY5IwHvlRU9+nIsfoXRa+SFk
-	RPJt+F37fwoMRO+iSO8IVqvYhjhyuTK79y8bmkGDVJzm3iDYunIBVJBef6SmkSNpDpdj7dlmnpWbZ
-	lwmLFIAXb/eOoPPuxRVQNbFCVDXqLFpQoF4+RqqjalorOlSVt1NhUIMAscx5Z18t2TfuO9aQpC2Z5
-	FzTtrAvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hLQWmvwOqjatY6PU57Hpj0gxEiAqdkd8H1JgPQsC6IU=; b=1kjSYOu1DIbebdik8OnP/SQ8OI
+	vysZoIHNUfmdRHB0dcK4PnyXazj0ToQ0lFJHt4utdYTTTn+lik1AbWsOJfNC+8q94ci3yFWrOLZyZ
+	T3uWObzCUDuPT78Mo3bZafXYIjBOOqSa6e3Oy22h1muPNbo107KHpzLkV6M+fRrACIhFIKx0d0aIr
+	PIpodDqliKldS5U0K/MpdZl5VoYl1BeYrZhXhrSj1EtArnvdwqzM9tX+LraFJCZOEvgfHejPeOpJR
+	zxrW7rDb2INrGReHHxdsSl1i+DEw9Aq6YxXJClvSMEkN7oJ7aG4yq3cJJVv1nXwYBUdSTbTQgNWfW
+	FP236JFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmDb-000000037DC-2yTh;
-	Tue, 11 Feb 2025 09:06:11 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1thmGX-000000037le-32BX;
+	Tue, 11 Feb 2025 09:09:13 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thm6X-0000000365e-14Ml;
-	Tue, 11 Feb 2025 08:58:54 +0000
+	id 1thmF7-000000037cV-2g7T
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 09:07:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739264333; x=1770800333;
+  t=1739264866; x=1770800866;
   h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=8jPOVYt1ylhr+sRppcpQ90lFtQXZlBLL41K4CQuYPYc=;
-  b=CauAwZkbSskTFoQuZUqiIpTBzK/f28pBZlBZ4bjh+GlYJxeRczCjFh1p
-   tryKu6VaneXyxHCshfz93oSJSsvRkDwB1tPks6O/62IvwEIiy9ev2y/Cl
-   cK+0FyJ75J2Dc/gMJDp6EY3Whguz10o1RtjEOiqGaBc49LT5E1pusxIo3
-   Wdp3BSasQgfKsZMr7jts5psZ9PiNDsqDneytTjMx+zKVDquAJ0u5aoj0u
-   p9e2upgDBZKlZZ0RI3lDG70wcTxYtLpu9N5yG7inIBGxsFbF/Qe7yoV2o
-   lo9iHFgw9yvMVpQOzcqd2VcbaYbZ/IA9zk59zoF/ORwGO++Pxl3/vzVEt
-   Q==;
-X-CSE-ConnectionGUID: MEgcKxvBQg6kqt9yeHIN5w==
-X-CSE-MsgGUID: yEsIXVSUS+6ldCN0V+sd+Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11341"; a="40141429"
+   mime-version:in-reply-to;
+  bh=hFx79QumT2efvDIu9SQG+KhJyUcuw+IZ0OY2d/uT+og=;
+  b=X5xgcR2jSLNt89s/67ieR8yzJN1T+7/bPWJsXx7aT4thNw9Fkgs2nVaI
+   f0hdP9qApM+UReHx07eahi+LNSLiBLG9h65aZyBciNU4I8McMXhTbZ1jC
+   cSkq479Gp4tE+GDcnnI/qEgT5tQUZUCt1/9GVkE7nK0BIJzespdvRTcPq
+   nmkoSv7glLVxBOz4dFhwCnblxXstMYSXdY+MF52dE69sueEVyF2N7J+ms
+   IRooQLEpjnXK01Q9u5YXSEOU00vL41invI6ZNRUDgaSYPCMmBcArowMUg
+   DVVq4MAcRikY+VTimfbaNUBjydXBTDujjobn/fQi3hnEKnahqEoEZeKBF
+   g==;
+X-CSE-ConnectionGUID: QriodPfbQo2tXnXADPEo0A==
+X-CSE-MsgGUID: lRXIlCrUQGOy/K218/XnSg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11341"; a="39758894"
 X-IronPort-AV: E=Sophos;i="6.13,277,1732608000"; 
-   d="scan'208";a="40141429"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 00:58:52 -0800
-X-CSE-ConnectionGUID: LLa/JqOiQSCgt6re7goI3g==
-X-CSE-MsgGUID: xvwJ7ZchTM+SgdHi7xASzQ==
+   d="scan'208";a="39758894"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 01:07:45 -0800
+X-CSE-ConnectionGUID: Wlse3+4DSkGTXxDkvf01tQ==
+X-CSE-MsgGUID: nbHe+6jIRwa8BdCdBKGWcg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="112913685"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa007.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 11 Feb 2025 00:58:52 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 11 Feb 2025 00:58:51 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Tue, 11 Feb 2025 00:58:51 -0800
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.174)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 11 Feb 2025 00:58:51 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I5g98T9ipxmgYKDW/OWKIt6Z2e4g04IuhHonKY4rwrBQKOv8GvATvo3qJHDli0etmuWpTgaYetwHfyz10QcUwoGWQ+i+XO27Myniza0fbo3XRCsQQW6ICouEXGRQ9Kmtn1m41QJK7e3WtMCjKmU1IHnusFY6CZJzxyJuPuZNxpc84cvBEJ97lA3y8cyxsEnZsmsh9ldgMGfPNTTNh0MRxKgYNumfT0UwiJKx/0JojrCFevTqFhs8xhfZhpsEDsJnw4mnsJecDU0Z6DleSDqTTSenySehM+97wz6x5HdM02i1i2EAWXQr+wylLsP4vmHU0LLBVzlKuIP7PWR2KXK75w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W7QgXS8TS+VSf9wXC59Mcq0LhkK8u2Z6sU+hdjDQ2gM=;
- b=IYMzHIlGeRIRU527vpi21PBEvVdFIFFpPh36tkTZM9P/ZjOKk8DDQccjM5aEyt+PVY42V8QbnrgWE0R2tciqKO7ZUkfKSO0Hi928Oe87CKewPJHwPUV7QRwumFcKHmA+/FG9hWG5Ur5FFFShCIvAYzx2PeFVlPtKRRj620KRmChkPy3oYSkXaHzSdK3utYLYU2+YhFfZDAwFqYTstlSMFr5x+1PcVWDDWtCNomaWx2p0q48THgpFXqWJn45jhqFc+K8bBraBQysJ3d48NaIqfcjsNfpasK8Uj1E5RMy7JZxmXRogpdXJhleTizylmyL5PTTwBut37kQ+bbt/+JWXpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from MN0PR11MB6231.namprd11.prod.outlook.com (2603:10b6:208:3c4::15)
- by CY8PR11MB7242.namprd11.prod.outlook.com (2603:10b6:930:95::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.16; Tue, 11 Feb
- 2025 08:58:49 +0000
-Received: from MN0PR11MB6231.namprd11.prod.outlook.com
- ([fe80::a137:ffd0:97a3:1db4]) by MN0PR11MB6231.namprd11.prod.outlook.com
- ([fe80::a137:ffd0:97a3:1db4%4]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
- 08:58:49 +0000
-Date: Tue, 11 Feb 2025 09:58:22 +0100
-From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-CC: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>, Andrey Ryabinin
-	<ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, "Dmitry
- Vyukov" <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	<kasan-dev@googlegroups.com>, <llvm@lists.linux.dev>, Catalin Marinas
-	<catalin.marinas@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon
-	<will@kernel.org>, Evgenii Stepanov <eugenis@google.com>, Andrew Morton
-	<akpm@linux-foundation.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow
- computation
-Message-ID: <lrlnvcxofcnsm5rou3iwbawyfwtz6mx4gn6eflpm4srhjj37kb@pwsozjgdyxfu>
-References: <20241022015913.3524425-1-samuel.holland@sifive.com>
- <20241022015913.3524425-2-samuel.holland@sifive.com>
- <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
- <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
- <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
- <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
-X-ClientProxiedBy: DUZPR01CA0070.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c2::9) To MN0PR11MB6231.namprd11.prod.outlook.com
- (2603:10b6:208:3c4::15)
+   d="scan'208";a="135702696"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 11 Feb 2025 01:07:42 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1thmF2-0013wj-0a;
+	Tue, 11 Feb 2025 09:07:40 +0000
+Date: Tue, 11 Feb 2025 17:07:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc
+ at boot for arm64
+Message-ID: <202502111626.K7CTghCR-lkp@intel.com>
+References: <20250210142647.083ff456@gandalf.local.home>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN0PR11MB6231:EE_|CY8PR11MB7242:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4342a5f0-910f-48de-5419-08dd4a7a4cb4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|27256017;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUFQZ3ROY2RiTm0xck1GbmkxZ3Nsc0x6bC91c2lON2JzVFpiek5heHFVeTZ2?=
- =?utf-8?B?anNGQUxlU29icXEvUTBCU3ZWc3Z3T2lOc2dDUjF4YzJ2OGtaZSttbXcxYVYy?=
- =?utf-8?B?OGd3azNVVUFUWjYvdXM1RGluS0p1ckZuM0ljSjhmV0hFcmRDalZjWVp4K2Zh?=
- =?utf-8?B?OUd3RTlOS2VySGhRZkpwRFpzMFdCNGxxSmE2YWZFdkdMK2xtK0xFNGg3Zm5Q?=
- =?utf-8?B?NVpmZHVvV1RSSkYyaTVGdENsYngyYjF4VHpEQlNMeFJzcURueW5WS0k3WGtw?=
- =?utf-8?B?K2RERFdOSHNKYUlsZFRjWWErZnlSN2FlRWIrSURzRmM3QmxQVXNTcDRnZk9x?=
- =?utf-8?B?amFlNmEwN3U4czhERkxsVEdya2c1a0ZXWklRUHdYT0I1bDVZOTJ5dHVKWWpi?=
- =?utf-8?B?RkxKcjlmQzZZOVZNelV5S0o3UlR5ZldUT3NqaXU5Skx3YkRsa215OHRJM3RO?=
- =?utf-8?B?K2htd3ZOTUN2Sk85cjJSMkJPRzVtSWJ6T1hLTEEvMTYxdW1OM2gvcHB3Ni9T?=
- =?utf-8?B?R2pnM0E3SXpwVFBxN2hJT0FrVDlmcERtWEp0UmlnZHpmVExFOXZDNTFITFd2?=
- =?utf-8?B?N29vMWJ3bjBEbUhZYUpEUlBVTHJzQ1BBS1ArVFhuS01zdVhOSGhhcDEyaHBa?=
- =?utf-8?B?MDU5L0VFVE4vbGpqTStKakNZTEQvMld6eEMyT0VQWG1JbWxFUGpmOHA5U1Bs?=
- =?utf-8?B?YkpFMXlsWFgya3dIR1ZTWEZ3VmNudFpzd2w2cHZUQld5ZmRrRkZFeW84YWZ5?=
- =?utf-8?B?US9URkNqOUZJM01MbmFQOG9UVlV0NGp2Ui9CNWpGcTh6Zk9jVzVrdkpkdkdK?=
- =?utf-8?B?L2dHdVdRM0JoZVFlNENTVkJJRThaT1Eyb200d0xEMS9mWFNiM2Z3Rm1GQ0g3?=
- =?utf-8?B?cGU3WE5peHNteEJYTyt0elVneHJZeTZhVTRXaElqK1hqZllKUWtrM2ZzNEJ1?=
- =?utf-8?B?ZElHREU5SmRMR1RlRkNvY21XYXRkVVhZaU1GTitONWl5SHh1Szg0Y0lJNFJU?=
- =?utf-8?B?LzRwTjNlT0hXTEdTajR0K2NkV2dqTUxINmpEbm5XNmpQc3VPVXN5T1JFUU84?=
- =?utf-8?B?RWx5UTJ3alRhdkhod0hXMVIxa2J6bkNxNlRnNXM2NmQyV1ZnYjc2S21FbnRw?=
- =?utf-8?B?K21tMzhZZ2h1dzBqQUJJOWVocjk2WEdkWTRQdmhjOTVaODJJV3pQZmFzWk0z?=
- =?utf-8?B?czh4eko0UXZPaU1zTU92NHZEWkJneG1FdjZ6T3pFVnZ6czdrNnBtMy9CeDls?=
- =?utf-8?B?cG5tQTdJK29UM09XOTk0VjNzTUYxLzFaMm82M21ydXl1SVlPYjc4ZFFxWGxX?=
- =?utf-8?B?eWFkUGIzWnR6cFJmbnRnQnZ1U01BSnUvMFB6NG5UMVZMVExTYjQ1UXZ1ZXc4?=
- =?utf-8?B?OS9kbmFuZ1g0RHJUeFBqNEJobTM1QnViZFBkZ2lvbytlVUxUVnlzWXBSMU5v?=
- =?utf-8?B?bzgzZWVuRHQydXk4ejF5N3lEcjVKdHpFWTVmTTNQN1I2NjhFLzdZcklNaXo4?=
- =?utf-8?B?QjBOeWxyR3lXTU9rY0xjaERpeHZWV2ZtNEJRSjBMZFVNUlV1NTV2MG9RaDJz?=
- =?utf-8?B?RWdieDNDZnlBaDFiRmNDZTNiMGZ4Y2dSY3IzMGE4RGNiaUNqOHdQZVlBZCts?=
- =?utf-8?B?eGFZdU1aeVM2YzMvRGQ5a0FaV2JBMFlDUWNsRUdzbjhrY0NHNUN4dXVTMC9i?=
- =?utf-8?B?TTEzUkFzeVV0UXQvVkczS2RhNHZBZDB2aVdiajZkMll6dGF6RUpLYmk0L0Yx?=
- =?utf-8?B?clVEVU9DWUpVbzI2OUszZ201WDhxZ0R5VGtaQnpJTXBHVTJrRUVYSTVPMTkz?=
- =?utf-8?B?WkphNDdJM1ZCTGs5WTJzUi91aG5HZFhPamdrNU5YTkNDdlRTSlAxaWJ4VHdq?=
- =?utf-8?B?RmJNSFR2a2RvUzZWQUJ6aXhSeDhpVzJCaUVSWDQ1b1JxWHRCMTZaSEFESVBI?=
- =?utf-8?Q?hMOKTsnYyMTHxCPYjNq1IEoiT46u+2pq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB6231.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(27256017);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHNKcmtHWWJnRUtIa2pOY1RNWG1EUERVVWlqN0pqa05Oelg5U0RhTzB5UTFo?=
- =?utf-8?B?bWkvVzNVOHJkU2NvTnZqK0ZId3FaSnFIWFk0NlZOVldnbnoyRXJaMkVERjdr?=
- =?utf-8?B?bHkwSm11MUtIaHNaeHVNMFkvU3F2SkFmemVEekhjcS9kdmQ2SXBOdnhTbFZ3?=
- =?utf-8?B?SVFac2V3K1RWY3RrRXpWK3BaZW56RFV2eUwvZERsTUZOQklrb3EraFp1K0xs?=
- =?utf-8?B?SHZGSkhyYWZ0Umtya3JrRWg5TzdjcWRnOUpza000OEl2RG9GZ1BOVWZJYVZP?=
- =?utf-8?B?T3g5V29mRFc3RzB1WXJjZVVQUThFaFZnaVJDalRUbVZWb09KRmFjN0Jzd0l5?=
- =?utf-8?B?QzBFazJvZG41cWlBbHBGQlBnYmlzUk9ZRlozVzRhbUdQV3Jhd00zK3ZtNXIz?=
- =?utf-8?B?NUE4WVZSeTB0Z0xtaG5uV21EWW5sOUcrM3R1UjQxS0U4ZDFzR0xabENuVWVs?=
- =?utf-8?B?L1ZQNXZjMmI4UGdCUVdPc1ZKY2dMYzYxaFdpNUU4d3Q3eFV6VndLT0p0RFNo?=
- =?utf-8?B?Z01NUWV6dHd5eFhzRHBPb3FWVWhkMEV1WkpKUkdlWnd4SmVJak5GdkV4RGNp?=
- =?utf-8?B?Uk5ZRWg1Y085RVM1VnhxcnB5Vjc4TTJBVFdzNnRKQVpBK1NURW1HRnJteW5t?=
- =?utf-8?B?OWV1Y1hZenFMT2Z0WHNGb0s3cngvblpjVGVzdkVYM0puOG1XdkJGcTR6L0JO?=
- =?utf-8?B?ZUd6S1AvRlRVYStTNDFidFZrK3k5L0ZPM093NUkxNlVOZzAwQTh5ZDZlRUU1?=
- =?utf-8?B?ZGJJK1dCaVo2bDRPU0JFb3lqdjhSV2xOZmNoNDJUa3hva3kxUDRGSmhrTjZj?=
- =?utf-8?B?RGpiMWxrOW1JYjZSQ01mSnhzNVFuN0NVVjNNR1lRdkd1NC93L0thbktOK3ZB?=
- =?utf-8?B?ZEpWdjZwR1dtWGE2Y05SSVZGb2dEMmpQMkhHa0dsZXV4ejRXTGhlSVVlNGZL?=
- =?utf-8?B?WFZ3RFZnZktxdDRCb2FkckYvVzlINitVcUcwcnVmck5jakgvQlkyY0wyRmRP?=
- =?utf-8?B?dUpHbFZCS1Z0ZHVNL3JzN0R4ZTlFUnVLb3A4VSs1N0kwWm13M2tPR1BxSVBi?=
- =?utf-8?B?TnBLUk9kZHFXTEtKazhtMU5TcjdFdUlSMmJtaWdLMnFHT1BUL09KT3RQUDZN?=
- =?utf-8?B?TWZBWjhFM2FMWHlaR201QVY0WkdES21aZUN6Sy9pNWtRNThKUXNHcmtPa2U4?=
- =?utf-8?B?T0d2UU1LYi84cTV3Njd5ZFdCRUxzSEFPZWVuemtTblE0VHpNVTB1Y2tLZ2VL?=
- =?utf-8?B?emZuK3k0aGlld3hWUXB1ZGErNnhvWmFIcGxjS1FzZ0NiTUpEbmZ2QzRIRzN4?=
- =?utf-8?B?R0p1cWFSWGhqN2lEQzAyZlQ1cVFzZVF1Z3U0NkwvbTJBTU5QbWppTnFhUnF2?=
- =?utf-8?B?Rk1pejlKejBJWlhSZU5GZkpGWUhoV2dReDVtejN5TWJmWkprTTJMZEJ3aVJJ?=
- =?utf-8?B?aVpsSmQrT1d5NE51V0lKMjcyV1JOZlh0TTFtWi9VWldPankvc2dxdlJ3bysy?=
- =?utf-8?B?OUVlT1dHOGd1RE1wQ2J5YmZtalhNQnRKV0MyTlU2aUpCMTYrNXorMEtYTDJn?=
- =?utf-8?B?K3JuR2xNeFBmU2duZ0wwQjZUR0RHWENOTnBoT0lrYTcxMCs0MEpnWlprQXB1?=
- =?utf-8?B?SWNJdkpsd3Y3ODIxS08yeTNmQ3JlUnlIT1UxSTAxUHluQVh4dDVjYTFscGhQ?=
- =?utf-8?B?c3ZpL05qa21pY29KeXVKTm9OSnpxalFKRzJIaUFrUEdLd1ovemZEdWxGUzlm?=
- =?utf-8?B?MW51QkpOc1dvaGhMb3NYREY0N25scUJWNThvWTI4NERwNnYwV2ZnQmFZQ0xE?=
- =?utf-8?B?WXZvTG11d2Y1UWMxTW5oTllRQnNEcGRTNlVrUjcrWFNrbFpTRm5nVnVFVzdQ?=
- =?utf-8?B?cmFpOEpPU2QzNTJyY1pzNjltaTR0L1JFallHTGNQV3huYlRjL1BBcExsZDJF?=
- =?utf-8?B?TnZIRUtoTklXS2FrR2NsSER1T0hDYXl1UHhCS3VHK0NuUDRtVHZKY2J3dTVj?=
- =?utf-8?B?bnZva0loTVA4R2xGallsY0Y1dUlVSEZOZ1BDdlNKbXpBYVBLY2FrcWt0Ukcr?=
- =?utf-8?B?dE56WCtaMUdkMGFCb2h6VmtVWlVTRnpLcjNwQW1NUHdVMjdVZTRtemhVRUlM?=
- =?utf-8?B?QkFYU1RzT0diOUFuMVpzVW9ick1peFNSSWg0aWRQRC9rTGtnaW9ZYkFuQUJy?=
- =?utf-8?Q?D92ejm+64D6CtJiwWEkfaOs=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4342a5f0-910f-48de-5419-08dd4a7a4cb4
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB6231.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 08:58:49.1919
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zhz6T7K2We6BJSFwCxGX43rVBHeOpRhuSLMXzPHV20YzjEJMv+V5v4OKH7mcsIkj4Qtew3OUjzIbUAMEikAzSt9PXT5YdhBBiRm/HgL6YpU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7242
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210142647.083ff456@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_005853_329921_E6DE4F2D 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20250211_010745_691851_45FAD699 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,92 +96,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-10 at 23:57:10 +0100, Andrey Konovalov wrote:
->On Mon, Feb 10, 2025 at 4:53 PM Maciej Wieczor-Retman
-><maciej.wieczor-retman@intel.com> wrote:
->>
->> On 2025-02-10 at 16:22:41 +0100, Maciej Wieczor-Retman wrote:
->> >On 2024-10-23 at 20:41:57 +0200, Andrey Konovalov wrote:
->> >>On Tue, Oct 22, 2024 at 3:59 AM Samuel Holland
->> >><samuel.holland@sifive.com> wrote:
->> >...
->> >>> +        * Software Tag-Based KASAN, the displacement is signed, so
->> >>> +        * KASAN_SHADOW_OFFSET is the center of the range.
->> >>>          */
->> >>> -       if (addr < KASAN_SHADOW_OFFSET)
->> >>> -               return;
->> >>> +       if (IS_ENABLED(CONFIG_KASAN_GENERIC)) {
->> >>> +               if (addr < KASAN_SHADOW_OFFSET ||
->> >>> +                   addr >= KASAN_SHADOW_OFFSET + max_shadow_size)
->> >>> +                       return;
->> >>> +       } else {
->> >>> +               if (addr < KASAN_SHADOW_OFFSET - max_shadow_size / 2 ||
->> >>> +                   addr >= KASAN_SHADOW_OFFSET + max_shadow_size / 2)
->> >>> +                       return;
->> >>
->> >>Hm, I might be wrong, but I think this check does not work.
->> >>
->> >>Let's say we have non-canonical address 0x4242424242424242 and number
->> >>of VA bits is 48.
->> >>
->> >>Then:
->> >>
->> >>KASAN_SHADOW_OFFSET == 0xffff800000000000
->> >>kasan_mem_to_shadow(0x4242424242424242) == 0x0423a42424242424
->> >>max_shadow_size == 0x1000000000000000
->> >>KASAN_SHADOW_OFFSET - max_shadow_size / 2 == 0xf7ff800000000000
->> >>KASAN_SHADOW_OFFSET + max_shadow_size / 2 == 0x07ff800000000000 (overflows)
->> >>
->> >>0x0423a42424242424 is < than 0xf7ff800000000000, so the function will
->> >>wrongly return.
->> >
->> >As I understand this check aims to figure out if the address landed in shadow
->> >space and if it didn't we can return.
->> >
->> >Can't this above snippet be a simple:
->> >
->> >       if (!addr_in_shadow(addr))
->> >               return;
->> >
->> >?
->>
->> Sorry, I think this wouldn't work. The tag also needs to be reset. Does this
->> perhaps work for this problem?
->>
->>         if (!addr_in_shadow(kasan_reset_tag((void *)addr)))
->>                 return;
->
->This wouldn't work as well.
->
->addr_in_shadow() checks whether an address belongs to the proper
->shadow memory area. That area is the result of the memory-to-shadow
->mapping applied to the range of proper kernel addresses.
->
->However, what we want to check in this function is whether the given
->address can be the result of the memory-to-shadow mapping for some
->memory address, including userspace addresses, non-canonical
->addresses, etc. So essentially we need to check whether the given
->address belongs to the area that is the result of the memory-to-shadow
->mapping applied to the whole address space, not only to proper kernel
->addresses.k
+Hi Steven,
 
-Ah, okay, I get it. Would the old version
+kernel test robot noticed the following build warnings:
 
-       if (addr < KASAN_SHADOW_OFFSET)
-               return;
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.14-rc2 next-20250210]
+[cannot apply to arm64/for-next/core arm-perf/for-next/perf kvmarm/next soc/for-next arm/for-next arm/fixes]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-work if the *addr* had kasan_reset_tag() around it? That would sort of re-unsign
-the address only for the purpose of the if().
+url:    https://github.com/intel-lab-lkp/linux/commits/Steven-Rostedt/arm64-scripts-sorttable-Implement-sorting-mcount_loc-at-boot-for-arm64/20250211-032956
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250210142647.083ff456%40gandalf.local.home
+patch subject: [PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc at boot for arm64
+config: riscv-randconfig-001-20250211 (https://download.01.org/0day-ci/archive/20250211/202502111626.K7CTghCR-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250211/202502111626.K7CTghCR-lkp@intel.com/reproduce)
 
-Also I was thinking about it because x86 even with address masking enabled keeps
-bit 63 set, so all kernel addresses will be negative in the signed
-kasan_mem_to_shadow(). That's great for simplifying the KASAN_SHADOW_OFFSET but
-it differs from the TBI and risc-v ideas where half of addresses are negative,
-hald positive. So the temporary re-unsigning could maybe make it simpler for x86
-and avoid adding separate cases or alternative kasan_non_canonical_hook()
-implementation.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502111626.K7CTghCR-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> scripts/sorttable.c:306:13: warning: 'rela_write_addend' defined but not used [-Wunused-function]
+     306 | static void rela_write_addend(Elf_Rela *rela, uint64_t val)
+         |             ^~~~~~~~~~~~~~~~~
+>> scripts/sorttable.c:287:17: warning: 'rela_addend' defined but not used [-Wunused-function]
+     287 | static uint64_t rela_##fn_name(Elf_Rela *rela)          \
+         |                 ^~~~~
+   scripts/sorttable.c:294:1: note: in expansion of macro 'RELA_ADDR'
+     294 | RELA_ADDR(addend)
+         | ^~~~~~~~~
+>> scripts/sorttable.c:287:17: warning: 'rela_info' defined but not used [-Wunused-function]
+     287 | static uint64_t rela_##fn_name(Elf_Rela *rela)          \
+         |                 ^~~~~
+   scripts/sorttable.c:293:1: note: in expansion of macro 'RELA_ADDR'
+     293 | RELA_ADDR(info)
+         | ^~~~~~~~~
+>> scripts/sorttable.c:287:17: warning: 'rela_offset' defined but not used [-Wunused-function]
+     287 | static uint64_t rela_##fn_name(Elf_Rela *rela)          \
+         |                 ^~~~~
+   scripts/sorttable.c:292:1: note: in expansion of macro 'RELA_ADDR'
+     292 | RELA_ADDR(offset)
+         | ^~~~~~~~~
+   In file included from arch/riscv/kernel/asm-offsets.c:10:
+   include/linux/ftrace.h: In function 'ftrace_get_regs':
+   include/linux/ftrace.h:190:16: error: implicit declaration of function 'arch_ftrace_get_regs'; did you mean 'arch_ftrace_regs'? [-Wimplicit-function-declaration]
+     190 |         return arch_ftrace_get_regs(fregs);
+         |                ^~~~~~~~~~~~~~~~~~~~
+         |                arch_ftrace_regs
+   include/linux/ftrace.h:190:16: error: returning 'int' from a function with return type 'struct pt_regs *' makes pointer from integer without a cast [-Wint-conversion]
+     190 |         return arch_ftrace_get_regs(fregs);
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   make[3]: *** [scripts/Makefile.build:102: arch/riscv/kernel/asm-offsets.s] Error 1 shuffle=1925395641
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1264: prepare0] Error 2 shuffle=1925395641
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:251: __sub-make] Error 2 shuffle=1925395641
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:251: __sub-make] Error 2 shuffle=1925395641
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +/rela_write_addend +306 scripts/sorttable.c
+
+   275	
+   276	#define RELA_ADDR(fn_name)				\
+   277	static uint64_t rela64_##fn_name(Elf_Rela *rela)	\
+   278	{							\
+   279		return r8((uint64_t *)&rela->e64.r_##fn_name);	\
+   280	}							\
+   281								\
+   282	static uint64_t rela32_##fn_name(Elf_Rela *rela)	\
+   283	{							\
+   284		return r((uint32_t *)&rela->e32.r_##fn_name);	\
+   285	}							\
+   286								\
+ > 287	static uint64_t rela_##fn_name(Elf_Rela *rela)		\
+   288	{							\
+   289		return e.rela_##fn_name(rela);			\
+   290	}
+   291	
+   292	RELA_ADDR(offset)
+   293	RELA_ADDR(info)
+   294	RELA_ADDR(addend)
+   295	
+   296	static void rela64_write_addend(Elf_Rela *rela, uint64_t val)
+   297	{
+   298		w8(val, (uint64_t *)&rela->e64.r_addend);
+   299	}
+   300	
+   301	static void rela32_write_addend(Elf_Rela *rela, uint64_t val)
+   302	{
+   303		w(val, (uint32_t *)&rela->e32.r_addend);
+   304	}
+   305	
+ > 306	static void rela_write_addend(Elf_Rela *rela, uint64_t val)
+   307	{
+   308		e.rela_write_addend(rela, val);
+   309	}
+   310	
 
 -- 
-Kind regards
-Maciej Wieczór-Retman
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
