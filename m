@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3791C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9E8C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T128NbBeShVjgHAQHFQBVXrcbz3LydX8l7wGrFI7ueM=; b=NIT2EtQh8gxDEb1dGsceRrtDoy
-	Xv78bVLPA3rD7jmTkWtZ8XZMyeTLY1OMPMoEnSaxJc9zvbEgTHL3JO9C03KU2kF9H/p4ynHxQulMn
-	5Xx1+d68b45fzh2UsHkPEDXrdDRyxDLtkfC3Sv/pYWVmCp+lF1IINRaWpfLD4ripT3IcL7CMlb336
-	Z0wzrMB6tkjf034ilBUpC5n35qJwzJ2OfqMud+mGUCj207aY7NT8xKR2pBR0bw1LOSu0ANiXKz4H0
-	XK+eOP7ajGkU4e66MbbdkfHXfGagEHVitIdjuKNllN76PQzPNTioYeeOfBPqN9EFpOF9AFw5XPXOG
-	x0edc97A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hxKXnlOOBqsBwwrNI1x2D/yzjPQCMqMA1f8yAIfnnZg=; b=iDAkm+173XB4746ARo8f6XPDmJ
+	5RhObfAtYQhpFRYYvMjrOYqX4vxesKj0zfqSqPtw6bcl9p4R2EV2lkhmLLEC3jlPJjSsGe4fvML3v
+	fCshrrVqeE11Zeu9hIsMog8n4CX7MKbeYpWZAwdnrKvrwL9cgQrn7CV7vGwJrwCXv8LLZG/lWhWGm
+	j0CyM9W+wkI/aGjWC5ZZEY+Kio8zXlm3Md2/peFrhdr2oQsLJhlTIIS0o/2t5mZn7IxUGLFEWYOVN
+	qE9QVUZ3JYvHP54LeVKEJC2uNFmfJ3Wxe27i0igLzbRWHpBSDkxKFG0UXlflyTS7rwZgbQI5WOQww
+	pgeU4zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmQC-000000038mA-1f47;
-	Tue, 11 Feb 2025 09:19:12 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1thmUf-000000039TW-3pwa;
+	Tue, 11 Feb 2025 09:23:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmOl-000000038ax-2lhI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 09:17:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 27539433D9;
-	Tue, 11 Feb 2025 09:17:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739265459;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T128NbBeShVjgHAQHFQBVXrcbz3LydX8l7wGrFI7ueM=;
-	b=T7xACDYRo4ZKNUXI1/0DERPK7oBUD4COOhQeQ03s6RH8EOyByC+6pjBEZ6OzrOskPxeFuS
-	bj1x1oMaVubfmt3p26TgQVuUpl2zcK0XoiUC456N7+IGvvckqpqJgCItd7YswXw26TdEOJ
-	M91jZud9cbdMfRKvKG0rkxCGpLdYdpRNO1gh9mW3iT33Ge4lrkju+oPKRM6FENGcYAigOS
-	AMmT/wHxfjhD2hbhK6CFJZvEZDF1S2DQtqSVDuLGIfB4sw7wuuj4cIXdgh7E5LPVHPgIIh
-	G5b8e1G431JQKCpx/CGPenErBzIhdyOHy2eojCn4jjfcomZSr06/ZsDQrE6S7g==
-Date: Tue, 11 Feb 2025 10:17:35 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: kernel test robot <lkp@intel.com>
-Cc: davem@davemloft.net, llvm@lists.linux.dev,
- oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Robert Marko <robert.marko@sartura.hr>
-Subject: Re: [PATCH net-next 11/13] net: phy: Only rely on phy_port for
- PHY-driven SFP
-Message-ID: <20250211101735.0af025c4@fedora-1.home>
-In-Reply-To: <202502082347.tFufJ529-lkp@intel.com>
-References: <20250207223634.600218-12-maxime.chevallier@bootlin.com>
-	<202502082347.tFufJ529-lkp@intel.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1thmTG-000000039HH-34Kt;
+	Tue, 11 Feb 2025 09:22:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hxKXnlOOBqsBwwrNI1x2D/yzjPQCMqMA1f8yAIfnnZg=; b=SMpZUil7Q2UxCxPokTtCPmiMxM
+	ElYFvgDSVUh6Gls4/r/jdJKA47pgtDA0Wg1c5MYR94KJXpyjb0UHYlrocp3KDJ4XrNRpKgXNliQE9
+	F9xBVGn0Xzo89d8BZ4X6kB1Ygy4vrt6Rgo4fQ/pfa1kWVeb01mS7og1TWT919BGcCnApXqOkCCdVF
+	G3zPfMQc2loplSCQmfW91BANbPdAPdYwrX45fwfFCrAPCeuOWwFTPEMTIbMeRA9wCdH5JGmm12Nv5
+	RvwmZoLYgtuCh8etuRNO10a4ag9T0TbkXa1E+aZfKWqs555ii7tX5wAZX6ApBP4E+AcdbjzGCNTRA
+	5sk+c0iQ==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thmTD-00000000XYk-1AMq;
+	Tue, 11 Feb 2025 09:22:21 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38dd93a6f0aso1748501f8f.0;
+        Tue, 11 Feb 2025 01:22:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739265736; x=1739870536; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=hxKXnlOOBqsBwwrNI1x2D/yzjPQCMqMA1f8yAIfnnZg=;
+        b=mPpWv6jQS5RDyVvKM2q+hVD/tBeZ/WJQwbNaTHkxaEOMXNip6i9yXYZ3dXoCfvzmw+
+         yHKirMfrWe3Pf4Cm3vfO/1TpsL3U0teO/Tu6gGxlkmVgbmHrlVj+CnHx3/1iH19HjX/o
+         3Mh723yqCFFv1m9Q7T9bmBp9K2A4neMAOpskCTbsvq4rexCBL4PiDBnKqn+oea9X20+g
+         uw8hx54XoXVCg3JZLn+avzxJygFkd/pJrlih+geD9DLixVczx94L/Yu2yR1KACCAnwYf
+         rp0glgAkCTjyU6I5aY66Hkz5zX4pzD/M+zsP/2GeywXcgTxrKW8PGDKbwOSjIYWDR+2Z
+         bDeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739265736; x=1739870536;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hxKXnlOOBqsBwwrNI1x2D/yzjPQCMqMA1f8yAIfnnZg=;
+        b=DcE/aGuiixaHjjZOwE/M87oKnEP+qL08HC98h1bUOnLft14jDVY37qYhNCPKOvbnuE
+         tLaCubmi07C2F8T2lAf6wyQj6mcF/dn4Xncar+z8dQmqjsW27MHNXN3zIfWhfHVkPipM
+         QLNDw4HUSV5CDVhzPRiEMgibmq7GC+RIEw4S1sH8zcJB+W0zLLEk7MUPmdR/nkQTiRZO
+         nIor/BozTJOoeqgnvsTx/Sqi1qZcoo34JA6HMtwE3KQ9yLZ3Bh/wZHPi5NJPSjqVVCKc
+         zIXG+xharXzUX2zYZ2S8qJeExcWktWIExWM7rt4TofqUNReCRJIYv8m8u94xDltuLfF+
+         /eGA==
+X-Forwarded-Encrypted: i=1; AJvYcCUHEMvi5E24tzvdmSqraG6kmVVAcQyzTZOgVVbHEN/bOLk6Fgnm/jar9mZWC1dK6Piq7tMYuHQP1d+LzuE=@lists.infradead.org, AJvYcCXQ+Bar1iUrMD5Zl70cegVSEHyEKhtM/D3b8AHFIAEIYUdjzgL7qFZ6b0B+crzEYAeDJnf7B+Xll1yKa2g7FG6/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoxrLuYDrWzxXi8Hm+H29ac4KPdXRR8DXPFXmOl08zaCPanjtB
+	BoLLyK2S0IzlfktHuguVbQHNbyuewEaSmz2qqbUDC1w+jk3VERFp
+X-Gm-Gg: ASbGncvHz21oDw0N0AlHScLyO3/Xy69IQ3hIiDK/NWC8EYCKFFjDsMAIVdAef2s7pWs
+	F7iWHusdFNIVavg+U8DeTRQzLaWkqlSQoKcQMhJngfAcqgEskWHDezbFPBIlfhBgcLvSO4+gyWm
+	GTMR75Px0csDyn8Q4KGYAV3qCwBuOPaf1oV0CSnv3CfY+HHpdV/FnEWT3t5Mm4ZdRWMQFlkpSR0
+	qdCe/1RplYMj5Ozo6haUhARMDjeR4UM7lKP8Ov7NAtMg6hsSP2hZPxcK8KeLTBQ7exgTO/vwUZj
+	yxigslQTc/MBdxbpUMNgGgleiEkOk1p+
+X-Google-Smtp-Source: AGHT+IFinbmenD29Rw/0Uw611+rQ/E82ABxvNPKgQBCneBqnOXKQlDtW2JU9WvLJiNHkyHeRBhYRgA==
+X-Received: by 2002:a5d:5f54:0:b0:38d:dffc:c144 with SMTP id ffacd0b85a97d-38ddffcc651mr5300952f8f.55.1739265736486;
+        Tue, 11 Feb 2025 01:22:16 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4394f3b8846sm8075945e9.1.2025.02.11.01.22.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Feb 2025 01:22:16 -0800 (PST)
+Message-ID: <6b3cbd15b62a45b44cae2013fec11eb2c5504fa3.camel@gmail.com>
+Subject: Re: [PATCH 03/10] arm64: dts: sophgo: Add initial SG2000 SoC device
+ tree
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@outlook.com>, 	linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Haylen Chu	 <heylenay@outlook.com>,
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann	 <arnd@arndb.de>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>
+Date: Tue, 11 Feb 2025 10:22:13 +0100
+In-Reply-To: <bf8f3ea1-6fb5-40d1-a823-b3bc272a2257@kernel.org>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+	 <20250209220646.1090868-4-alexander.sverdlin@gmail.com>
+	 <0d5484d1-be83-4f38-befd-94d458b3aaa8@kernel.org>
+	 <03ff407fe68e46df4844e5dd244e7c609331af71.camel@gmail.com>
+	 <bf8f3ea1-6fb5-40d1-a823-b3bc272a2257@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdeivdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeifeejgeevhffhhfefvdfhgefgudefkeefgeeivdeuveejueeljeekgfffieeihfenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhkvghrnhgvlhdrohhrghdptddurdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdquddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedvpdhrtghpthhtoheplhhkphesihhnthgvlhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtr
- dhnvghtpdhrtghpthhtoheplhhlvhhmsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepohgvqdhksghuihhlugdqrghllheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_011744_305091_54CB445C 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20250211_092219_513691_B0622C5A 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +120,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof!
 
-On Sun, 9 Feb 2025 00:04:55 +0800
-kernel test robot <lkp@intel.com> wrote:
+On Tue, 2025-02-11 at 09:07 +0100, Krzysztof Kozlowski wrote:
+> > > > +&clk {
+> > > > +	compatible =3D "sophgo,sg2000-clk";
+> > >=20
+> > >=20
+> > > That's discouraged practice. If you need to define compatible, it mea=
+ns
+> > > the block is not shared between designs and must not be in common DTS=
+I.
+> >=20
+> > That doesn't come from my series, that's how original cv18xx.dtsi has b=
+een
+>=20
+> You can change the other file to match real hardware. But if original
+> cv18xx.dtsi has incorrect or imprecise compatible, I wonder how does it
+> work....
 
-> Hi Maxime,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on net-next/main]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/net-ethtool-Introduce-ETHTOOL_LINK_MEDIUM_-values/20250208-064223
-> base:   net-next/main
-> patch link:    https://lore.kernel.org/r/20250207223634.600218-12-maxime.chevallier%40bootlin.com
-> patch subject: [PATCH net-next 11/13] net: phy: Only rely on phy_port for PHY-driven SFP
-> config: i386-buildonly-randconfig-005-20250208 (https://download.01.org/0day-ci/archive/20250208/202502082347.tFufJ529-lkp@intel.com/config)
-> compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250208/202502082347.tFufJ529-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202502082347.tFufJ529-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> drivers/net/phy/qcom/qca807x.c:698:12: error: use of undeclared identifier 'phy_sfp_attach'; did you mean 'phy_attach'?  
->      698 |         .attach = phy_sfp_attach,
->          |                   ^~~~~~~~~~~~~~
->          |                   phy_attach
->    include/linux/phy.h:1912:20: note: 'phy_attach' declared here
->     1912 | struct phy_device *phy_attach(struct net_device *dev, const char *bus_id,
->          |                    ^
-> >> drivers/net/phy/qcom/qca807x.c:699:12: error: use of undeclared identifier 'phy_sfp_detach'; did you mean 'phy_detach'?  
->      699 |         .detach = phy_sfp_detach,
->          |                   ^~~~~~~~~~~~~~
->          |                   phy_detach
->    include/linux/phy.h:1924:6: note: 'phy_detach' declared here
->     1924 | void phy_detach(struct phy_device *phydev);
->          |      ^
-> >> drivers/net/phy/qcom/qca807x.c:702:17: error: use of undeclared identifier 'phy_sfp_connect_phy'  
->      702 |         .connect_phy = phy_sfp_connect_phy,
->          |                        ^
-> >> drivers/net/phy/qcom/qca807x.c:703:20: error: use of undeclared identifier 'phy_sfp_disconnect_phy'  
->      703 |         .disconnect_phy = phy_sfp_disconnect_phy,
->          |                           ^
-> >> drivers/net/phy/qcom/qca807x.c:748:9: error: call to undeclared function 'phy_sfp_probe'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]  
->      748 |                 ret = phy_sfp_probe(phydev, &qca807x_sfp_ops);
->          |                       ^
->    5 errors generated.
+cv18xx.dtsi doesn't have any "compatible". They define it for every SoC ind=
+ividually.
+So it's same MMIO window, different compatible. Looking into the driver I c=
+an tell
+that even the register map is the same, but they expose (and pre-enable) di=
+fferent
+subsets on different SoCs.
 
-Ah damned, I missed that qca807x now also supports SFP. I'll include a
-conversion fr that driver too in V2 (and add Robert in CC:)
+--=20
+Alexander Sverdlin.
 
-Thanks,
-
-Maxime
 
