@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C62DC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D734C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AtiuJJ7RhchJVxtKjzxiYrGG9SfY4cQIXR419nrTqIg=; b=xuGi1XJWnQU4gp5frkTMXPDk26
-	BGhaJmaBSZl/xD9LsaI099D1gONm3S51Bv2w/3ZKEA1ijCpF0xfv4081G2VGevco7NOqfjGkG1sXK
-	H4BBwXnQ0VGl74+Z6iv6rfWCpcQOv0nYtepF36Ewk2Z7mWiFTMopD7kLyZK5O0BkjiARcqMt2NQzk
-	JDh61WwnNmDHI2s1XJr2H6D14Xz+mIKDJ0lhAEOB9fBQ/PgXY/KmkBtxcoW4apN1pH9S7XnnLTplP
-	9mcZXxIeGipBeDgqUZXo3XEyytEFQmwjztkkNOV1Ka5HUFpkanmYFc6NjzLCstnWe0v+6n2TCH2AV
-	DXz47d0g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eGN8HCKpPLICbDQqrP0rFs4LLz4Nm9uBjPVU6M1vIWE=; b=kzvjWnkYzEqkgY+ivVZgWLxVZj
+	Ag0S5lTePTPe8Sv9FGTeamKMW1YELLW2SR/Ay93VBCYuR7IYjJF/bBN6CSoXJqjhjSG2J8QPPKHKB
+	eqFyWHsgkgd6AmV+P4UHpuKfxCyRQqjLaEQA04y+UDIkITsNNfw2l1bjfbRJktf3MPUtPh1+WAPEy
+	WASetSM4dnmaJiWM5jqfbyjlVaZLjjgwymVfPbOiC3XE8oiCGoOcoKCch/pSRs6njosVbDemH9jnU
+	B9rRYqrLvqLyqLTt+KCYo6RIB8flz5venNNPXHQGaxELqx2DHj/2AaDH8pmKXB2N+jVakX7HbH2IG
+	9wMA9lHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths7M-00000004HCi-1kj2;
-	Tue, 11 Feb 2025 15:24:08 +0000
+	id 1ths8k-00000004Hay-0Oxq;
+	Tue, 11 Feb 2025 15:25:34 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths4h-00000004GVB-1WQL
+	id 1ths4p-00000004Gaf-36ci
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 15:21:25 +0000
+	Tue, 11 Feb 2025 15:21:32 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 8C0B4A0ABF;
-	Tue, 11 Feb 2025 16:21:12 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 70767A037C;
+	Tue, 11 Feb 2025 16:21:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=AtiuJJ7RhchJVxtKjzxiYrGG9SfY4cQIXR419nrTqIg=; b=
-	lLoUEC41/Q1Yakwf95qZk7+T6brQbhJBi/iCa54Z/zGCof9+RiYz5gGYPGIPJmTP
-	zI8VXLznkGrJbn6Szpo/RjLFlq/hzvjOxa1+roc5SY1nLhgyMZGgGfr6HML5Y3Ob
-	7oOZQvvceXfbXC55MquIdk1zGzq04R8ElrVmxYLnaJXXx5ligp1u9TYnA53tZDq5
-	PY3ffl4f26z3KV7HTVTVVB+2xXM417I8VY/Ortv5adZXEp/YW7zNY22NwoVD8+ik
-	lI4I1JwLeRDqpZPrvbzaqcz/EtCIkFHzphCyq4aN4n3SIeyguh+qFYOvexGHIfei
-	zQFFTQil+B+z+GLLFcpv0hyxek6u9C1ORl2AV7bIaQRbI+HuWE+KLVz8zOriZ84l
-	M6pTrnlqwJJkfZ0bhPsMULHQ8YHGb+xaLVue3r5pu+TcXDX2QDnpYYLb0oE4rNTQ
-	Laxp6bfRojJkv/E1natczdv+6lnfR7lFol2Ydr9KOPWn2y7Oy57JV/xAeMMl99xt
-	UUIhSG+h/EpEu76uqgixOpEWEsMrP+s/Z6wEOKaXLaN08Si3peqbJQHdtPWJJJ25
-	jhy99FpKtvlf1tp45tQ9MJg/Hz9cKjXOWth3cEJQlQBgc2VbjzELknivhfRD4sy6
-	uX659pCYruZJRVueJzyqZ0PdRxq8BLXHTg9WiPSRtQo=
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=eGN8HCKpPLICbDQqrP0r
+	Fs4LLz4Nm9uBjPVU6M1vIWE=; b=oof6vXAG5k9mxF8yySy3LgsazAGSbGdVVleQ
+	x4NRkSwWSK2SQXFmnN/ppH8gQiEZHLZqW39vTmJ6NXtdHLvNXhV7AGn6itj2BL9Y
+	pGTWzjk8XiBZMdsvLJjIM6VWtOJmqQywkDcIPvGFDusP/ZNuUWnNOLX5E0ZToEsm
+	3vC2KVD94+PA1ItirPgBmjyakK1Y6LHxz33E0R6gyiTtXwofUdXgvfGy0fkJnVR2
+	1JMm0CnZlcg/m1n/8TeLjn8rHVjOy+JoBi6PtesiPEom83bS/bD/gJugOlvFkKyF
+	zKPG4+O2pN+Jv6yWTkYafhcx384tyXv4CVDb5p9SUdv83eVatDFbJcC4vgFfwK0T
+	MkJLwM8F4vdxWdCPRih5iAIpOpkw0J+hDeQtgGxei07xsTJlteurVW8/vS0vHy/7
+	637Fv9CVijWQfpl4IL/y6tu2cqsCaSWtpXrhl0lkece1aZcRwojcdW0Ft4XJsVIN
+	sYOBNup/uydc25XBBzjm2zjueAULHuo71AgiJS4mG1SmICqk6mjfS9tdiRw4mQ5F
+	f5QRWNZQFmepwgL6bfifdhAdXcRDRF9ElSILMGk/l3dLIQTav/3wTgG/IaC1cKiQ
+	RtLL9LqEz2lSohSiy0jRa4dTpNhVebaf1TbnrSSsJ2BCeoAv5XZQKTqOk7K745bu
+	z0BO5lE=
 From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
- Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray
-	<wbg@kernel.org>, <Dharma.B@microchip.com>
-Subject: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare, Overflow etc. events
-Date: Tue, 11 Feb 2025 16:19:11 +0100
-Message-ID: <20250211151914.313585-3-csokas.bence@prolan.hu>
+To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-iio@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>,
+	<Dharma.B@microchip.com>, Kamel Bouhara <kamel.bouhara@bootlin.com>, "William
+ Breathitt Gray" <wbg@kernel.org>
+Subject: [PATCH v4 1/2] counter: microchip-tcb-capture: Add IRQ handling
+Date: Tue, 11 Feb 2025 16:19:13 +0100
+Message-ID: <20250211151914.313585-5-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250211151914.313585-3-csokas.bence@prolan.hu>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1739287272;VERSION=7985;MC=2405386640;ID=762815;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1739287289;VERSION=7985;MC=2055640490;ID=778525;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94852617160
+X-EsetId: 37303A2980D94852617160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_072123_852415_CB161D30 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_072131_931955_B244C72D 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +82,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TCB has three R/W-able "general purpose" hardware registers:
-RA, RB and RC. The hardware is capable of:
-* sampling Counter Value Register (CV) to RA/RB on a trigger edge
-* sending an interrupt of this change
-* sending an interrupt on CV change due to trigger
-* triggering an interrupt on CV compare to RC
-* stop counting after sampling to RB
+Add interrupt servicing to allow userspace to wait for the following events:
+* Change-of-state caused by external trigger
+* Capture of timer value into RA/RB
+* Compare to RC register
+* Overflow
 
-To enable using these features in user-space, an interrupt handler
-was added, generating the necessary counter events. On top, RA/B/C
-registers are added as Count Extensions. To aid interoperation, a
-uapi header was also added, containing the various numeral IDs of
-the Extensions, Event channels etc.
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-Bence Csókás (2):
-  counter: microchip-tcb-capture: Add IRQ handling
-  counter: microchip-tcb-capture: Add capture extensions for registers
-    RA-RC
+Notes:
+    New in v2
+    Changes in v3:
+    * Add IRQs for Capture events (from next patch)
+    * Add IRQ for RC Compare
+    * Add events as bullet points to commit msg
+    Changes in v4:
+    * Add uapi header, names for the event channels
+    * Add check for -EPROBE_DEFER from `of_irq_get()`
 
- MAINTAINERS                                   |   1 +
- drivers/counter/microchip-tcb-capture.c       | 137 ++++++++++++++++++
- .../linux/counter/microchip-tcb-capture.h     |  49 +++++++
- 3 files changed, 187 insertions(+)
+ MAINTAINERS                                   |  1 +
+ drivers/counter/microchip-tcb-capture.c       | 75 +++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     | 40 ++++++++++
+ 3 files changed, 116 insertions(+)
  create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8e047e20fbd8..0a8ce24ff467 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15579,6 +15579,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	linux-iio@vger.kernel.org
+ S:	Maintained
+ F:	drivers/counter/microchip-tcb-capture.c
++F:	include/uapi/linux/counter/microchip-tcb-capture.c
+ 
+ MICROCHIP USB251XB DRIVER
+ M:	Richard Leitner <richard.leitner@skidata.com>
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 2f096a5b973d..cc12c2e2113a 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -6,18 +6,24 @@
+  */
+ #include <linux/clk.h>
+ #include <linux/counter.h>
++#include <linux/interrupt.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <uapi/linux/counter/microchip-tcb-capture.h>
+ #include <soc/at91/atmel_tcb.h>
+ 
+ #define ATMEL_TC_CMR_MASK	(ATMEL_TC_LDRA_RISING | ATMEL_TC_LDRB_FALLING | \
+ 				 ATMEL_TC_ETRGEDG_RISING | ATMEL_TC_LDBDIS | \
+ 				 ATMEL_TC_LDBSTOP)
+ 
++#define ATMEL_TC_DEF_IRQS	(ATMEL_TC_ETRGS | ATMEL_TC_COVFS | \
++				 ATMEL_TC_LDRAS | ATMEL_TC_LDRBS | ATMEL_TC_CPCS)
++
+ #define ATMEL_TC_QDEN			BIT(8)
+ #define ATMEL_TC_POSEN			BIT(9)
+ 
+@@ -27,6 +33,7 @@ struct mchp_tc_data {
+ 	int qdec_mode;
+ 	int num_channels;
+ 	int channel[2];
++	int irq;
+ };
+ 
+ static const enum counter_function mchp_tc_count_functions[] = {
+@@ -294,6 +301,65 @@ static const struct of_device_id atmel_tc_of_match[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static irqreturn_t mchp_tc_isr(int irq, void *dev_id)
++{
++	struct counter_device *const counter = dev_id;
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 sr, mask;
++
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], SR), &sr);
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], IMR), &mask);
++
++	sr &= mask;
++	if (!(sr & ATMEL_TC_ALL_IRQ))
++		return IRQ_NONE;
++
++	if (sr & ATMEL_TC_ETRGS)
++		counter_push_event(counter, COUNTER_EVENT_CHANGE_OF_STATE,
++				   COUNTER_MCHP_EVCHN_CV);
++	if (sr & ATMEL_TC_LDRAS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RA);
++	if (sr & ATMEL_TC_LDRBS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RB);
++	if (sr & ATMEL_TC_CPCS)
++		counter_push_event(counter, COUNTER_EVENT_THRESHOLD,
++				   COUNTER_MCHP_EVCHN_RC);
++	if (sr & ATMEL_TC_COVFS)
++		counter_push_event(counter, COUNTER_EVENT_OVERFLOW,
++				   COUNTER_MCHP_EVCHN_CV);
++
++	return IRQ_HANDLED;
++}
++
++static void mchp_tc_irq_remove(void *ptr)
++{
++	struct mchp_tc_data *priv = ptr;
++
++	regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IDR), ATMEL_TC_DEF_IRQS);
++}
++
++static int mchp_tc_irq_enable(struct counter_device *const counter)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	int ret = devm_request_irq(counter->parent, priv->irq, mchp_tc_isr, 0,
++				   dev_name(counter->parent), counter);
++
++	if (ret < 0)
++		return ret;
++
++	ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IER), ATMEL_TC_DEF_IRQS);
++	if (ret < 0)
++		return ret;
++
++	ret = devm_add_action_or_reset(counter->parent, mchp_tc_irq_remove, priv);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
+ static void mchp_tc_clk_remove(void *ptr)
+ {
+ 	clk_disable_unprepare((struct clk *)ptr);
+@@ -378,6 +444,15 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 	counter->num_signals = ARRAY_SIZE(mchp_tc_count_signals);
+ 	counter->signals = mchp_tc_count_signals;
+ 
++	priv->irq = of_irq_get(np->parent, 0);
++	if (priv->irq == -EPROBE_DEFER)
++		return -EPROBE_DEFER;
++	if (priv->irq > 0) {
++		ret = mchp_tc_irq_enable(counter);
++		if (ret < 0)
++			return dev_err_probe(&pdev->dev, ret, "Failed to set up IRQ");
++	}
++
+ 	ret = devm_counter_add(&pdev->dev, counter);
+ 	if (ret < 0)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to add counter\n");
+diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
+new file mode 100644
+index 000000000000..b91d8954f06e
+--- /dev/null
++++ b/include/uapi/linux/counter/microchip-tcb-capture.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Channel numbers used by the microchip-tcb-capture driver
++ * Copyright (C) 2025 Bence Csókás
++ */
++#ifndef _UAPI_COUNTER_MCHP_TCB_H_
++#define _UAPI_COUNTER_MCHP_TCB_H_
++
++/*
++ * The driver defines the following components:
++ *
++ * Count 0
++ * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
++ * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
++ *
++ * It also supports the following events:
++ *
++ * Channel 0:
++ * - CV register changed
++ * - CV overflowed
++ * - RA captured
++ * Channel 1:
++ * - RB captured
++ * Channel 2:
++ * - RC compare triggered
++ */
++
++enum counter_mchp_signals {
++	COUNTER_MCHP_SIG_TIOA,
++	COUNTER_MCHP_SIG_TIOB,
++};
++
++enum counter_mchp_event_channels {
++	COUNTER_MCHP_EVCHN_CV = 0,
++	COUNTER_MCHP_EVCHN_RA = 0,
++	COUNTER_MCHP_EVCHN_RB,
++	COUNTER_MCHP_EVCHN_RC,
++};
++
++#endif /* _UAPI_COUNTER_MCHP_TCB_H_ */
 -- 
 2.48.1
 
