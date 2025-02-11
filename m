@@ -4,157 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783B0C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C19C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=; b=IrJ70ocaBYYDQGgj9+JJwxyhqD
-	/9rk67XdMPxn56dTA3rKaLNPXYFMaMTCcUQ6niw7Ujjpn60nJ70kVXh9YZ0fYgWGoyT4honiQORHA
-	nKXbPByNyeFKLCx4AX6yMg2g4F7k3/OYFS7lMKwDthoXrrspiKMl+mda/9iRK04kVOEuKq/IpWBN4
-	EghUFGKbIWNDlTLooIRLuEuDYKMSA4h19c1md601+NKQq3GRqQPciL9G6VA099UGTFTMDKMhDmpFP
-	neO9wfwBQ33uVSHAnNtEs6y778Ei/icBcgpetnqG5ouAQ6KHbcRYLCrfRM+fyom9P70Mij5uiknYF
-	BGit0YTg==;
+	bh=OgBh8AQcVi7AFRtRmzFb3WZybV4Wj3hRk4V1MujGIEE=; b=VrqTCFPR5/SywxIL9m8q2cvReA
+	DoSvyMx1/vaanQJS3Oh+3Fgdx6zO3J51bV/4IrMw1LkS0akDgnrZAsTcup1MhoRgx25Wl5yAcNpQc
+	HT1epSnCzBWXJ539zzH31Tuuku+tvlneiEslhcp1IaVgLc1Y9F/1PDbwKaU6taUYirhJ1euKgyE+e
+	RZe3xZmw1pvkpw4PUMCFRIqFMbtZG4VyNLdlVqp/PUYTe7Y4511fB39MGbpevdkhYMbuqLb9AJc53
+	lUEh/mQMYx1b9XFBsXtl7GYxnucLmF9Am7Pb4DB5biMJQphwKLnVjvqDOCSXh9/u17XB/LsofqpwY
+	pGE62v8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlwy-000000033aK-3sp3;
-	Tue, 11 Feb 2025 08:49:00 +0000
-Received: from mail-koreacentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c40f::2] helo=SE2P216CU007.outbound.protection.outlook.com)
+	id 1thlyN-0000000340Y-0ESg;
+	Tue, 11 Feb 2025 08:50:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlsL-000000032Yv-1ouv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:44:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GgcPzCJpEW7J/CMNHjFbqr7BuhN+Nk57hVHIWbIFnmzB4x4ePDUUsp9wsafYKCoAa5+0ZqMozRussYQMpSN0+sc1p99NqqtvY/T5f0SHNPzs6dVM4u1GCTL9kZzdkjPROsn3rzFdTPUCbqESaZGGStkdai8kgAa83Xtq8glefP+unXNFo49VoFjZw4gMNoPwj71/YYEMYUPRs8S89RJzww3BtGJBQOzUEl4YFVjmOwAtt9MF7XX2s5PHp5dD8avt6sWJkTlT63kftPnuh0AEyvvInn/kHi0YK97Abh/qCXu3atQyoc0DsQPbxSR0X3lpvZohmINFQ3MTvochIAaL6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=;
- b=TMlJ4ijVs/47N7S5+wTXNelMdJifI+VjiNRZCk1GgsFfDim30jg/0wJWHIyQqzkJ92pxgZ8cnoSrW0nlIxyqXEANi1jNnpBVAdJP57bY1URRi12wCzNPvWvHH8q2pRpcrQygMzbwdYfmrqhb8ICfsN0U+33XCnJpYRcs5ew1UpUN6f9IvTJLK+Q7IsmyiLt5sE7Fddczk53+BH2tFklhzR6xjMvQROnLjqBeh/lK5TnvzvShLhpm+uLtgK2FjcKG9sjO7miAD09gaaMTviyCZPkuCzHgQCCIGX6mqusqUkazVc6nGsCu5otvie96C5/CtTHXFaUKziKCe+5MaAxURA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wJxI6EuD0aaPhENQ9zY8fkmGelho6cFx3RapluMcLUg=;
- b=OL3Kb8ZGgaqvSbKriCMvfaacAPODsJJxczpq9q4g9oBm0h+xVmPl08a6B5TJqQTbvKbmHpelcRzM4t+5rowpk/tSNL+u90Fx0JWLgHeOjrjXILqxL0uP4ILy8oqkjeMcnCR0wdEK4ILvmA6JV+qG2Pp7QTtex0I0sGmMrujnCqo=
-Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
- SE1P216MB2041.KORP216.PROD.OUTLOOK.COM (2603:1096:101:161::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8422.19; Tue, 11 Feb 2025 08:28:50 +0000
-Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
- ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
- ([fe80::9e3d:ee20:8cc7:3c07%4]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
- 08:28:49 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
-	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-imx@nxp.com" <linux-imx@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, jackson.lee
-	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
-Subject: RE: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
-Thread-Topic: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
-Thread-Index: AQHbe5s6TIh4rto0wEORrmYeUFOifbNAzpsAgAD2lwA=
-Date: Tue, 11 Feb 2025 08:28:49 +0000
-Message-ID: <SL2P216MB1246CB5966183FE8E17541D5FBFD2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
-References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
- <20250210090725.4580-5-nas.chung@chipsnmedia.com>
- <7373c956-216a-43a6-939c-4a9be5564c57@kernel.org>
-In-Reply-To: <7373c956-216a-43a6-939c-4a9be5564c57@kernel.org>
-Accept-Language: ko-KR, en-US
-Content-Language: ko-KR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SE1P216MB2041:EE_
-x-ms-office365-filtering-correlation-id: 0d8596ee-4953-4899-ac7c-08dd4a761c4d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?t5LnNTHLGUnqCnzk7jVs3WKzIZ0zpYvUHkOkjXYUjLu98umggZXeCf3+A8H4?=
- =?us-ascii?Q?kWJ5vo2aWq1K4rA+2YaH2aUqgnOzYDmwodDyXJNnip1e29RLCuFv7ieLqwrC?=
- =?us-ascii?Q?KfyCGg9oczgQhVmam8xIymyPq2E4jKkvCuDl01amyUd/mW12ExRvYzChp0JU?=
- =?us-ascii?Q?Klq9BucvH0kVtln92s/g0DGxK5QwM/gPk2bA6NDXEbxiKfU7Vhnl7dgzCb+O?=
- =?us-ascii?Q?M8x3sQgdETAzghrTqZDKZNJT/AIfGZP6xQXqBq8V5KsvtOapoZZz+wgc365H?=
- =?us-ascii?Q?kWDXlicPUh/uPf8dcCjKNrhGDCZaawbx9zRyOGTB1utA9PfXgZCLyMTwbkBk?=
- =?us-ascii?Q?f7YujMaISoBFlQTyq3BV8Ll+oqswreLxnDG3tJWS2YXYi2uRdUINZoFKWX+v?=
- =?us-ascii?Q?exXl9CJ+UoVn1jdefeybJcZy/qobpbc1ZCPapNeMgRgzk0Xhbc5k0YAAUQQI?=
- =?us-ascii?Q?b44ugxGGFAq+ZmfTiuT7vbOfYp+ZIPjGkG9H7nR8s6PnHXLinTPLTNcYkmhV?=
- =?us-ascii?Q?P6pb1f7wv09z1SljU5xdprjfwpo3FnyZ5vmG2Z7ss+XXbT3qXW/rXymbHHNK?=
- =?us-ascii?Q?n0oxey83cUhlNhjCpvn5u3/QmJr60IJfbKGcbZ7jTiiRTmdLtQNOI9jfnFyV?=
- =?us-ascii?Q?DUdX03vmgYbDrzpIP7upL8tOH8yMSGL/DcxQ7ztIFDMGnuqJQ2kCGCWdADPL?=
- =?us-ascii?Q?I3T4EHwriUUNe1/qhxNin0sH3OjGA5KxBkEaQtdUiOMOgPkYJRUehkNm53Hi?=
- =?us-ascii?Q?tk+FB05wh/N5hJlBjGSQ7UWljpQZzOfi2jNUSMAHlbt87utFcUJFprA9ZN7E?=
- =?us-ascii?Q?ZSCQ8rVzeOCfqU/su0ZokddUir17R08v1acDWSGlxOJUO5fLa4AUA2Yt6AHG?=
- =?us-ascii?Q?JfwObdHzrm6mlLM34mwoG+1bkK/QNw6OL1Xw+jYuPZ3Entlt5+SPVlisohYw?=
- =?us-ascii?Q?LuejPUnV483C0nRe9NV4kupVYTZUIywEUFLTeZnFdA9ziQIdDmCjK9NQhRb2?=
- =?us-ascii?Q?7FJ1HGLNzgCU/inafcUYaUeNxs/1s6tXXLOg8/SIOby/o+CE7TMtigBi0WGF?=
- =?us-ascii?Q?pguiGk0Yzv99rkm+kPxE+T2HUdrXtEv5R+G/B86raKYxLF4F2v1s0F5TGLMU?=
- =?us-ascii?Q?wSv348U2DqREJbh4+5rVdCLXf8fp0W6nFGmBcOiZJpvsEzm/KSpSOTRJb+bf?=
- =?us-ascii?Q?M+kVQ6P+5PUQfDmCyr7zqZGA/K16dEpxjL+wTB4o/KlVKcfmY9fDpYm1jat4?=
- =?us-ascii?Q?mBMR3qGGDWThwU9zxET7eQiN7Dybmcam076P7uR8WQYIO0M/5lFe04kOzCAM?=
- =?us-ascii?Q?TfVI+diWiYpTQXUdWfUElxSImCxwpziZ8ttc7FsjCQvZ/3GUyyq8OyEzTR1M?=
- =?us-ascii?Q?3KW8Lp+hzrCKFtYY1VTjIbOmKE9ixf260Eb0DMSPsnrz9i/cdz2hPolv4iPX?=
- =?us-ascii?Q?JHDhU8kCcMlPj6DEOi0000+YGcIq/Yto?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?/9ugfNy45wyXIHuMGO+cOZTtTpWNTmlWX5ZBHdb/Bch0qcC/ezfGsitv7KaD?=
- =?us-ascii?Q?saEvg67vx2I8CR6ubiyqgL81VJSZrmMTGjUGOvwWPCJVorr2CWuj1G78hIo6?=
- =?us-ascii?Q?13V6uACsUiJTW5ghehlkAjbb/AqPgv56LHRFTNbwa5Jrvwil+8JwblSKiTJH?=
- =?us-ascii?Q?2P0C5aAF+oP15KvSF0nYmug3gI750iMt4AcQyc33ahuWkiKSNvVgvP/Z1K84?=
- =?us-ascii?Q?1uKWqIqsbvpRPXnsFTxcEOP55Niex/VHnhiu9F5Nes70vLv30tHJ5qVsPSGU?=
- =?us-ascii?Q?DAzrIpDlh3eNgNgFjN4bpsKOGduHDictLOA/JOP3T7qSNn84g01mO4wzPo/O?=
- =?us-ascii?Q?glkaR+ahuAAVWU17MktHz4MgAT6Qn/ZHGAzWCk555gtt8yWl499cco0Xnt9I?=
- =?us-ascii?Q?OCuUSvyOaDDTFVFUNJ2YPcdY4TKgXgpIjmmZpm9t965R8moYThRwW/eEa3Ol?=
- =?us-ascii?Q?fvICnMQW/zX/8U8kDUT1qUtoB+y31A3UEHnL26jtbNrxfLkUbKozoQWktqdU?=
- =?us-ascii?Q?twfWOGVFh6Xw9HCRR9kuEjry1Gx4uXXtX/kqTuXvmlp+B4RvZ7r1m1lzoJvm?=
- =?us-ascii?Q?OmZaxPfJv+QGhZl1wVGlHKh2+XwIylHFHO/lcJqwRcBb2XnuV0QydC96FUUZ?=
- =?us-ascii?Q?jWoT+Zxq1Eh8W5R/9zR2gDk5r8F1Ku9mhElHrZgf+RQM5qrww8dwp4FoI25M?=
- =?us-ascii?Q?p+CHfAzWWSBiI3yHqibPLwOiTp+a4gPPtd8xvzAXOG0exeQzwr4KHold7Cqc?=
- =?us-ascii?Q?9O4/iKl4zYfSFf9UVL7AHjvvgpISsYfgPAOV60dGexvYuQgtrrEEdCi/01MH?=
- =?us-ascii?Q?KyBcCFVhSOo3e6+qi6jPyvs/c3r48oF4OJAqriE8leRTH7NSDaaHshMLauzE?=
- =?us-ascii?Q?kRMAu5RPyNgvaSODbLgSlV5Fz9CM+KQeB9bw0Tvr6UJIunow0AduHyEtaqOL?=
- =?us-ascii?Q?/5+/ro+7yDgctocyRaw5nuPrTwMPdZihyO6lNXTY1lvxPx9a+G/RI8IAjvTq?=
- =?us-ascii?Q?e4W2CK1P+Rg1tA0UroXhR/EmV08ftaTx8VCBgS5JjBKM1E8PWxUK1LIsWGJ9?=
- =?us-ascii?Q?3WbFvqFwKyrBEraLspsZD3xyvi0m/NJ5b0z1x6HyJbczsoO3refAuR2eUHTT?=
- =?us-ascii?Q?eauY/jGLUQncEnHGJbUgxJJRWv0ge62WOAsz8QrDA/ft7WZbMjgB7s19LU7E?=
- =?us-ascii?Q?sKZq3sZScZ8IGiBlaArsLDcwQp3zJPMRWdjzgF4viY0u6e8DR4MkeWtVbVSy?=
- =?us-ascii?Q?+MFL7WCq/edSjc4hkqRbpcRpt7aXNy5VsOccPDsNHV9DnsFBgfEC3mvJFNn2?=
- =?us-ascii?Q?eZLYPhmFzlA+75g4rCWAPMhEKjJz1ngOrK+EkSG0t8dRV+TVqwOAJvykgq4v?=
- =?us-ascii?Q?9HneF49EhlWaw1unDaGazVDnT78GhrdsIYWCF37Dt6Sp1+XCnRm028PaQ+Ni?=
- =?us-ascii?Q?hjl1VicyhJQGHZ7HX0khGGRszVVbksbDEa434h4M6n2PLf5XPqou9Kpf87ow?=
- =?us-ascii?Q?W1ycOPnjvlqMoOsd8h0lq+u6zxmpXSSdTV9zNm1be0AbofkLOktkNL3cuEBq?=
- =?us-ascii?Q?gH0eGICLBsn+WTiq0duy1YLyOCknEY0LLX6GvFrE?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1thlvU-000000033Cu-2Ckj;
+	Tue, 11 Feb 2025 08:47:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 38B48A40123;
+	Tue, 11 Feb 2025 08:45:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0A91C4CEE4;
+	Tue, 11 Feb 2025 08:47:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739263647;
+	bh=k21+EIxAbZ2RNWIs6sTtq5HkT0oP1NdfuQqJ3Cg0Xns=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hxbS8OPr0wU/c6E85F335oSSbrLRCaeujvXRA/pMYWGZJfoXEbIJdZBcnJWK0L3Uj
+	 9g1oOOPo3F/iK9m+/pCESvVcC2ygY+Z+4K+6vWgREaNUoPOox7gvJvLCyR4lH7pzBs
+	 kDZlUtdKVIa1h7cXUo0xolCxaGzYoSq53xtDrybMSGYzKC1i3TIHOX3SeJdqMCIKBK
+	 D/Lv3AS6he/Q363o079npAvyOhBtCXTg4A/fZZp3RxXaHPLPFg0SU24Pb111btNqrY
+	 HtgBzYCsg1HQIUcvilN8c9+Dzhc4efaErZsasZj4LHMV9Z8fz1qokGa5BJZHIyeH7o
+	 hWsPzX+uPwscQ==
+Date: Tue, 11 Feb 2025 09:47:24 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
+	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+	Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, upstream@airoha.com
+Subject: Re: [PATCH net-next v3 13/16] net: airoha: Introduce PPE
+ initialization via NPU
+Message-ID: <20250211-fanatic-smoky-wren-f0dcc9@krzk-bin>
+References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
+ <20250209-airoha-en7581-flowtable-offload-v3-13-dba60e755563@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d8596ee-4953-4899-ac7c-08dd4a761c4d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2025 08:28:49.7728
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7GopREXElwoRbuPdWM3xTO84xXj/eIOJUvYf0s4Gsg3UdjOSGviMpjJdEDHeXx/cZvx7yFuO2OK8BPLb1pXay1H4mVdaJiy/ZGyaVtYaASg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB2041
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250209-airoha-en7581-flowtable-offload-v3-13-dba60e755563@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_004413_608588_88C31C09 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20250211_004728_747230_2F6CBEE5 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,214 +80,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof.
+On Sun, Feb 09, 2025 at 01:09:06PM +0100, Lorenzo Bianconi wrote:
+> +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
+> +{
+> +	struct airoha_npu_core *core = core_instance;
+> +	struct airoha_npu *npu = core->npu;
+> +	int c = core - &npu->cores[0];
+> +	u32 val;
+> +
+> +	airoha_npu_rmw(npu, REG_WDT_TIMER_CTRL(c), 0, WDT_INTR_MASK);
+> +	val = airoha_npu_rr(npu, REG_WDT_TIMER_CTRL(c));
+> +	if (FIELD_GET(WDT_EN_MASK, val))
+> +		schedule_work(&core->wdt_work);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +struct airoha_npu *airoha_npu_init(struct airoha_eth *eth)
+> +{
+> +	struct reserved_mem *rmem;
+> +	int i, irq, err = -ENODEV;
+> +	struct airoha_npu *npu;
+> +	struct device_node *np;
+> +
+> +	npu = devm_kzalloc(eth->dev, sizeof(*npu), GFP_KERNEL);
+> +	if (!npu)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	npu->np = of_parse_phandle(eth->dev->of_node, "airoha,npu", 0);
+> +	if (!npu->np)
+> +		return ERR_PTR(-ENODEV);
 
->-----Original Message-----
->From: Krzysztof Kozlowski <krzk@kernel.org>
->Sent: Tuesday, February 11, 2025 2:41 AM
->To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
->hverkuil@xs4all.nl; sebastian.fricke@collabora.com; robh@kernel.org;
->krzk+dt@kernel.org; conor+dt@kernel.org
->Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
->kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
->kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
->lafley.kim <lafley.kim@chipsnmedia.com>
->Subject: Re: [PATCH 4/8] media: chips-media: wave6: Add Wave6 codec driver
->
->On 10/02/2025 10:07, Nas Chung wrote:
->> +
->> +	dev->debugfs =3D debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
->> +	if (IS_ERR_OR_NULL(dev->debugfs))
->> +		dev->debugfs =3D debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR,
->NULL);
->> +
->> +	pm_runtime_enable(&pdev->dev);
->> +
->> +	if (dev->res->codec_types & WAVE6_IS_DEC) {
->> +		ret =3D wave6_vpu_dec_register_device(dev);
->> +		if (ret) {
->> +			dev_err(&pdev->dev, "wave6_vpu_dec_register_device
->fail: %d\n", ret);
->> +			goto err_temp_vbuf_free;
->> +		}
->> +	}
->> +	if (dev->res->codec_types & WAVE6_IS_ENC) {
->> +		ret =3D wave6_vpu_enc_register_device(dev);
->> +		if (ret) {
->> +			dev_err(&pdev->dev, "wave6_vpu_enc_register_device
->fail: %d\n", ret);
->> +			goto err_dec_unreg;
->> +		}
->> +	}
->> +
->> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
->> +		wave6_vpu_activate(dev);
->> +		ret =3D pm_runtime_resume_and_get(dev->dev);
->> +		if (ret)
->> +			goto err_enc_unreg;
->> +	}
->> +
->> +	dev_dbg(&pdev->dev, "Added wave6 driver with caps %s %s\n",
->> +		dev->res->codec_types & WAVE6_IS_ENC ? "'ENCODE'" : "",
->> +		dev->res->codec_types & WAVE6_IS_DEC ? "'DECODE'" : "");
->> +
->> +	return 0;
->> +
->> +err_enc_unreg:
->> +	if (dev->res->codec_types & WAVE6_IS_ENC)
->> +		wave6_vpu_enc_unregister_device(dev);
->> +err_dec_unreg:
->> +	if (dev->res->codec_types & WAVE6_IS_DEC)
->> +		wave6_vpu_dec_unregister_device(dev);
->> +err_temp_vbuf_free:
->> +	wave6_free_dma(&dev->temp_vbuf);
->> +err_kfifo_free:
->> +	kfifo_free(&dev->irq_status);
->> +err_m2m_dev_release:
->> +	wave6_vpu_release_m2m_dev(dev);
->> +err_v4l2_unregister:
->> +	v4l2_device_unregister(&dev->v4l2_dev);
->> +
->> +	return ret;
->> +}
->> +
->> +static void wave6_vpu_remove(struct platform_device *pdev)
->> +{
->> +	struct vpu_device *dev =3D dev_get_drvdata(&pdev->dev);
->> +
->> +	if (dev->ctrl && wave6_vpu_ctrl_support_follower(dev->ctrl)) {
->> +		if (!pm_runtime_suspended(&pdev->dev))
->> +			pm_runtime_put_sync(&pdev->dev);
->> +	}
->> +	pm_runtime_disable(&pdev->dev);
->> +
->> +	wave6_vpu_enc_unregister_device(dev);
->> +	wave6_vpu_dec_unregister_device(dev);
->> +	wave6_free_dma(&dev->temp_vbuf);
->> +	kfifo_free(&dev->irq_status);
->> +	wave6_vpu_release_m2m_dev(dev);
->> +	v4l2_device_unregister(&dev->v4l2_dev);
->> +}
->> +
->> +#ifdef CONFIG_PM
->> +static int wave6_vpu_runtime_suspend(struct device *dev)
->> +{
->> +	struct vpu_device *vpu_dev =3D dev_get_drvdata(dev);
->> +
->> +	if (!vpu_dev)
->> +		return -ENODEV;
->> +
->> +	dprintk(dev, "runtime suspend\n");
->
->Drop
->
->> +	if (vpu_dev->ctrl && vpu_dev->active)
->> +		wave6_vpu_ctrl_put_sync(vpu_dev->ctrl, &vpu_dev->entity);
->> +	if (vpu_dev->num_clks)
->> +		clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev->clks);
->> +
->> +	return 0;
->> +}
->> +
->> +static int wave6_vpu_runtime_resume(struct device *dev)
->> +{
->> +	struct vpu_device *vpu_dev =3D dev_get_drvdata(dev);
->> +	int ret =3D 0;
->> +
->> +	if (!vpu_dev)
->> +		return -ENODEV;
->> +
->> +	dprintk(dev, "runtime resume\n");
->
->Drop
->
->> +	if (vpu_dev->num_clks) {
->> +		ret =3D clk_bulk_prepare_enable(vpu_dev->num_clks, vpu_dev-
->>clks);
->> +		if (ret) {
->> +			dev_err(dev, "failed to enable clocks: %d\n", ret);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	if (vpu_dev->ctrl && vpu_dev->active) {
->> +		ret =3D wave6_vpu_ctrl_resume_and_get(vpu_dev->ctrl, &vpu_dev-
->>entity);
->> +		if (ret && vpu_dev->num_clks)
->> +			clk_bulk_disable_unprepare(vpu_dev->num_clks, vpu_dev-
->>clks);
->> +	} else {
->> +		wave6_vpu_check_state(vpu_dev);
->> +	}
->> +
->> +	return ret;
->> +}
->> +#endif
->> +
->> +#ifdef CONFIG_PM_SLEEP
->> +static int wave6_vpu_suspend(struct device *dev)
->> +{
->> +	int ret;
->> +
->> +	dprintk(dev, "suspend\n");
->
->Drop. Don't re-implement existing tracing.
->
->> +	wave6_vpu_pause(dev, 0);
->> +
->> +	ret =3D pm_runtime_force_suspend(dev);
->> +	if (ret)
->> +		wave6_vpu_pause(dev, 1);
->> +
->> +	return ret;
->> +}
->> +
->> +static int wave6_vpu_resume(struct device *dev)
->> +{
->> +	int ret;
->> +
->> +	dprintk(dev, "resume\n");
->
->Drop, useless.
+Why? The property is not required, so how can missing property fail the
+probe?
 
-Okay. I will remove the redundant debug message and dprintk in v2.
+This is also still unnecessary ABI break without explanation/reasoning.
 
->
->> +	ret =3D pm_runtime_force_resume(dev);
->> +	if (ret)
->> +		return ret;
->> +
->> +	wave6_vpu_pause(dev, 1);
->> +	return 0;
->> +}
->> +#endif
->> +static const struct dev_pm_ops wave6_vpu_pm_ops =3D {
->> +	SET_RUNTIME_PM_OPS(wave6_vpu_runtime_suspend,
->wave6_vpu_runtime_resume, NULL)
->> +	SET_SYSTEM_SLEEP_PM_OPS(wave6_vpu_suspend, wave6_vpu_resume)
->> +};
->> +
->> +static const struct of_device_id wave6_dt_ids[] =3D {
->> +	{ .compatible =3D "nxp,imx95-wave633c", .data =3D &wave633c_data },
->> +	{ /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, wave6_dt_ids);
->> +
->> +static struct platform_driver wave6_vpu_driver =3D {
->> +	.driver =3D {
->> +		.name =3D VPU_PLATFORM_DEVICE_NAME,
->> +		.of_match_table =3D of_match_ptr(wave6_dt_ids),
->
->
->Drop of_match_ptr, you have here warnings.
+> +
+> +	npu->pdev = of_find_device_by_node(npu->np);
+> +	if (!npu->pdev)
+> +		goto error_of_node_put;
 
-I will address this in v2.
+You should also add device link and probably try_module_get. See
+qcom,ice (patch for missing try_module_get is on the lists).
 
-Thanks.
-Nas.
+> +
+> +	get_device(&npu->pdev->dev);
 
->
->
->Best regards,
->Krzysztof
+Why? of_find_device_by_node() does it.
+
+> +
+> +	npu->base = devm_platform_ioremap_resource(npu->pdev, 0);
+> +	if (IS_ERR(npu->base))
+> +		goto error_put_dev;
+> +
+> +	np = of_parse_phandle(npu->np, "memory-region", 0);
+> +	if (!np)
+> +		goto error_put_dev;
+> +
+> +	rmem = of_reserved_mem_lookup(np);
+> +	of_node_put(np);
+> +
+> +	if (!rmem)
+> +		goto error_put_dev;
+> +
+> +	irq = platform_get_irq(npu->pdev, 0);
+> +	if (irq < 0) {
+> +		err = irq;
+> +		goto error_put_dev;
+> +	}
+> +
+> +	err = devm_request_irq(&npu->pdev->dev, irq, airoha_npu_mbox_handler,
+> +			       IRQF_SHARED, "airoha-npu-mbox", npu);
+> +	if (err)
+> +		goto error_put_dev;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
+> +		struct airoha_npu_core *core = &npu->cores[i];
+> +
+> +		spin_lock_init(&core->lock);
+> +		core->npu = npu;
+> +
+> +		irq = platform_get_irq(npu->pdev, i + 1);
+> +		if (irq < 0) {
+> +			err = irq;
+> +			goto error_put_dev;
+> +		}
+
+This is all confusing. Why are you requesting IRQs for other - the npu -
+device? That device driver is responsible for its interrupts, not you
+here. This breaks encapsulation. And what do you do if the other device
+starts handling interrupts on its own? This is really unexpected to see
+here.
+
+> +
+> +		err = devm_request_irq(&npu->pdev->dev, irq,
+> +				       airoha_npu_wdt_handler, IRQF_SHARED,
+> +				       "airoha-npu-wdt", core);
+> +		if (err)
+> +			goto error_put_dev;
+> +
+> +		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
+> +	}
+> +
+> +	if (dma_set_coherent_mask(&npu->pdev->dev, 0xbfffffff))
+> +		dev_err(&npu->pdev->dev,
+> +			"failed coherent DMA configuration\n");
+> +
+> +	err = airoha_npu_run_firmware(npu, rmem);
+> +	if (err)
+> +		goto error_put_dev;
+> +
+> +	airoha_npu_wr(npu, REG_CR_NPU_MIB(10),
+> +		      rmem->base + NPU_EN7581_FIRMWARE_RV32_MAX_SIZE);
+> +	airoha_npu_wr(npu, REG_CR_NPU_MIB(11), 0x40000); /* SRAM 256K */
+> +	airoha_npu_wr(npu, REG_CR_NPU_MIB(12), 0);
+> +	airoha_npu_wr(npu, REG_CR_NPU_MIB(21), 1);
+> +	msleep(100);
+> +
+> +	/* setting booting address */
+> +	for (i = 0; i < AIROHA_NPU_NUM_CORES; i++)
+> +		airoha_npu_wr(npu, REG_CR_BOOT_BASE(i), rmem->base);
+> +	usleep_range(1000, 2000);
+> +
+> +	/* enable NPU cores */
+> +	/* do not start core3 since it is used for WiFi offloading */
+> +	airoha_npu_wr(npu, REG_CR_BOOT_CONFIG, 0xf7);
+> +	airoha_npu_wr(npu, REG_CR_BOOT_TRIGGER, 0x1);
+> +	msleep(100);
+> +
+> +	return npu;
+> +
+> +error_put_dev:
+> +	put_device(&npu->pdev->dev);
+
+Missing platform_device_put()
+
+> +error_of_node_put:
+> +	of_node_put(npu->np);
+> +
+> +	return ERR_PTR(err);
+> +}
+> +
+> +void airoha_npu_deinit(struct airoha_npu *npu)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++)
+> +		cancel_work_sync(&npu->cores[i].wdt_work);
+> +
+
+Leaking device put.
+
+> +	put_device(&npu->pdev->dev);
+> +	of_node_put(npu->np);
+
+Best regards,
+Krzysztof
+
 
