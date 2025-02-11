@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F1BC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2325AC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tvMzFvDFPtNYc9beeiDGU1QfzgA0X8H/s3MjLPK83/s=; b=dhq54Xlr4PEg4F3s63be6BQnEX
-	Le40QAxGKmL9giPsr3P4MR4geg0AKv+KFh+KMBPlndqjPtQ1y3cbEfqTeeBBlW0iftbKUkf5COoIs
-	9Rmk4suYgk6iBbSaRhFJFpxq18DdHAg5vpGWyqHYqIGxKijjGHCOIXUhzUOfOg1tGqMueOq3bvVdi
-	5rhG3CLh84PEE2wG4orGJUzlTAYplTJ6Zogcpnf3TD+GC2hGi9PfvAxOGasT9bYRGrPVhPUP13Hbt
-	GCGnH2SvpMYPFN7ePwwjUzUvkG7OrYFQVx6z0ftl4a9JX9a1fWnWQsKUpew+tvDRf/NwaQTlnQOyE
-	+UiaDuQQ==;
+	bh=3Hn9eo3mxMwP4PHVPqNLPOJKyU8EeYRHxTKZoXnCY/s=; b=JhwhZ+n8pO3WVCpnYZLD0k418+
+	WpLsQQQuDafI62YX47QcyksV0dM3TIhu/7GrlkcEGcJO3qtfRz2oqqdgOY6bCnF7DrqY1G2y49jv2
+	DCWnVELhyY0HB/KqpGxXhbvXWTz83buPP/uIRjusuhdmSdHBN2DpwWxkaU2/6ob5X9Oe5hM/fFgHR
+	oWJGdvueGjsYeUVy4pzgEYIFWk7JRb2B19WR7CDkcEm0qaFqfoIZm711Jf+axtbnlCFo8m7rI1GJW
+	ABVdCqSsac6JE42ffBMUExu2ozqEvZeJA8G3R2bq1fqIZCYxsJT6bNX0/yqEQ9OUerAjhUIs+dyj+
+	/67oVQ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwZ0-000000059BS-3Zjd;
-	Tue, 11 Feb 2025 20:08:58 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1thwZ2-000000059CJ-0YXJ;
+	Tue, 11 Feb 2025 20:09:00 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwLJ-0000000573m-1qH0
+	id 1thwLP-0000000576J-2W4B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:54:50 +0000
+	Tue, 11 Feb 2025 19:54:56 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739303687;
+	s=key1; t=1739303693;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tvMzFvDFPtNYc9beeiDGU1QfzgA0X8H/s3MjLPK83/s=;
-	b=xzz1DCD+FgNmcew4nFWLGjYQFCe6sA/KdgUUqLpzSUt/rVZxxKiUOqy/svVsjOYt+xalNc
-	b5YmIlV3Lp3B1CbeAT8KesfeYujrLuPGOQ+iOlUe6oXY5IEFsVGuLCkIr9xCPokU7VYi8D
-	RiEYC6twxK57MfnQysTn+iJaQqpGzx/SNkUWguQQ2dNUyVkTMmBSPv91QxaBvKCIxnui6L
-	+0wJCWCnyXFKfxDQuVfyvzbh9oEJFSrqUsA4dcrudKgEqApNVwSPfKIqGvzTbl/MS9x71P
-	6AG0bxHFkpwFj38uaoOpwTx7wQFHwASWJAdJIblBqa6VMIAOSeZ9lTTFCsxpwA==
+	bh=3Hn9eo3mxMwP4PHVPqNLPOJKyU8EeYRHxTKZoXnCY/s=;
+	b=anqR4Pu7xBGTHCgc47nmaM24QW1F2Hjf0dSUtRWszaMtJNJyIhDaplvItl2K4CzN2GvsXd
+	LfWsV03wWFz39eoJZeJY5kJLyA5Q5wwpbmASPjuu3PxpSjlhUtIZY1MroOa/8Sg969Idxp
+	KSWMEAzRM/XKNF9h5xOLRQchUVIpgG0pWyvgfsaJJ7CD0P98idnU7BwEcuILbha0buTl+L
+	D//7o736krUM/9b1H7c6Y7ATFUXJmcx321hYvyP1X7x0WFewr3Lo6xYCgNk+z8V4aXKXHs
+	maZnjkdl3M6PePzcrBr9W/WzIVOBgQEJICsgUVv6Vorlb8Y4cvSDQmqRTBv9MA==
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Date: Tue, 11 Feb 2025 14:54:30 -0500
-Subject: [PATCH 5/7] PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
+Date: Tue, 11 Feb 2025 14:54:32 -0500
+Subject: [PATCH 7/7] PCI: apple: Add T602x PCIe support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-pcie-t6-v1-5-b60e6d2501bb@rosenzweig.io>
+Message-Id: <20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
 References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 In-Reply-To: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -60,27 +60,26 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1050; i=alyssa@rosenzweig.io;
- h=from:subject:message-id; bh=PXCtvv5N3o1ijghyFwcjjiYtA4dsCcCo/zzcFKCevKk=;
- b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r28PCvGN2V+WHKUhGyarStlr41tcudnZ4dQ
- HvrlQVn2XOJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9gAKCRD+/lBaCvVY
- Dbj7EACMcBHDuzhazrjCZuOERME9/KkzaAPLCGa0fd3dYJCK+QaS12j3u8D/lYk3EG01TwqvOAN
- BWDWE8iSmcW0ewo61p2NbdmyabmMA2EKewdDsrt/1+SVwd/ntYv4737LIcHp9OkrCKTP2BRCV0x
- UvEPG8ZZXvS3Re4spQB9qn5Ke07KReBKO/iDfzogMEq1LN3z71RI6e1HLcBtWBKF8zQoXhsEE5D
- oq57PxA3WF5OPxQzgZNVVdIjrdHoaZ5o+xbZbCcuZa3tCqHBJ5ArzTSMNNsn9saOeiNCsar6ZYZ
- FW4nllMh9LOamx+DCMTlJHiEn/TOr6/KYRFGCnUInmhNwfbBQaQo/ysulv9XXNL3V7SJEcDdEkz
- IDjYbtRU95ua9kDZJ0FeMwWr7QjMS7D7fWxVRqmnRcHFdcLIT6RRPhvs5w425SpiGCkKqn3jF5N
- CfRI0ApM/sKjFEFgRYJ7d/ToBVIC8JlHD/u+ppPR++qpe5/xuU9I+739xPAqojxE1tZ9Qj2RIcR
- HatGJszXFASmiKwQeRxU2VGp+iWN5pc9I8ebm7wJ5WWOw2peN56Nyq6AR1Dti+k3G3sMpFRGCkk
- eEAmlhwJmyfIvYDUFejCIfkU4tgAvhzp7bm9n7fnAUrTbuzTokwxCgqw5H9ilj9Qj5xSGZXVHZz
- xroFVy45lDiCe5A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9798; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=iFWGB/VvFeLzLyS+KG8D2A435AlKV4YFBa+MItwwa6Q=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r22VdvMG95oRYpc0a3Y+hfrFPR4A8pH3KLr
+ qRWrDjxCrCJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9gAKCRD+/lBaCvVY
+ DZh3D/4l1pDvAfKmIk7/pSKwwZWYyq//39IbbNPtbdA4C9xFF0xX2BemF0eboTU/Oxu0rDo35wJ
+ kwewSoizjtiZ05RUcNCrMseffi8gJn2LKfJxWPKasSfILP2WZ8OE16f5J/QUOHNW/HQJ8SCaH7B
+ AZblR3lj/vG9Udc33jhKcElKYvDQh2D9E7yM0khFQDoJ6u+ltnslAIqRqwNC67TegydqV6zi0TC
+ ET/OPGZ2WafXFsiYEVHZK2xeV71mNdJjetKXXniZcEIZe2aQeot2L466D00RdbLUl5LBUhGuVmF
+ 4GaCjUJVOpxRZqaLXUJxp++UKghvAh7AL20DG1RC+UsqHXRvi2Rji8JPH2244jYysdzbrshCXc/
+ KK/ebqG2Cu3dAFStQTvXEx88z2zhTKn5VNkv8ed2tWj4sA1jgXo9subxoIBx7WqNTe+OrG7DQB1
+ ed5DzNfS9cp8xPN1r+qP1M4wbvgJe9Vp+cBgsAa6MTVGLOsSbu7NN2ydnRoKLzzpGDSfoBraV/f
+ UhW+55q39Fi+1oxg0jkY2T5DNHnswFE7cPVi4Myf8HjrcJFFZhcxaYK1yRKzc+EEwtCIBgTp2W3
+ BcsUbIx8Qsu1SHAY0H90vDN83Aq09Sl5KXKoZeI1sqW2sGkFC7jRVCl0eJ3mgAywvSyvINvHYv6
+ eswFtJqRXmShJbA==
 X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
  fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_115449_621518_92801216 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_115455_794233_61A7B2D9 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +96,293 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hector Martin <marcan@marcan.st>
 
-This is checking a core refclk in per-port setup which doesn't make a
-lot of sense, and the bootloader needs to have gone through this anyway.
+This version of the hardware moved around a bunch of registers, so we
+drop the old compatible for these and introduce register offset
+structures to handle the differences.
 
-It doesn't work on T602x, so just drop it across the board.
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 ---
- drivers/pci/controller/pcie-apple.c | 6 ------
- 1 file changed, 6 deletions(-)
+ drivers/pci/controller/pcie-apple.c | 125 ++++++++++++++++++++++++++++++------
+ 1 file changed, 105 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 806eeb911bbd4f1ae5832b34f775fa18c866670b..209535db7855fa1ee0d75290b33525dce18f560d 100644
+index 7f4839fb0a5b15a9ca87337f53c14a1ce08301fc..7c598334427cb56ca066890ac61143ae1d3ed744 100644
 --- a/drivers/pci/controller/pcie-apple.c
 +++ b/drivers/pci/controller/pcie-apple.c
-@@ -472,12 +472,6 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+@@ -26,6 +26,7 @@
+ #include <linux/list.h>
+ #include <linux/module.h>
+ #include <linux/msi.h>
++#include <linux/of_device.h>
+ #include <linux/of_irq.h>
+ #include <linux/pci-ecam.h>
+ 
+@@ -104,7 +105,7 @@
+ #define   PORT_REFCLK_CGDIS		BIT(8)
+ #define PORT_PERST			0x00814
+ #define   PORT_PERST_OFF		BIT(0)
+-#define PORT_RID2SID(i16)		(0x00828 + 4 * (i16))
++#define PORT_RID2SID			0x00828
+ #define   PORT_RID2SID_VALID		BIT(31)
+ #define   PORT_RID2SID_SID_SHIFT	16
+ #define   PORT_RID2SID_BUS_SHIFT	8
+@@ -122,7 +123,7 @@
+ #define   PORT_TUNSTAT_PERST_ACK_PEND	BIT(1)
+ #define PORT_PREFMEM_ENABLE		0x00994
+ 
+-#define MAX_RID2SID			64
++#define MAX_RID2SID			512
+ 
+ /*
+  * The doorbell address is set to 0xfffff000, which by convention
+@@ -133,6 +134,57 @@
+  */
+ #define DOORBELL_ADDR		CONFIG_PCIE_APPLE_MSI_DOORBELL_ADDR
+ 
++struct reg_info {
++	u32 phy_lane_ctl;
++	u32 port_msiaddr;
++	u32 port_msiaddr_hi;
++	u32 port_refclk;
++	u32 port_perst;
++	u32 port_rid2sid;
++	u32 port_msimap;
++	u32 max_rid2sid;
++	u32 max_msimap;
++};
++
++const struct reg_info t8103_hw = {
++	.phy_lane_ctl = PHY_LANE_CTL,
++	.port_msiaddr = PORT_MSIADDR,
++	.port_msiaddr_hi = 0,
++	.port_refclk = PORT_REFCLK,
++	.port_perst = PORT_PERST,
++	.port_rid2sid = PORT_RID2SID,
++	.port_msimap = 0,
++	.max_rid2sid = 64,
++	.max_msimap = 0,
++};
++
++#define PORT_T602X_MSIADDR		0x016c
++#define PORT_T602X_MSIADDR_HI		0x0170
++#define PORT_T602X_PERST		0x082c
++#define PORT_T602X_RID2SID		0x3000
++#define PORT_T602X_MSIMAP		0x3800
++
++#define PORT_MSIMAP_ENABLE		BIT(31)
++#define PORT_MSIMAP_TARGET		GENMASK(7, 0)
++
++const struct reg_info t602x_hw = {
++	.phy_lane_ctl = 0,
++	.port_msiaddr = PORT_T602X_MSIADDR,
++	.port_msiaddr_hi = PORT_T602X_MSIADDR_HI,
++	.port_refclk = 0,
++	.port_perst = PORT_T602X_PERST,
++	.port_rid2sid = PORT_T602X_RID2SID,
++	.port_msimap = PORT_T602X_MSIMAP,
++	.max_rid2sid = 512, /* 16 on t602x, guess for autodetect on future HW */
++	.max_msimap = 512, /* 96 on t602x, guess for autodetect on future HW */
++};
++
++static const struct of_device_id apple_pcie_of_match_hw[] = {
++	{ .compatible = "apple,t6020-pcie", .data = &t602x_hw },
++	{ .compatible = "apple,pcie", .data = &t8103_hw },
++	{ }
++};
++
+ struct apple_pcie {
+ 	struct mutex		lock;
+ 	struct device		*dev;
+@@ -143,6 +195,7 @@ struct apple_pcie {
+ 	struct completion	event;
+ 	struct irq_fwspec	fwspec;
+ 	u32			nvecs;
++	const struct reg_info	*hw;
+ };
+ 
+ struct apple_pcie_port {
+@@ -266,14 +319,14 @@ static void apple_port_irq_mask(struct irq_data *data)
+ {
+ 	struct apple_pcie_port *port = irq_data_get_irq_chip_data(data);
+ 
+-	writel_relaxed(BIT(data->hwirq), port->base + PORT_INTMSKSET);
++	rmw_set(BIT(data->hwirq), port->base + PORT_INTMSK);
+ }
+ 
+ static void apple_port_irq_unmask(struct irq_data *data)
+ {
+ 	struct apple_pcie_port *port = irq_data_get_irq_chip_data(data);
+ 
+-	writel_relaxed(BIT(data->hwirq), port->base + PORT_INTMSKCLR);
++	rmw_clear(BIT(data->hwirq), port->base + PORT_INTMSK);
+ }
+ 
+ static bool hwirq_is_intx(unsigned int hwirq)
+@@ -377,6 +430,7 @@ static void apple_port_irq_handler(struct irq_desc *desc)
+ static int apple_pcie_port_setup_irq(struct apple_pcie_port *port)
+ {
+ 	struct fwnode_handle *fwnode = &port->np->fwnode;
++	struct apple_pcie *pcie = port->pcie;
+ 	unsigned int irq;
+ 
+ 	/* FIXME: consider moving each interrupt under each port */
+@@ -392,19 +446,35 @@ static int apple_pcie_port_setup_irq(struct apple_pcie_port *port)
+ 		return -ENOMEM;
+ 
+ 	/* Disable all interrupts */
+-	writel_relaxed(~0, port->base + PORT_INTMSKSET);
++	writel_relaxed(~0, port->base + PORT_INTMSK);
+ 	writel_relaxed(~0, port->base + PORT_INTSTAT);
++	writel_relaxed(~0, port->base + PORT_LINKCMDSTS);
+ 
+ 	irq_set_chained_handler_and_data(irq, apple_port_irq_handler, port);
+ 
+ 	/* Configure MSI base address */
+ 	BUILD_BUG_ON(upper_32_bits(DOORBELL_ADDR));
+-	writel_relaxed(lower_32_bits(DOORBELL_ADDR), port->base + PORT_MSIADDR);
++	writel_relaxed(lower_32_bits(DOORBELL_ADDR),
++		       port->base + pcie->hw->port_msiaddr);
++	if (pcie->hw->port_msiaddr_hi)
++		writel_relaxed(0, port->base + pcie->hw->port_msiaddr_hi);
+ 
+ 	/* Enable MSIs, shared between all ports */
+-	writel_relaxed(0, port->base + PORT_MSIBASE);
+-	writel_relaxed((ilog2(port->pcie->nvecs) << PORT_MSICFG_L2MSINUM_SHIFT) |
+-		       PORT_MSICFG_EN, port->base + PORT_MSICFG);
++	if (pcie->hw->port_msimap) {
++		int i;
++
++		for (i = 0; i < pcie->nvecs; i++) {
++			writel_relaxed(FIELD_PREP(PORT_MSIMAP_TARGET, i) |
++				       PORT_MSIMAP_ENABLE,
++				       port->base + pcie->hw->port_msimap + 4 * i);
++		}
++
++		writel_relaxed(PORT_MSICFG_EN, port->base + PORT_MSICFG);
++	} else {
++		writel_relaxed(0, port->base + PORT_MSIBASE);
++		writel_relaxed((ilog2(pcie->nvecs) << PORT_MSICFG_L2MSINUM_SHIFT) |
++			PORT_MSICFG_EN, port->base + PORT_MSICFG);
++	}
+ 
+ 	return 0;
+ }
+@@ -472,7 +542,9 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
  	u32 stat;
  	int res;
  
--	res = readl_relaxed_poll_timeout(pcie->base + CORE_RC_PHYIF_STAT, stat,
--					 stat & CORE_RC_PHYIF_STAT_REFCLK,
--					 100, 50000);
--	if (res < 0)
--		return res;
--
- 	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
+-	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
++	if (pcie->hw->phy_lane_ctl)
++		rmw_set(PHY_LANE_CTL_CFGACC, port->phy + pcie->hw->phy_lane_ctl);
++
  	rmw_set(PHY_LANE_CFG_REFCLK0REQ, port->phy + PHY_LANE_CFG);
  
+ 	res = readl_relaxed_poll_timeout(port->phy + PHY_LANE_CFG,
+@@ -489,10 +561,13 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+ 	if (res < 0)
+ 		return res;
+ 
+-	rmw_clear(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
++	if (pcie->hw->phy_lane_ctl)
++		rmw_clear(PHY_LANE_CTL_CFGACC, port->phy + pcie->hw->phy_lane_ctl);
+ 
+ 	rmw_set(PHY_LANE_CFG_REFCLKEN, port->phy + PHY_LANE_CFG);
+-	rmw_set(PORT_REFCLK_EN, port->base + PORT_REFCLK);
++
++	if (pcie->hw->port_refclk)
++		rmw_set(PORT_REFCLK_EN, port->base + pcie->hw->port_refclk);
+ 
+ 	return 0;
+ }
+@@ -500,9 +575,9 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+ static u32 apple_pcie_rid2sid_write(struct apple_pcie_port *port,
+ 				    int idx, u32 val)
+ {
+-	writel_relaxed(val, port->base + PORT_RID2SID(idx));
++	writel_relaxed(val, port->base + port->pcie->hw->port_rid2sid + 4 * idx);
+ 	/* Read back to ensure completion of the write */
+-	return readl_relaxed(port->base + PORT_RID2SID(idx));
++	return readl_relaxed(port->base + port->pcie->hw->port_rid2sid + 4 * idx);
+ }
+ 
+ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+@@ -563,7 +638,7 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+ 	usleep_range(100, 200);
+ 
+ 	/* Deassert PERST# */
+-	rmw_set(PORT_PERST_OFF, port->base + PORT_PERST);
++	rmw_set(PORT_PERST_OFF, port->base + pcie->hw->port_perst);
+ 	gpiod_set_value_cansleep(reset, 0);
+ 
+ 	/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
+@@ -576,15 +651,12 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+ 		return ret;
+ 	}
+ 
+-	rmw_clear(PORT_REFCLK_CGDIS, port->base + PORT_REFCLK);
+-	rmw_clear(PORT_APPCLK_CGDIS, port->base + PORT_APPCLK);
+-
+ 	ret = apple_pcie_port_setup_irq(port);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/* Reset all RID/SID mappings, and check for RAZ/WI registers */
+-	for (i = 0; i < MAX_RID2SID; i++) {
++	for (i = 0; i < pcie->hw->max_rid2sid; i++) {
+ 		if (apple_pcie_rid2sid_write(port, i, 0xbad1d) != 0xbad1d)
+ 			break;
+ 		apple_pcie_rid2sid_write(port, i, 0);
+@@ -608,6 +680,12 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
+ 	if (!wait_for_completion_timeout(&pcie->event, HZ / 10))
+ 		dev_warn(pcie->dev, "%pOF link didn't come up\n", np);
+ 
++	if (pcie->hw->port_refclk)
++		rmw_clear(PORT_REFCLK_CGDIS, port->base + PORT_REFCLK);
++	else
++		rmw_set(PHY_LANE_CFG_REFCLKCGEN, port->phy + PHY_LANE_CFG);
++	rmw_clear(PORT_APPCLK_CGDIS, port->base + PORT_APPCLK);
++
+ 	return 0;
+ }
+ 
+@@ -732,7 +810,7 @@ static void apple_pcie_disable_device(struct pci_host_bridge *bridge, struct pci
+ 	for_each_set_bit(idx, port->sid_map, port->sid_map_sz) {
+ 		u32 val;
+ 
+-		val = readl_relaxed(port->base + PORT_RID2SID(idx));
++		val = readl_relaxed(port->base + port->pcie->hw->port_rid2sid + 4 * idx);
+ 		if ((val & 0xffff) == rid) {
+ 			apple_pcie_rid2sid_write(port, idx, 0);
+ 			bitmap_release_region(port->sid_map, idx, 0);
+@@ -750,13 +828,19 @@ static int apple_pcie_init(struct pci_config_window *cfg)
+ 	struct platform_device *platform = to_platform_device(dev);
+ 	struct device_node *of_port;
+ 	struct apple_pcie *pcie;
++	const struct of_device_id *match;
+ 	int ret;
+ 
++	match = of_match_device(apple_pcie_of_match_hw, dev);
++	if (!match)
++		return -ENODEV;
++
+ 	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+ 	if (!pcie)
+ 		return -ENOMEM;
+ 
+ 	pcie->dev = dev;
++	pcie->hw = match->data;
+ 
+ 	mutex_init(&pcie->lock);
+ 
+@@ -795,6 +879,7 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
+ };
+ 
+ static const struct of_device_id apple_pcie_of_match[] = {
++	{ .compatible = "apple,t6020-pcie", .data = &apple_pcie_cfg_ecam_ops },
+ 	{ .compatible = "apple,pcie", .data = &apple_pcie_cfg_ecam_ops },
+ 	{ }
+ };
 
 -- 
 2.48.1
