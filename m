@@ -4,115 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDE9C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 01:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E6DC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 01:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lgxx79rg+zY8ZhEl6UOYRyZEbwvUp3kyXUYU+30FnDM=; b=jtaVujHhwHm3WQ8UCloICXAwyG
-	mu9BHlT7iSx1K+fzfRlT9Xmf3edluGqwpLaXCzk/FhFsKZBKLWkAu7J6iJcVNLNjwfMCd6+PbCwN8
-	055lqqvkpWONvdibq4sBYs3tbHfYy7M5/+xh/uIlg/B1WvRHlSL3ermTyqIMvNWAK0sHSQ90meffj
-	CDRUXeg5Ihi+tu3SIGjHTPBa1QYwMWXSimstztVukCCN/VKxm/DWvuJpIXT8VJ3KjCZoXdbEGuo3N
-	Aeg46+j3v3XQPUEtgs9XOeM2Zsw5qReb+w2H7ogFR/X38EW4ogXSAGH4N/GbDgkk5IMUcRfjGgQ8q
-	tROWHKrQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4Ah4k5+xQ1fRNUu+6C0S6nP1nA7x+T5drbERSfhVVRE=; b=AFlnwpxlda8m+EOPJSzqnVhEZJ
+	UVjIWo/d+JhzIuuFg8yROBob5oT9JOABs1tYwT1sqp9En4fitAp2qKZauyUAqCaFmBzQe2QT3BJ8C
+	onoZdMGd2HJaqF1do3XWJwpPLiZO2ZZK83bMphrK0dj6+wy9R6u8T1qP6nQ8zTdIkzD2Q6s+zXhn/
+	Pm+9wYZFO2Rkh/oMcj6mes9w9Zm1TtDR7wNUqEo//dAvLOfOCCpDvzZzEP/PgY1rpiwC0JULdWaHM
+	BiNmak1SA71hIdbAafhX9o60XVWrnQnhBCz8YbDOMjT/4PqLCy03DJ0mdZ3uNTZSdRl83xCH1YFdr
+	QX8FDTFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1theym-000000025t5-34zS;
-	Tue, 11 Feb 2025 01:22:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1thf27-000000026Kt-0CK1;
+	Tue, 11 Feb 2025 01:25:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thexN-000000025eI-2X7A
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 01:20:59 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51AKuNiO031300;
-	Tue, 11 Feb 2025 01:20:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Lgxx79rg+zY8ZhEl6UOYRyZEbwvUp3kyXUYU+30FnDM=; b=NC6uAbMK2VkWajXR
-	578zpcNbOhxTXpIOOQ/5c9+i54PQ3KlmV8F1EVNixJdcfzn0kDkPJGMqzYU+hwpP
-	7q+V0vSXWqEETvQqkI93bNb7pkC7ANgorZ6FF6tis8nqy/4H8JksO+n3JdPbAVu8
-	rtr59FceO3umtR+JW7GVATGyFuy0MyJ4i1hBoTg6B4d1fVKhAHqbcJSZsf1HdG57
-	wQPT4JLakhExqrBYZKlo+LvE0HjlwnjB57fZN8ShVBTTPlRa4apPGf43hJbkd/zh
-	R4BMbKnHe10PWMZLrXJIt1s1eGWwr9Gms1vAPXJiAjXeEN/RRaTNDfLRvz1niPkm
-	JdIkgg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44p0ese5cf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 01:20:30 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51B1KTEG030819
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 01:20:29 GMT
-Received: from [10.253.11.86] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 10 Feb
- 2025 17:20:23 -0800
-Message-ID: <80762356-f827-4a78-9ccf-dbe644248667@quicinc.com>
-Date: Tue, 11 Feb 2025 09:20:18 +0800
+	id 1thdqD-00000001vfX-3nDE;
+	Tue, 11 Feb 2025 00:09:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=4Ah4k5+xQ1fRNUu+6C0S6nP1nA7x+T5drbERSfhVVRE=; b=BVHETZJFanUyA5R6wQBWTma3vs
+	WflVLqOHP0lO15ZpSNLyYNRWd6Gh23C7LH/DbRgUJB1yY0kmUd6JjQV7kbCSS32TJYunPeJIT6VY+
+	b4ptp9JcckIXobzh+alBwzdjnQlDW2WDedkwdvlAm0+c25p2++LXS/TZDny1hdDbF624HkOiIvQO2
+	VXNrNlfkfUhrQwiYVGOPXmNZ7GBGINIEix0aNJNGHdPQq3okY6bT7gBdf8NZtWjAyidJGUKbux8kf
+	uqE/HoH0cPZVag5ctk9evfa86dL8yyEah+vkY+lA8P4V9ON4pRIFU80PcsRJVXK2f2HzA1LNjGYf+
+	T8hjGZpg==;
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thdqA-00000000NtD-3BjP;
+	Tue, 11 Feb 2025 00:09:28 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6e44cb7adeeso3734636d6.0;
+        Mon, 10 Feb 2025 16:09:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739232561; x=1739837361; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4Ah4k5+xQ1fRNUu+6C0S6nP1nA7x+T5drbERSfhVVRE=;
+        b=Z7YVIPMs07jJwActJkRMKLtK4uv84h8N4TSTMD9c22UBRZ4t/lCN9YURtgoYwzq+Tv
+         vwadczRVAbTHq+VnKohtkfHotFzY1vo1LY4eMePvSGudNdfT9NZwB0IQNs/ULQaB86YO
+         BYCWXU2iOxkiM2Lv1m1DuhHXJig6wngon3s/RJNe3KdKTBMoHRCQlLTuGZhHoq6w+gu+
+         SZEXtxhzxUX9f9wYgb+3R7+IpV0qEimaqSW4KYBojiw3vhfmerCitdjWoMbtmP3Iwvzn
+         OybeIJksmZyRZBMgtYg1215i3vHg/EeKXdBUl8gquXVbW49IUpsO8XQcZIiCYlIkWofj
+         QJvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739232561; x=1739837361;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4Ah4k5+xQ1fRNUu+6C0S6nP1nA7x+T5drbERSfhVVRE=;
+        b=KKg/wfk2S/95SQyvmsFp8wJqin5fPWb88FPets3VpePVZtROXGLAQYowpxTKPwKYk/
+         mkPRCOZ7o95SAepqXsE7XcIyWV1rouzcj7AS543tsZCDWPTXL+XyAljDo7h0AED5Wy77
+         KXcvYvpDRpmyT/xbT8du62K9jmgmowt5S7vIql+djIfSO+JwkEyq+FgTsqovzKQj0lGQ
+         AU5x1QAlNnOM7CzRlsEEzTqFuCGxIgzLTFbdMyl0YvoOnS9nTDgqlpFvGXB8gkQgW4OJ
+         9LaYTsaWphwiwrob7rQgWM/8xfJuCykxqqvrcLJlMwOMv1rh7UuRhVkTBNpSXMtYwPSd
+         ojVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVfCt9rbLvx+B5G5ZQQVAGZP811SyAh7HNbRkShWzaSeBxDx8uzBkPt6LuUNYPWUKWa7q+h89oAPl2n3eTBZIUw@lists.infradead.org, AJvYcCWevsh2C+39/gsy0ba5RhtgJS2kflc+sM98iy8HWnS9Z6BHGusq9seAIoaIZJrMhX6w1ADGPjZeGqgLOF8HXxfi6w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVdsAvuOZpDyMSmSyqjodlWe3xVn3t1LiCKPmF9q7/nMlwVxLB
+	coKIekVKp9moY9xdJ4MoE8gZrmFVNNMLZMagxvAMXV34DQqb+70=
+X-Gm-Gg: ASbGncvpWQ1NYTy0Y9U6CIjHjyVXiQKWPSTz9w8kREG5HL0DNoxAau+DfaVWmMFLCC3
+	FvuRbtYckLnp3M9WT1zXYz5NCmjV2+VZf/cpCOa4/3fLgLU+wh5Fnk64vvGVzJCmlvorK4LkjiP
+	Mb7+LSolHxdPz0x7Fp6nnO3u3wI4oYKwbsOWk7kesC9J3GMaK+9cgmgoPJt0D8AB2Gw4xJPrwSv
+	q+iGUyAv4htwE4Pqsw9oybWSy854E/Q51YoMhMIQzl/sR8IKEqn0VhJeU9m+bKgbRh424UDFwS1
+	SoM5BcqKrASC
+X-Google-Smtp-Source: AGHT+IEBNymajCc+NwMXIImuo+y111CUAjewA7syDuazHuJdvT8SyYtv2TQjZ/rPxap9qo/cAU2erw==
+X-Received: by 2002:a05:620a:4150:b0:7b6:dc5c:de5 with SMTP id af79cd13be357-7c069ce9f4emr42655285a.1.1739232561394;
+        Mon, 10 Feb 2025 16:09:21 -0800 (PST)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c0603216c4sm173032885a.97.2025.02.10.16.09.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 16:09:20 -0800 (PST)
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	richardcochran@gmail.com,
+	dave.stevenson@raspberrypi.com,
+	popcornmix@gmail.com,
+	mripard@kernel.org,
+	u.kleine-koenig@baylibre.com,
+	nathan@kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	zzjas98@gmail.com,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] clk: bcm: rpi: Fix potential NULL pointer dereference
+Date: Mon, 10 Feb 2025 18:09:17 -0600
+Message-Id: <20250211000917.1739835-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] net: stmmac: dwmac-qcom-ethqos: Mask PHY mode if
- configured with rgmii-id
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250121-dts_qcs615-v3-0-fa4496950d8a@quicinc.com>
- <20250121-dts_qcs615-v3-2-fa4496950d8a@quicinc.com>
- <30450f09-83d4-4ff0-96b2-9f251f0c0896@kernel.org>
- <48ce7924-bbb7-4a0f-9f56-681c8b2a21bd@quicinc.com>
- <2bd19e9e-775d-41b0-99d4-accb9ae8262d@kernel.org>
- <71da0edf-9b2a-464e-8979-8e09f7828120@oss.qualcomm.com>
- <46423f11-9642-4239-af5d-3eb3b548b98c@quicinc.com>
- <60fecdb9-d039-4f76-a368-084664477160@oss.qualcomm.com>
-Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <60fecdb9-d039-4f76-a368-084664477160@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: JmCXu3hZE9gZMZDOFI493sN8LmLBXd38
-X-Proofpoint-ORIG-GUID: JmCXu3hZE9gZMZDOFI493sN8LmLBXd38
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-11_01,2025-02-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1015
- suspectscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- priorityscore=1501 mlxscore=0 adultscore=0 spamscore=0 mlxlogscore=999
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502110005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_172057_781798_CB0F10ED 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20250211_000926_978338_DAE12B68 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,103 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The `init.name` could be NULL. Add missing check in the
+raspberrypi_clk_register().
+This is similar to commit 3027e7b15b02
+("ice: Fix some null pointer dereference issues in ice_ptp.c").
+Besides, bcm2835_register_pll_divider() under the same directory also
+has a very similar check.
 
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-On 2025-02-11 02:01, Konrad Dybcio wrote:
-> On 10.02.2025 4:09 AM, Yijie Yang wrote:
->>
->>
->> On 2025-01-27 18:49, Konrad Dybcio wrote:
->>> On 22.01.2025 10:48 AM, Krzysztof Kozlowski wrote:
->>>> On 22/01/2025 09:56, Yijie Yang wrote:
->>>>>
->>>>>
->>>>> On 2025-01-21 20:47, Krzysztof Kozlowski wrote:
->>>>>> On 21/01/2025 08:54, Yijie Yang wrote:
->>>>>>> The Qualcomm board always chooses the MAC to provide the delay instead of
->>>>>>> the PHY, which is completely opposite to the suggestion of the Linux
->>>>>>> kernel.
->>>>>>
->>>>>>
->>>>>> How does the Linux kernel suggest it?
->>>>>>
->>>>>>> The usage of phy-mode in legacy DTS was also incorrect. Change the
->>>>>>> phy_mode passed from the DTS to the driver from PHY_INTERFACE_MODE_RGMII_ID
->>>>>>> to PHY_INTERFACE_MODE_RGMII to ensure correct operation and adherence to
->>>>>>> the definition.
->>>>>>> To address the ABI compatibility issue between the kernel and DTS caused by
->>>>>>> this change, handle the compatible string 'qcom,qcs404-evb-4000' in the
->>>>>>> code, as it is the only legacy board that mistakenly uses the 'rgmii'
->>>>>>> phy-mode.
->>>>>>>
->>>>>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>>>>>> ---
->>>>>>>     .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 18 +++++++++++++-----
->>>>>>>     1 file changed, 13 insertions(+), 5 deletions(-)
->>>>>>>
->>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>>>> index 2a5b38723635b5ef9233ca4709e99dd5ddf06b77..e228a62723e221d58d8c4f104109e0dcf682d06d 100644
->>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
->>>>>>> @@ -401,14 +401,11 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
->>>>>>>     static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos)
->>>>>>>     {
->>>>>>>         struct device *dev = &ethqos->pdev->dev;
->>>>>>> -    int phase_shift;
->>>>>>> +    int phase_shift = 0;
->>>>>>>         int loopback;
->>>>>>>            /* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
->>>>>>> -    if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
->>>>>>> -        ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
->>>>>>> -        phase_shift = 0;
->>>>>>> -    else
->>>>>>> +    if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
->>>>>>>             phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
->>>>>>>            /* Disable loopback mode */
->>>>>>> @@ -810,6 +807,17 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>>>>>         ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>>>>>         if (ret)
->>>>>>>             return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>>>>>> +
->>>>>>> +    root = of_find_node_by_path("/");
->>>>>>> +    if (root && of_device_is_compatible(root, "qcom,qcs404-evb-4000"))
->>>>>>
->>>>>>
->>>>>> First, just check if machine is compatible, don't open code it.
->>>>>>
->>>>>> Second, drivers should really, really not rely on the machine. I don't
->>>>>> think how this resolves ABI break for other users at all.
->>>>>
->>>>> As detailed in the commit description, some boards mistakenly use the
->>>>> 'rgmii' phy-mode, and the MAC driver has also incorrectly parsed and
->>>>
->>>> That's a kind of an ABI now, assuming it worked fine.
->>>
->>> I'm inclined to think it's better to drop compatibility given we're talking
->>> about rather obscure boards here.
->>>
->>> $ rg 'mode.*=.*"rgmii"' arch/arm64/boot/dts/qcom -l
->>>
->>> arch/arm64/boot/dts/qcom/sa8155p-adp.dts
->>> arch/arm64/boot/dts/qcom/qcs404-evb-4000.dts
->>>
->>> QCS404 seems to have zero interest from anyone (and has been considered
->>> for removal upstream..).
->>>
->>> The ADP doesn't see much traction either, last time around someone found
->>> a boot breaking issue months after it was committed.
->>
->> But what about the out-of-tree boards that Andrew mentioned? We need to ensure we don't break them, right?
-> 
-> No. What's not on the list, doesn't exist
-
-Okay, I understand.
-
-> 
-> Konrad
-
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index 0e1fe3759530..720acc10f8aa 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -286,6 +286,8 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+ 	init.name = devm_kasprintf(rpi->dev, GFP_KERNEL,
+ 				   "fw-clk-%s",
+ 				   rpi_firmware_clk_names[id]);
++	if (!init.name)
++		return ERR_PTR(-ENOMEM);
+ 	init.ops = &raspberrypi_firmware_clk_ops;
+ 	init.flags = CLK_GET_RATE_NOCACHE;
+ 
 -- 
-Best Regards,
-Yijie
+2.34.1
 
 
