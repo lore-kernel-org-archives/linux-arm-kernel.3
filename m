@@ -4,71 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDF9C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF16C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mifodZnx+GAT8j3y7LTSrIDDb3fyeuMJi7Lz1TWQoWg=; b=Xjuu+7aKxmWrkwvfnXEHyz3A4j
-	PrFy4o2iwf0BtQQmEPs2uheCOpcG/94dlQ4hmhEDLJeHTWRGs5W+bnt3qy+PnqyCMyZIzOlhREnCR
-	PYGe9ioajC3QzO1uGctA5kdcLLXb2vVynMTHAu7X+I4S4+89AHCKMZMcCwrjmilftm6yPGpAoqsH6
-	f30Ry6gEFGCiX8UUqAvrED+VoeiJ4CDy3mENKt4WF53kaJ2PuSH82yGTv5wd0apwJABM0WeY8lh+7
-	NZ6dKEFYZA/Mvd4MCUz8o2DAeKhcbks8iwwVE2IYCf5JZcACVKHc5yjySPWKoMTqoxRQqnPHVTyfJ
-	4j3SAvnQ==;
+	bh=7i4xaj3drZyIkTzJkuga2NcoF4fZ2QbkgmTbCahmVXY=; b=5DlhcC+RrQkDj7dx4mUUpdxoDQ
+	/sdtPehvGbWKQvfVwg/sEFH1DQnFiUK6WAdXCFCaNegfRqAomE+QpxsVCnoLXqJm0NEaj/QXlmoPQ
+	PfU5Yzsd4bl+p7CzHnY9SaDGsSCY3IBtOSI0QQ/mLXMtIlbxV6fuNQqJJex1PgNRd82asKhQeziMG
+	oPb194IorCQ06EYrF3el2A3y7d1i0KXP5H1fu4hJ9GRMeWwFEGrrPPugUGjBW0JWFNTWdhTByPPmz
+	QkWXE+ZtNIm83FjcuVuWVfaHM4GrBJBq6fSgFEf6Xxm9izhPFGSyguNjWDPhPJWCMCO+bnzrgDF/p
+	tExwGlGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thrub-00000004F5B-1Wog;
-	Tue, 11 Feb 2025 15:10:57 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1ths0I-00000004FuN-44FD;
+	Tue, 11 Feb 2025 15:16:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqk3-000000041fd-1mdv;
-	Tue, 11 Feb 2025 13:56:01 +0000
+	id 1thryt-00000004Fj7-1vAn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 15:15:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 18120A407F1;
+	Tue, 11 Feb 2025 15:13:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA3DC4CEDD;
+	Tue, 11 Feb 2025 15:15:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739286922;
+	bh=0E3vuDnjxTbAYMgDY7E6G0OZxfCEhA6gVmhQA5bwvH4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Tw1yLhyfFlX9VTLH1mTGGFT5vFeXpMtl/e6WBF5Ho4uHpAaKPoPzcmYGrxUcMkD6a
+	 fyhdzbpOEFXA8uCoNLPe988PH+jcldsiRw4jt53VZVOixsfKE7C7FqWLjTlKye6z8i
+	 QUbcUdWrTocAEcT/FDORz85dx/jq++fSiXykVjBF4E9fKk1qnYxIzDNYC73z5A8A2y
+	 gT7C2ThzLd71LEqmXVLJttm1xaxjKFj68WWKFA4IO5lTtuP1f4DcMrV08ylb8GcD9n
+	 hT3iEetPmqVzz0qfwMpcezOnYaAuoyB2iSBX3uTGciWE/Zu/mNEIOrDQLQjN0jAsLR
+	 Qs6YqnvNtmgyg==
+Message-ID: <3158e911-c771-4186-b287-50d2395b8c94@kernel.org>
+Date: Tue, 11 Feb 2025 16:15:15 +0100
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1739282154;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mifodZnx+GAT8j3y7LTSrIDDb3fyeuMJi7Lz1TWQoWg=;
-	b=NM7NzNok5uOfeVIliUUYXIjdfRtVgvDGaH9gru/W/Z2DSizT9jGyeohS7f/+9/x41Hh+UO
-	AasxnZ7X27daRD2cLPsFWyH4C5MfdLr8955ZuZ32LOOHz+IybYOnKka8tHUOM4TSGUSqox
-	U2Ypmvd8oWnSgL1tSLduD7ltV9sqTxa4xPID6osBCAwssPuMKt9QuFvJjtvRDkZj5rxb5J
-	XTTqUZjNlZylDn+t9EcfUVemavXzxOS1BWBM/NTKgJpYSZIFuUvaAkQn4Ydxw9BzRv2Tlj
-	tVlJ0mhoiALwBGSmZXcVVfsWwXNaDVsaImIoxOLJwBqjxCnFqlapMEjkR+mZ+g==
-Date: Tue, 11 Feb 2025 14:55:53 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Jagan Teki <jagan@edgeble.ai>, Quentin Schulz <foss+kernel@0leil.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Niklas
- Cassel <cassel@kernel.org>, Michael Riesch <michael.riesch@wolfvision.net>,
- Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v5 2/4] arm64: dts: rockchip: add overlay test for Edgeble
- NCM6A
-In-Reply-To: <06f1f9f4-8a79-4505-98b8-992accf1fb87@cherry.de>
-References: <20250207-pre-ict-jaguar-v5-0-a70819ea0692@cherry.de>
- <20250207-pre-ict-jaguar-v5-2-a70819ea0692@cherry.de>
- <CA+VMnFyom=2BmJ_nt-At6hTQP0v+Auaw-DkCVbT9mjndMmLKtQ@mail.gmail.com>
- <8d830c2c-6268-4c70-ae8a-47183b8cbace@cherry.de>
- <74502f5556584ee7378c63d4971f2a66@manjaro.org>
- <06f1f9f4-8a79-4505-98b8-992accf1fb87@cherry.de>
-Message-ID: <a9a023233f9a096cc215203bb6ef41d7@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
+To: Pratyush Brahma <quic_pbrahma@quicinc.com>, Will Deacon
+ <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com>
+ <20250211-b4-branch-gfx-smmu-v5-2-ff0bcb6a3c51@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250211-b4-branch-gfx-smmu-v5-2-ff0bcb6a3c51@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_055559_773400_10DE6892 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250211_071523_633180_9EE3F1DD 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +125,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Quentin,
-
-On 2025-02-11 13:59, Quentin Schulz wrote:
-> On 2/10/25 7:29 PM, Dragan Simic wrote:
->> On 2025-02-10 18:57, Quentin Schulz wrote:
->>> On 2/10/25 3:11 PM, Jagan Teki wrote:
->>>> On Fri, 7 Feb 2025 at 20:50, Quentin Schulz <foss+kernel@0leil.net> 
->>>> wrote:
->>>>> 
->>>>> From: Quentin Schulz <quentin.schulz@cherry.de>
->>>>> 
->>>>> The Edgeble NCM6A can have WiFi modules connected and this is 
->>>>> handled
->>>>> via an overlay (commit 951d6aaa37fe ("arm64: dts: rockchip: Add 
->>>>> Edgeble
->>>>> NCM6A WiFi6 Overlay")).
->>>>> 
->>>>> In order to make sure the overlay is still valid in the future, 
->>>>> let's
->>>>> add a validation test by applying the overlay on top of the main 
->>>>> base
->>>>> at build time.
->>>>> 
->>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
->>>>> ---
->>>>>   arch/arm64/boot/dts/rockchip/Makefile | 4 ++++
->>>>>   1 file changed, 4 insertions(+)
->>>>> 
->>>>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/ 
->>>>> boot/dts/rockchip/Makefile
->>>>> index 
->>>>> 534e70a649eeada7f9b6f12596b83f5c47b184b4..02f98abe1df10f44f2ac27ea5f6c6e6c6334724e 
->>>>> 100644
->>>>> --- a/arch/arm64/boot/dts/rockchip/Makefile
->>>>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->>>>> @@ -192,3 +192,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568- 
->>>>> wolfvision-pf5-vz-2-uhd.dtb
->>>>>   rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb 
->>>>> \
->>>>>          rk3568-wolfvision-pf5-display-vz.dtbo \
->>>>>          rk3568-wolfvision-pf5-io-expander.dtbo
->>>>> +
->>>>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
->>>>> +rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
->>>>> +       rk3588-edgeble-neu6a-wifi.dtbo
->>>> 
->>>> Please add neu6b-io as well, wifi dtbo is similar for it as well.
->>> 
->>> Similar or identical :)?
->>> 
->>> Should the overlay be renamed if it applies to neu6b AND neu6a 
->>> instead
->>> of implying it's only for neu6a based on the name of the overlay?
->> 
->> I'm afraid it's a bit too late for renaming the .dtso file. :/
+On 11/02/2025 05:45, Pratyush Brahma wrote:
+> Add the device node for gfx smmu that is required for gpu
+> specific address translations.
 > 
-> How is it too late? Is there some rule somewhere about renaming I 
-> missed?
+> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
+> ---
+>  arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
 
-The way I see it, names of the .dts and .dtso files become part of
-the "extended ABI", so to speak, once they've been accepted upstream
-for a while, because renaming them may break boot configurations.
+As pointed out by Rob, this wasn't ever tested. One more example of work
+where you have the binding in the same patch but refuse to use it.
+
+NAK
+
+Best regards,
+Krzysztof
 
