@@ -4,144 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA3BC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633A8C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=; b=2ZViERMr6n3e8oEaBtatIrMgq/
-	Tsip+T5L4yhF9R59Hzs4qU+cSAaFtyH+uY3dcehuPZF7lg5dF5yTCCRAb/J0IlAT2/HzZ9UMY6jMb
-	iyGgAWf0VLpDHoA/4njeDz6i4YRzDaaeYJ1jSEcnMUpO4X1e+1+zPyefRi/c7+KQC9CBW+GQ6yr5y
-	phTU5z3UEc9k1lA7IXeM/DCv6z8SjLfwVgrM4VJYAJ3ePJqXIpqj1ZPrgjrMws3pk8bPFp6c/JnIM
-	osjCw2ajk6XrlfhoKQIUqKPOyTEqw1Ohcp5UkBSrlRY5CNvD137nxIZPflVqbX4U1exPdKqxXSpJP
-	V+kwNMAg==;
+	bh=EWdL8bxL4dwo4St94DUC8vS2v2Io1xOQVPeaWbL9hwg=; b=ToVZ+FFFv623NpUjGIbAOp7TN9
+	/phUl81ua10BQkdL7tbH1zMaPmcacNbxKSu0FKv40f0m2vW0k7MZaExNN8sMZyIYl/J8muygnc6Wc
+	vWf8dJ19p4AyD0O7XvvAHfmgAuoECa62UmmJBFrVGBalYL83PKgBT2aEQui9Xv6ND9ur9Iyb6Z8pZ
+	cp6eApT2yFRMsxSvydkudcSKll7VuKEpcKYDpv1zaf/MVaEAS0W4wM4UzrmBBabBlDII4geyZuN5S
+	SF1l5KBe3dxNlBxCDMwuru3EfpgGCPY0VwT5vuSeMlr+xUXIL9Lq4nHlzQc+oGTVz8NdGyr+boj6r
+	t+0wwX9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thva8-00000004x9n-00mO;
-	Tue, 11 Feb 2025 19:06:04 +0000
-Received: from mail-bn8nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:2418::60d] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvYh-00000004wvy-3ksg
+	id 1thvdp-00000004xSr-3XcS;
+	Tue, 11 Feb 2025 19:09:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1thvcQ-00000004xNU-1Qi6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:04:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S6lKTouvwdBaJIONValmTTxMxJaoDHjgBZnYmvrEHeHQp5IERKSFpQtYX+qeY/9gqBu3+n/t6EVAg/jjjtG8gAWMHP5X5nz62uLGMm9KpSifC4oF+grrS6T/J/mryMk82LzlBkbUnZFGW4HFViY8IO07lbS8+a9lI8UXuz2SD8jyC/GzFl4v1AA+Am998n6vZTLwwcadDuoERdyrAovKfHXff+sp9z0pJ0ch3colxe8P6BNC2hTECch8RjImmSPRf5mCOZyg2gEuMCK+4BU8obHb01RB0iG6innScEfr7NKjJpseyFlVTSBeLAPwiX8WAI38UqST7KNj8+bgaSjD6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=;
- b=BxAP1zWuIiETx1GeGcu/yr/1fv8pORTk8VYAggBtcF0U7bzAtj09mKk57AHIOlzmQjLyj8BZ3mJG3CQkrdL8r/bJ5ADLLDZZ76UeqGYDi1N1MTLCLF5+i4+h8yzOkJidmGnECauwHMzTh4u6aKEu+PQFY+V59r0tofGbSxT1jiP90sS8DUrFm1ZXfiNTC/sHqyh8ZVw3ubZQVXmsqDogINMfyZ/eGF7creh7Mogtl5dS+OXY9+81yLvh8x1+8qAmScYomeSD1NpwoHV4v4/hJH2cMyebhwXiu0kzGr0g4ganzoVSIdEBjPqJUTXhf3HQOY3C6FCkTpYOgKi3o2QVTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=;
- b=olxA8RkO5O7YQ6rYccD231lUUpx4SfBD4kDf33kQPkQe221ikzs7Cgoxa7wHDVnihZdYnFmKLoDfMrLMb6lYFydRAxqb0CovJwDh5Be0IffsFyxCGS6St4LHRPIxaf3DZ+brsu5YhH6CPiAHJGYbgS9mOR+Z5RFsyRC9AlmzMEkVUQEhzF4ZZappdDz7KAGYYwoHBVBBTEQaDfV61aexIut8avhHBr3UnlWT9uEYbrzwdc+oAywwZ7QOvDtevFejkZ/SCmcbSI50dIydBfTY8Z+nS56ozOJqgRQfBxzL2AthMjaAcvBvG5eQ7VgFsgDfEpzGQZwz/Ap5HEAySLD+QA==
-Received: from SJ0PR13CA0001.namprd13.prod.outlook.com (2603:10b6:a03:2c0::6)
- by LV3PR12MB9233.namprd12.prod.outlook.com (2603:10b6:408:194::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
- 2025 19:04:29 +0000
-Received: from SN1PEPF0002BA4E.namprd03.prod.outlook.com
- (2603:10b6:a03:2c0:cafe::78) by SJ0PR13CA0001.outlook.office365.com
- (2603:10b6:a03:2c0::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.12 via Frontend Transport; Tue,
- 11 Feb 2025 19:04:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF0002BA4E.mail.protection.outlook.com (10.167.242.71) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8445.10 via Frontend Transport; Tue, 11 Feb 2025 19:04:28 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 11 Feb
- 2025 11:04:03 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 11 Feb 2025 11:04:03 -0800
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 11 Feb 2025 11:04:02 -0800
-Date: Tue, 11 Feb 2025 11:04:01 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
-	<joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
-	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 06/13] iommufd: Implement sw_msi support natively
-Message-ID: <Z6ufIbqkMqyMZFwY@Asurada-Nvidia>
-References: <cover.1739005085.git.nicolinc@nvidia.com>
- <98233d5817e66bb7363090526b53422436894051.1739005085.git.nicolinc@nvidia.com>
- <20250211181620.GK3754072@nvidia.com>
+	Tue, 11 Feb 2025 19:08:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 149FE13D5;
+	Tue, 11 Feb 2025 11:08:47 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE6023F58B;
+	Tue, 11 Feb 2025 11:08:23 -0800 (PST)
+Date: Tue, 11 Feb 2025 19:08:15 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
+	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
+	tabba@google.com, wilco.dijkstra@arm.com
+Subject: Re: [PATCH v2 2/8] KVM: arm64: Remove host FPSIMD saving for
+ non-protected KVM
+Message-ID: <Z6ugHxri_XlOMKWD@J2N7QTR9R3>
+References: <20250206141102.954688-1-mark.rutland@arm.com>
+ <20250206141102.954688-3-mark.rutland@arm.com>
+ <20250210161242.GC7568@willie-the-truck>
+ <Z6owjEPNaJ55e9LM@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250211181620.GK3754072@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4E:EE_|LV3PR12MB9233:EE_
-X-MS-Office365-Filtering-Correlation-Id: d8bd8faa-91f9-4ca9-e3c9-08dd4acee8ce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3d4hlQtKWLYq1TN4WfEFhDbm12HPXzdD6yebTQ3W84BV5rm5EBppdgDd3uR2?=
- =?us-ascii?Q?lcjlXGc204qO8NVTcGm2RdqY3FaB6Px0uJ7xAkgr21pl1so09VYK58RixrTw?=
- =?us-ascii?Q?OKm+GAGnT5Zs5yVLBSwKSAnJPe6mTjJDJ1WVeAXPPn9pSR1r9HsBzo6Oat/c?=
- =?us-ascii?Q?KwmFf7BAl8I0dYeM5VKs6ABvncfuCWYLVUVoGaaOTIGreTcY3E2oYYxiCirG?=
- =?us-ascii?Q?8XlILSXhrkSjKggxBSruJJwA8zdv9qrd9omUb66JqCX2wy7eEuxWD3LCFRHF?=
- =?us-ascii?Q?fs4qhZoeR3RQzHohQRotXrl/ygViCy0+TYF7zffynLFL3grY0jnmtXmlcXYD?=
- =?us-ascii?Q?O/PNy0+5OvvgN7H4XJ0HFp4IsrCeewgCh6uX5QRIs5Lwux+QwoEk47bEnjw2?=
- =?us-ascii?Q?5sZAdqa7T7Krpzr/4lPo0ZftfaACAxZUNhrx70VHf31EmjBDmzQ0FoJH7dtv?=
- =?us-ascii?Q?rvI58lWTfYEH9EvrFM842K5f5RJYVPlvMOBCpVGK3yXeNCyipngYTOTc9Wlj?=
- =?us-ascii?Q?d33wdNynRBCAGhVcUdnyuZO+O7uE5QslUyGzuaMt+EK+44YBnmS+s2cm96lP?=
- =?us-ascii?Q?F7d80RZmqnsvjc47o5RfSy+vjOUlSSrCusSgpX1CISXncRwtGQcJsJRJV9nG?=
- =?us-ascii?Q?FwyymXJH0Xx7v5Mk3wekks0lx7wqEn8/+o4zM1lxUQRmswlN666JbIrZt70j?=
- =?us-ascii?Q?2HBx4hufEBsniPRH5WxDwgkXvj+tWYEH8FCIXMOVqhPnLBgqHxbBCsbZAmil?=
- =?us-ascii?Q?lDU/ySPhYD0nUkk6TiwHoHl5vmbOj0JNpBSYvgujcVW7WCum6CrR4Ylz0nVv?=
- =?us-ascii?Q?nca707VncJy04GJOWImAyjJxJGO1NRW2uxfWm67PCuzxva2L/Pr86/k3bZYA?=
- =?us-ascii?Q?15Y7/z+DIJV8b7J98UuVLz1dGzHzzyrHhpPEsLS3Htn5rDdMn6Cr3xPYaiZy?=
- =?us-ascii?Q?vU41IPvQyc93Bek4wsXrG03B7tYnhssKcayGBr7ieBjy0QJhrsSCqMWOnkg+?=
- =?us-ascii?Q?x4MVZrPeBNQK8JcyRoDipnJz+vY//LBQByhRbycOkor/vAxENdqk28z9QDPq?=
- =?us-ascii?Q?Lf07c2mEthkI0spUhMlFU9WYE+eGMilbtugHchdVip0fwP/25rPk83lydAoa?=
- =?us-ascii?Q?P7jqhtBtlq0EdyW10q/T91NY9WNJR8Qc8v6/r77Ed2KfG42xnZJ1PXBamXJU?=
- =?us-ascii?Q?XsmyjAzTQjt41jwwZjgT86mrUhI+E/hpQGH2F4BBgxbvyhcJqpPq0HNZzaam?=
- =?us-ascii?Q?Mcmo1W7n4RGTnugP1g2VGTx/lBOdkmRmBe8xybphaULiJRLHbstvbY/t9T19?=
- =?us-ascii?Q?qDXJwQNp+mj8Xqg0Mm3mRYW4hbn4Rh9Cc5HmNEuj6zVK0Ehn1LaAwdzIG01D?=
- =?us-ascii?Q?uFyBD7Q+0SMfSs7EZ/kj09yT/uhL3ASnIqMKKz879OqLJVVGQ2QLhz9IbYqI?=
- =?us-ascii?Q?dJgnuDLbEErgIgVQG/NsnpnKzKEaECOJifOvR+IzMDL9DS/qREpTI4tZi1vy?=
- =?us-ascii?Q?FlVfF1pUYfXSEs4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 19:04:28.5132
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8bd8faa-91f9-4ca9-e3c9-08dd4acee8ce
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4E.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9233
+In-Reply-To: <Z6owjEPNaJ55e9LM@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_110435_933205_31B9E637 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20250211_110826_472575_56FCE343 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,61 +69,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 02:16:20PM -0400, Jason Gunthorpe wrote:
-> On Sat, Feb 08, 2025 at 01:02:39AM -0800, Nicolin Chen wrote:
+On Mon, Feb 10, 2025 at 05:00:04PM +0000, Mark Rutland wrote:
+> | static inline bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
+> | {
+> | 	...
+> | 
+> | 	/* Valid trap */
+> | 
+> | 	/*
+> | 	 * Enable everything EL2 might need to save/restore state.
+> | 	 * Maybe each of the bits should depend on system_has_xxx()
+> | 	 */
+> | 	cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN | CPACR_EL1_SMEN */
+> | 	isb();
+> | 
+> | 	...
+> | 
+> | 	/* Write out the host state if it's in the registers */
+> | 	if (is_protected_kvm_enabled() && host_owns_fp_regs())
+> | 		kvm_hyp_save_fpsimd_host(vcpu);
+> | 	
+> | 	/* Restore guest state */
+> | 
+> | 	...
+> | 
+> | 	/*
+> | 	 * Enable traps for the VCPU. The ERET will cause the traps to
+> | 	 * take effect in the guest, so no ISB is necessary.
+> | 	 */
+> | 	cpacr_guest = CPACR_EL1_FPEN;
+> | 	if (vcpu_has_sve(vcpu))
+> | 		cpacr_guest |= CPACR_EL1_ZEN;
+> | 	if (vcpu_has_sme(vcpu))			// whenever we add this
+> | 		cpacr_guest |= CPACR_EL1_SMEN;
+> | 	cpacr_clear_set(CPACR_EL1_FPEN | CPACR_EL1_ZEN | CPACR_EL1_SMEN,
+> | 			cpacr_guest);
+> | 
+> | 	return true;
+> | }
 > 
-> > +static struct iommufd_attach_handle *
-> > +iommu_group_get_iommufd_handle(struct iommu_group *group)
-> > +{
-> > +	struct iommu_attach_handle *handle;
-> > +
-> > +	handle = iommu_attach_handle_get(group, IOMMU_NO_PASID, 0);
-> > +	if (IS_ERR(handle))
-> > +		return NULL;
-> > +	return to_iommufd_handle(handle);
-> > +}
-> > +
-> > +/*
-> > + * Called by the irq code if the platform translates the MSI address through the
-> > + * IOMMU. msi_addr is the physical address of the MSI page. iommufd will
-> > + * allocate a fd global iova for the physical page that is the same on all
-> > + * domains and devices.
-> > + */
-> > +#ifdef CONFIG_IRQ_MSI_IOMMU
-> > +int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
-> > +		   phys_addr_t msi_addr)
-> > +{
-> > +	struct device *dev = msi_desc_to_dev(desc);
-> > +	struct iommufd_hwpt_paging *hwpt_paging;
-> > +	struct iommufd_attach_handle *handle;
-> > +	struct iommufd_sw_msi_map *msi_map;
-> > +	struct iommufd_ctx *ictx;
-> > +	unsigned long iova;
-> > +	int rc;
-> > +
-> > +	handle = iommu_group_get_iommufd_handle(dev->iommu_group);
-> > +	if (!handle)
-> > +		return 0;
-> 
-> I think you should open code this and leave the other function
-> alone. The locking rules are different here.
-> 
-> iommufd_device_get_attach_handle() should be locked under the
-> igroup->lock
-> 
-> While in this context we are locked under the iommu core group mutex.
-> 
-> A comment will help
-> 
-> /*
->  * It is safe to call iommu_attach_handle_get() here because the iommu
->  * core code invokes this under the group mutex which also prevents any
->  * change of the attach handle for the duration of this function.
->  */
->  iommu_group_mutex_assert(dev);
+> ... where we'd still have the CPACR write to re-enable traps, but it'd
+> be unconditional, and wouldn't need an extra ISB.
 
-Ack. I reverted that part and added this piece.
+I had a quick go at this, and there are a few things that I spotted that
+got in the way, so I'm not going to spin that immediately, but I'd be
+happy to in a short while. Notes below:
 
-Thanks
-Nicolin
+(1) I looked at using __activate_cptr_traps() and
+    __deactivate_cptr_traps() rather than poking CPACR/CPTR directly,
+    to ensure that this is kept in-sync with the regular guest<->host
+    transitions, but that requires a bit of refactoring (e.g. moving
+    those *back* into the common header), and potentially requires doing
+    a bit of redundant work here, so I'm not sure whether that's
+    actually preferable or not.
+
+    If you have a strong preference either way as to doing that or
+    poking CPACR/CPTR directly, knowing that would be helfpul.
+
+(2) The cpacr_clear_set() function doesn't behave the same as
+    sysreg_clear_set(), and doesn't handle the case where a field is in
+    both the 'clr' and 'set' masks as is the case above. For example, if
+    one writes the following to clear THEN set the FPEN field, disabling
+    traps:
+
+    | cpacr_clear_set(CPACR_EL1_FPEN, CPACR_EL1_FPEN);
+
+    ... the VHE code looks good:
+
+    | mrs     x0, cpacr_el1
+    | orr     x1, x0, #0x300000		// set both FPEN bits
+    | cmp     x0, x1
+    | b.eq    <<skip_write>>
+    | msr     cpacr_el1, x1
+
+    ... but the nVHE code does the opposite:
+
+    | mrs     x0, cptr_el2
+    | orr     x1, x0, #0x400		// set TFP
+    | tbnz    w0, #10, <<skip_write>>
+    | msr     cptr_el2, x1
+
+    Luckily this does the right thing for all existing users, but that'd
+    need to be cleaned up.
+
+(3) We should be able to get rid of the ISB when writing to FPEXC32_EL2.
+    That register has no effect while in AArch64 state, and the ERET
+    will synchronize it before AArch32 guest code can be executed.
+
+    That should probably be factored out into save/restore functions
+    that are used consistently.
+
+Mark.
 
