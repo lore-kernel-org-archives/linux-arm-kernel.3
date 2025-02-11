@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5E2C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72E6C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 13:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAvjdSvXA4nQGDvB1wQA7K1O0Rt2MZsbOsi/M4ix9QA=; b=WHCxSR/cvZvNLfmmZc9bWF0vDV
-	K8vEjQ5hn6QMufnVw2b3I4OYvuZ4wAEVo28AVjJyAJ8sa9kU5bZs5h1tqtjbuTV8+XM5gi42uGNPf
-	JKnRcL0ojBZlnl5ZQx6ON7xnSNEuIxwOTXEhUCKZUdxbbd7/3yTvj7mQW5HVw2BNtVla6XZuR8ttU
-	uNzQMP1JmNmPvCSsiQv3Np1TmLh17+kLU9SY6QCZPJwADzunu4O5g57cMmtRsZp2mIB7q2zkncA2e
-	oqyCEYPCYmek8wf6ne763IlYZjCaFCuWil/QZn2ZPN8J0OZ1BQih5Y3M9VK+ppEIPSaN8Vm9v4FyM
-	qCOxTJIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JuP9fP2XRb1+24yn1EHAvc/TxpCcCG+SZZn6hhkVLEg=; b=u4JmbsIqxskwL965miplj0dTZz
+	jfQqZozDFxD9k1Lo/dFoV72lb09evXU3CQdlGUqnkwlYztr0gYyr6dlJyhxqvmtD2IH/M2RiEOxiK
+	9ICM/BU/75GKxsjc/m2M9WZNHAEc4WD1RlA41ZDQzgnRe+slRKIuEtnFmYcYVs0Wxv1mEtYk8mMY6
+	w8OPpnDw4dDESvF73Cj5p25gX2/13WU1h1tUy67UIvh1nnwyW7OGMnz5K3e04FVB8AFMmOATDkDQf
+	DZiAtnfCwr+1IAf85Tm+soVEvk3PP+j3BzDN8o5shVSSD2AqhRN//Iw1QJtqDTl3yqnxU7bDpcNvx
+	3NUY8NLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqVv-00000003zOH-3uKJ;
-	Tue, 11 Feb 2025 13:41:23 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1thqXK-00000003zhN-3K94;
+	Tue, 11 Feb 2025 13:42:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqN6-00000003xdM-1u3A
+	id 1thqQg-00000003ycO-2NZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 13:32:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 41D31440EE;
-	Tue, 11 Feb 2025 13:32:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739280732;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AAvjdSvXA4nQGDvB1wQA7K1O0Rt2MZsbOsi/M4ix9QA=;
-	b=JeCc7Nq7QuZVANkyQtlKreTbbPTgWPvh3d2L7WcR3zrTNO8AFNoaw8YTSkIvHtfle0JW3s
-	AfmIQ0YizrhVqkDC+DIFvzKGxvfVPItYcmNtMEgTQgeZE0tUNf02nZ3DE8BLD7ewzh2wnK
-	DuY4HokoyCWirbuc7CNi1tK8m8OB4yrwoJgGTO+hz+3W8IRBPLPwgSLiuBd8HRQ4j0erbt
-	4n+482ULdQ09OUx6V7OTPvU/x6sSN+8OJ2fAwoArgVf/JJamnZMd5mffkN+v7kFUowk0fH
-	TWDjxARD8fqceclDh5MQFpXd8zV8tC+rjRyel8DdOjZmwhyRl4G0k0Vsn89eqQ==
-Date: Tue, 11 Feb 2025 14:32:09 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next 03/13] net: phy: Introduce PHY ports
- representation
-Message-ID: <20250211143209.74f84a10@kmaincent-XPS-13-7390>
-In-Reply-To: <20250207223634.600218-4-maxime.chevallier@bootlin.com>
-References: <20250207223634.600218-1-maxime.chevallier@bootlin.com>
- <20250207223634.600218-4-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeguddufecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgv
- ghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
+	Tue, 11 Feb 2025 13:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7CCEB5C196E;
+	Tue, 11 Feb 2025 13:35:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C345BC4CEDD;
+	Tue, 11 Feb 2025 13:35:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739280957;
+	bh=SOkeI7e4t7VteXwUDNB3ih1umv3f81KKWpOhokFRJ4o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UFGXf+UU8Go34ieuiGYzF9Ku/oztMGyBSVkItjb/LtuyTozGAxUocGlhexvkZyqjS
+	 dwu6XgWWVpvAZ7QXbqSUwClg6RSg6jX86OQG8+VbcRYAodA5aZDvXcvxjRP5nVSZyD
+	 C1jPs/96kOQGDdDCYnJ0pB86m9yE6jR9jR9CkFWh0ULdQ4JnCuj/zlSOK/hYGHl5yw
+	 Mj+SgseSvMRxOcCnjzYUxMv9RSLxl9TUzztA/b/0a4tjsT9o1bWy+C8Xtdy2wdFSr3
+	 lD7867EcBXHbXuh76BcUVH9dFB+n9WfeiFDk1WBmcn1bcB9NitUQ2qnX6MSzptcZvC
+	 nR3GT/USbVgIA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1thqQd-002zeP-9F;
+	Tue, 11 Feb 2025 13:35:55 +0000
+Date: Tue, 11 Feb 2025 13:35:54 +0000
+Message-ID: <861pw4txhh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 06/18] KVM: arm64: Plug FEAT_GCS handling
+In-Reply-To: <Z6tEUzwcHVHALIdu@J2N7QTR9R3>
+References: <20250210184150.2145093-1-maz@kernel.org>
+	<20250210184150.2145093-7-maz@kernel.org>
+	<Z6tEUzwcHVHALIdu@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_053216_951206_5EC0449B 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20250211_053558_693602_04B021A6 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  7 Feb 2025 23:36:22 +0100
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+On Tue, 11 Feb 2025 12:36:35 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Mon, Feb 10, 2025 at 06:41:37PM +0000, Marc Zyngier wrote:
+> > We don't seem to be handling the GCS-specific exception class.
+> > Handle it by delivering an UNDEF to the guest, and populate the
+> > relevant trap bits.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/handle_exit.c | 11 +++++++++++
+> >  arch/arm64/kvm/sys_regs.c    |  8 ++++++++
+> >  2 files changed, 19 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> > index 4f8354bf7dc5f..624a78a99e38a 100644
+> > --- a/arch/arm64/kvm/handle_exit.c
+> > +++ b/arch/arm64/kvm/handle_exit.c
+> > @@ -294,6 +294,16 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+> >  	return 1;
+> >  }
+> >  
+> > +static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
+> > +{
+> > +	/* We don't expect GCS, so treat it with contempt */
+> > +	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> > +		WARN_ON_ONCE(1);
+> 
+> Just to check / better my understanging, do we enforce that this can't
+> be exposed to the guest somewhere?
+> 
+> I see __kvm_read_sanitised_id_reg() masks it out, and the sys_reg_descs
+> table has it filtered, but I'm not immediately sure whether that
+> prevents host userspace maliciously setting this?
 
-> Ethernet provides a wide variety of layer 1 protocols and standards for
-> data transmission. The front-facing ports of an interface have their own
-> complexity and configurability.
->=20
-> Introduce a representation of these front-facing ports. The current code
-> is minimalistic and only support ports controlled by PHY devices, but
-> the plan is to extend that to SFP as well as raw Ethernet MACs that
-> don't use PHY devices.
->=20
-> This minimal port representation allows describing the media and number
-> of lanes of a port. From that information, we can derive the linkmodes
-> usable on the port, which can be used to limit the capabilities of an
-> interface.
->=20
-> For now, the port lanes and medium is derived from devicetree, defined
-> by the PHY driver, or populated with default values (as we assume that
-> all PHYs expose at least one port).
->=20
-> The typical example is 100M ethernet. 100BaseT can work using only 2
-> lanes on a Cat 5 cables. However, in the situation where a 10/100/1000
-> capable PHY is wired to its RJ45 port through 2 lanes only, we have no
-> way of detecting that. The "max-speed" DT property can be used, but a
-> more accurate representation can be used :
->=20
-> mdi {
-> 	port@0 {
-> 		media =3D "BaseT";
-> 		lanes =3D <2>;
-> 	};
-> };
->=20
-> From that information, we can derive the max speed reachable on the
-> port.
->=20
-> Another benefit of having that is to avoid vendor-specific DT properties
-> (micrel,fiber-mode or ti,fiber-mode).
->=20
-> This basic representation is meant to be expanded, by the introduction
-> of port ops, userspace listing of ports, and support for multi-port
-> devices.
+On writing to the idreg, you end-up in set_id_aa64pfr1_el1(), which
+calls into set_id_reg(). There, arm64_check_features() compares each
+and every feature in that register with the mask and limits that have
+been established.
 
-This patch is tackling the support of ports only for the PHY API. Keeping in
-mind that this port abstraction support will also be of interest to the NIC=
-s.
-Isn't it preferable to handle port in a standalone API?
+Since GCS is not part of the writable mask, and that it has been
+disabled, the only valid value for ID_AA64PFR1_EL1.GCS is 0. A
+non-zero value provided by userspace will be caught by the last check
+in arm64_check_features(), and an error be returned.
 
-With net drivers having PHY managed by the firmware or DSA, there is no lin=
-ux
-description of their PHYs. On that case, if we want to use port abstraction,
-what is the best? Register a virtual phy_device to use the abstraction port=
- or
-use the port abstraction API directly which meant that it is not related to=
- any
-PHY?
+HTH,
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
