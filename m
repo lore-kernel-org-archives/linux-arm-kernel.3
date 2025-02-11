@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A92F8C021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE344C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0gUrFkOMyKNFnFh3bFOpTeSy2QBMxAkVbnFWdeqIiU=; b=lqjpuODHYWXa1eyaTFgjfTUk5p
-	/7Ewl/W9/gkKfRaCw/QYl9N4EuTtpuMdlJmwHmqoWpwHBsRDzWjaf2r0WsgK2Ka6BlBFr0MroMFlk
-	MXdnp8rqQlMbBb2aq0ho0Lc3VxqoM6O4Dn1bhkqoWmFJPMt24c57fH3myk6KMWbDm3tsGbIP5IMIz
-	2bqSppYkOOAUEhrehnT5UeLzGiaP74UtQtAWMLlFNH6RERM1Vd7WB2lriHk4xtZZ4xCNyKA1UTPZs
-	ac4dGl0l/qv7+BLi93JACKy/h9BQmUkeO9eNrfkxOKJFRq1uShJ4NXjlLxen+U2deb+/sJ29VXFW7
-	xnBzvaZw==;
+	bh=/HrP1QASq5Fp3V5sUafLqNhIjAKgQypcRjFNxI3MNFc=; b=jF9SOtxe25JakY5Srkv0E9JUBB
+	OG0rX1bE/1MlNkDoxX/ZxP/Nsv1tf6H1wecYWRCt7RTDVuuZGDtHwun5q/DAt2sM/5dxNTUZbyhRP
+	DyLLb3mh0NiB+N3yvPmFsNcFYSRSXBz1SW8tnJPl9gr1DnAvAkwOTsyJK9h7Aoe3WHNFDFxAkT+kD
+	XTcJVXBaC1it0WpMf15BDB7Totoci1K3z9EVLQgE0DVbx+gs+dH5WnfS2tkqxg8YlikiUbkWrZr4P
+	Lzm3PsRodWb84SvJUIlP4f/58UwWhJBYOp8/h7HFWH3zGqa5nlZCnFU3ZBjKNBp4LPxe4sU2NRPtu
+	FZxN6L8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnSm-00000003LVI-15Vg;
-	Tue, 11 Feb 2025 10:25:56 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1thnXb-00000003M97-2YGc;
+	Tue, 11 Feb 2025 10:30:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmLR-000000038Ec-2isg;
-	Tue, 11 Feb 2025 09:14:19 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-388cae9eb9fso2732313f8f.3;
-        Tue, 11 Feb 2025 01:14:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739265256; x=1739870056; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=e0gUrFkOMyKNFnFh3bFOpTeSy2QBMxAkVbnFWdeqIiU=;
-        b=BO3xvbljcmVws9a5PGgVKmKsgeyfunvutKM/hg9pJ9UYNlPzYqP6Z/8qmmhRWS3Unf
-         +HEvW9H6nFjibi+YhVTErqvn2jMsd89WmLSgeX/2TcwQLVQt0jxS/2kZvhu/wlVmiwcp
-         Rwy1ltYzGta5iWYT/XjjGhhEIMSbaYYGrQntX5o0eF5sJGeDC5M4Jx+W61ZsJybaNUR8
-         8ID2FzTY2J3S48FJllo0SyvBEK6Y3OyLoEvzje6tHYIdAu5FXoC2dAUlFnxOP0eMTAsZ
-         87ArmYhcAhbLKBp9fmLJraxtVyzt8qDSKtpgWuTYeMCu3y/h1YsklhTjZgwSCF/U3A/q
-         E14Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739265256; x=1739870056;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=e0gUrFkOMyKNFnFh3bFOpTeSy2QBMxAkVbnFWdeqIiU=;
-        b=gABgo6pW6DuwyFHPPd33D6KDDoY8nuC8Szoj6sLecSJCkcdmB9RVadRoLMnyomK5Pu
-         Pw2Buge2JwiVubP4auF/Xc+FiJ6XFZLfQ7y0wsJ09X/+t4GEvOeIjEk3WJmwbhcpsCci
-         zMzxKBmJ+PEYsk2YEHCt/fFu6CnB6Zr9bjvi+KZRSoCUcPrMiHUSsdK3TJtfnpM7ah/6
-         lShqQdpekka3ECDhy2XyZ4VqI6ErtgTJLXhJn6UBQH68LtpHIILMewlX41s46EPXhGu/
-         jG+0xTQuZNz97mGIrO22hnuQIUvHVVtj6tr1m7f4opM4f0zxnUOkWIJkWkrZUmnxeu9T
-         6DQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqM7RWalURlCg/navqoaWZCFewS3QND4XbNl/AiG+sMdy3Mee7r+RfXqVJ9DOQNpGBLiG6DfW3L7RWvlY=@lists.infradead.org, AJvYcCWK09a9XL7BL4FttCLwCYqGKAkYxtsqmhyjT/FKQDc9m+aRfb//cReFajy97lnr0GS/iqEeCoD/7Z2IqrjPi0Zd@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywmi9JqDnh529RCdOBHVctPY1TfoA6ROoPW7jUeAu3ci+6jbMaS
-	zw/1dbqO28VqJ92ihKs7hb/XHvbUMefvoYIxvHGXnIkn4nd/67QF
-X-Gm-Gg: ASbGnctj36hpNdNY8YJLZnIXCybsw3Otrg6ARnTcJumXjstY0ElM65i5n7qxtjAP+TL
-	gmQaDl/kvi1rw9GnnPde0kg/4JW0GWe9lLcyICA5J6E7HwnfLECrBrZOOdOAFAOubUBF7nMF8am
-	V94H1i/jJi5FzPv5lqlFEVKzVfnUCpf/7GB9yp09VjmAxSoXdh22kUnSjdMxeg8rztFk/G7Hi0U
-	Xy858SLSf8L1SmN6Iw+JqYN1X0I/v3FC9YYLxuto9e7BAfN1EnCkQnIrddCCAT051vbGksj/k90
-	ex/LJ/V462cj6n7mnJoUxe9bxwSntxQU
-X-Google-Smtp-Source: AGHT+IGkTdyt5H6COEXxIblCp8Mkz8zw3aq7BTC3oTMMt/aizs2mFlO0xMqbkPV5ncYfNxXdId9zEA==
-X-Received: by 2002:a05:6000:1ac9:b0:38d:da79:c27 with SMTP id ffacd0b85a97d-38dda790d9fmr7107010f8f.2.1739265255326;
-        Tue, 11 Feb 2025 01:14:15 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd1af07sm14477397f8f.15.2025.02.11.01.14.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 01:14:14 -0800 (PST)
-Message-ID: <bfe6a1cecdbeb6606cc69e851135033fb42ddd8d.camel@gmail.com>
-Subject: Re: [PATCH 02/10] riscv: dts: sophgo: cv18xx: Split into CPU core
- and peripheral parts
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, 	linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Haylen Chu	 <heylenay@outlook.com>,
- linux-arm-kernel@lists.infradead.org, Paul Walmsley	
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
- <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>
-Date: Tue, 11 Feb 2025 10:14:11 +0100
-In-Reply-To: <3f548621-6f66-41ee-a23f-ae4a8345061a@kernel.org>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-	 <20250209220646.1090868-3-alexander.sverdlin@gmail.com>
-	 <dda5297c-fdf3-494f-854f-71a5000729e5@kernel.org>
-	 <7fa3501bd59697e65ab1387e25cb815180c3378c.camel@gmail.com>
-	 <3f548621-6f66-41ee-a23f-ae4a8345061a@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 
+	id 1thnWB-00000003Ly8-1dvJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 10:29:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 01885A40224;
+	Tue, 11 Feb 2025 10:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17ECC4CEDD;
+	Tue, 11 Feb 2025 10:29:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739269766;
+	bh=HaHabSl+wxC8yeelHmSr2+qIEdKDU6K4yefBEnZQXy8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HT7wZxHrLIu2yMUWmOIWFnrP7uTpA6e1zrfjmnBecJYeZzPHp4RnYchuY8B9yLQV3
+	 rGR3bQZPj4Ik5esTM/eyWiJlLvf8SGl4bDmT+pJ7cXrSWbXEPeJSiTprCzigx6Z/7c
+	 UpZ74U6s6A3iK+l8+3nLoG5thLel7eiamb4mdJXvfKcThJ1U+0kv1P0ARw2m9zqreS
+	 0eTHJkiiJXc0Q2SKFVfrQgAlrm12f5kCkBPu4zQVANIrrrMxxihp5ytLVAquFObbxK
+	 TAr9UUjHMjOfLuXfBbaw/K3X839Dfq67ToIN6UNCk9yC1qE6v4a3E4/uhZOvOgZpCk
+	 q0s4nehs9XTgA==
+Date: Tue, 11 Feb 2025 10:29:19 +0000
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, eauger@redhat.com, eric.auger@redhat.com,
+	fweimer@redhat.com, jeremy.linton@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, pbonzini@redhat.com, stable@vger.kernel.org,
+	tabba@google.com, wilco.dijkstra@arm.com
+Subject: Re: [PATCH v2 8/8] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+Message-ID: <20250211102918.GA8653@willie-the-truck>
+References: <20250206141102.954688-1-mark.rutland@arm.com>
+ <20250206141102.954688-9-mark.rutland@arm.com>
+ <20250210165325.GI7568@willie-the-truck>
+ <Z6o1t7ys2qVaZ-7n@J2N7QTR9R3>
+ <20250210182009.GB7926@willie-the-truck>
+ <Z6pL81_yi98o2vtS@J2N7QTR9R3>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6pL81_yi98o2vtS@J2N7QTR9R3>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_011417_716763_0B1FA0E9 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250211_022927_557643_5674CB80 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof!
+On Mon, Feb 10, 2025 at 06:56:51PM +0000, Mark Rutland wrote:
+> On Mon, Feb 10, 2025 at 06:20:09PM +0000, Will Deacon wrote:
+> > On Mon, Feb 10, 2025 at 05:21:59PM +0000, Mark Rutland wrote:
+> > > On Mon, Feb 10, 2025 at 04:53:27PM +0000, Will Deacon wrote:
+> > > > On Thu, Feb 06, 2025 at 02:11:02PM +0000, Mark Rutland wrote:
+> > > Sorry, I had meant to add a comment here that this relies upon a
+> > > subtlety that avoids the need for the ISB.
+> > 
+> > Ah yes, it really all hinges on guest_owns_fp_regs() and so I think a
+> > comment would be helpful, thanks.
+> > 
+> > Just on this, though:
+> > 
+> > > When the guest owns the FP regs here, we know:
+> > > 
+> > > * If the guest doesn't have SVE, then we're not poking anything, and so
+> > >   no ISB is necessary.
+> > > 
+> > > * If the guest has SVE, then either:
+> > > 
+> > >   - The guest owned the FP regs when it was entered.
+> > > 
+> > >   - The guest *didn't* own the FP regs when it was entered, but acquired
+> > >     ownership via a trap which executed kvm_hyp_handle_fpsimd().
+> > > 
+> > >   ... and in either case, *after* disabling the traps there's been an
+> > >   ERET to the guest and an exception back to hyp, either of which
+> > >   provides the necessary context synchronization such that the traps are
+> > >   disabled here.
+> > 
+> > What about the case where we find that there's an interrupt pending on
+> > return to the guest? In that case, I think we elide the ERET and go back
+> > to the host (see the check of isr_el1 in hyp/entry.S).
+> 
+> Ah; I had missed that, and evidently I had not looked at the entry code.
+> 
+> Given that, I think the options are:
+> 
+> (a) Add an ISB after disabling the traps, before returning to the guest.
+> 
+> (b) Add an ISB in fpsimd_lazy_switch_to_host() above.
+> 
+> (c) Add an ISB in that sequence in hyp/entry.S, just before the ret, to
+>     ensure that __guest_enter() always provides a context
+>     synchronization event even when it doesn't enter the guest,
+>     regardless of ARM64_HAS_RAS_EXTN.
+> 
+> I think (c) is probably the nicest, since that avoids the need for
+> redundant barriers in the common case, and those short-circuited exits
+> are hopefully rare.
 
-On Tue, 2025-02-11 at 09:08 +0100, Krzysztof Kozlowski wrote:
-> > > > +/ {
-> > > > +	osc: oscillator {
-> > > > +		compatible =3D "fixed-clock";
-> > >=20
-> > > I really doubt that external oscillator is a peripheral. This is eith=
-er
-> > > part of board or the SoC.
-> >=20
-> > This is actually a problem of the original cv18xx.dtsi [1]. Do you thin=
-k
-> > I need to fix it as part of my series? This would touch all the pure
-> > RiscV boards (using CV18xx SoCs, not SG200x SoCs), which I could avoid
-> > otherwise.
->=20
-> You are moving the node out of cv18xx.dtsi, so you can move it to final
-> place for example. But I do not insist, because I also do not know the
-> final (truly correct) place - don't know the hardware here.
+(c) sounds like the most robust thing to do and, even though the ISB
+might be expensive, we're still avoiding an ERET+IRQ.
 
-Fortunately, problem disappeared by itself in v2 [1], now I don't touch it =
-any longer
-and only move CPU and int controller into corresponding SoCs, so the oscill=
-ator
-falls into "could be coded as a fixed-clock in the SoC DTSI" cathegory of t=
-he
-coding style.
+> Obviously that would mean adding comments in both __guest_enter() and
+> fpsimd_lazy_switch_to_host().
 
-Link: https://lore.kernel.org/soc/20250210220951.1248533-2-alexander.sverdl=
-in@gmail.com/
+Yup.
 
---=20
-Alexander Sverdlin.
+Cheers,
 
+Will
 
