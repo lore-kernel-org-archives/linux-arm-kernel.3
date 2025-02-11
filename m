@@ -4,113 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C73C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048A7C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4g74ry+FUjRPAmBCJ1J0LdTlD/KUJCTLe8TcekSbbUk=; b=ZESAaP88DqCNTCl5i5k4aVfN6u
-	ZIksJsVQxbzhVFLM5+ol723cecAQDc1w3M8yrk5kdyQgoiJQ4qH+NjaqL/lHfPACC4GQXM7GqUdRW
-	UGoTNc27guZyUSZ4bzqdQG/jyc54i3ZqvDUWSK3Bfc1ZBrrl50pkelNVcEibwTky7k8chj5szlZDW
-	zEO/+b/qmfvtjx8dImtWKucPQB7hTHkLTqwHbVn4O0sv/cwAYPg/tTkTNWWOsDa+Q80ljhH96r1o0
-	2yFGSqniHizRzEvA78ATP0meWXZjb8+TewWKLF2JXLe5uqdv494xpK88p0gmkFPdJWR3vhdOfqWrI
-	RoFWo/bw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8cDJ4lSmHlxSHHsrsR6Ku6y7KJbcpSf5mf6dGPdv9A=; b=jYogiFpsxt1qEP8Rra9JhV/WKR
+	CFy1gOt8MqR90k2m3SfPgLLq2lXN3VX6DpIt6mkF932c76BQ1KfeRXAAxVU5Y7QeQT82xkMItsqGV
+	M8HtWOFyJGfimpq1LmgCaPk9lKvDLKTC7n+Y6l0bSSGI7K1+ATF0HOmfD3Ygt2GnW0sgLPdHxRkKs
+	lToQzZNxk/fFIrmG9oYp7Aq5g5P0VDnHv44OnKm7U49nSSNi/eSr5glBmAMz1/GPNLnRBV+fzOp2e
+	ukydyRqBZj5ndMs8TVfIUWC1XHtO2S6xaAKvzyH4qCJlV78248JjOHpLxJAwQd8sREZIhXxlNIYnQ
+	avXfw9Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thl59-00000002tbv-1euO;
-	Tue, 11 Feb 2025 07:53:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thl9A-00000002uDN-3cjj;
+	Tue, 11 Feb 2025 07:57:32 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thl2G-00000002t3x-43X6
+	id 1thl7i-00000002tt5-078j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 07:50:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B58485C014A;
-	Tue, 11 Feb 2025 07:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F0CC4CEDD;
-	Tue, 11 Feb 2025 07:50:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739260224;
-	bh=EF1TKhjntnzy3W5RYekoNWTXsY1QRykYaRxSzp7OJ94=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=gB87xESBUQtg3OTfLiVUbAOJY3GWxWeQYzco4QfapW38Yq6WPIM9S+znxkRFd+pdp
-	 DXZ8C2ggw04AB16w8oJ9R1whXfgcd1/CY5yT/fbGKGJWu87iYjtOZ2DjJiQMIPq9yt
-	 ayVbtwHnvufaofEV31KO7t4JQ+FdxQgLVhZUdN5WVouDw4Ws3mkwx/uOqF5k11y0ZV
-	 QKkh56aG8mowoWklhYCLD41PdT9Qpbo4W7oNqbS/HByhmFpUXEYb48tdE+bBD4GOff
-	 eEgTVoc4L6HaRqeFJsl1lmTdHhNOmCDSgMFLBcDM8VsBaVKWiB0mn3/6U0VQ2fgMO4
-	 yonNaC5271QQg==
-Message-ID: <7fa40597-ebc8-495e-885f-ff2c6b80d5e7@kernel.org>
-Date: Tue, 11 Feb 2025 08:50:17 +0100
+	Tue, 11 Feb 2025 07:56:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1739260557; x=1739865357; i=markus.elfring@web.de;
+	bh=b8cDJ4lSmHlxSHHsrsR6Ku6y7KJbcpSf5mf6dGPdv9A=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=R2NSUzlOENGGd9tSVqZOlw+RF+S1ervuJIcdhRRkzK0Dd1dX9iIMYaeu6AzTtT2e
+	 NSQBJqdyukDNTUwO3xXLCCoDI6IeGRjQ4cFkQDKJSXcObw0MuGD9K4IZWCpFd5peh
+	 13Q8F1oBNRrfyQJE2O8wZRVmVXnOB6FtNK2RhJDK7Z3AC6HYKc1pgPO5Kt8bWNW/R
+	 rrEhF4NXWp0NPEqk0rHiXvYt9xfsMMpbYapvZ9wsMH/r17rs73Tg3AF9nEoBA/iPe
+	 xYcnAy+nmtG5Iuj3pDd2RJrB/lhBQ2p8Z96drI3F3YLZjOJLVfRuKGX3A5Eo4G5uJ
+	 JZDN5C62ZuoCmlmAaA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.9]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MFrxr-1tbUw639Xr-004dft; Tue, 11
+ Feb 2025 08:55:57 +0100
+Message-ID: <03681acf-9524-4fd1-b40d-a7cafe1c5572@web.de>
+Date: Tue, 11 Feb 2025 08:55:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/16] dt-bindings: nvmem: microchip-otpc: Add required
- clocks
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-References: <20250210164506.495747-1-ada@thorsis.com>
- <20250210164506.495747-9-ada@thorsis.com>
- <8e9562c8-5c01-4b5c-b2b0-4dad3d16e7a8@kernel.org>
- <20250211-primer-epic-d07bc3752569@thorsis.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250211-primer-epic-d07bc3752569@thorsis.com>
+Subject: Re: [v2] drm: xlnx: zynqmp_dpsub: Add NULL checks in
+ zynqmp_audio_init()
+To: Charles Han <hanchunchao@inspur.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, David Airlie <airlied@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Vishal Sagar <vishal.sagar@amd.com>
+References: <20250211032830.2400-1-hanchunchao@inspur.com>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250211032830.2400-1-hanchunchao@inspur.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:USnYnQXWxocGuM37zSToa8h9T0sJugExpCOPAS5wXImCLuqUR6f
+ kLJhstS1kXuTCHVqA3fJIsdplst6DMALOOKqjeFeId2Q7VTrWPzFqE++bKGc5BqxsbyXXIq
+ B1aXysi6VQyK5yFFob6D7zUp2GpHjotI5kYKrDsDYg8HHYcbhfk3KO31letLzoYY7gTVrQ5
+ cFeUQobbXq0eaMDYDXPig==
+UI-OutboundReport: notjunk:1;M01:P0:xKVS0rHKMsY=;RT9f9ib+CuKUU0bTTT0xk/moXNt
+ XuBhhKM25BotD4SkvCeaUmZHS5aCNq5p1PkdeiODx3Ivn4/5zxoWqlfIdG3sZy7B91X9u9uOe
+ Pj4hBfDuG0krWTSgrmkkJSo9faHdtSSSYWZRbTbnhz0QmXHty+Aa6uhR1Te1mFYhnA4hsYdyw
+ PHbkjIV5kUElluQjhwismap1f1XTNdx8CPMqLl+OGfjSD3GpeLQ+i1Sw3bfSK/F7qRcYS67ym
+ AnmPrHy+Z4F1I3jkpJrcW3lh2+wLzAO8qDm4Onx/3X0TyiGNB+oougeItKB9qEbh0R7yf/YD7
+ +PK5PjAHcvRsjtGEOAB355UnxxguF9sXY4WH8mF1Dt4qkLJ8I1UHWDlCXjAp0lmQQL4U+2h15
+ K2sPhCogeDxM66Dghq4Uyft8qES9SOdTVotzqdXAdsIf+yKg2U8PEiobSzlAEgJQt9L00giJC
+ s9UgJVO+VVrmioKbYMKlUMUwRGhrVuHlWlT5F/WUnSnqDVSemETdIuDI5Czo01CXEpVyzRUCy
+ DEMipsp1zpiextHARBaxkEGmtxgjB61+CEtA/GBGavFGvHmr5xetaU9mApP2TMBcLPSzIU+Zn
+ 1DyzGEzy5cyY4FPB3Q0q69PnFyGIbh1bD0kkc09cDec9pzijTBtMBNJFNxYxITRxei+l9DPKd
+ 3AWteFMwnUZk3kQwSTuKEFjiSH5iAxRGB3nQ0a41ZbVvnrWKF65lJ68IR5oS7npJp+SEsO5Zn
+ RKBXXexZqIlKnB1o7xAoJU0G/khcYwxSc3+7RBH/5mTkOrby1lf8AXuBUB1ho4xXMR/SrhLjb
+ 8sIS1mWxWvOp8TJ+vpUMJT9QoH9T7g+I23RVInMVJSUCICkYoK5i2yURnyCFg6HuVwqvhdLfv
+ si4bbTHj4UHRQDurNA8co72WIWy1CRVzUfuTuKwtdyMf68dHlxnfJDNP9PQO1L+fnM13wq14W
+ ovOAanmQZ9NsfezU9MQ6kbMkXiX6EgQa8PcBqTAg7TQJKJ4AUD3D4ueJHwSBgfzDpxVlpCwN1
+ NJNBi69Tt4PaHGfSS9GzmpGJ8HeNpJ9mr/TSlGsVxh6ZJlccHVzUu33bqIvrYN6kCbO297E9t
+ jnAXTUPXyPEYfxml2XcQd5Wow93ivStQaqlnTdN00mNh3kAVjcerOTSa1/n3+eXzfbIYaa/gl
+ SVSmfMWPZnzVgh2TEtiBFSLdfF150CiGIsD6U6pMK1+KysxHQ1Wo/b8Kmp9bvuZbN4AXQnHOl
+ jQAL/vFL1wjQTW4KFDlNnARwMGduVJZ51zFzCaWMr4FqatRs5ojVxDt3iN/HulA3MQJ8ARKAg
+ OMQWlPSRhuRAk888eCnIETknM/lbg7U62jgptRoYDicRd0ZmnWWDrZnhcILbk5FX+7xROyBf6
+ G7WdxvdCPpFD7bW9SjDIu0LNocvVxpPlqs084XR1cUcA0uqD1cAoI6FCP5BeftxbOvb6v8CJf
+ 2jn9rug==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_235025_093820_7DE7619B 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250210_235602_449083_F6600CB4 
+X-CRM114-Status: UNSURE (   5.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,127 +110,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 08:05, Alexander Dahl wrote:
-> Hello Krzysztof,
-> 
-> Am Mon, Feb 10, 2025 at 05:59:52PM +0100 schrieb Krzysztof Kozlowski:
->> On 10/02/2025 17:44, Alexander Dahl wrote:
->>> The OTPC requires both the peripheral clock through PMC and the main RC
->>> oscillator.  Seemed to work without explicitly enabling those clocks on
->>> sama7g5 before, but did not on sam9x60.
->>>
->>> Older datasheets were not clear and explicit about this, but recent are,
->>> e.g. SAMA7G5 series datasheet (DS60001765B),
->>> section 30.4.1 Power Management:
->>>
->>>> The OTPC is clocked through the Power Management Controller (PMC).
->>>> The user must power on the main RC oscillator and enable the
->>>> peripheral clock of the OTPC prior to reading or writing the OTP
->>>> memory.
->>>
->>> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
->>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
->>> ---
->>>
->>> Notes:
->>>     v2:
->>>     - new patch, not present in v1
->>>
->>>  .../nvmem/microchip,sama7g5-otpc.yaml         | 28 +++++++++++++++++++
->>>  1 file changed, 28 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
->>> index 9a7aaf64eef32..1fa40610888f3 100644
->>> --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
->>> +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
->>> @@ -29,6 +29,16 @@ properties:
->>>    reg:
->>>      maxItems: 1
->>>  
->>> +  clocks:
->>> +    items:
->>> +      - description: main rc oscillator
->>> +      - description: otpc peripheral clock
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: main_rc_osc
->>
->> osc
-> 
-> On at91 SoCs main oscillator and main RC oscillator are two different
-> things, and those are different clocks in Linux as well.  This clock
-> is named "main_rc_osc" in the clock driver.  In
+=E2=80=A6
+> Add NULL check in zynqmp_audio_init(), to handle kernel NULL
+> pointer dereference error.
 
-It does not matter, you could have 5 oscillators. This device takes one.
-What is this clock from the point of view of device?
+* Can it be more desirable to prevent such issues?
 
-> drivers/clk/at91/sam9x60.c this clock is added like this:
-> 
->     hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000, 50000000);
-> 
-> The datasheet makes it explicit, it's exactly the main rc oscillator
-> clock required for the OTPC to work, no other clock.
-
-You speak about source clock but this has to be the clock here, in the
-device context.
-
-> 
-> So why name this "osc" only then?  This is confusing at best.
-> 
->>
->>> +      - const: otpc_clk
->>
->> otpc or bus or whatever logically this is
-> 
-> Okay the "_clk" suffix is redundant.  Since the peripheral clock for
-> the OTPC is required here, I would go with "otpc" only then.
-> 
->>
->>> +
->>>  required:
->>>    - compatible
->>>    - reg
->>> @@ -37,6 +47,8 @@ unevaluatedProperties: false
->>>  
->>>  examples:
->>>    - |
->>> +    #include <dt-bindings/clock/at91.h>
->>> +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
->>>      #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
->>>  
->>>      otpc: efuse@e8c00000 {
->>> @@ -44,10 +56,26 @@ examples:
->>>          reg = <0xe8c00000 0xec>;
->>>          #address-cells = <1>;
->>>          #size-cells = <1>;
->>> +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
->>> +        clock-names = "main_rc_osc", "otpc_clk";
->>>  
->>>          temperature_calib: calib@1 {
->>>              reg = <OTP_PKT(1) 76>;
->>>          };
->>>      };
->>>  
->>> +  - |
->>> +    #include <dt-bindings/clock/at91.h>
->>> +    #include <dt-bindings/clock/microchip,sam9x60-pmc.h>
->>> +    #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
->>> +
->>> +    efuse@eff00000 {
->>> +        compatible = "microchip,sam9x60-otpc", "syscon";
->>> +        reg = <0xeff00000 0xec>;
->>
->> No need for new example with difference in what exactly? Even compatible
->> was not added here...
-> 
-> Different compatible, different clocks, no sub nodes, different
-> peripheral clock id …  From a human doc readers I'd like another
-
-Clocks are the same. Their actual value does not matter.
+* Would the message subject have been nicer with a key word like =E2=80=9C=
+PATCH=E2=80=9D
+  (besides other refinements)?
 
 
+=E2=80=A6
+> ---
+>  drivers/gpu/drm/xlnx/zynqmp_dp_audio.c | 4 ++++
+=E2=80=A6
 
-Best regards,
-Krzysztof
+Will you become more familiar with patch version descriptions?
+https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
+viously+submitted+patch%22
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.14-rc2#n310
+
+Regards,
+Markus
 
