@@ -4,148 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C063C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDD5C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 12:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=; b=4LQGmyGLAZaHaA
-	HEGqhQeOihqk5GllU4cWGeFoJjVF3I7oJQz0dJbE6b1won8W/7O8apQxSjj+QOMDCHjBzi5T3U88a
-	KHKNTYPITU+DuENKdwaxCvQiZ4PbvkygOEN9Kp1JrBC/Eo//1SymKrF/4fLk732lybyNLXYxD8W5/
-	WlSIMoIqsj1gzXA+lKZkA9cDckEcaP9WUDfaIhDdjaNrqBgy78Kp6/uMHpMNtGSMIlzy1SfhMcxSb
-	lO7k8HQlQ0y1Se5boOsYHZxnxJF8Xi1UoXAj9s0Y+DyRaa+DFniUPMws3Npka06C7kuf56ITHzIHu
-	gdqtQRVp3I9ntt1013mw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WpIwIC25+2Or5wVL6t6q+eB6VP3NsjTjZz6L7F/g2sU=; b=QEPqnVT2c5YPMmrtqWZwzNnDzh
+	w6sDQg4TlEEtUyNNOQZ/iD9BPfc5UNafGYOqtyMWGPrLokomzuN5QsdSj6I8SGmHPiaW9gi+lP4Uc
+	GOhptNzHywYA7RWy2snIejooPATHw6WCGb3j1vI4nZTlJKy0MRxug/t5+ocBX7e+y4PeV/AcLt/gD
+	+c/MonpiQHPLm3SEvPOWG9Dk0n+hSG6Gq7rVgU7aa+IOelmSpvwJ9Q+ThVNkbW0++/4+p+f7zmxSJ
+	PE8mniUfDcXQzNyvrWmw1wJzXKCQGLijthezxeb1KYsJhguPDHlFxv6pU7SyIQTCkcM3x0fEYEk7t
+	SJS6sPNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thpnW-00000003qiE-05Sj;
-	Tue, 11 Feb 2025 12:55:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1thpot-00000003qu5-0Qhr;
+	Tue, 11 Feb 2025 12:56:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thp5F-00000003hav-14Ka
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 12:09:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739275784;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=;
-	b=DcZLh0wvSQaZBhNVx8tvgidrtubtk97I/kK3wuaFYnewbVhJJKxHTi5XLA8UbXLQTVWkLW
-	iTSBQ0orQuIv+Wks6czPW7K7cniHm6DqbhtqknQAJS54Q9ocHArYYZrFQwoJR93ON0o0WR
-	ymbYikALYX0eRojyp3kQP3GhRENbN8c=
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
- [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-675-dtPt_TsQMauOxGZaGPR-rw-1; Tue, 11 Feb 2025 07:09:42 -0500
-X-MC-Unique: dtPt_TsQMauOxGZaGPR-rw-1
-X-Mimecast-MFC-AGG-ID: dtPt_TsQMauOxGZaGPR-rw
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-ab78a6342d7so397215166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 04:09:42 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739275781; x=1739880581;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=fO1oxPNk7yrmBODE7BKXBMDy5XzyubAISy1V0U5LvF4=;
-        b=hLyj5uDZE6nupP6kSmS4NgeKYHmEgxEKR/uBHYrhTEEmsK/t2bqTP/Hdgqukmbt1gf
-         0RtzeZeESRyPVHJRtt8LM32y3q51ECKiH++djF0BMkngd0fk5suNh5DCfu6INd0rZLWj
-         xliqKR4w9YtrEoWC1vC1reOacpiATS74bc7GppUC6BC4GYq22e5w9za7oWWlF7u7Tjxe
-         NGZxS8KT4ThdhooSOltZJ0/E5bUezntmExM3pOWiyBvIAboYkNkAgTmBhrcDBgBvMZRv
-         4RuaDXmm2nfUVhz2wc36MqMVYo9w4A6flX4pASdAnO51TY6XSgumTe+z4xIaaGxDSFlH
-         pAYg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLepN/VbjEaR9HWZQLLalEdFXVXfHBxvJZ54AM5Cr7RspRNOf/w2NEitl8bJZ8KIH88WVYrdqStpSYeFXyJv4J@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3d82AdWCyHjA//IqY0R52pixo6eLjvcRDRwqhYN2xSgV+8LIS
-	GxeumobWNX1Moej3c7udMd2P2e0rCBkRkAL4kWARnvMBFWWZ3iQR15MpjeHrd0uBdVtV7SZFZdZ
-	NMy18vtybc1Rh4cKfdSbS36lU24hJ4DAl8psfw94Z9HshoS3RvvlMRWeiic9HuAgUk/O6J/so
-X-Gm-Gg: ASbGncvSvnPOFZigmuHLFuureTMgnz+dvlDKL25EmamU9Bw2xHCsh1eIN/Tkc4niod7
-	q3xHL4vLNkDzgYAXDLL+CByNCPrzVT0en+GUbpO6KERo4Y+uCNnqsc6Xw3HNBYIs1GUeJ/wEx+N
-	1ICJl8zpI2Hgd0q2kp1oWzo8plpbEGSYv3oYFOZZ7mJodlh1LAKYy4wA+GyJOCx/R97gMZ2x6rf
-	rT50euLk6bcoFa7S/4SkF6QXxoiT/uJ48suWIG+oGLJBrCdhUfvW1zLx0G0gmJQ+/A7gM2Er6xN
-	HCFvavFX/NydI5fdxaJRygP/ZxcPjrZJtuX4NOg=
-X-Received: by 2002:a17:907:d507:b0:ab6:d4d0:2be9 with SMTP id a640c23a62f3a-ab7da5023bdmr283992266b.56.1739275781282;
-        Tue, 11 Feb 2025 04:09:41 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHEbs1MtVLltwibnkrnNTH+nFWZ/gMfsDyXy+1D6atnoYLXZpQt7n8m1lv8z51hnGexGBacQw==
-X-Received: by 2002:a17:907:d507:b0:ab6:d4d0:2be9 with SMTP id a640c23a62f3a-ab7da5023bdmr283987366b.56.1739275780642;
-        Tue, 11 Feb 2025 04:09:40 -0800 (PST)
-Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7e1ce7ab7sm106831966b.171.2025.02.11.04.09.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 04:09:39 -0800 (PST)
-Message-ID: <bad8e013-3d01-4fe5-8783-c6d7e0e32a74@redhat.com>
-Date: Tue, 11 Feb 2025 13:09:37 +0100
+	id 1thp8D-00000003itx-0kLE;
+	Tue, 11 Feb 2025 12:12:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 196155C1187;
+	Tue, 11 Feb 2025 12:12:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEFD0C4CEDD;
+	Tue, 11 Feb 2025 12:12:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739275968;
+	bh=nJkdwDItSgp4IwZgEWIdud8RM/wEsya/3GCoBso7s/s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qcw92ng2D4GxDiFMw6N9WiHBLWLo67IeyFw4virPk4c8IS5yBuyRMBx0AK8zS4Mvv
+	 AVFuajg7WYRKmPCmd0sh9sZElT4LtajBudmuSQP09PbhGvaimBpZdq2boLpVHBhqiq
+	 fZGwVzhGnrD5j9mmS4bwNRq8Y3duJiB4GZvcmHHbfUpRvZaCnXQpYmaObOl0PjBTdP
+	 g+9QlHxfZpizXU6qhXW6ZvOvza+u6ZaM0yoUs0mL5PFSVO3EwWx4dWI4IPo+9H5dGi
+	 Mh1D0+JmMT0HFbQSvs3V8TYBkrnpMezr4BlkZjUpPUa5QBIPgabZKzUFddI3MPEwe5
+	 79y2rtLu1ZLyQ==
+Message-ID: <f1c73f71-7d7d-4573-9025-ec72e9bed455@kernel.org>
+Date: Tue, 11 Feb 2025 13:12:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
- compaction
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
- <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
- <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
- <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
- <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
- <2b0bb476-5bd6-489a-9b9e-7aa20964abfa@redhat.com>
- <4e298f68-36ff-496a-81d2-7124f792180d@bytedance.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <4e298f68-36ff-496a-81d2-7124f792180d@bytedance.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZYhacu1rAq7BRjQsTBhlLYUo9suxrWxyv-w1ZUF08qo_1739275781
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH 03/10] arm64: dts: sophgo: Add initial SG2000 SoC device
+ tree
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Haylen Chu <heylenay@outlook.com>,
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-4-alexander.sverdlin@gmail.com>
+ <0d5484d1-be83-4f38-befd-94d458b3aaa8@kernel.org>
+ <03ff407fe68e46df4844e5dd244e7c609331af71.camel@gmail.com>
+ <bf8f3ea1-6fb5-40d1-a823-b3bc272a2257@kernel.org>
+ <6b3cbd15b62a45b44cae2013fec11eb2c5504fa3.camel@gmail.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <6b3cbd15b62a45b44cae2013fec11eb2c5504fa3.camel@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_040945_448412_45945DEB 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20250211_041249_311879_1DEAA058 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,209 +122,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11.02.25 10:43, Qi Zheng wrote:
+On 11/02/2025 10:22, Alexander Sverdlin wrote:
+> Hi Krzysztof!
 > 
-> 
-> On 2025/2/11 17:37, David Hildenbrand wrote:
->> On 11.02.25 10:29, Qi Zheng wrote:
->>>
->>>
->>> On 2025/2/11 17:14, David Hildenbrand wrote:
->>>> On 11.02.25 04:45, Qi Zheng wrote:
->>>>> Hi Russell,
->>>>>
->>>>> On 2025/2/11 01:03, Russell King (Oracle) wrote:
->>>>>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
->>>>>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
->>>>>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
->>>>>>> dereference resulting in a kernel panic. The culprit seems to be
->>>>>>> commit
->>>>>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
->>>>>>> Reverting the commit apparently fixes the issue.
->>>>>>
->>>>>> The blamed commit is buggy:
->>>>>>
->>>>>> arch/arm/include/asm/tlbflush.h:
->>>>>> #define update_mmu_cache(vma, addr, ptep) \
->>>>>>             update_mmu_cache_range(NULL, vma, addr, ptep, 1)
->>>>>>
->>>>>> So vmf can be NULL. This didn't used to matter before this commit,
->>>>>> because vmf was not used by ARM's update_mmu_cache_range(). However,
->>>>>> the commit introduced a dereference of it, which now causes a NULL
->>>>>> point dereference.
->>>>>>
->>>>>> Not sure what the correct solution is, but at a guess, both:
->>>>>>
->>>>>>       if (ptl != vmf->ptl)
->>>>>>
->>>>>> need to become:
->>>>>>
->>>>>>       if (!vmf || ptl != vmf->ptl)
->>>>>
->>>>> No, we can't do that, because without using split PTE locks, we would
->>>>> use shared mm->page_table_lock, which would create a deadlock.
+> On Tue, 2025-02-11 at 09:07 +0100, Krzysztof Kozlowski wrote:
+>>>>> +&clk {
+>>>>> +	compatible = "sophgo,sg2000-clk";
 >>>>
->>>> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
 >>>>
->>>> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
+>>>> That's discouraged practice. If you need to define compatible, it means
+>>>> the block is not shared between designs and must not be in common DTSI.
 >>>
->>> In this case, if two vmas map the same PTE page, then the same PTE lock
->>> will be held repeatedly. Right?
+>>> That doesn't come from my series, that's how original cv18xx.dtsi has been
 >>
->> Hmm, the comment says:
->>
->>           /*
->>            * This is called while another page table is mapped, so we
->>            * must use the nested version.  This also means we need to
->>            * open-code the spin-locking.
->>            */
->>
->> "another page table" implies that it cannot be the same. But maybe that
->> comment was also wrong?
+>> You can change the other file to match real hardware. But if original
+>> cv18xx.dtsi has incorrect or imprecise compatible, I wonder how does it
+>> work....
 > 
-> I don't see make_coherent() ensuring this when traversing vma.
+> cv18xx.dtsi doesn't have any "compatible". They define it for every SoC individually.
+> So it's same MMIO window, different compatible. Looking into the driver I can tell
+> that even the register map is the same, but they expose (and pre-enable) different
+> subsets on different SoCs.
 
-Right, we could just have the same file range mapped MAP_SHARED into the 
-same page table using two VMAs ... I suspect writing a reproducer for 
-the deadlock should be easy.
+OK, so this follows established practice for this soc. Fine with me.
 
-I therefore propose the following changes:
-> 
-> diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
-> index 2bec87c3327d2..dddbca9a2597e 100644
-> --- a/arch/arm/mm/fault-armv.c
-> +++ b/arch/arm/mm/fault-armv.c
-> @@ -61,8 +61,41 @@ static int do_adjust_pte(struct vm_area_struct *vma,
-> unsigned long address,
->           return ret;
->    }
-> 
-> +#if defined(CONFIG_SPLIT_PTE_PTLOCKS)
-> +/*
-> + * If we are using split PTE locks, then we need to take the pte
-> + * lock here.  Otherwise we are using shared mm->page_table_lock
-> + * which is already locked, thus cannot take it.
-> + */
-> +static inline bool do_pte_lock(spinlock_t *ptl, pmd_t pmdval, pmd_t *pmd)
-> +{
-> +       /*
-> +        * Use nested version here to indicate that we are already
-> +        * holding one similar spinlock.
-> +        */
-> +       spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
-> +       if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
-> +               spin_unlock(ptl);
-> +               return false;
-> +       }
-> +
-> +       return true;
-> +}
-> +
-> +static inline void do_pte_unlock(spinlock_t *ptl)
-> +{
-> +       spin_unlock(ptl);
-> +}
-> +#else /* !defined(CONFIG_SPLIT_PTE_PTLOCKS) */
-> +static inline bool do_pte_lock(spinlock_t *ptl)
-> +{
-> +       return true;
-> +}
-> +static inline void do_pte_unlock(spinlock_t *ptl) {}
-> +#endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
-> +
->    static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
-> -                     unsigned long pfn, struct vm_fault *vmf)
-> +                     unsigned long pfn)
->    {
->           spinlock_t *ptl;
->           pgd_t *pgd;
-> @@ -99,23 +132,14 @@ static int adjust_pte(struct vm_area_struct *vma,
-> unsigned long address,
->           if (!pte)
->                   return 0;
-> 
-> -       /*
-> -        * If we are using split PTE locks, then we need to take the page
-> -        * lock here.  Otherwise we are using shared mm->page_table_lock
-> -        * which is already locked, thus cannot take it.
-> -        */
-> -       if (ptl != vmf->ptl) {
-> -               spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
-> -               if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
-> -                       pte_unmap_unlock(pte, ptl);
-> -                       goto again;
-> -               }
-> +       if (!do_pte_lock(ptl, pmdval, pmd)) {
-> +               pte_unmap(pte);
-> +               goto again;
->           }
-> 
->           ret = do_adjust_pte(vma, address, pfn, pte);
-> 
-> -       if (ptl != vmf->ptl)
-> -               spin_unlock(ptl);
-> +       do_pte_unlock(ptl);
->           pte_unmap(pte);
-> 
->           return ret;
-> @@ -123,16 +147,17 @@ static int adjust_pte(struct vm_area_struct *vma,
-> unsigned long address,
-> 
->    static void
->    make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
-> -             unsigned long addr, pte_t *ptep, unsigned long pfn,
-> -             struct vm_fault *vmf)
-> +             unsigned long addr, pte_t *ptep, unsigned long pfn)
->    {
->           struct mm_struct *mm = vma->vm_mm;
->           struct vm_area_struct *mpnt;
->           unsigned long offset;
-> +       unsigned long start;
->           pgoff_t pgoff;
->           int aliases = 0;
-> 
->           pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
-> +       start = ALIGN_DOWN(addr, PMD_SIZE);
-> 
->           /*
->            * If we have any shared mappings that are in the same mm
-> @@ -141,6 +166,8 @@ make_coherent(struct address_space *mapping, struct
-> vm_area_struct *vma,
->            */
->           flush_dcache_mmap_lock(mapping);
->           vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
-> +               unsigned long mpnt_addr;
-> +
->                   /*
->                    * If this VMA is not in our MM, we can ignore it.
->                    * Note that we intentionally mask out the VMA
-> @@ -151,7 +178,14 @@ make_coherent(struct address_space *mapping, struct
-> vm_area_struct *vma,
->                   if (!(mpnt->vm_flags & VM_MAYSHARE))
->                           continue;
->                   offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
-> -               aliases += adjust_pte(mpnt, mpnt->vm_start + offset,
-> pfn, vmf);
-> +               mpnt_addr = mpnt->vm_start + offset;
-> +               /*
-> +                * If mpnt_addr and addr are mapped to the same PTE page,
-> +                * also skip this vma.
-> +                */
-> +               if (mpnt_addr >= start && mpnt_addr - start < PMD_SIZE)
-> +                       continue;
-
-Hmm, but is skipping the right thing to do? Maybe you would want to 
-indicate to adjust_pte() whether it must take the PTL or not.
-
-I did not study that code in detail, though ...
-
--- 
-Cheers,
-
-David / dhildenb
-
+Best regards,
+Krzysztof
 
