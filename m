@@ -4,64 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36094C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 01:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F631C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59d5DCmTv0tcVe/lLttR0UbGP6r3tAFEV70fpHz4iEE=; b=N7ba02Civy6dOuh9Ej1IiuRZQK
-	kpZxc9J7rti2HziM7VKxITawzgBD8G/u34+snh0Hk/YIMlkvgsrHbz44fZvcuQKcV5HdNZ5rJ5ovE
-	x6Ql6JSd1x+u1zAiPe/QgAbwF34eOZGmVKgWBIAWZdCODJVBHVWi5FvtXD0hFUR0PSGA9Uhe7l96J
-	boIil00lDi+51N68OOiCOYf1LbwxHHlDmFNDz9utnX2iE+eRmgt6Nfx/32CxKMpdYkCru2IE9EZM+
-	gf6NqsYpGiRLJ00BsXtJopeeZsfV/o5PZ+weHU1zGMqLaFHUBZcz6WwriUulSJKxtlYsX3Az/IOG3
-	9KptraYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6AUQkMd0SX1yqaBHihLqisT/2AFPCmKVQe86/vRJCrc=; b=LmvNATuF4iFPGvt67F/kbl6cGY
+	GEaMJFTgdVqYzTN3gJ4F4luVO7TWMGuB+gseKMHvmc9B/zMz6l3+uMcakUg5feR6QzgBKll6by3d4
+	mDQuXfsicD+O/4SRc1rOxvMQKkjluJ9MAmj15ADpXPJicDCY7tilGeI0EJKUp/GS0qCUvGPrFjjYh
+	SmWO1ZmR091f7PCkJvUt63zapbscOSKy/wJbmk25znhRZDK797aR/FfyqI78Mq2MosP4dTG18WnJk
+	OfC50PAPIv3v/a7vwKx7GuINjROxkKBfbD3wGfqbDMWKeswM26k8tYbAEvIuV8xmMkD2UvAqCr+2k
+	ruNTq/DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thfHq-00000002AhZ-1hEs;
-	Tue, 11 Feb 2025 01:42:06 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1thfZc-00000002DgV-2kKc;
+	Tue, 11 Feb 2025 02:00:28 +0000
+Received: from mail-koreacentralazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c40f::5] helo=SEVP216CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thfGP-00000002AMc-1WUH;
-	Tue, 11 Feb 2025 01:40:39 +0000
+	id 1thfYC-00000002DTS-1MTs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 01:59:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qooQBXd8Sr+2S7SwxFlyOebbwMNR2LH9aAoodf8IXqR/3gSlDG+rUsB4HEh3rwi+kCXC3nsSrJZ+zIZyk27++HVPbWqDW5B/heRdru08/2Um+ec7H8lY7yfwyBYyztFqCKMIxYx4LOavIr8xek3BCfNNI9PNxuFZJKXQFkTzDZmWa+9eIw/0ZU1yKBOQVhYAz9hww6rXYby8Ts+Qhn5wkN8476ZDZJG/ee5kce66XxmsYZM2CiSG9GXX1NyYp3wjzNlCOQGXpmSA47LnF1JhVvkRYsPzcLXmCitJw1QTRogF4+qV5D46a9p9MIszNVbx7wfoX+sXuZdj0sDvhU2kuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6AUQkMd0SX1yqaBHihLqisT/2AFPCmKVQe86/vRJCrc=;
+ b=aX7JXW9PkhCZK71LsWzkfO4J9BLuYbXG7tFLxHuWNqAs3waGl0QPxInGM3Ph4/BOvSNcwtwoDNiIa0FnqaIyrku3LfTTXXW6ndNW9nqMTamw58qO4AkwN/0vb2NCvaGHob0iGL/y+2gbc9xdzdPFz4FmOXqbuThotWCEwtbMEgHVezCiuf31swFh/T4M61Ku7c09J26yf/G4mtAuIqXa5wbcTvQSSyFxB3121NFN7cIXBakmxXvovZWxlfW98tGHM1GdbLsoKcmxvClr/Lz45SrY9t06CbesHxqku2pS47SV+WNg+dtM1Nwaf6h8xiUcODA5ltlnG01sm4CaOJ0e7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6AUQkMd0SX1yqaBHihLqisT/2AFPCmKVQe86/vRJCrc=;
+ b=KCknuNOu9nrKK0Oi4gvZ6BSXJMiRel/NuBqtGNPIcUN7Y5QvJcrZloML4LLJm8g4+4GTUt2ehMP1fAO9+ACaGK3y65m/WhO/zxsFrrjl+XW8A4rt8j7qLkIc5gCgaN8EMe56vYSAHx/vZZL3zSaxSV903RSZJKvPisbKQNq0He0=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SE1P216MB1799.KORP216.PROD.OUTLOOK.COM (2603:1096:101:f7::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8422.19; Tue, 11 Feb 2025 01:58:41 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%4]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
+ 01:58:40 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Sebastian Fricke <sebastian.fricke@collabora.com>
+CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@xs4all.nl"
+	<hverkuil@xs4all.nl>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH 2/8] media: v4l2-common: Add YUV24 format info
+Thread-Topic: [PATCH 2/8] media: v4l2-common: Add YUV24 format info
+Thread-Index: AQHbe5s5mAjyqHnWzUmyawfBRh6HrrNAkPEAgADISVA=
+Date: Tue, 11 Feb 2025 01:58:40 +0000
+Message-ID: <SL2P216MB1246676258EE59256D3CDD31FBFD2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-3-nas.chung@chipsnmedia.com>
+ <20250210140002.rhhxn3z4l3dbyege@basti-TUXEDO-Book-XA1510>
+In-Reply-To: <20250210140002.rhhxn3z4l3dbyege@basti-TUXEDO-Book-XA1510>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SE1P216MB1799:EE_
+x-ms-office365-filtering-correlation-id: e70e1696-7549-479c-10e4-08dd4a3f9b77
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?fj6o5/ZEn+IjsjVh2kNEpyL1dCZ2XR+KJ7LIwzAxZYfcGUQdZ4dPpLEQlyao?=
+ =?us-ascii?Q?R8v/zKLy6oU4CF0Qx1jNfugR1JHzBoZsQXJcL+1blxS3RUoHowN74tVvPfF1?=
+ =?us-ascii?Q?p02ZWqyNTW52zbQtDLNPirwAWRhdCjhmNO0Mia6+cJiytTATZyCEuHwAKVtd?=
+ =?us-ascii?Q?XKIqLdDEwFKJz0BNUO418pQwLlBcRcUuoH0ucA3jDX6kF8gmzIsikMlX/tqo?=
+ =?us-ascii?Q?lOoneelXqCmMg9eQo+1Qnd3cqDpC89liQWrrvQquD+T8ASAXwDLumjIv9GsZ?=
+ =?us-ascii?Q?KoD7OVCnxGhwkOTPVi6JFqkkOqbtJtM0uJBGhQLln8pSXzr9nGFfGVTPWkq9?=
+ =?us-ascii?Q?1RIvPXanB4he+av1rHaaBYNmhJZ7EXewIL7qMfSyYn4z7zez2b9m6x2gGdFM?=
+ =?us-ascii?Q?9Ms+hvu4wVvSt/LVZ3Jr/B7PfAtGnWiZIU5OlcZg9VFo4761Egfv4eE50WYC?=
+ =?us-ascii?Q?KIdh0ryRv/LqGLyq3UpyOB+TMu1Lv8aa3D+1NvM4begBCir+1xO2zygIUg6Q?=
+ =?us-ascii?Q?NuY+H5Z52I0PtFlptTLVsWFIHoo/7EIJPpbv4DfePkP259RZIArHfIvyqNxA?=
+ =?us-ascii?Q?GZ2zmufgU0aDHwn34T2xYeCIWN0UnKjqxYpwPNRk3VH04ezb0LdkDgj7ha3Z?=
+ =?us-ascii?Q?IjuX9xWgXsRD4CIrzzaz03psV/LVhNypl5kifTQLrsRBT0KgEyMHiLzhvs4V?=
+ =?us-ascii?Q?12KozIdpXnbVZWJGuCSA2dXos+ch4g03YCkgg1DCwgEYl/eqXZrD1j5pWNsX?=
+ =?us-ascii?Q?cwcIw52Tk0gLZtCQgHc0oEt+mx1nvapECBByAvkPvD2SmWzQnRKo2kNM0wlb?=
+ =?us-ascii?Q?ZWUElO7MUv6O8D4RXgTDVEbZbMhd7YyCY7nf+YpP8hanDOd8wcczOjY9H/VR?=
+ =?us-ascii?Q?SeQSmUQBLyo7dbjTkd6uMtVcyHpx1N/XfgmWZ6E+jghvnj4C67c5rskAHYKu?=
+ =?us-ascii?Q?ptRGMPgNuVu7I4gM0pqvwov042jL9EEgUh3r1/q9DF2FA7IQL17lpnWm1hmD?=
+ =?us-ascii?Q?Nz0EuMFws0iRtBaHskud4+3Ek8d9lwoHzOxF00b2ELLWomK8SKfF9xD7d4bl?=
+ =?us-ascii?Q?XOzJDM46k1pA/axq0RDvrriFuw+12YPPti9tO8bpR1QrHsHRdqG+HvuuxLQH?=
+ =?us-ascii?Q?+jy2+8ArkSLVEF5HRanuEUqmhGfdpzXMxFDWOUm329rwVvGy36L+UdRMAG9j?=
+ =?us-ascii?Q?jQEaBaKE45a0uBLkMwnNtAMrnXAKNqLD3Bv6GuSzweFvck3sNrYTk49QGAfS?=
+ =?us-ascii?Q?W9dalMaKKTrFGCL6Y+BrtbPWv9R2SDkQJyGXzNNe2IAQjO3eZjAcwbNohbGR?=
+ =?us-ascii?Q?hiMrZ6Ua+VJyp+zNZyBWIqGzM0h9haCPbH6XapskL4BkqcSUocQfOMD5zg3I?=
+ =?us-ascii?Q?Kqai+WBTTJFhvLwTlycYoLh4ATK3lWR+l6Ag8TXzA4mA9W1wACqGtJpTRK/6?=
+ =?us-ascii?Q?JwudeoYZlWdZnvfoCfAKlviHxZ32N65/?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?EsSVkf/nbGkQpH0GybIxrLiaD+Cq2WOCizA9x/VQSwckfHOsVO3p4yYMBsAF?=
+ =?us-ascii?Q?jdgKbNGBum0lX7cFv8N/k2ecTJm2ENyKFQDRudY2Y4cypZKOfKnFAB5xXMrZ?=
+ =?us-ascii?Q?WR0gp5TjWUIXdmVVwR3uxEwwYW5KHnoN4LkCG3mq/jgLh8rOoy8ZLD1rqjoM?=
+ =?us-ascii?Q?xVZcfCBc/YJALdi+0aTQxHA9DWnuJ//d57MP97YNyBIQFZNJo8/rmrh4EQAV?=
+ =?us-ascii?Q?SGBsbAtaby/EDexjzQr9wSzpFQ+LcBaRzUHbHE1PTK+PYPiNY9EhynI4EYE4?=
+ =?us-ascii?Q?HAT+tllinr3nBtdoDySKtI+7C69vFlEbUOv4pJ7JBvIXsLpLRH8SxwbQcezK?=
+ =?us-ascii?Q?dozQB5A2eerjQgC25Jn5/HzQNJNdyVDeABUKpz0KwW1tKNbzixb9Np4mqjjk?=
+ =?us-ascii?Q?VxHGcgytWwD1wXOah79zsJuIp8lBultiuDw7yxQsSspoHhgNIIIB+Mc1eLAB?=
+ =?us-ascii?Q?aijnMPj7uXuLO5PYD7akpNtbNtfTifdkOUoWZ6GOIYLdQg1Pw3ahJasUpquM?=
+ =?us-ascii?Q?W9thN1rVFWD7/u/mBHRsOhBtIxGP1+WreoXlnnfvtvNiK7IYmTVE7F3Zaxu4?=
+ =?us-ascii?Q?jlujRMgDbmVmrBikWbQPgFl0nj/f98Eu5oN2qdQgScT1ocBL4Gn2FJm9MVRZ?=
+ =?us-ascii?Q?FC4fuN66mMM4lLLSVmPIOf73HPk1stp7QITEKtIuPiJ0xWtAYJmWZ5Ja4UG2?=
+ =?us-ascii?Q?fOkqgeHYUebRQvI7FEOeMEjulqfZwXE1M9OagvjlO9EddcK1ObY1PZ0u+Fag?=
+ =?us-ascii?Q?3K/cUC/bYtcgjll/fAI+WJ/SgEVeLzfsShY88vY+CD9wrU5mq755BQOrzOL8?=
+ =?us-ascii?Q?pPQA1eEkEeNpPcUEPr0RRwuN8k/QIfXVg1efNYtNRpYiuYPaaDRsmrrVWIA2?=
+ =?us-ascii?Q?X6rguqrFa8lw6NcYDNR3I3LLgZJp+FtNb+rygjrBArCwGUb1cIDVyFuWEY/h?=
+ =?us-ascii?Q?w1DasladUnYtj29cIRG0MiF5dYgMZz6QfAS4hhLzge0tkoTfYyI6S+ydRn05?=
+ =?us-ascii?Q?zz0wztLEPcFryllF19BLIwW+uZHbRiIErLR3Y5YcPDvus0tYimCdIwIjIU3j?=
+ =?us-ascii?Q?+hwBwy3EcUUbza7ht7kpNug+i28skI/jbeEbZL4yAvUvPL17NGk5rLsxhrYP?=
+ =?us-ascii?Q?Zlc8zY1uPvFf3f1K7jlu2TzwwNloJJGMUapc3bcdzBgFN+Doba0D71vh1Hz2?=
+ =?us-ascii?Q?A6WzW0Otv0ABcX+WIkgCCeS4SVbk8rfXH2w/BhenxQu3gg5nAJKcpQBjuuqj?=
+ =?us-ascii?Q?z+BJhRhSWBoIr4jPLjiGuf7lrJrvtmUdEkoeeXAM1iHXSMdhLIvY7D+V0WxV?=
+ =?us-ascii?Q?zpCdbfluJ1QVx+taFi9/H/3QBRXC6DUcoUBAp1ONcYP9iDUkarfWRl9u1PxC?=
+ =?us-ascii?Q?MjjNPMjPPMrFSPfpPZmUK8O9w89O8MN5CoavvsXCC4kSs3QOQu3knLzpFgS7?=
+ =?us-ascii?Q?A2+Cw/YDhSiK5qOuhZbpqbhga3DQL5umewdd9wyZQ81BeR7OXPw0HqZ5grxI?=
+ =?us-ascii?Q?z0fj0o8FZp/z8g8tL4Tl9574RseQ/uYj8syjr32hOV078JSvL9ZofynNkqmZ?=
+ =?us-ascii?Q?RfwZ8+T2W7l7GOOgV2vn9BX8XhTTe8DXKzHhWEmR?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1739238034;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=59d5DCmTv0tcVe/lLttR0UbGP6r3tAFEV70fpHz4iEE=;
-	b=FChz8yT/sCzvZpcb9Y6uCUI5b+dSKm4yzDwWaNUwL9UXG8DeR2W2gsIOeAINStfcmoKgSX
-	sfiX2wotwRPsz2j/DBMOamYY7oJQ2XK2yjuyDZvMqWDetYoXnKhAnGWCJDrsfHAtHXAgAJ
-	jtZbsFW5Rwl4gnTM6vTrDv5azgAVpKLYeFpJpnmaSKhiT5uFSNfFvMnGOPQ9je2r8rtGS2
-	/3DcwHEaqDSM38lnwWxYhLivzGeB5r9NnmJjZPeWA8mYdr5isFJkCtYsULAQiwIRssE1M5
-	mjjY6t+F/C3yAq7TdoghYKQZyS0OudDiNquHZdKQl6vvHLTP+1uJkxUENyFXFA==
-Date: Tue, 11 Feb 2025 02:40:33 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Trevor Woerner <twoerner@gmail.com>
-Cc: linux-kernel@vger.kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>, Caesar
- Wang <wxt@rock-chips.com>, Rocky Hao <rocky.hao@rock-chips.com>,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] thermal/drivers/rockchip: add missing rk3328 mapping
- entry
-In-Reply-To: <20250207175048.35959-1-twoerner@gmail.com>
-References: <20250207175048.35959-1-twoerner@gmail.com>
-Message-ID: <5f9cf65221690452d7e842ee98535192@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: e70e1696-7549-479c-10e4-08dd4a3f9b77
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2025 01:58:40.7843
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CM5zSYM3IQfxNSFg2N4NIawJqGLCMHWMka17sQxwhFuRJNSZtvTIKXgsjTJO9eMFehiU3ei3omTMdhqKIEm13SBwyi7yYpkxlM4T4pAOBYs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB1799
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_174037_694252_374EA2A7 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250210_175900_356296_FFBF15DB 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +169,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Trevor,
+Hi, Sebastian!
 
-On 2025-02-07 18:50, Trevor Woerner wrote:
-> The mapping table for the rk3328 is missing the entry for -25C which is
-> found in the TRM section 9.5.2 "Temperature-to-code mapping".
-> 
-> NOTE: the kernel uses the tsadc_q_sel=1'b1 mode which is defined as:
->       4096-<code in table>. Whereas the table in the TRM gives the code
->       "3774" for -25C, the kernel uses 4096-3774=322.
+>-----Original Message-----
+>From: Sebastian Fricke <sebastian.fricke@collabora.com>
+>Sent: Monday, February 10, 2025 11:00 PM
+>To: Nas Chung <nas.chung@chipsnmedia.com>
+>Cc: mchehab@kernel.org; hverkuil@xs4all.nl; robh@kernel.org;
+>krzk+dt@kernel.org; conor+dt@kernel.org; linux-media@vger.kernel.org;
+>devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-imx@nxp.co=
+m;
+>linux-arm-kernel@lists.infradead.org; jackson.lee
+><jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH 2/8] media: v4l2-common: Add YUV24 format info
+>
+>Hey Nas,
+>
+>On 10.02.2025 18:07, Nas Chung wrote:
+>>The YUV24 format is missing an entry in the v4l2_format_info().
+>>The YUV24 format is the packed YUV 4:4:4 formats with 8 bits
+>>per component.
+>>
+>
+>That means that 0376a51fbe5e1 was incomplete, I think you should add a
+>fixes tag to this commit, to highlight that you basically complete the
+>previous commit.
 
-After going through the RK3308 and RK3328 TRMs, as well as through the
-downstream kernel code, it seems we may have some troubles at our hands.
-Let me explain, please.
+I agree. I will add the fixes tag in v2.
 
-To sum it up, part 1 of the RK3308 TRM v1.1 says on page 538 that the
-equation for the output when tsadc_q_sel equals 1 is (4096 - tsadc_q),
-while part 1 of the RK3328 TRM v1.2 says that the output equation is
-(1024 - tsadc_q) in that case.
+Thanks.
+Nas.
 
-The downstream kernel code, however, treats the RK3308 and RK3328
-tables and their values as being the same.  It even mentions 1024 as
-the "offset" value in a comment block for the rk_tsadcv3_control()
-function, just like the upstream code does, which is obviously wrong
-"offset" value when correlated with the table on page 544 of part 1
-of the RK3308 TRM v1.1.
-
-With all this in mind, it's obvious that more work is needed to make
-it clear where's the actual mistake (it could be that the TRM is wrong),
-which I'll volunteer for as part of the SoC binning project.  In the
-meantime, this patch looks fine as-is to me, by offering what's a clear
-improvement to the current state of the upstream code, so please feel
-free to include:
-
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-
-However, it would be good to include some additional notes into the
-patch description in the v3, which would briefly sum up the above-
-described issues and discrepancies, for future reference.
-
-> Link:
-> https://opensource.rock-chips.com/images/9/97/Rockchip_RK3328TRM_V1.1-Part1-20170321.pdf
-> Cc: stable@vger.kernel.org
-> Fixes: eda519d5f73e ("thermal: rockchip: Support the RK3328 SOC in
-> thermal driver")
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
-> ---
-> changes in v2:
-> - remove non-ascii characters in commit message
-> - remove dangling [1] reference in commit message
-> - include "Fixes:"
-> - add request for stable backport
-> ---
->  drivers/thermal/rockchip_thermal.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/thermal/rockchip_thermal.c
-> b/drivers/thermal/rockchip_thermal.c
-> index f551df48eef9..a8ad85feb68f 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -386,6 +386,7 @@ static const struct tsadc_table rk3328_code_table[] 
-> = {
->  	{296, -40000},
->  	{304, -35000},
->  	{313, -30000},
-> +	{322, -25000},
->  	{331, -20000},
->  	{340, -15000},
->  	{349, -10000},
+>
+>Regards,
+>Sebastian
+>
+>>Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+>>---
+>> drivers/media/v4l2-core/v4l2-common.c | 1 +
+>> 1 file changed, 1 insertion(+)
+>>
+>>diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-
+>core/v4l2-common.c
+>>index 0a2f4f0d0a07..de3636f1cdf1 100644
+>>--- a/drivers/media/v4l2-core/v4l2-common.c
+>>+++ b/drivers/media/v4l2-core/v4l2-common.c
+>>@@ -269,6 +269,7 @@ const struct v4l2_format_info *v4l2_format_info(u32
+>format)
+>> 		{ .format =3D V4L2_PIX_FMT_Y212,    .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 4, 0=
+, 0,
+>0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+>> 		{ .format =3D V4L2_PIX_FMT_Y216,    .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 4, 0=
+, 0,
+>0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 1 },
+>> 		{ .format =3D V4L2_PIX_FMT_YUV48_12, .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 6, 0=
+, 0,
+>0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+>>+		{ .format =3D V4L2_PIX_FMT_YUV24,   .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 3, 0=
+, 0,
+>0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
+>> 		{ .format =3D V4L2_PIX_FMT_MT2110T, .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 2, .comp_planes =3D 2, .bpp =3D { 5, 1=
+0, 0,
+>0 }, .bpp_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+>> 		  .block_w =3D { 16, 8, 0, 0 }, .block_h =3D { 32, 16, 0, 0 }},
+>> 		{ .format =3D V4L2_PIX_FMT_MT2110R, .pixel_enc =3D
+>V4L2_PIXEL_ENC_YUV, .mem_planes =3D 2, .comp_planes =3D 2, .bpp =3D { 5, 1=
+0, 0,
+>0 }, .bpp_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+>>--
+>>2.31.1
+>>
 
