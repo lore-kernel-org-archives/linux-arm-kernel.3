@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3318C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F160C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFvKNq+o/CY+1RoNOyQ/3ZCunkHiOaoJBLr10RUdkpI=; b=nPaT3vBfWpDjqxbAH/75fbTKwF
-	DnjUqL5fMAJYoePe3yYprjv7miLQ+dqZzWBUw5zKJccVqVOSy+7W/tKhQwvMkIlfGNHOrE6j5lSZK
-	BdNKUTQbdELIBsvKu4J/ypaoCa/q6zSoUwiKNODgGhC84AyyRRTNlqRCmEtYPwXXN/mXMAQMhiLnJ
-	nthYGayyHK6eFhQZQJ22MJyTfYmbG2g2aFRMthBQpHEGZ2Dd7carVJTiH3imz2a0vZ5TaQujTR6GH
-	5nkdxvKocxW/OVq/zfFCcRndvLAunxs+oqStU//4adb7gyBjfjaezbfZreBWJvPGONfWgIVElALvV
-	9kq5qKjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OsIvwEcUTBMStw2MMLLuDVcTGQeCcLwOBqA9S/j+YXs=; b=RQ1PuDgU1oWGZwh68RPRidSqt3
+	QD5ZdqBqug4yGtyrbB/O7pJCTyMQd3iG8OW+4uPa482GI0d+a90isWY0TDbeqZbcX9VbSRgqZPyyl
+	kLFzGsOb8LAbASXqdR3lmscgdfwq3gRzEn5ezqZS/8o8DvM4GMqrb34aYN91mrp64K4sRDxXZp404
+	izN8A0NZxhbjINQgyrgk641m//IGGiKHm3RYiACjMnC3M4yioxt/o4uVns4sfsear5FynerdsLpIk
+	EJJUybAiGSTP/4kaOvdLVb43Mz/quwOvKW7yh3uyNJCCes+k/y2575AhXZ5hvACzUyNLFNpGMYnz7
+	n0nbKCEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwJ3-000000056Ws-3HcR;
-	Tue, 11 Feb 2025 19:52:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thwKS-000000056tE-1hoO;
+	Tue, 11 Feb 2025 19:53:56 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwBL-000000054u3-2gHn;
-	Tue, 11 Feb 2025 19:44:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 34341A40C5F;
-	Tue, 11 Feb 2025 19:42:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506C6C4CEDD;
-	Tue, 11 Feb 2025 19:44:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739303070;
-	bh=Hp0BPTzPwZpSHR+vJEd78ilDWWyWdLyiF/01sHFuRLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mM6CREdIS+9n2HJ1vw6TatQgM+uxQtpr9Vz9BNoLvEhP4Zj0/hR8kl5xchyKha2Uk
-	 y+RlxOAS25/A/99+ZQzI3s5m6D/u3Iag96aQatQnlXPlrtsBLbNZTdCUmrs2aBBlR9
-	 e1tavxR0OQSz1rCmLCEemgxuXp8CqjgsB/uzbtxJ2FdazYm1JskgU6IvXAgbLYxidP
-	 q9udWokBedjCHBWSI5BxQZqNOt8ZzOR7GljcOKvv1EWYWWgloBvmjYMWAXCJB7B7Cy
-	 c7swNbK2KWTinMcD0GInZhoHfawzoZlNKcCPaLFkDTEyMWy5W17h3/vPdeN72jurEA
-	 LLTtwgTOcNMvg==
-Date: Tue, 11 Feb 2025 20:44:26 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: disable IOMMU when running rk3588
- in PCIe endpoint mode
-Message-ID: <Z6uomtzSVTOmAB8X@ryzen>
-References: <20250207143900.2047949-2-cassel@kernel.org>
- <7996d1ec-6ceb-4d8a-bf03-1911ac5f8f0c@arm.com>
+	id 1thwGj-0000000560O-3Ydr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 19:50:08 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-8553d7576daso63961639f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 11:50:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1739303404; x=1739908204; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OsIvwEcUTBMStw2MMLLuDVcTGQeCcLwOBqA9S/j+YXs=;
+        b=VgRq+F4pK9j/IBU+z9vLcqpc6pXeJsmlRaR6k3hWF8IvrDXHdS63vuxdYAXqzd7Gp6
+         JaAdFf9P4sbM60KarzmYbNM/Pp1sqo7ffsP+EC4HdBc0IbHiNrfjP30Ej1tRRoZ0R57i
+         RKfqSebJv+HhaFvbaSiCh2fF+l0ZDo7YEiLz3ih2IIFAaS1Wu5MyCQeJN0r/10ll2TJ+
+         3rJ3MBAb6HcSs/Oq8SRVKNa/6hK88t8nDLHxkCjvoa78nAiGigvs5XAwfK7O2iFjwIGc
+         6J2JOVRTvpxl9mZR8orUBGhCoFCOGQDJjKT6kkIm68GoQ61zKJz0ubHlgfp44spWv3Ox
+         k7Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739303404; x=1739908204;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OsIvwEcUTBMStw2MMLLuDVcTGQeCcLwOBqA9S/j+YXs=;
+        b=b/DzAPHhlyUPnOQOIJTmXWkOmwOiYxYflb20Xsxn4foPB+CiqAfip6iurF76+geRIz
+         RhIh0GL2ixiKn33p9qYgpgM+dTxnRFgUkH1SQGdG1Ka6p9CembiDvCLJig1t3impNOEj
+         SQnbC2T8kAfJrxaT5aQGDkxnYuxlP8P/OcKoqeGlyAmh5sUzK+MQzQKnF5xTcqtB+ANm
+         lNCEmf9p7x4NaD1EBU18lL+i6zEiDhAFzOecSWvEqmQZURKy4BB2AKs6YXtXfIUAzpUR
+         HWTn0rVD3npN6Yva5vEFbhpldywwmYER91G3xuukRw4mxAJSIOwFyL5+aL3RymX/2fMY
+         FkHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWsaj5sQ+VqFZE5VLxyXfkC5UN1YboY6UtaYfFeaH+/UELhnlZ8GRWCgUacB+yYDdQISJlqOLhjRxfoX3hvW4YG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+MWvMaKYoO2q19Vy1175F548q6cnp+Bje5jo135aAGTbZNw/f
+	hX0FoAdZ0u0FeCpIRG8L74e2UatNCorZ1vRb/3v4Ckj+49ABYhjKWHPpJgUbWuk=
+X-Gm-Gg: ASbGncuyvwqm2qcXgmdWTqwZoRSYYqSOruGW4xHlszHCo+b91k6IeqdNJ1hLHZdXbQg
+	llzfskK+rysPxVVjxf09ja/3gqDjqRrRZ+N3H+A+KsUFKVfBIyYwuLDRUsybjazzxG6j36xbXiU
+	mTgycxddc9mUXMFX81fO0wMktgRS3j9JjchnP6xBkiCWjDK1qa+c1/FxzdGYNR/0J3SxcZEZDvj
+	pC+RzLiL3KDYBrEyrE1jW+U9XbpY+VR9/DPLi/PavoI/kg6xrBrLs45nlCtLO16hGwDGACEKkiD
+	xuiAMRtaU2Y=
+X-Google-Smtp-Source: AGHT+IFrTVAEGiw2EoTh/b9YW5R/KtzW2+Oh2EsbSrKLQH+zV7TjtxzGKsJ/H8T6kpwj7fxcn/baxg==
+X-Received: by 2002:a05:6602:14c3:b0:843:e667:f196 with SMTP id ca18e2360f4ac-85555c8c4eemr91680639f.4.1739303404598;
+        Tue, 11 Feb 2025 11:50:04 -0800 (PST)
+Received: from [192.168.1.116] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4ed1885b085sm77104173.69.2025.02.11.11.50.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 11:50:03 -0800 (PST)
+Message-ID: <84447986-6cd7-499c-834e-9aa01fad98da@kernel.dk>
+Date: Tue, 11 Feb 2025 12:50:02 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7996d1ec-6ceb-4d8a-bf03-1911ac5f8f0c@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] apple-nvme: defer cache flushes by a specified amount
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin
+ <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
+ <20250211-nvme-fixes-v1-3-6958b3aa49fe@rosenzweig.io>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20250211-nvme-fixes-v1-3-6958b3aa49fe@rosenzweig.io>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_114431_806980_EBE5444F 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20250211_115006_082555_5C96E823 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +103,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Robin,
-
-On Tue, Feb 11, 2025 at 05:49:29PM +0000, Robin Murphy wrote:
-> On 2025-02-07 2:39 pm, Niklas Cassel wrote:
-> > Commit da92d3dfc871 ("arm64: dts: rockchip: enable the mmu600_pcie IOMMU
-> > on the rk3588 SoC") enabled the mmu600_pcie IOMMU, both in the normal case
-> > (when all PCIe controllers are running in Root Complex mode) and in the
-> > case when running the pcie3x4 PCIe controller in Endpoint mode.
-> > 
-> > There have been no issues detected when running the PCIe controllers in
-> > Root Complex mode. During PCI probe time, we will add a SID to the IOMMU
-> > for each PCI device enumerated on the bus, including the root port itself.
-> > 
-> > However, when running the pcie3x4 PCIe controller in Endpoint mode, we
-> > will only add a single SID to the IOMMU (the SID specified in the iommus
-> > DT property).
-> > 
-> > The enablement of IOMMU in endpoint mode was verified on setup with two
-> > Rock 5b:s, where the BDF of the Root Complex has BDF (00:00.0).
-> > 
-> > A Root Complex sending a TLP to the Endpoint will have Requester ID set
-> > to the BDF of the initiator. On the EP side, the Requester ID will then
-> > be used as the SID. This works fine if the Root Complex has a BDF that
-> > matches the iommus DT property, however, if the Root Complex has any other
-> > BDF, we will see something like:
-> > arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
-> > on the endpoint side.
-> > 
-> > For PCIe controllers running in endpoint mode that always uses the
-> > incoming Requester ID as the SID, the iommus DT property simply isn't
-> > a viable solution. (Neither is iommu-map a viable solution, as there is
-> > no enumeration done on the endpoint side.)
+On 2/11/25 11:25 AM, Alyssa Rosenzweig wrote:
+> From: Jens Axboe <axboe@kernel.dk>
 > 
-> Well, strictly the controller should own all the StreamIDs it's capable of
-> emitting - if that's just one per possible bus number (as the iATU
-> FUNC_NUM/FUNC_BYPASS stuff appears to suggest?) then 256 "iommus" entries
-> isn't *entirely* unmanageable. If it were to support being arbitrary (or
-> multiple) devices/functions, though, then we probably would want to look for
-> a different solution, because nobody wants a 512KB DT property... :)
+> Cache flushes on the M1 nvme are really slow, taking 17-18 msec to
+> complete. This can slow down workloads considerably, pure random writes
+> end up being bound by the flush latency and hence run at 55-60 IOPS.
+> 
+> Add a deferred flush work around to provide better performance, at a
+> minimal risk. By default, flushes are delayed at most 1 second, but this
+> is configurable.
+> 
+> With this work-around, a pure random write workload runs at ~12K IOPS
+> rather than 56 IOPS.
 
-Well, FUNC_BYPASS and FUNC_NUM is in the IATU_REGION_CTRL_1_OFF_OUTBOUND_i
-register, so it is for outbound PCI TLPs, not inbound PCI TLPs.
-(Only inbound PCI TLPs will get sent to the IOMMU after passing the iATU).
+I knew this one would bite in the ass at some point down the line ;-)
 
-There is FUNC_NUM in IATU_REGION_CTRL_1_OFF_INBOUND_i register, but it has
-a different meaning. (An inbound PCI TLP will only get translated if the
-FUNC_NUM matches the value in this register).
-(This check is only performed if the "Function Number Match Enable" bit
-of the "iATU Region Control 2 Register" is set.)
+I do think the feature is sane, and to my knowledge we haven't had any
+issues with it since I originally wrote it 3 years ago. But I also
+think it should probably go in the block layer proper, as other
+devices might benefit from it.
 
+That said, I'm fine with parking this in the apple nvme driver for
+now, as we don't have to deal with multiple namespaces etc. Can
+always get migrated to a core feature later, if desired.
 
-The SMMU on the rock5b, when running the PCIe controller in endpoint mode,
-has printed the following:
-arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x1600 ssid: 0x0
-but also:
-arm-smmu-v3 fc900000.iommu: event: C_BAD_STREAMID client: (unassigned sid) sid: 0x20 ssid: 0x0
+-- 
+Jens Axboe
 
-depending on which host system we had connected to it.
-
-So I'm a bit worried that 256 "iommus" entries will not be enough.
-
-I don't have any idea on how to solve this, but right now I don't see any
-other option but to disable the IOMMU when running the PCIe controller in
-endpoint mode.
-
-(We have no issues when running with the iommu enabled when running the PCIe
-controller(s) in Root Complex mode.)
-
-
-Kind regards,
-Niklas
 
