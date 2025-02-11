@@ -4,70 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BFEC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C492C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnd07H6K+00qVcWwkSgQRGOualEQLbdZn+x//xQ7Mmg=; b=fk2KTmLdKMt84N0TobXS7s2CAq
-	X8CsC+FLtgpUwQro+PPPeSYb++JJOj77mOp94HqVsNh/lqvUJvVAfFvl+3KGO2LL0TfAkL75+VkN/
-	tJkB3nRIU5al7n3BXIN1zxo6tPy/IUUlHRHj+zkewgpIhu4D6rG8bn4nk1v3IE2GoOxSMCm5pg9hD
-	sZiUVrHfESdupIYn2Ufw99yeavXfxT5MehERXAvhYyg4C0kSEPSCZf5Smy4P6ZcvuANNwMtK9vhnw
-	tKE1XlWmi3uWX37RtN5ispHG9v0nEq0I68KA99IFZxni/8cVR0jMlQlVcj24s9eZo1cw58bSd8UYM
-	AiNNikxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BU5cln4uCzmlm3+6SN7L/b9riimPO4ygYo9TC06yUZI=; b=BEZ3kMLadQb2q6sGWVWeYXTJ83
+	BANILDyDNTb5IbKpwbtg3HLTj4I9oUDF0eZbZVdhVEwi64k6tpJuygWaPOjC455Y83HtjsiJNhWPR
+	XgBM8A969OSwL/aLn8d4sCkXQ9mksrePFhQ3SIom/n+WLMUUIYbPvrcxp/lz7fbasF5YmTL9obK1O
+	/3AzfLa0mPKqoxtMDq5IeYJKXp4GMITrgfI41k9Efug6cgOG4BT46N0MkUP1JTNoHv634T3amGvv9
+	rgN0qDFzpj155NxkST8/4xbsw3H21GGxaTzGVNUJH7wGkAzKJlVu2J/neT1Ob1DhkqVwQc6Mc+ASq
+	RH7BWcEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thsA7-00000004Hwv-3F5T;
-	Tue, 11 Feb 2025 15:26:59 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1thsBV-00000004IKH-3WKi;
+	Tue, 11 Feb 2025 15:28:25 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths50-00000004GdM-2N6i
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 15:21:43 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 45F36A0ABF;
-	Tue, 11 Feb 2025 16:21:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=lnd07H6K+00qVcWwkSgQ
-	RGOualEQLbdZn+x//xQ7Mmg=; b=FPFj6iAr5CU+JBBscEX1n0uy+yx+lEAonj+v
-	2zw2W4hL5lJtZ2nravuyVwLZGoBLRpDMGt/zbnYBX0zKu+nZctQrcfMuEE05zY6x
-	Hvn/lIg5OgenPiqx1d5+4tdM5LFbd0trQCXHHlhlyK5MQbdakaTMlqjEoezv4vPe
-	iT60+rzfj7hYDfNO1CHxcT5TnbKF/HYFC9lcydls3JDIvFSAzQgi1/lgIh/MVP2O
-	TEbUsbq9dLybLyfRXmhENSeZFdMEK1kBf4j90uvXWJdahefi7EBk7AeBvV0vqxrk
-	Ut208byCxGEjByjJvQ62OMq1vHWbG7eaLsc8l1yKxjvSz2BM6y5n6JneYBJxnyoG
-	T+vv4HPTO7SJz6TF6hMPByr0CVoBsZdSvgGc9iWZ8m/XvDeqzDdhVZk/vavhY0h5
-	X42icnZJuUU5Y66TwuBa/ouFxtibV3uxoOAl16K0RuRS8B/oRWACGp5GdbOyiUVp
-	Bez3bCP00I2NgAupoDo9U9C5eY2/HmaHVFqxeNpzeW2Tcc6KmwwDBUfcl71oGG7o
-	sN7nxuTGha0oaCz5m/WIZ0/X1tbjjcX8z7CDl6d9izqhNkFJ748Tt1NSeFo229vE
-	lkVC3E2IkC1Ph5OnLh69/4wP+RsgH3X1CVc3Q6U1bXWfzCiap9JSiDTI7bnor2+B
-	SopXbyI=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>,
-	<Dharma.B@microchip.com>, Kamel Bouhara <kamel.bouhara@bootlin.com>, "William
- Breathitt Gray" <wbg@kernel.org>
-Subject: [PATCH v4 2/2] counter: microchip-tcb-capture: Add capture extensions for registers RA-RC
-Date: Tue, 11 Feb 2025 16:19:15 +0100
-Message-ID: <20250211151914.313585-7-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211151914.313585-3-csokas.bence@prolan.hu>
-References: <20250211151914.313585-3-csokas.bence@prolan.hu>
+	id 1ths8n-00000004Hbx-1KVY;
+	Tue, 11 Feb 2025 15:25:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wCpOvw/z9HwADmy5RAdusJ7Uc0rDb5QYH5DbosSBVEGNqfTGxZnU/3lZtlfAFvFpPjKLkO3wNjKlQ/qbrUe+8XeAgp2I4njKgsXuKeGcq/7GFzTDzZK7P40/wjYlN0RiDh9oTnb4ThZyf/c0m3tb3323ncwQYCNWgD5OpLHlMGHExqp4qlYv7nmEOnLxxB+N7gX01oBtiXEF/Z38JoJZ1gMs/J1fFS4c0BZNsQAsXetJiRgb9GVw+dGE0IrofI1zuzqnUoy1+aSeHDf94JkMUc/AWaLNVV9D9vRVQtZSS7Xk/sBc0qSgLjtmNlX2O2BfEErklHqR+2gegvUjqPa98g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BU5cln4uCzmlm3+6SN7L/b9riimPO4ygYo9TC06yUZI=;
+ b=qoj+n/hECLYCgiwGwVh0HdEwyMZR7XJ7jx3Wn3ffUmXs53Qh66WzgSCT+j+Nl0iPJ0VXIT1CYxPmP7AXnjfAflYO9SuLaFut+PjjkwJ8TGruhtSdkou7mEy3Fziu+SUBMDAg8ZC0oZipc2PHp7Wj5sT4xkYFQbbi62dABm6ctvI8z3FglyPwjKco84cfut4dRnDeJF7jtaXvQwmH3fxsRMs3I7dSYqlC4Fkx0ZvxdWkka0tk2oQ7bqDrnaM807s8o75OT6/b+CEor0MD174S/ZxsJCvUN/K3mUxtPaCI9RwhTCXByhkeua6jhodq62xxReRWHgMlBMj2J5M7DKt5xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BU5cln4uCzmlm3+6SN7L/b9riimPO4ygYo9TC06yUZI=;
+ b=IvUmq+3qc/4FX07r5ORGd8PUGt6umZ1sJsJoGJ+BynzwL7VHkzlWn5qZ7GwSvm2xuwX+LDAJPbxBHmWWmPomGZvlLXJQeo0PKKh7iWfD2z15FefgPXEoMsZ75brLHBLVF+51Ro7LLJRc0mpppxAVoeYl77n3DV43+HyD+VT3qoYK7Mf6TBbN73tz4PO2b0TaMg+SYpQCLdNQhrQ/cUWGaokVxRhMHt69d1ITrfxk2QZaqdb0bTCajM0SG/q1evD+mh80LW+uAd25Nz9ThEo+0F495zx//othWx+oZmXm+/2Y2kDyPFNm+VrYoCpjn1tVwHtBQId+YFXzjYjrCBB7jQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GVXPR04MB10996.eurprd04.prod.outlook.com (2603:10a6:150:220::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
+ 2025 15:25:33 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
+ 15:25:33 +0000
+Date: Tue, 11 Feb 2025 10:25:23 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, "Guoniu.zhou" <guoniu.zhou@nxp.com>,
+	Robby Cai <robby.cai@nxp.com>,
+	Robert Chiras <robert.chiras@nxp.com>
+Subject: Re: [PATCH v2 01/14] dt-bindings: phy: Add MIPI CSI PHY for i.MX8Q
+Message-ID: <Z6tr414dKK56atDw@lizhi-Precision-Tower-5810>
+References: <20250205-8qxp_camera-v2-0-731a3edf2744@nxp.com>
+ <20250205-8qxp_camera-v2-1-731a3edf2744@nxp.com>
+ <20250206211808.GA24886@pendragon.ideasonboard.com>
+ <Z6UuR9mHhQUdnBEc@lizhi-Precision-Tower-5810>
+ <20250210211013.GC8531@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210211013.GC8531@pendragon.ideasonboard.com>
+X-ClientProxiedBy: SJ0PR05CA0206.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::31) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1739287300;VERSION=7985;MC=3490347217;ID=762887;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94852617160
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10996:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f197396-5777-4e72-4590-08dd4ab0535f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QDK5ahCR5/oJoiepkDaWWNUuWHRzl8k37bqTdPNcqv6tJZA3kAcCB6E2RjmV?=
+ =?us-ascii?Q?dnThc67T7LLlvKA4N0L238cAk9vacLcCojJhwTqCBkt1xwMHYOzWaby5UzYr?=
+ =?us-ascii?Q?jM7r2gel8eSBoNEm21o3uhc20ideQT1jj8taTSwaVUpqd42yc3GDhGh59maf?=
+ =?us-ascii?Q?o1NDyHjOyNTP/nbRXYkpbFWUMsmm+Xo0wApWQFVQ1g/spHBfqaob6JQ4Mfdk?=
+ =?us-ascii?Q?8SNsNxSx7Hi2n40ivy53aPTmWhcBUldFnguh63QySTjvLQUsTsME+UlYEv+J?=
+ =?us-ascii?Q?vkZx2k2t2tftxlw7sAUmusGXLNu14K8xwnoW+gMRqyH+lALRzb/NqIxq0apZ?=
+ =?us-ascii?Q?tZR4r+joOxGWsSnWXbdePmWrtMwTHOpRN/4I07XKEm6All5Uhhczredu9KtF?=
+ =?us-ascii?Q?fQipFnB6xbTuOOiJcplhPzyJRvMUmjIPqJu9CqeXMXeEo+LNr5aFWoIzS6MK?=
+ =?us-ascii?Q?XsNwhn3A6DCjtHwg5069lemsT7Qe56S9bCMvmLrhAIHFOmBZRsviAfymf6Ed?=
+ =?us-ascii?Q?sFD5e+SToddars44glygJ+TRMZJ3EYVdJ5G1AoKVj4hxThF2ey/y+JAnWW8i?=
+ =?us-ascii?Q?ElFUgw+sleI6IftW83SXh94WEcYaLKKUxi3WCWI7rkkQ7y/kNRqYIFCTnTrq?=
+ =?us-ascii?Q?qpGF6/5Dk1zLrtb68Yl6MEbwvq/RMiCCkEKwA0tb+JNH7hfxGqx64j7OKVOD?=
+ =?us-ascii?Q?55xiJvlIXu7pyLxZeY3mdXfX07xFx9sEcCOprjPbPOg4olVtQn9mRzlgyCqd?=
+ =?us-ascii?Q?oXLRkDlMLcuAKZHz3iXWq31cLOuP2jlxXbg46Tej/kZmpoVm+PYf+0HD34g6?=
+ =?us-ascii?Q?7P4CHtYl5mdJhAzhw3yELkAWpgZRB344TapRM6WNdDhDNcMATGxFX98/mWQn?=
+ =?us-ascii?Q?Br35e1n+O5mSRIRcuGahW0SeFV6xjtqwaBGQTxubZVVuu3wzZ8TFHGFs0jjh?=
+ =?us-ascii?Q?6MX5zoQjDnliYLaE4HXx33Tu10Dn1aB0MWBPoN+U9juFpFLJTXM9tlFlJ7J8?=
+ =?us-ascii?Q?r7+ZBBDsHEMYIj9CVZPXNi/XwaU1DRaLzGPwJmxjCE5YVSLafmFGUVPFsuaV?=
+ =?us-ascii?Q?d2qpK3srEGS1yJ35s4yJjIZTceXA4+8LNGYNVfjFxoR85y9Vsf9VizWD9X+7?=
+ =?us-ascii?Q?O8L+ZuIOc48yflpPCTZL06TYIL/wwZIBJoAE/nTzsj3uUevejEm+LkxznWLN?=
+ =?us-ascii?Q?8XbqK3xGBpv0WpMtFpAT/Yyo3AcAqj5EIxX9SUr85y0vQVpLD7CF9YSzQ+l5?=
+ =?us-ascii?Q?AUNDaxzjmMuUHgGSg1lvQdjEhvMg4LUC+wAuJG5Bf1gI0SpyXUOBQaylllf3?=
+ =?us-ascii?Q?jkcqvLCweLqpDyWZW71mYFuDbfdKfUrxik79Ydybolpi6jdFSm05oQSxBAMw?=
+ =?us-ascii?Q?u2sJGiLckZB0b83QdK5wCfu8XvLG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QC/GlhcNEWIvdiVZiEkQ5Gbihc4CFmXWsQuRJ6XqUJ0ZkVOx58muVETbW2UC?=
+ =?us-ascii?Q?PtLmcVOhqMLx30ZpyaGjpp590XasyNRF00Zcmik84o47uyiJ/O34qNudRgTz?=
+ =?us-ascii?Q?uol1Ym2mL+4MSns6W9BmMW1J1j4qwpzIsAyeKk4EJSORPkZOafHSVzH655Tq?=
+ =?us-ascii?Q?wPpLIur+4LHLw/ckBJ+MdvkEjM8rOkZgkJ9VC7JMVZLdf6g2iN4vVyyMn8SR?=
+ =?us-ascii?Q?FGVis4Wl0fWla2YXnvOVbSqB2tMt//E+FMd6Jjc4XjjUoid+h3pZeGOoeAWP?=
+ =?us-ascii?Q?y3udGys5dzUky7XpAJB8KyXHAI/UD8YAr+zvKp5mPdrRwHfjYYItG/Te3+kE?=
+ =?us-ascii?Q?wIR7D9vBwjRumZXJfTdwWPb6QhLQ8rUD1mRwwjDjrcRQ2+XXpTVOAprAre/n?=
+ =?us-ascii?Q?IQelu3MwgdLbPMNsmGG/ruyWd1Joxr8ZNS3XDSLYUzljFyJk0IAUKFsAhadz?=
+ =?us-ascii?Q?qyYoMC2Hnf5PrqgN/0Demr1YjYv77rw1YaZ3wXtKgt22ksjXUbfdR3N7R0kX?=
+ =?us-ascii?Q?ddVndioYOHvVIKndKzwv1sxVRC1FQp8CSU9w5Q2l9AChQSfVsvNiFZAsYvKb?=
+ =?us-ascii?Q?3oJ7a/WqO8DADiHZvg4F5h1lODhTsL/GqzBqNW7MPPwr5ZuQJUeYHRdp+hC2?=
+ =?us-ascii?Q?nqft/OAcWliDnXuSjM9xA8Z09+6HUZfqHAIPN6QTOWKXMF8IxEcg5BP31A8A?=
+ =?us-ascii?Q?S1ct/sZzyOJQbCwipr1hZRoWA3vGCaO3B/gRG2UrJOvo9mo7vEsVdpfhaMEk?=
+ =?us-ascii?Q?CBdDxrt3PgtimnwIG57nlujNSK++ckX9BUGIYOtMLbHY2V8BuwbxceJm1oMH?=
+ =?us-ascii?Q?kbqU+U2l4fbLGEzB/D7q8Db35zUoGxmwXWLo78Jw0xGGghUFhUQW6hURayT1?=
+ =?us-ascii?Q?eww6kaW8+erCC8dHztY8FZfsdxjpL0leDczjOjDlXfPdSrRDM/64rnSE4TT5?=
+ =?us-ascii?Q?YoPJllA+DL6uzlHhgoP0mqV2eRW8GJuaQPVfXqPyq3kixrt9zXT9Bpp0WDWO?=
+ =?us-ascii?Q?BExGcH3mFKnUb/yU5C+ScjcZ7pMfy619ITRsVEGQWJR6B8p4z6Dn4eME3oV7?=
+ =?us-ascii?Q?MTs+bo5A7TeAoJfHaxwwSxIM7SkWEDrTJrmDZcTxYWU2LdbNUBjsvyeALmc4?=
+ =?us-ascii?Q?yWwBzMX7Q7KMhpjJS8mEavhtjfq/xQFKOxOHRyofsk2I70Qf8RnGL1JxwUSO?=
+ =?us-ascii?Q?e/p0+F/9ka8HYK7BbmYoe+5TZNWkJHRUPnJcOF96xYIaSmyLHlbc72hibwJw?=
+ =?us-ascii?Q?d5TSdZKZbt0lcp1+jB+1hHEoZnZqgIx1KS2CpI3kQCdwFZHvTEKlWDPsV0i0?=
+ =?us-ascii?Q?WIb72S512FkIsRPWP7ntXqID/FEY+Qkc8Ru5jJ40m8EM+zu1x6upYLnxApPl?=
+ =?us-ascii?Q?7Qn4180zIufpuEdoc3rt3RaztEcykNpJHyL8mpY4jsXYpYo+nbwc4Ehv+rl+?=
+ =?us-ascii?Q?gJVqxAOiWOpE0nNhrd2sa2BpnCjft6bj7QY5c0Is+o2RtOa2q2Y4JeA2sXSL?=
+ =?us-ascii?Q?iJJwaGOJn7CUXCoz636/E/WuJUgSvxN0e1DVedDqSpBk8QwMT2XkVfNHQt/9?=
+ =?us-ascii?Q?TQHlsBsz4VwJsK43sYM=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f197396-5777-4e72-4590-08dd4ab0535f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 15:25:33.1584
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1XBvi8jVJ3SFxmn04spca9PtsnuJAaQzoLYz9Nfuc60Yfmr/c+gMJAr9suTErxmpqRbF2lsYkS/lrDSVDliclQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10996
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_072142_755962_8ECE4EF9 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250211_072537_383855_BA24E1A2 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,135 +174,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TCB hardware is capable of capturing the timer value to registers RA and
-RB. On top, it is capable of triggering on compare against a third
-register, RC. Add these registers as extensions.
+On Mon, Feb 10, 2025 at 11:10:13PM +0200, Laurent Pinchart wrote:
+> On Thu, Feb 06, 2025 at 04:48:55PM -0500, Frank Li wrote:
+> > On Thu, Feb 06, 2025 at 11:18:08PM +0200, Laurent Pinchart wrote:
+> > > On Wed, Feb 05, 2025 at 12:18:10PM -0500, Frank Li wrote:
+> > > > Add MIPI CSI phy binding doc for i.MX8QXP, i.MX8QM and i.MX8ULP.
+> > >
+> > > s/CSI/CSI-2/ in the subject line, here and below.
+> > > s/phy/PHY/
+> > >
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > > change from v1 to v2
+> > > > - Add missed fsl,imx8qm-mipi-cphy, which failback to fsl,imx8qxp-mipi-cphy
+> > > > - Move reg to required. Previous 8ulp use fsl,offset in downstream version.
+> > > > which should be reg. So move it to required
+> > > > ---
+> > > >  .../bindings/phy/fsl,imx8qxp-mipi-cphy.yaml        | 57 ++++++++++++++++++++++
+> > > >  1 file changed, 57 insertions(+)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8qxp-mipi-cphy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8qxp-mipi-cphy.yaml
+> > > > new file mode 100644
+> > > > index 0000000000000..7335b9262d0e7
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8qxp-mipi-cphy.yaml
+> > > > @@ -0,0 +1,57 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/phy/fsl,imx8qxp-mipi-cphy.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: Freescale i.MX8 SoC MIPI CSI PHY
+> > > > +
+> > > > +maintainers:
+> > > > +  - Frank Li <Frank.Li@nxp.com>
+> > > > +
+> > > > +properties:
+> > > > +  "#phy-cells":
+> > > > +    const: 0
+> > > > +
+> > > > +  compatible:
+> > > > +    oneOf:
+> > > > +      - enum:
+> > > > +          - fsl,imx8qxp-mipi-cphy
+> > > > +          - fsl,imx8ulp-mipi-cphy
+> > > > +      - items:
+> > > > +          - const: fsl,imx8qm-mipi-cphy
+> > > > +          - const: fsl,imx8qxp-mipi-cphy
+> > >
+> > > Why are those called cphy when, as far as I can tell from the
+> > > documentation, they are D-PHYs ? Does that stand for *C*SI PHY ?
+> >
+> > There are already have D-PHYS for MIPI display phy binding. cphy just means
+> > for camera PHY.
+>
+> Ah OK. I would probably have gone for *-mipi-dphy-rx then, but I'm OK
+> with the proposed "cphy". Explaining this in the description would be
+> useful.
+>
+> > > I find
+> > > it slightly confusing, but not so much that I'd ask for a change. It's
+> > > just a name at the end of the day.
+> > >
+> > > Apart from that the binding looks fairly OK. Except maybe from the fact
+> > > that this device is not a PHY :-( It has two PHY control registers, but
+> > > the rest seems related to the glue logic at the output of the CSI-2
+> > > receiver. I wonder if we should go the syscon route.
+> >
+> > Do you means use phandle to syscon node in csi-2 driver? Actually this
+> > ways is not perferred by device tree team because it should be exported
+> > as what actual function, such as PHY or RESET by use standard interface.
+> >
+> > We met similar case at other substream.
+>
+> I don't like syscon much either, but in this specific case I'm not sure
+> what else we could do. This device really aggregates some control over
+> the PHY and over the glue logic at the output of the CSI-2 controller.
+> Modelling it as "just a PHY" will cause problem as soon as you'll want
+> to configure the other parameters.
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+I think your comments is quite good and it's one hack. I check register
+layout of csr at imx8qm/imx8qxp. It is dedicated for each csi2 moudule.
+This glue layer should be second 'reg' resource, which direct control in
+csi2's driver.
 
-Notes:
-    Changes in v2:
-    * Add IRQs
-    Changes in v3:
-    * Move IRQs to previous patch
-    Changes in v4:
-    * Return the status of the regmap_*() operations
-    * Add names for the extension numbers
+v3 should be simpler than this version.
+https://lore.kernel.org/imx/20250210-8qxp_camera-v3-0-324f5105accc@nxp.com/T/#t
 
- drivers/counter/microchip-tcb-capture.c       | 62 +++++++++++++++++++
- .../linux/counter/microchip-tcb-capture.h     |  9 +++
- 2 files changed, 71 insertions(+)
+Frank
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index cc12c2e2113a..369f69aaf14f 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -254,6 +254,66 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
- }
- 
-+static int mchp_tc_count_cap_read(struct counter_device *counter,
-+				  struct counter_count *count, size_t idx, u64 *val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+	int ret;
-+
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RC:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), &cnt);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (!ret)
-+		*val = cnt;
-+
-+	return ret;
-+}
-+
-+static int mchp_tc_count_cap_write(struct counter_device *counter,
-+				   struct counter_count *count, size_t idx, u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	int ret;
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RC:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), val);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return ret;
-+}
-+
-+static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 3);
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
-+				   mchp_tc_cnt_cap_array),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -262,6 +322,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
- };
- 
-diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
-index b91d8954f06e..0bef1c9d1535 100644
---- a/include/uapi/linux/counter/microchip-tcb-capture.h
-+++ b/include/uapi/linux/counter/microchip-tcb-capture.h
-@@ -12,6 +12,9 @@
-  * Count 0
-  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
-  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
-+ * \__  Extension capture0    (RA register)
-+ * \__  Extension capture1    (RB register)
-+ * \__  Extension capture2    (RC register)
-  * 
-  * It also supports the following events:
-  *
-@@ -30,6 +33,12 @@ enum counter_mchp_signals {
- 	COUNTER_MCHP_SIG_TIOB,
- };
- 
-+enum counter_mchp_capture_extensions {
-+	COUNTER_MCHP_EXCAP_RA,
-+	COUNTER_MCHP_EXCAP_RB,
-+	COUNTER_MCHP_EXCAP_RC,
-+};
-+
- enum counter_mchp_event_channels {
- 	COUNTER_MCHP_EVCHN_CV = 0,
- 	COUNTER_MCHP_EVCHN_RA = 0,
--- 
-2.48.1
-
-
+>
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  power-domains:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +required:
+> > > > +  - "#phy-cells"
+> > > > +  - compatible
+> > > > +  - reg
+> > > > +
+> > > > +allOf:
+> > > > +  - if:
+> > > > +      properties:
+> > > > +        compatible:
+> > > > +          contains:
+> > > > +            enum:
+> > > > +              - fsl,imx8qxp-mipi-cphy
+> > > > +    then:
+> > > > +      required:
+> > > > +        - power-domains
+> > > > +
+> > > > +additionalProperties: false
+> > > > +
+> > > > +examples:
+> > > > +  - |
+> > > > +    phy@58221000 {
+> > > > +            compatible = "fsl,imx8qxp-mipi-cphy";
+> > > > +            reg = <0x58221000 0x10000>;
+> > > > +            #phy-cells = <0>;
+> > > > +            power-domains = <&pd 0>;
+> > > > +    };
+> > > > +
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
