@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3B4C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B81C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 11:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSHQXJVDmU6SV3Z91F8kaCXOiiG5oCxvSWGJam0x8yg=; b=JaLw3hMh4YwRqpy8+VROOoirob
-	P+FxW0FOHx1oU0FwEoXIx0Y+6g2Qgs+Fjvy/WXlrqdZkKI6/i0rZ+nrlbLL18KLF44+3fnZSpVs2l
-	Z1bSwQUjUBD/Xd9Kyn2NJq385ud5RPhrBoF+Dkq+aaUNBvUDX+BHSoQKcRO+e4wbANUW4oKKFLl9F
-	q1fhwH7FibUbxT9Kk+cgXNothxhJbQNNWpSLRWQRaZWZPHMcUO2QbWzGfdMDGP+tynissaepD6wPp
-	kAMNqIs2IuHW3TJzF3UkdH7kKa488jA7UCsSOwSz9WfU5PdvbLQe+hGb7npIx0LDKHsfWq3wGZxp1
-	QDq6yw6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SnnXynEmlnD9mw13jyduYJJjR4QpkYRf9mDUFXT/E+0=; b=jf8cFWLaazXWj6tlg0YezYLdS3
+	HBpbnKWQ4mlJ9vpx4CVQLDlm0+QJ3SZIg5o4zSXeQ8kb+byXujAzJu0xto3DxriqW35AScg/DQPhL
+	/1i6Yywd8rQH6e3drRX5U9KldBleACtK62Y5Bq+Wnvig6KVcHUOyYzIF96i+/KvrT2PLxXoUjrGC8
+	GuHXwgB4/a/5mMO8p7ahirDEBTZfUqg19uIgUTUliHpgsW1zkcM54SBrxPYKbNKBMORLKYZKd33q/
+	VlK7//a8t7TxjRbuU0/xRhMt3SjHe8TRgg5OLiFt4BjTPeg60zhPCXDxKM5rXxYSJkPL4iUdsA93a
+	3w5atWmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnzu-00000003S7U-0VmX;
-	Tue, 11 Feb 2025 11:00:10 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1tho1H-00000003SKJ-1A4d;
+	Tue, 11 Feb 2025 11:01:35 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thniY-00000003Odc-3Hiz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 10:42:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1739270529; x=1739875329; i=markus.elfring@web.de;
-	bh=OSHQXJVDmU6SV3Z91F8kaCXOiiG5oCxvSWGJam0x8yg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=bUvigBNkmTH4ndoVYsHo1tlhwRjjdsLA0gT18pYDXY3dbO7/VfsMZn/owZt7B//U
-	 IQsSYbpYe1Is61sVML/6oL2bcYh3N9302gA0+3WgefBxmgrnpIpen6wZ1C4e1hCtg
-	 Bd13dxoNNWGvt5ihg0Iyw12A6y5flqkVh5lDt96c6xz4/29ZzpGIO7m76aXA9l4rV
-	 EbkV9mv8oeYFGkv5EUcVoMSwYN0FiTGIQTy92zLzkQT4xvPM6tq6k++v4lr29HeYt
-	 zdXCIQtZjzUkoEEUo+qcnU+MlSzoK4uh9DdbEnXMR+hhYywgG9AlTHKwd9/jBFV8e
-	 zyhB6iVy3aGq7SuSlQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.93.9]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MYLmq-1tuVKE3sVm-00Opoi; Tue, 11
- Feb 2025 11:42:08 +0100
-Message-ID: <10bfed13-107f-4f84-967a-28985613dbfd@web.de>
-Date: Tue, 11 Feb 2025 11:42:05 +0100
+	id 1thnkJ-00000003P4j-0mYw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 11 Feb 2025 10:44:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=SnnXynEmlnD9mw13jyduYJJjR4QpkYRf9mDUFXT/E+0=; b=ZjG3clFisqwpnxOsPgGIRruXqx
+	8QuCo21iTmNtA6L3oGAkWV8wwGF5SXmBQVm24dCPw/Xf0/socdwWDjeEiMdwY+bbrKN572w5+tSah
+	3buRtHGBAkk5RdQacffe2t6pXXXck25ooq09TcpM3rzf8ogJppS5Hd2/qMJBxwz8/h78EHosEtqlw
+	yh8As5a7NTXjWoLrjHYxIinA6GHVVfR5sLRFpfCyQIxo33TRbeCbfPgxsnJrsNgSxStnVZdg5FvB3
+	jeydxQ/HdkUjgetGod4rv6ZGo48/aGfEkecisXfNyyqX/bmLWUsAN6Vxf9UgXi5wSftlyEjPKnuoZ
+	SBy6Mdjw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1thnkG-00000000ydI-3HfM;
+	Tue, 11 Feb 2025 10:44:00 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id E50383004AF; Tue, 11 Feb 2025 11:43:52 +0100 (CET)
+Date: Tue, 11 Feb 2025 11:43:52 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
+	Dohyun Kim <dohyunkim@google.com>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	Kernel Team <kernel-team@meta.com>
+Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
+Message-ID: <20250211104352.GC29593@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com>
+ <20250210093840.GE10324@noisy.programming.kicks-ass.net>
+ <20250210104931.GE31462@noisy.programming.kicks-ass.net>
+ <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3] drm: xlnx: zynqmp_dpsub: Add NULL checks in
- zynqmp_audio_init()
-To: Charles Han <hanchunchao@inspur.com>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, David Airlie <airlied@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Vishal Sagar <vishal.sagar@amd.com>
-References: <20250211102049.6468-1-hanchunchao@inspur.com>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250211102049.6468-1-hanchunchao@inspur.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:VF9iBVjP7Bc1WrNqr5ehNEGOQ+3CrQ4P+mDm8+nOW4HDm84jUYX
- +oGdg0sLuCAKmEtil8bp8BzGEhRo6M53GnxJoZRfkYDKEMCGqYMbhLQQ6CMAySNRIuJXjRD
- MjLlYCI/AI8yvMEU6JQYArWyR2jGIL/aJKljSEuLHFVxNHokFbojJGctVQuY3TYSjgZtNaK
- fEw8r2rH1Cu6je/gOlE4A==
-UI-OutboundReport: notjunk:1;M01:P0:HdrVnq9INRc=;FnTXg7AbGVetljO/FZU2SzMHIjf
- WkMc/F7nJGWJNnb0SgAlMJHji/JO1vfL+mPH5WpzjReSujSFajQRixQ1hDAs9NgiwSYgA8Wg8
- 1rAO58C3U+aqc6Bmrv9KyYH+PPJluhV0PzdSAFk9EhXt+B78TJkFwfJtYTCEhSRPGWYSjoNts
- xWdGE8saEIm/n6qj2a1E0CnmaRYjKent+JUiqFRKPSlludoQj7K7vEc1RQRLTtM0BWzbgcEbx
- XSxDnwrb3ORFEmNRfnXr3nSBs5XtiAISkfhb+9Cht2NmurFliidMOxlU+Pfql/w/pi2w0Vh7V
- jW+IRrz+L2Dla6sgTk+DEhu9L2uhy69Jq20uTQlDRjKELHxrRe7LCKosbnZ5EwJHpehQ1d70o
- Bu9s/AhAEzHFTdF4S31xiLByG/QdapbeaZ0ZUHGLwdt0RMtNBWF/SzSZRkZsAPcikrP+naQRU
- UQpMDt9I5tMXoeomDLEAwMdFNLuzALJoz7jei/1y+TPH74H6Cx75xqbbUM5UUaturutxnOAZT
- 8eLqOtJb8YAZ7azFuR04vKbu6ZOlvW/dRZ58QmPB7VpVac9ivBektPjXVgSqoSdIkuk5KMF7R
- Hu4OmiY6IWXZY1326oaoreZcEpDJgMLOYyVubG2XsY/lIhbsHm0bNJsbrVNx8lL2cvDT6qpGX
- s7K5lo3UCU06Kk2btdKUre9sUOqO9Zn9WfeBSX1Znswaxqi8kiDIRc5fpd1WVT+9A9CKXpCc1
- cZtq5bxvPH+nVg/v0RJd4wmubNvLoO6dJvtT0ULM5wo6JdLPqhOXOKl6YwX8arA9YP6ptMVXi
- T+SjSFOYWfJFjbrR7zs/dqWCKhM8eAyblekmoa8mx0HsmTQP80v8BGHe4xYSlUZobkH9Tfs9w
- Imrx5vsN3me44QXDr91GGJx8teWo+OuBDIoZIJ5nWTsVgomGXxWMXxMwaXLPog25tt3TAsrne
- RIZ5joYaNpyMEgNdJGLW+NTFrndertUW4Fi3cHG3mlbb1dWtaPeESMejH8cUYn/Ce/zUpxSO9
- Jcg+q8eZC61MsHis7ezyfj/ynUd2piBPQEdpKyKK4dsZm0X6hETO68AlDLvtGXEw1+e9O6lZV
- HomOGQf+vA91/ZZWL2+nyWUM9pTt55dEPbekWyZgxWNe5gW8kyO+h6iasselSs/YwulIrBK4W
- E6MhCvbli0c/vrzwuMU43pY99wVp4ppAKabfzD/+eRfexUlHf2dDRRuvIIny9ekH2PCgpx+N9
- Kv6jBFncIGBnktdQJkLthJQAurODKHy9Vd3U1VEv1vt3QJh90RXDZ/8tn3x8qXCxRrBGDX9b5
- MvANZWbVnoK2Ve0DHxEiIr5reqC81ZGBpMhTIvAr2+ckoC1Ze/JlgQg9dFjonMF/m86hk/HH3
- zHGZLppQX5tb8ru+GdLGldwO5szN88sQbulWLJLsSG5Tmia3OHsVeoEYWPIg2NJqC6rNeVicP
- 6OueuBYbr4TIp6LFEDqwUJDBGmaY=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_024215_137060_F34EA763 
-X-CRM114-Status: UNSURE (   5.18  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,22 +85,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> ---
->  drivers/gpu/drm/xlnx/zynqmp_dp_audio.c | 4 ++++
-=E2=80=A6
+On Mon, Feb 10, 2025 at 08:37:06PM -0800, Alexei Starovoitov wrote:
+> On Mon, Feb 10, 2025 at 2:49 AM Peter Zijlstra <peterz@infradead.org> wrote:
+> > >
+> > > Do you force unload the BPF program?
+> 
+> Not yet. As you can imagine, cancelling bpf program is much
+> harder than sending sigkill to the user space process.
 
-See also:
-https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
-viously+submitted+patch%22
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.14-rc2#n310
+So you are killing the user program? Because it wasn't at all clear what
+if anything is done when this failure case is tripped.
 
+> The prog needs to safely free all the resources it holds.
+> This work was ongoing for a couple years now with numerous discussions.
 
->> I will read these documents carefully.
+Well, for you maybe, I'm new here. This is only the second submission,
+and really only the first one I got to mostly read.
 
-I would miss more desirable effects accordingly.
+> > Even the simple AB-BA case,
+> >
+> >   CPU0          CPU1
+> >   lock-A        lock-B
+> >   lock-B        lock-A <-
+> >
+> > just having a random lock op return -ETIMO doesn't actually solve
+> > anything. Suppose CPU1's lock-A will time out; it will have to unwind
+> > and release lock-B before CPU0 can make progress.
+> >
+> > Worse, if CPU1 isn't quick enough to unwind and release B, then CPU0's
+> > lock-B will also time out.
+> >
+> > At which point they'll both try again and you're stuck in the same
+> > place, no?
+> 
+> Not really. You're missing that deadlock is not a normal case.
 
-Regards,
-Markus
+Well, if this is unpriv user programs, you should most definitely
+consider them the normal case. Must assume user space is malicious.
+
+> As soon as we have cancellation logic working we will be "sigkilling"
+> prog where deadlock was detected.
+
+Ah, so that's the plan, but not yet included here? This means that every
+BPF program invocation must be 'cancellable'? What if kernel thread is
+hitting tracepoint or somesuch?
+
+So much details not clear to me and not explained either :/
+
+> In this patch the verifier guarantees that the prog must check
+> the return value from bpf_res_spin_lock().
+
+Yeah, but so what? It can check and still not do the right thing. Only
+checking the return value is consumed somehow doesn't really help much.
+
+> The prog cannot keep re-trying.
+> The only thing it can do is to exit.
+
+Right, but it might have already modified things, how are you going to
+recover from that?
+
+> Failing to grab res_spin_lock() is not a normal condition.
+
+If you're going to be exposing this to unpriv, I really do think you
+should assume it to be the normal case.
+
+> The prog has to implement a fallback path for it,
+
+But verifier must verify it is sane fallback, how can it do that?
+
+> > Given you *have* to unwind to make progress; why not move the entire
+> > thing to a wound-wait style lock? Then you also get rid of the whole
+> > timeout mess.
+> 
+> We looked at things like ww_mutex_lock, but they don't fit.
+> wound-wait is for databases where deadlock is normal and expected.
+> The transaction has to be aborted and retried.
+
+Right, which to me sounds exactly like what you want for unpriv.
+
+Have the program structured such that it must acquire all locks before
+it does a modification / store -- and have the verifier enforce this.
+Then any lock failure can be handled by the bpf core, not the program
+itself. Core can unlock all previously acquired locks, and core can
+either re-attempt the program or 'skip' it after N failures.
+
+It does mean the bpf core needs to track the acquired locks -- which you
+already do, except it becomes mandatory, prog cannot acquire more than
+~32 locks.
+
+> res_spin_lock is different. It's kinda safe spin_lock that doesn't
+> brick the kernel.
+
+Well, 1/2 second is pretty much bricked imo.
+
+> That was a conscious trade-off. Deadlocks are not normal.
+
+I really do think you should assume they are normal, unpriv and all
+that.
+
 
