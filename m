@@ -4,113 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02A5C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F61AC021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxaPkN2pWgbch+lAwUvcXGnPwN0bN+ElIgcvl72g/xg=; b=1NrCRnINxEVv+zLjAHwRIvv0+5
-	16c7nrO3waMeHcTm0oQ9RYbqzmbLH1GsejWibbEOuXwObgqhiwW7aFQw0EXGWiMh6QovCR+ADlSbr
-	+iDi9ui5T4gs2PyVSljA4v0iexlXznTz/cqwfXa5/Ewtt6e39TS625SP9VONCID/+A4Yz1iuN9pjh
-	WHqZ6KYPEeWvAWAhzINt1043X+BpPg8q0KceW2B27sNP7DXnWDq0vY+CBjgU0XrVOSSEMpcB1tCV1
-	8vkCw2Izlrsh/z6t0IrFPJQaWnOE/ZIlSVVW8FdjgG6FYdkJfjwpTg4yo9++RxOVVcu/eJPW31+ap
-	vfc9GU+g==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZxB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=AKaX+6qvyWsNzV45VqbcxedxyW
+	ll/wQOCO33i2WH9Pq7hv4dmNCpr2uwmLlklxq8XqKH2yOotio29njNt3CqUog4Tc/V4OhD4g/CyaF
+	+Txs0fj9HD2nIG0e6MZMYWnm+/pVLIwmQa6t2pbRQ0psLcbs4M666eJT9V4aHS8i41/XGFKFWa5KC
+	HjmYB9/NEh+vo7N7Ah/dtLVtK1tiyi0ozdGyOq6wUaP4pCeDlpi9RH9lRsq1SJdnjnjtmSDiiPFrO
+	s+VxTzgjdgB3/YKdR4F2TRqu3rZ7hR3U/APNGY8lusejIGfrOG+KaEI/vsS4MXJfEzN2zOPnsE5Ay
+	u6sEB//A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thl2M-00000002t4l-48Ed;
-	Tue, 11 Feb 2025 07:50:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thl3l-00000002tLC-0lRS;
+	Tue, 11 Feb 2025 07:51:57 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkzq-00000002sSf-3XT0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 07:47:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7E940A40122;
-	Tue, 11 Feb 2025 07:46:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9942FC4CEDD;
-	Tue, 11 Feb 2025 07:47:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739260073;
-	bh=/lOfEXoHSRWWUu6+9XbL3umNJ/qo8MjCSUqOVlhorkE=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=aggTEq4C9VuXFAfvWM9K7BuJuN+4penmdTWT6pUHOttH+yVEglButCGmm2CozofoJ
-	 fdUivUX/Z+rmmV4wPiGX9Imcr1Z/BVw4qjXr+QP9ASb0V7G6aBKAtoSVGl+tXD5Gkx
-	 1fHgvztsFwa3RGFr3190/sQ5YRgo3rclvaewBGXI5+8HR/p2iKnmgapUSC40Em7q3D
-	 BtEQHCOJNcrath8HWynPmEzY5kVVqwNwezUY2qfb836IKwlnCo9HrtGzW9ZiBj7Eef
-	 EDUtKmfWSLbap5h71kfln25xA5EAUSRR+kTHtpo9eu69EfXzTYNRTRmUX+VRxPzyBW
-	 buhpr5Uscohwg==
-Message-ID: <c699c7f8-4f2d-4908-b52e-cd3e46b7b4e4@kernel.org>
-Date: Tue, 11 Feb 2025 08:47:48 +0100
+	id 1thl0m-00000002seq-0IWU;
+	Tue, 11 Feb 2025 07:48:53 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id B00B513802BF;
+	Tue, 11 Feb 2025 02:48:48 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Tue, 11 Feb 2025 02:48:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1739260128;
+	 x=1739346528; bh=ZxB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=
+	2/HEGcR9OGOaAwRQO6L6sMF2KbOtsNplv7MNsDt/YCxHuhPRcqAYtEiGoZgIwOfc
+	uL3sX3JSq1cawjwJkoxV3QTUgisQ3ya7PSS1ytut1LTD8PGj+BKk96+KJE65RNBW
+	Tsphgr7hCXE4tVIJ34oYnPVbiB4vjSTfc9/NOGeoGbswiwgC1a+6NHKuopy+NWom
+	W8Aye1T6NHlCILvx9Uo/L5Kan0YegyE5vRZFt0JnSxM/E7xAAFXkVMgaJLxHkNSW
+	7vSPcFaDVUCUX03VcnEb5QcRWhgQe/5RuBfnXo/EPUTyYvPI+L0q+ljabvM280SI
+	8+YYDn0Hmr5uRCF9PS3rqw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1739260128; x=1739346528; bh=Z
+	xB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=I4IxVtCnnAUwaMwdS
+	HBPGl0s8Bs7N5OvfxUUj7rmVpwUDenuSUtoWA8qW7iOVzTrXUCYnMvk85s2z0xoR
+	WwjfijsoIZ2gTZvqKVWotAOhcud1aPNGWjwV5EUeMHeY8JPZJfZ+Xl8EawFUVWba
+	L3G6vsOf9tVmmeY9c0Wm3+WHg4QEmtkIr425BlwrsmYGhpE/Bmny9s4MR27hsZYL
+	y6+mygr/MkXkIGwZMSloEQsmGVX47ObWdyppCTZAe/elBW2w3wJ2xxOqyqnb6WE1
+	pUlHrn/PNj4fbO2AgIJp64uaid65I+6U3nPUa7F1LIYYVGTHDQvsRUDBL0TAlSC2
+	PtUrg==
+X-ME-Sender: <xms:3wCrZ2JHs4IEKLoCYrrqhDKpD0sECcz6XTbclk5k5JQOCStIbUrLoA>
+    <xme:3wCrZ-KMxcrDJeRW5DKhBWQAbB8In_PeccU4ovCK8v_85BQrb0r0MSUwuSRA9sLTX
+    4SX2c5Sd_RQzhV7q7Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdegfecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfekledtffefhffghfetteehuefhgfetgefhtdeu
+    feduueeltefghedtjeeifffhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
+    hssegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgt
+    ohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoh
+    eprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehhohifrghr
+    uggthhhuleehsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhrohhgvghrshesghhooh
+    hglhgvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhg
+    pdhrtghpthhtoheprggurhhirghnrdhhuhhnthgvrhesihhnthgvlhdrtghomhdprhgtph
+    htthhopegrtghmvgeskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:3wCrZ2tgaKZd-r19tJFBLx1c9olIzWTs4ZaRSponWadm2LzZ8pniRQ>
+    <xmx:3wCrZ7abmJIQQGxBya7YEj5PHj7E42WKmlGvJuuqMoyGm5CmplJPQg>
+    <xmx:3wCrZ9aU6yItPSC8xJtXsBq-fJNVShJH7DJB1OOPcE4_GM_L7YKmfw>
+    <xmx:3wCrZ3A_NdBF4H9b_qRB98P-LNzrFo0iZkHCoC5kpllQIinlE4Y6uA>
+    <xmx:4ACrZwlxbCT18wcLzBJjhR0WUz3hezoGAamIPURRlc7nthRHwLvQT-fx>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 374062220072; Tue, 11 Feb 2025 02:48:47 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/16] dt-bindings: clock: at91: Split up per SoC
- partially
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20250210164506.495747-1-ada@thorsis.com>
- <20250210164506.495747-2-ada@thorsis.com>
- <a199849a-ca36-439d-8246-7addd9a78833@kernel.org>
- <20250211-cuddly-system-33432b3ced5f@thorsis.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250211-cuddly-system-33432b3ced5f@thorsis.com>
-Content-Type: text/plain; charset=UTF-8
+Date: Tue, 11 Feb 2025 08:48:26 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ian Rogers" <irogers@google.com>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Ingo Molnar" <mingo@redhat.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+ "Jiri Olsa" <jolsa@kernel.org>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "Kan Liang" <kan.liang@linux.intel.com>,
+ "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
+ "James Clark" <james.clark@linaro.org>,
+ "Mike Leach" <mike.leach@linaro.org>, "Leo Yan" <leo.yan@linux.dev>,
+ guoren <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Charlie Jenkins" <charlie@rivosinc.com>,
+ "Bibo Mao" <maobibo@loongson.cn>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Jiri Slaby" <jirislaby@kernel.org>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ "Howard Chu" <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-riscv@lists.infradead.org
+Message-Id: <07c5c3ad-5a6d-4eda-95f2-ed16e7504d4c@app.fastmail.com>
+In-Reply-To: <20250210165108.95894-4-irogers@google.com>
+References: <20250210165108.95894-1-irogers@google.com>
+ <20250210165108.95894-4-irogers@google.com>
+Subject: Re: [PATCH v2 3/7] perf syscalltbl: Remove struct syscalltbl
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_234755_037292_7C41CBF0 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20250210_234852_187398_0E766FD9 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,100 +135,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 08:16, Alexander Dahl wrote:
-> Hello everyone,
-> 
-> Am Mon, Feb 10, 2025 at 06:05:31PM +0100 schrieb Krzysztof Kozlowski:
->> On 10/02/2025 17:44, Alexander Dahl wrote:
->>> Before adding even more new indexes creating more holes in the
->>> clk at91 drivers pmc_data->chws arrays, split this up.
->>>
->>> This is a partial split up only for SoCs affected by upcoming changes
->>> and by that PMC_MAIN + x hack, others could follow by the same scheme.
->>>
->>> Binding splitup was proposed for several reasons:
->>>
->>> 1) keep the driver code simple, readable, and efficient
->>> 2) avoid accidental array index duplication
->>> 3) avoid memory waste by creating more and more unused array members.
->>>
->>> Old values are kept to not break dts, and to maintain dt ABI.
->>>
->>> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
->>> Signed-off-by: Alexander Dahl <ada@thorsis.com>
->>> ---
->>>
->>> Notes:
->>>     v2:
->>>     - new patch, not present in v1
->>>
->>>  .../dt-bindings/clock/microchip,sam9x60-pmc.h | 19 +++++++++++
->>>  .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 25 +++++++++++++++
->>>  .../clock/microchip,sama7d65-pmc.h            | 32 +++++++++++++++++++
->>>  .../dt-bindings/clock/microchip,sama7g5-pmc.h | 24 ++++++++++++++
->>>  4 files changed, 100 insertions(+)
->>>  create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>>  create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
->>>  create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
->>>  create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
->>>
->>> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> new file mode 100644
->>> index 0000000000000..e01e867e8c4da
->>> --- /dev/null
->>> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
->>> @@ -0,0 +1,19 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
->>> +/*
->>> + * The constants defined in this header are being used in dts and in
->>> + * at91 sam9x60 clock driver.
->>> + */
->>> +
->>> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
->>> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
->>> +
->>> +#include <dt-bindings/clock/at91.h>
->>> +
->>> +/* old from before bindings splitup */
->>> +#define SAM9X60_PMC_MCK		PMC_MCK		/* 1 */
->>> +#define SAM9X60_PMC_UTMI	PMC_UTMI	/* 2 */
->>> +#define SAM9X60_PMC_MAIN	PMC_MAIN	/* 3 */
->>> +
->>> +#define SAM9X60_PMC_PLLACK	PMC_PLLACK	/* 7 */
->>
->> IIUC, you want to have bindings per SoC, so why not adding proper
->> constants here instead of including entire old binding header? The
->> binding header should be entirely abandoned later.
-> 
-> Which binding header should be abandoned entirely?
+On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
+> The syscalltbl held entries of system call name and number pairs,
+> generated from a native syscalltbl at start up. As there are gaps in
+> the system call number there is a notion of index into the
+> table. Going forward we want the system call table to be identifiable
+> by a machine type, for example, i386 vs x86-64. Change the interface
+> to the syscalltbl so (1) a (currently unused machine type of EM_HOST)
+> is passed (2) the index to syscall number and system call name mapping
+> is computed at build time.
+>
+> Two tables are used for this, an array of system call number to name,
+> an array of system call numbers sorted by the system call name. The
+> sorted array doesn't store strings in part to save memory and
+> relocations. The index notion is carried forward and is an index into
+> the sorted array of system call numbers, the data structures are
+> opaque (held only in syscalltbl.c), and so the number of indices for a
+> machine type is exposed as a new API.
+>
+> The arrays are computed in the syscalltbl.sh script and so no start-up
+> time computation and storage is necessary.
+>
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> Reviewed-by: Howard Chu <howardchu95@gmail.com>
 
-The one you claim to split. I assume it is the same  one included here.
+Your changes look fine to me, but I noticed one part that may
+be wrong before and after your patch:
 
 > 
-> The bindings per SoC idea was proposed in series v1 feedback.  I'm
-> neither a binding nor a clock expeert.  As far as I understood it's
-> important to keep the exact same values as before to not change any
+> -const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
+> -static const char *const *syscalltbl_native = syscalltbl;
+> +const char *syscalltbl__name(int e_machine __maybe_unused, int id)
+> +{
+> +	if (id >= 0 && id <= (int)ARRAY_SIZE(syscall_num_to_name))
+> +		return syscall_num_to_name[id];
+> +	return NULL;
+> +}
 
-Yes, I did not propose to change any IDs.
+The syscall numbers on mips (and previously on ia64) are offset by
+a large number depending on the ABI (o32/n32/n64). I assume what
+we want here is to have the small numbers without the offset in
+syscall_num_to_name[], but that requires adding the offset during
+the lookup. Can you check if this is handled correctly?
 
-> ABI.  The non SoC specific values are still used on older SoCs of the
-> at91 family, so this is why I used the old constants for now.
-> 
-> These PMC indexes are not the only definitions in
-> dt-bindings/clock/at91.h however, there are more which are not SoC
-> specific.
-> 
-> I'd like some thoughts from the Microchip maintainers here,
-> what's their idea on how to proceed with the at91 clock stuff?
-> 
-> This works for me, but the current state is more or less still an idea
-> as base for discussion.  Please don't make it overly complicated, this
-> is not the primary focus of my work.
-
-You made this binding more complicated than it should be - instead of
-simple list of clocks you include some other file and split between old
-and new.
-
-Best regards,
-Krzysztof
+      Arnd
 
