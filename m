@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D07C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F38C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=; b=mu0zE6k/0CLxvk
-	MyfE67mVEVjVXAVizXi4HmL47y/Un/ZDGvE2Gth3W7SvkGDYa4L5Ez6lZetNJBMwmApzsKn+Eq5Vw
-	js9lN4crPoB6hCAck8MLm41I07L7gvSwATGZoo+v0P9Taj6mCsdphLTXpUUzXJP9Rw/Tfbady+u4N
-	CvtgiTVCYlvcRogqHAghtncCKSFUO9EJujb80kmZP6xpZIPshsKG9NDqOTU9MGBetndljFzajvfOA
-	K7EypzK4nRGsRJkCmNer1+zim2sXj6axBE5Z87Knbb1kvS9vFtEkniCsM3AqMXiQoR6Xi8T/bwmua
-	8RuvJGtlq1LlHSOOJdRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=; b=eKYD4+wcbOzI1zHmrAvrsvvkU9
+	b0p0Gywszv0DjR++i7pRoieBzh6CO9EkUESgk9fFgKHuP7I5uBX+mGqOUCfnJbXhlZxhuCR1VvzHA
+	YvlzSNgp0ECVB6Jg2K0/hNYN8nluVJ8rig6e0riyU/ON+RClYx5zFuAyCGdtKUac3GxkDo7OhkZS0
+	OgBZfN+BsX6zlfHrsFGu+Es0wCjCkTXf8NhGXMGYFGP2yihwq38/VerrQ9zAIVYsKlkqQ7wzW+POO
+	zdrzHxSNGzvXP8b04HvVznmvtRHwWxZ0o/QykuKQBU4hqK9ninBxQBlRGLnnj2tN9WXuXPPB5NgxS
+	egN3bp7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmgG-00000003C4z-0f9U;
-	Tue, 11 Feb 2025 09:35:48 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1thmi6-00000003D9g-1Xfv;
+	Tue, 11 Feb 2025 09:37:42 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmal-00000003AkW-26HP
+	id 1thmge-00000003CNA-3IDG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 09:30:08 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21f61b01630so54643935ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:30:07 -0800 (PST)
+	Tue, 11 Feb 2025 09:36:14 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38ddc36b81dso1422670f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:36:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1739266206; x=1739871006; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=linaro.org; s=google; t=1739266571; x=1739871371; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=;
-        b=ZSXhBw1U0mbR2TRp2cct4a/5WCV8TpEUelCWEvrSPCRrD8estdM3Y/WeclAXEtSqIS
-         V5fMj11wVAoDWg9+l6Ihd8xwLoUWLBUfi5orhp3NXF74gtz/BzdIaHlJTSAtPyV9hhVt
-         dTR8JQ/GH3n03r7GtLy4leGfIqYzjbohqrXQjR/hy3o6x5HNVKGD9kz06TWD0UqPRhqU
-         qlWV4Tv/2+rvFUcrCGEO7cGkzj8c6T/PzRYP3TNdbGrtSeyqqrXfn9AFiyqCxIcGmQQC
-         EQueb687cYoRw5NnH8QSQRNAPGrtpTiBj7kUBkXQ6vEODMmCTBjYNDSzW7+9dty+xYaK
-         mTXQ==
+        bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=;
+        b=JCBphnx2Kh44EHCGZWP94IcKp9iweSX4L2Sf7lCbT4TBkAwwySlilrKifxYYLXOKRl
+         L1kgAg1mzDre8A4u0JZ6+KLP+nQMlC3xgntE6xMcp1IB0f5kKRYn8BGKX7OB/GuTiCiY
+         O9Sru9lDUQ/ceL1sYtNYcUcmJNJVSQfHOnDnt5+8UO5XZAfjt3ERyEDnMZqp3EoBVbq4
+         4sg+3GwNVrTXWLXLCAA3fa+XgFIf+qAK8x2m/4fIBW4nouASzbN1lKe4gmj74fM17/R2
+         xe27lMxTUI7PMlZnt2K+i1+saCnHd9QJRbfLN3OcaKLOdSfkdP0lU61QgaKrAdE2/sTP
+         NrYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739266206; x=1739871006;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1739266571; x=1739871371;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=;
-        b=e/H/HxiqyuIwEjK1cyEbK4LZ9NF3wBxEo59DviDXG95eon8x/lAsdKdXEZ21jtekaA
-         4RX+s5QgpYKXZlIzVpLOQaO5M3pGEsORZ4sI7sj3u6qmr0KJ9JdZjuMIQW7ANOdGa+Bt
-         h+A1DbS6xl7gSY4KPi0awL33ElNUIx+cubfwubtRIPNbP4zSB+6p0/aM2+mCgQQIf2c8
-         4ffKoOCF4WM4hPhFtt4nnU7nH0nTuNYIwXG1dXZ9f6m9Zm59P1l1WcViDbw/RjrOwdl/
-         0HL+78lgrwxXohhCwuKfZUJd4xDEzWx9ATgZ6xmTfixLxTXRu63dGP/COXPv1NSlNFQp
-         mr5A==
-X-Forwarded-Encrypted: i=1; AJvYcCVAWdGfwIaKKrAZ6rz7egX3nAcblmc8CDlRbutb1SQ1nqVV3RRM3HnOfy1qClEWD3ozF/dsdVaO93yaOzKe/0Xv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6BRH4NGfViHp/+LvsuTSBp7cZ4Z0xRxxkedkV27CakzHuWbh1
-	ihxj831MD+N2ZuiREUu0NLIBgU+UdA4ab4i2jBL/QhY+984vqqe7kzLysiboL+g=
-X-Gm-Gg: ASbGnctG8GUV7fcd2KJ/LWLulbsnWep3KHGfCI3aFJg2fzZXonVCc8yv7sKOVxFmq87
-	OlZEgcgrWsvZ27pMyuN4jud54ZpJNY0Dxbx1e86E850YTm9Gday926G+4biXgwguiOwz3ywwgt4
-	OsciTWZQv1AdxG5Gay4JdouQUxC2yET/FlQ1o5uOvI5nfnlGrNb81lGfPtMwlLCKTM7Rd4CcIHE
-	vJoYP50IMhDOr4Qz9TyT3aiUzAvbShjjVzrumQM4nY2PHiTBrmtYu0psFjMrIRW1RJqxy23ElQp
-	deE8guKcOnxZ48CWVYIEzGfzx7Y6wNEVbPmWOqqn5g==
-X-Google-Smtp-Source: AGHT+IHz2wraFOMYkQVidUPLFFmnf8k8K12BClWjhTy636Rw37Ve8wP0uUjF/xA18SklE94GG5V2SA==
-X-Received: by 2002:a05:6a00:194e:b0:724:db17:f975 with SMTP id d2e1a72fcca58-73218ca2438mr4671628b3a.12.1739266206470;
-        Tue, 11 Feb 2025 01:30:06 -0800 (PST)
-Received: from [10.84.150.121] ([203.208.167.153])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-730932871f1sm2921625b3a.151.2025.02.11.01.29.59
+        bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=;
+        b=bmeWyKwOe4XC1bDi6GaaVPN1GELrnDicgbEPUQLL+pK0QIjXDV3DOvol/qOuDlVLvN
+         cK7fFiNkt0Ltv+HhOmawE8o5nZ/ddPSZdXqUaMnTgrZwNuYlwM/cWt0qtAWXP9VimvPe
+         CaSJqMKxa6dsDXdyYYjeFVXmOfKM+VNMQKu6HRkCxnrYOIZ2+s7DEAkJI+EYtcD9StTs
+         gHBVroTSdD9GB0VFZ6qweJ0i/3i+qoKWvQu+CWEa8X+jsjg4MOydRD3ItN/wlIqO27gX
+         0wkC9NlCvuYNIZEiouvL+Wl88KndgEkvB2GoMWOtXJgNKRtO0CQq3qSgI6aFUiNRvoj+
+         28Aw==
+X-Forwarded-Encrypted: i=1; AJvYcCWK1PocY9Sj4X3dfG1mKMSlxuYaFmkvn8EGtaWN2/vv1Ou7MpJtFTsqQhY1U0jU1I+zeB3WY8BjsIWoHEM+Cgee@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYF2xaCM/L9zRyoX04Nkc4eu+Hg6BxEhLjHo4K8j7pKXw+bdXy
+	/mV1puP5Artr6Gc5zSBqR/bHMZD3l+3+XoxpodTFm/nDUyrjhZjYGsvGlGo+CEg=
+X-Gm-Gg: ASbGncuWnmsrL9+Uf+1PTqYvZuLtyBJhgut6ZKxio03u2FgoaIZ1Mh3YhFeWtDRKDaj
+	l8IqNEP3+m9mhlle19ZqUulcoNgnU3p+gUQtIUrW+lP+qbE4nU+Mb+yOu6jA96n0oED7B1D7BxI
+	qdtO1K5DfoZR8DwYaLyHp0/nJKeAzft0cSOOA5wU+H7PacsIoG8/p36iOZT854EJjbNRdu7jSHz
+	gmSMaeCEPtVF90QdCxtemaExNm352hX/ryJEWqFoineLDka96oFw4MTjkl8dXez5qBwZsTNyRDB
+	jOG9T3w+xScxroNrg3bOVmsIzxlNaAHjJg1XE/f3HXiJ4fPeX5xzCCM=
+X-Google-Smtp-Source: AGHT+IFMZ1pKShIvwsLqT2YFSCvSRKsdHNHy86URkgTJ51eGtiPfoPHKZ+vrVH5UXF4X2AkG0HdYOQ==
+X-Received: by 2002:a5d:47c2:0:b0:386:374b:e8bc with SMTP id ffacd0b85a97d-38de43a5bf1mr2011347f8f.15.1739266571151;
+        Tue, 11 Feb 2025 01:36:11 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc98844f6sm11773513f8f.42.2025.02.11.01.36.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 01:30:06 -0800 (PST)
-Message-ID: <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
-Date: Tue, 11 Feb 2025 17:29:57 +0800
+        Tue, 11 Feb 2025 01:36:10 -0800 (PST)
+Message-ID: <7f17cc55-a741-4bb8-9513-0580ca6fedd3@linaro.org>
+Date: Tue, 11 Feb 2025 10:36:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
- compaction
+Subject: Re: [PATCH 2/2] thermal: rockchip: Support the rk3562 SoC in thermal
+ driver
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+ Shaohan Yao <shaohan.yao@rock-chips.com>, linux-pm@vger.kernel.org,
+ Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org,
+ Zhang Rui <rui.zhang@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20241224094015.3816301-1-kever.yang@rock-chips.com>
+ <20241224094015.3816301-2-kever.yang@rock-chips.com>
 Content-Language: en-US
-To: David Hildenbrand <david@redhat.com>
-References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
- <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
- <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
- <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241224094015.3816301-2-kever.yang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_013007_554689_9ADC3DC4 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250211_013612_830048_EAC50336 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,58 +101,212 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/2/11 17:14, David Hildenbrand wrote:
-> On 11.02.25 04:45, Qi Zheng wrote:
->> Hi Russell,
->>
->> On 2025/2/11 01:03, Russell King (Oracle) wrote:
->>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
->>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
->>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
->>>> dereference resulting in a kernel panic. The culprit seems to be commit
->>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
->>>> Reverting the commit apparently fixes the issue.
->>>
->>> The blamed commit is buggy:
->>>
->>> arch/arm/include/asm/tlbflush.h:
->>> #define update_mmu_cache(vma, addr, ptep) \
->>>           update_mmu_cache_range(NULL, vma, addr, ptep, 1)
->>>
->>> So vmf can be NULL. This didn't used to matter before this commit,
->>> because vmf was not used by ARM's update_mmu_cache_range(). However,
->>> the commit introduced a dereference of it, which now causes a NULL
->>> point dereference.
->>>
->>> Not sure what the correct solution is, but at a guess, both:
->>>
->>>     if (ptl != vmf->ptl)
->>>
->>> need to become:
->>>
->>>     if (!vmf || ptl != vmf->ptl)
->>
->> No, we can't do that, because without using split PTE locks, we would
->> use shared mm->page_table_lock, which would create a deadlock.
+On 24/12/2024 10:40, Kever Yang wrote:
+> From: Shaohan Yao <shaohan.yao@rock-chips.com>
 > 
-> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
-> 
-> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
+> There are one Temperature Sensor on rk3562, channel 0 is for chip.
 
-In this case, if two vmas map the same PTE page, then the same PTE lock
-will be held repeatedly. Right?
+A bit stingy in terms of description, no ?
 
-This seems to be a problem that existed before commit fc9c45b71f43
-("arm: adjust_pte() use pte_offset_map_rw_nolock()").
 
+> Signed-off-by: Shaohan Yao <shaohan.yao@rock-chips.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
 > 
-> ...
-> }
+>   drivers/thermal/rockchip_thermal.c | 112 ++++++++++++++++++++++++++++-
+>   1 file changed, 111 insertions(+), 1 deletion(-)
 > 
+> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
+> index f551df48eef9..aec0e634bd1f 100644
+> --- a/drivers/thermal/rockchip_thermal.c
+> +++ b/drivers/thermal/rockchip_thermal.c
+> @@ -1,6 +1,7 @@
+>   // SPDX-License-Identifier: GPL-2.0-only
+>   /*
+> - * Copyright (c) 2014-2016, Fuzhou Rockchip Electronics Co., Ltd
+> + * Copyright (c) 2014-2021, Fuzhou Rockchip Electronics Co., Ltd.
+> + * Copyright (c) 2021-2024, Rockchip Electronics Co., Ltd.
+>    * Caesar Wang <wxt@rock-chips.com>
+>    */
+>   
+> @@ -185,6 +186,8 @@ struct rockchip_thermal_data {
+>   #define TSADCV2_AUTO_PERIOD_HT			0x6c
+>   #define TSADCV3_AUTO_PERIOD			0x154
+>   #define TSADCV3_AUTO_PERIOD_HT			0x158
+> +#define TSADCV9_Q_MAX				0x210
+> +#define TSADCV9_FLOW_CON			0x218
+>   
+>   #define TSADCV2_AUTO_EN				BIT(0)
+>   #define TSADCV2_AUTO_EN_MASK			BIT(16)
+> @@ -195,6 +198,7 @@ struct rockchip_thermal_data {
+>   #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
+>   
+>   #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
+> +#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
+>   
+>   #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
+>   #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
+> @@ -220,6 +224,12 @@ struct rockchip_thermal_data {
+>   #define TSADCV5_AUTO_PERIOD_HT_TIME		1622 /* 2.5ms */
+>   #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
+>   #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
+> +#define TSADCV7_AUTO_PERIOD_TIME		3000 /* 2.5ms */
+> +#define TSADCV7_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
+> +#define TSADCV12_AUTO_PERIOD_TIME		3000 /* 2.5ms */
+> +#define TSADCV12_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
+> +#define TSADCV3_Q_MAX_VAL			0x7ff /* 11bit 2047 */
+> +#define TSADCV12_Q_MAX_VAL			0xfff /* 12bit 4095 */
+>   
+>   #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
+>   #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
+> @@ -230,6 +240,8 @@ struct rockchip_thermal_data {
+>   
+>   #define PX30_GRF_SOC_CON2			0x0408
+>   
+> +#define RK3562_GRF_TSADC_CON			0x0580
+> +
+>   #define RK3568_GRF_TSADC_CON			0x0600
+>   #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
+>   #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
+> @@ -497,6 +509,45 @@ static const struct tsadc_table rk3399_code_table[] = {
+>   	{TSADCV3_DATA_MASK, 125000},
+>   };
+>   
+> +static const struct tsadc_table rk3562_code_table[] = {
+> +	{0, -40000},
+> +	{1419, -40000},
+> +	{1428, -35000},
+> +	{1436, -30000},
+> +	{1445, -25000},
+> +	{1453, -20000},
+> +	{1462, -15000},
+> +	{1470, -10000},
+> +	{1479, -5000},
+> +	{1487, 0},
+> +	{1496, 5000},
+> +	{1504, 10000},
+> +	{1512, 15000},
+> +	{1521, 20000},
+> +	{1529, 25000},
+> +	{1538, 30000},
+> +	{1546, 35000},
+> +	{1555, 40000},
+> +	{1563, 45000},
+> +	{1572, 50000},
+> +	{1580, 55000},
+> +	{1589, 60000},
+> +	{1598, 65000},
+> +	{1606, 70000},
+> +	{1615, 75000},
+> +	{1623, 80000},
+> +	{1632, 85000},
+> +	{1640, 90000},
+> +	{1648, 95000},
+> +	{1657, 100000},
+> +	{1666, 105000},
+> +	{1674, 110000},
+> +	{1682, 115000},
+> +	{1691, 120000},
+> +	{1699, 125000},
+> +	{TSADCV2_DATA_MASK, 125000},
+> +};
+
+May be it is time to optimize all these tables out of the memory driver?
+
+It is the 9th table introduced.
+
+>   static const struct tsadc_table rk3568_code_table[] = {
+>   	{0, -40000},
+>   	{1584, -40000},
+> @@ -834,6 +885,37 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
+>   			       regs + TSADCV2_AUTO_CON);
+>   }
+>   
+> +static void rk_tsadcv12_initialize(struct regmap *grf, void __iomem *regs,
+> +				   enum tshut_polarity tshut_polarity)
+> +{
+> +	writel_relaxed(TSADCV12_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
+> +	writel_relaxed(TSADCV12_AUTO_PERIOD_HT_TIME,
+> +		       regs + TSADCV3_AUTO_PERIOD_HT);
+> +	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
+> +		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
+> +	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
+> +		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
+> +	writel_relaxed(TSADCV12_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
+> +	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
+> +		       regs + TSADCV2_AUTO_CON);
+> +	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
+> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
+> +			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
+> +			       regs + TSADCV2_AUTO_CON);
+> +	else
+> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
+> +			       regs + TSADCV2_AUTO_CON);
+> +
+> +	if (!IS_ERR(grf)) {
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_TSEN);
+> +		udelay(15);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG0);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG1);
+> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG2);
+> +		usleep_range(100, 200);
+> +	}
+> +}
+> +
+>   static void rk_tsadcv2_irq_ack(void __iomem *regs)
+>   {
+>   	u32 val;
+> @@ -1258,6 +1340,30 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
+>   	},
+>   };
+>   
+> +static const struct rockchip_tsadc_chip rk3562_tsadc_data = {
+> +	.chn_offset = 0,
+> +	.chn_num = 1, /* one channels for tsadc */
+> +
+> +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
+> +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+> +	.tshut_temp = 95000,
+> +
+> +	.initialize = rk_tsadcv12_initialize,
+> +	.irq_ack = rk_tsadcv4_irq_ack,
+> +	.control = rk_tsadcv4_control,
+> +	.get_temp = rk_tsadcv4_get_temp,
+> +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
+> +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
+> +	.set_tshut_mode = rk_tsadcv3_tshut_mode,
+> +
+> +	.table = {
+> +		.id = rk3562_code_table,
+> +		.length = ARRAY_SIZE(rk3562_code_table),
+> +		.data_mask = TSADCV2_DATA_MASK,
+> +		.mode = ADC_INCREMENT,
+> +	},
+> +};
+> +
+>   static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
+>   	/* cpu, gpu */
+>   	.chn_offset = 0,
+> @@ -1337,6 +1443,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
+>   		.compatible = "rockchip,rk3399-tsadc",
+>   		.data = (void *)&rk3399_tsadc_data,
+>   	},
+> +	{
+> +		.compatible = "rockchip,rk3562-tsadc",
+> +		.data = (void *)&rk3562_tsadc_data,
+> +	},
+>   	{
+>   		.compatible = "rockchip,rk3568-tsadc",
+>   		.data = (void *)&rk3568_tsadc_data,
+
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
