@@ -4,99 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2264BC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA3BC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iypHFQvapErVvgNM+puH+9um03GI3lSJujH4j3iqa9M=; b=ZmT7ZvO8LmsUj7M5I4QxU0Gekp
-	N3LYLEA/dkoinD2nKbdVv3Wtu0ZqNmTug94oIxSGk05lqNMeUClErUMKFmuHXjTmgJE1sqeKWf0VN
-	2lRyjGIjWTiNltkH6dRQZ0BSQ05vh449upHdlCJ/9T24TCWqk939f3MV4t2aeu46s+8kQrTrF3KtW
-	ZcInadw8P7I46M6fvt20S3KJx5tdgeQME4qqMCaGqgR3bEmc76GvtQWmJXFgdCwrKe/2r9isGAlY8
-	wJipi3tPYEzBeNK3ft7x3RZMN006+zclfIMZ0p+GkIt2Dk4i8clZOiVKL/ju/7dU1t2qujmQI4UXB
-	6i6+GglQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=; b=2ZViERMr6n3e8oEaBtatIrMgq/
+	Tsip+T5L4yhF9R59Hzs4qU+cSAaFtyH+uY3dcehuPZF7lg5dF5yTCCRAb/J0IlAT2/HzZ9UMY6jMb
+	iyGgAWf0VLpDHoA/4njeDz6i4YRzDaaeYJ1jSEcnMUpO4X1e+1+zPyefRi/c7+KQC9CBW+GQ6yr5y
+	phTU5z3UEc9k1lA7IXeM/DCv6z8SjLfwVgrM4VJYAJ3ePJqXIpqj1ZPrgjrMws3pk8bPFp6c/JnIM
+	osjCw2ajk6XrlfhoKQIUqKPOyTEqw1Ohcp5UkBSrlRY5CNvD137nxIZPflVqbX4U1exPdKqxXSpJP
+	V+kwNMAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvTB-00000004w0x-2kO4;
-	Tue, 11 Feb 2025 18:58:53 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1thva8-00000004x9n-00mO;
+	Tue, 11 Feb 2025 19:06:04 +0000
+Received: from mail-bn8nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:2418::60d] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvGY-00000004tdc-1Mny
+	id 1thvYh-00000004wvy-3ksg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:45:52 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3d147331fb5so13965ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 10:45:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739299549; x=1739904349; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iypHFQvapErVvgNM+puH+9um03GI3lSJujH4j3iqa9M=;
-        b=NVXQrfba1kravpKc2zjgpvdgKK9j/1HAnHzcwa09SwPI28jKOo5r95lZdgC0hKZk4C
-         JHGro9X+eX0OW22IbQLYGcUOJLZxWYYLZbc6jDIKPezQ8Rdy+iLfQF3pCXpARnh5SJkt
-         mY+p71SEnYx7Lkz13cacvULv5bKtva/8k+JW5vQdZ/qn0RFDnIoaBekGC5VtwL0OMn2X
-         QDcKc2tnnSz6aJrJtCKD/9Wen+mMqG8WtoMzgOH3F3L7OY37I7LzavsQ1UVVR1TST5Q7
-         2OrjuNtcsxSEfoCmsjjNx0BT0NF4vZz1DQt8PHlqlIVjLHPbbMNsuHa8AF7wHNWJ/F9Q
-         m1jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739299549; x=1739904349;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iypHFQvapErVvgNM+puH+9um03GI3lSJujH4j3iqa9M=;
-        b=BEyTRxWPBJuLVzRXhUMaEsffVIAx5B9VIBohnonXyiFA5Yeu+dtKTdgemImKiqYXwD
-         7HbiZAThTiYMU1i2Ex1iA/CoPUgQX85B3NPT2n6wi/ruvykDkLeF2wcNMq/8R9ZQv+H0
-         dEmOT4aC1iE42h/IP0DaGADbs/ahHPRWbhxAKKOQQWXmsF6iPCD8kiuQ2KiysjXi84Ed
-         Gzsk0sE+WukxpITM5CcNDSJeuyn8uHGCqR8BnTVEz1kJF+IrP9s8vVrS2StJg+IKqLRf
-         sneZAOuPU6LyY4eijYW4RBcr7+riOVy4+lrnntCRtRWG22G2Rw3yqwnmZBdnk5a2/ACv
-         6BiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVZwPCnbznO1nQbnFqHi26pzT0DsJPMimC/92V5efloaRU9wLjdE2ohvBiHqM0MLHc+za3wHLBf7xQCXR43wIEs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4rBMLsLcbWOSOAhErL+ZwzVLnFEKwSrxCd1x6OkLJAXnk7vpg
-	1oXxOhDm5KS0gqrd5WFZXaMSKpnyQCzyYBc+FH6+309tW0/bzkD9rVbM1mSwC2EleNomw2wuxQN
-	5/sLDgdLz/DZ5cFb63JGvf3H68ztvqIeUYbc/
-X-Gm-Gg: ASbGnctrqL0h1ZSiDk5pyerAad7lwf9Y1QL4DoxEeeoEFJ3e9CjOpfMkzh0x4ex+qFs
-	vJGiTrDlzlseeifbUe6GqKh2iHbJrm9NKZMUxv+kPNS1x0ls43fBgPdM5jghL46ea6eWUm7Tply
-	2Fqc/cMOAdJBd56FxalSdZIMs3
-X-Google-Smtp-Source: AGHT+IHqX3vr00VskyAmXO8pPWLaM+ymT5Q0Notk3eM864X6DrnAlyqB2GWGar0qHREmdunm54q6ghSQTM4GDELbVQ4=
-X-Received: by 2002:a05:6e02:17cb:b0:3a7:e3b3:2e3 with SMTP id
- e9e14a558f8ab-3d171e154dcmr3944225ab.17.1739299548993; Tue, 11 Feb 2025
- 10:45:48 -0800 (PST)
+	Tue, 11 Feb 2025 19:04:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S6lKTouvwdBaJIONValmTTxMxJaoDHjgBZnYmvrEHeHQp5IERKSFpQtYX+qeY/9gqBu3+n/t6EVAg/jjjtG8gAWMHP5X5nz62uLGMm9KpSifC4oF+grrS6T/J/mryMk82LzlBkbUnZFGW4HFViY8IO07lbS8+a9lI8UXuz2SD8jyC/GzFl4v1AA+Am998n6vZTLwwcadDuoERdyrAovKfHXff+sp9z0pJ0ch3colxe8P6BNC2hTECch8RjImmSPRf5mCOZyg2gEuMCK+4BU8obHb01RB0iG6innScEfr7NKjJpseyFlVTSBeLAPwiX8WAI38UqST7KNj8+bgaSjD6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=;
+ b=BxAP1zWuIiETx1GeGcu/yr/1fv8pORTk8VYAggBtcF0U7bzAtj09mKk57AHIOlzmQjLyj8BZ3mJG3CQkrdL8r/bJ5ADLLDZZ76UeqGYDi1N1MTLCLF5+i4+h8yzOkJidmGnECauwHMzTh4u6aKEu+PQFY+V59r0tofGbSxT1jiP90sS8DUrFm1ZXfiNTC/sHqyh8ZVw3ubZQVXmsqDogINMfyZ/eGF7creh7Mogtl5dS+OXY9+81yLvh8x1+8qAmScYomeSD1NpwoHV4v4/hJH2cMyebhwXiu0kzGr0g4ganzoVSIdEBjPqJUTXhf3HQOY3C6FCkTpYOgKi3o2QVTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6uivz8WzV61sV8IlmyMzcue/6mBNTCzsA2l0Imspvdc=;
+ b=olxA8RkO5O7YQ6rYccD231lUUpx4SfBD4kDf33kQPkQe221ikzs7Cgoxa7wHDVnihZdYnFmKLoDfMrLMb6lYFydRAxqb0CovJwDh5Be0IffsFyxCGS6St4LHRPIxaf3DZ+brsu5YhH6CPiAHJGYbgS9mOR+Z5RFsyRC9AlmzMEkVUQEhzF4ZZappdDz7KAGYYwoHBVBBTEQaDfV61aexIut8avhHBr3UnlWT9uEYbrzwdc+oAywwZ7QOvDtevFejkZ/SCmcbSI50dIydBfTY8Z+nS56ozOJqgRQfBxzL2AthMjaAcvBvG5eQ7VgFsgDfEpzGQZwz/Ap5HEAySLD+QA==
+Received: from SJ0PR13CA0001.namprd13.prod.outlook.com (2603:10b6:a03:2c0::6)
+ by LV3PR12MB9233.namprd12.prod.outlook.com (2603:10b6:408:194::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
+ 2025 19:04:29 +0000
+Received: from SN1PEPF0002BA4E.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c0:cafe::78) by SJ0PR13CA0001.outlook.office365.com
+ (2603:10b6:a03:2c0::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.12 via Frontend Transport; Tue,
+ 11 Feb 2025 19:04:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SN1PEPF0002BA4E.mail.protection.outlook.com (10.167.242.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8445.10 via Frontend Transport; Tue, 11 Feb 2025 19:04:28 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 11 Feb
+ 2025 11:04:03 -0800
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 11 Feb 2025 11:04:03 -0800
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 11 Feb 2025 11:04:02 -0800
+Date: Tue, 11 Feb 2025 11:04:01 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
+	<joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
+	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 06/13] iommufd: Implement sw_msi support natively
+Message-ID: <Z6ufIbqkMqyMZFwY@Asurada-Nvidia>
+References: <cover.1739005085.git.nicolinc@nvidia.com>
+ <98233d5817e66bb7363090526b53422436894051.1739005085.git.nicolinc@nvidia.com>
+ <20250211181620.GK3754072@nvidia.com>
 MIME-Version: 1.0
-References: <20250210165108.95894-1-irogers@google.com> <20250210165108.95894-6-irogers@google.com>
- <d47c35dd-9c52-48e7-a00d-135572f11fbb@app.fastmail.com> <CAP-5=fUi4RYebxCGYZVHVEt0BpWVmUA6+-vDQfbai25_KJRs7A@mail.gmail.com>
- <0195f9a0-5198-4ee0-b4ff-ea7126dc8299@app.fastmail.com>
-In-Reply-To: <0195f9a0-5198-4ee0-b4ff-ea7126dc8299@app.fastmail.com>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 11 Feb 2025 10:45:37 -0800
-X-Gm-Features: AWEUYZmLh2xLEkqSk7Km_nwXZM8Hrzxp2BxzKEHyN48kgEtbMNsw6rc4K0YX_9w
-Message-ID: <CAP-5=fULk0L4H23E_j2qktmLRJD8_iuLf=_UWK+pghSO+_eMGg@mail.gmail.com>
-Subject: Re: [PATCH v2 5/7] perf trace beauty: Add syscalltbl.sh generating
- all system call tables
-To: Arnd Bergmann <arnd@arndb.de>, linux-mips@vger.kernel.org
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, Howard Chu <howardchu95@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250211181620.GK3754072@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4E:EE_|LV3PR12MB9233:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8bd8faa-91f9-4ca9-e3c9-08dd4acee8ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3d4hlQtKWLYq1TN4WfEFhDbm12HPXzdD6yebTQ3W84BV5rm5EBppdgDd3uR2?=
+ =?us-ascii?Q?lcjlXGc204qO8NVTcGm2RdqY3FaB6Px0uJ7xAkgr21pl1so09VYK58RixrTw?=
+ =?us-ascii?Q?OKm+GAGnT5Zs5yVLBSwKSAnJPe6mTjJDJ1WVeAXPPn9pSR1r9HsBzo6Oat/c?=
+ =?us-ascii?Q?KwmFf7BAl8I0dYeM5VKs6ABvncfuCWYLVUVoGaaOTIGreTcY3E2oYYxiCirG?=
+ =?us-ascii?Q?8XlILSXhrkSjKggxBSruJJwA8zdv9qrd9omUb66JqCX2wy7eEuxWD3LCFRHF?=
+ =?us-ascii?Q?fs4qhZoeR3RQzHohQRotXrl/ygViCy0+TYF7zffynLFL3grY0jnmtXmlcXYD?=
+ =?us-ascii?Q?O/PNy0+5OvvgN7H4XJ0HFp4IsrCeewgCh6uX5QRIs5Lwux+QwoEk47bEnjw2?=
+ =?us-ascii?Q?5sZAdqa7T7Krpzr/4lPo0ZftfaACAxZUNhrx70VHf31EmjBDmzQ0FoJH7dtv?=
+ =?us-ascii?Q?rvI58lWTfYEH9EvrFM842K5f5RJYVPlvMOBCpVGK3yXeNCyipngYTOTc9Wlj?=
+ =?us-ascii?Q?d33wdNynRBCAGhVcUdnyuZO+O7uE5QslUyGzuaMt+EK+44YBnmS+s2cm96lP?=
+ =?us-ascii?Q?F7d80RZmqnsvjc47o5RfSy+vjOUlSSrCusSgpX1CISXncRwtGQcJsJRJV9nG?=
+ =?us-ascii?Q?FwyymXJH0Xx7v5Mk3wekks0lx7wqEn8/+o4zM1lxUQRmswlN666JbIrZt70j?=
+ =?us-ascii?Q?2HBx4hufEBsniPRH5WxDwgkXvj+tWYEH8FCIXMOVqhPnLBgqHxbBCsbZAmil?=
+ =?us-ascii?Q?lDU/ySPhYD0nUkk6TiwHoHl5vmbOj0JNpBSYvgujcVW7WCum6CrR4Ylz0nVv?=
+ =?us-ascii?Q?nca707VncJy04GJOWImAyjJxJGO1NRW2uxfWm67PCuzxva2L/Pr86/k3bZYA?=
+ =?us-ascii?Q?15Y7/z+DIJV8b7J98UuVLz1dGzHzzyrHhpPEsLS3Htn5rDdMn6Cr3xPYaiZy?=
+ =?us-ascii?Q?vU41IPvQyc93Bek4wsXrG03B7tYnhssKcayGBr7ieBjy0QJhrsSCqMWOnkg+?=
+ =?us-ascii?Q?x4MVZrPeBNQK8JcyRoDipnJz+vY//LBQByhRbycOkor/vAxENdqk28z9QDPq?=
+ =?us-ascii?Q?Lf07c2mEthkI0spUhMlFU9WYE+eGMilbtugHchdVip0fwP/25rPk83lydAoa?=
+ =?us-ascii?Q?P7jqhtBtlq0EdyW10q/T91NY9WNJR8Qc8v6/r77Ed2KfG42xnZJ1PXBamXJU?=
+ =?us-ascii?Q?XsmyjAzTQjt41jwwZjgT86mrUhI+E/hpQGH2F4BBgxbvyhcJqpPq0HNZzaam?=
+ =?us-ascii?Q?Mcmo1W7n4RGTnugP1g2VGTx/lBOdkmRmBe8xybphaULiJRLHbstvbY/t9T19?=
+ =?us-ascii?Q?qDXJwQNp+mj8Xqg0Mm3mRYW4hbn4Rh9Cc5HmNEuj6zVK0Ehn1LaAwdzIG01D?=
+ =?us-ascii?Q?uFyBD7Q+0SMfSs7EZ/kj09yT/uhL3ASnIqMKKz879OqLJVVGQ2QLhz9IbYqI?=
+ =?us-ascii?Q?dJgnuDLbEErgIgVQG/NsnpnKzKEaECOJifOvR+IzMDL9DS/qREpTI4tZi1vy?=
+ =?us-ascii?Q?FlVfF1pUYfXSEs4=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 19:04:28.5132
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8bd8faa-91f9-4ca9-e3c9-08dd4acee8ce
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4E.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_104550_371485_A9B5060B 
-X-CRM114-Status: GOOD (  62.27  )
+X-CRM114-CacheID: sfid-20250211_110435_933205_31B9E637 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,163 +156,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 9:53=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote=
-:
->
-> On Tue, Feb 11, 2025, at 18:24, Ian Rogers wrote:
-> > On Tue, Feb 11, 2025 at 12:09=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> =
-wrote:
-> >> On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
-> >> > "$tools_dir/perf/arch/arm64/entry/syscalls/syscall_64.tbl" "$outfile=
-"
-> >> > common,64,renameat,rlimit,memfd_secret EM_AARCH64
-> >> > +cat >> "$outfile" <<EOF
-> >> > +#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) ||
-> >> > defined(__aarch64__)
-> >>
-> >> Hardcoding the set of ABIs in the middle of the script seems
-> >> too fragile to me, I'm worried that these get out of sync quickly.
-> >
-> > I agree, again this is carrying forward a behavior and at least after
-> > these changes the location is just one place. Do you have any
-> > suggestions on how to do better?
->
-> Not sure, but I have some patches that I was planning to send
-> that puts these into arch/*/kernel/Makefile.syscalls for all
-> architectures in a consistent way. Ideally we'd use the same
-> Makefile contents for tools/perf in order to trivially sync
-> them, but I'm also happy to hear other suggestions.
->
-> Your patches are currently ahead of mine, so I don't want to
-> hold you up.
->
-> > Fwiw, I wonder a related problem/question that has come up primarily
-> > with Arnaldo and Howard is in having a way to determine system call
-> > argument types so that perf trace can pretty print them. For example,
-> > if via BTF it is found an argument is a "const char*" then it is
-> > assumed to be a string, but a "char *" is not as it may just be an out
-> > argument. There's a source for more information in the syzkaller
-> > project:
-> > https://github.com/google/syzkaller/blob/master/sys/linux/sys.txt
-> > Perhaps there's a way to generate this information from the Linux
-> > build and feed it into perf's build. It is out-of-scope for what I'm
-> > trying to do here, but I thought it worth a mention given my general
-> > ignorance on wider things.
->
-> Yes, this is also something I've been trying to work on. In particular
-> the calling conventions for 64-bit register arguments on 32-bit
-> targets need some help. My plan for this is to have a consistent
-> mapping of internal (sys_foo()) function names to argument lists,
-> instead of having some calls that are slightly different depending
-> on the architecture or ABI.
->
-> This should be in a machine-readable format so it can be parsed
-> not only by perf but also any other project that needs a list
-> (libc, gdb, qemu, strace, rust, ...)
+On Tue, Feb 11, 2025 at 02:16:20PM -0400, Jason Gunthorpe wrote:
+> On Sat, Feb 08, 2025 at 01:02:39AM -0800, Nicolin Chen wrote:
+> 
+> > +static struct iommufd_attach_handle *
+> > +iommu_group_get_iommufd_handle(struct iommu_group *group)
+> > +{
+> > +	struct iommu_attach_handle *handle;
+> > +
+> > +	handle = iommu_attach_handle_get(group, IOMMU_NO_PASID, 0);
+> > +	if (IS_ERR(handle))
+> > +		return NULL;
+> > +	return to_iommufd_handle(handle);
+> > +}
+> > +
+> > +/*
+> > + * Called by the irq code if the platform translates the MSI address through the
+> > + * IOMMU. msi_addr is the physical address of the MSI page. iommufd will
+> > + * allocate a fd global iova for the physical page that is the same on all
+> > + * domains and devices.
+> > + */
+> > +#ifdef CONFIG_IRQ_MSI_IOMMU
+> > +int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+> > +		   phys_addr_t msi_addr)
+> > +{
+> > +	struct device *dev = msi_desc_to_dev(desc);
+> > +	struct iommufd_hwpt_paging *hwpt_paging;
+> > +	struct iommufd_attach_handle *handle;
+> > +	struct iommufd_sw_msi_map *msi_map;
+> > +	struct iommufd_ctx *ictx;
+> > +	unsigned long iova;
+> > +	int rc;
+> > +
+> > +	handle = iommu_group_get_iommufd_handle(dev->iommu_group);
+> > +	if (!handle)
+> > +		return 0;
+> 
+> I think you should open code this and leave the other function
+> alone. The locking rules are different here.
+> 
+> iommufd_device_get_attach_handle() should be locked under the
+> igroup->lock
+> 
+> While in this context we are locked under the iommu core group mutex.
+> 
+> A comment will help
+> 
+> /*
+>  * It is safe to call iommu_attach_handle_get() here because the iommu
+>  * core code invokes this under the group mutex which also prevents any
+>  * change of the attach handle for the duration of this function.
+>  */
+>  iommu_group_mutex_assert(dev);
 
-Awesome, thanks for working on this!
+Ack. I reverted that part and added this piece.
 
-> >> > +#if defined(ALL_SYSCALLTBL) || defined(__mips__)
-> >> > +EOF
-> >> > +build_tables
-> >> > "$tools_dir/perf/arch/mips/entry/syscalls/syscall_n64.tbl" "$outfile=
-"
-> >> > common,64,n64 EM_MIPS
-> >> > +cat >> "$outfile" <<EOF
-> >> > +#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
-> >>
-> >> What about n32/o32? The syscall tables are completely different here.
-> >
-> > So perf hasn't historically supported them and no one is asking for
-> > support. Generating more tables isn't the problem, but we need to have
-> > some way of determining which table to use for n32/o32. I see
-> > EF_MIPS_ABI_O32 and EF_MIPS_ABI_O64, so we could add support by
-> > extending the lookup of the table to be both of e_machine and e_flags.
-> > I'm less clear on choosing n32. That said, back in the 90s I was
-> > working to port MIPS code to Itanium via binary translation. Given now
-> > Itanium is obsolete, I'm not sure it is worth adding complexity for
-> > the sake of MIPS. I'm happy to do what others feel is best here, but
-> > my default position is just to carry what the existing behavior is
-> > forward.
->
-> I think the way it actually works on mips is that all syscalls are
-> allowed in any task and the actual number identifies both the
-> ABI and the syscall. In some variant, the same is true on arm
-> (oabi/eabi) and x86-64 (64/x32), but oabi and x32 are both too
-> obsolete to put much work into them.
->
-> There is still some interest in mips, maybe you can poke the
-> maintainers and see if someone is willing to help out since you
-> have done the bulk of the work already.
-
-Thanks, adding linux-mips@vger.kernel.org. Here is the original
-feedback for them for context:
-https://lore.kernel.org/lkml/07c5c3ad-5a6d-4eda-95f2-ed16e7504d4c@app.fastm=
-ail.com/
-
-> >> > +EOF
-> >> > +build_tables "$tools_dir/perf/arch/s390/entry/syscalls/syscall.tbl"
-> >> > "$outfile" common,64,renameat,rlimit,memfd_secret EM_S390
-> >> > +cat >> "$outfile" <<EOF
-> >> > +#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
-> >>
-> >> This skips the 32-bit table, though I think that one is already
-> >> planned to be discontinued in the future.
-> >
-> > Thankfully we have awesome s390 devs on the mailing list, hopefully
-> > they'll shout out if I'm doing things wrong.
->
-> I also remembered that I had a patch to bring the s390 syscall.tbl
-> into the same format as the others, since the behavior is currently
-> a bit different for compat calls. I think there is also a chance
-> that they want to discontinue 32-bit mode entirely, given that
-> the last 32-bit machine was discontinued over 20 years ago, and
-> support for native 32-bit kernels got removed 10 years ago
-> after Debian 8 moved to 64 bit.
->
-> If they are confident that there are no more remaining users that
-> rely on 32-bit binaries, we could both save some work.
->
-> >> > +#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_6=
-4__)
-> >> > +EOF
-> >> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_32.tb=
-l"
-> >> > "$outfile" common,32,i386 EM_386
-> >> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_64.tb=
-l"
-> >> > "$outfile" common,64 EM_X86_64
-> >> > +cat >> "$outfile" <<EOF
-> >> > +#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) ||
-> >> > defined(__x86_64__)
-> >>
-> >> This misses the x32 table.
-> >
-> > Again I'm carrying forward a behavior. Would it be worth adding x32?
->
-> I would probably document it in the file as an intentional
-> omission, same as for arm oabi
-
-Ack.
-
-> > That said there is likely other context
-> > that I'm unaware of as I'm surprised x32 still exists.
->
-> There are a handful of people still testing it, and some still
-> using it, but I agree it completely failed to get enough
-> traction to be worth maintaining.
->
-> I view x32 (and the corresponding arm64 ilp32 mode that never
-> made it in) mostly as an exercise in benchmark(et)ing, since
-> it showed noticeably higher results in some versions of specint
-> and some compiler workloads, compared to both normal 32-bit and
-> 64-bit modes. The time that we already wasted on maintaining
-> it must have long surpassed any such benefits though, so I
-> certainly don't want to waste more time on it.
-
-:-) I ate part of a cake intended as a goodwill gesture toward getting
-x32 into Android.
-
-Thanks,
-Ian
+Thanks
+Nicolin
 
