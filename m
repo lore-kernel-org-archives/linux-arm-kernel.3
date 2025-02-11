@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F495C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C505DC021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CMMII7gg+S8ZOua/g5opUsXHaf674ZZLjjOpdOjwqM=; b=FbLVJoVQJLkC/+AMyFCuoRgvrQ
-	t9aC/QhE1M7XmGEcL0w/mzpcuxAK56fl8kftHBEG80BezoTo33wfOW+jtMHpEVKGdNqk5O63aPfA0
-	Y3gjZh5qmBmOsH3qmklJjX9T09OLSU5EwcuyjirxiQx2U+sVUjlUfiR0jt+NNQRfpz9zODo3oWiqn
-	wotz6oCr8rArUqJBg8G2uVMkeWO7dQFnMFgKEuQDwWTvBJ2X7dCR+FJh0tmsX6Hy71Cm/vFAKXQHW
-	cOHlG7MIm8Dg00NU819rBWR7FR63X5PrNmo76Wmzf25asvkL7lXJyFYxbkks3Zy2XEruw550CxAPT
-	H/02xDMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dNf7ARSync5+2wSr35vosb1jPpHHIw0KLr6GEq+zDrQ=; b=lNmeBAAGcT7pkHV3G+wPcG/Hoi
+	bllyR44KZKkynj9EfIm6G8uSVo8fDDAqFmOBmLjn5IJAJHi1frYBhsqJ4kK2DINP7ZUfWKwgzNUpr
+	GBT9xJ8DILc69tx1tHJ6WnNN+hJn7ogaOQL7TYF7MholNoREYvZGrm3fcMdXCyhGW/pvSqlWGJH8y
+	pZznhShdaZvHmZCH6R+Idi61294yYxwuzWiRmx9pgw6BBkz1Hn6KUcP9hTcZc3mFJGR51TWAJ6cvD
+	9EPEnAAQprn3CKJ7/yBHqbe9rDLVs4JYyB+hSS4ckB3I7PWp7CTy+Dp6atttzVIbpeH9PKM3uWv/i
+	YicVGIwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvso-000000050YF-0Dle;
-	Tue, 11 Feb 2025 19:25:22 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1thvtP-000000050mJ-2bsw;
+	Tue, 11 Feb 2025 19:25:59 +0000
+Received: from smtp-23.smtpout.orange.fr ([80.12.242.23] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvpX-00000004zPS-2h0W
+	id 1thuok-00000004ogz-0BSw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:22:01 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 082C92540113;
-	Tue, 11 Feb 2025 14:21:56 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Tue, 11 Feb 2025 14:21:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1739301715; x=1739388115; bh=4CMMII7gg+
-	S8ZOua/g5opUsXHaf674ZZLjjOpdOjwqM=; b=p6Lng5ZCX20mDzQNjqo+bbgI9M
-	npPT8FklqciXwLGjqcT8Au3W5BJI/lfFBHCsx3UZ41Fkp6M5gU2f9WIZIOO4IfLz
-	eHNEABYblCeOEjtnbpydn8zc0VTyiRzm9iQ4qofAp9wVD8UAk3agXPiOwekZJrXz
-	MvT6b8fJXFN5kyiXff4fO4L/oHCGySvOGR/gddZU1pOPYxzRRSNvKtrgjJmac6Td
-	ciFEHYYJojcv/0BNV1Lzde7dicQ6r/SYjMTRI0BGvYeZ77lwA535KlomsZaNVfc2
-	TA/wK7WxQlNtSm2jKC9nklyzpSeG4seTsb7N858T0Got3o/pU/SijgS9TWmg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1739301715; x=1739388115; bh=4CMMII7gg+S8ZOua/g5opUsXHaf674ZZLjj
-	OpdOjwqM=; b=M95Iwyi6FtMUh7KPJgK56Wce/ol4WOjqun99tTLR3eZjBJ1KvCG
-	/iqKQsfU7sGOuerb6/qDJg6j88pFxwSRG+GHAQ8B0iaFyA9pxM0mq8yMgdak5C4k
-	SpQsVAx4GQ3yXT918CeeU4ozH4WjhUOoEM/1XYz/mh8sdKhF+Ns6Tibrko24g9Gj
-	KEw/7ugiEuAacIkqxI+UOgkgrRKKjYH4bWSK4bgeZpc1B+xEjxe8Bkx91gXHV/cj
-	5KVs76A9L37pziRP7TOmg0QTKfvBn/GcvxifPVkChPosFMPl4jfFYcYokxxjfn5f
-	lBvsAdaZ4DIXEs6yAo63CXTjpgXYorJnSPQ==
-X-ME-Sender: <xms:U6OrZ59UBYN-cFuUVAg1HUTC2A-KvdIGR5abqEbWIcEDnO70U8Vunw>
-    <xme:U6OrZ9v91b_sCtxu66wg1qC57Prxo9R2ELtqAbe8Si0fkcxSNUQCSBoZ_sTWfQJnV
-    mya6vod980qYXA-xkE>
-X-ME-Received: <xmr:U6OrZ3AwdNfjAI-szRwK1zvGJ4MkQaoMkDJ_lRNg9DR2R34TVispYQ0gqlJsbN0_mVmRGJylH5NuUtAxgDH8338W6syNm-8Y5hs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegudekvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
-    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
-    cuggftrfgrthhtvghrnhepudefhfehudetjeeutdfhvefhtdeltdfgheefkeefleegveev
-    tedtveelfffhiedtnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvg
-    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgv
-    thdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprh
-    hosghinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpthhtoheprghlhihsshgrsehr
-    ohhsvghniiifvghighdrihhopdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrd
-    guvghvpdhrtghpthhtohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopeif
-    ihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlh
-    hinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
-    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehiohhmmhhusehlihhsth
-    hsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
-    rhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:U6OrZ9erICxeLKtv6LRcbSWf_u5GLNZ9i4lTMgfqxre8ndwsGs8jTQ>
-    <xmx:U6OrZ-MYxDweROPJ9p79fDIf7AD8irrFJGtIkDHdI8ztD3q1iIzbiA>
-    <xmx:U6OrZ_kmBVpDMbmoe4CARgdr7aXORa4zf45F6JPMOeAw3CuYclXYqA>
-    <xmx:U6OrZ4vfXkODZch2zGpMRRxixhJGTtKwlqSfNW8UflKv_hk17rYx3g>
-    <xmx:U6OrZ1pwJBCZX0WeuuCRjO1xQVKskjEe_pnW_ebS2OFBRQqfVc4qhonm>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 11 Feb 2025 14:21:54 -0500 (EST)
-Date: Tue, 11 Feb 2025 20:21:52 +0100
-From: Janne Grunau <j@jannau.net>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Sven Peter <sven@svenpeter.dev>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/5] iommu/dart: Assert !locked when configuring
-Message-ID: <20250211192152.GA810942@robin.jannau.net>
-References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
- <20250210-locked-dart-v1-5-5d97fe247f35@rosenzweig.io>
- <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
+	Tue, 11 Feb 2025 18:17:08 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id huoTtJ358CWdAhuoWth0R8; Tue, 11 Feb 2025 19:16:57 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1739297817;
+	bh=dNf7ARSync5+2wSr35vosb1jPpHHIw0KLr6GEq+zDrQ=;
+	h=Message-ID:Date:MIME-Version:Subject:From:To;
+	b=ElHWnKLd15/IJ43QrhjbA3T+ajrzpmMJLWYwcUBlhiOio7ctyI5K2YHpA2zMHYdJG
+	 k/Bde1ML3HHwiKiDvbbwhr3X6MqTimrqG/pG5uSy8WpvpcJ2Cysm7WtBD4YP/UvHgH
+	 ZAnf3uBZtW0tzEVO+4T+jwk6iuqrpHYqF64I+UyJVyzwHUC+nN6lGWExLF50sNreux
+	 f6HsxMG5Ztiddnk8dDTtUmN5cLMrPEa93uPKf57Di+K+Lf1zIyNHv65gDNKrPP1EDY
+	 6KsYzlmbSH9Y02V3NFL8Juf4WoXLWOZG0PsTfYgQIZ60FFXF94HPxu+QBkrzpdQJ/E
+	 v81242QWjucPA==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Tue, 11 Feb 2025 19:16:57 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <a74c3202-7a64-483d-907e-9a562e9dcd03@wanadoo.fr>
+Date: Tue, 11 Feb 2025 19:16:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <756ba6d7-b18e-4139-851b-496b1820117a@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/8] memory: Add STM32 Octo Memory Manager driver
+References: <20250210131826.220318-1-patrice.chotard@foss.st.com>
+ <20250210131826.220318-5-patrice.chotard@foss.st.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: patrice.chotard@foss.st.com
+Cc: alexandre.torgue@foss.st.com, arnd@arndb.de, broonie@kernel.org,
+ catalin.marinas@arm.com, christophe.kerello@foss.st.com,
+ conor+dt@kernel.org, devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ p.zabel@pengutronix.de, robh@kernel.org, will@kernel.org
+In-Reply-To: <20250210131826.220318-5-patrice.chotard@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_112200_177078_156CEE41 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20250211_101706_628771_11FE8B45 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +81,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 06:41:00PM +0000, Robin Murphy wrote:
-> On 2025-02-10 7:39 pm, Alyssa Rosenzweig wrote:
-> > Configuration is only possible and needed for non-locked DARTs and will
-> > fail for locked DARTs. We cannot try -- assert that we do not.
+Le 10/02/2025 à 14:18, 
+patrice.chotard-rj0Iel/JR4NBDgjK7y7TUQ@public.gmane.org a écrit :
+> From: Patrice Chotard <patrice.chotard-rj0Iel/JR4NBDgjK7y7TUQ@public.gmane.org>
 > 
-> Except now we absolutely will - if a locked DART and its client device 
-> are advertised to Linux, instead of gracefully refusing to touch it, 
-> we'll now attach the client to a DMA domain, firing a barrage of 
-> multiple WARNs in the process, and give it DMA ops which still cannot 
-> work. I'm not really convinced this series on its own leaves us in a 
-> better position than we're already in now... :/
-> 
-> How hideous is the rest of what's required to actually make this usable?
+> Octo Memory Manager driver (OMM) manages:
+>    - the muxing between 2 OSPI busses and 2 output ports.
+>      There are 4 possible muxing configurations:
+>        - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>          output is on port 2
+>        - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>        - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>          OSPI2 output is on port 1
+>        - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>    - the split of the memory area shared between the 2 OSPI instances.
+>    - chip select selection override.
+>    - the time between 2 transactions in multiplexed mode.
+>    - check firewall access.
 
-The TTBR can not be changed but the preset first level table can
-modified at will. The driver keeps a shadow first label table and syncs
-that to the preset 1st level table on flush_tbl().
-It gets more complicated by the fact that the iommu for the display
-coprocessor is locked and mappings for its firmware and boot framebuffer
-are preinstalled and have to be maintained or restored on
-initialization.
-This is handled via reserved memory with translation.
+...
 
-Downstream change to handle this is in
-https://github.com/AsahiLinux/linux/commit/d90cc3590ea460e1c574b4b7c47fdafb2794af6a
-not including the change to parse / handle reserved memory with
-translation in iommu core.
+> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+> new file mode 100644
+> index 000000000000..af69137bfba2
+> --- /dev/null
+> +++ b/drivers/memory/stm32_omm.c
+> @@ -0,0 +1,520 @@
+> +// SPDX-License-Identifier: GPL
 
-Janne
+Not sure this SPDX-License-Identifier exists.
+
+> +/*
+> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
+
+...
+
+> +	pm_runtime_enable(dev);
+> +
+> +	/* check if OMM's resource access is granted */
+> +	ret = stm32_omm_check_access(dev, dev->of_node);
+> +	if (ret < 0 && ret != -EACCES)
+> +		goto err_clk_release;
+
+Should we call, here and below, pm_runtime_disable() in the error 
+handling path, as done in the remove function?
+
+> +
+> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
+> +		/* Ensure both OSPI instance are disabled before configuring OMM */
+> +		ret = stm32_omm_disable_child(dev);
+> +		if (ret)
+> +			goto err_clk_release;
+> +
+> +		ret = stm32_omm_configure(dev);
+> +		if (ret)
+> +			goto err_clk_release;
+> +	} else {
+> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
+> +		/*
+> +		 * AMCR can't be set, so check if current value is coherent
+> +		 * with memory-map areas defined in DT
+> +		 */
+> +		ret = stm32_omm_set_amcr(dev, false);
+> +		if (ret)
+> +			goto err_clk_release;
+> +	}
+> +
+> +	/* for each child, if resource access is granted and status "okay", probe it */
+> +	for (i = 0; i < omm->nb_child; i++) {
+> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
+> +			continue;
+> +
+> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
+> +		if (!vdev) {
+> +			dev_err(dev, "Failed to create Octo Memory Manager child\n");
+> +			for (j = i; j > 0; --j) {
+> +				if (omm->child[j].dev)
+> +					of_platform_device_destroy(omm->child[j].dev, NULL);
+> +			}
+> +
+> +			ret = -EINVAL;
+> +			goto err_clk_release;
+> +		}
+> +		omm->child[i].dev = &vdev->dev;
+> +	}
+> +
+> +err_clk_release:
+> +	for (i = 0; i < omm->nb_child; i++)
+> +		clk_put(omm->child[i].clk);
+> +
+> +	return ret;
+> +}
+> +
+> +static void stm32_omm_remove(struct platform_device *pdev)
+> +{
+> +	struct stm32_omm *omm = platform_get_drvdata(pdev);
+> +	int i;
+> +
+> +	for (i = 0; i < omm->nb_child; i++)
+> +		if (omm->child[i].dev)
+> +			of_platform_device_destroy(omm->child[i].dev, NULL);
+> +
+> +	if (omm->cr & CR_MUXEN)
+> +		stm32_omm_enable_child_clock(&pdev->dev, false);
+> +
+> +	pm_runtime_disable(&pdev->dev);
+
+Should we have:
+	for (i = 0; i < omm->nb_child; i++)
+		clk_put(omm->child[i].clk);
+as done in the error handling path of the probe?
+
+> +}
+> +
+> +static const struct of_device_id stm32_omm_of_match[] = {
+> +	{ .compatible = "st,stm32mp25-omm", },
+> +	{},
+
+Nitpick: Unneeded , after a terminator.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, stm32_omm_of_match);
+
+...
+
+CJ
+
+
+
 
