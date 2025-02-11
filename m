@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0668AC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A80C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 08:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHOUQzUPyOdT3w4jRKuGIg3i9ApsudVpLcIIKx7XFPI=; b=b0TjAvxwnO8DlE+LIVXHJI1Kn5
-	gw40C/Ri876wU3Zsx2DhZc3X1FCH8F5gks+QLqxdrfYhq6JCbdlm9/d3lRw0Mi/wavo41TrW2uhbH
-	mFcmVM9Ab5cedWMDP8X1zsEeyKnIX5O1Y2R+NOwi0YzsBrTvx0tiOk4/Xj4PfwmJqPOYi3YIqzUSV
-	m4aEs9rKgxhfAv4rgCOSFfaARDfTGYnysVT3qN3NcgbBj7BTteuQwWPRhHlvu0VP864c+WArWqX1J
-	rnKP1ZsM0SeNNK3BGKd9Lh5HBuYVHHl+MzU3/4/WUdolP76SSiswJjcmmqdKjFfp+OomC10wIc0G+
-	JDppPQAg==;
+	bh=l6oNamEjqRB941u3NNnEKRp7tXfUqE8B/IRmPASZxi4=; b=qX5lpmOPwWYqGXd4HFznopAD3d
+	QKdGE5E0lyhu6Q5KB2U/13tlXvqCpHryp0dSBpK6R94h4fN9XchYKdgtYO88bO2lKDjHutGeHqua+
+	AmaYdk1BKG4O8DM/PWGb3/Jg+hYCMUHk/lDTYDVASSvzom1fYi5OR+tPwlSS/tmW5pUdacjRxWoJF
+	3q2gR0Kx5UyMYOyKJwMgyFliB+pQWqYOLJPjrOGklS+Mtyqd3QXKdHBiwSoU3dwDXUqqXRAGPCSRr
+	OD+wyckKXomsaKfWwV61TutlMpufEsbyiD4KwvzR47U0rhcfm75DktWa2oo2rAkBmAl09qwhg9LSp
+	qpuCsZyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thm5I-000000035hZ-2a3F;
-	Tue, 11 Feb 2025 08:57:36 +0000
-Received: from mail-wr1-f54.google.com ([209.85.221.54])
+	id 1thm6g-0000000367k-1MsO;
+	Tue, 11 Feb 2025 08:59:02 +0000
+Received: from mail-wr1-f43.google.com ([209.85.221.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thm0l-000000034Ww-3aPB
+	id 1thm0m-000000034Xq-3F8N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 08:52:57 +0000
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-38dcc6bfbccso2159073f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:52:55 -0800 (PST)
+	Tue, 11 Feb 2025 08:52:58 +0000
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-38dd0dc2226so2886131f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 00:52:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739263974; x=1739868774; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739263975; x=1739868775; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zHOUQzUPyOdT3w4jRKuGIg3i9ApsudVpLcIIKx7XFPI=;
-        b=JFUVJ8aXFKx8xaYrB3IroGSHkCB90r+Syb6plj9Pg3Ai6W+Cozjw0ju6lF5v7tatn1
-         kgW6dQ8puhDnkQpkyIZajecAh6bar6YTLXFMmk4Pt1RFbrSUuoXEuMleaUJ8EiaGWvWd
-         VIyn8qPwxHrLzC2xyBicD7jWnOalEojT151j8/lbiWRehUWycxZ0Z4T00P1c5I7mhLaM
-         BEbtus2Ec6JsFKMjHnAeFWoHsVpHWaE4cLTPKXKwq3SogF8/Px2tGQjh1Dto5TL78LYc
-         m24Fd/X2JybCoCfR8rhWDf1fVvLIiVbHyF2qt2+EO2D0Sg0xwAi3n1FVtlfcuiZ961Ml
-         xLyg==
+        bh=l6oNamEjqRB941u3NNnEKRp7tXfUqE8B/IRmPASZxi4=;
+        b=ytEfJTmXqzwFTFbTTFlhka/iRp9e0TvpvvWOD1HoiUqbisMHBWC/YyI4BIylhKb5s5
+         rwhdDm4p1yqXBvu5rZZu6oIT4qFYSUpt/V/vGOu/KlYr1kckwJaDDKcYjmMsUqcl4cqA
+         MAarZL2Tlc3mXOrtXQIHYaPE7zuIYJ97X00ByEnvWlEHtA+R1HR590i6jNYdeJ0LSSxP
+         fIaKmbDV2LUoRqyL4f0yST4hLuoG4wk828Mp6eo15m+fcQDogWnK5pFtl6jN+4xxpfr3
+         p/IpHpxTOmsSESy7IKMn88e5xYS7V+10hmfjBiHYDz2NLo2t9U62tOir/goMifivBzb5
+         cJkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739263974; x=1739868774;
+        d=1e100.net; s=20230601; t=1739263975; x=1739868775;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zHOUQzUPyOdT3w4jRKuGIg3i9ApsudVpLcIIKx7XFPI=;
-        b=UUt8IiuS3Law8r79MJVhZ0CUZKXMn2LpBlqQcH9CU6+U5rK2unbWTxqz/L95reckJY
-         7fihBtaaegLvPUnqAdo1qVYNn8FXeDTMxL9ZL8EjB8j/yoAZsQK5EzAkm0VpLG7kVhEh
-         WOiMh2RHnk0X9Vx5At/jnca3QQOKptlbHDsVi5c5oNT1D1pJ2SR6aIsQV6enErw0zFyb
-         xbXtz4Iz1XmB18kUBGwGkt43MMJwACVBh77zxWn/rUYtJZGh3kfAiSVM2q4sJeqe5hmI
-         EQ8bz1jKhfEPIyQKBIbfk7+eQrtXyzZkgKfFiiqX5Y3RHr6qvfpxXlYRTQOaDmTN+iJ4
-         +w8g==
-X-Forwarded-Encrypted: i=1; AJvYcCWf2TPqvULWXcVzTSwcOqZvb61PNupTU/XiNmiT/BaThpxa8NrFx9mT6iVneAfoQ1MIzPQEw3nZLCCkfXVMN5B5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBOg380Q/YGajMdVhEuoMy3FDhj1V5sstfnnzrSSQg3QzQEeHn
-	hhKcZFbj/v7hBGeQNKul1DhzldP7thRr/7dERHF6tDIsIAJTt1A18FdZ+NUhBAQ=
-X-Gm-Gg: ASbGncuWJp6apAO9k/4ULpOYO6h/RAgcnJJdKaKnWrkE+yZaWr303qw7utfbK8WxSf/
-	Fp4tBxAqjZelKPza44GQ/qs8o6flqABREUzedMKrSge303smzQH1jUpZW80mXCUFcA+VbYpniTg
-	1zLJ73Sgplxs4hhYLbGSm/6hqhFhUU7LuRYGcmLLWegB6KPUHO0bg3UVJgRJhsgrNIcw96gH9if
-	p2TH6H6hL2P2xcGkb1OLSHnaPqjQ8zRAE64CXAp2bBC5NEfT7RlO/Gs263Fgt8jozwfdOO7Jbxj
-	1TuNQgvQ1URZSTUMVmLfrLrmV1EJm2AGFC08Y453fxgEvQMXMIe7J/mLDsFkLiNeAhgYRaw=
-X-Google-Smtp-Source: AGHT+IHrkFdDd7iCklHzfZCCf6qXnYWRV7DGmwy6HyhX0bhwjVCEoM+UF6b0MZDOv2RBBD41AthhEg==
-X-Received: by 2002:a5d:588d:0:b0:38d:e2ab:1967 with SMTP id ffacd0b85a97d-38de2ab1ab7mr3564345f8f.52.1739263973713;
-        Tue, 11 Feb 2025 00:52:53 -0800 (PST)
+        bh=l6oNamEjqRB941u3NNnEKRp7tXfUqE8B/IRmPASZxi4=;
+        b=eXgejfZOq+OmVFC4jAx8vSuHC+D/QfQsohbnO+SmA37gMk+y2krEzf2n91aqBb6tKg
+         iTlcRjXwgW+w+e/mB6hMn51bMa4vUMQmZLPJawkF0KOXM+KUlrm4+2MPBJ7cA6Mm9gDr
+         rrh1HG+EJgWxt4bMe7AGJUZRliV9tnwJFM6XxYnyhUDE3ZA0K6KzMvOigRfut1vAA3BB
+         CsRVt9RUrwwmrg9zPr0RPG8p80zssDmD7r+bd8u7/87kBoGkuE4gbeqb0HjEcoQ8Xe9q
+         BbxR5VBuB8XKcRmAufC8h0AY/hBzB91ClgDAVKi1BQls3oMomUYVKidaziYAJQtSOGjG
+         6YHg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjhbZ3AOnEGQ+kW6OGhqD1blPNpiyD9iGXO2Uk/9j/smw2kUFcHitltklTm27BFnYVWcz4lqXJDP1qK50/k8Bc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9wheAMuRzjWgjepDHqhhb7GUUQ4XkjIBuN0pxLrSeCNBoEbLb
+	GGhCc0YMZDTRHHDm1Y9XGAUZXTXaGemIHw52PpQa4tKU+RBlo4OdKUaT60JQ3tc=
+X-Gm-Gg: ASbGncv61oqbN+ctvjZKfUqrqO+/xy+ByWKFrOKY7j+2LtMCEyPJmd10WZRoQffuqEz
+	YYSOSWkTLeCKk26ShSe2XEUCicPCuO6dLuIa9mq5XyuhLEFle+HP2nFitVsY3wnMMfbTfTCZuAT
+	xwlVH1XQVuYOXt9BV79rAwAr+aQDOKWqwUI2F+BLm9E+29cXSiPpLL0oJOtfrQ3mEeQfxxzMV0H
+	Ri0Ijv+CfADuWSF/AP4p/TuQpnVUQsQLudfwNh5SlPWS+gtO9psR4HiirXlyFVcbx3w1AtQy7bB
+	gwDsuq7ocLmm1Xlo0mIq77f7T1qSvgUu2tM+UekKzMceedzhZtteRoW+1RBuEH/EIOBzITw=
+X-Google-Smtp-Source: AGHT+IHcZi/zJ4FQcgO20PkYkCPJXglfEBo0sBAw5TVwt/wZfegs3093bqnu4qvKAVANCPitcwQgzQ==
+X-Received: by 2002:a05:6000:1a85:b0:38d:d906:dbb0 with SMTP id ffacd0b85a97d-38dd906dcbcmr7725585f8f.7.1739263972977;
+        Tue, 11 Feb 2025 00:52:52 -0800 (PST)
 Received: from ta2.c.googlers.com (169.178.77.34.bc.googleusercontent.com. [34.77.178.169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d94d7d4sm207698225e9.10.2025.02.11.00.52.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d94d7d4sm207698225e9.10.2025.02.11.00.52.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 00:52:53 -0800 (PST)
+        Tue, 11 Feb 2025 00:52:52 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Tue, 11 Feb 2025 08:52:51 +0000
-Subject: [PATCH v8 3/3] MAINTAINERS: add entry for the Samsung Exynos ACPM
- mailbox protocol
+Date: Tue, 11 Feb 2025 08:52:50 +0000
+Subject: [PATCH v8 2/3] firmware: add Exynos ACPM protocol driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-gs101-acpm-v8-3-01d01f522da6@linaro.org>
+Message-Id: <20250211-gs101-acpm-v8-2-01d01f522da6@linaro.org>
 References: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
 In-Reply-To: <20250211-gs101-acpm-v8-0-01d01f522da6@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,17 +88,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739263970; l=1230;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739263970; l=35306;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=mxio+qKZ0oCarMDdKVLWSkQ5r9o/ZU/FWiQSXWeFPIk=;
- b=2O1NkUnh2TsrjToYDOxMeBlIfmePDYbb3kMBJmkogPAiIVhuu+RBXSeyCeYc4C6ct+kFEsfXh
- uAbNqfEv/4BBCwU+T03HDvfydAx+8udUwH3S2KEWt1XMlK5Agk6pJdU
+ bh=iNIR+7UIvj4x3q+0zYymFLCYDfA5pgvH+DT02S6eCag=;
+ b=aVJ8e10hMYubp9s9seiHyjyuYuF+BAF8W0oG5iA7ad36/mzs52PukSuqmnq3YQsBbtDVq0QSn
+ Kfn+H0Hum8mDDKyD5rvDt0N9pi8KFdARbW/90h6aEWBq1caRxpncIVA
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_005255_918673_CA808F14 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_005256_840767_2064FC94 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +112,1212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entry for the Samsung Exynos ACPM mailbox protocol.
+Alive Clock and Power Manager (ACPM) Message Protocol is defined for
+the purpose of communication between the ACPM firmware and masters
+(AP, AOC, ...). ACPM firmware operates on the Active Power Management
+(APM) module that handles overall power activities.
+
+ACPM and masters regard each other as independent hardware component and
+communicate with each other using mailbox messages and shared memory.
+
+This protocol driver provides the interface for all the client drivers
+making use of the features offered by the APM. Add ACPM protocol support.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/firmware/Kconfig                           |   1 +
+ drivers/firmware/Makefile                          |   1 +
+ drivers/firmware/samsung/Kconfig                   |  14 +
+ drivers/firmware/samsung/Makefile                  |   4 +
+ drivers/firmware/samsung/exynos-acpm-pmic.c        | 229 ++++++
+ drivers/firmware/samsung/exynos-acpm-pmic.h        |  29 +
+ drivers/firmware/samsung/exynos-acpm.c             | 768 +++++++++++++++++++++
+ drivers/firmware/samsung/exynos-acpm.h             |  23 +
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  49 ++
+ 9 files changed, 1118 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 896a307fa065..79ac2f3abff0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3070,6 +3070,7 @@ F:	drivers/*/*s3c24*
- F:	drivers/*/*s3c64xx*
- F:	drivers/*/*s5pv210*
- F:	drivers/clocksource/samsung_pwm_timer.c
-+F:	drivers/firmware/samsung/
- F:	drivers/mailbox/exynos-mailbox.c
- F:	drivers/memory/samsung/
- F:	drivers/pwm/pwm-samsung.c
-@@ -20899,6 +20900,15 @@ F:	arch/arm64/boot/dts/exynos/exynos850*
- F:	drivers/clk/samsung/clk-exynos850.c
- F:	include/dt-bindings/clock/exynos850.h
- 
-+SAMSUNG EXYNOS ACPM MAILBOX PROTOCOL
-+M:	Tudor Ambarus <tudor.ambarus@linaro.org>
-+L:	linux-kernel@vger.kernel.org
-+L:	linux-samsung-soc@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-+F:	drivers/firmware/samsung/exynos-acpm*
-+F:	include/linux/firmware/samsung/exynos-acpm-protocol.h
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index 71d8b26c4103..24edb956831b 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -267,6 +267,7 @@ source "drivers/firmware/meson/Kconfig"
+ source "drivers/firmware/microchip/Kconfig"
+ source "drivers/firmware/psci/Kconfig"
+ source "drivers/firmware/qcom/Kconfig"
++source "drivers/firmware/samsung/Kconfig"
+ source "drivers/firmware/smccc/Kconfig"
+ source "drivers/firmware/tegra/Kconfig"
+ source "drivers/firmware/xilinx/Kconfig"
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 7a8d486e718f..91efcc868a05 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -33,6 +33,7 @@ obj-y				+= efi/
+ obj-y				+= imx/
+ obj-y				+= psci/
+ obj-y				+= qcom/
++obj-y				+= samsung/
+ obj-y				+= smccc/
+ obj-y				+= tegra/
+ obj-y				+= xilinx/
+diff --git a/drivers/firmware/samsung/Kconfig b/drivers/firmware/samsung/Kconfig
+new file mode 100644
+index 000000000000..16d81aeb1d41
+--- /dev/null
++++ b/drivers/firmware/samsung/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0-only
 +
- SAMSUNG EXYNOS MAILBOX DRIVER
- M:	Tudor Ambarus <tudor.ambarus@linaro.org>
- L:	linux-kernel@vger.kernel.org
++config EXYNOS_ACPM_PROTOCOL
++	tristate "Exynos Alive Clock and Power Manager (ACPM) Message Protocol"
++	depends on ARCH_EXYNOS || COMPILE_TEST
++	depends on MAILBOX
++	help
++	  Alive Clock and Power Manager (ACPM) Message Protocol is defined for
++	  the purpose of communication between the ACPM firmware and masters
++	  (AP, AOC, ...). ACPM firmware operates on the Active Power Management
++	  (APM) module that handles overall power activities.
++
++	  This protocol driver provides interface for all the client drivers
++	  making use of the features offered by the APM.
+diff --git a/drivers/firmware/samsung/Makefile b/drivers/firmware/samsung/Makefile
+new file mode 100644
+index 000000000000..7b4c9f6f34f5
+--- /dev/null
++++ b/drivers/firmware/samsung/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++acpm-protocol-objs			:= exynos-acpm.o exynos-acpm-pmic.o
++obj-$(CONFIG_EXYNOS_ACPM_PROTOCOL)	+= acpm-protocol.o
+diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
+new file mode 100644
+index 000000000000..1ad3c0b4e39b
+--- /dev/null
++++ b/drivers/firmware/samsung/exynos-acpm-pmic.c
+@@ -0,0 +1,229 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
++ * Copyright 2024 Linaro Ltd.
++ */
++#include <linux/bitfield.h>
++#include <linux/firmware/samsung/exynos-acpm-protocol.h>
++#include <linux/ktime.h>
++#include <linux/module.h>
++#include <linux/types.h>
++
++#include "exynos-acpm.h"
++#include "exynos-acpm-pmic.h"
++
++#define ACPM_PMIC_CHANNEL		GENMASK(15, 12)
++#define ACPM_PMIC_TYPE			GENMASK(11, 8)
++#define ACPM_PMIC_REG			GENMASK(7, 0)
++
++#define ACPM_PMIC_RETURN		GENMASK(31, 24)
++#define ACPM_PMIC_MASK			GENMASK(23, 16)
++#define ACPM_PMIC_VALUE			GENMASK(15, 8)
++#define ACPM_PMIC_FUNC			GENMASK(7, 0)
++
++#define ACPM_PMIC_BULK_SHIFT		8
++#define ACPM_PMIC_BULK_MASK		GENMASK(7, 0)
++#define ACPM_PMIC_BULK_MAX_COUNT	8
++
++enum exynos_acpm_pmic_func {
++	ACPM_PMIC_READ,
++	ACPM_PMIC_WRITE,
++	ACPM_PMIC_UPDATE,
++	ACPM_PMIC_BULK_READ,
++	ACPM_PMIC_BULK_WRITE,
++};
++
++static inline u32 acpm_pmic_set_bulk(u32 data, unsigned int i)
++{
++	return (data & ACPM_PMIC_BULK_MASK) << (ACPM_PMIC_BULK_SHIFT * i);
++}
++
++static inline u32 acpm_pmic_get_bulk(u32 data, unsigned int i)
++{
++	return (data >> (ACPM_PMIC_BULK_SHIFT * i)) & ACPM_PMIC_BULK_MASK;
++}
++
++static void acpm_pmic_set_xfer(struct acpm_xfer *xfer, u32 *cmd,
++			       unsigned int acpm_chan_id)
++{
++	xfer->txd = cmd;
++	xfer->rxd = cmd;
++	xfer->txlen = sizeof(cmd);
++	xfer->rxlen = sizeof(cmd);
++	xfer->acpm_chan_id = acpm_chan_id;
++}
++
++static void acpm_pmic_init_read_cmd(u32 cmd[4], u8 type, u8 reg, u8 chan)
++{
++	cmd[0] = FIELD_PREP(ACPM_PMIC_TYPE, type) |
++		 FIELD_PREP(ACPM_PMIC_REG, reg) |
++		 FIELD_PREP(ACPM_PMIC_CHANNEL, chan);
++	cmd[1] = FIELD_PREP(ACPM_PMIC_FUNC, ACPM_PMIC_READ);
++	cmd[3] = ktime_to_ms(ktime_get());
++}
++
++int acpm_pmic_read_reg(const struct acpm_handle *handle,
++		       unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++		       u8 *buf)
++{
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int ret;
++
++	acpm_pmic_init_read_cmd(cmd, type, reg, chan);
++	acpm_pmic_set_xfer(&xfer, cmd, acpm_chan_id);
++
++	ret = acpm_do_xfer(handle, &xfer);
++	if (ret)
++		return ret;
++
++	*buf = FIELD_GET(ACPM_PMIC_VALUE, xfer.rxd[1]);
++
++	return FIELD_GET(ACPM_PMIC_RETURN, xfer.rxd[1]);
++}
++
++static void acpm_pmic_init_bulk_read_cmd(u32 cmd[4], u8 type, u8 reg, u8 chan,
++					 u8 count)
++{
++	cmd[0] = FIELD_PREP(ACPM_PMIC_TYPE, type) |
++		 FIELD_PREP(ACPM_PMIC_REG, reg) |
++		 FIELD_PREP(ACPM_PMIC_CHANNEL, chan);
++	cmd[1] = FIELD_PREP(ACPM_PMIC_FUNC, ACPM_PMIC_BULK_READ) |
++		 FIELD_PREP(ACPM_PMIC_VALUE, count);
++}
++
++int acpm_pmic_bulk_read(const struct acpm_handle *handle,
++			unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			u8 count, u8 *buf)
++{
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int i, ret;
++
++	if (count > ACPM_PMIC_BULK_MAX_COUNT)
++		return -EINVAL;
++
++	acpm_pmic_init_bulk_read_cmd(cmd, type, reg, chan, count);
++	acpm_pmic_set_xfer(&xfer, cmd, acpm_chan_id);
++
++	ret = acpm_do_xfer(handle, &xfer);
++	if (ret)
++		return ret;
++
++	ret = FIELD_GET(ACPM_PMIC_RETURN, xfer.rxd[1]);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < count; i++) {
++		if (i < 4)
++			buf[i] = acpm_pmic_get_bulk(xfer.rxd[2], i);
++		else
++			buf[i] = acpm_pmic_get_bulk(xfer.rxd[3], i - 4);
++	}
++
++	return 0;
++}
++
++static void acpm_pmic_init_write_cmd(u32 cmd[4], u8 type, u8 reg, u8 chan,
++				     u8 value)
++{
++	cmd[0] = FIELD_PREP(ACPM_PMIC_TYPE, type) |
++		 FIELD_PREP(ACPM_PMIC_REG, reg) |
++		 FIELD_PREP(ACPM_PMIC_CHANNEL, chan);
++	cmd[1] = FIELD_PREP(ACPM_PMIC_FUNC, ACPM_PMIC_WRITE) |
++		 FIELD_PREP(ACPM_PMIC_VALUE, value);
++	cmd[3] = ktime_to_ms(ktime_get());
++}
++
++int acpm_pmic_write_reg(const struct acpm_handle *handle,
++			unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			u8 value)
++{
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int ret;
++
++	acpm_pmic_init_write_cmd(cmd, type, reg, chan, value);
++	acpm_pmic_set_xfer(&xfer, cmd, acpm_chan_id);
++
++	ret = acpm_do_xfer(handle, &xfer);
++	if (ret)
++		return ret;
++
++	return FIELD_GET(ACPM_PMIC_RETURN, xfer.rxd[1]);
++}
++
++static void acpm_pmic_init_bulk_write_cmd(u32 cmd[4], u8 type, u8 reg, u8 chan,
++					  u8 count, const u8 *buf)
++{
++	int i;
++
++	cmd[0] = FIELD_PREP(ACPM_PMIC_TYPE, type) |
++		 FIELD_PREP(ACPM_PMIC_REG, reg) |
++		 FIELD_PREP(ACPM_PMIC_CHANNEL, chan);
++	cmd[1] = FIELD_PREP(ACPM_PMIC_FUNC, ACPM_PMIC_BULK_WRITE) |
++		 FIELD_PREP(ACPM_PMIC_VALUE, count);
++
++	for (i = 0; i < count; i++) {
++		if (i < 4)
++			cmd[2] |= acpm_pmic_set_bulk(buf[i], i);
++		else
++			cmd[3] |= acpm_pmic_set_bulk(buf[i], i - 4);
++	}
++}
++
++int acpm_pmic_bulk_write(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 count, const u8 *buf)
++{
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int ret;
++
++	if (count > ACPM_PMIC_BULK_MAX_COUNT)
++		return -EINVAL;
++
++	acpm_pmic_init_bulk_write_cmd(cmd, type, reg, chan, count, buf);
++	acpm_pmic_set_xfer(&xfer, cmd, acpm_chan_id);
++
++	ret = acpm_do_xfer(handle, &xfer);
++	if (ret)
++		return ret;
++
++	return FIELD_GET(ACPM_PMIC_RETURN, xfer.rxd[1]);
++}
++
++static void acpm_pmic_init_update_cmd(u32 cmd[4], u8 type, u8 reg, u8 chan,
++				      u8 value, u8 mask)
++{
++	cmd[0] = FIELD_PREP(ACPM_PMIC_TYPE, type) |
++		 FIELD_PREP(ACPM_PMIC_REG, reg) |
++		 FIELD_PREP(ACPM_PMIC_CHANNEL, chan);
++	cmd[1] = FIELD_PREP(ACPM_PMIC_FUNC, ACPM_PMIC_UPDATE) |
++		 FIELD_PREP(ACPM_PMIC_VALUE, value) |
++		 FIELD_PREP(ACPM_PMIC_MASK, mask);
++	cmd[3] = ktime_to_ms(ktime_get());
++}
++
++int acpm_pmic_update_reg(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 value, u8 mask)
++{
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int ret;
++
++	acpm_pmic_init_update_cmd(cmd, type, reg, chan, value, mask);
++	acpm_pmic_set_xfer(&xfer, cmd, acpm_chan_id);
++
++	ret = acpm_do_xfer(handle, &xfer);
++	if (ret)
++		return ret;
++
++	return FIELD_GET(ACPM_PMIC_RETURN, xfer.rxd[1]);
++}
++
++MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
++MODULE_DESCRIPTION("Samsung Exynos ACPM PMIC protocol driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.h b/drivers/firmware/samsung/exynos-acpm-pmic.h
+new file mode 100644
+index 000000000000..078421888a14
+--- /dev/null
++++ b/drivers/firmware/samsung/exynos-acpm-pmic.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
++ * Copyright 2024 Linaro Ltd.
++ */
++#ifndef __EXYNOS_ACPM_PMIC_H__
++#define __EXYNOS_ACPM_PMIC_H__
++
++#include <linux/types.h>
++
++struct acpm_handle;
++
++int acpm_pmic_read_reg(const struct acpm_handle *handle,
++		       unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++		       u8 *buf);
++int acpm_pmic_bulk_read(const struct acpm_handle *handle,
++			unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			u8 count, u8 *buf);
++int acpm_pmic_write_reg(const struct acpm_handle *handle,
++			unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			u8 value);
++int acpm_pmic_bulk_write(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 count, const u8 *buf);
++int acpm_pmic_update_reg(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 value, u8 mask);
++#endif /* __EXYNOS_ACPM_PMIC_H__ */
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+new file mode 100644
+index 000000000000..5db3587a23ba
+--- /dev/null
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -0,0 +1,768 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
++ * Copyright 2024 Linaro Ltd.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bitmap.h>
++#include <linux/bits.h>
++#include <linux/cleanup.h>
++#include <linux/container_of.h>
++#include <linux/delay.h>
++#include <linux/firmware/samsung/exynos-acpm-protocol.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/mailbox/exynos-message.h>
++#include <linux/mailbox_client.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/math.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <linux/types.h>
++
++#include "exynos-acpm.h"
++#include "exynos-acpm-pmic.h"
++
++#define ACPM_PROTOCOL_SEQNUM		GENMASK(21, 16)
++
++/* The unit of counter is 20 us. 5000 * 20 = 100 ms */
++#define ACPM_POLL_TIMEOUT		5000
++#define ACPM_TX_TIMEOUT_US		500000
++
++#define ACPM_GS101_INITDATA_BASE	0xa000
++
++/**
++ * struct acpm_shmem - shared memory configuration information.
++ * @reserved:	unused fields.
++ * @chans:	offset to array of struct acpm_chan_shmem.
++ * @reserved1:	unused fields.
++ * @num_chans:	number of channels.
++ */
++struct acpm_shmem {
++	u32 reserved[2];
++	u32 chans;
++	u32 reserved1[3];
++	u32 num_chans;
++};
++
++/**
++ * struct acpm_chan_shmem - descriptor of a shared memory channel.
++ *
++ * @id:			channel ID.
++ * @reserved:		unused fields.
++ * @rx_rear:		rear pointer of APM RX queue (TX for AP).
++ * @rx_front:		front pointer of APM RX queue (TX for AP).
++ * @rx_base:		base address of APM RX queue (TX for AP).
++ * @reserved1:		unused fields.
++ * @tx_rear:		rear pointer of APM TX queue (RX for AP).
++ * @tx_front:		front pointer of APM TX queue (RX for AP).
++ * @tx_base:		base address of APM TX queue (RX for AP).
++ * @qlen:		queue length. Applies to both TX/RX queues.
++ * @mlen:		message length. Applies to both TX/RX queues.
++ * @reserved2:		unused fields.
++ * @poll_completion:	true when the channel works on polling.
++ */
++struct acpm_chan_shmem {
++	u32 id;
++	u32 reserved[3];
++	u32 rx_rear;
++	u32 rx_front;
++	u32 rx_base;
++	u32 reserved1[3];
++	u32 tx_rear;
++	u32 tx_front;
++	u32 tx_base;
++	u32 qlen;
++	u32 mlen;
++	u32 reserved2[2];
++	u32 poll_completion;
++};
++
++/**
++ * struct acpm_queue - exynos acpm queue.
++ *
++ * @rear:	rear address of the queue.
++ * @front:	front address of the queue.
++ * @base:	base address of the queue.
++ */
++struct acpm_queue {
++	void __iomem *rear;
++	void __iomem *front;
++	void __iomem *base;
++};
++
++/**
++ * struct acpm_rx_data - RX queue data.
++ *
++ * @cmd:	pointer to where the data shall be saved.
++ * @n_cmd:	number of 32-bit commands.
++ * @response:	true if the client expects the RX data.
++ */
++struct acpm_rx_data {
++	u32 *cmd;
++	size_t n_cmd;
++	bool response;
++};
++
++#define ACPM_SEQNUM_MAX    64
++
++/**
++ * struct acpm_chan - driver internal representation of a channel.
++ * @cl:		mailbox client.
++ * @chan:	mailbox channel.
++ * @acpm:	pointer to driver private data.
++ * @tx:		TX queue. The enqueue is done by the host.
++ *			- front index is written by the host.
++ *			- rear index is written by the firmware.
++ *
++ * @rx:		RX queue. The enqueue is done by the firmware.
++ *			- front index is written by the firmware.
++ *			- rear index is written by the host.
++ * @tx_lock:	protects TX queue.
++ * @rx_lock:	protects RX queue.
++ * @qlen:	queue length. Applies to both TX/RX queues.
++ * @mlen:	message length. Applies to both TX/RX queues.
++ * @seqnum:	sequence number of the last message enqueued on TX queue.
++ * @id:		channel ID.
++ * @poll_completion:	indicates if the transfer needs to be polled for
++ *			completion or interrupt mode is used.
++ * @bitmap_seqnum: bitmap that tracks the messages on the TX/RX queues.
++ * @rx_data:	internal buffer used to drain the RX queue.
++ */
++struct acpm_chan {
++	struct mbox_client cl;
++	struct mbox_chan *chan;
++	struct acpm_info *acpm;
++	struct acpm_queue tx;
++	struct acpm_queue rx;
++	struct mutex tx_lock;
++	struct mutex rx_lock;
++
++	unsigned int qlen;
++	unsigned int mlen;
++	u8 seqnum;
++	u8 id;
++	bool poll_completion;
++
++	DECLARE_BITMAP(bitmap_seqnum, ACPM_SEQNUM_MAX - 1);
++	struct acpm_rx_data rx_data[ACPM_SEQNUM_MAX];
++};
++
++/**
++ * struct acpm_info - driver's private data.
++ * @shmem:	pointer to the SRAM configuration data.
++ * @sram_base:	base address of SRAM.
++ * @chans:	pointer to the ACPM channel parameters retrieved from SRAM.
++ * @dev:	pointer to the exynos-acpm device.
++ * @handle:	instance of acpm_handle to send to clients.
++ * @num_chans:	number of channels available for this controller.
++ */
++struct acpm_info {
++	struct acpm_shmem __iomem *shmem;
++	void __iomem *sram_base;
++	struct acpm_chan *chans;
++	struct device *dev;
++	struct acpm_handle handle;
++	u32 num_chans;
++};
++
++/**
++ * struct acpm_match_data - of_device_id data.
++ * @initdata_base:	offset in SRAM where the channels configuration resides.
++ */
++struct acpm_match_data {
++	loff_t initdata_base;
++};
++
++#define client_to_acpm_chan(c) container_of(c, struct acpm_chan, cl)
++#define handle_to_acpm_info(h) container_of(h, struct acpm_info, handle)
++
++/**
++ * acpm_get_rx() - get response from RX queue.
++ * @achan:	ACPM channel info.
++ * @xfer:	reference to the transfer to get response for.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_get_rx(struct acpm_chan *achan, const struct acpm_xfer *xfer)
++{
++	u32 rx_front, rx_seqnum, tx_seqnum, seqnum;
++	const void __iomem *base, *addr;
++	struct acpm_rx_data *rx_data;
++	u32 i, val, mlen;
++	bool rx_set = false;
++
++	guard(mutex)(&achan->rx_lock);
++
++	rx_front = readl(achan->rx.front);
++	i = readl(achan->rx.rear);
++
++	/* Bail out if RX is empty. */
++	if (i == rx_front)
++		return 0;
++
++	base = achan->rx.base;
++	mlen = achan->mlen;
++
++	tx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, xfer->txd[0]);
++
++	/* Drain RX queue. */
++	do {
++		/* Read RX seqnum. */
++		addr = base + mlen * i;
++		val = readl(addr);
++
++		rx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, val);
++		if (!rx_seqnum)
++			return -EIO;
++		/*
++		 * mssg seqnum starts with value 1, whereas the driver considers
++		 * the first mssg at index 0.
++		 */
++		seqnum = rx_seqnum - 1;
++		rx_data = &achan->rx_data[seqnum];
++
++		if (rx_data->response) {
++			if (rx_seqnum == tx_seqnum) {
++				__ioread32_copy(xfer->rxd, addr,
++						xfer->rxlen / 4);
++				rx_set = true;
++				clear_bit(seqnum, achan->bitmap_seqnum);
++			} else {
++				/*
++				 * The RX data corresponds to another request.
++				 * Save the data to drain the queue, but don't
++				 * clear yet the bitmap. It will be cleared
++				 * after the response is copied to the request.
++				 */
++				__ioread32_copy(rx_data->cmd, addr,
++						xfer->rxlen / 4);
++			}
++		} else {
++			clear_bit(seqnum, achan->bitmap_seqnum);
++		}
++
++		i = (i + 1) % achan->qlen;
++	} while (i != rx_front);
++
++	/* We saved all responses, mark RX empty. */
++	writel(rx_front, achan->rx.rear);
++
++	/*
++	 * If the response was not in this iteration of the queue, check if the
++	 * RX data was previously saved.
++	 */
++	rx_data = &achan->rx_data[tx_seqnum - 1];
++	if (!rx_set && rx_data->response) {
++		rx_seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM,
++				      rx_data->cmd[0]);
++
++		if (rx_seqnum == tx_seqnum) {
++			memcpy(xfer->rxd, rx_data->cmd, xfer->rxlen);
++			clear_bit(rx_seqnum - 1, achan->bitmap_seqnum);
++		}
++	}
++
++	return 0;
++}
++
++/**
++ * acpm_dequeue_by_polling() - RX dequeue by polling.
++ * @achan:	ACPM channel info.
++ * @xfer:	reference to the transfer being waited for.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_dequeue_by_polling(struct acpm_chan *achan,
++				   const struct acpm_xfer *xfer)
++{
++	struct device *dev = achan->acpm->dev;
++	unsigned int cnt_20us = 0;
++	u32 seqnum;
++	int ret;
++
++	seqnum = FIELD_GET(ACPM_PROTOCOL_SEQNUM, xfer->txd[0]);
++
++	do {
++		ret = acpm_get_rx(achan, xfer);
++		if (ret)
++			return ret;
++
++		if (!test_bit(seqnum - 1, achan->bitmap_seqnum))
++			return 0;
++
++		/* Determined experimentally. */
++		usleep_range(20, 30);
++		cnt_20us++;
++	} while (cnt_20us < ACPM_POLL_TIMEOUT);
++
++	dev_err(dev, "Timeout! ch:%u s:%u bitmap:%lx, cnt_20us = %d.\n",
++		achan->id, seqnum, achan->bitmap_seqnum[0], cnt_20us);
++
++	return -ETIME;
++}
++
++/**
++ * acpm_wait_for_queue_slots() - wait for queue slots.
++ *
++ * @achan:		ACPM channel info.
++ * @next_tx_front:	next front index of the TX queue.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_wait_for_queue_slots(struct acpm_chan *achan, u32 next_tx_front)
++{
++	u32 val, ret;
++
++	/*
++	 * Wait for RX front to keep up with TX front. Make sure there's at
++	 * least one element between them.
++	 */
++	ret = readl_poll_timeout(achan->rx.front, val, next_tx_front != val, 0,
++				 ACPM_TX_TIMEOUT_US);
++	if (ret) {
++		dev_err(achan->acpm->dev, "RX front can not keep up with TX front.\n");
++		return ret;
++	}
++
++	ret = readl_poll_timeout(achan->tx.rear, val, next_tx_front != val, 0,
++				 ACPM_TX_TIMEOUT_US);
++	if (ret)
++		dev_err(achan->acpm->dev, "TX queue is full.\n");
++
++	return ret;
++}
++
++/**
++ * acpm_prepare_xfer() - prepare a transfer before writing the message to the
++ * TX queue.
++ * @achan:	ACPM channel info.
++ * @xfer:	reference to the transfer being prepared.
++ */
++static void acpm_prepare_xfer(struct acpm_chan *achan,
++			      const struct acpm_xfer *xfer)
++{
++	struct acpm_rx_data *rx_data;
++	u32 *txd = (u32 *)xfer->txd;
++
++	/* Prevent chan->seqnum from being re-used */
++	do {
++		if (++achan->seqnum == ACPM_SEQNUM_MAX)
++			achan->seqnum = 1;
++	} while (test_bit(achan->seqnum - 1, achan->bitmap_seqnum));
++
++	txd[0] |= FIELD_PREP(ACPM_PROTOCOL_SEQNUM, achan->seqnum);
++
++	/* Clear data for upcoming responses */
++	rx_data = &achan->rx_data[achan->seqnum - 1];
++	memset(rx_data->cmd, 0, sizeof(*rx_data->cmd) * rx_data->n_cmd);
++	if (xfer->rxd)
++		rx_data->response = true;
++
++	/* Flag the index based on seqnum. (seqnum: 1~63, bitmap: 0~62) */
++	set_bit(achan->seqnum - 1, achan->bitmap_seqnum);
++}
++
++/**
++ * acpm_wait_for_message_response - an helper to group all possible ways of
++ * waiting for a synchronous message response.
++ *
++ * @achan:	ACPM channel info.
++ * @xfer:	reference to the transfer being waited for.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_wait_for_message_response(struct acpm_chan *achan,
++					  const struct acpm_xfer *xfer)
++{
++	/* Just polling mode supported for now. */
++	return acpm_dequeue_by_polling(achan, xfer);
++}
++
++/**
++ * acpm_do_xfer() - do one transfer.
++ * @handle:	pointer to the acpm handle.
++ * @xfer:	transfer to initiate and wait for response.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
++{
++	struct acpm_info *acpm = handle_to_acpm_info(handle);
++	struct exynos_mbox_msg msg;
++	struct acpm_chan *achan;
++	u32 idx, tx_front;
++	int ret;
++
++	if (xfer->acpm_chan_id >= acpm->num_chans)
++		return -EINVAL;
++
++	achan = &acpm->chans[xfer->acpm_chan_id];
++
++	if (!xfer->txd || xfer->txlen > achan->mlen || xfer->rxlen > achan->mlen)
++		return -EINVAL;
++
++	if (!achan->poll_completion) {
++		dev_err(achan->acpm->dev, "Interrupt mode not supported\n");
++		return -EOPNOTSUPP;
++	}
++
++	scoped_guard(mutex, &achan->tx_lock) {
++		tx_front = readl(achan->tx.front);
++		idx = (tx_front + 1) % achan->qlen;
++
++		ret = acpm_wait_for_queue_slots(achan, idx);
++		if (ret)
++			return ret;
++
++		acpm_prepare_xfer(achan, xfer);
++
++		/* Write TX command. */
++		__iowrite32_copy(achan->tx.base + achan->mlen * tx_front,
++				 xfer->txd, xfer->txlen / 4);
++
++		/* Advance TX front. */
++		writel(idx, achan->tx.front);
++	}
++
++	msg.chan_id = xfer->acpm_chan_id;
++	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
++	ret = mbox_send_message(achan->chan, (void *)&msg);
++	if (ret < 0)
++		return ret;
++
++	ret = acpm_wait_for_message_response(achan, xfer);
++
++	/*
++	 * NOTE: we might prefer not to need the mailbox ticker to manage the
++	 * transfer queueing since the protocol layer queues things by itself.
++	 * Unfortunately, we have to kick the mailbox framework after we have
++	 * received our message.
++	 */
++	mbox_client_txdone(achan->chan, ret);
++
++	return ret;
++}
++
++/**
++ * acpm_chan_shmem_get_params() - get channel parameters and addresses of the
++ * TX/RX queues.
++ * @achan:	ACPM channel info.
++ * @chan_shmem:	__iomem pointer to a channel described in shared memory.
++ */
++static void acpm_chan_shmem_get_params(struct acpm_chan *achan,
++				struct acpm_chan_shmem __iomem *chan_shmem)
++{
++	void __iomem *base = achan->acpm->sram_base;
++	struct acpm_queue *rx = &achan->rx;
++	struct acpm_queue *tx = &achan->tx;
++
++	achan->mlen = readl(&chan_shmem->mlen);
++	achan->poll_completion = readl(&chan_shmem->poll_completion);
++	achan->id = readl(&chan_shmem->id);
++	achan->qlen = readl(&chan_shmem->qlen);
++
++	tx->base = base + readl(&chan_shmem->rx_base);
++	tx->rear = base + readl(&chan_shmem->rx_rear);
++	tx->front = base + readl(&chan_shmem->rx_front);
++
++	rx->base = base + readl(&chan_shmem->tx_base);
++	rx->rear = base + readl(&chan_shmem->tx_rear);
++	rx->front = base + readl(&chan_shmem->tx_front);
++
++	dev_vdbg(achan->acpm->dev, "ID = %d poll = %d, mlen = %d, qlen = %d\n",
++		 achan->id, achan->poll_completion, achan->mlen, achan->qlen);
++}
++
++/**
++ * acpm_achan_alloc_cmds() - allocate buffers for retrieving data from the ACPM
++ * firmware.
++ * @achan:	ACPM channel info.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_achan_alloc_cmds(struct acpm_chan *achan)
++{
++	struct device *dev = achan->acpm->dev;
++	struct acpm_rx_data *rx_data;
++	size_t cmd_size, n_cmd;
++	int i;
++
++	if (achan->mlen == 0)
++		return 0;
++
++	cmd_size = sizeof(*(achan->rx_data[0].cmd));
++	n_cmd = DIV_ROUND_UP_ULL(achan->mlen, cmd_size);
++
++	for (i = 0; i < ACPM_SEQNUM_MAX; i++) {
++		rx_data = &achan->rx_data[i];
++		rx_data->n_cmd = n_cmd;
++		rx_data->cmd = devm_kcalloc(dev, n_cmd, cmd_size, GFP_KERNEL);
++		if (!rx_data->cmd)
++			return -ENOMEM;
++	}
++
++	return 0;
++}
++
++/**
++ * acpm_free_mbox_chans() - free mailbox channels.
++ * @acpm:	pointer to driver data.
++ */
++static void acpm_free_mbox_chans(struct acpm_info *acpm)
++{
++	int i;
++
++	for (i = 0; i < acpm->num_chans; i++)
++		if (!IS_ERR_OR_NULL(acpm->chans[i].chan))
++			mbox_free_channel(acpm->chans[i].chan);
++}
++
++/**
++ * acpm_channels_init() - initialize channels based on the configuration data in
++ * the shared memory.
++ * @acpm:	pointer to driver data.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int acpm_channels_init(struct acpm_info *acpm)
++{
++	struct acpm_shmem __iomem *shmem = acpm->shmem;
++	struct acpm_chan_shmem __iomem *chans_shmem;
++	struct device *dev = acpm->dev;
++	int i, ret;
++
++	acpm->num_chans = readl(&shmem->num_chans);
++	acpm->chans = devm_kcalloc(dev, acpm->num_chans, sizeof(*acpm->chans),
++				   GFP_KERNEL);
++	if (!acpm->chans)
++		return -ENOMEM;
++
++	chans_shmem = acpm->sram_base + readl(&shmem->chans);
++
++	for (i = 0; i < acpm->num_chans; i++) {
++		struct acpm_chan_shmem __iomem *chan_shmem = &chans_shmem[i];
++		struct acpm_chan *achan = &acpm->chans[i];
++		struct mbox_client *cl = &achan->cl;
++
++		achan->acpm = acpm;
++
++		acpm_chan_shmem_get_params(achan, chan_shmem);
++
++		ret = acpm_achan_alloc_cmds(achan);
++		if (ret)
++			return ret;
++
++		mutex_init(&achan->rx_lock);
++		mutex_init(&achan->tx_lock);
++
++		cl->dev = dev;
++
++		achan->chan = mbox_request_channel(cl, 0);
++		if (IS_ERR(achan->chan)) {
++			acpm_free_mbox_chans(acpm);
++			return PTR_ERR(achan->chan);
++		}
++	}
++
++	return 0;
++}
++
++/**
++ * acpm_setup_ops() - setup the operations structures.
++ * @acpm:	pointer to the driver data.
++ */
++static void acpm_setup_ops(struct acpm_info *acpm)
++{
++	struct acpm_pmic_ops *pmic_ops = &acpm->handle.ops.pmic_ops;
++
++	pmic_ops->read_reg = acpm_pmic_read_reg;
++	pmic_ops->bulk_read = acpm_pmic_bulk_read;
++	pmic_ops->write_reg = acpm_pmic_write_reg;
++	pmic_ops->bulk_write = acpm_pmic_bulk_write;
++	pmic_ops->update_reg = acpm_pmic_update_reg;
++}
++
++static int acpm_probe(struct platform_device *pdev)
++{
++	const struct acpm_match_data *match_data;
++	struct device *dev = &pdev->dev;
++	struct device_node *shmem;
++	struct acpm_info *acpm;
++	resource_size_t size;
++	struct resource res;
++	int ret;
++
++	acpm = devm_kzalloc(dev, sizeof(*acpm), GFP_KERNEL);
++	if (!acpm)
++		return -ENOMEM;
++
++	shmem = of_parse_phandle(dev->of_node, "shmem", 0);
++	ret = of_address_to_resource(shmem, 0, &res);
++	of_node_put(shmem);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to get shared memory.\n");
++
++	size = resource_size(&res);
++	acpm->sram_base = devm_ioremap(dev, res.start, size);
++	if (!acpm->sram_base)
++		return dev_err_probe(dev, -ENOMEM,
++				     "Failed to ioremap shared memory.\n");
++
++	match_data = of_device_get_match_data(dev);
++	if (!match_data)
++		return dev_err_probe(dev, -EINVAL,
++				     "Faile to get match data.\n");
++
++	acpm->shmem = acpm->sram_base + match_data->initdata_base;
++	acpm->dev = dev;
++
++	ret = acpm_channels_init(acpm);
++	if (ret)
++		return ret;
++
++	acpm_setup_ops(acpm);
++
++	platform_set_drvdata(pdev, acpm);
++
++	return 0;
++}
++
++/**
++ * acpm_handle_put() - release the handle acquired by acpm_get_by_phandle.
++ * @handle:	Handle acquired by acpm_get_by_phandle.
++ */
++static void acpm_handle_put(const struct acpm_handle *handle)
++{
++	struct acpm_info *acpm = handle_to_acpm_info(handle);
++	struct device *dev = acpm->dev;
++
++	module_put(dev->driver->owner);
++	/* Drop reference taken with of_find_device_by_node(). */
++	put_device(dev);
++}
++
++/**
++ * devm_acpm_release() - devres release method.
++ * @dev: pointer to device.
++ * @res: pointer to resource.
++ */
++static void devm_acpm_release(struct device *dev, void *res)
++{
++	acpm_handle_put(*(struct acpm_handle **)res);
++}
++
++/**
++ * acpm_get_by_phandle() - get the ACPM handle using DT phandle.
++ * @dev:        device pointer requesting ACPM handle.
++ * @property:   property name containing phandle on ACPM node.
++ *
++ * Return: pointer to handle on success, ERR_PTR(-errno) otherwise.
++ */
++static const struct acpm_handle *acpm_get_by_phandle(struct device *dev,
++						     const char *property)
++{
++	struct platform_device *pdev;
++	struct device_node *acpm_np;
++	struct device_link *link;
++	struct acpm_info *acpm;
++
++	acpm_np = of_parse_phandle(dev->of_node, property, 0);
++	if (!acpm_np)
++		return ERR_PTR(-ENODEV);
++
++	pdev = of_find_device_by_node(acpm_np);
++	if (!pdev) {
++		dev_err(dev, "Cannot find device node %s\n", acpm_np->name);
++		of_node_put(acpm_np);
++		return ERR_PTR(-EPROBE_DEFER);
++	}
++
++	of_node_put(acpm_np);
++
++	acpm = platform_get_drvdata(pdev);
++	if (!acpm) {
++		dev_err(dev, "Cannot get drvdata from %s\n",
++			dev_name(&pdev->dev));
++		platform_device_put(pdev);
++		return ERR_PTR(-EPROBE_DEFER);
++	}
++
++	if (!try_module_get(pdev->dev.driver->owner)) {
++		dev_err(dev, "Cannot get module reference.\n");
++		platform_device_put(pdev);
++		return ERR_PTR(-EPROBE_DEFER);
++	}
++
++	link = device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER);
++	if (!link) {
++		dev_err(&pdev->dev,
++			"Failed to create device link to consumer %s.\n",
++			dev_name(dev));
++		platform_device_put(pdev);
++		module_put(pdev->dev.driver->owner);
++		return ERR_PTR(-EINVAL);
++	}
++
++	return &acpm->handle;
++}
++
++/**
++ * devm_acpm_get_by_phandle() - managed get handle using phandle.
++ * @dev:        device pointer requesting ACPM handle.
++ * @property:   property name containing phandle on ACPM node.
++ *
++ * Return: pointer to handle on success, ERR_PTR(-errno) otherwise.
++ */
++const struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev,
++						   const char *property)
++{
++	const struct acpm_handle **ptr, *handle;
++
++	ptr = devres_alloc(devm_acpm_release, sizeof(*ptr), GFP_KERNEL);
++	if (!ptr)
++		return ERR_PTR(-ENOMEM);
++
++	handle = acpm_get_by_phandle(dev, property);
++	if (!IS_ERR(handle)) {
++		*ptr = handle;
++		devres_add(dev, ptr);
++	} else {
++		devres_free(ptr);
++	}
++
++	return handle;
++}
++
++static const struct acpm_match_data acpm_gs101 = {
++	.initdata_base = ACPM_GS101_INITDATA_BASE,
++};
++
++static const struct of_device_id acpm_match[] = {
++	{
++		.compatible = "google,gs101-acpm-ipc",
++		.data = &acpm_gs101,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, acpm_match);
++
++static struct platform_driver acpm_driver = {
++	.probe	= acpm_probe,
++	.driver	= {
++		.name = "exynos-acpm-protocol",
++		.of_match_table	= acpm_match,
++	},
++};
++module_platform_driver(acpm_driver);
++
++MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
++MODULE_DESCRIPTION("Samsung Exynos ACPM mailbox protocol driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/firmware/samsung/exynos-acpm.h b/drivers/firmware/samsung/exynos-acpm.h
+new file mode 100644
+index 000000000000..2d14cb58f98c
+--- /dev/null
++++ b/drivers/firmware/samsung/exynos-acpm.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
++ * Copyright 2024 Linaro Ltd.
++ */
++#ifndef __EXYNOS_ACPM_H__
++#define __EXYNOS_ACPM_H__
++
++struct acpm_xfer {
++	const u32 *txd;
++	u32 *rxd;
++	size_t txlen;
++	size_t rxlen;
++	unsigned int acpm_chan_id;
++};
++
++struct acpm_handle;
++
++int acpm_do_xfer(const struct acpm_handle *handle,
++		 const struct acpm_xfer *xfer);
++
++#endif /* __EXYNOS_ACPM_H__ */
+diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+new file mode 100644
+index 000000000000..7b34b36c9553
+--- /dev/null
++++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+@@ -0,0 +1,49 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
++ * Copyright 2024 Linaro Ltd.
++ */
++
++#ifndef __EXYNOS_ACPM_PROTOCOL_H
++#define __EXYNOS_ACPM_PROTOCOL_H
++
++#include <linux/types.h>
++
++struct acpm_handle;
++
++struct acpm_pmic_ops {
++	int (*read_reg)(const struct acpm_handle *handle,
++			unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			u8 *buf);
++	int (*bulk_read)(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 count, u8 *buf);
++	int (*write_reg)(const struct acpm_handle *handle,
++			 unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			 u8 value);
++	int (*bulk_write)(const struct acpm_handle *handle,
++			  unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			  u8 count, const u8 *buf);
++	int (*update_reg)(const struct acpm_handle *handle,
++			  unsigned int acpm_chan_id, u8 type, u8 reg, u8 chan,
++			  u8 value, u8 mask);
++};
++
++struct acpm_ops {
++	struct acpm_pmic_ops pmic_ops;
++};
++
++/**
++ * struct acpm_handle - Reference to an initialized protocol instance
++ * @ops:
++ */
++struct acpm_handle {
++	struct acpm_ops ops;
++};
++
++struct device;
++
++const struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev,
++						   const char *property);
++#endif /* __EXYNOS_ACPM_PROTOCOL_H */
 
 -- 
 2.48.1.502.g6dc24dfdaf-goog
