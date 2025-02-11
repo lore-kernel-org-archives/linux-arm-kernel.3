@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D575C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D61C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1AiaIP//M8WqD4dxy7fDutkXfjVTrFqsAP5JrCGoW9k=; b=zGpBw40BEEUW0q
-	XQ5YeIY5/6NZP51n9/tDCHU7nMxYTG4RMdCcjMzuaHHnR0ycx75YJ3c650IloN6Uyxq6+ApXzZ2MI
-	yjNcJFdXBBbWvw7Strk2L9sbKyeikld5uVoVzTgbXY+/0Q0iUEVIm4MVWAeL2PW1dFlfcoRVOcMct
-	HCUiwze0JOQaY6Nb7zOzcH4KyHgN3ybmj67ia4EO95Of7WMkUc1o2BAqZI/y/bmr+dnOXv/MgQZrV
-	K5wOKg3kPJl62qFz2WqSU+2M7FNj3HonhAxPCzfPcVqh6MCWHUiXHt/4ONPE29FqVBVoqJ7qvgvJR
-	YsS8ACGtip8ee5esm8bw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ge0IZaVhj6bYPb7IYImWFci1To9h0GU7LfN7WXAzDQg=; b=phJlWPcO077tREMmbsAKKr+IgQ
+	kO9AbXCQPPEDraQzIvq6C1dygNSRxGhyCZXm9HupT1nbsyiGbQhU/8AN3wiLiIHEf1Tw4ALDyfIbJ
+	MTCFr+Q2hn+dpZVQBtVLkokJ25fgN42uBZ5H5qBnVqi9mPgPXyfqvzgG1R0kqTPDzk+4kYSByGdwq
+	BbMngXGFSkoQ7nqu/jhFtbKfkkkE7rhZwTx8U/0ObaZtRZZiaVx1e/qUwPLEKRh+qA+CrVN7gFKUc
+	J7pb0FOwUc9zL0Yt4SL3/e4SMDGaxGsN/dFhCdWHMUzN4o3Fs3IuBU99gE8d06+v9ndADupiQni4e
+	QVJ4Ym8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thv7Y-00000004rWu-10us;
-	Tue, 11 Feb 2025 18:36:32 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1thv8w-00000004rqz-2pit;
+	Tue, 11 Feb 2025 18:37:58 +0000
+Received: from out-175.mta0.migadu.com ([91.218.175.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuxQ-00000004q2E-0jYI
+	id 1thuxV-00000004q4A-3oSs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:26:09 +0000
+	Tue, 11 Feb 2025 18:26:11 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739298361;
+	s=key1; t=1739298367;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1AiaIP//M8WqD4dxy7fDutkXfjVTrFqsAP5JrCGoW9k=;
-	b=l2XwgcrEvmmJ1ZWNybXTH+EtietGpZihBPDDaeJW6YKeYZ3JyEg8suYzPDWXcB4L2Z1LOb
-	s/gA+VpQli2gp7Yxt2QZksOdvOcBFjbTb2fvya4l+Vv+aQOjjr+9+k5cPtOiavou98L2Mq
-	piVTocwwAuwxjpG3Sz6/Ug/1TXVWer0WqfIogn4tt10LjoAoEenwOc8FBm6utEYEeaANBs
-	R8A+3K0JY7BTtnwgMHkdRozYirf6SFU0lAbrDKBHnbDqpDny2T1cMZnD+DUp2K9MHnvBpG
-	mOnnZiV4Mz1F6AsZrv53EGlhygBUZr5wlAuv7iblugB0OV6zWscMLi5wZ+fctA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ge0IZaVhj6bYPb7IYImWFci1To9h0GU7LfN7WXAzDQg=;
+	b=Ybmo94hD5UHHt5O9IVJN0SV8pvCtcE0ivNp3/n1zhklYBqNjltkMOMPFHyeJx5KMlCElq6
+	E4kQU2TxImK8S2dl/koS4OlfG2yvr1MNzTylIpBcfIFx87VuQ6QfngqCUqtA5SuYb5drXi
+	cQjoZWnVadk4ndtTaQ5eJ61exw5vEA2w2+aOjegisGHupEq8T+UvqjexQgfXfvN//uguy9
+	8fIzc7A66BIF2Mk8NeqrPmY0tx+V4v+iObyK9n4CawAT2TIvCHD3kekscg7lHo6IumTVLy
+	6Tww43KxYN1itL4og2plMDX+2NldcDAY4Ezcqmur0VZJ2bor+yqtupo0aZaQYQ==
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 0/3] apple-nvme: bug and perf fixes
-Date: Tue, 11 Feb 2025 13:25:56 -0500
-Message-Id: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
+Date: Tue, 11 Feb 2025 13:25:59 -0500
+Subject: [PATCH 3/3] apple-nvme: defer cache flushes by a specified amount
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADSWq2cC/x2LQQqAIBAAvyJ7bkG3PNhXokPYWnvIQkEC8e9Jx
- 2FmKmROwhlmVSFxkSx37GAGBf7c4sEoe2cgTVaTMRjLxRjk5Yzk/KSdJ2vHAH14Ev+i98va2gc
- xJRZhXAAAAA==
-X-Change-ID: 20250211-nvme-fixes-29c409c2553f
+Message-Id: <20250211-nvme-fixes-v1-3-6958b3aa49fe@rosenzweig.io>
+References: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
+In-Reply-To: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
  Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
  Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
@@ -57,27 +56,26 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Alyssa Rosenzweig <alyssa@rosenzweig.io>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1028; i=alyssa@rosenzweig.io;
- h=from:subject:message-id; bh=0gCZGHfdGU8//8Avd545jbaLhxjsJY7QoZdswjXKd9U=;
- b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq5Y3Bvk569yv+q2HP9FrS/HTrAyd5yOIbC2m8
- F8dvl+ikM+JAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uWNwAKCRD+/lBaCvVY
- DXtVEACHXlU9HvWPNeRFrQx56yTXHAmyS65cSe9sGDD2aZ3id4sg4mUfVrMCIADNXrniTC9ikhU
- DPx6dGns77YE8Jbp/EGsfju+3smsarCaaBHKgqZrKZNe0ZqMa3J+3hVp70sSL2TSwlZayl0uA8U
- joelBYnFTtsJy/0RXRFQpHXl66ipJEXnUg4EA6eb4yfrHuwNL4Ujcd1cs8kKxKdU9ZgiNIWgp2F
- eZXHv/MViEAG6/Ev7StkmVeKq09GcK1VQ7dDGd014s8t48L2ib3OQIomsk1UP8IJOkP0KtxtzDh
- +SEs9dmlee4rdwd076gLlLqDgdrPeA9vLyfPWKVs9ewUCM9zse6cxMYL2gCiMYEmrZBMPNPjjp0
- 54r9mwDgaQK43Ws1ecjdivftoKBPqHcY6K7Y5dloDdQy7eIKp98dKmUbhrrfOgPloBVwY+6uySB
- QHJhCLvzaks9Rhiw3jPV422KnJUjo3PY6kkTFjdtyqByoZfRd6J+Mrf92MAAHrQSoLlIMJa3HwV
- RZRe1SXYDKQhb73L++J4dxU62ZsydgXJApThOaZm6UGJLHeadjT5iN8eI7LJcWuUOi6CtiaFRhU
- D41qjUFBPzw12RGREkoKYpx41lm7a0YeNmD4bBT/k1BzK2PjCp+Q3jiB9OcBxe9bV8s2dsRalpP
- U5mfwOU7wFHSn8Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4209; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=XdAPgabJp3Th1VF3dW5IHPK3KhszAX1ZDwJh3vdU+rs=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq5Y3LVwFvjEt/Oee7LPZ30kNPyq8CqXKwpOxw
+ cgxkAAh8ICJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uWNwAKCRD+/lBaCvVY
+ Df8pD/41JdixnbjBPDORaqiQEXeFWOiGuKrkuQnkmT4IDcLlme7arNTYhFy4qlp1QSVcgeWHLsI
+ Hed2NG2jpq0DD5uWlXx5fe1asg4+KvdwJ9EBGBHz29MLxM/PMBSa2k9RYvGfQlcFvAfdRUHQE5T
+ d/PnE+t0vHutgLo5Ba9/rNuyvIaq+qkle/OwXSsjeq0q/L8vOtlJBvoYWuod0C1G2+EV21KkGhq
+ XL98CYSgN5uPiA4WBt3x3NoWRFzXUK23fXQ/jE2EkxAFHX9k1VUUJC1OV4DwOaCCHLSCywLq/qX
+ 4aYYECjAAQlgjq/oBH3vyTc05BaWoQceQzceLVYR+U+vtH0iC6354OdeeEz6lld9JzMnkSZaKQI
+ qAuxX07xFR8osmSkWSFb8+/IzmO9mHjuqS0+/qXZ6hJ1C3wGlpWYjx3xSsBkJiKFbSnV6zRyfFy
+ e+owMrQ27m4YV4NoqcE6rSR/aqrQAEBh9meE0O0aWOwM8ShJolQPM+WerbUN63G0XwWNIrP0X/Z
+ 4hZKEfqnhDbS3yuhr7bIzEc4ZZDCBUvBIeIPr2YsyMjRfhWinT0hiw4KVOT580lPyknu3zeFod9
+ 4+v0hP4Tuj42OaPcMc/HtBdLHL7jUOfb/ZzLVy/fMFZS0WECDRCJJ3NuddFW4G7WeKyOO+87dC7
+ WFM2C460AzrUvLw==
 X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
  fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_102605_450835_D8276966 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_102610_241761_4B736FD5 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +90,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This small series fixes three unrelated issues with the Apple NVMe
-driver.
+From: Jens Axboe <axboe@kernel.dk>
 
-* fix NVMe on firmware/machine
-* fix a power domain leak
-* fix pathological driver performance with random writes
+Cache flushes on the M1 nvme are really slow, taking 17-18 msec to
+complete. This can slow down workloads considerably, pure random writes
+end up being bound by the flush latency and hence run at 55-60 IOPS.
 
-The first two are strict bug fixes, the last is technically an
-optimization but given the measured 200x performance difference I do
-consider to be a fix ;-)
+Add a deferred flush work around to provide better performance, at a
+minimal risk. By default, flushes are delayed at most 1 second, but this
+is configurable.
 
-Given the early stage of mainlining for these SoCs, none of this needs
-to be backported.
+With this work-around, a pure random write workload runs at ~12K IOPS
+rather than 56 IOPS.
 
+Signed-off-by: Jens Axboe <axboe@kernel.dk>
 Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 ---
-Hector Martin (2):
-      apple-nvme: Support coprocessors left idle
-      apple-nvme: Release power domains when probe fails
+ drivers/nvme/host/apple.c | 69 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 69 insertions(+)
 
-Jens Axboe (1):
-      apple-nvme: defer cache flushes by a specified amount
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index a060f69558e76970bfba046cca5127243e8a51b7..2dfb0442d56195756df91e0fbc913b751c74d0ea 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -195,8 +195,20 @@ struct apple_nvme {
+ 
+ 	int irq;
+ 	spinlock_t lock;
++
++	/*
++	 * Delayed cache flush handling state
++	 */
++	struct nvme_ns *flush_ns;
++	unsigned long flush_interval;
++	unsigned long last_flush;
++	struct delayed_work flush_dwork;
+ };
+ 
++unsigned int flush_interval = 1000;
++module_param(flush_interval, uint, 0644);
++MODULE_PARM_DESC(flush_interval, "Grace period in msecs between flushes");
++
+ static_assert(sizeof(struct nvme_command) == 64);
+ static_assert(sizeof(struct apple_nvmmu_tcb) == 128);
+ 
+@@ -729,6 +741,26 @@ static int apple_nvme_remove_sq(struct apple_nvme *anv)
+ 	return nvme_submit_sync_cmd(anv->ctrl.admin_q, &c, NULL, 0);
+ }
+ 
++static bool apple_nvme_delayed_flush(struct apple_nvme *anv, struct nvme_ns *ns,
++				     struct request *req)
++{
++	if (!anv->flush_interval || req_op(req) != REQ_OP_FLUSH)
++		return false;
++	if (delayed_work_pending(&anv->flush_dwork))
++		return true;
++	if (time_before(jiffies, anv->last_flush + anv->flush_interval)) {
++		kblockd_mod_delayed_work_on(WORK_CPU_UNBOUND, &anv->flush_dwork,
++						anv->flush_interval);
++		if (WARN_ON_ONCE(anv->flush_ns && anv->flush_ns != ns))
++			goto out;
++		anv->flush_ns = ns;
++		return true;
++	}
++out:
++	anv->last_flush = jiffies;
++	return false;
++}
++
+ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 					const struct blk_mq_queue_data *bd)
+ {
+@@ -764,6 +796,12 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	}
+ 
+ 	nvme_start_request(req);
++
++	if (apple_nvme_delayed_flush(anv, ns, req)) {
++		blk_mq_complete_request(req);
++		return BLK_STS_OK;
++	}
++
+ 	apple_nvme_submit_cmd(q, cmnd);
+ 	return BLK_STS_OK;
+ 
+@@ -1398,6 +1436,28 @@ static void devm_apple_nvme_mempool_destroy(void *data)
+ 	mempool_destroy(data);
+ }
+ 
++static void apple_nvme_flush_work(struct work_struct *work)
++{
++	struct nvme_command c = { };
++	struct apple_nvme *anv;
++	struct nvme_ns *ns;
++	int err;
++
++	anv = container_of(work, struct apple_nvme, flush_dwork.work);
++	ns = anv->flush_ns;
++	if (WARN_ON_ONCE(!ns))
++		return;
++
++	c.common.opcode = nvme_cmd_flush;
++	c.common.nsid = cpu_to_le32(anv->flush_ns->head->ns_id);
++	err = nvme_submit_sync_cmd(ns->queue, &c, NULL, 0);
++	if (err) {
++		dev_err(anv->dev, "Deferred flush failed: %d\n", err);
++	} else {
++		anv->last_flush = jiffies;
++	}
++}
++
+ static struct apple_nvme *apple_nvme_alloc(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -1553,6 +1613,14 @@ static int apple_nvme_probe(struct platform_device *pdev)
+ 		goto out_uninit_ctrl;
+ 	}
+ 
++	if (flush_interval) {
++		anv->flush_interval = msecs_to_jiffies(flush_interval);
++		anv->flush_ns = NULL;
++		anv->last_flush = jiffies - anv->flush_interval;
++	}
++
++	INIT_DELAYED_WORK(&anv->flush_dwork, apple_nvme_flush_work);
++
+ 	nvme_reset_ctrl(&anv->ctrl);
+ 	async_schedule(apple_nvme_async_probe, anv);
+ 
+@@ -1590,6 +1658,7 @@ static void apple_nvme_shutdown(struct platform_device *pdev)
+ {
+ 	struct apple_nvme *anv = platform_get_drvdata(pdev);
+ 
++	flush_delayed_work(&anv->flush_dwork);
+ 	apple_nvme_disable(anv, true);
+ 	if (apple_rtkit_is_running(anv->rtk)) {
+ 		apple_rtkit_shutdown(anv->rtk);
 
- drivers/nvme/host/apple.c | 124 +++++++++++++++++++++++++++++++++++++++-------
- 1 file changed, 107 insertions(+), 17 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250211-nvme-fixes-29c409c2553f
-
-Best regards,
 -- 
-Alyssa Rosenzweig <alyssa@rosenzweig.io>
+2.48.1
 
 
