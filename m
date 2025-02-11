@@ -4,74 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF78C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD0A9C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 19:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SO7X7qZVsW+G0MiLmhSCzhRDY0YQ1kOhBbsoR4z5aYU=; b=Hn3zvm+tUZ31mpUMv2N7cuHNrA
-	s6WYCapawSxSpln6aY3EjHD/USfVvsA65Q5v6zPvN19ob2lupUBg0vkIoix31nFndJg8NeumPLS7K
-	Jfjt/tPcSX2PEZM2rfm+qpK76ntF933OjUQOW6nOa1Dh5IKO1xerrmkS7HRVbmo7EFVofTairErTF
-	lcTsapd316FqWHTxywc5UGAXz6YcJKwdzL5AA0uVEXkBt3RZIC119wj+c/1XKHLUz6vasAKbYWSLL
-	ZB1fuHX/A5EngiXEpJNAk4ksYMspV/waJkg90CGgCLZM8j4gQ0ag+1MKrmTzD36UWRHAbaqS0qd3J
-	NZKMoJOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUV7D/7FHhEkhtKkdqUEVJvJ3is/GshkRVyHniVhIV8=; b=ftN2L8D3cAbxaaF//obHSuWsQC
+	RnYcfjgEoDQoV9vi7VOzLWGc+HRHZySZdEPb+biu1STKlJtiTRbSIgx7Dqhg+laLqTFtqZCrjsN8H
+	XW7vJLPucVQXGrqHtgiW47VOt0cXx3fTvGAZTrcruVlYANADBIdae7UQpyVUi5wweTf+hUeiUEzMo
+	U794kypPiVTWxpGYWBWE6VwnE8WPJqHWPQv1tyU1ZuAu92kNmZdgU2FoW36bKYNbKNB6xo/95UEww
+	KNukkA5QaXnu5WKG9IqYyuoW01srVMmDkvhsHJk7dRfQqHZdQlYl49C1m3Xk4q4uFViQnEGpiaD/6
+	Xl5L2WeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvet-00000004xgN-1ysm;
-	Tue, 11 Feb 2025 19:10:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thveu-00000004xgp-1NkN;
+	Tue, 11 Feb 2025 19:11:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuSt-00000004lMT-2WuU;
-	Tue, 11 Feb 2025 17:54:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7EC1A5C4D73;
-	Tue, 11 Feb 2025 17:53:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C9EFC4CEDD;
-	Tue, 11 Feb 2025 17:54:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739296470;
-	bh=5rmXpuduF/u7vqhQmmIvfQ9KEO3o9/3YAw2HM+4dEfY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ORhJUFZuBi0N/fPSErbN9tgZDcMqiiMEWc8jMASSf5bjnb+MMeuds7a6jGNEcLpk1
-	 4ZZy56likvWzUXQrRuDm7xfiDnlgPPPjlMe5H/2/3j0bUv5Jtkjbg1Fa9MS/JSPKEj
-	 C+hjYgi5+su6mDQ2CYkSJesdNFN6voFWjzB2g/aIeRE+OfNyoKIR+i/ott4QcWqv+6
-	 izjSSQsj3zf7GkboFlt9TAvozOz28BCmvnNtzQkOO06V2yBxy67pEhHLpYdGl9mrMP
-	 hAOF3m/bjUY/FprmIAWE9ca/FCFORT7c7UDSqnjsmEygzMwl685ICS+pnFvLRdiM2N
-	 aPBYMjgXHTRxg==
-Date: Tue, 11 Feb 2025 17:54:25 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sunny Shen <sunny.shen@mediatek.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Fei Shao <fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>,
-	"Jason-JH . Lin" <jason-jh.lin@mediatek.com>,
-	Nancy Lin <nancy.lin@mediatek.com>,
-	Singo Chang <singo.chang@mediatek.com>,
-	"Paul Chen --cc=devicetree @ vger . kernel . org" <paul-pl.chen@mediatek.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH 1/5] dt-bindings: display: mediatek: mdp-rsz: Add rules
- for MT8196
-Message-ID: <20250211-feed-shed-4b32f146cc54@spud>
-References: <20250211025317.399534-1-sunny.shen@mediatek.com>
- <20250211025317.399534-2-sunny.shen@mediatek.com>
+	id 1thuZN-00000004mYP-2Z1d
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 11 Feb 2025 18:01:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JUV7D/7FHhEkhtKkdqUEVJvJ3is/GshkRVyHniVhIV8=; b=F/gFF7oTCnyfN91z1UtW8Rssn5
+	MgdgO3LRmRz9+6oV25oBlHTYXrswIoyWdWzS4EUX9YEe+YHf2L5bwOAuV31alXjsjT2IKi8MMF2J8
+	tb3InCDTcfiZcHDkGtYcMm9FsAiWeiMTn/6QNfsa17/LRJAZsBLEvdQfkDmVHMlL5AQWYkk2bGncR
+	8t37MS2HuEIxZQcDCb/r63ZaT8Lz9KumEcUG5pqYpEH0vMfk6nNUR6TafikwwBVYFGFhgLNV3C6D5
+	5DAIEF94Fbja+ZQfOMeHizIZm6iHYd9+bVADiEBDVvAqUf8amuydN5E3ACKwL+5cFwwRR0Zey1LYu
+	Rkv74lnw==;
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thuZK-00000000fH5-30TK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 18:01:12 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43956fcd608so3276275e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 10:01:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739296869; x=1739901669; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JUV7D/7FHhEkhtKkdqUEVJvJ3is/GshkRVyHniVhIV8=;
+        b=fL51PVUdcDyOzuL+pPQ+YgJDcTGvCGsdZRbLMK2188V0VZDbJnb9i6QUXxWdf5+kvX
+         MHbMRsyJuMr33BBXWE9eTiPImqHypEVoJ1wmzUslt2/qB66gcggVrSMDBjmVhP/LaXcN
+         po3rmdk9irduGHEXRVCEHOggEdFBYAgJLWlX6hvU5YQX0hv8jz+7z2kr1xXCcQI07WdV
+         KdKCg9NvEyBAGuMY+1UiE+K+v2XAXtA+FlHXYhAU86s78lexdmDtrOvFY4+xhV2r8vyb
+         yXjABnYlRrqhLNAwpLNCuKPyH+6wtziR4u9hg6N8ADpL3PTR56SnZlS6JSHZTGYEJFwI
+         9RZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739296869; x=1739901669;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JUV7D/7FHhEkhtKkdqUEVJvJ3is/GshkRVyHniVhIV8=;
+        b=V/AF7GOiED6TM+A3obZagdcvxmINevT4q/sZ/hlK7V0PWPOVKlisRbTuih3KtBojhO
+         UyNJOw6/geJ0vJoe3FPoVZINqTmnNfELqWGp2G+PLH7zPrGZJ0nNi7AHaIclXPHZD7bG
+         zPGIAc01ZhDm5W9/7KEpwtlZk6gNiD4ixWYmSxdV3iwdVRJyO24oBkQrfvd6Tk3ooEJz
+         QVI+A1UvMDBLbk8ylNLDfsJx0Rv620VfGHh2mDsnmOXoR/8f/8JUSuUYORChNqJA8Ebz
+         /xpxyo2QlrKaO8dBbFssPBDa6FPZ8PdP3fQNPTK/hgM5F2Z6bRqoudEJyNKzvSgBsk/a
+         V0OQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUBY9DfGSIXseW1/SU3qh6LnzR5CXYNDSnkViKlMprfaMgIsd9mwIlYYfZ3agps3qsMTW7ijOhAEpHWXvF245Wr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIn8gj5PJNUmYzSf9wpT19KVCZ+RnvuqmC0Bneeol/ZrP3aihi
+	3/S3ZhCPlcVnl8OSQ8XG/2+SNA9rY0s+inSTZebVpgilM+r8r05eFTIomALS2DMqfmkUioyIYwa
+	52e1Y4I3qaFtJpP8MhBRgA+CgcII=
+X-Gm-Gg: ASbGncu44MDM7jXmn63HWuZVWNDSea2lD5EjrMk2F5L+AOQ1lcdVJ4TPfOIh5kXOC2W
+	FcjkKkZ4LY70+Br7ut8saoGywroV/HmINDRaK6NfDcXUM/R2RsHPHfpuPrn/jP9R6Vfc7xNzdwy
+	1kAAOWqn9l0Lht
+X-Google-Smtp-Source: AGHT+IHcQ845RxBvXCqNmZWlyCfvxPz8/imRu/MMQzqaMkKRPhh0DXC4Vt/2tERs91TjyTpJDufKRRzRoTuvGlYQLAQ=
+X-Received: by 2002:a05:600c:3b92:b0:434:f8e5:1bb with SMTP id
+ 5b1f17b1804b1-4395817a562mr2331075e9.12.1739296868563; Tue, 11 Feb 2025
+ 10:01:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TeColmbo9d48spU6"
-Content-Disposition: inline
-In-Reply-To: <20250211025317.399534-2-sunny.shen@mediatek.com>
+References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-8-memxor@gmail.com>
+ <20250210095607.GH10324@noisy.programming.kicks-ass.net> <CAADnVQKefT6iQVQ66QTCeRCMs_am4cC3pBt1Ym1fxfeeQVDDWA@mail.gmail.com>
+ <20250211101146.GB29593@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250211101146.GB29593@noisy.programming.kicks-ass.net>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Tue, 11 Feb 2025 10:00:57 -0800
+X-Gm-Features: AWEUYZk5eSpapY-FzUEHzQMtVjTuyU3F0mPDQ4oZZjvclBX8VhXOaAxZ4UQug3A
+Message-ID: <CAADnVQJjNzMapuJvOni2gPHhxRo=C7_FCXBpG2bb9ctN8L7rcA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 07/26] rqspinlock: Add support for timeouts
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Barret Rhoden <brho@google.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, 
+	Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Kernel Team <kernel-team@meta.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_095431_730123_3E5F2F45 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250211_180110_861771_EEE2255A 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,105 +117,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 11, 2025 at 2:11=E2=80=AFAM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
+>
+> On Mon, Feb 10, 2025 at 08:55:56PM -0800, Alexei Starovoitov wrote:
+> > On Mon, Feb 10, 2025 at 1:56=E2=80=AFAM Peter Zijlstra <peterz@infradea=
+d.org> wrote:
+> > >
+> > > On Thu, Feb 06, 2025 at 02:54:15AM -0800, Kumar Kartikeya Dwivedi wro=
+te:
+> > > > @@ -68,6 +71,44 @@
+> > > >
+> > > >  #include "mcs_spinlock.h"
+> > > >
+> > > > +struct rqspinlock_timeout {
+> > > > +     u64 timeout_end;
+> > > > +     u64 duration;
+> > > > +     u16 spin;
+> > > > +};
+> > > > +
+> > > > +static noinline int check_timeout(struct rqspinlock_timeout *ts)
+> > > > +{
+> > > > +     u64 time =3D ktime_get_mono_fast_ns();
+> > >
+> > > This is only sane if you have a TSC clocksource. If you ever manage t=
+o
+> > > hit the HPET fallback, you're *really* sad.
+> >
+> > ktime_get_mono_fast_ns() is the best NMI safe time source we're aware o=
+f.
+> > perf, rcu, even hardlockup detector are using it.
+>
+> perf is primarily using local_clock(), as is the scheduler.
 
---TeColmbo9d48spU6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Feb 11, 2025 at 10:52:50AM +0800, Sunny Shen wrote:
-> Add MDP-RSZ hardware description for MediaTek MT8196 SoC
->=20
-> Signed-off-by: Sunny Shen <sunny.shen@mediatek.com>
-> ---
->  .../display/mediatek/mediatek,mdp-rsz.yaml    | 46 +++++++++++++++++++
->  1 file changed, 46 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/mediatek/me=
-diatek,mdp-rsz.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-mdp-rsz.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-mdp-rsz.yaml
-> new file mode 100644
-> index 000000000000..6642b9aa651a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mdp-rsz=
-=2Eyaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,mdp-rsz.yam=
-l#
-
-Filename matching compatible please
-
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek display multimedia data path resizer
-> +
-> +maintainers:
-> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
-> +  - Philipp Zabel <p.zabel@pengutronix.de>
-> +
-> +description: |
-> +  MediaTek display multimedia data path resizer, namely MDP-RSZ,
-> +  can do scaling up/down to the picture.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt8196-disp-mdp-rsz
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: MDP-RSZ Clock
-
-This can just be "maxItems: 1"
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        disp_mdp_rsz0: disp-mdp-rsz0@321a0000 {
-
-And "disp-mdp-rsz0" isn't anything close to a generic node name.
-
-> +            compatible =3D "mediatek,mt8196-disp-mdp-rsz";
-> +            reg =3D <0 0x321a0000 0 0x1000>;
-> +            clocks =3D <&dispsys_config_clk 101>;
-
-Surprised there are so few properties, no ports link or anything like
-that?
-
-> +        };
-> +    };
-> --=20
-> 2.34.1
->=20
-
---TeColmbo9d48spU6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6uO0AAKCRB4tDGHoIJi
-0sY+AQC0Vco77whZIp3/tgk1bNN+9gXooiLJUhwGAHf4Gg/oTwD+OPXyvK0GT0dj
-g+jzc91WFWTOwC/l9B6XKr8nX2rgSQI=
-=EAWO
------END PGP SIGNATURE-----
-
---TeColmbo9d48spU6--
+We considered it, but I think it won't tick when irqs are disabled,
+since the generic part is jiffies based ?
 
