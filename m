@@ -4,92 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F38C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E463C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=; b=eKYD4+wcbOzI1zHmrAvrsvvkU9
-	b0p0Gywszv0DjR++i7pRoieBzh6CO9EkUESgk9fFgKHuP7I5uBX+mGqOUCfnJbXhlZxhuCR1VvzHA
-	YvlzSNgp0ECVB6Jg2K0/hNYN8nluVJ8rig6e0riyU/ON+RClYx5zFuAyCGdtKUac3GxkDo7OhkZS0
-	OgBZfN+BsX6zlfHrsFGu+Es0wCjCkTXf8NhGXMGYFGP2yihwq38/VerrQ9zAIVYsKlkqQ7wzW+POO
-	zdrzHxSNGzvXP8b04HvVznmvtRHwWxZ0o/QykuKQBU4hqK9ninBxQBlRGLnnj2tN9WXuXPPB5NgxS
-	egN3bp7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rqWE4p6XLBT63qofoUaEI9KGmwZZNE/fsrMteRuGGoE=; b=g60e1mHH/9PaR1
+	nep5RsqK+yE9V1hanRXaOcAGlo7XE7Rl2ShrNjcgWLAHkuHhMN0MyRoJcL+KlbPhCKWO5PLlRgydo
+	8wnBfKrkKb0fHgGxH3l1oW2h/enB2gFxwWvr6+YeJSLoFbe375cz9TyvPY+b6K3vhGqUK29kiJ1rC
+	sD5aQj6HLSBwCz3bUpaJIVNDihBEvl3al0lVW9GN0V1ro+G8jjjKZUKXJv/Oi6UI+a8Sl7k23Qkjb
+	/EGD9D03OtUHUTUso/Lf3JZIPxkafrB8GM8neTXmgB1esjWUXHHBxVTQALXv+4jlsf9I62PJiJKHc
+	fw4KN8l1DVvALpgzgxHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmi6-00000003D9g-1Xfv;
-	Tue, 11 Feb 2025 09:37:42 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1thmjs-00000003DZe-0Oqm;
+	Tue, 11 Feb 2025 09:39:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmge-00000003CNA-3IDG
+	id 1thmiQ-00000003DE9-2UD2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 09:36:14 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38ddc36b81dso1422670f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:36:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739266571; x=1739871371; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=;
-        b=JCBphnx2Kh44EHCGZWP94IcKp9iweSX4L2Sf7lCbT4TBkAwwySlilrKifxYYLXOKRl
-         L1kgAg1mzDre8A4u0JZ6+KLP+nQMlC3xgntE6xMcp1IB0f5kKRYn8BGKX7OB/GuTiCiY
-         O9Sru9lDUQ/ceL1sYtNYcUcmJNJVSQfHOnDnt5+8UO5XZAfjt3ERyEDnMZqp3EoBVbq4
-         4sg+3GwNVrTXWLXLCAA3fa+XgFIf+qAK8x2m/4fIBW4nouASzbN1lKe4gmj74fM17/R2
-         xe27lMxTUI7PMlZnt2K+i1+saCnHd9QJRbfLN3OcaKLOdSfkdP0lU61QgaKrAdE2/sTP
-         NrYA==
+	Tue, 11 Feb 2025 09:38:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739266680;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=rqWE4p6XLBT63qofoUaEI9KGmwZZNE/fsrMteRuGGoE=;
+	b=C9D2RLZ5H0joF9u+atD1h+KRwx7X7hUqTnU1O6rqa2tJ0b8qv+/rkXxPoSHmL5ETkKip05
+	I5Q/6ZTUj1G8QD+U6hMO9gM/tREQmNBoWZBLtKtCxufg4ftd7RD4HgcKJ/S8PIgWZhSsrZ
+	CwbyZ5oocy71mUkRldLFVV4gcIZa5IY=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-384-6N0SZImQMCO3w2pL2KyG6A-1; Tue, 11 Feb 2025 04:37:59 -0500
+X-MC-Unique: 6N0SZImQMCO3w2pL2KyG6A-1
+X-Mimecast-MFC-AGG-ID: 6N0SZImQMCO3w2pL2KyG6A
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4393e8738b3so15651195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:37:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739266571; x=1739871371;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tRIL/yzBaSepZA/UwYNIC/ghy8IP0My0Od5m5XYXB48=;
-        b=bmeWyKwOe4XC1bDi6GaaVPN1GELrnDicgbEPUQLL+pK0QIjXDV3DOvol/qOuDlVLvN
-         cK7fFiNkt0Ltv+HhOmawE8o5nZ/ddPSZdXqUaMnTgrZwNuYlwM/cWt0qtAWXP9VimvPe
-         CaSJqMKxa6dsDXdyYYjeFVXmOfKM+VNMQKu6HRkCxnrYOIZ2+s7DEAkJI+EYtcD9StTs
-         gHBVroTSdD9GB0VFZ6qweJ0i/3i+qoKWvQu+CWEa8X+jsjg4MOydRD3ItN/wlIqO27gX
-         0wkC9NlCvuYNIZEiouvL+Wl88KndgEkvB2GoMWOtXJgNKRtO0CQq3qSgI6aFUiNRvoj+
-         28Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCWK1PocY9Sj4X3dfG1mKMSlxuYaFmkvn8EGtaWN2/vv1Ou7MpJtFTsqQhY1U0jU1I+zeB3WY8BjsIWoHEM+Cgee@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYF2xaCM/L9zRyoX04Nkc4eu+Hg6BxEhLjHo4K8j7pKXw+bdXy
-	/mV1puP5Artr6Gc5zSBqR/bHMZD3l+3+XoxpodTFm/nDUyrjhZjYGsvGlGo+CEg=
-X-Gm-Gg: ASbGncuWnmsrL9+Uf+1PTqYvZuLtyBJhgut6ZKxio03u2FgoaIZ1Mh3YhFeWtDRKDaj
-	l8IqNEP3+m9mhlle19ZqUulcoNgnU3p+gUQtIUrW+lP+qbE4nU+Mb+yOu6jA96n0oED7B1D7BxI
-	qdtO1K5DfoZR8DwYaLyHp0/nJKeAzft0cSOOA5wU+H7PacsIoG8/p36iOZT854EJjbNRdu7jSHz
-	gmSMaeCEPtVF90QdCxtemaExNm352hX/ryJEWqFoineLDka96oFw4MTjkl8dXez5qBwZsTNyRDB
-	jOG9T3w+xScxroNrg3bOVmsIzxlNaAHjJg1XE/f3HXiJ4fPeX5xzCCM=
-X-Google-Smtp-Source: AGHT+IFMZ1pKShIvwsLqT2YFSCvSRKsdHNHy86URkgTJ51eGtiPfoPHKZ+vrVH5UXF4X2AkG0HdYOQ==
-X-Received: by 2002:a5d:47c2:0:b0:386:374b:e8bc with SMTP id ffacd0b85a97d-38de43a5bf1mr2011347f8f.15.1739266571151;
-        Tue, 11 Feb 2025 01:36:11 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc98844f6sm11773513f8f.42.2025.02.11.01.36.10
+        d=1e100.net; s=20230601; t=1739266678; x=1739871478;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=rqWE4p6XLBT63qofoUaEI9KGmwZZNE/fsrMteRuGGoE=;
+        b=iKMoX/sy6fSdDQmjMp7Mr3P3jf6ORzd+6eagBGWGXpj3KjIILtZujKfEDiuAWdjMxM
+         B5L7cldsFsxnyM/f9T5fm6Q3ayYl84jd2y+PukUfcW/id1m2V3D0IfF5yNxicF8vbe++
+         TanPF9N2IwXZnVfQ6E2fDkB9aN+8YpGqex6b/qcqt67JG82Y0kx7ArGG9meqn2T3Bh3n
+         xYZAtDZX9kHTFgDVF5O9OGE/QWu+IQh0z4s6GL8ZJJ2Ln3yfkCywUpJUwFZsIEGMbE82
+         /l9juX0iZLL+2CLf30365X6iedjQJeOVzp0Cu+keYxkPw02TIk2o9F9jdwcmpxNDvbC3
+         ysMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWP+gNUtlxs9xK2p2KHR6u0zcbtvLh0BCycbEXU3SVGXDL6eeg+OR0uHW1HsaPdlSZ/DDNMgL+7UurCE1l3q+Lz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAxtv3e1iYUzhXtXnzcKnEn9Q2ktj3nNaTKXjgvYimdgA/vH14
+	sxgwx+S/shpDiIyrcl/ottj0D7odOc1WSgLgDUs2f6zUGU8a8CuwI/AfkC6Y7MBr1TMtoAizi89
+	Ojpp8fw2eerPupY5Gme0B8axgcm2QxHJYeRgAaVjMQ0B7e/nGaqaji2XAOwvMhHplyhp5BdzV
+X-Gm-Gg: ASbGncvY3tETXZYQciGnHhTLoZSNLuw+VnGyzKEr9REbLFFMsvTyx1S/0sUYXpO9EHy
+	jdbDRWJ0JfvzisA40Nx05vKv+ioRkWQQJ9AAgBamtZoShdnLH01+8W7E6cKP/n7fueoCXy+BGXT
+	cKlaz1wFBdM11T2E4zAqzNMsfuONBN+KFew/PckaxJU6couryR7HK3oOzd7NdBF80HFjvG++yPV
+	WQSZwzYNLEo3PPtbZHgeHbZDBQ5WbpBpKyX9ill+6F3at8l1PvGQiB2tdjHdn6MaxgEVlfQe9F8
+	3lH1ShxpM7tbCnSOZM3eMWLnRgHcD4TmLlKgCE8=
+X-Received: by 2002:a05:600c:4c1a:b0:439:331b:e34f with SMTP id 5b1f17b1804b1-439331be65amr99775245e9.17.1739266677994;
+        Tue, 11 Feb 2025 01:37:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFdMJ3Lbn+4zbv9eh9uw+CnLa7ynQQjEkdGPE5ELAKNvD2Zn/ydAg6zsMZGerEubApHp0jBOQ==
+X-Received: by 2002:a05:600c:4c1a:b0:439:331b:e34f with SMTP id 5b1f17b1804b1-439331be65amr99774975e9.17.1739266677617;
+        Tue, 11 Feb 2025 01:37:57 -0800 (PST)
+Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd8dee385sm7263297f8f.61.2025.02.11.01.37.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2025 01:36:10 -0800 (PST)
-Message-ID: <7f17cc55-a741-4bb8-9513-0580ca6fedd3@linaro.org>
-Date: Tue, 11 Feb 2025 10:36:09 +0100
+        Tue, 11 Feb 2025 01:37:56 -0800 (PST)
+Message-ID: <2b0bb476-5bd6-489a-9b9e-7aa20964abfa@redhat.com>
+Date: Tue, 11 Feb 2025 10:37:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] thermal: rockchip: Support the rk3562 SoC in thermal
- driver
-To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
- Shaohan Yao <shaohan.yao@rock-chips.com>, linux-pm@vger.kernel.org,
- Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org,
- Zhang Rui <rui.zhang@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20241224094015.3816301-1-kever.yang@rock-chips.com>
- <20241224094015.3816301-2-kever.yang@rock-chips.com>
+Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
+ compaction
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
+ <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
+ <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
+ <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
+ <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3UBBtAA9EoUMgK4cU4Xw1f2juPSng4uVM9LNRcTl7jk_1739266678
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20241224094015.3816301-2-kever.yang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_013612_830048_EAC50336 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250211_013802_693036_85A0191A 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,212 +155,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/12/2024 10:40, Kever Yang wrote:
-> From: Shaohan Yao <shaohan.yao@rock-chips.com>
+On 11.02.25 10:29, Qi Zheng wrote:
 > 
-> There are one Temperature Sensor on rk3562, channel 0 is for chip.
-
-A bit stingy in terms of description, no ?
-
-
-> Signed-off-by: Shaohan Yao <shaohan.yao@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
 > 
->   drivers/thermal/rockchip_thermal.c | 112 ++++++++++++++++++++++++++++-
->   1 file changed, 111 insertions(+), 1 deletion(-)
+> On 2025/2/11 17:14, David Hildenbrand wrote:
+>> On 11.02.25 04:45, Qi Zheng wrote:
+>>> Hi Russell,
+>>>
+>>> On 2025/2/11 01:03, Russell King (Oracle) wrote:
+>>>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
+>>>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
+>>>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
+>>>>> dereference resulting in a kernel panic. The culprit seems to be commit
+>>>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
+>>>>> Reverting the commit apparently fixes the issue.
+>>>>
+>>>> The blamed commit is buggy:
+>>>>
+>>>> arch/arm/include/asm/tlbflush.h:
+>>>> #define update_mmu_cache(vma, addr, ptep) \
+>>>>            update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+>>>>
+>>>> So vmf can be NULL. This didn't used to matter before this commit,
+>>>> because vmf was not used by ARM's update_mmu_cache_range(). However,
+>>>> the commit introduced a dereference of it, which now causes a NULL
+>>>> point dereference.
+>>>>
+>>>> Not sure what the correct solution is, but at a guess, both:
+>>>>
+>>>>      if (ptl != vmf->ptl)
+>>>>
+>>>> need to become:
+>>>>
+>>>>      if (!vmf || ptl != vmf->ptl)
+>>>
+>>> No, we can't do that, because without using split PTE locks, we would
+>>> use shared mm->page_table_lock, which would create a deadlock.
+>>
+>> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
+>>
+>> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
 > 
-> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-> index f551df48eef9..aec0e634bd1f 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -1,6 +1,7 @@
->   // SPDX-License-Identifier: GPL-2.0-only
->   /*
-> - * Copyright (c) 2014-2016, Fuzhou Rockchip Electronics Co., Ltd
-> + * Copyright (c) 2014-2021, Fuzhou Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2021-2024, Rockchip Electronics Co., Ltd.
->    * Caesar Wang <wxt@rock-chips.com>
->    */
->   
-> @@ -185,6 +186,8 @@ struct rockchip_thermal_data {
->   #define TSADCV2_AUTO_PERIOD_HT			0x6c
->   #define TSADCV3_AUTO_PERIOD			0x154
->   #define TSADCV3_AUTO_PERIOD_HT			0x158
-> +#define TSADCV9_Q_MAX				0x210
-> +#define TSADCV9_FLOW_CON			0x218
->   
->   #define TSADCV2_AUTO_EN				BIT(0)
->   #define TSADCV2_AUTO_EN_MASK			BIT(16)
-> @@ -195,6 +198,7 @@ struct rockchip_thermal_data {
->   #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
->   
->   #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
-> +#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
->   
->   #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
->   #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
-> @@ -220,6 +224,12 @@ struct rockchip_thermal_data {
->   #define TSADCV5_AUTO_PERIOD_HT_TIME		1622 /* 2.5ms */
->   #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
->   #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
-> +#define TSADCV7_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-> +#define TSADCV7_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-> +#define TSADCV12_AUTO_PERIOD_TIME		3000 /* 2.5ms */
-> +#define TSADCV12_AUTO_PERIOD_HT_TIME		3000 /* 2.5ms */
-> +#define TSADCV3_Q_MAX_VAL			0x7ff /* 11bit 2047 */
-> +#define TSADCV12_Q_MAX_VAL			0xfff /* 12bit 4095 */
->   
->   #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
->   #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
-> @@ -230,6 +240,8 @@ struct rockchip_thermal_data {
->   
->   #define PX30_GRF_SOC_CON2			0x0408
->   
-> +#define RK3562_GRF_TSADC_CON			0x0580
-> +
->   #define RK3568_GRF_TSADC_CON			0x0600
->   #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
->   #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
-> @@ -497,6 +509,45 @@ static const struct tsadc_table rk3399_code_table[] = {
->   	{TSADCV3_DATA_MASK, 125000},
->   };
->   
-> +static const struct tsadc_table rk3562_code_table[] = {
-> +	{0, -40000},
-> +	{1419, -40000},
-> +	{1428, -35000},
-> +	{1436, -30000},
-> +	{1445, -25000},
-> +	{1453, -20000},
-> +	{1462, -15000},
-> +	{1470, -10000},
-> +	{1479, -5000},
-> +	{1487, 0},
-> +	{1496, 5000},
-> +	{1504, 10000},
-> +	{1512, 15000},
-> +	{1521, 20000},
-> +	{1529, 25000},
-> +	{1538, 30000},
-> +	{1546, 35000},
-> +	{1555, 40000},
-> +	{1563, 45000},
-> +	{1572, 50000},
-> +	{1580, 55000},
-> +	{1589, 60000},
-> +	{1598, 65000},
-> +	{1606, 70000},
-> +	{1615, 75000},
-> +	{1623, 80000},
-> +	{1632, 85000},
-> +	{1640, 90000},
-> +	{1648, 95000},
-> +	{1657, 100000},
-> +	{1666, 105000},
-> +	{1674, 110000},
-> +	{1682, 115000},
-> +	{1691, 120000},
-> +	{1699, 125000},
-> +	{TSADCV2_DATA_MASK, 125000},
-> +};
+> In this case, if two vmas map the same PTE page, then the same PTE lock
+> will be held repeatedly. Right?
 
-May be it is time to optimize all these tables out of the memory driver?
+Hmm, the comment says:
 
-It is the 9th table introduced.
+         /*
+          * This is called while another page table is mapped, so we
+          * must use the nested version.  This also means we need to
+          * open-code the spin-locking.
+          */
 
->   static const struct tsadc_table rk3568_code_table[] = {
->   	{0, -40000},
->   	{1584, -40000},
-> @@ -834,6 +885,37 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
->   			       regs + TSADCV2_AUTO_CON);
->   }
->   
-> +static void rk_tsadcv12_initialize(struct regmap *grf, void __iomem *regs,
-> +				   enum tshut_polarity tshut_polarity)
-> +{
-> +	writel_relaxed(TSADCV12_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
-> +	writel_relaxed(TSADCV12_AUTO_PERIOD_HT_TIME,
-> +		       regs + TSADCV3_AUTO_PERIOD_HT);
-> +	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
-> +		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
-> +	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
-> +		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
-> +	writel_relaxed(TSADCV12_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
-> +	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
-> +		       regs + TSADCV2_AUTO_CON);
-> +	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
-> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
-> +			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-> +			       regs + TSADCV2_AUTO_CON);
-> +	else
-> +		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-> +			       regs + TSADCV2_AUTO_CON);
-> +
-> +	if (!IS_ERR(grf)) {
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_TSEN);
-> +		udelay(15);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG0);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG1);
-> +		regmap_write(grf, RK3562_GRF_TSADC_CON, RK3568_GRF_TSADC_ANA_REG2);
-> +		usleep_range(100, 200);
-> +	}
-> +}
-> +
->   static void rk_tsadcv2_irq_ack(void __iomem *regs)
->   {
->   	u32 val;
-> @@ -1258,6 +1340,30 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
->   	},
->   };
->   
-> +static const struct rockchip_tsadc_chip rk3562_tsadc_data = {
-> +	.chn_offset = 0,
-> +	.chn_num = 1, /* one channels for tsadc */
-> +
-> +	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
-> +	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-> +	.tshut_temp = 95000,
-> +
-> +	.initialize = rk_tsadcv12_initialize,
-> +	.irq_ack = rk_tsadcv4_irq_ack,
-> +	.control = rk_tsadcv4_control,
-> +	.get_temp = rk_tsadcv4_get_temp,
-> +	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-> +	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-> +	.set_tshut_mode = rk_tsadcv3_tshut_mode,
-> +
-> +	.table = {
-> +		.id = rk3562_code_table,
-> +		.length = ARRAY_SIZE(rk3562_code_table),
-> +		.data_mask = TSADCV2_DATA_MASK,
-> +		.mode = ADC_INCREMENT,
-> +	},
-> +};
-> +
->   static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
->   	/* cpu, gpu */
->   	.chn_offset = 0,
-> @@ -1337,6 +1443,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
->   		.compatible = "rockchip,rk3399-tsadc",
->   		.data = (void *)&rk3399_tsadc_data,
->   	},
-> +	{
-> +		.compatible = "rockchip,rk3562-tsadc",
-> +		.data = (void *)&rk3562_tsadc_data,
-> +	},
->   	{
->   		.compatible = "rockchip,rk3568-tsadc",
->   		.data = (void *)&rk3568_tsadc_data,
+"another page table" implies that it cannot be the same. But maybe that 
+comment was also wrong?
 
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+Cheers,
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+David / dhildenb
+
 
