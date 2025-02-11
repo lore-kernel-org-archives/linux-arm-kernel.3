@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63066C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D07C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 09:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtkuubS5pI3CbYDGv6UEmPir7ur7so+Ig6XN12YRWsA=; b=eqMfs4Qgu10CKVd2raXH/5odHB
-	fvdc8ksmNPjocc2iIvJ4tUags7dli1+zITAoBSDpB+5xq9h/szNDzIH+wD0Q7DGj8AIJk/hyMJKz5
-	fWrKKPlvus/yNrJCac4ljRKODF9NKN3uzZRGWeMqQOvE74MDsrEqAkjKaFt/ZM8y+pnVhEXvVxo6k
-	J6l7S250aKHB60j1p4IU8IXFImPxW+4BAD2cXjE/Z7KHdzHpgC5D2pKrChMf61Yu84tuNCGAZ/Kd+
-	JUOqWbmO9kSO8zB1MNkuM9Qd9e5+PQlnsPyYVLdbjL384gDqYi0Io200+aIZMCqrnmy1PujGU3NfG
-	zsRYIihw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=; b=mu0zE6k/0CLxvk
+	MyfE67mVEVjVXAVizXi4HmL47y/Un/ZDGvE2Gth3W7SvkGDYa4L5Ez6lZetNJBMwmApzsKn+Eq5Vw
+	js9lN4crPoB6hCAck8MLm41I07L7gvSwATGZoo+v0P9Taj6mCsdphLTXpUUzXJP9Rw/Tfbady+u4N
+	CvtgiTVCYlvcRogqHAghtncCKSFUO9EJujb80kmZP6xpZIPshsKG9NDqOTU9MGBetndljFzajvfOA
+	K7EypzK4nRGsRJkCmNer1+zim2sXj6axBE5Z87Knbb1kvS9vFtEkniCsM3AqMXiQoR6Xi8T/bwmua
+	8RuvJGtlq1LlHSOOJdRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmdV-00000003BWO-0QQN;
-	Tue, 11 Feb 2025 09:32:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thmgG-00000003C4z-0f9U;
+	Tue, 11 Feb 2025 09:35:48 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmZr-00000003AW9-0l5T;
-	Tue, 11 Feb 2025 09:29:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZtkuubS5pI3CbYDGv6UEmPir7ur7so+Ig6XN12YRWsA=; b=BbgfNz5nAsr8HLUX/C6nVo7bHF
-	iJJIQR7bPXzV4qA2JBACUFsZPPvuAPT2WJicUnfDyjc7o8l6Fivk+gWHpdLlSZYLDG8fY6lMAVx2k
-	/vHmcBieV5J/N8ijzfAlnvcRyffwg/EfMP2eZPrM3o5S/jE0x2GWpYgWaTy0Y20mZFH0ppWlTpC4u
-	lDmUuLEdfykV88XDWdqZTOIrrL/wl66VC8YkL6S2P2KH1+kJTBxUz/5crQcV8GqsMBpSQkBzM9haO
-	Nmc99rK6jE16bQFTg2E8VZW82S3ryfdDHZVpJYRS1gFQTMVzASpZkv8tgVMw6w9sylIZWQFEXxyYP
-	CGKrWXkg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmZo-00000000Xoc-07Zp;
-	Tue, 11 Feb 2025 09:29:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZtkuubS5pI3CbYDGv6UEmPir7ur7so+Ig6XN12YRWsA=; b=HnhRfVxXnjp2QFI1MYkeV/fyHc
-	B1F/Qoqz7PVTS2QqcNwXyxosWsVXIDKYy49CS83+n1tSHEnPjNPLkmWY7f2xoVf9fuhefk4HxwmqZ
-	2WjubP3u8B6d7SRj4FTAy2GdMOcYB+YnOi7vzavLwZFchxL+6iacqWdABGZvyeSIQ7fFh/Z9D53AH
-	a8kGhS5eSy0X4P41wD++80E+weCMAUNM9jcyxLljg8j+Z8sQfBFl/rRLW/LcfIzZOvfiu7SJvUTFb
-	f8hEh5de3MUfASW2YgzBtmQhRWE/hDaA6cnBtD00tjehVStrC3Wi0fq6tX75EKstBwRMsQJ0pbjI/
-	igbp6o/A==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1thmZj-0005mx-U8; Tue, 11 Feb 2025 10:29:03 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org,
-	Jagan Teki <jagan@edgeble.ai>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH V2] arm64: dts: rockchip: Enable HDMI1 out for Edgeble-6TOPS Modules
-Date: Tue, 11 Feb 2025 10:28:52 +0100
-Message-ID: <173926612576.1219038.12843944709919002623.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20241227132936.168100-1-jagan@edgeble.ai>
-References: <20241227132936.168100-1-jagan@edgeble.ai>
+	id 1thmal-00000003AkW-26HP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 09:30:08 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21f61b01630so54643935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 01:30:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1739266206; x=1739871006; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=;
+        b=ZSXhBw1U0mbR2TRp2cct4a/5WCV8TpEUelCWEvrSPCRrD8estdM3Y/WeclAXEtSqIS
+         V5fMj11wVAoDWg9+l6Ihd8xwLoUWLBUfi5orhp3NXF74gtz/BzdIaHlJTSAtPyV9hhVt
+         dTR8JQ/GH3n03r7GtLy4leGfIqYzjbohqrXQjR/hy3o6x5HNVKGD9kz06TWD0UqPRhqU
+         qlWV4Tv/2+rvFUcrCGEO7cGkzj8c6T/PzRYP3TNdbGrtSeyqqrXfn9AFiyqCxIcGmQQC
+         EQueb687cYoRw5NnH8QSQRNAPGrtpTiBj7kUBkXQ6vEODMmCTBjYNDSzW7+9dty+xYaK
+         mTXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739266206; x=1739871006;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sZGf0xi/4b8W9mpMXk16WtP1In4vsvOrm+YoAOgFYnY=;
+        b=e/H/HxiqyuIwEjK1cyEbK4LZ9NF3wBxEo59DviDXG95eon8x/lAsdKdXEZ21jtekaA
+         4RX+s5QgpYKXZlIzVpLOQaO5M3pGEsORZ4sI7sj3u6qmr0KJ9JdZjuMIQW7ANOdGa+Bt
+         h+A1DbS6xl7gSY4KPi0awL33ElNUIx+cubfwubtRIPNbP4zSB+6p0/aM2+mCgQQIf2c8
+         4ffKoOCF4WM4hPhFtt4nnU7nH0nTuNYIwXG1dXZ9f6m9Zm59P1l1WcViDbw/RjrOwdl/
+         0HL+78lgrwxXohhCwuKfZUJd4xDEzWx9ATgZ6xmTfixLxTXRu63dGP/COXPv1NSlNFQp
+         mr5A==
+X-Forwarded-Encrypted: i=1; AJvYcCVAWdGfwIaKKrAZ6rz7egX3nAcblmc8CDlRbutb1SQ1nqVV3RRM3HnOfy1qClEWD3ozF/dsdVaO93yaOzKe/0Xv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6BRH4NGfViHp/+LvsuTSBp7cZ4Z0xRxxkedkV27CakzHuWbh1
+	ihxj831MD+N2ZuiREUu0NLIBgU+UdA4ab4i2jBL/QhY+984vqqe7kzLysiboL+g=
+X-Gm-Gg: ASbGnctG8GUV7fcd2KJ/LWLulbsnWep3KHGfCI3aFJg2fzZXonVCc8yv7sKOVxFmq87
+	OlZEgcgrWsvZ27pMyuN4jud54ZpJNY0Dxbx1e86E850YTm9Gday926G+4biXgwguiOwz3ywwgt4
+	OsciTWZQv1AdxG5Gay4JdouQUxC2yET/FlQ1o5uOvI5nfnlGrNb81lGfPtMwlLCKTM7Rd4CcIHE
+	vJoYP50IMhDOr4Qz9TyT3aiUzAvbShjjVzrumQM4nY2PHiTBrmtYu0psFjMrIRW1RJqxy23ElQp
+	deE8guKcOnxZ48CWVYIEzGfzx7Y6wNEVbPmWOqqn5g==
+X-Google-Smtp-Source: AGHT+IHz2wraFOMYkQVidUPLFFmnf8k8K12BClWjhTy636Rw37Ve8wP0uUjF/xA18SklE94GG5V2SA==
+X-Received: by 2002:a05:6a00:194e:b0:724:db17:f975 with SMTP id d2e1a72fcca58-73218ca2438mr4671628b3a.12.1739266206470;
+        Tue, 11 Feb 2025 01:30:06 -0800 (PST)
+Received: from [10.84.150.121] ([203.208.167.153])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-730932871f1sm2921625b3a.151.2025.02.11.01.29.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 01:30:06 -0800 (PST)
+Message-ID: <3f7babee-b232-4e6b-a896-947150dcd1ef@bytedance.com>
+Date: Tue, 11 Feb 2025 17:29:57 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] NULL pointer dereference on ARM (AT91SAM9G25) during
+ compaction
+Content-Language: en-US
+To: David Hildenbrand <david@redhat.com>
+References: <CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com>
+ <Z6oxUdrVBPd5ZTEu@shell.armlinux.org.uk>
+ <5d50d714-197f-44c0-94e0-ff70ee51e866@bytedance.com>
+ <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <34bcf011-b4ac-479c-92ce-852623e73039@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_092908_350857_E23C0494 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_013007_554689_9ADC3DC4 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +98,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Roberts <ryan.roberts@arm.com>, open list <linux-kernel@vger.kernel.org>, Hugh Dickins <hughd@google.com>, Muchun Song <muchun.song@linux.dev>, Ezra Buehler <ezra@easyb.ch>, "Russell King \(Oracle\)" <linux@armlinux.org.uk>, Matthew Wilcox <willy@infradead.org>, "Vishal Moola \(Oracle\)" <vishal.moola@gmail.com>, linux-mm@kvack.org, Peter Xu <peterx@redhat.com>, Vlastimil Babka <vbabka@suse.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Morton <akpm@linux-foundation.org>, "Mike Rapoport \(Microsoft\)" <rppt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 27 Dec 2024 18:59:36 +0530, Jagan Teki wrote:
-> Edgeble-6TOPS modules configure HDMI1 for HDMI Out from RK3588.
-> 
-> Enable it on Edgeble-6TOPS IO Board dtsi.
-> 
-> 
 
-Applied, thanks!
+On 2025/2/11 17:14, David Hildenbrand wrote:
+> On 11.02.25 04:45, Qi Zheng wrote:
+>> Hi Russell,
+>>
+>> On 2025/2/11 01:03, Russell King (Oracle) wrote:
+>>> On Mon, Feb 10, 2025 at 05:49:38PM +0100, Ezra Buehler wrote:
+>>>> When running vanilla Linux 6.13 or newer (6.14-rc2) on the
+>>>> AT91SAM9G25-based GARDENA smart Gateway, we are seeing a NULL pointer
+>>>> dereference resulting in a kernel panic. The culprit seems to be commit
+>>>> fc9c45b71f43 ("arm: adjust_pte() usepte_offset_map_rw_nolock()").
+>>>> Reverting the commit apparently fixes the issue.
+>>>
+>>> The blamed commit is buggy:
+>>>
+>>> arch/arm/include/asm/tlbflush.h:
+>>> #define update_mmu_cache(vma, addr, ptep) \
+>>>           update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+>>>
+>>> So vmf can be NULL. This didn't used to matter before this commit,
+>>> because vmf was not used by ARM's update_mmu_cache_range(). However,
+>>> the commit introduced a dereference of it, which now causes a NULL
+>>> point dereference.
+>>>
+>>> Not sure what the correct solution is, but at a guess, both:
+>>>
+>>>     if (ptl != vmf->ptl)
+>>>
+>>> need to become:
+>>>
+>>>     if (!vmf || ptl != vmf->ptl)
+>>
+>> No, we can't do that, because without using split PTE locks, we would
+>> use shared mm->page_table_lock, which would create a deadlock.
+> 
+> Maybe we can simply special-case on CONFIG_SPLIT_PTE_PTLOCKS ?
+> 
+> if (IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS)) {
 
-[1/1] arm64: dts: rockchip: Enable HDMI1 out for Edgeble-6TOPS Modules
-      commit: 4a2fdf91e1239d9659d0317f3e8e37681ac555a4
+In this case, if two vmas map the same PTE page, then the same PTE lock
+will be held repeatedly. Right?
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+This seems to be a problem that existed before commit fc9c45b71f43
+("arm: adjust_pte() use pte_offset_map_rw_nolock()").
+
+> 
+> ...
+> }
+> 
 
