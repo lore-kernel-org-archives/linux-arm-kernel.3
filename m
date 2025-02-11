@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9CEC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D287C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 07:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rn0RBFJfAEAIgoAzu1BVM5JXCwZahw0WpRnDyoZDBpI=; b=QyY8hXjgBmsBvDFi3sNFqdWHBu
-	4yMIwZWDu8M1d/b/s3rg5cO+NZy7z+7RFQwBE+yDlRYL86uoIB7/P5D7e7DQ5jfh76WNDiaga3T/c
-	sN7IJerk5KYNn8InG9aysVMNeNAlznABfGGgri5NMlwZFtFBKA8rh90AbTxx/KzJrUevdawjFcIjC
-	3sO1XU2PeySWscymTQXOSdI6ONpWewkr7dXSw7j2iamBMMtAFiYvTqI9XnMB5Jw2Gjtccsv6q+Mze
-	zDMyiggclTQ+SarbLNBgKRRFR0M2HpslJxSe65Vp1b9yOTvm9RgwfZKu1ICb+2wmgdkCFijrL1bAb
-	LZvOqWDQ==;
+	bh=/UvvQtMmlDYkGMGQvLnfsAM4V5vEvjxk19Oc9Xjo0ao=; b=40UUB5ozKydXgI+SfmpZ0raXMM
+	9hCwAtzls++lK5Ct7Jtd6lqx0T3N+Vd5nQW/U/KqzfJ3w+YBGw2q8yJ+wBn9w0fWa6kGIjdbDeOuB
+	gY6IzpRNWQg9kykwe4PtSkr1CGC60+t+HhQFKo96S2Lqf55htGw4U7Yt8BxEzB95XUlF0EjJqAF20
+	5qGq/p0HzL9fL5cyBylNGnb+0G8OhTT3fex1A1mwLTrT7ajV01wTmcFS1GQpwUscnVWPX01Bi7Zy0
+	SmYl9lsQmAfBrjNvXoArZGB+13lQBOSuYiZTdDErQLrKS9O7hjQmz658dFWxojd/vjTItUDNUX+F3
+	Dkkpxm1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkvI-00000002ri2-2m10;
-	Tue, 11 Feb 2025 07:43:12 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1thl0z-00000002sj3-16BD;
+	Tue, 11 Feb 2025 07:49:05 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thksd-00000002rMJ-2eoA;
-	Tue, 11 Feb 2025 07:40:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rn0RBFJfAEAIgoAzu1BVM5JXCwZahw0WpRnDyoZDBpI=; b=sKWuHyJ89/93wgixZY/dwdkmQP
-	C5fovYVoa3m9R9Y2jPo0IXzqqoIqECpXNbX2CxDICc6Crn3qA/mYjooJA9w0Q2evqMLqFad/FEjCO
-	Hd60hrjyTX+kMaxEeTzO/zsrPPSRw51+c4b/hdl8K+DpI0Ec25K4FKMEjbyc92OtDmzuEymBX7+VD
-	OHKGHEKRD41bdWaFWyANI44k2mAFcqHwdhyxfVTxy9gcEwtIWF4uZ+FBsVqKf8MZpD473Q/3SFhhQ
-	N1vb6xQVNfpSpjsNpcZrtPXubBiZshKji3AcoWYxBlddRjLfCnA21MMhKbN/6eSjvoXE5oqu1tLa1
-	QFneMPQQ==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1thksc-0004qb-2X; Tue, 11 Feb 2025 08:40:26 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org, Patrick Wildt <patrick@blueri.se>,
- Niklas Cassel <cassel@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- Kever Yang <kever.yang@rock-chips.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- robin.murphy@arm.com
-Subject: Re: [PATCH] arm64: dts: rockchip: adjust SMMU interrupt type
-Date: Tue, 11 Feb 2025 08:40:25 +0100
-Message-ID: <25203566.ouqheUzb2q@diego>
-In-Reply-To: <Z6pxme2Chmf3d3uK@windev.fritz.box>
-References: <Z6pxme2Chmf3d3uK@windev.fritz.box>
+	id 1thkzY-00000002sNp-2IOl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 07:47:38 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <sha@pengutronix.de>)
+	id 1thkzF-0007Hw-1Z; Tue, 11 Feb 2025 08:47:17 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sha@pengutronix.de>)
+	id 1thkzE-000NbY-1A;
+	Tue, 11 Feb 2025 08:47:16 +0100
+Received: from sha by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <sha@pengutronix.de>)
+	id 1thkzE-0094Je-0o;
+	Tue, 11 Feb 2025 08:47:16 +0100
+Date: Tue, 11 Feb 2025 08:47:16 +0100
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 3/3] clk: imx: clk-fracn-gppll: Support dynamic rates
+Message-ID: <Z6sAhAM4mGZCDBU-@pengutronix.de>
+References: <20250210160012.783446-1-alexander.stein@ew.tq-group.com>
+ <20250210160012.783446-3-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210160012.783446-3-alexander.stein@ew.tq-group.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_234027_675467_C7F7E78C 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250210_234736_584088_CB9D45DF 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +85,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 10. Februar 2025, 22:37:29 MEZ schrieb Patrick Wildt:
-> The SMMU architecture requires wired interrupts to be edge triggered,
-> which does not align with the DT description for the RK3588.  This leads
-> to interrupt storms, as the SMMU continues to hold the pin high and only
-> pulls it down for a short amount when issuing an IRQ.  Update the DT
-> description to be in line with the spec and perceived reality.
+Hi Alexander,
+
+On Mon, Feb 10, 2025 at 05:00:11PM +0100, Alexander Stein wrote:
+> The fracn gppll PLL so far only supports rates from a rate table passed
+> during initialization. Calculating PLL settings dynamically helps audio
+> applications to get their desired rates, so support for this is added
+> in this patch.
 > 
+> The strategy to get to the PLL setting for a rate is:
+> 
+> - The rate table is searched for suitable rates, so for standard rates the
+>   same settings are used as without this patch
+> - Then try to only adjust mfn, on fractional PLLs only, which specifies
+>   the fractional part of the PLL. This setting can be changed without
+>   glitches on the output and is therefore preferred
 
-Cc'ed Niklas
+I wonder if this part is worth it. There might be cases in which a
+glitch free switch is required, but without being able to enforce
+a glitch free switch we can't rely on it.
 
-This should probably also get a
+Also this makes the result depend on the current PLL settings, so the
+result is no longer reproducible. I.e. switching from a fari away
+frequency to the desired frequency might yield in different settings
+than switching from a nearby frequency to the desired frequency.
 
-Fixes: cd81d3a0695c ("arm64: dts: rockchip: add rk3588 pcie and php IOMMUs")
+Finally I think the glitch free switch doesn't work currently, because
+the PLL is fully disabled and re-enabled unconditionally in
+clk_fracn_gppll_set_rate().
 
-> Signed-off-by: Patrick Wildt <patrick@blueri.se>
+That said, glitch free switching would be great to have sometimes.
+
+> - As a last resort the best settings are calculated dynamically
+> 
+> Implementation is inspired by commit b09c68dc57c9d ("clk: imx: pll14xx:
+> Support dynamic rates")
+> 
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> index 8cfa30837ce7..520d0814a4de 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> @@ -549,10 +549,10 @@ usb_host2_xhci: usb@fcd00000 {
->  	mmu600_pcie: iommu@fc900000 {
->  		compatible = "arm,smmu-v3";
->  		reg = <0x0 0xfc900000 0x0 0x200000>;
-> -		interrupts = <GIC_SPI 369 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 371 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 367 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupts = <GIC_SPI 369 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 371 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 374 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 367 IRQ_TYPE_EDGE_RISING 0>;
->  		interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
->  		#iommu-cells = <1>;
->  	};
-> @@ -560,10 +560,10 @@ mmu600_pcie: iommu@fc900000 {
->  	mmu600_php: iommu@fcb00000 {
->  		compatible = "arm,smmu-v3";
->  		reg = <0x0 0xfcb00000 0x0 0x200000>;
-> -		interrupts = <GIC_SPI 381 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 383 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH 0>,
-> -			     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH 0>;
-> +		interrupts = <GIC_SPI 381 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 383 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 386 IRQ_TYPE_EDGE_RISING 0>,
-> +			     <GIC_SPI 379 IRQ_TYPE_EDGE_RISING 0>;
->  		interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
->  		#iommu-cells = <1>;
->  		status = "disabled";
-> 
 
+...
 
+> +			if (pll->flags & CLK_FRACN_GPPLL_FRACN) {
+> +				if (!dist) {
+> +					/* Disable fractional part upon exact match */
+> +					mfd = 1;
+> +					mfn = 0;
+> +				} else {
+> +					mfd = 100;
+> +					mfd = clamp(mfd, PLL_MFD_MIN, PLL_MFN_MAX);
 
+With mfd = 100 this clamp looks like a no-op. Do we need this?
 
+Sascha
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
