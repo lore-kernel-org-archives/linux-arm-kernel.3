@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35668C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD3DC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aj/zZWLiOp0sZr8jGtsU7IqlQMK+yhKTerymVsQwIeU=; b=ruu4Km0f5OcNoeOu1z+FNMmLDA
-	EIhqdjcKmYORhoJrD04G2enpvll+YmdZWXwWZR2Bkv2X13SnTztmVdJg09uZxj8v3EUiSmSku02Um
-	bx0avjY1pFKEPt7r0WOB2lypkJju95XZlazg8NG2GTICXtzvs6ocSxEd1gYXjlrf0BMd7DKrSdZLX
-	sKMD75+qc+8ELTsfLiAz9oewVWnKeqCl3RYQfQTPDi2WR5CPhdbE3sma49puzP0FBE2h1ghi5uVkQ
-	oo4qIMBw695sGb9AxsjFjsoYk0mymvHgAErLa1/0OEqCO4/Gc3D1hNL6248pv+3uXU2EcZd/BY/dg
-	UXjAwxCA==;
+	bh=OJBlS4YeFyDgXPZc32qa17vx2q4xcoeivnt+M1VBYHQ=; b=GmLJWs/RsuMVkxCQsrjkoOjcJ3
+	Bo5CrxIBc104p9lNfiCuGJfSF24GW4kFc+3qPWTvQNnSo+/MuQCmBNyGzk7rGq5+F+ZhgEniSv3Tu
+	gt+pa13Z1la4CPgY1LMRlu3MuSBt3ArOgXL6oNQoX9XcE1kHxhiTo0aPOKoXPJu2sq+HgEPLT/izE
+	wu+lg69KMnh+72DBuHrC6fGn9qrVqwVpYcsGC+4XOoJ0Z8PIBajuYddGTTnxyQtrR/2RpiwYIOMgV
+	mc5+Cvik/29B41UbbIpqlEJpFhkg8ytRE0VdtDxkc49bl1KCCatHqUFfcGdUhEyHBwCJIO21Nn4Sp
+	xlMnWAYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thscz-00000004Nuv-0wLl;
-	Tue, 11 Feb 2025 15:56:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thsew-00000004ONI-278G;
+	Tue, 11 Feb 2025 15:58:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thsbY-00000004NjB-2vw1;
-	Tue, 11 Feb 2025 15:55:22 +0000
+	id 1thsdW-00000004O28-2ye8;
+	Tue, 11 Feb 2025 15:57:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 52A9AA40808;
-	Tue, 11 Feb 2025 15:53:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC65C4CEDD;
-	Tue, 11 Feb 2025 15:55:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 896CF5C2BAA;
+	Tue, 11 Feb 2025 15:56:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11679C4CEDD;
+	Tue, 11 Feb 2025 15:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739289319;
-	bh=M1/OJ7oCvUKvR27rDX+k2QZ5R/MtI/RabABd+WlSS2M=;
+	s=k20201202; t=1739289442;
+	bh=WL4yb8TzQokrIcbPfo32apG+WVVXgfXqLitLpkHD+zY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T7Egnyot+P43in3laKiCZaR1gSsKw5uM9r0lOuRYvosobgpNBigDHP8Am8gCLpE8a
-	 GO2Dcq3UCKC8kGoGwvtlh5J0KPmsyezcuvqgaX3PaxMUGPi7May6tXN8pKQ8FAVy/k
-	 /6qsMjMpF1fg/f+nhFjOCd1A6hPVVgXGse9TPzz81ozWZCVGR5+T0A6BNrh46h3h7H
-	 MsXwnNzaIzgHglo5kQZkUytlVbIADfU8pfYR1ka/Y4hxSd5YybRalnKdpxaI1+n4EQ
-	 L3mYy/I5G4pIGv5ohZYMGlOuj5hA9QSvPR+9HM86+mRrlLjRW2MxxD7NYwkMi+1PWS
-	 n/alb/+eEEkQA==
-Message-ID: <d81c46ca-45de-4c69-a786-9c74bd06333c@kernel.org>
-Date: Tue, 11 Feb 2025 16:55:13 +0100
+	b=hE6O552nrqJ+8koCW8qM/uiosx4tFiuFmnwFgiJFKW50fQWrn2OZubJgQO4iFnl/Y
+	 PuvvbHDyF4Z1uuu79KnbsHbdVRxjaPLc4lts930dvS7qW2iPcKrj83j4N8LX8Xco5f
+	 MfsYLBn9QrGwBh90js/Vz3NiDFqpzksUh1ASGlFAve5BQpT3D/BwoY/VPEVgGtd8Mi
+	 be5/GmOdqKd1HSSSxR6FmVY1dOnR9Ol3CCM5T9OWTOchRUQDSFs24XD4wII2vPoZDU
+	 5jaUTc3ZTfqxb9yxPe4vLFlvgY4fxNUXfiAgsr4bz055+SsBYATteA5E7UCRD1TeO3
+	 7+60ILTj1WB3g==
+Message-ID: <57c789ba-1f61-4966-96ea-7a374094173a@kernel.org>
+Date: Tue, 11 Feb 2025 16:57:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 2/2] dt-bindings: memory-controllers: Add mediatek
@@ -62,7 +62,9 @@ Cc: "linux-arm-kernel@lists.infradead.org"
 References: <20241212090029.13692-1-crystal.guo@mediatek.com>
  <20241212090029.13692-3-crystal.guo@mediatek.com>
  <c978937a-e589-4e9a-ba37-265dbfc1b252@kernel.org>
- <8746bc17ef28da632e9ca765d2c3ce6bdc56c6f4.camel@mediatek.com>
+ <82cf93733dd14abfbcd17b100d1b3c40c6aed916.camel@mediatek.com>
+ <9302b338-9905-4720-ae41-c1e2713528f2@kernel.org>
+ <d54b010491c1c77a5be92920f8da4ba98722b180.camel@mediatek.com>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <8746bc17ef28da632e9ca765d2c3ce6bdc56c6f4.camel@mediatek.com>
+In-Reply-To: <d54b010491c1c77a5be92920f8da4ba98722b180.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_075520_872313_FE5EC199 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20250211_075722_831262_06FC5E12 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,89 +131,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 13:56, Crystal Guo (郭晶) wrote:
->>> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
->>> ---
->>>  .../mediatek,common-dramc.yaml                | 129
->>> ++++++++++++++++++
->>>  1 file changed, 129 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/memory-
->>> controllers/mediatek,common-dramc.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/memory-
->>> controllers/mediatek,common-dramc.yaml
->>> b/Documentation/devicetree/bindings/memory-
->>> controllers/mediatek,common-dramc.yaml
->>> new file mode 100644
->>> index 000000000000..c9e608c7f183
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/memory-
->>> controllers/mediatek,common-dramc.yaml
->>> @@ -0,0 +1,129 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->>> +# Copyright (c) 2024 MediaTek Inc.
->>> +%YAML 1.2
->>> +---
->>> +$id: 
->>> https://urldefense.com/v3/__http://devicetree.org/schemas/memory-controllers/mediatek,common-dramc.yaml*__;Iw!!CTRNKA9wMg0ARbw!mztYfN3n6_IAx78S44PFOetQS51-h6obm2HHrjEVRI-HJYyzJ2VWbbik2rn3pybssUBOT4gp5GD5-Mgk$
->>> +$schema: 
->>> https://urldefense.com/v3/__http://devicetree.org/meta-schemas/core.yaml*__;Iw!!CTRNKA9wMg0ARbw!mztYfN3n6_IAx78S44PFOetQS51-h6obm2HHrjEVRI-HJYyzJ2VWbbik2rn3pybssUBOT4gp5AGE5Eci$
->>> +
->>> +title: MediaTek Common DRAMC (DRAM Controller)
+On 11/02/2025 13:59, Crystal Guo (郭晶) wrote:
+> On Sun, 2025-02-09 at 11:52 +0100, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->> Common? Is this a real thing? Please describe the hardware.
 >>
+>> On 08/02/2025 05:40, Crystal Guo (郭晶) wrote:
+>>> On Thu, 2024-12-12 at 11:58 +0100, Krzysztof Kozlowski wrote:
+>>>> External email : Please do not click links or open attachments
+>>>> until
+>>>> you have verified the sender or the content.
+>>>>
+>>>>
+>>>> On 12/12/2024 09:59, Crystal Guo wrote:
+>>>>> Add devicetree binding for mediatek common-dramc driver.
+>>>>>
+>>>>> The DRAM controller of MediaTek SoC provides an interface to
+>>>>> get the current data rate of DRAM.
+>>>>
+>>>> Bindings are before users.
+>>
+>> Do not ignore comments but implement them or keep discussing.
+>>
+>> Best regards,
+>> Krzysztof
 > 
-> Sorry, my original description was not accurate. It has been changed
-> to:
-> 
-> Title: MediaTek DRAM Controller (DRAMC)
-> 
->>> +
->>> +maintainers:
->>> +  - Crystal Guo <crystal.guo@mediatek.com>
->>> +
->>> +description: |
->>
->> Do not need '|' unless you need to preserve formatting.
->>
-> 
-> Okay, remove it in v2.
-> 
->>> +  The DRAM controller of MediaTek SoC provides an interface to
->>> +  get the current data rate of DRAM.
->>
->> So not common here?
-> 
-> Sorry, my original title description was not accurate.
-> 
->>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: mediatek,common-dramc
->>
->> This has to be SoC.
->>
-> 
-> Change to "mediatek,mt8196-dramc"
-> 
->>> +
->>> +  reg:
->>> +    minItems: 9
->>
->> Why this is flexible?
->>
-> The original implementation was incorrect and has been corrected in v2
+> Got it, I have replied to the previous comments. Thanks for the
+> reminder.
 
 
-You replied to two months old review. I don't have the context and I do
-not have these emails in my inbox, therefore if you have any questions I
-cannot answer.
+Ah, so these replies were because of this. Thanks, that makes sense,
+although still two months after initial review, so I am out of the context.
 
-Please implement entire feedback or discuss within reasonable amount of
-time. If something is unresolved, please mention it in the changelog of
-future versions.
+I assume above also means you implement the feedback :)
 
 Best regards,
 Krzysztof
