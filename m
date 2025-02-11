@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A800C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33BDCC021A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 10:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oqpVU3w1Yj40QuD4jIYrK3Qf/7WeAzQD4/SSjiFve14=; b=WkUrN7X7qmWI3XfZzvNiGYFzom
-	teXQXd8j3ngzqXXFuqUhThCkp1tiCqK4S61fQZst/kp445GcYeFlJnUvyKLBHwOTzwrWLJhIMMOwp
-	3p0GAgiYR6Pn+zNoEcLnT7yWh9gUZTXl5DFyx9oyzilsbjqHGLSIPtUXoLixReEE/YjDuNkIt+KJ8
-	JJZKYYwJJKJ+lnS4kbJzj7JtMKN+/b4qtktdbxWihb9GKwDfusza3dPGZHBZYX9oG3J9ETkWOECgG
-	nvR0rW0dV9Mz7/8YEFArNAEg7qaVZyjr4VXSs481aM6Zk2Pu6hHwAxmIMigXiINmrh90UXINuE+wa
-	6IqiuMsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mKxU1H0bH4jOjCpR1iDA2kn4hJyozUlGpPk9T5FA/N4=; b=MurnI0c4bPFxDtmYyqkYxLWkTZ
+	p3k+K6kZZ4HEGmeol6OCJVFNrohtqU29zn/0TA3oBrnOcGwi1KnQ9R0heM/grqXhnoHxmc/O5YcCX
+	IoM1K9PxXrNR6SCfNQQ0LbDjCFqhqRUBEyeymGpR1AS4vfma1TjCPQvD5GoEK5Db6KnK39Va4tXkr
+	bZFZPu/UA/irpm8DV2snFf96pWAHNmr9tDD/h04hil/22EtguCFh6Q+ZhhB3Miyu0fIXFsJiQaDfQ
+	/JqvbMrBRAysEaH9sRyeJHRMvXwr4JvRYXnaG3cTpk/7vC6hVjyIFYEcEwL66NwCrOhgzXam1LtP1
+	dvNr92FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thnhI-00000003O2e-2EW9;
-	Tue, 11 Feb 2025 10:40:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thnhJ-00000003O31-2hOO;
+	Tue, 11 Feb 2025 10:40:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmVt-000000039hr-49nt;
-	Tue, 11 Feb 2025 09:25:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8D09F5C03C1;
-	Tue, 11 Feb 2025 09:24:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA367C4CEDD;
-	Tue, 11 Feb 2025 09:25:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739265904;
-	bh=SR5LwxmHxJbxL8Gifp96GYWy5xT2GbIst98vLDN4fPM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nKQSqQblbizWzWsqck6Hc+bJ/6neD3u0R68/NnK5rihuQCNG77Xa8rUqHiFr6zsvw
-	 uaKplYQY9Mq/jgzYt0q5jiqsb7lU7WgWIOEScwVGVTAcNch+Q+f4I7ZBk0RDjyX0qr
-	 5sKta5E6pe+eqebn+Jk2rhlerAUMmr4GQyf7GrEusSZaOt645nVnyjvmE7hR3ET6dz
-	 teUdrQa7OcInc4drcdmLbmzwL7OqFhVNL5E/KjRg9zBUys3rsFMF5zL6oGZJSj02YP
-	 hp6pnbkEbr9ptXSbTIO07SqrSm068K3hQSrzRfqxQ6oLfetn9pv5Je0vmN0KZvrkSQ
-	 MvZ043GdJFFhQ==
-Received: from [104.132.45.111] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1thmVp-002uM5-Fz;
-	Tue, 11 Feb 2025 09:25:01 +0000
-Date: Tue, 11 Feb 2025 09:24:54 +0000
-Message-ID: <87seok25qx.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
+	id 1thmaD-00000003Aal-3WFp;
+	Tue, 11 Feb 2025 09:29:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=mKxU1H0bH4jOjCpR1iDA2kn4hJyozUlGpPk9T5FA/N4=; b=kb4h2hIuQ0HoYNxPQOpEZnaVSc
+	mVSt6EnFBR4qR/ZCgvTtvNl7Y5kSb1H0lLWBuHvODMEwkiF7CZ/EGx2i+DKAZgZ4FyXATa1ASfV0h
+	tNMGXNnt8IYt3Ya4a+y8g6tLSgg47ueb5NRUZIgS+JWIm8sKWVuIyzhQs4vGRi4elvb2i1A4sBFkk
+	K0UIdvj6XrYTRRkpBnwoiEb8+4pSoRtTItQW311Fl2vjqopksxp0jKvYyVQV13sNWnzlUTkEr4XiH
+	xIJPSJCniNWMySYGyBDRB3LQfim3GWC94qEhDynUZt0Dl4nwA8Qy5b4ugqEohOlZTdHLuvvMlOIO4
+	E9Fl+g8Q==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thmaA-00000000XqY-2XmN;
+	Tue, 11 Feb 2025 09:29:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mKxU1H0bH4jOjCpR1iDA2kn4hJyozUlGpPk9T5FA/N4=; b=khD+fbl6rFjDcBbbVPzRaalweS
+	coRFMUULM4kw5PMl6IonM8XSYGxIZX5by/0liY/PQq2/ngdVU43/BHV8aJMZ2gP6Yp+BgLXdB+lt9
+	/dDS8qOgHNbsINo5D3WlB6+WkryLtDwItBu9HEJWBDRqRGdRsNBKmPN5d9zz662XOybMSSb4CfwuH
+	BhfYvNtIYJllmFhPM7XJjWnh12RQHn25081YBx0ZJfOTZBEDS4VB0coFZiptRtN7mZdUuxmH9/P9B
+	dG/dk5YnHdUuov+4K+qn6oLrTBCFR5Vzop17VOJAUF8MUwUz8cHTyVMpJNd2J1nrW1zx7cU8iEo4h
+	ysGtCfhQ==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1thmZj-0005mx-GW; Tue, 11 Feb 2025 10:29:03 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Alexandre ARNOUD <aarnoud@me.com>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvm-riscv@lists.infradead.org,
-	Ingo Molnar <mingo@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvmarm@lists.linux.dev,
-	Alexander Potapenko <glider@google.com>,
-	x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: [PATCH 2/3] KVM: arm64: switch to using kvm_lock/unlock_all_vcpus
-In-Reply-To: <20250211000917.166856-3-mlevitsk@redhat.com>
-References: <20250211000917.166856-1-mlevitsk@redhat.com>	<20250211000917.166856-3-mlevitsk@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 104.132.45.111
-X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, pbonzini@redhat.com, jingzhangos@google.com, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, rdunlap@infradead.org, suzuki.poulose@arm.com, palmer@dabbelt.com, yuzenghui@huawei.com, kvm-riscv@lists.infradead.org, mingo@redhat.com, linux-riscv@lists.infradead.org, joey.gouly@arm.com, paul.walmsley@sifive.com, tglx@linutronix.de, bhelgaas@google.com, aou@eecs.berkeley.edu, kvmarm@lists.linux.dev, glider@google.com, x86@kernel.org, seanjc@google.com, anup@brainfault.org, jiangkunkun@huawei.com, atishp@atishpatra.org, catalin.marinas@arm.com, will@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/4] Add support for HDMI1 output on RK3588 SoC
+Date: Tue, 11 Feb 2025 10:28:51 +0100
+Message-ID: <173926612575.1219038.14455377173250297870.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_012506_138702_A6B5DBAF 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20250211_092930_887666_8C7E9500 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,164 +103,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Feb 2025 00:09:16 +0000,
-Maxim Levitsky <mlevitsk@redhat.com> wrote:
+
+On Wed, 11 Dec 2024 01:06:13 +0200, Cristian Ciocaltea wrote:
+> The patches provide the basic support to handle the second HDMI output
+> port found on Rockchip RK3588 SoC.
 > 
-> Switch to kvm_lock/unlock_all_vcpus instead of arm's own
-> version.
+> For now I enabled it on Radxa ROCK 5B only, the board I've been using to
+> validate this.
 > 
-> This fixes lockdep warning about reaching maximum lock depth:
+> ** IMPORTANT **
 > 
-> [  328.171264] BUG: MAX_LOCK_DEPTH too low!
-> [  328.175227] turning off the locking correctness validator.
-> [  328.180726] Please attach the output of /proc/lock_stat to the bug report
-> [  328.187531] depth: 48  max: 48!
-> [  328.190678] 48 locks held by qemu-kvm/11664:
-> [  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
-> [  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> 
-> No functional change intended.
+> [...]
 
-Actually plenty of it. This sort of broad assertion is really an
-indication of the contrary.
+Applied, thanks!
 
-> 
-> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h     |  3 ---
->  arch/arm64/kvm/arch_timer.c           |  8 +++----
->  arch/arm64/kvm/arm.c                  | 32 ---------------------------
->  arch/arm64/kvm/vgic/vgic-init.c       | 11 +++++----
->  arch/arm64/kvm/vgic/vgic-its.c        | 18 ++++++++-------
->  arch/arm64/kvm/vgic/vgic-kvm-device.c | 21 ++++++++++--------
->  6 files changed, 33 insertions(+), 60 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7cfa024de4e3..bba97ea700ca 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1234,9 +1234,6 @@ int __init populate_sysreg_config(const struct sys_reg_desc *sr,
->  				  unsigned int idx);
->  int __init populate_nv_trap_config(void);
->  
-> -bool lock_all_vcpus(struct kvm *kvm);
-> -void unlock_all_vcpus(struct kvm *kvm);
-> -
->  void kvm_calculate_traps(struct kvm_vcpu *vcpu);
->  
->  /* MMIO helpers */
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 231c0cd9c7b4..3af1da807f9c 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -1769,7 +1769,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
->  
->  	mutex_lock(&kvm->lock);
->  
-> -	if (lock_all_vcpus(kvm)) {
-> +	ret = kvm_lock_all_vcpus(kvm);
-> +
-> +	if (!ret) {
->  		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
->  
->  		/*
-> @@ -1781,9 +1783,7 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
->  		kvm->arch.timer_data.voffset = offset->counter_offset;
->  		kvm->arch.timer_data.poffset = offset->counter_offset;
->  
-> -		unlock_all_vcpus(kvm);
-> -	} else {
-> -		ret = -EBUSY;
-> +		kvm_unlock_all_vcpus(kvm);
->  	}
+[2/4] arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
+      commit: ea97212a0f66b7bd71c23c12f781f1770dd6fcff
+[3/4] arm64: dts: rockchip: Add HDMI1 node on RK3588
+      commit: bed6964e779b5853de042da14320edf9f79506fe
+[4/4] arm64: dts: rockchip: Enable HDMI1 on rock-5b
+      commit: 77cea7ca13680e14119a3b9635c7ef16cd7ee44e
 
-This is a userspace ABI change. This ioctl is documented as being able
-to return -EINVAL or -EBUSY, and nothing else other than 0. Yet the
-new helper returns -EINTR, which you blindly forward to userspace.
-
->  
->  	mutex_unlock(&kvm->lock);
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 071a7d75be68..f58849c5b4f0 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1895,38 +1895,6 @@ static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
->  	}
->  }
->  
-> -void unlock_all_vcpus(struct kvm *kvm)
-> -{
-> -	lockdep_assert_held(&kvm->lock);
-> -
-> -	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
-> -}
-> -
-> -/* Returns true if all vcpus were locked, false otherwise */
-> -bool lock_all_vcpus(struct kvm *kvm)
-> -{
-> -	struct kvm_vcpu *tmp_vcpu;
-> -	unsigned long c;
-> -
-> -	lockdep_assert_held(&kvm->lock);
-> -
-> -	/*
-> -	 * Any time a vcpu is in an ioctl (including running), the
-> -	 * core KVM code tries to grab the vcpu->mutex.
-> -	 *
-> -	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
-> -	 * other VCPUs can fiddle with the state while we access it.
-> -	 */
-> -	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
-> -		if (!mutex_trylock(&tmp_vcpu->mutex)) {
-> -			unlock_vcpus(kvm, c - 1);
-> -			return false;
-> -		}
-> -	}
-> -
-> -	return true;
-> -}
-
-The semantics are different.
-
-Other than the return values mentioned above, the new version fails on
-signal delivery, which isn't expected.  The guarantee given to
-userspace is that unless a vcpu thread is currently in KVM, the
-locking will succeed. Not "will succeed unless something that is
-outside of your control happens".
-
-The arm64 version is also built around a mutex_trylock() because we
-don't want to wait forever until the vcpu's mutex is released. We want
-it now, or never. That's consistent with the above requirement on
-userspace.
-
-We can argue whether or not these are good guarantees (or
-requirements) to give to (or demand from) userspace, but that's what
-we have, and I'm not prepared to break any of it.
-
-At the end of the day, the x86 locking serves completely different
-purposes. It wants to gracefully wait for vcpus to exit and is happy
-to replay things, because migration (which is what x86 seems to be
-using this for) is a stupidly long process. Our locking is designed to
-either succeed or fail quickly, because some of the lock paths are on
-the critical path for VM startup and configuration.
-
-So for this series to be acceptable, you'd have to provide the same
-semantics. It is probably doable with a bit of macro magic, at the
-expense of readability.
-
-What I would also like to see is for this primitive to be usable with
-scoped_cond_guard(), which would make the code much more readable.
-
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Heiko Stuebner <heiko@sntech.de>
 
