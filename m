@@ -4,97 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C559C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91D7C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 17:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5eUqaFoF/nA3myl/xKceml4ULdmxAvSOjNMKL2mIwQg=; b=gev0wV282qSb5EU8R+hROY3yIT
-	J0Dag+0g6/ZgMKFqa+MVEUOvtVvYC98jv7/N+cNkp05BUElSiOrMaLgfoQVRUNLzsq/YnB8oGVS3A
-	MFK/CkD3KIsm6P32uUvJheqW7KZmKIiOp3UCvB1BaAiierG+qftLx4biuLHtNyiHrsZajJFm30O5K
-	bq7fPEKcQeuu66+JZCjBQLTCEDKjsWC0eYjlkSefFyTdrZT3kPNqjrHgFHJOl2d2qjH5TJCU8vstV
-	Re/zRH5D8x4PE9GkOmmELtJvo8NccRBCpSEc8aDi8cZhZvcs2IhhVLoFaZIwJoZV3EnOR/1/9eD5q
-	xEr2H1uw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XGuymloIkb07DBUsJm0q376VtiZsOgNoZNsnmfiTCVw=; b=IVfe1BfqXx21EjTPIOeFO+On+X
+	GjfP/ySoo7r9t3vj09vmdyzne9FEWYZSL4DiC2ft126fB5YYhhxiUvFIenDdVhAe5Dky3LtUS+rH/
+	rwaQIEME5VX/rWgUV2/3uTzmMLW6j1Fne4gVJP07bcQbSZNt39I+JTcO8+mMSLN285a+ZIC/qkX/c
+	Mgbh73jDe4o85ZaaN/Eri6tCtZY9eUsUbFuhgDytjGRGKGNjYzEJvDe5kKr1JD7/OXI4j7ywnlIMZ
+	LBCf4ApsYrG6OPPcPpEsq0RfUdAIMaXhv8GDrMkJxvpwlM20wBsk2iwvle7S94oIE9XHSU1xji6bG
+	E4nzsZQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thu2n-00000004feF-2jLR;
-	Tue, 11 Feb 2025 17:27:33 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1thu55-00000004gRG-2dZk;
+	Tue, 11 Feb 2025 17:29:55 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thu0O-00000004fDA-2R2j
+	id 1thu3e-00000004ftp-01q7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 17:25:05 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3d147331fb5so214275ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 09:25:04 -0800 (PST)
+	Tue, 11 Feb 2025 17:28:28 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38dd93a6f0aso2178262f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 09:28:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739294704; x=1739899504; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5eUqaFoF/nA3myl/xKceml4ULdmxAvSOjNMKL2mIwQg=;
-        b=Qtf++Q+ICRiR3a6do9PV6E+/9rx/LDCZkp8AWkWB5plIhjKfxuncaw0PHJMH5h8w/9
-         txqufk+XkimTaAOxYufXypQmb2AJQjjTEZFmrC0dAqwR6sB5bKVkjfZUhJ1c/Z3T09Jv
-         XOfta4h9bFDwZJrmTeOT2ww7I4uMDpo9L1BFRj0U8opOtg4z4jtm9LQECf64BTTr/k6B
-         1bU7gyxnY6NQ6XibB2MwnyrjcyQDsL0GfljuhblmeELmtRKrMH462TetEZJz3SnKTpAI
-         7EQdOZVNdf2v4VtssOBTteJ8c2ir7g/Xn02T1PQE4/CBXRFzaMOyU0JMlnTR5mD4YbGB
-         q/dg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739294904; x=1739899704; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XGuymloIkb07DBUsJm0q376VtiZsOgNoZNsnmfiTCVw=;
+        b=pm4yYlToZQgli5m4SFaBLLc/HV7ngheczuguguxxE0yNOdttXn3Nv2NJd3yGs/RcLo
+         IcEDHRsE7Iju5Qy549T5RY27RA/gTNvX0kk37AW8lOXB9H/cJI0Emwjt0UZpNEjaZsxi
+         9bZHH5IgULKeNd8at1snOCtPgVNW6paC3cH21TDmZnbDwTZYx6Y9nqoY4Jsm99MIPsgI
+         Ygwprfnvm+L2Simj7WeBMBNLf+0A8D7M5opO/mHjFqwNNKMFKdvZvVSMbzyubdDUY5/U
+         9mymf+R029GiO68kHtSxK0XVFGOmCTEHqXlsw3Pplpo7t/kaZl/Fp4yoYNlP8ZW/PatO
+         d8yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739294704; x=1739899504;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5eUqaFoF/nA3myl/xKceml4ULdmxAvSOjNMKL2mIwQg=;
-        b=Vll+Bvg1hK+xCaotIClXejSPIttrMQLwj2EulSaeNBWd3hQ/Ct9hhfU42cJZivwPm6
-         nVvtevGEOxdpSWz4lEN1VtgkhCpqWlMxaEBhJ/3mZ40TwsFGan9zIGI2lZxvNwHNfLu9
-         G4jH6/C+dPaYr3nOxW9eeWBD+GdRjjdiVWIqnl+giWW7SC3gzpmCJRpRKNTlvPcONzBl
-         klTo/ioZf5gZyijiXDucfbknEH1v7JxwoahFLpDPN4UJYkJGalccvJvNbIyGtFaOdlLf
-         EQb+v1CjW4wWqF+z3Q/EqLo5wRCCC95d1EKUQPJi/S7FXYwVuFPZzFp9q9tFLtIs4qZs
-         F2xw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPfQ54/djsy3Emxob7QIFRqnISyZU6zGsyZmmOZ/aSlyFjlL7A2Ouzi14aTz3ZYwg4wsQwCX4QG0FY1MfSBmDT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9BWYc8DYsQ7p3kdq/cEvUA1BZmmqXFqV5OF7bC18KOrr4x14I
-	M3l4tJOm4YmCHltQwyxXWqAAn86M1wsIAYxu/hSBKfzuI9yV4RCLlvioQJFRi1hjaFVeD+4kkGQ
-	YzNPKPwgMzBC1qPb6T950ZK/ZYs0+o54sDwzV
-X-Gm-Gg: ASbGncsVzwxDKw+t6Ix+zRzTaBgLcXq4wmaYfDqM3dAyC59k9iOCYYs1/5ryU+z2tFY
-	PsYQ04cgu5mLlzbnRG7ZANLNnECRFLUs/NkqeXoSGs/6q4aoYlm3cCkaKdaUq+0ercUOB63359f
-	rylal9p/rIWMnlpZ3JcaKDJvSv
-X-Google-Smtp-Source: AGHT+IHulOePOuHEHSpuFuNYO6P65ObrRZws2+5sl7jc3tR3t7l3NjrSWpuzOe7Ugxsa9ph5ihwoodwYrD5QTsiZGu4=
-X-Received: by 2002:a92:c54b:0:b0:3cf:c075:da88 with SMTP id
- e9e14a558f8ab-3d171e3baa4mr3301595ab.23.1739294703579; Tue, 11 Feb 2025
- 09:25:03 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739294904; x=1739899704;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XGuymloIkb07DBUsJm0q376VtiZsOgNoZNsnmfiTCVw=;
+        b=B/qC9WiFWLiOf+bTvu7/6KM05yZFNCSRDWXMaZXI1s1lHWHeslWUat9UMgi9hLdunH
+         0Mk+ypmUd17ji46tpOn/Xl1vfj57kMGLHlVAB0lDQBfa2e9NAIm2lhxhBgx60WarpwH6
+         gicI4RKxYJBjrWRR/0a+5QCc3vgxhyxdqCLe5JCpxlg26XM+uH+Z2D8MfPGETLDwlhae
+         +P7v734haSgatoAR9cFsQumG7llWwc65wXVAHZcdGRVkiX6IuurZfvLCBnvzR9l41kA3
+         vytCXUM5FnbGaXU0J8gm+ouzs+oJAFDq9u3NqHseGGRmyGwOmpmOEzzXbM7RRlyaxFbC
+         VXYg==
+X-Forwarded-Encrypted: i=1; AJvYcCUoasgdI5RUCXwcsqpiLZKFKK+WVh6V2P3FdQ/fV76M63rYx4DY3VsIXVUd4HU5icj2r9sysMN3OXoJxYpkNbzC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3zp7/DQPQBwBsE0P46vu9l2PXtCI4mx/uVS7UtTUU+qUul18l
+	NNW4kS1Nyd3sFDyJB0mtdloWxCv7PB98tiJ5O7oB2ipyRevRgzDOzZdssqvCxjM=
+X-Gm-Gg: ASbGncvpPoSor2WlJQwh/M+z4wbB7diqoMXDSTZawFBpCtA6AbYW8vIFoUplI8BZ+xp
+	Ah4aojvHejcRmlcd92sY6Z7EFQuwqfK9BI3nv1kTBnT57l3sKwYi93D4BaN3vvi8c0lLmKteBkH
+	UnQs7jYFU0Em7aKCqZXghJC9hVKozZuR+OubbjRIeVtyiqPZeX4ITMKkDBv0RxsZ4vt+crSQkvG
+	CsuGSF7iLQcX0GBgeEMFYjF5wwfa1d7ro+cH2cP5ZCHjeiRFolxJCPZcg1kEmghMPQ5glsy/gTf
+	JkcMjGe58qrmIwa7pA==
+X-Google-Smtp-Source: AGHT+IEnLhYUowYHE0yKYJiPhnWPf3ZeYK7gEVcdnt/kejC8y5qrfPO/D7z6hU8xWCz/RTS9lenTeg==
+X-Received: by 2002:a5d:6d8d:0:b0:38d:dac3:482f with SMTP id ffacd0b85a97d-38ddac34a13mr9552027f8f.20.1739294904276;
+        Tue, 11 Feb 2025 09:28:24 -0800 (PST)
+Received: from toaster.lan ([2a01:e0a:3c5:5fb1:fc0c:6c04:7ae0:c5c2])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc6c80df2sm13691082f8f.18.2025.02.11.09.28.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Feb 2025 09:28:23 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	=?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH v3 0/7] driver core: auxiliary bus: add device creation helper
+Date: Tue, 11 Feb 2025 18:27:56 +0100
+Message-ID: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250210165108.95894-1-irogers@google.com> <20250210165108.95894-6-irogers@google.com>
- <d47c35dd-9c52-48e7-a00d-135572f11fbb@app.fastmail.com>
-In-Reply-To: <d47c35dd-9c52-48e7-a00d-135572f11fbb@app.fastmail.com>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 11 Feb 2025 09:24:51 -0800
-X-Gm-Features: AWEUYZklUe5R5QefRSuHohckz8hNxM22lvM3Gxp2M1QMZ2_uE8brpR7qpIuJFYo
-Message-ID: <CAP-5=fUi4RYebxCGYZVHVEt0BpWVmUA6+-vDQfbai25_KJRs7A@mail.gmail.com>
-Subject: Re: [PATCH v2 5/7] perf trace beauty: Add syscalltbl.sh generating
- all system call tables
-To: Arnd Bergmann <arnd@arndb.de>, Arnaldo Carvalho de Melo <acme@kernel.org>, Howard Chu <howardchu95@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20241210-aux-device-create-helper-93141524e523
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2783; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=a5cIVDB/XqIyZLdjQfX2dKjmeJTuroJeXtpvtv2BIfo=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnq4g1Pe4IH0OZxqD2nUyrcAQNxBIXu0/k/eK1P
+ eeZU0tDtUuJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ6uINQAKCRDm/A8cN/La
+ hTwuEAC0yRgoF5+sh3729QlMMArb49bUXPCcRfPXuGX9LfhICUU4rDzmeyhZ73ixiud2HTj/cU+
+ CD1JkxcQMgGt91XivcxSZaa/O8J0yiPY7XsyumB7lZztf3UOMsCyUYTcKtXq5nqIs4XCbEhpJBv
+ wWROK3l7aHwYaq86foxHXPKLBnOdGvO9tG4Cd9dFUqvfkunsU8f1EiHoxbmp+8AixeZ8JpI2h4m
+ RjfqKlyTgw1YwDSy8gvB5ZPIPfJVWyTKmC1Scwl9vPX/7HwArcDqpjHRlq9wCWsX1X+dYHwP114
+ skbcxvzytfFkqEWc/m9N/YUNN2dmQQm9p2R1+J86uloEWI4o5KzhTYOpepjT2AkP1fIujSUKYHZ
+ /rh/PrI+zpIhqvRdlvWTgCLIc/16EpKDNCBjZm6Uvr97KnbucwB0DCt3VCIVrzNe0IS/YeK6OhJ
+ lildtlGnvUpl2dz96XT3fC5LwwQchqy+/WWifjqotaNI+P2EF+piohEbV+BE1YCqkl75qvhErq5
+ jYQ83+S4Fv3kZTw+9RDwCRDGX4prBwuMRTKuurwvRjXy3rrJdHr0VSfiRqXP+ZsEqCTGpkiLz/9
+ aR1gap1Zu3kcgRpqyt4RTF3xD8Ji6TpRGWpayTg2eFIl/D+xovgQKgGFBvkXIlBF5K3AjkP5YO/ 5n/HysQTp88OoaA==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp; fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_092504_626063_8319EB1F 
-X-CRM114-Status: GOOD (  39.66  )
+X-CRM114-CacheID: sfid-20250211_092826_240504_E9ABB797 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,159 +155,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 12:09=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrot=
-e:
->
-> On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
->
-> > +# Each line of the syscall table should have the following format:
-> > +#
-> > +# NR ABI NAME [NATIVE] [COMPAT]
-> > +#
-> > +# NR       syscall number
-> > +# ABI      ABI name
-> > +# NAME     syscall name
-> > +# NATIVE   native entry point (optional)
-> > +# COMPAT   compat entry point (optional)
->
-> On x86, there is now a sixth optional field.
+The suggestion for this change was initially discussed here: [1]
 
-Thanks, I'll add and repost a v3. I had some other questions below so
-I'll try to do everything together to avoid noise.
+This patchset adds and use a helper to create a simple auxiliary device.
+The goal is to remove boilerplate code that tends to get repeated for
+simple cases.
 
-> > +#if defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__=
-)
-> > +EOF
-> > +build_tables "$tools_dir/perf/arch/arm/entry/syscalls/syscall.tbl"
-> > "$outfile" common,32,oabi EM_ARM
-> > +build_tables
->
-> The oabi syscalls probably shouldn't be part of the default set here.
-> Technically these are two separate ABIs, though EABI is a subset of
-> OABI for the most most part. Some of the calling conventions are
-> also different.
+Only the last change was tested on actual HW. The other usage of the helper
+have only been compile tested with x64_64 allmodconfig. There are many other
+simple cases of auxiliary device creation but those tend to use the
+'container_of' trick to allocate the auxiliary device. It is possible to
+convert these drivers to use the provided helper but the conversion is
+slightly more complex.
 
-Ack. I was carrying forward:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/too=
-ls/perf/arch/arm/entry/syscalls/Kbuild#n3
-but noticed that we weren't adding this for arm64:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/too=
-ls/perf/arch/arm64/entry/syscalls/Kbuild
-I'm happy to drop and have the ARM64 behavior. I'll make it a separate
-patch in case there is a desire from someone to revert.
+[1]: https://lore.kernel.org/linux-clk/df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org
 
-> > "$tools_dir/perf/arch/arm64/entry/syscalls/syscall_64.tbl" "$outfile"
-> > common,64,renameat,rlimit,memfd_secret EM_AARCH64
-> > +cat >> "$outfile" <<EOF
-> > +#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) ||
-> > defined(__aarch64__)
->
-> Hardcoding the set of ABIs in the middle of the script seems
-> too fragile to me, I'm worried that these get out of sync quickly.
+Changes in v3:
+- Implement Ira's suggestion to use KBUILD_MODNAME by default, same as
+  auxiliary_driver_register()
+- Link to v2: https://lore.kernel.org/r/20250206-aux-device-create-helper-v2-0-fa6a0f326527@baylibre.com
 
-I agree, again this is carrying forward a behavior and at least after
-these changes the location is just one place. Do you have any
-suggestions on how to do better?
+Changes in v2:
+- Add usage examples, as requested.
+- Add 'id' as function parameter:  Adding the example usage showed that
+  handling IDA allocation was not appropriate and making the usage more
+  complex for simple use case.
+- Also add 'modname' as parameter: Most driver have been using
+  KBUILD_MODNAME and this actually rarely align with the driver name.
+- Link to v1: https://lore.kernel.org/r/20241210-aux-device-create-helper-v1-1-5887f4d89308@baylibre.com
 
-Fwiw, I wonder a related problem/question that has come up primarily
-with Arnaldo and Howard is in having a way to determine system call
-argument types so that perf trace can pretty print them. For example,
-if via BTF it is found an argument is a "const char*" then it is
-assumed to be a string, but a "char *" is not as it may just be an out
-argument. There's a source for more information in the syzkaller
-project:
-https://github.com/google/syzkaller/blob/master/sys/linux/sys.txt
-Perhaps there's a way to generate this information from the Linux
-build and feed it into perf's build. It is out-of-scope for what I'm
-trying to do here, but I thought it worth a mention given my general
-ignorance on wider things.
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Jerome Brunet (7):
+      driver core: auxiliary bus: add device creation helpers
+      reset: mpfs: use the auxiliary device creation helper
+      drm/bridge: ti-sn65dsi86: use the auxiliary device creation helper
+      platform: arm64: lenovo-yoga-c630: use the auxiliary device creation helper
+      clk: eyeq: use the auxiliary device creation helper
+      clk: clk-imx8mp-audiomix: use the auxiliary device creation helper
+      clk: amlogic: axg-audio: use the auxiliary reset driver - take 2
 
-> > +#if defined(ALL_SYSCALLTBL) || defined(__mips__)
-> > +EOF
-> > +build_tables
-> > "$tools_dir/perf/arch/mips/entry/syscalls/syscall_n64.tbl" "$outfile"
-> > common,64,n64 EM_MIPS
-> > +cat >> "$outfile" <<EOF
-> > +#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
->
-> What about n32/o32? The syscall tables are completely different here.
+ drivers/base/auxiliary.c                  |  88 +++++++++++++++++++++++
+ drivers/clk/clk-eyeq.c                    |  57 ++++-----------
+ drivers/clk/imx/clk-imx8mp-audiomix.c     |  56 ++-------------
+ drivers/clk/meson/Kconfig                 |   2 +-
+ drivers/clk/meson/axg-audio.c             | 114 ++++--------------------------
+ drivers/gpu/drm/bridge/ti-sn65dsi86.c     |  84 ++++++----------------
+ drivers/platform/arm64/lenovo-yoga-c630.c |  42 ++---------
+ drivers/reset/reset-mpfs.c                |  52 +-------------
+ include/linux/auxiliary_bus.h             |  10 +++
+ 9 files changed, 157 insertions(+), 348 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20241210-aux-device-create-helper-93141524e523
 
-So perf hasn't historically supported them and no one is asking for
-support. Generating more tables isn't the problem, but we need to have
-some way of determining which table to use for n32/o32. I see
-EF_MIPS_ABI_O32 and EF_MIPS_ABI_O64, so we could add support by
-extending the lookup of the table to be both of e_machine and e_flags.
-I'm less clear on choosing n32. That said, back in the 90s I was
-working to port MIPS code to Itanium via binary translation. Given now
-Itanium is obsolete, I'm not sure it is worth adding complexity for
-the sake of MIPS. I'm happy to do what others feel is best here, but
-my default position is just to carry what the existing behavior is
-forward.
+Best regards,
+-- 
+Jerome
 
-> > +#if defined(ALL_SYSCALLTBL) || defined(__powerpc__) ||
-> > defined(__powerpc64__)
-> > +EOF
-> > +build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl"
-> > "$outfile" common,32,nospu EM_PPC
-> > +build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl"
-> > "$outfile" common,64,nospu EM_PPC64
-> > +cat >> "$outfile" <<EOF
-> > +#endif // defined(ALL_SYSCALLTBL) || defined(__powerpc__) ||
-> > defined(__powerpc64__)
->
-> This skips the SPU table, but I think that's fine.
->
-> > +EOF
-> > +build_tables "$tools_dir/perf/arch/s390/entry/syscalls/syscall.tbl"
-> > "$outfile" common,64,renameat,rlimit,memfd_secret EM_S390
-> > +cat >> "$outfile" <<EOF
-> > +#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
->
-> This skips the 32-bit table, though I think that one is already
-> planned to be discontinued in the future.
-
-Thankfully we have awesome s390 devs on the mailing list, hopefully
-they'll shout out if I'm doing things wrong.
-
-> > +#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__=
-)
-> > +EOF
-> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_32.tbl"
-> > "$outfile" common,32,i386 EM_386
-> > +build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_64.tbl"
-> > "$outfile" common,64 EM_X86_64
-> > +cat >> "$outfile" <<EOF
-> > +#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) ||
-> > defined(__x86_64__)
->
-> This misses the x32 table.
-
-Again I'm carrying forward a behavior. Would it be worth adding x32?
-
-Context: I handled x86 on Android over 10 years ago. x86 phones were
-64-bit long before ARM or Apple phones, the kernel was 64-bit but the
-userland was forced to be 32-bit. ARM32 has R15 be the program
-counter, Sophie Wilson's idea, and when Android's security folks
-experimented with ASLR they found it to be free as a consequence of
-ARM32. On x86 not x32 then you're in the land of thunk bx, losing a
-register and extra instructions. We never did x32 on Android as it
-became irrelevant when I brought up x86-64 on Android. The desire for
-x32 was for RIP encoding to fix the ASLR issue, not so much the extra
-registers, and because Android used to mandate a 32-bit user land
-(this was so extreme that even the developer's C to generally ARM
-cross-compilers were built as 32-bit binaries). Given x32 was done for
-Android, Android never used it, I have a hard time thinking we should
-be adding support to perf. That said there is likely other context
-that I'm unaware of as I'm surprised x32 still exists. Fwiw, it
-saddens me that the x32 experience means that for APX we're still
-getting the x86-64 ABI moved forward and silly things like the var
-args convention on %al (there for C80 compatibility I once believed -
-not really an issue today). On ARM64 registers there are at least 8
-callee-save general purpose and floating point registers, so the x86
-model of pretty much everything is caller-save means function calls
-are expensive and you may need aggressive inlining. Anyway, sorry for
-going on so much.
-
-Thanks,
-Ian
 
