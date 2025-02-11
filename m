@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2299EC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1B7C021A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISAQBQ0fr+yj+zIbyh7W8nrLRTzv2QG8A8GpANmjBC4=; b=J5p3bIQ5ZYle4Xr3t8vyNr5QMs
-	6luZMIJ5iSbVluH4b3TkR8mKSARw6uGgwU/69HyIeZLtzRbFFjKObbf1NGdhjF9Dwc0Kkkf9RsPHO
-	bD+HZELpPtha0siGewYICBbSWrJ/kJWVfJwKuEqzrmwE+/7uGMP7iC5//q5eI+xy5ksqWmBa/K9l6
-	9VG5AvC1SnLSIXZeMRlILGEuxsWrBY4AnCc49Uz4rGc2BY0wUJP1lHoAdycHpPOJCf2k/TaZpkhuN
-	smXC8qj3K+ICNzSowD7Y/3zyKoZntupjSpgDpw3BR6J9GrTjkH9VrVur5D+zteJOJuXTEznJ8/pij
-	YqICWxDg==;
+	bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=; b=SepoHpOYuunbNLhlSdBrY1ItjK
+	uoac0JUsTXOKFcR7D0lVVab1sURLu1WviwDOX6IkJz+QZnri41KiTzXCw0apfmG/zQHQ+XhPzYcnj
+	gNVpjY/fgLDAUhRrsxHqwIkP3njGX6IoL1+mLMXCPX0U86+ZmSoMzLDAaJgHWuXENk3P6sImaV6HV
+	OeMgc3JCvaFQf5hbWY2zYMHkisjDqPWNWGaCMRGDpAOyoG5Ie9dg7bDKxImO4rPxDKkJDuFOy1J5q
+	2CZgHeIPKN0rwD0l+XEbYJTDfNIe+GyiQ9MEYkWHr5bwo2MDlmOnQMUml1MHXMv8DmsTH88VX4ylH
+	4b5Ksd8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thgCn-00000002IW8-3izw;
-	Tue, 11 Feb 2025 02:40:58 +0000
+	id 1thgCq-00000002IYY-0Cg7;
+	Tue, 11 Feb 2025 02:41:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdyb-00000001xTW-3l3S
+	id 1the1C-00000001xk2-30WL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Feb 2025 00:18:10 +0000
+	Tue, 11 Feb 2025 00:20:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ISAQBQ0fr+yj+zIbyh7W8nrLRTzv2QG8A8GpANmjBC4=; b=ZJftv22Rmr1gDFcAGr4NS8WAEu
-	JZHSffFfAH0aHRS5/bPZo/4ZCrzXUKqPmqOUOTwsUInB3CMWLcHNcoaqrAMX+IbOrzkrVoZ6WV5XZ
-	SGP8qgWLxRVGwN+wzqzWLneoCUIwy1UPlbRJDoF03qXSy/kfWuUK5s0DBi27miUITuzc6mPMmNLFX
-	Xf4xvU1Cc331NwireTa47EuceYH/KisSaTgyfSosAVj8/5L9Rzi1Mph+I4DU8ohCudO/hOUCjk/4u
-	/K1gsy1ulYx6OCuu4Geb8RI3B8StetKNxiJw1YIAuW10VrhQDNIxEVrCJkk0fbFpn/WvFeNXP/aRG
-	+L7B9ipg==;
-Received: from mail-yw1-x1143.google.com ([2607:f8b0:4864:20::1143])
+	bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=; b=I3CM+v4JK+WM3tzbdsPnlAfjzd
+	k7BjFftNZSh63iAL8dp1gN3XgJ0UlnF2Isrlhzf52oswO1sDq3mf7MX+LH/PZMBrvw9Agzgr+/gCa
+	tJN6C3m5lUo8IsA3x2arWbBXgKtl/R4OPmmHnKo6LZ0Qfh4U++jkFI9TJsw4FZqikSAW7u2s1N/WN
+	obVo01TgmPBzYVSXSNCVSfCJcImSHcPh5/hsiIXJqRCo6C6pOxeDQLXqDquyfJEA73Y4J+3TXFdh8
+	Nn4MvGUbzhc0bQCw7WugbyoJeiCS0IgcxVa0xK3OpRr5uhQ9UW/WNjlqa5nO+GzwUWjo6QKL85XWX
+	bCyg2kag==;
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdyV-00000000OHT-45t5
+	id 1the19-00000000OPd-1iNM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 00:18:08 +0000
-Received: by mail-yw1-x1143.google.com with SMTP id 00721157ae682-6f6ca1a8aa6so28089967b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 16:18:01 -0800 (PST)
+	Tue, 11 Feb 2025 00:20:49 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id 3f1490d57ef6-e5b4d615362so2982395276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 16:20:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739233080; x=1739837880; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739233246; x=1739838046; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ISAQBQ0fr+yj+zIbyh7W8nrLRTzv2QG8A8GpANmjBC4=;
-        b=DnOEe5WRbRS+dk+29EjEtXmwwTW0ajF7NzthY9l388zyoPscV/9yt0ZZdUYvuVlYdt
-         TycISKML/wcp0Nd/4I0WmiKlSNKAAb7WWcMhVrZ4tkR4vg4Oo7JLuD8XQeCfDKJj/HlZ
-         RQ/KU4UkXyhdBKCvUYB69LaUXTZeeuXV94KUallKHOx+tUaPiRQIiLxPtGa+SN1JJ4UL
-         EkfJeLbAiKxPpWOmtqVWyr/JPEj9jrvQCD/pD5VJqXrt1UwyQaWmlGncbQ+S6JtHJurn
-         JMRn50ckww6ZxQeWTVpWdw0z9TWPspIkUUG/zFTVY1LeCgaZUH5kIprLayyWDxYHIrmS
-         3V1w==
+        bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=;
+        b=fIoe9fHCTLWfrM0xUcqvmKUP8vg1t2djK9midnw40fyVyEgm04PBGz8nHZnBdTgHL/
+         awHepvzoPug7xZuidM8VdHC6bJQX1btIw4A80LAWg8B7YDzTEg39MbbDlhUAnGJJL5N0
+         +GR7tVI59urLLpwPSOT7DRoRiKoQiYBYqYPKiE3X/t+OXsAPe796UhkW6AlBqA0cSvmh
+         Fc5gX0BHwJqjDTysVvGP84rmcGxvAAQ2MZZrMMrTSZIGyAgFfw6yC/8vv7jLWOkUqdju
+         Gx0H3AF4SNIswjodbGntJ7xU5ML0HqKs1rpA0tVbkb4JyTKamV7PPFgQUzG001f8sbgb
+         QZnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739233080; x=1739837880;
+        d=1e100.net; s=20230601; t=1739233246; x=1739838046;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ISAQBQ0fr+yj+zIbyh7W8nrLRTzv2QG8A8GpANmjBC4=;
-        b=aQB+aRLIm2xnbG9ve3ZFZE+DlZ5OM5SeHUMXthwD+Qs29O/TrystqihQnl9/1bYLTY
-         THPQ+TReg4AHQk3Czah7ytgMD8vFiVmI9LV8SgwySSXlLv/gAcYOQwgR5Aig5D5KPqg9
-         amTqrKDozO1VYRZzGsFehJER6mtlMHUF3CrSUPGySt85n0WRrbl4Vc3e9nT15CA/wNUq
-         IphJKnb+thGUXwlKompYkzKrmk2R52BOI1aTqDh4MsUelh8+Z1WJKlsz9qYcEQ0uzmSi
-         oOJTkusgkgecYLNUHFt1B4i1tLJIhYIMuhIOCJqOesr3JNUANYCemm7vTsn3EXGlJsjv
-         EuEw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFVT9bWWhAMQNlWMhRMKU76ChIj3y1vUd4TI7IAdpb4EIpfqpfHMZQb++66mHu1xxvnUBZMskOcDs0tXuWeloe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLR04dZ3mNfOHaQwuwqinivEmtnOjE+/VL2eMFRpK+xb0tJ+54
-	Gdhn3sPBC6mocwi+sZadpEL4ZShQeRxX+HJm8nXxUIxeKE4LVfkp6btZObzF0kk=
-X-Gm-Gg: ASbGncvwQqMIdOx1E8URm5OFsBnTb61CVI13v2LfkhA8jAjzUv0SElTvpDejB5RkWmv
-	CammhPrWW2/1SVLvJVlESuU3rC03Pj6kuNpZQJuFv8cxnq9DfoYkJC+jj5VnAp9f7Tx2mMALzm4
-	4UShQ0lRPipvoiRT17M7xWFcv7/VB911Q+0jId1KvZPr2HaswKWUpjO1vdULWR4lrnJwyyPlg+y
-	PsgvvVNABk9VN2z5fv/dAR3Jp8U6+OWNjx95FS9uwwm892K6jg0SZsAOqyK5/ndDfj9DRcvDDYs
-	9m4=
-X-Google-Smtp-Source: AGHT+IG2lYjSA9U8mtH8kqy2zToEQOfHxV7dx2DoND3Wn8X6MxCq6iEaLq5Q27PfBoeN7LzH0kZjXg==
-X-Received: by 2002:a05:690c:4d44:b0:6ef:8177:c322 with SMTP id 00721157ae682-6f9b28783cbmr160095467b3.13.1739233080336;
-        Mon, 10 Feb 2025 16:18:00 -0800 (PST)
+        bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=;
+        b=Rjm4Ho8H314tsXv702X/dMdG4HhtRdCHEIuun1EscddC03J8hh3L/0P9RN8zzQZuGZ
+         xoUdKe8OC/gwGDnobn+clFyrKyty3w7cq6Xb0YcgMIxRRcO8/EYIwrxAi26uDccif3Iw
+         DNAQY6DGEekqPOrxr4nRnBpUOPaO+QyBC/0TK4cS9g5OybQvTnFhL9zmRqtw+9pcOKUH
+         my17p3meoTCFW5kC1ViUlYhucd3GR/gGBr1VbCVn0uPduos7WBZvqh0M9YyystaMdmN9
+         7wQw+Wmy95Mdd8vR6/L3qVD/IM4u7CEPp4XRV0TwrWj6GlHhUzFP2geF/sXVWmUrlYjD
+         aTpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWOqEXeHKBYSOMx7g0b0G2t9MB+/n9U1t1Kr0WcdioGjSIn2LT0b/ewGbQW+UtsTgEJ//EbmyhwuKcg+1ERyj9k@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRb9EqXMgLj4C+pab2bu6feKlPCf3k5Gq3PAvAZrVfugWyDXKw
+	gxZywEpCbWWOwvgbKYzBl5N9yYs3mv8oymG3AEfXAXNSU+L3MeZ8cS0o4szFe5s=
+X-Gm-Gg: ASbGncu0bGOkSWFIZBuLcfbaKQYDyBwLp+InavnzGa0S5V161DM11nr9YVVf84Xv8im
+	LbDJ8Zg8xFJOA1F8Wjg2dtQTbd9eKCEncuH1jByC5a3AywcNLbIyYyQiE+IcvVFQWskQH2sqvBJ
+	7+Pp4iFvCMYl33n0yNXTZpH0p1UTJPrhcZwUo8tmwhIAUfoUYx6SiqJr+8nmIYRL+c4fq2PsRAb
+	5UKCSBik6ZpiKDEB+Y/jzs7TnhmKcyX7wjDzSLQWXiaP9JhqgsEEyhwyc6rCnhQPyGSKSLMCSNn
+	2sE=
+X-Google-Smtp-Source: AGHT+IEgCF8HyG8asrx19RO4/BfI2121j03BDe3RR1UsBBXC3q3qfBJKowis2DMzSxDhdyfGfdvrSA==
+X-Received: by 2002:a05:690c:4b8f:b0:6f9:4f93:c805 with SMTP id 00721157ae682-6f9b287bafamr146119417b3.21.1739233245476;
+        Mon, 10 Feb 2025 16:20:45 -0800 (PST)
 Received: from ghost ([50.146.0.9])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f99ffc3501sm18888087b3.116.2025.02.10.16.17.59
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f99ff6a903sm18915387b3.84.2025.02.10.16.20.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 16:17:59 -0800 (PST)
-Date: Mon, 10 Feb 2025 16:17:57 -0800
+        Mon, 10 Feb 2025 16:20:44 -0800 (PST)
+Date: Mon, 10 Feb 2025 16:20:42 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: Ian Rogers <irogers@google.com>
 Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
@@ -108,17 +108,18 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/7] perf trace: Reorganize syscalls
-Message-ID: <Z6qXNcjQE2RaoDUZ@ghost>
+Subject: Re: [PATCH v2 4/7] perf thread: Add support for reading the
+ e_machine type for a thread
+Message-ID: <Z6qX2gUQpdSkG253@ghost>
 References: <20250210165108.95894-1-irogers@google.com>
- <20250210165108.95894-3-irogers@google.com>
+ <20250210165108.95894-5-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250210165108.95894-3-irogers@google.com>
+In-Reply-To: <20250210165108.95894-5-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_001805_524455_CF138BE5 
-X-CRM114-Status: GOOD (  35.00  )
+X-CRM114-CacheID: sfid-20250211_002047_867003_C24497F0 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,13 +134,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 08:51:03AM -0800, Ian Rogers wrote:
-> Identify struct syscall information in the syscalls table by a machine
-> type and syscall number, not just system call number. Having the
-> machine type means that 32-bit system calls can be differentiated from
-> 64-bit ones on a machine capable of both. Having a table for all
-> machine types and all system call numbers would be too large, so
-> maintain a sorted array of system calls as they are encountered.
+On Mon, Feb 10, 2025 at 08:51:05AM -0800, Ian Rogers wrote:
+> Use the executable from /proc/pid/exe and read the e_machine from the
+> ELF header. On failure use EM_HOST. Change builtin-trace syscall
+> functions to pass e_machine from the thread rather than EM_HOST, so
+> that in later patches when syscalltbl can use the e_machine the system
+> calls are specific to the architecture.
 
 Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 Tested-by: Charlie Jenkins <charlie@rivosinc.com>
@@ -148,372 +148,225 @@ Tested-by: Charlie Jenkins <charlie@rivosinc.com>
 > Signed-off-by: Ian Rogers <irogers@google.com>
 > Reviewed-by: Howard Chu <howardchu95@gmail.com>
 > ---
->  tools/perf/builtin-trace.c | 178 +++++++++++++++++++++++++------------
->  1 file changed, 119 insertions(+), 59 deletions(-)
+>  tools/perf/builtin-trace.c | 41 ++++++++++++++++---------------
+>  tools/perf/util/thread.c   | 50 ++++++++++++++++++++++++++++++++++++++
+>  tools/perf/util/thread.h   | 14 ++++++++++-
+>  3 files changed, 85 insertions(+), 20 deletions(-)
 > 
 > diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-> index 06356217adeb..916a51df236b 100644
+> index 4b77c2ab3dba..1ae609555018 100644
 > --- a/tools/perf/builtin-trace.c
 > +++ b/tools/perf/builtin-trace.c
-> @@ -66,6 +66,7 @@
->  #include "rb_resort.h"
->  #include "../perf.h"
->  #include "trace_augment.h"
-> +#include "dwarf-regs.h"
->  
->  #include <errno.h>
->  #include <inttypes.h>
-> @@ -86,6 +87,7 @@
->  
->  #include <linux/ctype.h>
->  #include <perf/mmap.h>
-> +#include <tools/libc_compat.h>
->  
->  #ifdef HAVE_LIBTRACEEVENT
->  #include <event-parse.h>
-> @@ -143,7 +145,10 @@ struct trace {
->  	struct perf_tool	tool;
->  	struct syscalltbl	*sctbl;
->  	struct {
-> +		/** Sorted sycall numbers used by the trace. */
->  		struct syscall  *table;
-> +		/** Size of table. */
-> +		size_t		table_size;
->  		struct {
->  			struct evsel *sys_enter,
->  				*sys_exit,
-> @@ -1445,22 +1450,37 @@ static const struct syscall_fmt *syscall_fmt__find_by_alias(const char *alias)
->  	return __syscall_fmt__find_by_alias(syscall_fmts, nmemb, alias);
->  }
->  
-> -/*
-> - * is_exit: is this "exit" or "exit_group"?
-> - * is_open: is this "open" or "openat"? To associate the fd returned in sys_exit with the pathname in sys_enter.
-> - * args_size: sum of the sizes of the syscall arguments, anything after that is augmented stuff: pathname for openat, etc.
-> - * nonexistent: Just a hole in the syscall table, syscall id not allocated
-> +/**
-> + * struct syscall
->   */
->  struct syscall {
-> +	/** @e_machine: The ELF machine associated with the entry. */
-> +	int e_machine;
-> +	/** @id: id value from the tracepoint, the system call number. */
-> +	int id;
->  	struct tep_event    *tp_format;
->  	int		    nr_args;
-> +	/**
-> +	 * @args_size: sum of the sizes of the syscall arguments, anything
-> +	 * after that is augmented stuff: pathname for openat, etc.
-> +	 */
-> +
->  	int		    args_size;
->  	struct {
->  		struct bpf_program *sys_enter,
->  				   *sys_exit;
->  	}		    bpf_prog;
-> +	/** @is_exit: is this "exit" or "exit_group"? */
->  	bool		    is_exit;
-> +	/**
-> +	 * @is_open: is this "open" or "openat"? To associate the fd returned in
-> +	 * sys_exit with the pathname in sys_enter.
-> +	 */
->  	bool		    is_open;
-> +	/**
-> +	 * @nonexistent: Name lookup failed. Just a hole in the syscall table,
-> +	 * syscall id not allocated.
-> +	 */
->  	bool		    nonexistent;
->  	bool		    use_btf;
->  	struct tep_format_field *args;
-> @@ -2066,22 +2086,21 @@ static int syscall__set_arg_fmts(struct syscall *sc)
->  	return 0;
->  }
->  
-> -static int trace__read_syscall_info(struct trace *trace, int id)
-> +static int syscall__read_info(struct syscall *sc, struct trace *trace)
->  {
->  	char tp_name[128];
-> -	struct syscall *sc;
-> -	const char *name = syscalltbl__name(trace->sctbl, id);
-> +	const char *name;
->  	int err;
->  
-> -	if (trace->syscalls.table == NULL) {
-> -		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
-> -		if (trace->syscalls.table == NULL)
-> -			return -ENOMEM;
-> -	}
-> -	sc = trace->syscalls.table + id;
->  	if (sc->nonexistent)
->  		return -EEXIST;
->  
-> +	if (sc->name) {
-> +		/* Info already read. */
-> +		return 0;
-> +	}
-> +
-> +	name = syscalltbl__name(trace->sctbl, sc->id);
->  	if (name == NULL) {
->  		sc->nonexistent = true;
->  		return -EEXIST;
-> @@ -2104,15 +2123,16 @@ static int trace__read_syscall_info(struct trace *trace, int id)
->  	 */
->  	if (IS_ERR(sc->tp_format)) {
->  		sc->nonexistent = true;
-> -		return PTR_ERR(sc->tp_format);
-> +		err = PTR_ERR(sc->tp_format);
-> +		sc->tp_format = NULL;
-> +		return err;
->  	}
->  
->  	/*
->  	 * The tracepoint format contains __syscall_nr field, so it's one more
->  	 * than the actual number of syscall arguments.
->  	 */
-> -	if (syscall__alloc_arg_fmts(sc, IS_ERR(sc->tp_format) ?
-> -					RAW_SYSCALL_ARGS_NUM : sc->tp_format->format.nr_fields - 1))
-> +	if (syscall__alloc_arg_fmts(sc, sc->tp_format->format.nr_fields - 1))
->  		return -ENOMEM;
->  
->  	sc->args = sc->tp_format->format.fields;
-> @@ -2401,13 +2421,67 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
->  	return printed;
->  }
->  
-> +static void syscall__init(struct syscall *sc, int e_machine, int id)
-> +{
-> +	memset(sc, 0, sizeof(*sc));
-> +	sc->e_machine = e_machine;
-> +	sc->id = id;
-> +}
-> +
-> +static void syscall__exit(struct syscall *sc)
-> +{
-> +	if (!sc)
-> +		return;
-> +
-> +	zfree(&sc->arg_fmt);
-> +}
-> +
-> +static int syscall__cmp(const void *va, const void *vb)
-> +{
-> +	const struct syscall *a = va, *b = vb;
-> +
-> +	if (a->e_machine != b->e_machine)
-> +		return a->e_machine - b->e_machine;
-> +
-> +	return a->id - b->id;
-> +}
-> +
-> +static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, int id)
-> +{
-> +	struct syscall key = {
-> +		.e_machine = e_machine,
-> +		.id = id,
-> +	};
-> +	struct syscall *sc, *tmp;
-> +
-> +	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-> +		     sizeof(struct syscall), syscall__cmp);
-> +	if (sc)
-> +		return sc;
-> +
-> +	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
-> +			   sizeof(struct syscall));
-> +	if (!tmp)
-> +		return NULL;
-> +
-> +	trace->syscalls.table = tmp;
-> +	sc = &trace->syscalls.table[trace->syscalls.table_size++];
-> +	syscall__init(sc, e_machine, id);
-> +	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
-> +	      syscall__cmp);
-> +	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
-> +		     sizeof(struct syscall), syscall__cmp);
-> +	return sc;
-> +}
-> +
->  typedef int (*tracepoint_handler)(struct trace *trace, struct evsel *evsel,
->  				  union perf_event *event,
->  				  struct perf_sample *sample);
->  
-> -static struct syscall *trace__syscall_info(struct trace *trace,
-> -					   struct evsel *evsel, int id)
-> +static struct syscall *trace__syscall_info(struct trace *trace, struct evsel *evsel,
-> +					   int e_machine, int id)
->  {
-> +	struct syscall *sc;
->  	int err = 0;
->  
->  	if (id < 0) {
-> @@ -2432,28 +2506,20 @@ static struct syscall *trace__syscall_info(struct trace *trace,
->  
->  	err = -EINVAL;
->  
-> -	if (id > trace->sctbl->syscalls.max_id) {
-> -		goto out_cant_read;
-> -	}
-> -
-> -	if ((trace->syscalls.table == NULL || trace->syscalls.table[id].name == NULL) &&
-> -	    (err = trace__read_syscall_info(trace, id)) != 0)
-> -		goto out_cant_read;
-> +	sc = trace__find_syscall(trace, e_machine, id);
-> +	if (sc)
-> +		err = syscall__read_info(sc, trace);
->  
-> -	if (trace->syscalls.table && trace->syscalls.table[id].nonexistent)
-> -		goto out_cant_read;
-> -
-> -	return &trace->syscalls.table[id];
-> -
-> -out_cant_read:
-> -	if (verbose > 0) {
-> +	if (err && verbose > 0) {
->  		char sbuf[STRERR_BUFSIZE];
-> -		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err, str_error_r(-err, sbuf, sizeof(sbuf)));
-> -		if (id <= trace->sctbl->syscalls.max_id && trace->syscalls.table[id].name != NULL)
-> -			fprintf(trace->output, "(%s)", trace->syscalls.table[id].name);
-> +
-> +		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err,
-> +			str_error_r(-err, sbuf, sizeof(sbuf)));
-> +		if (sc && sc->name)
-> +			fprintf(trace->output, "(%s)", sc->name);
->  		fputs(" information\n", trace->output);
->  	}
-> -	return NULL;
-> +	return err ? NULL : sc;
->  }
->  
->  struct syscall_stats {
-> @@ -2600,14 +2666,6 @@ static void *syscall__augmented_args(struct syscall *sc, struct perf_sample *sam
->  	return NULL;
->  }
->  
-> -static void syscall__exit(struct syscall *sc)
-> -{
-> -	if (!sc)
-> -		return;
-> -
-> -	zfree(&sc->arg_fmt);
-> -}
-> -
->  static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
->  			    union perf_event *event __maybe_unused,
->  			    struct perf_sample *sample)
-> @@ -2619,7 +2677,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
->  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
->  	int augmented_args_size = 0;
->  	void *augmented_args = NULL;
-> -	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-> +	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
->  	struct thread_trace *ttrace;
->  
->  	if (sc == NULL)
-> @@ -2693,7 +2751,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
->  	struct thread_trace *ttrace;
+> @@ -2678,16 +2678,17 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
+>  	int printed = 0;
 >  	struct thread *thread;
 >  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
-> -	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-> +	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> -	int augmented_args_size = 0;
+> +	int augmented_args_size = 0, e_machine;
+>  	void *augmented_args = NULL;
+>  	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	struct syscall *sc;
+>  	struct thread_trace *ttrace;
+>  
+> -	if (sc == NULL)
+> -		return -1;
+> -
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		goto out_put;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	if (ttrace == NULL)
+>  		goto out_put;
+> @@ -2756,16 +2757,18 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
+>  	struct thread *thread;
+>  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
+>  	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	struct syscall *sc;
 >  	char msg[1024];
 >  	void *args, *augmented_args = NULL;
->  	int augmented_args_size;
-> @@ -2768,7 +2826,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
+> -	int augmented_args_size;
+> +	int augmented_args_size, e_machine;
+>  	size_t printed = 0;
+>  
+> -	if (sc == NULL)
+> -		return -1;
+>  
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		return -1;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	/*
+>  	 * We need to get ttrace just to make sure it is there when syscall__scnprintf_args()
+> @@ -2830,15 +2833,15 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
+>  	bool duration_calculated = false;
 >  	struct thread *thread;
 >  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
->  	int alignment = trace->args_alignment;
-> -	struct syscall *sc = trace__syscall_info(trace, evsel, id);
-> +	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> -	int alignment = trace->args_alignment;
+> -	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	int alignment = trace->args_alignment, e_machine;
+> +	struct syscall *sc;
 >  	struct thread_trace *ttrace;
 >  
->  	if (sc == NULL)
-> @@ -3121,7 +3179,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
+> -	if (sc == NULL)
+> -		return -1;
+> -
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		goto out_put;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	if (ttrace == NULL)
+>  		goto out_put;
+> @@ -3185,8 +3188,8 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
 >  
 >  	if (evsel == trace->syscalls.events.bpf_output) {
 >  		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
-> -		struct syscall *sc = trace__syscall_info(trace, evsel, id);
-> +		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> -		/* TODO: get e_machine from thread. */
+> -		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +		int e_machine = thread ? thread__e_machine(thread, trace->host) : EM_HOST;
+> +		struct syscall *sc = trace__syscall_info(trace, evsel, e_machine, id);
 >  
 >  		if (sc) {
 >  			fprintf(trace->output, "%s(", sc->name);
-> @@ -3626,7 +3684,7 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
->  
->  static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
+> @@ -4764,6 +4767,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
 >  {
-> -	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-> +	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
+>  	size_t printed = 0;
+>  	struct thread_trace *ttrace = thread__priv(thread);
+> +	int e_machine = thread__e_machine(thread, trace->host);
+>  	double ratio;
 >  
->  	if (sc == NULL)
->  		return;
-> @@ -3637,20 +3695,20 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
+>  	if (ttrace == NULL)
+> @@ -4783,8 +4787,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
+>  	else if (fputc('\n', fp) != EOF)
+>  		++printed;
 >  
->  static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
->  {
-> -	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-> +	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
->  	return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
+> -	/* TODO: get e_machine from thread. */
+> -	printed += thread__dump_stats(ttrace, trace, EM_HOST, fp);
+> +	printed += thread__dump_stats(ttrace, trace, e_machine, fp);
+>  
+>  	return printed;
 >  }
+> diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
+> index 0ffdd52d86d7..a07446a280ed 100644
+> --- a/tools/perf/util/thread.c
+> +++ b/tools/perf/util/thread.c
+> @@ -1,5 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+> +#include <elf.h>
+>  #include <errno.h>
+> +#include <fcntl.h>
+>  #include <stdlib.h>
+>  #include <stdio.h>
+>  #include <string.h>
+> @@ -16,6 +18,7 @@
+>  #include "symbol.h"
+>  #include "unwind.h"
+>  #include "callchain.h"
+> +#include "dwarf-regs.h"
 >  
->  static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
->  {
-> -	struct syscall *sc = trace__syscall_info(trace, NULL, id);
-> +	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
->  	return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
->  }
+>  #include <api/fs/fs.h>
 >  
->  static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
->  {
->  	struct tep_format_field *field;
-> -	struct syscall *sc = trace__syscall_info(trace, NULL, key);
-> +	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
->  	const struct btf_type *bt;
->  	char *struct_offset, *tmp, name[32];
->  	bool can_augment = false;
-> @@ -3748,7 +3806,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
->  try_to_find_pair:
->  	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
->  		int id = syscalltbl__id_at_idx(trace->sctbl, i);
-> -		struct syscall *pair = trace__syscall_info(trace, NULL, id);
-> +		struct syscall *pair = trace__syscall_info(trace, NULL, EM_HOST, id);
->  		struct bpf_program *pair_prog;
->  		bool is_candidate = false;
->  
-> @@ -3898,7 +3956,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
->  	 */
->  	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
->  		int key = syscalltbl__id_at_idx(trace->sctbl, i);
-> -		struct syscall *sc = trace__syscall_info(trace, NULL, key);
-> +		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
->  		struct bpf_program *pair_prog;
->  		int prog_fd;
->  
-> @@ -4663,7 +4721,11 @@ static size_t thread__dump_stats(struct thread_trace *ttrace,
->  			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
->  			avg /= NSEC_PER_MSEC;
->  
-> -			sc = &trace->syscalls.table[syscall_stats_entry->syscall];
-> +			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST,
-> +						 syscall_stats_entry->syscall);
-> +			if (!sc)
-> +				continue;
-> +
->  			printed += fprintf(fp, "   %-15s", sc->name);
->  			printed += fprintf(fp, " %8" PRIu64 " %6" PRIu64 " %9.3f %9.3f %9.3f",
->  					   n, stats->nr_failures, syscall_stats_entry->msecs, min, avg);
-> @@ -5071,12 +5133,10 @@ static int trace__config(const char *var, const char *value, void *arg)
->  
->  static void trace__exit(struct trace *trace)
->  {
-> -	int i;
-> -
->  	strlist__delete(trace->ev_qualifier);
->  	zfree(&trace->ev_qualifier_ids.entries);
->  	if (trace->syscalls.table) {
-> -		for (i = 0; i <= trace->sctbl->syscalls.max_id; i++)
-> +		for (size_t i = 0; i < trace->syscalls.table_size; i++)
->  			syscall__exit(&trace->syscalls.table[i]);
->  		zfree(&trace->syscalls.table);
+> @@ -51,6 +54,7 @@ struct thread *thread__new(pid_t pid, pid_t tid)
+>  		thread__set_ppid(thread, -1);
+>  		thread__set_cpu(thread, -1);
+>  		thread__set_guest_cpu(thread, -1);
+> +		thread__set_e_machine(thread, EM_NONE);
+>  		thread__set_lbr_stitch_enable(thread, false);
+>  		INIT_LIST_HEAD(thread__namespaces_list(thread));
+>  		INIT_LIST_HEAD(thread__comm_list(thread));
+> @@ -423,6 +427,52 @@ void thread__find_cpumode_addr_location(struct thread *thread, u64 addr,
 >  	}
+>  }
+>  
+> +static uint16_t read_proc_e_machine_for_pid(pid_t pid)
+> +{
+> +	char path[6 /* "/proc/" */ + 11 /* max length of pid */ + 5 /* "/exe\0" */];
+> +	int fd;
+> +	uint16_t e_machine = EM_NONE;
+> +
+> +	snprintf(path, sizeof(path), "/proc/%d/exe", pid);
+> +	fd = open(path, O_RDONLY);
+> +	if (fd >= 0) {
+> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		if (pread(fd, &e_machine, sizeof(e_machine), 18) != sizeof(e_machine))
+> +			e_machine = EM_NONE;
+> +		close(fd);
+> +	}
+> +	return e_machine;
+> +}
+> +
+> +uint16_t thread__e_machine(struct thread *thread, struct machine *machine)
+> +{
+> +	pid_t tid, pid;
+> +	uint16_t e_machine = RC_CHK_ACCESS(thread)->e_machine;
+> +
+> +	if (e_machine != EM_NONE)
+> +		return e_machine;
+> +
+> +	tid = thread__tid(thread);
+> +	pid = thread__pid(thread);
+> +	if (pid != tid) {
+> +		struct thread *parent = machine__findnew_thread(machine, pid, pid);
+> +
+> +		if (parent) {
+> +			e_machine = thread__e_machine(parent, machine);
+> +			thread__set_e_machine(thread, e_machine);
+> +			return e_machine;
+> +		}
+> +		/* Something went wrong, fallback. */
+> +	}
+> +	e_machine = read_proc_e_machine_for_pid(pid);
+> +	if (e_machine != EM_NONE)
+> +		thread__set_e_machine(thread, e_machine);
+> +	else
+> +		e_machine = EM_HOST;
+> +	return e_machine;
+> +}
+> +
+>  struct thread *thread__main_thread(struct machine *machine, struct thread *thread)
+>  {
+>  	if (thread__pid(thread) == thread__tid(thread))
+> diff --git a/tools/perf/util/thread.h b/tools/perf/util/thread.h
+> index 6cbf6eb2812e..cd574a896418 100644
+> --- a/tools/perf/util/thread.h
+> +++ b/tools/perf/util/thread.h
+> @@ -60,7 +60,11 @@ DECLARE_RC_STRUCT(thread) {
+>  	struct srccode_state	srccode_state;
+>  	bool			filter;
+>  	int			filter_entry_depth;
+> -
+> +	/**
+> +	 * @e_machine: The ELF EM_* associated with the thread. EM_NONE if not
+> +	 * computed.
+> +	 */
+> +	uint16_t		e_machine;
+>  	/* LBR call stack stitch */
+>  	bool			lbr_stitch_enable;
+>  	struct lbr_stitch	*lbr_stitch;
+> @@ -302,6 +306,14 @@ static inline void thread__set_filter_entry_depth(struct thread *thread, int dep
+>  	RC_CHK_ACCESS(thread)->filter_entry_depth = depth;
+>  }
+>  
+> +uint16_t thread__e_machine(struct thread *thread, struct machine *machine);
+> +
+> +static inline void thread__set_e_machine(struct thread *thread, uint16_t e_machine)
+> +{
+> +	RC_CHK_ACCESS(thread)->e_machine = e_machine;
+> +}
+> +
+> +
+>  static inline bool thread__lbr_stitch_enable(const struct thread *thread)
+>  {
+>  	return RC_CHK_ACCESS(thread)->lbr_stitch_enable;
 > -- 
 > 2.48.1.502.g6dc24dfdaf-goog
 > 
