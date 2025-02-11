@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D23C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 16:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C753AC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 16:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIe3nZvsmrSNSCOnrOVapFRUk4Br/0nr0mcpvxpZTHk=; b=3wq2r/x2YU5Xzt7/zR+axPg7o5
-	WwuGwgWMwRml3LhgjBvFqHlPLJkTekJWFaM5kH68q+19F2KkbUKXspEoFYTTtiBTnLeNgAt+ew3d8
-	fKbB5sXzax8DJuapgGH6IMBW+szVBBzwxFtmfoV71shfTEhJUCSdrWuhOx9Xg8QmJQyW/nTLIFb9M
-	oU3cmopRaw3YKIkXj5A/2NXUcU3Sw9YEUgMUU06tNj3JaSrsOWh6/3PnBWMHvIu27Ow+0k5EsGsrE
-	ZPdXFeyqjvXIJRlBPFCVFLoAgKtBSJtJuDbHgINb66t6XzaNOOAg597qs4EOxgnq+oV4IIdHk889A
-	r+09sViw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIIV8i2tvb8tBK+tEU2BRevQmqyOqUAI4Z6TbcBV6q0=; b=02oboO9lsQv8cJPLtFT83cUwYv
+	9AxSsGqlAvRx+kTgvnPtgOPMgKmJaJ9qAOIFqGQy99iKXR2hAJeA15hZ2+2DX1BkCJ27bdZBbVic+
+	9ZqXz465je8NstIymaBVlkbBsHW2C1D/kA50hEyBOmTuqXAXf31FxK4hd66K2sLGBNAI7C1OaFzcC
+	irAXTNDOGedwSLVdi+QN9ga6PuLrC5adBUwTVr2gSeuKvB7CUXUR6yFihprR74yjgAr+U36EHCciH
+	c2XORMDvqoHb2py7auPzxMGKCqxVYM3sQFnq7b8ZSVRzk9roSAnRUDsxBmmROKhkXLrjCEneKFzNY
+	pKy71C7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thtVv-00000004ajH-0Ll7;
-	Tue, 11 Feb 2025 16:53:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thta3-00000004bFs-3I9V;
+	Tue, 11 Feb 2025 16:57:51 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thtBu-00000004Wsn-2mRQ;
-	Tue, 11 Feb 2025 16:32:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 809295C4BC2;
-	Tue, 11 Feb 2025 16:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A5EDC4CEDD;
-	Tue, 11 Feb 2025 16:32:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739291573;
-	bh=gVBL4F8jU3SJlilexW8hvt6+wtNPSAz34HLk7+XFdww=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q1ru+DTzVqEPsgCq+7MeCU7Y9eGN/HEfpggxdgyY7Vh0GNULJRF5QK2xI3f0PtPGa
-	 56oYv4BgfXoTc1jYeUIcAeLQwRhrf8+T/C7gdBzJJv2XT0u3UbkMxAwi3BOhm4/pPB
-	 m9hBfO3Jq0PAlMszXLj1nwei618R6cyJ6w+OuSlpFImcCUaH5MEe7U8lwF21rqT5dx
-	 o4sdaDxGAgm6ySmKMfsetSPkHReQhzFTJT/Fka+gbk/OuLt90VA5rm/8er2m5+WeZJ
-	 MgOmnKAN9ga7ITrXzQlHTrQIBKDp4BD0cop1Tb56el/oTKWFiXJ1aAxEgRR6yYLKMj
-	 55946rlOWNVhg==
-Date: Tue, 11 Feb 2025 17:32:51 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next v3 11/16] dt-bindings: arm: airoha: Add the NPU
- node for EN7581 SoC
-Message-ID: <Z6t7s0m1xzsnjAsV@lore-desk>
-References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
- <20250209-airoha-en7581-flowtable-offload-v3-11-dba60e755563@kernel.org>
- <20250211-judicious-polite-capuchin-ff8cdf@krzk-bin>
+	id 1thtEc-00000004Xbq-26Ke;
+	Tue, 11 Feb 2025 16:35:43 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ab7483b9bf7so848874766b.3;
+        Tue, 11 Feb 2025 08:35:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739291741; x=1739896541; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mIIV8i2tvb8tBK+tEU2BRevQmqyOqUAI4Z6TbcBV6q0=;
+        b=ADqVWB8YEvJo8Rhb1ZFcgePdgyyfs+aMGT1rzZeBQ0ynhpNoe1pVkNyCW3l05nTg57
+         e/eE+p4DjyF4hMbZWUGpPt3upWylcGZ9GmEZymDCIoc2V3JrSBkIfjdJbZ3Un0VFSAxe
+         8lD0UUS7lButb/kBHz3Cc/PPgxnWymeEmAOMoIzMjQz8kGpW84fcpKdCYfeiUj/p91B8
+         bo3umTHwqIw4PEnvrhp8uPb0Ja6lwZkzKK+7P3WO2DOvcE1MUAa1b+qwOwTjKb8/+RSr
+         MnIn9bjyqs+t5BIzImvEtJLxq9YEn5DWHaX45EtnPTPAxmIBAtvAe5buuOawqRe0lOK/
+         v/3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739291741; x=1739896541;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mIIV8i2tvb8tBK+tEU2BRevQmqyOqUAI4Z6TbcBV6q0=;
+        b=WO61CIvPA1S7LXD2K6EOnlpbEWGmpUdtHlJ/Oda63t6A6ZyQ0Tk4IyZR59ll7sYrff
+         IERYVUJ0PbZJZ7aoO1gsL/dDNcVbqn8MsOJqNqmIe+2ZhXa2wz8jshIYZMYGa4SuoHZY
+         QWZ2fpHcZFHd+n2MJ2pEIElmFEIf8qxgYImObOUKTjnfLPKUpcf2UlhNONbKwS1B6p5b
+         ikw4PBpxPokgT9gNoXSMvHpr/D3p4CqzpEfiFih2KnaAC2mfy0+tfNUb4h9k0WWe9ywd
+         Jp9Q0PJnVPqpcxa8OnHv9CPkMQjw/9b+FB6NTqZOIVppMyGevt1gYGXUkHPHGD17j3Lu
+         ROhw==
+X-Forwarded-Encrypted: i=1; AJvYcCVt8pbx4jLNSEJ76EflZ5RokZ5zTIUucg9wV9PM1Z/lw+KhamvCAnNgz7tfWv/wlNQI/GvKj17GAvz+oPQ5vuo=@lists.infradead.org, AJvYcCWgA6PRnd1Y2zim+j1cUs5Zce4UsSAfv2zQGtjV30p0dnj6Y/F1llXUN8Y+naUBod9G98Xk+/3Z/MxD4A9xQc6H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFUQ6T1SUqaNxBWuGBZQEJV268s0IadhRyvtN9Dzt+fIldeS9X
+	lbUCPc3b9U8USlk1VOEY3h3uZCKPOyxJUmspOHchBinvk4CtoYn5
+X-Gm-Gg: ASbGnctCBLcTQteZbSg7XuKphBLY7CMdvtGk20K4W+/YTuVuzFX3Se4x5DuOXsNniMk
+	6YIjTULjeT7B5z59EvETtekbRZukWrFwgDlF7W1ZvVUNGx4IR749MT6mQjJcQx31a2RsIzNqepA
+	rgvWLZQSPHHJMybROIItTCzPzmxNm/BzGjDRA0aCnUf7alDt4q+YhItNRFREcLyw1HYNRpTxhO1
+	aVgmyJiKwIsV1qw8+ysOTT8JtBLnQ4ErDARHMaL3ylgxgDXSME6qdCA0cJCLmhiWK/L3MwWtgUG
+	4oU7h6y7QIyGaBAyKjKoxjSRWW09pxT4Yn5GX/erf1Hh/k/v271ndgmlwAGbZN5kk+ucMG3I9Gm
+	9z53K7KWrgC9fWjbIwGSNsG7zuV0Bc2rK1k2njYnk+lWG9OVlPaWrIX07V5FJX0SQpg==
+X-Google-Smtp-Source: AGHT+IEaE5wrrlIY6nl8fC2Lf84LvPSm2KRFTGEbR5fKUB08K5dstyn+LuQpM8Wzz6vHlCpVh97tIA==
+X-Received: by 2002:a17:907:72c5:b0:ab7:c284:7245 with SMTP id a640c23a62f3a-ab7c284dcb7mr766174866b.18.1739291740484;
+        Tue, 11 Feb 2025 08:35:40 -0800 (PST)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7bf9ae406sm445655466b.82.2025.02.11.08.35.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 08:35:40 -0800 (PST)
+Message-ID: <1aa60578-ba4c-458b-b020-cff59b119bdc@gmail.com>
+Date: Tue, 11 Feb 2025 17:35:38 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5YUTzFhuFvIYeyt1"
-Content-Disposition: inline
-In-Reply-To: <20250211-judicious-polite-capuchin-ff8cdf@krzk-bin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 net-next 05/14] bridge: Add filling forward path from
+ port to port
+To: Nikolay Aleksandrov <razor@blackwall.org>,
+ Vladimir Oltean <olteanv@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Pablo Neira Ayuso
+ <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@netfilter.org>,
+ Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>,
+ Roopa Prabhu <roopa@nvidia.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Joe Damato <jdamato@fastly.com>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, bridge@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250209111034.241571-1-ericwouds@gmail.com>
+ <20250209111034.241571-6-ericwouds@gmail.com>
+ <20250211132832.aiy6ocvqppoqkd65@skbuf>
+ <91d709aa-2414-4fb4-b3e1-94e0e330d33c@blackwall.org>
+From: Eric Woudstra <ericwouds@gmail.com>
+Content-Language: en-US
+In-Reply-To: <91d709aa-2414-4fb4-b3e1-94e0e330d33c@blackwall.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_083254_785151_F11A5F36 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20250211_083542_541900_11724D6F 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,109 +120,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---5YUTzFhuFvIYeyt1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Feb 11, Krzysztof Kozlowski wrote:
-> On Sun, Feb 09, 2025 at 01:09:04PM +0100, Lorenzo Bianconi wrote:
-> > This patch adds the NPU document binding for EN7581 SoC.
-> > The Airoha Network Processor Unit (NPU) provides a configuration interf=
-ace
-> > to implement wired and wireless hardware flow offloading programming Pa=
-cket
-> > Processor Engine (PPE) flow table.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  .../devicetree/bindings/arm/airoha,en7581-npu.yaml | 71 ++++++++++++++=
-++++++++
-> >  1 file changed, 71 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/arm/airoha,en7581-npu.ya=
-ml b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..a5bcfa299e7cd54f51e70f7=
-ded113f1efcd3e8b7
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
->=20
-> arm is for top-level nodes, this has to go to proper directory or as
-> last-resort to the soc.
->=20
-> > @@ -0,0 +1,71 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/arm/airoha,en7581-npu.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Airoha Network Processor Unit for EN7581 SoC
-> > +
-> > +maintainers:
-> > +  - Lorenzo Bianconi <lorenzo@kernel.org>
-> > +
-> > +description:
-> > +  The Airoha Network Processor Unit (NPU) provides a configuration int=
-erface
-> > +  to implement wired and wireless hardware flow offloading programming=
- Packet
-> > +  Processor Engine (PPE) flow table.
->=20
-> Sounds like network device, so maybe net?
+On 2/11/25 5:00 PM, Nikolay Aleksandrov wrote:
+> On 2/11/25 15:28, Vladimir Oltean wrote:
+>> On Sun, Feb 09, 2025 at 12:10:25PM +0100, Eric Woudstra wrote:
+>>> @@ -1453,7 +1454,10 @@ void br_vlan_fill_forward_path_pvid(struct net_bridge *br,
+>>>  	if (!br_opt_get(br, BROPT_VLAN_ENABLED))
+>>>  		return;
+>>>  
+>>> -	vg = br_vlan_group(br);
+>>> +	if (p)
+>>> +		vg = nbp_vlan_group(p);
+>>> +	else
+>>> +		vg = br_vlan_group(br);
+>>>  
+>>>  	if (idx >= 0 &&
+>>>  	    ctx->vlan[idx].proto == br->vlan_proto) {
+>>
+>> I think the original usage of br_vlan_group() here was incorrect, and so
+>> is the new usage of nbp_vlan_group(). They should be br_vlan_group_rcu()
+>> and nbp_vlan_group_rcu().
+>>
+> 
+> Oops, right. Nice catch!
+> 
 
-yes. Do you mean to move it in Documentation/devicetree/bindings/net/ ?
+Hi Nikolay,
 
->=20
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - airoha,en7581-npu
-> > +      - const: syscon
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    maxItems: 15
->=20
-> You need to list the items.
+I gather that I can include your Acked-by also in the corrected patch.
 
-ack, I will fix it.
-
->=20
-> > +
-> > +  memory-region:
-> > +    maxItems: 1
-> > +    description:
-> > +      Phandle to the node describing memory used to store NPU firmware=
- binary.
->=20
-> s/Phandle to the node describing//
-
-ack, I will fix it.
-
-Regards,
-Lorenzo
-
->=20
-> Best regards,
-> Krzysztof
->=20
-
---5YUTzFhuFvIYeyt1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6t7sgAKCRA6cBh0uS2t
-rEcNAP9MlnGQ2GW0xvg4g0/eolQXH1kOd7wal6bxIySJIMBQNgEAqs/5Z011yWwQ
-5DcNR5bUJWyr9AmldMOhCQ88BjX9Vwg=
-=rkEw
------END PGP SIGNATURE-----
-
---5YUTzFhuFvIYeyt1--
 
