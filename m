@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FF7C0219B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1F2C021A5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 20:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KETb6jUJDsIFYbLNfZswJFm0D8g4KXETeYZ9lpgFSZU=; b=17g1SBPsG5Jjq9UAtjSymgMwKG
-	hrGiWM7+LXNK+vJvaJbq80AFKDQVfXf2zHmYGV45+id6SqEGoWelLQiz8NNIqiG6ADkLBw9RnHfzM
-	PcI8XB4U4o0f3wgnaABoejpSCRn6kDKVjLIGsEclrBrstjJKhu2RlAf6+eMJZB5tvOBlSuQcH32xr
-	ijqRMoKyQvwyruQRYBL6r/U6pvFbqxlpIuC7MvooR6B2dVhdQFyZQTbNarlyGhWE7IbzwOs8Rjfrk
-	5G+KkL9M4nX5/+XSaXloLiy5X+HnCMwWccfJMclGZaGPf2blZNO5xmfHmcBg9k6sA46n6GlgVIQcQ
-	hAXqSSmg==;
+	bh=9z3aAv8IagfPXTqvWHznNbHWmTyNuVAlNgwMD8bOopE=; b=zoDKyzi8kypgFRqIS+iVTUaWhP
+	fqFqoyETlfkcjjnbr3OnqKYVuBkIM7VGTpvhGupumiuqnC9qWROidEWKK/3K3wqd9LzVDtxFRia6v
+	sFq2WKlg5Y9wWRHLsP6bCmyWucrPAZJaLWj3Zdf6hznxvITj675s+THl9iOtrRHh+frfxWxK/pmQX
+	od44YnxVvMjU11hwtNJpI7LbbWBwe02dvo/7SoocwrfkiysHCpyJoBJrfPyyhkKVyKGLyP29+fX1v
+	I6GOyYvKh+ezvEljgqkxwcdEqlXOIHP2VeOEr9dxz8L0z0HDcJNU5k3fmPENDE5zG9Q0ZNykRReMZ
+	T33JodgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwYz-000000059AB-2q77;
-	Tue, 11 Feb 2025 20:08:57 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1thwYy-0000000599F-2U1V;
+	Tue, 11 Feb 2025 20:08:56 +0000
+Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thwLE-0000000571a-0j7z
+	id 1thwL8-000000056zU-2t7A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 19:54:45 +0000
+	Tue, 11 Feb 2025 19:54:40 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739303682;
+	s=key1; t=1739303676;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KETb6jUJDsIFYbLNfZswJFm0D8g4KXETeYZ9lpgFSZU=;
-	b=NPj1gyI8ZymeuCqAhTbAbmYWvMnmfdxaADDxf9VoSVNMZ/at+eh/gHVHOFI/90EF3c2cQR
-	UpbhkH4mQ+2HDpvCv0mtW86NI74Jvgjp99AHOFdUpur+LkYa5ISGw8G64MkGroTiuWl6Re
-	W9JOwR8FVPmDlDmb5TnRoxof5qYy8tpZZ+S9uhN++aqd5Huo7O4g5i+sgmWfXIGD89GpeX
-	701q+NNVX3Dnh/fBV8FMuQXpdxuUY+iHMWcyZfIoFahCiLEuvCy0JrpN310AafK458hE4G
-	0YDj0/4ckIC+r6RM1DOogk2xor7BIhKlzviztDwQGL9NohnTgX0gtrG0jGhOZw==
+	bh=9z3aAv8IagfPXTqvWHznNbHWmTyNuVAlNgwMD8bOopE=;
+	b=c+gXPHYRXLFvGM7DA1cUyWXIsY1fL2QlNrQv+qo+cy+YuIKJRaYQmfX5TXPD9S25GhPzgI
+	rGD9XAFOgED3gMWGl7QVBFwXlPx9kRiFE4vrbdSi2mUluO4paEZf0ZU8D/K9hVJYxoREFR
+	THXO9Tw8To2Slxj7abSFgSI5GqN55ZFInxWkenTCtYKHqhMcDppzvIIjHKlHjv3Xw2etCw
+	hbWRSAl+Nkbpf3hPkCahb9CVLVEwNzl18JuWnuqa5x31DN3O56wg+7i6k+8l4yERRZfjTc
+	T6CmwO46lScEVf4lNT+y4gV+u75X3UdoT6hbt8Mfrnv5Sc7JkBB+MMssNcma7g==
 From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Date: Tue, 11 Feb 2025 14:54:28 -0500
-Subject: [PATCH 3/7] PCI: apple: Set only available ports up
+Date: Tue, 11 Feb 2025 14:54:26 -0500
+Subject: [PATCH 1/7] dt-bindings: pci: apple,pcie: Add t6020 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-pcie-t6-v1-3-b60e6d2501bb@rosenzweig.io>
+Message-Id: <20250211-pcie-t6-v1-1-b60e6d2501bb@rosenzweig.io>
 References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 In-Reply-To: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -59,28 +59,28 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
  Marc Zyngier <maz@kernel.org>, Stan Skowronek <stan@corellium.com>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Janne Grunau <j@jannau.net>, stable@vger.kernel.org
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1354; i=alyssa@rosenzweig.io;
- h=from:subject:message-id; bh=VQa9ECNMV5dQ+VPNHGrM6EfNjLD7vuIHAEUchvK/Y2A=;
- b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r1foBi9YRZrXcHVAkQvYeTVMv9aps9Nidwj
- jtblZ/PGlCJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9QAKCRD+/lBaCvVY
- DSxzD/9rBloDn6QBlNmK/61u1BJgVi4Dw6MNkUXbiP98cvMYhll8U+3HoGG8yje/h8NueaqDxBZ
- 8iP89Scdg69/sCTU4EHBf2a3+uWS+8SSRmiDxJliskEzJ+xyG8f7MzPb2WLxuGbF/pspBm9RiFH
- kiiQ8Wi+HkS0oN0F5lMjc1cxcrW2O5DgfxSDsTbWfegmDfCH6R1GXnUMwpTfWYwI/fBCR4OSjh+
- 1LdU3dGSC6wZvuv4ng2YlieS5f0N/jJU9keKq9al2kCkzr/mgSJun8TN9a0JT8N46JAgDWKKFzH
- OCJKtf0GHw+5cniAd6LP9AN6VMUNzaWoEqeNd3f2PGPa6qPG/Mu4lOLFi9ECzHLxuvlG9an0IwO
- G2eVoAGIsHtUgG5NOrGP0RgDzZLkBGFFGGK/ynQIISN0p9xHdTs+k814S/TcRkGtfnI7oQNMj1y
- OdXCBxhvJPRP4vIk6EPse1/RT7L1cjixTsNr6oF5UeSPn8sAv6PXP4wHuDQeSDYWQaSF7lVL2KA
- xlKEYjmy0GHMPdvJ6H2sROdftJIb0+SFabsQrHHwheitA0idvHkS2IOjBLm/38Rsz0ggNXJQnpT
- R1vJ23PAlTArB9RESOINl6YJO4RDnW4yYepnCILX4aHcFhOQ6U6GYCepgdR1PzurcaAUmeh6F03
- uh9EHFESSald4pA==
+ linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=788; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=pFpf8dL5ADZfvFnoqSP2NvXLSTIOTz1Wa6whLoN7LuU=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnq6r1TeeVHZs1Xd12TSUBL6/EGOnx4tDyU6cMg
+ OlYJ/9tK9yJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ6uq9QAKCRD+/lBaCvVY
+ DdKxD/9rD0CnxsgdepfE6OswMxwTF4VjruMeWCA6bEaPLzpHPU+237FDLpVVWeJGnkDpLOY/r5I
+ kS1dAHlEFPfwD7jwwqmW6Kwx/5COt5GE0RcDDxjdGY7GX9Tw16alajpKqqSLGgRUlpYc1sMl+Kj
+ E84JOrk3z4uutDS5oqCZw458sRgEUmjcKfh1dkA4/MuLkMlj+ADav6JCr2lgcHrZIb/CBixPbFs
+ dAbGIJJ6ePr9fpTrXVZj4LUxMljCTi009B2EW3vnfSRe5cdlpjGsR5uc7fJw9K3ByFldsaHgbLI
+ 1lMcYf1FDm/c1dJAunf02CSgi1ZWUIvMFyAoyUGQXGpNyTUyeLdKfYTh+SdUBiLuIZzl0OcbXau
+ kgEMnXqTpmJU0xuKtLhLrdybTkFid/9frs0dZJUsXuxi0R2R6n3jEiNODLsc3+tQsfJoTpMg1RB
+ xAFSs0lGmPRWyDNSLRbMUDf4Pe3K43WEs39uj96bf/7O0WKOh49SoHirE+XrjJXijK/g1HGUwbh
+ watKZzg7cNHN957cBKH+nAzA1Gvmd6e0H9zSm2GRmLd+J7nXktn6xKTzqwTnDQSYJm69Mbw8k3n
+ DILYGrbsxTSfbe2VpH8DgRq1f46+Ca6I1lTdFrDRlSpvKXCd1l2dR05A9CJXxajvwUzTbFZRiuB
+ Z/CfA9cCixoB9iQ==
 X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
  fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_115444_358882_7670D69E 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250211_115438_872497_BF97EB50 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Janne Grunau <j@jannau.net>
+This shuffles some registers versus t6000, so requires a new compatible.
 
-Fixes "interrupt-map" parsing in of_irq_parse_raw() which takes the
-node's availability into account.
-
-This became apparent after disabling unused PCIe ports in the Apple
-silicon device trees instead of disabling them.
-
-Link: https://lore.kernel.org/asahi/20230214-apple_dts_pcie_disable_unused-v1-0-5ea0d3ddcde3@jannau.net/
-Link: https://lore.kernel.org/asahi/1ea2107a-bb86-8c22-0bbc-82c453ab08ce@linaro.org/
-Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
-Cc: stable@vger.kernel.org
-Signed-off-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 ---
- drivers/pci/controller/pcie-apple.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/pci/apple,pcie.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 8ea3e258fe2768a33ec56f0a8a86d168ed615973..958cf459d4c64dffa1f993e57b7a58cfb2199b8f 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -758,7 +758,7 @@ static int apple_pcie_init(struct pci_config_window *cfg)
- 	if (ret)
- 		return ret;
+diff --git a/Documentation/devicetree/bindings/pci/apple,pcie.yaml b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
+index c8775f9cb071339dfa6f17f9f4a99f031c98b70a..4885788ff623eebe6a79bccc0f8a9a231a01c5ca 100644
+--- a/Documentation/devicetree/bindings/pci/apple,pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
+@@ -35,6 +35,7 @@ properties:
+           - apple,t8103-pcie
+           - apple,t8112-pcie
+           - apple,t6000-pcie
++          - apple,t6020-pcie
+       - const: apple,pcie
  
--	for_each_child_of_node(dev->of_node, of_port) {
-+	for_each_available_child_of_node(dev->of_node, of_port) {
- 		ret = apple_pcie_setup_port(pcie, of_port);
- 		if (ret) {
- 			dev_err(pcie->dev, "Port %pOF setup fail: %d\n", of_port, ret);
+   reg:
 
 -- 
 2.48.1
