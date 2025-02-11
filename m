@@ -4,98 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F630C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 05:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B58C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 06:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJbWFN9obvqmrGBaLDgirkSslltkhSez5QGjVbmhl6M=; b=1cPtMpuBS7aw8xAFo9AF4NYlhF
-	7p2dKIZLVZQLGndzqgxXT9MqgM6PVOyD8QdkenncdtziZfFzf2D9XHfJvIXosNAKWmF9VTQUtvelY
-	XvmWvhfTdsnU2QiXYP3Pi1u767pytsz3HJ5EZhxy4Ih3yQeSJZ0WVzr5XxLmmLpFPbzGZ4xfXDM+H
-	nSHh9e7jAqr5q0Ad2+P3Eh5dx2h4qI5qlb2fFStXnLkCXzRzqzsfZlNZ8BMIKl5cvNJC+LcAjgt1d
-	PirxBnub1IPMQh+aqVF7KADCR6TsrKrXZDkCMmY3zcHR1kH/wfUZuU1Q3bGCM0fhwo1RkMWsTp/Sj
-	ISmZd8FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a2xT95YRdVSeCNeVKtO5ayI6CX4U1B9FGkTneXvNRXY=; b=eHL8H5/cF2tVOqHfh/cIEdlz52
+	ww4zFVnIFWzeW7T7wbHg5EQZNF3jYPrtgMWYE0BMlhkQfYjd6alH+/G4rqWpzOCPtZt1A7kRd74MD
+	sNR3BYHaiFW0CIV6bT3+RW9A3OmRA4PrcFkwmoulRX2ocaHmcXjMZvd5gPi41/DrOMgbGDg/06H8J
+	G+CH/wtnk7iF8CFJlVwyLBMeMlpDENXvfR+ZOhsIVcq9b46O0jf/f1M7waGirAPVyvX9dyTzjCNkF
+	R+2mgNTSCp55PmqdaqSdLckgNRuszDyx7E8XFgWn1bk9wEDCveQrb8NgZH6jH2THS/cAze1KM2i1p
+	DMVVSz/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thido-00000002ZBl-2hkG;
-	Tue, 11 Feb 2025 05:17:00 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1thjS0-00000002ezl-2NvX;
+	Tue, 11 Feb 2025 06:08:52 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thicO-00000002YxV-1Gs8
+	id 1thjQb-00000002ep3-1XDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 05:15:34 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3d147331fb5so106775ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Feb 2025 21:15:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739250931; x=1739855731; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZJbWFN9obvqmrGBaLDgirkSslltkhSez5QGjVbmhl6M=;
-        b=r9XTszGGCqBpV3AV7AWBbslvcspt+CwMaezsvxCzLnY3QPAyR4e8pZYbAEFhZd4RWg
-         TvnQqOseC540L+B1TFNYyxHFxSv3IMGikvmLVx9rzC14luIXxR8eWGoIp+lyVG6r7NpW
-         YyZGvdxWW7qvVcAQBbAMksW7u88nFKPRKJWkD/tRQecQx7qOyaKZoexdQaehSqHoSxmD
-         mlQ1ZR5C1aZjFNfgP81ppoLS5RO6mnuvhQ+njRIrdligZebfwe/P7YfRUG18RDO6U8zC
-         AzJ8BkSPTedfTdoV1k2gcAlbZccT6iyIQUkSMZNDg7JLM9k6/6U7TUe1GKjWxofCAIDj
-         6YKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739250931; x=1739855731;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZJbWFN9obvqmrGBaLDgirkSslltkhSez5QGjVbmhl6M=;
-        b=GqQOf/7/6HloANCczZKjXOhn/PaNcAcv2lS/6GLbrAy4ynmJ4SOujX662C57Pj2H/N
-         DMUW7yZr8CUIwYYNyR4Sg47O0GqI5Sji9ADAVm6E1drocnG4//NDRXMpB8Zf3y6XVON0
-         UPDUdlHDismA4Ygm+GmR4pu4nOl0v82F8+OjagNOOxPWOIlSBfg0XnfjL5AGVJ8aW6AO
-         YPn1EEcb/pYMBmeI7sMS6OfhTUhzA5Bp2Wkug5tvU9NmUKgHctKt+IOqObx0skr+XohA
-         fIP2/6+6iNwWK09lpCbYNv9QJZLp7jY09hJV21S2StwOXQA8KDjCkMkk2kOU4XoUv7Bs
-         5t+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUQG63BiacAc5DkD02tjY4396JUubcN20MznhrDXQdXb/IttDCvgF9ANYLLN6AQeVvNfwZi8ptcCV8dTxvdip/i@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUFODdhI55pf7+VkDQKhMkvpYJy61q+g5YnLyQB0OecyFdThwg
-	huVr0cBjngliRYVi84Au6MURoYTKdhTKldCDABRko3Km4bQUlHiYDizlFwBh6Ir+knsJF9m+myG
-	c/fduly5KccCLjyZTlqJxU0k3CES10Jv2QqQ0
-X-Gm-Gg: ASbGncuhuu/YNN9gJzA0sKJCyptvtj4KbEkaUysQosezisoGD7AonzdVqgNeXdhlXkD
-	TFHNSmpJdi574jXKJZwmjdVpn0Eq+NKIKQsAEiIUPrbJtneueYOUYCQ1BYfSgqGJYEXgMLNXzFg
-	==
-X-Google-Smtp-Source: AGHT+IGfSl4kWhCCgj3XPGHNCoxGxNbbsLFo1bp5YL3grWE6XvcLpoEkx4NmLGXATzlWTGCv+Emwhbcj1yN10fQqLnU=
-X-Received: by 2002:a05:6e02:152c:b0:3d0:51e0:14af with SMTP id
- e9e14a558f8ab-3d16fde3e3dmr1966765ab.10.1739250930870; Mon, 10 Feb 2025
- 21:15:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20250210165108.95894-1-irogers@google.com> <20250210165108.95894-7-irogers@google.com>
- <Z6qOHi0D89o1pdQl@ghost>
-In-Reply-To: <Z6qOHi0D89o1pdQl@ghost>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 10 Feb 2025 21:15:19 -0800
-X-Gm-Features: AWEUYZkbCdQvay1KVLiyu-3jGD0mNnHZ9ZWTU7CH6hQ_dxYDj52b6QlzEYbBh7I
-Message-ID: <CAP-5=fXO6S8p8y11uwg46zM46MboZ3+QuoK+JuNTdbo3WBfqtg@mail.gmail.com>
-Subject: Re: [PATCH v2 6/7] perf syscalltbl: Use lookup table containing
- multiple architectures
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>, 
-	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 11 Feb 2025 06:07:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ROavZZSumfChULrHX8APZuU/EyOB/kVYWTpgntAOcm+bt6vAhWzYuMtLQd/KU0RIANH28/t38GrVjc1Y2CTzGb5MqrPJEDZB9sfvmcbmgF1ZLUbJ4DpkvSBR/VwFpAwg9qzmyG2xZu6q6LqMZ+4kZNLwVqObf4JmB4SGLBPZUmUGkYYqkeVAvSWWBeWnfbpBIKYO1un/NjlFPUtRPP5AegH4k3LstxvbI99Rf28yp7D5To1z3/7VOezFOPa5ei0ZThqmvVNqeoqOkh54Z1J83ZVY3NxIt9zz7spFjr99s57BJJPG6nlBlmIFIvbBOX34PTJbOrO5ziIYXS0gFVyiXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a2xT95YRdVSeCNeVKtO5ayI6CX4U1B9FGkTneXvNRXY=;
+ b=EsNCFMfZr/uxO4XhI55AxOcbLFtcdA7VPz9o5jlsO/Y+RmGJGb6WOadtKKz+d+e/qu54lP4M8jA8PxYNJtWWRqARtfwABAudxfjJh0QN0sSs9DoqNW30tyX0hmJ5fSDmeeSw1XeiTrRs6fSEtpi0ZSj1Js1Xq98rh0qZD+CJRdX7cYAwROqL1jrSfRJ11Kth5LXfzzVvqjIzmYiZnbSRjZgn2fs08HjJIh5gBYL7iphM7ZGHKkvCfFdtFfEM0bIqzth4pGmf4mzsuNGZ+fH10R7xlXd81B4ofoKexajGyZBIUhfWSwZG0Ydf+JyH0Pqk3uk0M/8ayZUknunWQ0hqWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a2xT95YRdVSeCNeVKtO5ayI6CX4U1B9FGkTneXvNRXY=;
+ b=LVwWRDzg+anir33ZyHcQgLQJSVZH+Y5RPduufNr7eXfdJnyETYVS4hH3e7RDIV1ArekEAC/1kEP8ytspEPuXAuLT0Qf2BKXZkm9czb7QoeZFI5OCS5H8/Wgwc6HTuF+3+TzZjJ+OMVJMgMVo2Si+zXy26CEgqiIZ03/Y2/3OKaCL88fZWny1E+mTuxIGak4rFaQ6V82UuQ7dnilOefsQStjzlyLMPIB6JMy4iZgv3UQMCpymnLM4SlF33864k+UsYHue/ezTS9YNaduegVCcakx+YFXI6p26rMTZnvm2ANp8u1BBDV/PL45NYDuswYmv58aHSSr0DkU0zJ1xWqF70w==
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by VI0PR04MB10904.eurprd04.prod.outlook.com (2603:10a6:800:269::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.16; Tue, 11 Feb
+ 2025 06:07:16 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
+ 06:07:16 +0000
+From: Ming Qian <ming.qian@nxp.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, dl-linux-imx
+	<linux-imx@nxp.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "jackson.lee@chipsnmedia.com"
+	<jackson.lee@chipsnmedia.com>, "lafley.kim@chipsnmedia.com"
+	<lafley.kim@chipsnmedia.com>
+Subject: RE: [EXT] [PATCH 0/8] Add support for Wave6 video codec driver
+Thread-Topic: [EXT] [PATCH 0/8] Add support for Wave6 video codec driver
+Thread-Index: AQHbe5tKHQXUB6TtpUOmBraablejdLNBni6A
+Date: Tue, 11 Feb 2025 06:07:16 +0000
+Message-ID: <PAXPR04MB82549B7FCA3016B4BDCB478AE7FD2@PAXPR04MB8254.eurprd04.prod.outlook.com>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+In-Reply-To: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8254:EE_|VI0PR04MB10904:EE_
+x-ms-office365-filtering-correlation-id: f7bfe316-cd5a-4df3-1879-08dd4a625602
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?KJOQIn4zA+jwD/gBNxpVoJ67cr5U4IR8/2xA+gpb2VvmOKAVDKOKEN08JYbO?=
+ =?us-ascii?Q?RgMOV6Waf9gILXZk5ffPMXul4C5FD+DttbkeLLbOXSdv5uW3GGwUOfNww645?=
+ =?us-ascii?Q?qezPzDTx30uZiKsfxehFiqN6rPoYBL9tyvhmv9cCitW2rUw+rFtqpvjG849+?=
+ =?us-ascii?Q?SxVEZPsQCIqtDZjbMsj1MGNd2LLtMxtLsXJJUgctd7bDMxYc4kWyo3gGwiQv?=
+ =?us-ascii?Q?Byo5NtEPbjrvdi54oZ86D3voSvOiK7jlPKfWrHfR3woxmV6c2Peuk/36dAAM?=
+ =?us-ascii?Q?QFBY7xCPhjF65K9/e5lIbCCDnjce3Ke9Qnv6HHiUiAE1UFJ/JahUJ5eKrHfN?=
+ =?us-ascii?Q?nYLSczpY7QEorpC0/NkF5jaA2bxdutlKPq2xniBZycvSj95mn/eZq9m+YEVd?=
+ =?us-ascii?Q?GwfMWmmaeGal+FsX0/qeCI64zc7w2w/8CNMYfyU5uxMXCD/376yULk2VCswb?=
+ =?us-ascii?Q?M21jCM5IlRct/c3xh9zScU3b60yN6eypOOxiyCPNPjCcXRquYk4ItMDfNRuJ?=
+ =?us-ascii?Q?d9Wts+j8UsgtJSI2+Vb0tb99PuS2HcRtSHcjoW5t1rI2O+vZ+/5soOTHWcMq?=
+ =?us-ascii?Q?LS3bHX2FyzJ5+c8eGkUQFkjDV5oh0DJPcf/VLvDpFO5zmS2qlvnrbPBV5k88?=
+ =?us-ascii?Q?cBniyzlOZRupf3pBzcvuR0GJgfqDfeTsvgY0TcdIgeXlT8bIl5fzXRLK/38H?=
+ =?us-ascii?Q?mS/8Lp8bh7zVjIoCqNB3FWuc+k6SfwEHrNZTzJntEg21yVtPXBru3suBRwFR?=
+ =?us-ascii?Q?n2T82XR/KdYCdImwH7RMnGV0UuhWb7EbIgQTEDX9gSTmxg/YvY3E4NcQ8lRh?=
+ =?us-ascii?Q?Rfs4rK5dR5u7xpYXqurOH4ZVhqEdhu2MUIg+YXlQ7Q71VDE6qJzK0BMIjFBN?=
+ =?us-ascii?Q?ek+fbNiO05PhWomEk0SaJFsx2KIfUPKNDC5//m83wjAAYvIvg9liG/Oa1g7H?=
+ =?us-ascii?Q?94Qs8LcOFTZ144KsS6NlRliZJumKKyClyl6OVVZxw7vh4EJ8Lh1AhGdMMPDd?=
+ =?us-ascii?Q?QZupSHUcoR/nZHriRmlmjkUMbNBXYayD+xwCCT1u7/QPZUklq2wiuv+93KJ4?=
+ =?us-ascii?Q?NKplKTtI5cK0EE8N7vqAJEYJDNVPA+JYxLaXlLCKB2LVAOWF3PfyIBxOTOzv?=
+ =?us-ascii?Q?fjyBPGu6V8HcKHMZq8s2iScaSoxrKmB7ioy6A6H/A/EqW8lf1KwqrZFx3fF2?=
+ =?us-ascii?Q?7ODM8bZ6Jz/SDpoKx/E43d+luwnKXKgIn/Mvu6GKXlWoJQweOtdvOtYP4a2u?=
+ =?us-ascii?Q?QGazWqNGZUnVicxG/5bK/fhSZAvV1LuAfULECi39igXQG6gl9QAr+tQNTug+?=
+ =?us-ascii?Q?GbzpPiEllyGOT9eCUO7Fz+/SrCQZTpZxt/rWPXj8nTCjOh+i6HGrRDXaCgoi?=
+ =?us-ascii?Q?rQA3pqFigf0e4eR7LLWQKKiKkyASS6l1rU8lEW8f/XmPjqTCnjEDeukuJhbv?=
+ =?us-ascii?Q?dEguMN8wz1WqE7IwZIpi7oA0bBDmmN/X?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?mc5Op/pc5wPWgCtlmhTvOJHgIqkG3m0QWV1kVFJPIK922VngRWzmLDCUDPvK?=
+ =?us-ascii?Q?EUO82TmqzujVyy7p3OdGfv5n+M8/kgUfxrVp8D597nOd0t2w+t2DX7x/jRgV?=
+ =?us-ascii?Q?cqojb7nSp30dM/3XHUAa75Qp5qpn9IMEDD9Fo6FoEZOEPuhC5JH8SzeNg1q2?=
+ =?us-ascii?Q?V18OkW6ymT5kvpiT65n8/GzmHWuIEUqGGsFVY+FDQIOpIoYK3vxJeSdVCxYd?=
+ =?us-ascii?Q?UgFl4z88yYQcA9lJgr0xIxW7/VuLUjLsUfH+7kPVCpXESQMX/12VK+uR33iS?=
+ =?us-ascii?Q?hE1Dzzzp3mlMnPxdcYSQ/fxswtMcq5TIPR0pu96IuGHv/d7BQTmPrvCd4Pey?=
+ =?us-ascii?Q?SyM5LKGcZrfAFNtTQOd++mPktcfu3CQ3gZkhdw7cV8z4YYW//oqzDMizaQ5k?=
+ =?us-ascii?Q?4cD5WoNcKW2WIGjmmdhMaRx4Mex/x8+mNxA+WDNwtEsKAXVV3sn95zIkOVFO?=
+ =?us-ascii?Q?X+vR+HdNUslc0+Nz0wUhbV2dcx+Pubgj1RTMzRK+cIsd5Uej/t1b3M1mor9S?=
+ =?us-ascii?Q?kXs2pwS9jk3MEUbQyVCN5AZC6rauYiPDZI4gJh90SSG2HbbhzK78tGACvoO/?=
+ =?us-ascii?Q?bq0VXsNf1urWF8d8rgGmoyyMX2Gket3Mb1NK+znRz/sOUeKNa/fOer7iiWhu?=
+ =?us-ascii?Q?a3zKGhndJ8ZRii7SKYGfiNgVaHhJb2ESEdU6jvdAMrs/xIAO4kjLn7wGDxr1?=
+ =?us-ascii?Q?Gru1VxBsOp+9sEXiZSzyylBN5P5VqLN2Er8rioXWx4MvP35lLiyX4frwdsM7?=
+ =?us-ascii?Q?V8Cxv1psET+QvpgdIUyQ9zsn+1tIezUn+ODNY+lW6SRBummuPrZSXjYXHW+l?=
+ =?us-ascii?Q?Voyhz4rwnq3BTuXBG+QDpCq7LiNI8AQpbB75otmuiGajIaVKxmQUdFxJlYHK?=
+ =?us-ascii?Q?LYkf5oJCK7Qzz3dbKhgY2dv+X1g2SxG/k0jMZla0sV8o+vjXgN3fXmiE6q6J?=
+ =?us-ascii?Q?J1diIN0S/fUhNgdRaZVoYRtiUtV8z03oBShNoSX1EbgyZvh8xOUnj0d1974F?=
+ =?us-ascii?Q?IMrvZtFgT7g7xwGkVbVIsegMXg2O1YtZy5T7iB8yKXH94G9k+hWOGJ7Cs4fL?=
+ =?us-ascii?Q?BWRu0+Tq5mgqv7C9O3b9pTkIc528f77rKaKs+cAiDhYwnuPxBv8Tvu7PotKP?=
+ =?us-ascii?Q?/dVn1VCqeUM3uU5lSmf9bIRCvsXOhmoaOzdSxBE72lJnNlQXYPJOXMLMxI7x?=
+ =?us-ascii?Q?f2Rs78iQVlLQXcz28eBuZMtAGU4i74vRaWtNM9onzPJN1vRzB57BfdhbNKGw?=
+ =?us-ascii?Q?dr+yOZweljM+ZWx58t2h1m39TN0YVcr/d2hD/OCSvnW+MZntWJnvwU3r1ZPy?=
+ =?us-ascii?Q?joe28Fc8zTQ6CWgPrb9DNFMULq13HlqmHcPKNhBjG8vb/FkethQHyR0MstCR?=
+ =?us-ascii?Q?vabymUHwD3423kju0dVDlv5L+Ah1Jqnqol3lZurT2x4fFrS0BcQtz1Os395k?=
+ =?us-ascii?Q?l59INfu3rF16Z54TR6ps2e2PC9UwiXQz6I9J/1uR92ygQlZQN5S4q4XAsxaL?=
+ =?us-ascii?Q?+JnteGB01+wLU5qQFBj/pyj/85ouieGHPu4Xl6wwIsvCUUOIlKl2YFcPQ+xs?=
+ =?us-ascii?Q?iYRPq6wlVEB4l7QuO6Q=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7bfe316-cd5a-4df3-1879-08dd4a625602
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2025 06:07:16.6243
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rqNYCGTmJLUnnZQgykbYCjbsvkUfcuDCGD7nn4OH65fi1lsaXHw45glajZ5+f26To2XJnulkiULe8eGvGlD3Pw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_211532_345497_9BE8E113 
-X-CRM114-Status: GOOD (  34.81  )
+X-CRM114-CacheID: sfid-20250210_220725_590516_EF256877 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,300 +167,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 3:39=E2=80=AFPM Charlie Jenkins <charlie@rivosinc.c=
-om> wrote:
->
-> On Mon, Feb 10, 2025 at 08:51:07AM -0800, Ian Rogers wrote:
-> > Switch to use the lookup table containing all architectures rather
-> > than tables matching the perf binary.
-> >
-> > This fixes perf trace when executed on a 32-bit i386 binary on an
-> > x86-64 machine. Note in the following the system call names of the
-> > 32-bit i386 binary as seen by an x86-64 perf.
-> >
-> > Before:
-> > ```
-> >          ? (         ): a.out/447296  ... [continued]: munmap())       =
-                                    =3D 0
-> >      0.024 ( 0.001 ms): a.out/447296 recvfrom(ubuf: 0x2, size: 41605857=
-08, flags: DONTROUTE|CTRUNC|TRUNC|DONTWAIT|EOR|WAITALL|FIN|SYN|CONFIRM|RST|=
-ERRQUEUE|NOSIGNAL|WAITFORONE|BATCH|SOCK_DEVMEM|ZEROCOPY|FASTOPEN|CMSG_CLOEX=
-EC|0x91f80000, addr: 0xe30, addr_len: 0xffce438c) =3D 1475198976
-> >      0.042 ( 0.003 ms): a.out/447296 lgetxattr(name: "", value: 0x3, si=
-ze: 34)                             =3D 4160344064
-> >      0.054 ( 0.003 ms): a.out/447296 dup2(oldfd: -134422744, newfd: 4) =
-                                    =3D -1 ENOENT (No such file or director=
-y)
-> >      0.060 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: (struc=
-t iovec){.iov_base =3D (void *)0x2e646c2f6374652f,.iov_len =3D (__kernel_si=
-ze_t)7307199665335594867,}, vlen: 557056, pos_h: 4160585708) =3D 3
-> >      0.074 ( 0.004 ms): a.out/447296 lgetxattr(name: "", value: 0x1, si=
-ze: 2)                              =3D 4160237568
-> >      0.080 ( 0.001 ms): a.out/447296 lstat(filename: "", statbuf: 0x193=
-f6)                                 =3D 0
-> >      0.089 ( 0.007 ms): a.out/447296 preadv(fd: 4294967196, vec: (struc=
-t iovec){.iov_base =3D (void *)0x3833692f62696c2f,.iov_len =3D (__kernel_si=
-ze_t)3276497845987585334,}, vlen: 557056, pos_h: 4160585708) =3D 3
-> >      0.097 ( 0.002 ms): a.out/447296 close(fd: 3</proc/447296/status>) =
-                                    =3D 512
-> >      0.103 ( 0.002 ms): a.out/447296 lgetxattr(name: "", value: 0x1, si=
-ze: 2050)                           =3D 4157935616
-> >      0.107 ( 0.007 ms): a.out/447296 lgetxattr(pathname: "", name: "", =
-value: 0x5, size: 2066)             =3D 4158078976
-> >      0.116 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", =
-value: 0x1, size: 2066)             =3D 4159639552
-> >      0.121 ( 0.003 ms): a.out/447296 lgetxattr(pathname: "", name: "", =
-value: 0x3, size: 2066)             =3D 4160184320
-> >      0.129 ( 0.002 ms): a.out/447296 lgetxattr(pathname: "", name: "", =
-value: 0x3, size: 50)               =3D 4160196608
-> >      0.138 ( 0.001 ms): a.out/447296 lstat(filename: "")               =
-                                    =3D 0
-> >      0.145 ( 0.002 ms): a.out/447296 mq_timedreceive(mqdes: 4291706800,=
- u_msg_ptr: 0xf7f9ea48, msg_len: 134616640, u_msg_prio: 0xf7fd7fec, u_abs_t=
-imeout: (struct __kernel_timespec){.tv_sec =3D (__kernel_time64_t)-57817402=
-7777317696,.tv_nsec =3D (long long int)4160349376,}) =3D 0
-> >      0.148 ( 0.001 ms): a.out/447296 mkdirat(dfd: -134617816, pathname:=
- " =EF=BF=BD=EF=BF=BD=EF=BF=BD =EF=BF=BD=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=
-=BD=EF=BF=BD=EF=BF=BD=E2=96=92=EF=BF=BD=EF=BF=BD=EF=BF=BD", mode: IFREG|ISU=
-ID|IRUSR|IWGRP|0xf7fd0000) =3D 447296
-> >      0.150 ( 0.001 ms): a.out/447296 process_vm_writev(pid: -134617812,=
- lvec: (struct iovec){.iov_base =3D (void *)0xf7f9e9c8f7f9e4c0,.iov_len =3D=
- (__kernel_size_t)4160349376,}, liovcnt: 4160588048, rvec: (struct iovec){}=
-, riovcnt: 4160585708, flags: 4291707352) =3D 0
-> >      0.197 ( 0.004 ms): a.out/447296 capget(header: 4160184320, dataptr=
-: 8192)                             =3D 0
-> >      0.202 ( 0.002 ms): a.out/447296 capget(header: 1448669184, dataptr=
-: 4096)                             =3D 0
-> >      0.208 ( 0.002 ms): a.out/447296 capget(header: 4160577536, dataptr=
-: 8192)                             =3D 0
-> >      0.220 ( 0.001 ms): a.out/447296 getxattr(pathname: "", name: "c=EF=
-=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD=EF=BF=BD", value: 0xf7f77e34, si=
-ze: 1)  =3D 0
-> >      0.228 ( 0.005 ms): a.out/447296 fchmod(fd: -134729728, mode: IRUGO=
-|IWUGO|IFREG|IFIFO|ISVTX|IXUSR|0x10000) =3D 0
-> >      0.240 ( 0.009 ms): a.out/447296 preadv(fd: 4294967196, vec: 0x5658=
-e008, pos_h: 4160192052)            =3D 3
-> >      0.250 ( 0.008 ms): a.out/447296 close(fd: 3</proc/447296/status>) =
-                                    =3D 1436
-> >      0.260 ( 0.018 ms): a.out/447296 stat(filename: "", statbuf: 0xffce=
-32ac)                               =3D 1436
-> >      0.288 (1000.213 ms): a.out/447296 readlinkat(buf: 0xffce31d4, bufs=
-iz: 4291703244)                       =3D 0
-> > ```
-> >
-> > After:
-> > ```
-> >          ? (         ): a.out/442930  ... [continued]: execve())       =
-                                    =3D 0
-> >      0.023 ( 0.002 ms): a.out/442930 brk()                             =
-                                    =3D 0x57760000
-> >      0.052 ( 0.003 ms): a.out/442930 access(filename: 0xf7f5af28, mode:=
- R)                                 =3D -1 ENOENT (No such file or director=
-y)
-> >      0.059 ( 0.009 ms): a.out/442930 openat(dfd: CWD, filename: "/etc/l=
-d.so.cache", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
-> >      0.078 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>) =
-                                    =3D 0
-> >      0.087 ( 0.007 ms): a.out/442930 openat(dfd: CWD, filename: "/lib/i=
-386-linux-", flags: RDONLY|CLOEXEC|LARGEFILE) =3D 3
-> >      0.095 ( 0.002 ms): a.out/442930 read(fd: 3</proc/442930/status>, b=
-uf: 0xffbdbb70, count: 512)         =3D 512
-> >      0.135 ( 0.001 ms): a.out/442930 close(fd: 3</proc/442930/status>) =
-                                    =3D 0
-> >      0.148 ( 0.001 ms): a.out/442930 set_tid_address(tidptr: 0xf7f2b528=
-)                                   =3D 442930 (a.out)
-> >      0.150 ( 0.001 ms): a.out/442930 set_robust_list(head: 0xf7f2b52c, =
-len: 12)                            =3D
-> >      0.196 ( 0.004 ms): a.out/442930 mprotect(start: 0xf7f03000, len: 8=
-192, prot: READ)                    =3D 0
-> >      0.202 ( 0.002 ms): a.out/442930 mprotect(start: 0x5658e000, len: 4=
-096, prot: READ)                    =3D 0
-> >      0.207 ( 0.002 ms): a.out/442930 mprotect(start: 0xf7f63000, len: 8=
-192, prot: READ)                    =3D 0
-> >      0.230 ( 0.005 ms): a.out/442930 munmap(addr: 0xf7f10000, len: 1034=
-14)                                 =3D 0
-> >      0.244 ( 0.010 ms): a.out/442930 openat(dfd: CWD, filename: 0x5658d=
-008)                                =3D 3
-> >      0.255 ( 0.007 ms): a.out/442930 read(fd: 3</proc/442930/status>, b=
-uf: 0xffbdb67c, count: 4096)        =3D 1436
-> >      0.264 ( 0.018 ms): a.out/442930 write(fd: 1</dev/pts/4>, buf: , co=
-unt: 1436)                          =3D 1436
-> >      0.292 (1000.173 ms): a.out/442930 clock_nanosleep(rqtp: { .tv_sec:=
- 17866546940376776704, .tv_nsec: 4159878336 }, rmtp: 0xffbdb59c) =3D 0
-> >   1000.478 (         ): a.out/442930 exit_group()                      =
-                                    =3D ?
-> > ```
-> >
->
-> I think I am conflating some things in my mind here. This change doesn't
-> impact perf report does it? perf report reports syscall numbers only,
-> but it could be hooked up into this change to correctly report the
-> correct syscall name from a perf.data generated on any architecture?
->
-> I believe that question is tangential to this patch but let me know!
+Tested on i.MX95, the sanity test pass of encoder and decoder.
+Only a v4l2-compliance issue about the  deprecated behavior EOS event, othe=
+r than that.
 
-You are right it is tangential. There are tracepoints for most system
-calls that could be used to break down individual counts. You may be
-thinking of `perf trace record` that I mentioned. Many of the perf
-commands have a record and report option, so that things can be done
-off-line. The support isn't what it should be. For example, `perf stat
-record` will record event information and counts but it doesn't do
-things like store metrics, so you'd need to manually compute a metric
-from `perf stat report` if you wanted to use `perf stat` in this
-record/report mode. I think often times think C is a very slow and
-verbose way of doing the plumbing for these things, so I keep pushing
-my python patches along.
+Tested-by: Ming Qian <ming.qian@oss.nxp.com>
 
-Thanks for all your changes and the reviews! This patch series is just
-moving things you've enabled around and was little work as a
-consequence.
 
-Thanks,
-Ian
 
-> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+>-----Original Message-----
+>From: Nas Chung <nas.chung@chipsnmedia.com>
+>Sent: Monday, February 10, 2025 5:07 PM
+>To: mchehab@kernel.org; hverkuil@xs4all.nl; sebastian.fricke@collabora.com=
+;
+>robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>; linux-arm-
+>kernel@lists.infradead.org; jackson.lee@chipsnmedia.com;
+>lafley.kim@chipsnmedia.com; Nas Chung <nas.chung@chipsnmedia.com>
+>Subject: [EXT] [PATCH 0/8] Add support for Wave6 video codec driver
 >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > Reviewed-by: Howard Chu <howardchu95@gmail.com>
-> > ---
-> >  tools/perf/util/syscalltbl.c | 89 ++++++++++++++++++++++++++----------
-> >  1 file changed, 64 insertions(+), 25 deletions(-)
-> >
-> > diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.=
-c
-> > index 760ac4d0869f..db0d2b81aed1 100644
-> > --- a/tools/perf/util/syscalltbl.c
-> > +++ b/tools/perf/util/syscalltbl.c
-> > @@ -15,16 +15,39 @@
-> >  #include <string.h>
-> >  #include "string2.h"
-> >
-> > -#if __BITS_PER_LONG =3D=3D 64
-> > -  #include <asm/syscalls_64.h>
-> > -#else
-> > -  #include <asm/syscalls_32.h>
-> > -#endif
-> > +#include "trace/beauty/generated/syscalltbl.c"
-> >
-> > -const char *syscalltbl__name(int e_machine __maybe_unused, int id)
-> > +static const struct syscalltbl *find_table(int e_machine)
-> >  {
-> > -     if (id >=3D 0 && id <=3D (int)ARRAY_SIZE(syscall_num_to_name))
-> > -             return syscall_num_to_name[id];
-> > +     static const struct syscalltbl *last_table;
-> > +     static int last_table_machine =3D EM_NONE;
-> > +
-> > +     /* Tables only exist for EM_SPARC. */
-> > +     if (e_machine =3D=3D EM_SPARCV9)
-> > +             e_machine =3D EM_SPARC;
-> > +
-> > +     if (last_table_machine =3D=3D e_machine && last_table !=3D NULL)
-> > +             return last_table;
-> > +
-> > +     for (size_t i =3D 0; i < ARRAY_SIZE(syscalltbls); i++) {
-> > +             const struct syscalltbl *entry =3D &syscalltbls[i];
-> > +
-> > +             if (entry->e_machine !=3D e_machine && entry->e_machine !=
-=3D EM_NONE)
-> > +                     continue;
-> > +
-> > +             last_table =3D entry;
-> > +             last_table_machine =3D e_machine;
-> > +             return entry;
-> > +     }
-> > +     return NULL;
-> > +}
-> > +
-> > +const char *syscalltbl__name(int e_machine, int id)
-> > +{
-> > +     const struct syscalltbl *table =3D find_table(e_machine);
-> > +
-> > +     if (table && id >=3D 0 && id < table->num_to_name_len)
-> > +             return table->num_to_name[id];
-> >       return NULL;
-> >  }
-> >
-> > @@ -41,38 +64,54 @@ static int syscallcmpname(const void *vkey, const v=
-oid *ventry)
-> >       return strcmp(key->name, key->tbl[*entry]);
-> >  }
-> >
-> > -int syscalltbl__id(int e_machine __maybe_unused, const char *name)
-> > +int syscalltbl__id(int e_machine, const char *name)
-> >  {
-> > -     struct syscall_cmp_key key =3D {
-> > -             .name =3D name,
-> > -             .tbl =3D syscall_num_to_name,
-> > -     };
-> > -     const int *id =3D bsearch(&key, syscall_sorted_names,
-> > -                             ARRAY_SIZE(syscall_sorted_names),
-> > -                             sizeof(syscall_sorted_names[0]),
-> > -                             syscallcmpname);
-> > +     const struct syscalltbl *table =3D find_table(e_machine);
-> > +     struct syscall_cmp_key key;
-> > +     const int *id;
-> > +
-> > +     if (!table)
-> > +             return -1;
-> > +
-> > +     key.name =3D name;
-> > +     key.tbl =3D table->num_to_name;
-> > +     id =3D bsearch(&key, table->sorted_names, table->sorted_names_len=
-,
-> > +                  sizeof(table->sorted_names[0]), syscallcmpname);
-> >
-> >       return id ? *id : -1;
-> >  }
-> >
-> > -int syscalltbl__num_idx(int e_machine __maybe_unused)
-> > +int syscalltbl__num_idx(int e_machine)
-> >  {
-> > -     return ARRAY_SIZE(syscall_sorted_names);
-> > +     const struct syscalltbl *table =3D find_table(e_machine);
-> > +
-> > +     if (!table)
-> > +             return 0;
-> > +
-> > +     return table->sorted_names_len;
-> >  }
-> >
-> > -int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
-> > +int syscalltbl__id_at_idx(int e_machine, int idx)
-> >  {
-> > -     return syscall_sorted_names[idx];
-> > +     const struct syscalltbl *table =3D find_table(e_machine);
-> > +
-> > +     if (!table)
-> > +             return -1;
-> > +
-> > +     assert(idx >=3D 0 && idx < table->sorted_names_len);
-> > +     return table->sorted_names[idx];
-> >  }
-> >
-> > -int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const =
-char *syscall_glob, int *idx)
-> > +int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_g=
-lob, int *idx)
-> >  {
-> > -     for (int i =3D *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names=
-); ++i) {
-> > -             const char *name =3D syscall_num_to_name[syscall_sorted_n=
-ames[i]];
-> > +     const struct syscalltbl *table =3D find_table(e_machine);
-> > +
-> > +     for (int i =3D *idx + 1; table && i < table->sorted_names_len; ++=
-i) {
-> > +             const char *name =3D table->num_to_name[table->sorted_nam=
-es[i]];
-> >
-> >               if (strglobmatch(name, syscall_glob)) {
-> >                       *idx =3D i;
-> > -                     return syscall_sorted_names[i];
-> > +                     return table->sorted_names[i];
-> >               }
-> >       }
-> >
-> > --
-> > 2.48.1.502.g6dc24dfdaf-goog
-> >
+>Caution: This is an external email. Please take care when clicking links o=
+r
+>opening attachments. When in doubt, report the message using the 'Report
+>this email' button
+>
+>
+>This patch series introduces support for the Chips&Media Wave6 video codec
+>IP, a completely different hardware architecture compared to Wave5.
+>
+>The wave6 driver is a M2M stateful encoder/decoder driver.
+>It supports various video formats, including H.264 and H.265, for both
+>encoding and decoding.
+>
+>On NXP i.MX SoCs, the Wave6 IP functionality is split between two devices:
+>VPU Control Device, Manages shared resources such as firmware access and
+>power domains.
+>VPU Device, Provides encoding and decoding capabilities.
+>The VPU device cannot operate independently without the VPU control device=
+.
+>
+>This driver has been tested with GStreamer on:
+>- NXP i.MX95 board
+>- pre-silicon FPGA environment
+>
+>Test results for decoder fluster:
+>- JVT-AVC_V1, Ran 77/135 tests successfully              in 35.929 secs
+>- JVT-FR-EXT, Ran 25/69 tests successfully               in 17.717 secs
+>- JCT-VC-HEVC_V1, Ran 132/147 tests successfully         in 81.568 secs
+>- All failures are due to unsupported hardware features:
+>-- 10bit, Resolutions higher than 4K, FMO, MBAFF
+>-- Extended profile, Field encoding and High422 sreams.
+>
+>Test results for v4l2-compliance:
+>v4l2-compliance 1.29.0-5326, 64 bits, 64-bit time_t v4l2-compliance SHA:
+>77f5df419204 2025-02-07 08:59:59
+>
+>Compliance test for wave6-dec device /dev/video0:
+>
+>Driver Info:
+>        Driver name      : wave6-dec
+>        Card type        : wave6-dec
+>        Bus info         : platform:wave6-dec
+>        Driver version   : 6.9.2
+>        Capabilities     : 0x84204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>                Device Capabilities
+>        Device Caps      : 0x04204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>        Detected Stateful Decoder
+>
+>Required ioctls:
+>        test VIDIOC_QUERYCAP: OK
+>        test invalid ioctls: OK
+>
+>Allow for multiple opens:
+>        test second /dev/video0 open: OK
+>        test VIDIOC_QUERYCAP: OK
+>        test VIDIOC_G/S_PRIORITY: OK
+>        test for unlimited opens: OK
+>
+>Debug ioctls:
+>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>
+>Input ioctls:
+>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>
+>Output ioctls:
+>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>
+>Input/Output configuration ioctls:
+>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>
+>Control ioctls:
+>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>        test VIDIOC_QUERYCTRL: OK
+>        test VIDIOC_G/S_CTRL: OK
+>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>                fail: ../utils/v4l2-compliance/v4l2-test-
+>controls.cpp(1180): !have_source_change || !have_eos
+>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>        Standard Controls: 7 Private Controls: 1
+>
+>Format ioctls:
+>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>        test VIDIOC_G_FBUF: OK (Not Supported)
+>        test VIDIOC_G_FMT: OK
+>        test VIDIOC_TRY_FMT: OK
+>        test VIDIOC_S_FMT: OK
+>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>        test Cropping: OK
+>        test Composing: OK
+>        test Scaling: OK (Not Supported)
+>
+>Codec ioctls:
+>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>        test VIDIOC_(TRY_)DECODER_CMD: OK
+>
+>Buffer ioctls:
+>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>        test CREATE_BUFS maximum buffers: OK
+>        test VIDIOC_REMOVE_BUFS: OK
+>        test VIDIOC_EXPBUF: OK
+>        test Requests: OK (Not Supported)
+>        test blocking wait: OK
+>
+>Total for wave6-dec device /dev/video0: 48, Succeeded: 47, Failed: 1, Warn=
+ings:
+>0
+>
+>v4l2-compliance 1.29.0-5326, 64 bits, 64-bit time_t v4l2-compliance SHA:
+>77f5df419204 2025-02-07 08:59:59
+>
+>Compliance test for wave6-enc device /dev/video1:
+>
+>Driver Info:
+>        Driver name      : wave6-enc
+>        Card type        : wave6-enc
+>        Bus info         : platform:wave6-enc
+>        Driver version   : 6.9.2
+>        Capabilities     : 0x84204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>                Device Capabilities
+>        Device Caps      : 0x04204000
+>                Video Memory-to-Memory Multiplanar
+>                Streaming
+>                Extended Pix Format
+>        Detected Stateful Encoder
+>
+>Required ioctls:
+>        test VIDIOC_QUERYCAP: OK
+>        test invalid ioctls: OK
+>
+>Allow for multiple opens:
+>        test second /dev/video1 open: OK
+>        test VIDIOC_QUERYCAP: OK
+>        test VIDIOC_G/S_PRIORITY: OK
+>        test for unlimited opens: OK
+>
+>Debug ioctls:
+>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>
+>Input ioctls:
+>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>
+>Output ioctls:
+>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>
+>Input/Output configuration ioctls:
+>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>
+>Control ioctls:
+>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>        test VIDIOC_QUERYCTRL: OK
+>        test VIDIOC_G/S_CTRL: OK
+>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>                fail: ../utils/v4l2-compliance/v4l2-test-controls.cpp(1169=
+): node-
+>>codec_mask & STATEFUL_ENCODER
+>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: FAIL
+>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>        Standard Controls: 53 Private Controls: 0
+>
+>Format ioctls:
+>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>        test VIDIOC_G/S_PARM: OK
+>        test VIDIOC_G_FBUF: OK (Not Supported)
+>        test VIDIOC_G_FMT: OK
+>        test VIDIOC_TRY_FMT: OK
+>        test VIDIOC_S_FMT: OK
+>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>        test Cropping: OK
+>        test Composing: OK (Not Supported)
+>        test Scaling: OK (Not Supported)
+>
+>Codec ioctls:
+>        test VIDIOC_(TRY_)ENCODER_CMD: OK
+>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>
+>Buffer ioctls:
+>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>        test CREATE_BUFS maximum buffers: OK
+>        test VIDIOC_REMOVE_BUFS: OK
+>        test VIDIOC_EXPBUF: OK
+>        test Requests: OK (Not Supported)
+>        test blocking wait: OK
+>
+>Total for wave6-enc device /dev/video1: 48, Succeeded: 47, Failed: 1, Warn=
+ings:
+>0
+>
+>Nas Chung (8):
+>  media: platform: chips-media: wave5: Rename Kconfig parameter
+>  media: v4l2-common: Add YUV24 format info
+>  dt-bindings: media: nxp: Add Wave6 video codec device
+>  media: chips-media: wave6: Add Wave6 codec driver
+>  media: chips-media: wave6: Add v4l2 m2m driver
+>  media: chips-media: wave6: Add Wave6 vpu interface
+>  media: chips-media: wave6: Add Wave6 control driver
+>  media: chips-media: wave6: Improve debugging capabilities
+>
+> .../bindings/media/nxp,wave633c.yaml          |  202 ++
+> MAINTAINERS                                   |    8 +
+> arch/arm64/configs/defconfig                  |    2 +-
+> drivers/media/platform/chips-media/Kconfig    |    1 +
+> drivers/media/platform/chips-media/Makefile   |    1 +
+> .../media/platform/chips-media/wave5/Kconfig  |    6 +-
+> .../media/platform/chips-media/wave5/Makefile |    2 +-
+> .../media/platform/chips-media/wave6/Kconfig  |   26 +
+> .../media/platform/chips-media/wave6/Makefile |   17 +
+> .../platform/chips-media/wave6/wave6-hw.c     | 3113 +++++++++++++++++
+> .../platform/chips-media/wave6/wave6-hw.h     |   69 +
+> .../chips-media/wave6/wave6-regdefine.h       |  675 ++++
+> .../platform/chips-media/wave6/wave6-trace.h  |  336 ++
+> .../platform/chips-media/wave6/wave6-vdi.c    |   52 +
+> .../platform/chips-media/wave6/wave6-vdi.h    |   59 +
+> .../chips-media/wave6/wave6-vpu-ctrl.c        | 1020 ++++++
+> .../chips-media/wave6/wave6-vpu-ctrl.h        |   38 +
+> .../chips-media/wave6/wave6-vpu-dbg.c         |  230 ++
+> .../chips-media/wave6/wave6-vpu-dbg.h         |   22 +
+> .../chips-media/wave6/wave6-vpu-dec.c         | 1883 ++++++++++
+> .../chips-media/wave6/wave6-vpu-enc.c         | 2698 ++++++++++++++
+> .../chips-media/wave6/wave6-vpu-v4l2.c        |  381 ++
+> .../platform/chips-media/wave6/wave6-vpu.c    |  487 +++
+> .../platform/chips-media/wave6/wave6-vpu.h    |  106 +
+> .../platform/chips-media/wave6/wave6-vpuapi.c | 1001
+>++++++  .../platform/chips-media/wave6/wave6-vpuapi.h |  993 ++++++
+> .../chips-media/wave6/wave6-vpuconfig.h       |   80 +
+> .../chips-media/wave6/wave6-vpuerror.h        |  262 ++
+> drivers/media/v4l2-core/v4l2-common.c         |    1 +
+> 29 files changed, 13766 insertions(+), 5 deletions(-)  create mode 100644
+>Documentation/devicetree/bindings/media/nxp,wave633c.yaml
+> create mode 100644 drivers/media/platform/chips-media/wave6/Kconfig
+> create mode 100644 drivers/media/platform/chips-media/wave6/Makefile
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>regdefine.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>trace.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vdi.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vdi.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>ctrl.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>ctrl.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>dbg.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>dbg.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>dec.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>enc.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-
+>v4l2.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>vpuapi.c
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>vpuapi.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>vpuconfig.h
+> create mode 100644 drivers/media/platform/chips-media/wave6/wave6-
+>vpuerror.h
+>
+>--
+>2.31.1
+>
+
 
