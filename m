@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AEEC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C52C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 18:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAiWZme8HqODQQUpo75264e3vZcVglNuIhOZ2kVV7J4=; b=WUynadn3FU1PqyOG3iifvHbOuG
-	w6zseSp0F2T14gjO79nrSIlbU5d7c4MiN3QYzZ6IPyXcq1aulXyAMMz/g0LTUEwEEFW2PwhdF5r6g
-	0A3e0siTM4wSikKDAOANsqwmfNNnxeIfSPZtRYvsB9nthKD0rcNnlHXSp6f8QnRrssZSzowV5hStD
-	2m6u9erxUmNNQdRpRIs4rC6VLGrlLiI7iOVU5jKFpnp/OuKWyNpQiKF2a/tNWFT6WA2sITRNzXago
-	eMVRniljLJsIvl0upZDJB3/1yYThD8A6TkhltFZpX04QFZQ+uGEF+I3SPxPQpsgz49ZGuOcW3s3A+
-	X/S4XnPg==;
+	bh=TAqhdEJIac1nBI7ghVhE2bBif5ol3c9AIgGMBRie10Y=; b=gCHgqZpFXEHZwQ4MYddn+6Z9E/
+	hycQy4pDNU8FbigQ4Jpw2Dds2vJmd1Rlp7E8+oHnRRmr1wWPg5Xhlz8RIycD08q1wW/28tSEJ7m6m
+	sEclL60jUsZ/3ykaLRCHCucehy+GBR0iLAzcaQJToHd33NJo5jhPZqsRq0N0VtyZc9dTD/zHuATA3
+	ffEsWa/s0hB4QG+1XCtcmYAomHu9GTk+qT2DpJ4L0m5xLJj+QedqxFaJYe8JM4FLxjEorV9RCl0Nj
+	ZRk7IlhkA2GiULRg7eiSUx7k402JHr7XpWDegCU/L7zWWfyxTL0vprSJjoYqoWr6Yc4QxiZwEyIAY
+	4+ZbHC/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvLN-00000004uMt-2IEP;
-	Tue, 11 Feb 2025 18:50:49 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1thvMl-00000004uiz-13yh;
+	Tue, 11 Feb 2025 18:52:15 +0000
+Received: from out-176.mta0.migadu.com ([2001:41d0:1004:224b::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thvAn-00000004sJx-3BQd
+	id 1thvB7-00000004sQ5-2sK1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 18:39:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739299194; x=1770835194;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2X0p8yfjjhftBFMiKokboj/5SlYdERseeftmcHZfhnk=;
-  b=NXvKR3iFIMQMBLhFyYagCBz3futuL0t9YBIe3k1E/m1eIJp7F/HieT8S
-   08N60nfFgdtAadous2W/ZioMJtO9sCQiVeR1poM9sU3mFX7GyOO7gijXn
-   YYNXQ58QAmoMVA+7GVaIUp4dzr/Yv/DgBwWt0Eq8+p97VV7MjpxWP7yaX
-   FPyA9VkdW+efiPE30PfvUJKSavZK/YmfUriT4wMhN1kYHLc+BlBtc4b6i
-   Y7VWhFZ3Y38JJCvmrKSCNsQkYxJE3wlVjs3BXtEZwQvWGaSO69dT2VLfU
-   CaWJemjOnpWH5fR8gdDHEGOquK3ijiJv91RzuhYM14eViEPph0KLuyKjw
-   Q==;
-X-CSE-ConnectionGUID: AzM1QCDJRquuxkh1quLfwQ==
-X-CSE-MsgGUID: 1anZJuSMTx+FunmHLRKBvQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="57467854"
-X-IronPort-AV: E=Sophos;i="6.13,278,1732608000"; 
-   d="scan'208";a="57467854"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 10:39:53 -0800
-X-CSE-ConnectionGUID: aIjXXl5KRTeTSWn44N5JOA==
-X-CSE-MsgGUID: pwysVRBqS3K55qtxvr71SQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117213225"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 11 Feb 2025 10:39:47 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1thvAf-0014Zb-0f;
-	Tue, 11 Feb 2025 18:39:45 +0000
-Date: Wed, 12 Feb 2025 02:39:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Meghana Malladi <m-malladi@ti.com>, rogerq@kernel.org,
-	danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	u.kleine-koenig@baylibre.com, krzysztof.kozlowski@linaro.org,
-	dan.carpenter@linaro.org, m-malladi@ti.com, schnelle@linux.ibm.com,
-	glaroque@baylibre.com, rdunlap@infradead.org, diogo.ivo@siemens.com,
-	jan.kiszka@siemens.com, john.fastabend@gmail.com, hawk@kernel.org,
-	daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next v2 3/3] net: ti: icssg-prueth: Add XDP support
-Message-ID: <202502120205.w04H4d0q-lkp@intel.com>
-References: <20250210103352.541052-4-m-malladi@ti.com>
+	Tue, 11 Feb 2025 18:40:15 +0000
+Date: Tue, 11 Feb 2025 13:40:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1739299210;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TAqhdEJIac1nBI7ghVhE2bBif5ol3c9AIgGMBRie10Y=;
+	b=DEP9DTdOL7rgm9GNUJd6f3Y15SCXoMpg/zGbtOV3YCnDxmMHyOfbamgMAEtFnkbQ9XNUm+
+	MNw1pcp/LWTC1B+uJMKjcG5+3N9OeKlZWSoTbJmYBVdgrHLjOgskY7ZE3decNuTCUvHyRp
+	3CeV3xiGX1VHrxkMU/bGgEmKJUVhQmG1xMP65Tp37UsFCMdNMSIQmOjPsLLuyhFseo7qsj
+	PgOPDlaCfAqLkkGGguWC+wdPYj41eZWPEOnASbTHsZ4/5C7ZwpoFKKL67dASGx1ETp00q4
+	wdXWp+4qmJqoLYHAKoplMwVk+bsNqAe35ttAdXPXTwiVpv4hlnJQmT/ndXtstg==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] iommu/dart: Set DMA domain for locked DARTs
+Message-ID: <Z6uZhQtPAE8Ck_b0@blossom>
+References: <20250210-locked-dart-v1-0-5d97fe247f35@rosenzweig.io>
+ <20250210-locked-dart-v1-3-5d97fe247f35@rosenzweig.io>
+ <1d6b3fe7-9376-422b-a2e6-ebaed7b6cd75@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250210103352.541052-4-m-malladi@ti.com>
+In-Reply-To: <1d6b3fe7-9376-422b-a2e6-ebaed7b6cd75@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_103953_809595_39B0F31F 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250211_104013_867757_492C8817 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,55 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Meghana,
+Hi Robin,
 
-kernel test robot noticed the following build errors:
+> > This is required.
+> 
+> Now that we can, I'd really rather do this properly and not offer an
+> identity domain in the first place when it's not available.
 
-[auto build test ERROR on acdefab0dcbc3833b5a734ab80d792bb778517a0]
+I'm reading through iommu.c but I don't see a way to avoid offering an
+identity domain without the DMA override here, just reading through the
+logic of iommu_get_default_domain_type. Could you point me to what you
+have in mind?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Meghana-Malladi/net-ti-icssg-prueth-Use-page_pool-API-for-RX-buffer-allocation/20250210-183805
-base:   acdefab0dcbc3833b5a734ab80d792bb778517a0
-patch link:    https://lore.kernel.org/r/20250210103352.541052-4-m-malladi%40ti.com
-patch subject: [PATCH net-next v2 3/3] net: ti: icssg-prueth: Add XDP support
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20250212/202502120205.w04H4d0q-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502120205.w04H4d0q-lkp@intel.com/reproduce)
+Thanks,
+Alyssa
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502120205.w04H4d0q-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/net/ethernet/ti/icssg/icssg_prueth.c:568:50: error: no member named 'napi_id' in 'struct xdp_rxq_info'
-     568 |         ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, rxq->napi_id);
-         |                                                    ~~~  ^
-   1 error generated.
-
-
-vim +568 drivers/net/ethernet/ti/icssg/icssg_prueth.c
-
-   561	
-   562	static int prueth_create_xdp_rxqs(struct prueth_emac *emac)
-   563	{
-   564		struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-   565		struct page_pool *pool = emac->rx_chns.pg_pool;
-   566		int ret;
-   567	
- > 568		ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, rxq->napi_id);
-   569		if (ret)
-   570			return ret;
-   571	
-   572		ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
-   573		if (ret)
-   574			xdp_rxq_info_unreg(rxq);
-   575	
-   576		return ret;
-   577	}
-   578	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> > --- a/drivers/iommu/apple-dart.c
+> > +++ b/drivers/iommu/apple-dart.c
+> > @@ -941,6 +941,8 @@ static int apple_dart_def_domain_type(struct device *dev)
+> >   		return IOMMU_DOMAIN_IDENTITY;
+> >   	if (!cfg->stream_maps[0].dart->supports_bypass)
+> >   		return IOMMU_DOMAIN_DMA;
+> > +	if (cfg->stream_maps[0].dart->locked)
+> > +		return IOMMU_DOMAIN_DMA;
+> >   	return 0;
+> >   }
+> > 
+> 
 
