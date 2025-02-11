@@ -4,80 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2F8C021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 04:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65BEC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 04:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huymk/dQpvaH56qoB1f+DVpPSCDfCCnhC4pMTyNd65I=; b=dW5zMl14JDvwQhFS3Xl2qLfeuP
-	jaKMXYbczIcj0xKLOrrtXyfpkE2m0WSRI4e1esmGchdMKQHGqfOcRZHDDoqYnnhROmwJvuDTOz/QH
-	vUSOMeoES7jOjlUCGeO7wR079uWh1ldlwCPYWacCFNiv/yHPLJuVlzSVryu7AcLaoIhku0EAFfOJi
-	dqn2mT+qABJEagUO0smLJHW/5KPqcaHwmA4+0Bh/huU2AHD12ZcAaNbr8JZzcMGCCxLAjhkrxVcIp
-	fIrWeY4GiXbrBE9RZ5EMJFF+Yf11ih1lTTUUCBBq+zDEoSR32mUwJ7yHslyzbjDH0y6AJP+BXuBWg
-	ScNMIapA==;
+	bh=uCUvOFYoeytzNSgKr4hsZ2X6kU3OJr2x1nG8nOrrD7Q=; b=rHfPBUS4adzfgOPkTvRsADtzJ0
+	iWF48DsMyQvlv09HBD5Sd+8M/4icR7X2fpNzT+/o6Zu3Lq6JHFQ3W1SqRazdPCRQ1S+O7+TYn0tPv
+	XHBIyfXCO/4f109QZYQNcMsCSEZ3dGxIGOuvwfuIbZbEjfMlLZcWMOS8rWmRwytAcBfnVBTcU2ftL
+	x6QEXQMDN28g2FEX0ZvgfJ6L7yXClmn2wn/4llJkFWeMLTa3WXkZQEaBji07VMe1ubyD3Z196FVI8
+	QflTdMc3iHdKoeuyRsE7KPDq+/n+2BQcRcASE0v1tkHyrzDfZ9DuSXds/noAeCxD9TDGQClcw5V+h
+	aS4gEH9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thhbo-00000002THr-29U6;
-	Tue, 11 Feb 2025 04:10:52 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1thhpr-00000002UFb-2kS0;
+	Tue, 11 Feb 2025 04:25:23 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thgP6-00000002KY7-0Iqs;
-	Tue, 11 Feb 2025 02:53:41 +0000
-X-UUID: 623092c4e82311ef82ff63e91e7eb18c-20250210
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=huymk/dQpvaH56qoB1f+DVpPSCDfCCnhC4pMTyNd65I=;
-	b=gN6vjS8c4gjC3ucBxjsLjokloCGdTedyECr8uzu/q7ZsuQ3fDPwQVrq2Fa2AVyOFeLVRCFIEPcD4/T39IfId4rTnTawu4iC4Brry43Yy7Yrnw5SvqF2N5Z555mdW9fyzr42StsUElUDHhMBQ++xlPT09tLq0ht0V0Nhb2I3/Taw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:42b74bf0-f8dc-48f4-b1ca-58a82f2c45bc,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:3255259c-f55b-41e7-a712-ffbe7a973280,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 623092c4e82311ef82ff63e91e7eb18c-20250210
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <sunny.shen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 36722914; Mon, 10 Feb 2025 19:53:34 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 11 Feb 2025 10:53:31 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 11 Feb 2025 10:53:31 +0800
-From: Sunny Shen <sunny.shen@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Fei Shao <fshao@chromium.org>, Pin-yen Lin
-	<treapking@chromium.org>, "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Nancy
- Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Paul
- Chen --cc=devicetree @ vger . kernel . org" <paul-pl.chen@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Sunny Shen
-	<sunny.shen@mediatek.com>
-Subject: [PATCH 3/5] soc: mediatek: Add components to support PQ in display path for MT8196
-Date: Tue, 11 Feb 2025 10:52:52 +0800
-Message-ID: <20250211025317.399534-4-sunny.shen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250211025317.399534-1-sunny.shen@mediatek.com>
-References: <20250211025317.399534-1-sunny.shen@mediatek.com>
+	id 1thhoR-00000002U8e-2Hb8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Feb 2025 04:23:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uGZZH3zBjgZPT18+fdzVNN1d0tI/i/oeMjZcTuD3dTPQN7uaSJ2Mki4L3iUw1dv3gKcPmS6AOXvpgfk5owW5f0CVvK4T3q6H34VS6f/h0SpFLJjrzL/Dwt1QBLrvCavFLD/eJ5bRw340M72Gwk1jmMh0drT9Scysvtt0uEHSFS7H03tnHMZoUI6BBh9J5489P65JJj21eIbMrSAKsX8F01Ce8a9wEUhCiK89Wr9WuQteZpRsrQvIbh2QAtyJa/fxLCqpS+anx/vI4p77xuQp412Aqrz+lTkWYD0A7tJjVEBJsuZUNz8KQm979bhEgv2PGvdrpUYKxK/9+u6ZFD/XRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uCUvOFYoeytzNSgKr4hsZ2X6kU3OJr2x1nG8nOrrD7Q=;
+ b=raFpXdcz9xt03sJ3xLWbw7Rfo7xS5rOvWoSIGHCxhs6ZnhKUu1DYU8w4UWauenH8gM3r0+7Ww/YzpCVVKnbBrB885cEsg9raJV7sbbneKGKG1TqpiR3Wy9a5m8GhDaOwdby/WxV4kwhJrCJ3hBClAZRmay5+MOQpysw6Zk+9xsvxlJdSvWVeLgUb7j0XonXkJ9OgYvi42zfIuP9qAiyv0F1Ur03g8FeyKIKX2DIDJPSntXLTHg4bznMmGWuCILZqyOHHnEqCNF4G2xuOv79mRl8SPIjNdzq+2xo3q4IQzP0CQvL2EWDznPK6TotuM7AeoRDCzbbQDxhvysW8jDKIbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uCUvOFYoeytzNSgKr4hsZ2X6kU3OJr2x1nG8nOrrD7Q=;
+ b=QA9ECc57z1y2lCnJ3kcK9v/87gCYW2AjQrzYhbvGFrFsd81TensX5/HjLLokeKXYTKxAzR7rlTaBzLy1NNmKV1XyKftaLN69XiOncfUrPslOVq4swXp/dIgXYbJ+YOcEDP9q9pQ5TeTGuTYpULjbMZuL+ando0LCgjt80J1h9PM=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ PUYP216MB3034.KORP216.PROD.OUTLOOK.COM (2603:1096:301:154::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8422.19; Tue, 11 Feb 2025 04:23:37 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%4]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
+ 04:23:37 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH 1/8] media: platform: chips-media: wave5: Rename Kconfig
+ parameter
+Thread-Topic: [PATCH 1/8] media: platform: chips-media: wave5: Rename Kconfig
+ parameter
+Thread-Index: AQHbe5s5mvUd+yJT1UyIraYl4c8mYrNAygCAgACP7XA=
+Date: Tue, 11 Feb 2025 04:23:37 +0000
+Message-ID: <SL2P216MB124669DDF06578F9FA509BD9FBFD2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-2-nas.chung@chipsnmedia.com>
+ <d657fa70-af35-415d-b0e7-3aaf2fd05276@kernel.org>
+In-Reply-To: <d657fa70-af35-415d-b0e7-3aaf2fd05276@kernel.org>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|PUYP216MB3034:EE_
+x-ms-office365-filtering-correlation-id: 16d7daa6-7880-4923-1aad-08dd4a53dafd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?9GphgIPfFP1KT5yFw6z5RDzdRTJF54LFKGvu9P8fjNyAY5obxw4eIMjiIoo6?=
+ =?us-ascii?Q?+ONZq6ZJ1+jduFeZhvAUbyeTSxkNBwiSCib2OmQXCRfjsCFBWyvpzOP5A5vK?=
+ =?us-ascii?Q?1A7EE3yvhVop5Gpwa87EBONXJ07nqYKtMNW4tiER7oBr02swhJ19qKNumunw?=
+ =?us-ascii?Q?3t7B5/bg3v7htPg5+0BKMt78Ky1XmioVN90MlYhHc23gKfV5GTuo3AxTArpF?=
+ =?us-ascii?Q?feuMd9IZuvG8rUXmkHXHFdbQgiwayGbZu7YmFrvwtrDQUGTeA1HyRX8w8VzS?=
+ =?us-ascii?Q?OGcX2hNidaU1wJj+sDWCk3LesmcitijBHUGUkWSJG5Xwrm01AuF7FTCbHlKb?=
+ =?us-ascii?Q?QuzIVMLhfka/yNwkyPWoZLFlOJdwyGY6sHo5WMQ5SW1IfhHbzKWOFOoAKNOf?=
+ =?us-ascii?Q?wRopXhfXfhu/H1gFgYbi2uhs0elMpAMphtY27aO9FfE2x+1s6eynYwmdgvrL?=
+ =?us-ascii?Q?StXBrJWjZXNsIwNYSQ0tHz6rAfVcOof75uV01zg3SFehQKwEX4nfzqgiW0vg?=
+ =?us-ascii?Q?cCKU1l/IxyXEr6sKX7bnPYUPMLpiZxtuNQnkCXqRZ1S7v7MkZnbTVi76Lnqn?=
+ =?us-ascii?Q?IwQXJ5AEu91Kq+xmZ0AQQjwGyU8xtAfvZJiLQmMAvbmAGSt70zf0ihHeAcIy?=
+ =?us-ascii?Q?O5bSkX8o3/bq6SJhTGgTQCIdOohOwgq1uzuANqMZBA3bvwNia8VGImUw9PKA?=
+ =?us-ascii?Q?uyBpzXwKDI8QkID1Rvxh87EUnG6VEG4clsODOeyaoxq41VOxZLNu14xxqWaO?=
+ =?us-ascii?Q?r9SDFoSYNoFDiOY8OT4vfBdFFXV7p6UxZirj4HnRAioQSpqNIWfCmg6vc4Ay?=
+ =?us-ascii?Q?gyuAnsybtR2gAeBimxy3VWw6r1JNrTI64h3pDCrOAB+Se7K6VPrlwkj0u+6v?=
+ =?us-ascii?Q?9M4tk4dTrwoRFIs58ewB39tX8AyEaCnSpeVf5j20ue5VL6+BrhV7JS4I0OFh?=
+ =?us-ascii?Q?sTM10Up4+XhcKSAU63fBjfjM7hy4J2+6XMwSEeVJt8PDag/KXEQuFBA2ahcW?=
+ =?us-ascii?Q?7UfMMBeaHOhqm8vqpm6CWwKR6u2/Yv2PUyhadN5QPPablPt9qYVR4YxeqwY8?=
+ =?us-ascii?Q?K/zvMuVywfsLsDqdIhJDnLprHT4RyhsuZkwP8CUucKpcdayduiiwBjadiDNy?=
+ =?us-ascii?Q?8u/hFjDh5k7LLqKLvH0a3SJaOKVAor6DQHZBvfHQGY/MVeq5Lvo3dwuRO/Zc?=
+ =?us-ascii?Q?3K0eKQSl/AT97mGv1PaTsX3yD8mypHUz0rV739nIlkPXuX3LeSKDoLbZDSmR?=
+ =?us-ascii?Q?V7fRGjwGUqLtYD23QPku79KWzwPD90UIplM50Ed1QBnZfc19g8eLwuqeaxI7?=
+ =?us-ascii?Q?mxlDyIhFA8tKpQA8gg4l3xUBd9SMUI6q6FI6Bo/5kkedWya6bm8KWLV4Wt6K?=
+ =?us-ascii?Q?sMTM9hDPCbqf/FA7Utj/Vz0awa7uINt/bSZwYG7ypwpty5lba0TcgpnJknDt?=
+ =?us-ascii?Q?FAtJE9Lzhpw2S49lekPYARwfwXrl9idB?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DSueKDEvqAK1mWs6wGZ8F2fDbUAi69lybw8nPYkc84u1e1DfymVOs13PgFaO?=
+ =?us-ascii?Q?MezrStV5gLiGqUJkHfvx1UhKnzcVm9zQapM7d3TWm5LEcMO+q7a104FA5IsY?=
+ =?us-ascii?Q?QFwVkowjStROq5pTP7d1Z9Ac3K+WDkDnhX4FJUi0eAC3i3w6wrup4WNjMLjd?=
+ =?us-ascii?Q?v2j4rVA7fSbyARBdZtiRujtzRhVuiJrd0+eXvsy2COUWM0cC1mwt9202kWnG?=
+ =?us-ascii?Q?mRTmbOYk4YK9fRLhbU84oCs/ldWVH9KBSPsEyYCe66y7ApcGBg4Bml/oqh16?=
+ =?us-ascii?Q?cczfwNOZO53zvG85PWQ5ImG/XCE0cpCzsA4+SD41m3OE+PEDnXrmSA6Ag0ca?=
+ =?us-ascii?Q?iYGgog6Js2zl0rKycUkNbEckFl0IgjAlWUBgcpLgUr6Tb8ojXpjA9ISgb3v8?=
+ =?us-ascii?Q?HE3BtKSsORj2sQWiE3yNHS1KmCWkHf4moFRmBF6x0WyW8i4Lt0ex1NJy4Dwe?=
+ =?us-ascii?Q?oM3ZujCqHLYAVFPq9BvYh/8P0PaczuqrfoVy3RNQERL4+sKZ6oUzGlL05MWl?=
+ =?us-ascii?Q?Hs7Dn2yl4A2rui5v6JgFPF7P7VFYE+4hCwkQT+n6mjr6WwyewrsMehrEmklB?=
+ =?us-ascii?Q?yLo4HY2j8LzXzf8lpY3T4Rgny8B36kIBkjzBbmnjewsd1KI7Ex+82G3heAE4?=
+ =?us-ascii?Q?ZWgQQXz0tG5mKpF5AFapJv2IMyp8RyJYHBy+h8x0twFPMqhvWDqC1rVJCLOe?=
+ =?us-ascii?Q?hIlAxIgU264i2cnwbNF4oeyKLYw6IkiXFjYZFXjR11lpbOAxSu5KcdHW6bc4?=
+ =?us-ascii?Q?81vVBM0HAbRXZtXbBowAQV9G8jDAN28ywJDlzMP3ZHs2UvxpnFAo0cQXC35W?=
+ =?us-ascii?Q?xDVOzIAKs7i8qze1jUUUIAcs392knL4wTpCNKoM4vNFDMsyIGpABpkX5OZ6T?=
+ =?us-ascii?Q?Pc13ivmnWw6F3EH0DVrgf+lD1EgyUoRzLws3r+05+N6nuHj6IjFDT3zGZJzQ?=
+ =?us-ascii?Q?MNyD1j6iA+oXm0UxKmpMksmlO175+onJBrdgDM5efco31mZdfylR+pIv1UZr?=
+ =?us-ascii?Q?7XwjD2GXMecQ/BCqlz6btAXgCzjfjSMRHxJb126G6mGFJwhBiPnQqiBLgKWP?=
+ =?us-ascii?Q?BHW4JOxgW3oZbpPbTY94G42nfkGp8iTBcy24WAsYUxuJf6KwOYkulj0nDmpD?=
+ =?us-ascii?Q?A3woaCUeE7XvoAF+9EAGUGVXoqciQByUMb6wvdcgVtfBw9T7+lU5CYep6EoN?=
+ =?us-ascii?Q?QcnoxejmVsKCpkwfDDWZQGmd6fY+dGW9n+HIdqZ0X7Fbp23JbFenBHRoWOHz?=
+ =?us-ascii?Q?axaYJ8LcvPL6kR9UFIAr3vSpolXGu0VxLpf0QkWdB8KwCI/uAf/FDZGgf3+Q?=
+ =?us-ascii?Q?3x7O1MxSEG2LbzuC1FYQN8JGydRuPXzjqngwNLDgHbOCLtvNtBiZHYRNNKT7?=
+ =?us-ascii?Q?xV09+Tzb6LwGI85N+w64VNHPhCQm8JdMMpjqk6ikXSrBzJcs7Kp9xh0GkJhj?=
+ =?us-ascii?Q?hGnHcGDlwKNoix15UwURgjx2n4HzSnnIVep0C4UhH36gmyAYR9jiJMITKqLE?=
+ =?us-ascii?Q?dEwsCEATu51MRPVH/cdbj3LKoeMvg3BC7RUKG8uu+EVz7pARMJHHAO45TYe6?=
+ =?us-ascii?Q?jLUeegDYHXCUJe7e+ljOFmdDT/vTX9MD7iNdMcJP?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16d7daa6-7880-4923-1aad-08dd4a53dafd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2025 04:23:37.2860
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: drinfx7A+k8VBrxt3LLzG+869E8kws2QdRXa1pF8Xhr6ilR4e+wcYVYbW1OjHuH84wflDD2W1Vkec3a2cAaZzxxBIoHBK4kfgPVTyPd5ig8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUYP216MB3034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_185340_125987_75FBA5EC 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250210_202355_601145_2EA23792 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,209 +171,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to the path mux design of the MT8196, the following components
-need to be configured into mutex and mmsys to support
-Picture Quality (PQ) in the display path:CCORR0, CCORR1, DITHER0,
-GAMMA0, MDP_RSZ0, POSTMASK0, TDSHP0.
+Hi, Krzysztof.
 
-Signed-off-by: Sunny Shen <sunny.shen@mediatek.com>
----
- drivers/soc/mediatek/mt8196-mmsys.h    | 70 +++++++++++++++++++++++++-
- drivers/soc/mediatek/mtk-mutex.c       | 17 +++++++
- include/linux/soc/mediatek/mtk-mmsys.h |  5 ++
- 3 files changed, 90 insertions(+), 2 deletions(-)
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Tuesday, February 11, 2025 2:24 AM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; sebastian.fricke@collabora.com; robh@kernel.org;
+>krzk+dt@kernel.org; conor+dt@kernel.org
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH 1/8] media: platform: chips-media: wave5: Rename
+>Kconfig parameter
+>
+>On 10/02/2025 10:07, Nas Chung wrote:
+>> The existing Kconfig parameter VIDEO_WAVE_VPU is ambiguous,
+>> as it does not clearly indicate that it is specific to the Wave5 IP.
+>>
+>> Rename VIDEO_WAVE_VPU to VIDEO_WAVE5_VPU to make it explicit
+>> that the parameter is specific to the Wave5 IP.
+>>
+>> No functional changes, only the parameter name is updated.
+>
+>
+>That's unnecessary churn. Old name was fine. Kconfig does not match
+>hardware 1-to-1 but represents only the driver name (or not even that...).
+>
+>If you solve any particular problem, then explain it. Otherwise this is
+>just unnecessarily affecting users and backports.
 
-diff --git a/drivers/soc/mediatek/mt8196-mmsys.h b/drivers/soc/mediatek/mt8196-mmsys.h
-index 03d1210d2b80..b686d5029219 100644
---- a/drivers/soc/mediatek/mt8196-mmsys.h
-+++ b/drivers/soc/mediatek/mt8196-mmsys.h
-@@ -68,6 +68,22 @@
- #define MT8196_DISP_OVL_OUT_PROC_CB_TO_OVL_DLO_RELAY7		BIT(2)
- 
- /* DISPSYS0 */
-+#define MT8196_DISP_CCORR0_SEL				0xd28
-+#define MT8196_DISP_CCORR0_FROM_TDSHP0				BIT(1)
-+#define MT8196_DISP_CCORR0_SOUT				0xd2c
-+#define MT8196_DISP_CCORR0_TO_CCORR1				BIT(0)
-+#define MT8196_DISP_CCORR1_SEL				0xd30
-+#define MT8196_DISP_CCORR1_FROM_CCORR0				BIT(0)
-+#define MT8196_DISP_CCORR1_SOUT				0xd34
-+#define MT8196_DISP_CCORR1_TO_GAMMA0				BIT(0)
-+#define MT8196_DISP_GAMMA0_SEL				0xd58
-+#define MT8196_DISP_GAMMA0_FROM_CCORR1				BIT(0)
-+#define MT8196_DISP_POSTMASK0_SOUT			0xd68
-+#define MT8196_DISP_POSTMASK0_TO_DITHER0			0x0
-+#define MT8196_DISP_TDSHP0_SOUT				0xd70
-+#define MT8196_DISP_TDSHP0_TO_CCORR0				BIT(1)
-+#define MT8196_MDP_RSZ0_MOUT_EN				0xd78
-+#define MT8196_MDP_RSZ0_TO_TDSHP0				BIT(0)
- #define MT8196_PANEL_COMP_OUT_CB1_MOUT_EN		0xd84
- #define MT8196_DISP_TO_DLO_RELAY1				BIT(1)
- #define MT8196_PANEL_COMP_OUT_CB2_MOUT_EN		0xd88
-@@ -75,12 +91,14 @@
- #define MT8196_PANEL_COMP_OUT_CB3_MOUT_EN		0xd8c
- #define MT8196_DISP_TO_DLO_RELAY3				BIT(3)
- #define MT8196_PQ_IN_CB0_MOUT_EN			0xdd0
-+#define MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_0				BIT(0)
- #define MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6				BIT(2)
--
- #define MT8196_PQ_IN_CB1_MOUT_EN			0xdd4
- #define MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7				BIT(3)
- #define MT8196_PQ_IN_CB8_MOUT_EN			0xdf0
- #define MT8196_PQ_IN_CB8_TO_PQ_OUT_CB_8				BIT(4)
-+#define MT8196_PQ_OUT_CB0_MOUT_EN			0xe3c
-+#define MT8196_PQ_OUT_CB0_TO_PANEL0_COMP_OUT_CB1		BIT(1)
- #define MT8196_PQ_OUT_CB6_MOUT_EN			0xe54
- #define MT8196_PQ_OUT_CB6_TO_PANEL0_COMP_OUT_CB1		BIT(1)
- #define MT8196_PQ_OUT_CB7_MOUT_EN			0xe58
-@@ -314,11 +332,13 @@ static const struct mtk_mmsys_routes mmsys_mt8196_ovl1_routing_table[] = {
- };
- 
- /*
-- * main: DLI_ASYNC0-> PQ_IN_CB0 -> PQ_OUT_CB6 -> PANEL_COMP_OUT_CB1 -> DLO_ASYNC1
-+ * main: DLI_ASYNC0-> PQ_IN_CB0 -> PQ (MDP_RSZ0/TDSHP0/CCORR0/CCORR1/GAMMA0/POSTMASK0/DITHER0)
-+ *       -> PQ_OUT_CB0 -> PANEL_COMP_OUT_CB1 -> DLO_ASYNC1
-  * ext:  DLI_ASYNC1-> PQ_IN_CB1 -> PQ_OUT_CB7 -> PANEL_COMP_OUT_CB2 -> DLO_ASYNC2
-  */
- static const struct mtk_mmsys_routes mmsys_mt8196_disp0_routing_table[] = {
- 	{
-+	/* main: PQ bypass */
- 		DDP_COMPONENT_DLI_ASYNC0, DDP_COMPONENT_DLO_ASYNC1,
- 		MT8196_PQ_IN_CB0_MOUT_EN, MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6,
- 		MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_6
-@@ -331,6 +351,52 @@ static const struct mtk_mmsys_routes mmsys_mt8196_disp0_routing_table[] = {
- 		MT8196_PANEL_COMP_OUT_CB1_MOUT_EN, MT8196_DISP_TO_DLO_RELAY1,
- 		MT8196_DISP_TO_DLO_RELAY1
- 	}, {
-+	/* main: PQ path */
-+		DDP_COMPONENT_DLI_ASYNC0, DDP_COMPONENT_MDP_RSZ0,
-+		MT8196_PQ_IN_CB0_MOUT_EN, MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_0,
-+		MT8196_PQ_IN_CB0_TO_PQ_OUT_CB_0
-+	}, {
-+		DDP_COMPONENT_MDP_RSZ0, DDP_COMPONENT_TDSHP0,
-+		MT8196_MDP_RSZ0_MOUT_EN, MT8196_MDP_RSZ0_TO_TDSHP0,
-+		MT8196_MDP_RSZ0_TO_TDSHP0
-+	}, {
-+		DDP_COMPONENT_TDSHP0, DDP_COMPONENT_CCORR0,
-+		MT8196_DISP_TDSHP0_SOUT, MT8196_DISP_TDSHP0_TO_CCORR0,
-+		MT8196_DISP_TDSHP0_TO_CCORR0
-+	}, {
-+		DDP_COMPONENT_TDSHP0, DDP_COMPONENT_CCORR0,
-+		MT8196_DISP_CCORR0_SEL, MT8196_DISP_CCORR0_FROM_TDSHP0,
-+		MT8196_DISP_CCORR0_FROM_TDSHP0
-+	}, {
-+		DDP_COMPONENT_CCORR0, DDP_COMPONENT_CCORR1,
-+		MT8196_DISP_CCORR0_SOUT, MT8196_DISP_CCORR0_TO_CCORR1,
-+		MT8196_DISP_CCORR0_TO_CCORR1
-+	}, {
-+		DDP_COMPONENT_CCORR0, DDP_COMPONENT_CCORR1,
-+		MT8196_DISP_CCORR1_SEL, MT8196_DISP_CCORR1_FROM_CCORR0,
-+		MT8196_DISP_CCORR1_FROM_CCORR0
-+	}, {
-+		DDP_COMPONENT_CCORR1, DDP_COMPONENT_GAMMA0,
-+		MT8196_DISP_CCORR1_SOUT, MT8196_DISP_CCORR1_TO_GAMMA0,
-+		MT8196_DISP_CCORR1_TO_GAMMA0
-+	}, {
-+		DDP_COMPONENT_CCORR1, DDP_COMPONENT_GAMMA0,
-+		MT8196_DISP_GAMMA0_SEL, MT8196_DISP_GAMMA0_FROM_CCORR1,
-+		MT8196_DISP_GAMMA0_FROM_CCORR1
-+	}, {
-+		DDP_COMPONENT_POSTMASK0, DDP_COMPONENT_DITHER0,
-+		MT8196_DISP_POSTMASK0_SOUT, MT8196_DISP_POSTMASK0_TO_DITHER0,
-+		MT8196_DISP_POSTMASK0_TO_DITHER0
-+	}, {
-+		DDP_COMPONENT_DITHER0, DDP_COMPONENT_DLO_ASYNC1,
-+		MT8196_PQ_OUT_CB0_MOUT_EN, MT8196_PQ_OUT_CB0_TO_PANEL0_COMP_OUT_CB1,
-+		MT8196_PQ_OUT_CB0_TO_PANEL0_COMP_OUT_CB1
-+	}, {
-+		DDP_COMPONENT_DITHER0, DDP_COMPONENT_DLO_ASYNC1,
-+		MT8196_PANEL_COMP_OUT_CB1_MOUT_EN, MT8196_DISP_TO_DLO_RELAY1,
-+		MT8196_DISP_TO_DLO_RELAY1
-+	}, {
-+	/* ext */
- 		DDP_COMPONENT_DLI_ASYNC1, DDP_COMPONENT_DLO_ASYNC2,
- 		MT8196_PQ_IN_CB1_MOUT_EN, MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7,
- 		MT8196_PQ_IN_CB1_TO_PQ_OUT_CB_7
-diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-index 51db6f2a05ae..9c895566dfb2 100644
---- a/drivers/soc/mediatek/mtk-mutex.c
-+++ b/drivers/soc/mediatek/mtk-mutex.c
-@@ -262,6 +262,11 @@
- #define MT8196_MUTEX_MOD1_OVL_DLO_ASYNC6	(32 + 17)
- 
- /* DISP0 */
-+
-+#define MT8196_MUTEX_MOD0_DISP_CCORR0		6
-+#define MT8196_MUTEX_MOD0_DISP_CCORR1		7
-+#define MT8196_MUTEX_MOD0_DISP_DITHER0		14
-+
- #define MT8196_MUTEX_MOD0_DISP_DLI_ASYNC0	16
- #define MT8196_MUTEX_MOD0_DISP_DLI_ASYNC1	17
- #define MT8196_MUTEX_MOD0_DISP_DLI_ASYNC8	24
-@@ -269,6 +274,11 @@
- #define MT8196_MUTEX_MOD1_DISP_DLO_ASYNC2	(32 + 2)
- #define MT8196_MUTEX_MOD1_DISP_DLO_ASYNC3	(32 + 3)
- 
-+#define MT8196_MUTEX_MOD1_DISP_GAMMA0		(32 + 9)
-+#define MT8196_MUTEX_MOD1_DISP_POSTMASK0	(32 + 14)
-+#define MT8196_MUTEX_MOD1_DISP_MDP_RSZ0		(32 + 18)
-+#define MT8196_MUTEX_MOD1_DISP_TDSHP0		(32 + 21)
-+
- /* DISP1 */
- #define MT8196_MUTEX_MOD0_DISP1_DLI_ASYNC21	1
- #define MT8196_MUTEX_MOD0_DISP1_DLI_ASYNC22	2
-@@ -678,6 +688,13 @@ static const u8 mt8195_mutex_table_mod[MUTEX_MOD_IDX_MAX] = {
- };
- 
- static const u8 mt8196_mutex_mod[DDP_COMPONENT_ID_MAX] = {
-+	[DDP_COMPONENT_CCORR0] = MT8196_MUTEX_MOD0_DISP_CCORR0,
-+	[DDP_COMPONENT_CCORR1] = MT8196_MUTEX_MOD0_DISP_CCORR1,
-+	[DDP_COMPONENT_DITHER0] = MT8196_MUTEX_MOD0_DISP_DITHER0,
-+	[DDP_COMPONENT_GAMMA0] = MT8196_MUTEX_MOD1_DISP_GAMMA0,
-+	[DDP_COMPONENT_MDP_RSZ0] = MT8196_MUTEX_MOD1_DISP_MDP_RSZ0,
-+	[DDP_COMPONENT_POSTMASK0] = MT8196_MUTEX_MOD1_DISP_POSTMASK0,
-+	[DDP_COMPONENT_TDSHP0] = MT8196_MUTEX_MOD1_DISP_TDSHP0,
- 	[DDP_COMPONENT_OVL0_EXDMA2] = MT8196_MUTEX_MOD0_OVL_EXDMA2,
- 	[DDP_COMPONENT_OVL0_EXDMA3] = MT8196_MUTEX_MOD0_OVL_EXDMA3,
- 	[DDP_COMPONENT_OVL0_EXDMA4] = MT8196_MUTEX_MOD0_OVL_EXDMA4,
-diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
-index 4a0b10567581..250054ca5523 100644
---- a/include/linux/soc/mediatek/mtk-mmsys.h
-+++ b/include/linux/soc/mediatek/mtk-mmsys.h
-@@ -25,6 +25,8 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_AAL1,
- 	DDP_COMPONENT_BLS,
- 	DDP_COMPONENT_CCORR,
-+	DDP_COMPONENT_CCORR0 = DDP_COMPONENT_CCORR,
-+	DDP_COMPONENT_CCORR1,
- 	DDP_COMPONENT_COLOR0,
- 	DDP_COMPONENT_COLOR1,
- 	DDP_COMPONENT_DITHER0,
-@@ -51,6 +53,7 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_DVO0,
- 	DDP_COMPONENT_ETHDR_MIXER,
- 	DDP_COMPONENT_GAMMA,
-+	DDP_COMPONENT_GAMMA0 = DDP_COMPONENT_GAMMA,
- 	DDP_COMPONENT_MDP_RDMA0,
- 	DDP_COMPONENT_MDP_RDMA1,
- 	DDP_COMPONENT_MDP_RDMA2,
-@@ -59,6 +62,7 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_MDP_RDMA5,
- 	DDP_COMPONENT_MDP_RDMA6,
- 	DDP_COMPONENT_MDP_RDMA7,
-+	DDP_COMPONENT_MDP_RSZ0,
- 	DDP_COMPONENT_MERGE0,
- 	DDP_COMPONENT_MERGE1,
- 	DDP_COMPONENT_MERGE2,
-@@ -130,6 +134,7 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_RDMA1,
- 	DDP_COMPONENT_RDMA2,
- 	DDP_COMPONENT_RDMA4,
-+	DDP_COMPONENT_TDSHP0,
- 	DDP_COMPONENT_UFOE,
- 	DDP_COMPONENT_WDMA0,
- 	DDP_COMPONENT_WDMA1,
--- 
-2.34.1
+I understand your point.
+To avoid unnecessary changes, I'll drop this patch.
 
+Thank you for your feedback.
+
+Thanks.
+Nas.
+
+>
+>>
+>> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+>> ---
+>>  arch/arm64/configs/defconfig                      | 2 +-
+>
+>That's a SoC patch, don't mix up subsystems.
+>
+>
+>Best regards,
+>Krzysztof
 
