@@ -4,162 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ADB7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29830C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 02:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSRdUMgA081t8FsE1sQuNjCKw7Qi6/x/5Qamx16I0Q0=; b=UyOOI/OHsh0ITajCQtPTMNyjgV
-	Uwngjkxvc6tCI6QTx8AiwBXFy7Qid9N/+PWUzsVLV/AS7NfaOV0zjotMkp/+8x+swNT2Oub/el5k/
-	6ilamruu6LjP4GZiuaJ9c5dLIUODUd0SMrTLOYf46cr4eE+/JbD6mFWA3zMwS21Of9ip3tDCb2G5x
-	9r84HGx4695eoSFZEy7i+DvuMPptCMJKZmKEF74yk5f0xdJY1lnzMogNc/Ar84d+LYj6hgRSS9dxX
-	roEKlo07ZKIV3PQaLjXEC+3TV4YXhwsaqMb4AaI6SNyDJmTgCAEGUYPJExu35Ft5JbVbtHIAZCNSZ
-	JWK/6zog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Osz1/jocrFEzgFhLEIhFRrb4kDNRJq8rHtYsDHvteoI=; b=C6uiMX+yDKyFzT7y2C0t1pdGIL
+	98s1o0Gw8OO+rym+lTC+znicglB30/fzU0Oe9nnU/yGFtg64qwg6JBfueBCNWg1I/m0A0qbn86Mfq
+	SmgU+VACcvNUGyDF5Q7uHlqJLsOZf8FHkplSQxrl8EBFrK0g8+41ERX1SKC7ChHI3/zlkkQS9Fyga
+	0jWsIE5Z8dtsftSlGet+rML5zpS+o1mjoQYVPEV2DotVuGMRe8YejwniY+9gKlBFHHSkw6qI454ZC
+	vDzznnYsbgyxPgy62qdsvqH2qbSuECz2Ikc1OrRfsbCmy7PEbqe/4t3QjZwVJ38/vB3SOJHqQmfpV
+	pGggUF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thg0r-00000002Gxw-04XF;
-	Tue, 11 Feb 2025 02:28:37 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1thg4T-00000002HX0-3Non;
+	Tue, 11 Feb 2025 02:32:21 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thfzM-00000002GhA-3IGl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 02:27:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IQwORX0dWJkTl2Ls1LgKo0YLsxnmTcA5c7YzS4BN0ugcrJCjoBWdGEp6JbrVjBkrcoP+ikqVddZmI6juNgQLcrJrixZlgupzkdQf3E00uq3/Jyz13YvK68qz/qHZ+HVK6SG6mRkNZoX+RQz+2yRCPNFUs0SiYsnKWHPnWHhzymA8YcVMwA5Ma/mqalzZlsIJx4GQzdE3rZZBcCMSCXlglnR73PWHZS9dPKh6/fl7eCKGPZLGRzMZHQElGF2oT/rEeqvz2ZGsIDVbC7KTWWz+zM+EIL2MTCFFdothXLAX2yHv7JjUyXnohne6bB5jrOgTquKZGQyvyNY67HDt4gW0/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I3xfzKZGh/bqDqYfmtTs3nSe+MhWn/N67NkSJhs+OtA=;
- b=rHxk58RfJk6zpM2kb30AgsKddbLIWfhtEcZfseca3O+JnMiw72Ta+ROtyMwmwelnxDnOyAGVzTL2usOeG2a4axdQyAr2/w7hinKs+NpJ/Jz5ftEfJTD3fjyd0MZuq63rXt+DKeuSrdL0I5mPxwgw47vIP9La9JtWkoUrIzs0WfBZy6xr+iqUNfgH8j2YURW0UYKqRlxBoNqMLXj/kpBZ1MVLFuNzZroMHeV1wxqqbExtwoKed0ZeVMng8mF/k1a+gsfUh6yNKka+dDZf4mwbIZj3el8JZ2CgijBsJ9FlgL+DYxGy5OXC7VAxxWxq+BKKCH06XCJZyKS5e/WcHWp+Hw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I3xfzKZGh/bqDqYfmtTs3nSe+MhWn/N67NkSJhs+OtA=;
- b=wl0fQUClDieqvsZPQTzKM/JYi+aC8DwWTWsgoh4/dQa2RUddgsEVYL/q6lRm2ckdW/bG3lntB4ZdH8E0vT51O7ff9uuPHJpUJHUntexUJ8Txvbe3AGH+tN6sII+Ime5sNl1Cx/5gVHefguFbFrM25S0/jlnKMY3ioj0g0Fmeco2LxUDOJ6p0Itj0iwjsHHmxGnnQ/uXT6aPVsFPL7XDCH/d6xIFzBfft2zz9/laKAc/omA8dlscjcnd/c1UHI/WyBR2E5iALmf7QXYIX5uq8rra/W54Ewx5KmMaNa+YTk0hUtDvxrWmuDJNkSHTvYOi+TZk7TkHGemOJCNSBG1vFOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAWPR04MB9911.eurprd04.prod.outlook.com (2603:10a6:102:38b::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Tue, 11 Feb
- 2025 02:26:55 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8422.015; Tue, 11 Feb 2025
- 02:26:55 +0000
-Date: Tue, 11 Feb 2025 11:33:41 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller
- references
-Message-ID: <20250211033340.GA13109@localhost.localdomain>
-References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com>
- <8037692.EvYhyI6sBW@steina-w>
- <PAXPR04MB845912F48DC37B6BC599313888F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <2222299.irdbgypaU6@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2222299.irdbgypaU6@steina-w>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2P153CA0003.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::20) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1thg34-00000002HMZ-0TDg;
+	Tue, 11 Feb 2025 02:30:55 +0000
+X-UUID: 3444a9fce82011ef9048ed6ed365623b-20250210
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Osz1/jocrFEzgFhLEIhFRrb4kDNRJq8rHtYsDHvteoI=;
+	b=FNLzOXu0WbQTQjobIbyftOeYx/uzzERhGi1LNLmDYnZqEx0eeDKTsxmkeFe0nWljHrREa9x27uup4RBJUQemwTO33cuG/63webiu6PQIF7sNY1IxmMgutdeenTUG9DKcHxACiWsUsmLjiqhdi7ZCIKx/d3QXHC0mDXWf2tNsoF8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:1b6c68a0-7129-49fd-ae13-eb8f0a145b5f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:76f5249c-f55b-41e7-a712-ffbe7a973280,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
+X-UUID: 3444a9fce82011ef9048ed6ed365623b-20250210
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <bo.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 287322901; Mon, 10 Feb 2025 19:30:48 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Tue, 11 Feb 2025 10:30:45 +0800
+Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Tue, 11 Feb 2025 10:30:45 +0800
+From: Bo Ye <bo.ye@mediatek.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <dicken.ding@mediatek.com>, <hanks.chen@mediatek.com>,
+	<xiujuan.tan@mediatek.co>, Bosser Ye <bo.ye@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH] genirq: clear IRQS_PENDING in irq descriptor
+Date: Tue, 11 Feb 2025 10:30:39 +0800
+Message-ID: <20250211023040.180330-1-bo.ye@mediatek.com>
+X-Mailer: git-send-email 2.17.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAWPR04MB9911:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07ba2413-2c92-488b-b8bb-08dd4a438d30
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?L5elgx/MctpHDXcZN3fVNbTGp6b5Zx/v/5EGmUxv4K1ie1IctphvJb+S4M?=
- =?iso-8859-1?Q?UADX8kTZMTRIWcmSAJz2gXxb5/Al6T/3ZP1vKDdSYU33eRzDQp0ecPN4gL?=
- =?iso-8859-1?Q?CF/4W1Xp9a+aKhmxeEeycIJ12H1+Jgljx1gb7p4BlkwbC9HKc/tntSZCcj?=
- =?iso-8859-1?Q?9Ous7ZHEx2idHOx2jOq2vfGfK2ehk8HruaFBrI9hBEwNWJr0+awgUYwIc2?=
- =?iso-8859-1?Q?aEqYxF5tRlYq8vXlmKDMIaAPqkZi9qMgX61QUQ2+tn0moOKqP41h2bLYQd?=
- =?iso-8859-1?Q?h0XFZLT0wKi4RlM1rufkoY7f1m0Y2TInK27ZZ4UCoRept0jiaCHsCuSfFN?=
- =?iso-8859-1?Q?yNuPQDUvHhimye/JatY0x/mAZjtcY91M8qdNfNWPNTaNFGEuIk4bldhFrI?=
- =?iso-8859-1?Q?P345CmdUlFsXqpbPYBy9fYTXHoM1ci+J1kKO7LZEx4MTApJCQ8wgxvi/q8?=
- =?iso-8859-1?Q?75RpshXJHFoTMCcqwRyCFj0uRsPdb1bAKX9IF3RAojHkWoDijDer4LLGf7?=
- =?iso-8859-1?Q?w80JWlNXpS4eHuc+8SfM4VH15K+jW3jUwpnss0J4I64k+n8bgrhVaIPLVY?=
- =?iso-8859-1?Q?UhZY4mwuPSITrt8LqgDVqH+z0PA3mAYSngJyxsWKMm7ltLO2XdiBUZqRpK?=
- =?iso-8859-1?Q?t6A2mbkyp3PLZHbVIGLKK1bkOi+9uBlsqfr9HPF/zE284CH14j8cnS/1HR?=
- =?iso-8859-1?Q?1aVr4bS9I/g4Vg14Oq7SDovcAjgaXxEYMWc6+/Rq7qUJrgW/+KRZXcEGMA?=
- =?iso-8859-1?Q?Tldvs1bSEy4VK1if2zjZ9yn+sO5ceLsTKPs0Ccd2w4Zm6tL53VjpUp6h/B?=
- =?iso-8859-1?Q?WnePfJMC6glYm2Uw93d+6dDEIbNNhZwR7m3BnjUZPhjKRHNgqczugDaFao?=
- =?iso-8859-1?Q?UXPwA3v8fiPAbxpqvuidyE5eDfIYAzPxeLUgQafEqZN8EYbUTy6o9nACk+?=
- =?iso-8859-1?Q?APxpnBgGLXadNNSuWDzt18GlFA7JHicjfC89xFFgEd80lIglFiQC0ewzMW?=
- =?iso-8859-1?Q?1ujVms+tWPp41XG4XTiUgqiPAt3moY/kgZUTxHvHcJszcaBVyrBobcnqdf?=
- =?iso-8859-1?Q?HuyXhstoWtkaMlpSLwOKZyC0FB1N5ZavjLTpt3zdCr/1VSfhlGMlfM7wlV?=
- =?iso-8859-1?Q?gbxS3Gp+o9RzJjIl//n/zwUPR4x+JIZt3hmOxJ+gm07946ev9GBj0Vf6yD?=
- =?iso-8859-1?Q?uAFPsRZ1R7bWhEWALTEklfyDm/36C1YpQXqq1GiDpzimWB2R2nQWKcDUW+?=
- =?iso-8859-1?Q?dACz+liwELgk+qdZxWPKWkx/G2VU3W1Eo6dGFy166SUrKBkN8Z7/XfbIHh?=
- =?iso-8859-1?Q?G2lo2MYnyvircdTlBB8ZNzi/C4RzbpC+W/fsUqIBEiIAxeaLisizMFEH3Q?=
- =?iso-8859-1?Q?ylv+0GtIJsY4CJ94rBY6Z1oMOv6O+sYRm6nOiIc6/jCHkXzck66he3WTh+?=
- =?iso-8859-1?Q?nGcGUEb1WUne2nqx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?hOWVj0cBTVOfa659fpR4quYqPgOLSserD7VXQ7Lud3vDIAtpHqVTSaPien?=
- =?iso-8859-1?Q?m2P+CwqYpcSgYPO+X689bjU0XtuJ3hVaQ34e2W7BTXkutm/bGN0DeNsCGB?=
- =?iso-8859-1?Q?tbdV+L581ZE0vSVREaHw52OhnIJUDlqQXEDzJkFTg9DhOZOOJYnDgUQHAo?=
- =?iso-8859-1?Q?TUCw+93esQPeSlEH2S1P4QMiArJui9I9quVTWw+LfRlS+JSuLoc0gQd3Lp?=
- =?iso-8859-1?Q?Q6mvJ645BRw9U+sYBFOFBWXS2N3OUreY5OLCyVhENP3RhyyNqJIbe92F15?=
- =?iso-8859-1?Q?qMdPJ7xrWIBKtmDY330UmWUZsR6rgtY+EqNV/lX3M5KE5OhZtTquy/wxfX?=
- =?iso-8859-1?Q?zGwJIEmgHAm6AU1A8k5VVhej9iNKZ+KZ27dCVdIAsUR3zYlCj1MGwhxV/T?=
- =?iso-8859-1?Q?CluQlUGLpapNxbG84ayZZeB+rbylTazWc2Iihd4RL+X9MOjWhdab/R1lTW?=
- =?iso-8859-1?Q?V+r5sCTQWSfdwdVP1tUTtdx7dGy0ynD+s1HPgUz/9dn1o6l4ZfPorqCiiI?=
- =?iso-8859-1?Q?DK5/Jv+2J/l1fhxqBhzGQK74tgEQ+n8vntESj7XVMJlyjQejeQc1XA6Q9u?=
- =?iso-8859-1?Q?OE7XWF2R8vp/EooJ+BzmhlC66fgJIZin9j5a56JqjIhkrenzE3Al9X404i?=
- =?iso-8859-1?Q?APLnuF7dauFNbo2QMsqx+HR159lHGQlXxXEWebG13F1sswXAvMKFgET4gF?=
- =?iso-8859-1?Q?TbnQ3rALMZ5wSTxeNbJ1wkVIctOqM+XINpvlv4skMX5biPPAYORv0Ku6/x?=
- =?iso-8859-1?Q?jLmzdYdSZG0MrSELjZALVXJwrqFb13BBCs+ACsNZZxxBp0YWRl+BfkQSOw?=
- =?iso-8859-1?Q?i87xG5QbLsOLDVpG1C7QRKHe+18wDRgcoS9P9Zy20c2x1CMr9d5Z/5vSXf?=
- =?iso-8859-1?Q?tMZg3L/I4Es7I6MQCr9J8sQuASFtKTzoE7P/U1gOcvBoXQ6N5y2L+D9paD?=
- =?iso-8859-1?Q?Du6AvD5JKTvZyxXhqknIc4/yItFmffkdzqPLnbcWARGBaNUalWv2EKK+ei?=
- =?iso-8859-1?Q?YfRxuXB0gQ0zb34K2kquwfPCdAP2H+6aPkogcmN1bkm9GNNyDyqKZn/R/u?=
- =?iso-8859-1?Q?HHqlPF+ljjA4YuFBk+9liQbUUlYR6iUa13XxlHg90VQdhVCxqy03Iq8uOO?=
- =?iso-8859-1?Q?7fFvzQ+yQIQMHOapRg/ybkIK2njA7G66syfWWtaa7jh5N67wwzzsaYXNXa?=
- =?iso-8859-1?Q?bRxGomUoizzJ852DXoXK6lrltIhWmgC3aNIlP8C0cKbTiDEwUw+f/T81Mf?=
- =?iso-8859-1?Q?1PVFKZ+SQfhagZ0ugtU7rAN/COTE327AJHTyFhI/ea4fBIxJ5JdqRTP1ZG?=
- =?iso-8859-1?Q?0m4EHM4fbmyhfin52WqopEfdYa+66gxvA3TXv4qjpEF+VPO0LHGXLOMpzO?=
- =?iso-8859-1?Q?fqpIQZAzwlqEfIApZURbi5DCE1bJb7lKEnoxjgv2Yhvi5kDTvXzJhxQ++w?=
- =?iso-8859-1?Q?255VoauCVdEJYB0x6M2liXyrdeBObAIIRGIkphPnI7hMkTgGv7DOlG26cV?=
- =?iso-8859-1?Q?yNvYfOXM9Cu5j2045O9pGJk6RRB4GHF1SvpYrqX65QcFzfuqvZ6LC0Yvji?=
- =?iso-8859-1?Q?L43NoqMd7naVfHDmyxT9IX2BkMtT7wr+o66CrX07YVotvFjIz5xy4mIAwY?=
- =?iso-8859-1?Q?QI8v7ijzFU/KoW7qdkUAwyXqPyjOsuBy/N?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07ba2413-2c92-488b-b8bb-08dd4a438d30
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 02:26:55.2061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q5p/owOoee/FHzlWTQW1qC1bCpPiv9dD9j9p1otgzjHB30Pllr+uaGC7l3wqehbUwWJDbCXc575xXnJY+jkjGA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9911
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_182704_827708_958B502F 
-X-CRM114-Status: GOOD (  26.26  )
+X-CRM114-CacheID: sfid-20250210_183054_162008_24BE956E 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,86 +85,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 04:48:56PM +0100, Alexander Stein wrote:
->Am Montag, 10. Februar 2025, 03:36:48 CET schrieb Peng Fan:
->> ********************
->> Achtung externe E-Mail: Öffnen Sie Anhänge und Links nur, wenn Sie wissen, dass diese aus einer sicheren Quelle stammen und sicher sind. Leiten Sie die E-Mail im Zweifelsfall zur Prüfung an den IT-Helpdesk weiter.
->> Attention external email: Open attachments and links only if you know that they are from a secure source and are safe. In doubt forward the email to the IT-Helpdesk to check it.
->> ********************
->> 
->> > Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-
->> > controller references
->> > 
->> > Hi Peng,
->> > 
->> > Am Freitag, 7. Februar 2025, 13:02:13 CET schrieb Peng Fan:
->> > > On Fri, Feb 07, 2025 at 09:36:09AM +0100, Alexander Stein wrote:
->> > > >Mark ocotp as a access-controller and add references on peripherals
->> > > >which can be disabled (fused).
->> > >
->> > > I am not sure whether gpcv2 changes should be included in this
->> > > patchset or not. Just add access-controller for fused IP will not work.
->> > 
->> > Well, I was able to successfully boot a i.MX8M Nano DualLite.
->> > 
->> > > i.MX8M BLK-CTRL/GPC will hang if the related power domain is still
->> > > touched by kernel. The pgc can't power up/down because clock is
->> > gated.
->> > 
->> > Well, with GPU node disabled, no one should enable the power domain.
->> > But to be on the safe side I would also add access-controllers to the
->> > corresponding power domains as well.
->> > 
->> > > This comment also apply to i.MX8MM/P.
->> > 
->> > Sure. Do you have any information what is actually disabled by those
->> > fused?
->> > It seems it's the IP and their power domains. Anything else?
->> 
->> In NXP downstream there is a patch for  drivers/pmdomain/imx/imx8m-blk-ctrl.c
->> 
->> soc: imx8m-blk-ctrl: Support fused modules
->>     
->>     For fused module, its pgc can't power up/down and clock is gated.
->>     Because imx8m-blk-ctrl driver will pm_runtime_get_sync/pm_runtime_put
->>     all power domains during suspend/resume. So we have to remove the
->>     pgc and clock of fused module from blk-ctrl DTS node.
->>     Update the driver to support such case.
->> 
->> But this patch also needs U-Boot to update device tree nodes,
->> I recalled that U-Boot will remove gpc nodes, but not update blk-ctrl nodes.
->
->Does it work, if we add the access-controller as well for pgc_gpu3d
->on imx8mp? There is nothing in blk-ctrl AFAICS. But for VPU there is.
+From: Bosser Ye <bo.ye@mediatek.com>
 
-Adding access-controller under pgc_gpu node will not make fwdevlink
-work for the pgc_gpu nodes. It does not have compatible, and device
-is created by gpcv2 driver using platform_device_alloc. Same to vpu.
+In the kernel-6.6 IRQ subsystem, there is a case of IRQ retrigger:
+Due to the possibility of electrical signal glitches causing false interrupts for edge-triggered type IRQs,
+it is necessary to clear any potential false interrupts or re-triggered interrupt signals from the interrupt
+source between disabling and enabling the edge-triggered IRQ.
 
->Which clock needs to be removed there in case g1 is disabled?
+When the module using this IRQ may disable the IRQ as needed and then If the disabled IRQ is triggered, the IRQ
+subsystem will set the istate of the corresponding IRQ descriptor to pending. After the module using this
+IRQ completes other tasks, it clears the pending state on the GIC using irq_set_irqchip_state(). However,
+the pending state in the IRQ descriptor's istate is not cleared, which leads to the module receiving the IRQ
+again after enabling it, even though the interrupt source has not triggered, because the IRQ subsystem
+retriggers the interrupt based on the pending state in the IRQ descriptor.
 
-Take i.MX8MP VC8000E as example, the vpumix blk ctrl, the vc8000e
-reference under vpumix blkctrl should be removed, including pd and clock.
+[ 1015.093550] [T300432] ccci_fsm: CPU: 3 PID: 432 Comm: ccci_fsm Tainted: P        W  OE      6.6.30-android15-8-o-g3d1adaff8937-4k #1 4e6ae6c76d81ac612e982b5e84c39c55b332fb77
+...
+[ 1015.093609] [T300432] ccci_fsm: Call trace:
+[ 1015.093628] [T300432] ccci_fsm:  dump_backtrace+0xec/0x138
+[ 1015.093668] [T300432] ccci_fsm:  show_stack+0x18/0x28
+[ 1015.093697] [T300432] ccci_fsm:  dump_stack_lvl+0x50/0x6c
+[ 1015.093728] [T300432] ccci_fsm:  dump_stack+0x18/0x24
+[ 1015.093747] [T300432] ccci_fsm:  gic_retrigger+0x74/0x7c
+[ 1015.093764] [T300432] ccci_fsm:  check_irq_resend+0x8c/0x16c
+[ 1015.093777] [T300432] ccci_fsm:  irq_startup+0x2ec/0x360
+[ 1015.093788] [T300432] ccci_fsm:  enable_irq+0x84/0xf4
+[ 1015.093798] [T300432] ccci_fsm:  wdt_enable_irq+0x2c/0xec [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
+[ 1015.094263] [T300432] ccci_fsm:  md_cd_start+0x34c/0x510 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
+[ 1015.094707] [T300432] ccci_fsm:  ccci_md_start+0x38/0x48 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
+[ 1015.095150] [T300432] ccci_fsm:  fsm_routine_start+0x448/0x1ed8 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
+[ 1015.095593] [T300432] ccci_fsm:  fsm_main_thread+0x20c/0xa78 [ccci_md_all 029335d5c64293385f41211c1eb232e631274782]
+[ 1015.096035] [T300432] ccci_fsm:  kthread+0x110/0x1b8
+[ 1015.096049] [T300432] ccci_fsm:  ret_from_fork+0x10/0x20
+...
+[ 1015.096067] [    C0] swapper/0: HWIRQ 107 handle_fasteoi_irq[714] set desc->istates to IRQS_PENDING // CPU execute IRQ's ISR
 
-So for non-blkctrl nodes, it is fine to use access-controller and rely
-on fwdelink to defer probe. But for blk ctrl nodes, it will not work.
+Solution: the corresponding upstream patch modifies the irq_set_irqchip_state(...) in the IRQ subsystem.
+The purpose is to clear the pending state in the IRQ descriptor's istate when successfully clearing the
+corresponding IRQ on the GIC.
 
-For pgc nodes, it may or may not matter, not very sure for now.
+Test: Stress tests have verified that the patch is effective and does not cause any side effects.
 
-For blk ctrl nodes, we need provide a generic API saying
-access_control_check or directly using nvmem API.
+Signed-off-by: Bosser Ye <bo.ye@mediatek.com>
+---
+ kernel/irq/manage.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Regards,
-Peng
+diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+index 8a936c1ffad3..ad1cefb2e5aa 100644
+--- a/kernel/irq/manage.c
++++ b/kernel/irq/manage.c
+@@ -2893,8 +2893,11 @@ int irq_set_irqchip_state(unsigned int irq, enum irqchip_irq_state which,
+ #endif
+ 	} while (data);
+ 
+-	if (data)
++	if (data) {
+ 		err = chip->irq_set_irqchip_state(data, which, val);
++		if (!err && which == IRQCHIP_STATE_PENDING && !val)
++			desc->istate &= ~IRQS_PENDING;
++	}
+ 
+ out_unlock:
+ 	irq_put_desc_busunlock(desc, flags);
+-- 
+2.17.0
 
->
->Best regards,
->Alexander
->-- 
->TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
->Amtsgericht München, HRB 105018
->Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
->http://www.tq-group.com/
->
->
 
