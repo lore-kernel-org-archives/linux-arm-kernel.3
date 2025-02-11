@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF16C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB27C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Feb 2025 15:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7i4xaj3drZyIkTzJkuga2NcoF4fZ2QbkgmTbCahmVXY=; b=5DlhcC+RrQkDj7dx4mUUpdxoDQ
-	/sdtPehvGbWKQvfVwg/sEFH1DQnFiUK6WAdXCFCaNegfRqAomE+QpxsVCnoLXqJm0NEaj/QXlmoPQ
-	PfU5Yzsd4bl+p7CzHnY9SaDGsSCY3IBtOSI0QQ/mLXMtIlbxV6fuNQqJJex1PgNRd82asKhQeziMG
-	oPb194IorCQ06EYrF3el2A3y7d1i0KXP5H1fu4hJ9GRMeWwFEGrrPPugUGjBW0JWFNTWdhTByPPmz
-	QkWXE+ZtNIm83FjcuVuWVfaHM4GrBJBq6fSgFEf6Xxm9izhPFGSyguNjWDPhPJWCMCO+bnzrgDF/p
-	tExwGlGA==;
+	bh=1Dtej5+tPGzgmnccxhn4tYjpS4IzVlXT0ycNIQ3SAkk=; b=uGQ0+g328NgAB3uBXSyB2M58Bi
+	csfOeSROkYqe1UggLT/e06A8+hSsz0OCZQXM+Rph1t7Fc1S+Z5muI67qXvHiy8LJdIMxUF1fcNjgO
+	PG7Xl+zWXc7ci7SojFZXlpHy9s5rHXmO6L33zQ9k4dSo9/eX1RpGw9OsRbvZZ5gySN65n303h5BcZ
+	r3+dngbJ0RhI47W9KjorTDaq8Yj2ff8lZ0nc93Ozq/hHqftHAEoYNqjFIB7cpNj2wiPP26GDWDQUu
+	2QosmjCUfhGGMkgjY2wjKz7r6nt0hZikuGNh1RcX5aVLM0l6JRfaBHW+K6SQzT40Felw7xRHWA+kM
+	Clje51EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ths0I-00000004FuN-44FD;
-	Tue, 11 Feb 2025 15:16:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ths1l-00000004G86-3iIp;
+	Tue, 11 Feb 2025 15:18:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thryt-00000004Fj7-1vAn
+	id 1ths0M-00000004FvP-1KQz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Feb 2025 15:15:24 +0000
+	Tue, 11 Feb 2025 15:16:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 18120A407F1;
-	Tue, 11 Feb 2025 15:13:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA3DC4CEDD;
-	Tue, 11 Feb 2025 15:15:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0193D5C274F;
+	Tue, 11 Feb 2025 15:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFB6DC4CEDD;
+	Tue, 11 Feb 2025 15:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739286922;
-	bh=0E3vuDnjxTbAYMgDY7E6G0OZxfCEhA6gVmhQA5bwvH4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Tw1yLhyfFlX9VTLH1mTGGFT5vFeXpMtl/e6WBF5Ho4uHpAaKPoPzcmYGrxUcMkD6a
-	 fyhdzbpOEFXA8uCoNLPe988PH+jcldsiRw4jt53VZVOixsfKE7C7FqWLjTlKye6z8i
-	 QUbcUdWrTocAEcT/FDORz85dx/jq++fSiXykVjBF4E9fKk1qnYxIzDNYC73z5A8A2y
-	 gT7C2ThzLd71LEqmXVLJttm1xaxjKFj68WWKFA4IO5lTtuP1f4DcMrV08ylb8GcD9n
-	 hT3iEetPmqVzz0qfwMpcezOnYaAuoyB2iSBX3uTGciWE/Zu/mNEIOrDQLQjN0jAsLR
-	 Qs6YqnvNtmgyg==
-Message-ID: <3158e911-c771-4186-b287-50d2395b8c94@kernel.org>
-Date: Tue, 11 Feb 2025 16:15:15 +0100
+	s=k20201202; t=1739287013;
+	bh=RTGxW5AvzVSz8elarxvdv1y9lwLwzv8O6K/rF3m8CcQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=QwTlTUoDPVBAmL6PatKWXdCQ+QVMTTRPm9XC2f6TrGQxaLAbtHdiLmSBWDFMJ0CtQ
+	 3sVWMc4uTCL+nvZ2LJrHadWa7vifrkgIwtCdO+rJ7urAFUC8dmGftSFWNaXZHWZ1Sa
+	 GgDS6umkL954588wZifcJ9c53s/bP10Brj0CEntMYkTRZW/cfChvlkV1QXTZWffVJD
+	 zqK793f2gVtSADLw2hf7ZQC0/1LbNW5aM+uq5w1cWQVdg65bmLMyBrbA2yoheQkOPC
+	 CWn3Iwlk/8xZbAR5vnVawqCecy5YFFSkDmiFwrNW+ySzf9dIsSSOfeHa3dbziu7Nop
+	 Fh/hvm7qilg2g==
+Message-ID: <f2dc2e86-efa3-488f-bb0a-33bc681525c5@kernel.org>
+Date: Tue, 11 Feb 2025 16:16:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: qcs8300: Add device node for
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add device node for
  gfx_smmu
-To: Pratyush Brahma <quic_pbrahma@quicinc.com>, Will Deacon
- <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com>
- <20250211-b4-branch-gfx-smmu-v5-2-ff0bcb6a3c51@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Pratyush Brahma <quic_pbrahma@quicinc.com>
+Cc: andersson@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ iommu@lists.linux.dev, joro@8bytes.org, konradybcio@kernel.org,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, robin.murphy@arm.com, will@kernel.org
+References: <20250203-b4-branch-gfx-smmu-v4-2-eaa7aa762f48@quicinc.com>
+ <ed3cc71a-426e-4044-86dd-945751e282d5@quicinc.com>
+ <990bb621-5056-4460-82db-9805699d8a8d@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -104,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250211-b4-branch-gfx-smmu-v5-2-ff0bcb6a3c51@quicinc.com>
+In-Reply-To: <990bb621-5056-4460-82db-9805699d8a8d@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_071523_633180_9EE3F1DD 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20250211_071654_447616_164D312B 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,19 +123,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 05:45, Pratyush Brahma wrote:
-> Add the device node for gfx smmu that is required for gpu
-> specific address translations.
+On 10/02/2025 12:41, Krzysztof Kozlowski wrote:
+> On 10/02/2025 05:58, Pratyush Brahma wrote:
+>> Hi
+>>
+>> Can someone kindly review this patch?
+>>
 > 
-> Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
+> After 7 days? Community is not working for you to make such demands.
+> Observe standard waiting time. Or better: Please relax, and help out by
+> reviewing other patches on the mailing lists in order to relieve the
+> burden of maintainers and move your patches higher up the list.
 
-As pointed out by Rob, this wasn't ever tested. One more example of work
-where you have the binding in the same patch but refuse to use it.
-
-NAK
+Before you start pinging us, test your patches. That's one of the
+easiest steps to get your patches reviewed or applied fast.
 
 Best regards,
 Krzysztof
