@@ -4,74 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988A9C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1C1C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dy4EsI7ypETbFEpq/zTr0dhbN+pWJpk9kLQK92GWoT8=; b=GulSi2FuMnxQPI+uyRtlfumGWR
-	rxUh0NdsKFIW/EASpBpVW2yLjlCQbkz3i9V7w4EH5nJF8A7eXjxKCDTtGsrpZzmzewx+Fzq3y5IRw
-	4VOY86p0L2aT3Qdl2ACtWwQNZsaxlAg6UwEfzbsj/Nhzh6rrpxuGViO0wxNex1B3W7csUZSw/dOHR
-	7eyd9IkpFcL7F3+K6SsWnZ5muOLR6MjfdDkVWbiX+L2b2MFEGu18OVyyMc6nR5Lnsi8aEWOwk+wUk
-	vOgJPtMIGB31k8SAlGrgHne+5TYjnhSzZ9FqXllj0RrlPuHDW5YbETZ8M+DPPnD7oDWMHYHOZOwvd
-	TPkvUNnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LC9rVxldnnZSpZNEWmyL2LQZYkCHll/ZX7oJYcdLzeQ=; b=WGEAZiV14tpqwu
+	ZonZS0O1C56BVx7w+c1AqbY2g6hA+Lc5MczLFnq+xxkPQdhSIgZFuxjuJgto2ZGrbmtlVKy0yzqCP
+	JusO3KiBUTgO2nji2d3N0v7YiVMBUROQYASODJLcQ94B/A+9E/WVEx/gXBI5pylV4oInEwsYaSYY6
+	468KVTdxg5zhLwFZ61Wji/ACgeCW7ns7Si3ou1CLPZ6un/tWdO3XfCgcB5hwjALfjXqQoVULzmWSV
+	AEYy9gwTtFvGdnB9uxCpHTxpDjZwK5h3cUvbcpn0UScP/3AKWOVf0MceNFkZknZlFAAho9imx8P3a
+	31QHk7EQWOUln3XoK9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8vQ-00000006kmZ-29Mu;
-	Wed, 12 Feb 2025 09:20:56 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1ti8yw-00000006lL9-1guG;
+	Wed, 12 Feb 2025 09:24:34 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8tz-00000006kZy-3um1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 09:19:30 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-03 (Coremail) with SMTP id rQCowACXkziTZ6xnDxaiDA--.30403S2;
-	Wed, 12 Feb 2025 17:19:17 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com
-Cc: UNGLinuxDriver@microchip.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] net: microchip: sparx5: Fix potential NULL pointer dereference in debugfs
-Date: Wed, 12 Feb 2025 17:18:46 +0800
-Message-ID: <20250212091846.1166-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	id 1ti8xU-00000006l1r-4B35;
+	Wed, 12 Feb 2025 09:23:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1739352184; x=1770888184;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=xUs1bH+W/iCogz1hXGPiTgCgI6O4GmwLfBC8KJfbnv0=;
+  b=wNzXIAOrBgq1/nP1+TIBtjfJBdeQQsoqy2Ddb91DsOoQz68e1GuzQgpo
+   Lk7lz6RzD83nYKSy0fqojDh0Q0pnjmRxQn86lkWXioEKUeIuNhMzFlFtu
+   CeA/go8VtL1lCtpIwJxo7ZGYPXY+PVxNuMspF8KWGzXrQbDJwfb/TyM4+
+   Q4PrpL24uQmTe0+o4NiRSwmeIj0bRJ/BtvQkxVgQl94cGD76RHA4zOVCr
+   J1+kzW5+KvY0numvyHoM1im6HunXJUm6YpUxijIbEnQeWlKarlb5kSGaw
+   hsK35oX9G/WKXKgSmVaxw+ZSawkd4aJqKW5fcrEJIKOdnRjOyGtAzw6dU
+   g==;
+X-CSE-ConnectionGUID: Im7caqcMRgeiMBKdbNTopA==
+X-CSE-MsgGUID: 14u+0lMYQ4mioTEP1VJ3lQ==
+X-IronPort-AV: E=Sophos;i="6.13,279,1732604400"; 
+   d="scan'208";a="37190261"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Feb 2025 02:23:02 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 12 Feb 2025 02:22:22 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 12 Feb 2025 02:22:17 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Subject: [PATCH v3 0/2] dt-bindings: mmc: Fix the mmc-slot and Convert
+ atmel,hsmci to json schema
+Date: Wed, 12 Feb 2025 14:52:09 +0530
+Message-ID: <20250212-mmc-slot-v3-0-2bf288207040@microchip.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACXkziTZ6xnDxaiDA--.30403S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFWftrykur4rZFWkKw4fAFb_yoW8JFWDpa
-	1DuFyYg3ykAwsxGw17Cw48XFyrWan0gFyfWrWruwn5ZFnYgFZ3Xr15CrWF9ryFqrZxGrnx
-	tF45Za9IyF1qyFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7VUb8hL5UUUUU==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAcLA2esWj42QgAAsY
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEForGcC/22MywrCMBQFf6VkbSS5SWjryv8QFzEPe8E0JSlBK
+ f1304Ig4nIOZ2Yh2SV0mZyahSRXMGMcK4hDQ8ygx7ujaCsTYCA58J6GYGh+xJky1cqu6612WpB
+ 6n5Lz+NxTl2vlAfMc02svF76tfyKFU06tN61stbDC384BTYpmwOloYiBbqMBHVgyY+pJhk7Uwy
+ gvmwPa/8rqub5w2t5LhAAAA
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
+	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>
+CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739352136; l=1427;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=xUs1bH+W/iCogz1hXGPiTgCgI6O4GmwLfBC8KJfbnv0=;
+ b=P8VjgomucORyCZ1TW0hO3s+2LkILloCeyETpd/3Lroit69beEjtEhR5Yj3qitz1mcZpRjMA24
+ S4U58N+vpuIBWU9xe2QtSHVd/I3qYYVcLGZyZvevU3GkdS/zf2XEufi
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_011928_352846_58A82C5F 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20250212_012305_350587_7A2EB0E1 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,33 +100,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In vcap_debugfs_show_rule_keyset(), the function vcap_keyfields()
-returns a NULL pointer upon allocation failure. This can lead to
-a NULL pointer dereference in vcap_debugfs_show_rule_keyfield().
-To prevent this, add a check for a NULL return value from
-vcap_keyfields() and continue the loop if it is NULL.
+This patch series modifies the property status of "compatible"
+(required/optional).
 
-Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
-Cc: stable@vger.kernel.org # 6.2+
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
 ---
- drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v3:
+- Add compatible as required property in meson binding.
+- Include the dependent patch that converts txt to yaml for clarity in patch series.
+- Refer the mmc-slot binding in the hsmci binding.
+- Explain "why" the property is made optional in commit description.
+- Link to v2: https://lore.kernel.org/r/20250205-mmc-slot-v2-1-da3c5f30e2d9@microchip.com
 
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-index 59bfbda29bb3..e9e2f7af9be3 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-@@ -202,6 +202,8 @@ static int vcap_debugfs_show_rule_keyset(struct vcap_rule_internal *ri,
- 
- 	list_for_each_entry(ckf, &ri->data.keyfields, ctrl.list) {
- 		keyfield = vcap_keyfields(vctrl, admin->vtype, ri->data.keyset);
-+		if (!keyfield)
-+			continue;
- 		vcap_debugfs_show_rule_keyfield(vctrl, out, ckf->ctrl.key,
- 						keyfield, &ckf->data);
- 	}
+Changes in v2:
+- Instead of moving the compatible string to the other binding, just make it
+  optional (remove from required list).
+- Link to v1: https://lore.kernel.org/r/20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com
+
+---
+Dharma Balasubiramani (2):
+      dt-bindings: mmc: mmc-slot: Make compatible property optional
+      dt-bindings: mmc: atmel,hsmci: Convert to json schema
+
+ .../bindings/mmc/amlogic,meson-mx-sdio.yaml        |   3 +
+ .../devicetree/bindings/mmc/atmel,hsmci.yaml       | 106 +++++++++++++++++++++
+ .../devicetree/bindings/mmc/atmel-hsmci.txt        |  73 --------------
+ .../devicetree/bindings/mmc/mmc-slot.yaml          |   1 -
+ 4 files changed, 109 insertions(+), 74 deletions(-)
+---
+base-commit: c674aa7c289e51659e40dda0f954886ef7f80042
+change-id: 20241219-mmc-slot-0574889daea3
+
+Best regards,
 -- 
-2.42.0.windows.2
+Dharma Balasubiramani <dharma.b@microchip.com>
 
 
