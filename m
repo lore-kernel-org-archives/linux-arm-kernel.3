@@ -4,179 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43DDC021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC75C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdQXgHpX97AKjG/ZiksP8x9LnK9JxlevA/SjC2N9kbQ=; b=bAovIJf4hGzKFMaWIyUBxZmd8s
-	qUtrwvF2MXDVJEWyodycMYMdXgn0B/dJ7FQBgOvMIXUmhPYWVg7I958DkBA0NItuQD5FPwV22rv8K
-	S2vMRih09rPkHi/O+1+BbYVaOEG0UXg4E5iy7lk8hgKLyBmTdXGwGrzU6E40tXm55vLN7eZuyGeZR
-	XXdDSR0HSMTphUv8MwJzPc1bwvpJojs7WjPOO292RhMyN7HCTdnke99gzIUU8pQNXz5ZMWyZszKCb
-	Ao4WmB2ds321pxS3KLLyc52C+GUDOJMGwMjl9QpIGY4mtuQdqNrN2FA9Ge2HSBYJlP+kVZFSBOlkm
-	YTVAR9Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BMLmzen5WTV/sP6vXniuulCvvXBqwHV7Nu+i+frW+Nk=; b=lRbaLYaIR0AY7fYnqReXZaDTTA
+	VH7Vryd3F9E7AnUDgWfEGrjYUb9UxIoyQlGqPaiW6TKMXGL5uwag3q94llMsBcL3at+8r5HDNMyLX
+	fkPN+DRwFK5MSw4UKZQRvUcXbu1mGZdKP983JXGWNJw4EKjE8wIWTv4yQM/JVQaLwaG6qNZsVt0SW
+	ypaCCB8n6ZUsHO+M0NKj/f0dC8VBterN5vsz6lA4Lm7HEUscct6CYAsCMNwsBuq3ci+Op+tmmav8/
+	YMdYQCDyDhxryPd2lgEgcP9gtZVFZQn1/t9Nfif4r5onrt0MTMX/Ohy3AhT6Ehi23SL89QABZZYiL
+	7aK6uKVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGGX-00000008F4a-1yFc;
-	Wed, 12 Feb 2025 17:11:13 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFln-000000087wE-1Kj6
+	id 1tiGGd-00000008FEQ-0Zmt;
+	Wed, 12 Feb 2025 17:11:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiFu9-00000008A8M-3ktc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 16:39:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IAvCXEAnxE762jujAO922oyO2annX38ZsfUr8cDm064fl7h4rmeKAv5/sOwXBup0AyPBozUNHgI84Raxmfoa3BViMORpkxpxIPPXQ2wDFXWI9Wyo8ed8qvPBHEgLUBoedfXv+/E5ixFjN+SoC1nEWIyL5IbyMU1XQMvbEpeZ2aRiNG05qoDdSEyKSjrggn+eXtRFkILrrvMU2y5aB6xinkbM+Vl/0URsKYenWT+YVFbe8R+IviWqY/L7FIdObGJtKnbJzKy+MGLKgP+PqqE9gvz2pOv9kHvvgK4JYk/iPm9SB6DhviCUlTO7txWWLMCh0OUBcotKW/91K1wmNM6kbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WdQXgHpX97AKjG/ZiksP8x9LnK9JxlevA/SjC2N9kbQ=;
- b=uzLnR2BKwiU+N1mojsKlu77+2CiowIsVPWH6i8HaMUa2pq3DEiEFbkylLsSD/XHWBWnOqtF5bD4/4HR+MNwOyrTmqMQH9PoeoOOJydUKYr+RmSACPXc9jlNkXKZ5KKMt19JU+AAAsdC0GDrmcQyn2YH97n9z31xR8ch6azTspTlDPgym6DEVhlQG7D7PFxbQzbJ9gGNf3diQWJ9+XdLwZksczeiaO3PEl7V/6qn3agd1SHlKyPESVFZ00kxcZo6ugW1Q8uA54OOA0XnPZFAhdfzF+f+b2YHjoZJXRc9YcZf7NjPq7A0b8UOCJQh4Y1NTTSzLAXG6G+CkvXM/bT7M2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WdQXgHpX97AKjG/ZiksP8x9LnK9JxlevA/SjC2N9kbQ=;
- b=mAsrlNDK8UqLD3Nv/TKu51d7sPIa7xCYKn1+QshzVrKzXtVIYGRzaTJQg/etm6SXR8h+py4iekk9yJQZPFuDRMCG9ptNu32XPLNQVxE1J8sgymJBUmnO5oTo5e5tr5w/lGX17kUvfQLk3kmMgGAi+Gm9DT4xQBOpzW9/lR11kJhgqowt7yaMwtjYwBAJyiTNYFDXaCRJfoF0dWIr7tzOTokWO1uTS0vRtDI688WW+Gwhom4T05tkWnGm1kuFr+GPBd2JSHfbKQvonyex5MWSTQEPDmm92Ym+2kJkQDDXRCrKK56PPMarHFWIQPAXb8H7j5Fln4tZylqDzIVy9inHkA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS1PR04MB9261.eurprd04.prod.outlook.com (2603:10a6:20b:4c7::13)
- by VI0PR04MB10543.eurprd04.prod.outlook.com (2603:10a6:800:25a::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.15; Wed, 12 Feb
- 2025 16:39:21 +0000
-Received: from AS1PR04MB9261.eurprd04.prod.outlook.com
- ([fe80::7b16:7596:6bb4:c5fb]) by AS1PR04MB9261.eurprd04.prod.outlook.com
- ([fe80::7b16:7596:6bb4:c5fb%5]) with mapi id 15.20.8422.012; Wed, 12 Feb 2025
- 16:39:21 +0000
-Message-ID: <78e5fbe5-9895-4467-af05-0aaf79820e06@oss.nxp.com>
-Date: Wed, 12 Feb 2025 18:39:17 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-To: Frank Li <Frank.li@nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Bogdan Hamciuc
- <bogdan.hamciuc@nxp.com>, Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-References: <20250207163808.1208552-1-ciprianmarian.costea@oss.nxp.com>
- <20250207163808.1208552-3-ciprianmarian.costea@oss.nxp.com>
- <Z6ZqGeswJDPTlzvo@lizhi-Precision-Tower-5810>
- <3cb2620c-46d0-4334-bd41-58b2720c2cca@oss.nxp.com>
- <Z6uDuL97EB9KqD4b@lizhi-Precision-Tower-5810>
- <2e633e46-ac59-495d-9ecd-46c34d2d3242@oss.nxp.com>
- <Z6zDT/lbAeaJClV8@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <Z6zDT/lbAeaJClV8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM9P193CA0029.EURP193.PROD.OUTLOOK.COM
- (2603:10a6:20b:21e::34) To AS1PR04MB9261.eurprd04.prod.outlook.com
- (2603:10a6:20b:4c7::13)
+	Wed, 12 Feb 2025 16:48:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21BCB12FC;
+	Wed, 12 Feb 2025 08:48:26 -0800 (PST)
+Received: from [10.57.81.93] (unknown [10.57.81.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 928B73F5A1;
+	Wed, 12 Feb 2025 08:48:02 -0800 (PST)
+Message-ID: <a1604360-3e7f-47af-bba3-f4fea690a861@arm.com>
+Date: Wed, 12 Feb 2025 16:48:01 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9261:EE_|VI0PR04MB10543:EE_
-X-MS-Office365-Filtering-Correlation-Id: 409a6401-e54d-47a6-ef37-08dd4b83cce3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y3RLSGlnVS9ydWNJbUV1QnZ1UGQ0RlE1b2pkL05IeVBySXBCZ21oWnR0Mys2?=
- =?utf-8?B?TVhtUldsbENvTlNNNzl4RENSQmZDWUppV2VwRG1UaTU4ci81Tjc3UXE0L2Jh?=
- =?utf-8?B?elJzM01URmlTNTdnajA1WmdDZjIrZWFhaFhYQ08remppNUkzRWl3OURNL25h?=
- =?utf-8?B?SWJubEVZYjlWQW5uUkV1Um5VRDdBWWFJME1ZR01DZllKbWdXcXpGbmw3ZmJt?=
- =?utf-8?B?SFJoTG1SZzFXMkF0dGU5aVp4cFkyR29nOVF1a2Zua0NpUmI0RUJhRFNlSkdp?=
- =?utf-8?B?bmcwRTAvNHdrcEhaMFlzaGZlY0J4VTZpUFo2bHlWM0lsQmxQanJObjBjNmZH?=
- =?utf-8?B?WGRpTVJKcWowdHhBVFRyT3BQa3VTQ3R1czFISGpYenVzeXA0Y1U0SFNFcHR4?=
- =?utf-8?B?YUkrWFAyTzdQNFFMVTg2WFJxd2FiMXV4NlRCdW54MXpiTVFPby9reHpnVDJK?=
- =?utf-8?B?bHViVzZkVjBmS1p1V1hQeVQ0L05kKzFPWkN1RWhWSndKL3g1SktTYmhkNDhO?=
- =?utf-8?B?Y3B3dmFoZHJJcldLS3kyalluT0hob2x4dXo3T1RrcVhLbjB3NDFHWmV2eUEy?=
- =?utf-8?B?clE5QkQxV2c1czhSKzNkN0RpVVZua0Nub3YvSTVONGZLMVNhVGdRbGI2RGpt?=
- =?utf-8?B?N3l5b1hGVzY5Z1lpbTY3VnFMcVUxTkcrNFpCM1gyYzNuMWxQdEtzOWRIcUZx?=
- =?utf-8?B?c2E2VkZ1Q2RFSDRkb3AydHBkaTBBS3BqWXF5UnlHeXpMb2xGT3hNKzBzcGFV?=
- =?utf-8?B?N1pVS01XUU9CWWJiU2R1cXpnUUxZUlVoQnIzbjk5RjhWazltMWZLdnFUQ0pS?=
- =?utf-8?B?VWpseExLSExXY09oWlVJVkQvamZtY2ZaUVYyNFIxaVl0UEd3Q3pHTDdBQnVR?=
- =?utf-8?B?RUFubjVFWTVYOGlMRHYzSnQxOFZmd2lNZnJOWGlBWU9QbDNRanN3UDl6OUwy?=
- =?utf-8?B?NU92a0NnbXdpSkYrNVhQekh4UG92d0Y2dUdtM2xwQjg2M1FCT25SVnNWZzVh?=
- =?utf-8?B?amZKQzZNSy9Db1JjUTk5YmtPRXBxdW42b0dvVGcvbGNKSUZBb055Y29WNEZD?=
- =?utf-8?B?cW5OMmJKS09tQkxNV1RRbWprOWpFeTNXZVBGRGJibGN5ZHVoRkkrSTZzU3Qz?=
- =?utf-8?B?SVFULzJneFV5VkdGZGxhRThLSlRkanBnbFB3bjFBSENDdGU2anlxdnB0OTUw?=
- =?utf-8?B?YmRHeXNSYkNKYVVkKysyRXAwRHM0SksrbXJQcW5nUlJhVjNQUzh0LzkrL0t0?=
- =?utf-8?B?cU5veDFvTXE0ODdRU0VFZERVRW8xaGJLU1FVWWUySFZEbzZCQ0tTS2phK3dj?=
- =?utf-8?B?OGxicDU3UW5pVFJ3RmkybVhRZEpiVVFyVHlSYUNOSTUvOWR3YnEzak9LNzNL?=
- =?utf-8?B?K2V4Q2pqTFhYQWxIRkp1ZFc4dzRyTHg0UldBcVZLMSt6RXhmNDVmY3hUdGFw?=
- =?utf-8?B?WlJVZEc4QlFjUTJKV0ZBRHZzTmtXSHZjR0pZcWZneUlQYzQ2SzVOK0licmVN?=
- =?utf-8?B?L1dKK2FqbEw3cU9VNThjRHRIQWFTYmEzcXpMVEJHQWVoRU15U0x4dlJDdUhW?=
- =?utf-8?B?eWxZRDE5YXNVQnl1V0hNR08yU1pwdnNRSDBVVDNMalAvTkl4d0dKTUt5K09l?=
- =?utf-8?B?aDRZemNCMERLRE5jN3F2M1BpYTdiWGRTL25oZUU1bDJ0TCtIZWFnODhSZ1E2?=
- =?utf-8?B?WmJrbEN3cHZLVktJZjR4c3UwZlFSekF4OVBZaWoyTEFsNkM5eGlVbVEyVFNF?=
- =?utf-8?B?STFwMGNsMWw0dWdSdnB6WE55VHNBeW5rN1ZGVUdxSlhsRldScVdNaUM2SG1W?=
- =?utf-8?B?UkxxSktraXR6MEZwRy9WeHc1YTVhY2ZKZkZTNy96UXRUSnl5ek9wTWwzSG1R?=
- =?utf-8?Q?oGkLfZUfyi/LQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9261.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VmdNMk5iZXM2by85SU13MjIrdW1ncXVUbGRmNnZ3WkJPbHBsMkJNK1lwL0RM?=
- =?utf-8?B?Tk53dmcvQlYrazFjaWxVdXQ3K1poL0xWaXVlbnFmSlNiOGQ5bDVHTlBaSFRm?=
- =?utf-8?B?RStUSnFEMzJpdnF2NDhPeW5WWG4zZFJOM3NBbzhhQ0FRM1RBdkRmMitrSU5M?=
- =?utf-8?B?Q2lEbGloelZoaVJqMVFjUU5qYWU2dGUxc0JhYW1FWmF4bUFNSUxoMFhYY1pL?=
- =?utf-8?B?QW03VzIvd0M1Y3RGTWFOUFk0Z0ZLZE9pcG1EOGMxb290Nmk5Z0s0NVFZbHZt?=
- =?utf-8?B?VkRucUtjOHRYdG5zRTdXYzl4M1A2K2MrUEcyMjg4Nmd1emFRZlpOWXlJalFP?=
- =?utf-8?B?YmdRRmJQWVh0Q01BNHY2UHlxMzdESVFvbGlPczY2SURsZkVHTEJ6bGpVNlVp?=
- =?utf-8?B?cHgzRWRPemFiazE1WXJQN2hsVXgvaWZHalp5SkFMTGVydU82ck1wWnVQNUtG?=
- =?utf-8?B?RXlPOG5JTkp1aVkxeW1FcVNMU3BrRFF3Y1grZ2RIb1lnTGNPUXJFY2VOZjFh?=
- =?utf-8?B?SWM4Mi9JdHdlWkIxSVhabStwd1NaZ1FNWk0vVXFHWUpxWkpsK1Y0bnkxcUV3?=
- =?utf-8?B?RDIwVGlrTGtpMDNCcnJxV0h4SWRxRmJTTk1YcTh3TUJUUmdYdnNncFI5bTdG?=
- =?utf-8?B?YmZWTkdhaGNMMzkvdk15Vmc1NVROOWRQNHIwSmNJS2RkR2hxUi9lUGFVckdZ?=
- =?utf-8?B?UEN3OUhNaDlsdGF1SVFMakFYcDdndkJ5K0hhNVkybVh0VXJjVEdneEFPT2Uw?=
- =?utf-8?B?RjdpVk5MM2NYcU02L0FwRTJQLzdpM1M4bjdXblorSXNMbExaMGVQRlZoSlNC?=
- =?utf-8?B?OVBzUDJwMHRvLzZMQUpNZk0wWGpXK1ZuUnpjZ09acFViODJDaXBSbjVaRGNN?=
- =?utf-8?B?eFExNzM1YWRTNG1laW1YYmVYM2d0RS8rSlJ5Q3ZjVDBGeXc2QjRUZitpZGVt?=
- =?utf-8?B?VWJiTTQzakJnOUVDMEJYZDRKTnFYQXVvOUdFeGllUmF1enRCeEdEMndzOFlS?=
- =?utf-8?B?QUxhZ3hhOUY4RHdGWGZ4UkcxbjlHTmpPRlNiSzAzU0EyMUhzc2ZYUzNIeVdB?=
- =?utf-8?B?WkF0elhPaWdDcDEzdHZaT3ZwcWp4UVVVQW82dlBGbGx4cDNxK1lRc0FmN2Vr?=
- =?utf-8?B?SE52MmtZdGcyMUMvY1BMM2FGMzliQWtBNHNpREludG1DSGtaRWplT1FWL0VI?=
- =?utf-8?B?KzZvdDI4eURjZUsyS0FDQUJxaGNGMVEyZC9URGVETHB5dmV4dG8ra2t6UTBU?=
- =?utf-8?B?L09WRmlMOE16a0xEKzNld3ExWXF5TlRPSDlZUEQ5RXhGWU1sZjNaTVQ3R1FF?=
- =?utf-8?B?enNRSUI0QTFlSmVMU3BsUFlWQXlYQXozeFVjSkRoc3JqbE03UmNLMWkwby9m?=
- =?utf-8?B?UUkwYVdmYlB2QkNHckJidzdodEJxbHJia09YbGJiUWwzVGsxV3ZiMFlHTjVS?=
- =?utf-8?B?LzYzT3BVQmV2OXNIUy9Dd3ZrUzdjL25laUdZWmErOG9ZRXFkNlRwQ2dGY0hz?=
- =?utf-8?B?a0g0MWN6eE1WTjNlK2lRTld1ZHhpTnRmenpxUm94dGNsYkpUdkJpOVY0ME9W?=
- =?utf-8?B?T2tjMzI2eDlSOENkSmhzcmFCRmdYZmZRZHNkY2dNZlJndjM2V0thWFVtc0FW?=
- =?utf-8?B?OTJNanlVK2I5dVc1WS9vMWNhekljek41SW9CTlRTc21TbTNEZkdmSnZDNjBw?=
- =?utf-8?B?cmVvbzJxRmRYNXQyU1JaQzdGM011QWxYWWNPa3pIOGdBV0VNQ1R2dVB3N3NL?=
- =?utf-8?B?UUx3WTVIZkNIVlJzdzlRMjN4WlNRR2Q4Y1RvMzNsNGJYY3ZEeUlVbFNnNmpP?=
- =?utf-8?B?OG5SOHVPaS9EVXFvNExQYXdhTllYV200SlV0Z2ppay80L3VkTUMyUlBwTXN0?=
- =?utf-8?B?ZzllNmZ3Q0xFQU1Sa201dk1aNzhQTjNTcUZWSURvNjkvYVo3QWQzdXJKcllC?=
- =?utf-8?B?WXVMRjA5Z0ZsQ29wYlBGeFZGWU9ybnJnRXNhcERhWjRxN2o1ZVN1RHdQN3E5?=
- =?utf-8?B?dGppa21HUzRmTUFoa3NQZXFDMmxrZzZsWWdIT0d6T3hYNDRzZGV2YjNGbmRJ?=
- =?utf-8?B?ck11WGFHNXFvVysvSWJGdzNlS0hXTStxRjM4R0RNcXJUSXVELzlud0hRaGQy?=
- =?utf-8?B?MnhYQU1pdHMrQ2RGWjRGVXh2MGhXZ2FUZkR3S09Eck1YMUJnbndSN2JRVUN4?=
- =?utf-8?Q?HH4+zr3NptFKh8vI4I79Fmg=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 409a6401-e54d-47a6-ef37-08dd4b83cce3
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9261.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 16:39:20.9358
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zxuH2gCbIFnZgXJGcgZzbDMpxGu1NsZI8M9SPTh1XYpypi0yTwF0mim7K3pSblEnTOYVpVkUUwrTidu2BTSQSQxo8l9WygfNCQkr+9sl/8A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10543
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 09/16] arm64/mm: Avoid barriers for invalid or
+ userspace mappings
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-10-ryan.roberts@arm.com>
+ <45717fc1-cd83-4e9e-8ce5-44d306037cc9@arm.com>
+ <334bdd4c-f12e-45f3-b4f9-df723889a4f4@arm.com>
+In-Reply-To: <334bdd4c-f12e-45f3-b4f9-df723889a4f4@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_083927_523677_995AE308 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20250212_084806_035251_0FDE746B 
+X-CRM114-Status: GOOD (  38.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,169 +76,296 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/12/2025 5:50 PM, Frank Li wrote:
-> On Wed, Feb 12, 2025 at 10:11:35AM +0200, Ciprian Marian Costea wrote:
->> On 2/11/2025 7:07 PM, Frank Li wrote:
->>> On Tue, Feb 11, 2025 at 01:25:38PM +0200, Ciprian Marian Costea wrote:
->>>> On 2/7/2025 10:16 PM, Frank Li wrote:
->>>>> On Fri, Feb 07, 2025 at 06:38:06PM +0200, Ciprian Costea wrote:
->>>>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>>>>
->>>>>> Add a RTC driver for NXP S32G2/S32G3 SoCs.
->>>>>>
->>>>>> RTC tracks clock time during system suspend. It can be a wakeup source
->>>>>> for the S32G2/S32G3 SoC based boards.
->>>>>>
->>>>>> The RTC module from S32G2/S32G3 is not battery-powered and it is not kept
->>>>>> alive during system reset.
->>>>>>
->>>>>> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->>>>>> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->>>>>> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->>>>>> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->>>>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>>>>> ---
->>>>>>     drivers/rtc/Kconfig    |  11 ++
->>>>>>     drivers/rtc/Makefile   |   1 +
->>>>>>     drivers/rtc/rtc-s32g.c | 383 +++++++++++++++++++++++++++++++++++++++++
->>>>>>     3 files changed, 395 insertions(+)
->>>>>>     create mode 100644 drivers/rtc/rtc-s32g.c
->>>>>>
->>>>>> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
->>>>>> index 0bbbf778ecfa..510dc2db745d 100644
->>>>>> --- a/drivers/rtc/Kconfig
->>>>>> +++ b/drivers/rtc/Kconfig
->>>>>> @@ -2103,4 +2103,15 @@ config RTC_DRV_AMLOGIC_A4
->>>>>>     	  This driver can also be built as a module. If so, the module
->>>>>>     	  will be called "rtc-amlogic-a4".
->>>>>>
->>>>>> +config RTC_DRV_S32G
->>>>>> +	tristate "RTC driver for S32G2/S32G3 SoCs"
->>>>>> +	depends on ARCH_S32 || COMPILE_TEST
->>>>>> +	depends on COMMON_CLK
->>>>>> +	help
->>>>>> +	  Say yes to enable RTC driver for platforms based on the
->>>>>> +	  S32G2/S32G3 SoC family.
->>>>>> +
->>>>>> +	  This RTC module can be used as a wakeup source.
->>>>>> +	  Please note that it is not battery-powered.
->>>>>> +
->>>>>>     endif # RTC_CLASS
->>>>>> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
->>>>>> index 489b4ab07068..e4b616ecd5ce 100644
->>>>>> --- a/drivers/rtc/Makefile
->>>>>> +++ b/drivers/rtc/Makefile
->>>>>> @@ -161,6 +161,7 @@ obj-$(CONFIG_RTC_DRV_RX8111)	+= rtc-rx8111.o
->>>>>>     obj-$(CONFIG_RTC_DRV_RX8581)	+= rtc-rx8581.o
->>>>>>     obj-$(CONFIG_RTC_DRV_RZN1)	+= rtc-rzn1.o
->>>>>>     obj-$(CONFIG_RTC_DRV_RENESAS_RTCA3)	+= rtc-renesas-rtca3.o
->>>>>> +obj-$(CONFIG_RTC_DRV_S32G)	+= rtc-s32g.o
->>>>>>     obj-$(CONFIG_RTC_DRV_S35390A)	+= rtc-s35390a.o
->>>>>>     obj-$(CONFIG_RTC_DRV_S3C)	+= rtc-s3c.o
->>>>>>     obj-$(CONFIG_RTC_DRV_S5M)	+= rtc-s5m.o
->>>>>> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
->>>>>> new file mode 100644
->>>>>> index 000000000000..3244b23c533e
->>>>>> --- /dev/null
->>>>>> +++ b/drivers/rtc/rtc-s32g.c
->>>>>
->>>>> ...
->>>>>
->>>>>> +
->>>>>> +static int s32g_rtc_suspend(struct device *dev)
->>>>>> +{
->>>>>> +	struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>>> +	u32 apival = readl(priv->rtc_base + APIVAL_OFFSET);
->>>>>> +
->>>>>> +	/* RTC registers are being reset in suspend.
->>>>>> +	 * Thus store standby time.
->>>>>> +	 */
->>>>>> +	if (check_add_overflow(priv->sleep_sec, div64_u64(apival, priv->rtc_hz),
->>>>>> +			       &priv->sleep_sec)) {
->>>>>> +		dev_warn(dev, "Overflow on sleep cycles occurred. Resetting to 0.\n");
->>>>>> +		priv->sleep_sec = 0;
->>>>>> +	}
->>>>>
->>>>> Strange. If RTC register are reset in suspend. How do it wake up system?
->>>>>
->>>>> Frank
->>>>>
->>>>
->>>> Hello Frank,
->>>>
->>>> I believe the transition between resume to run is a reset event. This would
->>>> lead to the RTC registers being reset after resume from suspend (triggered
->>>> via Suspend to RAM).
+On 07/02/2025 10:53, Ryan Roberts wrote:
+> On 07/02/2025 08:11, Anshuman Khandual wrote:
+>> On 2/5/25 20:39, Ryan Roberts wrote:
+>>> __set_pte_complete(), set_pmd(), set_pud(), set_p4d() and set_pgd() are
+>>> used to write entries into pgtables. And they issue barriers (currently
+>>> dsb and isb) to ensure that the written values are observed by the table
+>>> walker prior to any program-order-future memory access to the mapped
+>>> location.
+>>
+>> Right.
+>>
 >>>
->>> It is weird design. I suppose it should be design error. (any errata for
->>> it).
+>>> Over the years some of these functions have received optimizations: In
+>>> particular, commit 7f0b1bf04511 ("arm64: Fix barriers used for page
+>>> table modifications") made it so that the barriers were only emitted for
+>>> valid-kernel mappings for set_pte() (now __set_pte_complete()). And
+>>> commit 0795edaf3f1f ("arm64: pgtable: Implement p[mu]d_valid() and check
+>>> in set_p[mu]d()") made it so that set_pmd()/set_pud() only emitted the
+>>> barriers for valid mappings. set_p4d()/set_pgd() continue to emit the
+>>> barriers unconditionally.
+>>
+>> Right.
+>>
 >>>
->>> Frank
+>>> This is all very confusing to the casual observer; surely the rules
+>>> should be invariant to the level? Let's change this so that every level
+>>> consistently emits the barriers only when setting valid, non-user
+>>> entries (both table and leaf).
+>>
+>> Agreed.
+>>
 >>>
+>>> It seems obvious that if it is ok to elide barriers all but valid kernel
+>>> mappings at pte level, it must also be ok to do this for leaf entries at
+>>> other levels: If setting an entry to invalid, a tlb maintenance
+>>> operaiton must surely follow to synchronise the TLB and this contains
 >>
->> Unfortunately I could not find any such errata. But this behaviour (RTC
->> registers being reset) is what I see when resuming from Suspend to RAM
->> operations.
+>> s/operaiton/operation
 > 
-> Okay, it worth add comment here to descript hardware behaviour, which is
-> actually uncommon.
+> Ugh, I really need a spell checker for my editor!
 > 
-> Frank
+>>
+>>> the required barriers. If setting a valid user mapping, the previous
+>>> mapping must have been invalid and there must have been a TLB
+>>> maintenance operation (complete with barriers) to honour
+>>> break-before-make. So the worst that can happen is we take an extra
+>>> fault (which will imply the DSB + ISB) and conclude that there is
+>>> nothing to do. These are the aguments for doing this optimization at pte
+>>
+>> s/aguments/arguments
+>>
+>>> level and they also apply to leaf mappings at other levels.
+>>
+>> So user the page table updates both for the table and leaf entries remains
+>> unchanged for now regarding dsb/isb sync i.e don't do anything ?
 > 
-
-Sure. I will add such description on the resume path in V8.
-
-Regards,
-Ciprian
-
+> Sorry, this doesn't parse.
+> 
 >>
->> Regards,
->> Ciprian
+>>>
+>>> For table entries, the same arguments hold: If unsetting a table entry,
+>>> a TLB is required and this will emit the required barriers. If setting a
+>>> table entry, the previous value must have been invalid and the table
+>>> walker must already be able to observe that. Additionally the contents
+>>> of the pgtable being pointed to in the newly set entry must be visible
+>>> before the entry is written and this is enforced via smp_wmb() (dmb) in
+>>> the pgtable allocation functions and in __split_huge_pmd_locked(). But
+>>> this last part could never have been enforced by the barriers in
+>>> set_pXd() because they occur after updating the entry. So ultimately,
+>>> the wost that can happen by eliding these barriers for user table
+>>> entries is an extra fault.
 >>
->>>>
->>>> On the other hand, the RTC is kept on during suspend for as long as its been
->>>> set up (for example via rtcwake -s), thus waking up the sistem via an API
->>>> interrupt.
->>>>
->>>> Regards,
->>>> Ciprian
->>>>
->>>>>> +
->>>>>> +	return 0;
->>>>>> +}
->>>>>> +
->>>>>> +static int s32g_rtc_resume(struct device *dev)
->>>>>> +{
->>>>>> +	struct rtc_priv *priv = dev_get_drvdata(dev);
->>>>>> +
->>>>>> +	return rtc_clk_src_setup(priv);
->>>>>> +}
->>>>>> +
->>>>>> +static const struct of_device_id rtc_dt_ids[] = {
->>>>>> +	{ .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data},
->>>>>> +	{ /* sentinel */ },
->>>>>> +};
->>>>>> +
->>>>>> +static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
->>>>>> +			 s32g_rtc_suspend, s32g_rtc_resume);
->>>>>> +
->>>>>> +static struct platform_driver s32g_rtc_driver = {
->>>>>> +	.driver		= {
->>>>>> +		.name			= "s32g-rtc",
->>>>>> +		.pm				= pm_sleep_ptr(&s32g_rtc_pm_ops),
->>>>>> +		.of_match_table = rtc_dt_ids,
->>>>>> +	},
->>>>>> +	.probe		= s32g_rtc_probe,
->>>>>> +};
->>>>>> +module_platform_driver(s32g_rtc_driver);
->>>>>> +
->>>>>> +MODULE_AUTHOR("NXP");
->>>>>> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
->>>>>> +MODULE_LICENSE("GPL");
->>>>>> --
->>>>>> 2.45.2
->>>>>>
->>>>
+>> Basically nothing needs to be done while setting user page table entries.
 >>
+>>>
+>>> I observe roughly the same number of page faults (107M) with and without
+>>> this change when compiling the kernel on Apple M2.
+>>
+>> These are total page faults or only additional faults caused because there
+>> were no dsb/isb sync after the user page table update ?
+> 
+> total page faults. The experiment was to check that if eliding more barriers for
+> valid user space mappings, does this lead to an increase in page faults? This
+> very simple experiment suggests no.
+> 
+>>
+>>>
+>>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/pgtable.h | 60 ++++++++++++++++++++++++++++----
+>>>  1 file changed, 54 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index 1d428e9c0e5a..ff358d983583 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -767,6 +767,19 @@ static inline bool in_swapper_pgdir(void *addr)
+>>>  	        ((unsigned long)swapper_pg_dir & PAGE_MASK);
+>>>  }
+>>>  
+>>> +static inline bool pmd_valid_not_user(pmd_t pmd)
+>>> +{
+>>> +	/*
+>>> +	 * User-space table pmd entries always have (PXN && !UXN). All other
+>>> +	 * combinations indicate it's a table entry for kernel space.
+>>> +	 * Valid-not-user leaf entries follow the same rules as
+>>> +	 * pte_valid_not_user().
+>>> +	 */
+>>> +	if (pmd_table(pmd))
+>>> +		return !((pmd_val(pmd) & (PMD_TABLE_PXN | PMD_TABLE_UXN)) == PMD_TABLE_PXN);
+>>
+>> Should not this be abstracted out as pmd_table_not_user_table() which can
+>> then be re-used in other levels as well.
+> 
+> Yeah maybe. Let me mull it over.
+
+I discovered a bug (see below). So decided to keep it simple. I'm defining
+pmd_valid_not_user() as an inline function, as is done in this version. But all
+other levels are just macros defined to wrap pmd_valid_not_user(). That way all
+levels are treated the same way. This means that we might be slightly
+over-checking for the higher levels that don't support block mappings, but it's
+safe and correct and reuses the maximum amount of code.
+
+
+> 
+>>
+>>> +	return pte_valid_not_user(pmd_pte(pmd));
+>>> +}
+>>> +
+>>
+>> Something like.
+>>
+>> static inline bool pmd_valid_not_user_table(pmd_t pmd)
+>> {
+>> 	return pmd_valid(pmd) &&
+>> 	       !((pmd_val(pmd) & (PMD_PMD_TABLE_PXN | PMD_TABLE_UXN)) == PMD_TABLE_PXN);
+>> }
+>>
+>> static inline bool pmd_valid_not_user(pmd_t pmd)
+>> {
+>> 	if (pmd_table(pmd))
+>> 		return pmd_valid_not_user_table(pmd);
+>> 	else
+>> 		return pte_valid_not_user(pmd_pte(pmd));
+>> }
+>>
+>>>  static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>>  {
+>>>  #ifdef __PAGETABLE_PMD_FOLDED
+>>> @@ -778,7 +791,7 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>>  
+>>>  	WRITE_ONCE(*pmdp, pmd);
+>>>  
+>>> -	if (pmd_valid(pmd)) {
+>>> +	if (pmd_valid_not_user(pmd)) {
+>>>  		dsb(ishst);
+>>>  		isb();
+>>>  	}
+>>> @@ -836,6 +849,17 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>>>  
+>>>  static inline bool pgtable_l4_enabled(void);
+>>>  
+>>> +
+>>> +static inline bool pud_valid_not_user(pud_t pud)
+>>> +{
+>>> +	/*
+>>> +	 * Follows the same rules as pmd_valid_not_user().
+>>> +	 */
+>>> +	if (pud_table(pud))
+>>> +		return !((pud_val(pud) & (PUD_TABLE_PXN | PUD_TABLE_UXN)) == PUD_TABLE_PXN);
+
+This is buggy for configs where pud_table() is hardcoded to return true. In this
+case we will assume the pud is valid when it may not be. (actually you could
+call that a bug in pud_table(), which should really at least still be checking
+that it's valid).
+
+>>> +	return pte_valid_not_user(pud_pte(pud));
+>>> +}
+>>
+>> This can be expressed in terms of pmd_valid_not_user() itself.
+>>
+>> #define pud_valid_not_user()	pmd_valid_not_user(pud_pmd(pud))
+> 
+> The trouble with this is that you end up using pmd_table() not pud_table(). For
+> some configs pud_table() is hardcoded to true. So we lose the benefit. So I'd
+> rather keep it as it's own function.
+> 
+>>
+>>> +
+>>>  static inline void set_pud(pud_t *pudp, pud_t pud)
+>>>  {
+>>>  	if (!pgtable_l4_enabled() && in_swapper_pgdir(pudp)) {
+>>> @@ -845,7 +869,7 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
+>>>  
+>>>  	WRITE_ONCE(*pudp, pud);
+>>>  
+>>> -	if (pud_valid(pud)) {
+>>> +	if (pud_valid_not_user(pud)) {
+>>>  		dsb(ishst);
+>>>  		isb();
+>>>  	}
+>>> @@ -917,6 +941,16 @@ static inline bool mm_pud_folded(const struct mm_struct *mm)
+>>>  #define p4d_bad(p4d)		(pgtable_l4_enabled() && !(p4d_val(p4d) & P4D_TABLE_BIT))
+>>>  #define p4d_present(p4d)	(!p4d_none(p4d))
+>>>  
+>>> +static inline bool p4d_valid_not_user(p4d_t p4d)
+>>> +{
+>>> +	/*
+>>> +	 * User-space table p4d entries always have (PXN && !UXN). All other
+>>> +	 * combinations indicate it's a table entry for kernel space. p4d block
+>>> +	 * entries are not supported.
+>>> +	 */
+>>> +	return !((p4d_val(p4d) & (P4D_TABLE_PXN | P4D_TABLE_UXN)) == P4D_TABLE_PXN);
+
+This was buggy because we never check valid!
+
+>>> +}
+>>
+>> Instead
+>>
+>> #define p4d_valid_not_user_able() pmd_valid_not_user_able(p4d_pmd(p4d))
+>>
+>>> +
+>>>  static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+>>>  {
+>>>  	if (in_swapper_pgdir(p4dp)) {
+>>> @@ -925,8 +959,11 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+>>>  	}
+>>>  
+>>>  	WRITE_ONCE(*p4dp, p4d);
+>>> -	dsb(ishst);
+>>> -	isb();
+>>> +
+>>> +	if (p4d_valid_not_user(p4d)) {
+>>
+>>
+>> Check p4d_valid_not_user_able() instead.
+> 
+> I don't really know why we would want to add table into the name at this level.
+> Why not be consistent and continue to use p4d_valid_not_user()? The fact that
+> p4d doesn't support leaf entries is just a matter for the implementation.
+> 
+>>
+>>> +		dsb(ishst);
+>>> +		isb();
+>>> +	}
+>>>  }
+>>>  
+>>>  static inline void p4d_clear(p4d_t *p4dp)
+>>> @@ -1044,6 +1081,14 @@ static inline bool mm_p4d_folded(const struct mm_struct *mm)
+>>>  #define pgd_bad(pgd)		(pgtable_l5_enabled() && !(pgd_val(pgd) & PGD_TABLE_BIT))
+>>>  #define pgd_present(pgd)	(!pgd_none(pgd))
+>>>  
+>>> +static inline bool pgd_valid_not_user(pgd_t pgd)
+>>> +{
+>>> +	/*
+>>> +	 * Follows the same rules as p4d_valid_not_user().
+>>> +	 */
+>>> +	return !((pgd_val(pgd) & (PGD_TABLE_PXN | PGD_TABLE_UXN)) == PGD_TABLE_PXN);
+
+Same here!
+
+>>> +}
+>>
+>> Similarly
+>>
+>> #define pgd_valid_not_user_able() pmd_valid_not_user_able(pgd_pmd(pgd))
+>>
+>>
+>>> +
+>>>  static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+>>>  {
+>>>  	if (in_swapper_pgdir(pgdp)) {
+>>> @@ -1052,8 +1097,11 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+>>>  	}
+>>>  
+>>>  	WRITE_ONCE(*pgdp, pgd);
+>>> -	dsb(ishst);
+>>> -	isb();
+>>> +
+>>> +	if (pgd_valid_not_user(pgd)) {
+>>
+>> Check pgd_valid_not_user_able() instead.
+>>
+>>> +		dsb(ishst);
+>>> +		isb();
+>>> +	}
+>>>  }
+>>>  
+>>>  static inline void pgd_clear(pgd_t *pgdp)
+> 
 
 
