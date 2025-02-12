@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16C9C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA29C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXzuFr8wiqfd1hjl0JPIBoyQvQY0uLNTkDZnDjRIkL4=; b=iuR8HDYkRm37eFdLP6zD3RG/rO
-	iVzCUbtZaH7g9dkEGoHyKMrFBeFSlxOPSsZNnPzRyY0G4cGc3divnp9bxbNY4yBlMXVflz5Ndl83T
-	njvP9x/E2PU4kMUEJpvuGmoizsY3buwINzGbTHYEirSf63eSt93EBu6RkCHaQEN/x1bluNU10/MKL
-	MPIPvoPoc6X8gfrHxfeXaQg5x6NBOil7kG3j608vUCfA8IQ67LTr4dKQj43/Dn6VIov9bGK/22E6V
-	sY2wPtYOqbAEGXPHk+FC5MV0YM9xYJf4fzNQV6+3OHmVYXKbXDjPorvcFrU/4f8DoCfrf9GRE7khR
-	/bHVhxRA==;
+	bh=TvPbFPdhs4rsZAIf9ArjWz0MAEl7abAALU3gmrYlJXw=; b=aj9YXaLH0wPoVcDcJpIece15v2
+	YyIQDNbKXC2SBiufUik0cUj0jtCAEkzfnkGjQ2VQcZrxMi+R6LJxpkwtskQ8E5uE2CWC+YFXQL9ea
+	Vngk69X8ULOd2XuAu03BcEjz6WQy+0zw8p5BRJeLhWy7rNjFho607n+eiibv+HcsBnROk03wqQN/E
+	kEpdbqyifJ/K9nHwKsQU02fCMALLw5BBJWUV5wLxyioNgGBxI6WsGu68GGCkzVaUohetoKiX1vdfS
+	KkMi8fgvCN6uNebzwIJjrwfduFrMRNxPbeKu+g+xoLaQY2hOIqT4IRP50wayuHJjsmMLOml5Il4IH
+	OE1AqUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBvT-00000007MSn-3rMn;
-	Wed, 12 Feb 2025 12:33:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBZs-00000007In9-3i5F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 12:10:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC7A1113E;
-	Wed, 12 Feb 2025 04:11:12 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 399C53F58B;
-	Wed, 12 Feb 2025 04:10:51 -0800 (PST)
-Date: Wed, 12 Feb 2025 12:10:46 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v19 09/11] arm64: Handle BRBE booting requirements
-Message-ID: <20250212121046.GB235556@e132581.arm.com>
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-9-1c1300802385@kernel.org>
+	id 1tiByC-00000007MsV-1Zo9;
+	Wed, 12 Feb 2025 12:36:00 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiBrX-00000007Lsh-0x62;
+	Wed, 12 Feb 2025 12:29:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1739363341;
+	bh=CQ3SUXjx0/f8m1n41c4a7SuLTF0PmDTDTSkoGsVR/Bc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RPqGCMmKw9maDfoACsq5XCW1kNFM6USyJeTgaD0ZKnBDjJTzkCAXYBi0J0p/zs+gW
+	 CqjmKFSFDdJ1G1DqeLIdoAIUzFk59nzTIK1L5fU/sV+967mEPcUqwhoHA45Q4Y6o++
+	 DEc57IMn3o42I47CfAucVGa1HdoUC+cRjFDTaZ2E=
+Date: Wed, 12 Feb 2025 13:29:00 +0100
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
+	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
+	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Tom Lendacky <thomas.lendacky@amd.com>, Usama Arif <usama.arif@bytedance.com>, 
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
+ helpers
+Message-ID: <ae80c1b9-bafb-401c-9789-37a774c702c0@t-8ch.de>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-6-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250202-arm-brbe-v19-v19-9-1c1300802385@kernel.org>
+In-Reply-To: <20250206132754.2596694-6-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_041053_016505_EF451796 
-X-CRM114-Status: GOOD (  33.30  )
+X-CRM114-CacheID: sfid-20250212_042907_732754_A043A925 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,220 +79,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 02, 2025 at 06:43:03PM -0600, Rob Herring (Arm) wrote:
+On 2025-02-06 15:27:45+0200, Mike Rapoport wrote:
+> From: Alexander Graf <graf@amazon.com>
 > 
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
+> This patch adds the core infrastructure to generate Kexec HandOver
+> metadata. Kexec HandOver is a mechanism that allows Linux to preserve
+> state - arbitrary properties as well as memory locations - across kexec.
 > 
-> To use the Branch Record Buffer Extension (BRBE), some configuration is
-> necessary at EL3 and EL2. This patch documents the requirements and adds
-> the initial EL2 setup code, which largely consists of configuring the
-> fine-grained traps and initializing a couple of BRBE control registers.
+> It does so using 2 concepts:
 > 
-> Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
-> HDFGWTR_EL2 with the same value, relying on the read/write trap controls
-> for a register occupying the same bit position in either register. The
-> 'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
-> 59 of HDFGRTR_EL2 is RES0, and so this assumption no longer holds.
-
-s/HDFGRTR_EL2/HDFGWTR_EL2
-
-> To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
-> layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
-> HDFGWTR_EL2 control bits separately. While making this change the
-> open-coded value (1 << 62) is replaced with
-> HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
+>   1) Device Tree - Every KHO kexec carries a KHO specific flattened
+>      device tree blob that describes the state of the system. Device
+>      drivers can register to KHO to serialize their state before kexec.
 > 
-> The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
-> initialisation: even though they are subject to E2H renaming, both have
-> an effect regardless of HCR_EL2.TGE, even when running at EL2, and
-> consequently both need to be initialised. This is handled in
-> __init_el2_brbe() with a comment to explain the situation.
+>   2) Scratch Regions - CMA regions that we allocate in the first kernel.
+>      CMA gives us the guarantee that no handover pages land in those
+>      regions, because handover pages must be at a static physical memory
+>      location. We use these regions as the place to load future kexec
+>      images so that they won't collide with any handover data.
 > 
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> [Mark: rewrite commit message, fix typo in comment]
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Alexander Graf <graf@amazon.com>
+> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->  Documentation/arch/arm64/booting.rst | 21 +++++++++
->  arch/arm64/include/asm/el2_setup.h   | 86 ++++++++++++++++++++++++++++++++++--
->  2 files changed, 104 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index cad6fdc96b98..0a421757cacf 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -352,6 +352,27 @@ Before jumping into the kernel, the following conditions must be met:
-> 
->      - HWFGWTR_EL2.nSMPRI_EL1 (bit 54) must be initialised to 0b01.
-> 
-> +  For CPUs with feature Branch Record Buffer Extension (FEAT_BRBE):
-> +
-> +  - If EL3 is present:
-> +
-> +    - MDCR_EL3.SBRBE (bits 33:32) must be initialised to 0b11.
+>  Documentation/ABI/testing/sysfs-kernel-kho    |  53 +++
+>  .../admin-guide/kernel-parameters.txt         |  24 +
+>  MAINTAINERS                                   |   1 +
+>  include/linux/cma.h                           |   2 +
+>  include/linux/kexec.h                         |  18 +
+>  include/linux/kexec_handover.h                |  10 +
+>  kernel/Makefile                               |   1 +
+>  kernel/kexec_handover.c                       | 450 ++++++++++++++++++
+>  mm/internal.h                                 |   3 -
+>  mm/mm_init.c                                  |   8 +
+>  10 files changed, 567 insertions(+), 3 deletions(-)
+>  create mode 100644 Documentation/ABI/testing/sysfs-kernel-kho
+>  create mode 100644 include/linux/kexec_handover.h
+>  create mode 100644 kernel/kexec_handover.c
 
-Can MDCR_EL3.SBRBE be 0b01 ?
+<snip>
 
-> +
-> +  - If the kernel is entered at EL1 and EL2 is present:
-> +
-> +    - BRBCR_EL2.CC (bit 3) must be initialised to 0b1.
-> +    - BRBCR_EL2.MPRED (bit 4) must be initialised to 0b1.
+> --- /dev/null
+> +++ b/include/linux/kexec_handover.h
+> @@ -0,0 +1,10 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef LINUX_KEXEC_HANDOVER_H
+> +#define LINUX_KEXEC_HANDOVER_H
 
-Should clarify BRBCR_EL2.TS to be initialised to 0b00 ?  Arm ARM
-claims the reset behaviour of the TS field is unknown value.  The
-assembly code below actually has initializes the TS field as zero.
-
-Except the above minor comments, I read the assembly code and it looks
-good to me:
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+#include <linux/types.h>
 
 > +
-> +    - HDFGRTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
-> +    - HDFGRTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
-> +    - HDFGRTR_EL2.nBRBIDR  (bit 59) must be initialised to 0b1.
+> +struct kho_mem {
+> +	phys_addr_t addr;
+> +	phys_addr_t size;
+> +};
 > +
-> +    - HDFGWTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
-> +    - HDFGWTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
+> +#endif /* LINUX_KEXEC_HANDOVER_H */
+
+<snip>
+
+> +static ssize_t dt_read(struct file *file, struct kobject *kobj,
+> +		       struct bin_attribute *attr, char *buf,
+
+Please make the bin_attribute argument const. Currently both work, but
+the non-const variant will go away.
+This way I can test my stuff on linux-next.
+
+> +		       loff_t pos, size_t count)
+> +{
+> +	mutex_lock(&kho_out.lock);
+> +	memcpy(buf, attr->private + pos, count);
+> +	mutex_unlock(&kho_out.lock);
 > +
-> +    - HFGITR_EL2.nBRBIALL (bit 56) must be initialised to 0b1.
-> +    - HFGITR_EL2.nBRBINJ  (bit 55) must be initialised to 0b1.
+> +	return count;
+> +}
 > +
->    For CPUs with the Scalable Matrix Extension FA64 feature (FEAT_SME_FA64):
-> 
->    - If EL3 is present:
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index 25e162651750..bf21ce513aff 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -163,6 +163,39 @@
->  .Lskip_set_cptr_\@:
->  .endm
-> 
-> +/*
-> + * Configure BRBE to permit recording cycle counts and branch mispredicts.
-> + *
-> + * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
-> + * BRBCR_EL1.CC=1.
-> + *
-> + * At any EL, to record branch mispredicts BRBE requires that both
-> + * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
-> + *
-> + * When HCR_EL2.E2H=1, the BRBCR_EL1 encoding is redirected to BRBCR_EL2, but
-> + * the {CC,MPRED} bits in the real BRBCR_EL1 register still apply.
-> + *
-> + * Set {CC,MPRED} in both BRBCR_EL2 and BRBCR_EL1 so that at runtime we only
-> + * need to enable/disable these in BRBCR_EL1 regardless of whether the kernel
-> + * ends up executing in EL1 or EL2.
-> + */
-> +.macro __init_el2_brbe
-> +       mrs     x1, id_aa64dfr0_el1
-> +       ubfx    x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +       cbz     x1, .Lskip_brbe_\@
-> +
-> +       mov_q   x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
-> +       msr_s   SYS_BRBCR_EL2, x0
-> +
-> +       __check_hvhe .Lset_brbe_nvhe_\@, x1
-> +       msr_s   SYS_BRBCR_EL12, x0      // VHE
-> +       b       .Lskip_brbe_\@
-> +
-> +.Lset_brbe_nvhe_\@:
-> +       msr_s   SYS_BRBCR_EL1, x0       // NVHE
-> +.Lskip_brbe_\@:
-> +.endm
-> +
->  /* Disable any fine grained traps */
->  .macro __init_el2_fgt
->         mrs     x1, id_aa64mmfr0_el1
-> @@ -170,16 +203,48 @@
->         cbz     x1, .Lskip_fgt_\@
-> 
->         mov     x0, xzr
-> +       mov     x2, xzr
->         mrs     x1, id_aa64dfr0_el1
->         ubfx    x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->         cmp     x1, #3
->         b.lt    .Lskip_spe_fgt_\@
-> +
->         /* Disable PMSNEVFR_EL1 read and write traps */
-> -       orr     x0, x0, #(1 << 62)
-> +       orr     x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
-> +       orr     x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
-> 
->  .Lskip_spe_fgt_\@:
-> +#ifdef CONFIG_ARM64_BRBE
-> +       mrs     x1, id_aa64dfr0_el1
-> +       ubfx    x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +       cbz     x1, .Lskip_brbe_reg_fgt_\@
-> +
-> +       /*
-> +        * Disable read traps for the following registers
-> +        *
-> +        * [BRBSRC|BRBTGT|RBINF]_EL1
-> +        * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
-> +        */
-> +       orr     x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
-> +
-> +       /*
-> +        * Disable write traps for the following registers
-> +        *
-> +        * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
-> +        */
-> +       orr     x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
-> +
-> +       /* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
-> +       orr     x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
-> +       orr     x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
-> +
-> +       /* Disable read traps for BRBIDR_EL1 */
-> +       orr     x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
-> +
-> +.Lskip_brbe_reg_fgt_\@:
-> +#endif /* CONFIG_ARM64_BRBE */
->         msr_s   SYS_HDFGRTR_EL2, x0
-> -       msr_s   SYS_HDFGWTR_EL2, x0
-> +       msr_s   SYS_HDFGWTR_EL2, x2
-> 
->         mov     x0, xzr
->         mrs     x1, id_aa64pfr1_el1
-> @@ -220,7 +285,21 @@
->  .Lset_fgt_\@:
->         msr_s   SYS_HFGRTR_EL2, x0
->         msr_s   SYS_HFGWTR_EL2, x0
-> -       msr_s   SYS_HFGITR_EL2, xzr
-> +       mov     x0, xzr
-> +#ifdef CONFIG_ARM64_BRBE
-> +       mrs     x1, id_aa64dfr0_el1
-> +       ubfx    x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +       cbz     x1, .Lskip_brbe_insn_fgt_\@
-> +
-> +       /* Disable traps for BRBIALL instruction */
-> +       orr     x0, x0, #HFGITR_EL2_nBRBIALL_MASK
-> +
-> +       /* Disable traps for BRBINJ instruction */
-> +       orr     x0, x0, #HFGITR_EL2_nBRBINJ_MASK
-> +
-> +.Lskip_brbe_insn_fgt_\@:
-> +#endif /* CONFIG_ARM64_BRBE */
-> +       msr_s   SYS_HFGITR_EL2, x0
-> 
->         mrs     x1, id_aa64pfr0_el1             // AMU traps UNDEF without AMU
->         ubfx    x1, x1, #ID_AA64PFR0_EL1_AMU_SHIFT, #4
-> @@ -275,6 +354,7 @@
->         __init_el2_hcrx
->         __init_el2_timers
->         __init_el2_debug
-> +       __init_el2_brbe
->         __init_el2_lor
->         __init_el2_stage2
->         __init_el2_gicv3
-> 
-> --
-> 2.47.2
-> 
-> 
+> +struct bin_attribute bin_attr_dt_kern = __BIN_ATTR(dt, 0400, dt_read, NULL, 0);
+
+The new __BIN_ATTR_ADMIN_RO() could make this slightly shorter.
+
+<snip>
 
