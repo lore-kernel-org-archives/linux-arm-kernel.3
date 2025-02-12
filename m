@@ -4,67 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FF8C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:56:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD26C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYy7nG1QPt71ocXmaGOtu33ba5dvMFSO35bM0gjFPfo=; b=tWxcR97drlqO+Nacon9+SMSdK9
-	NI/yoHBnzrO7T5YP02/14uogOzwkX38v57YL87dTrvUh60Z1canBTAoKYatDWK7xzCXo+X6Eii3DO
-	eebG5aduokDFjzP/WapKUoyyeLSkLc5lBOpkdBITUyCd480irT6LAMRid4PP5ZV/3YJRxLYiZn1De
-	LUqZJhIp44IHGrktkuT9FaTBKhrMPpmkV/fnG+JVH/E7H9TeSSvqiAwnkzA+i/yso5xDrJHOfVgWT
-	OvgDdJKYiAQyzgY66gDY7pSwyA9i+bTmkp3/hiTF+WpPengbEEdiARDZ8H5eTfBzmRCoy++tV2vo1
-	HsvimTWA==;
+	bh=5NJuwD59cIzb4Af+tlSAfPPA3lFxGUeAX1fygvbn4iY=; b=NWqwfnqIqZfyCvNOKceZe+mfF8
+	5Sk8dum9JvZqa8+P6pEmYsJUomFT+droB0Txx8M9XCt0P1/fbbZ1TmVSWf0DiadSkQBu+z4TLNFO1
+	DUHIp0XVT4B2Np4DZCrIfSAQoE69Kw35EVlFchI+1XVOz+5lMAuRMnrlxa5wsYVSTWMKl1o6R90c3
+	GLI4SoD8rRxALVrT+oTaylIC+MHibnK8k1u90SesdATBszKWWwOiUBewCOC81HpTPsFlAe2M+CCN+
+	rxM1A3nDEBER867uvpIY2RqyIARMvlnWlwbO0B8ZuZ5eVDK3N0KPidBqMA1iW6Y9opLC1Bqr6RRV+
+	6vfE5y3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6fe-00000006QXC-11UO;
-	Wed, 12 Feb 2025 06:56:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ti6h2-00000006Qj6-2sLy;
+	Wed, 12 Feb 2025 06:57:56 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6bZ-00000006PwQ-2i7A;
-	Wed, 12 Feb 2025 06:52:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 83542A410E0;
-	Wed, 12 Feb 2025 06:50:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40045C4CEDF;
-	Wed, 12 Feb 2025 06:52:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739343136;
-	bh=oNuvzrX0ScmnFLsPRD7UuqsTQ2lVnZz8AOiY3gY+NZs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=iS47+CZiIjvI+nlWbAE37Zd4ChrRWym+nToPuDtYNeXBfYWg9VqhmNOAH9jCRQbSv
-	 Novnyz7ViJoZUlQ0J1QHdgMyXB3vsi/6ortYFNBSG6LWN8hvNnjSCWVCt7MB5xvI7r
-	 t1zS8VU7ZdQXHuY/5OF23qrcspKRzcEsmwS7LXWJqXYx/yDR1ib7LZE/hp7d9WJ45q
-	 1hemK6W6LWcSfMQg8wx+Q4uhbRF+gunxJpTky0uk40oVB4hFqM2ckK6mKuiUqSIqvk
-	 WzcbPFZ3tPMm0RqSCB1X2Mc94+gUJPfFUbGTVw6XoxuckB+RPqYehi9hQ8c5PzhI4p
-	 QeLWoVWnmCzrg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 12 Feb 2025 07:51:48 +0100
-Subject: [PATCH net-next 2/2] net: airoha: Enable TSO/Scatter Gather for
- LAN port
+	id 1ti6eP-00000006QMW-0lH8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 06:55:14 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B05AE25401C7;
+	Wed, 12 Feb 2025 01:55:10 -0500 (EST)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-10.internal (MEProxy); Wed, 12 Feb 2025 01:55:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1739343310;
+	 x=1739429710; bh=5NJuwD59cIzb4Af+tlSAfPPA3lFxGUeAX1fygvbn4iY=; b=
+	PTBtnGr1VGKL6GzZtS+f8euXR5URncpa2RCMq8nsApxHnYPt57OogC2J63cPOmVp
+	2k+9i0nPJX9TEl8G/ZiP5h0yOQa1xu4qw51VbAJXQ1Wu8u7Bj6+jfU4uhvuysesI
+	727d0E+HYkerv7Q81K6OVeWVKY2PC5ZIkoPaQjKjbNaSLv7NBUcBXeJRPEEpE8YF
+	EuEpv2KYEWStwFIxKHE8LT5EIQefwIJPPwF49NzWR3uOX+uhHR12Qo2NqK7BofE8
+	wktQY9797xenfrmWwA/Dw0y55q/mksw5t6JoP+WmFbV85NR5v+6Fj4eJBc+6H20o
+	LGiVuXrdnfhBpNnYJcUMmw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739343310; x=
+	1739429710; bh=5NJuwD59cIzb4Af+tlSAfPPA3lFxGUeAX1fygvbn4iY=; b=b
+	J6uMQOP/ZjuxxmWkQIK/wR5R+AhoSeFUoSNOWsZzWewkE4rnAMUCcIg8zqpZRjHJ
+	nGLLIp2cNmlOq1h6sUNv9NB6+IzFOlo1uXWlidbtxEYBg52BUHXNmOXIkyitDuB8
+	9nCxaEdjfsi3NwVUloaG9rgHpE3Tdyo014H+7DbWsx+0rrMOWA3gGO20tBVOVOxp
+	ps/42VI1Y/a1mrMOLuQvfdoL3gpdJ3MflO3ZU2LiCB7s6tMtCOr3u6knY3aQ5nWD
+	f3QA8Em5/hFCO+ky7i8BidC4O7fF8B5NbxtNf2C4Hn2CI+K5W8IlRtvvzDM0RzVO
+	ioSidDQLPdVwFaugH5+YA==
+X-ME-Sender: <xms:zEWsZ-AdUSE0llP3YTj9D_riPe38n4a8-S846_dSLESMca6szqvpNg>
+    <xme:zEWsZ4gU1yIJxHIJeThH9z34fLnj_gt02NgXQkvFSXtLXizKP1gKzqDDzMVdF8B47
+    0qSaRi6DBavpwQ2G_w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegfedvudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
+    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
+    tddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpd
+    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
+    thhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptghonhhorh
+    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghirdhl
+    ihhusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorh
+    hg
+X-ME-Proxy: <xmx:zEWsZxlGxubx8akHImGwweAAVqHfLj02gdt0HRtm0QHmJkREYeDxiQ>
+    <xmx:zEWsZ8y6VffcBHiAZMvEZNsvNcFZccVRAilv2Eq-q5RxDp3G1YVHHg>
+    <xmx:zEWsZzSVp61Hd4Hv4zNOoukfTc36UKdf69WP_ZovMFngikNyV4DEZg>
+    <xmx:zEWsZ3bbPaWbsC8kxvmjxEPz_x3XcG5--tH23KnFwo_f3H8rsUPBXg>
+    <xmx:zkWsZ3KHhotJDpG9j-OOWPYElTXm-Qj6unZyqYe1db0466EDl8xDRZnQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6A02E1C20066; Wed, 12 Feb 2025 01:55:08 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Wed, 12 Feb 2025 07:54:47 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Roman Kisel" <romank@linux.microsoft.com>, bhelgaas@google.com,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Dexuan Cui" <decui@microsoft.com>,
+ "Haiyang Zhang" <haiyangz@microsoft.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Rob Herring" <robh@kernel.org>,
+ ssengar@linux.microsoft.com, "Thomas Gleixner" <tglx@linutronix.de>,
+ "Wei Liu" <wei.liu@kernel.org>, "Will Deacon" <will@kernel.org>,
+ devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
+Message-Id: <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
+In-Reply-To: <20250212014321.1108840-2-romank@linux.microsoft.com>
+References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+ <20250212014321.1108840-2-romank@linux.microsoft.com>
+Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect hypervisor
+ presence
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-airoha-fix-tso-v1-2-1652558a79b4@kernel.org>
-References: <20250212-airoha-fix-tso-v1-0-1652558a79b4@kernel.org>
-In-Reply-To: <20250212-airoha-fix-tso-v1-0-1652558a79b4@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_225217_756329_E0FC7F05 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250211_225513_287761_F694AD33 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +131,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set net_device vlan_features in order to enable TSO and Scatter Gather
-for DSA user ports.
+On Wed, Feb 12, 2025, at 02:43, Roman Kisel wrote:
+> +static bool hyperv_detect_via_smccc(void)
+> +{
+> +	struct arm_smccc_res res = {};
+> +
+> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+> +		return false;
+> +	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+> +		return false;
+> +
+> +	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
+> +		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
+> +		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
+> +		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
+> +}
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/mediatek/airoha_eth.c | 1 +
- 1 file changed, 1 insertion(+)
+I had to double-check that this function is safe to call on
+other hypervisors, at least when they follow the smccc spec.
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index aa5f220ddbcf9ca5bee1173114294cb3aec701c9..321e5d15198c5ec6a0764be418aa447e8d9e4512 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -3188,6 +3188,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 			   NETIF_F_SG | NETIF_F_TSO |
- 			   NETIF_F_HW_TC;
- 	dev->features |= dev->hw_features;
-+	dev->vlan_features = dev->hw_features;
- 	dev->dev.of_node = np;
- 	dev->irq = qdma->irq;
- 	SET_NETDEV_DEV(dev, eth->dev);
+Seeing that we have the same helper function checking for
+ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_* and there was another
+patch set adding a copy for gunyah, I wonder if we can
+put this into a drivers/firmware/smccc/smccc.c directly
+the same way we handle soc_id, and make it return a uuid_t,
+or perhaps take a constant uuid_t to compare against.
 
--- 
-2.48.1
-
+      Arnd
 
