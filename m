@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF70C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA43C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hhGx+xAF/2J8sUbLKF7FIonkESkSwlZZju/0Lpo+izs=; b=wKL3v9qdqHY/0MF31L57EtbmtI
-	FrpBXzQIHa9KzoACvr9+InWgMrN/ij6VA2PPYoRs2q4/J6Jkf+xTyDbIKU3xLsZsSg5Biihrl3qN7
-	eITPORyJXuMFHTibbSvek88jgtOQLSDgA6XDhdwe7RvShq+9oMaTDV4Kq1amLi1gvW3oqHHYK5Cb6
-	PweeXwTfCZGiOXvob6ttyX/4b6EBtower483pN68z8y1JivKgLj5Cg7QlWcatdo7pYGxJFyYaG4IO
-	Ed54H4yilWE1dQXbwUHyowHbxvDJ+zWz3RxlCcgS1xD6GSjfgFSHT3VtbqDr3DdG2s6VH5/tpZb9z
-	pR5PvEVg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L5TESaZrTJ4mU9JiggBixyaIEwF7VO9TQZau3/pVo94=; b=kNMfLwjB8gHnrfaHNOnU0WlSC3
+	fQEjT7gQDYGdvJwyj/BecmMXBlZljF5TLHZ6aC/3JjN9Pwxmdl4TRJgDeCBnDfg886mUaOcOQi7nP
+	9HZ9Vu17rx6/vQlixyeZgpVKAZ0Nsz3IETMN820ftRoM9sXXr+ovS/0/QssJTiPY2yTTQHDkLmUl0
+	SklHj88uVWQp3P46VRsQOchtqAkDn0sa3eFttmXTkxBsLB+pghXbq3bM9iD84ncq0xPxQnfHQqxfA
+	ynFt89L2XWIRHIrAyp503oa7oCoVKrL0+pGxO5pu+SyNl8T0oetGYuae2Wdlb4glei1ZAGb6Qk6F+
+	Vg3AAdjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGRD-00000008IcT-26zL;
-	Wed, 12 Feb 2025 17:22:15 +0000
+	id 1tiGSc-00000008Iz1-0ZsV;
+	Wed, 12 Feb 2025 17:23:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGJr-00000008Gy4-2aGw
+	id 1tiGJy-00000008H07-3609
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 17:14:41 +0000
+	Wed, 12 Feb 2025 17:14:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3981A12FC;
-	Wed, 12 Feb 2025 09:14:57 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B62F012FC;
+	Wed, 12 Feb 2025 09:15:06 -0800 (PST)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A45F53F5A1;
-	Wed, 12 Feb 2025 09:14:34 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2F28E3F5A1;
+	Wed, 12 Feb 2025 09:14:44 -0800 (PST)
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: will@kernel.org,
 	maz@kernel.org,
@@ -47,15 +47,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Robin Murphy <robin.murphy@arm.com>,
 	Christoph Hellwig <hch@lst.de>,
 	Tom Lendacky <thomas.lendacky@amd.com>
-Subject: [PATCH 0/1] arm64: realm: Fix DMA address for devices
-Date: Wed, 12 Feb 2025 17:14:10 +0000
-Message-ID: <20250212171411.951874-1-suzuki.poulose@arm.com>
+Subject: [PATCH 1/1] arm64: realm: Use aliased addresses for device DMA to shared buffers
+Date: Wed, 12 Feb 2025 17:14:11 +0000
+Message-ID: <20250212171411.951874-2-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250212171411.951874-1-suzuki.poulose@arm.com>
+References: <20250212171411.951874-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_091439_739545_556B43B7 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250212_091446_864555_A0F5CAE4 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,44 +72,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linux can be run as a Confidential Guest in Arm CCA from Linux v6.13. The address
-space (GPA or IPA) of a Realm VM is split into two halves, with private bottom
-half and shared top half. In Linux we treat the "top" bit of the IPA space as
-an attribute, to indicate whether it is shared or not (MSB == 1 implies shared).
-Stage2 (GPA to PA) translations used by the CPU accesses, cover the full IPA space,
-and are managed by RMM. The "top" bit as attribute is only a software construct.
+When a device performs DMA to a shared buffer using physical addresses,
+(without Stage1 translation), the device must use the "{I}PA address" with the
+top bit set in Realm. This is to make sure that a trusted device will be able
+to write to shared buffers as well as the protected buffers. Thus, a Realm must
+always program the full address including the "protection" bit, like AMD SME
+encryption bits.
 
-At present any device passed through to a Realm is treated as untrusted and the
-Realm uses bounce buffering for any DMA, using the "decrypted" (shared) DMA
-buffers (i.e., IPA with top bit set). In Linux, we only send the "DMA" address
-masking the "top" bit. In Arm CCA, SMMU for untrusted devices are managed by the
-non-secure Host and thus it can be confusing for the host/device when an unmasked
-address is provided. Given there could be other hypervisors than Linux/KVM
-running Arm CCA guests, the Realm Guest must adhere to a single convention for
-the DMA address. This gets further complicated when we add support for trusted
-devices, which can DMA into the full Realm memory space, once accepted. Thus,
-a DMA masked address (with "top" bit lost) will prevent a trusted device from
-accessing a shared buffer.
+Add the support for this by providing arm64 version of the phys_to_dma(). We
+cannot use the __sme_mask as it assumes the "encryption" always "sets a bit",
+which is the opposite for CCA. i.e., "set a bit" for "decrypted" address. So,
+move the common code that can be reused by all - i.e., add __phys_to_dma() and
+__dma_to_phys() - and do the arch specific processing.
 
-Thus Arm has decided to standardise the DMA address used by the Realm to include
-the full IPA address bits (including the "top" bit, which Linux uses as as attribute).
-
-This patch implements this in Linux by hooking into the phys_to_dma and vice versa
-for providing the appropriate address. This also implies that the VMMs must
-take care to :
- 1. Create the S2-SMMU mappings for VFIO at the "unprotected" alias.
- 2. Always mask the "top" bit off any IPA it receives from the Realm for DMA.
-
-KVM is not affected. A kvmtool branch with the changes above is available here [1].
-There are two patches [2] & [3], that are really required on top of the Arm CCA
-support. 
-
-Ideally it would be good to get this backported to stable kernel releases to make
-sure that they are compliant.
-
-[1] git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git cca/guest-dma-alias/v1
-[2] https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/ea37a6eb968abe4c75be4a8a90808714657c2ef7
-[3] https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/8afd0d5e6a7ee444dd0c1565fe94ecd831054a29
+Please note that the VMM needs to similarly make sure that the SMMU Stage2 in
+the Non-secure world is setup accordingly to map IPA at the unprotected alias.
 
 Cc: Will Deacon <will@kernel.org>
 Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
@@ -116,16 +95,136 @@ Cc: Robin Murphy <robin.murphy@arm.com>
 Cc: Steven Price <steven.price@arm.com>
 Cc: Christoph Hellwig <hch@lst.de>
 Cc: Tom Lendacky <thomas.lendacky@amd.com>
-
-Suzuki K Poulose (1):
-  arm64: realm: Use aliased addresses for device DMA to shared buffers
-
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
  arch/arm64/Kconfig                  |  1 +
  arch/arm64/include/asm/dma-direct.h | 38 +++++++++++++++++++++++++++++
  include/linux/dma-direct.h          | 35 +++++++++++++++++---------
  3 files changed, 62 insertions(+), 12 deletions(-)
  create mode 100644 arch/arm64/include/asm/dma-direct.h
 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fcdd0ed3eca8..7befe04106de 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -41,6 +41,7 @@ config ARM64
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
++	select ARCH_HAS_PHYS_TO_DMA
+ 	select ARCH_HAS_PTE_DEVMAP
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_HW_PTE_YOUNG
+diff --git a/arch/arm64/include/asm/dma-direct.h b/arch/arm64/include/asm/dma-direct.h
+new file mode 100644
+index 000000000000..37c3270542b8
+--- /dev/null
++++ b/arch/arm64/include/asm/dma-direct.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __ASM_DMA_DIRECT_H
++#define __ASM_DMA_DIRECT_H
++
++#include <asm/pgtable-prot.h>
++
++static inline unsigned long addr_to_shared(unsigned long addr)
++{
++	if (is_realm_world())
++		addr |= prot_ns_shared;
++	return addr;
++}
++
++static inline unsigned long addr_to_private(unsigned long addr)
++{
++	if (is_realm_world())
++		addr &= prot_ns_shared - 1;
++	return addr;
++}
++
++static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
++{
++	return __phys_to_dma(dev, paddr);
++}
++
++static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
++						 phys_addr_t paddr)
++{
++	return addr_to_shared(__phys_to_dma(dev, paddr));
++}
++#define phys_to_dma_unencrypted phys_to_dma_unencrypted
++
++static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_addr)
++{
++	return addr_to_private(__dma_to_phys(dev, dma_addr));
++}
++
++#endif	/* __ASM_DMA_DIRECT_H */
+diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+index d7e30d4f7503..3e9bf6ca640e 100644
+--- a/include/linux/dma-direct.h
++++ b/include/linux/dma-direct.h
+@@ -72,18 +72,36 @@ static inline dma_addr_t dma_range_map_max(const struct bus_dma_region *map)
+ 	return ret;
+ }
+ 
++static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t paddr)
++{
++	if (dev->dma_range_map)
++		return translate_phys_to_dma(dev, paddr);
++	return paddr;
++}
++
++static inline phys_addr_t __dma_to_phys(struct device *dev, dma_addr_t dma_addr)
++{
++	phys_addr_t paddr;
++
++	if (dev->dma_range_map)
++		paddr = translate_dma_to_phys(dev, dma_addr);
++	else
++		paddr = dma_addr;
++
++	return paddr;
++}
++
+ #ifdef CONFIG_ARCH_HAS_PHYS_TO_DMA
+ #include <asm/dma-direct.h>
+ #ifndef phys_to_dma_unencrypted
+ #define phys_to_dma_unencrypted		phys_to_dma
+ #endif
+ #else
++
+ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+ 		phys_addr_t paddr)
+ {
+-	if (dev->dma_range_map)
+-		return translate_phys_to_dma(dev, paddr);
+-	return paddr;
++	return __phys_to_dma(dev, paddr);
+ }
+ 
+ /*
+@@ -94,19 +112,12 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+  */
+ static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
+ {
+-	return __sme_set(phys_to_dma_unencrypted(dev, paddr));
++	return __sme_set(__phys_to_dma(dev, paddr));
+ }
+ 
+ static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_addr)
+ {
+-	phys_addr_t paddr;
+-
+-	if (dev->dma_range_map)
+-		paddr = translate_dma_to_phys(dev, dma_addr);
+-	else
+-		paddr = dma_addr;
+-
+-	return __sme_clr(paddr);
++	return __sme_clr(__dma_to_phys(dev, dma_addr));
+ }
+ #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
+ 
 -- 
 2.43.0
 
