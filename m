@@ -4,70 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C5AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF10C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VLD2YO8QmPm18c5l+QwQ6gfFIHKd9nisx97EQyVw55Y=; b=NQCt35acvwLhpRbC/JtkPbnBfV
-	Ok3+/iuxSfphKc6IXdZ3e7tUeW5OC/LwU6muey6Bsm/nI6AUcwM1U3M+1yaO4/85NWiTD2ldqXj0e
-	Ta0eD0Kp0v/FLLttWqoD9IKfrv4E9FUNtI74eXA0VTNV6j6ag4rHOWYk1izPQ3uj9SpZt+KsSpTWG
-	ahX/n4Uy6U2J2mJHWbiUCvO4bplOeKnBOZVHwaeYedhi/rgKdmdluAq2KM9iTJqtYqDJorm+KjCHu
-	8Q4jpLYb3HC5M2Zlmj6XevwShPq4Ki+tYSlIHr9mlpVaxLzzhamShHl70kb9BqEjyYeeYajjGk6tk
-	1X5kQNTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OS4kBGgLsWLc6mLv3rvLLJcdQ9LwKsqBWtsrT9w6dYU=; b=DLiLnbHlkAIL081E1lKp7sqQSP
+	WT+B0Ghk2CSnC/fRyjLWhqQ2xY/Gs4iTVKU/tafrbxjrPNwgVRUsyDko37d0CC1WZnDhus7fHJDQc
+	F0t7jQpT7VjjLiTH96hkBq7vGbxDYrIxv6R4tnQMKUwQ4l1wS7eTxwLKUg92mHPxpmWQV9Ecuzr7e
+	M+F1C9L0TPzVh+sIEXSqhyP2Jmlar4wCKNgk1iV9GPWvQJlVASuMjHQ2JBMCYjjXsy6ssIJWo6pLT
+	xJq7tyIX0q5eMNasQ7m5e0v8YDSgongPQQPBTB1xhgVx6r/rbVGuoCKp+SapW0kPl4K6IBIRubnp0
+	jsR6NRBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiESc-00000007oz8-2ER5;
-	Wed, 12 Feb 2025 15:15:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiEc5-00000007qEx-20A6;
+	Wed, 12 Feb 2025 15:25:21 +0000
+Received: from mail-bn8nam11on20623.outbound.protection.outlook.com ([2a01:111:f403:2414::623] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiECo-00000007mJv-2H1m
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 14:59:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 214095C5F24;
-	Wed, 12 Feb 2025 14:58:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C524C4CEDF;
-	Wed, 12 Feb 2025 14:59:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739372353;
-	bh=oCvq9gSavJWl2kDBTfPs3YD8zX+/lohqwlywSoG+xkQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hHVQnH6CNr1DzWYc7ti8auIZ/FJHzitoE4i/mpGQgFTAleKGfwLoybhM9Pyoop3SW
-	 qEwgOvKAQvnZm1sJliTrLgmB74tMM1OGMmzzm/+KuOfYCjKCHFMZBkC49DPz5eoC7o
-	 3q6hox23kgW2BrozBC5dt0lXhATKjuMUwfnkR0utm9dwqq5hPKRxlaHXKMAPGCzzWc
-	 d/5D1MW5Vf+NBRv7b2xL0TQs2Ib7FRaJhrWTQhV0Jkrq34z9bNgUYWy7MPdeN//8qa
-	 sMprTgrL6hVlfF50Ut2YlltyO+xk0b2JZyZoclBGdPliHjbfAVGWTelTS8U+GbGLgU
-	 T1DYxD/Orn1PA==
-From: Philipp Stanner <phasta@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Yinggang Gu <guyinggang@loongson.cn>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Philipp Stanner <pstanner@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] stmmac: Replace deprecated PCI functions
-Date: Wed, 12 Feb 2025 15:58:32 +0100
-Message-ID: <20250212145831.101719-2-phasta@kernel.org>
-X-Mailer: git-send-email 2.47.1
+	id 1tiEae-00000007pu6-2Yy3;
+	Wed, 12 Feb 2025 15:23:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CscaezITUFe2C/m+x/A1YkHugOTS6imFzoZHVXO1y3WxcEnEoaXLOc8ksrIIzzKHArao6oBAS0Kp44aaDwcLBFnMS7WuUJvmL57hem1xxeaMguNPodjXv80zRH34lX1Z/rjRvxkpDOLxNexjf3UHsW2YioDPSSjwDZlrcsUrbgdeak/AMYRM2S45ixQYMEgEfNMYfEtMbuu7fNRBq3kq9c0jg+eyicL5WVjKZrDZa7LC0KNzsDgp/MhTWS+T9DgGxqd08h9m9gZJvD7gC7k9GynnMF49/OktT61GmWA4pXeCRDX4RV2skXh+z2QBroTAT7Yn9Ano62iGa8gWSUw01Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OS4kBGgLsWLc6mLv3rvLLJcdQ9LwKsqBWtsrT9w6dYU=;
+ b=fOMqA51YkNRa1KbeRAbUQF+BhaIbAq5Yjx/jQnk1wRZ10q0QXRUmewpxLvXx8eCyLMceVUZw2ewtbjfNKUSHojcfB6KC0PkRknV3sYTw3b9xaLNpX+ZqUzE+rpHsoB4NH/HnAehNm5tCqJop4qWdHOq5ir83fVYFQvvVVD5HZI0QNX16QCkgel33zKct4fCzRqDSLIDkTqRojzolvABZ1N3cim5vN7dcN8INFbLtbvYMBOb3KNbmsbgLNh0amZY6bav3WAzOxZ/UikpQcoC/SbslZHquIXgI+AGOpG4dFuERfoQK0aCFQMaMsdHCqIMAp8bQ26UTsLLEOVGh7OSnxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OS4kBGgLsWLc6mLv3rvLLJcdQ9LwKsqBWtsrT9w6dYU=;
+ b=KDNs/pCEqsVFzL+mPKgucZy3kRTBFIJT8FcQuFS9XyyufE/YfKe/RxLr5a3+UUyDskyUQfx7u2y5mbHXnEOL2oJ8tMZxJY7f7WsYgojXvmyXqXtUXXRERlIytSrIShpNk3PFz2Yu8r73cjDVgZC/cX0HY6dvn0n0q2a76eu3Lm2fG+kYmoFYdGr4ojUL7Sxsq0MsM00T8yomV4qRrbvPhUXZVJ7A77t9VKedPwTN4m5+gf1KxXrWAaQpjk/jVKXIsmNpK6SlV6CpnrKPya7xJub6lQFJ2kXW9+1EIEXQlCDQX9ts6RAj4h/q2sjXb7y2a1ooW8WpEkAnqcdlNbkMHg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
+ by PH0PR12MB7838.namprd12.prod.outlook.com (2603:10b6:510:287::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Wed, 12 Feb
+ 2025 15:23:38 +0000
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f%2]) with mapi id 15.20.8422.015; Wed, 12 Feb 2025
+ 15:23:38 +0000
+Date: Wed, 12 Feb 2025 11:23:36 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
+ helpers
+Message-ID: <20250212152336.GA3848889@nvidia.com>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-6-rppt@kernel.org>
+ <20250210202220.GC3765641@nvidia.com>
+ <CA+CK2bBBX+HgD0HLj-AyTScM59F2wXq11BEPgejPMHoEwqj+_Q@mail.gmail.com>
+ <20250211124943.GC3754072@nvidia.com>
+ <CA+CK2bAEnaPUJmd3LxFwCRa9xWrSJ478c4xisvD4pwvNMiTCgA@mail.gmail.com>
+ <20250211163720.GH3754072@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250211163720.GH3754072@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0303.namprd13.prod.outlook.com
+ (2603:10b6:208:2c1::8) To MW6PR12MB8663.namprd12.prod.outlook.com
+ (2603:10b6:303:240::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|PH0PR12MB7838:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e1adb2b-b545-49aa-b5e8-08dd4b79398f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4r6B+LlKtbfYogL+ZfFaeoTILB3a12Hhb1BkGIjQ1BGr8Ju3R1Xr/cHKWA5A?=
+ =?us-ascii?Q?n17IgOcsEgG9g5q7xMP8aXR69gYqD/G71LPLLnqEXXphi/hhKqU7UXN1teVA?=
+ =?us-ascii?Q?K2Uf1DzX+ZZ7sGK3tfe0abQarkFdbeW+GWqIlU340unnPwtyLNpdEc64sf+S?=
+ =?us-ascii?Q?j3uEFF66MJli8O5TOjhL2uXXxvlrmqNKaIJTUJAqsEzR0geYpVPB7LC9ZKZI?=
+ =?us-ascii?Q?fYORl0RIlrKVeimLsgloEnmMLlfBVf382FU5Ky2iHwQ0vG2hyfOXulNrugkj?=
+ =?us-ascii?Q?XhSImHSVwdfooRhVGOmeQn49u7pQ6FPZ7G4U4EkU2sWTYlHGpgrQq6GpjbIx?=
+ =?us-ascii?Q?SwCVSdgBGsMGQrgs2hkG8Pw/MowiMMCw+ezvIVekqCcaIi470BLslnbuHiRc?=
+ =?us-ascii?Q?lKG4NRLASwhqBPKyB99MQ8WOjCSfHS35k8m7fk1Sg6Xv/T4vFApHyNtUzl8f?=
+ =?us-ascii?Q?9bVQkhGSRku0Bw/u+BlmqsHx5sm/D37vbhwac6Vedw/nUCEz+xG78Ks0z4MN?=
+ =?us-ascii?Q?uZVMZdxYddw5LAVm/pctw+QPqnbU5ei3/OFTr/38R64+R/F1HEOFt9S1WVAC?=
+ =?us-ascii?Q?Y2ljUJ1hiXyivi8WCrl4++8x03wpO1jDFOEB5oShhYZHhdZnNS3XqywM2lHa?=
+ =?us-ascii?Q?jyRKEVDRL5rUDaJ6LPjZ2MCjuysgfWvrYH1RdauT4519AlBVVbbdd6xJ89qr?=
+ =?us-ascii?Q?O6j8Yv7lJJw6jWyyvRm8ojsLPqDeec83yT6r4SE+kmhXz9VL0OgOKXs8dLQ2?=
+ =?us-ascii?Q?MkW1y9Jh1vaXtp9OS/olOZ1v+FxkiKk7wFU4BayT44XdGS2ZyEX8mwKJ6/U2?=
+ =?us-ascii?Q?MsSKUGv1yQ0wfWHFC7cjQrJaHAwf8jVWRfqkbJcOOMjKJilhPA0Yv3E+NOkW?=
+ =?us-ascii?Q?rDUrGGJ3TbVq3j35I3BrSTnboTZNqKLYx3nY0LChblv0gGJBz/nEVxwHf75+?=
+ =?us-ascii?Q?V+rOVk10GDYuLL5QiInO+3tW1UU53gEWNvjQZ90Jyk5G6YMXlRBxMh4WbPGC?=
+ =?us-ascii?Q?nfHErFDtybSirV1CXQVJwsOJkJhbRa0Vwatt1w1ZdHHZXQxmrwSygcg1pMNa?=
+ =?us-ascii?Q?6srHnJa7/yZgEfFKHC62c9MKJyzJN+crw9NuKbcqt8XCNcTvtEd5ojQrwEiS?=
+ =?us-ascii?Q?FvlioIr6CkCZpbyapSc8pb2lMLRbnMCUT10ISzy6F6OBc5TfGYXmdHnLOhhD?=
+ =?us-ascii?Q?gtvTNvegQUNTFurXw0d/W/SgkA6Hes10Cb/KGZ9Pip7eeJdHPsFmwBC+bCMD?=
+ =?us-ascii?Q?S2W6Z1HKAhRticJUH62/nLx0k/HbNP+uSSBchGBkUdKfBoxw1gK0PUP1SUVG?=
+ =?us-ascii?Q?x+Ay6Y0uYOl27nUdXnIu2cfKkxg1FLgxNgQjx1yI5sib4wPEIvaDBZULmXtS?=
+ =?us-ascii?Q?9wcsUXWdT3GBleHIBoQunStrd0hv?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6zG97Ny/NhkvT+DrgpRZ6S8HhSZcRruwbxceshPdoKYIqy98+y7XyybHQzR/?=
+ =?us-ascii?Q?Kx3jbeOnx5WuYkSVhTZvOROOBdLPi5sC6+L6vT4gPiQ4M3WphtpapVE8YqsE?=
+ =?us-ascii?Q?jym5dSl40QEKo2nbh7R7nT05tfKSyfkMZr3BQODE0PONXAnRLq0yJheNaKci?=
+ =?us-ascii?Q?bop0V+EXjPGUk4Q0UFXPiit4TFKq3qQPUhnYtq+5mRLD8srPdA3SVd+/EwQt?=
+ =?us-ascii?Q?iCmzyILMuSGZtgQDX485VvQ02wSKj/vh6Duhye76o8ScbSNtgktpcZndvmj3?=
+ =?us-ascii?Q?X/wlqwrKH93bMFyxHz/HpjJlFnsvCmHgC7Ydbv11GzvRBnbfi83cr9nNCQex?=
+ =?us-ascii?Q?IyPQ6RIEyfWgmbQa+mlDH8JX+rHOPEZirlKUF5DyX2oqFMAkHzJPc2Y07LV0?=
+ =?us-ascii?Q?vMQP2lOmudEZIHLuXC0qJnyQQdgFnDixOmXrGylk91epd719742OvGKNzwID?=
+ =?us-ascii?Q?aiW6XZ6VCC7tJmFCXgXLT37hbkfg6EQ+Cc520WwQ1emqR3hFzj96dHAaVOkY?=
+ =?us-ascii?Q?YJyZvhbm8PNqdDbKU6TYUOhqXwpkKxWsX6uzj62dXPsZ1jXH/JOe2/pai7ys?=
+ =?us-ascii?Q?HdIBhued8bM8+XzE277ClD1bYjBmb8lDU/24Y+AyXF13xETf0yEC9OEKWnad?=
+ =?us-ascii?Q?lTZL+3lVd0tTF6kNVQgPsj6U4I8sh/bp2J1eIvCaVmZg2zIwIKs/qOa+4ybM?=
+ =?us-ascii?Q?cS4TM0/znPoByrQSkXDsjeQ4Pi8QNghBOSAg1XLWURCb5SdSWMvP3h73euod?=
+ =?us-ascii?Q?kpzZVnH7vHjxp2HeYBNV9xOPMqBqraevyhncOsfhKaFYjl38eATVrxkRMnCk?=
+ =?us-ascii?Q?7GVWXqG1SMMMjHXU/9fp0g+UHPbsKuT2lFB5FskFlMBmOpJFciIzasiol0cC?=
+ =?us-ascii?Q?TW+TZXcu7pk65fF8CTtD/RHG59Q3q9yCiIMebXXzGqt19kSqyglS8wcU85oX?=
+ =?us-ascii?Q?UUXNIwdyyfn6kGUKI+AQ32PvYFzA7vVhOKhEkx8vR8465nZz5HnBm2umyv72?=
+ =?us-ascii?Q?LGs/w53NYgJOImdpx8XwZCVeThmnY2ko7cN9kfuB/ZHdm1EePb4qHy3HOBGC?=
+ =?us-ascii?Q?joU+gkltwY/H4oPKGMxSbe1YBBXNkXnaULqvg7ymRFSV0QF+qlGCuvLiOnDX?=
+ =?us-ascii?Q?IZ5S1SPqGYV05L8SoiPLPgBZUpLiCBS9RaXo/sv2eKjZO0eTUPXFn91yx5zZ?=
+ =?us-ascii?Q?bCyfMkV170VkaHCf1p2m5Ll7nqEe3FBy/fwF2B3nGnPSyS4KGXN35b1Sd7z6?=
+ =?us-ascii?Q?uW58Une0RiHRkZjdz5GiClOTw1+rnd9bVzxH1cNoNC9hCI3mnTWw9IcCkkqB?=
+ =?us-ascii?Q?hzdE7OzTeK6PdNfVeFA9rPmLavhIKyKwhSWwxY/DJjv1Ozpy3cMJGM5jxH+f?=
+ =?us-ascii?Q?StpG4WT+pOLkQcYSLENamdJKnzNwdQnu7+ntXfbmrvPrSUBPmMuZKqTrKUA3?=
+ =?us-ascii?Q?JT/BsK3eGvYMzLk+bmSp97dh3UVpg5DDbwZmDI/7p1PZsy7vIWLOBvMOzMcB?=
+ =?us-ascii?Q?wKFOLpCdkEk0XLyd8lKmvXWkzqNRCAxIDiTSQ5QezbwNlDfsoDMd6TxNMd7O?=
+ =?us-ascii?Q?riA76Pd8PSSWuzawOg8=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e1adb2b-b545-49aa-b5e8-08dd4b79398f
+X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 15:23:38.8210
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rQc344HRnWLI//BxrMm/7uXzCAy94KJvhtiSQuYTmPaKDwDBU7ud4HX4yU+W1ecf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_065914_696219_8A925402 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250212_072352_718416_9BFB107A 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,157 +189,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Philipp Stanner <pstanner@redhat.com>
+On Tue, Feb 11, 2025 at 12:37:20PM -0400, Jason Gunthorpe wrote:
 
-The PCI functions
-  - pcim_iomap_regions()
-  - pcim_iomap_table() and
-  - pcim_iounmap_regions()
-have been deprecated.
+> To do that you need to preserve folios as the basic primitive.
 
-The usage of pcim_* cleanup functions in the driver detach path (remove
-callback) is actually not necessary, since they perform that cleanup
-automatically.
+I made a small sketch of what I suggest.
 
-Replace them with pcim_iomap_region().
+I imagine the FDT schema for this would look something like this:
 
-Signed-off-by: Philipp Stanner <pstanner@redhat.com>
----
- .../ethernet/stmicro/stmmac/dwmac-loongson.c  | 28 ++++++-------------
- .../net/ethernet/stmicro/stmmac/stmmac_pci.c  | 24 ++++------------
- 2 files changed, 14 insertions(+), 38 deletions(-)
+/dts-v1/;
+/ {
+  compatible = "linux-kho,v1";
+  phys-addr-size = 64;
+  void-p-size = 64;
+  preserved-folio-map = <phys_addr>;
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-index bfe6e2d631bd..19b16df864dd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-@@ -11,6 +11,8 @@
- #include "dwmac_dma.h"
- #include "dwmac1000.h"
- 
-+#define DRIVER_NAME "dwmac-loongson-pci"
-+
- /* Normal Loongson Tx Summary */
- #define DMA_INTR_ENA_NIE_TX_LOONGSON	0x00040000
- /* Normal Loongson Rx Summary */
-@@ -520,7 +522,7 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- {
- 	struct plat_stmmacenet_data *plat;
- 	struct stmmac_pci_info *info;
--	struct stmmac_resources res;
-+	struct stmmac_resources res = {};
- 	struct loongson_data *ld;
- 	int ret, i;
- 
-@@ -552,17 +554,10 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- 	pci_set_master(pdev);
- 
- 	/* Get the base address of device */
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		ret = pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
--		if (ret)
--			goto err_disable_device;
--		break;
--	}
--
--	memset(&res, 0, sizeof(res));
--	res.addr = pcim_iomap_table(pdev)[0];
-+	res.addr = pcim_iomap_region(pdev, 0, DRIVER_NAME);
-+	ret = PTR_ERR_OR_ZERO(res.addr);
-+	if (ret)
-+		goto err_disable_device;
- 
- 	plat->bsp_priv = ld;
- 	plat->setup = loongson_dwmac_setup;
-@@ -617,13 +612,6 @@ static void loongson_dwmac_remove(struct pci_dev *pdev)
- 	if (ld->loongson_id == DWMAC_CORE_LS_MULTICHAN)
- 		loongson_dwmac_msi_clear(pdev);
- 
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		pcim_iounmap_regions(pdev, BIT(i));
--		break;
--	}
--
- 	pci_disable_device(pdev);
- }
- 
-@@ -673,7 +661,7 @@ static const struct pci_device_id loongson_dwmac_id_table[] = {
- MODULE_DEVICE_TABLE(pci, loongson_dwmac_id_table);
- 
- static struct pci_driver loongson_dwmac_driver = {
--	.name = "dwmac-loongson-pci",
-+	.name = DRIVER_NAME,
- 	.id_table = loongson_dwmac_id_table,
- 	.probe = loongson_dwmac_probe,
- 	.remove = loongson_dwmac_remove,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-index 352b01678c22..f3279c4387c5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-@@ -155,7 +155,7 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- {
- 	struct stmmac_pci_info *info = (struct stmmac_pci_info *)id->driver_data;
- 	struct plat_stmmacenet_data *plat;
--	struct stmmac_resources res;
-+	struct stmmac_resources res = {};
- 	int i;
- 	int ret;
- 
-@@ -188,13 +188,13 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- 		return ret;
- 	}
- 
--	/* Get the base address of device */
-+	/* The first BAR > 0 is the base IO addr of our device. */
- 	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
- 		if (pci_resource_len(pdev, i) == 0)
- 			continue;
--		ret = pcim_iomap_regions(pdev, BIT(i), pci_name(pdev));
--		if (ret)
--			return ret;
-+		res.addr = pcim_iomap_region(pdev, i, STMMAC_RESOURCE_NAME);
-+		if (IS_ERR(res.addr))
-+			return PTR_ERR(res.addr)
- 		break;
- 	}
- 
-@@ -204,8 +204,6 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- 	if (ret)
- 		return ret;
- 
--	memset(&res, 0, sizeof(res));
--	res.addr = pcim_iomap_table(pdev)[i];
- 	res.wol_irq = pdev->irq;
- 	res.irq = pdev->irq;
- 
-@@ -226,21 +224,11 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
-  * stmmac_pci_remove
-  *
-  * @pdev: platform device pointer
-- * Description: this function calls the main to free the net resources
-- * and releases the PCI resources.
-+ * Description: Main driver resource release function
-  */
- static void stmmac_pci_remove(struct pci_dev *pdev)
- {
--	int i;
--
- 	stmmac_dvr_remove(&pdev->dev);
--
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		pcim_iounmap_regions(pdev, BIT(i));
--		break;
--	}
- }
- 
- static int __maybe_unused stmmac_pci_suspend(struct device *dev)
--- 
-2.47.1
+  // The per "driver" storage
+  instance@1 {..};
+  instance@2 {..};
+};
 
+I think this is alot better than what is in this series. It uses much
+less memory when there are alot of allocation, it supports any order
+folios, it is efficient for 1G guestmemfd folios, and it only needs a
+few bytes in the FDT. It could preserve and restore the high order
+folio struct page folding (HVO).
+
+The use cases I'm imagining for drivers would be pushing gigabytes of
+memory into this preservation mechanism. It needs to be scalable!
+
+This also illustrates my point that I don't think FDT is a good
+representation to use exclusively. This in-memory structure is much
+better and faster than trying to represent the same information
+embedded directly into the FDT. I imagine this to be the general
+pattern that drivers will want to use. A few bytes in the FDT pointing
+at a scalable in-memory structure for the bulk of the data.
+
+/*
+ * Keep track of folio memory that is to be preserved across KHO.
+ *
+ * This is designed with the idea that the system will have alot of memory, eg
+ * 1TB, and the majority of it will be ~1G folios assigned to a hugetlb/etc
+ * being used to back guest memory. This would leave a smaller amount of memory,
+ * eg 16G, reserved for the hypervisor to use. The pages to preserve across KHO
+ * would be randomly distributed over the hypervisor memory. The hypervisor
+ * memory is not required to be contiguous.
+ *
+ * This approach is fully incremental, as the serialization progresses folios
+ * can continue be aggregated to the tracker. The final step, immediately prior
+ * to kexec would serialize the xarray information into a linked list for the
+ * successor kernel to parse.
+ *
+ * The serializing side uses two levels of xarrays to manage chunks of per-order
+ * 512 byte bitmaps. For instance the entire 1G order of a 1TB system would fit
+ * inside a single 512 byte bitmap. For order 0 allocations each bitmap will
+ * cover 16M of address space. Thus, for 16G of hypervisor memory at most 512K
+ * of bitmap memory will be needed for order 0.
+ */
+struct kho_mem_track
+{
+	/* Points to kho_mem_phys, each order gets its own bitmap tree */
+	struct xarray orders;
+};
+
+struct kho_mem_phys
+{
+	/*
+	 * Points to kho_mem_phys_bits, a sparse bitmap array. Each bit is sized
+	 * to order.
+	 */
+	struct xarray phys_bits;
+};
+
+#define PRESERVE_BITS (512 * 8)
+struct kho_mem_phys_bits
+{
+	DECLARE_BITMAP(preserve, PRESERVE_BITS)
+};
+
+static void *
+xa_load_or_alloc(struct xarray *xa, unsigned long index, size_t elmsz)
+{
+	void *elm;
+	void *res;
+
+	elm = xa_load(xa, index);
+	if (elm)
+		return elm;
+
+	elm = kzalloc(elmsz, GFP_KERNEL);
+	if (!elm)
+		return ERR_PTR(-ENOMEM);
+	res = xa_cmpxchg(xa, elmsz, NULL, elm, GFP_KERNEL);
+	if (xa_is_err(res)) {
+		kfree(elm);
+		return ERR_PTR(xa_err(res));
+	};
+	if (res != NULL) {
+		kfree(elm);
+		return res;
+	}
+	return elm;
+}
+
+/*
+ * Record that the entire folio under virt is preserved across KHO. virt must
+ * have come from alloc_pages/folio_alloc or similar and point to the first page
+ * of the folio. The order will be preserved as well.
+ */
+int kho_preserve_folio(struct kho_mem_track *tracker, void *virt)
+{
+	struct folio *folio = virt_to_folio(virt);
+	unsigned int order = folio_order(folio);
+	phys_addr_t phys = virt_to_phys(virt);
+	struct kho_mem_phys_bits *bits;
+	struct kho_mem_phys *physxa;
+
+	might_sleep();
+
+	physxa = xa_load_or_alloc(&tracker->orders, order, sizeof(*physxa));
+	if (IS_ERR(physxa))
+		return PTR_ERR(physxa);
+
+	phys >>= PAGE_SHIFT + order;
+	static_assert(sizeof(phys_addr_t) <= sizeof(unsigned long));
+	bits = xa_load_or_alloc(&physxa->phys_bits, phys / PRESERVE_BITS,
+				sizeof(*bits));
+
+	set_bit(phys % PRESERVE_BITS, bits->preserve);
+	return 0;
+}
+
+#define KHOSER_PTR(type)  union {phys_addr_t phys; type ptr;}
+#define KHOSER_STORE_PTR(dest, val)                 \
+	({                                          \
+		(dest).phys = virt_to_phys(val);    \
+		typecheck(typeof((dest).ptr), val); \
+	})
+#define KHOSER_LOAD_PTR(src) ((typeof((src).ptr))(phys_to_virt((src).phys)))
+
+struct khoser_mem_bitmap_ptr {
+	phys_addr_t phys_start;
+	KHOSER_PTR(struct kho_mem_phys_bits *) bitmap;
+};
+
+struct khoser_mem_chunk {
+	unsigned int order;
+	unsigned int num_elms;
+	KHOSER_PTR(struct khoser_mem_chunk *) next;
+	struct khoser_mem_bitmap_ptr
+		bitmaps[(PAGE_SIZE - 16) / sizeof(struct khoser_mem_bitmap_ptr)];
+};
+static_assert(sizeof(struct khoser_mem_chunk) == PAGE_SIZE);
+
+static int new_chunk(struct khoser_mem_chunk **cur_chunk)
+{
+	struct khoser_mem_chunk *chunk;
+
+	chunk = kzalloc(sizeof(*chunk), GFP_KERNEL);
+	if (!chunk)
+		return -ENOMEM;
+	if (*cur_chunk)
+		KHOSER_STORE_PTR((*cur_chunk)->next, chunk);
+	*cur_chunk = chunk;
+	return 0;
+}
+
+/*
+ * Record all the bitmaps in a linked list of pages for the next kernel to
+ * process. Each chunk holds bitmaps of the same order and each block of bitmaps
+ * starts at a given physical address. This allows the bitmaps to be sparse. The
+ * xarray is used to store them in a tree while building up the data structure,
+ * but the KHO successor kernel only needs to process them once in order.
+ *
+ * All of this memory is normal kmalloc() memory and is not marked for
+ * preservation. The successor kernel will remain isolated to the scratch space
+ * until it completes processing this list. Once processed all the memory
+ * storing these ranges will be marked as free.
+ */
+int kho_serialize(struct kho_mem_track *tracker, phys_addr_t *fdt_value)
+{
+	struct khoser_mem_chunk *first_chunk = NULL;
+	struct khoser_mem_chunk *chunk = NULL;
+	struct kho_mem_phys *physxa;
+	unsigned long order;
+	int ret;
+
+	xa_for_each(&tracker->orders, order, physxa) {
+		struct kho_mem_phys_bits *bits;
+		unsigned long phys;
+
+		ret = new_chunk(&chunk);
+		if (ret)
+			goto err_free;
+		if (!first_chunk)
+			first_chunk = chunk;
+		chunk->order = order;
+
+		xa_for_each(&physxa->phys_bits, phys, bits) {
+			struct khoser_mem_bitmap_ptr *elm;
+
+			if (chunk->num_elms == ARRAY_SIZE(chunk->bitmaps)) {
+				ret = new_chunk(&chunk);
+				if (ret)
+					goto err_free;
+			}
+
+			elm = &chunk->bitmaps[chunk->num_elms];
+			chunk->num_elms++;
+			elm->phys_start = phys << (order + PAGE_SIZE);
+			KHOSER_STORE_PTR(elm->bitmap, bits);
+		}
+	}
+	*fdt_value = virt_to_phys(first_chunk);
+	return 0;
+err_free:
+	chunk = first_chunk;
+	while (chunk) {
+		struct khoser_mem_chunk *tmp = chunk;
+		chunk = KHOSER_LOAD_PTR(chunk->next);
+		kfree(tmp);
+	}
+	return ret;
+}
+
+static void preserve_bitmap(unsigned int order,
+			    struct khoser_mem_bitmap_ptr *elm)
+{
+	struct kho_mem_phys_bits *bitmap = KHOSER_LOAD_PTR(elm->bitmap);
+	unsigned int bit;
+
+	for_each_set_bit(bit, bitmap->preserve, PRESERVE_BITS) {
+		phys_addr_t phys =
+			elm->phys_start + (bit << (order +
+			PAGE_SHIFT));
+
+		// Do the struct page stuff..
+	}
+}
+
+void kho_deserialize(phys_addr_t fdt_value)
+{
+	struct khoser_mem_chunk *chunk = phys_to_virt(fdt_value);
+
+	while (chunk) {
+		unsigned int i;
+
+		for (i = 0; i != chunk->num_elms; i++)
+			preserve_bitmap(chunk->order, chunk->bitmaps[i]);
+		chunk = KHOSER_LOAD_PTR(chunk->next);
+	}
+}
 
