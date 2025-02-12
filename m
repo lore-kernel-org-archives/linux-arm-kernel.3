@@ -4,51 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DCFC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7491C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drK3E+6nViXnjEUUavUIM/FpiX8fFxLO6Uta+R9hI+E=; b=xVJT4Q3atETRwQAB+0VQF71Lxo
-	pNLrPF8q4LMqavW93pK55UbewH4Cfbv5baLZhGQm79CwMZH94pVkotx+OtIyrZQHYKIzvcRXpWTfl
-	NptyxBUq05kXaHd5Tcd9UClmIUZogalqoGIlkRSJHXPzpG8RAA8WvvXwnXpQAChRoRPuQejHSkpjN
-	vITDSaNDJZbmlDjsHp4coGghjwIzvm7a+0qvNswjW+UV5GPG9MKC2EnOx7mcwXyR8o21NVTekDAKV
-	dW8xd85K+oyir6+XTWEPT5ei7HVrlr52hnP0loI89Up2xs2oDOnh6sSIw1HJYHiF2MgizAlnWTEnw
-	Npu+w4Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hICn6iQr4RTRQbEF00NQouXJgoo3oXDoUoBKtFTMUvI=; b=ySpVFW/bZWN37H4Bqy+Ghk6hrB
+	M0e54uR3YrXMza5rI63K/nIEPr0Jx4Wo9AsGh2XHZm/tbKOGr4gi5MFwQ73tbNtocrEANb4xVLtp1
+	yBb3mVzIOTdJ8gQUFT1D9ZlU4pJ8b8hFc7cKIhG4GwJLQjDPOwKuG9k2t9sOHWDpqObtUf4/shGAT
+	d6GkjtCnBmglAYzRHUXHZjXDdaJ08CCYI0nJEsdCmxjI7xBVYNSi7h2zAn0yAimuxsH8iWlyZeQ7K
+	cFngLsgHlCtaVqMawWgKeC2VkP00vPym5Tq8le68zvrHgPS7+7cSvKkXl8v4NUrsBnJvfa2BsaT+5
+	e9J940Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAdA-0000000779F-0MAl;
-	Wed, 12 Feb 2025 11:10:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAZ4-000000076Vw-2Z5Z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:05:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66BFD106F;
-	Wed, 12 Feb 2025 03:06:19 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98D223F6A8;
-	Wed, 12 Feb 2025 03:05:57 -0800 (PST)
-Date: Wed, 12 Feb 2025 11:05:54 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Subject: Re: [PATCH v2 18/18] firmware: arm_ffa: Allow multiple UUIDs per
- partition to register SRI callback
-Message-ID: <Z6yAkmNZFnQW5TBZ@bogus>
-References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
- <20250131-ffa_updates-v2-18-544ba4e35387@arm.com>
+	id 1tiAeY-000000077RF-2vwb;
+	Wed, 12 Feb 2025 11:11:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiAc5-000000076yN-3LpO;
+	Wed, 12 Feb 2025 11:09:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739358544;
+	bh=0WMcpkgL+kzI3wuew8Ndfo8EQnxAuf57HxbK5IfZrRY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RQ294yJNqb53NHibL46kTJCyFUsetkdQa7DtxTTTHDVuGx0/4KZsSMzsk99kedW5n
+	 m4eMWwwVGDraz6U+Qi/7/oOqSbweyl3dHK70ClKIByimu/QHsfZfSqxk7XSOC824wt
+	 Pppf0NTU5tnO8UFI207x3XF6TywPbJ6FaKhuNf3bPKE1QASHJrCbiOFtS/leBB1gJb
+	 KQrviYKDPTMo7revohw/yudk54gWnPaXiLtWqT1pQEf3L76HzYgav/kzFrhbYqfVz1
+	 5p+h7nY03xDZWEh0k22GXhm/NV3PTLUe7+ehX6nOt4ODo9NG7Ickcaz34n3XzOHHFs
+	 6eYmuA40vR0xQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EAFF717E0FBA;
+	Wed, 12 Feb 2025 12:09:02 +0100 (CET)
+Message-ID: <70436de1-7ad0-41f0-a101-7373662aa008@collabora.com>
+Date: Wed, 12 Feb 2025 12:09:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131-ffa_updates-v2-18-544ba4e35387@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/3] MediaTek MT8188 MDP3 Enablement
+To: chunkuang.hu@kernel.org, mchehab@kernel.org
+Cc: p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, moudy.ho@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, sebastian.fricke@collabora.com,
+ macpaul.lin@mediatek.com
+References: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_030558_700472_68381121 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250212_030905_996735_9A1F0723 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,79 +82,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 11:24:18AM +0000, Sudeep Holla wrote:
-> A partition can implement multiple UUIDs and currently we successfully
-> register each UUID service as a FF-A device. However when adding the
-> same partition info to the XArray which tracks the SRI callbacks more
-> than once, it fails.
+Il 18/12/24 11:53, AngeloGioacchino Del Regno ha scritto:
+> This series adds the necessary bindings and devicetree nodes to enable
+> the entire Multimedia Data Path 3 (MDP3) macro-block, found in MediaTek's
+> MT8188 SoC.
 > 
-> In order to allow multiple UUIDs per partition to register SRI callbacks
-> the partition information stored in the XArray needs to be extended to
-> a listed list.
+> This was tested on a MediaTek Genio 700 EVK board.
 > 
-> A function to remove the list of partition information in the XArray
-> is not added as there are no users at the time. All the partitions are
-> added at probe/initialisation and removed at cleanup stage.
+> AngeloGioacchino Del Regno (3):
+>    dt-bindings: display: mediatek: Add compatibles for MT8188 MDP3
+>    dt-bindings: media: mediatek: mdp3: Add compatibles for MT8188 MDP3
+
+CK, Mauro,
+
+If it's okay for you, I'd like to take the display and media bindings
+patches in the MediaTek trees, so that I can also safely take the DT patch
+without immutable branching, etc.
+
+It's a very old series, yes, but it's still applicable.
+
+Can you please ack the display and media bindings so that I can safely pick?
+
+For display: 20241218105320.38980-2-angelogioacchino.delregno@collabora.com
+For media:   20241218105320.38980-3-angelogioacchino.delregno@collabora.com
+
+Thanks!
+Angelo
+
+>    arm64: dts: mediatek: mt8188: Add all Multimedia Data Path 3 nodes
 > 
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->  drivers/firmware/arm_ffa/driver.c | 157 ++++++++++++++++++++++++++++----------
->  1 file changed, 116 insertions(+), 41 deletions(-)
+>   .../display/mediatek/mediatek,aal.yaml        |   4 +
+>   .../display/mediatek/mediatek,color.yaml      |   4 +
+>   .../display/mediatek/mediatek,merge.yaml      |   4 +
+>   .../display/mediatek/mediatek,padding.yaml    |  10 +-
+>   .../bindings/media/mediatek,mdp3-fg.yaml      |   8 +-
+>   .../bindings/media/mediatek,mdp3-hdr.yaml     |   8 +-
+>   .../bindings/media/mediatek,mdp3-rsz.yaml     |   1 +
+>   .../bindings/media/mediatek,mdp3-stitch.yaml  |   8 +-
+>   .../bindings/media/mediatek,mdp3-tcc.yaml     |   8 +-
+>   .../bindings/media/mediatek,mdp3-tdshp.yaml   |   8 +-
+>   .../bindings/media/mediatek,mdp3-wrot.yaml    |   1 +
+>   arch/arm64/boot/dts/mediatek/mt8188.dtsi      | 313 ++++++++++++++++++
+>   12 files changed, 364 insertions(+), 13 deletions(-)
 > 
 
-[...]
-
->  static void ffa_partitions_cleanup(void)
->  {
-> -	struct ffa_dev_part_info *info;
-> +	struct ffa_dev_part_info *info, *tmp;
->  	unsigned long idx;
->  
->  	/* Clean up/free all registered devices */
->  	ffa_devices_unregister();
->  
->  	xa_for_each(&drv_info->partition_info, idx, info) {
-> +		struct list_head *phead = (struct list_head *)idx;
-> +
->  		xa_erase(&drv_info->partition_info, idx);
-> -		kfree(info);
-> +		list_for_each_entry_safe(info, tmp, phead, node) {
-> +			list_del(&info->node);
-> +			kfree(info);
-> +		}
-> +		kfree(phead);
-
-Issue was discovered when testing it as module(that's when cleanup
-gets executed). It is now fixed here[1] with the below patch.
-
-Regards,
-Sudeep
-
-[1] https://git.kernel.org/sudeep.holla/l/ffa_updates
-
--->8
-
-diff --git c/drivers/firmware/arm_ffa/driver.c w/drivers/firmware/arm_ffa/driver.c
-index 3c49ab3fe118..c184a220147f 100644
---- c/drivers/firmware/arm_ffa/driver.c
-+++ w/drivers/firmware/arm_ffa/driver.c
-@@ -1644,14 +1644,14 @@ static int ffa_setup_host_partition(int vm_id)
- 
- static void ffa_partitions_cleanup(void)
- {
--       struct ffa_dev_part_info *info, *tmp;
-+       struct list_head *phead;
-        unsigned long idx;
- 
-        /* Clean up/free all registered devices */
-        ffa_devices_unregister();
- 
--       xa_for_each(&drv_info->partition_info, idx, info) {
--               struct list_head *phead = (struct list_head *)idx;
-+       xa_for_each(&drv_info->partition_info, idx, phead) {
-+               struct ffa_dev_part_info *info, *tmp;
- 
-                xa_erase(&drv_info->partition_info, idx);
-                list_for_each_entry_safe(info, tmp, phead, node) {
 
 
