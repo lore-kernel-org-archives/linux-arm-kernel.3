@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0F0C021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 14:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985CCC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 14:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCWXvj2a4k/niiC9u9wcJPbUXpQIPybramZFQ8uqJqU=; b=EBwuOzjNg+NYuDIEBCfjuQher/
-	XiH0mEbZ0hO1krqJZxzajcVjWe70QOjvnngvzSscMywJEqd0kvtCuY3Ebxm5pqlyKT+gqJ0SH8uAO
-	ZnVZJTvYvGRSxShfgnFVtIFvkEvkDaTKu3LfTeAUUEhSO2UvLO3JCsCuMl5jOSlyrsQI0R4WkET87
-	O/V0qvehu/DkUD7xCvbyezx/s7BA8Jox8I78n802qnIj505PPZO3PvQTt4s/W3iKXyftCk465pGFg
-	q9nxJwyYJWLMJ9/JJR7UdBgc3sBeWQ6ocvwd1VI6atglzYv1bySCaCfGjQmnlr4ahs/qGAtsZQUFz
-	7cPd7qOg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nT92zn6BedOGtQZeUS/4wxG1L3PZtN6lyNr+8MNq5Lw=; b=UaxjBZCFkGUr+YM9KfTwdssrjP
+	d+K2cgaJv6rVM/DqdkKrqOtDl8a6yxHv6fw1DccWaSxIprk2H9vHnLqLWmIow+QtId2WAsERv210K
+	HdExmEXj00NMjWVnp2McjeVJPm6P65qQ5iSWiSDsLmC0/XzzPbRJPtVHKWJisdZTBBMrKteQrZtGE
+	BnYJV4CcHk9WERZdeWpad4W9uF6RauHlhFnPbSrmCPiYZvLLdSWBLNOt+h5MZVMyX3t/h+Gl2W6Gm
+	mFfmNqDWgKeVstHpRHNP65+oVOzM0tN6zTPagdaygF4hQXj6+snd5khzK7Wmo3/GOu51mPrJDc/Q5
+	ZVbEyZrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDYG-00000007dgp-1bsA;
-	Wed, 12 Feb 2025 14:17:20 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1tiDbH-00000007eDS-0e4a;
+	Wed, 12 Feb 2025 14:20:27 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDWq-00000007dUb-069w
+	id 1tiDZq-00000007e2d-0Q2z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 14:15:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1739369726; x=1739974526; i=markus.elfring@web.de;
-	bh=iCWXvj2a4k/niiC9u9wcJPbUXpQIPybramZFQ8uqJqU=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=bRzgpUYc5bFwukP1xFjqV0U09qF7mRfihWuRv8064J8GAYSEQ2Zmp0wEQuaWEeV7
-	 Sw4E/3Ix1A25Son42E1gomKlyLbm8a+DAMKVYY0eq59z66ilOAWCYTx9EeA03CYfB
-	 SOyG5e8S6ORZqHAYgIfh/M6Em+mE7fm5sCkUqlYSUjXR9Kb+sq3bLDZvH3eeujNtj
-	 pzp6Dq+/MKCd2iu5vIEdiZP87c/HrgvFbzrjTxBOq+GvM/pgcrysdV0fp/DuW+xaN
-	 lLRAUsRRsCGssQRu+jIp4b5BtatZtF+0hWa/sy548/IM+Whmab8O39ENBdrGaaxLH
-	 5PqwCIBh48bSCG0UZg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.93.11]) by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1Mo6Jz-1t35GP2LAB-00enKW; Wed, 12
- Feb 2025 15:15:26 +0100
-Message-ID: <f06c4e1a-54ed-4f3a-9a7c-dfda31cfb74e@web.de>
-Date: Wed, 12 Feb 2025 15:15:25 +0100
+	Wed, 12 Feb 2025 14:19:00 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-05 (Coremail) with SMTP id zQCowAD3YMrEraxnexx3DA--.41351S2;
+	Wed, 12 Feb 2025 22:18:46 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com
+Cc: UNGLinuxDriver@microchip.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] net: microchip: sparx5: Fix potential NULL pointer dereference
+Date: Wed, 12 Feb 2025 22:18:28 +0800
+Message-ID: <20250212141829.1214-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: vulab@iscas.ac.cn, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Linus Walleij
- <linus.walleij@linaro.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-References: <20250212021849.275-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH v2] gpio: stmpe: Check return value of stmpe_reg_read in
- stmpe_gpio_irq_sync_unlock
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250212021849.275-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:eVHoFBcXsVWoExu1oCJST499N7xA6sGYUk+9smIyUo+VAhMgItd
- XapbKlBkL+idgPAEziKIMcQ+8DPn0nPg8v8u8HUAZa5CwwxzztVuDFjX730Wlv25BXy/QZs
- XcfTz8/DiugUW02sEV2u4jEfFdvcmyQxPwPPg3iDO6azH4nXuQRLTf80D8GlqN4N3jT7eSK
- 940M7jkccaQY2RwYRnYWg==
-UI-OutboundReport: notjunk:1;M01:P0:3QrbsvZSHUs=;9l/kj/POfuaGbCezmxBAoK93rii
- jYtCIMX0iUkSIHCp3wZx/vllbrrhYjZhjP7jtcd06TV6IBjCFzJ2n0GRvor2AqgFRpVzVLW7w
- djxycQ9Y/m8byXzLiAPi6IldW31sp5hJ62aTvKAlWdeLFwWEn4zziy8ADZ8TO++0AP1LOLuyG
- kSqejiANytqM2nsaW0ywFivqY0aBj9QpfN0dChMWxqPd2rNd90VEROIOHTkmCxz3Kc3j7dWOk
- jMA4T1w/qQqg9IZXWyz4xBODYrQrHRdkIB3iKpLa8PxZutP84uGrJ0Fsa3qwDYiwXYcxCWCk2
- JC8W7Q1zx8xVEk2lnMT7x8SQ/tL1j/7KlRMn83+TTgt04zhAbRgJkHFaBd81QeP5uotFcWz3v
- HV8caupclOrsT8aJZ/T/m5f/RG/ifibC46o5TdtsqIToZuH+KB0pBPsagkv4sIJr4iq8VjHhq
- K8XyF3LdiPtMaFIoG7o7kaQUr0pHNIj89V4U82FNIaKbGoTEJlZHPTn4RGDpgSvQ/TavbYmfc
- 76TflS/87bPL/gcp5dmWIBx70DrsoPKHvmPxP6QJjY6LR4Yn874e4raANl1wJzndWf/eoM7sx
- WY1Hhq5uyTWUFrbUKvvVgNs2RBghpbSOFOFTNVvJXdyl1KNzyExQ+X573lI/NCXBGraaCheho
- 4ffL5b60QbxKvjWhgdevlKPWSArRLmaAHRsTXojKO4xdQohoAtsw2JzZRq1W1sdY2o9dMEAjv
- xfT/eAZV0lrrRBHg9VwCODH58GCdjjdsHFtEu1w9c2sZD6JZzBgrjuJauWn+9dfMGsipu9Hpv
- 6IaQbP12EGVKR5h6drO4SRQM43CQERsC5Vtrp7FMEYmQEvqJsvAQM9D3Kg2AIo5xko6DxPrvP
- 4fF7OIWBwq51dSkHWEQ2PW5mJIpWr6zkQ2oWYJZ6osiZT6T860wgqI29IrDL4JB76jTbkGCW6
- vVnvK4gsrIpWpmeEeAxO5CMHF/B15da6K+VWaAfoEH4GOgzQVN5C2lVi8rGXjwH2lHbZqVJ+4
- e3OC8XFuYqCnjGeTbeyoycgq81HOBfMHdlJGJo3mhP0ZP8CEND3c/aDK5mUGsSICK+90pLRro
- eRiNuhI8XDqa6jtWknBEF/tOD2hyfpvAoVJguVCPAUc90iKKVloCAv3D/Q1FXIVIEzRdE6+JL
- A6oUvisQWnUxaob5hLv6CImeKK1UW2t6BkKwUwuwvjiqwEyhpFN872UrJLJPS9g3N9vfjGunY
- D4hM0h+vZxLsLzORuDmEg03bNcJZSZKXJuS3532GnYb9ZIQ/Mbbh3fmrcEUzowd2NYAFaq8Cb
- 3/0M0g2GlKXr+d0InI+h7/C58y5tJxLHFHHk7t+mnE710q4mlqlayBFuWbGhU8bRUU2F5JyQu
- 2gPuPb03lpP6Lb9zIw/3hRb6rhiFyV/ImPeF7EsXejW52RxyGqSgv2zFKCGmciFFIrcTxY0lx
- AgWX0lA==
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAD3YMrEraxnexx3DA--.41351S2
+X-Coremail-Antispam: 1UD129KBjvJXoWrZw4rAF47Zw4xWw13KrWDtwb_yoW8Jr13pa
+	1DuFy5Ww4kArsxG347Cw48Xry8Xan0gF93WrWrCwn5ZFnYqrZ3Xr1rCrWF9ryFqrZxGrnx
+	tF4Yva9IyF1qyrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUb8hL5UUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwoLA2espowP7AABsG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_061552_349302_19B039E9 
-X-CRM114-Status: UNSURE (   4.88  )
+X-CRM114-CacheID: sfid-20250212_061858_509721_88782E7A 
+X-CRM114-Status: UNSURE (   7.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,16 +87,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> This patch adds checks for the return value of =E2=80=A6
+Check the return value of vcap_keyfields() in
+vcap_debugfs_show_rule_keyset(). If vcap_keyfields()
+returns NULL, skip the keyfield to prevent a NULL pointer
+dereference when calling vcap_debugfs_show_rule_keyfield().
 
-See also:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.14-rc2#n94
+Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
+Cc: stable@vger.kernel.org # 6.2+
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+index 59bfbda29bb3..e9e2f7af9be3 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+@@ -202,6 +202,8 @@ static int vcap_debugfs_show_rule_keyset(struct vcap_rule_internal *ri,
+ 
+ 	list_for_each_entry(ckf, &ri->data.keyfields, ctrl.list) {
+ 		keyfield = vcap_keyfields(vctrl, admin->vtype, ri->data.keyset);
++		if (!keyfield)
++			continue;
+ 		vcap_debugfs_show_rule_keyfield(vctrl, out, ckf->ctrl.key,
+ 						keyfield, &ckf->data);
+ 	}
+-- 
+2.42.0.windows.2
 
-Would you like to append parentheses to any function names?
-
-Regards,
-Markus
 
