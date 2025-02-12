@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB625C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8F5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7clgdrBcayHFAivKWtedT4B5oeFGJNEZp+u1MEeMxvU=; b=IWHzly1V/WeMO3DQ1YDjAAF6YC
-	EueIQZha9Eg14Now6BymBcAa6XezJ/KdE9Z4H4dn8RmVEbc7Ge2l9mnKqSqz/1L+whspGD4wrL5E1
-	XKyghgQ5g3BFC3GjlM1irvP6QG18CUp0d57J2NWIATA9J9HbOF63u70EKulbPevwZobXKO7SgL1mG
-	F889eprMjTZuAMsVneYEbft6w8TgU/4JvHe4QG+PGJfccFP7MArQCpxz7a6kqnK+s/ixe3njzGePd
-	neVIshj1Vf9eRsdXKNZTeA39wtkCjYZGmS4VPhGXpfytimj4iPyQafRctdMgEFECXXNHwTq0Vjkv5
-	lDLuC7MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kVD/TzWf8xNmuKwiACtI1JZzyEv978UeZM6dCbKDUxQ=; b=1CD74JqT5Ue9SwuaQQg54wK+bX
+	ZB8WamdydK07Xf7+Od3WYowly45QqsgzTKAJ5sdbWw/Xq/cKDcwtar3uZZgq7i1OnRyKEGZ06tDFC
+	yyck3PbWIad2ioJujOhfuz/6VlSzA9QJdFjb7IefbDpvdBax8IchB/m/Dc8/zjavbUSap24yX1/SD
+	PttQNft4F8JtQXmEfqH6+nR/lpXaUZ2MMszaCnPggVaxlOBkYyd0ODCkjy/mQvO7FeN/wASZJ7roQ
+	16+RspPLKdC9bwcN18hqJHjhHuV0PTFIfVrn7ugBn+6JY49JVFQFjjMyV/f7zh3rxRRXksRAcxKnk
+	+MXUOW0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLjl-000000097Lt-1XlU;
-	Wed, 12 Feb 2025 23:01:45 +0000
-Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLiK-000000097BV-13G4
+	id 1tiLl9-000000097ZA-48rN;
+	Wed, 12 Feb 2025 23:03:11 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiLjf-000000097Ko-2yqL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 23:00:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1739401216; x=1770937216;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=7clgdrBcayHFAivKWtedT4B5oeFGJNEZp+u1MEeMxvU=;
-  b=TWiSa5wMPbI1Og4kJRmJUYoY7QKepKqiGMFyUI5SDpvjvgg6Vcda2ssS
-   mmsspNn1fnq81+bYMQWcday67yeVfDYKyNvn+pKniBFUb5NK9zMZZFsAw
-   wwqvZB4SLZuZEapJL1IHTffPR4WiCV9oJyj/bEiK6YNOhEBGmguJ9+b0O
-   Y=;
-X-IronPort-AV: E=Sophos;i="6.13,281,1732579200"; 
-   d="scan'208";a="171993392"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 23:00:15 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:20924]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.9.187:2525] with esmtp (Farcaster)
- id 46ec316a-84fc-48d3-81a3-a13e85f75502; Wed, 12 Feb 2025 23:00:15 +0000 (UTC)
-X-Farcaster-Flow-ID: 46ec316a-84fc-48d3-81a3-a13e85f75502
-Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 12 Feb 2025 23:00:15 +0000
-Received: from 88665a51a6b2.amazon.com (10.106.179.55) by
- EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 12 Feb 2025 23:00:12 +0000
-From: Cristian Prundeanu <cpru@amazon.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Cristian Prundeanu <cpru@amazon.com>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	"Ali Saidi" <alisaidi@amazon.com>, Benjamin Herrenschmidt
-	<benh@kernel.crashing.org>, Geoff Blake <blakgeof@amazon.com>, Csaba Csoma
-	<csabac@amazon.com>, Bjoern Doebel <doebel@amazon.com>, Gautham Shenoy
-	<gautham.shenoy@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>, Borislav Petkov
-	<bp@alien8.de>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tip-commits@vger.kernel.org>,
-	<x86@kernel.org>
-Subject: Re: [PATCH v2] [tip: sched/core] sched: Move PLACE_LAG and RUN_TO_PARITY to sysctl
-Date: Wed, 12 Feb 2025 17:00:02 -0600
-Message-ID: <20250212230002.95945-1-cpru@amazon.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250212093721.GA24784@noisy.programming.kicks-ass.net>
-References: <20250212094307.GB19118@noisy.programming.kicks-ass.net>
+	Wed, 12 Feb 2025 23:01:41 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 63C73203F3F9;
+	Wed, 12 Feb 2025 15:01:37 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 63C73203F3F9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739401297;
+	bh=kVD/TzWf8xNmuKwiACtI1JZzyEv978UeZM6dCbKDUxQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U08z9jK9iAY0zzo79A7JsC/Mz2ZbWBnrHFM5KY0O7MHmTpEOGkvA8SJUPe2B3lRVa
+	 jvX1WzrD4fslrZg15JInATk0D9kx25QMttWTdsm0IK1VZtYMIGPhwhJNJuJAgX25PJ
+	 Kv5P4xmlJC1vHp70JcBwBMfZWe2qmtpArPf05eG8=
+Message-ID: <f7ce3ca7-e555-418d-9c88-6df379a3ec56@linux.microsoft.com>
+Date: Wed, 12 Feb 2025 15:01:36 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.106.179.55]
-X-ClientProxiedBy: EX19D041UWB002.ant.amazon.com (10.13.139.179) To
- EX19D016UWA004.ant.amazon.com (10.13.139.119)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] hyperv: Add CONFIG_MSHV_ROOT to gate hv_root_partition
+ checks
+To: Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ iommu@lists.linux.dev, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, daniel.lezcano@linaro.org, joro@8bytes.org,
+ robin.murphy@arm.com, arnd@arndb.de, jinankjain@linux.microsoft.com,
+ muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
+ mukeshrathor@microsoft.com
+References: <1739312515-18848-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <20ba4b7c-bebb-4b1f-8c6c-4cd52a5083b5@linux.microsoft.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <20ba4b7c-bebb-4b1f-8c6c-4cd52a5083b5@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_150016_339417_75D635A4 
-X-CRM114-Status: GOOD (  31.44  )
+X-CRM114-CacheID: sfid-20250212_150139_801138_E4A4A80F 
+X-CRM114-Status: GOOD (  27.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,115 +79,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>> Moving PLACE_LAG and RUN_TO_PARITY to sysctl will allow users to override
->>> their default values and persist them with established mechanisms.
+On 2/11/2025 9:47 PM, Easwar Hariharan wrote:
+> On 2/11/2025 2:21 PM, Nuno Das Neves wrote:
+>> Introduce CONFIG_MSHV_ROOT as a tristate to enable root partition
+>> booting and future mshv driver functionality.
 >>
->> Nope -- you have knobs in debugfs, and that's where they'll stay. Esp.
->> PLACE_LAG is super dodgy and should not get elevated to anything
->> remotely official.
->
-> Just to clarify, the problem with NO_PLACE_LAG is that by discarding
-> lag, a task can game the system to 'gain' time. It fundamentally breaks
-> fairness, and the only reason I implemented it at all was because it is
-> one of the 'official' placement strategies in the original paper.
+>> Change hv_root_partition into a function which always returns false
+>> if CONFIG_MSHV_ROOT=n.
+>>
+>> Introduce hv_current_partition_type to store the type of partition
+>> (guest, root, or other kinds in future), and hv_identify_partition_type()
+>> to it up early in Hyper-V initialization.
+> 
+> ...to *set* it up early?
+> 
+Yep! Thanks for catching that
 
-Wouldn't this be an argument in favor of more official positioning of this 
-knob? It may be dodgy, but it's currently the best mitigation option, 
-until something better comes along.
+>>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> ---
+>> Depends on
+>> https://lore.kernel.org/linux-hyperv/1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com/
+>>
+>>  arch/arm64/hyperv/mshyperv.c       |  2 ++
+>>  arch/x86/hyperv/hv_init.c          | 10 ++++----
+>>  arch/x86/kernel/cpu/mshyperv.c     | 24 ++----------------
+>>  drivers/clocksource/hyperv_timer.c |  4 +--
+>>  drivers/hv/Kconfig                 | 12 +++++++++
+>>  drivers/hv/Makefile                |  3 ++-
+>>  drivers/hv/hv.c                    | 10 ++++----
+>>  drivers/hv/hv_common.c             | 32 +++++++++++++++++++-----
+>>  drivers/hv/vmbus_drv.c             |  2 +-
+>>  drivers/iommu/hyperv-iommu.c       |  4 +--
+>>  include/asm-generic/mshyperv.h     | 39 +++++++++++++++++++++++++-----
+>>  11 files changed, 92 insertions(+), 50 deletions(-)
+>>
+> 
+> <snip>
+> 
+>> +
+>> +void hv_identify_partition_type(void)
+>> +{
+>> +	/*
+>> +	 * Check partition creation and cpu management privileges
+>> +	 *
+>> +	 * Hyper-V should never specify running as root and as a Confidential
+>> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
+>> +	 * to exploit root behavior to expose Confidential VM memory, ignore
+>> +	 * the root partition setting if also a Confidential VM.
+>> +	 */
+>> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+>> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>> +		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+>> +		pr_info("Hyper-V: running as root partition\n");
+>> +	} else {
+>> +		hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>> +	}
+>> +}
+> 
+> This should assume GUEST as default and modify to ROOT if all the checks pass.
+> 
+It is doing that, isn't it?
 
-> If the tasks are unconstrained / aperiodic, this goes out the window and
-> the placement strategy becomes unsound. And given we must assume
-> userspace to be malicious / hostile / unbehaved, the whole thing is just
-> not good.
+In fact the 'else' branch here is redundant and just there for additional clarity.
 
-Userspace in general, absolutely. User intent should be king though, and 
-impairing the ability to do precisely what you want with your machine 
-feels like it stands against what Linux is best known (and often feared) 
-for: configurability. There is _another_ OS which has made a habit of 
-dictating how users should want to do something. We're not there of 
-course, but it's a strong cautionary tale.
+hv_current_partition_type is zeroed (so GUEST) by default, but I could make that explicit
+if you prefer:
++enum hv_partition_type hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
 
-To ask more specifically, isn't a strong point of EEVDF the fact that it 
-considers _more_ user needs and use cases than CFS (for instance, task 
-lag/latency)?
+How does that sound? Am I misunderstanding something here?
 
->> Conversely, setting NO_PLACE_LAG + NO_RUN_TO_PARITY is simply done at boot 
->> time, and does not require further user effort. 
->
-> For your workload. It will wreck other workloads.
+> <snip>
+> 
+>> +static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>> +{
+>> +	return hv_result(U64_MAX);
+>> +}
+> 
+> Is there value in perhaps #defining hv_result_<whatever this is> as U64_MAX and returning that for documentation?
+> For e.g. assuming this is something like EOPNOTSUPP
+> 
+> #define HV_RESULT_NOT_SUPP U64_MAX
+> 
+> static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+> { return hv_result(HV_RESULT_NOT_SUPP); }
+> 
+The idea here was to copy what hv_do_hypercall does returning U64_MAX in case the hypercall
+page is missing, which will hv_result() into an invalid status code. A special value for
+that status could make this pattern clearer. I'd want to call out that this isn't a "real"
+Hyper-V status code somehow. HV_STATUS's are 16 bits, so it would look more like:
 
-I'd like to invite you to name one real-life workload that would be 
-wrecked by allowing PL and RTP override in sysctl. I can name three that 
-are currently impacted (mysql, postgres, and wordpress), with only poor 
-means (increased effort, non-standard persistence leading to higher 
-maintenance cost, requirement for debugfs) to mitigate the regression.
+/* "LINUX" because this isn't really a status from the hypervisor.. */
+#define HV_STATUS_LINUX_FAIL 0xFFFF
+static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+{ return HV_STATUS_LINUX_FAIL; }
 
-> Yes, SCHED_BATCH might be more fiddly, but it allows for composition.
-> You can run multiple workloads together and they all behave.
+Another option: there is another patch coming (which you know of) which maps hypercall
+status codes to regular Linux errors like -EOPNOTSUPP. I could simply merge that patch
+with this one (or make this a series for v2), and that would result in less churn.
+(And leave alone the current use of U64_MAX in hv_do_hypercall, for now).
 
-Shouldn't we leave that to the user to decide, though? Forcing a new 
-default configuration that only works well with multiple workloads can not 
-be the right thing for everyone - especially for large scale providers, 
-where servers and corresponding images are intended to run one main 
-workload. Importantly, things that used to run well and now don't.
+Nuno
 
-> Maybe the right thing here is to get mysql patched; so that it will
-> request BATCH itself for the threads that need it.
+> <snip>
+> 
+> Thanks,
+> Easwar (he/him)
 
-For mysql in particular, it's a possible avenue (though I still object to 
-the idea that individual users and vendors now need to put in additional 
-effort to maintain the same performance as before).
-
-But on a larger picture, this reproducer is only meant as a simplified 
-illustration of the performance issues. It is not a single occurrence. 
-There are far more complex workloads where tuning at thread level is at 
-best impractical, or even downright impossible. Think of managed clusters 
-where the load distribution and corresponding task density are not user 
-controlled, or JVM workloads where individual threads are not even 
-designed to be managed externally, or containers built from external 
-dependencies where tuning a service is anything but trivial.
-
-Are we really saying that everyone just needs to swallow the cost of this 
-change, or put up with the lower performance level? Even if the Linux 
-Kernel doesn't concern itself with business cost, surely at least the time 
-burned on this by both commercial and non-commercial projects cannot be 
-lost on you.
-
-> Also, FYI, by keeping these emails threaded in the old thread I nearly
-> missed them again. I'm not sure where this nonsense of keeping
-> everything in one thread came from, but it is bloody stupid.
-
-Thank you. This is a great opportunity for both of us to relate to the 
-opposing stance on this patch, and I hope you too will see the parallel:
-
-My reason for threading was well intended. I value your time and wanted to 
-avoid you wasting it by having to search for the previous patch or older 
-threads on the same topic.
-
-However, I ended up inadvertently creating an issue for your use case. 
-It, arguably, doesn't have a noticeable impact on my side, and it could be 
-avoided by you, the user, by configuring your email client to always 
-highlight messages directly addressed to you; assuming that your email 
-client supports it, and you are able and willing to invest the effort to 
-do it.
-Nevertheless, this doesn't make it right.
-
-I do apologize for the annoyance; it was not my intent to put additional 
-burden on you, only to have the same experience or efficiency that you are 
-used to having. I did consolidate the two recent threads into this one 
-though, because I believe that it's easier to follow by everyone else.
-
-It may be a silly parallel, but please consider that similar frustration 
-is happening to many users who now are asked to put effort towards 
-bringing performance back to previous levels - if at all possible and 
-feasible - and at the same time are denied the right tools to do so.
-Please consider that it took years for EEVDF commit messages to go from 
-"horribly messes up things" to "isn't perfect yet, but much closer", and 
-it may take years still until it's as stable, performant and vetted across 
-varied scenarios as CFS was in kernel 6.5.
-Please consider that along this journey are countless users and groups who 
-would rather not wait for perfection, but have easy means to at least get 
-the same performance they were getting before.
-
--Cristian
 
