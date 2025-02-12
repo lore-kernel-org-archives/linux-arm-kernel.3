@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FAFC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5B5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCppI8y93cboRnNPyFDL3rH6Gq98I5rJlO4BpN7swr8=; b=V/penEoGtmzmZfab5el3G5Tm56
-	2noEUYCxgfsACWpbxOIcjtrty+8Wq3Bz0F9p8RJ1tYos24OjG82qBAiTammk9jis3QXl9SDZxcxIb
-	eUxVtZY+gsCln9BMF7AYhypIRRl4XwMx5bckAHkb0O8e+e2F8C6smqX+mY1bZkcnb3bjIj8Jp4Fot
-	naicK2f1nl9IUlpze6jr1ISC6Q9sYKbVR9epTvCcoTuUiiJyXXSENzTZJ5NxAgxa1I+mBeZE+aHIx
-	8h79JlT2eeq9i1/SqDdvJY2wMe/SKIk3ZBP/7y+am4niSLTEwGo+LBQMyQLByo+r5/GJNIFizVPS4
-	bsz8WsbQ==;
+	bh=iu/7BkGsGBE91wCLd243z0DyD6Dxurxs3l5CaDlz+Xg=; b=gS82wnUh/uNJCQE6vOjRyiOPhz
+	KsWs5jGHwtxbYQ8hkcOSlStGMKqcZnQy58z584MnbsDRVEKYnBYOJdgjCJVvAGTqkBtaC1dwCu33r
+	BQeczNGs5d1mcIX2jJ9jVB68H+XMKGcW4jxiY74rrUX+DkrTrqQbNh7hMSEgmgGc4OXPW7T0G+z9S
+	aQnuIiEKFizxqNqD6hdOeCJPVBl5APrsuRCzQ9PvXgzZjL/pcVdr4mcpmxoXU1SGKt3b6FhIzLoem
+	Cl/Oq4Muy9qP751y6/MoK2kXDUy5g3F7gY0d1CKki//aAPlb2GGPxyyGfIohLb4Cc792sxBCfLCan
+	bDYd+qwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJ0E-00000008jta-3sXj;
-	Wed, 12 Feb 2025 20:06:34 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tiJ37-00000008kUM-1krF;
+	Wed, 12 Feb 2025 20:09:33 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiIyY-00000008jUm-1fhJ
+	id 1tiJ1f-00000008kFZ-3v4u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 20:04:51 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ab7bbc14101so2285566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 12:04:50 -0800 (PST)
+	Wed, 12 Feb 2025 20:08:05 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ab7dd005cb0so2841466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 12:08:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739390689; x=1739995489; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739390882; x=1739995682; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=TCppI8y93cboRnNPyFDL3rH6Gq98I5rJlO4BpN7swr8=;
-        b=admqvvpxnry7riKh0It7exWaiI3nGX4BvnkXzkxu3QL6op3tQirfwt30gdAjTyylSU
-         Pd8xMveX1/JReKOM4VdnQ1iLBDIDmdz5xtZBdzO1c2scxBx6mL6QgpiFGtPYszrzMYNd
-         5bqCTtpGDlhHxcFGNwPI3y5Q8XS7jlajUyqKaliMEGz7vz39cimW4/guqMe6SNHR9BOQ
-         4k8qDNjMhbpUJGmczwNAFv0lbmnARs6aszEUbJHROX0cm9Bvqk4Tl+MQKxBT+E4nUUj3
-         CvtOhQ2k14Kb9x85uzmL3egk6OAYF/XGneys3CAU7fub7xNnN4mt4TL6UXVN1xji0RJ4
-         edtg==
+        bh=iu/7BkGsGBE91wCLd243z0DyD6Dxurxs3l5CaDlz+Xg=;
+        b=ZzSr1Lqg1XqTP4yveFwrJJ/kX9e+wBgG1pD5dncl62b0Ec5Yi8w+ckZ0Gilvgaa49/
+         kBIGUcCH6zzfn/wUgKihfk8TCFtpOiAEkWQppqnoNyDC0+THNk/Ihtl3wxjZLw7VC/2n
+         vt0Ge/3hKImfm40BNczSz1qkbOGoZM7C1SPut4lOAI3GOT4P2fYebHADVd5qyLtJFx46
+         1NVMEmiXz3NgwWdyJG/8GfStt+I3YAX2i1gkRN5KI1EtLik6gn+ftNi0Rn/YffZYeWyQ
+         l+m0eqfnTfDwaHp89zwU4WuLZV8NIezjhcOKYVTdMjNwTPuDDCqvci3hNmFxA6RM5i8h
+         bv7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739390689; x=1739995489;
+        d=1e100.net; s=20230601; t=1739390882; x=1739995682;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=TCppI8y93cboRnNPyFDL3rH6Gq98I5rJlO4BpN7swr8=;
-        b=u1o23VktqftpcLjcOvhL69+g7YWT+uXjKZeXVCqM2d4iO/jeEzElYHxgv9e0vmV/yE
-         SHYL8FWOPICEPY1HZn4sBBt+/8nAUfCUaTlMu7MVGbhZh02ipVSYgniLBgEtSUUuFHgx
-         ioOwWPmS52GL2rQMGLxcug+8enSg3hEzB3mspQnTLMXTCTaz16ZYxAudv58zol5m7mUq
-         APKelfJy/YkU5A7F6EU1cr7qyG9OlpkPQ2Qx3BgUUFn6EavJxPru2M7ef+na2W8M/8Dw
-         zidP7F/rAwJNCARQqfYh2Y6r+3kQZMHT6MuQaosStu3ioBbHZP/2+gIkVM28hvUivoyP
-         /iEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUOqWfKG6+qHz2aIQipcAx+ASJOT9VnBuspUVlNe+xIVFHiLpCX0vTg9YFWT7A+Nn3v79IMe9OOhbb/lk9Mn2st@lists.infradead.org
-X-Gm-Message-State: AOJu0Yypkwx8wydUb1lsIJXYR8KAfAz90IPaGtsgtOBcRUuP5hkfn1/l
-	sHaAh/vyCMk/PHH+qDZIHa4dx8tTCNtuE6/yV5VKV8TlCbLtzykhDLgSFGoiieg=
-X-Gm-Gg: ASbGncvsqCYnQ4NyPhLiKSh1ZJaiYT+kyGPSb1lEcP8sPWTv1VJmBCMEQiWIw26j+9+
-	Sorikg4YWfanAZJ8RVBDTSVVZjxuvHdkekBGl5kMOQFUg+WxgDoQLEvaCU03J8Nm3A/e3X+31M5
-	qoBLG/HOw1LwTNRl3hEqE1pxFsHB6T4bq4/Z5/TCP0xVxITd0a1dWomBrQ0n4JfbvVKejI1VvDr
-	SFpdP1fKNfedMDZH4UpUrm1pIUO9sYDVY0d4oGbcshXqNO0+Z+R/532vctcg/vwcJU6XOXM4cxM
-	TT9bhbI7nfpm7Eb1AtWVqAdvuXlCQVfMhZs=
-X-Google-Smtp-Source: AGHT+IGkl11bv2ccUEKxaaQCvMxLK4FjNadbwKCT6A2Anh1DkgIvsPGgQ2iR8jPdG73PRBdgMlJogA==
-X-Received: by 2002:a17:907:728b:b0:ab7:d10b:e1f2 with SMTP id a640c23a62f3a-ab7f34a0d8amr145810666b.12.1739390688613;
-        Wed, 12 Feb 2025 12:04:48 -0800 (PST)
+        bh=iu/7BkGsGBE91wCLd243z0DyD6Dxurxs3l5CaDlz+Xg=;
+        b=h8XmeYmtUJjUdPI6MEXas1zN26njsQj/Cii9dPdIiWOEB2iEZo3CDO+qjeQyijPj7T
+         71qWEeLPGzhvNgKB6GiQAlSeDXzesVUOCgdGgmXvSKiLECFzYNRjldgMx523Un0JQL0E
+         GYRPer3zMhqbBUX3UhkKFaCMVGMIzyJw0edB4WC82g6Ciu6swfVOv/pQA5ywxI9/C/iN
+         Fa8vSVjMS1ag/nUSTLzuAGpLqDkZnnZqW7DhRfm7dnyGnn1WkVIp5kCr6YSsaR5Zj7/E
+         8Y8JZGPOUAm3aKFBbmh/cyKHMslwOKbrsZqiNwl97kDrQhU65deQvlxtYGaQhaDKJ4V5
+         rBWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWRtCaZhr9dFH+AGupmk2wwtTq8UlIC/q34kjzRj2wg/le6w5MJBi7571gijz8yBcUnNsvn+jA3gZv6btUb13uW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC4ISz2lRSvz6sQgSpi8JcKCf7LEyNv+te8Tdv36bL3ZWzUVCp
+	Fz1h/wxCcZUNcS2daXnRhNt2a0mgVpqaIGyMlLC2jLWWitSwkPotj2CpJSZi64c=
+X-Gm-Gg: ASbGncvirb9EbhLNOpcvB7rEtZ+PhhHiEoieJ21FfrLWeHlbnlD59UQduV9gt3ctap4
+	hsxVfzj6P+kiSa/gFiPlfSc8K7gtqxRZ1pQWJSiIZIb86S/skj93SbQoqBK+rMjCPdu6EHAyrIZ
+	Qqm/sePJE8ZBqQGPRR1BPUMMIe4HlprylIRMx7pPHjMlfnk6rBh43Ad8pVINKyc3meJtNm4TRfc
+	SOZE44ScBh7YV2yVbOJoM4qTd4h3haOjjD5GjIy5Wvqo//mfJj89qD1/kGug95oLj9yhZC9XU36
+	XsiE9H4kDJofjdtxGgvnHxS0gCOtE1tbwQo=
+X-Google-Smtp-Source: AGHT+IGJXdMoTs2hWEXInTR+ltJbHmJj8H/ju9vPMe3A99qcrdj0eyslJQbPiSzl9wG+clAd5ieZpw==
+X-Received: by 2002:a17:907:3da5:b0:aae:b259:ef5c with SMTP id a640c23a62f3a-ab7f31906bdmr184163766b.0.1739390880917;
+        Wed, 12 Feb 2025 12:08:00 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7c520a3a2sm641974966b.158.2025.02.12.12.04.45
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7cf46bf57sm539299666b.165.2025.02.12.12.07.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 12:04:48 -0800 (PST)
-Message-ID: <251cbe57-da12-47a8-bcf4-be0a0c4082f6@linaro.org>
-Date: Wed, 12 Feb 2025 21:04:44 +0100
+        Wed, 12 Feb 2025 12:08:00 -0800 (PST)
+Message-ID: <ab2394be-fe1c-46c1-9940-53b4ee1afc5b@linaro.org>
+Date: Wed, 12 Feb 2025 21:07:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] media: i2c: Add driver for Sony IMX728
+Subject: Re: [PATCH 1/4] media: dt-bindings: Add Sony IMX728
 To: Sebastian LaVine <slavine@d3embedded.com>, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
@@ -107,6 +107,7 @@ Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>,
  Zhi Mao <zhi.mao@mediatek.com>
 References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <20250212195656.69528-2-slavine@d3embedded.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -153,12 +154,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20250212195656.69528-1-slavine@d3embedded.com>
+In-Reply-To: <20250212195656.69528-2-slavine@d3embedded.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_120450_447138_0E91C55C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250212_120803_985237_8190FE0C 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,31 +175,110 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/02/2025 20:56, Sebastian LaVine wrote:
-> This series adds a V4L2 sensor driver for the Sony IMX728, and related
-> devicetree overlays.
+> +
+> +  reset-gpios:
+> +    maxItems: 1
+> +    description:
+> +      Specifier for the GPIO connected to the XCLR (System Reset) pin.
+
+s/Specifier for the GPIO connected to the//
+But you could say that it is active low, for example.
+
+> +
+> +  error0-gpios:
+> +    maxItems: 1
+> +    description:
+> +      Specifier for the GPIO connected to the XWRN pin.
+
+The same.
+
+> +
+> +  error1-gpios:
+> +    maxItems: 1
+> +    description:
+> +      Specifier for the GPIO connected to the XERR pin.
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      endpoint:
+> +        $ref: ../video-interfaces.yaml#
+> +        unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - port
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +
+> +    i2c {
+> +        clock-frequency = <400000>;
+
+Drop, not really relevant.
+
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        camera@1a {
+> +            compatible = "sony,imx728";
+> +            reg = <0x1a>;
+> +
+> +            clocks = <&fixed_clock>;
+> +            clock-names = "inck";
+> +
+> +            reset-gpios = <&gpio4 17 GPIO_ACTIVE_LOW>;
+> +            error0-gpios = <&sens_exp 1 GPIO_ACTIVE_HIGH>;
+> +            error1-gpios = <&sens_exp 2 GPIO_ACTIVE_HIGH>;
+> +
+> +            port {
+> +                camera1: endpoint {
+> +                    remote-endpoint = <&vin1a_ep>;
+> +                };
+> +            };
+> +        };
+> +    };
+> +
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 575f0e6f0532..50bff3558d7d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21885,6 +21885,12 @@ T:     git git://linuxtv.org/media.git
+>  F:     Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml
+>  F:     drivers/media/i2c/imx415.c
 > 
-> v4l2-compliance 1.26.1-5142, 64 bits, 64-bit time_t
-> v4l2-compliance SHA: 4aee01a02792 2023-12-12 21:40:38
+> +SONY IMX728 SENSOR DRIVER
+> +M:     Stuart Burtner <sburtner@d3embedded.com>
+> +L:     linux-media@vger.kernel.org
+> +S:     Odd Fixes
 
-Your Cc list is neither correct (incorrect my email) nor reasonable
-size. You cc-ed several maintainers which are not responsible for these
-files.
 
-For next version or any resend:
+Hm, why only odd fixes? If you don't care about driver, we also kind of
+might not care and remove it soon.
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+> +F:     Documentation/devicetree/bindings/media/i2c/sony,imx728.yaml
+> +
+>  SONY MEMORYSTICK SUBSYSTEM
+>  M:     Maxim Levitsky <maximlevitsky@gmail.com>
+>  M:     Alex Dubov <oakad@yahoo.com>
+> --
+> 2.34.1
+> 
+> Please be aware that this email includes email addresses outside of the organization.
+
+
+Obviously. Please drop it. You can use b4 relay if you need to escape
+corporate junk.
 
 Best regards,
 Krzysztof
