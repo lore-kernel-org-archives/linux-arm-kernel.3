@@ -4,146 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC71C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 08:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C643CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 08:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip9E1CfkRC9Vcb9bxsI6NSkr9QdKRS3qpRbaSmxdcRY=; b=WOf1nSZfLIIlUt6/6Fse8vbgS0
-	oHJQZDODYt89y+UYCgt0Q23Gf6KXGVt0qvrToXG+zQQfeYhFZxExG8QazjgdEHrynyCftUFp4Ldkt
-	GNlrPKiDzigRxKlwJaxxlBtGV/Tl/JwtGetEZjStNYz4XxI9Whix1Bv8Roz+XpS2qcbtV0ne1OhDT
-	LbAJNt+qSpV3MaGgusAuqtBfbKdXBF/POzJGDpaB/H4fEeNuAhrJi/CLx9IP/p6dy6EEyKC5tXSZo
-	MCKkNVag5F7yozU5zCdOfd5AyBa+hynDTQR/wGfSheY/Hgoh9LXkYNnvSMiceKqpHtfhTwLV+9MgR
-	Cum8nl8w==;
+	bh=2wN5plf6DQoz8MXbMzn7OeAYAYu7hV2vZ8E2rhA+6WY=; b=rH2WXIt0Vt93opu2wWThbXMN7d
+	G+0g1f8DcvnLAOTCYfysEk2qUffpHxM9VYWMXfukAzFRV/RYE2gMzxLixy/nA07I3ZO+eFY9Eed3R
+	6n+KUQeEZDCrJspg1WZQIgO2WuE2c7Q41S8iFzAwpra56FydL1iQBvMA6vAakB0OwVVAeRS9+46cv
+	TkxusMW0XrFm5gXp239b13/lgNNfLWPKenlGHQ9Y+mpXTVEW2UeSJR3spY11t9mxapP+esOZGldaP
+	DP+9IeWkXWnBFBAxboScxmr/AKKM8ep6S63jvpyDNmWf2/S7++M/KMxTPmXnFfV2/AwbUYSu7wbni
+	wf2gzYUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti81h-00000006bZV-3ftn;
-	Wed, 12 Feb 2025 08:23:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ti836-00000006bvG-2Dgf;
+	Wed, 12 Feb 2025 08:24:48 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7ys-00000006b2A-2LzZ
+	id 1ti7z8-00000006b6j-3MLj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 08:20:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739348425;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Ip9E1CfkRC9Vcb9bxsI6NSkr9QdKRS3qpRbaSmxdcRY=;
-	b=NVD08XIGxbvJw8aCJmgnDV/AuPQt4b08oNOzlQ4rLoyFFOVeSGHE+TebxlrFepAeqel44u
-	vZ6E6k6A4Aj4cFPLYnxvHr+QnlhgmGkMJWHFPr7qqooIER7vIr5gxHUJddfnJvoom0gtkQ
-	rOLoMVxSK1Cmdr6fSiCyAdQe26XY0FU=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-611-byhPbps7OtOeeIz8T-o4jA-1; Wed, 12 Feb 2025 03:20:23 -0500
-X-MC-Unique: byhPbps7OtOeeIz8T-o4jA-1
-X-Mimecast-MFC-AGG-ID: byhPbps7OtOeeIz8T-o4jA
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43933eb7f7eso22696875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 00:20:23 -0800 (PST)
+	Wed, 12 Feb 2025 08:20:43 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5de63846e56so7582374a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 00:20:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1739348441; x=1739953241; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2wN5plf6DQoz8MXbMzn7OeAYAYu7hV2vZ8E2rhA+6WY=;
+        b=EsDaO1+tsDDxCzVg2ao7gKwNexI7ZYKx2pUZpl58s/hdEpW6pd4FTQ+5TEkZ9iB2UR
+         g/GdpOojw3Vrtji21tIF+Vgx2K67Wn/VISxZM22ISmVuMMVFgcd560T8VL98/RGUq/Bm
+         8o/iM+f5IXxyxVW49wXSOJfPX8XZIN5kD5VgXJYPpoLKl7p3wvBrgQ8RN3Gwmdto6Li/
+         6qUzwcckPNyb83U1BzovslqmjqMfGLV6G8pDcTrpwX7sFGJPyRDEmfqwfNw/u/ELDYP3
+         H80zEoQVXluyDoSwrBrBsUku96LNCYuJyRA1eAEEQXtQaUEw7roMypRq9Rjkk/Wdmxo/
+         9SmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739348423; x=1739953223;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ip9E1CfkRC9Vcb9bxsI6NSkr9QdKRS3qpRbaSmxdcRY=;
-        b=uHoT+OM4ldg+J+2FzkNM7ErzH2I70Tydy3B660XBBRJTRK/N9g5/PK/ydPUnFs0r7Q
-         R9dDsA93vzwC2EgNtW0HexLm0fES4XzDAVAiGuCjc+wM2pPdU7u8aIQPSdAfZ2pnGRmh
-         /WIQdbFr62lliNz2bdrBQxy72r0oCRAZaknBzmWJidFN8UknkxFoANQta25/e2tTCYRk
-         k6WsJulsUksNVHrFp7lPU7am05N8P70ygnCQJwscFeOrKH5LFtX0drNabh8uCG+faY80
-         yKQZnQMW94jIEwJpgOFEWNNkNNvp9gL5UISSFR29hePZWK0JKDQSCY4IRoM0TSuYfRrk
-         lXoQ==
-X-Gm-Message-State: AOJu0YwbDozUKXZ811xg826OHb/jrgjb+gku42mvpoDjj++GoOKn6S9v
-	bBgCW8rmV2mKXq5KPvbkrDvekqfNAftjy3FlBBJfHIUctYrkGIiAy1KX9LCqAU9gr276MjpTi67
-	kQAmpYbRBNhnfoU9nfppCtphstVSiOsHpet7AU7CaUESQpM6YVtJDNQfjRNeHMC1bgbHNg19m
-X-Gm-Gg: ASbGncuyWgqi37iJXUYqV0gy2s9Rx1zTOPbuUUGAYbjpyMQTZ3g7ns1LFyQe26/9U+U
-	CEneNQ3uDAw1iGJ8CLCgD92C8R4hcIkQcNLZI03a9DAuTCH1VWcO92MZxVGzOfFlZgIrC+zpIwT
-	u8xJhVcYPAdlt4pgtvcXT6F9cuvx/sJ4Uig14OAjaM+4eRPIM3ea0Mict5T0lOSyYuA1T6O4gaJ
-	G9GJqewowyq4l3vqVEU4gcCvXTs8TFdmOywN8HOMKq5FMhYDR4ZO3lHrRW8bk3kom0xp9YuILI0
-	G+CF0Ju6Oj6pshloa9vg2wjcv6S/hpagJwKOTbtZ5MnlxygItS3ZYXCvrJzoWB39vrOrqqnyhoJ
-	3pAdJkK7pnRVsudpgdEoWtiCEkCWjcg==
-X-Received: by 2002:a5d:4ac3:0:b0:38d:db8b:f518 with SMTP id ffacd0b85a97d-38dea289689mr1334156f8f.22.1739348422653;
-        Wed, 12 Feb 2025 00:20:22 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFDiAn5jK616MdAOfAfYMVUT9zNM9+jEtMDT3b0cH3qnNzPUlBYFG45nWaSD905rA0F+LnzPA==
-X-Received: by 2002:a5d:4ac3:0:b0:38d:db8b:f518 with SMTP id ffacd0b85a97d-38dea289689mr1334131f8f.22.1739348422230;
-        Wed, 12 Feb 2025 00:20:22 -0800 (PST)
-Received: from ?IPV6:2003:cb:c70c:a600:1e3e:c75:d269:867a? (p200300cbc70ca6001e3e0c75d269867a.dip0.t-ipconnect.de. [2003:cb:c70c:a600:1e3e:c75:d269:867a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dcd0fac67sm13744585f8f.54.2025.02.12.00.20.19
+        d=1e100.net; s=20230601; t=1739348441; x=1739953241;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2wN5plf6DQoz8MXbMzn7OeAYAYu7hV2vZ8E2rhA+6WY=;
+        b=a2ANzEWWkBxFrmKGafTMpVZtZqN6nBvnmLPHq4XflNiVuJoVrpmNe/gkI3G0EAOLO7
+         rCEiO9rZQ3556L8Cpy9Q/HrrCKfMFi4XSbWXXAiAzRPB7Drkx1OOMxfBhzDsJOPMBm9H
+         e11aQa4ECs9wc9wR3mqzNhPNyxFn6ST3+xMMT5JN1Tjdbd6IJQEU3pYC14dXNcQdkq0u
+         9iKQ+8oXTEXdNblR8BGkFtt/9Z531kAt07JH1G7qBAaXBH9Xd1OlEAPbMzSUa+XaGr+O
+         LkHxJ1Gdpt2dzw7CNQfzGHThlHbEebPNsHgcUC7A/EgOcTfpV+J4Xyyp9b6H/M2ejCin
+         5KiA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQdu0vigxy2Vnn4dfhAgyRX/XxEVXN9WSWs365PKnz556f8lsYIvXlRpnoXvxmqhKZh1DdYziuhsdyIkS0BLOo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxZuf6Somzk1afKU6KGM61dPpa1XL7Wodv5iOXa+kmjtHuk/dD
+	V4RlaJH8MkevVfIKKuX77Z0nVSghL1/2qi/xcIPLlC++dLDsoVmF5am+8vcyIzg=
+X-Gm-Gg: ASbGncv5YpCwlOugTgcQn6iwES4l8S0Arp/OHL9vDdEsw/bJa8WBz33AApxFx0vHnvi
+	vpf13E9ExbT8ve1mQQrayKDPDmhiqXhHO/b/5X57BH3HpakSdlPtD8fFPZ2fw1RIUkEZVDUqm6H
+	KlvkBSBySvAfHnkR5KtuRlKanx08G0zMIg/6sKIMmkfZvjd8o0nrrS0kFl7HS108mIo+I7uEGHK
+	640wEChHBw1UMbl56Ax2NsVATxuFwYkLibz0nA9gXhV6WTzSACY9Id7Su8Q27QoWxcdrjWb5qa7
+	nkml8BOb7Tj9pJph1wT9wEwV
+X-Google-Smtp-Source: AGHT+IGH5sEhr0U+ODZ2ybXw27QQ2etp37E5mEcz8CPyECrALs3n5tNlB3o2g80JXIcC69CgqPxvTw==
+X-Received: by 2002:a05:6402:40c7:b0:5de:6bc2:7bb with SMTP id 4fb4d7f45d1cf-5deb088ebb9mr1358535a12.17.1739348441007;
+        Wed, 12 Feb 2025 00:20:41 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.173])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5de61830117sm7548806a12.6.2025.02.12.00.20.39
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 00:20:21 -0800 (PST)
-Message-ID: <d5bba68b-1dba-4367-8d4f-103348b80229@redhat.com>
-Date: Wed, 12 Feb 2025 09:20:19 +0100
+        Wed, 12 Feb 2025 00:20:40 -0800 (PST)
+Message-ID: <202c1e0b-f17b-43ec-918c-2a4460a666c2@tuxon.dev>
+Date: Wed, 12 Feb 2025 10:20:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm: pgtable: fix NULL pointer dereference issue
-To: Qi Zheng <zhengqi.arch@bytedance.com>, linux@armlinux.org.uk,
- ezra@easyb.ch, hughd@google.com, ryan.roberts@arm.com,
- akpm@linux-foundation.org, muchun.song@linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <be323425-2465-423a-a6f4-affbaa1efe09@bytedance.com>
- <20250212064002.55598-1-zhengqi.arch@bytedance.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250212064002.55598-1-zhengqi.arch@bytedance.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: g8MiQSX3t2jPWclPiJjOMDNdHY0q0XC1VVd98Jx1hgw_1739348423
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v2 10/15] ARM: at91: pm: add DT compatible support for
+ sama7d65
+To: Ryan.Wanner@microchip.com, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, sre@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ p.zabel@pengutronix.de
+Cc: linux@armlinux.org.uk, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
+ <a35bf7aece5f43f2517f2a4082160f47ef2acb32.1739221064.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <a35bf7aece5f43f2517f2a4082160f47ef2acb32.1739221064.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_002026_687502_BB51C434 
-X-CRM114-Status: GOOD (  34.32  )
+X-CRM114-CacheID: sfid-20250212_002042_842867_53227366 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,160 +105,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12.02.25 07:40, Qi Zheng wrote:
-> When update_mmu_cache_range() is called by update_mmu_cache(), the vmf
-> parameter is NULL, which will cause a NULL pointer dereference issue in
-> adjust_pte():
+
+
+On 10.02.2025 23:13, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Unable to handle kernel NULL pointer dereference at virtual address 00000030 when read
-> Hardware name: Atmel AT91SAM9
-> PC is at update_mmu_cache_range+0x1e0/0x278
-> LR is at pte_offset_map_rw_nolock+0x18/0x2c
-> Call trace:
->   update_mmu_cache_range from remove_migration_pte+0x29c/0x2ec
->   remove_migration_pte from rmap_walk_file+0xcc/0x130
->   rmap_walk_file from remove_migration_ptes+0x90/0xa4
->   remove_migration_ptes from migrate_pages_batch+0x6d4/0x858
->   migrate_pages_batch from migrate_pages+0x188/0x488
->   migrate_pages from compact_zone+0x56c/0x954
->   compact_zone from compact_node+0x90/0xf0
->   compact_node from kcompactd+0x1d4/0x204
->   kcompactd from kthread+0x120/0x12c
->   kthread from ret_from_fork+0x14/0x38
-> Exception stack(0xc0d8bfb0 to 0xc0d8bff8)
+> Add support for SAMA7D65 new compatible strings in pm.c file for wakeup source
+> IDs and PMC.
+> This is the first bits of PM for this new SoC. PM depends on other patches.
 > 
-> To fix it, do not rely on whether 'ptl' is equal to decide whether to hold
-> the pte lock, but decide it by whether CONFIG_SPLIT_PTE_PTLOCKS is
-> enabled. In addition, if two vmas map to the same PTE page, there is no
-> need to hold the pte lock again, otherwise a deadlock will occur. Just add
-> the need_lock parameter to let adjust_pte() know this information.
-> 
-> Reported-by: Ezra Buehler <ezra@easyb.ch>
-> Closes: https://lore.kernel.org/lkml/CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com/
-> Fixes: fc9c45b71f43 ("arm: adjust_pte() use pte_offset_map_rw_nolock()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> [nicolas.ferre@microchip.com: split patch and address only the pm.c changes]
+> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 > ---
->   arch/arm/mm/fault-armv.c | 40 ++++++++++++++++++++++++++++------------
->   1 file changed, 28 insertions(+), 12 deletions(-)
+>  arch/arm/mach-at91/pm.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
-> index 2bec87c3327d2..3627bf0957c75 100644
-> --- a/arch/arm/mm/fault-armv.c
-> +++ b/arch/arm/mm/fault-armv.c
-> @@ -62,7 +62,7 @@ static int do_adjust_pte(struct vm_area_struct *vma, unsigned long address,
->   }
->   
->   static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
-> -		      unsigned long pfn, struct vm_fault *vmf)
-> +		      unsigned long pfn, bool need_lock)
->   {
->   	spinlock_t *ptl;
->   	pgd_t *pgd;
-> @@ -99,12 +99,11 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
->   	if (!pte)
->   		return 0;
->   
-> -	/*
-> -	 * If we are using split PTE locks, then we need to take the page
-> -	 * lock here.  Otherwise we are using shared mm->page_table_lock
-> -	 * which is already locked, thus cannot take it.
-> -	 */
-> -	if (ptl != vmf->ptl) {
-> +	if (need_lock) {
-> +		/*
-> +		 * Use nested version here to indicate that we are already
-> +		 * holding one similar spinlock.
-> +		 */
->   		spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
->   		if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
->   			pte_unmap_unlock(pte, ptl);
-> @@ -114,7 +113,7 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
->   
->   	ret = do_adjust_pte(vma, address, pfn, pte);
->   
-> -	if (ptl != vmf->ptl)
-> +	if (need_lock)
->   		spin_unlock(ptl);
->   	pte_unmap(pte);
->   
-> @@ -123,16 +122,17 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
->   
->   static void
->   make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
-> -	      unsigned long addr, pte_t *ptep, unsigned long pfn,
-> -	      struct vm_fault *vmf)
-> +	      unsigned long addr, pte_t *ptep, unsigned long pfn)
->   {
->   	struct mm_struct *mm = vma->vm_mm;
->   	struct vm_area_struct *mpnt;
->   	unsigned long offset;
-> +	unsigned long start;
->   	pgoff_t pgoff;
->   	int aliases = 0;
->   
->   	pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
-> +	start = ALIGN_DOWN(addr, PMD_SIZE);
+> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
+> index 6c3e6aa22606f..1eec68e92f8d8 100644
+> --- a/arch/arm/mach-at91/pm.c
+> +++ b/arch/arm/mach-at91/pm.c
+> @@ -222,13 +222,16 @@ static const struct of_device_id sam9x60_ws_ids[] = {
+>  	{ /* sentinel */ }
+>  };
+>  
+> -static const struct of_device_id sama7g5_ws_ids[] = {
+> -	{ .compatible = "microchip,sama7g5-rtc",	.data = &ws_info[1] },
+> +static const struct of_device_id sama7_ws_ids[] = {
+> +	{ .compatible = "microchip,sama7d65-rtc",	.data = &ws_info[1] },
+> +	{ .compatible = "microchip,sama7g5-rtc",        .data = &ws_info[1] },
 
-I assume you can come up with a better name than "start" :)
+There are spaces b/w , and .data
 
-aligned_addr ... pmd_start_addr ...
+>  	{ .compatible = "microchip,sama7g5-ohci",	.data = &ws_info[2] },
+>  	{ .compatible = "usb-ohci",			.data = &ws_info[2] },
+>  	{ .compatible = "atmel,at91sam9g45-ehci",	.data = &ws_info[2] },
+>  	{ .compatible = "usb-ehci",			.data = &ws_info[2] },
+> +	{ .compatible = "microchip,sama7d65-sdhci",	.data = &ws_info[3] },
+>  	{ .compatible = "microchip,sama7g5-sdhci",	.data = &ws_info[3] },
+> +	{ .compatible = "microchip,sama7d65-rtt",       .data = &ws_info[4] },
 
-Maybe simply
+There are spaces b/w , and .data
 
-pmd_start_addr = ALIGN_DOWN(addr, PMD_SIZE);
-pmd_end_addr = addr + PMD_SIZE;
-
-Then the comparison below also becomes easier to read.
-
->   
->   	/*
->   	 * If we have any shared mappings that are in the same mm
-> @@ -141,6 +141,14 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
->   	 */
->   	flush_dcache_mmap_lock(mapping);
->   	vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
-> +		unsigned long mpnt_addr;
-> +		/*
-> +		 * If we are using split PTE locks, then we need to take the pte
-> +		 * lock. Otherwise we are using shared mm->page_table_lock which
-> +		 * is already locked, thus cannot take it.
-> +		 */
-> +		bool need_lock = IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS);
-
-Nit: move "unsigned long mpnt_addr;" below this longer variable+init.
-
-> +
->   		/*
->   		 * If this VMA is not in our MM, we can ignore it.
->   		 * Note that we intentionally mask out the VMA
-> @@ -151,7 +159,15 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
->   		if (!(mpnt->vm_flags & VM_MAYSHARE))
->   			continue;
->   		offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
-> -		aliases += adjust_pte(mpnt, mpnt->vm_start + offset, pfn, vmf);
-> +		mpnt_addr = mpnt->vm_start + offset;
-> +		/*
-> +		 * If mpnt_addr and addr are mapped to the same PTE page, there
-> +		 * is no need to hold the pte lock again, otherwise a deadlock
-> +		 * will occur.
-
-/*
-  * Avoid deadlocks by not grabbing the PTE lock if we already hold the
-  * PTE lock of this PTE table in the caller.
-  */
-
-?
-
-> +		 */
-> +		if (mpnt_addr >= start && mpnt_addr - start < PMD_SIZE)
-> +			need_lock = false;
-
-
-
--- 
-Cheers,
-
-David / dhildenb
+>  	{ .compatible = "microchip,sama7g5-rtt",	.data = &ws_info[4] },
+>  	{ /* sentinel */ }
+>  };
+> @@ -1379,6 +1382,7 @@ static const struct of_device_id atmel_pmc_ids[] __initconst = {
+>  	{ .compatible = "atmel,sama5d2-pmc", .data = &pmc_infos[1] },
+>  	{ .compatible = "microchip,sam9x60-pmc", .data = &pmc_infos[4] },
+>  	{ .compatible = "microchip,sam9x7-pmc", .data = &pmc_infos[4] },
+> +	{ .compatible = "microchip,sama7d65-pmc", .data = &pmc_infos[4] },
+>  	{ .compatible = "microchip,sama7g5-pmc", .data = &pmc_infos[5] },
+>  	{ /* sentinel */ },
+>  };
+> @@ -1672,7 +1676,7 @@ void __init sama7_pm_init(void)
+>  	at91_pm_modes_init(iomaps, ARRAY_SIZE(iomaps));
+>  	at91_pm_init(NULL);
+>  
+> -	soc_pm.ws_ids = sama7g5_ws_ids;
+> +	soc_pm.ws_ids = sama7_ws_ids;
+>  	soc_pm.config_pmc_ws = at91_sam9x60_config_pmc_ws;
+>  
+>  	soc_pm.sfrbu_regs.pswbu.key = (0x4BD20C << 8);
 
 
