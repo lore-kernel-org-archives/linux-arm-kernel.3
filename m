@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B950CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60B4C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGkw64b7wyEF8sHf2WWwJUD+Cc1oomA0aUrhv9+r+yc=; b=Ebsa9OibBZnL7o+T+Hg5uN7mhl
-	uus6gljxjKMfLwXNgdE28p8EZqvN9dKFocnbM3DZbq/eOuDaH+T7olS4KpkObgvJiAdnj6UB6pOXv
-	d0UpLMEPRchwHmif39spG5GmJiKdBdI6j+r7SbVVmKJ9l2xXXjDKvuQxNKtGNUE9UkVGjdme1sIR5
-	vfMM5Uvwsxkw5+ZO8JHUThK6aC3g3HyCguBQCGFZy3MSSeSUC5rVmeEG5S7WJfQ67Lkk7EFiozG1E
-	5IodqJgpYUT41PKhFDG6ADPD72l9TWyA4/b6NbRl8FGvVij9g8G4ilfV2sVLN4yGBoY+MZQBO6vmp
-	EKE0x5LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dTFlbsmC0WjAMz9CQYs4K20vlagORcevhwzqv7FeHjg=; b=Y8PriJM1Z5keZXop7xYR9ZpRN4
+	UQ36HVSc6aRBY7lQThHyVKaVo23YH+YVQm0L633dzgcrRJNQBSW2juWYJMICF6Iq2Fc6mb9Mymqq1
+	8OIHXOAyynLByq8PgF5KlVxVh6z/62WYOikvUNk7c6GuV+MBmDVMtlUvCLdfweT0M+L4+oX+cONP0
+	ThEQ7UT0UmLKAWiVNL4l67nsY4JoPPLVze7306+z2HeqgKX1UtNy/rXHUBeAAPg8K4Cdm0TcTn3a+
+	sAj6iM64SjBniqSgkttDZcY/OAdn4nqEstjnZP/YqB5NnRQmcQArPL/haaMAV1Ki66Bn4mhIdAb6v
+	s9fRfq8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9ar-00000006uX6-3uMI;
-	Wed, 12 Feb 2025 10:03:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ti9cH-00000006v94-24Eb;
+	Wed, 12 Feb 2025 10:05:13 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9Dk-00000006pA1-1TCK;
-	Wed, 12 Feb 2025 09:39:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CGkw64b7wyEF8sHf2WWwJUD+Cc1oomA0aUrhv9+r+yc=; b=j8Ppe/UxcrxSwOtCPCWyt2qHUi
-	Cgn/Ie0uAt3kMo8l1PfAAptBtdf6OMa9IffCXoqnxnTn6Qv79hPIsnnjnYm+F0MuAwv0FsWYbJlPZ
-	5ylRKkaYmbtsEh7eQ8fKETXiGqH8tucUWB4YDpXDbQKtwGleWVHXb9gZ5O4//vSCSyuRh7LMCOiJ5
-	rpCYpPgYTWD0siiQNoR9bILx63mX5GKl5GuIsNJ5ZEoJm/UVaM4tLTpeHkP4ku6lRczvEQqdxpBVg
-	Iu5paLLPC/m6Mar7ZAX31UH1EuJbvlwqQ9PWHvaOWRFNEZQZ9hrsME4kd6q7dHZ+UGWQe3op0tgeA
-	MaxVu3PQ==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ti8x4-0002Ai-GR; Wed, 12 Feb 2025 10:22:38 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Ondrej Jirman <megi@xff.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: (subset) [PATCH v8 0/4] Orange Pi 5 Max
-Date: Wed, 12 Feb 2025 10:22:28 +0100
-Message-ID: <173935214367.1388667.11082246445597459804.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250109051619.1825-1-honyuenkwun@gmail.com>
-References: <20250109051619.1825-1-honyuenkwun@gmail.com>
+	id 1ti9Gx-00000006py5-02W5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Feb 2025 09:43:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=dTFlbsmC0WjAMz9CQYs4K20vlagORcevhwzqv7FeHjg=; b=ZKUNfn9YKrc+sODKhuuCqPIHU/
+	EUk+PNBuuNAGWpkntmcAJcn9aEay6YbmY3I3dW/oNrdv7DjEpodbkwIvrEXh5r7y9pqgb5AO6RNmp
+	60UY/sNaibBFCkJUkwnZJQmUTee0nsaoWuiWucVdQq7oXBml+IrBw+JdPo7HKwBT/4qrjyju8wUIz
+	A+nZ3rsg7cfauDLma5ZrHC04J5p53wP86aZyxzy2rHyy4/f4Umoc/0iY6Sqz77Uj+xjwtUG7UeZxx
+	bwtUJxO+uE8P+G+WUjuzSt4bR8Z+MzVJKr4mJL90r9FYWDgWZrVEFWs9fSny+N2u9rrJIVeV/sFZC
+	XAbFSFdg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1ti9Gu-00000004Al6-1Win;
+	Wed, 12 Feb 2025 09:43:08 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id F2CDF300318; Wed, 12 Feb 2025 10:43:07 +0100 (CET)
+Date: Wed, 12 Feb 2025 10:43:07 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Cristian Prundeanu <cpru@amazon.com>
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
+	Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
+	Ali Saidi <alisaidi@amazon.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Geoff Blake <blakgeof@amazon.com>, Csaba Csoma <csabac@amazon.com>,
+	Bjoern Doebel <doebel@amazon.com>,
+	Gautham Shenoy <gautham.shenoy@amd.com>,
+	Joseph Salisbury <joseph.salisbury@oracle.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Borislav Petkov <bp@alien8.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-tip-commits@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
+ RUN_TO_PARITY and move them to sysctl
+Message-ID: <20250212094307.GB19118@noisy.programming.kicks-ass.net>
+References: <20250119110410.GAZ4zcKkx5sCjD5XvH@fat_crate.local>
+ <20250212054113.19938-1-cpru@amazon.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_013952_385367_5BE97EEF 
-X-CRM114-Status: GOOD (  11.66  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212054113.19938-1-cpru@amazon.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 11, 2025 at 11:41:13PM -0600, Cristian Prundeanu wrote:
 
-On Wed, 08 Jan 2025 23:16:14 -0600, Jimmy Hon wrote:
-> Add device-tree for Orange Pi 5 Max
+> Your find also helps to point out that even when it works, SCHED_BATCH is 
+> a more complex and error prone mitigation than just disabling PL and RTP. 
+> The same reproducer setup that uses systemd to set SCHED_BATCH does show 
+> improvement in 6.12, but not in 6.13+. There may not even be a single 
+> approach that works well on both.
 > 
-> Orange Pi now has 3 SBCs using the RK3588 SOC. Refactor the common parts
-> of the 5 Plus DTS so it can be shared with the 5 Max and the 5 Ultra.
-> The 5 Max and 5 Ultra have a similar credit-card sized board layout and
-> will also share a DTSI between them.
-> 
-> [...]
+> Conversely, setting NO_PLACE_LAG + NO_RUN_TO_PARITY is simply done at boot 
+> time, and does not require further user effort. 
 
-Applied, thanks!
+For your workload. It will wreck other workloads.
 
-[4/4] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-      commit: fa15cc73121279f93757ec76312b0d0b73f7462a
+Yes, SCHED_BATCH might be more fiddly, but it allows for composition.
+You can run multiple workloads together and they all behave.
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Maybe the right thing here is to get mysql patched; so that it will
+request BATCH itself for the threads that need it.
 
