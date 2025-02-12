@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9211C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 04:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F1CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 04:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xISnSa8Eb7i1/ARLSwYrCQM29HuBqOwokOLf+OPQHaw=; b=piXqUTKSxWGnYg3f4w7Kp72II9
-	WFUAg9yKf/locuTWJ5G0uRt9wLwMpsn7aRpYSyPx1m7zYxI6itSD3buKHVwaQrOI8+VERArHZLEUC
-	AndrYaY8so+SS7+jbriQMr5QkD5luFVGytIjczeSP8Pml3GGTRZu3UFs9Fdl3K4W/ueP3SC80g06z
-	qxZGP3sstsiiOhSA3VGkFQQ6sGUSxqKIAcbj4AQXvBvL85mHpjrFfcEJZHd5h1cHBv/Pv1JBbHaVq
-	f0iMnVYtKS801EMNCjxK6moSj6TB0dw8Qfdunja+JvByJuG+DxKj7thOywCReHLytzzWliykZFFAo
-	tXOtHtNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oGrirHqveIit6aqRJIazknvS9VacjJy/z7EXHhG3ufI=; b=JpI8kKISbQ7y/UoTMRTSMvor8/
+	4WIj6w8v/seY65AfHxLScqCSfk/NJ2290+r4Md06A4dtevi2bK+VixcbKxz2STrv69TLnsy9mZpz+
+	0DqpeX5mMIKf9ot+67yE+gZcTb8/imkknwXE/3HYLGCZMDLTqUMY0G7pDjc7wxbAm01i3IVg+XdhG
+	cdsTqd88VCinh3qFw3RX0oQaAZWbKU3kLkc4iFVRLf2MjcNsxUiAcqEA5gI5s3a8kUJvDSWoSPokX
+	oa+b70GVTqZKZruund+CpeflLS5JwfunaaJVmngCcUC7PR6UMhyLhYz1VlCZ2tM7FJqDcc9Yv6HjA
+	QDzR7Byg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti463-000000068c7-3kzk;
-	Wed, 12 Feb 2025 04:11:35 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ti47R-000000068nJ-17gu;
+	Wed, 12 Feb 2025 04:13:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti43e-000000068DN-0ldq
+	id 1ti44c-000000068L8-2muI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 04:09:07 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Yt4X774BQzpTR1;
-	Wed, 12 Feb 2025 12:07:19 +0800 (CST)
-Received: from dggpemf100016.china.huawei.com (unknown [7.185.36.236])
-	by mail.maildlp.com (Postfix) with ESMTPS id D693F14022E;
-	Wed, 12 Feb 2025 12:08:54 +0800 (CST)
-Received: from [10.67.120.139] (10.67.120.139) by
- dggpemf100016.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 12 Feb 2025 12:08:54 +0800
-Message-ID: <21a3726f-63d0-4c33-84a2-9e11b99f9e9c@huawei.com>
-Date: Wed, 12 Feb 2025 12:08:51 +0800
+	Wed, 12 Feb 2025 04:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 70D9F5C54B5;
+	Wed, 12 Feb 2025 04:09:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D29CC4CEDF;
+	Wed, 12 Feb 2025 04:10:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739333405;
+	bh=LfTqYMNqbDCdif5LqgS5/zDpDtXkvNu0iQqDL0rZSm8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XoijgSACpeHYNmrRqkpsja2L/mnGksF3YPY3mmltqefrFF0vhrkYuuIUYu2ay4+x3
+	 Z2Mq1AjdX6kpP1Yk40Owq3AU0CVRB9idFQOJ/WV8uUouC0wwhQsIwhor1bjP0MlAa4
+	 FJVnaJBdd7pC+a9aM41fOiQi4oFjlECLOtNxTdd3D9d9/zBVTFUMWoM1Ky48Vb6Bl1
+	 U7E7LZH38fvax6FN5Ir1FvWN0Ct8poE51V78ev9G5P+lfxZUC3Iz+o+uz02u6wLsaO
+	 Yp17Rev7jXMu9NXhoCAng59TtEB+XeIVAOs6BqUTkx1Q76qrVi5SayoRVg93th2LIu
+	 yqDnvZhs7XfCQ==
+Date: Wed, 12 Feb 2025 04:10:04 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	wei.liu@kernel.org, mhklinux@outlook.com, kys@microsoft.com,
+	haiyangz@microsoft.com, decui@microsoft.com,
+	catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, arnd@arndb.de,
+	jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+	skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com
+Subject: Re: [PATCH v3 0/2] hyperv: Move some features to common code
+Message-ID: <Z6wfHOPNUL2KcSG8@liuwe-devbox-debian-v2>
+References: <1738955002-20821-1-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] soc cache: Add support for HiSilicon L3 cache
-To: <xuwei5@hisilicon.com>, <yangyicong@hisilicon.com>,
-	<Jonathan.Cameron@huawei.com>, <wangjie125@huawei.com>,
-	<wanghuiqiang@huawei.com>, <christophe.jaillet@wanadoo.fr>
-CC: <prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <linuxarm@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250122065803.3363926-1-wangyushan12@huawei.com>
-Content-Language: en-US
-From: wangyushan <wangyushan12@huawei.com>
-In-Reply-To: <20250122065803.3363926-1-wangyushan12@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemf100016.china.huawei.com (7.185.36.236)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1738955002-20821-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_200906_376902_88CA2F32 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250211_201006_760831_BE0B27F4 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping on this patch.
-
-On 2025/1/22 14:58, Yushan Wang wrote:
-> This series adds support for HiSilicon SoC cache lockdown and cache
-> maintenance operations.
->
-> Cache lockdown feature prevents cache entries from being evicted from L3
-> cache for better performance.  It can be enabled by calling mmap
-> function to the file (`/dev/hisi_soc_cache_mgmt`).  This feature is
-> implemented in the driver hisi_soc_l3c.
->
-> L3 cache and L3 cache PMU share the same memory resource, which makes
-> one fails to probe while another is on board.  Since both devices
-> rely on distinct information exported by ACPI, their probing functions
-> should be unrelated.  Workaround the resource conflict check by
-> replacing devm_ioremap_resource() to devm_ioremap() instead.
->
+On Fri, Feb 07, 2025 at 11:03:20AM -0800, Nuno Das Neves wrote:
+> There are several bits of Hyper-V-related code that today live in
+> arch/x86 but are not really specific to x86_64 and will work on arm64
+> too.
+> 
+> Some of these will be needed in the upcoming mshv driver code (for
+> Linux as root partition on Hyper-V). So this is a good time to move
+> them to drivers/hv.
+> 
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> ---
+> Changes in v3:
+> * Just use percpu input page for the hypercall [Michael Kelley]
+> * Move the calls to hv_get_partition_id() back to arch code [Michael Kelley]
+> * Rename struct hv_get_partition_id to hv_output_get_partition_id
+>   [Michael Kelley]
+> 
 > Changes in v2:
->    - Save unnecessary iterations when performing cache lock. (Christophe)
->    - Other minor style changes. (Christophe)
->    - Link to v1: https://lore.kernel.org/all/20250107132907.3521574-1-wangyushan12@huawei.com
->
-> Jie Wang (1):
->    soc cache: Add framework driver for HiSilicon SoC cache
->
-> Yushan Wang (1):
->    soc cache: L3 cache lockdown support for HiSilicon SoC
->
->   drivers/soc/hisilicon/Kconfig                 |  22 +
->   drivers/soc/hisilicon/Makefile                |   2 +
->   .../soc/hisilicon/hisi_soc_cache_framework.c  | 534 ++++++++++++++++++
->   .../soc/hisilicon/hisi_soc_cache_framework.h  |  77 +++
->   drivers/soc/hisilicon/hisi_soc_l3c.c          | 527 +++++++++++++++++
->   5 files changed, 1162 insertions(+)
->   create mode 100644 drivers/soc/hisilicon/hisi_soc_cache_framework.c
->   create mode 100644 drivers/soc/hisilicon/hisi_soc_cache_framework.h
->   create mode 100644 drivers/soc/hisilicon/hisi_soc_l3c.c
->
+> * Fix dependence on percpu output page by using a stack variable for the
+>   hypercall output [Michael Kelley]
+> * Remove unnecessary WARN()s [Michael Kelley]
+> * Define hv_current_partition_id in hv_common.c [Michael Kelley]
+> * Move entire hv_proc.c to drivers/hv [Michael Kelley]
+> 
+> Nuno Das Neves (2):
+>   hyperv: Move hv_current_partition_id to arch-generic code
+>   hyperv: Move arch/x86/hyperv/hv_proc.c to drivers/hv
 
+Applied to hyperv-next. Thanks.
 
