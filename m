@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D30C021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19995C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQ/1ab/AMMhwdUM5h+TBMpEY47u6kr9GW+SYGBdGrF8=; b=aQt5CFwaEDmDVC790Gbbcq3Hgl
-	dv0dxWJH9SomADcirV/DFwRfmolIdMoq1/Xl+86iZWs+XFDHoU42AqgmvG69sOKTRrMbWb9jHR1QS
-	HSrEA9ALrCu/sH6MrVwgzCuA4xFxDwdMngNQo73nDf2PeKlhjQrE6h2tENQoQe2P9vbjMiv0DdbS7
-	vSrprg+NS3JlehgpytAdrNYCYODE0+foyB7HBKWtU16H6JeBJx/OHhVqAQixAsIV5Ceo4f9yKNWt2
-	vWPjWJfEdYROkG+5tTmf8Jm2d4tYPl14LU++b00tipXqbUDtFiAYhmPTqu/n8TGlL6O5C+ZHKg7xm
-	nkCwDp+A==;
+	bh=P6iyi8LYf2Q9nhUpNA4gW7Tp0oyXZ3Nz5g0u6VN9kfw=; b=YEp7jNvIP86DKIsL+boFpYdbbf
+	dJsW7Dm0Iz6VKs/G2UgrY74hYEqVJxUd3Wga6pnj5TBmIe3L/MuSbxKlnQIuJFNGUQ7ye9/ON6EiW
+	orreUHe7iaWWWI95HBpx+OoskBS6C0Yp26P7O3HKrj+EArx3VR+yHBqqTJWoo7QHBG/9MywPUdP16
+	hIBtlZyBy5wjwdx4lSXslVn0F7+pMOA69aCJMNvz4eqM/I2bUC/SF7acCAisjmvjnJA2us3E/+T5/
+	Sg9PESwge8lx60WtRXCcAnQTELG+koeFQS64BYB4IYzXzoXvKokDg5dBY8sAsqkJouMPMJeL8xyH3
+	qE5IhRvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiCER-00000007Pq1-1foT;
-	Wed, 12 Feb 2025 12:52:47 +0000
-Received: from mail-vk1-f178.google.com ([209.85.221.178])
+	id 1tiCJS-00000007QOI-400c;
+	Wed, 12 Feb 2025 12:57:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiCD0-00000007Pbl-2HH8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 12:51:19 +0000
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-51eb1a6954cso1861903e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 04:51:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739364676; x=1739969476;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MQ/1ab/AMMhwdUM5h+TBMpEY47u6kr9GW+SYGBdGrF8=;
-        b=tN11hKR/PKLSvWu4QDBo2tIGHEYFc3lAeHq7OUFynRdFQiVswIn0K88jJBsac4GQrH
-         7wFycT3iS+dYTfsL22JIQ6DoVo7igjd2jm5QsDaOhAxISOuw0xfADM4gz+EwBww1ePPf
-         OI/SFYNaWDGirlAx2b7oQlZ3QZlIqLkxyzKGyB5Nkm+0Lh488zjViixgmX1QcaTtU4Aw
-         RlUmmbtE6dEX6fWb1DcGKBV2ERzEmLUX+F+RPUiy4HPYko1t3aSMyQqa4qYQURbNNKn0
-         wv7dvMMavlbkjh6NQXH/A/1BhzvA3MTNTEQ5m97BLV3BeQTzYsQDxstFMIUahKc6TYBP
-         Gd6g==
-X-Forwarded-Encrypted: i=1; AJvYcCXSwa1eHG1etpin7wuwcvbSpHszgZHF/txzL9WYpcItD4LyxRGpy98i49RDau7QG/c3sw7ETA7Eek9xY41/dO+b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqgIs0kFFE6hN6vW9e+84nNyy+UmAubbCuWUScO/ttaa6fPe30
-	/UQb1epgBAMdd6k5w0B2IbQF+tbfpflpNmurF+qau+kxHluDdHLxiPbrugiz
-X-Gm-Gg: ASbGnct4bPRR31LuzKCGAkCIxycpQ7sBfgWfcUc9hOtjKjmlKIfkfPSdVYmgNTt806K
-	BnoOpSfcBD2mJsmQ4FXEMygnnJcfopvrNB8RZcStYZ9vWStuRfIpuGzew8K4wXaD1VHmQ1q38ld
-	Q1RvZK5by0NYANWXAj4i0oOkXjncZ1a+QU0BEeg0x+iRTIrYeKd9QEWVoFhhR7+r0jHYSxsYGjj
-	OlPF4YT4yforZOPPpIp9MMvMCDYLNi34iIigol0E1VkyzAFgDWZAucs8Og53aJ6Xgj98KioGYzO
-	mNwQ49FWpWUu2aIvwokpiFJKeZVpALAZaV4HMF8rJvfVbT8YhHzn2g==
-X-Google-Smtp-Source: AGHT+IGtKkkHBNECuyeLjLKjXgzkn6/qXGPvOVtBl7cn+Xm1KEA9NK8+ghz+k5xEP69itQ1gO3DhSg==
-X-Received: by 2002:a05:6122:32c6:b0:520:60c2:3fb with SMTP id 71dfb90a1353d-520678bd90cmr2363021e0c.0.1739364676119;
-        Wed, 12 Feb 2025 04:51:16 -0800 (PST)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51fde67e00asm1221390e0c.18.2025.02.12.04.51.15
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 04:51:15 -0800 (PST)
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-864e4f5b253so1814620241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 04:51:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVLo/bzm+989fqiMyBG4jWa3JCyk2O5XyQLHGfwtb47WK8ys239m8UIxfz0gNw6FrcL4aVN/Jh6B9n38eHRaVqF@lists.infradead.org
-X-Received: by 2002:a05:6102:3709:b0:4bb:d394:46c5 with SMTP id
- ada2fe7eead31-4bbf21cdce8mr2389568137.9.1739364674977; Wed, 12 Feb 2025
- 04:51:14 -0800 (PST)
+	id 1tiCI2-00000007QC5-0zqb;
+	Wed, 12 Feb 2025 12:56:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=P6iyi8LYf2Q9nhUpNA4gW7Tp0oyXZ3Nz5g0u6VN9kfw=; b=bNQmCJ/EraMnyAIhwDcPnCGe+1
+	V/g+yJrQjMHOKoLvOHESl16Zg6JPZ+yzVFSaiJMfZFL0JfsZNrjKR5Ud9fTeRUmu4e4FypJ/c8OEe
+	abmtxosmPCFTN+WXsOuEK4I0A6ZPOm/Xgk6ggqNTFk9UlVDCgt2FCrXdsu6hL7el7N0kG4jGr8vzU
+	4gGFR5ylsgbPJ/i6Xb4YHiOKqIrPJk4O9PX+mOTqPG81mTYjxuX4FCeVqOnGI3YjSxCWu9EreX6Qd
+	MwRW3HM7sdXqD18e9d4Qt/JPLycBKn0G3wOyiRkuKQ4wocm9BT01jZHE4ZZO+gEMzk0L9rEUeTDnu
+	MTMUVunA==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tiCHz-0004Kn-Va; Wed, 12 Feb 2025 13:56:28 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: srinivas.kandagatla@linaro.org, linux-rockchip@lists.infradead.org,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, detlev.casanova@collabora.com,
+ sebastian.reichel@collabora.com
+Subject: Re: [PATCH RESEND v2 0/6] RK3576 OTP support
+Date: Wed, 12 Feb 2025 13:56:27 +0100
+Message-ID: <2965867.ZfL8zNpBrT@diego>
+In-Reply-To: <5943191.DvuYhMxLoT@workhorse>
+References: <20250210224510.1194963-1-heiko@sntech.de> <5943191.DvuYhMxLoT@workhorse>
 MIME-Version: 1.0
-References: <20250210131826.220318-1-patrice.chotard@foss.st.com> <20250210131826.220318-5-patrice.chotard@foss.st.com>
-In-Reply-To: <20250210131826.220318-5-patrice.chotard@foss.st.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 12 Feb 2025 13:51:02 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVkFym-3byZkszsi9tRoZ6zNOMCT79c2EgQQjn5xd19ig@mail.gmail.com>
-X-Gm-Features: AWEUYZnzYg0ThTq4p4M8sQ0EhbXz6WBb20xXzFHLgeW2YGdd91BJTbWp42U4Smo
-Message-ID: <CAMuHMdVkFym-3byZkszsi9tRoZ6zNOMCT79c2EgQQjn5xd19ig@mail.gmail.com>
-Subject: Re: [PATCH v3 4/8] memory: Add STM32 Octo Memory Manager driver
-To: patrice.chotard@foss.st.com
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	christophe.kerello@foss.st.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_045118_581695_E793E4E2 
-X-CRM114-Status: GOOD (  34.40  )
+X-CRM114-CacheID: sfid-20250212_045630_302632_F105866C 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,122 +76,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice,
+Am Mittwoch, 12. Februar 2025, 13:44:15 MEZ schrieb Nicolas Frattaroli:
+> On Monday, 10 February 2025 23:45:04 Central European Standard Time Heiko 
+> Stuebner wrote:
+> > This enables OTP support in the nvmem driver for rk3576.
+> > 
+> > I expect to pick the clock patch (patch1) and the arm64-dts patch (patch6)
+> > myself, after the nvmem-driver and -binding patches have been applied
+> > (patches 2-5).
+> > 
+> > But kept them together for people wanting to try this series.
+> > 
+> > changes in v2:
+> > - fix register constant in clock definition (Diederik)
+> > - add patch to set limits on variant-specific clock-names
+> > - use correct limits for clocks + resets on rk3576 binding
+> > 
+> > 
+> > RESEND, because I messed up my git-send-email which caused it to include
+> > the list of patches 2 times, duplicating everything :-( .
+> > 
+> > Heiko Stuebner (6):
+> >   clk: rockchip: rk3576: define clk_otp_phy_g
+> >   nvmem: rockchip-otp: Move read-offset into variant-data
+> >   dt-bindings: nvmem: rockchip,otp: add missing limits for clock-names
+> >   dt-bindings: nvmem: rockchip,otp: Add compatible for RK3576
+> >   nvmem: rockchip-otp: add rk3576 variant data
+> >   arm64: dts: rockchip: add rk3576 otp node
+> > 
+> >  .../bindings/nvmem/rockchip,otp.yaml          | 25 ++++++++++++
+> >  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 39 +++++++++++++++++++
+> >  drivers/clk/rockchip/clk-rk3576.c             |  2 +
+> >  drivers/nvmem/rockchip-otp.c                  | 17 +++++++-
+> >  4 files changed, 81 insertions(+), 2 deletions(-)
+> 
+> Hi Heiko,
+> 
+> for the entire series:
+> 
+> Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> OTPs show up on my Sige5 RK3576 board and read fine. Also compared the OTP 
+> nodes to downstream and the values look consistent with that. The OTPs aren't 
+> documented in the TRM I have, so unfortunately I can't cross-reference that.
 
-On Mon, 10 Feb 2025 at 14:21, <patrice.chotard@foss.st.com> wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
->
-> Octo Memory Manager driver (OMM) manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
->   - check firewall access.
->
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+thanks a lot for the testing :-)
 
-Thanks for your patch!
+> NB: patchwork's "Series" download for this series somehow lacks patch 2/6, 
+> which tripped me up at first. Not sure if that's a problem with patchwork or 
+> with how you sent the series out, but I thought I'd let others know who run 
+> into this.
 
-> --- a/drivers/memory/Kconfig
-> +++ b/drivers/memory/Kconfig
-> @@ -225,6 +225,23 @@ config STM32_FMC2_EBI
->           devices (like SRAM, ethernet adapters, FPGAs, LCD displays, ...) on
->           SOCs containing the FMC2 External Bus Interface.
->
-> +config STM32_OMM
-> +       tristate "STM32 Octo Memory Manager"
-> +       depends on SPI_STM32_OSPI || TEST_COMPILE
+It looks like patchwork had a bigger hickup with my series.
+Looking at the cover-letter in the Rockchip area of patchwork, it is
+missing _all_ patches attached to it [0].
 
-COMPILE_TEST
+At least on the mainling list, everything seems to have arrived ok [1],
+so would assume that's a patchwork thing.
 
-> +       help
-> +         This driver manages the muxing between the 2 OSPI busses and
-> +         the 2 output ports. There are 4 possible muxing configurations:
-> +         - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
-> +              output is on port 2
-> +         - OSPI1 and OSPI2 are multiplexed over the same output port 1
-> +         - swapped mode (no multiplexing), OSPI1 output is on port 2,
-> +              OSPI2 output is on port 1
-> +         - OSPI1 and OSPI2 are multiplexed over the same output port 2
-> +         It also manages :
-> +           - the split of the memory area shared between the 2 OSPI instances.
-> +           - chip select selection override.
-> +           - the time between 2 transactions in multiplexed mode.
-> +
->  source "drivers/memory/samsung/Kconfig"
->  source "drivers/memory/tegra/Kconfig"
 
-> --- /dev/null
-> +++ b/drivers/memory/stm32_omm.c
+[0] https://patchwork.kernel.org/project/linux-rockchip/cover/20250210224510.1194963-1-heiko@sntech.de/
+[1] https://lore.kernel.org/all/20250210224510.1194963-1-heiko@sntech.de/
 
-> +static int stm32_omm_set_amcr(struct device *dev, bool set)
-> +{
-> +       struct stm32_omm *omm = dev_get_drvdata(dev);
-> +       struct regmap *syscfg_regmap;
-> +       struct device_node *node;
-> +       struct resource res, res1;
-> +       resource_size_t mm_ospi2_size = 0;
-> +       static const char * const mm_name[] = { "ospi1", "ospi2" };
-> +       u32 amcr_base, amcr_mask;
-> +       int ret, i, idx;
 
-unsigned int i
-
-> +       unsigned int amcr, read_amcr;
-> +
-> +       for (i = 0; i < omm->nb_child; i++) {
-> +               idx = of_property_match_string(dev->of_node,
-> +                                              "memory-region-names",
-> +                                              mm_name[i]);
-> +               if (idx < 0)
-> +                       continue;
-> +
-> +               /* res1 only used on second loop iteration */
-> +               res1.start = res.start;
-> +               res1.end = res.end;
-> +
-> +               node = of_parse_phandle(dev->of_node, "memory-region", idx);
-> +               if (!node)
-> +                       continue;
-> +
-> +               ret = of_address_to_resource(node, 0, &res);
-> +               if (ret) {
-> +                       dev_err(dev, "unable to resolve memory region\n");
-> +                       return ret;
-> +               }
-> +
-> +               /* check that memory region fits inside OMM memory map area */
-> +               if (!resource_contains(omm->mm_res, &res)) {
-> +                       dev_err(dev, "%s doesn't fit inside OMM memory map area\n",
-> +                               mm_name[i]);
-> +                       dev_err(dev, "[0x%llx-0x%llx] doesn't fit inside [0x%llx-0x%llx]\n",
-> +                               res.start, res.end,
-> +                               omm->mm_res->start, omm->mm_res->end);
-
-As reported by the kernel test robot, this fails to build when
-resource_size_t differs from unsigned long long.  However, you can
-easily print the full resource instead:
-
-    dev_err(dev, "%pR doesn't fit inside %pR\n", &res, omm->mm_res);
-
-https://elixir.bootlin.com/linux/v6.13.2/source/Documentation/core-api/printk-formats.rst#L206
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
