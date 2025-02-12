@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B59C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD57C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEy6pEobXOu7/UzBRGh/yfFsLlUWWHtB4P1bKj6uuSo=; b=WgyhuYlv5FqCY/og8PFziFSrmY
-	QwFVJ8gOf9FJPYK3xP8lR7lKS/KjuGfB4u7GrHTBrJw3H0RB3QQlIhh/+gFetxHj4vH7IPXyGNYhX
-	GmXWo3bt8tzIx5lbMmar42Jjsu5hOXT4BxYFTzyKx/YHJjQarXakWDYl0jGZ8Vxwmv6hRNoE/IzG0
-	1zeRrA3tgAaLJX/409d7fbGUqj8yAQ3p3a8RmhviPnj17JK1DyE2HC77TetkaqDXuepFs/T29icQp
-	lCZXCTmuD1eY8UAGnQiIS4KQ2u0eX9iPg6BsI1CTTdRbRGUVm2hWkHszsh+2I5RxZ9KiGjzA0incW
-	oMN6Rh5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ur7R4c51nhilIYjpuZkPE02P6bkK9lgoqIhWX0LoZ68=; b=Hili/sLIgzFfdG
+	HyPRnV1fl55nN+PLEThsg+KtZNlR3NLPIQXotLVL9Hj9+JwdVmPnQwnRE5VbCULbBGUm8bhCnpXBT
+	w11sCC4WXWr4BV4QdzLkAOBZ1Z6u0QjOULkSN0/E2HP+nBl6aSnYImDH8z31N21GQXgX1oYYouzbf
+	QLkdY2NXQfKT3zygUBveoMDbZeJbfhMaDVaaRkVd4jTxv/+tuiXSAWB+Cnn+LV4NzXtx/LDoODp98
+	fVi/EDBpDj5u/Lr8yXy0lK9BC1eOJ6hqI0o1pVC61CVkESqzQR3P3uHnBgQMkY/HBwYC/zj8gP211
+	f6v/8x7UQ9mzUqCJ+zhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6ab-00000006Po9-3FJO;
-	Wed, 12 Feb 2025 06:51:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ti6ct-00000006Q8O-3sOB;
+	Wed, 12 Feb 2025 06:53:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6ZB-00000006PbH-2Yzr;
-	Wed, 12 Feb 2025 06:49:51 +0000
+	id 1ti6bU-00000006PuS-0AAW;
+	Wed, 12 Feb 2025 06:52:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57BDEA40F6F;
-	Wed, 12 Feb 2025 06:48:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CCE9C4CEDF;
-	Wed, 12 Feb 2025 06:49:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DF67CA41156;
+	Wed, 12 Feb 2025 06:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97C2CC4CEDF;
+	Wed, 12 Feb 2025 06:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739342988;
-	bh=TQTxyc4gErD77Nn6rbZxay/35+TdsfVXIQZ5PlMQYi0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=koYdMOi2cpNanzXzA9//aq6WOPBLTOr4hW+GWxd16dUFJS2V60pi2NKXVClMzd1jU
-	 w4NHASYymVmSATBGYNuRV+EiN/lF4M6b/ZtCtv5MjAgjhsDxDhXx4iuQ5fA8pgGAPC
-	 DYaz2xiEsSGj2/JUAQ66vkFr5E116q0ktfO/EGj57RnPZggLfIAtEhajALbnFaoM2h
-	 Sadtbz6WQMXHhVGAUwwp9ajCH9evjyEtVvU0IQiBO02cZAbqymTu8NL+coIPCAXIyG
-	 o2SzXBbjG/T8zscDSWSDtwBM2Kh9FeJCsHxLhW0F6FIYl1oMaGjTtl0MpgkbBMAjZc
-	 Jodb1FEjchpxw==
-Date: Wed, 12 Feb 2025 07:49:44 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
-	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, upstream@airoha.com
-Subject: Re: [PATCH net-next v3 11/16] dt-bindings: arm: airoha: Add the NPU
- node for EN7581 SoC
-Message-ID: <20250212-polite-finicky-vulture-b5adc3@krzk-bin>
-References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
- <20250209-airoha-en7581-flowtable-offload-v3-11-dba60e755563@kernel.org>
- <20250211-judicious-polite-capuchin-ff8cdf@krzk-bin>
- <Z6t7s0m1xzsnjAsV@lore-desk>
+	s=k20201202; t=1739343131;
+	bh=4WreFNYgftWVc1aDlkY0DugTCMVqujOyi80mA6w1cA8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=H6zZRBlfnfL04nfDSsaK3d5deuRCNlXLxeQliGnDqH6igA9LJ5CqALnC35/5l5xYD
+	 YfXvZF0VBFuKqFWlY3yoXeHNnE9ozgj5L8vcssKV/XUjjtzJxVfn9q5AO0RKapvZ4M
+	 WSvUrw+s8eu6FFn/Xkjbus88VMOlqB9M+WrjzWWOyWtQOSTp9QK7WIZbBLWv9Ex2GJ
+	 pD2HB+ri35bbTLkEDIrigjKOu5uA58siULA2uwtBaXHJsTHHO4+1IqJuyOp0y0sGm8
+	 Ya20aUeNAeTaSuGfSF6tn3dq0hT15IYJdnIOxtd2cHQHpqV3HDM7Oc9zErZ7DlJwVS
+	 bvueldK5b0aUQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next 0/2] Enable TSO for DSA ports on Airoha EN7581 SoC
+Date: Wed, 12 Feb 2025 07:51:46 +0100
+Message-Id: <20250212-airoha-fix-tso-v1-0-1652558a79b4@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z6t7s0m1xzsnjAsV@lore-desk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAJFrGcC/x2MQQqAIBAAvyJ7bkHFgvpKdDBbcy8aGhGIf086D
+ sNMhUKZqcAiKmR6uHCKHdQgwAUbT0I+OoOWepRaKbScU7Do+cW7JDTGTn52uzJOQo+uTF39w3V
+ r7QNW5sjHYAAAAA==
+X-Change-ID: 20250211-airoha-fix-tso-44a6f9cb14c0
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_224949_814833_414FA4E3 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20250211_225212_160878_19B4DDE3 
+X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 05:32:51PM +0100, Lorenzo Bianconi wrote:
-> On Feb 11, Krzysztof Kozlowski wrote:
-> > On Sun, Feb 09, 2025 at 01:09:04PM +0100, Lorenzo Bianconi wrote:
-> > > This patch adds the NPU document binding for EN7581 SoC.
-> > > The Airoha Network Processor Unit (NPU) provides a configuration interface
-> > > to implement wired and wireless hardware flow offloading programming Packet
-> > > Processor Engine (PPE) flow table.
-> > > 
-> > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > > ---
-> > >  .../devicetree/bindings/arm/airoha,en7581-npu.yaml | 71 ++++++++++++++++++++++
-> > >  1 file changed, 71 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..a5bcfa299e7cd54f51e70f7ded113f1efcd3e8b7
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/arm/airoha,en7581-npu.yaml
-> > 
-> > arm is for top-level nodes, this has to go to proper directory or as
-> > last-resort to the soc.
-> > 
-> > > @@ -0,0 +1,71 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/arm/airoha,en7581-npu.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Airoha Network Processor Unit for EN7581 SoC
-> > > +
-> > > +maintainers:
-> > > +  - Lorenzo Bianconi <lorenzo@kernel.org>
-> > > +
-> > > +description:
-> > > +  The Airoha Network Processor Unit (NPU) provides a configuration interface
-> > > +  to implement wired and wireless hardware flow offloading programming Packet
-> > > +  Processor Engine (PPE) flow table.
-> > 
-> > Sounds like network device, so maybe net?
-> 
-> yes. Do you mean to move it in Documentation/devicetree/bindings/net/ ?
+Add missing vlan_features configuration to enable TSO/Scatter Gather for
+airoha_eth lan ports.
+Fix checksum configuration for TSO packets with cloned headers.
 
+---
+Lorenzo Bianconi (2):
+      net: airoha: Fix TSO support for header cloned skbs
+      net: airoha: Enable TSO/Scatter Gather for LAN port
 
-Yes... and no, because after second look at your driver it looks more
-like a mailbox. So basically I don't know. I usually hope contributors
-know better. :)
-
-If this is onlt mailbox provider, then should be placed in mailbox. If
-this is much more (including mailbox) but main function is network, then
-could be in net. So it all depends...
+ drivers/net/ethernet/mediatek/airoha_eth.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+---
+base-commit: 4e41231249f4083a095085ff86e317e29313c2c3
+change-id: 20250211-airoha-fix-tso-44a6f9cb14c0
 
 Best regards,
-Krzysztof
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
