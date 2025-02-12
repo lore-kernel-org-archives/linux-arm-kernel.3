@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AD1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FC9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BRs0MPM6DW7ovKbcQaZPP+NQTME6gKBy5BMI0U2KY4=; b=WI6KPsQ0vv7ZqPnlJyivfisMuo
-	PxjnFBuuqEF7Y/WB9kQN99hzL73ktiy4kU4xnEzhC0ozli4JTLj/axb49DMxbO7hS1TlKArKiwW9/
-	la9zBfEgRNMiWCmVyyziy2mmfB3Y4STNh+cKBDEANqJoGpJcg9TxTMf3vYAz9dg+mdk1k03JztdcQ
-	tYTwxq0qif3XCU6rAWXmYfObNclrL5HzOWmhNKJtuFWS0YYpfUMsIB6Cqomq2tkyYfB/MppMR/L43
-	o34IVc/UnQOQLWnMVzGW4ESqB7sj3M1NirLaCk2OjvrG647dJw9ld7imjJnI+1UF+0ol4pEPu4Heb
-	bLkfMHUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cL0ahKHpf9ACh+d0cvaqcwnoJdIKRiqLgLV8f1UErxE=; b=xBW+JtogAxI750Ujr5yeYbzfRF
+	qXUu6ovCdE3bf4MiHYZD03NE5oag341i9DQjp7w6obH3xlQiWLjEOwgdFq4u3BWZml6mWT+nc8vvV
+	V/vhxdyIbQs8a03EGSPQOVvzyvKub4NA3nBrrQ6/ThE7tV0lvu8Cm5bQNEqgDAJm+vqdAdmIovYDE
+	A8yknXtTD3ql0LlwhX4rZtQ/TZC9xaJUvRH2+qmiu81K+7QvyYfGjEHEMg53cqZ321OFwF+jdO1Jc
+	TsuHUHdFImYjcuCjh+wWFi5YA26cmE1Ww/tTm/VOhd4Ez0ue+chj9dVhaIbcf34OFR3Q+7hv4keD6
+	t/Zik5Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAfw-000000077nj-3q9m;
-	Wed, 12 Feb 2025 11:13:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAe6-000000077Jm-0CSs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:11:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A91C106F;
-	Wed, 12 Feb 2025 03:11:30 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1436B3F6A8;
-	Wed, 12 Feb 2025 03:11:06 -0800 (PST)
-Date: Wed, 12 Feb 2025 11:11:04 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v7] KVM: arm64: Fix confusion in documentation for pKVM
- SME assert
-Message-ID: <Z6yByMUBPDUyEWOr@J2N7QTR9R3>
-References: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+	id 1tiAk0-000000078uz-2vDF;
+	Wed, 12 Feb 2025 11:17:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiAia-000000078bZ-24vp;
+	Wed, 12 Feb 2025 11:15:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739358946;
+	bh=YKDYw4EgJ1J5b/WF+gfNmcPIuyPdAY3GNHs6SNyZAFQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=K7oHOn+zn3EE8LPVGFyRSAMjIWrVt7o1s38DJhLtiSgGb7LPbrWXP5jeCfm8foiAJ
+	 D5oViv6VPCYNh7KtLmUxhS8ZQ9kZkqhZx1iIo+THiMdYv9r8fkrszbpsslUYvEft1y
+	 iXqButssceRsGWaKkDrCT4ljpzX/1LeoOt1JShZtcZYksetScIECZn4QJBnF3nFkaR
+	 aB4xkjXNYFjOOA0d4VYlw5UED+DVEAbdRqYKrWokox39rPEwkL3A2+ul8HI9pxZw0B
+	 +CYxbwKS/KKFEbEDTEpRLGhsBYYXjuD3PB+mwKwZCAOcM8fxIaB+TYrre6AIiAOBlH
+	 ZP1wcP/4NcbYg==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 19DF917E0F8B;
+	Wed, 12 Feb 2025 12:15:46 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ matthias.bgg@gmail.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com, macpaul.lin@mediatek.com
+In-Reply-To: <20241218105356.39111-1-angelogioacchino.delregno@collabora.com>
+References: <20241218105356.39111-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188: Add VDO0's DSC and MERGE
+ block nodes
+Message-Id: <173935894602.45655.9401418712379275131.b4-ty@collabora.com>
+Date: Wed, 12 Feb 2025 12:15:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_031110_173953_E90DF786 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20250212_031548_732162_595EC8F4 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,106 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 12:44:57AM +0000, Mark Brown wrote:
-> As raised in the review comments for the original patch the assert and
-> comment added in afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are
-> disabled in protected mode") are bogus. The comments says that we check
-> that we do not have SME enabled for a pKVM guest but the assert actually
-> checks to see if the host has anything set in SVCR which is unrelated to
-> the guest features or state, regardless of if those guests are protected
-> or not. This check is also made in the hypervisor, it will refuse to run
-> a guest if the check fails, so it appears that the assert here is
-> intended to improve diagnostics.
+On Wed, 18 Dec 2024 11:53:56 +0100, AngeloGioacchino Del Regno wrote:
+> Add nodes for the DSC0 and MERGE0 blocks, located in VDOSYS0 and
+> necessary to add support for Display Stream Compression with a
+> display pipeline that looks like:
 > 
-> Update the comment to reflect the check in the code, and to clarify that
-> we do actually enforce this in the hypervisor. While we're here also
-> update to use a WARN_ON_ONCE() to avoid log spam if this triggers.
+>     [other components] -> DSC0 -> MERGE0 -> Display Interface
 > 
-> Fixes: afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are disabled in protected mode")
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
-> This has been sent with v6.10 with only positive review comments after
-> the first revision, if there is some issue with the change please share
-> it.
 > 
-> To: Marc Zyngier <maz@kernel.org>
-> To: Oliver Upton <oliver.upton@linux.dev>
-> To: James Morse <james.morse@arm.com>
-> To: Suzuki K Poulose <suzuki.poulose@arm.com>
-> To: Catalin Marinas <catalin.marinas@arm.com>
-> To: Will Deacon <will@kernel.org>
-> To: Fuad Tabba <tabba@google.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> ---
-> Changes in v7:
-> - Reword the comment.
-> - Link to v6: https://lore.kernel.org/r/20250210-kvm-arm64-sme-assert-v6-1-cc26c46d1b43@kernel.org
-> 
-> Changes in v6:
-> - Rebase onto v6.14-rc1.
-> - Link to v5: https://lore.kernel.org/r/20241210-kvm-arm64-sme-assert-v5-1-995c8dd1025b@kernel.org
-> 
-> Changes in v5:
-> - Rebase onto v6.13-rc1.
-> - Link to v4: https://lore.kernel.org/r/20240930-kvm-arm64-sme-assert-v4-1-3c9df71db688@kernel.org
-> 
-> Changes in v4:
-> - Rebase onto v6.12-rc1
-> - Link to v3: https://lore.kernel.org/r/20240730-kvm-arm64-sme-assert-v3-1-8699454e5cb8@kernel.org
-> 
-> Changes in v3:
-> - Rebase onto v6.11-rc1.
-> - Link to v2: https://lore.kernel.org/r/20240605-kvm-arm64-sme-assert-v2-1-54391b0032f4@kernel.org
-> 
-> Changes in v2:
-> - Commit message tweaks.
-> - Change the assert to WARN_ON_ONCE().
-> - Link to v1: https://lore.kernel.org/r/20240604-kvm-arm64-sme-assert-v1-1-5d98348d00f8@kernel.org
-> ---
->  arch/arm64/kvm/fpsimd.c | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-> index 4d3d1a2eb157047b4b2488e9c4ffaabc6f5a0818..e37e53883c357093ff4455f5afdaec90e662d744 100644
-> --- a/arch/arm64/kvm/fpsimd.c
-> +++ b/arch/arm64/kvm/fpsimd.c
-> @@ -93,11 +93,14 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
->  	}
->  
->  	/*
-> -	 * If normal guests gain SME support, maintain this behavior for pKVM
-> -	 * guests, which don't support SME.
-> +	 * Protected and non-protected KVM modes require that
-> +	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
-> +	 * host/guest SME state needs to be saved/restored by hyp code.
-> +	 *
-> +	 * In protected mode, hyp code will verify this later.
->  	 */
-> -	WARN_ON(is_protected_kvm_enabled() && system_supports_sme() &&
-> -		read_sysreg_s(SYS_SVCR));
-> +	WARN_ON_ONCE(is_protected_kvm_enabled() && system_supports_sme() &&
-> +		     read_sysreg_s(SYS_SVCR));
+> [...]
 
-As I mentioned on the last round, we can drop the is_protected_kvm_enabled()
-check, i.e. have:
+Applied to v6.14-next/dts64, thanks!
 
-	/*
-	 * Protected and non-protected KVM modes require that
-	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
-	 * host/guest SME state needs to be saved/restored by hyp code.
-	 *
-	 * In protected mode, hyp code will verify this later.
-	 */
-	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
+[1/1] arm64: dts: mediatek: mt8188: Add VDO0's DSC and MERGE block nodes
+      commit: 449d7d1dcea3ff5bc454c586bbdf9eb4c8ecb0b9
 
-Either way:
+Cheers,
+Angelo
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-Marc, are you happy to queue this atop the recent fixes from me? Those
-try to ensure SVCR.{SM,ZA} == {0,0} regardless of whether KVM is in
-protected mode.
-
-Mark.
 
