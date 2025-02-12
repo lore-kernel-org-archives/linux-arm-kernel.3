@@ -4,83 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8587DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B64C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1ldq/teHo/QBZY6cIiNd8wg81nHlAQXLen7eInilfM=; b=e2CGwibgzTgaSjzsh006NQPFUO
-	HQgO3bLXBy/7GelXD3w79UzbpxFvjyfZ3+abqp5h9zYr7Fx/JI2oaZ9FjF8oe9EC8Bpcj0/qmQn0O
-	SfPMyP7te/uL1kjrT1n/erGTczlDrxMYTLegO57uwMTTdwJzv6ULE4Pe3nzGcVrAwfj+/3gNrZB2i
-	uD1PXJyvokYDOs3IOgVgsZf9IASFpR92FxidUSHYQgXZ1e6sEnOIQfv9jk+5SqcaO+KSFmt/C/eOS
-	fEyLuEdQQuEI/DSnFCksrfLKn3N8Nx0zJJNIcog6Zg3HhNNKcGzrOrDFr7v1lztOzKU7PVZncIofh
-	7BhDbTaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IIIo2+TR2XipfwSzj7QdOyPCxjbMZluqjwMrNUgWk0k=; b=wFgZlsqje7HG0LeaD8b5VmmwYM
+	9IpKFf5nt0uzmqMaBqIDm7RhkmfVNZ+jg5zEMxpZjyqPHydxUEGSZR5NqhZpdvBPdU7/vy7e+9TME
+	wT+L8hglEkZNnKLXkKPBllDUCt25ynhZ9PYIucieFnzPdNShL6GFqPOfAUWN0mrC3zQ1JzT47PgA9
+	JYzgnaHYbbJHk/kmFxlSZh/ORI4JVrnt/GETkCp6USCotJj5AnlluyW9V7yZs8g3VlCnj5vELLVk+
+	h++53qD7M26zdgSiSCd5F6RxEviWw3KnNbpS1jvgtXYmVfLkEi3XkSvHpLIAFIWp9LT5cQSTj/0Tb
+	nR6GQ6dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5SR-00000006GTK-3Tjb;
-	Wed, 12 Feb 2025 05:38:47 +0000
-Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
+	id 1ti5Tp-00000006Gaw-32Ne;
+	Wed, 12 Feb 2025 05:40:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5Qx-00000006GBc-2K7K
+	id 1ti5Rf-00000006GMt-0mLi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 05:37:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1739338635; x=1770874635;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=N1ldq/teHo/QBZY6cIiNd8wg81nHlAQXLen7eInilfM=;
-  b=K8ADPigKWD5utUe0I8ExGRtIR7GDRwhPZRKWiS1lDNrgIrOLT3zlcKkt
-   FeB/qwKaMvQdrZ0U8Ve/z4q6wzNsc6dNVvlYfbeidZR00MwHfIS++4E1C
-   Dq9P0RYOLosvn0nBuT1/PZmiBr+TU0r38/fgR8BTyOiUQsAkTh9/cROdJ
-   s=;
-X-IronPort-AV: E=Sophos;i="6.13,279,1732579200"; 
-   d="scan'208";a="168935605"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 05:37:13 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [10.0.21.151:32783]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.25.59:2525] with esmtp (Farcaster)
- id c69e62f5-4918-4895-af0d-a33eddd4d416; Wed, 12 Feb 2025 05:37:13 +0000 (UTC)
-X-Farcaster-Flow-ID: c69e62f5-4918-4895-af0d-a33eddd4d416
-Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 12 Feb 2025 05:37:13 +0000
-Received: from 88665a51a6b2.amazon.com (10.106.179.55) by
- EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 12 Feb 2025 05:37:10 +0000
-From: Cristian Prundeanu <cpru@amazon.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Cristian Prundeanu <cpru@amazon.com>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	"Ali Saidi" <alisaidi@amazon.com>, Benjamin Herrenschmidt
-	<benh@kernel.crashing.org>, Geoff Blake <blakgeof@amazon.com>, Csaba Csoma
-	<csabac@amazon.com>, Bjoern Doebel <doebel@amazon.com>, Gautham Shenoy
-	<gautham.shenoy@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>, Borislav Petkov
-	<bp@alien8.de>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tip-commits@vger.kernel.org>,
-	<x86@kernel.org>
-Subject: [PATCH v2] [tip: sched/core] sched: Move PLACE_LAG and RUN_TO_PARITY to sysctl
-Date: Tue, 11 Feb 2025 23:36:44 -0600
-Message-ID: <20250212053644.14787-1-cpru@amazon.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250128230926.11715-1-cpru@amazon.com>
-References: <20250119110410.GAZ4zcKkx5sCjD5XvH@fat_crate.local>
+	Wed, 12 Feb 2025 05:38:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02E83A40FB4;
+	Wed, 12 Feb 2025 05:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E8FAC4CEDF;
+	Wed, 12 Feb 2025 05:37:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739338678;
+	bh=/FoIxowu82Uq0ekKDPxc3Ge0hB+OhxoBukVa7JbIRgg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sgYXQuktcJybLgslFBB5cgnyRREDDC4dHe8hfP5RvfXwxe104eOnp4gdzc7jGT9Tx
+	 b5aRoXD3SDquih/nZjNBZiOQ3Xc2kNLJsNX6TeJbE2jnRaeAMOdN+JluwL8E77LWQQ
+	 B4yrtlp83DfXKvm+iWuXVOE+8DdRY0SEc/RYdvO3K6LmhTFi8DXyTJuQIf/bPH3HbY
+	 Rb6CWJOvej9QmXXl6i9bZA+Zltpluoh/JL/Sh43E7ILqhCpLH3OTDebRkuRmQr00Xr
+	 9rmEtbMHuXUizGMuj/7a4WaP5XaLIzjYO3qwkELzl139H+LQNHcq7n25SeNdlhs7t+
+	 QpOWtjZrJsUzQ==
+Message-ID: <09922fcf-f667-490b-bbd2-e5fc19c3f958@kernel.org>
+Date: Wed, 12 Feb 2025 06:37:50 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.106.179.55]
-X-ClientProxiedBy: EX19D039UWB003.ant.amazon.com (10.13.138.93) To
- EX19D016UWA004.ant.amazon.com (10.13.139.119)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: qcs8300: Add device node for
+ gfx_smmu
+To: Pratyush Brahma <quic_pbrahma@quicinc.com>, Will Deacon
+ <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250211-b4-branch-gfx-smmu-v5-0-ff0bcb6a3c51@quicinc.com>
+ <20250211-b4-branch-gfx-smmu-v5-2-ff0bcb6a3c51@quicinc.com>
+ <3158e911-c771-4186-b287-50d2395b8c94@kernel.org>
+ <138b1c42-9580-41f4-9079-87740568b79c@quicinc.com>
+ <075588ff-77e5-4b01-8c67-8fc30e51b8a9@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <075588ff-77e5-4b01-8c67-8fc30e51b8a9@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_213715_890795_2F3BA304 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250211_213759_368522_152E0D44 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,165 +127,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replacing CFS with the EEVDF scheduler in kernel 6.6 introduced
-significant performance degradation in multiple database-oriented
-workloads. This degradation manifests in all kernel versions using EEVDF,
-across multiple Linux distributions, hardware architectures (x86_64,
-aarm64, amd64), and CPU generations.
+On 12/02/2025 06:19, Pratyush Brahma wrote:
+> 
+> On 2/12/2025 10:09 AM, Pratyush Brahma wrote:
+>>
+>>
+>> On 2/11/2025 8:45 PM, Krzysztof Kozlowski wrote:
+>>> On 11/02/2025 05:45, Pratyush Brahma wrote:
+>>>> Add the device node for gfx smmu that is required for gpu
+>>>> specific address translations.
+>>>>
+>>>> Signed-off-by: Pratyush Brahma<quic_pbrahma@quicinc.com>
+>>>> ---
+>>>>   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 39 +++++++++++++++++++++++++++++++++++
+>>>>   1 file changed, 39 insertions(+)
+>>> As pointed out by Rob, this wasn't ever tested. One more example of work
+>>> where you have the binding in the same patch but refuse to use it.
+> No, I had tested these patches against the dt_bindings_check and didn't 
+> see these errors.
+> It seems I need to upgrade my dtschema as Rob pointed out, reorder the 
+> clocks and resend.
 
-Testing combinations of available scheduler features showed that the
-largest improvement (short of disabling all EEVDF features) came from
-disabling both PLACE_LAG and RUN_TO_PARITY.
+The reported errors are not relevant at all to upgraded or not upgraded
+dtschema. This just wasn't tested.
 
-Moving PLACE_LAG and RUN_TO_PARITY to sysctl will allow users to override
-their default values and persist them with established mechanisms.
+> 
 
-Link: https://lore.kernel.org/20241017052000.99200-1-cpru@amazon.com
-Signed-off-by: Cristian Prundeanu <cpru@amazon.com>
----
-v2: use latest sched/core; defer default value change to a follow-up patch
 
- include/linux/sched/sysctl.h |  8 ++++++++
- kernel/sched/core.c          | 13 +++++++++++++
- kernel/sched/fair.c          |  7 ++++---
- kernel/sched/features.h      | 10 ----------
- kernel/sysctl.c              | 20 ++++++++++++++++++++
- 5 files changed, 45 insertions(+), 13 deletions(-)
-
-diff --git a/include/linux/sched/sysctl.h b/include/linux/sched/sysctl.h
-index 5a64582b086b..a899398bc1c4 100644
---- a/include/linux/sched/sysctl.h
-+++ b/include/linux/sched/sysctl.h
-@@ -29,4 +29,12 @@ extern int sysctl_numa_balancing_mode;
- #define sysctl_numa_balancing_mode	0
- #endif
- 
-+#if defined(CONFIG_SCHED_DEBUG) && defined(CONFIG_SYSCTL)
-+extern unsigned int sysctl_sched_place_lag_enabled;
-+extern unsigned int sysctl_sched_run_to_parity_enabled;
-+#else
-+#define sysctl_sched_place_lag_enabled 1
-+#define sysctl_sched_run_to_parity_enabled 1
-+#endif
-+
- #endif /* _LINUX_SCHED_SYSCTL_H */
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 9142a0394d46..a379240628ea 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -134,6 +134,19 @@ const_debug unsigned int sysctl_sched_features =
- 	0;
- #undef SCHED_FEAT
- 
-+#ifdef CONFIG_SYSCTL
-+/*
-+ * Using the avg_vruntime, do the right thing and preserve lag across
-+ * sleep+wake cycles. EEVDF placement strategy #1, #2 if disabled.
-+ */
-+__read_mostly unsigned int sysctl_sched_place_lag_enabled = 1;
-+/*
-+ * Inhibit (wakeup) preemption until the current task has either matched the
-+ * 0-lag point or until it has exhausted its slice.
-+ */
-+__read_mostly unsigned int sysctl_sched_run_to_parity_enabled = 1;
-+#endif
-+
- /*
-  * Print a warning if need_resched is set for the given duration (if
-  * LATENCY_WARN is enabled).
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 1e78caa21436..c87fd1accd54 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -923,7 +923,8 @@ static struct sched_entity *pick_eevdf(struct cfs_rq *cfs_rq)
- 	 * Once selected, run a task until it either becomes non-eligible or
- 	 * until it gets a new slice. See the HACK in set_next_entity().
- 	 */
--	if (sched_feat(RUN_TO_PARITY) && curr && curr->vlag == curr->deadline)
-+	if (sysctl_sched_run_to_parity_enabled && curr &&
-+	    curr->vlag == curr->deadline)
- 		return curr;
- 
- 	/* Pick the leftmost entity if it's eligible */
-@@ -5199,7 +5200,7 @@ place_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
- 	 *
- 	 * EEVDF: placement strategy #1 / #2
- 	 */
--	if (sched_feat(PLACE_LAG) && cfs_rq->nr_queued && se->vlag) {
-+	if (sysctl_sched_place_lag_enabled && cfs_rq->nr_queued && se->vlag) {
- 		struct sched_entity *curr = cfs_rq->curr;
- 		unsigned long load;
- 
-@@ -9327,7 +9328,7 @@ static inline int task_is_ineligible_on_dst_cpu(struct task_struct *p, int dest_
- #else
- 	dst_cfs_rq = &cpu_rq(dest_cpu)->cfs;
- #endif
--	if (sched_feat(PLACE_LAG) && dst_cfs_rq->nr_queued &&
-+	if (sysctl_sched_place_lag_enabled && dst_cfs_rq->nr_queued &&
- 	    !entity_eligible(task_cfs_rq(p), &p->se))
- 		return 1;
- 
-diff --git a/kernel/sched/features.h b/kernel/sched/features.h
-index 3c12d9f93331..b98ec31ef2c4 100644
---- a/kernel/sched/features.h
-+++ b/kernel/sched/features.h
-@@ -1,10 +1,5 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- 
--/*
-- * Using the avg_vruntime, do the right thing and preserve lag across
-- * sleep+wake cycles. EEVDF placement strategy #1, #2 if disabled.
-- */
--SCHED_FEAT(PLACE_LAG, true)
- /*
-  * Give new tasks half a slice to ease into the competition.
-  */
-@@ -13,11 +8,6 @@ SCHED_FEAT(PLACE_DEADLINE_INITIAL, true)
-  * Preserve relative virtual deadline on 'migration'.
-  */
- SCHED_FEAT(PLACE_REL_DEADLINE, true)
--/*
-- * Inhibit (wakeup) preemption until the current task has either matched the
-- * 0-lag point or until is has exhausted it's slice.
-- */
--SCHED_FEAT(RUN_TO_PARITY, true)
- /*
-  * Allow wakeup of tasks with a shorter slice to cancel RUN_TO_PARITY for
-  * current.
-diff --git a/kernel/sysctl.c b/kernel/sysctl.c
-index 7ae7a4136855..11651d87f6d4 100644
---- a/kernel/sysctl.c
-+++ b/kernel/sysctl.c
-@@ -2019,6 +2019,26 @@ static struct ctl_table kern_table[] = {
- 		.extra2		= SYSCTL_INT_MAX,
- 	},
- #endif
-+#ifdef CONFIG_SCHED_DEBUG
-+	{
-+		.procname	= "sched_place_lag_enabled",
-+		.data		= &sysctl_sched_place_lag_enabled,
-+		.maxlen		= sizeof(unsigned int),
-+		.mode		= 0644,
-+		.proc_handler	= proc_dointvec_minmax,
-+		.extra1		= SYSCTL_ZERO,
-+		.extra2		= SYSCTL_ONE,
-+	},
-+	{
-+		.procname	= "sched_run_to_parity_enabled",
-+		.data		= &sysctl_sched_run_to_parity_enabled,
-+		.maxlen		= sizeof(unsigned int),
-+		.mode		= 0644,
-+		.proc_handler	= proc_dointvec_minmax,
-+		.extra1		= SYSCTL_ZERO,
-+		.extra2		= SYSCTL_ONE,
-+	},
-+#endif
- };
- 
- static struct ctl_table vm_table[] = {
-
-base-commit: 05dbaf8dd8bf537d4b4eb3115ab42a5fb40ff1f5
--- 
-2.48.1
-
+Best regards,
+Krzysztof
 
