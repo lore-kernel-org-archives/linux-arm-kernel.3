@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC05C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8520C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Ba53R3H3WDAF7MlUncdYdrTqagtlieEXBUgKa6/Q38=; b=ANpo2g69cCwNOPU7FN1e3EynuE
-	jQtcRJq/MzKAGFyackBkBVV0P4Ow8jYsRqiQZB0KWUMdKMolgGlbJAHwuZzaQAA1mEC4I7cLLGaSe
-	5JYcZmGtJsVZ9q2JWT+lTyRIL2XZ8pxuluFg8WGo0HVu7QMkGL7nkeQ/ka1dTyCv61UJHZSjhzAKV
-	CghNJBFnyaibIRuGu1JAJbKaEnsyYW5BFJdwJcc6z1U5xT5dj2s0MMXOchiMIXejCPo1Q0qV/zT30
-	tC4eBRYUEpygnTmvMZGLpBX0e9KsK9X2yNVmHh3gF43xf9smV8u+GCPHDOL8BJ4FYrk00fCAD+2Xj
-	rYmNlwcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cmuEXf1MqNde8WSAXAEAqHcQUNMxa4IndcTrL+a1x4g=; b=zb6z/0HYH7yXXNVmhqhhapdfLO
+	xYsL1GpCmuiAvMDsvD3BHS5GnOG3PR52ka2q7G0JUApfoSJEjMmwxuftKknUZYRNjtYX2hldLSmqT
+	z4Tal+hdRMgeFMU0h7J9OW3c76zh43xEO4PAIduzoz47cOrd8Nttwokwm7JSnhglG/x1AucvY4yy0
+	YmdNdIZcKr6sYMoZP+eVbe/MNxIZM4grVJjL4XChhTO+IFNfwMl4Olm90BGpxWj0hkNJBv5FpbgF1
+	N4hmQapLGwoiTe2cUnqXimNbQB9onT9W25BjqZ2LuDGCGntYOUkDv7UcVuvtq81CPPzKKrv6p89xd
+	YoCwEj+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0ms-00000005jBX-47dJ;
-	Wed, 12 Feb 2025 00:39:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ti0u3-00000005kDK-1dk5;
+	Wed, 12 Feb 2025 00:46:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0jM-00000005iQ1-3AeF
+	id 1ti0sd-00000005k0Z-3Ze9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 00:35:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739320555;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0Ba53R3H3WDAF7MlUncdYdrTqagtlieEXBUgKa6/Q38=;
-	b=hJR8KUglGT+DF2rHa69i7YpgF6cw1PIyyZa8mtj8Ufg1TQDkutkVhhr7+wjbJllGbzgbCX
-	Nni1t14qPw73U0dWIBMJ6KAcGbhB+xZzwDtVYcNtkkDPbaBzW6Lc2Rm0omHF3bTkKjM+I+
-	vskzf9HK9TQv1HCxLcXfotx9Z99hSX0=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-596-3xrX5GqPMOq7aTI1VFcphA-1; Tue,
- 11 Feb 2025 19:35:50 -0500
-X-MC-Unique: 3xrX5GqPMOq7aTI1VFcphA-1
-X-Mimecast-MFC-AGG-ID: 3xrX5GqPMOq7aTI1VFcphA
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0DD9A1954B1B;
-	Wed, 12 Feb 2025 00:35:43 +0000 (UTC)
-Received: from localhost (unknown [10.22.89.254])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CBB1C3001D10;
-	Wed, 12 Feb 2025 00:35:41 +0000 (UTC)
-Date: Tue, 11 Feb 2025 21:35:40 -0300
-From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: BUG: debug_exception_enter() disables preemption and may call
- sleeping functions on aarch64 with RT
-Message-ID: <Z6vs3IWxUxhIDBBO@uudg.org>
-References: <Z6YW_Kx4S2tmj2BP@uudg.org>
- <Z6n16cK85JMyowDq@J2N7QTR9R3>
- <Z6tf8iDhNriSGjeC@uudg.org>
+	Wed, 12 Feb 2025 00:45:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A21A5C51AB;
+	Wed, 12 Feb 2025 00:44:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EDBBC4CEDD;
+	Wed, 12 Feb 2025 00:45:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739321130;
+	bh=5rRoChObeNqNxfmbCbT8iUIfiBHkKWAFVjiyqgK4VdI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=lpFYXFUt+KAocrDCcNBlhRj+YexM6svmmv4blnBwr7/gvIS9+zIFa2M0plNMl0vIH
+	 egkj2HURSf4Yz6L7zsKrF+g4KSONRNDVuTrLYiIv5LPewE3N7dZNY3f4HzYn6Laqc5
+	 8bLm4IlbNyv05uJZfeCKuIfpArbkGgCT+7gKAFzvC40HA+iKQB1AMrqQsMna0HsvUX
+	 vhlHU5x/Lks1kf0dytJd8JBlwm5jIRsFTHuVrWyWPkxzTfvfU6GJO+aP/CEkj0XB6f
+	 HMLDIzLgeqkDXBeMcPGUHnz4+lUPlsVk0dZssZ3PNLE16oOah8UPNVRmgNiiLMIa1N
+	 QDEcxZzugEODA==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 12 Feb 2025 00:44:57 +0000
+Subject: [PATCH v7] KVM: arm64: Fix confusion in documentation for pKVM SME
+ assert
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6tf8iDhNriSGjeC@uudg.org>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAjvq2cC/4XO3UrEMBAF4FdZcm0kPzNp4pXvIV7kr7thbSvJE
+ pSl7266oKuU4OUZON+ZKykxp1jI0+FKcqyppGVuYXg4EH+y8zHSFFomgglgigE914naPCmgZYr
+ Ulta/ULRhQAwQtVWkVd9zHNPHjX15bfmUymXJn7eVyrfrP2DllFMMRkvQgbFRP59jnuPb45KPZ
+ BOr+K1gRxGbAtJwx5gUI+wUeVcGyTqKbIpWxgBCRO/2v8BdMV0FmiK9CePAg1N6r+CPwgXvKdg
+ UY9DrEDgT6HaK+laQ9RXVFO+F8qACdyD/KOu6fgHzMGksFwIAAA==
+X-Change-ID: 20240604-kvm-arm64-sme-assert-5ad755d4e8a6
+To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+Cc: Fuad Tabba <tabba@google.com>, Mark Brown <broonie@kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3561; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=5rRoChObeNqNxfmbCbT8iUIfiBHkKWAFVjiyqgK4VdI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnq+8nYl1hKlgAf8UHLSYhrZpD14NjnmH5zjzaln2A
+ iud10pqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ6vvJwAKCRAk1otyXVSH0LWKB/
+ 9WcV7yweaKsEXcht6lTbS/nW+jDulcbredFQ/S5R3OBygrOiXxhYUMUhYQlRIExRnXH0PDMZTvaSoQ
+ zMyBGJN9tL1+P8UhBZTQGSqJp5Gl2l8g92E0lzW25OMVlUwPh6+znCOVyuB311NRYle1PwpH+jHfWv
+ Nl76YHN6j2/owhMof3gXUwZ5u3rgiM56wATZzD0IlpoqG34LEqY1TEHn0k+J4CYcZrjJOZH3aynwLC
+ QcigqJizzoQ1tYUz1QBgmMYNE1g+bm06HQFRe+BZRLY3wzI7OR7FDV7RhoVuI31EY19Py9KCA53Fpb
+ epELU9TEUOZqVllh1DSdfdIRe/PAbq
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_163556_866718_3D99991E 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250211_164531_988165_22CE0164 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +93,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 11:34:26AM -0300, Luis Claudio R. Goncalves wrote:
-> On Mon, Feb 10, 2025 at 12:49:45PM +0000, Mark Rutland wrote:
-> > On Fri, Feb 07, 2025 at 11:22:57AM -0300, Luis Claudio R. Goncalves wrote:
-...
-> > I don't have an immediate suggestion; I'll need to go think about this
-> > for a bit. Unfortunatealy, there are several nested cans of worms here.
-> > :/
-> > 
-> > In theory, we can go split out the EL0 "debug exceptions" into separate
-> > handlers, and wouldn't generally need to disable preemption for things
-> > like BRK or single-step.
-> 
-> If this is an acceptable workaround, until we have the real solution,
-> I can work on that :)
-> 
-> Luis
+As raised in the review comments for the original patch the assert and
+comment added in afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are
+disabled in protected mode") are bogus. The comments says that we check
+that we do not have SME enabled for a pKVM guest but the assert actually
+checks to see if the host has anything set in SVCR which is unrelated to
+the guest features or state, regardless of if those guests are protected
+or not. This check is also made in the hypervisor, it will refuse to run
+a guest if the check fails, so it appears that the assert here is
+intended to improve diagnostics.
 
-I tested the prototype below and it survived 6h of ssdd and the ptrace LTP
-tests running simultaneously, in a tight loop. Would something along these
-lines be an acceptable workaround?
+Update the comment to reflect the check in the code, and to clarify that
+we do actually enforce this in the hypervisor. While we're here also
+update to use a WARN_ON_ONCE() to avoid log spam if this triggers.
 
+Fixes: afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are disabled in protected mode")
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+This has been sent with v6.10 with only positive review comments after
+the first revision, if there is some issue with the change please share
+it.
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 8b281cf308b30..eb3b54710024f 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -933,18 +933,20 @@ void __init hook_debug_fault_code(int nr,
-  * accidentally schedule in exception context and it will force a warning
-  * if we somehow manage to schedule by accident.
-  */
--static void debug_exception_enter(struct pt_regs *regs)
-+static void debug_exception_enter(struct pt_regs *regs, int touch_preemption)
- {
--	preempt_disable();
-+	if (touch_preemption)
-+		preempt_disable();
- 
- 	/* This code is a bit fragile.  Test it. */
- 	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
- }
- NOKPROBE_SYMBOL(debug_exception_enter);
- 
--static void debug_exception_exit(struct pt_regs *regs)
-+static void debug_exception_exit(struct pt_regs *regs, int touch_preemption)
- {
--	preempt_enable_no_resched();
-+	if (touch_preemption)
-+		preempt_enable_no_resched();
- }
- NOKPROBE_SYMBOL(debug_exception_exit);
- 
-@@ -953,8 +955,14 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
- {
- 	const struct fault_info *inf = esr_to_debug_fault_info(esr);
- 	unsigned long pc = instruction_pointer(regs);
-+	unsigned long req = ESR_ELx_EC(esr);
-+	int touch_preemption;
- 
--	debug_exception_enter(regs);
-+	touch_preemption = !(IS_ENABLED(CONFIG_PREEMPT_RT) &&
-+		(req == ESR_ELx_EC_SOFTSTP_LOW || req == ESR_ELx_EC_BRK64
-+		 || req == ESR_ELx_EC_BKPT32 || req == ESR_ELx_EC_SOFTSTP_CUR));
-+
-+	debug_exception_enter(regs, touch_preemption);
- 
- 	if (user_mode(regs) && !is_ttbr0_addr(pc))
- 		arm64_apply_bp_hardening();
-@@ -963,7 +971,7 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
- 		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+To: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+To: James Morse <james.morse@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+---
+Changes in v7:
+- Reword the comment.
+- Link to v6: https://lore.kernel.org/r/20250210-kvm-arm64-sme-assert-v6-1-cc26c46d1b43@kernel.org
+
+Changes in v6:
+- Rebase onto v6.14-rc1.
+- Link to v5: https://lore.kernel.org/r/20241210-kvm-arm64-sme-assert-v5-1-995c8dd1025b@kernel.org
+
+Changes in v5:
+- Rebase onto v6.13-rc1.
+- Link to v4: https://lore.kernel.org/r/20240930-kvm-arm64-sme-assert-v4-1-3c9df71db688@kernel.org
+
+Changes in v4:
+- Rebase onto v6.12-rc1
+- Link to v3: https://lore.kernel.org/r/20240730-kvm-arm64-sme-assert-v3-1-8699454e5cb8@kernel.org
+
+Changes in v3:
+- Rebase onto v6.11-rc1.
+- Link to v2: https://lore.kernel.org/r/20240605-kvm-arm64-sme-assert-v2-1-54391b0032f4@kernel.org
+
+Changes in v2:
+- Commit message tweaks.
+- Change the assert to WARN_ON_ONCE().
+- Link to v1: https://lore.kernel.org/r/20240604-kvm-arm64-sme-assert-v1-1-5d98348d00f8@kernel.org
+---
+ arch/arm64/kvm/fpsimd.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 4d3d1a2eb157047b4b2488e9c4ffaabc6f5a0818..e37e53883c357093ff4455f5afdaec90e662d744 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -93,11 +93,14 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
  	}
  
--	debug_exception_exit(regs);
-+	debug_exception_exit(regs, touch_preemption);
+ 	/*
+-	 * If normal guests gain SME support, maintain this behavior for pKVM
+-	 * guests, which don't support SME.
++	 * Protected and non-protected KVM modes require that
++	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
++	 * host/guest SME state needs to be saved/restored by hyp code.
++	 *
++	 * In protected mode, hyp code will verify this later.
+ 	 */
+-	WARN_ON(is_protected_kvm_enabled() && system_supports_sme() &&
+-		read_sysreg_s(SYS_SVCR));
++	WARN_ON_ONCE(is_protected_kvm_enabled() && system_supports_sme() &&
++		     read_sysreg_s(SYS_SVCR));
  }
- NOKPROBE_SYMBOL(do_debug_exception);
  
+ /*
+
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20240604-kvm-arm64-sme-assert-5ad755d4e8a6
+
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
 
