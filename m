@@ -4,65 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CEDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 07:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE88C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 07:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZVG7xhYgGNJMTy1t81RqFtDrd2UXmygXb9PDQGEYfI=; b=Cf+/GgDzHKI+p/OZcWgdvGu1p8
-	t5doZUzC31RL6HfMh0jnNumU/ii+SSsy/tFI9DzOcN7AT+De/UZNg73EGyCcveOnZOVWFnaqnR2TQ
-	oSFG2Iqt77Fasl8zAAf/TViL9jKyT3fu4qa8G8alaulyNdCc85HpVixlG9p7hKCMMgU77e4WtctFC
-	9JAUTZ0JWSntNtC1/u4bDjUb4WyzAYByLatBMsqrrYw7d0YeIXik809J3gL5yHWS1gW12wfquHj1j
-	oriTkp8vUo0xeXDx7QPVLopnKQQh/n7DASvDRDJ58xuf/DQfuUGiVyAi40ZnY4xVGr7HJknJjPPYt
-	jLR0qWxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TUyVxBECE8HyWdtaWnYcdoGwVXVxDuOTkNMJqAZSSBs=; b=i6bk0zpsexLqKqt5OtyZH7GBze
+	A9H7CISEcMUHjJbi0TT9lfVU4SnNq1NihIYOm8fQb8/IR62KlALqF8EIS2hx7DuG19CrX8C1AToEt
+	x1cg27Vpa4H/eeV1qxBgmInwhC46XP/womMygtC94GuzUC4P9DIC94XNBVY2SCJqrdJAC4IFUoVkp
+	T1rbZOJrWToHb7Y8m84fawerhKDOhRNs7Lz+v6TMzpWFG4J7+bCKVlrhBMtmJk6ZejkNsa8kOnw4S
+	wLuI060o2pdEedWckwd8pN2ZRz2Aac+VPDVys6tDAlQtKBiDzxKXQesgKRA8m3+7ABEVo9fpWpmze
+	U7bs5LVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7IH-00000006V9O-3OEN;
-	Wed, 12 Feb 2025 07:36:25 +0000
-Received: from r-passerv.ralfj.de ([2a05:bec0:1:3:10a1:5eff:fe52:509])
+	id 1ti7OV-00000006Vsf-3vot;
+	Wed, 12 Feb 2025 07:42:51 +0000
+Received: from mail-vi1eur05on20629.outbound.protection.outlook.com ([2a01:111:f403:2613::629] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7Gp-00000006Uuk-25Lw
+	id 1ti7N6-00000006VaQ-0EOF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 07:34:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=ralfj.de; s=mail;
-	t=1739345687; bh=dNEJPQCFXFXFYv8LsS8D1rVs3y39N2Beg7o2UW6ryMM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H/hn7/sX5xM/uw2kg30IfwLHDywFTYAajrHTQq3WN22+Jmf6LCU4Po3PR5oZVnBu6
-	 KDSBUlfksxwBNExOvWdUR3v9Wt3mNE5iQg56I3tYms3SM0yOIExAka4cfZ/ZSrx6gU
-	 NpSnAI3A7GGQgE2vW16DX7RsFEuqEmSF+XKvA7X4=
-Received: from [IPV6:2001:8e0:207e:3500:4ab6:48fe:df57:b084] (2001-8e0-207e-3500-4ab6-48fe-df57-b084.ewm.ftth.ip6.as8758.net [IPv6:2001:8e0:207e:3500:4ab6:48fe:df57:b084])
-	by r-passerv.ralfj.de (Postfix) with ESMTPSA id 267B22050FE1;
-	Wed, 12 Feb 2025 08:34:47 +0100 (CET)
-Message-ID: <1cfca789-bbb9-4899-92e9-94ff78d07c50@ralfj.de>
-Date: Wed, 12 Feb 2025 08:34:44 +0100
+	Wed, 12 Feb 2025 07:41:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RGiplq6X02Hksa/tK5jE11stbk+KXjAWNVePZe9D/tof9ir2xcgJtqd2OVmZ5xMX9jzvRe2/DQWnfzGR0mn/m32+irachg31+noArSZRCIfK5Q0d3Esz3LHAvSda6IwyUcxQ3oATZbznJc/4bRM+wvunjkuOpH1PshaOdSX+7K8so0Fv6LnIPMhoIfsV7Na4D2uvwZEFWgBnqmGGXiK+sLeX8DcDJRZQYJEQAdwSepQBX+xgBOvZIUY9od2MgkABlpduc0oLfY84Xc/lXo1VBttKKZaBFSsj6UnXIqUnLWrleMGlBxzQpBREixobo+3lCTjo1lO7FNI/gUes0+SENQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TUyVxBECE8HyWdtaWnYcdoGwVXVxDuOTkNMJqAZSSBs=;
+ b=D0PuRlSLx4vXXGuvbtPxJaJn7UBGL0e/k2fIiahUiOtCM5Zw0mhKkY9Q+Yq26LMF3so1p07fF3+7JmYAiR5JvWS2boTcqYDJIkT8CsX2YBOM610tQ5lsZx/nWEcceJXtRIqJyzaxpa9roPh/QT5H1RNkuf16grF0Xxj/wweLnVDcvx6BKtCacWBUu7iTHfFrzOOWM7QUKfTQ80nAKaU6A2Iju0UuZxGUc5i6KuDBhvDkcjkG0akF0Q6ECpqlYehVuLKF/MR4JvaLSExxHdVXSTCDAmcRqwtvvMv5HGs+HrNuqLRMOV13Pb9bPF0JW9NmeyUxAGByOrJpj9kvRsNy6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TUyVxBECE8HyWdtaWnYcdoGwVXVxDuOTkNMJqAZSSBs=;
+ b=r9NOLl2BhKQJqTHAlqLs1+UTJA6LV8dg3UsCKb6AhQgIF0w0V4wPPTORG8y2KC8/Xindo/Y4fvQevIP+ivh/03aszhgnyZpfCES5IwHwjxMxihOnaQwiavWcA1TKAomGYM+bPd27jEBB2oua1zwjGGW1SYPqwdd2eXR9icPptCucNPaWKTObP7OvE/msuyG/fHcBd1BRm7rO2pMkNDJ3XUbyme/O9yF/fcSce3rl16afX77mvOzfyGVFFi/rLOtEzPkLWMDxbwvU/Bc84hzpmPr2SXKvX9+vdGzWY4AbL06C57JMvGP5Rw3s+yBarZ+OfGMACDeBy36leIHfYa+07Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA1PR04MB10865.eurprd04.prod.outlook.com (2603:10a6:102:48a::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Wed, 12 Feb
+ 2025 07:41:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8445.008; Wed, 12 Feb 2025
+ 07:41:18 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v2 0/7] firmware: scmi/imx: Add i.MX95 LMM/CPU Protocol
+Date: Wed, 12 Feb 2025 15:40:22 +0800
+Message-Id: <20250212-imx-lmm-cpu-v2-0-3aee005968c1@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGZQrGcC/1XMQQrCMBCF4auUWTuSxJaIK+8hXcR0tAMmKYmGS
+ MndjQUXLv8H71shUWRKcOpWiJQ5cfAt1K4DOxt/J+SpNSihBiGVQHYFH86hXV7Yy+NkjFGDJgX
+ tsUS6cdm0y9h65vQM8b3hWX7XnyP/nCxRoCBz1ST0gXo6+7LsbXAw1lo/JrtZjaQAAAA=
+X-Change-ID: 20250120-imx-lmm-cpu-418daaa257e2
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, linux-kernel@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739346036; l=2597;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=ELwIL41txEYnXVsqlJVAe6Kei0c/P/+vK+xTIEN0sOc=;
+ b=aGDTekAb/IQncOgsZAo8vL215sPJRTTwqk4M6DuUcXG2DjYjdE6YJjov/MCsiaps7HrK61mOG
+ FzVcpSYk6rrAGZQJ/TZstLP/ghs9UeIAFVUlkjPnwEIrAzyDbSKyQu2
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat
- target
-To: Trevor Gross <tmgross@umich.edu>, Miguel Ojeda <ojeda@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Alex Gaynor <alex.gaynor@gmail.com>,
- moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <benno.lossin@proton.me>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
- patches@lists.linux.dev, stable@vger.kernel.org,
- Matthew Maurer <mmaurer@google.com>, Jubilee Young <workingjubilee@gmail.com>
-References: <20250210163732.281786-1-ojeda@kernel.org>
- <CALNs47uBcyTmBdTBAPXiBcAkE0-4tih9j=VAv1rRcTcf_c2yTg@mail.gmail.com>
-Content-Language: en-US, de-DE
-From: Ralf Jung <post@ralfj.de>
-In-Reply-To: <CALNs47uBcyTmBdTBAPXiBcAkE0-4tih9j=VAv1rRcTcf_c2yTg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA1PR04MB10865:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dc5e80b-8f13-4790-3ae7-08dd4b38a34e
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VEVMWnM0b01uYk42SXl2UGVSUTNRdlVoZTlLaVlTUE9zU0hwcnlHQk0zUmlZ?=
+ =?utf-8?B?bnZPc2VFbWEvaTBFYXJ2Z1hZRlBYS3czNDZjVkZlS0h4czVKYTZGOFliYzli?=
+ =?utf-8?B?QTIvbE5tSE4zbWRQQThTcnltcEN3MmhCd2ZqMkxONzNzUHpuNzdUNUpEKzVH?=
+ =?utf-8?B?bjdBTU9QWGFsVzlTcEk4VE1QcWxGSElqZGZTOEo3eUpUSkljYUhKU1V6VUZx?=
+ =?utf-8?B?UzZMaW80ZkRHQTlGRmFaMnRVZThoS0lad05jbnBhZ0hIekxYTTVOMW1iZWgy?=
+ =?utf-8?B?SWlOZlZnYVcxV3docVdPTXd5YTMraDBKWmVrZ25ieVJpTjk5eG5OTlVseW9B?=
+ =?utf-8?B?blV0TWVTeGlTK0ltUjB2eDJCUU5YUUhPRTA0WEtPalVrdlBjT2tGOWdYTkcy?=
+ =?utf-8?B?T2NTNk9BM052cWFHcWJaYnlCakVQSUxkNFFQZGhCUnM4eVFjQU96ZDBHMUJQ?=
+ =?utf-8?B?WjZnM0dVRkdHMFBtaytDYzM2WUNpckcrNmpVTmhwamtseVo2YUZJbEZjdFBT?=
+ =?utf-8?B?cDRobC9OS2EwWURHcXpVaUdEZXBBaWYvaS9sMmVNQkhDRjljOGphWk13UVFG?=
+ =?utf-8?B?SU1CMVNVZ1NIbU16a1ZTNkJxUWtkVUhQOWNLV2RvdEhTc2hqb0IvMzRhekFW?=
+ =?utf-8?B?emNsdjYwSm5jVENLbEQ2VU5LTk5lWXJsNHpPZ1hhaXpXMlZlV2ltQjVnQkFm?=
+ =?utf-8?B?WnRMVkRvdmJYN3FNRnVidXB3TEJ0dWV1clU0REtLSDgxL3hmNkJZcjdNWGVG?=
+ =?utf-8?B?NlFic2hhNCtudTFScCtDWkpzZHZVdnAzT0dxam52ZGhFYklWVUwvN2RSSEpI?=
+ =?utf-8?B?MjkwSlNHVU44ZStOWFRGUm5oVzBrQVpHOU54Zm14TldNblRaeFZIdjFQYXFK?=
+ =?utf-8?B?ajV1U1BQSWlrN1hJYjBqR2piUHJDdG9WQzJJdVViaUp6VHhWbVBqZWs2TEhn?=
+ =?utf-8?B?ekFTL3NydnZibUJTWnlGNDl5SXRVWjZsKzhnMHk2UzFXWmpKUXQ1a1U4dzRO?=
+ =?utf-8?B?VW5Lb1BERENTUGxwbzdBNVl5U1dzSEJoc3QyTW95UVQ3TStHZHJVNXZ3Q1g5?=
+ =?utf-8?B?TDBDVGNQUlFyOThieVBFdk94TFdjQ2YxeGN0c05hbGRVVEhORGc5WjBraW81?=
+ =?utf-8?B?REp4SnVLanRxa0dqT1lrM0xKOHVMR0p3dzVBSDdWNU1PZnFTSWEwN3I4NlVs?=
+ =?utf-8?B?aysxYkZxY25iTU9iYWFwVEZuUityK1JpTUpyT0xRb0NZWGNjV0sraWw1UHlV?=
+ =?utf-8?B?K3NtVEthd1B4Z3FUWGdUYmhtU0xqVzB2YnJQYm5WMFFUTzhpcHo5NnRkdmZO?=
+ =?utf-8?B?RVNlUTFEamxNWTZ4bnRpQnlmaGNLRzJiSVZGaTZ6aXByaXU3Zjh2NFc2QjdB?=
+ =?utf-8?B?ZVcyNXUrenh2TGJEemFTZGxPaXRkVzl2b3VDVURLUnUzQVI0QmN6Rm1VbVFa?=
+ =?utf-8?B?VUgwVXh3dWx4cFA4OWN6clhPWklTWnhmTFdvajk3Z2NkRnp1RlFpcnoyckFi?=
+ =?utf-8?B?Tks3KzBVTmF3WUxFRzlwSlBDR1pSTHROU25MNnJMUFRLZjUrNnlqdzYwM3Jx?=
+ =?utf-8?B?OUNkdE1zMFpFVm5TdFdONGl1WXk4K0R2Wno5THVNODNRVXkvT0pEcTZTZkxv?=
+ =?utf-8?B?bXNRMXFNTEJ6T01vTmJ0Wnl0YlFpdUovWjQzVTJHZnZDVkYvZmhNam85YXZF?=
+ =?utf-8?B?dHZtUlBWSHd4NzBJWDkxekhMU1hlTHhERWxpSXc4cTFab094bUU4c05CaFRG?=
+ =?utf-8?B?NkJGYVpHcExBT3hGUTRlTVdmdG1Rd0kvVnQ5aEJjSG5KTTFiRGE2c1J2MDFn?=
+ =?utf-8?B?SXdqRG9qdU4vVDczRGF4VUFFTVd1aGpIcEZsV0lZR0pnRWtuYU9BanI1UVJt?=
+ =?utf-8?B?SFdQZ1lnd09SeFNndXJqTUlMMFB4Z0p3Q0JwTzJiQVF6MzFDV0taWUREdlZ1?=
+ =?utf-8?Q?bqJRy+vpaWU0D7eXls8B6HwnXWkMgzgI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzhNTFVQeVRrb3I3S25tdUpyL2ZwUXd6ekFCWnowamtMd1pSc0ZqT011S2tB?=
+ =?utf-8?B?d3lLMXhxU2Y0Mlc3NS91Y3hwSGhDemp2TmxLOTlRTW9rcXZTMGZON0dUL3RE?=
+ =?utf-8?B?S2laTkhvYnVOYTFMN0tnZ0ZxbCtmRVIxS0F0bzdudXg2cTZlV2VrUWFxN3dw?=
+ =?utf-8?B?Z00zTEtIVERGdWFkekN4eFR6NFRJeXpxWlRSUERnZlNxdFN2aXFtTGxvb2RT?=
+ =?utf-8?B?K3ZSVTlOaEtxQ3ViNUdtQXRMeDNoRVhyYW1zT1orZVRna3dENnJrUFBDZCtj?=
+ =?utf-8?B?dVlBYWhEbnlYYlBicFcycVo4c0JlaXhxOE9NSDN3dmJUQjNsSnJvRXhob3Vp?=
+ =?utf-8?B?aHVrNy9KMHY4dFlXWEhpNlBpY2pLTTdmMlRQRHR2MVV3YXpWc3A3bFlscXhR?=
+ =?utf-8?B?NEhvWHBiREZQWXVYem1NNDdXb2F5dHVtVTlFNVhWa1I2M09iYldzQURYaFd1?=
+ =?utf-8?B?WGltZXlraVRqUTh1dEt6ZUV1ZHRJWFBOUzcvUWxHbERQWnNnczkyK0RpNTB0?=
+ =?utf-8?B?SU15dDYyNzZXWStuMkNSYXhsOXBzTG4xdmZ2ZC9EMnFmL1pPdVBvNWVKVzk1?=
+ =?utf-8?B?RmVBbVFlMHdTRTVSY3M4Mk4zQWU3ZTNMb1dQMXVJTGJBaGN2RG5lZ3ZOYnhx?=
+ =?utf-8?B?R0M4eis3YWpVWWxlZkVKcDVpb3FwRGQvS0R5alQ3bitKMEt4WGtrZUJ3WWRJ?=
+ =?utf-8?B?WTZ5SExQbC91Y2tQYW1IdGRTWGVhTDdVVytEZGVIMlBJVEVFNUpqLzhNWEoy?=
+ =?utf-8?B?QzRhTHhsaEdBV3B1c2ZTNGRWWk5nT1kwOUZFZjNRYlVCUUhNVkhEWXd2ZzVU?=
+ =?utf-8?B?SEVtaU9OL0owQ0t2cFczOEI5anJ4QndXMHdiL3d1enJ4V05lRHFKc0picG04?=
+ =?utf-8?B?cUZiTFZQQko1OXVOWHdmVjdHQzljZmhGanZDenNKc01uZVEyQkpUY1JIb2pC?=
+ =?utf-8?B?Z2NaU1BITFlFZTFwWkxLdEtiSmJJKzVwd01yU1pTMTBXejZKVWUzRFpCbWxz?=
+ =?utf-8?B?Tm16VUZzM3ZyRUwrdjExL2syTEhQbUZLcE9pbk52WVRxdGhsVWUvNWQ1ZzlJ?=
+ =?utf-8?B?OGFZOXRLS1FHNmc0VmdWMC9zY2xaVHFKUURabmFrelBJYkQxdmxtN010T0RU?=
+ =?utf-8?B?c0lZRU1BOU5qbkdSc2pXUzhnVVVlaUVmQXpZZ0FEcmU0NE9ObjRyREc3Nzda?=
+ =?utf-8?B?UzIzc0dFRnM2bjlRVVhUMTZ3MVNUNGl3Z1NrOWNyTC9rYWZ3cmdZWDNtRmxx?=
+ =?utf-8?B?dkNIMEVObUlTZyt0elFMQ3FIT3BRMW5sbVNQaFJseWtJRWFwOWlDaVMyc1U1?=
+ =?utf-8?B?bjF4cURPU3dtVnpYR2xmTU1zdzRBak1lQ293NE9vaXBvMVRtQkpwWkd2NjBU?=
+ =?utf-8?B?a1hZTzV6dS83K0dYTVpqMWNVSThxUkRQNzB2VW5Nd0h6OFQ3YUsyN0RYTWZ3?=
+ =?utf-8?B?TWNWOFd1Vy9QWFByaWNjN3lSVXY1d2FEUEhlajd4NnlRdjJaRUxId0FRZFAy?=
+ =?utf-8?B?ZkhaSXZEdVNEQXB2M0ZWUlN5NUxsQlVuRUJsQ2d3MEVFWnYvenUyT0hIdjVQ?=
+ =?utf-8?B?TVE3UE9FaTNOaGFPYm91Tkl6MWtLRXYxUlorUTJ3RFpIWGcrUXR6cndxN2lz?=
+ =?utf-8?B?NTEyWCt4VjZQQzJ0V1pzdWhEN0VUVUZtQ3loVDFIWVNWeUZXbkZNMWhzUUsr?=
+ =?utf-8?B?c29YbW1ubHBrcGhTelJBVDZSeTlrWDZwMzJaNjY2N1VLQmREQUJ1ajFzaEkx?=
+ =?utf-8?B?cFBrS0ZocEdTT1pXUE5jYWRpeGNKeVlDckVKcWtGNll2MW1EV1ppL05UVEdR?=
+ =?utf-8?B?a05HeTBrWWxydzRIc0RZeTZXQlFyalpTVTBxZkxOTkw5bE9oSXpUUUdZY0la?=
+ =?utf-8?B?am9SZThCOU84QVcvZFNXSG4wSVdsanFBNHB3MEduV0s2M0ZSRnBTM3lVNGR5?=
+ =?utf-8?B?REhrYVlkdTBuY0lwZElTYjZOL3lVSTMxcjV5alNWUFBiZis2RlZuK2k5b3Bw?=
+ =?utf-8?B?cVl0KzRYSDZDMGthSEErVFErSUxtQ3hEd3U5SFFWekwvM3d6M2wzMXA4Um0r?=
+ =?utf-8?B?UEZBYkU4U08wYnZwTUhDUldaVisweVFyZk44VWJjQlVtRmdOZmNQS0daYVFr?=
+ =?utf-8?Q?QfeLLPsROd3YMyw/V/c/WL9BR?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dc5e80b-8f13-4790-3ae7-08dd4b38a34e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 07:41:18.8791
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p1jaXyzRJ/NlG/b1vFdRgNokWkwS/57vwDut9aNCIzwAqS6q9CFMBjsW6OIuckVceXQnWOpQ8J2pe2z6i5WzXA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10865
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_233455_824716_EC2A66A2 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250211_234124_124703_921180C3 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +193,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+i.MX95 System Manager(SM) implements Logical Machine Management(LMM) and
+CPU protocol to manage Logical Machine(LM) and CPUs(eg, M7).
 
+To manage M7 in a separate LM or in same LM as Linux itself. LMM APIs
+and CPU APIs are needed.
 
-On 11.02.25 12:10, Trevor Gross wrote:
-> On Mon, Feb 10, 2025 at 10:38 AM Miguel Ojeda <ojeda@kernel.org> wrote:
->>
->> Starting with Rust 1.85.0 (to be released 2025-02-20), `rustc` warns
->> [1] about disabling neon in the aarch64 hardfloat target:
->>
->>      warning: target feature `neon` cannot be toggled with
->>               `-Ctarget-feature`: unsound on hard-float targets
->>               because it changes float ABI
->>        |
->>        = note: this was previously accepted by the compiler but
->>                is being phased out; it will become a hard error
->>                in a future release!
->>        = note: for more information, see issue #116344
->>                <https://github.com/rust-lang/rust/issues/116344>
->>
->> Thus, instead, use the softfloat target instead.
->>
->> While trying it out, I found that the kernel sanitizers were not enabled
->> for that built-in target [2]. Upstream Rust agreed to backport
->> the enablement for the current beta so that it is ready for
->> the 1.85.0 release [3] -- thanks!
->>
->> However, that still means that before Rust 1.85.0, we cannot switch
->> since sanitizers could be in use. Thus conditionally do so.
->>
->> Cc: <stable@vger.kernel.org> # Needed in 6.12.y and 6.13.y only (Rust is pinned in older LTSs).
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Matthew Maurer <mmaurer@google.com>
->> Cc: Alice Ryhl <aliceryhl@google.com>
->> Cc: Ralf Jung <post@ralfj.de>
->> Cc: Jubilee Young <workingjubilee@gmail.com>
->> Link: https://github.com/rust-lang/rust/pull/133417 [1]
->> Link: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/arm64.20neon.20.60-Ctarget-feature.60.20warning/near/495358442 [2]
->> Link: https://github.com/rust-lang/rust/pull/135905 [3]
->> Link: https://github.com/rust-lang/rust/issues/116344
->> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> 
-> This is consistent with what has been discussed for a while on the Rust side.
-> 
-> Reviewed-by: Trevor Gross <tmgross@umich.edu>
+When M7 is in LM 'lm-m7', and this LM is managable by 'linux-lm',
+linux could use LMM_BOOT, LMM_SHUTDOWN and etc to manage 'lm-m7'.
 
-I don't know the kernel side of this, but from a Rust compiler perspective using 
-the "-softfloat" target is definitely the right call here, at least for now 
-(where none of the crypto/compression code that needs SIMD is written in Rust).
+If in same LM, use CPU_START, CPU_STOP, CPU_RESET_VECTOR_SET and etc to
+manage M7.
 
-Reviewed-by: Ralf Jung <post@ralfj.de>
+Both LMM/CPU APIs will be used by remoteproc driver. The remoteproc
+patchset will be posted out after this patchset gets reviewed or in
+good shape per Maitainer's view.
 
-Kind regards,
-Ralf
+Build pass with COMPILE_TEST
+Tested with remoteproc on i.MX95
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v2:
+- Add dt-bindings patch 2
+- Add a maintainer entry with patch 7
+- Update doc to address various questions and make it clear
+- Use strscpy to use scmi server returned string
+- Drop extra blank line
+- Shrink scmi_imx_cpu_attributes_get function args.
+- Typo fixes
+- Add LMM_RESET_VECTOR_SET
+- Link to v1: https://lore.kernel.org/r/20250121-imx-lmm-cpu-v1-0-0eab7e073e4e@nxp.com
+
+---
+Peng Fan (7):
+      firmware: arm_scmi: imx: Add LMM and CPU documentation
+      dt-bindings: firmware: Add i.MX95 SCMI LMM and CPU protocol
+      firmware: arm_scmi: imx: Add i.MX95 LMM protocol
+      firmware: arm_scmi: imx: Add i.MX95 CPU Protocol
+      firmware: imx: Add i.MX95 SCMI LMM driver
+      firmware: imx: Add i.MX95 SCMI CPU driver
+      MAINTAINERS: add entry for i.MX SCMI extensions
+
+ .../bindings/firmware/nxp,imx95-scmi.yaml          |  16 +
+ MAINTAINERS                                        |   9 +
+ drivers/firmware/arm_scmi/vendors/imx/Kconfig      |  22 +
+ drivers/firmware/arm_scmi/vendors/imx/Makefile     |   2 +
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c | 287 ++++++++
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c | 270 ++++++++
+ drivers/firmware/arm_scmi/vendors/imx/imx95.rst    | 737 +++++++++++++++++++++
+ drivers/firmware/imx/Kconfig                       |  22 +
+ drivers/firmware/imx/Makefile                      |   2 +
+ drivers/firmware/imx/sm-cpu.c                      |  91 +++
+ drivers/firmware/imx/sm-lmm.c                      |  98 +++
+ include/linux/firmware/imx/sm.h                    |  62 ++
+ include/linux/scmi_imx_protocol.h                  |  41 ++
+ 13 files changed, 1659 insertions(+)
+---
+base-commit: c4661e026ccea82ebec71e4b9013c9a4f9f4e232
+change-id: 20250120-imx-lmm-cpu-418daaa257e2
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
