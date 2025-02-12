@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D20AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 18:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2610C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 18:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUOokMrKASXdzZOA3VRoZ7fdfSIasrczhgZC+ARdsyE=; b=yUyk2xKk6R+vL9W30JVdXB+E10
-	ZaEkMtoWLNj8va5zRE/t+0uqmi5dsivAsZDy1Ux7CwtmDpKAs76GHeiE5QiCojhX/f0SCW2i4FgV2
-	dZYja2voV5TkubK25QJ7fyk3gt8BqmCLLhzgWVpjmfcOUoCfy/nIHxGyMXt4RmSHDKCAJ/E6n6YWN
-	1iaxhBQWBCUByGT/tqFpsc1bYMMntltpiP553vGAMaRXDOn32R5w5zMzbE4LvkSMFQBDNzr25v0rS
-	3WuZeG3xE8ch+wXSou0C31SX5g6OxK/H8dB1vpIHRRbi3/2l7T2Q9zU3IjGU+g7Kw8IFtsABdN0KT
-	zPJjHUDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjsVUAUdVujGQUiELdebsFrLy5yWUBlJmj2oZbQCURk=; b=V+Eplp/plVXopS9cJ3lkvBArbo
+	EDiufG6tF2E+QHHt7H28wLpNUpfdg6iQe4IbG3GXk+UePDHx0YHPW8qKkA6vhzvgKxE4Y8vHU+T7Y
+	TxTDCHALXD+8dR/hRhRp9z61hd/Pe6lPH9gcU4kpPqXe4iu1KTZ2IE71Vj7ZvI7JOdKJBu61J+k3D
+	HtbNVjslM0p+p38UQXvxw5Bz1cQ5Tpchzoy9BwQtkUODbYluUYr07seEiZK2obbIkr3XSDeu9SA1X
+	Ph8hkgpvDbRENkVxtrIRwbHGOYgtyBR3B+tjBYXJ5DtYETC2yvFN13cNYdHMGf6E7lo5JtuydgGzh
+	v4XLKqmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiHtR-00000008YCM-24aj;
-	Wed, 12 Feb 2025 18:55:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tiHuq-00000008YbJ-1s5J;
+	Wed, 12 Feb 2025 18:56:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiHrf-00000008Xel-0stv;
-	Wed, 12 Feb 2025 18:53:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oUOokMrKASXdzZOA3VRoZ7fdfSIasrczhgZC+ARdsyE=; b=RQsJzdIo4sjdvkb3W0fwkdFRaa
-	O57YRtnEq+Dfi18rN1QQwUuBy8dYpnMr5IQlIOiChqEyQR5T5MXOqbangz7v/EBYWW/HkX+P8uxVd
-	idVVcsVuC1PGXaAK7beZ2GFCmN9Y3Y8pSbs17s98gPhCfsWxM/EmI7xjeGTmmG7zZ3FYar1vcZ1GW
-	h55laSfKYbPWaVvzr2P1udrViDnu1von3OwcqpmZgx3g3jQPH5tdQFFtQN3ZwqwAF5L+Oug9GX7y+
-	ZjNB66u0s3SGCr440I3G2m1FDfd3d+xBpNUtfFXpL6XIDVSPSq0qiSv8tjXfWua6lN4yAYuGQBmSo
-	eK0Oz+Zw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiHrZ-00000005dDY-05Hq;
-	Wed, 12 Feb 2025 18:53:33 +0000
-Date: Wed, 12 Feb 2025 18:53:32 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Yunsheng Lin <linyunsheng@huawei.com>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
-	zhangkun09@huawei.com, liuyonglong@huawei.com,
-	fanghaiqing@huawei.com,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Alexander Duyck <alexander.duyck@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	IOMMU <iommu@lists.linux.dev>, MM <linux-mm@kvack.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v9 0/4] fix the DMA API misuse problem for
- page_pool
-Message-ID: <Z6zuLJU7o_gRsQRu@casper.infradead.org>
-References: <20250212092552.1779679-1-linyunsheng@huawei.com>
+	id 1tiHs8-00000008Xm3-37YZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 18:54:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9A74CA410E1;
+	Wed, 12 Feb 2025 18:52:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 856FEC4CEDF;
+	Wed, 12 Feb 2025 18:54:06 +0000 (UTC)
+Date: Wed, 12 Feb 2025 13:54:14 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: scripts/sorttable: Implement sorting
+ mcount_loc at boot for arm64
+Message-ID: <20250212135414.785e6403@gandalf.local.home>
+In-Reply-To: <Z6zqHY0a5CPEaTCN@arm.com>
+References: <20250211141139.03d2997e@gandalf.local.home>
+	<Z6zqHY0a5CPEaTCN@arm.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212092552.1779679-1-linyunsheng@huawei.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250212_105408_852404_B88F8AFE 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +68,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 05:25:47PM +0800, Yunsheng Lin wrote:
-> This patchset fix the dma API misuse problem as mentioned in [1].
-> 
-> 1. https://lore.kernel.org/lkml/8067f204-1380-4d37-8ffd-007fc6f26738@kernel.org/T/
+On Wed, 12 Feb 2025 18:36:13 +0000
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 
-That's a very long and complicated thread.  I gave up.  You need to
-provide a proper description of the problem.
+> > Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>  
+> 
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Much appreciated!
+
+> 
+> (unless you want this to go in via the arm64 tree)
+
+Nope, I have more code to add on top of this that is related to function
+tracing.
+
+Thanks!
+
+-- Steve
 
