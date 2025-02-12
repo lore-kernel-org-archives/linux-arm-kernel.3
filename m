@@ -4,76 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300D3C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253C5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLPL0cxSmhQjzTuSazqL5ULZpLc4BXlPwpKFYiv7qfk=; b=2A/nKa8vyebVqpYRzK9l/nFriI
-	BqVeGfROve0YhGSJNWuX0LAHSUeGi7GANb0S7XMazUS8eEOR55CutBgnHZ0ISf8haa3czinVhyTiV
-	VvWy2quw6eMbNbUZUvRGqr+N84wWaMboLNYloOiAN20yZwWFHLWmHwzGTiR/D631mh+EOuycFAE/t
-	aJWZJcbBuuVuV/JmPOjE075LNkH7SJqINak70QPyB9pX1AH+Vv/I0R0IRFOLTsUUtoZhSHg9ruCXa
-	6o0RwFkDuXLgLVa1vqnwmn+xZBJ5xSyRTw12Y+5lZesWV7CSJiJY4LAPDWhwohQdGJDzAFVAbcEQJ
-	F/Eq/Umg==;
+	bh=SK4XvykyJ6Zn+vIxSK9vSx/zpAi4l4ILYAtxYCxqygE=; b=g7/P4g1QfOKzrpU++fXNbSyhy2
+	5R4TVStMFsHkcpODO27PZ+w0mjd6/HvIOBPyiouU9Ht2blWQpXjvO95/SYAQ/BWvqdFNj0JsGr2co
+	WdnKaAiIzzFU0CsG5QiQZUCSFaUsM5Nfs+z311uFFHuQshvrBuewpsWnBV7wtPPWQCVlNi9A8xtWZ
+	4XtpnozBwcxLc6ZiU2KH0/2YHCPGXbSkylZMRg/tPBPoXYl2dO4H4DU9ePwHkUPzus6qijqteneD9
+	SmpSx2A755DuiUTxxiCKGBj+RkukofD1xg50my1YN6jhmlS5Bfc+NpDJGXV6cjAkDxhLsfv/boXZW
+	fd6eBgrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBIC-00000007Fuv-0eL2;
-	Wed, 12 Feb 2025 11:52:36 +0000
-Received: from mail-lj1-f182.google.com ([209.85.208.182])
+	id 1tiBJa-00000007G7U-3wSS;
+	Wed, 12 Feb 2025 11:54:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAq0-000000079iA-42GF
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tiAq2-000000079iu-148f
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 12 Feb 2025 11:23:30 +0000
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-308f141518cso31075111fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=SK4XvykyJ6Zn+vIxSK9vSx/zpAi4l4ILYAtxYCxqygE=; b=AaYDmye1PBa+Zo2pJhpPuzEoIN
+	jKe6ytlZBhoLESNjXkWfW1joJhGWqnEI2mWHrpkThZh2lRselb+gp083HwNXwOhWu24OgxgYMo9EU
+	m2fg429iW5mMzSj0kYa04HE5Agw/6tZ8L0WCZU02ItuSlZ9Ph37Oqg3m1WX7YVoWCp9mM75mdwiWV
+	Ufl2QtiL4r5iuO3q8EhEN44rztKhBmwmJanC63+kLyZrc6SKadDukJo3j11sqZYKCZ7xunjt1u7dd
+	UnkfHgD4/bKvhcNpP21qGYXDf+zcXum1xQOHAclUAWbWRWMEbFX/OvI4PXI+fbNuaBk3/BaLQRiSX
+	/P5BiMyw==;
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiApz-00000000npC-1HQJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 11:23:29 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30761be8fa7so60302561fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359407; x=1739964207; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359406; x=1739964206; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hLPL0cxSmhQjzTuSazqL5ULZpLc4BXlPwpKFYiv7qfk=;
-        b=HBgBQ2EFvoJ+HkjmGM09CvJAYiEIr55mirwt33914rQX+aDNG2dg+86CSs0eAQ+tiF
-         G0AE83RUEXsAvDRtBmStXHKj4VpkzM5VSjJLrXgaaxsyleeIMMR4VKzktbbiVrtuZ9oe
-         AAgvNbaaK0llEwtCS1BYwK2ZYuLWB4I292OWYsT9RuewVhsrh9bdwtgTUkKPgk0HWAiX
-         uBigA5ZYhgJz5EdoHGFEcZEPwVNWdKdeujpm2apL4vsZygfNbI57Sh+ZV7Zo1JPme1Qq
-         vajGsIpL2CUxKZRFiODMAZ8pCdQX33BwefsJaSsev6/snQSkkSW11OX3AfHIq5tf5YLt
-         lM6g==
+        bh=SK4XvykyJ6Zn+vIxSK9vSx/zpAi4l4ILYAtxYCxqygE=;
+        b=WblPLfXJezDuAeKQHnLXddAkSBbDlndbmbnPxDpR61AkCkG9Lv+cbiHzkG1bauPEJH
+         9e//NZhDinAcmp8cNDnUlXDMWjD0nYQz9QvKBeRBMZdXmSrhvykNlApwLVU5QcHhOuXN
+         OFDx372fJacOzPW495nA0ZD+bH8MD4ZOUOI+Gq8lULGywfi5WpZulNf+bkVsnXafFca8
+         3y2FS+vngbRL1DPL9KY+OV9ufDX/3Gcz9Dm8lrFrqIZ+RKCGTJ1dBFIrFPvslpp8gnbe
+         HJX81rlkIxjaGqQDJZ7XNBNXO0zswBDtBKdeX1YakC3PHg2COXT57Dpvkw7cI7uC8ze6
+         4yeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359407; x=1739964207;
+        d=1e100.net; s=20230601; t=1739359406; x=1739964206;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hLPL0cxSmhQjzTuSazqL5ULZpLc4BXlPwpKFYiv7qfk=;
-        b=skpwdSFY3W8xi/hnRfYAg+46phtM+9IR+JmQfuPLV7vwCcKhZV7qArb+1MF3Sjxc59
-         5LF0NgaKQs+Nvpsq1M9Zi928MXV1ZSiXHofhJuSI0YnN7u9jWuHjVg1nmRkLQAZGPSZT
-         5VkYUuHm9WJME8anmWQnk4X6pmyzyzSWBtOpfYsY6xnypWmswBKw9lCl+hyNYPxROmCc
-         kbLrNb3MLsBn2QfMPAiI2V2oc0EumY7acm4P1TG9NgOQQa9SfM5dAcbHwZIO62HIkxLw
-         GbYcmOz8GoZpk286L4+qBnC6DeAecsonX6en+ZVYMxMa/hLcXicNyUm/IO46d0tV49fL
-         0VxQ==
-X-Gm-Message-State: AOJu0YxMrtBluyVUjr83R0YRc15pfakmwBB//FiQqsv+CuiuRJIwYQHz
-	4uugUbTZGB7m0z2feMgB5g4BAfbm6FJ4oGxPCEndghy010SZAHMGAhPhwz+U7kg=
-X-Gm-Gg: ASbGncsbAKklcWxtB6NNd49FMVm7N8nvrpMjXmkaKN8trZZ3d/bLnNVdoOIEvZatVNH
-	Sz7EgPdWG1/BB35J7UGjqexLr8Eha2CjsiguxcCW0bC2/SHaWMFGhDAc/0tCTOiig30HUh0+OyK
-	EASM95+v0cpZD2ljUsZ1w+bxcDg1HTVdC56LXCylYYXVjKSxbYr2wnojBukZRhWUmceg2F14y3j
-	e1xbkI8bPMlDh0KEaId+WjQCthEl32p4Mgsuhhy1H+W36rh7gjMbWLplC9rWjIG/v0JZLncf7y7
-	xJ+g9RrWI0WRBpkzwWqRaG5kzA==
-X-Google-Smtp-Source: AGHT+IHQpMybVh2UGY3q+b/5gNXwdYp/Tf5GyuWxuwv3bDkab39Fdfp6CaiE28gYUS4P0fFCrwjZ/A==
-X-Received: by 2002:a05:651c:1991:b0:2ff:c3a2:f408 with SMTP id 38308e7fff4ca-30904fe65b4mr8430881fa.12.1739359406796;
-        Wed, 12 Feb 2025 03:23:26 -0800 (PST)
+        bh=SK4XvykyJ6Zn+vIxSK9vSx/zpAi4l4ILYAtxYCxqygE=;
+        b=A6usirTD7CopPsmWsRuZkMXRTymXrxJSduHPeKbv+3Dyz9fdzu6Qf0Pz36VC0W/xP9
+         NI7ufzmucnORNLCrqqWBebEkCkTeBUQHlGDaY96PSli2sKsHzOMyfQHAwWK45cScc16e
+         XaLnJc/YPXAEuSbiN46xa7stmd3BLvHSZTz8IDzkdmKoD/hSTawieIOXjgDGt4Bnb6DU
+         RhMmgwOhD6QYyhvXBaQG0UJdlT47foTn8YqNkwvjRwx1ik/IAxmZLiUVxhsx4T9LKWq8
+         qMCYqMGhDmpFiAFjDp9czDfarG1xi8OognchPcD5QIG45uc8n1pJb4TUSJmfH1/WaQSH
+         /xxA==
+X-Gm-Message-State: AOJu0YyB5pyrJtv9mP2L2qUMvFpwgIs8ojbxge9iyNQl8BJHro1assJ5
+	EuhMytBG1eqmRUWDL898fE1PUCU58T9+q2sf4mbk2fffUtSUw+N112X3QXqumhM=
+X-Gm-Gg: ASbGnctXstwlBfdpMVsPZyhgstYzfEPXahnV1VleCRKZeUN3amUAAj7r0bnGK0O3ZvZ
+	MamNCj968Sqt97QpH6sMWQe5HEDcWBaOCoAgBC2SxxsRD/WNQ7S+1atwo+CvAfYEJ/mRbuAvKa9
+	gcjFIuPSl7zBNppUR9qVp5i8fT/AIbwW1cDcUuX4aukCpr6g8HLF7CcjY/OyKSlKsRcJQ+VaXFb
+	wLdOTRj9MyC8KZXqWokNGTjYe00DFxWxYRhLgsX7Mk6jC7zOsG03WA+WnKAes6ldnGMUQfM87i4
+	Dviv2iNoXpMW7TSdM++B0y948Q==
+X-Google-Smtp-Source: AGHT+IGZGX3RxfrWPejP/YO09nPgCO79pvl584D11RVURMnv/+ySzxg9C6vPdPm/xocAoi8IjTVcCQ==
+X-Received: by 2002:a2e:be87:0:b0:308:f0c9:c4cf with SMTP id 38308e7fff4ca-309036f2cd8mr10642481fa.33.1739359405778;
+        Wed, 12 Feb 2025 03:23:25 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.25
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:26 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:25 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:14 +0100
-Subject: [PATCH v4 20/31] ARM: entry: Untangle ret_fast_syscall/to_user
+Date: Wed, 12 Feb 2025 12:23:13 +0100
+Subject: [PATCH v4 19/31] ARM: entry: Remove fast and offset register
+ restore
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-20-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-19-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -87,8 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_032329_041096_B67741C4 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250212_112327_629250_C811998D 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +119,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The return to userspace is a bit hard to follow. To prepare
-the ground for further refactorings we rewrite the functions
-to ret_fast_syscall and ret_to_user are mostly stand-alone
-symbols.
+Now all remaining invocations of restore_user_regs has
+fast = 0 and offset = 0 set, so drop these parameters
+to the macro.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-common.S | 25 +++++++++++++++----------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+ arch/arm/kernel/entry-armv.S   |  2 +-
+ arch/arm/kernel/entry-common.S |  2 +-
+ arch/arm/kernel/entry-header.S | 29 +++++++++--------------------
+ 3 files changed, 11 insertions(+), 22 deletions(-)
 
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index 460aa92c3c1f50de905550acf363c58f509bfe0a..3cd5a80b47758867d1db6c3971030370bca1551a 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -497,7 +497,7 @@ __fiq_usr:
+ 	mov	r0, sp				@ struct pt_regs *regs
+ 	bl	handle_fiq_as_nmi
+ 	get_thread_info tsk
+-	restore_user_regs fast = 0, offset = 0
++	restore_user_regs
+  UNWIND(.fnend		)
+ ENDPROC(__fiq_usr)
+ 
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index d27e34d7e97a079d62e7b778cf7cf97c302e4763..ece9215717143427de7572a18a6dbe620a9193e9 100644
+index dddbd6ba1eb9fcbc2c0d81f24e1a9b3231558d7f..d27e34d7e97a079d62e7b778cf7cf97c302e4763 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -44,20 +44,23 @@ ret_fast_syscall:
- 	bl	syscall_exit_to_user_mode
- 	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
- 	movs	r1, r1, lsl #16
--	beq	no_work_pending
-- UNWIND(.fnend		)
--ENDPROC(ret_fast_syscall)
--
--	/* Slower path - fall through to work_pending */
-+	beq	2f
- 
- 	tst	r1, #_TIF_SYSCALL_WORK
--	beq	slow_work_pending
-+	beq	1f
-+
- 	b	ret_to_user
- 
--slow_work_pending:
--	mov	r0, sp				@ 'regs'
-+1:	mov	r0, sp				@ 'regs'
- 	bl	do_work_pending
--	b	no_work_pending
-+
-+2:	asm_irqentry_exit_to_user_mode
-+
-+#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+	bl	stackleak_erase_on_task_stack
-+#endif
+@@ -81,7 +81,7 @@ no_work_pending:
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+ 	bl	stackleak_erase_on_task_stack
+ #endif
+-	restore_user_regs fast = 0, offset = 0
 +	restore_user_regs
-+ UNWIND(.fnend		)
- ENDPROC(ret_fast_syscall)
+ ENDPROC(ret_to_user_from_irq)
+ ENDPROC(ret_to_user)
  
- /*
-@@ -74,7 +77,9 @@ ENTRY(ret_to_user)
- ENTRY(ret_to_user_from_irq)
- 	ldr	r1, [tsk, #TI_FLAGS]
- 	movs	r1, r1, lsl #16
--	bne	slow_work_pending
-+	beq	no_work_pending
-+	mov	r0, sp				@ 'regs'
-+	bl	do_work_pending
- no_work_pending:
- 	asm_irqentry_exit_to_user_mode
+diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
+index 50c0b55adc7421e7be123c9d00f94b1ebb93ff9e..51c7f93c1ded1db56f173c7aaed8094ef011ff5a 100644
+--- a/arch/arm/kernel/entry-header.S
++++ b/arch/arm/kernel/entry-header.S
+@@ -290,7 +290,7 @@
+ 	.endm
  
+ 
+-	.macro	restore_user_regs, fast = 0, offset = 0
++	.macro	restore_user_regs
+ #if defined(CONFIG_CPU_32v6K) && \
+     (!defined(CONFIG_CPU_V6) || defined(CONFIG_SMP))
+ #ifdef CONFIG_CPU_V6
+@@ -309,8 +309,8 @@ ALT_UP_B(.L1_\@)
+ #ifndef CONFIG_THUMB2_KERNEL
+ 	@ ARM mode restore
+ 	mov	r2, sp
+-	ldr	r1, [r2, #\offset + S_PSR]	@ get calling cpsr
+-	ldr	lr, [r2, #\offset + S_PC]!	@ get pc
++	ldr	r1, [r2, S_PSR]			@ get calling cpsr
++	ldr	lr, [r2, S_PC]!			@ get pc
+ 	tst	r1, #PSR_I_BIT | 0x0f
+ 	bne	1f
+ 	msr	spsr_cxsf, r1			@ save in spsr_svc
+@@ -318,31 +318,24 @@ ALT_UP_B(.L1_\@)
+ 	@ We must avoid clrex due to Cortex-A15 erratum #830321
+ 	strex	r1, r2, [r2]			@ clear the exclusive monitor
+ #endif
+-	.if	\fast
+-	ldmdb	r2, {r1 - lr}^			@ get calling r1 - lr
+-	.else
+ 	ldmdb	r2, {r0 - lr}^			@ get calling r0 - lr
+-	.endif
+ 	mov	r0, r0				@ ARMv5T and earlier require a nop
+ 						@ after ldm {}^
+-	add	sp, sp, #\offset + PT_REGS_SIZE
++	add	sp, sp, #PT_REGS_SIZE
+ 	movs	pc, lr				@ return & move spsr_svc into cpsr
+ 1:	bug	"Returning to usermode but unexpected PSR bits set?", \@
+ #elif defined(CONFIG_CPU_V7M)
+ 	@ V7M restore.
+ 	@ Note that we don't need to do clrex here as clearing the local
+ 	@ monitor is part of the exception entry and exit sequence.
+-	.if	\offset
+-	add	sp, #\offset
+-	.endif
+-	v7m_exception_slow_exit ret_r0 = \fast
++	v7m_exception_slow_exit ret_r0 = 0
+ #else
+ 	@ Thumb mode restore
+ 	mov	r2, sp
+-	load_user_sp_lr r2, r3, \offset + S_SP	@ calling sp, lr
+-	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
+-	ldr	lr, [sp, #\offset + S_PC]	@ get pc
+-	add	sp, sp, #\offset + S_SP
++	load_user_sp_lr r2, r3, S_SP		@ calling sp, lr
++	ldr	r1, [sp, S_PSR]			@ get calling cpsr
++	ldr	lr, [sp, S_PC]			@ get pc
++	add	sp, sp, S_SP
+ 	tst	r1, #PSR_I_BIT | 0x0f
+ 	bne	1f
+ 	msr	spsr_cxsf, r1			@ save in spsr_svc
+@@ -350,11 +343,7 @@ ALT_UP_B(.L1_\@)
+ 	@ We must avoid clrex due to Cortex-A15 erratum #830321
+ 	strex	r1, r2, [sp]			@ clear the exclusive monitor
+ 
+-	.if	\fast
+-	ldmdb	sp, {r1 - r12}			@ get calling r1 - r12
+-	.else
+ 	ldmdb	sp, {r0 - r12}			@ get calling r0 - r12
+-	.endif
+ 	add	sp, sp, #PT_REGS_SIZE - S_SP
+ 	movs	pc, lr				@ return & move spsr_svc into cpsr
+ 1:	bug	"Returning to usermode but unexpected PSR bits set?", \@
 
 -- 
 2.48.1
