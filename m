@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6637FC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9FB8C0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PMXY+b7w1R2zK37gr/dvT3WG1zO8cthqCAH7UbMiDus=; b=N1X6GtOJ949PV/GROl307yo6AD
-	aiFl4ZO0jsUWd7Frfa2QPlAjxDTlfH7K0pGKSPG3vSlSWqGDE1+xlwJtujLI//sbMUJDCu7t13j4Y
-	fx2AYUcfG/28v55LruwCRHThj6W7xzZ71Tv/Z7in9z+03+wd2XEm4YN7QwsD2g+y3BHcT61GOnX4n
-	qEgwtn6e0L7YmNN8sjnL1DSKfuwCH0cMmTRwBDOYpeBPIOsN9IHTKV8sCmcDYqzlIvJarqnL5GNiN
-	kixG6oj55JEi+gyQxANevX6yfrNSgosifop8wBAO4iC0pQRyPo9x5BrQ2/S6szC7qrRjzN89OO8CU
-	7JhMEWCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J6qxru/ZU7mjcy9dq/qBygy2wjcpMXVRO33dvCDLuJ0=; b=I1Zo33SSZ8xS/2i0lSdsNjksL6
+	F9zC6T1VmWpSwykDyAatdbSSU0XqPMGaFQDNnbornSsjT76uK51L6BAKpR759z/lpK4j3EQ/PC8Fs
+	u2AodV1QJxIqA/RLZvWd8bzi0SHw8x5j79Vjx9K4ccUgbijvuExRz59SVB6vIV47cJifNxnnM0tDQ
+	yugdc1aCUqJK7JxiBBgX65tq7cBkDhybQN536ipUyWOhR2W7M7L031RyeioiKYB9ImngxPBjqFBY3
+	BaKtcLTmO3exIdM1d1c8z72xsA46+i3kwDMEabPRrjxwpk0zTn6CD0ct1406u2j4WJKwXayKpwkpX
+	n8mRZGpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0f6-00000005her-0Pdl;
-	Wed, 12 Feb 2025 00:31:32 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1ti0gU-00000005hwF-1TFE;
+	Wed, 12 Feb 2025 00:32:58 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0dg-00000005hSo-0fAM;
-	Wed, 12 Feb 2025 00:30:05 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4719616015fso25769551cf.0;
-        Tue, 11 Feb 2025 16:30:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739320203; x=1739925003; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PMXY+b7w1R2zK37gr/dvT3WG1zO8cthqCAH7UbMiDus=;
-        b=aURFOt6WDH0ubgSy7XRVcKef6YGeDx4QoUODyjY2RRipyy3bM3CG04WTgaSVYaJD79
-         vyNKYOVTDuF58fHwDkz7GbzxrmJsfRaeKpYbJXqtg86/MjTeIfRsuYxEloq7qCcE0ZAz
-         tt+PA1E8/hyrCHtRA9wl9zMXwh67Gop+ON5CWubzJi03k9MVG8UkZtqMf/on2C9msy6I
-         IxVKaZBFAVC6FkQc69aT3viwoODxcNVIN15uKYwuB7KkDqlm1PrAkhjt8RK3xjQK8vfI
-         Y52IgdL0AbYDZnL6OW3+RtxweyBO+HqJaYA5X1xaD//6rfcXtx17qpT03KSFzv/D52fL
-         gJrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739320203; x=1739925003;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PMXY+b7w1R2zK37gr/dvT3WG1zO8cthqCAH7UbMiDus=;
-        b=PLWMaabb6vRIpZiC7EhXsOxbT36ibDHdBU5Iv92owA+nzUy9q9FoeylParQA+W3yZe
-         Ov0RRlBEg67rrrFfAX/nkjLQ+pR8EaK8mahgtQ4AqBFxuU3rbQyYWpJx5hXJi+SkpMNA
-         sy8e1GuHaQu3gjcqDRuzjGVbEEks6xIguRtcj3JgcwHUpWZNY3feSQDnJ6voW6/4xGtj
-         T56CVU0FV1Ob2llN7ng/JUQ80eI9esAyESS3FsbbMvNFJTDnMVxcIocJ1pIyWSlbmN0K
-         Mo1gZZO6NFo1JWEnZr4Cp87+fUVS9v1S98qg0sVdWBc81+Do9UviMaC+AWztxIlPFgn7
-         r1Kg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRDur2AE+jfbMQm/3PstgDxi+sekH1ylmkwA0rhk2E8D8/NrKAE8q49lZEKBV+aroW1r5LUit8pqBBpv8=@lists.infradead.org, AJvYcCXFX5tWFQNu4qd38311KOpORPm6j9rOIvtL5UQGWZowg7aSr+LElrMZE84rVFAxOUhcdIF0gUieNe2sEiHnaty8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yym8rw1cYGQ5nbM6lYi6Xuww6PI9lGdw2Yg9q/gEfJ1HlHa180h
-	S1VyNSiu0xCRKxQjxIshy4wBqXk5Pd9JGEnvfD42bIPYMkTlH2GK
-X-Gm-Gg: ASbGncus2pljdN3yz8evAhrFewXkTlpFhn3XHqZmNlT/3M59OtdrbNHbyXf0bHsCaFS
-	73nQbp2JCoOnCxotXVlP277GMdJ/Cal+2d7SIYZcCDoQlQaucua3rW9cUKDQ0TKMCfC9jexC7kJ
-	Tr5n+6NCcg3ej7c6Z/8FqI2ZgEALo1d3jVCt2N5u+WpzqrHzP0l1A0uR2pVR3LA3mKt7hSq5Wp0
-	Q/xCPuLIsWhH6LywSEZ3i0i7+tw/cpZo68UqIWNC2vjKaf7UKsfWDucfiAQQFwfckU=
-X-Google-Smtp-Source: AGHT+IEycbQbC8PQDQpHssIWlJbqaUfQDH5H7e9AlKziotBrsNh5hQbOfp7wttz1fsHAHfvTcMGspQ==
-X-Received: by 2002:a05:622a:1b91:b0:471:ae33:b362 with SMTP id d75a77b69052e-471afed77b9mr13923621cf.40.1739320202786;
-        Tue, 11 Feb 2025 16:30:02 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47153bec10esm67114951cf.74.2025.02.11.16.30.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 16:30:01 -0800 (PST)
-Date: Wed, 12 Feb 2025 08:29:54 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Yixun Lan <dlan@gentoo.org>
-Cc: soc@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Lee Jones <lee@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, Haylen Chu <heylenay@outlook.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
-Message-ID: <prrsy34bv6xskxu7afgmpdwc7lefdh7l2gtm2ejzcwk74zh6lr@23x3llxy662z>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <eoeyutuu4mrpsu7snkk5ll6kmm4344qsgbnncss6gerlcvvea7@usuf5v7w5ffp>
- <77c0db160bcaa7c2a68c04a0d33a561b2834f764.camel@gmail.com>
- <ccadcdf720d6b1055165f1404fafca9b1c6c54f7.camel@gmail.com>
+	id 1ti0eQ-00000005haL-1NUs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 00:30:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D264DA40ECE;
+	Wed, 12 Feb 2025 00:29:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCA3FC4CEDD;
+	Wed, 12 Feb 2025 00:30:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739320249;
+	bh=NJ/KIhRbLqKKRZOIuLEK+yaV4RpOOTdBF4uFF/FtH8c=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KPyjScDSvbFkYyWQdp+eI6YuMaJZIqR+icltgr/z63FhS1M13Dj2AM5zF3rUWyoT5
+	 OG2BcP0tc2yCG9jCnsGvqdzDtmbYvv0zba+DK7Z4vNjKOru8kaX/7T4b+SfSg8cKuJ
+	 Ig5O5na0GUIwcKGDeIbmEw4xIMzvv6Wgza7WdbSdjWtAUYul2i5kpRnZHRmIRBmGf6
+	 AoUBNQstEt3ll4OBmdvSc/2J8bHy/1MxhxOchFQk1bVZvMJJWSe8w2aIMxSsHYuVJT
+	 PYO4DU2VzgJG7QOf/LLscisq86NSDHBTI04W1awbBKjdignPABR3tyn+7nO0lqtVM9
+	 fi2/lp0fjKWyA==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 12 Feb 2025 00:30:42 +0000
+Subject: [PATCH v2] arm64: Add missing registrations of hwcaps
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ccadcdf720d6b1055165f1404fafca9b1c6c54f7.camel@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250212-arm64-fix-2024-dpisa-v2-1-67a1c11d6001@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALHrq2cC/22NwQ6CMBBEf4Xs2TVtoW3w5H8YDhUW2KiUbA3RE
+ P7dSjx6fJOZNyskEqYEp2IFoYUTxymDORTQjmEaCLnLDEYZq4zyGOThKuz5hTmqsJs5BXSlDbZ
+ 22qm6hTydhXJj116azCOnZ5T3/rLob/oTavVfuGjU2HnfV2Xrr8aW5xvJRPdjlAGabds+2dEcd
+ bkAAAA=
+X-Change-ID: 20250207-arm64-fix-2024-dpisa-635a5961609c
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2294; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=NJ/KIhRbLqKKRZOIuLEK+yaV4RpOOTdBF4uFF/FtH8c=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnq+u2MYEJMHcoB61+KLJFvAOZqDPmOsElNgJ/zTde
+ 0HBaoVCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ6vrtgAKCRAk1otyXVSH0I6UB/
+ 4jM3gyMSYvWY6GmGz4t2iIx+eAB7faBazfS2nutpETqdnRqubc7jOuPrAwJdHCxUpNg9QckoXCSsZI
+ ZDNCSayXq++pwEhxVpBxjHLyzisAgiKvu2d70uxc7fM2Qw5kwUKon9EjfogJ3oCjLOaMK8HEnH6nbz
+ XxF3gZCn2TMkendPIq0bexYYTbb35YOnrn3YOIaNX8O7PthY/f9iOQQykUkpNzgZ0Yb9H38pggCSFI
+ 16eS5p0D4EFQ1kVV28DJVjvmG79JqmCl8XUhBU3aUOrjRcHUX6MIDp0jW2Ar2hdr/Hj/nGycGk+dNm
+ +wquF9ny8qGqAFWd+JLXDk+YyfM7zE
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_163004_199323_70A9AD02 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20250211_163050_498362_CB3EBBF0 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 08:37:01PM +0100, Alexander Sverdlin wrote:
-> Hi Inochi!
-> 
-> On Mon, 2025-02-10 at 21:55 +0100, Alexander Sverdlin wrote:
-> > > > It would probably make sense that the whole series would go into SOC tree,
-> > > > even though technically nothing prevents the reboot/reset driver to come
-> > > > in PM/reset tree. If everything would come together, `reboot` command would
-> > > > work out of the box.
-> > > > 
-> > > > [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> > > > [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> > > > [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> > > > 
-> > > 
-> > > This reboot implentment across the RTC and 8051 domain, which is
-> > > still a big problem to be upstreamed. This should be designed 
-> > 
-> > Now I've got it. The problem is not in the reboot procedure, but
-> > rather how to model this thing in the DT, because of all these
-> > unrelated functions brought into two HW address spaces...
-> > 
-> > > carefully and needs further discussion. Adding these two syscon
-> > > compatiable may be not a good idea and cause some problem. I invite
-> > > Yixun to this talk and he may give some useful suggestions.
-> > > 
-> > > At last, I prefer this goes to an separate patch series, and
-> > > implement with rtc device.
-> 
-> Thanks for your hints!
-> I've completely missed the RTC driver in progress [1].
-> I will provide a patch registering the reboot handler on top of the driver
-> as soon as it's accepted.
-> 
-> [1] https://patchwork.ozlabs.org/project/rtc-linux/patch/20240428060848.706573-3-qiujingbao.dlmu@gmail.com/
-> 
+Commit 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to
+userspace") added definitions for HWCAP_FPRCVT, HWCAP_F8MM8 and
+HWCAP_F8MM4 but did not include the crucial registration in
+arm64_elf_hwcaps.  Add it.
 
-As far as I know the RTC patch is no longer maintained. Maybe you can
-pick it up?
-The patch states can be found on:
-https://github.com/sophgo/linux/wiki
+Fixes: 819935464cb2 ("arm64/hwcap: Describe 2024 dpISA extensions to userspace")
+Reported-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v2:
+- Add FPRCVT.
+- Link to v1: https://lore.kernel.org/r/20250210-arm64-fix-2024-dpisa-v1-1-d77f43c7b253@kernel.org
+---
+ arch/arm64/kernel/cpufeature.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Regards,
-Inochi
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index f0910f20fbf8c18fbeb63bcee18abf13371b1d5e..d561cf3b8ac7b11784282dc889852ef52a7b8f6e 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3091,6 +3091,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, TS, FLAGM, CAP_HWCAP, KERNEL_HWCAP_FLAGM),
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, TS, FLAGM2, CAP_HWCAP, KERNEL_HWCAP_FLAGM2),
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, RNDR, IMP, CAP_HWCAP, KERNEL_HWCAP_RNG),
++	HWCAP_CAP(ID_AA64ISAR3_EL1, FPRCVT, IMP, CAP_HWCAP, KERNEL_HWCAP_FPRCVT),
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, FP, IMP, CAP_HWCAP, KERNEL_HWCAP_FP),
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, FP, FP16, CAP_HWCAP, KERNEL_HWCAP_FPHP),
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, AdvSIMD, IMP, CAP_HWCAP, KERNEL_HWCAP_ASIMD),
+@@ -3190,6 +3191,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_F8FMA),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP4),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8DP2),
++	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM8, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM8),
++	HWCAP_CAP(ID_AA64FPFR0_EL1, F8MM4, IMP, CAP_HWCAP, KERNEL_HWCAP_F8MM4),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E4M3, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E4M3),
+ 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8E5M2, IMP, CAP_HWCAP, KERNEL_HWCAP_F8E5M2),
+ #ifdef CONFIG_ARM64_POE
+
+---
+base-commit: 21fed7c223e20e694b91dbf25936d922a50c8b19
+change-id: 20250207-arm64-fix-2024-dpisa-635a5961609c
+
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
+
 
