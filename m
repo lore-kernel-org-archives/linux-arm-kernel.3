@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A71D1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 08:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8724C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 08:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4P42XroQbsq1Dc9SL/DPlZrxURMrw9v1CYV4XLyg+4=; b=W5g8jv9Hw4iupOf7IThhP7vXGd
-	rDZMr+HA83yE9wLpgj+4ldb6JLCpY3aGBrWn9jcOC8P9AFCNvrHACJ+9ypG7KJdeTc8Zrd//TC9fm
-	Z+QgCSAWCi9xDb1QzbO2kToCdcd9L+vMkiqxKaRWSVORxrIJz73qmBmY21TSA3Lg1FWd70g53mA6i
-	UpquwgKsdMwW2woCU6jEgosdHEEa9kJ6QsNd3WhtVTU5f4V72pXixC3wJVee7pjZTijnMRwH1WcE7
-	IasJqq7IgTXDtlXUtmgVxx8SA7xHDmUJRiOdhzsQon227r9zq8fbA0JApweGYvvPNMaMqQt7mlXlj
-	cserlRCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ebrh2pOj9a+WCHOfQy3AldxKt0RQJILfJP7w8ELhKWs=; b=3T6RSafnLzqjP5WcnHgnQaj/Jr
+	H6E1oc0Y/YH2AP6iwWF3klrQi/+hOQ7Fy+Kmm+v7ESwtdxwWhg8L/Lbk48dTzd2a9ug8D/8fxx+cO
+	ukKr6vT9hakdL47lEGh0kUTwGWnf5VWQwnZ6/9gOYXq69ndEqp8vQb7xjJMoCJq+GtQ6ETySsdBkd
+	3+HgSpqQVu61nsWEar79qN9DJqYqlnz1sV4hbj3JvS9AArIcFtjZa9ZpvYkru8C/iSgxqvDnk0zZR
+	R8YE+oTHiSEDhcEt2dhIcNZeBBSTNn+E/sBiFVsmIMR5jnCfQuIbItkqAZEANHAEa64aiCjPOpmxw
+	7VgukcbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7iP-00000006Yb7-1B0O;
-	Wed, 12 Feb 2025 08:03:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ti7rI-00000006Zyr-0NQb;
+	Wed, 12 Feb 2025 08:12:36 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7gy-00000006YTy-3edt
+	id 1ti7po-00000006ZQC-2x1Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 08:01:58 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 74671220;
-	Wed, 12 Feb 2025 09:00:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1739347236;
-	bh=b2f4OM9I4ris2Wv7KW90Di1OF2YNsagTPM7AXVVuLk8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i6sE+YWhQoCgxlfc2BRNRhLzL+Sfjm6u6d4WGz9zYdSACr6Uh1NmU1rSd4g3xDOyz
-	 8ukbXdBPgaKcO0PtzYP1vmtvpRtrVtIwtm2KCvYXZqZt/CN9YDCyda6T8VhC11R/oy
-	 IQ7VaGD1gaZRHWcJ/xPwJJFhDK5NX1DxyCzppyDQ=
-Message-ID: <71ebf42d-9842-46bc-a4f9-c06e84a02369@ideasonboard.com>
-Date: Wed, 12 Feb 2025 10:01:50 +0200
+	Wed, 12 Feb 2025 08:11:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1739347864; x=1770883864;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Ebrh2pOj9a+WCHOfQy3AldxKt0RQJILfJP7w8ELhKWs=;
+  b=l8HhBtIEPkX/FRiH4rZUKBMwHqOyIigShMBptDk0fr5IEYuTJEE4JtMU
+   ZKew0Pxtv4JMdK9VjnTuKgKJ4EGibNqr0GUXagLlWqys6WN6lv3i+kTuO
+   TPk5nnNwCj+EJP2SY7RWUiBRbq2T8S29YUy3EOySVohIGEP6+eWOe/lkv
+   qd8V1GcrEca+HHsTVr86ifWHh+tsfCxvw5+xNrEiqggQXL4jQsHbtFWpV
+   JlVgx2hTbdjNkmxn4WqTEHb2qYLiGsScE/APvTk/BByzn5/C88k8cxTi4
+   RwZOyV7EK+aRxkZmsuOew5yd6k/kvvJsuh4ZFm/v0xRUor/DrXrnC2GXE
+   A==;
+X-CSE-ConnectionGUID: jp/xOS/UTUmFNhbEqlMSOg==
+X-CSE-MsgGUID: IFthUYPIQ0O5JgMafUVjGw==
+X-IronPort-AV: E=Sophos;i="6.13,279,1732575600"; 
+   d="scan'208";a="41778546"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 12 Feb 2025 09:11:00 +0100
+X-CheckPoint: {67AC5794-B-C21CC984-D1047F1F}
+X-MAIL-CPID: 70FDB8AC22B42A0ACE772440BDA64D6F_5
+X-Control-Analysis: str=0001.0A00636F.67AC5794.00CB,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09E9016A031;
+	Wed, 12 Feb 2025 09:10:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1739347855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ebrh2pOj9a+WCHOfQy3AldxKt0RQJILfJP7w8ELhKWs=;
+	b=f8FcOgztq6fes3vM/7CvY2rSKSKOMniJdix9XndFkfY8RpufORB/SLLs+nI2s41/ZQCu/X
+	yqni/qQKcZAo010dcy/NUnvTPHKNeam83NjIoojMkIVhNDGltYI/emrhg0ODzfsGML8Kh6
+	0BwTljpycstH0lQYYyp8bp/rUBd3SqaHkFN3t5CJrwpfw7/X1XDuD7RasNQWTuZvUNX8CS
+	MgNLRwSIOQZJ1iSHhPGZ/gLmcTdi/o7spHz8fvL/bQI0J5rwkiYczQMBkjewlYWoPJ/Gjv
+	84qK0gBDf7e8bS1+Omt288PbcPWN97XySBTm3NItO0vbkbFtwrHbCsX74vqwrQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-controller references
+Date: Wed, 12 Feb 2025 09:10:53 +0100
+Message-ID: <10618164.nUPlyArG6x@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250211033340.GA13109@localhost.localdomain>
+References: <20250207083616.1442887-1-alexander.stein@ew.tq-group.com> <2222299.irdbgypaU6@steina-w> <20250211033340.GA13109@localhost.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] drm: zynqmp_dp: Use scope-based mutex helpers
-To: Sean Anderson <sean.anderson@linux.dev>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- "open list:DRM DRIVERS FOR XILINX" <dri-devel@lists.freedesktop.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, Maxime Ripard <mripard@kernel.org>,
- open list <linux-kernel@vger.kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Bart Van Assche
- <bvanassche@acm.org>, Dan Carpenter <dan.carpenter@linaro.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-References: <20250207162528.1651426-1-sean.anderson@linux.dev>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250207162528.1651426-1-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_000157_248036_27F31242 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_001105_356921_9F36558B 
+X-CRM114-Status: GOOD (  34.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,29 +93,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Am Dienstag, 11. Februar 2025, 04:33:41 CET schrieb Peng Fan:
+>=20
+> On Mon, Feb 10, 2025 at 04:48:56PM +0100, Alexander Stein wrote:
+> >Am Montag, 10. Februar 2025, 03:36:48 CET schrieb Peng Fan:
+> >> > Subject: Re: [PATCH v2 04/10] arm64: dts: imx8mn: Add access-
+> >> > controller references
+> >> >=20
+> >> > Hi Peng,
+> >> >=20
+> >> > Am Freitag, 7. Februar 2025, 13:02:13 CET schrieb Peng Fan:
+> >> > > On Fri, Feb 07, 2025 at 09:36:09AM +0100, Alexander Stein wrote:
+> >> > > >Mark ocotp as a access-controller and add references on periphera=
+ls
+> >> > > >which can be disabled (fused).
+> >> > >
+> >> > > I am not sure whether gpcv2 changes should be included in this
+> >> > > patchset or not. Just add access-controller for fused IP will not =
+work.
+> >> >=20
+> >> > Well, I was able to successfully boot a i.MX8M Nano DualLite.
+> >> >=20
+> >> > > i.MX8M BLK-CTRL/GPC will hang if the related power domain is still
+> >> > > touched by kernel. The pgc can't power up/down because clock is
+> >> > gated.
+> >> >=20
+> >> > Well, with GPU node disabled, no one should enable the power domain.
+> >> > But to be on the safe side I would also add access-controllers to the
+> >> > corresponding power domains as well.
+> >> >=20
+> >> > > This comment also apply to i.MX8MM/P.
+> >> >=20
+> >> > Sure. Do you have any information what is actually disabled by those
+> >> > fused?
+> >> > It seems it's the IP and their power domains. Anything else?
+> >>=20
+> >> In NXP downstream there is a patch for  drivers/pmdomain/imx/imx8m-blk=
+=2Dctrl.c
+> >>=20
+> >> soc: imx8m-blk-ctrl: Support fused modules
+> >>    =20
+> >>     For fused module, its pgc can't power up/down and clock is gated.
+> >>     Because imx8m-blk-ctrl driver will pm_runtime_get_sync/pm_runtime_=
+put
+> >>     all power domains during suspend/resume. So we have to remove the
+> >>     pgc and clock of fused module from blk-ctrl DTS node.
+> >>     Update the driver to support such case.
+> >>=20
+> >> But this patch also needs U-Boot to update device tree nodes,
+> >> I recalled that U-Boot will remove gpc nodes, but not update blk-ctrl =
+nodes.
+> >
+> >Does it work, if we add the access-controller as well for pgc_gpu3d
+> >on imx8mp? There is nothing in blk-ctrl AFAICS. But for VPU there is.
+>=20
+> Adding access-controller under pgc_gpu node will not make fwdevlink
+> work for the pgc_gpu nodes. It does not have compatible, and device
+> is created by gpcv2 driver using platform_device_alloc. Same to vpu.
+>=20
+> >Which clock needs to be removed there in case g1 is disabled?
+>=20
+> Take i.MX8MP VC8000E as example, the vpumix blk ctrl, the vc8000e
+> reference under vpumix blkctrl should be removed, including pd and clock.
 
-On 07/02/2025 18:25, Sean Anderson wrote:
-> Fix a mutex bug and convert most of the explicit mutex_(un)locks to
-> guards.
-> 
-> Changes in v2:
-> - Convert some conditional return statements to returns of ternary
->    expressions.
-> - Remove unnecessary whitespace change
-> 
-> Bart Van Assche (1):
->    drm: zynqmp_dp: Fix a deadlock in zynqmp_dp_ignore_hpd_set()
-> 
-> Sean Anderson (1):
->    drm: zynqmp_dp: Use scope-based mutex helpers
-> 
->   drivers/gpu/drm/xlnx/zynqmp_dp.c | 147 +++++++++++--------------------
->   1 file changed, 50 insertions(+), 97 deletions(-)
-> 
+Wait, so you want to remove the last entry from these properties?
 
-Thanks, looks good to me and works for me. I'll push to drm-misc-next.
+> clocks =3D <&clk IMX8MP_CLK_VPU_G1_ROOT>,
+> 	 <&clk IMX8MP_CLK_VPU_G2_ROOT>,
+> 	 <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
+> clock-names =3D "g1", "g2", "vc8000e";
 
-  Tomi
+This violates the DT binding.
+
+> So for non-blkctrl nodes, it is fine to use access-controller and rely
+> on fwdelink to defer probe. But for blk ctrl nodes, it will not work.
+>=20
+> For pgc nodes, it may or may not matter, not very sure for now.
+>=20
+> For blk ctrl nodes, we need provide a generic API saying
+> access_control_check or directly using nvmem API.
+
+Reading access-controllers.yaml this should still be feasible for
+providing the necessary information.
+But I'm note sure where to implement this. In e.g. imx-ocotp would be a very
+SoC-specific API.
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
