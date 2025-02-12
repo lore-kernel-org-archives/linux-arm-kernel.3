@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B17C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D35C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=idhr/5aIOoxzWKAydyluIFUs5UlXIHLQFjiaGb9SyTM=; b=GeGa6J3xxOq+j4FsDC5D3Lcs88
-	4AE6vCepoWpxui8Zf/xq6gOclZ+qfjwnqv0NTT92gFpS9HL6h5/CsMW8LRUhORWAcQVSeWyJ/zaHu
-	gES0awdKleozBbrsmmKOTB8l8HdYarIhOGxY92Kbjgo+M+JNYP8bNQeO4fEykkaBhCcFtE+rZJtyc
-	77IiBI5W6tzfbFjCJSUqt7pH2276wyY3HNqTWOYuqPbJ7HPwC3SAqQK02fmM4+G+4wHt7SQSYOgmk
-	9snddDLKrKmJnyWB14Xs3T205xkrIGETIenOcU6B+0jNHMmgQIUVP1M7AEI7a+i6CLjNy+WrGxcKY
-	rGHi1l2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YTOTPGSXVq2qgpJeXCjqv2Ft7/R2pLQdaC/aHf11ROc=; b=Yb4nvKC3TmJeObQqT7vQPJVvIk
+	fPXlsDfxwSGlsvCV6WCy7lJ6pNMH2KA492jys1ey9rKGYqXNS9Y2VrIgeV5aeyIATw7ND0NHohZ2v
+	oUj5Rnh6xE/WPBhd2Zbs/J/XTiklWjRfnMLrpOIDXzkuthZQatWEtBq+9sHDFars85+myxXIBykw/
+	3EZi84v2lwj2YnFZowHtpGPNx991CtjSwqytRZmvk4LfD2p4+kIrPAOewAUT76m2skJhbq//FZrBv
+	SHkzabeRbtDA74epTbqwPbTicoMSUEqAcPN/NAwdcLVoj5cIlD/FaKHsWht2IcIGkG2GZjGWtzTMu
+	pJf/kG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEhs-00000007rqX-2MhX;
-	Wed, 12 Feb 2025 15:31:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEgQ-00000007rMf-1Th3
+	id 1tiEjH-00000007sBT-0n39;
+	Wed, 12 Feb 2025 15:32:47 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiEgj-00000007rVZ-36zu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 15:29:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89E2112FC;
-	Wed, 12 Feb 2025 07:30:10 -0800 (PST)
-Received: from [10.57.81.93] (unknown [10.57.81.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED99A3F58B;
-	Wed, 12 Feb 2025 07:29:46 -0800 (PST)
-Message-ID: <46ca554b-f768-4981-9794-1dbc581a7bdc@arm.com>
-Date: Wed, 12 Feb 2025 15:29:45 +0000
+	Wed, 12 Feb 2025 15:30:11 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e5b22d35268so5999874276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 07:30:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1739374208; x=1739979008; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YTOTPGSXVq2qgpJeXCjqv2Ft7/R2pLQdaC/aHf11ROc=;
+        b=VQxR06BjlgIE1OfEji9c90GVA5QtvOhMLgn7mLChWlAP7GL9W1jd96s0zKXaNB/+zF
+         PawLtbjpYVQVKmdUrn7j18lgL3V0Mzv6dQUzg6agyDbCCBmFJipxqCH0bHzFbkixfKGB
+         0DWUia7y1bJQSvp1VpKbxCMD8k0behRz7VSZ3V1WRZcZjqC9QFCwKaY7VyrRjsmhfFrT
+         JOwbjbUnA7g007T4fP9wb70M38g72b5lr9AS0pvNb2dlnljmoX2I/Kf2AoywKyqPLXhO
+         tlT7NLHM1C9sfWUsaVqgf6VPaTZcxTYTulTKwVUoz2Ec+NcSZy9LXoxUyPLFZ2GVLFs/
+         QpIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739374208; x=1739979008;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YTOTPGSXVq2qgpJeXCjqv2Ft7/R2pLQdaC/aHf11ROc=;
+        b=rHnTREu3jYK9mUn/bfWZ6mMRFPYZIf3YLJZ/7r/vWHKC2b27S77Btgqk6JH2OmTVbt
+         1hI8ppwHC+eT4nW8IEpPAMIKTjOC3D9qQHtW+MkaMHQuBY0UdZ21A6jRgvO+3G5VujeR
+         6c+GUfA0GZNEBaowWlN7HlmuhXk3ivCVW04vp/gmyJjlXVr/9HmvSjK9wIj1cZL921xn
+         yw017PmzePRcCJhKZLq6uUO2COAXTFpWD5wfgLgwwVrEBfJYC/0lY7f6w+yDEQIq2mub
+         FgxdR6PZu+nU9Ub+ZLjHjXVtNNJGLBgxddgGP5sC5Yf3PeQD+hzBj50FeU0bxLUrvt1C
+         H/Og==
+X-Forwarded-Encrypted: i=1; AJvYcCVdjA/7VY78wa88FnZNDoOxPRDdzmYqAvi5fLgnv/LQy5lr4ly6Przf7+GmUWX1G9buAG2Ra9w0h/QPS76L2Dln@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcCYlE3f2TZ6vNDFHBV3R0F8BV+DJw+xRsgpvCaKRy0obAHfa3
+	a9G3LfmdTgCrmuXzi+T5UP1jqmUC7cnaOu5w+JmZbGSBNgo6ddXGzNWAk5337VwJT9Jw7vFPMsR
+	kmOhm3UjyUYpvbNsYGFkahLAnfcrKJzjqopigSA==
+X-Gm-Gg: ASbGnctmZVAA3NU1kky6RpVwuXmIu/cfSO2wm7/afOyn+dYyNl7zFsqrKo873ovf7+4
+	soKmcSneFtIVG+qWmU7NYb1/zthZ6aTX03M9ccPIfiLNwR6rYwqNHTZmjfsISwwlXpjG8X85uT5
+	kJ70s7DhVbCnwPRGCwn6r4oWkISx6/
+X-Google-Smtp-Source: AGHT+IFUb4n11X1/VcN5iFZGdf4HHxlpQCoy65XYiTGAuIoCG6TjlthfZgl+P4Z0rbVGRXLADkV617rUgazdBwsWIr4=
+X-Received: by 2002:a05:6902:c0f:b0:e5b:3af0:d4b6 with SMTP id
+ 3f1490d57ef6-e5d9f177b0dmr3316437276.39.1739374208065; Wed, 12 Feb 2025
+ 07:30:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and
- __ptep_get_and_clear()
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-7-ryan.roberts@arm.com>
- <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
- <0538d186-470e-4c4d-974c-0d7f2c96e549@arm.com>
- <0492ed88-673a-435b-bc89-5f35637b4be6@arm.com>
-In-Reply-To: <0492ed88-673a-435b-bc89-5f35637b4be6@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250206-media-rpi-hevc-dec-v2-0-69353c8805b2@raspberrypi.com>
+ <20250206-media-rpi-hevc-dec-v2-3-69353c8805b2@raspberrypi.com> <20250211222050.GA1285038-robh@kernel.org>
+In-Reply-To: <20250211222050.GA1285038-robh@kernel.org>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 12 Feb 2025 15:29:50 +0000
+X-Gm-Features: AWEUYZmslfR01LxrPJ1PLnJuhBuZI5WK77fvcWU4nKbcXM4bWkAo5JbzUXEm5FY
+Message-ID: <CAPY8ntD3Frq5HzV06OrS1051QfjJFzvqs9H4mUkVnd4QKqiMhg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] media: dt-bindings: media: Add binding for the
+ Raspberry Pi HEVC decoder
+To: Rob Herring <robh@kernel.org>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, John Cox <john.cox@raspberrypi.com>, 
+	Dom Cobley <dom@raspberrypi.com>, review list <kernel-list@raspberrypi.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox <jc@kynesim.co.uk>, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_072950_484782_0C606FF4 
-X-CRM114-Status: GOOD (  26.05  )
+X-CRM114-CacheID: sfid-20250212_073009_862770_B5AEDE57 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,210 +102,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 09:38, Ryan Roberts wrote:
-> On 06/02/2025 13:26, Ryan Roberts wrote:
->> On 06/02/2025 11:48, Anshuman Khandual wrote:
->>> On 2/5/25 20:39, Ryan Roberts wrote:
+Hi Rob
 
-[...]
+On Tue, 11 Feb 2025 at 22:20, Rob Herring <robh@kernel.org> wrote:
+>
+> On Thu, Feb 06, 2025 at 06:02:36PM +0000, Dave Stevenson wrote:
+> > Adds a binding for the HEVC decoder found on the BCM2711 / Raspberry Pi 4,
+> > and BCM2712 / Raspberry Pi 5.
+> >
+> > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > ---
+> >  .../bindings/media/raspberrypi,hevc-dec.yaml       | 67 ++++++++++++++++++++++
+> >  1 file changed, 67 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
+> > new file mode 100644
+> > index 000000000000..06db7004c765
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
+> > @@ -0,0 +1,67 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/media/raspberrypi,hevc-dec.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Raspberry Pi HEVC Decoder
+> > +
+> > +maintainers:
+> > +  - John Cox <john.cox@raspberrypi.com>
+> > +  - Dom Cobley <dom@raspberrypi.com>
+> > +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > +  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
+> > +
+> > +description:
+> > +  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
+> > +  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
+> > +  boards respectively.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - raspberrypi,hevc-dec
+>
+> SoC specific compatible please. If they are 'the same' then 2712 can
+> fallback to 2711.
 
->>>>
->>>> While we are at it, refactor __ptep_get_and_clear() and
->>>> pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
->>>> also takes a pgsize parameter. This will provide the huge_pte API the
->>>> means to clear ptes corresponding with the way they were set.
->>>
->>> __ptep_get_and_clear() refactoring does not seem to be related to the
->>> previous __set_ptes(). Should they be separated out into two different
->>> patches instead - for better clarity and review ? Both these clean ups
->>> have enough change and can stand own their own.
->>
->> Yeah I think you're probably right... I was being lazy... I'll separate them.
+Can I just make sure I understand your request before I respin?
+This is a Raspberry Pi IP block that has been added to the Broadcom
+SoCs. It's the same situation as for PiSP Backend which is documented
+in bindings/media/raspberrypi,pisbe.yaml
 
-When looking at this again, I've decided not to split the patch. The same
-approach is being applied to both helper APIs to produce "anysz" versions that
-will be used by the huge_pte helpers. So I think it is reasonable to do all the
-conversion in a single patch. It just looks too small and bitty if I split it out.
+Based on that I'm interpreting your comment as wanting:
 
-I'll rework the commit log to give both API equal promiance since it currently
-sounds like __ptep_get_and_clear is an after thought.
+properties:
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm2711-hevc-dec
+          - brcm,bcm2712-hevc-dec
+      - const: raspberrypi,hevc-dec
 
-[...]
+Is that right?
 
->>> s/___set_ptes/___set_pxds ? to be more generic for all levels.
->>
->> So now we are into naming... I agree that in some senses pte feels specific to
->> the last level. But it's long form "page table entry" seems more generic than
->> "pxd" which implies only pmd, pud, p4d and pgd. At least to me...
->>
->> I think we got stuck trying to figure out a clear and short term for "page table
->> entry at any level" in the past. I think ttd was the best we got; Translation
->> Table Descriptor, which is the term the Arm ARM uses. But that opens a can of
->> worms as now we need tdd_t and all the converters pte_tdd(), tdd_pte(),
->> pmd_tdd(), ... and probably a bunch more stuff on top.
->>
->> So personally I prefer to take the coward's way out and just reuse pte.
-> 
-> How about set_ptes_anylvl() and ptep_get_and_clear_anylvl()? I think this makes
-> it explicit and has the benefit of removing the leading underscores. It also
-> means we can reuse pte_t and friends, and we can exetend this nomenclature to
-> other places in future at the expense of a 7 char suffix ("_anylvl").
-> 
-> What do you think?
+Thanks
+  Dave
 
-I'm going to call them set_ptes_anysz() and ptep_get_and_clear_anysz(). That's
-one char shorter and better reflects that we are passing a size parameter in,
-not a level parameter.
-
-Thanks,
-Ryan
-
-> 
->>
->>>
->>>>  {
->>>> -	__sync_cache_and_tags(pte, nr);
->>>> -	__check_safe_pte_update(mm, ptep, pte);
->>>> -	__set_pte(ptep, pte);
->>>> +	unsigned long stride = pgsize >> PAGE_SHIFT;
->>>> +
->>>> +	switch (pgsize) {
->>>> +	case PAGE_SIZE:
->>>> +		page_table_check_ptes_set(mm, ptep, pte, nr);
->>>> +		break;
->>>> +	case PMD_SIZE:
->>>> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
->>>> +		break;
->>>> +	case PUD_SIZE:
->>>> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
->>>> +		break;
->>>
->>> This is where the new page table check APIs get used for batch testing.
->>
->> Yes and I anticipate that the whole switch block should be optimized out when
->> page_table_check is disabled.
->>
->>>
->>>> +	default:
->>>> +		VM_WARN_ON(1);
->>>> +	}
->>>> +
->>>> +	__sync_cache_and_tags(pte, nr * stride);
->>>> +
->>>> +	for (;;) {
->>>> +		__check_safe_pte_update(mm, ptep, pte);
->>>> +		__set_pte(ptep, pte);
->>>> +		if (--nr == 0)
->>>> +			break;
->>>> +		ptep++;
->>>> +		pte = pte_advance_pfn(pte, stride);
->>>> +	}
->>>>  }
->>>
->>> LGTM
->>>
->>>>  
->>>> -static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
->>>> -			      pmd_t *pmdp, pmd_t pmd)
->>>> +static inline void __set_ptes(struct mm_struct *mm,
->>>> +			      unsigned long __always_unused addr,
->>>> +			      pte_t *ptep, pte_t pte, unsigned int nr)
->>>>  {
->>>> -	page_table_check_pmd_set(mm, pmdp, pmd);
->>>> -	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
->>>> -						PMD_SIZE >> PAGE_SHIFT);
->>>> +	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
->>>>  }
->>>>  
->>>> -static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
->>>> -			      pud_t *pudp, pud_t pud)
->>>> +static inline void __set_pmds(struct mm_struct *mm,
->>>> +			      unsigned long __always_unused addr,
->>>> +			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->>>> +{
->>>> +	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
->>>> +}
->>>> +#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
->>>> +
->>>> +static inline void __set_puds(struct mm_struct *mm,
->>>> +			      unsigned long __always_unused addr,
->>>> +			      pud_t *pudp, pud_t pud, unsigned int nr)
->>>>  {
->>>> -	page_table_check_pud_set(mm, pudp, pud);
->>>> -	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
->>>> -						PUD_SIZE >> PAGE_SHIFT);
->>>> +	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
->>>>  }
->>>> +#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
->>>
->>> LGTM
->>>
->>>>  
->>>>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
->>>>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
->>>> @@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
->>>>  }
->>>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
->>>>  
->>>> -static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
->>>> -				       unsigned long address, pte_t *ptep)
->>>> +static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
->>>> +				       unsigned long pgsize)
->>>
->>> So address got dropped and page size got added as an argument.
->>>
->>>>  {
->>>>  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
->>>>  
->>>> -	page_table_check_pte_clear(mm, pte);
->>>> +	switch (pgsize) {
->>>> +	case PAGE_SIZE:
->>>> +		page_table_check_pte_clear(mm, pte);
->>>> +		break;
->>>> +	case PMD_SIZE:
->>>> +		page_table_check_pmd_clear(mm, pte_pmd(pte));
->>>> +		break;
->>>> +	case PUD_SIZE:
->>>> +		page_table_check_pud_clear(mm, pte_pud(pte));
->>>> +		break;
->>>> +	default:
->>>> +		VM_WARN_ON(1);
->>>> +	}
->>>>  
->>>>  	return pte;
->>>>  }
->>>>  
->>>> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
->>>> +				       unsigned long address, pte_t *ptep)
->>>> +{
->>>> +	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
->>>> +}
->>>> +
->>>>  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->>>>  				pte_t *ptep, unsigned int nr, int full)
->>>>  {
->>>> @@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
->>>>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->>>>  					    unsigned long address, pmd_t *pmdp)
->>>>  {
->>>> -	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
->>>> -
->>>> -	page_table_check_pmd_clear(mm, pmd);
->>>> -
->>>> -	return pmd;
->>>> +	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
->>>>  }
->>>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>>>  
->>>
->>> Although currently there is no pudp_huge_get_and_clear() helper on arm64
->>> reworked ___ptep_get_and_clear() will be able to support that as well if
->>> and when required as it now supports PUD_SIZE page size.
->>
->> yep.
->>
->> Thanks for all your review so far!
->>
-> 
-
+> > +
+> > +  reg:
+> > +    items:
+> > +      - description: The HEVC main register region
+> > +      - description: The Interrupt control register region
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: hevc
+> > +      - const: intc
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: The HEVC block clock
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - reg-names
+> > +  - interrupts
+> > +  - clocks
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +    video-codec@7eb10000 {
+> > +        compatible = "raspberrypi,hevc-dec";
+> > +        reg = <0x7eb00000 0x10000>, /* HEVC */
+> > +              <0x7eb10000 0x1000>;  /* INTC */
+> > +        reg-names = "hevc",
+> > +                    "intc";
+> > +
+> > +        interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+> > +
+> > +        clocks = <&clk 0>;
+> > +    };
+> > +
+> > +...
+> >
+> > --
+> > 2.34.1
+> >
 
