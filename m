@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95876C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0F3C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=; b=e5qH0sgYHuDYpdRvce6NE6sZ+j
-	loQ1ZuXpgqah0YfixhHvh1rRhCYc/mchxqA0EIh49vZJPVLJQ+EqZt4UfilakYrfcOY6zU7yASjn2
-	CeH9d+3O/fMUXGyF2+sYX/f/OP/XT5gRD8ubyAjlcOGMRkkRV4Oxq+bafh7vMwq5qRmcnS0AN6clb
-	Xp/F5suLRMU3vlnkRG0wccoOn/kiT9uNBKteUF8yKfFh3sh8UIYjrIEpHNXhstwbkjr/hETIrSdHQ
-	+Mszuk9Hi2i36Enn3NgtPj29JdDCfv+JvQx67BkOmvJBCUz2kpeOZOA5YDQLxH28dkMrsAppOBDhF
-	siDdyQzA==;
+	bh=aUy2L+59XSB2dO0W6jnqgQpUaRtZ0LvR6wu2Q9qABCw=; b=rM2Owigs0uqH8xTs8NWqP3yFNq
+	rDd7zmAKzso/lok426zfhb2DAw8LOmKU3UpShbnQjNAwx4pLz+RnVAD0TdpqnDfTjYW/Egwk7VkyQ
+	crmIk0HouryFpiUvYPkg3lVXn8oyNk7YWc0gylNTT1AJDMdwnvjvDEdYQ+fRIj/uD1uWOmX8v0Fp4
+	UV59BSvVz/oiBB1FO1oAwEE8WhqIsTjZPAglbAoFFzT+jGqig1AFN6A0BPePPyr9IOGmuYD11qmof
+	3nTHDsTV7eppI67CRuqUW8jKwrnTqsBc7LXjLfZY3nDZ7jsm0/o2mf1Z1/FGbA2jAcJgqUyxMKQ0M
+	f9WYrx0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiB2v-00000007Czt-2kgn;
-	Wed, 12 Feb 2025 11:36:49 +0000
-Received: from mail-lj1-f177.google.com ([209.85.208.177])
+	id 1tiB4K-00000007DBb-23L1;
+	Wed, 12 Feb 2025 11:38:16 +0000
+Received: from mail-lj1-f175.google.com ([209.85.208.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiApo-000000079dE-3NJb
+	id 1tiApp-000000079dn-30d2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:23:17 +0000
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-30737db1ab1so61503211fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:16 -0800 (PST)
+	Wed, 12 Feb 2025 11:23:18 +0000
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-308edbc368cso32848351fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359394; x=1739964194; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359395; x=1739964195; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=;
-        b=se0Q7+u4cVQiBRIPHrb5UQ7EfvU7IMz0eLYvWAHJCxqzPtsXUwllvzOMloJimeXT5A
-         i71oGDUet26z/YWDkvJkgd5WWTuz8wHovDPrc4Vrj//6UdefUh5TeNMXxG8Mztcfr1FD
-         pSvpp4n2M1rdNSOLH7+MFUmJkLRRIZpIAthI3TrOmuloNhrzO5bkUFyHvW8I2eL/Vd32
-         Iz3GEAVePIlaDG9Hp2J4uInKIE8Y7Dn7sd2+QoFBghPxnnFsyCVVWyZz2HsTc/RGiXL8
-         8VHbRhhyF6XtmdlhBrKEuyOG+khSgyE4kYvsxVVLbLMSfI+N3n6lC4etd4WV8OzD6xwd
-         yf7g==
+        bh=aUy2L+59XSB2dO0W6jnqgQpUaRtZ0LvR6wu2Q9qABCw=;
+        b=PfLleF3FJZhAg4fNGZykvQMXqrapXK7/oGYhltGHJ20nkr4VuN2gW0WOGItoBWivMU
+         ZApB9rTmnIWwkODIKBFAztInmqygz9uBbbSlrX/4I5r4fFLlcAw8VWItPcaZ/fjcChz4
+         e60uQg1M9RwiQ9EaURPkSF4qE2DwL2NHW+1LY9etMLZtsR9Lz5opltDld7OHWOnh5A9a
+         fHiAZkVjcxuSCVz2vFRTvgkO+XWne1Q/wvQapCLSQinsievMypz+WCyXUHnYKj3EfC3X
+         HsmFEy0y3QvhUYvsr9Eza0fw41uN01f+a0LSb1DZA1lRYJHRqxmIeFfiXklsT4du0y4U
+         h80w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359394; x=1739964194;
+        d=1e100.net; s=20230601; t=1739359395; x=1739964195;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=;
-        b=DLnickrrHEt13r0Ei6Z1b0Xiyb/yAXJNqMmclZPjCELoHfFM7ay9xR2Q0pyAagBlYo
-         WtfzKhaYTVxQWny5HD7QxV1NwjMJSaWml2zvPYcXrWGduwOo/m+US8PFBgFQNhyIDhxU
-         +nxULRaSoMgiC2CDon/TdEQ4iPZDbNnvG2TM0PZKJF9827dFQ+belCMo/Ip7LS3TXp50
-         84Pg9T2NQHTPi5vaNWVa5dLg8kXNu1kjQeRBKtQjG6hLYHJd2cRrM7hkNf7RpGyGUYXn
-         1RdbsaJAtK/TLGUUgpfPrzd5frwgWBJAC1tvFSDa/ti8UIPuZu4f5+DylDY337/tpOgP
-         rsIA==
-X-Gm-Message-State: AOJu0YyXcR+C+9ZUprhjiQ1wnZ0kEVdvzU2clqlUy/pb8TGHVTyQfaXf
-	TEPBh4KG1WsG+2Tt3cEcNFQRuGkXnPt5teKxz39ULVeRHefVpJaJGE9GUqS1xlkY5NUhzMOQeYH
-	z
-X-Gm-Gg: ASbGncve2/02cnmaxsOrObkkxmKfwiVV2OnSuAproo19WXGYtTDmzkEDmS3PmrblAnH
-	sTp1R8JXKbYuYhjKNC5/tmw2oQLAJxW9DmaXhFlbdR/LXYoXBYcdqfCPloO0dQ3fX2jm2GITjhK
-	95Qf/KRwE8ZSzDWsNZFZtdOnAxzBI5IoHPuJTKftId7eii7d6Lw8zvspR5HwDMEnNXZceyrYnBN
-	6YUv72Y4aPSD44KW/fJoen6Z3rUbZThEZSrK2lpRvKt7EKzymmWtNtMdZA29iabAUDiaL54K37T
-	wxXqK96MYQvsNPC/2FxIceDkSg==
-X-Google-Smtp-Source: AGHT+IFfP7os8MQ1u1YZSNkqYKfZSgb/vW3ksTMdEyemTkz16qCj36YkFgGny3jWjjj/tutrgWjYQw==
-X-Received: by 2002:a05:651c:19aa:b0:302:3534:1d68 with SMTP id 38308e7fff4ca-309037abe6fmr8480831fa.4.1739359394471;
-        Wed, 12 Feb 2025 03:23:14 -0800 (PST)
+        bh=aUy2L+59XSB2dO0W6jnqgQpUaRtZ0LvR6wu2Q9qABCw=;
+        b=mFRs6NcCl6/46TieOw40ViXMYGehJVMbVyDLKw/CUgULWtCKQGQdK5yVY630TOlRdS
+         9kDDHmDo0rDk8rYXY/te9j5/LJ4MI9RsrDL3UMG+Xf1eEZPmrp+e7l+krAa+7BSV1VOz
+         gcPp2exGR4EvuZBW25wMXU7ZJJTD9a+GW0vKv6y3p3FAOBhTf4G+hpQTmNWZvRymKp9m
+         lH7rWbFTiMb8b3b2ttm0govOY6t2RI36PtzeQWYS6uRkw/p9pGLeGo2BfZjK//wl4QJX
+         i1kQY9fq+3qUXHXBHPL3uF5WqUEt9JXP7AvuCX600CJZKrYJJWeb66tMxYKcdNmEsygj
+         Bd1A==
+X-Gm-Message-State: AOJu0YyPerKAnaugQhJA/TSoub3hKuCd9JBVlFtcftwRNK4dbIsQFE11
+	5dF2Z1plRp/JaoUkigSz2xS08nVSTp6Hk8RPmNhO+EbgnyU+a1CCOfeY5b/P3ic=
+X-Gm-Gg: ASbGncseHYhWRFaBlkgfIhGVRd5z5gp3stxja5Ef6Td8Gk4zJT2Rp9curxMHTEOM4e9
+	m9S/Pvdaa9JMucMgVrobPemQxBtISipSFjMxqb0PA8ZLd1z/oVMPvihbWTGiSQKEkbNwBBHkFZ0
+	meonWTYsU8Dd4KORV/JZAw86MCN1wbqVtIoFeQmIc46vEFRVyS4CpcKurtfFuc1Y8YgAK1GWVQM
+	IjAxvOIKiuOZF/OJH52gnv4w1s/auRkrNQbYcujl8Z9mlZ3Ck931QPKa4ADAnGz9GPSqAASnzWj
+	UVpZKmS0+dWZn7XufaLJatrGDA==
+X-Google-Smtp-Source: AGHT+IHZJ/tBIMRwnLsYcu+g9QAXHEyBK/NodAzDXyRtpuVQmFBcjHxeJrEL5OicySIl+6hJ7MT1qQ==
+X-Received: by 2002:a05:651c:895:b0:308:efa4:d27f with SMTP id 38308e7fff4ca-30904fc98f2mr9827531fa.2.1739359395534;
+        Wed, 12 Feb 2025 03:23:15 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.13
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:13 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:15 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:02 +0100
-Subject: [PATCH v4 08/31] ARM: entry: Move trace entry to C function
+Date: Wed, 12 Feb 2025 12:23:03 +0100
+Subject: [PATCH v4 09/31] ARM: entry: save the syscall sp in thread_info
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-8-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-9-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -88,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_032316_852210_1748B6F7 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20250212_032317_811704_3791056D 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,68 +103,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This moves over the code entering into tracing into the
-C syscall invocation code. As syscall_trace_enter() will
-provide the current syscall number from the regs we need
-not provide the syscall number to the invocation function
-any more.
+We are going to rewrite the syscall handling in C, which
+means that the stack used by the call code is no longer
+predicatably 8 bytes (for syscall arguments r4 and r5)
+but a varying number of bytes depending on how nested the
+C code is.
+
+However the current code is just assuming it can rewind
+the stack by adding 8 to sp if a syscall is interrupted by
+a sigreturn call.
+
+Solve this by storing the entry sp in the per-task
+struct thread_info and use that in the sigreturn wrapper
+instead. We already have the thread info available in
+the SWI entry and sigreturn is probably not so common
+that retrieveing a pointer to thread_info should affect
+anything very much.
+
+Storing this per-task in thread_info makes the solution
+SMP robust.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/syscall.h | 2 +-
- arch/arm/kernel/entry-common.S | 6 +-----
- arch/arm/kernel/syscall.c      | 5 ++++-
- 3 files changed, 6 insertions(+), 7 deletions(-)
+ arch/arm/include/asm/thread_info.h | 1 +
+ arch/arm/kernel/asm-offsets.c      | 1 +
+ arch/arm/kernel/entry-common.S     | 8 ++++++--
+ 3 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
-index 1d21f26ecf510ac00a878b4d51a5753ee49475f5..66067d165ba3fbbe0f840a89ae396eb1a311bacc 100644
---- a/arch/arm/include/asm/syscall.h
-+++ b/arch/arm/include/asm/syscall.h
-@@ -20,7 +20,7 @@
- extern const unsigned long sys_call_table[];
- 
- int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *retp);
--int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp);
-+int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp);
- 
- static inline int syscall_get_nr(struct task_struct *task,
- 				 struct pt_regs *regs)
+diff --git a/arch/arm/include/asm/thread_info.h b/arch/arm/include/asm/thread_info.h
+index 943ffcf069d29cf4a035964d20d56f7ebdd6d602..d8a45c5a10496aaf806bfeaa0353d5e8985bd6f5 100644
+--- a/arch/arm/include/asm/thread_info.h
++++ b/arch/arm/include/asm/thread_info.h
+@@ -67,6 +67,7 @@ struct thread_info {
+ 	__u32			cpu_domain;	/* cpu domain */
+ 	struct cpu_context_save	cpu_context;	/* cpu context */
+ 	__u32			abi_syscall;	/* ABI type and syscall nr */
++	__u32			sp_syscall;	/* SP when entering syscall */
+ 	unsigned long		tp_value[2];	/* TLS registers */
+ 	union fp_state		fpstate __attribute__((aligned(8)));
+ 	union vfp_state		vfpstate;
+diff --git a/arch/arm/kernel/asm-offsets.c b/arch/arm/kernel/asm-offsets.c
+index 4853875740d0fe61c6bbc32ddd9a16fa8d1fb530..c9525cbb26b73827821aa746030e56b037f49556 100644
+--- a/arch/arm/kernel/asm-offsets.c
++++ b/arch/arm/kernel/asm-offsets.c
+@@ -49,6 +49,7 @@ int main(void)
+   DEFINE(TI_CPU_DOMAIN,		offsetof(struct thread_info, cpu_domain));
+   DEFINE(TI_CPU_SAVE,		offsetof(struct thread_info, cpu_context));
+   DEFINE(TI_ABI_SYSCALL,	offsetof(struct thread_info, abi_syscall));
++  DEFINE(TI_SP_SYSCALL,		offsetof(struct thread_info, sp_syscall));
+   DEFINE(TI_TP_VALUE,		offsetof(struct thread_info, tp_value));
+   DEFINE(TI_FPSTATE,		offsetof(struct thread_info, fpstate));
+ #ifdef CONFIG_VFP
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 77801d039b5f6562b231a6fd4979e318c7e736a6..3cfc6d952ff99be9c4c1be4481ac3039260e3e57 100644
+index 3cfc6d952ff99be9c4c1be4481ac3039260e3e57..8baab7f97f59c434396f30b08ddd3029c5f9c0e5 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -292,13 +292,9 @@ ENDPROC(vector_swi)
- 	 * context switches, and waiting for our parent to respond.
- 	 */
- __sys_trace:
--	add	r0, sp, #S_OFF
--	bl	syscall_trace_enter
--	mov	scno, r0
--	mov	r2, r0				@ scno into r2
- 	add	r1, sp, #S_R0 + S_OFF		@ pointer to regs
- 	mov	r0, tbl
--	badr	r3, __sys_trace_return
-+	badr	r2, __sys_trace_return
- 	bl	invoke_syscall_trace
- 	cmp	r0, #-1
- 	bne	__sys_trace_return
-diff --git a/arch/arm/kernel/syscall.c b/arch/arm/kernel/syscall.c
-index d637dc74b1c70415933898fbcadbedc71df5f654..377e16c8c53c8e809e3f8b157a889ef115d5c043 100644
---- a/arch/arm/kernel/syscall.c
-+++ b/arch/arm/kernel/syscall.c
-@@ -21,8 +21,11 @@ __visible int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *
- int invoke_syscall_trace_asm(void *table, struct pt_regs *regs, int scno, void *retp);
- __ADDRESSABLE(invoke_syscall_trace_asm);
+@@ -232,6 +232,8 @@ ENTRY(vector_swi)
  
--__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp)
-+__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp)
- {
-+	int scno;
-+
-+	scno = syscall_trace_enter(regs);
- 	if (scno == -1)
- 		return -1;
+ 	uaccess_disable tbl
+ 	get_thread_info tsk
++	/* Save a per-task copy of SP for sigreturn */
++	str	sp, [tsk, #TI_SP_SYSCALL]
  
+ 	adr	tbl, sys_call_table		@ load syscall table pointer
+ 
+@@ -377,13 +379,15 @@ sys_syscall:
+ ENDPROC(sys_syscall)
+ 
+ sys_sigreturn_wrapper:
+-		add	r0, sp, #S_OFF
++		get_thread_info tsk
++		ldr	r0, [tsk, #TI_SP_SYSCALL]	@ read back SP
+ 		mov	why, #0		@ prevent syscall restart handling
+ 		b	sys_sigreturn
+ ENDPROC(sys_sigreturn_wrapper)
+ 
+ sys_rt_sigreturn_wrapper:
+-		add	r0, sp, #S_OFF
++		get_thread_info tsk
++		ldr	r0, [tsk, #TI_SP_SYSCALL]	@ read back SP
+ 		mov	why, #0		@ prevent syscall restart handling
+ 		b	sys_rt_sigreturn
+ ENDPROC(sys_rt_sigreturn_wrapper)
 
 -- 
 2.48.1
