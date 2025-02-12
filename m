@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F8CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 18:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A62C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 18:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEp7EA5X0RhOA8vfzTocFtU0Jd6TueMyI9rfsA0bdr8=; b=WunYw8YzW41rKgld1cqry6v02H
-	kH0XkSl0wAunEbGex+E1Rxp6qvAtwBhwCala0QIcX+sy/XuZ8Moj9BDC7xMxt2re5yAWYaykR5m55
-	Pn9HjjGxtdaukPnOd2jd4klB/jChhRsHfvq0QJS9ZnnGPRjkgxvkAyZffIs0kTn3tc8L6DpCIjZIs
-	Bb4/q8J7lgzKRVLggsSp/PK1paAhR5PiEkqOXq0LRSKQAdO6it6zjcNwyWcf42YzjUQgd30Ee3fMR
-	d/rWBD/JMCdG/2MO9Q+/rdO5AAn0fA2ZvdYg499D/nhtFOCQSZhvkU1o0+g5MIpind9EC+N71pLQm
-	MUsLItQA==;
+	bh=Y7AtaVUWn47VvRClNXE7C9PClc5VcIRgto5qhEjiaAE=; b=wHMDlHu2Ieoo3s8xz5rM2zPfdO
+	EK62qhCTTOGl40V466RvHUupzbv4u3zyShpCCTGwiK9SdHjKHNH0iPHOrfiG15OAuNPutG9aX7UtN
+	XE7bUUIXYbrgx+Rw7YnexAyz+joPMpNdQ8fUu574LyrAsTq8bqi20ZPt+U6sgGVECoyqHq6kieODb
+	T8inwfSblNmV6mXnk30GuK3aJZilETIwLV69C3G63Y8GuxTkikQfjcdvkI2VIFqZLg8Icf7q0TM2n
+	QkeItoZIAOKbQoDU9vHbRYOrwkDDpMxNwod1zhILTjPWbKPp/0n5f0AsbxvgwW3Kvb+MaflIJnZCE
+	dX6IbASA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiHGn-00000008R5N-3efT;
-	Wed, 12 Feb 2025 18:15:33 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tiHKI-00000008Rkn-2gnd;
+	Wed, 12 Feb 2025 18:19:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiHFN-00000008QoT-0m8c
+	id 1tiHIr-00000008RSI-0EKv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 18:14:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=PEp7EA5X0RhOA8vfzTocFtU0Jd6TueMyI9rfsA0bdr8=; b=tgJ/oe5VVNuVEBpbtssebCVqXF
-	atIXLVxbpWvptAu0rWsu54ZfMhdyS1SqnAJAs99CjJJY/uNg4dCrfGPkHFJWezouDfeWUR2pCMK+n
-	f1xp/9I1ey7gUPzohHqHF/MxeNMX/beizUd3vMQYTiHr2dlVHVoqUOADkkSLikX3vyAo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tiHF1-00DTQT-08; Wed, 12 Feb 2025 19:13:43 +0100
-Date: Wed, 12 Feb 2025 19:13:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Philipp Stanner <phasta@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Yinggang Gu <guyinggang@loongson.cn>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Philipp Stanner <pstanner@redhat.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] stmmac: Replace deprecated PCI functions
-Message-ID: <885058ae-605b-46e6-989b-3ff52908e6fd@lunn.ch>
-References: <20250212145831.101719-2-phasta@kernel.org>
+	Wed, 12 Feb 2025 18:17:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D8FB8A40D3C;
+	Wed, 12 Feb 2025 18:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D38C4CEDF;
+	Wed, 12 Feb 2025 18:17:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739384259;
+	bh=jU2kPhgyRZAfdjYf2MKVcaAlilzb8sQchUY6HIPoYUM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H87SpPOgrCyGqo44WNZMOiY7ftkh5qONH0YCgttNiuye/7uexi28ExoBCGok2InLh
+	 zNiobaiOZ/eFofd97uUB/D/h/O0wjL/9ACrJaexTBoWg0/iof73FHv440cYpRX7jI0
+	 avnjFg0skeGp0kisV/1SlCUXSUH1kPqwn7Ub0cc1lVDNIqAd8XOjo/FecG2DVnkIjR
+	 GBQD1GRMX8DGjtvcIpK+ztuo4dlbPr7CVuMyncJ9R3IaOh23lWs8SVBRE4BXCsNNxq
+	 8qXJX88jNTmmzkz+qxD1JdWEemHmcsuwOTlSFbgS3lpVVKNo3A3odYulBgInJ89ryF
+	 ZhxR89buP8NkQ==
+Date: Wed, 12 Feb 2025 12:17:38 -0600
+From: Rob Herring <robh@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Christian Daudt <bcm@fixthebug.org>,
+	Sherman Yin <syin@broadcom.com>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	~postmarketos/upstreaming@lists.sr.ht
+Subject: Re: [PATCH 1/7] dt-bindings: pinctrl: Add bindings for BCM21664 pin
+ controller
+Message-ID: <20250212181738.GA4056295-robh@kernel.org>
+References: <20250207-bcm21664-pinctrl-v1-0-e7cfac9b2d3b@gmail.com>
+ <20250207-bcm21664-pinctrl-v1-1-e7cfac9b2d3b@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250212145831.101719-2-phasta@kernel.org>
+In-Reply-To: <20250207-bcm21664-pinctrl-v1-1-e7cfac9b2d3b@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_101405_221355_22717D40 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20250212_101741_217956_EC624FA6 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +83,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->  	/* Get the base address of device */
-> -	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
-> -		if (pci_resource_len(pdev, i) == 0)
-> -			continue;
-> -		ret = pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
-> -		if (ret)
-> -			goto err_disable_device;
-> -		break;
-> -	}
-> -
-> -	memset(&res, 0, sizeof(res));
-> -	res.addr = pcim_iomap_table(pdev)[0];
-> +	res.addr = pcim_iomap_region(pdev, 0, DRIVER_NAME);
+On Fri, Feb 07, 2025 at 09:02:40PM +0100, Artur Weber wrote:
+> Add device tree bindings for the pin controller included in the
+> BCM21664 chip. The bindings are based off brcm,bcm11351-pinctrl.yaml;
+> both chips use the same driver, but have different pins, and the
+> BCM21664 has 6 alt modes instead of 4.
+> 
+> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+> ---
+>  .../bindings/pinctrl/brcm,bcm21664-pinctrl.yaml    | 169 +++++++++++++++++++++
+>  1 file changed, 169 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,bcm21664-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/brcm,bcm21664-pinctrl.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..233bea91b640ffa8480637d7304f661b7a4f5d79
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/brcm,bcm21664-pinctrl.yaml
+> @@ -0,0 +1,169 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/brcm,bcm21664-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Broadcom BCM21664 pin controller
+> +
+> +maintainers:
+> +  - Florian Fainelli <florian.fainelli@broadcom.com>
+> +  - Ray Jui <rjui@broadcom.com>
+> +  - Scott Branden <sbranden@broadcom.com>
+> +
+> +allOf:
+> +  - $ref: pinctrl.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: brcm,bcm21664-pinctrl
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  '-pins$':
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      '-grp[0-9]$':
+> +        type: object
+> +        unevaluatedProperties: false
+> +
+> +        properties:
+> +          pins:
+> +            description:
+> +              Specifies the name(s) of one or more pins to be configured by
+> +              this node.
+> +            items:
+> +              enum: [ adcsyn, batrm, bsc1clk, bsc1dat, camcs0, camcs1, clk32k,
+> +                      clk_cx8, dclk1, dclk4, dclkreq1, dclkreq4, dmic0clk,
+> +                      dmic0dq, dsi0te, gpio00, gpio01, gpio02, gpio03, gpio04,
+> +                      gpio05, gpio06, gpio07, gpio08, gpio09, gpio10, gpio11,
+> +                      gpio12, gpio13, gpio14, gpio15, gpio16, gpio17, gpio18,
+> +                      gpio19, gpio20, gpio21, gpio22, gpio23, gpio24, gpio25,
+> +                      gpio26, gpio27, gpio28, gpio32, gpio33, gpio34, gpio93,
+> +                      gpio94, gps_calreq, gps_hostreq, gps_pablank, gps_tmark,
+> +                      icusbdm, icusbdp, lcdcs0, lcdres, lcdscl, lcdsda, lcdte,
+> +                      mdmgpio00, mdmgpio01, mdmgpio02, mdmgpio03, mdmgpio04,
+> +                      mdmgpio05, mdmgpio06, mdmgpio07, mdmgpio08, mmc0ck,
+> +                      mmc0cmd, mmc0dat0, mmc0dat1, mmc0dat2, mmc0dat3, mmc0dat4,
+> +                      mmc0dat5, mmc0dat6, mmc0dat7, mmc0rst, mmc1ck, mmc1cmd,
+> +                      mmc1dat0, mmc1dat1, mmc1dat2, mmc1dat3, mmc1dat4,
+> +                      mmc1dat5, mmc1dat6, mmc1dat7, mmc1rst, pc1, pc2, pmbscclk,
+> +                      pmbscdat, pmuint, resetn, rfst2g_mtsloten3g,
+> +                      rtxdata2g_txdata3g1, rtxen2g_txdata3g2, rxdata3g0,
+> +                      rxdata3g1, rxdata3g2, sdck, sdcmd, sddat0, sddat1, sddat2,
+> +                      sddat3, simclk, simdat, simdet, simrst, spi0clk, spi0fss,
+> +                      spi0rxd, spi0txd, sri_c, sri_d, sri_e, sspck, sspdi,
+> +                      sspdo, sspsyn, stat1, stat2, swclktck, swdiotms, sysclken,
+> +                      tdi, tdo, testmode, traceclk, tracedt00, tracedt01,
+> +                      tracedt02, tracedt03, tracedt04, tracedt05, tracedt06,
+> +                      tracedt07, tracedt08, tracedt09, tracedt10, tracedt11,
+> +                      tracedt12, tracedt13, tracedt14, tracedt15, trstb,
+> +                      txdata3g0, ubctsn, ubrtsn, ubrx, ubtx ]
+> +
+> +          function:
+> +            description:
+> +              Specifies the pin mux selection.
+> +            enum: [ alt1, alt2, alt3, alt4, alt5, alt6 ]
+> +
+> +          slew-rate:
+> +            description: |
+> +              Meaning depends on configured pin mux:
+> +                bsc*clk/pmbscclk or bsc*dat/pmbscdat:
+> +                  0: Standard (100 kbps) & Fast (400 kbps) mode
+> +                  1: Highspeed (3.4 Mbps) mode
+> +                Otherwise:
+> +                  0: fast slew rate
+> +                  1: normal slew rate
+> +
+> +          bias-disable: true
+> +          bias-pull-up: true
+> +          input-disable: true
+> +          input-enable: true
 
-I don't know too much about PCI, but this change does not look
-obviously correct to me. Maybe the commit message needs expanding to
-explain why the loop can be thrown away? Also, is that BIT(0) actually
-wrong, it should of been BIT(i)? Is that why the loop is pointless and
-can be removed? If so, we should be asking the developer of this code
-what are the implications of the bug. Should the loop be kept?
+With unevaluateProperties, these have no effect.
 
-	Andrew
+> +
+> +        required:
+> +          - pins
+> +
+> +        allOf:
+> +          - $ref: pincfg-node.yaml#
+> +
+> +          # Optional properties for standard pins
+> +          - if:
+> +              properties:
+> +                pins:
+> +                  contains:
+> +                    enum: [ adcsyn, batrm, camcs0, camcs1, clk32k, clk_cx8,
+> +                            dclk1, dclk4, dclkreq1, dclkreq4, dmic0clk, dmic0dq,
+> +                            dsi0te, gpio00, gpio01, gpio02, gpio03, gpio04,
+> +                            gpio05, gpio06, gpio07, gpio08, gpio09, gpio10,
+> +                            gpio11, gpio12, gpio13, gpio14, gpio15, gpio18,
+> +                            gpio19, gpio20, gpio21, gpio22, gpio23, gpio24,
+> +                            gpio25, gpio26, gpio27, gpio28, gpio32, gpio33,
+> +                            gpio34, gpio93, gpio94, gps_calreq, gps_hostreq,
+> +                            gps_pablank, gps_tmark, icusbdm, icusbdp, lcdcs0,
+> +                            lcdres, lcdscl, lcdsda, lcdte, mdmgpio00, mdmgpio01,
+> +                            mdmgpio02, mdmgpio03, mdmgpio04, mdmgpio05,
+> +                            mdmgpio06, mdmgpio07, mdmgpio08, mmc0ck, mmc0cmd,
+> +                            mmc0dat0, mmc0dat1, mmc0dat2, mmc0dat3, mmc0dat4,
+> +                            mmc0dat5, mmc0dat6, mmc0dat7, mmc0rst, mmc1ck,
+> +                            mmc1cmd, mmc1dat0, mmc1dat1, mmc1dat2, mmc1dat3,
+> +                            mmc1dat4, mmc1dat5, mmc1dat6, mmc1dat7, mmc1rst,
+> +                            pc1, pc2, pmuint, resetn, rfst2g_mtsloten3g,
+> +                            rtxdata2g_txdata3g1, rtxen2g_txdata3g2, rxdata3g0,
+> +                            rxdata3g1, rxdata3g2, sdck, sdcmd, sddat0, sddat1,
+> +                            sddat2, sddat3, simclk, simdat, simdet, simrst,
+> +                            spi0clk, spi0fss, spi0rxd, spi0txd, sri_c, sri_d,
+> +                            sri_e, sspck, sspdi, sspdo, sspsyn, stat1, stat2,
+> +                            swclktck, swdiotms, sysclken, tdi, tdo, testmode,
+> +                            traceclk, tracedt00, tracedt01, tracedt02,
+> +                            tracedt03, tracedt04, tracedt05, tracedt06,
+> +                            tracedt07, tracedt08, tracedt09, tracedt10,
+> +                            tracedt11, tracedt12, tracedt13, tracedt14,
+> +                            tracedt15, trstb, txdata3g0, ubctsn, ubrtsn, ubrx,
+> +                            ubtx ]
+> +            then:
+> +              properties:
+> +                drive-strength:
+> +                  enum: [ 2, 4, 6, 8, 10, 12, 14, 16 ]
+
+Not sure this is worth the complexity. And actually, 'drive-strength' 
+will be allowed on the pins not listed here and can have any value.
+
+I would just move this to the main section and drop the if/then. You 
+could list the subset of pins where 'drive-strength' is not valid 
+instead and then put 'drive-strength: false'.
+
+Rob
 
