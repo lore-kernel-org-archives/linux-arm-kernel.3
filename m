@@ -4,93 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FECDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A762FC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k10/aEW9kI4Fw7g7ICooPKDGPu1yctxg0l9c8ZseCIM=; b=ETT4V8mJOQFVOgovSzuKA6rSge
-	kGsX19R4xLcjLzcLfI6/1i+C2cUgR2qJnCnH9Jyo9Gjppx4LhQDLMUo3qCsWxmAx///tEn3SjoyP3
-	3EpDY6xZs4de21KLjPjoSpajA8KkwnIV6Z8pX/fdPFyQXjX1Q9JCCuh8N30XFF1b874eo0dyJU8m3
-	QouzxXlJklUVwNsqAAjncuPuXYskxAwmznofYhFzrUQT3ZuzXPI2IPDoMrfCTttRa5Rs6zskHrnTH
-	86ba+i5F0TDz4hF9OPzmetu/lVUgUxE9sUicMFi6976l+8VMY/Nv4rCVgGLx8tvASj4zTO1DZXZ8d
-	7TFP2qLg==;
+	bh=peYayiw1Pcm7s0g14z10cDJ8yjfXjHJS8Eoterahf1w=; b=pM/wB+NBt/2iXOCC3yaOZEMIVv
+	wNNTdTheLW2QOSdGJl9M55DPnLV7nFExJet7w7KNa4S1NyIGJii5qdMM7YAq3JsWPbND2CJPOzrwB
+	wH3JicTE/7afwXqfGXjfB7+dbTTyHrZ1YbJ7qM0sIP6LlRTLOLOxdw4jkJbLTnPRq7NzGhOedKc04
+	Lqx3LeBgS6t6cZGgCIytbvTZyvkKPrWQ3vuSz36E4pJEvEVN65ub0HJfxHMbuOOGQOasUvVNO95zX
+	sBv5l3wYZ6anfrr2YzlF7Y5nAqlFPr3dtk8qxJQWvEbJjXKRx88cp68elS5nPUUscbD1RbtVVMoVN
+	fD9NNPpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9sq-00000006y6W-0PWg;
-	Wed, 12 Feb 2025 10:22:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ti9uD-00000006yJV-3Cqe;
+	Wed, 12 Feb 2025 10:23:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9aB-00000006uNp-0tIJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 10:03:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739354581;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k10/aEW9kI4Fw7g7ICooPKDGPu1yctxg0l9c8ZseCIM=;
-	b=LpAxixsoQFAouULB0tEMh8JojJ9lnyz1yM59+8qoZt/HaQWuQmetdRyKsCCLIvvfbLAWzR
-	75inhzPB3OY7ywDgjC7MzS6gGFdNJ3lO2QEP0frA5Nka3VpN7YgFqii86vvx04peoe90x/
-	M0F6GYe5P/MmhUGfaH7gcyCQxSDAnKQ=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-296-tNzYVNsoOZ-71hWu7hsWnw-1; Wed, 12 Feb 2025 05:01:14 -0500
-X-MC-Unique: tNzYVNsoOZ-71hWu7hsWnw-1
-X-Mimecast-MFC-AGG-ID: tNzYVNsoOZ-71hWu7hsWnw
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2fa3b466245so9082264a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 02:01:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739354473; x=1739959273;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k10/aEW9kI4Fw7g7ICooPKDGPu1yctxg0l9c8ZseCIM=;
-        b=GXrvS1qD/usMKFLXSq86v5XagdcAPPq+5MhSG+AB+oG5HasOloEZtIHYZeRw4kyetv
-         TzImYFCEmsrLeOpHRwRMKQ43JjlVsBnROf7XJPpAMMg95GucRown88MkYecSA9VBpKk7
-         fn74U7A6XsipnEAp9FuMI94vL8Uf5yMXbLQ2o26AW653bf0kAEreBneQRptwAA0L4N2o
-         xx8vlC1AwzHdNxCaE5tnRJettBjZqLw+VtQLJbhfteuMRRAjpNvDo1dy4VR9jHTwDlyM
-         os5dNX6JGYVYLcw7c8vTP2z0mQDHKrYipcxwfljpEnjWD8WXjK0tl0gfwhr5ZlAKe8gz
-         EBhw==
-X-Forwarded-Encrypted: i=1; AJvYcCU/axxG/fhb9Vt1CYjweyCh8uPKg0e00ra/KEuTA8m3WooYPCStoc8cCGVQ6I8J5IGBJWiPTym/Gcdr0h9ab9Ei@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBMN4cG9Qv8WL/iXe+1VLP7EriQkcB+quDFDdnx6ON74dUYyuG
-	9rF9w1Wz6+iE0n4pcu79tdyFJRqDhCTaVQOxHqd6CSExaipaICocfJGhUbZNxW6Shs6myXq5LXG
-	dpJVD08BAyXJsUe7g+VkFyLWUadeoWesUanEtMZR1tSQlM8WPiITVhutjb9DHvlLO2cgKTpiiRp
-	U0snJkH0ZBvil+P4GyRWvt1B7YwbgMD+HBGt+VEXELVC2IhgA=
-X-Gm-Gg: ASbGnct8CQsNsToKFMEMs4E30fCIXJ8/CQcIL3Q3+xGN5rE9Vr5MVtAIah4wf2xxoBf
-	ZDqnUfUlUXrVItB2Uu035ZjvMxO10ugRTB76m0041lno6amvOPSM7cYCrAyDSB29B94mtMx9l+1
-	Cp22OSREutPc+kcVov9oQ=
-X-Received: by 2002:a17:90b:3a08:b0:2ee:db8a:2a01 with SMTP id 98e67ed59e1d1-2fbf5c6a05amr3885258a91.30.1739354473032;
-        Wed, 12 Feb 2025 02:01:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHapn9jYWGyKoK8rERdyukBRLyP6apd4I5Sp/cSU8BhLWDuyyGc2UAEQe4Lq75zmYbK/CB6jhRtH7HcRUIhM4Q=
-X-Received: by 2002:a17:90b:3a08:b0:2ee:db8a:2a01 with SMTP id
- 98e67ed59e1d1-2fbf5c6a05amr3885222a91.30.1739354472720; Wed, 12 Feb 2025
- 02:01:12 -0800 (PST)
+	id 1ti9aZ-00000006uT4-2ZqY;
+	Wed, 12 Feb 2025 10:03:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7883AA41B5A;
+	Wed, 12 Feb 2025 10:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CF3EC4CEDF;
+	Wed, 12 Feb 2025 10:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739354606;
+	bh=5nIGClIepa3vn8Kx0AIIOulxeLtJZx+xFkAW9HB1GUk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rqHoJraiptilXADmxS1SNDibvf5crLWII9M2ufZI3e4Z2XrwTmbv6qisVhe45f93S
+	 lrwsDxa6P8OJPIhUXN7nRDvl+598EkGzmOq3/dyQeweypW1YNDh9aodQTV0LkXc/Em
+	 wFUmaV3ig8z5Ge6TIdC2UtGOdPtyDV0xTqdGFBOD7vWzzm257JI6/yXi3ccrmWkecp
+	 fx1b3McW81oKzUOUdv8gn2/e+hDKR3ZG5oVd7g10HBhkZKJfZK/tdbYfP6iHd6ytCr
+	 njiagqgMKdmwhh/Rqi9Lu9Gr4m7WMuoHEOUbz4bIkwY2fX5jZYTqMjkx9PFBFoforC
+	 NQT/mujTJuMMw==
+Date: Wed, 12 Feb 2025 11:03:24 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next 0/2] Enable TSO for DSA ports on Airoha EN7581
+ SoC
+Message-ID: <Z6xx7AwglUEt_9J0@lore-desk>
+References: <20250212-airoha-fix-tso-v1-0-1652558a79b4@kernel.org>
 MIME-Version: 1.0
-References: <20250212085853.1357906-1-harshit.m.mogalapalli@oracle.com>
-In-Reply-To: <20250212085853.1357906-1-harshit.m.mogalapalli@oracle.com>
-From: Eric Curtin <ecurtin@redhat.com>
-Date: Wed, 12 Feb 2025 10:00:36 +0000
-X-Gm-Features: AWEUYZn-hP_kxTTtLow8M16VioOce2ZF8-IggRFFQ_uJOeNCeNsgfNjbEVocXew
-Message-ID: <CAOgh=FzNk089VSrLbuAS=UA45dpY3mVFoebE2xg5ZGvTrtmVWg@mail.gmail.com>
-Subject: Re: [PATCH] soc: apple: rtkit: Fix use-after-free in apple_rtkit_crashlog_rx()
-To: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Janne Grunau <j@jannau.net>, Asahi Lina <lina@asahilina.net>, Jens Axboe <axboe@kernel.dk>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dan.carpenter@linaro.org, 
-	kernel-janitors@vger.kernel.org, error27@gmail.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 35pVZf0wHQVxjnYVOERbU_2WWGp5THOEJDRcF5pIxhc_1739354473
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="K9tnhGwKobYJn02N"
+Content-Disposition: inline
+In-Reply-To: <20250212-airoha-fix-tso-v1-0-1652558a79b4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_020303_359648_87EB7F9F 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250212_020327_717460_6D94F4D7 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,61 +78,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2025 at 09:08, Harshit Mogalapalli
-<harshit.m.mogalapalli@oracle.com> wrote:
->
-> This code calls kfree(bfr); and then passes "bfr" to rtk->ops->crashed()
-> which is a use after free.  The ->crashed function pointer is implemented
-> by apple_nvme_rtkit_crashed() and it doesn't use the "bfr" pointer so
-> this doesn't cause a problem.  But it still looks sketchy as can be.
->
-> Fix this by moving kfree() after the last usage of bfr.
->
-> Fixes: c559645f343a ("soc: apple: rtkit: Pass the crashlog to the crashed() callback")
-> Signed-off-by: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
 
-Reviewed-by: Eric Curtin <ecurtin@redhat.com>
+--K9tnhGwKobYJn02N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I wish we used the attribute cleanup stuff by default more in the
-kernel, it would prevent a lot of things like this, it does what we
-want it to do, most of the time.
-
-Although I'm not sure it was introduced yet when the code was written.
-
-Is mise le meas/Regards,
-
-Eric Curtin
-
+> Add missing vlan_features configuration to enable TSO/Scatter Gather for
+> airoha_eth lan ports.
+> Fix checksum configuration for TSO packets with cloned headers.
+>=20
 > ---
-> This is based on static analysis with smatch, only compile tested.
+> Lorenzo Bianconi (2):
+>       net: airoha: Fix TSO support for header cloned skbs
+>       net: airoha: Enable TSO/Scatter Gather for LAN port
+>=20
+>  drivers/net/ethernet/mediatek/airoha_eth.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
 > ---
->  drivers/soc/apple/rtkit.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-> index 4b0783091a92..1ccec7ba640c 100644
-> --- a/drivers/soc/apple/rtkit.c
-> +++ b/drivers/soc/apple/rtkit.c
-> @@ -360,7 +360,6 @@ static void apple_rtkit_crashlog_rx(struct apple_rtkit *rtk, u64 msg)
->                 apple_rtkit_memcpy(rtk, bfr, &rtk->crashlog_buffer, 0,
->                                    rtk->crashlog_buffer.size);
->                 apple_rtkit_crashlog_dump(rtk, bfr, rtk->crashlog_buffer.size);
-> -               kfree(bfr);
->         } else {
->                 dev_err(rtk->dev,
->                         "RTKit: Couldn't allocate crashlog shadow buffer\n");
-> @@ -369,6 +368,8 @@ static void apple_rtkit_crashlog_rx(struct apple_rtkit *rtk, u64 msg)
->         rtk->crashed = true;
->         if (rtk->ops->crashed)
->                 rtk->ops->crashed(rtk->cookie, bfr, rtk->crashlog_buffer.size);
-> +
-> +       kfree(bfr);
->  }
->
->  static void apple_rtkit_ioreport_rx(struct apple_rtkit *rtk, u64 msg)
-> --
-> 2.39.3
->
->
+> base-commit: 4e41231249f4083a095085ff86e317e29313c2c3
+> change-id: 20250211-airoha-fix-tso-44a6f9cb14c0
 
+Hi,
+
+I figured out I am missing a patch in this series, please drop it, I will
+repost. Sorry for the noise.
+
+Regards,
+Lorenzo
+
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+
+--K9tnhGwKobYJn02N
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ6xx6wAKCRA6cBh0uS2t
+rJm3AQDXbXlIcf436GJupafNCG7ANsY51fU/rVvITbR48Yhd4wEA766hQ2x5T3rJ
+s/ksDQ/sB+rrQKgeQJ9wUZu2gGC2FQM=
+=bCuL
+-----END PGP SIGNATURE-----
+
+--K9tnhGwKobYJn02N--
 
