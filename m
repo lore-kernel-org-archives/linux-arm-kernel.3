@@ -4,114 +4,243 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8ADC021A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826A2C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WWVlua/ySHVMeIr/pzJ7+6ofC41BpQURgsGblrbr2lM=; b=SW6pqHh5FYjbXmDkkchZ319wOY
-	8SvcCJ4pH24l57IbSdFyizQstnfC8EnclxIoV/yzHXeInqnVuntSmzM+w9w+tME5ohyvYNlis+d80
-	QrqwUOG3i98EvzWJR0x+8wO0WTjRM8nPS8amd1WSl1xMdUTM1WT6yYwgad9Ou7oX58Ecf7LRZsInJ
-	NjOMFVrGQPZ0k7WzvxGIQ9sWBicMrk9YN4QSDn+C2w/hZaJnnfmiBIMQ/fu/0uGyJgAnfjeXIPbhd
-	VtIxIJVV/0DzEEGOnuzPMFAGgWIKHYuMsJagUN46tvl144Ixfg+27YfcgKf/eZG0rQVvBqAIYil+x
-	qeoNr+VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2/D4REZg/vZys6vAoYvItBGIfiRfDS0UyGfk8fk3G/E=; b=gY2hErXZF3MdYQBN324NIn5Tvh
+	+makW5x8wIT1CwXPIbspHVbS2yvralNw+IwwDtqV7W3NE1/d+XFhzvicXNJd7GnB7WGohVCxseksm
+	k8vsFwKWGxIYFNX8OV1kW/lyHU5ozOGSbeJ/eDzX/zDSGcQruXjLqXEffPM7UA91sC/0ZuoLAy0Mh
+	KJrSY9CwQ3+DZDOMhVDLgNHAwi8hs8Rb7GfN81Wua09gWtzvP+bb1HJ9RwrZFaL7YVR1dTClcgKDk
+	h8LUFLA1LFI/QtYXKKVS1i7gOivFKh7J39FV9rBzkDa1b/BETY6/3sIhf4AZSB4Z9+fnStlPBwfdO
+	s/CZcA4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAFF-000000072AU-0iC1;
-	Wed, 12 Feb 2025 10:45:29 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tiAGe-000000072c0-1eAI;
+	Wed, 12 Feb 2025 10:46:56 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9pP-00000006xSr-1ZVu;
-	Wed, 12 Feb 2025 10:18:48 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ab771575040so129834666b.1;
-        Wed, 12 Feb 2025 02:18:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739355525; x=1739960325; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WWVlua/ySHVMeIr/pzJ7+6ofC41BpQURgsGblrbr2lM=;
-        b=mpFjEca4FP/tgzJTpkMiVCzbsSvS1kT1YVyPJ/aIPuQdSIgNOox2lZo4dwb3J/b0Il
-         05zF9bNM7ig1uvTK/RQAUuVhduZM5okgvHUKIuI9AhUyBG2/eN+SGjPIQXIRozfCQ0Hc
-         pwznfcY9+IXGVj/+l+v9I7BJjGTI5meoCUr5yzZE8Phnirwth6MZL1k0skuxxGnJnwjx
-         KBEVBmwLpFOzRwPIfO9foysR/qO4eDXSk1M9Lzz1U5dZzYzB4B0pBYWQmNxz1ANfieIC
-         B06TH1GKhPHcz/EiHiTqzAxUHo7cxNwblO3QyfhZ6hBnbmzIAdkFwFhXhNWcrWBy67eM
-         cDgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739355525; x=1739960325;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WWVlua/ySHVMeIr/pzJ7+6ofC41BpQURgsGblrbr2lM=;
-        b=dDhjmUyNNPvfEZz/zuwDtc4ezugEMzwXrA1xhgMlRcoabQQyqo3yZqJjcQYA5smrN6
-         oeNGqoAq3458i/Vah4sfElA7L23y1hvOteYsPYHbKp7TvfcRjCIMOnbJGeQCOP9ehZII
-         8z7LLHhgNPqyc7aoFEJctyoGHvHe38/jblvmcG3S2F9VfWI5T4koYO7JZigfON6pzSoZ
-         GWZN9iqGzLuCOy86gXdLEcrs4a9wrRtJtO9pxzKMOlGWzXZLgJMycGq7TU6DpDcKXlPD
-         a0GVFuq+2mwdtnyEBrgMOrVdPOqBoiTlxA71+uEzxPYuckkdqE5uwyBU5a/VvDLCPORx
-         nhIA==
-X-Forwarded-Encrypted: i=1; AJvYcCU231MAYOjlus8gl2vJyStB26Sra2hGRvF/wuH2K+EF7ZL6GHNZReZfs95SLzVUy0/H3+zKRaisGlXr@lists.infradead.org, AJvYcCUD9sTMF486UV0LvIpDCVOvAidtz/Q5IRJpm/TczYEKDr2KT/SfmfkpN2ZGHUbTTl4viQIb9EcUMl6/7rkRRDgo@lists.infradead.org, AJvYcCVhZFEoI6m44+ePcCzVAmqXrAHWV5PBTb/Y9H3apMmi3vpb/q4OpOhta8Gr4Ot2lm3CL+GlvQiVAfA0fwA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKvwIxvLoIRc3ZU8mLusgMgWIeEolUkYyn+fLvwJItp7YdPgaz
-	g1opgOtktyxpFJNYa/7ixl+wjepmb6WX7I+b+If9yarS1fzi2kwv
-X-Gm-Gg: ASbGncvGjKsiXskq5EVExE7ACCxuLbPSNC3dsoTG4mkGSw9pK7GGTgVv1bHngtDQGNO
-	Dp0A6WW/CTIV4T0CjUc0qC+Acjj9Pj/B1YCl/JElhC5zonCnGTNUouEHWwkM+1ZEtgJU4dWBw7O
-	ysOVJgemmaGH3g6iRNBKKGA57Pygii5P/YgNXQ6cW701Y3IUH77LuKlpgcA+0Kj1ClPNc7e9IsP
-	3FEi4EthF5vvk+gKlSi4Z/Ne7xacQj+nKGKEiZMn42zrYfOGGVC2NoDbclIj7z9Xer+HAfxERw+
-	DLkQbC0c9l8C9G4C51nOHOFvmUNdcQXbLC7D4sJtephVy58o11LVwA==
-X-Google-Smtp-Source: AGHT+IHXhHYBhp/jwxugJOxSy8fbHAg4RaSJF+XHK6rh7pamhtjknOPXD7Wlf+ulQuEN06XXx7/uPg==
-X-Received: by 2002:a17:907:2cc5:b0:ab7:d1d0:1a84 with SMTP id a640c23a62f3a-ab7f2e8a301mr221194166b.4.1739355525335;
-        Wed, 12 Feb 2025 02:18:45 -0800 (PST)
-Received: from smtpclient.apple (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7d6acd8f1sm381126966b.50.2025.02.12.02.18.43
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 Feb 2025 02:18:44 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51\))
-Subject: Re: [PATCH v2 03/10] dt-bindings: clock: sunxi-ng: add compatibles
- for V853
-From: =?utf-8?B?QW5kcsOhcyBTemVtesWR?= <szemzo.andras@gmail.com>
-In-Reply-To: <20250211210215.GA1160917-robh@kernel.org>
-Date: Wed, 12 Feb 2025 11:18:32 +0100
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1tiA07-00000006zJY-3WGX;
+	Wed, 12 Feb 2025 10:29:54 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=IXx1opLOjjiKNWNAApBWF/hlYnH/loBfFFUFgmxSPFEYvVGFpGZcf5AHN/BOwqWlRbwzY0qEGAiuwKQqPIsWHltTe3D20eHthefR3v6mEQ7HArL+Lm3PAk/Izk4ttvt03I41w52DmdFXuGfx3DhsHxKihoP4iQQFK90E8ric13SzISEmVRLtoYQiAzIHfOY28uk7PrGtiwQtAXaj8fNeftyvK1ePfNRB/Cf+ww57xSUwHroiOfeWfcYJOeVPiP1TTVDdf2F2Ybc2b0xVl+2bZmbalIJOyUaqSTELVPVxgDKf8ZBY8ksf4XkHqm5H+6DiqtvLMsQeD7dRWa9cJHUzhg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2/D4REZg/vZys6vAoYvItBGIfiRfDS0UyGfk8fk3G/E=;
+ b=gw36fwhynt4D/iURBlBA+5gf5dReoTlgnXClouwLD9t75h6TK4v3+Wssgm2VYiePIRJBeSP2xQdbsjV3ues8TKbHtrKA5S84WSillgzrnDOy8XB8XJnCFGGbeavfaAyTGZSZ2MnBLb9T/+v6mBKIEghU3UjBhkUjDKd92eCFMVLLz3/xc27p6AAY5q7UxJLewpk4b50L5/2ryvX9mzkxuHoKB+miU4E1iL07GiiinsnBeBS7Fr/UrnavJGKZ/AWMfa2rYMU+xE+2wsWq8E+YP/OV30Z4U0AT93v8OafQ4tO0wVJvzvJmJYaZnMJwo8aBdkkcDes8RJHQ99hdesWLCw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2/D4REZg/vZys6vAoYvItBGIfiRfDS0UyGfk8fk3G/E=;
+ b=YX062vrnQFUks4o3xlKfkZkd5mXP4dpNnlKNmPgn0R8AtJr3I3Rq0da1e0+1waV3tt3fdE1kU2L9ICCUKugZIPjA2LQoCmx7GmsWrTe+P4t/ktE6Nt3IVjH1Li6wmg6RfYPoxlRZx9fpVKGipy4NurzeFARJxzSeyFTeZXzy/+E=
+Received: from DU2P250CA0019.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:231::24)
+ by PA4PR08MB6224.eurprd08.prod.outlook.com (2603:10a6:102:e7::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.13; Wed, 12 Feb
+ 2025 10:29:47 +0000
+Received: from DB1PEPF000509E9.eurprd03.prod.outlook.com
+ (2603:10a6:10:231:cafe::6a) by DU2P250CA0019.outlook.office365.com
+ (2603:10a6:10:231::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.13 via Frontend Transport; Wed,
+ 12 Feb 2025 10:29:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
+ client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
+ pr=C
+Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
+ DB1PEPF000509E9.mail.protection.outlook.com (10.167.242.59) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.10
+ via Frontend Transport; Wed, 12 Feb 2025 10:29:46 +0000
+Received: ("Tessian outbound 4fd325905615:v567"); Wed, 12 Feb 2025 10:29:44 +0000
+X-CheckRecipientChecked: true
+X-CR-MTA-CID: 4f356090565129dd
+X-TessianGatewayMetadata: jpiB1WD/lQwSfYnk5y/KCz1pJF5Fr91gON+p7GZChpjeSvVsH4AB5zFjW5hD8rYO9XTjK4K22cSh+4f0HSQJpcX6RTBXA6skxi4CyWCVNnTvZIhJnsAT+/TxKaolmiwhsI+IQV4ao/3SZSgQrxWmGVhGwmawi4WVSon2Mcmn0F0=
+X-CR-MTA-TID: 64aa7808
+Received: from L9a14846fdea7.2
+	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 60517810-50C4-4AF0-9EFF-E33B587F7AF7.1;
+	Wed, 12 Feb 2025 10:29:36 +0000
+Received: from DU2PR03CU002.outbound.protection.outlook.com
+    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id L9a14846fdea7.2
+    (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+    Wed, 12 Feb 2025 10:29:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DVYmfOTn7TMXztZ17ykn/yhjZapJ+SxDWXMUGK52XQpHL46zXZXJuBv4Iu11DoYf4g/s8hUcep3yDE7R5zoUEwXSIR0FKKB2ubIPk1Xj+U8qSW7NHl2w+VUvEddqhESE3PVz3e6o9QRER0wpiBZiD+DRnYHhOSENMaL9elUx2gg8ZRRTth3qjvJ0tLtabYixf0Xp27HbdeG18a1ClBhNeMlhHVjasTejrjnDe49WoaJoKS3WhCHH5vaQivduSyl++favGOR6juM4OZ8INC4PEsNRQ+jq0GBAnrR4gb3VrIsCcuWzRW6hUh22oJ91zsSv0rxUYLo35k+3IjkZwcVQtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2/D4REZg/vZys6vAoYvItBGIfiRfDS0UyGfk8fk3G/E=;
+ b=fPwVnmxcb88HdIPirAczjghfE8RDkUtFnCozsXatLc7Y3HQ3NT36JEtFoI79yFR+QUtvh8ZQUI55jb1HUyG18gUcLVpIUZAl++b86qgj4e4lFUXC6LZFSlcmMuEpN/DQRXPCWTH40YqasJgRVCT93trXysrSUbRk25B0ivY+HrpPzDqi3rqtTf/vdy/03/8CDucSh44TQY15VR3nhFMKumGPnSN3/aQdDqSZmBn/Rew06UDn6pzXUlh6J+8gw/25UD8miqiRXdVAuU4NdwjNmODDeSffPUz3xNAtPFRwnRT3o6BjBwip0B8ilPzKexcqO+RJH5eM79O4aRP/vFL+tw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2/D4REZg/vZys6vAoYvItBGIfiRfDS0UyGfk8fk3G/E=;
+ b=YX062vrnQFUks4o3xlKfkZkd5mXP4dpNnlKNmPgn0R8AtJr3I3Rq0da1e0+1waV3tt3fdE1kU2L9ICCUKugZIPjA2LQoCmx7GmsWrTe+P4t/ktE6Nt3IVjH1Li6wmg6RfYPoxlRZx9fpVKGipy4NurzeFARJxzSeyFTeZXzy/+E=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AS4PR08MB7925.eurprd08.prod.outlook.com (2603:10a6:20b:574::8)
+ by DB8PR08MB5515.eurprd08.prod.outlook.com (2603:10a6:10:11f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.18; Wed, 12 Feb
+ 2025 10:29:35 +0000
+Received: from AS4PR08MB7925.eurprd08.prod.outlook.com
+ ([fe80::8ef3:b027:e22f:1ea7]) by AS4PR08MB7925.eurprd08.prod.outlook.com
+ ([fe80::8ef3:b027:e22f:1ea7%4]) with mapi id 15.20.8445.011; Wed, 12 Feb 2025
+ 10:29:35 +0000
+Message-ID: <8ee8e684-0164-4e70-b42e-3827c7885685@arm.com>
+Date: Wed, 12 Feb 2025 10:29:32 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/5] dt-bindings: dma: Add CMA Heap bindings
+Content-Language: en-GB
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Nicolas Dufresne <nicolas@ndufresne.ca>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Ripard <mripard@kernel.org>,
- Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org,
- linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <6B18CA59-65CE-4C7A-A9A6-769157BB73A9@gmail.com>
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
- <20250205125225.1152849-4-szemzo.andras@gmail.com>
- <20250211210215.GA1160917-robh@kernel.org>
-To: Rob Herring <robh@kernel.org>
-X-Mailer: Apple Mail (2.3776.700.51)
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T . J . Mercier" <tjmercier@google.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Yong Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, nd@arm.com,
+ Akash Goel <akash.goel@arm.com>
+References: <cover.1738228114.git.florent.tomasin@arm.com>
+ <771534be8dfa2a3bdc3876502752f518224b9298.1738228114.git.florent.tomasin@arm.com>
+ <ats2unrml5a7vbpdrqrzowodrsfj44bnubpbujg2igk3imeklx@nrpmg5oeq3gz>
+ <be8e6b9f-c3c6-41d1-af9c-3dcd102f0fe3@arm.com>
+ <b02711c901e8acf2bc47926919de7673a0cb0b98.camel@ndufresne.ca>
+ <fae8df2a-3e47-4266-aace-392c5f37581f@arm.com>
+ <20250212-naughty-chipmunk-of-potency-7e0ced@houat>
+From: Florent Tomasin <florent.tomasin@arm.com>
+In-Reply-To: <20250212-naughty-chipmunk-of-potency-7e0ced@houat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LNXP265CA0085.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:76::25) To AS4PR08MB7925.eurprd08.prod.outlook.com
+ (2603:10a6:20b:574::8)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AS4PR08MB7925:EE_|DB8PR08MB5515:EE_|DB1PEPF000509E9:EE_|PA4PR08MB6224:EE_
+X-MS-Office365-Filtering-Correlation-Id: bdf52c59-865d-48ed-634b-08dd4b502c4c
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?SXVFNEZFOXZ4bWRMT01UWGdVV3ZreW0wcWJyUW9kaTNqRmU2N0hjYk9vSW9n?=
+ =?utf-8?B?US9nQzBLWmlkalh2Zyt3UWN2d0RucG1YMlBQL2ZIL25BWTEwL0NVUWpVTFQv?=
+ =?utf-8?B?eURnQXRNZlQ5b2ZTWU5QdjNRQWxic3lKWFpkd1Vyc3ZlS2h3elErdi92eWty?=
+ =?utf-8?B?YlBvTk1hWnhUTG1ZU1p4SnVoVHBUU0dLR3pCVElvYS9VYUw4Y3ZVWmhPc25t?=
+ =?utf-8?B?dGFmZlpPT3ltVGNjcmlRam14Mm1aNFlRSWlqeHAxam05dVVKV21qSnAzdTFO?=
+ =?utf-8?B?a3d3blF5UCtoQ25LakZ0RHhOdUxZd2tmRENGdlhQdEtKdUVlemo1R1FnZ3dx?=
+ =?utf-8?B?SXlMWkJmOHhlNjJ6Rk04Z2ZNV25Fc04yTCtFSWlnT0ZOb2JaMnk3bTlMeGtJ?=
+ =?utf-8?B?V0MzN3FTN0FtZWVjZXJ6R0dTL2dleXNsYUpjRmc1TExxVDZyMFV6TDJod0dm?=
+ =?utf-8?B?TjRIZDZHQUpDaXRZcDZVblVCZUxUT1oxY2RLY0RLSVRBeWRFQnpKOFZtVEFH?=
+ =?utf-8?B?T2JuZDJrdjNGaFFBeDhhMW1FZGtGOHZERUNGbk5SWmZmTWw4TE5KejE0YURI?=
+ =?utf-8?B?dUJ6NTE3b0poT0Fybmwrak4rNmpLc2NnRDl0ZFIvbmhhVzFGbC9GdnVDUTJ6?=
+ =?utf-8?B?UjB6cnNOVFJUQytjbzZzM1J2TjRJeEJ1eVZoeDBWOFYwVS93bDU3Zk1pcXdM?=
+ =?utf-8?B?NjNRdUw3d091SHlMVUl3cmhuTExCVXpNSGNuZGhDTFkxZkJ4emo5TGo3MElU?=
+ =?utf-8?B?YkN3QWZDcm5jdWI2OXh0b3FpOGFwalFMeE5TVXg2dElnR0JTRCtRbnV0d2x3?=
+ =?utf-8?B?RUlrNHFqUkdJTVljVmhYcnNMaEFWL3A2UEtJV25ERnZQellMNWFuMllKY0Q0?=
+ =?utf-8?B?V1NwVkRESTVjb1IxL3R5MTNtMTRMeFA4S09aWHhaeW1jeFBFMGdUUmFMbitT?=
+ =?utf-8?B?TjhBQkE5WnUrSjFNUWNIV1JoZ3JZbGplSUwxMllPM0FmUkJEM2ZFMnA0cGxi?=
+ =?utf-8?B?bkxwOEk5NkV3WlBFRkN3dm1wWW54VS9vdVc3WXRGaEdBY096WTlCamU5aitC?=
+ =?utf-8?B?U0pMbkhsVUF1NFJQV2MwZmlmZ1M3YU9sUFVtMitBZDVlaC9qdS9USTJFdGli?=
+ =?utf-8?B?NTZQWFQ3THRYd1FKRDJBUlhvWHhuQmE5bTJZM08rK0gycjJsajFzaWJJR1VG?=
+ =?utf-8?B?bVRPVlRBT2k3ejBsUkd3b1VQNnZDay9XU2lSZkg4bHhnNWx6ZTZzekY4Y3dL?=
+ =?utf-8?B?ODM0ajdhMnRIbmdjMCtPaC8yOTdVaitJS1BHV1R1RGc4bm5menJXNzdUaDZZ?=
+ =?utf-8?B?bWUxZW1UU1VIR1oxTTFFZHFaV2dPcERnSUFQTWQ0QVVUVXNGNG53dHFOSTlN?=
+ =?utf-8?B?cUNwenBPZnZyUm9KZEJCT0VlRUdzamFqZnMrdjdIMUR6Z2lmSzFCdzlRR2h0?=
+ =?utf-8?B?U0JSQU52MUNKMDNlN3dXbTRxNlkrdkRqbzllQStQdzdKMW9uWFZmbjdTRURQ?=
+ =?utf-8?B?YkdvSUlMTm5kNXZCeWg3a0VBS0lqSUY0eTNFTm42UzhEZjVRMUVwZ1JML1ZH?=
+ =?utf-8?B?QzFGNFNiYXNQOHBrMmNLWFBJbUZQMVJnaU9nUjVsSDRhZU1kQWZoTnBncng1?=
+ =?utf-8?B?dGo0andjbkVsK2FUMERSVWQ5OHhpejJEY1pIRkEzOVVwQTI3eS9iTkEwLzh1?=
+ =?utf-8?B?NTdBRm9UY1JWdnJOU2ZBVXl5N2xRSGplYXh4N1J0Y0J2TmllR1Z4WGd4V2I5?=
+ =?utf-8?B?cHhrMktMY2tuajRDV01CdnpBc05wWlhVT2RXYTFlang5TGVVTUo0NXR0WnRK?=
+ =?utf-8?B?eWt3U1pTZjlyMkFhY1JEL1Y4M3M0TE5SOE9Wd24vT1JpODFWSVB3U2FjcExP?=
+ =?utf-8?Q?54ItRiX0qWqQ+?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR08MB7925.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR08MB5515
+Original-Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+X-EOPAttributedMessage: 0
+X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:20b:574::8];domain=AS4PR08MB7925.eurprd08.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509E9.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: cce96afc-2fc2-41a4-d27f-08dd4b502509
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|35042699022|82310400026|1800799024|14060799003|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NHo2djNpYmdYQjAwMlZUbkRMR3lFMXFkZjU3SVJqcE5MTTMxaEJqcVJLZ2VL?=
+ =?utf-8?B?OVR0dkdrSHZyY1JuRHdKNkNNUVhiMWE2eTQ3b0hVbHFzRjc1UGoxK1hUUUUv?=
+ =?utf-8?B?S2ZRVXFuSnpnSlVjMjRsaG9sczRWNmhpcDZnejI4RVlIcDcyOWZjVDlXNW9I?=
+ =?utf-8?B?VFVOajZweW9wQUZuMzlBMVFFOUhJQ09za3hDNHF1VjRnZSt0SFJRNmFNdklP?=
+ =?utf-8?B?WC9tbDA1QkVPWEF4Si9MRS9DL1pMWFIwNlp0WC9wYllIRFhCV283aS8rTHRT?=
+ =?utf-8?B?ajVUNzFWeVNlcGdQNlBwTmJ0UWV3dEVZM2pxMVpEWmdJY2p4M3VJN0d6c2E5?=
+ =?utf-8?B?NGlRNTFqRGxrc2dhYXVEVmJQYUxtNFlxRjJMVlJ1TUlzU2s3MjNIWEtPY0Mx?=
+ =?utf-8?B?b09SRU1najhnZHBneEhKb05WQTh3d05pZXlkV1ZJazRmdGpSZVNodnNabW04?=
+ =?utf-8?B?Z01BbXROdEdNRFJFbC8rUTFwYW5rNmI0SzhzM25QUGp1eXZWTHZ6cTVIUm5I?=
+ =?utf-8?B?bHRTdTJrOEpBbHZrWWJmV3ErRTlBM3plRlpyS21rZm9VaCtLcU4wU0FvYSto?=
+ =?utf-8?B?MVAzOGJnMUFxbjFBZmpKV2p2Rm41VS93aGg3aDI4dUtQa0laSlZIb1l1RWlZ?=
+ =?utf-8?B?bVl2WncwZDU4VGN4R281TzFxMWV2MnFycGRLamN4RGkvZE0wU1diQTNwU29t?=
+ =?utf-8?B?akN1WFVJQ1BOTk9rbkJSVDEza2pKVmZVN1crd2liUXF6TDdLRkNYYzJ0c2ti?=
+ =?utf-8?B?UUJ1RE5YeFo3NnhVMnNMNWF1UEs4d0Q3UUFMZUJncHJRRFhHY3J1V1gwaStj?=
+ =?utf-8?B?TVZ6b0dGNVM2RUJMdGMwUzhkMUw2RzVrYTRFSlR3aHN6QU4ybGY5WmZtTnp5?=
+ =?utf-8?B?WUwyRll2SVR6U211cDBpVjlRQ3p4T2paVlQzbTltTEFtSDhXdVpyV1JJV2Rv?=
+ =?utf-8?B?d1ZDS05hZlV1aVpMdDNkVEtoMUhET0dUdjN3djNNL3pxYUV2R0tRMUtxU2Zs?=
+ =?utf-8?B?UkJyYlhOM0xES1IydlU5SlVWZXQ2YTAxL2toUzIyUFhpMFJ6d3d4TUZJTHQ5?=
+ =?utf-8?B?Ky9pUHlZOTgweUdTVkF0aFNyYVRSazQrN25aK0VNWU1IU2IxbUk3OXVXTVFG?=
+ =?utf-8?B?Q1JpUG55cHpVN0d0Q0orQS9FK2FJdzdTS1ZDbGVIQlY0VzNabjhaRHBiNE1x?=
+ =?utf-8?B?MzlxdG5Ld1lJT3BoL0VvamxLSTllQTZBQkxZRjZsanBnby94SGNvMHR4WmVF?=
+ =?utf-8?B?cUVVUUhTaDBkdWFnR3cyYjAveGlMVmlNNmQzMlBIc2Y4WmdQV3dWOHFYaE0w?=
+ =?utf-8?B?MEZGWElFWGtkTjF2ZVptc2JXT0xpditEdjhHaThMNXM0WlFyV2ZMRkp2anl4?=
+ =?utf-8?B?cWdiSlhpV1o5OU1YTWRYend3OHhmV3NwZHNDMm5ydit4bEY3VndDSkRnZ2Zk?=
+ =?utf-8?B?U24rWEVySHMzbGF5V3JzOTBTaUE1V0NVc0R2N0dxcE1teWFoZi9zMktoUmtV?=
+ =?utf-8?B?MjZUQnBOS29nVDJvYnRsK29GMGpvVERNNXdwY2dTc0FOUmIwTUJldDFzOEd4?=
+ =?utf-8?B?c3FJekJ4S0loUVJxdnlDeDZ2ekkvWTRMczEwbUFJYVA0RXAraStJRXN2c2RU?=
+ =?utf-8?B?Y1JyNGNLRnhwYjZINVFVTndPeFhHcjhDZVB1UnAwNXZwRHhlaVFHWUdsQU9l?=
+ =?utf-8?B?c1VRR1BOYnpoVkV3VnNibGl4SS9aS1o1K240ejhqQTJ2anFGK3ZXMzhvMEVu?=
+ =?utf-8?B?RDd1MW1sQUQwbjNLUGZGTXpNNVI4SXp1YjRXcDlHMVhYNUYrSlFrMmNwcFhK?=
+ =?utf-8?B?bnFwUzQ3dElSTk9qQ21EUXdvZFdtbFhJU0FYNGtkVzFtWjdxVWpMRGNHdmRo?=
+ =?utf-8?B?SGFVanpzelM1TVQ0c0N3ZkJ5bEFWQ1g3OXZaUkFib0RhSVNzanNwa2F6eE1H?=
+ =?utf-8?B?YzNuSTlib3ZVaGl5MGRmeGFEQU92MWl2a3BVSWRONTJ2ZmhUbDBpcC9SSVBD?=
+ =?utf-8?Q?YcFs6RL9I5+otY7Q8N5DTdTnE1aOkI=3D?=
+X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:64aa7808-outbound-1.mta.getcheckrecipient.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(35042699022)(82310400026)(1800799024)(14060799003)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 10:29:46.6961
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bdf52c59-865d-48ed-634b-08dd4b502c4c
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E9.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_021847_460353_83B41F2F 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250212_022952_135826_704B0B46 
+X-CRM114-Status: UNSURE (   5.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,314 +255,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your review, I=E2=80=99ll change and explain it better.
 
-> On 11 Feb 2025, at 22:02, Rob Herring <robh@kernel.org> wrote:
->=20
-> On Wed, Feb 05, 2025 at 01:52:18PM +0100, Andras Szemzo wrote:
->> V853 has 2 CCUs, add compatible strings for it.
->>=20
->> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
->> ---
->> .../clock/allwinner,sun4i-a10-ccu.yaml        |   3 +
->> .../clock/allwinner,sun8i-v853-ccu.h          | 132 =
-++++++++++++++++++
->> .../clock/allwinner,sun8i-v853-r-ccu.h        |  16 +++
->> .../reset/allwinner,sun8i-v853-ccu.h          |  60 ++++++++
->> .../reset/allwinner,sun8i-v853-r-ccu.h        |  14 ++
->> 5 files changed, 225 insertions(+)
->> create mode 100644 =
-include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
->> create mode 100644 =
-include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
->> create mode 100644 =
-include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
->> create mode 100644 =
-include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
->>=20
->> diff --git =
-a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml =
-b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
->> index 1690b9d99c3d..9369d62284ed 100644
->> --- =
-a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
->> +++ =
-b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
->> @@ -33,6 +33,8 @@ properties:
->>       - allwinner,sun8i-r40-ccu
->>       - allwinner,sun8i-v3-ccu
->>       - allwinner,sun8i-v3s-ccu
->> +      - allwinner,sun8i-v853-ccu
->> +      - allwinner,sun8i-v853-r-ccu
->=20
-> Please explain the difference between these in the commit message.
->=20
->>       - allwinner,sun9i-a80-ccu
->>       - allwinner,sun20i-d1-ccu
->>       - allwinner,sun20i-d1-r-ccu
->> @@ -103,6 +105,7 @@ else:
->>       compatible:
->>         enum:
->>           - allwinner,sun20i-d1-ccu
->> +          - allwinner,sun8i-v853-ccu
->>           - allwinner,sun50i-a100-ccu
->>           - allwinner,sun50i-h6-ccu
->>           - allwinner,sun50i-h616-ccu
->> diff --git a/include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h =
-b/include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
->> new file mode 100644
->> index 000000000000..cf56c168e1cd
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
->> @@ -0,0 +1,132 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->=20
-> Dual license.
->=20
->> +/*
->> + * Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com.com>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_CLK_ALLWINNER_SUN8I_V85X_CCU_H_
->> +#define _DT_BINDINGS_CLK_ALLWINNER_SUN8I_V85X_CCU_H_
->> +
->> +#define CLK_OSC12M		0
->> +#define CLK_PLL_CPU		1
->> +#define CLK_PLL_DDR		2
->> +#define CLK_PLL_PERIPH_4X	3
->> +#define CLK_PLL_PERIPH_2X	4
->> +#define CLK_PLL_PERIPH_800M	5
->> +#define CLK_PLL_PERIPH_480M	6
->> +#define CLK_PLL_PERIPH_600M	7
->> +#define CLK_PLL_PERIPH_400M	8
->> +#define CLK_PLL_PERIPH_300M	9
->> +#define CLK_PLL_PERIPH_200M	10
->> +#define CLK_PLL_PERIPH_160M	11
->> +#define CLK_PLL_PERIPH_150M	12
->> +#define CLK_PLL_VIDEO_4X	13
->> +#define CLK_PLL_VIDEO_2X	14
->> +#define CLK_PLL_VIDEO_1X	15
->> +#define CLK_PLL_CSI_4X		16
->> +#define CLK_PLL_AUDIO_DIV2	17
->> +#define CLK_PLL_AUDIO_DIV5	18
->> +#define CLK_PLL_AUDIO_4X	19
->> +#define CLK_PLL_AUDIO_1X	20
->> +#define CLK_PLL_NPU_4X		21
->> +#define CLK_CPU			22
->> +#define CLK_CPU_AXI		23
->> +#define CLK_CPU_APB		24
->> +#define CLK_AHB			25
->> +#define CLK_APB0		26
->> +#define CLK_APB1		27
->> +#define CLK_MBUS		28
->> +#define CLK_DE			29
->> +#define CLK_BUS_DE		30
->> +#define CLK_G2D			31
->> +#define CLK_BUS_G2D		32
->> +#define CLK_CE			33
->> +#define CLK_BUS_CE		34
->> +#define CLK_VE			35
->> +#define CLK_BUS_VE		36
->> +#define CLK_NPU			37
->> +#define CLK_BUS_NPU		38
->> +#define CLK_BUS_DMA		39
->> +#define CLK_BUS_MSGBOX0		40
->> +#define CLK_BUS_MSGBOX1		41
->> +#define CLK_BUS_SPINLOCK	42
->> +#define CLK_BUS_HSTIMER		43
->> +#define CLK_AVS			44
->> +#define CLK_BUS_DBG		45
->> +#define CLK_BUS_PWM		46
->> +#define CLK_BUS_IOMMU		47
->> +#define CLK_DRAM		48
->> +#define CLK_MBUS_DMA		49
->> +#define CLK_MBUS_VE		50
->> +#define CLK_MBUS_CE		51
->> +#define CLK_MBUS_CSI		52
->> +#define CLK_MBUS_ISP		53
->> +#define CLK_MBUS_G2D		54
->> +#define CLK_BUS_DRAM		55
->> +#define CLK_MMC0		56
->> +#define CLK_MMC1		57
->> +#define CLK_MMC2		58
->> +#define CLK_BUS_MMC0		59
->> +#define CLK_BUS_MMC1		60
->> +#define CLK_BUS_MMC2		61
->> +#define CLK_BUS_UART0		62
->> +#define CLK_BUS_UART1		63
->> +#define CLK_BUS_UART2		64
->> +#define CLK_BUS_UART3		65
->> +#define CLK_BUS_I2C0		66
->> +#define CLK_BUS_I2C1		67
->> +#define CLK_BUS_I2C2		68
->> +#define CLK_BUS_I2C3		69
->> +#define CLK_BUS_I2C4		70
->> +#define CLK_SPI0		71
->> +#define CLK_SPI1		72
->> +#define CLK_SPI2		73
->> +#define CLK_SPI3		74
->> +#define CLK_BUS_SPI0		75
->> +#define CLK_BUS_SPI1		76
->> +#define CLK_BUS_SPI2		77
->> +#define CLK_BUS_SPI3		78
->> +#define CLK_SPIF		79
->> +#define CLK_BUS_SPIF		80
->> +#define CLK_EMAC_25M		81
->> +#define CLK_BUS_EMAC		82
->> +#define CLK_BUS_GPADC		83
->> +#define CLK_BUS_THS		84
->> +#define CLK_I2S0		85
->> +#define CLK_I2S1		86
->> +#define CLK_BUS_I2S0		87
->> +#define CLK_BUS_I2S1		88
->> +#define CLK_DMIC		89
->> +#define CLK_BUS_DMIC		90
->> +#define CLK_AUDIO_CODEC_DAC	91
->> +#define CLK_AUDIO_CODEC_ADC	92
->> +#define CLK_BUS_AUDIO_CODEC	93
->> +#define CLK_USB_OHCI		94
->> +#define CLK_BUS_OHCI		95
->> +#define CLK_BUS_EHCI		96
->> +#define CLK_BUS_OTG		97
->> +#define CLK_BUS_DPSS_TOP	98
->> +#define CLK_MIPI_DSI		99
->> +#define CLK_BUS_MIPI_DSI	100
->> +#define CLK_TCON_LCD		101
->> +#define CLK_BUS_TCON_LCD	102
->> +#define CLK_CSI_TOP		103
->> +#define CLK_CSI_MCLK0		104
->> +#define CLK_CSI_MCLK1		105
->> +#define CLK_CSI_MCLK2		106
->> +#define CLK_BUS_CSI		107
->> +#define CLK_BUS_WIEGAND		108
->> +#define CLK_RISCV		109
->> +#define CLK_RISCV_AXI		110
->> +#define CLK_RISCV_CORE_GATE	111
->> +#define CLK_RISCV_CFG_GATE	112
->> +#define CLK_FANOUT_24M		113
->> +#define CLK_FANOUT_12M		114
->> +#define CLK_FANOUT_16M		115
->> +#define CLK_FANOUT_25M		116
->> +#define CLK_FANOUT_27M		117
->> +#define CLK_FANOUT_PCLK		118
->> +#define CLK_FANOUT0		119
->> +#define CLK_FANOUT1		120
->> +#define CLK_FANOUT2		121
->> +
->> +#endif
->> diff --git a/include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h =
-b/include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
->> new file mode 100644
->> index 000000000000..48fe598b7bd8
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
->> @@ -0,0 +1,16 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2025 Andras Szemzo <szemzo.andras@gmail.com>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_CLK_ALLWINNER_SUN8I_V853_R_CCU_H_
->> +#define _DT_BINDINGS_CLK_ALLWINNER_SUN8I_V853_R_CCU_H_
->> +
->> +#define CLK_R_AHB		0
->> +#define CLK_R_APB0		1
->> +#define CLK_BUS_R_TWD		2
->> +#define CLK_BUS_R_PPU		3
->> +#define CLK_BUS_R_RTC		4
->> +#define CLK_BUS_R_CPUCFG	5
->> +
->> +#endif
->> diff --git a/include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h =
-b/include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
->> new file mode 100644
->> index 000000000000..e258117518aa
->> --- /dev/null
->> +++ b/include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
->> @@ -0,0 +1,60 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_RST_ALLWINNER_SUN8I_V85X_CCU_H_
->> +#define _DT_BINDINGS_RST_ALLWINNER_SUN8I_V85X_CCU_H_
->> +
->> +#define RST_MBUS		0
->> +#define RST_BUS_DE		1
->> +#define RST_BUS_G2D		2
->> +#define RST_BUS_CE		3
->> +#define RST_BUS_VE		4
->> +#define RST_BUS_NPU		5
->> +#define RST_BUS_DMA		6
->> +#define RST_BUS_MSGBOX0		7
->> +#define RST_BUS_MSGBOX1		8
->> +#define RST_BUS_SPINLOCK	9
->> +#define RST_BUS_HSTIMER		10
->> +#define RST_BUS_DBG		11
->> +#define RST_BUS_PWM		12
->> +#define RST_BUS_DRAM		13
->> +#define RST_BUS_MMC0		14
->> +#define RST_BUS_MMC1		15
->> +#define RST_BUS_MMC2		16
->> +#define RST_BUS_UART0		17
->> +#define RST_BUS_UART1		18
->> +#define RST_BUS_UART2		19
->> +#define RST_BUS_UART3		20
->> +#define RST_BUS_I2C0		21
->> +#define RST_BUS_I2C1		22
->> +#define RST_BUS_I2C2		23
->> +#define RST_BUS_I2C3		24
->> +#define RST_BUS_I2C4		25
->> +#define RST_BUS_SPI0		26
->> +#define RST_BUS_SPI1		27
->> +#define RST_BUS_SPI2		28
->> +#define RST_BUS_SPI3		29
->> +#define RST_BUS_SPIF		30
->> +#define RST_BUS_EMAC		31
->> +#define RST_BUS_GPADC		32
->> +#define RST_BUS_THS		33
->> +#define RST_BUS_I2S0		34
->> +#define RST_BUS_I2S1		35
->> +#define RST_BUS_DMIC		36
->> +#define RST_BUS_AUDIO_CODEC	37
->> +#define RST_USB_PHY		38
->> +#define RST_BUS_OHCI		39
->> +#define RST_BUS_EHCI		40
->> +#define RST_BUS_OTG		41
->> +#define RST_BUS_DPSS_TOP	42
->> +#define RST_BUS_MIPI_DSI	43
->> +#define RST_BUS_TCON_LCD	44
->> +#define RST_BUS_CSI		45
->> +#define RST_BUS_WIEGAND		46
->> +#define RST_RISCV_SYS_APB	47
->> +#define RST_RISCV_SOFT		48
->> +#define RST_RISCV_CFG		49
->> +
->> +#endif
->> diff --git a/include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h =
-b/include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
->> new file mode 100644
->> index 000000000000..57629d635115
->> --- /dev/null
->> +++ b/include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
->> @@ -0,0 +1,14 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2025 Andras Szemzo <szemzo.andras@gmail.com>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_RST_ALLWINNER_SUN8I_V853_R_CCU_H_
->> +#define _DT_BINDINGS_RST_ALLWINNER_SUN8I_V853_R_CCU_H_
->> +
->> +#define RST_BUS_R_TWD		0
->> +#define RST_BUS_R_PPU		1
->> +#define RST_BUS_R_RTC		2
->> +#define RST_BUS_R_CPUCFG	3
->> +
->> +#endif
->> --=20
->> 2.39.5
->>=20
 
+On 12/02/2025 10:01, Maxime Ripard wrote:
+> On Wed, Feb 12, 2025 at 09:49:56AM +0000, Florent Tomasin wrote:
+>> Note that the CMA patches were initially shared to help reproduce my
+>> environment of development, I can isolate them in a separate patch
+>> series and include a reference or "base-commit:" tag to it in the
+>> Panthor protected mode RFC, to help progress this review in another
+>> thread. It will avoid overlapping these two topics:
+>>
+>> - Multiple standalone CMA heaps support
+>> - Panthor protected mode handling
+> 
+> You keep insisting on using CMA here, but it's really not clear to me
+> why you would need CMA in the first place.
+> 
+> By CMA, do you mean the CMA allocator, and thus would provide buffers
+> through the usual dma_alloc_* API, or would any allocator providing
+> physically contiguous memory work?
+
+You are correct only the CMA allocator is relevant. I needed a way to
+sub-allocate from a carved-out memory.
+
+> In the latter case, would something like this work:
+> https://lore.kernel.org/all/20240515-dma-buf-ecc-heap-v1-1-54cbbd049511@kernel.org/
+
+Thanks for sharing this link, I was not aware previous work was done
+on this aspect. The new carveout heap introduced in the series could
+probably be a good alternative. I will play-around with it and share
+some updates.
+
+Appreciated,
+Florent
 
