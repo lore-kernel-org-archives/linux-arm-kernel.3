@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFEBC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64677C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 21:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05bFiLRqtjieBdQP28ZStS6jjJuxslhK7B+dgz1ufHY=; b=xKOOAubHfccntRCeYVu4EqG6BZ
-	w7Aa9Nx1pg5bOazjXk4AfQv8Y7wyCd/K2MW7NakqNyaIqAXCmLpkQ/7A0+ECRxzTGiM0YfOWK6jRO
-	n1ENVJUQ/xvCYx4K7k98RfOF+/TC0c4rzZyZGLE88rI+Q1QKdk29dCpajEHtQHqbh8mkHsO03lyqG
-	/vu/dutiUwv48yckXEG7QeD9obNAinscxUW6wKfofshploqoYaonmHiTZkIC9v2vQi79SmprABPwR
-	mstAhQ8/p/0B4N0ei6SgBhYDUplY1vIVSeCHXIoLKT6hLYCqG5FDZtNL2ncxME7bUUgmOQaDieUJq
-	G87aZhZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1ZMUuqxcnvd+DUeR/RMfMUUTtsKUO/qlLecFMsIoTQ=; b=dUaPlPXXRXUnkouFcOkWiLYNyc
+	PBQt+JvsKBtJAEaCYBva1ERHi5zkjwM4FMkv01nmJp++Bm82TxDUVXMCw+07eEaqrTJzRrvu992VF
+	EiMz3nLA+tdNQKTrgmio+utgxLgyuxUKAXgeF7bZWV/3uO//OmMjDllgpu3YigjGFY4PzXkASmMJj
+	SA8Xp/Jrs5sGMBrj2vKYclUkHQucWBIDb4gWuXWZQ5TaHlgHovvMT/NS/ByLR4qlWXVwtqnwHTZWI
+	Tb7C65eVte72aT5smKBn7I7GukH3wcPDXB0J/zlQ25R5rBrypPk09M2jbpVhAM0e4Z/n7JQVcjlE+
+	8pTmV2eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJhm-00000008peG-2BT8;
-	Wed, 12 Feb 2025 20:51:34 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tiJsh-00000008r4u-11H3;
+	Wed, 12 Feb 2025 21:02:51 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJgK-00000008pHz-0xg8
+	id 1tiJrF-00000008qsr-3HPB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 20:50:05 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4395f645200so197775e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 12:50:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739393402; x=1739998202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=05bFiLRqtjieBdQP28ZStS6jjJuxslhK7B+dgz1ufHY=;
-        b=zuRg+7YjP1kL0Hba2QhgCAnjIO1woaFhtxPfvBUX0hEhtxxjpwGUmOocHvr3Q/mcVm
-         QK+nOCEXeuMm3qOWvdlg+laTwlwKhYUJrfubYbFUMHYpfgr9d5NRmf89VnSTpJI49vrX
-         tr6nhGvri1BSwZ/ATnVIBWNFLqaIphz1SO5oF3pt29ISy3CGOxq5c46XQ0dsmCAJ2p3u
-         4O04acAvoedXV4Xtgkmj3WFG+ZhfgSgXkXgJ48x23YKQgBAbVVdK6To3cbzfhenfux2P
-         n5yAsYVkpZ9qNsWGo7gBBE1LP8XF+7YDE+8f2AJBUwb7ljkxGb+UXHJFhXnSMLkSj+WU
-         sxFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739393402; x=1739998202;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=05bFiLRqtjieBdQP28ZStS6jjJuxslhK7B+dgz1ufHY=;
-        b=wRn+kFbfFjpGCUcP8HVftiRkRmg0tAPEsADgSHY4cdY6lGd/nplXS3Me3/2kI4Y4Sl
-         spqwvEgAXcFu/I+75CjshtZCax4ZZt94IJuTzKJXCpg5BCjAF1eKebAo9rj8UNZnxJbF
-         ePM6ymvzngw68YErfQ1mfJBfdI1opghvJz/+y3zKit9+xoWEcwN/wQOOVq+Wnyr5iufh
-         8rywHn4/DeAD7+rYtrs02UA6jYuW5t2B9m4iLFFJe/BZkhY+6qts/bo/wN2MbzoeBQg8
-         s1av2s0C1dK1w+SMSbCW5y3Itqov41evcLAtn80ebTo9exslkbzoRCc23pDTtZ/uyHhi
-         SlAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJImJtuUve010YzqS/+nuqU6BRBO30zRBhFE+4f2QE/7KRFYBPWV4r+5Eu6uOYs4YH8rqDKURTUZnbyC+w/TKf@lists.infradead.org
-X-Gm-Message-State: AOJu0YywzBanb5VcN3SOXDCvYBK3AQ8WarherlsHuZUUesJdYFtlc5Cd
-	uvKNrzHMpejXUL78AHUeAzGMhGLTqo8/y4GXADEZH8dg1AVoAhSiqLKcSD/9bls=
-X-Gm-Gg: ASbGncs5gB3JXKo4eZGP89w8kci5cg4Jc1LFNF9S477GqsgXpMQXh1189/juoNrbRHi
-	zGqlwLOIvAVFtz33sy2NP2At9pjqkt7zzqf3Oy12ZPE5GN06fvsjDlYecU4bbSqCc7bNlDZhofy
-	KMryJtAnVEqO3ZeVilQWnx6Fg2gaxai87a+AE2vno2FsmMHQqtAphsA1gTheqmWlvLZGk0L9Suk
-	ZMfnUlwwkAIPUQDzA27iGwaTUghnu6mAq9hmVijyqIuAqfpBFvaq858caGvaUYGb3OqLDcYvBHc
-	rhd8gs23x8kDszeGmOxf32Hj2I8XGpk=
-X-Google-Smtp-Source: AGHT+IEBtbJJPvZYtnqI1EcUYSzvnE3bHzpiZAK+Kj6ubquz7Vmwq6Ph8AWnkEWgLrniziBTqXUdZw==
-X-Received: by 2002:a05:600c:5103:b0:439:560f:e7cc with SMTP id 5b1f17b1804b1-439581bfdd8mr18910825e9.6.1739393402471;
-        Wed, 12 Feb 2025 12:50:02 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4395a056151sm30461495e9.16.2025.02.12.12.50.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 12:50:01 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- imx@lists.linux.dev, loongarch@lists.linux.dev
-In-Reply-To: <20240717-anvil-ashy-544e80a1317c@spud>
-References: <20240717-anvil-ashy-544e80a1317c@spud>
-Subject: Re: (subset) [PATCH v1 0/4] Removal of non-existent DAC nodes
-Message-Id: <173939339997.59416.11108011581545463665.b4-ty@linaro.org>
-Date: Wed, 12 Feb 2025 21:49:59 +0100
+	Wed, 12 Feb 2025 21:01:23 +0000
+Date: Wed, 12 Feb 2025 13:01:11 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739394077;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e1ZMUuqxcnvd+DUeR/RMfMUUTtsKUO/qlLecFMsIoTQ=;
+	b=LdyeZg0LYJkM16jmF+N4f9uccObhtqQZwI6qWB3hW5h0sfJe9tTF6cr+UB0Pe9Gy8Ywgjs
+	cpGfAlreNGGy8/goRh7K5vCWc4HYOIj4U37rfSVCLGyRLOyfvOYgpYZqVT3RXndW2urXbv
+	IgGI8CEmZsk7LReXCIi+NulNe8CrwcE=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Linux Kernel Functional Testing <lkft@linaro.org>
+Subject: Re: [PATCH] KVM: arm64: Convert timer offset VA when accessed in HYP
+ code
+Message-ID: <Z60MF6KLM44-Gnu1@linux.dev>
+References: <20250212173454.2864462-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212173454.2864462-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_125004_284037_F4A3CCE1 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250212_130122_027958_CE7EDFA5 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +71,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 17 Jul 2024 10:37:52 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Wed, Feb 12, 2025 at 05:34:54PM +0000, Marc Zyngier wrote:
+> Now that EL2 has gained some early timer emulation, it accesses
+> the offsets pointed to by the timer structure, both of which
+> live in the KVM structure.
 > 
-> Recently I've been getting triggered by abuse of the Rohm dh2228fv
-> compatible to get the spidev driver probing in Linux on development
-> kits by employees of various silicon vendors (like NXP or my own
-> employer). I had a look around the kernel and all users other than the
-> original Clearfontz board added by Maxime appear to be similar abuse.
-> Drop the non-existent nodes from all of these devices :)
+> Of course, these are *kernel* pointers, so the dereferencing
+> of these pointers in non-kernel code must be itself be offset.
 > 
-> [...]
+> Given switch.h its own version of timer_get_offset() and use that
+> instead.
+> 
+> Fixes: b86fc215dc26d ("KVM: arm64: Handle counter access early in non-HYP context")
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Applied, thanks!
-
-[3/4] loongarch: dts: remove non-existent DAC from 2k1000-ref
-      https://git.kernel.org/krzk/linux-dt/c/854a080f0b73ff966a813ec2dc53891831daa28d
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 
