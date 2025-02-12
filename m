@@ -4,75 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985CCC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 14:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A86C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 14:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nT92zn6BedOGtQZeUS/4wxG1L3PZtN6lyNr+8MNq5Lw=; b=UaxjBZCFkGUr+YM9KfTwdssrjP
-	d+K2cgaJv6rVM/DqdkKrqOtDl8a6yxHv6fw1DccWaSxIprk2H9vHnLqLWmIow+QtId2WAsERv210K
-	HdExmEXj00NMjWVnp2McjeVJPm6P65qQ5iSWiSDsLmC0/XzzPbRJPtVHKWJisdZTBBMrKteQrZtGE
-	BnYJV4CcHk9WERZdeWpad4W9uF6RauHlhFnPbSrmCPiYZvLLdSWBLNOt+h5MZVMyX3t/h+Gl2W6Gm
-	mFfmNqDWgKeVstHpRHNP65+oVOzM0tN6zTPagdaygF4hQXj6+snd5khzK7Wmo3/GOu51mPrJDc/Q5
-	ZVbEyZrw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hV58UJrNiafKUEEBYyT5622rc4906GKqOPPegyEjpJc=; b=WVoXAQzSSB/bQMCtQ8t4r2Gbgc
+	/vOyelRWFQ6HWGVSYSnRKZ00DnPB37q/GtMwFkZ2sEHvWqsUE14Ciy16rdReRDbr9J97IaDlD7m8q
+	sxUuZGwRLdXixHRsk60Z3sXI+ZSOIFLV0oJ33fgEGUfDPGomLWTHM3GliClSGuDoUQrK9NHRfoHXa
+	k5VxPtCgfUZdamfZJxms4SbVSxGIXq0yJOwxAqNkXSm2l69N93y9NP48fRqlQQ7Szqgl/RBw98kcn
+	qavN9w5HKCTa7t0bBfRWB9F7pKaIe0SBdozkqqe4aDM8fE5JxoyZ0MetOsWIcLQiQGnNB33fTw6ao
+	4kkpyX/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDbH-00000007eDS-0e4a;
-	Wed, 12 Feb 2025 14:20:27 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1tiDxR-00000007j1a-23hK;
+	Wed, 12 Feb 2025 14:43:21 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDZq-00000007e2d-0Q2z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 14:19:00 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-05 (Coremail) with SMTP id zQCowAD3YMrEraxnexx3DA--.41351S2;
-	Wed, 12 Feb 2025 22:18:46 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com
-Cc: UNGLinuxDriver@microchip.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
+	id 1tiDvz-00000007ijR-3ak8;
+	Wed, 12 Feb 2025 14:41:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1FDCF204A5;
+	Wed, 12 Feb 2025 14:41:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739371303;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hV58UJrNiafKUEEBYyT5622rc4906GKqOPPegyEjpJc=;
+	b=GvBu9t563kxnFl8vpKqJnl1NlFNwRhwgqpgwrV/WKHt+P/P2VyItdyvSR8e7YpylVkrJFh
+	ZambmdwrU19UQNsfxlqJs00qmG1mJgRSWTe8ObzqtbHpk8slTgRKlELpQzT2avGKq6lyJb
+	LL8HprxNBtH1BHLc61viq/yj9L1DFSAe2WWN2RQe9dFql+ICrfKfp8CUe3mO2pCCPgX8tS
+	TP6aR8s3Mrn/9Z42s8BUVceDzlUrOyyDuDl6gLHzqZEXHOkCL7Q/nrgv8UdwGzqRqtay8e
+	1kA/qjLYuimHcatcpaPr75L+A1gxNamRx4P/B6fzdeCUHAvX/o80W0TZ2LG1gg==
+From: =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
+To: jbrunet@baylibre.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	abelvesa@kernel.org,
+	airlied@gmail.com,
+	andrzej.hajda@intel.com,
+	arnd@arndb.de,
+	bryan.odonoghue@linaro.org,
+	conor.dooley@microchip.com,
+	daire.mcnamara@microchip.com,
+	dakr@kernel.org,
+	david.m.ertman@intel.com,
+	dianders@chromium.org,
+	dri-devel@lists.freedesktop.org,
+	festevam@gmail.com,
+	gregkh@linuxfoundation.org,
+	gregory.clement@bootlin.com,
+	hdegoede@redhat.com,
+	ilpo.jarvinen@linux.intel.com,
+	imx@lists.linux.dev,
+	ira.weiny@intel.com,
+	jernej.skrabec@gmail.com,
+	jonas@kwiboo.se,
+	kernel@pengutronix.de,
+	khilman@baylibre.com,
+	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
+	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] net: microchip: sparx5: Fix potential NULL pointer dereference
-Date: Wed, 12 Feb 2025 22:18:28 +0800
-Message-ID: <20250212141829.1214-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	maarten.lankhorst@linux.intel.com,
+	martin.blumenstingl@googlemail.com,
+	mripard@kernel.org,
+	mturquette@baylibre.com,
+	neil.armstrong@linaro.org,
+	p.zabel@pengutronix.de,
+	peng.fan@nxp.com,
+	platform-driver-x86@vger.kernel.org,
+	rafael@kernel.org,
+	rfoss@kernel.org,
+	s.hauer@pengutronix.de,
+	sboyd@kernel.org,
+	shawnguo@kernel.org,
+	simona@ffwll.ch,
+	theo.lebrun@bootlin.com,
+	tzimmermann@suse.de,
+	vladimir.kondratiev@mobileye.com
+Subject: [PATCH] reset: eyeq: drop device_set_of_node_from_dev() done by parent
+Date: Wed, 12 Feb 2025 15:41:26 +0100
+Message-ID: <20250212144126.120231-1-theo.lebrun@bootlin.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250211-aux-device-create-helper-v3-5-7edb50524909@baylibre.com>
+References: <20250211-aux-device-create-helper-v3-5-7edb50524909@baylibre.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAD3YMrEraxnexx3DA--.41351S2
-X-Coremail-Antispam: 1UD129KBjvJXoWrZw4rAF47Zw4xWw13KrWDtwb_yoW8Jr13pa
-	1DuFy5Ww4kArsxG347Cw48Xry8Xan0gF93WrWrCwn5ZFnYqrZ3Xr1rCrWF9ryFqrZxGrnx
-	tF4Yva9IyF1qyrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7VUb8hL5UUUUU==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwoLA2espowP7AABsG
+X-GND-State: clean
+X-GND-Score: 0
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggeduhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucenucfjughrpefhvfevufffkffojghfgggtgfesthekredtredtjeenucfhrhhomhepvfhhrohoucfnvggsrhhunhcuoehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeghfejhfdviefftedvieetfedugeefvedtfedujefhhedvhefggfduhfefueektdenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeeiieegsgemfhdtfhhfmehfvgdutdemlegvfhgunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeeiieegsgemfhdtfhhfmehfvgdutdemlegvfhgupdhhvghlohepthhlvggsqdgsohhothhlihhnqdhffidqtddvrddrpdhmrghilhhfrhhomhepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeejpdhrtghpthhtohepjhgsrhhunhgvthessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepnfgruhhrvghnthdrphhinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopegrsggvlhhvvghsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghirhhlihgvugesghhmr
+ ghilhdrtghomhdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegsrhihrghnrdhoughonhhoghhhuhgvsehlihhnrghrohdrohhrghdprhgtphhtthhopegtohhnohhrrdguohholhgvhiesmhhitghrohgthhhiphdrtghomh
+X-GND-Sasl: theo.lebrun@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_061858_509721_88782E7A 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_064152_374191_1AF996B0 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +119,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check the return value of vcap_keyfields() in
-vcap_debugfs_show_rule_keyset(). If vcap_keyfields()
-returns NULL, skip the keyfield to prevent a NULL pointer
-dereference when calling vcap_debugfs_show_rule_keyfield().
+Our parent driver (clk-eyeq) now does the
+	device_set_of_node_from_dev(dev, dev->parent)
+call through the newly introduced devm_auxiliary_device_create() helper.
 
-Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
-Cc: stable@vger.kernel.org # 6.2+
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Doing it again in the reset-eyeq probe would be redundant.
+Drop both the WARN_ON() and the device_set_of_node_from_dev() call.
+Also fix the following comment that talks about "our newfound OF node".
+
+Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
 ---
- drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/reset/reset-eyeq.c | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-index 59bfbda29bb3..e9e2f7af9be3 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-@@ -202,6 +202,8 @@ static int vcap_debugfs_show_rule_keyset(struct vcap_rule_internal *ri,
+diff --git a/drivers/reset/reset-eyeq.c b/drivers/reset/reset-eyeq.c
+index 02d50041048b..8018fa895427 100644
+--- a/drivers/reset/reset-eyeq.c
++++ b/drivers/reset/reset-eyeq.c
+@@ -420,17 +420,8 @@ static int eqr_probe(struct auxiliary_device *adev,
+ 	int ret;
  
- 	list_for_each_entry(ckf, &ri->data.keyfields, ctrl.list) {
- 		keyfield = vcap_keyfields(vctrl, admin->vtype, ri->data.keyset);
-+		if (!keyfield)
-+			continue;
- 		vcap_debugfs_show_rule_keyfield(vctrl, out, ckf->ctrl.key,
- 						keyfield, &ckf->data);
- 	}
+ 	/*
+-	 * We are an auxiliary device of clk-eyeq. We do not have an OF node by
+-	 * default; let's reuse our parent's OF node.
+-	 */
+-	WARN_ON(dev->of_node);
+-	device_set_of_node_from_dev(dev, dev->parent);
+-	if (!dev->of_node)
+-		return -ENODEV;
+-
+-	/*
+-	 * Using our newfound OF node, we can get match data. We cannot use
+-	 * device_get_match_data() because it does not match reused OF nodes.
++	 * Get match data. We cannot use device_get_match_data() because it does
++	 * not accept reused OF nodes; see device_set_of_node_from_dev().
+ 	 */
+ 	match = of_match_node(dev->driver->of_match_table, dev->of_node);
+ 	if (!match || !match->data)
 -- 
-2.42.0.windows.2
+2.48.1
 
 
