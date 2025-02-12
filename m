@@ -4,79 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78835C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7C5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+I0CuzoYN0D9ZaQ9jlgCUqZKKS2+IGl14J84nUFQzE=; b=zbeZRxsAVoF61oMzrXefWLFUd4
-	15OOoHAS62U761zpq7tZpBS2nf/R0lDv4VZpy5clLHETPFywRpIBtto9aj9yKZUlqwWyIKPnyF3nP
-	5fQ8tznqUkcAomg00DGtHpZaaCEeHWWAJ/gds1eCBt4SD1+6VRxKiMBb5x0EMtfPrPa3bj0gd3eUy
-	V0lRLIrbT9m7Lr+OxmUuQoGJe8uDy3bx76vinGycZNLrwSyz2JqylP7Z+Vy1gk96aS3lrkeoFuVDe
-	eHLmMGFerkLc+9+fuVyH3vH5dswMD198iddut/KMCx6CLvCEt2Mh2V3YtzzY4Jj/1NBTrLGZAJG4W
-	vj8sXg8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZERk0L1BQoqQPS+o8X+UwNROPMfRw/iP4srLi6i/ReA=; b=WQKHO9nFYWq50+7lGT5WXqlqvz
+	2058OszCB4dZtcMMYGbsqvrRIjcYeaxwJsP8v6zrJkYr6ZDcea+J6go1ULSY7UzOTNNNlhSdY1+He
+	9LFRMiPjcAN3afMEOAtSBDOLM23vjUaa4Dijgi6g7uUU0GnYpL50exk53pv4l+U5UZBAjoSo6xE+c
+	YUdwtjSn9Dfq8Ljwhk3Ip+GC7xGhmvq9YRiLRRkC80+X/4g/WMfOHINIRwSliopfoM5xyCoqDxlLc
+	hWRuY9DCOWlQRQ27QUTf1Xe2URJ3tdeNaHvsS3YY6QHCjzJdsSn82Yfo624vgL9FMnxtYkK8DuWGP
+	ovTfxpsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5MY-00000006FX6-32It;
-	Wed, 12 Feb 2025 05:32:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ti5Nw-00000006Fhs-1eww;
+	Wed, 12 Feb 2025 05:34:08 +0000
+Received: from mail-am6eur05on2060b.outbound.protection.outlook.com ([2a01:111:f403:2612::60b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5EF-00000006EK7-3tXZ;
-	Wed, 12 Feb 2025 05:24:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 152A2A40333;
-	Wed, 12 Feb 2025 05:22:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BEC7C4CEE9;
-	Wed, 12 Feb 2025 05:24:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739337846;
-	bh=5OdegTAYbNFbtTjA+kAJML7/HZ8I3kWkcrFEoQiuPvA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=azmjGLnBDpwvMU0ETMSLKLu4YvYD0qWj/w6C2ox8UL6xW86X4ToXGZR7t0V/aQKGU
-	 0fZyVGXLGKllrgWEVNuF2TskWtNHN25snV5BzaWo6OsUvXalPH2m0yePvXyOP7PUlw
-	 iPEbYhXXHxGrgvziAsWRx5JrUw1e+J0yM8FY+4OkEs2lDxUJUl/2SGCNr28710lj4G
-	 8YcrpWZeB7JEZ0UcYBFyDSGOwSqUoohSqylZoOmVehnIbFxPFjD5ODBycb9XbWwF8Y
-	 UNmkYVpOsw71urS8BkXkeLWkw21BDGofbD6pcggwmvcO9WQsi6g6NaZP3ba+bW9zWR
-	 gIz9oVKQ7//lg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1399DC02198;
-	Wed, 12 Feb 2025 05:24:06 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 12 Feb 2025 13:20:52 +0800
-Subject: [PATCH v5 3/5] pinctrl: Add driver support for Amlogic SoCs
+	id 1ti5Ii-00000006F68-0i3y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 05:28:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RI5c1nz0GaMJWo3rJIJPDOS7V/emZj0D7su+VI4EhcsaZ1kCJXDhSVkD6LKi7Q84Bhw8EIBuK+JM8XLokjQgioIp8Cn+8gvmitbGOHdrbS6KdvXgSmeEl5vdA4iDouNw5CPYaeSgmFaut2x2/veiXVvRJcrR9GECos1mgUrntNB8krULF0gyO9jpoueTybu7SXfmSTPoXnQg1l11OynqMWI2XUIu4iB5F+7BGprCjYRac4fFnvT76GXhaeu0V5EPnxAQC1zs9erxGLzY6GC1oG0xbRsfgImdpJo8gzRN3wFlGM605Neue1Zs3i4IdzPTVypGstdhRxBH4E0XQLr3LQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZERk0L1BQoqQPS+o8X+UwNROPMfRw/iP4srLi6i/ReA=;
+ b=jJW0ZjP8XQXA5v0MUut4lIOXX9MMJk8qphYf8GrHh2KK06D6tTKZ9B9/w2uMyn9SDMDvCxpYQkO45IVLI0kFIwcH7UnS1UqX6Jr0uw5mvCS+JJswLAMy+rRtUfjYL4HXIXCkg12sKu7fAUwfALd2gy5xKJYLI4CyL6FUFboaayFmkwcfQn0ykNcEH73e2LoaBI8D0/w2cTdLUQQZ8T6YtuIMjDfgPGWjrLRq4NIQda0iWzmQUCA5X/VidOa9gvJOEb5nHZSpmoYNXXljQ8qzByHVpPVEyof3QowIM+8fjGsRBSyPg9/rJmPmAc9jaKz8B0gdgqnMpVRsqT2Qw5Nf+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZERk0L1BQoqQPS+o8X+UwNROPMfRw/iP4srLi6i/ReA=;
+ b=D2uAUGTVDwBwdbMxRAiNGov/ycL4ThKom6hJPhOKQ6rQp1vxYvOZacL5WTSp7zEKIGV4Jdw6zGTZ93JJCPbkZBcWSlV8xzBm89SsfUXOKIoR2Mmm78py335fhSbQNCEmSP/Z1HIsdxaexzZtV2M5MFZc1Gfs6FFyak9Z2gZVRMUD5mXG2kmXvVbV+CC3ZVfMgSgcYJXhrJJUwYgn3VLQ7aBFEkPEktwYDg8Z5dY2iQfwtxC6vTZem8UJZvL13+QD1e0FJaGAJC0ISARArcLO/lFMdfd1PdvDNNGxiK3t62IkhO0/ZZW0dc74BDeP7crSQ3QB/HnXOvKIc7y7K1dktQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8115.eurprd04.prod.outlook.com (2603:10a6:20b:3e8::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.20; Wed, 12 Feb
+ 2025 05:28:38 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8445.008; Wed, 12 Feb 2025
+ 05:28:38 +0000
+Date: Wed, 12 Feb 2025 14:35:32 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>
+Subject: Re: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+Message-ID: <20250212063532.GB15796@localhost.localdomain>
+References: <20250120-rtc-v1-0-08c50830bac9@nxp.com>
+ <20250120102117538ef59b@mail.local>
+ <PAXPR04MB8459968DFDE5979802CC034A88E62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z6uCCeG2d395ZGDS@bogus>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6uCCeG2d395ZGDS@bogus>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR01CA0169.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::25) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-amlogic-pinctrl-v5-3-282bc2516804@amlogic.com>
-References: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
-In-Reply-To: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739337841; l=30859;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=O2Ru1G6dlL+qbBYl/UVJl2G7hrrnQ8p9lvw1Mskv+OE=;
- b=3JXWpHEQu1+nfcUxLGUL6be/AINFChJvswdKiNv8SxlG7O4WsfoxgkjNfZQlgrCOlBvn0P9k2
- 9Fk5tXCCsoDAHWz2rDW0lRzSwm9bRrvdrvV6qHYrTc7aQdiz+kGeWzF
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8115:EE_
+X-MS-Office365-Filtering-Correlation-Id: f5a2f203-d9a3-4a94-0bd4-08dd4b261abc
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HAbIv8ck6aJnfQDCjlW/7W+YSgPqCEv55d4XNOoFVh7LzkKMXp71XxE5jqgg?=
+ =?us-ascii?Q?J1njmD9dBoDZhX64Ae6VU/r1JUQ74gq+UN/4SEKlTFNM8r/RFHfYuh41Vc5n?=
+ =?us-ascii?Q?PpaLbygs9c13Ob0ecNEmOCZA/VaTmG3rXZ9k4JneWbvh+0WTGzVHIO37i5fA?=
+ =?us-ascii?Q?4n4UaFWzQFaQqPjHRknj0/fnIF5BvVInJicQ9AS8VNQNBN/Jc2vloCaWNyL0?=
+ =?us-ascii?Q?TFrUrj7mCOBM+/eBM3wIc7X5YvdHMU6dHEPshwDdBtXrs2wrif4LKuE2pwcF?=
+ =?us-ascii?Q?CJSCRA/Nv8JXUNEs0jiWZyJvV9OYrxI8w48cAq/oyD+cBcHHVREzNuqoqLsC?=
+ =?us-ascii?Q?8UJmep4ZojvETDxmXaU5Wh4BSMrgmfDgY6Rf9BDMovmzxtXIVKKRfQen2JMM?=
+ =?us-ascii?Q?4zqg38WgdkLCRrLo1mNaSqXHk+sJjpYaNylTUXGrU+ErrNQY3IjH6hcwZPUK?=
+ =?us-ascii?Q?PsyTlRwJNlZbQQV/WeaKbRwCtmVbD4NttxagFg9TqLGiN7yMhmPq1SubP6EW?=
+ =?us-ascii?Q?ovyE8j0BVyP3ChNmkSaTxa3GKctsTPQn/zqQ2ZjATFcXLZkTL+Frf1kNui5I?=
+ =?us-ascii?Q?G1Iy3LwCheMdSGcyPPqb8XmFRTo6HyY16SQiH18rR+XE2vbtW0MKFt7biMk8?=
+ =?us-ascii?Q?x0/hrrUlFgdWzQKcyDVS5EbSlH4KhWDaDUTtl4EQLeq5Wpho0iHUq7OMoGYU?=
+ =?us-ascii?Q?/tVI6AjtrW6VojWY4NV9j/BPWFa7vFs7dJVVRLv3GU9IM9GHqdpDckBsnwmr?=
+ =?us-ascii?Q?vr0A3XpP/US1qwnVbyc6APTwOG2Y0Bj71639hHey0oDEXRXgSr/DdxWKEBP9?=
+ =?us-ascii?Q?+fmiXUQ9VXGHbc5oQwk5ztT/roQMgewCUFxgcP/dd9PXuTsQfnXFhgyUWsso?=
+ =?us-ascii?Q?Qn7pXvjYenYz8KtCtduMmuS9k8zGQWwvjcuty17u9+mNIcsA3VP8mWI3H8gK?=
+ =?us-ascii?Q?v7obVgM8FD3G0zGA7DOLvBw0PoPk/zSA6hGQziCYqNknL2VTAM/ks4SXfAzP?=
+ =?us-ascii?Q?RYKRDYmICxOhXdZaAviTMYVCgyzg0Yw90LhSodjp+32f/J+FYFw+u4/1SBUz?=
+ =?us-ascii?Q?S4j9GdltFMI0IjVFqLRBLFHUsfLUQPcwiBQuGjeC+BK89dfd/M5cLjim/zf2?=
+ =?us-ascii?Q?ScJ3MmDW4lKeJ08xOISJngxQGEUb61rFjtcz3xJ6vIwAKX6nqLVXUzXqKn5o?=
+ =?us-ascii?Q?NthtIGkSP4ttn/7Kix2/52AGy7t/SZXWP7wKkoA/76V8WYoRHAAMgKbKMJhl?=
+ =?us-ascii?Q?OnvO0ojPt4SzDO6i7w00CLfC4F5ZQPdzQdNNfcovqXs6felwbRauS+yM9Fmk?=
+ =?us-ascii?Q?jrewvR1C37fjPARe3IcscIuA/bjYV8HBU0coyMNBqmZIQh8zF+bBiuNomAPg?=
+ =?us-ascii?Q?JyuzJJc0/Y93uukC+A6Xz2mFdlIN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ReJI2qZvcWMpJweaVcAa+g4zDWuu4V7CK731oodVe/S1jd5nZTUC0Qob6d4w?=
+ =?us-ascii?Q?P/zPXvtlltrG7s7Qmu803f9rJo2Kw/rGMJR34g13g2pl4dsBXGZnjbCXARkC?=
+ =?us-ascii?Q?dmqroWgIdrIYy56FIgImUjELCaI/trTluxCa3h9YTLCGuHQnv4XxEELvewi1?=
+ =?us-ascii?Q?dkt1rmTrbntvY4kxdrmbrfi40UN751oO4zKGz2Wjcfv3m+osU9GzLubR01Yo?=
+ =?us-ascii?Q?cH0IYhwbH9FKe7uSajhiXnfEMRii5NR9ZfNyZMhvk4wbYtKL6SP9ZtsiMF0N?=
+ =?us-ascii?Q?hwtpyMupHJotiEZDXtF7pFUsEs/5ptDJf6FqsslVv3Mw55tKk9DWObqo5tsw?=
+ =?us-ascii?Q?ChboLfBMj+QWKq2hEoQJ1cH/TgRZFh7sDSpsb3V9kLmcmdQsKyKckVE+Otch?=
+ =?us-ascii?Q?os06ig3iVrjcDMfgLoz4aJm7RguTGjHBfbKYglK/qbwQ69c/5piclxkFxyRM?=
+ =?us-ascii?Q?ldezG4LejnCGY8pSHtItYex5H9Hha0b+e0FWffjj2Qk9swpxBy0WQ1wOsLEJ?=
+ =?us-ascii?Q?N0dpUGlAn1bU2DhZztDYNCOpVsNkcDZjWbiJrvv29GUrS/t8w4etcH0eVXss?=
+ =?us-ascii?Q?oMU7HuuwjDCIsrqhEKQFxCMgVJVMU5asHg3dQBguukiqdFEqmOKpOHaVwsx2?=
+ =?us-ascii?Q?YKG75+e3Dk2W9W7pyV6SEQqL0298NXfb2h7G7tzpMiZU3xiVocMbMY5ZEeYt?=
+ =?us-ascii?Q?DmtFaafYxf/iCe+nl15W51FVd8Ygt2bWxLy2G0FR7pHuGApr1+netvvA5M49?=
+ =?us-ascii?Q?GoSTpYFYkmPnfcn53R4Z8vKd36sMb+1APBAwX3LJBsnLGgl8Z9BJGFAPKrYb?=
+ =?us-ascii?Q?G6B2DuSKJgsntgm/Yk9ARfoxCALmLv7UDpWNHYWRUthvdRi1RvuVwx1oVcph?=
+ =?us-ascii?Q?Ga8W21EbiqGJZTKvft0L5Jf9kNEjUarVPZ0+CDfaVq9aav9x9GqNs+hw7dAH?=
+ =?us-ascii?Q?AAjHdD2y65CPkHAvcllCA7Qe1JN60oosOUvVlKDLoYHvAYLwVVIlS31NYA93?=
+ =?us-ascii?Q?bibyjVvWrYmr95/D4LxlniZcApHfGDUezc2jVQKcrrP7Jeuby2q4SOVIoHD9?=
+ =?us-ascii?Q?wo3tdTSqzlMd4AlalLHkqMENXnhHHsz090JwJnWlwsK85AjSXcWRrK+0HI+8?=
+ =?us-ascii?Q?cn6tlcEopf8PdIx7M9Qbqz1+jBplUHv3X6zIwIulke5hKm9KwAgSfLmSI070?=
+ =?us-ascii?Q?5ivxASC89dwgNv/Fx4Wb7Rhxh6fvV21zPEOguizj8Q9bE/3jgyd1YmPG+83i?=
+ =?us-ascii?Q?oX+X26vIuHDsb9n5ZRGD8OAWpzz30lJ/GiGQqmTXspur1uzRO45NLbV6PUwS?=
+ =?us-ascii?Q?gAx70qRJWa/yX90yJL+7nlX7b4n08IrnQlc7XPyj/ckQqmoJ57ufGUjJuQ37?=
+ =?us-ascii?Q?3HUlmKPftG8WtykGwxJhMyXLksER7XfKciEciey/rqIK2SwMC+zGDUBG1Mc0?=
+ =?us-ascii?Q?Q275JQGbP6nw75lp9mj6ALGUx9V9hPQRimAccLz/lHr+6bZ3VT+JFadNAfwl?=
+ =?us-ascii?Q?9MmUDJywL/zg4RJ73a2u7SCLc+FcHqQ9PE0KIaYjw6MA3hSd2srhkj8IE3Xi?=
+ =?us-ascii?Q?2D/ZC5KIAPv+DqxYTvFMgj9tqVIqpyvUozUCtnWG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5a2f203-d9a3-4a94-0bd4-08dd4b261abc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 05:28:38.8563
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ye7dag+RUjhGFtMVr2KjEg8Ux3XMZUTnY7WWrXcHTTKW7yC149W6YHrMvHucsQYfd88Pq8p0ePf9cEujOdcH8w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_212408_178074_B3F81C7B 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20250211_212844_213566_C0A9BC76 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,1118 +168,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+On Tue, Feb 11, 2025 at 04:59:53PM +0000, Sudeep Holla wrote:
+>On Tue, Jan 21, 2025 at 02:31:55PM +0000, Peng Fan wrote:
+>> 
+>> It is the i.MX SCMI Protocol exports two RTCs using one protocol.
+>> 
+>> Two RTC devices are created, but share one parent device.
+>> 
+>> Do you mean each RTC device should have a unique parent device?
+>>
+>
+>Can you point where is this check for unique parent ? I am not so familiar
+>with RTC but I couldn't find myself with quick search.
 
-Add a new pinctrl driver for Amlogic SoCs. All future Amlogic
-SoCs pinctrl drives use this, such A4, A5, S6, S7 etc. To support
-new Amlogic SoCs, only need to add the corresponding dts file.
+The RTC ops takes the rtc parent as input parameter
+https://elixir.bootlin.com/linux/v6.13.2/source/drivers/rtc/interface.c#L94
+"err = rtc->ops->read_time(rtc->dev.parent, tm);"
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- drivers/pinctrl/meson/Kconfig              |   11 +
- drivers/pinctrl/meson/Makefile             |    1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 1053 ++++++++++++++++++++++++++++
- 3 files changed, 1065 insertions(+)
+So in the rtc device driver, there is no way to know which rtc it is just
+from the parent device.
 
-diff --git a/drivers/pinctrl/meson/Kconfig b/drivers/pinctrl/meson/Kconfig
-index cc397896762c..90639bc171f6 100644
---- a/drivers/pinctrl/meson/Kconfig
-+++ b/drivers/pinctrl/meson/Kconfig
-@@ -67,6 +67,17 @@ config PINCTRL_MESON_S4
- 	select PINCTRL_MESON_AXG_PMX
- 	default y
- 
-+config PINCTRL_AMLOGIC_A4
-+	bool "AMLOGIC pincontrol"
-+	depends on ARM64
-+	default y
-+	help
-+	  This is the driver for the pin controller found on Amlogic SoCs.
-+
-+	  This driver is simplify subsequent support for new amlogic SoCs,
-+	  to support new Amlogic SoCs, only need to add the corresponding dts file,
-+	  no additional binding header files or C file are added.
-+
- config PINCTRL_AMLOGIC_C3
- 	tristate "Amlogic C3 SoC pinctrl driver"
- 	depends on ARM64
-diff --git a/drivers/pinctrl/meson/Makefile b/drivers/pinctrl/meson/Makefile
-index 9e538b9ffb9b..c92a65a83344 100644
---- a/drivers/pinctrl/meson/Makefile
-+++ b/drivers/pinctrl/meson/Makefile
-@@ -10,5 +10,6 @@ obj-$(CONFIG_PINCTRL_MESON_AXG) += pinctrl-meson-axg.o
- obj-$(CONFIG_PINCTRL_MESON_G12A) += pinctrl-meson-g12a.o
- obj-$(CONFIG_PINCTRL_MESON_A1) += pinctrl-meson-a1.o
- obj-$(CONFIG_PINCTRL_MESON_S4) += pinctrl-meson-s4.o
-+obj-$(CONFIG_PINCTRL_AMLOGIC_A4) += pinctrl-amlogic-a4.o
- obj-$(CONFIG_PINCTRL_AMLOGIC_C3) += pinctrl-amlogic-c3.o
- obj-$(CONFIG_PINCTRL_AMLOGIC_T7) += pinctrl-amlogic-t7.o
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-new file mode 100644
-index 000000000000..a5218e8f1e03
---- /dev/null
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -0,0 +1,1053 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
-+/*
-+ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
-+ * Author: Xianwei Zhao <xianwei.zhao@amlogic.com>
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/init.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/seq_file.h>
-+#include <linux/slab.h>
-+#include <linux/string_helpers.h>
-+
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pinctrl/pinconf.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
-+
-+#include "../core.h"
-+#include "../pinconf.h"
-+
-+#define gpio_chip_to_bank(chip) \
-+		container_of(chip, struct aml_gpio_bank, gpio_chip)
-+
-+#define AML_REG_PULLEN		0
-+#define AML_REG_PULL		1
-+#define AML_REG_DIR		2
-+#define AML_REG_OUT		3
-+#define AML_REG_IN		4
-+#define AML_REG_DS		5
-+#define AML_NUM_REG		6
-+
-+enum aml_pinconf_drv {
-+	PINCONF_DRV_500UA,
-+	PINCONF_DRV_2500UA,
-+	PINCONF_DRV_3000UA,
-+	PINCONF_DRV_4000UA,
-+};
-+
-+struct aml_pio_control {
-+	u32 gpio_offset;
-+	u32 reg_offset[AML_NUM_REG];
-+	u32 bit_offset[AML_NUM_REG];
-+};
-+
-+struct aml_reg_bit {
-+	u32 bank_id;
-+	u32 reg_offs[AML_NUM_REG];
-+	u32 bit_offs[AML_NUM_REG];
-+};
-+
-+struct aml_pctl_data {
-+	unsigned int number;
-+	struct aml_reg_bit rb_offs[];
-+};
-+
-+struct aml_pmx_func {
-+	const char	*name;
-+	const char	**groups;
-+	unsigned int	ngroups;
-+};
-+
-+struct aml_pctl_group {
-+	const char		*name;
-+	unsigned int		npins;
-+	unsigned int		*pins;
-+	unsigned int		*func;
-+};
-+
-+struct aml_gpio_bank {
-+	struct gpio_chip		gpio_chip;
-+	struct aml_pio_control		pc;
-+	u32				bank_id;
-+	unsigned int			pin_base;
-+	struct regmap			*reg_mux;
-+	struct regmap			*reg_gpio;
-+	struct regmap			*reg_ds;
-+};
-+
-+struct aml_pinctrl {
-+	struct device			*dev;
-+	struct pinctrl_dev		*pctl;
-+	struct aml_gpio_bank		*banks;
-+	int				nbanks;
-+	struct aml_pmx_func		*functions;
-+	int				nfunctions;
-+	struct aml_pctl_group		*groups;
-+	int				ngroups;
-+
-+	const struct aml_pctl_data	*data;
-+};
-+
-+static const unsigned int aml_bit_strides[AML_NUM_REG] = {
-+	1, 1, 1, 1, 1, 2
-+};
-+
-+static const unsigned int aml_def_regoffs[AML_NUM_REG] = {
-+	3, 4, 2, 1, 0, 7
-+};
-+
-+static const char *aml_bank_name[31] = {
-+"GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG",
-+"GPIOH", "GPIOI", "GPIOJ", "GPIOK", "GPIOL", "GPIOM", "GPION",
-+"GPIOO", "GPIOP", "GPIOQ", "GPIOR", "GPIOS", "GPIOT", "GPIOU",
-+"GPIOV", "GPIOW", "GPIOX", "GPIOY", "GPIOZ", "GPIODV", "GPIOAO",
-+"GPIOCC", "TEST_N", "ANALOG"
-+};
-+
-+static int aml_pmx_calc_reg_and_offset(struct pinctrl_gpio_range *range,
-+				       unsigned int pin, unsigned int *reg,
-+				       unsigned int *offset)
-+{
-+	unsigned int shift;
-+
-+	shift = (pin - range->pin_base) << 2;
-+	*reg = (shift / 32) * 4;
-+	*offset = shift % 32;
-+
-+	return 0;
-+}
-+
-+static int aml_pctl_set_function(struct aml_pinctrl *info,
-+				 struct pinctrl_gpio_range *range,
-+				 int pin_id, int func)
-+{
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	int reg;
-+	int offset;
-+
-+	if (!bank->reg_mux)
-+		return 0;
-+
-+	aml_pmx_calc_reg_and_offset(range, pin_id, &reg, &offset);
-+	return regmap_update_bits(bank->reg_mux, reg,
-+			0xf << offset, (func & 0xf) << offset);
-+}
-+
-+static int aml_pmx_get_funcs_count(struct pinctrl_dev *pctldev)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->nfunctions;
-+}
-+
-+static const char *aml_pmx_get_fname(struct pinctrl_dev *pctldev,
-+				     unsigned int selector)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->functions[selector].name;
-+}
-+
-+static int aml_pmx_get_groups(struct pinctrl_dev *pctldev,
-+			      unsigned int selector,
-+			      const char * const **grps,
-+			      unsigned * const ngrps)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	*grps = info->functions[selector].groups;
-+	*ngrps = info->functions[selector].ngroups;
-+
-+	return 0;
-+}
-+
-+static int aml_pmx_set_mux(struct pinctrl_dev *pctldev, unsigned int fselector,
-+			   unsigned int group_id)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+	struct aml_pctl_group *group = &info->groups[group_id];
-+	struct pinctrl_gpio_range *range;
-+	int i;
-+
-+	for (i = 0; i < group->npins; i++) {
-+		range =  pinctrl_find_gpio_range_from_pin(pctldev, group->pins[i]);
-+		aml_pctl_set_function(info, range, group->pins[i], group->func[i]);
-+	}
-+
-+	return 0;
-+}
-+
-+static int aml_pmx_request_gpio(struct pinctrl_dev *pctldev,
-+				struct pinctrl_gpio_range *range,
-+				unsigned int pin)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return aml_pctl_set_function(info, range, pin, 0);
-+}
-+
-+static const struct pinmux_ops aml_pmx_ops = {
-+	.set_mux		= aml_pmx_set_mux,
-+	.get_functions_count	= aml_pmx_get_funcs_count,
-+	.get_function_name	= aml_pmx_get_fname,
-+	.get_function_groups	= aml_pmx_get_groups,
-+	.gpio_request_enable	= aml_pmx_request_gpio,
-+};
-+
-+static int aml_calc_reg_and_bit(struct pinctrl_gpio_range *range,
-+				unsigned int pin,
-+				unsigned int reg_type,
-+				unsigned int *reg, unsigned int *bit)
-+{
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+
-+	*bit = (pin - range->pin_base) * aml_bit_strides[reg_type]
-+		+ bank->pc.bit_offset[reg_type];
-+	*reg = (bank->pc.reg_offset[reg_type] + (*bit / 32)) * 4;
-+	*bit &= 0x1f;
-+
-+	return 0;
-+}
-+
-+static int aml_pinconf_get_pull(struct aml_pinctrl *info, unsigned int pin)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit, val;
-+	int ret, conf;
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_PULLEN, &reg, &bit);
-+
-+	ret = regmap_read(bank->reg_gpio, reg, &val);
-+	if (ret)
-+		return ret;
-+
-+	if (!(val & BIT(bit))) {
-+		conf = PIN_CONFIG_BIAS_DISABLE;
-+	} else {
-+		aml_calc_reg_and_bit(range, pin, AML_REG_PULL, &reg, &bit);
-+
-+		ret = regmap_read(bank->reg_gpio, reg, &val);
-+		if (ret)
-+			return ret;
-+
-+		if (val & BIT(bit))
-+			conf = PIN_CONFIG_BIAS_PULL_UP;
-+		else
-+			conf = PIN_CONFIG_BIAS_PULL_DOWN;
-+	}
-+
-+	return conf;
-+}
-+
-+static int aml_pinconf_get_drive_strength(struct aml_pinctrl *info,
-+					  unsigned int pin,
-+					  u16 *drive_strength_ua)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit;
-+	unsigned int val;
-+	int ret;
-+
-+	if (!bank->reg_ds)
-+		return -EOPNOTSUPP;
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_DS, &reg, &bit);
-+	ret = regmap_read(bank->reg_ds, reg, &val);
-+	if (ret)
-+		return ret;
-+
-+	switch ((val >> bit) & 0x3) {
-+	case PINCONF_DRV_500UA:
-+		*drive_strength_ua = 500;
-+		break;
-+	case PINCONF_DRV_2500UA:
-+		*drive_strength_ua = 2500;
-+		break;
-+	case PINCONF_DRV_3000UA:
-+		*drive_strength_ua = 3000;
-+		break;
-+	case PINCONF_DRV_4000UA:
-+		*drive_strength_ua = 4000;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int aml_pinconf_get_gpio_bit(struct aml_pinctrl *info,
-+				    unsigned int pin,
-+				    unsigned int reg_type)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit, val;
-+	int ret;
-+
-+	aml_calc_reg_and_bit(range, pin, reg_type, &reg, &bit);
-+	ret = regmap_read(bank->reg_gpio, reg, &val);
-+	if (ret)
-+		return ret;
-+
-+	return BIT(bit) & val ? 1 : 0;
-+}
-+
-+static int aml_pinconf_get_output(struct aml_pinctrl *info,
-+				  unsigned int pin)
-+{
-+	int ret = aml_pinconf_get_gpio_bit(info, pin, AML_REG_DIR);
-+
-+	if (ret < 0)
-+		return ret;
-+
-+	return !ret;
-+}
-+
-+static int aml_pinconf_get_drive(struct aml_pinctrl *info,
-+				 unsigned int pin)
-+{
-+	return aml_pinconf_get_gpio_bit(info, pin, AML_REG_OUT);
-+}
-+
-+static int aml_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
-+			   unsigned long *config)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pcdev);
-+	enum pin_config_param param = pinconf_to_config_param(*config);
-+	u16 arg;
-+	int ret;
-+
-+	switch (param) {
-+	case PIN_CONFIG_BIAS_DISABLE:
-+	case PIN_CONFIG_BIAS_PULL_DOWN:
-+	case PIN_CONFIG_BIAS_PULL_UP:
-+		if (aml_pinconf_get_pull(info, pin) == param)
-+			arg = 1;
-+		else
-+			return -EINVAL;
-+		break;
-+	case PIN_CONFIG_DRIVE_STRENGTH_UA:
-+		ret = aml_pinconf_get_drive_strength(info, pin, &arg);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PIN_CONFIG_OUTPUT_ENABLE:
-+		ret = aml_pinconf_get_output(info, pin);
-+		if (ret <= 0)
-+			return -EINVAL;
-+		arg = 1;
-+		break;
-+	case PIN_CONFIG_OUTPUT:
-+		ret = aml_pinconf_get_output(info, pin);
-+		if (ret <= 0)
-+			return -EINVAL;
-+
-+		ret = aml_pinconf_get_drive(info, pin);
-+		if (ret < 0)
-+			return -EINVAL;
-+
-+		arg = ret;
-+		break;
-+
-+	default:
-+		return -ENOTSUPP;
-+	}
-+
-+	*config = pinconf_to_config_packed(param, arg);
-+	dev_dbg(info->dev, "pinconf for pin %u is %lu\n", pin, *config);
-+
-+	return 0;
-+}
-+
-+static int aml_pinconf_disable_bias(struct aml_pinctrl *info,
-+				    unsigned int pin)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit = 0;
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_PULLEN, &reg, &bit);
-+
-+	return regmap_update_bits(bank->reg_gpio, reg, BIT(bit), 0);
-+}
-+
-+static int aml_pinconf_enable_bias(struct aml_pinctrl *info, unsigned int pin,
-+				   bool pull_up)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit, val = 0;
-+	int ret;
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_PULL, &reg, &bit);
-+	if (pull_up)
-+		val = BIT(bit);
-+
-+	ret = regmap_update_bits(bank->reg_gpio, reg, BIT(bit), val);
-+	if (ret)
-+		return ret;
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_PULLEN, &reg, &bit);
-+	return regmap_update_bits(bank->reg_gpio, reg, BIT(bit), BIT(bit));
-+}
-+
-+static int aml_pinconf_set_drive_strength(struct aml_pinctrl *info,
-+					  unsigned int pin,
-+					  u16 drive_strength_ua)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit, ds_val;
-+
-+	if (!bank->reg_ds) {
-+		dev_err(info->dev, "drive-strength not supported\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	aml_calc_reg_and_bit(range, pin, AML_REG_DS, &reg, &bit);
-+
-+	if (drive_strength_ua <= 500) {
-+		ds_val = PINCONF_DRV_500UA;
-+	} else if (drive_strength_ua <= 2500) {
-+		ds_val = PINCONF_DRV_2500UA;
-+	} else if (drive_strength_ua <= 3000) {
-+		ds_val = PINCONF_DRV_3000UA;
-+	} else if (drive_strength_ua <= 4000) {
-+		ds_val = PINCONF_DRV_4000UA;
-+	} else {
-+		dev_warn_once(info->dev,
-+			      "pin %u: invalid drive-strength : %d , default to 4mA\n",
-+			      pin, drive_strength_ua);
-+		ds_val = PINCONF_DRV_4000UA;
-+	}
-+
-+	return regmap_update_bits(bank->reg_ds, reg, 0x3 << bit, ds_val << bit);
-+}
-+
-+static int aml_pinconf_set_gpio_bit(struct aml_pinctrl *info,
-+				    unsigned int pin,
-+				    unsigned int reg_type,
-+				    bool arg)
-+{
-+	struct pinctrl_gpio_range *range =
-+			 pinctrl_find_gpio_range_from_pin(info->pctl, pin);
-+	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int reg, bit;
-+
-+	aml_calc_reg_and_bit(range, pin, reg_type, &reg, &bit);
-+	return regmap_update_bits(bank->reg_gpio, reg, BIT(bit),
-+				  arg ? BIT(bit) : 0);
-+}
-+
-+static int aml_pinconf_set_output(struct aml_pinctrl *info,
-+				  unsigned int pin,
-+				  bool out)
-+{
-+	return aml_pinconf_set_gpio_bit(info, pin, AML_REG_DIR, !out);
-+}
-+
-+static int aml_pinconf_set_drive(struct aml_pinctrl *info,
-+				 unsigned int pin,
-+				 bool high)
-+{
-+	return aml_pinconf_set_gpio_bit(info, pin, AML_REG_OUT, high);
-+}
-+
-+static int aml_pinconf_set_output_drive(struct aml_pinctrl *info,
-+					unsigned int pin,
-+					bool high)
-+{
-+	int ret;
-+
-+	ret = aml_pinconf_set_output(info, pin, true);
-+	if (ret)
-+		return ret;
-+
-+	return aml_pinconf_set_drive(info, pin, high);
-+}
-+
-+static int aml_pinconf_set(struct pinctrl_dev *pcdev, unsigned int pin,
-+			   unsigned long *configs, unsigned int num_configs)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pcdev);
-+	enum pin_config_param param;
-+	unsigned int arg = 0;
-+	int i, ret;
-+
-+	for (i = 0; i < num_configs; i++) {
-+		param = pinconf_to_config_param(configs[i]);
-+
-+		switch (param) {
-+		case PIN_CONFIG_DRIVE_STRENGTH_UA:
-+		case PIN_CONFIG_OUTPUT_ENABLE:
-+		case PIN_CONFIG_OUTPUT:
-+			arg = pinconf_to_config_argument(configs[i]);
-+			break;
-+
-+		default:
-+			break;
-+		}
-+
-+		switch (param) {
-+		case PIN_CONFIG_BIAS_DISABLE:
-+			ret = aml_pinconf_disable_bias(info, pin);
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_UP:
-+			ret = aml_pinconf_enable_bias(info, pin, true);
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_DOWN:
-+			ret = aml_pinconf_enable_bias(info, pin, false);
-+			break;
-+		case PIN_CONFIG_DRIVE_STRENGTH_UA:
-+			ret = aml_pinconf_set_drive_strength(info, pin, arg);
-+			break;
-+		case PIN_CONFIG_OUTPUT_ENABLE:
-+			ret = aml_pinconf_set_output(info, pin, arg);
-+			break;
-+		case PIN_CONFIG_OUTPUT:
-+			ret = aml_pinconf_set_output_drive(info, pin, arg);
-+			break;
-+		default:
-+			ret = -ENOTSUPP;
-+		}
-+
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int aml_pinconf_group_set(struct pinctrl_dev *pcdev,
-+				 unsigned int num_group,
-+				 unsigned long *configs,
-+				 unsigned int num_configs)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pcdev);
-+	int i;
-+
-+	for (i = 0; i < info->groups[num_group].npins; i++) {
-+		aml_pinconf_set(pcdev, info->groups[num_group].pins[i], configs,
-+				num_configs);
-+	}
-+
-+	return 0;
-+}
-+
-+static int aml_pinconf_group_get(struct pinctrl_dev *pcdev,
-+				 unsigned int group, unsigned long *config)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static const struct pinconf_ops aml_pinconf_ops = {
-+	.pin_config_get		= aml_pinconf_get,
-+	.pin_config_set		= aml_pinconf_set,
-+	.pin_config_group_get	= aml_pinconf_group_get,
-+	.pin_config_group_set	= aml_pinconf_group_set,
-+	.is_generic		= true,
-+};
-+
-+static int aml_get_groups_count(struct pinctrl_dev *pctldev)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->ngroups;
-+}
-+
-+static const char *aml_get_group_name(struct pinctrl_dev *pctldev,
-+				      unsigned int selector)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->groups[selector].name;
-+}
-+
-+static int aml_get_group_pins(struct pinctrl_dev *pctldev,
-+			      unsigned int selector, const unsigned int **pins,
-+			      unsigned int *npins)
-+{
-+	struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	if (selector >= info->ngroups)
-+		return -EINVAL;
-+
-+	*pins = info->groups[selector].pins;
-+	*npins = info->groups[selector].npins;
-+
-+	return 0;
-+}
-+
-+static inline const struct aml_pctl_group *
-+	aml_pctl_find_group_by_name(const struct aml_pinctrl *info,
-+				    const char *name)
-+{
-+	int i;
-+
-+	for (i = 0; i < info->ngroups; i++) {
-+		if (!strcmp(info->groups[i].name, name))
-+			return &info->groups[i];
-+	}
-+
-+	return NULL;
-+}
-+
-+static void aml_pin_dbg_show(struct pinctrl_dev *pcdev, struct seq_file *s,
-+			     unsigned int offset)
-+{
-+	seq_printf(s, " %s", dev_name(pcdev->dev));
-+}
-+
-+static const struct pinctrl_ops aml_pctrl_ops = {
-+	.get_groups_count	= aml_get_groups_count,
-+	.get_group_name		= aml_get_group_name,
-+	.get_group_pins		= aml_get_group_pins,
-+	.dt_node_to_map		= pinconf_generic_dt_node_to_map_pinmux,
-+	.dt_free_map		= pinconf_generic_dt_free_map,
-+	.pin_dbg_show		= aml_pin_dbg_show,
-+};
-+
-+static int aml_pctl_parse_functions(struct device_node *np,
-+				    struct aml_pinctrl *info, u32 index,
-+				    int *grp_index)
-+{
-+	struct device *dev = info->dev;
-+	struct aml_pmx_func *func;
-+	struct aml_pctl_group *grp;
-+	int ret, i;
-+
-+	func = &info->functions[index];
-+	func->name = np->name;
-+	func->ngroups = of_get_child_count(np);
-+	if (func->ngroups == 0)
-+		return dev_err_probe(dev, -EINVAL, "No groups defined\n");
-+
-+	func->groups = devm_kcalloc(dev, func->ngroups, sizeof(*func->groups), GFP_KERNEL);
-+	if (!func->groups)
-+		return -ENOMEM;
-+
-+	i = 0;
-+	for_each_child_of_node_scoped(np, child) {
-+		func->groups[i++] = child->name;
-+		grp = &info->groups[*grp_index];
-+		grp->name = child->name;
-+		*grp_index += 1;
-+		ret = pinconf_generic_parse_dt_pinmux(child, dev, &grp->pins,
-+						      &grp->func, &grp->npins);
-+		if (ret) {
-+			dev_err(dev, "function :%s, groups:%s fail\n", func->name, child->name);
-+			return ret;
-+		}
-+	}
-+	dev_dbg(dev, "Function[%d\t name:%s,\tgroups:%d]\n", index, func->name, func->ngroups);
-+
-+	return 0;
-+}
-+
-+static u32 aml_bank_pins(struct device_node *np)
-+{
-+	struct of_phandle_args of_args;
-+
-+	if (of_parse_phandle_with_fixed_args(np, "gpio-ranges", 3,
-+					     0, &of_args))
-+		return 0;
-+	else
-+		return of_args.args[2];
-+}
-+
-+static int aml_bank_number(struct device_node *np)
-+{
-+	struct of_phandle_args of_args;
-+
-+	if (of_parse_phandle_with_fixed_args(np, "gpio-ranges", 3,
-+					     0, &of_args))
-+		return -EINVAL;
-+	else
-+		return of_args.args[1] >> 8;
-+}
-+
-+static unsigned int aml_count_pins(struct device_node *np)
-+{
-+	struct device_node *child;
-+	unsigned int pins = 0;
-+
-+	for_each_child_of_node(np, child) {
-+		if (of_property_read_bool(child, "gpio-controller"))
-+			pins += aml_bank_pins(child);
-+	}
-+
-+	return pins;
-+}
-+
-+/*
-+ * A pinctrl device contains two types of nodes. The one named GPIO
-+ * bank which includes gpio-controller property. The other one named
-+ * function which includes one or more pin groups. The pin group
-+ * include pinmux property(global index in pinctrl dev, and mux vlaue
-+ * in mux reg) and pin configuration properties.
-+ */
-+static void aml_pctl_dt_child_count(struct aml_pinctrl *info,
-+				    struct device_node *np)
-+{
-+	struct device_node *child;
-+
-+	for_each_child_of_node(np, child) {
-+		if (of_property_read_bool(child, "gpio-controller")) {
-+			info->nbanks++;
-+		} else {
-+			info->nfunctions++;
-+			info->ngroups += of_get_child_count(child);
-+		}
-+	}
-+}
-+
-+static struct regmap *aml_map_resource(struct device *dev, unsigned int id,
-+				       struct device_node *node, char *name)
-+{
-+	struct resource res;
-+	void __iomem *base;
-+	int i;
-+
-+	struct regmap_config aml_regmap_config = {
-+		.reg_bits = 32,
-+		.val_bits = 32,
-+		.reg_stride = 4,
-+	};
-+
-+	i = of_property_match_string(node, "reg-names", name);
-+	if (i < 0)
-+		return NULL;
-+	if (of_address_to_resource(node, i, &res))
-+		return NULL;
-+	base = devm_ioremap_resource(dev, &res);
-+	if (IS_ERR(base))
-+		return ERR_CAST(base);
-+
-+	aml_regmap_config.max_register = resource_size(&res) - 4;
-+	aml_regmap_config.name = devm_kasprintf(dev, GFP_KERNEL,
-+						"%s-%s", aml_bank_name[id], name);
-+	if (!aml_regmap_config.name)
-+		return ERR_PTR(-ENOMEM);
-+
-+	return devm_regmap_init_mmio(dev, base, &aml_regmap_config);
-+}
-+
-+static inline int aml_gpio_calc_reg_and_bit(struct aml_gpio_bank *bank,
-+					    unsigned int reg_type,
-+					    unsigned int gpio,
-+					    unsigned int *reg,
-+					    unsigned int *bit)
-+{
-+	*bit = gpio * aml_bit_strides[reg_type] + bank->pc.bit_offset[reg_type];
-+	*reg = (bank->pc.reg_offset[reg_type] + (*bit / 32)) * 4;
-+	*bit &= 0x1f;
-+
-+	return 0;
-+}
-+
-+static int aml_gpio_get_direction(struct gpio_chip *chip, unsigned int gpio)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	unsigned int bit, reg, val;
-+	int ret;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_DIR, gpio, &reg, &bit);
-+
-+	ret = regmap_read(bank->reg_gpio, reg, &val);
-+	if (ret)
-+		return ret;
-+
-+	return BIT(bit) & val ? GPIO_LINE_DIRECTION_OUT : GPIO_LINE_DIRECTION_IN;
-+}
-+
-+static int aml_gpio_direction_input(struct gpio_chip *chip, unsigned int gpio)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	unsigned int bit, reg;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_DIR, gpio, &reg, &bit);
-+
-+	return regmap_update_bits(bank->reg_gpio, reg, BIT(bit), 0);
-+}
-+
-+static int aml_gpio_direction_output(struct gpio_chip *chip, unsigned int gpio,
-+				     int value)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	unsigned int bit, reg;
-+	int ret;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_DIR, gpio, &reg, &bit);
-+	ret = regmap_update_bits(bank->reg_gpio, reg, BIT(bit), BIT(bit));
-+	if (ret < 0)
-+		return ret;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_OUT, gpio, &reg, &bit);
-+
-+	return regmap_update_bits(bank->reg_gpio, reg, BIT(bit),
-+				  value ? BIT(bit) : 0);
-+}
-+
-+static void aml_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	unsigned int bit, reg;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_OUT, gpio, &reg, &bit);
-+
-+	regmap_update_bits(bank->reg_gpio, reg, BIT(bit),
-+			   value ? BIT(bit) : 0);
-+}
-+
-+static int aml_gpio_get(struct gpio_chip *chip, unsigned int gpio)
-+{
-+	struct aml_gpio_bank *bank = gpiochip_get_data(chip);
-+	unsigned int reg, bit, val;
-+
-+	aml_gpio_calc_reg_and_bit(bank, AML_REG_IN, gpio, &reg, &bit);
-+	regmap_read(bank->reg_gpio, reg, &val);
-+
-+	return !!(val & BIT(bit));
-+}
-+
-+static const struct gpio_chip aml_gpio_template = {
-+	.request		= gpiochip_generic_request,
-+	.free			= gpiochip_generic_free,
-+	.set_config		= gpiochip_generic_config,
-+	.set			= aml_gpio_set,
-+	.get			= aml_gpio_get,
-+	.direction_input	= aml_gpio_direction_input,
-+	.direction_output	= aml_gpio_direction_output,
-+	.get_direction		= aml_gpio_get_direction,
-+	.can_sleep		= false,
-+};
-+
-+static void init_bank_register_bit(struct aml_pinctrl *info,
-+				   struct aml_gpio_bank *bank)
-+{
-+	const struct aml_pctl_data *data = info->data;
-+	const struct aml_reg_bit *aml_rb;
-+	bool def_offs = true;
-+	int i;
-+
-+	if (data) {
-+		for (i = 0; i < data->number; i++) {
-+			aml_rb = &data->rb_offs[i];
-+			if (bank->bank_id == aml_rb->bank_id) {
-+				def_offs = false;
-+				break;
-+			}
-+		}
-+	};
-+
-+	if (def_offs) {
-+		for (i = 0; i < AML_NUM_REG; i++) {
-+			bank->pc.reg_offset[i] = aml_def_regoffs[i];
-+			bank->pc.bit_offset[i] = 0;
-+		}
-+	} else {
-+		for (i = 0; i < AML_NUM_REG; i++) {
-+			bank->pc.reg_offset[i] = aml_rb->reg_offs[i];
-+			bank->pc.bit_offset[i] = aml_rb->bit_offs[i];
-+		}
-+	}
-+}
-+
-+static int aml_gpiolib_register_bank(struct aml_pinctrl *info,
-+				     int bank_nr, struct device_node *np)
-+{
-+	struct aml_gpio_bank *bank = &info->banks[bank_nr];
-+	struct device *dev = info->dev;
-+	int ret = 0;
-+
-+	ret = aml_bank_number(np);
-+	if (ret < 0) {
-+		dev_err(dev, "get num=%d bank identity fail\n", bank_nr);
-+		return -EINVAL;
-+	}
-+	bank->bank_id = ret;
-+
-+	bank->reg_mux = aml_map_resource(dev, bank->bank_id, np, "mux");
-+	if (IS_ERR_OR_NULL(bank->reg_mux)) {
-+		if (bank->bank_id == AMLOGIC_GPIO_TEST_N ||
-+		    bank->bank_id == AMLOGIC_GPIO_ANALOG)
-+			bank->reg_mux = NULL;
-+		else
-+			return dev_err_probe(dev, bank->reg_mux ? PTR_ERR(bank->reg_mux) : -ENOENT,
-+					     "mux registers not found\n");
-+	}
-+
-+	bank->reg_gpio = aml_map_resource(dev, bank->bank_id, np, "gpio");
-+	if (IS_ERR_OR_NULL(bank->reg_gpio))
-+		return dev_err_probe(dev, bank->reg_gpio ? PTR_ERR(bank->reg_gpio) : -ENOENT,
-+				     "gpio registers not found\n");
-+
-+	bank->reg_ds = aml_map_resource(dev, bank->bank_id, np, "ds");
-+	if (IS_ERR_OR_NULL(bank->reg_ds)) {
-+		dev_dbg(info->dev, "ds registers not found - skipping\n");
-+		bank->reg_ds = bank->reg_gpio;
-+	}
-+
-+	bank->gpio_chip = aml_gpio_template;
-+	bank->gpio_chip.base = -1;
-+	bank->gpio_chip.ngpio = aml_bank_pins(np);
-+	bank->gpio_chip.fwnode = of_fwnode_handle(np);
-+	bank->gpio_chip.parent = dev;
-+
-+	init_bank_register_bit(info, bank);
-+	bank->gpio_chip.label = aml_bank_name[bank->bank_id];
-+
-+	bank->pin_base = bank->bank_id << 8;
-+
-+	return 0;
-+}
-+
-+static int aml_pctl_probe_dt(struct platform_device *pdev,
-+			     struct pinctrl_desc *pctl_desc,
-+			     struct aml_pinctrl *info)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct pinctrl_pin_desc *pdesc;
-+	struct device_node *np = dev->of_node;
-+	int grp_index = 0;
-+	int i = 0, j = 0, k = 0, bank;
-+	int ret = 0;
-+
-+	aml_pctl_dt_child_count(info, np);
-+	if (!info->nbanks)
-+		return dev_err_probe(dev, -EINVAL, "you need at least one gpio bank\n");
-+
-+	dev_dbg(dev, "nbanks = %d\n", info->nbanks);
-+	dev_dbg(dev, "nfunctions = %d\n", info->nfunctions);
-+	dev_dbg(dev, "ngroups = %d\n", info->ngroups);
-+
-+	info->functions = devm_kcalloc(dev, info->nfunctions, sizeof(*info->functions), GFP_KERNEL);
-+
-+	info->groups = devm_kcalloc(dev, info->ngroups, sizeof(*info->groups), GFP_KERNEL);
-+
-+	info->banks = devm_kcalloc(dev, info->nbanks, sizeof(*info->banks), GFP_KERNEL);
-+
-+	if (!info->functions || !info->groups || !info->banks)
-+		return -ENOMEM;
-+
-+	info->data = (struct aml_pctl_data *)of_device_get_match_data(dev);
-+
-+	pctl_desc->npins = aml_count_pins(np);
-+
-+	pdesc =	devm_kcalloc(dev, pctl_desc->npins, sizeof(*pdesc), GFP_KERNEL);
-+	if (!pdesc)
-+		return -ENOMEM;
-+
-+	pctl_desc->pins = pdesc;
-+
-+	bank = 0;
-+	for_each_child_of_node_scoped(np, child) {
-+		if (of_property_read_bool(child, "gpio-controller")) {
-+			const char *bank_name = NULL;
-+			char **pin_names;
-+
-+			ret = aml_gpiolib_register_bank(info, bank, child);
-+			if (ret)
-+				return ret;
-+
-+			k = info->banks[bank].pin_base;
-+			bank_name = info->banks[bank].gpio_chip.label;
-+
-+			pin_names = devm_kasprintf_strarray(dev, bank_name,
-+							    info->banks[bank].gpio_chip.ngpio);
-+			if (IS_ERR(pin_names))
-+				return PTR_ERR(pin_names);
-+
-+			for (j = 0; j < info->banks[bank].gpio_chip.ngpio; j++, k++) {
-+				pdesc->number = k;
-+				pdesc->name = pin_names[j];
-+				pdesc++;
-+			}
-+			bank++;
-+		} else {
-+			ret = aml_pctl_parse_functions(child, info,
-+						       i++, &grp_index);
-+			if (ret)
-+				return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int aml_pctl_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct aml_pinctrl *info;
-+	struct pinctrl_desc *pctl_desc;
-+	int ret, i;
-+
-+	pctl_desc = devm_kzalloc(dev, sizeof(*pctl_desc), GFP_KERNEL);
-+	if (!pctl_desc)
-+		return -ENOMEM;
-+
-+	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	info->dev = dev;
-+	platform_set_drvdata(pdev, info);
-+	ret = aml_pctl_probe_dt(pdev, pctl_desc, info);
-+	if (ret)
-+		return ret;
-+
-+	pctl_desc->owner	= THIS_MODULE;
-+	pctl_desc->pctlops	= &aml_pctrl_ops;
-+	pctl_desc->pmxops	= &aml_pmx_ops;
-+	pctl_desc->confops	= &aml_pinconf_ops;
-+	pctl_desc->name		= dev_name(dev);
-+
-+	info->pctl = devm_pinctrl_register(dev, pctl_desc, info);
-+	if (IS_ERR(info->pctl))
-+		return dev_err_probe(dev, PTR_ERR(info->pctl), "Failed pinctrl registration\n");
-+
-+	for (i = 0; i < info->nbanks; i++) {
-+		ret  = gpiochip_add_data(&info->banks[i].gpio_chip, &info->banks[i]);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Failed to add gpiochip(%d)!\n", i);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id aml_pctl_of_match[] = {
-+	{ .compatible = "amlogic,pinctrl-a4", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, aml_pctl_dt_match);
-+
-+static struct platform_driver aml_pctl_driver = {
-+	.driver = {
-+		.name = "amlogic-pinctrl",
-+		.of_match_table = aml_pctl_of_match,
-+	},
-+	.probe = aml_pctl_probe,
-+};
-+module_platform_driver(aml_pctl_driver);
-+
-+MODULE_AUTHOR("Xianwei Zhao <xianwei.zhao@amlogic.com>");
-+MODULE_DESCRIPTION("Pin controller and GPIO driver for Amlogic SoC");
-+MODULE_LICENSE("Dual BSD/GPL");
+However i.MX SCMI BBM exports two RTCs(id: 0, id: 1), so to make it work for
+current RTC framework, we could only pick one RTC and pass the id to BBM
+server side.
 
--- 
-2.37.1
+I am not sure whether Alexandre wanna me to update the code following each
+parent could only support one RTC or else.
 
+Regards
+Peng
 
+>
+>-- 
+>Regards,
+>Sudeep
 
