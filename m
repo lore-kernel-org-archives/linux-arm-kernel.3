@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AF5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988A9C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gkKkfn9RZYpOXUy1js9dF0h3N+oOvgZyHXslAX7StVo=; b=4sTJ6na5JCWBz7FqrVoONjaYgd
-	j3hNzMAducvNzY7YyffRPL8TjM/ZSX/oh3PKIGZCgE2tWeq6KkELaOJ3CLHpTH95sNeGxP/JSuJCO
-	0UyBtXY0YycPeY6hl83Q5kPUnkrzjpeDAAu3y+rrV9eIlthBxlGKHYU5sERd6aL2Mj++KCSNXeCky
-	MUF4SVFx4C8XASHgyktZAXJFTQiroumyGz+CoCYU3Uf3LzVmdoCOI1AmVWTh7u67febFQOD3DZsqO
-	SF4M0tKwDcGVGeoQ/FiL+UvotbW1x5/r4wxCLWyDnHqFUqCkBTlBWUtXCFPgPQC8iHcjBKfYo//P5
-	pOIng2+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dy4EsI7ypETbFEpq/zTr0dhbN+pWJpk9kLQK92GWoT8=; b=GulSi2FuMnxQPI+uyRtlfumGWR
+	rxUh0NdsKFIW/EASpBpVW2yLjlCQbkz3i9V7w4EH5nJF8A7eXjxKCDTtGsrpZzmzewx+Fzq3y5IRw
+	4VOY86p0L2aT3Qdl2ACtWwQNZsaxlAg6UwEfzbsj/Nhzh6rrpxuGViO0wxNex1B3W7csUZSw/dOHR
+	7eyd9IkpFcL7F3+K6SsWnZ5muOLR6MjfdDkVWbiX+L2b2MFEGu18OVyyMc6nR5Lnsi8aEWOwk+wUk
+	vOgJPtMIGB31k8SAlGrgHne+5TYjnhSzZ9FqXllj0RrlPuHDW5YbETZ8M+DPPnD7oDWMHYHOZOwvd
+	TPkvUNnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8tH-00000006kTf-3TyV;
-	Wed, 12 Feb 2025 09:18:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ti8vQ-00000006kmZ-29Mu;
+	Wed, 12 Feb 2025 09:20:56 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8rs-00000006kME-2ka0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Feb 2025 09:17:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=gkKkfn9RZYpOXUy1js9dF0h3N+oOvgZyHXslAX7StVo=; b=UvcHBjIDImLXSx122KLXeXB+E7
-	KoiVbl31dYtUDknrBK4nf6zhgFUWUwgwT/mfOM/gnDaFxOiUbNkgP9faSkIjm+Oext0WTZq7SRlrK
-	sWUCc9t7y/xQJSU3/1SWptUTKdjIlVpiqV5LZ6UxqvFB99v3QIrnurJ8IyruxiPlfmW5TGK1kXuF8
-	/5aamdyGGzsF0N7IgLRO5gHq/mTOSyYv/qYNqZvnGx3zXW4jFy0byilRTeYxhNOwY2qSCAByfsw10
-	xwVU34JD6NiBG4a6X4h1tiwEYGeu856iOp+k165oP6S6JCwFj0epHoo8aUNGNEDNk+PVHlU/K4DgT
-	ppAOs07A==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8rp-00000000mzV-1Tny;
-	Wed, 12 Feb 2025 09:17:13 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 60EB8300318; Wed, 12 Feb 2025 10:17:11 +0100 (CET)
-Date: Wed, 12 Feb 2025 10:17:11 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Cristian Prundeanu <cpru@amazon.com>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
-	Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	Ali Saidi <alisaidi@amazon.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Geoff Blake <blakgeof@amazon.com>, Csaba Csoma <csabac@amazon.com>,
-	Bjoern Doebel <doebel@amazon.com>,
-	Gautham Shenoy <gautham.shenoy@amd.com>,
-	Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Borislav Petkov <bp@alien8.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-tip-commits@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2] [tip: sched/core] sched: Move PLACE_LAG and
- RUN_TO_PARITY to sysctl
-Message-ID: <20250212091711.GA19118@noisy.programming.kicks-ass.net>
-References: <20250119110410.GAZ4zcKkx5sCjD5XvH@fat_crate.local>
- <20250212053644.14787-1-cpru@amazon.com>
+	id 1ti8tz-00000006kZy-3um1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 09:19:30 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-03 (Coremail) with SMTP id rQCowACXkziTZ6xnDxaiDA--.30403S2;
+	Wed, 12 Feb 2025 17:19:17 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com
+Cc: UNGLinuxDriver@microchip.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] net: microchip: sparx5: Fix potential NULL pointer dereference in debugfs
+Date: Wed, 12 Feb 2025 17:18:46 +0800
+Message-ID: <20250212091846.1166-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212053644.14787-1-cpru@amazon.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowACXkziTZ6xnDxaiDA--.30403S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFWftrykur4rZFWkKw4fAFb_yoW8JFWDpa
+	1DuFyYg3ykAwsxGw17Cw48XFyrWan0gFyfWrWruwn5ZFnYgFZ3Xr15CrWF9ryFqrZxGrnx
+	tF45Za9IyF1qyFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUb8hL5UUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAcLA2esWj42QgAAsY
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250212_011928_352846_58A82C5F 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 11:36:44PM -0600, Cristian Prundeanu wrote:
-> Replacing CFS with the EEVDF scheduler in kernel 6.6 introduced
-> significant performance degradation in multiple database-oriented
-> workloads. This degradation manifests in all kernel versions using EEVDF,
-> across multiple Linux distributions, hardware architectures (x86_64,
-> aarm64, amd64), and CPU generations.
-> 
-> Testing combinations of available scheduler features showed that the
-> largest improvement (short of disabling all EEVDF features) came from
-> disabling both PLACE_LAG and RUN_TO_PARITY.
-> 
-> Moving PLACE_LAG and RUN_TO_PARITY to sysctl will allow users to override
-> their default values and persist them with established mechanisms.
+In vcap_debugfs_show_rule_keyset(), the function vcap_keyfields()
+returns a NULL pointer upon allocation failure. This can lead to
+a NULL pointer dereference in vcap_debugfs_show_rule_keyfield().
+To prevent this, add a check for a NULL return value from
+vcap_keyfields() and continue the loop if it is NULL.
 
-Nope -- you have knobs in debugfs, and that's where they'll stay. Esp.
-PLACE_LAG is super dodgy and should not get elevated to anything
-remotely official.
+Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
+Cc: stable@vger.kernel.org # 6.2+
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Also, FYI, by keeping these emails threaded in the old thread I nearly
-missed them again. I'm not sure where this nonsense of keeping
-everything in one thread came from, but it is bloody stupid.
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+index 59bfbda29bb3..e9e2f7af9be3 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+@@ -202,6 +202,8 @@ static int vcap_debugfs_show_rule_keyset(struct vcap_rule_internal *ri,
+ 
+ 	list_for_each_entry(ckf, &ri->data.keyfields, ctrl.list) {
+ 		keyfield = vcap_keyfields(vctrl, admin->vtype, ri->data.keyset);
++		if (!keyfield)
++			continue;
+ 		vcap_debugfs_show_rule_keyfield(vctrl, out, ckf->ctrl.key,
+ 						keyfield, &ckf->data);
+ 	}
+-- 
+2.42.0.windows.2
+
 
