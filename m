@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCA6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 07:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE70EC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 07:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NkpApLmuMSuoEXBLQRnWWTTZmdzVTlEP/UbOXT6BIvI=; b=IvK97vUZwz7YQ3akhkuaQ0cv9Q
-	euPlJRbcSqC632qlaWuKaG6MQ/tPEIxXkEeg5cg4RObTtKo/5Ltr6ho9A2BaH4ube/vky9+nLlbvJ
-	3IgkqXVexD1Q3DEcypLoAU1PFVfgXtP6AMp60cOQkomVQDcteaui0zDOoNHcZ4+BaEtUEJm0HTzXn
-	jFyGO70gCwqYmtc2BWDauLCra6YdAOdLpYsD46OdtOhXf6sNO6uEgDUWblaUoq6fapd06SLL0IsE9
-	/cOqp7QafoBUC+8fJF5FEx7U917PxB66fkUfAvqqK636ajJ3YJZz3nbJpGjtACaxVG/iqpwEL63Zf
-	NaPbUAcw==;
+	bh=fkwC4yo/St1MU9GrbOiGWT5f1H9mKSQMNgvX57ikxsY=; b=FbPp5T3+x0ll88xwv1D4HjfOGA
+	JhVGUU1U6oE1ZrU5QxArykib6WXsM16nCq1UQnnDkAg5gdG9FQcblCzpmbN0uhxuH5zR51sYcXeWu
+	y0VTsefwDskblFPWDnwO1sEdPLmjfkBD3PtLBvmJA9BypOBQFALardhRMPJS1wOkNu7FqsrZf1ruz
+	W9Hji7crSVoP9cKW3dR8ri7Vs30K3UabTg9dBMpof81a6sUlFyNwMrlcVtwoqOaFy5LXbtA2YTwAG
+	e7sy8eyzhMnrBZ4J39DBI6z9M5yBezhGqdk5YQc7IOyvG6W0vMq7bsRvRMWcGNJEP5WVxmb+zX/TO
+	4A35D2hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7BP-00000006UDR-49kS;
-	Wed, 12 Feb 2025 07:29:20 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1ti7Gr-00000006Uwy-0Ifa;
+	Wed, 12 Feb 2025 07:34:57 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti79y-00000006Twg-3TCB
+	id 1ti7FR-00000006UkE-0f9m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 07:27:52 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-545039b6a67so3882116e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 23:27:49 -0800 (PST)
+	Wed, 12 Feb 2025 07:33:30 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21f55fbb72bso84174205ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 23:33:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=easyb-ch.20230601.gappssmtp.com; s=20230601; t=1739345268; x=1739950068; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NkpApLmuMSuoEXBLQRnWWTTZmdzVTlEP/UbOXT6BIvI=;
-        b=WKtu3tYKMzgvGGfMLl91oe3aTSz6umtZ8cDTFacsrlUptSmdll3zAs4czPc4Y3twf9
-         f7RR4HrQaM6BYo/l6grg5eLCwZnOzT8+XdeaLRSLU5Gl3c4gA+mZxby/WvyQppVM1nzJ
-         P8JC0UvrwSvpooivN4qnZM2vdGSK86LOugH3R0BFWMvUp8AYC98iQvhGSPL0ZfCy8lQl
-         XhmQSa904GWqBdxULB7iXxeMhQ69CP6tzdkw1ob1FUAhIgdkggUT4eSFOvYk0qcPpEhM
-         KhkyXkXufK3UWNzSFvE8BDz8jszE0EUSt28B1+iCcZVMmGKFYZLP97diqzdKQ12/Xh3s
-         YsBA==
+        d=bytedance.com; s=google; t=1739345605; x=1739950405; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fkwC4yo/St1MU9GrbOiGWT5f1H9mKSQMNgvX57ikxsY=;
+        b=iej+E1zUWoRAJAUTLS9BQdeH5TXyJFqSsHER3THtV2HMknmXFeNDmnnMXZ/UawbqgY
+         rjeu+UhN+Ben8gxczvBmSXyoXe0QodbsOK78R0tQCiM4ASqb13z1kKFoKY7R4AyO6sla
+         c/rydPsIW4cLJu5zKkAmlAwNkO7h1KDQ2ZJuxybeIGbx0+mSWi5WFmKVBB5IC3MzbOdd
+         piWNRvBdsdqnNYQNzzHAJ1b97KMC+5GIJtVzwLWCbVLrkcFy0V8wUQuU+ra12AEliYyl
+         9LilqcVrl/sDM8gj9wsfReW87ntRFXP3tvRWJaKdPVD+gGp6CxEwcBUzn0DEF2A5IB9J
+         GaQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739345268; x=1739950068;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NkpApLmuMSuoEXBLQRnWWTTZmdzVTlEP/UbOXT6BIvI=;
-        b=GkB/eGNMWx8cXbMzFcv3LDZPhrHZqHRsfCGle0VkoYXBfOVAEiBKOK1Jj1dV/L0anz
-         LYQqprzPwB//uWAs3w0JRWMskUG3xsaHvQG+77t28EVn0BMDznFkH1ppJW0gFU1m6DIN
-         wvY2eNT805mOt4k4p7ptmVR6eYaiqQVo9oimXiF+5Izq/R2nmmxmnCnAMiNYGMhguC6Z
-         n+CLFLH0JvvI5rVP7qqqpxRSdP8LDLI4C1Oceocm7eFuYuyjFVZdqdF9pPGzJDO7adVB
-         8fCcYxJnElPenhisdaaa4SI1JJlLYUlWLfViALBBgX+LCcVHdstIkBTe4W1BAPw39ApP
-         BQXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXub630WPYTnQw7PxM0farVh9o6zYUdF545000ylvZg+LnyC+d+6T8wrrkUimALoQhhBcnXoTr9RpvWcxfdE347@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfMbCWZurkE8Y8kQrazFoClFyM/FJnD+aoRoQAgKH78TK6egFL
-	Ch1iwZYbftVvkJ7JFpu/3sNewD+Ed6DlFwQPKR+U66njjVEds6pNyDE3TdejPOO7mpg0lD0bZkg
-	Z0mmTAy0rzRkqmx4wztdM6D3bVcYgE9NY7h8lpw==
-X-Gm-Gg: ASbGncv66jMRRMMirYSCdJreuSt0mHeIDJGz0qM2xVOv6BQVJkx8dDN1FbTIIufAcXg
-	F24ve9aNQpERk9wjlCPRraiAFdUVCyaQTrsNxAgyFdMt6SsjIOwIh9iJjDTQR22lnGGdROUEn9j
-	pD9jro3cw4efmWS/y6KwCPoQ4M//M=
-X-Google-Smtp-Source: AGHT+IHBuOV1u76P+sliG1ZLyRYbTKiqx9yn/XwZRRCZd7FDQnrrgDlhR9/jciNljT0bWlE6m70c+Cc75Sta0/soFRE=
-X-Received: by 2002:a05:6512:3a8a:b0:545:c7d:178d with SMTP id
- 2adb3069b0e04-5451810906emr456277e87.12.1739345267946; Tue, 11 Feb 2025
- 23:27:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739345605; x=1739950405;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fkwC4yo/St1MU9GrbOiGWT5f1H9mKSQMNgvX57ikxsY=;
+        b=UgFNFKlz6U7t4DHZsS6buBNg5ZxtqmweRHTMLU051oOXAmctcQZFyVkaiG55/7c/Bw
+         YA2FDpqdOEDtlEZlqzLZlp3TBvMK6EEN8NZzCzp9ZO0/OZh1zBYyVqsftujYnMvGjS4u
+         z90CSUyG/Y9p8B+foaAs0Fe2Cw74VQIyKzrHtjJjpeUJO40fpn3IM+ui9z4+9lS6Mt5E
+         kiCaE4V5Z2r5frNzWvvi6EOmqiNsia/2dOqOVXTSb4YjOizh/KIOQe5OCJxBBhU7AXqC
+         y9VjI4m7fHoPn0q83rha++Qof3OiHWEc/Ls3j05Ze+Olm/fJlnmFeXLlA5cjRDU4uyQ2
+         m+9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUEx882az8sVceRRj7KXvbbqlIW4hmv9x8G1MQYD4kTuf5V+Pqy6E0JkLwB/gXKJ/Yg6aHtoTK3kgf4sTU2c6d4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzB8UDQQRq0GxGRMtutYnEj3hi+m5qNYO3F48ry8j2hX2IUVZC
+	94fAj6b8ewACQZdVJl05NsnVv2gCzjZv1fpmx0B7n/+xYSpNr4Hh9LPhgg4QWlY=
+X-Gm-Gg: ASbGncsKFjd1m4fvmGOuOcmtBgNbbJHHaLVaT8iyGdsl3NDg1kzjA/mgHlYKIm7+nXq
+	VesiPBkeJ0JXtAilyV9ZKBIgD+BhuQH7yFszzi7CgykI/jMwAz/WGmGISITcUEq2loEFvfTDt4d
+	TTk68G0A7QBGIYQIaljY8T0nrJBTjcctK8YpxEC5U9dHkPAMXJ52ul5fNm0kt/WCegCZ+I8MQ6R
+	2BA9K6qGRvssw3yreAvMmY+1axyXN9OwVc2SIMvcgNNlcdkJA5JzkF7ObEgC/EmVhnBJqLNOpiR
+	Mz2CoLpRgT1JMS9Zn3sdedVNdljQFtsa31FRViuWmw==
+X-Google-Smtp-Source: AGHT+IGiuGc7iBWpCw3G4pXH50ZiqqPYc7UNNfOGWQ0h2PpQXVIqAav7BnmCxlwuHgBLLmHBduzIkw==
+X-Received: by 2002:a17:902:fc4f:b0:21f:7821:55b6 with SMTP id d9443c01a7336-220bbae2543mr35144095ad.13.1739345605349;
+        Tue, 11 Feb 2025 23:33:25 -0800 (PST)
+Received: from [10.84.150.121] ([203.208.167.153])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3650ce0bsm106755595ad.21.2025.02.11.23.33.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 23:33:24 -0800 (PST)
+Message-ID: <2e194c31-c177-496b-8e53-a20625e20a2b@bytedance.com>
+Date: Wed, 12 Feb 2025 15:32:04 +0800
 MIME-Version: 1.0
-References: <be323425-2465-423a-a6f4-affbaa1efe09@bytedance.com> <20250212064002.55598-1-zhengqi.arch@bytedance.com>
-In-Reply-To: <20250212064002.55598-1-zhengqi.arch@bytedance.com>
-From: Ezra Buehler <ezra@easyb.ch>
-Date: Wed, 12 Feb 2025 08:27:11 +0100
-X-Gm-Features: AWEUYZmZw_dR7xZ0V1G7gpsQgXY4quV-0zHZqZHrTMP56-HGWMQZHyZg-iRxnUM
-Message-ID: <CAM1KZSnWFivV-7nc55MBAEtdP1LXfW4eLKa-94HPZaTP0AOPrg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm: pgtable: fix NULL pointer dereference issue
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: linux@armlinux.org.uk, david@redhat.com, hughd@google.com, 
-	ryan.roberts@arm.com, akpm@linux-foundation.org, muchun.song@linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Language: en-US
+To: Ezra Buehler <ezra@easyb.ch>
+Cc: linux@armlinux.org.uk, david@redhat.com, hughd@google.com,
+ ryan.roberts@arm.com, akpm@linux-foundation.org, muchun.song@linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <be323425-2465-423a-a6f4-affbaa1efe09@bytedance.com>
+ <20250212064002.55598-1-zhengqi.arch@bytedance.com>
+ <CAM1KZSnWFivV-7nc55MBAEtdP1LXfW4eLKa-94HPZaTP0AOPrg@mail.gmail.com>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <CAM1KZSnWFivV-7nc55MBAEtdP1LXfW4eLKa-94HPZaTP0AOPrg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_232751_155543_1090084E 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250211_233329_194964_55FAF994 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +103,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Qi,
+Hi Ezra,
 
-Thanks for the fix. I will test it as well as I can.
+On 2025/2/12 15:27, Ezra Buehler wrote:
+> Hi Qi,
+> 
+> Thanks for the fix. I will test it as well as I can.
 
-On Wed, Feb 12, 2025 at 7:41=E2=80=AFAM Qi Zheng <zhengqi.arch@bytedance.co=
-m> wrote:
->
-> When update_mmu_cache_range() is called by update_mmu_cache(), the vmf
-> parameter is NULL, which will cause a NULL pointer dereference issue in
-> adjust_pte():
->
-> Unable to handle kernel NULL pointer dereference at virtual address 00000=
-030 when read
-> Hardware name: Atmel AT91SAM9
-> PC is at update_mmu_cache_range+0x1e0/0x278
-> LR is at pte_offset_map_rw_nolock+0x18/0x2c
-> Call trace:
->  update_mmu_cache_range from remove_migration_pte+0x29c/0x2ec
->  remove_migration_pte from rmap_walk_file+0xcc/0x130
->  rmap_walk_file from remove_migration_ptes+0x90/0xa4
->  remove_migration_ptes from migrate_pages_batch+0x6d4/0x858
->  migrate_pages_batch from migrate_pages+0x188/0x488
->  migrate_pages from compact_zone+0x56c/0x954
->  compact_zone from compact_node+0x90/0xf0
->  compact_node from kcompactd+0x1d4/0x204
->  kcompactd from kthread+0x120/0x12c
->  kthread from ret_from_fork+0x14/0x38
-> Exception stack(0xc0d8bfb0 to 0xc0d8bff8)
->
-> To fix it, do not rely on whether 'ptl' is equal to decide whether to hol=
-d
-> the pte lock, but decide it by whether CONFIG_SPLIT_PTE_PTLOCKS is
-> enabled. In addition, if two vmas map to the same PTE page, there is no
-> need to hold the pte lock again, otherwise a deadlock will occur. Just ad=
-d
-> the need_lock parameter to let adjust_pte() know this information.
->
-> Reported-by: Ezra Buehler <ezra@easyb.ch>
+Thanks!
 
-Perhaps a detail but, maybe better use "Ezra Buehler
-<ezra.buehler@husqvarnagroup.com>" here.
+> 
+> On Wed, Feb 12, 2025 at 7:41 AM Qi Zheng <zhengqi.arch@bytedance.com> wrote:
+>>
+>> When update_mmu_cache_range() is called by update_mmu_cache(), the vmf
+>> parameter is NULL, which will cause a NULL pointer dereference issue in
+>> adjust_pte():
+>>
+>> Unable to handle kernel NULL pointer dereference at virtual address 00000030 when read
+>> Hardware name: Atmel AT91SAM9
+>> PC is at update_mmu_cache_range+0x1e0/0x278
+>> LR is at pte_offset_map_rw_nolock+0x18/0x2c
+>> Call trace:
+>>   update_mmu_cache_range from remove_migration_pte+0x29c/0x2ec
+>>   remove_migration_pte from rmap_walk_file+0xcc/0x130
+>>   rmap_walk_file from remove_migration_ptes+0x90/0xa4
+>>   remove_migration_ptes from migrate_pages_batch+0x6d4/0x858
+>>   migrate_pages_batch from migrate_pages+0x188/0x488
+>>   migrate_pages from compact_zone+0x56c/0x954
+>>   compact_zone from compact_node+0x90/0xf0
+>>   compact_node from kcompactd+0x1d4/0x204
+>>   kcompactd from kthread+0x120/0x12c
+>>   kthread from ret_from_fork+0x14/0x38
+>> Exception stack(0xc0d8bfb0 to 0xc0d8bff8)
+>>
+>> To fix it, do not rely on whether 'ptl' is equal to decide whether to hold
+>> the pte lock, but decide it by whether CONFIG_SPLIT_PTE_PTLOCKS is
+>> enabled. In addition, if two vmas map to the same PTE page, there is no
+>> need to hold the pte lock again, otherwise a deadlock will occur. Just add
+>> the need_lock parameter to let adjust_pte() know this information.
+>>
+>> Reported-by: Ezra Buehler <ezra@easyb.ch>
+> 
+> Perhaps a detail but, maybe better use "Ezra Buehler
+> <ezra.buehler@husqvarnagroup.com>" here.
 
-Cheers,
-Ezra.
+Got it. Will wait for your test results first.
+
+Thanks,
+Qi
+
+> 
+> Cheers,
+> Ezra.
 
