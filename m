@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9D3C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AF7C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFYj8M8sWUilipZ79moNvoJmNP0x1CtymAnRzXm2Cm0=; b=Lnv48tOKcGDatKhCfRAKDkoKwT
-	/+YFjvqoDNaZC60aAM1fmJ45A9Aj0Cjed6hPRkY0twaGLZf+TKSpQzCLpmndsai7DWABGo/B29bcC
-	VVb9Fp72aaywwgo+ky0E52cXL8WdnPnTuQz9699u/X2uTrjC23xv+Wwj8fgF1xN+uegRCAjo3bZ9V
-	IA7/BK4GSEnKyzBHIPPxTz9t5DBMyBx5NkZcZlMsozfTWptmSAzt8C+oa6CezwxHQxINEcm7/A7IC
-	zM7sCCi12TS4NQnmcJjNY8W28pWu/dMjgw2SjDXO95k5qZu89JVk0188gVmlAxWSBgwsQcFYRULe4
-	17/0pmEQ==;
+	bh=0l05ZDEo5bKH98lcf/z2wVpVbfg6jDUAnt9TMH5HSeU=; b=ZucUiRajVStTZVHV5bzXPjGMTk
+	rdsW1QTiN3H15oKW797bC1hssB/aeV0KoGf38CnQtDo6AzeKzhhFjKHYTIXkACfrvwBJqZuSPrEuf
+	G0jT/UERqdtNY1JHE+VIiZHTis8IM/WpB6v1tc8C+x/yAynw1qjrDzA/vpC8oGzNogeY+7Y/hkWNh
+	mHLzkEXpLbT9HFkPdngXjEmAULiTX0avxNUBDNVnRdM2zjg4F288Fv9pTErXDhxsW13L5DnK8D4HA
+	gYwavDU/P9AZPWgFwKOS2MO9A3vkEtFyQ+Pg5kGcveW1GMEdYjqBL1UlWq7UA0iajQa+3eeeJWgIx
+	KZYVKzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBMN-00000007GQX-1PjF;
-	Wed, 12 Feb 2025 11:56:55 +0000
+	id 1tiBNl-00000007GeY-02pU;
+	Wed, 12 Feb 2025 11:58:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAq5-000000079ji-13s3
+	id 1tiAq5-000000079jg-0nEO
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 12 Feb 2025 11:23:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GFYj8M8sWUilipZ79moNvoJmNP0x1CtymAnRzXm2Cm0=; b=HVOSwTqb5GpvXYRPQyEAnTmbCV
-	o1YAVkaz1uWRMvc2O/2+8gd4L94YdnHWY4U9KUqf8yyNG00fpWU/lg5heICwYgxy9w1TqQT5jVApc
-	oOcMW8mze4MOSoYVQ3tWYqXQbRvrjSyQ4REPzDFXCERnxght5CKmHfmU7ynIqU83UuLONRdv1nxtv
-	wjn1BxeZf3ikdHU/R8/qwdqOo5jnIfx/F70nyBuNF+MRmkQV0d92SLibbd44rRvEZH9CtjybqEwgz
-	0D2VBzpEW3vQaA5R04Z20rkj3pWAd3/cqYTxb8eu4CXRlbEZiKfGY1VEl61uAXLE8dd0wbqsoiO44
-	jnC3rXyw==;
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	bh=0l05ZDEo5bKH98lcf/z2wVpVbfg6jDUAnt9TMH5HSeU=; b=XmO5F1q+gY2/XhOjWbCfv8590s
+	HMaC5r5sGGEtQnUa4IJ0tcAlB7b+3voNYIfZlGay5Z9Fh6/dgKlcAFBMMu8WWmOqaleZjrx5MtrHs
+	vlfXUzRS6IeyhoEDC7wFbwMHEz6Bo/wxjKXUA1/se+IYw2mXIrQPIIl0uGzNJz46KkQPfLOSEMfMV
+	gi/gTbdLcRdJoWzX8219O6x4Blo3h03RsVqC5c8cuBcJgMLHRjJxMmLbs3zqFEC9d5EAdlreLQyQk
+	wHoeFC3f2gNbDJyDn9CnNQ2h+WGb18b/ly4HQC+hoi69jpW9DvjlXOPxouHk2CmCnpixPhAHO2PqD
+	8D04dlnw==;
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAq2-00000000nq5-1T7r
+	id 1tiAq2-00000000nqR-1EHA
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 12 Feb 2025 11:23:32 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30761be8fa8so65769751fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:29 -0800 (PST)
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-308e3bd8286so39089821fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359408; x=1739964208; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359409; x=1739964209; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GFYj8M8sWUilipZ79moNvoJmNP0x1CtymAnRzXm2Cm0=;
-        b=ktTN9v5LAdAXN72fB0g/AALcv88DyCjIaBQ8dGwlh/oWnfY4vP2uhI6epz6ZcnT9nL
-         25MgkfkXOO8oPnD+paVR+sXEfLfbJgDizkGXEzmuqvA5OdV643/z8Z/TRolFRydFIYtV
-         lyMAE1DkXZnRCCsEeBWYDBDbAzVAW2v1YjjwylYMBebgrWUH38Xbkmt1BLFJJmsnSdw0
-         tEox7X1usmwsW42XAsXyEzhQoDPonEI+wgDcHYNFN+AzDVX9Xh+fCdPjUMNPmlfQqZFA
-         /Kay4yRk/q1Nq5m+dooMNP9mS24kgdR1sU2Qqck1AyhHDKkf/bSAiR2lhn6U1bK2GRZ4
-         hhOQ==
+        bh=0l05ZDEo5bKH98lcf/z2wVpVbfg6jDUAnt9TMH5HSeU=;
+        b=O6pPW+GSbHSgVaW/ygdtzJGuikGqjm07wvDLzZH6Tng031/xRcmxjga7Co4ScHayeP
+         aFrmAFKixvV/DGWdUdotb7yoTZ9F5Jw0tlQj8AFcmiYggiLulP9lTZaVeb2QJG3Ie4Ro
+         lbVh7UmDC9uX6d8dR6EnWwZ+iA1tNkRHLrciScIvB2tBV9by4RSERWKH4FAPPi1D/2+J
+         lcZ7Z4S3Up/PDJtJ4Ixf3ctAPD5FHCYqec+IWJ5vztglhjTnRLmpFCXbx53/sf1RFhof
+         h7l8bnfrYn1sqpKc0BWghi0b3dM/HdKaryTnVLt4T/sofXzafJFKJsZTxJUME7R0OB1P
+         mO5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359408; x=1739964208;
+        d=1e100.net; s=20230601; t=1739359409; x=1739964209;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GFYj8M8sWUilipZ79moNvoJmNP0x1CtymAnRzXm2Cm0=;
-        b=wMYPZhezD+5Kt6eJsEX8ZKG8QXIKicNW0QHxVww3nMYZWA0NsOCKyb7HUzKFSrkpsd
-         Q5i3L5s8Jf2sDLf+wPArFH5wVHgUEUA1HFmZDwW47PN5R4w+Aq8NJCWO6icZ40Tx7GVP
-         kM3A3uVDU8hvCdlBIA0GZDEDzqDT00hjF3ocgguKXp+EHQ/DVX1JrCzgUWo841gZ6RcY
-         diG8uB7zrQdMxFRoujFIU/lJUzOV7BJiSOfacj8X7+H0Lswrn61aMA8Fpcdfqj8y3wsW
-         ifiilQ5UVEpuuQCjrWhq5AHz1yX4Wb3uek/FxjKuHIZKUjO7Xs+smbhnf7D98ueEGTnd
-         t4yg==
-X-Gm-Message-State: AOJu0YzTdQTPj6Oi9a2Go6vWTO0T2Gzvkuu+S/aSJs+/hwwfdRWUOx5w
-	WUnse3p6umIwt8iKgwx7GA2oErgN3lG/8habe2krLSJyfNH9mDiSMWXBy1OBlFg=
-X-Gm-Gg: ASbGnctHxtKA4Dez+KWBSx7ucy2Tu05WbDDSThkjg9T6ZV9AAiSkBYKZOjqkJ57AmmJ
-	tE8OINNMwh7hXIX9Uegu/tG8alYZBBrDu6JsdOSP3TrcQuzwShU7OjBtGIyvSwvyGRC427hbv2x
-	ryNUX+YUPXc7+GbhRL5TymIgfEW5xV7nK1qbWMzSv3rF1iJtLVDp50ERPlipXsnz2tObbKpJEf0
-	NCtSybQJmgOgKGtggILjiIlQhWZg/oBt2I4erLn8TnSTyrWOrTdzJGdITvZfquxHoSp2obhhNlt
-	rcpT5AwMYViRhP5/K2MijZpxOg==
-X-Google-Smtp-Source: AGHT+IFtx+JLgvxuRlhMSLR6Ap6cqBlv8BsXuPeR5u4M9sE4qMRSRRT4UspKmtEyZVl6ngpQPtOzZA==
-X-Received: by 2002:a2e:be9b:0:b0:307:46f3:4e92 with SMTP id 38308e7fff4ca-309036ea8f1mr13238611fa.32.1739359407816;
-        Wed, 12 Feb 2025 03:23:27 -0800 (PST)
+        bh=0l05ZDEo5bKH98lcf/z2wVpVbfg6jDUAnt9TMH5HSeU=;
+        b=AHJCiSX/mcDSe2o+ZhrgeVJ1kNg9p9KrViS25crjHzKou2yOAiBbORlWpte9LZFaOI
+         R6FDmuGqd9BVeOl0YGNiQ8IIh/gOSyYXO0UaxdKbpx5UHsM+B7OAzuSP2I0qzovpnBHT
+         HqbJ18cti0r7doIpJYZSvOeOtG8PzhRBtsmwAMP+HzwJ7oNdMeHQ7e70xqBAoXUH9T/1
+         AdxFom7Ydjp9M8zZyJM5Fby1X7bDmpt+6QXSE5x+7BVgIzuLfcRbjp7+b7o2QuZ9JUtX
+         FAnksvVcHFETxp3DsD0JgXbaLoK9fgKJYGngnqQV+B2sOCmLxW/mpFG0WbOKmQTtQ9dS
+         KwdA==
+X-Gm-Message-State: AOJu0Yw0QvQNSR8xF2tYzXcoiucnZ6kgSKlfMi+VBtKozLVvg3oATjST
+	d9qRDaZK9XZxJ/96TEDmUkSlGJC6OhAOr6U4Q6IHmBAlb+gC6QcQ8+4Jr+Zzoyn0EK67kAYdvQS
+	m
+X-Gm-Gg: ASbGnctUfbJgIC3A4R27z9ICUZKXmXY1m9JNitOCUxd/ZKpEH/MTiHICxuyNypo/EvZ
+	Ls8Jj49+RvPzUvjbta/LUROc0nFlZz6KVDAUw0+xaKNmjX7O+qBmnqh8GiUmtsG3oSIyAuaihwT
+	tu8Zj7hYF26jjE0ao60PewG+JfFO3yPoZrMO6M46VfeZxIhsVaKR1VckU10ZyzkdrRJOuQEPFsW
+	WIObBXaaqSK5CfMTm6opiZhuQ+iOR5iT/zF0LIySBxfPbbr0LnBICR++eQIKMI3GAImwnng28+V
+	zcAVGksJG3ldfIr8rD/pRZBZjg==
+X-Google-Smtp-Source: AGHT+IGSxmUmsIGZU6BTQUkSp0x8dKEvIYRNw21ZDleo+Ua51tS+VPbbp2jic1YKzEdrANQKDuDojQ==
+X-Received: by 2002:a2e:bcc7:0:b0:307:2b3e:a4a9 with SMTP id 38308e7fff4ca-3090366fe24mr12618001fa.20.1739359408813;
+        Wed, 12 Feb 2025 03:23:28 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.26
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:27 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:28 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:15 +0100
-Subject: [PATCH v4 21/31] ARM: entry: Do not double-call exit functions
+Date: Wed, 12 Feb 2025 12:23:16 +0100
+Subject: [PATCH v4 22/31] ARM: entry: Move work processing to C
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-21-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-22-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -102,8 +103,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_112330_632766_42C117C8 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250212_112330_580331_A19A7CA4 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,44 +119,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a semantic change to ret_fast_syscall: if there is no
-work pending the function used to jump to ret_to_user, instead
-we proceed to return from the syscall.
+At the end of a syscall software interrupt and every time we exit
+an interrupt handler we check if there is work to do, i.e. if the
+current thread (userspace or kernel daemon) has set the
+_TIF_SYSCALL_WORK flag.
 
-If we jump to ret_to_user, IRQs are enabled and we call
-syscall_exit_to_user_mode a second time; at this point a
-this just means a second call to rseq_syscall(), but it
-seems wrong and we want syscall_exit_to_user_mode to be called
-exactly once.
-
-Apparently the ARM kernel has under some circumstances called
-rseq_syscall() twice on the exit to userspace without side effects.
-
-ret_to_user also checks for pending work a second time under
-ret_to_user_from_irq, but this isn't even needed any more on
-the fast return path: this was needed because the syscall
-invocation enabled interrupts when doing syscall tracing, and
-all tracing invocation has been moved over to C in earlier
-patches.
+Move this processing over to the C entry code.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-common.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/kernel/entry-common.S | 14 +-------------
+ arch/arm/kernel/entry.c        | 10 ++++++++++
+ 2 files changed, 11 insertions(+), 13 deletions(-)
 
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index ece9215717143427de7572a18a6dbe620a9193e9..33bc9e7c5b32f62474724f1d47f97af24dba53bf 100644
+index 33bc9e7c5b32f62474724f1d47f97af24dba53bf..5385574c4339714f3d8b5ab6894f27466b89f932 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -49,7 +49,7 @@ ret_fast_syscall:
- 	tst	r1, #_TIF_SYSCALL_WORK
- 	beq	1f
+@@ -42,19 +42,7 @@ ret_fast_syscall:
+ 	/* do_rseq_syscall needs interrupts enabled. */
+ 	mov	r0, sp				@ 'regs'
+ 	bl	syscall_exit_to_user_mode
+-	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
+-	movs	r1, r1, lsl #16
+-	beq	2f
+-
+-	tst	r1, #_TIF_SYSCALL_WORK
+-	beq	1f
+-
+-	b	2f
+-
+-1:	mov	r0, sp				@ 'regs'
+-	bl	do_work_pending
+-
+-2:	asm_irqentry_exit_to_user_mode
++	asm_irqentry_exit_to_user_mode
  
--	b	ret_to_user
-+	b	2f
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+ 	bl	stackleak_erase_on_task_stack
+diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
+index 47233804733752aef0f2fec6f54badeab18e98d0..0e3960844b94b14325eb00ce7dd791b36c43ac3c 100644
+--- a/arch/arm/kernel/entry.c
++++ b/arch/arm/kernel/entry.c
+@@ -1,10 +1,16 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <asm/entry.h>
++#include <asm/ptrace.h>
+ #include <asm/signal.h>
+ #include <linux/context_tracking.h>
+ #include <linux/irqflags.h>
+ #include <linux/rseq.h>
  
- 1:	mov	r0, sp				@ 'regs'
- 	bl	do_work_pending
++static inline bool has_syscall_work(unsigned long flags)
++{
++	return unlikely(flags & _TIF_SYSCALL_WORK);
++}
++
+ long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
+ {
+ 	trace_hardirqs_on();
+@@ -18,8 +24,12 @@ long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
+ 
+ void syscall_exit_to_user_mode(struct pt_regs *regs)
+ {
++	unsigned long flags = read_thread_flags();
++
+ 	rseq_syscall(regs);
+ 	local_irq_disable();
++	if (has_syscall_work(flags))
++		do_work_pending(regs, flags);
+ }
+ 
+ noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
 
 -- 
 2.48.1
