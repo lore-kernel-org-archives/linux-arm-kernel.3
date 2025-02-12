@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140B4C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 16:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE047C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 16:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivEwbhGlczq6mjdZfNYuXzy5/8WjDwAGn/BErb97U+M=; b=kxSTvRHTj4wAEXG97jIaUDR1ND
-	p3Hqzas9F2tMx5LmFok4YkhRqsD2ASNkhoOc8fz4job5TflohH6gXfE+VUxBNpHUc0DPeKKIb5DU4
-	xOq6w0CmYpLC57m2YPKBt+959xFl+Ijp/iPyb+kYmtCVS5m736pVKdltgSxnLQXDrTE1OnrktAjx2
-	bclCQOlqhisGfJgcmlKtJ0PEncUowyu3ctDlgdL7IHgIv4uubcuuDkXv7ika4Y6a7kJcdkNsncTQb
-	S2uSFRgrdMoLJa9etvOLTn5JqOBgqbUCmnb1seefBgsLj6LXNBpWcqGqMwwjhuhNaNxJUk0Mq0lA+
-	BE9ddl2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Cg81HwGRmnHOrsstHmxHb9Uh9Otvf04MW1ejbsRPRL8=; b=XaHWyZoSEixW7n
+	MW3Xxrl0OvF3voB4tqUcDokiwkNE0wN8lcR1b105E8Ce44bc2eWbZXl7RNjUQtsYYHulHBvatpPji
+	FFXG02qLkGsI90ayf2/8xA/n2jZ6wTHAXOWi/ZjQU2Nio7vuh+FLWqE5TKNzyJ2BzSKAVO4/fYFlS
+	2GM/9/5T/QJBb6YKOowiSU8L1lapnx+IeuhqEq3SKovdHlBgIkk1meOd2zL7Vzeu921sxwm/QqOr4
+	jtVhmPn8t+vA1kkjg3rboL+SGE3bGRsbCvfqK4Py1lbJB1/k5PSmxG4vzh9O0qY1FnheA8MhPCHcq
+	N+JUSSaOwqqPUviybd4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFbc-000000084xi-2Wf6;
-	Wed, 12 Feb 2025 16:28:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiFd0-000000085Nb-1yGz;
+	Wed, 12 Feb 2025 16:30:22 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFDM-00000007zSy-24aw
+	id 1tiFNw-000000081mi-1CbO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 16:03:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 03EF15C5C43;
-	Wed, 12 Feb 2025 16:03:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABA6C4CEDF;
-	Wed, 12 Feb 2025 16:03:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739376231;
-	bh=2JKdaQTpWO1Q3gTWst66vYJLHfh8N2qQrRkclzb0nR8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vNAkOXdwDnMgG6kKP0fyQhHC+hJcvkde0NpgpYjoC7OWF68N0l+T1dVgysHxa9CEW
-	 Xw2U7m8TdQuEI2o56CC7IO6qCPFhMLQKMMQri9r/UFN4xETp0otKt2WZQ3xFVAvszS
-	 4xWeRWz+bNwIwMUjzTFi+zz1XzAQfMhx7zV5slaomDMn2utIpoeqjCJJEcIO6havxJ
-	 EB+y8srOlQjhVOybEZMHKwMHzK+mw6QaGOHFeEY08E3T5P0Axb3+NqBW+3mWcxuUcs
-	 CXrBU5teTYEw6EKb3HhtPK0FpF0yEsp91NsRelc1GdYSPQI5xBigqU4sBvsxKS4ueP
-	 /hbuJaKeIIdDQ==
-Message-ID: <85bb807f-7ad6-4245-95cd-ccecbc1817de@kernel.org>
-Date: Wed, 12 Feb 2025 18:03:42 +0200
+	Wed, 12 Feb 2025 16:14:49 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30902641fc2so12160721fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 08:14:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739376886; x=1739981686; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Cg81HwGRmnHOrsstHmxHb9Uh9Otvf04MW1ejbsRPRL8=;
+        b=IM61vaTOAZpC3/1fL15UPJKrvgqXG6El2WsQLpaqJi32SUU3QUafjYO7iGYbEMqGHw
+         dGdVV8P7xOvOPeuAGQjSj4qdhztglVGYbV5v0smxrJxP17Zm14Q/lFL5pvW92bEy7KQC
+         uQsYAtx3B4jJxvWjXKHXP8HruiP0i+g7UHlF+mCe75I0IHvQxhehHSD1qxhisMR/etxO
+         840BzgxHxIhQThEjozsRGo6UfntRQrlRXfDdTdQ4Uta/w8a6UetFqVSHDQ/Ow0tgDFy9
+         H+kjvyUIHBjuA3hQcdqD0C4G+gNutA4OLYcnMo4Ici5qBE4A07dxYgmcEPaxL5D/pkfj
+         cx5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739376886; x=1739981686;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Cg81HwGRmnHOrsstHmxHb9Uh9Otvf04MW1ejbsRPRL8=;
+        b=CluyZfxXwhXqzLW0u02r5hQvXw3ENsHRhEGaxv/dJzDQ22mHHZFtGVAQbErcoq69xC
+         q0Vs5FxUYdTG0pK/v0//sUNzGLDipq5sV5GIGWSCAJZIfDlpwL2sauFVSPIBZbeJ6edh
+         YvyNezh+/a91Q5dSYgyU19By/BIJu/BaAtcKpvo7pSGxzu/1pwQhJhvfKBYtl/I9+5ZZ
+         8CysvmGWnNHEQzxS/ZkgIXjxEtV/o214Er/fFgX/nXWaD60AkQvJAK6JTMuyABw6ZLfG
+         bCIS/qEGcdp2CV5PdvXu5pu/CYv03RA4192NyXSTnfaCVPDplK2CH821wqNhmQFECDcs
+         iDNg==
+X-Forwarded-Encrypted: i=1; AJvYcCVha9KWanBzVahnM9Qwqawi9duco+iIvsKUjmVeJNgOGjawGGXde8QkeFSyAwWoAptkZ0H9nopTq1mM+nTaCxEp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6vwtbbug3Uwj8G5y/TDVNvj4eQHYDMnekRdModA69AE9Ywz1+
+	fq8UydMFrKsl8SVhACahtJz3Nb9utQmxjAGTxh7LR4QV8XvtL66fYnA0GYTE1jmymbVwQQ8lTDs
+	B5tQrgKMN3SICKpFe4tUBEi0qknk=
+X-Gm-Gg: ASbGnctTpWy+o57tfHt1WwpP3k584jcnocmFYRsZxqNnVHldR8RKITDDU1jGsKowMXS
+	M44JYViDLQPoU4mB0XiN+niBeVd/ZQbBl11mwkYIN+dqCOqFZOLhXLvQ1an5jd27vCDHMkCA=
+X-Google-Smtp-Source: AGHT+IFzcXZ2y1bvLhtShvmuG64ySfT9qreogJPuktKBQCBIJGK2z/azYSqpF1eYTU95PL49IZA7Kdo5ZoU4QEEHd+k=
+X-Received: by 2002:a2e:b8c8:0:b0:308:eb58:6581 with SMTP id
+ 38308e7fff4ca-3090db7dbb2mr625091fa.0.1739376885722; Wed, 12 Feb 2025
+ 08:14:45 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 3/3] net: ti: icssg-prueth: Add XDP support
-To: Meghana Malladi <m-malladi@ti.com>, danishanwar@ti.com,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- u.kleine-koenig@baylibre.com, krzysztof.kozlowski@linaro.org,
- dan.carpenter@linaro.org, schnelle@linux.ibm.com, glaroque@baylibre.com,
- rdunlap@infradead.org, diogo.ivo@siemens.com, jan.kiszka@siemens.com,
- john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
- ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250210103352.541052-1-m-malladi@ti.com>
- <20250210103352.541052-4-m-malladi@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20250210103352.541052-4-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com> <20250212-wilc3000_bt-v1-10-9609b784874e@bootlin.com>
+In-Reply-To: <20250212-wilc3000_bt-v1-10-9609b784874e@bootlin.com>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Wed, 12 Feb 2025 11:14:33 -0500
+X-Gm-Features: AWEUYZnnXHAkKfJ9el5JiTPtK7GZJfZ26dfDheHM-Ilv5iz407jOwzYJ-fOIWZY
+Message-ID: <CABBYNZJ5XDasAfVxcFU+K=ru2PpZJVXkRuf_kokv1z66KF=Xaw@mail.gmail.com>
+Subject: Re: [PATCH 10/12] bluetooth: hci_wilc: add wilc hci driver
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_080352_680972_2EEB448A 
-X-CRM114-Status: GOOD (  33.72  )
+X-CRM114-CacheID: sfid-20250212_081448_331372_CC24794A 
+X-CRM114-Status: GOOD (  40.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,678 +88,477 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Rob Herring <robh@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Kalle Valo <kvalo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marcel Holtmann <marcel@holtmann.org>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Simon Horman <horms@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexis,
 
-
-On 10/02/2025 12:33, Meghana Malladi wrote:
-> From: Roger Quadros <rogerq@kernel.org>
-> 
-> Add native XDP support. We do not support zero copy yet.
-> 
-> Signed-off-by: Roger Quadros <rogerq@kernel.org>
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+On Wed, Feb 12, 2025 at 10:47=E2=80=AFAM Alexis Lothor=C3=A9
+<alexis.lothore@bootlin.com> wrote:
+>
+> WILC3000 is a combo chip providing 802.11b/g/n and Bluetooth 5.0
+> capabilities. The wifi side is used either over SDIO or SPI, and the
+> bluetooth side is used over uart, with standard hci. The wifi side is
+> already supported by Linux.
+>
+> Add a dedicated bluetooth driver to support the bluetooth feature from
+> wilc3000 chip. Similarly to other supported bluetooth chips, wilc
+> devices need a firmware to be uploaded before being able to use
+> bluetooth. However, the major difference is that the firmware needs to
+> be uploaded through the wifi bus (SDIO or SPI). This constraint makes
+> this new driver depends on the corresponding wilc wlan driver for the
+> bluetooth setup. Once the basic BT initialization has been performed,
+> both side can be used independently, and in parallel.
+>
+> Since this creates a dependency to some wlan driver, create a dedicated
+> module (hci_wilc) rather than integrating wilc bluetooth support in
+> hci_uart, to avoid propagating this dependency.
+>
+> Signed-off-by: Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com>
 > ---
-> v1: https://lore.kernel.org/all/20250122124951.3072410-1-m-malladi@ti.com/
-> 
-> Changes since v1 (v2-v1):
-> - Fix XDP typo in the commit message
-> - Add XDP feature flags using xdp_set_features_flag()
-> - Use xdp_build_skb_from_buff() when XDP ran
-> 
-> All the above changes have been suggested by Ido Schimmel <idosch@idosch.org>
-> 
->  drivers/net/ethernet/ti/icssg/icssg_common.c | 226 +++++++++++++++++--
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 123 +++++++++-
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  18 ++
->  3 files changed, 353 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> index a124c5773551..b01750a2d57e 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> @@ -98,11 +98,19 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
->  {
->  	struct cppi5_host_desc_t *first_desc, *next_desc;
->  	dma_addr_t buf_dma, next_desc_dma;
-> +	struct prueth_swdata *swdata;
->  	u32 buf_dma_len;
->  
->  	first_desc = desc;
->  	next_desc = first_desc;
->  
-> +	swdata = cppi5_hdesc_get_swdata(desc);
-> +	if (swdata->type == PRUETH_SWDATA_PAGE) {
-> +		page_pool_recycle_direct(swdata->rx_chn->pg_pool,
-> +					 swdata->data.page);
-
-if swdata->data.page.pp already contains the page_pool then you can avoid
-passing around rx_chn via swdata altogether.
-
-> +		goto free_desc;
-> +	}
+>  drivers/bluetooth/Kconfig    |  13 ++
+>  drivers/bluetooth/Makefile   |   3 +-
+>  drivers/bluetooth/hci_uart.h |   1 +
+>  drivers/bluetooth/hci_wilc.c | 333 +++++++++++++++++++++++++++++++++++++=
+++++++
+>  4 files changed, 349 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/bluetooth/Kconfig b/drivers/bluetooth/Kconfig
+> index 4ab32abf0f48644715d4c27ec0d2fdaccef62b76..a96607fb0cc8fed2ccb1811a4=
+b1b4fe586396b07 100644
+> --- a/drivers/bluetooth/Kconfig
+> +++ b/drivers/bluetooth/Kconfig
+> @@ -147,6 +147,19 @@ config BT_HCIUART_NOKIA
+>
+>           Say Y here to compile support for Nokia's H4+ protocol.
+>
+> +config BT_HCIUART_WILC
+> +       tristate "WILC protocol support"
+> +       depends on (WILC1000_SDIO || WILC1000_SPI)
+> +       select WILC_BT
+> +       depends on BT_HCIUART
+> +       depends on BT_HCIUART_SERDEV
+> +       select BT_HCIUART_H4
+> +       help
+> +         The WILC uart protocol allows interacting with wilc3000 chips
+> +         with HCI over UART. The bluetooth firmware needs to be uploaded
+> +         to the chip through the main bus, so this driver needs the
+> +         corresponding wlan driver.
 > +
->  	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
->  	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
->  
-> @@ -126,6 +134,7 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
->  		k3_cppi_desc_pool_free(tx_chn->desc_pool, next_desc);
->  	}
->  
-> +free_desc:
->  	k3_cppi_desc_pool_free(tx_chn->desc_pool, first_desc);
->  }
->  EXPORT_SYMBOL_GPL(prueth_xmit_free);
-> @@ -139,6 +148,7 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->  	struct prueth_swdata *swdata;
->  	struct prueth_tx_chn *tx_chn;
->  	unsigned int total_bytes = 0;
-> +	struct xdp_frame *xdpf;
->  	struct sk_buff *skb;
->  	dma_addr_t desc_dma;
->  	int res, num_tx = 0;
-> @@ -168,20 +178,29 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->  			continue;
->  		}
->  
-> -		if (swdata->type != PRUETH_SWDATA_SKB) {
-> +		switch (swdata->type) {
-> +		case PRUETH_SWDATA_SKB:
-> +			skb = swdata->data.skb;
-> +			ndev->stats.tx_bytes += skb->len;
-> +			ndev->stats.tx_packets++;
-
-dev_sw_netstats_tx_add() instead?
-
-> +			total_bytes += skb->len;
-> +			napi_consume_skb(skb, budget);
-> +			break;
-> +		case PRUETH_SWDATA_XDPF:
-> +			xdpf = swdata->data.xdpf;
-> +			ndev->stats.tx_bytes += xdpf->len;
-> +			ndev->stats.tx_packets++;
-here too
-
-> +			total_bytes += xdpf->len;
-> +			xdp_return_frame(xdpf);
-> +			break;
-> +		default:
->  			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
-
-ndev->stats.tx_dropped++
-
-> +			prueth_xmit_free(tx_chn, desc_tx);
->  			budget++;
->  			continue;
->  		}
->  
-> -		skb = swdata->data.skb;
->  		prueth_xmit_free(tx_chn, desc_tx);
+>  config BT_HCIUART_BCSP
+>         bool "BCSP protocol support"
+>         depends on BT_HCIUART
+> diff --git a/drivers/bluetooth/Makefile b/drivers/bluetooth/Makefile
+> index 81856512ddd030ba8172ff106b80b4b951188cbd..a1e69884acf4ce91f02ff5592=
+541616048b07e31 100644
+> --- a/drivers/bluetooth/Makefile
+> +++ b/drivers/bluetooth/Makefile
+> @@ -35,10 +35,11 @@ obj-$(CONFIG_BT_NXPUART)    +=3D btnxpuart.o
+>  obj-$(CONFIG_BT_HCIUART_NOKIA) +=3D hci_nokia.o
+>
+>  obj-$(CONFIG_BT_HCIRSI)                +=3D btrsi.o
 > -
-> -		ndev = skb->dev;
-> -		ndev->stats.tx_packets++;
-> -		ndev->stats.tx_bytes += skb->len;
-> -		total_bytes += skb->len;
-> -		napi_consume_skb(skb, budget);
->  		num_tx++;
->  	}
->  
-> @@ -498,6 +517,7 @@ int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
->  	swdata = cppi5_hdesc_get_swdata(desc_rx);
->  	swdata->type = PRUETH_SWDATA_PAGE;
->  	swdata->data.page = page;
-> +	swdata->rx_chn = rx_chn;
->  
->  	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
->  					desc_rx, desc_dma);
-> @@ -540,7 +560,156 @@ void emac_rx_timestamp(struct prueth_emac *emac,
->  	ssh->hwtstamp = ns_to_ktime(ns);
->  }
->  
-> -static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
-> +/**
-> + * emac_xmit_xdp_frame - transmits an XDP frame
-> + * @emac: emac device
-> + * @xdpf: data to transmit
-> + * @page: page from page pool if already DMA mapped
-> + * @q_idx: queue id
+>  btmrvl-y                       :=3D btmrvl_main.o
+>  btmrvl-$(CONFIG_DEBUG_FS)      +=3D btmrvl_debugfs.o
+>
+> +obj-$(CONFIG_BT_HCIUART_WILC)  +=3D hci_wilc.o
+> +
+>  hci_uart-y                             :=3D hci_ldisc.o
+>  hci_uart-$(CONFIG_BT_HCIUART_SERDEV)   +=3D hci_serdev.o
+>  hci_uart-$(CONFIG_BT_HCIUART_H4)       +=3D hci_h4.o
+> diff --git a/drivers/bluetooth/hci_uart.h b/drivers/bluetooth/hci_uart.h
+> index fbf3079b92a5339154f8847ff36b3c08ef49e2bb..83fc48be4335e0946853fdec3=
+2c38bf2fb195009 100644
+> --- a/drivers/bluetooth/hci_uart.h
+> +++ b/drivers/bluetooth/hci_uart.h
+> @@ -35,6 +35,7 @@
+>  #define HCI_UART_NOKIA 10
+>  #define HCI_UART_MRVL  11
+>  #define HCI_UART_AML   12
+> +#define HCI_UART_WILC  13
+>
+>  #define HCI_UART_RAW_DEVICE    0
+>  #define HCI_UART_RESET_ON_INIT 1
+> diff --git a/drivers/bluetooth/hci_wilc.c b/drivers/bluetooth/hci_wilc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..97dc4620c74ef0733469839ad=
+da7890bda90406e
+> --- /dev/null
+> +++ b/drivers/bluetooth/hci_wilc.c
+> @@ -0,0 +1,333 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *  Bluetooth HCI UART driver for WILC devices
 > + *
-> + * Return: XDP state
 > + */
-> +int emac_xmit_xdp_frame(struct prueth_emac *emac,
-> +			struct xdp_frame *xdpf,
-> +			struct page *page,
-> +			unsigned int q_idx)
+> +#include "linux/bitops.h"
+> +#include "linux/byteorder/generic.h"
+> +#include "linux/err.h"
+> +#include "linux/gfp_types.h"
+> +#include "net/bluetooth/bluetooth.h"
+> +#include "net/bluetooth/hci.h"
+> +#include <linux/module.h>
+> +#include <linux/firmware.h>
+> +#include <linux/of.h>
+> +#include <linux/serdev.h>
+> +#include <net/bluetooth/bluetooth.h>
+> +#include <net/bluetooth/hci_core.h>
+> +#include <net/wilc.h>
+> +
+> +#include "hci_uart.h"
+> +
+> +#define WILC_BT_UART_MANUFACTURER      205
+> +#define WILC_UART_DEFAULT_BAUDRATE     115200
+> +#define WILC_UART_BAUDRATE             460800
+> +
+> +#define HCI_VERSION_BOOTROM    0xFF
+> +#define HCI_VERSION_FIRMWARE   0x06
+> +
+> +#define HCI_VENDOR_CMD_WRITE_MEM       0xFC52
+> +#define HCI_VENDOR_CMD_UPDATE_UART     0xFC53
+> +#define HCI_VENDOR_CMD_UPDATE_ADDR     0xFC54
+> +#define HCI_VENDOR_CMD_RESET           0xFC55
+> +#define HCI_VENDOR_CMD_READ_REG                0xFC01
+> +
+> +struct wilc_adapter {
+> +       struct hci_uart hu;
+> +       struct device *dev;
+> +       void *wlan_priv;
+> +       bool flow_control;
+> +};
+> +
+> +struct wilc_data {
+> +       struct sk_buff *rx_skb;
+> +       struct sk_buff_head txq;
+> +};
+> +
+> +struct hci_update_uart_param {
+> +       __le32 baudrate;
+> +       __u8 flow_control;
+> +} __packed;
+> +
+> +static int wilc_open(struct hci_uart *hu)
 > +{
-> +	struct cppi5_host_desc_t *first_desc;
-> +	struct net_device *ndev = emac->ndev;
-> +	struct prueth_tx_chn *tx_chn;
-> +	dma_addr_t desc_dma, buf_dma;
-> +	struct prueth_swdata *swdata;
-> +	u32 *epib;
-> +	int ret;
+> +       struct wilc_data *wdata;
 > +
-> +	void *data = xdpf->data;
-> +	u32 pkt_len = xdpf->len;
+> +       BT_DBG("hci_wilc: open");
+
+Afaik you don't need to include the function name with the likes of
+pr_debug/BT_DBG, that said you should really be using bt_dev_dbg if
+you have hu->hdev set at this point, and this is valid for all other
+places where BT_DBG could be replaced with bt_dev_dbg.
+
+> +       wdata =3D kzalloc(sizeof(*wdata), GFP_KERNEL);
+> +       if (!wdata)
+> +               return -ENOMEM;
+
+Add an empty after something like an if statement to make it clearer
+that it is not under the same scope.
+
+> +       skb_queue_head_init(&wdata->txq);
+> +       hu->priv =3D wdata;
 > +
-> +	if (q_idx >= PRUETH_MAX_TX_QUEUES) {
-> +		netdev_err(ndev, "xdp tx: invalid q_id %d\n", q_idx);
-
-ndev->stats.tx_dropped++;
-
-> +		return ICSSG_XDP_CONSUMED;	/* drop */
-> +	}
-> +
-> +	tx_chn = &emac->tx_chns[q_idx];
-> +
-> +	if (page) { /* already DMA mapped by page_pool */
-> +		buf_dma = page_pool_get_dma_addr(page);
-> +		buf_dma += xdpf->headroom + sizeof(struct xdp_frame);
-> +	} else { /* Map the linear buffer */
-> +		buf_dma = dma_map_single(tx_chn->dma_dev, data, pkt_len, DMA_TO_DEVICE);
-> +		if (dma_mapping_error(tx_chn->dma_dev, buf_dma)) {
-> +			netdev_err(ndev, "xdp tx: failed to map data buffer\n");
-
-ndev->stats.tx_dropped++;
-
-> +			return ICSSG_XDP_CONSUMED;	/* drop */
-> +		}
-> +	}
-> +
-> +	first_desc = k3_cppi_desc_pool_alloc(tx_chn->desc_pool);
-> +	if (!first_desc) {
-> +		netdev_dbg(ndev, "xdp tx: failed to allocate descriptor\n");
-> +		if (!page)
-> +			dma_unmap_single(tx_chn->dma_dev, buf_dma, pkt_len, DMA_TO_DEVICE);
-
-Better to do the k3_cppi_desc_pool_alloc() before the DMA mapping
-so it is easier to clean up on failure.
-
-> +		goto drop_free_descs;	/* drop */
-> +	}
-> +
-> +	cppi5_hdesc_init(first_desc, CPPI5_INFO0_HDESC_EPIB_PRESENT,
-> +			 PRUETH_NAV_PS_DATA_SIZE);
-> +	cppi5_hdesc_set_pkttype(first_desc, 0);
-> +	epib = first_desc->epib;
-> +	epib[0] = 0;
-> +	epib[1] = 0;
-> +
-> +	/* set dst tag to indicate internal qid at the firmware which is at
-> +	 * bit8..bit15. bit0..bit7 indicates port num for directed
-> +	 * packets in case of switch mode operation
-> +	 */
-> +	cppi5_desc_set_tags_ids(&first_desc->hdr, 0, (emac->port_id | (q_idx << 8)));
-> +	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
-> +	cppi5_hdesc_attach_buf(first_desc, buf_dma, pkt_len, buf_dma, pkt_len);
-> +	swdata = cppi5_hdesc_get_swdata(first_desc);
-> +	if (page) {
-> +		swdata->type = PRUETH_SWDATA_PAGE;
-> +		swdata->data.page = page;
-> +		/* we assume page came from RX channel page pool */
-> +		swdata->rx_chn = &emac->rx_chns;
-> +	} else {
-> +		swdata->type = PRUETH_SWDATA_XDPF;
-> +		swdata->data.xdpf = xdpf;
-> +	}
-> +
-> +	cppi5_hdesc_set_pktlen(first_desc, pkt_len);
-> +	desc_dma = k3_cppi_desc_pool_virt2dma(tx_chn->desc_pool, first_desc);
-> +
-> +	ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn, first_desc, desc_dma);
-> +	if (ret) {
-> +		netdev_err(ndev, "xdp tx: push failed: %d\n", ret);
-> +		goto drop_free_descs;
-> +	}
-> +
-> +	return ICSSG_XDP_TX;
-> +
-> +drop_free_descs:
-
-ndev->stats.tx_dropped++;
-
-> +	prueth_xmit_free(tx_chn, first_desc);
-
-this will also unmap the dma_buffer for all cases. So maybe you need
-to add a flag to prueth_xmit_free() to skip unmap for certain cases.
-
-> +	return ICSSG_XDP_CONSUMED;
-> +}
-> +EXPORT_SYMBOL_GPL(emac_xmit_xdp_frame);
-> +
-> +/**
-> + * emac_run_xdp - run an XDP program
-> + * @emac: emac device
-> + * @xdp: XDP buffer containing the frame
-> + * @page: page with RX data if already DMA mapped
-> + *
-> + * Return: XDP state
-> + */
-> +static int emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
-> +			struct page *page)
-> +{
-> +	int err, result = ICSSG_XDP_PASS;
-> +	struct bpf_prog *xdp_prog;
-> +	struct xdp_frame *xdpf;
-> +	int q_idx;
-> +	u32 act;
-> +
-> +	xdp_prog = READ_ONCE(emac->xdp_prog);
-> +
-unnecessary new line.
-
-> +	act = bpf_prog_run_xdp(xdp_prog, xdp);
-> +	switch (act) {
-> +	case XDP_PASS:
-
-return ICSSG_XDP_PASS;
-
-> +		break;
-> +	case XDP_TX:
-> +		/* Send packet to TX ring for immediate transmission */
-> +		xdpf = xdp_convert_buff_to_frame(xdp);
-> +		if (unlikely(!xdpf))
-ndev->stats.tx_dropped++;
-
-> +			goto drop;
-> +
-> +		q_idx = smp_processor_id() % emac->tx_ch_num;
-> +		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
-> +		if (result == ICSSG_XDP_CONSUMED)
-> +			goto drop;
-
-increment tx stats?
-
-return ICSSG_XDP_TX;
-
-> +		break;
-> +	case XDP_REDIRECT:
-> +		err = xdp_do_redirect(emac->ndev, xdp, xdp_prog);
-> +		if (err)
-> +			goto drop;
-> +		result = ICSSG_XDP_REDIR;
-
-return ICSSG_XDP_REDIR
-> +		break;
-> +	default:
-> +		bpf_warn_invalid_xdp_action(emac->ndev, xdp_prog, act);
-> +		fallthrough;
-> +	case XDP_ABORTED:
-> +drop:
-> +		trace_xdp_exception(emac->ndev, xdp_prog, act);
-> +		fallthrough; /* handle aborts by dropping packet */
-> +	case XDP_DROP:
-
-ndev->stats.rx_dropped++;
-
-> +		result = ICSSG_XDP_CONSUMED;
-> +		page_pool_recycle_direct(emac->rx_chns.pg_pool, page);
-> +		break;
-> +	}
-> +
-> +	return result;
+> +       return 0;
 > +}
 > +
-> +static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, int *xdp_state)
->  {
->  	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
->  	u32 buf_dma_len, pkt_len, port_id = 0;
-> @@ -551,10 +720,12 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  	struct page *page, *new_page;
->  	struct page_pool *pool;
->  	struct sk_buff *skb;
-> +	struct xdp_buff xdp;
->  	u32 *psdata;
->  	void *pa;
->  	int ret;
->  
-> +	*xdp_state = 0;
->  	pool = rx_chn->pg_pool;
->  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->  	if (ret) {
-> @@ -594,9 +765,21 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  		goto requeue;
->  	}
->  
-> -	/* prepare skb and send to n/w stack */
->  	pa = page_address(page);
-> -	skb = napi_build_skb(pa, PAGE_SIZE);
-> +	if (emac->xdp_prog) {
-> +		xdp_init_buff(&xdp, PAGE_SIZE, &rx_chn->xdp_rxq);
-> +		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
-> +
-> +		*xdp_state = emac_run_xdp(emac, &xdp, page);
-> +		if (*xdp_state == ICSSG_XDP_PASS)
-> +			skb = xdp_build_skb_from_buff(&xdp);
-> +		else
-> +			goto requeue;
-> +	} else {
-> +		/* prepare skb and send to n/w stack */
-> +		skb = napi_build_skb(pa, PAGE_SIZE);
-> +	}
-> +
->  	if (!skb) {
->  		ndev->stats.rx_dropped++;
->  		page_pool_recycle_direct(pool, page);
-> @@ -859,14 +1042,25 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
->  	struct prueth_tx_chn *tx_chn = data;
->  	struct cppi5_host_desc_t *desc_tx;
->  	struct prueth_swdata *swdata;
-> +	struct xdp_frame *xdpf;
->  	struct sk_buff *skb;
->  
->  	desc_tx = k3_cppi_desc_pool_dma2virt(tx_chn->desc_pool, desc_dma);
->  	swdata = cppi5_hdesc_get_swdata(desc_tx);
-> -	if (swdata->type == PRUETH_SWDATA_SKB) {
-> +
-> +	switch (swdata->type) {
-> +	case PRUETH_SWDATA_SKB:
->  		skb = swdata->data.skb;
->  		dev_kfree_skb_any(skb);
-> +		break;
-> +	case PRUETH_SWDATA_XDPF:
-> +		xdpf = swdata->data.xdpf;
-> +		xdp_return_frame(xdpf);
-> +		break;
-
-what about PRUETH_SWDATA_PAGE?
-
-> +	default:
-> +		break;
->  	}
-> +
->  	prueth_xmit_free(tx_chn, desc_tx);
->  }
->  
-> @@ -901,15 +1095,18 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
->  		PRUETH_RX_FLOW_DATA_SR1 : PRUETH_RX_FLOW_DATA;
->  	int flow = emac->is_sr1 ?
->  		PRUETH_MAX_RX_FLOWS_SR1 : PRUETH_MAX_RX_FLOWS;
-> +	int xdp_state_or = 0;
->  	int num_rx = 0;
->  	int cur_budget;
-> +	int xdp_state;
->  	int ret;
->  
->  	while (flow--) {
->  		cur_budget = budget - num_rx;
->  
->  		while (cur_budget--) {
-> -			ret = emac_rx_packet(emac, flow);
-> +			ret = emac_rx_packet(emac, flow, &xdp_state);
-> +			xdp_state_or |= xdp_state;
->  			if (ret)
->  				break;
->  			num_rx++;
-> @@ -919,6 +1116,9 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
->  			break;
->  	}
->  
-> +	if (xdp_state_or & ICSSG_XDP_REDIR)
-> +		xdp_do_flush();
-> +
->  	if (num_rx < budget && napi_complete_done(napi_rx, num_rx)) {
->  		if (unlikely(emac->rx_pace_timeout_ns)) {
->  			hrtimer_start(&emac->rx_hrtimer,
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index e5e4efe485f6..a360a1d6f8d7 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -559,6 +559,33 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->  	.perout_enable = prueth_perout_enable,
->  };
->  
-> +static int prueth_create_xdp_rxqs(struct prueth_emac *emac)
+> +static int wilc_close(struct hci_uart *hu)
 > +{
-> +	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-> +	struct page_pool *pool = emac->rx_chns.pg_pool;
-> +	int ret;
+> +       struct wilc_data *wdata =3D hu->priv;
 > +
-> +	ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, rxq->napi_id);
-
-but who sets rxq->napi_id?
-
-I think you need to use emac->napi_rx.napi_id
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
-> +	if (ret)
-> +		xdp_rxq_info_unreg(rxq);
-> +
-> +	return ret;
+> +       BT_DBG("hci_wilc: close");
+> +       skb_queue_purge(&wdata->txq);
+> +       kfree_skb(wdata->rx_skb);
+> +       kfree(wdata);
+> +       hu->priv =3D NULL;
+> +       return 0;
 > +}
 > +
-> +static void prueth_destroy_xdp_rxqs(struct prueth_emac *emac)
+> +static int wilc_flush(struct hci_uart *hu)
 > +{
-> +	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
+> +       struct wilc_data *wdata =3D hu->priv;
 > +
-> +	if (!xdp_rxq_info_is_reg(rxq))
-> +		return;
-> +
-> +	xdp_rxq_info_unreg(rxq);
+> +       BT_DBG("hci_wilc: flush");
+> +       skb_queue_purge(&wdata->txq);
+> +       return 0;
 > +}
 > +
->  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->  {
->  	struct net_device *real_dev;
-> @@ -780,10 +807,14 @@ static int emac_ndo_open(struct net_device *ndev)
->  	if (ret)
->  		goto free_tx_ts_irq;
->  
-> -	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
-> +	ret = prueth_create_xdp_rxqs(emac);
->  	if (ret)
->  		goto reset_rx_chn;
->  
-> +	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
-> +	if (ret)
-> +		goto destroy_xdp_rxqs;
+> +static const struct h4_recv_pkt wilc_bt_recv_pkts[] =3D {
+> +       { H4_RECV_ACL, .recv =3D hci_recv_frame },
+> +       { H4_RECV_SCO, .recv =3D hci_recv_frame },
+> +       { H4_RECV_EVENT, .recv =3D hci_recv_frame },
+> +};
 > +
->  	for (i = 0; i < emac->tx_ch_num; i++) {
->  		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
->  		if (ret)
-> @@ -809,6 +840,8 @@ static int emac_ndo_open(struct net_device *ndev)
->  	 * any SKB for completion. So set false to free_skb
->  	 */
->  	prueth_reset_tx_chan(emac, i, false);
-> +destroy_xdp_rxqs:
-> +	prueth_destroy_xdp_rxqs(emac);
->  reset_rx_chn:
->  	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, false);
->  free_tx_ts_irq:
-> @@ -880,6 +913,8 @@ static int emac_ndo_stop(struct net_device *ndev)
->  
->  	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, true);
->  
-Please drop new line.
-
-> +	prueth_destroy_xdp_rxqs(emac);
-> +
-here too.
-
->  	napi_disable(&emac->napi_rx);
->  	hrtimer_cancel(&emac->rx_hrtimer);
->  
-> @@ -1024,6 +1059,90 @@ static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
->  	return 0;
->  }
->  
-> +/**
-> + * emac_xdp_xmit - Implements ndo_xdp_xmit
-> + * @dev: netdev
-> + * @n: number of frames
-> + * @frames: array of XDP buffer pointers
-> + * @flags: XDP extra info
-> + *
-> + * Return: number of frames successfully sent. Failed frames
-> + * will be free'ed by XDP core.
-> + *
-> + * For error cases, a negative errno code is returned and no-frames
-> + * are transmitted (caller must handle freeing frames).
-> + **/
-> +static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frames,
-> +			 u32 flags)
+> +static int wilc_recv(struct hci_uart *hu, const void *data, int len)
 > +{
-> +	struct prueth_emac *emac = netdev_priv(dev);
-> +	unsigned int q_idx;
-> +	int nxmit = 0;
-> +	int i;
+> +       struct wilc_data *wdata =3D hu->priv;
+> +       int err;
 > +
-> +	q_idx = smp_processor_id() % emac->tx_ch_num;
+> +       if (!test_bit(HCI_UART_REGISTERED, &hu->flags))
+> +               return -EUNATCH;
+
+Ditto, add empty line
+
+> +       wdata->rx_skb =3D h4_recv_buf(hu->hdev, wdata->rx_skb, data, len,
+> +                                   wilc_bt_recv_pkts,
+> +                                   ARRAY_SIZE(wilc_bt_recv_pkts));
+> +       if (IS_ERR(wdata->rx_skb)) {
+> +               err =3D PTR_ERR(wdata->rx_skb);
+> +               bt_dev_err(hu->hdev, "Frame reassembly failed (%d)", err)=
+;
+> +               wdata->rx_skb =3D NULL;
+> +       }
 > +
-> +	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < n; i++) {
-> +		struct xdp_frame *xdpf = frames[i];
-> +		int err;
-> +
-> +		err = emac_xmit_xdp_frame(emac, xdpf, NULL, q_idx);
-> +		if (err != ICSSG_XDP_TX)
-> +			break;
-> +		nxmit++;
-> +	}
-> +
-> +	return nxmit;
+> +       return len;
 > +}
 > +
-> +/**
-> + * emac_xdp_setup - add/remove an XDP program
-> + * @emac: emac device
-> + * @bpf: XDP program
-> + *
-> + * Return: Always 0 (Success)
-> + **/
-> +static int emac_xdp_setup(struct prueth_emac *emac, struct netdev_bpf *bpf)
+> +static int wilc_enqueue(struct hci_uart *hu, struct sk_buff *skb)
 > +{
-> +	struct bpf_prog *prog = bpf->prog;
-> +	xdp_features_t val;
+> +       struct wilc_data *wdata =3D hu->priv;
 > +
-> +	val = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
-> +	      NETDEV_XDP_ACT_NDO_XMIT;
-> +	xdp_set_features_flag(emac->ndev, val);
-> +
-> +	if (!emac->xdpi.prog && !prog)
-> +		return 0;
-> +
-> +	WRITE_ONCE(emac->xdp_prog, prog);
-> +
-> +	xdp_attachment_setup(&emac->xdpi, bpf);
-> +
-> +	return 0;
+> +       BT_DBG("hci_wilc: enqueue skb %pK", skb);
+> +       memcpy(skb_push(skb, 1), &hci_skb_pkt_type(skb), 1);
+> +       skb_queue_tail(&wdata->txq, skb);
+> +       return 0;
 > +}
 > +
-> +/**
-> + * emac_ndo_bpf - implements ndo_bpf for icssg_prueth
-> + * @ndev: network adapter device
-> + * @bpf: XDP program
-> + *
-> + * Return: 0 on success, error code on failure.
-> + **/
-> +static int emac_ndo_bpf(struct net_device *ndev, struct netdev_bpf *bpf)
+> +static struct sk_buff *wilc_dequeue(struct hci_uart *hu)
 > +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +       struct wilc_data *wdata =3D hu->priv;
 > +
-> +	switch (bpf->command) {
-> +	case XDP_SETUP_PROG:
-> +		return emac_xdp_setup(emac, bpf);
-> +	default:
-> +		return -EINVAL;
-> +	}
+> +       BT_DBG("hci_wilc: dequeue skb");
+> +       return skb_dequeue(&wdata->txq);
 > +}
 > +
->  static const struct net_device_ops emac_netdev_ops = {
->  	.ndo_open = emac_ndo_open,
->  	.ndo_stop = emac_ndo_stop,
-> @@ -1038,6 +1157,8 @@ static const struct net_device_ops emac_netdev_ops = {
->  	.ndo_fix_features = emac_ndo_fix_features,
->  	.ndo_vlan_rx_add_vid = emac_ndo_vlan_rx_add_vid,
->  	.ndo_vlan_rx_kill_vid = emac_ndo_vlan_rx_del_vid,
-> +	.ndo_bpf = emac_ndo_bpf,
-> +	.ndo_xdp_xmit = emac_xdp_xmit,
->  };
->  
->  static int prueth_netdev_init(struct prueth *prueth,
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 2c8585255b7c..fb8dc8e12c19 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -8,6 +8,8 @@
->  #ifndef __NET_TI_ICSSG_PRUETH_H
->  #define __NET_TI_ICSSG_PRUETH_H
->  
-> +#include <linux/bpf.h>
-> +#include <linux/bpf_trace.h>
->  #include <linux/etherdevice.h>
->  #include <linux/genalloc.h>
->  #include <linux/if_vlan.h>
-> @@ -134,6 +136,7 @@ struct prueth_rx_chn {
->  	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
->  	char name[32];
->  	struct page_pool *pg_pool;
-> +	struct xdp_rxq_info xdp_rxq;
->  };
->  
->  enum prueth_swdata_type {
-> @@ -141,16 +144,19 @@ enum prueth_swdata_type {
->  	PRUETH_SWDATA_SKB,
->  	PRUETH_SWDATA_PAGE,
->  	PRUETH_SWDATA_CMD,
-> +	PRUETH_SWDATA_XDPF,
->  };
->  
->  union prueth_data {
->  	struct sk_buff *skb;
->  	struct page *page;
->  	u32 cmd;
-> +	struct xdp_frame *xdpf;
->  };
->  
->  struct prueth_swdata {
->  	union prueth_data data;
-> +	struct prueth_rx_chn *rx_chn;
->  	enum prueth_swdata_type type;
->  };
->  
-> @@ -161,6 +167,12 @@ struct prueth_swdata {
->  
->  #define PRUETH_MAX_TX_TS_REQUESTS	50 /* Max simultaneous TX_TS requests */
->  
-> +/* XDP BPF state */
-> +#define ICSSG_XDP_PASS           0
-> +#define ICSSG_XDP_CONSUMED       BIT(0)
-> +#define ICSSG_XDP_TX             BIT(1)
-> +#define ICSSG_XDP_REDIR          BIT(2)
+> +static int _set_uart_settings(struct hci_uart *hu, unsigned int speed,
+> +                             bool flow_control)
+> +{
+> +       struct hci_update_uart_param param;
+> +       int ret;
 > +
->  /* Minimum coalesce time in usecs for both Tx and Rx */
->  #define ICSSG_MIN_COALESCE_USECS 20
->  
-> @@ -229,6 +241,8 @@ struct prueth_emac {
->  	unsigned long rx_pace_timeout_ns;
->  
->  	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
-> +	struct bpf_prog *xdp_prog;
-> +	struct xdp_attachment_info xdpi;
->  };
->  
->  /* The buf includes headroom compatible with both skb and xdpf */
-> @@ -467,5 +481,9 @@ void prueth_put_cores(struct prueth *prueth, int slice);
->  
->  /* Revision specific helper */
->  u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns);
-> +int emac_xmit_xdp_frame(struct prueth_emac *emac,
-> +			struct xdp_frame *xdpf,
-> +			struct page *page,
-> +			unsigned int q_idx);
->  
->  #endif /* __NET_TI_ICSSG_PRUETH_H */
+> +       param.baudrate =3D cpu_to_le32(speed);
+> +       param.flow_control =3D flow_control ? 1 : 0;
+> +       ret =3D __hci_cmd_sync_status(hu->hdev, HCI_VENDOR_CMD_UPDATE_UAR=
+T,
+> +                                   sizeof(param), &param, HCI_CMD_TIMEOU=
+T);
+> +       if (ret) {
+> +               BT_ERR("Failed to update UART settings");
+> +               return ret;
+> +       }
+> +
+> +       serdev_device_set_baudrate(hu->serdev, speed);
+> +       serdev_device_set_flow_control(hu->serdev, flow_control);
+> +
+> +       return 0;
+> +}
+> +
+> +static int wilc_set_baudrate(struct hci_uart *hu, unsigned int speed)
+> +{
+> +       struct wilc_adapter *wilc_adapter;
+> +
+> +       BT_INFO("WILC uart settings update request: speed=3D%d", speed);
+> +       wilc_adapter =3D serdev_device_get_drvdata(hu->serdev);
+> +
+> +       return _set_uart_settings(hu, speed, wilc_adapter->flow_control);
+> +}
+> +
+> +static int check_firmware_running(struct hci_uart *hu)
+> +{
+> +       struct hci_rp_read_local_version *version;
+> +       struct sk_buff *skb;
+> +       int ret =3D 0;
+> +
+> +       BT_DBG("Resetting bluetooth chip");
+> +       ret =3D __hci_cmd_sync_status(hu->hdev, HCI_OP_RESET, 0, NULL,
+> +                                   HCI_CMD_TIMEOUT);
+> +       if (ret) {
+> +               BT_ERR("Can not reset wilc");
+> +               return ret;
+> +       }
+> +
+> +       BT_DBG("Checking chip state");
+> +       skb =3D __hci_cmd_sync(hu->hdev, HCI_OP_READ_LOCAL_VERSION, 0, NU=
+LL,
+> +                            HCI_CMD_TIMEOUT);
+> +       if (IS_ERR(skb)) {
+> +               BT_ERR("Error while checking bootrom");
+> +               return PTR_ERR(skb);
+> +       }
+> +
+> +       if (skb->len !=3D sizeof(struct hci_rp_read_local_version)) {
+> +               BT_ERR("Can not read local version");
+> +               return -1;
+> +       }
 
--- 
-cheers,
--roger
+Ditto, add an empty line.
 
+> +       version =3D (struct hci_rp_read_local_version *)skb->data;
+> +       BT_DBG("Status: 0x%1X, HCI version: 0x%1X", version->status,
+> +              version->hci_ver);
+> +       kfree_skb(skb);
+> +       if (version->hci_ver !=3D HCI_VERSION_FIRMWARE) {
+> +               BT_ERR("Bluetooth firmware is not running !");
+> +               if (version->hci_ver =3D=3D HCI_VERSION_BOOTROM)
+> +                       BT_WARN("Bootrom is running");
+> +               return 1;
+> +       }
+
+Ditto
+
+> +       BT_DBG("Firmware is running");
+> +       return 0;
+> +}
+> +
+> +static int wilc_setup(struct hci_uart *hu)
+> +{
+> +       struct wilc_adapter *wilc_adapter;
+> +       int ret;
+> +
+> +       BT_DBG("hci_wilc: setup");
+> +       serdev_device_set_baudrate(hu->serdev, WILC_UART_DEFAULT_BAUDRATE=
+);
+> +       serdev_device_set_flow_control(hu->serdev, false);
+> +       ret =3D check_firmware_running(hu);
+> +       if (ret)
+> +               return ret;
+> +
+> +       BT_DBG("Updating firmware uart settings");
+> +
+> +       wilc_adapter =3D serdev_device_get_drvdata(hu->serdev);
+> +       ret =3D _set_uart_settings(&wilc_adapter->hu, WILC_UART_BAUDRATE,=
+ true);
+> +       if (ret) {
+> +               BT_ERR("Failed to reconfigure firmware uart settings");
+> +               return ret;
+> +       }
+
+Ditto
+
+> +       wilc_adapter->flow_control =3D true;
+> +
+> +       BT_INFO("Wilc successfully initialized");
+> +       return ret;
+> +}
+> +
+> +static const struct hci_uart_proto wilc_bt_proto =3D {
+> +       .id =3D HCI_UART_WILC,
+> +       .name =3D "Microchip",
+> +       .manufacturer =3D WILC_BT_UART_MANUFACTURER,
+> +       .init_speed =3D WILC_UART_DEFAULT_BAUDRATE,
+> +       .open =3D wilc_open,
+> +       .close =3D wilc_close,
+> +       .flush =3D wilc_flush,
+> +       .recv =3D wilc_recv,
+> +       .enqueue =3D wilc_enqueue,
+> +       .dequeue =3D wilc_dequeue,
+> +       .setup =3D wilc_setup,
+> +       .set_baudrate =3D wilc_set_baudrate,
+> +};
+> +
+> +static int wilc_bt_serdev_probe(struct serdev_device *serdev)
+> +{
+> +       struct wilc_adapter *wilc_adapter;
+> +       struct device_node *wlan_node;
+> +       void *wlan =3D NULL;
+> +       int ret;
+> +
+> +       wilc_adapter =3D kzalloc(sizeof(*wilc_adapter), GFP_KERNEL);
+> +       if (!wilc_adapter)
+> +               return -ENOMEM;
+> +
+> +       wlan_node =3D of_parse_phandle(serdev->dev.of_node, "wlan", 0);
+> +       if (!wlan_node) {
+> +               BT_ERR("Can not run wilc bluetooth without wlan node");
+> +               ret =3D -EINVAL;
+> +               goto exit_free_adapter;
+> +       }
+> +
+> +#if IS_ENABLED(CONFIG_WILC1000_SDIO)
+> +       wlan =3D wilc_sdio_get_byphandle(wlan_node);
+> +#endif
+> +#if IS_ENABLED(CONFIG_WILC1000_SPI)
+> +       if (!wlan || wlan =3D=3D ERR_PTR(-EPROBE_DEFER))
+> +               wlan =3D wilc_spi_get_byphandle(wlan_node);
+> +#endif
+> +       if (IS_ERR(wlan)) {
+> +               pr_warn("Can not initialize bluetooth: %pe\n", wlan);
+> +               ret =3D PTR_ERR(wlan);
+> +               goto exit_put_wlan_node;
+> +       }
+> +
+> +       of_node_put(wlan_node);
+> +       wilc_adapter->wlan_priv =3D wlan;
+> +       ret =3D wilc_bt_init(wlan);
+> +       if (ret) {
+> +               pr_err("Failed to initialize bluetooth firmware (%d)\n", =
+ret);
+> +               goto exit_put_wlan;
+> +       }
+> +
+> +       wilc_adapter->dev =3D &serdev->dev;
+> +       wilc_adapter->hu.serdev =3D serdev;
+> +       wilc_adapter->flow_control =3D false;
+> +       serdev_device_set_drvdata(serdev, wilc_adapter);
+> +       ret =3D hci_uart_register_device(&wilc_adapter->hu, &wilc_bt_prot=
+o);
+> +       if (ret) {
+> +               dev_err(&serdev->dev, "Failed to register hci device");
+> +               goto exit_deinit_bt;
+> +       }
+> +
+> +       dev_info(&serdev->dev, "WILC hci interface registered");
+> +       return 0;
+> +
+> +exit_deinit_bt:
+> +       wilc_bt_shutdown(wlan);
+> +exit_put_wlan:
+> +       wilc_put(wlan);
+> +exit_put_wlan_node:
+> +       of_node_put(wlan_node);
+> +exit_free_adapter:
+> +       kfree(wilc_adapter);
+> +       return ret;
+> +}
+> +
+> +static void wilc_bt_serdev_remove(struct serdev_device *serdev)
+> +{
+> +       struct wilc_adapter *wilc_adapter =3D serdev_device_get_drvdata(s=
+erdev);
+> +
+> +       hci_uart_unregister_device(&wilc_adapter->hu);
+> +       wilc_bt_shutdown(wilc_adapter->wlan_priv);
+> +       wilc_put(wilc_adapter->wlan_priv);
+> +       kfree(wilc_adapter);
+> +}
+> +
+> +static const struct of_device_id wilc_bt_of_match[] =3D {
+> +       { .compatible =3D "microchip,wilc3000-bt" },
+> +       {},
+> +};
+> +MODULE_DEVICE_TABLE(of, wilc_bt_of_match);
+> +
+> +static struct serdev_device_driver wilc_bt_serdev_driver =3D {
+> +       .probe =3D wilc_bt_serdev_probe,
+> +       .remove =3D wilc_bt_serdev_remove,
+> +       .driver =3D {
+> +               .name =3D "hci_uart_wilc",
+> +               .of_match_table =3D of_match_ptr(wilc_bt_of_match),
+> +       },
+> +};
+> +
+> +module_serdev_device_driver(wilc_bt_serdev_driver)
+> +MODULE_AUTHOR("Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com>");
+> +MODULE_DESCRIPTION("Bluetooth HCI Uart for WILC devices");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.48.0
+
+Once you address these comments please fill free to add:
+
+Reviewed-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+
+--=20
+Luiz Augusto von Dentz
 
