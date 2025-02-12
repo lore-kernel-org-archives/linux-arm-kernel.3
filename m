@@ -4,82 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6971FC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 01:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A09C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 01:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxnUth80ZpwN+R8QXh2rnXW3rersdPCTTnOAkFWYgDI=; b=0kIAVPSjrZ3gcJiqi7sbmou3hz
-	d7blYBb8fQmY6zNJLfkv8JEOnBiw2rmBnwJcT88fXcl6r528XnW+KvXAqSgZQ6MvzTmrr8oRjS4wc
-	K0JzBmgJUSpjbXU6q6ZIEYFW8C7AdyGB/zoJfyIXc4cP+h4yG49rzAWwk9dcaGKPqwp9fHV/UXsAk
-	J91Q8bLpuW0AlemIlDIijWqWF+j0Hq3EO2qM7suBLxdQhvNbJcdGG3VgYk0OR9rpVdFjNp0JReuYa
-	WPpKaJw0maL/z6v3dvOdHbTZW3E9W4dQIyiqozRWw3Z0wU96EjEfedoYOZ9jBvQAYmIu1qhQfjz3d
-	stMF2onA==;
+	bh=a1PecfJ/ulEmOVAcJ2BrU2idsARRJ75dqEtuR45WJos=; b=Y4I9LMWtK/uA+VJFiIsXm7zTBl
+	JgbMNUCJtgxZWhyhMRxc8/2LlcdQwx1JkoQcK2nj8DMDAx75/Lyu9DeO4mp00QiqMamPMSR3+a07h
+	sbpzkEqZWAHeBFC6WDaGPFY7GgSjTQ4leXkgT8e0dIqJQLOrWRo2+vSaxU6/I1LzUsFd01I4LU3Zj
+	caUzZdRlMID63jEzPTBxiuXukcUiZOkDH1ktLtxj9eUQ0yj1hxd/wfz8Mj+hNZO3jdF4geSzdER4D
+	exeTB7GzknXSKkhItZZpZvPZvYERSdahQIL/F289rQ66+TsXcyQZeoIuqiDhyliFPVQJYFMUH+oVO
+	ZvckHLUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti1wN-00000005t1z-1ii9;
-	Wed, 12 Feb 2025 01:53:27 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti1mh-00000005r5o-3cdo
+	id 1ti1xl-00000005tGc-0KhS;
+	Wed, 12 Feb 2025 01:54:53 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1ti1pr-00000005ruZ-3xgh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 01:43:29 +0000
-Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 20D092107ABC;
-	Tue, 11 Feb 2025 17:43:26 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 20D092107ABC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1739324606;
-	bh=fxnUth80ZpwN+R8QXh2rnXW3rersdPCTTnOAkFWYgDI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ShwoORgjejjON2N7A2RFHlzYeBAbDLfGWZ4lEe29wGSWjBl/n8jLBpsASsJolKAbc
-	 Sfic0A88GQiTr0d2oJKBHmrDh42UeiTOvV3t7FHjrVPoqlWGi79DfAjxa9mR2wlFW+
-	 AHR+5D1yr49w35P0Z85bP6dJhHEFrUqJGSpnGwfE=
-From: Roman Kisel <romank@linux.microsoft.com>
-To: arnd@arndb.de,
-	bhelgaas@google.com,
-	bp@alien8.de,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	dave.hansen@linux.intel.com,
-	decui@microsoft.com,
-	haiyangz@microsoft.com,
-	hpa@zytor.com,
-	krzk+dt@kernel.org,
-	kw@linux.com,
-	kys@microsoft.com,
-	lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	mingo@redhat.com,
-	robh@kernel.org,
-	ssengar@linux.microsoft.com,
-	tglx@linutronix.de,
-	wei.liu@kernel.org,
-	will@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	x86@kernel.org
-Cc: benhill@microsoft.com,
-	bperkins@microsoft.com,
-	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v4 5/6] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
-Date: Tue, 11 Feb 2025 17:43:20 -0800
-Message-ID: <20250212014321.1108840-6-romank@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250212014321.1108840-1-romank@linux.microsoft.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+	Wed, 12 Feb 2025 01:46:45 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21f5a224544so55625845ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 17:46:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739324803; x=1739929603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=a1PecfJ/ulEmOVAcJ2BrU2idsARRJ75dqEtuR45WJos=;
+        b=J7lKHNU58S2H0qtGLxWoQcWnZABwHo9GU3UcfodVNvgxmYa53g2Q9sP4ZNW0baoTwc
+         0seIDKZulyMSoZgxlLXNsJb8avVVgbEWATAX0TLhQftc0+muecglcUhP05r2+FUwqFxl
+         nC/9QpbkmbQk1+G/1PPcbhh7S+ALKoikPaHkIaqUYShcVd1BdB/Q/drx/dUfUgELhyvu
+         RgmFSn5tKjh/F7oltESHpaKfhxHnIz45OScO0AifngzFUZySVQSnhRBVous9+7+XRhyn
+         PLHCeCtMbE+lnHZZSFsSOdpFEYsvh6EjXk5cjUXHe8zQPI24yTx2aY3rcsoxye/0xf9C
+         /RLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739324803; x=1739929603;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=a1PecfJ/ulEmOVAcJ2BrU2idsARRJ75dqEtuR45WJos=;
+        b=FNGM6Rpr+mOTYWAuWy9D82vp+jp+pXAy88fNpDook+m+fbMj4stRdJuPSqQ32+/279
+         YIpuxyrCQXprfUcqIUsSo2mq6D5ZD504qKViQceliRExUv2s3syw/vxFB0KH61KP1zSU
+         ETdAVJ4Umw5nq2/p29nai3oD6Qv/HtG77Ou6ujE62iKZVG5mIN2IenVcsMuEIuTNEfHf
+         WbD0kExpBukCpsa/w/BGFP7veBSdihg2hhcVJ/+IPssHxNmWTRhUfiSHsKWvNU18lpM9
+         Zwzvk+cC8qGRlQnvExlcpt52aHdEJ5eFOFr/GNfK06YFQK8dzNusbZdD3njcN0QSXJCP
+         h9TA==
+X-Forwarded-Encrypted: i=1; AJvYcCVRmCG4FYpXTX2H9biBq+tZaiNmfRsaA2aGzat0hiUaEzbXiVxdNLf8zBcjm+Mpt+zef2/AVsZ1GYWsPh+MCvyD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYNOZTnpn/kelJvwEC+tSShEz1goj6VoOM9cO2hPY1qZrbZVed
+	KsnRcNdR2EbxCAemjXGnlsd6EWwEHXSv5RXCRC5SUTq2udleiW2Y
+X-Gm-Gg: ASbGncuxamz22fqi17MIsxigkbuitESyDRfewAY1/GXhQz0a9WoUfOwmphwJisLk+DW
+	xI8BAegD8/ub5aKXV362yQJxIf0vPA9QpT4ZKS1DU+WNDNAiBmh7CXxjtXPfuxvfPBZ9mZSKHIk
+	ZcqPfZOCiZxEW0miXCJzvsPmQP+kChLhvqjdUiKeLPxC9k/Qhj42NGkUDg5Wlty0P9IuMCIFWqI
+	Ddtcba8nyMPdK5fJoAUnxY7IFROlVjq5+Z1us2OT7M1MWvJ+Manh+8eH6u2AqbHgcIl0hrsoWzN
+	6tYRHIbRszkjt9VZlW357xoSd3svS/208BxySwGxX6HZ1mdOpeg=
+X-Google-Smtp-Source: AGHT+IHynglCW7bmaS/rFXo/7iC4aLmIduuaHZeoNU0TbMyLvmCKS9G7NEptuYzgov+wProVrfEplQ==
+X-Received: by 2002:a17:903:234e:b0:216:282d:c69b with SMTP id d9443c01a7336-220bbca3a8dmr19893075ad.50.1739324802807;
+        Tue, 11 Feb 2025 17:46:42 -0800 (PST)
+Received: from [10.89.236.32] (wf126-032.ust.hk. [175.159.126.32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687bde1sm102872645ad.195.2025.02.11.17.46.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Feb 2025 17:46:42 -0800 (PST)
+Message-ID: <23db2d80-cfc4-4c15-a4fe-11e677185344@gmail.com>
+Date: Wed, 12 Feb 2025 09:46:38 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/10] drivers/perf: apple_m1: Support per-implementation
+ event tables
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250212-apple-cpmu-v1-0-f8c7f2ac1743@gmail.com>
+ <20250212-apple-cpmu-v1-2-f8c7f2ac1743@gmail.com>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20250212-apple-cpmu-v1-2-f8c7f2ac1743@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_174327_932716_B8E79D25 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250211_174643_984097_1AFBA01A 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,73 +104,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VMBus driver uses ACPI for interrupt assignment on
-arm64 hence it won't function in the VTL mode where only
-DeviceTree can be used.
 
-Update the VMBus driver to discover interrupt configuration
-from DT.
+Nick Chan 於 2025/2/12 凌晨12:07 寫道:
+> Use per-implementation event tables to allow supporting implementations
+> with a different list of events and event affinities.
+>
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
+>  drivers/perf/apple_m1_cpu_pmu.c | 65 +++++++++++++++++++++++++----------------
+>  1 file changed, 40 insertions(+), 25 deletions(-)
+>
+> diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+> index 06fd317529fcbab0f1485228efe8470be565407c..1bf7ce5c09846c699d66bdfcca129f418a9dad9e 100644
+> --- a/drivers/perf/apple_m1_cpu_pmu.c
+> +++ b/drivers/perf/apple_m1_cpu_pmu.c
+[...]
+>  static void m1_pmu_reset(void *info)
+> @@ -572,25 +588,16 @@ static int m1_pmu_set_event_filter(struct hw_perf_event *event,
+>  	return 0;
+>  }
+>  
+> -static int m1_pmu_init(struct arm_pmu *cpu_pmu, u32 flags)
+> +static int apple_pmu_init_common(struct arm_pmu *cpu_pmu, u32 flags)
+>  {
+>  	cpu_pmu->handle_irq	  = m1_pmu_handle_irq;
+>  	cpu_pmu->enable		  = m1_pmu_enable_event;
+>  	cpu_pmu->disable	  = m1_pmu_disable_event;
+>  	cpu_pmu->read_counter	  = m1_pmu_read_counter;
+>  	cpu_pmu->write_counter	  = m1_pmu_write_counter;
+> -	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+>  	cpu_pmu->clear_event_idx  = m1_pmu_clear_event_idx;
+>  	cpu_pmu->start		  = m1_pmu_start;
+>  	cpu_pmu->stop		  = m1_pmu_stop;
+> -
+> -	if (flags & ARMPMU_EVT_47BIT)
+> -		cpu_pmu->map_event = m1_pmu_map_event;
+> -	else if (flags & ARMPMU_EVT_63BIT)
+> -		cpu_pmu->map_event = m2_pmu_map_event;
+> -	else
+> -		return WARN_ON(-EINVAL);
+> -
+>  	cpu_pmu->reset		  = m1_pmu_reset;
+>  	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
 
-Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
----
- drivers/hv/vmbus_drv.c | 36 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+[...]
 
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 0f6cd44fff29..9d0c2dbd2a69 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -2335,6 +2335,36 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- }
- #endif
- 
-+static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
-+{
-+	struct irq_data *data;
-+	int irq;
-+	irq_hw_number_t hwirq;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq == 0) {
-+		pr_err("VMBus interrupt mapping failure\n");
-+		return -EINVAL;
-+	}
-+	if (irq < 0) {
-+		pr_err("VMBus interrupt data can't be read from DeviceTree, error %d\n", irq);
-+		return irq;
-+	}
-+
-+	data = irq_get_irq_data(irq);
-+	if (!data) {
-+		pr_err("No interrupt data for VMBus virq %d\n", irq);
-+		return -ENODEV;
-+	}
-+	hwirq = irqd_to_hwirq(data);
-+
-+	vmbus_irq = irq;
-+	vmbus_interrupt = hwirq;
-+	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
-+
-+	return 0;
-+}
-+
- static int vmbus_device_add(struct platform_device *pdev)
- {
- 	struct resource **cur_res = &hyperv_mmio;
-@@ -2349,6 +2379,12 @@ static int vmbus_device_add(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+#ifndef HYPERVISOR_CALLBACK_VECTOR
-+	ret = vmbus_set_irq(pdev);
-+	if (ret)
-+		return ret;
-+#endif
-+
- 	for_each_of_range(&parser, &range) {
- 		struct resource *res;
- 
--- 
-2.43.0
+The flags parameter is no longer used, so I will send a v2 with the parameter dropped.
+
+Nick Chan
 
 
