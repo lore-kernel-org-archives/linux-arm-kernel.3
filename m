@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0DEC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDAFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fD1k5bMIW/imRQuzK5KhvhuylFhJp7j2W2nlf3giUE=; b=jHMR4Lx/wDrv2aIGI9ZN3tIJIp
-	Yff3JZSz5/gJpPZaJKVe9THP7oMdxRVvPdsSag0tdhK07uLE7sFKqcodsyxXViMUuwEeYsB70SWJb
-	LYrHtKeK2bJecMqSv6KIsBI55vdfdB0l0r9WxmIpRqU3oBWZ0+sdp0avBHdLbM0bBxzY1vUTTH+sI
-	MMcYYdfLIizlYgwwAnsBlt+E6/7ViHReN215owEhL+a9p5OZu7U7x7WazezMl30+iQBmyAKNWyubT
-	PIFojNht4x8DYjwSDyFJJPRjM9bzWTranBC6C+jgwpJvx0HrgfiHwhV3P2UtjbPdF3lVO4mRNFW4H
-	qhH7fX+A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=39musMyRvQZFJGCAwDo09lJ3EVHHEkzlG1spNgpkZ4Q=; b=pHTIHltylOA9LI
+	T/vI8vaqaap2P/KkpyOdOKU0RWCXhaTvtiqdp1G0BOFcaxwqfmzD9wNBqpaEKUSLehG68RO3R6RLT
+	Y1HS58JvU5MCNPOS7RAD16BahcbVkxNoIgM3L8HChU2NLS0IOlPL9WkQ8DR1oRS0BEu/dG1cJgBv0
+	kJGxWGPK/yIF1wr9uGVJ/yo6cpuT2x5Y0/Je7424jcBBVVy0hYg8+S+EL1iBby3ffCCFO4pY/367M
+	FLapskOOPaZhu7thZpLDy7PqVAEBHtBAlhWlLPwvQnyIBiKHvH/KGseHEGw/R5RBriGx9KhKeiqk5
+	IlAIUXJEgabOhbFpCnlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiF20-00000007wCn-25oR;
-	Wed, 12 Feb 2025 15:52:08 +0000
+	id 1tiF3O-00000007waz-0aCc;
+	Wed, 12 Feb 2025 15:53:34 +0000
 Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiExr-00000007uwO-1oi4
+	id 1tiExr-00000007uva-0wZk
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 12 Feb 2025 15:47:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 09DA1440FB;
-	Wed, 12 Feb 2025 15:47:48 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BF86F440F3;
+	Wed, 12 Feb 2025 15:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739375270;
+	t=1739375266;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3fD1k5bMIW/imRQuzK5KhvhuylFhJp7j2W2nlf3giUE=;
-	b=bWhR95VJSQ5uC0Sndhv/pxDenw+gX0dRpNFdgQqPWiD91pebWItUJdF7NB4RPGLQ8wl8nl
-	GzgiZeiT8vYFJIsXBuf2C8sMvDFiGHOG5+Xq1dU0385nrdyGp/o0jA6HfVkmDJTLoiK42r
-	cECb4VyA8zCdQv/5hiV5tzuV1kDfMWQ8LIHV2feTZlGPW7N0Pa11gKqaSjh360msfQPQ+M
-	cifWlglhSf6M4hT+ELh6sMeMTBTBI0HhjFfg9ZHwvX/Y2ClOqR5fZ1KgjPGIuWoD/MjWIj
-	Zg9rvDivxMjKIteLEfJBhlPH6ZVrne6QjQ3iXkcPenJUOHiuGawqL6ikkMLhhg==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=39musMyRvQZFJGCAwDo09lJ3EVHHEkzlG1spNgpkZ4Q=;
+	b=PLkMLkwv0wm/8HRgZPKQsHL3sSziak3cusMU+bcFX6+IVkHZS6TEd3k+KrY2dIywTHU+oU
+	k5K+Pu8maSlm//NBsxq+mli1fn7ynFCbmeyrr0OVipl4XgwpYFpZ71V/Tp26rgvyeW/VtT
+	aNGFCrDp4Mqnl16E8Td75hPikhyv5T09yR9oqeNnvaN21zbx63n7R28RguxaBHArhg2815
+	Oel1IDy2h8N8RZ3QHT5Fgs+AY/odjSZySHn09TSgSRb+URe2tF0+6rKCsiewXEfGGijI3M
+	GhwVdz8aXHvMXC6DNX2aI1tobo5yil3SxE8scKqWRZZ4MU149UC2siFA9xrlAQ==
 From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Date: Wed, 12 Feb 2025 16:46:22 +0100
-Subject: [PATCH 03/12] wifi: wilc1000: add lock to prevent concurrent
- firmware startup
+Subject: [PATCH 00/12] bluetooth: hci_wilc: add new bluetooth driver
+Date: Wed, 12 Feb 2025 16:46:19 +0100
+Message-Id: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250212-wilc3000_bt-v1-3-9609b784874e@bootlin.com>
-References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
-In-Reply-To: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAEvCrGcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxMDCyML3fLMnGRjAwOD+KQS3bREE1OjNKNES+PEFCWgjoKi1LTMCrBp0bG
+ 1tQDQShcmXQAAAA==
+X-Change-ID: 20240828-wilc3000_bt-fa452f2a93ad
 To: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
  Marcel Holtmann <marcel@holtmann.org>, 
  Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
@@ -70,12 +70,12 @@ Cc: Marek Vasut <marex@denx.de>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggedvkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevgefhteffuefhheekkeelffffvdeugffgveejffdtvdffudehtedtieevteetnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopegludelvddrudeikedruddrudeljegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdpr
- hgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggedvkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevffetudegfedukeelhffgjeefteevgeejjeffkeekudejhedvfedufeefvedtnecuffhomhgrihhnpehmihgtrhhotghhihhprdgtohhmpdhkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopegludelvddrudeikedruddrudeljegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrn
+ hgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhm
 X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_074751_601171_C882A933 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250212_074751_396057_1D252DF9 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-wilc1000 driver supports WILC3000, a combo wifi/bluetooth chip. This
-chip needs a firmware for each radio. Before bringing support for the
-bluetooth side (and so, before adding bluetooth firmware load and
-start), add a dedicated lock around firmware loading and startup for
-wlan side. The bluetooth part will also use this lock to ensure that
-both firmware are not being loaded/started at the same time.
+Hello,
 
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+WILC3000 ([1]) is a combo chip exposing 802.11b/g/n and Bluetooth 5.
+Support for the wlan part has recently been integrated upstream ([2]) in
+the existing wilc1000 driver. This new series aims to bring support for
+the bluetooth side.
+
+The WILC3000 chip is controlled through a SDIO or SPI bus for the wlan
+part (similarly to wilc1000), and uses standard HCI commands over a UART
+bus for the bluetooth operations. This work is based on the code
+available in the vendor kernel ([3]), in which bluetooth is managed
+directly in the wireless driver, and relies on user to trigger the
+hardware configuration (chardev manipulations + hciattach). The series
+brings a new dedicated bluetooth driver to support the bluetooth feature
+from the chip, without relying on the user to perform the device
+bringup. However, getting completely rid of the wlan driver dependency
+is not possible: it is still needed for early BT CPU configuration and
+BT firmware download, so the new driver still have a dependency of the
+wlan one, with an approach similar to the one used by the rsi driver.
+
+- Patch 1 brings the new dt binding
+- Patch 2-9 prepares the wlan side, either by exposing the needed
+  functions to initialize BT, or by mitigating behavior which would
+  prevent BT and WLAN from runnning in parallel
+- Patch 10 brings the new bluetooth driver
+- Patch 11 updates the device tree description for sama5d27_wlsom1_ek
+  board (which I used to validate this series) to use the new driver
+- Patch 12 adds a new entry for this driver in the MAINTAINERS files
+
+This series has been tested with WILC3000 both in SDIO mode (with the
+chip embedded on the sama5d27_wlsom1_ek) and SPI mode (custom wiring on
+an SPI on the same eval board, with a WILC3000-SD).
+
+Since this works needs new code in both the existing wlan driver and the
+new driver, I have included both linux-wireless and bluetooth mailing
+lists, while keeping the entire series for clarity, but let me know if
+you want to proceed differently.
+
+[1] https://www.microchip.com/en-us/product/atwilc3000
+[2] https://lore.kernel.org/linux-wireless/20241004114551.40236-1-marex@denx.de/
+[3] https://github.com/linux4microchip/linux/tree/linux-6.6-mchp/drivers/net/wireless/microchip/wilc1000
+
 ---
- drivers/net/wireless/microchip/wilc1000/cfg80211.c | 2 ++
- drivers/net/wireless/microchip/wilc1000/netdev.c   | 5 +++++
- drivers/net/wireless/microchip/wilc1000/netdev.h   | 2 ++
- 3 files changed, 9 insertions(+)
+Alexis Lothoré (12):
+      dt-bindings: bluetooth: describe wilc 3000 bluetooth chip
+      wifi: wilc1000: add a read-modify-write API for registers accesses
+      wifi: wilc1000: add lock to prevent concurrent firmware startup
+      wifi: wilc1000: allow to use acquire/release bus in other parts of driver
+      wifi: wilc1000: do not depend on power save flag to wake up chip
+      wifi: wilc1000: remove timeout parameter from set_power_mgmt
+      wifi: wilc1000: reorganize makefile objs into sorted list
+      wifi: wilc1000: add basic functions to allow bluetooth bringup
+      wifi: wilc1000: disable firmware power save if bluetooth is in use
+      bluetooth: hci_wilc: add wilc hci driver
+      ARM: dts: at91-sama5d27_wlsom1: update bluetooth chip description
+      MAINTAINERS: add entry for new wilc3000 bluetooth driver
 
-diff --git a/drivers/net/wireless/microchip/wilc1000/cfg80211.c b/drivers/net/wireless/microchip/wilc1000/cfg80211.c
-index e7aa0f9919232350761d51cbb1b5be87ca39e855..393fff618f919c5a6d3f4a7d894b187399455fb8 100644
---- a/drivers/net/wireless/microchip/wilc1000/cfg80211.c
-+++ b/drivers/net/wireless/microchip/wilc1000/cfg80211.c
-@@ -1736,6 +1736,7 @@ static void wlan_init_locks(struct wilc *wl)
- 	mutex_init(&wl->cfg_cmd_lock);
- 	mutex_init(&wl->vif_mutex);
- 	mutex_init(&wl->deinit_lock);
-+	mutex_init(&wl->radio_fw_start);
- 
- 	spin_lock_init(&wl->txq_spinlock);
- 	mutex_init(&wl->txq_add_to_head_cs);
-@@ -1755,6 +1756,7 @@ void wlan_deinit_locks(struct wilc *wilc)
- 	mutex_destroy(&wilc->txq_add_to_head_cs);
- 	mutex_destroy(&wilc->vif_mutex);
- 	mutex_destroy(&wilc->deinit_lock);
-+	mutex_destroy(&wilc->radio_fw_start);
- 	cleanup_srcu_struct(&wilc->srcu);
- }
- 
-diff --git a/drivers/net/wireless/microchip/wilc1000/netdev.c b/drivers/net/wireless/microchip/wilc1000/netdev.c
-index af298021e05041ba4b16a94c8ee768407a208dfc..d24859d12ccd535c966a9b7f46378ac3b3a21d7b 100644
---- a/drivers/net/wireless/microchip/wilc1000/netdev.c
-+++ b/drivers/net/wireless/microchip/wilc1000/netdev.c
-@@ -4,6 +4,7 @@
-  * All rights reserved.
-  */
- 
-+#include "linux/mutex.h"
- #include <linux/irq.h>
- #include <linux/kthread.h>
- #include <linux/firmware.h>
-@@ -534,6 +535,8 @@ static int wilc_wlan_initialize(struct net_device *dev, struct wilc_vif *vif)
- 			goto fail_irq_init;
- 		}
- 
-+		mutex_lock(&wl->radio_fw_start);
-+
- 		ret = wilc_wlan_get_firmware(dev);
- 		if (ret)
- 			goto fail_irq_enable;
-@@ -562,6 +565,7 @@ static int wilc_wlan_initialize(struct net_device *dev, struct wilc_vif *vif)
- 			netdev_err(dev, "Failed to configure firmware\n");
- 			goto fail_fw_start;
- 		}
-+		mutex_unlock(&wl->radio_fw_start);
- 		wl->initialized = true;
- 		return 0;
- 
-@@ -569,6 +573,7 @@ static int wilc_wlan_initialize(struct net_device *dev, struct wilc_vif *vif)
- 		wilc_wlan_stop(wl, vif);
- 
- fail_irq_enable:
-+		mutex_unlock(&wl->radio_fw_start);
- 		if (!wl->dev_irq_num &&
- 		    wl->hif_func->disable_interrupt)
- 			wl->hif_func->disable_interrupt(wl);
-diff --git a/drivers/net/wireless/microchip/wilc1000/netdev.h b/drivers/net/wireless/microchip/wilc1000/netdev.h
-index 95bc8b8fe65a584615b6b9021d08d11e4b36408b..5837f8ffe548dad1b756cdbd8543636f2be0e9b0 100644
---- a/drivers/net/wireless/microchip/wilc1000/netdev.h
-+++ b/drivers/net/wireless/microchip/wilc1000/netdev.h
-@@ -287,6 +287,8 @@ struct wilc {
- 	struct ieee80211_supported_band band;
- 	u32 cipher_suites[ARRAY_SIZE(wilc_cipher_suites)];
- 	u8 nv_mac_address[ETH_ALEN];
-+	/* Lock to prevent concurrent start of wlan/bluetooth firmware */
-+	struct mutex radio_fw_start;
- };
- 
- struct wilc_wfi_mon_priv {
+ .../net/bluetooth/microchip,wilc3000-bt.yaml       |  41 +++
+ MAINTAINERS                                        |   7 +
+ .../boot/dts/microchip/at91-sama5d27_wlsom1.dtsi   |   8 +
+ .../boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts |  10 -
+ drivers/bluetooth/Kconfig                          |  13 +
+ drivers/bluetooth/Makefile                         |   3 +-
+ drivers/bluetooth/hci_uart.h                       |   1 +
+ drivers/bluetooth/hci_wilc.c                       | 333 ++++++++++++++++++++
+ drivers/net/wireless/microchip/wilc1000/Kconfig    |   3 +
+ drivers/net/wireless/microchip/wilc1000/Makefile   |  11 +-
+ drivers/net/wireless/microchip/wilc1000/bt.c       | 345 +++++++++++++++++++++
+ drivers/net/wireless/microchip/wilc1000/cfg80211.c |   7 +-
+ drivers/net/wireless/microchip/wilc1000/hif.c      |   2 +-
+ drivers/net/wireless/microchip/wilc1000/hif.h      |   2 +-
+ drivers/net/wireless/microchip/wilc1000/netdev.c   |  14 +
+ drivers/net/wireless/microchip/wilc1000/netdev.h   |   5 +
+ drivers/net/wireless/microchip/wilc1000/sdio.c     | 101 ++++--
+ drivers/net/wireless/microchip/wilc1000/spi.c      |  43 +++
+ drivers/net/wireless/microchip/wilc1000/wlan.c     | 154 ++++-----
+ drivers/net/wireless/microchip/wilc1000/wlan.h     |  23 ++
+ include/net/wilc.h                                 |  19 ++
+ 21 files changed, 996 insertions(+), 149 deletions(-)
+---
+base-commit: 95f6f2d73dc40ab53a94756689ce5cfd2f23361a
+change-id: 20240828-wilc3000_bt-fa452f2a93ad
 
+Best regards,
 -- 
-2.48.0
+Alexis Lothoré, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
