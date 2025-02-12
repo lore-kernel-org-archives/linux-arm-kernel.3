@@ -4,179 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71784C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120C6C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=; b=DYH25fC09Kj3FT5bw5QfgzxPsQ
-	ODF7Dbh8x7N0Ma4ARaxAcFjSS6b6Q2DgatmSQBrx/bL7veZcGAFIgZlBV/Kw7b0oxIJtaAZskL4L9
-	HiUagE8cZ3Hh/RDmQw4ultdB1fYjaIp3Uw6kRe4JiWHHvquW6iCk1iPkV4kAUsk3pOMNc/d067egy
-	lUQZkzeXIJUvL1rt+mq4PDrBMLAUHaPGRAKv+hUnCNUbtJ8IoiCnsmhvlSI0vVdkaf2PC6kIPYK8g
-	aHJaKpKaU3Bf1w6P6bubT70lMwg5dRVUqP/aIYRf2fzG8Nb7SSTOmRpT9jM4qq8Wju6AyXX161N7V
-	l5y/AIGg==;
+	bh=HrtreOGrFy6HHZfLsMe2zUZL1+PbB03myiiB0TLgJeY=; b=zef2S5VHo3hyQcfKfCtO5cmcyV
+	k2PVdLLVEFUYzUktLWOnNJQ+gpYls8YgP0kT58b40LzMS2VYBWfYoaMf/Sq+5qODL1Z5xC/uZJwl3
+	9jPyI4Ul/SDAdPPL5eeB9qDQ7NOpV9+twUwGkk3atvbJFC+feNpfsXR+qkxxTg9PlRB29C5WoQ+fO
+	JjrtwCFA7Lm4HD8wTs2K3gq9q3UAw/4tfoHMu7PZOFid43uZCSA69ytpotfSZEdW4Qwo5Za0wveJn
+	5Zs2+RG+E9ANdrtfKOQYAhZfbWSxePe7caAc3Sv3j6zg2ipO8P269tuNy9ul8ngEMLO4qHx/K/+jM
+	dq2tQ6kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGuN-00000008OGi-0i6Q;
-	Wed, 12 Feb 2025 17:52:23 +0000
-Received: from mail-bn7nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2009::60a] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1tiGvm-00000008OYb-1pN2;
+	Wed, 12 Feb 2025 17:53:50 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGlR-00000008MOr-3D4Q;
-	Wed, 12 Feb 2025 17:43:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hVJBSwDw2qAPMBIclB5NQARQtlUAmjOiiEwinfHtuz708pu/+Kz9UAAsQywdHczHU2cwrxlb5j8i+neZZmikM564uV92M0NVuwn2PVSWRWmCGpXwrJFgqlklVJc+IBUbdIbeH/NapL9yK2VKlqbTmzpU/OvT5b+9XoCrVQG2i519VjzzqiG8R4nVHZMMf3vGIGCfQgGW4HoJu3plD6GmA7eEyC5aydAQna9/tPOvjSYBj1QKszZd0MCzS4GsG8t8+ovq3mt1WBjXx3th/hquL0Ppf/kSQ3n9KS4jqFtd7Bb9J5LXs/Wr3SLm6UgE2nZg0Nd8pzJWxIdpXWMSSrDWAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=;
- b=xNHOpSjxJB2dVr97AchlClMUt7pZkoO+vG/NOB1r5edbWAL8hartgZjW/LA/32wnWDIwM5eAf6zLmwfUBoBzjd6Rr1paCavxlQTeb66HQ/jBNn3O5dMkyrncuevjlrKESSTy3Yjbc/tk+lZ8JpbjiQq7Tkc+Fs1+fR6K8CBnFgO5upe8yBi8r3giM3gx+jgiIUfLrNMR5AKuxj5ymXbBjpY0Rcq5pCVyySW133I0iM69xKaqzRAIgqlHNsE3fYDYXTjMxYEpO8hYqsMuAqOHzDK+tm/w5kpJwCrOchjP7rkCx/QacZTg2ZyT7ACx4KeVHmLbo8Rdl7Bmsk2M16Jg8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=;
- b=B5mT3kVEfHmiQQhmC0MYKqyKcfPVbLuuFFJ2o7idT/yGzWvqfdCxXs4wOJT37RaM4NeeQatDnqzx92hZT1AMujQYGcFf5Gtt5Bv5Nb1Y2MZ2JSVyriamWtBKK6pUv/Iu/GHDsOzBGRDmYheZZSRlNc5B3JbVx3DsrXKHufVx0BuelS2g5rKThZNkU1ubjvnH/eUN+NviT45chJgz25VbfMjdx2Wxy8i7tjlEq8L30WSkgy/sTYmXS1hXvJqovg8jqmWXoTFa1yvtHpZ+OL9W+fmZHdzVQ+JqXKQ6WQmjaCdukOjGX5eB8MP39VD+qE759uT8j09Fwk2xRU7dcjrSZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
- by IA1PR12MB8221.namprd12.prod.outlook.com (2603:10b6:208:3f0::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Wed, 12 Feb
- 2025 17:43:04 +0000
-Received: from MW6PR12MB8663.namprd12.prod.outlook.com
- ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
- ([fe80::594:5be3:34d:77f%2]) with mapi id 15.20.8422.015; Wed, 12 Feb 2025
- 17:43:04 +0000
-Date: Wed, 12 Feb 2025 13:43:03 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
- helpers
-Message-ID: <20250212174303.GU3754072@nvidia.com>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-6-rppt@kernel.org>
- <20250210202220.GC3765641@nvidia.com>
- <CA+CK2bBBX+HgD0HLj-AyTScM59F2wXq11BEPgejPMHoEwqj+_Q@mail.gmail.com>
- <20250211124943.GC3754072@nvidia.com>
- <CA+CK2bAEnaPUJmd3LxFwCRa9xWrSJ478c4xisvD4pwvNMiTCgA@mail.gmail.com>
- <20250211163720.GH3754072@nvidia.com>
- <20250212152336.GA3848889@nvidia.com>
- <Z6zOqtaLQwnIWl2E@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6zOqtaLQwnIWl2E@kernel.org>
-X-ClientProxiedBy: MN2PR20CA0021.namprd20.prod.outlook.com
- (2603:10b6:208:e8::34) To MW6PR12MB8663.namprd12.prod.outlook.com
- (2603:10b6:303:240::9)
+	id 1tiGma-00000008MkQ-2DFO;
+	Wed, 12 Feb 2025 17:44:21 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aaec61d0f65so10244866b.1;
+        Wed, 12 Feb 2025 09:44:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739382259; x=1739987059; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HrtreOGrFy6HHZfLsMe2zUZL1+PbB03myiiB0TLgJeY=;
+        b=Gk/V4Q9e6l5USJK+MDd3VPJ9Wi44vtbvLAF894ZjAEq8oc6Nom+gTF/UFw5KGkhJiO
+         sHIGxVRYn/XqjQmGuufM9CHHUUPHkhc9sE21b04WNOkIf35A0QE6vUsSof0A7UtzM40M
+         sSL+yAJ3JjaQ0TWibaHWfcVT1ZrJAXqxSPeOl8G6R/BVnybgy4txl/jG0yP7pVVu8Ji4
+         S/6TUnxkTroTZKIJzPtybrBHdjpa/7vdvZPy3WEW1wahAeciuq0uuZeACOb3/IUn7OBr
+         zK6FDK1MbBez32nOoXLiIziIni2BirQk7YVChSa52vW8D2rPoz/03sNF0/rqvlnkx6Xv
+         VVXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739382259; x=1739987059;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HrtreOGrFy6HHZfLsMe2zUZL1+PbB03myiiB0TLgJeY=;
+        b=m8pMET4ipQvziJkOZoCVcC/KXB8ynLbS/MqEskQ1MscRU4eAr4jN2oN6fpqIufzk2Z
+         AJpkQ9BBHOwwvtXixrqZ6w2fTCOZ3Kb+8TscCtSzJ68m7y8D5eIGPWNvAAj4MrLoFfbj
+         B2IjGhM6mb0nh4B/m6W/XhK0mnbEm6QkJCvmJxbEX1iDxaT/7jOTEBHGaDsvoql3ZKxS
+         T9mZ4RSXFNYA31RRlYa1qaBhaMiWBA//3CRlvnLkxFMOQ54bYUClJsZ5B0eRQI0UwT0b
+         85XZv40WiIHD26TtJKsEuJu1kO1MqDvQta9GyyzwBL6FvaDL5ccL4TzGrDIlyFXzsw8s
+         1FYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBXkbTK8fZbQU0+DG+eNSWwd5xjUF8qRq2/8icvKHmGg6Zo6VeEyV8kG7o6rrwoxtaLgFtWGKks7OhzD0=@lists.infradead.org, AJvYcCXfEkBIF36f6ctY6J0U/EiH9s+wex1k5nV2UZ2FLZVTlVqPkgp5Vp1TcSzyzPDE50kMrs48VDyj6UuH24IhWn4M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3DVR1ODc58A/LZdrBJa6kp4rtOR07ZOfUiM3wDU/QddgaB6W4
+	2lTiRaF7i0cP8TOeUs7r4jLdNU95f2XzlLc6Gqny0LTzWQzcB1V3
+X-Gm-Gg: ASbGncsj4tIQ+wfejqPeC6ZtzEjJ4CJLOdW3VfA1EyK3FIJfQ+6G6dyIxghX99y5pEs
+	ZTXzopXKFDRGaWAFrYadvO8WAKpPQ0gHPh+EImmy6g1eukHYsfmGEIYNkC0lO5IS5r7f3XImGV7
+	l1ryyWASYzh6EZAsJ8zKnxDhB7JjaFEDkNAOvoAokHrCWvZQ+d5u3jnf/SeM5q82jwNkHtqCzqx
+	pO4H+hzd8o1wnMwHTrqSat3L/6CripdPL8Uk0zUMorcXb2w1BTGjSwhYs5kxb3/bwi+8Z6NzYbo
+	4YmFcJeQ7eIngnv+YEszP4n9saYwMVUU
+X-Google-Smtp-Source: AGHT+IGXiN90fqBBtXBKAJxfVWN6FjbS5WH82cFrumS6AyosF6uuHB+mpyekgQzZiYjWjwTT1PPBcw==
+X-Received: by 2002:a17:907:da3:b0:ab7:cc43:c52a with SMTP id a640c23a62f3a-aba501ab6aemr1428966b.52.1739382258565;
+        Wed, 12 Feb 2025 09:44:18 -0800 (PST)
+Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7ba97704dsm719671166b.107.2025.02.12.09.44.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 09:44:18 -0800 (PST)
+Message-ID: <26ddcdaadd777f170dbab51ab840c899f0edde24.camel@gmail.com>
+Subject: Re: [PATCH v2 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
+ part into SoCs' .dtsi files
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Inochi Amaoto
+ <inochiama@gmail.com>, 	soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+ <inochiama@outlook.com>, 	linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Haylen Chu	 <heylenay@outlook.com>,
+ linux-arm-kernel@lists.infradead.org, Paul Walmsley	
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
+ <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Chao Wei	
+ <chao.wei@sophgo.com>
+Date: Wed, 12 Feb 2025 18:44:15 +0100
+In-Reply-To: <33654180-5488-4601-9103-8e4218c4a198@kernel.org>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+	 <20250210220951.1248533-2-alexander.sverdlin@gmail.com>
+	 <uvy62iqzul6kajzsmiaovdzogftcsc5b53cswkv4cbxh4w6som@32libbd7kffq>
+	 <708cdc497b8474609989395dbf8a0898037a22de.camel@gmail.com>
+	 <33654180-5488-4601-9103-8e4218c4a198@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|IA1PR12MB8221:EE_
-X-MS-Office365-Filtering-Correlation-Id: fcda6154-e116-4491-99c7-08dd4b8cb3fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eCRtdU5NxRln6L2vSD9zK3Np5n0fC70kE9dYCC7RxAz3J+sxt7LICm5NxsNt?=
- =?us-ascii?Q?27NvA9BOzP3/NTtZHdMGVr9ERDLt9Mqjb13sR1IrJKySHT4kNPkGrFBZOEDH?=
- =?us-ascii?Q?HH6U30i32HBa4W2IAOApEvCitZzkURf9k3K1FuZwCLJoI63v5UCI7Pk4Hh1a?=
- =?us-ascii?Q?TqeDPsDwU5sdYQ9lIi0fpPbo4HOAovmqj2k+B9gf33ke+/IJeT9vCxaGbPVB?=
- =?us-ascii?Q?lUpE4pZFt2rykDk/RA/nzierCZ/lNmZMmUDDmhp81cRX8YOLV74Rsu2HDIY4?=
- =?us-ascii?Q?K1DShJUsi+fi2yKtzDzyeW1aQSSAdYzMBaV2Db8FTDjD1kpSGoPtIQOTzQIN?=
- =?us-ascii?Q?TQ4oVcDQmFSc9Aloutqtk4BPr62uHviY+PibF2nIe99LeotniTQGtnBzKVQD?=
- =?us-ascii?Q?OExKzvf3qRHaoew+oBKd4e1Tl0NTiZb5+uOREhH0Vp+T6ctqS9Gk8dTDs9uo?=
- =?us-ascii?Q?6DcCVKqztwBG0RRar7IQWSN83RRx2sKwWXvf85Wa71VrAUKCNVFt88VTQQZe?=
- =?us-ascii?Q?Wbh0GS2llWLViSInnFVgnXZk9zZOnb0IC77Fo/af7anBfmyA+/SRy/UW5S7J?=
- =?us-ascii?Q?T0nunRMY76Dnh9A3Eje+f4Gg86aYmi//Ogkgm2DWyfB3MEZC9RIPU3n+o04J?=
- =?us-ascii?Q?fjELK+Aa4keBvIaZb3zG7uPbDPzEmXFG4yZ6Nhldm8krSwhwoHhHMv8GDXY0?=
- =?us-ascii?Q?p/Si/ywjB3W/gi8rCpEfJrUcdTMwLaEAB88jTvU6IpUrnc5AMkBIuNJHzM4M?=
- =?us-ascii?Q?kZzgWVG3Tt9YqNX+GYWZy1zKOb6359JupFiujj9hMZFb8klmMJBtUcEycmgG?=
- =?us-ascii?Q?O6T6rxNXixD4ZXcUKKiRQZeMDTrYWNJ3cQrET67DnbmC8DxmyXbokJN/esFq?=
- =?us-ascii?Q?9VqhJlQuUN+ZRTM+ZjLpq8RuKS8Cwq+9vHnYgRMIr+PwivooCXsz5e6aUrfe?=
- =?us-ascii?Q?LOI9EfRTUO3EpytBbDBSKGrkZkx6+v2wfLhFf5tw8ljm6voCLkiDHeYUs53I?=
- =?us-ascii?Q?iHhEGsmjqVCnIfMHM3AGQZGL+r8/nJ2OSZ/zzZS+O1RrXHSSdehOHJu9PDd7?=
- =?us-ascii?Q?SyPgQ88jiEJ4gwQSAZjVGR3rjxdTcFdkMV4JVp/9tw6m/uMJ8oDEsIb6a8Yt?=
- =?us-ascii?Q?9Q1ubHS+9z0cJgEE+9PWMvE1yTKrLUb7ZUzkzlPWpyy11ZmcgNfu59eKyS4Z?=
- =?us-ascii?Q?DL4nU+cspC0jJI64Q7W06TCodMii6ZI1d/GEOWVwDzj98E3HxpRh7B9Qrzgh?=
- =?us-ascii?Q?Hatv5iWtuyHchnaqff1u48ZxsDUFM8PrLuCZFn3A6vvkmS+po3jAqC5WF/xz?=
- =?us-ascii?Q?hSUzeUze5DYqrOc90o++K8bnnEQoub3Bth4Czp5TVP+/DdYx9HgcPerJ20xb?=
- =?us-ascii?Q?zBhXRsXRdqOC+uo2QFUYA2gB4U/6?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k6pKXTxW+ltA8nSIxzihH4SzSnKE55QKEUfZGww6P7DKYjl0UqrlI2UfuK16?=
- =?us-ascii?Q?PmhT6qRWiUDCmdmBuuSymrVjhMb8/ds6QI6tFQZqUSa3RlITlu80J142r32n?=
- =?us-ascii?Q?53Z47mQKT4xqle4DPuLpwg686HXlmFXUXRUATIoriCtRZkkvxTnzhiaP2DY0?=
- =?us-ascii?Q?2vjQAgcuCzkuHFeWYJg/0OeMo1P0LdX2srFeZoX9SS+fGEmZHJVRbcRBm057?=
- =?us-ascii?Q?vwsw6yjGRmf8fNpgWXL3IucTzPjdGh5O7UZSVl+B0vk303JKazEaxcts6nGv?=
- =?us-ascii?Q?eEPRMQm0z0xvivo9KP+Bm+YUfLDKCgdxsfD2FJlRHbY8s3cO6aRBdxeNIifh?=
- =?us-ascii?Q?5mfpMiUot0KB1PJdNH65D/gtwb7DBc88ZNNf5QFhdG2xfzjAKENR+UWH+zKU?=
- =?us-ascii?Q?AxtGYI/lfEVJXiT7svdaTlPB7DdHQspwT4tkdLNTNZFl2gg61TuqcnuDHOS6?=
- =?us-ascii?Q?tKzRfmZNIozDMIyPJ1RLeVqAwf+NE1bOolbB0EtpQsHkv6aGnDm2F21ApE1a?=
- =?us-ascii?Q?5qXND3D7kuJgCgF+H9MQfHcJpzA/xACe6Iin1WW9MyT/AiWGkXBnaLz49WiD?=
- =?us-ascii?Q?qlUcGqaCvnOd3YN1AYPdSsOIG8/1VTuwlnqAry66df25CmqC4ovVi+98/Aec?=
- =?us-ascii?Q?6/RbUUPw8K9EzvsO92QkJ6z5v2KnZ4gGK0+imS4YDpvzuMQpmA+zf7k3Cpro?=
- =?us-ascii?Q?OfdACLRY96+3Ulp3cGIUxy98jgJzvFBaNcarNUk9d4p7cRm17QrFvr877BEz?=
- =?us-ascii?Q?Hk+SCK+eo1QPsBO/rxj90ATPk266Zd7U24TZMg4aiU1d6yJeXRKQTjBfB1cW?=
- =?us-ascii?Q?GVW9n0sMIFv8g5LXuokGegQUqqoqYe5BUrCrzIN/3Y017zVmY/LxrzEbvMOv?=
- =?us-ascii?Q?wKkB3tQpgb6ZILSpgifnIHIbHmtM4ZRXqbaFS3A3FK6BZVQUcjZH9eP0xGKG?=
- =?us-ascii?Q?ygJgQkYIOQvrIqsj6D4+Wt0VGN5wQHCb1JSWzcSs/R2AnQWSmZvwsBkY3142?=
- =?us-ascii?Q?rUlbQSyQS5Kq65n/1lbdoOulOV9a6CboWIYGHCHoIEysNDa3gXg/27wNtepk?=
- =?us-ascii?Q?Of01/PcBxyN4Xqrn7Vn7sUtVYHV7gGzjdOIZ9EYV9k25xW/YwjESRETyWtiM?=
- =?us-ascii?Q?CqhmpR2yOIxfQ8oaIV0ePjEXoPzN8sYgFgicwyZoRe/fo7/mpQQC9plUFV5X?=
- =?us-ascii?Q?K9QYBzFrB5G6hC2L4nRIRVEbNdMUuVedXcIQWyJ6BrTgpfYDdC89ywge9uV1?=
- =?us-ascii?Q?iLyUpUDuoyUoKSlU4/Y9onLHo2rzx+plL9FFpzIhffP4Rd+GNBerBRwlaLkc?=
- =?us-ascii?Q?Fj30lcvOb8AnE2OajA7yN9fYsdKv4pb3RLxhbpCNTe8FaBJOXnZbQ5yBpyrS?=
- =?us-ascii?Q?jE0plZu5B15d1LC8yGtpqjuP2MKDISfxUjjSrsbVqeGSbVGOt5pAtrtyf9Yz?=
- =?us-ascii?Q?YeW3sHqYqYgugMRBY0YjxgsVbNjETjnJgTPHuzRO+/nadrL/N93TTrqNRe55?=
- =?us-ascii?Q?6/DjKh9lsaLE8Zh9Gu0HXlAKUZSTBTLxXxNmKkBr60eWNnrbpK/U0aiE9Bf0?=
- =?us-ascii?Q?cOIg92EPW3kJ+73YS2oaGTOR95BG2p3tVLLa1tDw?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fcda6154-e116-4491-99c7-08dd4b8cb3fd
-X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 17:43:04.5053
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0P8Jj8OH+WGU64qtS4cFL034ya9n+OiNd7/9MkzdFHwZT/PxjorcgP9YJm7OOU71
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8221
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_094309_820111_DECE1FF1 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250212_094420_567318_16A4A52C 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,34 +110,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 06:39:06PM +0200, Mike Rapoport wrote:
+Hi=20
 
-> As I've mentioned off-list earlier, KHO in its current form is the lowest
-> level of abstraction for state preservation and it is by no means is
-> intended to provide complex drivers with all the tools necessary.
+On Wed, 2025-02-12 at 17:46 +0100, Krzysztof Kozlowski wrote:
+> > > > Make the peripheral device tree re-usable on ARM64 platform by movi=
+ng CPU
+> > > > core and interrupt controllers' parts into the respective per-SoC .=
+dtsi
+> > > > files.
+> > > >=20
+> > > > Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nub=
+ering
+> > > > into "plic" interrupt-controller numbering.
+> > > >=20
+> > > > Have a nice refactoring side-effect that "plic" and "clint" "compat=
+ible"
+> > > > property is not specified outside of the corresponding device itsel=
+f.
+> > > >=20
+> > > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> > > > ---
+> > > > Changelog:
+> > > > v2:
+> > > > - instead of carving out peripherals' part, carve out ARCH-specific=
+s (CPU
+> > > > core, interrupt controllers) and spread them among 3 SoC .dtsi file=
+s which
+> > > > included cv18xx.dtsi;
+> > > > - define a label for the "soc" node and use it in the newly introdu=
+ced DTs;
+> > > >=20
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/cv1800b.dtsi=C2=A0=C2=A0=C2=A0 | 6=
+4 ++++++++++++---
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/cv1812h.dtsi=C2=A0=C2=A0=C2=A0 | 6=
+4 ++++++++++++---
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/cv181x.dtsi=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 2 +-
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 +++++++++++++=
++
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/cv18xx.dtsi=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 91 ++++++----------------
+> > > > =C2=A0arch/riscv/boot/dts/sophgo/sg2002.dtsi=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 64 ++++++++++++---
+> > > > =C2=A06 files changed, 240 insertions(+), 102 deletions(-)
+> > > > =C2=A0create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+> > > >=20
+> > > > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/b=
+oot/dts/sophgo/cv1800b.dtsi
+> > > > index aa1f5df100f0..eef2884b36f9 100644
+> > > > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > @@ -3,6 +3,8 @@
+> > > > =C2=A0 * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > > > =C2=A0 */
+> > > > =C2=A0
+> > > > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
+> > > > +
+> > > > =C2=A0#include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+> > > > =C2=A0#include "cv18xx.dtsi"
+> > > > =C2=A0
+> > > > @@ -14,22 +16,62 @@ memory@80000000 {
+> > > > =C2=A0		reg =3D <0x80000000 0x4000000>;
+> > > > =C2=A0	};
+> > > > =C2=A0
+> > >=20
+> > > > -	soc {
+> > > > -		pinctrl: pinctrl@3001000 {
+> > > > -			compatible =3D "sophgo,cv1800b-pinctrl";
+> > > > -			reg =3D <0x03001000 0x1000>,
+> > > > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0x05027000 0x1000>;
+> > > > -			reg-names =3D "sys", "rtc";
+> > >=20
+> > >=20
+> > > > +	cpus: cpus {
+> > > > +		#address-cells =3D <1>;
+> > > > +		#size-cells =3D <0>;
+> > > > +		timebase-frequency =3D <25000000>;
+> > > > +
+> > > > +		cpu0: cpu@0 {
+> > > > +			compatible =3D "thead,c906", "riscv";
+> > > > +			device_type =3D "cpu";
+> > > > +			reg =3D <0>;
+> > > > +			d-cache-block-size =3D <64>;
+> > > > +			d-cache-sets =3D <512>;
+> > > > +			d-cache-size =3D <65536>;
+> > > > +			i-cache-block-size =3D <64>;
+> > > > +			i-cache-sets =3D <128>;
+> > > > +			i-cache-size =3D <32768>;
+> > > > +			mmu-type =3D "riscv,sv39";
+> > > > +			riscv,isa =3D "rv64imafdc";
+> > > > +			riscv,isa-base =3D "rv64i";
+> > > > +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr"=
+, "zicsr",
+> > > > +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "zifencei", "zihpm";
+> > > > +
+> > > > +			cpu0_intc: interrupt-controller {
+> > > > +				compatible =3D "riscv,cpu-intc";
+> > > > +				interrupt-controller;
+> > > > +				#interrupt-cells =3D <1>;
+> > > > +			};
+> > > > =C2=A0		};
+> > > > =C2=A0	};
+> > > > =C2=A0};
+> > >=20
+> > > Make all soc definition include the common cpu file.=20
+> > > Not just copy it.
+> >=20
+> > I was acting according to Krzysztof's suggestion:
+> > https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel=
+.org/
+> >=20
+> > Krzysztof, I can name the file cv18xx-cpu-intc.dtsi and pack CPU core +=
+ interrupt
+> > controllers into it. Would it make sense?
+>=20
+>=20
+> I don't understand the original suggestion.
 
-My point, is I think it is the wrong level of abstraction and the
-wrong FDT schema. It does not and cannot solve the problems we know we
-will have, so why invest anything into that schema?
+This is the snippet in question:
 
-I think the scratch system is great, and an amazing improvement over
-past version. Upgrade the memory preservation to match and it will be
-really good.
+---[ cut ]---
+#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
 
-> What you propose is a great optimization for memory preservation mechanism,
-> and additional and very useful abstraction layer on top of "basic KHO"!
+/ {
+	cpus: cpus {
+		#address-cells =3D <1>;
+		#size-cells =3D <0>;
+		timebase-frequency =3D <25000000>;
 
-I do not see this as a layer on top, I see it as fundamentally
-replacing the memory preservation mechanism with something more
-scalable.
+		cpu0: cpu@0 {
+			compatible =3D "thead,c906", "riscv";
+			device_type =3D "cpu";
+			reg =3D <0>;
+			d-cache-block-size =3D <64>;
+			d-cache-sets =3D <512>;
+			d-cache-size =3D <65536>;
+			i-cache-block-size =3D <64>;
+			i-cache-sets =3D <128>;
+			i-cache-size =3D <32768>;
+			mmu-type =3D "riscv,sv39";
+			riscv,isa =3D "rv64imafdc";
+			riscv,isa-base =3D "rv64i";
+			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zicsr"=
+,
+					       "zifencei", "zihpm";
 
-> But I think it will be easier to start with something *very simple* and
-> probably suboptimal and then extend it rather than to try to build complex
-> comprehensive solution from day one.
+			cpu0_intc: interrupt-controller {
+				compatible =3D "riscv,cpu-intc";
+				interrupt-controller;
+				#interrupt-cells =3D <1>;
+			};
+		};
+	};
+};
 
-But why? Just do it right from the start? I spent like a hour
-sketching that, the existing preservation code is also very simple,
-why not just fix it right now?
+&soc {
+	interrupt-parent =3D <&plic>;
+	dma-noncoherent;
 
-Jason
+	plic: interrupt-controller@70000000 {
+		reg =3D <0x70000000 0x4000000>;
+		interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+		interrupt-controller;
+		#address-cells =3D <0>;
+		#interrupt-cells =3D <2>;
+		riscv,ndev =3D <101>;
+	};
+
+	clint: timer@74000000 {
+		reg =3D <0x74000000 0x10000>;
+		interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+	};
+};
+---[ cut ]---
+
+Inochi's proposal is to put it into separate cv18xx-cpu-intc.dtsi and
+include the latter in 3 other SoC-specific .dtsis. In v2 I've just
+duplicated the above snippet 3 times (refer to diffstat above).
+
+What are your thoughts? In Renesas everything is duplicated, I believe.
+Sophgo outsources much smaller snippets into .dtsi (refer to cv181x.dtsi).=
+=20
+
+> Inochi, please trim unnecessary context from replies.
+
+--=20
+Alexander Sverdlin.
+
 
