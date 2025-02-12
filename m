@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA29C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0522C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TvPbFPdhs4rsZAIf9ArjWz0MAEl7abAALU3gmrYlJXw=; b=aj9YXaLH0wPoVcDcJpIece15v2
-	YyIQDNbKXC2SBiufUik0cUj0jtCAEkzfnkGjQ2VQcZrxMi+R6LJxpkwtskQ8E5uE2CWC+YFXQL9ea
-	Vngk69X8ULOd2XuAu03BcEjz6WQy+0zw8p5BRJeLhWy7rNjFho607n+eiibv+HcsBnROk03wqQN/E
-	kEpdbqyifJ/K9nHwKsQU02fCMALLw5BBJWUV5wLxyioNgGBxI6WsGu68GGCkzVaUohetoKiX1vdfS
-	KkMi8fgvCN6uNebzwIJjrwfduFrMRNxPbeKu+g+xoLaQY2hOIqT4IRP50wayuHJjsmMLOml5Il4IH
-	OE1AqUTw==;
+	bh=SxYBpi925DNrMEzqq2mhuodXoQPQ2urVmGp/joLgWWA=; b=HcMDHYVH9XQBGCWTTpAdN7qpWG
+	d/Z+CFrvczXNfvWkvsANN3dvKHp4Cyr64v1gu2ElcKBBos0g0EmKaNAvTGvmfaNKekg+F3GuYE/pO
+	aJFT4nK+EbXzuA9JxkJlsgLwtMIgGdC+41J+VNhkEES6QKmimVXz6v7TR3Vm8+Zj74xaJfkAxgw97
+	OpUFsIad9qMcv3vHakhd8sTeeIfFv/srh2w/9WwyKjxgx6icTzyRo6xdFZfZhSnFEfX6gcWdwhCI3
+	hDeP5GmflX7Uk1oLG9dtyqho1rCkZnyyaPj+DJk75N2vq6uWCsBtY4PegkGIQlXYgTg/mvkmYsJb4
+	k6SyYm2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiByC-00000007MsV-1Zo9;
-	Wed, 12 Feb 2025 12:36:00 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1tiC1q-00000007NTQ-16EH;
+	Wed, 12 Feb 2025 12:39:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBrX-00000007Lsh-0x62;
-	Wed, 12 Feb 2025 12:29:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1739363341;
-	bh=CQ3SUXjx0/f8m1n41c4a7SuLTF0PmDTDTSkoGsVR/Bc=;
+	id 1tiC0Q-00000007ND2-0iqv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 12:38:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA13B5C5AE2;
+	Wed, 12 Feb 2025 12:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 522EAC4CEDF;
+	Wed, 12 Feb 2025 12:38:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739363897;
+	bh=AN9M3YnTbLbeifclEgjFxY1ryG7kNJVenpcxqcZ3F80=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RPqGCMmKw9maDfoACsq5XCW1kNFM6USyJeTgaD0ZKnBDjJTzkCAXYBi0J0p/zs+gW
-	 CqjmKFSFDdJ1G1DqeLIdoAIUzFk59nzTIK1L5fU/sV+967mEPcUqwhoHA45Q4Y6o++
-	 DEc57IMn3o42I47CfAucVGa1HdoUC+cRjFDTaZ2E=
-Date: Wed, 12 Feb 2025 13:29:00 +0100
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
-	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
-	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
-	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Tom Lendacky <thomas.lendacky@amd.com>, Usama Arif <usama.arif@bytedance.com>, 
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
- helpers
-Message-ID: <ae80c1b9-bafb-401c-9789-37a774c702c0@t-8ch.de>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-6-rppt@kernel.org>
+	b=YVxj3DPpRHUUcYmM5OfB3KJD8jWcx2OymMZ7VW0uQAOk6NEz18pNh9ck8dP6iijVQ
+	 eYsABt+PevimDso6q55lSckWyl4umHxVIJvUFD03h2HeSDmDd+HsVc0DfIZIe/uyjW
+	 xofGhVxZ6xa4pAgYqNFiUiIWoQhuUkc96xxkjHNLD+7pQ/OZAGDf5jplVvQaCedIou
+	 WHBFKi6HGAtQEes6YnIXTn/LIqcZ6QKnLOA4RPdcZcD7xldtww/1GlSe9gcGzcFx7q
+	 41Dq2Zxfte0PtJ9jrRRkgwtieD2znuEVYVDniq4Dico715bI+gey+G6/agJbgfJ7gL
+	 1XXPHf3juNaYw==
+Date: Wed, 12 Feb 2025 12:38:11 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Marco Felsch <m.felsch@pengutronix.de>,
+	Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
+Message-ID: <d66996eb-f49b-448b-9743-d19a3c3eba52@sirena.org.uk>
+References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
+ <20250211225808.3050-2-laurentiumihalcea111@gmail.com>
+ <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
+ <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="C+7jhM8tQThOiQo5"
 Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-6-rppt@kernel.org>
+In-Reply-To: <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
+X-Cookie: Reality does not exist -- yet.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_042907_732754_A043A925 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20250212_043818_266922_47F2A3F9 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,84 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-06 15:27:45+0200, Mike Rapoport wrote:
-> From: Alexander Graf <graf@amazon.com>
-> 
-> This patch adds the core infrastructure to generate Kexec HandOver
-> metadata. Kexec HandOver is a mechanism that allows Linux to preserve
-> state - arbitrary properties as well as memory locations - across kexec.
-> 
-> It does so using 2 concepts:
-> 
->   1) Device Tree - Every KHO kexec carries a KHO specific flattened
->      device tree blob that describes the state of the system. Device
->      drivers can register to KHO to serialize their state before kexec.
-> 
->   2) Scratch Regions - CMA regions that we allocate in the first kernel.
->      CMA gives us the guarantee that no handover pages land in those
->      regions, because handover pages must be at a static physical memory
->      location. We use these regions as the place to load future kexec
->      images so that they won't collide with any handover data.
-> 
-> Signed-off-by: Alexander Graf <graf@amazon.com>
-> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  Documentation/ABI/testing/sysfs-kernel-kho    |  53 +++
->  .../admin-guide/kernel-parameters.txt         |  24 +
->  MAINTAINERS                                   |   1 +
->  include/linux/cma.h                           |   2 +
->  include/linux/kexec.h                         |  18 +
->  include/linux/kexec_handover.h                |  10 +
->  kernel/Makefile                               |   1 +
->  kernel/kexec_handover.c                       | 450 ++++++++++++++++++
->  mm/internal.h                                 |   3 -
->  mm/mm_init.c                                  |   8 +
->  10 files changed, 567 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/ABI/testing/sysfs-kernel-kho
->  create mode 100644 include/linux/kexec_handover.h
->  create mode 100644 kernel/kexec_handover.c
 
-<snip>
+--C+7jhM8tQThOiQo5
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> --- /dev/null
-> +++ b/include/linux/kexec_handover.h
-> @@ -0,0 +1,10 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef LINUX_KEXEC_HANDOVER_H
-> +#define LINUX_KEXEC_HANDOVER_H
+On Wed, Feb 12, 2025 at 12:11:49PM +0200, Daniel Baluta wrote:
+> On Wed, Feb 12, 2025 at 11:38=E2=80=AFAM Marco Felsch <m.felsch@pengutron=
+ix.de> wrote:
+> > On 25-02-11, Laurentiu Mihalcea wrote:
 
-#include <linux/types.h>
+> > > +    const: fsl,imx95-cm7-sof
 
-> +
-> +struct kho_mem {
-> +	phys_addr_t addr;
-> +	phys_addr_t size;
-> +};
-> +
-> +#endif /* LINUX_KEXEC_HANDOVER_H */
+> > Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
+> > add the -sof suffix instead of -audio or so? SOF is a software project
+> > but you can clearly run different software on the audio-copro as well.
 
-<snip>
+> Sure you can run a different software project on the audio DSP but
+> you will need a way to distinguish between the different projects.
 
-> +static ssize_t dt_read(struct file *file, struct kobject *kobj,
-> +		       struct bin_attribute *attr, char *buf,
+> There might be different mailbox, memory configurations. So you will  need
+> to invent another suffix specific to the new project.
 
-Please make the bin_attribute argument const. Currently both work, but
-the non-const variant will go away.
-This way I can test my stuff on linux-next.
+> We can make  const: fsl,imx95-cm7-audio as the one used with SOF
+> and think about a different name later for when another project will
+> want to use the DSP.
 
-> +		       loff_t pos, size_t count)
-> +{
-> +	mutex_lock(&kho_out.lock);
-> +	memcpy(buf, attr->private + pos, count);
-> +	mutex_unlock(&kho_out.lock);
-> +
-> +	return count;
-> +}
-> +
-> +struct bin_attribute bin_attr_dt_kern = __BIN_ATTR(dt, 0400, dt_read, NULL, 0);
+I think the point here was that the DT should stay the same even if the
+DSP firwmare changes, just as how changing the main OS shouldn't affect
+the DT.
 
-The new __BIN_ATTR_ADMIN_RO() could make this slightly shorter.
+--C+7jhM8tQThOiQo5
+Content-Type: application/pgp-signature; name="signature.asc"
 
-<snip>
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmesljIACgkQJNaLcl1U
+h9DJ1Qf+KGbLlszokVtBw52F0VChslY+IeXlVNkhYXA48jltF44gWifkjngIfJUm
+sPwroba34ljMgHrow2mDAQAGToN7yPjjkMLZqqU5MhVWVFgbau7Ib+XcFCdo7aqy
+iVFndv4raNHPcgcsOKIopsZjz74XGZYbSXI7XlippeazjE7Ik7tK5rST0fXYqkMk
+xywVMJ3R6iLEIF6brHqZuDaBBUsM6y0lYi4tTawWtmQtVbWercnA/w21k4laCYDc
+huQ8ANiF8SKvr0e032yxtuY9tfjHXSwxdWA1LGW3tLGeEAVa0q5khBvAskQPXbdp
+qrhQSpsJdwmXIsU89H+E3O4GYWpipQ==
+=cpaS
+-----END PGP SIGNATURE-----
+
+--C+7jhM8tQThOiQo5--
 
