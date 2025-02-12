@@ -4,114 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33030C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E2EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOaKTVlnmYgcN7aOjL0mxLKBKZwtY1JjrTbqLlmpppI=; b=DG459lvp6ZNeA6yevNFIWcHE/x
-	1iOtrN8BKdSHznmKXBbhI4OZMdiLDj2e7X7l3yhqXzjfO+wN/5gD4+EUIRUZYJ98qExYpQR2bbnQO
-	/PAN6KF8TaCsXbjMAKr2iDoBGIQFzNXx65FF8cXj6NJyDeHV0xGXLzFK7RKAA6j7ORJ6S1Kd3gWe+
-	shPP3/XVdnfb71Gi9vluMY58RQ0jU7XEES8a88FmCI3ClG+y+nCWn5yO3lwSjE3SObngFq7nhBU4O
-	b9D16I3sjVYLLt58/DzSJBpMhhX5iCm4J3MZgqcnu4Xd/oCGtQ23czvGXpMUi9UFzpyrIiWxBVO6W
-	4MYTH48g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=; b=2BOG8khFK2oLi2th9raraPyUf2
+	yqh0U+8JMbF9IdIOKY7Tz5zX8dwLEnPxOQ7AYFOj6M2slbU76LyLgftQGSixUDX85+c54+EBl1riQ
+	LdSVcZEus0HhZcBVchlLj6SDNfWkRuyxxv/llDhkQZeIN9Uj0W4anZIFJFbs4cC4xWefFk+nAIuBe
+	KAXNoVo/QwtJ+du5ixmc9407e+ZUAfY5j8CFnKAnaCqCikOIxZz4RJq5iIR3W+pp+FhZQ+C4k5ehC
+	RZPITSQbXEa/Mu6QRfJVaqep6W0LmwP571/WiiROsGtQ2rA6Kd/fja6cDMX9qwDQMtVTMTgnJg0nt
+	jEi412lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEds-00000007qb9-0hJd;
-	Wed, 12 Feb 2025 15:27:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tiEfG-00000007qw0-0Q8r;
+	Wed, 12 Feb 2025 15:28:38 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEcR-00000007qIZ-0i8M
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 15:25:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8ECE5A406A3;
-	Wed, 12 Feb 2025 15:23:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9901C4CEDF;
-	Wed, 12 Feb 2025 15:25:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739373941;
-	bh=qOaKTVlnmYgcN7aOjL0mxLKBKZwtY1JjrTbqLlmpppI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IQZl/4q/o1oXdL1aimA/lhWtYFtbeFy6uFfA0kZ6AwDEaT4vmnhUqMmb84JGR8EV8
-	 dbVufWCfOEmFxRXb5pcmvj1Y9APvTGpyIvuhLNpecin/BVAVaw5fB9wjm6GckKEcKh
-	 AIji4hZVbZvzDnuK6YpLOS/cP/9LBkNk5lri7cLn9she0Ipn4nHILa+NPi0GxlE+0L
-	 lNGLxdhsAnbFg0WPPnR2/iofSnyikGZcG800i+1HTK6cfZlIPxZFOqX/dNtMwRFwf4
-	 TclGZl7KeeirfSNyuSccD3m/9zGiMo9EXue8VLxtBb0TjW4VXrgDjTAkoevmz6RwnY
-	 OMrJY1C/sxFSg==
-Message-ID: <9442a87b-ab61-40e3-bbf0-caae87c5731a@kernel.org>
-Date: Wed, 12 Feb 2025 16:25:34 +0100
+	id 1tiEdn-00000007qaS-3rzL;
+	Wed, 12 Feb 2025 15:27:09 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3f3d2afce71so249708b6e.0;
+        Wed, 12 Feb 2025 07:27:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739374026; x=1739978826; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
+        b=N8N/EeoKu7iQt2SSqLa61sChsqVzz4XhTB5hYQVUwPxBHtwsNjHQWs3xLMOr3jSm1z
+         cgHn+lvifyoYjklZcRG2Rj8uiOQ4LrrVKVF7nPVyC07+AVlt7pSHN9x3G1P+1ZIWjOq8
+         /KFRI+ZPqQCpL+XoKp+Lf42ZcXzxOj+6WE3zbYDqZKCHlqkz98kudpeVRquVVYA0HwKX
+         m1HVxFYeUML+UcdgwBwzNp+e72uENbPnRQGhVLMmNgGWZYCjXxhkf59bpZ8ttdYyoyx2
+         UnENfk/h8AAuWdYXYVqSsmTjk9xGxIUL0kFvs54MFrdsyzHdCShthE6gHqY1NCKLP7cr
+         QNgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739374026; x=1739978826;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
+        b=SFN+vXiw0t87OPz3vQfwI5L03nFLwyG9OVDNDsdMXE+jToaD/RnFNjExRM8QykdG+T
+         2Y3Af47Vibxx91WCvQpNpEsYAyT8XWmUJzhZyAWetpb7aTriLGuFG8gL660Ng/1vfUhw
+         gQ3Kj3JNrQ7d421hPc3J2UDVcGpO25Z2BPLOR2FTIHr0MgkajCiCCdFeZK+9w75jzD8Y
+         lf2f/f4CG0sIfREnVUct91z63h/srGCkC7+uBfkdaomhtMUUxFT7mFRViAGziBGfNIZI
+         23n4P9eyErx6Gp7rzOwtx5NMqj5s/29xCT/tmT3SSVdFPxbxoAL++IMnkbaE02yCySkY
+         zjOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUEOgJORZBw6DNglrBqqj/ztfVeZZVTYWIhkxCDKmSqj8S62Y5mSXD1ilip71gUQpYFM6RE4ZEfxHxh+2RFcaGL@lists.infradead.org, AJvYcCVbw2PYYdHM0+0LQpirUD/lgxhKvcT0th8J0/YvjkW018QUy+rhLYrKK7gX35QXfZSWCNLBkHlaP+rM6JI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM2nbg8QzZUfELtj/qCdKCm1JJzMr3+uNRbGsELIvHxZElN55R
+	lNn/4/l8NxwRJJyPZAcWSVtaKhLKXBH6Kr/pUdYLTcWSdV3Ev/M8
+X-Gm-Gg: ASbGnctGP7ibUHTO6mYX9KnescZAmct89FiCdpCuIfPBln9oPaQHZYFrtZI5i6xYwKu
+	V3X07Dd3tEZF65mpvJR/WjI2SfTxnMiv7zXebwJE7PAArDrnWbhqY2nLAo+i1bGSEf16b+JWgty
+	5QGxoy7hhhReCQRRBOdZxF4knoPvQ8yY+a0zsC26qVA5Hl0hHlUsEVyrP2mX7DRhuLFV0hBTYSP
+	Gi9AcNeK7J/I1q3qsmcEUvN0OsP3Qi2xOAUqpQN7S4sB13BbkUScSMC6dwsgNHg1ruo7WcIUzLD
+	xjecgoe6ameJFAtZui+KZg==
+X-Google-Smtp-Source: AGHT+IHo4moDm0XlC/zbhfkvivNmDn6gThhjx1PDMEofy79uK89Vl0WpOwwZ4GUyPbza40pljwyLmQ==
+X-Received: by 2002:a05:6808:2518:b0:3f3:bb75:1706 with SMTP id 5614622812f47-3f3cd5cbae2mr3016870b6e.9.1739374026359;
+        Wed, 12 Feb 2025 07:27:06 -0800 (PST)
+Received: from neuromancer. ([2600:1700:fb0:1bcf:511b:97aa:dc6:7ad4])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f392481cbfsm4066579b6e.39.2025.02.12.07.27.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 07:27:05 -0800 (PST)
+Message-ID: <67acbdc9.050a0220.11fcb1.a43a@mx.google.com>
+X-Google-Original-Message-ID: <Z6y9yNpdsVUZ1Q4k@neuromancer.>
+Date: Wed, 12 Feb 2025 09:27:04 -0600
+From: Chris Morgan <macroalpha82@gmail.com>
+To: Aleksandr Shubin <privatesub2@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 0/3] Add support for Allwinner PWM on D1/T113s/R329
+ SoCs
+References: <20241011102751.153248-1-privatesub2@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] arm64: defconfig: Add VeriSilicon GPIO driver
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250212-kernel-upstreaming-add_gpio_support-v1-0-080e724a21f3@blaize.com>
- <20250212-kernel-upstreaming-add_gpio_support-v1-5-080e724a21f3@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250212-kernel-upstreaming-add_gpio_support-v1-5-080e724a21f3@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241011102751.153248-1-privatesub2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_072543_339393_877B407C 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_072707_958680_B0060A23 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,14 +109,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2025 14:46, Nikolaos Pasaloukos wrote:
-> Add support for VeriSilicon GPIO controller.
+On Fri, Oct 11, 2024 at 01:27:31PM +0300, Aleksandr Shubin wrote:
+> v2:
+>  - fix dt-bindings
+>  - fix a remark in the driver
+> 
+> v3:
+>  - fix dt-bindings
+>  - fix sunxi-d1s-t113.dtsi
+> 
+> v4:
+>  - fix a remark in the driver
+> 
+> v5:
+>  - dropped unused varibale in the driver
+>  - fix dt-bindings
+> 
+> v6:
+>  - add apb0 clock
+> 
+> v7:
+>  - fix a remark in the driver
+>  - add maintainer
+> 
+> v8:
+>  - fix compile driver for 6.8-rc
+> 
+> v9:
+>  - fix a remark in the driver
+>  - fix dt-bindings
+>  - rename apb0 -> apb
+> 
+> v10:
+>  - fix a remark in the driver
+>  - fix compile driver for 6.12-rc2
+> 
+> Aleksandr Shubin (3):
+>   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+>     controller
+>   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+>   riscv: dts: allwinner: d1: Add pwm node
+> 
+>  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
+>  drivers/pwm/Kconfig                           |  10 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
+>  5 files changed, 486 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+>  create mode 100644 drivers/pwm/pwm-sun20i.c
+> 
+> -- 
+> 2.25.1
+> 
 
-You enable not add support, but still the main question is: Why? Which
-devices needs it? Why this cannot be a module?
+This patch has been idle for a few months, would you mind if I took
+over shepherding it to mainline? While I don't have *this* hardware
+to test it with I have an H616 which has a similar pwm controller (and
+for which I was going to add support for once this made it to
+mainline). Otherwise, I can just wait patiently and then tack on my
+additions once this has been accepted.
 
-
-
-Best regards,
-Krzysztof
+Thank you,
+Chris
 
