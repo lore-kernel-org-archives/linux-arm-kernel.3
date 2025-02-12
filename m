@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117D4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776A2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JbCjNEv08fCjjAua7LKhJjfZ3nq8T+bFw2iEtkSm7Y=; b=s528lrzFB5y733OVNkB7luDsGS
-	Wyoegt0e8oXPef5b+iOnSD4LIY5K/PLKfH9EiRQcPYMdxoIv3e8aXIZJ/1ec1/NYckexmitnc6HuN
-	sirtLOhiwotN3RE8jcCx9llaSuzczTHGO16vg4vz+zAeVOpXongw0K3sXjkPJTZkgSmCCsji+apW+
-	Pn351HI3hCCehrWp/0wtmhztAY1+bwgjyMB066wf2o66OhZzR/rNVw52/TGkZq3wJJj88UwFC2euu
-	WL+nE3vJQR+959dp/uHybDdQkP6KdaqDbfZTN+76ku7Ye5O9qbqzc9Tec9uqZWbnDFkjrGHTfSgkB
-	GbwAop4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=; b=L7vO+6wZs3k8LRhX7iHbDrCV6V
+	lXGsdVWFasyAmcQcJB0Nqgsr70ACsPBRxhcN9JN22QeRzcCsNuVQjZFqDMZkC8wG5FWAG7vLGCRTK
+	4NBiu2OWh+HrYM4g0LJwG85jqHD0Hnvq/jxOTR5HAe+hj3ETqiIOOMVG56TSS5byVbHqtUiSxnrcS
+	wf0mBd8pkzjeUrehlB3rwpmkjIS0egC7cdvzYIkZbEOlAsnnCfTzKtfyqBjbeBvgnVJv7ooCm5M9d
+	FRI1Tt4W/GXUkZU55eqq4MtTBiN2cKGD/8JYMHac+kGCl4Bykm5i69X6U6dQL2s4d+XNfxqjnsoco
+	8X0GoYIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiA1L-00000006zVD-1LaZ;
-	Wed, 12 Feb 2025 10:31:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiA2i-00000006zfw-45bn;
+	Wed, 12 Feb 2025 10:32:32 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9fF-00000006vjU-3e0t
+	id 1ti9hA-00000006w8P-0RoC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 10:08:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8822A5C5DEF;
-	Wed, 12 Feb 2025 10:07:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AAACC4CEDF;
-	Wed, 12 Feb 2025 10:08:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739354896;
-	bh=SZIYgUNCCnIL5V0seV/NEEb2Rim4jnuOX/CWoopZRZo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BVr9syjrufyTLY9xamchuxaxhtBwatQn4E5nLYGo3FDTekqf1z2gkJHayWmn9KZaJ
-	 bNmP+QFDQx2oinhW1Bj8Zj+b3YdHej+ggMUb99OkAqJ08Cn0ZnMEiP6iW06TKEJA7k
-	 HutHsQ865WyPlyj253gDAw15bF0gKSH/wal3TwAhWjNPV2Hm3BDwBeNpRHvvk/6isx
-	 IpAoIPlguCWJeEc7sJKvTz3WzPGkRV8tk5fZJD2h8DBGZFpfQp1qNbsZNRmZjIVSQ0
-	 SyZuGYTItv+KchRHitB/qEwzMHf8LMQ/7DlPxayOqcbKZ3+Oas2iu2Jhda2oPHr+y0
-	 agQ0hJJV4eLlw==
-Date: Wed, 12 Feb 2025 11:08:14 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-Message-ID: <20250212-petite-persimmon-termite-c0bce2@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
- <20250207-ingenious-daffodil-dugong-51be57@houat>
- <ucttjaf3trkgtpvhnsj7xfsybhnoi4qqow5ucwghlggivbagy7@gngjhbtu73lb>
- <20250210181244.0e3e9189@booty>
- <qnuskv4mln32nqgbgvwi2qcdwfma6tqfbq7e6sqb3za6pmms2j@ir7pt5634dsh>
- <20250211-venomous-dragon-of-competition-d76bf9@houat>
- <i5q5zuymhn6sy4nou22zxbolztqbq6soef2cwrdq3ey63vfugj@z3rv7zh7xhle>
+	Wed, 12 Feb 2025 10:10:17 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fa8ada6662so5047002a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 02:10:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739355015; x=1739959815; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=;
+        b=F5N1X6emdwpPAJZQSiBWUfj3L1rvJoIAdCzYandzfyq/35FmQYbauHrXfCLvb26JXt
+         QoST22PPAObzLxY+qtHF0b912Tqjkm+/B7ngxcdNXcqyI4Lyux5ksYGIyLAfg1Z0Zep5
+         y7iJFMczbt8Qef87g5b/YFXUIWavAOwKMsOT/6AXMEi6wLsN7ThmEDpsrQWWOwID/Bef
+         V/mYOdLBSLLvXFIkijjQJ7gVEzO930PPvQwsxNA0wNL2nTrCC9hEuL0mZU6QbLwqS6Cm
+         QlA3X/Ibqm95l6j7lYjfvqWQKJyB8Qqpix1V0iyTui+XppXnvt31346sVsTtt30CHliw
+         xEAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739355015; x=1739959815;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=;
+        b=WS0O/3AZ4U9cEOimbNzCt7FLIzy5noGahmWhxdfIFJ5HcCiXnmqMI6dAH+YA/V+Qt7
+         znmEX4yRq8Q9gASmiwuTYK+cqhT28dcDF6knxegCGU8m9CT5gyS9ir0X2sKZd3nOwfkw
+         ONlP2NAgq6g7QLtr7zKtZBSszMl+2zjzVHoWJyRzsSE4PTokUE3+s+cCiVzrEMrlBBNU
+         ALGnCRXb4+N7MQ77un/bsHVOA0KhxzS+b4/Q7ffZgFbxU1Lm6IHzWcafzyurOQxpVvHZ
+         raUO3oYpx3QgfPKeJR8j1ZWMatzE/bXPj+y9cyduFBbhdOe00+4eiOFRC6eNSxYRNMD4
+         0d3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWftpouUwhbTpn/Zx3QTzlrP0Ix6MbEK9yxCFBKNr8vjzI8SEtZvwyZEcRMwDveEdzakmkmV5sRj9YWi0yb35iT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9NeVsHVBiKzOOZKNJVIRQBgLSLHD+VdNAo/5ng7E/AUvvVecg
+	2Fc1ys7WvF7NPp+vt41gjXuAIV0gaUiwreP/kOz++rkPoXv7DNJxP+wYKvGBnq3nvjUpf1byPIj
+	EhMvu3+J/20oxSlC+U8FEXVdxPw0=
+X-Gm-Gg: ASbGncupYJnj71N2fzmMaAu8j3Ahlmo7d6TRMdXqUEG1vwlspsCw3cuLd6lGK1Ng7mY
+	uPE5U78ossqFUF9ZmJSoEkTLQ/WlZBXG5KOKksy7I6nOIAv+lHts282ijSufYjuoqFQDRHQ==
+X-Google-Smtp-Source: AGHT+IGmuZRdGl3j3qwqlGA+I6iMmpaYMwad+794x21O14HpgAdBUJZvPf+MREMoJEJJ7oo0IQ1nHPq82m46EvhwjX0=
+X-Received: by 2002:a17:90b:50c4:b0:2ee:ab29:1482 with SMTP id
+ 98e67ed59e1d1-2fbf5c0f645mr4582577a91.16.1739355015327; Wed, 12 Feb 2025
+ 02:10:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="c2fwd2zsskly2q4c"
-Content-Disposition: inline
-In-Reply-To: <i5q5zuymhn6sy4nou22zxbolztqbq6soef2cwrdq3ey63vfugj@z3rv7zh7xhle>
+References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
+ <20250211225808.3050-2-laurentiumihalcea111@gmail.com> <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
+In-Reply-To: <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 12 Feb 2025 12:11:49 +0200
+X-Gm-Features: AWEUYZmaBc7oKF6zAnQ7CZxr3zaURFYGkUGsn3Z_TJnj1f8vLuCQ0QWTQQTBMT4
+Message-ID: <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-sound@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_020818_085751_FB0F46C4 
-X-CRM114-Status: GOOD (  30.19  )
+X-CRM114-CacheID: sfid-20250212_021016_146781_E24505F1 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,86 +95,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 12, 2025 at 11:38=E2=80=AFAM Marco Felsch <m.felsch@pengutronix=
+.de> wrote:
+>
+> On 25-02-11, Laurentiu Mihalcea wrote:
+> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >
+> > Add binding for imx95's CM7 core, used for audio processing.
+> > Additionally, introduce a common binding for NXP audio processors with
+> > Sound Open Firmware (SOF) support.
+> >
+> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > ---
+> >  .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 64 +++++++++++++++++++
+> >  .../bindings/sound/fsl,sof-cpu.yaml           | 27 ++++++++
+> >  2 files changed, 91 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-c=
+m7-sof.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu=
+.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.=
+yaml b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+> > new file mode 100644
+> > index 000000000000..f00ae3219e15
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+> > @@ -0,0 +1,64 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/sound/fsl,imx95-cm7-sof.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP imx95 CM7 core
+> > +
+> > +maintainers:
+> > +  - Daniel Baluta <daniel.baluta@nxp.com>
+> > +
+> > +description: NXP imx95 CM7 core used for audio processing
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: fsl,imx95-cm7-sof
+>
+> Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
+> add the -sof suffix instead of -audio or so? SOF is a software project
+> but you can clearly run different software on the audio-copro as well.
 
---c2fwd2zsskly2q4c
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-MIME-Version: 1.0
+Sure you can run a different software project on the audio DSP but
+you will need a way to distinguish between the different projects.
 
-On Wed, Feb 12, 2025 at 02:55:10AM +0200, Dmitry Baryshkov wrote:
-> On Tue, Feb 11, 2025 at 09:48:31AM +0100, Maxime Ripard wrote:
-> > On Tue, Feb 11, 2025 at 01:14:28AM +0200, Dmitry Baryshkov wrote:
-> > > On Mon, Feb 10, 2025 at 06:12:44PM +0100, Luca Ceresoli wrote:
-> > > > Hi Maxime, Dmitry
-> > > >=20
-> > > > On Fri, 7 Feb 2025 21:54:06 +0200
-> > > > Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
-> > > >=20
-> > > > > > > +/* Internal function (for refcounted bridges) */
-> > > > > > > +void __drm_bridge_free(struct kref *kref)
-> > > > > > > +{
-> > > > > > > +	struct drm_bridge *bridge =3D container_of(kref, struct drm=
-_bridge, refcount);
-> > > > > > > +	void *container =3D ((void *)bridge) - bridge->container_of=
-fset;
-> > > > > > > +
-> > > > > > > +	DRM_DEBUG("bridge=3D%p, container=3D%p FREE\n", bridge, con=
-tainer); =20
-> > > > > >=20
-> > > > > > Pointers are not really useful to track here, since they are ob=
-fuscated
-> > > > > > most of the time. Using the bridge device name would probably b=
-e better
-> > > > > > (or removing the SHOUTING DEBUG entirely :)) =20
-> > > > >=20
-> > > > > bridge device name or bridge funcs (I opted for the latter for the
-> > > > > debugfs file)
-> > > >=20
-> > > > These DRM_DEBUG()s proved extremely useful exactly because of the
-> > > > pointer. This is because when using hotplug one normally has the sa=
-me
-> > > > device added and removed multiple times, and so the device name or
-> > > > bridge funcs is always the same, preventing from understanding which
-> > > > instance is leaking, or being freed, get, put, etc.
-> > > >=20
-> > > > Do you think this is a sufficient motivation to keep it?
-> > >=20
-> > > Then it should be something like %px. I found that %p is mangled.
-> > > What about having both device name _and_ a pointer?
-> >=20
-> > No, %px must not be used there. %p is mangled but should be consistent
-> > across calls. But yeah, it's kind of the reason I suggested to use the
-> > bridge device name instead.
->=20
-> Then we need to extend struct drm_bridge with struct device *dev (which
-> I would appreciate, it will solve whole hdmi_audio_dev / CEC device /
-> etc story).
+There might be different mailbox, memory configurations. So you will  need
+to invent another suffix specific to the new project.
 
-Let's not get carried away and start yet another side discussion here.
-Most of these log messages need to be reworked anyway, so I'm sure we
-can find something that wouldn't require yet another rework to argue
-about.
-
-Maxime
-
---c2fwd2zsskly2q4c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ6xzDQAKCRAnX84Zoj2+
-dkT0AYCkUL7FAvh7cyVAWf35anla6gaIPKKt7fnIaZU+CIoMLp/xlH2vfqItsVOF
-V6M0p+4BgJd7VNGXdmw73nQmuc5U6UM6/Rn1xP94EajbmmZyjqxzR+xwsOjC0P2J
-qhJjJSwQoQ==
-=IEWS
------END PGP SIGNATURE-----
-
---c2fwd2zsskly2q4c--
+We can make  const: fsl,imx95-cm7-audio as the one used with SOF
+and think about a different name later for when another project will
+want to use the DSP.
 
