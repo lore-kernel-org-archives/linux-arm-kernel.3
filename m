@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC119C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E57BC021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0u78pOaMCzL6Iiji4sS8lnl2IeQmpz3V0guSKOYs+g=; b=eftNWOCAQjipbj1Zsj4s4rjag+
-	fctWQmolPZhTuFu3+6lUYlkTnukcla3O/gBB1mHGzdTdTRTSpa+H/ZS1mBZHwiFnCmYIAyelNWUnR
-	Y3rOin9UEBICxZ8i9+Gr6utDHgy3mhFJAaezE76Yjo7OddK0Lx4PeFjynFyJLJ+f8/W8RPXMNNIYN
-	JqiEnflNG1nXuY3bAxNgCUujVq8SzFj8qYMdE0PaH1BE2Yz7/iPpp0YuXjt2Ccl7DQDTZA2eZipNa
-	iwp0Ss63tfh17bXm/ThPzJ6I6MqUoTcQFSnpQm2mAzy0pYVFNhOVtrMlUjCc5pDLuwv0s5K32ivRQ
-	npiB5sOQ==;
+	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=; b=tMIfeTYGX0Rx9hzQf1I+Tr+AbK
+	aKvgbfJR5nQp7KXzXtNplDDLt/pj6DukoHmnqd+3F2uraqC1GKm9Mn4HQ9/v3tVtBgqMHhKaHKsBt
+	cM3JWdUf7f23BVTmUKCUiNIOGhyT4AHpt6CZ0g9Uxb3bc/81/Arbnj8kOb4VYsHSDk9w4U2IX3+kk
+	GrxaX2QRTJXYnidE0F+/HojKNcf+l4mbPVw6PzzqDpRh28VaHQewYyplnHSYPxgQWQ4c/nHPxpMR7
+	+8ibEP0wtM7/AICCqMhHA5ne4IEEasdWHSFCalaLuxUq+fOknbrACZ8F455T7hyWGSc465p29ciid
+	3ocPjBaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBoX-00000007LLD-2zDH;
-	Wed, 12 Feb 2025 12:26:01 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
+	id 1tiBoc-00000007LMG-16Qp;
+	Wed, 12 Feb 2025 12:26:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBFl-00000007FDQ-46K7
+	id 1tiAou-000000079Yk-0vCn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Feb 2025 11:22:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=; b=oy1EPosj6Gw5aoUqX1WS7Oj1p9
+	vGwULFPSIMjI/tXYeV2FIifUe8n0ofxw9u4PTBp1AGBL79Yp0+UJjkkMye5ViCVpyCyLiPGV7s2j+
+	7uI80UvocUzaogEFMgK2srCqal9Y3h2IOTiDXNhLQvAN0lsIZZlnZ1qYM1jIpw1e02KUWq25uUOCe
+	5+RBmqs216pgO0j7SPLktAU3TM79VP1zyjf1L5hi4OgcBiDBxjwZAL86fS1/+EKrcn61JcXtcDHDv
+	zaHZ7UJqSs9L1P2V6Sw5Q2hC9FMtcd/erR7WicLxLRJMoi8Si1bjhz4PTxhCXKz/m30f+RArCvfSF
+	3AXcCUPA==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiAor-00000000nj1-0PkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:50:07 +0000
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51C40YUV000343;
-	Wed, 12 Feb 2025 03:50:00 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=e
-	0u78pOaMCzL6Iiji4sS8lnl2IeQmpz3V0guSKOYs+g=; b=bKfQBx+WxGkzXTFMl
-	rmiV9UZL4itZafewUtyS+HwXWFyZmHqwZGf1Oaa/M5rQV1dlm3m+5zVeCoIi4W6i
-	WBWdj4FBlgtPp/5mx7lg4TAlLNiy+CKBWrRg0+iYbBJtAmbJemDhobEU6LtrFHXE
-	DqQvHCscPINzO7U4tLAr2kva0hnOASo6IImwsI9Tk7jmQcTzG34YI2ns30QZ3i5f
-	BX7GGTBYUXM/dT3iyG2csowEe2cO8ACvFFvt1f0II1J17nYGV6K0tGWhfB+jLRcc
-	AXSjgFfgYCcKCcOMepjb43yls3kzRkI3EjOdR3WEbw8um9awlzg9cmC6WuJQe2wO
-	PTigg==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44rm878s4g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Feb 2025 03:50:00 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Wed, 12 Feb 2025 03:49:59 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Wed, 12 Feb 2025 03:49:59 -0800
-Received: from virtx40.. (unknown [10.28.34.196])
-	by maili.marvell.com (Postfix) with ESMTP id 5751C5B693C;
-	Wed, 12 Feb 2025 03:49:55 -0800 (PST)
-From: Linu Cherian <lcherian@marvell.com>
-To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>, Linu Cherian <lcherian@marvell.com>
-Subject: [PATCH v14 6/8] coresight: tmc: Stop trace capture on FlIn
-Date: Wed, 12 Feb 2025 17:19:16 +0530
-Message-ID: <20250212114918.548431-7-lcherian@marvell.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250212114918.548431-1-lcherian@marvell.com>
-References: <20250212114918.548431-1-lcherian@marvell.com>
+	Wed, 12 Feb 2025 11:22:19 +0000
+Date: Wed, 12 Feb 2025 12:21:45 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1739359306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=;
+	b=ceDbVx9a2RdBxVvts79Y9Gu/Vc6V5J0JakVP5pAar2t8o7SYF6ep8YmxQi972w4iw8ktZS
+	vV2u71gzCU3z9HnHr6lwdwBL9EL5n09HtBSe+UvCh9RQ9xKzhEF4ThiP6UOCOmRmTQlmhw
+	ypC9G/dB0Tt5OHvR65sKcOgGpVYb02pl0tMyQ2WJTAmp570Oj182j1pklg89PNkVh3fa7n
+	uCoND4zNtV3ejqmK0hX+z0C4fjIWHVz7kGs2X9fTC7q/gJNRT3X4bVppjmHDj0ZUOAEUp9
+	HrKsDwgBmAksl+EzatchVRqx6xBgN1C1Hxdgq5g4npJpa+Lqp8smPMVDMfjXmw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1739359306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=;
+	b=0+RSrdlobtGST3Ru+CGHZnGHLgeRoFN6Vz2ndbWWeKkku0DmygER63VRVMNX1meUQCqR2z
+	+1R4wD164XpXF3DA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: BUG: debug_exception_enter() disables preemption and may call
+ sleeping functions on aarch64 with RT
+Message-ID: <20250212112145.BIE8_6T2@linutronix.de>
+References: <Z6YW_Kx4S2tmj2BP@uudg.org>
+ <Z6n16cK85JMyowDq@J2N7QTR9R3>
+ <20250210140657.UAsRw4k8@linutronix.de>
+ <Z6vvyKZ5eoAS435b@uudg.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-GUID: G2ABLdvJqEv5MRdu483MMcPrAsSnWma6
-X-Proofpoint-ORIG-GUID: G2ABLdvJqEv5MRdu483MMcPrAsSnWma6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-12_04,2025-02-11_01,2024-11-22_01
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <Z6vvyKZ5eoAS435b@uudg.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_035006_020325_9C6A8DAF 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20250212_112217_297033_125C6829 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,154 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure TMC ETR and ETF to flush and stop trace capture
-on FlIn event based on sysfs attribute,
-/sys/bus/coresight/devices/tmc_etXn/stop_on_flush.
+On 2025-02-11 21:48:08 [-0300], Luis Claudio R. Goncalves wrote:
+> > Couldn't you delay sending signals until after the preempt-disable
+> > section? 
+> 
+> Looking at do_debug_exception,
+> 
+> void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+> 			struct pt_regs *regs)
+> {
+> 	const struct fault_info *inf = esr_to_debug_fault_info(esr);
+> 	unsigned long pc = instruction_pointer(regs);
+> 
+> 	debug_exception_enter(regs);
+> 
+> 	if (user_mode(regs) && !is_ttbr0_addr(pc))
+> 		arm64_apply_bp_hardening();
+> 
+> 	if (inf->fn(addr_if_watchpoint, esr, regs)) {
+> 		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+> 	}
+> 
+> 	debug_exception_exit(regs);
+> }
+> NOKPROBE_SYMBOL(do_debug_exception);
+> 
+> 
+> Do you mean executing the
+> 
+> 	arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+> 
+> after re-enabling the preemption or do you mean something more
+> sophisticated?
 
-Signed-off-by: Linu Cherian <lcherian@marvell.com>
----
-Changelog from v13:
-No changes.
+single_step_handler() and brk_handler() can both send signals. If
+inf->fn returns != 0 (which seems to be only be possible for
+brk_handler() out of the possible four callbacks) this this
+arm64_notify_die() sends a signal.
+So we have three potential signal delivers. It shouldn't matter if the
+signal is sent within the preempt-disable section or outside because the
+signal will be queued for current and delivered on the return to
+userland. So would just need to save the details and do it outside. Now
+that I actually looked at the code, this might lead to a bit of a mess
+so splitting out the signal part and avoiding the preempt-off part might
+better which would be the rework that Mark was talking about.
 
- .../hwtracing/coresight/coresight-tmc-core.c  | 31 +++++++++++++++++++
- .../hwtracing/coresight/coresight-tmc-etf.c   | 12 ++++---
- .../hwtracing/coresight/coresight-tmc-etr.c   | 12 ++++---
- drivers/hwtracing/coresight/coresight-tmc.h   |  2 ++
- 4 files changed, 47 insertions(+), 10 deletions(-)
+> Luis
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 045d37606750..d5122e12daa7 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -532,9 +532,40 @@ static ssize_t buffer_size_store(struct device *dev,
- 
- static DEVICE_ATTR_RW(buffer_size);
- 
-+static ssize_t stop_on_flush_show(struct device *dev,
-+				struct device_attribute *attr, char *buf)
-+{
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+
-+	return sprintf(buf, "%#x\n", drvdata->stop_on_flush);
-+}
-+
-+static ssize_t stop_on_flush_store(struct device *dev,
-+				 struct device_attribute *attr,
-+				 const char *buf, size_t size)
-+{
-+	int ret;
-+	u8 val;
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+
-+	ret = kstrtou8(buf, 0, &val);
-+	if (ret)
-+		return ret;
-+	if (val)
-+		drvdata->stop_on_flush = true;
-+	else
-+		drvdata->stop_on_flush = false;
-+
-+	return size;
-+}
-+
-+static DEVICE_ATTR_RW(stop_on_flush);
-+
-+
- static struct attribute *coresight_tmc_attrs[] = {
- 	&dev_attr_trigger_cntr.attr,
- 	&dev_attr_buffer_size.attr,
-+	&dev_attr_stop_on_flush.attr,
- 	NULL,
- };
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index 0f9155a10ac2..bdc3a7e9ba06 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -19,6 +19,7 @@ static int tmc_set_etf_buffer(struct coresight_device *csdev,
- static int __tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
- {
- 	int rc = 0;
-+	u32 ffcr;
- 
- 	CS_UNLOCK(drvdata->base);
- 
-@@ -32,10 +33,12 @@ static int __tmc_etb_enable_hw(struct tmc_drvdata *drvdata)
- 	}
- 
- 	writel_relaxed(TMC_MODE_CIRCULAR_BUFFER, drvdata->base + TMC_MODE);
--	writel_relaxed(TMC_FFCR_EN_FMT | TMC_FFCR_EN_TI |
--		       TMC_FFCR_FON_FLIN | TMC_FFCR_FON_TRIG_EVT |
--		       TMC_FFCR_TRIGON_TRIGIN,
--		       drvdata->base + TMC_FFCR);
-+
-+	ffcr = TMC_FFCR_EN_FMT | TMC_FFCR_EN_TI | TMC_FFCR_FON_FLIN |
-+		TMC_FFCR_FON_TRIG_EVT | TMC_FFCR_TRIGON_TRIGIN;
-+	if (drvdata->stop_on_flush)
-+		ffcr |= TMC_FFCR_STOP_ON_FLUSH;
-+	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
- 
- 	writel_relaxed(drvdata->trigger_cntr, drvdata->base + TMC_TRG);
- 	tmc_enable_hw(drvdata);
-@@ -225,7 +228,6 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 		used = true;
- 		drvdata->buf = buf;
- 	}
--
- 	ret = tmc_etb_enable_hw(drvdata);
- 	if (!ret) {
- 		coresight_set_mode(csdev, CS_MODE_SYSFS);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index c92556e1b4db..eda7cdad0e2b 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1060,7 +1060,7 @@ static void tmc_sync_etr_buf(struct tmc_drvdata *drvdata)
- 
- static int __tmc_etr_enable_hw(struct tmc_drvdata *drvdata)
- {
--	u32 axictl, sts;
-+	u32 axictl, sts, ffcr;
- 	struct etr_buf *etr_buf = drvdata->etr_buf;
- 	int rc = 0;
- 
-@@ -1106,10 +1106,12 @@ static int __tmc_etr_enable_hw(struct tmc_drvdata *drvdata)
- 		writel_relaxed(sts, drvdata->base + TMC_STS);
- 	}
- 
--	writel_relaxed(TMC_FFCR_EN_FMT | TMC_FFCR_EN_TI |
--		       TMC_FFCR_FON_FLIN | TMC_FFCR_FON_TRIG_EVT |
--		       TMC_FFCR_TRIGON_TRIGIN,
--		       drvdata->base + TMC_FFCR);
-+	ffcr = TMC_FFCR_EN_FMT | TMC_FFCR_EN_TI | TMC_FFCR_FON_FLIN |
-+		TMC_FFCR_FON_TRIG_EVT | TMC_FFCR_TRIGON_TRIGIN;
-+	if (drvdata->stop_on_flush)
-+		ffcr |= TMC_FFCR_STOP_ON_FLUSH;
-+	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
-+
- 	writel_relaxed(drvdata->trigger_cntr, drvdata->base + TMC_TRG);
- 	tmc_enable_hw(drvdata);
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index e3707b69abff..482a425faa41 100644
---- a/drivers/hwtracing/coresight/coresight-tmc.h
-+++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -220,6 +220,7 @@ struct tmc_resrv_buf {
-  * @pid:	Process ID of the process that owns the session that is using
-  *		this component. For example this would be the pid of the Perf
-  *		process.
-+ * @stop_on_flush: Stop on flush trigger user configuration.
-  * @buf:	Snapshot of the trace data for ETF/ETB.
-  * @etr_buf:	details of buffer used in TMC-ETR
-  * @len:	size of the available trace for ETF/ETB.
-@@ -251,6 +252,7 @@ struct tmc_drvdata {
- 	spinlock_t		spinlock;
- 	pid_t			pid;
- 	bool			reading;
-+	bool			stop_on_flush;
- 	union {
- 		char		*buf;		/* TMC ETB */
- 		struct etr_buf	*etr_buf;	/* TMC ETR */
--- 
-2.34.1
-
+Sebastian
 
