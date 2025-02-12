@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776A2C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A1FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=; b=L7vO+6wZs3k8LRhX7iHbDrCV6V
-	lXGsdVWFasyAmcQcJB0Nqgsr70ACsPBRxhcN9JN22QeRzcCsNuVQjZFqDMZkC8wG5FWAG7vLGCRTK
-	4NBiu2OWh+HrYM4g0LJwG85jqHD0Hnvq/jxOTR5HAe+hj3ETqiIOOMVG56TSS5byVbHqtUiSxnrcS
-	wf0mBd8pkzjeUrehlB3rwpmkjIS0egC7cdvzYIkZbEOlAsnnCfTzKtfyqBjbeBvgnVJv7ooCm5M9d
-	FRI1Tt4W/GXUkZU55eqq4MtTBiN2cKGD/8JYMHac+kGCl4Bykm5i69X6U6dQL2s4d+XNfxqjnsoco
-	8X0GoYIA==;
+	bh=3yQoYy4cuA4mzA0DKHv3VzkC9jasrIyQDTDAp6AzCb4=; b=bUkCf+RWPvLsSPbDnvAKIw5ZxF
+	yJqa11a6EkY4M+NWYWX+XgmUp0f9iIGvP6R92VItXvo1utJ1OiAK4MXdBF6AQQRAXsOxlJIhGHfLD
+	fmopVG6aUt3ssgOHUCgj7B/nNNjhqaRcjdksSNkuadBxFREgzO8rvTnWxTni5MtitolPWp/HQb0j6
+	EcQZbGg0dMHPxuyj4VdHagyNKZXZhx/eXmKR4uZmBrmgeJcJ1LvgVSWd7KkRdEkqkkD/MzJ0o9Bzk
+	TjttS/PmybvdV6TA75KZ2EfQGXUsTaZO3VVErdidybeDGNURLos3q8xj2NriRh6gHMlek0wrYlP2v
+	u5AdS0Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiA2i-00000006zfw-45bn;
-	Wed, 12 Feb 2025 10:32:32 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tiA46-00000006zvR-34zf;
+	Wed, 12 Feb 2025 10:33:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9hA-00000006w8P-0RoC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 10:10:17 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fa8ada6662so5047002a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 02:10:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739355015; x=1739959815; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=;
-        b=F5N1X6emdwpPAJZQSiBWUfj3L1rvJoIAdCzYandzfyq/35FmQYbauHrXfCLvb26JXt
-         QoST22PPAObzLxY+qtHF0b912Tqjkm+/B7ngxcdNXcqyI4Lyux5ksYGIyLAfg1Z0Zep5
-         y7iJFMczbt8Qef87g5b/YFXUIWavAOwKMsOT/6AXMEi6wLsN7ThmEDpsrQWWOwID/Bef
-         V/mYOdLBSLLvXFIkijjQJ7gVEzO930PPvQwsxNA0wNL2nTrCC9hEuL0mZU6QbLwqS6Cm
-         QlA3X/Ibqm95l6j7lYjfvqWQKJyB8Qqpix1V0iyTui+XppXnvt31346sVsTtt30CHliw
-         xEAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739355015; x=1739959815;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=88AwpE99PaoAeek/DCfv+c+a/zWXUaUFSdw15oFH2AA=;
-        b=WS0O/3AZ4U9cEOimbNzCt7FLIzy5noGahmWhxdfIFJ5HcCiXnmqMI6dAH+YA/V+Qt7
-         znmEX4yRq8Q9gASmiwuTYK+cqhT28dcDF6knxegCGU8m9CT5gyS9ir0X2sKZd3nOwfkw
-         ONlP2NAgq6g7QLtr7zKtZBSszMl+2zjzVHoWJyRzsSE4PTokUE3+s+cCiVzrEMrlBBNU
-         ALGnCRXb4+N7MQ77un/bsHVOA0KhxzS+b4/Q7ffZgFbxU1Lm6IHzWcafzyurOQxpVvHZ
-         raUO3oYpx3QgfPKeJR8j1ZWMatzE/bXPj+y9cyduFBbhdOe00+4eiOFRC6eNSxYRNMD4
-         0d3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWftpouUwhbTpn/Zx3QTzlrP0Ix6MbEK9yxCFBKNr8vjzI8SEtZvwyZEcRMwDveEdzakmkmV5sRj9YWi0yb35iT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9NeVsHVBiKzOOZKNJVIRQBgLSLHD+VdNAo/5ng7E/AUvvVecg
-	2Fc1ys7WvF7NPp+vt41gjXuAIV0gaUiwreP/kOz++rkPoXv7DNJxP+wYKvGBnq3nvjUpf1byPIj
-	EhMvu3+J/20oxSlC+U8FEXVdxPw0=
-X-Gm-Gg: ASbGncupYJnj71N2fzmMaAu8j3Ahlmo7d6TRMdXqUEG1vwlspsCw3cuLd6lGK1Ng7mY
-	uPE5U78ossqFUF9ZmJSoEkTLQ/WlZBXG5KOKksy7I6nOIAv+lHts282ijSufYjuoqFQDRHQ==
-X-Google-Smtp-Source: AGHT+IGmuZRdGl3j3qwqlGA+I6iMmpaYMwad+794x21O14HpgAdBUJZvPf+MREMoJEJJ7oo0IQ1nHPq82m46EvhwjX0=
-X-Received: by 2002:a17:90b:50c4:b0:2ee:ab29:1482 with SMTP id
- 98e67ed59e1d1-2fbf5c0f645mr4582577a91.16.1739355015327; Wed, 12 Feb 2025
- 02:10:15 -0800 (PST)
+	id 1ti9XZ-00000006tfy-2ef3;
+	Wed, 12 Feb 2025 10:00:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739354420;
+	bh=4OBZG7uX/8CsjJnTc/XKtHc+h4pbWEM3iLpBrSk7XGs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mNP2xFoNXIDZ7NNXdzVu7NRA4380M6RigKXK+u401dsLvBr+ubh0hYGfQqMGB3jBW
+	 cGsndad8GZZ43KSuv05hI/rIl1TEs7ZqfCy81jLQ9G8w+IbfMPGdOzUZWVT7qYbO3o
+	 TH1Cr3Rf0Qt7vVtIiFpzb85NSHDx6IdcxL2k+W0Cb4iydppLdZN2lmkjYpIQvJsRrA
+	 79dPOXNi3496vj6M/NyPRqtTkypqVwn8YjsBJlLZWljnzlaCwnq+uKZquteTzpQV38
+	 wE+D6EtbCF0uvBNwYbAHuLf6UhJ/JC+c1sPLszRkNByTclR0yQ/bHChyl5mct0tXXd
+	 A4Nwbq2ons27g==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A648717E154E;
+	Wed, 12 Feb 2025 11:00:19 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: matthias.bgg@gmail.com
+Cc: angelogioacchino.delregno@collabora.com,
+	shawn.sung@mediatek.com,
+	fparent@baylibre.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	pablo.sun@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH v1 3/8] soc: mediatek: mtk-mmsys: Add compile time check for mmsys routes
+Date: Wed, 12 Feb 2025 11:00:07 +0100
+Message-ID: <20250212100012.33001-4-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250212100012.33001-1-angelogioacchino.delregno@collabora.com>
+References: <20250212100012.33001-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
- <20250211225808.3050-2-laurentiumihalcea111@gmail.com> <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
-In-Reply-To: <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Wed, 12 Feb 2025 12:11:49 +0200
-X-Gm-Features: AWEUYZmaBc7oKF6zAnQ7CZxr3zaURFYGkUGsn3Z_TJnj1f8vLuCQ0QWTQQTBMT4
-Message-ID: <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
-Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_021016_146781_E24505F1 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20250212_020021_813681_360B5F63 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 11:38=E2=80=AFAM Marco Felsch <m.felsch@pengutronix=
-.de> wrote:
->
-> On 25-02-11, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >
-> > Add binding for imx95's CM7 core, used for audio processing.
-> > Additionally, introduce a common binding for NXP audio processors with
-> > Sound Open Firmware (SOF) support.
-> >
-> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > ---
-> >  .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 64 +++++++++++++++++++
-> >  .../bindings/sound/fsl,sof-cpu.yaml           | 27 ++++++++
-> >  2 files changed, 91 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-c=
-m7-sof.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu=
-.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.=
-yaml b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-> > new file mode 100644
-> > index 000000000000..f00ae3219e15
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-> > @@ -0,0 +1,64 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/sound/fsl,imx95-cm7-sof.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP imx95 CM7 core
-> > +
-> > +maintainers:
-> > +  - Daniel Baluta <daniel.baluta@nxp.com>
-> > +
-> > +description: NXP imx95 CM7 core used for audio processing
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: fsl,imx95-cm7-sof
->
-> Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
-> add the -sof suffix instead of -audio or so? SOF is a software project
-> but you can clearly run different software on the audio-copro as well.
+Every MediaTek SoC with multimedia capabilities has an array of
+structure mtk_mmsys_routes that defines a multimedia connection
+between hardware components.
 
-Sure you can run a different software project on the audio DSP but
-you will need a way to distinguish between the different projects.
+This connection is activated by writing a (masked) value in each
+specific register, and the association between from->to path and
+value to write is expressed as an entry in that array.
 
-There might be different mailbox, memory configurations. So you will  need
-to invent another suffix specific to the new project.
+Failing to set the right path does not give any meaningful error
+and makes things to simply not work as the data will either not
+be retrieved from the right input port, or will be written to
+the wrong output port (or both): since a misconfiguration may
+effectively still be a possibly correct configuration at the HW
+level, this may be only giving side effects in terms of simply
+getting no functionality but, again, no errors.
 
-We can make  const: fsl,imx95-cm7-audio as the one used with SOF
-and think about a different name later for when another project will
-want to use the DSP.
+In order to reduce room for mistakes in declarations of the
+mmsys routes, add a macro that compile-time checks that the
+provided value does at least fit in the register mask.
+
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/soc/mediatek/mtk-mmsys.h | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/soc/mediatek/mtk-mmsys.h b/drivers/soc/mediatek/mtk-mmsys.h
+index d370192737ca..d5f6fbdc6f72 100644
+--- a/drivers/soc/mediatek/mtk-mmsys.h
++++ b/drivers/soc/mediatek/mtk-mmsys.h
+@@ -80,6 +80,20 @@
+ 
+ #define MMSYS_RST_NR(bank, bit) (((bank) * 32) + (bit))
+ 
++/*
++ * This macro adds a compile time check to make sure that the in/out
++ * selection bit(s) fit in the register mask, similar to bitfield
++ * macros, but this does not transform the value.
++ */
++#define MMSYS_ROUTE(from, to, reg_addr, reg_mask, selection)		\
++	{ DDP_COMPONENT_##from, DDP_COMPONENT_##to, reg_addr, reg_mask,	\
++	  (__BUILD_BUG_ON_ZERO_MSG((reg_mask) == 0, "Invalid mask") +	\
++	   __BUILD_BUG_ON_ZERO_MSG(~(reg_mask) & (selection),		\
++				   #selection " does not fit in "	\
++				   #reg_mask) +				\
++	   (selection))							\
++	}
++
+ struct mtk_mmsys_routes {
+ 	u32 from_comp;
+ 	u32 to_comp;
+-- 
+2.48.1
+
 
