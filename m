@@ -4,159 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2B8C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2D9C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kjgnZz9Ym74YGQxLZx+OX79dXk3PMavsa4onhvSlqs0=; b=U/F1XO0aPaEOJBqArXsM12gLPx
-	yQC7EW+kD1WrEHi2mpbzp9pofrjsvQ4hlY4YGIyT6VR0QkITI8gYxeb3reFHC0ZYzVusyIiZ+ZP64
-	enPdZ6yrRYDVK7N6YvxqwH4M2ZmMZTZ6EzzlxgfdMqoyqGjolOWDzoksTjr0j0fSbF54ykN0/ds7G
-	aJY0OFZmbD7S2K0X/2wS1tEiHbmJVBijZ6p1WWT32rREQkeYO7UdewCSBZPdbIW3+77cj9Ywmmok6
-	mR2tYEPhVxHD1xBG27gS6ZpR0KT4Sup4Wc5WPIobhTu+0FeqpleBif7e7Wx+t89FzMO+W9ryi8ub+
-	oMwTHsxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kcY3b9SQcQ435Naa36eW7SElnt1qAF2rcRt4gVjJvUk=; b=QfxFqh5r/422Jbdv4uKcYq6R5T
+	jSo4VLhXULd9lIEhDkz/FBhSJOtaCFYLPnQb3yraXS+TVcwdvGxQlppvIC9MAVOZ6zcS084KlpG88
+	8fbDd20hCl3LXSqgIm3Rv29S2VkpmZdCrb8YlMMfn5L6/UGtdhuRhPhFJw9xocW6xLmb1kXNkOCLd
+	HnCGLUGUjXyJfaZgNrpPDWgn2ProZakYxGnqdjPdTFpBv/g3bz6uOAbNjRITpQnrpPXuEPDkxyCOl
+	J3hVfhbsujUFHDz5Jd729OojaMtH5Ntqc1jCck1CTq8ng+ecueez5HuVvOg0NXQqz6aso3iTkbrem
+	BhH39ZnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti66z-00000006KmG-1fqc;
-	Wed, 12 Feb 2025 06:20:41 +0000
-Received: from mail-vi1eur03on2061b.outbound.protection.outlook.com ([2a01:111:f403:260c::61b] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1ti6Ei-00000006LsC-2cgJ;
+	Wed, 12 Feb 2025 06:28:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti65a-00000006KUv-0LgE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 06:19:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LTo6oGhbaB37unoFiJYbqlrFk1JE/zSBR8+mGRA9+e4IHgDF7mGA/iAaP2cvC/TS+eaYp8K+swpP4TncU+E1Dw0lYeorQazLSuTvnWGFvyl8vPoX0DM2HP6tISZBlsfdcSmKrHrWbyTbqKsvkV2k8R7Bj4/xkVS+d4FXJDiitQ4vlaeIWTxEyYYv2iQf41K6W9gQn2fiFus/0ztVgRFgqVecOgO+ZFAN3WExwwuqtUf2yZCggegJPkxH3JsAJwsDkiWr+shdX5Zz1C/redtN5rLewfzhDMuuaU4ieCEZSHQo5bHK6ifLpugow2+JTaVfbdwmMbN53Mc1wLVWgkFZPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kjgnZz9Ym74YGQxLZx+OX79dXk3PMavsa4onhvSlqs0=;
- b=jb3USuYr87PIVikDmri3K7CjdcKYpUkv/IxvRC3B7zZgopdWoFlx20uR4rQizntK/DAyveRlt1vkaKgzP+GGFFqBQvF/uUg5qHRUZMZlSB6muOTbkBxRvZVcoat5Val4N4cayzQrBQyqSmvY0YWKArzerZvO3hBrU248MlZlkeqNsmhGPnZpOG8yresBsN4Dj8qj69ci+uMlmjxGmndQg5zsB88qWP6cpf3mFwoTkzbLSDc//qUcCQu/67l1ecFAo5bGjNPQA1Kdu3Q8wrJzD+f58WLNsBVoZk92YBgOAwLWZA+xNzO2PY7dR5srZa3L8s2Et4rhL7CEby0ETLQVCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kjgnZz9Ym74YGQxLZx+OX79dXk3PMavsa4onhvSlqs0=;
- b=Ch4JGw/TgHUTEAMOUoczFw0N1Czh975dwFylLJ2xh6YAVnIbyUYFbps3EF+H82nzin7o49qG8uEVu+qk4szx4siGSVTpqg849N1kmlmO8GL0fdVRmLWjCRcmlWPqJCNM/Pwc7W8z/LJUKq6YY4SB2CNGzCtkimsYYe4+Xne1+4E4SkpFHAX2EgtpzmSr9R17uzFBjbQBtw8IC4ElR8urczSBRz2cLkDgMiWwjGR+6ja2ALLSSofvtz93iLwBmXoGzBedI3ggukScFkf+4nH+AC/lGenPtxBsMU5bRehR3HzTAxku5phlwm6cWrt6QeHOmKG8zFUYt5CbKkG3tyL0dw==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Wed, 12 Feb
- 2025 06:19:04 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8445.008; Wed, 12 Feb 2025
- 06:19:03 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: Cristian Marussi <cristian.marussi@arm.com>, Saravana Kannan
-	<saravanak@google.com>, Linus Walleij <linus.walleij@linaro.org>, Aisheng
- Dong <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, Shawn Guo
-	<shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
- machine_blocklist
-Thread-Topic: [PATCH v2 2/4] firmware: arm_scmi: Add machine_allowlist and
- machine_blocklist
-Thread-Index: AQHbawr1A1AsDxfmd0qSLN9sYWQ9t7M6SOaAgAZYiNCAAcC/AIAA9Z4A///9e3A=
-Date: Wed, 12 Feb 2025 06:19:03 +0000
-Message-ID: <PAXPR04MB84598869B5DEBF6260423B8088FC2@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
- <20250120-scmi-fwdevlink-v2-2-3af2fa37dbac@nxp.com> <Z6Slq4KjS_RJ3ItB@pluto>
- <PAXPR04MB8459A3750512708D2972687388F22@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z6tw3HjhI8to4c-E@bogus> <20250212062542.GA15796@localhost.localdomain>
-In-Reply-To: <20250212062542.GA15796@localhost.localdomain>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8907:EE_
-x-ms-office365-filtering-correlation-id: c2304bba-60bf-48cf-2471-08dd4b2d25fb
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?FkQhmm2LD9xpib4vDbHRLRJXKiWW0gDb4HxSMr1QIQ6dnkkeNFamlVjx6F2i?=
- =?us-ascii?Q?20ttD4m9fZpQheaQxDU8IzLjC6Tz0ETi9Kjqegis8a9Lqd+UIPuZZRTCVwT4?=
- =?us-ascii?Q?ndwaldWt3yhZigHN/T60PszZEAQ/TlFVlcjJxFJEsW7kn2tQWyfuoPzuVkmw?=
- =?us-ascii?Q?iZO7DrNjIQnI7LUV0h+nWPyJnD4UJgSZedNb7jZyNZQkiJdYD+jddKANqkl5?=
- =?us-ascii?Q?jEJt1Rc4lGYnoFhf+TEjCuTIDVN/g6TCJ8FIPeA+zzknTgkrGiolrtfCAEL3?=
- =?us-ascii?Q?pKZHcXtTAUNOHKmgOSk8FQi7BFXFs3yh2edrIyDpFP2jWuKObxdD+Fg5PqNy?=
- =?us-ascii?Q?ulUTJ2INKzhVzROy14ip6mvhp/U+DbFLSaAG4Z7OXvFPgstB5ybD9E+fT2cG?=
- =?us-ascii?Q?Gsj79UkWgSsyDuPwJdYGz87/u4oF2iW5ZXp9ZTHLB9Rcrp+ItlUa/pehR8i8?=
- =?us-ascii?Q?GUZj30KikxxFP7pK+5Ky+uqNftIlynP/u+kEzFRArAcxod+93UqWGkSLT+RR?=
- =?us-ascii?Q?lk5GZrcvKWJjF62TyO+4QMugw40tVppH33rtxPPZD3hf7xStpafCtdLOzQmf?=
- =?us-ascii?Q?d0Fp6GLroyBhdW7WcDrUQgsW8OmxBBLP6MjJ9bsl5V48SxkQx7unYD+758S2?=
- =?us-ascii?Q?pUJFJ1g1fQVC27FMcdg7rI/CF3ZXqrpHIa7F4/FwDp0qGXWnOTziDphMRsqk?=
- =?us-ascii?Q?O4yq9Y70boGUsTRgwwj3/2Zh9PMn2XDHJKuY4Hv3Ot3Xv+gv/U6jr3PGktN6?=
- =?us-ascii?Q?usUEzqvQhFJ0shJ79XlEpe0dijcXTanE8jGTe4Fhu+83KzcPcVMrdKLVNUwf?=
- =?us-ascii?Q?1Qg6l6QXXAOyZLEgVFbDoxhcjK4gqeWJ0GwJFrYkFJkClSsJ4o+EGThdiMqM?=
- =?us-ascii?Q?BkNj4GthoDFQknTdwhcol2SvwNPUsvv6R3SadJnDOzfq+HDhRZMtLBSDKjhv?=
- =?us-ascii?Q?GxeWnNB/h4G0hvElVR23SwhIY6/iGBk21/T6kGq1wHN5fGS98Xf7Ib1vgrHG?=
- =?us-ascii?Q?WvGLsO2jas9DhMlH3ed1fZnXv8+wrw5om8+4dvgFB0+sBFn9rkArs7EXRsuX?=
- =?us-ascii?Q?UOIHZ36lD0rfNJT72vh7u0682QWtvLdaUKlHIOEs35DQeE6mv4ozkclm8A6P?=
- =?us-ascii?Q?3HIEgktWXCjDWih8zix/VHQ8AKPyvJlkB82/c3arVnPlEGJQjDVGhvQCIsgx?=
- =?us-ascii?Q?pPxJiNPEiLPQ0av8u6g+2mCjwbdB5yNFCeQpQLEC2MH6KaoJ8mo/g4mOdv1H?=
- =?us-ascii?Q?FLDVl6X1IYQ63XmZ6fJbe/qGdAcFHFs3DdDmQysGanNJHHcLHtcR3D3EhoVy?=
- =?us-ascii?Q?syE+S5qhZ/QAX5bSoV1u1yC8kBNUIfVXscHZvO7t55ZVbY1muMy7f5ZCBz+d?=
- =?us-ascii?Q?GoU6EvP96nJ0ntckYnQR/bKqf5jFzb5i1yowTwZId2lVTOQ4RjN5qCnvt1P/?=
- =?us-ascii?Q?BiAAAD3tY59+HF0ESJc03E8OHo31D+oN?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gUsDASu4XCIYJasVZImJGV9Dzenh9L18AItsTNhI60I54KWrkmFRQAqnatp3?=
- =?us-ascii?Q?vIBq4y1iZmoZlqjw2bfmKsoDu2n98p20rLT5fTbAPUsz0PKnz5yrdfjrpgsU?=
- =?us-ascii?Q?7EVstWyuloEHJB95WMkgsk97Hb2QfzQfE0n1uFDBCv2DwybP7QVtNAc/xrqC?=
- =?us-ascii?Q?LDGIqhbIGgtE9sjZYicbJJ6GU3nimCcPEZ5hoj+JLE2ZVgliY9M/eDwGNwsT?=
- =?us-ascii?Q?f++D1XiI0feGVYq44sn1bW7miZAszS99zvVLjntZnM11zkhrH+9RhfLdMXSr?=
- =?us-ascii?Q?dvUrw1vmCmOgcNpOg9hAOXAH/B3DTQz9G+QEvH9PprCK6TRk2RVfwfEoPZul?=
- =?us-ascii?Q?le7rRALFMfhrku6xw4NArW6vz2+pzX9/7plvRPL5x/vCQaFbeeveQwlcJkSr?=
- =?us-ascii?Q?Ro+uUf5HXDsYQDAIGA/VqPcSyTfOXVY7ByvgIhADO3/AUWmYzbuKuvFbfjFL?=
- =?us-ascii?Q?bazKiE/Q0ao26YbIp62gF/03X3fTrbxs2cwJ2Rz18VSXn5aF/oPEDa1p9lGi?=
- =?us-ascii?Q?/5NsI78l4z4tGWtuG56c4eJO2ZxG0V0HlyXE5wrfVTrJ3Z9aAw7YRX5WZZxD?=
- =?us-ascii?Q?mlFjOOc+SE4nCrPlQTDRsB+pOwP9JVIUvqVfAYFQGuK0luDuxM0yyl/8MNvh?=
- =?us-ascii?Q?/FyJSOMDN+VxeU+czr82kzQTXpKneym2gPfMo66PKpFmpunaNMA1+dKHtnv7?=
- =?us-ascii?Q?M7xeDSfsztQ4lASMs84cQOe74ifvR8zwySuWuOJxnyjiDOUqLudwDyJR0HX9?=
- =?us-ascii?Q?CzchzsNl68MKizkLRAOqdcWvnx+ocAukvi3s4FK14+80OWyPJyjjhK5EXYI3?=
- =?us-ascii?Q?s2kg3Z33Vyf6KLz+Wt85Djwd8EBm5EzFTfWAzujqd3G4yLHy3kipptQ8y+Hd?=
- =?us-ascii?Q?Pmsb3YK4Cxakvc76MlXk3FnsUxK2nuxQx6Fzjwk7nESpjyeRIrGtpxcva7MI?=
- =?us-ascii?Q?5WqL/MAQS2p7UU1YyX0C/BaERydPWnEgwN6BW+d17J2V6JsqiQVFy0HPwjQV?=
- =?us-ascii?Q?EVot4Y1HYdXt6Xy1q9xUzDrFBBLc94Dj3vNtjMTadwAz+ZCVs4DAUyc1jZKr?=
- =?us-ascii?Q?kbJaA2eJJRUPXBvcZF2OEDf5d3d9YV39NmMogcjRO5jMI7Ymef0WNoap5+s8?=
- =?us-ascii?Q?cZs2+HwjTBCkcVEeaMJYRPdDoBr/wkkXbg2eIubw4TPaUWUEc2DJ/zfkEfL0?=
- =?us-ascii?Q?5l/FPx0d6AdUaq2YYV4AMDcoKmqKh3YyS47z4gpUKfEoyQxQXA7lJRQx7YGY?=
- =?us-ascii?Q?bgxGQ6i4EztVeqpKU78S6kuzjthQy7O3i1no7TH2SenACegw9SEKQ2v/1e0l?=
- =?us-ascii?Q?aRn5XPgx3P2NJ+PPte7rwQrFsLkpc/vWZCnnpbc8KGdRnOpxcYmC6K6bjHdV?=
- =?us-ascii?Q?sCaY+G6aIRcup+2e4UZQ68r6T/g8X49z/hPjbRt/7KwfT5jwFtRUfRnP1ksg?=
- =?us-ascii?Q?OoCV5jJ7osl2C10m2VIhGVnr3fZlhgyIgAEMW3/9AjvCpfuDir/CWsvfCY2P?=
- =?us-ascii?Q?RjdGTiEuvvnJUbA7rJXfIUrkqVlZp2l8WCfaFGFMOb6p/ufuZok/Nf6f3oye?=
- =?us-ascii?Q?zSCl3qCOViZjLOrJa1Q=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1ti6DI-00000006LaP-3G4r;
+	Wed, 12 Feb 2025 06:27:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 804D2A40F8F;
+	Wed, 12 Feb 2025 06:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 920F6C4CEE6;
+	Wed, 12 Feb 2025 06:27:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739341631;
+	bh=1/zhjK+0+G05v1hwwn5tz/H+8Cz4vmPRU7clBN3k0ls=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j2u+pa9v36ZbhRZph5rV/yE+zheeNljbSA2hCK+QxpqUUozTROOu+Bp9e9rPsiCn4
+	 sr/F2tK6INMhPIZHrkjHpv/yxCHNwYrsM+87zlpR119ozsWj1qVRrCYlXouW0KM8W4
+	 CQR6VyZyoMu8gqW16WkpKAebx/0UiE8DIPWFsHGgqX9w/f6KStjHuQaWA3TaVQnBm3
+	 NV/kFzuXc1SiT0U9sZz0+JGhp0Bo+Ds8/saVBFz20xn9tx3GXscJj15FDGXCD0aJL4
+	 BG11EpfhoMYdyx7SIPli3YJUVgVKGqVRDm1/mm/Yv3o+k4aL5Sc1l+OQaJwLQhtaEW
+	 3qW5TzMlSD/lA==
+Message-ID: <66b554f0-e11c-4801-9a5e-2ccb85a105fe@kernel.org>
+Date: Wed, 12 Feb 2025 07:27:00 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2304bba-60bf-48cf-2471-08dd4b2d25fb
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Feb 2025 06:19:03.8959
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yV/NH1nhBNsi2UqLvzjf9H6e6cXWqVko9ly9F+7LRQO7a5B2oiPp4Cu07Rm17QzzYObu1k6syAaaMFqRMPHPJw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8907
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 13/16] net: airoha: Introduce PPE
+ initialization via NPU
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ upstream@airoha.com
+References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
+ <20250209-airoha-en7581-flowtable-offload-v3-13-dba60e755563@kernel.org>
+ <20250211-fanatic-smoky-wren-f0dcc9@krzk-bin> <Z6t7SuFurbGwJjt_@lore-desk>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z6t7SuFurbGwJjt_@lore-desk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_221914_134447_42C2940D 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20250211_222712_954061_12C6E3F2 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,61 +130,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add
-> machine_allowlist and machine_blocklist
->=20
-> On Tue, Feb 11, 2025 at 03:46:36PM +0000, Sudeep Holla wrote:
-> >On Mon, Feb 10, 2025 at 01:19:14PM +0000, Peng Fan wrote:
-> >>
-> >> I just have a prototype and tested on i.MX95.
-> >
-> >You didn't answer me @[1]. How can we disable it for perf/cpufreq if
-> >there are users already. I will look at the code once I am convince we
-> can do that.
-> >For now, I am not. I am worried we may break some platform.
->=20
-> The only user in upstream kernel with using the dummy clock is juno-
-> scmi.dtsi.
->=20
-> SCMI_PROTOCOL_PERF is used by two drivers cpufreq-scmi.c,
-> scmi_perf_domain.c.
->=20
-> In cpufreq-scmi.c a dummy clock proviver is created, the gpu node in
-> juno-scmi.dtsi takes "<&scmi_dvfs 2>" into clocks property. I think this
-> is wrong.
->=20
-> Why not use scmi_clk node? cpufreq created clk provider should only
-> be limited for cpu device which will not be impacted by fwdevlink.
->=20
-> If wanna to tune gpu performance, the power-domains property should
-> be used, not clocks property.
->=20
-> It is the juno-scmi.dtsi should be fixed.
->=20
-> If juno-scmi.dtsi will keep as it is, please suggest possible solution on
-> fixing the issue.
+On 11/02/2025 17:31, Lorenzo Bianconi wrote:
+>> On Sun, Feb 09, 2025 at 01:09:06PM +0100, Lorenzo Bianconi wrote:
+>>> +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
+>>> +{
+>>> +	struct airoha_npu_core *core = core_instance;
+>>> +	struct airoha_npu *npu = core->npu;
+>>> +	int c = core - &npu->cores[0];
+>>> +	u32 val;
+>>> +
+>>> +	airoha_npu_rmw(npu, REG_WDT_TIMER_CTRL(c), 0, WDT_INTR_MASK);
+>>> +	val = airoha_npu_rr(npu, REG_WDT_TIMER_CTRL(c));
+>>> +	if (FIELD_GET(WDT_EN_MASK, val))
+>>> +		schedule_work(&core->wdt_work);
+>>> +
+>>> +	return IRQ_HANDLED;
+>>> +}
+>>> +
+>>> +struct airoha_npu *airoha_npu_init(struct airoha_eth *eth)
+>>> +{
+>>> +	struct reserved_mem *rmem;
+>>> +	int i, irq, err = -ENODEV;
+>>> +	struct airoha_npu *npu;
+>>> +	struct device_node *np;
+>>> +
+>>> +	npu = devm_kzalloc(eth->dev, sizeof(*npu), GFP_KERNEL);
+>>> +	if (!npu)
+>>> +		return ERR_PTR(-ENOMEM);
+>>> +
+>>> +	npu->np = of_parse_phandle(eth->dev->of_node, "airoha,npu", 0);
+>>> +	if (!npu->np)
+>>> +		return ERR_PTR(-ENODEV);
+>>
+>> Why? The property is not required, so how can missing property fail the
+>> probe?
+> 
+> similar to mtk_wed device, airoha_npu is not modeled as a standalone driver,
+> but it is part of the airoha_eth driver. If you think it is better, I can
+> rework it implementing a dedicated driver for it. What do you think?
 
-Ignore the upper which maybe wrong.
 
-The dummy clock provider will always be ready before opp. So no issue.
-But anyway if juno-scmi.dtsi using power-domains for perf, it should
-be better.
+Whether it is separate or not, does not matter. Behavior in both cases
+would be the same so does not answer my question. But below does however:
 
-I just replied in V1.
+> 
+>>
+>> This is also still unnecessary ABI break without explanation/reasoning.
+> 
+> At the moment if airoha_npu_init() fails (e.g. if the npu node is not present),
+> it will not cause any failure in airoha_hw_init() (so in the core ethernet
+> driver probing).
 
-Regards,
-Peng.
 
->=20
-> Regards,
-> Peng
->=20
-> >
-> >--
-> >Regards,
-> >Sudeep
-> >
-> >[1]
-> https://lore.kernel.org/all/20241227151306.jh2oabc64xd54dms@bog
-> us
+Indeed, it will fail airoha_ppe_init() but airoha_ppe_init() is not
+fatal. You will have dmesg errors though, so this should be probably
+dev_warn.
+
+> 
+>>
+>>> +
+>>> +	npu->pdev = of_find_device_by_node(npu->np);
+>>> +	if (!npu->pdev)
+>>> +		goto error_of_node_put;
+>>
+>> You should also add device link and probably try_module_get. See
+>> qcom,ice (patch for missing try_module_get is on the lists).
+> 
+> thx for the pointer, I will take a look to it.
+> 
+>>
+>>> +
+>>> +	get_device(&npu->pdev->dev);
+>>
+>> Why? of_find_device_by_node() does it.
+> 
+> ack, I will fix it.
+> 
+>>
+>>> +
+>>> +	npu->base = devm_platform_ioremap_resource(npu->pdev, 0);
+>>> +	if (IS_ERR(npu->base))
+>>> +		goto error_put_dev;
+>>> +
+>>> +	np = of_parse_phandle(npu->np, "memory-region", 0);
+>>> +	if (!np)
+>>> +		goto error_put_dev;
+>>> +
+>>> +	rmem = of_reserved_mem_lookup(np);
+>>> +	of_node_put(np);
+>>> +
+>>> +	if (!rmem)
+>>> +		goto error_put_dev;
+>>> +
+>>> +	irq = platform_get_irq(npu->pdev, 0);
+>>> +	if (irq < 0) {
+>>> +		err = irq;
+>>> +		goto error_put_dev;
+>>> +	}
+>>> +
+>>> +	err = devm_request_irq(&npu->pdev->dev, irq, airoha_npu_mbox_handler,
+>>> +			       IRQF_SHARED, "airoha-npu-mbox", npu);
+>>> +	if (err)
+>>> +		goto error_put_dev;
+>>> +
+>>> +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
+>>> +		struct airoha_npu_core *core = &npu->cores[i];
+>>> +
+>>> +		spin_lock_init(&core->lock);
+>>> +		core->npu = npu;
+>>> +
+>>> +		irq = platform_get_irq(npu->pdev, i + 1);
+>>> +		if (irq < 0) {
+>>> +			err = irq;
+>>> +			goto error_put_dev;
+>>> +		}
+>>
+>> This is all confusing. Why are you requesting IRQs for other - the npu -
+>> device? That device driver is responsible for its interrupts, not you
+>> here. This breaks encapsulation. And what do you do if the other device
+>> starts handling interrupts on its own? This is really unexpected to see
+>> here.
+> 
+> As pointed out above, there is no other driver for airoha_npu at the moment,
+> but I am fine to implement it.
+
+I see. The second driver is there - syscon - just provided by MFD core.
+It also looks like the NPU is some sort of mailbox, so maybe NPU should
+not have been syscon in the first place, but mailbox?
+
+
+
+Best regards,
+Krzysztof
 
