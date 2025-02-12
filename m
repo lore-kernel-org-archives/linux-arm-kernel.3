@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC31BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95876C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LU1Mx0M1JJLQ6X7nOndn1GNJ7UBsOKiHS90jS7YqHQ=; b=BjJicqwK9nyr+ha4s4+jPv63iJ
-	/wU4c10wUMlYH/lI3p4rY4B2vGErQ7dBqXMgn+nWureSOfJPZxQAnw5+5E8of3mFQ7IwxWhdktGJh
-	bh9APoUJk73eNJyDwT5NUmrEcIGoEg/T5DDjo3u0sDJXLsps1oPnSYO3e+vjxQwZX3e3CD/Dj3nu/
-	smuPnBltmtFLT4kMneH+QDSDpGLBs/vNvQ2f4iSYNUI1hkljGWK1bdrGDnUgnCWEJvwzXXOYZQA0A
-	4FC5GZNA+vEdcqzuJzNivKEOsYmlsX58NXfnrww7IzyWUPIRT94pGSXQS9IPQQoZjwsvwxYPd+Mjs
-	GIL3X7Wg==;
+	bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=; b=e5qH0sgYHuDYpdRvce6NE6sZ+j
+	loQ1ZuXpgqah0YfixhHvh1rRhCYc/mchxqA0EIh49vZJPVLJQ+EqZt4UfilakYrfcOY6zU7yASjn2
+	CeH9d+3O/fMUXGyF2+sYX/f/OP/XT5gRD8ubyAjlcOGMRkkRV4Oxq+bafh7vMwq5qRmcnS0AN6clb
+	Xp/F5suLRMU3vlnkRG0wccoOn/kiT9uNBKteUF8yKfFh3sh8UIYjrIEpHNXhstwbkjr/hETIrSdHQ
+	+Mszuk9Hi2i36Enn3NgtPj29JdDCfv+JvQx67BkOmvJBCUz2kpeOZOA5YDQLxH28dkMrsAppOBDhF
+	siDdyQzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiB1X-00000007CjE-3uJk;
-	Wed, 12 Feb 2025 11:35:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiB2v-00000007Czt-2kgn;
+	Wed, 12 Feb 2025 11:36:49 +0000
+Received: from mail-lj1-f177.google.com ([209.85.208.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiApp-000000079eA-3Fan
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Feb 2025 11:23:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7LU1Mx0M1JJLQ6X7nOndn1GNJ7UBsOKiHS90jS7YqHQ=; b=fTe/hhd2ZlvB0CdJY9F1jwjJrU
-	/XttdT5aSu+KljBQQajgYIkcTkzFCC8svsDhWMAEvEN5k4FJ0g8vOynFpHYIUA7qu6UBWxPM9TpTy
-	9WVjJXvu352MP5r4LaoJGY0TdIOqge1D50/Fk4PohpUDoa3AmRwdTe92CAraUIj9cQSsshVPjvyhF
-	xaFd0L3v2oXHrhU0PYs+HxT1UWRWRavCCMfg0oxupzBfBhEYIyFviwVAE9xMawWyB8slndmyjjXgx
-	LyCnud8SoVgiAJ5McCNtbboXXu0ZoG0tuVnHH1ShJ9YhUEXs+1E5S9Udpz0X5c5c36lx81WnXxVH4
-	fNbbfnzA==;
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiApm-00000000nn7-2EF1
+	id 1tiApo-000000079dE-3NJb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:23:16 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-308f04beb24so24630581fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:14 -0800 (PST)
+	Wed, 12 Feb 2025 11:23:17 +0000
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-30737db1ab1so61503211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359393; x=1739964193; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359394; x=1739964194; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7LU1Mx0M1JJLQ6X7nOndn1GNJ7UBsOKiHS90jS7YqHQ=;
-        b=SBQCUcG0XfiaOlx2vuYrtoiVcXhP51ovIVtMsZMGlFaRxtc8iWG2SMMeNq5j3tUUM1
-         GFmzfWPW5Xt6OY+J4eZKmOwrDHEa5AU75Tk4L+22JkfUhrkuFmRb+emgccGzO5nq/99d
-         vW4yEY/bzP5mLoKHMhu8YsV2jVHrpUBZ0qAxFWxwCFZvcJ1mueJJwozVDeV6UC5akAGQ
-         pRvXk3f4Evl6OsyDC3qlzp9932CjOfxuPbW+v6++uyLErjbW4bk0uHzvxBK5wWV6BHoW
-         48VpP0LdvetA8DthkAB7LsA6766QhR282DXfE5R8tc7+NZ4Wcnt2ivjQfPIhekvviUAw
-         WVog==
+        bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=;
+        b=se0Q7+u4cVQiBRIPHrb5UQ7EfvU7IMz0eLYvWAHJCxqzPtsXUwllvzOMloJimeXT5A
+         i71oGDUet26z/YWDkvJkgd5WWTuz8wHovDPrc4Vrj//6UdefUh5TeNMXxG8Mztcfr1FD
+         pSvpp4n2M1rdNSOLH7+MFUmJkLRRIZpIAthI3TrOmuloNhrzO5bkUFyHvW8I2eL/Vd32
+         Iz3GEAVePIlaDG9Hp2J4uInKIE8Y7Dn7sd2+QoFBghPxnnFsyCVVWyZz2HsTc/RGiXL8
+         8VHbRhhyF6XtmdlhBrKEuyOG+khSgyE4kYvsxVVLbLMSfI+N3n6lC4etd4WV8OzD6xwd
+         yf7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359393; x=1739964193;
+        d=1e100.net; s=20230601; t=1739359394; x=1739964194;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7LU1Mx0M1JJLQ6X7nOndn1GNJ7UBsOKiHS90jS7YqHQ=;
-        b=euwZYsD5OZ9darOOj7EYzo4y8mcTVvFP/0m7TjNEWEvAEMvH+MO8aVLEULYL9uKn6g
-         ZbFKCJQ/TNhkhnYoNqUfyUiKq9iTMw4LKoeN0PpSeTdvtr7Kf3ecB9u4NjbPJHkhAZln
-         z0J1CGj6uFVC28K9ZeVz5GKhHrM2ZsrdM8KDj0U9wUy074MG0FZ3nNU07dbuzQVPafdl
-         giUPsI6LYmkCAjU3qgT4OLDwfSUWp34vx/KD5wTCxPtq+j7m55701aoR+1ljm1KcARCq
-         /vW4LjqcGRv+U8Us9Bpunfx5RLlXz6DND1vSCjkDOrnq+i17nVKGMG6J9GFLV2Z4IRak
-         xumA==
-X-Gm-Message-State: AOJu0Yw+R0YP24IoWOVyosKnR6aBkvY91qIQi517vI3rdNxAztSwwFqt
-	ldIcEjpPTEfOGjh0VQ+cBiAYHkKbNH2XasAdEDMCDLPil7ETRTLyJiqTOyMXfZQ=
-X-Gm-Gg: ASbGncs8EzdEHcnyfAbpvQiSfFsatgG71poymcCQpMHO6aa/9PlQUlH3CRUVfkjpsPZ
-	355AEBDQ7UwZgb9VKLPI5Mf3pbZXijd0yefs8YsAymWW5VPc82QK2PTdT5lPnfroInRBeFPvu/x
-	Zm3KKnyUraHmzPcVK9kOBoHJZux9CU3FgkA2xuVuJmlahspaTPJn54hdpjfRMBe9nBredwdmdx6
-	4FFobrRnAhX3YDgzG99gnDsHFyFnJJGUdDfAbINzhWSNg0Zc2GcLd3V3XE73TJUGclLAm/2rfvB
-	Ow3vzejKcYOjjsHc8/M5dxlgJg==
-X-Google-Smtp-Source: AGHT+IFszoZ8SBA/9FJsuY6Uu27qPFJKW5beQGmqgaj/FjRsBLL1NiJEufHRTdvsslQRkUBHSfB1ow==
-X-Received: by 2002:a05:651c:198d:b0:308:f01f:182c with SMTP id 38308e7fff4ca-309036b453emr11165271fa.12.1739359389988;
-        Wed, 12 Feb 2025 03:23:09 -0800 (PST)
+        bh=gCv9qyhC7Wn0x41/PmaNXNh/X9H9ffqS+9z2MGX0UwA=;
+        b=DLnickrrHEt13r0Ei6Z1b0Xiyb/yAXJNqMmclZPjCELoHfFM7ay9xR2Q0pyAagBlYo
+         WtfzKhaYTVxQWny5HD7QxV1NwjMJSaWml2zvPYcXrWGduwOo/m+US8PFBgFQNhyIDhxU
+         +nxULRaSoMgiC2CDon/TdEQ4iPZDbNnvG2TM0PZKJF9827dFQ+belCMo/Ip7LS3TXp50
+         84Pg9T2NQHTPi5vaNWVa5dLg8kXNu1kjQeRBKtQjG6hLYHJd2cRrM7hkNf7RpGyGUYXn
+         1RdbsaJAtK/TLGUUgpfPrzd5frwgWBJAC1tvFSDa/ti8UIPuZu4f5+DylDY337/tpOgP
+         rsIA==
+X-Gm-Message-State: AOJu0YyXcR+C+9ZUprhjiQ1wnZ0kEVdvzU2clqlUy/pb8TGHVTyQfaXf
+	TEPBh4KG1WsG+2Tt3cEcNFQRuGkXnPt5teKxz39ULVeRHefVpJaJGE9GUqS1xlkY5NUhzMOQeYH
+	z
+X-Gm-Gg: ASbGncve2/02cnmaxsOrObkkxmKfwiVV2OnSuAproo19WXGYtTDmzkEDmS3PmrblAnH
+	sTp1R8JXKbYuYhjKNC5/tmw2oQLAJxW9DmaXhFlbdR/LXYoXBYcdqfCPloO0dQ3fX2jm2GITjhK
+	95Qf/KRwE8ZSzDWsNZFZtdOnAxzBI5IoHPuJTKftId7eii7d6Lw8zvspR5HwDMEnNXZceyrYnBN
+	6YUv72Y4aPSD44KW/fJoen6Z3rUbZThEZSrK2lpRvKt7EKzymmWtNtMdZA29iabAUDiaL54K37T
+	wxXqK96MYQvsNPC/2FxIceDkSg==
+X-Google-Smtp-Source: AGHT+IFfP7os8MQ1u1YZSNkqYKfZSgb/vW3ksTMdEyemTkz16qCj36YkFgGny3jWjjj/tutrgWjYQw==
+X-Received: by 2002:a05:651c:19aa:b0:302:3534:1d68 with SMTP id 38308e7fff4ca-309037abe6fmr8480831fa.4.1739359394471;
+        Wed, 12 Feb 2025 03:23:14 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.09
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:09 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:13 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:22:58 +0100
-Subject: [PATCH v4 04/31] ARM: process: Rewrite ret_from_fork i C
+Date: Wed, 12 Feb 2025 12:23:02 +0100
+Subject: [PATCH v4 08/31] ARM: entry: Move trace entry to C function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-4-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-8-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -102,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_112314_979822_AA27A4A8 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250212_032316_852210_1748B6F7 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,127 +104,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the direct assembly call to schedule_tail() and the
-call starting a kernel thread into a C version of ret_from_fork()
-in process.c and rename the old ret_from_fork to ret_from_fork_asm
-following the pattern in x86.
-
-Leave a comment on what we will do when we get to switching to
-generic entry with this as a base.
+This moves over the code entering into tracing into the
+C syscall invocation code. As syscall_trace_enter() will
+provide the current syscall number from the regs we need
+not provide the syscall number to the invocation function
+any more.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/switch_to.h |  4 ++++
- arch/arm/kernel/entry-common.S   | 22 +++++++++++++++-------
- arch/arm/kernel/process.c        | 24 ++++++++++++++++++++++--
- 3 files changed, 41 insertions(+), 9 deletions(-)
+ arch/arm/include/asm/syscall.h | 2 +-
+ arch/arm/kernel/entry-common.S | 6 +-----
+ arch/arm/kernel/syscall.c      | 5 ++++-
+ 3 files changed, 6 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/include/asm/switch_to.h b/arch/arm/include/asm/switch_to.h
-index 9372348516ce9b80fa713966943d0bc622e86066..18d084aff5a4faa7cc5e40d48fbc4aa97a89b0c6 100644
---- a/arch/arm/include/asm/switch_to.h
-+++ b/arch/arm/include/asm/switch_to.h
-@@ -17,6 +17,10 @@
- #define __complete_pending_tlbi()
- #endif
+diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
+index 1d21f26ecf510ac00a878b4d51a5753ee49475f5..66067d165ba3fbbe0f840a89ae396eb1a311bacc 100644
+--- a/arch/arm/include/asm/syscall.h
++++ b/arch/arm/include/asm/syscall.h
+@@ -20,7 +20,7 @@
+ extern const unsigned long sys_call_table[];
  
-+asmlinkage void ret_from_fork_asm(void);
-+__visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
-+			     int (*fn)(void *), void *fn_arg);
-+
- /*
-  * switch_to(prev, next) should switch from task `prev' to `next'
-  * `prev' will never be the same as `next'.  schedule() itself
+ int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *retp);
+-int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp);
++int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp);
+ 
+ static inline int syscall_get_nr(struct task_struct *task,
+ 				 struct pt_regs *regs)
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 2f93c2f6d5b8fdf6aaf3dda0192bde144fcf238d..df6961a1006b7a0f3522728812bf52ccb849e511 100644
+index 77801d039b5f6562b231a6fd4979e318c7e736a6..3cfc6d952ff99be9c4c1be4481ac3039260e3e57 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -5,6 +5,7 @@
-  *  Copyright (C) 2000 Russell King
-  */
+@@ -292,13 +292,9 @@ ENDPROC(vector_swi)
+ 	 * context switches, and waiting for our parent to respond.
+ 	 */
+ __sys_trace:
+-	add	r0, sp, #S_OFF
+-	bl	syscall_trace_enter
+-	mov	scno, r0
+-	mov	r2, r0				@ scno into r2
+ 	add	r1, sp, #S_R0 + S_OFF		@ pointer to regs
+ 	mov	r0, tbl
+-	badr	r3, __sys_trace_return
++	badr	r2, __sys_trace_return
+ 	bl	invoke_syscall_trace
+ 	cmp	r0, #-1
+ 	bne	__sys_trace_return
+diff --git a/arch/arm/kernel/syscall.c b/arch/arm/kernel/syscall.c
+index d637dc74b1c70415933898fbcadbedc71df5f654..377e16c8c53c8e809e3f8b157a889ef115d5c043 100644
+--- a/arch/arm/kernel/syscall.c
++++ b/arch/arm/kernel/syscall.c
+@@ -21,8 +21,11 @@ __visible int invoke_syscall(void *table, struct pt_regs *regs, int scno, void *
+ int invoke_syscall_trace_asm(void *table, struct pt_regs *regs, int scno, void *retp);
+ __ADDRESSABLE(invoke_syscall_trace_asm);
  
-+#include <linux/cfi_types.h>
- #include <asm/assembler.h>
- #include <asm/unistd.h>
- #include <asm/ftrace.h>
-@@ -128,15 +129,22 @@ ENDPROC(ret_to_user)
- /*
-  * This is how we return from a fork.
-  */
--ENTRY(ret_from_fork)
--	bl	schedule_tail
--	cmp	r5, #0
--	movne	r0, r4
--	badrne	lr, 1f
--	retne	r5
-+SYM_TYPED_FUNC_START(ret_from_fork_asm)
-+	/*
-+	 * ret_from_fork() expects:
-+	 * r0: prev
-+	 * r1: regs
-+	 * r2: fn() for kernel process or NULL
-+	 * r3: fn_arg for kernel process or N/A
-+	 */
-+	mov	r1, sp
-+	mov	r2, r5
-+	mov	r3, r4
-+	bl	ret_from_fork
-+	mov	r0, #0
- 1:	get_thread_info tsk
- 	b	ret_to_user
--ENDPROC(ret_from_fork)
-+SYM_FUNC_END(ret_from_fork_asm)
- 
- /*=============================================================================
-  * SWI handler
-diff --git a/arch/arm/kernel/process.c b/arch/arm/kernel/process.c
-index e16ed102960cb01d625e2ccc484f238b824b03b3..81c1c3f988344185917cf4e53d0d8ee47ae912f4 100644
---- a/arch/arm/kernel/process.c
-+++ b/arch/arm/kernel/process.c
-@@ -29,6 +29,7 @@
- #include <asm/processor.h>
- #include <asm/thread_notify.h>
- #include <asm/stacktrace.h>
-+#include <asm/switch_to.h>
- #include <asm/system_misc.h>
- #include <asm/mach/time.h>
- #include <asm/tls.h>
-@@ -230,7 +231,26 @@ void flush_thread(void)
- 	thread_notify(THREAD_NOTIFY_FLUSH, thread);
- }
- 
--asmlinkage void ret_from_fork(void) __asm__("ret_from_fork");
-+/* The assembly stub sets up the parameters and calls ret_from_fork() */
-+asmlinkage void ret_from_fork_asm(void) __asm__("ret_from_fork_asm");
-+
-+__visible void ret_from_fork(struct task_struct *prev, struct pt_regs *regs,
-+				     int (*fn)(void *), void *fn_arg)
-+{
-+	schedule_tail(prev);
-+
-+	/* Is this a kernel thread? */
-+	if (unlikely(fn)) {
-+		fn(fn_arg);
-+		/*
-+		 * A kernel thread is allowed to return here after successfully
-+		 * calling kernel_execve().  Exit to userspace to complete the
-+		 * execve() syscall.
-+		 */
-+	}
-+
-+	/* syscall_exit_to_user_mode(regs); here once we switch to generic entry */
-+}
- 
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+-__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, int scno, void *retp)
++__visible int invoke_syscall_trace(void *table, struct pt_regs *regs, void *retp)
  {
-@@ -263,7 +283,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		thread->cpu_context.r5 = (unsigned long)args->fn;
- 		childregs->ARM_cpsr = SVC_MODE;
- 	}
--	thread->cpu_context.pc = (unsigned long)ret_from_fork;
-+	thread->cpu_context.pc = (unsigned long)ret_from_fork_asm;
- 	thread->cpu_context.sp = (unsigned long)childregs;
++	int scno;
++
++	scno = syscall_trace_enter(regs);
+ 	if (scno == -1)
+ 		return -1;
  
- 	clear_ptrace_hw_breakpoint(p);
 
 -- 
 2.48.1
