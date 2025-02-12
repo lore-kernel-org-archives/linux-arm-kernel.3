@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AB1C0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 01:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BACC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 01:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyBGo4NEk4ou27pmwT3GiAGuDVYoMKwfHMTAe8m2fBI=; b=PttEJUC5KwpFacWeIrWHx12DKV
-	6sUyUH0rk0b7mbMoDJLRWiCbkOURRePSo8AiULp4ZqoHjrywTnKWEWugA9oadHZ2SbmcuNu9Z8Sa7
-	ZVewAFCaq0THW61ZX5kjH5lj64qua4TJf948M5HKbuzMC2DvVeO+opRz5hKRcpIGfPh0oseMXZCSt
-	I0UpHwKtloxDYJWlZXBzBYeGFrt7X59oQ8qr+S+wYbsKnVak4pRsR1fV9okg+mUzHq8bN77vmOeA7
-	SKZfVUy0xndk836POfY1PAvDLzlk13vKXM9k28aciBMfvu3iBTDCGWztcUGATh/2hFim0Kjg66j0M
-	eiHr6Hyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VBZC2/jHTxxeryv4NvR81eJqKkfxyQcoOWqjQmy9+cA=; b=L0NjDSD7S9CZ+rlgki8CVr3dtb
+	8zmVW/2UkeFgfBTU11GDikg/qGU9jY4uN9lboWQspIkJxtksyu5HFOPMLXJgwhq1g5l+OMjCH2915
+	2o9K9MNyXvX1sQCLs6SAeqiHgiLC1LLFq1dJSbkVSHrxFTdhg9FhnGEc8BsQFkmgeobRUWswssnzP
+	QPVa1yWMD/3/bHQWsj4ZPyBWCw/FhBcCkct1z9efGc02nW7slPvmLrnR9mBP4jjCjwYIlS9Jlwjde
+	qAUhNFprTFOsuBLJdUMsxDssEqplWTm0YRJ19nbbH8PhQTsWNZQpZQ/lZzkqQo6/qWFdu7Bnp3sp8
+	2vNy6JEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti17r-00000005mmK-24JF;
-	Wed, 12 Feb 2025 01:01:15 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1ti1cf-00000005q59-13Ml;
+	Wed, 12 Feb 2025 01:33:05 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti14O-00000005mNc-2alu
+	id 1ti1bF-00000005pq2-0eB6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 00:57:41 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5de6d412ee9so2000a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 16:57:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739321858; x=1739926658; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tyBGo4NEk4ou27pmwT3GiAGuDVYoMKwfHMTAe8m2fBI=;
-        b=TZ+xQmOQcoEbfiQU7G/2GfZW2b2S9mSBkrwtcszJqltM2904tCX8PVgTwV+fdJhUf/
-         yebxZ0osZkiyYR1Y6xPKvVZzVtbEUb17aj2n3GpRG/sPSijhBlRZ8OILkLh+ozfTYMFP
-         /wU+RFut9hX9ePdboJPl2MrnX91uq8IbXnU5TVIRG9so849XP6mYsrK9NSDiPTM/pQTf
-         D0SgknEQXLAq1ooS0lu9qGzVnxcqYnsUzkLnae+3wSZYgAQRdrNVeoJthhbuOSY1LjN8
-         VQI9zVBnL44eEIcyRCFDGJIJjXyH5qsWg2Jmm4mecYOq5fpOVk7jLtURHx9ZSL1PxBNI
-         +40Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739321858; x=1739926658;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tyBGo4NEk4ou27pmwT3GiAGuDVYoMKwfHMTAe8m2fBI=;
-        b=qhXnLTEkFhIxg0doQGYNTeQeppihRlMPdBFveepdESD9wROjJ9nfveq+RUgAS1Kh6P
-         9R7XkOxUmXP5iMfhg77zY2uxvuEbWSjzeux1yz+MERzF0BR2kWxTl05jFy11OGt9WBkE
-         cqDBlHwVYwMS0nurlzUX1toXXcAQxkzRf42GUfc2Fptal5GsHWVJflRy3y88JiB8SNyx
-         ZdF7SXo6i1PpanjjcDSmoLKN+BEIVlmcUfHlfF7e2sHGJs8aBVvAF4vxqYuRrpbDvOQj
-         w7hSbyemXn7HtsRQhc3UlrbChGQD7obgAL+FIZleYy4LQBmTRL8dT53mUnWh33lKzzpG
-         kNKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+ubZriASD7InKQMbsc+MJsjb4ycnF/wwywxRNgSTQKCFt7gxAn4RvOPAthwQmqq51Zr1qOs0hSbe/ml4Y5A0t@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxcId+LyVXw6RmBOvKKv3e8vd/rPFkddqc6TOopMB6aDZSkrXE
-	WWDRz7RFN9IS40XjnUY2qH9L+zzaAAuJJnT4uwxveRJKqSZibeOKp/qLHxtlltr0tXPLqnKDpig
-	99h114OlN/f5Xwzzl0NOmx6vgu6hFK+TN2P31
-X-Gm-Gg: ASbGncvWrXd69nklx+Jm2vTwXFleNk5eAvoGuwMQCR/iew9yrWmRuJKKMUMwPf/evGs
-	bJepRi3mxMq2T+1i6zlYtQPLOGlzClIoOzpogECpNI32HnKslma9+XEXnXGq1X5WKs3NLPKLzv6
-	wOP10n+PcYd0Q1fCwJShMhWqZICYM=
-X-Google-Smtp-Source: AGHT+IGGry5l4RQEnuSdk6aioJ+bv1rbvIM1o5se3iV5Jtj1b2iEWNaQAzttrNeymsRtOervTIxy8hxdeVXm7d1+3Ag=
-X-Received: by 2002:a05:6402:ca5:b0:5dc:ea60:45aa with SMTP id
- 4fb4d7f45d1cf-5deb0dc7a96mr19983a12.1.1739321857927; Tue, 11 Feb 2025
- 16:57:37 -0800 (PST)
+	Wed, 12 Feb 2025 01:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739323898; x=1770859898;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2P9OIohU3wD9oOGB9eNAVlkpx3MFF4NEtZDybI+Itwc=;
+  b=WliKG5R738xaedBno+n78x7PIp2Mgi9uuhDMuqOJ4+IFAIg/1LAz0aJF
+   rm6yUbnuRs/xrTWVfkuJYAixLDp4k/WmuFEddtDfzFGoAFiP//yM1wzbo
+   gEUyanxzvNh85VMmL0FmazPfxKsl0XfIvzstyWs23CViE+uH3wcGnvibz
+   bFXbYRmmoolpeUAObdOrndkNs/YXTuzNoXLYpyHpuLzb1LNVwHfKXlS7+
+   VQihOpFfUEnch6/5tSm+LTeBoZ/DL852q8LrOv4vG+kZuj+6CvKFqnny/
+   eIw6wx7lgIiL3SlIX7y3cuLsyBzsOF3ndoMLFtv7aoxiIOwE0hOKVMzc7
+   w==;
+X-CSE-ConnectionGUID: YS1Z1D0vQ/+Sg8VEiwCfjQ==
+X-CSE-MsgGUID: hXZwYctJRSypbOzem6qfwQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="57373636"
+X-IronPort-AV: E=Sophos;i="6.13,279,1732608000"; 
+   d="scan'208";a="57373636"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2025 17:31:36 -0800
+X-CSE-ConnectionGUID: NsmMaeFAR+qZuqttuSstfQ==
+X-CSE-MsgGUID: J6ybvcBxQWeW6pWDcUMKfg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,279,1732608000"; 
+   d="scan'208";a="112430138"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 11 Feb 2025 17:31:32 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ti1b7-0014wT-15;
+	Wed, 12 Feb 2025 01:31:29 +0000
+Date: Wed, 12 Feb 2025 09:31:02 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
+	hverkuil@xs4all.nl, sebastian.fricke@collabora.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+	linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
+	lafley.kim@chipsnmedia.com, Nas Chung <nas.chung@chipsnmedia.com>
+Subject: Re: [PATCH 7/8] media: chips-media: wave6: Add Wave6 control driver
+Message-ID: <202502120928.wbtfGrUk-lkp@intel.com>
+References: <20250210090725.4580-8-nas.chung@chipsnmedia.com>
 MIME-Version: 1.0
-References: <20250210163732.281786-1-ojeda@kernel.org> <CALNs47uBcyTmBdTBAPXiBcAkE0-4tih9j=VAv1rRcTcf_c2yTg@mail.gmail.com>
-In-Reply-To: <CALNs47uBcyTmBdTBAPXiBcAkE0-4tih9j=VAv1rRcTcf_c2yTg@mail.gmail.com>
-From: Matthew Maurer <mmaurer@google.com>
-Date: Tue, 11 Feb 2025 16:57:25 -0800
-X-Gm-Features: AWEUYZlRV6pF3AGbc0XvrMoRFXalIUrBnJyNWQn2iVM9raDE_v1HBIS8LQ3IxnI
-Message-ID: <CAGSQo00rWwhcT0SjhUn_e3o+TyCP2stadHwANkmE7-AEeSHBAA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat target
-To: Trevor Gross <tmgross@umich.edu>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev, stable@vger.kernel.org, 
-	Ralf Jung <post@ralfj.de>, Jubilee Young <workingjubilee@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210090725.4580-8-nas.chung@chipsnmedia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_165740_655575_719819CF 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20250211_173137_239243_777BC51C 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +92,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I successfully booted this on the emulator (with some additional
-patches to our system unrelated to this issue), so
+Hi Nas,
 
-Tested-by: Matthew Maurer <mmaurer@google.com>
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on linuxtv-media-pending/master]
+[also build test WARNING on arm64/for-next/core robh/for-next linus/master v6.14-rc2 next-20250210]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Nas-Chung/media-platform-chips-media-wave5-Rename-Kconfig-parameter/20250210-171144
+base:   https://git.linuxtv.org/media-ci/media-pending.git master
+patch link:    https://lore.kernel.org/r/20250210090725.4580-8-nas.chung%40chipsnmedia.com
+patch subject: [PATCH 7/8] media: chips-media: wave6: Add Wave6 control driver
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250212/202502120928.wbtfGrUk-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 6807164500e9920638e2ab0cdb4bf8321d24f8eb)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502120928.wbtfGrUk-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502120928.wbtfGrUk-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/media/platform/chips-media/wave6/wave6-vpu-ctrl.c:384:4: warning: format specifies type 'long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
+     383 |                 dev_err(ctrl->dev, "firmware size (%ld > %zd) is too big\n",
+         |                                                    ~~~
+         |                                                    %zu
+     384 |                         fw->size, ctrl->boot_mem.size);
+         |                         ^~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+>> drivers/media/platform/chips-media/wave6/wave6-vpu-ctrl.c:929:58: warning: format specifies type 'unsigned long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
+     928 |                 dev_info(&pdev->dev, "sram 0x%pad, 0x%pad, size 0x%lx\n",
+         |                                                                   ~~~
+         |                                                                   %zx
+     929 |                          &ctrl->sram_buf.phys_addr, &ctrl->sram_buf.dma_addr, ctrl->sram_buf.size);
+         |                                                                               ^~~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:160:67: note: expanded from macro 'dev_info'
+     160 |         dev_printk_index_wrap(_dev_info, KERN_INFO, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                  ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   2 warnings generated.
 
 
-On Tue, Feb 11, 2025 at 3:10=E2=80=AFAM Trevor Gross <tmgross@umich.edu> wr=
-ote:
->
-> On Mon, Feb 10, 2025 at 10:38=E2=80=AFAM Miguel Ojeda <ojeda@kernel.org> =
-wrote:
-> >
-> > Starting with Rust 1.85.0 (to be released 2025-02-20), `rustc` warns
-> > [1] about disabling neon in the aarch64 hardfloat target:
-> >
-> >     warning: target feature `neon` cannot be toggled with
-> >              `-Ctarget-feature`: unsound on hard-float targets
-> >              because it changes float ABI
-> >       |
-> >       =3D note: this was previously accepted by the compiler but
-> >               is being phased out; it will become a hard error
-> >               in a future release!
-> >       =3D note: for more information, see issue #116344
-> >               <https://github.com/rust-lang/rust/issues/116344>
-> >
-> > Thus, instead, use the softfloat target instead.
-> >
-> > While trying it out, I found that the kernel sanitizers were not enable=
-d
-> > for that built-in target [2]. Upstream Rust agreed to backport
-> > the enablement for the current beta so that it is ready for
-> > the 1.85.0 release [3] -- thanks!
-> >
-> > However, that still means that before Rust 1.85.0, we cannot switch
-> > since sanitizers could be in use. Thus conditionally do so.
-> >
-> > Cc: <stable@vger.kernel.org> # Needed in 6.12.y and 6.13.y only (Rust i=
-s pinned in older LTSs).
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Matthew Maurer <mmaurer@google.com>
-> > Cc: Alice Ryhl <aliceryhl@google.com>
-> > Cc: Ralf Jung <post@ralfj.de>
-> > Cc: Jubilee Young <workingjubilee@gmail.com>
-> > Link: https://github.com/rust-lang/rust/pull/133417 [1]
-> > Link: https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler=
-/topic/arm64.20neon.20.60-Ctarget-feature.60.20warning/near/495358442 [2]
-> > Link: https://github.com/rust-lang/rust/pull/135905 [3]
-> > Link: https://github.com/rust-lang/rust/issues/116344
-> > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
->
-> This is consistent with what has been discussed for a while on the Rust s=
-ide.
->
-> Reviewed-by: Trevor Gross <tmgross@umich.edu>
+vim +384 drivers/media/platform/chips-media/wave6/wave6-vpu-ctrl.c
+
+   357	
+   358	static void wave6_vpu_ctrl_load_firmware(const struct firmware *fw, void *context)
+   359	{
+   360		struct vpu_ctrl *ctrl = context;
+   361		struct wave6_vpu_entity *entity = ctrl->current_entity;
+   362		u32 product_code;
+   363		int ret;
+   364	
+   365		ret = pm_runtime_resume_and_get(ctrl->dev);
+   366		if (ret) {
+   367			dev_err(ctrl->dev, "pm runtime resume fail, ret = %d\n", ret);
+   368			mutex_lock(&ctrl->ctrl_lock);
+   369			wave6_vpu_ctrl_set_state(ctrl, WAVE6_VPU_STATE_OFF);
+   370			ctrl->current_entity = NULL;
+   371			mutex_unlock(&ctrl->ctrl_lock);
+   372			release_firmware(fw);
+   373			return;
+   374		}
+   375	
+   376		if (!fw || !fw->data) {
+   377			dev_err(ctrl->dev, "No firmware.\n");
+   378			ret = -EINVAL;
+   379			goto exit;
+   380		}
+   381	
+   382		if (fw->size + WAVE6_EXTRA_CODE_BUF_SIZE > wave6_vpu_ctrl_get_code_buf_size(ctrl)) {
+   383			dev_err(ctrl->dev, "firmware size (%ld > %zd) is too big\n",
+ > 384				fw->size, ctrl->boot_mem.size);
+   385			ret = -EINVAL;
+   386			goto exit;
+   387		}
+   388	
+   389		product_code = entity->read_reg(entity->dev, W6_VPU_RET_PRODUCT_VERSION);
+   390		if (!PRODUCT_CODE_W_SERIES(product_code)) {
+   391			dev_err(ctrl->dev, "unknown product : %08x\n", product_code);
+   392			ret = -EINVAL;
+   393			goto exit;
+   394		}
+   395	
+   396		memcpy(ctrl->boot_mem.vaddr, fw->data, fw->size);
+   397	
+   398	exit:
+   399		mutex_lock(&ctrl->ctrl_lock);
+   400		if (!ret && wave6_vpu_ctrl_find_entity(ctrl, ctrl->current_entity)) {
+   401			wave6_vpu_ctrl_remap_code_buffer(ctrl);
+   402			ret = wave6_vpu_ctrl_init_vpu(ctrl);
+   403		} else {
+   404			ret = -EINVAL;
+   405		}
+   406		mutex_unlock(&ctrl->ctrl_lock);
+   407	
+   408		pm_runtime_put_sync(ctrl->dev);
+   409		release_firmware(fw);
+   410	
+   411		mutex_lock(&ctrl->ctrl_lock);
+   412		ctrl->current_entity = NULL;
+   413		if (ret)
+   414			wave6_vpu_ctrl_set_state(ctrl, WAVE6_VPU_STATE_OFF);
+   415		else
+   416			wave6_vpu_ctrl_boot_done(ctrl, 0);
+   417		mutex_unlock(&ctrl->ctrl_lock);
+   418	
+   419		wake_up_interruptible_all(&ctrl->load_fw_wq);
+   420	}
+   421	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
