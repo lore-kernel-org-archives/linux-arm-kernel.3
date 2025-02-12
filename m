@@ -4,57 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C69C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956F4C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9YBH9UyznpRVlP3/w2Oqz8oZTY66Gg6x58A7aj+HJ8=; b=ZsodXRNUWVp63g8qNlYMGPmnci
-	T1Bhqq2n1E7QLOAU8GLDxBF6Y0+dPWSXcF5HLkx9wKDm6vTeqXVxUZQqSUGNUo70r31OntWeuqvGg
-	IKFip9VWkmMVGAZ8RDoFJrDT8K5E+bD8tNbKNSAEBrYpGDtakCnuvqgrHu4RJaPR1Y3n1+8P7zJHU
-	5zK+R7mBxi1oWG1xYb/CJ4B6srGvHcVp1MTSJnl2p47Y3c8x7x4mOka0/sbvE+a4rDMSwabDSRdmC
-	eKRFVFkshpiDSdx8oPEFkMOmdWSeO0NZhh5Ixs/tEJa+CcrH23Mkccxk7deXEDC9x87drQvsjRMzc
-	yzcVwjnw==;
+	bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=; b=tRydop1Civ6S32S/Lo90sAeZDd
+	I+uBaVHuQ2VCDY1dcssDc0/zaXtbAVtU+5GHibTCp6G3Nf/xTboD+00u/CpFfy71voJfSuBSFBy8I
+	L6ElU8pZE+SzQblhb0yl8rqQtELza0pTkwrqwiHil1zSEo3KHr1gVAggjYcR+8GqElyLDjiAJhu+U
+	KrqF92Q7KpwDlndr5wLHU0aiyzwRa7iukrfKP9sKUQC460aWnSS8QzhvoOomf6NZ4hmTvc+QWkbUI
+	3R6dhu+N+aHrQjFesn/XumsOfaDdUkV0uqy262T/NAZzStE5EcsSAfD8JrvS0JwaG8A1FY5fNrwE2
+	f/rvXUyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiKw4-00000008zef-1sdx;
-	Wed, 12 Feb 2025 22:10:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiL1Q-000000090WE-1l1Z;
+	Wed, 12 Feb 2025 22:15:56 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiKud-00000008zLM-2DVc
+	id 1tiKzy-000000090FB-25nM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 22:08:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6BE905C625B;
-	Wed, 12 Feb 2025 22:08:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D87C4CEE5;
-	Wed, 12 Feb 2025 22:08:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739398134;
-	bh=RSxeycxN+OR2igWs7iCrFsgBzSuOib+ZW47/gosGsbo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=S3uDUavh3srVd/+ScWyYzIgrv9yfSjD3VWdiUs8F90WyBe+qeaVzl7rfrHgoMyJna
-	 5O92+xsrNLpe8Wx74mhBcJRud9eVDTo0YFmFEk3RWeQroO9xJAnWW1X1GgvcQYHeDc
-	 HpTA6edH7JXUog7PEVIKlfYfWRbVkXJR0GOFahCYDF8FksTcB+kh1HkuvX7BoeJPha
-	 lntcn9Jr6Zsvj8tcwZKvZSWpgHDCaDHIcvwvqwnJxZj5OPg+BxwbdUrK9c5YcqPVgE
-	 CgIAv9ML+/T+BA9G46HeWIU/vjVCmXh8IHjnpZBCDBE9yGB2T52Nf1ixzUnRR8Ct02
-	 XkDycYYo+ykow==
-Date: Wed, 12 Feb 2025 16:08:53 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 12 Feb 2025 22:14:27 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-219f6ca9a81so7895ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 14:14:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739398465; x=1740003265; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=;
+        b=gTVTYSfFJddONwZRsaAjv9qlLQWPrgsZos9iHiCf1zaFPJXPIRvSCTy3iQEiV0diND
+         E13zySMONZKTOFMa7zeLj9mVNNzXgdUnYDfFZti0BvSJ3E4IOe1qR+HdkR/jWZPJcmLe
+         ClmVqr2Bx4GjB3sd4y7QANyM+s4jvAB8kSb7hF0hRJcGFepDVPhqmT4cQDdzCtXoCiFt
+         pONXwV2vS/7/5FoyZ2NQlEcTGZn4miUvSmIOVyihOghi4FPDGMmWCuGIPgJVN1HkcIQV
+         UjQZ+B4cnfe8VEG7LUx8fOgqy6uDPkpC1X2sF3olxUDgbxrQ0zvl/JhUI7HOvoR1df8i
+         W4Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739398465; x=1740003265;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=;
+        b=hDRWEu9sAdzsZ3dDQiLyCbWc1IxflBXAbATlEesIu1HFeuY8OeAPl8w9u5hK8ltbq6
+         bdfYgb+aPJZcgd+PSgJaZ8sObuE0rFPVAqIAnUrBA7AzRe7CCIZnzlqo9Yc/N5ggUB0r
+         ho4heQpD0G/d+kabsX7lDQ6NDg44WiIibURnhSgK8PDO/H67gy/9/X5/JYHHBZz8jTIL
+         IoL1FYsde7vtb/a/gE0/NSQxvhOTZXgd706ri1lQGDTm3sOXurV/uDsj/2gH5PkfeE0g
+         5PG4TOecJs8T/87SqYlQDofL433HlV0VRUpcZd8B1KtQYIFC4XltbFMN0KTE+lOwEkOi
+         i9eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsIlllA0TJO17EXO6gxqcvSG+OHY3K1srMJ14aYtFD5yvk9KreOjW4s5DpNx8XzS6TByK5nI4mqWShdiM+HVoF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVwosDUkKxlCgRMuhax2ixhYJGTWzSBY8TXzhj2LiAXWcbqfoN
+	CFWn4o9Dauni28sBoX2O0KOocvqw5s9l0u+Es3O3ARNnJ4bCozbgi9yH2ckCJg==
+X-Gm-Gg: ASbGncs7dhv0oigO4DONVPlz+8NG+5qZsubg4ECQNkxgkifgn1WTjZg05Qk9Bh0l66+
+	d8Op/a2hukv7MPzDsjAgjG2iDU9M/IRqSa8Ki5Coc/q+cFrbcUXqhigwPUMnrls04NwvShU8E0b
+	pEf8z0eT78sBFheXXjYXXbPfyu0qQTlU8lmAsyrnSC1Ghn3RUJTYJW+aZ6y3Sj2eqUSkIaADA7P
+	gLgRi0blDOGeZLnjDhKEwrvPRBvIlKeoBzA/eWrdSewYIXDSHUaPvrZXlA/0/zFLUh/xK/4oW89
+	rksM46aU370F4sQDukiktYD27uiHXN4D6zrmhCb/H4GHM0iojYSOmw==
+X-Google-Smtp-Source: AGHT+IHoHezTdxvkJ/1VIrDh3oYzMtm6RGlYCwXFrwTeWP7zj3QgqCDHMbHI4+dadLOhjZf0y9DdCw==
+X-Received: by 2002:a17:902:f550:b0:21c:e29:b20d with SMTP id d9443c01a7336-220d555da00mr178295ad.3.1739398464924;
+        Wed, 12 Feb 2025 14:14:24 -0800 (PST)
+Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048ae7f8fsm11770742b3a.71.2025.02.12.14.14.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 14:14:24 -0800 (PST)
+Date: Wed, 12 Feb 2025 22:14:19 +0000
+From: Peilin Ye <yepeilin@google.com>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	David Vernet <void@manifault.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Yingchi Long <longyingchi24s@ict.ac.cn>,
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
+	Neel Natu <neelnatu@google.com>,
+	Benjamin Segall <bsegall@google.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
+ store-release instructions
+Message-ID: <Z60dO2sV6VIVNE6t@google.com>
+References: <cover.1738888641.git.yepeilin@google.com>
+ <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
+ <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
+ <Z6gRHDLfA7cjnlSn@google.com>
+ <CAADnVQLkHA9LGv99k2TZOJEGUU=dw=q6nVurJ=aoh0v6cFS6zQ@mail.gmail.com>
+ <Z6qC303CzfUMN8nV@google.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-In-Reply-To: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
-References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
-Message-Id: <173939808305.598743.2426492109317429179.robh@kernel.org>
-Subject: Re: [PATCH 00/12] bluetooth: hci_wilc: add new bluetooth driver
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6qC303CzfUMN8nV@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_140855_658164_7392AF22 
-X-CRM114-Status: GOOD (  37.56  )
+X-CRM114-CacheID: sfid-20250212_141426_537989_7FDFDA5C 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,127 +125,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Marcel Holtmann <marcel@holtmann.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Kalle Valo <kvalo@kernel.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Simon Horman <horms@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 12 Feb 2025 16:46:19 +0100, Alexis Lothoré wrote:
-> Hello,
+On Mon, Feb 10, 2025 at 10:51:11PM +0000, Peilin Ye wrote:
+> > >   #define BPF_LOAD_ACQ   0x10
+> > >   #define BPF_STORE_REL  0x20
+> > 
+> > why not 1 and 2 ?
 > 
-> WILC3000 ([1]) is a combo chip exposing 802.11b/g/n and Bluetooth 5.
-> Support for the wlan part has recently been integrated upstream ([2]) in
-> the existing wilc1000 driver. This new series aims to bring support for
-> the bluetooth side.
+> I just realized that we can't do 1 and 2 because BPF_ADD | BPF_FETCH
+> also equals 1.
 > 
-> The WILC3000 chip is controlled through a SDIO or SPI bus for the wlan
-> part (similarly to wilc1000), and uses standard HCI commands over a UART
-> bus for the bluetooth operations. This work is based on the code
-> available in the vendor kernel ([3]), in which bluetooth is managed
-> directly in the wireless driver, and relies on user to trigger the
-> hardware configuration (chardev manipulations + hciattach). The series
-> brings a new dedicated bluetooth driver to support the bluetooth feature
-> from the chip, without relying on the user to perform the device
-> bringup. However, getting completely rid of the wlan driver dependency
-> is not possible: it is still needed for early BT CPU configuration and
-> BT firmware download, so the new driver still have a dependency of the
-> wlan one, with an approach similar to the one used by the rsi driver.
+> > All other bits are reserved and the verifier will make sure they're zero
 > 
-> - Patch 1 brings the new dt binding
-> - Patch 2-9 prepares the wlan side, either by exposing the needed
->   functions to initialize BT, or by mitigating behavior which would
->   prevent BT and WLAN from runnning in parallel
-> - Patch 10 brings the new bluetooth driver
-> - Patch 11 updates the device tree description for sama5d27_wlsom1_ek
->   board (which I used to validate this series) to use the new driver
-> - Patch 12 adds a new entry for this driver in the MAINTAINERS files
+> IOW, we can't tell if imm<4-7> is reserved or BPF_ADD (0x00).  What
+> would you suggest?  Maybe:
 > 
-> This series has been tested with WILC3000 both in SDIO mode (with the
-> chip embedded on the sama5d27_wlsom1_ek) and SPI mode (custom wiring on
-> an SPI on the same eval board, with a WILC3000-SD).
+>   #define BPF_ATOMIC_LD_ST 0x10
 > 
-> Since this works needs new code in both the existing wlan driver and the
-> new driver, I have included both linux-wireless and bluetooth mailing
-> lists, while keeping the entire series for clarity, but let me know if
-> you want to proceed differently.
+>   #define BPF_LOAD_ACQ      0x1
+>   #define BPF_STORE_REL     0x2
 > 
-> [1] https://www.microchip.com/en-us/product/atwilc3000
-> [2] https://lore.kernel.org/linux-wireless/20241004114551.40236-1-marex@denx.de/
-> [3] https://github.com/linux4microchip/linux/tree/linux-6.6-mchp/drivers/net/wireless/microchip/wilc1000
-> 
-> ---
-> Alexis Lothoré (12):
->       dt-bindings: bluetooth: describe wilc 3000 bluetooth chip
->       wifi: wilc1000: add a read-modify-write API for registers accesses
->       wifi: wilc1000: add lock to prevent concurrent firmware startup
->       wifi: wilc1000: allow to use acquire/release bus in other parts of driver
->       wifi: wilc1000: do not depend on power save flag to wake up chip
->       wifi: wilc1000: remove timeout parameter from set_power_mgmt
->       wifi: wilc1000: reorganize makefile objs into sorted list
->       wifi: wilc1000: add basic functions to allow bluetooth bringup
->       wifi: wilc1000: disable firmware power save if bluetooth is in use
->       bluetooth: hci_wilc: add wilc hci driver
->       ARM: dts: at91-sama5d27_wlsom1: update bluetooth chip description
->       MAINTAINERS: add entry for new wilc3000 bluetooth driver
-> 
->  .../net/bluetooth/microchip,wilc3000-bt.yaml       |  41 +++
->  MAINTAINERS                                        |   7 +
->  .../boot/dts/microchip/at91-sama5d27_wlsom1.dtsi   |   8 +
->  .../boot/dts/microchip/at91-sama5d27_wlsom1_ek.dts |  10 -
->  drivers/bluetooth/Kconfig                          |  13 +
->  drivers/bluetooth/Makefile                         |   3 +-
->  drivers/bluetooth/hci_uart.h                       |   1 +
->  drivers/bluetooth/hci_wilc.c                       | 333 ++++++++++++++++++++
->  drivers/net/wireless/microchip/wilc1000/Kconfig    |   3 +
->  drivers/net/wireless/microchip/wilc1000/Makefile   |  11 +-
->  drivers/net/wireless/microchip/wilc1000/bt.c       | 345 +++++++++++++++++++++
->  drivers/net/wireless/microchip/wilc1000/cfg80211.c |   7 +-
->  drivers/net/wireless/microchip/wilc1000/hif.c      |   2 +-
->  drivers/net/wireless/microchip/wilc1000/hif.h      |   2 +-
->  drivers/net/wireless/microchip/wilc1000/netdev.c   |  14 +
->  drivers/net/wireless/microchip/wilc1000/netdev.h   |   5 +
->  drivers/net/wireless/microchip/wilc1000/sdio.c     | 101 ++++--
->  drivers/net/wireless/microchip/wilc1000/spi.c      |  43 +++
->  drivers/net/wireless/microchip/wilc1000/wlan.c     | 154 ++++-----
->  drivers/net/wireless/microchip/wilc1000/wlan.h     |  23 ++
->  include/net/wilc.h                                 |  19 ++
->  21 files changed, 996 insertions(+), 149 deletions(-)
-> ---
-> base-commit: 95f6f2d73dc40ab53a94756689ce5cfd2f23361a
-> change-id: 20240828-wilc3000_bt-fa452f2a93ad
-> 
-> Best regards,
-> --
-> Alexis Lothoré, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
-> 
-> 
+> ?
 
+Or, how about reusing 0xb in imm<4-7>:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+  #define BPF_ATOMIC_LD_ST 0xb0
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+  #define BPF_LOAD_ACQ      0x1
+  #define BPF_STORE_REL     0x2
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+0xb is BPF_MOV in BPFArithOp<>, and we'll never need it for BPF_ATOMIC.
+Instead of moving values between registers, we now "move" values from/to
+the memory - if I can think of it that way.
 
-  pip3 install dtschema --upgrade
+- - -
+Or, do we want to start to use the remaining bits of the imm field (i.e.
+imm<8-31>) ?
 
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for 20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com:
-
-arch/arm/boot/dts/microchip/at91-sama5d3_eds.dtb: nand-controller: #address-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
-arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1_ek.dtb: serial@200: Unevaluated properties are not allowed ('bluetooth@0' was unexpected)
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml#
-
-
-
-
+Thanks,
+Peilin Ye
 
 
