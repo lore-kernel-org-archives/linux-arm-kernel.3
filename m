@@ -4,69 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30332C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71784C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Wyn3ZWeTW+KknbHKZHUScbr1dXa/ytH+65Z8SgfDpi8=; b=2malRXHqR5jPmU
-	Rkh4ViTJIXb6OKTs7sTO73eK9xw3Pb1y08jMFU/REXleTIwMh1Wf2SJBtMwmOPqK8uENN8t+aK2rl
-	0uNX3xT9fxOqelJSlRYqe6mtlCkRnFLzpIAHvQaaOlehR1W1CwwIQtm6596Ns1PVtXrRgkMJB39Ar
-	SdsToRV2zkv8Q7FLoPU44JMfj5k/GpFBRpWwEHko/ceSnr8SdQwVE0ppCyYTCE6fFQDQUku10TMAB
-	rEDSQtsO3r02oJ/CyBSe/CVTc4Kp3+DglEvwQrNdL2jDz2jr5tegPc034wXaZwtYggGOYj35FI4W2
-	DMjGgAUsUEouDfz1smVQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=; b=DYH25fC09Kj3FT5bw5QfgzxPsQ
+	ODF7Dbh8x7N0Ma4ARaxAcFjSS6b6Q2DgatmSQBrx/bL7veZcGAFIgZlBV/Kw7b0oxIJtaAZskL4L9
+	HiUagE8cZ3Hh/RDmQw4ultdB1fYjaIp3Uw6kRe4JiWHHvquW6iCk1iPkV4kAUsk3pOMNc/d067egy
+	lUQZkzeXIJUvL1rt+mq4PDrBMLAUHaPGRAKv+hUnCNUbtJ8IoiCnsmhvlSI0vVdkaf2PC6kIPYK8g
+	aHJaKpKaU3Bf1w6P6bubT70lMwg5dRVUqP/aIYRf2fzG8Nb7SSTOmRpT9jM4qq8Wju6AyXX161N7V
+	l5y/AIGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGsz-00000008O3Y-3cLU;
-	Wed, 12 Feb 2025 17:50:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiGuN-00000008OGi-0i6Q;
+	Wed, 12 Feb 2025 17:52:23 +0000
+Received: from mail-bn7nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2009::60a] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGkQ-00000008M6V-0Jdh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 17:42:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D62FF5C601A;
-	Wed, 12 Feb 2025 17:41:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D66E2C4CEE2;
-	Wed, 12 Feb 2025 17:42:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739382125;
-	bh=loNBIWe8uSSK8MAm/lf+M/kKR/0mRHHG8PYDOBq+xPc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=W+RzxopBTChGcE+WL5peQSt0RWDQzGw0kUNuri+IQ4+lXJu+zU60qp5tNIotiBATK
-	 96RBcAeYiWClh7IBvJYdy14puLeSJyKQirlBYegqIASiHk/iAii68C5UUCZ7RBCxhF
-	 0748nlgv7C2Pgn1+QMfqZBY1pn6nPkKbkNi352w8nmyJbuz3ZEIOfKHZEAwnrEUV8q
-	 Xv8gHr9cysmZVO1KJLOI8QTw+KHKInXTH7ihIL0NFLcW1/lsQnw/JSRiPevZv+FPTv
-	 maOhICE2pw8B796s9kqxur6Ojm+GJ0IXuJ3DyqYrWSN+3AS2toF7Bn6U7wPUz0I9Vd
-	 WaVZSuo95ukRQ==
-Date: Wed, 12 Feb 2025 11:42:03 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Roman Kisel <romank@linux.microsoft.com>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
-	catalin.marinas@arm.com, conor+dt@kernel.org,
-	dave.hansen@linux.intel.com, decui@microsoft.com,
-	haiyangz@microsoft.com, hpa@zytor.com, krzk+dt@kernel.org,
-	kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
-	ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
-	will@kernel.org, devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, x86@kernel.org, benhill@microsoft.com,
-	bperkins@microsoft.com, sunilmut@microsoft.com
-Subject: Re: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
- DeviceTree
-Message-ID: <20250212174203.GA81135@bhelgaas>
-MIME-Version: 1.0
+	id 1tiGlR-00000008MOr-3D4Q;
+	Wed, 12 Feb 2025 17:43:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hVJBSwDw2qAPMBIclB5NQARQtlUAmjOiiEwinfHtuz708pu/+Kz9UAAsQywdHczHU2cwrxlb5j8i+neZZmikM564uV92M0NVuwn2PVSWRWmCGpXwrJFgqlklVJc+IBUbdIbeH/NapL9yK2VKlqbTmzpU/OvT5b+9XoCrVQG2i519VjzzqiG8R4nVHZMMf3vGIGCfQgGW4HoJu3plD6GmA7eEyC5aydAQna9/tPOvjSYBj1QKszZd0MCzS4GsG8t8+ovq3mt1WBjXx3th/hquL0Ppf/kSQ3n9KS4jqFtd7Bb9J5LXs/Wr3SLm6UgE2nZg0Nd8pzJWxIdpXWMSSrDWAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=;
+ b=xNHOpSjxJB2dVr97AchlClMUt7pZkoO+vG/NOB1r5edbWAL8hartgZjW/LA/32wnWDIwM5eAf6zLmwfUBoBzjd6Rr1paCavxlQTeb66HQ/jBNn3O5dMkyrncuevjlrKESSTy3Yjbc/tk+lZ8JpbjiQq7Tkc+Fs1+fR6K8CBnFgO5upe8yBi8r3giM3gx+jgiIUfLrNMR5AKuxj5ymXbBjpY0Rcq5pCVyySW133I0iM69xKaqzRAIgqlHNsE3fYDYXTjMxYEpO8hYqsMuAqOHzDK+tm/w5kpJwCrOchjP7rkCx/QacZTg2ZyT7ACx4KeVHmLbo8Rdl7Bmsk2M16Jg8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vyw93R2lC4BMMJo1dRa13p+G9jwrKioAwOQKXvCREz4=;
+ b=B5mT3kVEfHmiQQhmC0MYKqyKcfPVbLuuFFJ2o7idT/yGzWvqfdCxXs4wOJT37RaM4NeeQatDnqzx92hZT1AMujQYGcFf5Gtt5Bv5Nb1Y2MZ2JSVyriamWtBKK6pUv/Iu/GHDsOzBGRDmYheZZSRlNc5B3JbVx3DsrXKHufVx0BuelS2g5rKThZNkU1ubjvnH/eUN+NviT45chJgz25VbfMjdx2Wxy8i7tjlEq8L30WSkgy/sTYmXS1hXvJqovg8jqmWXoTFa1yvtHpZ+OL9W+fmZHdzVQ+JqXKQ6WQmjaCdukOjGX5eB8MP39VD+qE759uT8j09Fwk2xRU7dcjrSZA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com (2603:10b6:303:240::9)
+ by IA1PR12MB8221.namprd12.prod.outlook.com (2603:10b6:208:3f0::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Wed, 12 Feb
+ 2025 17:43:04 +0000
+Received: from MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f]) by MW6PR12MB8663.namprd12.prod.outlook.com
+ ([fe80::594:5be3:34d:77f%2]) with mapi id 15.20.8422.015; Wed, 12 Feb 2025
+ 17:43:04 +0000
+Date: Wed, 12 Feb 2025 13:43:03 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
+	linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 05/14] kexec: Add Kexec HandOver (KHO) generation
+ helpers
+Message-ID: <20250212174303.GU3754072@nvidia.com>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-6-rppt@kernel.org>
+ <20250210202220.GC3765641@nvidia.com>
+ <CA+CK2bBBX+HgD0HLj-AyTScM59F2wXq11BEPgejPMHoEwqj+_Q@mail.gmail.com>
+ <20250211124943.GC3754072@nvidia.com>
+ <CA+CK2bAEnaPUJmd3LxFwCRa9xWrSJ478c4xisvD4pwvNMiTCgA@mail.gmail.com>
+ <20250211163720.GH3754072@nvidia.com>
+ <20250212152336.GA3848889@nvidia.com>
+ <Z6zOqtaLQwnIWl2E@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250212014321.1108840-7-romank@linux.microsoft.com>
+In-Reply-To: <Z6zOqtaLQwnIWl2E@kernel.org>
+X-ClientProxiedBy: MN2PR20CA0021.namprd20.prod.outlook.com
+ (2603:10b6:208:e8::34) To MW6PR12MB8663.namprd12.prod.outlook.com
+ (2603:10b6:303:240::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW6PR12MB8663:EE_|IA1PR12MB8221:EE_
+X-MS-Office365-Filtering-Correlation-Id: fcda6154-e116-4491-99c7-08dd4b8cb3fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eCRtdU5NxRln6L2vSD9zK3Np5n0fC70kE9dYCC7RxAz3J+sxt7LICm5NxsNt?=
+ =?us-ascii?Q?27NvA9BOzP3/NTtZHdMGVr9ERDLt9Mqjb13sR1IrJKySHT4kNPkGrFBZOEDH?=
+ =?us-ascii?Q?HH6U30i32HBa4W2IAOApEvCitZzkURf9k3K1FuZwCLJoI63v5UCI7Pk4Hh1a?=
+ =?us-ascii?Q?TqeDPsDwU5sdYQ9lIi0fpPbo4HOAovmqj2k+B9gf33ke+/IJeT9vCxaGbPVB?=
+ =?us-ascii?Q?lUpE4pZFt2rykDk/RA/nzierCZ/lNmZMmUDDmhp81cRX8YOLV74Rsu2HDIY4?=
+ =?us-ascii?Q?K1DShJUsi+fi2yKtzDzyeW1aQSSAdYzMBaV2Db8FTDjD1kpSGoPtIQOTzQIN?=
+ =?us-ascii?Q?TQ4oVcDQmFSc9Aloutqtk4BPr62uHviY+PibF2nIe99LeotniTQGtnBzKVQD?=
+ =?us-ascii?Q?OExKzvf3qRHaoew+oBKd4e1Tl0NTiZb5+uOREhH0Vp+T6ctqS9Gk8dTDs9uo?=
+ =?us-ascii?Q?6DcCVKqztwBG0RRar7IQWSN83RRx2sKwWXvf85Wa71VrAUKCNVFt88VTQQZe?=
+ =?us-ascii?Q?Wbh0GS2llWLViSInnFVgnXZk9zZOnb0IC77Fo/af7anBfmyA+/SRy/UW5S7J?=
+ =?us-ascii?Q?T0nunRMY76Dnh9A3Eje+f4Gg86aYmi//Ogkgm2DWyfB3MEZC9RIPU3n+o04J?=
+ =?us-ascii?Q?fjELK+Aa4keBvIaZb3zG7uPbDPzEmXFG4yZ6Nhldm8krSwhwoHhHMv8GDXY0?=
+ =?us-ascii?Q?p/Si/ywjB3W/gi8rCpEfJrUcdTMwLaEAB88jTvU6IpUrnc5AMkBIuNJHzM4M?=
+ =?us-ascii?Q?kZzgWVG3Tt9YqNX+GYWZy1zKOb6359JupFiujj9hMZFb8klmMJBtUcEycmgG?=
+ =?us-ascii?Q?O6T6rxNXixD4ZXcUKKiRQZeMDTrYWNJ3cQrET67DnbmC8DxmyXbokJN/esFq?=
+ =?us-ascii?Q?9VqhJlQuUN+ZRTM+ZjLpq8RuKS8Cwq+9vHnYgRMIr+PwivooCXsz5e6aUrfe?=
+ =?us-ascii?Q?LOI9EfRTUO3EpytBbDBSKGrkZkx6+v2wfLhFf5tw8ljm6voCLkiDHeYUs53I?=
+ =?us-ascii?Q?iHhEGsmjqVCnIfMHM3AGQZGL+r8/nJ2OSZ/zzZS+O1RrXHSSdehOHJu9PDd7?=
+ =?us-ascii?Q?SyPgQ88jiEJ4gwQSAZjVGR3rjxdTcFdkMV4JVp/9tw6m/uMJ8oDEsIb6a8Yt?=
+ =?us-ascii?Q?9Q1ubHS+9z0cJgEE+9PWMvE1yTKrLUb7ZUzkzlPWpyy11ZmcgNfu59eKyS4Z?=
+ =?us-ascii?Q?DL4nU+cspC0jJI64Q7W06TCodMii6ZI1d/GEOWVwDzj98E3HxpRh7B9Qrzgh?=
+ =?us-ascii?Q?Hatv5iWtuyHchnaqff1u48ZxsDUFM8PrLuCZFn3A6vvkmS+po3jAqC5WF/xz?=
+ =?us-ascii?Q?hSUzeUze5DYqrOc90o++K8bnnEQoub3Bth4Czp5TVP+/DdYx9HgcPerJ20xb?=
+ =?us-ascii?Q?zBhXRsXRdqOC+uo2QFUYA2gB4U/6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8663.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k6pKXTxW+ltA8nSIxzihH4SzSnKE55QKEUfZGww6P7DKYjl0UqrlI2UfuK16?=
+ =?us-ascii?Q?PmhT6qRWiUDCmdmBuuSymrVjhMb8/ds6QI6tFQZqUSa3RlITlu80J142r32n?=
+ =?us-ascii?Q?53Z47mQKT4xqle4DPuLpwg686HXlmFXUXRUATIoriCtRZkkvxTnzhiaP2DY0?=
+ =?us-ascii?Q?2vjQAgcuCzkuHFeWYJg/0OeMo1P0LdX2srFeZoX9SS+fGEmZHJVRbcRBm057?=
+ =?us-ascii?Q?vwsw6yjGRmf8fNpgWXL3IucTzPjdGh5O7UZSVl+B0vk303JKazEaxcts6nGv?=
+ =?us-ascii?Q?eEPRMQm0z0xvivo9KP+Bm+YUfLDKCgdxsfD2FJlRHbY8s3cO6aRBdxeNIifh?=
+ =?us-ascii?Q?5mfpMiUot0KB1PJdNH65D/gtwb7DBc88ZNNf5QFhdG2xfzjAKENR+UWH+zKU?=
+ =?us-ascii?Q?AxtGYI/lfEVJXiT7svdaTlPB7DdHQspwT4tkdLNTNZFl2gg61TuqcnuDHOS6?=
+ =?us-ascii?Q?tKzRfmZNIozDMIyPJ1RLeVqAwf+NE1bOolbB0EtpQsHkv6aGnDm2F21ApE1a?=
+ =?us-ascii?Q?5qXND3D7kuJgCgF+H9MQfHcJpzA/xACe6Iin1WW9MyT/AiWGkXBnaLz49WiD?=
+ =?us-ascii?Q?qlUcGqaCvnOd3YN1AYPdSsOIG8/1VTuwlnqAry66df25CmqC4ovVi+98/Aec?=
+ =?us-ascii?Q?6/RbUUPw8K9EzvsO92QkJ6z5v2KnZ4gGK0+imS4YDpvzuMQpmA+zf7k3Cpro?=
+ =?us-ascii?Q?OfdACLRY96+3Ulp3cGIUxy98jgJzvFBaNcarNUk9d4p7cRm17QrFvr877BEz?=
+ =?us-ascii?Q?Hk+SCK+eo1QPsBO/rxj90ATPk266Zd7U24TZMg4aiU1d6yJeXRKQTjBfB1cW?=
+ =?us-ascii?Q?GVW9n0sMIFv8g5LXuokGegQUqqoqYe5BUrCrzIN/3Y017zVmY/LxrzEbvMOv?=
+ =?us-ascii?Q?wKkB3tQpgb6ZILSpgifnIHIbHmtM4ZRXqbaFS3A3FK6BZVQUcjZH9eP0xGKG?=
+ =?us-ascii?Q?ygJgQkYIOQvrIqsj6D4+Wt0VGN5wQHCb1JSWzcSs/R2AnQWSmZvwsBkY3142?=
+ =?us-ascii?Q?rUlbQSyQS5Kq65n/1lbdoOulOV9a6CboWIYGHCHoIEysNDa3gXg/27wNtepk?=
+ =?us-ascii?Q?Of01/PcBxyN4Xqrn7Vn7sUtVYHV7gGzjdOIZ9EYV9k25xW/YwjESRETyWtiM?=
+ =?us-ascii?Q?CqhmpR2yOIxfQ8oaIV0ePjEXoPzN8sYgFgicwyZoRe/fo7/mpQQC9plUFV5X?=
+ =?us-ascii?Q?K9QYBzFrB5G6hC2L4nRIRVEbNdMUuVedXcIQWyJ6BrTgpfYDdC89ywge9uV1?=
+ =?us-ascii?Q?iLyUpUDuoyUoKSlU4/Y9onLHo2rzx+plL9FFpzIhffP4Rd+GNBerBRwlaLkc?=
+ =?us-ascii?Q?Fj30lcvOb8AnE2OajA7yN9fYsdKv4pb3RLxhbpCNTe8FaBJOXnZbQ5yBpyrS?=
+ =?us-ascii?Q?jE0plZu5B15d1LC8yGtpqjuP2MKDISfxUjjSrsbVqeGSbVGOt5pAtrtyf9Yz?=
+ =?us-ascii?Q?YeW3sHqYqYgugMRBY0YjxgsVbNjETjnJgTPHuzRO+/nadrL/N93TTrqNRe55?=
+ =?us-ascii?Q?6/DjKh9lsaLE8Zh9Gu0HXlAKUZSTBTLxXxNmKkBr60eWNnrbpK/U0aiE9Bf0?=
+ =?us-ascii?Q?cOIg92EPW3kJ+73YS2oaGTOR95BG2p3tVLLa1tDw?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcda6154-e116-4491-99c7-08dd4b8cb3fd
+X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8663.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 17:43:04.5053
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0P8Jj8OH+WGU64qtS4cFL034ya9n+OiNd7/9MkzdFHwZT/PxjorcgP9YJm7OOU71
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8221
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_094206_202619_953C5C43 
-X-CRM114-Status: GOOD (  41.31  )
+X-CRM114-CacheID: sfid-20250212_094309_820111_DECE1FF1 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,248 +191,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 05:43:21PM -0800, Roman Kisel wrote:
-> The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
-> arm64. It won't be able to do that in the VTL mode where only DeviceTree
-> can be used.
-> 
-> Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
-> case, too.
-> 
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> ---
->  drivers/hv/vmbus_drv.c              | 23 ++++++----
->  drivers/pci/controller/pci-hyperv.c | 69 ++++++++++++++++++++++++++---
->  include/linux/hyperv.h              |  2 +
->  3 files changed, 80 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-> index 9d0c2dbd2a69..3f0f9f01b520 100644
-> --- a/drivers/hv/vmbus_drv.c
-> +++ b/drivers/hv/vmbus_drv.c
-> @@ -45,7 +45,8 @@ struct vmbus_dynid {
->  	struct hv_vmbus_device_id id;
->  };
->  
-> -static struct device  *hv_dev;
-> +/* VMBus Root Device */
-> +static struct device  *vmbus_root_device;
->  
->  static int hyperv_cpuhp_online;
->  
-> @@ -80,9 +81,15 @@ static struct resource *fb_mmio;
->  static struct resource *hyperv_mmio;
->  static DEFINE_MUTEX(hyperv_mmio_lock);
->  
-> +struct device *hv_get_vmbus_root_device(void)
-> +{
-> +	return vmbus_root_device;
-> +}
-> +EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
-> +
->  static int vmbus_exists(void)
->  {
-> -	if (hv_dev == NULL)
-> +	if (vmbus_root_device == NULL)
->  		return -ENODEV;
->  
->  	return 0;
-> @@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
->  	 * On x86/x64 coherence is assumed and these calls have no effect.
->  	 */
->  	hv_setup_dma_ops(child_device,
-> -		device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
-> +		device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
->  	return 0;
->  }
->  
-> @@ -1920,7 +1927,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
->  		     &child_device_obj->channel->offermsg.offer.if_instance);
->  
->  	child_device_obj->device.bus = &hv_bus;
-> -	child_device_obj->device.parent = hv_dev;
-> +	child_device_obj->device.parent = vmbus_root_device;
->  	child_device_obj->device.release = vmbus_device_release;
->  
->  	child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
-> @@ -2282,7 +2289,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
->  	struct acpi_device *ancestor;
->  	struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
->  
-> -	hv_dev = &device->dev;
-> +	vmbus_root_device = &device->dev;
->  
->  	/*
->  	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
-> @@ -2373,7 +2380,7 @@ static int vmbus_device_add(struct platform_device *pdev)
->  	struct device_node *np = pdev->dev.of_node;
->  	int ret;
->  
-> -	hv_dev = &pdev->dev;
-> +	vmbus_root_device = &pdev->dev;
->  
->  	ret = of_range_parser_init(&parser, np);
->  	if (ret)
-> @@ -2692,7 +2699,7 @@ static int __init hv_acpi_init(void)
->  	if (ret)
->  		return ret;
->  
-> -	if (!hv_dev) {
-> +	if (!vmbus_root_device) {
->  		ret = -ENODEV;
->  		goto cleanup;
->  	}
-> @@ -2723,7 +2730,7 @@ static int __init hv_acpi_init(void)
->  
->  cleanup:
->  	platform_driver_unregister(&vmbus_platform_driver);
-> -	hv_dev = NULL;
-> +	vmbus_root_device = NULL;
->  	return ret;
->  }
->  
-> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-> index cdd5be16021d..24725bea9ef1 100644
-> --- a/drivers/pci/controller/pci-hyperv.c
-> +++ b/drivers/pci/controller/pci-hyperv.c
-> @@ -50,6 +50,7 @@
->  #include <linux/irqdomain.h>
->  #include <linux/acpi.h>
->  #include <linux/sizes.h>
-> +#include <linux/of_irq.h>
->  #include <asm/mshyperv.h>
->  
->  /*
-> @@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
->  	int ret;
->  
->  	fwspec.fwnode = domain->parent->fwnode;
-> -	fwspec.param_count = 2;
-> -	fwspec.param[0] = hwirq;
-> -	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-> +	if (is_of_node(fwspec.fwnode)) {
-> +		/* SPI lines for OF translations start at offset 32 */
-> +		fwspec.param_count = 3;
-> +		fwspec.param[0] = 0;
-> +		fwspec.param[1] = hwirq - 32;
-> +		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
-> +	} else {
-> +		fwspec.param_count = 2;
-> +		fwspec.param[0] = hwirq;
-> +		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-> +	}
->  
->  	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
->  	if (ret)
-> @@ -887,6 +896,35 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
->  	.activate = hv_pci_vec_irq_domain_activate,
->  };
->  
-> +#ifdef CONFIG_OF
-> +
-> +static struct irq_domain *hv_pci_of_irq_domain_parent(void)
-> +{
-> +	struct device_node *parent;
-> +	struct irq_domain *domain;
-> +
-> +	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-> +	domain = NULL;
-> +	if (parent) {
-> +		domain = irq_find_host(parent);
-> +		of_node_put(parent);
-> +	}
-> +
-> +	/*
-> +	 * `domain == NULL` shouldn't happen.
-> +	 *
-> +	 * If somehow the code does end up in that state, treat this as a configuration
-> +	 * issue rather than a hard error, emit a warning, and let the code proceed.
-> +	 * The NULL parent domain is an acceptable option for the `irq_domain_create_hierarchy`
-> +	 * function called later.
+On Wed, Feb 12, 2025 at 06:39:06PM +0200, Mike Rapoport wrote:
 
-The rest of this file fits in 80 columns; please wrap this to match.
+> As I've mentioned off-list earlier, KHO in its current form is the lowest
+> level of abstraction for state preservation and it is by no means is
+> intended to provide complex drivers with all the tools necessary.
 
-> +	 */
-> +	if (!domain)
-> +		WARN_ONCE(1, "No interrupt-parent found, check the DeviceTree data.\n");
+My point, is I think it is the wrong level of abstraction and the
+wrong FDT schema. It does not and cannot solve the problems we know we
+will have, so why invest anything into that schema?
 
-Is there a way to include a hint about what specific part of the
-devicetree to look at, e.g., the node that lacks a parent?
+I think the scratch system is great, and an amazing improvement over
+past version. Upgrade the memory preservation to match and it will be
+really good.
 
-> +	return domain;
-> +}
-> +
-> +#endif
-> +
->  static int hv_pci_irqchip_init(void)
->  {
->  	static struct hv_pci_chip_data *chip_data;
-> @@ -906,10 +944,29 @@ static int hv_pci_irqchip_init(void)
->  	 * IRQ domain once enabled, should not be removed since there is no
->  	 * way to ensure that all the corresponding devices are also gone and
->  	 * no interrupts will be generated.
-> +	 *
-> +	 * In the ACPI case, the parent IRQ domain is supplied by the ACPI
-> +	 * subsystem, and it is the default GSI domain pointing to the GIC.
-> +	 * Neither is available outside of the ACPI subsystem, cannot avoid
-> +	 * the messy ifdef below.
+> What you propose is a great optimization for memory preservation mechanism,
+> and additional and very useful abstraction layer on top of "basic KHO"!
 
-Add a blank line if you intend a new paragraph here.  Otherwise, wrap
-to fill 78 columns or so.
+I do not see this as a layer on top, I see it as fundamentally
+replacing the memory preservation mechanism with something more
+scalable.
 
-> +	 * There is apparently no such default in the OF subsystem, and
-> +	 * `hv_pci_of_irq_domain_parent` finds the parent IRQ domain that
-> +	 * points to the GIC as well.
+> But I think it will be easier to start with something *very simple* and
+> probably suboptimal and then extend it rather than to try to build complex
+> comprehensive solution from day one.
 
-And here.
+But why? Just do it right from the start? I spent like a hour
+sketching that, the existing preservation code is also very simple,
+why not just fix it right now?
 
-> +	 * None of these two cases reaches for the MSI parent domain.
-
-I don't know what "reaches for the MSI parent domain" means.  Neither
-"searches for"?
-
->  	 */
-> -	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
-> -							  fn, &hv_pci_domain_ops,
-> -							  chip_data);
-> +#ifdef CONFIG_ACPI
-> +	if (!acpi_disabled)
-> +		hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
-> +			fn, &hv_pci_domain_ops,
-> +			chip_data);
-> +#endif
-> +#if defined(CONFIG_OF)
-> +	if (!hv_msi_gic_irq_domain)
-> +		hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
-> +			hv_pci_of_irq_domain_parent(), 0, HV_PCI_MSI_SPI_NR,
-> +			fn, &hv_pci_domain_ops,
-> +			chip_data);
-> +#endif
-
-I don't know if acpi_irq_create_hierarchy() is helping or hurting
-here.  It obscures the fact that the only difference is the first
-argument to irq_domain_create_hierarchy().  If we could open-code or
-have a helper to figure out that irq_domain "parent" argument for the
-ACPI case, then we'd only have one call of
-irq_domain_create_hierarchy() here and it seems like it might be
-simpler.
-
->  	if (!hv_msi_gic_irq_domain) {
->  		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
-> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-> index 4179add2864b..2be4dd83b0e1 100644
-> --- a/include/linux/hyperv.h
-> +++ b/include/linux/hyperv.h
-> @@ -1333,6 +1333,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
->  	return dev_get_drvdata(&dev->device);
->  }
->  
-> +struct device *hv_get_vmbus_root_device(void);
-> +
->  struct hv_ring_buffer_debug_info {
->  	u32 current_interrupt_mask;
->  	u32 current_read_index;
-> -- 
-> 2.43.0
-> 
+Jason
 
