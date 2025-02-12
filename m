@@ -4,118 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2D9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8165BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 06:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kcY3b9SQcQ435Naa36eW7SElnt1qAF2rcRt4gVjJvUk=; b=QfxFqh5r/422Jbdv4uKcYq6R5T
-	jSo4VLhXULd9lIEhDkz/FBhSJOtaCFYLPnQb3yraXS+TVcwdvGxQlppvIC9MAVOZ6zcS084KlpG88
-	8fbDd20hCl3LXSqgIm3Rv29S2VkpmZdCrb8YlMMfn5L6/UGtdhuRhPhFJw9xocW6xLmb1kXNkOCLd
-	HnCGLUGUjXyJfaZgNrpPDWgn2ProZakYxGnqdjPdTFpBv/g3bz6uOAbNjRITpQnrpPXuEPDkxyCOl
-	J3hVfhbsujUFHDz5Jd729OojaMtH5Ntqc1jCck1CTq8ng+ecueez5HuVvOg0NXQqz6aso3iTkbrem
-	BhH39ZnQ==;
+	bh=/wBYRdWhtA3egwicLkCU/PTXlbgsejMuWm2eNpqSb/0=; b=Sj8tzv0yajYXW23K60Xvn2dAlN
+	D8QRc42k/UmvLaxxofpGzmLojffpyWzPeGomZYB8COahgZBkuue0TlC8+qx9cr7NpnpjoshBNY2FP
+	bOJqVSp1KmDCrAZ0Q8KZikv3XOzGhSR3domdKL6/gVA5qHdrKbs8KnvPGVz2fU6YJ9x7aFb1FYfw1
+	FqZ87SXpgxOwG+AjHEy6d/xjfRNaPh8uf25kOGXg/FXjPbh5vTFEtWjIun4hRryGMeo8j+aKFteyL
+	XN0TJkj+qFm3O7LQvT26elU5WtE14ht90mRM+etXUCIl0uQnv+oT12uwqUqJPVhZPwGR/c7GGpd6E
+	7dMXhOoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6Ei-00000006LsC-2cgJ;
-	Wed, 12 Feb 2025 06:28:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ti6Sy-00000006ORZ-10Ul;
+	Wed, 12 Feb 2025 06:43:24 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti6DI-00000006LaP-3G4r;
-	Wed, 12 Feb 2025 06:27:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 804D2A40F8F;
-	Wed, 12 Feb 2025 06:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 920F6C4CEE6;
-	Wed, 12 Feb 2025 06:27:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739341631;
-	bh=1/zhjK+0+G05v1hwwn5tz/H+8Cz4vmPRU7clBN3k0ls=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j2u+pa9v36ZbhRZph5rV/yE+zheeNljbSA2hCK+QxpqUUozTROOu+Bp9e9rPsiCn4
-	 sr/F2tK6INMhPIZHrkjHpv/yxCHNwYrsM+87zlpR119ozsWj1qVRrCYlXouW0KM8W4
-	 CQR6VyZyoMu8gqW16WkpKAebx/0UiE8DIPWFsHGgqX9w/f6KStjHuQaWA3TaVQnBm3
-	 NV/kFzuXc1SiT0U9sZz0+JGhp0Bo+Ds8/saVBFz20xn9tx3GXscJj15FDGXCD0aJL4
-	 BG11EpfhoMYdyx7SIPli3YJUVgVKGqVRDm1/mm/Yv3o+k4aL5Sc1l+OQaJwLQhtaEW
-	 3qW5TzMlSD/lA==
-Message-ID: <66b554f0-e11c-4801-9a5e-2ccb85a105fe@kernel.org>
-Date: Wed, 12 Feb 2025 07:27:00 +0100
+	id 1ti6RX-00000006O6u-2Nga
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 06:41:57 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21f55fbb72bso83491185ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 22:41:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1739342514; x=1739947314; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/wBYRdWhtA3egwicLkCU/PTXlbgsejMuWm2eNpqSb/0=;
+        b=dkrKvc4bje9dZNQ4dDZexUQFyCroykB5KquTL2bLWHaK3t72m+t7mn0+SVAp+J70Dk
+         ryUwIxPcIJBYCX8bM6NYt3v5Mru7t8CwI6LK5mZ5K7YOCDVA7UrhbaoHLBOnoVNVS3FH
+         EC0gXKOhaXZifYY+d6vjYgD4HUjrAyonThSlDTgg3gU5Ln4AWd8IVI6PjwyN9XdQlbAf
+         QT3kHQY5ZuH9spb7BqCnQ9DTtNLFmjd7d7xuVAyDiVxenYNYgkAprVnuqDYoKS8wy/aA
+         HoxmbkylQWtXyMkcsXuvgnlH11GxWKjDYCRjonwYy800XE6cuACCwePyluXXhZXpDUO+
+         G68g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739342514; x=1739947314;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/wBYRdWhtA3egwicLkCU/PTXlbgsejMuWm2eNpqSb/0=;
+        b=HNrNd3zk8c9WjE9U0Bgp8jhJjOxynMf1TyQIv+z5hb9fHgN746cWcNzXSq0BlcacvF
+         ubxV0p4n4zRbQVcQkChcS/EdOegd/I9YNup0MPXSJHJw+MyzxfbWUctV8uFaEH44Wvn0
+         Sr5iDWcqRhseMZLmxRnkn4+oX9FwM8io3Qk+48unRRaV7dIvpMtlmIYI7oNmS/f9UGZA
+         7Z5CnYB3oaAuWpfVQPJRPl2JHulrGn1H67xvgvBtxfFVV9ndRKrO7o2iYdm/ZDJFsHWx
+         4HPY+/TvqTJAjJQ9V+M3PYkqL5mJLIQL6cIOSkZ9VmXI4V2K1mfePrJaXx4N0b9Uuw3B
+         n6FQ==
+X-Gm-Message-State: AOJu0YxhPZkFzzkh0Vp8hSm4o1oPl/QhzWy7Quafel+GgeHXRyCO4+we
+	Bg8HpmvlSzYvOclBqYFqkVtKLlWDM65dsKeGYitGg10glJOIwe5U00OqRGDGMMI=
+X-Gm-Gg: ASbGncv9cwf13yFUGKDgDH48J6DIc3Yn/Kzgol9K/Lf8HrAIAXY5sdnDqQYWdkeSwz0
+	zZLhTRzEhsRxO/roHMIJaXM4rT6h5pwsN0fRsCgETciyU2OSymzUJ13se2cihfC6qPiwy8IEKUN
+	V+e/3fklLXnwAm9aAuAbvPoeEhb+Xl7nM8Xre8ONjolsXoE5Qa0PzhtZyzPHRwgsxPTGYS3XPpH
+	lOXDodFyQFqWWyHmfKz1DLvFT6aoCrrM3RrE/WjQZzYWhVwvmo/eO5/QekIC0C9txskSCbx7vbh
+	rNl1XKPzy1zEVdyQWfiZXBkmvbgnHx8GErJ4XkKHJOb1Di4N2XeI3nfC
+X-Google-Smtp-Source: AGHT+IH74x3a61arrF/gqeUXfZpntwfiArJQu0CFKJ9o5bTtZZmrBTsZbUPqFZNfhNpXHrSNNu3gxw==
+X-Received: by 2002:a17:902:e811:b0:21f:45d:21fb with SMTP id d9443c01a7336-220bbac3250mr30288095ad.3.1739342513657;
+        Tue, 11 Feb 2025 22:41:53 -0800 (PST)
+Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.153])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fbf9ab0233sm683131a91.44.2025.02.11.22.41.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Feb 2025 22:41:53 -0800 (PST)
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+To: linux@armlinux.org.uk,
+	ezra@easyb.ch,
+	david@redhat.com,
+	hughd@google.com,
+	ryan.roberts@arm.com,
+	akpm@linux-foundation.org,
+	muchun.song@linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm: pgtable: fix NULL pointer dereference issue
+Date: Wed, 12 Feb 2025 14:40:02 +0800
+Message-Id: <20250212064002.55598-1-zhengqi.arch@bytedance.com>
+X-Mailer: git-send-email 2.24.3 (Apple Git-128)
+In-Reply-To: <be323425-2465-423a-a6f4-affbaa1efe09@bytedance.com>
+References: <be323425-2465-423a-a6f4-affbaa1efe09@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 13/16] net: airoha: Introduce PPE
- initialization via NPU
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- upstream@airoha.com
-References: <20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org>
- <20250209-airoha-en7581-flowtable-offload-v3-13-dba60e755563@kernel.org>
- <20250211-fanatic-smoky-wren-f0dcc9@krzk-bin> <Z6t7SuFurbGwJjt_@lore-desk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z6t7SuFurbGwJjt_@lore-desk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_222712_954061_12C6E3F2 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20250211_224155_761985_C596C1FB 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,136 +105,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/02/2025 17:31, Lorenzo Bianconi wrote:
->> On Sun, Feb 09, 2025 at 01:09:06PM +0100, Lorenzo Bianconi wrote:
->>> +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
->>> +{
->>> +	struct airoha_npu_core *core = core_instance;
->>> +	struct airoha_npu *npu = core->npu;
->>> +	int c = core - &npu->cores[0];
->>> +	u32 val;
->>> +
->>> +	airoha_npu_rmw(npu, REG_WDT_TIMER_CTRL(c), 0, WDT_INTR_MASK);
->>> +	val = airoha_npu_rr(npu, REG_WDT_TIMER_CTRL(c));
->>> +	if (FIELD_GET(WDT_EN_MASK, val))
->>> +		schedule_work(&core->wdt_work);
->>> +
->>> +	return IRQ_HANDLED;
->>> +}
->>> +
->>> +struct airoha_npu *airoha_npu_init(struct airoha_eth *eth)
->>> +{
->>> +	struct reserved_mem *rmem;
->>> +	int i, irq, err = -ENODEV;
->>> +	struct airoha_npu *npu;
->>> +	struct device_node *np;
->>> +
->>> +	npu = devm_kzalloc(eth->dev, sizeof(*npu), GFP_KERNEL);
->>> +	if (!npu)
->>> +		return ERR_PTR(-ENOMEM);
->>> +
->>> +	npu->np = of_parse_phandle(eth->dev->of_node, "airoha,npu", 0);
->>> +	if (!npu->np)
->>> +		return ERR_PTR(-ENODEV);
->>
->> Why? The property is not required, so how can missing property fail the
->> probe?
-> 
-> similar to mtk_wed device, airoha_npu is not modeled as a standalone driver,
-> but it is part of the airoha_eth driver. If you think it is better, I can
-> rework it implementing a dedicated driver for it. What do you think?
+When update_mmu_cache_range() is called by update_mmu_cache(), the vmf
+parameter is NULL, which will cause a NULL pointer dereference issue in
+adjust_pte():
 
+Unable to handle kernel NULL pointer dereference at virtual address 00000030 when read
+Hardware name: Atmel AT91SAM9
+PC is at update_mmu_cache_range+0x1e0/0x278
+LR is at pte_offset_map_rw_nolock+0x18/0x2c
+Call trace:
+ update_mmu_cache_range from remove_migration_pte+0x29c/0x2ec
+ remove_migration_pte from rmap_walk_file+0xcc/0x130
+ rmap_walk_file from remove_migration_ptes+0x90/0xa4
+ remove_migration_ptes from migrate_pages_batch+0x6d4/0x858
+ migrate_pages_batch from migrate_pages+0x188/0x488
+ migrate_pages from compact_zone+0x56c/0x954
+ compact_zone from compact_node+0x90/0xf0
+ compact_node from kcompactd+0x1d4/0x204
+ kcompactd from kthread+0x120/0x12c
+ kthread from ret_from_fork+0x14/0x38
+Exception stack(0xc0d8bfb0 to 0xc0d8bff8)
 
-Whether it is separate or not, does not matter. Behavior in both cases
-would be the same so does not answer my question. But below does however:
+To fix it, do not rely on whether 'ptl' is equal to decide whether to hold
+the pte lock, but decide it by whether CONFIG_SPLIT_PTE_PTLOCKS is
+enabled. In addition, if two vmas map to the same PTE page, there is no
+need to hold the pte lock again, otherwise a deadlock will occur. Just add
+the need_lock parameter to let adjust_pte() know this information.
 
-> 
->>
->> This is also still unnecessary ABI break without explanation/reasoning.
-> 
-> At the moment if airoha_npu_init() fails (e.g. if the npu node is not present),
-> it will not cause any failure in airoha_hw_init() (so in the core ethernet
-> driver probing).
+Reported-by: Ezra Buehler <ezra@easyb.ch>
+Closes: https://lore.kernel.org/lkml/CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com/
+Fixes: fc9c45b71f43 ("arm: adjust_pte() use pte_offset_map_rw_nolock()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+---
+ arch/arm/mm/fault-armv.c | 40 ++++++++++++++++++++++++++++------------
+ 1 file changed, 28 insertions(+), 12 deletions(-)
 
+diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
+index 2bec87c3327d2..3627bf0957c75 100644
+--- a/arch/arm/mm/fault-armv.c
++++ b/arch/arm/mm/fault-armv.c
+@@ -62,7 +62,7 @@ static int do_adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ }
+ 
+ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+-		      unsigned long pfn, struct vm_fault *vmf)
++		      unsigned long pfn, bool need_lock)
+ {
+ 	spinlock_t *ptl;
+ 	pgd_t *pgd;
+@@ -99,12 +99,11 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 	if (!pte)
+ 		return 0;
+ 
+-	/*
+-	 * If we are using split PTE locks, then we need to take the page
+-	 * lock here.  Otherwise we are using shared mm->page_table_lock
+-	 * which is already locked, thus cannot take it.
+-	 */
+-	if (ptl != vmf->ptl) {
++	if (need_lock) {
++		/*
++		 * Use nested version here to indicate that we are already
++		 * holding one similar spinlock.
++		 */
+ 		spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
+ 		if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
+ 			pte_unmap_unlock(pte, ptl);
+@@ -114,7 +113,7 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 
+ 	ret = do_adjust_pte(vma, address, pfn, pte);
+ 
+-	if (ptl != vmf->ptl)
++	if (need_lock)
+ 		spin_unlock(ptl);
+ 	pte_unmap(pte);
+ 
+@@ -123,16 +122,17 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 
+ static void
+ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+-	      unsigned long addr, pte_t *ptep, unsigned long pfn,
+-	      struct vm_fault *vmf)
++	      unsigned long addr, pte_t *ptep, unsigned long pfn)
+ {
+ 	struct mm_struct *mm = vma->vm_mm;
+ 	struct vm_area_struct *mpnt;
+ 	unsigned long offset;
++	unsigned long start;
+ 	pgoff_t pgoff;
+ 	int aliases = 0;
+ 
+ 	pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
++	start = ALIGN_DOWN(addr, PMD_SIZE);
+ 
+ 	/*
+ 	 * If we have any shared mappings that are in the same mm
+@@ -141,6 +141,14 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+ 	 */
+ 	flush_dcache_mmap_lock(mapping);
+ 	vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
++		unsigned long mpnt_addr;
++		/*
++		 * If we are using split PTE locks, then we need to take the pte
++		 * lock. Otherwise we are using shared mm->page_table_lock which
++		 * is already locked, thus cannot take it.
++		 */
++		bool need_lock = IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS);
++
+ 		/*
+ 		 * If this VMA is not in our MM, we can ignore it.
+ 		 * Note that we intentionally mask out the VMA
+@@ -151,7 +159,15 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+ 		if (!(mpnt->vm_flags & VM_MAYSHARE))
+ 			continue;
+ 		offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
+-		aliases += adjust_pte(mpnt, mpnt->vm_start + offset, pfn, vmf);
++		mpnt_addr = mpnt->vm_start + offset;
++		/*
++		 * If mpnt_addr and addr are mapped to the same PTE page, there
++		 * is no need to hold the pte lock again, otherwise a deadlock
++		 * will occur.
++		 */
++		if (mpnt_addr >= start && mpnt_addr - start < PMD_SIZE)
++			need_lock = false;
++		aliases += adjust_pte(mpnt, mpnt_addr, pfn, need_lock);
+ 	}
+ 	flush_dcache_mmap_unlock(mapping);
+ 	if (aliases)
+@@ -194,7 +210,7 @@ void update_mmu_cache_range(struct vm_fault *vmf, struct vm_area_struct *vma,
+ 		__flush_dcache_folio(mapping, folio);
+ 	if (mapping) {
+ 		if (cache_is_vivt())
+-			make_coherent(mapping, vma, addr, ptep, pfn, vmf);
++			make_coherent(mapping, vma, addr, ptep, pfn);
+ 		else if (vma->vm_flags & VM_EXEC)
+ 			__flush_icache_all();
+ 	}
+-- 
+2.20.1
 
-Indeed, it will fail airoha_ppe_init() but airoha_ppe_init() is not
-fatal. You will have dmesg errors though, so this should be probably
-dev_warn.
-
-> 
->>
->>> +
->>> +	npu->pdev = of_find_device_by_node(npu->np);
->>> +	if (!npu->pdev)
->>> +		goto error_of_node_put;
->>
->> You should also add device link and probably try_module_get. See
->> qcom,ice (patch for missing try_module_get is on the lists).
-> 
-> thx for the pointer, I will take a look to it.
-> 
->>
->>> +
->>> +	get_device(&npu->pdev->dev);
->>
->> Why? of_find_device_by_node() does it.
-> 
-> ack, I will fix it.
-> 
->>
->>> +
->>> +	npu->base = devm_platform_ioremap_resource(npu->pdev, 0);
->>> +	if (IS_ERR(npu->base))
->>> +		goto error_put_dev;
->>> +
->>> +	np = of_parse_phandle(npu->np, "memory-region", 0);
->>> +	if (!np)
->>> +		goto error_put_dev;
->>> +
->>> +	rmem = of_reserved_mem_lookup(np);
->>> +	of_node_put(np);
->>> +
->>> +	if (!rmem)
->>> +		goto error_put_dev;
->>> +
->>> +	irq = platform_get_irq(npu->pdev, 0);
->>> +	if (irq < 0) {
->>> +		err = irq;
->>> +		goto error_put_dev;
->>> +	}
->>> +
->>> +	err = devm_request_irq(&npu->pdev->dev, irq, airoha_npu_mbox_handler,
->>> +			       IRQF_SHARED, "airoha-npu-mbox", npu);
->>> +	if (err)
->>> +		goto error_put_dev;
->>> +
->>> +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
->>> +		struct airoha_npu_core *core = &npu->cores[i];
->>> +
->>> +		spin_lock_init(&core->lock);
->>> +		core->npu = npu;
->>> +
->>> +		irq = platform_get_irq(npu->pdev, i + 1);
->>> +		if (irq < 0) {
->>> +			err = irq;
->>> +			goto error_put_dev;
->>> +		}
->>
->> This is all confusing. Why are you requesting IRQs for other - the npu -
->> device? That device driver is responsible for its interrupts, not you
->> here. This breaks encapsulation. And what do you do if the other device
->> starts handling interrupts on its own? This is really unexpected to see
->> here.
-> 
-> As pointed out above, there is no other driver for airoha_npu at the moment,
-> but I am fine to implement it.
-
-I see. The second driver is there - syscon - just provided by MFD core.
-It also looks like the NPU is some sort of mailbox, so maybe NPU should
-not have been syscon in the first place, but mailbox?
-
-
-
-Best regards,
-Krzysztof
 
