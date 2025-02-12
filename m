@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0522C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24815C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SxYBpi925DNrMEzqq2mhuodXoQPQ2urVmGp/joLgWWA=; b=HcMDHYVH9XQBGCWTTpAdN7qpWG
-	d/Z+CFrvczXNfvWkvsANN3dvKHp4Cyr64v1gu2ElcKBBos0g0EmKaNAvTGvmfaNKekg+F3GuYE/pO
-	aJFT4nK+EbXzuA9JxkJlsgLwtMIgGdC+41J+VNhkEES6QKmimVXz6v7TR3Vm8+Zj74xaJfkAxgw97
-	OpUFsIad9qMcv3vHakhd8sTeeIfFv/srh2w/9WwyKjxgx6icTzyRo6xdFZfZhSnFEfX6gcWdwhCI3
-	hDeP5GmflX7Uk1oLG9dtyqho1rCkZnyyaPj+DJk75N2vq6uWCsBtY4PegkGIQlXYgTg/mvkmYsJb4
-	k6SyYm2g==;
+	bh=TsyxvtfY98LMTH3N5krVDx/Om+FlySC2UfEwG6WNk24=; b=jQjgfx7z03WgQtFEjj3OM5Q/ZA
+	Jve1JnrAFvXQYmYMM81Uj4lyuohp+NtkR4h/wGfA64aIuqZWUXPoaZrQI+1jAVFPe5uLiT2ZaiVXr
+	rFpUrUN4QMEVtmtMRFVBo2nPuXC5wfEym2f5vVFjsp9WQA/8RrEBJL+ScjKCkBy4bCpZ1E9sWiCIz
+	EVZ9D9TDLTlmzMvyWv9mfBRY/j5YYrotDea9WVg6LMECdQfnuF14cViP/UVCxXlQvyq5F7hLxs38y
+	TneXD0QodketcoovxeqOoopJOdTUHopTFITc/Ygg515ZQ0DySooc82jk0ho1q8ei6T7uK40lqddhc
+	kq3qAz6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiC1q-00000007NTQ-16EH;
-	Wed, 12 Feb 2025 12:39:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiC0Q-00000007ND2-0iqv
+	id 1tiC4A-00000007NrF-05Sv;
+	Wed, 12 Feb 2025 12:42:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiC2j-00000007Nbn-0JEH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 12:38:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BA13B5C5AE2;
-	Wed, 12 Feb 2025 12:37:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 522EAC4CEDF;
-	Wed, 12 Feb 2025 12:38:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739363897;
-	bh=AN9M3YnTbLbeifclEgjFxY1ryG7kNJVenpcxqcZ3F80=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YVxj3DPpRHUUcYmM5OfB3KJD8jWcx2OymMZ7VW0uQAOk6NEz18pNh9ck8dP6iijVQ
-	 eYsABt+PevimDso6q55lSckWyl4umHxVIJvUFD03h2HeSDmDd+HsVc0DfIZIe/uyjW
-	 xofGhVxZ6xa4pAgYqNFiUiIWoQhuUkc96xxkjHNLD+7pQ/OZAGDf5jplVvQaCedIou
-	 WHBFKi6HGAtQEes6YnIXTn/LIqcZ6QKnLOA4RPdcZcD7xldtww/1GlSe9gcGzcFx7q
-	 41Dq2Zxfte0PtJ9jrRRkgwtieD2znuEVYVDniq4Dico715bI+gey+G6/agJbgfJ7gL
-	 1XXPHf3juNaYw==
-Date: Wed, 12 Feb 2025 12:38:11 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Marco Felsch <m.felsch@pengutronix.de>,
-	Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
-Message-ID: <d66996eb-f49b-448b-9743-d19a3c3eba52@sirena.org.uk>
-References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
- <20250211225808.3050-2-laurentiumihalcea111@gmail.com>
- <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
- <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
+	Wed, 12 Feb 2025 12:40:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC907113E;
+	Wed, 12 Feb 2025 04:40:59 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D74B3F58B;
+	Wed, 12 Feb 2025 04:40:36 -0800 (PST)
+Date: Wed, 12 Feb 2025 12:40:33 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: BUG: debug_exception_enter() disables preemption and may call
+ sleeping functions on aarch64 with RT
+Message-ID: <Z6yWwRcPvVGk2EyC@J2N7QTR9R3>
+References: <Z6YW_Kx4S2tmj2BP@uudg.org>
+ <Z6n16cK85JMyowDq@J2N7QTR9R3>
+ <Z6tf8iDhNriSGjeC@uudg.org>
+ <Z6vs3IWxUxhIDBBO@uudg.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="C+7jhM8tQThOiQo5"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
-X-Cookie: Reality does not exist -- yet.
+In-Reply-To: <Z6vs3IWxUxhIDBBO@uudg.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_043818_266922_47F2A3F9 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20250212_044041_196741_05B8EA1F 
+X-CRM114-Status: GOOD (  32.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +72,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 11, 2025 at 09:35:40PM -0300, Luis Claudio R. Goncalves wrote:
+> On Tue, Feb 11, 2025 at 11:34:26AM -0300, Luis Claudio R. Goncalves wrote:
+> > On Mon, Feb 10, 2025 at 12:49:45PM +0000, Mark Rutland wrote:
+> > > On Fri, Feb 07, 2025 at 11:22:57AM -0300, Luis Claudio R. Goncalves wrote:
+> ...
+> > > I don't have an immediate suggestion; I'll need to go think about this
+> > > for a bit. Unfortunatealy, there are several nested cans of worms here.
+> > > :/
+> > > 
+> > > In theory, we can go split out the EL0 "debug exceptions" into separate
+> > > handlers, and wouldn't generally need to disable preemption for things
+> > > like BRK or single-step.
+> > 
+> > If this is an acceptable workaround, until we have the real solution,
+> > I can work on that :)
+> > 
+> > Luis
+> 
+> I tested the prototype below and it survived 6h of ssdd and the ptrace LTP
+> tests running simultaneously, in a tight loop. Would something along these
+> lines be an acceptable workaround?
 
---C+7jhM8tQThOiQo5
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sorry, no. This makes the code even more convoluted and less
+maintainable.
 
-On Wed, Feb 12, 2025 at 12:11:49PM +0200, Daniel Baluta wrote:
-> On Wed, Feb 12, 2025 at 11:38=E2=80=AFAM Marco Felsch <m.felsch@pengutron=
-ix.de> wrote:
-> > On 25-02-11, Laurentiu Mihalcea wrote:
+If you want to fix single step specifically without bothering with the
+rest of the rework I mentioned, the right fix is to split that out from
+the other "debug exceptions", and handle that with the usual structure
+we have for other synchronous exceptions like FPAC/BTI/etc:
 
-> > > +    const: fsl,imx95-cm7-sof
+* In arch/arm64/kernel/debug-monitors.c, add new do_el{1,0}_step()
+  functions which handle their corresponding stepping logic. These
+  should have the same rough shape as do_el{1,0}_fpac(), and should
+  handle all the default signalling logic that would otherwise be
+  handled by do_debug_exception().
 
-> > Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
-> > add the -sof suffix instead of -audio or so? SOF is a software project
-> > but you can clearly run different software on the audio-copro as well.
+  The existing single_step_handler() should be removed, or at minimum
+  refactored and only called by those new do_el{1,0}_step() functions.
 
-> Sure you can run a different software project on the audio DSP but
-> you will need a way to distinguish between the different projects.
+  The existing hook_debug_fault_code() registration of
+  single_step_handler() should be removed.
 
-> There might be different mailbox, memory configurations. So you will  need
-> to invent another suffix specific to the new project.
+  I'm not sure whether do_el0_step() needs the
+  arm64_apply_bp_hardening() logic, but do_el1_step() does not.
 
-> We can make  const: fsl,imx95-cm7-audio as the one used with SOF
-> and think about a different name later for when another project will
-> want to use the DSP.
+* In entry-common.c, add new el{1,0}_step() functions. Each of
+  el1h_64_sync_handler(), el0t_64_sync_handler(), and
+  el0t_32_sync_handler() should be updated to call those rather than
+  el{1,0}_dbg() for the corresponding EC values.
 
-I think the point here was that the DT should stay the same even if the
-DSP firwmare changes, just as how changing the main OS shouldn't affect
-the DT.
+  In el0_step() it shouldn't be necessary to disable preemption, and
+  that should be able to be:
 
---C+7jhM8tQThOiQo5
-Content-Type: application/pgp-signature; name="signature.asc"
+  | static void noinstr el0_step(struct pt_regs *regs, unsigned long esr)
+  | {
+  |         enter_from_user_mode(regs);
+  |         local_daif_restore(DAIF_PROCCTX);
+  |         do_el0_step(regs, esr);
+  |         exit_to_user_mode(regs);
+  | }
 
------BEGIN PGP SIGNATURE-----
+  In el1_step(), I'm not *immediately sure* whether it's necessary to
+  disable preemption, nor whether we need to treat this and use
+  arm64_enter_el1_dbg() and arm64_exit_el1_dbg() rather than
+  entry_from_kenrel_mode() and exit_to_kernel_mode().
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmesljIACgkQJNaLcl1U
-h9DJ1Qf+KGbLlszokVtBw52F0VChslY+IeXlVNkhYXA48jltF44gWifkjngIfJUm
-sPwroba34ljMgHrow2mDAQAGToN7yPjjkMLZqqU5MhVWVFgbau7Ib+XcFCdo7aqy
-iVFndv4raNHPcgcsOKIopsZjz74XGZYbSXI7XlippeazjE7Ik7tK5rST0fXYqkMk
-xywVMJ3R6iLEIF6brHqZuDaBBUsM6y0lYi4tTawWtmQtVbWercnA/w21k4laCYDc
-huQ8ANiF8SKvr0e032yxtuY9tfjHXSwxdWA1LGW3tLGeEAVa0q5khBvAskQPXbdp
-qrhQSpsJdwmXIsU89H+E3O4GYWpipQ==
-=cpaS
------END PGP SIGNATURE-----
+  So we either need:
 
---C+7jhM8tQThOiQo5--
+  | static void noinstr el1_step(struct pt_regs *regs, unsigned long esr)
+  | {
+  |         arm64_enter_el1_dbg(regs);
+  |         do_el1_step(regs, esr);
+  |         arm64_exit_el1_dbg(regs);
+  | }
+
+  ... or:
+
+  | static void noinstr el1_step(struct pt_regs *regs, unsigned long esr)
+  | {
+  |         enter_from_kernel_mode(regs);
+  |         local_daif_inherit(regs);
+  |         do_el1_step(regs, esr);
+  |         local_daif_mask(regs);
+  |         exit_to_kernel_mode(regs);
+  | }
+
+With that, we're a step forward in the right direction.
+
+Mark.
+
+> 
+> 
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 8b281cf308b30..eb3b54710024f 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -933,18 +933,20 @@ void __init hook_debug_fault_code(int nr,
+>   * accidentally schedule in exception context and it will force a warning
+>   * if we somehow manage to schedule by accident.
+>   */
+> -static void debug_exception_enter(struct pt_regs *regs)
+> +static void debug_exception_enter(struct pt_regs *regs, int touch_preemption)
+>  {
+> -	preempt_disable();
+> +	if (touch_preemption)
+> +		preempt_disable();
+>  
+>  	/* This code is a bit fragile.  Test it. */
+>  	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
+>  }
+>  NOKPROBE_SYMBOL(debug_exception_enter);
+>  
+> -static void debug_exception_exit(struct pt_regs *regs)
+> +static void debug_exception_exit(struct pt_regs *regs, int touch_preemption)
+>  {
+> -	preempt_enable_no_resched();
+> +	if (touch_preemption)
+> +		preempt_enable_no_resched();
+>  }
+>  NOKPROBE_SYMBOL(debug_exception_exit);
+>  
+> @@ -953,8 +955,14 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+>  {
+>  	const struct fault_info *inf = esr_to_debug_fault_info(esr);
+>  	unsigned long pc = instruction_pointer(regs);
+> +	unsigned long req = ESR_ELx_EC(esr);
+> +	int touch_preemption;
+>  
+> -	debug_exception_enter(regs);
+> +	touch_preemption = !(IS_ENABLED(CONFIG_PREEMPT_RT) &&
+> +		(req == ESR_ELx_EC_SOFTSTP_LOW || req == ESR_ELx_EC_BRK64
+> +		 || req == ESR_ELx_EC_BKPT32 || req == ESR_ELx_EC_SOFTSTP_CUR));
+> +
+> +	debug_exception_enter(regs, touch_preemption);
+>  
+>  	if (user_mode(regs) && !is_ttbr0_addr(pc))
+>  		arm64_apply_bp_hardening();
+> @@ -963,7 +971,7 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+>  		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
+>  	}
+>  
+> -	debug_exception_exit(regs);
+> +	debug_exception_exit(regs, touch_preemption);
+>  }
+>  NOKPROBE_SYMBOL(do_debug_exception);
+>  
+> 
 
