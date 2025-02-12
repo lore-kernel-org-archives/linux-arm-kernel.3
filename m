@@ -4,91 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2F9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343D4C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pd5myOXJmBrq2ZireMN1LAxoO4XGu12StPrpGUT11PQ=; b=4k2G4Vqe6C+MBOiAN2DsNeT5u/
-	haYUndXhTpbmaqAkcFZZemgK7g8B8FsYrIr8unReLOaBQpk86pbIXC13Fzdhiy+JtkUtGLibpS9e9
-	TQO7/n8jAcA2qC1KFcwecx5UpSr0rfWCXwnD3VPsYUMxkAnmEe7u0XDMpeMRmph2hGsBYN7GLaC7h
-	uKLJ28pf5+DzolHBPEMnJRgyaU2oKRAJi9zfRPzDDMuAoADmUGEfG4FuB7lJyEfnCgpLTKWhxBl7A
-	+/qXR1O9/yO76jKjQdoiZhdQpkN5GYrM/c6MtuoWp72l4f28g1iEtyLMWw8UdQNG/i9cV8bywlzPo
-	KDVJBG9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgoLBoSdsmfmuqpXM5gofGXTPEUeyBBSV93lb6OMC7Y=; b=15HrLtgRI7yEk4D6xH69yCFVXk
+	mTfh85qMlGxNw7XMiTyQ6gOOyySrobL+gAtqLf4DYKuEw5bpPeh6GX8kaHbR9DzCL9CO0ZVv+DOJK
+	7Rb/ZhtxepYlBTGRyZY+kBajHqItZAzd4hjIIbe9eACA/aGp/MopEjlBSih0OZndhdr4At5dwLKlV
+	DAK0mUWPZ+m8l2nco7LvXdAxQkENlaa1WR94X5gZZWpKCFFAZQVL6DXie/DeSpoXTXOuUMgcSq3fG
+	3QJ/9NgX9XcLbCWGylJkEVkRcCnUWbaHVAp8MVasCNr5bFDvfTBrv3zYs5LIU1dGIu97jCSg7cTIZ
+	wBczqUDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBYt-00000007IcC-2wsD;
-	Wed, 12 Feb 2025 12:09:51 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tiBaI-00000007Irh-2ADj;
+	Wed, 12 Feb 2025 12:11:18 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAqC-000000079n6-2JMS
+	id 1tiArn-00000007ABP-3XVI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:23:41 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-308edbc368cso32852301fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:40 -0800 (PST)
+	Wed, 12 Feb 2025 11:25:20 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21f6d264221so51754225ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:25:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359419; x=1739964219; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pd5myOXJmBrq2ZireMN1LAxoO4XGu12StPrpGUT11PQ=;
-        b=nbHhR4d5J5rOQJ4GFk7ee8CA/aHFfgkhZb8KyNi0hVfCJNloRswedrX8lb7DqDV1Zw
-         1jikUg4MUIVHMaO4nVMm6plZhkp16BUqtnKvKl9XszpDu/RrSOyz4l8Ed9Z8f9Uqd2Dj
-         DURs9WnaF1vdv5ty5sLAUf5NBZfqjj6jaqYTnOhpNGelnbn7me9jVnsuf5U8kj7Tlowo
-         MVQttlr6BMve/gitEq9daMzRZPT/dtZoSovsvaTgiHdPYv1weNeqYAXgzKd/ILqJFxTz
-         7I5f02NqhTEOa/0YAtpIX8tgX19KjcaALGaUHtF7EfIlAubR+Ru+jkcdKt4Gyiikswni
-         twWA==
+        d=gmail.com; s=20230601; t=1739359519; x=1739964319; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TgoLBoSdsmfmuqpXM5gofGXTPEUeyBBSV93lb6OMC7Y=;
+        b=jtHvPKC/4yr01rxA1Y5jCLwKvZMHTr6WWWyk86Vqgzs9kQnCQWAlEjMIgm9N+m5GTZ
+         uLEZAnCKBQ8EgO+zN19WK5GgFxGPZloecDY32yD7LWhhNLa3J5rmHEodIsh3EHdlEtCd
+         awb6WOhoz2azdt/nETQHy0taSLhnu1DAZu+hjabiY2y2rCUyknlJPjTJJsKmfEntQByC
+         EF80ha8/esM5kavz6KCUbjjl9n+ax9yqo0edF3ixHDFlKB5bAQNMcdPYqA6ad+rcPeiy
+         HKecR9LdKIxrMmWFprFw4cTkbfzMQt2YigJYomgeuBEznGCS38h87SRkMFXrWczUO7TT
+         psHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359419; x=1739964219;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pd5myOXJmBrq2ZireMN1LAxoO4XGu12StPrpGUT11PQ=;
-        b=wyrfow1O38irAyEqnxKV8MV3rhbvdLVJQaTrKk6B4hpZWsbnGHrAztGiJmuBjmn2sX
-         zXav1B9a9Ah36JvG2qj/gwJwAY3/O6QxDzKtBP3DTqlrsET+RKAUqO9tvG47ffQwj3CG
-         ilHhFIy1AmQiSsZOpbJqI1UyT/qadekVTNaJKaLP4/D8HOKrXQjMUCkWkCqkTr15yKWf
-         2oVnOi5+irZz/sNMxYv58hjWyJN5bDmROA7iw7tC3NeXzT12UnF8ir0Asddgz5CuBtMY
-         eWhl6DC6sK2TG5QS1OG9DEyRysawP8zZTSOcUJUDUqWmOweG0Uz5DBq4+voLmPVF3mXJ
-         holQ==
-X-Gm-Message-State: AOJu0YwzhYAvSFC5s9lpVCVdjTNSi+/hXpXBYj2WP+gpAOoy6zpoogFP
-	L9dq/mVQ0CMTdIF9n7FC+rUpC8Ek/ilN5Nnaely5ww+US9JDgZydcQ9/KPFtUYU=
-X-Gm-Gg: ASbGncvcZ84ItegPcTJszT5jzDbst6dY2k1hVHg7UdyvSCkPlpxReXiSVERDZA53xnQ
-	8+rHbvRdHQIp2UyEbSh14N+ozVvKN2wEcWHdr/UMqBJJEUA6nhp9HB+wy41Yl2Qk3JUQ1WdRzM1
-	BriwABBhrcImGEenvNCHnYJUdN7rKbIu2UkV9HEgM5lZnYWQqgS1ZYaAQLKrzcE22bEC6tSGTXU
-	qNWQ9my0yEqYPQ+fk9u3bHNXQUgm5urS9afTmNlYO03lpODFDcbaMHtyLKUexFci9Qa6rimUiAF
-	uQJh5YQ9ch6pnmiTX8RDlgwPhg==
-X-Google-Smtp-Source: AGHT+IFnBCvVu/VGrB3ufwIm9PIPjMNjQwi218jFm+vuC3QKd2lwYi8qU7J4iPr0yHXGhJ+sLSoDTg==
-X-Received: by 2002:a05:651c:1991:b0:2ff:c3a2:f408 with SMTP id 38308e7fff4ca-30904fe65b4mr8433611fa.12.1739359418597;
-        Wed, 12 Feb 2025 03:23:38 -0800 (PST)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.37
+        d=1e100.net; s=20230601; t=1739359519; x=1739964319;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TgoLBoSdsmfmuqpXM5gofGXTPEUeyBBSV93lb6OMC7Y=;
+        b=lZDAijEfXmkeM57dwUjC0DnOMjQsEaxbdxqTOmOq/7YCk3ze4O1S9XQB7xmkMDZOMD
+         H3p/kM+gYyfXLz7RW7rso2ootQGlNnMVQ8DIlsK9Gh1oIM7eWHOm4fgOI7/9ixeiax8U
+         JP5YKWewh+v+eUPVKjbQBVWpc4yKGmbicaypqqOhPzpfJTzt275FA6Sd7Wv0mfjQ/LGs
+         JcjcIBrlUfcwZAVmJ2pRxR1KGdtNRcnyhGhbePWnG8p5OeCXz8Gsf79k4m0nF1cSJvWy
+         /rwqQ9fEh4lJYtD8S6kiETJYL0D8PZ2lshQd3Da2VJDuJ8W1biP+gpq4zdTE1XhJ+ngb
+         p8Hg==
+X-Forwarded-Encrypted: i=1; AJvYcCVtSIUaQO6uMa4dNRu5lui+hh94XdkVpAKgK2GUj0NH3SjCHwBEDU1NBM2qalF8OqZpsKx40fNIEMQB5LzS4GYm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ9JcnGyfnnXrrKvCIMLZvyHEAzDbdAHROXnOqSu1XxCmYcJ/i
+	rvqH11HFWml7TRVZ8h5pu6c7AT3iB5yYMoFx+xrrMsaS/0XQw2Xl
+X-Gm-Gg: ASbGnct+Wip/VNrr8ettmSlDd+t2NdgsEIADTgI+/HSf7omE/PJ8pAfMdikHJEolt0r
+	i7P/3NVpQk0Xwamc/qDwbAsmuravX/ol/tNcbFc564akiriK2UhisZQpaciB53DGnRta+kGo/V6
+	NQQSU1XF+cchvWg4iq/MtrPDq/p2T3X3TuRa0wyY73cJP9sEpbifXKl4RABDtO+YrmKJQXZ/vaS
+	qIVFM1/aX8QO8OK/uHkSAL7rXGrYPw94Vp/CjLCn7udFKJUBS0ch1mznGDLMxPXkIlZQQcusItZ
+	271+LazeLqNKhvs=
+X-Google-Smtp-Source: AGHT+IGSXAu22CD7MFAjaX8B91j1oDJlyn+2ztCU9HVQMzNMzKgxATJmndOJK7sQ6+CxJ94W1Ao6xg==
+X-Received: by 2002:a05:6a21:3987:b0:1d9:6c9c:75ea with SMTP id adf61e73a8af0-1ee5c732ce4mr4676523637.5.1739359518743;
+        Wed, 12 Feb 2025 03:25:18 -0800 (PST)
+Received: from archie.me ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7308cef0957sm5468012b3a.5.2025.02.12.03.25.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:38 -0800 (PST)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:25 +0100
-Subject: [PATCH v4 31/31] ARM: entry: Straighten syscall returns
+        Wed, 12 Feb 2025 03:25:17 -0800 (PST)
+Received: by archie.me (Postfix, from userid 1000)
+	id EF2E541F5559; Wed, 12 Feb 2025 18:25:15 +0700 (WIB)
+Date: Wed, 12 Feb 2025 18:25:15 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Avadhut Naik <avadhut.naik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Hu Haowen <2023002089@link.tyut.edu.cn>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Jamet <michael.jamet@intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Paolo Abeni <pabeni@redhat.com>, Sean Young <sean@mess.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	James Morse <james.morse@arm.com>,
+	"Nysal Jan K.A" <nysal@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sourabh Jain <sourabhjain@linux.ibm.com>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Frederic Barrat <fbarrat@linux.ibm.com>,
+	Andrew Donnellan <ajd@linux.ibm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, workflows@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 0/9] Extend automarkup support for ABI symbols
+Message-ID: <Z6yFG_NntQfkwYli@archie.me>
+References: <cover.1739254867.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-31-a457ff0a61d6@linaro.org>
-References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
-In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
-To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
- Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
- Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- "Paul E. McKenney" <paulmck@kernel.org>, 
- Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
- Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Linus Walleij <linus.walleij@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/8yu6IEGS0ve/RxO"
+Content-Disposition: inline
+In-Reply-To: <cover.1739254867.git.mchehab+huawei@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_032340_592496_4D69B33F 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20250212_032519_883239_4A95A32F 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +131,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since ret_fast_syscall() is now only called in two spots in
-vector_swi, we can inline the function into vector_swi, and
-skip the separate call, placing the code from ret_fast_syscall
-at the end of vector_swi and one of them inside an ifdef that
-gets compiled out for !EABI.
 
-TODO: is the UNWIND(.fnstart/.cantunwind/.fnend) really needed
-on vector_swi after this change or can I just drop it?
-I do not understand unwind well enough :/
+--/8yu6IEGS0ve/RxO
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- arch/arm/kernel/entry-common.S | 32 ++++++++++++++------------------
- 1 file changed, 14 insertions(+), 18 deletions(-)
+On Tue, Feb 11, 2025 at 07:22:54AM +0100, Mauro Carvalho Chehab wrote:
+> Now that ABI creates a python dictionary, use automarkup to create cross
+> references for ABI symbols as well.=20
 
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index a5a0e757ab23d151485092a078af98966e039869..f9c38f5311851e299234997796cd78de06a5c531 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -30,21 +30,6 @@ saved_pc	.req	lr
- 
- 	.section .entry.text,"ax",%progbits
- 	.align	5
--/*
-- * As we will need to call out to some C functions,
-- * we save r0 first to avoid needing to save registers around each C function
-- * call.
-- */
--ret_fast_syscall:
-- UNWIND(.fnstart	)
-- UNWIND(.cantunwind	)
--	add	sp, sp, #(S_R0 + S_OFF)
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
--	bl	stackleak_erase_on_task_stack
--#endif
--	restore_user_regs
-- UNWIND(.fnend		)
--ENDPROC(ret_fast_syscall)
- 
- /*
-  * "slow" syscall return path.  "why" tells us if this was a real syscall.
-@@ -122,6 +107,8 @@ ENDPROC(vector_bhb_bpiall_swi)
- #endif
- 	.align	5
- ENTRY(vector_swi)
-+ UNWIND(.fnstart	)
-+ UNWIND(.cantunwind	)
- #ifdef CONFIG_CPU_V7M
- 	v7m_exception_entry
- #else
-@@ -210,9 +197,9 @@ ENTRY(vector_swi)
- 	mov	r0, tbl
- 	mov	r2, scno			@ syscall number from r7
- 	bl	invoke_syscall
--	b	ret_fast_syscall
--
- #if defined(CONFIG_OABI_COMPAT) || !defined(CONFIG_AEABI)
-+	b	9002
-+
- 	/*
- 	 * We failed to handle a fault trying to access the page
- 	 * containing the swi instruction, but we're not really in a
-@@ -225,8 +212,17 @@ ENTRY(vector_swi)
- 	sub	lr, saved_pc, #4
- 	str	lr, [sp, #S_PC]
- 	get_thread_info tsk
--	b	ret_fast_syscall
-+9002:
-+	/* Exit !AEABI clause */
-+#endif
-+
-+	/* Return from syscall */
-+	add	sp, sp, #(S_R0 + S_OFF)
-+#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+	bl	stackleak_erase_on_task_stack
- #endif
-+	restore_user_regs
-+ UNWIND(.fnend		)
- ENDPROC(vector_swi)
- 	.ltorg
- 
+I get three new warnings:
 
--- 
-2.48.1
+WARNING: /sys/devices/system/cpu/cpuX/topology/physical_package_id is defin=
+ed 2 times: /home/bagas/repo/linux-kernel/Documentation/ABI/stable/sysfs-de=
+vices-system-cpu:27; /home/bagas/repo/linux-kernel/Documentation/ABI/testin=
+g/sysfs-devices-system-cpu:70
+WARNING: /sys/devices/system/cpu/cpuX/topology/ppin is defined 2 times: /ho=
+me/bagas/repo/linux-kernel/Documentation/ABI/stable/sysfs-devices-system-cp=
+u:89; /home/bagas/repo/linux-kernel/Documentation/ABI/testing/sysfs-devices=
+-system-cpu:70
+WARNING: Documentation/ABI/testing/sysfs-class-cxl not found
 
+Thanks.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--/8yu6IEGS0ve/RxO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCZ6yFGwAKCRD2uYlJVVFO
+o8lhAQCQ4fRHrhmP52Ie1GWpvmnThVAVajYhveINLTbggfy+8AEAmFJjGR9fv2Ph
+AlybXGGYbN21qaIJUDcQ8kIXnvwi2Q0=
+=z6el
+-----END PGP SIGNATURE-----
+
+--/8yu6IEGS0ve/RxO--
 
