@@ -4,173 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7893AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E00DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=; b=mfkCTm31LRCDNiHj9WZ26JnCmp
-	6ek+k7id0WEc4o/TPdpUE/QoSd9i4LRd6Wi1MdBodi/g9aVIgnDLqTk+7Cxz9MiGbKylPsV0PZ0wS
-	BW00jnkpb03vSkb/yynu28mlfpJ8QwN0gXOtyVQUhkCZcX3BMnX9oOBQ1B9+oYAbbwYnuN6omYez7
-	VpravbGdXF6ZD+qJ4CvlR2WdG4HRAMMdcvAAcem9tMEBapluWzeeycPGR2h+nZYFvt/YqusWVP4Ti
-	C/BHfISjX6trJaMJokWo6WYB6hd6LkDaL5mTEscaqFB3oo6HfBgv7KFxU45K2rMo6AGQfBEzR5K0A
-	Pt0+oZkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NEHC/D16UY+bXmmwgEqqnrJJWnx4kYCet5+1iUHXJyI=; b=Y5xDU5IZJ3KZZawC7HdvVwL4lH
+	GWnhD2dgtXp5u5EwhRN59Uu5tcyacm+IE0BEEOm1zvhzR5pZwpbtzl+W31TGqSjsuGdQy48I2rMLN
+	J6fvYHBYMWYmAJmfjKjNYRZ7a3GVTO88FCuVELSVGx6PV+NafvHVUODifRh2JBaL4oPzHawSqCNpu
+	nvqkW8wrPfEoH3B6wSZGpWYVm/1F+y0LBRAsdMLwsSBBSI5lzc7/eEW60DM8lh+0oyFGiGB+SU1Cb
+	goiEfkSky6GiTiOn1k7dcwkSFrd6BmzZmJZa2lZEuDgXONeSO2d2IA8XAO25BOq6mJs+LZmbFcBbP
+	aWVCxoEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLtE-000000098Rk-1f1q;
-	Wed, 12 Feb 2025 23:11:32 +0000
-Received: from mail-am6eur05on2068.outbound.protection.outlook.com ([40.107.22.68] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tiM8D-000000099u8-19O4;
+	Wed, 12 Feb 2025 23:27:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLrn-000000098Kz-24AR
+	id 1tiM6n-000000099me-2NXH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Feb 2025 23:25:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=NEHC/D16UY+bXmmwgEqqnrJJWnx4kYCet5+1iUHXJyI=; b=CrXwDQmNJbEVIHK+Cfr+rvGOhL
+	Ftcf52ABNpycUSUPjDClxtVZT/4KdBJ5eGi6rL5UG7/uyYXwrq7NFc3gJzSWt+dLZKQ0ErTZP2dBG
+	UNWxc2+NqLfZCV/NSgIs9eH/D9wMNrHNT0ifSM50+BxIcQYB6QBsLfh1BUBHmws4VuzJTYPv0YNG5
+	+G7J4eog8eVs0qBCK+yEzisfO+fXzyqiW9YXVK/qn22XEoZVqdgcGor6xADHXR8T2cW3WhDjn7bzL
+	OslCoaNUrGddG2FtW+xnHKmDka+AMSuSLwOcoXzZpcsV7fTj5BG5D6lOnXigaTGH28TzGAYHpdkfl
+	tS6ZVO/w==;
+Received: from linux.microsoft.com ([13.77.154.182])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiM6h-00000000shA-0BgG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 23:10:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AKlngkmdNDJh/yWq7HGn2fmvOj5Lcg9zuALE5GeR1SbG/ktPlBMk+jC07PvIgou7Z8Dk7N8kZrfH08YreAQoNHWDkhCm671M630rMb4a3vpdwo7wlJNDlS+b6RK2mn1+xxgYQdKjq9hzj9b8mZC6p0ZKo2Tn3ZFowIVi8baxVuBaOISc9Oxfn2f8bOb1Xg8+pjbPtRZ5ysVHQgtEE6aubVqzOWkX6173aVqLLldBBN69TjTkZ43ZuCnx5Wwcc6SL2WGngzJKKXgd8Fby3/Mgrcr4N5SIoKZ5Da24czvny6wIGU76Nbaq6JF5KVUuSOVuZYxTPweh6ZcUth/1eI9Ayw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=;
- b=MumjsyksA1eoI118RJCtuNJB4lWSSequsHNQ6auqfp+XxBU+Te+qBMj3pa+LzoES0M8L/yyQMPaDUnF2Kmlu0edMCc+serH8yFH2KJvhED9LzXNvM3xLnKIDSyUWHeACvAa3muRxXNM1E2FjmwZwil+kwn5s9tTe5LI8prDGifoeNjLWTX5MYnoOIbqJBXTE8gqN0WJ6Jl5J1EjNSWNjhkIvGn7ROmWYITp/ZUWZdA++u8V8mzvaQxHU8EHZGMqn58Pjnce0rDbToe0F/RF5s2bwMlv/iKlG7ci/p1NduFokS02raSxi7Snk+P0zvVlAa/apc+bjIHe7OUWS7y2eOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=;
- b=EDhWvl4J27Hgq3Cx4yEMwh6N3llQMVbcWUt/me0lZWWytHPpyGls7+ypwyws5m3zXzMnuSr4ABK8F1CUGGXoOS2n1TJmHkh2jQt0NxPz+W/SeSR4vhjopyRPpktIDji9LiuOTC1fUAGYHebK0ab1FKzQ+kTP74BkzpQhxbY+y19PcWIoejJaYL6w7fBkrgmM7wuM+05QJ5nY80YoMNm9NY8UAgJZAo/Npf5WbGfhfUbylMUGbCnQVldG8mwNIaIXX6dCg0fu8JWTEvbIHn+dPRyUl5va51RkEvGlr3BXLXtTBX0i7iCIEnek3/2ltYDdOVvz/ig9mrgMuUI7bI6j8w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by AS4PR04MB9550.eurprd04.prod.outlook.com (2603:10a6:20b:4f9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Wed, 12 Feb
- 2025 23:09:55 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8445.013; Wed, 12 Feb 2025
- 23:09:55 +0000
-Date: Thu, 13 Feb 2025 01:09:51 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH iwl-next v4 1/9] net: ethtool: mm: extract stmmac
- verification logic into common library
-Message-ID: <20250212230951.2lx7fba6avurmgls@skbuf>
-References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250210070207.2615418-2-faizal.abdul.rahim@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250210070207.2615418-2-faizal.abdul.rahim@linux.intel.com>
-X-ClientProxiedBy: VI1PR09CA0098.eurprd09.prod.outlook.com
- (2603:10a6:803:78::21) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Wed, 12 Feb 2025 23:25:32 +0000
+Received: from [192.168.35.166] (c-73-59-8-18.hsd1.wa.comcast.net [73.59.8.18])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 5B743203F3C9;
+	Wed, 12 Feb 2025 15:25:17 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5B743203F3C9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739402718;
+	bh=NEHC/D16UY+bXmmwgEqqnrJJWnx4kYCet5+1iUHXJyI=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=Myzmr8V7LcRn8AMNURBvt16NH504Qgw/oOAzGyEu1obaVAh5xjFA7361va9Egw9B7
+	 VUSTCF83LNF45orrwJgg9NJ3cKdTWFgfN4P6KUEAKDBHKPBIf6Xsxhp6XW/fVD4eZN
+	 FuY3vHkOs3JAQFslCsQtLZzCl0xfzEosmRfi86Uw=
+Message-ID: <3263d63d-29bb-4c5d-81cb-f37eff442fb7@linux.microsoft.com>
+Date: Wed, 12 Feb 2025 15:25:17 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AS4PR04MB9550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c1aa7b5-79d4-41e2-508f-08dd4bba5cbd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/VbmTTswx1grzUsbL4w4FNmjYeduuirTcNDWJaFSYaEfRQUpVd8u7xSeNe0K?=
- =?us-ascii?Q?48iadAOqfqJfmxUwP/ehBKX0wEoSCmkI+TTUUpSazVovVr72vluBEra6ay7Z?=
- =?us-ascii?Q?wo5cDtL4lhSxf7/iVclxYk6zQgTc88YVKw68dvrLAhzkDkmzvFwZGvCNHlAI?=
- =?us-ascii?Q?xAu7ZuH0X357r4w9mwK+HPfHNFMV+g5W0AGYjC+BvS62ieMiPGPTEYkIIT0R?=
- =?us-ascii?Q?/+S+h2zfMRjHBeAKJOGt5uYw+mjLAxnA7pmYmZ+us1cRrTY6nxAjsFTV6XIQ?=
- =?us-ascii?Q?fdnAr0j73Hx9ZGRMnXiN0kbgxj4ehgvxvGSJuDlHUyeseKSxXqZXX0BpAoyW?=
- =?us-ascii?Q?UbeUcTLnAGrf7+sqgp3u0py6RInl919YjI+FhGG9iWwlt57pRdUFpu/gXWMP?=
- =?us-ascii?Q?h4zjNknLfl1LjsLDTL9uKhpUNJb2QEoFg60NrQGTQQkaLze7/c4HUpgnyFta?=
- =?us-ascii?Q?tRxAIln5eiKm4IA3o+mQ3m7LeELRj4EMEY6ZwHoNSE9BcD02mR2jpl76XLus?=
- =?us-ascii?Q?vd8ZOHuU/XK1RTRopyiT71GI0JvGxseclxGt0Cu4YjVv4t4L1CstTNYIMHIT?=
- =?us-ascii?Q?utCriQ3Q4ZZt2p1cAij4e0mxIZL9SsV7LZfBu2DnVxGKEUbpKUFLdOI1vRCx?=
- =?us-ascii?Q?xuscBgY+QCs/q0UJrjJ2/UMMaWm3umqScYVDXwwvOha6kBhxAMCcqaNUezvK?=
- =?us-ascii?Q?8bn734kHVdeVP77FWbK1LS4M2qslxA7DmxDnHsUTlpE5fFBcva8vvDaCGGoq?=
- =?us-ascii?Q?gpUj/08Fu7qEbrop4NqObPfx3Soa8Ir8kJMN0ouX9SMrLH6QZ7MQloLTeO6u?=
- =?us-ascii?Q?9OW91GMyTwzm1sYPS9+3cINLnYwMZossLBKBiCQcOnYgf1OKzgYljy78Ey7U?=
- =?us-ascii?Q?ZbpdfpHrW8nrzOBTiaBBML0sxw0NLA3D5BE6z2w6mlrDc2LOpYSi5ilNwrxs?=
- =?us-ascii?Q?K9tFjH9cvhVnWyVUmSJ4aq4mu6jYwIC6cqKcS0jxHfoqBoPK0jbho/FLuxLP?=
- =?us-ascii?Q?3hnM92Dlyj+yLAgVFmxt8gwPZuL9JVrRdKOlHv6pZOHuIq+8wQsfyvDmxWCF?=
- =?us-ascii?Q?9fNyAEcNcm6rCsgsViTs6yZCy1JEkOWeeeBWENfLepRM13OlBqWHiKHszU8w?=
- =?us-ascii?Q?5U8HcBK9pgeIfh+qnDUniIPwVTYNnPU0T1sukNKXitBH8tFt4hMgedsK9qaS?=
- =?us-ascii?Q?tLJxX4h/qcvMsBrkYtvfTgr9F8AfYyKPmb8cdpdLB2jrsbqoe1/e5FPz5ANe?=
- =?us-ascii?Q?KKz8kqQ7e/MgrbCMweoytujZL1mgmxxqdcVpSQVlJykhUnpjhgG1oX9dR7l4?=
- =?us-ascii?Q?RITOmSV3dEpsuj+RQWLNmkG3UIet846iPC89IiK9SH5mZhfdOYy80qbYmtzX?=
- =?us-ascii?Q?HzcUp6DQhlAjPP1rbhKRI7RC73sB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p/uXpMvc55azn4LvZiYHOHDuW04DH1UyJA6zjl5s06dbW8OX8MEVAA7Seo+5?=
- =?us-ascii?Q?y8Rbr0sR01mwhSfkbnhdCfBuCMfYt0x8sI1XazUgygiLELc3NBBnIb3qJqzl?=
- =?us-ascii?Q?Qgi/vePsO1nu/BoIQBS2dn+nA+0jJSknDkshPw5XEu9zWffrDlZRy7kypuMg?=
- =?us-ascii?Q?FCORfBch3fRLiIOEfLZYLaI7cHWNnQNBaTWEPA5zdko46XOR05akTitpxL56?=
- =?us-ascii?Q?eVPcINFkjktyZY0qoBNIEd2bgKe8srj7Umx3lqY4+cP0fSbKCaoP4pvkal1z?=
- =?us-ascii?Q?IFopVNJUrtbGq35TBvUTU4FvwihmXK5D+NtMfR+dUqqU7bGCK9KAiOM8aBkZ?=
- =?us-ascii?Q?EwQD1mTA8BHn/hFwZmpyz0n1+llxOpuZtv0lRcWPqGqj39NHhcBP8DFMgE/x?=
- =?us-ascii?Q?x2XjZ1BxJGJ0gP6G4rIr4zF4BVHnIcZ1ECdaahYPM15/eOkEKPmxsKrYdPyn?=
- =?us-ascii?Q?6PGsHcdXUDBVFBK90VKP6W+DQrkCvH+b2OUilz5ETdCNC0bFNbliMB70RxUa?=
- =?us-ascii?Q?HhTeWEb66kf6kC6UVEGevj7K9uZxZMdVXq/prHamRdNIAFi78eM+RrB0//jH?=
- =?us-ascii?Q?xZwKw4D1qxN8ZtcpUZOFIV4z0pD/AOHzWzIOGPwVcWfJUMT++zaWYe5TLXD5?=
- =?us-ascii?Q?Ssknpm0ztWl5OqY6yKc9pFFYct1TJ9Apuu3a/BF96ZtR+RbxQ8hAWiXprDsS?=
- =?us-ascii?Q?/6L+MW5JHNY/rIkF07CLhvmx4syIZyWdXMHkerDyROr6iMqvwvgrQe9RHxk6?=
- =?us-ascii?Q?NmlI9H1FmEJsgRz3w5f1MA0fWPeGc7fG8pgtFpY91SFX5M3MZZbDB9bF6mBq?=
- =?us-ascii?Q?r/KeZXVFD5d9+5n9G3UtPBfCE4DNS4qLm7mam7U+i93PWiMzaclJ++IUyIYM?=
- =?us-ascii?Q?AFEUQXAn6mRHOf54L5lKzIvoKzrNfFqlFubD5ZANiRT8iaQsI0lPOxiaojjo?=
- =?us-ascii?Q?KgS03PWQ3GivUD6HAKAbsAAS7FczProQuc0uNJsugmXZDI3IWTgJTKlbtqO5?=
- =?us-ascii?Q?aesbocI3MR5bUoDScD8So9EzHLHkxNVoFlbrOKfuWVcsfniWktaj+NW8dgwP?=
- =?us-ascii?Q?iYNVPMzVu8lSRpL3QhWAyyqk054Oa1QA3T0t6loDKl61N2XFy4E+qxh+usTL?=
- =?us-ascii?Q?OXFpZk6p36HHe3n3HGbhdsj0vYa/Vd2ZNENfUxuBDmPUtBRhzlRCwD65Rqmn?=
- =?us-ascii?Q?YWw4DNcFwB7+ov191omWaxD6olkHrf5Fl1LepQMWHRBuf6j4PvXVtHJUiQ/8?=
- =?us-ascii?Q?Fd8e8uwWUO6gusMn/Gb69ippvcHDlsqRi/Tly04XCCZE8SyjUNsYya+e+uC8?=
- =?us-ascii?Q?2oSkOe4/S92b9Pqb/XAbBdS2C3SXyBKIVdteFX6IIH6aSGl45Ptp6UU0ihSP?=
- =?us-ascii?Q?2Ug1usYPFHCHdng5Ukh0dgiIrQTtBeXOkKOf14cb5t7SdV6wu7l6U104htSl?=
- =?us-ascii?Q?OiURj1Du7EGppNM1Wq/BK2nZGRhFiyi/+VvdCqQsrqF6u0uaQBZpDlW2VZQn?=
- =?us-ascii?Q?sI8myPcq+4i/gEbyQCEQRW2l4w+AbnajFQ38GpeyDHXQ0RVohxupky8yYQ1I?=
- =?us-ascii?Q?6CILFs8mzMU+RPJ+yOpCs2bTr3Pw2EOJQfSklyhU0xfS93riDLtjyWwaqK5e?=
- =?us-ascii?Q?kw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c1aa7b5-79d4-41e2-508f-08dd4bba5cbd
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 23:09:55.0475
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qhM67HiNf4vrlXJrqZcsgT9iezgfER7q52NTJPqQXn2KVQRxtYFk0T0atQh2XqwMDW8XG1RohkINZSlpnc4T+A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9550
+User-Agent: Mozilla Thunderbird
+Cc: eahariha@linux.microsoft.com, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, iommu@lists.linux.dev, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
+ arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com
+Subject: Re: [PATCH] hyperv: Add CONFIG_MSHV_ROOT to gate hv_root_partition
+ checks
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+References: <1739312515-18848-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <20ba4b7c-bebb-4b1f-8c6c-4cd52a5083b5@linux.microsoft.com>
+ <f7ce3ca7-e555-418d-9c88-6df379a3ec56@linux.microsoft.com>
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <f7ce3ca7-e555-418d-9c88-6df379a3ec56@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_151003_706958_AB1AFB16 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20250212_232530_094008_C4221BC1 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,196 +95,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 02:01:59AM -0500, Faizal Rahim wrote:
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
+On 2/12/2025 3:01 PM, Nuno Das Neves wrote:
+> On 2/11/2025 9:47 PM, Easwar Hariharan wrote:
+>> On 2/11/2025 2:21 PM, Nuno Das Neves wrote:
+>>> Introduce CONFIG_MSHV_ROOT as a tristate to enable root partition
+>>> booting and future mshv driver functionality.
+>>>
+>>> Change hv_root_partition into a function which always returns false
+>>> if CONFIG_MSHV_ROOT=n.
+>>>
+>>> Introduce hv_current_partition_type to store the type of partition
+>>> (guest, root, or other kinds in future), and hv_identify_partition_type()
+>>> to it up early in Hyper-V initialization.
+>>
+>> ...to *set* it up early?
+>>
+> Yep! Thanks for catching that
 > 
-> It appears that stmmac is not the only hardware which requires a
-> software-driven verification state machine for the MAC Merge layer.
+>>>
+>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>> ---
+>>> Depends on
+>>> https://lore.kernel.org/linux-hyperv/1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com/
+>>>
+>>>  arch/arm64/hyperv/mshyperv.c       |  2 ++
+>>>  arch/x86/hyperv/hv_init.c          | 10 ++++----
+>>>  arch/x86/kernel/cpu/mshyperv.c     | 24 ++----------------
+>>>  drivers/clocksource/hyperv_timer.c |  4 +--
+>>>  drivers/hv/Kconfig                 | 12 +++++++++
+>>>  drivers/hv/Makefile                |  3 ++-
+>>>  drivers/hv/hv.c                    | 10 ++++----
+>>>  drivers/hv/hv_common.c             | 32 +++++++++++++++++++-----
+>>>  drivers/hv/vmbus_drv.c             |  2 +-
+>>>  drivers/iommu/hyperv-iommu.c       |  4 +--
+>>>  include/asm-generic/mshyperv.h     | 39 +++++++++++++++++++++++++-----
+>>>  11 files changed, 92 insertions(+), 50 deletions(-)
+>>>
+>>
+>> <snip>
+>>
+>>> +
+>>> +void hv_identify_partition_type(void)
+>>> +{
+>>> +	/*
+>>> +	 * Check partition creation and cpu management privileges
+>>> +	 *
+>>> +	 * Hyper-V should never specify running as root and as a Confidential
+>>> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
+>>> +	 * to exploit root behavior to expose Confidential VM memory, ignore
+>>> +	 * the root partition setting if also a Confidential VM.
+>>> +	 */
+>>> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+>>> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>>> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>>> +		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+>>> +		pr_info("Hyper-V: running as root partition\n");
+>>> +	} else {
+>>> +		hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>>> +	}
+>>> +}
+>>
+>> This should assume GUEST as default and modify to ROOT if all the checks pass.
+>>
+> It is doing that, isn't it?
 > 
-> While on the one hand it's good to encourage hardware implementations,
-> on the other hand it's quite difficult to tolerate multiple drivers
-> implementing independently fairly non-trivial logic.
+> In fact the 'else' branch here is redundant and just there for additional clarity.
 > 
-> Extract the hardware-independent logic from stmmac into library code and
-> put it in ethtool. Name the state structure "mmsv" for MAC Merge
-> Software Verification. Let this expose an operations structure for
-> executing the hardware stuff: sync hardware with the tx_active boolean
-> (result of verification process), enable/disable the pMAC, send mPackets,
-> notify library of external events (reception of mPackets), as well as
-> link state changes.
+> hv_current_partition_type is zeroed (so GUEST) by default, but I could make that explicit
+> if you prefer:
+
+Yes, explicit is better, but see comment below.
+
+> +enum hv_partition_type hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
 > 
-> Note that it is assumed that the external events are received in hardirq
-> context. If they are not, it is probably a good idea to disable hardirqs
-> when calling ethtool_mmsv_event_handle(), because the library does not
-> do so.
+> How does that sound? Am I misunderstanding something here?
+
+I'd suggest centralizing that in this function, instead of having it spread in 2 places.
+Since your commit message hints at future partition types, it's ideal to have this function be
+a central clearing house, which I suppose is the intent. The preferred pattern in general, and what I'm
+suggesting, is something like this:
+
+void hv_identify_partition_type(void)
+{
+	/* Assume guest role */
+	hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+
+	/*
+	 * Check partition creation and cpu management privileges
+	 *
+	 * Hyper-V should never specify running as root and as a Confidential
+	 * VM. But to protect against a compromised/malicious Hyper-V trying
+	 * to exploit root behavior to expose Confidential VM memory, ignore
+	 * the root partition setting if also a Confidential VM.
+	 */
+	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+		pr_info("Hyper-V: running as root partition\n");
+	}
+}
+
 > 
-> Also, the MM software verification process has no business with the
-> tx_min_frag_size, that is all the driver's to handle.
+>> <snip>
+>>
+>>> +static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>>> +{
+>>> +	return hv_result(U64_MAX);
+>>> +}
+>>
+>> Is there value in perhaps #defining hv_result_<whatever this is> as U64_MAX and returning that for documentation?
+>> For e.g. assuming this is something like EOPNOTSUPP
+>>
+>> #define HV_RESULT_NOT_SUPP U64_MAX
+>>
+>> static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>> { return hv_result(HV_RESULT_NOT_SUPP); }
+>>
+> The idea here was to copy what hv_do_hypercall does returning U64_MAX in case the hypercall
+> page is missing, which will hv_result() into an invalid status code. A special value for
+> that status could make this pattern clearer.
+
+Agreed, having a name for that status would be helpful, but we don't want to diverge too much from the hypervisor
+definitions, especially if we're going to change it later again anyway.
+
+ I'd want to call out that this isn't a "real"
+> Hyper-V status code somehow. HV_STATUS's are 16 bits, so it would look more like:
 > 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Co-developed-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> Co-developed-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
->  .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +---
->  .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++-----------
->  .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
->  include/linux/ethtool.h                       |  61 +++++
->  net/ethtool/mm.c                              | 222 ++++++++++++++++++
->  7 files changed, 327 insertions(+), 200 deletions(-)
+> /* "LINUX" because this isn't really a status from the hypervisor.. */
+> #define HV_STATUS_LINUX_FAIL 0xFFFF
+> static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+> { return HV_STATUS_LINUX_FAIL; }
+> 
+> Another option: there is another patch coming (which you know of) which maps hypercall
+> status codes to regular Linux errors like -EOPNOTSUPP. I could simply merge that patch
+> with this one (or make this a series for v2), and that would result in less churn.
+> (And leave alone the current use of U64_MAX in hv_do_hypercall, for now).
+> 
 
-So I'm not exactly sure how this is supposed to work, but this is moving
-a non-negligible portion of code from stmmac_fpe.c which has Furong Xu's
-copyright, to ethtool/mm.c which doesn't. That being said, commit
-8d43e99a5a03 ("net: stmmac: refactor FPE verification process") which
-added that logic said that it was co-developed together with me (NXP),
-and I clearly remember both of us contributing to it. So, how about
-expanding NXP's current 2022-2023 copyright in ethtool/mm.c to
-2022-2025 (date of commit 8d43e99a5a03 plus date of this patch), and
-also copy Furong's copyright 2024 line?
+I think that second option is a good idea. The hypervisor status should remain restricted to the functions that are
+hv_do_hypercall() or call it directly, while the rest of the code uses standard errno values. I'd suggest making
+it a series so each commit does 1 thing.
 
-> @@ -710,6 +714,63 @@ struct ethtool_mm_stats {
->  	u64 MACMergeHoldCount;
->  };
->  
-> +enum ethtool_mmsv_event {
-> +	ETHTOOL_MMSV_LP_SENT_VERIFY_MPACKET,
-> +	ETHTOOL_MMSV_LD_SENT_VERIFY_MPACKET,
-> +	ETHTOOL_MMSV_LP_SENT_RESPONSE_MPACKET,
-> +};
-> +
-> +/* MAC Merge verification mPacket type */
-> +enum ethtool_mpacket {
-> +	ETHTOOL_MPACKET_VERIFY,
-> +	ETHTOOL_MPACKET_RESPONSE,
-> +};
-> +
-> +struct ethtool_mmsv;
-> +
-> +struct ethtool_mmsv_ops {
-
-Since these are driver-facing API, how about a kernel-doc? The content
-is subject to further review comments, of course.
-
-/**
- * struct ethtool_mmsv_ops - Operations for MAC Merge Software Verification
- * @configure_tx: Driver callback for the event where the preemptible TX
- *		  becomes active or inactive. Preemptible traffic
- *		  classes must be committed to hardware only while
- *		  preemptible TX is active.
- * @configure_pmac: Driver callback for the event where the pMAC state
- *		    changes as result of an administrative setting
- *		    (ethtool) or a call to ethtool_mmsv_link_state_handle().
- * @send_mpacket: Driver-provided method for sending a Verify or a Response
- *		  mPacket.
- */
-
-> +	void (*configure_tx)(struct ethtool_mmsv *mmsv, bool tx_active);
-> +	void (*configure_pmac)(struct ethtool_mmsv *mmsv, bool pmac_enabled);
-> +	void (*send_mpacket)(struct ethtool_mmsv *mmsv, enum ethtool_mpacket mpacket);
-> +};
-> +
-> +/**
-> + * struct ethtool_mmsv - MAC Merge Software Verification
-> + * @ops: operations for MAC Merge Software Verification
-> + * @dev: pointer to net_device structure
-> + * @lock: serialize access to MAC Merge state between
-> + *	  ethtool requests and link state updates.
-> + * @status: current verification FSM state
-> + * @verify_timer: timer for verification in local TX direction
-> + * @verify_enabled: indicates if verification is enabled
-> + * @verify_retries: number of retries for verification
-> + * @pmac_enabled: indicates if the preemptible MAC is enabled
-> + * @verify_time: time for verification in milliseconds
-> + * @tx_enabled: indicates if transmission is enabled
-> + */
-> +struct ethtool_mmsv {
-> +	const struct ethtool_mmsv_ops *ops;
-> +	struct net_device *dev;
-> +	spinlock_t lock;
-> +	enum ethtool_mm_verify_status status;
-> +	struct timer_list verify_timer;
-> +	bool verify_enabled;
-> +	int verify_retries;
-> +	bool pmac_enabled;
-> +	u32 verify_time;
-> +	bool tx_enabled;
-> +};
-> +
-
-/**
- * ethtool_mmsv_stop() - Stop MAC Merge Software Verification
- * @mmsv: MAC Merge Software Verification state
- *
- * Drivers should call this method in a state where the hardware is
- * about to lose state, like ndo_stop() or suspend(), and turning off
- * MAC Merge features would be superfluous. Otherwise, prefer
- * ethtool_mmsv_link_state_handle() with up=false.
- */
-> +void ethtool_mmsv_stop(struct ethtool_mmsv *mmsv);
-
-/**
- * ethtool_mmsv_link_state_handle() - Inform MAC Merge Software Verification
- *				      of link state changes
- * @mmsv: MAC Merge Software Verification state
- * @up: True if device carrier is up and able to pass verification packets
- *
- * Calling context is expected to be from a thread, interrupts enabled.
- */
-> +void ethtool_mmsv_link_state_handle(struct ethtool_mmsv *mmsv, bool up);
-
-/**
- * ethtool_mmsv_event_handle() - Inform MAC Merge Software Verification
- *				 of interrupt-based events
- * @mmsv: MAC Merge Software Verification state
- * @event: Event which took place (packet transmission or reception)
- *
- * Calling context expects to have interrupts disabled.
- */
-> +void ethtool_mmsv_event_handle(struct ethtool_mmsv *mmsv,
-> +			       enum ethtool_mmsv_event event);
-
-/**
- * ethtool_mmsv_get_mm() - get_mm() hook for MAC Merge Software Verification
- * @mmsv: MAC Merge Software Verification state
- * @state: see struct ethtool_mm_state
- *
- * Drivers are expected to call this from their ethtool_ops :: get_mm()
- * method.
- */
-> +void ethtool_mmsv_get_mm(struct ethtool_mmsv *mmsv,
-> +			 struct ethtool_mm_state *state);
-
-/**
- * ethtool_mmsv_set_mm() - set_mm() hook for MAC Merge Software Verification
- * @mmsv: MAC Merge Software Verification state
- * @state: see struct ethtool_mm_state
- *
- * Drivers are expected to call this from their ethtool_ops :: set_mm()
- * method.
- */
-> +void ethtool_mmsv_set_mm(struct ethtool_mmsv *mmsv, struct ethtool_mm_cfg *cfg);
-
-/**
- * ethtool_mmsv_init() - Initialize MAC Merge Software Verification state
- * @mmsv: MAC Merge Software Verification state
- * @dev: Pointer to network interface
- * @ops: Methods for implementing the generic functionality
- *
- * The MAC Merge Software Verification is a timer- and event-based state
- * machine intended for network interfaces which lack a hardware-based
- * TX verification process (as per IEEE 802.3 clause 99.4.3). The timer
- * is managed by the core code, whereas events are supplied by the
- * driver explicitly calling one of the other API functions.
- */
-> +void ethtool_mmsv_init(struct ethtool_mmsv *mmsv, struct net_device *dev,
-> +		       const struct ethtool_mmsv_ops *ops);
-> +
->  /**
->   * struct ethtool_rxfh_param - RXFH (RSS) parameters
->   * @hfunc: Defines the current RSS hash function used by HW (or to be set to).
+Thanks,
+Easwar (he/him)
 
