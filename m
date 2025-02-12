@@ -4,116 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956F4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F9AC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=; b=tRydop1Civ6S32S/Lo90sAeZDd
-	I+uBaVHuQ2VCDY1dcssDc0/zaXtbAVtU+5GHibTCp6G3Nf/xTboD+00u/CpFfy71voJfSuBSFBy8I
-	L6ElU8pZE+SzQblhb0yl8rqQtELza0pTkwrqwiHil1zSEo3KHr1gVAggjYcR+8GqElyLDjiAJhu+U
-	KrqF92Q7KpwDlndr5wLHU0aiyzwRa7iukrfKP9sKUQC460aWnSS8QzhvoOomf6NZ4hmTvc+QWkbUI
-	3R6dhu+N+aHrQjFesn/XumsOfaDdUkV0uqy262T/NAZzStE5EcsSAfD8JrvS0JwaG8A1FY5fNrwE2
-	f/rvXUyA==;
+	bh=pgP2P2s0bKk8vLZ5KHTO+UkvCszavZHV8wdbaiCNwEM=; b=Wf65rN3hw/N2uCMu6GMcQ7lcdl
+	/hfHNPngU/DGKq5+ANij85n7Ok3XuinC/TSUvIor9VGQaHhAo6UJsrmo6M0ldTF0Urmr1oP5w80N2
+	+RN95q0lD0geRpKO44Gzj6fRG2jL4ajtjj/XoBf/nCti6sRsGzelzCgaqjkaBh6g72GZxH7LufckF
+	HGI8vp8kWoKkYlD9rCbDpY3bTCNcMJXJnhV1rsjxOzvYYQLrjP2BBu13nIKntYbaHf6QAAlHP+e7H
+	/VVE45eY7hJtIbV/UlnIfueLKo4W5MjMpbfd3QASsPA1VcAtBudFDOscg0BWG46h43U+erHP/rJhs
+	v0jPdWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiL1Q-000000090WE-1l1Z;
-	Wed, 12 Feb 2025 22:15:56 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tiLFP-000000092hL-3fwr;
+	Wed, 12 Feb 2025 22:30:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiKzy-000000090FB-25nM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 22:14:27 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-219f6ca9a81so7895ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 14:14:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739398465; x=1740003265; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=;
-        b=gTVTYSfFJddONwZRsaAjv9qlLQWPrgsZos9iHiCf1zaFPJXPIRvSCTy3iQEiV0diND
-         E13zySMONZKTOFMa7zeLj9mVNNzXgdUnYDfFZti0BvSJ3E4IOe1qR+HdkR/jWZPJcmLe
-         ClmVqr2Bx4GjB3sd4y7QANyM+s4jvAB8kSb7hF0hRJcGFepDVPhqmT4cQDdzCtXoCiFt
-         pONXwV2vS/7/5FoyZ2NQlEcTGZn4miUvSmIOVyihOghi4FPDGMmWCuGIPgJVN1HkcIQV
-         UjQZ+B4cnfe8VEG7LUx8fOgqy6uDPkpC1X2sF3olxUDgbxrQ0zvl/JhUI7HOvoR1df8i
-         W4Yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739398465; x=1740003265;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RIamoPjwg48ZZC5Sh2bLQXIBfW0utIiRcjouU0t3hJI=;
-        b=hDRWEu9sAdzsZ3dDQiLyCbWc1IxflBXAbATlEesIu1HFeuY8OeAPl8w9u5hK8ltbq6
-         bdfYgb+aPJZcgd+PSgJaZ8sObuE0rFPVAqIAnUrBA7AzRe7CCIZnzlqo9Yc/N5ggUB0r
-         ho4heQpD0G/d+kabsX7lDQ6NDg44WiIibURnhSgK8PDO/H67gy/9/X5/JYHHBZz8jTIL
-         IoL1FYsde7vtb/a/gE0/NSQxvhOTZXgd706ri1lQGDTm3sOXurV/uDsj/2gH5PkfeE0g
-         5PG4TOecJs8T/87SqYlQDofL433HlV0VRUpcZd8B1KtQYIFC4XltbFMN0KTE+lOwEkOi
-         i9eQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXsIlllA0TJO17EXO6gxqcvSG+OHY3K1srMJ14aYtFD5yvk9KreOjW4s5DpNx8XzS6TByK5nI4mqWShdiM+HVoF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVwosDUkKxlCgRMuhax2ixhYJGTWzSBY8TXzhj2LiAXWcbqfoN
-	CFWn4o9Dauni28sBoX2O0KOocvqw5s9l0u+Es3O3ARNnJ4bCozbgi9yH2ckCJg==
-X-Gm-Gg: ASbGncs7dhv0oigO4DONVPlz+8NG+5qZsubg4ECQNkxgkifgn1WTjZg05Qk9Bh0l66+
-	d8Op/a2hukv7MPzDsjAgjG2iDU9M/IRqSa8Ki5Coc/q+cFrbcUXqhigwPUMnrls04NwvShU8E0b
-	pEf8z0eT78sBFheXXjYXXbPfyu0qQTlU8lmAsyrnSC1Ghn3RUJTYJW+aZ6y3Sj2eqUSkIaADA7P
-	gLgRi0blDOGeZLnjDhKEwrvPRBvIlKeoBzA/eWrdSewYIXDSHUaPvrZXlA/0/zFLUh/xK/4oW89
-	rksM46aU370F4sQDukiktYD27uiHXN4D6zrmhCb/H4GHM0iojYSOmw==
-X-Google-Smtp-Source: AGHT+IHoHezTdxvkJ/1VIrDh3oYzMtm6RGlYCwXFrwTeWP7zj3QgqCDHMbHI4+dadLOhjZf0y9DdCw==
-X-Received: by 2002:a17:902:f550:b0:21c:e29:b20d with SMTP id d9443c01a7336-220d555da00mr178295ad.3.1739398464924;
-        Wed, 12 Feb 2025 14:14:24 -0800 (PST)
-Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048ae7f8fsm11770742b3a.71.2025.02.12.14.14.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 14:14:24 -0800 (PST)
-Date: Wed, 12 Feb 2025 22:14:19 +0000
-From: Peilin Ye <yepeilin@google.com>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf <bpf@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	David Vernet <void@manifault.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Yingchi Long <longyingchi24s@ict.ac.cn>,
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
-	Neel Natu <neelnatu@google.com>,
-	Benjamin Segall <bsegall@google.com>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
- store-release instructions
-Message-ID: <Z60dO2sV6VIVNE6t@google.com>
-References: <cover.1738888641.git.yepeilin@google.com>
- <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
- <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
- <Z6gRHDLfA7cjnlSn@google.com>
- <CAADnVQLkHA9LGv99k2TZOJEGUU=dw=q6nVurJ=aoh0v6cFS6zQ@mail.gmail.com>
- <Z6qC303CzfUMN8nV@google.com>
+	id 1tiLDy-000000092Il-3G27;
+	Wed, 12 Feb 2025 22:28:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=pgP2P2s0bKk8vLZ5KHTO+UkvCszavZHV8wdbaiCNwEM=; b=lTQYg2xD/RhTQBHrmhLorBk+zx
+	KkDrZA3NEtGLhYqBUeWV2ZiZfmN4u4q6Q8XeSz0a/TNL2UJbAalDpnsd7uUtwI/C44GlQpGPUoi5e
+	nMp4Vq18UTEkhKfk8ZX/MCi5jptNd0JI33e9uDxpSKfZCALgAXwNSUuNV2VT3iwdKj0rkvaPtCg4P
+	akufR2hyWaKU9Yy+4hetOlWnKyWmzJ1BQXIJPIJ7amHh6EXUoncRefpPBDSNzuw66eYVV+XRc186+
+	iXBjSa1/7uL1CpdG33vdwqVcB3t87cSaLyPyhM8F3i/TGH3/NjT7GH5Jopv75MYK49O+VNp6/VvBH
+	BNXvLOCw==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tiLDh-0001kz-0K; Wed, 12 Feb 2025 23:28:37 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: linux-kernel@vger.kernel.org,
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Chris Morgan <macromorgan@hotmail.com>,
+ Michael Riesch <michael.riesch@wolfvision.net>,
+ FUKAUMI Naoki <naoki@radxa.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Stephen Chen <stephen@radxa.com>, Weizhao Ouyang <weizhao.ouyang@arm.com>,
+ Alexey Charkov <alchark@gmail.com>, Elon Zhang <zhangzj@rock-chips.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH 0/1] Add Radxa Rock 4D support
+Date: Wed, 12 Feb 2025 23:28:35 +0100
+Message-ID: <3934037.fEcJ0Lxnt5@diego>
+In-Reply-To: <20250212220236.116383-1-detlev.casanova@collabora.com>
+References: <20250212220236.116383-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6qC303CzfUMN8nV@google.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_141426_537989_7FDFDA5C 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250212_142854_835864_F9B30CCC 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,43 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 10:51:11PM +0000, Peilin Ye wrote:
-> > >   #define BPF_LOAD_ACQ   0x10
-> > >   #define BPF_STORE_REL  0x20
-> > 
-> > why not 1 and 2 ?
-> 
-> I just realized that we can't do 1 and 2 because BPF_ADD | BPF_FETCH
-> also equals 1.
-> 
-> > All other bits are reserved and the verifier will make sure they're zero
-> 
-> IOW, we can't tell if imm<4-7> is reserved or BPF_ADD (0x00).  What
-> would you suggest?  Maybe:
-> 
->   #define BPF_ATOMIC_LD_ST 0x10
-> 
->   #define BPF_LOAD_ACQ      0x1
->   #define BPF_STORE_REL     0x2
-> 
-> ?
+Hi Detlev,
 
-Or, how about reusing 0xb in imm<4-7>:
+Am Mittwoch, 12. Februar 2025, 22:56:48 MEZ schrieb Detlev Casanova:
+> Add the basic support for the board. (Not officially released yet)
+> It is based on the Rockchip rk3576 SoC, so I haven't added the
+> following devices yet:
+>  - VOP/HDMI
+>  - UFS
+> as the support for those has not been merged yet, but are close to be
+> and I already validated that they work.
+> It will come with another patch set.
+> 
+> The following devices are supported and working:
+>  - UART
+>  - SD Card
+>  - Ethernet
+>  - USB
+>  - RTC
+> 
+> Stephen Chen (1):
+>   arm64: dts: rockchip: Add Radxa ROCK 4D device tree
+> 
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3576-rock-4d.dts      | 649 ++++++++++++++++++
 
-  #define BPF_ATOMIC_LD_ST 0xb0
+it seems you're missing a separate patch adding an entry to
+Documentation/devicetree/bindings/arm/rockchip.yaml
 
-  #define BPF_LOAD_ACQ      0x1
-  #define BPF_STORE_REL     0x2
+Heiko
 
-0xb is BPF_MOV in BPFArithOp<>, and we'll never need it for BPF_ATOMIC.
-Instead of moving values between registers, we now "move" values from/to
-the memory - if I can think of it that way.
 
-- - -
-Or, do we want to start to use the remaining bits of the imm field (i.e.
-imm<8-31>) ?
-
-Thanks,
-Peilin Ye
 
 
