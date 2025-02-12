@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3291C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431BAC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZuDBz/MQSCI0W6Y1MIlb4k+WX79YX+OdPUXe7FESaI=; b=1M5AxUVQ9KhBGc+5u3pEPUoamO
-	1xa7nW8KEA+OKi8Iwy72sXb202Qag3b/ppdLzDNLX0yk4lK74KVZY+AOB/fH5q2clvdHY+H/Q80lt
-	3kyC9cEJLmTBs5mU9FXWmrBsP8YEeiVGyxp/hCYmNZN9X+zXP/M5aNyV6OJRFvOlvqn34SPhWHbIo
-	k7xQpNi33HTi5uV//qlkJtOmlREl1bmDDX/OTFwyxPRD/dxHrWmMKdv6ioRkxEWzMSaMRpWX3BBy+
-	jqww04SdTl0sGnv6QtlymAMaWEsjuSOaZbGUGuIXtKkuWzFuST7Pm3rPSBcnR3CgMYmF0p/pgOwfL
-	2KBVV/iQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LYn0fgjRDLK7we1WSOcVCL7eXddRMLXfF5g2iN6bwXY=; b=UyTnLtGe8MSbmpztnKjGKy6RPR
+	7XaLrgDW76h+VwPPH5OLqNzWbICEwFoz2yESeGt7QWqwup8et8eSmKI+/sxyFKXClMzV5dBXWHwlx
+	r22uRzhuahm+6W1YAz2ejxtQ1u3/0fn8yghIqrW6O3AVEcENnIannabXLYYkSe56nhAZYyHGqkOf5
+	ycLzzN/OHZMbby5ZGi3MW5ch7jsLdxn6z7/g9Ud28wCGQi8Nd54Y4KdM45ClWCDeBS08x43ogXcVs
+	7I0aBs4LhTLGyDWeIwYGstIyk87wi5gVXGBXXJgxNAZkI9ugXZSIUFWeX/+xKwn3G6TPdP8rfLzH7
+	4vrpSfsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGG7-00000008EQe-1d4b;
-	Wed, 12 Feb 2025 17:10:47 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tiGGD-00000008EWH-38Ey;
+	Wed, 12 Feb 2025 17:10:53 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFay-000000084p3-2dW0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 16:28:18 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5439a6179a7so1078961e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 08:28:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1739377694; x=1739982494; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TZuDBz/MQSCI0W6Y1MIlb4k+WX79YX+OdPUXe7FESaI=;
-        b=dw64U7QfNIvXitJ2FAINgA2TOD9iQMWA++ksKs9oFqJQGMR88HUhMmh/9/gWkC4BqH
-         HxtDklKVFPxaE6E+kLl93T1s7t5Sf8eS0ujJejGTTqsoGnrGXh/MOmByVN6zxK4Q33/F
-         vtH2Cs0dXKfUeGcGSlOlAovm3Bk0yt2ImrVRl1Z41fp55r63X/ZlCheoKJKuuqpOuUd/
-         2vWO7Ayk4pZbkyp+rAPxQXI04SJ7eSA2dCIXMeXsRBifF2dZG80ZuK6Q9ubp06HTjWra
-         NbDcHU4nvV42cHQ4JE6+1z7lz7MQRCOKNWviaQya++unfk+5RE6eR6xwgaLrqDfDYPLE
-         ovmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739377694; x=1739982494;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TZuDBz/MQSCI0W6Y1MIlb4k+WX79YX+OdPUXe7FESaI=;
-        b=EspZtapYxHYSk7mpJOLyN+ibkfaKBynDLdxtp9qx+qhGV7jGbkXoCdtfxZPiTuj3Gl
-         MtvILSqBHsoUyM5xzC1jR1Ls/5SB2JZl8A15h44df6gO2jSmlbJv/ion2NGQDRJlsACZ
-         iI6tOU2gF48ppaI5wXxsdNAKoKHc5uRGsRkjYpKorCq2nyb0NvL3oq87dloiMoxVUUm+
-         J0PR0sLvnpBWBEdB3ozzn5ZHTOtNRtyqtkRCTbv7oh145vXgX7RudThsDPY/44OAyqN2
-         OTpYYfiyt9EHilSHxhFHSlwG3+CFmtQL414wZdiWe9JNI65QsnPWaMkfocriVIbXiE+t
-         7FlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVPLCJ8GtALnw3USs+yUU6B6X3hZw1ZUMGZGXZi1sVXw2SNXA5e+WqS47CTukWYiYbKrMvQ79iq0P3r/GmkTOBw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyyp0CgO2+xmNgACOD/gD8A3O9kciXX6tZMApEllhgRmH4kpmpf
-	b3kIkfbe5ebpAxPeBbnEEiELuQ3U3dGqgOOgF7VPIDhjQGFalyjkBmXnUv15kTMRCal3toDXKFT
-	VjEI0R6VVTYDjQ/2m9i55sWOS2XHLZ3UQdn5bfw==
-X-Gm-Gg: ASbGnctzECOhx7D9SaO/fqnZE3P6YO5vVaKFyLB8hcGsL1cfXaEQUedIN7n8a2cOIr6
-	eyGVvl1EZCTNMSRLbMnrJn54bToMH2ktBveqSsbVkJOauofK7wZNnjIyP2bsnHuO8VtFD89ZHlS
-	0hoP7OM2xAvPJx9riNoHDPQNTxlUq7
-X-Google-Smtp-Source: AGHT+IHxOU7el76O6ARJgH/qSyoLSVZhpVM8aMA7Z5L0zSG1UJuAQdeZ/CLEIaRjM80ZHRoBtF9ivf8u/8H5ppM7Ojg=
-X-Received: by 2002:ac2:4886:0:b0:545:16a8:6a5d with SMTP id
- 2adb3069b0e04-54516a86b7amr1230558e87.2.1739377693855; Wed, 12 Feb 2025
- 08:28:13 -0800 (PST)
+	id 1tiFgf-000000086HB-3BBO;
+	Wed, 12 Feb 2025 16:34:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739378050; x=1770914050;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=kCFQDLNfPixVyUh7+fi7hXH2lVNVmZoD/srcHAu/zkY=;
+  b=QG9YHrgJCJEiRPB+RpFGdmWrmwf1Yuj04MXg/QQ4B1F8jHyGZt5WWCDu
+   HFGjk8v2A7nU5dD0p0k+T4oAe7UNHTkHDfRSmduCA0AWthkZNtKPdQL+M
+   j7iNkqqVtpNE/ffILIreJ0Ok9F8XWMjzcpvK+FSEdYTNJKNOEJ+QmEq47
+   tuWJPqpDp0VqBMhxRMQDAtkDuqn0vqLyiVk5LVw4ejiqkvfIDZ1bbKs3c
+   4crcknXXaROcKgOfzWNfNxpaZQ5x0pVL1gtW0hA3jp0j/qlifD7Cj3J6Y
+   HwcEoNJDNsoWKMZQiFrQ8/aNmi2pQ0Ez+1Yt1j79+o4zV+sHeKJfV/+rq
+   Q==;
+X-CSE-ConnectionGUID: tRycJX5kR2Sci1Ps3flmjg==
+X-CSE-MsgGUID: rQc9+lCDRKiFlHVhu/nhtQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11343"; a="51032329"
+X-IronPort-AV: E=Sophos;i="6.13,280,1732608000"; 
+   d="scan'208";a="51032329"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 08:34:08 -0800
+X-CSE-ConnectionGUID: irz/hdSsQPyHAJdCuCCBCA==
+X-CSE-MsgGUID: lO25qOasSlKvhSxXSqtPRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,280,1732608000"; 
+   d="scan'208";a="117879143"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orviesa004.jf.intel.com with ESMTP; 12 Feb 2025 08:34:02 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 8E55F11E; Wed, 12 Feb 2025 18:34:01 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+Subject: [PATCH v1 0/8] i2c: busses: Introduce and use i2c_10bit_addr_from_msg()
+Date: Wed, 12 Feb 2025 18:32:25 +0200
+Message-ID: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.45.1.3035.g276e886db78b
 MIME-Version: 1.0
-References: <20250212-kernel-upstreaming-add_gpio_support-v1-0-080e724a21f3@blaize.com>
- <20250212-kernel-upstreaming-add_gpio_support-v1-5-080e724a21f3@blaize.com>
- <9442a87b-ab61-40e3-bbf0-caae87c5731a@kernel.org> <259dd121-8c49-44f7-b8f6-e0b68ab88304@blaize.com>
-In-Reply-To: <259dd121-8c49-44f7-b8f6-e0b68ab88304@blaize.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 12 Feb 2025 17:28:03 +0100
-X-Gm-Features: AWEUYZkIVdRopbQJY-FCVehpC4ahYO-92VDY2yMNzSqT804kqps9s9wQ30KQZw8
-Message-ID: <CAMRc=MehUWAsBO6YWvwOsexu0yj6S5-g_ydS8tdX12iA0KER=g@mail.gmail.com>
-Subject: Re: [PATCH 5/5] arm64: defconfig: Add VeriSilicon GPIO driver
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>, 
-	Neil Jones <neil.jones@blaize.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_082816_925855_A3C86304 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20250212_083409_839913_A08783D7 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +98,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 5:20=E2=80=AFPM Nikolaos Pasaloukos
-<nikolaos.pasaloukos@blaize.com> wrote:
->
-> On 12/02/2025 15:25, Krzysztof Kozlowski wrote:
->
-> > On 12/02/2025 14:46, Nikolaos Pasaloukos wrote:
-> >> Add support for VeriSilicon GPIO controller.
-> > You enable not add support, but still the main question is: Why? Which
-> > devices needs it? Why this cannot be a module?
->
-> Hi Krzysztof,
->
-> Thank you for your fast review and apologies for the typo. I forgot to
-> mention on the commit message but I have mentioned in the cover letter
-> that the driver is needed for the Blaize BLZP1600 CB2 board which is
-> already supported on v6.14. I will fix the commit message on V2.
->
-> This driver enables support (controls) for multiple peripherals on
-> the board, like Ethernet for NFS boot, SD and eMMC to load modules from
-> these media. Without this driver build in the kernel, it will be hard to
-> mount a filesystem and load modules.
->
+For 8-bit addresses we have a helper function, define similar one
+for 10-bit addresses and use it in the drivers. It allows to remove
+some boilerplate code.
 
-That's alright but typically you'd want to have something like:
+Andy Shevchenko (8):
+  i2c: Introduce i2c_10bit_addr_from_msg()
+  i2c: axxia: Use i2c_10bit_addr_from_msg() helper
+  i2c: bcm-kona: Use i2c_10bit_addr_from_msg() helper
+  i2c: eg20t: Use i2c_10bit_addr_from_msg() helper
+  i2c: kempld: Use i2c_10bit_addr_from_msg() helper
+  i2c: mt7621: Use i2c_10bit_addr_from_msg() helper
+  i2c: mv64xxx: Use i2c_*bit_addr_from_msg() helpers
+  i2c: rzv2m: Use i2c_10bit_addr_from_msg() helper
 
-default y if ARCH_BLAIZE
+ drivers/i2c/busses/i2c-axxia.c    | 19 ++-----------------
+ drivers/i2c/busses/i2c-bcm-kona.c |  9 ++++-----
+ drivers/i2c/busses/i2c-eg20t.c    | 28 +++++-----------------------
+ drivers/i2c/busses/i2c-kempld.c   |  4 +---
+ drivers/i2c/busses/i2c-mt7621.c   |  4 +---
+ drivers/i2c/busses/i2c-mv64xxx.c  | 10 ++--------
+ drivers/i2c/busses/i2c-rzv2m.c    | 10 +++-------
+ include/linux/i2c.h               | 10 ++++++++++
+ 8 files changed, 28 insertions(+), 66 deletions(-)
 
-in the driver's Kconfig entry.
+-- 
+2.45.1.3035.g276e886db78b
 
-Bart
 
