@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E2EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B17C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=; b=2BOG8khFK2oLi2th9raraPyUf2
-	yqh0U+8JMbF9IdIOKY7Tz5zX8dwLEnPxOQ7AYFOj6M2slbU76LyLgftQGSixUDX85+c54+EBl1riQ
-	LdSVcZEus0HhZcBVchlLj6SDNfWkRuyxxv/llDhkQZeIN9Uj0W4anZIFJFbs4cC4xWefFk+nAIuBe
-	KAXNoVo/QwtJ+du5ixmc9407e+ZUAfY5j8CFnKAnaCqCikOIxZz4RJq5iIR3W+pp+FhZQ+C4k5ehC
-	RZPITSQbXEa/Mu6QRfJVaqep6W0LmwP571/WiiROsGtQ2rA6Kd/fja6cDMX9qwDQMtVTMTgnJg0nt
-	jEi412lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=idhr/5aIOoxzWKAydyluIFUs5UlXIHLQFjiaGb9SyTM=; b=GeGa6J3xxOq+j4FsDC5D3Lcs88
+	4AE6vCepoWpxui8Zf/xq6gOclZ+qfjwnqv0NTT92gFpS9HL6h5/CsMW8LRUhORWAcQVSeWyJ/zaHu
+	gES0awdKleozBbrsmmKOTB8l8HdYarIhOGxY92Kbjgo+M+JNYP8bNQeO4fEykkaBhCcFtE+rZJtyc
+	77IiBI5W6tzfbFjCJSUqt7pH2276wyY3HNqTWOYuqPbJ7HPwC3SAqQK02fmM4+G+4wHt7SQSYOgmk
+	9snddDLKrKmJnyWB14Xs3T205xkrIGETIenOcU6B+0jNHMmgQIUVP1M7AEI7a+i6CLjNy+WrGxcKY
+	rGHi1l2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEfG-00000007qw0-0Q8r;
-	Wed, 12 Feb 2025 15:28:38 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEdn-00000007qaS-3rzL;
-	Wed, 12 Feb 2025 15:27:09 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3f3d2afce71so249708b6e.0;
-        Wed, 12 Feb 2025 07:27:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739374026; x=1739978826; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
-        b=N8N/EeoKu7iQt2SSqLa61sChsqVzz4XhTB5hYQVUwPxBHtwsNjHQWs3xLMOr3jSm1z
-         cgHn+lvifyoYjklZcRG2Rj8uiOQ4LrrVKVF7nPVyC07+AVlt7pSHN9x3G1P+1ZIWjOq8
-         /KFRI+ZPqQCpL+XoKp+Lf42ZcXzxOj+6WE3zbYDqZKCHlqkz98kudpeVRquVVYA0HwKX
-         m1HVxFYeUML+UcdgwBwzNp+e72uENbPnRQGhVLMmNgGWZYCjXxhkf59bpZ8ttdYyoyx2
-         UnENfk/h8AAuWdYXYVqSsmTjk9xGxIUL0kFvs54MFrdsyzHdCShthE6gHqY1NCKLP7cr
-         QNgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739374026; x=1739978826;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
-        b=SFN+vXiw0t87OPz3vQfwI5L03nFLwyG9OVDNDsdMXE+jToaD/RnFNjExRM8QykdG+T
-         2Y3Af47Vibxx91WCvQpNpEsYAyT8XWmUJzhZyAWetpb7aTriLGuFG8gL660Ng/1vfUhw
-         gQ3Kj3JNrQ7d421hPc3J2UDVcGpO25Z2BPLOR2FTIHr0MgkajCiCCdFeZK+9w75jzD8Y
-         lf2f/f4CG0sIfREnVUct91z63h/srGCkC7+uBfkdaomhtMUUxFT7mFRViAGziBGfNIZI
-         23n4P9eyErx6Gp7rzOwtx5NMqj5s/29xCT/tmT3SSVdFPxbxoAL++IMnkbaE02yCySkY
-         zjOw==
-X-Forwarded-Encrypted: i=1; AJvYcCUEOgJORZBw6DNglrBqqj/ztfVeZZVTYWIhkxCDKmSqj8S62Y5mSXD1ilip71gUQpYFM6RE4ZEfxHxh+2RFcaGL@lists.infradead.org, AJvYcCVbw2PYYdHM0+0LQpirUD/lgxhKvcT0th8J0/YvjkW018QUy+rhLYrKK7gX35QXfZSWCNLBkHlaP+rM6JI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM2nbg8QzZUfELtj/qCdKCm1JJzMr3+uNRbGsELIvHxZElN55R
-	lNn/4/l8NxwRJJyPZAcWSVtaKhLKXBH6Kr/pUdYLTcWSdV3Ev/M8
-X-Gm-Gg: ASbGnctGP7ibUHTO6mYX9KnescZAmct89FiCdpCuIfPBln9oPaQHZYFrtZI5i6xYwKu
-	V3X07Dd3tEZF65mpvJR/WjI2SfTxnMiv7zXebwJE7PAArDrnWbhqY2nLAo+i1bGSEf16b+JWgty
-	5QGxoy7hhhReCQRRBOdZxF4knoPvQ8yY+a0zsC26qVA5Hl0hHlUsEVyrP2mX7DRhuLFV0hBTYSP
-	Gi9AcNeK7J/I1q3qsmcEUvN0OsP3Qi2xOAUqpQN7S4sB13BbkUScSMC6dwsgNHg1ruo7WcIUzLD
-	xjecgoe6ameJFAtZui+KZg==
-X-Google-Smtp-Source: AGHT+IHo4moDm0XlC/zbhfkvivNmDn6gThhjx1PDMEofy79uK89Vl0WpOwwZ4GUyPbza40pljwyLmQ==
-X-Received: by 2002:a05:6808:2518:b0:3f3:bb75:1706 with SMTP id 5614622812f47-3f3cd5cbae2mr3016870b6e.9.1739374026359;
-        Wed, 12 Feb 2025 07:27:06 -0800 (PST)
-Received: from neuromancer. ([2600:1700:fb0:1bcf:511b:97aa:dc6:7ad4])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f392481cbfsm4066579b6e.39.2025.02.12.07.27.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 07:27:05 -0800 (PST)
-Message-ID: <67acbdc9.050a0220.11fcb1.a43a@mx.google.com>
-X-Google-Original-Message-ID: <Z6y9yNpdsVUZ1Q4k@neuromancer.>
-Date: Wed, 12 Feb 2025 09:27:04 -0600
-From: Chris Morgan <macroalpha82@gmail.com>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 0/3] Add support for Allwinner PWM on D1/T113s/R329
- SoCs
-References: <20241011102751.153248-1-privatesub2@gmail.com>
+	id 1tiEhs-00000007rqX-2MhX;
+	Wed, 12 Feb 2025 15:31:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiEgQ-00000007rMf-1Th3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 15:29:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89E2112FC;
+	Wed, 12 Feb 2025 07:30:10 -0800 (PST)
+Received: from [10.57.81.93] (unknown [10.57.81.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED99A3F58B;
+	Wed, 12 Feb 2025 07:29:46 -0800 (PST)
+Message-ID: <46ca554b-f768-4981-9794-1dbc581a7bdc@arm.com>
+Date: Wed, 12 Feb 2025 15:29:45 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241011102751.153248-1-privatesub2@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 06/16] arm64/mm: Refactor __set_ptes() and
+ __ptep_get_and_clear()
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-7-ryan.roberts@arm.com>
+ <bdd08da7-d978-437a-849f-8a6115933e19@arm.com>
+ <0538d186-470e-4c4d-974c-0d7f2c96e549@arm.com>
+ <0492ed88-673a-435b-bc89-5f35637b4be6@arm.com>
+In-Reply-To: <0492ed88-673a-435b-bc89-5f35637b4be6@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_072707_958680_B0060A23 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250212_072950_484782_0C606FF4 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +77,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 11, 2024 at 01:27:31PM +0300, Aleksandr Shubin wrote:
-> v2:
->  - fix dt-bindings
->  - fix a remark in the driver
+On 07/02/2025 09:38, Ryan Roberts wrote:
+> On 06/02/2025 13:26, Ryan Roberts wrote:
+>> On 06/02/2025 11:48, Anshuman Khandual wrote:
+>>> On 2/5/25 20:39, Ryan Roberts wrote:
+
+[...]
+
+>>>>
+>>>> While we are at it, refactor __ptep_get_and_clear() and
+>>>> pmdp_huge_get_and_clear() to use a common ___ptep_get_and_clear() which
+>>>> also takes a pgsize parameter. This will provide the huge_pte API the
+>>>> means to clear ptes corresponding with the way they were set.
+>>>
+>>> __ptep_get_and_clear() refactoring does not seem to be related to the
+>>> previous __set_ptes(). Should they be separated out into two different
+>>> patches instead - for better clarity and review ? Both these clean ups
+>>> have enough change and can stand own their own.
+>>
+>> Yeah I think you're probably right... I was being lazy... I'll separate them.
+
+When looking at this again, I've decided not to split the patch. The same
+approach is being applied to both helper APIs to produce "anysz" versions that
+will be used by the huge_pte helpers. So I think it is reasonable to do all the
+conversion in a single patch. It just looks too small and bitty if I split it out.
+
+I'll rework the commit log to give both API equal promiance since it currently
+sounds like __ptep_get_and_clear is an after thought.
+
+[...]
+
+>>> s/___set_ptes/___set_pxds ? to be more generic for all levels.
+>>
+>> So now we are into naming... I agree that in some senses pte feels specific to
+>> the last level. But it's long form "page table entry" seems more generic than
+>> "pxd" which implies only pmd, pud, p4d and pgd. At least to me...
+>>
+>> I think we got stuck trying to figure out a clear and short term for "page table
+>> entry at any level" in the past. I think ttd was the best we got; Translation
+>> Table Descriptor, which is the term the Arm ARM uses. But that opens a can of
+>> worms as now we need tdd_t and all the converters pte_tdd(), tdd_pte(),
+>> pmd_tdd(), ... and probably a bunch more stuff on top.
+>>
+>> So personally I prefer to take the coward's way out and just reuse pte.
 > 
-> v3:
->  - fix dt-bindings
->  - fix sunxi-d1s-t113.dtsi
+> How about set_ptes_anylvl() and ptep_get_and_clear_anylvl()? I think this makes
+> it explicit and has the benefit of removing the leading underscores. It also
+> means we can reuse pte_t and friends, and we can exetend this nomenclature to
+> other places in future at the expense of a 7 char suffix ("_anylvl").
 > 
-> v4:
->  - fix a remark in the driver
+> What do you think?
+
+I'm going to call them set_ptes_anysz() and ptep_get_and_clear_anysz(). That's
+one char shorter and better reflects that we are passing a size parameter in,
+not a level parameter.
+
+Thanks,
+Ryan
+
 > 
-> v5:
->  - dropped unused varibale in the driver
->  - fix dt-bindings
-> 
-> v6:
->  - add apb0 clock
-> 
-> v7:
->  - fix a remark in the driver
->  - add maintainer
-> 
-> v8:
->  - fix compile driver for 6.8-rc
-> 
-> v9:
->  - fix a remark in the driver
->  - fix dt-bindings
->  - rename apb0 -> apb
-> 
-> v10:
->  - fix a remark in the driver
->  - fix compile driver for 6.12-rc2
-> 
-> Aleksandr Shubin (3):
->   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
->     controller
->   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
->   riscv: dts: allwinner: d1: Add pwm node
-> 
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
->  drivers/pwm/Kconfig                           |  10 +
->  drivers/pwm/Makefile                          |   1 +
->  drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
->  5 files changed, 486 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
->  create mode 100644 drivers/pwm/pwm-sun20i.c
-> 
-> -- 
-> 2.25.1
+>>
+>>>
+>>>>  {
+>>>> -	__sync_cache_and_tags(pte, nr);
+>>>> -	__check_safe_pte_update(mm, ptep, pte);
+>>>> -	__set_pte(ptep, pte);
+>>>> +	unsigned long stride = pgsize >> PAGE_SHIFT;
+>>>> +
+>>>> +	switch (pgsize) {
+>>>> +	case PAGE_SIZE:
+>>>> +		page_table_check_ptes_set(mm, ptep, pte, nr);
+>>>> +		break;
+>>>> +	case PMD_SIZE:
+>>>> +		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
+>>>> +		break;
+>>>> +	case PUD_SIZE:
+>>>> +		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
+>>>> +		break;
+>>>
+>>> This is where the new page table check APIs get used for batch testing.
+>>
+>> Yes and I anticipate that the whole switch block should be optimized out when
+>> page_table_check is disabled.
+>>
+>>>
+>>>> +	default:
+>>>> +		VM_WARN_ON(1);
+>>>> +	}
+>>>> +
+>>>> +	__sync_cache_and_tags(pte, nr * stride);
+>>>> +
+>>>> +	for (;;) {
+>>>> +		__check_safe_pte_update(mm, ptep, pte);
+>>>> +		__set_pte(ptep, pte);
+>>>> +		if (--nr == 0)
+>>>> +			break;
+>>>> +		ptep++;
+>>>> +		pte = pte_advance_pfn(pte, stride);
+>>>> +	}
+>>>>  }
+>>>
+>>> LGTM
+>>>
+>>>>  
+>>>> -static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+>>>> -			      pmd_t *pmdp, pmd_t pmd)
+>>>> +static inline void __set_ptes(struct mm_struct *mm,
+>>>> +			      unsigned long __always_unused addr,
+>>>> +			      pte_t *ptep, pte_t pte, unsigned int nr)
+>>>>  {
+>>>> -	page_table_check_pmd_set(mm, pmdp, pmd);
+>>>> -	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
+>>>> -						PMD_SIZE >> PAGE_SHIFT);
+>>>> +	___set_ptes(mm, ptep, pte, nr, PAGE_SIZE);
+>>>>  }
+>>>>  
+>>>> -static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+>>>> -			      pud_t *pudp, pud_t pud)
+>>>> +static inline void __set_pmds(struct mm_struct *mm,
+>>>> +			      unsigned long __always_unused addr,
+>>>> +			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
+>>>> +{
+>>>> +	___set_ptes(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
+>>>> +}
+>>>> +#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
+>>>> +
+>>>> +static inline void __set_puds(struct mm_struct *mm,
+>>>> +			      unsigned long __always_unused addr,
+>>>> +			      pud_t *pudp, pud_t pud, unsigned int nr)
+>>>>  {
+>>>> -	page_table_check_pud_set(mm, pudp, pud);
+>>>> -	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
+>>>> -						PUD_SIZE >> PAGE_SHIFT);
+>>>> +	___set_ptes(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
+>>>>  }
+>>>> +#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
+>>>
+>>> LGTM
+>>>
+>>>>  
+>>>>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
+>>>>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
+>>>> @@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>>>>  }
+>>>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+>>>>  
+>>>> -static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+>>>> -				       unsigned long address, pte_t *ptep)
+>>>> +static inline pte_t ___ptep_get_and_clear(struct mm_struct *mm, pte_t *ptep,
+>>>> +				       unsigned long pgsize)
+>>>
+>>> So address got dropped and page size got added as an argument.
+>>>
+>>>>  {
+>>>>  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+>>>>  
+>>>> -	page_table_check_pte_clear(mm, pte);
+>>>> +	switch (pgsize) {
+>>>> +	case PAGE_SIZE:
+>>>> +		page_table_check_pte_clear(mm, pte);
+>>>> +		break;
+>>>> +	case PMD_SIZE:
+>>>> +		page_table_check_pmd_clear(mm, pte_pmd(pte));
+>>>> +		break;
+>>>> +	case PUD_SIZE:
+>>>> +		page_table_check_pud_clear(mm, pte_pud(pte));
+>>>> +		break;
+>>>> +	default:
+>>>> +		VM_WARN_ON(1);
+>>>> +	}
+>>>>  
+>>>>  	return pte;
+>>>>  }
+>>>>  
+>>>> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+>>>> +				       unsigned long address, pte_t *ptep)
+>>>> +{
+>>>> +	return ___ptep_get_and_clear(mm, ptep, PAGE_SIZE);
+>>>> +}
+>>>> +
+>>>>  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+>>>>  				pte_t *ptep, unsigned int nr, int full)
+>>>>  {
+>>>> @@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
+>>>>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>>>>  					    unsigned long address, pmd_t *pmdp)
+>>>>  {
+>>>> -	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
+>>>> -
+>>>> -	page_table_check_pmd_clear(mm, pmd);
+>>>> -
+>>>> -	return pmd;
+>>>> +	return pte_pmd(___ptep_get_and_clear(mm, (pte_t *)pmdp, PMD_SIZE));
+>>>>  }
+>>>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>>>>  
+>>>
+>>> Although currently there is no pudp_huge_get_and_clear() helper on arm64
+>>> reworked ___ptep_get_and_clear() will be able to support that as well if
+>>> and when required as it now supports PUD_SIZE page size.
+>>
+>> yep.
+>>
+>> Thanks for all your review so far!
+>>
 > 
 
-This patch has been idle for a few months, would you mind if I took
-over shepherding it to mainline? While I don't have *this* hardware
-to test it with I have an H616 which has a similar pwm controller (and
-for which I was going to add support for once this made it to
-mainline). Otherwise, I can just wait patiently and then tack on my
-additions once this has been accepted.
-
-Thank you,
-Chris
 
