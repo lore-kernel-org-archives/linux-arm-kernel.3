@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEC2C021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78248C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 11:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggLp2N6nIh1N25l9qqVFGy2pp6+E0t6/i4rH9zHeAXo=; b=Yqfs7EyOcBBlxno5zXvqRyXKUc
-	JQHwagMBDYOywhFAHix7AlzOovmKctsH58ce9GTv8phWhlvnDJ5e62OGaGmjzduJyZmf4xRZ6nYk1
-	oBa1V2O63D2Gd86PA3tKdM4ZkuxQRy2uV59SZ5bpaJdmCutc0cDMYJJXEdozIScAfHeDLMBtcoG+h
-	j8QXtV6OlAyI1zaSHocbtLNxNvYxLYoCkSBPNTk9saEgNhJx6TX/UK2H6AoriRsxiATQpvTWomgW6
-	BauLiAuo0Crwo5sdy6HMfIyVeXpE5ogqcI9ny8gHdb33PdYyNqQl3coYNiv5SMNO8djqAGvz8fSeX
-	EObltE6Q==;
+	bh=0KMIzffvEsBK43v+gCyDeKdrTwv9xJqaffLfxp2Y9ec=; b=zO4fm8IFpzt43bjnAomkz2nchP
+	k96EHkWdmn7vtHDalqBb1Zh2tXSXuEVkYOJbexKvTdakqajI9ywFNzIEpiiQAmBuT5628NuLrmA1W
+	VWNde0AxukwcjC9w7am7YI/9FofJB4E0/x1O948K/SUy2XuHHPiiHh+NghpLjcuPeaw64Yy1MCW8Y
+	IBzTClhSLYl8XU6CyWIl6OMU0jRTPWl7p+8p1duJDWE1a3aOe2y9X9Sqi8fuWgxu49zYAOcOTgF7g
+	k0GHJTyuJBUQ6La37z2ky4Ohzsx86BsORPcNwWVJ1oJSy9L8ZIrjrqouMExYr/Jn0BPFGSTNXCyLb
+	YAyXu9Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBFP-00000007F2M-2lTl;
-	Wed, 12 Feb 2025 11:49:43 +0000
+	id 1tiBGo-00000007Fao-1rq7;
+	Wed, 12 Feb 2025 11:51:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAq0-000000079iG-3jDA
+	id 1tiAq1-000000079iJ-30xh
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 12 Feb 2025 11:23:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ggLp2N6nIh1N25l9qqVFGy2pp6+E0t6/i4rH9zHeAXo=; b=LYAryLDxz9ag/+zTcPSuPxECiw
-	ogblM7bFiaMCOyLQ+cwfP0duHGM57k5jt5+x8vIHdhUOnVNGPdBiPrEi4L+qte4I2ic3741bNiwPM
-	95CuLmuCgykS4LA1sF4sH2OVlL3LJaIg4TIfIQqHAuNL+y3p9lo52qB3ltL7dbr0yWrdMZ0JZsiwi
-	ujAevgh9ILF8S9wG5nynbvd8klSkb2Dsmhwp5vFxc7O0aXLEwFRLzwIFUinAZt19ISfnb+7MINZXC
-	t248XY+m+h/3eYY0gV68ChcIpi7LyezpL4adGac0ZuJkOApVqJ5WsfRHyqwOnp64qxX6Nh/it+jtt
-	XothSpAg==;
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	bh=0KMIzffvEsBK43v+gCyDeKdrTwv9xJqaffLfxp2Y9ec=; b=AWZa61c2pCkElSejbPf4x4E0yy
+	P+G4ZFEYhvfQy5PWknf6laJB1zMjsvFZPHvome/vi++p0XtV23RoA5E7V0uVIM/vDjBWaT3DzTrf/
+	qtdnGpdse3c9x2+om2o6b8ZUCNTmFA/Dv4pP3AKvhmQ6+3efaG1eKRRb+vibydAqfABaXi+c4KOcl
+	0NBnlJ5uuDD+mCb8DXM45YbrlwkqRDPe3jvlu++8FCg2pHoj4SafADpryRUhl4Q2i3p75Wcr+aiXR
+	vhecqcMQ1xGt4VSCPwdR0O11Xb5JizAIFyVtfsYTzXuXs/FQPQL+ODqQQa1TwgjfnwxFskWCJyHTs
+	cx2npBXg==;
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiApx-00000000no7-1Fk4
+	id 1tiApy-00000000noe-1EQV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:23:27 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30797730cbdso65111621fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:24 -0800 (PST)
+	Wed, 12 Feb 2025 11:23:28 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-307d1ab59c6so61919961fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359403; x=1739964203; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359404; x=1739964204; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ggLp2N6nIh1N25l9qqVFGy2pp6+E0t6/i4rH9zHeAXo=;
-        b=mmDn3NhDayuNm3Q5B3sSrvv/yS5ePPoTCEhoR6DDlrhs5fPNLXVvTid/t53J/ScFh3
-         V037b3K1yaqx5IOLCpHkdGi8+T8kMwVRxbV1ltrm91xPqp75XKOgO1irBGnhaGfayzTY
-         /LNcS4t35wZfG8LSdJXFpebVKtWusYCjzLHS7iMPUx8WHqMrQLsyOXh/g+hfLUeQAAJO
-         5AMWIGBSjTdxfhCXxeLj8g5m3LGC7bm6TjJDZttoon4LssSp7bkv8Td4dWe2OOP+7QBQ
-         KZzlzbMM51wVIYdtciaapq5HBMp+wXXyz3fwS3JblX5Xzk6d8cmvoaIbaulaaJMMKxvt
-         XQxQ==
+        bh=0KMIzffvEsBK43v+gCyDeKdrTwv9xJqaffLfxp2Y9ec=;
+        b=Dhi5Ao3mfjGVcVPewoI0Oj61ssGo/ZBQFdlA5Fh7n7nymJi4qpp9+yyoddtfu89dm4
+         vePXTYxiCB15iDILTqa9CaXfu8X02f8k3EUfiFirnyZTsh8xGpuXgcDrnCDTETiG47PA
+         9u7C8qtA3VdTp6VG9/fGBRCASEuAntNwJ2IjZMt/s0poJbi/m2oiR4S4bPuAhce14YB7
+         +V39TpLhJHsN+OK83QDsekzuiiA6CtinS/ABTJs9VfvwH8a0L5lMHlvcqWK+khXi8xt9
+         TfFG65tPwkm1QdYNV7gro83AM/VwydIT2xYywHDVjuOwVlsus42bsVXQskTHUFKhnSns
+         E94A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359403; x=1739964203;
+        d=1e100.net; s=20230601; t=1739359404; x=1739964204;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ggLp2N6nIh1N25l9qqVFGy2pp6+E0t6/i4rH9zHeAXo=;
-        b=u2tBxGukKy0npamlsJN87mBBG57R1T/SfeEiqRWEkZulS8PRIaAGdEu2/Lbw3xMIxU
-         sTBGMxtGXqgNTzSpTa0rmctukfJ+1+NaqCnvzuvYpcBGWtDWHyqFyFIEpJrOiKD5fyoH
-         kCfU2W/MqQ6XFJqr+lqBi/FaLgpnqwiaaSgU3/wWBI/51b9akoEOUlu34/b/mU70Wu2o
-         j8edNUcJ8nC823PyA0UMapk+NjnWJVRYfJdpvEVykBC1996vL+5CZU3VhCXGceOiLEpZ
-         OiqxUwIgb//t/Ek/mP090rXcbm9tNpNJx7Bd3cpRWRRVSl4FRRgVWHfoZMfjxFpaFfOe
-         rhNQ==
-X-Gm-Message-State: AOJu0YwHZi653YP4kpzEswOKTYlBkHyiLqU3XcCx3gdVrR3oRczv1L8h
-	yELyZRZtZQMjmZWu4Xj/c3CzHD/2br6bJRUpRu1sBEu7nDGeZ+ax6GTuQ1Auwak=
-X-Gm-Gg: ASbGncs//uvQrRgl/aOu0eHBL3GO7UXLM/Kxt4c1eWBjl0ILXytdzqhbKOeqw2me+lC
-	RIyRkIvoWCDseY6bEXdVlZgKC2bxRZai//SmKxfJrOf5wYz/2TVE/TvWMeaQw+Xhhpa4cA17Emu
-	eHNB1ohX5h/DuheHVhWT2COk9i9KZ6EZSZoApNuBiQ6DWPgeXXsQPWq6HuWTyDxortd1fGZE6DV
-	RF9DzZYH9VPoTauX8Y8/gH2l2rhVo/lGdpjmDXh6AeCinrUFWdrOjZNle4zASp3aeTcKobIK4yF
-	iEED1GmOMIdGUAWu9RqGw5gOWA==
-X-Google-Smtp-Source: AGHT+IE++2ckcXtWyXX7JU0MwX+37DcqZEVj69OKEYC5Hko3s34PTk0ej3SG2in6uu2FQAzgMWO6uA==
-X-Received: by 2002:a05:651c:503:b0:308:f4cc:952e with SMTP id 38308e7fff4ca-309036b51c0mr12255951fa.11.1739359402652;
-        Wed, 12 Feb 2025 03:23:22 -0800 (PST)
+        bh=0KMIzffvEsBK43v+gCyDeKdrTwv9xJqaffLfxp2Y9ec=;
+        b=sE2GZfhl4Rd/U0wx37nPu/6JSQ2d+KU84P7PaiIGQhA9U1Xia7eMrMNE9Y7ETvxJOD
+         gpjJjTjEXS/vtIEj5ohwVDystRs51RvkesgKKsnmn9WyCeGR0GLMWXs3wcbAy+Kt46he
+         1ZltdRvJWBDPsVMujf9eufX4fqRmgs1KmMeMjw41CSSmWtA+kDG1XsaalQoQfTtDQ/kA
+         KHVs3xf4lKgyS0BS63t9tnSxMTCS6a/TwoEAdc27BOqTsaiXVp0mcxZWuGJFQtaaEMeR
+         GwXBOCsWs+kaD8dRDvsyazy38Y+BJOXwzs/wQixz652Jv4BW7V4HQc18wE6bBoGlxKKx
+         kFPQ==
+X-Gm-Message-State: AOJu0YyN+ff4kpZrrQ93S6/Z/L+0GfrPq1HT6RCf9cMZ8dxOnXTisTM9
+	cRMG/EbujYWQdJBazlhuibMiMg2t4LBSHYxvwf+Yq/sEn49slVidsgqtbbz2nwI=
+X-Gm-Gg: ASbGncs39A7yxTJeI/f5RhbIEy3eErnVRUP+IqVpSSCSjL6iHj+NRgc/LqMWmjfB+iy
+	Z8mCtXPPcth+l/plNoqBiTQFCWd7yTh3PDcV0LVMdnllcdRpnamiY/B5VLmgGs0DznZgvIip4S2
+	k4G+jnQOt+7/UOfNktORtcyw2Hyq3W/G08b3IIjrVVE3iWwUeisFk2+TNGfa0l8i+efCqbXEimZ
+	hfONt5GfzcTAIGnwYUHw6awZH7+UI4BOjIeU+EbSxaYPcYjKxIvQhBRWv77Bm+yDQjwJ2AvSCt5
+	yz3ckuD7MqyrgtfmEyVmiYgQdQ==
+X-Google-Smtp-Source: AGHT+IF3FbVuyAVSXE6FSKtFUxtJ6fX5M5a69TIwSs1mwLT4jbjl8bopzEgPtqY5QadYENn8IcrBjg==
+X-Received: by 2002:a2e:a916:0:b0:308:eb05:9d3e with SMTP id 38308e7fff4ca-309036dc200mr10746881fa.23.1739359403613;
+        Wed, 12 Feb 2025 03:23:23 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.21
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:22 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:23 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:10 +0100
-Subject: [PATCH v4 16/31] ARM: entry: Drop argument to asm_irqentry macros
+Date: Wed, 12 Feb 2025 12:23:11 +0100
+Subject: [PATCH v4 17/31] ARM: entry: Implement syscall_exit_to_user_mode()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-16-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-17-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -102,8 +102,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_112325_528668_D0E362E5 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250212_112326_536666_503E0288 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,108 +118,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-asm_irqentry_enter_from_user_mode and asm_irqentry_exit_to_user_mode
-have a "save" argument that will save and restore registers before
-the call to the C function.
-
-Now all invocations set this argument to 0 so drop the surplus
-code.
+Mirroring syscall_enter_from_user_mode() we create the sibling
+call syscall_exit_to_user_mode() and start to move some stuff
+over from assembly, first the rseq call and the interrupt
+disablement.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-armv.S   |  8 ++++----
- arch/arm/kernel/entry-common.S |  2 +-
- arch/arm/kernel/entry-header.S | 18 ++----------------
- 3 files changed, 7 insertions(+), 21 deletions(-)
+ arch/arm/include/asm/entry.h   |  1 +
+ arch/arm/include/asm/signal.h  |  1 -
+ arch/arm/kernel/entry-common.S | 10 ++--------
+ arch/arm/kernel/entry.c        |  8 ++++++++
+ arch/arm/kernel/signal.c       |  7 -------
+ 5 files changed, 11 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index 6edf362ab1e1035dafebf6fb7c55db71462c1eae..460aa92c3c1f50de905550acf363c58f509bfe0a 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -422,7 +422,7 @@ ENDPROC(__fiq_abt)
- 	.align	5
- __dabt_usr:
- 	usr_entry uaccess=0
--	asm_irqentry_enter_from_user_mode save = 0
-+	asm_irqentry_enter_from_user_mode
- 	kuser_cmpxchg_check
- 	mov	r2, sp
- 	dabt_helper
-@@ -433,7 +433,7 @@ ENDPROC(__dabt_usr)
- 	.align	5
- __irq_usr:
- 	usr_entry
--	asm_irqentry_enter_from_user_mode save = 0
-+	asm_irqentry_enter_from_user_mode
- 	kuser_cmpxchg_check
- 	irq_handler from_user=1
- 	get_thread_info tsk
-@@ -447,7 +447,7 @@ ENDPROC(__irq_usr)
- 	.align	5
- __und_usr:
- 	usr_entry uaccess=0
--	asm_irqentry_enter_from_user_mode save = 0
-+	asm_irqentry_enter_from_user_mode
+diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
+index e259b074caef75c7f777b18199623f07bebee5b4..8b8cc9a1eefbd00dd75d4e344576fc184a413768 100644
+--- a/arch/arm/include/asm/entry.h
++++ b/arch/arm/include/asm/entry.h
+@@ -9,6 +9,7 @@ struct pt_regs;
+  * to generic entry once they are semantically equivalent.
+  */
+ long syscall_enter_from_user_mode(struct pt_regs *regs, long);
++void syscall_exit_to_user_mode(struct pt_regs *regs);
+ void irqentry_enter_from_user_mode(struct pt_regs *regs);
+ void irqentry_exit_to_user_mode(struct pt_regs *regs);
  
- 	@ IRQs must be enabled before attempting to read the instruction from
- 	@ user space since that could cause a page/translation fault if the
-@@ -472,7 +472,7 @@ ENDPROC(__und_usr)
- 	.align	5
- __pabt_usr:
- 	usr_entry
--	asm_irqentry_enter_from_user_mode save = 0
-+	asm_irqentry_enter_from_user_mode
- 	mov	r2, sp				@ regs
- 	pabt_helper
-  UNWIND(.fnend		)
+diff --git a/arch/arm/include/asm/signal.h b/arch/arm/include/asm/signal.h
+index 7acccc96840c8a17744cc3f2894f19d142aba4fd..bb753cd3e29fc54186543c48b2aee7b221301a37 100644
+--- a/arch/arm/include/asm/signal.h
++++ b/arch/arm/include/asm/signal.h
+@@ -23,7 +23,6 @@ typedef struct {
+ 
+ #include <asm/sigcontext.h>
+ 
+-void do_rseq_syscall(struct pt_regs *regs);
+ void do_work_pending(struct pt_regs *regs, unsigned int thread_flags);
+ 
+ #endif
 diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 14b2495cae3c2f95b0dfecd849b4e16ec143dbe9..df564388905ee019cd5553f8b37e678da59e3222 100644
+index df564388905ee019cd5553f8b37e678da59e3222..3559e0a9f5e079f1af91392bf000d39f9b45906c 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -109,7 +109,7 @@ ENTRY(ret_to_user_from_irq)
+@@ -65,12 +65,9 @@ ret_fast_syscall:
+  UNWIND(.fnstart	)
+  UNWIND(.cantunwind	)
+ 	add	sp, sp, #(S_R0 + S_OFF)
+-#if IS_ENABLED(CONFIG_DEBUG_RSEQ)
+ 	/* do_rseq_syscall needs interrupts enabled. */
+ 	mov	r0, sp				@ 'regs'
+-	bl	do_rseq_syscall
+-#endif
+-	disable_irq_notrace			@ disable interrupts
++	bl	syscall_exit_to_user_mode
+ 	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
  	movs	r1, r1, lsl #16
- 	bne	slow_work_pending
- no_work_pending:
--	asm_irqentry_exit_to_user_mode save = 0
-+	asm_irqentry_exit_to_user_mode
+ 	beq	no_work_pending
+@@ -97,13 +94,10 @@ ENDPROC(ret_fast_syscall)
+  * do_work_pending() will update this state if necessary.
+  */
+ ENTRY(ret_to_user)
+-#if IS_ENABLED(CONFIG_DEBUG_RSEQ)
+ 	/* do_rseq_syscall needs interrupts enabled. */
+ 	enable_irq_notrace			@ enable interrupts
+ 	mov	r0, sp				@ 'regs'
+-	bl	do_rseq_syscall
+-#endif
+-	disable_irq_notrace			@ disable interrupts
++	bl	syscall_exit_to_user_mode
+ ENTRY(ret_to_user_from_irq)
+ 	ldr	r1, [tsk, #TI_FLAGS]
+ 	movs	r1, r1, lsl #16
+diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
+index 1973947c7ad753fccd694b3ef334fba1326f58b6..47233804733752aef0f2fec6f54badeab18e98d0 100644
+--- a/arch/arm/kernel/entry.c
++++ b/arch/arm/kernel/entry.c
+@@ -1,7 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <asm/entry.h>
++#include <asm/signal.h>
+ #include <linux/context_tracking.h>
+ #include <linux/irqflags.h>
++#include <linux/rseq.h>
  
- #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
- 	bl	stackleak_erase_on_task_stack
-diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
-index fb5bb019199b2871e29e306a29bea8fdf47dd7f3..50c0b55adc7421e7be123c9d00f94b1ebb93ff9e 100644
---- a/arch/arm/kernel/entry-header.S
-+++ b/arch/arm/kernel/entry-header.S
-@@ -365,28 +365,14 @@ ALT_UP_B(.L1_\@)
-  * Context tracking and other mode transitions. Used to instrument transitions
-  * between user and kernel mode.
- */
--	.macro asm_irqentry_enter_from_user_mode, save = 1
--	.if	\save
--	stmdb   sp!, {r0-r3, ip, lr}
-+	.macro asm_irqentry_enter_from_user_mode
- 	mov	r0, sp				@ regs
- 	bl	irqentry_enter_from_user_mode
--	ldmia	sp!, {r0-r3, ip, lr}
--	.else
--	mov	r0, sp				@ regs
--	bl	irqentry_enter_from_user_mode
--	.endif
- 	.endm
+ long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
+ {
+@@ -14,6 +16,12 @@ long syscall_enter_from_user_mode(struct pt_regs *regs, long syscall)
+ 	return syscall;
+ }
  
--	.macro asm_irqentry_exit_to_user_mode, save = 1
--	.if	\save
--	stmdb   sp!, {r0-r3, ip, lr}
-+	.macro asm_irqentry_exit_to_user_mode
- 	mov	r0, sp				@ regs
- 	bl	irqentry_exit_to_user_mode
--	ldmia	sp!, {r0-r3, ip, lr}
--	.else
--	mov	r0, sp				@ regs
--	bl	irqentry_exit_to_user_mode
--	.endif
- 	.endm
++void syscall_exit_to_user_mode(struct pt_regs *regs)
++{
++	rseq_syscall(regs);
++	local_irq_disable();
++}
++
+ noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
+ {
+ 	trace_hardirqs_off();
+diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
+index 7b1a16e86b236575efdc29cda9b751e8e2a3f64e..03b20637a2e1ca6f327223c9132915a97a9c4697 100644
+--- a/arch/arm/kernel/signal.c
++++ b/arch/arm/kernel/signal.c
+@@ -659,13 +659,6 @@ struct page *get_signal_page(void)
+ 	return page;
+ }
  
+-#ifdef CONFIG_DEBUG_RSEQ
+-asmlinkage void do_rseq_syscall(struct pt_regs *regs)
+-{
+-	rseq_syscall(regs);
+-}
+-#endif
+-
  /*
+  * Compile-time assertions for siginfo_t offsets. Check NSIG* as well, as
+  * changes likely come with new fields that should be added below.
 
 -- 
 2.48.1
