@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D75C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F05BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3si6D7p6acB9cnyiZ3w5R1umfag36fSmLFul2szXvJg=; b=HE3rCz4qvpffTX5Rwo75Pvf03x
-	vM7W/S3X5qTPMbl5O+QmFoCa4Rj+5N+PK1O5LUcCsonvNjFoFXolo52gWYjeG91sj/jWwSyA2mmys
-	wwLTogv7A09KSzB3pOvqAD/X0TkcttyxRhazhhRGH3lnM0Q+1zrfkNArCw76wIUNA+gDrLvMzxBJa
-	ZJsTzmZeB+LAZDCrdRbMjD1jZYyy951eM+ARe0Ne128raYrRrHxZkdI+DEJ7TbKd/rRtnmicVaBSm
-	VF/W8cw/4njMASfHEmS877g0/F8SxdeKNz/9pfiVypd3KJmPOtXAm181b8BILbHxdZQj+NnMkyluX
-	C6wdLcVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iEV3oojg3U2eJSaxG1OETOyVCd9PZzwbh6RS1wsZRok=; b=FGihtgpj3Z6IY4IIvzZ7XLoTN1
+	xSLD9OS9cIcfLURx4RiXeoUnZuwGxvsFLlmR+fchT6lUAFD+y+UkSRTg6INjFet6pIjByk02YzjJz
+	HNuOMlHRh5qKC/+T8CXFXFt+t7tUbWYUj5Zkf0+i4zOkFwvMCqOgI05NvBRHPKow/v/I8GHYyj1WM
+	7UwYCZ9hgCwXIlkvJ2wI8EtgneCSc2RlsKao02Mpqe4a0XN2NdWaWKNix8iQflhiP63+5NqNzBe72
+	il2uBuQk/b1ylgZ+zN4K1Tw9ae8TYaSfycNi+tbih7NP0dDR9JcK8l/i0qL2lp3WpwRF008o0+5e7
+	qJTfmgZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9Tw-00000006t4D-0Ya4;
-	Wed, 12 Feb 2025 09:56:36 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9Ai-00000006o9N-44WQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 09:36:46 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ti9AB-0003qj-6V; Wed, 12 Feb 2025 10:36:11 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ti9AA-000Z2U-1y;
-	Wed, 12 Feb 2025 10:36:10 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1ti9AA-00AzSK-1c;
-	Wed, 12 Feb 2025 10:36:10 +0100
-Date: Wed, 12 Feb 2025 10:36:10 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
-Message-ID: <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
-References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
- <20250211225808.3050-2-laurentiumihalcea111@gmail.com>
+	id 1ti9VJ-00000006tHn-3Xrn;
+	Wed, 12 Feb 2025 09:58:01 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ti9Al-00000006oC4-1SvF;
+	Wed, 12 Feb 2025 09:36:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=iEV3o
+	ojg3U2eJSaxG1OETOyVCd9PZzwbh6RS1wsZRok=; b=pYffVqzPO7vxb43DrFOZ3
+	XkwSxFscVztob7o0EuU1YvVKZ4V27YVZhe6qr7BXmAS4Tmdl+mdCdzZU2EKCWEL2
+	Jf+wZxM+XvLhYS5l1oshjc6i3+wDNyg5o8LWSJ/nCU15CMK/2GW2+/bN8an/NGBG
+	6eHtnPhF/yHELxxGYpO0Ks=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgDH3wCda6xn73YTCQ--.34396S2;
+	Wed, 12 Feb 2025 17:36:33 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v14 12/13] dt-bindings: display: vop2: Add rk3576 support
+Date: Wed, 12 Feb 2025 17:36:25 +0800
+Message-ID: <20250212093628.53052-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250212093530.52961-1-andyshrk@163.com>
+References: <20250212093530.52961-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211225808.3050-2-laurentiumihalcea111@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgDH3wCda6xn73YTCQ--.34396S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWr1kWFWUuF4UtFW5trWkZwb_yoW5tF4fpa
+	93Cas8XrW8Gr1UWw1ktF1rCwnYq3Z3Aw1Ykrn7Ka13KrsxtF48Ww4agrn8Zr9xWFy2vayj
+	9F4Fkw17G3sFvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UBMKtUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBXxXmesZw5XnwAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_013645_014836_E2975D22 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250212_013647_700683_4ABB03A4 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,135 +83,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-11, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> Add binding for imx95's CM7 core, used for audio processing.
-> Additionally, introduce a common binding for NXP audio processors with
-> Sound Open Firmware (SOF) support.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 64 +++++++++++++++++++
->  .../bindings/sound/fsl,sof-cpu.yaml           | 27 ++++++++
->  2 files changed, 91 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
->  create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-> new file mode 100644
-> index 000000000000..f00ae3219e15
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-> @@ -0,0 +1,64 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/fsl,imx95-cm7-sof.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP imx95 CM7 core
-> +
-> +maintainers:
-> +  - Daniel Baluta <daniel.baluta@nxp.com>
-> +
-> +description: NXP imx95 CM7 core used for audio processing
-> +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx95-cm7-sof
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
-add the -sof suffix instead of -audio or so? SOF is a software project
-but you can clearly run different software on the audio-copro as well.
+Add vop found on rk3576, the main difference between rk3576 and the
+previous vop is that each VP has its own interrupt line.
 
-Regards,
-  Marco
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  reg-names:
-> +    const: sram
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +
-> +  memory-region-names:
-> +    const: dma
-> +
-> +  port:
-> +    description: SAI3 port
-> +    $ref: audio-graph-port.yaml#
-> +    unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - memory-region
-> +  - memory-region-names
-> +  - port
-> +
-> +allOf:
-> +  - $ref: fsl,sof-cpu.yaml#
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    cm7-cpu@80000000 {
-> +        compatible = "fsl,imx95-cm7-sof";
-> +        reg = <0x80000000 0x6100000>;
-> +        reg-names = "sram";
-> +        mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
-> +        mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
-> +        memory-region = <&adma_res>;
-> +        memory-region-names = "dma";
-> +        port {
-> +            /* SAI3-WM8962 link */
-> +            endpoint {
-> +                remote-endpoint = <&wm8962_ep>;
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
-> new file mode 100644
-> index 000000000000..31863932dbc3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
-> @@ -0,0 +1,27 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/fsl,sof-cpu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP audio processor common properties
-> +
-> +maintainers:
-> +  - Daniel Baluta <daniel.baluta@nxp.com>
-> +
-> +properties:
-> +  mboxes:
-> +    maxItems: 4
-> +
-> +  mbox-names:
-> +    items:
-> +      - const: txdb0
-> +      - const: txdb1
-> +      - const: rxdb0
-> +      - const: rxdb1
-> +
-> +required:
-> +  - mboxes
-> +  - mbox-names
-> +
-> +additionalProperties: true
-> -- 
-> 2.34.1
-> 
-> 
-> 
+---
+
+(no changes since v13)
+
+Changes in v13:
+- Use maxItems constraint for clocks in allOf block
+
+Changes in v12:
+- Split from patch 10/13
+
+Changes in v11:
+- Remove redundant min/maxItems constraint
+
+Changes in v10:
+- Move interrupt-names back to top level
+- Add constraint of interrupts for all platform
+- Add constraint for all grf phandles
+- Reorder some properties
+
+Changes in v9:
+- Drop 'vop-' prefix of interrupt-names.
+- Add blank line between DT properties
+- Remove list interrupt-names in top level
+
+Changes in v8:
+- Fix dt_binding_check errors
+- ordered by soc name
+- Link to the previous version:
+  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
+
+Changes in v4:
+- describe constraint SOC by SOC, as interrupts of rk3576 is very
+  different from others
+- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+
+Changes in v3:
+- ordered by soc name
+- Add description for newly added interrupt
+
+Changes in v2:
+- Add dt bindings
+
+ .../display/rockchip/rockchip-vop2.yaml       | 61 ++++++++++++++++++-
+ 1 file changed, 58 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 083eadcf0588..f546d481b7e5 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -21,6 +21,7 @@ properties:
+     enum:
+       - rockchip,rk3566-vop
+       - rockchip,rk3568-vop
++      - rockchip,rk3576-vop
+       - rockchip,rk3588-vop
+ 
+   reg:
+@@ -38,10 +39,21 @@ properties:
+       - const: gamma-lut
+ 
+   interrupts:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 4
+     description:
+-      The VOP interrupt is shared by several interrupt sources, such as
+-      frame start (VSYNC), line flag and other status interrupts.
++      For VOP version under rk3576, the interrupt is shared by several interrupt
++      sources, such as frame start (VSYNC), line flag and other interrupt status.
++      For VOP version from rk3576 there is a system interrupt for bus error, and
++      every video port has it's independent interrupts for vsync and other video
++      port related error interrupts.
++
++  interrupt-names:
++    items:
++      - const: sys
++      - const: vp0
++      - const: vp1
++      - const: vp2
+ 
+   # See compatible-specific constraints below.
+   clocks:
+@@ -136,6 +148,11 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        interrupts:
++          maxItems: 1
++
++        interrupt-names: false
++
+         ports:
+           required:
+             - port@0
+@@ -149,6 +166,39 @@ allOf:
+       required:
+         - rockchip,grf
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3576-vop
++    then:
++      properties:
++        clocks:
++          maxItems: 5
++
++        clock-names:
++          maxItems: 5
++
++        interrupts:
++          minItems: 4
++
++        interrupt-names:
++          minItems: 4
++
++        ports:
++          required:
++            - port@0
++            - port@1
++            - port@2
++
++        rockchip,vo1-grf: false
++        rockchip,vop-grf: false
++
++      required:
++        - rockchip,grf
++        - rockchip,pmu
++
+   - if:
+       properties:
+         compatible:
+@@ -164,6 +214,11 @@ allOf:
+           minItems: 7
+           maxItems: 9
+ 
++        interrupts:
++          maxItems: 1
++
++        interrupt-names: false
++
+         ports:
+           required:
+             - port@0
+-- 
+2.34.1
+
 
