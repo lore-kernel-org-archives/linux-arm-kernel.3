@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1209EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB625C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V6HQFoAKtM4Eig1pjdtVV39897nG8Lrdk04nnScsT/g=; b=Z/LkTj/v3eYbYf3B/xhFPkfmLM
-	u+qAmJAPBXqnDCKbleke3gZbcpRYe6EhMevfeTqeizsf0TqTNOXc0x8ITqPr7HhRs2IX2DXg9DXRp
-	cs0cXJcuYcZgA0USB+Npoddd1dEHeXseOvLuch8VTBggbcjqaTIQQl0mIPtbNiL8HRHy+bmnCaTMQ
-	kzHEUw29J3d0le3XWm5W5lsz34w6dfhEb2nnBEa77N8fA0hPcuf9QP51XeYHqLs0x06XmbHDysK8h
-	toEZqGeTTNe49VW5HOm7P5AcJW/vLQLxbsmQoScoKZ5Ei4uOzKRwc6XvBmcdLUu+Wdy9fSFl4ZDZj
-	R6ynccBg==;
+	bh=7clgdrBcayHFAivKWtedT4B5oeFGJNEZp+u1MEeMxvU=; b=IWHzly1V/WeMO3DQ1YDjAAF6YC
+	EueIQZha9Eg14Now6BymBcAa6XezJ/KdE9Z4H4dn8RmVEbc7Ge2l9mnKqSqz/1L+whspGD4wrL5E1
+	XKyghgQ5g3BFC3GjlM1irvP6QG18CUp0d57J2NWIATA9J9HbOF63u70EKulbPevwZobXKO7SgL1mG
+	F889eprMjTZuAMsVneYEbft6w8TgU/4JvHe4QG+PGJfccFP7MArQCpxz7a6kqnK+s/ixe3njzGePd
+	neVIshj1Vf9eRsdXKNZTeA39wtkCjYZGmS4VPhGXpfytimj4iPyQafRctdMgEFECXXNHwTq0Vjkv5
+	lDLuC7MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLfD-000000096tU-1par;
-	Wed, 12 Feb 2025 22:57:03 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tiLjl-000000097Lt-1XlU;
+	Wed, 12 Feb 2025 23:01:45 +0000
+Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLdF-000000096SV-14Cc;
-	Wed, 12 Feb 2025 22:55:02 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c05cda3e3fso25011185a.1;
-        Wed, 12 Feb 2025 14:55:00 -0800 (PST)
+	id 1tiLiK-000000097BV-13G4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 23:00:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739400900; x=1740005700; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V6HQFoAKtM4Eig1pjdtVV39897nG8Lrdk04nnScsT/g=;
-        b=PENBHHXrm3PYc37D/coOd9PnlLW0CvuioKvYI3eN3OUKshuQs4lYMr2jGtNGNyQcW2
-         Ydhe5DDvsjHt04Z+MeE6SgGMAlSRYd29NJJFezD+R3L2xEYnfgre5fxwBSzx+meaxe9f
-         U5Z/RG6SDK7j+y3CA0lIFYrW98JB142JWM4jqpDryetx47CuvxHC1cH9L5WREiYAu0+q
-         Z95Qp7WR+l7BuLkEtJJGdyT2MnqYsXl+2c1k63TCFz9rRO/+PUlTjGSgwf2zt+zEU3F2
-         G0VimGlGOSY7VHSD3pPa0jNKW6mTbFn2cU/pcNlW11k5x/PmazxFkeWxZ73CqCBN/5pz
-         rzJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739400900; x=1740005700;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V6HQFoAKtM4Eig1pjdtVV39897nG8Lrdk04nnScsT/g=;
-        b=E/f2nELyY55l6m+liSWZw2EH7tuNlBWYC/KdNWpNcFzQPeIW3tXztLE/zFGg8S6SSg
-         cNx68PmmqkSEFbwqGmmv+6R1KoF/6KN2pQBu7aLKGL2tnk2Q47T6bSqt30Y9Ka8tsE1r
-         /dPf8FBNVV991DtsoXO48DBHr+NO7fCWZEjGCiLkwfQ2Fyl9il838/nVvoTpeciZR4tV
-         5CgeqnIGr+r/VUvfx+qOVfgkSQlA3fKIFUkRK5lcXd5nMaqjtO3oPJTKBC6U03QjQs2W
-         gfcAj1fL3+/DI2Mqc4SU5ahY26+ox55eStyO4/szOzD/9upf+gXoVnLLTQyjHqK/GpHL
-         MN4A==
-X-Forwarded-Encrypted: i=1; AJvYcCU8Au4zRFBP48fEQwHH/MOVDOx8kZspmYXoKadCKuTBYzFMZ6jN9gPx97Aqe44Ak8FC/yWmQJvsUFJPuPM=@lists.infradead.org, AJvYcCXwAXRP1SCWpMYYWpQmgffWIEPcFVFpLyYrm0CrVFWIJ+9w6KJzpPgcQKRr+F+NoY2EtZSeyQ7QVs+/vtHoLeln@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfb8zswDdSSTosShEwXJ2Iq4ersbZ0UbTnkhiqSxsG2hgiVQlu
-	WaO93sBx3/oEtCzdM4vKPEQS14J8OziuHx1zYFT3cT/Lz3xCCe+z
-X-Gm-Gg: ASbGncvD9QXIaQNjSnv2K6OFfSFukKlINKb/xmYCktCcaryqZBzia0C4Eqw3K0NoesK
-	XU6xKn2DcYOzDd0/Y+C5mip2naGhQvT9xOUgyAa0sk8ZzH7+MEz7A8Dtc/HxnoSxtJCClbU8RKD
-	tHPzJIFop4zbV7nhPcWdRUoIpTx/KvrhjCvKSN6GxEPw5hzL3ztaIoH/Q7ArcChqJG9iAAQDtst
-	SynWa3fUOvx/FuA/cCFT2rPlrN18qIJOq4+COYsmVeVfs5mgrhVKDwc5g+CZtghTI0=
-X-Google-Smtp-Source: AGHT+IHCyAPxx2twp+cdL0i9qawY2rWtBFMwU6iMbJ7fd7ZqtRa9MEtabZxbz+dLloUrNoDmSclwAg==
-X-Received: by 2002:a05:620a:288b:b0:7b6:dd32:ec99 with SMTP id af79cd13be357-7c06fc552a5mr747104485a.5.1739400899012;
-        Wed, 12 Feb 2025 14:54:59 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c05cb5725bsm531437085a.47.2025.02.12.14.54.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 14:54:58 -0800 (PST)
-Date: Thu, 13 Feb 2025 06:54:51 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
-Subject: Re: [PATCH v3 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
- part into SoCs' .dtsi files
-Message-ID: <x4zncooa3lmyf2bikowjw7oabz66dhhbxl44cmujzzkwaslcl5@tj3l2u7e4akx>
-References: <20250212224347.1767819-1-alexander.sverdlin@gmail.com>
- <20250212224347.1767819-2-alexander.sverdlin@gmail.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1739401216; x=1770937216;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=7clgdrBcayHFAivKWtedT4B5oeFGJNEZp+u1MEeMxvU=;
+  b=TWiSa5wMPbI1Og4kJRmJUYoY7QKepKqiGMFyUI5SDpvjvgg6Vcda2ssS
+   mmsspNn1fnq81+bYMQWcday67yeVfDYKyNvn+pKniBFUb5NK9zMZZFsAw
+   wwqvZB4SLZuZEapJL1IHTffPR4WiCV9oJyj/bEiK6YNOhEBGmguJ9+b0O
+   Y=;
+X-IronPort-AV: E=Sophos;i="6.13,281,1732579200"; 
+   d="scan'208";a="171993392"
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 23:00:15 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:20924]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.9.187:2525] with esmtp (Farcaster)
+ id 46ec316a-84fc-48d3-81a3-a13e85f75502; Wed, 12 Feb 2025 23:00:15 +0000 (UTC)
+X-Farcaster-Flow-ID: 46ec316a-84fc-48d3-81a3-a13e85f75502
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
+ Wed, 12 Feb 2025 23:00:15 +0000
+Received: from 88665a51a6b2.amazon.com (10.106.179.55) by
+ EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
+ Wed, 12 Feb 2025 23:00:12 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Cristian Prundeanu <cpru@amazon.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
+	"Ali Saidi" <alisaidi@amazon.com>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Geoff Blake <blakgeof@amazon.com>, Csaba Csoma
+	<csabac@amazon.com>, Bjoern Doebel <doebel@amazon.com>, Gautham Shenoy
+	<gautham.shenoy@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>, Borislav Petkov
+	<bp@alien8.de>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tip-commits@vger.kernel.org>,
+	<x86@kernel.org>
+Subject: Re: [PATCH v2] [tip: sched/core] sched: Move PLACE_LAG and RUN_TO_PARITY to sysctl
+Date: Wed, 12 Feb 2025 17:00:02 -0600
+Message-ID: <20250212230002.95945-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250212093721.GA24784@noisy.programming.kicks-ass.net>
+References: <20250212094307.GB19118@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212224347.1767819-2-alexander.sverdlin@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.179.55]
+X-ClientProxiedBy: EX19D041UWB002.ant.amazon.com (10.13.139.179) To
+ EX19D016UWA004.ant.amazon.com (10.13.139.119)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_145501_325497_B8244733 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20250212_150016_339417_75D635A4 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,204 +95,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 11:43:33PM +0100, Alexander Sverdlin wrote:
-> Make the peripheral device tree re-usable on ARM64 platform by moving CPU
-> core and interrupt controllers' parts into new cv18xx-cpu.dtsi and
-> cv18xx-intc.dtsi.
-> 
-> Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
-> into "plic" interrupt-controller numbering.
-> 
-> On RiscV side this patch has been dtc-compile-tested only. IRQ numbers
-> substitution with SOC_PERIPHERAL_IRQ() has been scripted in vim.
-> 
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
-> Changelog:
-> v3:
-> - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
-> were moved into cv18xx-intc.dtsi to reduce code duplication;
-> v2:
-> - instead of carving out peripherals' part, carve out ARCH-specifics (CPU
-> core, interrupt controllers) and spread them among 3 SoC .dtsi files which
-> included cv18xx.dtsi;
-> - define a label for the "soc" node and use it in the newly introduced DTs;
-> 
->  arch/riscv/boot/dts/sophgo/cv1800b.dtsi     | 28 ++++---
->  arch/riscv/boot/dts/sophgo/cv1812h.dtsi     | 28 ++++---
->  arch/riscv/boot/dts/sophgo/cv181x.dtsi      |  2 +-
->  arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi  | 36 ++++++++
->  arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi | 23 ++++++
->  arch/riscv/boot/dts/sophgo/cv18xx.dtsi      | 91 ++++++---------------
->  arch/riscv/boot/dts/sophgo/sg2002.dtsi      | 34 ++++----
->  7 files changed, 137 insertions(+), 105 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> index aa1f5df100f0..9fb7dd2dab18 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -3,8 +3,12 @@
->   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
->   */
->  
-> +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> +
->  #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
-> +#include "cv18xx-cpu.dtsi"
->  #include "cv18xx.dtsi"
-> +#include "cv18xx-intc.dtsi"
->  
->  / {
->  	compatible = "sophgo,cv1800b";
-> @@ -13,17 +17,23 @@ memory@80000000 {
->  		device_type = "memory";
->  		reg = <0x80000000 0x4000000>;
->  	};
-> +};
-> +
-
-> +&soc {
-> +	dma-noncoherent;
->  
-> -	soc {
-> -		pinctrl: pinctrl@3001000 {
-> -			compatible = "sophgo,cv1800b-pinctrl";
-> -			reg = <0x03001000 0x1000>,
-> -			      <0x05027000 0x1000>;
-> -			reg-names = "sys", "rtc";
-> -		};
-> +	pinctrl: pinctrl@3001000 {
-> +		compatible = "sophgo,cv1800b-pinctrl";
-> +		reg = <0x03001000 0x1000>,
-> +		      <0x05027000 0x1000>;
-> +		reg-names = "sys", "rtc";
->  	};
->  };
->  
-
-The origianl /soc path can be used to override things, 
-why change it to the reference archor? I see no change
-for it.
-
-> +&clk {
-> +	compatible = "sophgo,cv1800-clk";
-> +};
-> +
->  &plic {
->  	compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
->  };
-> @@ -31,7 +41,3 @@ &plic {
->  &clint {
->  	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
->  };
-> -
-> -&clk {
-> -	compatible = "sophgo,cv1800-clk";
-> -};
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> index 8a1b95c5116b..f23c4dd6687d 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> @@ -3,10 +3,14 @@
->   * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->   */
->  
-> +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> +
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/pinctrl/pinctrl-cv1812h.h>
-> +#include "cv18xx-cpu.dtsi"
->  #include "cv18xx.dtsi"
->  #include "cv181x.dtsi"
-> +#include "cv18xx-intc.dtsi"
->  
->  / {
->  	compatible = "sophgo,cv1812h";
-> @@ -15,17 +19,23 @@ memory@80000000 {
->  		device_type = "memory";
->  		reg = <0x80000000 0x10000000>;
->  	};
-> +};
-> +
-> +&soc {
-
-> +	dma-noncoherent;
-
-I think this can be moved into cv18xx-cpu.dtsi file, and let
-all SoCs share it.
-
->  
-> -	soc {
-> -		pinctrl: pinctrl@3001000 {
-> -			compatible = "sophgo,cv1812h-pinctrl";
-> -			reg = <0x03001000 0x1000>,
-> -			      <0x05027000 0x1000>;
-> -			reg-names = "sys", "rtc";
-> -		};
-> +	pinctrl: pinctrl@3001000 {
-> +		compatible = "sophgo,cv1812h-pinctrl";
-> +		reg = <0x03001000 0x1000>,
-> +		      <0x05027000 0x1000>;
-> +		reg-names = "sys", "rtc";
->  	};
->  };
->  
-> +&clk {
-> +	compatible = "sophgo,cv1810-clk";
-> +};
-> +
->  &plic {
->  	compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
->  };
-> @@ -33,7 +43,3 @@ &plic {
->  &clint {
->  	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
->  };
-> -
-> -&clk {
-> -	compatible = "sophgo,cv1810-clk";
-> -};
+>>> Moving PLACE_LAG and RUN_TO_PARITY to sysctl will allow users to override
+>>> their default values and persist them with established mechanisms.
+>>
+>> Nope -- you have knobs in debugfs, and that's where they'll stay. Esp.
+>> PLACE_LAG is super dodgy and should not get elevated to anything
+>> remotely official.
 >
-> [...]
+> Just to clarify, the problem with NO_PLACE_LAG is that by discarding
+> lag, a task can game the system to 'gain' time. It fundamentally breaks
+> fairness, and the only reason I implemented it at all was because it is
+> one of the 'official' placement strategies in the original paper.
+
+Wouldn't this be an argument in favor of more official positioning of this 
+knob? It may be dodgy, but it's currently the best mitigation option, 
+until something better comes along.
+
+> If the tasks are unconstrained / aperiodic, this goes out the window and
+> the placement strategy becomes unsound. And given we must assume
+> userspace to be malicious / hostile / unbehaved, the whole thing is just
+> not good.
+
+Userspace in general, absolutely. User intent should be king though, and 
+impairing the ability to do precisely what you want with your machine 
+feels like it stands against what Linux is best known (and often feared) 
+for: configurability. There is _another_ OS which has made a habit of 
+dictating how users should want to do something. We're not there of 
+course, but it's a strong cautionary tale.
+
+To ask more specifically, isn't a strong point of EEVDF the fact that it 
+considers _more_ user needs and use cases than CFS (for instance, task 
+lag/latency)?
+
+>> Conversely, setting NO_PLACE_LAG + NO_RUN_TO_PARITY is simply done at boot 
+>> time, and does not require further user effort. 
 >
+> For your workload. It will wreck other workloads.
 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> new file mode 100644
-> index 000000000000..90817993a326
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> @@ -0,0 +1,23 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> + */
-> +
-> +&soc {
-> +	interrupt-parent = <&plic>;
-> +
-> +	plic: interrupt-controller@70000000 {
-> +		reg = <0x70000000 0x4000000>;
-> +		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-> +		interrupt-controller;
-> +		#address-cells = <0>;
-> +		#interrupt-cells = <2>;
-> +		riscv,ndev = <101>;
-> +	};
-> +
-> +	clint: timer@74000000 {
-> +		reg = <0x74000000 0x10000>;
-> +		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-> +	};
-> +};
+I'd like to invite you to name one real-life workload that would be 
+wrecked by allowing PL and RTP override in sysctl. I can name three that 
+are currently impacted (mysql, postgres, and wordpress), with only poor 
+means (increased effort, non-standard persistence leading to higher 
+maintenance cost, requirement for debugfs) to mitigate the regression.
 
+> Yes, SCHED_BATCH might be more fiddly, but it allows for composition.
+> You can run multiple workloads together and they all behave.
 
-I think this file can be merged in to cv18xx-cpu.dtsi.
-clint and plic is more like a core specific device.
+Shouldn't we leave that to the user to decide, though? Forcing a new 
+default configuration that only works well with multiple workloads can not 
+be the right thing for everyone - especially for large scale providers, 
+where servers and corresponding images are intended to run one main 
+workload. Importantly, things that used to run well and now don't.
 
-Regards,
-Inochi
+> Maybe the right thing here is to get mysql patched; so that it will
+> request BATCH itself for the threads that need it.
 
+For mysql in particular, it's a possible avenue (though I still object to 
+the idea that individual users and vendors now need to put in additional 
+effort to maintain the same performance as before).
+
+But on a larger picture, this reproducer is only meant as a simplified 
+illustration of the performance issues. It is not a single occurrence. 
+There are far more complex workloads where tuning at thread level is at 
+best impractical, or even downright impossible. Think of managed clusters 
+where the load distribution and corresponding task density are not user 
+controlled, or JVM workloads where individual threads are not even 
+designed to be managed externally, or containers built from external 
+dependencies where tuning a service is anything but trivial.
+
+Are we really saying that everyone just needs to swallow the cost of this 
+change, or put up with the lower performance level? Even if the Linux 
+Kernel doesn't concern itself with business cost, surely at least the time 
+burned on this by both commercial and non-commercial projects cannot be 
+lost on you.
+
+> Also, FYI, by keeping these emails threaded in the old thread I nearly
+> missed them again. I'm not sure where this nonsense of keeping
+> everything in one thread came from, but it is bloody stupid.
+
+Thank you. This is a great opportunity for both of us to relate to the 
+opposing stance on this patch, and I hope you too will see the parallel:
+
+My reason for threading was well intended. I value your time and wanted to 
+avoid you wasting it by having to search for the previous patch or older 
+threads on the same topic.
+
+However, I ended up inadvertently creating an issue for your use case. 
+It, arguably, doesn't have a noticeable impact on my side, and it could be 
+avoided by you, the user, by configuring your email client to always 
+highlight messages directly addressed to you; assuming that your email 
+client supports it, and you are able and willing to invest the effort to 
+do it.
+Nevertheless, this doesn't make it right.
+
+I do apologize for the annoyance; it was not my intent to put additional 
+burden on you, only to have the same experience or efficiency that you are 
+used to having. I did consolidate the two recent threads into this one 
+though, because I believe that it's easier to follow by everyone else.
+
+It may be a silly parallel, but please consider that similar frustration 
+is happening to many users who now are asked to put effort towards 
+bringing performance back to previous levels - if at all possible and 
+feasible - and at the same time are denied the right tools to do so.
+Please consider that it took years for EEVDF commit messages to go from 
+"horribly messes up things" to "isn't perfect yet, but much closer", and 
+it may take years still until it's as stable, performant and vetted across 
+varied scenarios as CFS was in kernel 6.5.
+Please consider that along this journey are countless users and groups who 
+would rather not wait for perfection, but have easy means to at least get 
+the same performance they were getting before.
+
+-Cristian
 
