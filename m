@@ -4,109 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157B4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7893AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnvvgxUa+KKbKiMSC06fC7YcvSohcjyPqj0goaa/usY=; b=N1K+BKqQGyOU9CPIHaBn3sxwXs
-	VUrhB/c8I8DU40t2xJxRteJPjPqsK78rIWFzPKN8GberYqT9/XNOx2nFUEjTrggrV74xS0avK0sYN
-	Rg86wQQdkUYEtZ5glSoY5jr5yi0XXpKMWgiJI9MNVtkuaYS8M+GBQ1MRCE5H/6BtN+hxLKQPsaw6E
-	46yW9iqoq7AS0JR3PeswB4BAbcEtK14t9RK1WaFUF6rdIvf3gTZ9DUa9AjRTgNv+o1EwAs3+OCkis
-	nK4f1ls/RoApVIODylOxQ00tLJFgFLrs/eqCekhYJ8M565XDJM7p1Fcvp18Jo5ZdAPneChEy8oOu7
-	PQ95Ghhg==;
+	bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=; b=mfkCTm31LRCDNiHj9WZ26JnCmp
+	6ek+k7id0WEc4o/TPdpUE/QoSd9i4LRd6Wi1MdBodi/g9aVIgnDLqTk+7Cxz9MiGbKylPsV0PZ0wS
+	BW00jnkpb03vSkb/yynu28mlfpJ8QwN0gXOtyVQUhkCZcX3BMnX9oOBQ1B9+oYAbbwYnuN6omYez7
+	VpravbGdXF6ZD+qJ4CvlR2WdG4HRAMMdcvAAcem9tMEBapluWzeeycPGR2h+nZYFvt/YqusWVP4Ti
+	C/BHfISjX6trJaMJokWo6WYB6hd6LkDaL5mTEscaqFB3oo6HfBgv7KFxU45K2rMo6AGQfBEzR5K0A
+	Pt0+oZkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLoI-000000097ur-1tNq;
-	Wed, 12 Feb 2025 23:06:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiLtE-000000098Rk-1f1q;
+	Wed, 12 Feb 2025 23:11:32 +0000
+Received: from mail-am6eur05on2068.outbound.protection.outlook.com ([40.107.22.68] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLmi-000000097k0-0QLX;
-	Wed, 12 Feb 2025 23:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WnvvgxUa+KKbKiMSC06fC7YcvSohcjyPqj0goaa/usY=; b=ABZMAfQjii/wN6bjdC67QDPJJo
-	RhNM6pLrQTMdBLWUXdG/oHKzcCwwRSLALgNE07WDoMWy59vFFRdcVGujI6lN65HUFbakg7Hf4SXZV
-	r5enqsQUUPAP2Et/BnpLsX6qMkOaWGdUZ+8aBjNJjL4I1d1q90mQ1bM7gukNL6PdxLgkM/E3y03T/
-	Dphufxj7ZafLWpJwNKT+zmKJ+EFlxGrOYIKnW09KW2m3pDQiDU0EpvZpLJ+c+J3Pm7tnUHiv2kyvb
-	15vGJpTkRqluKeeRsIK05Vwcov4ijQbQknXFZ8HoDMqAjfhrpwBzWGuzPcjWXLd0aDe2DsdxhCg48
-	7biUn7vw==;
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLme-00000000sHN-0OLt;
-	Wed, 12 Feb 2025 23:04:46 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ab7f2b3d563so56377666b.1;
-        Wed, 12 Feb 2025 15:04:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739401481; x=1740006281; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WnvvgxUa+KKbKiMSC06fC7YcvSohcjyPqj0goaa/usY=;
-        b=Ll3fM79w150YSFOt1KZOqotUjtvtPQMbQ0tWamUArXf56QQ0tS02sPeKKspKOHSqZR
-         DL8I6U8fs8FnGSj74HKrIoV98tJiq2LpyucEZA3sU+UXCWP5wJXcUc84jqhADoYSxsOB
-         OuH7sKR5cTzqJ+mHLLwZdlJUshUnpfYUsx+tHRP8uIX6ZNs3Oc3dDGg9CQX+7M475GNd
-         XzShjn5hkrNhlIHrtbQTJ4kRLsXXNnqCmvykadBoEQn+vvdFY45FB5Lku43qrGoDP8qk
-         bCTwb8p7O9CMHiqYBJNaEZicShPgrXNJT421ngYFR5JHpfNYgH0DYLYRFD2xRmcSggE1
-         ni3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739401481; x=1740006281;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WnvvgxUa+KKbKiMSC06fC7YcvSohcjyPqj0goaa/usY=;
-        b=s7jX1VygcRXQ4KvoFlEECto4IlVfPH4NIukpkD37BZko0wTgTFzIKYPSHGZLqrebv8
-         NDz/CPLVQOFfjrzS2dxhglG92DuefiahX0fiZZ0faLacgZD+dx4i5DCHw6ogTtClveCv
-         sKztl4TVHADCRZRwJHAkawu2kClIg2q/vyvQcmEXxzqO9QTMwy5prsGavNJp9myRbmCw
-         dHD41vnCtd/CMIYhOo0ozbsK5GVpYvpFX5a6ofl0dEOXVDaOdUEBNonZp7qhEhmfTqJO
-         TQa/pJ4PEz9syRa7meHEbecQeIV4pdwc5Wum+ljCZKy0CHqp1vp8QTC85sbwG+qMJYgu
-         56Gg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9ZvfE3nWo6H5cP/BWSNB8IpwoivDGEazwenL1n+tGgr5QTmsxc0jTe3PCQ/O92jRMS+W4eM2LZgtE3kr9Cj3L@lists.infradead.org, AJvYcCWwV+vyDsK1HhRqhkOF8d7nCQvuH5CF2A0xyKUQZggEOgaIP6Pk626SfyQQG97dyNIO0N13OVWoZkTGx44=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHJzcQExhSMiGIErJ71J2ClL4vcDLtNntjCI1q+8v6vF5OAh+Z
-	iwWSyRUkS5qbQ1a6ZOk+sFvPliToMLzlyQroJMrHhEjIyqX5cAaf
-X-Gm-Gg: ASbGncvcU7PadX2fAbHUU4bJ2TZFLAW+KDS46mx/FEIYB6pzt9LFRqvVNlNZWUTiQs0
-	KbyPVGnjYin2wIsDZsToLnsEUwhzKNxJQQDN/aBW39u+xgdpPjOfDcJAWF4c7/jizStDAq9dTBt
-	BRPRNkDfNEpYtU8/HszsUl0iY4B3MCNkyAXDm8RVZFl+XwTpvO80soeBgDSVQ3UoOuke7683dUt
-	VBslvwlgJLoY0P5CN5wCin3WwO5S+mVYK/Zta5j0gBYUoa1m3GAd7NgiJkvcb241MVGFBUy7H5B
-	WOQiS0/aEKj5GbbG5bPJg3H7JJvMFS0l
-X-Google-Smtp-Source: AGHT+IE13NRMWydnWFjBAbDzcuJOpocvAbpPyYkr9ja8EJrYZQxfsWwpOeQrG6UZLNr7eU9mjShGdg==
-X-Received: by 2002:a17:907:3f1c:b0:ab7:1816:e8a with SMTP id a640c23a62f3a-aba5018d61dmr111884266b.36.1739401480710;
-        Wed, 12 Feb 2025 15:04:40 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba53231f4dsm10687266b.23.2025.02.12.15.04.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 15:04:40 -0800 (PST)
-Message-ID: <de4d99bf89f78a0a6e0a81dc6062af5e85d762aa.camel@gmail.com>
-Subject: Re: [PATCH v3 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
- part into SoCs' .dtsi files
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, 	linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Haylen Chu	 <heylenay@outlook.com>,
- linux-arm-kernel@lists.infradead.org, Paul Walmsley	
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
- <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Chao Wei	
- <chao.wei@sophgo.com>
-Date: Thu, 13 Feb 2025 00:04:39 +0100
-In-Reply-To: <x4zncooa3lmyf2bikowjw7oabz66dhhbxl44cmujzzkwaslcl5@tj3l2u7e4akx>
-References: <20250212224347.1767819-1-alexander.sverdlin@gmail.com>
-	 <20250212224347.1767819-2-alexander.sverdlin@gmail.com>
-	 <x4zncooa3lmyf2bikowjw7oabz66dhhbxl44cmujzzkwaslcl5@tj3l2u7e4akx>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2 
+	id 1tiLrn-000000098Kz-24AR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 23:10:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AKlngkmdNDJh/yWq7HGn2fmvOj5Lcg9zuALE5GeR1SbG/ktPlBMk+jC07PvIgou7Z8Dk7N8kZrfH08YreAQoNHWDkhCm671M630rMb4a3vpdwo7wlJNDlS+b6RK2mn1+xxgYQdKjq9hzj9b8mZC6p0ZKo2Tn3ZFowIVi8baxVuBaOISc9Oxfn2f8bOb1Xg8+pjbPtRZ5ysVHQgtEE6aubVqzOWkX6173aVqLLldBBN69TjTkZ43ZuCnx5Wwcc6SL2WGngzJKKXgd8Fby3/Mgrcr4N5SIoKZ5Da24czvny6wIGU76Nbaq6JF5KVUuSOVuZYxTPweh6ZcUth/1eI9Ayw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=;
+ b=MumjsyksA1eoI118RJCtuNJB4lWSSequsHNQ6auqfp+XxBU+Te+qBMj3pa+LzoES0M8L/yyQMPaDUnF2Kmlu0edMCc+serH8yFH2KJvhED9LzXNvM3xLnKIDSyUWHeACvAa3muRxXNM1E2FjmwZwil+kwn5s9tTe5LI8prDGifoeNjLWTX5MYnoOIbqJBXTE8gqN0WJ6Jl5J1EjNSWNjhkIvGn7ROmWYITp/ZUWZdA++u8V8mzvaQxHU8EHZGMqn58Pjnce0rDbToe0F/RF5s2bwMlv/iKlG7ci/p1NduFokS02raSxi7Snk+P0zvVlAa/apc+bjIHe7OUWS7y2eOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N6ufTQ+UPzzgBestUZjKF4q9YoZVKOh1u7P6OWeSFlI=;
+ b=EDhWvl4J27Hgq3Cx4yEMwh6N3llQMVbcWUt/me0lZWWytHPpyGls7+ypwyws5m3zXzMnuSr4ABK8F1CUGGXoOS2n1TJmHkh2jQt0NxPz+W/SeSR4vhjopyRPpktIDji9LiuOTC1fUAGYHebK0ab1FKzQ+kTP74BkzpQhxbY+y19PcWIoejJaYL6w7fBkrgmM7wuM+05QJ5nY80YoMNm9NY8UAgJZAo/Npf5WbGfhfUbylMUGbCnQVldG8mwNIaIXX6dCg0fu8JWTEvbIHn+dPRyUl5va51RkEvGlr3BXLXtTBX0i7iCIEnek3/2ltYDdOVvz/ig9mrgMuUI7bI6j8w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by AS4PR04MB9550.eurprd04.prod.outlook.com (2603:10a6:20b:4f9::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Wed, 12 Feb
+ 2025 23:09:55 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8445.013; Wed, 12 Feb 2025
+ 23:09:55 +0000
+Date: Thu, 13 Feb 2025 01:09:51 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v4 1/9] net: ethtool: mm: extract stmmac
+ verification logic into common library
+Message-ID: <20250212230951.2lx7fba6avurmgls@skbuf>
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-2-faizal.abdul.rahim@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210070207.2615418-2-faizal.abdul.rahim@linux.intel.com>
+X-ClientProxiedBy: VI1PR09CA0098.eurprd09.prod.outlook.com
+ (2603:10a6:803:78::21) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|AS4PR04MB9550:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c1aa7b5-79d4-41e2-508f-08dd4bba5cbd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/VbmTTswx1grzUsbL4w4FNmjYeduuirTcNDWJaFSYaEfRQUpVd8u7xSeNe0K?=
+ =?us-ascii?Q?48iadAOqfqJfmxUwP/ehBKX0wEoSCmkI+TTUUpSazVovVr72vluBEra6ay7Z?=
+ =?us-ascii?Q?wo5cDtL4lhSxf7/iVclxYk6zQgTc88YVKw68dvrLAhzkDkmzvFwZGvCNHlAI?=
+ =?us-ascii?Q?xAu7ZuH0X357r4w9mwK+HPfHNFMV+g5W0AGYjC+BvS62ieMiPGPTEYkIIT0R?=
+ =?us-ascii?Q?/+S+h2zfMRjHBeAKJOGt5uYw+mjLAxnA7pmYmZ+us1cRrTY6nxAjsFTV6XIQ?=
+ =?us-ascii?Q?fdnAr0j73Hx9ZGRMnXiN0kbgxj4ehgvxvGSJuDlHUyeseKSxXqZXX0BpAoyW?=
+ =?us-ascii?Q?UbeUcTLnAGrf7+sqgp3u0py6RInl919YjI+FhGG9iWwlt57pRdUFpu/gXWMP?=
+ =?us-ascii?Q?h4zjNknLfl1LjsLDTL9uKhpUNJb2QEoFg60NrQGTQQkaLze7/c4HUpgnyFta?=
+ =?us-ascii?Q?tRxAIln5eiKm4IA3o+mQ3m7LeELRj4EMEY6ZwHoNSE9BcD02mR2jpl76XLus?=
+ =?us-ascii?Q?vd8ZOHuU/XK1RTRopyiT71GI0JvGxseclxGt0Cu4YjVv4t4L1CstTNYIMHIT?=
+ =?us-ascii?Q?utCriQ3Q4ZZt2p1cAij4e0mxIZL9SsV7LZfBu2DnVxGKEUbpKUFLdOI1vRCx?=
+ =?us-ascii?Q?xuscBgY+QCs/q0UJrjJ2/UMMaWm3umqScYVDXwwvOha6kBhxAMCcqaNUezvK?=
+ =?us-ascii?Q?8bn734kHVdeVP77FWbK1LS4M2qslxA7DmxDnHsUTlpE5fFBcva8vvDaCGGoq?=
+ =?us-ascii?Q?gpUj/08Fu7qEbrop4NqObPfx3Soa8Ir8kJMN0ouX9SMrLH6QZ7MQloLTeO6u?=
+ =?us-ascii?Q?9OW91GMyTwzm1sYPS9+3cINLnYwMZossLBKBiCQcOnYgf1OKzgYljy78Ey7U?=
+ =?us-ascii?Q?ZbpdfpHrW8nrzOBTiaBBML0sxw0NLA3D5BE6z2w6mlrDc2LOpYSi5ilNwrxs?=
+ =?us-ascii?Q?K9tFjH9cvhVnWyVUmSJ4aq4mu6jYwIC6cqKcS0jxHfoqBoPK0jbho/FLuxLP?=
+ =?us-ascii?Q?3hnM92Dlyj+yLAgVFmxt8gwPZuL9JVrRdKOlHv6pZOHuIq+8wQsfyvDmxWCF?=
+ =?us-ascii?Q?9fNyAEcNcm6rCsgsViTs6yZCy1JEkOWeeeBWENfLepRM13OlBqWHiKHszU8w?=
+ =?us-ascii?Q?5U8HcBK9pgeIfh+qnDUniIPwVTYNnPU0T1sukNKXitBH8tFt4hMgedsK9qaS?=
+ =?us-ascii?Q?tLJxX4h/qcvMsBrkYtvfTgr9F8AfYyKPmb8cdpdLB2jrsbqoe1/e5FPz5ANe?=
+ =?us-ascii?Q?KKz8kqQ7e/MgrbCMweoytujZL1mgmxxqdcVpSQVlJykhUnpjhgG1oX9dR7l4?=
+ =?us-ascii?Q?RITOmSV3dEpsuj+RQWLNmkG3UIet846iPC89IiK9SH5mZhfdOYy80qbYmtzX?=
+ =?us-ascii?Q?HzcUp6DQhlAjPP1rbhKRI7RC73sB?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p/uXpMvc55azn4LvZiYHOHDuW04DH1UyJA6zjl5s06dbW8OX8MEVAA7Seo+5?=
+ =?us-ascii?Q?y8Rbr0sR01mwhSfkbnhdCfBuCMfYt0x8sI1XazUgygiLELc3NBBnIb3qJqzl?=
+ =?us-ascii?Q?Qgi/vePsO1nu/BoIQBS2dn+nA+0jJSknDkshPw5XEu9zWffrDlZRy7kypuMg?=
+ =?us-ascii?Q?FCORfBch3fRLiIOEfLZYLaI7cHWNnQNBaTWEPA5zdko46XOR05akTitpxL56?=
+ =?us-ascii?Q?eVPcINFkjktyZY0qoBNIEd2bgKe8srj7Umx3lqY4+cP0fSbKCaoP4pvkal1z?=
+ =?us-ascii?Q?IFopVNJUrtbGq35TBvUTU4FvwihmXK5D+NtMfR+dUqqU7bGCK9KAiOM8aBkZ?=
+ =?us-ascii?Q?EwQD1mTA8BHn/hFwZmpyz0n1+llxOpuZtv0lRcWPqGqj39NHhcBP8DFMgE/x?=
+ =?us-ascii?Q?x2XjZ1BxJGJ0gP6G4rIr4zF4BVHnIcZ1ECdaahYPM15/eOkEKPmxsKrYdPyn?=
+ =?us-ascii?Q?6PGsHcdXUDBVFBK90VKP6W+DQrkCvH+b2OUilz5ETdCNC0bFNbliMB70RxUa?=
+ =?us-ascii?Q?HhTeWEb66kf6kC6UVEGevj7K9uZxZMdVXq/prHamRdNIAFi78eM+RrB0//jH?=
+ =?us-ascii?Q?xZwKw4D1qxN8ZtcpUZOFIV4z0pD/AOHzWzIOGPwVcWfJUMT++zaWYe5TLXD5?=
+ =?us-ascii?Q?Ssknpm0ztWl5OqY6yKc9pFFYct1TJ9Apuu3a/BF96ZtR+RbxQ8hAWiXprDsS?=
+ =?us-ascii?Q?/6L+MW5JHNY/rIkF07CLhvmx4syIZyWdXMHkerDyROr6iMqvwvgrQe9RHxk6?=
+ =?us-ascii?Q?NmlI9H1FmEJsgRz3w5f1MA0fWPeGc7fG8pgtFpY91SFX5M3MZZbDB9bF6mBq?=
+ =?us-ascii?Q?r/KeZXVFD5d9+5n9G3UtPBfCE4DNS4qLm7mam7U+i93PWiMzaclJ++IUyIYM?=
+ =?us-ascii?Q?AFEUQXAn6mRHOf54L5lKzIvoKzrNfFqlFubD5ZANiRT8iaQsI0lPOxiaojjo?=
+ =?us-ascii?Q?KgS03PWQ3GivUD6HAKAbsAAS7FczProQuc0uNJsugmXZDI3IWTgJTKlbtqO5?=
+ =?us-ascii?Q?aesbocI3MR5bUoDScD8So9EzHLHkxNVoFlbrOKfuWVcsfniWktaj+NW8dgwP?=
+ =?us-ascii?Q?iYNVPMzVu8lSRpL3QhWAyyqk054Oa1QA3T0t6loDKl61N2XFy4E+qxh+usTL?=
+ =?us-ascii?Q?OXFpZk6p36HHe3n3HGbhdsj0vYa/Vd2ZNENfUxuBDmPUtBRhzlRCwD65Rqmn?=
+ =?us-ascii?Q?YWw4DNcFwB7+ov191omWaxD6olkHrf5Fl1LepQMWHRBuf6j4PvXVtHJUiQ/8?=
+ =?us-ascii?Q?Fd8e8uwWUO6gusMn/Gb69ippvcHDlsqRi/Tly04XCCZE8SyjUNsYya+e+uC8?=
+ =?us-ascii?Q?2oSkOe4/S92b9Pqb/XAbBdS2C3SXyBKIVdteFX6IIH6aSGl45Ptp6UU0ihSP?=
+ =?us-ascii?Q?2Ug1usYPFHCHdng5Ukh0dgiIrQTtBeXOkKOf14cb5t7SdV6wu7l6U104htSl?=
+ =?us-ascii?Q?OiURj1Du7EGppNM1Wq/BK2nZGRhFiyi/+VvdCqQsrqF6u0uaQBZpDlW2VZQn?=
+ =?us-ascii?Q?sI8myPcq+4i/gEbyQCEQRW2l4w+AbnajFQ38GpeyDHXQ0RVohxupky8yYQ1I?=
+ =?us-ascii?Q?6CILFs8mzMU+RPJ+yOpCs2bTr3Pw2EOJQfSklyhU0xfS93riDLtjyWwaqK5e?=
+ =?us-ascii?Q?kw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c1aa7b5-79d4-41e2-508f-08dd4bba5cbd
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 23:09:55.0475
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qhM67HiNf4vrlXJrqZcsgT9iezgfER7q52NTJPqQXn2KVQRxtYFk0T0atQh2XqwMDW8XG1RohkINZSlpnc4T+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9550
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_230444_643093_21EE903A 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250212_151003_706958_AB1AFB16 
+X-CRM114-Status: GOOD (  29.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,234 +185,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi!
+On Mon, Feb 10, 2025 at 02:01:59AM -0500, Faizal Rahim wrote:
+> From: Vladimir Oltean <vladimir.oltean@nxp.com>
+> 
+> It appears that stmmac is not the only hardware which requires a
+> software-driven verification state machine for the MAC Merge layer.
+> 
+> While on the one hand it's good to encourage hardware implementations,
+> on the other hand it's quite difficult to tolerate multiple drivers
+> implementing independently fairly non-trivial logic.
+> 
+> Extract the hardware-independent logic from stmmac into library code and
+> put it in ethtool. Name the state structure "mmsv" for MAC Merge
+> Software Verification. Let this expose an operations structure for
+> executing the hardware stuff: sync hardware with the tx_active boolean
+> (result of verification process), enable/disable the pMAC, send mPackets,
+> notify library of external events (reception of mPackets), as well as
+> link state changes.
+> 
+> Note that it is assumed that the external events are received in hardirq
+> context. If they are not, it is probably a good idea to disable hardirqs
+> when calling ethtool_mmsv_event_handle(), because the library does not
+> do so.
+> 
+> Also, the MM software verification process has no business with the
+> tx_min_frag_size, that is all the driver's to handle.
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Co-developed-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> Co-developed-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+> Tested-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
+>  .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +---
+>  .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++-----------
+>  .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
+>  include/linux/ethtool.h                       |  61 +++++
+>  net/ethtool/mm.c                              | 222 ++++++++++++++++++
+>  7 files changed, 327 insertions(+), 200 deletions(-)
 
-On Thu, 2025-02-13 at 06:54 +0800, Inochi Amaoto wrote:
-> On Wed, Feb 12, 2025 at 11:43:33PM +0100, Alexander Sverdlin wrote:
-> > Make the peripheral device tree re-usable on ARM64 platform by moving C=
-PU
-> > core and interrupt controllers' parts into new cv18xx-cpu.dtsi and
-> > cv18xx-intc.dtsi.
-> >=20
-> > Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nuberin=
-g
-> > into "plic" interrupt-controller numbering.
-> >=20
-> > On RiscV side this patch has been dtc-compile-tested only. IRQ numbers
-> > substitution with SOC_PERIPHERAL_IRQ() has been scripted in vim.
-> >=20
-> > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> > ---
-> > Changelog:
-> > v3:
-> > - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint node=
-s
-> > were moved into cv18xx-intc.dtsi to reduce code duplication;
-> > v2:
-> > - instead of carving out peripherals' part, carve out ARCH-specifics (C=
-PU
-> > core, interrupt controllers) and spread them among 3 SoC .dtsi files wh=
-ich
-> > included cv18xx.dtsi;
-> > - define a label for the "soc" node and use it in the newly introduced =
-DTs;
-> >=20
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv1800b.dtsi=C2=A0=C2=A0=C2=A0=C2=A0 =
-| 28 ++++---
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv1812h.dtsi=C2=A0=C2=A0=C2=A0=C2=A0 =
-| 28 ++++---
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv181x.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 |=C2=A0 2 +-
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi=C2=A0 | 36 ++++++++
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi | 23 ++++++
-> > =C2=A0 arch/riscv/boot/dts/sophgo/cv18xx.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 91 ++++++---------------
-> > =C2=A0 arch/riscv/boot/dts/sophgo/sg2002.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 34 ++++----
-> > =C2=A0 7 files changed, 137 insertions(+), 105 deletions(-)
-> > =C2=A0 create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
-> > =C2=A0 create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> >=20
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/=
-dts/sophgo/cv1800b.dtsi
-> > index aa1f5df100f0..9fb7dd2dab18 100644
-> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > @@ -3,8 +3,12 @@
-> > =C2=A0=C2=A0 * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > =C2=A0=C2=A0 */
-> > =C2=A0=20
-> > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> > +
-> > =C2=A0 #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
-> > +#include "cv18xx-cpu.dtsi"
-> > =C2=A0 #include "cv18xx.dtsi"
-> > +#include "cv18xx-intc.dtsi"
-> > =C2=A0=20
-> > =C2=A0 / {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1800b";
-> > @@ -13,17 +17,23 @@ memory@80000000 {
-> > =C2=A0=C2=A0		device_type =3D "memory";
-> > =C2=A0=C2=A0		reg =3D <0x80000000 0x4000000>;
-> > =C2=A0=C2=A0	};
-> > +};
-> > +
->=20
-> > +&soc {
-> > +	dma-noncoherent;
-> > =C2=A0=20
-> > -	soc {
-> > -		pinctrl: pinctrl@3001000 {
-> > -			compatible =3D "sophgo,cv1800b-pinctrl";
-> > -			reg =3D <0x03001000 0x1000>,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0x05027000 0x1000>;
-> > -			reg-names =3D "sys", "rtc";
-> > -		};
-> > +	pinctrl: pinctrl@3001000 {
-> > +		compatible =3D "sophgo,cv1800b-pinctrl";
-> > +		reg =3D <0x03001000 0x1000>,
-> > +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0x05027000 0x1000>;
-> > +		reg-names =3D "sys", "rtc";
-> > =C2=A0=C2=A0	};
-> > =C2=A0 };
-> > =C2=A0=20
->=20
-> The origianl /soc path can be used to override things,=20
-> why change it to the reference archor? I see no change
-> for it.
+So I'm not exactly sure how this is supposed to work, but this is moving
+a non-negligible portion of code from stmmac_fpe.c which has Furong Xu's
+copyright, to ethtool/mm.c which doesn't. That being said, commit
+8d43e99a5a03 ("net: stmmac: refactor FPE verification process") which
+added that logic said that it was co-developed together with me (NXP),
+and I clearly remember both of us contributing to it. So, how about
+expanding NXP's current 2022-2023 copyright in ethtool/mm.c to
+2022-2025 (date of commit 8d43e99a5a03 plus date of this patch), and
+also copy Furong's copyright 2024 line?
 
-https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org=
-/
-The corresponding label is being introduced in cv18xx.dtsi.
+> @@ -710,6 +714,63 @@ struct ethtool_mm_stats {
+>  	u64 MACMergeHoldCount;
+>  };
+>  
+> +enum ethtool_mmsv_event {
+> +	ETHTOOL_MMSV_LP_SENT_VERIFY_MPACKET,
+> +	ETHTOOL_MMSV_LD_SENT_VERIFY_MPACKET,
+> +	ETHTOOL_MMSV_LP_SENT_RESPONSE_MPACKET,
+> +};
+> +
+> +/* MAC Merge verification mPacket type */
+> +enum ethtool_mpacket {
+> +	ETHTOOL_MPACKET_VERIFY,
+> +	ETHTOOL_MPACKET_RESPONSE,
+> +};
+> +
+> +struct ethtool_mmsv;
+> +
+> +struct ethtool_mmsv_ops {
 
-> > +&clk {
-> > +	compatible =3D "sophgo,cv1800-clk";
-> > +};
-> > +
-> > =C2=A0 &plic {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1800b-plic", "thead,c900-plic";
-> > =C2=A0 };
-> > @@ -31,7 +41,3 @@ &plic {
-> > =C2=A0 &clint {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1800b-clint", "thead,c900-clint";
-> > =C2=A0 };
-> > -
-> > -&clk {
-> > -	compatible =3D "sophgo,cv1800-clk";
-> > -};
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/=
-dts/sophgo/cv1812h.dtsi
-> > index 8a1b95c5116b..f23c4dd6687d 100644
-> > --- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> > @@ -3,10 +3,14 @@
-> > =C2=A0=C2=A0 * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> > =C2=A0=C2=A0 */
-> > =C2=A0=20
-> > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> > +
-> > =C2=A0 #include <dt-bindings/interrupt-controller/irq.h>
-> > =C2=A0 #include <dt-bindings/pinctrl/pinctrl-cv1812h.h>
-> > +#include "cv18xx-cpu.dtsi"
-> > =C2=A0 #include "cv18xx.dtsi"
-> > =C2=A0 #include "cv181x.dtsi"
-> > +#include "cv18xx-intc.dtsi"
-> > =C2=A0=20
-> > =C2=A0 / {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1812h";
-> > @@ -15,17 +19,23 @@ memory@80000000 {
-> > =C2=A0=C2=A0		device_type =3D "memory";
-> > =C2=A0=C2=A0		reg =3D <0x80000000 0x10000000>;
-> > =C2=A0=C2=A0	};
-> > +};
-> > +
-> > +&soc {
->=20
-> > +	dma-noncoherent;
->=20
-> I think this can be moved into cv18xx-cpu.dtsi file, and let
-> all SoCs share it.
+Since these are driver-facing API, how about a kernel-doc? The content
+is subject to further review comments, of course.
 
-https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org=
-/
+/**
+ * struct ethtool_mmsv_ops - Operations for MAC Merge Software Verification
+ * @configure_tx: Driver callback for the event where the preemptible TX
+ *		  becomes active or inactive. Preemptible traffic
+ *		  classes must be committed to hardware only while
+ *		  preemptible TX is active.
+ * @configure_pmac: Driver callback for the event where the pMAC state
+ *		    changes as result of an administrative setting
+ *		    (ethtool) or a call to ethtool_mmsv_link_state_handle().
+ * @send_mpacket: Driver-provided method for sending a Verify or a Response
+ *		  mPacket.
+ */
 
-If SOC_PERIPHERAL_IRQ() doesn't belong to -cpu.dtsi, then "dma-noncoherent;=
-"
-probably neither...
+> +	void (*configure_tx)(struct ethtool_mmsv *mmsv, bool tx_active);
+> +	void (*configure_pmac)(struct ethtool_mmsv *mmsv, bool pmac_enabled);
+> +	void (*send_mpacket)(struct ethtool_mmsv *mmsv, enum ethtool_mpacket mpacket);
+> +};
+> +
+> +/**
+> + * struct ethtool_mmsv - MAC Merge Software Verification
+> + * @ops: operations for MAC Merge Software Verification
+> + * @dev: pointer to net_device structure
+> + * @lock: serialize access to MAC Merge state between
+> + *	  ethtool requests and link state updates.
+> + * @status: current verification FSM state
+> + * @verify_timer: timer for verification in local TX direction
+> + * @verify_enabled: indicates if verification is enabled
+> + * @verify_retries: number of retries for verification
+> + * @pmac_enabled: indicates if the preemptible MAC is enabled
+> + * @verify_time: time for verification in milliseconds
+> + * @tx_enabled: indicates if transmission is enabled
+> + */
+> +struct ethtool_mmsv {
+> +	const struct ethtool_mmsv_ops *ops;
+> +	struct net_device *dev;
+> +	spinlock_t lock;
+> +	enum ethtool_mm_verify_status status;
+> +	struct timer_list verify_timer;
+> +	bool verify_enabled;
+> +	int verify_retries;
+> +	bool pmac_enabled;
+> +	u32 verify_time;
+> +	bool tx_enabled;
+> +};
+> +
 
-> > -	soc {
-> > -		pinctrl: pinctrl@3001000 {
-> > -			compatible =3D "sophgo,cv1812h-pinctrl";
-> > -			reg =3D <0x03001000 0x1000>,
-> > -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0x05027000 0x1000>;
-> > -			reg-names =3D "sys", "rtc";
-> > -		};
-> > +	pinctrl: pinctrl@3001000 {
-> > +		compatible =3D "sophgo,cv1812h-pinctrl";
-> > +		reg =3D <0x03001000 0x1000>,
-> > +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0x05027000 0x1000>;
-> > +		reg-names =3D "sys", "rtc";
-> > =C2=A0=C2=A0	};
-> > =C2=A0 };
-> > =C2=A0=20
-> > +&clk {
-> > +	compatible =3D "sophgo,cv1810-clk";
-> > +};
-> > +
-> > =C2=A0 &plic {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1812h-plic", "thead,c900-plic";
-> > =C2=A0 };
-> > @@ -33,7 +43,3 @@ &plic {
-> > =C2=A0 &clint {
-> > =C2=A0=C2=A0	compatible =3D "sophgo,cv1812h-clint", "thead,c900-clint";
-> > =C2=A0 };
-> > -
-> > -&clk {
-> > -	compatible =3D "sophgo,cv1810-clk";
-> > -};
-> >=20
-> > [...]
-> >=20
->=20
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi b/arch/riscv/b=
-oot/dts/sophgo/cv18xx-intc.dtsi
-> > new file mode 100644
-> > index 000000000000..90817993a326
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> > @@ -0,0 +1,23 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > +/*
-> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> > + */
-> > +
-> > +&soc {
-> > +	interrupt-parent =3D <&plic>;
-> > +
-> > +	plic: interrupt-controller@70000000 {
-> > +		reg =3D <0x70000000 0x4000000>;
-> > +		interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
-> > +		interrupt-controller;
-> > +		#address-cells =3D <0>;
-> > +		#interrupt-cells =3D <2>;
-> > +		riscv,ndev =3D <101>;
-> > +	};
-> > +
-> > +	clint: timer@74000000 {
-> > +		reg =3D <0x74000000 0x10000>;
-> > +		interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
-> > +	};
-> > +};
->=20
->=20
-> I think this file can be merged in to cv18xx-cpu.dtsi.
-> clint and plic is more like a core specific device.
+/**
+ * ethtool_mmsv_stop() - Stop MAC Merge Software Verification
+ * @mmsv: MAC Merge Software Verification state
+ *
+ * Drivers should call this method in a state where the hardware is
+ * about to lose state, like ndo_stop() or suspend(), and turning off
+ * MAC Merge features would be superfluous. Otherwise, prefer
+ * ethtool_mmsv_link_state_handle() with up=false.
+ */
+> +void ethtool_mmsv_stop(struct ethtool_mmsv *mmsv);
 
-Yes, this can be done now, as long as SOC_PERIPHERAL_IRQ() remains
-outside of the -cpu-intc.dtsi...
+/**
+ * ethtool_mmsv_link_state_handle() - Inform MAC Merge Software Verification
+ *				      of link state changes
+ * @mmsv: MAC Merge Software Verification state
+ * @up: True if device carrier is up and able to pass verification packets
+ *
+ * Calling context is expected to be from a thread, interrupts enabled.
+ */
+> +void ethtool_mmsv_link_state_handle(struct ethtool_mmsv *mmsv, bool up);
 
---=20
-Alexander Sverdlin.
+/**
+ * ethtool_mmsv_event_handle() - Inform MAC Merge Software Verification
+ *				 of interrupt-based events
+ * @mmsv: MAC Merge Software Verification state
+ * @event: Event which took place (packet transmission or reception)
+ *
+ * Calling context expects to have interrupts disabled.
+ */
+> +void ethtool_mmsv_event_handle(struct ethtool_mmsv *mmsv,
+> +			       enum ethtool_mmsv_event event);
 
+/**
+ * ethtool_mmsv_get_mm() - get_mm() hook for MAC Merge Software Verification
+ * @mmsv: MAC Merge Software Verification state
+ * @state: see struct ethtool_mm_state
+ *
+ * Drivers are expected to call this from their ethtool_ops :: get_mm()
+ * method.
+ */
+> +void ethtool_mmsv_get_mm(struct ethtool_mmsv *mmsv,
+> +			 struct ethtool_mm_state *state);
+
+/**
+ * ethtool_mmsv_set_mm() - set_mm() hook for MAC Merge Software Verification
+ * @mmsv: MAC Merge Software Verification state
+ * @state: see struct ethtool_mm_state
+ *
+ * Drivers are expected to call this from their ethtool_ops :: set_mm()
+ * method.
+ */
+> +void ethtool_mmsv_set_mm(struct ethtool_mmsv *mmsv, struct ethtool_mm_cfg *cfg);
+
+/**
+ * ethtool_mmsv_init() - Initialize MAC Merge Software Verification state
+ * @mmsv: MAC Merge Software Verification state
+ * @dev: Pointer to network interface
+ * @ops: Methods for implementing the generic functionality
+ *
+ * The MAC Merge Software Verification is a timer- and event-based state
+ * machine intended for network interfaces which lack a hardware-based
+ * TX verification process (as per IEEE 802.3 clause 99.4.3). The timer
+ * is managed by the core code, whereas events are supplied by the
+ * driver explicitly calling one of the other API functions.
+ */
+> +void ethtool_mmsv_init(struct ethtool_mmsv *mmsv, struct net_device *dev,
+> +		       const struct ethtool_mmsv_ops *ops);
+> +
+>  /**
+>   * struct ethtool_rxfh_param - RXFH (RSS) parameters
+>   * @hfunc: Defines the current RSS hash function used by HW (or to be set to).
 
