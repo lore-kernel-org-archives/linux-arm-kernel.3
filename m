@@ -4,171 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47958C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8F7C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 15:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Nem88b8qmvxPwwrv866nL0iyBq3IdKeXoRuK8nU3xY=; b=H6K0XACzMj9MGZtbZsT/jcRdWU
-	UqF0ps7RZMpWRrWnxeidTM/I7rjjIEfUe9JC+9UKIBB7qVZ4n/v3M6BR2WSVZm0x51ipsuDjT+EqS
-	CDCIqEsN/3Z1cRBUwFUKThayV4dj4ZFYWWcV4NAHPn7OJgFt39CAuzDXu3CTyP8RbRCS1zzlBeJ6S
-	Rw8UbyG9a+kt8mZv1Erk1cAtCwCW64yzZIyavcofNuZ7yNcVvqPGBwnx28nRJxG2MwZ0bjQ9uW07g
-	YWqnqxVIe9bX0JHL0YeJLlODP9q82HofQlEpN12Z615WKJs6u24mFIKezAtnGa8nr6Y//lbucJBOT
-	dMfw2QQQ==;
+	bh=EeJr9FDsSYw8HIYplOiopf+69p0J/ihX2v3ROipEQ7M=; b=MB7b4G5fJaeeiA06Aq4efv3jlp
+	0ra0VSsvb4ZpTPkHCkt9oWHLhPCeXXTPAM80NYGNA06wWnlcrrBNy1ZUxT0nobmptqLVl3QQpH4I/
+	hnqZEw3pZZX68e2ra9R3nCxdHe7ismfb40zSBHUpvIeQns8MHTB2ZNtPlqiqzNsNEU7i0/UXFT62C
+	9GtWxX3o2CsTyKa4CiqPTE/QYYLTo55ZB7pRwamU79+Gje6rXRWx3mHn0vtWp6+P2DAed3/4oqD4Y
+	KDz3+YZ1/W+VV7u9qWUyJWM77IJwQ05k+V7FFh20HMUUc61DEIDF7wWd5OrW4FdoGB7GdyJkg/jve
+	z1BYwPbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiEzD-00000007vO2-0oQv;
-	Wed, 12 Feb 2025 15:49:15 +0000
-Received: from mail-am0eur02on20625.outbound.protection.outlook.com ([2a01:111:f403:2606::625] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tiF0b-00000007voX-3Uy7;
+	Wed, 12 Feb 2025 15:50:41 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiExm-00000007uvH-274n
+	id 1tiExr-00000007uvz-0c83
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 15:47:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JCGx6yYQmjNowstW6lw7+IyiK6UyVkARzkXYevdHdseNAjGm3IyIigOzuXy1oDTeeefgGaoAwlLmI6AwUNle+2eXEu28O4mntbXqk6Qtw8GiS6kd0G5nLLHGIbu3ltDDHbn12+3SNxILrw7tDzhj89VuANwRY0nkH5U+rahIRykHfnRL0YJ0UwY8/hAHFyj1qpNZSRLhsPpFNADCwvZFuIaJaReKY8qGNAhLFwYh0tZxUYL6m6ydZwYaY28rfsRWtREexyMY8OLh9GdjVX9Fy8aVSkaC58SE6W/E2tDMxsCog+Uo41Ln8grwtD5PpWTPQW7CnLbePmO3jiTRWpvKSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Nem88b8qmvxPwwrv866nL0iyBq3IdKeXoRuK8nU3xY=;
- b=Esfp9oAB3AofkfllUWmZjIETyWWwSI1J+0ZEZXlxe4Tkr2OldLwT244rmLXYN71eoosfAphJ32QfnjsFsDxDv5Ryhkg40qc7BQBfyiBeomkxJqU/prrBPSXkdTunH4s6Na8nKw3pj1Cc9a+LS37BQue7ZZDOW2Wxb1EepzCR2jFQuNN/P96bLsGYNyvBAdnjqE8YETZhrwSv/gD4gv24uI51Vd9lXaOyY5ydV7Em5a6aR2ozadX9KJYEismTFW5Z6uvUjTEBR/7sci2NlZ71oKzHywkfuN+h4BQQYb8ZgwnCo8HdWpfxUUe/YtiZQVH/Uf1XyPw7aRpQdBKpHCyECA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Nem88b8qmvxPwwrv866nL0iyBq3IdKeXoRuK8nU3xY=;
- b=Ciz7kOn09Cr5qpU+D6anHlDu5Vzz20UCqrz+Il6TDzYVzCEvDxZGeWPT1O2b4U2BgPKqZ0sskH3UG4I+KZLiyFm/f6eSUeZI+qOBEMh/EpCtkjdJ1NRWwmSofcimkWD0OZ0oxmgBcb3ZJ0vsnNGYP9FqHK4MsHFhQ2Te/q2fDk5QaFJ9nY1d5IOd39pZhl7O1f5xCX4KqxGLg18EXP8D24SCCyqWNW4SqNdkmvsquh/D9mKTch0kWsb5YMyL5ZNjesRUQedkWjO2taWyicIrb6EeKJIPXf6qxdg+91CLxtqT9lh12nlF6fXQ8ZQMADlZp3QXWgkq9g10WQnswvbfAA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV1PR04MB10846.eurprd04.prod.outlook.com (2603:10a6:150:210::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Wed, 12 Feb
- 2025 15:47:35 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8422.012; Wed, 12 Feb 2025
- 15:47:35 +0000
-Date: Wed, 12 Feb 2025 10:47:25 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, Xiubo.Lee@gmail.com,
-	festevam@gmail.com, nicoleotsuka@gmail.com, lgirdwood@gmail.com,
-	broonie@kernel.org, perex@perex.cz, tiwai@suse.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/2] ASoC: imx-card: Add playback_only or capture_only
- support
-Message-ID: <Z6zCjXr6vsVF/6Ag@lizhi-Precision-Tower-5810>
-References: <20250211035737.3886974-1-shengjiu.wang@nxp.com>
- <20250211035737.3886974-3-shengjiu.wang@nxp.com>
- <Z6tuFp9nZFMJMgDa@lizhi-Precision-Tower-5810>
- <CAA+D8AMyXVdAWOTGHtrOyXjSLiMioAhZ1awepX3nproom87azQ@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAA+D8AMyXVdAWOTGHtrOyXjSLiMioAhZ1awepX3nproom87azQ@mail.gmail.com>
-X-ClientProxiedBy: SJ0PR03CA0276.namprd03.prod.outlook.com
- (2603:10b6:a03:39e::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 12 Feb 2025 15:47:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A2981440F0;
+	Wed, 12 Feb 2025 15:47:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739375267;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EeJr9FDsSYw8HIYplOiopf+69p0J/ihX2v3ROipEQ7M=;
+	b=GqpzyR3I4uTG51rFsmP2OeUzCa08P781lS4wsNvNHRNmd/hynSxYClZvWG9WFq2IegO/w1
+	A51zUmwAIb0tOVWCNvmAm9n0/A10chDETCHI+1HKsHM/Ovz2OSajwF00FkXJnJE/C15SAs
+	1GkkhvqpLHoqtvNznIDUPJ/QO7jw2R03OEZe0dPHPfZ/rAprtx/OaRnE5ajysaKp7aiJaD
+	NJAPcz7JIiZ2rrwNQdGBgQQl82Varuc7mZ5G61xLisFjCSzBSTTEG6P398TclZh2xpV16S
+	ECf/mp+xCkm4t/Rvk0jOMaTYbLNCBc6adWLKI2NJXyi9GNSzbQy7l/aWePLSdw==
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Date: Wed, 12 Feb 2025 16:46:20 +0100
+Subject: [PATCH 01/12] dt-bindings: bluetooth: describe wilc 3000 bluetooth
+ chip
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10846:EE_
-X-MS-Office365-Filtering-Correlation-Id: b516fcea-7eca-4b5a-e31b-08dd4b7c91da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|376014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SnZmenFCQkNzVnhzT0F3RlFndzNFZWZKM2h5aDlZdmFwNi9JQWhHSTVtMnFD?=
- =?utf-8?B?SXRYbS9XVFRzZUE2SDE5aGZ1K3ZuUU84eGJJOTZNQ3U1Q0RTbnphazJmZlhn?=
- =?utf-8?B?QnJiWUhUdHRZMTRQS0M2YnZYQ3R3cDJ3bm5xclBqWUowTTJPejNrZi80czdm?=
- =?utf-8?B?T0trL0d6ckcwVTZiWUpVMDJaMkZrRU05d0I0NzF2eDVPVFZWN1F5bXpRcVR6?=
- =?utf-8?B?c1EyNFgrejRFL3M2cytWMzJBa3pEVndNOU03eW5JdEkrdndMRzQzVEV2WTBX?=
- =?utf-8?B?N1BNMGk0NHVOT1lmOWtoWlg1MWltWC9ncVpkNmRDRTFiYTdvQWR2dmNEQWxj?=
- =?utf-8?B?NUNaQS9SNzExVHRQQkdCN0VtVXlIRjhmQTJCMURXaWtpeHlSRDhTUnB1RHF0?=
- =?utf-8?B?c1h4Sk5PK0RjaWZHUUw3YzRzeGpBdWxtOFZWYmQ0c3dKTWdJK2w1ZEU0QzN1?=
- =?utf-8?B?a0lEeU41Q2Uvdm9mVG13UXh4MDVLaWNTMHArWjgrazRHZDJUVDJXRm00azRF?=
- =?utf-8?B?eHlOWllsQlprOStPblJkY252WHowRE1WZ1RuT3hTaG11UEtDaWM4TVEweGpn?=
- =?utf-8?B?ZDFhYW1Oa0VOR3V4ZENqZ0FnblVHOG1uKzNyRUwxNU1IMjdpU21mRGVqeFRI?=
- =?utf-8?B?S2paRDE4OU8wTjc2MHRRVzB0NjFqc1l1clZJSDdWZmRxVStLTXZaSHBPb1dp?=
- =?utf-8?B?WTI0RHlGVXhBa1NSMllIT2NNRTdwM1dJTEFuM2YrRmRHUDFoK3BKRVoreEJE?=
- =?utf-8?B?dEZoeWJrUjN6UFZuSThnRnJrc0VjREpYZHZVTm1sTnFSTjdGandWOWwyWllR?=
- =?utf-8?B?TDlybTFvKzFaeUZTa3VjL3FuL1krM215b3piZXh0RlcxR0pkSHh4YWs5dTJC?=
- =?utf-8?B?NE12UkhBaEh2a2dSQkNrbXV2enJSWE9JQjdGSk5MVXBqU3doTWJIeVJjRDda?=
- =?utf-8?B?dGlGQXhlN2dPMUx6aVU2SXZuY0FMMjYzb3NuVEtwZGxDbEowcTZqYWZOZ1ZJ?=
- =?utf-8?B?U3MrVlJyc3VvZ0JaV1djclNkQ3lmQ0ZRd0dDMVdCT3hVdE9ua3lKMXpvTndR?=
- =?utf-8?B?MVVjc3RwcnY2RnhXdzl3N2RTblJGVWlTMEUydGwxQTFhUnFPTVNyb3M1d24v?=
- =?utf-8?B?Qi95UFRTanlZVE5OU0VuY1h4Y3d6enZJTWYxaUJINWJnQmF4NjBONm1WeVBr?=
- =?utf-8?B?d3VvT1FHajBYenh4d2FuZ2JnOERFcEFBcFBpeFFIY2FnNVVlc0dpSisySDNW?=
- =?utf-8?B?Z0FYWmt5YnNpdXlmNG1DdEtndXVpYkVhajI4NWJabU1veXNkNWVzMFlhVG1t?=
- =?utf-8?B?NzBnN1RFRjVVMUp2QktwRGdEcVBLOEd5WUhzYk9rWGlXaXAwYkRWNEJJTG52?=
- =?utf-8?B?NEJRaEFRVnI4Y0tkcStzM1hYM1NRandNNjcvd3VjcnRCbGxqOWJoWUh3N3Y1?=
- =?utf-8?B?Q2luMG1jKzhFSHVsdGRsejh4QzhKMWF1Q2FGQkRZcGxlR2tzYVlmTWFtVWRE?=
- =?utf-8?B?cjdhVFN0VjQxRUQvMmZQanhSejMxVWF2aU8xd3VWR3haK3V6WllQQ3F1eURC?=
- =?utf-8?B?WGIweWo5MUlWSXV1NDI5ZVJFNmlUcVdyWEJ2a0ZtbjRYcnZyVXNkd0tTcHRX?=
- =?utf-8?B?Y2QzRDFZdFdpSldoY1RoOGpkY21sa3hFbEFvQ1N4d0k1TTBNMHRhZUI0ZkFC?=
- =?utf-8?B?T0JVdkdxbG53T1NqOFdsZFNMdUR2L2QwUUF5YkpoOVU5LzlkakFDSjNBMHQy?=
- =?utf-8?B?UVk0cUVXOHB6WGN1NWN5MDk3RkJjSWFyMWdlTFdOQ3BVRVB6VFRicko0bFM1?=
- =?utf-8?B?NEpGaTc1ZzJLZ2VoTExtSzd2SGlUazBaaUpjME43RmhCSnV0YldmbVpwYUdr?=
- =?utf-8?B?Zk1RTWtZdWFxWUIzZU8vZTd6c1poZUliL3FLOUVWcUJkOG5xaDJ6TkwwWFkr?=
- =?utf-8?Q?M1H3LBuEXqssBKnIk0Kg+v/xfZ8keRIy?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dkFLbHlkUEt0b0lLMC92bDc1YU0zby8yMmwzQ3hmbEZ5bU51Rk1tem9BZHRk?=
- =?utf-8?B?cEFTZ05iZkl4NlBjeGxiZ1hyWVVuU1pyMTBVMnFqRllSblQ1RHV1OGlCdmVk?=
- =?utf-8?B?QmhCUkZCczVDSEc0S0FTUERtNVA4Mmk0TnBuOWFqYVZRWng1VHlaQlpTMSsx?=
- =?utf-8?B?Rkl2dWorZzRScTFYelR1cEtZanYyV2pBNENaL1JBRzVJdTlZMldhVUNmWHBE?=
- =?utf-8?B?aktWZ0pRVkE2Y3FvRWtweHoyOTFpM0FUc2hRTjQwSDg1R0J1bmRpTTRVRmg2?=
- =?utf-8?B?WUNZYlFUSmlzM01PMGZkRXZpZEhqZTlsbXIxeFFEWUJZYlRrMncwNE84dnVV?=
- =?utf-8?B?SnhldXJBSEFDQ1VySW9kK244WkVhaEJKMndYd0FyRDkvTXBEb05rcHlJc2pt?=
- =?utf-8?B?VWlmUUQ4UXR3ZExacEVrUFZjK3Rrckp5V3FKY2F1WHgvamdwTjdaakdpTzgy?=
- =?utf-8?B?bEZ6c1c3eWpNWWhBM2V4ZmNNUHNqMFE3djFZbkdmUnl3R1gvQjVaL2x2d2Fp?=
- =?utf-8?B?UEZneVIvYS9MYlM5ZkdPVDFrTjVFVFRDbVpDRmJPZ21DcEZpM0dmVGdNTTc3?=
- =?utf-8?B?OHBPdi8vQ254czRmL0Jac055NjdGUVhLZDJRZVNpSzdFWXloU25ZUnhBQmdF?=
- =?utf-8?B?ZkR6OVZRWTlkRnpNd2xhY2hMZytSZTZaSnlMZkdwVFJqNWdFRzFlVmRqU05D?=
- =?utf-8?B?dldueEtJaktvdldZVmhMR2NuZmc2eGlSK0RMVVFoekdLM0hhY0dUbXhpNDhk?=
- =?utf-8?B?Y0xoc1d1Rm5nSzFDNlZLTlpGNitNTWVBc1BUQ2FRbm5DMEdYNitVajhLREgw?=
- =?utf-8?B?NTlyblVXL3JoQWYrV3pLeXltSTViSkNQbHg3TUVabWFlaVVSQ2IrZFRxbUVv?=
- =?utf-8?B?OVlSRHBXODBCMFcwbUZHdlRtRzROQVZtcDRBcG5FNXJ5MU5KWGV2bnhKVFVq?=
- =?utf-8?B?ZlRid01ETjlGcFlNTElMQXg0b21ZaU9EM0x6c0tRaUYvbm04azZ6bTd1WmlT?=
- =?utf-8?B?bjJBRkJXL245cTFxeDlHaGRqWGhRbmtyOXhha1pSTUUyc2RIRkVOTktNMGdv?=
- =?utf-8?B?czBzK2NQQitQZmo5aTVweE03VWJFWGNlaDJGb3pQdVFyMHk1KzBzU05DdUZE?=
- =?utf-8?B?YTFNeGxYZ0hrVThiMHI0SXlRdzRMOERtL1hvYUdEMEZRa1hNdXhqMEUzaksz?=
- =?utf-8?B?Y0FOVi9xbjB4RDFqTDZENlE4eXJIWFQ5amNXTVVJL20zNW1KRGJwaHVOTndm?=
- =?utf-8?B?TEduUXJJenAweCt1VnVpdERuTWFsS3MrRW1hYm5WZ1VHM0JCZ1dGMGQ2Uno0?=
- =?utf-8?B?UDU0ODdGMUdsMSs0Tm5aYkNtcmhJUHZjQlc2ZWhSaEtBUUNkVTk0dkJINEh1?=
- =?utf-8?B?N1MrRWhpZFZDMkZ6TGRoOHFMZGk1NE0vaDE1TW5qejcrMWxwTGJUK1pIOEhM?=
- =?utf-8?B?aVFHQjhzL0ZXaHR6a1cyZHQrVHhWZmt3R1psRGxYRVB1MmZQY3E5K1JvVkQ0?=
- =?utf-8?B?Q0xrVHRyWEQ2SjliQ3I0NVVXMCtScEVIZlhMcTYyblB2bWlMSHNKT0FZbEp1?=
- =?utf-8?B?MWZudEphVTg4Y3FXRG5uVCtFSnVabER5MWRNNmxGaUlJRkNNZ0E1VzArTk9K?=
- =?utf-8?B?czlHb2RqZ08rby9BbmpvZVczcmw3amJNTUhnZUpTWm5oVkxWeHBJaXd5Ui9Q?=
- =?utf-8?B?bjhpL01EZU1zZytnWVU0WGhsMEF1OUdYQmRJSUo0N3Q2VXhtMXJaSlB6eWhR?=
- =?utf-8?B?ZzJQaEV2SndNOWlpV3RyOURoVkswNVlYMVExZERQWW9zZysrM2VIRmlGSEpX?=
- =?utf-8?B?NjJRaWtocEdBN0hoZW1VMWh4NWhOay9rLzM4eXNtZlh3S3UxYXlnRDhMNFlB?=
- =?utf-8?B?Z1lSNUdpaE1Ta1hKNEtVc0JXRlJQdTMvaTQ1Z1ZBR0tZTEQ3bUxqUzBCdFpP?=
- =?utf-8?B?b0c5M2hheGtXSitic0RpbXhsc1k2SVpTZFhUU0JwMW9qOWt2VXVvcEZka3dE?=
- =?utf-8?B?QUx1Wk9Ea2VqbjF3QkRHUWhVZzdGNmFYazRFUDRmTDVPcVk1NGlMUVZRc3hR?=
- =?utf-8?B?V3J4OEY0WTJZTWJRUW5RZURrZjFVeXB6aUFqNVBsT29DZDFUNDdGMHdJcm5G?=
- =?utf-8?Q?MYZ/AKj7xhw1IrmpJULjQ0tmI?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b516fcea-7eca-4b5a-e31b-08dd4b7c91da
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 15:47:35.3473
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +HDbjKmvxS/wyHC7ovVr/c25t9OxdCKU1IP8ID/2IySsdPyShtKfisg3qlvz8uU1SLtYjTIHgFlmfMdkLeSA3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10846
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250212-wilc3000_bt-v1-1-9609b784874e@bootlin.com>
+References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
+In-Reply-To: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
+To: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
+ Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Kalle Valo <kvalo@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Marek Vasut <marex@denx.de>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggedvkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjedtjeetgeduueefffevueeuheffudffleehhffgjeefkeeguefhvdejvdekjeeknecuffhomhgrihhnpeguvghvihgtvghtrhgvvgdrohhrghenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplgduledvrdduieekrddurdduleejngdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdegpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggvvhhit
+ ggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehluhhiiidruggvnhhtiiesghhmrghilhdrtghomh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_074746_558964_13D489B4 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20250212_074751_319408_59A1E6C0 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,78 +90,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 11:48:43AM +0800, Shengjiu Wang wrote:
-> On Tue, Feb 11, 2025 at 11:34 PM Frank Li <Frank.li@nxp.com> wrote:
-> >
-> > On Tue, Feb 11, 2025 at 11:57:37AM +0800, Shengjiu Wang wrote:
-> > > With the DPCM case, the backend only support capture or
-> > > playback, then the linked frontend can only support
-> > > capture or playback, but frontend can't automatically
-> > > enable only capture or playback, it needs the input
-> > > from dt-binding.
-> >
-> > wrap at 75 chars
->
-> On my side, there are in 75 chars...
->
-> >
-> > >
-> > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > > ---
-> > >  sound/soc/fsl/imx-card.c | 5 +++++
-> > >  1 file changed, 5 insertions(+)
-> > >
-> > > diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-> > > index ac043ad367ac..905294682996 100644
-> > > --- a/sound/soc/fsl/imx-card.c
-> > > +++ b/sound/soc/fsl/imx-card.c
-> > > @@ -518,6 +518,7 @@ static int imx_card_parse_of(struct imx_card_data *data)
-> > >       struct snd_soc_dai_link *link;
-> > >       struct dai_link_data *link_data;
-> > >       struct of_phandle_args args;
-> > > +     bool playback_only, capture_only;
-> > >       int ret, num_links;
-> > >       u32 asrc_fmt = 0;
-> > >       u32 width;
-> > > @@ -679,6 +680,10 @@ static int imx_card_parse_of(struct imx_card_data *data)
-> > >                       link->ops = &imx_aif_ops;
-> > >               }
-> > >
-> > > +             graph_util_parse_link_direction(np, &playback_only, &capture_only);
-> > > +             link->playback_only = playback_only;
-> > > +             link->capture_only = capture_only;
-> > > +
-> >
-> > if only use once, needn't local variable.
-> >
-> > graph_util_parse_link_direction(np, &link->playback_only, &link->capture_only)
->
-> sound/soc/fsl/imx-card.c:683:53: error: cannot take address of
-> bit-field ‘playback_only’
->   683 |                 graph_util_parse_link_direction(np,
-> &link->playback_only, &link->capture_only);
->       |                                                     ^
-> sound/soc/fsl/imx-card.c:683:75: error: cannot take address of
-> bit-field ‘capture_only’
->   683 |                 graph_util_parse_link_direction(np,
-> &link->playback_only, &link->capture_only);
->
-> There are errors with it.
+WILC3000 is a combo chip providing 802.11b/g/n and Bluetooth 5. The wlan
+part is exposed either through SDIO or SPI interface, and the bluetooth
+part is exposed through uart. The notable peculiarity of this chip is
+that the bluetooth part is not fully autonomous: its firmware is not
+loaded through UART interface but through SDIO/SPI interface, so the
+bluetooth description needs a reference to the wlan part to get access
+to the corresponding bus.
 
-Okay, it should be fine.
+Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+---
+ .../net/bluetooth/microchip,wilc3000-bt.yaml       | 41 ++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-Frank
+diff --git a/Documentation/devicetree/bindings/net/bluetooth/microchip,wilc3000-bt.yaml b/Documentation/devicetree/bindings/net/bluetooth/microchip,wilc3000-bt.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..2a83ca3ad90b26fd619b574bc343bee9654a1e43
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/bluetooth/microchip,wilc3000-bt.yaml
+@@ -0,0 +1,41 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/bluetooth/microchip,wilc3000-bt.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Microchip Bluetooth chips
++
++description:
++  This binding describes UART-attached Microchip bluetooth chips. These
++  chips are dual-radio chips supporting WiFi and Bluetooth. The bluetooth
++  side works with standard HCI commands over 4-wires UART (with flow
++  control)
++
++maintainers:
++  - Alexis Lothoré <alexis.lothore@bootlin.com>
++
++properties:
++  compatible:
++    enum:
++      - microchip,wilc3000-bt
++
++  wlan:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the wlan part of the combo chip
++
++required:
++  - compatible
++  - wlan
++
++additionalProperties: false
++
++examples:
++  - |
++    serial {
++        bluetooth {
++            compatible = "microchip,wilc3000-bt";
++            wlan = <&wifi>;
++        };
++    };
 
->
-> best regards
-> Shengjiu Wang
-> >
-> > Frank
-> >
-> > >               /* Get dai fmt */
-> > >               ret = simple_util_parse_daifmt(dev, np, codec,
-> > >                                              NULL, &link->dai_fmt);
-> > > --
-> > > 2.34.1
-> > >
+-- 
+2.48.0
+
 
