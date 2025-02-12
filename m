@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24815C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8696CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TsyxvtfY98LMTH3N5krVDx/Om+FlySC2UfEwG6WNk24=; b=jQjgfx7z03WgQtFEjj3OM5Q/ZA
-	Jve1JnrAFvXQYmYMM81Uj4lyuohp+NtkR4h/wGfA64aIuqZWUXPoaZrQI+1jAVFPe5uLiT2ZaiVXr
-	rFpUrUN4QMEVtmtMRFVBo2nPuXC5wfEym2f5vVFjsp9WQA/8RrEBJL+ScjKCkBy4bCpZ1E9sWiCIz
-	EVZ9D9TDLTlmzMvyWv9mfBRY/j5YYrotDea9WVg6LMECdQfnuF14cViP/UVCxXlQvyq5F7hLxs38y
-	TneXD0QodketcoovxeqOoopJOdTUHopTFITc/Ygg515ZQ0DySooc82jk0ho1q8ei6T7uK40lqddhc
-	kq3qAz6A==;
+	bh=k0u7MCkVugkCYytrZIZnLSDOJ7P6+i9SZvRkCovv5zU=; b=HazQjHLauPJ5rfN86/g4R7MTQR
+	EGXsGbtG76WmHDmkKqucrYX7ypHA3aepkeXKcgmyhOtweOauWejnn+GhHLNapmYKA5t1SkoH+fzc0
+	fKAph5IC+9DVH8zAks2+3MniVW08eDwavrqsCOJA8I5j4YEj6FU/GB6ZEq4mwZyHBQEATV38HoTBg
+	y01I0T0KUxM0uyST0hyvRzS1mh932rqEOTGFS+0776xf6tVG3GDSEuvBK/a88IibWCRdFD2/qPfXf
+	Xsz3W18/eMb1Q2+etfThZ7sK3eO1qG1KdkeTOgP5dVXiOiHTFR6/zV2e5mMA2WsTA/LTaScJdVZ2+
+	Zc610asg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiC4A-00000007NrF-05Sv;
-	Wed, 12 Feb 2025 12:42:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiC2j-00000007Nbn-0JEH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 12:40:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC907113E;
-	Wed, 12 Feb 2025 04:40:59 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D74B3F58B;
-	Wed, 12 Feb 2025 04:40:36 -0800 (PST)
-Date: Wed, 12 Feb 2025 12:40:33 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: BUG: debug_exception_enter() disables preemption and may call
- sleeping functions on aarch64 with RT
-Message-ID: <Z6yWwRcPvVGk2EyC@J2N7QTR9R3>
-References: <Z6YW_Kx4S2tmj2BP@uudg.org>
- <Z6n16cK85JMyowDq@J2N7QTR9R3>
- <Z6tf8iDhNriSGjeC@uudg.org>
- <Z6vs3IWxUxhIDBBO@uudg.org>
+	id 1tiC7r-00000007OWo-2cgL;
+	Wed, 12 Feb 2025 12:45:59 +0000
+Received: from sender4-op-o14.zoho.com ([136.143.188.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiC6Q-00000007OD3-3hpU;
+	Wed, 12 Feb 2025 12:44:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1739364264; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mhTek3LMOXWwE7inMGdFBQrsJZznqdEbQDauKdZXlGwi+Z9MfxqqTNkuHAcqwwYCDxnV0OG+NVNWOmAJNe3ZTxx0FgUVdwAggVNMkDGmmTrTWv61fR9qzmbcuE2iSJ8837Uhmy+oBFxF/9JpQCQJlTsODE+Z0ubmulW2P0qxMBM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1739364264; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=k0u7MCkVugkCYytrZIZnLSDOJ7P6+i9SZvRkCovv5zU=; 
+	b=ACA9jmkQalqYV3VPWJ07o8K0WZJpck8qONiPpOHlxLC9EQdGe+FwSaDn2g/7DmX9GLqCRFfkwlY6G2tUU/LycXHcUbjNxmisOKulgmG8/LCIKmcatAYvnyDlxhekL5/iyMarYWHVfjWSo455Zdb11lq6+qqBN1a/wHX0Y9wHDd4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739364263;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=k0u7MCkVugkCYytrZIZnLSDOJ7P6+i9SZvRkCovv5zU=;
+	b=KFDIojn1akvvSLIMtBtS1j/gY6cML0WKSgoRHfeomaqwixBDGRWuFchtvI/GL5aB
+	KFl2p63f+Y8wIG9/MErZmEYc1IbDoGL1bs/sXhr9Rx2Vb6+10JW4a3dM6uSV5ry2Nij
+	jOnTZh89SkxlPkYr/fKxBSsT1UfvNsyfdB4psLKo=
+Received: by mx.zohomail.com with SMTPS id 1739364260281358.8015360119805;
+	Wed, 12 Feb 2025 04:44:20 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: srinivas.kandagatla@linaro.org, linux-rockchip@lists.infradead.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, detlev.casanova@collabora.com,
+ sebastian.reichel@collabora.com, Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH RESEND v2 0/6] RK3576 OTP support
+Date: Wed, 12 Feb 2025 13:44:15 +0100
+Message-ID: <5943191.DvuYhMxLoT@workhorse>
+In-Reply-To: <20250210224510.1194963-1-heiko@sntech.de>
+References: <20250210224510.1194963-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6vs3IWxUxhIDBBO@uudg.org>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_044041_196741_05B8EA1F 
-X-CRM114-Status: GOOD (  32.83  )
+X-CRM114-CacheID: sfid-20250212_044430_998654_EDD003A4 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,151 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 09:35:40PM -0300, Luis Claudio R. Goncalves wrote:
-> On Tue, Feb 11, 2025 at 11:34:26AM -0300, Luis Claudio R. Goncalves wrote:
-> > On Mon, Feb 10, 2025 at 12:49:45PM +0000, Mark Rutland wrote:
-> > > On Fri, Feb 07, 2025 at 11:22:57AM -0300, Luis Claudio R. Goncalves wrote:
-> ...
-> > > I don't have an immediate suggestion; I'll need to go think about this
-> > > for a bit. Unfortunatealy, there are several nested cans of worms here.
-> > > :/
-> > > 
-> > > In theory, we can go split out the EL0 "debug exceptions" into separate
-> > > handlers, and wouldn't generally need to disable preemption for things
-> > > like BRK or single-step.
-> > 
-> > If this is an acceptable workaround, until we have the real solution,
-> > I can work on that :)
-> > 
-> > Luis
+On Monday, 10 February 2025 23:45:04 Central European Standard Time Heiko 
+Stuebner wrote:
+> This enables OTP support in the nvmem driver for rk3576.
 > 
-> I tested the prototype below and it survived 6h of ssdd and the ptrace LTP
-> tests running simultaneously, in a tight loop. Would something along these
-> lines be an acceptable workaround?
-
-Sorry, no. This makes the code even more convoluted and less
-maintainable.
-
-If you want to fix single step specifically without bothering with the
-rest of the rework I mentioned, the right fix is to split that out from
-the other "debug exceptions", and handle that with the usual structure
-we have for other synchronous exceptions like FPAC/BTI/etc:
-
-* In arch/arm64/kernel/debug-monitors.c, add new do_el{1,0}_step()
-  functions which handle their corresponding stepping logic. These
-  should have the same rough shape as do_el{1,0}_fpac(), and should
-  handle all the default signalling logic that would otherwise be
-  handled by do_debug_exception().
-
-  The existing single_step_handler() should be removed, or at minimum
-  refactored and only called by those new do_el{1,0}_step() functions.
-
-  The existing hook_debug_fault_code() registration of
-  single_step_handler() should be removed.
-
-  I'm not sure whether do_el0_step() needs the
-  arm64_apply_bp_hardening() logic, but do_el1_step() does not.
-
-* In entry-common.c, add new el{1,0}_step() functions. Each of
-  el1h_64_sync_handler(), el0t_64_sync_handler(), and
-  el0t_32_sync_handler() should be updated to call those rather than
-  el{1,0}_dbg() for the corresponding EC values.
-
-  In el0_step() it shouldn't be necessary to disable preemption, and
-  that should be able to be:
-
-  | static void noinstr el0_step(struct pt_regs *regs, unsigned long esr)
-  | {
-  |         enter_from_user_mode(regs);
-  |         local_daif_restore(DAIF_PROCCTX);
-  |         do_el0_step(regs, esr);
-  |         exit_to_user_mode(regs);
-  | }
-
-  In el1_step(), I'm not *immediately sure* whether it's necessary to
-  disable preemption, nor whether we need to treat this and use
-  arm64_enter_el1_dbg() and arm64_exit_el1_dbg() rather than
-  entry_from_kenrel_mode() and exit_to_kernel_mode().
-
-  So we either need:
-
-  | static void noinstr el1_step(struct pt_regs *regs, unsigned long esr)
-  | {
-  |         arm64_enter_el1_dbg(regs);
-  |         do_el1_step(regs, esr);
-  |         arm64_exit_el1_dbg(regs);
-  | }
-
-  ... or:
-
-  | static void noinstr el1_step(struct pt_regs *regs, unsigned long esr)
-  | {
-  |         enter_from_kernel_mode(regs);
-  |         local_daif_inherit(regs);
-  |         do_el1_step(regs, esr);
-  |         local_daif_mask(regs);
-  |         exit_to_kernel_mode(regs);
-  | }
-
-With that, we're a step forward in the right direction.
-
-Mark.
-
+> I expect to pick the clock patch (patch1) and the arm64-dts patch (patch6)
+> myself, after the nvmem-driver and -binding patches have been applied
+> (patches 2-5).
+> 
+> But kept them together for people wanting to try this series.
+> 
+> changes in v2:
+> - fix register constant in clock definition (Diederik)
+> - add patch to set limits on variant-specific clock-names
+> - use correct limits for clocks + resets on rk3576 binding
 > 
 > 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 8b281cf308b30..eb3b54710024f 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -933,18 +933,20 @@ void __init hook_debug_fault_code(int nr,
->   * accidentally schedule in exception context and it will force a warning
->   * if we somehow manage to schedule by accident.
->   */
-> -static void debug_exception_enter(struct pt_regs *regs)
-> +static void debug_exception_enter(struct pt_regs *regs, int touch_preemption)
->  {
-> -	preempt_disable();
-> +	if (touch_preemption)
-> +		preempt_disable();
->  
->  	/* This code is a bit fragile.  Test it. */
->  	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
->  }
->  NOKPROBE_SYMBOL(debug_exception_enter);
->  
-> -static void debug_exception_exit(struct pt_regs *regs)
-> +static void debug_exception_exit(struct pt_regs *regs, int touch_preemption)
->  {
-> -	preempt_enable_no_resched();
-> +	if (touch_preemption)
-> +		preempt_enable_no_resched();
->  }
->  NOKPROBE_SYMBOL(debug_exception_exit);
->  
-> @@ -953,8 +955,14 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
->  {
->  	const struct fault_info *inf = esr_to_debug_fault_info(esr);
->  	unsigned long pc = instruction_pointer(regs);
-> +	unsigned long req = ESR_ELx_EC(esr);
-> +	int touch_preemption;
->  
-> -	debug_exception_enter(regs);
-> +	touch_preemption = !(IS_ENABLED(CONFIG_PREEMPT_RT) &&
-> +		(req == ESR_ELx_EC_SOFTSTP_LOW || req == ESR_ELx_EC_BRK64
-> +		 || req == ESR_ELx_EC_BKPT32 || req == ESR_ELx_EC_SOFTSTP_CUR));
-> +
-> +	debug_exception_enter(regs, touch_preemption);
->  
->  	if (user_mode(regs) && !is_ttbr0_addr(pc))
->  		arm64_apply_bp_hardening();
-> @@ -963,7 +971,7 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
->  		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
->  	}
->  
-> -	debug_exception_exit(regs);
-> +	debug_exception_exit(regs, touch_preemption);
->  }
->  NOKPROBE_SYMBOL(do_debug_exception);
->  
+> RESEND, because I messed up my git-send-email which caused it to include
+> the list of patches 2 times, duplicating everything :-( .
 > 
+> Heiko Stuebner (6):
+>   clk: rockchip: rk3576: define clk_otp_phy_g
+>   nvmem: rockchip-otp: Move read-offset into variant-data
+>   dt-bindings: nvmem: rockchip,otp: add missing limits for clock-names
+>   dt-bindings: nvmem: rockchip,otp: Add compatible for RK3576
+>   nvmem: rockchip-otp: add rk3576 variant data
+>   arm64: dts: rockchip: add rk3576 otp node
+> 
+>  .../bindings/nvmem/rockchip,otp.yaml          | 25 ++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 39 +++++++++++++++++++
+>  drivers/clk/rockchip/clk-rk3576.c             |  2 +
+>  drivers/nvmem/rockchip-otp.c                  | 17 +++++++-
+>  4 files changed, 81 insertions(+), 2 deletions(-)
+
+Hi Heiko,
+
+for the entire series:
+
+Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+OTPs show up on my Sige5 RK3576 board and read fine. Also compared the OTP 
+nodes to downstream and the values look consistent with that. The OTPs aren't 
+documented in the TRM I have, so unfortunately I can't cross-reference that.
+
+NB: patchwork's "Series" download for this series somehow lacks patch 2/6, 
+which tripped me up at first. Not sure if that's a problem with patchwork or 
+with how you sent the series out, but I thought I'd let others know who run 
+into this.
+
+Regards,
+Nicolas Frattaroli
+
+
+
 
