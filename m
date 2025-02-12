@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93CAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 16:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707C6C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 16:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wwnDpSs6k4nd6H907qUqxRrSXuSL7kW89rp9oZHglM=; b=3yisIB1otdMFNPFM7bP3NQOJ6X
-	PDAC0EDBdpUny0FaWp/YedtWqMGySeE8O3U3b1uiluh8Z5oJ5hPnWf/N8ld1U8m73b4WHSIgLkdby
-	+pPfUfBk3YmM8bCY+wKkxjUR1SaxAjp4blYe6X7XyBjdmlx8e0edkDGGlXZaD3k/c186nt8IzVEI1
-	XfYij6nu+jHhlP8Mi+dR6f8tYzrm3KtR8OoVExOS4+C1rXnefKgJHUaTWwZV8QFw2Ifuwl7ouiPdP
-	V4O8gUdNiduEZBTp8ctMJ5D1vmuSJtPG+IhdO91zQnkZxwSGYZ80Y1+vOQInajOGmitiz1Byb13m6
-	GgLLwRAg==;
+	bh=vUTQ/y+vc12sFk3R0yRBFfSrcmurNaqNh41K8Y1JKsk=; b=umHqBFXG56KbiK2b1OpAQh+4Jk
+	DMWbDErae+Fm0+ewNDvN3fA1n4iG+auYZ1T7FC8MTPuVfOBeyIafgJkxPLo6orMfwNMkjHUX1d2/5
+	9UqHRh6LYCFc+cSqjL7q/Ojz99sAJG2TBQTdcYJl9GtFqu3HYD/G+6Nlt1N23DK1ZbHAnchiEAt9/
+	v0UwOBnoDk3g3xQfyB3m51sb+evd0PPJvJdmjaR+xMKU7xk+qc6q0pl8iENQbmQqb9TfwFGnPX1L/
+	UZDrXSyN+aE7P9GkgZqYMuhkhnecCJREZ3RGh77OoeqzWH5jmOvS9S4S6CGjmIhfHFhdn7LV8yHIF
+	vNcrMfHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFeP-000000085hj-0ZhS;
-	Wed, 12 Feb 2025 16:31:49 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1tiFfn-0000000863x-1gDv;
+	Wed, 12 Feb 2025 16:33:15 +0000
+Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFO9-000000081ow-1KQG
+	id 1tiF9h-00000007yQe-3tm8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 16:15:02 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3d146357fb2so167365ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 08:15:00 -0800 (PST)
+	Wed, 12 Feb 2025 16:00:07 +0000
+Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-520525dcd8fso876559e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 08:00:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739376900; x=1739981700; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1739376005; x=1739980805; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/wwnDpSs6k4nd6H907qUqxRrSXuSL7kW89rp9oZHglM=;
-        b=oDRxdfvgsXI8sBA3/C+woJZxn2/4RXGg/eueZlyMzNIZQsgjNdHLaiT7Bgy5DzroBF
-         nE7aYWOn5aue3fpnNtJG5dpte6d7pEROwVEThrtRjRErq1WHdH5KEyvLALy3/R7tLyIm
-         mqxHs5ZViZf+WgNuAZ7qBYPH1qgCh0531WGw2C3wTFiJPEXvINDxk8cIOUMiAfao8jGH
-         C/B7CtBahwBNx0vDaT3+mSCRsJqEZ9/QM/J97sMcPoPnoa2ValUp9PQNGrRjWtKou03t
-         /kRV1Idd/L0G59++yslB99TLV7lULGLia6ST0Jv6amZO3KsofD3y+M9gcQqrrO2nK9jr
-         ogKQ==
+        bh=vUTQ/y+vc12sFk3R0yRBFfSrcmurNaqNh41K8Y1JKsk=;
+        b=NqkEstpS6TrxaMjl72C5pxufadv4FJ7ULMUhf/1Av3bb6P7u/s9L5cEYewGEnxf3sg
+         RD2qN2EfsimuPGXDP2ErYonwZ7SZTSMBKVGEDS8JfMIDYsur9iibxcw/pK5lka8bsw5E
+         1RB23NPxaByRpMOFQFBOXQs38F8/XTxNxBAf9pvlOvnQlXFm1xSCQgGMZMkhtTdNXJHl
+         x7semQf1t7mUh7+IW9QiUY5RytKEOkuR4jw0oXtsF+jzvHqUpazQd7O47Xv06i+0gdj2
+         sX/TYPbekY/9NXFTEjSDMCTgXt6D9CV06pXILV+zwnFZJz8b3U+UHkmcKk4zsuVqKsNX
+         jPCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739376900; x=1739981700;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1739376005; x=1739980805;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/wwnDpSs6k4nd6H907qUqxRrSXuSL7kW89rp9oZHglM=;
-        b=ZdBMcq485pzw9WgXzbd3Ih6fGim8GfrJCetuBTv7UgywGKRJMhrO/TR+PSD1IZo7x4
-         VswfqR92qD/QnEhbq3xhPiwGX3lBLJT54PWMMe5tUdTuO1DNgqrmBiYtcgN+UtfDkRVb
-         RGUgOC7yAKBjrXyZG+jc0n+2jDCps9Qq5Z6xBXnwlFxC0AaB77S/V70op3lTsHx1fZ7V
-         fEo6SEoJzYhc5b+PqDikjOIPnZeDdDpv5cAcQPJbrb3q+to2TaWkTzZViuhcMg3H50/M
-         TOkU8U57KCRDCiT1W1tEhfkpLOr+bqB5cTphDgMxWdZlxmL155nIShkB3eCksPnN56GW
-         HdDw==
-X-Forwarded-Encrypted: i=1; AJvYcCUuy2vhmBGeHke1e8L/ZmvPRFIm2AzyYvvd9+WIEhS6NttsdJFsUFI3O2kqh70mGSThZWvzwGrqce4zUM1RoGaS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSSfP9LnKbOqSpoJFH4+IcCR+01i8pe0Vn2HsdAFxQnzDkT8Gy
-	xmlQ7nVRbNxWq4llBeXAOuJH0GLGvPAvgmB6JwMF2XS9oMNjcKuVcjO0Bc6FBCcG0G/jwCqHT+A
-	l3DiXgBbYZ8KW/MmU3GL/VM86gUeIXMkoW97s
-X-Gm-Gg: ASbGncto8DROjLCi6MTDwmyR40pu/sCyX77a6sXxAmY+wpbHrjQyXanoXGiIWkBgSx9
-	HPrtRqiBJLC769OvLFT10oMbjDI+36sFyjMM1Zp/yOdF1CzSgC77Hl/lg3sSvaBRP4fZQttMeJG
-	XJQOq5Nq8LNuhompQIMc5J9H7v
-X-Google-Smtp-Source: AGHT+IFViHLwQLmi2S4fRUAHfeLMmKJzllXKVBj5UiLdy2wf7Yhu89RSuIkkeynjo+yeyKpP8rOlVPse9pvCr3q/7BU=
-X-Received: by 2002:a92:cd8c:0:b0:3d0:bd4:e46e with SMTP id
- e9e14a558f8ab-3d17cdf7875mr3578465ab.22.1739376900297; Wed, 12 Feb 2025
- 08:15:00 -0800 (PST)
+        bh=vUTQ/y+vc12sFk3R0yRBFfSrcmurNaqNh41K8Y1JKsk=;
+        b=KDfksboMST7+oSZBZiBFu2mSCJQrFcRc0Ipu8+v4xFFWNZU2iNFVg1wX582pLaBomn
+         8poLIV7EEP0euIwfVu4YuPXs4JbFpsakdEzLAllML+p+yS2UrotP7cJI8gmDjdyenvbH
+         gSfV1+u+nvGwQIrUZBnzfmRyRzasmK+DBDvYdZrZbQQ5yfFEigy+1YM5iLwqtB5jyUMz
+         fJ2RyaFP2ret4VoIH5RrYn2do74CjmPD16S/AAd6Kig60wXyb+niOSU4NXpevxZqEKbh
+         L+PtpONoFL4EeWoxwe0SgRmSxti67cdBOziFARWhuRdmRZiv+Pk4ufGQwCw5NMkvCvGc
+         9X1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUmj8PoHNVIWySyXF5NUOqIGReZrOGrLLkVG/kzRMK7jvAgl2qXIpQ8tv3C0B4tvlNhHuzFSUwB/bXA5uGMqCGT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrqJk9DKs2vRb6mJMg8r+uycysOcBst93AW8UTP1JlAWyCMda2
+	3d/BxC2wP7UBpvqga2hp9EKEjVT0aCPs9omj4HyxO9eUbX2SudP9
+X-Gm-Gg: ASbGncv1/WjUF5Zsxrj0jqKX6PQOPyqtX8ysqiUAXIaBpuyV8nvDrAlXKxa1fe8MeCX
+	2GkbAucC8duISbRLAoN0Le9Ukj1Ckfe9/mJXw54bFn+o87SyB1GAaXdtuTnarSXNphaIvp3hHm7
+	FwF95NEWp/PnDIYH0IX0yHlHUyki+ShyNHqlcd8edeF1rjH4tUwyDolyCFJTyTM3hUDU0y+FIHm
+	Vp5Zb159ZLOJDOOXlxHNcHTvU9s0kCJ11kOftX+F0byGjGGRzFRy0ILCMk+AeCa4iiRju1/YUkp
+	28Y5QEcM3JOk1NeW0OYn9w0WLYIqB0EquBF9ve4kNr9GUylD1dEteARoLbg0CIiOrs3sDKBQodQ
+	J6g==
+X-Google-Smtp-Source: AGHT+IEgr0hm73Trz7viRT6b5fEU+HyboLMwNQtkSJQWi6mRSEmY4HU10MDnQcwDYPy7Yx2+iJNaXQ==
+X-Received: by 2002:a05:6122:468c:b0:520:6773:e5bf with SMTP id 71dfb90a1353d-52067c31106mr3019717e0c.1.1739376004523;
+        Wed, 12 Feb 2025 08:00:04 -0800 (PST)
+Received: from localhost.localdomain ([38.44.237.182])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-866f9636904sm2335213241.3.2025.02.12.08.00.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 08:00:04 -0800 (PST)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	alim.akhtar@samsung.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH v1 2/2] arm64: dts: exynos990: Add the peric0/1 sysreg node
+Date: Wed, 12 Feb 2025 15:59:43 +0000
+Message-Id: <20250212155943.269-2-wachiturroxd150@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250212155943.269-1-wachiturroxd150@gmail.com>
+References: <20250212155943.269-1-wachiturroxd150@gmail.com>
 MIME-Version: 1.0
-References: <20250205121555.180606-1-leo.yan@arm.com> <CAP-5=fUH6X2F5S5eH+iU+-hT0vNvMKPTqbGt=E9W06sG=MzxEg@mail.gmail.com>
- <20250212085439.GA235556@e132581.arm.com>
-In-Reply-To: <20250212085439.GA235556@e132581.arm.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 12 Feb 2025 08:14:48 -0800
-X-Gm-Features: AWEUYZmSFu5F2ImV4w6AzGF-ggSlE124u-8a9PvKBUylFvr5MdJbF2XYRhCN5Y4
-Message-ID: <CAP-5=fX6veqJYbTRfOiOqtpg8Dq+m3nZJRd4zEBCZeNiwB5Xpw@mail.gmail.com>
-Subject: Re: [PATCH v1 00/11] perf script: Refactor branch flags for Arm SPE
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Graham Woodward <graham.woodward@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_081501_356380_13ACDBB2 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20250212_080005_976203_40A243D4 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,68 +104,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 12:54=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> Hi Ian,
->
-> On Tue, Feb 11, 2025 at 02:34:46PM -0800, Ian Rogers wrote:
-> > On Wed, Feb 5, 2025 at 4:16=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
-> > >
-> > > This patch series refactors branch flags for support Arm SPE.  The pa=
-tch
-> > > set is divided into two parts, the first part is for refactoring comm=
-on
-> > > code and the second part is for enabling Arm SPE.
->
-> [...]
-> >
-> > Reviewed-by: Ian Rogers <irogers@google.com>
-> >
-> > Built and tested (on x86). A little strange patch 5 adds a new bit not
-> > at the end, but "Sample parsing" test wasn't broken so looks like it
-> > is good. I was surprised the use of value in the union:
-> > ```
-> > struct branch_flags {
-> > union {
-> > u64 value;
-> > struct {
-> > u64 mispred:1;
-> > u64 predicted:1;
-> > ...
-> > ```
-> > didn't get broken. Perhaps there's an opportunity for additional tests.
->
-> If the branch stack's flag sticks to a hardware format, then the patch 5
-> is concerned.  My understanding is the branch flag is a synthesized
-> value (see intel_pt_lbr_flags() for x86).  So it is fine for rearrange
-> the bit layout.
->
-> The "Sample parsing" test is for big/little endian test, it does not
-> test for specific bit ordering, this is why the test passes.
->
-> If you think it is safer to move the new added bit at the tail of the
-> bit definitions (just before the 'reserved' field), I can send a new
-> version for this.  Please let me know your preference.
+Add sysreg nodes for the PERIC0 and PERIC1 domains.
+These system registers are used for peripheral configuration
+and control in Exynos990.
 
-I think it is fine as is. I was worried that because the bit fields
-are checked here:
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
-ee/tools/perf/tests/sample-parsing.c?h=3Dperf-tools-next#n35
-```
-/*
- * Hardcode the expected values for branch_entry flags.
- * These are based on the input value (213) specified
- * in branch_stack variable.
- */
-#define BS_EXPECTED_BE 0xa000d00000000000
-#define BS_EXPECTED_LE 0x1aa00000000
-```
-that the adjustment would break it. But I ran the test and it passed :-)
+Each sysreg node includes its base address, register size, and clock
+dependencies.
 
-Thanks,
-Ian
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+---
+ arch/arm64/boot/dts/exynos/exynos990.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-> Thanks for review and test!
->
-> Leo
+diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+index 843587b17..aa056fdae 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+@@ -242,6 +242,12 @@ cmu_peric0: clock-controller@10400000 {
+ 			clock-names = "oscclk", "bus", "ip";
+ 		};
+ 
++		sysreg_peric0: syscon@10420000 {
++			compatible = "samsung,exynos990-peric0-sysreg", "syscon";
++			reg = <0x10420000 0x10000>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_SYSREG_PCLK>;
++		};
++
+ 		pinctrl_peric1: pinctrl@10730000 {
+ 			compatible = "samsung,exynos990-pinctrl";
+ 			reg = <0x10730000 0x1000>;
+@@ -259,6 +265,12 @@ cmu_peric1: clock-controller@10700000 {
+ 			clock-names = "oscclk", "bus", "ip";
+ 		};
+ 
++		sysreg_peric1: syscon@10720000 {
++			compatible = "samsung,exynos990-peric1-sysreg", "syscon";
++			reg = <0x10720000 0x10000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_SYSREG_PCLK>;
++		};
++
+ 		cmu_hsi0: clock-controller@10a00000 {
+ 			compatible = "samsung,exynos990-cmu-hsi0";
+ 			reg = <0x10a00000 0x8000>;
+-- 
+2.48.1
+
 
