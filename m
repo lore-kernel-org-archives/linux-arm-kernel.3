@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBECC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE6BC0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 05:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C6wr1dBYEpzuUzUG0xAEsHvQBFVDEd1dJK84QEqoX9M=; b=pXEjx6Q+hya4qw5gk/J0crxYNh
-	qwLagNP/PY7dxhPryNpOP5JbQSWNWinIdzbooLES/h4pOjoCGijuQfTUrr8OqGdZLUmZrukzL4E8y
-	obRSCMQj7zOO0T+tMQ0QVkZuUlvkvaqShktjZX8tmSkCD+JNyBUQap/9u02mMlMRzHnggppHHmVl+
-	6t8JxImYRv/Td3MxqM1Db+HKa+CtvsvKII5WmmgBh01MGelMn7HKmNEUKkR3Dh64Jtq3ZHV2VAQ5c
-	RC/0tjKoam5gK0AsPxnq8h1pEJ877dDmf+yEjheK9VrDBWezkkGk9LIdJ8fYncGJMnUO/rDevNki9
-	/mgNnqug==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k52dRcaCjRhNhnX63iiiLgWgpyP/YS0fleMsw6g1O1Y=; b=lbFTSV+GbycVZa6U2zgwRDyRHZ
+	y6C+NHorJoflfLwyZWGm0CHVzj2Bj9WfCeBQmHM3ablt/kVNJqrrSzuEvnslj47jnQCWjweKk3PBn
+	9FS9ZTXguijipIEm4cz3Ng3ZXyZYSdzW9ndTR9pLE0dI8m7l9P21MwO/wxiY4Y8vg0e4ni58A/aH3
+	EIGAZEsc7aocAVLp1nRkK0cNWdkq4JoF+BSSeKrPw/taFOtFkbVm4NtYZwxtn0q3UUQLMy7Pjl2in
+	7+VhGqGAwmtucMOeNZY2n22p9ZkHcDO6N3C4iW734XMPRFcuJIS281GY7hJf7BtrPX3Zb1JtApo1W
+	N+lVILOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5H3-00000006EsU-1vUA;
-	Wed, 12 Feb 2025 05:27:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ti5IQ-00000006F1Q-20dq;
+	Wed, 12 Feb 2025 05:28:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti5EF-00000006EK3-2lC4;
+	id 1ti5EF-00000006EK5-3AR6;
 	Wed, 12 Feb 2025 05:24:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 11A745C5864;
+	by dfw.source.kernel.org (Postfix) with ESMTP id AE5895C5B4F;
 	Wed, 12 Feb 2025 05:23:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4B44DC4CEDF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id ED1F2C4CEE5;
 	Wed, 12 Feb 2025 05:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739337845;
-	bh=dHrGo3MQlhcb+bCCsVoydXD2nFxFqQhq9MWMEMJtsf0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=uAo1JDSajDjOdGtARdCHKbr06rWf+WGgb//DbXcB3s1LusNEcxyg7K5TOlAB1uw/d
-	 6lGxLv7QB13j5Js/2Qn0rwlh9/62E7ARrV6rn3JRi3CaJcAI0/489PHF4sVA19fHGR
-	 ebfG4jEsngo2fsAcXIBjbl/YKfsOKJyZZU1i1L+f4jerFjKmnZ+IDe2E4iKibBNkCb
-	 ITrSNVgsOR2jcMIz6swONZ1cA3xrLHjOWaVKezIS1YN3nM1qibwpjTPtmqq1Q7l+8b
-	 pBTYUADUmrKyV15b0lwJNckaBWT4cYp1kROTvt3LCLw8zOSb2RyqTaZvkem/d+dlvg
-	 xfeGI57C8wRGQ==
+	s=k20201202; t=1739337846;
+	bh=XL7xgtK2u7YldrOEUnHxMb1LEyE3M52/Fl9sJ94c2pc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=AlkIy5Wh3hy1wFvrx5g4FPZcN8ZlM0Vrf0lltQapSYpUVJ2dHz8ZvgtKyE/ZKYrgQ
+	 1giwxMMF+SsHIHAus3ziDmM4ZDLXdk5+XcG3vwEyp5qgyZoShFaY0sFCNPD0hxxpcp
+	 +fKh17UpwN3kaRChv4OzPHe4v2/EOaaNWvphuH6zuJbxApJncuJ5HKihRtlVfCoTLo
+	 4A60mPo1vhG7WshpPzjLqLS2iAWVM3gc3zDjBkHpLj3iX/rONaJajmIYqOT/C7uQTD
+	 90cQYl8OStVG8h8/9rB98puynexuXlzfIg1zzJHRq5J2bDFZYU9zzPbR/dkt/LT0eB
+	 58cbwlMEluZjw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 10FA0C02198;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8043C02198;
 	Wed, 12 Feb 2025 05:24:05 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH v5 0/5] Pinctrl: Add Amlogic pinctrl driver
-Date: Wed, 12 Feb 2025 13:20:49 +0800
-Message-Id: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+Date: Wed, 12 Feb 2025 13:20:51 +0800
+Subject: [PATCH v5 2/5] pinctrl: pinconf-generic: Add API for pinmux
+ propertity in DTS file
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALIvrGcC/3XPywrCMBAF0F8pWRvJTF7Vlf8hLtI0rQH7IC1FK
- f1306JQCS7vMPcMM5PBBe8Gcs5mEtzkB9+1MchDRuzdtLWjvoyZIEMBCEBN8+hqb2nvWzuGB0V
- 0RkGOrGQlia0+uMo/N/F6i/nuh7ELr+3ABOv0vzUBZVQA06g5lwCny2fjaLuGrNqEOwFVKmAUb
- GmcQKN0oVUq8K8gGYBMBR4FLHLJlZDaFCYVxE5ATAWxfqG0LtBBXlXwKyzL8gaOnmPOdgEAAA=
- =
+Message-Id: <20250212-amlogic-pinctrl-v5-2-282bc2516804@amlogic.com>
+References: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+In-Reply-To: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -67,19 +65,19 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739337841; l=3760;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739337841; l=5889;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=dHrGo3MQlhcb+bCCsVoydXD2nFxFqQhq9MWMEMJtsf0=;
- b=48ehFmexr5yBzIpiugk/aBUy3SDD2ySYKaPSO1jH0djIjbkaZPDx5ja95qCF5cNLzEZ/H198f
- +RjYNcMPgnMD4tKNn1OuOp6+DkWPuomKh+bYk3D6AceXOK+tVTjpcNj
+ bh=0V9oW4wj+wgR5xyuwmzT7zLRhqxwLpzfCdcpq/8d8uc=;
+ b=wPFqMPUem/VepoXSCGTT6xpb6m/4dLXsQJ2DO+WQYs+SlZgU4SjdfTx/ytVdKDVJpVJXvhY4V
+ Ku231D9iFFPCY+S5sk2vn/WzBBxjD+K/ByVGgypS2Se/HNE2pGouFOi
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
  auth_id=107
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_212407_813901_E6358BA0 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250211_212407_898798_C2969AC5 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,80 +93,206 @@ Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver support for Amloigc SoCs
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Base on the previous discussion,
-https://lore.kernel.org/r/20241113-a4_pinctrl-v6-0-35ba2401ee35@amlogic.com
-The existed meson driver failed to meet the requirement of the current dt-binding.
-So we start this new pinctrl driver to solve problem.
+When describing pin mux func through pinmux propertity,
+a standard API is added for support. The pinmux contains pin
+identification and mux values, which can include multiple
+pins. And groups configuration use other word. DTS such as:
 
-The advantage of this version: Once the source file and binding document
-are added, adding dts node will be only operation for subsequent Amlogic SoCs
-(such as A4, A5).
-
-The code in DTS file is also readable when using GPIO, as below:
-reset-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
+func-name {
+	group_alias: group-name{
+		pinmux= <pin_id << 8 | mux_value)>,
+			<pin_id << 8 | mux_value)>;
+		bias-pull-up;
+		drive-strength-microamp = <4000>;
+	};
+};
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
-Changes in v5:
-- Some little modifications were made to bindings and dts according to Rob's suggestions.
-- Move source file into driver/pinctrl/meson and fix license issue.
-- Link to v4: https://lore.kernel.org/r/20250122-amlogic-pinctrl-v4-0-4677b2e18ff1@amlogic.com
+ drivers/pinctrl/pinconf-generic.c       | 130 ++++++++++++++++++++++++++++++++
+ drivers/pinctrl/pinconf.h               |   4 +
+ include/linux/pinctrl/pinconf-generic.h |   4 +
+ 3 files changed, 138 insertions(+)
 
-Changes in v4:
-- Drop bank-number property, and get information from gpio-ranges property.
-- Keep required of pinctrol after patternProperties, and add missing "ranges" for required.
-- Add required(pinmux) of function.
-- Keep address-cells and size-cells property values, because:
-  Previously only represented a register address offset value, now directly represents a register, through 'ranges" which to represent.
-- Some little modifications were made to bindings and dts according to Krzysztof's suggestions.
-- Link to v3: https://lore.kernel.org/r/20250115-amlogic-pinctrl-v3-0-2b8536457aba@amlogic.com
+diff --git a/drivers/pinctrl/pinconf-generic.c b/drivers/pinctrl/pinconf-generic.c
+index 0b13d7f17b32..b8e5e441e67c 100644
+--- a/drivers/pinctrl/pinconf-generic.c
++++ b/drivers/pinctrl/pinconf-generic.c
+@@ -233,6 +233,67 @@ static void parse_dt_cfg(struct device_node *np,
+ 	}
+ }
+ 
++/**
++ * pinconf_generic_parse_dt_pinmux()
++ * parse the pinmux properties into generic pin mux values.
++ * @np: node containing the pinmux properties
++ * @dev: pincontrol core device
++ * @pid: array with pin identity entries
++ * @pmux: array with pin mux value entries
++ * @npins: number of pins
++ *
++ * pinmux propertity: mux value [0,7]bits and pin identity [8,31]bits.
++ */
++int pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
++				    unsigned int **pid, unsigned int **pmux,
++				    unsigned int *npins)
++{
++	unsigned int *pid_t;
++	unsigned int *pmux_t;
++	struct property *prop;
++	unsigned int npins_t, i;
++	u32 value;
++	int ret;
++
++	prop = of_find_property(np, "pinmux", NULL);
++	if (!prop) {
++		dev_info(dev, "Missing pinmux property\n");
++		return -ENOENT;
++	}
++
++	if (!pid || !pmux || !npins) {
++		dev_err(dev, "paramers error\n");
++		return -EINVAL;
++	}
++
++	npins_t = prop->length / sizeof(u32);
++	pid_t = devm_kcalloc(dev, npins_t, sizeof(*pid_t), GFP_KERNEL);
++	pmux_t = devm_kcalloc(dev, npins_t, sizeof(*pmux_t), GFP_KERNEL);
++	if (!pid_t || !pmux_t) {
++		dev_err(dev, "kalloc memory fail\n");
++		return -ENOMEM;
++	}
++	for (i = 0; i < npins_t; i++) {
++		ret = of_property_read_u32_index(np, "pinmux", i, &value);
++		if (ret) {
++			dev_err(dev, "get pinmux value fail\n");
++			goto exit;
++		}
++		pmux_t[i] = value & 0xff;
++		pid_t[i] = (value >> 8) & 0xffffff;
++	}
++	*pid = pid_t;
++	*pmux = pmux_t;
++	*npins = npins_t;
++
++	return 0;
++exit:
++	devm_kfree(dev, pid_t);
++	devm_kfree(dev, pmux_t);
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pinconf_generic_parse_dt_pinmux);
++
+ /**
+  * pinconf_generic_parse_dt_config()
+  * parse the config properties into generic pinconfig values.
+@@ -295,6 +356,75 @@ int pinconf_generic_parse_dt_config(struct device_node *np,
+ }
+ EXPORT_SYMBOL_GPL(pinconf_generic_parse_dt_config);
+ 
++int pinconf_generic_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
++					  struct device_node *np,
++					  struct pinctrl_map **map,
++					  unsigned int *num_maps)
++{
++	struct device *dev = pctldev->dev;
++	struct device_node *pnode;
++	unsigned long *configs = NULL;
++	unsigned int num_configs = 0;
++	struct property *prop;
++	unsigned int reserved_maps;
++	int reserve;
++	int ret;
++
++	prop = of_find_property(np, "pinmux", NULL);
++	if (!prop) {
++		dev_info(dev, "Missing pinmux property\n");
++		return -ENOENT;
++	}
++
++	pnode = of_get_parent(np);
++	if (!pnode) {
++		dev_info(dev, "Missing function node\n");
++		return -EINVAL;
++	}
++
++	reserved_maps = 0;
++	*map = NULL;
++	*num_maps = 0;
++
++	ret = pinconf_generic_parse_dt_config(np, pctldev, &configs,
++					      &num_configs);
++	if (ret < 0) {
++		dev_err(dev, "%pOF: could not parse node property\n", np);
++		return ret;
++	}
++
++	reserve = 1;
++	if (num_configs)
++		reserve++;
++
++	ret = pinctrl_utils_reserve_map(pctldev, map, &reserved_maps,
++					num_maps, reserve);
++	if (ret < 0)
++		goto exit;
++
++	ret = pinctrl_utils_add_map_mux(pctldev, map,
++					&reserved_maps, num_maps, np->name,
++					pnode->name);
++	if (ret < 0)
++		goto exit;
++
++	if (num_configs) {
++		ret = pinctrl_utils_add_map_configs(pctldev, map, &reserved_maps,
++						    num_maps, np->name, configs,
++						    num_configs, PIN_MAP_TYPE_CONFIGS_GROUP);
++		if (ret < 0)
++			goto exit;
++	}
++
++exit:
++	kfree(configs);
++	if (ret)
++		pinctrl_utils_free_map(pctldev, *map, *num_maps);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(pinconf_generic_dt_node_to_map_pinmux);
++
+ int pinconf_generic_dt_subnode_to_map(struct pinctrl_dev *pctldev,
+ 		struct device_node *np, struct pinctrl_map **map,
+ 		unsigned int *reserved_maps, unsigned int *num_maps,
+diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
+index a14c950bc700..a171195b3615 100644
+--- a/drivers/pinctrl/pinconf.h
++++ b/drivers/pinctrl/pinconf.h
+@@ -138,4 +138,8 @@ int pinconf_generic_parse_dt_config(struct device_node *np,
+ 				    struct pinctrl_dev *pctldev,
+ 				    unsigned long **configs,
+ 				    unsigned int *nconfigs);
++
++int pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
++				    unsigned int **pid, unsigned int **pmux,
++				    unsigned int *npins);
+ #endif
+diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinctrl/pinconf-generic.h
+index 53cfde98433d..1bcf071b860e 100644
+--- a/include/linux/pinctrl/pinconf-generic.h
++++ b/include/linux/pinctrl/pinconf-generic.h
+@@ -232,4 +232,8 @@ static inline int pinconf_generic_dt_node_to_map_all(struct pinctrl_dev *pctldev
+ 			PIN_MAP_TYPE_INVALID);
+ }
+ 
++int pinconf_generic_dt_node_to_map_pinmux(struct pinctrl_dev *pctldev,
++					  struct device_node *np,
++					  struct pinctrl_map **map,
++					  unsigned int *num_maps);
+ #endif /* __LINUX_PINCTRL_PINCONF_GENERIC_H */
 
-Changes in v3:
-- Move reg and reg-name from pin controller node into gpio-controller node and drop mask property.
-- Use gpio-range instead of ngpios property.
-- Some little modifications were made to bindings according to Rob's suggestions.
-- Fix bug reported by kernel test robot.
-- Two pin controller node compressed into one because of register address defined in gpio-controller.
-- Link to v2: https://lore.kernel.org/r/20241226-amlogic-pinctrl-v2-0-cdae42a67b76@amlogic.com
-
-Changes in v2:
-- Some modifications and optimizations were made to bindings according to Rob's suggestions.
-- Refined some details on functions node for bindings. 
-- Some source code optimizations were made according to Linus's suggestions.
-- Add stand API to generic to deal pinmux propertity.
-- Add private reg data to deal with for future SoCs.
-- Simplified some unused processing (previously used for extension).
-- Sync add to MAINTAINERS files.
-- Link to v1: https://lore.kernel.org/r/20241211-amlogic-pinctrl-v1-0-410727335119@amlogic.com
-
----
-Xianwei Zhao (5):
-      dt-bindings: pinctrl: Add support for Amlogic A4 SoC
-      pinctrl: pinconf-generic: Add API for pinmux propertity in DTS file
-      pinctrl: Add driver support for Amlogic SoCs
-      arm64: dts: amlogic: a4: add pinctrl node
-      MAINTAINERS: Add an entry for Amlogic pinctrl driver
-
- .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |  126 +++
- MAINTAINERS                                        |    8 +
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  120 +++
- drivers/pinctrl/meson/Kconfig                      |   11 +
- drivers/pinctrl/meson/Makefile                     |    1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 1053 ++++++++++++++++++++
- drivers/pinctrl/pinconf-generic.c                  |  130 +++
- drivers/pinctrl/pinconf.h                          |    4 +
- include/dt-bindings/pinctrl/amlogic,pinctrl.h      |   46 +
- include/linux/pinctrl/pinconf-generic.h            |    4 +
- 10 files changed, 1503 insertions(+)
----
-base-commit: 4de5110762b94b9978fb8182a568572fb2194f8b
-change-id: 20241211-amlogic-pinctrl-22ea61820d0d
-
-Best regards,
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
+2.37.1
 
 
 
