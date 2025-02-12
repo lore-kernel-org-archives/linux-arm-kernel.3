@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7639C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CF0C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0q5ByYJHjIS50jAqmBRdmKL6LqId5dn8H8S6Ww7BZM=; b=DtLX+d9KzftdCec6NGOzid2xDA
-	BjowaVsfxe/LrENCS01cpMouIAtGkwzJhVWfP6tRuZqCU608bOoLm+tz5+HAQtNvOC5BudSmzyZqa
-	m5xXu464ahWp+nIvzyce9AF/H5d6HfDj8E3zHU78Y0cCzkCNpUZclOVxCqpbDOQ1+pCc5SRyxSNyz
-	76tAojQuC6O8Mx9CNjOkC5ZvcW7v1JEQrIpeREPgaAU/2k9eBS62ibqt4wKrqw6bpywX9Rnb9x5Od
-	hxMhn5nQHPwZxQlDxDPa5Mw/MoBajKss6mbvaE8jKTtB6gEsumkPg7ISXnAdZm3qQYbJAd58f/SP1
-	/wpR68iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3jEbAOIXwseuskCe2/0uhyXK88iKw0GjqWtoWGzO/G0=; b=FU+ttvDUiDNtkzhIau9XZLGfFS
+	esNy0MhvP6RAK5UZuL7jqZ1IsZQfSad1LoW/jbC288bFESsuINVEXZKD3Fm9koFKy/ZA8K59SOv2G
+	/8sEUxMUnTCodW1z0SCX01Z23Knvfykr62SKd9d+EfbTYBCtrKU0oLKuVDcrmerygT/rUJ5s8jE1A
+	xU0ieZezpQFRKxaYHm2BnLXEc8F1FwSZnzD25a6GFzra2qqJ1L8/2uPWcBTLiy+a7JU9s3lxhqPXv
+	3Z9guuChf6VBLmqyHz8npi9w+ifzdqRbLwFX5a6GKvVJAljkVOAcVp8Y9uJ2BqUHuvoi0LK9ieT7F
+	dbyQH0+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8hF-00000006izo-3x73;
-	Wed, 12 Feb 2025 09:06:17 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1ti8ie-00000006jGX-2fPy;
+	Wed, 12 Feb 2025 09:07:44 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8Yn-00000006hA2-2Am4
+	id 1ti8al-00000006hR3-2nUI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 08:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739350654; x=1770886654;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vX6/CDrLsi+PiLy4kwaL8vsmQecJaGwqitg7vNz+psg=;
-  b=RiZjoGPbeHA4adRY+t71J8ZREbTeuJq+vo3OgvtiulukZkvgeiiagDmW
-   qYmgDomwWxR+A/OcDl5GixJZAVZSqpjDK5LlQf9VAsFdd0QPvb5fVm107
-   QhIT8i+zrrip41z0EBlOSQ72EoiojRAjjLVqf3x5SgmpH0G/+SnDlJj08
-   qL/tSk4Vi3Ht2Zn3NilzNuL05Z4j1dygderbwnRWKWjzcBC2Bjddnc10P
-   OsAHlbrkH6xQoWB72TIFXpR5FVUSJmX9yX/KaWQrRdYjQyad5BOY6tmq2
-   pFKo67WH4Qy0AiAwG+JgT1fEGsbA2o+Hs3eqL+v+MqNDU8vft2GFHEpoM
-   g==;
-X-CSE-ConnectionGUID: gCWUylztRwqIIrLD7ZjNHQ==
-X-CSE-MsgGUID: K0N6QPbEQgGjP+tHD2Rbog==
-X-IronPort-AV: E=McAfee;i="6700,10204,11342"; a="50630748"
-X-IronPort-AV: E=Sophos;i="6.13,279,1732608000"; 
-   d="scan'208";a="50630748"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 00:57:33 -0800
-X-CSE-ConnectionGUID: dLQFfP+/S8+lS5adRI8UFQ==
-X-CSE-MsgGUID: gpKNy4SXS6Kp2XEwreVocg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,279,1732608000"; 
-   d="scan'208";a="117778390"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 12 Feb 2025 00:57:29 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ti8Yg-0015P7-1H;
-	Wed, 12 Feb 2025 08:57:26 +0000
-Date: Wed, 12 Feb 2025 16:57:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
-	linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v8 3/3] clk: aspeed: add AST2700 clock driver
-Message-ID: <202502121624.f9xpltGE-lkp@intel.com>
-References: <20250210085004.1898895-4-ryan_chen@aspeedtech.com>
+	Wed, 12 Feb 2025 08:59:38 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51C1BbX1002423;
+	Wed, 12 Feb 2025 08:59:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2023-11-20; bh=3jEbAOIXwseuskCe2/0uhyXK88iKw
+	0GjqWtoWGzO/G0=; b=dTDteLxwcdxQRB1WSy79NwbwFn/pPTXd90xVwhkqKh1Sg
+	32wpI8qPd8061dcjfDZyVceSsdKiSEzyVm6rqyET2JwxDhy43/Dfax+MUn0SvWxl
+	FYFy02posUzAfTjpdjC6SkjLgbq8302Y5nXl0XjTdoLmxWrdS6JeD7M5b8bIdZ8L
+	pPeugtc1OAxqLCOQk6LkRHRsKptwk7J/ESpEVhSp5TX4eLKjjhozls4BkZ2fICZv
+	oiZAGFf9cM43Y3GtO35ZOCKKTZbJcmyH0VvysvQW5joYmrSgMVqeNkVwr41mkIap
+	PBuyaiesOieKaxWHSMGvsq8yMtlY2182n3viTSYdg==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44p0tn6vku-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Feb 2025 08:59:22 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51C82Lrs002313;
+	Wed, 12 Feb 2025 08:59:21 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 44nwqggfpf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Feb 2025 08:59:21 +0000
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 51C8xHoS035041;
+	Wed, 12 Feb 2025 08:59:17 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 44nwqggfc1-1;
+	Wed, 12 Feb 2025 08:59:17 +0000
+From: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+To: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+        Janne Grunau <j@jannau.net>, Asahi Lina <lina@asahilina.net>,
+        Jens Axboe <axboe@kernel.dk>, asahi@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: dan.carpenter@linaro.org, kernel-janitors@vger.kernel.org,
+        error27@gmail.com, harshit.m.mogalapalli@oracle.com
+Subject: [PATCH] soc: apple: rtkit: Fix use-after-free in apple_rtkit_crashlog_rx()
+Date: Wed, 12 Feb 2025 00:58:53 -0800
+Message-ID: <20250212085853.1357906-1-harshit.m.mogalapalli@oracle.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250210085004.1898895-4-ryan_chen@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-12_03,2025-02-11_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxlogscore=999
+ phishscore=0 malwarescore=0 mlxscore=0 spamscore=0 adultscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2501170000 definitions=main-2502120069
+X-Proofpoint-GUID: oXk8rO_FymSKpMyuwOW0i7zrRQoM96WV
+X-Proofpoint-ORIG-GUID: oXk8rO_FymSKpMyuwOW0i7zrRQoM96WV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_005733_569297_11C44217 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250212_005935_983762_8E2B3BC9 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,101 +95,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+This code calls kfree(bfr); and then passes "bfr" to rtk->ops->crashed()
+which is a use after free.  The ->crashed function pointer is implemented
+by apple_nvme_rtkit_crashed() and it doesn't use the "bfr" pointer so
+this doesn't cause a problem.  But it still looks sketchy as can be.
 
-kernel test robot noticed the following build errors:
+Fix this by moving kfree() after the last usage of bfr.
 
-[auto build test ERROR on clk/clk-next]
-[also build test ERROR on pza/reset/next linus/master v6.14-rc2]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Fixes: c559645f343a ("soc: apple: rtkit: Pass the crashlog to the crashed() callback")
+Signed-off-by: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+---
+This is based on static analysis with smatch, only compile tested.
+---
+ drivers/soc/apple/rtkit.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-binding-clock-ast2700-modify-soc0-1-clock-define/20250210-165421
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-patch link:    https://lore.kernel.org/r/20250210085004.1898895-4-ryan_chen%40aspeedtech.com
-patch subject: [PATCH v8 3/3] clk: aspeed: add AST2700 clock driver
-config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20250212/202502121624.f9xpltGE-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250212/202502121624.f9xpltGE-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502121624.f9xpltGE-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/swab.h:5,
-                    from include/uapi/linux/byteorder/big_endian.h:14,
-                    from include/linux/byteorder/big_endian.h:5,
-                    from arch/m68k/include/uapi/asm/byteorder.h:5,
-                    from include/asm-generic/bitops/le.h:6,
-                    from arch/m68k/include/asm/bitops.h:566,
-                    from include/linux/bitops.h:68,
-                    from include/linux/of.h:15,
-                    from include/linux/clk-provider.h:9,
-                    from drivers/clk/clk-ast2700.c:7:
-   drivers/clk/clk-ast2700.c: In function 'ast2700_soc1_configure_i3c_clk':
->> drivers/clk/clk-ast2700.c:981:32: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     981 |                                FIELD_PREP(SCU1_CLK_I3C_DIV_MASK,
-         |                                ^~~~~~~~~~
-   include/uapi/linux/swab.h:118:38: note: in definition of macro '__swab32'
-     118 |         (__u32)(__builtin_constant_p(x) ?       \
-         |                                      ^
-   include/linux/byteorder/generic.h:88:21: note: in expansion of macro '__cpu_to_le32'
-      88 | #define cpu_to_le32 __cpu_to_le32
-         |                     ^~~~~~~~~~~~~
-   arch/m68k/include/asm/io_mm.h:373:26: note: in expansion of macro 'out_le32'
-     373 | #define writel(val,addr) out_le32((addr),(val))
-         |                          ^~~~~~~~
-   drivers/clk/clk-ast2700.c:979:17: note: in expansion of macro 'writel'
-     979 |                 writel((readl(clk_ctrl->base + SCU1_CLK_SEL2) &
-         |                 ^~~~~~
-   drivers/clk/clk-ast2700.c: At top level:
-   drivers/clk/clk-ast2700.c:369:37: warning: 'd_clk_sels' defined but not used [-Wunused-const-variable=]
-     369 | static const struct clk_parent_data d_clk_sels[] = {
-         |                                     ^~~~~~~~~~
-   drivers/clk/clk-ast2700.c:353:37: warning: 'soc1_ahb' defined but not used [-Wunused-const-variable=]
-     353 | static const struct clk_parent_data soc1_ahb[] = {
-         |                                     ^~~~~~~~
-   drivers/clk/clk-ast2700.c:349:37: warning: 'uart16clk' defined but not used [-Wunused-const-variable=]
-     349 | static const struct clk_parent_data uart16clk[] = {
-         |                                     ^~~~~~~~~
-   drivers/clk/clk-ast2700.c:345:37: warning: 'uart15clk' defined but not used [-Wunused-const-variable=]
-     345 | static const struct clk_parent_data uart15clk[] = {
-         |                                     ^~~~~~~~~
-   drivers/clk/clk-ast2700.c:341:37: warning: 'uart14clk' defined but not used [-Wunused-const-variable=]
-     341 | static const struct clk_parent_data uart14clk[] = {
-         |                                     ^~~~~~~~~
-   drivers/clk/clk-ast2700.c:337:37: warning: 'uart13clk' defined but not used [-Wunused-const-variable=]
-     337 | static const struct clk_parent_data uart13clk[] = {
-         |                                     ^~~~~~~~~
-   drivers/clk/clk-ast2700.c:237:37: warning: 'soc0_ahb' defined but not used [-Wunused-const-variable=]
-     237 | static const struct clk_parent_data soc0_ahb[] = {
-         |                                     ^~~~~~~~
-   drivers/clk/clk-ast2700.c:209:37: warning: 'soc0_mpll_div8' defined but not used [-Wunused-const-variable=]
-     209 | static const struct clk_parent_data soc0_mpll_div8[] = {
-         |                                     ^~~~~~~~~~~~~~
-
-
-vim +/FIELD_PREP +981 drivers/clk/clk-ast2700.c
-
-   974	
-   975	static void ast2700_soc1_configure_i3c_clk(struct ast2700_clk_ctrl *clk_ctrl)
-   976	{
-   977		if (readl(clk_ctrl->base + SCU1_REVISION_ID) & REVISION_ID)
-   978			/* I3C 250MHz = HPLL/4 */
-   979			writel((readl(clk_ctrl->base + SCU1_CLK_SEL2) &
-   980				~SCU1_CLK_I3C_DIV_MASK) |
- > 981				       FIELD_PREP(SCU1_CLK_I3C_DIV_MASK,
-   982						  SCU1_CLK_I3C_DIV(4)),
-   983			       clk_ctrl->base + SCU1_CLK_SEL2);
-   984	}
-   985	
-
+diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
+index 4b0783091a92..1ccec7ba640c 100644
+--- a/drivers/soc/apple/rtkit.c
++++ b/drivers/soc/apple/rtkit.c
+@@ -360,7 +360,6 @@ static void apple_rtkit_crashlog_rx(struct apple_rtkit *rtk, u64 msg)
+ 		apple_rtkit_memcpy(rtk, bfr, &rtk->crashlog_buffer, 0,
+ 				   rtk->crashlog_buffer.size);
+ 		apple_rtkit_crashlog_dump(rtk, bfr, rtk->crashlog_buffer.size);
+-		kfree(bfr);
+ 	} else {
+ 		dev_err(rtk->dev,
+ 			"RTKit: Couldn't allocate crashlog shadow buffer\n");
+@@ -369,6 +368,8 @@ static void apple_rtkit_crashlog_rx(struct apple_rtkit *rtk, u64 msg)
+ 	rtk->crashed = true;
+ 	if (rtk->ops->crashed)
+ 		rtk->ops->crashed(rtk->cookie, bfr, rtk->crashlog_buffer.size);
++
++	kfree(bfr);
+ }
+ 
+ static void apple_rtkit_ioreport_rx(struct apple_rtkit *rtk, u64 msg)
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.3
+
 
