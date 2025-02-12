@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9CAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1322C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xf6FEOPlsQCKDeS8/VmOQ+ZlZJhwCDMgN7NaCKS7CYU=; b=eGRTj6R4hu3XsaGJ9CivSNgGxb
-	ZuXykKoinJ/mWf0wy+zALpCpnofhGwymQx2nBh28n5uDiWfI4FJnNUdqynIvd4aQAi7dq1akLxMS5
-	hZKMCEEaz17X2a01oef6Y8aP+2YaJqLvLiIaAKxwTy5NSxGsR/abZtN2+xIyQEm7LSVSqtWVdEXjf
-	dBFAceboe3+rJOBrE3eB3DYna8Twl5gpV+zcRvgvIhnefaZ1l5mj5Y1ro5R/hNPzb8dO1eFIEBdZK
-	hhF4ApdiaVAZTJBakBk0M0UIRxeqnvmDtH+kD6owPJElVLLLTAirXRLXu/H4gC1rxrSbuS6vCSkKk
-	TS2F+ExQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ODC9Ouj1/B90tnoSWW5TZSEyYIq64Wr1UQQ/C0UM2pg=; b=IjsoS2tNN4UEp+j9WO0bRNqykF
+	ZKY7rTbmaKPCrYgoAPjQNX3eImnRxWAfu6bbf1hO/X+WMNvbrn8QavQUhYJuHCkKzXU0q32Na9d2U
+	eC1/ILgLIk14+bjAEv3mKjOwh0LOrvPObenTe9+3AYsHiVNW86vIMxapFiXlcaD7AO2zoQz7hNSjF
+	AU6Q0uCWvI6H1EFgv9YPIkkf7n7NaJhp590+q16k51aQP54TvLf/KExZc56ngBq1P94SjNCpObUFW
+	EtE+N59r9iVOuVtB9/9q3gbTbY4a8YT48eVrCWIECfrYObBSAn+EPRLDNY2OaIdjgTdIEgsejOxw1
+	FFZfQ17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiMBc-00000009AU0-4AAm;
-	Wed, 12 Feb 2025 23:30:33 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiMAB-00000009AGG-2QhO;
-	Wed, 12 Feb 2025 23:29:04 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-471b5372730so2601891cf.1;
-        Wed, 12 Feb 2025 15:29:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739402942; x=1740007742; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Xf6FEOPlsQCKDeS8/VmOQ+ZlZJhwCDMgN7NaCKS7CYU=;
-        b=hvCvmQIh3lFfkDFEodMLOVDPIIpqPYOh12nKsqhBm1RcKnWRo+sUW2x3HPPU6xWwsB
-         hvU26Ccnnldux9/1uANxyq5y9tMfUqErz82e5KBQoBYwGshGuYQnS2zYdov+gM4DoKEw
-         6jAQwMG8jXkE3iZaILE62KDh2/PHGUfRJj2pGd6uDXKvAU9ST26cOSARkLt4+KdteFd2
-         SCmgiIeay1BJFm1Ps7r74gohG1pfh9XdQ436vZ5S3UPptHR2o70VAnEJJcR4dkIXt0Ps
-         +8Ik6MGN6Nsiu9VQZ+Cid0xWhn0W7cjFkwCoOHgT3tqaoRZm926iPc/vQNcQLs9W7JYz
-         onoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739402942; x=1740007742;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xf6FEOPlsQCKDeS8/VmOQ+ZlZJhwCDMgN7NaCKS7CYU=;
-        b=ncOQ/0lxFAplhmlCwtztSJwNyK8Pa4wNnbGxWD8VaC3Lf4IfAHA/gKErurkEBqCBr4
-         /aaKgamlR2+YTW0LR/QqkQUKAds3zoa4q+Y0gNlToJ9AS25PDl12rcIEar+s8ztKy6Dk
-         Sjj3prFRATbFgV9oTZvW45xm5yNnHeGgOElHISiL3ftsEMs2UygXPqCN0hIaaoOasW1b
-         okMPbehiU/LDilwqXX1/6nBnoNzmJji4bYey6H7P9+Vt/4RkJohzyrbTwokTB2A0uzKC
-         FXeosQT/N693dpmuzdduf8MV88YUDon8QpnDhG6pAehliimuBc3RrBbej83C7xg/xTgx
-         WUfg==
-X-Forwarded-Encrypted: i=1; AJvYcCUt1EwUCTMfXKVf3gyPeKf/0gHAzqgKNNhRBM7uZiMl7I/+LZlwAktUb8RhQTpqnQmAlNsh3+ruq3TmehSNTMiZ@lists.infradead.org, AJvYcCVu1Bip2St4A1Iu3/40HV1bAAIO12olQp6NGswKYT53bK7iXf3HkXYCrC9X1tOeWWlbif4+oWiZA85Q47c=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/lzyq6wpVikmx9gSjReAT4Wd1+661C+xdxJE7docVtWr94B1w
-	6qyWoMynaMIKhCCaIAUml8TtBzV019qNfDCei++LOrbCIQWcU0jw
-X-Gm-Gg: ASbGnctUNLKYjMlV2rMw51vNstikLJM+eplRMe+NjEsiD1ix/ExBGEk1DblJ2amzwfP
-	tkEi7+EjAWYsTm9Ilb8B/ahidRIqHnTrCwgYS42tuNeoTWllCeTpJYPBvlw6NMttB58usSK38Io
-	npmxVtpePhrb7Eb/Fsd2+10BEy8d/4k2XTSsTP5tLgkizcUXctuZHpzd4UD3TnbTkt9D0rPjaVj
-	E6je0BsSKAjg0BEkcvp+v3/koMwgDPDPuIy2W7zPhb20rP1G0n2zK5wE2DyL6qMUUM=
-X-Google-Smtp-Source: AGHT+IGYzAubSVFkMrhIoFfMHJkYJiaTIPTRSix5tqjfLli9V0CYVWf7rD0PEDyVMCJ7C/TQE8oE9A==
-X-Received: by 2002:a05:622a:8f1b:b0:467:8630:584f with SMTP id d75a77b69052e-471bee131b3mr18469391cf.36.1739402942343;
-        Wed, 12 Feb 2025 15:29:02 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471c2a11e77sm605131cf.29.2025.02.12.15.29.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 15:29:01 -0800 (PST)
-Date: Thu, 13 Feb 2025 07:28:54 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
-Subject: Re: [PATCH v3 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
- part into SoCs' .dtsi files
-Message-ID: <e7veoogv7qlmjelxiu34a2yvbtb6umgqscwo44ti7k562n7ow5@7uadzl4oubzb>
-References: <20250212224347.1767819-1-alexander.sverdlin@gmail.com>
- <20250212224347.1767819-2-alexander.sverdlin@gmail.com>
- <x4zncooa3lmyf2bikowjw7oabz66dhhbxl44cmujzzkwaslcl5@tj3l2u7e4akx>
- <de4d99bf89f78a0a6e0a81dc6062af5e85d762aa.camel@gmail.com>
+	id 1tiMD1-00000009Ald-2reJ;
+	Wed, 12 Feb 2025 23:31:59 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiMBX-00000009ASq-1vgf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 23:30:28 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2384C203F3F9;
+	Wed, 12 Feb 2025 15:30:26 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2384C203F3F9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739403026;
+	bh=ODC9Ouj1/B90tnoSWW5TZSEyYIq64Wr1UQQ/C0UM2pg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=S6dRB+1XRlCioxY51JSTHkznizpwDYHJwxb0DwLfl0N/tYnEwFOtwl2cyqcdjBG6O
+	 LdAtLK4F0c3ukaJEhpkaIF10RdopSQ9csoB6B2R/ob3Y4sJisejlYdlNcKW9oyTrpO
+	 UaZNX0JPlRUlVQar8UmUX8/lBl2E1TRY5TLWO5v0=
+Message-ID: <ffd59623-8e39-4bf0-9131-4984c7d7271f@linux.microsoft.com>
+Date: Wed, 12 Feb 2025 15:30:25 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <de4d99bf89f78a0a6e0a81dc6062af5e85d762aa.camel@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] hyperv: Add CONFIG_MSHV_ROOT to gate hv_root_partition
+ checks
+To: Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ iommu@lists.linux.dev, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, daniel.lezcano@linaro.org, joro@8bytes.org,
+ robin.murphy@arm.com, arnd@arndb.de, jinankjain@linux.microsoft.com,
+ muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
+ mukeshrathor@microsoft.com
+References: <1739312515-18848-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <20ba4b7c-bebb-4b1f-8c6c-4cd52a5083b5@linux.microsoft.com>
+ <f7ce3ca7-e555-418d-9c88-6df379a3ec56@linux.microsoft.com>
+ <3263d63d-29bb-4c5d-81cb-f37eff442fb7@linux.microsoft.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <3263d63d-29bb-4c5d-81cb-f37eff442fb7@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_152903_623684_8BB9412D 
-X-CRM114-Status: GOOD (  38.16  )
+X-CRM114-CacheID: sfid-20250212_153027_554194_A4D90679 
+X-CRM114-Status: GOOD (  31.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,237 +81,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 12:04:39AM +0100, Alexander Sverdlin wrote:
-> Hi Inochi!
+On 2/12/2025 3:25 PM, Easwar Hariharan wrote:
+> On 2/12/2025 3:01 PM, Nuno Das Neves wrote:
+>> On 2/11/2025 9:47 PM, Easwar Hariharan wrote:
+>>> On 2/11/2025 2:21 PM, Nuno Das Neves wrote:
+>>>> Introduce CONFIG_MSHV_ROOT as a tristate to enable root partition
+>>>> booting and future mshv driver functionality.
+>>>>
+>>>> Change hv_root_partition into a function which always returns false
+>>>> if CONFIG_MSHV_ROOT=n.
+>>>>
+>>>> Introduce hv_current_partition_type to store the type of partition
+>>>> (guest, root, or other kinds in future), and hv_identify_partition_type()
+>>>> to it up early in Hyper-V initialization.
+>>>
+>>> ...to *set* it up early?
+>>>
+>> Yep! Thanks for catching that
+>>
+>>>>
+>>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>>> ---
+>>>> Depends on
+>>>> https://lore.kernel.org/linux-hyperv/1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com/
+>>>>
+>>>>  arch/arm64/hyperv/mshyperv.c       |  2 ++
+>>>>  arch/x86/hyperv/hv_init.c          | 10 ++++----
+>>>>  arch/x86/kernel/cpu/mshyperv.c     | 24 ++----------------
+>>>>  drivers/clocksource/hyperv_timer.c |  4 +--
+>>>>  drivers/hv/Kconfig                 | 12 +++++++++
+>>>>  drivers/hv/Makefile                |  3 ++-
+>>>>  drivers/hv/hv.c                    | 10 ++++----
+>>>>  drivers/hv/hv_common.c             | 32 +++++++++++++++++++-----
+>>>>  drivers/hv/vmbus_drv.c             |  2 +-
+>>>>  drivers/iommu/hyperv-iommu.c       |  4 +--
+>>>>  include/asm-generic/mshyperv.h     | 39 +++++++++++++++++++++++++-----
+>>>>  11 files changed, 92 insertions(+), 50 deletions(-)
+>>>>
+>>>
+>>> <snip>
+>>>
+>>>> +
+>>>> +void hv_identify_partition_type(void)
+>>>> +{
+>>>> +	/*
+>>>> +	 * Check partition creation and cpu management privileges
+>>>> +	 *
+>>>> +	 * Hyper-V should never specify running as root and as a Confidential
+>>>> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
+>>>> +	 * to exploit root behavior to expose Confidential VM memory, ignore
+>>>> +	 * the root partition setting if also a Confidential VM.
+>>>> +	 */
+>>>> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+>>>> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>>>> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>>>> +		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+>>>> +		pr_info("Hyper-V: running as root partition\n");
+>>>> +	} else {
+>>>> +		hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>>>> +	}
+>>>> +}
+>>>
+>>> This should assume GUEST as default and modify to ROOT if all the checks pass.
+>>>
+>> It is doing that, isn't it?
+>>
+>> In fact the 'else' branch here is redundant and just there for additional clarity.
+>>
+>> hv_current_partition_type is zeroed (so GUEST) by default, but I could make that explicit
+>> if you prefer:
 > 
-> On Thu, 2025-02-13 at 06:54 +0800, Inochi Amaoto wrote:
-> > On Wed, Feb 12, 2025 at 11:43:33PM +0100, Alexander Sverdlin wrote:
-> > > Make the peripheral device tree re-usable on ARM64 platform by moving CPU
-> > > core and interrupt controllers' parts into new cv18xx-cpu.dtsi and
-> > > cv18xx-intc.dtsi.
-> > > 
-> > > Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
-> > > into "plic" interrupt-controller numbering.
-> > > 
-> > > On RiscV side this patch has been dtc-compile-tested only. IRQ numbers
-> > > substitution with SOC_PERIPHERAL_IRQ() has been scripted in vim.
-> > > 
-> > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> > > ---
-> > > Changelog:
-> > > v3:
-> > > - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
-> > > were moved into cv18xx-intc.dtsi to reduce code duplication;
-> > > v2:
-> > > - instead of carving out peripherals' part, carve out ARCH-specifics (CPU
-> > > core, interrupt controllers) and spread them among 3 SoC .dtsi files which
-> > > included cv18xx.dtsi;
-> > > - define a label for the "soc" node and use it in the newly introduced DTs;
-> > > 
-> > >   arch/riscv/boot/dts/sophgo/cv1800b.dtsi     | 28 ++++---
-> > >   arch/riscv/boot/dts/sophgo/cv1812h.dtsi     | 28 ++++---
-> > >   arch/riscv/boot/dts/sophgo/cv181x.dtsi      |  2 +-
-> > >   arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi  | 36 ++++++++
-> > >   arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi | 23 ++++++
-> > >   arch/riscv/boot/dts/sophgo/cv18xx.dtsi      | 91 ++++++---------------
-> > >   arch/riscv/boot/dts/sophgo/sg2002.dtsi      | 34 ++++----
-> > >   7 files changed, 137 insertions(+), 105 deletions(-)
-> > >   create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
-> > >   create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> > > 
-> > > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > index aa1f5df100f0..9fb7dd2dab18 100644
-> > > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > @@ -3,8 +3,12 @@
-> > >    * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > >    */
-> > >   
-> > > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> > > +
-> > >   #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
-> > > +#include "cv18xx-cpu.dtsi"
-> > >   #include "cv18xx.dtsi"
-> > > +#include "cv18xx-intc.dtsi"
-> > >   
-> > >   / {
-> > >   	compatible = "sophgo,cv1800b";
-> > > @@ -13,17 +17,23 @@ memory@80000000 {
-> > >   		device_type = "memory";
-> > >   		reg = <0x80000000 0x4000000>;
-> > >   	};
-> > > +};
-> > > +
-> > 
-> > > +&soc {
-> > > +	dma-noncoherent;
-> > >   
-> > > -	soc {
-> > > -		pinctrl: pinctrl@3001000 {
-> > > -			compatible = "sophgo,cv1800b-pinctrl";
-> > > -			reg = <0x03001000 0x1000>,
-> > > -			      <0x05027000 0x1000>;
-> > > -			reg-names = "sys", "rtc";
-> > > -		};
-> > > +	pinctrl: pinctrl@3001000 {
-> > > +		compatible = "sophgo,cv1800b-pinctrl";
-> > > +		reg = <0x03001000 0x1000>,
-> > > +		      <0x05027000 0x1000>;
-> > > +		reg-names = "sys", "rtc";
-> > >   	};
-> > >   };
-> > >   
-> > 
-> > The origianl /soc path can be used to override things, 
-> > why change it to the reference archor? I see no change
-> > for it.
+> Yes, explicit is better, but see comment below.
 > 
-> https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org/
-> The corresponding label is being introduced in cv18xx.dtsi.
+>> +enum hv_partition_type hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>>
+>> How does that sound? Am I misunderstanding something here?
 > 
+> I'd suggest centralizing that in this function, instead of having it spread in 2 places.
+> Since your commit message hints at future partition types, it's ideal to have this function be
+> a central clearing house, which I suppose is the intent. The preferred pattern in general, and what I'm
+> suggesting, is something like this:
+> 
+> void hv_identify_partition_type(void)
+> {
+> 	/* Assume guest role */
+> 	hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+> 
+> 	/*
+> 	 * Check partition creation and cpu management privileges
+> 	 *
+> 	 * Hyper-V should never specify running as root and as a Confidential
+> 	 * VM. But to protect against a compromised/malicious Hyper-V trying
+> 	 * to exploit root behavior to expose Confidential VM memory, ignore
+> 	 * the root partition setting if also a Confidential VM.
+> 	 */
+> 	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+> 	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+> 	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+> 		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+> 		pr_info("Hyper-V: running as root partition\n");
+> 	}
+> }
+> 
+Fair enough, happy to do it this way.
 
-Yes I know, but I wonder why you change it here, the url you provide
-told nothing about change existing structure.
-
-The origianl struct:
-
-/ {
-	soc {
-		...
-	};
-};
-
-it can also be used to add things in /soc, renesa uses this in that
-form is not the reason for this change. I prefer to keep original
-structure so less change is introducted.
-
-> > > +&clk {
-> > > +	compatible = "sophgo,cv1800-clk";
-> > > +};
-> > > +
-> > >   &plic {
-> > >   	compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
-> > >   };
-> > > @@ -31,7 +41,3 @@ &plic {
-> > >   &clint {
-> > >   	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
-> > >   };
-> > > -
-> > > -&clk {
-> > > -	compatible = "sophgo,cv1800-clk";
-> > > -};
-> > > diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> > > index 8a1b95c5116b..f23c4dd6687d 100644
-> > > --- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> > > +++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
-> > > @@ -3,10 +3,14 @@
-> > >    * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> > >    */
-> > >   
-> > > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> > > +
-> > >   #include <dt-bindings/interrupt-controller/irq.h>
-> > >   #include <dt-bindings/pinctrl/pinctrl-cv1812h.h>
-> > > +#include "cv18xx-cpu.dtsi"
-> > >   #include "cv18xx.dtsi"
-> > >   #include "cv181x.dtsi"
-> > > +#include "cv18xx-intc.dtsi"
-> > >   
-> > >   / {
-> > >   	compatible = "sophgo,cv1812h";
-> > > @@ -15,17 +19,23 @@ memory@80000000 {
-> > >   		device_type = "memory";
-> > >   		reg = <0x80000000 0x10000000>;
-> > >   	};
-> > > +};
-> > > +
-> > > +&soc {
-> > 
-> > > +	dma-noncoherent;
-> > 
-> > I think this can be moved into cv18xx-cpu.dtsi file, and let
-> > all SoCs share it.
+>>
+>>> <snip>
+>>>
+>>>> +static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>>>> +{
+>>>> +	return hv_result(U64_MAX);
+>>>> +}
+>>>
+>>> Is there value in perhaps #defining hv_result_<whatever this is> as U64_MAX and returning that for documentation?
+>>> For e.g. assuming this is something like EOPNOTSUPP
+>>>
+>>> #define HV_RESULT_NOT_SUPP U64_MAX
+>>>
+>>> static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>>> { return hv_result(HV_RESULT_NOT_SUPP); }
+>>>
+>> The idea here was to copy what hv_do_hypercall does returning U64_MAX in case the hypercall
+>> page is missing, which will hv_result() into an invalid status code. A special value for
+>> that status could make this pattern clearer.
 > 
-> https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org/
+> Agreed, having a name for that status would be helpful, but we don't want to diverge too much from the hypervisor
+> definitions, especially if we're going to change it later again anyway.
 > 
-> If SOC_PERIPHERAL_IRQ() doesn't belong to -cpu.dtsi, then "dma-noncoherent;"
-> probably neither...
+>> I'd want to call out that this isn't a "real"
+>> Hyper-V status code somehow. HV_STATUS's are 16 bits, so it would look more like:
+>>
+>> /* "LINUX" because this isn't really a status from the hypervisor.. */
+>> #define HV_STATUS_LINUX_FAIL 0xFFFF
+>> static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>> { return HV_STATUS_LINUX_FAIL; }
+>>
+>> Another option: there is another patch coming (which you know of) which maps hypercall
+>> status codes to regular Linux errors like -EOPNOTSUPP. I could simply merge that patch
+>> with this one (or make this a series for v2), and that would result in less churn.
+>> (And leave alone the current use of U64_MAX in hv_do_hypercall, for now).
+>>
 > 
+> I think that second option is a good idea. The hypervisor status should remain restricted to the functions that are
+> hv_do_hypercall() or call it directly, while the rest of the code uses standard errno values. I'd suggest making
+> it a series so each commit does 1 thing.
+> 
+Ok I'll do that, thanks.
 
-This is OK for me.
+Nuno
 
-> > > -	soc {
-> > > -		pinctrl: pinctrl@3001000 {
-> > > -			compatible = "sophgo,cv1812h-pinctrl";
-> > > -			reg = <0x03001000 0x1000>,
-> > > -			      <0x05027000 0x1000>;
-> > > -			reg-names = "sys", "rtc";
-> > > -		};
-> > > +	pinctrl: pinctrl@3001000 {
-> > > +		compatible = "sophgo,cv1812h-pinctrl";
-> > > +		reg = <0x03001000 0x1000>,
-> > > +		      <0x05027000 0x1000>;
-> > > +		reg-names = "sys", "rtc";
-> > >   	};
-> > >   };
-> > >   
-> > > +&clk {
-> > > +	compatible = "sophgo,cv1810-clk";
-> > > +};
-> > > +
-> > >   &plic {
-> > >   	compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
-> > >   };
-> > > @@ -33,7 +43,3 @@ &plic {
-> > >   &clint {
-> > >   	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
-> > >   };
-> > > -
-> > > -&clk {
-> > > -	compatible = "sophgo,cv1810-clk";
-> > > -};
-> > > 
-> > > [...]
-> > > 
-> > 
-> > > diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> > > new file mode 100644
-> > > index 000000000000..90817993a326
-> > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/sophgo/cv18xx-intc.dtsi
-> > > @@ -0,0 +1,23 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> > > +/*
-> > > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > > + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-> > > + */
-> > > +
-> > > +&soc {
-> > > +	interrupt-parent = <&plic>;
-> > > +
-> > > +	plic: interrupt-controller@70000000 {
-> > > +		reg = <0x70000000 0x4000000>;
-> > > +		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-> > > +		interrupt-controller;
-> > > +		#address-cells = <0>;
-> > > +		#interrupt-cells = <2>;
-> > > +		riscv,ndev = <101>;
-> > > +	};
-> > > +
-> > > +	clint: timer@74000000 {
-> > > +		reg = <0x74000000 0x10000>;
-> > > +		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-> > > +	};
-> > > +};
-> > 
-> > 
-> > I think this file can be merged in to cv18xx-cpu.dtsi.
-> > clint and plic is more like a core specific device.
-> 
-> Yes, this can be done now, as long as SOC_PERIPHERAL_IRQ() remains
-> outside of the -cpu-intc.dtsi...
-> 
-> -- 
-> Alexander Sverdlin.
-> 
+> Thanks,
+> Easwar (he/him)
+
 
