@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94501C021A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 04:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22BAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 04:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3LcQ71JUTkjBfz0PYA91Zf87tMp7dO0XJfdEfiSW+Y=; b=NkwjbtYnv43AUDLADSWFapAyvX
-	6yIIelrrB9DLUbdRZQPd3SpHHKMlSlX02lK9EYM/n8EJav6rmKnjcvYFSJ33fIDyAPsv12qZ8reAC
-	jz7JG4wmHp7Fj7ycnkMOyzhnDgOQHB4jSvNHLWetoDiwY9Iqpj4lLXhqOwzJu72DkBjQQNYkNm2Dm
-	KdtKI/SrZpH0tqhP3xbDtEvyaX8i0nC7gE3G2bB/3ioHz6cVYzN8VmpUMoPVEOQ2aAjypvtY8Wcdo
-	RGaM5YkYeO81lyveJtbunfzcOus9yNr2uiZ5aqbOy7cVjcWGQQa/8LQjqsxcZLKVKdq7mTesYv+Jf
-	vVQfuVQg==;
+	bh=nFemjeCz+svPiqDivRwBTX10UQyG6EeAMs3A599m/to=; b=07jWB2VZ3Yz6AIHQ5Bq6OOGH/h
+	B/qBbrr88in8X7kOIHJ36Mw1aVrdFnoFFzs8Ooxky4m7YTLB5ASAqST/mccNvIKDylK9z1RkzSghE
+	vgLUbRsAMvvdL/fcqgqu3cXxsv+5v5fVunan9vtzxkZiA+31gPXpxrNPHMXa/JZ/FXAUi6FfUDD2h
+	J9uZJGyhqTjgTkXMmzpr+eoatmm90APghkbVMz71iA89e9ob3jMFDzM/o4okQuBDRgVbp7/zv7cqz
+	SdcZ62SkUVCpWW7Iz7ymth7GOT1AMVYeM7UGYbILpx6yri/SGPfAjATCGZJBbOx+viG6iEIta0SDT
+	VbIxQO2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti48o-000000068vo-471B;
-	Wed, 12 Feb 2025 04:14:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ti4AD-0000000694z-0e62;
+	Wed, 12 Feb 2025 04:15:53 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti45Z-000000068Wo-0xeJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 04:11:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 048C45C54B5;
-	Wed, 12 Feb 2025 04:10:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58C7C4CEDF;
-	Wed, 12 Feb 2025 04:11:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739333464;
-	bh=k7vtiKJkTWMbOT4Z1lA+9eriWHA4AQxXpXh6m2Skn5w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mdsbx6vQ5V1ATwNJsubQqPXCS8b/odPRww54GW2qBMKPnIVllZ9OjkvN8pZd+p5s9
-	 ebDZ2OC+tyK7I4v/g+4CkJtWI6BApTR1y45rhZiKfyGGfl7ey65/+HWfl6MfQpLQGV
-	 kuVxLqQzMQKQ4BoCLXkl8zIAcg4wCuxsnC6B9HOn+mydTAFPemrXFQrL8Bz9Y7FrXx
-	 Vn2WdvuWQ04I6iWlB1K8sBftAGRuwKPWjGaOO2sLR09OOuQdzDV+6Rtl27uDgg0CoY
-	 dlGM23iqM8M7WkDxb6rf76dJgr1n0na1a4kV+sQlBLTN6hxwq6jPL0PlcUoy/+Et8O
-	 dHlQfCz4sNPng==
-Date: Wed, 12 Feb 2025 04:11:02 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	wei.liu@kernel.org, mhklinux@outlook.com, kys@microsoft.com,
-	haiyangz@microsoft.com, decui@microsoft.com,
-	catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, arnd@arndb.de,
-	jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
-	skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com
-Subject: Re: [PATCH v3 2/2] hyperv: Move arch/x86/hyperv/hv_proc.c to
- drivers/hv
-Message-ID: <Z6wfVl89EioBB8ou@liuwe-devbox-debian-v2>
-References: <1738955002-20821-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com>
+	id 1ti46t-000000068lC-1tPZ;
+	Wed, 12 Feb 2025 04:12:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=nFemjeCz+svPiqDivRwBTX10UQyG6EeAMs3A599m/to=; b=Z5LoVvQA/zxGFaX61quTDq56Mj
+	oNQtaYQvv6Rw2AF8EZygCpYZMQfxJVbIQvhZwRYIbr9LpJoXK/Nc6FG1UMQnen254HH4/KlvnVvw2
+	+9MecugkxOSWxuJ46kJCf95Mc4iXYCY5lO4Wpen3f/Mr4kChGXUXjsFg5QnU6lrIPEp9EAHLsWpBS
+	ukX4lOUfTJpSVc+ghdWw1+91hZXJvRBAa/t19/5dAdCSd8AhYcuzsITuwTZASvTK0fn6HC28aCdr9
+	eHgexquxsna1PjKv3a1HcFUTxvJde0kMg1HehJHW1XDXVXcmXrBT5mQ6bVKPAImifEXX1HEnSo1lC
+	A/UBqaCQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1ti3ZQ-00HDVT-18;
+	Wed, 12 Feb 2025 11:51:14 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 12 Feb 2025 11:51:13 +0800
+Date: Wed, 12 Feb 2025 11:51:13 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Alexey Romanov <avromanov@salutedevices.com>
+Cc: clabbe@baylibre.com, conor+dt@kernel.org, davem@davemloft.net,
+	devicetree@vger.kernel.org, jbrunet@baylibre.com,
+	kernel@salutedevices.com, khilman@baylibre.com, krzk+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, martin.blumenstingl@googlemail.com,
+	neil.armstrong@linaro.org, robh+dt@kernel.org,
+	vadim.fedorenko@linux.dev
+Subject: Re: [PATCH v11 11/22] crypto: amlogic - Introduce hasher
+Message-ID: <Z6wasftL23_K8vA2@gondor.apana.org.au>
+References: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
+ <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_201105_310550_B89B3004 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20250211_201227_483509_87160CEC 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,17 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 11:03:22AM -0800, Nuno Das Neves wrote:
-> These helpers are not specific to x86_64 and will be needed by common code.
-> Remove some unnecessary #includes.
+On Wed, Jan 22, 2025 at 03:41:29PM +0300, Alexey Romanov wrote:
 > 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Why? I couldn't find this explanation anywhere.
 
-One comment about the ordering of the tag. You should order them in
-chronological order in the future, so the "Reviewed-by" should be after
-your SoB.
+Because the digest function can be called from atomic contexts,
+such as networking.
 
-Thanks,
-Wei.
+> In addition, I found an example of one of the digest functions that is sleeping [1].
+> 
+> Links:
+> 
+>   - [1] https://elixir.bootlin.com/linux/v6.12.6/source/drivers/crypto/mxs-dcp.c#L804
+
+That driver is just broken.  If you look through the git history,
+you'll find that a similar problem was fixed by replacing the
+mutex with a spinlock in the cipher path.  Unfortunately the same
+fix hasn't been extended to hashing in mxs-dcp.
+
+Cheeers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
