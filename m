@@ -4,113 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F582C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB54BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5GuBw8G+hHHl9A3tQYAsdqEBcC4Qsr/VFmirJhD1z5I=; b=c3xVxbyxFinQ4HYYF4yNO1loBl
-	vlv5X9Ur0J+cI3PQDaw/Nb3n7FrCIIcFW5Xyrv6/pXvMA4/XImrfPM9i5M/jI9WpYwLkxUvguggVf
-	RKJi4D8CydKAjz3LLTvWfngtAo9xo0ZXhiThIk4C7cQma5PCHULf0KRwacb7Zpvn/rUQ0xAhAHATB
-	iTgluWqFdAIaNjOiwHSe02zwr+JJVYH7uWshVPw2yZYwPABNPv6ZKlCdtBGrlWPHsmLehUAdHQ1SJ
-	L6Paqc7D/Iw714zjGNoHcOx7q1b52MCcjRjJFPm5NDRnPIro4LLR6/iRGGa1Q/4Q8wGsQTX/LCZPb
-	nBRWGOJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W+8tJdrJUUM2r3rGlZ87tl2Cw8IhsamzxMOaFlEPj2Y=; b=mg2v5V8q/dcAmb
+	J/jz0di4LpWkmCWnKKNXKlbfOwVHHbjkc5Xo0VP7X2ivoLyfV9U27Z9reGer5hlMZpAfAk8Nwkyx/
+	Sk06fb7eH6o4CrNpLDEw0UtrsSmhtAd3S2Ek9W3kOkUFYI5su1qDe1IX6RQq/g8t6rTi6IIYZZule
+	65pBVxJE1/I4kiI1H1+5GziO+I4gIvTyUXe1ol//TBBWUD8iQmsw/4vJszl5iAeH71X/MYXX/bVs9
+	HH16s/IyPTHwspbva/9dn6y+pqaRXgj1C9pUVzHu9mGKP9PNvBDX4GpDoc47yyflis9tx7NiKmNpu
+	7uFYXnJ+tnWLPknwfMcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGHT-00000008GK4-34aN;
-	Wed, 12 Feb 2025 17:12:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiGIs-00000008Gka-2W2q;
+	Wed, 12 Feb 2025 17:13:38 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiG6m-00000008Cdh-2VcU
+	id 1tiG6t-00000008Ce5-3aTg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 17:01:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0FAE75C600B;
-	Wed, 12 Feb 2025 17:00:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9626C4CEDF;
-	Wed, 12 Feb 2025 17:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739379667;
-	bh=vMlacXbU5ham7+v0gT1CFIMJL6Qs0MK4l6gI4SNt8fw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mjnhtsod81FYFis6P+UHQKzLpDeDLz+AJBpsBfWujdHbU+fel4iL2t+gP4V4gzH1U
-	 jIXplGnHWkBNHDMdwUCOGtqL7b0K7zyfLdCZmse6e1RhBPfoUnTQAbfyjxS/8ndpH2
-	 JKLT5XMIB6b6P6wqDx/oFijfC1pJNiS9ub3gZs5lCay78mbWQBh7UTbJemsLR2axR5
-	 0VL/5+2Ye+Lh7Pa1hjSz3j6zlqdzdmcyc0so9NCAnQ0wplT9xbW7Yxz088Y+vDtcMq
-	 EUBw1ql5SDfvXdLqdmGtg2DN9waLtE/4K5VXNsAeylqpDnQ1AxzwEe2vsVx2eVmsbN
-	 NsJmMn9aKFPDw==
-Message-ID: <7220a167-c321-44dc-9223-cfc6304819b3@kernel.org>
-Date: Wed, 12 Feb 2025 18:01:00 +0100
+	Wed, 12 Feb 2025 17:01:17 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D8880441BB;
+	Wed, 12 Feb 2025 17:01:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739379672;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W+8tJdrJUUM2r3rGlZ87tl2Cw8IhsamzxMOaFlEPj2Y=;
+	b=f7F4hpCdCR3z/FwoIu08EnVzGQ0zcm5AoyUNLuC30f4+TBNPiq8WyIpq85B1vQKH/a5Xuf
+	Fjhp4ALHx/pNu2sNG4mKWmn2GEyxK9uyE/vwk4/i+0T+JkDnzXQdUu9bwC/EWH+lXssQ/e
+	1mp0zcz1Rvx3noaAnvjJ0gmpsL2B2LAg127LkI8lQBuMDFvt8syI/kDxSCrkZSf4JOKpAw
+	Ssuk13Roho2ghdOlELhoaaDvQtGONRC38PeY396QZGqvoA9Zi/WpFuZhYzk4WWROjAmSJ/
+	2rcS7vXkRyb/wzK2rdI4RCps5R2rY5T43Zmz27JVh/urkh7J/yi7XOjX4x9UAg==
+Message-ID: <a2702615-2946-4ca5-a33b-15da7026b58b@bootlin.com>
+Date: Wed, 12 Feb 2025 18:01:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: Add VeriSilicon vendor prefix
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250212-kernel-upstreaming-add_gpio_support-v1-0-080e724a21f3@blaize.com>
- <20250212-kernel-upstreaming-add_gpio_support-v1-1-080e724a21f3@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 10/12] bluetooth: hci_wilc: add wilc hci driver
+To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
+ <20250212-wilc3000_bt-v1-10-9609b784874e@bootlin.com>
+ <CABBYNZJ5XDasAfVxcFU+K=ru2PpZJVXkRuf_kokv1z66KF=Xaw@mail.gmail.com>
+From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250212-kernel-upstreaming-add_gpio_support-v1-1-080e724a21f3@blaize.com>
+In-Reply-To: <CABBYNZJ5XDasAfVxcFU+K=ru2PpZJVXkRuf_kokv1z66KF=Xaw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggeegfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdetteektdehudelheehkeeggfejgfelveevgeevtdejudfgveetgefhtdduuedtnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopeglkffrggeimedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehngdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdefpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrhgtvghlsehhohhlthhmrghnnhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepk
+ hhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrjhgrhidrkhgrthhhrghtsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghvpdhrtghpthhtohepkhhvrghloheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_090108_758378_76980D95 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250212_090116_503623_481EF85B 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +74,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Rob Herring <robh@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Kalle Valo <kvalo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marcel Holtmann <marcel@holtmann.org>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Simon Horman <horms@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2025 14:46, Nikolaos Pasaloukos wrote:
-> VeriSilicon Microelectronics is a custom silicon service
-> provider.
-> 
-> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 5079ca6ce1d1e9e2b52312439e4b1d48b262200c..14dfefbffe05180a4d8b62b3b54fc25964f56028 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1643,6 +1643,8 @@ patternProperties:
->      description: Vision Optical Technology Co., Ltd.
->    "^vscom,.*":
->      description: VS Visions Systems GmbH
-> +  "^vsi,.*":
+Hi Luiz,
+thanks for the prompt review !
 
-Better verisilicon. This is supposed to match the web domain.
+On 2/12/25 17:14, Luiz Augusto von Dentz wrote:
 
-> +    description: VeriSilicon Microelectronics Co., Ltd.
-Best regards,
-Krzysztof
+[...]
+
+>> +static int wilc_open(struct hci_uart *hu)
+>> +{
+>> +       struct wilc_data *wdata;
+>> +
+>> +       BT_DBG("hci_wilc: open");
+> 
+> Afaik you don't need to include the function name with the likes of
+> pr_debug/BT_DBG, that said you should really be using bt_dev_dbg if
+> you have hu->hdev set at this point, and this is valid for all other
+> places where BT_DBG could be replaced with bt_dev_dbg.
+
+I observe that BT_DBG does not bring any kind of prefix to the emitted log. But
+indeed, bt_dev_dbg looks definitely better for my purpose, I'll update all those
+logs with it.
+
+>> +       wdata = kzalloc(sizeof(*wdata), GFP_KERNEL);
+>> +       if (!wdata)
+>> +               return -ENOMEM;
+> 
+> Add an empty after something like an if statement to make it clearer
+> that it is not under the same scope.
+
+True, that will be fixed.
+
+[...]
+
+> 
+> Once you address these comments please fill free to add:
+> 
+> Reviewed-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+
+Thanks. I'll delay v2 for a few days to let other people review the series.
+
+Alexis
+
+-- 
+Alexis Lothoré, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
